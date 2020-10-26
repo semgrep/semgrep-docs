@@ -1,0 +1,38 @@
+site_name: Semgrep
+nav:
+  - Semgrep:
+      - Home: index.md
+      - getting-started.md
+      - Writing rules:
+          - writing-rules/overview.md
+          - Syntax:
+              - writing-rules/pattern-syntax.md
+              - writing-rules/pattern-logic.md
+          - Examples:
+              - writing-rules/pattern-examples.md
+              - writing-rules/rule-ideas.md
+      - running-rules.md
+      - managing-policy.md
+      - integrations.md
+      - experiments.md
+  - Stats:
+      - Rules: rules.md
+      - Supported languages: status.md
+  - Help:
+      - FAQ: faq.md
+      - support.md
+      - contributing.md
+      - security.md
+theme:
+  name: readthedocs
+  custom_dir: custom_theme/
+  navigation_depth: 3
+  highlightjs: true
+  hljs_languages:
+    - yaml
+    - rust
+    - django
+markdown_extensions:
+  - admonition
+  - toc
+extra_css: [extra.css]

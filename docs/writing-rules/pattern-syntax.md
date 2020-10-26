@@ -1,0 +1,431 @@
+# Pattern syntax
+
+This document describes Semgrep’s pattern syntax. You can also see pattern [examples by language](pattern-examples.md). In the command line, patterns are specified with the flag `--pattern` (or `-e`). Multiple
+coordinating patterns may be specified in a configuration file. See
+[rule syntax](pattern-logic.md) for more information.
+
+[TOC]
+
+### Expression matching
+
+Expression matching searches code for a given pattern. For example, the pattern `1 + func(42)` can match
+a full expression or be part of a subexpression:
+
+```python
+foo(1 + func(42)) + bar()
+```
+
+### String matching
+
+Perl Compatible Regular Expressions (PCRE) are available for searching string literals within code. 
+
+The pattern `requests.get("=~/dev\./i")` matches:
+
+```python
+requests.get("api.dev.corp.com")  # Oops, development API left in
+```
+
+To indicate a regex, use the syntax "=~/<regexp>/" within a string element. Advanced regexp features are available, such as case-insensitive regexps with ‘/i’ (e.g., "=~/foo/i"). Matching occurs anywhere in the string unless the regexp ‘^’ anchor character is used: "=~/^foo.*/" checks if a string begins with ‘foo’.
+
+### Ellipsis operator
+
+The ellipsis operator (`...`) abstracts away a sequence of zero or more
+arguments, statements, or characters.
+
+#### Function calls
+
+Use ellipsis operator to search for function calls or
+function calls with specific arguments. For example, the pattern `insecure_function(...)` finds calls regardless of its arguments.
+
+```python
+insecure_function("MALICIOUS_STRING", arg1, arg2)
+```
+
+Functions and classes must be referenced by their fully qualified name, e.g.,
+
+- `django.utils.safestring.mark_safe(...)` not `mark_safe(...)`
+- `System.out.println(...)` not `println(...)`
+
+You can also search for calls with arguments after a match. The pattern `func(1, ...)` will match both:
+
+```python
+func(1, "extra stuff", False)
+func(1)  # Matches no arguments as well
+```
+
+Or find calls with arguments before a match with `func(..., 1)`:
+
+```python
+func("extra stuff", False, 1)
+func(1)  # Matches no arguments as well
+```
+
+The pattern `requests.get(..., verify=False, ...)` finds calls where an argument appears anywhere:
+
+```python
+requests.get(verify=False, url=URL)
+requests.get(URL, verify=False, timeout=3)
+requests.get(URL, verify=False)
+```
+
+Match the keyword argument value with the pattern `$FUNC(..., $KEY=$VALUE, ...)`.
+
+
+#### Method calls
+
+The ellipsis operator can be used to search for method calls on a specific
+object type. For example, the pattern `$OBJECT.extractall(...)` matches:
+
+```python
+tarball.extractall('/path/to/directory')  # Oops, potential arbitrary file overwrite
+```
+
+#### Function definitions
+
+The ellipsis operator can be used in function argument lists or in the function
+body. To find function definitions with [mutable default arguments](https://docs.python-guide.org/writing/gotchas/#mutable-default-arguments):
+
+```text
+pattern: |
+  def $FUNC(..., $ARG={}, ...):
+      ...
+```
+
+```python
+def parse_data(parser, data={}):  # Oops, mutable default arguments
+    pass
+```
+
+!!! info
+    The YAML `|` operator allows for [multiline strings](https://yaml-multiline.info/).
+
+
+#### Class definitions
+
+The ellipsis operator can be used in class definitions. To find classes that
+inherit from a certain parent:
+
+```text
+pattern: |
+  class $CLASS(InsecureBaseClass):
+      ...
+```
+
+```python
+class DataRetriever(InsecureBaseClass):
+    def __init__(self):
+        pass
+```
+
+!!! info
+    The YAML `|` operator allows for [multiline strings](https://yaml-multiline.info/).
+
+#### Strings
+
+The ellipsis operator can be used to search for strings containing any data. The pattern `crypto.set_secret_key("...")` matches:
+
+```python
+crypto.set_secret_key("HARDCODED SECRET")
+```
+
+#### Binary operations
+
+The ellipsis operator can match any number of arguments to binary operations. The pattern `$X = 1 + 2 + ...` matches:
+
+```python
+foo = 1 + 2 + 3 + 4
+```
+
+#### Arrays
+
+The ellipsis operator can match literal arrays. The pattern `pattern: user_list = [..., 10]` matches:
+
+```python
+user_list = [8, 9, 10]
+```
+
+#### Conditionals and loops
+
+The ellipsis operator can be used inside conditionals or loops. The pattern:
+
+```text
+pattern: |
+  if $CONDITION:
+      ...
+```
+
+!!! info
+    The YAML `|` operator allows for [multiline strings](https://yaml-multiline.info/).
+
+matches:
+
+```python
+if can_make_request:
+    check_status()
+    make_request()
+    return
+```
+
+A metavariable can match a conditional or loop body if the body statement information is re-used later. The pattern:
+
+```text
+pattern: |
+  if $CONDITION:
+      $BODY
+```
+
+matches:
+
+```python
+if can_make_request:
+    single_request_statement()
+```
+
+!!! note
+    Half or partial statements can't be matches; both of the examples above must specify the contents of the condition’s body (e.g., `$BODY` or `...`), otherwise they are not valid patterns.
+
+
+### Metavariables
+
+Metavariables are an abstraction to match code when don’t know the value or contents ahead of time, acting like [capture groups](https://regexone.com/lesson/capturing_groups) in regular expressions.
+
+Metavariables can be used to track values across a specific code scope. This
+includes variables, functions, arguments, classes, object methods, imports,
+exceptions, and more.
+
+Metavariables look like `$X`, `$WIDGET`, or `$USERS_2`. They begin with a `$` and can only
+contain uppercase characters, `_`, or digits. Names like `$x` or `$some_value` are invalid.
+
+The pattern `$X + $Y` matches the following code examples:
+
+
+```python
+foo() + bar()
+```
+
+```python
+current + total
+```
+
+Patterns can also be used to match imports. For example, `import $X` matches:
+
+```python
+import random
+```
+
+Re-using metavariables shows their true power. The following pattern reuses a metavariable
+to detect useless assignments:
+
+```text
+pattern: |
+  $X = $Y
+  $X = $Z
+```
+
+Useless assignment detected:
+```python
+initial_value = 10  # Oops, useless assignment
+initial_value = get_initial_value()
+```
+
+!!! info
+    The YAML `|` operator allows for [multiline strings](https://yaml-multiline.info/).
+
+### Typed Metavariables
+
+Typed metavariables only match a metavariable if it’s declared as a specific type. For example, you may want to specifically check that `==` is never used for
+strings.
+
+Go:
+
+```text
+pattern: "$X == ($Y : string)"
+```
+
+```go
+func main() {
+    var x string
+    var y string
+    var a int
+    var b int
+
+    // Matched
+    if x == y {
+       x = y
+    }
+
+    // Not matched
+    if a == b {
+       a = b
+    }
+}
+```
+
+Java:
+
+```text
+pattern: $X == (String $Y)
+```
+
+```java
+public class Example {
+    public int foo(String a, int b) {
+        // Matched
+        if (a == "hello") {
+            return 1;
+        }
+
+        // Not matched
+        if (b == 2) {
+            return -1;
+        }
+    }
+}
+```
+
+!!! warning
+    Since matching happens within a single file, this is only guaranteed to work for local variables and arguments. Additionally, Semgrep currently understands types on a shallow level. For example, if you have `int[] A`, it will not recognize `A[0]` as an integer. If you have a class with fields, you will not be able to use typechecking on field accesses, and it will not recognize the class’s field as the expected type. Literal types are understood to a limited extent. Expanded type support is under active development.
+
+!!! warning
+    For Go, Semgrep currently does not recognize the type of all variables that are declared on the same line. That is, the following will not take both `a` and `b` as `int`s: `var a, b = 1, 2`
+
+### Equivalences
+
+Semgrep automatically searches for code that is semantically equivalent.
+
+#### Imports
+
+Equivalent imports using aliasing or submodules are matched. 
+
+The pattern `subprocess.Popen(...)` matches:
+
+```python
+import subprocess.Popen as sub_popen
+sub_popen('ls')
+```
+
+The pattern `foo.bar.baz.qux(...)` matches:
+
+```python
+from foo.bar import baz
+baz.qux()
+```
+
+#### Constants
+
+Languages supporting constants allow for constant propagation. In other words, the constant’s value is considered equivalent to a literal value. The following patterns will catch each respective code snippet:
+
+Go:
+
+The pattern `crypto.hash("MD5", ...)` matches:
+
+```go
+crypto.hash("MD5", "text")
+
+const algorithm = "MD5"
+crypto.hash(algorithm, "text")
+
+```
+
+Java:
+
+The pattern `$MD.getInstance("MD5");` matches:
+
+```java
+import java.security.MessageDigest;
+
+class Hash {
+
+    public final String algorithm = "MD5";
+
+    public static void main(String[] args) {
+        MessageDigest md = MessageDigest.getInstance(algorithm);
+    }
+}
+```
+
+Javascript:
+
+The pattern `crypto.subtle.digest("SHA-1", ...);` matches:
+
+```javascript
+crypto.subtle.digest("SHA-1", "text");
+
+const LITERAL = "SHA-1";
+crypto.subtle.digest(LITERAL, "text");
+
+const LIT = "SHA";
+crypto.subtle.digest(LIT + "-1", "text");
+
+const LIT = "SHA";
+crypto.subtle.digest(`${LIT}-1`, "text");
+```
+
+Python:
+
+The pattern `hashlib.new("MD5", ...).digest()` matches:
+
+```python
+import hashlib
+
+ALGORITHM = "MD5"
+
+def get_digest(data):
+    return hashlib.new(ALGORITHM, data=data).digest()
+```
+
+### Deep expression operator
+
+Use the deep expression operator `<... [your_pattern] ...>` to match an expression that could be deeply nested within another expression. An example is looking for a pattern anywhere within an `if` statement. The deep expression operator matches your pattern in the current expression context and recursively in any subexpressions.
+
+For example, this pattern:
+
+```yaml
+pattern: |
+  if <... $USER.is_admin() ...>:
+    ...
+```
+
+matches:
+
+```python
+if user.authenticated() and user.is_admin() and user.has_group(gid):
+  [ CONDITIONAL BODY ]
+```
+
+The deep expression operator works in:
+
+- `if` statements: `if <... $X ...>:`
+- nested calls: `sql.query(<... $X ...>)`
+- operands of a binary expression: `"..." + <... $X ...>`
+- any other expression context
+
+# Limitations
+
+## Statements types
+
+Semgrep handles statements differently from other expressions like imports. For example, the pattern `foo` will match these statements:
+
+```python
+foo()
+bar + foo
+foo(1, 2)
+```
+
+It will not match the following:
+
+```python
+import foo
+```
+
+## Partial statements
+
+Partial statements are not valid patterns. For example, the following are invalid:
+
+```text
+pattern: 1+
+```
+
+```text
+pattern: if $CONDITION:
+```

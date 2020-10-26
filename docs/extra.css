@@ -1,0 +1,281 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap");
+
+body,
+h1,
+h2,
+h3,
+h4,
+p,
+div {
+  font-family: "Inter", sans-serif !important;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  font-weight: 500;
+}
+
+h4.code-example-heading {
+  margin-bottom: 5px;
+}
+
+code {
+  border: none;
+}
+
+a,
+a:visited {
+  color: #2980b9;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+/* div.toc li:first-child {
+  display: none;
+} */
+
+.wy-side-nav-search {
+  background-color: #137cbd;
+  /* margin-top: 50px; */
+}
+
+nav.stickynav {
+  top: 50px;
+}
+
+.rst-versions {
+  display: none;
+}
+
+div.navbar {
+  width: 100%;
+  height: 50px;
+  color: #000000;
+  background-color: #ffffff;
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: block;
+}
+
+.bp3-navbar {
+  background-color: #ffffff;
+  z-index: 100;
+  height: 50px;
+}
+
+.bp3-navbar.bp3-fixed-top {
+  left: 0;
+  position: fixed;
+  right: 0;
+  top: 0;
+}
+
+.bp3-navbar-group {
+  align-items: center;
+  display: flex;
+  height: 50px;
+}
+
+.bp3-navbar-group.bp3-align-left {
+  float: left;
+}
+
+.normal .bp3-navbar-group.bp3-align-left {
+  z-index: 5000;
+  position: fixed;
+  background: #fff;
+  left: 0;
+  padding: 0 10px;
+}
+
+.bp3-navbar-heading {
+  display: flex;
+  -webkit-box-align: center;
+  align-items: center;
+  margin-right: 8px;
+}
+
+.bp3-navbar-group {
+  align-items: center;
+  display: flex;
+  height: 50px;
+}
+
+.bp3-navbar-group.bp3-align-right {
+  right: 10px;
+  min-width: 100px;
+  position: fixed;
+  justify-content: flex-end;
+}
+
+.bp3-navbar-group.bp3-align-right {
+  float: right;
+}
+
+.bp3-button-text > svg {
+  height: 1em;
+}
+
+.bp3-button {
+  display: inline-flex;
+  flex-direction: row;
+  align-items: center;
+  border: none;
+  border-radius: 3px;
+  cursor: pointer;
+  font-size: 14px;
+  justify-content: center;
+  padding: 5px 10px;
+  text-align: left;
+  vertical-align: middle;
+  min-height: 30px;
+  min-width: 30px;
+}
+
+.wy-grid-for-nav {
+  position: absolute;
+  top: 50px;
+}
+
+.wy-nav-side a {
+  color: #d9d9d9;
+}
+
+.wy-nav-side {
+  position: fixed;
+  top: 50px;
+}
+
+.search-box-title {
+  margin-bottom: 10px;
+}
+
+table {
+  margin: 20px 0;
+}
+
+th,
+td {
+  padding: 10px;
+}
+
+.wy-nav-content {
+  max-width: 1010px;
+}
+
+div > div.section > p > img {
+  border: 1px solid #eee;
+}
+
+.pdf-link {
+  margin: 40px 0;
+}
+
+.pdf-button {
+  background-color: #e05d5b;
+  color: white;
+  padding: 10px;
+  border: 1px solid #e05d5b;
+  border-radius: 4px;
+  max-width: 300px;
+}
+
+.semgrep-footer {
+  margin-top: 40px;
+}
+
+.footer-grid {
+  display: grid;
+  gap: 12px;
+  grid-auto-rows: 1fr;
+  grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+  /* margin: auto; */
+}
+
+section.links {
+  display: flex;
+  -webkit-box-pack: justify;
+  justify-content: space-between;
+}
+
+.social {
+  margin-right: 12px;
+}
+
+.social a {
+  margin-top: 28px;
+  display: flex;
+  -webkit-box-align: center;
+  align-items: center;
+}
+
+.semgrep-footer svg {
+  width: 32px;
+  margin-right: 10px;
+}
+
+.link-grid {
+  display: grid;
+  gap: 70px;
+  grid-auto-rows: 1fr;
+  grid-template-columns: repeat(3, 1fr);
+  margin-top: 28px;
+}
+
+.rtd-info {
+  margin-top: 60px;
+}
+
+/* Cheat Sheet styling begins here */
+.cs-bg-theme-orange {
+  background-color: #e05d5b;
+  color: #ffffff;
+}
+.cs-bg-theme-dark-blue {
+  background-color: #243d4e;
+  color: #ffffff;
+}
+
+.wy-nav-content.cs {
+  max-width: 1200px;
+}
+
+div[role="navigation"] hr {
+  display: none;
+}
+
+/* Cheat Sheet styling ends here */
+
+/* Metrics styling begins here */
+
+.page-title h1 {
+  margin: 40px 0 20px;
+}
+
+.page-description {
+  margin: 20px 0;
+}
+
+.stats-graph-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
+  grid-auto-rows: minmax(15vw, auto);
+  grid-column-gap: 8px;
+  grid-row-gap: 8px;
+}
+
+.lang-container iframe,
+.languages-table iframe {
+  border: 2px solid #eee;
+}
+
+/* Metrics styling ends here */
+
+.lang-container {
+  margin-top: 50px;
+}
