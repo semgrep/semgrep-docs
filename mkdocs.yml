@@ -1,4 +1,5 @@
-site_name: Semgrep
+site_name: Semgrep Docs
+site_url: https://semgrep.dev/docs/
 nav:
   - Semgrep:
       - Home: index.md
