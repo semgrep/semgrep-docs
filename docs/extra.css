@@ -280,3 +280,21 @@ div[role="navigation"] hr {
 .lang-container {
   margin-top: 50px;
 }
+
+.wy-side-scroll {
+  width: 250px;
+  overflow-y: hidden;
+  overflow-x: hidden;
+}
+
+.wy-side-nav-search {
+  width: 250px;
+}
+
+.wy-nav-side  {
+  width: 250px;
+}
+
+.wy-nav-content-wrap {
+  margin-left: 250px;
+}
