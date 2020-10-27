@@ -102,15 +102,6 @@ semgrep:
 
 </p>
 </details>
-<details><summary>Jenkins</summary>
-<p>
-
-```yaml
-TODO
-```
-
-</p>
-</details>
 </br>
 Is your CI provider missing? Let us know by [filing an issue here](https://github.com/returntocorp/semgrep/issues/new?assignees=&labels=&template=feature_request.md&title=).
 
