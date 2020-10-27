@@ -68,8 +68,8 @@ $ semgrep --config p/r2c-security-audit WebGoat
 
 Semgrep is at its best when used to continuously scan code. Visit [Integrations](integrations.md) to learn how to get results where you already work: GitHub, GitLab, Slack, Jira, VS Code, and more.
 
-For teams running Semgrep on multiple projects, visit [semgrep.dev/manage](https://semgrep.dev/manage). Semgrep provides free infrastructure to:
+For teams running Semgrep on multiple projects, visit [Manage](https://semgrep.dev/manage). Semgrep provides free infrastructure to:
 
 1. Centrally define code standards for your projects
-3. Monitor the impact of your standards
-4. Host private rules
+2. Monitor the impact of your standards
+3. Host private rules
