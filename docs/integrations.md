@@ -10,7 +10,7 @@ The following instructions use [Semgrep CI](https://github.com/returntocorp/semg
 
 !!! danger
     `SEMGREP_APP_TOKEN` is a secret value: DO NOT HARDCODE IT AND LEAK CREDENTIALS. Use your CI provider's secret or environment variable management feature to store it. 
-s
+
 <details><summary>Buildkite</summary>
 <p>
 
