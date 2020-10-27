@@ -87,7 +87,7 @@ jobs:
 
 </p>
 </details>
-<details><summary>GitLab Jobs</summary>
+<details><summary>GitLab CI</summary>
 <p>
 
 ```yaml
