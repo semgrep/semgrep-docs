@@ -6,10 +6,7 @@ Semgrep integrations exist from the beginning to the end of the development flow
 
 # Continuous integration (CI)
 
-!!! info
-    [Semgrep CI](https://github.com/returntocorp/semgrep-action) is a Git and diff-aware Semgrep wrapper that surfaces only the results introduced by a pull request. With this approach teams can enable new checks without being penalized for pre-existing issues 👏
-
-Instructions are available at [semgrep.dev/manage](https://semgrep.dev/manage) as part of the “setup a new project” workflow. Those instructions offer provider-specific configurations for [Semgrep CI](https://github.com/returntocorp/semgrep-action) for the following products:
+The following instructions use [Semgrep CI](https://github.com/returntocorp/semgrep-action) and require a free [Semgrep Community](https://semgrep.dev/manage) or paid Semgrep Team account. `SEMGREP_DEPLOYENT_ID` and `SEMGREP_APP_TOKEN` information is available at [Manage > Projects](https://semgrep.dev/manage/projects).
 
 <details><summary>Buildkite</summary>
 <p>
@@ -106,7 +103,7 @@ semgrep:
 <p>
 
 ```yaml
-
+TODO
 ```
 
 </p>
