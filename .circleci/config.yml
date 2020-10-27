@@ -9,6 +9,22 @@ jobs:
       - run: python --version
       - run: pip install mkdocs
       - run: mkdocs build
+  deployStaging:
+    docker:
+      - image: cimg/python:3.8
+    steps:
+      - checkout
+      - run: python --version
+      - run: pip install mkdocs
+      - run: mkdocs build
+      - run:
+          name: install aws cli
+          command: |
+            curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip"
+            unzip awscliv2.zip
+            sudo ./aws/install
+      - run: aws --version
+      - run: aws s3 sync site/ s3://staging-semgrep-dev && aws cloudfront create-invalidation --distribution-id E3VK9R4LQIJKGC --paths '/docs/*'
   deployProd:
     docker:
       - image: cimg/python:3.8
@@ -30,6 +46,15 @@ workflows:
   build-and-deploy:
     jobs:
       - test
+      - deployStaging:
+          context:
+            - aws
+          requires:
+            - test
+          filters:
+            branches:
+              only:
+                - develop
       - deployProd:
           context:
             - aws
