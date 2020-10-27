@@ -16,17 +16,11 @@ The following instructions use [Semgrep CI](https://github.com/returntocorp/semg
 
 ```yaml
 - label: ":semgrep: Semgrep"
+  command: python -m semgrep_agent --publish-deployment $SEMGREP_DEPLOYMENT_ID" --publish-token $SEMGREP_APP_TOKEN
   expeditor:
     executor:
       docker:
         image: returntocorp/semgrep-agent:v1
-        entrypoint: python -m semgrep_agent
-        command: [
-          "--publish-deployment",
-          "$SEMGREP_DEPLOYMENT_ID",
-          "--publish-token", 
-          "$SEMGREP_APP_TOKEN"
-        ]
 ```
 
 </p>
