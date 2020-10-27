@@ -11,11 +11,96 @@ Semgrep integrations exist from the beginning to the end of the development flow
 
 Instructions are available at [semgrep.dev/manage](https://semgrep.dev/manage) as part of the “setup a new project” workflow. Those instructions offer provider-specific configurations for [Semgrep CI](https://github.com/returntocorp/semgrep-action) for the following products:
 
-* GitHub Actions
-* GitLab Jobs
-* Jenkins
-* Buildkite
+<details><summary>Buildkite</summary>
+<p>
 
+```yaml
+hello: {}
+```
+
+</p>
+</details>
+<details><summary>CircleCI</summary>
+<p>
+
+```yaml
+# This workflow file requires a free account on Semgrep.dev to 
+# manage rules, file ignores, notifications, and more.
+
+version: 2
+jobs:
+    build:
+        docker:
+            - image: returntocorp/semgrep-agent:v1
+        steps:
+            - checkout
+            - run: semgrep-agent --publish-deployment $SEMGREP_DEPLOYMENT_ID --publish-token $SEMGREP_APP_TOKEN
+```
+
+</p>
+</details>
+<details><summary>GitHub Action</summary>
+<p>
+
+```yaml
+# This workflow file requires a free account on Semgrep.dev to 
+# manage rules, file ignores, notifications, and more.
+
+name: Semgrep
+
+on: 
+    # Run on all pull requests. Returns the results introduced by the PR.
+    pull_request: {}
+
+    # Run on merges. Returns all results.
+    #push:
+    #    branches: ["master"]
+
+jobs:
+  semgrep:
+    name: Scan
+    runs-on: ubuntu-latest
+    steps:
+      # Checkout project source
+      - uses: actions/checkout@v1
+      
+      # Scan code using project's configuration on https://semgrep.dev/manage
+      - uses: returntocorp/semgrep-action@v1
+        with:
+          publishToken: ${{ secrets.SEMGREP_APP_TOKEN }}
+          publishDeployment: ${{ secrets.SEMGREP_DEPLOYMENT_ID }}
+          # Generate a SARIF file for GitHub's code scanning feature. See the next step.
+          #generateSarif: "1"
+
+      # Upload SARIF file generated in previous step          
+      #- name: Upload SARIF file
+      #  uses: github/codeql-action/upload-sarif@v1
+      #  with:
+      #    sarif_file: semgrep.sarif
+      #  if: always()
+```
+
+</p>
+</details>
+<details><summary>GitLab Jobs</summary>
+<p>
+
+```yaml
+hello: {}
+```
+
+</p>
+</details>
+<details><summary>Jenkins</summary>
+<p>
+
+```yaml
+hello: {}
+```
+
+</p>
+</details>
+</br>
 Is your CI provider missing? Let us know by [filing an issue here](https://github.com/returntocorp/semgrep/issues/new?assignees=&labels=&template=feature_request.md&title=).
 
 # Editor
