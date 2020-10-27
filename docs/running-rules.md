@@ -10,8 +10,8 @@ Explore the Semgrep Registry of rules at [semgrep.dev/explore](https://semgrep.d
 
 ```sh
 # Run a ruleset with rules for many languages using --config
-$ semgrep --config=<ruleset-url> path/to/src
-$ semgrep --config "https://semgrep.dev/p/r2c-ci" path/to/src
+$ semgrep --config=<ruleset-id> path/to/src
+$ semgrep --config p/r2c-ci path/to/src
 ```
 
 Rulesets can be added to Semgrep CI scans using their "Add to Policy" button on Semgrep.dev.
@@ -44,7 +44,7 @@ bad_func(); // nosem
 bad_func(); // nosem: rule-id-1
 bad_func(); // nosem: rule-id-1, rule-id-2
 bad_func(   // nosem: rule-id-1
-  arg 
+  arg
 );
 ```
 
