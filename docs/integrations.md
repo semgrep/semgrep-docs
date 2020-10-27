@@ -59,7 +59,7 @@ on:
 
     # Run on merges. Returns all results.
     #push:
-    #    branches: ["master"]
+    #    branches: ["master", "main"]
 
 jobs:
   semgrep:
