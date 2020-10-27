@@ -1,21 +1,108 @@
 # Integrations
 
-Semgrep integrations exist from the beginning to the end of the development flow, from code conception in the IDE to code review and beyond in pull requests, Slack, over email, and more. Workflows vary widely between teams and their projects.
+Semgrep integrates into the development flow end-to-end, from code conception in the IDE to code review and beyond in pull requests, Slack, over email, and more. Everyone's workflow is a little different and Semgrep is meant to adapt to yours.
 
 [TOC]
 
 # Continuous integration (CI)
 
-!!! info
-    [Semgrep CI](https://github.com/returntocorp/semgrep-action) is a Git and diff-aware Semgrep wrapper that surfaces only the results introduced by a pull request. With this approach teams can enable new checks without being penalized for pre-existing issues 👏
+The following instructions use [Semgrep CI](https://github.com/returntocorp/semgrep-action) and require a free [Semgrep Community](https://semgrep.dev/manage) or paid Semgrep Team account. `SEMGREP_DEPLOYMENT_ID` and `SEMGREP_APP_TOKEN` information is available at [Manage > Projects](https://semgrep.dev/manage/projects) after login.
 
-Instructions are available at [semgrep.dev/manage](https://semgrep.dev/manage) as part of the “setup a new project” workflow. Those instructions offer provider-specific configurations for [Semgrep CI](https://github.com/returntocorp/semgrep-action) for the following products:
+!!! danger
+    `SEMGREP_APP_TOKEN` is a secret value: DO NOT HARDCODE IT AND LEAK CREDENTIALS. Use your CI provider's secret or environment variable management feature to store it. 
 
-* GitHub Actions
-* GitLab Jobs
-* Jenkins
-* Buildkite
+<details><summary>Buildkite</summary>
+<p>
 
+```yaml
+- label: ":semgrep: Semgrep"
+  expeditor:
+    executor:
+      docker:
+        image: returntocorp/semgrep-agent:v1
+        entrypoint: python -m semgrep_agent
+        command: [
+          "--publish-deployment",
+          "$SEMGREP_DEPLOYMENT_ID",
+          "--publish-token", 
+          "$SEMGREP_APP_TOKEN"
+        ]
+```
+
+</p>
+</details>
+<details><summary>CircleCI</summary>
+<p>
+
+```yaml
+version: 2
+jobs:
+    build:
+        docker:
+            - image: returntocorp/semgrep-agent:v1
+        steps:
+            - checkout
+            - run: python -m semgrep_agent --publish-deployment $SEMGREP_DEPLOYMENT_ID --publish-token $SEMGREP_APP_TOKEN
+```
+
+</p>
+</details>
+<details><summary>GitHub Actions</summary>
+<p>
+
+```yaml
+name: Semgrep
+
+on: 
+    # Run on all pull requests. Returns the results introduced by the PR.
+    pull_request: {}
+
+    # Run on merges. Returns all results.
+    #push:
+    #    branches: ["master", "main"]
+
+jobs:
+  semgrep:
+    name: Scan
+    runs-on: ubuntu-latest
+    steps:
+      # Checkout project source
+      - uses: actions/checkout@v1
+      
+      # Scan code using project's configuration on https://semgrep.dev/manage
+      - uses: returntocorp/semgrep-action@v1
+        with:
+          publishToken: ${{ secrets.SEMGREP_APP_TOKEN }}
+          publishDeployment: ${{ secrets.SEMGREP_DEPLOYMENT_ID }}
+          # Generate a SARIF file for GitHub's code scanning feature. See the next step.
+          #generateSarif: "1"
+
+      # Upload SARIF file generated in previous step          
+      #- name: Upload SARIF file
+      #  uses: github/codeql-action/upload-sarif@v1
+      #  with:
+      #    sarif_file: semgrep.sarif
+      #  if: always()
+```
+
+</p>
+</details>
+<details><summary>GitLab CI</summary>
+<p>
+
+```yaml
+include:
+  - template: 'Workflows/MergeRequest-Pipelines.gitlab-ci.yml'
+
+semgrep:
+  image: returntocorp/semgrep-agent:v1
+  script:
+    - python -m semgrep_agent --publish-deployment $SEMGREP_DEPLOYMENT_ID --publish-token $SEMGREP_APP_TOKEN
+```
+
+</p>
+</details>
+</br>
 Is your CI provider missing? Let us know by [filing an issue here](https://github.com/returntocorp/semgrep/issues/new?assignees=&labels=&template=feature_request.md&title=).
 
 # Editor
