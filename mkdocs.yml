@@ -19,6 +19,7 @@ nav:
   - Stats:
       - Rules: rules.md
       - Supported languages: status.md
+      - Trophy case: trophy-case.md
   - Help:
       - FAQ: faq.md
       - support.md
