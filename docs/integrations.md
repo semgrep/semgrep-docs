@@ -1,16 +1,16 @@
 # Integrations
 
-Semgrep integrations exist from the beginning to the end of the development flow, from code conception in the IDE to code review and beyond in pull requests, Slack, over email, and more. Workflows vary widely between teams and their projects.
+Semgrep integrates into the development flow end-to-end, from code conception in the IDE to code review and beyond in pull requests, Slack, over email, and more. Everyone's workflow is a little different and Semgrep is meant to adapt to yours.
 
 [TOC]
 
 # Continuous integration (CI)
 
-The following instructions use [Semgrep CI](https://github.com/returntocorp/semgrep-action) and require a free [Semgrep Community](https://semgrep.dev/manage) or paid Semgrep Team account. `SEMGREP_DEPLOYENT_ID` and `SEMGREP_APP_TOKEN` information is available at [Manage > Projects](https://semgrep.dev/manage/projects).
+The following instructions use [Semgrep CI](https://github.com/returntocorp/semgrep-action) and require a free [Semgrep Community](https://semgrep.dev/manage) or paid Semgrep Team account. `SEMGREP_DEPLOYENT_ID` and `SEMGREP_APP_TOKEN` information is available at [Manage > Projects](https://semgrep.dev/manage/projects) after login.
 
 !!! danger
-    `SEMGREP_APP_TOKEN` is a secret value: DO NOT HARDCODE IT AND LEAK CREDENTIALS. Use your CI provider's secret or environment variable managent features to store it. 
-
+    `SEMGREP_APP_TOKEN` is a secret value: DO NOT HARDCODE IT AND LEAK CREDENTIALS. Use your CI provider's secret or environment variable management feature to store it. 
+s
 <details><summary>Buildkite</summary>
 <p>
 
