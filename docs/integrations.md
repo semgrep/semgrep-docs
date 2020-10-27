@@ -86,7 +86,16 @@ jobs:
 <p>
 
 ```yaml
-hello: {}
+# This workflow file requires a free account on Semgrep.dev to 
+# manage rules, file ignores, notifications, and more.
+
+include:
+  - template: 'Workflows/MergeRequest-Pipelines.gitlab-ci.yml'
+
+semgrep:
+  image: returntocorp/semgrep-agent:v1
+  script:
+    - python -m semgrep_agent --publish-deployment $SEMGREP_DEPLOYMENT_ID --publish-token $SEMGREP_APP_TOKEN
 ```
 
 </p>
