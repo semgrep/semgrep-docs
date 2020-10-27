@@ -8,6 +8,9 @@ Semgrep integrations exist from the beginning to the end of the development flow
 
 The following instructions use [Semgrep CI](https://github.com/returntocorp/semgrep-action) and require a free [Semgrep Community](https://semgrep.dev/manage) or paid Semgrep Team account. `SEMGREP_DEPLOYENT_ID` and `SEMGREP_APP_TOKEN` information is available at [Manage > Projects](https://semgrep.dev/manage/projects).
 
+!!! danger
+    `SEMGREP_APP_TOKEN` is a secret value: DO NOT HARDCODE IT AND LEAK CREDENTIALS. Use your CI provider's secret or environment variable managent features to store it. 
+
 <details><summary>Buildkite</summary>
 <p>
 
