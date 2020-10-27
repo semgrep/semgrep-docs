@@ -47,7 +47,7 @@ jobs:
 
 </p>
 </details>
-<details><summary>GitHub Action</summary>
+<details><summary>GitHub Actions</summary>
 <p>
 
 ```yaml
