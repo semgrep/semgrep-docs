@@ -17,13 +17,14 @@ Explore the Semgrep docs and join an amazing community of engineering and securi
 
 # Overview
 
-Semgrep is a lightweight, offline, open-source static analysis tool for many languages. It excells at expressing code standards — without complicated queries — and surfacing bugs early in the development flow.
+Semgrep is a lightweight, offline, open-source static analysis tool for many languages. It excels at expressing code standards — without complicated queries — and surfacing bugs early in the development flow.
 
 Semgrep has several components:
 
-Semgrep CLI - the [open-source](https://github.com/returntocorp/semgrep) command-line tool at the heart of everything</br>
-Semgrep CI - a git and diff-aware Semgrep [wrapper](https://github.com/returntocorp/semgrep-action) for running Semgrep as part of continuous integration</br>
-[Semgrep.dev](https://semgrep.dev/) - write and share rules and manage Semgrep CI across many projects
+* Semgrep CLI - the [open-source](https://github.com/returntocorp/semgrep) command-line tool at the heart of everything</br>
+* Semgrep CI - a git and diff-aware Semgrep [wrapper](https://github.com/returntocorp/semgrep-action) for running Semgrep as part of continuous integration</br>
+* [Semgrep Community Tier](https://semgrep.dev/) - a free hosted service to help write rules, share rules, and manage Semgrep CI across many projects<br/>
+* [Semgrep Team Tier](https://semgrep.dev) - the paid version of Semgrep for enterprise customers
 
 Semgrep rules generally look like the code you’re searching for. For example, if you want to find calls to a function named `foo`, search for `foo()`. You can find function calls, class or method definitions, and more without having to understand abtract syntax trees or wrestle with regexes.
 
