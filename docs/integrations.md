@@ -15,7 +15,21 @@ Instructions are available at [semgrep.dev/manage](https://semgrep.dev/manage) a
 <p>
 
 ```yaml
-hello: {}
+# This workflow file requires a free account on Semgrep.dev to 
+# manage rules, file ignores, notifications, and more.
+
+- label: ":semgrep: Semgrep"
+  expeditor:
+    executor:
+      docker:
+        image: returntocorp/semgrep-agent:v1
+        entrypoint: semgrep-agent
+        command: [
+          "--publish-deployment",
+          "$SEMGREP_DEPLOYMENT_ID",
+          "--publish-token", 
+          "$SEMGREP_APP_TOKEN"
+        ]
 ```
 
 </p>
