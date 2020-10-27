@@ -29,7 +29,7 @@ Semgrep rules generally look like the code you’re searching for. For example, 
 
 The [Semgrep registry](https://semgrep.dev/explore) has 900+ rules written by the Semgrep team as well as community contributors covering security, correctness, and performance bugs. No need to DIY unless you want to.
 
-Semgrep is an evolution of [pfff](https://github.com/returntocorp/pfff/), which began at [Facebook](https://github.com/facebookarchive/pfff) in 2009, which itself was an evolution of the Linux refactoring tool [Concinelle](https://en.wikipedia.org/wiki/Coccinelle_(software)). r2c revitalized the project after its original author, [Yoann Padioleau](https://github.com/aryx), joined the company.
+Semgrep is an evolution of [pfff](https://github.com/returntocorp/pfff/), which began at [Facebook](https://github.com/facebookarchive/pfff) in 2009, which itself was an evolution of the Linux refactoring tool [Coccinelle](https://en.wikipedia.org/wiki/Coccinelle_(software)). r2c revitalized the project after its original author, [Yoann Padioleau](https://github.com/aryx), joined the company.
 
 # Language support
 
