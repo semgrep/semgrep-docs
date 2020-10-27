@@ -36,7 +36,7 @@ Once installed, Semgrep can run with single rules or entire rulesets. Visit [Run
 $ semgrep -e '$X == $X' --lang=py path/to/src
 
 # Run the r2c-ci ruleset (with rules for many languages) on your own code!
-$ semgrep --config=https://semgrep.dev/p/r2c-ci path/to/src
+$ semgrep --config=p/r2c-ci path/to/src
 
 
 ################################################
@@ -45,23 +45,23 @@ $ semgrep --config=https://semgrep.dev/p/r2c-ci path/to/src
 
 # juice-shop, a vulnerable Node.js + Express app
 $ git clone https://github.com/bkimminich/juice-shop
-$ semgrep -f https://semgrep.dev/p/r2c-security-audit juice-shop
+$ semgrep --config p/r2c-security-audit juice-shop
 
 # railsgoat, a vulnerable Ruby on Rails app
 $ git clone https://github.com/OWASP/railsgoat
-$ semgrep -f https://semgrep.dev/p/r2c-security-audit railsgoat
+$ semgrep --config p/r2c-security-audit railsgoat
 
 # govwa, a vulnerable Go app
 $ git clone https://github.com/0c34/govwa
-$ semgrep -f https://semgrep.dev/p/r2c-security-audit govwa
+$ semgrep --config p/r2c-security-audit govwa
 
 # vulnerable Python + Flask app
 $ git clone https://github.com/we45/Vulnerable-Flask-App
-$ semgrep -f https://semgrep.dev/p/r2c-security-audit Vulnerable-Flask-App
+$ semgrep --config p/r2c-security-audit Vulnerable-Flask-App
 
 # WebGoat, a vulnerable Java + Spring app
-$ git clone https://github.com/WebGoat/WebGoat  
-$ semgrep -f https://semgrep.dev/p/r2c-security-audit WebGoat
+$ git clone https://github.com/WebGoat/WebGoat
+$ semgrep --config p/r2c-security-audit WebGoat
 ```
 
 # Run and centrally manage Semgrep CI
@@ -72,4 +72,4 @@ For teams running Semgrep on multiple projects, visit [semgrep.dev/manage](https
 
 1. Centrally define code standards for your projects
 3. Monitor the impact of your standards
-4. Host private rules   
+4. Host private rules
