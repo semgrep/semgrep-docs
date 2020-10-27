@@ -6,7 +6,7 @@ Existing and custom Semgrep rules can be run locally via the CLI or continuously
 
 # Run registry rules
 
-Explore the Semgrep Registry of rules at [semgrep.dev/explore](https://semgrep.dev/explore).
+Explore the [Semgrep Registry](https://semgrep.dev/explore) and run rules and rulesets via:
 
 ```sh
 # Run a ruleset with rules for many languages using --config

@@ -119,7 +119,7 @@ repos:
 
 # Notifications
 
-Semgrep provides integrations with 3rd party services like Slack, Jira, Defect Dojo, and others. To configure these and learn more, visit [semgrep.dev/manage/notifications](https://semgrep.dev/manage/notifications).
+Semgrep provides integrations with 3rd party services like Slack, Jira, Defect Dojo, and others. To configure these and learn more, visit [Manage > Notifications](https://semgrep.dev/manage/notifications).
 
 <!-- # Output
 

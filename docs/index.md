@@ -23,11 +23,12 @@ Semgrep encompasses:
 
 * [Semgrep CLI](https://github.com/returntocorp/semgrep) - the open-source command-line tool at the heart of everything
 * [Semgrep CI](https://github.com/returntocorp/semgrep-action) - an adaptation of Semgrep CLI for continuously scanning commits and builds
+* [Semgrep Registry](https://semgrep.dev/explore): a community rule registry for easy rule consumption, publication, and distribution between projects
 * [Semgrep Community & Team](https://semgrep.dev/manage) - a hosted service with a free and paid tiers to help write and share rules, and centrally manage Semgrep CI across many projects
 
 Semgrep rules generally look like the code you’re searching for. For example, if you want to find calls to a function named `foo`, search for `foo()`. You can find function calls, class or method definitions, and more without having to understand abtract syntax trees or wrestle with regexes.
 
-The [Semgrep registry](https://semgrep.dev/explore) has 900+ rules written by the Semgrep team as well as community contributors covering security, correctness, and performance bugs. No need to DIY unless you want to.
+The [Semgrep Registry](https://semgrep.dev/explore) has 900+ rules written by the Semgrep team as well as community contributors covering security, correctness, and performance bugs. No need to DIY unless you want to.
 
 Semgrep is an evolution of [pfff](https://github.com/returntocorp/pfff/), which began at [Facebook](https://github.com/facebookarchive/pfff) in 2009, which itself was an evolution of the Linux refactoring tool [Coccinelle](https://en.wikipedia.org/wiki/Coccinelle_(software)). r2c revitalized the project after its original author, [Yoann Padioleau](https://github.com/aryx), joined the company.
 
