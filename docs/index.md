@@ -26,7 +26,7 @@ Semgrep encompasses:
 * [Semgrep Registry](https://semgrep.dev/explore): a community rule registry for easy rule consumption, publication, and distribution between projects
 * [Semgrep Community & Semgrep Team](https://semgrep.dev/manage) - hosted services with free and paid tiers to help write and share rules, and centrally manage Semgrep CI across many projects
 
-Semgrep rules generally look like the code you’re searching for. For example, if you want to find calls to a function named `foo`, search for `foo()`. You can find function calls, class or method definitions, and more without having to understand abtract syntax trees or wrestle with regexes.
+Semgrep rules generally look like the code you’re searching for. For example, if you want to find calls to a function named `foo`, search for `foo()`. You can find function calls, class or method definitions, and more without having to understand abstract syntax trees or wrestle with regexes.
 
 The [Semgrep Registry](https://semgrep.dev/explore) has 900+ rules written by the Semgrep team as well as community contributors covering security, correctness, and performance bugs. No need to DIY unless you want to.
 
