@@ -14,7 +14,7 @@ $ semgrep --config=<ruleset-url> path/to/src
 $ semgrep --config "https://semgrep.dev/p/r2c-ci" path/to/src
 ```
 
-Rulesets can be added to Semgrep CI scans using their "Add to Policy" button on Semgrep.dev.
+Rulesets can be added to Semgrep CI scans using their "Add to Policy" button on Semgrep Community and Semgrep Team.
 
 # Run local rules
 
