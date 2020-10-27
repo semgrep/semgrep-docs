@@ -1,0 +1,39 @@
+version: 2.1
+
+jobs:
+  test:
+    docker:
+      - image: cimg/python:3.8
+    steps:
+      - checkout
+      - run: python --version
+      - run: pip install mkdocs
+      - run: mkdocs build
+  deployProd:
+    docker:
+      - image: cimg/python:3.8
+    steps:
+      - checkout
+      - run: python --version
+      - run: pip install mkdocs
+      - run: mkdocs build
+      - run:
+          name: install aws cli
+          command: |
+            curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip"
+            unzip awscliv2.zip
+            sudo ./aws/install
+      - run: aws --verison
+      - run: aws s3 sync site/ s3://semgrep-docs && aws cloudfront create-invalidation --distribution-id E1PHOFPGTV8DCC --paths '/docs/*'
+
+workflows:
+  build-and-deploy:
+    jobs:
+      - test
+      - deployProd:
+          requires:
+            - test
+          filters:
+            branches:
+              only:
+                - main
