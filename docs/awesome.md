@@ -1,11 +1,13 @@
 # Awesome Semgrep
 
-# Semgrep Rules
+Have Semgrep rules to share? Add your repository to the [Awesome Semgrep](https://github.com/returntocorp/semgrep-docs/docs/awesome.md) list or contribute them directly to [semgrep-rules](https://github.com/returntocorp/semgrep-rules), the "standard library" for Semgrep.
 
-!!! info
-    Want to add your rules to the [Semgrep Registry]()? Open a pull request on [returntocorp/semgrep-docs](https://github.com/returntocorp/semgrep-docs/docs/awesome.md) adding your repository to the below list. Once approved your repository will be automatically crawled and available via the Semgrep Registry. 🤗
+A template rule repository can be forked from [semgrep/template-rules](https://github.com/semgrep/template-rules).
 
-* https://github.com/ajinabraham/njsscan
-* https://github.com/dgryski/semgrep-go/
-* https://github.com/hazanasec/semgrep-rules
-* https://github.com/returntocorp/semgrep-rules
+# Rule Repositories    
+
+* [https://github.com/ajinabraham/njsscan](https://github.com/ajinabraham/njsscan)
+* [https://github.com/dgryski/semgrep-go/](https://github.com/dgryski/semgrep-go/)
+* [https://github.com/hazanasec/semgrep-rules](https://github.com/hazanasec/semgrep-rules)
+* [https://github.com/returntocorp/semgrep-rules](https://github.com/returntocorp/semgrep-rules)
+* [https://github.com/semgrep/rules-owasp-asvs](https://github.com/semgrep/rules-owasp-asvs)
