@@ -9,6 +9,15 @@ jobs:
       - run: python --version
       - run: pip install mkdocs
       - run: mkdocs build
+  semgrep:
+    docker:
+      - image: returntocorp/semgrep-agent:v1
+        environment:
+          GITHUB_REF: $CIRCLE_BRANCH
+          GITHUB_REPOSITORY: $CIRCLE_PROJECT_REPONAME
+    steps:
+      - checkout
+      - run: python -m semgrep_agent --publish-deployment 1 --publish-token $SEMGREP_APP_TOKEN
   deployStaging:
     docker:
       - image: cimg/python:3.8
@@ -46,6 +55,9 @@ workflows:
   build-and-deploy:
     jobs:
       - test
+      - semgrep:
+          context:
+            - semgrep
       - deployStaging:
           context:
             - aws

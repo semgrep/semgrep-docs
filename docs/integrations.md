@@ -27,16 +27,28 @@ The following instructions use [Semgrep CI](https://github.com/returntocorp/semg
 </details>
 <details><summary>CircleCI</summary>
 <p>
+Store your Semgrep API token in a Circle CI context named "semgrep".
 
+<p>
 ```yaml
 version: 2
 jobs:
-    build:
-        docker:
-            - image: returntocorp/semgrep-agent:v1
-        steps:
-            - checkout
-            - run: python -m semgrep_agent --publish-deployment $SEMGREP_DEPLOYMENT_ID --publish-token $SEMGREP_APP_TOKEN
+  build:
+    docker:
+      - image: returntocorp/semgrep-agent:v1
+        environment:
+          GITHUB_REF: $CIRCLE_BRANCH
+          GITHUB_REPOSITORY: $CIRCLE_PROJECT_REPONAME
+    steps:
+      - checkout
+      - run: python -m semgrep_agent --publish-deployment $SEMGREP_DEPLOYMENT_ID --publish-token $SEMGREP_APP_TOKEN
+
+workflows:
+  build:
+    jobs:
+      - build:
+          context:
+            - semgrep
 ```
 
 </p>
