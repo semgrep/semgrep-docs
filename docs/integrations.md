@@ -6,41 +6,14 @@ Semgrep integrates into the development flow end-to-end, from code conception in
 
 # Continuous integration (CI)
 
+## Supported provider integrations
+
 The following instructions use [Semgrep CI](https://github.com/returntocorp/semgrep-action) and require a free [Semgrep Community](https://semgrep.dev/manage) or paid Semgrep Team account. `SEMGREP_DEPLOYMENT_ID` and `SEMGREP_APP_TOKEN` information is available at [Manage > Projects](https://semgrep.dev/manage/projects) after login.
+
 
 !!! danger
     `SEMGREP_APP_TOKEN` is a secret value: DO NOT HARDCODE IT AND LEAK CREDENTIALS. Use your CI provider's secret or environment variable management feature to store it. 
 
-<details><summary>Buildkite</summary>
-<p>
-
-```yaml
-- label: ":semgrep: Semgrep"
-  command: python -m semgrep_agent --publish-deployment $SEMGREP_DEPLOYMENT_ID" --publish-token $SEMGREP_APP_TOKEN
-  expeditor:
-    executor:
-      docker:
-        image: returntocorp/semgrep-agent:v1
-```
-
-</p>
-</details>
-<details><summary>CircleCI</summary>
-<p>
-
-```yaml
-version: 2
-jobs:
-    build:
-        docker:
-            - image: returntocorp/semgrep-agent:v1
-        steps:
-            - checkout
-            - run: python -m semgrep_agent --publish-deployment $SEMGREP_DEPLOYMENT_ID --publish-token $SEMGREP_APP_TOKEN
-```
-
-</p>
-</details>
 <details><summary>GitHub Actions</summary>
 <p>
 
@@ -96,7 +69,46 @@ semgrep:
 
 </p>
 </details>
-</br>
+
+### Standalone providers
+
+Semgrep can also be manually integrated into CI pipelines using a fixed
+ruleset; however features of Semgrep Community like policies and notifications
+are unavailable.
+
+These can be configured for CircleCI or Buildkite as follows:
+
+<details><summary>Buildkite</summary>
+<p>
+
+```yaml
+- label: ":semgrep: Semgrep"
+  command: python -m semgrep_agent --config p/<ruleset>
+  expeditor:
+    executor:
+      docker:
+        image: returntocorp/semgrep-agent:v1
+```
+
+</p>
+</details>
+<details><summary>CircleCI</summary>
+<p>
+
+```yaml
+version: 2
+jobs:
+    build:
+        docker:
+            - image: returntocorp/semgrep-agent:v1
+        steps:
+            - checkout
+            - run: python -m semgrep_agent --config p/<ruleset>
+```
+
+</p>
+</details>
+
 Is your CI provider missing? Let us know by [filing an issue here](https://github.com/returntocorp/semgrep/issues/new?assignees=&labels=&template=feature_request.md&title=).
 
 # Editor
