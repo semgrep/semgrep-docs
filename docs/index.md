@@ -29,7 +29,7 @@ Semgrep encompasses:
 * [Semgrep Registry](https://semgrep.dev/explore): 900+ rules written by the Semgrep community and [r2c](https://r2c.dev) that cover security, correctness, and performance bugs. No need to DIY unless you want to.
 * [Semgrep Community & Semgrep Team](https://semgrep.dev/manage) - hosted services with free and paid tiers to help write and share rules, and centrally manage Semgrep CI across many projects
 
-Semgrep is an evolution of [pfff](https://github.com/returntocorp/pfff/), which began at [Facebook](https://github.com/facebookarchive/pfff) in 2009, which itself was an evolution of the Linux refactoring tool [Coccinelle](https://en.wikipedia.org/wiki/Coccinelle_(software)). r2c revitalized the project after its original author, [Yoann Padioleau](https://github.com/aryx), joined the company.
+Semgrep CLI is an evolution of [pfff](https://github.com/returntocorp/pfff/), which began at [Facebook](https://github.com/facebookarchive/pfff) in 2009, which itself was an evolution of the Linux refactoring tool [Coccinelle](https://en.wikipedia.org/wiki/Coccinelle_(software)). r2c revitalized the project after its original author, [Yoann Padioleau](https://github.com/aryx), joined the company.
 
 # Language support
 
