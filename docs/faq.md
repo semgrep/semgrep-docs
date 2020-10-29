@@ -4,7 +4,7 @@
 
 # General
 
-#### What is the license for semgrep? What about the rules?
+#### How are Semgrep and its rules licensed?
 [Semgrep CLI](https://github.com/returntocorp/semgrep) is open-source, licensed under the [LGPL 2.1](https://tldrlegal.com/license/gnu-lesser-general-public-license-v2.1-(lgpl-2.1)) license — you can use it at work, on private and proprietary code, no problem!
     
 The [Semgrep Registry](https://semgrep.dev/explore) contains rules from many different contributors, often under differing licenses. If you use Semgrep Registry through Semgrep.dev, r2c is vetting the rules to make sure that the licenses are compatible with using them at your company.
