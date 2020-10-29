@@ -68,7 +68,7 @@ $ semgrep --config p/r2c-security-audit WebGoat
 
 # 2. Write a rule
 
-With Semgep running locally, check-out the [Semgrep Tutorial](https://semgrep.dev/learn) to quickly learn how to write precise rules. 
+With Semgep running locally, see the [Semgrep Tutorial](https://semgrep.dev/learn) to quickly learn how to write precise rules. 
 
 Visit [Writing Rules > Getting started](writing-rules/overview.md) for an in-depth guide and reference material.
 
@@ -87,5 +87,3 @@ For teams running Semgrep on multiple projects, see [Semgep Community](https://s
 2. Monitor the impact of your standards
 3. Host private rules
 4. Push notifications to 3rd party services
-
-
