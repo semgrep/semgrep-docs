@@ -6,7 +6,7 @@
 
 # Run Semgrep locally
 
-We'll start by running [Semgrep CLI](https://github.com/returntocorp/semgrep/) locally to scan your code. It runs locally and offline, on uncompiled code: **no code leaves your machine**.
+We'll start by running [Semgrep CLI](https://github.com/returntocorp/semgrep/) locally to scan your code. It runs offline on uncompiled code: **no code leaves your machine**.
 
 Install Semgrep using Homebrew or pip, or run without installation via Docker:
 
