@@ -46,7 +46,6 @@ $ semgrep --config=p/r2c-ci path/to/src
 # juice-shop, a vulnerable Node.js + Express app
 $ git clone https://github.com/bkimminich/juice-shop
 $ semgrep --config p/r2c-security-audit juice-shop
-
 # railsgoat, a vulnerable Ruby on Rails app
 $ git clone https://github.com/OWASP/railsgoat
 $ semgrep --config p/r2c-security-audit railsgoat

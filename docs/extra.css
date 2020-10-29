@@ -7,7 +7,7 @@ h3,
 h4,
 p,
 div {
-  font-family: "Inter", sans-serif !important;
+  font-family: Inter, Barlow, "Source Sans Pro", "Work Sans", sans-serif !important;
 }
 
 h1,
@@ -130,13 +130,17 @@ div.navbar {
   border: none;
   border-radius: 3px;
   cursor: pointer;
-  font-size: 14px;
+  font-size: 16px;
   justify-content: center;
   padding: 5px 10px;
   text-align: left;
   vertical-align: middle;
   min-height: 30px;
   min-width: 30px;
+}
+
+.bp3-button.bp3-minimal {
+  color: #18202d;
 }
 
 .wy-grid-for-nav {
