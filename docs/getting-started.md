@@ -2,12 +2,6 @@
 
 [TOC]
 
-progression:
-
-1. Run Semgrep locally, using existing rules
-2. Dabble with writing your own rules
-3. Deploy Semgrep continuously
-
 # Run Semgrep locally
 
 Use Semgrep locally to scan specific files or your entire codebase, choosing one-off "grep-like" patterns or existing rules.
@@ -34,21 +28,19 @@ $ semgrep --help
 Once installed, Semgrep can run with single rules or entire rulesets. Visit [Running rules](running-rules.md) to learn more or try the following:
 
 ```sh
-##############################
-# Try Semgrep on your own code
-##############################
-
 # Check for Python == where the left and right hand sides are the same (often a bug)
 $ semgrep -e '$X == $X' --lang=py path/to/src
 
 # Run the r2c-ci ruleset (with rules for many languages) on your own code!
 $ semgrep --config=p/r2c-ci path/to/src
+```
 
+<details><summary>🎉Try Semgrep on known vulnerable test projects! 🎉</summary>
+<p>
 
-################################################
-# Try Semgrep on known vulnerable test projects!
-################################################
+These community projects are designed to code scanners and teach security concepts. Try cloning and scanning them to see Semgrep in action!
 
+```sh
 # juice-shop, a vulnerable Node.js + Express app
 $ git clone https://github.com/bkimminich/juice-shop
 $ semgrep --config p/r2c-security-audit juice-shop
@@ -69,15 +61,16 @@ $ git clone https://github.com/WebGoat/WebGoat
 $ semgrep --config p/r2c-security-audit WebGoat
 ```
 
+</p>
+</details>
+</br>
+
 # Write your own rule
 
-Try the Tutorial and visit [Writing rules](writing-rules/overview.md).
+Quickly start with the [Semgrep Tutorial](https://semgrep.dev/learn) or visit [Writing Rules > Getting started](writing-rules/overview.md) for an in-depth guide.
+
 
 # Run and centrally manage Semgrep CI
-
-<p align="center">
-    <img src="/img/semgrep-ci.gif" alt="A pull request commentor writes a Semgrep rule and deploys it."/>
-</p>
 
 Semgrep is at its best when used to continuously scan code. Visit [Integrations](integrations.md) to learn how to get results where you already work: GitHub, GitLab, Slack, Jira, VS Code, and more.
 
@@ -86,3 +79,8 @@ For teams running Semgrep on multiple projects, see [Semgep Community](https://s
 1. Centrally define code standards for your projects
 2. Monitor the impact of your standards
 3. Host private rules
+
+<p align="center" style="font-size: 12px">
+    <img src="/img/semgrep-ci.gif" alt="A reviewer writes a Semgrep rule and adds it to an organization-wide policy."/></br>
+    A reviewer writes a Semgrep rule and adds it to an organization-wide policy.
+</p>
