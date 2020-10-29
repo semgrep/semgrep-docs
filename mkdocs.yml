@@ -12,6 +12,7 @@ nav:
           - Examples:
               - writing-rules/pattern-examples.md
               - writing-rules/rule-ideas.md
+          - writing-rules/testing-rules.md
       - running-rules.md
       - managing-policy.md
       - integrations.md
