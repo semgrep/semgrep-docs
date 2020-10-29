@@ -1,5 +1,8 @@
 # Pattern syntax
 
+!!! info
+    Getting started with rule writing? Try the [Semgrep Tutorial](https://semgrep.dev/learn) 🎓
+
 This document describes Semgrep’s pattern syntax. You can also see pattern [examples by language](pattern-examples.md). In the command line, patterns are specified with the flag `--pattern` (or `-e`). Multiple
 coordinating patterns may be specified in a configuration file. See
 [rule syntax](pattern-logic.md) for more information.
