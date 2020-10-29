@@ -24,8 +24,8 @@ Semgrep is a fast, open-source, static analysis tool that excels at expressing c
 
 Semgrep encompasses:
 
-* [Semgrep CLI](https://github.com/returntocorp/semgrep) - the open-source command-line tool at the heart of everything
-* [Semgrep CI](https://github.com/returntocorp/semgrep-action) - an adaptation of Semgrep CLI for continuously scanning commits and builds
+* [Semgrep CLI](getting-started.md) - the [open-source](https://github.com/returntocorp/semgrep) command-line tool at the heart of everything
+* [Semgrep CI](integrations.md) - an adaptation of Semgrep CLI for continuously scanning commits and builds
 * [Semgrep Registry](https://semgrep.dev/explore): 900+ rules written by the Semgrep community and [r2c](https://r2c.dev) that cover security, correctness, and performance bugs. No need to DIY unless you want to.
 * [Semgrep Community & Semgrep Team](https://semgrep.dev/manage) - hosted services with free and paid tiers to help write and share rules, and centrally manage Semgrep CI across many projects
 
