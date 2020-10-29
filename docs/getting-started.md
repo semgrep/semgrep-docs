@@ -38,7 +38,7 @@ $ semgrep --config=p/r2c-ci path/to/src
 <details><summary>🎉Try Semgrep on known vulnerable test projects! 🎉</summary>
 <p>
 
-These community projects are designed to code scanners and teach security concepts. Try cloning and scanning them to see Semgrep in action!
+These community projects are designed to test code scanners and teach security concepts. Try cloning and scanning them to see Semgrep in action!
 
 ```sh
 # juice-shop, a vulnerable Node.js + Express app
