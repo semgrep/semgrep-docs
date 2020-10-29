@@ -2,6 +2,12 @@
 
 [TOC]
 
+progression:
+
+1. Run Semgrep locally, using existing rules
+2. Dabble with writing your own rules
+3. Deploy Semgrep continuously
+
 # Run Semgrep locally
 
 Use Semgrep locally to scan specific files or your entire codebase, choosing one-off "grep-like" patterns or existing rules.
@@ -63,11 +69,19 @@ $ git clone https://github.com/WebGoat/WebGoat
 $ semgrep --config p/r2c-security-audit WebGoat
 ```
 
+# Write your own rule
+
+Try the Tutorial and visit [Writing rules](writing-rules/overview.md).
+
 # Run and centrally manage Semgrep CI
+
+<p align="center">
+    <img src="/img/semgrep-ci.gif" alt="A pull request commentor writes a Semgrep rule and deploys it."/>
+</p>
 
 Semgrep is at its best when used to continuously scan code. Visit [Integrations](integrations.md) to learn how to get results where you already work: GitHub, GitLab, Slack, Jira, VS Code, and more.
 
-For teams running Semgrep on multiple projects, visit [Manage](https://semgrep.dev/manage). Semgrep provides free infrastructure to:
+For teams running Semgrep on multiple projects, see [Semgep Community](https://semgrep.dev/manage). Semgrep provides free infrastructure to:
 
 1. Centrally define code standards for your projects
 2. Monitor the impact of your standards
