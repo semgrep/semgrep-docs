@@ -73,7 +73,7 @@ Once Semgep is running locally, see the [Semgrep Tutorial](https://semgrep.dev/l
 Visit [Writing Rules > Getting started](writing-rules/overview.md) for an in-depth guide and reference material.
 
 <p align="center" style="font-size: 12px">
-    <img src="/img/semgrep-ci.gif" alt="A reviewer writes a Semgrep rule and adds it to an organization-wide policy."/></br>
+    <img src="/docs/img/semgrep-ci.gif" alt="A reviewer writes a Semgrep rule and adds it to an organization-wide policy."/></br>
     A reviewer writes a Semgrep rule and adds it to an organization-wide policy.
 </p>
 
