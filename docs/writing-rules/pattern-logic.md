@@ -1,6 +1,9 @@
 # Rule syntax
 
-This document provides a reference for Semgrep YAML rule syntax.
+!!! info
+    Getting started with rule writing? Try the [Semgrep Tutorial](https://semgrep.dev/learn) 🎓
+
+This document describes Semgrep's YAML rule syntax.
 
 [TOC]
 
