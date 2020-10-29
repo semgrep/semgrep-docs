@@ -15,7 +15,7 @@ If the LGPL + Common Clause license is an issue for you as a contributor, please
 
 #### Is it ok to run Semgrep or the r2c rules on my work projects?
 
-Yes! You should feel free to run your own private, offline Semgrep set up and use the r2c rules in it. Of course we’d love rules to be contributed back to the Semgrep Registry but you don’t have to. The Common Clause restriction only comes into effect if you are *selling* the rules in the semgrep-rules repo. If that’s the case, you’ll need to talk with r2c first to get permission.
+Yes! Semgrep is safe to run on your private code. The Common Clause restriction only comes into effect if you are *selling* the rules provided in the semgrep-rules repository. If that’s the case, you’ll need to talk with r2c first to get permission.
 
 #### I’m a security professional and want to use the semgrep-rules project with my clients as part of my paid services. Is that ok?
 Probably! If you have typical consulting service and running semgrep-rules is just a part of your assessments, that’s great—and of course feel free to refer your clients to the hosted [Semgrep.dev](https://semgrep.dev/). But if your entire service is about scanning code and you just want to charge people for running the semgrep-rules repo that r2c did the work to create and maintain, that’s something you’d need to reach out to us about.
