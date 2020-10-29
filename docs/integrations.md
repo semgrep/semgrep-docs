@@ -70,7 +70,7 @@ semgrep:
 </p>
 </details>
 
-### Standalone providers
+## Standalone providers
 
 Semgrep can also be manually integrated into CI pipelines using a fixed
 ruleset; however features of Semgrep Community like policies and notifications
@@ -108,7 +108,7 @@ jobs:
 
 </p>
 </details>
-
+<br />
 Is your CI provider missing? Let us know by [filing an issue here](https://github.com/returntocorp/semgrep/issues/new?assignees=&labels=&template=feature_request.md&title=).
 
 # Editor
