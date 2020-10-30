@@ -54,7 +54,7 @@ totally_safe_eval(user_input)
 eval(safe_get_user_input())
 ```
 
-We can then run the tests with the following:
+Run the tests with the following:
 
 ```sh
 $ python -m semgrep --quiet --test rules/
