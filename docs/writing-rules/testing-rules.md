@@ -14,7 +14,7 @@ Other than annotations there are three things to remember when creating tests:
 
 1. The `--test` flag tells Semgrep to run tests in the specified directory.
 2. Annotations are specified as a comment above the offending line.
-3. Semgrep will look for tests based on the rule filename and the languages
+3. Semgrep looks for tests based on the rule filename and the languages
    specified in the rule. In other words, `path/to/rule.yaml` will look for
    `path/to/rule.py`, `path/to/rule.js`, etc, based on the languages specified
    in the rule.
