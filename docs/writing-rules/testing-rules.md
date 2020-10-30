@@ -74,7 +74,7 @@ final confusion matrix: TP: 1 TN: 2 FP: 1 FN: 1
 - False positives (`FP`) correspond to `todook`
 - False negatives (`FN`) correspond to `todoruleid`
 
-If you would like to avoid failing on TODOs you can specify `--test-ignore-todo`:
+To avoid failing on TODOs you can specify `--test-ignore-todo`:
 
 ```sh
 $ python -m semgrep --quiet --test --test-ignore-todo rules/
