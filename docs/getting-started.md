@@ -66,7 +66,7 @@ $ semgrep --config p/r2c-security-audit WebGoat
 </details>
 </br>
 
-# 2. Write a rule
+# Write a rule
 
 Once Semgep is running locally, see the [Semgrep Tutorial](https://semgrep.dev/learn) to quickly learn how to write precise rules. 
 
@@ -77,7 +77,7 @@ Visit [Writing Rules > Getting started](writing-rules/overview.md) for an in-dep
     A reviewer writes a Semgrep rule and adds it to an organization-wide policy.
 </p>
 
-# 3. Run Semgrep continously
+# Run Semgrep continuously
 
 Finally, Semgrep is at its best when used to continuously scan code. Visit [Integrations](integrations.md) to learn how to get results where you already work: GitHub, GitLab, Slack, Jira, VS Code, and more.
 
