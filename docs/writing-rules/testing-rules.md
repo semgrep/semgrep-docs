@@ -34,7 +34,7 @@ rules:
   severity: WARNING
 ```
 
-If this is `rules/detect-eval.yaml` let's create `rules/detect-eval.py`:
+Given the above is named `rules/detect-eval.yaml`, you can create `rules/detect-eval.py`:
 
 ```python
 from lib import get_user_input, safe_get_user_input
