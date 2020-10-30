@@ -1,7 +1,7 @@
 # Testing rules
 
 Semgrep CLI provides a convenient testing mechanism for your rules. You can
-simply write code in your corresponding programming language and provide a few
+simply write code and provide a few
 annotations to let Semgrep know where you are/aren't expecting findings. Semgrep
 provides the following annotations:
 
