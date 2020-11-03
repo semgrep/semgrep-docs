@@ -65,9 +65,15 @@ jobs:
       
       # Scan code using project's configuration on https://semgrep.dev/manage
       - uses: returntocorp/semgrep-action@v1
+
+        # Set GITHUB_TOKEN to leave inline comments on your pull requests
+        #env:
+        #  GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
         with:
           publishToken: ${{ secrets.SEMGREP_APP_TOKEN }}
           publishDeployment: ${{ secrets.SEMGREP_DEPLOYMENT_ID }}
+
           # Generate a SARIF file for GitHub's code scanning feature. See the next step.
           #generateSarif: "1"
 
