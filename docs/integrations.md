@@ -119,7 +119,7 @@ The [pre-commit framework](https://pre-commit.com/) can run `semgrep` at commit-
 ```
 repos:
 - repo: https://github.com/returntocorp/semgrep
-  rev: 'v0.29.0'
+  rev: 'v0.30.0'
   hooks:
     - id: semgrep
       # See semgrep.dev/rulesets to select a ruleset and copy its URL
