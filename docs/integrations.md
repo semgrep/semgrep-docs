@@ -67,9 +67,6 @@ jobs:
       - uses: returntocorp/semgrep-action@v1
 
         # Set GITHUB_TOKEN to leave inline comments on your pull requests.
-        # Note that this feature is experimental; please reach out to support@r2c.dev
-        # to report any issues.
-
         #env:
         #  GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
@@ -87,6 +84,11 @@ jobs:
       #    sarif_file: semgrep.sarif
       #  if: always()
 ```
+
+#### Inline PR Comments (beta)
+Set `GITHUB_TOKEN` (commented out in the code above) to leave inline comments on your pull requests.
+Comments are left when Semgrep CI finds a result that blocks CI.
+Note that this feature is experimental; please reach out to support@r2c.dev to report any issues.
 
 </p>
 </details>
