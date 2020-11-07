@@ -42,3 +42,7 @@ google_analytics:
   - UA-106134149-12
   - auto
 extra_css: [extra.css]
+plugins:
+  - redirects:
+      redirect_maps:
+        "writing-rules/pattern-logic.md": "writing-rules/rule-syntax.md"
