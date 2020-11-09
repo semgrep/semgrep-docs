@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  {%- block site_meta %}
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  {% if page and page.is_homepage %}<meta name="description" content="{{ config.site_description }}">{% endif %}
+  {% if config.site_author %}<meta name="author" content="{{ config.site_author }}">{% endif %}
+  {% if page and page.canonical_url %}<link rel="canonical" href="{{ page.canonical_url }}">{% endif %}
+  {% if config.site_favicon %}<link rel="shortcut icon" href="{{ config.site_favicon|url }}">
+  {% else %}<link rel="shortcut icon" href="{{ 'img/favicon.ico'|url }}">{% endif %}
+  {%- endblock %}
+
+  {%- block htmltitle %}
+  <title>{% if page and page.title and not page.is_homepage %}{{ page.title }} - {% endif %}{{ config.site_name }}</title>
+  {%- endblock %}
+
+  {%- block styles %}
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700" />
+  <link rel="stylesheet" href="https://unpkg.com/tachyons@4.12.0/css/tachyons.min.css"/>
+
+  <link rel="stylesheet" href="{{ 'css/theme.css'|url }}" />
+  <link rel="stylesheet" href="{{ 'css/theme_extra.css'|url }}" />
+  {%- if config.theme.highlightjs %}
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css" />
+  {%- endif %}
+  {%- for path in config['extra_css'] %}
+  <link href="{{ path|url }}" rel="stylesheet" />
+  {%- endfor %}
+  {%- endblock %}
+
+  {%- block libs %}
+  {% if page %}
+  <script>
+    // Current page data
+    var mkdocs_page_name = {{ page.title|tojson|safe }};
+    var mkdocs_page_input_path = {{ page.file.src_path|string|tojson|safe }};
+    var mkdocs_page_url = {{ page.abs_url|tojson|safe }};
+  </script>
+  {% endif %}
+  <script src="{{ 'js/jquery-2.1.1.min.js'|url }}" defer></script>
+  <script src="{{ 'js/modernizr-2.8.3.min.js'|url }}" defer></script>
+  {%- if config.theme.highlightjs %}
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+  {%- for lang in config.theme.hljs_languages %}
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/{{lang}}.min.js"></script>
+  {%- endfor %}
+  <script>hljs.initHighlightingOnLoad();</script>
+  {%- endif %}
+  {%- endblock %}
+
+  {%- block extrahead %} {% endblock %}
+
+  {%- block analytics %}
+  {% if config.google_analytics %}
+  <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+      ga('create', '{{ config.google_analytics[0] }}', '{{ config.google_analytics[1] }}');
+      ga('send', 'pageview');
+  </script>
+  {% endif %}
+  {%- endblock %}
+</head>
+
+<body class="wy-body-for-nav happy" role="document">
+
+  {% include "semgrep-navbar.html" %}
+  
+  <div class="wy-grid-for-nav">
+
+    {# SIDE NAV, TOGGLES ON MOBILE #}
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+    {%- block site_name %}
+        <div class="search-box-title">Search docs</div>
+	  {%- endblock %}
+	  {%- block search_button %}
+        {% if 'search' in config['plugins'] %}{% include "searchbox.html" %}{% endif %}
+	  {%- endblock %}
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+        {%- block site_nav %}
+        {%- set navlevel = 1 %}
+        {%- for nav_item in nav %}
+            {%- if nav_item.is_section %}
+                <p class="caption"><span class="caption-text">{{ nav_item.title }}</span></p>
+                <ul{% if nav_item.active %} class="current"{% endif %}>
+                    {%- for nav_item in nav_item.children %}
+                    <li class="toctree-l{{ navlevel }}{% if nav_item.active %} current{% endif %}">
+                        {%- include 'nav.html' %}
+                    </li>
+                    {%- endfor %}
+                </ul>
+            {%- elif config.theme.include_homepage_in_sidebar or (not nav_item == nav.homepage) %}
+                <ul{% if nav_item.active %} class="current"{% endif %}>
+                    <li class="toctree-l{{ navlevel }}{% if nav_item.active %} current{% endif %}">
+                        {%- include 'nav.html' %}
+                    </li>
+                </ul>
+            {%- endif %}
+        {%- endfor %}
+    {%- endblock %}
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      {# MOBILE NAV, TRIGGLES SIDE NAV ON TOGGLE #}
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="{{ nav.homepage.url|url }}">{{ config.site_name }}</a>
+      </nav>
+
+      {# PAGE CONTENT #}
+      <div class="wy-nav-content cs">
+
+        <header class="ph3 bg-moon-gray">
+          <div class="fl">
+              <a class="grow" href="https://r2c.dev">
+              <img 
+                src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTAwIiBoZWlnaHQ9IjEwMCIgdmlld0JveD0iMCAwIDEwMCAxMDAiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxwYXRoIGQ9Ik0wIDBIMTAwVjEwMEgwVjBaIiBmaWxsPSIjMjE4N0QwIi8+CjxwYXRoIGQ9Ik0wIDBIMTAwVjEwMEgwVjBaIiBmaWxsPSJ1cmwoI3BhaW50MF9saW5lYXIpIi8+CjxwYXRoIGQ9Ik0wIDBIMTAwVjEwMEgwVjBaIiBmaWxsPSIjRTA1RDVCIi8+CjxwYXRoIGZpbGwtcnVsZT0iZXZlbm9kZCIgY2xpcC1ydWxlPSJldmVub2RkIiBkPSJNMzcuMzY1MyA2MC41MDQ1TDcyLjQzNTkgODQuNjE1NUg1Ni45NTM0TDIwLjUxMjggNTkuOTgwMlY1MS44NDg3SDUyLjEzMTdDNTYuODQ3NyA1MS44NDg3IDYwLjkxMTUgNDcuODg3OCA2MC45MTE1IDQzLjA3MjhDNjAuOTExNSAzOC4xMjA0IDU3LjM2NzIgMzQuMjk2OCA1Mi4xMzE3IDM0LjI5NjhIMzkuOTI5MkwzNS41OTcyIDI5Ljk2OUwzOS45MjkyIDI1LjY0MTFINTIuMTMxN0M2Mi4zODA2IDI1LjY0MTEgNjkuNTg0OCAzMy41NjU5IDY5LjU4NDggNDMuMDcyOEM2OS41ODQ4IDUyLjcyNjUgNjEuNTc5MiA2MC41MDQ1IDUyLjEzMTcgNjAuNTA0NUgzNy4zNjUzWiIgZmlsbD0iIzI0M0Q0RSIvPgo8cGF0aCBmaWxsLXJ1bGU9ImV2ZW5vZGQiIGNsaXAtcnVsZT0iZXZlbm9kZCIgZD0iTTU3LjAxMDggODQuMzY3MUwyMC43NTM1IDU5LjY3MTRWNTEuNTJINTIuMjEzNEM1Ni45MDU3IDUxLjUyIDYwLjk0OTEgNDcuNTQ5NCA2MC45NDkxIDQyLjcyMjVDNjAuOTQ5MSAzNy43NTc5IDU3LjQyMjYgMzMuOTI1IDUyLjIxMzQgMzMuOTI1SDQwLjA3MjNMMzUuNzYyIDI5LjU4NjZMNDAuMDcyMyAyNS4yNDgxSDUyLjIxMzRDNjIuNDEwOCAyNS4yNDgxIDY5LjU3ODcgMzMuMTkyMyA2OS41Nzg3IDQyLjcyMjVDNjkuNTc4NyA1Mi4zOTk5IDYxLjYxMzQgNjAuMTk2OSA1Mi4yMTM0IDYwLjE5NjlIMzcuNTIxM0w3Mi40MTU1IDg0LjM2NzFINTcuMDEwOFpNNDYuNTE2IDYzLjAwOTJMODEuNDEwMyA4Ny4xNzk0SDU2LjE0ODNMMTcuOTQ4NyA2MS4xNjA4VjQ4LjcwNzdINTIuMjEzNEM1NS4zNjYgNDguNzA3NyA1OC4xNDQzIDQ1Ljk4NjggNTguMTQ0MyA0Mi43MjI1QzU4LjE0NDMgMzkuMjM5MyA1NS44MDI5IDM2LjczNzMgNTIuMjEzNCAzNi43MzczSDM4LjkwNzNMMzEuODAzMSAyOS41ODY2TDM4LjkwNzMgMjIuNDM1OEg1Mi4yMTM0QzY0LjA0NTggMjIuNDM1OCA3Mi4zODM1IDMxLjcyNjcgNzIuMzgzNSA0Mi43MjI1QzcyLjM4MzUgNTMuOTY2NCA2My4xNDkyIDYzLjAwOTIgNTIuMjEzNCA2My4wMDkySDQ2LjUxNloiIGZpbGw9IiMyNDNENEUiLz4KPHBhdGggZmlsbC1ydWxlPSJldmVub2RkIiBjbGlwLXJ1bGU9ImV2ZW5vZGQiIGQ9Ik0xOS44NzE4IDMwLjEyODFMMzIuNTcyNSAxNy4zMDc2TDM3LjE3OTQgMjEuOTU4MUwyOS4wODU3IDMwLjEyODFMMzcuMTc5NSAzOC4yOTgyTDMyLjU3MjUgNDIuOTQ4NkwxOS44NzE4IDMwLjEyODFaIiBmaWxsPSIjMjQzRDRFIi8+CjxwYXRoIGZpbGwtcnVsZT0iZXZlbm9kZCIgY2xpcC1ydWxlPSJldmVub2RkIiBkPSJNMTYuMDI1NiAzMC4xMjgxTDMyLjk2NCAxMy40NjE0TDQxLjY2NjcgMjIuMDI0NkwzMy40MzEgMzAuMTI4MUw0MS42NjY3IDM4LjIzMTZMMzIuOTY0IDQ2Ljc5NDhMMTYuMDI1NiAzMC4xMjgxWiIgZmlsbD0iIzI0M0Q0RSIvPgo8cGF0aCBmaWxsLXJ1bGU9ImV2ZW5vZGQiIGNsaXAtcnVsZT0iZXZlbm9kZCIgZD0iTTQxLjIxMTQgNTYuNjU4M0w3Ni4yODIgODAuNzY5M0g2MC43OTk1TDI0LjM1ODkgNTYuMTM0VjQ4LjAwMjVINTUuOTc3OEM2MC42OTM5IDQ4LjAwMjUgNjQuNzU3NyA0NC4wNDE2IDY0Ljc1NzcgMzkuMjI2NkM2NC43NTc3IDM0LjI3NDIgNjEuMjEzNCAzMC40NTA2IDU1Ljk3NzggMzAuNDUwNkg0My43NzUzTDM5LjQ0MzMgMjYuMTIyOEw0My43NzUzIDIxLjc5NDlINTUuOTc3OEM2Ni4yMjY3IDIxLjc5NDkgNzMuNDMwOSAyOS43MTk3IDczLjQzMDkgMzkuMjI2NkM3My40MzA5IDQ4Ljg4MDMgNjUuNDI1MyA1Ni42NTgzIDU1Ljk3NzggNTYuNjU4M0g0MS4yMTE0WiIgZmlsbD0id2hpdGUiLz4KPHBhdGggZmlsbC1ydWxlPSJldmVub2RkIiBjbGlwLXJ1bGU9ImV2ZW5vZGQiIGQ9Ik02MC44NTcgODEuMTYyTDI0LjU5OTYgNTYuNDY2NFY0OC4zMTQ5SDU2LjA1OTVDNjAuNzUxOSA0OC4zMTQ5IDY0Ljc5NTIgNDQuMzQ0MyA2NC43OTUyIDM5LjUxNzRDNjQuNzk1MiAzNC41NTI5IDYxLjI2ODcgMzAuNzIgNTYuMDU5NSAzMC43Mkg0My45MTg0TDM5LjYwODEgMjYuMzgxNUw0My45MTg0IDIyLjA0M0g1Ni4wNTk1QzY2LjI1NjkgMjIuMDQzIDczLjQyNDkgMjkuOTg3MiA3My40MjQ5IDM5LjUxNzRDNzMuNDI0OSA0OS4xOTQ5IDY1LjQ1OTUgNTYuOTkxOSA1Ni4wNTk1IDU2Ljk5MTlINDEuMzY3NEw3Ni4yNjE2IDgxLjE2Mkg2MC44NTdaTTUwLjM2MjIgNTkuODA0Mkw4NS4yNTY0IDgzLjk3NDNINTkuOTk0NEwyMS43OTQ5IDU3Ljk1NThWNDUuNTAyNkg1Ni4wNTk1QzU5LjIxMjIgNDUuNTAyNiA2MS45OTA0IDQyLjc4MTcgNjEuOTkwNCAzOS41MTc0QzYxLjk5MDQgMzYuMDM0MiA1OS42NDkgMzMuNTMyMyA1Ni4wNTk1IDMzLjUzMjNINDIuNzUzNUwzNS42NDkyIDI2LjM4MTVMNDIuNzUzNCAxOS4yMzA3SDU2LjA1OTVDNjcuODkxOSAxOS4yMzA3IDc2LjIyOTYgMjguNTIxNiA3Ni4yMjk2IDM5LjUxNzRDNzYuMjI5NiA1MC43NjEzIDY2Ljk5NTMgNTkuODA0MiA1Ni4wNTk1IDU5LjgwNDJINTAuMzYyMloiIGZpbGw9IiMyNDNENEUiLz4KPHBhdGggZmlsbC1ydWxlPSJldmVub2RkIiBjbGlwLXJ1bGU9ImV2ZW5vZGQiIGQ9Ik0yMy43MTggMjYuMjgxOUwzNi44ODkxIDEzLjQ2MTRMNDEuNjY2NyAxOC4xMTE5TDMzLjI3MzIgMjYuMjgxOUw0MS42NjY3IDM0LjQ1MkwzNi44ODkxIDM5LjEwMjVMMjMuNzE4IDI2LjI4MTlaIiBmaWxsPSJ3aGl0ZSIvPgo8cGF0aCBmaWxsLXJ1bGU9ImV2ZW5vZGQiIGNsaXAtcnVsZT0iZXZlbm9kZCIgZD0iTTE5Ljg3MTggMjYuMjgyMUwzNi44MTAxIDkuNjE1NDhMNDUuNTEyOCAxOC4xNzg2TDM3LjI3NzIgMjYuMjgyMUw0NS41MTI5IDM0LjM4NTdMMzYuODEwMiA0Mi45NDg4TDE5Ljg3MTggMjYuMjgyMVpNMzMuMjYyMyAyNi4yODIxTDQxLjQ5NzkgMTguMTc4NkwzNi44MTAxIDEzLjU2NkwyMy44ODY4IDI2LjI4MjFMMzYuODEwMiAzOC45OTgyTDQxLjQ5NzkgMzQuMzg1N0wzMy4yNjIzIDI2LjI4MjFaIiBmaWxsPSIjMjQzRDRFIi8+CjxkZWZzPgo8bGluZWFyR3JhZGllbnQgaWQ9InBhaW50MF9saW5lYXIiIHgxPSI1Ny4yNzI3IiB5MT0iMjEuNDg4OCIgeDI9Ijc3LjM0NzYiIHkyPSIxNDQuNjk3IiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSI+CjxzdG9wIHN0b3AtY29sb3I9IiMyMTg3RDAiLz4KPHN0b3Agb2Zmc2V0PSIxIiBzdG9wLWNvbG9yPSIjMTk3MEFGIi8+CjwvbGluZWFyR3JhZGllbnQ+CjwvZGVmcz4KPC9zdmc+Cg=="
+                class="h3 w3 pv3 grow"
+              />
+              </a>
+          </div>
+          <div class="tc pv3">
+              <h1 class="v-mid">{{ title }}</h1>
+              <h4 class="pv2 cs-bg-theme-dark-blue white-80">Semgrep ruleset for this cheatsheet: <a class="link dim near-white" target="_blank" href="{{ page.meta.config_url }}">{{ page.meta.config_url }}</a></h4>
+          </div>
+      </header>
+
+      <main id="cheatsheet" class="pa3">
+        <div class="flex">
+            <div class="w-50 pa3 bg-moon-gray v-mid v-100">
+                <p class="pr2">
+                    {{ page.meta.summary }}
+                </p>
+                <h3>Check your project for these conditions:</h3>
+                <code class="cs-bg-theme-dark-blue orange pa2 dib overflow-x-scroll w-100">$ semgrep --config {{ page.meta.config_url }}</code>
+            </div>
+
+            <div class="w-50 pl5-ns pl3 pr3">
+                <h2 class="tl">Exploitation Conditions:</h2>
+                <div class="dib">
+                    <div>
+                        <h3 class="v-mid">User input +</h3>
+                    </div>
+                    <div>
+                        {% for condition in page.meta.conditions %}
+                        <p class="pl2"><a class="link black dim" href="#{{ condition.id }}">{{condition.id}}. {{ condition.description }}</a></p>
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        {% for condition in page.meta.conditions %}
+        <div id="{{ condition.id }}" class="mv2 pb2 bg-black-10 br3">
+            <h2 class="cs-bg-theme-orange pa2 br3 br--top">{{ condition.id }}. {{ condition.description }}</h2>
+            {% for condition_detail in condition.condition_details %}
+            <div class="ph2">
+                <h3 class="w-100 fw3 bb b--black"><span class="fw6">{{condition.id}}.{{ condition_detail.control }}.</span> {{ condition_detail.short_description  }}</h3>
+                <div class="pl2 flex">
+                    <div class="w-50">
+                        <p class="mr3">
+                            {{ condition_detail.description }}
+                        </p>
+                        <p class="mr3">
+                            <span class="f5">Recommendation:</span> {{ condition_detail.mitigation.alternative}}
+                        </p>
+                    </div>
+                    <div class="w-50">
+                        <h4 class="code-example-heading">Code example:</h4>
+                        <div class="pl2">
+                            <pre class="code dib w-100"><code>{{ condition_detail.example | e | trim }}</code></pre>
+                        </div>
+                        <h4>References:</h4>
+                        <ul>
+                            {% for reference in condition_detail.references %}
+                            <li><a class="link dim light-red" href="{{ reference.url }}">{{ reference.text }}</a></li>
+                            {% endfor %}
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+        {% endfor %}
+
+        <h2>Mitigations</h2>
+        <p class="w-50-l w-100">{{ mitigation_summary }}</p>
+        {% for condition in page.meta.conditions %}
+            {% for condition_detail in condition.condition_details %}
+                {% set mitigation = condition_detail.mitigation %}
+                <div class="flex flex-wrap">
+                    <div class="w-20 ba ph2">
+                        {{ condition.id }}.{{ condition_detail.control }}.
+                    </div>
+                    <div class="w-30 bt br bb ph2">
+                        {{ mitigation.description }}
+                    </div>
+                    <div class="w-50 bt br bb ph2 code f7">
+                        {{ mitigation.rule }}
+                    </div>
+                    <div class="w-20 f6 bl br bb pa2">
+                        Recommendation:
+                    </div>
+                    <div class="w-80 br bb pa2">
+                        {{ mitigation.alternative }}
+                    </div>
+                </div>
+            {% endfor %}
+        {% endfor %}
+
+        {% if page.meta.pdf %}
+          <div class="pdf-link">
+            <a href="{{ page.meta.pdf }}" target="_blank" rel="noopener">
+              <div class="pdf-button">Download this cheat sheet as PDF</div>
+            </a>
+          </div>
+        {% endif %}
+      </main>
+
+        <div class="rst-content">
+          {% include "breadcrumbs.html" %}
+      {%- block footer %}
+          {% include "footer.html" %}
+      {% endblock %}
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  {% include "versions.html" %}
+
+
+  {%- block scripts %}
+    <script>var base_url = '{{ base_url }}';</script>
+    <script src="{{ 'js/theme.js'|url }}" defer></script>
+    {%- for path in config['extra_javascript'] %}
+      <script src="{{ path|url }}" defer></script>
+    {%- endfor %}
+    <script defer>
+        window.onload = function () {
+            SphinxRtdTheme.Navigation.enable({{ 'true' if config.theme.sticky_navigation else 'false' }});
+        };
+    </script>
+  {%- endblock %}
+
+</body>
+</html>
+{% if page and page.is_homepage %}
+<!--
+MkDocs version : {{ mkdocs_version }}
+Build Date UTC : {{ build_date_utc }}
+-->
+{% endif %}

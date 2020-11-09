@@ -17,6 +17,11 @@ nav:
       - managing-policy.md
       - integrations.md
       - experiments.md
+  - "Security Cheat Sheets":
+      - "Django XSS": "cheat-sheets/django-xss"
+      - "Flask XSS": "cheat-sheets/flask-xss"
+      - "Java/JSP XSS": "cheat-sheets/java-jsp-xss"
+      - "Rails XSS": "cheat-sheets/rails-xss"
   - Stats:
       - Rules: rules.md
       - Supported languages: status.md
