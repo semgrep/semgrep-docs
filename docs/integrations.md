@@ -86,7 +86,11 @@ jobs:
 ```
 
 #### Inline PR Comments (beta)
-Set `GITHUB_TOKEN` (commented out in the code above) to leave inline comments on your pull requests.
+!!! info
+    This feature is currently only available for GitHub.
+
+To get inline PR comments on your pull requests, set the `GITHUB_TOKEN` environment variable in your workflow file to `secrets.GITHUB_TOKEN`, which is the GitHub app installation access token.
+You can see an example of this environment variable set (commented out) in the above example workflow file.
 Comments are left when Semgrep CI finds a result that blocks CI.
 Note that this feature is experimental; please reach out to support@r2c.dev to report any issues.
 
