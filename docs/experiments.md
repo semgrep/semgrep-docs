@@ -109,7 +109,7 @@ rules:
 
 # Taint tracking
 
-The Python CLI has support for within (intra) file taint tracking. A taint-tracking rule uses the `mode: taint` key-value pair and replaces the typical [top-level pattern keys](writing-rules/pattern-logic.md#schema) with `pattern-sources` and `pattern-sinks` (required) and `pattern-sanitizers` (optional). For example:
+The Python CLI has support for within (intra) file taint tracking. A taint-tracking rule uses the `mode: taint` key-value pair and replaces the typical [top-level pattern keys](writing-rules/rule-syntax.md#schema) with `pattern-sources` and `pattern-sinks` (required) and `pattern-sanitizers` (optional). For example:
 
 ```yaml
 - id: rule_id

@@ -8,7 +8,7 @@ nav:
           - writing-rules/overview.md
           - Syntax:
               - writing-rules/pattern-syntax.md
-              - writing-rules/pattern-logic.md
+              - writing-rules/rule-syntax.md
           - Examples:
               - writing-rules/pattern-examples.md
               - writing-rules/rule-ideas.md
@@ -42,3 +42,7 @@ google_analytics:
   - UA-106134149-12
   - auto
 extra_css: [extra.css]
+plugins:
+  - redirects:
+      redirect_maps:
+        "writing-rules/pattern-logic.md": "writing-rules/rule-syntax.md"
