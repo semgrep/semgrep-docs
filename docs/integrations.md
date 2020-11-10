@@ -85,15 +85,6 @@ jobs:
       #  if: always()
 ```
 
-#### Inline PR Comments (beta)
-!!! info
-    This feature is currently only available for GitHub.
-
-To get inline PR comments on your pull requests, set the `GITHUB_TOKEN` environment variable in your workflow file to `secrets.GITHUB_TOKEN`, which is the GitHub app installation access token.
-You can see an example of this environment variable set (commented out) in the above example workflow file.
-Comments are left when Semgrep CI finds a result that blocks CI.
-Note that this feature is experimental; please reach out to support@r2c.dev to report any issues.
-
 </p>
 </details>
 <details><summary>GitLab CI</summary>
@@ -112,7 +103,18 @@ semgrep:
 </p>
 </details>
 </br>
+### Inline PR Comments (beta)
+
+!!! info
+    This feature is currently only available for GitHub.
+
+To get inline PR comments on your pull requests, set the `GITHUB_TOKEN` environment variable in your workflow file to `secrets.GITHUB_TOKEN`, which is the GitHub app installation access token.
+You can see an example of this environment variable set (commented out) in the GitHub Actions example workflow file.
+Comments are left when Semgrep CI finds a result that blocks CI.
+Note that this feature is experimental; please reach out to [support@r2c.dev](mailto:support@r2c.dev) to report any issues.
+
 Is your CI provider missing? Let us know by [filing an issue here](https://github.com/returntocorp/semgrep/issues/new?assignees=&labels=&template=feature_request.md&title=).
+
 
 # Editor
 
