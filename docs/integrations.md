@@ -67,9 +67,6 @@ jobs:
       - uses: returntocorp/semgrep-action@v1
 
         # Set GITHUB_TOKEN to leave inline comments on your pull requests.
-        # Note that this feature is experimental; please reach out to support@r2c.dev
-        # to report any issues.
-
         #env:
         #  GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
@@ -87,6 +84,15 @@ jobs:
       #    sarif_file: semgrep.sarif
       #  if: always()
 ```
+
+#### Inline PR Comments (beta)
+!!! info
+    This feature is currently only available for GitHub.
+
+To get inline PR comments on your pull requests, set the `GITHUB_TOKEN` environment variable in your workflow file to `secrets.GITHUB_TOKEN`, which is the GitHub app installation access token.
+You can see an example of this environment variable set (commented out) in the above example workflow file.
+Comments are left when Semgrep CI finds a result that blocks CI.
+Note that this feature is experimental; please reach out to support@r2c.dev to report any issues.
 
 </p>
 </details>
