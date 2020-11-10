@@ -53,3 +53,6 @@ For example, in Python:
 ```python
 bad_func()  # nosem: rule-id-1
 ```
+
+!!! note
+    The space (` `) before `nosem` is required for Semgrep to detect this annotation.
