@@ -11,6 +11,20 @@ The following instructions use [Semgrep CI](https://github.com/returntocorp/semg
 !!! danger
     `SEMGREP_APP_TOKEN` is a secret value: DO NOT HARDCODE IT AND LEAK CREDENTIALS. Use your CI provider's secret or environment variable management feature to store it. 
 
+<details><summary>Generic CI Provider</summary>
+<p>
+
+```sh
+# Set additional environment variables
+$ SEMGREP_JOB_URL=https://example.com/me/myjob 
+$ SEMGREP_REPO_URL=https://github.com/myrepository 
+
+# Run semgrep_agent
+$ python -m semgrep_agent --publish-deployment $SEMGREP_DEPLOYMENT_ID --publish-token $SEMGREP_APP_TOKEN
+```
+
+</p>
+</details>
 <details><summary>Buildkite</summary>
 <p>
 
