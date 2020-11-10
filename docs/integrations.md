@@ -6,13 +6,15 @@ Semgrep integrates into the development flow end-to-end, from code conception in
 
 # Continuous integration (CI)
 
-## Supported provider integrations
-
-The following instructions use [Semgrep CI](https://github.com/returntocorp/semgrep-action) and require a free [Semgrep Community](https://semgrep.dev/manage) or paid Semgrep Team account. `SEMGREP_DEPLOYMENT_ID` and `SEMGREP_APP_TOKEN` information is available at [Manage > Projects](https://semgrep.dev/manage/projects) after login.
+The following instructions use [Semgrep CI](https://github.com/returntocorp/semgrep-action) and require a free [Semgrep Community](https://semgrep.dev/manage) or paid Semgrep Team account. `SEMGREP_DEPLOYMENT_ID` and `SEMGREP_APP_TOKEN` information is available at [Manage > Settings](https://semgrep.dev/manage/settings) after login.
 
 
 !!! danger
     `SEMGREP_APP_TOKEN` is a secret value: DO NOT HARDCODE IT AND LEAK CREDENTIALS. Use your CI provider's secret or environment variable management feature to store it. 
+
+## Supported integrations
+
+Semgrep can seamlessly integrate into your CI pipeline using GitHub Actions or GitLab CI.
 
 <details><summary>GitHub Actions</summary>
 <p>
@@ -58,15 +60,6 @@ jobs:
       #  if: always()
 ```
 
-#### Inline PR Comments (beta)
-!!! info
-    This feature is currently only available for GitHub.
-
-To get inline PR comments on your pull requests, set the `GITHUB_TOKEN` environment variable in your workflow file to `secrets.GITHUB_TOKEN`, which is the GitHub app installation access token.
-You can see an example of this environment variable set (commented out) in the above example workflow file.
-Comments are left when Semgrep CI finds a result that blocks CI.
-Note that this feature is experimental; please reach out to support@r2c.dev to report any issues.
-
 </p>
 </details>
 <details><summary>GitLab CI</summary>
@@ -79,23 +72,18 @@ include:
 semgrep:
   image: returntocorp/semgrep-agent:v1
   script:
-    - python -m semgrep_agent --publish-deployment $SEMGREP_DEPLOYMENT_ID --publish-token $SEMGREP_APP_TOKEN
+    - semgrep-agent --publish-deployment $SEMGREP_DEPLOYMENT_ID --publish-token $SEMGREP_APP_TOKEN
 ```
 
 </p>
 </details>
 </br>
-Is your CI provider missing? Let us know by [filing an issue here](https://github.com/returntocorp/semgrep/issues/new?assignees=&labels=&template=feature_request.md&title=).
 
 ## Standalone providers
 
-Semgrep can also be manually integrated into CI pipelines using a fixed
-ruleset; however features of Semgrep Community like policies and notifications
-are unavailable.
+Although not fully supported, these instructions are here to help you integrate with your CI provider of choice. 
 
-These can be configured for CircleCI or Buildkite as follows:
-
-<details><summary>Generic CI Provider</summary>
+The following commands can be run by your CI provider (or on the commandline):
 <p>
 
 ```sh
@@ -108,7 +96,9 @@ $ semgrep-agent --publish-deployment $SEMGREP_DEPLOYMENT_ID --publish-token $SEM
 ```
 
 </p>
-</details>
+
+Buildkite and CircleCI can be configured as follows, though some features such as deduplication of results may not work as expected:
+
 <details><summary>Buildkite</summary>
 <p>
 
@@ -139,6 +129,20 @@ jobs:
 
 </p>
 </details>
+<br />
+
+Is your CI provider missing? Let us know by [filing an issue here](https://github.com/returntocorp/semgrep/issues/new?assignees=&labels=&template=feature_request.md&title=).
+
+### Inline PR Comments (beta)
+
+!!! info
+    This feature is currently only available for GitHub.
+
+To get inline PR comments on your pull requests, set the `GITHUB_TOKEN` environment variable in your workflow file to `secrets.GITHUB_TOKEN`, which is the GitHub app installation access token.
+You can see an example of this environment variable set (commented out) in the above example workflow file.
+Comments are left when Semgrep CI finds a result that blocks CI.
+Note that this feature is experimental; please reach out to support@r2c.dev to report any issues.
+
 
 # Editor
 
