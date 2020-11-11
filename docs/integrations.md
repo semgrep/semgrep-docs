@@ -72,7 +72,7 @@ include:
 semgrep:
   image: returntocorp/semgrep-agent:v1
   script:
-    - semgrep-agent --publish-deployment $SEMGREP_DEPLOYMENT_ID --publish-token $SEMGREP_APP_TOKEN
+    - python -m semgrep_agent --publish-deployment $SEMGREP_DEPLOYMENT_ID --publish-token $SEMGREP_APP_TOKEN
 ```
 
 </p>
@@ -92,7 +92,7 @@ $ SEMGREP_JOB_URL=https://example.com/me/myjob
 $ SEMGREP_REPO_URL=https://gitwebsite.com/myrepository 
 
 # Run semgrep_agent
-$ semgrep-agent --publish-deployment $SEMGREP_DEPLOYMENT_ID --publish-token $SEMGREP_APP_TOKEN
+$ python -m semgrep_agent --publish-deployment $SEMGREP_DEPLOYMENT_ID --publish-token $SEMGREP_APP_TOKEN
 ```
 
 </p>
@@ -104,7 +104,7 @@ Buildkite and CircleCI can be configured as follows, though some features such a
 
 ```yaml
 - label: ":semgrep: Semgrep"
-  command: semgrep-agent --publish-deployment $SEMGREP_DEPLOYMENT_ID" --publish-token $SEMGREP_APP_TOKEN
+  command: python -m semgrep_agent --publish-deployment $SEMGREP_DEPLOYMENT_ID" --publish-token $SEMGREP_APP_TOKEN
   expeditor:
     executor:
       docker:
@@ -124,7 +124,7 @@ jobs:
             - image: returntocorp/semgrep-agent:v1
         steps:
             - checkout
-            - run: semgrep-agent --publish-deployment $SEMGREP_DEPLOYMENT_ID --publish-token $SEMGREP_APP_TOKEN
+            - run: python -m semgrep_agent --publish-deployment $SEMGREP_DEPLOYMENT_ID --publish-token $SEMGREP_APP_TOKEN
 ```
 
 </p>
