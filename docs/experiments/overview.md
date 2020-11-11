@@ -1,4 +1,4 @@
-# Experiments 🧪
+# Experiments
 
 This document describes experimental features and how to try them. Have fun, [file bugs](https://github.com/returntocorp/semgrep/issues/new/choose), tweak the code, and most importantly share your thoughts! 
 
@@ -193,40 +193,6 @@ metavariable content. So `"2147483648"` will be detected but `"2147483646"`
 will not. This is useful when you expect strings to contain integer or float
 data.
 
-# The Generic language
+# Generic pattern matching
 
-Semgrep’s **generic** language matches patterns in languages that Semgrep doesn’t yet support. You can use the generic language mainline languages that don’t yet have a parser, configuration files, and other structured data such as HTML or XML.
-
-```yaml
-rules:
-- id: terraform-all-origins-allowed
-  patterns:
-  - pattern-inside: cors_rule { ... }
-  - pattern: allowed_origins = ["*"]
-  languages:
-  - generic
-  severity: WARNING
-  message: CORS rule on bucket permits any origin
-```
-
-```
-resource "aws_s3_bucket" "b" {
-  bucket = "s3-website-test-open.hashicorp.com"
-  acl    = "private"
-
-  cors_rule {
-    allowed_headers = ["*"]
-    allowed_methods = ["PUT", "POST"]
-    allowed_origins = ["*"]  # <--- Matches here
-    expose_headers  = ["ETag"]
-    max_age_seconds = 3000
-  }
-}
-```
-
-
-In the code, the generic language implementation is called **spacegrep** because it tokenizes based on whitespace (and because it sounds cool 😎).
-
-The generic language is experimental and its properties are listed [here](https://github.com/returntocorp/semgrep/tree/develop/spacegrep). You can see some examples of what will and will not match on the `generic` tab of the Semgrep cheatsheet below. You can also peruse [existing generic rules](https://semgrep.dev/r?lang=generic&sev=ERROR,WARNING,INFO&tag=dgryski.semgrep-go,hazanasec.semgrep-rules,ajinabraham.njsscan,best-practice,security,java-spring,go-stdlib,ruby-stdlib,java-stdlib,js-node,nodejsscan,owasp,dlint,react,performance,compatibility,portability,correctness,maintainability,secuirty,mongodb,experimental,caching,robots-denied,missing-noreferrer,missing-noopener) in the Semgrep registry. In general, short patterns on structured data will perform the best.
-
-<iframe src="https://semgrep.dev/embed/cheatsheet" scrolling="0" width="100%" height="800"  frameborder="0"></iframe>
+See [generic pattern matching](generic-pattern-matching.md).
