@@ -21,7 +21,7 @@ Rulesets can be added to Semgrep CI scans using their "Add to Policy" button on 
 !!! info
     See [Writing rules > Getting started](writing-rules/overview.md) to learn how to write rules.
 
-Local rules can be ephemeral using the `-e` or `--pattern` flag or run from YAML rule files conforming to the [Rule syntax](writing-rules/pattern-logic.md) schema.
+Local rules can be ephemeral using the `-e` or `--pattern` flag or run from YAML rule files conforming to the [Rule syntax](writing-rules/rule-syntax.md) schema.
 
 ```sh
 # Check for Python == where the left and right hand sides are the same (often a bug)
@@ -32,6 +32,7 @@ $ semgrep --config path/to/yaml
 ```
 
 # Ignoring findings
+
 
 ## Ignoring findings via inline comments
 
@@ -55,6 +56,10 @@ For example, in Python:
 ```python
 bad_func()  # nosem: rule-id-1
 ```
+
+!!! note
+    The space (` `) before `nosem` is required for Semgrep to detect this annotation.
+
 
 ## Ignoring findings via .gitignore or .semgrepignore
 

@@ -8,14 +8,15 @@ nav:
           - writing-rules/overview.md
           - Syntax:
               - writing-rules/pattern-syntax.md
-              - writing-rules/pattern-logic.md
+              - writing-rules/rule-syntax.md
           - Examples:
               - writing-rules/pattern-examples.md
               - writing-rules/rule-ideas.md
+          - writing-rules/testing-rules.md
       - running-rules.md
       - managing-policy.md
       - integrations.md
-      - experiments.md
+      - Experiments 🧪: experiments/overview.md
   - Stats:
       - Rules: rules.md
       - Supported languages: status.md
@@ -37,4 +38,12 @@ theme:
 markdown_extensions:
   - admonition
   - toc
+google_analytics:
+  - UA-106134149-12
+  - auto
 extra_css: [extra.css]
+plugins:
+  - search
+  - redirects:
+      redirect_maps:
+        "writing-rules/pattern-logic.md": "writing-rules/rule-syntax.md"

@@ -7,7 +7,7 @@ h3,
 h4,
 p,
 div {
-  font-family: "Inter", sans-serif !important;
+  font-family: Inter, Barlow, "Source Sans Pro", "Work Sans", sans-serif !important;
 }
 
 h1,
@@ -66,7 +66,8 @@ div.navbar {
   background-color: #ffffff;
   z-index: 100;
   height: 50px;
-  box-shadow: 0 0 0 1px rgba(16,22,26,.1), 0 0 0 rgba(16,22,26,0), 0 1px 1px rgba(16,22,26,.2);
+  box-shadow: 0 0 0 1px rgba(16, 22, 26, 0.1), 0 0 0 rgba(16, 22, 26, 0),
+    0 1px 1px rgba(16, 22, 26, 0.2);
 }
 
 .bp3-navbar.bp3-fixed-top {
@@ -129,13 +130,17 @@ div.navbar {
   border: none;
   border-radius: 3px;
   cursor: pointer;
-  font-size: 14px;
+  font-size: 16px;
   justify-content: center;
   padding: 5px 10px;
   text-align: left;
   vertical-align: middle;
   min-height: 30px;
   min-width: 30px;
+}
+
+.bp3-button.bp3-minimal {
+  color: #18202d;
 }
 
 .wy-grid-for-nav {
@@ -281,20 +286,44 @@ div[role="navigation"] hr {
   margin-top: 50px;
 }
 
-.wy-side-scroll {
-  width: 250px;
-  overflow-y: hidden;
-  overflow-x: hidden;
+/* mobile nav styling */
+@media screen and (min-width: 768px) {
+  .wy-side-scroll {
+    width: 250px;
+    overflow-y: hidden;
+    overflow-x: hidden;
+  }
+
+  .wy-side-nav-search {
+    width: 250px;
+  }
+
+  .wy-nav-side {
+    width: 250px;
+  }
+
+  .wy-nav-content-wrap {
+    margin-left: 250px;
+  }
 }
 
-.wy-side-nav-search {
-  width: 250px;
-}
+@media screen and (max-width: 768px) {
+  nav.wy-nav-top {
+    position: fixed;
+    top: 50px;
+    z-index: 1000;
+  }
 
-.wy-nav-side  {
-  width: 250px;
-}
+  nav.wy-nav-top a {
+    display: none;
+  }
 
-.wy-nav-content-wrap {
-  margin-left: 250px;
+  .normal .bp3-navbar-group.bp3-align-left,
+  .bp3-navbar {
+    z-index: 50;
+  }
+
+  div.rst-content {
+    margin-top: 50px;
+  }
 }

@@ -6,10 +6,98 @@ Semgrep integrates into the development flow end-to-end, from code conception in
 
 # Continuous integration (CI)
 
-The following instructions use [Semgrep CI](https://github.com/returntocorp/semgrep-action) and require a free [Semgrep Community](https://semgrep.dev/manage) or paid Semgrep Team account. `SEMGREP_DEPLOYMENT_ID` and `SEMGREP_APP_TOKEN` information is available at [Manage > Projects](https://semgrep.dev/manage/projects) after login.
+The following instructions use [Semgrep CI](https://github.com/returntocorp/semgrep-action) and require a free [Semgrep Community](https://semgrep.dev/manage) or paid Semgrep Team account. `SEMGREP_DEPLOYMENT_ID` and `SEMGREP_APP_TOKEN` information is available at [Manage > Settings](https://semgrep.dev/manage/settings) after login.
+
 
 !!! danger
     `SEMGREP_APP_TOKEN` is a secret value: DO NOT HARDCODE IT AND LEAK CREDENTIALS. Use your CI provider's secret or environment variable management feature to store it. 
+
+## Supported integrations
+
+Semgrep can seamlessly integrate into your CI pipeline using GitHub Actions or GitLab CI.
+
+<details><summary>GitHub Actions</summary>
+<p>
+
+```yaml
+name: Semgrep
+
+on: 
+    # Run on all pull requests. Returns the results introduced by the PR.
+    pull_request: {}
+
+    # Run on merges. Returns all results.
+    #push:
+    #    branches: ["master", "main"]
+
+jobs:
+  semgrep:
+    name: Scan
+    runs-on: ubuntu-latest
+    steps:
+      # Checkout project source
+      - uses: actions/checkout@v1
+      
+      # Scan code using project's configuration on https://semgrep.dev/manage
+      - uses: returntocorp/semgrep-action@v1
+
+        # Set GITHUB_TOKEN to leave inline comments on your pull requests.
+        #env:
+        #  GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+        with:
+          publishToken: ${{ secrets.SEMGREP_APP_TOKEN }}
+          publishDeployment: ${{ secrets.SEMGREP_DEPLOYMENT_ID }}
+
+          # Generate a SARIF file for GitHub's code scanning feature. See the next step.
+          #generateSarif: "1"
+
+      # Upload SARIF file generated in previous step          
+      #- name: Upload SARIF file
+      #  uses: github/codeql-action/upload-sarif@v1
+      #  with:
+      #    sarif_file: semgrep.sarif
+      #  if: always()
+```
+
+</p>
+</details>
+<details><summary>GitLab CI</summary>
+<p>
+
+```yaml
+include:
+  - template: 'Workflows/MergeRequest-Pipelines.gitlab-ci.yml'
+
+semgrep:
+  image: returntocorp/semgrep-agent:v1
+  script:
+    - python -m semgrep_agent --publish-deployment $SEMGREP_DEPLOYMENT_ID --publish-token $SEMGREP_APP_TOKEN
+```
+
+</p>
+</details>
+</br>
+
+## Standalone providers
+
+Although not fully supported, these instructions are here to help you integrate with your CI provider of choice. 
+
+The following commands can be run by your CI provider (or on the commandline):
+<p>
+
+```sh
+# Set additional environment variables
+$ SEMGREP_JOB_URL=https://example.com/me/myjob 
+$ SEMGREP_REPO_URL=https://gitwebsite.com/myrepository 
+
+# Run semgrep_agent
+$ python -m semgrep_agent --publish-deployment $SEMGREP_DEPLOYMENT_ID --publish-token $SEMGREP_APP_TOKEN
+```
+
+</p>
+
+Buildkite and CircleCI can be configured as follows, though some features such as deduplication of results may not work as expected:
 
 <details><summary>Buildkite</summary>
 <p>
@@ -41,63 +129,20 @@ jobs:
 
 </p>
 </details>
-<details><summary>GitHub Actions</summary>
-<p>
+<br />
 
-```yaml
-name: Semgrep
-
-on: 
-    # Run on all pull requests. Returns the results introduced by the PR.
-    pull_request: {}
-
-    # Run on merges. Returns all results.
-    #push:
-    #    branches: ["master", "main"]
-
-jobs:
-  semgrep:
-    name: Scan
-    runs-on: ubuntu-latest
-    steps:
-      # Checkout project source
-      - uses: actions/checkout@v1
-      
-      # Scan code using project's configuration on https://semgrep.dev/manage
-      - uses: returntocorp/semgrep-action@v1
-        with:
-          publishToken: ${{ secrets.SEMGREP_APP_TOKEN }}
-          publishDeployment: ${{ secrets.SEMGREP_DEPLOYMENT_ID }}
-          # Generate a SARIF file for GitHub's code scanning feature. See the next step.
-          #generateSarif: "1"
-
-      # Upload SARIF file generated in previous step          
-      #- name: Upload SARIF file
-      #  uses: github/codeql-action/upload-sarif@v1
-      #  with:
-      #    sarif_file: semgrep.sarif
-      #  if: always()
-```
-
-</p>
-</details>
-<details><summary>GitLab CI</summary>
-<p>
-
-```yaml
-include:
-  - template: 'Workflows/MergeRequest-Pipelines.gitlab-ci.yml'
-
-semgrep:
-  image: returntocorp/semgrep-agent:v1
-  script:
-    - python -m semgrep_agent --publish-deployment $SEMGREP_DEPLOYMENT_ID --publish-token $SEMGREP_APP_TOKEN
-```
-
-</p>
-</details>
-</br>
 Is your CI provider missing? Let us know by [filing an issue here](https://github.com/returntocorp/semgrep/issues/new?assignees=&labels=&template=feature_request.md&title=).
+
+### Inline PR Comments (beta)
+
+!!! info
+    This feature is currently only available for GitHub.
+
+To get inline PR comments on your pull requests, set the `GITHUB_TOKEN` environment variable in your workflow file to `secrets.GITHUB_TOKEN`, which is the GitHub app installation access token.
+You can see an example of this environment variable set (commented out) in the above example workflow file.
+Comments are left when Semgrep CI finds a result that blocks CI.
+Note that this feature is experimental; please reach out to support@r2c.dev to report any issues.
+
 
 # Editor
 
@@ -110,7 +155,7 @@ The [pre-commit framework](https://pre-commit.com/) can run `semgrep` at commit-
 ```
 repos:
 - repo: https://github.com/returntocorp/semgrep
-  rev: 'v0.28.0'
+  rev: 'v0.31.1'
   hooks:
     - id: semgrep
       # See semgrep.dev/rulesets to select a ruleset and copy its URL
