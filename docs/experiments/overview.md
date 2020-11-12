@@ -138,7 +138,7 @@ semgrep --config https://raw.githubusercontent.com/returntocorp/semgrep/develop/
 # `metavariable-comparison`
 
 The `metavariable-comparison` operator compares metavariables against a basic [Python comparison](https://docs.python.org/3/reference/expressions.html#comparisons)
-expression. This is useful for filtering results based on a [metavariable's](../writing-rules/pattern-syntax/#metavariables) numeric value.
+expression. This is useful for filtering results based on a [metavariable's](../writing-rules/pattern-syntax.md#metavariables) numeric value.
 
 Example:
 
