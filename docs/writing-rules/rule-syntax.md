@@ -7,9 +7,9 @@ This document describes Semgrep's YAML rule syntax.
 
 [TOC]
 
-## Schema
+# Schema
 
-### Required
+## Required
 
 All required fields must be present at the top-level of a rule, immediately underneath `rules`.
 
@@ -28,7 +28,7 @@ All required fields must be present at the top-level of a rule, immediately unde
 !!! info
     Only one of `pattern`, `patterns`, `pattern-either`, or `pattern-regex` is required.
 
-### Optional
+## Optional
 
 | Field                                   | Type     | Description                                                                              |
 | :-------------------------------------- | :------- | :--------------------------------------------------------------------------------------- |
@@ -46,14 +46,14 @@ The below optional fields must reside underneath a `patterns` or `pattern-either
 | [`pattern-not-inside`](#pattern-not-inside)     | `string` | Keep findings that do not lie inside this pattern                                                                       |
 | [`pattern-where-python`](#pattern-where-python) | `string` | Remove findings matching this Python expression                                                                         |
 
-## Operators
+# Operators
 
-### `pattern`
+## `pattern`
 
 The `pattern` operator looks for code matching its expression. This can be basic expressions like `$X == $X` or unwanted things like `crypto.md5(...)`.
 
 
-### `patterns`
+## `patterns`
 
 The `patterns` operator performs a logical AND operation on one or more child patterns. This is useful for chaining multiple patterns together that all must be true.
 
@@ -72,7 +72,7 @@ rules:
 
 Checking if `0 == 0` is often used to quickly enable and disable blocks of code. It can easily be changed to `0 == 1` to disable functionality. We can remove these debugging false positives with `patterns`.
 
-### `pattern-either`
+## `pattern-either`
 
 The `pattern-either` operator performs a logical OR operation on one or more child patterns. This is useful for chaining multiple patterns together where any may be true.
 
@@ -91,7 +91,7 @@ rules:
 
 This rule looks for usage of the Python standard library functions `hashlib.md5` or `hashlib.sha1`. Depending on their usage, these hashing functions are [considered insecure](https://shattered.io/).
 
-### `pattern-regex`
+## `pattern-regex`
 
 The `pattern-regex` operator searches files for a [Python `re`](https://docs.python.org/3/library/re.html) compatible expression. This is useful for migrating existing regular expression code search functionality to Semgrep.
 
@@ -124,7 +124,7 @@ rules:
 !!! note
     Single (`'`) and double (`"`) quotes [behave differently](https://docs.octoprint.org/en/master/configuration/yaml.html#scalars) in YAML syntax. Single quotes are typically preferred when using backslashes (`\`) with `pattern-regex`.
 
-### `metavariable-regex`
+## `metavariable-regex`
 
 The `metavariable-regex` operator searches metavariables for a [Python `re`](https://docs.python.org/3/library/re.html#re.match) compatible expression. This is useful for filtering results based on a [metavariable’s](pattern-syntax.md#metavariables) value. It requires the `metavariable` and `regex` keys and can be combined with other pattern operators.
 
@@ -144,13 +144,13 @@ rules:
     severity: ERROR
 ```
 
-### `pattern-not`
+## `pattern-not`
 
 The `pattern-not` operator is the opposite of the `pattern` operator. It finds code that does not match its expression. This is useful for eliminating common false positives.
 
 Example: see the [`patterns`](#patterns) example above.
 
-### `pattern-inside`
+## `pattern-inside`
 
 The `pattern-inside` operator keeps matched findings that reside within its expression. This is useful for finding code inside other pieces of code like functions or if blocks.
 
@@ -179,7 +179,7 @@ class Cls(object):
         return None
 ```
 
-### `pattern-not-inside`
+## `pattern-not-inside`
 
 The `pattern-not-inside` operator keeps matched findings that do not reside within its expression. It is the opposite of `pattern-inside`. This is useful for finding code that’s missing a corresponding cleanup action like disconnect, close, or shutdown. It’s also useful for finding problematic code that isn't inside code that mitigates the issue.
 
@@ -203,7 +203,7 @@ The above rule looks for files that are opened but never closed, possibly leadin
 
 The `$FILE` metavariable ensures that the same variable name is used in the `open` and `close` calls. The ellipsis operator allows for any arguments to be passed to `open` and any sequence of code statements in-between the `open` and `close` calls. The rule ignores how `open` is called or what happens up to a `close` call &mdash; it only needs to make sure `close` is called.
 
-### `pattern-where-python`
+## `pattern-where-python`
 
 The `pattern-where-python` is the most flexible operator. It allows for writing custom Python logic to filter findings. This is useful when none of the other operators provide the functionality needed to create a rule.
 
@@ -230,11 +230,11 @@ rules:
 
 The above rule looks for use of Django’s [`FloatField`](https://docs.djangoproject.com/en/3.0/ref/models/fields/#django.db.models.FloatField) model when storing currency information. `FloatField` can lead to rounding errors and should be avoided in favor of [`DecimalField`](https://docs.djangoproject.com/en/3.0/ref/models/fields/#django.db.models.DecimalField) when dealing with currency. Here the `pattern-where-python` operator allows us to utilize the Python `in` statement to filter findings that look like currency.
 
-## Metavariable matching
+# Metavariable matching
 
 Metavariable matching operates differently for logical AND (`patterns`) and logical OR (`pattern-either`) parent operators. Behavior is consistent across all child operators: `pattern`, `pattern-not`, `pattern-regex`, `pattern-inside`, `pattern-not-inside`.
 
-### Metavariables in logical ANDs
+## Metavariables in logical ANDs
 
 Metavariable values must be identical across sub-patterns when performing logical AND operations with the `patterns` operator.
 
@@ -267,7 +267,7 @@ def foo(path):
     open(something_else)
 ```
 
-### Metavariables in logical ORs
+## Metavariables in logical ORs
 
 Metavariable matching does not affect the matching of logical OR operations with the `pattern-either` operator.
 
@@ -296,7 +296,7 @@ insecure_func1(something)
 insecure_func2(something_else)
 ```
 
-### Metavariables in complex logic
+## Metavariables in complex logic
 
 Metavariable matching still affects subsequent logical ORs if the parent is a logical AND.
 
@@ -331,7 +331,7 @@ def foo(something):
     bar(something_else)
 ```
 
-## `fix`
+# `fix`
 
 The `fix` top-level key allows for simple autofixing of a pattern by suggesting an autofix for each match. Run `semgrep` with `--autofix` to apply the changes to the files.
 
@@ -348,7 +348,7 @@ rules:
     severity: ERROR
 ```
 
-## `metadata`
+# `metadata`
 
 To note extra information on a rule, such as a related CVE or the name of the security engineer who wrote the rule, use the `metadata:` key.
 
@@ -367,9 +367,9 @@ rules:
 
 The metadata will also be shown in Semgrep’s output if you’re running it with `--json`.
 
-## `paths`
+# `paths`
 
-### Excluding a rule in paths
+## Excluding a rule in paths
 
 To ignore a specific rule on specific files, set the `paths:` key with one or more filters.
 
@@ -397,7 +397,7 @@ When invoked with `semgrep -f rule.yaml project/`, the above rule will run on fi
 !!! note
     The glob syntax is from [Python's `pathlib`](https://docs.python.org/3/library/pathlib.html#pathlib.PurePath.match) and is used to match against the given file and all its parent directories.
 
-### Limiting a rule to paths
+## Limiting a rule to paths
 
 Conversely, to run a rule _only_ on specific files, set a `paths:` key with one or more of these filters:
 
@@ -432,11 +432,11 @@ paths:
 
 The above rule returns results from `project/schemata/scan.py` but not from `project/schemata/scan_internal.py`.
 
-## Other examples
+# Other examples
 
 This section contains more complex rules that perform advanced code searching.
 
-### Complete useless comparison
+## Complete useless comparison
 
 ```yaml
 rules:
@@ -462,7 +462,7 @@ rules:
 
 The above rule makes use of many operators. It uses `pattern-either`, `patterns`, `pattern`, and `pattern-inside` to carefully consider different cases, and uses `pattern-not-inside` and `pattern-not` to whitelist certain useless comparisons.
 
-## Full specification
+# Full specification
 
 The [full configuration-file format](https://github.com/returntocorp/semgrep/blob/develop/semgrep/semgrep/rule_schema.yaml) is defined as
 a [jsonschema](http://json-schema.org/specification.html) object.
