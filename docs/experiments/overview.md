@@ -109,7 +109,7 @@ rules:
 
 # Taint tracking
 
-The Python CLI has support for within (intra) file taint tracking. A taint-tracking rule uses the `mode: taint` key-value pair and replaces the typical [top-level pattern keys](/writing-rules/rule-syntax.md#schema) with `pattern-sources` and `pattern-sinks` (required) and `pattern-sanitizers` (optional). For example:
+The Python CLI has support for within (intra) file taint tracking. A taint-tracking rule uses the `mode: taint` key-value pair and replaces the typical [top-level pattern keys](../writing-rules/rule-syntax.md#schema) with `pattern-sources` and `pattern-sinks` (required) and `pattern-sanitizers` (optional). For example:
 
 ```yaml
 - id: rule_id
@@ -138,7 +138,7 @@ semgrep --config https://raw.githubusercontent.com/returntocorp/semgrep/develop/
 # `metavariable-comparison`
 
 The `metavariable-comparison` operator compares metavariables against a basic [Python comparison](https://docs.python.org/3/reference/expressions.html#comparisons)
-expression. This is useful for filtering results based on a [metavariable's](/writing-rules/pattern-syntax/#metavariables) numeric value.
+expression. This is useful for filtering results based on a [metavariable's](../writing-rules/pattern-syntax/#metavariables) numeric value.
 
 Example:
 
