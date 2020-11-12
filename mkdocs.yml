@@ -1,5 +1,6 @@
 site_name: Semgrep Docs
 site_url: https://semgrep.dev/docs/
+strict: true
 nav:
   - Semgrep:
       - Home: index.md
