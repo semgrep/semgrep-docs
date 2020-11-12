@@ -13,7 +13,7 @@ Explore the Semgrep docs and join an amazing community of engineering and securi
 - [Running rules](running-rules.md)
 - [Managing CI policy](managing-policy.md)
 - [Integrations](integrations.md)
-- [Experiments](experiments.md)
+- [Experiments](experiments)
 
 ---
 
