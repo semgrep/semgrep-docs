@@ -1,4 +1,4 @@
-# Experiments 🧪
+# Experiments
 
 This document describes experimental features and how to try them. Have fun, [file bugs](https://github.com/returntocorp/semgrep/issues/new/choose), tweak the code, and most importantly share your thoughts! 
 
@@ -192,3 +192,7 @@ This will remove quotes (`'`, `"`, and `` ` ``) from both ends of the
 metavariable content. So `"2147483648"` will be detected but `"2147483646"`
 will not. This is useful when you expect strings to contain integer or float
 data.
+
+# Generic pattern matching
+
+See [generic pattern matching](generic-pattern-matching.md).

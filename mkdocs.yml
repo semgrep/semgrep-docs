@@ -16,7 +16,7 @@ nav:
       - running-rules.md
       - managing-policy.md
       - integrations.md
-      - experiments.md
+      - Experiments 🧪: experiments/overview.md
   - Stats:
       - Rules: rules.md
       - Supported languages: status.md
