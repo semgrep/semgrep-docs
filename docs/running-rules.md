@@ -30,3 +30,7 @@ $ semgrep -e '$X == $X' --lang=py path/to/src
 # Run local YAML rule files
 $ semgrep --config path/to/yaml
 ```
+
+# Managing findings
+
+See [Ignoring Findings](ignoring-findings.md) for details on how to supress rule output.
