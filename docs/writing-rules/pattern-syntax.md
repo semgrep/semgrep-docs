@@ -9,7 +9,7 @@ coordinating patterns may be specified in a configuration file. See
 
 [TOC]
 
-### Expression matching
+# Expression matching
 
 Expression matching searches code for a given pattern. For example, the pattern `1 + func(42)` can match
 a full expression or be part of a subexpression:
@@ -18,7 +18,7 @@ a full expression or be part of a subexpression:
 foo(1 + func(42)) + bar()
 ```
 
-### String matching
+# String matching
 
 Perl Compatible Regular Expressions (PCRE) are available for searching string literals within code. 
 
@@ -30,12 +30,12 @@ requests.get("api.dev.corp.com")  # Oops, development API left in
 
 To indicate a regex, use the syntax "=~/<regexp>/" within a string element. Advanced regexp features are available, such as case-insensitive regexps with ‘/i’ (e.g., "=~/foo/i"). Matching occurs anywhere in the string unless the regexp ‘^’ anchor character is used: "=~/^foo.*/" checks if a string begins with ‘foo’.
 
-### Ellipsis operator
+# Ellipsis operator
 
 The ellipsis operator (`...`) abstracts away a sequence of zero or more
 arguments, statements, or characters.
 
-#### Function calls
+## Function calls
 
 Use ellipsis operator to search for function calls or
 function calls with specific arguments. For example, the pattern `insecure_function(...)` finds calls regardless of its arguments.
@@ -74,7 +74,7 @@ requests.get(URL, verify=False)
 Match the keyword argument value with the pattern `$FUNC(..., $KEY=$VALUE, ...)`.
 
 
-#### Method calls
+## Method calls
 
 The ellipsis operator can be used to search for method calls on a specific
 object type. For example, the pattern `$OBJECT.extractall(...)` matches:
@@ -83,7 +83,7 @@ object type. For example, the pattern `$OBJECT.extractall(...)` matches:
 tarball.extractall('/path/to/directory')  # Oops, potential arbitrary file overwrite
 ```
 
-#### Function definitions
+## Function definitions
 
 The ellipsis operator can be used in function argument lists or in the function
 body. To find function definitions with [mutable default arguments](https://docs.python-guide.org/writing/gotchas/#mutable-default-arguments):
@@ -103,7 +103,7 @@ def parse_data(parser, data={}):  # Oops, mutable default arguments
     The YAML `|` operator allows for [multiline strings](https://yaml-multiline.info/).
 
 
-#### Class definitions
+## Class definitions
 
 The ellipsis operator can be used in class definitions. To find classes that
 inherit from a certain parent:
@@ -123,7 +123,7 @@ class DataRetriever(InsecureBaseClass):
 !!! info
     The YAML `|` operator allows for [multiline strings](https://yaml-multiline.info/).
 
-#### Strings
+## Strings
 
 The ellipsis operator can be used to search for strings containing any data. The pattern `crypto.set_secret_key("...")` matches:
 
@@ -131,7 +131,7 @@ The ellipsis operator can be used to search for strings containing any data. The
 crypto.set_secret_key("HARDCODED SECRET")
 ```
 
-#### Binary operations
+## Binary operations
 
 The ellipsis operator can match any number of arguments to binary operations. The pattern `$X = 1 + 2 + ...` matches:
 
@@ -139,7 +139,7 @@ The ellipsis operator can match any number of arguments to binary operations. Th
 foo = 1 + 2 + 3 + 4
 ```
 
-#### Arrays
+## Arrays
 
 The ellipsis operator can match literal arrays. The pattern `pattern: user_list = [..., 10]` matches:
 
@@ -147,7 +147,7 @@ The ellipsis operator can match literal arrays. The pattern `pattern: user_list 
 user_list = [8, 9, 10]
 ```
 
-#### Conditionals and loops
+## Conditionals and loops
 
 The ellipsis operator can be used inside conditionals or loops. The pattern:
 
@@ -188,7 +188,7 @@ if can_make_request:
     Half or partial statements can't be matches; both of the examples above must specify the contents of the condition’s body (e.g., `$BODY` or `...`), otherwise they are not valid patterns.
 
 
-### Metavariables
+# Metavariables
 
 Metavariables are an abstraction to match code when don’t know the value or contents ahead of time, acting like [capture groups](https://regexone.com/lesson/capturing_groups) in regular expressions.
 
@@ -234,7 +234,7 @@ initial_value = get_initial_value()
 !!! info
     The YAML `|` operator allows for [multiline strings](https://yaml-multiline.info/).
 
-### Typed Metavariables
+# Typed Metavariables
 
 Typed metavariables only match a metavariable if it’s declared as a specific type. For example, you may want to specifically check that `==` is never used for
 strings.
@@ -292,11 +292,11 @@ public class Example {
 !!! warning
     For Go, Semgrep currently does not recognize the type of all variables that are declared on the same line. That is, the following will not take both `a` and `b` as `int`s: `var a, b = 1, 2`
 
-### Equivalences
+# Equivalences
 
 Semgrep automatically searches for code that is semantically equivalent.
 
-#### Imports
+## Imports
 
 Equivalent imports using aliasing or submodules are matched. 
 
@@ -314,7 +314,7 @@ from foo.bar import baz
 baz.qux()
 ```
 
-#### Constants
+## Constants
 
 Languages supporting constants allow for constant propagation. In other words, the constant’s value is considered equivalent to a literal value. The following patterns will catch each respective code snippet:
 
@@ -377,7 +377,7 @@ def get_digest(data):
     return hashlib.new(ALGORITHM, data=data).digest()
 ```
 
-### Deep expression operator
+# Deep expression operator
 
 Use the deep expression operator `<... [your_pattern] ...>` to match an expression that could be deeply nested within another expression. An example is looking for a pattern anywhere within an `if` statement. The deep expression operator matches your pattern in the current expression context and recursively in any subexpressions.
 

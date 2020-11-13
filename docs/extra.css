@@ -327,3 +327,7 @@ div[role="navigation"] hr {
     margin-top: 50px;
   }
 }
+
+div.toc > ul > li:first-child {
+  display: none;
+}
