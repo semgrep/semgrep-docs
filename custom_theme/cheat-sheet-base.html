@@ -193,33 +193,6 @@
 
           <div class="cs-mitigations">
             <h2>Mitigations</h2>
-            <p class="w-50-l w-100">{{ mitigation_summary }}</p>
-            {% for condition in page.meta.conditions %}
-              {% for condition_detail in condition.condition_details %}
-                {% set mitigation = condition_detail.mitigation %}
-                <div class="flex flex-wrap">
-                  <div class="w-20 ba ph2">
-                    {{ condition.id }}.{{ condition_detail.control }}.
-                  </div>
-                  <div class="w-30 bt br bb ph2">
-                    {{ mitigation.description }}
-                  </div>
-                  <div class="w-50 bt br bb ph2 code f7">
-                    {{ mitigation.rule }}
-                  </div>
-                  <div class="w-20 f6 bl br bb pa2">
-                    Recommendation:
-                  </div>
-                  <div class="w-80 br bb pa2">
-                    {{ mitigation.alternative }}
-                  </div>
-                </div>
-              {% endfor %}
-            {% endfor %}
-          </div>
-
-          <div class="cs-mitigations">
-            <h2>Mitigations</h2>
             <table>
               <thead>Mitigations</thead>
               {% for condition in page.meta.conditions %}
