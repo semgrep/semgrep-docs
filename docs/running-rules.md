@@ -33,26 +33,4 @@ $ semgrep --config path/to/yaml
 
 # Managing findings
 
-Semgrep allows for ignoring, or whitelisting, findings in code by specifying a `nosem` comment on the first line of a finding. Comments take the form of `nosem` or `nosem: <rule-id>`. This functionality works across languages.
-
-A stand-alone `nosem` comment will ignore all Semgrep findings on the line it appears. A `nosem` comment specifying a specific rule ID will only ignore the specified rule. Multiple rules can be ignored using a comma-delimited list.
-
-For example, in JavaScript:
-
-```javascript
-bad_func(); // nosem
-bad_func(); // nosem: rule-id-1
-bad_func(); // nosem: rule-id-1, rule-id-2
-bad_func(   // nosem: rule-id-1
-  arg
-);
-```
-
-For example, in Python:
-
-```python
-bad_func()  # nosem: rule-id-1
-```
-
-!!! note
-    The space (` `) before `nosem` is required for Semgrep to detect this annotation.
+See [Ignoring Findings](ignoring-findings.md) for details on how to supress rule output.

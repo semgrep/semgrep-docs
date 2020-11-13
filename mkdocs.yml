@@ -15,6 +15,7 @@ nav:
               - writing-rules/rule-ideas.md
           - writing-rules/testing-rules.md
       - running-rules.md
+      - ignoring-findings.md
       - managing-policy.md
       - integrations.md
       - Experiments 🧪: experiments/overview.md
