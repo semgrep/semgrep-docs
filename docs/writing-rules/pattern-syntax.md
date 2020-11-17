@@ -347,7 +347,7 @@ class Hash {
 }
 ```
 
-Javascript:
+JavaScript:
 
 The pattern `crypto.subtle.digest("SHA-1", ...);` matches:
 
