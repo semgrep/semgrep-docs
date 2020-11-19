@@ -91,6 +91,7 @@ The following commands can be run by your CI provider (or on the commandline):
 $ SEMGREP_JOB_URL=https://example.com/me/myjob 
 $ SEMGREP_REPO_URL=https://gitwebsite.com/myrepository 
 $ SEMGREP_BRANCH=mybranch
+$ SEMGREP_REPO_NAME=myorg/myrepository
 
 # Run semgrep_agent
 $ python -m semgrep_agent --publish-deployment $SEMGREP_DEPLOYMENT_ID --publish-token $SEMGREP_APP_TOKEN
