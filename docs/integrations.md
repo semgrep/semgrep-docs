@@ -110,6 +110,7 @@ Buildkite and CircleCI can be configured as follows, though some features such a
     executor:
       docker:
         image: returntocorp/semgrep-agent:v1
+        workdir: /<repo_name>
 ```
 
 </p>
