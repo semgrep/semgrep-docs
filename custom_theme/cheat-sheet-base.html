@@ -194,7 +194,14 @@
           <div class="cs-mitigations">
             <h2>Mitigations</h2>
             <table>
-              <thead>Mitigations</thead>
+              <thead>
+                <tr>
+                  <th>Condition</th>
+                  <th>Name</th>
+                  <th>Semgrep rule</th>
+                  <th>Recommendation</th>
+                </tr>
+              </thead>
               {% for condition in page.meta.conditions %}
                 {% for condition_detail in condition.condition_details %}
                   <tr>
@@ -202,7 +209,6 @@
                     <td>{{ condition.id }}.{{ condition_detail.control }}.</td>
                     <td>{{ mitigation.description }}</td>
                     <td>{{ mitigation.rule }}</td>
-                    <td>Recommendation:</td>
                     <td>{{ mitigation.alternative }}</td>
                   </tr>
                 {% endfor %}
