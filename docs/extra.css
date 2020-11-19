@@ -457,3 +457,16 @@ div.cs li.cs-references {
     margin-top: 50px;
   }
 }
+
+/* print styling for cheat sheets begins here */
+
+@media print {
+  nav.wy-nav-side,
+  div.navbar,
+  div.rst-content,
+  div.pdf-link {
+    display: none;
+  }
+}
+
+/* print styling for cheat sheets ends here */
