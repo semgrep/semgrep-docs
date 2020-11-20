@@ -45,7 +45,8 @@ google_analytics:
   - auto
 extra_css: [extra.css]
 plugins:
-  - search
+  - search:
+      min_search_length: 2
   - redirects:
       redirect_maps:
         "writing-rules/pattern-logic.md": "writing-rules/rule-syntax.md"
