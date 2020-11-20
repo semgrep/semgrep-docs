@@ -91,6 +91,7 @@ The following commands can be run by your CI provider (or on the commandline):
 $ SEMGREP_JOB_URL=https://example.com/me/myjob 
 $ SEMGREP_REPO_URL=https://gitwebsite.com/myrepository 
 $ SEMGREP_BRANCH=mybranch
+$ SEMGREP_REPO_NAME=myorg/myrepository
 
 # Run semgrep_agent
 $ python -m semgrep_agent --publish-deployment $SEMGREP_DEPLOYMENT_ID --publish-token $SEMGREP_APP_TOKEN
@@ -98,7 +99,23 @@ $ python -m semgrep_agent --publish-deployment $SEMGREP_DEPLOYMENT_ID --publish-
 
 </p>
 
-Buildkite and CircleCI can be configured as follows, though some features such as deduplication of results may not work as expected:
+For diff-aware scans, include the flag `--baseline-ref` set to a git ref (branch name, tag, or commit hash) to use as a baseline. This will prompt Semgrep to ignore findings that were already present in the codebase, and only show findings that were introduced by modifications to the baseline.
+
+Using the instructions above, Semgrep should be able to integrate into the following CI providers, with some limitations:
+- AppVeyor
+- Bamboo
+- Bitbucket Pipelines
+- Bitrise
+- Buildbot
+- Buildkite
+- CircleCI
+- Codeship
+- Codefresh
+- Jenkins
+- TeamCity CI
+- Travis CI
+
+For example, Buildkite and CircleCI can be configured as follows, though some features such as deduplication of results may not work as expected:
 
 <details><summary>Buildkite</summary>
 <p>
