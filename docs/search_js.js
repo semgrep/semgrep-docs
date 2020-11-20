@@ -1,6 +1,6 @@
 function replaceEmptySearchResults() {
   let emptyResults = document.getElementById('mkdocs-search-results');
-  let updatedResults = '<p>Sorry, no results found in the docs. Try searching the <a href="https://semgrep.dev/r">Semgrep Registry</a> for related rules.</p>';
+  let updatedResults = '<p>Sorry, no results found in the docs. Try searching the <a href="https://semgrep.dev/r">Semgrep Registry</a> for related rules or ask a question in the <a href="https://r2c.dev/slack">community Slack</a>.</p>';
   emptyResults.innerHTML = updatedResults;
 }
 
