@@ -99,6 +99,8 @@ $ python -m semgrep_agent --publish-deployment $SEMGREP_DEPLOYMENT_ID --publish-
 
 </p>
 
+For diff-aware scans, include the flag `--baseline-ref` set to a git ref (branch name, tag, or commit hash) to use as a baseline. This will prompt Semgrep to ignore findings that were already present in the codebase, and only show findings that were introduced by modifications to the baseline.
+
 Buildkite and CircleCI can be configured as follows, though some features such as deduplication of results may not work as expected:
 
 <details><summary>Buildkite</summary>
