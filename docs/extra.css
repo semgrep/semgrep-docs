@@ -463,8 +463,52 @@ div.cs li.cs-references {
 @media print {
   nav.wy-nav-side,
   div.navbar,
-  div.rst-content,
-  div.pdf-link {
+  div.pdf-link,
+  div[role="navigation"],
+  div.semgrep-footer.footer-grid,
+  div.rtd-info {
+    display: none;
+  }
+  footer {
+    display: block;
+    margin-top: 40px;
+  }
+
+  footer hr {
+    display: none;
+  }
+
+  div.navbar-print,
+  div.footer-print {
+    max-width: 1200px;
+    margin: 10px auto;
+  }
+
+  div.footer-print {
+    display: flex;
+    justify-content: space-between;
+    break-inside: avoid;
+    break-after: avoid;
+  }
+
+  span.semgrep-logo-text {
+    margin-left: 10px;
+    font-size: 1.5rem;
+  }
+
+  span.footer-name {
+    font-size: 1.5rem;
+    color: #243d4e;
+  }
+
+  span.footer-email {
+    font-size: 1.2rem;
+    color: #0974d7;
+  }
+}
+
+@media screen, speech {
+  .print-only {
     display: none;
   }
 }
