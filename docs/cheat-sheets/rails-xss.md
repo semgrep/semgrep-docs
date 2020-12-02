@@ -65,9 +65,9 @@ conditions:
           alternative: "Prefer <code>html_safe()</code> if necessary."
           rule: "ruby.rails.security.audit.xss.avoid-raw.avoid-raw"
       - control: "D"
-        short_description: "Disabling <code>ActiveSupport#escape_html_entities_in_json</code>"
+        short_description: "Disabling of <code>ActiveSupport#escape_html_entities_in_json</code>"
         description: |
-          <code>ActiveSupport#escape_html_entities_in_json` is a setting which determines whether `Hash#to_json()</code> will
+          <code>ActiveSupport#escape_html_entities_in_json</code> is a setting which determines whether <code>Hash#to_json()</code> will
           escape HTML characters. Disabling this could create XSS vulnerabilities.
         example: "config.active_support.escape_html_entities_in_json = false"
         references:
@@ -78,8 +78,8 @@ conditions:
           - url: https://stackoverflow.com/a/43877771
             text: "How to disable HTML escaping for JSON, but keep enabled for views?"
         mitigation:
-          description: "Ban disabling <code>ActiveSupport#escape_html_entities_in_json</code>"
-          alternative: "If HTML is needed in JSON, use <code>JSON.generate()` and review each usage carefully. Exempt each case with `# nosem</code>."
+          description: "Ban disabling of <code>ActiveSupport#escape_html_entities_in_json</code>"
+          alternative: "If HTML is needed in JSON, use <code>JSON.generate()</code> and review each usage carefully. Exempt each case with <code># nosem</code>."
           rule: "ruby.lang.security.json-entity-escape.json-entity-escape"
   - id: "2"
     description: "Server code: Bypassing the template engine"
@@ -180,9 +180,9 @@ conditions:
           alternative: "Prefer <code>html_safe()</code> in Ruby code if necessary."
           rule: "ruby.rails.security.audit.xss.templates.avoid-raw.avoid-raw"
       - control: "D"
-        short_description: "Using <code><%== ... %>`, which is an alias for `html_safe()</code>"
+        short_description: "Using <code><%== ... %></code>, which is an alias for <code>html_safe()</code>"
         description: |-
-          The double-equals <code>==` is an ERB alias for `html_safe()</code>. This will mark the contents as
+          The double-equals <code>==</code> is an ERB alias for <code>html_safe()</code>. This will mark the contents as
           "safe for rendering" and may introduce an XSS vulnerability.
         example: "<%== @user.name %>"
         references:
@@ -191,7 +191,7 @@ conditions:
           - url: https://stackoverflow.com/questions/4251284/raw-vs-html-safe-vs-h-to-unescape-html#:~:text===
             text: Raw vs. html_safe
         mitigation:
-          description: "Ban <code><%== ... %>`, which is an alias for `html_safe()</code>"
+          description: "Ban <code><%== ... %></code>, which is an alias for <code>html_safe()</code>"
           alternative: "Prefer <code>html_safe()</code> in Ruby code if necessary."
           rule: ruby.rails.security.audit.xss.templates.alias-for-html-safe.alias-for-html-safe
   - id: "4"
@@ -215,7 +215,7 @@ conditions:
       - control: "B"
         short_description: "Variable in <code>href</code> attribute"
         description: |-
-          Template variables in a <code>href` value could still accept the `javascript:</code> URI.
+          Template variables in a <code>href</code> value could still accept the <code>javascript:</code> URI.
           This could be a XSS vulnerability. HTML escaping will not prevent this. Use <code>link_to</code>
           beginning with a literal forward slash to generate links.
         example: '<a href="<%= link %>"></a>'
