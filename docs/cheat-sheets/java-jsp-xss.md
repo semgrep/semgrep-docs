@@ -88,7 +88,7 @@ conditions:
           description: "Require use of JSTL <code>escapeXml</code> function in every expression."
           alternative: "Require use of JSTL <code>escapeXml</code> function in every expression."
           rule: "java.lang.security.audit.xss.jsp.use-escapexml.use-escapexml"
-  - id: "4"
+  - id: "3"
     description: "JSP page: Variable in dangerous location"
     condition_details:
       - control: "A"
