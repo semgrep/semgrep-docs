@@ -121,13 +121,22 @@ For example, Buildkite and CircleCI can be configured as follows, though some fe
 <p>
 
 ```yaml
-- label: ":semgrep: Semgrep"
-  command: python -m semgrep_agent --publish-deployment $SEMGREP_DEPLOYMENT_ID" --publish-token $SEMGREP_APP_TOKEN
-  expeditor:
-    executor:
-      docker:
-        image: returntocorp/semgrep-agent:v1
-        workdir: /<repo_name>
+env:
+  SEMGREP_JOB_URL: "<my_buildkite_pipeline_url>"
+  SEMGREP_REPO_URL: "<my_github_url>"
+  SEMGREP_REPO_NAME: "<my_github_org>/<my_github_repo_name>"
+steps:
+  - label: ":semgrep: Semgrep"
+    command: python -m semgrep_agent --publish-deployment $SEMGREP_DEPLOYMENT_ID --publish-token $SEMGREP_APP_TOKEN --baseline-ref $BUILDKITE_PULL_REQUEST_BASE_BRANCH
+    expeditor:
+      executor:
+        docker:
+          image: returntocorp/semgrep-agent:v1
+          workdir: /<my_github_repo_name_>
+          environment:
+            - "SEMGREP_JOB_URL"
+            - "SEMGREP_REPO_URL"
+            - "SEMGREP_REPO_NAME"
 ```
 
 </p>
