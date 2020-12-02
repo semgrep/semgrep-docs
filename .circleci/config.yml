@@ -24,7 +24,7 @@ jobs:
             unzip awscliv2.zip
             sudo ./aws/install
       - run: aws --version
-      - run: aws s3 sync site/ s3://staging-semgrep-dev && aws cloudfront create-invalidation --distribution-id E3VK9R4LQIJKGC --paths '/docs/*'
+      - run: aws s3 sync site/ s3://staging-semgrep-dev/docs && aws cloudfront create-invalidation --distribution-id E3VK9R4LQIJKGC --paths '/docs/*'
   deployProd:
     docker:
       - image: cimg/python:3.8
@@ -41,6 +41,7 @@ jobs:
             sudo ./aws/install
       - run: aws --version
       - run: aws s3 sync site/ s3://semgrep-docs && aws cloudfront create-invalidation --distribution-id E1PHOFPGTV8DCC --paths '/docs/*'
+      - run: aws s3 sync site/ s3://semgrep-docs/docs
 
 workflows:
   build-and-deploy:
