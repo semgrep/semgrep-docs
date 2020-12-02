@@ -469,6 +469,17 @@ div.cs li.cs-references {
   div.rtd-info {
     display: none;
   }
+
+  table,
+  tr {
+    max-width: 1096px;
+    overflow-x: scroll;
+  }
+
+  div.cs div.cs-mitigations table tr code {
+    font-size: 14px;
+  }
+
   footer {
     display: block;
     margin-top: 40px;
