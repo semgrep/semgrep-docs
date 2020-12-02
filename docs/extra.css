@@ -476,6 +476,12 @@ div.cs li.cs-references {
     overflow-x: scroll;
   }
 
+  div.cs-mitigations {
+    page-break-before: always;
+    break-before: page;
+    break-inside: avoid-page;
+  }
+
   div.cs div.cs-mitigations table tr code {
     font-size: 14px;
   }
