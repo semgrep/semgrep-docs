@@ -280,6 +280,10 @@ div[role="navigation"] hr {
   border: 2px solid #eee;
 }
 
+.languages-table {
+  margin-bottom: 50px;
+}
+
 /* Metrics styling ends here */
 
 .lang-container {
