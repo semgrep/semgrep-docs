@@ -44,6 +44,7 @@ google_analytics:
   - UA-106134149-12
   - auto
 extra_css: [extra.css]
+extra_javascript: [search_js.js]
 plugins:
   - search:
       min_search_length: 2
