@@ -6,7 +6,54 @@
 
 <iframe width="550" height="725" border=0 frameBorder=0 src="https://dashboard.semgrep.dev/languages/table"></iframe>
 
-## Maturity considerations
+# Language parse rate
+
+<table>
+  <tr>
+    <td>
+      <h3>Go parse rate</h3>
+      <iframe width="450" height="150" frameBorder="0" src="https://dashboard.semgrep.dev/metric/semgrep.core.go.parse.pct/number"></iframe>
+    </td>
+    <td>
+      <h3>Java parse rate</h3>
+      <iframe width="450" height="150" frameBorder="0" src="https://dashboard.semgrep.dev/metric/semgrep.core.java.parse.pct/number"></iframe>
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <h3>JavaScript parse rate</h3>
+      <iframe width="450" height="150" frameBorder="0" src="https://dashboard.semgrep.dev/metric/semgrep.core.javascript.parse.pct/number"></iframe>
+    </td>
+    <td>
+      <h3>Ruby parse rate</h3>
+      <iframe width="450" height="150" frameBorder="0" src="https://dashboard.semgrep.dev/metric/semgrep.core.ruby.parse.pct/number"></iframe>
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <h3>TypeScript parse rate</h3>
+      <iframe width="450" height="150" frameBorder="0" src="https://dashboard.semgrep.dev/metric/semgrep.core.typescript.parse.pct/number"></iframe>
+    </td>
+    <td>
+      <h3>TSX parse rate</h3>
+      <iframe width="450" height="150" frameBorder="0" src="https://dashboard.semgrep.dev/metric/semgrep.core.tsx.parse.pct/number"></iframe>
+    </td>
+  </tr>
+</table>
+
+# Support expectations
+
+* **Alpha**: experimental support with many known bugs.
+    * Looking for dedicated users to help us improve these languages.
+    * Expect limited support responses, as these languages will be lowest priority.
+* **Beta**: supported language with known bugs.
+    * Looking for beta users to report bugs and rapidly iterate with our team.
+    * Expect best-effort support responses when there are no higher priority requests being handled.
+* **GA**: production-level support with few known bugs.
+    * Looking for bug reports and feedback from users.
+    * Expect timely and thorough support responses, generally within 24 hours.
+
+# Maturity definitions
 
 Language maturity is determined by 3 factors in the Semgrep ecosystem:
 
@@ -64,50 +111,3 @@ Visit the cheat sheet generation script and associated semgrep-core test files t
 
 * [https://github.com/returntocorp/semgrep/blob/develop/scripts/generate_test_matrix.py](https://github.com/returntocorp/semgrep/blob/develop/scripts/generate_test_matrix.py)
 * [https://github.com/returntocorp/semgrep/tree/develop/semgrep-core/tests](https://github.com/returntocorp/semgrep/tree/develop/semgrep-core/tests)
-
-# Support expectations
-
-* **Alpha**: experimental support with many known bugs.
-    * Looking for dedicated users to help us improve these languages.
-    * Expect limited support responses, as these languages will be lowest priority.
-* **Beta**: supported language with known bugs.
-    * Looking for beta users to report bugs and rapidly iterate with our team.
-    * Expect best-effort support responses when there are no higher priority requests being handled.
-* **GA**: production-level support with few known bugs.
-    * Looking for bug reports and feedback from users.
-    * Expect timely and thorough support responses, generally within 24 hours.
-
-# Language parse rate
-
-<table>
-  <tr>
-    <td>
-      <h3>Go parse rate</h3>
-      <iframe width="450" height="150" frameBorder="0" src="https://dashboard.semgrep.dev/metric/semgrep.core.go.parse.pct/number"></iframe>
-    </td>
-    <td>
-      <h3>Java parse rate</h3>
-      <iframe width="450" height="150" frameBorder="0" src="https://dashboard.semgrep.dev/metric/semgrep.core.java.parse.pct/number"></iframe>
-    </td>
-  </tr>
-  <tr>
-    <td>
-      <h3>JavaScript parse rate</h3>
-      <iframe width="450" height="150" frameBorder="0" src="https://dashboard.semgrep.dev/metric/semgrep.core.javascript.parse.pct/number"></iframe>
-    </td>
-    <td>
-      <h3>Ruby parse rate</h3>
-      <iframe width="450" height="150" frameBorder="0" src="https://dashboard.semgrep.dev/metric/semgrep.core.ruby.parse.pct/number"></iframe>
-    </td>
-  </tr>
-  <tr>
-    <td>
-      <h3>TypeScript parse rate</h3>
-      <iframe width="450" height="150" frameBorder="0" src="https://dashboard.semgrep.dev/metric/semgrep.core.typescript.parse.pct/number"></iframe>
-    </td>
-    <td>
-      <h3>TSX parse rate</h3>
-      <iframe width="450" height="150" frameBorder="0" src="https://dashboard.semgrep.dev/metric/semgrep.core.tsx.parse.pct/number"></iframe>
-    </td>
-  </tr>
-</table>
