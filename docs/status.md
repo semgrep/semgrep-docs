@@ -1,10 +1,14 @@
 # Language Maturity
 
+<iframe width="550" height="725" border=0 frameBorder=0 src="https://dashboard.semgrep.dev/languages/table"></iframe>
+
+## Maturity Considerations
+
 Language maturity is determined by 3 factors in the Semgrep ecosystem:
 
 1. **Parse rate** - how well Semgrep can parse code in a given language.
 1. **Feature support** - what [Semgrep features](writing-rules/pattern-syntax.md) are implemented for a given language.
-1. **Rulesets** - number of [groupings of Semgrep rules](https://semgrep.dev/rulesets) in the cloud app.
+1. **Ruleset count** - number of [Semgrep rule groupings](https://semgrep.dev/rulesets) in the cloud app.
 
 Additionally, we define 3 levels of maturity: **alpha**, **beta**, and **generally available (GA)**. Each of these maturity levels will be combined with a threshold of the factors above. When a language meets the maturity threshold for each of the factors then it’s moved into that maturity level.
 
@@ -50,7 +54,7 @@ The following thresholds define each maturity level:
         * `metavar_typed` (language dependent)
         * `regexp_string`
 
-Generally speaking, the features-by-maturity level are roughly: **alpha)** syntax support, ellipsis operator support, and basic metavariable support, **beta)** everything prior and nearly complete metavariable support and metavariable equality, **GA)** everything prior and all exotic features like regexp, equivalence, deep expressions, typing, etc.
+Generally speaking, the features-by-maturity level are roughly: **alpha)** syntax support, ellipsis operator support, and basic metavariable support, **beta)** everything prior and nearly complete metavariable support and metavariable equality, **GA)** everything prior and all exotic features like regexp, equivalence, deep expression operator, typing, etc.
 
 Visit the cheatsheet generation script and associated semgrep-core test files to learn more about each feature:
 
@@ -68,10 +72,6 @@ Visit the cheatsheet generation script and associated semgrep-core test files to
 * **GA**: production-level support with few known bugs.
     * Looking for bug reports and feedback from users.
     * Expect timely and thorough support responses, generally within 24 hours.
-
-## Language Status
-
-<iframe width="550" height="725" border=0 frameBorder=0 src="https://dashboard.semgrep.dev/languages/table"></iframe>
 
 ## Language Parse Rate
 
