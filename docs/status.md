@@ -1,8 +1,12 @@
-# Language Maturity
+# Supported languages
+
+[TOC]
+
+# Language maturity
 
 <iframe width="550" height="725" border=0 frameBorder=0 src="https://dashboard.semgrep.dev/languages/table"></iframe>
 
-## Maturity Considerations
+## Maturity considerations
 
 Language maturity is determined by 3 factors in the Semgrep ecosystem:
 
@@ -10,7 +14,7 @@ Language maturity is determined by 3 factors in the Semgrep ecosystem:
 1. **Feature support** - what [Semgrep features](writing-rules/pattern-syntax.md) are implemented for a given language.
 1. **Ruleset count** - number of [Semgrep rule groupings](https://semgrep.dev/rulesets) in the cloud app.
 
-Additionally, we define 3 levels of maturity: **alpha**, **beta**, and **generally available (GA)**. Each of these maturity levels will be combined with a threshold of the factors above. When a language meets the maturity threshold for each of the factors then it’s moved into that maturity level.
+There are 3 levels of maturity: **alpha**, **beta**, and **generally available (GA)**. Each of these maturity levels are combined with a threshold of the factors above. When a language meets the maturity threshold for each of the factors then it’s moved into that maturity level.
 
 The following thresholds define each maturity level:
 
@@ -50,18 +54,18 @@ The following thresholds define each maturity level:
         * `equivalence_constant_propagation`
         * `equivalence_eq`
         * `equivalence_naming_import` (language dependent)
-        * `key_value`
+        * `metavar_key_value`
         * `metavar_typed` (language dependent)
         * `regexp_string`
 
-Generally speaking, the features-by-maturity level are roughly: **alpha)** syntax support, ellipsis operator support, and basic metavariable support, **beta)** everything prior and nearly complete metavariable support and metavariable equality, **GA)** everything prior and all exotic features like regexp, equivalence, deep expression operator, typing, etc.
+Generally speaking, the features-by-maturity level are roughly: **alpha)** syntax support, ellipsis operator support, and basic metavariable support, **beta)** everything prior and nearly complete metavariable support and metavariable equality, **GA)** everything prior and all advanced features like regexp, equivalence, deep expression operator, typing, etc.
 
-Visit the cheatsheet generation script and associated semgrep-core test files to learn more about each feature:
+Visit the cheat sheet generation script and associated semgrep-core test files to learn more about each feature:
 
 * [https://github.com/returntocorp/semgrep/blob/develop/scripts/generate_test_matrix.py](https://github.com/returntocorp/semgrep/blob/develop/scripts/generate_test_matrix.py)
 * [https://github.com/returntocorp/semgrep/tree/develop/semgrep-core/tests](https://github.com/returntocorp/semgrep/tree/develop/semgrep-core/tests)
 
-## Support Expectations
+# Support expectations
 
 * **Alpha**: experimental support with many known bugs.
     * Looking for dedicated users to help us improve these languages.
@@ -73,36 +77,36 @@ Visit the cheatsheet generation script and associated semgrep-core test files to
     * Looking for bug reports and feedback from users.
     * Expect timely and thorough support responses, generally within 24 hours.
 
-## Language Parse Rate
+# Language parse rate
 
 <table>
   <tr>
     <td>
-      <h3>Go Parse Rate</h3>
+      <h3>Go parse rate</h3>
       <iframe width="450" height="150" frameBorder="0" src="https://dashboard.semgrep.dev/metric/semgrep.core.go.parse.pct/number"></iframe>
     </td>
     <td>
-      <h3>Java Parse Rate</h3>
+      <h3>Java parse rate</h3>
       <iframe width="450" height="150" frameBorder="0" src="https://dashboard.semgrep.dev/metric/semgrep.core.java.parse.pct/number"></iframe>
     </td>
   </tr>
   <tr>
     <td>
-      <h3>JavaScript Parse Rate</h3>
+      <h3>JavaScript parse rate</h3>
       <iframe width="450" height="150" frameBorder="0" src="https://dashboard.semgrep.dev/metric/semgrep.core.javascript.parse.pct/number"></iframe>
     </td>
     <td>
-      <h3>Ruby Parse Rate</h3>
+      <h3>Ruby parse rate</h3>
       <iframe width="450" height="150" frameBorder="0" src="https://dashboard.semgrep.dev/metric/semgrep.core.ruby.parse.pct/number"></iframe>
     </td>
   </tr>
   <tr>
     <td>
-      <h3>TypeScript Parse Rate</h3>
+      <h3>TypeScript parse rate</h3>
       <iframe width="450" height="150" frameBorder="0" src="https://dashboard.semgrep.dev/metric/semgrep.core.typescript.parse.pct/number"></iframe>
     </td>
     <td>
-      <h3>TSX Parse Rate</h3>
+      <h3>TSX parse rate</h3>
       <iframe width="450" height="150" frameBorder="0" src="https://dashboard.semgrep.dev/metric/semgrep.core.tsx.parse.pct/number"></iframe>
     </td>
   </tr>
