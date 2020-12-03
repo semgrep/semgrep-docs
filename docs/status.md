@@ -83,8 +83,8 @@ The following thresholds define each maturity level:
     * Rulesets: 1+ (10+ rules)
     * Features:
         * All in alpha
-        * `class_def`
-        * `func_def`
+        * `metavar_class_def`
+        * `metavar_func_def`
         * `metavar_cond`
         * `metavar_equality_expr`
         * `metavar_equality_stmt`
@@ -96,11 +96,11 @@ The following thresholds define each maturity level:
     * Features:
         * All in alpha
         * All in beta
-        * `annotations` (language dependent)
         * `deep_expr_operator`
         * `equivalence_constant_propagation`
         * `equivalence_eq`
         * `equivalence_naming_import` (language dependent)
+        * `metavar_anno` (language dependent)
         * `metavar_key_value`
         * `metavar_typed` (language dependent)
         * `regexp_string`
