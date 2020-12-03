@@ -3,6 +3,7 @@
 [TOC]
 
 # Language maturity
+
 <div class="languages-table">
   <iframe width="550" height="725" border=0 frameBorder=0 src="https://dashboard.semgrep.dev/languages/table"></iframe>
 </div>
@@ -109,5 +110,5 @@ Generally speaking, the features-by-maturity level are roughly: **alpha)** synta
 
 Visit the cheat sheet generation script and associated semgrep-core test files to learn more about each feature:
 
-* [script to generate test matrix](https://github.com/returntocorp/semgrep/blob/develop/scripts/generate_test_matrix.py)
-* [semgrep-core tests](https://github.com/returntocorp/semgrep/tree/develop/semgrep-core/tests)
+* [https://github.com/returntocorp/semgrep/blob/develop/scripts/generate_test_matrix.py](https://github.com/returntocorp/semgrep/blob/develop/scripts/generate_test_matrix.py)
+* [https://github.com/returntocorp/semgrep/tree/develop/semgrep-core/tests](https://github.com/returntocorp/semgrep/tree/develop/semgrep-core/tests)
