@@ -407,6 +407,9 @@ The deep expression operator works in:
 
 ## Statements types
 
+Many programming languages differentiate between expressions and statements. Those are 2 different things. Expressions can appear inside if conditions, in function call arguments, etc. Statements can not appear everywhere; they are sequence of operations (with ; as a separator/terminator) or special control flow constructs (if, while, etc.).
+
+
 Semgrep handles statements differently from other expressions like imports. For example, the pattern `foo` will match these statements:
 
 ```python
@@ -421,6 +424,20 @@ It will not match the following:
 import foo
 ```
 
+### Statements as expressions
+
+`foo()` is an expression
+
+`foo();` is a statement.
+
+If youre search pattern is a statment, Semgrep will automatically try to search for it as _both_ an expression and a statement. 
+
+When you write the expression `foo()` in a pattern, Semgrep will visit every expression and sub-expression in your program and try to find a match. 
+
+What about a statement like `foo();`? (Note that `foo()` is confusingly called an expression statement, but it is first a statement). Many programmers don't really see the difference between `foo()` and `foo();`. This is why when one looks for `foo()`; Semgrep thinks the user wants to match statements like `a = foo();`, or `print(foo());`.
+
+
+
 ## Partial statements
 
 Partial statements are not valid patterns. For example, the following are invalid:
@@ -432,3 +449,4 @@ pattern: 1+
 ```text
 pattern: if $CONDITION:
 ```
+
