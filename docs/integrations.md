@@ -8,9 +8,8 @@ Semgrep integrates into the development flow end-to-end, from code conception in
 
 The following instructions use [Semgrep CI](https://github.com/returntocorp/semgrep-action) and require a free [Semgrep Community](https://semgrep.dev/manage) or paid Semgrep Team account. `SEMGREP_DEPLOYMENT_ID` and `SEMGREP_APP_TOKEN` information is available at [Manage > Settings](https://semgrep.dev/manage/settings) after login.
 
-
 !!! danger
-    `SEMGREP_APP_TOKEN` is a secret value: DO NOT HARDCODE IT AND LEAK CREDENTIALS. Use your CI provider's secret or environment variable management feature to store it. 
+    `SEMGREP_APP_TOKEN` is a secret value: DO NOT HARDCODE IT AND LEAK CREDENTIALS. Use your CI provider's secret or environment variable management feature to store it.
 
 ## Supported integrations
 
@@ -22,13 +21,13 @@ Semgrep can seamlessly integrate into your CI pipeline using GitHub Actions or G
 ```yaml
 name: Semgrep
 
-on: 
-    # Run on all pull requests. Returns the results introduced by the PR.
-    pull_request: {}
+on:
+  # Run on all pull requests. Returns the results introduced by the PR.
+  pull_request: {}
 
-    # Run on merges. Returns all results.
-    #push:
-    #    branches: ["master", "main"]
+  # Run on merges. Returns all results.
+  #push:
+  #    branches: ["master", "main"]
 
 jobs:
   semgrep:
@@ -37,7 +36,7 @@ jobs:
     steps:
       # Checkout project source
       - uses: actions/checkout@v1
-      
+
       # Scan code using project's configuration on https://semgrep.dev/manage
       - uses: returntocorp/semgrep-action@v1
 
@@ -52,7 +51,7 @@ jobs:
           # Generate a SARIF file for GitHub's code scanning feature. See the next step.
           #generateSarif: "1"
 
-      # Upload SARIF file generated in previous step          
+      # Upload SARIF file generated in previous step
       #- name: Upload SARIF file
       #  uses: github/codeql-action/upload-sarif@v1
       #  with:
@@ -67,7 +66,7 @@ jobs:
 
 ```yaml
 include:
-  - template: 'Workflows/MergeRequest-Pipelines.gitlab-ci.yml'
+  - template: "Workflows/MergeRequest-Pipelines.gitlab-ci.yml"
 
 semgrep:
   image: returntocorp/semgrep-agent:v1
@@ -81,15 +80,16 @@ semgrep:
 
 ## Standalone providers
 
-Although not fully supported, these instructions are here to help you integrate with your CI provider of choice. 
+Although not fully supported, these instructions are here to help you integrate with your CI provider of choice.
 
 The following commands can be run by your CI provider (or on the commandline):
+
 <p>
 
 ```sh
 # Set additional environment variables
-$ SEMGREP_JOB_URL=https://example.com/me/myjob 
-$ SEMGREP_REPO_URL=https://gitwebsite.com/myrepository 
+$ SEMGREP_JOB_URL=https://example.com/me/myjob
+$ SEMGREP_REPO_URL=https://gitwebsite.com/myrepository
 $ SEMGREP_BRANCH=mybranch
 $ SEMGREP_REPO_NAME=myorg/myrepository
 
@@ -102,6 +102,7 @@ $ python -m semgrep_agent --publish-deployment $SEMGREP_DEPLOYMENT_ID --publish-
 For diff-aware scans, include the flag `--baseline-ref` set to a git ref (branch name, tag, or commit hash) to use as a baseline. This will prompt Semgrep to ignore findings that were already present in the codebase, and only show findings that were introduced by modifications to the baseline.
 
 Using the instructions above, Semgrep should be able to integrate into the following CI providers, with some limitations:
+
 - AppVeyor
 - Bamboo
 - Bitbucket Pipelines
@@ -138,12 +139,12 @@ For example, Buildkite and CircleCI can be configured as follows, though some fe
 ```yaml
 version: 2
 jobs:
-    build:
-        docker:
-            - image: returntocorp/semgrep-agent:v1
-        steps:
-            - checkout
-            - run: python -m semgrep_agent --publish-deployment $SEMGREP_DEPLOYMENT_ID --publish-token $SEMGREP_APP_TOKEN
+  build:
+    docker:
+      - image: returntocorp/semgrep-agent:v1
+    steps:
+      - checkout
+      - run: python -m semgrep_agent --publish-deployment $SEMGREP_DEPLOYMENT_ID --publish-token $SEMGREP_APP_TOKEN
 ```
 
 </p>
@@ -162,7 +163,6 @@ You can see an example of this environment variable set (commented out) in the a
 
 Comments are left when Semgrep CI finds a result that blocks CI.
 Note that this feature is experimental; please reach out to support@r2c.dev to report any issues.
-
 
 # Editor
 
@@ -185,6 +185,49 @@ repos:
 # Notifications
 
 Semgrep provides integrations with 3rd party services like Slack, Jira, Defect Dojo, and others. To configure these and learn more, visit [Manage > Notifications](https://semgrep.dev/manage/notifications).
+
+# Commit history
+
+While Semgrep CI is designed
+for integrating with various CI providers,
+it's versatile enough to be used locally
+to scan a repository with awareness of its git history.
+
+To locally scan what issues your current branch has
+that are not found on the `main` branch,
+run the following command:
+
+```
+docker run -v $(pwd):/src --workdir /src returntocorp/semgrep-agent:v1 python -m semgrep_agent --config p/r2c-ci --baseline-ref main
+```
+
+Another use case is when you want to scan only commits
+from the past weeks for new issues they introduced.
+This can be done by using a git command
+that gets the tip of the current branch two weeks earlier:
+
+```
+docker run -v $(pwd):/src --workdir /src returntocorp/semgrep-agent:v1 python -m semgrep_agent --config p/r2c-ci --baseline-ref $(git rev-parse '@{2.weeks.ago}')
+```
+
+If you want to compare two commits
+and find the issues added between them,
+you need to checkout the more recent commit of the two
+before running Semgrep CI:
+
+```
+git checkout $RECENT_SHA
+docker run -v $(pwd):/src --workdir /src returntocorp/semgrep-agent:v1 python -m semgrep_agent --config p/r2c-ci --baseline-ref $OLDER_SHA
+```
+
+!!! info
+    The above commands all require `docker`
+    to be installed on your machine.
+    They also use Docker volumes
+    to make your working directory accessible to the container.
+    `--config p/r2c-ci` is the Semgrep rule configuration,
+    which can be changed to any value
+    that `semgrep` itself understands.
 
 <!-- # Output
 
