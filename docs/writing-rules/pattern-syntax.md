@@ -430,7 +430,7 @@ import foo
 
 `foo();` is a statement.
 
-If youre search pattern is a statment, Semgrep will automatically try to search for it as _both_ an expression and a statement. 
+If your search pattern is a statement, Semgrep will automatically try to search for it as _both_ an expression and a statement. 
 
 When you write the expression `foo()` in a pattern, Semgrep will visit every expression and sub-expression in your program and try to find a match. 
 
@@ -449,4 +449,3 @@ pattern: 1+
 ```text
 pattern: if $CONDITION:
 ```
-
