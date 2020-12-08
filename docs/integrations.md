@@ -193,7 +193,7 @@ for integrating with various CI providers,
 it's versatile enough to be used locally
 to scan a repository with awareness of its git history.
 
-To locally scan what issues your current branch has
+To locally scan issues in your current branch
 that are not found on the `main` branch,
 run the following command:
 
@@ -210,9 +210,9 @@ that gets the tip of the current branch two weeks earlier:
 docker run -v $(pwd):/src --workdir /src returntocorp/semgrep-agent:v1 python -m semgrep_agent --config p/r2c-ci --baseline-ref $(git rev-parse '@{2.weeks.ago}')
 ```
 
-If you want to compare two commits
+To compare two commits
 and find the issues added between them,
-you need to checkout the more recent commit of the two
+checkout the more recent commit of the two
 before running Semgrep CI:
 
 ```
