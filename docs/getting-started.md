@@ -68,7 +68,7 @@ $ semgrep --config p/r2c-security-audit WebGoat
 
 # Write a rule
 
-Once Semgep is running locally, see the [Semgrep Tutorial](https://semgrep.dev/learn) to quickly learn how to write precise rules. 
+Once Semgrep is running locally, see the [Semgrep Tutorial](https://semgrep.dev/learn) to quickly learn how to write precise rules. 
 
 Visit [Writing Rules > Getting started](writing-rules/overview.md) for an in-depth guide and reference material.
 
@@ -81,7 +81,7 @@ Visit [Writing Rules > Getting started](writing-rules/overview.md) for an in-dep
 
 Finally, Semgrep is at its best when used to continuously scan code. Visit [Integrations](integrations.md) to learn how to get results where you already work: GitHub, GitLab, Slack, Jira, VS Code, and more.
 
-For teams running Semgrep on multiple projects, see [Semgep Community](https://semgrep.dev/manage). This free infrastructure lets users:
+For teams running Semgrep on multiple projects, see [Semgrep Community](https://semgrep.dev/manage). This free infrastructure lets users:
 
 1. Centrally define code standards for your projects
 2. Monitor the impact of your standards

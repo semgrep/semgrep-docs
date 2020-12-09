@@ -12,6 +12,6 @@ You can write and share rules directly from the [live editor](https://semgrep.de
 - [Pattern syntax](pattern-syntax.md) describes what Semgrep patterns can do
 in detail, and provides example use cases of the ellipsis
 operator, metavariables, and more.<br/>
-- [Rule syntax](pattern-logic.md) describes Semgrep YAML rule files, which can have multiple patterns, detailed output messages, and autofixes. The syntax allows the composition of individual patterns with boolean operators.
+- [Rule syntax](rule-syntax.md) describes Semgrep YAML rule files, which can have multiple patterns, detailed output messages, and autofixes. The syntax allows the composition of individual patterns with boolean operators.
 
 Looking for ideas on what rules to write? See [Rule examples](rule-ideas.md) for common use cases and prompts to help you start writing rules from scratch.

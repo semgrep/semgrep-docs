@@ -411,6 +411,10 @@ div.cs li.cs-references {
   border: 2px solid #eee;
 }
 
+.languages-table {
+  margin-bottom: 50px;
+}
+
 /* Metrics styling ends here */
 
 .lang-container {
@@ -532,3 +536,7 @@ div.cs li.cs-references {
 }
 
 /* print styling for cheat sheets ends here */
+
+div.toc > ul > li:first-child {
+  display: none;
+}

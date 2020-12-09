@@ -1,5 +1,6 @@
 site_name: Semgrep Docs
 site_url: https://semgrep.dev/docs/
+strict: true
 nav:
   - Semgrep:
       - Home: index.md
@@ -8,15 +9,16 @@ nav:
           - writing-rules/overview.md
           - Syntax:
               - writing-rules/pattern-syntax.md
-              - writing-rules/pattern-logic.md
+              - writing-rules/rule-syntax.md
           - Examples:
               - writing-rules/pattern-examples.md
               - writing-rules/rule-ideas.md
           - writing-rules/testing-rules.md
       - running-rules.md
+      - ignoring-findings.md
       - managing-policy.md
       - integrations.md
-      - experiments.md
+      - Experiments 🧪: experiments/overview.md
   - "Security Cheat Sheets":
       - "Django XSS": "cheat-sheets/django-xss"
       - "Flask XSS": "cheat-sheets/flask-xss"
@@ -47,3 +49,10 @@ google_analytics:
   - UA-106134149-12
   - auto
 extra_css: [extra.css]
+extra_javascript: [search_js.js]
+plugins:
+  - search:
+      min_search_length: 2
+  - redirects:
+      redirect_maps:
+        "writing-rules/pattern-logic.md": "writing-rules/rule-syntax.md"
