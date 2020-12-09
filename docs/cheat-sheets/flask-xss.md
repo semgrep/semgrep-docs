@@ -78,7 +78,7 @@ conditions:
           def index(msg):
             return "Hello! " + msg
         references:
-          - url: "https://help.semmle.com/wiki/display/PYTHON/Reflected+server-side+cross-site+scripting"
+          - url: https://help.semmle.com/wiki/display/PYTHON/Reflected+server-side+cross-site+scripting
             text: Reflected server-side cross-site scripting
         mitigation:
           description: "Ban returning values directly from routes"
