@@ -148,6 +148,12 @@ div.navbar {
   top: 50px;
 }
 
+@media screen and (max-width: 768px) {
+  .wy-grid-for-nav {
+    /* width: auto; */
+  }
+}
+
 .wy-nav-side a {
   color: #d9d9d9;
 }
@@ -242,10 +248,10 @@ section.links {
   background-color: #e05d5b;
   color: #ffffff;
 }
-.cs-bg-theme-dark-blue {
+/* .cs-bg-theme-dark-blue {
   background-color: #243d4e;
   color: #ffffff;
-}
+} */
 
 .wy-nav-content.cs {
   max-width: 1200px;
@@ -253,6 +259,131 @@ section.links {
 
 div[role="navigation"] hr {
   display: none;
+}
+
+/* new CS styling begins here */
+
+div.cs > header {
+  margin-top: 60px;
+  padding-bottom: 100px;
+}
+
+div.cs .title h1 {
+  font-size: 1.5rem;
+  line-height: 2rem;
+  color: #29343d;
+}
+
+div.cs p {
+  font-size: 1rem;
+  color: #777777;
+}
+
+div.cs h3 {
+  font-size: 1.25rem;
+  color: #29343d;
+}
+
+div.cs h4 {
+  font-size: 1rem;
+  font-weight: 600;
+  margin-bottom: 5px;
+}
+
+div.cs ol.exploit-conditions {
+  margin-left: 2rem;
+  margin-bottom: 2rem;
+}
+
+div.cs ol.exploit-conditions li {
+  margin: 4px 0;
+}
+
+div.cs .ruleset-cli-command {
+  margin-bottom: 2rem;
+}
+
+div.cs .ruleset-cli-command h3 {
+  margin-bottom: 0.75rem;
+}
+
+div.cs .ruleset-cli-command code {
+  background-color: #1b242c;
+  color: #f6f8fa;
+  padding: 0.5rem 1rem;
+  border: 1px solid #1b242c;
+  border-radius: 3px;
+}
+
+div.cs .unselectable {
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+div.cs #cheatsheet .cs-condition {
+  padding-top: 1rem;
+  border-top: 1px solid #29343d;
+  margin-bottom: 4rem;
+}
+
+div.cs #cheatsheet .cs-condition h3 code,
+div.cs li.cs-references code,
+div.cs #cheatsheet .cs-condition-detail code,
+div.cs .cs-mitigations code {
+  background-color: inherit;
+  font-size: 1em;
+  padding: 0;
+}
+
+div.cs #cheatsheet .cs-condition-detail {
+  margin-bottom: 4rem;
+}
+
+div.cs .flex {
+  display: flex;
+  justify-content: space-between;
+}
+
+@media screen and (max-width: 768px) {
+  div.cs .flex {
+    flex-direction: column;
+  }
+}
+
+div.cs .w-50 {
+  width: 50%;
+  padding: 1rem;
+}
+
+@media screen and (max-width: 768px) {
+  div.cs .w-50 {
+    width: 100%;
+    padding: 1rem;
+  }
+}
+
+div.cs p span.cs-recommendation {
+  color: #29343d;
+  background-color: #f5e12b;
+}
+
+div.cs .cs-code-example code {
+  background-color: #ecf1f6;
+  border: 1px solid #ecf1f6;
+  border-radius: 3px;
+  font-size: 1em;
+}
+
+div.cs ul.cs-references {
+  margin-left: 1.2rem;
+}
+
+div.cs li.cs-references {
+  list-style: disc;
 }
 
 /* Cheat Sheet styling ends here */
@@ -331,6 +462,80 @@ div[role="navigation"] hr {
     margin-top: 50px;
   }
 }
+
+/* print styling for cheat sheets begins here */
+
+@media print {
+  nav.wy-nav-side,
+  div.navbar,
+  div.pdf-link,
+  div[role="navigation"],
+  div.semgrep-footer.footer-grid,
+  div.rtd-info {
+    display: none;
+  }
+
+  table,
+  tr {
+    max-width: 1096px;
+    overflow-x: scroll;
+  }
+
+  div.cs-mitigations {
+    page-break-before: always;
+    break-before: page;
+    break-inside: avoid-page;
+  }
+
+  div.cs div.cs-mitigations table tr code {
+    font-size: 14px;
+  }
+
+  footer {
+    display: block;
+    margin-top: 40px;
+  }
+
+  footer hr {
+    display: none;
+  }
+
+  div.navbar-print,
+  div.footer-print {
+    max-width: 1200px;
+    margin: 10px auto;
+  }
+
+  div.footer-print {
+    display: flex;
+    justify-content: space-between;
+    break-inside: avoid;
+    break-after: avoid;
+  }
+
+  span.semgrep-logo-text {
+    margin-left: 10px;
+    font-size: 1.5rem;
+  }
+
+  span.footer-name {
+    font-size: 1.5rem;
+    color: #243d4e;
+  }
+
+  span.footer-email {
+    font-size: 1.2rem;
+    color: #0974d7;
+  }
+}
+
+@media screen, speech {
+  .print-only {
+    display: none;
+  }
+}
+
+/* print styling for cheat sheets ends here */
 
 div.toc > ul > li:first-child {
   display: none;
