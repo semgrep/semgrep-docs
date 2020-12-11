@@ -6,7 +6,7 @@
 
 # Run Semgrep locally
 
-We'll start by running [Semgrep CLI](https://github.com/returntocorp/semgrep/) locally to scan your code. It runs offline on uncompiled code: **no code leaves your machine**.
+Start by running [Semgrep CLI](https://github.com/returntocorp/semgrep/) locally to scan your code. It runs offline on uncompiled code: **no code leaves your machine**.
 
 Install Semgrep using Homebrew or pip, or run without installation via Docker:
 
@@ -21,7 +21,7 @@ $ python3 -m pip install semgrep
 $ docker run --rm -v "${PWD}:/src" returntocorp/semgrep --help
 ```
 
-Next, we'll confirm installation and run both a simple "grep-like" rule and a full ruleset:
+Confirm installation and run both a simple “grep-like” rule and a full ruleset from the Semgrep Registry:
 
 ```sh
 # Confirm installation by running --help. Semgrep documentation should print to your terminal
