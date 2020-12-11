@@ -1,7 +1,7 @@
 # Awesome Rulesets 🕶️
 
 !!! info 
-     Have Semgrep rules to share? Add your repository to the [Awesome Rulesets](https://github.com/returntocorp/semgrep-docs/blob/main/docs/awesome.md) list or contribute them directly to [semgrep-rules](https://github.com/returntocorp/semgrep-rules), the "standard library" for Semgrep. Once the pull request is merged the rules will be available through the Semgrep Registry.
+     Have Semgrep rules to share? Add your repository to this Awesome Rulesets list by opening a pull request on the [source of this file](https://github.com/returntocorp/semgrep-docs/blob/main/docs/awesome.md), or contribute them directly to [semgrep-rules](https://github.com/returntocorp/semgrep-rules), the "standard library" for Semgrep. Once the pull request is merged the rules will be available through the Semgrep Registry.
      
      A template rule repository can be forked from [semgrep/template-rules](https://github.com/semgrep/template-rules).
 
