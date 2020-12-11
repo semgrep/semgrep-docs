@@ -234,7 +234,7 @@ docker run -v $(pwd):/src --workdir /src returntocorp/semgrep-agent:v1 python -m
 
 Many other tools use Semgrep inside, but are maintained by others outside r2c!
 
-* [NodeJSScan](https://github.com/ajinabraham/nodejsscan)
+* [nodejsscan](https://github.com/ajinabraham/nodejsscan)
 * [libsast](https://github.com/ajinabraham/libsast)
 * [DefectDojo](https://github.com/DefectDojo/django-DefectDojo/pull/2781)
 * [Dracon](https://github.com/thought-machine/dracon)
