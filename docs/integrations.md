@@ -229,6 +229,18 @@ docker run -v $(pwd):/src --workdir /src returntocorp/semgrep-agent:v1 python -m
     which can be changed to any value
     that `semgrep` itself understands.
 
+
+# Semgrep as an engine
+
+Many other tools have functionality powered by Semgrep.
+Add yours [with a pull request](https://github.com/returntocorp/semgrep-docs)!
+
+* [nodejsscan](https://github.com/ajinabraham/nodejsscan)
+* [libsast](https://github.com/ajinabraham/libsast)
+* [DefectDojo](https://github.com/DefectDojo/django-DefectDojo/pull/2781)
+* [Dracon](https://github.com/thought-machine/dracon)
+* [SALUS](https://github.com/coinbase/salus/blob/master/docs/scanners/semgrep.md)
+
 <!-- # Output
 
 This document describes `semgrep` output and the information provided after
