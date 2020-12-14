@@ -232,7 +232,8 @@ docker run -v $(pwd):/src --workdir /src returntocorp/semgrep-agent:v1 python -m
 
 # Semgrep as an engine
 
-Many other tools use Semgrep inside, but are maintained by others outside r2c!
+Many other tools have functionality powered by Semgrep.
+Add yours [with a pull request](https://github.com/returntocorp/semgrep-docs)!
 
 * [nodejsscan](https://github.com/ajinabraham/nodejsscan)
 * [libsast](https://github.com/ajinabraham/libsast)
