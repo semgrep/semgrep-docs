@@ -92,7 +92,7 @@ jobs:
         default: main
       semgrep_deployment_id:
         type: integer
-        default: 203
+        default: << DEPLOYMENT_ID >>
     environment:
       SEMGREP_REPO_NAME: << parameters.repo_path >>
       SEMGREP_REPO_URL: << pipeline.project.git_url >>
