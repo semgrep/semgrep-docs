@@ -152,7 +152,9 @@ jobs:
 
 Is your CI provider missing? Let us know by [filing an issue here](https://github.com/returntocorp/semgrep/issues/new?assignees=&labels=&template=feature_request.md&title=).
 
-### Inline PR Comments (beta)
+<a name="inline-pr-comments-beta"></a>
+<br />
+### Automatic PR Comments (beta)
 
 !!! info
     This feature is currently only available for GitHub.
