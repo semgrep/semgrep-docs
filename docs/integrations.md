@@ -15,7 +15,7 @@ The following instructions use [Semgrep CI](https://github.com/returntocorp/semg
 
 Semgrep can seamlessly integrate into your CI pipeline using GitHub Actions or GitLab CI.
 
-<details><summary>GitHub Actions</summary>
+### GitHub Actions
 <p>
 
 ```yaml
@@ -60,8 +60,8 @@ jobs:
 ```
 
 </p>
-</details>
-<details><summary>GitLab CI</summary>
+
+### GitLab CI
 <p>
 
 ```yaml
@@ -75,7 +75,6 @@ semgrep:
 ```
 
 </p>
-</details>
 </br>
 
 ## Standalone providers
