@@ -76,6 +76,45 @@ semgrep:
 
 </p>
 </details>
+<details><summary>Circle CI</summary>
+<p>
+
+```yaml
+version: 2.1
+jobs:
+  semgrep-scan:
+    parameters:
+      repo_path:
+        type: string
+        default: myorg/semgrep-test-repo
+      default_branch:
+        type: string
+        default: main
+      semgrep_deployment_id:
+        type: integer
+        default: *my deployment id*
+    environment:
+      SEMGREP_REPO_NAME: << parameters.repo_path >>
+      SEMGREP_REPO_URL: << pipeline.project.git_url >>
+      SEMGREP_BRANCH: << pipeline.git.branch >>
+    docker:
+      - image: returntocorp/semgrep-agent:v1
+    steps:
+      - checkout
+      - run:
+          name: "Semgrep scan"
+          command: |
+            python -m semgrep_agent \
+              --publish-deployment << parameters.semgrep_deployment_id >> \
+              --publish-token $SEMGREP_APP_TOKEN \
+              --baseline-ref << parameters.default_branch >>
+workflows:
+  main:
+    jobs:
+      - semgrep-scan
+```
+</p>
+</details>
 </br>
 
 ## Standalone providers
