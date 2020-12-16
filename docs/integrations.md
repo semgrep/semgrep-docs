@@ -39,7 +39,7 @@ jobs:
       # Scan code using project's configuration on https://semgrep.dev/manage
       - uses: returntocorp/semgrep-action@v1
 
-        # Set GITHUB_TOKEN to leave inline comments on your pull requests.
+        # Set GITHUB_TOKEN to leave automatic comments on your pull requests.
         #env:
         #  GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
