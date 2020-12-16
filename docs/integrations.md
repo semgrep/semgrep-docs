@@ -70,7 +70,7 @@ To get inline PR comments on your pull requests, set the `GITHUB_TOKEN` environm
 
 ```
 uses: returntocorp/semgrep-action@v1
-        env: # Optional environment variable for inline PR comments (beta)
+        env: # Optional environment variable for automatic PR comments (beta)
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 ```
 
