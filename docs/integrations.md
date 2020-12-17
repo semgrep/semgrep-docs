@@ -15,8 +15,7 @@ The following instructions use [Semgrep CI](https://github.com/returntocorp/semg
 
 Semgrep can seamlessly integrate into your CI pipeline using GitHub Actions or GitLab CI.
 
-<details><summary>GitHub Actions</summary>
-<p>
+### GitHub Actions
 
 ```yaml
 name: Semgrep
@@ -40,7 +39,7 @@ jobs:
       # Scan code using project's configuration on https://semgrep.dev/manage
       - uses: returntocorp/semgrep-action@v1
 
-        # Set GITHUB_TOKEN to leave inline comments on your pull requests.
+        # Set GITHUB_TOKEN to leave automatic comments on your pull requests.
         #env:
         #  GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
@@ -59,9 +58,31 @@ jobs:
       #  if: always()
 ```
 
-</p>
-</details>
-<details><summary>GitLab CI</summary>
+<a name="inline-pr-comments-beta"></a>
+<br />
+
+#### Automatic PR Comments (beta)
+
+!!! info
+    This feature is currently only available for GitHub.
+
+To get inline PR comments on your pull requests, set the `GITHUB_TOKEN` environment variable in your workflow file to `secrets.GITHUB_TOKEN`, which is the GitHub app installation access token and takes the form of this snippet:
+
+```
+uses: returntocorp/semgrep-action@v1
+        env: # Optional environment variable for automatic PR comments (beta)
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+```
+
+See a complete example of this workflow file including this environment variable (commented out) in the [above example workflow file](#github-actions). 
+
+!!! info
+    There’s no need to create `secrets.GITHUB_TOKEN` yourself because it’s automatically set by GitHub. It only needs to be passed to the action via the workflow file.
+
+Comments are left when Semgrep CI finds a result that blocks CI.
+Note that this feature is experimental; please reach out to support@r2c.dev to report any issues.
+<br /><br />
+### GitLab CI
 <p>
 
 ```yaml
@@ -75,46 +96,6 @@ semgrep:
 ```
 
 </p>
-</details>
-<details><summary>Circle CI</summary>
-<p>
-
-```yaml
-version: 2.1
-jobs:
-  semgrep-scan:
-    parameters:
-      repo_path:
-        type: string
-        default: myorg/semgrep-test-repo
-      default_branch:
-        type: string
-        default: main
-      semgrep_deployment_id:
-        type: integer
-        default: *my deployment id*
-    environment:
-      SEMGREP_REPO_NAME: << parameters.repo_path >>
-      SEMGREP_REPO_URL: << pipeline.project.git_url >>
-      SEMGREP_BRANCH: << pipeline.git.branch >>
-    docker:
-      - image: returntocorp/semgrep-agent:v1
-    steps:
-      - checkout
-      - run:
-          name: "Semgrep scan"
-          command: |
-            python -m semgrep_agent \
-              --publish-deployment << parameters.semgrep_deployment_id >> \
-              --publish-token $SEMGREP_APP_TOKEN \
-              --baseline-ref << parameters.default_branch >>
-workflows:
-  main:
-    jobs:
-      - semgrep-scan
-```
-</p>
-</details>
 </br>
 
 ## Standalone providers
@@ -176,14 +157,38 @@ For example, Buildkite and CircleCI can be configured as follows, though some fe
 <p>
 
 ```yaml
-version: 2
+version: 2.1
 jobs:
-  build:
+  semgrep-scan:
+    parameters:
+      repo_path:
+        type: string
+        default: myorg/semgrep-test-repo
+      default_branch:
+        type: string
+        default: main
+      semgrep_deployment_id:
+        type: integer
+        default: *my deployment id*
+    environment:
+      SEMGREP_REPO_NAME: << parameters.repo_path >>
+      SEMGREP_REPO_URL: << pipeline.project.git_url >>
+      SEMGREP_BRANCH: << pipeline.git.branch >>
     docker:
       - image: returntocorp/semgrep-agent:v1
     steps:
       - checkout
-      - run: python -m semgrep_agent --publish-deployment $SEMGREP_DEPLOYMENT_ID --publish-token $SEMGREP_APP_TOKEN
+      - run:
+          name: "Semgrep scan"
+          command: |
+            python -m semgrep_agent \
+              --publish-deployment << parameters.semgrep_deployment_id >> \
+              --publish-token $SEMGREP_APP_TOKEN \
+              --baseline-ref << parameters.default_branch >>
+workflows:
+  main:
+    jobs:
+      - semgrep-scan
 ```
 
 </p>
@@ -192,16 +197,6 @@ jobs:
 
 Is your CI provider missing? Let us know by [filing an issue here](https://github.com/returntocorp/semgrep/issues/new?assignees=&labels=&template=feature_request.md&title=).
 
-### Inline PR Comments (beta)
-
-!!! info
-    This feature is currently only available for GitHub.
-
-To get inline PR comments on your pull requests, set the `GITHUB_TOKEN` environment variable in your workflow file to `secrets.GITHUB_TOKEN`, which is the GitHub app installation access token.
-You can see an example of this environment variable set (commented out) in the above example workflow file. There’s no need to create this secret yourself because it’s automatically set by GitHub. It only needs to be passed to the action via the workflow file.
-
-Comments are left when Semgrep CI finds a result that blocks CI.
-Note that this feature is experimental; please reach out to support@r2c.dev to report any issues.
 
 # Editor
 
@@ -223,7 +218,7 @@ repos:
 
 # Notifications
 
-Semgrep provides integrations with 3rd party services like Slack, Jira, Defect Dojo, and others. To configure these and learn more, visit [Manage > Notifications](https://semgrep.dev/manage/notifications).
+Semgrep provides integrations with 3rd party services like Slack, Jira, DefectDojo, and others. To configure these and learn more, visit [Manage > Notifications](https://semgrep.dev/manage/notifications).
 
 # Commit history
 
