@@ -20,7 +20,7 @@ foo(1 + func(42)) + bar()
 
 # String matching
 
-Perl Compatible Regular Expressions (PCRE) are available for searching string literals within code. 
+Search string literals within code with [Perl Compatible Regular Expressions (PCRE)](https://learnxinyminutes.com/docs/pcre/).
 
 The pattern `requests.get("=~/dev\./i")` matches:
 
@@ -28,7 +28,7 @@ The pattern `requests.get("=~/dev\./i")` matches:
 requests.get("api.dev.corp.com")  # Oops, development API left in
 ```
 
-To indicate a regex, use the syntax "=~/<regexp>/" within a string element. Advanced regexp features are available, such as case-insensitive regexps with ‘/i’ (e.g., "=~/foo/i"). Matching occurs anywhere in the string unless the regexp ‘^’ anchor character is used: "=~/^foo.*/" checks if a string begins with ‘foo’.
+To search for specific strings, use the syntax `"=~/<regexp>/"`. Advanced regexp features are available, such as case-insensitive regexps with `'/i'` (e.g., `"=~/foo/i"`). Matching occurs anywhere in the string unless the regexp `^` anchor character is used: `"=~/^foo.*/"` checks if a string begins with `foo`.
 
 # Ellipsis operator
 
@@ -37,7 +37,7 @@ arguments, statements, or characters.
 
 ## Function calls
 
-Use ellipsis operator to search for function calls or
+Use the ellipsis operator to search for function calls or
 function calls with specific arguments. For example, the pattern `insecure_function(...)` finds calls regardless of its arguments.
 
 ```python
@@ -139,12 +139,26 @@ The ellipsis operator can match any number of arguments to binary operations. Th
 foo = 1 + 2 + 3 + 4
 ```
 
-## Arrays
+## Containers
 
-The ellipsis operator can match literal arrays. The pattern `pattern: user_list = [..., 10]` matches:
+The ellipsis operator can match inside container data structures like lists, arrays, and key-value stores.
+
+The pattern `pattern: user_list = [..., 10]` matches:
 
 ```python
 user_list = [8, 9, 10]
+```
+
+The pattern `pattern: user_dict = {...}` matches:
+
+```python
+user_dict = {'username': 'password'}
+```
+
+The pattern `pattern: user_dict = {..., $KEY: $VALUE, ...}` matches the following and allows for further metavariable queries:
+
+```python
+user_dict = {'username': 'password'}
 ```
 
 ## Conditionals and loops
@@ -190,7 +204,7 @@ if can_make_request:
 
 # Metavariables
 
-Metavariables are an abstraction to match code when don’t know the value or contents ahead of time, acting like [capture groups](https://regexone.com/lesson/capturing_groups) in regular expressions.
+Metavariables are an abstraction to match code when you don’t know the value or contents ahead of time, similar to [capture groups](https://regexone.com/lesson/capturing_groups) in regular expressions.
 
 Metavariables can be used to track values across a specific code scope. This
 includes variables, functions, arguments, classes, object methods, imports,
@@ -210,14 +224,13 @@ foo() + bar()
 current + total
 ```
 
-Patterns can also be used to match imports. For example, `import $X` matches:
+Metavariables can also be used to match imports. For example, `import $X` matches:
 
 ```python
 import random
 ```
 
-Re-using metavariables shows their true power. The following pattern reuses a metavariable
-to detect useless assignments:
+Re-using metavariables shows their true power. Detect useless assignments:
 
 ```text
 pattern: |
@@ -316,65 +329,15 @@ baz.qux()
 
 ## Constants
 
-Languages supporting constants allow for constant propagation. In other words, the constant’s value is considered equivalent to a literal value. The following patterns will catch each respective code snippet:
+Semgrep performs basic constant propagation.
 
-Go:
-
-The pattern `crypto.hash("MD5", ...)` matches:
-
-```go
-crypto.hash("MD5", "text")
-
-const algorithm = "MD5"
-crypto.hash(algorithm, "text")
-
-```
-
-Java:
-
-The pattern `$MD.getInstance("MD5");` matches:
-
-```java
-import java.security.MessageDigest;
-
-class Hash {
-
-    public final String algorithm = "MD5";
-
-    public static void main(String[] args) {
-        MessageDigest md = MessageDigest.getInstance(algorithm);
-    }
-}
-```
-
-Javascript:
-
-The pattern `crypto.subtle.digest("SHA-1", ...);` matches:
-
-```javascript
-crypto.subtle.digest("SHA-1", "text");
-
-const LITERAL = "SHA-1";
-crypto.subtle.digest(LITERAL, "text");
-
-const LIT = "SHA";
-crypto.subtle.digest(LIT + "-1", "text");
-
-const LIT = "SHA";
-crypto.subtle.digest(`${LIT}-1`, "text");
-```
-
-Python:
-
-The pattern `hashlib.new("MD5", ...).digest()` matches:
+The pattern `set_password("password")` matches:
 
 ```python
-import hashlib
+HARDCODED_PASSWORD = "password"
 
-ALGORITHM = "MD5"
-
-def get_digest(data):
-    return hashlib.new(ALGORITHM, data=data).digest()
+def update_system():
+    set_password(HARDCODED_PASSWORD)
 ```
 
 # Deep expression operator
