@@ -204,7 +204,7 @@ if can_make_request:
 
 # Metavariables
 
-Metavariables are an abstraction to match code when you don’t know the value or contents ahead of time. Like [capture groups](https://regexone.com/lesson/capturing_groups) in regular expressions.
+Metavariables are an abstraction to match code when you don’t know the value or contents ahead of time, similar to [capture groups](https://regexone.com/lesson/capturing_groups) in regular expressions.
 
 Metavariables can be used to track values across a specific code scope. This
 includes variables, functions, arguments, classes, object methods, imports,
