@@ -44,6 +44,9 @@
 
 # Support expectations
 
+* **Community**: this language is supported by open-source contributions.
+    * Support is given by community maintainers.
+    * r2c plans to give these mainline support in the future.
 * **Alpha**: experimental support with many known bugs.
     * Looking for dedicated users to help us improve these languages.
     * Expect limited support responses, as these languages will be lowest priority.
