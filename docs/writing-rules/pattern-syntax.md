@@ -340,6 +340,24 @@ def update_system():
     set_password(HARDCODED_PASSWORD)
 ```
 
+## Data Flow
+
+Semgrep performs basic data flow analysis.
+
+The pattern `return "..."` matches:
+
+```python
+def func(arg):
+    result = None
+
+    if arg:
+        result = "foo"
+    else:
+        result = "bar"
+
+    return result
+```
+
 # Deep expression operator
 
 Use the deep expression operator `<... [your_pattern] ...>` to match an expression that could be deeply nested within another expression. An example is looking for a pattern anywhere within an `if` statement. The deep expression operator matches your pattern in the current expression context and recursively in any subexpressions.
