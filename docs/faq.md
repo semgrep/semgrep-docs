@@ -60,6 +60,16 @@ No. Semgrep CI runs fully in your CI pipeline and your source-code never leaves 
 #### What data do you store?
 Semgrep CI collects usage data to provide useful results and to help improve the product. Two types of data are sent to r2c servers: scan data and findings data. Scan data includes project id, CI environment and scan meta-data. Findings data are used to provide human readable content for notifications and integrations, as well tracking results as new, fixed, or duplicate. For more information and detailed description for each data field, refer to Semgrep CI [PRIVACY.md](https://github.com/returntocorp/semgrep-action/blob/develop/PRIVACY.md). Note that [Semgrep CLI](https://github.com/returntocorp/semgrep) does not collect or send any scan or findings data.
 
+#### What network requests are made?
+Semgrep CI makes network requests in accordance with the data storage mentioned above.
+
+[Semgrep CLI](https://github.com/returntocorp/semgrep) makes the following network requests:
+
+* When running with `--generate-config`, Semgrep requests `https://raw.githubusercontent.com/returntocorp/semgrep-rules/develop/template.yaml` to obtain the latest configuration template.
+* When running without `--disable-version-check`, Semgrep requests `https://semgrep.dev/api/check-version` to check that it's running the latest version. Semgrep CLI is under rapid development. Running the latest version reduces our maintenance burden and ensures users have the latest bug fixes and features.
+* When providing a URL to `--output`, Semgrep performs an HTTP `POST` of the results to the specified URL.
+* When providing a registry ID like `p/security-audit` to `--config`, Semgrep requests the configuration from the [Semgrep Registry](https://semgrep.dev/explore).
+
 # Configuration
 
 #### How do I configure Semgrep for different projects?
