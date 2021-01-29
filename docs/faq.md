@@ -65,10 +65,10 @@ Semgrep CI makes network requests in accordance with the data storage mentioned 
 
 [Semgrep CLI](https://github.com/returntocorp/semgrep) makes the following network requests:
 
-* When running with `--generate-config`, Semgrep requests `https://raw.githubusercontent.com/returntocorp/semgrep-rules/develop/template.yaml` to obtain the latest configuration template.
-* When running without `--disable-version-check`, Semgrep requests `https://semgrep.dev/api/check-version` to check that it's running the latest version. Semgrep CLI is under rapid development. Running the latest version reduces our maintenance burden and ensures users have the latest bug fixes and features.
+* When running with `--generate-config`, Semgrep makes a network request to obtain the latest configuration template.
+* When running without `--disable-version-check`, Semgrep makes a network request to check for updates.
 * When providing a URL to `--output`, Semgrep performs an HTTP `POST` of the results to the specified URL.
-* When providing a registry ID like `p/security-audit` to `--config`, Semgrep requests the configuration from the [Semgrep Registry](https://semgrep.dev/explore).
+* When providing a registry ID like `p/ci` to `--config`, Semgrep requests the configuration from the [Registry](https://semgrep.dev/explore).
 
 # Configuration
 
