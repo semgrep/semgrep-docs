@@ -329,7 +329,7 @@ baz.qux()
 
 ## Constants
 
-Semgrep performs basic constant propagation.
+Semgrep performs constant propagation.
 
 The pattern `set_password("password")` matches:
 
@@ -338,6 +338,20 @@ HARDCODED_PASSWORD = "password"
 
 def update_system():
     set_password(HARDCODED_PASSWORD)
+```
+
+Basic constant propagation support like in the example above is a stable feature.
+Experimentally, Semgrep also supports [intra-procedural flow-sensitive constant propagation](../experiments/overview.md#constant-propagation).
+
+The pattern `set_password("...")` also matches:
+
+```python
+def update_system():
+    if cond():
+        password = "abc"
+    else:
+        password = "123"
+    set_password(password)
 ```
 
 # Deep expression operator
