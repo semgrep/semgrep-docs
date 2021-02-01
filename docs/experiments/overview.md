@@ -107,7 +107,20 @@ rules:
     severity: WARNING
 ```
 
-# Taint tracking
+# Data-flow analysis
+
+Semgrep can perform intra-procedural flow-sensitive analyses. The data-flow engine still has several limitations, therefore expect both false positives and false negatives. False positives could be removed by using [pattern-not](../writing-rules/rule-syntax.md#pattern-not).
+
+A non-exhaustive list of current limitations:
+
+- The analyses are not aware of _aliasing_.
+- The analyses do not track individual elements in data structures, although there is limited support for record fields.
+- `break`, `continue`, and `switch` statements are not properly handled yet.
+- `try-catch-finally` is only partially supported, not all possible execution paths are considered.
+
+As of now, data-flow analysis is used for [taint tracking](#taint-tracking) and [constant propagation](#constant-propagation).
+
+## Taint tracking
 
 The Python CLI has support for within (intra) file taint tracking. A taint-tracking rule uses the `mode: taint` key-value pair and replaces the typical [top-level pattern keys](../writing-rules/rule-syntax.md#schema) with `pattern-sources` and `pattern-sinks` (required) and `pattern-sanitizers` (optional). For example:
 
@@ -133,6 +146,46 @@ A file containing the rule shown above can be found [in the Semgrep repo](https:
 
 ```yaml
 semgrep --config https://raw.githubusercontent.com/returntocorp/semgrep/develop/semgrep-core/data/basic_tainting.yml ./semgrep-core/tests/OTHER/TAINTING/tainting.py
+```
+
+## Constant propagation
+
+Constant propagation is intra-procedural and tracks whether a variable *must* carry a constant value at each point in the program.
+
+For example, we can find calls to `eval` on arbitrary strings in Python as follows:
+
+```yaml
+rules:
+- id: eval_arbitrary
+  patterns:
+    - pattern-either:
+      - pattern: |
+          eval($X)
+    - pattern-not: |
+        eval("...")
+  message: |
+    eval() on arbitrary non-constant string
+  severity: WARNING
+```
+
+In the following code, Semgrep will only warn about `eval(x)`. Variable `x` is not a constant because it may take the value of the input `arg`. Variable `y` is known to be a constant despite we do not know its exact value, it may be either `"1"` or `"2"`. Pattern `eval("...")` matches `eval(y)`, but neither pattern `eval("1")` nor `eval("2")` will match `eval(y)`. Finally, variable `z` is a constant and it is known to be `"a"`, both patterns `eval("...")` and `eval("a")` match `eval(z)`.
+
+```python
+def test(arg):
+   if arg is not None:
+      x = arg
+      y = "1"
+      z = "a"
+   else:
+      x = "v2"
+      y = "2"
+      z = "a"
+   # ruleid: eval_arbitrary
+   eval(x)
+   # OK
+   eval(y)
+   # OK
+   eval(z)
 ```
 
 # `metavariable-comparison`
