@@ -384,19 +384,37 @@ The deep expression operator works in:
 
 ## Statements types
 
-Semgrep handles statements differently from other expressions like imports. For example, the pattern `foo` will match these statements:
+Semgrep handles some statement types differently than others, particularly when searching for fragments inside statements. For example, the pattern `foo` will match these statements:
 
 ```python
-foo()
-bar + foo
+x += foo()
+return bar + foo
 foo(1, 2)
 ```
 
-It will not match the following:
+But `foo` will not match the following statement (`import foo` will match it though):
 
 ```python
 import foo
 ```
+
+### Statements as expressions
+
+Many programming languages differentiate between expressions and statements. Expressions can appear inside if conditions, in function call arguments, etc. Statements can not appear everywhere; they are sequence of operations (in many languages using `;` as a separator/terminator) or special control flow constructs (if, while, etc.).
+
+`foo()` is an expression (in most languages).
+
+`foo();` is a statement (in most languages).
+
+If your search pattern is a statement, Semgrep will automatically try to search for it as _both_ an expression and a statement. 
+
+When you write the expression `foo()` in a pattern, Semgrep will visit every expression and sub-expression in your program and try to find a match.
+
+Many programmers don't really see the difference between `foo()` and `foo();`. This is why when one looks for `foo()`; Semgrep thinks the user wants to match statements like `a = foo();`, or `print(foo());`.
+
+!!! info
+    Note that in some programming languages such as Python, which does not use semicolons as a separator or terminator, the difference between expressions and statements is even more confusing. Indentation in Python matters, and a newline after `foo()` is really the same than `foo();` in other programming languages such as C.
+
 
 ## Partial statements
 
@@ -409,3 +427,5 @@ pattern: 1+
 ```text
 pattern: if $CONDITION:
 ```
+
+In both cases, a complete statement is needed (like `1 + $X`)
