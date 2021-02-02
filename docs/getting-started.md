@@ -21,7 +21,8 @@ $ python3 -m pip install semgrep
 $ docker run --rm -v "${PWD}:/src" returntocorp/semgrep --help
 ```
 
-Next, confirm installation and run both a simple "grep-like" rule and a full ruleset:
+Confirm installation and run both a simple “grep-like” rule and a full ruleset:
+
 
 ```sh
 # Confirm installation by running --help. Semgrep documentation should print to your terminal
