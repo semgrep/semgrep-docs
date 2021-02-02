@@ -2,7 +2,7 @@
 
 1. [Run Semgrep locally](#run-semgrep-locally)
 2. [Write a rule](#write-a-rule)
-3. [Run Semgrep continously](#run-semgrep-continuously)
+3. [Run Semgrep continuously](#run-semgrep-continuously)
 
 # Run Semgrep locally
 
@@ -21,7 +21,8 @@ $ python3 -m pip install semgrep
 $ docker run --rm -v "${PWD}:/src" returntocorp/semgrep --help
 ```
 
-Confirm installation and run both a simple “grep-like” rule and a full ruleset from the Semgrep Registry:
+Confirm installation and run both a simple “grep-like” rule and a full ruleset:
+
 
 ```sh
 # Confirm installation by running --help. Semgrep documentation should print to your terminal
@@ -33,6 +34,8 @@ $ semgrep -e '$X == $X' --lang=py path/to/src
 # Run the r2c-ci ruleset (with rules for many languages) on your own code!
 $ semgrep --config=p/r2c-ci path/to/src
 ```
+
+See [CLI usage](cli-usage.md) for command line options and exit codes.
 
 Visit [Running rules](running-rules.md) to learn more or try Semgrep on known vulnerable test projects:
 
