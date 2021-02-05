@@ -12,7 +12,7 @@ mitigation_summary: |-
   If HTML escaping is needed, use <code>html_safe()</code> in Ruby code and review each individual usage carefully.
   Once reviewed, mark the line with <code># nosem</code>. Beware of putting data in dangerous locations in
   templates. And as always, run a security checker continuously on your code.
-config_url: https://semgrep.dev/p/minusworld.ruby-on-rails-xss
+short_config_url: p/minusworld.ruby-on-rails-xss
 pdf: https://web-assets.r2c.dev/security-cheat-sheets/xss/r2c-security-cheat-sheet-xss-prevention-for-ruby-on-rails.pdf
 conditions:
   - id: "1"

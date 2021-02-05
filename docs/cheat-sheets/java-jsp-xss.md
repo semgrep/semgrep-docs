@@ -21,7 +21,7 @@ mitigation_summary: |-
   directly to <code>HttpServletResponse</code>. This is easier to review, maintain, and
   audit for issues. And as always, develop a secure coding policy and use a security
   checker to enforce it.
-config_url: https://semgrep.dev/p/minusworld.java-httpservlet-jsp-xss
+short_config_url: p/minusworld.java-httpservlet-jsp-xss
 pdf: https://web-assets.r2c.dev/security-cheat-sheets/xss/r2c-security-cheat-sheet-xss-prevention-for-java-jsp.pdf
 conditions:
   - id: "1"
