@@ -42,3 +42,8 @@ To receive notifications via third-party services, like Slack or email:
 
 When Semgrep CI next runs and finds a result, the configured services will receive the finding.
 
+# Fail Open/Close
+
+By default, when semgrep-action fails to scan code for some reason (i.e. an invalid config), it will exit with a return code greater than 1. If you do not want this kind of failure to block CI from passing, you can set semgrep-action to fail open on semgrep.dev. Go to https://semgrep.dev/manage/projects and on the desired repository edit, select, and save the checkbox under the Fail Open column.
+
+When semgrep-action is set to fail-open it will notify available notification channels of the failure to perform a scan and then exits with return code 0.
