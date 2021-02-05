@@ -11,7 +11,7 @@ mitigation_summary: |-
   In general, you should use <code>render_template()</code> when showing data to users. If you need HTML escaping, use `Markup()</code> and review
   each individual usage carefully. Once reviewed, mark the line with <code># nosem</code>. Beware of putting data in dangerous locations in
   templates. And as always, run a security checker continuously on your code.
-config_url: https://semgrep.dev/p/minusworld.flask-xss
+short_config_url: p/minusworld.flask-xss
 pdf: https://web-assets.r2c.dev/security-cheat-sheets/xss/r2c-security-cheat-sheet-xss-prevention-for-flask.pdf
 conditions:
   - id: "1"

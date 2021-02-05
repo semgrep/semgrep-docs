@@ -132,7 +132,7 @@
               />
               </a> -->
             <p>
-              Semgrep ruleset for this cheatsheet: <a class="link dim near-white" target="_blank" href="{{ page.meta.config_url }}">{{ page.meta.config_url }}</a>
+              Semgrep ruleset for this cheatsheet: <a class="link dim near-white" target="_blank" href="https://semgrep.dev/{{ page.meta.short_config_url }}">https://semgrep.dev/{{ page.meta.short_config_url }}</a>
             </p>
             <p>
               {{ page.meta.summary }}
@@ -151,7 +151,7 @@
          </div>
          <div class="ruleset-cli-command">
             <h3>Check your project for these conditions:</h3>
-            <code><span class="unselectable">$ </span>semgrep --config {{ page.meta.config_url }}</code>
+            <code><span class="unselectable">$ </span>semgrep --config {{ page.meta.short_config_url }}</code>
           </div>
         </header>
 

@@ -11,7 +11,7 @@ mitigation_summary: |-
   In general, always use the template engine provided by Django using <code>render()</code>. If you need HTML escaping, use `mark_safe()</code>
   combined with <code>format_html()</code> and review each individual usage carefully. Once reviewed, mark with `# nosem</code>. Beware of putting data in dangerous locations in
   templates. And as always, run a security checker continuously on your code.
-config_url: https://semgrep.dev/p/minusworld.django-xss
+short_config_url: p/minusworld.django-xss
 pdf: https://web-assets.r2c.dev/security-cheat-sheets/xss/r2c-security-cheat-sheet-xss-prevention-for-django.pdf
 conditions:
   - id: "1"
