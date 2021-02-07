@@ -16,6 +16,7 @@ h2,
 h3,
 h4 {
   font-weight: 500;
+  scroll-margin-top: 60px;
 }
 
 h4.code-example-heading {
@@ -162,6 +163,11 @@ div.navbar {
 .wy-nav-side {
   position: fixed;
   top: 50px;
+  padding-bottom: 0;
+}
+
+.wy-menu {
+  padding-bottom: 1.5em;
 }
 
 .search-box-title {
@@ -428,6 +434,7 @@ div.cs li.cs-references {
     width: 250px;
     overflow-y: hidden;
     overflow-x: hidden;
+    height: calc(100% - 50px);
   }
 
   .wy-side-nav-search {
@@ -444,6 +451,10 @@ div.cs li.cs-references {
 }
 
 @media screen and (max-width: 768px) {
+  .wy-side-scroll {
+    height: calc(100% - 50px);
+  }
+
   nav.wy-nav-top {
     position: fixed;
     top: 50px;
