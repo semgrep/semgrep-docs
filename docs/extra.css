@@ -149,6 +149,11 @@ div.navbar {
   top: 50px;
 }
 
+.wy-grid-for-nav nav.wy-nav-side.stickynav .wy-side-scroll .wy-menu p.caption {
+  border-top: 2px solid #bbb;
+  margin-top: 6px;
+}
+
 @media screen and (max-width: 768px) {
   .wy-grid-for-nav {
     /* width: auto; */
@@ -183,6 +188,10 @@ td {
 
 div > div.section > p > img {
   border: 1px solid #eee;
+}
+
+a.highlight {
+  font-size: 1.25rem;
 }
 
 .pdf-link {
