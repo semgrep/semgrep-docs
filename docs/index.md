@@ -4,37 +4,47 @@
     <img src="https://raw.githubusercontent.com/returntocorp/semgrep/develop/semgrep.svg" style="height: 150px" alt="Semgrep logo"/>
   </a>
 </p>
-<h3 align="center">Find bugs and enforce code standards.</h3>
+<h3 align="center">Static analysis at ludicrous speed<br />Find bugs and enforce code standards</h3>
 
-Explore the Semgrep docs and join an amazing community of engineering and security teams already using Semgrep to enforce their code standards 🚀
-
-- [Getting started](getting-started.md)
-- [Writing rules](writing-rules/overview.md)
-- [Running rules](running-rules.md)
-- [Managing CI policy](managing-policy.md)
-- [Integrations](integrations.md)
-- [Experiments](experiments/overview.md)
+<p>Explore the Semgrep docs and join an amazing community of engineering and security teams already using Semgrep to enforce their code standards 🚀</p>
 
 ---
 
 # Overview
 
 
-Semgrep is a fast, open-source, static analysis tool that excels at expressing code standards — without complicated queries — and surfacing bugs early at editor, commit, and CI time. Precise rules look like the code you’re searching; no more traversing abstract syntax trees or wrestling with regexes.
+Semgrep is a fast, open-source, static analysis tool for finding bugs and enforcing code standards at editor, commit, or CI time. Its rules look like the code you’re searching; no more traversing abstract syntax trees or wrestling with regexes. 
 
-Semgrep encompasses:
+Semgrep runs locally or in your build environment: code is never sent anywhere. It encompasses:
 
 * [Semgrep CLI](getting-started.md) - the [open-source](https://github.com/returntocorp/semgrep) command-line tool at the heart of everything
-* [Semgrep CI](integrations.md) - an adaptation of Semgrep CLI for continuously scanning commits and builds
-* [Semgrep Registry](https://semgrep.dev/explore): 1,000+ rules written by the Semgrep community and [r2c](https://r2c.dev) that cover security, correctness, and performance bugs. No need to DIY unless you want to.
-* [Semgrep Community & Semgrep Team](https://semgrep.dev/manage) - hosted services with free and paid tiers to help write and share rules, and centrally manage Semgrep CI across many projects
+* [Semgrep CI](integrations.md) - Semgrep for continuously scanning commits and builds
+* [Semgrep Community & Semgrep Team](https://semgrep.dev/manage) - hosted services with free and paid tiers to:
+    * Choose from 1,000+ rules written by the community and [r2c](https://r2c.dev) to find security, correctness, and performance bugs.
+    * Deploy Semgrep in CI with the click of a button
+    * Centrally manage policies across all your projects
+    * See results where you want them
+    * Measure the efficacy of code policies
+    * Save, share, and run custom rules
 
-Semgrep CLI is an evolution of [pfff](https://github.com/returntocorp/pfff/), which began at [Facebook](https://github.com/facebookarchive/pfff) in 2009, which itself was an evolution of the Linux refactoring tool [Coccinelle](https://en.wikipedia.org/wiki/Coccinelle_(software)). r2c revitalized the project after its original author, [Yoann Padioleau](https://github.com/aryx), joined the company.
+<a href="getting-started" class="highlight">Get started here →</a>
+
+### History
+
+Semgrep is an evolution of [pfff](https://github.com/returntocorp/pfff/), which began at [Facebook](https://github.com/facebookarchive/pfff) in 2009, which itself was an evolution of the Linux refactoring tool [Coccinelle](https://en.wikipedia.org/wiki/Coccinelle_(software)). [r2c](https://r2c.dev/team) revitalized the project after its original author, [Yoann Padioleau](https://github.com/aryx), joined the company.
 
 # Language support
 
-Some supported languages are in alpha or beta; we take a data-driven approach that evaluates the parse rate of the language on a wide corpus before we promote it to general availability (GA). For more details, see [our breakdown of all supported languages](status.md).
+Some supported languages are in alpha or beta; a data-driven approach that evaluates the parse rate of the language on a wide corpus determines when to promote a language to general availability (GA). For more details, see [the breakdown of all supported languages](status.md).
 
-<div class="lang-container">
-  <iframe width="600" height="700" frameBorder="0" src="https://dashboard.semgrep.dev/languages/table"></iframe>
-</div>
+| GA         | Alpha                           | Experimental |
+|:-----------|:--------------------------------|:-------------|
+| Go         | C                               | C#           |
+| Java       | OCaml                           | Kotlin       |
+| JavaScript | PHP                             | Lua          |
+| JSON       | Generic (YAML, ERB, Jinja, etc. | R            |
+| JSX        |                                 |              |
+| Python     |                                 | Rust         |
+| Ruby       |                                 |              |
+| TypeScript |                                 |              |
+| TSX        |                                 |              |
