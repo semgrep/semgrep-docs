@@ -4,7 +4,7 @@
 
 # Ignoring findings via inline comments
 
-Semgrep allows for ignoring findings in code by specifying a `nosemgrep` comment on the first line of a finding. Comments take the form of `nosemgrep` or `nosemgrep: <rule-id>`. This functionality works across languages.
+Semgrep allows for ignoring findings in code by specifying a `nosemgrep` comment on the first line of a finding. Comments take the form of `nosemgrep` or `nosemgrep: <rule-id>`. This functionality works across languages. Previously this was implemented with the comment `nosem`, and lines with these comments will continue to be ignored.
 
 A stand-alone `nosemgrep` comment ignores all Semgrep findings for the line on which it appears. A `nosemgrep` comment specifying a specific rule ID only ignores the specified rule. Multiple rules can be ignored using a comma-delimited list.
 
