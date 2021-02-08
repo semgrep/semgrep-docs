@@ -7,11 +7,41 @@ The following instructions show how to setup [Semgrep CI](https://github.com/ret
 !!! danger
     `SEMGREP_APP_TOKEN` is a secret value: DO NOT HARDCODE IT AND LEAK CREDENTIALS. Use your CI provider's secret or environment variable management feature to store it.
 
-# Supported CI Providers
-
 Semgrep can seamlessly integrate into your CI pipeline using GitHub Actions or GitLab CI.
 
 ## GitHub Actions
+
+The easiest way to set up the Semgrep CI integration in GitHub
+is via the [Semgrep Community](https://semgrep.dev/manage/) app.
+
+When you install Semgrep on a GitHub organization,
+you select which repositories should be visible to Semgrep.
+The ones you select will appear on the [Projects page](https://semgrep.dev/manage/projects).
+
+!!! info
+    You can update this list of selected repositories at any time
+    through your organization's settings page on GitHub.
+    Just go to Settings > Installed GitHub Apps > semgrep.dev > Configure
+    and make your changes in the 'Repository access' section.
+  
+To set up Semgrep CI in GitHub Actions on one of these projects,
+click its "Set up" button
+on the [Projects page](https://semgrep.dev/manage/projects).
+You will be taken to a page where you can configure
+exactly how you want the CI job to behave.
+We recommend using Semgrep with the default settings.
+
+Semgrep will then commit a CI workflow file to your repository.
+Please temporarily disable any branch protection rules
+that might block writes to your default branch.
+
+!!! info
+    If you prefer, you can also copy the contents of the CI configuration file
+    from this configuration screen,
+    and then commit it to `.github/workflows/semgrep.yml` manually.
+
+<details><summary>Sample GitHub Actions workflow file</summary>
+<p>
 
 ```yaml
 name: Semgrep
@@ -40,8 +70,11 @@ jobs:
         #  GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
         with:
-          publishToken: ${{ secrets.SEMGREP_APP_TOKEN }}
+          publishToken: ${{ secrets.SEMGREP_TOKEN }}
           publishDeployment: ${{ secrets.SEMGREP_DEPLOYMENT_ID }}
+
+          # never fail the build due to findings on pushes, but collect findings data
+          #auditOn: push
 
           # Generate a SARIF file for GitHub's code scanning feature. See the next step.
           #generateSarif: "1"
@@ -54,7 +87,39 @@ jobs:
       #  if: always()
 ```
 
+</p>
+</details>
+
+<a name="inline-pr-comments-beta"></a>
+<br />
+
+### PR Comments (beta)
+
+!!! info
+    This feature is currently only available for GitHub.
+
+To get inline PR comments on your pull requests, set the `GITHUB_TOKEN` environment variable in your workflow file to `secrets.GITHUB_TOKEN`, which is the GitHub app installation access token and takes the form of this snippet:
+
+```
+uses: returntocorp/semgrep-action@v1
+        env: # Optional environment variable for automatic PR comments (beta)
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+```
+
+See a complete example of this workflow file including this environment variable (commented out) in the [above example workflow file](#github-actions).
+
+!!! info
+    Unlike `secrets.SEMGREP_TOKEN`,
+    there’s no need to create `secrets.GITHUB_TOKEN` yourself
+    because it’s automatically set by GitHub.
+    It only needs to be passed to the action via the workflow file.
+
+Comments are left when Semgrep CI finds a result that blocks CI.
+Note that this feature is experimental; please reach out to support@r2c.dev to report any issues.
+<br /><br />
+
 ## GitLab CI
+
 <p>
 
 ```yaml
@@ -64,13 +129,13 @@ include:
 semgrep:
   image: returntocorp/semgrep-agent:v1
   script:
-    - python -m semgrep_agent --publish-deployment $SEMGREP_DEPLOYMENT_ID --publish-token $SEMGREP_APP_TOKEN
+    - python -m semgrep_agent --publish-deployment $SEMGREP_DEPLOYMENT_ID --publish-token $SEMGREP_TOKEN
 ```
 
 </p>
 </br>
 
-# Standalone providers
+## Other providers
 
 Although not fully supported, these instructions are here to help you integrate with your CI provider of choice.
 
@@ -86,7 +151,7 @@ $ SEMGREP_BRANCH=mybranch
 $ SEMGREP_REPO_NAME=myorg/myrepository
 
 # Run semgrep_agent
-$ python -m semgrep_agent --publish-deployment $SEMGREP_DEPLOYMENT_ID --publish-token $SEMGREP_APP_TOKEN
+$ python -m semgrep_agent --publish-deployment $SEMGREP_DEPLOYMENT_ID --publish-token $SEMGREP_TOKEN
 ```
 
 </p>
@@ -115,7 +180,7 @@ For example, Buildkite and CircleCI can be configured as follows, though some fe
 
 ```yaml
 - label: ":semgrep: Semgrep"
-  command: python -m semgrep_agent --publish-deployment $SEMGREP_DEPLOYMENT_ID" --publish-token $SEMGREP_APP_TOKEN
+  command: python -m semgrep_agent --publish-deployment $SEMGREP_DEPLOYMENT_ID" --publish-token $SEMGREP_TOKEN
     plugins:
       - docker#v3.7.0:
           image: returntocorp/semgrep-agent:v1
@@ -159,7 +224,7 @@ jobs:
           command: |
             python -m semgrep_agent \
               --publish-deployment << parameters.semgrep_deployment_id >> \
-              --publish-token $SEMGREP_APP_TOKEN \
+              --publish-token $SEMGREP_TOKEN \
               --baseline-ref << parameters.default_branch >>
 workflows:
   main:
@@ -172,7 +237,6 @@ workflows:
 <br />
 
 Is your CI provider missing? Let us know by [filing an issue here](https://github.com/returntocorp/semgrep/issues/new?assignees=&labels=&template=feature_request.md&title=).
-
 
 # Other Ways to Run Semgrep
 
@@ -194,8 +258,6 @@ repos:
       args: ['--config', '<SEMGREP_RULESET_URL>', '--error']
 ```
 
-
-
 # Semgrep as an engine
 
 Many other tools have functionality powered by Semgrep.
@@ -206,4 +268,3 @@ Add yours [with a pull request](https://github.com/returntocorp/semgrep-docs)!
 * [DefectDojo](https://github.com/DefectDojo/django-DefectDojo/pull/2781)
 * [Dracon](https://github.com/thought-machine/dracon)
 * [SALUS](https://github.com/coinbase/salus/blob/master/docs/scanners/semgrep.md)
-
