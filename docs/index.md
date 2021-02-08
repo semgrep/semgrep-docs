@@ -43,8 +43,8 @@ Some supported languages are in alpha or beta; a data-driven approach that evalu
 | Java       | OCaml                           | Kotlin       |
 | JavaScript | PHP                             | Lua          |
 | JSON       | Generic (YAML, ERB, Jinja, etc. | R            |
-| JSX        |                                 |              |
-| Python     |                                 | Rust         |
+| JSX        |                                 | Rust         |
+| Python     |                                 |              |
 | Ruby       |                                 |              |
 | TypeScript |                                 |              |
 | TSX        |                                 |              |
