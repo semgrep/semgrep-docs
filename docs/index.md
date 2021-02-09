@@ -19,7 +19,7 @@ Semgrep runs locally or in your build environment: code is never sent anywhere. 
 
 * [Semgrep CLI](getting-started.md) - the [open-source](https://github.com/returntocorp/semgrep) command-line tool at the heart of everything
 * [Semgrep CI](integrations.md) - Semgrep for continuously scanning commits and builds
-* [Semgrep Community & Semgrep Team](https://semgrep.dev/manage) - hosted services with free and paid tiers to:
+* [Semgrep App](https://semgrep.dev/manage) - hosted app with free and paid tiers to:
     * Choose from 1,000+ rules written by the community and [r2c](https://r2c.dev) to find security, correctness, and performance bugs.
     * Deploy Semgrep in CI with the click of a button
     * Centrally manage policies across all your projects
