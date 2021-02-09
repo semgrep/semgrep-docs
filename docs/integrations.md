@@ -236,7 +236,7 @@ that are not found on the `main` branch,
 run the following command:
 
 ```
-docker run -v $(pwd):/src --workdir /src returntocorp/semgrep-agent:v1 python -m semgrep_agent --config p/r2c-ci --baseline-ref main
+docker run -v $(pwd):/src --workdir /src returntocorp/semgrep-agent:v1 python -m semgrep_agent --config p/ci --baseline-ref main
 ```
 
 Another use case is when you want to scan only commits
@@ -245,7 +245,7 @@ This can be done by using a git command
 that gets the tip of the current branch two weeks earlier:
 
 ```
-docker run -v $(pwd):/src --workdir /src returntocorp/semgrep-agent:v1 python -m semgrep_agent --config p/r2c-ci --baseline-ref $(git rev-parse '@{2.weeks.ago}')
+docker run -v $(pwd):/src --workdir /src returntocorp/semgrep-agent:v1 python -m semgrep_agent --config p/ci --baseline-ref $(git rev-parse '@{2.weeks.ago}')
 ```
 
 To compare two commits
@@ -255,7 +255,7 @@ before running Semgrep CI:
 
 ```
 git checkout $RECENT_SHA
-docker run -v $(pwd):/src --workdir /src returntocorp/semgrep-agent:v1 python -m semgrep_agent --config p/r2c-ci --baseline-ref $OLDER_SHA
+docker run -v $(pwd):/src --workdir /src returntocorp/semgrep-agent:v1 python -m semgrep_agent --config p/ci --baseline-ref $OLDER_SHA
 ```
 
 !!! info
@@ -263,7 +263,7 @@ docker run -v $(pwd):/src --workdir /src returntocorp/semgrep-agent:v1 python -m
     to be installed on your machine.
     They also use Docker volumes
     to make your working directory accessible to the container.
-    `--config p/r2c-ci` is the Semgrep rule configuration,
+    `--config p/ci` is the Semgrep rule configuration,
     which can be changed to any value
     that `semgrep` itself understands.
 
