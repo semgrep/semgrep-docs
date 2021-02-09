@@ -2,19 +2,20 @@ site_name: Semgrep Docs
 site_url: https://semgrep.dev/docs/
 strict: true
 nav:
-  - Home: index.md
-  - getting-started.md
-  - "Writing rules": writing-rules/overview.md
-  - writing-rules/pattern-syntax.md
-  - writing-rules/rule-syntax.md
-  - writing-rules/pattern-examples.md
-  - writing-rules/rule-ideas.md
-  - writing-rules/testing-rules.md
-  - running-rules.md
-  - ignoring-findings.md
-  - managing-policy.md
-  - integrations.md
-  - Experiments 🧪: experiments/overview.md
+  - "User guide":
+      - Home: index.md
+      - getting-started.md
+      - "Writing rules": writing-rules/overview.md
+      - writing-rules/pattern-syntax.md
+      - writing-rules/rule-syntax.md
+      - writing-rules/pattern-examples.md
+      - writing-rules/rule-ideas.md
+      - writing-rules/testing-rules.md
+      - running-rules.md
+      - ignoring-findings.md
+      - managing-policy.md
+      - integrations.md
+      - Experiments 🧪: experiments/overview.md
   - "Security Cheat Sheets":
       - "Django XSS": "cheat-sheets/django-xss.md"
       - "Flask XSS": "cheat-sheets/flask-xss.md"
@@ -32,7 +33,7 @@ nav:
 theme:
   name: readthedocs
   custom_dir: custom_theme/
-  navigation_depth: 3
+  navigation_depth: 1
   highlightjs: true
   hljs_languages:
     - yaml
