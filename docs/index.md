@@ -6,8 +6,6 @@
 </p>
 <h3 align="center">Static analysis at ludicrous speed<br />Find bugs and enforce code standards</h3>
 
-<p>Explore the Semgrep docs and join an amazing community of engineering and security teams already using Semgrep to enforce their code standards 🚀</p>
-
 ---
 
 # Overview
