@@ -1,6 +1,6 @@
 # Managing CI policy
 
-Semgrep App provides infrastructure for managing Semgrep across many projects. Create policies from their web UI and apply those policies to projects in a many-to-many mapping. A policy is a simple collection of rules and a definition of what to do with rule results: fail the Semgrep CI run and/or send non-blocking notifications to third-party services like Slack.
+Semgrep App provides infrastructure for managing Semgrep across many projects. Create policies from its web UI and apply those policies to projects in a many-to-many mapping. A policy is a simple collection of rules and a definition of what to do with rule results: fail the Semgrep CI run and/or send non-blocking notifications to third-party services like Slack.
 
 ![Sample policy with rules set to send notifcations and block builds](img/policy-sample.png "Policy to block and notify when results are found.")
 
@@ -41,4 +41,3 @@ To receive notifications via third-party services, like Slack or email:
 2. From [Manage > Policies](https://semgrep.dev/manage/policy), select the policy you’d like to configure and select “Send Notification” for the relevant rules, ruleset, or pattern.
 
 When Semgrep CI next runs and finds a result, the configured services will receive the finding.
-
