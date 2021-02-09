@@ -31,6 +31,7 @@ $ semgrep -e '$X == $X' --lang=py path/to/src
 $ semgrep --config path/to/yaml
 ```
 
-# Managing findings
+# Findings
 
-See [Ignoring Findings](ignoring-findings.md) for details on how to supress rule output.
+* See [Managing findings](managing-findings.md) for information on Semgrep findings.
+* See [Ignoring findings](ignoring-findings.md) for details on suppressing rule output.
