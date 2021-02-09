@@ -6,7 +6,7 @@
 
 A finding is the core result of Semgrep's analysis. Findings are generated when a Semgrep rule matches a piece of code. After matching, a finding can make its way through 3 parts of the Semgrep ecosystem: [Semgrep CLI](https://github.com/returntocorp/semgrep), [Semgrep Action](https://github.com/returntocorp/semgrep-action), and [Semgrep App](https://semgrep.dev/).
 
-## Semgrep CLI
+# Semgrep CLI
 
 Semgrep CLI findings are produced by a specific rule matching a piece of code. Multiple rules can match the same piece of code, even if they are effectively the same rule. For example, consider the following rule and code snippet:
 
@@ -42,7 +42,7 @@ severity:warning rule:finding-test: Finding test 2
 
 *For more information on writing rules, see [Rule syntax](writing-rules/rule-syntax.md).*
 
-## Semgrep Action
+# Semgrep Action
 
 Semgrep Action, designed to continuously scan commits and builds, improves on Semgrep CLI findings to track the lifetime of an individual finding. A Semgrep Action finding is defined by a 4-tuple:
 
@@ -62,11 +62,11 @@ These pieces of state correspond to:
 
 These are hashed and returned as the syntactic identifier: `syntactic_id`. This is how Semgrep Action uniquely identifies findings and tracks them across state transitions. Semgrep Action does not store or transmit code contents. The `syntactic context` is hashed using a one-way hashing function making it impossible to recover the original contents.
 
-## Semgrep App
+# Semgrep App
 
 Semgrep App builds on Semgrep Action findings to track state transitions and provide additional context for managing findings within your organization. Findings move between states according to their Semgrep Action `syntactic_id`, as mentioned above. A finding can occupy 3 states in Semgrep App: `OPEN`, `FIXED`, and `MUTED`.
 
-### Finding states
+## Finding states
 
 Semgrep App finding states are defined as follows:
 
@@ -85,7 +85,7 @@ These transitions are defined as follows:
 1. `Mute`: a previously identified `syntactic_id` has been ignored.
 1. `Unmute`: a previously muted `syntactic_id` has been unignored.
 
-### Analytics
+## Analytics
 
 Semgrep App provides analytics to measure Semgrep performance within your organization. Visit [Manage > Analytics](https://semgrep.dev/manage/findings) and use measurements like fix rate and findings over time to get the most out of your Semgrep deployment:
 
