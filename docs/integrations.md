@@ -34,8 +34,8 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       # Checkout project source
-      - uses: actions/checkout@v1
-
+      - uses: actions/checkout@v2
+      
       # Scan code using project's configuration on https://semgrep.dev/manage
       - uses: returntocorp/semgrep-action@v1
 
