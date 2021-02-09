@@ -31,8 +31,8 @@ $ semgrep --help
 # Check for Python == where the left and right hand sides are the same (often a bug)
 $ semgrep -e '$X == $X' --lang=py path/to/src
 
-# Run the r2c-ci ruleset (with rules for many languages) on your own code!
-$ semgrep --config=p/r2c-ci path/to/src
+# Run the r2c CI ruleset (with rules for many languages) on your own code!
+$ semgrep --config=p/ci path/to/src
 ```
 
 See [CLI usage](cli-usage.md) for command line options and exit codes.
@@ -47,22 +47,22 @@ These community projects are designed to test code scanners and teach security c
 ```sh
 # juice-shop, a vulnerable Node.js + Express app
 $ git clone https://github.com/bkimminich/juice-shop
-$ semgrep --config p/r2c-security-audit juice-shop
+$ semgrep --config p/security-audit juice-shop
 # railsgoat, a vulnerable Ruby on Rails app
 $ git clone https://github.com/OWASP/railsgoat
-$ semgrep --config p/r2c-security-audit railsgoat
+$ semgrep --config p/security-audit railsgoat
 
 # govwa, a vulnerable Go app
 $ git clone https://github.com/0c34/govwa
-$ semgrep --config p/r2c-security-audit govwa
+$ semgrep --config p/security-audit govwa
 
 # vulnerable Python + Flask app
 $ git clone https://github.com/we45/Vulnerable-Flask-App
-$ semgrep --config p/r2c-security-audit Vulnerable-Flask-App
+$ semgrep --config p/security-audit Vulnerable-Flask-App
 
 # WebGoat, a vulnerable Java + Spring app
 $ git clone https://github.com/WebGoat/WebGoat
-$ semgrep --config p/r2c-security-audit WebGoat
+$ semgrep --config p/security-audit WebGoat
 ```
 
 </p>
