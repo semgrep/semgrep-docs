@@ -6,7 +6,7 @@ Semgrep integrates into the development flow end-to-end, from code conception in
 
 # Continuous integration (CI)
 
-The following instructions use [Semgrep CI](https://github.com/returntocorp/semgrep-action) and require a [Semgrep App](https://semgrep.dev/manage) account (free or paid tier). `SEMGREP_DEPLOYMENT_ID` and `SEMGREP_APP_TOKEN` information is available at [Manage > Settings](https://semgrep.dev/manage/settings) after login.
+The following instructions use [Semgrep CI](https://github.com/returntocorp/semgrep-action) and require a [Semgrep App](https://semgrep.dev/manage) account. `SEMGREP_DEPLOYMENT_ID` and `SEMGREP_APP_TOKEN` information is available at [Manage > Settings](https://semgrep.dev/manage/settings) after login.
 
 !!! danger
     `SEMGREP_APP_TOKEN` is a secret value: DO NOT HARDCODE IT AND LEAK CREDENTIALS. Use your CI provider's secret or environment variable management feature to store it.

@@ -127,7 +127,7 @@ Semgrep CI makes network requests in accordance with the data storage mentioned 
 # Configuration
 
 #### How do I configure Semgrep for different projects?
-Semgrep App’s Community and Team tiers provide centralized policy management. See [Managing CI policy](managing-policy.md) for more details.
+Semgrep App provides centralized policy management. See [Managing CI policy](managing-policy.md) for more details.
 
 #### What is a policy?
 A policy is a simple collection of rules and a definition of what to do with rule results: fail the Semgrep CI run and/or send non-blocking notifications to third-party services like Slack. Please see [Managing CI policy](managing-policy.md) for more details.
