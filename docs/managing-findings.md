@@ -4,11 +4,11 @@
 
 # Findings
 
-A finding is the core unit of Semgrep's analysis. Findings are generated when a Semgrep rule matches a piece of code. After matching, a finding can make its way through 3 parts of the Semgrep ecosystem: [`semgrep`](https://github.com/returntocorp/semgrep), [`semgrep-action`](https://github.com/returntocorp/semgrep-action), and [semgrep.dev](https://semgrep.dev/).
+A finding is the core result of Semgrep's analysis. Findings are generated when a Semgrep rule matches a piece of code. After matching, a finding can make its way through 3 parts of the Semgrep ecosystem: [`semgrep`](https://github.com/returntocorp/semgrep), [`Semgrep Action`](https://github.com/returntocorp/semgrep-action), and [Semgrep App](https://semgrep.dev/).
 
 ## Semgrep CLI
 
-Semgrep CLI findings are a specific rule matching a piece of code. Multiple rules can match the same piece of code, even if they are effectively the same rule. For example, consider the following rule and code snippet:
+Semgrep CLI findings are produced by a specific rule matching a piece of code. Multiple rules can match the same piece of code, even if they are effectively the same rule. For example, consider the following rule and code snippet:
 
 ```
 rules:
@@ -62,7 +62,7 @@ These pieces of state correspond to:
 !!! note
     `syntactic context` is normalized by removing indentation, [`nosemgrep`](ignoring-findings.md#ignoring-findings-via-inline-comments) comments, and whitespace.
 
-These 4 pieces of information are then hashed and returned as the syntactic identifier: `syntactic_id`. This is how Semgrep Action uniquely identifies findings and tracks them across state transitions. Semgrep Action does not store or transmit code contents. The `syntactic context` is hashed using a one-way hashing function making it impossible to recover the original contents.
+These are hashed and returned as the syntactic identifier: `syntactic_id`. This is how Semgrep Action uniquely identifies findings and tracks them across state transitions. Semgrep Action does not store or transmit code contents. The `syntactic context` is hashed using a one-way hashing function making it impossible to recover the original contents.
 
 ## Semgrep App
 
