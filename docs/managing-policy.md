@@ -44,6 +44,8 @@ When Semgrep CI next runs and finds a result, the configured services will recei
 
 # Fail open/close
 
-By default, when semgrep-action fails to scan code for some reason (e.g., an invalid config), it will exit with a return code greater than 1. If you do not want this kind of failure to block CI from passing, you can set semgrep-action to fail open. Go to [https://semgrep.dev/manage/projects](https://semgrep.dev/manage/projects) and on the desired repository edit, select, and save the checkbox under the Fail Open column.
+By default, Semgrep CI returns a non-zero exit code when it has an internal error (e.g. invalid configuration, parse error). This causes a build failure and will prevent merging.
+
+To prevent Semgrep CI from interfering with the development flow due to internal errors, enable "fail open" on [https://semgrep.dev/manage/projects](https://semgrep.dev/manage/projects) for your desired repository. Click edit, select, and save the checkbox under the Fail Open column.
 
 When fail open is enabled a notification will be sent to your configured notification channels and Semgrep CI will continue with a 0 return code.
