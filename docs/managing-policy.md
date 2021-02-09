@@ -1,6 +1,6 @@
 # Managing CI policy
 
-Semgrep Community and Semgrep Team provide infrastructure for managing Semgrep across many projects. Create policies from their web UI and apply those policies to projects in a many-to-many mapping. A policy is a simple collection of rules and a definition of what to do with rule results: fail the Semgrep CI run and/or send non-blocking notifications to third-party services like Slack.
+Semgrep App provides infrastructure for managing Semgrep across many projects. Create policies from its web UI and apply those policies to projects in a many-to-many mapping. A policy is a simple collection of rules and a definition of what to do with rule results: fail the Semgrep CI run and/or send non-blocking notifications to third-party services like Slack.
 
 ![Sample policy with rules set to send notifcations and block builds](img/policy-sample.png "Policy to block and notify when results are found.")
 
@@ -44,8 +44,9 @@ When Semgrep CI next runs and finds a result, the configured services will recei
 
 # Fail open/close
 
-By default, Semgrep CI returns a non-zero exit code when it has an internal error (e.g. invalid configuration, parse error). This causes a build failure and will prevent merging.
+By default, Semgrep CI returns a non-zero exit code when it has an internal error (e.g., invalid configuration, parse error). This causes a build failure and will prevent merging.
 
 To prevent Semgrep CI from interfering with the development flow due to internal errors, enable "fail open" on [https://semgrep.dev/manage/projects](https://semgrep.dev/manage/projects) for your desired repository. Click edit, select, and save the checkbox under the Fail Open column.
 
 When fail open is enabled a notification will be sent to your configured notification channels and Semgrep CI will continue with a 0 return code.
+

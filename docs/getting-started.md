@@ -1,8 +1,9 @@
 # Getting started
 
-1. [Run Semgrep locally](#run-semgrep-locally)
-2. [Write a rule](#write-a-rule)
-3. [Run Semgrep continuously](#run-semgrep-continuously)
+- [Getting started](#getting-started)
+- [Run Semgrep locally](#run-semgrep-locally)
+- [Write a rule](#write-a-rule)
+- [Run Semgrep continuously](#run-semgrep-continuously)
 
 # Run Semgrep locally
 
@@ -84,9 +85,9 @@ Visit [Writing Rules > Getting started](writing-rules/overview.md) for an in-dep
 
 Finally, Semgrep is at its best when used to continuously scan code. Visit [Integrations](integrations.md) to learn how to get results where you already work: GitHub, GitLab, Slack, Jira, VS Code, and more.
 
-For teams running Semgrep on multiple projects, see [Semgrep Community](https://semgrep.dev/manage). This free infrastructure lets users:
+For teams running Semgrep on multiple projects, see [Semgrep App](https://semgrep.dev/manage). Its free and paid tiers let users:
 
-1. Centrally define code standards for your projects
-2. Monitor the impact of your standards
+1. Centrally define code standards
+2. Monitor the impact of standards
 3. Host private rules
-4. Push notifications to 3rd party services
+4. Push notifications to 3rd-party services

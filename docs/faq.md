@@ -25,11 +25,11 @@ Help is available for all users, free or otherwise, through the [r2c Community S
 
 # Billing / Pricing
 
-#### What features differ between the Semgrep Community (free) and Team (paid) versions?
+#### What features differ between Semgrep App’s Community (free) and Team (paid) versions?
 See the Semgrep feature and pricing comparison at [r2c.dev/pricing](https://r2c.dev/pricing)
 
 #### Who is a user and how do you count them?
-For the Semgrep Team edition, a user is any project contributor whose pull request or code was scanned in the billing cycle. For example, if a project has 4 unique contributors who pushed code during the period, and Semgrep runs on all their pull requests, there are 4 users. If these unique contributors push to many projects, they will only be counted once; please feel free to scan often and widely. Semgrep does not charge on a line-of-code or per-project basis. 
+For the Semgrep Team tier, a user is any project contributor whose pull request or code was scanned in the billing cycle. For example, if a project has 4 unique contributors who pushed code during the period, and Semgrep runs on all their pull requests, there are 4 users. If these unique contributors push to many projects, they will only be counted once; please feel free to scan often and widely. Semgrep does not charge on a line-of-code or per-project basis. 
 
 # Comparisons
 ### How is Semgrep different than $OTHER_TOOL or $GENERIC_[SAST](https://en.wikipedia.org/wiki/Static_application_security_testing)?
@@ -38,7 +38,7 @@ Semgrep is an open-source tool with a simple syntax for writing rules: if you ca
 
 To our knowledge, the only other tool with the explicit goal of allowing custom rules is GitHub’s proprietary tool, CodeQL. CodeQL has a domain-specific language which is extremely powerful but is designed for those with significant program analysis expertise, whereas Semgrep is designed for the security engineer or developer who wants to automate code review. Our goal is to make writing a Semgrep rule as easy as copying the code you want to find—and letting the Semgrep engine to make the rule and autofix high-quality enough to run in CI or the editor.
 
-Our hosted offering, [Semgrep.dev](http://semgrep.dev/), has a generous free tier (even for private repos!). It offers a hosted CI integration with one-click setup so you can start running Semgrep right away. Its diff-awareness lets you scan new code and doesn’t force you to fix all the existing issues when you first start out. For users running inside orgs with lots of repos, the hosted offering also offers a policy and notification system that makes it easy to tune Semgrep so that it only reports issues or suggest fixes that actually get applied. Our goal is a 99% fix rate for what Semgrep reports.
+Our hosted offering, [Semgrep App](http://semgrep.dev/), has a generous free tier (even for private repos!). It offers a hosted CI integration with one-click setup so you can start running Semgrep right away. Its diff-awareness lets you scan new code and doesn’t force you to fix all the existing issues when you first start out. For users running inside orgs with lots of repos, the hosted offering also offers a policy and notification system that makes it easy to tune Semgrep so that it only reports issues or suggest fixes that actually get applied. Our goal is a 99% fix rate for what Semgrep reports.
 
 ### Besides open-source and ease of writing new rules, what else is different about Semgrep?
 
@@ -127,7 +127,7 @@ Semgrep CI makes network requests in accordance with the data storage mentioned 
 # Configuration
 
 #### How do I configure Semgrep for different projects?
-Semgrep Community and Team editions provide centralized policy management. See [Managing CI policy](managing-policy.md) for more details.
+Semgrep App provides centralized policy management. See [Managing CI policy](managing-policy.md) for more details.
 
 #### What is a policy?
 A policy is a simple collection of rules and a definition of what to do with rule results: fail the Semgrep CI run and/or send non-blocking notifications to third-party services like Slack. Please see [Managing CI policy](managing-policy.md) for more details.

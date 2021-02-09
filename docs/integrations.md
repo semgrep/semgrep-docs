@@ -6,7 +6,7 @@ Semgrep integrates into the development flow end-to-end, from code conception in
 
 # Continuous integration (CI)
 
-The following instructions use [Semgrep CI](https://github.com/returntocorp/semgrep-action) and require a free [Semgrep Community](https://semgrep.dev/manage) or paid Semgrep Team account. `SEMGREP_DEPLOYMENT_ID` and `SEMGREP_APP_TOKEN` information is available at [Manage > Settings](https://semgrep.dev/manage/settings) after login.
+The following instructions use [Semgrep CI](https://github.com/returntocorp/semgrep-action) and require a [Semgrep App](https://semgrep.dev/manage) account. `SEMGREP_DEPLOYMENT_ID` and `SEMGREP_APP_TOKEN` information is available at [Manage > Settings](https://semgrep.dev/manage/settings) after login.
 
 !!! danger
     `SEMGREP_APP_TOKEN` is a secret value: DO NOT HARDCODE IT AND LEAK CREDENTIALS. Use your CI provider's secret or environment variable management feature to store it.
@@ -80,7 +80,7 @@ See a complete example of this workflow file including this environment variable
     There’s no need to create `secrets.GITHUB_TOKEN` yourself because it’s automatically set by GitHub. It only needs to be passed to the action via the workflow file.
 
 Comments are left when Semgrep CI finds a result that blocks CI.
-Note that this feature is experimental; please reach out to support@r2c.dev to report any issues.
+Note that this feature is experimental; please reach out to [support@r2c.dev](mailto:support@r2c.dev) to report any issues.
 <br /><br />
 ### GitLab CI
 <p>
