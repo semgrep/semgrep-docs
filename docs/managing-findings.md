@@ -2,7 +2,7 @@
 
 [TOC]
 
-## Findings
+# Findings
 
 A finding is the core result of Semgrep's analysis. Findings are generated when a Semgrep rule matches a piece of code. After matching, a finding can make its way through 3 parts of the Semgrep ecosystem: [Semgrep CLI](https://github.com/returntocorp/semgrep), [Semgrep Action](https://github.com/returntocorp/semgrep-action), and [Semgrep App](https://semgrep.dev/).
 
