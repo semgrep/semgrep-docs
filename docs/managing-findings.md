@@ -44,7 +44,7 @@ severity:warning rule:finding-test: Finding test 2
 
 ## Semgrep Action
 
-Semgrep Action builds on Semgrep CLI findings to track the lifetime of an individual finding.
+Semgrep Action, designed to continuously scan commits and builds, improves on Semgrep CLI findings to track the lifetime of an individual finding.
 
 A Semgrep Action finding is defined by a 4-tuple:
 
