@@ -2,7 +2,7 @@
 
 [Semgrep CI](https://github.com/returntocorp/semgrep-action) is a wrapper around [Semgrep](https://github.com/returntocorp/semgrep) for running as a GitHub Action, in GitLab, and in other CI providers and interfacing with [Semgrep App](https://semgrep.dev). See [CI Providers](providers.md) to see how to setup Semgrep CI in the provider you already use.
 
-Semgrep CI adds a layer of git-awareness on top of Semgrep. It reviews only the changed files in pull requests with Semgrep whenever a new commit is added to them, and reports only issues that are newly introduced in that pull request.
+Semgrep CI adds a layer of git-awareness on top of Semgrep. Whenever a new commit is added to a pull request, Semgrep CI reviews only the changed files and reports only issues that are newly introduced in that pull request.
 
 ## Technical details
 
