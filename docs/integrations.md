@@ -16,6 +16,10 @@ uses: returntocorp/semgrep-action@v1
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 ```
 
+Comments on Github pull requests will look like this:
+
+![Github Pull Request Comment](img/semgrep-pull-request.png "Comments on Github Pull Request")
+
 See a complete example of this workflow file including this environment variable (commented out) in the [above example workflow file](#github-actions).
 
 !!! info
