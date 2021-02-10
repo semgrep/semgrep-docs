@@ -8,7 +8,7 @@ Semgrep CI adds a layer of git-awareness on top of Semgrep. Whenever a new commi
 
 Semgrep CI scans files in the current directory with [semgrep](https://github.com/returntocorp/semgrep), and exits with a return code of 1 if blocking issues are found.
 
-Findings are blocking by default. They can be set to non-blocking by changing the action in semgrep.dev/manage/policy.
+Findings are blocking by default. They can be set to non-blocking by changing the action in Semgrep App [Manage → Policy](https://semgrep.dev/manage/policy).
 
 Semgrep-action has the option to report only new issues, added since a specific commit.
 When run in a continuous integration (CI) pipeline, semgrep-action determines the base commit from [environment variables](https://github.com/returntocorp/semgrep-action/blob/develop/src/semgrep_agent/meta.py), as set by GitHub, GitLab, Travis or CircleCI. The base commit can also be passed on the command line using the option --baseline-ref.
