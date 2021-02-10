@@ -54,10 +54,6 @@ jobs:
       #  if: always()
 ```
 
-<a name="inline-pr-comments-beta"></a>
-<br />
-
-
 ## GitLab CI
 <p>
 
