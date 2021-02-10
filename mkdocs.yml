@@ -18,7 +18,7 @@ nav:
 
   - "Running Semgrep In CI":
       - Semgrep CI: semgrep-ci.md
-      - CI Providers: providers.md
+      - Sample CI Configurations: sample-ci-configs.md
       - managing-policy.md
 
   - "Security Cheat Sheets":

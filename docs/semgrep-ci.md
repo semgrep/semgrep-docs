@@ -5,7 +5,7 @@ is a wrapper around
 [Semgrep CLI](https://github.com/returntocorp/semgrep)
 that adds convenient features for use in CI environments,
 such as in GitHub Actions or GitLab CI.
-See [how to set it up with your CI provider](providers.md).
+See [how to set it up with your CI provider](sample-ci-configs.md).
 
 ## Features
 
@@ -66,7 +66,7 @@ diff-aware mode is automatically enabled,
 with the branch-off point considered the baseline.
 When using other providers, you need to set environment variables
 that tell Semgrep CI what it should use as the baseline commit.
-Many of our [sample CI configs for various providers](providers.md#standalone-providers)
+Many of our [sample CI configs for various providers](sample-ci-configs.md)
 set these environment variables.
 <!-- TODO: add diagram -->
 

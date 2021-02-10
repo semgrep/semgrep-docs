@@ -1,18 +1,35 @@
-# Continuous Integration (CI) Providers
+# Sample CI Configurations
 
-The following instructions show how to setup [Semgrep CI](https://github.com/returntocorp/semgrep-action) on your CI provider. Note that these examples require a [Semgrep App](https://semgrep.dev/manage) account. `SEMGREP_DEPLOYMENT_ID` and `SEMGREP_APP_TOKEN` information is available at [Manage > Settings](https://semgrep.dev/manage/settings) after login.
+The sample configuration files below
+run [Semgrep CI](https://github.com/returntocorp/semgrep-action)
+on various continuous integration providers.
+These configurations all connect to a [Semgrep App](https://semgrep.dev/manage) account.
+The configurations refer to `SEMGREP_DEPLOYMENT_ID` and `SEMGREP_APP_TOKEN`,
+which are essentially a username and a password.
+You can find the appropriate values for these
+on the [Dashboard > Settings](https://semgrep.dev/manage/settings) page.
 
 [TOC]
 
 !!! danger
-    `SEMGREP_APP_TOKEN` is a secret value: DO NOT HARDCODE IT AND LEAK CREDENTIALS. Use your CI provider's secret or environment variable management feature to store it.
-
-Semgrep can seamlessly integrate into your CI pipeline using GitHub Actions or GitLab CI.
+    `SEMGREP_APP_TOKEN` is a secret value: **do not hardcode it and leak credentials!**
+    Use your CI provider's secret or environment variable management feature to store it.
 
 ## GitHub Actions
 
-The easiest way to set up the Semgrep CI integration in GitHub
-is via the [Semgrep Community](https://semgrep.dev/manage/) app.
+Semgrep CI will [auto-detect CI context](semgrep-ci.md#features)
+when running in GitHub Actions.
+Scans on pull requests will report only newly added findings.
+
+The easiest way to set up Semgrep CI integration in GitHub Actions
+is via [Dashboard > Projects](https://semgrep.dev/manage/projects) in Semgrep App.
+The app can generate and commit a workflow YAML file
+to your project based on the settings you select.
+You can also copy the file contents
+and commit them to `.github/workflows/semgrep.yml` manually,
+or write your own workflow file based on this sample:
+
+<!-- TODO: move to Semgrep App docs
 
 When you install Semgrep on a GitHub organization,
 you select which repositories should be visible to Semgrep.
@@ -35,12 +52,9 @@ Semgrep will then commit a CI workflow file to your repository.
 Please temporarily disable any branch protection rules
 that might block writes to your default branch.
 
-!!! info
-    If you prefer, you can also copy the contents of the CI configuration file
-    from this configuration screen,
-    and then commit it to `.github/workflows/semgrep.yml` manually.
+-->
 
-<details><summary>Sample GitHub Actions workflow file</summary>
+<details id="sample-github-actions-workflow"><summary>Sample GitHub Actions workflow file</summary>
 <p>
 
 ```yaml
@@ -93,7 +107,9 @@ jobs:
 <a name="inline-pr-comments-beta"></a>
 <br />
 
-### PR Comments (beta)
+### Pull Request Comments (beta)
+
+<!-- TODO: Move to Semgrep App docs -->
 
 !!! info
     This feature is currently only available for GitHub.
@@ -106,7 +122,7 @@ uses: returntocorp/semgrep-action@v1
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 ```
 
-See a complete example of this workflow file including this environment variable (commented out) in the [above example workflow file](#github-actions).
+See a complete example of this workflow file including this environment variable (commented out) in the [above sample workflow file](#sample-github-actions-workflow).
 
 !!! info
     Unlike `secrets.SEMGREP_TOKEN`,
@@ -116,9 +132,16 @@ See a complete example of this workflow file including this environment variable
 
 Comments are left when Semgrep CI finds a result that blocks CI.
 Note that this feature is experimental; please reach out to support@r2c.dev to report any issues.
-<br /><br />
 
 ## GitLab CI
+
+Semgrep CI will [auto-detect CI context](semgrep-ci.md#features)
+when running in GitHub Actions.
+Scans on pull requests will report only newly added findings.
+
+The [`template` used in this sample](https://docs.gitlab.com/ee/ci/yaml/#workflowrules-templates) configuration
+will run Semgrep on pushes to merge requests, your default branch, and tags.
+Feel free to replace this with another set of events you'd like to run on.
 
 <p>
 
@@ -133,49 +156,9 @@ semgrep:
 ```
 
 </p>
-</br>
 
-## Other providers
+## Buildkite
 
-Although not fully supported, these instructions are here to help you integrate with your CI provider of choice.
-
-The following commands can be run by your CI provider (or on the commandline):
-
-<p>
-
-```sh
-# Set additional environment variables
-$ SEMGREP_JOB_URL=https://example.com/me/myjob
-$ SEMGREP_REPO_URL=https://gitwebsite.com/myrepository
-$ SEMGREP_BRANCH=mybranch
-$ SEMGREP_REPO_NAME=myorg/myrepository
-
-# Run semgrep_agent
-$ python -m semgrep_agent --publish-deployment $SEMGREP_DEPLOYMENT_ID --publish-token $SEMGREP_TOKEN
-```
-
-</p>
-
-For diff-aware scans, include the flag `--baseline-ref` set to a git ref (branch name, tag, or commit hash) to use as a baseline. This will prompt Semgrep to ignore findings that were already present in the codebase, and only show findings that were introduced by modifications to the baseline.
-
-Using the instructions above, Semgrep should be able to integrate into the following CI providers, with some limitations:
-
-- AppVeyor
-- Bamboo
-- Bitbucket Pipelines
-- Bitrise
-- Buildbot
-- Buildkite
-- CircleCI
-- Codeship
-- Codefresh
-- Jenkins
-- TeamCity CI
-- Travis CI
-
-For example, Buildkite and CircleCI can be configured as follows, though some features such as deduplication of results may not work as expected:
-
-<details><summary>Buildkite</summary>
 <p>
 
 ```yaml
@@ -193,8 +176,9 @@ For example, Buildkite and CircleCI can be configured as follows, though some fe
 ```
 
 </p>
-</details>
-<details><summary>CircleCI</summary>
+
+## CircleCI
+
 <p>
 
 ```yaml
@@ -233,7 +217,62 @@ workflows:
 ```
 
 </p>
-</details>
-<br />
+
+## Other providers
+
+To run Semgrep CI on any other provider,
+use the `returntocorp/semgrep-agent:v1` Docker image,
+and run this command in your Docker container:
+
+```sh
+python -m semgrep_agent --publish-deployment $SEMGREP_DEPLOYMENT_ID --publish-token $SEMGREP_TOKEN
+```
+
+To get [CI context awareness](semgrep-ci.md#features),
+also provide the following environment variables:
+
+<p>
+
+```sh
+# Set additional environment variables
+SEMGREP_BRANCH=mybranch
+SEMGREP_COMMIT=abcd1234  # commit SHA being scanned
+SEMGREP_JOB_URL=https://example.com/me/myjob  # URL to CI logs
+SEMGREP_REPO_NAME=myorg/myrepository  # project name to show on Semgrep App
+SEMGREP_REPO_URL=https://gitwebsite.com/myrepository
+SEMGREP_PR_ID=123
+SEMGREP_PR_TITLE="Added four new bugs"  # shown in Slack notifications if set
+
+# Run semgrep_agent
+python -m semgrep_agent --publish-deployment $SEMGREP_DEPLOYMENT_ID --publish-token $SEMGREP_TOKEN
+```
+
+</p>
+
+For [diff-aware scans](semgrep-ci.md#features), set the `--baseline-ref` flag
+to the git ref (branch name, tag, or commit hash) to use as a baseline.
+For example, to report findings newly added
+since branching off from your `main` branch, run
+
+```sh
+python -m semgrep_agent --baseline-ref main
+```
+
+Using these instructions, you can run Semgrep in the following CI providers:
+
+- AppVeyor
+- Bamboo
+- Bitbucket Pipelines
+- Bitrise
+- Buildbot
+- Buildkite [(sample configuration)](#buildkite)
+- CircleCI [(sample configuration)](#circleci)
+- Codeship
+- Codefresh
+- GitHub Actions [(sample configuration)](#github-actions)
+- GitLab CI [(sample configuration)](#gitlab-ci)
+- Jenkins
+- TeamCity CI
+- Travis CI
 
 Is your CI provider missing? Let us know by [filing an issue here](https://github.com/returntocorp/semgrep/issues/new?assignees=&labels=&template=feature_request.md&title=).
