@@ -13,9 +13,14 @@ nav:
       - writing-rules/testing-rules.md
       - running-rules.md
       - ignoring-findings.md
+      - Experiments 🧪: experiments/overview.md
+
+  - "Running Semgrep In CI":
+      - Semgrep CI: semgrep-ci.md
+      - CI Providers: providers.md
       - managing-policy.md
       - integrations.md
-      - Experiments 🧪: experiments/overview.md
+
   - "Security Cheat Sheets":
       - "Django XSS": "cheat-sheets/django-xss.md"
       - "Flask XSS": "cheat-sheets/flask-xss.md"

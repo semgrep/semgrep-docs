@@ -6,7 +6,7 @@
 
 #### How are Semgrep and its rules licensed?
 [Semgrep CLI](https://github.com/returntocorp/semgrep) is open-source, licensed under the [LGPL 2.1](https://tldrlegal.com/license/gnu-lesser-general-public-license-v2.1-(lgpl-2.1)) license — you can use it at work, on private and proprietary code, no problem!
-    
+
 The [Semgrep Registry](https://semgrep.dev/explore) contains rules from many different contributors, often under differing licenses. If you use Semgrep Registry through Semgrep.dev, r2c is vetting the rules to make sure that the licenses are compatible with using them at your company.
 
 The source for many of r2c’s rules is available at [returntocorp/semgrep-rules](https://github.com/returntocorp/semgrep-rules/). These are licensed as LGPL 2.1 under the [Commons Clause](https://commonsclause.com/). This means the source for the rules is available, but they can’t be resold without r2c’s permission. Although the Commons Clause and related licenses like the BSL/SSPL are embraced by many great open-source projects ([Sentry](https://blog.sentry.io/2019/11/06/relicensing-sentry/), [Cockroach](https://www.cockroachlabs.com/blog/oss-relicensing-cockroachdb/), [Mongo](https://www.mongodb.com/licensing/server-side-public-license/faq)), they are not technically open-source under the OSI definition. Why do we have this restriction if we love open source software so much? Since r2c offers a paid, hosted version at Semgrep.dev, it’s important for us to have this restriction so other companies like major cloud providers can’t just resell our rules as a competing service.
@@ -29,7 +29,7 @@ Help is available for all users, free or otherwise, through the [r2c Community S
 See the Semgrep feature and pricing comparison at [r2c.dev/pricing](https://r2c.dev/pricing)
 
 #### Who is a user and how do you count them?
-For the Semgrep Team tier, a user is any project contributor whose pull request or code was scanned in the billing cycle. For example, if a project has 4 unique contributors who pushed code during the period, and Semgrep runs on all their pull requests, there are 4 users. If these unique contributors push to many projects, they will only be counted once; please feel free to scan often and widely. Semgrep does not charge on a line-of-code or per-project basis. 
+For the Semgrep Team tier, a user is any project contributor whose pull request or code was scanned in the billing cycle. For example, if a project has 4 unique contributors who pushed code during the period, and Semgrep runs on all their pull requests, there are 4 users. If these unique contributors push to many projects, they will only be counted once; please feel free to scan often and widely. Semgrep does not charge on a line-of-code or per-project basis.
 
 # Comparisons
 ### How is Semgrep different than $OTHER_TOOL or $GENERIC_[SAST](https://en.wikipedia.org/wiki/Static_application_security_testing)?
@@ -49,17 +49,17 @@ If you are shipping code daily a code analysis tool that takes a week to run is 
 
 **2. Semantic: Semgrep is smart**
 
-Semgrep automatically handles the nuance of “there’s more than one way to do it”: you write your query and all equivalent variations of that code should be automatically matched. 
+Semgrep automatically handles the nuance of “there’s more than one way to do it”: you write your query and all equivalent variations of that code should be automatically matched.
 
 As Semgrep evolves, a query like `foo("password")` becomes smarter. In the original version of Semgrep, this query would only match the code `foo("password")`. But a few months after release it would match `const x = "password"; foo(x).` Today Semgrep can [do even more with intraproceedural dataflow](https://semgrep.dev/s/ievans:c-dataflow) analysis, and we’re working on adding more of these semantic features with every release.
 
 
 **3. Integrated: Semgrep understands git and other version-control systems**
-    
-It’s easy to write a new Semgrep rule and have it only apply *going forward*. You can [mute findings](ignoring-findings.md) of course, but we have [built-in support for this with Semgrep CI](integrations.md) and GitHub/GitLab/etc. integrations.
+
+It’s easy to write a new Semgrep rule and have it only apply *going forward*. You can [mute findings](ignoring-findings.md) of course, but we have [built-in support for this with Semgrep CI](semgrep-ci.md) and GitHub/GitLab/etc. integrations.
 
 
-**4. Portable: If you write a Semgrep rule, it runs anywhere** 
+**4. Portable: If you write a Semgrep rule, it runs anywhere**
 
 Many other tools require a buildable environment or can only be run in a VM. Semgrep runs “on the metal” and has minimal dependencies around a statically linked core; our parsers are declaratively-generated C libraries (we contribute to and use [tree-sitter](https://tree-sitter.github.io/)).
 
@@ -79,11 +79,11 @@ Both Semgrep and CodeQL use static analysis to find bugs, but there are a few di
 
 * Semgrep operates directly on source code, whereas CodeQL requires a buildable environment
 * Semgrep is LGPL-2.1 and free to run anywhere; CodeQL is not open source and you must pay to run it on any non-open-source code
-    
+
 * Semgrep supports autofixes; CodeQL does not.
 * Semgrep focuses on speed and ease of use. Because it doesn’t require a buildable environment, it doesn’t have some of the analysis features like interprocedural dataflow analysis that CodeQL does. (Semgrep does have [limited intraproceedural dataflow and a taint-tracking mode](experiments/overview.md))
 * Both have publicly available rules
-* Semgrep rules look like the source code you’re writing; CodeQL has a separate domain-specific-language for writing queries. 
+* Semgrep rules look like the source code you’re writing; CodeQL has a separate domain-specific-language for writing queries.
 * Semgrep has an online, hosted free plan; both have a hosted paid plan
 
 ### How is Semgrep different than SonarQube?
