@@ -18,7 +18,7 @@ Any rule, ruleset, or pattern can be added to a policy. Look for the “Add to P
 
 ![A ruleset with an "Add to Policy" button visible](img/ruleset.png "A ruleset showing 'Add to Policy'")
 
-To edit the settings for a policy, go to [Dashboard > Policies](https://semgrep.dev/manage/policy) and select the relevant policy from the list. Add or rename integrations using the "Integrations" tab in the left-hand menu, and then add as many of these integrations as you want to each of your policies. You can also check or uncheck the boxes to post PR comments ([which also requires a GitHub Token](integrations.md/#automatic-pr-comments)) or to block the build on findings. Don't forget to click save when you are finished editing!
+To edit the settings for a policy, go to [Dashboard > Policies](https://semgrep.dev/manage/policy) and select the relevant policy from the list. Add or rename integrations using the "Integrations" tab in the left-hand menu, and then add as many of these integrations as you want to each of your policies. You can also check or uncheck the boxes to post PR comments ([which also requires a GitHub Token](integrations.md#automatic-pr-comments)) or to block the build on findings. Don't forget to click save when you are finished editing!
 
 ![Policy with disabled rules showing](img/remove-from-policy.png "Disabling a rule within a ruleset")
 
