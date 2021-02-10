@@ -5,7 +5,7 @@
 # Language maturity
 
 <div class="languages-table">
-  <iframe width="550" height="725" border=0 frameBorder=0 src="https://dashboard.semgrep.dev/languages/table"></iframe>
+  <iframe width="100%" height="1000" border=0 frameBorder=0 src="https://dashboard.semgrep.dev/languages/table"></iframe>
 </div>
 
 # Language parse rate

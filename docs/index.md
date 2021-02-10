@@ -6,20 +6,18 @@
 </p>
 <h3 align="center">Static analysis at ludicrous speed<br />Find bugs and enforce code standards</h3>
 
-<p>Explore the Semgrep docs and join an amazing community of engineering and security teams already using Semgrep to enforce their code standards 🚀</p>
-
 ---
 
 # Overview
 
 
-Semgrep is a fast, open-source, static analysis tool for finding bugs and enforcing code standards at editor, commit, or CI time. Its rules look like the code you’re searching; no more traversing abstract syntax trees or wrestling with regexes. 
+Semgrep is a fast, open-source, static analysis tool for finding bugs and enforcing code standards at editor, commit, or CI time. Its rules look like the code you’re searching; no more traversing abstract syntax trees or wrestling with regexes.
 
 Semgrep runs locally or in your build environment: code is never sent anywhere. It encompasses:
 
 * [Semgrep CLI](getting-started.md) - the [open-source](https://github.com/returntocorp/semgrep) command-line tool at the heart of everything
-* [Semgrep CI](integrations.md) - Semgrep for continuously scanning commits and builds
-* [Semgrep Community & Semgrep Team](https://semgrep.dev/manage) - hosted services with free and paid tiers to:
+* [Semgrep CI](semgrep-ci.md) - Semgrep for continuously scanning commits and builds
+* [Semgrep App](https://semgrep.dev/manage) - hosted app with free and paid tiers to:
     * Choose from 1,000+ rules written by the community and [r2c](https://r2c.dev) to find security, correctness, and performance bugs.
     * Deploy Semgrep in CI with the click of a button
     * Centrally manage policies across all your projects
@@ -42,7 +40,7 @@ Some supported languages are in alpha or beta; a data-driven approach that evalu
 | Go         | C                               | C#           |
 | Java       | OCaml                           | Kotlin       |
 | JavaScript | PHP                             | Lua          |
-| JSON       | Generic (YAML, ERB, Jinja, etc. | R            |
+| JSON       | Generic (YAML, ERB, Jinja, etc.)| R            |
 | JSX        |                                 | Rust         |
 | Python     |                                 |              |
 | Ruby       |                                 |              |

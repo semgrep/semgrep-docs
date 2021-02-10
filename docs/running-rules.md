@@ -11,7 +11,7 @@ Explore the [Semgrep Registry](https://semgrep.dev/explore) and run rules and ru
 ```sh
 # Run a ruleset with rules for many languages using --config
 $ semgrep --config=<ruleset-id> path/to/src
-$ semgrep --config p/r2c-ci path/to/src
+$ semgrep --config p/ci path/to/src
 ```
 
 Rulesets can be added to Semgrep CI scans using their "Add to Policy" button on Semgrep Community and Semgrep Team.
@@ -31,6 +31,7 @@ $ semgrep -e '$X == $X' --lang=py path/to/src
 $ semgrep --config path/to/yaml
 ```
 
-# Managing findings
+# Findings
 
-See [Ignoring Findings](ignoring-findings.md) for details on how to supress rule output.
+* See [Managing findings](managing-findings.md) for information on Semgrep findings.
+* See [Ignoring findings](ignoring-findings.md) for details on suppressing rule output.

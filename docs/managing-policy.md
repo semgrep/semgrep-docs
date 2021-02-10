@@ -41,4 +41,15 @@ To receive notifications via third-party services, like Slack or email:
 1. Visit [Manage > Integrations](https://semgrep.dev/manage/notifications) to configure the services and name each of your integration channels.
 2. From [Manage > Policies](https://semgrep.dev/manage/policy), select the policy you’d like to configure and add one or more integration channels from the "Integrations" drop-down menu.
 
+<<<<<<< HEAD
 When Semgrep CI next runs and finds a result, the configured services will receive a notification about the finding.
+=======
+# Fail open/close
+
+By default, Semgrep CI returns a non-zero exit code when it has an internal error (e.g., invalid configuration, parse error). This causes a build failure and will prevent merging.
+
+To prevent Semgrep CI from interfering with the development flow due to internal errors, enable "fail open" on [https://semgrep.dev/manage/projects](https://semgrep.dev/manage/projects) for your desired repository. Click edit, select, and save the checkbox under the Fail Open column.
+
+When fail open is enabled a notification will be sent to your configured notification channels and Semgrep CI will continue with a 0 return code.
+
+>>>>>>> origin/main

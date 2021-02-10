@@ -1,8 +1,9 @@
 # Getting started
 
-1. [Run Semgrep locally](#run-semgrep-locally)
-2. [Write a rule](#write-a-rule)
-3. [Run Semgrep continuously](#run-semgrep-continuously)
+- [Getting started](#getting-started)
+- [Run Semgrep locally](#run-semgrep-locally)
+- [Write a rule](#write-a-rule)
+- [Run Semgrep continuously](#run-semgrep-continuously)
 
 # Run Semgrep locally
 
@@ -31,8 +32,8 @@ $ semgrep --help
 # Check for Python == where the left and right hand sides are the same (often a bug)
 $ semgrep -e '$X == $X' --lang=py path/to/src
 
-# Run the r2c-ci ruleset (with rules for many languages) on your own code!
-$ semgrep --config=p/r2c-ci path/to/src
+# Run the r2c CI ruleset (with rules for many languages) on your own code!
+$ semgrep --config=p/ci path/to/src
 ```
 
 See [CLI usage](cli-usage.md) for command line options and exit codes.
@@ -47,22 +48,22 @@ These community projects are designed to test code scanners and teach security c
 ```sh
 # juice-shop, a vulnerable Node.js + Express app
 $ git clone https://github.com/bkimminich/juice-shop
-$ semgrep --config p/r2c-security-audit juice-shop
+$ semgrep --config p/security-audit juice-shop
 # railsgoat, a vulnerable Ruby on Rails app
 $ git clone https://github.com/OWASP/railsgoat
-$ semgrep --config p/r2c-security-audit railsgoat
+$ semgrep --config p/security-audit railsgoat
 
 # govwa, a vulnerable Go app
 $ git clone https://github.com/0c34/govwa
-$ semgrep --config p/r2c-security-audit govwa
+$ semgrep --config p/security-audit govwa
 
 # vulnerable Python + Flask app
 $ git clone https://github.com/we45/Vulnerable-Flask-App
-$ semgrep --config p/r2c-security-audit Vulnerable-Flask-App
+$ semgrep --config p/security-audit Vulnerable-Flask-App
 
 # WebGoat, a vulnerable Java + Spring app
 $ git clone https://github.com/WebGoat/WebGoat
-$ semgrep --config p/r2c-security-audit WebGoat
+$ semgrep --config p/security-audit WebGoat
 ```
 
 </p>
@@ -71,7 +72,7 @@ $ semgrep --config p/r2c-security-audit WebGoat
 
 # Write a rule
 
-Once Semgrep is running locally, see the [Semgrep Tutorial](https://semgrep.dev/learn) to quickly learn how to write precise rules. 
+Once Semgrep is running locally, see the [Semgrep Tutorial](https://semgrep.dev/learn) to quickly learn how to write precise rules.
 
 Visit [Writing Rules > Getting started](writing-rules/overview.md) for an in-depth guide and reference material.
 
@@ -84,9 +85,9 @@ Visit [Writing Rules > Getting started](writing-rules/overview.md) for an in-dep
 
 Finally, Semgrep is at its best when used to continuously scan code. Visit [Integrations](integrations.md) to learn how to get results where you already work: GitHub, GitLab, Slack, Jira, VS Code, and more.
 
-For teams running Semgrep on multiple projects, see [Semgrep Community](https://semgrep.dev/manage). This free infrastructure lets users:
+For teams running Semgrep on multiple projects, see [Semgrep App](https://semgrep.dev/manage). Its free and paid tiers let users:
 
-1. Centrally define code standards for your projects
-2. Monitor the impact of your standards
+1. Centrally define code standards
+2. Monitor the impact of standards
 3. Host private rules
-4. Push notifications to 3rd party services
+4. Push notifications to 3rd-party services
