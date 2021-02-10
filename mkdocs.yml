@@ -19,7 +19,7 @@ nav:
       - Semgrep CI: semgrep-ci.md
       - CI Providers: providers.md
       - managing-policy.md
-      - notification.md
+      - integrations.md
 
   - "Security Cheat Sheets":
       - "Django XSS": "cheat-sheets/django-xss.md"
