@@ -2,6 +2,10 @@
 
 Semgrep provides integrations with 3rd party services like Slack, Jira, DefectDojo, and others. To configure these and learn more, visit [Manage > Notifications](https://semgrep.dev/manage/notifications).
 
+We also provide [Semgrep CI](semgrep-ci.md),
+which integrates Semgrep with GitHub Actions, GitLab CI, and any other CI provider.
+Check out [our sample CI configuration files](sample-ci-configs.md).
+
 ## Editor
 
 Semgrep supports Microsoft Visual Studio Code with the [semgrep-vscode](https://marketplace.visualstudio.com/items?itemName=semgrep.semgrep) extension.

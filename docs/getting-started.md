@@ -83,7 +83,8 @@ Visit [Writing Rules > Getting started](writing-rules/overview.md) for an in-dep
 
 # Run Semgrep continuously
 
-Finally, Semgrep is at its best when used to continuously scan code. Visit [Integrations](integrations.md) to learn how to get results where you already work: GitHub, GitLab, Slack, Jira, VS Code, and more.
+Finally, Semgrep is at its best when used to continuously scan code.
+Visit [Integrations](integrations.md) to learn how to get results where you already work: GitHub, GitLab, Slack, Jira, VS Code, and more.
 
 For teams running Semgrep on multiple projects, see [Semgrep App](https://semgrep.dev/manage). Its free and paid tiers let users:
 

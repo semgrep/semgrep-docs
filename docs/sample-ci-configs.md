@@ -37,6 +37,8 @@ or write your own workflow file based on this sample:
 
 <!-- TODO: move to Semgrep App docs
 
+TODO: @luke said Taking this in a different direction, what do you think of providing problem-focused instructions that place auto project-setup instructions under something more like "Rolling out Semgrep at your org" or "Adding Semgrep to many projects"?
+
 When you install Semgrep on a GitHub organization,
 you select which repositories should be visible to Semgrep.
 The ones you select will appear on the [Projects page](https://semgrep.dev/manage/projects).
@@ -53,6 +55,7 @@ on the [Projects page](https://semgrep.dev/manage/projects).
 You will be taken to a page where you can configure
 exactly how you want the CI job to behave.
 We recommend using Semgrep with the default settings.
+TODO: @pablo said to link info about the defaults
 
 Semgrep will then commit a CI workflow file to your repository.
 Please temporarily disable any branch protection rules
@@ -120,7 +123,10 @@ jobs:
 !!! info
     This feature is currently only available for GitHub.
 
-To get inline PR comments on your pull requests, set the `GITHUB_TOKEN` environment variable in your workflow file to `secrets.GITHUB_TOKEN`, which is the GitHub app installation access token and takes the form of this snippet:
+You can set Semgrep App policies to post inline PR comments on your pull requests.
+For this to work,
+you need to set the `GITHUB_TOKEN` environment variable in your workflow file to `secrets.GITHUB_TOKEN`,
+which is the GitHub app installation access token and takes the form of this snippet:
 
 ```
 uses: returntocorp/semgrep-action@v1
@@ -227,7 +233,7 @@ workflows:
 ## Other providers
 
 To run Semgrep CI on any other provider,
-use the `returntocorp/semgrep-agent:v1` Docker image,
+use the [`returntocorp/semgrep-agent:v1` Docker image](semgrep-ci.md#packaging),
 and run this command in your Docker container:
 
 ```sh
@@ -235,7 +241,7 @@ python -m semgrep_agent --publish-deployment $SEMGREP_DEPLOYMENT_ID --publish-to
 ```
 
 To get [CI context awareness](semgrep-ci.md#features),
-also provide the following environment variables:
+you can optionally provide the following environment variables:
 
 <p>
 
