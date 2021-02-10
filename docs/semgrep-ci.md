@@ -25,7 +25,32 @@ See [how to set it up with your CI provider](providers.md).
   When scanning a pull request,
   it reports only findings that were newly introduced.
 
-## Behavior
+## Technical Details
+
+### Packaging
+
+Semgrep CI is published under the name `semgrep-agent`.
+
+- The [`semgrep_agent` Python package](https://github.com/returntocorp/semgrep-action/tree/develop/src/semgrep_agent) uses this name.
+- The [`semgrep-agent` Docker image](https://hub.docker.com/r/returntocorp/semgrep-agent) also uses this name.
+- The [semgrep-action](https://github.com/marketplace/actions/semgrep-action) GitHub Marketplace listing
+  runs the above Docker image.
+- The [semgrep-action repository](https://github.com/returntocorp/semgrep-action)
+  holds the code for Semgrep CI, the Docker image, and the GitHub Marketplace manifest.
+
+New versions of semgrep-action and the Docker image
+are released by Semgrep CI maintainers
+on a regular basis.
+To run all jobs with the latest releases,
+use `returntocorp/semgrep-action@v1` in your GitHub Actions workflow,
+or the `returntocorp/semgrep-agent:v1` Docker image with other providers.
+
+!!! info
+    The Python package itself is not published to PyPI,
+    or any other package index,
+    but you can still use it by cloning the GitHub repository.
+
+### Behavior
 
 Semgrep CI scans the current working directory,
 and exits with a return code of 1 if blocking findings were found.
