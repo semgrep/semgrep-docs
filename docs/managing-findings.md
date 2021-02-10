@@ -103,4 +103,7 @@ Track high, or low, performing policies, rulesets, and rules:
 
 ![Ruleset performance](img/ruleset-findings.png "Ruleset performance")
 
+!!! note
+    The "rate" for any state is `(state total / total of all states)`, e.g. `fix rate = (fixed / (fixed + open + muted))`.
+
 *For more information on blocking vs. non-blocking visit [Managing CI policy](managing-policy.md).*
