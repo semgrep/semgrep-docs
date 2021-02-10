@@ -2,29 +2,35 @@
 
 Semgrep provides integrations with 3rd party services like Slack, Jira, DefectDojo, and others. To configure these and learn more, visit [Manage > Notifications](https://semgrep.dev/manage/notifications).
 
+We also provide [Semgrep CI](semgrep-ci.md),
+which integrates Semgrep with GitHub Actions, GitLab CI, and any other CI provider.
+Check out [our sample CI configuration files](sample-ci-configs.md).
 
-#### Automatic PR Comments
+## Editor
 
-!!! info
-    This feature is currently only available for GitHub.
+Semgrep supports Microsoft Visual Studio Code with the [semgrep-vscode](https://marketplace.visualstudio.com/items?itemName=semgrep.semgrep) extension.
 
-To get inline PR comments on your pull requests, set the `GITHUB_TOKEN` environment variable in your workflow file to `secrets.GITHUB_TOKEN`, which is the GitHub app installation access token and takes the form of this snippet:
+## Pre-commit
+
+The [pre-commit framework](https://pre-commit.com/) can run `semgrep` at commit-time. [Install `pre-commit`](https://pre-commit.com/#install) and add the following to `.pre-commit-config.yaml`:
 
 ```
-uses: returntocorp/semgrep-action@v1
-        env: # Optional environment variable for automatic PR comments (beta)
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+repos:
+- repo: https://github.com/returntocorp/semgrep
+  rev: 'v0.39.1'
+  hooks:
+    - id: semgrep
+      # See semgrep.dev/rulesets to select a ruleset and copy its URL
+      args: ['--config', '<SEMGREP_RULESET_URL>', '--error']
 ```
 
-Comments on Github pull requests will look like this:
+# Semgrep as an engine
 
-![Github Pull Request Comment](img/semgrep-pull-request.png "Comments on Github Pull Request")
+Many other tools have functionality powered by Semgrep.
+Add yours [with a pull request](https://github.com/returntocorp/semgrep-docs)!
 
-See a complete example of this workflow file including this environment variable (commented out) in the [above example workflow file](#github-actions).
-
-!!! info
-    There’s no need to create `secrets.GITHUB_TOKEN` yourself because it’s automatically set by GitHub. It only needs to be passed to the action via the workflow file.
-
-Comments are left when Semgrep CI finds a result that blocks CI.
-Note that this feature is experimental; please reach out to [support@r2c.dev](mailto:support@r2c.dev) to report any issues.
-<br /><br />
+* [nodejsscan](https://github.com/ajinabraham/nodejsscan)
+* [libsast](https://github.com/ajinabraham/libsast)
+* [DefectDojo](https://github.com/DefectDojo/django-DefectDojo/pull/2781)
+* [Dracon](https://github.com/thought-machine/dracon)
+* [SALUS](https://github.com/coinbase/salus/blob/master/docs/scanners/semgrep.md)
