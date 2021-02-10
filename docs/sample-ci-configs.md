@@ -3,11 +3,17 @@
 The sample configuration files below
 run [Semgrep CI](https://github.com/returntocorp/semgrep-action)
 on various continuous integration providers.
-These configurations all connect to a [Semgrep App](https://semgrep.dev/manage) account.
+
+These samples all connect to a [Semgrep App](https://semgrep.dev/manage) account.
 The configurations refer to `SEMGREP_DEPLOYMENT_ID` and `SEMGREP_APP_TOKEN`,
 which are essentially a username and a password.
-You can find the appropriate values for these
+You can find the right values for these variables
 on the [Dashboard > Settings](https://semgrep.dev/manage/settings) page.
+
+If you don't want to use an online account,
+you can remove the usages of these variables,
+and instead use the `--config` flag
+to set which rules to scan with.
 
 [TOC]
 
