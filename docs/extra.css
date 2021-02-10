@@ -438,7 +438,7 @@ div.cs li.cs-references {
 }
 
 /* mobile nav styling */
-@media screen and (min-width: 768px) {
+@media screen and (min-width: 769px) {
   .wy-side-scroll {
     width: 250px;
     overflow-y: hidden;
