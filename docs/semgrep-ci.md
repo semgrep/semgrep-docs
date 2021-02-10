@@ -1,21 +1,66 @@
 # Semgrep CI
 
-[Semgrep CI](https://github.com/returntocorp/semgrep-action) is a wrapper around [Semgrep](https://github.com/returntocorp/semgrep) for running as a GitHub Action, in GitLab, and in other CI providers and interfacing with [Semgrep App](https://semgrep.dev). See [CI Providers](providers.md) to see how to setup Semgrep CI in the provider you already use.
+[Semgrep CI](https://github.com/returntocorp/semgrep-action)
+is a wrapper around
+[Semgrep CLI](https://github.com/returntocorp/semgrep)
+that adds convenient features for use in CI environments,
+such as in GitHub Actions or GitLab CI.
+See [how to set it up with your CI provider](providers.md).
 
-Semgrep CI adds a layer of git-awareness on top of Semgrep. Whenever a new commit is added to a pull request, Semgrep CI reviews only the changed files and reports only issues that are newly introduced in that pull request.
+## Features
 
-## Technical details
+- **Connect to Semgrep App**:
+  [Semgrep App](https://github.com/returntocorp/semgrep)
+  lets you configure policies and notification rules
+  for all your projects.
+  Semgrep CI can run scans with the policies you configured,
+  and report findings back to Semgrep App
+  so you can see them all in one place.
+- **Diff-aware scans**:
+  Semgrep CI is aware of Git history,
+  and is able to report only the new findings
+  between two revisions.
+- **Auto-detection of CI context**:
+  Semgrep CI detects when it's running inside GitHub Actions or GitLab CI.
+  When scanning a pull request,
+  it reports only findings that were newly introduced.
 
-Semgrep CI scans files in the current directory with [semgrep](https://github.com/returntocorp/semgrep), and exits with a return code of 1 if blocking issues are found.
+## Behavior
 
-Findings are blocking by default. They can be set to non-blocking by changing the action in Semgrep App [Manage → Policy](https://semgrep.dev/manage/policy).
+Semgrep CI scans the current working directory,
+and exits with a return code of 1 if blocking findings were found.
 
-Semgrep-action determines new issues by [scanning only modified files](https://github.com/returntocorp/semgrep-action/blob/develop/src/semgrep_agent/targets.py), and scanning twice. It scans the current commit, checks out the base commit and scans that, and removes previously existing findings from the scan result. [Findings are compared](https://github.com/returntocorp/semgrep-action/blob/develop/src/semgrep_agent/findings.py) on identifier, file path, code and count. If the identifier of a rule is modified in the Semgrep configuration, or if the file containing the issues is renamed, all findings are considered new. Changing code that is matched by a rule will thus result in a new finding, even though the finding was previously present and the change did not introduce it.
+All findings are blocking by default.
+A rule can be set to generate non-blocking findings
+on the [Manage → Policy](https://semgrep.dev/manage/policy) page of Semgrep App.
 
-When running in Github or GitLab, Semgrep CI is able to determine the base commit using environment variables set by the CI provider. For other providers Semgrep CI will need to be explicitly told the base commit. See [setup instruction for other providers](providers.md#standalone-providers) for more information.
+Semgrep CI uses environment variables
+to detect what context it's running in.
+When it's running on a GitHub pull request or GitLab merge request,
+diff-aware mode is automatically enabled,
+with the branch-off point considered the baseline.
+When using other providers, you need to set environment variables
+that tell Semgrep CI what it should use as the baseline commit.
+Many of our [sample CI configs for various providers](providers.md#standalone-providers)
+set these environment variables.
+<!-- TODO: add diagram -->
 
+In diff-aware scans,
+Semgrep CI determines which findings are new
+by [finding all modified files](https://github.com/returntocorp/semgrep-action/blob/develop/src/semgrep_agent/targets.py),
+and running two scans on them behind the scenes.
+First, it scans the current commit.
+Then, it checks out the baseline commit
+and scans the files that have findings currently.
+Any findings that already existed in the baseline version are ignored.
+Two [findings are considered identical](https://github.com/returntocorp/semgrep-action/blob/develop/src/semgrep_agent/findings.py)
+if the have the same rule ID, file path, matched source code, and count within the file.
+The matched source code content is compared with whitespace trimmed,
+so that re-indenting code doesn't create new findings.
+This means that you will get notified about new findings when
+a rule's ID changes, when a file is renamed, and when the code matched by a finding changes.
 
-## Commit history
+## Usage outside CI
 
 While Semgrep CI is designed
 for integrating with various CI providers,
