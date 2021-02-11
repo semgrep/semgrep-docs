@@ -24,9 +24,9 @@ You can remove items from your policy by clicking the red `x`. To disable indivi
 
 # Changing policy actions
 
-Third-party notifications, inline PR comments, and blocking the build are configured on a per-policy basis. 
+Third-party notifications, inline PR comments, and blocking the build are all configured on a per-policy basis. 
 
-1. Visit [Dashboard > Integrations](https://semgrep.dev/manage/notifications) to configure the services and name each of your integration channels.
+1. Visit [Dashboard > Integrations](https://semgrep.dev/manage/notifications) to configure the services and name each of your integration channels. See [Integrations](integrations.md) for detailed instructions.
 2. From [Dashboard > Policies](https://semgrep.dev/manage/policy), select the policy you’d like to configure and add one or more integration channels from the Integrations drop-down menu.
 
 You can also check or uncheck the boxes to post PR comments ([which requires a GitHub Token](integrations.md#automatic-pr-comments)) or to block the build on findings. Don't forget to click Save when you are finished editing!
