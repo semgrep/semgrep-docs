@@ -15,13 +15,13 @@ you can remove the usages of these variables,
 and instead use the `--config` flag
 to set which rules to scan with.
 
-[TOC]
-
 !!! danger
     `SEMGREP_APP_TOKEN` is a secret value: **do not hardcode it and leak credentials!**
     Use your CI provider's secret or environment variable management feature to store it.
 
-## GitHub Actions
+[TOC]
+
+# GitHub Actions
 
 Semgrep CI will [auto-detect CI context](semgrep-ci.md#features)
 when running in GitHub Actions.
@@ -116,7 +116,7 @@ jobs:
 <a name="inline-pr-comments-beta"></a>
 <br />
 
-### Pull Request Comments (beta)
+## Pull Request Comments (beta)
 
 <!-- TODO: Move to Semgrep App docs -->
 
@@ -145,7 +145,7 @@ See a complete example of this workflow file including this environment variable
 Comments are left when Semgrep CI finds a result that blocks CI.
 Note that this feature is experimental; please reach out to support@r2c.dev to report any issues.
 
-## GitLab CI
+# GitLab CI
 
 Semgrep CI will [auto-detect CI context](semgrep-ci.md#features)
 when running in GitHub Actions.
@@ -169,7 +169,7 @@ semgrep:
 
 </p>
 
-## Buildkite
+# Buildkite
 
 <p>
 
@@ -189,7 +189,7 @@ semgrep:
 
 </p>
 
-## CircleCI
+# CircleCI
 
 <p>
 
@@ -230,7 +230,7 @@ workflows:
 
 </p>
 
-## Other providers
+# Other providers
 
 To run Semgrep CI on any other provider,
 use the [`returntocorp/semgrep-agent:v1` Docker image](semgrep-ci.md#packaging),

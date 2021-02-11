@@ -9,7 +9,7 @@ See [how to set it up with your CI provider](sample-ci-configs.md).
 
 [TOC]
 
-## Features
+# Features
 
 - **Connect to Semgrep App**:
   [Semgrep App](https://github.com/returntocorp/semgrep)
@@ -31,7 +31,7 @@ See [how to set it up with your CI provider](sample-ci-configs.md).
   according to paths and patterns specified
   in you repository's `.semgrepignore` file.
 
-## Configuration
+# Configuration
 
 Semgrep CI is configured with command line flags.
 This is a reference for most common options,
@@ -45,7 +45,7 @@ but you can see all available settings with `--help`.
     Option names are camel-cased in the workflow configuration file.
     This means that `--audit-on push` changes to `auditOn: push`.
 
-### Selecting rules to scan with
+## Selecting rules to scan with
 
 The `--config` flag lets you choose
 what rules and patterns semgrep should scan for.
@@ -66,7 +66,7 @@ or load all rules from the `.semgrep/` directory in your repo.
 If none of these provide a configuration,
 Semgrep CI will exit with a failing status code.
 
-### Connecting to Semgrep App
+## Connecting to Semgrep App
 
 To use your Semgrep App account,
 set `--publish-deployment` and `--publish-token`.
@@ -74,7 +74,7 @@ These act as your username and password for authentication.
 You can find the right values for these variables
 on the [Dashboard > Settings](https://semgrep.dev/manage/settings) page.
 
-### Ignoring files & directories
+## Ignoring files & directories
 
 You can commit a `.semgrepignore` file
 to skip scanning specific paths,
@@ -93,14 +93,14 @@ commit your own `.semgrepignore`.
     `.semgrepignore` is picked up only by Semgrep CI,
     and will not be honored when running Semgrep CLI manually.
 
-### Ignoring specific rules in a ruleset or policy
+## Ignoring specific rules in a ruleset or policy
 
 You can customize the ruleset you're using
 to ignore some of its rules
 by [editing the Semgrep App policy](managing-policy.md/#editing-a-policy)
 used for your scans.
 
-### Get notified about findings instead of blocking builds
+## Get notified about findings instead of blocking builds
 
 Some rules point out hotspots that require careful review
 but are not certain to be insecure code.
@@ -111,7 +111,7 @@ and set up Slack or email notifications for specific rules
 by [changing the actions of the Semgrep App policy](managing-policy.md/#changing-policy-actions)
 used for your scans.
 
-### Audit mode
+## Audit mode
 
 If you want to see findings from your whole repo
 instead of just the changed files that would be scanned
@@ -135,9 +135,9 @@ To enable this, set the `--audit-on event_name` flag.
     To enable audit mode on pushes in GitHub Actions,
     set the option `auditOn: push` in your workflow file.
 
-## Technical details
+# Technical details
 
-### Packaging
+## Packaging
 
 Semgrep CI is published under the name `semgrep-agent`.
 
@@ -160,7 +160,7 @@ or the `returntocorp/semgrep-agent:v1` Docker image with other providers.
     or any other package index,
     but you can still use it by cloning the GitHub repository.
 
-### Behavior
+## Behavior
 
 Semgrep CI scans the current working directory,
 and exits with a return code of 1 if blocking findings were found.
@@ -195,7 +195,7 @@ so that re-indenting code doesn't create new findings.
 This means that you will get notified about new findings when
 a rule's ID changes, when a file is renamed, and when the code matched by a finding changes.
 
-## Usage outside CI
+# Usage outside CI
 
 While Semgrep CI is designed
 for integrating with various CI providers,
