@@ -35,34 +35,6 @@ You can also copy the file contents
 and commit them to `.github/workflows/semgrep.yml` manually,
 or write your own workflow file based on this sample:
 
-<!-- TODO: move to Semgrep App docs
-
-TODO: @luke said Taking this in a different direction, what do you think of providing problem-focused instructions that place auto project-setup instructions under something more like "Rolling out Semgrep at your org" or "Adding Semgrep to many projects"?
-
-When you install Semgrep on a GitHub organization,
-you select which repositories should be visible to Semgrep.
-The ones you select will appear on the [Projects page](https://semgrep.dev/manage/projects).
-
-!!! info
-    You can update this list of selected repositories at any time
-    through your organization's settings page on GitHub.
-    Just go to Settings > Installed GitHub Apps > semgrep.dev > Configure
-    and make your changes in the 'Repository access' section.
-  
-To set up Semgrep CI in GitHub Actions on one of these projects,
-click its "Set up" button
-on the [Projects page](https://semgrep.dev/manage/projects).
-You will be taken to a page where you can configure
-exactly how you want the CI job to behave.
-We recommend using Semgrep with the default settings.
-TODO: @pablo said to link info about the defaults
-
-Semgrep will then commit a CI workflow file to your repository.
-Please temporarily disable any branch protection rules
-that might block writes to your default branch.
-
--->
-
 <details id="sample-github-actions-workflow"><summary>Sample GitHub Actions workflow file</summary>
 <p>
 

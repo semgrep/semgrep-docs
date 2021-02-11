@@ -5,7 +5,6 @@ is a wrapper around
 [Semgrep CLI](https://github.com/returntocorp/semgrep)
 that adds convenient features for use in CI environments,
 such as in GitHub Actions or GitLab CI.
-See [how to set it up with your CI provider](sample-ci-configs.md).
 
 [TOC]
 
@@ -30,6 +29,40 @@ See [how to set it up with your CI provider](sample-ci-configs.md).
   Semgrep CI will ignore files when scanning
   according to paths and patterns specified
   in you repository's `.semgrepignore` file.
+
+# Setup
+
+## Automatic setup
+
+You can add Semgrep CI to a GitHub repository by clicking "Set up"
+on the [Projects page](https://semgrep.dev/manage/projects) of Semgrep App
+
+!!! info
+    This page will list only the repositories
+    that Semgrep has permission to see.
+    You can add repositories on your organization's settings page on GitHub.
+    Just go to Settings > Installed GitHub Apps > semgrep.dev > Configure
+    and make your changes in the 'Repository access' section.
+  
+You will get a chance to configure a few settings,
+such as whether you want to run on pushes, on pull requests, or on both.
+We recommend using Semgrep with the pre-selected settings.
+When you're done, Semgrep will commit a CI workflow file to your repository.
+
+!!! warning
+    Semgrep cannot commit this file if there are
+    branch protection rules preventing pushes to your default branch.
+    In this case, you can temporarily disable your branch protection rules,
+    or follow our guide for manual setup.
+
+## Manual setup
+
+If you're using GitHub Actions,
+you can generate and copy a CI configuration file on Semgrep App as above,
+and then commit it manually.
+
+If you're using any other CI provider,
+you can use one of our [sample CI configuration files](sample-ci-configs.md).
 
 # Configuration
 
