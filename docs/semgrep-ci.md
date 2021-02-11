@@ -7,6 +7,8 @@ that adds convenient features for use in CI environments,
 such as in GitHub Actions or GitLab CI.
 See [how to set it up with your CI provider](sample-ci-configs.md).
 
+[TOC]
+
 ## Features
 
 - **Connect to Semgrep App**:
@@ -24,8 +26,116 @@ See [how to set it up with your CI provider](sample-ci-configs.md).
   Semgrep CI detects when it's running inside GitHub Actions or GitLab CI.
   When scanning a pull request,
   it reports only findings that were newly introduced.
+- **.semgrepignore**:
+  Semgrep CI will ignore files when scanning
+  according to paths and patterns specified
+  in you repository's `.semgrepignore` file.
 
-## Technical Details
+## Configuration
+
+Semgrep CI is configured with command line flags.
+This is a reference for most common options,
+but you can see all available settings with `--help`.
+
+!!! info
+    When you're configuring the semgrep-action,
+    you set these options under the `with:` block
+    of your workflow YAML file.
+
+    Option names are camel-cased in the workflow configuration file.
+    This means that `--audit-on push` changes to `auditOn: push`.
+
+### Selecting rules to scan with
+
+The `--config` flag lets you choose
+what rules and patterns semgrep should scan for.
+You can set specify rules in one of the following ways:
+
+- **semgrep.dev ruleset ID**: `config: p/r2c`  
+  referring to a ruleset found on [semgrep.dev's rulesets page](https://semgrep.dev/explore)
+- **semgrep.dev snippet ID**: `config: s/xYz` or `config: s/john:named-rule`
+  referring to a rule published from the [semgrep.dev playground](https://semgrep.dev/editor)
+- **semgrep.dev registry ID**: `config: r/python.flask`  
+  referring to a subset of the [semgrep.dev rule registry](https://semgrep.dev/r)
+
+If `config` is unset,
+the default behavior is to look for rules
+in the `.semgrep.yml` file in your repo,
+or load all rules from the `.semgrep/` directory in your repo.
+
+If none of these provide a configuration,
+Semgrep CI will exit with a failing status code.
+
+### Connecting to Semgrep App
+
+To use your Semgrep App account,
+set `--publish-deployment` and `--publish-token`.
+These act as your username and password for authentication.
+You can find the right values for these variables
+on the [Dashboard > Settings](https://semgrep.dev/manage/settings) page.
+
+### Ignoring files & directories
+
+You can commit a `.semgrepignore` file
+to skip scanning specific paths,
+using the same syntax as `.gitignore`.
+
+If there's no `.semgrepignore` file in your repository,
+Semgrep CI uses a default ignore list
+that skips common test and dependency directories,
+including `tests/`, `node_modules/`, and `vendor/`.
+You can find the full list in
+[the `.semgrepignore` template file](https://github.com/returntocorp/semgrep-action/blob/v1/src/semgrep_agent/templates/.semgrepignore).
+To override these default ignore patterns,
+commit your own `.semgrepignore`.
+
+!!! warning
+    `.semgrepignore` is picked up only by Semgrep CI,
+    and will not be honored when running Semgrep CLI manually.
+
+### Ignoring specific rules in a ruleset or policy
+
+You can customize the ruleset you're using
+to ignore some of its rules
+by [editing the Semgrep App policy](managing-policy.md/#editing-a-policy)
+used for your scans.
+
+### Get notified about findings instead of blocking builds
+
+Some rules point out hotspots that require careful review
+but are not certain to be insecure code.
+You might want to disable blocking when scanning with such rules.
+
+You can disable blocking
+and set up Slack or email notifications for specific rules
+by [changing the actions of the Semgrep App policy](managing-policy.md/#changing-policy-actions)
+used for your scans.
+
+### Audit mode
+
+If you want to see findings from your whole repo
+instead of just the changed files that would be scanned
+whenever a pull request comes in,
+you'd normally set up scans on pushes to your main branch.
+This can prove difficult when you already have existing issues
+that Semgrep finds on the main branch
+— you probably don't want CI to fail all builds on the main branch
+until every single finding is addressed.
+
+For this case, we recommend using audit mode.
+In audit mode, Semgrep will collect findings data for you to review,
+but will never fail the build due to findings.
+
+To enable this, set the `--audit-on event_name` flag.
+
+!!! info
+    The most common event names on GitHub are `push` and `pull_request`.
+    In other cases, you can find the correct event name
+    in the first few lines of the agent's log output.
+    To enable audit mode on pushes in GitHub Actions,
+    set the option `auditOn: push` in your workflow file.
+
+## Technical details
 
 ### Packaging
 
@@ -96,7 +206,7 @@ To locally scan issues in your current branch
 that are not found on the `main` branch,
 run the following command:
 
-```
+```sh
 docker run -v $(pwd):/src --workdir /src returntocorp/semgrep-agent:v1 python -m semgrep_agent --config p/ci --baseline-ref main
 ```
 
@@ -105,7 +215,7 @@ from the past weeks for new issues they introduced.
 This can be done by using a git command
 that gets the tip of the current branch two weeks earlier:
 
-```
+```sh
 docker run -v $(pwd):/src --workdir /src returntocorp/semgrep-agent:v1 python -m semgrep_agent --config p/ci --baseline-ref $(git rev-parse '@{2.weeks.ago}')
 ```
 
@@ -114,7 +224,7 @@ and find the issues added between them,
 checkout the more recent commit of the two
 before running Semgrep CI:
 
-```
+```sh
 git checkout $RECENT_SHA
 docker run -v $(pwd):/src --workdir /src returntocorp/semgrep-agent:v1 python -m semgrep_agent --config p/ci --baseline-ref $OLDER_SHA
 ```

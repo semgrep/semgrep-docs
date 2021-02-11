@@ -7,7 +7,7 @@ on various continuous integration providers.
 These samples all connect to a [Semgrep App](https://semgrep.dev/manage) account.
 The configurations refer to `SEMGREP_DEPLOYMENT_ID` and `SEMGREP_APP_TOKEN`,
 which are essentially a username and a password.
-You can find the right values for these variables
+You can find the correct values for these variables
 on the [Dashboard > Settings](https://semgrep.dev/manage/settings) page.
 
 If you don't want to use an online account,
@@ -128,7 +128,7 @@ For this to work,
 you need to set the `GITHUB_TOKEN` environment variable in your workflow file to `secrets.GITHUB_TOKEN`,
 which is the GitHub app installation access token and takes the form of this snippet:
 
-```
+```yaml
 uses: returntocorp/semgrep-action@v1
         env: # Optional environment variable for automatic PR comments (beta)
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
