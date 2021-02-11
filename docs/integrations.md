@@ -49,23 +49,18 @@ On each scan that has at least one finding, you will receive one email from Semg
 
 Comments are left when a Semgrep rule finds a result, the policy that contained the rule had [PR Comments](managing-policy.md#changing-policy-actions) selected, and a GITHUB_TOKEN is configured.
 
-To get inline PR comments on your pull requests, set the `GITHUB_TOKEN` environment variable in your workflow file to `secrets.GITHUB_TOKEN`, which is the GitHub app installation access token and takes the form of this snippet:
-
 ```
 uses: returntocorp/semgrep-action@v1
         env: # Optional environment variable for automatic PR comments
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 ```
 
-See a complete example of this workflow file including this environment variable (commented out) in the [CI Providers](providers.md#github-actions) section.
+See a complete example of this workflow file including this environment variable (commented out) in the [CI Providers](sample-ci-configs.md#github-actions) section.
 
 Automated comments on GitHub pull requests will look like this:
 
 ![GitHub Pull Request Comment](img/semgrep-pull-request.png "Comments on GitHub Pull Request")
 
-We also provide [Semgrep CI](semgrep-ci.md),
-which integrates Semgrep with GitHub Actions, GitLab CI, and any other CI provider.
-Check out [our sample CI configuration files](providers.md).
 ## Semgrep as an engine
 
 Many other tools have functionality powered by Semgrep.
