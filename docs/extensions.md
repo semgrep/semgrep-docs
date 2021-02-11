@@ -1,6 +1,6 @@
 # Extensions
 
-Several third-party services now include Semgrep extensions 
+Several third-party tools include Semgrep extensions.
 
 ### Editor
 
