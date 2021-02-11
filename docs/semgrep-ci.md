@@ -111,7 +111,7 @@ and set up Slack or email notifications for specific rules
 by [changing the actions of the Semgrep App policy](managing-policy.md/#changing-policy-actions)
 used for your scans.
 
-## Audit mode
+## Audit mode: disable blocking on a specific CI event
 
 If you want to see findings from your whole repo
 instead of just the changed files that would be scanned
