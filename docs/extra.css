@@ -29,7 +29,7 @@ code {
 
 a,
 a:visited {
-  color: #2980b9;
+  color: #359DFD;
 }
 
 a:hover {
@@ -40,8 +40,12 @@ a:hover {
   display: none;
 } */
 
+.wy-menu-vertical a:hover {
+  background: #6136F5;
+}
+
 .wy-side-nav-search {
-  background-color: #137cbd;
+  background-color: #29343D;
   /* margin-top: 50px; */
 }
 
@@ -162,13 +166,15 @@ div.navbar {
 }
 
 .wy-nav-side a {
-  color: #d9d9d9;
+  color: #F2F8FF;
 }
 
 .wy-nav-side {
   position: fixed;
   top: 50px;
   padding-bottom: 0;
+  background: #29343D;
+  color: #A6A6A6;
 }
 
 .wy-menu {
