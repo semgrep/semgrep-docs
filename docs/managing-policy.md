@@ -8,7 +8,7 @@ Semgrep App provides infrastructure for managing Semgrep across many projects. G
 
 # Creating a policy
 
-To create a policy, visit [Dashboard > Policies](https://semgrep.dev/manage/policy) and select “Create New Policy.” To copy the contents of one policy into another, navigate to the existing policy, click "Copy", and then enter the name of the new policy.
+To create a policy, visit [Dashboard > Policies](https://semgrep.dev/manage/policy) and select “Create New Policy.” To copy the contents of one policy into another, navigate to the existing policy, click "Copy", and then enter the name of the new policy when prompted.
 
 Policies are often broken down by problem area (e.g., `xss`), application type (e.g., `prod-python-backend`), or blocking status (e.g., `notify-only`). There is no right way to group rules, and what makes the most sense will vary by team and organization.
 
@@ -18,11 +18,22 @@ Any rule, ruleset, or pattern can be added to a policy. Look for the “Add to P
 
 ![A ruleset with an "Add to Policy" button visible](img/ruleset.png "A ruleset showing 'Add to Policy'")
 
-To edit the settings for a policy, go to [Dashboard > Policies](https://semgrep.dev/manage/policy) and select the relevant policy from the list. Add or rename integrations using the "Integrations" tab in the left-hand menu, and then add as many of these integrations as you want to each of your policies. You can also check or uncheck the boxes to post PR comments ([which also requires a GitHub Token](integrations.md#automatic-pr-comments)) or to block the build on findings. Don't forget to click save when you are finished editing!
+You can remove items from your policy by clicking the red `x`. To disable individual rules within a ruleset, click the right-caret under a ruleset and then select `add a disabled rule`.
 
 ![Policy with disabled rules showing](img/remove-from-policy.png "Disabling a rule within a ruleset")
 
-You can remove items from your policy by clicking the red `x`. To disable individual rules within a ruleset, click the right-caret under a ruleset and then select `add a disabled rule`.
+# Changing policy actions
+
+Third-party notifications, inline PR comments, and blocking the build are all configured on a per-policy basis. 
+
+1. Visit [Dashboard > Integrations](https://semgrep.dev/manage/notifications) to configure the services and name each of your integration channels. See [Integrations](integrations.md) for detailed instructions.
+2. From [Dashboard > Policies](https://semgrep.dev/manage/policy), select the policy you’d like to configure and add one or more integration channels from the Integrations drop-down menu.
+
+You can also check or uncheck the boxes to post PR comments ([which requires a GitHub Token](integrations.md#automatic-pr-comments)) or to block the build on findings. Don't forget to click Save when you are finished editing!
+
+![Changing the integrations and actions of a policy](img/policy-actions.png "Changing the integrations and actions of a policy")
+
+If you wish to take different actions for rules on the same project, create two different policies, and then attach both policies to the project in question on [Dashboard > Projects](https://semgrep.dev/manage/projects).
 # Downloading a policy
 
 To locally test and run a policy, select your policy at [Dashboard > Policies](https://semgrep.dev/manage/policy) and use the “Download YAML” button. This YAML file can then be run locally via:
@@ -34,11 +45,3 @@ $ semgrep --config <path/to/yaml> <path/to/code>
 !!! info
     See [Getting started](getting-started.md) for instructions on downloading and running Semgrep locally.
 
-# Notifications
-
-To receive notifications via third-party services, like Slack or email:
-
-1. Visit [Dashboard > Integrations](https://semgrep.dev/manage/notifications) to configure the services and name each of your integration channels.
-2. From [Dashboard > Policies](https://semgrep.dev/manage/policy), select the policy you’d like to configure and add one or more integration channels from the "Integrations" drop-down menu.
-
-When Semgrep CI next runs and finds a result, the configured services will receive a notification about the finding.

@@ -14,7 +14,7 @@ nav:
       - running-rules.md
       - managing-findings.md
       - ignoring-findings.md
-      - integrations.md
+      - extensions.md
       - Experiments 🧪: experiments/overview.md
       - cli-reference.md
 
@@ -22,6 +22,7 @@ nav:
       - Semgrep CI: semgrep-ci.md
       - Sample CI Configurations: sample-ci-configs.md
       - managing-policy.md
+      - CI Integrations: integrations.md
 
   - "Security Cheat Sheets":
       - "Django XSS": "cheat-sheets/django-xss.md"
