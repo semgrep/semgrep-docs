@@ -19,8 +19,8 @@ nav:
       - cli-reference.md
 
   - "Running Semgrep In CI":
-      - Semgrep CI: semgrep-ci.md
-      - Sample CI Configurations: sample-ci-configs.md
+      - semgrep-ci.md
+      - sample-ci-configs.md
       - managing-policy.md
       - CI Integrations: integrations.md
 

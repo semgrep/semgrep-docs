@@ -1,4 +1,4 @@
-# Sample CI Configurations
+# Sample CI configurations
 
 The sample configuration files below
 run [Semgrep CI](https://github.com/returntocorp/semgrep-action)

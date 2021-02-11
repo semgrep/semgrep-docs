@@ -100,14 +100,15 @@ to ignore some of its rules
 by [editing the Semgrep App policy](managing-policy.md/#editing-a-policy)
 used for your scans.
 
-## Get notified about findings instead of blocking builds
+## Getting notifications instead of blocking builds
 
 Some rules point out hotspots that require careful review
 but are not certain to be insecure code.
-You might want to disable blocking when scanning with such rules.
+You might want to disable blocking when scanning with such rules,
+and instead use one of our [CI integrations](integrations.md)
+to get notifications.
 
-You can disable blocking
-and set up Slack or email notifications for specific rules
+You can set this up
 by [changing the actions of the Semgrep App policy](managing-policy.md/#changing-policy-actions)
 used for your scans.
 
