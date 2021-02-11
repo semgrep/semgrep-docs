@@ -24,7 +24,9 @@ You can remove items from your policy by clicking the red `x`. To disable indivi
 
 # Changing policy actions
 
-Third-party notifications, inline PR comments, and blocking the build are all configured on a per-policy basis. 
+[Third-party notifications](integrations.md),
+posting [inline pull request comments](integrations.md#pull-request-comments),
+and blocking the build are all configured on a per-policy basis.
 
 1. Visit [Dashboard > Integrations](https://semgrep.dev/manage/notifications) to configure the services and name each of your integration channels. See [Integrations](integrations.md) for detailed instructions.
 2. From [Dashboard > Policies](https://semgrep.dev/manage/policy), select the policy you’d like to configure and add one or more integration channels from the Integrations drop-down menu.
@@ -34,14 +36,14 @@ You can also check or uncheck the boxes to post PR comments ([which requires a G
 ![Changing the integrations and actions of a policy](img/policy-actions.png "Changing the integrations and actions of a policy")
 
 If you wish to take different actions for rules on the same project, create two different policies, and then attach both policies to the project in question on [Dashboard > Projects](https://semgrep.dev/manage/projects).
+
 # Downloading a policy
 
 To locally test and run a policy, select your policy at [Dashboard > Policies](https://semgrep.dev/manage/policy) and use the “Download YAML” button. This YAML file can then be run locally via:
 
 ```bash
-$ semgrep --config <path/to/yaml> <path/to/code>
+semgrep --config <path/to/yaml> <path/to/code>
 ```
 
 !!! info
     See [Getting started](getting-started.md) for instructions on downloading and running Semgrep locally.
-
