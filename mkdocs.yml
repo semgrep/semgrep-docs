@@ -16,7 +16,7 @@ nav:
       - ignoring-findings.md
       - extensions.md
       - Experiments 🧪: experiments/overview.md
-      - cli-reference.md
+      - cli-usage.md
 
   - "Running Semgrep In CI":
       - Semgrep CI: semgrep-ci.md
