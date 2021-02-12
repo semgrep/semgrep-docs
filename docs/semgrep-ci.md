@@ -25,10 +25,10 @@ such as in GitHub Actions or GitLab CI.
   Semgrep CI detects when it's running inside GitHub Actions or GitLab CI.
   When scanning a pull request,
   it reports only findings that were newly introduced.
-- **.semgrepignore**:
+- **Ignore files**:
   Semgrep CI will ignore files when scanning
   according to paths and patterns specified
-  in you repository's `.semgrepignore` file.
+  in your repository's `.semgrepignore` file.
 
 # Setup
 
@@ -53,7 +53,7 @@ When you're done, Semgrep will commit a CI workflow file to your repository.
     Semgrep cannot commit this file if there are
     branch protection rules preventing pushes to your default branch.
     In this case, you can temporarily disable your branch protection rules,
-    or follow our guide for manual setup.
+    or follow the guide for manual setup.
 
 ## Manual setup
 
@@ -78,18 +78,18 @@ but you can see all available settings with `--help`.
     Option names are camel-cased in the workflow configuration file.
     This means that `--audit-on push` changes to `auditOn: push`.
 
-## Selecting rules to scan with
+## Selecting rules
 
 The `--config` flag lets you choose
-what rules and patterns semgrep should scan for.
+what rules and patterns Semgrep should scan for.
 You can set specify rules in one of the following ways:
 
-- **semgrep.dev ruleset ID**: `config: p/r2c`  
+- **ruleset ID**: `config: p/r2c`  
   referring to a ruleset found on [semgrep.dev's rulesets page](https://semgrep.dev/explore)
-- **semgrep.dev snippet ID**: `config: s/xYz` or `config: s/john:named-rule`
+- **snippet ID**: `config: s/xYz` or `config: s/john:named-rule`
   referring to a rule published from the [semgrep.dev playground](https://semgrep.dev/editor)
-- **semgrep.dev registry ID**: `config: r/python.flask`  
-  referring to a subset of the [semgrep.dev rule registry](https://semgrep.dev/r)
+- **registry ID**: `config: r/python.flask`  
+  referring to a subset of the [Semgrep Registry](https://semgrep.dev/r)
 
 If `config` is unset,
 the default behavior is to look for rules
@@ -110,6 +110,7 @@ on the [Dashboard > Settings](https://semgrep.dev/manage/settings) page.
 ## Ignoring files & directories
 
 You can commit a `.semgrepignore` file
+to the root of your repository
 to skip scanning specific paths,
 using the same syntax as `.gitignore`.
 
@@ -124,7 +125,7 @@ commit your own `.semgrepignore`.
 
 !!! warning
     `.semgrepignore` is picked up only by Semgrep CI,
-    and will not be honored when running Semgrep CLI manually.
+    and is not honored when running Semgrep CLI manually.
 
 ## Ignoring specific rules in a ruleset or policy
 
@@ -138,7 +139,7 @@ used for your scans.
 Some rules point out hotspots that require careful review
 but are not certain to be insecure code.
 You might want to disable blocking when scanning with such rules,
-and instead use one of our [CI integrations](integrations.md)
+and instead use a [CI integration](integrations.md)
 to get notifications.
 
 You can set this up

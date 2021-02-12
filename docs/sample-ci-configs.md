@@ -60,7 +60,7 @@ jobs:
       # Scan code using project's configuration on https://semgrep.dev/manage
       - uses: returntocorp/semgrep-action@v1
 
-        # This token makes it possible to enable PR comments on Semgrep App.
+        # This token makes it possible to enable pull request comments on Semgrep App.
         #env:
         #  GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 

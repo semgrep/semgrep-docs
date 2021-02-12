@@ -31,7 +31,7 @@ and blocking the build are all configured on a per-policy basis.
 1. Visit [Dashboard > Integrations](https://semgrep.dev/manage/notifications) to configure the services and name each of your integration channels. See [Integrations](integrations.md) for detailed instructions.
 2. From [Dashboard > Policies](https://semgrep.dev/manage/policy), select the policy you’d like to configure and add one or more integration channels from the Integrations drop-down menu.
 
-You can also check or uncheck the boxes to post PR comments ([which requires a GitHub Token](integrations.md#automatic-pr-comments)) or to block the build on findings. Don't forget to click Save when you are finished editing!
+You can also check or uncheck the boxes to post pull request comments ([which requires a GitHub Token](integrations.md#automatic-pr-comments)) or to block the build on findings. Don't forget to click Save when you are finished editing!
 
 ![Changing the integrations and actions of a policy](img/policy-actions.png "Changing the integrations and actions of a policy")
 
