@@ -1,4 +1,4 @@
-# Sample CI Configurations
+# Sample CI configurations
 
 The sample configuration files below
 run [Semgrep CI](https://github.com/returntocorp/semgrep-action)
@@ -7,7 +7,7 @@ on various continuous integration providers.
 These samples all connect to a [Semgrep App](https://semgrep.dev/manage) account.
 The configurations refer to `SEMGREP_DEPLOYMENT_ID` and `SEMGREP_APP_TOKEN`,
 which are essentially a username and a password.
-You can find the right values for these variables
+You can find the correct values for these variables
 on the [Dashboard > Settings](https://semgrep.dev/manage/settings) page.
 
 If you don't want to use an online account,
@@ -15,13 +15,13 @@ you can remove the usages of these variables,
 and instead use the `--config` flag
 to set which rules to scan with.
 
-[TOC]
-
 !!! danger
     `SEMGREP_APP_TOKEN` is a secret value: **do not hardcode it and leak credentials!**
     Use your CI provider's secret or environment variable management feature to store it.
 
-## GitHub Actions
+[TOC]
+
+# GitHub Actions
 
 Semgrep CI will [auto-detect CI context](semgrep-ci.md#features)
 when running in GitHub Actions.
@@ -35,35 +35,7 @@ You can also copy the file contents
 and commit them to `.github/workflows/semgrep.yml` manually,
 or write your own workflow file based on this sample:
 
-<!-- TODO: move to Semgrep App docs
-
-TODO: @luke said Taking this in a different direction, what do you think of providing problem-focused instructions that place auto project-setup instructions under something more like "Rolling out Semgrep at your org" or "Adding Semgrep to many projects"?
-
-When you install Semgrep on a GitHub organization,
-you select which repositories should be visible to Semgrep.
-The ones you select will appear on the [Projects page](https://semgrep.dev/manage/projects).
-
-!!! info
-    You can update this list of selected repositories at any time
-    through your organization's settings page on GitHub.
-    Just go to Settings > Installed GitHub Apps > semgrep.dev > Configure
-    and make your changes in the 'Repository access' section.
-  
-To set up Semgrep CI in GitHub Actions on one of these projects,
-click its "Set up" button
-on the [Projects page](https://semgrep.dev/manage/projects).
-You will be taken to a page where you can configure
-exactly how you want the CI job to behave.
-We recommend using Semgrep with the default settings.
-TODO: @pablo said to link info about the defaults
-
-Semgrep will then commit a CI workflow file to your repository.
-Please temporarily disable any branch protection rules
-that might block writes to your default branch.
-
--->
-
-<details id="sample-github-actions-workflow"><summary>Sample GitHub Actions workflow file</summary>
+<details><summary>Sample GitHub Actions workflow file</summary>
 <p>
 
 ```yaml
@@ -88,7 +60,7 @@ jobs:
       # Scan code using project's configuration on https://semgrep.dev/manage
       - uses: returntocorp/semgrep-action@v1
 
-        # Set GITHUB_TOKEN to leave automatic comments on your pull requests.
+        # This token makes it possible to enable pull request comments on Semgrep App.
         #env:
         #  GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
@@ -96,7 +68,7 @@ jobs:
           publishToken: ${{ secrets.SEMGREP_TOKEN }}
           publishDeployment: ${{ secrets.SEMGREP_DEPLOYMENT_ID }}
 
-          # never fail the build due to findings on pushes, but collect findings data
+          # Never fail the build due to findings on pushes, but collect findings data
           #auditOn: push
 
           # Generate a SARIF file for GitHub's code scanning feature. See the next step.
@@ -113,39 +85,7 @@ jobs:
 </p>
 </details>
 
-<a name="inline-pr-comments-beta"></a>
-<br />
-
-### Pull Request Comments (beta)
-
-<!-- TODO: Move to Semgrep App docs -->
-
-!!! info
-    This feature is currently only available for GitHub.
-
-You can set Semgrep App policies to post inline PR comments on your pull requests.
-For this to work,
-you need to set the `GITHUB_TOKEN` environment variable in your workflow file to `secrets.GITHUB_TOKEN`,
-which is the GitHub app installation access token and takes the form of this snippet:
-
-```
-uses: returntocorp/semgrep-action@v1
-        env: # Optional environment variable for automatic PR comments (beta)
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-```
-
-See a complete example of this workflow file including this environment variable (commented out) in the [above sample workflow file](#sample-github-actions-workflow).
-
-!!! info
-    Unlike `secrets.SEMGREP_TOKEN`,
-    there’s no need to create `secrets.GITHUB_TOKEN` yourself
-    because it’s automatically set by GitHub.
-    It only needs to be passed to the action via the workflow file.
-
-Comments are left when Semgrep CI finds a result that blocks CI.
-Note that this feature is experimental; please reach out to support@r2c.dev to report any issues.
-
-## GitLab CI
+# GitLab CI
 
 Semgrep CI will [auto-detect CI context](semgrep-ci.md#features)
 when running in GitHub Actions.
@@ -169,7 +109,7 @@ semgrep:
 
 </p>
 
-## Buildkite
+# Buildkite
 
 <p>
 
@@ -189,7 +129,7 @@ semgrep:
 
 </p>
 
-## CircleCI
+# CircleCI
 
 <p>
 
@@ -230,7 +170,7 @@ workflows:
 
 </p>
 
-## Other providers
+# Other providers
 
 To run Semgrep CI on any other provider,
 use the [`returntocorp/semgrep-agent:v1` Docker image](semgrep-ci.md#packaging),
