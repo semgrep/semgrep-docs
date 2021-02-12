@@ -24,7 +24,6 @@ $ docker run --rm -v "${PWD}:/src" returntocorp/semgrep --help
 
 Confirm installation and run both a simple “grep-like” rule and a full ruleset:
 
-
 ```sh
 # Confirm installation by running --help. Semgrep documentation should print to your terminal
 $ semgrep --help
@@ -84,7 +83,11 @@ Visit [Writing Rules > Getting started](writing-rules/overview.md) for an in-dep
 # Run Semgrep continuously
 
 Finally, Semgrep is at its best when used to continuously scan code.
-Visit [Integrations](integrations.md) to learn how to get results where you already work: GitHub, GitLab, Slack, Jira, VS Code, and more.
+Check out [Semgrep CI](semgrep-ci.md) to learn how to get results where you already work:
+GitHub, GitLab, Slack, Jira, and more.
+To get results even earlier in the development process,
+such as in a Git pre-commit hook or VS Code,
+check the available [Semgrep extensions](extensions.md).
 
 For teams running Semgrep on multiple projects, see [Semgrep App](https://semgrep.dev/manage). Its free and paid tiers let users:
 
