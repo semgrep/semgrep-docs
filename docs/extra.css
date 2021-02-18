@@ -40,6 +40,12 @@ a:hover {
   display: none;
 } */
 
+body.wy-body-for-nav.happy {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
 .wy-menu-vertical a:hover {
   background: #6136f5;
 }
@@ -260,6 +266,7 @@ a.highlight {
 footer {
   width: 100%;
   clear: both;
+  flex: 2;
   background: linear-gradient(
       249.38deg,
       rgb(76, 24, 118) 32.7%,
