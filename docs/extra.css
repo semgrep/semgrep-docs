@@ -213,25 +213,52 @@ a.highlight {
   max-width: 300px;
 }
 
+footer {
+  width: 100%;
+  clear: both;
+  background: linear-gradient(
+      249.38deg,
+      rgb(76, 24, 118) 32.7%,
+      rgba(24, 28, 118, 0) 105.76%
+    ),
+    rgb(17, 36, 62);
+  font-size: 14px;
+  color: #ffffff;
+}
+
+footer .semgrep-footer a,
+footer .semgrep-footer a:visited {
+  color: #ffffff;
+}
+
 .semgrep-footer {
   margin-top: 40px;
 }
 
-.footer-grid {
-  display: grid;
-  gap: 12px;
-  grid-auto-rows: 1fr;
-  grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
-  /* margin: auto; */
+.rst-footer-buttons {
+  padding: 1.6em 0;
 }
 
-section.links {
+.footer-grid {
+  display: grid;
+  overflow-x: auto;
+  gap: 12px;
+  grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+  margin: auto;
+  max-width: 1160px;
+  padding: 80px 20px 68px;
+  text-align: left;
+}
+
+footer section.links {
+  padding-left: 20px;
+  border-left: 1px solid rgb(242, 248, 255);
   display: flex;
   -webkit-box-pack: justify;
   justify-content: space-between;
 }
 
-.social {
+footer .social {
   margin-right: 12px;
 }
 
@@ -242,21 +269,47 @@ section.links {
   align-items: center;
 }
 
+.social a:first-of-type {
+  margin-top: 0;
+}
+
 .semgrep-footer svg {
-  width: 32px;
-  margin-right: 10px;
+  height: 28px;
 }
 
 .link-grid {
   display: grid;
-  gap: 70px;
-  grid-auto-rows: 1fr;
+  overflow-x: auto;
+  gap: 12px;
   grid-template-columns: repeat(3, 1fr);
-  margin-top: 28px;
 }
 
-.rtd-info {
-  margin-top: 60px;
+.link-grid h4 {
+  margin: 0px;
+  font-size: 16px;
+  line-height: 36px;
+  color: rgb(198, 200, 204);
+  font-weight: normal;
+}
+
+.link-grid li {
+  font-size: 16px;
+  line-height: 36px;
+  text-decoration-line: underline;
+}
+
+footer .newsletter {
+  margin-top: 6px;
+  padding-left: 20px;
+  border-left: 1px solid rgb(242, 248, 255);
+}
+
+footer .newsletter p {
+  font-size: 14px;
+}
+
+footer .newsletter a {
+  text-decoration: underline;
 }
 
 /* Cheat Sheet styling begins here */
@@ -515,6 +568,8 @@ div.cs li.cs-references {
   footer {
     display: block;
     margin-top: 40px;
+    background: #ffffff;
+    color: #404040;
   }
 
   footer hr {
