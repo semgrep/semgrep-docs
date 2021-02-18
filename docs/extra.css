@@ -27,11 +27,6 @@ code {
   border: none;
 }
 
-a,
-a:visited {
-  color: #2980b9;
-}
-
 a:hover {
   text-decoration: underline;
 }
@@ -46,7 +41,7 @@ a:hover {
 }
 
 nav.stickynav {
-  top: 50px;
+  float: left;
 }
 
 .rst-versions {
@@ -62,6 +57,7 @@ div.navbar {
   top: 0;
   left: 0;
   display: block;
+  z-index: 50;
 }
 
 .bp3-navbar {
@@ -146,8 +142,16 @@ div.navbar {
 }
 
 .wy-grid-for-nav {
-  position: absolute;
-  top: 50px;
+  position: relative;
+  margin-top: 50px;
+  z-index: 10;
+  height: auto;
+  display: flex;
+  flex-direction: row;
+}
+
+nav.wy-nav-side.stickynav {
+  background-color: #29343d;
 }
 
 .wy-grid-for-nav nav.wy-nav-side.stickynav .wy-side-scroll .wy-menu p.caption {
@@ -157,18 +161,37 @@ div.navbar {
 
 @media screen and (max-width: 768px) {
   .wy-grid-for-nav {
-    /* width: auto; */
+    max-width: 375px;
+  }
+
+  .wy-nav-content {
+    max-width: 375px;
   }
 }
 
-.wy-nav-side a {
-  color: #d9d9d9;
+@media screen and (max-width: 780px) {
+  .wy-grid-for-nav {
+    max-width: 768px;
+    margin-left: -150px;
+  }
+
+  .wy-nav-content {
+    max-width: 768px;
+  }
+
+  .wy-nav-side {
+    margin-left: 150px;
+  }
 }
 
 .wy-nav-side {
-  position: fixed;
-  top: 50px;
+  position: relative;
   padding-bottom: 0;
+}
+
+.wy-nav-side a,
+.wy-nav-side a:visited {
+  color: #d9d9d9;
 }
 
 .wy-menu {
@@ -188,8 +211,15 @@ td {
   padding: 10px;
 }
 
-.wy-nav-content {
-  max-width: 1010px;
+@media screen and (min-width: 768px) {
+  .wy-nav-content {
+    max-width: 1010px;
+  }
+}
+
+.wy-nav-content a,
+a:visited {
+  color: #359dfd;
 }
 
 div > div.section > p > img {
@@ -326,11 +356,21 @@ footer .newsletter a {
   max-width: 1200px;
 }
 
+@media screen and (max-width: 768px) {
+  .wy-grid-for-nav.cs {
+    max-width: 375px;
+  }
+
+  .wy-nav-content.cs {
+    max-width: 375px;
+  }
+}
+
 div[role="navigation"] hr {
   display: none;
 }
 
-/* new CS styling begins here */
+/* new cheat sheet (.cs) styling begins here */
 
 div.cs > header {
   margin-top: 60px;
@@ -490,13 +530,12 @@ div.cs li.cs-references {
   margin-top: 50px;
 }
 
-/* mobile nav styling */
 @media screen and (min-width: 769px) {
   .wy-side-scroll {
     width: 250px;
     overflow-y: hidden;
     overflow-x: hidden;
-    height: calc(100% - 50px);
+    height: auto;
   }
 
   .wy-side-nav-search {
@@ -505,12 +544,16 @@ div.cs li.cs-references {
 
   .wy-nav-side {
     width: 250px;
+    min-height: 600px;
   }
 
   .wy-nav-content-wrap {
-    margin-left: 250px;
+    margin-left: 0;
+    float: left;
   }
 }
+
+/* mobile nav styling */
 
 @media screen and (max-width: 768px) {
   .wy-side-scroll {
