@@ -175,23 +175,17 @@ nav.wy-nav-side.stickynav {
 }
 
 @media screen and (max-width: 768px) {
-  .wy-grid-for-nav {
-    max-width: 375px;
-  }
-
   .wy-nav-content {
     max-width: 375px;
   }
-}
 
-@media screen and (max-width: 780px) {
   .wy-grid-for-nav {
     max-width: 768px;
-    margin-left: -150px;
   }
 
   .wy-nav-content {
     max-width: 768px;
+    margin-left: -225px;
   }
 
   .wy-nav-side {
@@ -585,6 +579,7 @@ div.cs li.cs-references {
     position: fixed;
     top: 50px;
     z-index: 1000;
+    margin-left: -230px;
   }
 
   nav.wy-nav-top a {
