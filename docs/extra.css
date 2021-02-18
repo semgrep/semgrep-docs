@@ -27,6 +27,11 @@ code {
   border: none;
 }
 
+a,
+a:visited {
+  color: #359dfd;
+}
+
 a:hover {
   text-decoration: underline;
 }
@@ -35,8 +40,12 @@ a:hover {
   display: none;
 } */
 
+.wy-menu-vertical a:hover {
+  background: #6136f5;
+}
+
 .wy-side-nav-search {
-  background-color: #137cbd;
+  background-color: #29343d;
   /* margin-top: 50px; */
 }
 
@@ -182,11 +191,16 @@ nav.wy-nav-side.stickynav {
   .wy-nav-side {
     margin-left: 150px;
   }
+  .wy-nav-side a {
+    color: #f2f8ff;
+  }
 }
 
 .wy-nav-side {
   position: relative;
   padding-bottom: 0;
+  background: #29343d;
+  color: #a6a6a6;
 }
 
 .wy-nav-side a,

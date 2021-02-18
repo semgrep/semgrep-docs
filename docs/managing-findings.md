@@ -4,7 +4,7 @@
 
 # Findings
 
-A finding is the core result of Semgrep's analysis. Findings are generated when a Semgrep rule matches a piece of code. After matching, a finding can make its way through 3 parts of the Semgrep ecosystem: [Semgrep CLI](https://github.com/returntocorp/semgrep), [Semgrep Action](https://github.com/returntocorp/semgrep-action), and [Semgrep App](https://semgrep.dev/).
+A finding is the core result of Semgrep's analysis. Findings are generated when a Semgrep rule matches a piece of code. After matching, a finding can make its way through 3 parts of the Semgrep ecosystem: [Semgrep CLI](https://github.com/returntocorp/semgrep), [Semgrep CI](semgrep-ci.md), and [Semgrep App](https://semgrep.dev/).
 
 # Semgrep CLI
 
@@ -42,9 +42,9 @@ severity:warning rule:finding-test: Finding test 2
 
 *For more information on writing rules, see [Rule syntax](writing-rules/rule-syntax.md).*
 
-# Semgrep Action
+# Semgrep CI
 
-Semgrep Action, designed to continuously scan commits and builds, improves on Semgrep CLI findings to track the lifetime of an individual finding. A Semgrep Action finding is defined by a 4-tuple:
+[Semgrep CI](semgrep-ci.md), designed to continuously scan commits and builds, improves on Semgrep CLI findings to track the lifetime of an individual finding. A Semgrep CI finding is defined by a 4-tuple:
 
 ```
 (rule ID, file path, syntactic context, index)
@@ -60,11 +60,11 @@ These pieces of state correspond to:
 !!! note
     `syntactic context` is normalized by removing indentation, [`nosemgrep`](ignoring-findings.md#ignoring-findings-via-inline-comments) comments, and whitespace.
 
-These are hashed and returned as the syntactic identifier: `syntactic_id`. This is how Semgrep Action uniquely identifies findings and tracks them across state transitions. Semgrep Action does not store or transmit code contents. The `syntactic context` is hashed using a one-way hashing function making it impossible to recover the original contents.
+These are hashed and returned as the syntactic identifier: `syntactic_id`. This is how Semgrep CI uniquely identifies findings and tracks them across state transitions. Semgrep CI does not store or transmit code contents. The `syntactic context` is hashed using a one-way hashing function making it impossible to recover the original contents.
 
 # Semgrep App
 
-Semgrep App builds on Semgrep Action findings to track state transitions and provide additional context for managing findings within your organization. Findings move between states according to their Semgrep Action `syntactic_id`, as mentioned above. A finding can occupy 3 states in Semgrep App: `OPEN`, `FIXED`, and `MUTED`.
+Semgrep App builds on Semgrep CI findings to track state transitions and provide additional context for managing findings within your organization. Findings move between states according to their Semgrep CI `syntactic_id`, as mentioned above. A finding can occupy 3 states in Semgrep App: `OPEN`, `FIXED`, and `MUTED`.
 
 ## Finding states
 
