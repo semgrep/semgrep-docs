@@ -219,13 +219,15 @@
 
         <div class="rst-content">
           {% include "breadcrumbs.html" %}
-          {%- block footer %}
-            {% include "footer.html" %}
-          {% endblock %}
+          
         </div>
       </div>
     </section>
   </div>
+
+  {%- block footer %}
+    {% include "footer.html" %}
+  {% endblock %}
 
   {% include "versions.html" %}
 
