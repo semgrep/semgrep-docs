@@ -29,7 +29,7 @@ code {
 
 a,
 a:visited {
-  color: #359DFD;
+  color: #359dfd;
 }
 
 a:hover {
@@ -40,17 +40,23 @@ a:hover {
   display: none;
 } */
 
+body.wy-body-for-nav.happy {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
 .wy-menu-vertical a:hover {
-  background: #6136F5;
+  background: #6136f5;
 }
 
 .wy-side-nav-search {
-  background-color: #29343D;
+  background-color: #29343d;
   /* margin-top: 50px; */
 }
 
 nav.stickynav {
-  top: 50px;
+  float: left;
 }
 
 .rst-versions {
@@ -66,6 +72,7 @@ div.navbar {
   top: 0;
   left: 0;
   display: block;
+  z-index: 50;
 }
 
 .bp3-navbar {
@@ -150,8 +157,16 @@ div.navbar {
 }
 
 .wy-grid-for-nav {
-  position: absolute;
-  top: 50px;
+  position: relative;
+  margin-top: 50px;
+  z-index: 10;
+  height: auto;
+  display: flex;
+  flex-direction: row;
+}
+
+nav.wy-nav-side.stickynav {
+  background-color: #29343d;
 }
 
 .wy-grid-for-nav nav.wy-nav-side.stickynav .wy-side-scroll .wy-menu p.caption {
@@ -159,22 +174,96 @@ div.navbar {
   margin-top: 6px;
 }
 
+/* mobile nav styling */
+
 @media screen and (max-width: 768px) {
+  .wy-nav-content {
+    max-width: 375px;
+  }
+
   .wy-grid-for-nav {
-    /* width: auto; */
+    max-width: 768px;
+  }
+
+  .wy-nav-content {
+    max-width: 768px;
+    margin-left: -225px;
+  }
+
+  .wy-nav-side {
+    margin-left: 150px;
+  }
+
+  .wy-nav-side.shift {
+    left: -150px;
+  }
+
+  .wy-nav-side a {
+    color: #f2f8ff;
+  }
+
+  .wy-side-scroll {
+    height: calc(100% - 50px);
+  }
+
+  .wy-nav-content-wrap.shift {
+    left: 120%;
+  }
+
+  nav.wy-nav-top {
+    position: fixed;
+    top: 50px;
+    z-index: 1000;
+    margin-left: -230px;
+  }
+
+  nav.wy-nav-top a {
+    display: none;
+  }
+
+  .normal .bp3-navbar-group.bp3-align-left,
+  .bp3-navbar {
+    z-index: 50;
+  }
+
+  div.rst-content {
+    margin-top: 50px;
   }
 }
 
-.wy-nav-side a {
-  color: #F2F8FF;
+@media screen and (min-width: 769px) {
+  .wy-side-scroll {
+    width: 250px;
+    overflow-y: hidden;
+    overflow-x: hidden;
+    height: auto;
+  }
+
+  .wy-side-nav-search {
+    width: 250px;
+  }
+
+  .wy-nav-side {
+    width: 250px;
+    min-height: 600px;
+  }
+
+  .wy-nav-content-wrap {
+    margin-left: 0;
+    float: left;
+  }
 }
 
 .wy-nav-side {
-  position: fixed;
-  top: 50px;
+  position: relative;
   padding-bottom: 0;
-  background: #29343D;
-  color: #A6A6A6;
+  background: #29343d;
+  color: #a6a6a6;
+}
+
+.wy-nav-side a,
+.wy-nav-side a:visited {
+  color: #d9d9d9;
 }
 
 .wy-menu {
@@ -194,8 +283,15 @@ td {
   padding: 10px;
 }
 
-.wy-nav-content {
-  max-width: 1010px;
+@media screen and (min-width: 768px) {
+  .wy-nav-content {
+    max-width: 1010px;
+  }
+}
+
+.wy-nav-content a,
+a:visited {
+  color: #359dfd;
 }
 
 div > div.section > p > img {
@@ -219,25 +315,53 @@ a.highlight {
   max-width: 300px;
 }
 
+footer {
+  width: 100%;
+  clear: both;
+  flex: 2;
+  background: linear-gradient(
+      249.38deg,
+      rgb(76, 24, 118) 32.7%,
+      rgba(24, 28, 118, 0) 105.76%
+    ),
+    rgb(17, 36, 62);
+  font-size: 14px;
+  color: #ffffff;
+}
+
+footer .semgrep-footer a,
+footer .semgrep-footer a:visited {
+  color: #ffffff;
+}
+
 .semgrep-footer {
   margin-top: 40px;
 }
 
-.footer-grid {
-  display: grid;
-  gap: 12px;
-  grid-auto-rows: 1fr;
-  grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
-  /* margin: auto; */
+.rst-footer-buttons {
+  padding: 1.6em 0;
 }
 
-section.links {
+.footer-grid {
+  display: grid;
+  overflow-x: auto;
+  gap: 12px;
+  grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+  margin: auto;
+  max-width: 1160px;
+  padding: 80px 20px 68px;
+  text-align: left;
+}
+
+footer section.links {
+  padding-left: 20px;
+  border-left: 1px solid rgb(242, 248, 255);
   display: flex;
   -webkit-box-pack: justify;
   justify-content: space-between;
 }
 
-.social {
+footer .social {
   margin-right: 12px;
 }
 
@@ -248,21 +372,47 @@ section.links {
   align-items: center;
 }
 
+.social a:first-of-type {
+  margin-top: 0;
+}
+
 .semgrep-footer svg {
-  width: 32px;
-  margin-right: 10px;
+  height: 28px;
 }
 
 .link-grid {
   display: grid;
-  gap: 70px;
-  grid-auto-rows: 1fr;
+  overflow-x: auto;
+  gap: 12px;
   grid-template-columns: repeat(3, 1fr);
-  margin-top: 28px;
 }
 
-.rtd-info {
-  margin-top: 60px;
+.link-grid h4 {
+  margin: 0px;
+  font-size: 16px;
+  line-height: 36px;
+  color: rgb(198, 200, 204);
+  font-weight: normal;
+}
+
+.link-grid li {
+  font-size: 16px;
+  line-height: 36px;
+  text-decoration-line: underline;
+}
+
+footer .newsletter {
+  margin-top: 6px;
+  padding-left: 20px;
+  border-left: 1px solid rgb(242, 248, 255);
+}
+
+footer .newsletter p {
+  font-size: 14px;
+}
+
+footer .newsletter a {
+  text-decoration: underline;
 }
 
 /* Cheat Sheet styling begins here */
@@ -279,11 +429,21 @@ section.links {
   max-width: 1200px;
 }
 
+@media screen and (max-width: 768px) {
+  .wy-grid-for-nav.cs {
+    max-width: 375px;
+  }
+
+  .wy-nav-content.cs {
+    max-width: 375px;
+  }
+}
+
 div[role="navigation"] hr {
   display: none;
 }
 
-/* new CS styling begins here */
+/* new cheat sheet (.cs) styling begins here */
 
 div.cs > header {
   margin-top: 60px;
@@ -443,53 +603,6 @@ div.cs li.cs-references {
   margin-top: 50px;
 }
 
-/* mobile nav styling */
-@media screen and (min-width: 769px) {
-  .wy-side-scroll {
-    width: 250px;
-    overflow-y: hidden;
-    overflow-x: hidden;
-    height: calc(100% - 50px);
-  }
-
-  .wy-side-nav-search {
-    width: 250px;
-  }
-
-  .wy-nav-side {
-    width: 250px;
-  }
-
-  .wy-nav-content-wrap {
-    margin-left: 250px;
-  }
-}
-
-@media screen and (max-width: 768px) {
-  .wy-side-scroll {
-    height: calc(100% - 50px);
-  }
-
-  nav.wy-nav-top {
-    position: fixed;
-    top: 50px;
-    z-index: 1000;
-  }
-
-  nav.wy-nav-top a {
-    display: none;
-  }
-
-  .normal .bp3-navbar-group.bp3-align-left,
-  .bp3-navbar {
-    z-index: 50;
-  }
-
-  div.rst-content {
-    margin-top: 50px;
-  }
-}
-
 /* print styling for cheat sheets begins here */
 
 @media print {
@@ -521,6 +634,8 @@ div.cs li.cs-references {
   footer {
     display: block;
     margin-top: 40px;
+    background: #ffffff;
+    color: #404040;
   }
 
   footer hr {
