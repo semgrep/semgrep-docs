@@ -41,6 +41,7 @@ The below optional fields must reside underneath a `patterns` or `pattern-either
 | Field                                                           | Type     | Description                                                                                                              |
 | :-------------------------------------------------------------- | :------- | :----------------------------------------------------------------------------------------------------------------------- |
 | [`metavariable-regex`](#metavariable-regex)     | `map`    | Search metavariables for [Python `re`](https://docs.python.org/3/library/re.html#re.match) compatible expressions |
+| [`metavariable-comparison`](#metavariable-comparison)     | `map`    | Compare metavariables against basic [Python expressions](https://docs.python.org/3/reference/expressions.html#comparisons) |
 | [`pattern-not`](#pattern-not)                   | `string` | Logical NOT - remove findings matching this expression                                                                  |
 | [`pattern-inside`](#pattern-inside)             | `string` | Keep findings that lie inside this pattern                                                                              |
 | [`pattern-not-inside`](#pattern-not-inside)     | `string` | Keep findings that do not lie inside this pattern                                                                       |
@@ -190,6 +191,55 @@ rules:
 ```
 
 The working example, on the other hand, will fire on both functions in the javascript test code.
+
+## `metavariable-comparison`
+
+The `metavariable-comparison` operator compares metavariables against a basic [Python comparison](https://docs.python.org/3/reference/expressions.html#comparisons) expression. This is useful for filtering results based on a [metavariable's](../writing-rules/pattern-syntax.md#metavariables) numeric value.
+
+Example:
+
+The `metavariable-comparison` operator is a mapping which requires the `metavariable` and `comparison` keys. It can be combined with other pattern operators:
+
+```yaml
+rules:
+  - id: superuser-port
+    patterns:
+      - pattern: set_port($ARG)
+      - metavariable-comparison:
+          metavariable: '$ARG'
+          comparison: '$ARG < 1024'
+    message: "module setting superuser port"
+    languages: [python]
+    severity: ERROR
+```
+
+This will catch code like `set_port(80)` or `set_port(443)`, but not `set_port(8080)`.
+
+The `metavariable-comparison` operator also takes optional `base: int` and `strip: bool` keys. These keys set the integer base the metavariable value should be interpreted as and remove quotes from the metavariable value, respectively.
+
+For example, `base`:
+
+```
+- pattern: set_permissions($ARG)
+- metavariable-comparison:
+    metavariable: '$ARG'
+    comparison: '$ARG > 0o600'
+    base: 8
+```
+
+This will interpret metavariable values found in code as octal, so `0700` will be detected, but `0500` will not.
+
+For example, `strip`:
+
+```
+- pattern: to_integer($ARG)
+- metavariable-comparison:
+    metavariable: '$ARG'
+    comparison: '$ARG > 2147483647'
+    strip: true
+```
+
+This will remove quotes (`'`, `"`, and `` ` ``) from both ends of the metavariable content. So `"2147483648"` will be detected but `"2147483646"` will not. This is useful when you expect strings to contain integer or float data.
 
 ## `pattern-not`
 
