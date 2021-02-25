@@ -40,6 +40,11 @@
     <h2>TSX parse rate</h2>
     <iframe width="450" height="150" frameBorder="0" src="https://dashboard.semgrep.dev/metric/semgrep.core.tsx.parse.pct/number"></iframe>
   </div>
+
+  <div class="lang-container">
+    <h2>C parse rate</h2>
+    <iframe width="450" height="150" frameBorder="0" src="https://dashboard.semgrep.dev/metric/semgrep.core.c.parse.pct/number"></iframe>
+  </div>
 </div>
 
 # Support expectations
