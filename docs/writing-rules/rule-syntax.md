@@ -145,6 +145,9 @@ rules:
     severity: ERROR
 ```
 
+!!! note
+    Include quotes in your regular expression when using `metavariable-regex` to search string literals. See [this snippet](https://semgrep.dev/s/mschwager:include-quotes) for more details. [String matching](pattern-syntax.md#string-matching) functionality can also be used to search string literals.
+
 ## `metavariable-comparison`
 
 The `metavariable-comparison` operator compares metavariables against a basic [Python comparison](https://docs.python.org/3/reference/expressions.html#comparisons) expression. This is useful for filtering results based on a [metavariable's](../writing-rules/pattern-syntax.md#metavariables) numeric value.
