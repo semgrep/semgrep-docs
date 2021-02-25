@@ -129,68 +129,21 @@ rules:
 
 The `metavariable-regex` operator searches metavariables for a [Python `re`](https://docs.python.org/3/library/re.html#re.match) compatible expression. This is useful for filtering results based on a [metavariable’s](pattern-syntax.md#metavariables) value. It requires the `metavariable` and `regex` keys and can be combined with other pattern operators.
 
-Note that when attempting to use metavariable-regex with a metavariable that matches a string, the metavariable will contain the contents of the string ALONG with the quotes. 
+Example:
 
-Not-working example:
-
-```yaml
-rules:
-- id: object-matching
-  patterns: 
-    - pattern: |
-        {
-          ...,
-          fox: $BOX,
-          ...
-        }
-    - metavariable-regex:
-        metavariable: $BOX
-        regex: "(box|bob|bot)"
-  message: |
-    Semgrep found a match for fox: $BOX
-  severity: WARNING
-  languages: [javascript]
-```
-
-The above will not fire on 
-
-```javascript
-  func({
-    foo: "boo",
-    bar: "baz",
-    fox: "box" 
-  })
-
-  func({
-    foo: "boo",
-    asd: {
-      fox: "box" 
-    }
-  })
-```
-
-Working Example:
 
 ```yaml
 rules:
-- id: object-matching
-  patterns: 
-    - pattern: |
-        {
-          ...,
-          fox: $BOX,
-          ...
-        }
-    - metavariable-regex:
-        metavariable: $BOX
-        regex: ("box"|"bob"|"bot")
-  message: |
-    Semgrep found a match for fox: $BOX
-  severity: WARNING
-  languages: [javascript]
+  - id: insecure-methods
+    patterns:
+      - pattern: module.$METHOD(...)
+      - metavariable-regex:
+          metavariable: "$METHOD"
+          regex: "(insecure1|insecure2|insecure3)"
+    message: "module using insecure method call"
+    languages: [python]
+    severity: ERROR
 ```
-
-The working example, on the other hand, will fire on both functions in the javascript test code.
 
 ## `metavariable-comparison`
 
