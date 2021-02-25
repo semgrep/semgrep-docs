@@ -327,7 +327,7 @@ int main() {
 }
 ```
 
-Typescript:
+TypeScript:
 
 ```text
 pattern: $X == ($Y : string)
