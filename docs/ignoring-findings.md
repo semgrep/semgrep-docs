@@ -48,3 +48,6 @@ For a complete example, see  the [.semgrepignore file on Semgrep’s source code
 
 If there's no `.semgrepignore` file in your repository, Semgrep CI uses a default ignore list that skips common test and dependency directories, including `tests/`, `node_modules/`, and `vendor/`. You can find the full list in the [`.semgrepignore` template file](https://github.com/returntocorp/semgrep-action/blob/v1/src/semgrep_agent/templates/.semgrepignore). To override these default ignore patterns, commit your own `.semgrepignore`.
 
+# Ignoring findings via disabled rules
+
+If you are using Semgrep in CI with a managed policy, you can disable individual rules within a ruleset on [Dashboard > Policies](https://semgrep.dev/manage/policy). See [Editing a policy](managing-policy.md#editing-a-policy) for details.
