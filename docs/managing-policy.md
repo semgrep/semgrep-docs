@@ -47,3 +47,7 @@ semgrep --config <path/to/yaml> <path/to/code>
 
 !!! info
     See [Getting started](getting-started.md) for instructions on downloading and running Semgrep locally.
+
+# Assigning a policy to a project
+
+To use policies besides the "default" policy in CI, visit [Dashboard > Projects](https://semgrep.dev/manage/projects) and then hover over the text in the Policy column. A small pencil icon will appear and allow you to add as many policies as you want to each project.

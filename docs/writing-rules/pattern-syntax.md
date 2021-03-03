@@ -277,6 +277,9 @@ func main() {
 }
 ```
 
+!!! warning
+    For Go, Semgrep currently does not recognize the type of all variables that are declared on the same line. That is, the following will not take both `a` and `b` as `int`s: `var a, b = 1, 2`
+
 Java:
 
 ```text
@@ -299,11 +302,53 @@ public class Example {
 }
 ```
 
-!!! warning
-    Since matching happens within a single file, this is only guaranteed to work for local variables and arguments. Additionally, Semgrep currently understands types on a shallow level. For example, if you have `int[] A`, it will not recognize `A[0]` as an integer. If you have a class with fields, you will not be able to use typechecking on field accesses, and it will not recognize the class’s field as the expected type. Literal types are understood to a limited extent. Expanded type support is under active development.
+C:
+
+```text
+pattern: $X == (char *$Y)
+```
+
+```c
+int main() {
+    char *a = "Hello";
+    int b = 1;
+
+    // Matched
+    if (a == "world") {
+        return 1;
+    }
+
+    // Not matched
+    if (b == 2) {
+        return -1;
+    }
+
+    return 0;
+}
+```
+
+TypeScript:
+
+```text
+pattern: $X == ($Y : string)
+```
+
+```typescript
+function foo(a: string, b: number) {
+    // Matched
+    if (a == "hello") {
+        return 1;
+    }
+
+    // Not matched
+    if (b == 1) {
+        return -1;
+    }
+}
+```
 
 !!! warning
-    For Go, Semgrep currently does not recognize the type of all variables that are declared on the same line. That is, the following will not take both `a` and `b` as `int`s: `var a, b = 1, 2`
+    Since matching happens within a single file, this is only guaranteed to work for local variables and arguments. Additionally, Semgrep currently understands types on a shallow level. For example, if you have `int[] A`, it will not recognize `A[0]` as an integer. If you have a class with fields, you will not be able to use typechecking on field accesses, and it will not recognize the class’s field as the expected type. Literal types are understood to a limited extent. Expanded type support is under active development.
 
 # Equivalences
 
