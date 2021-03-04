@@ -65,7 +65,7 @@ jobs:
         #  GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
         with:
-          publishToken: ${{ secrets.SEMGREP_TOKEN }}
+          publishToken: ${{ secrets.SEMGREP_APP_TOKEN }}
           publishDeployment: ${{ secrets.SEMGREP_DEPLOYMENT_ID }}
 
           # Never fail the build due to findings on pushes, but collect findings data
@@ -104,7 +104,7 @@ include:
 semgrep:
   image: returntocorp/semgrep-agent:v1
   script:
-    - python -m semgrep_agent --publish-deployment $SEMGREP_DEPLOYMENT_ID --publish-token $SEMGREP_TOKEN
+    - python -m semgrep_agent --publish-deployment $SEMGREP_DEPLOYMENT_ID --publish-token $SEMGREP_APP_TOKEN
 ```
 
 </p>
@@ -115,7 +115,7 @@ semgrep:
 
 ```yaml
 - label: ":semgrep: Semgrep"
-  command: python -m semgrep_agent --publish-deployment $SEMGREP_DEPLOYMENT_ID" --publish-token $SEMGREP_TOKEN
+  command: python -m semgrep_agent --publish-deployment $SEMGREP_DEPLOYMENT_ID" --publish-token $SEMGREP_APP_TOKEN
     plugins:
       - docker#v3.7.0:
           image: returntocorp/semgrep-agent:v1
@@ -160,7 +160,7 @@ jobs:
           command: |
             python -m semgrep_agent \
               --publish-deployment << parameters.semgrep_deployment_id >> \
-              --publish-token $SEMGREP_TOKEN \
+              --publish-token $SEMGREP_APP_TOKEN \
               --baseline-ref << parameters.default_branch >>
 workflows:
   main:
@@ -177,7 +177,7 @@ use the [`returntocorp/semgrep-agent:v1` Docker image](semgrep-ci.md#packaging),
 and run this command in your Docker container:
 
 ```sh
-python -m semgrep_agent --publish-deployment $SEMGREP_DEPLOYMENT_ID --publish-token $SEMGREP_TOKEN
+python -m semgrep_agent --publish-deployment $SEMGREP_DEPLOYMENT_ID --publish-token $SEMGREP_APP_TOKEN
 ```
 
 To get [CI context awareness](semgrep-ci.md#features),
@@ -196,7 +196,7 @@ SEMGREP_PR_ID=123
 SEMGREP_PR_TITLE="Added four new bugs"  # shown in Slack notifications if set
 
 # Run semgrep_agent
-python -m semgrep_agent --publish-deployment $SEMGREP_DEPLOYMENT_ID --publish-token $SEMGREP_TOKEN
+python -m semgrep_agent --publish-deployment $SEMGREP_DEPLOYMENT_ID --publish-token $SEMGREP_APP_TOKEN
 ```
 
 </p>
