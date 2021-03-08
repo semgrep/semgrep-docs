@@ -4,7 +4,8 @@ Several third-party tools include Semgrep extensions.
 
 ### Editor
 
-Semgrep supports Microsoft Visual Studio Code with the [semgrep-vscode](https://marketplace.visualstudio.com/items?itemName=semgrep.semgrep) extension.
+- Microsoft Visual Studio Code: [`semgrep-vscode`](https://marketplace.visualstudio.com/items?itemName=semgrep.semgrep)
+- Vim: [`semgrep.vim`](https://github.com/returntocorp/semgrep.vim)
 
 ### Pre-commit
 
