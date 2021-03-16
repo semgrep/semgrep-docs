@@ -25,21 +25,12 @@ On each scan that has at least one finding, you will receive one email from Semg
 ### Pull request comments
 
 !!! info
-    This feature is currently only available for GitHub. There’s no need to create `secrets.GITHUB_TOKEN` yourself because it’s automatically set by GitHub. It only needs to be passed to Semgrep CI via the workflow file.
+    This feature is currently only available for GitHub.
 
 Pull request comments are left when
 
-1. Semgrep finds a result in CI
-2. [the CI policy has pull request comments enabled](managing-policy.md#changing-policy-actions), and
-3. a GITHUB_TOKEN is configured as follows
-
-```
-uses: returntocorp/semgrep-action@v1
-        env: # Optional environment variable for automatic pull request comments
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-```
-
-See a complete example of this workflow file including this environment variable (commented out) in the [CI Providers](sample-ci-configs.md#github-actions) section.
+1. Semgrep finds a result in CI, and
+2. [the CI policy has pull request comments enabled](managing-policy.md#changing-policy-actions)
 
 Automated comments on GitHub pull requests will look like this:
 
