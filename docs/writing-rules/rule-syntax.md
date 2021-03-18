@@ -284,6 +284,16 @@ The above rule looks for use of Django’s [`FloatField`](https://docs.djangopro
 
 # Metavariable matching
 
+Semgrep will enforce equivalence between pattern clauses with metavariables of the same name. For example, the following patterns will detect when a function is called inside itself recursively.
+
+```yaml
+patterns:
+- pattern-inside: |
+    def $FUNC(...):
+      ...
+- pattern: $FUNC(...)
+```
+
 Metavariable matching operates differently for logical AND (`patterns`) and logical OR (`pattern-either`) parent operators. Behavior is consistent across all child operators: `pattern`, `pattern-not`, `pattern-regex`, `pattern-inside`, `pattern-not-inside`.
 
 ## Metavariables in logical ANDs
@@ -382,6 +392,54 @@ The example rule doesn’t match this code:
 def foo(something):
     bar(something_else)
 ```
+
+## Metavariables in logical NOT operators
+
+Semgrep will enforce metavariable equivalence across not operators. 
+
+Example:
+
+```yaml
+patterns:
+- pattern-not-inside: |
+    def $FUNC(...):
+      ...
+- pattern: $FUNC(...)
+```
+
+The above rule matches the following code:
+
+```python
+def foo(something):
+  bar(something)
+```
+
+Whereas it will not match the following code:
+
+```python
+def foo(something):
+  foo(something+1)
+```
+
+Metavariable matching in logical NOTs might be counterintuitive in certain circumstances. For example, consider the following rule designed to detect variable assignments, but not array assignments:
+
+```yaml
+patterns:
+- pattern: $VAR = "..."
+- pattern-not-inside: $ARRAY[...] = "..."
+```
+
+This will correctly filter out array assignments. However, if we reuse the metavariable name:
+
+```yaml
+patterns:
+- pattern: $VAR = "..."
+- pattern-not-inside: $VAR[...] = "..."
+```
+
+Semgrep will not filter array assignments. This happens because Semgrep recognizes the array access as different than a regular variable, yet only filters when `$VAR` is the same.
+
+To further illustrate: [this snippet](https://semgrep.dev/s/Q5kJ/) filters array assignment; [that snippet](https://semgrep.dev/s/b7lq/) does not.
 
 # `fix`
 
