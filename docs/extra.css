@@ -23,6 +23,13 @@ h4.code-example-heading {
   margin-bottom: 5px;
 }
 
+@media screen and (max-width: 768px) {
+  .rst-content pre code {
+    white-space: pre-wrap;
+    word-break: break-word;
+  }
+}
+
 code {
   border: none;
 }
