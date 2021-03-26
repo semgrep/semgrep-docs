@@ -62,3 +62,4 @@ plugins:
       redirect_maps:
         "writing-rules/pattern-logic.md": "writing-rules/rule-syntax.md"
         "writing-rules/index.md": "writing-rules/overview.md"
+        "semgrep-ci/managing-policy.md": "managing-policy.md"
