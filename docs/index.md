@@ -35,14 +35,14 @@ Semgrep is an evolution of [pfff](https://github.com/returntocorp/pfff/), which 
 
 Some supported languages are in alpha or beta; a data-driven approach that evaluates the parse rate of the language on a wide corpus determines when to promote a language to general availability (GA). For more details, see [the breakdown of all supported languages](status.md).
 
-| GA         | Alpha                           | Experimental |
-|:-----------|:--------------------------------|:-------------|
-| Go         | C                               | C#           |
-| Java       | OCaml                           | Kotlin       |
-| JavaScript | PHP                             | Lua          |
-| JSON       | Generic (YAML, ERB, Jinja, etc.)| R            |
-| JSX        |                                 | Rust         |
-| Python     |                                 |              |
-| Ruby       |                                 |              |
-| TypeScript |                                 |              |
-| TSX        |                                 |              |
+| GA         | Alpha                            | Experimental |
+|:---------- |:---------------------------------|:-------------|
+| Go         | C                                | C#           |
+| Java       | OCaml                            | Kotlin       |
+| JavaScript | PHP                              | Lua          |
+| JSON       | YAML                             | R            |
+| JSX        | Generic (ERB, Jinja, etc.)       | Rust         |
+| Python     |                                  |              |
+| Ruby       |                                  |              |
+| TypeScript |                                  |              |
+| TSX        |                                  |              |
