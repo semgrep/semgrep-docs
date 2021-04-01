@@ -58,6 +58,11 @@ jobs:
 
       # Scan code using project's configuration on https://semgrep.dev/manage
       - uses: returntocorp/semgrep-action@v1
+
+        # Optionally configure job timeout (default is 1800 seconds; set to 0 to disable)
+        #env:
+        #  SEMGREP_TIMEOUT: 300
+
         with:
           publishToken: ${{ secrets.SEMGREP_APP_TOKEN }}
           publishDeployment: ${{ secrets.SEMGREP_DEPLOYMENT_ID }}
@@ -187,6 +192,7 @@ SEMGREP_REPO_NAME=myorg/myrepository  # project name to show on Semgrep App
 SEMGREP_REPO_URL=https://gitwebsite.com/myrepository
 SEMGREP_PR_ID=123
 SEMGREP_PR_TITLE="Added four new bugs"  # shown in Slack notifications if set
+SEMGREP_TIMEOUT=1800  # Maximum Semgrep run time in seconds, or 0 to disable timeouts
 
 # Run semgrep_agent
 python -m semgrep_agent --publish-deployment $SEMGREP_DEPLOYMENT_ID --publish-token $SEMGREP_APP_TOKEN
