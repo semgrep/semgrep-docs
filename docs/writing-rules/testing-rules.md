@@ -19,6 +19,9 @@ Other than annotations there are three things to remember when creating tests:
    `path/to/rule.py`, `path/to/rule.js`, etc., based on the languages specified
    in the rule.
 
+!!! note
+    The `.test.yaml` file extension can also be used for test files. This is necessary when testing YAML language rules.
+
 ## Example
 
 Consider the following rule:
@@ -60,13 +63,13 @@ Run the tests with the following:
 $ python -m semgrep --quiet --test rules/
 1 yaml files tested
 check id scoring:
-================================================================================
+--------------------------------------------------------------------------------
 (TODO: 2) rules/detect-eval.yaml
 	✖ insecure-eval-use                                  TP: 1 TN: 2 FP: 1 FN: 1
 	test: rules/detect-eval.py, expected lines: [5, 12], reported lines: [5, 15]
-================================================================================
+--------------------------------------------------------------------------------
 final confusion matrix: TP: 1 TN: 2 FP: 1 FN: 1
-================================================================================
+--------------------------------------------------------------------------------
 ```
 
 - True positives (`TP`) correspond to `ruleid`
@@ -80,10 +83,40 @@ To avoid failing on TODOs you can specify `--test-ignore-todo`:
 $ python -m semgrep --quiet --test --test-ignore-todo rules/
 1 yaml files tested
 check id scoring:
-================================================================================
+--------------------------------------------------------------------------------
 (TODO: 2) rules/detect-eval.yaml
 	✔ insecure-eval-use                                  TP: 1 TN: 1 FP: 0 FN: 0
-================================================================================
+--------------------------------------------------------------------------------
 final confusion matrix: TP: 1 TN: 1 FP: 0 FN: 0
-================================================================================
+--------------------------------------------------------------------------------
 ```
+
+To store rules and test targets in different directories you can specify `--config`:
+
+```sh
+$ tree tests
+tests
+├── rules
+│   └── python
+│       └── test.yaml
+└── targets
+    └── python
+        └── test.py
+
+4 directories, 2 files
+```
+
+```sh
+$ python -m semgrep --quiet --test --config /tmp/tests/rules/ /tmp/tests/targets/
+1 yaml files tested
+check id scoring:
+--------------------------------------------------------------------------------
+(TODO: 0) /tmp/tests/rules/python/test.yaml
+	✔ eqeq-is-bad                                        TP: 1 TN: 0 FP: 0 FN: 0
+--------------------------------------------------------------------------------
+final confusion matrix: TP: 1 TN: 0 FP: 0 FN: 0
+--------------------------------------------------------------------------------
+```
+
+The subdirectory structure of these two directories must be the same for Semgrep to
+correctly find the associated files.
