@@ -33,7 +33,7 @@ Automated comments on GitHub pull requests will look like this:
 
 ![GitHub Pull Request Comment](img/semgrep-pull-request.png "Comments on GitHub Pull Request")
 
-Note that semgrep.dev uses the permissions requested by https://github.com/apps/semgrep-dev to leave PR comments.
+Note that [Semgrep App](https://semgrep.dev) uses the permissions requested by https://github.com/apps/semgrep-dev to leave PR comments.
 
 If you are using Github Actions to run semgrep, no extra changes are needed to get PR comments. If you are using another CI provider, in addition to the environment variables you set after following [sample CI configurations](sample-ci-configs.md) you need to ensure that the following environment variables are correctly defined:
 - `SEMGREP_COMMIT` is set to the full commit hash of the code being scanned (e.g. `d8875d6a63bba2b377a57232e404d2e367dce82d`)
