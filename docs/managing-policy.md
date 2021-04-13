@@ -16,7 +16,7 @@ Policies are often broken down by problem area (e.g., `xss`), application type (
 
 Any rule, ruleset, or pattern can be added to a policy. Look for the “Add to Policy” button when exploring [pre-written rules and rulesets](https://semgrep.dev/explore) or customize your policies even further by adding rules you write yourself in the [online playground](https://semgrep.live).
 
-![A ruleset with an "Add to Policy" button visible](img/ruleset.png "A ruleset showing 'Add to Policy'")
+![A ruleset with an "Add to Policy" button visible](img/add-ruleset-to-policy.png "A ruleset showing 'Add to Policy'")
 
 You can remove items from your policy by clicking the red `x`. To disable individual rules within a ruleset, click the right-caret under a ruleset and then select `add a disabled rule`.
 
