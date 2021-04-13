@@ -45,8 +45,10 @@ To locally test and run a policy, select your policy at [Dashboard > Policies](h
 semgrep --config <path/to/yaml> <path/to/code>
 ```
 
+<!-- prettier-ignore-start -->
 !!! info
     See [Getting started](getting-started.md) for instructions on downloading and running Semgrep locally.
+<!-- prettier-ignore-end -->
 
 # Assigning a policy to a project
 

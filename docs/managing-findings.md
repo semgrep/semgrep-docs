@@ -40,7 +40,7 @@ severity:warning rule:finding-test: Finding test 2
 1:print(1 == 1)
 ```
 
-*For more information on writing rules, see [Rule syntax](writing-rules/rule-syntax.md).*
+For more information on writing rules, see [Rule syntax](writing-rules/rule-syntax.md).
 
 # Semgrep CI
 
@@ -57,8 +57,10 @@ These pieces of state correspond to:
 1. `syntactic context`: the lines of code corresponding to the finding.
 1. `index`: an index into identical findings within a file. This is used to disambiguate findings.
 
+<!-- prettier-ignore-start -->
 !!! note
     `syntactic context` is normalized by removing indentation, [`nosemgrep`](ignoring-findings.md#ignoring-findings-via-inline-comments) comments, and whitespace.
+<!-- prettier-ignore-end -->
 
 These are hashed and returned as the syntactic identifier: `syntactic_id`. This is how Semgrep CI uniquely identifies findings and tracks them across state transitions. Semgrep CI does not store or transmit code contents. The `syntactic context` is hashed using a one-way hashing function making it impossible to recover the original contents.
 
@@ -87,7 +89,7 @@ These transitions are defined as follows:
 
 ## Analytics
 
-Semgrep App provides analytics to measure Semgrep performance within your organization. Visit [Manage > Analytics](https://semgrep.dev/manage/findings) and use measurements like fix rate and findings over time to get the most out of your Semgrep deployment:
+Semgrep App provides analytics to measure Semgrep performance within your organization. Visit [Manage > Findings](https://semgrep.dev/manage/findings?tab=summary) and use measurements like fix rate and findings over time to get the most out of your Semgrep deployment:
 
 ![Blocking vs. non-blocking findings](img/sankey-diagram.png "Blocking vs. non-blocking findings")
 
@@ -103,7 +105,9 @@ Track high, or low, performing policies, rulesets, and rules:
 
 ![Ruleset performance](img/ruleset-findings.png "Ruleset performance")
 
+<!-- prettier-ignore-start -->
 !!! note
     The "rate" for any state is `(state total / total of all states)`, e.g. `fix rate = (fixed / (fixed + open + muted))`.
+<!-- prettier-ignore-end -->
 
-*For more information on blocking vs. non-blocking visit [Managing CI policy](managing-policy.md).*
+For more information on blocking vs. non-blocking visit [Managing CI policy](managing-policy.md).

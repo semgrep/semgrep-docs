@@ -2,9 +2,10 @@
 
 Semgrep CI provides integrations with 3rd party services like Slack and GitHub. When integrations are configured, you can receive notifications about Semgrep CI findings and failures. To configure these and learn more, visit [Dashboard > Integrations](https://semgrep.dev/manage/notifications).
 
-- [Slack](#slack)
-- [Email](#email)
-- [Pull request comments](#pull-request-comments)
+- [CI Integrations](#ci-integrations)
+    - [Slack](#slack)
+    - [Email](#email)
+    - [Pull request comments](#pull-request-comments)
 
 ### Slack
 
@@ -24,6 +25,7 @@ On each scan that has at least one finding, you will receive one email from Semg
 
 ### Pull request comments
 
+<!-- prettier-ignore -->
 !!! info
     This feature is currently only available for GitHub.
 
@@ -32,6 +34,6 @@ Pull request comments are left when
 1. Semgrep finds a result in CI, and
 2. [the CI policy has pull request comments enabled](managing-policy.md#changing-policy-actions)
 
-Automated comments on GitHub pull requests will look like this:
+Automated comments on GitHub pull requests look like this:
 
 ![GitHub Pull Request Comment](img/semgrep-pull-request.png "Comments on GitHub Pull Request")
