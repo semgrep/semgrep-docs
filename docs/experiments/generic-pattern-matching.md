@@ -54,6 +54,7 @@ With respect to Semgrep operators and features:
 * metavariable support is limited to capturing a single “word”, which is a token of the form [A-Za-z0-9_]+. They can’t capture sequences of tokens such as hello, world (in this case there are 3 tokens: `hello`, `,`, and `world`).
 * the ellipsis operator is supported and spans at most 10 lines
 * pattern operators like either/not/inside are supported
+* inline regular expressions for strings (`"=~/word.*/"`) is not supported 
 
 # Command line example
 
