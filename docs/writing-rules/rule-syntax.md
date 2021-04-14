@@ -134,7 +134,7 @@ The syntax for this operator is the same as `pattern-regex`.
 
 This operator will filter findings that have _any overlap_ with the supplied regular expression. For example, if you use `pattern-regex` to detect `Foo==1.1.1` and it also detects `Foo-Bar==3.0.8` and `Bar-Foo==3.0.8`, you can use `pattern-not-regex` to filter the unwanted findings.
 
-<iframe src="https://semgrep.dev/embed/editor?snippet=E58A" border="0" frameBorder="0" width="100%"></iframe>
+<iframe src="https://semgrep.dev/embed/editor?snippet=E58A" border="0" frameBorder="0" width="100%" height="435"></iframe>
 
 ## `metavariable-regex`
 
