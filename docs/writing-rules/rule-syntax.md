@@ -134,25 +134,8 @@ The syntax for this operator is the same as `pattern-regex`.
 
 This operator will filter findings that have _any overlap_ with the supplied regular expression. For example, if you use `pattern-regex` to detect `Foo==1.1.1` and it also detects `Foo-Bar==3.0.8` and `Bar-Foo==3.0.8`, you can use `pattern-not-regex` to filter the unwanted findings.
 
-```requirements.txt
-Foo==1.1.1
+<iframe src="https://semgrep.dev/embed/editor?snippet=E58A" border="0" frameBorder="0" width="100%" height="435"></iframe>
 
-Foo-Bar==3.0.8
-Bar-Foo==3.0.8
-```
-
-```yaml
-rules:
-  - id: detect-only-Foo-package
-    languages:
-      - regex
-    message: Found Foo!
-    patterns:
-      - pattern-regex: Foo
-      - pattern-not-regex: Foo-
-      - pattern-not-regex: -Foo
-    severity: ERROR
-```
 ## `metavariable-regex`
 
 The `metavariable-regex` operator searches metavariables for a [Python `re`](https://docs.python.org/3/library/re.html#re.match) compatible expression. This is useful for filtering results based on a [metavariable’s](pattern-syntax.md#metavariables) value. It requires the `metavariable` and `regex` keys and can be combined with other pattern operators.
