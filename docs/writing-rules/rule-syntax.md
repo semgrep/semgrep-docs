@@ -23,6 +23,7 @@ All required fields must be present at the top-level of a rule, immediately unde
 | [`patterns`](#patterns)_\*_             | `array`  | Logical AND of multiple patterns                                                                  |
 | [`pattern-either`](#pattern-either)_\*_ | `array`  | Logical OR of multiple patterns                                                                   |
 | [`pattern-regex`](#pattern-regex)_\*_   | `string` | Search files for [Python `re`](https://docs.python.org/3/library/re.html) compatible expressions  |
+| [`pattern-not-regex`](#pattern-not-regex)_\*_   | `string` | Filter results using [Python `re`](https://docs.python.org/3/library/re.html) compatible expressions  |
 
 
 !!! info
@@ -125,11 +126,22 @@ rules:
 !!! note
     Single (`'`) and double (`"`) quotes [behave differently](https://docs.octoprint.org/en/master/configuration/yaml.html#scalars) in YAML syntax. Single quotes are typically preferred when using backslashes (`\`) with `pattern-regex`.
 
+## `pattern-not-regex`
+
+The `pattern-not-regex` operator filters results using a [Python `re`](https://docs.python.org/3/library/re.html) regular expression. This is most useful when combined with regular-expression only rules, providing an easy way to filter findings without having to use negative lookaheads. `pattern-not-regex` will work with regular `pattern` clauses, too.
+
+The syntax for this operator is the same as `pattern-regex`.
+
+This operator will filter findings that have _any overlap_ with the supplied regular expression. For example, if you use `pattern-regex` to detect `Foo==1.1.1` and it also detects `Foo-Bar==3.0.8` and `Bar-Foo==3.0.8`, you can use `pattern-not-regex` to filter the unwanted findings.
+
+<iframe src="https://semgrep.dev/embed/editor?snippet=E58A" border="0" frameBorder="0" width="100%">
+
 ## `metavariable-regex`
 
 The `metavariable-regex` operator searches metavariables for a [Python `re`](https://docs.python.org/3/library/re.html#re.match) compatible expression. This is useful for filtering results based on a [metavariable’s](pattern-syntax.md#metavariables) value. It requires the `metavariable` and `regex` keys and can be combined with other pattern operators.
 
-Example
+Example:
+
 
 ```yaml
 rules:
@@ -284,16 +296,6 @@ The above rule looks for use of Django’s [`FloatField`](https://docs.djangopro
 
 # Metavariable matching
 
-Semgrep will enforce equivalence between pattern clauses with metavariables of the same name. For example, the following patterns will detect when a function is called inside itself recursively.
-
-```yaml
-patterns:
-- pattern-inside: |
-    def $FUNC(...):
-      ...
-- pattern: $FUNC(...)
-```
-
 Metavariable matching operates differently for logical AND (`patterns`) and logical OR (`pattern-either`) parent operators. Behavior is consistent across all child operators: `pattern`, `pattern-not`, `pattern-regex`, `pattern-inside`, `pattern-not-inside`.
 
 ## Metavariables in logical ANDs
@@ -392,54 +394,6 @@ The example rule doesn’t match this code:
 def foo(something):
     bar(something_else)
 ```
-
-## Metavariables in logical NOT operators
-
-Semgrep will enforce metavariable equivalence across not operators. 
-
-Example:
-
-```yaml
-patterns:
-- pattern-not-inside: |
-    def $FUNC(...):
-      ...
-- pattern: $FUNC(...)
-```
-
-The above rule matches the following code:
-
-```python
-def foo(something):
-  bar(something)
-```
-
-Whereas it will not match the following code:
-
-```python
-def foo(something):
-  foo(something+1)
-```
-
-Metavariable matching in logical NOTs might be counterintuitive in certain circumstances. For example, consider the following rule designed to detect variable assignments, but not array assignments:
-
-```yaml
-patterns:
-- pattern: $VAR = "..."
-- pattern-not-inside: $ARRAY[...] = "..."
-```
-
-This will correctly filter out array assignments. However, if we reuse the metavariable name:
-
-```yaml
-patterns:
-- pattern: $VAR = "..."
-- pattern-not-inside: $VAR[...] = "..."
-```
-
-Semgrep will not filter array assignments. This happens because Semgrep recognizes the array access as different than a regular variable, yet only filters when `$VAR` is the same.
-
-To further illustrate: [this snippet](https://semgrep.dev/s/Q5kJ/) filters array assignment; [that snippet](https://semgrep.dev/s/b7lq/) does not.
 
 # `fix`
 
