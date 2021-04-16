@@ -89,7 +89,7 @@ These transitions are defined as follows:
 
 ## Analytics
 
-Semgrep App provides analytics to measure Semgrep performance within your organization. Visit [Manage > Findings](https://semgrep.dev/manage/findings?tab=summary) and use measurements like fix rate and findings over time to get the most out of your Semgrep deployment:
+Semgrep App provides analytics to measure Semgrep performance within your organization. Visit [Dashboard > Findings](https://semgrep.dev/manage/findings?tab=summary) and use measurements like fix rate and findings over time to get the most out of your Semgrep deployment:
 
 ![Blocking vs. non-blocking findings](img/sankey-diagram.png "Blocking vs. non-blocking findings")
 
