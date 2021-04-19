@@ -50,4 +50,4 @@ If there's no `.semgrepignore` file in your repository, Semgrep CI uses a defaul
 
 # Ignoring findings via disabled rules
 
-If you are using Semgrep in CI with a managed policy, you can disable individual rules within a ruleset on [Dashboard > Policies](https://semgrep.dev/manage/policy). See [Editing a policy](managing-policy.md#editing-a-policy) for details.
+If you are using Semgrep in CI with a managed policy, you can disable individual rules within a ruleset on [Dashboard > Policies](https://semgrep.dev/manage/policies). See [Editing a policy](managing-policy.md#editing-a-policy) for details.

@@ -15,9 +15,11 @@ you can remove the usages of these variables,
 and instead use the `--config` flag
 to set which rules to scan with.
 
+<!-- prettier-ignore-start -->
 !!! danger
-`SEMGREP_APP_TOKEN` is a secret value: **do not hardcode it and leak credentials!**
+    `SEMGREP_APP_TOKEN` is a secret value: **do not hardcode it and leak credentials!**
 Use your CI provider's secret or environment variable management feature to store it.
+<!-- prettier-ignore-end -->
 
 [TOC]
 
