@@ -23,6 +23,7 @@ All required fields must be present at the top-level of a rule, immediately unde
 | [`patterns`](#patterns)_\*_             | `array`  | Logical AND of multiple patterns                                                                  |
 | [`pattern-either`](#pattern-either)_\*_ | `array`  | Logical OR of multiple patterns                                                                   |
 | [`pattern-regex`](#pattern-regex)_\*_   | `string` | Search files for [Python `re`](https://docs.python.org/3/library/re.html) compatible expressions  |
+| [`pattern-not-regex`](#pattern-not-regex)_\*_   | `string` | Filter results using [Python `re`](https://docs.python.org/3/library/re.html) compatible expressions  |
 
 
 !!! info
@@ -124,6 +125,16 @@ rules:
 
 !!! note
     Single (`'`) and double (`"`) quotes [behave differently](https://docs.octoprint.org/en/master/configuration/yaml.html#scalars) in YAML syntax. Single quotes are typically preferred when using backslashes (`\`) with `pattern-regex`.
+
+## `pattern-not-regex`
+
+The `pattern-not-regex` operator filters results using a [Python `re`](https://docs.python.org/3/library/re.html) regular expression. This is most useful when combined with regular-expression only rules, providing an easy way to filter findings without having to use negative lookaheads. `pattern-not-regex` will work with regular `pattern` clauses, too.
+
+The syntax for this operator is the same as `pattern-regex`.
+
+This operator will filter findings that have _any overlap_ with the supplied regular expression. For example, if you use `pattern-regex` to detect `Foo==1.1.1` and it also detects `Foo-Bar==3.0.8` and `Bar-Foo==3.0.8`, you can use `pattern-not-regex` to filter the unwanted findings.
+
+<iframe src="https://semgrep.dev/embed/editor?snippet=E58A" border="0" frameBorder="0" width="100%" height="435"></iframe>
 
 ## `metavariable-regex`
 

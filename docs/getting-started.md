@@ -48,6 +48,7 @@ These community projects are designed to test code scanners and teach security c
 # juice-shop, a vulnerable Node.js + Express app
 $ git clone https://github.com/bkimminich/juice-shop
 $ semgrep --config p/security-audit juice-shop
+
 # railsgoat, a vulnerable Ruby on Rails app
 $ git clone https://github.com/OWASP/railsgoat
 $ semgrep --config p/security-audit railsgoat
@@ -76,7 +77,7 @@ Once Semgrep is running locally, see the [Semgrep Tutorial](https://semgrep.dev/
 Visit [Writing Rules > Getting started](writing-rules/overview.md) for an in-depth guide and reference material.
 
 <p align="center" style="font-size: 12px">
-    <img src="/docs/img/semgrep-ci.gif" alt="A reviewer writes a Semgrep rule and adds it to an organization-wide policy."/></br>
+    <img src="../img/semgrep-ci.gif" alt="A reviewer writes a Semgrep rule and adds it to an organization-wide policy."/></br>
     A reviewer writes a Semgrep rule and adds it to an organization-wide policy.
 </p>
 

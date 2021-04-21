@@ -202,7 +202,7 @@ and exits with a return code of 1 if blocking findings were found.
 
 All findings are blocking by default.
 A rule can be set to generate non-blocking findings
-on the [Manage → Policy](https://semgrep.dev/manage/policy) page of Semgrep App.
+on the [Dashboard > Policies](https://semgrep.dev/manage/policies) page of Semgrep App.
 
 Semgrep CI uses environment variables
 to detect what context it's running in.
