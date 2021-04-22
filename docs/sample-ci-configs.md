@@ -104,7 +104,7 @@ include:
 semgrep:
   image: returntocorp/semgrep-agent:v1
   script:
-    - python -m semgrep_agent --publish-deployment $SEMGREP_DEPLOYMENT_ID --publish-token $SEMGREP_APP_TOKEN
+    - semgrep-agent --publish-deployment $SEMGREP_DEPLOYMENT_ID --publish-token $SEMGREP_APP_TOKEN
 ```
 
 </p>
@@ -115,7 +115,7 @@ semgrep:
 
 ```yaml
 - label: ":semgrep: Semgrep"
-  command: python -m semgrep_agent --publish-deployment $SEMGREP_DEPLOYMENT_ID" --publish-token $SEMGREP_APP_TOKEN
+  command: semgrep-agent --publish-deployment $SEMGREP_DEPLOYMENT_ID" --publish-token $SEMGREP_APP_TOKEN
     plugins:
       - docker#v3.7.0:
           image: returntocorp/semgrep-agent:v1
@@ -158,7 +158,7 @@ jobs:
       - run:
           name: "Semgrep scan"
           command: |
-            python -m semgrep_agent \
+            semgrep-agent \
               --publish-deployment << parameters.semgrep_deployment_id >> \
               --publish-token $SEMGREP_APP_TOKEN \
               --baseline-ref << parameters.default_branch >>
@@ -177,7 +177,7 @@ use the [`returntocorp/semgrep-agent:v1` Docker image](semgrep-ci.md#packaging),
 and run this command in your Docker container:
 
 ```sh
-python -m semgrep_agent --publish-deployment $SEMGREP_DEPLOYMENT_ID --publish-token $SEMGREP_APP_TOKEN
+semgrep-agent --publish-deployment $SEMGREP_DEPLOYMENT_ID --publish-token $SEMGREP_APP_TOKEN
 ```
 
 To get [CI context awareness](semgrep-ci.md#features),
@@ -197,7 +197,7 @@ SEMGREP_PR_TITLE="Added four new bugs"  # shown in Slack notifications if set
 SEMGREP_TIMEOUT=1800  # Maximum Semgrep run time in seconds, or 0 to disable timeouts
 
 # Run semgrep_agent
-python -m semgrep_agent --publish-deployment $SEMGREP_DEPLOYMENT_ID --publish-token $SEMGREP_APP_TOKEN
+semgrep-agent --publish-deployment $SEMGREP_DEPLOYMENT_ID --publish-token $SEMGREP_APP_TOKEN
 ```
 
 </p>
@@ -208,7 +208,7 @@ For example, to report findings newly added
 since branching off from your `main` branch, run
 
 ```sh
-python -m semgrep_agent --baseline-ref main
+semgrep-agent --baseline-ref main
 ```
 
 Using these instructions, you can run Semgrep in the following CI providers:

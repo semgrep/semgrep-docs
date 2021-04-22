@@ -242,7 +242,7 @@ that are not found on the `main` branch,
 run the following command:
 
 ```sh
-docker run -v $(pwd):/src --workdir /src returntocorp/semgrep-agent:v1 python -m semgrep_agent --config p/ci --baseline-ref main
+docker run -v $(pwd):/src --workdir /src returntocorp/semgrep-agent:v1 semgrep-agent --config p/ci --baseline-ref main
 ```
 
 Another use case is when you want to scan only commits
@@ -251,7 +251,7 @@ This can be done by using a git command
 that gets the tip of the current branch two weeks earlier:
 
 ```sh
-docker run -v $(pwd):/src --workdir /src returntocorp/semgrep-agent:v1 python -m semgrep_agent --config p/ci --baseline-ref $(git rev-parse '@{2.weeks.ago}')
+docker run -v $(pwd):/src --workdir /src returntocorp/semgrep-agent:v1 semgrep-agent --config p/ci --baseline-ref $(git rev-parse '@{2.weeks.ago}')
 ```
 
 To compare two commits
@@ -261,7 +261,7 @@ before running Semgrep CI:
 
 ```sh
 git checkout $RECENT_SHA
-docker run -v $(pwd):/src --workdir /src returntocorp/semgrep-agent:v1 python -m semgrep_agent --config p/ci --baseline-ref $OLDER_SHA
+docker run -v $(pwd):/src --workdir /src returntocorp/semgrep-agent:v1 semgrep-agent --config p/ci --baseline-ref $OLDER_SHA
 ```
 
 !!! info
