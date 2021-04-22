@@ -45,7 +45,7 @@ The below optional fields must reside underneath a `patterns` or `pattern-either
 | [`pattern-not`](#pattern-not)                   | `string` | Logical NOT - remove findings matching this expression                                                                  |
 | [`pattern-inside`](#pattern-inside)             | `string` | Keep findings that lie inside this pattern                                                                              |
 | [`pattern-not-inside`](#pattern-not-inside)     | `string` | Keep findings that do not lie inside this pattern                                                                       |
-| [`pattern-not-regex`](#pattern-not-regex)_\*_   | `string` | Filter results using [Python `re`](https://docs.python.org/3/library/re.html) compatible expressions  |
+| [`pattern-not-regex`](#pattern-not-regex)   | `string` | Filter results using [Python `re`](https://docs.python.org/3/library/re.html) compatible expressions  |
 | [`pattern-where-python`](#pattern-where-python) | `string` | Remove findings matching this Python expression                                                                         |
 
 # Operators
