@@ -16,7 +16,7 @@ short_config_url: p/minusworld.ruby-on-rails-xss
 pdf: https://web-assets.r2c.dev/security-cheat-sheets/xss/r2c-security-cheat-sheet-xss-prevention-for-ruby-on-rails.pdf
 conditions:
   - id: "1"
-    description: "Server code: Unescaped variable enters template engine in Python code"
+    description: "Server code: Unescaped variable enters template engine in Ruby code"
     condition_details:
       - control: "A"
         short_description: "Using <code>html_safe()</code>"
