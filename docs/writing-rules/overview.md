@@ -12,7 +12,7 @@ You can write rules that do things like:
 - Automate code review comments
 - Identify secure coding violations
 - Scan configuration files
-- And more!
+- And more! Check out more use cases [here](writing-rules/rule-ideas.md).
 
 This rule detects the use of `is` when comparing Python strings. `is` checks reference equality, not value equality, and can exhibit nondeterministic behavior.
 
