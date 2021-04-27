@@ -13,7 +13,7 @@ Semgrep is a fast, open-source, static analysis tool for finding bugs and enforc
 
 Here's an example rule. You can try it out by clicking the "Run" button. The Semgrep rule looks like the code it matches. You can edit this rule here, try writing a rule in the [Semgrep editor](https://semgrep.dev/editor), or visit the [tutorial](https://semgrep.dev/learn).
 
-<iframe title="semgrep example no prints" src="https://semgrep.dev/embed/editor?snippet=ievans:print-to-logger" width="100%" height="432px" frameborder="0"></iframe>
+<iframe title="Semgrep example no prints" src="https://semgrep.dev/embed/editor?snippet=ievans:print-to-logger" width="100%" height="432px" frameborder="0"></iframe>
 
 Semgrep runs locally or in your build environment: code is never sent anywhere. It encompasses:
 
