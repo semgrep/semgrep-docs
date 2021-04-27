@@ -74,7 +74,22 @@ $ semgrep --config p/security-audit WebGoat
 
 Once Semgrep is running locally, see the [Semgrep Tutorial](https://semgrep.dev/learn) to quickly learn how to write precise rules.
 
+Semgrep rules can cover a wide range of use cases:
+
+- Automating code review comments
+- Detecting secure coding violations
+- Detecting API routes, database models, or similar code segments
+- Identifying authentication violations
+- Lightweight vulnerability detection
+- Scanning configuration files
+- And more! Check out more use cases [here](writing-rules/rule-ideas.md).
+
+
 Visit [Writing Rules > Getting started](writing-rules/overview.md) for an in-depth guide and reference material.
+
+This rule is used to find and discourage `print(...)` in production code. You can edit this rule here or visit the [editor](https://semgrep.dev/editor) to write and deploy your own rule.
+
+<iframe title="Semgrep example with Python Flask routes" src="https://semgrep.dev/embed/editor?snippet=ievans:print-to-logger" width="100%" height="432px" frameborder="0"></iframe>
 
 <p align="center" style="font-size: 12px">
     <img src="../img/semgrep-ci.gif" alt="A reviewer writes a Semgrep rule and adds it to an organization-wide policy."/></br>
