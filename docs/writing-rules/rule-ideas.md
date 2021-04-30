@@ -10,7 +10,7 @@ Not sure what to write a rule for? Below are some common questions, ideas, and t
 
 _Time to write this rule: **5 minutes**_
 
-You can use Semgrep and its GitHub integration to [automate PR comments](integrations.md) that you frequently make in code reviews. Writing a custom rule for the code pattern you want to target is usually straightforward. If you want to understand the Semgrep syntax, see the [documentation](writing-rules/pattern-syntax.md) or try the [tutorial](https://semgrep.dev/learn). 
+You can use Semgrep and its GitHub integration to [automate PR comments](../integrations.md) that you frequently make in code reviews. Writing a custom rule for the code pattern you want to target is usually straightforward. If you want to understand the Semgrep syntax, see the [documentation](pattern-syntax.md) or try the [tutorial](https://semgrep.dev/learn). 
 
 <p align="center" style="font-size: 12px">
     <img src="../img/semgrep-ci.gif" alt="A reviewer writes a Semgrep rule and adds it to an organization-wide policy."/></br>
@@ -51,11 +51,11 @@ This rule detects when HTML autoescaping is explicitly disabled for a Django tem
 
 _Time to write this rule: **10 minutes**_
 
-Semgrep [natively supports JSON and YAML](status.md) and can be used to write rules for configuration files. This rule checks for skipped TLS verification in Kubernetes clusters.
+Semgrep [natively supports JSON and YAML](../status.md) and can be used to write rules for configuration files. This rule checks for skipped TLS verification in Kubernetes clusters.
 
 <iframe src="https://semgrep.dev/embed/editor?snippet=minusworld:docs-kubernetes-skip-tls-verify"></iframe>
 
-The [Generic pattern matching](experiments/generic-pattern-matching.md) mode is for languages and file formats that Semgrep does not natively support. For example, you can write rules for Dockerfiles using the generic mode. The Dockerfile rule below checks for invalid port numbers.
+The [Generic pattern matching](../experiments/generic-pattern-matching.md) mode is for languages and file formats that Semgrep does not natively support. For example, you can write rules for Dockerfiles using the generic mode. The Dockerfile rule below checks for invalid port numbers.
 
 <iframe src="https://semgrep.dev/embed/editor?snippet=minusworld:docs-dockerfile-invalid-port"></iframe>
 
