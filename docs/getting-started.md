@@ -15,7 +15,7 @@ Install Semgrep using Homebrew or pip, or run without installation via Docker:
 # For macOS
 $ brew install semgrep
 
-# For Ubuntu/WSL/Linux/macOS
+# For Ubuntu / Windows via WSL / Linux / macOS
 $ python3 -m pip install semgrep
 
 # To try Semgrep without installation run via Docker
