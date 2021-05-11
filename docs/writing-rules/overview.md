@@ -7,6 +7,17 @@ If you want the best introduction to writing Semgrep rules, use the interactive,
 ### Do it live!
 You can write and share rules directly from the [live editor](https://semgrep.dev/editor). You can also write rules in your terminal and run Semgrep via a standalone CLI or Docker.
 
+You can write rules that do things like:
+
+- Automate code review comments
+- Identify secure coding violations
+- Scan configuration files
+- And more! Check out more use cases [here](rule-ideas.md).
+
+This rule detects the use of `is` when comparing Python strings. `is` checks reference equality, not value equality, and can exhibit nondeterministic behavior.
+
+<iframe title="Semgrep example Python is comparison" src="https://semgrep.dev/embed/editor?snippet=B47A" width="100%" height="432px" frameborder="0"></iframe>
+
 ### Reference material
 
 - [Pattern syntax](pattern-syntax.md) describes what Semgrep patterns can do

@@ -45,50 +45,28 @@ The below optional fields must reside underneath a `patterns` or `pattern-either
 | [`pattern-not`](#pattern-not)                   | `string` | Logical NOT - remove findings matching this expression                                                                  |
 | [`pattern-inside`](#pattern-inside)             | `string` | Keep findings that lie inside this pattern                                                                              |
 | [`pattern-not-inside`](#pattern-not-inside)     | `string` | Keep findings that do not lie inside this pattern                                                                       |
+| [`pattern-not-regex`](#pattern-not-regex)   | `string` | Filter results using [Python `re`](https://docs.python.org/3/library/re.html) compatible expressions  |
 | [`pattern-where-python`](#pattern-where-python) | `string` | Remove findings matching this Python expression                                                                         |
 
 # Operators
 
 ## `pattern`
 
-The `pattern` operator looks for code matching its expression. This can be basic expressions like `$X == $X` or unwanted things like `crypto.md5(...)`.
+The `pattern` operator looks for code matching its expression. This can be basic expressions like `$X == $X` or unwanted function calls like `hashlib.md5(...)`.
 
+<iframe src="https://semgrep.dev/embed/editor?snippet=gJo5" border="0" frameBorder="0" width="100%" height="435"></iframe>
 
 ## `patterns`
 
 The `patterns` operator performs a logical AND operation on one or more child patterns. This is useful for chaining multiple patterns together that all must be true.
 
-Example:
-
-```yaml
-rules:
-  - id: eqeq-always-true
-    patterns:
-      - pattern: $X == $X
-      - pattern-not: 0 == 0
-    message: "$X == $X is always true"
-    languages: [python]
-    severity: ERROR
-```
-
-Checking if `0 == 0` is often used to quickly enable and disable blocks of code. It can easily be changed to `0 == 1` to disable functionality. We can remove these debugging false positives with `patterns`.
+<iframe src="https://semgrep.dev/embed/editor?snippet=Q83q" border="0" frameBorder="0" width="100%" height="435"></iframe>
 
 ## `pattern-either`
 
 The `pattern-either` operator performs a logical OR operation on one or more child patterns. This is useful for chaining multiple patterns together where any may be true.
 
-Example:
-
-```yaml
-rules:
-  - id: insecure-crypto-usage
-    pattern-either:
-      - pattern: hashlib.md5(...)
-      - pattern: hashlib.sha1(...)
-    message: "insecure cryptography hashing function"
-    languages: [python]
-    severity: ERROR
-```
+<iframe src="https://semgrep.dev/embed/editor?snippet=4yX9" border="0" frameBorder="0" width="100%" height="435"></iframe>
 
 This rule looks for usage of the Python standard library functions `hashlib.md5` or `hashlib.sha1`. Depending on their usage, these hashing functions are [considered insecure](https://shattered.io/).
 
@@ -96,54 +74,32 @@ This rule looks for usage of the Python standard library functions `hashlib.md5`
 
 The `pattern-regex` operator searches files for a [Python `re`](https://docs.python.org/3/library/re.html) compatible expression. This is useful for migrating existing regular expression code search functionality to Semgrep.
 
-Example:
-
 The `pattern-regex` operator can be combined with other pattern operators:
 
-```yaml
-rules:
-  - id: boto-client-ip
-    patterns:
-      - pattern-inside: boto3.client(host="...")
-      - pattern-regex: '\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}'
-    message: "boto client using IP address"
-    languages: [python]
-    severity: ERROR
-```
+<iframe src="https://semgrep.dev/embed/editor?snippet=Ppvv" border="0" frameBorder="0" width="100%" height="435"></iframe>
 
 It can also be used as a standalone, top-level operator:
 
-```yaml
-rules:
-  - id: legacy-eval-search
-    pattern-regex: 'eval\('
-    message: "insecure code execution"
-    languages: [javascript]
-    severity: ERROR
-```
+<iframe src="https://semgrep.dev/embed/editor?snippet=J3vP" border="0" frameBorder="0" width="100%" height="435"></iframe>
 
 !!! note
     Single (`'`) and double (`"`) quotes [behave differently](https://docs.octoprint.org/en/master/configuration/yaml.html#scalars) in YAML syntax. Single quotes are typically preferred when using backslashes (`\`) with `pattern-regex`.
+
+## `pattern-not-regex`
+
+The `pattern-not-regex` operator filters results using a [Python `re`](https://docs.python.org/3/library/re.html) regular expression. This is most useful when combined with regular-expression only rules, providing an easy way to filter findings without having to use negative lookaheads. `pattern-not-regex` will work with regular `pattern` clauses, too.
+
+The syntax for this operator is the same as `pattern-regex`.
+
+This operator will filter findings that have _any overlap_ with the supplied regular expression. For example, if you use `pattern-regex` to detect `Foo==1.1.1` and it also detects `Foo-Bar==3.0.8` and `Bar-Foo==3.0.8`, you can use `pattern-not-regex` to filter the unwanted findings.
+
+<iframe src="https://semgrep.dev/embed/editor?snippet=8n5Q" border="0" frameBorder="0" width="100%" height="435"></iframe>
 
 ## `metavariable-regex`
 
 The `metavariable-regex` operator searches metavariables for a [Python `re`](https://docs.python.org/3/library/re.html#re.match) compatible expression. This is useful for filtering results based on a [metavariable’s](pattern-syntax.md#metavariables) value. It requires the `metavariable` and `regex` keys and can be combined with other pattern operators.
 
-Example:
-
-
-```yaml
-rules:
-  - id: insecure-methods
-    patterns:
-      - pattern: module.$METHOD(...)
-      - metavariable-regex:
-          metavariable: "$METHOD"
-          regex: "(insecure1|insecure2|insecure3)"
-    message: "module using insecure method call"
-    languages: [python]
-    severity: ERROR
-```
+<iframe src="https://semgrep.dev/embed/editor?snippet=584j" border="0" frameBorder="0" width="100%" height="435"></iframe>
 
 !!! note
     Include quotes in your regular expression when using `metavariable-regex` to search string literals. See [this snippet](https://semgrep.dev/s/mschwager:include-quotes) for more details. [String matching](pattern-syntax.md#string-matching) functionality can also be used to search string literals.
@@ -152,22 +108,9 @@ rules:
 
 The `metavariable-comparison` operator compares metavariables against a basic [Python comparison](https://docs.python.org/3/reference/expressions.html#comparisons) expression. This is useful for filtering results based on a [metavariable's](../writing-rules/pattern-syntax.md#metavariables) numeric value.
 
-Example:
-
 The `metavariable-comparison` operator is a mapping which requires the `metavariable` and `comparison` keys. It can be combined with other pattern operators:
 
-```yaml
-rules:
-  - id: superuser-port
-    patterns:
-      - pattern: set_port($ARG)
-      - metavariable-comparison:
-          metavariable: '$ARG'
-          comparison: '$ARG < 1024'
-    message: "module setting superuser port"
-    languages: [python]
-    severity: ERROR
-```
+<iframe src="https://semgrep.dev/embed/editor?snippet=GWv6" border="0" frameBorder="0" width="100%" height="435"></iframe>
 
 This will catch code like `set_port(80)` or `set_port(443)`, but not `set_port(8080)`.
 
@@ -175,25 +118,13 @@ The `metavariable-comparison` operator also takes optional `base: int` and `stri
 
 For example, `base`:
 
-```
-- pattern: set_permissions($ARG)
-- metavariable-comparison:
-    metavariable: '$ARG'
-    comparison: '$ARG > 0o600'
-    base: 8
-```
+<iframe src="https://semgrep.dev/embed/editor?snippet=R8vN" border="0" frameBorder="0" width="100%" height="435"></iframe>
 
-This will interpret metavariable values found in code as octal, so `0700` will be detected, but `0500` will not.
+This will interpret metavariable values found in code as octal, so `0700` will be detected, but `0400` will not.
 
 For example, `strip`:
 
-```
-- pattern: to_integer($ARG)
-- metavariable-comparison:
-    metavariable: '$ARG'
-    comparison: '$ARG > 2147483647'
-    strip: true
-```
+<iframe src="https://semgrep.dev/embed/editor?snippet=AlqB" border="0" frameBorder="0" width="100%" height="435"></iframe>
 
 This will remove quotes (`'`, `"`, and `` ` ``) from both ends of the metavariable content. So `"2147483648"` will be detected but `"2147483646"` will not. This is useful when you expect strings to contain integer or float data.
 
@@ -201,56 +132,19 @@ This will remove quotes (`'`, `"`, and `` ` ``) from both ends of the metavariab
 
 The `pattern-not` operator is the opposite of the `pattern` operator. It finds code that does not match its expression. This is useful for eliminating common false positives.
 
-Example: see the [`patterns`](#patterns) example above.
+<iframe src="https://semgrep.dev/embed/editor?snippet=Q83q" border="0" frameBorder="0" width="100%" height="435"></iframe>
 
 ## `pattern-inside`
 
 The `pattern-inside` operator keeps matched findings that reside within its expression. This is useful for finding code inside other pieces of code like functions or if blocks.
 
-Example:
-
-```yaml
-rules:
-  - id: return-in-init
-    patterns:
-      - pattern: return ...
-      - pattern-inside: |
-          class $CLASS(...):
-              ...
-              def __init__(...):
-                  ...
-    message: "return should never appear inside a class __init__ function"
-    languages: [python]
-    severity: ERROR
-```
-
-The above example fires on the following code:
-
-```python
-class Cls(object):
-    def __init__(self):
-        return None
-```
+<iframe src="https://semgrep.dev/embed/editor?snippet=B4lR" border="0" frameBorder="0" width="100%" height="435"></iframe>
 
 ## `pattern-not-inside`
 
 The `pattern-not-inside` operator keeps matched findings that do not reside within its expression. It is the opposite of `pattern-inside`. This is useful for finding code that’s missing a corresponding cleanup action like disconnect, close, or shutdown. It’s also useful for finding problematic code that isn't inside code that mitigates the issue.
 
-Example:
-
-```yaml
-rules:
-  - id: open-never-closed
-    patterns:
-      - pattern: $F = open(...)
-      - pattern-not-inside: |
-          $F = open(...)
-          ...
-          $F.close()
-    message: "file object opened without corresponding close"
-    languages: [python]
-    severity: ERROR
-```
+<iframe src="https://semgrep.dev/embed/editor?snippet=DJ6G" border="0" frameBorder="0" width="100%" height="435"></iframe>
 
 The above rule looks for files that are opened but never closed, possibly leading to resource exhaustion. It looks for the `open(...)` pattern _and not_ a following `close()` pattern.
 

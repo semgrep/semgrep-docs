@@ -1,27 +1,113 @@
-# Rule examples
+# Custom rule examples
 
 Not sure what to write a rule for? Below are some common questions, ideas, and topics to spur your imagination. Happy hacking! 💡
 
 [TOC]
 
-# Common use cases
+# Use cases
 
-Below are common use cases with sample rules to get you thinking.
+## Automate code review comments
 
-| Use case                          | Semgrep rule                                                                                                                                                                                                                                                                                                                                           |
-| :-------------------------------- | :----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Ban dangerous APIs                | [Prevent use of exec](https://semgrep.dev/s/clintgibler:no-exec)                                                                                                                                                                                                                                                                                         |
-| Search routes and authentication   | [Extract Spring routes](https://semgrep.dev/s/clintgibler:spring-routes)                                                                                                                                                                                                                                                                                 |
-| Enforce the use secure defaults   | [Securely set Flask cookies](https://semgrep.dev/s/dlukeomalley:flask-set-cookie)                                                                                                                                                                                                                                                                        |
-| Enforce project best-practices    | [Use assertEqual for == checks](https://semgrep.dev/s/dlukeomalley:use-assertEqual-for-equality), [Always check subprocess calls](https://semgrep.dev/s/dlukeomalley:unchecked-subprocess-call)                                                                                                                                                            |
-| Codify project-specific knowledge | [Verify transactions before making them](https://semgrep.dev/s/dlukeomalley:verify-before-make)                                                                                                                                                                                                                                                          |
-| Audit security hotspots           | [Finding XSS in Apache Airflow](https://semgrep.dev/s/ievans:airflow-xss), [Hardcoded credentials](https://semgrep.dev/s/dlukeomalley:hardcoded-credentials)                                                                                                                                                                                               |
-| Audit configuration files         | [Find S3 ARN uses](https://semgrep.dev/s/dlukeomalley:s3-arn-use)                                                                                                                                                                                                                                                                                        |
-| Migrate from deprecated APIs      | [DES is deprecated](https://semgrep.dev/editor?registry=java.lang.security.audit.crypto.des-is-deprecated), [Deprecated Flask APIs](https://semgrep.dev/editor?registry=python.flask.maintainability.deprecated.deprecated-apis), [Deprecated Bokeh APIs](https://semgrep.dev/editor?registry=python.bokeh.maintainability.deprecated.deprecated_apis) |
-| Apply automatic fixes             | [Use listenAndServeTLS](https://semgrep.dev/s/clintgibler:use-listenAndServeTLS)   
-| Ban importing bad packages       | [Ban imports matching a regex](https://semgrep.dev/s/ievans:regex-on-importedmodules)
+_Time to write this rule: **5 minutes**_
 
-# Rule prompts
+You can use Semgrep and its GitHub integration to [automate PR comments](../integrations.md) that you frequently make in code reviews. Writing a custom rule for the code pattern you want to target is usually straightforward. If you want to understand the Semgrep syntax, see the [documentation](pattern-syntax.md) or try the [tutorial](https://semgrep.dev/learn). 
+
+<p align="center" style="font-size: 12px">
+    <img src="../../img/semgrep-ci.gif" alt="A reviewer writes a Semgrep rule and adds it to an organization-wide policy."/></br>
+    A reviewer writes a Semgrep rule and adds it to an organization-wide policy.
+</p>
+
+
+## Ban dangerous APIs
+
+_Time to write this rule: **5 minutes**_
+
+Semgrep can be used to detect dangerous APIs present in code. If integrated into CI/CD pipelines, Semgrep can be used to block merges or flag for review when someone adds these dangerous APIs. For example, a rule that detects React's `dangerouslySetInnerHTML` looks like this.
+
+<iframe src="https://semgrep.dev/embed/editor?snippet=minusworld:docs-dangerously-set-inner-html" title="Ban dangerous APIs with Semgrep" width="100%" height="432px" frameborder="0"></iframe>
+
+
+## Exempting special cases of dangerous APIs
+
+_Time to write this rule: **5 minutes**_
+
+If you have a legitmate use case for a dangerous API, you can exempt a specific use of the API using a `nosemgrep` comment. The rule below checks for React's `dangerouslySetInnerHTML`, but the code is annotated with a `nosemgrep` comment. Semgrep will not detect this line. This allows Semgrep to continuously check for future uses of `dangerouslySetInnerHTML` while allowing for this specific use.
+
+<iframe src="https://semgrep.dev/embed/editor?snippet=minusworld:docs-dangerously-set-inner-html-nosem" title="Exempt special cases of dangerous APIs with Semgrep" width="100%" height="432px" frameborder="0"></iframe>
+
+
+## Detect security violations
+
+_Time to write this rule: **5 minutes**_
+
+Semgrep can be used to flag specific uses of APIs too, not just the presence of them. We jokingly call these the "security off" buttons and make extensive use of Semgrep to detect them.
+
+This rule detects when HTML autoescaping is explicitly disabled for a Django template.
+
+<iframe src="https://semgrep.dev/embed/editor?snippet=minusworld:docs-context-autoescape-off" title="Detect security violations in code with Semgrep" width="100%" height="432px" frameborder="0"></iframe>
+
+
+## Scan configuration files using JSON, YAML, or Generic pattern matching
+
+_Time to write this rule: **10 minutes**_
+
+Semgrep [natively supports JSON and YAML](../status.md) and can be used to write rules for configuration files. This rule checks for skipped TLS verification in Kubernetes clusters.
+
+<iframe src="https://semgrep.dev/embed/editor?snippet=minusworld:docs-kubernetes-skip-tls-verify" title="Match configuration files with Semgrep" width="100%" height="432px" frameborder="0"></iframe>
+
+The [Generic pattern matching](../experiments/generic-pattern-matching.md) mode is for languages and file formats that Semgrep does not natively support. For example, you can write rules for Dockerfiles using the generic mode. The Dockerfile rule below checks for invalid port numbers.
+
+<iframe src="https://semgrep.dev/embed/editor?snippet=minusworld:docs-dockerfile-invalid-port" title="Match Dockerfiles with Semgrep" width="100%" height="432px" frameborder="0"></iframe>
+
+
+## Enforce authentication patterns
+
+_Time to write this rule: **15 minutes**_
+
+If a project has a "correct" way of doing authentication, Semgrep can be used to enforce this so that authentication mishaps do not happen. In the example below, this Flask app requires an authentication decorator on all routes. The rule detects routes that are missing authentication decorators. If deployed in CI/CD pipelines, Semgrep can block undecorated routes or flag a security member for further investigation.
+
+<iframe src="https://semgrep.dev/embed/editor?snippet=minusworld:docs-missing-auth-annotation" title="Enforce authentication patterns in code with Semgrep" width="100%" height="432px" frameborder="0"></iframe>
+
+
+## Systematize project-specific coding patterns
+
+_Time to write this rule: **10 minutes**_
+
+Semgrep can be used to automate institutional knowledge. This has several benefits, including teaching new members about coding patterns in an automatic way and keeping a project up-to-date with coding patterns. If you keep coding guidelines in a document, converting these into Semgrep rules is a great way to free developers from having to remember all the guidelines.
+
+In this example, a legacy API requires calling `verify_transaction(t)` before calling `make_transaction(t)`. The Semgrep rule below detects when these methods are not called correctly.
+
+<iframe src="https://semgrep.dev/embed/editor?snippet=Nr3z" title="Systematize project-specific coding patterns with Semgrep" width="100%" height="432px" frameborder="0"></iframe>
+
+
+## Extract information with metavariables
+
+_Time to write this rule: **15 minutes**_
+
+Semgrep metavariables can be used as output in the `message` key. This can be used to extract and collate information about a codebase. Click through to [this example](https://semgrep.dev/s/clintgibler:spring-routes) which extracts Java Spring routes. This can be used to quickly see all the exposed routes of an application.
+
+
+## Burn down deprecated APIs
+
+_Time to write this rule: **5 minutes**_
+
+Semgrep can detect deprecated APIs just as easily as dangerous APIs. Identifying deprecated API calls can help an application migrate to current or future versions.
+
+This rule example detects a function that is deprecated as of Django 4.0.
+
+<iframe src="https://semgrep.dev/embed/editor?snippet=minusworld:docs-deprecated-api" title="Burn down deprecated APIs with Semgrep" width="100%" height="432px" frameborder="0"></iframe>
+
+
+## Promote secure alternatives
+
+_Time to write this rule: **5 minutes**_
+
+Some libraries or APIs have safe alternatives, such as [Google's `re2`](https://github.com/google/re2), an implementation of the standard `re` interface that ships with Python that is resistant to regular expression denial-of-service. This rule detects use of `re` and recommends `re2` as a safe alernative with the same interface.
+
+<iframe src="https://semgrep.dev/embed/editor?snippet=minusworld:docs-use-re2" title="Promote secure alternatives with Semgrep" width="100%" height="432px" frameborder="0"></iframe>
+
+
+# Prompts for writing custom rules
 
 Try answering these questions to uncover important rules for your project.
 
