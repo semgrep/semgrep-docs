@@ -11,9 +11,11 @@
 This repository powers [Semgrep’s documentation](https://semgrep.dev/docs).
 
 ## Contributing
+
 Contributions to the docs are welcome! To start contributing, first please make sure you read and agree with the Semgrep’s [Contributor Covenant Code of Conduct](https://github.com/returntocorp/semgrep/blob/develop/CODE_OF_CONDUCT.md).
 
 ### Developing docs locally
+
 1. Install mkdocs: `pip install mkdocs`
 2. Install required plugins: `pip install mkdocs-redirects`
 3. Clone the repo
@@ -22,3 +24,7 @@ Contributions to the docs are welcome! To start contributing, first please make 
 If you use `pipx` to manage virtual environments,
 you can install the required apps with
 `pipx install mkdocs && pipx inject mkdocs mkdocs-redirects`
+
+### Submitting PRs
+
+Please submit suggested changes via PRs made against this repository’s `main` branch.
