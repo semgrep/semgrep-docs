@@ -27,7 +27,7 @@ Use your CI provider's secret or environment variable management feature to stor
 
 Semgrep CI will [auto-detect CI context](semgrep-ci.md#features)
 when running in GitHub Actions.
-Scans on pull requests will report only newly added findings.
+Scans on pull requests are diff-aware and will report only newly added findings.
 
 The easiest way to set up Semgrep CI integration in GitHub Actions
 is via [Dashboard > Projects](https://semgrep.dev/manage/projects) in Semgrep App.
@@ -88,8 +88,8 @@ jobs:
 # GitLab CI
 
 Semgrep CI will [auto-detect CI context](semgrep-ci.md#features)
-when running in GitHub Actions.
-Scans on pull requests will report only newly added findings.
+when running in GitLab CI.
+Scans on pull requests are diff-aware and will report only newly added findings.
 
 The [`template` used in this sample](https://docs.gitlab.com/ee/ci/yaml/#workflowrules-templates) configuration
 will run Semgrep on pushes to merge requests, your default branch, and tags.

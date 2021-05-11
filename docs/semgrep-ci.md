@@ -20,7 +20,7 @@ such as in GitHub Actions or GitLab CI.
 - **Diff-aware scans**:
   Semgrep CI is aware of Git history,
   and is able to report only the new findings
-  between two revisions.
+  between two revisions. This happens automatically in GitHub Actions or GitLab CI, and can otherwise be configured using the `--baseline-ref` flag.
 - **Auto-detection of CI context**:
   Semgrep CI detects when it's running inside GitHub Actions or GitLab CI.
   When scanning a pull request,
