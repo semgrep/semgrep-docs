@@ -9,7 +9,8 @@ check [GitLab's own SAST troubleshooting guide](https://docs.gitlab.com/ee/user/
 
 # The `semgrep-sast` CI job is slow
 
-The Semgrep SAST job should take less than a minute to scan a project with 100k lines of code.
+The Semgrep SAST job should take less than a minute
+to scan a large project with 50k lines of Python and TypeScript code.
 If you see worse performance,
 please [reach out](../support.md) to the Semgrep maintainers for help with tracking down the cause.
 Long runtimes are typically caused by just one rule or source code file taking too long.
