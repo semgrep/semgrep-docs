@@ -22,7 +22,8 @@ The issue is likely with the CI configuration.
 Check the log output for any hints about what the issue is.
 
 - If the logs mention a missing token or an authentication failure,
-  you can get a new token from the Settings page of Semgrep App,
+  you can get a new token from the
+  [Settings page of Semgrep App](https://semgrep.dev/manage/settings),
   and set it as `SEMGREP_APP_TOKEN` in your CI provider's secret management UI.
 
 # A project reports the last scan 'never completed'

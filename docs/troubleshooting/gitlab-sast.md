@@ -20,7 +20,9 @@ are making the job last too long, you might want to exclude these files from sca
 [GitLab's path exclusion feature](https://docs.gitlab.com/ee/user/application_security/sast/#vulnerability-filters)
 does not skip scanning excluded files. It scans everything, and then hides results from excluded files.
 
-To improve performance by 10x on a typical project, you can use [Semgrep CI](../semgrep-ci.md) directly:
+To improve performance by 10x on a typical project,
+you can use [Semgrep CI](../semgrep-ci.md) directly
+by adding [a new job to your GitLab CI configuration](/sample-ci-configs/#gitlab-ci).
 
 - Semgrep CI skips scanning unchanged files in your merge requests,
 - it also skips common large directories such as vendored dependencies or tests,

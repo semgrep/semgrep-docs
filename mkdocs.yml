@@ -34,7 +34,7 @@ nav:
       - Supported languages: status.md
       - Trophy case: trophy-case.md
   - Help:
-      - troubleshooting/app.md
+      - troubleshooting/semgrep-app.md
       - troubleshooting/rules.md
       - troubleshooting/gitlab-sast.md
       - FAQ: faq.md
