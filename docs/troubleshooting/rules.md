@@ -6,7 +6,7 @@ If you have a problem while running a rule you didn't write yourself, please
 
 [TOC]
 
-# My pattern could not be parsed
+# My pattern couldn’t be parsed
 
 This error means your pattern does not look like complete source code in the selected language.
 
