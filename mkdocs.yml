@@ -34,6 +34,9 @@ nav:
       - Supported languages: status.md
       - Trophy case: trophy-case.md
   - Help:
+      - troubleshooting/app.md
+      - troubleshooting/rules.md
+      - troubleshooting/gitlab-sast.md
       - FAQ: faq.md
       - support.md
       - contributing.md
