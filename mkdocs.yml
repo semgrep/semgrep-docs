@@ -17,6 +17,7 @@ nav:
       - extensions.md
       - Experiments 🧪: experiments/overview.md
       - cli-usage.md
+      - metrics.md
 
   - "Running Semgrep In CI":
       - semgrep-ci.md
