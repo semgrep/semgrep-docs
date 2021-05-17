@@ -15,13 +15,35 @@ If you see worse performance,
 please [reach out](../support.md) to the Semgrep maintainers for help with tracking down the cause.
 Long runtimes are typically caused by just one rule or source code file taking too long.
 
+## Tip #1: Review global CI job configuration
+
+You might be creating large files or directories in your GitLab CI config's `before_script:`, `cache:`, or similar sections.
+The Semgrep SAST job will scan all files available to it, not just the source code committed to git,
+so if for example you have a cache configuration of
+
+```yaml
+cache:
+  paths:
+  - node_modules/
+```
+
+you should prevent those files from being scanned by [disabling caching](https://docs.gitlab.com/ee/ci/caching/#disable-cache-on-specific-jobs)
+for the `semgrep-sast` job like this:
+
+```yaml
+semgrep-sast:
+  cache: {}
+```
+
+## Tip #2: Upgrade to Semgrep CI
+
 If you suspect large and complex source code files (such as minified JS or generated code)
 are making the job last too long, you might want to exclude these files from scanning.
 [GitLab's path exclusion feature](https://docs.gitlab.com/ee/user/application_security/sast/#vulnerability-filters)
 does not skip scanning excluded files. It scans everything, and then hides results from excluded files.
 
 To improve performance by 10x on a typical project,
-you can use [Semgrep CI](../semgrep-ci.md) directly
+you can use our own CI agent [Semgrep CI](../semgrep-ci.md) directly
 by adding [a new job to your GitLab CI configuration](../sample-ci-configs.md#gitlab-ci).
 
 - Semgrep CI skips scanning unchanged files in your merge requests,
