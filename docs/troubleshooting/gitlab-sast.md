@@ -38,9 +38,13 @@ semgrep-sast:
 ## Tip #2: Upgrade to Semgrep CI
 
 If you suspect large and complex source code files (such as minified JS or generated code)
-are making the job last too long, you might want to exclude these files from scanning.
-[GitLab's path exclusion feature](https://docs.gitlab.com/ee/user/application_security/sast/#vulnerability-filters)
-does not skip scanning excluded files. It scans everything, and then hides results from excluded files.
+are making the job last too long, you will want to exclude these files from scanning.
+
+!!! warning
+    [GitLab has a path exclusion feature](https://docs.gitlab.com/ee/user/application_security/sast/#vulnerability-filters)
+    but it does not skip scanning excluded files.
+    It scans everything, and then hides results from excluded files,
+    so it will not improve your performance.
 
 To improve performance by 10x on a typical project,
 you can use our own CI agent [Semgrep CI](../semgrep-ci.md) directly
