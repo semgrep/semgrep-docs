@@ -54,7 +54,7 @@ by adding [a new job to your GitLab CI configuration](../sample-ci-configs.md#gi
 - it also skips common large directories such as vendored dependencies or tests,
 - and lets you skip scanning paths by committing a `.semgrepignore` file.
 
-# The Semgrep SAST report has too many false positives or false negatives
+# The Semgrep SAST report has false positives or false negatives
 
 If you're not getting results where you should,
 or you get too many results, the problem might be with the patterns Semgrep scans for.
@@ -90,7 +90,14 @@ variables:
   SECURE_LOG_LEVEL: "debug"
 ```
 
-# How to get help
+# Help guide Semgrep's development
+
+Semgrep is made by a small team,
+and you can directly guide our work by answering the two questions below.
+
+<div class="typeform-widget" data-url="https://form.typeform.com/to/AYAyJ4Fr?typeform-medium=embed-snippet" data-transparency="100" data-hide-headers="true" data-hide-footer="true" style="width: 100%; height: 420px;"></div> <script> (function() { var qs,js,q,s,d=document, gi=d.getElementById, ce=d.createElement, gt=d.getElementsByTagName, id="typef_orm", b="https://embed.typeform.com/"; if(!gi.call(d,id)) { js=ce.call(d,"script"); js.id=id; js.src=b+"embed.js"; q=gt.call(d,"script")[0]; q.parentNode.insertBefore(js,q) } })() </script>
+
+# How to get help via chat
 
 Please check the [Support](../support.md) page to get help from the Semgrep maintainers & community,
 via Slack, GitHub, email, or phone.
