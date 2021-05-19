@@ -115,16 +115,16 @@ semgrep:
 
 ```yaml
 - label: ":semgrep: Semgrep"
-  command: semgrep-agent --publish-deployment $SEMGREP_DEPLOYMENT_ID" --publish-token $SEMGREP_APP_TOKEN
-    plugins:
-      - docker#v3.7.0:
-          image: returntocorp/semgrep-agent:v1
-          workdir: /<org_name>/<repo_name>
-          environment:
-            - "SEMGREP_JOB_URL=${BUILDKITE_BUILD_URL}"
-            - "SEMGREP_BRANCH=${BUILDKITE_BRANCH}"
-            - "SEMGREP_REPO_NAME=<org_name>/<repo_name>"
-            - "SEMGREP_REPO_URL=<github_url>"
+  command: semgrep-agent --publish-deployment $SEMGREP_DEPLOYMENT_ID --publish-token $SEMGREP_APP_TOKEN
+  plugins:
+    - docker#v3.7.0:
+        image: returntocorp/semgrep-agent:v1
+        workdir: /<org_name>/<repo_name>
+        environment:
+          - "SEMGREP_JOB_URL=${BUILDKITE_BUILD_URL}"
+          - "SEMGREP_BRANCH=${BUILDKITE_BRANCH}"
+          - "SEMGREP_REPO_NAME=<org_name>/<repo_name>"
+          - "SEMGREP_REPO_URL=<github_url>"
 ```
 
 </p>
@@ -171,7 +171,9 @@ workflows:
 </p>
 
 # Jenkins
+
 With diff-scan trigger only for jobs, use webhooks to integrate to Github
+
 <p>
   
 ```Groovy
@@ -193,12 +195,12 @@ pipeline {
     }
   }
 
-  environment {
+environment {
 
     // secrets for Semgrep org ID and auth token
     SEMGREP_APP_TOKEN     = credentials('SEMGREP_APP_TOKEN')
     SEMGREP_DEPLOYMENT_ID = credentials('SEMGREP_DEPLOYMENT_ID')
-    
+
     // environment variables for semgrep_agent (for findings / analytics page)
     // remove .git at the end
     SEMGREP_REPO_URL = env.GIT_URL.replaceFirst(/^(.*).git$/,'$1')
@@ -206,25 +208,26 @@ pipeline {
     SEMGREP_JOB_URL = "${BUILD_URL}"
     // remove SCM URL + .git at the end
     SEMGREP_REPO_NAME = env.GIT_URL.replaceFirst(/^https:\/\/github.com\/(.*).git$/, '$1')
-    
+
     SEMGREP_COMMIT = "${GIT_COMMIT}"
     SEMGREP_PR_ID = "${env.CHANGE_ID}"
     BASELINE_BRANCH = "${env.CHANGE_TARGET}"
 
-  }
-
-  stages {
-    stage('Semgrep_agent') {
-      when {
-        expression { env.CHANGE_ID && env.BRANCH_NAME.startsWith("PR-") }
-      }
-      steps{
-        sh 'env && git fetch origin $BASELINE_BRANCH && python -m semgrep_agent --baseline-ref origin/$BASELINE_BRANCH --publish-token $SEMGREP_APP_TOKEN --publish-deployment $SEMGREP_DEPLOYMENT_ID'
-      }
-   }
-  }
 }
-```
+
+stages {
+stage('Semgrep_agent') {
+when {
+expression { env.CHANGE_ID && env.BRANCH_NAME.startsWith("PR-") }
+}
+steps{
+sh 'env && git fetch origin $BASELINE_BRANCH && python -m semgrep_agent --baseline-ref origin/$BASELINE_BRANCH --publish-token $SEMGREP_APP_TOKEN --publish-deployment $SEMGREP_DEPLOYMENT_ID'
+}
+}
+}
+}
+
+````
 </p>
 
 
@@ -236,7 +239,7 @@ and run this command in your Docker container:
 
 ```sh
 semgrep-agent --publish-deployment $SEMGREP_DEPLOYMENT_ID --publish-token $SEMGREP_APP_TOKEN
-```
+````
 
 To get [CI context awareness](semgrep-ci.md#features),
 you can optionally provide the following environment variables:
