@@ -25,6 +25,20 @@ If you use `pipx` to manage virtual environments,
 you can install the required apps with
 `pipx install mkdocs && pipx inject mkdocs mkdocs-redirects`
 
+## Creating content
+
+Content is written in regular Markdown files and Mkdocs uses the Python-Markdown library to render Markdown documents to HTML. Markdown files optionally contain YAML style metadata (front matter) at the top of the file. You can use front matter to override attributes like the document title (which is normally auto-generated), or to add optional support links at the bottom of a page.
+
+For example:
+
+```
+---
+append_help_link: true
+---
+```
+
+The above front matter adds a link at the bottom of a docs page directing visitors to the r2c Slack to get more help.
+
 ### Submitting PRs
 
 Please submit suggested changes via PRs made against this repository’s `main` branch.

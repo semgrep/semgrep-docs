@@ -148,6 +148,12 @@
             <div class="section">
               {% block content %}
                 {{ page.content }}
+                {% if page.meta.append_help_link == true %}
+                  <div class="help-link">
+                    <hr>
+                    Find what you needed in this doc? <a href="https://r2c.dev/slack" class="docs-help-link">Join the Slack group</a> to ask the maintainers and the community if you need help.
+                  </div>
+                {% endif %}
               {% endblock %}
             </div>
           </div>

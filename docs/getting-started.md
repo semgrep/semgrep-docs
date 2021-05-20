@@ -1,3 +1,7 @@
+---
+append_help_link: true
+---
+
 # Getting started
 
 - [Getting started](#getting-started)

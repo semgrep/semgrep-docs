@@ -1,3 +1,7 @@
+---
+append_help_link: true
+---
+
 # Semgrep CI
 
 [Semgrep CI](https://github.com/returntocorp/semgrep-action)

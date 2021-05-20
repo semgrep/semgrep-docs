@@ -1,3 +1,7 @@
+---
+append_help_link: true
+---
+
 # Sample CI configurations
 
 The sample configuration files below

@@ -1,3 +1,7 @@
+---
+append_help_link: true
+---
+
 # Testing rules
 
 Semgrep CLI provides a convenient testing mechanism for your rules. You can

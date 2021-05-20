@@ -1,3 +1,7 @@
+---
+append_help_link: true
+---
+
 # Metrics
 
 Semgrep CLI may collect usage data via anonymized metrics to help improve the product. This document describes:
