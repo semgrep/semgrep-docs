@@ -1,3 +1,7 @@
+---
+append_help_link: true
+---
+
 # CLI Reference
 
 The following usage documentation is for the [Semgrep CLI](https://github.com/returntocorp/semgrep).

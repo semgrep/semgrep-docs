@@ -1,3 +1,7 @@
+---
+append_help_link: true
+---
+
 # CI Integrations
 
 Semgrep CI provides integrations with 3rd party services like Slack and GitHub. When integrations are configured, you can receive notifications about Semgrep CI findings and failures. To configure these and learn more, visit [Dashboard > Integrations](https://semgrep.dev/manage/integrations).

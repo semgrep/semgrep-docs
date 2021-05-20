@@ -1,3 +1,7 @@
+---
+append_help_link: true
+---
+
 # Extensions
 
 Several third-party tools include Semgrep extensions.

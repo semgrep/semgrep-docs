@@ -1,3 +1,7 @@
+---
+append_help_link: true
+---
+
 # Frequently Asked Questions
 
 [TOC]

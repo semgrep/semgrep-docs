@@ -1,3 +1,7 @@
+---
+append_help_link: true
+---
+
 # Experiments
 
 This document describes experimental features and how to try them. Have fun, [file bugs](https://github.com/returntocorp/semgrep/issues/new/choose), tweak the code, and most importantly share your thoughts! 

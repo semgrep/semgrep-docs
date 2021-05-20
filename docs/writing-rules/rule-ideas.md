@@ -1,3 +1,7 @@
+---
+append_help_link: true
+---
+
 # Custom rule examples
 
 Not sure what to write a rule for? Below are some common questions, ideas, and topics to spur your imagination. Happy hacking! 💡
