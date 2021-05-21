@@ -52,7 +52,7 @@ append_help_link: true
 
   <div class="lang-container">
     <h2>C# parse rate</h2>
-    <iframe width="450" height="150" frameBorder="0" src="https://dashboard.semgrep.dev/metric/semgrep.core.csharp.parse.pct/number"></iframe>
+    <iframe width="450" height="150" frameBorder="0" src="https://dashboard.semgrep.dev/metric/semgrep.core.c-sharp.parse.pct/number"></iframe>
   </div>
 </div>
 
