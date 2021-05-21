@@ -135,7 +135,7 @@ commit your own `.semgrepignore`.
 
 You can customize the ruleset you're using
 to ignore some of its rules
-by [editing the Semgrep App policy](managing-policy.md/#editing-a-policy)
+by [editing the Semgrep App policy](managing-policy.md#editing-a-policy)
 used for your scans.
 
 ## Getting notifications instead of blocking builds
@@ -147,7 +147,7 @@ and instead use a [CI integration](integrations.md)
 to get notifications.
 
 You can set this up
-by [changing the actions of the Semgrep App policy](managing-policy.md/#changing-policy-actions)
+by [changing the actions of the Semgrep App policy](managing-policy.md#changing-policy-actions)
 used for your scans.
 
 ## Audit mode: disable blocking on a specific CI event
