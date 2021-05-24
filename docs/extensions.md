@@ -35,8 +35,9 @@ repos:
 Many other tools have functionality powered by Semgrep.
 Add yours [with a pull request](https://github.com/returntocorp/semgrep-docs)!
 
-- [nodejsscan](https://github.com/ajinabraham/nodejsscan)
-- [libsast](https://github.com/ajinabraham/libsast)
 - [DefectDojo](https://github.com/DefectDojo/django-DefectDojo/pull/2781)
 - [Dracon](https://github.com/thought-machine/dracon)
+- [GitLab SAST](https://docs.gitlab.com/ee/user/application_security/sast/#multi-project-support)
+- [libsast](https://github.com/ajinabraham/libsast)
+- [nodejsscan](https://github.com/ajinabraham/nodejsscan)
 - [SALUS](https://github.com/coinbase/salus/blob/master/docs/scanners/semgrep.md)
