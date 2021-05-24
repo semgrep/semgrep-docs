@@ -6,7 +6,7 @@ If you have a problem while running a rule you didn't write yourself, please
 
 [TOC]
 
-# My pattern couldn’t be parsed
+# If your pattern can’t be parsed
 
 This error means your pattern does not look like complete source code in the selected language.
 
@@ -48,7 +48,7 @@ While the most common reason for pattern parse errors is the aboe, other things 
   Valid metavariable names include `$X`, `$NAME`, and `$_VAR_2`.
   Invalid metavariable names include `$name`, `$1stvar` and `$VAR-WITH-DASHES`.
 
-# My rule doesn't match where it should
+# If your rule doesn't match where it should
 
 In general, it helps to test the patterns within your rule in isolation.
 If you scan for the patterns one by one and they each find what you expect,
@@ -58,7 +58,7 @@ to make sure the operators are meant to behave like you expect.
 If you managed to find a pattern that behaves incorrectly,
 continue debugging with the section below.
 
-# My pattern doesn't match where it should
+# If your pattern doesn't match where it should
 
 If you isolated the issue to one specific pattern,
 here are some common issues to look out for:
@@ -71,7 +71,7 @@ here are some common issues to look out for:
   Valid metavariable names include `$X`, `$NAME`, and `$_VAR_2`.
   Invalid metavariable names include `$name`, `$1stvar` and `$VAR-WITH-DASHES`.
 
-# A regex pattern doesn't match where it should
+# If a regex pattern doesn't match where it should
 
 When using `metavariable-regex`, the regex will match against all characters of the found metavariable.
 This means that if the metavariable matches a `"foo"` string in your code,

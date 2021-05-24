@@ -7,7 +7,7 @@ check [GitLab's own SAST troubleshooting guide](https://docs.gitlab.com/ee/user/
 
 [TOC]
 
-# The Semgrep SAST CI job is slow
+# If the Semgrep SAST CI job is slow
 
 The Semgrep SAST job should take less than a minute
 to scan a large project with 50k lines of Python and TypeScript code.
@@ -54,7 +54,7 @@ by adding [a new job to your GitLab CI configuration](../sample-ci-configs.md#gi
 - it also skips common large directories such as vendored dependencies or tests,
 - and lets you skip scanning paths by committing a `.semgrepignore` file.
 
-# The Semgrep SAST report has false positives or false negatives
+# If the Semgrep SAST report has false positives or false negatives
 
 If you're not getting results where you should,
 or you get too many results, the problem might be with the patterns Semgrep scans for.
@@ -75,10 +75,9 @@ which is a collection of 1000+ Semgrep rules curated by r2c.
 TODO
 -->
 
-# The Semgrep SAST analyzer crashes, fails, or is otherwise broken
+# If the Semgrep SAST analyzer crashes, fails, or is otherwise broken
 
-If Semgrep crashes while scanning,
-it will print an error message to explain what went wrong,
+Semgrep will print an error message to explain what went wrong upon crashes,
 and often also what to do to fix it.
 
 The output of Semgrep is hidden by default,

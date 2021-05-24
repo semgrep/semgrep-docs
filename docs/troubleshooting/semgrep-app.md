@@ -2,13 +2,13 @@
 
 [TOC]
 
-# A project reports the last scan 'never started'
+# If a project reports the last scan 'never started'
 
 This status means that your CI job never authenticated to Semgrep App.
 
 Check your CI provider (such as GitHub Actions) for the latest Semgrep job execution.
 
-## If you can’t find a Semgrep CI job
+## …and you can’t find a Semgrep CI job
 
 The issue is likely with the CI configuration.
 
@@ -17,7 +17,7 @@ The issue is likely with the CI configuration.
 - Make sure that the CI configuration file has valid syntax.
   Most providers have a tool for checking the syntax of configuration files.
 
-## If a Semgrep CI job exists
+## …and a Semgrep CI job exists
 
 Check the log output for any hints about what the issue is.
 
@@ -26,14 +26,14 @@ Check the log output for any hints about what the issue is.
   [Settings page of Semgrep App](https://semgrep.dev/manage/settings),
   and set it as `SEMGREP_APP_TOKEN` in your CI provider's secret management UI.
 
-# A project reports the last scan 'never completed'
+# If a project reports the last scan 'never finished'
 
 This status means that your CI jobs start and authenticate correctly, but fail before completion.
 
 Check your CI provider (such as GitHub Actions) for the log output of the latest Semgrep job execution.
 In most cases you will see an error message with detailed instructions on what to do.
 
-## If the job is aborted due to taking too long
+## …and the job is aborted due to taking too long
 
 Many CI providers have a time limit for how long a job can run.
 Semgrep CI also aborts itself if it runs for too long.
