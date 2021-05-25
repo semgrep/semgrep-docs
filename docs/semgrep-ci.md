@@ -86,7 +86,7 @@ but you can see all available settings with `--help`.
 
 The `--config` flag lets you choose
 what rules and patterns Semgrep should scan for.
-You can set specify rules in one of the following ways:
+You can include any number of `--config`s and specify rules in any of the following ways:
 
 - **ruleset ID**: `config: p/r2c`  
   referring to a ruleset found on [semgrep.dev's rulesets page](https://semgrep.dev/explore)
