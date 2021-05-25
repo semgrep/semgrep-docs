@@ -1,9 +1,8 @@
 # Troubleshooting GitLab SAST
 
-GitLab includes a SAST analyzer that uses Semgrep to find vulnerabilities.
+GitLab includes a SAST analyzer that uses Semgrep to find vulnerabilities. If you suspect your issue lies with GitLab, check [GitLab’s SAST troubleshooting guide](https://docs.gitlab.com/ee/user/application_security/sast/#troubleshooting).
+
 If you're having trouble and you suspect the issue lies with Semgrep, you can find some advice below.
-If you suspect your issue lies with GitLab,
-check [GitLab's own SAST troubleshooting guide](https://docs.gitlab.com/ee/user/application_security/sast/#troubleshooting).
 
 [TOC]
 
@@ -95,7 +94,9 @@ Semgrep is made by a small team,
 and you can directly guide our work by answering just one question below or on [the form page](https://form.typeform.com/to/AYAyJ4Fr).
 
 <div class="typeform-widget" data-url="https://form.typeform.com/to/AYAyJ4Fr?typeform-medium=embed-snippet" data-transparency="100" data-hide-headers="true" data-hide-footer="true" style="width: 100%; height: 670px; border: 2px solid #eee; margin-bottom: 40px;"></div> <script> (function() { var qs,js,q,s,d=document, gi=d.getElementById, ce=d.createElement, gt=d.getElementsByTagName, id="typef_orm", b="https://embed.typeform.com/"; if(!gi.call(d,id)) { js=ce.call(d,"script"); js.id=id; js.src=b+"embed.js"; q=gt.call(d,"script")[0]; q.parentNode.insertBefore(js,q) } })() </script>
-# How to get help via chat
 
-Please check the [Support](../support.md) page to get help from the Semgrep maintainers & community,
-via Slack, GitHub, email, or phone.
+# How to get help
+
+If you’re a GitLab customer and suspect there’s an issue with GitLab, please [contact GitLab support](https://about.gitlab.com/support/) and open a support ticket. Users of GitLab’s free plans should open a thread in the [GitLab Community Forum](https://forum.gitlab.com/).
+
+If you suspect the issue is with Semgrep, please check the [Semgrep Support page](../support.md) to get help from the Semgrep maintainers & community via Slack, email, or phone.
