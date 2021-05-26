@@ -2,7 +2,7 @@
 
 GitLab includes a SAST analyzer that uses Semgrep to find vulnerabilities. If you suspect your issue lies with GitLab, check [GitLab’s SAST troubleshooting guide](https://docs.gitlab.com/ee/user/application_security/sast/#troubleshooting).
 
-If you're having trouble and you suspect the issue lies with Semgrep, you can find some advice below.
+[Join our Slack](https://r2c-community.slack.com/app_redirect?channel=gitlab-semgrep) channel dedicated to GitLab for help from the community experts and the maintainers of Semgrep. Some of the most common issues are addressed below.
 
 [TOC]
 
