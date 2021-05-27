@@ -77,39 +77,11 @@ rules:
 
 # Equivalences
 
-Equivalences allows equivalent code patterns to be defined (i.e. a commutative property:  `$X + $Y <==> $Y + $X`).
+Equivalences enable defining equivalent code patterns (i.e. a commutative property: `$X + $Y <==> $Y + $X`). Equivalence rules use the `equivalences` top-level key and one `equivalence` key for each equivalence.
 
-Use the `equivalences` top-level key and one `- equivalence:` key for each equivalence. 
+For example:
 
-For example (see in editor [here](https://semgrep.dev/s/AEL)):
-
-```yaml
-rules:
-  - id: open-redirect
-    languages: [python]
-    equivalences:
-      - equivalence: request.$W.get(...) ==> request.$W(...)
-    patterns:
-      - pattern-inside: |
-          def $FUNC(...):
-            ...
-      - pattern-not-inside: |
-          def $FUNC(...):
-            ...
-            django.utils.http.is_safe_url(...)
-            ...
-      - pattern-not-inside: |
-          if <... django.utils.http.is_safe_url(...) ...>:
-            ...
-          ...
-      - pattern-either:
-        - pattern: django.shortcuts.redirect(..., request.$W.get(...), ...)
-        - pattern: django.shortcuts.redirect(..., $S.format(..., request.$W.get(...), ...), ...)
-        - pattern: django.shortcuts.redirect(..., $S % request.$W.get(...), ...)
-        - pattern: django.shortcuts.redirect(..., f"...{request.$W.get(...)}...", ...)
-    message: "Open redirect detected."
-    severity: WARNING
-```
+<iframe src="https://semgrep.dev/embed/editor?snippet=jNnn" border="0" frameBorder="0" width="100%" height="435"></iframe>
 
 # Data-flow analysis
 
@@ -126,71 +98,23 @@ As of now, data-flow analysis is used for [taint tracking](#taint-tracking) and 
 
 ## Taint tracking
 
-The Python CLI has support for within (intra) file taint tracking. A taint-tracking rule uses the `mode: taint` key-value pair and replaces the typical [top-level pattern keys](../writing-rules/rule-syntax.md#schema) with `pattern-sources` and `pattern-sinks` (required) and `pattern-sanitizers` (optional). For example:
+Semgrep CLI supports intra-file [taint tracking](https://en.wikipedia.org/wiki/Taint_checking). Taint tracking rules must specify `mode: taint`. Additionally, the following operators are enabled:
 
-```yaml
-- id: rule_id
-  mode: taint
-  pattern-sources:
-    - source(...)
-    - source1(...)
-  pattern-sinks:
-    - sink(...)
-    - sink1(...)
-    - eval(...)
-  pattern-sanitizers:
-    - sanitize(...)
-    - sanitize1(...)
-  message: A user input source() went into a dangerous sink()
-  languages: [python]
-  severity: WARNING
-```
+- `pattern-sources` (required)
+- `pattern-sinks` (required)
+- `pattern-sanitizers` (optional)
 
-A file containing the rule shown above can be found [in the Semgrep repo](https://github.com/returntocorp/semgrep/blob/develop/semgrep-core/data/basic_tainting.yml). To see this taint-tracking example in action, run the above Semgrep rule on the taint test. Assuming you are in the Semgrep project’s root working directory:
+For example:
 
-```yaml
-semgrep --config https://raw.githubusercontent.com/returntocorp/semgrep/develop/semgrep-core/data/basic_tainting.yml ./semgrep-core/tests/OTHER/TAINTING/tainting.py
-```
+<iframe src="https://semgrep.dev/embed/editor?snippet=2blB" border="0" frameBorder="0" width="100%" height="435"></iframe>
 
 ## Constant propagation
 
-Constant propagation is intra-procedural and tracks whether a variable *must* carry a constant value at each point in the program.
+Semgrep CLI supports intra-procedural constant propagation. This tracks whether a variable must carry a constant value at each point in the program.
 
-For example, we can find calls to `eval` on arbitrary strings in Python as follows:
+For example:
 
-```yaml
-rules:
-- id: eval_arbitrary
-  patterns:
-    - pattern-either:
-      - pattern: |
-          eval($X)
-    - pattern-not: |
-        eval("...")
-  message: |
-    eval() on arbitrary non-constant string
-  severity: WARNING
-```
-
-In the following code, Semgrep will only warn about `eval(x)`. Variable `x` is not a constant because it may take the value of the input `arg`. Variable `y` is known to be a constant despite we do not know its exact value, it may be either `"1"` or `"2"`. Pattern `eval("...")` matches `eval(y)`, but neither pattern `eval("1")` nor `eval("2")` will match `eval(y)`. Finally, variable `z` is a constant and it is known to be `"a"`, both patterns `eval("...")` and `eval("a")` match `eval(z)`.
-
-```python
-def test(arg):
-   if arg is not None:
-      x = arg
-      y = "1"
-      z = "a"
-   else:
-      x = "v2"
-      y = "2"
-      z = "a"
-   # ruleid: eval_arbitrary
-   eval(x)
-   # OK
-   eval(y)
-   # OK
-   eval(z)
-```
+<iframe src="https://semgrep.dev/embed/editor?snippet=XLpw" border="0" frameBorder="0" width="100%" height="435"></iframe>
 
 # Generic pattern matching
 
