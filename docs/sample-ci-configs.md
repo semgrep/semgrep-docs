@@ -125,6 +125,29 @@ update the `script:` command to:
 semgrep-agent --publish-deployment $SEMGREP_DEPLOYMENT_ID --publish-token $SEMGREP_APP_TOKEN
 ```
 
+## See results in GitLab SAST
+
+You can review Semgrep findings in the
+[GitLab SAST](https://docs.gitlab.com/ee/user/application_security/sast/) dashboard by using this config:
+
+```yaml
+semgrep:
+  image: returntocorp/semgrep-agent:v1
+  script: semgrep-agent --gitlab-json > gl-sast-report.json
+  variables:
+    INPUT_CONFIG: >- # more at semgrep.dev/explore
+      p/security-audit
+      p/secrets
+  rules:
+  # scan merge requests for new issues only (existing issues ignored)
+  - if: $CI_MERGE_REQUEST_IID
+  # scan pushes to default branch for all issues
+  - if: $CI_COMMIT_BRANCH == $CI_DEFAULT_BRANCH
+  artifacts:
+    reports:
+      sast: gl-sast-report.json
+```
+
 # Buildkite
 
 <p>
