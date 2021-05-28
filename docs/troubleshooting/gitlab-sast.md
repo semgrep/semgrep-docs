@@ -47,7 +47,7 @@ are making the job last too long, you will want to exclude these files from scan
 
 To improve performance by 10x on a typical project,
 you can use our own CI agent [Semgrep CI](../semgrep-ci.md) directly
-by adding [a new job to your GitLab CI configuration](../sample-ci-configs.md#gitlab-ci).
+by adding [**this job definition** to your GitLab CI configuration](../sample-ci-configs.md#gitlab-ci).
 
 - Semgrep CI skips scanning unchanged files in your merge requests,
 - it also skips common large directories such as vendored dependencies or tests,
