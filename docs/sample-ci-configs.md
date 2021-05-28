@@ -132,7 +132,7 @@ You can review Semgrep findings in the
 ```yaml
 semgrep:
   image: returntocorp/semgrep-agent:v1
-  script: semgrep-agent --gitlab-json > gl-sast-report.json
+  script: semgrep-agent --gitlab-json > gl-sast-report.json || true
   variables:
     INPUT_CONFIG: >- # more at semgrep.dev/explore
       p/security-audit
