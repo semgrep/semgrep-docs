@@ -93,7 +93,7 @@ jobs:
 
 Semgrep CI will [auto-detect CI context](semgrep-ci.md#features)
 when running in GitLab CI.
-Scans on pull requests are diff-aware and will report only newly added findings.
+Scans on merge requests are diff-aware and will report only newly added findings.
 
 The [`template` used in this sample](https://docs.gitlab.com/ee/ci/yaml/#workflowrules-templates) configuration
 will run Semgrep on pushes to merge requests, your default branch, and tags.
