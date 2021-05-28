@@ -99,19 +99,31 @@ The [`template` used in this sample](https://docs.gitlab.com/ee/ci/yaml/#workflo
 will run Semgrep on pushes to merge requests, your default branch, and tags.
 Feel free to replace this with another set of events you'd like to run on.
 
-<p>
+<!-- TODO: change INPUT_CONFIG to SEMGREP_RULES -->
 
 ```yaml
-include:
-  - template: "Workflows/MergeRequest-Pipelines.gitlab-ci.yml"
-
 semgrep:
   image: returntocorp/semgrep-agent:v1
-  script:
-    - semgrep-agent --publish-deployment $SEMGREP_DEPLOYMENT_ID --publish-token $SEMGREP_APP_TOKEN
+  script: semgrep-agent
+  variables:
+    INPUT_CONFIG: >- # more at semgrep.dev/explore
+      p/security-audit
+      p/secrets
+  rules:
+  # scan merge requests for new issues only (existing issues ignored)
+  - if: $CI_MERGE_REQUEST_IID
+  # scan pushes to default branch for all issues
+  - if: $CI_COMMIT_BRANCH == $CI_DEFAULT_BRANCH
 ```
 
-</p>
+## Connecting to Semgrep App
+
+To log in to Semgrep App and use centrally managed policies,
+update the `script:` command to:
+
+```yaml
+semgrep-agent --publish-deployment $SEMGREP_DEPLOYMENT_ID --publish-token $SEMGREP_APP_TOKEN
+```
 
 # Buildkite
 
@@ -232,8 +244,8 @@ sh 'env && git fetch origin $BASELINE_BRANCH && python -m semgrep_agent --baseli
 }
 
 ````
-</p>
 
+</p>
 
 # Other providers
 
