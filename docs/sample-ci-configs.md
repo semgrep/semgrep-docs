@@ -95,9 +95,8 @@ Semgrep CI will [auto-detect CI context](semgrep-ci.md#features)
 when running in GitLab CI.
 Scans on merge requests are diff-aware and will report only newly added findings.
 
-The [`template` used in this sample](https://docs.gitlab.com/ee/ci/yaml/#workflowrules-templates) configuration
-will run Semgrep on pushes to merge requests, your default branch, and tags.
-Feel free to replace this with another set of events you'd like to run on.
+This sample configuration
+will run Semgrep on merge requests, and pushes to your default branch.
 
 <!-- TODO: change INPUT_CONFIG to SEMGREP_RULES -->
 
