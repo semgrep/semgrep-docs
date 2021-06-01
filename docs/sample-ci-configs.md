@@ -265,7 +265,7 @@ sh 'env && git fetch origin $BASELINE_BRANCH && python -m semgrep_agent --baseli
 }
 }
 
-````
+```
 
 </p>
 
@@ -277,7 +277,7 @@ and run this command in your Docker container:
 
 ```sh
 semgrep-agent --publish-deployment $SEMGREP_DEPLOYMENT_ID --publish-token $SEMGREP_APP_TOKEN
-````
+```
 
 To get [CI context awareness](semgrep-ci.md#features),
 you can optionally provide the following environment variables:
