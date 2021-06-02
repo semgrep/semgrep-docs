@@ -105,7 +105,7 @@ Semgrep CI will exit with a failing status code.
 
 ## Ignoring files & directories
 
-Semgrep CI uses a default ignore list that skips common test, build, and dependency directories, including `tests/`, `node_modules/`, and `vendor/`. You can find the full list in [the `.semgrepignore` template file](https://github.com/returntocorp/semgrep-action/blob/v1/src/semgrep_agent/templates/.semgrepignore). 
+Semgrep CI uses a default ignore list that skips common test, build, and dependency directories, including `tests/`, `node_modules/`, `vendor/`, and more. See the full list of ignored items in [the `.semgrepignore` template file](https://github.com/returntocorp/semgrep-action/blob/v1/src/semgrep_agent/templates/.semgrepignore).
 
 To override the default ignore patterns, create a file named `.semgrepignore` and commit it to the root of your repository. It uses the same syntax as `.gitignore`. For a complete example, see the [.semgrepignore file on Semgrep’s source code](https://github.com/returntocorp/semgrep/blob/develop/.semgrepignore).
 
