@@ -103,14 +103,6 @@ or load all rules from the `.semgrep/` directory in your repo.
 If none of these provide a configuration,
 Semgrep CI will exit with a failing status code.
 
-## Connecting to Semgrep App
-
-To use your Semgrep App account,
-set `--publish-deployment` and `--publish-token`.
-These act as your username and password for authentication.
-You can find the right values for these variables
-on the [Dashboard > Settings](https://semgrep.dev/manage/settings) page.
-
 ## Ignoring files & directories
 
 You can commit a `.semgrepignore` file
@@ -173,6 +165,10 @@ To enable this, set the `--audit-on event_name` flag.
     in the first few lines of the agent's log output.
     To enable audit mode on pushes in GitHub Actions,
     set the option `auditOn: push` in your workflow file.
+
+## Connecting to Semgrep App
+
+To use your Semgrep App account, set `--publish-deployment` and `--publish-token`. These act as your username and password for authentication. You can find the right values for these variables on the [Dashboard > Settings](https://semgrep.dev/manage/settings) page.
 
 # Technical details
 
