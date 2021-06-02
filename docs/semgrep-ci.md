@@ -190,7 +190,7 @@ If you want to see findings from your whole repository instead of just the files
 !!! info
     In GitHub, the most common event names are `push` and `pull_request`. To enable audit mode on branch pushes in GitHub Actions, set the option `auditOn: push` in your workflow file.
 
-    In GitLab, set `allow_failure: true` for the Semgrep CI job in your `.gitlab-ci.yml` file.
+    <!-- In GitLab, set `allow_failure: true` for the Semgrep CI job in your `.gitlab-ci.yml` file.  TODO: confirm GitLab behavior and vars -->
 
     For other CI providers, look for the correct event name in CI environment’s log output.
 
