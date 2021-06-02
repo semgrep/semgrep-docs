@@ -21,11 +21,7 @@ You can add Semgrep CI to a GitHub repository by clicking "Set up"
 on the [Projects page](https://semgrep.dev/manage/projects) of Semgrep App
 
 !!! info
-This page will list only the repositories
-that Semgrep has permission to see.
-You can add repositories on your organization's settings page on GitHub.
-Just go to Settings > Installed GitHub Apps > semgrep.dev > Configure
-and make your changes in the 'Repository access' section.
+    This page will list only the repositories that Semgrep has permission to see. You can add repositories on your organization's settings page on GitHub. Just go to Settings > Installed GitHub Apps > semgrep.dev > Configure and make your changes in the 'Repository access' section.
 
 You will get a chance to configure a few settings,
 such as whether you want to run on pushes, on pull requests, or on both.
@@ -33,10 +29,10 @@ We recommend using Semgrep with the pre-selected settings.
 When you're done, Semgrep will commit a CI workflow file to your repository.
 
 !!! warning
-Semgrep cannot commit this file if there are
-branch protection rules preventing pushes to your default branch.
-In this case, you can temporarily disable your branch protection rules,
-or follow the guide for manual setup.
+    Semgrep cannot commit this file if there are
+    branch protection rules preventing pushes to your default branch.
+    In this case, you can temporarily disable your branch protection rules,
+    or follow the guide for manual setup.
 
 ## Manual setup
 
@@ -148,7 +144,7 @@ rules:
 ```
 
 !!! info
-The `$CI_MERGE_REQUEST_IID` variable is only available when the GitLab pipeline is a merge request pipeline and the merge request is open.
+    The `$CI_MERGE_REQUEST_IID` variable is only available when the GitLab pipeline is a merge request pipeline and the merge request is open.
 
 ## Ignoring files & directories
 
@@ -157,7 +153,7 @@ Semgrep CI uses a default ignore list that skips common test, build, and depende
 To override the default ignore patterns, create a file named `.semgrepignore` and commit it to the root of your repository. It uses the same syntax as `.gitignore`. For a complete example, see the [.semgrepignore file on Semgrep’s source code](https://github.com/returntocorp/semgrep/blob/develop/.semgrepignore).
 
 !!! warning
-`.semgrepignore` is picked up only by Semgrep CI, and is not honored when running Semgrep CLI manually or by the [GitLab Semgrep SAST Analyzer](https://gitlab.com/gitlab-org/security-products/analyzers/semgrep).
+    `.semgrepignore` is picked up only by Semgrep CI, and is not honored when running Semgrep CLI manually or by the [GitLab Semgrep SAST Analyzer](https://gitlab.com/gitlab-org/security-products/analyzers/semgrep).
 
 For information on ignoring findings in code, see the [ignoring findings page](ignoring-findings.md).
 
@@ -166,7 +162,7 @@ For information on ignoring findings in code, see the [ignoring findings page](i
 If you want to see findings from your whole repository instead of just the files changed by a pull request, you’d normally set up scans on pushes to your main branch. This can prove difficult when you already have existing issues that Semgrep finds on the main branch—you probably don’t want CI to fail all builds on the main branch until every single finding is addressed. For this case, try using audit mode. In audit mode, Semgrep will collect findings data for you to review, but will never fail the build due to findings.
 
 !!! info
-In GitHub, the most common event names are `push` and `pull_request`. To enable audit mode on branch pushes in GitHub Actions, set the option `auditOn: push` in your workflow file.
+    In GitHub, the most common event names are `push` and `pull_request`. To enable audit mode on branch pushes in GitHub Actions, set the option `auditOn: push` in your workflow file.
 
     <!-- In GitLab, set `allow_failure: true` for the Semgrep CI job in your `.gitlab-ci.yml` file.  TODO: confirm GitLab behavior and vars -->
 
@@ -202,9 +198,9 @@ Semgrep CI is published under the name `semgrep-agent`.
 New versions of Semgrep CI and the Docker image above are released by Semgrep maintainers on a regular basis. To run all jobs with the latest releases, use `returntocorp/semgrep-action@v1` in your GitHub Actions workflow, or the `returntocorp/semgrep-agent:v1` Docker image with other providers.
 
 !!! info
-The Python package itself is not published to PyPI,
-or any other package index,
-but you can still use it by cloning the GitHub repository.
+    The Python package itself is not published to PyPI,
+    or any other package index,
+    but you can still use it by cloning the GitHub repository.
 
 ## Behavior
 
@@ -277,10 +273,10 @@ docker run -v $(pwd):/src --workdir /src returntocorp/semgrep-agent:v1 semgrep-a
 ```
 
 !!! info
-The above commands all require `docker`
-to be installed on your machine.
-They also use Docker volumes
-to make your working directory accessible to the container.
-`--config p/ci` is the Semgrep rule configuration,
-which can be changed to any value
-that `semgrep` itself understands.
+    The above commands all require `docker`
+    to be installed on your machine.
+    They also use Docker volumes
+    to make your working directory accessible to the container.
+    `--config p/ci` is the Semgrep rule configuration,
+    which can be changed to any value
+    that `semgrep` itself understands.
