@@ -147,7 +147,7 @@ In your repository’s `.github/workflows/semgrep.yml` file, use the `config:` k
 
 ### Specifying rule configuration in GitLab CI/CD
 
-In your repository’s `.gitlab-ci.yml` file, specify rule configurations using the variable `INPUT_CONFIG` inside the job that runs Semgrep CI in your pipeline. You may specify multiple configurations, each on its own line. See this [example GitLab CI/CD configuration](sample-ci-configs.md#gitlab-ci).
+In your repository’s `.gitlab-ci.yml` file, specify rule configurations indented within the variable `INPUT_CONFIG` inside the job that runs Semgrep CI in your pipeline. You may specify multiple configurations, each on its own indented line within `INPUT_CONFIG`. See this [example GitLab CI/CD configuration](sample-ci-configs.md#gitlab-ci).
 
 ## Ignoring files & directories
 
