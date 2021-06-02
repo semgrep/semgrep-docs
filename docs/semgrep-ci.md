@@ -156,12 +156,7 @@ Semgrep CI is published under the name `semgrep-agent`.
 - The [semgrep-action repository](https://github.com/returntocorp/semgrep-action)
   holds the code for Semgrep CI, the Docker image, and the GitHub Marketplace manifest.
 
-New versions of semgrep-action and the Docker image
-are released by Semgrep CI maintainers
-on a regular basis.
-To run all jobs with the latest releases,
-use `returntocorp/semgrep-action@v1` in your GitHub Actions workflow,
-or the `returntocorp/semgrep-agent:v1` Docker image with other providers.
+New versions of Semgrep CI and the Docker image above are released by Semgrep maintainers on a regular basis. To run all jobs with the latest releases, use `returntocorp/semgrep-action@v1` in your GitHub Actions workflow, or the `returntocorp/semgrep-agent:v1` Docker image with other providers.
 
 !!! info
     The Python package itself is not published to PyPI,
