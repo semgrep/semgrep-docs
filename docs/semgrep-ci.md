@@ -73,29 +73,36 @@ you can use one of our [sample CI configuration files](sample-ci-configs.md).
 Semgrep CI is configured through workflow files specific to the CI environment in which it runs. This is a reference for most common options,
 but you can see all available settings with `--help`.
 
-## Adding to GitHub CI/CD
+## Adding to GitHub Actions
 
-To configuring Semgrep CI in GitHub, set configuration options under the `with:` block of your workflow YAML file. Option names are camel-cased in the workflow configuration file. This means that `--audit-on push` changes to `auditOn: push`.
+To add Semgrep CI to GitHub Actions, add a `.github/workflows/semgrep.yml` file to your repository. Follow the [workflow syntax for GitHub Actions](https://docs.github.com/en/actions/reference/workflow-syntax-for-github-actions). See this [example GitHub Actions workflow configuration](sample-ci-configs.md#github-actions) for Semgrep CI.
 
 ## Adding to GitLab CI/CD
 
-To configure Semgrep CI in GitLab, set configuration options under the block for the Semgrep CI job in your `.gitlab-ci.yml` file.
+To add Semgrep CI to GitLab CI/CD, add a block for the Semgrep CI job to your `.gitlab-ci.yml` file. Follow [GitLab’s configuration guide for the .gitlab-ci.yml file](https://docs.gitlab.com/ee/ci/yaml/gitlab_ci_yaml.html). See this [example GitLab CI/CD configuration](sample-ci-configs.md#gitlab-ci) for Semgrep CI.
 
 ## Selecting rules and rulesets
 
-Semgrep CI lets you scan code with rules and rulesets published through the Semgrep Registry, individual users’ saved rules (snippets), or a combination of both. Each has an associated configuration indicator, for example:
+Semgrep CI lets you scan code with rules and rulesets published through the [Semgrep Registry](https://semgrep.dev/explore), individual users’ saved rules (snippets), or a combination of both. Each has an associated configuration indicator, for example:
 
 - Rulesets use indicators like `p/security-audit` ([a popular auditing ruleset](https://semgrep.dev/p/r2c-security-audit))
 - Individual rules use indicators like `r/javascript.lang.security.spawn-git-clone.spawn-git-clone` ([a rule to prevent remote `whoami` execution](https://semgrep.dev/r/javascript.lang.security.spawn-git-clone))
-- Users’ snippets saved from the [Semgrep Playground](https://semgrep.dev/editor) use indicators like `s/xYz` or `s/john:named-rule`
+- User snippets saved from the [Semgrep Playground](https://semgrep.dev/editor) use indicators like `s/xYz` or `s/john:named-rule`
 
-Explore the Semgrep Registry’s [rules and rulesets here](https://semgrep.dev/explore).
+See the sections below to learn how to specify rules and rulesets in different CI environments. If no rule configuration is found, Semgrep CI will look for rules specified by configs in the `.semgrep.yml` file in your repository, or load all rules from the `.semgrep/` directory in your repository. If none of these provide a configuration, Semgrep CI will exit with a failing status code.
 
-The format for specifying rules and rulesets depends on the CI environment. 
+### Specifying rule configuration in GitHub Actions 
 
-By default, Semgrep CI will look for rules specified by configs in the `.semgrep.yml` file in your repository, or load all rules from the `.semgrep/` directory in your repository.
+If not already present, add a `.github/workflows/semgrep.yml` file to your repository. Use the `with` key to specify rule configurations in the job that runs Semgrep CI in your workflow. See this [example GitHub Actions workflow configuration](sample-ci-configs.md#github-actions).
 
-If none of these provide a configuration, Semgrep CI will exit with a failing status code.
+### Specifying rule configuration in GitLab CI/CD
+
+In your repository’s `.gitlab-ci.yml` file, specify rule configurations using the variable `INPUT_CONFIG` inside the job that runs Semgrep CI in your pipeline. You may specify multiple configurations, each on its own line. See this [example GitLab CI/CD configuration](sample-ci-configs.md#gitlab-ci).
+
+### Rule configuration in other CI environments
+
+In your repository’s `.gitlab-ci.yml` file, specify rule configurations using the variable `INPUT_CONFIG` inside the job that runs Semgrep CI in your pipeline. You may specify multiple configurations, each on its own line. See this [example GitLab CI configuration](sample-ci-configs.md#gitlab-ci).
+
 
 ## Ignoring files & directories
 
