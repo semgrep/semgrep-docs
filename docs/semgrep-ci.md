@@ -79,7 +79,57 @@ To add Semgrep CI to GitHub Actions, add a `.github/workflows/semgrep.yml` file 
 
 ## Adding to GitLab CI/CD
 
-To add Semgrep CI to GitLab CI/CD, add a block for the Semgrep CI job to your `.gitlab-ci.yml` file. Follow [GitLab’s configuration guide for the .gitlab-ci.yml file](https://docs.gitlab.com/ee/ci/yaml/gitlab_ci_yaml.html). See this [example GitLab CI/CD configuration](sample-ci-configs.md#gitlab-ci) for Semgrep CI.
+To add Semgrep CI to GitLab CI/CD, add `.gitlab-ci.yml` file to your repository if not already present. Add a block to this file to run the Semgrep CI job in your pipeline, following [GitLab’s configuration guide for the .gitlab-ci.yml file](https://docs.gitlab.com/ee/ci/yaml/gitlab_ci_yaml.html). See this [example GitLab CI/CD configuration](sample-ci-configs.md#gitlab-ci) for Semgrep CI.
+
+## Adding to other CI environments
+
+To run Semgrep CI in other CI environments, use the [`returntocorp/semgrep-agent:v1` Docker image](semgrep-ci.md#packaging), and run this command in your Docker container:
+
+```sh
+semgrep-agent --publish-deployment $SEMGREP_DEPLOYMENT_ID --publish-token $SEMGREP_APP_TOKEN
+```
+
+To get [CI context awareness](semgrep-ci.md#features), you can optionally provide the following environment variables:
+
+```sh
+# Set additional environment variables
+SEMGREP_BRANCH=mybranch
+SEMGREP_COMMIT=abcd1234  # commit SHA being scanned
+SEMGREP_JOB_URL=https://example.com/me/myjob  # URL to CI logs
+SEMGREP_REPO_NAME=myorg/myrepository  # project name to show on Semgrep App
+SEMGREP_REPO_URL=https://gitwebsite.com/myrepository
+SEMGREP_PR_ID=123
+SEMGREP_PR_TITLE="Added four new bugs"  # shown in Slack notifications if set
+SEMGREP_TIMEOUT=1800  # Maximum Semgrep run time in seconds, or 0 to disable timeouts
+
+# Run semgrep_agent
+semgrep-agent --publish-deployment $SEMGREP_DEPLOYMENT_ID --publish-token $SEMGREP_APP_TOKEN
+```
+
+For [diff-aware scans](semgrep-ci.md#features), set the `--baseline-ref` flag to the git ref (branch name, tag, or commit hash) to use as a baseline. For example, to report findings newly added since branching off from your `main` branch, run
+
+```sh
+semgrep-agent --baseline-ref main
+```
+
+Using these instructions you can run Semgrep in the following CI providers:
+
+- AppVeyor
+- Bamboo
+- Bitbucket Pipelines
+- Bitrise
+- Buildbot
+- Buildkite [(sample configuration)](sample-ci-configs.md#buildkite)
+- CircleCI [(sample configuration)](sample-ci-configs.md#circleci)
+- Codeship
+- Codefresh
+- GitHub Actions [(sample configuration)](sample-ci-configs.md#github-actions)
+- GitLab CI [(sample configuration)](sample-ci-configs.md#gitlab-ci)
+- Jenkins
+- TeamCity CI
+- Travis CI
+
+Is your CI provider missing? Let us know by [filing an issue here](https://github.com/returntocorp/semgrep/issues/new?assignees=&labels=&template=feature_request.md&title=).
 
 ## Selecting rules and rulesets
 
@@ -91,18 +141,13 @@ Semgrep CI lets you scan code with rules and rulesets published through the [Sem
 
 See the sections below to learn how to specify rules and rulesets in different CI environments. If no rule configuration is found, Semgrep CI will look for rules specified by configs in the `.semgrep.yml` file in your repository, or load all rules from the `.semgrep/` directory in your repository. If none of these provide a configuration, Semgrep CI will exit with a failing status code.
 
-### Specifying rule configuration in GitHub Actions 
+### Specifying rule configuration in GitHub Actions
 
-If not already present, add a `.github/workflows/semgrep.yml` file to your repository. Use the `with` key to specify rule configurations in the job that runs Semgrep CI in your workflow. See this [example GitHub Actions workflow configuration](sample-ci-configs.md#github-actions).
+In your repository’s `.github/workflows/semgrep.yml` file, use the `with` key to specify rule configurations in the job that runs Semgrep CI in your workflow. You may specify multiple configurations, each on its own line. See this [example GitHub Actions workflow configuration](sample-ci-configs.md#github-actions).
 
 ### Specifying rule configuration in GitLab CI/CD
 
 In your repository’s `.gitlab-ci.yml` file, specify rule configurations using the variable `INPUT_CONFIG` inside the job that runs Semgrep CI in your pipeline. You may specify multiple configurations, each on its own line. See this [example GitLab CI/CD configuration](sample-ci-configs.md#gitlab-ci).
-
-### Rule configuration in other CI environments
-
-In your repository’s `.gitlab-ci.yml` file, specify rule configurations using the variable `INPUT_CONFIG` inside the job that runs Semgrep CI in your pipeline. You may specify multiple configurations, each on its own line. See this [example GitLab CI configuration](sample-ci-configs.md#gitlab-ci).
-
 
 ## Ignoring files & directories
 
@@ -117,9 +162,7 @@ For information on ignoring findings in code, see the [ignoring findings page](i
 
 ## Audit mode: disable blocking on a specific CI event
 
-If you want to see findings from your whole repository instead of just the files changed by a pull request, you'd normally set up scans on pushes to your main branch. This can prove difficult when you already have existing issues that Semgrep finds on the main branch — you probably don't want CI to fail all builds on the main branch until every single finding is addressed.
-
-For this case, we recommend using audit mode. In audit mode, Semgrep will collect findings data for you to review, but will never fail the build due to findings.
+If you want to see findings from your whole repository instead of just the files changed by a pull request, you'd normally set up scans on pushes to your main branch. This can prove difficult when you already have existing issues that Semgrep finds on the main branch — you probably don't want CI to fail all builds on the main branch until every single finding is addressed. For this case, try using audit mode. In audit mode, Semgrep will collect findings data for you to review, but will never fail the build due to findings.
 
 To enable this, set the `--audit-on event_name` flag.
 
