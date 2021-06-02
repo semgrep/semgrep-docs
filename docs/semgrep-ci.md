@@ -105,70 +105,43 @@ Semgrep CI will exit with a failing status code.
 
 ## Ignoring files & directories
 
-You can commit a `.semgrepignore` file
-to the root of your repository
-to skip scanning specific paths,
-using the same syntax as `.gitignore`.
+Semgrep CI uses a default ignore list that skips common test and dependency directories, including `tests/`, `node_modules/`, and `vendor/`. You can find the full list in [the `.semgrepignore` template file](https://github.com/returntocorp/semgrep-action/blob/v1/src/semgrep_agent/templates/.semgrepignore). 
 
-If there's no `.semgrepignore` file in your repository,
-Semgrep CI uses a default ignore list
-that skips common test and dependency directories,
-including `tests/`, `node_modules/`, and `vendor/`.
-You can find the full list in
-[the `.semgrepignore` template file](https://github.com/returntocorp/semgrep-action/blob/v1/src/semgrep_agent/templates/.semgrepignore).
-To override these default ignore patterns,
-commit your own `.semgrepignore`.
+To override these default ignore patterns, commit your own `.semgrepignore` to the root of your repository. It uses the same syntax as `.gitignore`. For a complete example, see the [.semgrepignore file on Semgrep’s source code](https://github.com/returntocorp/semgrep/blob/develop/.semgrepignore).
 
 !!! warning
-    `.semgrepignore` is picked up only by Semgrep CI,
-    and is not honored when running Semgrep CLI manually.
+    `.semgrepignore` is picked up only by Semgrep CI, and is not honored when running Semgrep CLI manually or by the [GitLab Semgrep SAST Analyzer](https://gitlab.com/gitlab-org/security-products/analyzers/semgrep).
 
-## Ignoring specific rules in a ruleset or policy
-
-You can customize the ruleset you're using
-to ignore some of its rules
-by [editing the Semgrep App policy](managing-policy.md#editing-a-policy)
-used for your scans.
-
-## Getting notifications instead of blocking builds
-
-Some rules point out hotspots that require careful review
-but are not certain to be insecure code.
-You might want to disable blocking when scanning with such rules,
-and instead use a [CI integration](integrations.md)
-to get notifications.
-
-You can set this up
-by [changing the actions of the Semgrep App policy](managing-policy.md#changing-policy-actions)
-used for your scans.
+For information on ignoring findings in code, see the [ignoring findings page](ignoring-findings.md).
 
 ## Audit mode: disable blocking on a specific CI event
 
-If you want to see findings from your whole repo
-instead of just the changed files that would be scanned
-whenever a pull request comes in,
-you'd normally set up scans on pushes to your main branch.
-This can prove difficult when you already have existing issues
-that Semgrep finds on the main branch
-— you probably don't want CI to fail all builds on the main branch
-until every single finding is addressed.
+If you want to see findings from your whole repo instead of just the files changed by a pull request, you'd normally set up scans on pushes to your main branch. This can prove difficult when you already have existing issues that Semgrep finds on the main branch — you probably don't want CI to fail all builds on the main branch until every single finding is addressed.
 
-For this case, we recommend using audit mode.
-In audit mode, Semgrep will collect findings data for you to review,
-but will never fail the build due to findings.
+For this case, we recommend using audit mode. In audit mode, Semgrep will collect findings data for you to review, but will never fail the build due to findings.
 
 To enable this, set the `--audit-on event_name` flag.
 
 !!! info
-    The most common event names on GitHub are `push` and `pull_request`.
-    In other cases, you can find the correct event name
-    in the first few lines of the agent's log output.
-    To enable audit mode on pushes in GitHub Actions,
-    set the option `auditOn: push` in your workflow file.
+    The most common event names on GitHub are `push` and `pull_request`. To enable audit mode on pushes in GitHub Actions, set the option `auditOn: push` in your workflow file.
 
-## Connecting to Semgrep App
+    In GitLab, set `allow_failure: true` for the Semgrep CI job in your `.gitlab-ci.yml` file.
+
+    For other CI providers, look for the correct event name in the first few lines of the agent's log output.
+
+# Connecting to Semgrep App
 
 To use your Semgrep App account, set `--publish-deployment` and `--publish-token`. These act as your username and password for authentication. You can find the right values for these variables on the [Dashboard > Settings](https://semgrep.dev/manage/settings) page.
+
+## Ignoring specific rules in a ruleset or policy
+
+You can customize the ruleset you're using to ignore some of its rules by [editing the Semgrep App policy](managing-policy.md#editing-a-policy) used for your scans.
+
+## Getting notifications instead of blocking builds
+
+Some rules point out hotspots that require careful review but are not certain to be insecure code. You might want to disable blocking when scanning with such rules, and instead use a [CI integration](integrations.md) to get notifications.
+
+You can set this up by [changing the actions of the Semgrep App policy](managing-policy.md#changing-policy-actions) used for your scans.
 
 # Technical details
 
