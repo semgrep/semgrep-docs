@@ -171,7 +171,7 @@ To enable this, set the `--audit-on event_name` flag.
 
     In GitLab, set `allow_failure: true` for the Semgrep CI job in your `.gitlab-ci.yml` file.
 
-    For other CI providers, look for the correct event name in the first few lines of the agent's log output.
+    For other CI providers, look for the correct event name in CI environment’s log output.
 
 # Connecting to Semgrep App
 
