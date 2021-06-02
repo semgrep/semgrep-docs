@@ -149,6 +149,29 @@ In your repository’s `.github/workflows/semgrep.yml` file, use the `config:` k
 
 In your repository’s `.gitlab-ci.yml` file, specify rule configurations indented within the variable `INPUT_CONFIG` inside the job that runs Semgrep CI in your pipeline. You may specify multiple configurations, each on its own indented line within `INPUT_CONFIG`. See this [example GitLab CI/CD configuration](sample-ci-configs.md#gitlab-ci).
 
+## Scanning only newly introduced issues
+
+Semgrep CI can scan only for issues introduced by a branch at pull request or merge request time. [insert diff-based scanning things here].
+
+To use this behavior in GitHub Actions, trigger the Semgrep workflow on a pull request event by adding the following to the Semgrep workflow file:
+
+```yaml
+on: pull_request
+```
+
+Refer to GitHub’s documentation for information on using [multiple events with activity types or configuration](https://docs.github.com/en/actions/reference/events-that-trigger-workflows#example-using-multiple-events-with-activity-types-or-configuration).
+
+
+To use this behavior in GitLab, add the following to the Semgrep job in your CI/CD pipeline:
+
+```yaml
+rules:
+  - if: $CI_MERGE_REQUEST_IID
+```
+
+!!! info
+    The `$CI_MERGE_REQUEST_IID` variable is only available when the GitLab pipeline is a merge request pipeline and the merge request is open.
+
 ## Ignoring files & directories
 
 Semgrep CI uses a default ignore list that skips common test, build, and dependency directories, including `tests/`, `node_modules/`, `vendor/`, and more. See the full list of ignored items in [the `.semgrepignore` template file](https://github.com/returntocorp/semgrep-action/blob/v1/src/semgrep_agent/templates/.semgrepignore).
@@ -162,12 +185,10 @@ For information on ignoring findings in code, see the [ignoring findings page](i
 
 ## Audit mode: disable blocking on a specific CI event
 
-If you want to see findings from your whole repository instead of just the files changed by a pull request, you'd normally set up scans on pushes to your main branch. This can prove difficult when you already have existing issues that Semgrep finds on the main branch — you probably don't want CI to fail all builds on the main branch until every single finding is addressed. For this case, try using audit mode. In audit mode, Semgrep will collect findings data for you to review, but will never fail the build due to findings.
-
-To enable this, set the `--audit-on event_name` flag.
+If you want to see findings from your whole repository instead of just the files changed by a pull request, you’d normally set up scans on pushes to your main branch. This can prove difficult when you already have existing issues that Semgrep finds on the main branch—you probably don’t want CI to fail all builds on the main branch until every single finding is addressed. For this case, try using audit mode. In audit mode, Semgrep will collect findings data for you to review, but will never fail the build due to findings.
 
 !!! info
-    The most common event names on GitHub are `push` and `pull_request`. To enable audit mode on pushes in GitHub Actions, set the option `auditOn: push` in your workflow file.
+    In GitHub, the most common event names are `push` and `pull_request`. To enable audit mode on branch pushes in GitHub Actions, set the option `auditOn: push` in your workflow file.
 
     In GitLab, set `allow_failure: true` for the Semgrep CI job in your `.gitlab-ci.yml` file.
 
