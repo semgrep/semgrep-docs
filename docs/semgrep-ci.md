@@ -73,11 +73,11 @@ you can use one of our [sample CI configuration files](sample-ci-configs.md).
 Semgrep CI is configured through workflow files specific to the CI environment in which it runs. This is a reference for most common options,
 but you can see all available settings with `--help`.
 
-### Adding to GitHub CI/CD
+## Adding to GitHub CI/CD
 
 To configuring Semgrep CI in GitHub, set configuration options under the `with:` block of your workflow YAML file. Option names are camel-cased in the workflow configuration file. This means that `--audit-on push` changes to `auditOn: push`.
 
-### Adding to GitLab CI/CD
+## Adding to GitLab CI/CD
 
 To configure Semgrep CI in GitLab, set configuration options under the block for the Semgrep CI job in your `.gitlab-ci.yml` file.
 
