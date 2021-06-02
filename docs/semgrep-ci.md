@@ -79,7 +79,7 @@ To add Semgrep CI to GitHub Actions, add a `.github/workflows/semgrep.yml` file 
 
 ## Adding to GitLab CI/CD
 
-To add Semgrep CI to GitLab CI/CD, add `.gitlab-ci.yml` file to your repository if not already present. Add a block to this file to run the Semgrep CI job in your pipeline, following [GitLab’s configuration guide for the .gitlab-ci.yml file](https://docs.gitlab.com/ee/ci/yaml/gitlab_ci_yaml.html). See this [example GitLab CI/CD configuration](sample-ci-configs.md#gitlab-ci) for Semgrep CI.
+To add Semgrep CI to GitLab CI/CD, add a `.gitlab-ci.yml` file to your repository if not already present. Add a block to this file to run the Semgrep CI job in your pipeline, following [GitLab’s configuration guide for the .gitlab-ci.yml file](https://docs.gitlab.com/ee/ci/yaml/gitlab_ci_yaml.html). See this [example GitLab CI/CD configuration](sample-ci-configs.md#gitlab-ci) for Semgrep CI.
 
 ## Adding to other CI environments
 
@@ -143,7 +143,7 @@ See the sections below to learn how to specify rules and rulesets in different C
 
 ### Specifying rule configuration in GitHub Actions
 
-In your repository’s `.github/workflows/semgrep.yml` file, use the `with` key to specify rule configurations in the job that runs Semgrep CI in your workflow. You may specify multiple configurations, each on its own line. See this [example GitHub Actions workflow configuration](sample-ci-configs.md#github-actions).
+In your repository’s `.github/workflows/semgrep.yml` file, use the `config:` key inside `with:` to specify a rule configuration in the job that runs Semgrep CI in your workflow. You may specify multiple configurations, each on its own `config:` line inside `with:`. See this [example GitHub Actions workflow configuration](sample-ci-configs.md#github-actions).
 
 ### Specifying rule configuration in GitLab CI/CD
 
