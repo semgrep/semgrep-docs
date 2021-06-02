@@ -4,35 +4,14 @@ append_help_link: true
 
 # Semgrep CI
 
-[Semgrep CI](https://github.com/returntocorp/semgrep-action)
-is a wrapper around
-[Semgrep CLI](https://github.com/returntocorp/semgrep)
-that adds convenient features for use in CI environments,
-such as in GitHub Actions or GitLab CI.
+[Semgrep CI](https://github.com/returntocorp/semgrep-action) (aka Semgrep Action or `semgrep-agent`) is a specialized Docker image for running Semgrep in CI environments. It can be used stand-alone or authenticated with [Semgrep App](https://semgrep.dev/login) for centralized management.
+
+With Semgrep CI, you'll:
+
+- **Rapidly scan every commit**. Only changed files in pull requests are scanned, signficantly reducing run times and keeping developers moving quickly. Full project scans can be configured for merges to branches.
+- **Get started despite existing bugs**. You don’t have to fix existing bugs to adopt Semgrep CI. With it's diff-aware scanning pull requests are scanned at their base and HEAD commits, with only the new findings reported.
 
 [TOC]
-
-# Features
-
-- **Connect to Semgrep App**:
-  [Semgrep App](https://github.com/returntocorp/semgrep)
-  lets you configure policies and notification rules
-  for all your projects.
-  Semgrep CI can run scans with the policies you configured,
-  and report findings back to Semgrep App
-  so you can see them all in one place.
-- **Diff-aware scans**:
-  Semgrep CI is aware of Git history,
-  and is able to report only the new findings
-  between two revisions. This happens automatically in GitHub Actions or GitLab CI, and can otherwise be configured using the `--baseline-ref` flag.
-- **Auto-detection of CI context**:
-  Semgrep CI detects when it's running inside GitHub Actions or GitLab CI.
-  When scanning a pull request,
-  it reports only findings that were newly introduced.
-- **Ignore files**:
-  Semgrep CI will ignore files when scanning
-  according to paths and patterns specified
-  in your repository's `.semgrepignore` file.
 
 # Setup
 
@@ -42,22 +21,22 @@ You can add Semgrep CI to a GitHub repository by clicking "Set up"
 on the [Projects page](https://semgrep.dev/manage/projects) of Semgrep App
 
 !!! info
-    This page will list only the repositories
-    that Semgrep has permission to see.
-    You can add repositories on your organization's settings page on GitHub.
-    Just go to Settings > Installed GitHub Apps > semgrep.dev > Configure
-    and make your changes in the 'Repository access' section.
-  
+This page will list only the repositories
+that Semgrep has permission to see.
+You can add repositories on your organization's settings page on GitHub.
+Just go to Settings > Installed GitHub Apps > semgrep.dev > Configure
+and make your changes in the 'Repository access' section.
+
 You will get a chance to configure a few settings,
 such as whether you want to run on pushes, on pull requests, or on both.
 We recommend using Semgrep with the pre-selected settings.
 When you're done, Semgrep will commit a CI workflow file to your repository.
 
 !!! warning
-    Semgrep cannot commit this file if there are
-    branch protection rules preventing pushes to your default branch.
-    In this case, you can temporarily disable your branch protection rules,
-    or follow the guide for manual setup.
+Semgrep cannot commit this file if there are
+branch protection rules preventing pushes to your default branch.
+In this case, you can temporarily disable your branch protection rules,
+or follow the guide for manual setup.
 
 ## Manual setup
 
@@ -161,7 +140,6 @@ on: pull_request
 
 Refer to GitHub’s documentation for information on using [multiple events with activity types or configuration](https://docs.github.com/en/actions/reference/events-that-trigger-workflows#example-using-multiple-events-with-activity-types-or-configuration).
 
-
 To use this behavior in GitLab CI/CD, add the following to the Semgrep job in your CI/CD pipeline:
 
 ```yaml
@@ -170,7 +148,7 @@ rules:
 ```
 
 !!! info
-    The `$CI_MERGE_REQUEST_IID` variable is only available when the GitLab pipeline is a merge request pipeline and the merge request is open.
+The `$CI_MERGE_REQUEST_IID` variable is only available when the GitLab pipeline is a merge request pipeline and the merge request is open.
 
 ## Ignoring files & directories
 
@@ -179,7 +157,7 @@ Semgrep CI uses a default ignore list that skips common test, build, and depende
 To override the default ignore patterns, create a file named `.semgrepignore` and commit it to the root of your repository. It uses the same syntax as `.gitignore`. For a complete example, see the [.semgrepignore file on Semgrep’s source code](https://github.com/returntocorp/semgrep/blob/develop/.semgrepignore).
 
 !!! warning
-    `.semgrepignore` is picked up only by Semgrep CI, and is not honored when running Semgrep CLI manually or by the [GitLab Semgrep SAST Analyzer](https://gitlab.com/gitlab-org/security-products/analyzers/semgrep).
+`.semgrepignore` is picked up only by Semgrep CI, and is not honored when running Semgrep CLI manually or by the [GitLab Semgrep SAST Analyzer](https://gitlab.com/gitlab-org/security-products/analyzers/semgrep).
 
 For information on ignoring findings in code, see the [ignoring findings page](ignoring-findings.md).
 
@@ -188,7 +166,7 @@ For information on ignoring findings in code, see the [ignoring findings page](i
 If you want to see findings from your whole repository instead of just the files changed by a pull request, you’d normally set up scans on pushes to your main branch. This can prove difficult when you already have existing issues that Semgrep finds on the main branch—you probably don’t want CI to fail all builds on the main branch until every single finding is addressed. For this case, try using audit mode. In audit mode, Semgrep will collect findings data for you to review, but will never fail the build due to findings.
 
 !!! info
-    In GitHub, the most common event names are `push` and `pull_request`. To enable audit mode on branch pushes in GitHub Actions, set the option `auditOn: push` in your workflow file.
+In GitHub, the most common event names are `push` and `pull_request`. To enable audit mode on branch pushes in GitHub Actions, set the option `auditOn: push` in your workflow file.
 
     <!-- In GitLab, set `allow_failure: true` for the Semgrep CI job in your `.gitlab-ci.yml` file.  TODO: confirm GitLab behavior and vars -->
 
@@ -224,9 +202,9 @@ Semgrep CI is published under the name `semgrep-agent`.
 New versions of Semgrep CI and the Docker image above are released by Semgrep maintainers on a regular basis. To run all jobs with the latest releases, use `returntocorp/semgrep-action@v1` in your GitHub Actions workflow, or the `returntocorp/semgrep-agent:v1` Docker image with other providers.
 
 !!! info
-    The Python package itself is not published to PyPI,
-    or any other package index,
-    but you can still use it by cloning the GitHub repository.
+The Python package itself is not published to PyPI,
+or any other package index,
+but you can still use it by cloning the GitHub repository.
 
 ## Behavior
 
@@ -246,6 +224,7 @@ When using other providers, you need to set environment variables
 that tell Semgrep CI what it should use as the baseline commit.
 Many of our [sample CI configs for various providers](sample-ci-configs.md)
 set these environment variables.
+
 <!-- TODO: add diagram -->
 
 In diff-aware scans,
@@ -298,10 +277,10 @@ docker run -v $(pwd):/src --workdir /src returntocorp/semgrep-agent:v1 semgrep-a
 ```
 
 !!! info
-    The above commands all require `docker`
-    to be installed on your machine.
-    They also use Docker volumes
-    to make your working directory accessible to the container.
-    `--config p/ci` is the Semgrep rule configuration,
-    which can be changed to any value
-    that `semgrep` itself understands.
+The above commands all require `docker`
+to be installed on your machine.
+They also use Docker volumes
+to make your working directory accessible to the container.
+`--config p/ci` is the Semgrep rule configuration,
+which can be changed to any value
+that `semgrep` itself understands.
