@@ -162,7 +162,7 @@ on: pull_request
 Refer to GitHub’s documentation for information on using [multiple events with activity types or configuration](https://docs.github.com/en/actions/reference/events-that-trigger-workflows#example-using-multiple-events-with-activity-types-or-configuration).
 
 
-To use this behavior in GitLab, add the following to the Semgrep job in your CI/CD pipeline:
+To use this behavior in GitLab CI/CD, add the following to the Semgrep job in your CI/CD pipeline:
 
 ```yaml
 rules:
