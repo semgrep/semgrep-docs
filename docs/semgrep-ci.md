@@ -81,26 +81,21 @@ To configuring Semgrep CI in GitHub, set configuration options under the `with:`
 
 To configure Semgrep CI in GitLab, set configuration options under the block for the Semgrep CI job in your `.gitlab-ci.yml` file.
 
-## Selecting rules
+## Selecting rules and rulesets
 
-The `--config` flag lets you choose
-what rules and patterns Semgrep should scan for.
-You can include any number of `--config`s and specify rules in any of the following ways:
+Semgrep CI lets you scan code with rules and rulesets published through the Semgrep Registry, individual users’ saved rules (snippets), or a combination of both. Each has an associated configuration indicator, for example:
 
-- **ruleset ID**: `config: p/r2c`  
-  referring to a ruleset found on [semgrep.dev's rulesets page](https://semgrep.dev/explore)
-- **snippet ID**: `config: s/xYz` or `config: s/john:named-rule`
-  referring to a rule published from the [semgrep.dev playground](https://semgrep.dev/editor)
-- **registry ID**: `config: r/python.flask`  
-  referring to a subset of the [Semgrep Registry](https://semgrep.dev/r)
+- Rulesets use indicators like `p/security-audit` ([a popular auditing ruleset](https://semgrep.dev/p/r2c-security-audit))
+- Individual rules use indicators like `r/javascript.lang.security.spawn-git-clone.spawn-git-clone` ([a rule to prevent remote `whoami` execution](https://semgrep.dev/r/javascript.lang.security.spawn-git-clone))
+- Users’ snippets saved from the [Semgrep Playground](https://semgrep.dev/editor) use indicators like `s/xYz` or `s/john:named-rule`
 
-If `config` is unset,
-the default behavior is to look for rules
-in the `.semgrep.yml` file in your repo,
-or load all rules from the `.semgrep/` directory in your repo.
+Explore the Semgrep Registry’s [rules and rulesets here](https://semgrep.dev/explore).
 
-If none of these provide a configuration,
-Semgrep CI will exit with a failing status code.
+The format for specifying rules and rulesets depends on the CI environment. 
+
+By default, Semgrep CI will look for rules specified by configs in the `.semgrep.yml` file in your repository, or load all rules from the `.semgrep/` directory in your repository.
+
+If none of these provide a configuration, Semgrep CI will exit with a failing status code.
 
 ## Ignoring files & directories
 
@@ -115,7 +110,7 @@ For information on ignoring findings in code, see the [ignoring findings page](i
 
 ## Audit mode: disable blocking on a specific CI event
 
-If you want to see findings from your whole repo instead of just the files changed by a pull request, you'd normally set up scans on pushes to your main branch. This can prove difficult when you already have existing issues that Semgrep finds on the main branch — you probably don't want CI to fail all builds on the main branch until every single finding is addressed.
+If you want to see findings from your whole repository instead of just the files changed by a pull request, you'd normally set up scans on pushes to your main branch. This can prove difficult when you already have existing issues that Semgrep finds on the main branch — you probably don't want CI to fail all builds on the main branch until every single finding is addressed.
 
 For this case, we recommend using audit mode. In audit mode, Semgrep will collect findings data for you to review, but will never fail the build due to findings.
 
