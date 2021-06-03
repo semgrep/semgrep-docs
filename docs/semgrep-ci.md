@@ -112,7 +112,7 @@ For GitLab CI/CD, in your repository’s `.gitlab-ci.yml` file you can specify r
 
 ### Custom rules
 
-Run custom rules by using  identifier (e.g., `s/susan:named-rule`) in the same manner as done for registry rules and rulesets. 
+Run custom rules by using their identifiers (e.g., `s/susan:named-rule`) in the same manner as done for registry rules and rulesets. 
 
 If no rule configuration is found in a GitHub Action workflow or GitLab CI/CD file, Semgrep CI will look for rules specified by configs in the `.semgrep.yml` file in your repository, or load all rules from the `.semgrep/` directory in your repository. If none of these provide a configuration, Semgrep CI will exit with a failing status code.
 
