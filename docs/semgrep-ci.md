@@ -106,7 +106,7 @@ Is your CI provider missing? Let us know by [filing an issue here](https://githu
 
 Semgrep CI lets you scan code with rules and rulesets published through the [Semgrep Registry](https://semgrep.dev/explore), individual users’ saved rules (snippets), or a combination of both. Use any of these by adding the ruleset’s or rule’s identifier to your CI workflow file. Identifiers look like `p/security-audit` or `r/javascript.lang.security.spawn-git-clone.spawn-git-clone`.
 
-For GitHub Actions, if you’re using Semgrep App to manage your configuration, you can use the “Add to policy” button next to any registry rule or ruleset to add it to your workflow.
+For GitHub Actions, if you’re using Semgrep App to manage your configuration, use the “Add to policy” button next to any registry rule or ruleset to add it to a policy.
 
 If you manually added Semgrep CI to your repository using a `.github/workflows/semgrep.yml` file, use the `config:` key inside `with:` to specify a rule configuration in the job that runs Semgrep CI in your workflow. You may specify multiple configurations, each on its own `config:` line inside `with:`. See this [example GitHub Actions workflow configuration](sample-ci-configs.md#github-actions).
 
