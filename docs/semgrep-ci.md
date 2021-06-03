@@ -34,7 +34,7 @@ To manually add Semgrep CI to GitHub Actions, add a `.github/workflows/semgrep.y
 
 To add Semgrep CI to GitLab CI/CD, add a `.gitlab-ci.yml` file to your repository if not already present. Add a block to this file to run the Semgrep CI job in your pipeline, following [GitLab’s configuration guide for the .gitlab-ci.yml file](https://docs.gitlab.com/ee/ci/yaml/gitlab_ci_yaml.html). See this [example GitLab CI/CD configuration](sample-ci-configs.md#gitlab-ci) for Semgrep CI.
 
-## Adding to other CI environments
+## Using Docker with other CI environments
 
 To run Semgrep CI in other CI environments, use the [`returntocorp/semgrep-agent:v1` Docker image](semgrep-ci.md#packaging), and run this command in your Docker container:
 
@@ -85,12 +85,15 @@ Using these instructions you can run Semgrep in the following CI providers:
 Is your CI provider missing? Let us know by [filing an issue here](https://github.com/returntocorp/semgrep/issues/new?assignees=&labels=&template=feature_request.md&title=).
 
 ## Results
+
 [TODO]
 
 ### Job output
+
 [TODO]
 
 ### Integrations
+
 [TODO]
 
 ## Configuration
@@ -101,9 +104,11 @@ Is your CI provider missing? Let us know by [filing an issue here](https://githu
 
 Semgrep CI lets you scan code with rules and rulesets published through the [Semgrep Registry](https://semgrep.dev/explore), individual users’ saved rules (snippets), or a combination of both. Use any of these by adding the ruleset’s or rule’s identifier to your CI workflow file. Identifiers look like `p/security-audit` or `r/javascript.lang.security.spawn-git-clone.spawn-git-clone`.
 
-In GitHub Actions, In your repository’s `.github/workflows/semgrep.yml` file, use the `config:` key inside `with:` to specify a rule configuration in the job that runs Semgrep CI in your workflow. You may specify multiple configurations, each on its own `config:` line inside `with:`. See this [example GitHub Actions workflow configuration](sample-ci-configs.md#github-actions).
+For GitHub Actions, if you’re using Semgrep App to manage your configuration, you can use the “Add to policy” button next to any registry rule or ruleset to add it to your workflow.
 
-In GitLab CI/CD, your repository’s `.gitlab-ci.yml` file, specify rule configurations indented within the variable `INPUT_CONFIG` inside the job that runs Semgrep CI in your pipeline. You may specify multiple configurations, each on its own indented line within `INPUT_CONFIG`. See this [example GitLab CI/CD configuration](sample-ci-configs.md#gitlab-ci).
+If you manually added Semgrep CI to your repository using a `.github/workflows/semgrep.yml` file, use the `config:` key inside `with:` to specify a rule configuration in the job that runs Semgrep CI in your workflow. You may specify multiple configurations, each on its own `config:` line inside `with:`. See this [example GitHub Actions workflow configuration](sample-ci-configs.md#github-actions).
+
+For GitLab CI/CD, in your repository’s `.gitlab-ci.yml` file you can specify rule configurations indented within the variable `INPUT_CONFIG` inside the job that runs Semgrep CI in your pipeline. You may specify multiple configurations, each on its own indented line within `INPUT_CONFIG`. See this [example GitLab CI/CD configuration](sample-ci-configs.md#gitlab-ci).
 
 #### Custom rules
 
@@ -111,7 +116,7 @@ See the sections below to learn how to specify rules and rulesets in different C
 
 ### Merge / pull request and branch behavior
 
-In GitHub Actions, to scan only for issues introduced by a branch at pull request time, trigger the Semgrep workflow on a pull request event by adding the following to the Semgrep workflow file:
+For GitHub Actions, to scan only for issues introduced by a branch at pull request time, trigger the Semgrep workflow on a pull request event by adding the following to the Semgrep workflow file:
 
 ```yaml
 on: pull_request
@@ -119,7 +124,7 @@ on: pull_request
 
 Refer to GitHub’s documentation for information on using [multiple events with activity types or configuration](https://docs.github.com/en/actions/reference/events-that-trigger-workflows#example-using-multiple-events-with-activity-types-or-configuration).
 
-In GitLab CI/CD, to only scan for issues introduce by a branch at merge request time, add the following to the Semgrep job in your CI/CD pipeline:
+For GitLab CI/CD, to only scan for issues introduce by a branch at merge request time, add the following to the Semgrep job in your CI/CD pipeline:
 
 ```yaml
 rules:
@@ -130,6 +135,7 @@ rules:
     The `$CI_MERGE_REQUEST_IID` variable is only available when the GitLab pipeline is a merge request pipeline and the merge request is open.
 
 #### Branch scanning
+
 [TODO]
 
 #### Audit mode: disable blocking on a specific CI event
@@ -137,7 +143,7 @@ rules:
 If you want to see findings from your whole repository instead of just the files changed by a pull request, you’d normally set up scans on pushes to your main branch. This can prove difficult when you already have existing issues that Semgrep finds on the main branch—you probably don’t want CI to fail all builds on the main branch until every single finding is addressed. For this case, try using audit mode. In audit mode, Semgrep will collect findings data for you to review, but will never fail the build due to findings.
 
 !!! info
-    In GitHub, the most common event names are `push` and `pull_request`. To enable audit mode on branch pushes in GitHub Actions, set the option `auditOn: push` in your workflow file.
+    In GitHub Actions, the most common event names are `push` and `pull_request`. To enable audit mode on branch pushes in GitHub Actions, set the option `auditOn: push` in your workflow file.
 
     <!-- In GitLab, set `allow_failure: true` for the Semgrep CI job in your `.gitlab-ci.yml` file.  TODO: confirm GitLab behavior and vars -->
 
@@ -155,6 +161,7 @@ To override the default ignore patterns, create a file named `.semgrepignore` an
 For information on ignoring findings in code, see the [ignoring findings page](ignoring-findings.md).
 ### Exit behavior
 
+[TODO]
 
 ## Semgrep App authentication
 
