@@ -173,7 +173,7 @@ If you want to see findings from your whole repository instead of just the files
 
     For other CI providers, look for the correct event name in CI environment’s log output.
 
-### Ignoring files & directories
+### File ignores
 
 Semgrep CI uses a default ignore list that skips common test, build, and dependency directories, including `tests/`, `node_modules/`, `vendor/`, and more. See the full list of ignored items in [the `.semgrepignore` template file](https://github.com/returntocorp/semgrep-action/blob/v1/src/semgrep_agent/templates/.semgrepignore).
 
