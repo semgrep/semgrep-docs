@@ -88,21 +88,21 @@ Using these instructions you can run Semgrep in the following CI providers:
 
 Is your CI provider missing? Let us know by [filing an issue here](https://github.com/returntocorp/semgrep/issues/new?assignees=&labels=&template=feature_request.md&title=).
 
-## Results
+# Results
 
 [TODO]
 
-### Job output
+## Job output
 
 [TODO]
 
-### Integrations
+## Integrations
 
 [TODO]
 
-## Configuration
+# Configuration
 
-### Registry rules and rulesets
+## Registry rules and rulesets
 
 Semgrep CI lets you scan code with rules and rulesets published through the [Semgrep Registry](https://semgrep.dev/explore). Use them by adding the ruleset’s or rule’s identifier to your CI workflow file. Identifiers look like `p/security-audit` or `r/javascript.lang.security.spawn-git-clone.spawn-git-clone`.
 
@@ -112,13 +112,13 @@ If you manually added Semgrep CI to your repository using a `.github/workflows/s
 
 For GitLab CI/CD, in your repository’s `.gitlab-ci.yml` file you can specify rule configurations indented within the variable `INPUT_CONFIG` inside the job that runs Semgrep CI in your pipeline. You may specify multiple configurations, each on its own indented line within `INPUT_CONFIG`. See this [example GitLab CI/CD configuration](sample-ci-configs.md#gitlab-ci).
 
-### Custom rules
+## Custom rules
 
 Run custom rules by using their identifiers (e.g., `s/susan:named-rule`) in the same manner as done for registry rules and rulesets. 
 
 If no rule configuration is found in a GitHub Action workflow or GitLab CI/CD file, Semgrep CI will look for rules specified by configs in the `.semgrep.yml` file in your repository, or load all rules from the `.semgrep/` directory in your repository. If none of these provide a configuration, Semgrep CI will exit with a failing status code.
 
-### Merge and pull requests
+## Merge and pull requests
 
 For GitHub Actions, to scan only for issues introduced by a branch at pull request time, trigger the Semgrep workflow on a pull request event by adding the following to the Semgrep workflow file:
 
@@ -138,7 +138,7 @@ rules:
 !!! info
     The `$CI_MERGE_REQUEST_IID` variable is only available when the GitLab pipeline is a merge request pipeline and the merge request is open.
 
-### Branch scanning
+## Branch scanning
 
 For GitHub Actions, you can run Semgrep CI when code is pushed to any branch by using `on: push`. To run Semgrep CI on all push events to only certain branches (in this example, `main` and `other-branch`), use the following in the Semgrep job:
 
@@ -164,7 +164,7 @@ rules:
 
 [TODO: verify the above GitLab configs]
 
-### Audit mode: disable blocking on a specific CI event
+## Audit mode: disable blocking on a specific CI event
 
 If you want to see findings from your whole repository instead of just the files changed by a pull request, you’d normally set up scans on pushes to your main branch. This can prove difficult when you already have existing issues that Semgrep finds on the main branch—you probably don’t want CI to fail all builds on the main branch until every single finding is addressed. For this case, try using audit mode. In audit mode, Semgrep will collect findings data for you to review, but will never fail the build due to findings.
 
@@ -175,7 +175,7 @@ If you want to see findings from your whole repository instead of just the files
 
     For other CI providers, look for the correct event name in CI environment’s log output.
 
-### File ignores
+## File ignores
 
 Semgrep CI uses a default ignore list that skips common test, build, and dependency directories, including `tests/`, `node_modules/`, `vendor/`, and more. See the full list of ignored items in [the `.semgrepignore` template file](https://github.com/returntocorp/semgrep-action/blob/v1/src/semgrep_agent/templates/.semgrepignore).
 
@@ -185,19 +185,19 @@ To override the default ignore patterns, create a file named `.semgrepignore` an
     `.semgrepignore` is picked up only by Semgrep CI, and is not honored when running Semgrep CLI manually or by the [GitLab Semgrep SAST Analyzer](https://gitlab.com/gitlab-org/security-products/analyzers/semgrep).
 
 For information on ignoring findings in code, see the [ignoring findings page](ignoring-findings.md).
-### Exit behavior
+## Exit behavior
 
 [TODO]
 
-## Semgrep App authentication
+# Semgrep App authentication
 
 To use your Semgrep App account, set `--publish-deployment` and `--publish-token`. These act as your username and password for authentication. You can find the right values for these variables on the [Dashboard > Settings](https://semgrep.dev/manage/settings) page.
 
-### Ignoring specific rules in a ruleset or policy
+## Ignoring specific rules in a ruleset or policy
 
 You can customize the ruleset you're using to ignore some of its rules by [editing the Semgrep App policy](managing-policy.md#editing-a-policy) used for your scans.
 
-### Getting notifications instead of blocking builds
+## Getting notifications instead of blocking builds
 
 Some rules point out hotspots that require careful review but are not certain to be insecure code. You might want to disable blocking when scanning with such rules, and instead use a [CI integration](integrations.md) to get notifications.
 
@@ -258,7 +258,7 @@ so that re-indenting code doesn't create new findings.
 This means that you will get notified about new findings when
 a rule's ID changes, when a file is renamed, and when the code matched by a finding changes. -->
 
-## Usage outside CI
+# Usage outside CI
 
 While Semgrep CI is designed
 for integrating with various CI providers,
