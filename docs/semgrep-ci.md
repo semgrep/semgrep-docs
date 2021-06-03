@@ -22,12 +22,14 @@ With Semgrep CI, you'll:
 You can add Semgrep CI to a GitHub repository by clicking "Set up" on the [Projects page](https://semgrep.dev/manage/projects) of Semgrep App.
 
 !!! info
-    This page will list only the repositories that Semgrep has permission to see. You can add repositories on your organization's settings page on GitHub. Just go to Settings > Installed GitHub Apps > semgrep.dev > Configure and make your changes in the 'Repository access' section.
+    This page will list only the repositories that Semgrep App has permission to see. You can add repositories on your organization's settings page on GitHub. Just go to Settings > Installed GitHub Apps > semgrep.dev > Configure and make your changes in the 'Repository access' section.
 
-You’ll get a chance to configure a few settings, such as whether you want to run on pushes, on pull requests, or on both. Some settings are pre-selected for convenience. When you're done, Semgrep will commit a CI workflow file to your repository.
+You’ll get a chance to configure a few settings, such as whether you want to run on pushes, on pull requests, or on both. Some settings are pre-selected for convenience. When you're done, Semgrep App will commit a CI workflow file to your repository.
 
 !!! warning
-    Semgrep cannot commit this file if there are branch protection rules preventing pushes to your default branch. In this case, you can temporarily disable your branch protection rules, or follow the guide for manual setup.
+    Semgrep App cannot commit this file if there are branch protection rules preventing pushes to your default branch. In this case, temporarily disable your branch protection rules or follow the guide for manual setup.
+
+### Manual setup
 
 To manually add Semgrep CI to GitHub Actions, add a `.github/workflows/semgrep.yml` file to your repository. Follow the [workflow syntax for GitHub Actions](https://docs.github.com/en/actions/reference/workflow-syntax-for-github-actions). See this [example GitHub Actions workflow configuration](sample-ci-configs.md#github-actions) for Semgrep CI.
 ## GitLab CI/CD
@@ -74,8 +76,8 @@ Using these instructions you can run Semgrep in the following CI providers:
 - Buildbot
 - Buildkite [(sample configuration)](sample-ci-configs.md#buildkite)
 - CircleCI [(sample configuration)](sample-ci-configs.md#circleci)
-- Codeship
 - Codefresh
+- Codeship
 - GitHub Actions [(sample configuration)](sample-ci-configs.md#github-actions)
 - GitLab CI [(sample configuration)](sample-ci-configs.md#gitlab-ci)
 - Jenkins
