@@ -1,5 +1,7 @@
 ---
 append_help_link: true
+meta_description: |-
+  Semgrep CI is a wrapper around Semgrep CLI that adds convenient features for use in CI environments, such as in GitHub Actions or GitLab CI/CD. Rapidly scan every commit and get started despite existing bugs with Semgrep CI.
 ---
 
 # Semgrep CI
