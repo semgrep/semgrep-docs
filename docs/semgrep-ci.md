@@ -34,11 +34,11 @@ You’ll get a chance to configure a few settings, such as whether you want to r
 To manually add Semgrep CI to GitHub Actions, add a `.github/workflows/semgrep.yml` file to your repository. Follow the [workflow syntax for GitHub Actions](https://docs.github.com/en/actions/reference/workflow-syntax-for-github-actions). See this [example GitHub Actions workflow configuration](sample-ci-configs.md#github-actions) for Semgrep CI.
 ## GitLab CI/CD
 
-To add Semgrep CI to GitLab CI/CD, add a `.gitlab-ci.yml` file to your repository if not already present. Add a block to this file to run the Semgrep CI job in your pipeline, following [GitLab’s configuration guide for the .gitlab-ci.yml file](https://docs.gitlab.com/ee/ci/yaml/gitlab_ci_yaml.html). See this [example GitLab CI/CD configuration](sample-ci-configs.md#gitlab-ci) for Semgrep CI.
+To add Semgrep CI to GitLab CI/CD, add a `.gitlab-ci.yml` file to your repository if not already present. Add a block to run the Semgrep CI job in your pipeline, following [GitLab’s configuration guide for the .gitlab-ci.yml file](https://docs.gitlab.com/ee/ci/yaml/gitlab_ci_yaml.html). See this [example GitLab CI/CD configuration](sample-ci-configs.md#gitlab-ci) for Semgrep CI.
 
 ## Using Docker with other CI environments
 
-To run Semgrep CI in other CI environments, use the [`returntocorp/semgrep-agent:v1` Docker image](semgrep-ci.md#packaging), and run this command in your Docker container:
+To run Semgrep CI in other CI environments, use the [`returntocorp/semgrep-agent:v1` Docker image](https://hub.docker.com/r/returntocorp/semgrep-agent), and run this command in your Docker container:
 
 ```sh
 semgrep-agent --publish-deployment $SEMGREP_DEPLOYMENT_ID --publish-token $SEMGREP_APP_TOKEN
