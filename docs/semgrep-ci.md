@@ -116,7 +116,7 @@ For GitLab CI/CD, in your repository’s `.gitlab-ci.yml` file you can specify r
 
 [TODO]
 
-See the sections below to learn how to specify rules and rulesets in different CI environments. If no rule configuration is found, Semgrep CI will look for rules specified by configs in the `.semgrep.yml` file in your repository, or load all rules from the `.semgrep/` directory in your repository. If none of these provide a configuration, Semgrep CI will exit with a failing status code.
+If no rule configuration is found, Semgrep CI will look for rules specified by configs in the `.semgrep.yml` file in your repository, or load all rules from the `.semgrep/` directory in your repository. If none of these provide a configuration, Semgrep CI will exit with a failing status code.
 
 ### Merge / pull request and branch behavior
 
