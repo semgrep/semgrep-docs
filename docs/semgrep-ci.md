@@ -44,7 +44,7 @@ To run Semgrep CI in other CI environments, use the [`returntocorp/semgrep-agent
 semgrep-agent --publish-deployment $SEMGREP_DEPLOYMENT_ID --publish-token $SEMGREP_APP_TOKEN
 ```
 
-To get [CI context awareness](semgrep-ci.md#features), you can optionally provide the following environment variables:
+To get CI context awareness, you can optionally provide the following environment variables:
 
 ```sh
 # Set additional environment variables
@@ -61,7 +61,7 @@ SEMGREP_TIMEOUT=1800  # Maximum Semgrep run time in seconds, or 0 to disable tim
 semgrep-agent --publish-deployment $SEMGREP_DEPLOYMENT_ID --publish-token $SEMGREP_APP_TOKEN
 ```
 
-For [diff-aware scans](semgrep-ci.md#features), set the `--baseline-ref` flag to the git ref (branch name, tag, or commit hash) to use as a baseline. For example, to report findings newly added since branching off from your `main` branch, run
+For diff-aware scans, set the `--baseline-ref` flag to the git ref (branch name, tag, or commit hash) to use as a baseline. For example, to report findings newly added since branching off from your `main` branch, run
 
 ```sh
 semgrep-agent --baseline-ref main
