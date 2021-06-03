@@ -102,7 +102,7 @@ Is your CI provider missing? Let us know by [filing an issue here](https://githu
 
 ### Registry rules and rulesets
 
-Semgrep CI lets you scan code with rules and rulesets published through the [Semgrep Registry](https://semgrep.dev/explore), individual users’ saved rules (snippets), or a combination of both. Use any of these by adding the ruleset’s or rule’s identifier to your CI workflow file. Identifiers look like `p/security-audit` or `r/javascript.lang.security.spawn-git-clone.spawn-git-clone`.
+Semgrep CI lets you scan code with rules and rulesets published through the [Semgrep Registry](https://semgrep.dev/explore). Use them by adding the ruleset’s or rule’s identifier to your CI workflow file. Identifiers look like `p/security-audit` or `r/javascript.lang.security.spawn-git-clone.spawn-git-clone`.
 
 For GitHub Actions, if you’re using Semgrep App to manage your configuration, use the “Add to policy” button next to any registry rule or ruleset to add it to a policy.
 
