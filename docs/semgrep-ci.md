@@ -92,7 +92,7 @@ These instructions have been used on the following providers by the community:
 | CircleCI [(sample configuration)](sample-ci-configs.md#circleci) | TeamCity CI |
 | Codefresh | Travis CI |
 
-# Findings
+# Reviewing Findings
 
 ## Scan output
 
@@ -107,7 +107,7 @@ These instructions have been used on the following providers by the community:
 
 * Findings can optionally be consumed via GitLab SAST, GitHub Advanced Security Dashboard, or in services like Slack, MR/PR comments, email, other (App).
 
-# Configuration
+# Advanced Configuration
 
 ## Registry rules and rulesets
 
