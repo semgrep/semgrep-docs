@@ -8,11 +8,11 @@ meta_description: |-
 
 [TODO] - Image of Semgrep, Semgrep CI, CI Environments (GitHub, GitLab, etc.), and optional App connection with external integrations (i.e. illustative "architecture" diagram)
 
-[Semgrep CI](https://github.com/returntocorp/semgrep-action) (aka Semgrep Action or `semgrep-agent`) is a specialized Docker image for running Semgrep in CI environments. It can be used stand-alone or authenticated with [Semgrep App](https://semgrep.dev/login) for centralized rule and result management.
+[Semgrep CI](https://github.com/returntocorp/semgrep-action) (aka Semgrep Action or `semgrep-agent`) is a specialized Docker image for running Semgrep in CI environments. It can be used stand-alone or authenticated with [Semgrep App](https://semgrep.dev/login) for centralized rule and findings management.
 
 - **Scan every commit**. Semgrep CI rapidly scans modified files on pull and merge requests, with longer full project scans configurable on merges to specific branches. Quick scans protect developer productivity.
-- **Block new bugs**. You shouldn't have to fix existing bugs just to adopt a tool. Semgrep CI reports newly introduced issues on pull and merge requests, scanning them at their base and HEAD commits to compare results. Developers are signficantly more likely to fix the issues they introduced themselves on PRs and MRs.
-- **Get results where you work**. Semgrep CI can authenticate to [Semgrep App](https://semgrep.dev/login) to surface results in Slack, on PRs and MRs via inline comments, email, and other 3rd party services.
+- **Block new bugs**. You shouldn't have to fix existing bugs just to adopt a tool. Semgrep CI reports newly introduced issues on pull and merge requests, scanning them at their base and HEAD commits to compare findings. Developers are signficantly more likely to fix the issues they introduced themselves on PRs and MRs.
+- **Get findings where you work**. Semgrep CI can authenticate to [Semgrep App](https://semgrep.dev/login) to surface findings in Slack, on PRs and MRs via inline comments, email, and other 3rd party services.
 
 # Table of contents
 [TOC]
@@ -92,23 +92,20 @@ These instructions have been used on the following providers by the community:
 | CircleCI [(sample configuration)](sample-ci-configs.md#circleci) | TeamCity CI |
 | Codefresh | Travis CI |
 
-# Results
+# Findings
+
+## Scan output
 
 [TODO]
 
-## Job output
-
-[TODO]
-
-* Semgrep CI returns a non-zero exit code (result) and prints findings
-* TODO sample output of a result, screenshot from actual provider or two?
-* 
+* Semgrep CI returns a non-zero exit code (TODO - link to section) and prints findings
+* TODO sample output screenshots from actual provider or two?
 
 ## Integrations
 
 [TODO]
 
-* Results can optionally be consumed via GitLab SAST, GitHub Advanced Security Dashboard, or in services like Slack, MR/PR comments, email, other (App).
+* Findings can optionally be consumed via GitLab SAST, GitHub Advanced Security Dashboard, or in services like Slack, MR/PR comments, email, other (App).
 
 # Configuration
 
