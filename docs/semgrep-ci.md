@@ -6,12 +6,13 @@ meta_description: |-
 
 # Semgrep CI
 
-[Semgrep CI](https://github.com/returntocorp/semgrep-action) (aka Semgrep Action or `semgrep-agent`) is a specialized Docker image for running Semgrep in CI environments. It can be used stand-alone or authenticated with [Semgrep App](https://semgrep.dev/login) for centralized management.
+[Semgrep CI](https://github.com/returntocorp/semgrep-action) (aka Semgrep Action or `semgrep-agent`) is a specialized Docker image for running Semgrep in CI environments. It can be used stand-alone or authenticated with [Semgrep App](https://semgrep.dev/login) for centralized rule and result management.
 
-With Semgrep CI, you'll:
+- **Scan every commit**. Semgrep CI rapidly scans modified files on pull and merge requests, with longer full project scans configurable on merges to specific branches. Quick scans protect developer productivity.
+- **Find bugs moving forward**. You shouldn't have to fix existing bugs just to adopt a tool. Semgrep CI reports newly introduced issues on pull and merge requests, scanning them at their base and HEAD commits to compare results. Developers are signficantly more likely to fix the issues they introduced themselves on PRs and MRs.
+- **Integrate with your existing workflow**. Semgrep CI can authenticate to [Semgrep App](https://semgrep.dev/login) for use with Slack, inline PR and MR comments, email, and other 3rd party services.
 
-- **Rapidly scan every commit**. Only changed files in pull requests are scanned, signficantly reducing run times and keeping developers moving quickly. Full project scans can be configured for merges to branches.
-- **Get started despite existing bugs**. You don’t have to fix existing bugs to adopt Semgrep CI. With it's diff-aware scanning pull requests are scanned at their base and HEAD commits, with only the new findings reported.
+[TODO] - Image of Semgrep, Semgrep CI, CI Environment, and optional App connection (i.e. illustative "architecture" diagram)
 
 [TOC]
 
