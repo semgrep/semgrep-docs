@@ -32,16 +32,27 @@ To manually add Semgrep CI to GitHub Actions, add a `.github/workflows/semgrep.y
 
 To add Semgrep CI to GitLab CI/CD, add a `.gitlab-ci.yml` file to your repository if not already present. Add a block to run the Semgrep CI job in your pipeline, following [GitLab’s configuration guide for the .gitlab-ci.yml file](https://docs.gitlab.com/ee/ci/yaml/gitlab_ci_yaml.html). See this [example GitLab CI/CD configuration](sample-ci-configs.md#gitlab-ci) for Semgrep CI.
 
-## Using Docker with other CI environments
+## Other CI providers
 
-To run Semgrep CI in other CI environments, use the [`returntocorp/semgrep-agent:v1` Docker image](https://hub.docker.com/r/returntocorp/semgrep-agent), and run this command in your Docker container:
+To add Semgrep CI to any CI environment, use the [`returntocorp/semgrep-agent:v1`](https://hub.docker.com/r/returntocorp/semgrep-agent) Docker image directly:
+
+[TODO make less app specific, specify configs???]
+
+For full project scans:
 
 ```sh
-semgrep-agent --publish-deployment $SEMGREP_DEPLOYMENT_ID --publish-token $SEMGREP_APP_TOKEN
+docker run -v $(pwd):/src --workdir /src returntocorp/semgrep-agent:v1 semgrep-agent --publish-deployment $SEMGREP_DEPLOYMENT_ID --publish-token $SEMGREP_APP_TOKEN
 ```
 
-To get CI context awareness, you can optionally provide the following environment variables:
+For pull or merge request scans that return only newly introduced issues, set the `--baseline-ref` flag to the git ref (branch name, tag, or commit hash) to use as a baseline. Semgrep will determine the files that have been modified since this reference point and return only newly introduced issues. For example, to report findings newly added since branching off from your `main` branch, run
 
+```sh
+semgrep-agent --baseline-ref main
+```
+
+To connect your Semgrep CI scans to Semgrep App, you can optionally provide the following environment variables:
+
+<details><summary>Environment Variables</summary>
 ```sh
 # Set additional environment variables
 SEMGREP_BRANCH=mybranch
@@ -56,12 +67,9 @@ SEMGREP_TIMEOUT=1800  # Maximum Semgrep run time in seconds, or 0 to disable tim
 # Run semgrep_agent
 semgrep-agent --publish-deployment $SEMGREP_DEPLOYMENT_ID --publish-token $SEMGREP_APP_TOKEN
 ```
+</details>
+</br>
 
-For diff-aware scans, set the `--baseline-ref` flag to the git ref (branch name, tag, or commit hash) to use as a baseline. For example, to report findings newly added since branching off from your `main` branch, run
-
-```sh
-semgrep-agent --baseline-ref main
-```
 
 Using these instructions you can run Semgrep in the following CI providers:
 
