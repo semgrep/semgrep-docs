@@ -14,6 +14,7 @@ meta_description: |-
 - **Find bugs moving forward**. You shouldn't have to fix existing bugs just to adopt a tool. Semgrep CI reports newly introduced issues on pull and merge requests, scanning them at their base and HEAD commits to compare results. Developers are signficantly more likely to fix the issues they introduced themselves on PRs and MRs.
 - **Integrate with your existing workflow**. Semgrep CI can authenticate to [Semgrep App](https://semgrep.dev/login) for use with Slack, inline PR and MR comments, email, and other 3rd party services.
 
+# Table of contents
 [TOC]
 
 # Getting started
