@@ -73,6 +73,9 @@ jobs:
           publishToken: ${{ secrets.SEMGREP_APP_TOKEN }}
           publishDeployment: ${{ secrets.SEMGREP_DEPLOYMENT_ID }}
 
+        # Skip any PR created by dependabot to avoid permissioning issues
+        # if: (github.actor != 'dependabot[bot]')
+
           # Never fail the build due to findings on pushes, but collect findings data
           #auditOn: push
 
