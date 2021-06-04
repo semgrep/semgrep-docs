@@ -18,6 +18,12 @@ meta_description: |-
 [TOC]
 
 # Getting started
+
+[TODO] - Finish explaining process as a 1, 2, 3
+
+1. add to CI pipeline, either with specialty config (GitHub, GitLab) or generically using the docker image with flags
+2. choose to run on mr/prs, merge to branch, or both
+3. select registry rules. We provide some good default rules in the sample configs, otherwise see the Registry
 ## GitHub Actions
 
 !!! info
