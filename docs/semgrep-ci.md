@@ -253,7 +253,7 @@ so that re-indenting code doesn't create new findings.
 This means that you will get notified about new findings when
 a rule's ID changes, when a file is renamed, and when the code matched by a finding changes. -->
 
-# Usage outside CI
+<!-- # Usage outside CI
 
 While Semgrep CI is designed
 for integrating with various CI providers,
@@ -294,4 +294,4 @@ docker run -v $(pwd):/src --workdir /src returntocorp/semgrep-agent:v1 semgrep-a
     to make your working directory accessible to the container.
     `--config p/ci` is the Semgrep rule configuration,
     which can be changed to any value
-    that `semgrep` itself understands.
+    that `semgrep` itself understands. -->
