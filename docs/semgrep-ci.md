@@ -6,13 +6,13 @@ meta_description: |-
 
 # Semgrep CI
 
+[TODO] - Image of Semgrep, Semgrep CI, CI Environments (GitHub, GitLab, etc.), and optional App connection with external integrations (i.e. illustative "architecture" diagram)
+
 [Semgrep CI](https://github.com/returntocorp/semgrep-action) (aka Semgrep Action or `semgrep-agent`) is a specialized Docker image for running Semgrep in CI environments. It can be used stand-alone or authenticated with [Semgrep App](https://semgrep.dev/login) for centralized rule and result management.
 
 - **Scan every commit**. Semgrep CI rapidly scans modified files on pull and merge requests, with longer full project scans configurable on merges to specific branches. Quick scans protect developer productivity.
 - **Find bugs moving forward**. You shouldn't have to fix existing bugs just to adopt a tool. Semgrep CI reports newly introduced issues on pull and merge requests, scanning them at their base and HEAD commits to compare results. Developers are signficantly more likely to fix the issues they introduced themselves on PRs and MRs.
 - **Integrate with your existing workflow**. Semgrep CI can authenticate to [Semgrep App](https://semgrep.dev/login) for use with Slack, inline PR and MR comments, email, and other 3rd party services.
-
-[TODO] - Image of Semgrep, Semgrep CI, CI Environments (GitHub, GitLab, etc.), and optional App connection with external integrations (i.e. illustative "architecture" diagram)
 
 [TOC]
 
@@ -36,12 +36,12 @@ To add Semgrep CI to GitLab CI/CD, add a `.gitlab-ci.yml` file to your repositor
 
 To add Semgrep CI to any CI environment, use the [`returntocorp/semgrep-agent:v1`](https://hub.docker.com/r/returntocorp/semgrep-agent) Docker image directly:
 
-[TODO make less app specific, specify configs???]
-
 For full project scans:
 
 ```sh
-docker run -v $(pwd):/src --workdir /src returntocorp/semgrep-agent:v1 semgrep-agent --publish-deployment $SEMGREP_DEPLOYMENT_ID --publish-token $SEMGREP_APP_TOKEN
+$ docker run -v $(pwd):/src --workdir /src returntocorp/semgrep-agent:v1 semgrep-agent --config p/ci --config <other rule or rulesets>
+
+# [TODO make less app specific, specify configs???]
 ```
 
 For pull or merge request scans that return only newly introduced issues, set the `--baseline-ref` flag to the git ref (branch name, tag, or commit hash) to use as a baseline. Semgrep will determine the files that have been modified since this reference point and return only newly introduced issues. For example, to report findings newly added since branching off from your `main` branch, run
@@ -69,26 +69,18 @@ semgrep-agent --publish-deployment $SEMGREP_DEPLOYMENT_ID --publish-token $SEMGR
 ```
 </details>
 </br>
+These instructions have been used on the following providers by the community:
 
+[ TODO ] - Add small svg icons before references to CI/CD systems? Make sure sample configs aren't app-specific
 
-Using these instructions you can run Semgrep in the following CI providers:
-
-- AppVeyor
-- Bamboo
-- Bitbucket Pipelines
-- Bitrise
-- Buildbot
-- Buildkite [(sample configuration)](sample-ci-configs.md#buildkite)
-- CircleCI [(sample configuration)](sample-ci-configs.md#circleci)
-- Codefresh
-- Codeship
-- GitHub Actions [(sample configuration)](sample-ci-configs.md#github-actions)
-- GitLab CI [(sample configuration)](sample-ci-configs.md#gitlab-ci)
-- Jenkins
-- TeamCity CI
-- Travis CI
-
-Is your CI provider missing? Let us know by [filing an issue here](https://github.com/returntocorp/semgrep/issues/new?assignees=&labels=&template=feature_request.md&title=).
+| CI Providers         |                       |  
+|:---------- |:---------------------------|
+| Bitbucket Pipelines | Codeship |
+| Bitrise | GitHub Actions [(sample configuration)](sample-ci-configs.md#github-actions) |
+| Buildbot | GitLab CI [(sample configuration)](sample-ci-configs.md#gitlab-ci) |
+| Buildkite [(sample configuration)](sample-ci-configs.md#buildkite) | Jenkins |
+| CircleCI [(sample configuration)](sample-ci-configs.md#circleci) | TeamCity CI |
+| Codefresh | Travis CI |
 
 # Results
 
