@@ -12,30 +12,23 @@ meta_description: |-
 - **Find bugs moving forward**. You shouldn't have to fix existing bugs just to adopt a tool. Semgrep CI reports newly introduced issues on pull and merge requests, scanning them at their base and HEAD commits to compare results. Developers are signficantly more likely to fix the issues they introduced themselves on PRs and MRs.
 - **Integrate with your existing workflow**. Semgrep CI can authenticate to [Semgrep App](https://semgrep.dev/login) for use with Slack, inline PR and MR comments, email, and other 3rd party services.
 
-[TODO] - Image of Semgrep, Semgrep CI, CI Environment, and optional App connection (i.e. illustative "architecture" diagram)
+[TODO] - Image of Semgrep, Semgrep CI, CI Environments (GitHub, GitLab, etc.), and optional App connection with external integrations (i.e. illustative "architecture" diagram)
 
 [TOC]
 
 # Getting started
-
 ## GitHub Actions
 
-### Automatic setup
-
-You can add Semgrep CI to a GitHub repository by clicking "Set up" on the [Projects page](https://semgrep.dev/manage/projects) of Semgrep App.
-
 !!! info
-    This page will list only the repositories that Semgrep App has permission to see. You can add repositories on your organization's settings page on GitHub. Just go to Settings > Installed GitHub Apps > semgrep.dev > Configure and make your changes in the 'Repository access' section.
+    You can add Semgrep CI automatically to a GitHub repository by clicking "Set up" on the [Projects page](https://semgrep.dev/manage/projects) of Semgrep App. You'll be able to adjust pull request and  merge behavior before Semgrep App asks to commit a workflow file to your repository.
 
-You’ll get a chance to configure a few settings, such as whether you want to run on pushes, on pull requests, or on both. Some settings are pre-selected for convenience. When you're done, Semgrep App will commit a CI workflow file to your repository.
-
-!!! warning
-    Semgrep App cannot commit this file if there are branch protection rules preventing pushes to your default branch. In this case, temporarily disable your branch protection rules or follow the guide for manual setup.
-
-### Manual setup
+    Semgrep App cannot commit if there are branch protection rules preventing pushes to your default branch. Temporarily disable that feature or follow the guide below for manual setup.
 
 To manually add Semgrep CI to GitHub Actions, add a `.github/workflows/semgrep.yml` file to your repository. Follow the [workflow syntax for GitHub Actions](https://docs.github.com/en/actions/reference/workflow-syntax-for-github-actions). See this [example GitHub Actions workflow configuration](sample-ci-configs.md#github-actions) for Semgrep CI.
 ## GitLab CI/CD
+
+!!! info
+    Automatic setup is coming to GitLab CI/CD soon, where Semgrep App can commit Semgrep CI configurations to your projects. [Sign up for the beta here](TODO)!
 
 To add Semgrep CI to GitLab CI/CD, add a `.gitlab-ci.yml` file to your repository if not already present. Add a block to run the Semgrep CI job in your pipeline, following [GitLab’s configuration guide for the .gitlab-ci.yml file](https://docs.gitlab.com/ee/ci/yaml/gitlab_ci_yaml.html). See this [example GitLab CI/CD configuration](sample-ci-configs.md#gitlab-ci) for Semgrep CI.
 
