@@ -11,8 +11,8 @@ meta_description: |-
 [Semgrep CI](https://github.com/returntocorp/semgrep-action) (aka Semgrep Action or `semgrep-agent`) is a specialized Docker image for running Semgrep in CI environments. It can be used stand-alone or authenticated with [Semgrep App](https://semgrep.dev/login) for centralized rule and result management.
 
 - **Scan every commit**. Semgrep CI rapidly scans modified files on pull and merge requests, with longer full project scans configurable on merges to specific branches. Quick scans protect developer productivity.
-- **Find bugs moving forward**. You shouldn't have to fix existing bugs just to adopt a tool. Semgrep CI reports newly introduced issues on pull and merge requests, scanning them at their base and HEAD commits to compare results. Developers are signficantly more likely to fix the issues they introduced themselves on PRs and MRs.
-- **Integrate with your existing workflow**. Semgrep CI can authenticate to [Semgrep App](https://semgrep.dev/login) for use with Slack, inline PR and MR comments, email, and other 3rd party services.
+- **Block new bugs**. You shouldn't have to fix existing bugs just to adopt a tool. Semgrep CI reports newly introduced issues on pull and merge requests, scanning them at their base and HEAD commits to compare results. Developers are signficantly more likely to fix the issues they introduced themselves on PRs and MRs.
+- **Get results where you work**. Semgrep CI can authenticate to [Semgrep App](https://semgrep.dev/login) to surface results in Slack, on PRs and MRs via inline comments, email, and other 3rd party services.
 
 # Table of contents
 [TOC]
@@ -24,9 +24,14 @@ meta_description: |-
 1. add to CI pipeline, either with specialty config (GitHub, GitLab) or generically using the docker image with flags
 2. choose to run on mr/prs, merge to branch, or both
 3. select registry rules. We provide some good default rules in the sample configs, otherwise see the Registry
+
+Default behaviour?
+
+* not --strict
+* timeout of XYZ
 ## GitHub Actions
 
-!!! info
+!!! note
     You can add Semgrep CI automatically to a GitHub repository by clicking "Set up" on the [Projects page](https://semgrep.dev/manage/projects) of Semgrep App. You'll be able to adjust pull request and  merge behavior before Semgrep App asks to commit a workflow file to your repository.
 
 To manually add Semgrep CI to GitHub Actions, add a `.github/workflows/semgrep.yml` file to your repository. Follow the [workflow syntax for GitHub Actions](https://docs.github.com/en/actions/reference/workflow-syntax-for-github-actions). See this [example GitHub Actions workflow configuration](sample-ci-configs.md#github-actions) for Semgrep CI.
@@ -95,9 +100,15 @@ These instructions have been used on the following providers by the community:
 
 [TODO]
 
+* Semgrep CI returns a non-zero exit code (result) and prints findings
+* TODO sample output of a result, screenshot from actual provider or two?
+* 
+
 ## Integrations
 
 [TODO]
+
+* Results can optionally be consumed via GitLab SAST, GitHub Advanced Security Dashboard, or in services like Slack, MR/PR comments, email, other (App).
 
 # Configuration
 
