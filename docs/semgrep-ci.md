@@ -240,7 +240,9 @@ By default Semgrep CI skips files and directories such as `tests/`, `node_module
 
 For information on ignoring individual findings in code, see the [ignoring findings page](ignoring-findings.md).
 
-## Audit mode: disable blocking on a specific CI event
+## Audit scans
+
+Disable blocking on a specific CI event.
 
 If you want to see findings from your whole repository instead of just the files changed by a pull request, you’d normally set up scans on pushes to your main branch. This can prove difficult when you already have existing issues that Semgrep finds on the main branch—you probably don’t want CI to fail all builds on the main branch until every single finding is addressed. For this case, try using audit mode. In audit mode, Semgrep will collect findings data for you to review, but will never fail the build due to findings.
 
@@ -255,15 +257,15 @@ If you want to see findings from your whole repository instead of just the files
 
 [TODO]
 
-# Semgrep App authentication
+## Semgrep App authentication
 
 To use your Semgrep App account, set `--publish-deployment` and `--publish-token`. These act as your username and password for authentication. You can find the right values for these variables on the [Dashboard > Settings](https://semgrep.dev/manage/settings) page.
 
-## Ignoring specific rules in a ruleset or policy
+### Ignoring specific rules in a ruleset or policy
 
 You can customize the ruleset you're using to ignore some of its rules by [editing the Semgrep App policy](managing-policy.md#editing-a-policy) used for your scans.
 
-## Getting notifications instead of blocking builds
+### Getting notifications instead of blocking builds
 
 Some rules point out hotspots that require careful review but are not certain to be insecure code. You might want to disable blocking when scanning with such rules, and instead use a [CI integration](integrations.md) to get notifications.
 
