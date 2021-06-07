@@ -132,6 +132,7 @@ python.flask.security.injection.os-system-injection.os-system-injection
 </details>
 </br>
 
+<a id="blocking-vs-non-blocking"></a>
 !!! note
     Rules are 'blocking' by default and behave as described above.
     When connected to Semgrep App, you can also add non-blocking rules to your scans.
@@ -266,11 +267,13 @@ If you want to see findings from your whole repository instead of just the files
 
 ## Exit codes
 
-| Exit code | Cause |
+| Exit code | Meaning |
 | --- | --- |
 | **0** | Scan completed successfully and found no blocking findings |
 | **1** | Scan completed successfully and found blocking findings |
 | **2** | Scan failed and printed the error's details |
+
+[Non-blocking findings](#blocking-vs-non-blocking) do not affect the exit code.
 
 ## Semgrep App authentication
 
