@@ -18,6 +18,7 @@ meta_description: |-
     Semgrep CI runs fully in your build environment: code is never sent anywhere.
 
 # Table of contents
+
 [TOC]
 
 # Getting started
@@ -38,6 +39,7 @@ See [Advanced Configuration](TODO) for further customizations, such as ignoring 
     You can add Semgrep CI automatically to a GitHub repository by clicking "Set up" on the [Projects page](https://semgrep.dev/manage/projects) of Semgrep App. You'll be able to adjust pull request and  merge behavior before Semgrep App asks to commit a workflow file to your repository.
 
 To manually add Semgrep CI to GitHub Actions, add a `.github/workflows/semgrep.yml` file to your repository. Follow the [workflow syntax for GitHub Actions](https://docs.github.com/en/actions/reference/workflow-syntax-for-github-actions). See this [example GitHub Actions workflow configuration](sample-ci-configs.md#github-actions) for Semgrep CI.
+
 ## GitLab CI/CD
 
 !!! info
@@ -78,7 +80,9 @@ SEMGREP_PR_TITLE="Added four new bugs"  # shown in Slack notifications if set
 SEMGREP_TIMEOUT=1800  # Maximum Semgrep run time in seconds, or 0 to disable timeouts
 
 # Run semgrep_agent
+
 semgrep-agent --publish-deployment $SEMGREP_DEPLOYMENT_ID --publish-token $SEMGREP_APP_TOKEN
+
 ```
 </details>
 </br>
@@ -99,15 +103,47 @@ These instructions have been used on the following providers by the community:
 
 ## Scan output
 
-[TODO]
+Semgrep CI exits with exit code 1 if the scan returned any findings.
+This will cause your CI provider to show a red ❌ next to the job.
+You can find a description of the findings in the log output.
 
-* Semgrep CI returns a non-zero exit code (TODO - link to section) and prints findings
-* TODO sample output screenshots from actual provider or two?
+<details>
+<summary>Click for an example of Semgrep CI's job output</summary>
+```
+
+=== looking for current issues in 1 file
+| 1 current issue found
+=== looking for pre-existing issues in 1 file
+| No pre-existing issues found
+python.flask.security.injection.os-system-injection.os-system-injection
+     > flask_todomvc/todos.py:30
+     ╷
+   30│   os.system(id)
+     ╵
+     = User data detected in os.system. This could be vulnerable to a command
+       injection and should be avoided. If this must be done, use the
+       'subprocess' module instead and pass the arguments as a list.
+=== exiting with failing status
+
+```
+</details>
+
+!!! note
+    Rules are 'blocking' by default and behave as described above.
+    When connected to Semgrep App, you can also add non-blocking rules to your scans.
+    Non-blocking rules return non-blocking findings which notify you via an [integration](#integrations)
+    but do not show up in log output,
+    and do not cause jobs to fail with a red ❌.
 
 ## Integrations
 
 [TODO]
 
+When connected to Semgrep App, you can set up notifications via:
+
+- Inline GitHub pull request comments
+- 
+Instead, get notified about them via pull request comments, Slack, or email by configuring an [integration](integrations.md).
 * Findings can optionally be consumed via GitLab SAST, GitHub Advanced Security Dashboard, or in services like Slack, MR/PR comments, email, other (App).
 
 # Advanced Configuration
@@ -195,6 +231,7 @@ To override the default ignore patterns, create a file named `.semgrepignore` an
     `.semgrepignore` is picked up only by Semgrep CI, and is not honored when running Semgrep CLI manually or by the [GitLab Semgrep SAST Analyzer](https://gitlab.com/gitlab-org/security-products/analyzers/semgrep).
 
 For information on ignoring findings in code, see the [ignoring findings page](ignoring-findings.md).
+
 ## Exit behavior
 
 [TODO]
@@ -251,7 +288,6 @@ When using other providers, you need to set environment variables
 that tell Semgrep CI what it should use as the baseline commit.
 Many of our [sample CI configs for various providers](sample-ci-configs.md)
 set these environment variables.
-
 
 In diff-aware scans,
 Semgrep CI determines which findings are new
