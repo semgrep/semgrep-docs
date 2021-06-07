@@ -252,18 +252,16 @@ By default Semgrep CI skips files and directories such as `tests/`, `node_module
 
 For information on ignoring individual findings in code, see the [ignoring findings page](ignoring-findings.md).
 
-## Audit scans
+## Audit scans (GitHub Actions only)
 
-Disable blocking on a specific CI event.
+!!! note
+    This feature is currently experimental for GitHub Action users.
 
-If you want to see findings from your whole repository instead of just the files changed by a pull request, you’d normally set up scans on pushes to your main branch. This can prove difficult when you already have existing issues that Semgrep finds on the main branch—you probably don’t want CI to fail all builds on the main branch until every single finding is addressed. For this case, try using audit mode. In audit mode, Semgrep will collect findings data for you to review, but will never fail the build due to findings.
+Semgrep CI has an audit mode that can be enabled to suppress non-zero exit codes when findings are found during branch scans. These scans are not differential in nature and by default pre-existing findings will fail the build. With audit mode enabled, even though findings will not cause non-zero exit codes, internal Semgrep errors and exception will still fail the build.
 
-!!! info
-    In GitHub Actions, the most common event names are `push` and `pull_request`. To enable audit mode on branch pushes in GitHub Actions, set the option `auditOn: push` in your workflow file.
+This behavior is beneficial for those who want to ensure every merge to a branch is fully scanned but who don't want to interfere with the development process becuase of pre-existing issues. In this mode, [security dashboards]((#security-dashboards)) can still be kept up to date and [notifications](#notifications) can be received.
 
-    <!-- In GitLab, set `allow_failure: true` for the Semgrep CI job in your `.gitlab-ci.yml` file.  TODO: confirm GitLab behavior and vars -->
-
-    For other CI providers, look for the correct event name in CI environment’s log output.
+In GitHub Actions, the most common event names are `push` and `pull_request`. To enable audit mode on branch pushes in GitHub Actions, set the option `auditOn: push` in your workflow file.
 
 ## Exit codes
 
