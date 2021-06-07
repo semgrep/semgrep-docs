@@ -29,9 +29,9 @@ Semgrep CI behaves like other static analysis and linting tools: it runs a set o
 
 Start by copying the below relevant template for your CI provider. Read through the comments in the template to adjust when and what Semgrep CI scans, selecting pull and merge requests, merges to branches, or both.
 
-Once Semgrep CI is running, explore the [Semgrep Registry](TODO) to find and add more project-specific rules.
+Once Semgrep CI is running, explore the [Semgrep Registry](https://semgrep.dev/explore) to find and add more project-specific rules.
 
-See [Advanced Configuration](TODO) for further customizations, such as ignoring files and tuning performance.
+See [Advanced Configuration](#advanced-configuration) for further customizations, such as ignoring files and tuning performance.
 
 ## GitHub Actions
 
@@ -198,7 +198,7 @@ You can review Semgrep CI's findings via:
 !!! info
     These instructions apply to stand-alone Semgrep CI use. For use with Semgrep App please use the "Add to policy" button next to any registry rule or ruleset, or visit [Dashboard > Policies](https://semgrep.dev/manage/policies).
 
-Semgrep CI accepts a list of rules and rulesets to run on each scan. To add from the [Semgrep Registry](https://semgrep.dev/explore), just include the rule or ruleset identifier in your CI workflow file. Identifiers take the form `p/<ruleset-id>` and `r/<rule-id>`. These identifiers can be copied directly for any rule or ruleset directly from the Registry, and run locally using the `--config <identifier>` flag with the [Semgrep command-line tool](TODO).
+Semgrep CI accepts a list of rules and rulesets to run on each scan. To add from the [Semgrep Registry](https://semgrep.dev/explore), just include the rule or ruleset identifier in your CI workflow file. Identifiers take the form `p/<ruleset-id>` and `r/<rule-id>`. These identifiers can be copied directly for any rule or ruleset directly from the Registry, and run locally using the `--config <identifier>` flag with the [Semgrep command-line tool](getting-started.md#run-semgrep-locally).
 
 For example, in GitLab CI/CD:
 
