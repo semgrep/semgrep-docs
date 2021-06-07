@@ -132,11 +132,10 @@ python.flask.security.injection.os-system-injection.os-system-injection
 </details>
 </br>
 
-<a id="blocking-vs-non-blocking"></a>
 !!! note
     Rules are 'blocking' by default and behave as described above.
     When connected to Semgrep App, you can also add non-blocking rules to your scans.
-    Non-blocking rules return non-blocking findings which notify you via an [integration](#integrations)
+    Non-blocking rules return [non-blocking findings](#getting-notifications-instead-of-blocking-builds) which notify you via an integration
     but do not show up in log output,
     and do not cause jobs to fail with a ❌.
 
@@ -271,11 +270,11 @@ In GitHub Actions, the most common event names are `push` and `pull_request`. To
 | **1** | Scan completed successfully and found blocking findings |
 | **2** | Scan failed and printed the error's details |
 
-[Non-blocking findings](#blocking-vs-non-blocking) do not affect the exit code.
+[Non-blocking findings](#getting-notifications-instead-of-blocking-builds) do not affect the exit code.
 
 ## Semgrep App authentication
 
-To use your Semgrep App account, set `--publish-deployment` and `--publish-token`. These act as your username and password for authentication. You can find the right values for these variables on the [Dashboard > Settings](https://semgrep.dev/manage/settings) page.
+To use your Semgrep App account, set `--publish-deployment` and `--publish-token`. These act as your username and password for authentication. You can find the right values for these flags on the [Dashboard > Settings](https://semgrep.dev/manage/settings) page.
 
 ### Ignoring specific rules in a ruleset or policy
 
