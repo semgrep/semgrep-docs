@@ -98,8 +98,6 @@ Scans on merge requests are diff-aware and will report only newly added findings
 This sample configuration
 will run Semgrep on merge requests, and pushes to your default branch.
 
-<!-- TODO: change INPUT_CONFIG to SEMGREP_RULES -->
-
 ```yaml
 semgrep:
   image: returntocorp/semgrep-agent:v1

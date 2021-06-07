@@ -147,6 +147,11 @@ whether you're a developer or part of a security team.
 
 ### Notifications
 
+<p style="text-align: center; font-size: 12px">
+    <img width="600px" src="../img/slack-notification.png" alt="Screenshot of a Slack notification describing the details of a finding"/><br/>
+    A Slack notification triggered by new findings in a pull request
+</p>
+
 You can get notified about new findings via:
 
 - [GitHub pull request comments](integrations.md#pull-request-comments)
@@ -162,7 +167,7 @@ Notifications require connection to Semgrep App. To set up notifications:
 as a policy action. Only the rules in these policies will trigger notifications.
 
 !!! note
-    Notifications will be triggered only the first time a given finding is seen.
+    Notifications will be sent only the first time a given finding is seen.
 
     Because of Semgrep CI's diff-awareness, you will not be notified
     when a pull request has a finding that existed on the base branch already,
@@ -173,6 +178,11 @@ as a policy action. Only the rules in these policies will trigger notifications.
     won't send duplicate notifications either.
 
 ### Security Dashboards
+
+<p style="text-align: center; font-size: 12px">
+    <img width="600px" src="../img/semgrep-app-overview.png" alt="Screenshot of Semgrep App's findings dashboard showing a bar chart of findings over time, and a list of the most recent findings"/><br/>
+    Semgrep App's findings overview page
+</p>
 
 A security dashboard gives you an overview of all your findings organization-wide.
 You can review Semgrep CI's findings via:
@@ -195,7 +205,7 @@ For example, in GitLab CI/CD:
 ```yaml
 # ...
  variables:
-    INPUT_CONFIG: >-
+    SEMGREP_RULES: >-
       p/security-audit
       p/secrets
 # ...
@@ -219,12 +229,13 @@ For example, in GitLab CI/CD:
 ```yaml
 # ...
  variables:
-    INPUT_CONFIG: >-
+    SEMGREP_RULES: >-
       s/dlukeomalley:translation-of-non-string  # Playground share ID
       no-exec.yml                               # File containing one or more rules
       .semgrep/                                 # Directory containing rule yaml files 
 # ...
 ```
+
 If configuration is provided and no `.semgrep.yml` or `.semgrep/` directory exists, Semgrep CI will exit with a non-zero error code.
 
 [ TODO - QA this and make sure the logic is right]
