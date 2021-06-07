@@ -137,10 +137,7 @@ python.flask.security.injection.os-system-injection.os-system-injection
 
 ## Integrations
 
-[TODO]
-
-When connected to Semgrep App, you can set up notifications via:
-
+You can rview
 - Inline GitHub pull request comments
 - 
 Instead, get notified about them via pull request comments, Slack, or email by configuring an [integration](integrations.md).
