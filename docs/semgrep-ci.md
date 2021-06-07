@@ -199,7 +199,7 @@ For example, in GitLab CI/CD:
 # ...
 ```
 
-Key names and configuration format for specific CI providers are available in the [Getting Started templates](TODO link to getting started templates).
+Key names and configuration format for specific CI providers are available in the [Getting Started templates](#getting-started).
 
 ## Custom rules
 
@@ -212,7 +212,18 @@ Your own custom rules can be added to your Semgrep CI configuration just like [R
 2. Adding the directory or file path to the local file containing the rule
 3. Adding the rule to a `.semgrep/` directory, which is included by default
 
-If none of these provide a configuration, and no other rules are specified in your config, Semgrep CI will exit with a non-zero error code.
+For example, in GitLab CI/CD:
+
+```yaml
+# ...
+ variables:
+    INPUT_CONFIG: >-
+      s/dlukeomalley:translation-of-non-string  # Playground share ID
+      no-exec.yml                               # File containing one or more rules
+      .semgrep/                                 # Directory containing rule yaml files 
+# ...
+```
+If configuration is provided and no `.semgrep.yml` or `.semgrep/` directory exists, Semgrep CI will exit with a non-zero error code.
 
 [ TODO - QA this and make sure the logic is right]
 
