@@ -104,7 +104,7 @@ These instructions have been used on the following providers by the community:
 ## Scan output
 
 Semgrep CI exits with exit code 1 if the scan returned any findings.
-This will cause your CI provider to show a red ❌ next to the job.
+This will cause your CI provider to show a ❌ next to the job.
 You can find a description of the findings in the log output.
 
 <details>
@@ -130,13 +130,14 @@ python.flask.security.injection.os-system-injection.os-system-injection
 ```
 
 </details>
+</br>
 
 !!! note
     Rules are 'blocking' by default and behave as described above.
     When connected to Semgrep App, you can also add non-blocking rules to your scans.
     Non-blocking rules return non-blocking findings which notify you via an [integration](#integrations)
     but do not show up in log output,
-    and do not cause jobs to fail with a red ❌.
+    and do not cause jobs to fail with a ❌.
 
 ## Integrations
 
