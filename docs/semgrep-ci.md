@@ -272,7 +272,7 @@ In GitHub Actions, the most common event names are `push` and `pull_request`. To
 
 [Non-blocking findings](#getting-notifications-instead-of-blocking-builds) do not affect the exit code.
 
-## Semgrep App authentication
+## Semgrep App connection
 
 To use your Semgrep App account, set `--publish-deployment` and `--publish-token`. These act as your username and password for authentication. You can find the right values for these flags on the [Dashboard > Settings](https://semgrep.dev/manage/settings) page.
 
