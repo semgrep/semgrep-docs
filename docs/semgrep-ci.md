@@ -195,10 +195,18 @@ Key names and configuration format for specific CI providers are available in th
 
 ## Custom rules
 
-Run custom rules by using their identifiers (e.g., `s/susan:named-rule`) in the same manner as done for registry rules and rulesets. 
+!!! info
+    See [Writing rules](writing-rules/overview.md) to learn how to write custome rules.
 
-If no rule configuration is found in a GitHub Action workflow or GitLab CI/CD file, Semgrep CI will look for rules specified by configs in the `.semgrep.yml` file in your repository, or load all rules from the `.semgrep/` directory in your repository. If none of these provide a configuration, Semgrep CI will exit with a failing status code.
+Your own custom rules can be added to your Semgrep CI configuration just like [Registry rules](#registry-rules-and-rulesets) by:
 
+1. Including their [Playground](https://semgrep.dev/editor) share ID (e.g. `s/susan:named-rule`)
+2. Adding the directory or file path to the local file containing the rule
+3. Adding the rule to a `.semgrep/` directory, which is included by default
+
+If none of these provide a configuration, and no other rules are specified in your config, Semgrep CI will exit with a non-zero error code.
+
+[ TODO - QA this and make sure the logic is right]
 ## Merge and pull requests
 
 For GitHub Actions, to scan only for issues introduced by a branch at pull request time, trigger the Semgrep workflow on a pull request event by adding the following to the Semgrep workflow file:
