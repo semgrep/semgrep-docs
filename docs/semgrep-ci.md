@@ -139,11 +139,37 @@ python.flask.security.injection.os-system-injection.os-system-injection
 
 ## Integrations
 
-You can rview
-- Inline GitHub pull request comments
-- 
-Instead, get notified about them via pull request comments, Slack, or email by configuring an [integration](integrations.md).
-* Findings can optionally be consumed via GitLab SAST, GitHub Advanced Security Dashboard, or in services like Slack, MR/PR comments, email, other (App).
+TODO Semgrep CI gets you results where you already work.
+
+### Notifications
+
+You can get notified about new findings via:
+
+- [GitHub pull request comments](integrations.md#pull-request-comments)
+- GitLab merge request comments (private beta TODO: apply here)
+- [Slack messages](integrations.md#slack)
+- [emails](integrations.md#email)
+- webhooks (for paid users) TODO: create section
+
+To get notifications, Semgrep App.
+
+1. Follow the links above to set up a notification channel
+2. [Add the channel as a ](managing-policy/#changing-policy-actions)
+and  policy actions
+Semgrep App keeps track of what notifications have been sent,
+so that a notification will be triggered only the first time a given finding is seen.`
+This mean you will not be notified
+when a pull request just moves or reindents
+a line that matches a rule.
+You will also not be re-notified when a pull request creates.  notifications when a pull request. and you will also not receive duplicate notifications 
+
+### Security Dashboards
+
+A security dashboard gives you an overview of all your findings organization-wide.You can review Semgrep CI's findings via:
+
+- GitLab SAST (included in GitLab Ultimate)
+- GitHub Advanced Security Dashboard (included in GitHub Enterprise)
+- Semgrep App (free)
 
 # Advanced Configuration
 

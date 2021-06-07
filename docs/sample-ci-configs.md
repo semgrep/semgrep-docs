@@ -134,7 +134,7 @@ semgrep:
   image: returntocorp/semgrep-agent:v1
   script: semgrep-agent --gitlab-json > gl-sast-report.json || true
   variables:
-    INPUT_CONFIG: >- # more at semgrep.dev/explore
+    SEMGREP_RULES: >- # more at semgrep.dev/explore
       p/security-audit
       p/secrets
   rules:
