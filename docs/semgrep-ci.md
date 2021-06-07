@@ -29,7 +29,7 @@ Semgrep CI behaves like other static analysis and linting tools: it runs a set o
 
 Start by copying the below relevant template for your CI provider. Read through the comments in the template to adjust when and what Semgrep CI scans, selecting pull and merge requests, merges to branches, or both.
 
-Once Semgrep CI is running, explore the [Registry](TODO) to find and add more project-specific rules.
+Once Semgrep CI is running, explore the [Semgrep Registry](TODO) to find and add more project-specific rules.
 
 See [Advanced Configuration](TODO) for further customizations, such as ignoring files and tuning performance.
 
@@ -109,12 +109,13 @@ You can find a description of the findings in the log output.
 
 <details>
 <summary>Click for an example of Semgrep CI's job output</summary>
-```
+```text
 
 === looking for current issues in 1 file
 | 1 current issue found
 === looking for pre-existing issues in 1 file
 | No pre-existing issues found
+
 python.flask.security.injection.os-system-injection.os-system-injection
      > flask_todomvc/todos.py:30
      ╷
@@ -123,6 +124,7 @@ python.flask.security.injection.os-system-injection.os-system-injection
      = User data detected in os.system. This could be vulnerable to a command
        injection and should be avoided. If this must be done, use the
        'subprocess' module instead and pass the arguments as a list.
+
 === exiting with failing status
 
 ```
@@ -147,13 +149,23 @@ Instead, get notified about them via pull request comments, Slack, or email by c
 
 ## Registry rules and rulesets
 
-Semgrep CI lets you scan code with rules and rulesets published through the [Semgrep Registry](https://semgrep.dev/explore). Use them by adding the ruleset’s or rule’s identifier to your CI workflow file. Identifiers look like `p/security-audit` or `r/javascript.lang.security.spawn-git-clone.spawn-git-clone`.
+!!! info
+    These instructions apply to stand-alone Semgrep CI use. For use with Semgrep App please use the "Add to policy" button next to any registry rule or ruleset, or visit [Dashboard > Policies](https://semgrep.dev/manage/policies).
 
-For GitHub Actions, if you’re using Semgrep App to manage your configuration, use the “Add to policy” button next to any registry rule or ruleset to add it to a policy.
+Semgrep CI accepts a list of rules and rulesets to run on each scan. To add from the [Semgrep Registry](https://semgrep.dev/explore), just include the rule or ruleset identifier in your CI workflow file. Identifiers take the form `p/<ruleset-id>` and `r/<rule-id>`. These identifiers can be copied directly for any rule or ruleset directly from the Registry, and run locally using the `--config <identifier>` flag with the [Semgrep command-line tool](TODO). 
 
-If you manually added Semgrep CI to your repository using a `.github/workflows/semgrep.yml` file, use the `config:` key inside `with:` to specify a rule configuration in the job that runs Semgrep CI in your workflow. You may specify multiple configurations, each on its own `config:` line inside `with:`. See this [example GitHub Actions workflow configuration](sample-ci-configs.md#github-actions).
+For example, in GitLab CI/CD:
 
-For GitLab CI/CD, in your repository’s `.gitlab-ci.yml` file you can specify rule configurations indented within the variable `INPUT_CONFIG` inside the job that runs Semgrep CI in your pipeline. You may specify multiple configurations, each on its own indented line within `INPUT_CONFIG`. See this [example GitLab CI/CD configuration](sample-ci-configs.md#gitlab-ci).
+```yaml
+# ...
+ variables:
+    INPUT_CONFIG: >-
+      p/security-audit
+      p/secrets
+# ...
+```
+
+Key names and configuration format for specific CI providers are available in the [Getting Started templates](TODO link to getting started templates).
 
 ## Custom rules
 
