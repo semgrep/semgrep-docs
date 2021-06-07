@@ -264,9 +264,13 @@ If you want to see findings from your whole repository instead of just the files
 
     For other CI providers, look for the correct event name in CI environment’s log output.
 
-## Exit behavior
+## Exit codes
 
-[TODO]
+| Exit code | Cause |
+| --- | --- |
+| **0** | Scan completed successfully and found no blocking findings |
+| **1** | Scan completed successfully and found blocking findings |
+| **2** | Scan failed and printed the error's details |
 
 ## Semgrep App authentication
 
