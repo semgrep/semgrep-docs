@@ -43,7 +43,7 @@ To manually add Semgrep CI to GitHub Actions, add a `.github/workflows/semgrep.y
 ## GitLab CI/CD
 
 !!! info
-    Automatic setup is coming to GitLab CI/CD soon, where Semgrep App can commit Semgrep CI configurations to your projects. [Sign up for the beta here](TODO)!
+    Automatic setup is coming to GitLab CI/CD soon, where Semgrep App can commit Semgrep CI configurations to your projects. [Sign up for the beta here](https://go.r2c.dev/join-gitlab-beta)!
 
 To add Semgrep CI to GitLab CI/CD, add a `.gitlab-ci.yml` file to your repository if not already present. Add a block to run the Semgrep CI job in your pipeline, following [GitLab’s configuration guide for the .gitlab-ci.yml file](https://docs.gitlab.com/ee/ci/yaml/gitlab_ci_yaml.html). See this [example GitLab CI/CD configuration](sample-ci-configs.md#gitlab-ci) for Semgrep CI.
 
@@ -155,7 +155,7 @@ whether you're a developer or part of a security team.
 You can get notified about new findings via:
 
 - [GitHub pull request comments](integrations.md#pull-request-comments)
-- GitLab merge request comments (private beta TODO: apply here)
+- GitLab merge request comments (private beta, [sign up here](https://go.r2c.dev/join-gitlab-beta))
 - [Slack messages](integrations.md#slack)
 - [emails](integrations.md#email)
 - [webhooks (paid feature)](integrations.md#webhooks)
