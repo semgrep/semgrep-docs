@@ -14,21 +14,24 @@ meta_description: |-
 - **Block new bugs**. You shouldn't have to fix existing bugs just to adopt a tool. Semgrep CI reports newly introduced issues on pull and merge requests, scanning them at their base and HEAD commits to compare findings. Developers are signficantly more likely to fix the issues they introduced themselves on PRs and MRs.
 - **Get findings where you work**. Semgrep CI can authenticate to [Semgrep App](https://semgrep.dev/login) to surface findings in Slack, on PRs and MRs via inline comments, email, and other 3rd party services.
 
+!!! note
+    Semgrep CI runs fully in your build environment: code is never sent anywhere.
+
 # Table of contents
 [TOC]
 
 # Getting started
 
-[TODO] - Finish explaining process as a 1, 2, 3
+Semgrep CI behaves like other static analysis and linting tools: it runs a set of user-configured rules and returns a non-zero exit code if there are findings, resulting in its job showing a ✅ or ❌.
 
-1. add to CI pipeline, either with specialty config (GitHub, GitLab) or generically using the docker image with flags
-2. choose to run on mr/prs, merge to branch, or both
-3. select registry rules. We provide some good default rules in the sample configs, otherwise see the Registry
+[TODO image - GitHub Action + GitLab CI/CD checkmark]
 
-Default behaviour?
+Start by copying the below relevant template for your CI provider. Read through the comments in the template to adjust when and what Semgrep CI scans, selecting pull and merge requests, merges to branches, or both ([learn more](TODO LINK TO ADVANCED CONFIG)).
 
-* not --strict
-* timeout of XYZ
+Once Semgrep CI is running, explore the [Registry](TODO) to augment the default suggested rules with those relevant to your project.
+
+See [Advanced Configuration](TODO) for further customizations, such as ignoring files and tuning performance.
+
 ## GitHub Actions
 
 !!! note
