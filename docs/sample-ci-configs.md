@@ -58,6 +58,8 @@ jobs:
   semgrep:
     name: Scan
     runs-on: ubuntu-latest
+    # Skip any PR created by dependabot to avoid permissioning issues
+    if: (github.actor != 'dependabot[bot]')
     steps:
       # Checkout project source
       - uses: actions/checkout@v2
@@ -72,9 +74,6 @@ jobs:
         with:
           publishToken: ${{ secrets.SEMGREP_APP_TOKEN }}
           publishDeployment: ${{ secrets.SEMGREP_DEPLOYMENT_ID }}
-
-        # Skip any PR created by dependabot to avoid permissioning issues
-        # if: (github.actor != 'dependabot[bot]')
 
           # Never fail the build due to findings on pushes, but collect findings data
           #auditOn: push
