@@ -158,26 +158,28 @@ You can get notified about new findings via:
 Notifications require connection to Semgrep App. To set up notifications:
 
 1. Follow the links above to create a notification channel
-2. [Add the created channel to a policy](managing-policy/#changing-policy-actions)
-as a policy action. Only the rules from that policy will trigger notifications.
+2. [Add the created channel to one or more policies](managing-policy/#changing-policy-actions)
+as a policy action. Only the rules in these policies will trigger notifications.
 
 !!! note
     Notifications will be triggered only the first time a given finding is seen.
 
-    Semgrep CI's diff-awareness means you will not be notified
-    when a pull request just moves or reindents
-    a line that had already matched a rule.
+    Because of Semgrep CI's diff-awareness, you will not be notified
+    when a pull request has a finding that existed on the base branch already,
+    even if that line is moved or re-indented.
 
     Semgrep App also keeps track of notifications that have already been sent,
-    so consecutive scans of the same pull request won't send duplicate notifications either.
+    so consecutive scans of the same changes in the same pull request
+    won't send duplicate notifications either.
 
 ### Security Dashboards
 
-A security dashboard gives you an overview of all your findings organization-wide.You can review Semgrep CI's findings via:
+A security dashboard gives you an overview of all your findings organization-wide.
+You can review Semgrep CI's findings via:
 
-- GitLab SAST (included in GitLab Ultimate)
-- GitHub Advanced Security Dashboard (included in GitHub Enterprise)
-- Semgrep App (free)
+- [GitLab SAST Security Dashboard](https://docs.gitlab.com/ee/user/application_security/security_dashboard/) (requires GitLab Ultimate subscription)
+- [GitHub Advanced Security Dashboard](https://docs.github.com/en/github/getting-started-with-github/learning-about-github/about-github-advanced-security) (requires GitHub Enterprise subscription)
+- [Semgrep App](https://semgrep.dev/manage) (free)
 
 # Advanced Configuration
 
