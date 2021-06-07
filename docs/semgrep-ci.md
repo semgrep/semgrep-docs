@@ -227,51 +227,16 @@ If configuration is provided and no `.semgrep.yml` or `.semgrep/` directory exis
 
 [ TODO - QA this and make sure the logic is right]
 
-## Merge and pull requests
+## Ignoring files
 
-For GitHub Actions, to scan only for issues introduced by a branch at pull request time, trigger the Semgrep workflow on a pull request event by adding the following to the Semgrep workflow file:
+Semgrep CI supports a `.semgrepignore` file that follows the `.gitignore` syntax and is used to skip files and directories during scanning. This is commonly used to avoid vendored and test related code. For a complete example, see the [.semgrepignore file on Semgrep’s source code](https://github.com/returntocorp/semgrep/blob/develop/.semgrepignore).
 
-```yaml
-on: pull_request
-```
+!!! warning
+    `.semgrepignore` is only used by Semgrep CI and is not honored by the Semgrep command-line tool or by integrations like [GitLab's Semgrep SAST Analyzer](https://gitlab.com/gitlab-org/security-products/analyzers/semgrep).
 
-Refer to GitHub’s documentation for information on using [multiple events with activity types or configuration](https://docs.github.com/en/actions/reference/events-that-trigger-workflows#example-using-multiple-events-with-activity-types-or-configuration).
+By default Semgrep CI skips files and directories such as `tests/`, `node_modules/`, and `vendor/`. The full list of ignored items is in [the `.semgrepignore` template file](https://github.com/returntocorp/semgrep-action/blob/v1/src/semgrep_agent/templates/.semgrepignore), which is used by Semgrep CI when no explicit `.semgrepignore` file is found in the root of your project.
 
-For GitLab CI/CD, to only scan for issues introduce by a branch at merge request time, add the following to the Semgrep job in your CI/CD pipeline:
-
-```yaml
-rules:
-  - if: $CI_MERGE_REQUEST_IID
-```
-
-!!! info
-    The `$CI_MERGE_REQUEST_IID` variable is only available when the GitLab pipeline is a merge request pipeline and the merge request is open.
-
-## Branch scanning
-
-For GitHub Actions, you can run Semgrep CI when code is pushed to any branch by using `on: push`. To run Semgrep CI on all push events to only certain branches (in this example, `main` and `other-branch`), use the following in the Semgrep job:
-
-```yaml
-on:
-  push:
-    branches: ["main", "other-branch"]
-```
-
-For GitLab CI/CD, you can run Semgrep CI when code is pushed to any branch by using:
-
-```yaml
-rules:
-  if: $CI_PIPELINE_SOURCE == "push" && $CI_COMMIT_BRANCH
-```
-
-To run Semgrep CI on all push events to only certain branches (in this example, `main` and `other-branch`), use the following in the Semgrep job:
-
-```yaml
-rules:
-  if: ($CI_COMMIT_BRANCH == "main" || $CI_COMMIT_BRANCH == "other-branch")
-```
-
-[TODO: verify the above GitLab configs]
+For information on ignoring individual findings in code, see the [ignoring findings page](ignoring-findings.md).
 
 ## Audit mode: disable blocking on a specific CI event
 
@@ -283,17 +248,6 @@ If you want to see findings from your whole repository instead of just the files
     <!-- In GitLab, set `allow_failure: true` for the Semgrep CI job in your `.gitlab-ci.yml` file.  TODO: confirm GitLab behavior and vars -->
 
     For other CI providers, look for the correct event name in CI environment’s log output.
-
-## File ignores
-
-Semgrep CI uses a default ignore list that skips common test, build, and dependency directories, including `tests/`, `node_modules/`, `vendor/`, and more. See the full list of ignored items in [the `.semgrepignore` template file](https://github.com/returntocorp/semgrep-action/blob/v1/src/semgrep_agent/templates/.semgrepignore).
-
-To override the default ignore patterns, create a file named `.semgrepignore` and commit it to the root of your repository. It uses the same syntax as `.gitignore`. For a complete example, see the [.semgrepignore file on Semgrep’s source code](https://github.com/returntocorp/semgrep/blob/develop/.semgrepignore).
-
-!!! warning
-    `.semgrepignore` is picked up only by Semgrep CI, and is not honored when running Semgrep CLI manually or by the [GitLab Semgrep SAST Analyzer](https://gitlab.com/gitlab-org/security-products/analyzers/semgrep).
-
-For information on ignoring findings in code, see the [ignoring findings page](ignoring-findings.md).
 
 ## Exit behavior
 
