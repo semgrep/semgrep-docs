@@ -27,9 +27,9 @@ Semgrep CI behaves like other static analysis and linting tools: it runs a set o
 
 [TODO image - GitHub Action + GitLab CI/CD checkmark]
 
-Start by copying the below relevant template for your CI provider. Read through the comments in the template to adjust when and what Semgrep CI scans, selecting pull and merge requests, merges to branches, or both ([learn more](TODO LINK TO ADVANCED CONFIG)).
+Start by copying the below relevant template for your CI provider. Read through the comments in the template to adjust when and what Semgrep CI scans, selecting pull and merge requests, merges to branches, or both.
 
-Once Semgrep CI is running, explore the [Registry](TODO) to augment the default suggested rules with those relevant to your project.
+Once Semgrep CI is running, explore the [Registry](TODO) to find and add more project-specific rules.
 
 See [Advanced Configuration](TODO) for further customizations, such as ignoring files and tuning performance.
 
