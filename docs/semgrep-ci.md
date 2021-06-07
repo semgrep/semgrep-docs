@@ -6,8 +6,6 @@ meta_description: |-
 
 # Semgrep CI
 
-[TODO] - Image of Semgrep, Semgrep CI, CI Environments (GitHub, GitLab, etc.), and optional App connection with external integrations (i.e. illustative "architecture" diagram)
-
 [Semgrep CI](https://github.com/returntocorp/semgrep-action) (aka Semgrep Action or `semgrep-agent`) is a specialized Docker image for running Semgrep in CI environments. It can be used stand-alone or connected with [Semgrep App](https://semgrep.dev/login) for centralized rule and findings management.
 
 - **Scan every commit**. Semgrep CI rapidly scans modified files on pull and merge requests, with longer full project scans configurable on merges to specific branches. Quick scans protect developer productivity.
@@ -24,8 +22,6 @@ meta_description: |-
 # Getting started
 
 Semgrep CI behaves like other static analysis and linting tools: it runs a set of user-configured rules and returns a non-zero exit code if there are findings, resulting in its job showing a ✅ or ❌.
-
-[TODO image - GitHub Action + GitLab CI/CD checkmark]
 
 Start by copying the below relevant template for your CI provider. Read through the comments in the template to adjust when and what Semgrep CI scans, selecting pull and merge requests, merges to branches, or both.
 
@@ -55,8 +51,6 @@ For full project scans:
 
 ```sh
 $ docker run -v $(pwd):/src --workdir /src returntocorp/semgrep-agent:v1 semgrep-agent --config p/ci --config <other rule or rulesets>
-
-# [TODO make less app specific, specify configs???]
 ```
 
 For pull or merge request scans that return only newly introduced issues, set the `--baseline-ref` flag to the git ref (branch name, tag, or commit hash) to use as a baseline. Semgrep will determine the files that have been modified since this reference point and return only newly introduced issues. For example, to report findings newly added since branching off from your `main` branch, run
@@ -88,7 +82,6 @@ semgrep-agent --publish-deployment $SEMGREP_DEPLOYMENT_ID --publish-token $SEMGR
 </br>
 These instructions have been used on the following providers by the community:
 
-[ TODO ] - Add small svg icons before references to CI/CD systems? Make sure sample configs aren't app-specific
 
 | CI Providers         |                       |  
 |:---------- |:---------------------------|
@@ -237,8 +230,6 @@ For example, in GitLab CI/CD:
 ```
 
 If configuration is provided and no `.semgrep.yml` or `.semgrep/` directory exists, Semgrep CI will exit with a non-zero error code.
-
-[ TODO - QA this and make sure the logic is right]
 
 ## Ignoring files
 
