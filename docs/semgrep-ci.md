@@ -128,6 +128,7 @@ python.flask.security.injection.os-system-injection.os-system-injection
 === exiting with failing status
 
 ```
+
 </details>
 
 !!! note
@@ -139,7 +140,9 @@ python.flask.security.injection.os-system-injection.os-system-injection
 
 ## Integrations
 
-TODO Semgrep CI gets you results where you already work.
+Semgrep CI comes with many integrations with other services,
+to get you results in the workflow you're already used to,
+whether you're a developer or part of a security team.
 
 ### Notifications
 
@@ -149,19 +152,23 @@ You can get notified about new findings via:
 - GitLab merge request comments (private beta TODO: apply here)
 - [Slack messages](integrations.md#slack)
 - [emails](integrations.md#email)
-- webhooks (for paid users) TODO: create section
+- [webhooks (paid feature)](integrations.md#webhooks)
 
-To get notifications, Semgrep App.
+Notifications require connection to Semgrep App. To set up notifications:
 
-1. Follow the links above to set up a notification channel
-2. [Add the channel as a ](managing-policy/#changing-policy-actions)
-and  policy actions
-Semgrep App keeps track of what notifications have been sent,
-so that a notification will be triggered only the first time a given finding is seen.`
-This mean you will not be notified
-when a pull request just moves or reindents
-a line that matches a rule.
-You will also not be re-notified when a pull request creates.  notifications when a pull request. and you will also not receive duplicate notifications 
+1. Follow the links above to create a notification channel
+2. [Add the created channel to a policy](managing-policy/#changing-policy-actions)
+as a policy action. Only the rules from that policy will trigger notifications.
+
+!!! note
+    Notifications will be triggered only the first time a given finding is seen.
+
+    Semgrep CI's diff-awareness means you will not be notified
+    when a pull request just moves or reindents
+    a line that had already matched a rule.
+
+    Semgrep App also keeps track of notifications that have already been sent,
+    so consecutive scans of the same pull request won't send duplicate notifications either.
 
 ### Security Dashboards
 
@@ -178,7 +185,7 @@ A security dashboard gives you an overview of all your findings organization-wid
 !!! info
     These instructions apply to stand-alone Semgrep CI use. For use with Semgrep App please use the "Add to policy" button next to any registry rule or ruleset, or visit [Dashboard > Policies](https://semgrep.dev/manage/policies).
 
-Semgrep CI accepts a list of rules and rulesets to run on each scan. To add from the [Semgrep Registry](https://semgrep.dev/explore), just include the rule or ruleset identifier in your CI workflow file. Identifiers take the form `p/<ruleset-id>` and `r/<rule-id>`. These identifiers can be copied directly for any rule or ruleset directly from the Registry, and run locally using the `--config <identifier>` flag with the [Semgrep command-line tool](TODO). 
+Semgrep CI accepts a list of rules and rulesets to run on each scan. To add from the [Semgrep Registry](https://semgrep.dev/explore), just include the rule or ruleset identifier in your CI workflow file. Identifiers take the form `p/<ruleset-id>` and `r/<rule-id>`. These identifiers can be copied directly for any rule or ruleset directly from the Registry, and run locally using the `--config <identifier>` flag with the [Semgrep command-line tool](TODO).
 
 For example, in GitLab CI/CD:
 
@@ -207,6 +214,7 @@ Your own custom rules can be added to your Semgrep CI configuration just like [R
 If none of these provide a configuration, and no other rules are specified in your config, Semgrep CI will exit with a non-zero error code.
 
 [ TODO - QA this and make sure the logic is right]
+
 ## Merge and pull requests
 
 For GitHub Actions, to scan only for issues introduced by a branch at pull request time, trigger the Semgrep workflow on a pull request event by adding the following to the Semgrep workflow file:
