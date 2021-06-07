@@ -158,7 +158,7 @@ You can get notified about new findings via:
 - GitLab merge request comments (private beta, [sign up here](https://go.r2c.dev/join-gitlab-beta))
 - [Slack messages](integrations.md#slack)
 - [emails](integrations.md#email)
-- [webhooks (paid feature)](integrations.md#webhooks)
+- [webhooks](integrations.md#webhooks) (paid feature)
 
 Notifications require connection to Semgrep App. To set up notifications:
 
