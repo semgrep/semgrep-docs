@@ -7,24 +7,26 @@ meta_description: >-
 
 # Troubleshooting GitLab SAST
 
-GitLab includes a SAST analyzer that uses Semgrep to find vulnerabilities. If you suspect your issue lies with GitLab, check [GitLab’s SAST troubleshooting guide](https://docs.gitlab.com/ee/user/application_security/sast/#troubleshooting).
+GitLab SAST includes and maintains a Semgrep integration called [`semgrep-sast`](https://gitlab.com/gitlab-org/security-products/analyzers/semgrep) for vulnerability finding.
 
-If you're having trouble and you suspect the issue lies with Semgrep, you can find some advice below.
+!!! info
+    Please visit [GitLab’s SAST troubleshooting guide](https://docs.gitlab.com/ee/user/application_security/sast/#troubleshooting) for help with general GitLab SAST issues.
 
 [TOC]
 
-# If the Semgrep SAST CI job is slow
+# If the `semgrep-sast` CI job is slow
 
-The Semgrep SAST job should take less than a minute
+The `semgrep-sast` job should take less than a minute
 to scan a large project with 50k lines of Python and TypeScript code.
 If you see worse performance,
 please [reach out](../support.md) to the Semgrep maintainers for help with tracking down the cause.
 Long runtimes are typically caused by just one rule or source code file taking too long.
+You can also try these solutions:
 
-## Tip #1: Review global CI job configuration
+## Solution #1: Review global CI job configuration
 
 You might be creating large files or directories in your GitLab CI config's `before_script:`, `cache:`, or similar sections.
-The Semgrep SAST job will scan all files available to it, not just the source code committed to git,
+The `semgrep-sast` job will scan all files available to it, not just the source code committed to git,
 so if for example you have a cache configuration of
 
 ```yaml
@@ -41,26 +43,30 @@ semgrep-sast:
   cache: {}
 ```
 
-## Tip #2: Upgrade to Semgrep CI
+## Solution #2: Exclude large paths
 
-If you suspect large and complex source code files (such as minified JS or generated code)
-are making the job last too long, you will want to exclude these files from scanning.
+If you know which large files might be taking too long to scan,
+you can use [GitLab SAST's path exclusion feature](https://docs.gitlab.com/ee/user/application_security/sast/#vulnerability-filters)
+to skip files or directories matching given patterns.
 
-!!! warning
-    [GitLab has a path exclusion feature](https://docs.gitlab.com/ee/user/application_security/sast/#vulnerability-filters)
-    but it does not skip scanning excluded files.
-    It scans everything, and then hides results from excluded files,
-    so it will not improve your performance.
+- `SAST_EXCLUDED_PATHS: "*.py"` will ignore the paths at:
+  `foo.py`, `src/foo.py`, `foo.py/bar.sh`.
+- `SAST_EXCLUDED_PATHS: "tests"` will ignore
+  `tests/foo.py` as well as `a/b/tests/c/foo.py`.
+
+You can use a comma separated list to ignore multiple patterns:
+`SAST_EXCLUDED_PATHS: "*.py, tests"` would ignore all of the above paths.
+
+## Solution #3: Upgrade to Semgrep CI
 
 To improve performance by 10x on a typical project,
 you can use our own CI agent [Semgrep CI](../semgrep-ci.md) directly
-by adding [**this job definition** to your GitLab CI configuration](../sample-ci-configs.md#gitlab-ci).
+by adding the job definition as shown on the [GitLab + Semgrep](https://semgrep.dev/for/gitlab) page.
 
-- Semgrep CI skips scanning unchanged files in your merge requests,
-- it also skips common large directories such as vendored dependencies or tests,
-- and lets you skip scanning paths by committing a `.semgrepignore` file.
+Semgrep CI skips scanning unchanged files in merge requests
+but still lets you keep your GitLab SAST workflow.
 
-# If the Semgrep SAST report has false positives or false negatives
+# If `semgrep-sast` reports false positives or false negatives
 
 If you're not getting results where you should,
 or you get too many results, the problem might be with the patterns Semgrep scans for.
@@ -68,20 +74,14 @@ Semgrep search patterns look just like the source code they're meant to find,
 so they are easy to learn and update.
 
 You can review the search patterns in the
-[rules directory of the Semgrep GitLab SAST analyzer](https://gitlab.com/gitlab-org/security-products/analyzers/semgrep/-/tree/main/rules)
+[rules directory of the `semgrep-sast` analyzer](https://gitlab.com/gitlab-org/security-products/analyzers/semgrep/-/tree/main/rules)
 and report issues to the GitLab team.
 We have a [Semgrep rule writing tutorial](https://semgrep.dev/learn)
 that will help better understand these rule files.
 You can also refer to the [Semgrep Registry](https://semgrep.dev/r)
 which is a collection of 1000+ Semgrep rules curated by r2c.
 
-<!--
-# The Semgrep SAST analyzer reports no results
-
-TODO
--->
-
-# If the Semgrep SAST analyzer crashes, fails, or is otherwise broken
+# If `semgrep-sast` crashes, fails, or is otherwise broken
 
 Semgrep will print an error message to explain what went wrong upon crashes,
 and often also what to do to fix it.
