@@ -13,7 +13,7 @@ Semgrep is a fast, open-source, static analysis tool for finding bugs and enforc
 
 Semgrep runs fully on your computer or build environment: **your code is never sent anywhere**. 
 
-Its rules look like the code you already write; no abstract syntax trees or regex wrestling. Here's a quick rule for finding Python `print()` statements, run it by clicking the [▸] button:
+Its rules look like the code you already write; no abstract syntax trees or regex wrestling. Here's a quick rule for finding Python `print()` statements, run it by clicking the [►] button:
 
 <iframe title="Semgrep example no prints" src="https://semgrep.dev/embed/editor?snippet=ievans:print-to-logger" width="100%" height="432px" frameborder="0"></iframe>
 </br>
