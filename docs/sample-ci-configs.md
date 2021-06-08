@@ -98,14 +98,12 @@ Scans on merge requests are diff-aware and will report only newly added findings
 This sample configuration
 will run Semgrep on merge requests, and pushes to your default branch.
 
-<!-- TODO: change INPUT_CONFIG to SEMGREP_RULES -->
-
 ```yaml
 semgrep:
   image: returntocorp/semgrep-agent:v1
   script: semgrep-agent
   variables:
-    INPUT_CONFIG: >- # more at semgrep.dev/explore
+    SEMGREP_RULES: >- # more at semgrep.dev/explore
       p/security-audit
       p/secrets
   rules:
@@ -134,7 +132,7 @@ semgrep:
   image: returntocorp/semgrep-agent:v1
   script: semgrep-agent --gitlab-json > gl-sast-report.json || true
   variables:
-    INPUT_CONFIG: >- # more at semgrep.dev/explore
+    SEMGREP_RULES: >- # more at semgrep.dev/explore
       p/security-audit
       p/secrets
   rules:

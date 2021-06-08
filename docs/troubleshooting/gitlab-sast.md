@@ -1,3 +1,10 @@
+---
+meta_description: >-
+  GitLab SAST includes an analyzer that runs Semgrep.
+  Fix issues with semgrep-sast jobs running slowly,
+  not showing results, or erroring.
+---
+
 # Troubleshooting GitLab SAST
 
 GitLab includes a SAST analyzer that uses Semgrep to find vulnerabilities. If you suspect your issue lies with GitLab, check [GitLab’s SAST troubleshooting guide](https://docs.gitlab.com/ee/user/application_security/sast/#troubleshooting).

@@ -11,6 +11,7 @@
   {% if page and page.canonical_url %}<link rel="canonical" href="{{ page.canonical_url }}">{% endif %}
   {% if config.site_favicon %}<link rel="shortcut icon" href="{{ config.site_favicon|url }}">
   {% else %}<link rel="shortcut icon" href="{{ 'img/favicon.ico'|url }}">{% endif %}
+  {% if page and page.meta.meta_description %}<meta name="description" content="{{ page.meta.meta_description }}">{% endif %}
   {%- endblock %}
 
   {%- block htmltitle %}
