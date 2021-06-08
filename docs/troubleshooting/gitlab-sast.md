@@ -74,7 +74,7 @@ Semgrep search patterns look just like the source code they're meant to find,
 so they are easy to learn and update.
 
 You can review the search patterns in the
-[rules directory of the GitLab SAST Semgrep analyzer](https://gitlab.com/gitlab-org/security-products/analyzers/semgrep/-/tree/main/rules)
+[rules directory of the `semgrep-sast` analyzer](https://gitlab.com/gitlab-org/security-products/analyzers/semgrep/-/tree/main/rules)
 and report issues to the GitLab team.
 We have a [Semgrep rule writing tutorial](https://semgrep.dev/learn)
 that will help better understand these rule files.
