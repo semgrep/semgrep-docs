@@ -39,7 +39,7 @@ Semgrep supports 17+ languages.
 | TypeScript |                            |              |
 | TSX        |                            |              |
 
-A data-driven approach using the parse rate of a language on a wide corpus determines when to promote it from alpha, to beta, and finally general availability (GA). For more details, see [the breakdown of all supported languages](status.md).
+To determine alpha, beta, or general availability (GA) status we scan a wide corpus of projects and measure the parse rate of each language. For more details see [the breakdown of all supported languages](status.md).
 
 # History
 
