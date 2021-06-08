@@ -14,9 +14,9 @@ GitLab SAST includes and maintains a Semgrep integration called [`semgrep-sast`]
 
 [TOC]
 
-# If the Semgrep SAST CI job is slow
+# If the `semgrep-sast` CI job is slow
 
-The Semgrep SAST job should take less than a minute
+The `semgrep-sast` job should take less than a minute
 to scan a large project with 50k lines of Python and TypeScript code.
 If you see worse performance,
 please [reach out](../support.md) to the Semgrep maintainers for help with tracking down the cause.
@@ -26,7 +26,7 @@ You can also try these solutions:
 ## Solution #1: Review global CI job configuration
 
 You might be creating large files or directories in your GitLab CI config's `before_script:`, `cache:`, or similar sections.
-The Semgrep SAST job will scan all files available to it, not just the source code committed to git,
+The `semgrep-sast` job will scan all files available to it, not just the source code committed to git,
 so if for example you have a cache configuration of
 
 ```yaml
@@ -64,9 +64,9 @@ you can use our own CI agent [Semgrep CI](../semgrep-ci.md) directly
 by adding the job definition as shown on the [GitLab + Semgrep](https://semgrep.dev/for/gitlab) page.
 
 Semgrep CI skips scanning unchanged files in merge requests
-but still lets you keep your Semgrep SAST workflow.
+but still lets you keep your GitLab SAST workflow.
 
-# If the Semgrep SAST report has false positives or false negatives
+# If `semgrep-sast` reports false positives or false negatives
 
 If you're not getting results where you should,
 or you get too many results, the problem might be with the patterns Semgrep scans for.
@@ -74,20 +74,14 @@ Semgrep search patterns look just like the source code they're meant to find,
 so they are easy to learn and update.
 
 You can review the search patterns in the
-[rules directory of the Semgrep GitLab SAST analyzer](https://gitlab.com/gitlab-org/security-products/analyzers/semgrep/-/tree/main/rules)
+[rules directory of the GitLab SAST Semgrep analyzer](https://gitlab.com/gitlab-org/security-products/analyzers/semgrep/-/tree/main/rules)
 and report issues to the GitLab team.
 We have a [Semgrep rule writing tutorial](https://semgrep.dev/learn)
 that will help better understand these rule files.
 You can also refer to the [Semgrep Registry](https://semgrep.dev/r)
 which is a collection of 1000+ Semgrep rules curated by r2c.
 
-<!--
-# The Semgrep SAST analyzer reports no results
-
-TODO
--->
-
-# If the Semgrep SAST analyzer crashes, fails, or is otherwise broken
+# If `semgrep-sast` crashes, fails, or is otherwise broken
 
 Semgrep will print an error message to explain what went wrong upon crashes,
 and often also what to do to fix it.
