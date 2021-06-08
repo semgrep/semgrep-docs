@@ -18,7 +18,7 @@ Its rules look like the code you already write; no abstract syntax trees or rege
 <iframe title="Semgrep example no prints" src="https://semgrep.dev/embed/editor?snippet=ievans:print-to-logger" width="100%" height="432px" frameborder="0"></iframe>
 </br>
     
-The Semgrep ecosystem encompasses:
+The Semgrep ecosystem includes:
 
 * [Semgrep](getting-started.md) - the open-source command-line tool at the heart of everything
 * [Semgrep CI](semgrep-ci.md) - a specialized Docker image for running Semgrep in CI environments
