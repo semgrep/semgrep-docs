@@ -14,7 +14,7 @@ Not sure what to write a rule for? Below are some common questions, ideas, and t
 
 _Time to write this rule: **5 minutes**_
 
-You can use Semgrep and its GitHub integration to [automate PR comments](../integrations.md) that you frequently make in code reviews. Writing a custom rule for the code pattern you want to target is usually straightforward. If you want to understand the Semgrep syntax, see the [documentation](pattern-syntax.md) or try the [tutorial](https://semgrep.dev/learn). 
+You can use Semgrep and its GitHub integration to [automate PR comments](../notifications.md) that you frequently make in code reviews. Writing a custom rule for the code pattern you want to target is usually straightforward. If you want to understand the Semgrep syntax, see the [documentation](pattern-syntax.md) or try the [tutorial](https://semgrep.dev/learn). 
 
 <p align="center" style="font-size: 12px">
     <img src="../../img/semgrep-ci.gif" alt="A reviewer writes a Semgrep rule and adds it to an organization-wide policy."/></br>
@@ -123,5 +123,3 @@ Try answering these questions to uncover important rules for your project.
 1. What issues were caused by misconfigurations in Infrastructure-as-Code files (JSON)?
 1. What are some “invariants” that should hold about your code - things that should always or never be true (e.g. every admin route checks if user is admin)?
 1. What methods/APIs are deprecated and you’re trying to move away from?
-
-                                                                                                                                                                                                                                                 

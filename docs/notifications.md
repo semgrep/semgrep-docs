@@ -2,16 +2,33 @@
 append_help_link: true
 ---
 
-# CI Integrations
+# Notifications
 
-Semgrep CI provides integrations with 3rd party services like Slack and GitHub. When integrations are configured, you can receive notifications about Semgrep CI findings and failures. To configure these and learn more, visit [Dashboard > Integrations](https://semgrep.dev/manage/integrations).
+Semgrep CI integrates with 3rd party services when connected to Semgrep App.
+When integrations are configured, you can receive notifications about Semgrep CI findings and failures.
 
-- [CI Integrations](#ci-integrations)
-  - [Slack](#slack)
-  - [Email](#email)
-  - [Pull request comments](#pull-request-comments)
+[TOC]
 
-### Slack
+# De-duplication
+
+Notifications are sent only the first time a given finding is seen.
+
+Because of Semgrep CI's diff-awareness, you will not be notified
+when a pull request has a finding that existed on the base branch already,
+even if that line is moved or re-indented.
+
+Semgrep App also keeps track of notifications that have already been sent,
+so consecutive scans of the same changes in the same pull request
+won't send duplicate notifications.
+
+# Notification channels
+
+## Slack
+
+<p style="text-align: center; font-size: 12px">
+    <img width="600px" src="../img/slack-notification.png" alt="Screenshot of a Slack notification describing the details of a finding"/><br/>
+    A Slack notification triggered by new findings in a pull request
+</p>
 
 To receive Slack notifications about Semgrep findings on pull requests and code pushes, visit [Dashboard > Integrations](https://semgrep.dev/manage/integrations) and select 'Add integration' or 'Setup First Integration' and then choose 'Slack'. Give your channel a name, and then follow the setup instructions on the page to retrieve your Webhook URL.
 
@@ -21,18 +38,16 @@ Use the 'Test' button to send a test notification and ensure that your channel i
 
 ![A correctly configured Slack webhook will send a notification like this](img/test-notification.png "Correctly configured webhook will send a notification like this")
 
-### Email
+## Email
 
 To receive email notifications about Semgrep findings on pull requests and code pushes, visit [Dashboard > Integrations](https://semgrep.dev/manage/integrations) and select 'Add integration' or 'Setup First Integration,' and then choose 'Email'. Enter your email address, give the channel a name of your choosing, and then click 'Save'.
 
 On each scan that has at least one finding, you will receive one email from Semgrep with a summary of all of the findings from that scan.
 
-### Pull request comments
+## GitHub pull request comments
 
-<!-- prettier-ignore-start -->
 !!! info
     This feature is currently only available for GitHub.
-<!-- prettier-ignore-end -->
 
 Pull request comments are left when
 
@@ -51,7 +66,11 @@ If you are using Github Actions to run Semgrep, no extra changes are needed to g
 - `SEMGREP_PR_ID` is set to the PR number of the pull request on Github (e.g. `2900`)
 - `SEMGREP_REPO_NAME` is set to the repo name (e.g. `returntocorp/semgrep`)
 
-### Webhooks
+## GitLab merge request comments
+
+Merge request comments on GitLab are coming soon. [Sign up for the beta here.](https://go.r2c.dev/join-gitlab-beta)
+
+## Webhooks
 
 Webhook notifications are a paid feature in our Semgrep Team tier.
 

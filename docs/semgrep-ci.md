@@ -147,11 +147,11 @@ whether you're a developer or part of a security team.
 
 Notifications require connection to Semgrep App. You can get notified about new findings via:
 
-- [GitHub pull request comments](integrations.md#pull-request-comments)
+- [GitHub pull request comments](notifications.md#pull-request-comments)
 - GitLab merge request comments ([sign up for the beta here](https://go.r2c.dev/join-gitlab-beta))
-- [Slack messages](integrations.md#slack)
-- [emails](integrations.md#email)
-- [webhooks](integrations.md#webhooks) (paid feature in Semgrep App)
+- [Slack messages](notifications.md#slack)
+- [emails](notifications.md#email)
+- [webhooks](notifications.md#webhooks) (paid feature in Semgrep App)
 
 To set up notifications:
 
@@ -160,15 +160,8 @@ To set up notifications:
 as a policy action. Only the rules in these policies will trigger notifications.
 
 !!! note
-    Notifications will be sent only the first time a given finding is seen.
-
-    Because of Semgrep CI's diff-awareness, you will not be notified
-    when a pull request has a finding that existed on the base branch already,
-    even if that line is moved or re-indented.
-
-    Semgrep App also keeps track of notifications that have already been sent,
-    so consecutive scans of the same changes in the same pull request
-    won't send duplicate notifications.
+    Notifications are sent only the first time a given finding is seen.
+    [See how notifications are de-duplicated](notifications.md/#de-duplication)
 
 ### Security Dashboards
 
@@ -273,7 +266,7 @@ You can customize the ruleset you're using to ignore some of its rules by [editi
 
 ### Getting notifications instead of blocking builds
 
-Some rules point out hotspots that require careful review but are not certain to be insecure code. You might want to disable blocking when scanning with such rules, and instead use a [CI integration](integrations.md) to get notifications.
+Some rules point out hotspots that require careful review but are not certain to be insecure code. You might want to disable blocking when scanning with such rules, and instead use a [CI integration](notifications.md) to get notifications.
 
 You can set this up by [changing the actions of the Semgrep App policy](managing-policy.md#changing-policy-actions) used for your scans.
 
