@@ -9,16 +9,19 @@
 ---
 # Overview
 
-Semgrep is a fast, open-source, static analysis tool for finding bugs and enforcing code standards at editor, commit, or CI time. Its rules look like the code you’re searching; no more traversing abstract syntax trees or wrestling with regexes.
+Semgrep is a fast, open-source, static analysis tool for finding bugs and enforcing code standards at editor, commit, and CI time. [Get started  →.](getting-started.md)
 
-Here's an example rule. You can try it out by clicking the "Run" button. The Semgrep rule looks like the code it matches. You can edit this rule here, try writing a rule in the [Semgrep editor](https://semgrep.dev/editor), or visit the [tutorial](https://semgrep.dev/learn).
+Semgrep runs fully on your computer or build environment: **your code is never sent anywhere**. 
+
+Its rules look like the code you’re searching; no more traversing abstract syntax trees or wrestling with regexes. Here's a quick rule for finding Python `print()` statements, try it by clicking the [▸] button:
 
 <iframe title="Semgrep example no prints" src="https://semgrep.dev/embed/editor?snippet=ievans:print-to-logger" width="100%" height="432px" frameborder="0"></iframe>
+</br>
+    
+The Semgrep ecosystem encompasses:
 
-Semgrep runs locally or in your build environment: code is never sent anywhere. It encompasses:
-
-* [Semgrep CLI](getting-started.md) - the [open-source](https://github.com/returntocorp/semgrep) command-line tool at the heart of everything
-* [Semgrep CI](semgrep-ci.md) - Semgrep for continuously scanning commits and builds
+* [Semgrep](getting-started.md) - the open-source command-line tool at the heart of everything
+* [Semgrep CI](semgrep-ci.md) - a specialized Docker image for running Semgrep in CI
 * [Semgrep App](https://semgrep.dev/manage) - hosted app with free and paid tiers to:
     * Choose from 1,000+ rules written by the community and [r2c](https://r2c.dev) to find security, correctness, and performance bugs.
     * Deploy Semgrep in CI with the click of a button
@@ -26,9 +29,6 @@ Semgrep runs locally or in your build environment: code is never sent anywhere. 
     * See results where you want them
     * Measure the efficacy of code policies
     * Save, share, and run custom rules
-
-<a href="getting-started" class="highlight">Get started here →</a>
-
 ### History
 
 Semgrep is an evolution of [pfff](https://github.com/returntocorp/pfff/), which began at [Facebook](https://github.com/facebookarchive/pfff) in 2009, which itself was an evolution of the Linux refactoring tool [Coccinelle](https://en.wikipedia.org/wiki/Coccinelle_(software)). [r2c](https://r2c.dev/team) revitalized the project after its original author, [Yoann Padioleau](https://github.com/aryx), joined the company.

@@ -13,7 +13,7 @@ meta_description: >-
 - **Get findings where you work**. Semgrep CI can connect to [Semgrep App](https://semgrep.dev/login) to present findings in Slack, on PRs and MRs via inline comments, email, and through 3rd party services.
 
 !!! note
-    Semgrep CI runs fully in your build environment: code is never sent anywhere.
+    Semgrep CI runs fully in your build environment: **your code is never sent anywhere**.
 
 # Table of contents
 
