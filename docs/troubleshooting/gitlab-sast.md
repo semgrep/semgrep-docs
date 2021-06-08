@@ -1,3 +1,10 @@
+---
+meta_description: >-
+  GitLab includes a SAST analyzer that uses Semgrep.
+  Here are the solutions if your CI jobs run too slow,
+  don't return enough results, or are otherwise failing.
+---
+
 # Troubleshooting GitLab SAST
 
 GitLab includes a SAST analyzer that uses Semgrep to find vulnerabilities. If you suspect your issue lies with GitLab, check [GitLab’s SAST troubleshooting guide](https://docs.gitlab.com/ee/user/application_security/sast/#troubleshooting).

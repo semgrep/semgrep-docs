@@ -42,7 +42,7 @@ The above front matter adds a link at the bottom of a docs page directing visito
 To add a `<meta>` tag that adds a description in a page’s `<head>`, add a line to the frontmatter in the form:
 
 ```
-meta_description: |-
+meta_description: >-
   Succinct description goes here.
 ```
 
