@@ -94,7 +94,7 @@ config:
   --strict              Only invoke semgrep if configuration files(s) are
                         valid.
   --optimizations [OPTIMIZATIONS]
-                        Turn on/off optimizations. Default = 'none'. Use 'all' to                         turn all optimizations on.
+                        Turn on/off optimizations. Default = 'none'. Use 'all' to turn all optimizations on.
   --dangerously-allow-arbitrary-code-execution-from-rules
                         WARNING: allow rules to run arbitrary code. ONLY
                         ENABLE IF YOU TRUST THE SOURCE OF ALL RULES IN YOUR
