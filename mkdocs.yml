@@ -51,12 +51,11 @@ theme:
     - yaml
     - rust
     - django
+  analytics:
+      gtag: G-1851JH9FSR
 markdown_extensions:
   - admonition
   - toc
-google_analytics:
-  - UA-106134149-12
-  - auto
 extra_css: [extra.css]
 extra_javascript: [search_js.js]
 plugins:
