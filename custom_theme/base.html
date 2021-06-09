@@ -11,7 +11,7 @@
   {% if page and page.canonical_url %}<link rel="canonical" href="{{ page.canonical_url }}">{% endif %}
   {% if config.site_favicon %}<link rel="shortcut icon" href="{{ config.site_favicon|url }}">
   {% else %}<link rel="shortcut icon" href="{{ 'img/favicon.ico'|url }}">{% endif %}
-  {% if page and page.meta.meta_description %}<meta name="description" content="{{ page.meta.meta_description }}">{% endif %}
+  {% if page and page.meta.description %}<meta name="description" content="{{ page.meta.description }}">{% endif %}
   {%- endblock %}
 
   {%- block htmltitle %}
@@ -95,7 +95,7 @@
 <body class="wy-body-for-nav happy" role="document">
 
   {% include "semgrep-navbar.html" %}
-  
+
   <div class="wy-grid-for-nav">
 
     {# SIDE NAV, TOGGLES ON MOBILE #}
@@ -173,7 +173,7 @@
           {% endif %}
         {%- endblock %}
       </div>
-      
+
     </section>
   </div>
 

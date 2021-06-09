@@ -1,5 +1,5 @@
 ---
-meta_description: >-
+description: >-
   GitLab SAST includes an analyzer that runs Semgrep.
   Fix issues with semgrep-sast jobs running slowly,
   not showing results, or erroring.
