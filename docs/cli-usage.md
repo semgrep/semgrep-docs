@@ -14,8 +14,8 @@ See `semgrep --help` for command line options.
 
 ```
 usage: semgrep [-h] [-g | -f CONFIG | -e PATTERN] [-l LANG] [--validate]
-               [--strict] [--exclude EXCLUDE] [--include INCLUDE]
-               [--no-git-ignore] [--skip-unknown-extensions]
+               [--strict] [--optimizations [OPTIMIZATIONS]] [--exclude EXCLUDE] 
+               [--include INCLUDE] [--no-git-ignore] [--skip-unknown-extensions]
                [--dangerously-allow-arbitrary-code-execution-from-rules]
                [-j JOBS] [--timeout TIMEOUT] [--max-memory MAX_MEMORY]
                [--timeout-threshold TIMEOUT_THRESHOLD] [--severity SEVERITY]
@@ -93,6 +93,8 @@ config:
                         performed.
   --strict              Only invoke semgrep if configuration files(s) are
                         valid.
+  --optimizations [OPTIMIZATIONS]
+                        Turn on/off optimizations. Default = 'none'. Use 'all' to                         turn all optimizations on.
   --dangerously-allow-arbitrary-code-execution-from-rules
                         WARNING: allow rules to run arbitrary code. ONLY
                         ENABLE IF YOU TRUST THE SOURCE OF ALL RULES IN YOUR
