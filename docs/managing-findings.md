@@ -8,7 +8,7 @@ append_help_link: true
 
 # Findings
 
-A finding is the core result of Semgrep's analysis. Findings are generated when a Semgrep rule matches a piece of code. After matching, a finding can make its way through 3 parts of the Semgrep ecosystem: [Semgrep](https://github.com/returntocorp/semgrep), [Semgrep CI](semgrep-ci.md), and [Semgrep App](https://semgrep.dev/).
+A finding is the core result of Semgrep's analysis. Findings are generated when a Semgrep rule matches a piece of code. After matching, a finding can make its way through 3 parts of the Semgrep ecosystem: [Semgrep](https://github.com/returntocorp/semgrep), [Semgrep CI](semgrep-ci.md), and [Semgrep App](https://semgrep.dev/manage).
 
 # Semgrep
 

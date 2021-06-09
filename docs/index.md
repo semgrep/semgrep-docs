@@ -22,7 +22,7 @@ The Semgrep ecosystem includes:
 
 * [Semgrep](getting-started.md) - the open-source command line tool at the heart of everything
 * [Semgrep CI](semgrep-ci.md) - a specialized Docker image for running Semgrep in CI environments
-* [Semgrep App](https://semgrep.dev/getting-started) - deploy, manage, and monitor Semgrep at scale with free and paid tiers
+* [Semgrep App](https://semgrep.dev/manage) - deploy, manage, and monitor Semgrep at scale with free and paid tiers
 
 <p align="center">
   <a href="/getting-started"> Get started →. </a>
