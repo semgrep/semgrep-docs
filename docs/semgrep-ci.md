@@ -47,6 +47,8 @@ To add Semgrep CI to GitLab CI/CD, add a `.gitlab-ci.yml` file to your repositor
 
 See this [example GitLab CI/CD configuration](sample-ci-configs.md#gitlab-ci) for Semgrep CI.
 
+If you’re already running [GitLab SAST](https://docs.gitlab.com/ee/user/application_security/sast/) by including `template: Security/SAST.gitlab-ci.yml` in your CI/CD configuration, you can still include and customize Semgrep CI. GitLab SAST, including its `semgrep-sast` analyzer, will continue to run normally.
+
 ## Other CI providers
 
 To add Semgrep CI to any CI environment, use the [`returntocorp/semgrep-agent:v1`](https://hub.docker.com/r/returntocorp/semgrep-agent) Docker image directly:
