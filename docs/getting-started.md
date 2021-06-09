@@ -11,7 +11,7 @@ append_help_link: true
 
 # Run Semgrep locally
 
-Start by running [Semgrep CLI](https://github.com/returntocorp/semgrep/) locally to scan your code. It runs offline on uncompiled code: **no code leaves your machine**.
+Start by running [Semgrep](https://github.com/returntocorp/semgrep/) locally to scan your code. It runs offline on uncompiled code: **no code leaves your machine**.
 
 Install Semgrep using Homebrew or pip, or run without installation via Docker:
 
@@ -39,7 +39,7 @@ $ semgrep -e '$X == $X' --lang=py path/to/src
 $ semgrep --config=p/ci path/to/src
 ```
 
-See [CLI usage](cli-usage.md) for command line options and exit codes.
+See [CLI Reference](cli-usage.md) for command line options and exit codes.
 
 Visit [Running rules](running-rules.md) to learn more or try Semgrep on known vulnerable test projects:
 

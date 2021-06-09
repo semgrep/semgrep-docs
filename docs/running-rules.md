@@ -4,7 +4,7 @@ append_help_link: true
 
 # Running rules
 
-Existing and custom Semgrep rules can be run locally via the CLI or continuously in CI. See [Getting started](getting-started.md) for their respective installation and setup.
+Existing and custom Semgrep rules can be run locally via the Semrgep command line tool or continuously with Semgrep CI. See [Getting started](getting-started.md) for their respective installation and setup.
 
 [TOC]
 

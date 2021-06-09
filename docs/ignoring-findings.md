@@ -6,7 +6,7 @@ append_help_link: true
 
 [TOC]
 
-# Ignoring findings via inline comments
+# Inline comments
 
 Semgrep allows for ignoring findings in code by specifying a `nosemgrep` comment on the first line of a finding. Comments take the form of `nosemgrep` or `nosemgrep: <rule-id>`. This functionality works across languages. Previously this was implemented with the comment `nosem`, and lines with these comments will continue to be ignored.
 
@@ -33,25 +33,15 @@ bad_func()  # nosemgrep: rule-id-1
     The space (` `) before `nosemgrep` is required for Semgrep to detect this annotation.
 
 
-# Ignoring findings via project ignores
+# File paths
 
-!!! danger
-    Note that `.semgrepignore` is only used by Semgrep CI. It isn’t honored when running `semgrep` on the command line.
+!!! note
+    Semgrep will respect the presence of a `.gitignore` in the project and will not scan any paths present in that file. This behavior can be disabled by using the flag `--no-git-ignore`.
 
-Semgrep CLI will respect the presence of a .gitignore in the project and will not scan any paths present in the git ignore. This behavior can be disabled by using the flag `--no-git-ignore`.
+Semgrep CI users can also [use a `.semgrepignore` file](semgrep-ci.md#ignoring-files).
 
-If there are files that you want to track in Git but have Semgrep ignore, Semgrep CI (but _not_ the CLI) respects a `.semgrepignore` file that follows a similar convention to the `.gitignore`. For example:
+If you're directly running the Semgrep command line tool, use the `--exclude <pattern>` flag.
 
-```
-.git/
-:include .gitignore
-semgrep-core/tests/
-```
-
-For a complete example, see  the [.semgrepignore file on Semgrep’s source code](https://github.com/returntocorp/semgrep/blob/develop/.semgrepignore).
-
-If there's no `.semgrepignore` file in your repository, Semgrep CI uses a default ignore list that skips common test and dependency directories, including `tests/`, `node_modules/`, and `vendor/`. You can find the full list in the [`.semgrepignore` template file](https://github.com/returntocorp/semgrep-action/blob/v1/src/semgrep_agent/templates/.semgrepignore). To override these default ignore patterns, commit your own `.semgrepignore`.
-
-# Ignoring findings via disabled rules
+# Disabling rules
 
 If you are using Semgrep in CI with a managed policy, you can disable individual rules within a ruleset on [Dashboard > Policies](https://semgrep.dev/manage/policies). See [Editing a policy](managing-policy.md#editing-a-policy) for details.

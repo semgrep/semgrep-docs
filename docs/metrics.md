@@ -4,10 +4,10 @@ append_help_link: true
 
 # Metrics
 
-Semgrep CLI may collect usage data via anonymized metrics to help improve the product. This document describes:
+Semgrep may collect usage data via non-identifiable aggregate metrics to help improve the product. This document describes:
 
 - the principles that guide data-collection decisions
-- how to opt-in to Semgrep’s anonymized metrics
+- how to opt-in to Semgrep’s metrics
 - the breakdown of the data that are and are not collected
 - how data is used to make Semgrep better
 
