@@ -20,7 +20,7 @@ Its rules look like the code you already write; no abstract syntax trees or rege
     
 The Semgrep ecosystem includes:
 
-* [Semgrep](getting-started.md) - the open-source command-line tool at the heart of everything
+* [Semgrep](getting-started.md) - the open-source command line tool at the heart of everything
 * [Semgrep CI](semgrep-ci.md) - a specialized Docker image for running Semgrep in CI environments
 * [Semgrep App](https://semgrep.dev/getting-started) - deploy, manage, and monitor Semgrep at scale with free and paid tiers
 
