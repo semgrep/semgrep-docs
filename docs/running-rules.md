@@ -35,6 +35,8 @@ $ semgrep -e '$X == $X' --lang=py path/to/src
 $ semgrep --config path/to/yaml
 ```
 
+We are working on optimizations to improve Semgrep's performance, which may have unexpected behavior. If you encounter a bug, you can run with `--optimizations none` to use the original code path. 
+
 # Findings
 
 * See [Managing findings](managing-findings.md) for information on Semgrep findings.
