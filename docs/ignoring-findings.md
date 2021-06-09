@@ -38,7 +38,7 @@ bad_func()  # nosemgrep: rule-id-1
 !!! note
     Semgrep will respect the presence of a `.gitignore` in the project and will not scan any paths present in that file. This behavior can be disabled by using the flag `--no-git-ignore`.
 
-For Semgrep CI users, see the [Ignoring files](semgrep-ci.md#ignoring-files) documentation.
+Semgrep CI users can also [use a `.semgrepignore` file](semgrep-ci.md#ignoring-files).
 
 If you're directly running the Semgrep command line tool, use the `--exclude <pattern>` flag.
 # Disabling rules
