@@ -160,12 +160,12 @@ Notifications require connection to Semgrep App. You can get notified about new 
 To set up notifications:
 
 1. Follow the links above to create a notification channel.
-2. [Add the created channel to one or more policies](managing-policy.md/#changing-policy-actions)
+2. [Add the created channel to one or more policies](managing-policy.md#changing-policy-actions)
 as a policy action. Only the rules in these policies will trigger notifications.
 
 !!! note
     Notifications are sent only the first time a given finding is seen.
-    [See how notifications are de-duplicated](notifications.md/#de-duplication)
+    [See how notifications are de-duplicated](notifications.md#de-duplication)
 
 ### Security Dashboards
 
