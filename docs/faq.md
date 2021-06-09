@@ -10,7 +10,7 @@ append_help_link: true
 
 #### How are Semgrep and its rules licensed?
 
-[Semgrep CLI](https://github.com/returntocorp/semgrep) is open-source, licensed under the [LGPL 2.1](<https://tldrlegal.com/license/gnu-lesser-general-public-license-v2.1-(lgpl-2.1)>) license — you can use it at work, on private and proprietary code, no problem!
+The [Semgrep command line tool](https://github.com/returntocorp/semgrep) is open-source, licensed under [LGPL 2.1](<https://tldrlegal.com/license/gnu-lesser-general-public-license-v2.1-(lgpl-2.1)>) — you can use it at work, on private and proprietary code, no problem!
 
 The [Semgrep Registry](https://semgrep.dev/explore) contains rules from many different contributors, often under differing licenses. If you use Semgrep Registry through Semgrep.dev, r2c is vetting the rules to make sure that the licenses are compatible with using them at your company.
 
@@ -121,13 +121,13 @@ No. Semgrep CI runs fully in your CI pipeline and your source-code never leaves 
 
 #### What data do you store?
 
-Semgrep CI collects usage data to provide useful results and to help improve the product. Two types of data are sent to r2c servers: scan data and findings data. Scan data includes project id, CI environment and scan meta-data. Findings data are used to provide human readable content for notifications and integrations, as well tracking results as new, fixed, or duplicate. For more information and detailed description for each data field, refer to Semgrep CI [PRIVACY.md](https://github.com/returntocorp/semgrep-action/blob/develop/PRIVACY.md). Note that [Semgrep CLI](https://github.com/returntocorp/semgrep) does not collect or send any scan or findings data.
+Semgrep CI collects usage data to provide useful results and to help improve the product. Two types of data are sent to r2c servers: scan data and findings data. Scan data includes project id, CI environment and scan meta-data. Findings data are used to provide human readable content for notifications and integrations, as well tracking results as new, fixed, or duplicate. For more information and detailed description for each data field, refer to Semgrep CI [PRIVACY.md](https://github.com/returntocorp/semgrep-action/blob/develop/PRIVACY.md). Note that [Semgrep](https://github.com/returntocorp/semgrep) does not collect or send any scan or findings data.
 
 #### What network requests are made?
 
 Semgrep CI makes network requests in accordance with the data storage mentioned above.
 
-[Semgrep CLI](https://github.com/returntocorp/semgrep) makes the following network requests:
+[Semgrep](https://github.com/returntocorp/semgrep) makes the following network requests:
 
 - When running without `--disable-version-check`, Semgrep makes a network request to check for updates.
 - When providing a URL to `--output`, Semgrep performs an HTTP `POST` of the results to the specified URL.

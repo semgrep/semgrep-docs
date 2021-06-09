@@ -38,7 +38,7 @@ bad_func()  # nosemgrep: rule-id-1
 !!! danger
     Note that `.semgrepignore` is only used by Semgrep CI. It isn’t honored when running `semgrep` on the command line.
 
-Semgrep CLI will respect the presence of a .gitignore in the project and will not scan any paths present in the git ignore. This behavior can be disabled by using the flag `--no-git-ignore`.
+Semgrep will respect the presence of a `.gitignore` in the project and will not scan any paths present in the git ignore. This behavior can be disabled by using the flag `--no-git-ignore`.
 
 If there are files that you want to track in Git but have Semgrep ignore, Semgrep CI (but _not_ the CLI) respects a `.semgrepignore` file that follows a similar convention to the `.gitignore`. For example:
 

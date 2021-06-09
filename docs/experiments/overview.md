@@ -98,7 +98,7 @@ As of now, data-flow analysis is used for [taint tracking](#taint-tracking) and 
 
 ## Taint tracking
 
-Semgrep CLI supports intra-file [taint tracking](https://en.wikipedia.org/wiki/Taint_checking). Taint tracking rules must specify `mode: taint`. Additionally, the following operators are enabled:
+Semgrep supports intra-file [taint tracking](https://en.wikipedia.org/wiki/Taint_checking). Taint tracking rules must specify `mode: taint`. Additionally, the following operators are enabled:
 
 - `pattern-sources` (required)
 - `pattern-sinks` (required)
@@ -110,7 +110,7 @@ For example:
 
 ## Constant propagation
 
-Semgrep CLI supports intra-procedural constant propagation. This tracks whether a variable must carry a constant value at each point in the program.
+Semgrep supports intra-procedural constant propagation. This tracks whether a variable must carry a constant value at each point in the program.
 
 For example:
 
