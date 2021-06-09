@@ -276,32 +276,7 @@ You can set this up by [changing the actions of the Semgrep App policy](managing
 
 <!-- # Technical details
 
-## Packaging
-
-Semgrep CI is published under the name `semgrep-agent`.
-
-- The [`semgrep_agent` Python package](https://github.com/returntocorp/semgrep-action/tree/develop/src/semgrep_agent) uses this name.
-- The [`semgrep-agent` Docker image](https://hub.docker.com/r/returntocorp/semgrep-agent) also uses this name.
-- The [semgrep-action](https://github.com/marketplace/actions/semgrep-action) GitHub Marketplace listing
-  runs the above Docker image.
-- The [semgrep-action repository](https://github.com/returntocorp/semgrep-action)
-  holds the code for Semgrep CI, the Docker image, and the GitHub Marketplace manifest.
-
-New versions of Semgrep CI and the Docker image above are released by Semgrep maintainers on a regular basis. To run all jobs with the latest releases, use `returntocorp/semgrep-action@v1` in your GitHub Actions workflow, or the `returntocorp/semgrep-agent:v1` Docker image with other providers.
-
-!!! info
-    The Python package itself is not published to PyPI,
-    or any other package index,
-    but you can still use it by cloning the GitHub repository.
-
 ## Behavior
-
-Semgrep CI scans the current working directory,
-and exits with a return code of 1 if blocking findings were found.
-
-All findings are blocking by default.
-A rule can be set to generate non-blocking findings
-on the [Dashboard > Policies](https://semgrep.dev/manage/policies) page of Semgrep App.
 
 Semgrep CI uses environment variables
 to detect what context it's running in.
@@ -327,46 +302,3 @@ The matched source code content is compared with whitespace trimmed,
 so that re-indenting code doesn't create new findings.
 This means that you will get notified about new findings when
 a rule's ID changes, when a file is renamed, and when the code matched by a finding changes. -->
-
-<!-- # Usage outside CI
-
-While Semgrep CI is designed
-for integrating with various CI providers,
-it's versatile enough to be used locally
-to scan a repository with awareness of its git history.
-
-To locally scan issues in your current branch
-that are not found on the `main` branch,
-run the following command:
-
-```sh
-docker run -v $(pwd):/src --workdir /src returntocorp/semgrep-agent:v1 semgrep-agent --config p/ci --baseline-ref main
-```
-
-Another use case is when you want to scan only commits
-from the past weeks for new issues they introduced.
-This can be done by using a git command
-that gets the tip of the current branch two weeks earlier:
-
-```sh
-docker run -v $(pwd):/src --workdir /src returntocorp/semgrep-agent:v1 semgrep-agent --config p/ci --baseline-ref $(git rev-parse '@{2.weeks.ago}')
-```
-
-To compare two commits
-and find the issues added between them,
-checkout the more recent commit of the two
-before running Semgrep CI:
-
-```sh
-git checkout $RECENT_SHA
-docker run -v $(pwd):/src --workdir /src returntocorp/semgrep-agent:v1 semgrep-agent --config p/ci --baseline-ref $OLDER_SHA
-```
-
-!!! info
-    The above commands all require `docker`
-    to be installed on your machine.
-    They also use Docker volumes
-    to make your working directory accessible to the container.
-    `--config p/ci` is the Semgrep rule configuration,
-    which can be changed to any value
-    that `semgrep` itself understands. -->
