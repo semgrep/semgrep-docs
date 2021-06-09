@@ -72,7 +72,7 @@ Interested in GitLab merge request comments? [Sign up for the beta here.](https:
 
 ## Webhooks
 
-Webhook notifications are a paid feature in our Semgrep Team tier.
+Webhook notifications are a paid feature in the Semgrep Team tier.
 
 To receive webhook notifications about Semgrep findings on pull requests and code pushes, visit [Dashboard > Integrations](https://semgrep.dev/manage/integrations) and select 'Add integration' or 'Setup First Integration,' and then choose 'Webhook'. Enter a target URL, give the notification channel a name of your choosing, and then click 'Save'.
 
