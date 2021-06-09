@@ -28,14 +28,14 @@ You can remove items from your policy by hovering over them in the rules tab and
 
 # Changing policy actions
 
-[Third-party notifications](integrations.md),
-posting [inline pull request comments](integrations.md#pull-request-comments),
+[Third-party notifications](notifications.md),
+posting [inline pull request comments](notifications.md#pull-request-comments),
 and blocking the build are all configured on a per-policy basis.
 
-1. Visit [Dashboard > Integrations](https://semgrep.dev/manage/integrations) to configure the services and name each of your integration channels. See [Integrations](integrations.md) for detailed instructions.
+1. Visit [Dashboard > Integrations](https://semgrep.dev/manage/integrations) to configure the services and name each of your integration channels. See [Integrations](notifications.md) for detailed instructions.
 2. Attach existing integration channels on either [Dashboard > Integrations](https://semgrep.dev/manage/integrations) or an individual policy page.
 
-You can also toggle on and off the abilities to post [pull request comments](integrations.md#pull-request-comments) or to block the build on findings. Don't forget to click Save when you are finished editing!
+You can also toggle on and off the abilities to post [pull request comments](notifications.md#pull-request-comments) or to block the build on findings. Don't forget to click Save when you are finished editing!
 
 ![Changing the integrations and actions of a policy](img/policy-actions.png "Changing the integrations and actions of a policy")
 
