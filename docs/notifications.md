@@ -68,7 +68,7 @@ If you are using Github Actions to run Semgrep, no extra changes are needed to g
 
 ## GitLab merge request comments
 
-Merge request comments on GitLab are coming soon. [Sign up for the beta here.](https://go.r2c.dev/join-gitlab-beta)
+Interested in GitLab merge request comments? [Sign up for the beta here.](https://go.r2c.dev/join-gitlab-beta)
 
 ## Webhooks
 
