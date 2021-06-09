@@ -14,7 +14,7 @@ Hands down the best way to enforce a code standard is to just automatically fix 
 
 The autofix can be applied directly to the file using the `--autofix` flag, or you can use both the `--autofix` and `--dryrun` flags to test the autofix.
 
-Example autofix (see in editor [here](https://semgrep.dev/s/R6g)):
+Example autofix (see in Playground [here](https://semgrep.dev/s/R6g)):
 
 ```yaml
 rules:
