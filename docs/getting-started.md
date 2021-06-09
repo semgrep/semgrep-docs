@@ -39,7 +39,7 @@ $ semgrep -e '$X == $X' --lang=py path/to/src
 $ semgrep --config=p/ci path/to/src
 ```
 
-See [CLI usage](cli-usage.md) for command line options and exit codes.
+See [CLI Reference](cli-usage.md) for command line options and exit codes.
 
 Visit [Running rules](running-rules.md) to learn more or try Semgrep on known vulnerable test projects:
 
