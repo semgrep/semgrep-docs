@@ -41,6 +41,7 @@ bad_func()  # nosemgrep: rule-id-1
 Semgrep CI users can also [use a `.semgrepignore` file](semgrep-ci.md#ignoring-files).
 
 If you're directly running the Semgrep command line tool, use the `--exclude <pattern>` flag.
+
 # Disabling rules
 
 If you are using Semgrep in CI with a managed policy, you can disable individual rules within a ruleset on [Dashboard > Policies](https://semgrep.dev/manage/policies). See [Editing a policy](managing-policy.md#editing-a-policy) for details.
