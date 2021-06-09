@@ -39,7 +39,8 @@ append_help_link: true
 
 The above front matter adds a link at the bottom of a docs page directing visitors to the r2c Slack to get more help.
 
-To add a `<meta>` tag that adds a description in a page’s `<head>`, add a line to the frontmatter in the form:
+All pages automatically use the first paragraph as a `<meta>` description.
+To use a custom description, add a line to the frontmatter like this:
 
 ```
 description: >-
