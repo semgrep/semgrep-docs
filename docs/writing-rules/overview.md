@@ -5,7 +5,7 @@
 If you want the best introduction to writing Semgrep rules, use the interactive, example-based [Semgrep rule tutorial](https://semgrep.dev/learn).
 
 ### Do it live!
-You can write and share rules directly from the [live editor](https://semgrep.dev/editor). You can also write rules in your terminal and run them with the Semgrep command line tool.
+You can write and share rules directly from the [Playground](https://semgrep.dev/editor). You can also write rules in your terminal and run them with the Semgrep command line tool.
 
 You can write rules that do things like:
 

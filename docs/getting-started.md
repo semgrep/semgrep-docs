@@ -91,7 +91,7 @@ Semgrep rules can cover a wide range of use cases:
 
 Visit [Writing Rules > Getting started](writing-rules/overview.md) for an in-depth guide and reference material.
 
-This rule is used to find and discourage `print(...)` in production code. You can edit this rule here or visit the [editor](https://semgrep.dev/editor) to write and deploy your own rule.
+This rule is used to find and discourage `print(...)` in production code. You can edit this rule here or visit the [Playground](https://semgrep.dev/editor) to write and deploy your own rule.
 
 <iframe title="Semgrep example with Python Flask routes" src="https://semgrep.dev/embed/editor?snippet=ievans:print-to-logger" width="100%" height="432px" frameborder="0"></iframe>
 
