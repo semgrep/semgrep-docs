@@ -46,9 +46,6 @@ On each scan that has at least one finding, you will receive one email from Semg
 
 ## GitHub pull request comments
 
-!!! info
-    This feature is currently only available for GitHub.
-
 Pull request comments are left when
 
 1. Semgrep finds a result in CI, and
