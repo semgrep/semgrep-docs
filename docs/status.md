@@ -1,5 +1,7 @@
 ---
 append_help_link: true
+description: >-
+  Semgrep supports over a dozen languages. Learn about generally available, beta, and experimentally supported languages.
 ---
 
 # Supported languages
