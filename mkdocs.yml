@@ -68,3 +68,4 @@ plugins:
         "writing-rules/index.md": "writing-rules/overview.md"
         "semgrep-ci/managing-policy.md": "managing-policy.md"
         "integrations.md": "notifications.md"
+  - meta-descriptions:
