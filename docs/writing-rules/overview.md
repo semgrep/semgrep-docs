@@ -1,3 +1,8 @@
+---
+description: >-
+  Learn how to use Semgrep’s intuitive syntax to write rules specific to your codebase.
+---
+
 # Getting started
 
 ### Tutorial

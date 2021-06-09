@@ -1,5 +1,7 @@
 ---
 append_help_link: true
+description: >-
+  Learn how to extend Semgrep use to an editor, in pre-commit, and in other tools.
 ---
 
 # Extensions
