@@ -35,6 +35,10 @@ $ semgrep -e '$X == $X' --lang=py path/to/src
 $ semgrep --config path/to/yaml
 ```
 
+We are working on optimizations to improve Semgrep's performance, which necessitates changing how rules are processed. If you are using v0.55.0 or later and you encounter an unexpected metavariable binding or missing result, try running with `--optimizations none` to use the original code path. 
+
+You may find that some files that were previously parsed are now skipped; this will happen if Semgrep can confirm the rule will not match the file without parsing it. You can similarly run with `--optimizations none` to avoid this.
+
 # Findings
 
 * See [Managing findings](managing-findings.md) for information on Semgrep findings.
