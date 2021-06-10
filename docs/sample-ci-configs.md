@@ -58,6 +58,8 @@ jobs:
   semgrep:
     name: Scan
     runs-on: ubuntu-latest
+    # Skip any PR created by dependabot to avoid permissioning issues
+    if: (github.actor != 'dependabot[bot]')
     steps:
       # Checkout project source
       - uses: actions/checkout@v2
