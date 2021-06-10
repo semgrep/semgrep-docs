@@ -9,11 +9,11 @@ append_help_link: true
 - [Write a rule](#write-a-rule)
 - [Run Semgrep continuously](#run-semgrep-continuously)
 
-# Run Semgrep locally
+# Run Semgrep
 
-Start by running [Semgrep](https://github.com/returntocorp/semgrep/) locally to scan your code. It runs offline on uncompiled code: **no code leaves your machine**.
+Run Semgrep locally via your command line. Its analysis executes fully on your computer: **code is never uploaded anywhere**.
 
-Install Semgrep using Homebrew or pip, or run without installation via Docker:
+First install Semgrep using Homebrew or pip, or run without installation via Docker:
 
 ```sh
 # For macOS
