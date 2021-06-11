@@ -4,16 +4,7 @@ append_help_link: true
 
 # Getting started
 
-- [Getting started](#getting-started)
-- [Run Semgrep locally](#run-semgrep-locally)
-- [Write a rule](#write-a-rule)
-- [Run Semgrep continuously](#run-semgrep-continuously)
-
-# Run Semgrep
-
-Run Semgrep locally via your command line. Its analysis executes fully on your computer: **code is never uploaded anywhere**.
-
-First install Semgrep using Homebrew or pip, or run without installation via Docker:
+Start by installing Semgrep locally for use on your command line. It's available through Homebrew, pip, or Docker.
 
 ```sh
 # For macOS
@@ -22,22 +13,39 @@ $ brew install semgrep
 # For Ubuntu / Windows via WSL / Linux / macOS
 $ python3 -m pip install semgrep
 
-# To try Semgrep without installation run via Docker
-$ docker run --rm -v "${PWD}:/src" returntocorp/semgrep --help
+# For Docker users
+$ docker pull returntocorp/semgrep
 ```
 
-Confirm installation and run both a simple “grep-like” rule and a full ruleset:
+Next, navigate to a local code repository and run Semgrep using a set of rules from the public Semgrep Registry. Analysis executes fully on your computer: **code is never uploaded anywhere**.
 
 ```sh
+# Navigate to a local code repository
+cd path/to/src
+
 # Confirm installation by running --help. Semgrep documentation should print to your terminal
 $ semgrep --help
 
+# Run the curated `ci` ruleset containing rules for many languages. Files are scanned with the
+# rules matching their language (e.g. Go rules scan Go files). Semgrep respects your `.gitignore`.
+$ semgrep --config=p/ci
+```
+
+Semgrep makes it easy to write custom rules that look like the code you already write.
+
+```sh
+# Check for Python print statements
+$ semgrep -e 'print(...)' --lang=py path/to/src
+
 # Check for Python == where the left and right hand sides are the same (often a bug)
 $ semgrep -e '$X == $X' --lang=py path/to/src
-
-# Run the r2c CI ruleset (with rules for many languages) on your own code!
-$ semgrep --config=p/ci path/to/src
 ```
+
+With Semgrep running locally, consider the following:
+
+* 
+
+---
 
 See [CLI Reference](cli-usage.md) for command line options and exit codes.
 
