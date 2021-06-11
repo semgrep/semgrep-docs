@@ -52,7 +52,7 @@ theme:
     - rust
     - django
   analytics:
-      gtag: G-1851JH9FSR
+    gtag: G-1851JH9FSR
 markdown_extensions:
   - admonition
   - toc
