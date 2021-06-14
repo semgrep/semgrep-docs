@@ -1,5 +1,8 @@
 ---
 append_help_link: true
+description: >-
+  Frequently asked questions about Semgrep, comparisons to similar tools,
+  rule licensing, technical support, and more.
 ---
 
 # Frequently Asked Questions

@@ -1,3 +1,10 @@
+---
+description: >-
+  Read the documentation and get started with Semgrep.
+  A fast, open-source, static analysis tool
+  for finding bugs and enforcing code standards at editor, commit, and CI time.
+---
+
 </br>
 <p align="center">
   <a href="https://semgrep.dev">
@@ -7,17 +14,18 @@
 <h3 align="center">Static analysis at ludicrous speed<br />Find bugs and enforce code standards</h3>
 
 ---
+
 # Overview
 
 Semgrep is a fast, open-source, static analysis tool for finding bugs and enforcing code standards at editor, commit, and CI time. [Get started →.](getting-started.md)
 
-Semgrep runs fully on your computer or build environment: **your code is never sent anywhere**. 
+Semgrep runs fully on your computer or build environment: **your code is never sent anywhere**.
 
 Its rules look like the code you already write; no abstract syntax trees or regex wrestling. Here's a quick rule for finding Python `print()` statements, run it by clicking the [▸] button:
 
 <iframe title="Semgrep example no prints" src="https://semgrep.dev/embed/editor?snippet=ievans:print-to-logger" width="100%" height="432px" frameborder="0"></iframe>
 </br>
-    
+
 The Semgrep ecosystem includes:
 
 * [Semgrep](getting-started.md) - the open-source command line tool at the heart of everything

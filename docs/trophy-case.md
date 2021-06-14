@@ -1,5 +1,8 @@
 # Semgrep Trophy Case
 
+This is a list of vulnerabilities found and security fixes made with Semgrep.
+Add yours [with a pull request](https://github.com/returntocorp/semgrep-docs)!
+
 |CVEs	|	|	|	|
 |---	|---	|---	|---	|
 |**CVE**	|**Semgrep rule**	|**Affected software**	|**Description**	|
