@@ -54,7 +54,7 @@
   {%- block extrahead %} {% endblock %}
 
   {%- block analytics %}
-  {%- if config.theme.analytics.gtag %}
+  {% if config.theme.analytics.gtag %}
       <script async src="https://www.googletagmanager.com/gtag/js?id={{ config.theme.analytics.gtag }}"></script>
       <script>
         window.dataLayer = window.dataLayer || [];
