@@ -7,7 +7,7 @@ jobs:
     steps:
       - checkout
       - run: python --version
-      - run: pip install mkdocs==1.1.2 mkdocs-redirects mkdocs-meta-descriptions-plugin
+      - run: pip install mkdocs==1.2.1 mkdocs-redirects mkdocs-meta-descriptions-plugin
       - run: mkdocs build
   deployStaging:
     docker:
@@ -15,7 +15,7 @@ jobs:
     steps:
       - checkout
       - run: python --version
-      - run: pip install mkdocs==1.1.2 mkdocs-redirects mkdocs-meta-descriptions-plugin
+      - run: pip install mkdocs==1.2.1 mkdocs-redirects mkdocs-meta-descriptions-plugin
       - run: mkdocs build
       - run:
           name: install aws cli
@@ -31,7 +31,7 @@ jobs:
     steps:
       - checkout
       - run: python --version
-      - run: pip install mkdocs==1.1.2 mkdocs-redirects mkdocs-meta-descriptions-plugin
+      - run: pip install mkdocs==1.2.1 mkdocs-redirects mkdocs-meta-descriptions-plugin
       - run: mkdocs build
       - run:
           name: install aws cli
