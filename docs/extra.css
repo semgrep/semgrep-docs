@@ -561,11 +561,13 @@ div.cs p span.cs-recommendation {
   background-color: #f5e12b;
 }
 
-div.cs .cs-code-example code {
+div.cs #cheatsheet .cs-code-example code {
   background-color: #ecf1f6;
   border: 1px solid #ecf1f6;
   border-radius: 3px;
-  font-size: 1em;
+  font-size: 90%;
+  white-space: pre;
+  padding:  10px;
 }
 
 div.cs ul.cs-references {
