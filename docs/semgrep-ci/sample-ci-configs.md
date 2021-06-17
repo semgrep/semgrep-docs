@@ -195,8 +195,8 @@ environment {
 
 | Feature | Status |
 | --- | --- |
-| **diff-aware scanning** | ✅ [configure manually](#diff-aware-scanning-semgrep_baseline_ref) |
-| **hyperlinks in Semgrep Cloud** | ✅ [configure manually](#get-hyperlinks-in-semgrep-cloud) |
+| **diff-aware scanning** | ✅ [configure manually](configuration-reference.md#diff-aware-scanning-semgrep_baseline_ref) |
+| **hyperlinks in Semgrep Cloud** | ✅ [configure manually](configuration-reference.md#get-hyperlinks-in-semgrep-cloud) |
 | **results in native dashboard** | 💢 not applicable |
 | **results in pull request comments** | ✅ [sign up for Semgrep Cloud free](https://semgrep.dev/login) |
 | **automatic CI setup** | ❌ not available |
@@ -236,8 +236,8 @@ environment {
 
 | Feature | Status |
 | --- | --- |
-| **diff-aware scanning** | ✅ [configure manually](#diff-aware-scanning-semgrep_baseline_ref)|
-| **hyperlinks in Semgrep Cloud** | ✅ [configure manually](#get-hyperlinks-in-semgrep-cloud) |
+| **diff-aware scanning** | ✅ [configure manually](configuration-reference.md#diff-aware-scanning-semgrep_baseline_ref)|
+| **hyperlinks in Semgrep Cloud** | ✅ [configure manually](configuration-reference.md#get-hyperlinks-in-semgrep-cloud) |
 | **results in native dashboard** | 💢 not applicable |
 | **results in pull request comments** | ✅ [sign up for Semgrep Cloud free](https://semgrep.dev/login) |
 | **automatic CI setup** | ❌ not available |
@@ -300,8 +300,8 @@ workflows:
 
 | Feature | Status |
 | --- | --- |
-| **diff-aware scanning** | ✅ [configure manually](#diff-aware-scanning-semgrep_baseline_ref) |
-| **hyperlinks in Semgrep Cloud** | ✅ [configure manually](#get-hyperlinks-in-semgrep-cloud) |
+| **diff-aware scanning** | ✅ [configure manually](configuration-reference.md#diff-aware-scanning-semgrep_baseline_ref) |
+| **hyperlinks in Semgrep Cloud** | ✅ [configure manually](configuration-reference.md#get-hyperlinks-in-semgrep-cloud) |
 | **results in native dashboard** | 💢 not applicable |
 | **results in pull request comments** | ✅ [sign up for Semgrep Cloud free](https://semgrep.dev/login) |
 | **automatic CI setup** | ❌ not available |
@@ -311,9 +311,9 @@ workflows:
 To run Semgrep CI on any other provider,
 use the `returntocorp/semgrep-agent:v1` Docker image,
 and run the `semgrep-agent` command.
-Configure via environment variables as below.
 
-Using these instructions, you can run Semgrep in the following CI providers:
+Using the [configuration reference](configuration-reference.md),
+you can run Semgrep in the following CI providers:
 
 - AppVeyor
 - Bamboo
@@ -331,63 +331,3 @@ Using these instructions, you can run Semgrep in the following CI providers:
 - Travis CI
 
 Is your CI provider missing? Let us know by [filing an issue](https://github.com/returntocorp/semgrep/issues/new?assignees=&labels=&template=feature_request.md&title=).
-
-# Environment variables reference
-
-## Select rules to scan with (`SEMGREP_RULES`)
-
-```sh
-SEMGREP_RULES="p/security-audit p/secrets"
-```
-
-## Diff-aware scanning (`SEMGREP_BASELINE_REF`)
-
-For [diff-aware scans](semgrep-ci.md#features), set this variable
-to the git ref (branch name, tag, or commit hash) to use as a baseline.
-For example, to report findings newly added
-since branching off from your `main` branch, set
-
-```sh
-SEMGREP_BASELINE_REF=main
-```
-
-## Connect to Semgrep Cloud (`SEMGREP_CLOUD_TOKEN`)
-
-Instead of `SEMGREP_RULES`, you can use rules set in Semgrep Cloud.
-Get your credentials from [Semgrep Cloud > Settings](https://semgrep.dev/manage/settings).
-
-```
-SEMGREP_CLOUD_DEPLOYMENT_ID=0
-SEMGREP_CLOUD_TOKEN=secret
-```
-
-## Get hyperlinks in Semgrep Cloud
-
-Set these variables to hyperlink to the correct repositories, files, and PRs
-in the Semgrep Cloud UI & notifications.
-
-```sh
-SEMGREP_REPO_URL="https://github.com/foo/bar"
-SEMGREP_BRANCH="feature/add-new-bugs"
-SEMGREP_JOB_URL="https://ci-server.com/jobs/1234"
-SEMGREP_REPO_NAME="foo/bar"
-SEMGREP_COMMIT="a52bc1ef"
-SEMGREP_PR_ID="44"
-```
-
-## Collect findings silently (`SEMGREP_AUDIT_ON`)
-
-Set this to never fail the build due to findings when scanning.
-Instead, just collect findings for [Semgrep Cloud > Findings](https://semgrep.dev/manage/findings).
-
-```
-SEMGREP_AUDIT_ON="unknown"
-```
-
-## Configure a job timeout (`SEMGREP_TIMEOUT`)
-
-To change the job timeout from the default of 1800 seconds. Set to 0 to disable job timeout.
-
-```sh
-SEMGREP_TIMEOUT="300"
-```
