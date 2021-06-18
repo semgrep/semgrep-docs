@@ -112,7 +112,7 @@ semgrep:
   # Change job timeout (default is 1800 seconds; set to 0 to disable)
   #   SEMGREP_TIMEOUT: 300
 
-  # Upload findings to GitLab SAST Dashboard (remove `script:` line above)
+  # Upload findings to GitLab SAST Dashboard (remove `script:` line above) [step 2/2]
   # script: semgrep-agent --gitlab-json > gl-sast-report.json || true
   # artifacts:
   #   reports:
