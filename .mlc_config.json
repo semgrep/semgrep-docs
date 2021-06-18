@@ -5,6 +5,9 @@
     }, 
     {
       "pattern": "^http://127.0.0.1:"
+    },
+    {
+      "pattern": "^https://www.baeldung.com/" // when automated tests hit this, site returns a CAPTCHA
     }
   ]
 }
