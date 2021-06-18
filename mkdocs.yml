@@ -52,6 +52,7 @@ theme:
     - yaml
     - rust
     - django
+    - go
   analytics:
     gtag: G-1851JH9FSR
 markdown_extensions:

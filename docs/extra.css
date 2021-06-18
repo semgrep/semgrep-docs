@@ -464,7 +464,8 @@ div.cs .title h1 {
   color: #29343d;
 }
 
-div.cs p {
+div.cs p,
+div.cs div.cs-recommendation-block {
   font-size: 1rem;
   color: #777777;
 }
@@ -556,9 +557,21 @@ div.cs .w-50 {
   }
 }
 
-div.cs p span.cs-recommendation {
+div.cs span.cs-recommendation {
   color: #29343d;
   background-color: #f5e12b;
+}
+
+div.cs .cs-recommendation-block ul {
+  list-style: disc;
+  line-height: 24px;
+  margin-top: 10px;
+}
+
+div.cs .cs-mitigations ul li,
+div.cs .cs-recommendation-block ul li {
+  list-style: disc;
+  margin-left: 24px;
 }
 
 div.cs #cheatsheet .cs-code-example code {
