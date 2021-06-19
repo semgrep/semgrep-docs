@@ -6,29 +6,42 @@ append_help_link: true
 
 Start by installing Semgrep locally for use on your command line. It's available through Homebrew, pip, or Docker.
 
+For macOS: 
+
 ```sh
-# For macOS
-$ brew install semgrep
+brew install semgrep
+```
 
-# For Ubuntu / Windows via WSL / Linux / macOS
-$ python3 -m pip install semgrep
+For Ubuntu / Windows via WSL / Linux / macOS:
 
-# For Docker users
-$ docker pull returntocorp/semgrep
+```sh
+python3 -m pip install semgrep
+```
+
+For Docker users:
+
+```sh
+docker pull returntocorp/semgrep
 ```
 
 Next, navigate to a local code repository and run Semgrep using a set of rules from the public Semgrep Registry. Analysis executes fully on your computer: **code is never uploaded anywhere**.
 
+Navigate to a local repository:
+
 ```sh
-# Navigate to a local code repository
 cd path/to/src
+```
 
-# Confirm installation by running --help. Semgrep documentation should print to your terminal
-$ semgrep --help
+Confirm installation by printing help to your terminal:
 
-# Run the curated `ci` ruleset containing rules for many languages. Files are scanned with the
-# rules matching their language (e.g. Go rules scan Go files). Semgrep respects your `.gitignore`.
-$ semgrep --config=p/ci
+```sh
+semgrep --help
+```
+
+Run the curated `ci` ruleset containing rules for many languages. Files are scanned with the rules matching their language (e.g., Go rules scan Go files). Semgrep respects your `.gitignore`.
+
+```sh
+semgrep --config=p/ci
 ```
 
 Semgrep makes it easy to write custom rules that look like the code you already write.
