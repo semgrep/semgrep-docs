@@ -41,7 +41,7 @@ jobs:
 
         # == Optional settings in the `with:` block
 
-        # Instead of `config:`, use rules set in Semgrep Cloud.
+        # Instead of `config:`, use rules set in Semgrep App.
         # Get your credentials from semgrep.dev/manage/settings.
         #   publishDeployment: ${{ secrets.SEMGREP_DEPLOYMENT_ID }}
         #   publishToken: ${{ secrets.SEMGREP_APP_TOKEN }}
@@ -71,10 +71,10 @@ jobs:
 | Feature | Status |
 | --- | --- |
 | **diff-aware scanning** | ✅ automatic |
-| **hyperlinks in Semgrep Cloud** | ✅ automatic |
+| **hyperlinks in Semgrep App** | ✅ automatic |
 | **results in native dashboard**<br/><small>GitHub Advanced Security Dashboard</small> | ✅ available |
-| **results in pull request comments** | ✅ [sign up for Semgrep Cloud free](https://semgrep.dev/login) |
-| **automatic CI setup** | ✅ [sign up for Semgrep Cloud free](https://semgrep.dev/login) |
+| **results in pull request comments** | ✅ [sign up for Semgrep App free](https://semgrep.dev/login) |
+| **automatic CI setup** | ✅ [sign up for Semgrep App free](https://semgrep.dev/login) |
 
 # GitLab CI
 
@@ -96,10 +96,10 @@ semgrep:
 
   # == Optional settings in the `variables:` block
 
-  # Instead of `SEMGREP_RULES:`, use rules set in Semgrep Cloud.
+  # Instead of `SEMGREP_RULES:`, use rules set in Semgrep App.
   # Get your credentials from semgrep.dev/manage/settings.
-  #   SEMGREP_CLOUD_DEPLOYMENT_ID: $SEMGREP_CLOUD_DEPLOYMENT_ID
-  #   SEMGREP_CLOUD_TOKEN: $SEMGREP_CLOUD_TOKEN
+  #   SEMGREP_APP_DEPLOYMENT_ID: $SEMGREP_APP_DEPLOYMENT_ID
+  #   SEMGREP_APP_TOKEN: $SEMGREP_APP_TOKEN
 
   # Never fail the build due to findings on pushes.
   # Instead, just collect findings for semgrep.dev/manage/findings
@@ -124,7 +124,7 @@ semgrep:
 | Feature | Status |
 | --- | --- |
 | **diff-aware scanning** | ✅ automatic |
-| **hyperlinks in Semgrep Cloud** | ✅ automatic |
+| **hyperlinks in Semgrep App** | ✅ automatic |
 | **results in native dashboard**<br/><small>GitLab SAST Dashboard</small> | ✅ available |
 | **results in merge request comments** | ✅ [sign up for beta access](https://go.r2c.dev/join-gitlab-beta) |
 | **automatic CI setup** | ❌ not available |
@@ -158,10 +158,10 @@ environment {
 
     // == Optional settings in the `environment {}` block
 
-    // Instead of `SEMGREP_RULES:`, use rules set in Semgrep Cloud.
+    // Instead of `SEMGREP_RULES:`, use rules set in Semgrep App.
     // Get your credentials from semgrep.dev/manage/settings.
-    //   SEMGREP_CLOUD_DEPLOYMENT_ID: credentials('SEMGREP_CLOUD_DEPLOYMENT_ID')
-    //   SEMGREP_CLOUD_TOKEN: credentials('SEMGREP_CLOUD_TOKEN')
+    //   SEMGREP_APP_DEPLOYMENT_ID: credentials('SEMGREP_APP_DEPLOYMENT_ID')
+    //   SEMGREP_APP_TOKEN: credentials('SEMGREP_APP_TOKEN')
     //   SEMGREP_REPO_URL = env.GIT_URL.replaceFirst(/^(.*).git$/,'$1')
     //   SEMGREP_BRANCH = "${CHANGE_BRANCH}"
     //   SEMGREP_JOB_URL = "${BUILD_URL}"
@@ -196,9 +196,9 @@ environment {
 | Feature | Status |
 | --- | --- |
 | **diff-aware scanning** | ✅ [configure manually](configuration-reference.md#diff-aware-scanning-semgrep_baseline_ref) |
-| **hyperlinks in Semgrep Cloud** | ✅ [configure manually](configuration-reference.md#get-hyperlinks-in-semgrep-cloud) |
+| **hyperlinks in Semgrep App** | ✅ [configure manually](configuration-reference.md#get-hyperlinks-in-semgrep-cloud) |
 | **results in native dashboard** | 💢 not applicable |
-| **results in pull request comments** | ✅ [sign up for Semgrep Cloud free](https://semgrep.dev/login) |
+| **results in pull request comments** | ✅ [sign up for Semgrep App free](https://semgrep.dev/login) |
 | **automatic CI setup** | ❌ not available |
 
 # Buildkite
@@ -215,10 +215,10 @@ environment {
 
         # == Optional settings in the `environment:` block
 
-        # Instead of `SEMGREP_RULES:`, use rules set in Semgrep Cloud.
+        # Instead of `SEMGREP_RULES:`, use rules set in Semgrep App.
         # Get your credentials from semgrep.dev/manage/settings.
-        #   - "SEMGREP_CLOUD_DEPLOYMENT_ID=${SEMGREP_CLOUD_DEPLOYMENT_ID}"
-        #   - "SEMGREP_CLOUD_TOKEN=${SEMGREP_CLOUD_TOKEN}"
+        #   - "SEMGREP_APP_DEPLOYMENT_ID=${SEMGREP_APP_DEPLOYMENT_ID}"
+        #   - "SEMGREP_APP_TOKEN=${SEMGREP_APP_TOKEN}"
         #   - "SEMGREP_JOB_URL=${BUILDKITE_BUILD_URL}"
         #   - "SEMGREP_BRANCH=${BUILDKITE_BRANCH}"
         #   - "SEMGREP_REPO_NAME=<org_name>/<repo_name>"
@@ -237,9 +237,9 @@ environment {
 | Feature | Status |
 | --- | --- |
 | **diff-aware scanning** | ✅ [configure manually](configuration-reference.md#diff-aware-scanning-semgrep_baseline_ref)|
-| **hyperlinks in Semgrep Cloud** | ✅ [configure manually](configuration-reference.md#get-hyperlinks-in-semgrep-cloud) |
+| **hyperlinks in Semgrep App** | ✅ [configure manually](configuration-reference.md#get-hyperlinks-in-semgrep-cloud) |
 | **results in native dashboard** | 💢 not applicable |
-| **results in pull request comments** | ✅ [sign up for Semgrep Cloud free](https://semgrep.dev/login) |
+| **results in pull request comments** | ✅ [sign up for Semgrep App free](https://semgrep.dev/login) |
 | **automatic CI setup** | ❌ not available |
 
 # CircleCI
@@ -268,10 +268,10 @@ jobs:
 
     # == Optional settings in the `environment:` block
 
-    # Instead of `SEMGREP_RULES:`, use rules set in Semgrep Cloud.
+    # Instead of `SEMGREP_RULES:`, use rules set in Semgrep App.
     # Get your credentials from semgrep.dev/manage/settings.
-    #   SEMGREP_CLOUD_DEPLOYMENT_ID: << parameters.semgrep_deployment_id >>
-    #   SEMGREP_CLOUD_TOKEN: $SEMGREP_CLOUD_TOKEN
+    #   SEMGREP_APP_DEPLOYMENT_ID: << parameters.semgrep_deployment_id >>
+    #   SEMGREP_APP_TOKEN: $SEMGREP_APP_TOKEN
     #   SEMGREP_REPO_NAME: << parameters.repo_path >>
     #   SEMGREP_REPO_URL: << pipeline.project.git_url >>
     #   SEMGREP_BRANCH: << pipeline.git.branch >>
@@ -301,9 +301,9 @@ workflows:
 | Feature | Status |
 | --- | --- |
 | **diff-aware scanning** | ✅ [configure manually](configuration-reference.md#diff-aware-scanning-semgrep_baseline_ref) |
-| **hyperlinks in Semgrep Cloud** | ✅ [configure manually](configuration-reference.md#get-hyperlinks-in-semgrep-cloud) |
+| **hyperlinks in Semgrep App** | ✅ [configure manually](configuration-reference.md#get-hyperlinks-in-semgrep-cloud) |
 | **results in native dashboard** | 💢 not applicable |
-| **results in pull request comments** | ✅ [sign up for Semgrep Cloud free](https://semgrep.dev/login) |
+| **results in pull request comments** | ✅ [sign up for Semgrep App free](https://semgrep.dev/login) |
 | **automatic CI setup** | ❌ not available |
 
 # Other providers

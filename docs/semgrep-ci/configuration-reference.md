@@ -26,20 +26,20 @@ since branching off from your `main` branch, set
 SEMGREP_BASELINE_REF=main
 ```
 
-## Connect to Semgrep Cloud (`SEMGREP_CLOUD_TOKEN`)
+## Connect to Semgrep App (`SEMGREP_APP_TOKEN`)
 
-Instead of `SEMGREP_RULES`, you can use rules set in Semgrep Cloud.
-Get your credentials from [Semgrep Cloud > Settings](https://semgrep.dev/manage/settings).
+Instead of `SEMGREP_RULES`, you can use rules set in Semgrep App.
+Get your credentials from [Semgrep App > Settings](https://semgrep.dev/manage/settings).
 
 ```
-SEMGREP_CLOUD_DEPLOYMENT_ID=0
-SEMGREP_CLOUD_TOKEN=secret
+SEMGREP_APP_DEPLOYMENT_ID=0
+SEMGREP_APP_TOKEN=secret
 ```
 
-## Get hyperlinks in Semgrep Cloud
+## Get hyperlinks in Semgrep App
 
 Set these variables to hyperlink to the correct repositories, files, and PRs
-in the Semgrep Cloud UI & notifications.
+in the Semgrep App UI & notifications.
 
 ```sh
 SEMGREP_REPO_URL="https://github.com/foo/bar"
@@ -53,7 +53,7 @@ SEMGREP_PR_ID="44"
 ## Collect findings silently (`SEMGREP_AUDIT_ON`)
 
 Set this to never fail the build due to findings when scanning.
-Instead, just collect findings for [Semgrep Cloud > Findings](https://semgrep.dev/manage/findings).
+Instead, just collect findings for [Semgrep App > Findings](https://semgrep.dev/manage/findings).
 
 ```
 SEMGREP_AUDIT_ON="unknown"
