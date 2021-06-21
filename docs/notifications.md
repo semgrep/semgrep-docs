@@ -84,7 +84,7 @@ To enable MR comments:
 2. Examine your [policy settings](https://semgrep.dev/manage/policies/starter-policy?tab=settings) and make sure that PR comments are enabled. PR comments are the same thing as MR comments.
 3. Create an API token on gitlab.com by going to [Profile > Access Tokens](https://gitlab.com/-/profile/personal_access_tokens) and adding a token with `api` scope.
 4. Copy the token that GitLab gives you.
-5. Navigate to your repository's CI/CD settings, scroll down to `Variables`, and click 'expand'. The url will look like https://gitlab.com/myusername/myproject/-/settings/ci_cd.
+5. Navigate to your repository's Settings > CI/CD, scroll down to 'Variables', and click 'Expand'. The url will look like https://gitlab.com/myusername/myproject/-/settings/ci_cd.
 6. Give the new variable the key `PAT` and use the token you copied in step 2 as the value. Select "mask variable" and **UNSELECT "protect variable"**.
 7. Update your .gitlab-ci.yml to pass the content of your PAT in through the environment variable `GITLAB_TOKEN`. 
 
