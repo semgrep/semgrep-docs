@@ -147,7 +147,7 @@ whether you're a developer or part of a security team.
 ### Notifications
 
 <p style="text-align: center; font-size: 12px">
-    <img width="600px" src="../img/slack-notification.png" alt="Screenshot of a Slack notification describing the details of a finding"/><br/>
+    <img width="600px" src="/docs/img/slack-notification.png" alt="Screenshot of a Slack notification describing the details of a finding"/><br/>
     A Slack notification triggered by new findings in a pull request
 </p>
 
@@ -172,7 +172,7 @@ as a policy action. Only the rules in these policies will trigger notifications.
 ### Security Dashboards
 
 <p style="text-align: center; font-size: 12px">
-    <img width="900" src="../img/semgrep-app-overview.png" alt="Screenshot of Semgrep App's findings dashboard showing a bar chart of findings over time, and a list of the most recent findings"/><br/>
+    <img width="900" src="/docs/img/semgrep-app-overview.png" alt="Screenshot of Semgrep App's findings dashboard showing a bar chart of findings over time, and a list of the most recent findings"/><br/>
     Semgrep App's findings overview page
 </p>
 
