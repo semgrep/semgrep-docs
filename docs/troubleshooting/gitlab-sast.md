@@ -60,7 +60,7 @@ You can use a comma separated list to ignore multiple patterns:
 ## Solution #3: Upgrade to Semgrep CI
 
 To improve performance by 10x on a typical project,
-you can use our own CI agent [Semgrep CI](../semgrep-ci.md) directly
+you can use our own CI agent [Semgrep CI](../semgrep-ci/overview.md) directly
 by adding the job definition as shown on the [GitLab + Semgrep](https://semgrep.dev/for/gitlab) page.
 
 Semgrep CI skips scanning unchanged files in merge requests

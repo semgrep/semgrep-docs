@@ -46,10 +46,10 @@ If your CI scans regularly take too long and fail to complete:
   and long runtimes are typically caused by just one rule or source code file taking too long.
 - To drastically cut run times,
   you can use Semgrep CI's diff-aware scanning to skip scanning unchanged files.
-  For more details, see [Semgrep CI's behavior](../semgrep-ci.md#behavior).
+  For more details, see [Semgrep CI's behavior](../semgrep-ci/overview.md#behavior).
 - You can skip scanning large and complex source code files (such as minified JS or generated code)
   if you know their path by adding a `.semgrepignore` file.
-  See [how to ignore files & directories in Semgrep CI](../semgrep-ci.md#ignoring-files-directories).
+  See [how to ignore files & directories in Semgrep CI](../semgrep-ci/overview.md#ignoring-files-directories).
 - You can increase Semgrep CI's own run time limit
   by setting a `semgrep-agent --timeout <seconds>` flag,
   or by setting a `SEMGREP_TIMEOUT=<seconds>` environment variable.

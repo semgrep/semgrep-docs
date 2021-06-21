@@ -30,15 +30,14 @@ bad_func()  # nosemgrep: rule-id-1
 ```
 
 !!! note
-    The space (` `) before `nosemgrep` is required for Semgrep to detect this annotation.
-
+    The space (``) before `nosemgrep` is required for Semgrep to detect this annotation.
 
 # File paths
 
 !!! note
     Semgrep will respect the presence of a `.gitignore` in the project and will not scan any paths present in that file. This behavior can be disabled by using the flag `--no-git-ignore`.
 
-Semgrep CI users can also [use a `.semgrepignore` file](semgrep-ci.md#ignoring-files).
+Semgrep CI users can also [use a `.semgrepignore` file](semgrep-ci/overview.md#ignoring-files).
 
 If you're directly running the Semgrep command line tool, use the `--exclude <pattern>` flag.
 

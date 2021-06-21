@@ -103,7 +103,7 @@ This rule is used to find and discourage `print(...)` in production code. You ca
 # Run Semgrep continuously
 
 Finally, Semgrep is at its best when used to continuously scan code.
-Check out [Semgrep CI](semgrep-ci.md) to learn how to get results where you already work:
+Check out [Semgrep CI](semgrep-ci/overview.md) to learn how to get results where you already work:
 GitHub, GitLab, Slack, Jira, and more.
 To get results even earlier in the development process,
 such as in a Git pre-commit hook or VS Code,

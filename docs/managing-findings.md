@@ -8,7 +8,7 @@ append_help_link: true
 
 # Findings
 
-A finding is the core result of Semgrep's analysis. Findings are generated when a Semgrep rule matches a piece of code. After matching, a finding can make its way through 3 parts of the Semgrep ecosystem: [Semgrep](https://github.com/returntocorp/semgrep), [Semgrep CI](semgrep-ci.md), and [Semgrep App](https://semgrep.dev/manage).
+A finding is the core result of Semgrep's analysis. Findings are generated when a Semgrep rule matches a piece of code. After matching, a finding can make its way through 3 parts of the Semgrep ecosystem: [Semgrep](https://github.com/returntocorp/semgrep), [Semgrep CI](semgrep-ci/overview.md), and [Semgrep App](https://semgrep.dev/manage).
 
 # Semgrep
 
@@ -48,7 +48,7 @@ For more information on writing rules, see [Rule syntax](writing-rules/rule-synt
 
 # Semgrep CI
 
-[Semgrep CI](semgrep-ci.md), designed to continuously scan commits and builds, improves on Semgrep findings to track the lifetime of an individual finding. A Semgrep CI finding is defined by a 4-tuple:
+[Semgrep CI](semgrep-ci/overview.md), designed to continuously scan commits and builds, improves on Semgrep findings to track the lifetime of an individual finding. A Semgrep CI finding is defined by a 4-tuple:
 
 ```
 (rule ID, file path, syntactic context, index)
