@@ -1,4 +1,4 @@
-# CI Configuration Reference
+# CI configuration reference
 
 Configure Semgrep CI by passing these environment variables in your CI job.
 
