@@ -101,6 +101,10 @@ semgrep:
   #   SEMGREP_APP_DEPLOYMENT_ID: $SEMGREP_APP_DEPLOYMENT_ID
   #   SEMGREP_APP_TOKEN: $SEMGREP_APP_TOKEN
 
+  # Receive inline MR comments if you have stored a Personal Access Token
+  # under the label PAT
+  #   GITLAB_TOKEN: $PAT
+
   # Never fail the build due to findings on pushes.
   # Instead, just collect findings for semgrep.dev/manage/findings
   #   SEMGREP_AUDIT_ON: push
