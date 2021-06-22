@@ -76,7 +76,7 @@ Language maturity is determined by 3 factors in the Semgrep ecosystem:
 
 1. **Parse rate** - how well Semgrep can parse code in a given language.
 1. **Feature support** - what [Semgrep features](writing-rules/pattern-syntax.md) are implemented for a given language.
-1. **Ruleset count** - number of [Semgrep rule groupings](https://semgrep.dev/rulesets) in the cloud app.
+1. **Ruleset count** - number of [Semgrep rule groupings](https://semgrep.dev/explore) in the cloud app.
 
 There are 3 levels of maturity: **alpha**, **beta**, and **generally available (GA)**. Each of these maturity levels are combined with a threshold of the factors above. When a language meets the maturity threshold for each of the factors then it’s moved into that maturity level.
 
