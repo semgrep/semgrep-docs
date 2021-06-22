@@ -50,7 +50,7 @@ Pull request comments are left when
 
 1. Semgrep finds a result in CI, and
 2. [the CI policy has pull request comments enabled](managing-policy.md#changing-policy-actions)
-3. The Semgrep GitHub App has been granted permissions to post inline PR comments.
+3. the Semgrep GitHub App has been granted permissions to post inline PR comments.
 
 Automated comments on GitHub pull requests look like this:
 
@@ -65,7 +65,7 @@ If you are using Github Actions to run Semgrep, no extra changes are needed to g
 
 - `SEMGREP_COMMIT` is set to the full commit hash of the code being scanned (e.g. `d8875d6a63bba2b377a57232e404d2e367dce82d`)
 - `SEMGREP_PR_ID` is set to the PR number of the pull request on Github (e.g. `2900`)
-- `SEMGREP_REPO_NAME` is set to the repo name (e.g. `returntocorp/semgrep`)
+- `SEMGREP_REPO_NAME` is set to the repo name (e.g., `returntocorp/semgrep`)
 
 ## GitLab merge request comments
 
@@ -84,7 +84,7 @@ To enable MR comments:
 2. Examine your policy settings by navigating to your [policy settings](https://semgrep.dev/manage/policies/starter-policy?tab=settings). Make sure that PR comments are enabled (MR comments and PR comments are enabled by the same toggle switch).
 3. Create an API token on gitlab.com by going to [Profile > Access Tokens](https://gitlab.com/-/profile/personal_access_tokens) and adding a token with `api` scope.
 4. Copy the token that GitLab gives you.
-5. Navigate to your repository's Settings > CI/CD, scroll down to 'Variables', and click 'Expand'. The url will look like https://gitlab.com/myusername/myproject/-/settings/ci_cd.
+5. Navigate to your repository's Settings > CI/CD, scroll down to 'Variables', and click 'Expand'. The url will end with something like: /username/project/-/settings/ci_cd.
 6. Click to 'Add variable', give the new variable the key `PAT` and use the token you copied in step 2 as the value. Select "mask variable" and **UNSELECT "protect variable"**.
 7. Update your .gitlab-ci.yml to pass the content of your PAT in through the environment variable `GITLAB_TOKEN`. 
 
@@ -93,7 +93,7 @@ For example:
 semgrep:
   image: returntocorp/semgrep-agent:v1
   script:
-    # DEPLOYMENT_ID and SEMGREP_APP_TOKEN can both me obtained from semgrep.dev/manage/settings. 
+    # DEPLOYMENT_ID and SEMGREP_APP_TOKEN can both be obtained from semgrep.dev/manage/settings. 
     # The SEMGREP_APP_TOKEN should be treated like a secret and not hard-coded into your code.
     - semgrep-agent --publish-deployment $DEPLOYMENT_ID --publish-token $SEMGREP_APP_TOKEN
   rules:
