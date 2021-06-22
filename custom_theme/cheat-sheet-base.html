@@ -176,7 +176,9 @@
                   <div class="w-50">
                     <h4 class="code-example-heading">Code example:</h4>
                     <div class="cs-code-example">
-                      <pre class="code"><code>{{ condition_detail.example | e | trim }}</code></pre>
+                      <pre class="code">
+                        <code class="{% if condition_detail.example_lang %}language-{{condition_detail.example_lang}}{% endif %}">{{ condition_detail.example | e | trim }}</code>
+                      </pre>
                     </div>
                     <h4>References:</h4>
                     <ul class="cs-references">

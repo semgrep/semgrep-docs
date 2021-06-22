@@ -23,6 +23,7 @@ conditions:
           <code>mark_safe()</code> marks the returned content as "safe to render." This instructs the template engine
           to bypass HTML escaping, creating the possibility of a XSS vulnerability.
         example: mark_safe(html_content)
+        example_lang: python
         references:
           - url: https://docs.djangoproject.com/en/3.1/ref/utils/#django.utils.safestring.mark_safe
             text: "<code>mark_safe()</code> documentation"
@@ -42,6 +43,7 @@ conditions:
           as a <code>SafeString</code>. Invoking <code>SafeString</code> directly will bypass HTML escaping
           which could create a XSS vulnerabliity.
         example: SafeString(f"<div>{request.POST.get('name')}</div>")
+        example_lang: python
         references:
           - url: https://docs.djangoproject.com/en/3.1/howto/custom-template-tags/#filters-and-auto-escaping
             text: Filters and auto-escaping in Django
@@ -63,6 +65,7 @@ conditions:
           @register.filter(is_safe=True)
           def myfilter(value):
             return value
+        example_lang: python
         references:
           - url: https://docs.djangoproject.com/en/3.1/howto/custom-template-tags/#filters-and-auto-escaping
             text: Custom filters and auto-escaping
@@ -80,6 +83,7 @@ conditions:
           class RawHtml(str):
             def __html__(self):
               return str(self)
+        example_lang: python
         references:
           - url: https://docs.djangoproject.com/en/3.0/ref/utils/#django.utils.html.conditional_escape
             text: "<code>conditional_escape()</code> documentation"
@@ -100,6 +104,7 @@ conditions:
           @html_safe
           class RawHtml(str):
             pass
+        example_lang: python
         references:
           - url: https://docs.djangoproject.com/en/3.0/ref/utils/#django.utils.html.html_safe
             text: "<code>html_safe()</code> documentation"
@@ -141,6 +146,7 @@ conditions:
               'OPTIONS': {'autoescape': False}
             }
           ]
+        example_lang: python
         references:
           - url: https://docs.djangoproject.com/en/3.1/topics/templates/#django.template.backends.django.DjangoTemplates
             text: "Django template settings documentation"
@@ -154,6 +160,7 @@ conditions:
           Setting <code>autoescape=False</code> in a template context will disable HTML escaping for
           that template. Any data rendered in that template could be a XSS vulnerability.
         example: 'response = render(request, "index.html", {"autoescape": False})'
+        example_lang: python
         references:
           - url: https://github.com/django/django/blob/54ea290e5bbd19d87bd8dba807738eeeaf01a362/django/template/context.py#L135
             text: Context source code
@@ -176,7 +183,8 @@ conditions:
           The <code>| safe</code> filter marks the content as "safe for rendering." This has the same
           effect as <code>mark_safe()</code> in Python code. This will permit direct rendering of HTML
           and create a possible XSS vulnerability.
-        example: "{ { name | safe } }"
+        example: "{{ name | safe }}"
+        example_lang: django
         references:
           - url: https://docs.djangoproject.com/en/3.0/ref/templates/builtins/#safe
             text: "<code>| safe</code> filter documentation"
@@ -191,6 +199,7 @@ conditions:
           effect as <code>mark_safe()</code> in Python code. This will permit direct rendering of HTML
           and create a possible XSS vulnerability.
         example: '{{ names | safeseq | join:", " }}'
+        example_lang: django
         references:
           - url: https://docs.djangoproject.com/en/3.0/ref/templates/builtins/#safeseq
             text: "<code>| safeseq</code> documentation"
@@ -205,6 +214,7 @@ conditions:
           template. Disabling autoescaping allows HTML characters to be rendered directly onto
           the page which could create XSS vulnerabilities.
         example: "{% autoescape off %}"
+        example_lang: django
         references:
           - url: https://docs.djangoproject.com/en/3.0/ref/templates/builtins/#autoescape
             text: "<code>autoescape</code> block documentation"
@@ -223,6 +233,7 @@ conditions:
           An example handler might look like: <code>onmouseover=alert(1)</code>. HTML escaping will not mitigate this.
           The variable must be quoted to avoid this.
         example: '<div class="{{ classes }}"></div>'
+        example_lang: django
         references:
           - url: https://flask.palletsprojects.com/en/1.1.x/security/#cross-site-scripting-xss
             text: Flask cross-site scripting considerations
@@ -237,6 +248,7 @@ conditions:
           This could be a XSS vulnerability. HTML escaping will not prevent this. Use <code>url_for</code>
           to generate links.
         example: '<a href="{{ link }}"></a>'
+        example_lang: django
         references:
           - url: https://flask.palletsprojects.com/en/1.1.x/security/#cross-site-scripting-xss
             text: Flask cross-site scripting considerations
@@ -258,6 +270,7 @@ conditions:
           - url: https://docs.djangoproject.com/en/3.0/ref/templates/builtins/#json-script
             text: "<code>json_script</code> documentation"
         example: "<script>var name = {{ name }};</script>"
+        example_lang: django
         mitigation:
           description: "Ban template variables in <code>&lt;script&gt;</code> blocks."
           alternative: "Use the <code>json_script</code> template tag and read the data in JavaScript using the element ID."
