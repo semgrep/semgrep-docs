@@ -81,7 +81,7 @@ Automated comments on GitLab merge requests look like this:
 To enable MR comments:
 
 1. Log into Semgrep's [Dashboard > Settings](https://semgrep.dev/manage/settings) to obtain your deployment ID and an API token.
-2. Examine your [policy settings](https://semgrep.dev/manage/policies/starter-policy?tab=settings) and make sure that PR comments are enabled (MR comments and PR comments are enabled by the same toggle switch).
+2. Examine your policy settings by navigating to [Dashboard > Policies](https://semgrep.dev/manage/policies), selecting a policy, and switching to the Settings tab. Make sure that PR comments are enabled (MR comments and PR comments are enabled by the same toggle switch).
 3. Create an API token on gitlab.com by going to [Profile > Access Tokens](https://gitlab.com/-/profile/personal_access_tokens) and adding a token with `api` scope.
 4. Copy the token that GitLab gives you.
 5. Navigate to your repository's Settings > CI/CD, scroll down to 'Variables', and click 'Expand'. The url will look like https://gitlab.com/myusername/myproject/-/settings/ci_cd.
