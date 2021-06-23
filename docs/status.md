@@ -33,6 +33,11 @@ description: >-
   </div>
   
   <div class="lang-container">
+    <h2>Python parse rate</h2>
+    <iframe width="450" height="150" frameBorder="0" src="https://dashboard.semgrep.dev/metric/semgrep.core.python.parse.pct/number"></iframe>
+  </div>
+
+  <div class="lang-container">
     <h2>Ruby parse rate</h2>
     <iframe width="450" height="150" frameBorder="0" src="https://dashboard.semgrep.dev/metric/semgrep.core.ruby.parse.pct/number"></iframe>
   </div>
@@ -45,6 +50,16 @@ description: >-
   <div class="lang-container">
     <h2>TSX parse rate</h2>
     <iframe width="450" height="150" frameBorder="0" src="https://dashboard.semgrep.dev/metric/semgrep.core.tsx.parse.pct/number"></iframe>
+  </div>
+
+  <div class="lang-container">
+    <h2>OCaml parse rate</h2>
+    <iframe width="450" height="150" frameBorder="0" src="https://dashboard.semgrep.dev/metric/semgrep.core.ocaml.parse.pct/number"></iframe>
+  </div>
+
+  <div class="lang-container">
+    <h2>PHP parse rate</h2>
+    <iframe width="450" height="150" frameBorder="0" src="https://dashboard.semgrep.dev/metric/semgrep.core.php.parse.pct/number"></iframe>
   </div>
 
   <div class="lang-container">
