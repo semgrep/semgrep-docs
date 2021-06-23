@@ -2,13 +2,13 @@
 append_help_link: true
 ---
 
-# CLI Reference
+# CLI reference
 
 The following usage documentation is for the [Semgrep command line tool](https://github.com/returntocorp/semgrep).
 
 [TOC]
 
-# Command Line Options
+# Command-line options
 
 See `semgrep --help` for command line options.
 
@@ -162,7 +162,7 @@ logging:
                         files failed to parse, etc.
 ```
 
-# Exit Codes
+# Exit codes
 
 `semgrep` may exit with the following exit codes:
 

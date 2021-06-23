@@ -94,7 +94,7 @@ These instructions have been used on the following providers by the community:
 | Bitbucket Pipelines | Codeship |
 | Bitrise | GitHub Actions [(sample configuration)](sample-ci-configs.md#github-actions) |
 | Buildbot | GitLab CI [(sample configuration)](sample-ci-configs.md#gitlab-ci) |
-| Buildkite [(sample configuration)](sample-ci-configs.md#buildkite) | Jenkins |
+| Buildkite [(sample configuration)](sample-ci-configs.md#buildkite) | Jenkins [(sample configuration)](sample-ci-configs.md#jenkins) |
 | CircleCI [(sample configuration)](sample-ci-configs.md#circleci) | TeamCity CI |
 | Codefresh | Travis CI |
 
@@ -147,32 +147,32 @@ whether you're a developer or part of a security team.
 ### Notifications
 
 <p style="text-align: center; font-size: 12px">
-    <img width="600px" src="../img/slack-notification.png" alt="Screenshot of a Slack notification describing the details of a finding"/><br/>
+    <img width="600px" src="/docs/img/slack-notification.png" alt="Screenshot of a Slack notification describing the details of a finding"/><br/>
     A Slack notification triggered by new findings in a pull request
 </p>
 
 Notifications require connection to Semgrep App. You can get notified about new findings via:
 
-- [GitHub pull request comments](notifications.md#pull-request-comments)
+- [GitHub pull request comments](../notifications.md#pull-request-comments)
 - GitLab merge request comments ([sign up for the beta here](https://go.r2c.dev/join-gitlab-beta))
-- [Slack messages](notifications.md#slack)
-- [emails](notifications.md#email)
-- [webhooks](notifications.md#webhooks) (paid feature in Semgrep App)
+- [Slack messages](../notifications.md#slack)
+- [emails](../notifications.md#email)
+- [webhooks](../notifications.md#webhooks) (paid feature in Semgrep App)
 
 To set up notifications:
 
 1. Follow the links above to create a notification channel.
-2. [Add the created channel to one or more policies](managing-policy.md#changing-policy-actions)
+2. [Add the created channel to one or more policies](../managing-policy.md#changing-policy-actions)
 as a policy action. Only the rules in these policies will trigger notifications.
 
 !!! note
     Notifications are sent only the first time a given finding is seen.
-    [See how notifications are de-duplicated](notifications.md#de-duplication)
+    [See how notifications are de-duplicated](../notifications.md#de-duplication)
 
 ### Security Dashboards
 
 <p style="text-align: center; font-size: 12px">
-    <img width="900" src="../img/semgrep-app-overview.png" alt="Screenshot of Semgrep App's findings dashboard showing a bar chart of findings over time, and a list of the most recent findings"/><br/>
+    <img width="900" src="/docs/img/semgrep-app-overview.png" alt="Screenshot of Semgrep App's findings dashboard showing a bar chart of findings over time, and a list of the most recent findings"/><br/>
     Semgrep App's findings overview page
 </p>
 
@@ -190,7 +190,7 @@ You can review Semgrep CI's findings via:
 !!! info
     These instructions apply to using Semgrep CI directly in your CI environment. For use with Semgrep App please use the "Add to policy" button next to any registry rule or ruleset, or visit [Dashboard > Policies](https://semgrep.dev/manage/policies).
 
-Semgrep CI accepts a list of rules and rulesets to run on each scan. To add from the [Semgrep Registry](https://semgrep.dev/explore), just include the rule or ruleset identifier in your CI workflow file. Identifiers take the form `p/<ruleset-id>` and `r/<rule-id>`. These identifiers can be copied directly for any rule or ruleset directly from the Registry, and run locally using the `--config <identifier>` flag with the [Semgrep command line tool](getting-started.md#run-semgrep-locally).
+Semgrep CI accepts a list of rules and rulesets to run on each scan. To add from the [Semgrep Registry](https://semgrep.dev/explore), just include the rule or ruleset identifier in your CI workflow file. Identifiers take the form `p/<ruleset-id>` and `r/<rule-id>`. These identifiers can be copied directly for any rule or ruleset directly from the Registry, and run locally using the `--config <identifier>` flag with the [Semgrep command line tool](../getting-started.md#run-semgrep-locally).
 
 For example, in GitLab CI/CD:
 
@@ -208,7 +208,7 @@ Key names and configuration format for specific CI providers are available in th
 ## Custom rules
 
 !!! info
-    See [Writing rules](writing-rules/overview.md) to learn how to write custome rules.
+    See [Writing rules](../writing-rules/overview.md) to learn how to write custome rules.
 
 Your own custom rules can be added to your Semgrep CI configuration just like [Registry rules](#registry-rules-and-rulesets) by:
 
@@ -239,18 +239,17 @@ Semgrep CI supports a `.semgrepignore` file that follows the `.gitignore` syntax
 
 By default Semgrep CI skips files and directories such as `tests/`, `node_modules/`, and `vendor/`. The full list of ignored items is in [the `.semgrepignore` template file](https://github.com/returntocorp/semgrep-action/blob/v1/src/semgrep_agent/templates/.semgrepignore), which is used by Semgrep CI when no explicit `.semgrepignore` file is found in the root of your project.
 
-For information on ignoring individual findings in code, see the [ignoring findings page](ignoring-findings.md).
+For information on ignoring individual findings in code, see the [ignoring findings page](../ignoring-findings.md).
 
-## Audit scans (GitHub Actions only)
-
-!!! note
-    This feature is currently experimental for GitHub Action users.
+## Audit scans
 
 Semgrep CI has an audit mode that can be enabled to suppress non-zero exit codes when findings are found during branch scans. These scans are not differential in nature and by default pre-existing findings will fail the build. With audit mode enabled, even though findings will not cause non-zero exit codes, internal Semgrep errors and exception will still fail the build.
 
 This behavior is beneficial for those who want to ensure every merge to a branch is fully scanned but who don't want to interfere with the development process becuase of pre-existing issues. In this mode, [security dashboards](#security-dashboards) can still be kept up to date and [notifications](#notifications) can be received.
 
 In GitHub Actions, the most common event names are `push` and `pull_request`. To enable audit mode on branch pushes in GitHub Actions, set the option `auditOn: push` in your workflow file.
+
+In providers other than GitHub Actions and GitLab CI, Semgrep CI doesn't infer an event name from the environment. Therefore, all scan run on an event named `unknown`.
 
 ## Exit codes
 
@@ -268,13 +267,13 @@ To use your Semgrep App account, set `--publish-deployment` and `--publish-token
 
 ### Ignoring specific rules in a ruleset or policy
 
-You can customize the ruleset you're using to ignore some of its rules by [editing the Semgrep App policy](managing-policy.md#editing-a-policy) used for your scans.
+You can customize the ruleset you're using to ignore some of its rules by [editing the Semgrep App policy](../managing-policy.md#editing-a-policy) used for your scans.
 
 ### Getting notifications instead of blocking builds
 
-Some rules point out hotspots that require careful review but are not certain to be insecure code. You might want to disable blocking when scanning with such rules, and instead use a [CI integration](notifications.md) to get notifications.
+Some rules point out hotspots that require careful review but are not certain to be insecure code. You might want to disable blocking when scanning with such rules, and instead use a [CI integration](../notifications.md) to get notifications.
 
-You can set this up by [changing the actions of the Semgrep App policy](managing-policy.md#changing-policy-actions) used for your scans.
+You can set this up by [changing the actions of the Semgrep App policy](../managing-policy.md#changing-policy-actions) used for your scans.
 
 <!-- # Technical details
 

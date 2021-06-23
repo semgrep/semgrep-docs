@@ -20,8 +20,9 @@ nav:
       - metrics.md
 
   - "Running Semgrep In CI":
-      - semgrep-ci.md
-      - sample-ci-configs.md
+      - semgrep-ci/overview.md
+      - semgrep-ci/sample-ci-configs.md
+      - semgrep-ci/configuration-reference.md
       - managing-policy.md
       - notifications.md
 
@@ -70,4 +71,6 @@ plugins:
         "semgrep-ci/managing-policy.md": "managing-policy.md"
         "integrations.md": "notifications.md"
         "experiments.md": "experiments/overview.md"
+        "semgrep-ci.md": "semgrep-ci/overview.md"
+        "sample-ci-configs.md": "semgrep-ci/sample-ci-configs.md"
   - meta-descriptions:

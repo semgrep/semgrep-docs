@@ -45,6 +45,7 @@ The below optional fields must reside underneath a `patterns` or `pattern-either
 | Field                                                           | Type     | Description                                                                                                              |
 | :-------------------------------------------------------------- | :------- | :----------------------------------------------------------------------------------------------------------------------- |
 | [`metavariable-regex`](#metavariable-regex)     | `map`    | Search metavariables for [Python `re`](https://docs.python.org/3/library/re.html#re.match) compatible expressions |
+| [`metavariable-pattern`](#metavariable-pattern)     | `map`    | Matches metavariables with a pattern formula  |
 | [`metavariable-comparison`](#metavariable-comparison)     | `map`    | Compare metavariables against basic [Python expressions](https://docs.python.org/3/reference/expressions.html#comparisons) |
 | [`pattern-not`](#pattern-not)                   | `string` | Logical NOT - remove findings matching this expression                                                                  |
 | [`pattern-inside`](#pattern-inside)             | `string` | Keep findings that lie inside this pattern                                                                              |
@@ -107,6 +108,27 @@ The `metavariable-regex` operator searches metavariables for a [Python `re`](htt
 
 !!! note
     Include quotes in your regular expression when using `metavariable-regex` to search string literals. See [this snippet](https://semgrep.dev/s/mschwager:include-quotes) for more details. [String matching](pattern-syntax.md#string-matching) functionality can also be used to search string literals.
+
+## `metavariable-pattern`
+
+The `metavariable-pattern` operator matches metavariables with a pattern formula. This is useful for filtering results based on a [metavariable’s](pattern-syntax.md#metavariables) value. It requires the `metavariable` key, and exactly one key of `pattern`, `patterns`, `pattern-either`, or `pattern-regex`. This operator can be nested as well as combined with other operators.
+
+For example, it can be used to filter out matches that do _not_ match certain criteria:
+
+<iframe src="https://semgrep.dev/embed/editor?snippet=DwbP" border="0" frameBorder="0" width="100%" height="435"></iframe>
+
+!!! note
+    In this case it is possible to start a `patterns` AND operation with a `pattern-not`, because there is an implicit `pattern: ...` that matches the content of the metavariable.
+
+The `metavariable-pattern` operator is also very useful in combination with `pattern-either`:
+
+<iframe src="https://semgrep.dev/embed/editor?snippet=Aw88" border="0" frameBorder="0" width="100%" height="435"></iframe>
+
+!!! note
+    It is possible to nest `metavariable-pattern` inside `metavariable-pattern`!
+
+!!! note
+    The metavariable should be bound to an expression, a statement, or a list of statements, for this test to be meaningful. A metavariable bound to a list of function arguments, a type, or a pattern, will always evaluate to false.
 
 ## `metavariable-comparison`
 
