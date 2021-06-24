@@ -6,7 +6,7 @@ summary: |-
   It contains code patterns of potential ways to run an OS commands or code in an application.
   Instead of scrutinizing code for exploitable vulnerabilities,
   the recommendations in this cheat sheet pave a safe road for developers that mitigates the possibility of Command injection in your code.
-  By following these recommendations, you can be reasonably sure your code is free of Command injection.
+  By following these recommendations, you can be reasonably sure your code is free of command injection.
 mitigation_summary: |-
   In general, try not to let dynamic content in APIs intended for OS command execution.
   If this is not an option then perform proper input validation and contextually escape user data.
