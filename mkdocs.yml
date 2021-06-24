@@ -31,6 +31,7 @@ nav:
       - "Flask XSS": "cheat-sheets/flask-xss.md"
       - "Java/JSP XSS": "cheat-sheets/java-jsp-xss.md"
       - "Rails XSS": "cheat-sheets/rails-xss.md"
+      - "Go command injection": "cheat-sheets/go-command-injection.md"
   - Stats:
       - Rules: rules.md
       - Supported languages: status.md
@@ -52,6 +53,7 @@ theme:
     - yaml
     - rust
     - django
+    - go
   analytics:
     gtag: G-1851JH9FSR
 markdown_extensions:
