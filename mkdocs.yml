@@ -31,7 +31,7 @@ nav:
       - "Flask XSS": "cheat-sheets/flask-xss.md"
       - "Java/JSP XSS": "cheat-sheets/java-jsp-xss.md"
       - "Rails XSS": "cheat-sheets/rails-xss.md"
-      - "Go Command Injection": "cheat-sheets/go-command-injection.md"
+      - "Go command injection": "cheat-sheets/go-command-injection.md"
   - Stats:
       - Rules: rules.md
       - Supported languages: status.md
