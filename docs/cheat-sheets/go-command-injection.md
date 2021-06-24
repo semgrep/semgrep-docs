@@ -2,7 +2,7 @@
 template: cheat-sheet-base.html
 title: Command Injection Prevention for Go
 summary: |-
-  This is a Command injection prevention cheat sheet by r2c.
+  This is a command injection prevention cheat sheet by r2c.
   It contains code patterns of potential ways to run an OS commands or code in an application.
   Instead of scrutinizing code for exploitable vulnerabilities,
   the recommendations in this cheat sheet pave a safe road for developers that mitigates the possibility of Command injection in your code.
