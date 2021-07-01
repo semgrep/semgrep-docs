@@ -36,6 +36,7 @@ All required fields must be present at the top-level of a rule, immediately unde
 
 | Field                                   | Type     | Description                                                                              |
 | :-------------------------------------- | :------- | :--------------------------------------------------------------------------------------- |
+| [`options`](#options)   | `object` | Options object to enable/disable certain matching features |
 | [`fix`](#fix)           | `object` | Simple search-and-replace autofix functionality                                         |
 | [`metadata`](#metadata) | `object` | Arbitrary user-provided data; attach data to rules without affecting Semgrep’s behavior |
 | [`paths`](#paths)       | `object` | Paths to include or exclude when running this rule                                     |
@@ -120,7 +121,7 @@ For example, it can be used to filter out matches that do _not_ match certain cr
 !!! note
     In this case it is possible to start a `patterns` AND operation with a `pattern-not`, because there is an implicit `pattern: ...` that matches the content of the metavariable.
 
-The `metavariable-pattern` operator is also very useful in combination with `pattern-either`:
+It is also useful in combination with `pattern-either`:
 
 <iframe src="https://semgrep.dev/embed/editor?snippet=Aw88" border="0" frameBorder="0" width="100%" height="435"></iframe>
 
@@ -129,6 +130,18 @@ The `metavariable-pattern` operator is also very useful in combination with `pat
 
 !!! note
     The metavariable should be bound to an expression, a statement, or a list of statements, for this test to be meaningful. A metavariable bound to a list of function arguments, a type, or a pattern, will always evaluate to false.
+
+### Nested language
+
+If the metavariable's content is a string, then it is possible to use `metavariable-pattern` to match this string as code by specifying the target language via the `language` key.
+
+For example, we can match JavaScript code inside HTML:
+
+<iframe src="https://semgrep.dev/embed/editor?snippet=z95k" border="0" frameBorder="0" width="100%" height="435"></iframe>
+
+We can also use this feature to filter regex matches:
+
+<iframe src="https://semgrep.dev/embed/editor?snippet=pkNk" border="0" frameBorder="0" width="100%" height="435"></iframe>
 
 ## `metavariable-comparison`
 
@@ -303,6 +316,18 @@ The example rule doesn’t match this code:
 def foo(something):
     bar(something_else)
 ```
+
+# `options`
+
+Enable/disable the following matching features:
+
+| Option                 | Default | Description                                                            |
+| :--------------------- | :------ | :--------------------------------------------------------------------- |
+| `constant_propagation` | `true`  | [Constant propagation](./pattern-syntax.md#constants), including [intra-procedural flow-sensitive constant propagation](../experiments/overview.md#constant-propagation). |
+| `ac_matching`          | `true`  | [Matching modulo associativity and commutativity](./pattern-syntax.md#associative-and-commutative-operators), we treat Boolean AND/OR as associative, and bitwise AND/OR/XOR as both associative and commutative. |
+| `commutative_boolop`   | `false` | Treat Boolean AND/OR as commutative even if not semantically accurate. |
+
+The full list of available options can be consulted [here](https://github.com/returntocorp/semgrep/blob/develop/semgrep-core/src/core/Config_semgrep.atd). Note that options not included in the table above are considered experimental, and they may change or be removed without notice.
 
 # `fix`
 

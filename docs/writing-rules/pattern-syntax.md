@@ -403,6 +403,14 @@ def update_system():
     set_password(password)
 ```
 
+## Associative and commutative operators
+
+Semgrep performs associative-commutative (AC) matching. For example, `... && B && C` will match both `B && C` and `(A && B) && C` (i.e., `&&` is associative). Also, `A | B | C` will match `A | B | C`, and `B | C | A`, and `C | B | A`, and any other permutation (i.e., `|` is associative and commutative).
+
+Under AC-matching metavariables behave similarly to `...`. For example, `A | $X` can match `A | B | C` in four different ways (`$X` can bind to `B`, or `C`, or `B | C`). In order to avoid a combinatorial explosion, Semgrep will only perform AC-matching with metavariables if the number of potential matches is _small_, otherwise it will produce just one match (if possible) where each metavariable is bound to a single operand.
+
+Using [`options`](./rule-syntax.md#options) it is possible to entirely disable AC-matching. It is also possible to treat boolean AND and OR operators (e.g., `&&` in `||` in C-family languages) as commutative, which can be useful despite not being semantically accurate.
+
 # Deep expression operator
 
 Use the deep expression operator `<... [your_pattern] ...>` to match an expression that could be deeply nested within another expression. An example is looking for a pattern anywhere within an `if` statement. The deep expression operator matches your pattern in the current expression context and recursively in any subexpressions.
