@@ -138,6 +138,15 @@ crypto.set_secret_key("HARDCODED SECRET")
 
 This also works with [constant propagation](#constants).
 
+In languages where regular expressions use a special syntax
+(e.g., Javascript), the pattern `/.../` will match
+any regular expression construct:
+
+```javascript
+re1 = /foo|bar/;
+re2 = /a.*b/;
+```
+
 ## Binary operations
 
 The ellipsis operator can match any number of arguments to binary operations. The pattern `$X = 1 + 2 + ...` matches:
@@ -270,6 +279,17 @@ initial_value = get_initial_value()
 
 !!! info
     The YAML `|` operator allows for [multiline strings](https://yaml-multiline.info/).
+
+## Literal Metavariables
+
+You can use `"$X"` to match any string literal. This is similar
+to using `"..."`, but the content of the string is stored in the
+metavariable `$X`, which can then be used in a message
+or in a [`metavariable-regexp`](./rule-syntax.md#metavariable-regex).
+
+You can also use `/$X/` and `:$X` to respectively match
+any regular expressions or atoms (in languages that support
+those constructs, e.g., Ruby).
 
 ## Typed Metavariables
 
