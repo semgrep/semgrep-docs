@@ -526,7 +526,7 @@ function `foo`. In the same way, you can just match a class header
 
 !!! warning
     String matching has been deprecated. You should use 
-	[metavariable regexp](rule-syntax.md#metavariable-regex) instead.
+	[`metavariable-regexp`](rule-syntax.md#metavariable-regex) instead.
 
 Search string literals within code with [Perl Compatible Regular Expressions (PCRE)](https://learnxinyminutes.com/docs/pcre/).
 
