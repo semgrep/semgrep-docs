@@ -70,7 +70,7 @@ These are hashed and returned as the syntactic identifier: `syntactic_id`. This 
 
 # Semgrep App
 
-Semgrep App builds on Semgrep CI findings to track state transitions and provide additional context for managing findings within your organization. Findings move between states according to their Semgrep CI `syntactic_id`, as mentioned above. A finding can occupy 3 states in Semgrep App: `OPEN`, `FIXED`, and `MUTED`.
+Semgrep App builds on Semgrep CI findings to track state transitions and provide additional context for managing findings within your organization. Findings move between states according to their Semgrep CI `syntactic_id`, as mentioned above. A finding can occupy 4 states in Semgrep App: `OPEN`, `FIXED`, `MUTED`, `REMOVED`.
 
 ## Finding states
 
@@ -79,17 +79,23 @@ Semgrep App finding states are defined as follows:
 1. `OPEN`: the finding exists in the code and has not been muted.
 1. `FIXED`: the finding existed in the code, and is no longer found.
 1. `MUTED`: the finding has been ignored by a `nosemgrep` comment.
+1. `REMOVED`: the finding's rule isn't enabled on the repository anymore. The rule was removed from the used ruleset, the rule was removed from the policy, or the containing policy was detached from the repo.
 
-Findings move between states as follows:
+![Finding state transitions](img/finding-states.svg "Finding state transitions")
 
-![Finding state transitions](img/finding-state.png "Finding state transitions")
-
-These transitions are defined as follows:
+The possible transitions are defined as follows:
 
 1. `Fix`: a previously identified `syntactic_id` no longer exists.
-1. `Regression`: a previously fixed `syntactic_id` has been reintroduced.
+1. `Regress`: a previously fixed `syntactic_id` has been reintroduced.
 1. `Mute`: a previously identified `syntactic_id` has been ignored.
 1. `Unmute`: a previously muted `syntactic_id` has been unignored.
+1. `Remove`: a previously identified or muted `syntactic_id`'s rule is no longer part of the scan.
+1. `Readd`: a previously removed `syntactic_id`'s rule is part of the scan again.
+    A readded issue can immediately be marked as fixed or muted.
+
+!!! note
+
+    Fixed issues will stay fixed even if their rule is removed.
 
 ## Analytics
 
