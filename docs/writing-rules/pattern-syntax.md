@@ -168,7 +168,7 @@ The pattern `user_dict = {..., $KEY: $VALUE, ...}` matches the following and all
 user_dict = {'username': 'password', 'address': 'zipcode'}
 ```
 
-In certain languages, you can also match just a key-value pair in
+You can also match just a key-value pair in
 a container, for example in JSON the pattern `"foo": $X` matches
 just a single line in:
 
@@ -505,7 +505,7 @@ A complete expression is needed (like `1 + $X`)
 
 ## Partial statements
 
-Partial statements are supported in a few languages. For example,
+Partial statements are partially supported. For example,
 you can just match the header of a conditional with `if ($E)`,
 or just the try part of an exception statement with `try { ... }`.
 
