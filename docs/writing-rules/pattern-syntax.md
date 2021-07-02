@@ -107,6 +107,20 @@ def parse_data(parser, data={}):  # Oops, mutable default arguments
 !!! info
     The YAML `|` operator allows for [multiline strings](https://yaml-multiline.info/).
 
+The ellipsis operator can also be used for the function name. Indeed,
+In some cases, you may want to match any function definitions: 
+regular functions, methods, but also anonymous functions (a.k.a. lambdas). 
+In that case you can use ellipsis in place of the name of the function
+to match named or anonymous functions. For example,
+in Javascript the pattern `function ...($X) { ... }` will
+match any function with one parameter:
+
+```javascript
+function foo(a) { return a; }
+var bar = function(a) { return a; }
+
+```
+
 
 ## Class definitions
 
