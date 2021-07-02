@@ -394,6 +394,17 @@ function foo(a: string, b: number) {
 !!! warning
     Since matching happens within a single file, this is only guaranteed to work for local variables and arguments. Additionally, Semgrep currently understands types on a shallow level. For example, if you have `int[] A`, it will not recognize `A[0]` as an integer. If you have a class with fields, you will not be able to use typechecking on field accesses, and it will not recognize the class’s field as the expected type. Literal types are understood to a limited extent. Expanded type support is under active development.
 
+## Ellipsis Metavariables
+
+You can combine ellipsis and metavariables to match a sequence
+of arguments and store the matched sequence in a metavariable.
+For example the pattern `foo($...ARGS, 3, $...ARGS)` will
+match:
+
+```python
+foo(1,2,3,1,2)
+```
+
 # Equivalences
 
 Semgrep automatically searches for code that is semantically equivalent.
