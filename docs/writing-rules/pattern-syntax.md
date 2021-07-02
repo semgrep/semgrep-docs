@@ -81,11 +81,20 @@ Match the keyword argument value with the pattern `$FUNC(..., $KEY=$VALUE, ...)`
 
 ## Method calls
 
-The ellipsis operator can be used to search for method calls on a specific
-object type. For example, the pattern `$OBJECT.extractall(...)` matches:
+The ellipsis operator can also be used to search for method calls. 
+For example, the pattern `$OBJECT.extractall(...)` matches:
 
 ```python
 tarball.extractall('/path/to/directory')  # Oops, potential arbitrary file overwrite
+```
+
+You can also use the ellipsis in chains of method calls. For example,
+the pattern `$O.foo(). ... .bar()` will match:
+
+```python
+obj = MakeObject()
+obj.foo().other_method(1,2).again(3,4).bar()
+
 ```
 
 ## Function definitions
