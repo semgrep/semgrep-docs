@@ -509,6 +509,10 @@ Partial statements are partially supported. For example,
 you can just match the header of a conditional with `if ($E)`,
 or just the try part of an exception statement with `try { ... }`.
 
+This is especially useful when used in a
+[pattern-inside](./rule-syntax.md#pattern-inside) to restrict the
+context in which to search for other things.
+
 ## Other partial constructs
 
 It is possible to just match the header of a function (without its body),
