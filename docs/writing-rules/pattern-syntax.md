@@ -13,31 +13,32 @@ coordinating patterns may be specified in a configuration file. See
 
 [TOC]
 
-# Expression matching
+# Pattern matching
 
-Expression matching searches code for a given pattern. For example, the pattern `1 + func(42)` can match
-a full expression or be part of a subexpression:
+Pattern matching searches code for a given pattern. For example, the
+expression pattern `1 + func(42)` can match a full expression or be
+part of a subexpression:
 
 ```python
 foo(1 + func(42)) + bar()
 ```
 
-# String matching
-
-Search string literals within code with [Perl Compatible Regular Expressions (PCRE)](https://learnxinyminutes.com/docs/pcre/).
-
-The pattern `requests.get("=~/dev\./i")` matches:
+In the same way, the statement pattern `return 42` can match a top
+statement in a function or any nested statement:
 
 ```python
-requests.get("api.dev.corp.com")  # Oops, development API left in
+def foo(x):
+  if x > 1:
+     if x > 2:
+       return 42
+  return 42
 ```
-
-To search for specific strings, use the syntax `"=~/<regexp>/"`. Advanced regexp features are available, such as case-insensitive regexps with `'/i'` (e.g., `"=~/foo/i"`). Matching occurs anywhere in the string unless the regexp `^` anchor character is used: `"=~/^foo.*/"` checks if a string begins with `foo`.
+  
 
 # Ellipsis operator
 
 The ellipsis operator (`...`) abstracts away a sequence of zero or more
-arguments, statements, or characters.
+arguments, statements, parameters, fields, characters, etc.
 
 ## Function calls
 
@@ -48,10 +49,10 @@ function calls with specific arguments. For example, the pattern `insecure_funct
 insecure_function("MALICIOUS_STRING", arg1, arg2)
 ```
 
-Functions and classes must be referenced by their fully qualified name, e.g.,
+Functions and classes can be referenced by their fully qualified name, e.g.,
 
-- `django.utils.safestring.mark_safe(...)` not `mark_safe(...)`
-- `System.out.println(...)` not `println(...)`
+- `django.utils.safestring.mark_safe(...)` or `mark_safe(...)`
+- `System.out.println(...)` or `println(...)`
 
 You can also search for calls with arguments after a match. The pattern `func(1, ...)` will match both:
 
@@ -80,16 +81,25 @@ Match the keyword argument value with the pattern `$FUNC(..., $KEY=$VALUE, ...)`
 
 ## Method calls
 
-The ellipsis operator can be used to search for method calls on a specific
-object type. For example, the pattern `$OBJECT.extractall(...)` matches:
+The ellipsis operator can also be used to search for method calls. 
+For example, the pattern `$OBJECT.extractall(...)` matches:
 
 ```python
 tarball.extractall('/path/to/directory')  # Oops, potential arbitrary file overwrite
 ```
 
+You can also use the ellipsis in chains of method calls. For example,
+the pattern `$O.foo(). ... .bar()` will match:
+
+```python
+obj = MakeObject()
+obj.foo().other_method(1,2).again(3,4).bar()
+
+```
+
 ## Function definitions
 
-The ellipsis operator can be used in function argument lists or in the function
+The ellipsis operator can be used in function parameter lists or in the function
 body. To find function definitions with [mutable default arguments](https://docs.python-guide.org/writing/gotchas/#mutable-default-arguments):
 
 ```text
@@ -105,6 +115,20 @@ def parse_data(parser, data={}):  # Oops, mutable default arguments
 
 !!! info
     The YAML `|` operator allows for [multiline strings](https://yaml-multiline.info/).
+
+The ellipsis operator can also be used for the function name. Indeed,
+In some cases, you may want to match any function definitions: 
+regular functions, methods, but also anonymous functions (a.k.a. lambdas). 
+In that case you can use ellipsis in place of the name of the function
+to match named or anonymous functions. For example,
+in Javascript the pattern `function ...($X) { ... }` will
+match any function with one parameter:
+
+```javascript
+function foo(a) { return a; }
+var bar = function(a) { return a; }
+
+```
 
 
 ## Class definitions
@@ -135,6 +159,17 @@ The ellipsis operator can be used to search for strings containing any data. The
 crypto.set_secret_key("HARDCODED SECRET")
 ```
 
+This also works with [constant propagation](#constants).
+
+In languages where regular expressions use a special syntax
+(e.g., Javascript), the pattern `/.../` will match
+any regular expression construct:
+
+```javascript
+re1 = /foo|bar/;
+re2 = /a.*b/;
+```
+
 ## Binary operations
 
 The ellipsis operator can match any number of arguments to binary operations. The pattern `$X = 1 + 2 + ...` matches:
@@ -147,22 +182,33 @@ foo = 1 + 2 + 3 + 4
 
 The ellipsis operator can match inside container data structures like lists, arrays, and key-value stores.
 
-The pattern `pattern: user_list = [..., 10]` matches:
+The pattern `user_list = [..., 10]` matches:
 
 ```python
 user_list = [8, 9, 10]
 ```
 
-The pattern `pattern: user_dict = {...}` matches:
+The pattern `user_dict = {...}` matches:
 
 ```python
 user_dict = {'username': 'password'}
 ```
 
-The pattern `pattern: user_dict = {..., $KEY: $VALUE, ...}` matches the following and allows for further metavariable queries:
+The pattern `user_dict = {..., $KEY: $VALUE, ...}` matches the following and allows for further metavariable queries:
 
 ```python
-user_dict = {'username': 'password'}
+user_dict = {'username': 'password', 'address': 'zipcode'}
+```
+
+You can also match just a key-value pair in
+a container, for example in JSON the pattern `"foo": $X` matches
+just a single line in:
+
+```json
+{ "bar": True,
+  "name": "self",
+  "foo": 42
+}
 ```
 
 ## Conditionals and loops
@@ -217,6 +263,8 @@ exceptions, and more.
 Metavariables look like `$X`, `$WIDGET`, or `$USERS_2`. They begin with a `$` and can only
 contain uppercase characters, `_`, or digits. Names like `$x` or `$some_value` are invalid.
 
+## Expression metavariables
+
 The pattern `$X + $Y` matches the following code examples:
 
 
@@ -228,11 +276,15 @@ foo() + bar()
 current + total
 ```
 
+## Import metavariables
+
 Metavariables can also be used to match imports. For example, `import $X` matches:
 
 ```python
 import random
 ```
+
+## Reoccuring metavariables
 
 Re-using metavariables shows their true power. Detect useless assignments:
 
@@ -251,7 +303,18 @@ initial_value = get_initial_value()
 !!! info
     The YAML `|` operator allows for [multiline strings](https://yaml-multiline.info/).
 
-# Typed Metavariables
+## Literal Metavariables
+
+You can use `"$X"` to match any string literal. This is similar
+to using `"..."`, but the content of the string is stored in the
+metavariable `$X`, which can then be used in a message
+or in a [`metavariable-regexp`](./rule-syntax.md#metavariable-regex).
+
+You can also use `/$X/` and `:$X` to respectively match
+any regular expressions or atoms (in languages that support
+those constructs, e.g., Ruby).
+
+## Typed Metavariables
 
 Typed metavariables only match a metavariable if it’s declared as a specific type. For example, you may want to specifically check that `==` is never used for
 strings.
@@ -353,6 +416,17 @@ function foo(a: string, b: number) {
 
 !!! warning
     Since matching happens within a single file, this is only guaranteed to work for local variables and arguments. Additionally, Semgrep currently understands types on a shallow level. For example, if you have `int[] A`, it will not recognize `A[0]` as an integer. If you have a class with fields, you will not be able to use typechecking on field accesses, and it will not recognize the class’s field as the expected type. Literal types are understood to a limited extent. Expanded type support is under active development.
+
+## Ellipsis Metavariables
+
+You can combine ellipsis and metavariables to match a sequence
+of arguments and store the matched sequence in a metavariable.
+For example the pattern `foo($...ARGS, 3, $...ARGS)` will
+match:
+
+```python
+foo(1,2,3,1,2)
+```
 
 # Equivalences
 
@@ -473,16 +547,47 @@ Many programmers don't really see the difference between `foo()` and `foo();`. T
     Note that in some programming languages such as Python, which does not use semicolons as a separator or terminator, the difference between expressions and statements is even more confusing. Indentation in Python matters, and a newline after `foo()` is really the same than `foo();` in other programming languages such as C.
 
 
-## Partial statements
+## Partial expressions
 
-Partial statements are not valid patterns. For example, the following are invalid:
+Partial expressions are not valid patterns. For example, the following is invalid:
 
 ```text
 pattern: 1+
 ```
 
-```text
-pattern: if $CONDITION:
+A complete expression is needed (like `1 + $X`)
+
+## Partial statements
+
+Partial statements are partially supported. For example,
+you can just match the header of a conditional with `if ($E)`,
+or just the try part of an exception statement with `try { ... }`.
+
+This is especially useful when used in a
+[pattern-inside](./rule-syntax.md#pattern-inside) to restrict the
+context in which to search for other things.
+
+## Other partial constructs
+
+It is possible to just match the header of a function (without its body),
+for example `int foo(...)` to match just the header part of the
+function `foo`. In the same way, you can just match a class header
+(e.g., with `class $A`).
+
+# Deprecated features
+
+## String matching
+
+!!! warning
+    String matching has been deprecated. You should use 
+	[`metavariable-regexp`](rule-syntax.md#metavariable-regex) instead.
+
+Search string literals within code with [Perl Compatible Regular Expressions (PCRE)](https://learnxinyminutes.com/docs/pcre/).
+
+The pattern `requests.get("=~/dev\./i")` matches:
+
+```python
+requests.get("api.dev.corp.com")  # Oops, development API left in
 ```
 
-In both cases, a complete statement is needed (like `1 + $X`)
+To search for specific strings, use the syntax `"=~/<regexp>/"`. Advanced regexp features are available, such as case-insensitive regexps with `'/i'` (e.g., `"=~/foo/i"`). Matching occurs anywhere in the string unless the regexp `^` anchor character is used: `"=~/^foo.*/"` checks if a string begins with `foo`.
