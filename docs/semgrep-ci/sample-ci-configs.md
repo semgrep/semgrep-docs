@@ -120,7 +120,7 @@ semgrep:
   # script: semgrep-agent --gitlab-json > gl-sast-report.json || true
   # artifacts:
   #   reports:
-  #   - gl-sast-report.json
+  #     sast: gl-sast-report.json
 ```
 
 **Feature support**
