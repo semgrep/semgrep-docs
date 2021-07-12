@@ -130,7 +130,7 @@ semgrep:
 | **diff-aware scanning** | ✅ automatic |
 | **hyperlinks in Semgrep App** | ✅ automatic |
 | **results in native dashboard**<br/><small>GitLab SAST Dashboard</small> | ✅ available |
-| **results in merge request comments** | ✅ [sign up for beta access](https://go.r2c.dev/join-gitlab-beta) |
+| **results in merge request comments** | ✅ [sign up for Semgrep App free](https://semgrep.dev/login) |
 | **automatic CI setup** | ❌ not available |
 
 # Jenkins
