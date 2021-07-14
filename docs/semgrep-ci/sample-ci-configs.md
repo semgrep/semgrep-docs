@@ -101,8 +101,8 @@ semgrep:
   #   SEMGREP_APP_DEPLOYMENT_ID: $SEMGREP_APP_DEPLOYMENT_ID
   #   SEMGREP_APP_TOKEN: $SEMGREP_APP_TOKEN
 
-  # Receive inline MR comments if you have stored a Personal Access Token
-  # under the label PAT
+  # Receive inline MR comments (requires Semgrep App account)
+  # Setup instructions: https://semgrep.dev/docs/notifications/#gitlab-merge-request-comments
   #   GITLAB_TOKEN: $PAT
 
   # Never fail the build due to findings on pushes.
