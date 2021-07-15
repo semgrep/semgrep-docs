@@ -1,4 +1,8 @@
-# Semgrep Trophy Case
+---
+slug: trophy-case
+---
+
+# Semgrep trophy case
 
 This is a list of vulnerabilities found and security fixes made with Semgrep.
 Add yours [with a pull request](https://github.com/returntocorp/semgrep-docs)!

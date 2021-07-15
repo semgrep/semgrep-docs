@@ -1,3 +1,7 @@
+---
+slug: contributing
+---
+
 # Contributing
 
 Semgrep is LGPL-licensed and contributions are welcome.

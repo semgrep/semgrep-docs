@@ -3,44 +3,53 @@ version: 2.1
 jobs:
   test:
     docker:
-      - image: cimg/python:3.8
+      - image: circleci/node:latest
     steps:
       - checkout
-      - run: python --version
-      - run: pip install mkdocs==1.2.1 mkdocs-redirects mkdocs-meta-descriptions-plugin
-      - run: mkdocs build
+      - restore_cache:
+          key: dependency-cache-{{ checksum "yarn.lock" }}
+      - run:
+          name: Install Deps
+          command: yarn install
+      - save_cache:
+          key: dependency-cache-{{ checksum "yarn.lock" }}
+          paths:
+            - node_modules
+      - run:
+          name: Yarn Build
+          command: yarn build
   deployStaging:
     docker:
-      - image: cimg/python:3.8
+      - image: circleci/node:latest
     steps:
       - checkout
-      - run: python --version
-      - run: pip install mkdocs==1.2.1 mkdocs-redirects mkdocs-meta-descriptions-plugin
-      - run: mkdocs build
+      - restore_cache:
+          key: dependency-cache-{{ checksum "yarn.lock" }}
       - run:
-          name: install aws cli
-          command: |
-            curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip"
-            unzip awscliv2.zip
-            sudo ./aws/install
-      - run: aws --version
-      - run: aws s3 sync site/ s3://staging-semgrep-dev/docs
+          name: Install aws cli
+          command: sudo apt-get -y -qq install awscli && aws --version
+      - run:
+          name: Install Deps
+          command: yarn install
+      - run:
+          name: Yarn Deploy Staging
+          command: aws s3 sync build/ s3://staging-semgrep-dev/docs
   deployProd:
     docker:
-      - image: cimg/python:3.8
+      - image: circleci/node:latest
     steps:
       - checkout
-      - run: python --version
-      - run: pip install mkdocs==1.2.1 mkdocs-redirects mkdocs-meta-descriptions-plugin
-      - run: mkdocs build
+      - restore_cache:
+          key: dependency-cache-{{ checksum "yarn.lock" }}
       - run:
-          name: install aws cli
-          command: |
-            curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip"
-            unzip awscliv2.zip
-            sudo ./aws/install
-      - run: aws --version
-      - run: aws s3 sync site/ s3://semgrep-docs/docs
+          name: Install aws cli
+          command: sudo apt-get -y -qq install awscli && aws --version
+      - run:
+          name: Install Deps
+          command: yarn install
+      - run:
+          name: Yarn Prod Deploy
+          command: aws s3 sync build/ s3://semgrep-docs/docs
 
 workflows:
   build-and-deploy:

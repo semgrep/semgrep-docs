@@ -1,15 +1,17 @@
 ---
+slug: faq
 append_help_link: true
 description: >-
   Frequently asked questions about Semgrep, comparisons to similar tools,
   rule licensing, technical support, and more.
 ---
 
+import MoreHelp from "/src/components/MoreHelp"
+
 # Frequently Asked Questions
 
-[TOC]
 
-# General
+## General
 
 #### How are Semgrep and its rules licensed?
 
@@ -33,7 +35,7 @@ Probably! If you have a typical consulting service and running semgrep-rules is 
 
 Help is available for all users, free or otherwise, through the [r2c Community Slack](https://r2c.dev/slack). Semgrep Team tier customers receive 8\*5 email/phone/Slack support with committed SLAs. See [Support](support.md) for more details.
 
-# Billing / Pricing
+## Billing / Pricing
 
 #### What features differ between Semgrep App’s Community (free) and Team (paid) versions?
 
@@ -43,7 +45,7 @@ See the Semgrep feature and pricing comparison at [r2c.dev/pricing](https://r2c.
 
 For the Semgrep Team tier, a user is any project contributor whose pull request or code was scanned in the billing cycle. For example, if a project has 4 unique contributors who pushed code during the period, and Semgrep runs on all their pull requests, there are 4 users. If these unique contributors push to many projects, they will only be counted once; please feel free to scan often and widely. Semgrep does not charge on a line-of-code or per-project basis.
 
-# Comparisons
+## Comparisons
 
 ### How is Semgrep different than $OTHER*TOOL or $GENERIC*[SAST](https://en.wikipedia.org/wiki/Static_application_security_testing)?
 
@@ -108,7 +110,7 @@ Both Semgrep and SonarQube use static analysis to find bugs, but there are a few
 - Both have publicly available rules
 - Semgrep has an online, hosted free plan; both have a hosted paid plan
 
-# Privacy and Security
+## Privacy and Security
 
 #### Where do you store data?
 
@@ -136,18 +138,20 @@ Semgrep CI makes network requests in accordance with the data storage mentioned 
 - When providing a URL to `--output`, Semgrep performs an HTTP `POST` of the results to the specified URL.
 - When providing a registry ID like `p/ci` to `--config`, Semgrep requests the configuration from the [Registry](https://semgrep.dev/explore).
 
-# Configuration
+## Configuration
 
 #### How do I configure Semgrep for different projects?
 
-Semgrep App provides centralized policy management. See [Managing CI policy](managing-policy.md) for more details.
+Semgrep App provides centralized policy management. See [Managing CI policy](semgrep-app/managing-policy.md) for more details.
 
 #### What is a policy?
 
-A policy is a simple collection of rules and a definition of what to do with rule results: fail the Semgrep CI run and/or send non-blocking notifications to third-party services like Slack. Please see [Managing CI policy](managing-policy.md) for more details.
+A policy is a simple collection of rules and a definition of what to do with rule results: fail the Semgrep CI run and/or send non-blocking notifications to third-party services like Slack. Please see [Managing CI policy](semgrep-app/managing-policy.md) for more details.
 
-# Monitoring
+## Monitoring
 
 #### Do you have a visualization UI?
 
 Dashboarding is available for Semgrep Team users. Semgrep also supports posting results via web hooks to any JSON endpoint, so you can easily integrate it with your favorite visualization tool.
+
+<MoreHelp />

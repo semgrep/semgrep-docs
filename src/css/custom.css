@@ -1,0 +1,141 @@
+/* stylelint-disable docusaurus/copyright-header */
+/**
+ * Any CSS included here will be global. The classic template
+ * bundles Infima by default. Infima is a CSS framework designed to
+ * work well for content-centric websites.
+ */
+
+/* You can override the default Infima variables here. */
+:root {
+  --ifm-color-primary: #25c2a0;
+  --ifm-color-primary-dark: rgb(33, 175, 144);
+  --ifm-color-primary-darker: rgb(31, 165, 136);
+  --ifm-color-primary-darkest: rgb(26, 136, 112);
+  --ifm-color-primary-light: rgb(70, 203, 174);
+  --ifm-color-primary-lighter: rgb(102, 212, 189);
+  --ifm-color-primary-lightest: rgb(146, 224, 208);
+  --ifm-code-font-size: 95%;
+}
+
+.docusaurus-highlight-code-line {
+  background-color: rgba(0, 0, 0, 0.1);
+  display: block;
+  margin: 0 calc(-1 * var(--ifm-pre-padding));
+  padding: 0 var(--ifm-pre-padding);
+}
+
+html[data-theme="dark"] .docusaurus-highlight-code-line {
+  background-color: rgba(0, 0, 0, 0.3);
+}
+
+/* begin customized styles for Semgrep docs */
+
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap");
+
+/* globals */
+html {
+  font-family: Inter, Barlow, "Source Sans Pro", "Work Sans", sans-serif !important;
+  font-weight: 300;
+  word-break: keep-all;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5 {
+  font-weight: 500;
+}
+
+a,
+a:hover {
+  color: #359dfd;
+}
+
+/* navbar */
+
+.navbar {
+  height: 50px;
+}
+
+.navbar.navbar--fixed-top {
+  padding: 0;
+}
+
+.navbar__inner {
+  position: fixed;
+  left: 5px;
+  padding: 0 10px;
+}
+
+.navbar__items {
+  height: 50px;
+}
+
+.navbar__brand {
+  margin-right: 0;
+}
+
+a.navbar__item.navbar__link {
+  font-weight: normal;
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+a.navbar__item.navbar__link:hover {
+  transition: none;
+  color: inherit;
+  text-decoration: underline;
+}
+
+.navbar__link:hover,
+.navbar__link--active {
+  color: #106ba3;
+}
+
+.navbar__logo {
+  height: 20px;
+}
+
+/* sidenav */
+li.menu__list-item a:hover {
+  color: #fff;
+  background: #6136f5;
+}
+
+.menu__link {
+  transition-timing-function: linear;
+  transition-duration: 5ms;
+}
+
+.menu__link--active {
+  color: #106ba3;
+}
+
+/* table of contents */
+
+.table-of-contents__link:hover,
+.table-of-contents__link:hover code,
+.table-of-contents__link--active,
+.table-of-contents__link--active code {
+  color: #106ba3;
+}
+
+/* footer */
+
+.footer--dark {
+  background: linear-gradient(
+      249.38deg,
+      rgb(76, 24, 118) 32.7%,
+      rgba(24, 28, 118, 0) 105.76%
+    ),
+    rgb(17, 36, 62);
+}
+
+.footer__title {
+  color: rgb(198, 200, 204);
+}
+
+.footer__link-item {
+  text-decoration: underline;
+}

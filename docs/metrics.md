@@ -1,6 +1,9 @@
 ---
+slug: metrics
 append_help_link: true
 ---
+
+import MoreHelp from "/src/components/MoreHelp"
 
 # Metrics
 
@@ -35,8 +38,8 @@ Environmental data provides contextual data about Semgrep’s runtime environmen
 - If the command ran in a CI environment
 - The version of Semgrep
 - The user’s OS and shell
-- Anonymized hash of the scanned project’s name
-- Anonymized hash of the rules run
+- De-identified hash of the scanned project’s name
+- De-identified hash of the rules run
 
 ### Performance
 
@@ -135,3 +138,5 @@ This is a sample blob of anonymized metrics described above:
 [r2c](https://r2c.dev/) uses some third party companies and services to help administer and provide Semgrep, for example for hosting, customer support, product usage analytics, and database management. These third parties are permitted to handle data only to perform these tasks in a manner consistent with this document and are obligated not to disclose or use it for any other purpose.
 
 r2c does not share or sell the information with other organizations without explicit consent, except as described in this document.
+
+<MoreHelp />

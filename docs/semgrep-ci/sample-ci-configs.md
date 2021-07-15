@@ -1,6 +1,9 @@
 ---
+slug: sample-ci-configs
 append_help_link: true
 ---
+
+import MoreHelp from "/src/components/MoreHelp"
 
 # Sample CI configurations
 
@@ -8,9 +11,7 @@ The sample configuration files below
 run [Semgrep CI](https://github.com/returntocorp/semgrep-action)
 on various continuous integration providers.
 
-[TOC]
-
-# GitHub Actions
+## GitHub Actions
 
 ```yaml
 name: Semgrep
@@ -76,7 +77,7 @@ jobs:
 | **results in pull request comments** | ✅ [sign up for Semgrep App free](https://semgrep.dev/login) |
 | **automatic CI setup** | ✅ [sign up for Semgrep App free](https://semgrep.dev/login) |
 
-# GitLab CI
+## GitLab CI
 
 ```yaml
 semgrep:
@@ -133,7 +134,7 @@ semgrep:
 | **results in merge request comments** | ✅ [sign up for Semgrep App free](https://semgrep.dev/login) |
 | **automatic CI setup** | ❌ not available |
 
-# Jenkins
+## Jenkins
 
 Use webhooks and the below snippet to integrate with GitHub.
 
@@ -205,7 +206,7 @@ environment {
 | **results in pull request comments** | ✅ [sign up for Semgrep App free](https://semgrep.dev/login) |
 | **automatic CI setup** | ❌ not available |
 
-# Buildkite
+## Buildkite
 
 ```yaml
 - label: ":semgrep: Semgrep"
@@ -246,7 +247,7 @@ environment {
 | **results in pull request comments** | ✅ [sign up for Semgrep App free](https://semgrep.dev/login) |
 | **automatic CI setup** | ❌ not available |
 
-# CircleCI
+## CircleCI
 
 ```yaml
 version: 2.1
@@ -310,7 +311,7 @@ workflows:
 | **results in pull request comments** | ✅ [sign up for Semgrep App free](https://semgrep.dev/login) |
 | **automatic CI setup** | ❌ not available |
 
-# Other providers
+## Other providers
 
 To run Semgrep CI on any other provider,
 use the `returntocorp/semgrep-agent:v1` Docker image,
@@ -335,3 +336,5 @@ you can run Semgrep in the following CI providers:
 - Travis CI
 
 Is your CI provider missing? Let us know by [filing an issue](https://github.com/returntocorp/semgrep/issues/new?assignees=&labels=&template=feature_request.md&title=).
+
+<MoreHelp />
