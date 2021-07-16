@@ -165,6 +165,12 @@ The `metavariable-comparison` operator is a mapping which requires the `metavari
 
 This will catch code like `set_port(80)` or `set_port(443)`, but not `set_port(8080)`.
 
+Comparison expressions support simple arithmetic as well as composition with [boolean operators](https://docs.python.org/3/reference/expressions.html#boolean-operations) to allow for more complex matching. This is particularly useful for checking that metavariables are divisible by particular values, such as enforcing that a particular value is even or odd:
+
+<iframe src="https://semgrep.dev/embed/editor?snippet=qq9R" border="0" frameBorder="0" width="100%" height="435"></iframe>
+
+Building off of the previous example this will still catch code like `set_port(80)` but will no longer catch `set_port(443)` or `set_port(8080)`.
+
 The `metavariable-comparison` operator also takes optional `base: int` and `strip: bool` keys. These keys set the integer base the metavariable value should be interpreted as and remove quotes from the metavariable value, respectively.
 
 For example, `base`:
