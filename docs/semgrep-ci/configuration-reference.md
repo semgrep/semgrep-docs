@@ -1,13 +1,17 @@
+---
+slug: configuration-reference
+---
+
+import MoreHelp from "/src/components/MoreHelp"
+
 # CI configuration reference
 
 Configure Semgrep CI by passing these environment variables in your CI job.
 
-!!! note
-    While environment variables are the preferred way to configure Semgrep CI,
-    any of these options can be passed as command line options as well.
-    Refer to the output of `semgrep-agent --help` to find the corresponding flags.
+:::info
+While environment variables are the preferred way to configure Semgrep CI, any of these options can be passed as command line options as well. Refer to the output of `semgrep-agent --help` to find the corresponding flags.
+:::
 
-[TOC]
 
 ## Select rules to scan with (`SEMGREP_RULES`)
 
@@ -66,3 +70,5 @@ To change the job timeout from the default of 1800 seconds. Set to 0 to disable 
 ```sh
 SEMGREP_TIMEOUT="300"
 ```
+
+<MoreHelp />

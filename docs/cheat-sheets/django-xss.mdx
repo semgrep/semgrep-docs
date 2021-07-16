@@ -1,0 +1,364 @@
+---
+slug: django-xss
+---
+
+# XSS prevention for Django
+
+This is a cross-site scripting (XSS) prevention cheat sheet by r2c. It contains code patterns of potential XSS in an application. Instead of scrutinizing code for exploitable vulnerabilities, the recommendations in this cheat sheet pave a safe road for developers that mitigates the possibility of XSS in your code. By following these recommendations, you can be reasonably sure your code is free of XSS.
+
+## Mitigation summary
+
+In general, always use the template engine provided by Django using `render()`. If you need HTML escaping, use `mark_safe()` combined with `format_html() `and review each individual usage carefully. Once reviewed, mark with `# nosem`. Beware of putting data in dangerous locations in templates. And as always, run a security checker continuously on your code.
+
+Semgrep ruleset for this cheatsheet: [https://semgrep.dev/p/minusworld.django-xss](https://semgrep.dev/p/minusworld.django-xss)
+
+#### Check your project for these conditions:
+
+```bash
+semgrep --config p/minusworld.django-xss
+```
+
+[PDF of this cheat sheet](https://web-assets.r2c.dev/security-cheat-sheets/xss/r2c-security-cheat-sheet-xss-prevention-for-django.pdf)
+
+---
+## 1. Server code: Marking "safe" content, which does not escape HTML
+
+### 1.A. Using `mark_safe()`
+
+`mark_safe()` marks the returned content as "safe to render." This instructs the template engine to bypass HTML escaping, creating the possibility of a XSS vulnerability.
+
+Example:
+
+```python
+mark_safe(html_content)
+```
+
+#### References:
+
+- [`mark_safe()` documentation](https://docs.djangoproject.com/en/3.1/ref/utils/#django.utils.safestring.mark_safe)
+- [Bandit Check B703 - Django `mark_safe()`](https://bandit.readthedocs.io/en/latest/plugins/b703_django_mark_safe.html)
+- [`format_html()` documentation](https://docs.djangoproject.com/en/3.0/ref/utils/#django.utils.html.format_html)
+
+
+#### Mitigation
+
+Ban `mark_safe()`. Alternatively, if needed, use in combination with `format_html()` and review each usage carefully. Create an exemption with `# nosem`.
+
+#### Semgrep rule
+
+python.django.security.audit.avoid-mark-safe.avoid-mark-safe
+
+### 1.B. Using the `SafeString` class directly
+
+The `SafeString` class is how Django determines which variables should be escaped and which should not. Elements passed to `mark_safe()` are returned as a `SafeString`. Invoking `SafeString` directly will bypass HTML escaping which could create a XSS vulnerabliity.
+
+Example: 
+```python
+SafeString(f"<div>{request.POST.get('name')}</div>")
+```
+
+#### References:
+
+- [Filters and auto-escaping in Django](https://docs.djangoproject.com/en/3.1/howto/custom-template-tags/#filters-and-auto-escaping)
+- [`SafeString` documentation](https://docs.djangoproject.com/en/3.1/ref/utils/#django.utils.safestring.SafeString)
+  
+#### Mitigation
+
+Ban `SafeString()`. Alternatively, prefer `mark_safe()` if necessary.
+
+### 1.C. Registering a custom filter with `is_safe=True`
+
+
+Registering a filter with `is_safe=True` indicates to Django that the filter absolutely does not introduce any unsafe HTML characters. The value returned from the filter will be marked as "safe" when the input is also marked "safe". Generally, this is acceptable, but if you cannot be certain the filter is safe, it may introduce a XSS vulnerability.
+
+Example:
+
+```python
+@register.filter(is_safe=True)
+def myfilter(value):
+  return value
+```
+
+#### References:
+
+- [Custom filters and auto-escaping](https://docs.djangoproject.com/en/3.1/howto/custom-template-tags/#filters-and-auto-escaping)
+
+
+#### Mitigation
+
+Do not mark filters with `is_safe=True`. Alternatively, prefer `mark_safe()` if necessary.
+
+#### Semgrep rule
+
+python.django.security.audit.xss.filter-with-is-safe
+
+
+
+### 1.D. Use of the `__html__` magic method in a class
+
+The `__html__` magic method is used by the Django template engine to determine whether the object should be escaped. If available, the value returned by the method will not be escaped and could introduce a XSS vulnerability.
+
+Example:
+
+```python
+class RawHtml(str):
+  def __html__(self):
+  return str(self)
+```
+
+#### References:
+
+- [`conditional_escape()` documentation](https://docs.djangoproject.com/en/3.0/ref/utils/#django.utils.html.conditional_escape)
+- [`conditional_escape()` source code](https://docs.djangoproject.com/en/3.0/_modules/django/utils/html/#conditional_escape)
+
+#### Mitigation
+
+Ban `__html__` in classes. Alternatively, prefer `mark_safe()` if necessary.
+
+#### Semgrep rule
+
+python.django.security.audit.xss.html-magic-method.html-magic-method
+
+
+### 1.E. Using `html_safe()`
+
+The `html_safe()` decorator adds the `__html__` magic method to the supplied class. The added `__html__` magic method will return the exact string representation of the class (e.g., `str(self)`). Because objects with the `__html__` method are not escaped, this could create a XSS vulnerability.
+
+Example:
+
+```python
+@html_safe
+class RawHtml(str):
+  pass
+```
+
+#### References:
+
+- [`html_safe()` documentation](https://docs.djangoproject.com/en/3.0/ref/utils/#django.utils.html.html_safe)
+
+#### Mitigation:
+
+Ban `html_safe()`. Alternatively, prefer `mark_safe()` if necessary.
+
+#### Semgrep rule
+
+python.django.security.audit.xss.html-safe.html-safe
+
+---
+
+## 2. Server code: Bypassing the template engine
+
+
+### 2.A. Directly writing a response using `HttpResponse` or similar classes
+
+
+Writing results directly to `HttpResponse` or similar classes bypasses the Django template engine. This also bypasses the HTML escaping built into the template engine and creates the possibility of a XSS vulnerability. Use `render()` with a template instead.
+
+Example:
+
+```python
+return HttpResponse("Hello, " + name)
+```
+
+#### References:
+
+- [Django Book - Security: XSS](https://django-book.readthedocs.io/en/latest/chapter20.html#cross-site-scripting-xss)
+- [Example of XSS via `HttpResponseBadRequest`](https://r2c.dev/blog/2020/be-careful-what-you-request-for-django-method/)
+- [HttpResponse subclasses](https://docs.djangoproject.com/en/3.1/ref/request-response/#httpresponse-subclasses)
+
+
+#### Mitigation:
+
+Ban `HttpResponse` and similar classes. Alternatively, use `render()`.
+
+#### Semgrep rule
+
+python.django.security.audit.xss.direct-use-of-httpresponse
+
+### 2.B. Globally disabling autoescape
+
+Autoescaping can be globally disabled in Django settings. This should never be done if you are rendering HTML; now, every response returned to the user will need to be audited to ensure it is free of XSS vulnerabilities.
+
+Example:
+
+```python
+TEMPLATES = [
+  {
+    ...,
+    'OPTIONS': {'autoescape': False}
+  }
+]
+```
+
+#### References:
+
+- [Django template settings documentation](https://docs.djangoproject.com/en/3.1/topics/templates/#django.template.backends.django.DjangoTemplates)
+
+#### Mitigation:
+
+Ban globally dissabling autoescape. Alternatively, do not globally disable escaping. If HTML escaping is necessary, use `mark_safe()`.
+
+#### Semgrep rule
+
+python.django.security.audit.xss.global-autoescape-off.global-autoescape-off
+
+### 2.C. Setting `autoescape=False` in a template context
+
+
+Setting `autoescape=False` in a template context will disable HTML escaping for that template. Any data rendered in that template could be a XSS vulnerability.
+
+Example:
+
+```python
+response = render(request, "index.html", {"autoescape": False})
+```
+
+#### References:
+
+- [Context source code](https://github.com/django/django/blob/54ea290e5bbd19d87bd8dba807738eeeaf01a362/django/template/context.py#L135)
+
+- [`Template.render()` documentation](https://docs.djangoproject.com/en/3.1/ref/templates/api/#django.template.Template.render)
+- [`render_to_string()` documentation](https://docs.djangoproject.com/en/3.1/topics/templates/#django.template.loader.render_to_string)
+- [`render()` documentation](https://docs.djangoproject.com/en/3.1/topics/http/shortcuts/#django.shortcuts.render)
+
+
+#### Mitigation:
+description: "Ban `autoescape=False` in template contexts"
+alternative: "Use `mark_safe()` if necessary"
+rule: "python.django.security.audit.xss.context-autoescape-off.context-autoescape-off"
+
+---
+
+## 3. Templates: unescaped variables
+
+### 3.A. Use of the `| safe` filter
+
+The `| safe` filter marks the content as "safe for rendering." This has the same effect as `mark_safe()` in Python code. This will permit direct rendering of HTML and create a possible XSS vulnerability.
+
+Example:
+
+```django
+{{ name | safe }}
+```
+
+#### References:
+
+- [`| safe` filter documentation](https://docs.djangoproject.com/en/3.0/ref/templates/builtins/#safe)
+
+#### Mitigation:
+
+Ban `| safe`. Alternatively, use `mark_safe()` in Python if necessary.
+
+#### Semgrep rule
+
+python.flask.security.xss.audit.template-unescaped-with-safe.template-unescaped-with-safe
+
+### 3.B. Use of the `| safeseq` filter
+
+The `| safeseq` filter marks the content as "safe for rendering." This has the same effect as `mark_safe()` in Python code. This will permit direct rendering of HTML and create a possible XSS vulnerability.
+
+Example:
+
+```django
+{{ names | safeseq | join:", " }}
+```
+
+#### References:
+
+- [`| safeseq` documentation](https://docs.djangoproject.com/en/3.0/ref/templates/builtins/#safeseq)
+
+#### Mitigation:
+
+"Ban `| safeseq`. Alternatively, use `mark_safe()` in Python if necessary. 
+
+#### Semgrep rule
+
+python.django.security.audit.xss.template-var-unescaped-with-safeseq.template-var-unescaped-with-safeseq
+
+### 3.C. The `{% autoescape off %}` block
+
+The `{$ autoescape off %}` block disables autoescaping for whole portions of the template. Disabling autoescaping allows HTML characters to be rendered directly onto the page which could create XSS vulnerabilities.
+
+Example:
+
+```django
+{% autoescape off %}
+```
+
+#### References:
+
+- [`autoescape` block documentation](https://docs.djangoproject.com/en/3.0/ref/templates/builtins/#autoescape)
+
+#### Mitigation:
+
+Ban `{% autoescape off %}`. Alternatively, use `mark_safe()` in Python if necessary.
+
+#### Semgrep rule
+
+python.django.security.audit.xss.template-autoescape-off.template-autoescape-off
+
+---
+
+## 4. Templates: Variable in dangerous location"
+
+### 4.A. Unquoted variable in HTML attribute
+
+Unquoted template variables rendered into HTML attributes is a potential XSS vector because an attacker could inject JavaScript handlers which do not require HTML characters. An example handler might look like: `onmouseover=alert(1)`. HTML escaping will not mitigate this. The variable must be quoted to avoid this.
+
+Example:
+
+```django
+<div class="{{ classes }}"></div>
+```
+
+#### References:
+- [Flask cross-site scripting considerations](https://flask.palletsprojects.com/en/1.1.x/security/#cross-site-scripting-xss)
+
+#### Mitigation:
+
+Flag unquoted HTML attributes with Jinja expressions. Alternatively, always use quotes around HTML attributes.
+
+#### Semgrep rule
+
+python.flask.security.xss.audit.template-unquoted-attribute-var.template-unquoted-attribute-var
+
+### 4.B. Variable in `href` attribute
+
+Template variables in a `href` value could still accept the `javascript:` URI. This could be a XSS vulnerability. HTML escaping will not prevent this. Use `url_for` to generate links.
+
+Example:
+
+```django
+<a href="{{ link }}"></a>
+```
+
+#### References:
+
+- [Flask cross-site scripting considerations](https://flask.palletsprojects.com/en/1.1.x/security/#cross-site-scripting-xss)
+
+#### Mitigation:
+
+Flag template variables in `href` attributes. Alternatively, use `url_for` to generate links.
+
+#### Semgrep rule
+
+python.django.security.audit.xss.template-href-var.template-href-var
+
+### 4.C. Variable in `<script>` block
+
+Template variables placed directly into JavaScript or similar are now directly in a code execution context. Normal HTML escaping will not prevent the possibility of code injection because code can be written without HTML characters. This creates the potential for XSS vulnerabilities, or worse.
+
+#### References:
+
+- [Template engines: Why default encoders are not enough](https://www.veracode.com/blog/secure-development/nodejs-template-engines-why-default-encoders-are-not-enough)
+- [Safely including data for JavaScript in a Django template](https://adamj.eu/tech/2020/02/18/safely-including-data-for-javascript-in-a-django-template/)
+- [`json_script` documentation](https://docs.djangoproject.com/en/3.0/ref/templates/builtins/#json-script)
+
+Example:
+```django
+<script>var name = {{ name }};</script>
+```
+
+#### Mitigation:
+
+Ban template variables in `<script>` blocks. Alternatively, use the `json_script` template tag and read the data in JavaScript using the element ID.

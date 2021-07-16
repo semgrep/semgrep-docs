@@ -1,3 +1,7 @@
+---
+slug: support
+---
+
 # Support
 
 Help is available for all users through the [r2c Community Slack](https://r2c.dev/slack). Semgrep Team customers also receive 8\*5 email/phone/Slack support with committed SLAs.

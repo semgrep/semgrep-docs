@@ -1,0 +1,184 @@
+---
+slug: java-jsp-xss
+---
+
+
+# XSS prevention for Java + JSP
+
+This is a cross-site scripting (XSS) prevention cheat sheet by r2c. It contains code patterns of potential XSS in an application. Instead of scrutinizing code for exploitable vulnerabilities, the recommendations in this cheat sheet pave a safe road for developers that mitigates the possibility of XSS in your code. By 
+following these recommendations, you can be reasonably sure your code is free of XSS.
+
+## Mitigation Summary
+
+JSPs are fraught with peril. HTML escaping in JSP templates requires escaping all data that is rendered onto the page. Worse, business logic can be embedded into JSPs with scriptlets. This is easy to forget or abuse and can easily create XSS vulnerabilities. The default option should be the safe option: Consider using a view or template engine that escapes by default, such as JSF or Velocity. If you cannot migrate to another framework, use a custom EL resolver that applies escaping by default in JSPs, such as
+https://docs.oracle.com/javaee/6/api/javax/el/ELResolver.html, otherwise you MUST ensure all data is escaped. Do not use scriptlets.
+
+If you are developing a REST API, consider using JAX-RS instead of writing directly to `HttpServletResponse`. This is easier to review, maintain, and audit for issues. And as always, develop a secure coding policy and use a security checker to enforce it.
+
+Semgrep ruleset for this cheatsheet: [p/minusworld.java-httpservlet-jsp-xss](https://semgrep.dev/p/minusworld.java-httpservlet-jsp-xss)
+
+#### Check your project for these conditions:
+
+```bash
+semgrep --config p/minusworld.java-httpservlet-jsp-xss
+```
+
+[PDF of this cheat sheet](https://web-assets.r2c.dev/security-cheat-sheets/xss/r2c-security-cheat-sheet-xss-prevention-for-java-jsp.pdf)
+
+---
+
+## 1. Server code: writing a response directly
+
+### 1.A Using the `PrintWriter` from `HttpServletResponse`
+
+
+The `PrintWriter from `HttpServletResponse` permits writing data directly to the response that will be returned to the user. This bypasses any safety mechanisms built into any frameworks in use.
+
+Example:
+
+```java
+response.getWriter().write("<p>Hello, " + name + "!</p>");
+```
+
+#### Mitigation
+
+Ban use of `PrintWriter` from `HttpServletResponse`. Alternatively, render JSP pages using request forwarding: `request.getRequestDispatcher("/page.jsp").forward(...);`
+
+#### Semgrep rule
+
+java.lang.security.audit.xss.no-direct-response-writer.no-direct-response-writer
+
+### 1.B. Using the `OutputStream` from `HttpServletResponse`
+
+The `OutputStream` from `HttpServletResponse` permits writing data directly to the response that will be returned to the user. This bypasses any safety mechanisms built into any frameworks in use.
+
+Example:
+
+```java
+String template = "<p>Hello, " + name + "!</p>";
+response.getOutputStream().write(template.getBytes());
+```
+
+#### References:
+
+- [Request forwarding to render JSP pages](https://www.baeldung.com/jsp#forwarding)
+
+#### Mitigation
+
+Ban use of `OutputStream` from `HttpServletResponse`. Render JSP pages using request forwarding: `request.getRequestDispatcher("/page.jsp").forward(...);`.
+
+#### Semgrep rule
+
+java.lang.security.audit.xss.no-direct-response-writer.no-direct-response-writer
+
+---
+## 2. JSP page: Variable is not explicitly escaped
+
+### 2.A. Any variable used without `<c:out ...>` tag
+
+The `out` tag from the JSTL taglib escapes the given value. Without this or another escaping method, data in the JSP will be unescaped. This could create XSS vulnerabilities.
+
+Example:
+
+```java
+<div>${userObj.name}</div>
+```
+
+#### References:
+
+- [XSS prevention in JSP application](https://stackoverflow.com/questions/2658922/xss-prevention-in-jsp-servlet-web-application)
+- [JSP cross-site scripting ELResolver](https://pukkaone.github.io/2011/01/03/jsp-cross-site-scripting-elresolver.html)
+
+#### Mitigation
+
+Require use of JSTL `escapeXml` function in every expression. Alternatively, require use of JSTL `escapeXml` function in every expression.
+
+#### Semgrep rule
+
+java.lang.security.audit.xss.jsp.use-escapexml.use-escapexml
+
+### 2.B.Any expression without `escapeXml`
+
+
+The `escapeXml` JSTL expression will escape XML characters. Any data rendered without this or another escaping method will be a potential site for XSS.
+
+Example:
+
+```java
+<div>${userObj.name}</div>
+```
+
+#### References:
+
+- [XSS prevention in JSP application](https://stackoverflow.com/questions/2658922/xss-prevention-in-jsp-servlet-web-application)
+- [JSP cross-site scripting ELResolver](https://pukkaone.github.io/2011/01/03/jsp-cross-site-scripting-elresolver.html)
+
+#### Mitigation
+
+Require use of JSTL `escapeXml` function in every expression. Alternatively, require use of JSTL `escapeXml` function in every expression.
+
+#### Semgrep rule
+
+java.lang.security.audit.xss.jsp.use-escapexml.use-escapexml
+
+---
+
+## 3. JSP page: Variable in dangerous location
+
+### 3.A. Unquoted variable in HTML attribute
+
+Unquoted template variables rendered into HTML attributes is a potential XSS vector because an attacker could inject JavaScript handlers which do not require HTML characters. An example handler might look like: `onmouseover=alert(1)`. HTML escaping will not mitigate this. The variable must be quoted to avoid this.
+
+Example:
+
+```java
+<div class=${classes}></div>
+```
+
+#### References:
+
+- [Flask cross-site scripting considerations - unquoted variable in HTML attribute](https://flask.palletsprojects.com/en/1.1.x/security/#cross-site-scripting-xss)
+
+#### Mitigation
+
+Flag unquoted HTML attributes with Jinja expressions. Alternatively, always use quotes around HTML attributes.
+
+
+### 3.B. Variable in `href` attribute
+
+Template variables in a `href` value could still accept the `javascript:` URI. This could be a XSS vulnerability. HTML escaping will not prevent this. Use `url_for` to generate links.
+
+Example:
+
+```java
+<a href="${link}"></a>
+```
+
+#### References:
+
+- [Flask cross-site scripting considerations - variable in `href`](https://flask.palletsprojects.com/en/1.1.x/security/#cross-site-scripting-xss)
+
+#### Mitigation
+
+Flag template variables in `href` attributes.
+
+### 3.C. Variable in `<script>` block
+
+Template variables placed directly into JavaScript or similar are now directly in a code execution context. Normal HTML escaping will not prevent the possibility of code injection because code can be written without HTML characters. This creates the potential for XSS vulnerabilities, or worse.
+
+#### References:
+
+- [Template engines: Why default encoders are not enough](https://www.veracode.com/blog/secure-development/nodejs-template-engines-why-default-encoders-are-not-enough)
+- [Safely including data for JavaScript in a Django template](https://adamj.eu/tech/2020/02/18/safely-including-data-for-javascript-in-a-django-template/)
+- [`json_script` documentation](https://docs.djangoproject.com/en/3.0/ref/templates/builtins/#json-script)
+
+Example:
+
+```java
+<script>var name = ${name};</script>
+```
+
+#### Mitigation
+
+Ban template variables in `<script>` blocks.
+

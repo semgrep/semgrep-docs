@@ -1,79 +1,82 @@
 ---
+slug: language-support
+id: language-support
 append_help_link: true
 description: >-
   Semgrep supports over a dozen languages. Learn about generally available, beta, and experimentally supported languages.
 ---
 
+import MoreHelp from "/src/components/MoreHelp"
+
 # Supported languages
 
-[TOC]
 
-# Language maturity
+## Language maturity
 
-<div class="languages-table">
-  <iframe width="100%" height="1000" border=0 frameBorder=0 src="https://dashboard.semgrep.dev/languages/table"></iframe>
+<div className="languages-table">
+  <iframe width="100%" height="1000" border="0" frameBorder="0" src="https://dashboard.semgrep.dev/languages/table"></iframe>
 </div>
 
-# Language parse rate
+## Language parse rate
 
-<div class="stats-graph-container">
-  <div class="lang-container">
+<div className="stats-graph-container">
+  <div className="lang-container">
     <h2>Go parse rate</h2>
     <iframe width="450" height="150" frameBorder="0" src="https://dashboard.semgrep.dev/metric/semgrep.core.go.parse.pct/number"></iframe>
   </div>
   
-  <div class="lang-container">
+  <div className="lang-container">
     <h2>Java parse rate</h2>
     <iframe width="450" height="150" frameBorder="0" src="https://dashboard.semgrep.dev/metric/semgrep.core.java.parse.pct/number"></iframe>
   </div>
   
-  <div class="lang-container">
+  <div className="lang-container">
     <h2>JavaScript parse rate</h2>
     <iframe width="450" height="150" frameBorder="0" src="https://dashboard.semgrep.dev/metric/semgrep.core.javascript.parse.pct/number"></iframe>
   </div>
   
-  <div class="lang-container">
+  <div className="lang-container">
     <h2>Python parse rate</h2>
     <iframe width="450" height="150" frameBorder="0" src="https://dashboard.semgrep.dev/metric/semgrep.core.python.parse.pct/number"></iframe>
   </div>
 
-  <div class="lang-container">
+  <div className="lang-container">
     <h2>Ruby parse rate</h2>
     <iframe width="450" height="150" frameBorder="0" src="https://dashboard.semgrep.dev/metric/semgrep.core.ruby.parse.pct/number"></iframe>
   </div>
   
-  <div class="lang-container">
+  <div className="lang-container">
     <h2>TypeScript parse rate</h2>
     <iframe width="450" height="150" frameBorder="0" src="https://dashboard.semgrep.dev/metric/semgrep.core.typescript.parse.pct/number"></iframe>
   </div>
   
-  <div class="lang-container">
+  <div className="lang-container">
     <h2>TSX parse rate</h2>
     <iframe width="450" height="150" frameBorder="0" src="https://dashboard.semgrep.dev/metric/semgrep.core.tsx.parse.pct/number"></iframe>
   </div>
 
-  <div class="lang-container">
+  <div className="lang-container">
     <h2>OCaml parse rate</h2>
     <iframe width="450" height="150" frameBorder="0" src="https://dashboard.semgrep.dev/metric/semgrep.core.ocaml.parse.pct/number"></iframe>
   </div>
 
-  <div class="lang-container">
+  <div className="lang-container">
     <h2>PHP parse rate</h2>
     <iframe width="450" height="150" frameBorder="0" src="https://dashboard.semgrep.dev/metric/semgrep.core.php.parse.pct/number"></iframe>
   </div>
 
-  <div class="lang-container">
+  <div className="lang-container">
     <h2>C parse rate</h2>
     <iframe width="450" height="150" frameBorder="0" src="https://dashboard.semgrep.dev/metric/semgrep.core.c.parse.pct/number"></iframe>
   </div>
 
-  <div class="lang-container">
+  <div className="lang-container">
     <h2>C# parse rate</h2>
     <iframe width="450" height="150" frameBorder="0" src="https://dashboard.semgrep.dev/metric/semgrep.core.c-sharp.parse.pct/number"></iframe>
   </div>
 </div>
 
-# Support expectations
+## Support expectations
 
 * **Alpha**: experimental support with many known bugs.
     * Looking for dedicated users to help us improve these languages.
@@ -85,12 +88,12 @@ description: >-
     * Looking for bug reports and feedback from users.
     * Expect timely and thorough support responses, generally within 24 hours.
 
-# Maturity definitions
+## Maturity definitions
 
 Language maturity is determined by 3 factors in the Semgrep ecosystem:
 
 1. **Parse rate** - how well Semgrep can parse code in a given language.
-1. **Feature support** - what [Semgrep features](writing-rules/pattern-syntax.md) are implemented for a given language.
+1. **Feature support** - what [Semgrep features](writing-rules/pattern-syntax.mdx) are implemented for a given language.
 1. **Ruleset count** - number of [Semgrep rule groupings](https://semgrep.dev/explore) in the cloud app.
 
 There are 3 levels of maturity: **alpha**, **beta**, and **generally available (GA)**. Each of these maturity levels are combined with a threshold of the factors above. When a language meets the maturity threshold for each of the factors then it’s moved into that maturity level.
@@ -141,5 +144,7 @@ Generally speaking, the features-by-maturity level are roughly: **alpha)** synta
 
 Visit the cheat sheet generation script and associated semgrep-core test files to learn more about each feature:
 
-* [https://github.com/returntocorp/semgrep/blob/develop/scripts/generate_test_matrix.py](https://github.com/returntocorp/semgrep/blob/develop/scripts/generate_test_matrix.py)
-* [https://github.com/returntocorp/semgrep/tree/develop/semgrep-core/tests](https://github.com/returntocorp/semgrep/tree/develop/semgrep-core/tests)
+* [generation script](https://github.com/returntocorp/semgrep/blob/develop/scripts/generate_test_matrix.py)
+* [semgrep-core test files](https://github.com/returntocorp/semgrep/tree/develop/semgrep-core/tests)
+
+<MoreHelp />

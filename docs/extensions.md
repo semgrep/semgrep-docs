@@ -1,12 +1,16 @@
 ---
+slug: extensions
 append_help_link: true
 description: >-
   Learn how to extend Semgrep use to an editor, in pre-commit, and in other tools.
 ---
 
+import MoreHelp from "/src/components/MoreHelp"
+
 # Extensions
 
 Several third-party tools include Semgrep extensions.
+
 
 ### Editor
 
@@ -18,7 +22,7 @@ Several third-party tools include Semgrep extensions.
 
 The [pre-commit framework](https://pre-commit.com/) can run `semgrep` at commit-time. [Install `pre-commit`](https://pre-commit.com/#install) and add the following to `.pre-commit-config.yaml`
 
-```
+```yaml
 repos:
 - repo: https://github.com/returntocorp/semgrep
   rev: 'v0.58.2'
@@ -44,3 +48,5 @@ Add yours [with a pull request](https://github.com/returntocorp/semgrep-docs)!
 - [mobsfscan](https://github.com/MobSF/mobsfscan)
 - [nodejsscan](https://github.com/ajinabraham/nodejsscan)
 - [SALUS](https://github.com/coinbase/salus/blob/master/docs/scanners/semgrep.md)
+
+<MoreHelp />

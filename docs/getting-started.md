@@ -1,29 +1,33 @@
 ---
+slug: getting-started
 append_help_link: true
 ---
 
 # Getting started
 
-- [Getting started](#getting-started)
-- [Run Semgrep locally](#run-semgrep-locally)
-- [Write a rule](#write-a-rule)
-- [Run Semgrep continuously](#run-semgrep-continuously)
 
-# Run Semgrep locally
+## Run Semgrep locally
 
 Start by running [Semgrep](https://github.com/returntocorp/semgrep/) locally to scan your code. It runs offline on uncompiled code: **no code leaves your machine**.
 
 Install Semgrep using Homebrew or pip, or run without installation via Docker:
 
+For macOS:
+
 ```sh
-# For macOS
-$ brew install semgrep
+brew install semgrep
+```
 
-# For Ubuntu / Windows via WSL / Linux / macOS
-$ python3 -m pip install semgrep
+For Ubuntu / Windows via WSL / Linux / macOS:
 
-# To try Semgrep without installation run via Docker
-$ docker run --rm -v "${PWD}:/src" returntocorp/semgrep --help
+```sh
+python3 -m pip install semgrep
+```
+
+To try Semgrep without installation run via Docker:
+
+```sh
+docker run --rm -v "${PWD}:/src" returntocorp/semgrep --help
 ```
 
 Confirm installation and run both a simple “grep-like” rule and a full ruleset:
@@ -72,9 +76,9 @@ $ semgrep --config p/security-audit WebGoat
 
 </p>
 </details>
-</br>
+<br />
 
-# Write a rule
+## Write a rule
 
 Once Semgrep is running locally, see the [Semgrep Tutorial](https://semgrep.dev/learn) to quickly learn how to write precise rules.
 
@@ -93,14 +97,14 @@ Visit [Writing Rules > Getting started](writing-rules/overview.md) for an in-dep
 
 This rule is used to find and discourage `print(...)` in production code. You can edit this rule here or visit the [Playground](https://semgrep.dev/editor) to write and deploy your own rule.
 
-<iframe title="Semgrep example with Python Flask routes" src="https://semgrep.dev/embed/editor?snippet=ievans:print-to-logger" width="100%" height="432px" frameborder="0"></iframe>
-
-<p align="center" style="font-size: 12px">
-    <img src="../img/semgrep-ci.gif" alt="A reviewer writes a Semgrep rule and adds it to an organization-wide policy."/></br>
-    A reviewer writes a Semgrep rule and adds it to an organization-wide policy.
+<iframe title="Semgrep example with Python Flask routes" src="https://semgrep.dev/embed/editor?snippet=ievans:print-to-logger" width="100%" height="432px" frameBorder="0"></iframe>
+<br /><br />
+![A reviewer writes a Semgrep rule and adds it to an organization-wide policy](img/semgrep-ci.gif)
+<br />
+<p>A reviewer writes a Semgrep rule and adds it to an organization-wide policy.
 </p>
 
-# Run Semgrep continuously
+## Run Semgrep continuously
 
 Finally, Semgrep is at its best when used to continuously scan code.
 Check out [Semgrep CI](semgrep-ci/overview.md) to learn how to get results where you already work:

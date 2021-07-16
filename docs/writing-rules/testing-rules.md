@@ -1,6 +1,9 @@
 ---
 append_help_link: true
+slug: testing-rules
 ---
+
+import MoreHelp from "/src/components/MoreHelp"
 
 # Testing rules
 
@@ -23,8 +26,9 @@ Other than annotations there are three things to remember when creating tests:
    `path/to/rule.py`, `path/to/rule.js`, etc., based on the languages specified
    in the rule.
 
-!!! note
-    The `.test.yaml` file extension can also be used for test files. This is necessary when testing YAML language rules.
+:::info
+The `.test.yaml` file extension can also be used for test files. This is necessary when testing YAML language rules.
+:::
 
 ## Example
 
@@ -124,3 +128,5 @@ final confusion matrix: TP: 1 TN: 0 FP: 0 FN: 0
 
 The subdirectory structure of these two directories must be the same for Semgrep to
 correctly find the associated files.
+
+<MoreHelp />

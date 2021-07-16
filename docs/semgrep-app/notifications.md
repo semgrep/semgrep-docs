@@ -1,15 +1,16 @@
 ---
+slug: notifications
 append_help_link: true
 ---
+
+import MoreHelp from "/src/components/MoreHelp"
 
 # Notifications
 
 Semgrep CI integrates with 3rd party services when connected to Semgrep App.
 When integrations are configured, you can receive notifications about Semgrep CI findings and failures.
 
-[TOC]
-
-# De-duplication
+## De-duplication
 
 Notifications are sent only the first time a given finding is seen.
 
@@ -21,30 +22,29 @@ Semgrep App also keeps track of notifications that have already been sent,
 so consecutive scans of the same changes in the same pull request
 won't send duplicate notifications.
 
-# Notification channels
+## Notification channels
 
-## Slack
+### Slack
 
-<p style="text-align: center; font-size: 12px">
-    <img width="600px" src="../img/slack-notification.png" alt="Screenshot of a Slack notification describing the details of a finding"/><br/>
-    A Slack notification triggered by new findings in a pull request
-</p>
+![Screenshot of a Slack notification describing the details of a finding](../img/slack-notification.png)
+<br />
+A Slack notification triggered by new findings in a pull request
 
 To receive Slack notifications about Semgrep findings on pull requests and code pushes, visit [Dashboard > Integrations](https://semgrep.dev/manage/integrations) and select 'Add integration' or 'Setup First Integration' and then choose 'Slack'. Give your channel a name, and then follow the setup instructions on the page to retrieve your Webhook URL.
 
-![An empty Slack channel integration that still needs to be filled in](img/notification-setup.png "An empty Slack channel integration that still needs to be filled in")
+![An empty Slack channel integration that still needs to be filled in](../img/notification-setup.png "An empty Slack channel integration that still needs to be filled in")
 
 Use the 'Test' button to send a test notification and ensure that your channel is configured properly.
 
-![A correctly configured Slack webhook will send a notification like this](img/test-notification.png "Correctly configured webhook will send a notification like this")
+![A correctly configured Slack webhook will send a notification like this](../img/test-notification.png "Correctly configured webhook will send a notification like this")
 
-## Email
+### Email
 
 To receive email notifications about Semgrep findings on pull requests and code pushes, visit [Dashboard > Integrations](https://semgrep.dev/manage/integrations) and select 'Add integration' or 'Setup First Integration,' and then choose 'Email'. Enter your email address, give the channel a name of your choosing, and then click 'Save'.
 
 On each scan that has at least one finding, you will receive one email from Semgrep with a summary of all of the findings from that scan.
 
-## GitHub pull request comments
+### GitHub pull request comments
 
 Pull request comments are left when
 
@@ -54,10 +54,9 @@ Pull request comments are left when
 
 Automated comments on GitHub pull requests look like this:
 
-<p style="text-align: center; font-size: 12px">
-    <img width="700px" src="../img/semgrep-pull-request.png" alt="Screenshot of a GitHub PR comment"/><br/>
-    An inline GitHub pull request comment.
-</p>
+![Screenshot of a GitHub PR comment](../img/semgrep-pull-request.png)
+<br />
+An inline GitHub pull request comment.
 
 Note that [Semgrep App](https://semgrep.dev/manage) uses the permissions requested by [the Semgrep GitHub App](https://github.com/marketplace/semgrep-dev) to leave PR comments.
 
@@ -67,16 +66,14 @@ If you are using Github Actions to run Semgrep, no extra changes are needed to g
 - `SEMGREP_PR_ID` is set to the PR number of the pull request on Github (e.g. `2900`)
 - `SEMGREP_REPO_NAME` is set to the repo name (e.g., `returntocorp/semgrep`)
 
-## GitLab merge request comments
+### GitLab merge request comments
 
 Merge request comments are currently supported for gitlab.com users only. [Sign up for the GitLab beta](https://go.r2c.dev/join-gitlab-beta) if you have a self-hosted instance of GitLab and are interested in receiving MR comments.
 
 Automated comments on GitLab merge requests look like this:
 
-<p style="text-align: center; font-size: 12px">
-    <img width="600px" src="../img/gitlab-mr-comment.png" alt="Screenshot of a GitLab MR comment"/><br/>
-    An inline GitLab merge request comment left by a custom Semgrep rule
-</p>
+<img width="600" src="/docs/img/gitlab-mr-comment.png" alt="Screenshot of a GitLab MR comment" /><br />
+An inline GitLab merge request comment left by a custom Semgrep rule
 
 To enable MR comments:
 
@@ -110,7 +107,7 @@ semgrep:
 
 Note: GitLab MR comments are only available to logged-in semgrep.dev users, requiring both a Semgrep deployment ID and a Semgrep API token.
 
-## Webhooks
+### Webhooks
 
 Webhook notifications are a paid feature in the Semgrep Team tier.
 
@@ -154,3 +151,5 @@ The body of the payload will be a JSON object that looks like this:
   }
 }
 ```
+
+<MoreHelp />

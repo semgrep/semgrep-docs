@@ -1,18 +1,19 @@
 ---
+slug: cli-usage
 append_help_link: true
 ---
+
+import MoreHelp from "/src/components/MoreHelp"
 
 # CLI reference
 
 The following usage documentation is for the [Semgrep command line tool](https://github.com/returntocorp/semgrep).
 
-[TOC]
-
-# Command-line options
+## Command-line options
 
 See `semgrep --help` for command line options.
 
-```
+```sh
 usage: semgrep [-h] [-g | -f CONFIG | -e PATTERN] [-l LANG] [--validate]
                [--strict] [--optimizations [OPTIMIZATIONS]] [--exclude EXCLUDE] 
                [--include INCLUDE] [--no-git-ignore] [--skip-unknown-extensions]
@@ -162,7 +163,7 @@ logging:
                         files failed to parse, etc.
 ```
 
-# Exit codes
+## Exit codes
 
 `semgrep` may exit with the following exit codes:
 
@@ -178,3 +179,5 @@ logging:
 - `9`: Semgrep exceeded match timeout. See `--timeout`
 - `10`: Semgrep exceeded max memory while matching. See `--max-memory`.
 - `11`: Semgrep encountered a lexical error when running rule on a file.
+
+<MoreHelp />
