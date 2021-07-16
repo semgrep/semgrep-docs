@@ -20,10 +20,10 @@ module.exports = {
         src: 'img/semgrep-icon-text-horizontal.svg',
       },
       items: [
-        { to: '/explore', label: 'Rules', position: 'left' },
-        { to: '/editor', label: 'Playground', position: 'left' },
-        { to: '/manage', label: 'Dashboard', position: 'left' },
-        { to: '/docs', label: 'Docs', position: 'left' },
+        { to: 'https://semgrep.dev/explore', label: 'Rules', position: 'left' },
+        { to: 'https://semgrep.dev/editor', label: 'Playground', position: 'left' },
+        { to: 'https://semgrep.dev/manage', label: 'Dashboard', position: 'left' },
+        { to: 'https://semgrep.dev/docs', label: 'Docs', position: 'left' },
       ],
     },
     footer: {
@@ -51,15 +51,15 @@ module.exports = {
           items: [
             {
               label: 'Docs',
-              to: '/docs/',
+              to: 'https://semgrep.dev/docs/',
             },
             {
               label: 'Examples',
-              to: '/docs/writing-rules/rule-ideas/',
+              to: 'https://semgrep.dev/docs/writing-rules/rule-ideas/',
             },
             {
               label: 'Tour',
-              to: '/learn',
+              to: 'https://semgrep.dev/learn',
             },
           ],
         },
@@ -68,7 +68,7 @@ module.exports = {
           items: [
             {
               label: 'Privacy',
-              to: '/privacy',
+              to: 'https://semgrep.dev/privacy',
             },
             {
               label: 'Issues',
@@ -76,7 +76,7 @@ module.exports = {
             },
             {
               label: 'Terms of service',
-              to: '/terms',
+              to: 'https://semgrep.dev/terms',
             },
           ],
         },
@@ -126,7 +126,7 @@ module.exports = {
   },
   scripts: [
     {
-      src: '/fs.js',
+      src: 'https://semgrep.dev/docs/fs.js',
       async: true
     }
   ],
