@@ -25,7 +25,7 @@ The [pre-commit framework](https://pre-commit.com/) can run `semgrep` at commit-
 ```yaml
 repos:
 - repo: https://github.com/returntocorp/semgrep
-  rev: 'v0.57.0'
+  rev: 'v0.58.2'
   hooks:
     - id: semgrep
       # See semgrep.dev/rulesets to select a ruleset and copy its URL
