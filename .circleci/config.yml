@@ -32,6 +32,9 @@ jobs:
           name: Install Deps
           command: yarn install
       - run:
+          name: Build site
+          command: yarn build
+      - run:
           name: Yarn Deploy Staging
           command: aws s3 sync build/ s3://staging-semgrep-dev/docs
   deployProd:
@@ -47,6 +50,9 @@ jobs:
       - run:
           name: Install Deps
           command: yarn install
+      - run:
+          name: Build site
+          command: yarn build
       - run:
           name: Yarn Prod Deploy
           command: aws s3 sync build/ s3://semgrep-docs/docs
