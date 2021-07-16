@@ -6,7 +6,7 @@ module.exports = {
   title: 'Semgrep',
   tagline: 'Lightweight static analysis for many languages. Find bug variants with patterns that look like source code.',
   url: 'https://semgrep.dev/',
-  baseUrl: '/',
+  baseUrl: '/docs/',
   onBrokenLinks: 'warn',
   onBrokenMarkdownLinks: 'warn',
   favicon: 'img/favicon.ico',
