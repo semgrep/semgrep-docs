@@ -167,8 +167,8 @@ logging:
 
 `semgrep` may exit with the following exit codes:
 
-- `0`: Semgrep ran successfully and found no errors
-- `1`: Semgrep ran successfully and found issues in your code
+- `0`: Semgrep ran successfully and found no errors (or did find errors, but the `--error` flag is *not* set)
+- `1`: Semgrep ran successfully and found issues in your code (and the `--error` flag is set)
 - `2`: Semgrep failed
 - `3`: Semgrep failed to parse a file in the specified language
 - `4`: Semgrep encountered an invalid pattern
