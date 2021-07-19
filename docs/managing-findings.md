@@ -9,7 +9,7 @@ import MoreHelp from "/src/components/MoreHelp"
 
 ## Findings
 
-A finding is the core result of Semgrep's analysis. Findings are generated when a Semgrep rule matches a piece of code. After matching, a finding can make its way through 3 parts of the Semgrep ecosystem: [Semgrep](https://github.com/returntocorp/semgrep), [Semgrep CI](semgrep-ci/overview.md), and [Semgrep App](https://semgrep.dev/manage).
+A finding is the core result of Semgrep's analysis. Findings are generated when a Semgrep rule matches a piece of code. After matching, a finding can make its way through 3 parts of the Semgrep ecosystem: [Semgrep](https://github.com/returntocorp/semgrep), [Semgrep CI](../semgrep-ci/overview/), and [Semgrep App](https://semgrep.dev/manage).
 
 ## Semgrep
 
@@ -45,11 +45,11 @@ severity:warning rule:finding-test: Finding test 2
 1:print(1 == 1)
 ```
 
-For more information on writing rules, see [Rule syntax](writing-rules/rule-syntax.md).
+For more information on writing rules, see [Rule syntax](../writing-rules/rule-syntax/).
 
 ## Semgrep CI
 
-[Semgrep CI](semgrep-ci/overview.md), designed to continuously scan commits and builds, improves on Semgrep findings to track the lifetime of an individual finding. A Semgrep CI finding is defined by a 4-tuple:
+[Semgrep CI](../semgrep-ci/overview/), designed to continuously scan commits and builds, improves on Semgrep findings to track the lifetime of an individual finding. A Semgrep CI finding is defined by a 4-tuple:
 
 ```
 (rule ID, file path, syntactic context, index)
@@ -63,7 +63,7 @@ These pieces of state correspond to:
 1. `index`: an index into identical findings within a file. This is used to disambiguate findings.
 
 :::info
-`syntactic context` is normalized by removing indentation, [`nosemgrep`](ignoring-findings.md#ignoring-findings-via-inline-comments) comments, and whitespace.
+`syntactic context` is normalized by removing indentation, [`nosemgrep`](../ignoring-findings/#ignoring-findings-via-inline-comments) comments, and whitespace.
 :::
 
 These are hashed and returned as the syntactic identifier: `syntactic_id`. This is how Semgrep CI uniquely identifies findings and tracks them across state transitions. Semgrep CI does not store or transmit code contents. The `syntactic context` is hashed using a one-way hashing function making it impossible to recover the original contents.
@@ -119,6 +119,6 @@ Track high, or low, performing policies, rulesets, and rules:
 The "rate" for any state is `(state total / total of all states)`, e.g., `fix rate = (fixed / (fixed + open + muted))`.
 :::
 
-For more information on blocking vs. non-blocking visit [Managing CI policy](semgrep-app/managing-policy.md).
+For more information on blocking vs. non-blocking visit [Managing CI policy](../semgrep-app/managing-policy/).
 
 <MoreHelp />

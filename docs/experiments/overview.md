@@ -118,4 +118,4 @@ For example:
 
 # Generic pattern matching
 
-See [generic pattern matching](generic-pattern-matching.md).
+See [generic pattern matching](../generic-pattern-matching/).

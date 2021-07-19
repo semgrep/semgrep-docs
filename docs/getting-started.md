@@ -43,9 +43,9 @@ $ semgrep -e '$X == $X' --lang=py path/to/src
 $ semgrep --config=p/ci path/to/src
 ```
 
-See [CLI Reference](cli-usage.md) for command line options and exit codes.
+See [CLI Reference](../cli-usage/) for command line options and exit codes.
 
-Visit [Running rules](running-rules.md) to learn more or try Semgrep on known vulnerable test projects:
+Visit [Running rules](../running-rules/) to learn more or try Semgrep on known vulnerable test projects:
 
 <details><summary>Expand for sample projects! 🎉</summary>
 <p>
@@ -90,10 +90,10 @@ Semgrep rules can cover a wide range of use cases:
 - Identifying authentication violations
 - Lightweight vulnerability detection
 - Scanning configuration files
-- And more! Check out more use cases [here](writing-rules/rule-ideas.md).
+- And more! Check out more use cases [here](../writing-rules/rule-ideas/).
 
 
-Visit [Writing Rules > Getting started](writing-rules/overview.md) for an in-depth guide and reference material.
+Visit [Writing Rules > Getting started](../writing-rules/overview/) for an in-depth guide and reference material.
 
 This rule is used to find and discourage `print(...)` in production code. You can edit this rule here or visit the [Playground](https://semgrep.dev/editor) to write and deploy your own rule.
 
@@ -107,11 +107,11 @@ This rule is used to find and discourage `print(...)` in production code. You ca
 ## Run Semgrep continuously
 
 Finally, Semgrep is at its best when used to continuously scan code.
-Check out [Semgrep CI](semgrep-ci/overview.md) to learn how to get results where you already work:
+Check out [Semgrep CI](../semgrep-ci/overview/) to learn how to get results where you already work:
 GitHub, GitLab, Slack, Jira, and more.
 To get results even earlier in the development process,
 such as in a Git pre-commit hook or VS Code,
-check the available [Semgrep extensions](extensions.md).
+check the available [Semgrep extensions](../extensions/).
 
 For teams running Semgrep on multiple projects, see [Semgrep App](https://semgrep.dev/manage). Its free and paid tiers let users:
 

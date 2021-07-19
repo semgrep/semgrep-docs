@@ -23,7 +23,7 @@ module.exports = {
         { to: 'https://semgrep.dev/explore', label: 'Rules', position: 'left' },
         { to: 'https://semgrep.dev/editor', label: 'Playground', position: 'left' },
         { to: 'https://semgrep.dev/manage', label: 'Dashboard', position: 'left' },
-        { to: 'https://semgrep.dev/docs', label: 'Docs', position: 'left' },
+        { to: 'https://semgrep.dev/docs/', label: 'Docs', position: 'left' },
       ],
     },
     footer: {
