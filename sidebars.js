@@ -35,6 +35,11 @@ module.exports = {
         'extensions',
         'faq',
         'metrics',
+        {
+          type: 'doc',
+          id: 'experiments/overview',
+          label: 'Experiments 🧪'
+        }
       ],
     },
     {
