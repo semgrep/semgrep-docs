@@ -23,7 +23,7 @@ semgrep --config p/minusworld.django-xss
 ---
 ## 1. Server code: Marking "safe" content, which does not escape HTML
 
-### 1.A. Using `mark_safe()`
+### 1.A. Using **mark_safe()**
 
 `mark_safe()` marks the returned content as "safe to render." This instructs the template engine to bypass HTML escaping, creating the possibility of a XSS vulnerability.
 
@@ -48,7 +48,7 @@ Ban `mark_safe()`. Alternatively, if needed, use in combination with `format_htm
 
 python.django.security.audit.avoid-mark-safe.avoid-mark-safe
 
-### 1.B. Using the `SafeString` class directly
+### 1.B. Using the **SafeString** class directly
 
 The `SafeString` class is how Django determines which variables should be escaped and which should not. Elements passed to `mark_safe()` are returned as a `SafeString`. Invoking `SafeString` directly will bypass HTML escaping which could create a XSS vulnerabliity.
 
@@ -66,7 +66,7 @@ SafeString(f"<div>{request.POST.get('name')}</div>")
 
 Ban `SafeString()`. Alternatively, prefer `mark_safe()` if necessary.
 
-### 1.C. Registering a custom filter with `is_safe=True`
+### 1.C. Registering a custom filter with **is_safe=True**
 
 
 Registering a filter with `is_safe=True` indicates to Django that the filter absolutely does not introduce any unsafe HTML characters. The value returned from the filter will be marked as "safe" when the input is also marked "safe". Generally, this is acceptable, but if you cannot be certain the filter is safe, it may introduce a XSS vulnerability.
@@ -94,7 +94,7 @@ python.django.security.audit.xss.filter-with-is-safe
 
 
 
-### 1.D. Use of the `__html__` magic method in a class
+### 1.D. Use of the **__html__** magic method in a class
 
 The `__html__` magic method is used by the Django template engine to determine whether the object should be escaped. If available, the value returned by the method will not be escaped and could introduce a XSS vulnerability.
 
@@ -120,7 +120,7 @@ Ban `__html__` in classes. Alternatively, prefer `mark_safe()` if necessary.
 python.django.security.audit.xss.html-magic-method.html-magic-method
 
 
-### 1.E. Using `html_safe()`
+### 1.E. Using **html_safe()**
 
 The `html_safe()` decorator adds the `__html__` magic method to the supplied class. The added `__html__` magic method will return the exact string representation of the class (e.g., `str(self)`). Because objects with the `__html__` method are not escaped, this could create a XSS vulnerability.
 
@@ -149,7 +149,7 @@ python.django.security.audit.xss.html-safe.html-safe
 ## 2. Server code: Bypassing the template engine
 
 
-### 2.A. Directly writing a response using `HttpResponse` or similar classes
+### 2.A. Directly writing a response using **HttpResponse** or similar classes
 
 
 Writing results directly to `HttpResponse` or similar classes bypasses the Django template engine. This also bypasses the HTML escaping built into the template engine and creates the possibility of a XSS vulnerability. Use `render()` with a template instead.
@@ -202,7 +202,7 @@ Ban globally dissabling autoescape. Alternatively, do not globally disable escap
 
 python.django.security.audit.xss.global-autoescape-off.global-autoescape-off
 
-### 2.C. Setting `autoescape=False` in a template context
+### 2.C. Setting **autoescape=False** in a template context
 
 
 Setting `autoescape=False` in a template context will disable HTML escaping for that template. Any data rendered in that template could be a XSS vulnerability.
@@ -231,7 +231,7 @@ rule: "python.django.security.audit.xss.context-autoescape-off.context-autoescap
 
 ## 3. Templates: unescaped variables
 
-### 3.A. Use of the `| safe` filter
+### 3.A. Use of the **| safe** filter
 
 The `| safe` filter marks the content as "safe for rendering." This has the same effect as `mark_safe()` in Python code. This will permit direct rendering of HTML and create a possible XSS vulnerability.
 
@@ -253,7 +253,7 @@ Ban `| safe`. Alternatively, use `mark_safe()` in Python if necessary.
 
 python.flask.security.xss.audit.template-unescaped-with-safe.template-unescaped-with-safe
 
-### 3.B. Use of the `| safeseq` filter
+### 3.B. Use of the **| safeseq** filter
 
 The `| safeseq` filter marks the content as "safe for rendering." This has the same effect as `mark_safe()` in Python code. This will permit direct rendering of HTML and create a possible XSS vulnerability.
 
@@ -275,7 +275,7 @@ Example:
 
 python.django.security.audit.xss.template-var-unescaped-with-safeseq.template-var-unescaped-with-safeseq
 
-### 3.C. The `{% autoescape off %}` block
+### 3.C. The **{% autoescape off %}** block
 
 The `{$ autoescape off %}` block disables autoescaping for whole portions of the template. Disabling autoescaping allows HTML characters to be rendered directly onto the page which could create XSS vulnerabilities.
 
@@ -322,7 +322,7 @@ Flag unquoted HTML attributes with Jinja expressions. Alternatively, always use 
 
 python.flask.security.xss.audit.template-unquoted-attribute-var.template-unquoted-attribute-var
 
-### 4.B. Variable in `href` attribute
+### 4.B. Variable in **href** attribute
 
 Template variables in a `href` value could still accept the `javascript:` URI. This could be a XSS vulnerability. HTML escaping will not prevent this. Use `url_for` to generate links.
 
@@ -344,7 +344,7 @@ Flag template variables in `href` attributes. Alternatively, use `url_for` to ge
 
 python.django.security.audit.xss.template-href-var.template-href-var
 
-### 4.C. Variable in `<script>` block
+### 4.C. Variable in **&lt;script&gt;** block
 
 Template variables placed directly into JavaScript or similar are now directly in a code execution context. Normal HTML escaping will not prevent the possibility of code injection because code can be written without HTML characters. This creates the potential for XSS vulnerabilities, or worse.
 

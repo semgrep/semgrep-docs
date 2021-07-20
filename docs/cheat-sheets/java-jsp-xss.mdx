@@ -29,7 +29,7 @@ semgrep --config p/minusworld.java-httpservlet-jsp-xss
 
 ## 1. Server code: writing a response directly
 
-### 1.A Using the `PrintWriter` from `HttpServletResponse`
+### 1.A Using the **PrintWriter** from **HttpServletResponse**
 
 
 The `PrintWriter from `HttpServletResponse` permits writing data directly to the response that will be returned to the user. This bypasses any safety mechanisms built into any frameworks in use.
@@ -48,7 +48,7 @@ Ban use of `PrintWriter` from `HttpServletResponse`. Alternatively, render JSP p
 
 java.lang.security.audit.xss.no-direct-response-writer.no-direct-response-writer
 
-### 1.B. Using the `OutputStream` from `HttpServletResponse`
+### 1.B. Using the **OutputStream** from **HttpServletResponse**
 
 The `OutputStream` from `HttpServletResponse` permits writing data directly to the response that will be returned to the user. This bypasses any safety mechanisms built into any frameworks in use.
 
@@ -74,7 +74,7 @@ java.lang.security.audit.xss.no-direct-response-writer.no-direct-response-writer
 ---
 ## 2. JSP page: Variable is not explicitly escaped
 
-### 2.A. Any variable used without `<c:out ...>` tag
+### 2.A. Any variable used without **&lt;c:out ...&gt;** tag
 
 The `out` tag from the JSTL taglib escapes the given value. Without this or another escaping method, data in the JSP will be unescaped. This could create XSS vulnerabilities.
 
@@ -97,7 +97,7 @@ Require use of JSTL `escapeXml` function in every expression. Alternatively, req
 
 java.lang.security.audit.xss.jsp.use-escapexml.use-escapexml
 
-### 2.B.Any expression without `escapeXml`
+### 2.B.Any expression without **escapeXml**
 
 
 The `escapeXml` JSTL expression will escape XML characters. Any data rendered without this or another escaping method will be a potential site for XSS.
@@ -144,7 +144,7 @@ Example:
 Flag unquoted HTML attributes with Jinja expressions. Alternatively, always use quotes around HTML attributes.
 
 
-### 3.B. Variable in `href` attribute
+### 3.B. Variable in **href** attribute
 
 Template variables in a `href` value could still accept the `javascript:` URI. This could be a XSS vulnerability. HTML escaping will not prevent this. Use `url_for` to generate links.
 
@@ -162,7 +162,7 @@ Example:
 
 Flag template variables in `href` attributes.
 
-### 3.C. Variable in `<script>` block
+### 3.C. Variable in **&lt;script&gt;** block
 
 Template variables placed directly into JavaScript or similar are now directly in a code execution context. Normal HTML escaping will not prevent the possibility of code injection because code can be written without HTML characters. This creates the potential for XSS vulnerabilities, or worse.
 
