@@ -1,6 +1,7 @@
 ---
 append_help_link: true
 slug: rule-syntax
+description: "This document describes Semgrep’s YAML rule syntax including required and optional fields. Just getting started with Semgrep rule writing? Check out the Semgrep Tutorial at https://semgrep.dev/learn"
 ---
 
 import MoreHelp from "/src/components/MoreHelp"

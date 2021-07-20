@@ -1,6 +1,7 @@
 ---
 slug: getting-started
 append_help_link: true
+description: "Start by running Semgrep locally to scan your code. It runs offline on uncompiled code: no code leaves your machine."
 ---
 
 # Getting started

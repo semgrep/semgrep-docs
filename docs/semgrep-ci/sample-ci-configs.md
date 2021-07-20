@@ -1,6 +1,7 @@
 ---
 slug: sample-ci-configs
 append_help_link: true
+description: "The sample configuration files below run Semgrep CI on continuous integration platforms such as GitHub, GitLab, Jenkins, Buildkite, CircleCI, and other providers."
 ---
 
 import MoreHelp from "/src/components/MoreHelp"

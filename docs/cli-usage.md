@@ -1,6 +1,7 @@
 ---
 slug: cli-usage
 append_help_link: true
+description: "Reference for the Semgrep command line tool including options and exit code behavior."
 ---
 
 import MoreHelp from "/src/components/MoreHelp"

@@ -1,5 +1,6 @@
 ---
 slug: semgrep-app
+description: "Not seeing what you expect in Semgrep App? Follow these troubleshooting steps or find out how to get one-on-one help."
 ---
 
 import MoreHelp from "/src/components/MoreHelp"

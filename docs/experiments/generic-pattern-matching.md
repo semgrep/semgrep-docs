@@ -1,5 +1,6 @@
 ---
 append_help_link: true
+description: "Semgrep can match matches generic patterns in languages that it doesn’t yet support. You can use generic pattern matching for languages that don’t yet have a parser, configuration files, and other structured data, such as HTML or XML. Generic pattern matching is experimental."
 ---
 
 # Generic pattern matching

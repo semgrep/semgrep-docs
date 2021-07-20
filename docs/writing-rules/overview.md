@@ -1,7 +1,7 @@
 ---
 id: overview
 description: >-
-  Learn how to use Semgrep’s intuitive syntax to write rules specific to your codebase.
+  Learn how to use Semgrep’s intuitive syntax to write rules specific to your codebase. You can write and share rules directly from your browser using the Semgrep Playground, or write rules in your terminal and run them on the command line.
 ---
 
 # Getting started
@@ -11,6 +11,7 @@ description: >-
 If you want the best introduction to writing Semgrep rules, use the interactive, example-based [Semgrep rule tutorial](https://semgrep.dev/learn).
 
 ### Do it live!
+
 You can write and share rules directly from the [Playground](https://semgrep.dev/editor). You can also write rules in your terminal and run them with the Semgrep command line tool.
 
 You can write rules that do things like:

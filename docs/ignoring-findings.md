@@ -1,6 +1,7 @@
 ---
 slug: ignoring-findings
 append_help_link: true
+description: "Semgrep allows for ignoring findings in code. Learn how to ignore findings from all Semgrep rules, a single rule, or multiple rules. You can also specify ignore files to cause Semgrep to skip scanning of file or paths."
 ---
 
 import MoreHelp from "/src/components/MoreHelp"

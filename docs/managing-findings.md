@@ -1,6 +1,7 @@
 ---
 slug: managing-findings
 append_help_link: true
+description: "A finding is the core result of Semgrep's analysis. Findings are generated when a Semgrep rule matches a piece of code. Learn how to interact with findings that come from running Semgrep in the command-line, in CI, and through Semgrep App."
 ---
 
 import MoreHelp from "/src/components/MoreHelp"

@@ -1,6 +1,7 @@
 ---
 slug: notifications
 append_help_link: true
+description: "Semgrep CI integrates with 3rd party services when connected to Semgrep App. Learn how to get Slack or email alerts about findings and failures, how to get merge or pull request comments in your CI/CD pipeline, or how to integrate using webhooks."
 ---
 
 import MoreHelp from "/src/components/MoreHelp"
