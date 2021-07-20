@@ -37,13 +37,45 @@ Help is available for all users, free or otherwise, through the [r2c Community S
 
 ## Billing / Pricing
 
-#### What features differ between Semgrep App’s Community (free) and Team (paid) versions?
+#### Can I use Semgrep for free?
 
-See the Semgrep feature and pricing comparison at [r2c.dev/pricing](https://r2c.dev/pricing)
+Yes, you can use the [Semgrep CLI](https://semgrep.dev/docs/getting-started/) and [Semgrep Community Tier](http://r2c.dev/pricing) for free!
 
-#### Who is a user and how do you count them?
+#### What features differ between Semgrep App’s Community (free) and Team/Enterprise (paid) versions?
 
-For the Semgrep Team tier, a user is any project contributor whose pull request or code was scanned in the billing cycle. For example, if a project has 4 unique contributors who pushed code during the period, and Semgrep runs on all their pull requests, there are 4 users. If these unique contributors push to many projects, they will only be counted once; please feel free to scan often and widely. Semgrep does not charge on a line-of-code or per-project basis.
+Semgrep Community is great for individuals looking to quickly secure their public and private projects.
+
+Semgrep Team and Enterprise are best for organizations that require dedicated support, access control, and advanced features.
+
+You can find more at [r2c.dev/pricing](http://r2c.dev/pricing).
+
+#### Who is a user?
+
+A user is any project contributor whose pull request or code is scanned during the billing period.
+
+For example, if a project has 4 unique contributors who push code during the billing period and Semgrep runs on all their pull requests, there are 4 users. If these unique contributors push to many projects, they will only be counted once.
+
+#### How do I upgrade my plan?
+
+You can select the number of seats and pay directly from the [Settings page](https://semgrep.dev/manage/settings/payment) in Semgrep App!
+
+#### How do I pay for my plan?
+
+We accept all major credit cards through [Stripe](https://stripe.com/). If you want to pay through a purchase order / invoice mechanism, you can also reach out to [billing@r2c.dev](http://billing@r2c.dev/) to get in touch with our sales team.
+
+We will bill you on the 1st of every month.
+
+#### How do I modify my plan?
+
+Please email [billing@r2c.dev](http://billing@r2c.dev/) and we will assist you in making changes to your plan.
+
+#### What if I go over my plan’s limits?
+
+We will reach out and come up with a new plan that fits your needs.
+
+#### How do I cancel my plan?
+
+Please email [billing@r2c.dev](http://billing@r2c.dev/) and we will assist you with all cancellations.
 
 ## Comparisons
 
