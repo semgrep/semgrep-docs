@@ -51,7 +51,7 @@ Ban `render_template_string()`. Alternatively, use `render_template()`.
 python.flask.security.audit.render-template-string.render-template-string
 
 
-### 1.B. `render_template()` with unescaped file extension
+### 1.B. **render_template()** with unescaped file extension
 
 Flask only escapes templates with `.html`, `.htm`, `.xml`, or `.xhtml` extensions.
 This is not always obvious and could create cross-site scripting vulnerabilities.
@@ -77,7 +77,7 @@ Ban unescaped extensions. Alternatively, only use `.html` extensions for templat
 python.flask.security.unescaped-template-extension.unescaped-template-extension
 
 
-### 1.C. Explicitly unescaping variables using `Markup()`
+### 1.C. Explicitly unescaping variables using **Markup()**
 
 
 `Markup()` disables HTML escaping for the returned content. This permits raw HTML to be rendered in a template, which could create a XSS vulnerability.
@@ -154,7 +154,7 @@ python.flask.security.xss.audit.direct-use-of-jinja2.direct-use-of-jinja2
 
 ## 3. Templates: Variable explicitly unescaped
 
-### 3.A. Usage of the `| safe` filter
+### 3.A. Usage of the **| safe** filter
 
 The `| safe` filter disables HTML escaping for the provided content. This permits raw HTML to be rendered in a template, which could create a XSS vulnerability.
 
@@ -176,7 +176,7 @@ Ban `| safe`. Alternatively, use `Markup()` in Python code if necessary.
 
 python.flask.security.xss.audit.template-unescaped-with-safe.template-unescaped-with-safe
 
-### 3.B. Disabling autoescaping with `{% autoescape false %}`
+### 3.B. Disabling autoescaping with **{% autoescape false %}**
 
 The `{$ autoescape false %}` block disables autoescaping for whole portions of the template. Disabling autoescaping allows HTML characters to be rendered directly onto the page which could create XSS vulnerabilities.
 
@@ -224,7 +224,7 @@ Flag unquoted HTML attributes with Jinja expressions. Alternatively, always use 
 
 python.flask.security.xss.audit.template-unquoted-attribute-var.template-unquoted-attribute-var
 
-### 4.B. Variable in `href` attribute
+### 4.B. Variable in **href** attribute
 
 Template variables in a `href` value could still accept the `javascript:` URI. This could be a XSS vulnerability. HTML escaping will not prevent this. Use `url_for` to generate links.
 
@@ -246,7 +246,7 @@ Flag template variables in `href` attributes. Alternatively, use `url_for` to ge
 
 python.flask.security.xss.audit.template-href-var.template-href-var
 
-### 4.C Variable in `<script>` block"
+### 4.C Variable in **&lt;script&gt;** block"
 
 Template variables placed directly into JavaScript or similar are now directly in a code execution context. Normal HTML escaping will not prevent the possibility of code injection because code can be written without HTML characters. This creates the potential for XSS vulnerabilities, or worse.
 

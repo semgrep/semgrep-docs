@@ -22,7 +22,7 @@ semgrep --config p/minusworld.ruby-on-rails-xss
 
 ## 1. Unescaped variable enters template engine in Ruby code
 
-### 1.A. Using `html_safe()`
+### 1.A. Using **html_safe()**
 
 `html_safe()` marks the supplied string as "safe for HTML rendering." This bypasses HTML escaping and potentially creates XSS vulnerabilities.
 
@@ -47,7 +47,7 @@ Ban `html_safe()`. Alternatively, If needed, review each usage and exempt with `
 
 ruby.rails.security.audit.xss.avoid-html-safe.avoid-html-safe
 
-### 1.B. Using `content_tag()`
+### 1.B. Using **content_tag()**
 
 
 `content_tag()`'s escaping behavior has changed between Rails 2 and 3. In Rails 2, no supplied content is escaped. In Rails 2 and 3, attribute names are not escaped. Further, the returned value is marked as "safe," the same as if `html_safe()` had been used. This confusing behavior makes it difficult to use `content_tag()` properly; improper use can create XSS vulnerabilities in your application.
@@ -69,7 +69,7 @@ Ban `content_tag()`. Alternatively, If necessary, prefer `html_safe()` due to it
 
 ruby.rails.security.audit.xss.avoid-content-tag.avoid-content-tag
 
-### 1.C. Using `raw()`
+### 1.C. Using **raw()**
 
 
 `raw()` disables HTML escaping for the returned content. This permits raw HTML to be rendered in a template, which could create a XSS vulnerability.
@@ -94,7 +94,7 @@ Ban `raw()`. Alternatively, Prefer `html_safe()` if necessary.
 
 ruby.rails.security.audit.xss.avoid-raw.avoid-raw
 
-### 1.D. Disabling of `ActiveSupport#escape_html_entities_in_json`
+### 1.D. Disabling of **ActiveSupport#escape_html_entities_in_json**
 
 `ActiveSupport#escape_html_entities_in_json` is a setting which determines whether `Hash#to_json()` will escape HTML characters. Disabling this could create XSS vulnerabilities.
 
@@ -148,7 +148,7 @@ Ban template creation in code. Alternatively, Use ERB template files.
 
 ruby.rails.security.audit.xss.manual-template-creation.manual-template-creation
 
-### 2.B. Rendering an inline template with `render inline:`
+### 2.B. Rendering an inline template with **render inline:**
 
 `render inline:` is the same as creating a template manually and is therefore susceptible to the same vulnerabilities as manually creating an ERB template. This can result in a SSTI or XSS vulnerability.
 
@@ -173,7 +173,7 @@ Ban `render inline:`. Alternatively, Use ERB template files.
 
 ruby.rails.security.audit.xss.avoid-render-inline.avoid-render-inline
 
-### 2.C. Using `render text:`
+### 2.C. Using **render text:**
 
 `render text:` unintuitively sets the Content-Type to text/html. This means anything rendered through `render text:` will be interpreted as HTML. Templates rendered in this manner could create a XSS vulnerability.
 
@@ -200,7 +200,7 @@ ruby.rails.security.audit.xss.avoid-render-text.avoid-render-text
 
 ## 3. Templates: Variable explicitly unescaped
 
-### 3.A. Using `html_safe()`
+### 3.A. Using **html_safe()**
 
 `html_safe()` marks the supplied string as "safe for HTML rendering." This bypasses HTML escaping and potentially creates XSS vulnerabilities.
 
@@ -226,7 +226,7 @@ Ban `html_safe()`. Alternatively, Prefer using `html_safe()` in Ruby code instea
 ruby.rails.security.audit.xss.templates.avoid-html-safe.avoid-html-safe
 
 
-### 3.B Using `content_tag()`
+### 3.B Using **content_tag()**
 
 `content_tag()`'s escaping behavior has changed between Rails 2 and 3. In Rails 2, no supplied content is escaped. In Rails 2 and 3, attribute names are not escaped. Further, the returned value is marked as "safe," the same as if `html_safe()` had been used. This confusing behavior makes it difficult to use `content_tag()` properly; improper use can create XSS vulnerabilities in your application.
 
@@ -248,7 +248,7 @@ Ban `content_tag()`. Alternatively, If necessary, prefer `html_safe()` in Ruby c
 
 ruby.rails.security.audit.xss.templates.avoid-content-tag.avoid-content-tag
 
-### 3.C. Using `raw()`
+### 3.C. Using **raw()**
 
 `raw()` disables HTML escaping for the returned content. This permits raw HTML to be rendered in a template, which could create a XSS vulnerability.
 
@@ -272,7 +272,7 @@ Ban `raw()`. Alternatively, Prefer `html_safe()` in Ruby code if necessary.
 
 ruby.rails.security.audit.xss.templates.avoid-raw.avoid-raw
 
-### 3.D. Using `<%== ... %>`, which is an alias for `html_safe()`
+### 3.D. Using **<%== ... %>**, which is an alias for **html_safe()**
 
 The double-equals `==` is an ERB alias for `html_safe()`. This will mark the contents as "safe for rendering" and may introduce an XSS vulnerability.
 
@@ -323,7 +323,7 @@ Flag unquoted HTML attributes ERB expressions. Alternatively, Always use quotes 
 
 ruby.rails.security.audit.xss.templates.unquoted-attribute.unquoted-attribute
 
-### 4.B. Variable in `href` attribute
+### 4.B. Variable in **href** attribute
 
 Template variables in a `href` value could still accept the `javascript:` URI. This could be a XSS vulnerability. HTML escaping will not prevent this. Use `link_to` beginning with a literal forward slash to generate links.
 
@@ -346,7 +346,7 @@ Flag template variables in `href` attributes. Alternatively, Use `url_for` to ge
 
 ruby.rails.security.audit.xss.templates.var-in-href.var-in-href
 
-### 4.C. Using `link_to` with unrestricted URL scheme
+### 4.C. Using **link_to** with unrestricted URL scheme
 
 Detected a template variable used in 'link_to'. This will generate dynamic data in the 'href' attribute. This allows a malicious actor to input the 'javascript:' URI and is subject to cross- site scripting (XSS) attacks. If using a relative URL, start with a literal forward slash and concatenate the URL, like this: `<%= link_to "Here", "/"+@link %>`. You may also consider setting the Content Security Policy (CSP) header.
 
@@ -370,7 +370,7 @@ Flag `link_to` in templates. Alternatively, If you must use this, add a literal 
 
 ruby.rails.security.audit.xss.templates.dangerous-link-to.dangerous-link-to
 
-### 4.D. Variable in `&lt;script&gt;` block
+### 4.D. Variable in **&lt;script&gt;** block
 
 Template variables placed directly into JavaScript or similar are now directly in a code execution context. Normal HTML escaping will not prevent the possibility of code injection because code can be written without HTML characters. This creates the potential for XSS vulnerabilities, or worse.
 
