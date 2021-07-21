@@ -47,7 +47,7 @@ For the Semgrep Team tier, a user is any project contributor whose pull request 
 
 ## Comparisons
 
-### How is Semgrep different than $OTHER*TOOL or $GENERIC*[SAST](https://en.wikipedia.org/wiki/Static_application_security_testing)?
+### How is Semgrep different than $OTHER*TOOL or $GENERIC* [SAST](https://en.wikipedia.org/wiki/Static_application_security_testing)?
 
 Semgrep is an open-source tool with a simple syntax for writing rules: if you can write code, you can write a Semgrep rule — no program analysis PhD required!
 
