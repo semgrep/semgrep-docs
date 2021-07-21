@@ -16,7 +16,7 @@ description: >-
 </p>
 <h3 align="center">Static analysis at ludicrous speed<br />Find bugs and enforce code standards</h3>
 
-Semgrep is a fast, open-source, static analysis tool for finding bugs and enforcing code standards at editor, commit, and CI time. [Get started →](getting-started.md)
+Semgrep is a fast, open-source, static analysis tool for finding bugs and enforcing code standards at editor, commit, and CI time. [Get started →](getting-started/)
 
 Semgrep analyzes code locally on your computer or in your build environment: **code is never uploaded**.
 
@@ -29,8 +29,8 @@ Its rules look like the code you already write; no abstract syntax trees, regex 
 
 The Semgrep ecosystem includes:
 
-* [Semgrep](getting-started.md) - the open-source command line tool at the heart of everything
-* [Semgrep CI](semgrep-ci/overview.md) - a specialized Docker image for running Semgrep in CI environments
+* [Semgrep](getting-started/) - the open-source command line tool at the heart of everything
+* [Semgrep CI](semgrep-ci/overview/) - a specialized Docker image for running Semgrep in CI environments
 * [Semgrep Playground](https://semgrep.dev/editor) - an online interactive editor for writing and sharing rules
 * [Semgrep Registry](https://semgrep.dev/explore) - 1,000+ community-driven rules covering security, correctness, and performance bugs
 * [Semgrep App](https://semgrep.dev/manage) - deploy, manage, and monitor Semgrep at scale with free and paid tiers
@@ -57,7 +57,7 @@ Semgrep supports 17+ languages.
 | TypeScript |                            |              |
 | TSX        |                            |              |
 
-To determine alpha, beta, or general availability (GA) status we scan a wide corpus of projects and measure the parse rate of each language. For more details see [the breakdown of all supported languages](status.md).
+To determine alpha, beta, or general availability (GA) status we scan a wide corpus of projects and measure the parse rate of each language. For more details see [the breakdown of all supported languages](language-support/).
 
 ## History
 

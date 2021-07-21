@@ -19,7 +19,7 @@ Please visit [GitLab’s SAST troubleshooting guide](https://docs.gitlab.com/ee/
 
 ## If the `semgrep-sast` CI job is slow
 
-The `semgrep-sast` job should take less than a minute to scan a large project with 50k lines of Python and TypeScript code. If you see worse performance, please [reach out](../support.md) to the Semgrep maintainers for help with tracking down the cause. Long runtimes are typically caused by just one rule or source code file taking too long. You can also try these solutions:
+The `semgrep-sast` job should take less than a minute to scan a large project with 50k lines of Python and TypeScript code. If you see worse performance, please [reach out](/support/) to the Semgrep maintainers for help with tracking down the cause. Long runtimes are typically caused by just one rule or source code file taking too long. You can also try these solutions:
 
 ### Solution #1: Review global CI job configuration
 
@@ -51,7 +51,7 @@ You can use a comma separated list to ignore multiple patterns: `SAST_EXCLUDED_P
 
 ### Solution #3: Upgrade to Semgrep CI
 
-To improve performance by 10x on a typical project, you can use our own CI agent [Semgrep CI](../semgrep-ci/overview.md) directly by adding the job definition as shown on the [GitLab + Semgrep](https://semgrep.dev/for/gitlab) page.
+To improve performance by 10x on a typical project, you can use our own CI agent [Semgrep CI](/semgrep-ci/overview/) directly by adding the job definition as shown on the [GitLab + Semgrep](https://semgrep.dev/for/gitlab) page.
 
 Semgrep CI skips scanning unchanged files in merge requests but still lets you keep your GitLab SAST workflow.
 
@@ -82,6 +82,6 @@ Semgrep is made by a small team, and you can directly guide our work by answerin
 
 If you’re a GitLab customer and suspect there’s an issue with GitLab, please [contact GitLab support](https://about.gitlab.com/support/) and open a support ticket. Users of GitLab’s free plans should open a thread in the [GitLab Community Forum](https://forum.gitlab.com/).
 
-If you suspect the issue is with Semgrep, please check the [Semgrep Support page](../support.md) to get help from the Semgrep maintainers & community via Slack, email, or phone.
+If you suspect the issue is with Semgrep, please check the [Semgrep Support page](/support/) to get help from the Semgrep maintainers & community via Slack, email, or phone.
 
 <MoreHelp />

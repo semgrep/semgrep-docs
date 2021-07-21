@@ -33,7 +33,7 @@ Probably! If you have a typical consulting service and running semgrep-rules is 
 
 #### What is your support policy?
 
-Help is available for all users, free or otherwise, through the [r2c Community Slack](https://r2c.dev/slack). Semgrep Team tier customers receive 8\*5 email/phone/Slack support with committed SLAs. See [Support](support.md) for more details.
+Help is available for all users, free or otherwise, through the [r2c Community Slack](https://r2c.dev/slack). Semgrep Team tier customers receive 8\*5 email/phone/Slack support with committed SLAs. See [Support](../support/) for more details.
 
 ## Billing / Pricing
 
@@ -69,7 +69,7 @@ As Semgrep evolves, a query like `foo("password")` becomes smarter. In the origi
 
 **3. Integrated: Semgrep understands git and other version-control systems**
 
-It’s easy to write a new Semgrep rule and have it only apply _going forward_. You can [mute findings](ignoring-findings.md) of course, but we have [built-in support for this with Semgrep CI](semgrep-ci/overview.md) and GitHub/GitLab/etc. integrations.
+It’s easy to write a new Semgrep rule and have it only apply _going forward_. You can [mute findings](../ignoring-findings/) of course, but we have [built-in support for this with Semgrep CI](semgrep-ci/overview/) and GitHub/GitLab/etc. integrations.
 
 **4. Portable: If you write a Semgrep rule, it runs anywhere**
 
@@ -93,7 +93,7 @@ Both Semgrep and CodeQL use static analysis to find bugs, but there are a few di
 - Semgrep is LGPL-2.1 and free to run anywhere; CodeQL is not open source and you must pay to run it on any non-open-source code
 
 - Semgrep supports autofixes; CodeQL does not.
-- Semgrep focuses on speed and ease of use. Because it doesn’t require a buildable environment, it doesn’t have some of the analysis features like interprocedural dataflow analysis that CodeQL does. (Semgrep does have [limited intraproceedural dataflow and a taint-tracking mode](experiments/overview.md))
+- Semgrep focuses on speed and ease of use. Because it doesn’t require a buildable environment, it doesn’t have some of the analysis features like interprocedural dataflow analysis that CodeQL does. (Semgrep does have [limited intraproceedural dataflow and a taint-tracking mode](/experiments/overview/))
 - Both have publicly available rules
 - Semgrep rules look like the source code you’re writing; CodeQL has a separate domain-specific-language for writing queries.
 - Semgrep has an online, hosted free plan; both have a hosted paid plan
@@ -142,11 +142,11 @@ Semgrep CI makes network requests in accordance with the data storage mentioned 
 
 #### How do I configure Semgrep for different projects?
 
-Semgrep App provides centralized policy management. See [Managing CI policy](semgrep-app/managing-policy.md) for more details.
+Semgrep App provides centralized policy management. See [Managing CI policy](../semgrep-app/managing-policy/) for more details.
 
 #### What is a policy?
 
-A policy is a simple collection of rules and a definition of what to do with rule results: fail the Semgrep CI run and/or send non-blocking notifications to third-party services like Slack. Please see [Managing CI policy](semgrep-app/managing-policy.md) for more details.
+A policy is a simple collection of rules and a definition of what to do with rule results: fail the Semgrep CI run and/or send non-blocking notifications to third-party services like Slack. Please see [Managing CI policy](../semgrep-app/managing-policy/) for more details.
 
 ## Monitoring
 

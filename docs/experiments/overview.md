@@ -6,9 +6,7 @@ append_help_link: true
 
 This document describes experimental features and how to try them. Have fun, [file bugs](https://github.com/returntocorp/semgrep/issues/new/choose), tweak the code, and most importantly share your thoughts! 
 
-[TOC]
-
-# Autofix
+## Autofix
 
 Hands down the best way to enforce a code standard is to just automatically fix it. Semgrep's rule format supports a `fix:` key that supports metavariable replacement, much like message fields. This allows for value capture and rewriting.
 
@@ -30,7 +28,7 @@ rules:
   severity: WARNING
 ```
 
-## Autofix with regular expression replacement
+### Autofix with regular expression replacement
 
 A variant on the experimental `fix` key is `fix-regex`, which applies regular expression replacements (think `sed`) to matches found by Semgrep.
 
@@ -75,7 +73,7 @@ rules:
   <img src="https://web-assets.r2c.dev/inline-autofix-regex.gif" width="100%" alt="Apply Semgrep autofix direclty to a file"/>
 </p>
 
-# Equivalences
+## Equivalences
 
 Equivalences enable defining equivalent code patterns (i.e. a commutative property: `$X + $Y <==> $Y + $X`). Equivalence rules use the `equivalences` top-level key and one `equivalence` key for each equivalence.
 
@@ -83,7 +81,7 @@ For example:
 
 <iframe src="https://semgrep.dev/embed/editor?snippet=jNnn" border="0" frameBorder="0" width="100%" height="435"></iframe>
 
-# Data-flow analysis
+## Data-flow analysis
 
 Semgrep can perform intra-procedural flow-sensitive analyses. The data-flow engine still has several limitations, therefore expect both false positives and false negatives. False positives could be removed by using [pattern-not](../writing-rules/rule-syntax.md#pattern-not).
 
@@ -96,7 +94,7 @@ A non-exhaustive list of current limitations:
 
 As of now, data-flow analysis is used for [taint tracking](#taint-tracking) and [constant propagation](#constant-propagation).
 
-## Taint tracking
+### Taint tracking
 
 Semgrep supports intra-file [taint tracking](https://en.wikipedia.org/wiki/Taint_checking). Taint tracking rules must specify `mode: taint`. Additionally, the following operators are enabled:
 
@@ -108,7 +106,7 @@ For example:
 
 <iframe src="https://semgrep.dev/embed/editor?snippet=2blB" border="0" frameBorder="0" width="100%" height="435"></iframe>
 
-## Constant propagation
+### Constant propagation
 
 Semgrep supports intra-procedural constant propagation. This tracks whether a variable must carry a constant value at each point in the program.
 
@@ -116,6 +114,6 @@ For example:
 
 <iframe src="https://semgrep.dev/embed/editor?snippet=XLpw" border="0" frameBorder="0" width="100%" height="435"></iframe>
 
-# Generic pattern matching
+## Generic pattern matching
 
-See [generic pattern matching](generic-pattern-matching.md).
+See [generic pattern matching](../generic-pattern-matching/).

@@ -1,6 +1,7 @@
 ---
 slug: sample-ci-configs
 append_help_link: true
+description: "The sample configuration files below run Semgrep CI on continuous integration platforms such as GitHub, GitLab, Jenkins, Buildkite, CircleCI, and other providers."
 ---
 
 import MoreHelp from "/src/components/MoreHelp"
@@ -317,7 +318,7 @@ To run Semgrep CI on any other provider,
 use the `returntocorp/semgrep-agent:v1` Docker image,
 and run the `semgrep-agent` command.
 
-Using the [configuration reference](configuration-reference.md),
+Using the [configuration reference](../configuration-reference/),
 you can run Semgrep in the following CI providers:
 
 - AppVeyor

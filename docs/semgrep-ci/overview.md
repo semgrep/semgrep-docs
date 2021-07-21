@@ -201,15 +201,15 @@ For example, in GitLab CI/CD:
 # ...
 ```
 
-Key names and configuration format for specific CI providers are available in the [sample CI configurations](sample-ci-configs.md).
+Key names and configuration format for specific CI providers are available in the [sample CI configurations](../sample-ci-configs/).
 
 ### Custom rules
 
 :::info
-See [Writing rules](../writing-rules/overview.md) to learn how to write custome rules.
+See [Writing rules](/writing-rules/overview/) to learn how to write custome rules.
 :::
 
-Your own custom rules can be added to your Semgrep CI configuration just like [Registry rules](#registry-rules-and-rulesets) by:
+Your own custom rules can be added to your Semgrep CI configuration just like [Registry rules](#registry-rules-and-rulesets/) by:
 
 1. Including their [Playground](https://semgrep.dev/editor) share ID (e.g. `s/susan:named-rule`)
 2. Adding the directory or file path to the local file containing the rule
@@ -239,7 +239,7 @@ Semgrep CI supports a `.semgrepignore` file that follows the `.gitignore` syntax
 
 By default Semgrep CI skips files and directories such as `tests/`, `node_modules/`, and `vendor/`. The full list of ignored items is in [the `.semgrepignore` template file](https://github.com/returntocorp/semgrep-action/blob/v1/src/semgrep_agent/templates/.semgrepignore), which is used by Semgrep CI when no explicit `.semgrepignore` file is found in the root of your project.
 
-For information on ignoring individual findings in code, see the [ignoring findings page](../ignoring-findings.md).
+For information on ignoring individual findings in code, see the [ignoring findings page](/ignoring-findings/).
 
 ### Audit scans
 
@@ -267,13 +267,13 @@ To use your Semgrep App account, set `--publish-deployment` and `--publish-token
 
 #### Ignoring specific rules in a ruleset or policy
 
-You can customize the ruleset you're using to ignore some of its rules by [editing the Semgrep App policy](../semgrep-app/managing-policy.md#editing-a-policy) used for your scans.
+You can customize the ruleset you're using to ignore some of its rules by [editing the Semgrep App policy](/semgrep-app/managing-policy/#editing-a-policy) used for your scans.
 
 #### Getting notifications instead of blocking builds
 
-Some rules point out hotspots that require careful review but are not certain to be insecure code. You might want to disable blocking when scanning with such rules, and instead use a [CI integration](../semgrep-app/notifications.md) to get notifications.
+Some rules point out hotspots that require careful review but are not certain to be insecure code. You might want to disable blocking when scanning with such rules, and instead use a [CI integration](/semgrep-app/notifications/) to get notifications.
 
-You can set this up by [changing the actions of the Semgrep App policy](../semgrep-app/managing-policy.md#changing-policy-actions) used for your scans.
+You can set this up by [changing the actions of the Semgrep App policy](/semgrep-app/managing-policy/#changing-policy-actions) used for your scans.
 
 <MoreHelp />
 

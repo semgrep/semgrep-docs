@@ -1,5 +1,6 @@
 ---
 slug: trophy-case
+description: "This is a list of vulnerabilities found and security fixes made with Semgrep."
 ---
 
 # Semgrep trophy case

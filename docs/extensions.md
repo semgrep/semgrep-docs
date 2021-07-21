@@ -2,7 +2,7 @@
 slug: extensions
 append_help_link: true
 description: >-
-  Learn how to extend Semgrep use to an editor, in pre-commit, and in other tools.
+  Learn how to use Semgrep in an editor, in pre-commit, and in other tools.
 ---
 
 import MoreHelp from "/src/components/MoreHelp"

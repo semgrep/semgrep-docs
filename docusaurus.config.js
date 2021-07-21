@@ -5,7 +5,7 @@ const darkCodeTheme = require('prism-react-renderer/themes/dracula');
 module.exports = {
   title: 'Semgrep',
   tagline: 'Lightweight static analysis for many languages. Find bug variants with patterns that look like source code.',
-  url: 'https://semgrep.dev/',
+  url: 'https://semgrep.dev',
   baseUrl: '/docs/',
   onBrokenLinks: 'warn',
   onBrokenMarkdownLinks: 'warn',
@@ -20,10 +20,10 @@ module.exports = {
         src: 'img/semgrep-icon-text-horizontal.svg',
       },
       items: [
-        { to: 'https://semgrep.dev/explore', label: 'Rules', position: 'left' },
-        { to: 'https://semgrep.dev/editor', label: 'Playground', position: 'left' },
-        { to: 'https://semgrep.dev/manage', label: 'Dashboard', position: 'left' },
-        { to: 'https://semgrep.dev/docs', label: 'Docs', position: 'left' },
+        { to: 'https://semgrep.dev/explore', label: 'Rules', position: 'left', target: '_self' },
+        { to: 'https://semgrep.dev/editor', label: 'Playground', position: 'left', target: '_self' },
+        { to: 'https://semgrep.dev/manage', label: 'Dashboard', position: 'left', target: '_self' },
+        { to: 'https://semgrep.dev/docs/', label: 'Docs', position: 'left', target: '_self' },
       ],
     },
     footer: {
@@ -51,15 +51,18 @@ module.exports = {
           items: [
             {
               label: 'Docs',
-              to: 'https://semgrep.dev/docs/',
+              to: '/docs/',
+              target: '_self'
             },
             {
               label: 'Examples',
-              to: 'https://semgrep.dev/docs/writing-rules/rule-ideas/',
+              to: '/docs/writing-rules/rule-ideas/',
+              target: '_self'
             },
             {
               label: 'Tour',
               to: 'https://semgrep.dev/learn',
+              target: '_self'
             },
           ],
         },
@@ -69,6 +72,7 @@ module.exports = {
             {
               label: 'Privacy',
               to: 'https://semgrep.dev/privacy',
+              target: '_self'
             },
             {
               label: 'Issues',
@@ -77,6 +81,7 @@ module.exports = {
             {
               label: 'Terms of service',
               to: 'https://semgrep.dev/terms',
+              target: '_self'
             },
           ],
         },
@@ -123,6 +128,7 @@ module.exports = {
       // You can also use your "G-" Measurement ID here.
       trackingID: 'G-1851JH9FSR',
     },
+    image: 'https://semgrep.dev/thumbnail.png'
   },
   scripts: [
     {
