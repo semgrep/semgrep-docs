@@ -47,7 +47,7 @@ For the Semgrep Team tier, a user is any project contributor whose pull request 
 
 ## Comparisons
 
-### How is Semgrep different than $OTHER*TOOL or $GENERIC*[SAST](https://en.wikipedia.org/wiki/Static_application_security_testing)?
+### How is Semgrep different than $OTHER*TOOL or $GENERIC* [SAST](https://en.wikipedia.org/wiki/Static_application_security_testing)?
 
 Semgrep is an open-source tool with a simple syntax for writing rules: if you can write code, you can write a Semgrep rule — no program analysis PhD required!
 
@@ -69,7 +69,7 @@ As Semgrep evolves, a query like `foo("password")` becomes smarter. In the origi
 
 **3. Integrated: Semgrep understands git and other version-control systems**
 
-It’s easy to write a new Semgrep rule and have it only apply _going forward_. You can [mute findings](../ignoring-findings/) of course, but we have [built-in support for this with Semgrep CI](semgrep-ci/overview/) and GitHub/GitLab/etc. integrations.
+It’s easy to write a new Semgrep rule and have it only apply _going forward_. You can [mute findings](../ignoring-findings/) of course, but we have [built-in support for this with Semgrep CI](/semgrep-ci/overview/) and GitHub/GitLab/etc. integrations.
 
 **4. Portable: If you write a Semgrep rule, it runs anywhere**
 
