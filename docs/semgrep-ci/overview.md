@@ -71,8 +71,11 @@ semgrep-agent --baseline-ref main
 To connect your Semgrep CI scans to Semgrep App, you can optionally provide the following environment variables:
 
 <details><summary>Environment Variables</summary>
+<br />
+
+## Set additional environment variables
+
 ```sh
-# Set additional environment variables
 SEMGREP_BRANCH=mybranch
 SEMGREP_COMMIT=abcd1234  # commit SHA being scanned
 SEMGREP_JOB_URL=https://example.com/me/myjob  # URL to CI logs
@@ -81,6 +84,7 @@ SEMGREP_REPO_URL=https://gitwebsite.com/myrepository
 SEMGREP_PR_ID=123
 SEMGREP_PR_TITLE="Added four new bugs"  # shown in Slack notifications if set
 SEMGREP_TIMEOUT=1800  # Maximum Semgrep run time in seconds, or 0 to disable timeouts
+```
 
 ## Run semgrep_agent
 
