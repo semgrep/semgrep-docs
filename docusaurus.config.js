@@ -18,6 +18,8 @@ module.exports = {
       logo: {
         alt: 'Semgrep logo',
         src: 'img/semgrep-icon-text-horizontal.svg',
+        href: 'https://semgrep.dev',
+        target: '_self'
       },
       items: [
         { to: 'https://semgrep.dev/explore', label: 'Rules', position: 'left', target: '_self' },
