@@ -2,6 +2,8 @@
 slug: django-xss
 ---
 
+import LinkToRegistryRule from "/src/components/LinkToRegistryRule"
+
 # XSS prevention for Django
 
 This is a cross-site scripting (XSS) prevention cheat sheet by r2c. It contains code patterns of potential XSS in an application. Instead of scrutinizing code for exploitable vulnerabilities, the recommendations in this cheat sheet pave a safe road for developers that mitigates the possibility of XSS in your code. By following these recommendations, you can be reasonably sure your code is free of XSS.
@@ -46,7 +48,7 @@ Ban `mark_safe()`. Alternatively, if needed, use in combination with `format_htm
 
 #### Semgrep rule
 
-python.django.security.audit.avoid-mark-safe.avoid-mark-safe
+<LinkToRegistryRule ruleId="python.django.security.audit.avoid-mark-safe.avoid-mark-safe" />
 
 ### 1.B. Using the **SafeString** class directly
 
@@ -117,7 +119,7 @@ Ban `__html__` in classes. Alternatively, prefer `mark_safe()` if necessary.
 
 #### Semgrep rule
 
-python.django.security.audit.xss.html-magic-method.html-magic-method
+<LinkToRegistryRule ruleId="python.django.security.audit.xss.html-magic-method.html-magic-method" />
 
 
 ### 1.E. Using **html_safe()**
@@ -142,7 +144,7 @@ Ban `html_safe()`. Alternatively, prefer `mark_safe()` if necessary.
 
 #### Semgrep rule
 
-python.django.security.audit.xss.html-safe.html-safe
+<LinkToRegistryRule ruleId="python.django.security.audit.xss.html-safe.html-safe" />
 
 ---
 
@@ -173,7 +175,7 @@ Ban `HttpResponse` and similar classes. Alternatively, use `render()`.
 
 #### Semgrep rule
 
-python.django.security.audit.xss.direct-use-of-httpresponse
+<LinkToRegistryRule ruleId="python.django.security.audit.xss.direct-use-of-httpresponse" />
 
 ### 2.B. Globally disabling autoescape
 
@@ -200,7 +202,7 @@ Ban globally dissabling autoescape. Alternatively, do not globally disable escap
 
 #### Semgrep rule
 
-python.django.security.audit.xss.global-autoescape-off.global-autoescape-off
+<LinkToRegistryRule ruleId="python.django.security.audit.xss.global-autoescape-off.global-autoescape-off" />
 
 ### 2.C. Setting **autoescape=False** in a template context
 
@@ -251,7 +253,7 @@ Ban `| safe`. Alternatively, use `mark_safe()` in Python if necessary.
 
 #### Semgrep rule
 
-python.flask.security.xss.audit.template-unescaped-with-safe.template-unescaped-with-safe
+<LinkToRegistryRule ruleId="python.flask.security.xss.audit.template-unescaped-with-safe.template-unescaped-with-safe" />
 
 ### 3.B. Use of the **| safeseq** filter
 
@@ -273,7 +275,7 @@ Example:
 
 #### Semgrep rule
 
-python.django.security.audit.xss.template-var-unescaped-with-safeseq.template-var-unescaped-with-safeseq
+<LinkToRegistryRule ruleId="python.django.security.audit.xss.template-var-unescaped-with-safeseq.template-var-unescaped-with-safeseq" />
 
 ### 3.C. The **{% autoescape off %}** block
 
@@ -295,7 +297,7 @@ Ban `{% autoescape off %}`. Alternatively, use `mark_safe()` in Python if necess
 
 #### Semgrep rule
 
-python.django.security.audit.xss.template-autoescape-off.template-autoescape-off
+<LinkToRegistryRule ruleId="python.django.security.audit.xss.template-autoescape-off.template-autoescape-off" />
 
 ---
 
@@ -320,7 +322,7 @@ Flag unquoted HTML attributes with Jinja expressions. Alternatively, always use 
 
 #### Semgrep rule
 
-python.flask.security.xss.audit.template-unquoted-attribute-var.template-unquoted-attribute-var
+<LinkToRegistryRule ruleId="python.flask.security.xss.audit.template-unquoted-attribute-var.template-unquoted-attribute-var" />
 
 ### 4.B. Variable in **href** attribute
 
@@ -342,7 +344,7 @@ Flag template variables in `href` attributes. Alternatively, use `url_for` to ge
 
 #### Semgrep rule
 
-python.django.security.audit.xss.template-href-var.template-href-var
+<LinkToRegistryRule ruleId="python.django.security.audit.xss.template-href-var.template-href-var" />
 
 ### 4.C. Variable in **&lt;script&gt;** block
 

@@ -2,6 +2,8 @@
 slug: rails-xss
 ---
 
+import LinkToRegistryRule from "/src/components/LinkToRegistryRule"
+
 # XSS prevention for Ruby on Rails
 
 This is a cross-site scripting (XSS) prevention cheat sheet by r2c. It contains code patterns of potential XSS in an application. Instead of scrutinizing code for exploitable vulnerabilities, the recommendations in this cheat sheet pave a safe road for developers that mitigates the possibility of XSS in your code. By  following these recommendations, you can be reasonably sure your code is free of XSS.
@@ -45,7 +47,7 @@ Ban `html_safe()`. Alternatively, If needed, review each usage and exempt with `
 
 #### Semgrep rule
 
-ruby.rails.security.audit.xss.avoid-html-safe.avoid-html-safe
+<LinkToRegistryRule ruleId="ruby.rails.security.audit.xss.avoid-html-safe.avoid-html-safe" />
 
 ### 1.B. Using **content_tag()**
 
@@ -67,7 +69,7 @@ Ban `content_tag()`. Alternatively, If necessary, prefer `html_safe()` due to it
 
 #### Semgrep rule
 
-ruby.rails.security.audit.xss.avoid-content-tag.avoid-content-tag
+<LinkToRegistryRule ruleId="ruby.rails.security.audit.xss.avoid-content-tag.avoid-content-tag" />
 
 ### 1.C. Using **raw()**
 
@@ -92,7 +94,7 @@ Ban `raw()`. Alternatively, Prefer `html_safe()` if necessary.
 
 #### Semgrep rule
 
-ruby.rails.security.audit.xss.avoid-raw.avoid-raw
+<LinkToRegistryRule ruleId="ruby.rails.security.audit.xss.avoid-raw.avoid-raw" />
 
 ### 1.D. Disabling of **ActiveSupport#escape_html_entities_in_json**
 
@@ -118,7 +120,7 @@ Ban disabling of `ActiveSupport#escape_html_entities_in_json`. Alternatively, If
 
 #### Semgrep rule
 
-ruby.lang.security.json-entity-escape.json-entity-escape
+<LinkToRegistryRule ruleId="ruby.lang.security.json-entity-escape.json-entity-escape" />
 
 ---
 
@@ -146,7 +148,7 @@ Ban template creation in code. Alternatively, Use ERB template files.
 
 #### Semgrep rule
 
-ruby.rails.security.audit.xss.manual-template-creation.manual-template-creation
+<LinkToRegistryRule ruleId="ruby.rails.security.audit.xss.manual-template-creation.manual-template-creation" />
 
 ### 2.B. Rendering an inline template with **render inline:**
 
@@ -171,7 +173,7 @@ Ban `render inline:`. Alternatively, Use ERB template files.
 
 #### Semgrep rule
 
-ruby.rails.security.audit.xss.avoid-render-inline.avoid-render-inline
+<LinkToRegistryRule ruleId="ruby.rails.security.audit.xss.avoid-render-inline.avoid-render-inline" />
 
 ### 2.C. Using **render text:**
 
@@ -194,7 +196,7 @@ Ban `render text:`. Alternatively, Use ERB template files.
 
 #### Semgrep rule
 
-ruby.rails.security.audit.xss.avoid-render-text.avoid-render-text
+<LinkToRegistryRule ruleId="ruby.rails.security.audit.xss.avoid-render-text.avoid-render-text" />
 
 ---
 
@@ -223,7 +225,7 @@ Ban `html_safe()`. Alternatively, Prefer using `html_safe()` in Ruby code instea
 
 #### Semgrep rule
 
-ruby.rails.security.audit.xss.templates.avoid-html-safe.avoid-html-safe
+<LinkToRegistryRule ruleId="ruby.rails.security.audit.xss.templates.avoid-html-safe.avoid-html-safe" />
 
 
 ### 3.B Using **content_tag()**
@@ -246,7 +248,7 @@ Ban `content_tag()`. Alternatively, If necessary, prefer `html_safe()` in Ruby c
 
 #### Semgrep rule
 
-ruby.rails.security.audit.xss.templates.avoid-content-tag.avoid-content-tag
+<LinkToRegistryRule ruleId="ruby.rails.security.audit.xss.templates.avoid-content-tag.avoid-content-tag" />
 
 ### 3.C. Using **raw()**
 
@@ -270,7 +272,7 @@ Ban `raw()`. Alternatively, Prefer `html_safe()` in Ruby code if necessary.
 
 #### Semgrep rule
 
-ruby.rails.security.audit.xss.templates.avoid-raw.avoid-raw
+<LinkToRegistryRule ruleId="ruby.rails.security.audit.xss.templates.avoid-raw.avoid-raw" />
 
 ### 3.D. Using **<%== ... %>**, which is an alias for **html_safe()**
 
@@ -294,7 +296,7 @@ Ban `<%== ... %>`, which is an alias for `html_safe()`. Alternatively, Prefer `h
 
 #### Semgrep rule
 
-ruby.rails.security.audit.xss.templates.alias-for-html-safe.alias-for-html-safe
+<LinkToRegistryRule ruleId="ruby.rails.security.audit.xss.templates.alias-for-html-safe.alias-for-html-safe" />
 
 ---
 
@@ -321,7 +323,7 @@ Flag unquoted HTML attributes ERB expressions. Alternatively, Always use quotes 
 
 #### Semgrep rule
 
-ruby.rails.security.audit.xss.templates.unquoted-attribute.unquoted-attribute
+<LinkToRegistryRule ruleId="ruby.rails.security.audit.xss.templates.unquoted-attribute.unquoted-attribute" />
 
 ### 4.B. Variable in **href** attribute
 
@@ -344,7 +346,7 @@ Flag template variables in `href` attributes. Alternatively, Use `url_for` to ge
 
 #### Semgrep rule
 
-ruby.rails.security.audit.xss.templates.var-in-href.var-in-href
+<LinkToRegistryRule ruleId="ruby.rails.security.audit.xss.templates.var-in-href.var-in-href" />
 
 ### 4.C. Using **link_to** with unrestricted URL scheme
 
@@ -368,7 +370,7 @@ Flag `link_to` in templates. Alternatively, If you must use this, add a literal 
 
 #### Semgrep rule
 
-ruby.rails.security.audit.xss.templates.dangerous-link-to.dangerous-link-to
+<LinkToRegistryRule ruleId="ruby.rails.security.audit.xss.templates.dangerous-link-to.dangerous-link-to" />
 
 ### 4.D. Variable in **&lt;script&gt;** block
 
@@ -393,4 +395,4 @@ Ban template variables in `&lt;script&gt;` blocks. Alternatively, If necessary, 
 
 #### Semgrep rule
 
-ruby.rails.security.audit.xss.templates.var-in-script-tag.var-in-script-tag
+<LinkToRegistryRule ruleId="ruby.rails.security.audit.xss.templates.var-in-script-tag.var-in-script-tag" />
