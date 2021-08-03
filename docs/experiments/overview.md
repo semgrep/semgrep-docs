@@ -104,7 +104,7 @@ Semgrep supports intra-file [taint tracking](https://en.wikipedia.org/wiki/Taint
 
 For example:
 
-<iframe src="https://semgrep.dev/embed/editor?snippet=2blB" border="0" frameBorder="0" width="100%" height="435"></iframe>
+<iframe src="https://semgrep.dev/embed/editor?snippet=P8oz" border="0" frameBorder="0" width="100%" height="435"></iframe>
 
 ### Constant propagation
 
