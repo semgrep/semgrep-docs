@@ -86,13 +86,16 @@ SEMGREP_PR_TITLE="Added four new bugs"  # shown in Slack notifications if set
 SEMGREP_TIMEOUT=1800  # Maximum Semgrep run time in seconds, or 0 to disable timeouts
 ```
 
+</details>
+
 ## Run semgrep_agent
 
+```sh
 semgrep-agent --publish-deployment $SEMGREP_DEPLOYMENT_ID --publish-token $SEMGREP_APP_TOKEN
-
 ```
-</details>
+
 <br />
+
 These instructions have been used on the following providers by the community:
 
 
@@ -105,6 +108,8 @@ These instructions have been used on the following providers by the community:
 | CircleCI [(sample configuration)](../sample-ci-configs/#circleci) | TeamCity CI |
 | Codefresh | Travis CI |
 
+<br />
+
 # Reviewing Findings
 
 ## Scan output
@@ -115,8 +120,8 @@ You can find a description of the findings in the log output.
 
 <details>
 <summary>Click for an example of Semgrep CI's job output</summary>
-```text
 
+```sh
 === looking for current issues in 1 file
 | 1 current issue found
 === looking for pre-existing issues in 1 file
@@ -132,7 +137,6 @@ python.flask.security.injection.os-system-injection.os-system-injection
        'subprocess' module instead and pass the arguments as a list.
 
 === exiting with failing status
-
 ```
 
 </details>
