@@ -159,7 +159,7 @@ A Slack notification triggered by new findings in a pull request
 
 Notifications require connection to Semgrep App. You can get notified about new findings via:
 
-- [GitHub pull request comments](/semgrep-app/notifications/#pull-request-comments)
+- [GitHub pull request comments](/semgrep-app/notifications/#github-pull-request-comments)
 - GitLab merge request comments ([sign up for the beta here](https://go.r2c.dev/join-gitlab-beta))
 - [Slack messages](/semgrep-app/notifications/#slack)
 - [emails](/semgrep-app/notifications/#email)
