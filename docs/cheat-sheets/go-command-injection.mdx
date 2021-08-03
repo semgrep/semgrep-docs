@@ -2,6 +2,8 @@
 slug: go-command-injection
 ---
 
+import LinkToRegistryRule from "/src/components/LinkToRegistryRule"
+
 # Command injection prevention for Go
 
 This is a command injection prevention cheat sheet by r2c. It contains code patterns of potential ways to run an OS commands or code in an application. Instead of scrutinizing code for exploitable vulnerabilities, the recommendations in this cheat sheet pave a safe road for developers that mitigates the possibility of Command injection in your code. By following these recommendations, you can be reasonably sure your code is free of command injection.
@@ -69,7 +71,7 @@ Do not let user input in `exec.Command` and `exec.CommandContext` functions. Alt
 
 #### Semgrep rule
 
-go.lang.security.audit.dangerous-exec-command.dangerous-exec-command
+<LinkToRegistryRule ruleId="go.lang.security.audit.dangerous-exec-command.dangerous-exec-command" />
 
 ### 1.B. Creating **exec.Cmd** struct
 
@@ -113,7 +115,7 @@ func main() {
 
 #### Semgrep rule
 
-go.lang.security.audit.dangerous-exec-cmd.dangerous-exec-cmd
+<LinkToRegistryRule ruleId="go.lang.security.audit.dangerous-exec-cmd.dangerous-exec-cmd" />
 
 ### 1.C. writing to a command's **StdinPipe**
 
@@ -157,7 +159,7 @@ Do not let user input in command's `StdinPipe`. Alternatively,
 
 #### Semgrep rule
 
-go.lang.security.audit.dangerous-command-write.dangerous-command-write
+<LinkToRegistryRule ruleId="go.lang.security.audit.dangerous-command-write.dangerous-command-write" />
 
 ### 1.D. running OS commands with **syscall.Exec()**
 
@@ -203,4 +205,4 @@ Do not let user input in `syscall.Exec` and `syscall.ForkExec` functions. Altern
 
 #### Semgrep rule
 
-go.lang.security.audit.dangerous-syscall-exec.dangerous-syscall-exec
+<LinkToRegistryRule ruleId="go.lang.security.audit.dangerous-syscall-exec.dangerous-syscall-exec" />

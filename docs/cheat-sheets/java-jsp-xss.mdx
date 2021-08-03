@@ -2,6 +2,7 @@
 slug: java-jsp-xss
 ---
 
+import LinkToRegistryRule from "/src/components/LinkToRegistryRule"
 
 # XSS prevention for Java + JSP
 
@@ -46,7 +47,7 @@ Ban use of `PrintWriter` from `HttpServletResponse`. Alternatively, render JSP p
 
 #### Semgrep rule
 
-java.lang.security.audit.xss.no-direct-response-writer.no-direct-response-writer
+<LinkToRegistryRule ruleId="java.lang.security.audit.xss.no-direct-response-writer.no-direct-response-writer" />
 
 ### 1.B. Using the **OutputStream** from **HttpServletResponse**
 
@@ -69,7 +70,7 @@ Ban use of `OutputStream` from `HttpServletResponse`. Render JSP pages using req
 
 #### Semgrep rule
 
-java.lang.security.audit.xss.no-direct-response-writer.no-direct-response-writer
+<LinkToRegistryRule ruleId="java.lang.security.audit.xss.no-direct-response-writer.no-direct-response-writer" />
 
 ---
 ## 2. JSP page: Variable is not explicitly escaped
@@ -95,7 +96,7 @@ Require use of JSTL `escapeXml` function in every expression. Alternatively, req
 
 #### Semgrep rule
 
-java.lang.security.audit.xss.jsp.use-escapexml.use-escapexml
+<LinkToRegistryRule ruleId="java.lang.security.audit.xss.jsp.use-escapexml.use-escapexml" />
 
 ### 2.B.Any expression without **escapeXml**
 
@@ -119,7 +120,7 @@ Require use of JSTL `escapeXml` function in every expression. Alternatively, req
 
 #### Semgrep rule
 
-java.lang.security.audit.xss.jsp.use-escapexml.use-escapexml
+<LinkToRegistryRule ruleId="java.lang.security.audit.xss.jsp.use-escapexml.use-escapexml" />
 
 ---
 
