@@ -38,7 +38,7 @@ You can add Semgrep CI automatically to a GitHub repository by clicking "Set up"
 
 To manually add Semgrep CI to GitHub Actions, add a `.github/workflows/semgrep.yml` file to your repository. Follow the [workflow syntax for GitHub Actions](https://docs.github.com/en/actions/reference/workflow-syntax-for-github-actions).
 
-See this [example GitHub Actions workflow configuration](sample-ci-configs.md#github-actions) for Semgrep CI.
+See this [example GitHub Actions workflow configuration](../sample-ci-configs/#github-actions) for Semgrep CI.
 
 ### GitLab CI/CD
 
@@ -48,7 +48,7 @@ Automatic setup is coming to GitLab CI/CD soon, where Semgrep App can commit Sem
 
 To add Semgrep CI to GitLab CI/CD, add a `.gitlab-ci.yml` file to your repository if not already present. Add a block to run the Semgrep CI job in your pipeline, following [GitLab’s configuration guide for the .gitlab-ci.yml file](https://docs.gitlab.com/ee/ci/yaml/gitlab_ci_yaml.html).
 
-See this [example GitLab CI/CD configuration](sample-ci-configs.md#gitlab-ci) for Semgrep CI.
+See this [example GitLab CI/CD configuration](../sample-ci-configs/#gitlab-ci) for Semgrep CI.
 
 If you’re already running [GitLab SAST](https://docs.gitlab.com/ee/user/application_security/sast/) by including `template: Security/SAST.gitlab-ci.yml` in your CI/CD configuration, you can still include and customize Semgrep CI. GitLab SAST, including its `semgrep-sast` analyzer, will continue to run normally.
 
@@ -86,24 +86,29 @@ SEMGREP_PR_TITLE="Added four new bugs"  # shown in Slack notifications if set
 SEMGREP_TIMEOUT=1800  # Maximum Semgrep run time in seconds, or 0 to disable timeouts
 ```
 
+</details>
+
 ## Run semgrep_agent
 
+```sh
 semgrep-agent --publish-deployment $SEMGREP_DEPLOYMENT_ID --publish-token $SEMGREP_APP_TOKEN
-
 ```
-</details>
+
 <br />
+
 These instructions have been used on the following providers by the community:
 
 
 | CI Providers         |                       |  
 |:---------- |:---------------------------|
 | Bitbucket Pipelines | Codeship |
-| Bitrise | GitHub Actions [(sample configuration)](sample-ci-configs.md#github-actions) |
-| Buildbot | GitLab CI [(sample configuration)](sample-ci-configs.md#gitlab-ci) |
-| Buildkite [(sample configuration)](sample-ci-configs.md#buildkite) | Jenkins [(sample configuration)](sample-ci-configs.md#jenkins) |
-| CircleCI [(sample configuration)](sample-ci-configs.md#circleci) | TeamCity CI |
+| Bitrise | GitHub Actions [(sample configuration)](../sample-ci-configs/../contributing/github-actions) |
+| Buildbot | GitLab CI [(sample configuration)](../sample-ci-configs/#gitlab-ci) |
+| Buildkite [(sample configuration)](../sample-ci-configs/#buildkite) | Jenkins [(sample configuration)](../sample-ci-configs/#jenkins) |
+| CircleCI [(sample configuration)](../sample-ci-configs/#circleci) | TeamCity CI |
 | Codefresh | Travis CI |
+
+<br />
 
 # Reviewing Findings
 
@@ -115,8 +120,8 @@ You can find a description of the findings in the log output.
 
 <details>
 <summary>Click for an example of Semgrep CI's job output</summary>
-```text
 
+```sh
 === looking for current issues in 1 file
 | 1 current issue found
 === looking for pre-existing issues in 1 file
@@ -132,7 +137,6 @@ python.flask.security.injection.os-system-injection.os-system-injection
        'subprocess' module instead and pass the arguments as a list.
 
 === exiting with failing status
-
 ```
 
 </details>
@@ -155,21 +159,20 @@ A Slack notification triggered by new findings in a pull request
 
 Notifications require connection to Semgrep App. You can get notified about new findings via:
 
-- [GitHub pull request comments](../semgrep-app/notifications.md#pull-request-comments)
+- [GitHub pull request comments](/semgrep-app/notifications/#github-pull-request-comments)
 - GitLab merge request comments ([sign up for the beta here](https://go.r2c.dev/join-gitlab-beta))
-- [Slack messages](../semgrep-app/notifications.md#slack)
-- [emails](../semgrep-app/notifications.md#email)
-- [webhooks](../semgrep-app/notifications.md#webhooks) (paid feature in Semgrep App)
+- [Slack messages](/semgrep-app/notifications/#slack)
+- [emails](/semgrep-app/notifications/#email)
+- [webhooks](/semgrep-app/notifications/#webhooks) (paid feature in Semgrep App)
 
 To set up notifications:
 
 1. Follow the links above to create a notification channel.
-2. [Add the created channel to one or more policies](../semgrep-app/managing-policy.md#changing-policy-actions)
+2. [Add the created channel to one or more policies](/semgrep-app/managing-policy/#changing-policy-actions)
 as a policy action. Only the rules in these policies will trigger notifications.
 
 :::note
-Notifications are sent only the first time a given finding is seen.
-[See how notifications are de-duplicated](../semgrep-app/notifications.md#de-duplication)
+Notifications are sent only the first time a given finding is seen. [See how notifications are de-duplicated](/semgrep-app/notifications/#de-duplication)
 :::
 
 #### Security Dashboards
@@ -192,7 +195,7 @@ You can review Semgrep CI's findings via:
 These instructions apply to using Semgrep CI directly in your CI environment. For use with Semgrep App please use the "Add to policy" button next to any registry rule or ruleset, or visit [Dashboard > Policies](https://semgrep.dev/manage/policies).
 :::
 
-Semgrep CI accepts a list of rules and rulesets to run on each scan. To add from the [Semgrep Registry](https://semgrep.dev/explore), just include the rule or ruleset identifier in your CI workflow file. Identifiers take the form `p/<ruleset-id>` and `r/<rule-id>`. These identifiers can be copied directly for any rule or ruleset directly from the Registry, and run locally using the `--config <identifier>` flag with the [Semgrep command line tool](../getting-started.md#run-semgrep-locally).
+Semgrep CI accepts a list of rules and rulesets to run on each scan. To add from the [Semgrep Registry](https://semgrep.dev/explore), just include the rule or ruleset identifier in your CI workflow file. Identifiers take the form `p/<ruleset-id>` and `r/<rule-id>`. These identifiers can be copied directly for any rule or ruleset directly from the Registry, and run locally using the `--config <identifier>` flag with the [Semgrep command line tool](/getting-started/#run-semgrep-locally).
 
 For example, in GitLab CI/CD:
 
