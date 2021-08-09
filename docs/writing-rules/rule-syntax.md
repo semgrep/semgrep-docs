@@ -56,7 +56,6 @@ The below optional fields must reside underneath a `patterns` or `pattern-either
 | [`pattern-inside`](#pattern-inside)             | `string` | Keep findings that lie inside this pattern                                                                              |
 | [`pattern-not-inside`](#pattern-not-inside)     | `string` | Keep findings that do not lie inside this pattern                                                                       |
 | [`pattern-not-regex`](#pattern-not-regex)   | `string` | Filter results using [Python `re`](https://docs.python.org/3/library/re.html) compatible expressions  |
-| [`pattern-where-python`](#pattern-where-python) | `string` | Remove findings matching this Python expression                                                                         |
 
 ## Operators
 
@@ -209,6 +208,10 @@ The above rule looks for files that are opened but never closed, possibly leadin
 The `$F` metavariable ensures that the same variable name is used in the `open` and `close` calls. The ellipsis operator allows for any arguments to be passed to `open` and any sequence of code statements in-between the `open` and `close` calls. The rule ignores how `open` is called or what happens up to a `close` call &mdash; it only needs to make sure `close` is called.
 
 ### `pattern-where-python`
+
+:::danger
+This feature was deprecated in Semgrep v0.61.0.
+:::
 
 The `pattern-where-python` is the most flexible operator. It allows for writing custom Python logic to filter findings. This is useful when none of the other operators provide the functionality needed to create a rule.
 

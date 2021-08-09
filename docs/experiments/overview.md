@@ -73,14 +73,6 @@ rules:
   <img src="https://web-assets.r2c.dev/inline-autofix-regex.gif" width="100%" alt="Apply Semgrep autofix direclty to a file"/>
 </p>
 
-## Equivalences
-
-Equivalences enable defining equivalent code patterns (i.e. a commutative property: `$X + $Y <==> $Y + $X`). Equivalence rules use the `equivalences` top-level key and one `equivalence` key for each equivalence.
-
-For example:
-
-<iframe src="https://semgrep.dev/embed/editor?snippet=jNnn" border="0" frameBorder="0" width="100%" height="435"></iframe>
-
 ## Data-flow analysis
 
 Semgrep can perform intra-procedural flow-sensitive analyses. The data-flow engine still has several limitations, therefore expect both false positives and false negatives. False positives could be removed by using [pattern-not](../writing-rules/rule-syntax.md#pattern-not).
@@ -92,19 +84,7 @@ A non-exhaustive list of current limitations:
 - `break`, `continue`, and `switch` statements are not properly handled yet.
 - `try-catch-finally` is only partially supported, not all possible execution paths are considered.
 
-As of now, data-flow analysis is used for [taint tracking](#taint-tracking) and [constant propagation](#constant-propagation).
-
-### Taint tracking
-
-Semgrep supports intra-file [taint tracking](https://en.wikipedia.org/wiki/Taint_checking). Taint tracking rules must specify `mode: taint`. Additionally, the following operators are enabled:
-
-- `pattern-sources` (required)
-- `pattern-sinks` (required)
-- `pattern-sanitizers` (optional)
-
-For example:
-
-<iframe src="https://semgrep.dev/embed/editor?snippet=P8oz" border="0" frameBorder="0" width="100%" height="435"></iframe>
+Data-flow analysis is used for [constant propagation](#constant-propagation).
 
 ### Constant propagation
 
@@ -117,3 +97,33 @@ For example:
 ## Generic pattern matching
 
 See [generic pattern matching](../generic-pattern-matching/).
+
+## Deprecated experiments
+
+### Equivalences
+
+:::note
+This feature was deprecated in Semgrep v0.61.0.
+:::
+
+Equivalences enable defining equivalent code patterns (i.e. a commutative property: `$X + $Y <==> $Y + $X`). Equivalence rules use the `equivalences` top-level key and one `equivalence` key for each equivalence.
+
+For example:
+
+<iframe src="https://semgrep.dev/embed/editor?snippet=jNnn" border="0" frameBorder="0" width="100%" height="435"></iframe>
+
+### Taint tracking
+
+:::note
+This feature was deprecated in Semgrep v0.61.0.
+:::
+
+Semgrep supports intra-file [taint tracking](https://en.wikipedia.org/wiki/Taint_checking). Taint tracking rules must specify `mode: taint`. Additionally, the following operators are enabled:
+
+- `pattern-sources` (required)
+- `pattern-sinks` (required)
+- `pattern-sanitizers` (optional)
+
+For example:
+
+<iframe src="https://semgrep.dev/embed/editor?snippet=P8oz" border="0" frameBorder="0" width="100%" height="435"></iframe>
