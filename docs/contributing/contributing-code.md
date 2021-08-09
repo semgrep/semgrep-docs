@@ -1,4 +1,4 @@
-# Contributing Code
+# Contributing code
 
 Semgrep welcomes contributions from anyone. If you have an idea for a feature
 or notice a bug please [open an issue](https://github.com/returntocorp/semgrep/issues/new/choose).
@@ -9,17 +9,18 @@ yourself.
 
 Contents:
 
-* [File Structure](#file-structure)
-* [Code Relationship](#code-relationship)
-* [Making a Change](#making-a-change)
-  * [Only `semgrep`](#only-semgrep) 
-  * [Only `semgrep-core`](#only-semgrep-core) 
-  * [Both `semgrep` and `semgrep-core`](#both-semgrep-and-semgrep-core) 
-* [Development Workflow](#development-workflow)
+- [Contributing code](#contributing-code)
+  - [File structure](#file-structure)
+  - [Code relationship](#code-relationship)
+  - [Making a change](#making-a-change)
+    - [Only `semgrep`](#only-semgrep)
+    - [Only `semgrep-core`](#only-semgrep-core)
+    - [Both `semgrep` and `semgrep-core`](#both-semgrep-and-semgrep-core)
+  - [Development workflow](#development-workflow)
 
 This README gives an overview of the repository. For further information on building, you will be directed to [semgrep-core-contributing](semgrep-core-contributing.md) and/or [semgrep-contributing](semgrep-contributing.md) in [Making a Change](#making-a-change). 
 
-## File Structure
+## File structure
 
 Semgrep consists of a Python wrapper (`semgrep`) around an OCaml engine (`semgrep-core`) which performs the core parsing/matching work. Within `semgrep-core`, there are two sources of parsers, `pfff`, linked as a [submodule](https://github.com/returntocorp/pfff), and `tree-sitter-lang`, built using [tree-sitter](https://github.com/tree-sitter/tree-sitter). Additionally, `semgrep-core` contains a subengine, `spacegrep`, for generic matching.
 
@@ -44,7 +45,7 @@ There are many other files, but the below diagram broadly displays the file stru
 
 Most of Semgrep's logic is in `semgrep/semgrep` or `semgrep-core/src`. 
 
-## Code Relationship
+## Code relationship
 
 The `semgrep-core` binary stands alone. Once built, it is possible to run `semgrep-core` on a semgrep rule for a given language with a file/directory and receive matches. 
 
@@ -86,7 +87,7 @@ The matched code is the same, but with `semgrep` the output is more polished and
 
 Currently, depending on the flags used, `spacegrep` is invoked both independently by `semgrep` as a subprocess and by `semgrep-core` as a subfolder. Therefore, `semgrep` requires the `spacegrep` binary, but building `semgrep-core` will build `spacegrep` as well.
 
-## Making a Change
+## Making a change
 
 Semgrep runs on Python versions >= 3.6. If you don't have one of these versions installed, please do so before proceeding.
 
@@ -130,7 +131,7 @@ There are some features that cross through both OCaml and Python code. You will 
 
 Go to [semgrep-core-contributing](semgrep-core-contributing.md). It will direct you to [semgrep-contributing](semgrep-contributing.md) when appropriate. 
 
-## Development Workflow
+## Development workflow
 
 Before each commit Semgrep will run [`pre-commit`](https://pre-commit.com/) to
 ensure files are well-formatted and check for basic linting bugs. If you don't

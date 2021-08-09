@@ -3,7 +3,7 @@ slug: how-to-contribute
 description: "Semgrep is LGPL-licensed and contributions are welcome. Get started by filing an issue, fixing a bug, contributing rules to the registry, adding a feature, or updating the docs. You can also contribute by helping others in the r2c Community Slack!"
 ---
 
-# How to Contribute
+# How to contribute
 
 Semgrep is LGPL-licensed and contributions are welcome.
 
