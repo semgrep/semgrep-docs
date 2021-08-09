@@ -7,17 +7,6 @@ that we can ensure you're on the right track without any wasted effort. This
 is also a great way to contribute to Semgrep even if you're not making changes
 yourself.
 
-Contents:
-
-- [Contributing code](#contributing-code)
-  - [File structure](#file-structure)
-  - [Code relationship](#code-relationship)
-  - [Making a change](#making-a-change)
-    - [Only `semgrep`](#only-semgrep)
-    - [Only `semgrep-core`](#only-semgrep-core)
-    - [Both `semgrep` and `semgrep-core`](#both-semgrep-and-semgrep-core)
-  - [Development workflow](#development-workflow)
-
 This README gives an overview of the repository. For further information on building, you will be directed to [semgrep-core-contributing](semgrep-core-contributing.md) and/or [semgrep-contributing](semgrep-contributing.md) in [Making a Change](#making-a-change). 
 
 ## File structure

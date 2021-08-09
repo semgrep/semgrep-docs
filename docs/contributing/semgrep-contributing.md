@@ -1,15 +1,6 @@
-# `semgrep` Contributing
+# `semgrep` contributing
 
 The following explains how to build `semgrep` so that you can make and test changes to the Python wrapper. You may want to read the README first to understand the relationship between `semgrep`, `semgrep-core`, and `spacegrep`.
-
-Contents:
-
-* [Getting `semgrep-core` and `spacegrep` binaries](#getting-semgrep-core-and-spacegrep-binaries)
-* [Setting Up the Environment](#creating-the-environment)
-* [Running `semgrep`](#running-semgrep)
-* [Installing `semgrep`](#installing-semgrep)
-* [Troubleshooting](#troubleshooting)
-* [Testing `semgrep`](#testing-semgrep)
 
 ## Getting `semgrep-core` and `spacegrep` binaries
 
@@ -30,7 +21,7 @@ and run the binary from there.
 
 Alternatively, you may include it somewhere like `/usr/local/bin/`.
 
-## Setting Up the Environment
+## Setting up the environment
 
 Once you have `semgrep-core` and `spacegrep` installed, you will be able to build `semgrep`. You will need Python >= 3.6 as well.
 

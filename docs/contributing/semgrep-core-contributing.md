@@ -2,42 +2,6 @@
 
 The following explains how to build `semgrep-core` so you can make and test changes to the OCaml code. This will also install the `spacegrep` binary so it can be called by `semgrep`. Once you have `semgrep-core` and `spacegrep` installed, you can refer to [semgrep-contributing](semgrep-contributing.md) to see how to build and run the Semgrep application.
 
-Contents:
-
-* [Building `semgrep-core`](#building-semgrep-core)
-  * [Requirements](#requirements)
-  * [Installing for the First Time](#installing-for-the-first-time)
-  * [Installing After a Change](#installing-after-a-change)
-  * [Development](#development)
-  * [Developing `semgrep-core`](#developing-semgrep-core)
-  * [Testing `semgrep-core`](#testing-semgrep-core)
-  * [Development Environment](#development-environment)
-* [Testing Performance](#testing-performance)
-  * [Profiling Code](#profiling-code)
-  * [Benchmarking Code](#benchmarking-code)
-
-* [Cheatsheet](#cheatsheet)
-* [`semgrep-core` Overview](#semgrep-core-overview)
-  * [Entry Point](#entry-point)
-  * [Parsing](#parsing)
-  * [Converting to the Generic AST](#converting-to-the-generic-ast)
-  * [Matching](#matching)
-  * [Reporting Results](#reporting-results)
-* [Fixing a Parse Error](#fixing-a-parse-error)
-  * [Guide to Parsers](#guide-to-parsers)
-  * [Fixing a `pfff` Parse Error](#fixing-a-pfff-parse-error)
-    * [Parsing with `pfff`](#parsing-with-pfff)
-    * [Identifying the Error](#identifying-the-error)
-    * [Fixing the Error](#fixing-the-error)
-    * [Commiting the Fix](#commiting-the-fix)
-  * [Fixing a Tree-sitter Parse Error](#fixing-a-tree-sitter-parse-error)
-* [Fixing a Match Error](#fixing-a-match-error)
-* [Fixing an Autofix Error](#fixing-an-autofix-error)
-* [Debugging Resources](#debugging-resources)
-* [Adding Support for a Language](#adding-support-for-a-language)
-  * [Tree-Sitter Parsers](#tree-sitter-parsers)
-  * [Tips for converting CST to generic AST](cst-to-ast-tips.md)
-
 ## Building `semgrep-core`
 
 ### Requirements
@@ -58,7 +22,7 @@ Install `pkg-config` in your environment. On a mac this is
 brew install pkg-config
 ```
 
-### Installing for the First Time
+### Installing for the first time
 
 The root `Makefile` contains targets that take care of building the
 right things. It is commented. Please refer to it and keep it
@@ -90,7 +54,7 @@ spacegrep --help
 
 At this point, you have the `semgrep-core` and `spacegrep` binaries, so if you would like to finish the Semgrep installation, go to the [Python-side instructions](semgrep-contributing.md).
 
-### Installing After a Change
+### Installing after a change
 
 Unless there is a significant dependency change, you will not need to run `make dev-setup` again. 
 
@@ -166,7 +130,7 @@ make install
 `make test` in the `semgrep-core` directory will run tests that check code is correctly parsed
 and patterns perform as expected. To add a test in an appropriate language subdirectory, `semgrep-core/tests/LANGUAGE`, create a target file (expected file extension given language) and a .sgrep file with a pattern. The testing suite will check that all places with a comment with `ERROR` were matches found by the .sgrep file. See existing tests for more clarity.
 
-### Development Environment
+### Development environment
 
 You can use Visual Studio Code \(vscode\) to edit the code of Semgrep. The [reason-vscode](https://marketplace.visualstudio.com/items?itemName=jaredly.reason-vscode) Marketplace extension adds support for OCaml/Reason.
 
@@ -184,9 +148,9 @@ $ ocamlmerlin -version  # just checking ocamlmerlin is in your PATH
 $ code .
 ```
 
-## Testing Performance
+## Testing performance
 
-### Profiling Code
+### Profiling code
 
 You can pass the -profile command-line argument to semgrep-core to get
 a short profile of the code, for example:
@@ -242,7 +206,7 @@ Semgrep.match_sts_sts                    :      0.559 sec     185064 count
 ...
 ```
 
-### Benchmarking Code
+### Benchmarking code
 
 We have two sets of benchmarks, one on a suite of real repos against real rulesets (real benchmarks), another that highlights specific slow (rule, file) pairs (micro benchmarks).
 
@@ -283,9 +247,9 @@ Running (examples in Python):
 
 Try it out: `sc -f tests/python/dots_stmts.sgrep tests/python/dots_stmts.py -lang python`
 
-## `semgrep-core` Overview
+## `semgrep-core` overview
 
-### Entry Point
+### Entry point
 
 The entry point to `semgrep-core` is `Main.ml`, in `semgrep-core/src/cli/`. This is where you add command-line arguments. It calls functions depending on the mode in which `semgrep-core` was invoked (`-config` for a yaml file, `-f` for a single pattern, etc.)
 
@@ -302,7 +266,7 @@ When `semgrep-core` receives a rule or a target, it will first need to parse it.
 
 Depending on the language, `Parse_pattern.ml` and `Parse_target.ml` will invoke parsers to parse the code. For example, if we have Java code, it will first be parsed into a Java-specific AST.
 
-### Converting to the Generic AST
+### Converting to the generic AST
 
 `semgrep-core` does not match based on the Java AST. It has a generic AST, defined in `AST_generic.ml` (in `semgrep-core/src/core/ast`), which all language-specific ASTs are converted to.
 
@@ -327,11 +291,11 @@ The results of the match will be returned to the calling function in `Main.ml` (
 
 There are two modes for outputting: JSON and text. JSON output is processed by functions in `JSON_report.ml` in `semgrep-core/src/reporting/`
 
-## Fixing a Parse Error 
+## Fixing a parse error 
 
 Before you start fixing a parse error, you need to know what parser was used. This bears some explanation.
 
-### Guide to Parsers
+### Guide to parsers
 
 The parsers used by semgrep fall into these categories:
 * legacy parsers (pfff): implemented directly in OCaml via a parser generator
@@ -364,7 +328,7 @@ Here's the breakdown by language as of February 2021:
   - R
   - Rust
 
-### Fixing a `pfff` Parse Error
+### Fixing a `pfff` parse error
 
 #### Parsing With `pfff`
 
@@ -390,7 +354,7 @@ Tokens -- (via `Parser_php.mly`) --> `Cst_php` -- (via `Ast_php_build.ml`) --> `
 
 The lexers and parsers apply for both patterns and targets of a given language. To avoid parsing invalid targets, we have a function `Flag_semgrep.sgrep_guard` which fails when parsing constructs that only appear in patterns if a target is being parsed.
 
-#### Identifying the Error
+#### Identifying the error
 
 The source of the error can be anywhere along the Text --> `AST_generic` path, so you will want to identify which file is causing it. 
 
@@ -432,7 +396,7 @@ To dump the Python AST, run
 
 (Note that `-sgrep_mode` does not always work with incomplete programs. You may need to wrap your pattern so that it is a valid program for that language, except for semgrep constructs such as `...`)
 
-#### Fixing the Error
+#### Fixing the error
 
 At this point, the relevant change you need to make will vary depending on your goal. It may be as simple as adding `...` as a possible case. It may require you to introduce a new construct and add it to `AST_generic` and `Ast_python`. As a rule of thumb, prefer to avoid changing `AST_generic` if possible. This will also make your life easier!
 
@@ -452,7 +416,7 @@ This will produce the file `Parser_python.conflicts` in the same folder as `Pars
 
 Unfortunately, it will also produce `Parser_python.ml` and `Parser_python.mli`, which will confuse dune when it tries to build. Remove these files before you run `make` again.
 
-#### Committing the Fix
+#### Committing the fix
 
 Once you have made your desired pattern or target parse, you need to make sure it doesn't break anything else. In `semgrep-core/`, run `make test`. If at the end it says `Ok`, you can commit your fix!
 
@@ -466,11 +430,11 @@ If you haven't changed `pfff`, don't worry about this. Just make a pull request 
 
 Remember to add test cases so that future changes don't break your example! See [Testing `semgrep-core`](#testing-semgrep-core)
 
-### Fixing a Tree-sitter Parse Error
+### Fixing a Tree-sitter parse error
 
 There is more information in [Adding Support for a Language](#adding-support-for-a-language) on tree-sitter which will be helpful. Also, see `semgrep-core/src/parsing/tree-sitter/`.  
 
-## Fixing a Match Error
+## Fixing a match error
 
 The first thing you will need to do is understand what you expected and why you aren't getting that. If possible, reduce your rule to a single pattern that doesn't match. You may need to experiment with the clauses in your rule. For example, if you are getting too many matches, it may be because the pattern in `pattern-not` doesn't match what you expect.
 
@@ -502,7 +466,7 @@ At the end, confirm the match with
 sc -f [your_pattern].sgrep [your_target].py -lang py
 ```
 
-## Fixing an Autofix Error
+## Fixing an autofix error
 
 Autofix runs through both `semgrep-core` and `semgrep`, but the most common autofix error people encounter is some kind of incorrect range. This happens because `semgrep-core` determines the range of a match based on the locations of the tokens stored in the AST. When the range is incorrect, that usually means a token is missing. You can see token location information with
 
@@ -512,7 +476,7 @@ sc -full_token_info -dump_ast [your_target].py -lang py
 
 See [Fixing a Parse Error](#fixing-a-parse-error) for more on parsing 
 
-## Debugging Resources
+## Debugging resources
 
 In the process of debugging, you will probably want to print things. We provide a function `pr2` in `Common.ml` (in `semgrep-core/src/pfff/commons/`) to print strings. You can also use the `Printf` module.
 
@@ -526,11 +490,11 @@ We also provide some flags that are useful. If you run with `-debug`, you can se
 
 Additionally, the [OCaml debugger](https://ocaml.org/manual/debugger.html) is a great resource.
 
-## Adding Support for a Language
+## Adding support for a language
 
 There are some cases where we have chosen to implement a new parser in `pfff`, but in general new languages should use tree-sitter.
 
-### Tree-Sitter Parsers
+### Tree-Sitter parsers
 
 Tree-sitter parsers exist as individual public projects. They are
 shared with other users of tree-sitter outside of semgrep. Our
