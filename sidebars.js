@@ -64,7 +64,23 @@ module.exports = {
     {
         type: 'category',
         label: 'Contributing',
-        items: ['contributing/contributing', 'contributing/contributing-code', 'contributing/semgrep-core-contributing', 'contributing/semgrep-contributing', 'contributing/adding-a-language', 'contributing/updating-a-grammar', 'contributing/troubleshooting']
+        items: [
+          'contributing/contributing', 
+          'contributing/contributing-code', 
+          {
+            type: 'doc',
+            id: 'contributing/semgrep-core-contributing',
+            label: 'semgrep-core contributing'
+          },
+          {
+            type: 'doc',
+            id: 'contributing/semgrep-contributing',
+            label: 'semgrep contributing'
+          },
+          'contributing/adding-a-language', 
+          'contributing/updating-a-grammar',
+          'contributing/troubleshooting'
+        ]
     },
     {
       type: 'category',
