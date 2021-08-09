@@ -4,9 +4,11 @@ slug: updating-a-grammar
 How to upgrade the grammar for a language
 ==
 
+Like for adding a language, most of these instructions happen in `ocaml-tree-sitter`.  
+
 Let's call our language "X".
 
-Summary
+Summary (ocaml-tree-sitter)
 --
 
 In ocaml-tree-sitter:
