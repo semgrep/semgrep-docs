@@ -61,7 +61,11 @@ module.exports = {
     'support',
     'trophy-case',
     'awesome',
-    'contributing',
+    {
+        type: 'category',
+        label: 'Contributing',
+        items: ['contributing/contributing', 'contributing/contributing-code', 'contributing/semgrep-core-contributing', 'contributing/semgrep-contributing', 'contributing/adding-a-language', 'contributing/updating-a-grammar']
+    },
     {
       type: 'category',
       label: 'Cheat sheets',
