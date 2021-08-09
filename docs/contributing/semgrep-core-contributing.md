@@ -1,4 +1,4 @@
-# `semgrep-core` Contributing
+# `semgrep-core` contributing
 
 The following explains how to build `semgrep-core` so you can make and test changes to the OCaml code. This will also install the `spacegrep` binary so it can be called by `semgrep`. Once you have `semgrep-core` and `spacegrep` installed, you can refer to [semgrep-contributing](semgrep-contributing.md) to see how to build and run the Semgrep application.
 
