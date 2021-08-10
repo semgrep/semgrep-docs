@@ -180,7 +180,7 @@ made of a single expression:
 ```js
 (x) => x
 ```
-is the same as
+which is the same as
 ```js
 (x) => { return x; }
 ```
