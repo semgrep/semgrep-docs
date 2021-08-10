@@ -1,9 +1,9 @@
 ---
-slug: contributing
+slug: how-to-contribute
 description: "Semgrep is LGPL-licensed and contributions are welcome. Get started by filing an issue, fixing a bug, contributing rules to the registry, adding a feature, or updating the docs. You can also contribute by helping others in the r2c Community Slack!"
 ---
 
-# Contributing
+# How to contribute
 
 Semgrep is LGPL-licensed and contributions are welcome.
 
@@ -17,4 +17,4 @@ Then check out a few ways you can get involved:
 - Update the [docs](https://github.com/returntocorp/semgrep-docs)
 - Help each other in the [r2c Community Slack](https://r2c.dev/slack)
 
-Please see the [contribution guidelines](https://github.com/returntocorp/semgrep/blob/develop/CONTRIBUTING.md) for info about the development workflow, testing, and making PRs.
+Please see the [contribution guidelines](contributing-code.md) for info about the development workflow, testing, and making PRs.
