@@ -203,7 +203,7 @@ is done as follows:
 expression: ($, previous) => choice(...previous.members, $.ellipsis);
 ```
 
-Whether to use one or the other is a matter of choice.
+Whether to use one or the other is a matter of taste.
 
 Finally, on rare occasions where the rule body is more than a single
 expression, you'll have to use the curly-brace/return syntax:
