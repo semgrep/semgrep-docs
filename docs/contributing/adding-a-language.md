@@ -166,11 +166,55 @@ For an example of how to extend a language, you can:
 * Look at what was done for the semgrep extensions of other languages
   in their respective `semgrep-*` folders.
 * Look at how tree-sitter-typescript extends the javascript grammar.
-  This is the file `common/define-grammar.js` in the
-  tree-sitter-typescript repo.
+  This is the file [`common/define-grammar.js` in the
+  tree-sitter-typescript repo](https://github.com/tree-sitter/tree-sitter-typescript/blob/master/common/define-grammar.js).
 
 Avoiding parsing conflicts is the trickiest part. Asking for help is
 encouraged.
+
+⚠️ A note on JavaScript syntax that's heavily used to define and extend
+grammars:
+
+When possible, we prefer the shorthand notation for anonymous functions
+made of a single expression:
+```js
+(x) => x
+```
+is the same as
+```js
+(x) => { return x; }
+```
+which is itself the same as
+```js
+function(x) { return x; }
+```
+
+When extending any rule with an alternate choice such as `$.ellipsis`,
+the simpler way is this one:
+
+```js
+expression: ($, previous) => choice(previous, $.ellipsis);
+```
+
+However, if the `previous` rule is known to be a `choice()`, we can avoid
+one level of nesting and append to the original list of choices, which
+is done as follows:
+```js
+expression: ($, previous) => choice(...previous.members, $.ellipsis);
+```
+
+Whether to use one or the other is a matter of choice.
+
+Finally, on rare occasions where the rule body is more than a single
+expression, you'll have to use the curly-brace/return syntax:
+```js
+expression: ($, previous) => {
+  if (semgrep_ext)
+    return choice(...previous.members, $.ellipsis);
+  else
+    return previous;
+};
+```
 
 Parsing statistics
 --
