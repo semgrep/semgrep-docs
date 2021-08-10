@@ -172,7 +172,7 @@ For an example of how to extend a language, you can:
 Avoiding parsing conflicts is the trickiest part. Asking for help is
 encouraged.
 
-⚠️ A note on JavaScript syntax that's heavily used to define and extend
+💡 A note on JavaScript syntax that's heavily used to define and extend
 grammars:
 
 When possible, we prefer the shorthand notation for anonymous functions
