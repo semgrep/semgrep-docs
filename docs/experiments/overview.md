@@ -94,6 +94,18 @@ For example:
 
 <iframe src="https://semgrep.dev/embed/editor?snippet=XLpw" border="0" frameBorder="0" width="100%" height="435"></iframe>
 
+### Taint tracking
+
+Semgrep supports intra-file [taint tracking](https://en.wikipedia.org/wiki/Taint_checking). Taint tracking rules must specify `mode: taint`. Additionally, the following operators are enabled:
+
+- `pattern-sources` (required)
+- `pattern-sinks` (required)
+- `pattern-sanitizers` (optional)
+
+For example:
+
+<iframe src="https://semgrep.dev/embed/editor?snippet=P8oz" border="0" frameBorder="0" width="100%" height="435"></iframe>
+
 ## Generic pattern matching
 
 See [generic pattern matching](../generic-pattern-matching/).
@@ -111,19 +123,3 @@ Equivalences enable defining equivalent code patterns (i.e. a commutative proper
 For example:
 
 <iframe src="https://semgrep.dev/embed/editor?snippet=jNnn" border="0" frameBorder="0" width="100%" height="435"></iframe>
-
-### Taint tracking
-
-:::note
-This feature was deprecated in Semgrep v0.61.0.
-:::
-
-Semgrep supports intra-file [taint tracking](https://en.wikipedia.org/wiki/Taint_checking). Taint tracking rules must specify `mode: taint`. Additionally, the following operators are enabled:
-
-- `pattern-sources` (required)
-- `pattern-sinks` (required)
-- `pattern-sanitizers` (optional)
-
-For example:
-
-<iframe src="https://semgrep.dev/embed/editor?snippet=P8oz" border="0" frameBorder="0" width="100%" height="435"></iframe>
