@@ -123,7 +123,7 @@ severity:error rule:flask-likely-xss: Detected a XSS vulnerability: '$VAR' is re
 9:	<li>person_name_full is <b>{{ person_name_full }}</b></li>
 ```
 
-**Other Stuff**
+**Helpers**
 
 For convenience, when writing a join mode rule, you can use the `renames` and `as` keys. 
 
