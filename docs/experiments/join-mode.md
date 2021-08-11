@@ -91,7 +91,7 @@ rules:
   pattern: '{{ $...EXPR }}'
 ```
 
-Finally, we want to "join" the results from these together. Below are the join conditions, in English.
+Finally, we want to "join" the results from these together. Below are the join conditions, in plain language.
 
 1. The variable `$VAR` from `flask-user-input` has the same content as the value `$VALUE` from `unescaped-template-extension`
 2. The keyword argument `$VAR` from `unescaped-template-extension` has the same content as `$...EXPR` from `any-template-var`
