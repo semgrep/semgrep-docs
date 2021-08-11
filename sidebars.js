@@ -36,9 +36,9 @@ module.exports = {
         'faq',
         'metrics',
         {
-          type: 'doc',
-          id: 'experiments/overview',
-          label: 'Experiments 🧪'
+          type: 'category',
+          label: 'Experiments 🧪',
+          items: ['experiments/overview', 'experiments/generic-pattern-matching']
         }
       ],
     },
