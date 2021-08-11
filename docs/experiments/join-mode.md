@@ -41,7 +41,7 @@ rules:
 
 Let's explore how this works. First, some background on the vulnerability. Second, we'll walk through the join mode rule.
 
-**Vulnerability Background**
+**Vulnerability background**
 
 In Flask, templates are only HTML-escaped if the [template file ends with the `.html` extension](https://flask.palletsprojects.com/en/2.0.x/templating/#jinja-setup). Therefore, detecting these two conditions present in a Flask application is a high indicator of 
 
