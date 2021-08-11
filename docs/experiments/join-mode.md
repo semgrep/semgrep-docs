@@ -12,7 +12,7 @@ You can think of join mode like this: distinct Semgrep rules are used to gather 
 
 ## Example
 
-Here is an example join mode rule that detects a cross-site scripting (XSS) vulnerability with high precision.
+Here’s an example join mode rule that detects a cross-site scripting (XSS) vulnerability with high precision.
 
 ```yaml
 rules:
