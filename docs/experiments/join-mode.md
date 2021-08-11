@@ -188,7 +188,7 @@ Right now, external rules are required for join mode. (This is why the rules are
 
 Currently, join mode will only report the code location of the **last finding that matches the conditions**. Join mode will parse the conditions from top-to-bottom, left-to-right. This means that findings from the "bottom-right" condition will be the reported code location.
 
-## More Ideas
+## More ideas
 
 Join mode effectively lets you ask questions of entire code bases. Here are some examples of the kinds of questions you can use join mode to answer.
 
