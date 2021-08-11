@@ -193,14 +193,14 @@ When extending any rule with an alternate choice such as `$.ellipsis`,
 the simpler way is this one:
 
 ```js
-expression: ($, previous) => choice(previous, $.ellipsis);
+expression: ($, previous) => choice(previous, $.ellipsis),
 ```
 
 However, if the `previous` rule is known to be a `choice()`, we can avoid
 one level of nesting and append to the original list of choices, which
 is done as follows:
 ```js
-expression: ($, previous) => choice(...previous.members, $.ellipsis);
+expression: ($, previous) => choice(...previous.members, $.ellipsis),
 ```
 
 Whether to use one or the other is a matter of taste.
@@ -213,7 +213,7 @@ expression: ($, previous) => {
     return choice(...previous.members, $.ellipsis);
   else
     return previous;
-};
+},
 ```
 
 Parsing statistics
