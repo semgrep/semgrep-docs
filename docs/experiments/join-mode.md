@@ -97,7 +97,7 @@ Finally, we want to "join" the results from these together. Below are the join c
 2. The keyword argument `$VAR` from `unescaped-template-extension` has the same content as `$...EXPR` from `any-template-var`
 3. The template file name `$PATH` from `unescaped-template-extension` is a substring of the file path of a result from `any-template-var`
 
-We can translate this roughly into the following condition statements.
+We can translate these roughly into the following condition statements.
 
 ```
 - 'user-input.$VAR == unescaped-extensions.$VALUE'
