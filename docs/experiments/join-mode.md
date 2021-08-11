@@ -48,7 +48,7 @@ In Flask, templates are only HTML-escaped if the [template file ends with the `.
 1. User input directly enters a template without the `.html` extension
 2. The user input is directly rendered in the template
 
-**Join Mode Rule Explanation**
+**Join mode rule explanation**
 
 Now, let's turn these conditions into the join mode rule.  We need to find three code patterns:
 
