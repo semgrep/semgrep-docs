@@ -114,10 +114,6 @@ For example:
 
 ### Taint tracking
 
-:::note
-This feature was deprecated in Semgrep v0.61.0.
-:::
-
 Semgrep supports intra-file [taint tracking](https://en.wikipedia.org/wiki/Taint_checking). Taint tracking rules must specify `mode: taint`. Additionally, the following operators are enabled:
 
 - `pattern-sources` (required)
