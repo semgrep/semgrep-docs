@@ -29,7 +29,7 @@ module.exports = {
         {
           type: 'category',
           label: 'Writing rules',
-          items: ['writing-rules/overview', 'writing-rules/pattern-examples', 'writing-rules/pattern-syntax', 'writing-rules/rule-ideas', 'writing-rules/rule-syntax', 'writing-rules/testing-rules'],
+          items: ['writing-rules/overview', 'writing-rules/pattern-examples', 'writing-rules/pattern-syntax', 'writing-rules/rule-ideas', 'writing-rules/rule-syntax', 'writing-rules/data-flow', 'writing-rules/testing-rules'],
         },
         'cli-usage',
         'extensions',
