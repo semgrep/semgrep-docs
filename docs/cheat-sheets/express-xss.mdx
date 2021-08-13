@@ -1,0 +1,408 @@
+---
+slug: express-xss
+---
+
+import LinkToRegistryRule from "/src/components/LinkToRegistryRule"
+
+# XSS prevention for Express
+
+This is a cross-site scripting (XSS) prevention cheat sheet by r2c. It contains code patterns of potential XSS in an application. Instead of scrutinizing code for exploitable vulnerabilities, the recommendations in this cheat sheet pave a safe road for developers that mitigates the possibility of XSS in your code. By  following these recommendations, you can be reasonably sure your code is free of XSS.
+
+## Mitigation summary
+
+In general, always use a template engine and `res.render()` to render HTML content. Some common template engines include Pug, Mustache, and EJS. If you need HTML escaping, escape the content. Try to do so in JavaScript code if possible. Review each individual case carefully. Once reviewed, exempt the finding with `# nosemgrep`. Beware of putting data in dangerous locations such as in `script` tags. And as always, run a security checker on your code.
+
+#### Check your project for these conditions:
+
+```bash
+semgrep --config p/xss
+```
+
+---
+
+## 1. Server code: Bypassing the template engine
+
+
+### 1.A. Direct use of `res.send()`
+
+
+Writing directly to the response object bypasses the template engine which means content will not be autoescaped. This could introduce a XSS vulnerability.
+
+Example: 
+
+```javascript
+res.send("<div>" + user.name + "</div>")
+```
+
+#### References:
+
+- [Sanitizers required when sending data via `res.send()`](https://stackoverflow.com/questions/36765667/xssexpressjs-prevent-run-script-form-post-request)
+- [`res.send()` documentation](https://expressjs.com/en/api.html#res.send)
+
+#### Mitigation
+
+Ban `res.send()`. Alternatively, use a template engine and call `res.render()`.
+
+#### Semgrep rule
+
+<LinkToRegistryRule ruleId="javascript.express.security.audit.xss.direct-response-write.direct-response-write" />
+
+
+### 1.B. Direct use of `res.write()`
+
+Writing directly to the response object bypasses the template engine which means content will not be autoescaped. This could introduce a XSS vulnerability.
+
+Example:
+
+```javascript
+res.write("<div>" + user.name + "</div>")
+```
+
+#### References:
+
+- [Sanitizers required when sending data via `res.send()`](https://stackoverflow.com/questions/36765667/xssexpressjs-prevent-run-script-form-post-request)
+- [`response.write()` documentation](https://nodejs.org/api/http.html#http_response_write_chunk_encoding_callback)
+- [Differences between `res.send()` and `res.write()`](https://stackoverflow.com/questions/44692048/what-is-the-difference-between-res-send-and-res-write-in-express/44693016)
+
+#### Mitigation
+
+Ban `response.write()`. Alternatively, use a template engine and call `res.render()`.
+
+#### Semgrep rule
+
+<LinkToRegistryRule ruleId="javascript.express.security.audit.xss.direct-response-write.direct-response-write" />
+
+
+### 1.C. Mustache: overwriting the global escape function
+
+`Mustache.escape()` is the global escape function for Mustache. If this is overwritten, escaping may not happen properly and this could introduce XSS vulnerabilities.
+
+Example:
+
+```javascript
+Mustache.escape = function(text) {return text;};
+```
+
+#### References:
+
+- [Disable HTML escaping globally in Mustache template](https://github.com/janl/mustache.js#variables)
+
+
+#### Mitigation
+
+Ban overwriting `Mustache.escape`. If necessary, use triple braces to escape only what you need in the template. Review each usage carefully and exempt with `<!-- nosemgrepgrep -->`.
+
+
+#### Semgrep rule
+
+<LinkToRegistryRule ruleId="javascript.express.security.audit.xss.mustache.escape-function-overwrite.escape-function-overwrite" />
+
+---
+
+## 2. Templates: Variable explicitly unescaped
+
+### 2.A. Mustache: Triple braces `{{{ ... }}}`
+
+Triple braces disables escaping for the content inside. This could expose your application to XSS vulnerabilities.
+
+Example:
+
+```javascript
+{{{ user_name }}}
+```
+
+#### References:
+
+- [Rendering unescaped HTML in Mustache](https://github.com/janl/mustache.js#variables)
+
+#### Mitigation:
+
+Ban triple braces. Alternatively, only use this if necessary. Review each usage carefully and exempt with `<!-- nosemgrep -->`.
+
+#### Semgrep rule
+
+<LinkToRegistryRule ruleId="javascript.express.security.audit.xss.mustache.explicit-unescape.template-explicit-unescape" />
+
+### 2.B. Mustache: Ampersand `&`
+
+The ampersand disables escaping for the following variable. This could expose your application to XSS vulnerabilities.
+
+Example:
+
+```javascript
+{{ &user_name }}
+```
+
+#### References:
+
+- [Rendering unescaped HTML in Mustache](https://github.com/janl/mustache.js#variables)
+
+#### Mitigation
+
+Ban ampersand escaping in template expressions. Alternatively, prefer triple braces, if necessary.
+
+#### Semgrep rule
+
+<LinkToRegistryRule ruleId="javascript.express.security.audit.xss.mustache.explicit-unescape.template-explicit-unescape" />
+
+### 2.C. Pug: The unescape operator, `!=`
+
+The unescape operator, `!=`, disables HTML escaping for the content. This permits raw HTML to be rendered in a template, which could create a XSS vulnerability.
+
+Example:
+
+```javascript
+a(href!=url) Documentation
+```
+
+#### References:
+
+- [Pug unescaped attributes documentation](https://pugjs.org/language/attributes.html#unescaped-attributes)
+
+#### Mitigation
+
+Ban `!=`; it is rarely necessary. Often, you want `!{...}`. If you must use this, review each usage carefully and exempt with `<!-- nosemgrep -->`.
+
+#### Semgrep rule
+
+<LinkToRegistryRule ruleId="javascript.express.security.audit.xss.pug.explicit-unescape.template-explicit-unescape" />
+
+### 2.D. Pug: Unescaped strings with `!{ ... }`
+
+`!{...}` disables HTML escaping for the content. This permits raw HTML to be rendered in a template, which could create a XSS vulnerability.
+
+Example:
+
+```javascript
+p Joel: !{riskyBusiness}
+```
+
+#### References:
+
+- [String Interpolation, Unescaped](https://pugjs.org/language/interpolation.html#string-interpolation-unescaped)
+
+
+#### Mitigation:
+
+Ban `!{...}`. Alternatively, only use this if necessary. Review each usage carefully and exempt with `<!-- nosemgrep -->`.
+
+
+#### Semgrep rule
+
+<LinkToRegistryRule ruleId="javascript.express.security.audit.xss.pug.explicit-unescape.template-explicit-unescape" />
+
+
+### 2.E Pug: And-attributes, `$attributes(...)`
+
+The `&attributes(...)` syntax explodes an object into attributes of an element. Attributes are not automatically escaped using this method. This permits raw HTML to be rendered in a template, which could create a XSS vulnerability.
+
+Example: 
+
+```html
+div#foo(data-bar='foo')&attributes({'data-foo': 'bar'})
+```
+
+#### References:
+
+- [&attributes documentation](https://pugjs.org/language/attributes.html#attributes)
+
+#### Mitigation
+
+Ban `&attributes(...)`. Alternatively, prefer `!=` only if necessary.
+
+#### Semgrep rule
+
+<LinkToRegistryRule ruleId="javascript.express.security.audit.xss.pug.and-attributes.template-and-attributes" />
+
+### 2.F. EJS: Unescaped content, `<%- ... %>`
+
+A hyphen instead of an equals in EJS expressions disables escaping for the content inside. This could expose your application to XSS vulnerabilities.
+
+Example:
+```html
+<div><%- user.name %></div>
+```
+
+#### References:
+- [Will EJS save me from XSS?](http://www.managerjs.com/blog/2015/05/will-ejs-escape-save-me-from-xss-sorta/)
+
+#### Mitigation
+
+Ban `<%- ... %>`. Alternatively, only use it if necessary. Review each usage carefully and exempt with `<!-- nosemgrep -->`.
+
+#### Semgrep rule
+
+<LinkToRegistryRule ruleId="javascript.express.security.audit.xss.ejs.explicit-unescape.template-explicit-unescape" />
+
+---
+
+## 3. Templates: Variable in dangerous location
+
+### 3.A. Mustache: Unquoted variable in HTML attribute
+
+Unquoted template variables rendered into HTML attributes is a potential XSS vector because an attacker could inject JavaScript handlers which do not require HTML characters. An example handler might look like: `onmouseover=alert(1)`. HTML escaping will not mitigate this. The variable must be quoted to avoid this.
+
+Eexample:
+```html
+<div class={{ classes }}></div>
+```
+
+#### References:
+
+- [Flask cross-site scripting considerations - unquoted variable in HTML attribute (relevant to all templates)](https://flask.palletsprojects.com/en/1.1.x/security/#cross-site-scripting-xss)
+
+#### Mitigation
+
+'Flag unquoted HTML attributes with Mustache expressions. Alternatively, always use quotes around HTML attributes.
+
+### 3.B. EJS: Unquoted variable in HTML attribute
+
+Unquoted template variables rendered into HTML attributes is a potential XSS vector because an attacker could inject JavaScript handlers which do not require HTML characters. An example handler might look like: `onmouseover=alert(1)`. HTML escaping will not mitigate this. The variable must be quoted to avoid this.
+
+Example:
+```html
+<div class=<%= classes %>></div>
+```
+
+#### References:
+
+- [Flask cross-site scripting considerations - unquoted variable in HTML attribute (relevant to all templates)](https://flask.palletsprojects.com/en/1.1.x/security/#cross-site-scripting-xss)
+
+#### Mitigation
+
+Flag unquoted HTML attributes with EJS expressions. Alternatively, always use quotes around HTML attributes.
+
+### 3.C. Mustache: Variable in `href` attribute
+
+Template variables in a `href` value could still accept the `javascript:` URI. This could be a XSS vulnerability. HTML escaping will not prevent this. Begin links with a forward slash '/' prior to the template expression to generate dynamic links: `<a href="/{{ url }}}">`
+
+Example:
+
+```html
+<a href="{{ url }}">
+```
+
+#### References:
+
+- [Flask cross-site scripting considerations - variable in `href` (relevant to all templates)](https://flask.palletsprojects.com/en/1.1.x/security/#cross-site-scripting-xss)
+
+#### Mitigation
+
+Flag template variables in `href` attributes. Alternatively, use a literal forward slash preceding the template expression to generate relative links.
+
+
+#### Semgrep rule
+
+<LinkToRegistryRule ruleId="javascript.express.security.audit.xss.mustache.var-in-href.var-in-href" />
+
+### 3.D. Pug: Variable in `href` attribute
+
+Template variables in a `href` value could still accept the `javascript:` URI. This could be a XSS vulnerability. HTML escaping will not prevent this. Begin links with a forward slash '/' prior to the template expression to generate dynamic links: `a(href='/' + link)="hello"`
+
+Example:
+
+```html
+a(href=link)="hello"
+```
+
+#### References:
+
+- [Flask cross-site scripting considerations - variable in `href` (relevant to all templates)](https://flask.palletsprojects.com/en/1.1.x/security/#cross-site-scripting-xss)
+
+#### Mitigation
+
+Flag template variables in `href` attributes. Alternatively, append the link to a literal forward slash to forcibly generate relative links.
+
+#### Semgrep rule
+
+<LinkToRegistryRule ruleId="javascript.express.security.audit.xss.pug.var-in-href.var-in-href" />
+
+### 3.E. EJS: Variable in `href` attribute
+
+Template variables in a `href` value could still accept the `javascript:` URI. This could be a XSS vulnerability. HTML escaping will not prevent this. Begin links with a forward slash '/' prior to the template expression to generate dynamic links: `<a href="/<%= link %>">`
+
+Example:
+
+```html
+<a href="<%= link %>"></a>
+```
+
+#### References:
+
+- [Flask cross-site scripting considerations - variable in `href` (relevant to all templates)](https://flask.palletsprojects.com/en/1.1.x/security/#cross-site-scripting-xss)
+
+#### Mitigation
+
+Flag template variables in `href` attributes. Alternatively, use a literal forward slash preceding the template expression to generate relative links.
+
+#### Semgrep rule
+
+<LinkToRegistryRule ruleId="javascript.express.security.audit.xss.ejs.var-in-href.var-in-href" />
+
+### 3.F. Mustache: Variable in `<script>` block
+
+Template variables placed directly into JavaScript or similar are now directly in a code execution context. Normal HTML escaping will not prevent the possibility of code injection because code can be written without HTML characters. This creates the potential for XSS vulnerabilities, or worse.
+
+Example:
+
+```html
+<script>var name = {{ name }};</script>
+```
+
+#### References:
+- [Template engines: Why default encoders are not enough](https://www.veracode.com/blog/secure-development/nodejs-template-engines-why-default-encoders-are-not-enough)
+- [Protecting against XSS in Rails - JavaScript contexts. (Relevant to all template engines.)](https://blog.ircmaxell.com/2018/06/protecting-rails-xss.html)
+
+#### Mitigation
+
+Ban template variables in `<script>` blocks. Alternatively, avoid wherever possible. If absolutely necessary, locate a JavaScript encoding library and enforce its usage.
+
+#### Semgrep rule
+
+<LinkToRegistryRule ruleId="javascript.express.security.audit.xss.mustache.var-in-script-tag.var-in-script-tag" />
+
+### 3.G. Pug: Variable in `<script>` block
+
+Template variables placed directly into JavaScript or similar are now directly in a code execution context. Normal HTML escaping will not prevent the possibility of code injection because code can be written without HTML characters. This creates the potential for XSS vulnerabilities, or worse.
+
+Example:
+
+```html
+script(type="text/javascript")="a += " + a
+```
+
+#### References:
+
+- [Template engines: Why default encoders are not enough](https://www.veracode.com/blog/secure-development/nodejs-template-engines-why-default-encoders-are-not-enough)
+- [Protecting against XSS in Rails - JavaScript contexts. (Relevant to all template engines.)](https://blog.ircmaxell.com/2018/06/protecting-rails-xss.html)
+
+#### Mitigation
+
+Ban template variables in `<script>` blocks. Alternatively, avoid wherever possible. If absolutely necessary, locate a JavaScript encoding library and enforce its usage.
+
+#### Semgrep rule
+
+<LinkToRegistryRule ruleId="javascript.express.security.audit.xss.pug.var-in-script-tag.var-in-script-tag" />
+
+### 3.H. EJS: Variable in `<script>` block
+
+Template variables placed directly into JavaScript or similar are now directly in a code execution context. Normal HTML escaping will not prevent the possibility of code injection because code can be written without HTML characters. This creates the potential for XSS vulnerabilities, or worse.
+
+Example:
+
+```html
+<script>var name = <%= name %>;</script>
+```
+
+#### References:
+
+- [Template engines: Why default encoders are not enough](https://www.veracode.com/blog/secure-development/nodejs-template-engines-why-default-encoders-are-not-enough)
+- [Protecting against XSS in Rails - JavaScript contexts. (Relevant to all template engines.)](https://blog.ircmaxell.com/2018/06/protecting-rails-xss.html)
+
+#### Mitigation
+
+Ban template variables in `<script>` blocks. Alternatively, avoid wherever possible. If absolutely necessary, locate a JavaScript encoding library and enforce its usage.
+
+#### Semgrep rule
+
+<LinkToRegistryRule ruleId="javascript.express.security.audit.xss.ejs.var-in-script-tag.var-in-script-tag" />

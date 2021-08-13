@@ -85,7 +85,7 @@ module.exports = {
     {
       type: 'category',
       label: 'Cheat sheets',
-      items: ['cheat-sheets/go-command-injection', 'cheat-sheets/flask-xss', 'cheat-sheets/django-xss', 'cheat-sheets/java-jsp-xss', 'cheat-sheets/rails-xss'],
+      items: ['cheat-sheets/go-command-injection', 'cheat-sheets/django-xss', 'cheat-sheets/express-xss', 'cheat-sheets/flask-xss', 'cheat-sheets/go-xss', 'cheat-sheets/java-jsp-xss', 'cheat-sheets/rails-xss'],
     },
     'security'
   ],
