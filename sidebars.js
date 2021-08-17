@@ -29,7 +29,7 @@ module.exports = {
         {
           type: 'category',
           label: 'Writing rules',
-          items: ['writing-rules/overview', 'writing-rules/pattern-examples', 'writing-rules/pattern-syntax', 'writing-rules/rule-ideas', 'writing-rules/rule-syntax', 'writing-rules/testing-rules'],
+          items: ['writing-rules/overview', 'writing-rules/pattern-examples', 'writing-rules/pattern-syntax', 'writing-rules/rule-ideas', 'writing-rules/rule-syntax', 'writing-rules/data-flow', 'writing-rules/testing-rules'],
         },
         'cli-usage',
         'extensions',
@@ -38,7 +38,7 @@ module.exports = {
         {
           type: 'category',
           label: 'Experiments 🧪',
-          items: ['experiments/overview', 'experiments/generic-pattern-matching']
+          items: ['experiments/overview', 'experiments/generic-pattern-matching', 'experiments/join-mode']
         }
       ],
     },
@@ -85,7 +85,7 @@ module.exports = {
     {
       type: 'category',
       label: 'Cheat sheets',
-      items: ['cheat-sheets/go-command-injection', 'cheat-sheets/flask-xss', 'cheat-sheets/django-xss', 'cheat-sheets/java-jsp-xss', 'cheat-sheets/rails-xss'],
+      items: ['cheat-sheets/go-command-injection', 'cheat-sheets/django-xss', 'cheat-sheets/express-xss', 'cheat-sheets/flask-xss', 'cheat-sheets/go-xss', 'cheat-sheets/java-jsp-xss', 'cheat-sheets/rails-xss'],
     },
     'security'
   ],
