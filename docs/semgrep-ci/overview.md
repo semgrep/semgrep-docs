@@ -102,7 +102,7 @@ These instructions have been used on the following providers by the community:
 | CI Providers         |                       |  
 |:---------- |:---------------------------|
 | Bitbucket Pipelines | Codeship |
-| Bitrise | GitHub Actions [(sample configuration)](../sample-ci-configs/../contributing/github-actions) |
+| Bitrise | GitHub Actions [(sample configuration)](../sample-ci-configs/#github-actions) |
 | Buildbot | GitLab CI [(sample configuration)](../sample-ci-configs/#gitlab-ci) |
 | Buildkite [(sample configuration)](../sample-ci-configs/#buildkite) | Jenkins [(sample configuration)](../sample-ci-configs/#jenkins) |
 | CircleCI [(sample configuration)](../sample-ci-configs/#circleci) | TeamCity CI |
