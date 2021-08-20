@@ -58,7 +58,7 @@ subprocess.check_output('ls -l dir/')
 
 #### Mitigation
 
-Do not let user input in `subprocess` methods. Alternatively,
+Do not let user input into `subprocess` methods. Alternatively,
 
 - Always try to use internal Python API (if it exists) instead of running an OS command.
 - Don’t pass user-controlled input.
