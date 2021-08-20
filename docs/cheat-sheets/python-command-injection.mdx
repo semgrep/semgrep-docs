@@ -465,7 +465,7 @@ Verify what is sent across the socket. Alternatively,
 
 The code module provides facilities to implement read-eval-print loops in Python.
 Two classes: `InteractiveInterpreter` and `InteractiveConsole` are used for that.
-Both have methods that can execute Python code, `InteractiveInterpreter.runcode` executes a code object and `InteractiveConsole.push` interprets a  string as a Python code.
+Both have methods that can execute Python code: `InteractiveInterpreter.runcode` executes a code object and `InteractiveConsole.push` interprets a string as Python code.
 This is dangerous if external data can reach these function calls because it allows a malicious actor to run arbitrary Python code.
 
 Example:
