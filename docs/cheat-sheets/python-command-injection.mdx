@@ -62,7 +62,7 @@ Do not let user input in `subprocess` methods. Alternatively,
 
 - Always try to use internal Python API (if it exists) instead of running an OS command.
 - Don’t pass user-controlled input.
-- If it is not possible - use an array with a sequence of program arguments instead of a single string.
+- If it is not possible, use an array with a sequence of program arguments instead of a single string.
 - Use `shlex.split` to correctly parse command string into an array and `shlex.quote` to correctly sanitize input as a command-line parameter.
 - Avoid running `sh` as a command with arguments, if it is not possible - strip everything except alphanumeric characters from an input provided for the command string and arguments.
 
