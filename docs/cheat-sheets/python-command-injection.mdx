@@ -60,11 +60,11 @@ subprocess.check_output('ls -l dir/')
 
 Do not let user input into `subprocess` methods. Alternatively,
 
-- Always try to use internal Python API (if it exists) instead of running an OS command.
+- Always try to use an internal Python API (if it exists) instead of running an OS command.
 - Don’t pass user-controlled input.
 - If it is not possible, use an array with a sequence of program arguments instead of a single string.
-- Use `shlex.split` to correctly parse command string into an array and `shlex.quote` to correctly sanitize input as a command-line parameter.
-- Avoid running `sh` as a command with arguments, if it is not possible - strip everything except alphanumeric characters from an input provided for the command string and arguments.
+- Use `shlex.split` to correctly parse a command string into an array and `shlex.quote` to correctly sanitize input as a command-line parameter.
+- Avoid running `sh` as a command with arguments. If it is not possible, strip everything except alphanumeric characters from an input provided for the command string and arguments.
 
 #### Semgrep rule
 
@@ -72,10 +72,10 @@ Do not let user input into `subprocess` methods. Alternatively,
 
 ### 1.B. **shell=True**
 
-Functions from `subprocess` module have `shell` argument for specifying if the command should be executed through the shell.
-Using `shell=True` is dangerous because it propagates current shell settings and variables,
-it means that variables, glob patterns, and other special shell features in the command string are processed before the command is run,
-which makes it much easier for a malicious actor to execute commands.The `subprocess` module allows you to start new processes, connect to their input/output/error pipes, and obtain their return codes. Such methods as `Popen`, `run`, `call`, `check_call`, `check_output` intended for runnig commands provided as an argument 'args'. Allowing user input in a command that is passed as an argument to one of these methods, can create an opportunity for a Command Injection vulnerability.
+Functions from `subprocess` module have the `shell` argument for specifying if the command should be executed through the shell.
+Using `shell=True` is dangerous because it propagates current shell settings and variables.
+This means that variables, glob patterns, and other special shell features in the command string are processed before the command is run,
+making it much easier for a malicious actor to execute commands. The `subprocess` module allows you to start new processes, connect to their input/output/error pipes, and obtain their return codes. Methods such as `Popen`, `run`, `call`, `check_call`, `check_output` are intended for running commands provided as an argument ('args'). Allowing user input in a command that is passed as an argument to one of these methods can create an opportunity for a command injection vulnerability.
 
 Example:
 
@@ -94,9 +94,7 @@ subprocess.call('echo $HOME', shell=False)
 
 #### Mitigation
 
-Avoid using `shell=True`. Alternatively,
-
-- Use `shell=False` instead.
+Avoid using `shell=True`. Alternatively, use `shell=False` instead.
 
 #### Semgrep rule
 
@@ -104,7 +102,7 @@ Avoid using `shell=True`. Alternatively,
 
 ### 1.C. Using **os** module to execute commands
 
-The `os` module provides a portable way of using operating system dependent functionality. Such methods as `system`, `popen` and deprecated `popen2`, `popen3` and `popen4` are intended for runnig commands provided as a string. Letting user supplied data in a command that is passed as an argument to one of these methods, can create an opportunity for a Command Injection vulnerability.
+The `os` module provides a portable way of using operating system dependent functionality. Methods such as `system`, `popen` and deprecated `popen2`, `popen3` and `popen4` are intended for running commands provided as a string. Letting user supplied data into a command that is passed as an argument to one of these methods can create an opportunity for a command injection vulnerability.
 
 Example:
 
@@ -126,12 +124,12 @@ os.popen("ls -l " + user_input)
 
 #### Mitigation
 
-Do not let user input in `os` methods. Alternatively,
+Do not let user input into `os` methods. Alternatively,
 
-- Always try to use internal Python API (if it exists) instead of running an OS command.
+- Always try to use an internal Python API (if it exists) instead of running an OS command.
 - Consider using `subprocess` functions with array of program arguments.
 - Don’t pass user-controlled input.
-- If it is not possible, then do not let running arbitrary commands, use a white list for inputs.
+- If it is not possible, then don’t let running arbitrary commands. Use an allow list for inputs.
 
 #### Semgrep rule
 
@@ -139,7 +137,7 @@ Do not let user input in `os` methods. Alternatively,
 
 ### 1.D. Using **os** module to spawn a process
 
-The `os` module allows executing the program path in a new process. Variations of spawn method: `spawnl`, `spawnle`, `spawnlp`, `spawnlpe`, `spawnv`, `spawnve`, `spawnvp`, `spawnvpe`, `posix_spawn` and `posix_spawnp` are intended for spawning a process with a program passed as a string argument. Allowing spawning arbitrary programs or running shell processes with arbitrary arguments may end up in a command injection vulnerability.
+The `os` module allows executing the program path in a new process. Variations of spawn method including `spawnl`, `spawnle`, `spawnlp`, `spawnlpe`, `spawnv`, `spawnve`, `spawnvp`, `spawnvpe`, `posix_spawn` and `posix_spawnp` are intended for spawning a process with a program passed as a string argument. Allowing spawning of arbitrary programs or running shell processes with arbitrary arguments may result in a command injection vulnerability.
 
 Example:
 
@@ -161,12 +159,12 @@ os.spawnve(os.P_WAIT, "/bin/bash", ["-c", user_input], os.environ)
 
 #### Mitigation
 
-Do not let user input in `spawn` methods. Alternatively,
+Do not let user input into `spawn` methods. Alternatively,
 
-- Always try to use internal Python API (if it exists) instead of running an OS command.
+- Always try to use an internal Python API (if it exists) instead of running an OS command.
 - Don’t pass user-controlled input.
-- Use `shlex.split` to correctly parse command string into an array and `shlex.quote` to correctly sanitize input as a command-line parameter.
-- Avoid running `sh` as a command with arguments, if it is not possible - strip everything except alphanumeric characters from an input provided for the command string and arguments.
+- Use `shlex.split` to correctly parse a command string into an array and `shlex.quote` to correctly sanitize input as a command-line parameter.
+- Avoid running `sh` as a command with arguments. If it’s not possible to avoid, strip everything except alphanumeric characters from an input provided for the command string and arguments.
 
 #### Semgrep rule
 
@@ -174,7 +172,7 @@ Do not let user input in `spawn` methods. Alternatively,
 
 ### 1.E. Replacing currnet process with **exec**
 
-Execution methods of the `os` module are intended to execute a new program, replacing the current process. All available methods are `execl`, `execle`, `execlp`, `execlpe`, `execv`, `execve`, `execvp`, `execvpe`. Allowing running arbitrary programs or running shell processes with arbitrary arguments may end up in a command injection vulnerability.
+Execution methods of the `os` module are intended to execute a new program, replacing the current process. The available methods are `execl`, `execle`, `execlp`, `execlpe`, `execv`, `execve`, `execvp`, and `execvpe`. Allowing running of arbitrary programs or running shell processes with arbitrary arguments may result in a command injection vulnerability.
 
 Example:
 
@@ -196,12 +194,12 @@ os.execve("/bin/bash", ["/bin/bash", "-c", user_input], os.environ)
 
 #### Mitigation
 
-Do not let user input in `exec` methods. Alternatively,
+Do not let user input into `exec` methods. Alternatively,
 
-- Always try to use internal Python API (if it exists) instead of running an OS command.
+- Always try to use internal an Python API (if it exists) instead of running an OS command.
 - Don’t pass user-controlled input.
-- Use `shlex.split` to correctly parse command string into an array and `shlex.quote` to correctly sanitize input as a command-line parameter.
-- Avoid running `sh` as a command with arguments, if it is not possible - strip everything except alphanumeric characters from an input provided for the command string and arguments.
+- Use `shlex.split` to correctly parse a command string into an array and `shlex.quote` to correctly sanitize input as a command-line parameter.
+- Avoid running `sh` as a command with arguments. If it’s not possible to avoid, strip everything except alphanumeric characters from an input provided for the command string and arguments.
 
 #### Semgrep rule
 
@@ -246,7 +244,7 @@ Avoid wildcards in Unix shell commands.
 
 `asyncio.subprocess` is an async/await API to create and manage subprocesses.
 Such methods as `create_subprocess_shell` and Event Loop's `subprocess_shell` are intended for running shell commands provided as an argument 'cmd'.
-Allowing user input in a command that is passed as an argument to one of these methods, can create an opportunity for a Command Injection vulnerability.
+Allowing user input into a command that is passed as an argument to one of these methods can create an opportunity for a command injection vulnerability.
 
 Example:
 
@@ -271,12 +269,12 @@ asyncio.subprocess.create_subprocess_shell(user_input)
 
 #### Mitigation
 
-Do not let user input in `asyncio subprocess` methods. Alternatively,
+Do not let user input into `asyncio subprocess` methods. Alternatively,
 
-- Always try to use internal Python API (if it exists) instead of running an OS command.
+- Always try to use an internal Python API (if it exists) instead of running an OS command.
 - Consider using asyncio.subprocess functions with array of program arguments (e.g. `create_subprocess_exec`).
 - Don’t pass user-controlled input.
-- If it is not possible, then do not let running arbitrary commands, use a white list for inputs.
+- If it’s not possible, then don’t let running arbitrary commands. Use an allow list for inputs.
 
 #### Semgrep rule
 
@@ -284,9 +282,9 @@ Do not let user input in `asyncio subprocess` methods. Alternatively,
 
 ### 1.H. Creating subprocesses asynchronously
 
-`asyncio.subprocess` also allows to create subprocesses asynchronously.
+`asyncio.subprocess` also allows the creation of subprocesses asynchronously.
 Such methods as `create_subprocess_exec` and Event Loop's `subprocess_exec` are intended for creating a subprocess from one or more string arguments specified by args.
-Allowing user input in a command that is passed as an argument to one of these methods, can create an opportunity for a Command Injection vulnerability.
+Allowing user input into a command that is passed as an argument to one of these methods can create an opportunity for a command injection vulnerability.
 
 Example:
 
@@ -314,12 +312,12 @@ loop.subprocess_exec(asyncio.SubprocessProtocol, ['ls', '-l', user_input])
 
 #### Mitigation
 
-Do not let user input in `asyncio subprocess` methods. Alternatively,
+Do not let user input into `asyncio subprocess` methods. Alternatively,
 
-- Always try to use internal Python API (if it exists) instead of running an OS command.
+- Always try to use an internal Python API (if it exists) instead of running an OS command.
 - Don’t pass user-controlled input.
-- Use `shlex.split` to correctly parse command string into an array and `shlex.quote` to correctly sanitize input as a command-line parameter.
-- Avoid running `sh` as a command with arguments, if it is not possible - strip everything except alphanumeric characters from an input provided for the command string and arguments.
+- Use `shlex.split` to correctly parse a command string into an array and `shlex.quote` to correctly sanitize input as a command-line parameter.
+- Avoid running `sh` as a command with arguments. If it’s not possible to avoid, strip everything except alphanumeric characters from an input provided for the command string and arguments.
 
 #### Semgrep rule
 
@@ -353,7 +351,7 @@ exec("foobar('{}')".format(user_input))
 Do not use `exec()` for non literal values. Alternatively,
 
 - Ensure executed content is not definable by external sources.
-- If it is not possible - strip everything except alphanumeric characters from an input provided for the command string and arguments.
+- If it’s not possible, strip everything except alphanumeric characters from an input provided for the command string and arguments.
 - Don’t try to make `exec` safe with tricks like `{'__builtins__':{}}`
 
 #### Semgrep rule
@@ -385,7 +383,7 @@ eval(user_input)
 Do not use `eval()`. Alternatively,
 
 - Ensure evaluated content is not definable by external sources.
-- If it is not possible - strip everything except alphanumeric characters from an input provided for the command string and arguments.
+- If it’s not possible, strip everything except alphanumeric characters from an input provided for the command string and arguments.
 - Don’t try to make `eval` safe with tricks like `{'__builtins__':{}}`
 
 #### Semgrep rule
@@ -455,7 +453,7 @@ s.close()
 
 Verify what is sent across the socket. Alternatively,
 
-- To avoid the risk, use the verify argument to `logging.config.listen()` to prevent unrecognised configurations from being applied. This could be done by encrypting and/or signing what is sent across the socket, such that the verify callable can perform signature verification and/or decryption.
+- To avoid the risk, use the verify argument to `logging.config.listen()` to prevent unrecognized configurations from being applied. This could be done by encrypting and/or signing what is sent across the socket, such that the verify callable can perform signature verification and/or decryption.
 
 #### Semgrep rule
 
@@ -528,7 +526,7 @@ _xxsubinterpreters.run_string(_xxsubinterpreters.create(), user_input)
 Do not let user input in `_xxsubinterpreters` methods. Alternatively,
 
 - Ensure evaluated content is not definable by external sources.
-- If it is not possible - strip everything except alphanumeric characters from an input provided for the command string and arguments.
+- If it’s not possible, strip everything except alphanumeric characters from an input provided for the command string and arguments.
 
 #### Semgrep rule
 
@@ -569,7 +567,7 @@ support.run_in_subinterp(user_input)
 Do not let user input in `run_in_subinterp` function. Alternatively,
 
 - Ensure evaluated content is not definable by external sources.
-- If it is not possible - strip everything except alphanumeric characters from an input provided for the command string and arguments.
+- If it’s not possible, strip everything except alphanumeric characters from an input provided for the command string and arguments.
 
 #### Semgrep rule
 
@@ -616,7 +614,7 @@ Do not access global/local symbol tables. Refactor your code not to use `globals
 ### 3.B. Dynamically updating and accessing code annotations
 
 Annotations passed to `typing.get_type_hints()` are evaluated in `globals` and `locals` namespaces.
-Make sure that no arbitrary value can be written as the annotation and passed to `typing.get_type_hints` function.
+Make sure that no arbitrary value can be written as the annotation and passed to the `typing.get_type_hints` function.
 
 Example:
 
