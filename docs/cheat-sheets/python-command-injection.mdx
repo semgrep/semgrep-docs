@@ -24,7 +24,7 @@ semgrep --config p/python-command-injection
 
 ### 1.A. Using **subprocess** module
 
-The `subprocess` module allows you to start new processes, connect to their input/output/error pipes, and obtain their return codes. Such methods as `Popen`, `run`, `call`, `check_call`, `check_output` intended for runnig commands provided as an argument 'args'. Allowing user input in a command that is passed as an argument to one of these methods, can create an opportunity for a Command Injection vulnerability.
+The `subprocess` module allows you to start new processes, connect to their input/output/error pipes, and obtain their return codes. Methods such as `Popen`, `run`, `call`, `check_call`, `check_output` are intended for running commands provided as an argument ('args'). Allowing user input in a command that is passed as an argument to one of these methods can create an opportunity for a command Injection vulnerability.
 
 Example:
 
