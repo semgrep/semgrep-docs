@@ -10,7 +10,7 @@ Users in the [Team and Enterprise tier](https://semgrep.dev/pricing) for Semgrep
 
 As we continue to develop and refine this feature, we welcome and appreciate all feedback via email at product@returntocorp.com or in our [Community Slack](https://r2c.dev/slack).
 
-## Getting Started
+## Getting started
 
 [View instructions](https://github.com/returntocorp/semgrep/tree/develop/upload) on how to beging uploading your private rules.
 
