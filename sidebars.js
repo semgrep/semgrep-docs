@@ -86,14 +86,26 @@ module.exports = {
       type: 'category',
       label: 'Cheat sheets',
       items: [
-        'cheat-sheets/go-command-injection',
-        'cheat-sheets/python-command-injection',
-        'cheat-sheets/django-xss',
-        'cheat-sheets/express-xss',
-        'cheat-sheets/flask-xss',
-        'cheat-sheets/go-xss',
-        'cheat-sheets/java-jsp-xss',
-        'cheat-sheets/rails-xss'
+        {
+          type: 'category',
+          label: 'Command Injection',
+          items: [
+            'cheat-sheets/go-command-injection',
+            'cheat-sheets/python-command-injection'
+          ]
+        },
+        {
+          type: 'category',
+          label: 'XSS',
+          items: [
+            'cheat-sheets/django-xss',
+            'cheat-sheets/express-xss',
+            'cheat-sheets/flask-xss',
+            'cheat-sheets/go-xss',
+            'cheat-sheets/java-jsp-xss',
+            'cheat-sheets/rails-xss'
+          ]
+        },
       ],
     },
     'security'
