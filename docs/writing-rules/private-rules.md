@@ -8,7 +8,7 @@ description: "Users in the Team and Enterprise tier for Semgrep App can publish 
 
 Users in the [Team and Enterprise tier](https://semgrep.dev/pricing) for Semgrep App can publish rules to the Semgrep Registry that are not visible to others outside their organization. This can be useful for organizations where rules may contain code-sensitive information or legal requirements prevent using a public registry.
 
-As we continue to develop and refine this feature, we welcome and appreciate all feedback via email at product@returntocorp.com or in our [Community Slack](https://r2c.dev/slack).
+As we continue to develop and refine this feature, we welcome and appreciate all feedback via email at [product@r2c.dev](mailto:product@r2c.dev) or in our [Community Slack](https://r2c.dev/slack).
 
 ## Getting started
 
