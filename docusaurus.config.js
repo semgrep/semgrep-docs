@@ -123,7 +123,7 @@ module.exports = {
 
       // Optional: Algolia search parameters
       searchParameters: {},
-      facetFilters: []
+      facetFilters: [],
       //... other Algolia params
     },
     gtag: {
