@@ -88,7 +88,7 @@ module.exports = {
       items: [
         {
           type: 'category',
-          label: 'Command Injection',
+          label: 'Command injection',
           items: [
             'cheat-sheets/go-command-injection',
             'cheat-sheets/python-command-injection'
