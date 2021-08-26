@@ -18,7 +18,7 @@ description: >-
 
 Semgrep is a fast, open-source, static analysis tool for finding bugs and enforcing code standards at editor, commit, and CI time. [Get started →](getting-started/)
 
-Semgrep analyzes code locally on your computer or in your build environment: **code is never uploaded**.
+Semgrep analyzes code locally on your computer or in your build environment: **code is never uploaded**. 
 
 Its rules look like the code you already write; no abstract syntax trees, regex wrestling, or painful DSLs. Here's a quick rule for finding Python `print()` statements, run it by clicking the [▸] button:
 
@@ -62,3 +62,7 @@ To determine alpha, beta, or general availability (GA) status we scan a wide cor
 ## History
 
 Semgrep is an evolution of [pfff](https://github.com/returntocorp/pfff/), which began at [Facebook](https://github.com/facebookarchive/pfff) in 2009, which itself was an evolution of the Linux refactoring tool [Coccinelle](https://en.wikipedia.org/wiki/Coccinelle_(software)). [r2c](https://r2c.dev/team) revitalized the project after its original author, [Yoann Padioleau](https://github.com/aryx), joined the company.
+
+## Development Philosophy
+
+See the [Semgrep CLI Philosophy](contributing/semgrep-philosophy/) for details about why Semgrep is free, our goals for development, and the designed capabailities and limits of the static analysis engine.

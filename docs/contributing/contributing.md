@@ -17,4 +17,6 @@ Then check out a few ways you can get involved:
 - Update the [docs](https://github.com/returntocorp/semgrep-docs)
 - Help each other in the [r2c Community Slack](https://r2c.dev/slack)
 
-Please see the [contribution guidelines](contributing-code.md) for info about the development workflow, testing, and making PRs.
+Please see the [contribution guidelines](contributing-code.md) for info about the development workflow, testing, and making PRs. For a higher-level view of Semgrep’s design principles, see the [Semgrep CLI philosophy](contributing/semgrep-philosophy/).
+
+
