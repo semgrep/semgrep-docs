@@ -75,7 +75,7 @@ It’s easy to write a new Semgrep rule and have it only apply _going forward_. 
 
 Many other tools require a buildable environment or can only be run in a VM. Semgrep runs “on the metal” and has minimal dependencies around a statically linked core; our parsers are declaratively-generated C libraries (we contribute to and use [tree-sitter](https://tree-sitter.github.io/)).
 
-And many more: see [our philosophy for Semgrep](contributing/semgrep-philosophy/) for further reading.
+And many more: see [the Semgrep philosophy](contributing/semgrep-philosophy/) for further reading.
 
 ### How is Semgrep different than linters?
 
@@ -100,7 +100,7 @@ Both Semgrep and CodeQL use static analysis to find bugs, but there are a few di
 - Semgrep rules look like the source code you’re writing; CodeQL has a separate domain-specific-language for writing queries.
 - Semgrep has an online, hosted free plan; both have a hosted paid plan
 
-See [our philosophy for developing Semgrep](contributing/semgrep-philosophy/) for more about what makes Semgrep different.
+See [the Semgrep development philosophy](contributing/semgrep-philosophy/) for more about what makes Semgrep different.
 
 ### How is Semgrep different than SonarQube?
 
@@ -114,7 +114,7 @@ Both Semgrep and SonarQube use static analysis to find bugs, but there are a few
 - Both have publicly available rules
 - Semgrep has an online, hosted free plan; both have a hosted paid plan
 
-See [our philosophy for developing Semgrep](contributing/semgrep-philosophy/) for more about what makes Semgrep different.
+See [the Semgrep development philosophy](contributing/semgrep-philosophy/) for more about what makes Semgrep different.
 
 ## Privacy and Security
 

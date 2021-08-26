@@ -22,7 +22,7 @@ High sloc/sec scanning speed and low startup cost. We’ll never be as fast as r
 Semgrep by default runs entirely locally (unless you set it up yourself in a server/client mode). Code never leaves your machine to be analyzed.
 
 1. **Support every programming language**<br/>
-“If grep supports it, we will too!” This even includes those that aren’t thought of as programming languages, like bash or Docker.
+“If grep supports it, we will too!” This even includes those that aren’t thought of as programming languages, like Bash or Docker.
 
 1. **Run anywhere**<br/>
 Semgrep is small (<100MB), has minimal runtime dependencies, and should be easily installable via your programming language or operating system package manager. 
@@ -34,7 +34,7 @@ You shouldn’t need a PhD in program analysis, or even to understand what an AS
 Rules should look like code and be easy to read and reason about — hopefully easier than if they were written in grep or a native linter.
 
 1. **Self-contained rule files**<br/>
-You shouldn’t have to wonder whether you need an additional plugin, dependency, or internet access to run a YAML rule. It should just work.
+You shouldn’t need an additional plugin, dependency, or internet access to run a YAML rule. It should just work.
 
 1. **Deterministic (implies reproducible, idempotent)**<br/>
 Given the same input, Semgrep gives the same output.
@@ -48,7 +48,7 @@ Rules shouldn’t have the capability to run arbitrary code on your system, only
 1. **Single-file analysis**<br/>
 To stay fast and limit complexity, we draw a line at crossing file boundaries during analysis. We lose the ability to detect certain complex interprocedural issues, but that’s an explicit tradeoff we make.<br/><br/>
 Our goal is to catch what a senior engineer would catch in code review: Semgrep isn’t designed to find a crazy issue that’s 300 calls from start to finish and evaded the team for 20 years. Instead, it’s designed for enforcing best-practices and automating the code review tasks that an excellent senior engineer would be capable of.<br/><br/>
-As a corollary: if you design your codebase so that code in a file is safe today, it's still safe after an intern makes a change twenty function calls away in another file.
+As a corollary: if you design your codebase so that code in a file is safe today, it's still safe after a colleague makes a change twenty function calls away in another file.
 
 1. **Designed to run while code is being written**<br/>
 Semgrep is optimized for running in the IDE, git commit hooks, or CI—not for at the tail-end of a release process.
