@@ -72,6 +72,7 @@ a:hover {
   height: 50px;
 }
 
+
 .navbar__brand {
   margin-right: 0;
 }
@@ -80,12 +81,28 @@ a.navbar__item.navbar__link {
   font-weight: normal;
   padding-left: 10px;
   padding-right: 10px;
+
+  border: none;
+  border-radius: 3px;
+  cursor: pointer;
+  font-size: 14px;
+  justify-content: center;
+  padding: 5px 10px;
+  text-align: left;
+  vertical-align: middle;
+  min-height: 30px;
+  min-width: 30px;
 }
 
 a.navbar__item.navbar__link:hover {
   transition: none;
   color: inherit;
-  text-decoration: underline;
+  text-decoration: none;
+  background-color: #f2f8fe;
+}
+
+.active-nav {
+  color: #106ba3;
 }
 
 .navbar__link:hover,
