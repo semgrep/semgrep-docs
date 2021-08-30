@@ -315,7 +315,7 @@ The YAML `|` operator allows for [multiline strings](https://yaml-multiline.info
 You can use `"$X"` to match any string literal. This is similar
 to using `"..."`, but the content of the string is stored in the
 metavariable `$X`, which can then be used in a message
-or in a [`metavariable-regexp`](../rule-syntax/#metavariable-regex).
+or in a [`metavariable-regex`](../rule-syntax/#metavariable-regex).
 
 You can also use `/$X/` and `:$X` to respectively match
 any regular expressions or atoms (in languages that support
@@ -588,7 +588,7 @@ function `foo`. In the same way, you can just match a class header
 ### String matching
 
 :::warning
-String matching has been deprecated. You should use [`metavariable-regexp`](../rule-syntax/#metavariable-regex) instead.
+String matching has been deprecated. You should use [`metavariable-regex`](../rule-syntax/#metavariable-regex) instead.
 :::
 
 Search string literals within code with [Perl Compatible Regular Expressions (PCRE)](https://learnxinyminutes.com/docs/pcre/).
