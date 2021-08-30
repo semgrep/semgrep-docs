@@ -5,7 +5,7 @@ description: "As you think about contributing to Semgrep, consider these design 
 
 # Semgrep CLI philosophy
 
-[Semgrep](https://semgrep.dev/) is a lightweight static analysis for many languages. It can find bug variants with patterns that look like source code.
+[Semgrep](https://semgrep.dev/) is a lightweight static analysis tool for many languages. It can find bug variants with patterns that look like source code.
 
 As you think about contributing to the Semgrep CLI, consider these design principles that have guided Semgrep's development so far:
 
