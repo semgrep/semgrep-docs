@@ -16,8 +16,8 @@ Otherwise, let's get started.
 
 Repositories involved directly:
 * [semgrep](https://github.com/returntocorp/semgrep): the semgrep command line program;
-* [ocaml-tree-sitter-semgrep](https://github.com/returntocorp/ocaml-tree-sitter-semgrep): setup for custom tree-sitter grammars;
-* new repo semgrep-_X_ for the new language _X_, generated from ocaml-tree-sitter-semgrep by an admin.
+* [ocaml-tree-sitter-semgrep](https://github.com/returntocorp/ocaml-tree-sitter-semgrep): language-specific setup, generates C/OCaml parsers for semgrep;
+* new repo semgrep-_X_ for the new language _X_: C/OCaml parser generated from ocaml-tree-sitter-semgrep by an admin.
 
 Submodules overview (semgrep repo)
 --
