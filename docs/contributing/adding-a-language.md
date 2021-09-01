@@ -14,6 +14,11 @@ legacy OCaml parser for them. Check for your language in
 in there, [talk to us](https://semgrep.dev/docs/support/).
 Otherwise, let's get started.
 
+Repositories involved directly:
+* [semgrep](https://github.com/returntocorp/semgrep): the semgrep command line program;
+* [ocaml-tree-sitter-semgrep](https://github.com/returntocorp/ocaml-tree-sitter-semgrep): setup for custom tree-sitter grammars;
+* new repo semgrep-_X_ for the new language _X_, generated from ocaml-tree-sitter-semgrep by an admin.
+
 Submodules overview (semgrep repo)
 --
 
