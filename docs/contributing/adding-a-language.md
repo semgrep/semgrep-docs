@@ -14,7 +14,7 @@ legacy OCaml parser for them. Check for your language in
 in there, [talk to us](https://semgrep.dev/docs/support/).
 Otherwise, let's get started.
 
-Submodules overview
+Submodules overview (semgrep repo)
 --
 
 There are quite a few GitHub repositories involved in porting a language.
@@ -23,14 +23,13 @@ repository](https://github.com/returntocorp/semgrep):
 
 ``` shell
 .
-└── semgrep
-    ├── ocaml-tree-sitter      # runtime library for tree-sitter parsers
-    └── semgrep-core
-        ├── pfff               # non-tree-sitter parsers
-        └── tree-sitter-lang   # generated tree-sitter parsers
-            ├── semgrep-java
-            ...
-            └── semgrep-ruby
+└── semgrep/semgrep-core/src
+    ├── ocaml-tree-sitter-core  # runtime library for tree-sitter parsers
+    ├── pfff                    # non-tree-sitter parsers
+    └── tree-sitter-lang        # generated tree-sitter parsers
+        ├── semgrep-java
+        ...
+        └── semgrep-ruby
 ```
 
 You'll need a new repo semgrep-X to host the generated parser code.
@@ -41,7 +40,7 @@ when creating the repo.
 
 The instructions for adding a language start in `ocaml-tree-sitter` (as indicated below). Be careful that you are always in the correct repo!
 
-Setup (ocaml-tree-sitter)
+Setup (ocaml-tree-sitter-semgrep repo)
 --
 
 As a model, you can use the existing setup for `ruby` or `javascript`. Our
