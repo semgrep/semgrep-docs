@@ -27,14 +27,13 @@ Here is the file hierarchy of the [semgrep
 repository](https://github.com/returntocorp/semgrep):
 
 ``` shell
-.
-└── semgrep/semgrep-core/src
-    ├── ocaml-tree-sitter-core  # runtime library for tree-sitter parsers
-    ├── pfff                    # non-tree-sitter parsers
-    └── tree-sitter-lang        # generated tree-sitter parsers
-        ├── semgrep-java
-        ...
-        └── semgrep-ruby
+/semgrep-core/src
+├── ocaml-tree-sitter-core  # runtime library for tree-sitter parsers
+├── pfff                    # non-tree-sitter parsers
+└── tree-sitter-lang        # generated tree-sitter parsers
+    ├── semgrep-java
+    ...
+    └── semgrep-ruby
 ```
 
 You'll need a new repo semgrep-X to host the generated parser code.
