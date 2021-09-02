@@ -45,6 +45,8 @@ Semgrep is developed and commercially supported by [r2c, a software security com
 
 Semgrep supports 17+ languages.
 
+<div id="language-support-table">
+
 | GA         | Alpha                      | Experimental |
 |:---------- |:---------------------------|:-------------|
 | Go         | C                          | Kotlin       |
@@ -56,6 +58,8 @@ Semgrep supports 17+ languages.
 | Ruby       |                            |              |
 | TypeScript |                            |              |
 | TSX        |                            |              |
+
+</div>
 
 To determine alpha, beta, or general availability (GA) status we scan a wide corpus of projects and measure the parse rate of each language. For more details see [the breakdown of all supported languages](language-support/).
 

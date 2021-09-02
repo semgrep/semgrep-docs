@@ -19,7 +19,7 @@
     "lvl4": "article h4",
     "lvl5": "article h5, article td:first-child",
     "lvl6": "article h6",
-    "text": "article p, article li, article td:last-child, code"
+    "text": "article p, article li, article td:last-child, code, div table td, div table th"
   },
   "strip_chars": " .,;:#",
   "custom_settings": {
