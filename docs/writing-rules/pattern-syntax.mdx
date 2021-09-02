@@ -486,6 +486,10 @@ def update_system():
     set_password(password)
 ```
 
+:::tip
+It is possible to disable constant propagation in a per-rule basis via the [`options` rule field](./rule-syntax.md#options).
+:::
+
 ### Associative and commutative operators
 
 Semgrep performs associative-commutative (AC) matching. For example, `... && B && C` will match both `B && C` and `(A && B) && C` (i.e., `&&` is associative). Also, `A | B | C` will match `A | B | C`, and `B | C | A`, and `C | B | A`, and any other permutation (i.e., `|` is associative and commutative).
