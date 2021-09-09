@@ -65,6 +65,7 @@ a:hover {
 .navbar__inner {
   position: fixed;
   left: 5px;
+  top: 0;
   padding: 0 10px;
 }
 
