@@ -59,7 +59,7 @@ For example, if a project has 4 unique contributors who push code during the bil
 
 To upgrade to our Team tier, select the number of seats you wish to purchase and pay directly from the Settings page in Semgrep App!
 
-For custom pricing on our Enterprise tier, please contact us via the form on our [pricing page](http://semgrep.dev/pricing).
+For Enterprise tier pricing, please contact us via the form on the [pricing page](http://semgrep.dev/pricing).
 
 #### How do I pay for my plan?
 
