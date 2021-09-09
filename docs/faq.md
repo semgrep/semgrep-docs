@@ -43,17 +43,17 @@ Yes, you can use the Semgrep CLI and Semgrep Community Tier for [free](https://s
 
 #### What are the differences between a free plan and the paid plans?
 
-Semgrep Community is great for individuals looking to quickly secure their public and private projects.
+Semgrep Community is great for individuals looking to quickly secure their public and private projects and teams looking to explore and try out the product.
 
 Semgrep Team and Enterprise are best for larger organizations that require dedicated support and advanced functionality.
 
-You can find more on our [pricing page](http://semgrep.dev/pricing).
+You can find more on our [pricing page](https://semgrep.dev/pricing).
 
-#### Who is a user?
+#### How many seats do I need?
 
-A user is any project contributor whose pull request or code is scanned during the billing period.
+One seat corresponds to one project contributor whose pull request or code is scanned during the billing period.
 
-For example, if a project has 4 unique contributors who push code during the billing period and Semgrep runs on all their pull requests, there are 4 users. If these unique contributors commit to many projects, they will only be counted once.
+For example, if a project has 4 unique contributors who push code during the billing period and Semgrep runs on all their pull requests, that is counted as 4 seats. If these unique contributors commit to many projects, they will only be counted once.
 
 #### How do I upgrade my plan?
 
@@ -65,7 +65,7 @@ For custom pricing on our Enterprise tier, please contact us via the form on our
 
 We accept all major credit cards through [Stripe](https://stripe.com/). If you want to pay through a purchase order / invoice mechanism, you can also reach out to [billing@r2c.dev](mailto:billing@r2c.dev) to get in touch with our sales team.
 
-We will bill you every 30 days.
+We will bill you every month starting from when you upgraded your account.
 
 #### How do I modify my plan?
 
