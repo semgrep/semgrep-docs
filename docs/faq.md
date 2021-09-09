@@ -57,7 +57,7 @@ For example, if a project has 4 unique contributors who push code during the bil
 
 #### How do I upgrade my plan?
 
-To upgrade to our Team tier, select the number of seats you wish to purchase and pay directly from the Settings page in Semgrep App!
+To upgrade to the Team tier, select the number of seats you wish to purchase and pay directly from the Settings page in Semgrep App!
 
 For Enterprise tier pricing, please contact us via the form on the [pricing page](http://semgrep.dev/pricing).
 
