@@ -53,7 +53,7 @@ You can find more on the [pricing page](https://semgrep.dev/pricing).
 
 One seat corresponds to one project contributor whose merge/pull request or code is scanned during the billing period.
 
-For example, if a project has 4 unique contributors who push code during the billing period and Semgrep runs on all their pull requests, that is counted as 4 seats. If these unique contributors commit to many projects, they will only be counted once.
+For example, if a project has 4 unique contributors who push code during the billing period and Semgrep runs on their merge/pull requests, 4 seats required. If these unique contributors commit to many projects within the same organization, they will only be counted once, so no additional seats are required.
 
 #### How do I upgrade my plan?
 
