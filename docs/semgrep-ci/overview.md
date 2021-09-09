@@ -91,7 +91,7 @@ SEMGREP_TIMEOUT=1800  # Maximum Semgrep run time in seconds, or 0 to disable tim
 ## Run semgrep_agent
 
 ```sh
-semgrep-agent --publish-deployment $SEMGREP_DEPLOYMENT_ID --publish-token $SEMGREP_APP_TOKEN
+semgrep-agent --publish-token $SEMGREP_APP_TOKEN
 ```
 
 <br />
@@ -270,7 +270,7 @@ In providers other than GitHub Actions and GitLab CI, Semgrep CI doesn't infer a
 
 ### Semgrep App connection
 
-To use your Semgrep App account, set `--publish-deployment` and `--publish-token`. These act as your username and password for authentication. You can find the right values for these flags on the [Dashboard > Settings](https://semgrep.dev/manage/settings) page.
+To use your Semgrep App account, set `--publish-token`. This acts as your username and password for authentication. You can generate an API token on the [Dashboard > Settings](https://semgrep.dev/manage/settings) page.
 
 #### Ignoring specific rules in a ruleset or policy
 

@@ -91,9 +91,9 @@ For example:
 semgrep:
   image: returntocorp/semgrep-agent:v1
   script:
-    # DEPLOYMENT_ID and SEMGREP_APP_TOKEN can both be obtained from semgrep.dev/manage/settings. 
+    # SEMGREP_APP_TOKEN can be obtained from semgrep.dev/manage/settings. 
     # The SEMGREP_APP_TOKEN should be treated like a secret and not hard-coded into your code.
-    - semgrep-agent --publish-deployment $DEPLOYMENT_ID --publish-token $SEMGREP_APP_TOKEN
+    - semgrep-agent --publish-token $SEMGREP_APP_TOKEN
   rules:
   # Scan changed files in MRs, block on new issues only (existing issues ignored)
   - if: $CI_MERGE_REQUEST_IID
