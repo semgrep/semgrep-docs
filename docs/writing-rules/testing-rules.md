@@ -86,6 +86,38 @@ final confusion matrix: TP: 1 TN: 2 FP: 1 FN: 1
 - False positives (`FP`) correspond to `todook`
 - False negatives (`FN`) correspond to `todoruleid`
 
+You can also test a single file with:
+
+```sh
+$ python -m semgrep --test --config cookie-missing-httponly.yaml
+running 1 rules...
+ran 1 rules on 1 files: 3 findings
+1 yaml files tested
+check id scoring:
+--------------------------------------------------------------------------------
+(TODO: 0) cookie-missing-httponly.yaml
+	✔ cookie-missing-httponly                                      TP: 3 TN: 1 FP: 0 FN: 0
+--------------------------------------------------------------------------------
+final confusion matrix: TP: 3 TN: 1 FP: 0 FN: 0
+--------------------------------------------------------------------------------
+```
+
+You can specify a folder or file of rules to be tested on a separate directory or file of example code with:
+
+```sh
+$ python -m semgrep --test --config command-injection-formatted-runtime-call.yaml test
+running 1 rules...
+ran 1 rules on 1 files: 2 findings
+1 yaml files tested
+check id scoring:
+--------------------------------------------------------------------------------
+(TODO: 0) command-injection-formatted-runtime-call.yaml
+	✔ command-injection-formatted-runtime-call                     TP: 2 TN: 1 FP: 0 FN: 0
+--------------------------------------------------------------------------------
+final confusion matrix: TP: 2 TN: 1 FP: 0 FN: 0
+--------------------------------------------------------------------------------
+```
+
 To avoid failing on TODOs you can specify `--test-ignore-todo`:
 
 ```sh
