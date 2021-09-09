@@ -47,7 +47,7 @@ Semgrep Community is great for individuals looking to quickly secure their publi
 
 Semgrep Team and Enterprise are best for larger organizations that require dedicated support and advanced functionality.
 
-You can find more on our [pricing page](https://semgrep.dev/pricing).
+You can find more on the [pricing page](https://semgrep.dev/pricing).
 
 #### How many seats do I need?
 
