@@ -177,6 +177,7 @@ module.exports = {
           { from: "/experiments", to: "/experiments/overview/" },
           { from: "/semgrep-ci", to: "/semgrep-ci/overview/" },
           { from: "/sample-ci-configs", to: "/semgrep-ci/sample-ci-configs/" },
+          { from: "/status/", to: "/language-support/" },
         ]
       }
     ],
