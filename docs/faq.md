@@ -37,13 +37,47 @@ Help is available for all users, free or otherwise, through the [r2c Community S
 
 ## Billing / Pricing
 
-#### What features differ between Semgrep App’s Community (free) and Team (paid) versions?
+#### Can I use Semgrep for free?
 
-See the Semgrep feature and pricing comparison at [r2c.dev/pricing](https://r2c.dev/pricing)
+Yes, you can use the Semgrep CLI and Semgrep Community Tier for [free](https://semgrep.dev/getting-started)!
 
-#### Who is a user and how do you count them?
+#### What are the differences between a free plan and the paid plans?
 
-For the Semgrep Team tier, a user is any project contributor whose pull request or code was scanned in the billing cycle. For example, if a project has 4 unique contributors who pushed code during the period, and Semgrep runs on all their pull requests, there are 4 users. If these unique contributors push to many projects, they will only be counted once; please feel free to scan often and widely. Semgrep does not charge on a line-of-code or per-project basis.
+Semgrep Community is great for individuals looking to quickly secure their public and private projects and teams looking to explore and try out the product.
+
+Semgrep Team and Enterprise are best for larger organizations that require dedicated support and advanced functionality.
+
+You can find more on the [pricing page](https://semgrep.dev/pricing).
+
+#### How many seats do I need?
+
+One seat corresponds to one project contributor whose merge/pull request or code is scanned during the billing period.
+
+For example, if a project has 4 unique contributors who push code during the billing period and Semgrep runs on their merge/pull requests, 4 seats are required. If these unique contributors commit to many projects within the same organization, they will only be counted once, so no additional seats are required.
+
+#### How do I upgrade my plan?
+
+To upgrade to the Team tier, select the number of seats you wish to purchase and pay directly from the Settings page in Semgrep App!
+
+For Enterprise tier pricing, please contact us via the form on the [pricing page](http://semgrep.dev/pricing).
+
+#### How do I pay for my plan?
+
+We accept all major credit cards through [Stripe](https://stripe.com/). If you want to pay through a purchase order / invoice mechanism, you can also reach out to [billing@r2c.dev](mailto:billing@r2c.dev) to get in touch with our sales team.
+
+We will bill you every month starting from when you upgraded your account.
+
+#### How do I modify my plan?
+
+Please email [billing@r2c.dev](mailto:billing@r2c.dev) and we will assist you in making changes to your plan. 
+
+#### What if I go over my plan’s limits?
+
+We will reach out and come up with a new plan that fits your needs.
+
+#### How do I cancel my plan?
+
+Please email [billing@r2c.dev](mailto:billing@r2c.dev) and we will assist you with all cancellations.
 
 ## Comparisons
 
