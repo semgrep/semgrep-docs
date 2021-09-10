@@ -44,8 +44,7 @@ jobs:
         # == Optional settings in the `with:` block
 
         # Instead of `config:`, use rules set in Semgrep App.
-        # Get your credentials from semgrep.dev/manage/settings.
-        #   publishDeployment: ${{ secrets.SEMGREP_DEPLOYMENT_ID }}
+        # Get your token from semgrep.dev/manage/settings.
         #   publishToken: ${{ secrets.SEMGREP_APP_TOKEN }}
 
         # Never fail the build due to findings on pushes.
@@ -99,8 +98,7 @@ semgrep:
   # == Optional settings in the `variables:` block
 
   # Instead of `SEMGREP_RULES:`, use rules set in Semgrep App.
-  # Get your credentials from semgrep.dev/manage/settings.
-  #   SEMGREP_APP_DEPLOYMENT_ID: $SEMGREP_APP_DEPLOYMENT_ID
+  # Get your token from semgrep.dev/manage/settings.
   #   SEMGREP_APP_TOKEN: $SEMGREP_APP_TOKEN
 
   # Receive inline MR comments (requires Semgrep App account)
@@ -165,8 +163,7 @@ environment {
     // == Optional settings in the `environment {}` block
 
     // Instead of `SEMGREP_RULES:`, use rules set in Semgrep App.
-    // Get your credentials from semgrep.dev/manage/settings.
-    //   SEMGREP_APP_DEPLOYMENT_ID: credentials('SEMGREP_APP_DEPLOYMENT_ID')
+    // Get your token from semgrep.dev/manage/settings.
     //   SEMGREP_APP_TOKEN: credentials('SEMGREP_APP_TOKEN')
     //   SEMGREP_REPO_URL = env.GIT_URL.replaceFirst(/^(.*).git$/,'$1')
     //   SEMGREP_BRANCH = "${CHANGE_BRANCH}"
@@ -222,8 +219,7 @@ environment {
         # == Optional settings in the `environment:` block
 
         # Instead of `SEMGREP_RULES:`, use rules set in Semgrep App.
-        # Get your credentials from semgrep.dev/manage/settings.
-        #   - "SEMGREP_APP_DEPLOYMENT_ID=${SEMGREP_APP_DEPLOYMENT_ID}"
+        # Get your token from semgrep.dev/manage/settings.
         #   - "SEMGREP_APP_TOKEN=${SEMGREP_APP_TOKEN}"
         #   - "SEMGREP_JOB_URL=${BUILDKITE_BUILD_URL}"
         #   - "SEMGREP_BRANCH=${BUILDKITE_BRANCH}"
@@ -261,9 +257,6 @@ jobs:
       default_branch:
         type: string
         default: main
-      semgrep_deployment_id:
-        type: integer
-        default: <my-deployment-id>
     environment:
       SEMGREP_RULES: >- # more at semgrep.dev/explore
         p/security-audit
@@ -275,8 +268,7 @@ jobs:
     # == Optional settings in the `environment:` block
 
     # Instead of `SEMGREP_RULES:`, use rules set in Semgrep App.
-    # Get your credentials from semgrep.dev/manage/settings.
-    #   SEMGREP_APP_DEPLOYMENT_ID: << parameters.semgrep_deployment_id >>
+    # Get your token from semgrep.dev/manage/settings.
     #   SEMGREP_APP_TOKEN: $SEMGREP_APP_TOKEN
     #   SEMGREP_REPO_NAME: << parameters.repo_path >>
     #   SEMGREP_REPO_URL: << pipeline.project.git_url >>

@@ -33,11 +33,10 @@ SEMGREP_BASELINE_REF=main
 
 ## Connect to Semgrep App (`SEMGREP_APP_TOKEN`)
 
-Instead of `SEMGREP_RULES`, you can use rules set in Semgrep App.
-Get your credentials from [Semgrep App > Settings](https://semgrep.dev/manage/settings).
+Instead of `SEMGREP_RULES`, you can configure which rules to run with Semgrep App.
+Get your token from [Semgrep App > Settings](https://semgrep.dev/manage/settings).
 
 ```
-SEMGREP_APP_DEPLOYMENT_ID=0
 SEMGREP_APP_TOKEN=secret
 ```
 
