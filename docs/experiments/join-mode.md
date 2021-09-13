@@ -108,7 +108,7 @@ We can translate these roughly into the following condition statements.
 Combining the three code pattern Semgrep rules and the three conditions gives us the join rule at the top of this section. This rule will match the code shown here.
 
 
-<img src="/docs/img/join-mode-example.png" alt="Screenshot of code the join rule will match" />
+![Screenshot of code the join rule will match](../img/join-mode-example.png)
 
 
 ```bash
