@@ -441,6 +441,8 @@ When invoked with `semgrep -f rule.yaml project/`, this rule will run on files i
 - files inside `project/server`, `project/schemata`, or their subdirectories
 - files matching the `project/static/*.js` glob pattern
 
+If you are writing tests for your rules, you will need to add any test file or directory to the included paths as well.
+
 :::note
 When mixing inclusion and exclusion filters, the exclusion ones take precedence.
 :::
