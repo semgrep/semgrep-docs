@@ -36,13 +36,13 @@ repository](https://github.com/returntocorp/semgrep):
     └── semgrep-ruby
 ```
 
-You'll need a new repo semgrep-X to host the generated parser code.
+When done with the work in [ocaml-tree-sitter-semgrep](https://github.com/returntocorp/ocaml-tree-sitter-semgrep), you'll need a new repo semgrep-X to host the generated parser code.
 Ask someone at r2c to create one for you. For this, they should use
 the template
 [semgrep-lang-template](https://github.com/returntocorp/semgrep-lang-template)
 when creating the repo.
 
-The instructions for adding a language start in `ocaml-tree-sitter` (as indicated below). Be careful that you are always in the correct repo!
+The instructions for adding a language start in [ocaml-tree-sitter-semgrep](https://github.com/returntocorp/ocaml-tree-sitter-semgrep) (as indicated below). Be careful that you are always in the correct repo!
 
 Setup (ocaml-tree-sitter-semgrep repo)
 --
