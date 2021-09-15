@@ -213,7 +213,7 @@ Key names and configuration format for specific CI providers are available in th
 ### Custom rules
 
 :::info
-See [Writing rules](/writing-rules/overview/) to learn how to write custome rules.
+See [Writing rules](/writing-rules/overview/) to learn how to write custom rules.
 :::
 
 Your own custom rules can be added to your Semgrep CI configuration just like [Registry rules](#registry-rules-and-rulesets/) by:
