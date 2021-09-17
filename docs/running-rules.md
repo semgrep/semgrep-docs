@@ -18,6 +18,9 @@ Explore the [Semgrep Registry](https://semgrep.dev/explore) and run rules and ru
 # Run a ruleset with rules for many languages using --config
 $ semgrep --config=<ruleset-id> path/to/src
 $ semgrep --config p/ci path/to/src
+
+# Run simultaneously with Registry rulesets and local rules
+$ semgrep --config=<ruleset-id> --config=path/to/yml path/to/src
 ```
 
 Rulesets can be added to Semgrep CI scans using their "Add to Policy" button on Semgrep Community and Semgrep Team.
