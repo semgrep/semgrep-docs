@@ -60,7 +60,6 @@ module.exports = {
     'language-support',
     'support',
     'trophy-case',
-    'awesome',
     {
         type: 'category',
         label: 'Contributing',
