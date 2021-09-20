@@ -34,13 +34,13 @@ For example:
 
 <iframe src="https://semgrep.dev/embed/editor?snippet=P8oz" border="0" frameBorder="0" width="100%" height="435"></iframe>
 
-:::Tip
+:::tip
 Using an _AND_ `patterns` operator, it is possible to restrict a sink to one specific argument of a function.
 
 <iframe src="https://semgrep.dev/embed/editor?snippet=BLv7" border="0" frameBorder="0" width="100%" height="435"></iframe>
 :::
 
-:::Tip
+:::tip
 To learn more tricks, you can look at the taint rules in our registry, for example:
 
 <iframe src="https://semgrep.dev/embed/editor?registry=javascript.express.security.express-sandbox-injection.express-sandbox-code-injection" border="0" frameBorder="0" width="100%" height="435"></iframe>
