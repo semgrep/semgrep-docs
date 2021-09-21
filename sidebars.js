@@ -50,7 +50,7 @@ module.exports = {
     {
       type: 'category',
       label: 'Semgrep App',
-      items: ['semgrep-app/managing-policy', 'semgrep-app/notifications'],
+      items: ['semgrep-app/managing-policy', 'semgrep-app/notifications', 'semgrep-app/sso'],
     },
     {
       type: 'category',
