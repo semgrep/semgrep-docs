@@ -20,7 +20,7 @@ Using these, please generate a `Client ID` and `Client Secret`.
 
 The last step will be to provide a `Base URL/Domain`, `Display Name`, and your `Email Domain`.
 
-In case you encounter issues during the setup process, please reach out to [support@r2c.dev](mailto:support@r2c.dev) so we can assist you.
+In case you encounter issues during the setup process, please reach out to [support@r2c.dev](mailto:support@r2c.dev) for assistance.
 
 ## SAML 2.0
 
