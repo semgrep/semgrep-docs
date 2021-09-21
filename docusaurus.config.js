@@ -174,6 +174,7 @@ module.exports = {
           { from: "/managing-policy", to: "/semgrep-app/managing-policy/" },
           { from: "/integrations", to: "/semgrep-app/notifications/" },
           { from: "/notifications", to: "/semgrep-app/notifications/" },
+          { from: "/sso", to: "/semgrep-app/sso/" },
           { from: "/experiments", to: "/experiments/overview/" },
           { from: "/semgrep-ci", to: "/semgrep-ci/overview/" },
           { from: "/sample-ci-configs", to: "/semgrep-ci/sample-ci-configs/" },
