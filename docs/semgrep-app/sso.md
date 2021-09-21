@@ -14,7 +14,7 @@ SSO is a Team/Enterprise tier feature. Organizations can choose between [OAuth2/
 
 OAuth2/OIDC can be configured via the Semgrep App Dashboard. Please visit the <b>Configure SSO</b> tab under Settings to edit the SSO configuration.
 
-We will provide you with a `providerId` and `Redirect URI`.
+There you’ll find a `providerId` and `Redirect URI`.
 
 Using these, please generate a `Client ID` and `Client Secret`.
 
