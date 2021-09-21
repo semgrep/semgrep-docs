@@ -24,6 +24,6 @@ In case you encounter issues during the setup process, please reach out to [supp
 
 ## SAML 2.0
 
-SAML 2.0 currently requires manual support. We can be reached via Slack or [support@r2c.dev](mailto:support@r2c.dev) to further assist you.
+SAML 2.0 currently requires manual support. Please reach out via Slack or [support@r2c.dev](mailto:support@r2c.dev).
 
 <MoreHelp />
