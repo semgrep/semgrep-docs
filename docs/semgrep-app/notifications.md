@@ -112,11 +112,12 @@ Note: GitLab MR comments are only available to logged-in semgrep.dev users, requ
 
 Webhook notifications are a paid feature in the Semgrep Team tier.
 
-To receive webhook notifications about Semgrep findings on pull requests and code pushes, visit [Dashboard > Integrations](https://semgrep.dev/manage/integrations) and select 'Add integration' or 'Setup First Integration,' and then choose 'Webhook'. Enter a target URL, give the notification channel a name of your choosing, and then click 'Save'.
+To receive webhook notifications on pull requests and code pushes, visit [Dashboard > Integrations](https://semgrep.dev/manage/integrations) and select 'Add integration' or 'Setup First Integration,' and then choose 'Webhook'. Enter a target URL, give the notification channel a name of your choosing, and then click 'Save'.
+
+#### Findings
 
 The URL will receive a POST request for each new finding.
 If one scan returns eight findings, eight separate requests will be sent.
-The body of the payload will be a JSON object that looks like this:
 
 ```json
 {
@@ -149,6 +150,43 @@ The body of the payload will be a JSON object that looks like this:
       "semgrep.ruleset": "johndoe:log-exc-info",
       "semgrep.url": "https://semgrep.dev/s/johndoe:log-exc-info"
     }
+  }
+}
+```
+
+#### Scan
+
+The URL will receive a POST request for each new finding.
+
+```json
+{
+  "semgrep_scan": {
+    "deployment_id": 1,
+    "started_at": "2021-09-21T23:49:17.480929+00:00",
+    "completed_at": null,
+    "exit_code": null,
+    "repository": "returntocorp/semgrep-app",
+    "ci_job_url": "https://github.com/returntocorp/semgrep-app/actions/runs/1236121005",
+    "environment": "",
+    "commit": "e22f08e8e871bde8c100b3a4a6f8e9387d651223",
+    "commit_committer_email": "",
+    "commit_timestamp": "",
+    "commit_author_email": "adamberman13@gmail.com",
+    "commit_author_name": "Adam Berman",
+    "commit_author_username": "adamberman",
+    "commit_author_image_url": "https://avatars.githubusercontent.com/u/8356503?v=4",
+    "commit_authored_timestamp": "",
+    "commit_title": "fixup",
+    "config": "",
+    "on": "pull_request",
+    "branch": "refs/pull/3483/merge",
+    "pull_request_timestamp": "",
+    "pull_request_author_username": "adamberman",
+    "pull_request_author_image_url": "https://avatars.githubusercontent.com/u/8356503?v=4",
+    "pull_request_id": "3483",
+    "pull_request_title": "test bad commit",
+    "ignored_files": ["/server/semgrep_app/templates/"],
+    "id": "xnkPGY8VL20o"
   }
 }
 ```
