@@ -37,6 +37,16 @@ If you have a legitmate use case for a dangerous API, you can exempt a specific 
 
 <iframe src="https://semgrep.dev/embed/editor?snippet=minusworld:docs-dangerously-set-inner-html-nosem" title="Exempt special cases of dangerous APIs with Semgrep" width="100%" height="432px" frameBorder="0"></iframe>
 
+### Detect tainted data flowing into a dangerous sink
+
+_Time to write this rule: **5 minutes**_
+
+Semgrep's [dataflow mode with support for taint tracking](/writing-rules/data-flow/) can be used detect when data flows from a user-provided value into a security-sensitive function.
+
+This rule detects when a user of the ExpressJS framework passes user data into the `run()` method of a sandbox. 
+
+<iframe src="https://semgrep.dev/embed/editor?snippet=ievans:simple-taint-dataflow" title="ExpressJS dataflow to sandbox.run" width="100%" height="432px" frameBorder="0"></iframe>
+
 
 ### Detect security violations
 
