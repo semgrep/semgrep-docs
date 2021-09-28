@@ -3,7 +3,7 @@
   "start_urls": [
     "https://semgrep.dev/docs"
   ],
-  "sitemap_alternate_links": true,
+  "sitemap_urls": ["https://semgrep.dev/docs/sitemap.xml"],
   "stop_urls": [],
   "js_render": true,
   "js_wait": 1,
