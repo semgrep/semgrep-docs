@@ -156,7 +156,7 @@ If one scan returns eight findings, eight separate requests will be sent.
 
 #### Scan
 
-The URL will receive a POST request for each new finding.
+The URL will receive a POST request for each new scan.
 
 ```json
 {
