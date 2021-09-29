@@ -10,10 +10,7 @@ that Semgrep uses to identify potential security issues.
 
 Rules and rulesets are displayed as cards,
 which you can drag and drop between columns.
-When a Semgrep scan runs in CI,
-the patterns it scans for
-and the actions it takes in response to findings
-are determined by where cards are placed on the rule board.
+The placement of cards in columns determines the Semgrep rules that run in CI and the actions taken in response to findings.
 
 ![Screenshot of the default state of the rule board](../img/rule-board.png)
 
@@ -21,8 +18,8 @@ are determined by where cards are placed on the rule board.
 
 ### Audit column
 
-Findings from cards of this column are hidden from developers by default.
-They will not block merging pull requests or be reported in the code review process.
+Findings from cards placed in this column are hidden from developers by default.
+They will not block merging of pull requests or be reported in the code review process.
 You can [set these findings to notify you](#setting-up-notifications) via various channels.
 
 :::tip
@@ -34,8 +31,8 @@ You can [set these findings to notify you](#setting-up-notifications) via variou
 
 ### Block column
 
-Findings from cards of this column are shown to developers as blocking in CI.
-This means these findings need to be addressed before merging the PR.
+Findings from cards placed in this column are shown to developers as blocking in CI.
+These findings need to be addressed before merging the PR.
 
 ### Gutter
 
@@ -44,17 +41,15 @@ The gutter on the right side of the board displays various kinds of cards that a
 #### Registry search
 
 Search the Semgrep Registry for rulesets via the search box at the top of the gutter.
-Search results will show up in this column.
+Search results will appear in this column.
 
 #### Recommended cards
 
-Semgrep's rule recommendation engine will show ruleset cards in the gutter
-when it finds technologies in your repositories with relevant rulesets available.
+Semgrep will recommend relevant rulesets based on technologies it finds in your repositories and show them here.
 
 #### Disabled rules
 
-If you removed a rule from an active ruleset,
-you can find the rule card and restore it from here.
+Find and restore rules previously removed from active rulesets here.
 
 ## Adding rules or rulesets
 
@@ -63,17 +58,17 @@ There are various ways to add cards to your rule board.
 ### Recommended rulesets
 
 The gutter displays recommended rulesets for technologies in your repositories.
-We suggest you add all these cards to the Audit column as they show up.
+Try adding all these cards to the Audit column as they appear.
 
 ### Rulesets by name
 
-Use the search box in the gutter column to find specific rulesets.
+Use the search in the gutter column to find specific rulesets.
 Rulesets are usually named after technologies and vulnerability classes.
 
 :::tip
 
   If you're unsure about a ruleset,
-  you can always expand it and drag just some of its rules onto the board.
+  try expanding it and dragging just some of its rules onto the board.
 
 :::
 
@@ -82,14 +77,14 @@ Rulesets are usually named after technologies and vulnerability classes.
 As you explore the [Semgrep Registry](https://semgrep.dev/r),
 you will see buttons named "Add these to Policy".
 Click this button and select the "Rule board" option.
-The new cards will show up on your board when you next open the page.
+The new cards will appear on your board when you next open the page.
 
 ### Custom rules from the playground
 
 When writing rules in [Semgrep Playground](https://semgrep.dev/editor),
 you will see a button named "Add to Policy".
 Click this button and select the "Rule board" option.
-The new card will show up on your board when you next open the page.
+The new card will appear on your board when you next open the page.
 
 ## Removing rules or rulesets
 
@@ -101,10 +96,10 @@ To remove a ruleset, just drag it to the gutter on the right.
 
 To disable just one rule from a ruleset,
 expand the ruleset with the "rules" button.
-You can then drag specific rules to the gutter on the right.
+Then drag specific rules to the gutter on the right.
 This will disable those rules but keep the rest of the ruleset enabled.
 
-## Setting up notifications
+## Configuring notifications
 
 To configure notifications,
 click the bell button in the top right corner of a column.
