@@ -95,7 +95,7 @@ It can also be used as a standalone, top-level operator:
 Single (`'`) and double (`"`) quotes [behave differently](https://docs.octoprint.org/en/master/configuration/yaml.html#scalars) in YAML syntax. Single quotes are typically preferred when using backslashes (`\`) with `pattern-regex`.
 :::
 
-Note that if the regex uses groups, the metavariables `$1`, `$2`, etc. will be binded to the content of the captured group.
+Note that if the regex uses groups, the metavariables `$1`, `$2`, etc. will be bound to the content of the captured group.
 
 <iframe src="https://semgrep.dev/embed/editor?snippet=8RkB" border="0" frameBorder="0" width="100%" height="435"></iframe>
 
