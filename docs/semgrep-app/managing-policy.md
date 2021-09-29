@@ -13,7 +13,6 @@ import MoreHelp from "/src/components/MoreHelp"
   for orchestrating complex
   rule and notification channel assignments.
 
-
   Policy management is available to all users on the Enterprise and Team tiers,
   and to Community tier users who signed up before September 15, 2021.
   Community tier users who signed up after September 15, 2021
