@@ -3,6 +3,8 @@ slug: rule-board
 append_help_link: true
 ---
 
+import MoreHelp from "/src/components/MoreHelp"
+
 # Rule board
 
 The rule board is a visual representation of the rules
@@ -103,3 +105,7 @@ This will disable those rules but keep the rest of the ruleset enabled.
 
 To configure notifications,
 click the bell button in the top right corner of a column.
+
+
+
+<MoreHelp />

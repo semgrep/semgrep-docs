@@ -12,13 +12,12 @@ import MoreHelp from "/src/components/MoreHelp"
   Policy management is an advanced feature
   for orchestrating complex
   rule and notification channel assignments.
-  
-  | **Semgrep App Tier** | **Signup date** | **Availability** |
-  |----------|-----------------|------------------|
-  | Enterprise     | Any             | available        |
-  | Team     | Any             | available        |
-  | Community     | before September 15, 2021             | available        |
-  | Community     | after September 15, 2021             | unavailable, use the [Rule board](rule-board.md) instead.|
+
+
+  Policy management is available to all users on the Enterprise and Team tiers,
+  and to Community tier users who signed up before September 15, 2021.
+  Community tier users who signed up after September 15, 2021
+  should use the [Rule board](rule-board.md) instead.
 
 :::
 
