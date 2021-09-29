@@ -6,7 +6,7 @@ append_help_link: true
 # Rule board
 
 The rule board is a visual representation of the rules
-that Semgrep uses to identify potential security issues.
+that Semgrep App uses to scan code in CI.
 
 Rules and rulesets are displayed as cards,
 which you can drag and drop between columns.
