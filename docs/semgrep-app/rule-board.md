@@ -36,13 +36,13 @@ You can [set these findings to notify you](#setting-up-notifications) via variou
 Findings from cards placed in this column are shown to developers as blocking in CI.
 These findings need to be addressed before merging the PR.
 
-### Gutter
+### Side column
 
-The gutter on the right side of the board displays various kinds of cards that are inactive.
+The side column on the right of the board displays various kinds of cards that are inactive.
 
 #### Registry search
 
-Search the Semgrep Registry for rulesets via the search box at the top of the gutter.
+Search the Semgrep Registry for rulesets via the search box at the top of the side column.
 Search results will appear in this column.
 
 #### Recommended cards
@@ -59,12 +59,12 @@ There are various ways to add cards to your rule board.
 
 ### Recommended rulesets
 
-The gutter displays recommended rulesets for technologies in your repositories.
+The side column displays recommended rulesets for technologies in your repositories.
 Try adding all these cards to the Audit column as they appear.
 
 ### Rulesets by name
 
-Use the search in the gutter column to find specific rulesets.
+Use the search in the side column to find specific rulesets.
 Rulesets are usually named after technologies and vulnerability classes.
 
 :::tip
@@ -92,13 +92,13 @@ The new card will appear on your board when you next open the page.
 
 ### Rulesets
 
-To remove a ruleset, just drag it to the gutter on the right.
+To remove a ruleset, just drag it to the side column on the right.
 
 ### Rules
 
 To disable just one rule from a ruleset,
 expand the ruleset with the "rules" button.
-Then drag specific rules to the gutter on the right.
+Then drag specific rules to the side column on the right.
 This will disable those rules but keep the rest of the ruleset enabled.
 
 ## Configuring notifications
@@ -106,6 +106,8 @@ This will disable those rules but keep the rest of the ruleset enabled.
 To configure notifications,
 click the bell button in the top right corner of a column.
 
-
+You can enable [third-party notifications](../notifications/)
+and [inline pull request comments](../notifications/#pull-request-comments)
+on a per-column basis in the resulting panel.
 
 <MoreHelp />
