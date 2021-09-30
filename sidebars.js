@@ -50,7 +50,7 @@ module.exports = {
     {
       type: 'category',
       label: 'Semgrep App',
-      items: ['semgrep-app/managing-policy', 'semgrep-app/notifications', 'semgrep-app/sso'],
+      items: ['semgrep-app/rule-board', 'semgrep-app/managing-policy', 'semgrep-app/notifications', 'semgrep-app/sso'],
     },
     {
       type: 'category',
@@ -64,8 +64,8 @@ module.exports = {
         type: 'category',
         label: 'Contributing',
         items: [
-          'contributing/contributing', 
-          'contributing/contributing-code', 
+          'contributing/contributing',
+          'contributing/contributing-code',
           {
             type: 'doc',
             id: 'contributing/semgrep-core-contributing',
@@ -76,7 +76,7 @@ module.exports = {
             id: 'contributing/semgrep-contributing',
             label: 'semgrep contributing'
           },
-          'contributing/adding-a-language', 
+          'contributing/adding-a-language',
           'contributing/updating-a-grammar',
           'contributing/troubleshooting',
           'contributing/philosophy'

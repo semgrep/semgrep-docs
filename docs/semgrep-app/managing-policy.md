@@ -7,6 +7,19 @@ import MoreHelp from "/src/components/MoreHelp"
 
 # Managing CI policy
 
+:::info
+
+  Policy management is an advanced feature
+  for orchestrating complex
+  rule and notification channel assignments.
+
+  Policy management is available to all users on the Enterprise and Team tiers,
+  and to Community tier users who signed up before September 15, 2021.
+  Community tier users who signed up after September 15, 2021
+  should use the [Rule board](rule-board.md) instead.
+
+:::
+
 Semgrep App provides infrastructure for managing Semgrep across many projects. Gather related rules together in "policies" and apply those policies to projects in a many-to-many mapping. A policy is simply a collection of rules, and a definition of what to do with their results: send notifications to third-party services like Slack, post inline pull request comments on GitHub, and/or block the build by returning a non-zero status.
 
 ![Policy to notify when results are found but not block the CI build](../img/policy-sample.png "Policy to notify when results are found but not block the CI build")
