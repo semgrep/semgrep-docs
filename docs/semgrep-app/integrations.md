@@ -12,8 +12,8 @@ import MoreHelp from "/src/components/MoreHelp"
 
 The Jira integration allows you to create tickets directly from the Findings page with relevant info about a particular finding.
 
-![Setting up the JIRA integration](../img/jira-integrations-page.png)
-![Creating a JIRA ticket from the Findings page](../img/jira-findings-page.png)
-![Output of JIRA integration](../img/jira-template.png)
+![Setting up the Jira integration](../img/jira-integrations-page.png)
+![Creating a Jira ticket from the Findings page](../img/jira-findings-page.png)
+![Output of Jira integration](../img/jira-template.png)
 
 <MoreHelp />
