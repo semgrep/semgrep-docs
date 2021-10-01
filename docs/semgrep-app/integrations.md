@@ -8,7 +8,7 @@ import MoreHelp from "/src/components/MoreHelp"
 
 # Integrations
 
-## JIRA
+## Jira
 
 The Jira integration allows you to create tickets directly from the Findings page with relevant info about a particular finding.
 
