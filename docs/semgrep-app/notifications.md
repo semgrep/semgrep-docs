@@ -116,47 +116,48 @@ To receive webhook notifications on pull requests and code pushes, visit [Dashbo
 
 #### Findings
 
-The URL will receive a POST request for each new finding.
-If one scan returns eight findings, eight separate requests will be sent.
+Semgrep App will send a POST request containing an array of all the scan's findings.
 
 ```json
-{
-  "semgrep_finding": {
-    "id": "241dbe518caf15f800131d2d0c70bf08",
-    "mute_date": null,
-    "assigned_date": null,
-    "assigned_by_user_id": null,
-    "ref": "refs/pull/2658/merge",
-    "start_date": "None",
-    "fix_date": null,
-    "end_date": null,
-    "check_id": "log-exc-info",
-    "path": "server/semgrep_app/handlers/registry.py",
-    "line": 185,
-    "column": 9,
-    "message": "Error messages should be logged with `exc_info=True` in order to propagate\nstack information to Sentry. Either change the logging level or raise an Exception.\n",
-    "severity": 1,
-    "index": 0,
-    "end_line": 187,
-    "end_column": 10,
-    "commit_date": "2021-06-07T15:26:35+03:00",
-    "metadata": {
-      "dev.semgrep.actions": [],
-      "semgrep.policy": {
-        "id": 8168,
-        "name": "Web Apps Notify Only",
-        "slug": "web-apps-notify-only"
-      },
-      "semgrep.ruleset": "johndoe:log-exc-info",
-      "semgrep.url": "https://semgrep.dev/s/johndoe:log-exc-info"
+[
+  {
+    "semgrep_finding": {
+      "id": "241dbe518caf15f800131d2d0c70bf08",
+      "mute_date": null,
+      "assigned_date": null,
+      "assigned_by_user_id": null,
+      "ref": "refs/pull/2658/merge",
+      "start_date": "None",
+      "fix_date": null,
+      "end_date": null,
+      "check_id": "log-exc-info",
+      "path": "server/semgrep_app/handlers/registry.py",
+      "line": 185,
+      "column": 9,
+      "message": "Error messages should be logged with `exc_info=True` in order to propagate\nstack information to Sentry. Either change the logging level or raise an Exception.\n",
+      "severity": 1,
+      "index": 0,
+      "end_line": 187,
+      "end_column": 10,
+      "commit_date": "2021-06-07T15:26:35+03:00",
+      "metadata": {
+        "dev.semgrep.actions": [],
+        "semgrep.policy": {
+          "id": 8168,
+          "name": "Web Apps Notify Only",
+          "slug": "web-apps-notify-only"
+        },
+        "semgrep.ruleset": "johndoe:log-exc-info",
+        "semgrep.url": "https://semgrep.dev/s/johndoe:log-exc-info"
+      }
     }
   }
-}
+]
 ```
 
 #### Scan
 
-The URL will receive a POST request for each new scan.
+Semgrep App will send a POST request containing information about the scan.
 
 ```json
 {
