@@ -59,7 +59,7 @@ $ python -m pipenv shell
 Make sure you are in `semgrep/semgrep/`. Within the shell, run:
 
 ```
-$ python -m semgrep -h
+$ python -m semgrep --help
 ```
 
 To try a simple analysis, you can run:
@@ -91,7 +91,7 @@ If you have an M1 Mac, this may install the incorrect executable. You can run th
 brew install semgrep
 ```
 
-Now you can run `semgrep -h` from anywhere.
+Now you can run `semgrep --help` from anywhere.
 
 If you have installed `semgrep-core` and `spacegrep` from source, there are convenient targets in the root Makefile that let you update all binaries. After you pull, simply run
 
