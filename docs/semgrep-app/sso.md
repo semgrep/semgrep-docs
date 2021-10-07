@@ -8,7 +8,7 @@ import MoreHelp from "/src/components/MoreHelp"
 
 # SSO Configuration
 
-SSO is a Team/Enterprise tier feature. Organizations can choose between [OAuth2/OIDC](#oauth2oidc) or [SAML 2.0](#saml-20).
+SSO (single sign-on) is a Team/Enterprise tier feature. Organizations can choose between [OAuth2/OIDC](#oauth2oidc) or [SAML 2.0](#saml-20).
 
 ## OAuth2/OIDC
 
