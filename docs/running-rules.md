@@ -15,7 +15,7 @@ Existing and custom Semgrep rules can be run locally via the Semrgep command lin
 Explore the [Semgrep Registry](https://semgrep.dev/explore) and run rules and rulesets via:
 
 ```sh
-# Automatically survey languages and frameworks and get recommended rules from the Registry
+# Automatically survey languages and frameworks and run recommended rules from the Registry
 $ semgrep --config=auto path/to/src
 
 # Run a ruleset with rules for many languages using --config
