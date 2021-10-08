@@ -17,11 +17,22 @@ Explore the [Semgrep Registry](https://semgrep.dev/explore) and run rules and ru
 ```sh
 # Run a ruleset with rules for many languages using --config
 $ semgrep --config=<ruleset-id> path/to/src
-$ semgrep --config p/ci path/to/src
 
 # Run simultaneously with Registry rulesets and local rules
 $ semgrep --config=<ruleset-id> --config=path/to/yml path/to/src
 ```
+
+```sh
+# Run the auto ruleset which uses recommended rules for your code
+$ semgrep --config=auto path/to/src
+```
+
+```sh
+# Run a ruleset with rules for python
+$ semgrep --config=p/python path/to/src
+```
+
+When the Registry is used, [usage metrics](../metrics) are collected.
 
 Rulesets can be added to Semgrep CI scans using their "Add to Policy" button on Semgrep Community and Semgrep Team.
 

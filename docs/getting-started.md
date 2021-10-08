@@ -31,20 +31,22 @@ To try Semgrep without installation run via Docker:
 docker run --rm -v "${PWD}:/src" returntocorp/semgrep --help
 ```
 
-Confirm installation and run both a simple “grep-like” rule and a full ruleset:
+Confirm installation and run both a simple “grep-like” rule and the auto ruleset:
 
 ```sh
-# Confirm installation by running --help. Semgrep documentation should print to your terminal
+# Confirm installation by running --help. It should print to your terminal.
 $ semgrep --help
 
-# Check for Python == where the left and right hand sides are the same (often a bug)
+# Check for Python == where the left and right sides are the same (often a bug)
 $ semgrep -e '$X == $X' --lang=py path/to/src
 
-# Run the r2c CI ruleset (with rules for many languages) on your own code!
-$ semgrep --config=p/ci path/to/src
+# Run the auto ruleset which uses recommended rules for your code!
+$ semgrep --config=auto path/to/src
 ```
 
 See [CLI Reference](../cli-usage/) for command line options and exit codes.
+
+When the Registry is used for any ruleset (like the auto ruleset above), [usage metrics](../metrics) are collected.
 
 Visit [Running rules](../running-rules/) to learn more or try Semgrep on known vulnerable test projects:
 
