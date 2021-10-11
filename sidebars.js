@@ -39,7 +39,8 @@ module.exports = {
           type: 'category',
           label: 'Experiments 🧪',
           items: ['experiments/overview', 'experiments/generic-pattern-matching', 'experiments/join-mode']
-        }
+        },
+        'upgrading'
       ],
     },
     {
