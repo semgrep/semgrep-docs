@@ -122,3 +122,18 @@ For teams running Semgrep on multiple projects, see [Semgrep App](https://semgre
 2. Monitor the impact of standards
 3. Host private rules
 4. Push notifications to 3rd-party services
+
+## Upgrading
+
+We [release new Semgrep versions](https://github.com/returntocorp/semgrep/releases) often, with many of performance and bug improvements. Stay up to date by running in CI, and on your local machines use following commands:
+
+```sh
+# Using Homebrew
+$ brew upgrade semgrep
+
+# Using pip
+$ python3 -m pip install --upgrade semgrep
+
+# Using Docker
+$ docker pull returntocorp/semgrep:latest
+```
