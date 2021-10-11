@@ -40,7 +40,7 @@ $ semgrep --help
 # Check for Python == where the left and right sides are the same (often a bug)
 $ semgrep -e '$X == $X' --lang=py path/to/src
 
-# Automatically survey languages and frameworks and run recommended rules from the Registry
+# Automatically survey languages and frameworks and run recommended Registry rules
 $ semgrep --config=auto path/to/src
 ```
 
