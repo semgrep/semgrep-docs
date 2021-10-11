@@ -35,11 +35,6 @@ code {
   border: none;
 }
 
-a,
-a:visited {
-  color: #359dfd;
-}
-
 a:hover {
   text-decoration: underline;
 }
@@ -52,10 +47,6 @@ body.wy-body-for-nav.happy {
   display: flex;
   flex-direction: column;
   min-height: 100vh;
-}
-
-.wy-menu-vertical a:hover {
-  background: #6136f5;
 }
 
 .wy-side-nav-search {
@@ -295,11 +286,6 @@ td {
   .wy-nav-content {
     max-width: 1010px;
   }
-}
-
-.wy-nav-content a,
-a:visited {
-  color: #359dfd;
 }
 
 div > div.section > p > img {
