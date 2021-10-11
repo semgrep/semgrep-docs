@@ -100,7 +100,9 @@ This rule is used to find and discourage `print(...)` in production code. You ca
 
 <iframe title="Semgrep example with Python Flask routes" src="https://semgrep.dev/embed/editor?snippet=ievans:print-to-logger" width="100%" height="432px" frameBorder="0"></iframe>
 <br /><br />
-![A reviewer writes a Semgrep rule and adds it to an organization-wide policy](img/semgrep-ci.gif)
+
+![A reviewer writes a Semgrep rule and adds it to an organization-wide policy](./img/semgrep-ci.gif)
+
 <br />
 <p>A reviewer writes a Semgrep rule and adds it to an organization-wide policy.
 </p>
