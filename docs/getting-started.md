@@ -122,3 +122,7 @@ For teams running Semgrep on multiple projects, see [Semgrep App](https://semgre
 2. Monitor the impact of standards
 3. Host private rules
 4. Push notifications to 3rd-party services
+
+## Upgrading
+
+We [release new Semgrep versions](https://github.com/returntocorp/semgrep/releases) often! See [upgrading](../upgrading/) for more details.
