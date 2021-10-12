@@ -10,18 +10,22 @@ import MoreHelp from "/src/components/MoreHelp"
 Existing and custom Semgrep rules can be run locally via the Semrgep command line tool or continuously with Semgrep CI. See [Getting started](../getting-started/) for their respective installation and setup.
 
 
-## Run registry rules
+## Run Registry rules
 
 Explore the [Semgrep Registry](https://semgrep.dev/explore) and run rules and rulesets via:
 
 ```sh
+# Automatically survey languages and frameworks and run recommended Registry rules
+$ semgrep --config=auto path/to/src
+
 # Run a ruleset with rules for many languages using --config
 $ semgrep --config=<ruleset-id> path/to/src
-$ semgrep --config p/ci path/to/src
 
 # Run simultaneously with Registry rulesets and local rules
 $ semgrep --config=<ruleset-id> --config=path/to/yml path/to/src
 ```
+
+When the Registry is used, [usage metrics](../metrics) are collected.
 
 Rulesets can be added to Semgrep CI scans using their "Add to Policy" button on Semgrep Community and Semgrep Team.
 
