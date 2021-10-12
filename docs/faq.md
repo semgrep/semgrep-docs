@@ -164,9 +164,9 @@ All customer data is located in AWS (US region). Amazon RDS encrypted DB instanc
 
 No. Semgrep CI runs fully in your CI pipeline and your source-code never leaves your environment. Only meta-data related to Semgrep runs (see below) are sent to Semgrep's service.
 
-#### What data do you store?
+#### What data is stored?
 
-[Semgrep](https://github.com/returntocorp/semgrep) may send data to Semgrep App in accordance with its [metrics policy](/metrics).
+[Semgrep](https://github.com/returntocorp/semgrep) may send data to Semgrep App in accordance with the [metrics policy](/metrics).
 
 Semgrep CI sends two types of data to r2c servers: scan data and findings data. Scan data includes project id, CI environment, and scan meta-data. Findings data are used to provide human readable content for notifications and integrations, as well tracking results as new, fixed, or duplicate. For more information and detailed description for each data field, refer to Semgrep CI [PRIVACY.md](https://github.com/returntocorp/semgrep-action/blob/develop/PRIVACY.md). 
 
