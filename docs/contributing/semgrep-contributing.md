@@ -126,6 +126,11 @@ This command will run comprehensize parse tests on many open source projects. To
 $ python -m pytest --ignore=tests/qa/test_public_repos.py
 ```
 
+If you want to update the tests to match to the current output:
+```sh
+make regenerate-tests
+```
+
 Running a single test file is simple too:
 
 ```
