@@ -28,7 +28,7 @@ python3 -m pip install semgrep
 To try Semgrep without installation run via Docker:
 
 ```sh
-docker run --rm -v "${PWD}:/src" returntocorp/semgrep --help
+docker run --rm -v "${PWD}:/src" returntocorp/semgrep --config=auto
 ```
 
 Confirm installation and run both a simple “grep-like” rule and the auto ruleset:
