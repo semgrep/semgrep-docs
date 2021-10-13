@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+
+curl 'https://raw.githubusercontent.com/returntocorp/semgrep/develop/PRIVACY.md' > docs/metrics.md
+
+docusaurus build
