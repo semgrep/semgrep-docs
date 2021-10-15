@@ -50,7 +50,7 @@ semgrep -e '$X == $X' --lang=py path/to/src
 
 ### Run local rules
 
-Create a YAML rule file which you can call repeatedly.
+Create a YAML rule file which you can run repeatedly.
 
 1. Create `rule.yaml` file.
 2. Create your own rules. See [Custom rule examples](../writing-rules/rule-ideas/) for rules to paste in your rule file.
