@@ -7,8 +7,7 @@ import MoreHelp from "/src/components/MoreHelp"
 
 # Running rules
 
-Existing and custom Semgrep rules can be run locally via the Semrgep command line tool or continuously with Semgrep CI. See [Getting started](../getting-started/) for their respective installation and setup.
-
+Existing and custom Semgrep rules can be run locally with the Semrgep command line tool or continuously with Semgrep CI. See [Getting started](../getting-started/) for their respective installation and setup.
 
 ## Run Registry rules
 
@@ -31,22 +30,34 @@ Rulesets can be added to Semgrep CI scans using their "Add to Policy" button on 
 
 ## Run local rules
 
+Local rules can be either:
+
+- Ephemeral rules with the `-e` or `--pattern` flags for use in a single command.
+- Configured in YAML rule files that conform to the [Rule syntax](../writing-rules/rule-syntax/) schema.
+
 :::tip
 See [Writing rules > Getting started](../writing-rules/overview/) to learn how to write rules.
 :::
 
-Local rules can be ephemeral using the `-e` or `--pattern` flag or run from YAML rule files conforming to the [Rule syntax](../writing-rules/rule-syntax/) schema.
+### Run ephemeral rules
 
-Check for Python `==` where the left and right hand sides are the same (often a bug): 
+Use the `-e` or `--pattern` flags in your terminal for ephemeral rules which are utilized only once. 
 
+For example: Check for Python `==` where the left and right sides are the same (often a bug): 
 ```sh
 semgrep -e '$X == $X' --lang=py path/to/src
 ```
 
-Run local YAML rule files:
-```sh
-semgrep --config path/to/yaml
-```
+### Run local rules
+
+Create a YAML rule file which you can call repeatedly.
+
+1. Create `rule.yaml` file.
+2. Create your own rules. See [Custom rule examples](../writing-rules/rule-ideas/) for rules to paste in your rule file.
+3. Run the following command to run local YAML rule files:
+    ```sh
+    semgrep --config path/to/rule.yaml
+    ```
 
 We are working on optimizations to improve Semgrep's performance, which necessitates changing how rules are processed. If you are using v0.55.0 or later and you encounter an unexpected metavariable binding or missing result, try running with `--optimizations none` to use the original code path. 
 
