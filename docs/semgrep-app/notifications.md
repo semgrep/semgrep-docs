@@ -140,6 +140,7 @@ Semgrep App will send a POST request containing an array of all the scan's findi
       "end_line": 187,
       "end_column": 10,
       "commit_date": "2021-06-07T15:26:35+03:00",
+      "first_seen_scan_id": "xnkPGY8VL20o",
       "metadata": {
         "dev.semgrep.actions": [],
         "semgrep.policy": {
