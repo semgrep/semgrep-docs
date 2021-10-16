@@ -48,7 +48,7 @@ For example: Check for Python `==` where the left and right sides are the same (
 semgrep -e '$X == $X' --lang=py path/to/src
 ```
 
-### Run local rules
+### YAML-defined rules
 
 Create a YAML rule file which you can run repeatedly.
 
