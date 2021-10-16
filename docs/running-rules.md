@@ -39,7 +39,7 @@ Local rules can be either:
 See [Writing rules > Getting started](../writing-rules/overview/) to learn how to write rules.
 :::
 
-### Run ephemeral rules
+### Ephemeral rules
 
 Use the `-e` or `--pattern` flags in your terminal for ephemeral rules which are utilized only once. 
 
