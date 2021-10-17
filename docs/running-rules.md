@@ -41,7 +41,7 @@ See [Writing rules > Getting started](../writing-rules/overview/) to learn how t
 
 ### Ephemeral rules
 
-Use the `-e` or `--pattern` flags in your terminal for ephemeral rules which are utilized only once. 
+Use the `-e` or `--pattern` flags in your terminal for ephemeral rules that are used once.
 
 For example: Check for Python `==` where the left and right sides are the same (often a bug): 
 ```sh
@@ -54,7 +54,7 @@ Create a YAML rule file that you can run repeatedly.
 
 1. Create a `rule.yaml` file.
 2. Paste the following rule in `rule.yaml` file.
-    ```
+    ```yaml
     rules:
     - id: is-comparison
       languages:
