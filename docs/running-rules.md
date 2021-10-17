@@ -50,7 +50,7 @@ semgrep -e '$X == $X' --lang=py path/to/src
 
 ### YAML-defined rules
 
-Create a YAML rule file which you can run repeatedly.
+Create a YAML rule file that you can run repeatedly.
 
 1. Create a `rule.yaml` file.
 2. Paste the following rule in `rule.yaml` file.
@@ -70,9 +70,11 @@ Create a YAML rule file which you can run repeatedly.
     semgrep --config path/to/rule.yaml
     ```
 
-We are working on optimizations to improve Semgrep's performance, which necessitates changing how rules are processed. If you are using v0.55.0 or later and you encounter an unexpected metavariable binding or missing result, try running with `--optimizations none` to use the original code path. 
+### Appendix
 
-You may find that some files that were previously parsed are now skipped; this will happen if Semgrep can confirm the rule will not match the file without parsing it. You can similarly run with `--optimizations none` to avoid this.
+We are working on optimizations to improve Semgrep's performance, which necessitates a change in rules processing. If you are using v0.55.0 or later and encounter an unexpected metavariable binding or missing result, try running with `--optimizations none` to use the original code path. 
+
+You may find some files that Semgrep previously parsed are now skipped; this happens when Semgrep can confirm the rule does not match the file without parsing it. You can similarly run Semgrep with `--optimizations none` to avoid this behavior.
 
 ## Findings
 
