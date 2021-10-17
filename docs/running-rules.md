@@ -53,7 +53,18 @@ semgrep -e '$X == $X' --lang=py path/to/src
 Create a YAML rule file which you can run repeatedly.
 
 1. Create a `rule.yaml` file.
-2. Create your own rules. See [Custom rule examples](../writing-rules/rule-ideas/) for rules to paste in your rule file.
+2. Paste the following rule in `rule.yaml` file.
+    ```
+    rules:
+    - id: is-comparison
+      languages:
+        - python
+      message: The operator 'is' is for reference equality, not value equality! Use
+      `==` instead!
+      pattern: $SOMEVAR is "..."
+      severity: ERROR
+    ```
+    See [Getting started](../writing-rules/overview/) for the full example.
 3. Run the following command to run local YAML rule files:
     ```sh
     semgrep --config path/to/rule.yaml
