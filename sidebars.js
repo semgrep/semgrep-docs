@@ -29,7 +29,19 @@ module.exports = {
         {
           type: 'category',
           label: 'Writing rules',
-          items: ['writing-rules/overview', 'writing-rules/pattern-examples', 'writing-rules/pattern-syntax', 'writing-rules/rule-ideas', 'writing-rules/rule-syntax', 'writing-rules/data-flow', 'writing-rules/testing-rules', 'writing-rules/private-rules'],
+          items: [
+            'writing-rules/overview',
+            'writing-rules/pattern-examples',
+            'writing-rules/pattern-syntax',
+            'writing-rules/rule-ideas',
+            'writing-rules/rule-syntax',
+            { type: 'category',
+              label: 'Data-flow analysis',
+              items: ['writing-rules/data-flow/overview', 'writing-rules/data-flow/constant-propagation', 'writing-rules/data-flow/taint-mode', 'writing-rules/data-flow/status']
+            },
+            'writing-rules/testing-rules',
+            'writing-rules/private-rules'
+          ],
         },
         'cli-usage',
         'extensions',
