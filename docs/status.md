@@ -69,7 +69,7 @@ The following thresholds define each maturity level:
     * Parse rate: 99%+
     * Rulesets: 1+ (10+ rules)
     * Features:
-        * All in alpha
+        * All in experimental
         * `metavar_class_def`
         * `metavar_func_def`
         * `metavar_cond`
@@ -81,7 +81,7 @@ The following thresholds define each maturity level:
     * Parse rate: 99.9%+
     * Rulesets: 2+ (10+ rules)
     * Features:
-        * All in alpha
+        * All in experimental
         * All in beta
         * `deep_expr_operator`
         * `equivalence_constant_propagation`
