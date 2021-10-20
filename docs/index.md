@@ -47,15 +47,15 @@ Semgrep supports 17+ languages.
 
 <div id="language-support-table">
 
-| GA         | Alpha                      | Experimental |
+| GA         | Beta                       | Experimental |
 |:---------- |:---------------------------|:-------------|
 | Go         | C                          | Kotlin       |
 | Java       | C#                         | Lua          |
 | JavaScript | OCaml                      | R            |
 | JSON       | PHP                        | Rust         |
-| JSX        | YAML                       |              |
-| Python     | Generic (ERB, Jinja, etc.) |              |
-| Ruby       |                            |              |
+| JSX        | Terraform                  |              |
+| Python     | YAML                       |              |
+| Ruby       | Generic (ERB, Jinja, etc.) |              |
 | TypeScript |                            |              |
 | TSX        |                            |              |
 
