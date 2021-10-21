@@ -14,7 +14,7 @@ import MoreHelp from "/src/components/MoreHelp"
 ## Language maturity
 
 
-| GA         | Beta                       | Experimental               |
+| GA ✅      | Beta 🐛                     | Experimental 🚧            |
 |:---------- |:---------------------------|:---------------------------|
 | Go         | Terraform                  | C                          |
 | Java       |                            | C#                         |
