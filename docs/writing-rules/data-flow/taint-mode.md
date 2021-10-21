@@ -29,8 +29,8 @@ Finally, the rule specifes that anything matching either `html_output(...)` or `
 
 You can find more examples of taint rules in the [Semrep Registry](https://semgrep.dev/r?owasp=injection%2Cxss), for instance: [express-sandbox-code-injection](https://semgrep.dev/editor?registry=javascript.express.security.express-sandbox-injection.express-sandbox-code-injection).
 
-Minimizing false alarms via sanitizers
---------------------------------------
+Minimizing false positives via sanitizers
+-----------------------------------------
 
 Since taint mode is intra-procedural, it does not know what other functions do, and Semgrep is careful to assume that taint could propagate through other functions, for example:
 
@@ -61,14 +61,14 @@ pattern-sanitizers:
     - pattern: $INDEX
 ```
 
-Taint mini cookbook
+Mini cookbook
 -------------------
 
 Again, keep in mind that sources, sanitizers and sinks are given by arbitrary patterns, so they can be anything that you can match with Semgrep. You can get very creative!
 
 ### Function argument as a source
 
-Taint may come from specific functions that read user input such as `window.prompt()` but it is also easy to specify that taint comes from anywhere else, such as, for example, a specific argument within a function definition (as already seen in the running example):
+Taint may come from specific functions that read user input such as `window.prompt()` but it is also easy to specify that taint comes from anywhere else, such as, for example, a specific argument within a function definition:
 
 ```javascript
 pattern-sources:

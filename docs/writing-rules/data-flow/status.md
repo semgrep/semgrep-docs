@@ -2,10 +2,10 @@
 slug: status
 append_help_link: true
 description: >-
-  The data-flow engine ...
+  The status of the data-flow analyses.
 ---
 
-# Supported languages
+# Data-flow status
 
 The data-flow based features, including taint tracking, are in beta status.
 
