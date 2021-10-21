@@ -25,7 +25,7 @@ All required fields must be present at the top-level of a rule, immediately unde
 | `id`                                                    | `string` | Unique, descriptive identifier, e.g., `no-unused-variable`                                        |
 | `message`                                               | `string` | Message highlighting why this rule fired and how to remediate the issue                           |
 | `severity`                                              | `string` | One of: `INFO`, `WARNING`, or `ERROR`                                                             |
-| `languages`                                             | `array`  | See [supported languages](https://semgrep.dev/docs/status/)                                       |
+| `languages`                                             | `array`  | See [supported languages](/language-support/#language-extensions-and-tags)                        |
 | [`pattern`](#pattern)_\*_               | `string` | Find code matching this expression                                                                |
 | [`patterns`](#patterns)_\*_             | `array`  | Logical AND of multiple patterns                                                                  |
 | [`pattern-either`](#pattern-either)_\*_ | `array`  | Logical OR of multiple patterns                                                                   |
