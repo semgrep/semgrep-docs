@@ -47,21 +47,22 @@ Semgrep supports 17+ languages.
 
 <div id="language-support-table">
 
-| GA         | Alpha                      | Experimental |
-|:---------- |:---------------------------|:-------------|
-| Go         | C                          | Kotlin       |
-| Java       | C#                         | Lua          |
-| JavaScript | OCaml                      | R            |
-| JSON       | PHP                        | Rust         |
-| JSX        | YAML                       |              |
-| Python     | Generic (ERB, Jinja, etc.) |              |
-| Ruby       |                            |              |
-| TypeScript |                            |              |
-| TSX        |                            |              |
+| GA         | Beta                       | Experimental               |
+|:---------- |:---------------------------|:---------------------------|
+| Go         | Terraform                  | C                          |
+| Java       |                            | C#                         |
+| JavaScript |                            | Kotlin                     |
+| JSON       |                            | Lua                        |
+| JSX        |                            | OCaml                      |
+| Python     |                            | PHP                        |
+| Ruby       |                            | R                          |
+| TypeScript |                            | Rust                       |
+| TSX        |                            | YAML                       |
+|            |                            | Generic (ERB, Jinja, etc.) |
 
 </div>
 
-To determine alpha, beta, or general availability (GA) status we scan a wide corpus of projects and measure the parse rate of each language. For more details see [the breakdown of all supported languages](language-support/).
+To determine experimental, beta, or general availability (GA) status we scan a wide corpus of projects and measure the parse rate of each language. For more details see [the breakdown of all supported languages](language-support/).
 
 ## History
 
