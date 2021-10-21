@@ -97,63 +97,8 @@ Visit the cheat sheet generation script and associated semgrep-core test files t
 
 * [generation script](https://github.com/returntocorp/semgrep/blob/develop/scripts/generate_test_matrix.py)
 * [semgrep-core test files](https://github.com/returntocorp/semgrep/tree/develop/semgrep-core/tests)
-## Language parse rate
+## Language parse rates
 
-<div className="stats-graph-container">
-  <div className="lang-container">
-    <h2>Go parse rate</h2>
-    <iframe width="450" height="150" frameBorder="0" src="https://dashboard.semgrep.dev/metric/semgrep.core.go.parse.pct/number"></iframe>
-  </div>
-  
-  <div className="lang-container">
-    <h2>Java parse rate</h2>
-    <iframe width="450" height="150" frameBorder="0" src="https://dashboard.semgrep.dev/metric/semgrep.core.java.parse.pct/number"></iframe>
-  </div>
-  
-  <div className="lang-container">
-    <h2>JavaScript parse rate</h2>
-    <iframe width="450" height="150" frameBorder="0" src="https://dashboard.semgrep.dev/metric/semgrep.core.javascript.parse.pct/number"></iframe>
-  </div>
-  
-  <div className="lang-container">
-    <h2>Python parse rate</h2>
-    <iframe width="450" height="150" frameBorder="0" src="https://dashboard.semgrep.dev/metric/semgrep.core.python.parse.pct/number"></iframe>
-  </div>
-
-  <div className="lang-container">
-    <h2>Ruby parse rate</h2>
-    <iframe width="450" height="150" frameBorder="0" src="https://dashboard.semgrep.dev/metric/semgrep.core.ruby.parse.pct/number"></iframe>
-  </div>
-  
-  <div className="lang-container">
-    <h2>TypeScript parse rate</h2>
-    <iframe width="450" height="150" frameBorder="0" src="https://dashboard.semgrep.dev/metric/semgrep.core.typescript.parse.pct/number"></iframe>
-  </div>
-  
-  <div className="lang-container">
-    <h2>TSX parse rate</h2>
-    <iframe width="450" height="150" frameBorder="0" src="https://dashboard.semgrep.dev/metric/semgrep.core.tsx.parse.pct/number"></iframe>
-  </div>
-
-  <div className="lang-container">
-    <h2>OCaml parse rate</h2>
-    <iframe width="450" height="150" frameBorder="0" src="https://dashboard.semgrep.dev/metric/semgrep.core.ocaml.parse.pct/number"></iframe>
-  </div>
-
-  <div className="lang-container">
-    <h2>PHP parse rate</h2>
-    <iframe width="450" height="150" frameBorder="0" src="https://dashboard.semgrep.dev/metric/semgrep.core.php.parse.pct/number"></iframe>
-  </div>
-
-  <div className="lang-container">
-    <h2>C parse rate</h2>
-    <iframe width="450" height="150" frameBorder="0" src="https://dashboard.semgrep.dev/metric/semgrep.core.c.parse.pct/number"></iframe>
-  </div>
-
-  <div className="lang-container">
-    <h2>C# parse rate</h2>
-    <iframe width="450" height="150" frameBorder="0" src="https://dashboard.semgrep.dev/metric/semgrep.core.c-sharp.parse.pct/number"></iframe>
-  </div>
-</div>
+See [parse rates by language](https://dashboard.semgrep.dev/).
 
 <MoreHelp />
