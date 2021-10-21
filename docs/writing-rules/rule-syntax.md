@@ -25,7 +25,7 @@ All required fields must be present at the top-level of a rule, immediately unde
 | `id`                                                    | `string` | Unique, descriptive identifier, e.g., `no-unused-variable`                                        |
 | `message`                                               | `string` | Message highlighting why this rule fired and how to remediate the issue                           |
 | `severity`                                              | `string` | One of: `INFO`, `WARNING`, or `ERROR`                                                             |
-| `languages`                                             | `array`  | See [supported languages](/language-support/#language-extensions-and-tags)                        |
+| `languages`                                             | `array`  | See [language extensions and tags](#language-extensions-and-tags)                                 |
 | [`pattern`](#pattern)_\*_               | `string` | Find code matching this expression                                                                |
 | [`patterns`](#patterns)_\*_             | `array`  | Logical AND of multiple patterns                                                                  |
 | [`pattern-either`](#pattern-either)_\*_ | `array`  | Logical OR of multiple patterns                                                                   |
@@ -35,6 +35,33 @@ All required fields must be present at the top-level of a rule, immediately unde
 :::info
 Only one of `pattern`, `patterns`, `pattern-either`, or `pattern-regex` is required.
 :::
+
+#### Language extensions and tags
+<details>
+<summary>Expand table of extensions and tags</summary>
+
+| Language   | Extensions     | Tags                                 |
+|:-----------|:---------------|:-------------------------------------|
+| C          | `.c`           | `c`                                  |
+| C#         | `.cs`          | `csharp`, `cs`, `C#`                 |
+| Go         | `.go`          | `go`, `golang`                       |
+| Java       | `.java`        | `java`                               |
+| JavaScript | `.js`, `.jsx`  | `js`, `jsx`, `javascript`            |
+| JSON       | `.json`        | `json`, `JSON`, `Json`               |
+| JSX        | `.js`, `.jsx`  | `js`, `jsx`, `javascript`            |
+| Kotlin     |                |                                      |
+| Lua        | `.lua`         | `lua`                                |
+| OCaml      | `.ml`, `.mli`  | `ocaml`, `ml`                        |
+| PHP        | `.php`         | `php`                                |
+| Python     | `.py`, `.pyi`  | `python`, `python2`, `python3`, `py` |
+| R          |                |                                      |
+| Ruby       | `.rb`          | `ruby`, `rb`                         |
+| Rust       | `.rs`          | `rust`, `Rust`, `rs`                 |
+| TypeScript | `.ts`, `.tsx`  | `ts`, `tsx`, `typescript`            |
+| TSX        | `.ts`, `.tsx`  | `ts`, `tsx`, `typescript`            |
+| YAML       | `.yaml`        | `yaml`                               |
+
+</details>
 
 ### Optional
 
