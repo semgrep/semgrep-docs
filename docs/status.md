@@ -97,7 +97,28 @@ Visit the cheat sheet generation script and associated semgrep-core test files t
 * [generation script](https://github.com/returntocorp/semgrep/blob/develop/scripts/generate_test_matrix.py)
 * [semgrep-core test files](https://github.com/returntocorp/semgrep/tree/develop/semgrep-core/tests)
 
+## Language extensions and tags
 
+| Language   | Extensions     | Tags                                 |
+|:-----------|:---------------|:-------------------------------------|
+| C          | `.c`           | `c`                                  |
+| C#          | `.cs`           | `csharp`, `cs`, `C#`               |
+| Go         | `.go`          | `go`, `golang`                       |
+| Java       | `.java`        | `java`                               |
+| JavaScript | `.js`, `.jsx`  | `js`, `jsx`, `javascript`            |
+| JSON       | `.json`        | `json`, `JSON`, `Json`               |
+| JSX        | `.js`, `.jsx`  | `js`, `jsx`, `javascript`            |
+| Kotlin     |                |                                      |
+| OCaml      | `.ml`, `.mli`  | `ocaml`, `ml`                        |
+| Lua        | `.lua`         | `lua`                                |
+| PHP        | `.php`         | `php`                                |
+| Python     | `.py`, `.pyi`  | `python`, `python2`, `python3`, `py` |
+| R          |                |                                      |
+| Ruby       | `.rb`          | `ruby`, `rb`                         |
+| Rust       | `.rs`          | `rust`, `Rust`, `rs`                 |
+| TypeScript | `.ts`, `.tsx`  | `ts`, `tsx`, `typescript`            |
+| TSX        | `.ts`, `.tsx`  | `ts`, `tsx`, `typescript`            |
+| YAML       | `.yaml`        | `yaml`                               |
 ## Language parse rate
 
 <div className="stats-graph-container">
