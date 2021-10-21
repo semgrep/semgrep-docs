@@ -14,17 +14,18 @@ import MoreHelp from "/src/components/MoreHelp"
 ## Language maturity
 
 
-| GA         | Beta                       | Experimental |
-|:---------- |:---------------------------|:-------------|
-| Go         | C                          | Kotlin       |
-| Java       | C#                         | Lua          |
-| JavaScript | OCaml                      | R            |
-| JSON       | PHP                        | Rust         |
-| JSX        | Terraform                  |              |
-| Python     | YAML                       |              |
-| Ruby       | Generic (ERB, Jinja, etc.) |              |
-| TypeScript |                            |              |
-| TSX        |                            |              |
+| GA         | Beta                       | Experimental               |
+|:---------- |:---------------------------|:---------------------------|
+| Go         | Terraform                  | C                          |
+| Java       |                            | C#                         |
+| JavaScript |                            | Kotlin                     |
+| JSON       |                            | Lua                        |
+| JSX        |                            | OCaml                      |
+| Python     |                            | PHP                        |
+| Ruby       |                            | R                          |
+| TypeScript |                            | Rust                       |
+| TSX        |                            | YAML                       |
+|            |                            | Generic (ERB, Jinja, etc.) |
 
 ## Support expectations
 
@@ -109,8 +110,8 @@ Visit the cheat sheet generation script and associated semgrep-core test files t
 | JSON       | `.json`        | `json`, `JSON`, `Json`               |
 | JSX        | `.js`, `.jsx`  | `js`, `jsx`, `javascript`            |
 | Kotlin     |                |                                      |
-| OCaml      | `.ml`, `.mli`  | `ocaml`, `ml`                        |
 | Lua        | `.lua`         | `lua`                                |
+| OCaml      | `.ml`, `.mli`  | `ocaml`, `ml`                        |
 | PHP        | `.php`         | `php`                                |
 | Python     | `.py`, `.pyi`  | `python`, `python2`, `python3`, `py` |
 | R          |                |                                      |
