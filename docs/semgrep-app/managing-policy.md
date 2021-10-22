@@ -37,6 +37,10 @@ Any rule, ruleset, or pattern can be added to a policy. Look for the “Add to P
 
 ![A ruleset with an "Add to Policy" button visible](../img/add-ruleset-to-policy.png "A ruleset showing 'Add to Policy'")
 
+You can edit a rule's message description by hovering over it in the rules tab and clicking the pencil that appears. This feature is available on the Team tier. 
+
+![Policy with edit rule message showing](../img/edit-rule-message-from-policy.png "Editing a rule message within a ruleset")
+
 You can remove items from your policy by hovering over them in the rules tab and clicking the `x` that appears.
 
 ![Policy with disabled rules showing](../img/remove-from-policy.png "Disabling a rule within a ruleset")
