@@ -43,11 +43,11 @@ You can remove items from your policy by hovering over them in the rules tab and
 
 ## Custom Rule Messages
 
-You can edit a rule's message description by hovering over it in the rules tab and clicking the pencil that appears. This feature is available on the Team tier. 
+You can edit a rule's message description by hovering over it in the rules tab and clicking the pencil icon that appears. This feature is available on the Team tier. 
 
 ![Policy with edit rule message showing](../img/edit-rule-message-from-policy.png "Editing a rule message within a ruleset")
 
-If you edit the rule to show a customized message, then the new rule message will appear in your PR/MR comments. 
+The customized message will appear in your PR/MR comments where the rule is triggered. 
 
 ![PR comment with custom rule message](../img/example-custom-rule-message.png "Comparing with and without custom rule messages")
 
