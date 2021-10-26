@@ -10,7 +10,7 @@ There are probably changes to submodules that you don't have. Run `git submodule
 
 ### The pre-commit test is failing on Github
 
-Make sure to follow the [Development Workflow](https://semgrep.dev/docs/contributing/contributing-code/#development-workflow) so that pre-commit will run on commit
+Make sure to follow the [Development Workflow](/contributing/contributing-code/#development-workflow) so that pre-commit will run on commit
 
 ### I can't commit because code I haven't touched is failing pre-commit
 
