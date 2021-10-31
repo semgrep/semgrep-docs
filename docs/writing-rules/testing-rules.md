@@ -130,4 +130,14 @@ final confusion matrix: TP: 1 TN: 0 FP: 0 FN: 0
 The subdirectory structure of these two directories must be the same for Semgrep to
 correctly find the associated files.
 
+## Validating rules
+
+At r2c, we believe in checking the code we write, and that includes rules.
+
+You can run `semgrep --validate --config [file]` to check the given config. This will run a combination of semgrep rules and OCaml checks against your rules to search for things like duplicate patterns and missing fields. All rules submitted to the semgrep-rules repository are validated.
+
+The semgrep rules are pulled from `p/semgrep-rule-lints`.
+
+This feature is still experimental and under active development. Feedback is welcome!
+
 <MoreHelp />
