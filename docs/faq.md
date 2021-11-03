@@ -35,6 +35,17 @@ Probably! If you have a typical consulting service and running semgrep-rules is 
 
 Help is available for all users, free or otherwise, through the [r2c Community Slack](https://r2c.dev/slack). Semgrep Team tier customers receive 8\*5 email/phone/Slack support with committed SLAs. See [Support](../support/) for more details.
 
+#### Can I embed the live editor in my website or blog post?
+
+Yes! You can embed a special version of the editor with an `iframe`. The source is `https://semgrep.dev/embed/editor?snippet=<snippet-id>` where the `snippet-id` is either the short identifier generated when you share an editor link (this usually looks like `DzKv`) or the named identifier from a saved rule (this usually looks like `username:rule-name`).
+
+```html
+<iframe title="Semgrep example no prints" src="https://semgrep.dev/embed/editor?snippet=DzKv" width="100%" height="432px" frameborder="0"></iframe>
+
+
+<iframe title="Semgrep example no prints" src="https://semgrep.dev/embed/editor?snippet=ievans:print-to-logger" width="100%" height="432px" frameborder="0"></iframe>
+```
+
 ## Comparisons
 
 ### How is Semgrep different than $OTHER\_TOOL or $GENERIC\_[SAST](https://en.wikipedia.org/wiki/Static_application_security_testing)?
