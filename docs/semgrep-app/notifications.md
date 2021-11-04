@@ -84,14 +84,14 @@ To enable MR comments:
 4. Copy the token that GitLab gives you.
 5. Navigate to your repository's Settings > CI/CD, scroll down to 'Variables', and click 'Expand'. The url will end with something like: /username/project/-/settings/ci_cd.
 6. Click to 'Add variable', give the new variable the key `PAT` and use the token you copied in step 2 as the value. Select "mask variable" and **UNSELECT "protect variable"**.
-7. Update your .gitlab-ci.yml to pass the content of your PAT in through the environment variable `GITLAB_TOKEN`. 
+7. Update your .gitlab-ci.yml to pass the content of your PAT in through the environment variable `GITLAB_TOKEN`.
 
 For example:
 ```yaml
 semgrep:
   image: returntocorp/semgrep-agent:v1
   script:
-    # SEMGREP_APP_TOKEN can be obtained from semgrep.dev/manage/settings. 
+    # SEMGREP_APP_TOKEN can be obtained from semgrep.dev/manage/settings.
     # The SEMGREP_APP_TOKEN should be treated like a secret and not hard-coded into your code.
     - semgrep-agent --publish-token $SEMGREP_APP_TOKEN
   rules:
@@ -125,7 +125,6 @@ Semgrep App will send a POST request containing an array of all the scan's findi
       "id": "241dbe518caf15f800131d2d0c70bf08",
       "mute_date": null,
       "assigned_date": null,
-      "assigned_by_user_id": null,
       "ref": "refs/pull/2658/merge",
       "start_date": "None",
       "fix_date": null,
@@ -141,6 +140,14 @@ Semgrep App will send a POST request containing an array of all the scan's findi
       "end_column": 10,
       "commit_date": "2021-06-07T15:26:35+03:00",
       "first_seen_scan_id": "xnkPGY8VL20o",
+      "category": "security",
+      "cwe": "CWE-319: Cleartext Transmission of Sensitive Information",
+      "license": "Commons Clause License Condition v1.0[LGPL-2.1-only]",
+      "owasp": "A3: Sensitive Data Exposure",
+      "references": ["https://tomcat.apache.org/tomcat-5.5-doc/servletapi/"],
+      "source": "https://semgrep.dev/r/java.servlets.security.cookie-issecure-false.cookie-issecure-false",
+      "technology": ["servlet",  "tomcat"],
+      "vulnerability": "Insecure Transport"},
       "metadata": {
         "dev.semgrep.actions": [],
         "semgrep.policy": {
@@ -148,7 +155,6 @@ Semgrep App will send a POST request containing an array of all the scan's findi
           "name": "Web Apps Notify Only",
           "slug": "web-apps-notify-only"
         },
-        "semgrep.ruleset": "johndoe:log-exc-info",
         "semgrep.url": "https://semgrep.dev/s/johndoe:log-exc-info"
       }
     }
