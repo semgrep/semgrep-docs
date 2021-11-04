@@ -30,7 +30,7 @@ Check the log output for any hints about what the issue is.
 
 ![Screenshot of GitHub's Actions tab with workflows disabled](../img/github-workflows-disabled.png)<br />
 
-* Enable Workflows to allow Semgrep to scan.
+* Enable workflows to allow Semgrep to scan.
 
 
 ## If a project reports the last scan 'never finished'
