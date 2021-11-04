@@ -25,6 +25,11 @@ on:
   # push:
   #   branches: ["master", "main"]
 
+  # Schedule this job to run at a certain time, using cron syntax
+  # Note that * is a special character in YAML so you have to quote this string
+  # schedule:
+  #   - cron: '30 5,17 * * *' # scheduled for both 5:30 & 17:30 UTC
+
 jobs:
   semgrep:
     name: Scan
