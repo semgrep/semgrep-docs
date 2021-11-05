@@ -20,7 +20,7 @@ jobs:
           command: yarn build
   deployStaging:
     docker:
-      - image: circleci/node:latest
+      - image: circleci/node:16
     steps:
       - checkout
       - restore_cache:
@@ -39,7 +39,7 @@ jobs:
           command: aws s3 sync build/ s3://staging-semgrep-dev/docs
   deployProd:
     docker:
-      - image: circleci/node:latest
+      - image: circleci/node:16
     steps:
       - checkout
       - restore_cache:
