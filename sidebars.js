@@ -121,6 +121,19 @@ module.exports = {
         },
       ],
     },
+    {
+      type: 'category',
+      label: 'Release notes',
+      items: [
+        {
+          type: 'category',
+          label: 'Release notes',
+          items: [
+            'release-notes/release-notes'
+          ]
+        }
+      ],
+    },
     'security'
   ],
 };
