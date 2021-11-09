@@ -10,7 +10,7 @@ import MoreHelp from "/src/components/MoreHelp"
 
 Semgrep App contains 3rd party integrations to allow users to add data from Semgrep to other tools that are part of their workflows.
 
-Currently, Semgrep App integrations with the following tools:
+Currently, Semgrep App integrates with the following tools:
 
 | Tool | Tier availability |
 | ---- | ---------------- |
@@ -20,13 +20,43 @@ Currently, Semgrep App integrations with the following tools:
 | Amazon S3 | Team |
 | Webhook | Team |
 
+## Where are integrations found?
+
+[Add: steps to find integrations]
+
 ## Slack
 
-Proposed outline:
-1. Introduction, functionality: "The Slack integration allows you..."
-2. How to set it up (with screenshots)
-3. What it looks like in Slack
+- [ ] screenshots complete
+- [ ] secret keys blurred out
 
+Integrating with Slack allows Semgrep to post messages about various security findings to a channel on your Slack workspace. [Add: Benefits of enabling Slack integration]
+
+[Add: screenshot showing slack integration catching something useful.]
+
+To set it up, you'll need to create an app within Slack and enable Slack's `Incoming Webhooks` feature. By creating a webhook, you'll have a URL which serves as Semgrep's endpoint to your Slack workplace. The guide below will walk you through those steps.
+
+1. Make sure that you're logged into your Slack account. You can enter your login details [here.](https://slack.com/workspace-signin)
+2. Follow this [link](https://api.slack.com/apps?new_app=1) to create an app in your Slack workplace. Select `From scratch` and fill in the fields for your app's name and workspace.
+   [insert photo here]
+3. You will be redirected to your new app's settings page. Alternatively, you can find this page by viewing your apps [here](https://api.slack.com/apps) and selecting your integration app from the menu.
+   [insert photo here]
+4. Click on `Incoming Webhooks` on the left menu, then enable the toggle.
+   [insert photo here]
+5. Once you've enabled `Incoming Webhooks`, you'll either be able to generate a `Webhook URL` or request one from a workspace owner.
+   [insert photo here]
+6. After you've obtained the URL, copy-paste it into Semgrep's integration form. You can then test and select which channel you'd like Semgrep to start posting to, then save the final configuration.
+   [insert photo here]
+
+
+----
+
+
+(1) Make an app
+(2) Enable webhooks
+
+### References and useful links
+* https://api.slack.com/apps
+* https://api.slack.com/messaging/webhooks#enable_webhooks
 
 See also: Notifications -> Slack
 
