@@ -108,7 +108,9 @@ This rule looks for usage of the Python standard library functions `hashlib.md5`
 
 ### `pattern-regex`
 
-The `pattern-regex` operator searches files for substrings matching the given [PCRE](https://www.pcre.org/original/doc/html/pcrepattern.html) pattern. This is useful for migrating existing regular expression code search functionality to Semgrep.
+The `pattern-regex` operator searches files for substrings matching the given [PCRE](https://www.pcre.org/original/doc/html/pcrepattern.html) pattern. This is useful for migrating existing regular expression code search functionality to Semgrep. PCRE "Perl-Compatible Regular Expressions" is a full-featured regex library that is widely compatible with Perl of course but also Python, JavaScript, Go, Ruby, and Java regex libraries.
+
+⚠️ PCRE supports only a [limited number of Unicode character properties](https://www.pcre.org/original/doc/html/pcrepattern.html#uniextseq). For example, `\p{Egyptian_Hieroglyphs}` is supported but `\p{Bidi_Control}` isn't.
 
 The `pattern-regex` operator can be combined with other pattern operators:
 
