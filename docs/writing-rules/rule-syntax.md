@@ -29,7 +29,7 @@ All required fields must be present at the top-level of a rule, immediately unde
 | [`pattern`](#pattern)_\*_               | `string` | Find code matching this expression                                                                |
 | [`patterns`](#patterns)_\*_             | `array`  | Logical AND of multiple patterns                                                                  |
 | [`pattern-either`](#pattern-either)_\*_ | `array`  | Logical OR of multiple patterns                                                                   |
-| [`pattern-regex`](#pattern-regex)_\*_   | `string` | Search files for [Python `re`](https://docs.python.org/3/library/re.html) compatible expressions  |
+| [`pattern-regex`](#pattern-regex)_\*_   | `string` | Search files for [PCRE](https://www.pcre.org/original/doc/html/pcrepattern.html)-compatible expressions  |
 
 
 :::info
@@ -108,7 +108,7 @@ This rule looks for usage of the Python standard library functions `hashlib.md5`
 
 ### `pattern-regex`
 
-The `pattern-regex` operator searches files for a [Python `re`](https://docs.python.org/3/library/re.html) compatible expression. This is useful for migrating existing regular expression code search functionality to Semgrep.
+The `pattern-regex` operator searches files for a [PCRE](https://www.pcre.org/original/doc/html/pcrepattern.html)-compatible expression. This is useful for migrating existing regular expression code search functionality to Semgrep.
 
 The `pattern-regex` operator can be combined with other pattern operators:
 
