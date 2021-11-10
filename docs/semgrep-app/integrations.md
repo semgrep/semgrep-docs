@@ -83,7 +83,13 @@ The Jira integration allows you to create tickets directly from the Findings pag
 
 ## Webhooks
 
-See also: Notifcations -> Webhooks
+Webhooks are a generic method for Semgrep to POST JSON-formatted findings after each scan to your URL endpoint. Simply provide a **Name** and **Webhook URL.** 
+
+Here's the output of a succesful test:
+
+![Successful webhook integration test](../img/webhook-successful-test.png)
+
+
 
 
 <MoreHelp />
