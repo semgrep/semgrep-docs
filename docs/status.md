@@ -16,16 +16,16 @@ import MoreHelp from "/src/components/MoreHelp"
 
 | GA ✅      | Beta 🐛                     | Experimental 🚧            |
 |:---------- |:---------------------------|:---------------------------|
-| Go         | Terraform                  | C                          |
-| Java       |                            | C#                         |
-| JavaScript |                            | Kotlin                     |
-| JSON       |                            | Lua                        |
-| JSX        |                            | OCaml                      |
-| Python     |                            | PHP                        |
-| Ruby       |                            | R                          |
-| TypeScript |                            | Rust                       |
-| TSX        |                            | YAML                       |
-|            |                            | Generic (ERB, Jinja, etc.) |
+| C#         | Terraform                  | C                          |
+| Go         |                            | Kotlin                     |
+| Java       |                            | Lua                        |
+| JavaScript |                            | OCaml                      |
+| JSON       |                            | PHP                        |
+| JSX        |                            | R                          |
+| Python     |                            | Rust                       |
+| Ruby       |                            | YAML                       |
+| TypeScript |                            | Generic (ERB, Jinja, etc.) |
+| TSX        |                            |                            |
 
 ## Support expectations
 
@@ -55,7 +55,7 @@ The following thresholds define each maturity level:
 
 * **Experimental**
     * Parse rate: 90%+
-    * Rulesets: 0+ (10+ rules)
+    * Rules: 0+
     * Features:
         * `concrete_syntax`
         * `deep_exprstmt`
@@ -68,7 +68,7 @@ The following thresholds define each maturity level:
         * `metavar_equality_var`
 * **Beta**
     * Parse rate: 99%+
-    * Rulesets: 1+ (10+ rules)
+    * Rules: 5+
     * Features:
         * All in experimental
         * `metavar_class_def`
@@ -80,7 +80,7 @@ The following thresholds define each maturity level:
         * `metavar_stmt`
 * **Generally Available (GA)**
     * Parse rate: 99.9%+
-    * Rulesets: 2+ (10+ rules)
+    * Rules: 10+
     * Features:
         * All in experimental
         * All in beta
