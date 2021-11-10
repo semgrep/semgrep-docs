@@ -25,6 +25,7 @@ Currently, Semgrep App integrates with the following tools:
 After logging into your Semgrep App account, you can find **Integrations** as a tab within **Settings.**
 
 ![Screenshot of Semgrep's "Create New Integration Channel" menu](../img/integration-firstview.png)<br />
+
 ## Slack
 
 Integrating with Slack allows Semgrep to post messages after each scan about new findings to a channel on your Slack workspace.
@@ -46,7 +47,7 @@ To set it up, you'll need to create an app within Slack and enable that app's **
 
 ![Screenshot of the Slack Request Webhook  ](../img/slack-request-enable.png)<br />
 
-4. After you've obtained the URL, return to Semgrep and create a new Slack integration. Name the integration and copy-paste the URL into the **Slack URL** field . You can **Test** then select which channel you'd like Semgrep to start posting to. After you've verified that everything is working, remember to **Save** the final configuration.
+4. After you've obtained the URL, return to Semgrep and create a new Slack integration. Name the integration and copy-paste the URL into the **Slack URL** field . You can **Test** then select which channel you'd like Semgrep to start posting to. Select the **Inventory** flag to receive notifications about Code Asset Inventory findings. Finally, after you've verified that everything is working, remember to **Save** the final configuration.
 
 ![Screenshot of the Slack Request Webhook  ](../img/slack-integration-hooktest.png)<br />
 
