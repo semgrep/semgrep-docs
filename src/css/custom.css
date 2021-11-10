@@ -33,11 +33,11 @@
 }
 
 html[data-theme="dark"] .docusaurus-highlight-code-line {
-  background-color: rgba(0, 0, 0, 0.3);
+  background-color: #000000;
 }
 
 html[data-theme="dark"] {
-  background-color: rgba(0, 0, 0, 0.3);
+--ifm-background-color: #000000;
 --ifm-color-primary: #bca6ff;
 --ifm-color-primary-dark: #9c7cff;
 --ifm-color-primary-darker: #8c67ff;
