@@ -12,7 +12,7 @@ import MoreHelp from "/src/components/MoreHelp"
 [Semgrep CI](https://github.com/returntocorp/semgrep-action) (aka Semgrep Action or `semgrep-agent`) is a specialized Docker image for running Semgrep in CI environments. It can also optionally connect to [Semgrep App](https://semgrep.dev/manage) for centralized rule and findings management.
 
 - **Scan every commit**. Semgrep CI rapidly scans modified files on pull and merge requests, protecting developer productivity. Longer full project scans are configurable on merges to specific branches.
-- **Block new bugs**. You shouldn’t have to fix existing bugs just to adopt a tool. Semgrep CI reports newly introduced issues on pull and merge requests, scanning them at their base and HEAD commits to compare findings. Developers are signficantly more likely to fix the issues they introduced themselves on PRs and MRs.
+- **Block new bugs**. You shouldn’t have to fix existing bugs just to adopt a tool. Semgrep CI reports newly introduced issues on pull and merge requests, scanning them at their base and HEAD commits to compare findings. Developers are significantly more likely to fix the issues they introduced themselves on PRs and MRs.
 - **Get findings where you work**. Semgrep CI can connect to [Semgrep App](https://semgrep.dev/manage) to present findings in Slack, on PRs and MRs via inline comments, email, and through 3rd party services.
 
 :::info
@@ -252,7 +252,7 @@ For information on ignoring individual findings in code, see the [ignoring findi
 
 Semgrep CI has an audit mode that can be enabled to suppress non-zero exit codes when findings are found during branch scans. These scans are not differential in nature and by default pre-existing findings will fail the build. With audit mode enabled, even though findings will not cause non-zero exit codes, internal Semgrep errors and exception will still fail the build.
 
-This behavior is beneficial for those who want to ensure every merge to a branch is fully scanned but who don't want to interfere with the development process becuase of pre-existing issues. In this mode, [security dashboards](#security-dashboards) can still be kept up to date and [notifications](#notifications) can be received.
+This behavior is beneficial for those who want to ensure every merge to a branch is fully scanned but who don't want to interfere with the development process because of pre-existing issues. In this mode, [security dashboards](#security-dashboards) can still be kept up to date and [notifications](#notifications) can be received.
 
 In GitHub Actions, the most common event names are `push` and `pull_request`. To enable audit mode on branch pushes in GitHub Actions, set the option `auditOn: push` in your workflow file.
 
