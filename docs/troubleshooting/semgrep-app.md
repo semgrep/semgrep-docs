@@ -50,6 +50,12 @@ Many CI providers have a time limit for how long a job can run. Semgrep CI also 
 - You can skip scanning large and complex source code files (such as minified JS or generated code) if you know their path by adding a `.semgrepignore` file. See [how to ignore files & directories in Semgrep CI](/semgrep-ci/overview.md#ignoring-files-directories).
 - You can increase Semgrep CI's own run time limit by setting a `semgrep-agent --timeout <seconds>` flag, or by setting a `SEMGREP_TIMEOUT=<seconds>` environment variable. To fully disable the time limit, set this value to `0`.
 
+## If you're unable to comment on Semgrep Registry pages
+
+Our comments are powered by an external service called [utteranc.es](https://utteranc.es/).
+If you aren't able to authenticate to leave comments,
+please make sure you don't have an ad blocker interrupting requests to their domain.
+
 ## How to get help
 
 Please check the [Support](/support/) page to get help from the Semgrep maintainers & community, via Slack, GitHub, email, or phone.
