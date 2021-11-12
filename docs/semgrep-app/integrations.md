@@ -47,7 +47,7 @@ To set it up, you'll need to create an app within Slack and enable that app's **
 
 ![Screenshot of the Slack Request Webhook  ](../img/slack-request-enable.png)<br />
 
-4. After you've obtained the URL, return to Semgrep and create a new Slack integration. Name the integration and copy-paste the URL into the **Slack URL** field . You can **Test** then select which channel you'd like Semgrep to start posting to. Select the **Inventory** flag to receive notifications about Code Asset Inventory findings. Finally, after you've verified that everything is working, remember to **Save** the final configuration.
+4. After you've obtained the URL, return to Semgrep and create a new Slack integration. Name the integration and copy-paste the URL into the **Slack URL** field. You can **Test** then select which channel you'd like Semgrep to start posting to. Select the **Inventory** flag to receive notifications about Code Asset Inventory findings. Finally, after you've verified that everything is working, remember to **Save** the final configuration.
 
 ![Screenshot of the Slack Request Webhook  ](../img/slack-integration-hooktest.png)<br />
 
@@ -59,6 +59,7 @@ To set it up, you'll need to create an app within Slack and enable that app's **
 
 [Notifications -> Slack](notifications.md/#slack)
 
+
 ## Email
 
 Proposed outline:
@@ -66,11 +67,14 @@ Proposed outline:
 2. How to set it up (with screenshots)
 3. What it looks like in an email client (such as Gmail)
 
-See also: Notifcations -> Email
+### See also:
+[Notifcations -> Email](notifications.md/#email)
 
 ## Jira
 
-The Jira integration allows you to create tickets directly from the Findings page with relevant info about a particular finding.
+Jira integration is a feature available in Semgrep's Team tier and above.
+
+This integration allows you to create JIRA tickets directly from the **Findings** page with relevant information about a particular finding.
 
 ![Setting up the Jira integration](../img/jira-integrations-page.png)
 ![Creating a Jira ticket from the Findings page](../img/jira-findings-page.png)
@@ -81,7 +85,10 @@ The Jira integration allows you to create tickets directly from the Findings pag
 
 (See above for proposed ouline)
 
+
 ## Webhooks
+
+Webhooks are a feature available in Semgrep's team tier and above.
 
 Webhooks are a generic method for Semgrep to POST JSON-formatted findings after each scan to your URL endpoint. Simply provide a **Name** and **Webhook URL.** 
 
@@ -89,7 +96,9 @@ Here's the output of a succesful test:
 
 ![Successful webhook integration test](../img/webhook-successful-test.png)
 
+### See also:
 
+[Notifcations -> Webhooks](notifications.md/#webhooks)
 
 
 <MoreHelp />
