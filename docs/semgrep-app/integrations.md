@@ -39,14 +39,10 @@ To set it up, you'll need to create an app within Slack and enable that app's **
 1. Make sure that you're logged into your Slack account. You can enter your login details [here.](https://slack.com/workspace-signin)
 2. Follow this [link](https://api.slack.com/apps?new_app=1) to create an app in your Slack workplace. Select **From scratch** and fill in the fields for your app's name and workspace.
 
-![Screenshot of a Slack form to create a new app](../img/slack-create-app.png)<br />
 ![Screenshot of a Slack form to fill out new app details](../img/slack-create-app-name.png)<br />
 
 3. You will be redirected to your new app's settings page. Alternatively, you can find this page by viewing your apps [here](https://api.slack.com/apps) and selecting your integration app from the menu.
 4. Click on **Incoming Webhooks** on the left menu, then enable the toggle.
-
-![Screenshot of the Slack Incoming Webhooks settings](../img/slack-enable-webhooks.png)<br />
-
 5. Once you've enabled **Incoming Webhooks**, you'll either be able to generate a **Webhook URL** or request one from a workspace owner.
 
 ![Screenshot of the Slack Request Webhook  ](../img/slack-request-enable.png)<br />
@@ -59,7 +55,7 @@ To set it up, you'll need to create an app within Slack and enable that app's **
 * https://api.slack.com/apps
 * https://api.slack.com/messaging/webhooks#enable_webhooks
 
-### See also: 
+### See also
 
 [Notifications -> Slack](notifications.md/#slack)
 
@@ -71,7 +67,7 @@ Proposed outline:
 2. How to set it up (with screenshots)
 3. What it looks like in an email client (such as Gmail)
 
-### See also:
+### See also
 [Notifcations -> Email](notifications.md/#email)
 
 ## Jira
