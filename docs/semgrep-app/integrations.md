@@ -26,7 +26,7 @@ After logging into your Semgrep App account, you can find **Integrations** as a 
 
 ![Screenshot of Semgrep's "Create New Integration Channel" menu](../img/integration-firstview.png)<br />
 
-View your saved integration channels by clicking on the **gear** icon within the **Rule board**. Click on the toggles to turn notifications on or off for each channel.
+To turn notifications for each channel on or off, click on the **gear** icon within the **Rule board.** Then click on the toggles to turn notifications on or off for each channel.
 
 ![Screenshot of the Semgrep rule board with integrations](../img/integration-ruleboard.png)<br />
 
@@ -69,11 +69,11 @@ The guide below will walk you through those steps.
 
 ## Email
 
-Proposed outline:
 Email integration allows Semgrep to send new findings to an email address of your choice.
-1. Introduction, functionality: "Email integration allows you..."
-2. How to set it up (with screenshots)
-3. What it looks like in an email client (such as Gmail)
+
+To set up email integration, provide a **Name** and **Email address.** Check the **Inventory** box if you would like to receive notifications on Code Asset Inventory findings as well.
+
+[insert screenshot of finding in email]
 
 ### See also
 [Notifcations -> Email](notifications.md/#email)
@@ -98,11 +98,10 @@ This integration allows you to create JIRA tickets directly from the **Findings*
 
 Webhooks are a feature available in Semgrep's team tier and above.
 
-Webhooks are a generic method for Semgrep to POST JSON-formatted findings after each scan to your URL endpoint. Simply provide a **Name** and **Webhook URL.** 
-
-Here's the output of a succesful test:
+Webhooks are a generic method for Semgrep to post JSON-formatted findings after each scan to your URL endpoint. Simply provide a **Name** and **Webhook URL.** 
 
 ![Successful webhook integration test](../img/webhook-successful-test.png)
+
 
 ### See also:
 
