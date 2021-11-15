@@ -8,7 +8,7 @@ import MoreHelp from "/src/components/MoreHelp"
 
 # Integrations
 
-Semgrep App contains 3rd party integrations to allow users to add data from Semgrep to other tools that are part of their workflows.
+Semgrep App contains third party integrations to allow users to add data from Semgrep to other tools that are part of their workflows.
 
 Currently, Semgrep App integrates with the following tools:
 
@@ -25,6 +25,10 @@ Currently, Semgrep App integrates with the following tools:
 After logging into your Semgrep App account, you can find **Integrations** as a tab within **Settings.**
 
 ![Screenshot of Semgrep's "Create New Integration Channel" menu](../img/integration-firstview.png)<br />
+
+View your saved integration channels by clicking on the **gear** icon within the **Rule board**. Click on the toggles to turn notifications on or off for each channel.
+
+![Screenshot of the Semgrep rule board with integrations](../img/integration-ruleboard.png)<br />
 
 ## Slack
 
