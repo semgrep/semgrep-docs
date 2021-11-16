@@ -42,7 +42,7 @@ To set it up, you'll need to create an app within Slack and enable that app's **
 
 The guide below will walk you through those steps.
 
-1. Make sure that you're logged into your Slack account. You can enter your login details [here.](https://slack.com/workspace-signin)
+1. Log in to your Slack account. Enter your login details in [Slack workspace](https://slack.com/workspace-signin).
 2. Create an app in your Slack workplace by following this link: [Slack apps](https://api.slack.com/apps?new_app=1).
 3. Select **From scratch** and fill in the fields for your app's name and workspace.
 
