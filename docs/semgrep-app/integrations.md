@@ -45,7 +45,6 @@ The guide below will walk you through those steps.
 2. Create an app in your Slack workplace by following this link: [Slack apps](https://api.slack.com/apps?new_app=1).
 3. Select **From scratch** and fill in the fields for your app's name and workspace.
 ![Screenshot of a Slack form to fill out new app details](../img/slack-create-app-name.png)<br />
-
 3. You will be redirected to your new app's settings page. Alternatively, you can find this page by viewing your apps [here](https://api.slack.com/apps) and selecting your integration app from the menu.
 5. Click on **Incoming Webhooks** on the left menu, and then enable the toggle.
 6. After you have enabled **Incoming Webhooks**, follow one of these steps:
