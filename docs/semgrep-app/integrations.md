@@ -20,7 +20,7 @@ Currently, Semgrep App integrates with the following tools:
 | Amazon S3 | Team |
 | Webhook | Team |
 
-## Where are integrations found?
+## Finding available integrations
 
 After logging into your Semgrep App account, you can find **Integrations** as a tab within **Settings.**
 
