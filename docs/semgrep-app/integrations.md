@@ -8,7 +8,7 @@ import MoreHelp from "/src/components/MoreHelp"
 
 # Integrations
 
-Semgrep App contains third party integrations to allow users to add data from Semgrep to other tools that are part of their workflows.
+Semgrep App contains third-party integrations to allow you to add data from Semgrep to other tools that are part of your workflows.
 
 Currently, Semgrep App integrates with the following tools:
 
