@@ -49,7 +49,9 @@ The guide below will walk you through those steps.
 
 3. You will be redirected to your new app's settings page. Alternatively, you can find this page by viewing your apps [here](https://api.slack.com/apps) and selecting your integration app from the menu.
 4. Click on **Incoming Webhooks** on the left menu, then enable the toggle.
-5. Once you've enabled **Incoming Webhooks**, you'll either be able to generate a **Webhook URL** or request one from a workspace owner.
+6. After you have enabled **Incoming Webhooks**, follow one of these steps:
+    - Generate a **Webhook URL**.
+    - Request to add a new webhook from a workspace owner.
 
 ![Screenshot of the Slack Request Webhook  ](../img/slack-request-enable.png)<br />
 
