@@ -22,7 +22,11 @@ Currently, Semgrep App integrates with the following tools:
 
 ## Finding available integrations
 
-After logging into your Semgrep App account, you can find **Integrations** as a tab within **Settings.**
+To find available integrations for Semgrep App, follow these steps:
+
+1. Sign in to your [Semgrep App account](https://semgrep.dev/).
+2. Click **Settings**.
+3. Click **Integrations**.
 
 ![Screenshot of Semgrep's "Create New Integration Channel" menu](../img/integration-firstview.png)<br />
 
