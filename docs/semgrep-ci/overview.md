@@ -62,7 +62,7 @@ For full project scans:
 docker run -v $(pwd):/src --workdir /src returntocorp/semgrep-agent:v1 semgrep-agent --config auto --config <other rule or rulesets>
 ```
 
-For pull or merge request scans that return only newly introduced issues, set the `--baseline-ref` flag to the git ref (branch name, tag, or commit hash) to use as a baseline. Semgrep will determine the files that have been modified since this reference point and return only newly introduced issues. For example, to report findings newly added since branching off from your `main` branch, run
+Semgrep can scan only the files modified in your branch and output the difference in findings between the baseline branch and the new branch. Set the `--baseline-ref` flag to the git ref (branch name, tag, or commit hash) to use as a baseline. Semgrep will determine the files that have been modified since this reference point and return only newly introduced issues. For example, to report findings newly added since branching off from your `main` branch, run
 
 ```sh
 semgrep-agent --baseline-ref main
