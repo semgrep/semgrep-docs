@@ -31,7 +31,6 @@ To find available integrations for Semgrep App, follow these steps:
 ![Screenshot of Semgrep's "Create New Integration Channel" menu](../img/integration-firstview.png)<br />
 
 To turn notifications for each channel on or off, click on the **gear** icon within the **Rule board.** Then click on the toggles to turn notifications on or off for each channel.
-
 ![Screenshot of the Semgrep rule board with integrations](../img/integration-ruleboard.png)<br />
 
 ## Slack
