@@ -30,7 +30,13 @@ To find available integrations for Semgrep App, follow these steps:
 
 ![Screenshot of Semgrep's "Create New Integration Channel" menu](../img/integration-firstview.png)<br />
 
-To turn notifications for each channel on or off, click on the **gear** icon within the **Rule board.** Then click on the toggles to turn notifications on or off for each channel.
+## Managing integrations
+
+To view, disable or enable your saved integration channels:
+
+1. In the **Integrations** tab, click the **gear** icon within the **Rule board**.
+2. Click on the toggles to turn notifications on or off for each channel.
+
 ![Screenshot of the Semgrep rule board with integrations](../img/integration-ruleboard.png)<br />
 
 ## Integrating various third-party tools
@@ -41,9 +47,7 @@ This section describes how to integrate Semgrep App into particular third-party 
 
 Integrating with Slack allows Semgrep to send findings to a channel on your Slack workspace.
 
-To set it up, you'll need to create an app within Slack and enable that app's **Incoming Webhooks** feature. By creating a webhook, you'll have a URL which serves as Semgrep's endpoint to your Slack workplace.
-
-The guide below will walk you through those steps.
+To set it up, create an app within Slack and enable that app's **Incoming Webhooks** feature. By creating a webhook, you'll have a URL that serves as Semgrep's endpoint to your Slack workplace. Follow the guide below to create the app and webook, and integrate with Semgrep:
 
 1. Log in to your Slack account. Enter your login details in [Slack workspace](https://slack.com/workspace-signin).
 2. Create an app in your Slack workplace by following this link: [Slack apps](https://api.slack.com/apps?new_app=1).
@@ -61,17 +65,16 @@ The guide below will walk you through those steps.
 8. After you've verified that everything is working, remember to **Save** the final configuration.
 9. Remember to turn notifications on by going to the **Rule board**, clicking on the **gear icon,** then clicking on the toggle.
 
-### References and useful links
+#### Additional resources
 
 * https://api.slack.com/apps
 * https://api.slack.com/messaging/webhooks#enable_webhooks
 
-### See also
+#### See also
 
 [Notifications -> Slack](notifications.md/#slack)
 
-
-## Email
+### Email
 
 Email integration allows Semgrep to send new findings to an email address of your choice.
 
@@ -79,10 +82,10 @@ To set up email integration, provide a **Name** and **Email address.** Check the
 
 [insert screenshot of finding in email]
 
-### See also
+#### See also
 [Notifcations -> Email](notifications.md/#email)
 
-## Jira
+### Jira
 
 Jira integration is a feature available in Semgrep's Team tier and above.
 
@@ -93,12 +96,12 @@ This integration allows you to create JIRA tickets directly from the **Findings*
 ![Output of Jira integration](../img/jira-template.png)
 
 
-## Amazon S3
+### Amazon S3
 
 (See above for proposed ouline)
 
 
-## Webhooks
+### Webhooks
 
 Webhooks are a feature available in Semgrep's team tier and above.
 
@@ -107,7 +110,7 @@ Webhooks are a generic method for Semgrep to post JSON-formatted findings after 
 ![Successful webhook integration test](../img/webhook-successful-test.png)
 
 
-### See also:
+#### See also:
 
 [Notifcations -> Webhooks](notifications.md/#webhooks)
 
