@@ -33,7 +33,11 @@ To find available integrations for Semgrep App, follow these steps:
 To turn notifications for each channel on or off, click on the **gear** icon within the **Rule board.** Then click on the toggles to turn notifications on or off for each channel.
 ![Screenshot of the Semgrep rule board with integrations](../img/integration-ruleboard.png)<br />
 
-## Slack
+## Integrating various third-party tools
+
+This section describes how to integrate Semgrep App into particular third-party tools.
+
+### Slack
 
 Integrating with Slack allows Semgrep to send findings to a channel on your Slack workspace.
 
