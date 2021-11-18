@@ -17,7 +17,7 @@ import MoreHelp from "/src/components/MoreHelp"
 
 | GA ✅      | Beta 🐛                     | Experimental 🚧            |
 |:---------- |:---------------------------|:---------------------------|
-| C#         | Terraform                  | C                          |
+| C#         | Kotlin                     | C                          |
 | Go         | Kotlin                     | C++                        |
 | Java       |                            | Lua                        |
 | JavaScript |                            | OCaml                      |
