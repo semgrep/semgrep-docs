@@ -52,7 +52,7 @@ Semgrep supports 17+ languages.
 | GA ✅      | Beta 🐛                     | Experimental 🚧            |
 |:---------- |:---------------------------|:---------------------------|
 | C#         | Kotlin                     | C                          |
-| Go         | Kotlin                     | C++                        |
+| Go         | Terraform                  | C++                        |
 | Java       |                            | Lua                        |
 | JavaScript |                            | OCaml                      |
 | JSON       |                            | PHP                        |
