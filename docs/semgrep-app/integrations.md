@@ -1,6 +1,7 @@
 ---
 slug: integrations
 append_help_link: true
+title: Integrations
 description: "Semgrep App contains 3rd party integrations to allow users to add data from Semgrep to other tools that are part of their workflows."
 ---
 
