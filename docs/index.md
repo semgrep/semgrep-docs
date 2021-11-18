@@ -45,12 +45,14 @@ Semgrep is developed and commercially supported by [r2c, a software security com
 
 Semgrep supports 17+ languages.
 
+<!--  coupling: if you modify this table, modify also status.md -->
+
 <div id="language-support-table">
 
 | GA ✅      | Beta 🐛                     | Experimental 🚧            |
 |:---------- |:---------------------------|:---------------------------|
 | C#         | Terraform                  | C                          |
-| Go         |                            | Kotlin                     |
+| Go         | Kotlin                     | C++                        |
 | Java       |                            | Lua                        |
 | JavaScript |                            | OCaml                      |
 | JSON       |                            | PHP                        |

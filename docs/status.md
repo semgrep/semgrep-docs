@@ -13,11 +13,12 @@ import MoreHelp from "/src/components/MoreHelp"
 
 ## Language maturity
 
+<!--  coupling: if you modify this table, modify also index.md -->
 
 | GA ✅      | Beta 🐛                     | Experimental 🚧            |
 |:---------- |:---------------------------|:---------------------------|
 | C#         | Terraform                  | C                          |
-| Go         |                            | Kotlin                     |
+| Go         | Kotlin                     | C++                        |
 | Java       |                            | Lua                        |
 | JavaScript |                            | OCaml                      |
 | JSON       |                            | PHP                        |
@@ -53,6 +54,10 @@ Generally speaking, the features-by-maturity level are roughly: **experimental)*
 
 The following thresholds define each maturity level:
 
+<!-- coupling: if you modify the features in the levels below, change also 
+     semgrep-core/tests/Test.ml and its maturity level regression testing code.
+-->
+
 * **Experimental**
     * Parse rate: 90%+
     * Rules: 0+
@@ -85,6 +90,7 @@ The following thresholds define each maturity level:
         * All in experimental
         * All in beta
         * `deep_expr_operator`
+        * `dots_method_chaining`
         * `equivalence_constant_propagation`
         * `equivalence_eq`
         * `equivalence_naming_import` (language dependent)
