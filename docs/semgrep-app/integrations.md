@@ -66,6 +66,10 @@ To set it up, create an app within Slack and enable that app's **Incoming Webhoo
 8. After you've verified that everything is working, remember to **Save** the final configuration.
 9. Remember to turn notifications on by going to the **Rule board**, clicking on the **gear icon,** then clicking on the toggle.
 
+Here is a sample of a Slack message sent from Semgrep with findings:
+
+![Screenshot of Slack message with findings ](../img/slack-semgrep-findings.png)<br />
+
 #### Additional resources
 
 * https://api.slack.com/apps
@@ -79,9 +83,19 @@ To set it up, create an app within Slack and enable that app's **Incoming Webhoo
 
 Email integration allows Semgrep to send new findings to an email address of your choice.
 
-To set up email integration, provide a **Name** and **Email address.** Check the **Inventory** box if you would like to receive notifications on Code Asset Inventory findings as well.
+To set up email integration:
 
-[insert screenshot of finding in email]
+1. In **Integrations,** click **Add Integration.**
+2. Click on **Email**.
+3. Provide a **Name.**
+4. Provide an **Email address.**
+5. Select the **Inventory** check box if you would like to receive notifications about Code Asset Inventory findings.
+6. Click **Save.**
+7. Remember to turn notifications on by going to the **Rule board**, clicking on the **gear icon,** then clicking on the toggle.
+
+Here is a sample of an email sent from Semgrep with findings:
+
+![Screenshot of Semgrep email with findings ](../img/integrations-email-findings.png)<br />
 
 #### See also
 [Notifcations -> Email](notifications.md/#email)
@@ -104,11 +118,23 @@ This integration allows you to create JIRA tickets directly from the **Findings*
 
 ### Webhooks
 
-Webhooks are a feature available in Semgrep's team tier and above.
+Webhooks are a feature available in Semgrep's Team tier and above.
 
-Webhooks are a generic method for Semgrep to post JSON-formatted findings after each scan to your URL endpoint. Simply provide a **Name** and **Webhook URL.** 
+Webhooks are a generic method for Semgrep to post JSON-formatted findings after each scan to your URL endpoint.  To set up a webhook:
 
-![Successful webhook integration test](../img/webhook-successful-test.png)
+1. In **Integrations,** click **Add Integration.**
+2. Click **Webhook.**
+3. Provide a **Name.**
+4. Provide a **Webhook URL.**
+5. Select the **Inventory** check box if you would like to receive notifications about Code Asset Inventory findings.
+6. To ensure that Semgrep can post to your URL, click **Test.** 
+![Successful webhook integration test](../img/webhook-successful-test.png)<br />
+7. Click **Save.**
+8. Remember to turn notifications on by going to the **Rule board**, clicking on the **gear icon,** then clicking on the integration's toggle.
+
+Here is a sample of a webhook sent from Semgrep with findings:
+
+![Screenshot of Semgrep webhook JSON with findings ](../img/integrations-webhook-findings.png)<br />
 
 
 #### See also:
