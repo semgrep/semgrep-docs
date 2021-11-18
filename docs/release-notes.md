@@ -12,13 +12,13 @@ toc_max_heading_level: 2
 
 ### Release 0.73.0
 
-#### Added
+#### Additions
 
 ##### C++ support improved
 
 With this release, Semgrep has improved the C++ parsing rate from 72.9% to 94.6%. Parsing rate is calculated as the number of lines Semgrep successfully parses in a corpus of popular GitHub repos.
 
-#### Fixed
+#### Fixes
 
 ##### Semgrep CI no longer fails scan with binary files
 
@@ -34,7 +34,7 @@ To view the original release information, see [this release on GitHub](https://g
 
 ### Release 0.72.0
 
-#### Added
+#### Additions
 
 ##### Dataflow support enhancements
 
@@ -51,7 +51,7 @@ Semgrep's Dataflow engine now tracks data flow through the following constructs:
 - Arrows (short lambdas) patterns used to match also regular function definitions. This can now be disabled with rule options: `arrow_is_function: false` ([#4187](https://github.com/returntocorp/semgrep/issues/4187))
 - When a pattern contains the `var` keyword to match variable declarations, Semgrep also matches variables declared with `let` or `const`. With this update, you can disable the described functionality by the rule options: `let_is_var: false`. This rule allows you to scan for `var` keywords while not matching `let` or `const`.
 
-#### Fixed
+#### Fixes
 
 ##### Constant propagation improvement
 
@@ -95,7 +95,7 @@ Some of the new fixes with this version include the following:
 - Semgrep's metavariable-comparison is now able to detect when a metavariable binds to a code variable that is a constant, and use the constant value in the comparison. ([#3727](https://github.com/returntocorp/semgrep/issues/3727))
 - Expand `~` when resolving config paths.
 
-#### Changed
+#### Changes
 
 ##### C# support
 
@@ -117,7 +117,7 @@ To view the original release information, see [this release on GitHub](https://g
 
 ### Version 0.71.0
 
-#### Added
+#### Additions
 
 - In taint mode, you can now write rules that use the same metavariable in sources, sanitizers, and sinks. In addition, these metavariables correctly appear in matched messages. ([#4073](https://github.com/returntocorp/semgrep/pull/4073))
 - Experimental support for Bash as a new target language.
@@ -125,7 +125,7 @@ To view the original release information, see [this release on GitHub](https://g
 - Increase soft stack limit when running semgrep-core. ([#4120](https://github.com/returntocorp/semgrep/pull/4120))
 - Semgrep `--validate` runs metachecks on the rule. ([#4170](https://github.com/returntocorp/semgrep/pull/4170))
 
-#### Fixed
+#### Fixes
 
 - The `text_wrapping` defaults to `MAX_TEXT_WIDTH` if `get_terminal_size` reports width smaller than 1. ([#4110](https://github.com/returntocorp/semgrep/pull/4110))
 - Metrics report the error type of semgrep core errors (for example Timeout, and MaxMemory). ([#4156](https://github.com/returntocorp/semgrep/pull/4156))
@@ -138,7 +138,7 @@ To view the original release information, see [this release on GitHub](https://g
 - Kotlin: Ellipsis operator in class and body parameters are now supported. ([#4141](https://github.com/returntocorp/semgrep/issues/4141))
 - Go: Method interface pattern is now supported. ([#4172](https://github.com/returntocorp/semgrep/issues/4172))
 
-#### Changed
+#### Changes
 
 - Report CI environment variable in metrics for better environment determination. ([#4108](https://github.com/returntocorp/semgrep/pull/4108))
 - Bash: A simple expression pattern can now match any command argument rather than having to match the whole command.
