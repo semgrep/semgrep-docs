@@ -10,7 +10,7 @@ toc_max_heading_level: 2
 
 ## November 2021
 
-### Release v0.73.0
+### Release 0.73.0
 
 #### Added
 
@@ -32,7 +32,7 @@ Previously, Semgrep's constant propagation handled specific corner cases by rais
 
 To view the original release information, see [this release on GitHub](https://github.com/returntocorp/semgrep/releases/tag/v0.73.0).
 
-### Release v0.72.0
+### Release 0.72.0
 
 #### Added
 
