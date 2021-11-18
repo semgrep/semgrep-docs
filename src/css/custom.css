@@ -15,12 +15,13 @@
   --ifm-color-primary-lighter: #7a58df;
   --ifm-color-primary-lightest: #957ae6;
   --ifm-code-font-size: 95%;
-  --ifm-menu-color-active: #5F36D9;
-  --ifm-link-color: #5430BF;
-  --ifm-menu-color-background-hover: #5430BF;
-  --ifm-menu-color-background-active: #5430BF;
-  --ifm-footer-link-hover-color: #BCA6FF;
-  --ifm-menu-link-sublist-icon-filter: invert(16%) sepia(98%) saturate(3800%) hue-rotate(254deg) brightness(40%) contrast(88%);
+  --ifm-menu-color-active: #5f36d9;
+  --ifm-link-color: #5430bf;
+  --ifm-menu-color-background-hover: #5430bf;
+  --ifm-menu-color-background-active: #5430bf;
+  --ifm-footer-link-hover-color: #bca6ff;
+  --ifm-menu-link-sublist-icon-filter: invert(16%) sepia(98%) saturate(3800%)
+    hue-rotate(254deg) brightness(40%) contrast(88%);
   --ifm-font-family-monospace: "Menlo", "Courier New", monospace;
   --ifm-navbar-height: 50px;
 }
@@ -33,21 +34,21 @@
 }
 
 html[data-theme="dark"] .docusaurus-highlight-code-line {
-  background-color: rgba(0, 0, 0, 0.3);
+  background-color: #000000;
 }
 
 html[data-theme="dark"] {
-  background-color: rgba(0, 0, 0, 0.3);
---ifm-color-primary: #bca6ff;
---ifm-color-primary-dark: #9c7cff;
---ifm-color-primary-darker: #8c67ff;
---ifm-color-primary-darkest: #5d28ff;
---ifm-color-primary-light: #dcd0ff;
---ifm-color-primary-lighter: #ece5ff;
---ifm-color-primary-lightest: #ffffff;
---ifm-link-color: #9c7cff;
---ifm-menu-color-active: #9c7cff;
---docsearch-highlight-color: var(--ifm-color-primary-darker);
+  --ifm-background-color: #000000;
+  --ifm-color-primary: #bca6ff;
+  --ifm-color-primary-dark: #9c7cff;
+  --ifm-color-primary-darker: #8c67ff;
+  --ifm-color-primary-darkest: #5d28ff;
+  --ifm-color-primary-light: #dcd0ff;
+  --ifm-color-primary-lighter: #ece5ff;
+  --ifm-color-primary-lightest: #ffffff;
+  --ifm-link-color: #9c7cff;
+  --ifm-menu-color-active: #9c7cff;
+  --docsearch-highlight-color: var(--ifm-color-primary-darker);
 }
 
 /* begin customized styles for Semgrep docs */
@@ -91,7 +92,6 @@ h5 {
   height: 50px;
 }
 
-
 .navbar__brand {
   margin-right: 0;
 }
@@ -117,7 +117,7 @@ a.navbar__item.navbar__link:hover {
   transition: none;
   color: inherit;
   text-decoration: none;
-  background-color: rgba(167,182,194,.3);
+  background-color: rgba(167, 182, 194, 0.3);
 }
 
 .navbar__logo {
