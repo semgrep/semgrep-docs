@@ -132,7 +132,7 @@ To view the original release information, see [this release on GitHub](https://g
 - Missing or misformatted global settings files are no longer crashing Semgrep. ([#4164](https://github.com/returntocorp/semgrep/pull/4164))
 - Constant propagation: Previously an assignment as `[x,y] = f()` was not counted as an assignment to `x` or `y` by constant propagation. Now these types of assignments are recognized by both basic and dataflow based constant propagations. As a result, tuple, or array destructuring assignments now correctly prevent constant propagation. ([#4109](https://github.com/returntocorp/semgrep/pull/4109))
 - JS: Semgrep now correctly parses metavariables in template strings. ([#4139](https://github.com/returntocorp/semgrep/pull/4139))
-- Scala: Semgrep now parses underscore separators in number literals. In addition, Semgrep now parses long suffixes (`l` and `L) on number literals. ([#4155](https://github.com/returntocorp/semgrep/pull/4155))
+- Scala: Semgrep now parses underscore separators in number literals. In addition, Semgrep now parses long suffixes (`l` and `L`) on number literals. ([#4155](https://github.com/returntocorp/semgrep/pull/4155))
 - Scala: Semgrep parses name arguments in arbitrary function types, for example `(=\&gt; Int) =\&gt; Int`. ([#4178](https://github.com/returntocorp/semgrep/pull/4178))
 - Bash: Various fixes and improvements.
 - Kotlin: Ellipsis operator in class and body parameters are now supported. ([#4141](https://github.com/returntocorp/semgrep/issues/4141))
