@@ -36,7 +36,7 @@ To find available integrations for Semgrep App, follow these steps:
 To view, disable or enable your saved integration channels:
 
 1. In the **Integrations** tab, click the **gear** icon within the **Rule board**.
-2. Click on the toggles to turn notifications on or off for each channel.
+2. Select the toggles to turn notifications on or off for each channel.
 
 ![Screenshot of the Semgrep rule board with integrations](../img/integration-ruleboard.png)<br />
 
@@ -87,8 +87,8 @@ To set up email integration:
 
 1. In **Integrations,** click **Add Integration.**
 2. Click on **Email**.
-3. Provide a **Name.**
-4. Provide an **Email address.**
+3. Enter a **Name** for the integration.
+4. Enter the **Email address** that will receive Semgrep findings.
 5. Select the **Inventory** check box if you would like to receive notifications about Code Asset Inventory findings.
 6. Click **Save.**
 7. Remember to turn notifications on by going to the **Rule board**, clicking on the **gear icon,** then clicking on the toggle.
@@ -110,12 +110,12 @@ To set up Jira integration:
 
 1. In **Integrations,** click **Add Integration**.
 2. Click on **Jira.**
-3. Provide a **Name.**
-4. Provide the **email address** used for the Atlassian account.
-5. Provide your Atlassian **domain URL**.
-6. Provide your **Project key**. This is the prefix for tasks created within a project. Semgrep will create issues to the project identified here.
-7. Provide the **Issue type.** This is the type of issue for Semgrep findings, for example, *Bug.*
-8. Provide the **API Token**. Tokens are generated through this link: [Manage API Tokens](https://support.atlassian.com/atlassian-account/docs/manage-api-tokens-for-your-atlassian-account).
+3. Enter a **Name** for the integration.
+4. Enter the **email address** used for the Atlassian account.
+5. Enter your Atlassian **domain URL**.
+6. Enter your **Project key**. This is the prefix for tasks created within a project. Semgrep will create issues to the project identified here.
+7. Enter the **Issue type.** This is the type of issue for Semgrep findings, for example, *Bug.*
+8. Enter the **API Token**. Tokens are generated through this link: [Manage API Tokens](https://support.atlassian.com/atlassian-account/docs/manage-api-tokens-for-your-atlassian-account).
 9. Click **Save.**
 
 To create a Jira ticket from Semgrep:
@@ -139,8 +139,8 @@ Webhooks are a generic method for Semgrep to post JSON-formatted findings after 
 
 1. In **Integrations,** click **Add Integration.**
 2. Click **Webhook.**
-3. Provide a **Name.**
-4. Provide a **Webhook URL.**
+3. Enter a **Name** for the integration.
+4. Enter the **Webhook URL.**
 5. Select the **Inventory** check box if you would like to receive notifications about Code Asset Inventory findings.
 6. To ensure that Semgrep can post to your URL, click **Test.** 
 ![Successful webhook integration test](../img/webhook-successful-test.png)<br />
