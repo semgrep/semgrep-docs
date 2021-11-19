@@ -13,20 +13,21 @@ import MoreHelp from "/src/components/MoreHelp"
 
 ## Language maturity
 
-<!--  coupling: if you modify this table, modify also index.md -->
-
+<!-- coupling: if you modify this table, copy paste it also in index.md -->
+<!-- coupling: should match what is in semgrep-core/tests/Test.ml Maturity level testing -->
 | GA ✅      | Beta 🐛                     | Experimental 🚧            |
 |:---------- |:---------------------------|:---------------------------|
-| C#         | Kotlin                     | C                          |
-| Go         | Terraform                  | C++                        |
-| Java       |                            | Lua                        |
-| JavaScript |                            | OCaml                      |
-| JSON       |                            | PHP                        |
-| JSX        |                            | R                          |
-| Python     |                            | Rust                       |
-| Ruby       |                            | YAML                       |
-| TypeScript |                            | Generic (ERB, Jinja, etc.) |
-| TSX        |                            |                            |
+| C#         | Kotlin                     | Bash                       |
+| Go         | Terraform                  | C                          |
+| Java       |                            | C++                        |
+| JavaScript |                            | Hack                       |
+| JSON       |                            | Lua                        |
+| JSX        |                            | OCaml                      |
+| Python     |                            | PHP                        |
+| Ruby       |                            | Rust                       |
+| TypeScript |                            | Scala                      |
+| TSX        |                            | YAML                       |
+|            |                            | Generic (ERB, Jinja, etc.) |
 
 ## Support expectations
 
