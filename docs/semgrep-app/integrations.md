@@ -33,7 +33,7 @@ To find available integrations for Semgrep App, follow these steps:
 
 ## Managing integrations
 
-To view, disable or enable your saved integration channels:
+To view, disable, or enable your saved integration channels:
 
 1. In the **Integrations** tab, click the **gear** icon within the **Rule board**.
 2. Select the toggles to turn notifications on or off for each channel.
@@ -53,18 +53,17 @@ To set it up, create an app within Slack and enable that app's **Incoming Webhoo
 1. Log in to your Slack account. Enter your login details in [Slack workspace](https://slack.com/workspace-signin).
 2. Create an app in your Slack workplace by following this link: [Slack apps](https://api.slack.com/apps?new_app=1).
 3. Select **From scratch** and fill in the fields for your app's name and workspace.
-![Screenshot of a Slack form to fill out new app details](../img/slack-create-app-name.png)<br />
-3. You will be redirected to your new app's settings page. Alternatively, you can find this page by viewing your apps [here](https://api.slack.com/apps) and selecting your integration app from the menu.
+![Screenshot of a Slack form to fill out new app details](../img/slack-create-app-name.png)
+4. You will be redirected to your new app's settings page. Alternatively, you can find this page by viewing your apps [here](https://api.slack.com/apps) and selecting your integration app from the menu.
 5. Click on **Incoming Webhooks** on the left menu, and then enable the toggle.
 6. After you have enabled **Incoming Webhooks**, follow one of these steps:
     - Generate a **Webhook URL**.
     - Request to add a new webhook from a workspace owner.
-6. After you've obtained the Webhook URL, return to Semgrep and create a new Slack integration. Name the integration and copy-paste the URL into the **Slack URL** field. You may opt to select the **Inventory** flag to include notifications about Code Asset Inventory findings.
-7. You can **Test** then select which channel you'd like Semgrep to start posting to.
+7. After you've obtained the Webhook URL, return to Semgrep and create a new Slack integration. Name the integration and copy-paste the URL into the **Slack URL** field. You may opt to select the **Inventory** flag to include notifications about Code Asset Inventory findings.
+8. You can **Test** then select which channel you'd like Semgrep to start posting to.
 ![Screenshot of the Slack Request Webhook  ](../img/slack-integration-hooktest.png)<br />
-
-8. After you've verified that everything is working, remember to **Save** the final configuration.
-9. Remember to turn notifications on by going to the **Rule board**, clicking on the **gear icon,** then clicking on the toggle.
+9. After you've verified that everything is working, remember to **Save** the final configuration.
+10. Remember to turn notifications on by going to the **Rule board**, clicking on the **gear icon,** then clicking on the toggle.
 
 Here is a sample of a Slack message sent from Semgrep with findings:
 
@@ -126,11 +125,6 @@ To create a Jira ticket from Semgrep:
 ![Output of Jira integration](../img/jira-template.png)
 
 
-### Amazon S3
-
-(See above for proposed ouline)
-
-
 ### Webhooks
 
 Webhooks are a feature available in Semgrep's Team tier and above.
@@ -156,5 +150,8 @@ Here is a sample of a webhook sent from Semgrep with findings:
 
 [Notifcations -> Webhooks](notifications.md/#webhooks)
 
+### Amazon S3
+
+(See above for proposed ouline)
 
 <MoreHelp />
