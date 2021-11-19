@@ -68,8 +68,33 @@ h2,
 h3,
 h4,
 h5 {
-  font-weight: 500;
+  font-weight: 700;
 }
+
+h1 {
+    font-size: 42px;
+}
+
+h2 {
+    font-size: 36px;
+}
+
+h3 {
+    font-size: 28px;
+}
+
+h4 {
+    font-size: 21px;
+}
+
+h5 {
+    font-size: 18px;
+}
+
+p {
+    font-size: 14px;
+}
+
 
 /* navbar */
 
