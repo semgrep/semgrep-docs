@@ -8,6 +8,8 @@ toc_max_heading_level: 2
 
 # Release notes
 
+Welcome to Semgrep release notes. This document provides an overview of the changes, additions, and fixes made in different versions.
+
 ## November 2021
 
 ### Release 0.73.0
