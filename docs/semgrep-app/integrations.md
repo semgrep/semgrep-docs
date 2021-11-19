@@ -17,9 +17,9 @@ Currently, Semgrep App integrates with the following tools:
 | ---- | ---------------- |
 | Slack | Community (Free) |
 | Email | Community (Free) |
-| Jira | Team |
-| Amazon S3 | Team |
-| Webhook | Team |
+| Jira | Team/Enterprise |
+| Amazon S3 | Team/Enterprise |
+| Webhook | Team/Enterprise |
 
 ## Finding available integrations
 
