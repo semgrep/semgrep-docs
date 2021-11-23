@@ -119,7 +119,7 @@ To set up Jira integration:
 
 To create a Jira ticket from Semgrep:
 
-1. In **Findings**, click on the **three-dot icon** of the entry to create a Jira ticket for.
+1. In **Findings**, click on the **three-dot icon** of the entry to create a Jira ticket for the finding.
 ![Creating a Jira ticket from the Findings page](../img/jira-findings-page.png)<br />
 2. Select **Create issue with Semgrep Jira Integration.**
 ![Output of Jira integration](../img/jira-template.png)
