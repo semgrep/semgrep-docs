@@ -13,19 +13,21 @@ import MoreHelp from "/src/components/MoreHelp"
 
 ## Language maturity
 
-
+<!-- coupling: if you modify this table, copy paste it also in index.md -->
+<!-- coupling: should match what is in semgrep-core/tests/Test.ml Maturity level testing -->
 | GA ✅      | Beta 🐛                     | Experimental 🚧            |
 |:---------- |:---------------------------|:---------------------------|
-| C#         | Terraform                  | C                          |
-| Go         |                            | Kotlin                     |
-| Java       |                            | Lua                        |
-| JavaScript |                            | OCaml                      |
-| JSON       |                            | PHP                        |
-| JSX        |                            | R                          |
-| Python     |                            | Rust                       |
-| Ruby       |                            | YAML                       |
-| TypeScript |                            | Generic (ERB, Jinja, etc.) |
-| TSX        |                            |                            |
+| C#         | Kotlin                     | Bash                       |
+| Go         | Terraform                  | C                          |
+| Java       |                            | C++                        |
+| JavaScript |                            | Hack                       |
+| JSON       |                            | Lua                        |
+| JSX        |                            | OCaml                      |
+| Python     |                            | PHP                        |
+| Ruby       |                            | Rust                       |
+| TypeScript |                            | Scala                      |
+| TSX        |                            | YAML                       |
+|            |                            | Generic (ERB, Jinja, etc.) |
 
 ## Support expectations
 
@@ -52,6 +54,10 @@ There are 3 levels of maturity: **experimental**, **beta**, and **generally avai
 Generally speaking, the features-by-maturity level are roughly: **experimental)** syntax support, ellipsis operator support, and basic metavariable support, **beta)** everything prior and nearly complete metavariable support and metavariable equality, **GA)** everything prior and all advanced features like regexp, equivalence, deep expression operator, typing, etc.
 
 The following thresholds define each maturity level:
+
+<!-- coupling: if you modify the features in the levels below, change also 
+     semgrep-core/tests/Test.ml and its maturity level regression testing code.
+-->
 
 * **Experimental**
     * Parse rate: 90%+
@@ -85,6 +91,7 @@ The following thresholds define each maturity level:
         * All in experimental
         * All in beta
         * `deep_expr_operator`
+        * `dots_method_chaining`
         * `equivalence_constant_propagation`
         * `equivalence_eq`
         * `equivalence_naming_import` (language dependent)
