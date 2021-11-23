@@ -15,3 +15,9 @@ Make sure to follow the [Development Workflow](/contributing/contributing-code/#
 ### I can't commit because code I haven't touched is failing pre-commit
 
 Sometimes changes you make will cause pre-commit errors in code you haven't touched--for example, if you change a function's return type. However, if you're absolutely sure you didn't cause this, you can run `git commit --no-verify` to commit without running `pre-commit`.
+
+## Exotic
+
+### I installed semgrep with pypi. Where is semgrep-core
+
+Run `pip3 show semgrep` to find the location semgrep was installed in. `semgrep-core` will be in that path/semgrep/bin/semgrep-core
