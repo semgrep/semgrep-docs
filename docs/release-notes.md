@@ -12,7 +12,63 @@ Welcome to Semgrep release notes. This document provides an overview of the chan
 
 ## November 2021
 
-### Release 0.73.0
+### Version 0.75.0
+
+#### Fixes
+
+##### Semgrep CI
+
+In Semgrep CI, the `--disable-nosem` now tags findings with the `is_ignored` option correctly. Previously, an optimization from version 0.74.0 left the field `None` when the described option has been used. The optimization has been reverted.
+
+### Version v0.74.0
+
+#### Additions
+
+##### Method chaining
+
+Semgrep now supports method chaining patterns in Python, Golang, Ruby, and C#. ([#4300](https://github.com/returntocorp/semgrep/issues/4300))
+
+##### Scala
+
+Semgrep now translates infix operations as regular method calls, enabling patterns similar to: `$X.map($F)` to also match code written as `xs map f`. ([#4290](https://github.com/returntocorp/semgrep/pull/4290))
+
+##### PHP
+
+Semgrep now supports parsing method patterns. ([#4262](https://github.com/returntocorp/semgrep/issues/4262))
+
+#### **Changed**
+
+##### Semgrep profiling improved
+
+Semgrep is now more efficiently measuring its performance. The new `profiling_times` object in `--time --json` output enables better visibility of slowly performing Semgrep code.
+
+##### Constant propagation
+
+In constant propagation, Python strings are now evaluated as string literals. You can now match any kind of Python string (raw, byte, or unicode) by the `&quot;...&quot;` operator. ([#3881](https://github.com/returntocorp/semgrep/issues/3881))
+
+#### Fixes
+
+##### Ruby
+
+Ruby blocks are now represented with an extra function call in Semgrep&#39;s generic asynchronous syntax tree (AST) so that both `f(...)` and `f($X)` correctly match `f(x)` in `f(x) { |n| puts n }`. ([#3880](https://github.com/returntocorp/semgrep/issues/3880))
+
+##### Generic filters exclude large and binary files
+
+Generic filters exclude large files and binary files to &#39;generic&#39; and &#39;regex&#39; targets as it was already done for the other languages.
+
+##### PHP
+
+An issue with stack overflow when using `-filter_irrelevant_rules` has been fixed. ([#4305](https://github.com/returntocorp/semgrep/issues/4305))
+
+##### Dataflow no longer returns false positive results for switch statements
+
+When a `switch` was not followed by another statement, and the last statement of the default case of the `switch` was a statement, such as `throw`, that could exit the execution of the current function. This caused unresolved `break` statements in the `switch` during the construction of the control flow graph (CFG). One of the possible consequences could be that constant propagation incorrectly flagged variables as constants. This issue has now been fixed. ([#4265](https://github.com/returntocorp/semgrep/issues/4265))
+
+#### Additional information
+
+To view the original release information, see [this release on GitHub](https://github.com/returntocorp/semgrep/releases/tag/v0.72.0).
+
+### Version 0.73.0
 
 #### Additions
 
@@ -24,7 +80,7 @@ With this release, Semgrep has improved the C++ parsing rate from 72.9% to 94.6%
 
 ##### Semgrep CI no longer fails scan with binary files
 
-Before this update, under certain circumstances, Semgrep reported `Pcre.Error(BadUTF8) error` when it tried to analyze PNG, TTF, EOT or WOFF, zip, tar and other binary files. As a consequence, scans failed when binary files were present. With this update, the underlying issue has been fixed and Semgrep skips binary files. ([#4258](https://github.com/returntocorp/semgrep/issues/4258))
+Before this update, under certain circumstances, Semgrep reported `Pcre.Error(BadUTF8) error` when it tried to analyze PNG, TTF, EOT or WOFF, zip, tar, and other binary files. As a consequence, scans failed when binary files were present. With this update, the underlying issue has been fixed, and Semgrep skips binary files. ([#4258](https://github.com/returntocorp/semgrep/issues/4258))
 
 ##### Constant propagation improvements
 
@@ -34,7 +90,7 @@ Previously, Semgrep's constant propagation handled specific corner cases by rais
 
 To view the original release information, see [this release on GitHub](https://github.com/returntocorp/semgrep/releases/tag/v0.73.0).
 
-### Release 0.72.0
+### Version 0.72.0
 
 #### Additions
 
@@ -713,5 +769,5 @@ $ARG = [$V];
 
 ## Finding remaining release notes
 
-This document encompesses only a limit number of release notes for the purpose of clarity. To see all release notes, including older versions than displayed in this document, see [GitHub releases](https://github.com/returntocorp/semgrep/releases).
+This document encompasses only a limited number of release notes. See changelog that includes descriptions of older versions than displayed in this document [GitHub releases](https://github.com/returntocorp/semgrep/releases).
 
