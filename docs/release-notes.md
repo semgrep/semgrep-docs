@@ -18,7 +18,7 @@ Welcome to Semgrep release notes. This document provides an overview of the chan
 
 ##### Semgrep CI
 
-In Semgrep CI, the `--disable-nosem` now tags findings with the `is_ignored` option correctly. Previously, an optimization from version 0.74.0 left the field `None` when the described option has been used. The optimization has been reverted.
+In Semgrep CI, the option `--disable-nosem` now tags findings with the `is_ignored` option correctly. Previously, an optimization from version 0.74.0 left the field `None` when the described option has been used. The optimization has been reverted.
 
 ### Version v0.74.0
 
