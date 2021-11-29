@@ -80,7 +80,7 @@ Here is a sample of a Slack message sent from Semgrep with findings:
 
 ### Email
 
-Email integration allows Semgrep to send new findings to an email address of your choice.
+Receive Semgrep findings in an email address of your choice with email integration.
 
 To set up email integration:
 
