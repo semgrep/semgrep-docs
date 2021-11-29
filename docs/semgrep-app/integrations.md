@@ -156,7 +156,7 @@ Here is a sample of a webhook sent from Semgrep with findings:
 2. Click **AWS S3**.
 3. Enter the **Channel name** for the integration.
 4. Select the **Inventory** check box if you would like to receive notifications about Code Asset Inventory findings.
-5. To ensure that Semgrep can post to your channel, click **Test.** 
+5. To ensure that Semgrep can post to your channel, click **Test**.
 6. Click **Save.**
 7. Remember to turn notifications on by going to the **Rule board**, clicking on the **gear icon,** then clicking on the integration's toggle.
 
