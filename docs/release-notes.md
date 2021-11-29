@@ -769,5 +769,5 @@ $ARG = [$V];
 
 ## Finding remaining release notes
 
-This document encompasses only a limited number of release notes. See changelog that includes descriptions of older versions than displayed in this document: [Semgrep GitHub changelog](https://github.com/returntocorp/semgrep/releases)
+This document encompasses only a limited number of release notes. See the changelog that includes descriptions of older versions than displayed in this document: [Semgrep GitHub changelog](https://github.com/returntocorp/semgrep/releases)
 
