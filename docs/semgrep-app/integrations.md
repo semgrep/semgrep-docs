@@ -152,7 +152,7 @@ Here is a sample of a webhook sent from Semgrep with findings:
 
 ### Amazon S3
 
-1. In **Integrations,** click **Add Integration.**
+1. In **Integrations,** click **Add Integration**.
 2. Click **AWS S3.**
 3. Enter the **Channel name** for the integration.
 4. Select the **Inventory** check box if you would like to receive notifications about Code Asset Inventory findings.
