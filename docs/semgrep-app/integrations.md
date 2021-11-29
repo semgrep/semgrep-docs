@@ -48,10 +48,10 @@ This section describes how to integrate Semgrep App into particular third-party 
 
 Integrating with Slack allows Semgrep to send findings to a channel on your Slack workspace.
 
-To set it up, create an app within Slack and enable that app's **Incoming Webhooks** feature. By creating a webhook, you'll have a URL that serves as Semgrep's endpoint to your Slack workplace. Follow the guide below to create the app and webook, and integrate with Semgrep:
+To set it up, create an app within Slack and enable that app's **Incoming Webhooks** feature. By creating a webhook, you'll have a URL that serves as Semgrep's endpoint to your Slack workspace. Follow the guide below to create the app and webook, and integrate with Semgrep:
 
 1. Log in to your Slack account. Enter your login details in [Slack workspace](https://slack.com/workspace-signin).
-2. Create an app in your Slack workplace by following this link: [Slack apps](https://api.slack.com/apps?new_app=1).
+2. Create an app in your Slack workspace by following this link: [Slack apps](https://api.slack.com/apps?new_app=1).
 3. Select **From scratch** and fill in the fields for your app's name and workspace.
 ![Screenshot of a Slack form to fill out new app details](../img/slack-create-app-name.png)
 4. You will be redirected to your new app's settings page. Alternatively, you can find this page by viewing your apps [here](https://api.slack.com/apps) and selecting your integration app from the menu.
@@ -63,7 +63,7 @@ To set it up, create an app within Slack and enable that app's **Incoming Webhoo
 8. You can **Test** then select which channel you'd like Semgrep to start posting to.
 ![Screenshot of the Slack Request Webhook  ](../img/slack-integration-hooktest.png)<br />
 9. Click **Save**.
-10. Remember to turn notifications on by going to the **Rule board**, clicking on the **gear icon,** then clicking on the toggle.
+10. Turn notifications on by going to the **Rule board**, clicking on the **gear icon**, then clicking on the **toggle** next to the name of the integration.
 
 Here is a sample of a Slack message sent from Semgrep with findings:
 
@@ -90,7 +90,7 @@ To set up email integration:
 4. Enter the **Email address** that will receive Semgrep findings.
 5. Select the **Inventory** check box if you would like to receive notifications about Code Asset Inventory findings.
 6. Click **Save.**
-7. Remember to turn notifications on by going to the **Rule board**, clicking on the **gear icon,** then clicking on the toggle.
+7. Turn notifications on by going to the **Rule board**, clicking on the **gear icon**, then clicking on the **toggle** next to the name of the integration.
 
 Here is a sample of an email sent from Semgrep with findings:
 
@@ -121,7 +121,7 @@ To create a Jira ticket from Semgrep:
 
 1. In **Findings**, click on the **three-dot icon** of the entry to create a Jira ticket for the finding.
 ![Creating a Jira ticket from the Findings page](../img/jira-findings-page.png)<br />
-2. Select **Create issue with Semgrep Jira Integration.**
+2. Select **Create issue with `[YOUR_INTEGRATION_NAME]`**.
 ![Output of Jira integration](../img/jira-template.png)
 
 
@@ -139,7 +139,7 @@ Webhooks are a generic method for Semgrep to post JSON-formatted findings after 
 6. To ensure that Semgrep can post to your URL, click **Test.** 
 ![Successful webhook integration test](../img/webhook-successful-test.png)<br />
 7. Click **Save.**
-8. Remember to turn notifications on by going to the **Rule board**, clicking on the **gear icon,** then clicking on the integration's toggle.
+8. Turn notifications on by going to the **Rule board**, clicking on the **gear icon**, then clicking on the **toggle** next to the name of the integration.
 
 Here is a sample of a webhook sent from Semgrep with findings:
 
@@ -154,10 +154,10 @@ Here is a sample of a webhook sent from Semgrep with findings:
 
 1. In **Integrations,** click **Add Integration**.
 2. Click **AWS S3**.
-3. Enter the **Channel name** for the integration.
+3. Enter the AWS 3 **Channel name**. This is where Semgrep will post findings.
 4. Optional: Select the **Inventory** check box to receive notifications about Code Asset Inventory findings.
 5. To ensure that Semgrep can post to your channel, click **Test**.
 6. Click **Save.**
-7. Remember to turn notifications on by going to the **Rule board**, clicking on the **gear icon,** then clicking on the integration's toggle.
+7. Turn notifications on by going to the **Rule board**, clicking on the **gear icon**, then clicking on the toggle next to the name of the integration.
 
 <MoreHelp />
