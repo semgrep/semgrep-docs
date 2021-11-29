@@ -80,7 +80,7 @@ With this release, Semgrep has improved the C++ parsing rate from 72.9% to 94.6%
 
 ##### Semgrep CI no longer fails scan with binary files
 
-Before this update, under certain circumstances, Semgrep reported `Pcre.Error(BadUTF8) error` when it tried to analyze PNG, TTF, EOT or WOFF, zip, tar, and other binary files. As a consequence, scans failed when binary files were present. With this update, the underlying issue has been fixed, and Semgrep skips binary files. ([#4258](https://github.com/returntocorp/semgrep/issues/4258))
+Before this update, Semgrep sometimes reported `Pcre.Error(BadUTF8) error` when it tried to analyze PNG, TTF, EOT or WOFF, zip, tar, and other binary files. As a consequence, scans failed when binary files were present. With this update, the underlying issue has been fixed, and Semgrep skips binary files. ([#4258](https://github.com/returntocorp/semgrep/issues/4258))
 
 ##### Constant propagation improvements
 
