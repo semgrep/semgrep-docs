@@ -59,10 +59,10 @@ To set it up, create an app within Slack and enable that app's **Incoming Webhoo
 6. After you have enabled **Incoming Webhooks**, follow one of these steps:
     - Generate a **Webhook URL**.
     - Request to add a new webhook from a workspace owner.
-7. After you've obtained the Webhook URL, return to Semgrep and create a new Slack integration. Name the integration and copy-paste the URL into the **Slack URL** field. You may opt to select the **Inventory** flag to include notifications about Code Asset Inventory findings.
+7. After you have obtained the Webhook URL, return to Semgrep and create a new Slack integration. Name the integration and copy-paste the URL into the **Slack URL** field. You may opt to select the **Inventory** flag to include notifications about Code Asset Inventory findings.
 8. You can **Test** then select which channel you'd like Semgrep to start posting to.
 ![Screenshot of the Slack Request Webhook  ](../img/slack-integration-hooktest.png)<br />
-9. After you've verified that everything is working, remember to **Save** the final configuration.
+9. Click **Save**.
 10. Remember to turn notifications on by going to the **Rule board**, clicking on the **gear icon,** then clicking on the toggle.
 
 Here is a sample of a Slack message sent from Semgrep with findings:
@@ -80,7 +80,7 @@ Here is a sample of a Slack message sent from Semgrep with findings:
 
 ### Email
 
-Email integration allows Semgrep to send new findings to an email address of your choice.
+Receive Semgrep findings in an email address of your choice with email integration.
 
 To set up email integration:
 
@@ -152,11 +152,11 @@ Here is a sample of a webhook sent from Semgrep with findings:
 
 ### Amazon S3
 
-1. In **Integrations,** click **Add Integration.**
-2. Click **AWS S3.**
+1. In **Integrations,** click **Add Integration**.
+2. Click **AWS S3**.
 3. Enter the **Channel name** for the integration.
-4. Select the **Inventory** check box if you would like to receive notifications about Code Asset Inventory findings.
-5. To ensure that Semgrep can post to your channel, click **Test.** 
+4. Optional: Select the **Inventory** check box to receive notifications about Code Asset Inventory findings.
+5. To ensure that Semgrep can post to your channel, click **Test**.
 6. Click **Save.**
 7. Remember to turn notifications on by going to the **Rule board**, clicking on the **gear icon,** then clicking on the integration's toggle.
 
