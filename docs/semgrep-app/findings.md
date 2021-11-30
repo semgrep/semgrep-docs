@@ -7,4 +7,144 @@ description: "The Findings page allows users to view, manage, and triage Finding
 
 import MoreHelp from "/src/components/MoreHelp"
 
-# 
+# Managing findings in Semgrep App
+
+!image
+
+A finding is the core result of Semgrep's analysis. Findings are generated when a Semgrep rule matches a piece of code. 
+
+Types of findings:
+
+* anti-patterns
+* security vulnerabilities, business, or logic bugs
+* audits for dangerous function use
+* reviewing authentication or authorization logic
+* custom pattern matches based on your own custom rules.
+
+
+After a finding is generated, developers may:
+
+* View the Semgrep rule and the matching code.
+* Fix the issue detected by the finding.
+* Ignore the finding.
+* Comment on the finding.
+* Create a Jira ticket from the finding (for Enterprise/Team Tier users.)
+
+
+The Semgrep App Finding page displays findings across all projects connected to Semgrep App. It is updated after every scan. Scans are initiated through your CI/CD pipeline, such as GitHub actions. The retention period of these findings varies based on your organization’s tier:
+
+| Retention period | Tier availability |
+| ---------------  | ----------------- |
+| 30-day findings retention | Community (Free) |
+| 1-year findings retention | Team/Enterprise |
+
+## Viewing data in the Findings page
+
+### Navigating to the Findings page
+
+1. Sign in to Semgrep App.
+2. The *Findings* page can be found on the left sidebar.
+
+### Understanding the Findings data
+
+The Findings page displays the following fields: 
+
+| Field       | Description | 
+| ----------  | ------------ | 
+| **Severity**    | The impact of a finding. Possible values: Low, Medium, High,and Critical. |
+| **Finding**     | The file, line, and branch of the pattern match in the code. Clicking on this field brings you to the exact location in the codebase. |
+| **Project**     | The name of the project codebase where the finding was found. Clicking on this field brings you to the project’s URL. |
+| **Rule**        | The name of the rule matched with the code. Clicking on this field brings you to the rule’s entry in the [rule registry](https://semgrep.dev/r). |
+| **Introduced**  | The time when this finding was first found. Clicking on the header row sorts the table by latest or earliest findings. |
+| **Status**      | Refers to a finding’s triage state. |
+
+## Triaging findings
+
+Triaging means prioritizing a finding based on a policy or criteria set by your team or organization. While severity is a factor in triage, your organization may define additional criteria based on coding standards, business, or product goals.
+
+Semgrep App assists in the triage process through the use of *comments* and *triage states*:
+
+[insert table]
+
+### Filtering findings
+
+Filtering allows you to easily isolate groups of findings for ease in triaging and identifying related groups of issues. The following criteria are available for filtering:
+
+[table]
+
+To filter through all findings:
+
+1. Click on the filter criteria’s drop-down box.
+2. Select the value by which the findings are filtered.
+3. The page then refreshes to reflect the additional criteria.
+4. Additional values may be selected to further refine your filter.
+
+### Sorting findings
+
+* Findings may be sorted by their respective fields (see *Fields* table above).
+* To sort a finding, click on the desired *row header*.
+
+### Managing triage states (bulk triage)
+
+Bulk triage can be performed by filtering through the findings, and then you can select which findings to be: 
+
+* Opened
+* Ignored
+
+[image]
+
+To ignore findings:
+
+1. Click *Open* to see all open findings.
+2. After the findings are filtered, perform one of these steps: 
+    - Select all of the results by clicking on the header row checkbox.
+    - Select relevant findings one-by-one by clicking on their checkboxes individually.
+3. Click the *Triage* button.
+4. Click *Ignore*.
+5. Optional: Include a *comment* explaining the action.
+
+To open findings:
+
+1. Click *Ignored* to see all ignored findings.
+2. After the findings are filtered, perform one of these steps:
+    - Select all of the results by clicking on the header row checkbox.
+    - Select relevant findings one-by-one by clicking on their checkboxes individually.
+3. Click the *Triage* button.
+4. Click *Open*.
+5. Optional: Include a *comment* explaining the action.
+
+To close findings, do one of the two options:
+
+* Update, fix, or refactor the code such that the Semgrep rule pattern no longer matches the code.
+* Remove the rule from the Rule board.
+
+To remove a rule from the Rule Board:
+
+1. Click Rule board.
+2. Click on the ruleset that contains the rule.
+3. Drag the rule tile to the *Discard rule* section.
+
+To view comments:
+
+* Click the *speech balloon* next to the finding’s status.
+
+## Creating Jira tickets from findings
+
+Semgrep supports the creation of Jira tickets from a finding. This feature is available to Team/Enterprise Tier users.
+
+To create a ticket:
+
+1. Set up a Jira integration through the [*Integrations]*(https://semgrep.dev/docs/semgrep-app/integrations/) guide.
+2. Click on the *three-dot icon* of the entry.
+3. Click *Create issue with Jira*.
+
+See also
+
+* [Integrations](https://semgrep.dev/docs/semgrep-app/integrations/)
+* [Rule board](https://semgrep.dev/docs/semgrep-app/rule-board/)
+
+Additional references
+
+* [Writing Semgrep rules: a methodology](https://r2c.dev/blog/2020/writing-semgrep-rules-a-methodology/)
+
+<MoreHelp />
