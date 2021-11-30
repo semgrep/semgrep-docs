@@ -9,7 +9,8 @@ import MoreHelp from "/src/components/MoreHelp"
 
 # Managing findings in Semgrep App
 
-!image
+
+![Screenshot of Semgrep App Findings page ](../img/app-findings-overview.png)<br />
 
 A finding is the core result of Semgrep's analysis. Findings are generated when a Semgrep rule matches a piece of code. 
 
@@ -19,7 +20,7 @@ Types of findings:
 * security vulnerabilities, business, or logic bugs
 * audits for dangerous function use
 * reviewing authentication or authorization logic
-* custom pattern matches based on your own custom rules.
+* custom pattern matches based on your own custom rules
 
 
 After a finding is generated, developers may:
@@ -64,13 +65,23 @@ Triaging means prioritizing a finding based on a policy or criteria set by your 
 
 Semgrep App assists in the triage process through the use of *comments* and *triage states*:
 
-[insert table]
+| Triage state | Description |
+| -----------  | ------------ |
+| **Open** | Open findings require action, such as rewriting the code for vulnerabilities, or refactoring the code. Findings are open by default. |
+| **Ignored** | Findings that are ignored will not be acted upon. This may be a false positive or deprioritized issue. |
+| **Closed** | Findings are considered closed under any of the following conditions: <ul><li>After a new scan, the code has been addressed such that the rule pattern no longer matches the code.</li><li>The rule has been removed from your Rule Board.</li></ul> |
 
 ### Filtering findings
 
 Filtering allows you to easily isolate groups of findings for ease in triaging and identifying related groups of issues. The following criteria are available for filtering:
 
-[table]
+| Filter criteria | Description |
+| -----------  | ------------ |
+| **Project** | Filter by projects connected to Semgrep App. |
+| **Rules** | Filter by rules or rulesets that are included in your Rule Board or Policies page. More than one rule can be selected for filtering. |
+| **Refs** | Filter by branches in your codebase. More than one branch can be selected for filtering. |
+| **Actions** | Filter by blocking or non-blocking rules in your Rule Board or Policies page. Only one action can be selected for filtering. |
+| **Severities** | Filter by the severity of a finding. More than one severity can be selected. |
 
 To filter through all findings:
 
@@ -91,9 +102,9 @@ Bulk triage can be performed by filtering through the findings, and then you can
 * Opened
 * Ignored
 
-[image]
+![Screenshot of Semgrep App triage menu](../img/app-findings-triage.png)<br />
 
-To ignore findings:
+To **ignore findings**:
 
 1. Click *Open* to see all open findings.
 2. After the findings are filtered, perform one of these steps: 
@@ -103,7 +114,7 @@ To ignore findings:
 4. Click *Ignore*.
 5. Optional: Include a *comment* explaining the action.
 
-To open findings:
+To **open findings**:
 
 1. Click *Ignored* to see all ignored findings.
 2. After the findings are filtered, perform one of these steps:
@@ -113,18 +124,18 @@ To open findings:
 4. Click *Open*.
 5. Optional: Include a *comment* explaining the action.
 
-To close findings, do one of the two options:
+To **close findings**, do one of the two options:
 
-* Update, fix, or refactor the code such that the Semgrep rule pattern no longer matches the code.
-* Remove the rule from the Rule board.
+* Update, fix, or refactor the code such that the Semgrep rule pattern no
+* longer matches the code. Remove the rule from the Rule Board.
 
-To remove a rule from the Rule Board:
+To **remove a rule** from the Rule Board:
 
-1. Click Rule board.
+1. Click **Rule Board**.
 2. Click on the ruleset that contains the rule.
 3. Drag the rule tile to the *Discard rule* section.
 
-To view comments:
+To **view comments**:
 
 * Click the *speech balloon* next to the finding’s status.
 
@@ -132,16 +143,16 @@ To view comments:
 
 Semgrep supports the creation of Jira tickets from a finding. This feature is available to Team/Enterprise Tier users.
 
-To create a ticket:
+To **create a ticket**:
 
-1. Set up a Jira integration through the [*Integrations]*(https://semgrep.dev/docs/semgrep-app/integrations/) guide.
-2. Click on the *three-dot icon* of the entry.
-3. Click *Create issue with Jira*.
+1. Set up a Jira integration through the [Integrations](https://semgrep.dev/docs/semgrep-app/integrations/) guide.
+2. Click on the **three-dot icon** of the entry.
+3. Click **Create issue with Jira**.
 
 See also
 
 * [Integrations](https://semgrep.dev/docs/semgrep-app/integrations/)
-* [Rule board](https://semgrep.dev/docs/semgrep-app/rule-board/)
+* [Rule Board](https://semgrep.dev/docs/semgrep-app/rule-board/)
 
 Additional references
 
