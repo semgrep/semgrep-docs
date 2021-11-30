@@ -31,6 +31,8 @@ since branching off from your `main` branch, set
 SEMGREP_BASELINE_REF=main
 ```
 
+It is not recommended to do diff-aware scans on any branches that are also doing full-project scans. This is because Semgrep App assumes that all previous findings have been fixed if the branch they are on is re-scanned and they do not show up.
+
 ## Connect to Semgrep App (`SEMGREP_APP_TOKEN`)
 
 Instead of `SEMGREP_RULES`, you can configure which rules to run with Semgrep App.
