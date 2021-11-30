@@ -11,7 +11,7 @@ import MoreHelp from "/src/components/MoreHelp"
 
 [Semgrep CI](https://github.com/returntocorp/semgrep-action) (aka Semgrep Action or `semgrep-agent`) is a specialized Docker image for running Semgrep in CI environments. It can also optionally connect to [Semgrep App](https://semgrep.dev/manage) for centralized rule and findings management.
 
-- **Scan every commit**. Semgrep CI rapidly scans modified files on pull and merge requests, protecting developer productivity. Longer full project scans are configurable on merges to specific branches.
+- **Scan every commit**. Semgrep CI rapidly scans modified files on pull and merge requests, protecting developer productivity. Usually, full-project scans are reserved for special branches, such as trunk branches, and diff-aware scans are done on other branches before merging them into the trunk.
 - **Block new bugs**. You shouldn’t have to fix existing bugs just to adopt a tool. Semgrep CI reports newly introduced issues on pull and merge requests, scanning them at their base and HEAD commits to compare findings. Developers are signficantly more likely to fix the issues they introduced themselves on PRs and MRs.
 - **Get findings where you work**. Semgrep CI can connect to [Semgrep App](https://semgrep.dev/manage) to present findings in Slack, on PRs and MRs via inline comments, email, and through 3rd party services.
 
@@ -24,7 +24,7 @@ Semgrep CI runs fully in your build environment: **your code is never sent anywh
 
 Semgrep CI behaves like other static analysis and linting tools: it runs a set of user-configured rules and returns a non-zero exit code if there are findings, resulting in its job showing a ✅ or ❌.
 
-Start by copying the below relevant template for your CI provider. Read through the comments in the template to adjust when and what Semgrep CI scans, selecting pull and merge requests, merges to branches, or both.
+Start by copying the below relevant template for your CI provider. Read through the comments in the template to adjust when and what Semgrep CI scans, selecting pull and merge requests, full scans on your trunk branch, or both.
 
 Once Semgrep CI is running, explore the [Semgrep Registry](https://semgrep.dev/explore) to find and add more project-specific rules.
 
@@ -62,7 +62,7 @@ For full project scans:
 docker run -v $(pwd):/src --workdir /src returntocorp/semgrep-agent:v1 semgrep-agent --config auto --config <other rule or rulesets>
 ```
 
-Set the `--baseline-ref` flag to the git ref (branch name, tag, or commit hash) to use as a baseline. Semgrep will scan only the files modified in your branch and output the difference in findings between the baseline branch and the new branch. For example, to report findings newly added since branching off from your `main` branch, run
+Set the `--baseline-ref` flag to the git ref (branch name, tag, or commit hash) to use it as a baseline. Semgrep will scan only the files modified in your branch and output the difference in findings between the baseline branch and the new branch. If you are using Semgrep App, it will also close all prior findings on that branch that it no longer finds, treating them as fixed. Therefore, doing full scans and diff scans on the same branch is not recommended. For example, to report findings newly added since branching off from your `main` branch, run
 
 ```sh
 semgrep-agent --baseline-ref main
