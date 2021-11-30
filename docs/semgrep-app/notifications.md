@@ -106,7 +106,7 @@ semgrep:
     GITLAB_TOKEN: $PAT
 ```
 
-Note: GitLab MR comments are only available to logged-in semgrep.dev users, requiring both a Semgrep deployment ID and a Semgrep API token.
+NOTE: GitLab MR comments are only available to logged-in semgrep.dev users, requiring both a Semgrep deployment ID and a Semgrep API token.
 
 ### Webhooks
 
