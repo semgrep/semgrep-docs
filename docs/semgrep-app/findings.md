@@ -57,7 +57,7 @@ The Findings page displays the following fields:
 | **Project**     | The name of the project codebase where the finding was found. Clicking on this field brings you to the project’s URL. |
 | **Rule**        | The name of the rule matched with the code. Clicking on this field brings you to the rule’s entry in the [rule registry](https://semgrep.dev/r). |
 | **Introduced**  | The time when this finding was first found. Clicking on the header row sorts the table by latest or earliest findings. |
-| **Status**      | Refers to a finding’s triage state. |
+| **Status**      | Refers to a finding’s state. |
 
 ## Triaging findings
 
@@ -68,7 +68,7 @@ Semgrep App assists in the triage process through the use of *comments* and *tri
 | Triage state | Description |
 | -----------  | ------------ |
 | **Open** | Open findings require action, such as rewriting the code for vulnerabilities, or refactoring the code. Findings are open by default. |
-| **Ignored** | Findings that are ignored will not be acted upon. This may be a false positive or deprioritized issue. |
+| **Ignored** | Findings that are ignored will not be acted upon. This may be a false positive or deprioritized issue. Findings can be ignored through Semgrep App (see below) or in the code. See [Ignoring findings](../ignoring-findings.md) for more information.  |
 | **Closed** | Findings are considered closed under any of the following conditions: <ul><li>After a new scan, the code has been addressed such that the rule pattern no longer matches the code.</li><li>The rule has been removed from your Rule Board.</li></ul> |
 
 ### Filtering findings
@@ -151,8 +151,9 @@ To **create a ticket**:
 
 See also
 
-* [Integrations](https://semgrep.dev/docs/semgrep-app/integrations/)
-* [Rule Board](https://semgrep.dev/docs/semgrep-app/rule-board/)
+* [Integrations](integrations.md)
+* [Rule Board](rule-board.md)
+* [Ignoring findings](../ignoring-findings.md)
 
 Additional references
 
