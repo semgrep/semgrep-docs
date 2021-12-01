@@ -64,8 +64,8 @@ html {
   font-size: 62.5%;
 }
 
-li {
-  font-size: 1.6rem;
+body {
+    font-size: 1.6rem;
 }
 
 h1,
@@ -81,26 +81,21 @@ h1 {
 }
 
 h2 {
-    font-size: 36px;
+    font-size: 3.6rem;
 }
 
 h3 {
-    font-size: 28px;
+    font-size: 2.8rem;
 }
 
 h4 {
-    font-size: 21px;
+    font-size: 2.1rem;
 }
 
 h5 {
-    font-size: 18px;
+    font-size: 1.8rem;
 }
 
-/* 
-p {
-    font-size: 14px;
-}
-*/
 
 /* navbar */
 
@@ -182,4 +177,8 @@ li.menu__list-item a:hover {
 
 .footer__title {
   color: rgb(198, 200, 204);
+}
+
+.table-of-contents {
+  font-size: 1.3rem;
 }
