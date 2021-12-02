@@ -32,7 +32,7 @@ The following table displays features available to each role:
 | Feature               | `member`  | `admin`   | Additional notes                                                                   |
 | ---------             | --------- | --------- | ---------                                                                          |
 | Overview              | yes       | yes       |                                                                                    |
-| Projects              | no        | yes       | Only `admin` can manage projects                                                   |
+| Projects              | no        | yes       | Only `admin` can manage projects.                                                   |
 | Rule Board (Policies) | no        | yes       | Only `admin` can manage policies and rules.                                        |
 | Findings              | yes       | yes       | Both `admin` and `member` roles can sort, filter, comment on, and triage findings. |
 | Analytics             | no        | yes       |                                                                                    |
@@ -42,16 +42,28 @@ The following table displays features available to each role:
 | Playground            | yes       | yes       |                                                                                    |
 | Docs                  | yes       | yes       |                                                                                    |
 
+To enable RBAC, please contact r2c at [support@r2c.dev](mailto:support@r2c.dev).
 
+Upon enabling RBAC for the first time, current members of the organization are `admins`. New members added thereafter are automatically `members`.
 
+## Changing a user's role
 
+**Prerequisites**:
 
-See also
+* You must be an `admin` to perform this operation.
+* You may need to log out and log back in after enabling RBAC for your organization.
 
-* [Internal docs]
+To **change a user's role**:
 
-Additional references
+1. On Semgrep App's sidebar, click Settings.
+2. Click on the Members tab.
+3. Search for the member whose role will be changed.
+4. Click on the member's current role, under the role header. A drop-down box appears.
+5. Select the new role for the member.
 
-* [Blog, items outside of semgrep]
+:::info
+You cannot change your own role.
+:::
+
 
 <MoreHelp />
