@@ -190,6 +190,13 @@ Options:
   --help                          Show this message and exit.
 ```
 
+## Ignoring Files
+
+The Semgrep command line tool supports a `.semgrepignore` file that follows the `.gitignore` syntax and is used to skip files and directories during scanning. This is commonly used to avoid vendored and test related code. For a complete example, see the [.semgrepignore file on Semgrep’s source code](https://github.com/returntocorp/semgrep/blob/develop/.semgrepignore).
+
+If no `.semgrepignore` file is found, no default will be provided.
+
+
 ## Exit codes
 
 `semgrep` may exit with the following exit codes:
