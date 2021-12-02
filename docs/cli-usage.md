@@ -190,6 +190,26 @@ Options:
   --help                          Show this message and exit.
 ```
 
+## Ignoring Files
+
+The Semgrep command line tool supports a `.semgrepignore` file that follows the `.gitignore` syntax and is used to skip files and directories during scanning. This is commonly used to avoid vendored and test related code. For a complete example, see the [.semgrepignore file on Semgrep’s source code](https://github.com/returntocorp/semgrep/blob/develop/.semgrepignore).
+
+`.semgrepignore` syntax mirrors `.gitignore` syntax, with the following modifications:
+* "Include" patterns (lines starting with "!") are not supported.
+* "Character range" patterns (lines including a collection of characters inside brackets) are not supported.
+* An ":include ..." directive is added, which allows another file to be included in the ignore pattern list;
+    typically this included file would be the project .gitignore. No attempt at cycle detection is made.
+* Any line beginning with a colon, but not ":include ", will raise an error.
+* "\:" is added to escape leading colons.
+
+Unsupported patterns are silently removed from the pattern list (this is done so that gitignore files may be
+included without raising errors), although the removal will be logged.
+
+For a description of `.gitignore` syntax, see [the documentation](https://git-scm.com/docs/gitignore)
+
+If no `.semgrepignore` file is found, no default will be provided.
+
+
 ## Exit codes
 
 `semgrep` may exit with the following exit codes:
