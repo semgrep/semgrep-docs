@@ -244,7 +244,7 @@ Semgrep CI supports a `.semgrepignore` file that follows the `.gitignore` syntax
 `.semgrepignore` is only used by Semgrep CI and the Semgrep command line tool. It is not honored by integrations like [GitLab's Semgrep SAST Analyzer](https://gitlab.com/gitlab-org/security-products/analyzers/semgrep).
 :::
 
-By default Semgrep CI skips files and directories such as `tests/`, `node_modules/`, and `vendor/`. The full list of ignored items is in [the `.semgrepignore` template file](https://github.com/returntocorp/semgrep-action/blob/v1/src/semgrep_agent/templates/.semgrepignore), which is used by Semgrep CI when no explicit `.semgrepignore` file is found in the root of your project.
+By default Semgrep CI skips files and directories such as `tests/`, `node_modules/`, and `vendor/`. (Note: this is NOT the same as Semgrep CLI, which by default skips nothing). The full list of ignored items is in [the `.semgrepignore` template file](https://github.com/returntocorp/semgrep-action/blob/v1/src/semgrep_agent/templates/.semgrepignore), which is used by Semgrep CI when no explicit `.semgrepignore` file is found in the root of your project.
 
 For information on ignoring individual findings in code, see the [ignoring findings page](/ignoring-findings/).
 
