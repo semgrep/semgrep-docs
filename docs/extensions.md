@@ -29,7 +29,7 @@ repos:
   hooks:
     - id: semgrep
       # See semgrep.dev/rulesets to select a ruleset and copy its URL
-      args: ['--config', '<SEMGREP_RULESET_URL>', '--error']
+      args: ['--config', '<SEMGREP_RULESET_URL>', '--error', '--skip-unknown-extensions']
 ```
 
 ### Version management
