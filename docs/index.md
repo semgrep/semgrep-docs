@@ -53,15 +53,15 @@ Semgrep supports 17+ languages.
 |:---------- |:---------------------------|:---------------------------|
 | C#         | Kotlin                     | Bash                       |
 | Go         | Terraform                  | C                          |
-| Java       |                            | C++                        |
+| Java       | Scala                      | C++                        |
 | JavaScript |                            | Hack                       |
 | JSON       |                            | Lua                        |
 | JSX        |                            | OCaml                      |
 | Python     |                            | PHP                        |
 | Ruby       |                            | Rust                       |
-| TypeScript |                            | Scala                      |
-| TSX        |                            | YAML                       |
-|            |                            | Generic (ERB, Jinja, etc.) |
+| TypeScript |                            | YAML                       |
+| TSX        |                            | Generic (ERB, Jinja, etc.) |
+|            |                            |                            |
 
 </div>
 
