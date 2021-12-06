@@ -1,7 +1,7 @@
 ---
-slug: findings 
+slug: findings
 append_help_link: true
-title: Findings 
+title: Findings
 description: "The Findings page allows users to view, manage, and triage Findings."
 ---
 
@@ -12,7 +12,7 @@ import MoreHelp from "/src/components/MoreHelp"
 
 ![Screenshot of Semgrep App Findings page ](../img/app-findings-overview.png)<br />
 
-A finding is the core result of Semgrep's analysis. Findings are generated when a Semgrep rule matches a piece of code. 
+A finding is the core result of Semgrep's analysis. Findings are generated when a Semgrep rule matches a piece of code.
 
 Types of findings:
 
@@ -44,14 +44,14 @@ The Semgrep App Finding page displays findings across all projects connected to 
 ### Navigating to the Findings page
 
 1. Sign in to Semgrep App.
-2. The *Findings* page can be found on the left sidebar.
+2. The **Findings** page can be found on the left sidebar.
 
 ### Understanding the Findings data
 
-The Findings page displays the following fields: 
+The Findings page displays the following fields:
 
-| Field       | Description | 
-| ----------  | ------------ | 
+| Field       | Description |
+| ----------  | ------------ |
 | **Severity**    | The impact of a finding. Possible values: Low, Medium, High,and Critical. |
 | **Finding**     | The file, line, and branch of the pattern match in the code. Clicking on this field brings you to the exact location in the codebase. |
 | **Project**     | The name of the project codebase where the finding was found. Clicking on this field brings you to the project’s URL. |
@@ -63,7 +63,7 @@ The Findings page displays the following fields:
 
 Triaging means prioritizing a finding based on a policy or criteria set by your team or organization. While severity is a factor in triage, your organization may define additional criteria based on coding standards, business, or product goals.
 
-Semgrep App assists in the triage process through the use of *comments* and *triage states*:
+Semgrep App assists in the triage process through the use of **comments** and **triage states**:
 
 | Triage state | Description |
 | -----------  | ------------ |
@@ -92,12 +92,12 @@ To filter through all findings:
 
 ### Sorting findings
 
-* Findings may be sorted by their respective fields (see *Fields* table above).
-* To sort a finding, click on the desired *row header*.
+* Findings may be sorted by their respective fields (see **Fields** table above).
+* To sort a finding, click on the desired **row header**.
 
 ### Managing triage states (bulk triage)
 
-Bulk triage can be performed by filtering through the findings, and then you can select which findings to be: 
+Bulk triage can be performed by filtering through the findings, and then you can select which findings to be:
 
 * Opened
 * Ignored
@@ -106,38 +106,38 @@ Bulk triage can be performed by filtering through the findings, and then you can
 
 To **ignore findings**:
 
-1. Click *Open* to see all open findings.
-2. After the findings are filtered, perform one of these steps: 
-    - Select all of the results by clicking on the header row checkbox.
-    - Select relevant findings one-by-one by clicking on their checkboxes individually.
-3. Click the *Triage* button.
-4. Click *Ignore*.
-5. Optional: Include a *comment* explaining the action.
-
-To **open findings**:
-
-1. Click *Ignored* to see all ignored findings.
+1. Click **Open** to see all open findings.
 2. After the findings are filtered, perform one of these steps:
     - Select all of the results by clicking on the header row checkbox.
     - Select relevant findings one-by-one by clicking on their checkboxes individually.
-3. Click the *Triage* button.
-4. Click *Open*.
-5. Optional: Include a *comment* explaining the action.
+3. Click the **Triage** button.
+4. Click **Ignore**.
+5. Optional: Include a **comment** explaining the action.
+
+To **open findings**:
+
+1. Click **Ignored** to see all ignored findings.
+2. After the findings are filtered, perform one of these steps:
+    - Select all of the results by clicking on the header row checkbox.
+    - Select relevant findings one-by-one by clicking on their checkboxes individually.
+3. Click the **Triage** button.
+4. Click **Open**.
+5. Optional: Include a **comment** explaining the action.
 
 To **close findings**, do one of the two options:
 
-* Update, fix, or refactor the code such that the Semgrep rule pattern no
-* longer matches the code. Remove the rule from the Rule Board.
+* Update, fix, or refactor the code such that the Semgrep rule pattern no longer matches the code.
+* Remove the rule from the Rule Board.
 
 To **remove a rule** from the Rule Board:
 
 1. Click **Rule Board**.
 2. Click on the ruleset that contains the rule.
-3. Drag the rule tile to the *Discard rule* section.
+3. Drag the rule tile to the **Discard rule** section.
 
 To **view comments**:
 
-* Click the *speech balloon* next to the finding’s status.
+* Click the **speech balloon** next to the finding’s status.
 
 ## Creating Jira tickets from findings
 
@@ -149,13 +149,13 @@ To **create a ticket**:
 2. Click on the **three-dot icon** of the entry.
 3. Click **Create issue with Jira**.
 
-See also
+## See also
 
 * [Integrations](integrations.md)
 * [Rule Board](rule-board.md)
 * [Ignoring findings](../ignoring-findings.md)
 
-Additional references
+## Additional references
 
 * [Writing Semgrep rules: a methodology](https://r2c.dev/blog/2020/writing-semgrep-rules-a-methodology/)
 
