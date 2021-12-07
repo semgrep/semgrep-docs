@@ -18,7 +18,6 @@ Currently, Semgrep App integrates with the following tools:
 | Slack | Community (Free) |
 | Email | Community (Free) |
 | Jira | Team/Enterprise |
-| Amazon S3 | Team/Enterprise |
 | Webhook | Team/Enterprise |
 
 ## Finding available integrations
@@ -150,6 +149,7 @@ Here is a sample of a webhook sent from Semgrep with findings:
 
 [Notifcations -> Webhooks](notifications.md/#webhooks)
 
+<!---
 ### Amazon S3
 
 1. In **Integrations,** click **Add Integration**.
@@ -159,5 +159,6 @@ Here is a sample of a webhook sent from Semgrep with findings:
 5. To ensure that Semgrep can post to your channel, click **Test**.
 6. Click **Save.**
 7. Turn notifications on by going to the **Rule board**, clicking on the **gear icon**, then clicking on the toggle next to the name of the integration.
+--->
 
 <MoreHelp />
