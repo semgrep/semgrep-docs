@@ -12,7 +12,18 @@ This repository powers [Semgrep’s documentation](https://semgrep.dev/docs). Do
 
 ## Contributing
 
-Contributions to the docs are welcome! To start contributing, first please make sure you read and agree with the Semgrep’s [Contributor Covenant Code of Conduct](https://github.com/returntocorp/semgrep/blob/develop/CODE_OF_CONDUCT.md).
+Contributions to the docs are welcome! To start contributing, please make sure you read and agree with the following:
+
+* [Semgrep Contributor Covenant Code of Conduct](https://github.com/returntocorp/semgrep/blob/develop/CODE_OF_CONDUCT.md)
+* [Semgrep Contributor License Agreement (CLA)](https://cla-assistant.io/returntocorp/semgrep-docs)
+
+The purpose of the CLA is to allow future relicensing without having to track down any past contributor. By signing the CLA, **your contribution will remain under the current license (LGPL) regardless of future changes**.
+
+
+Questions? We're happy to help!
+
+* Email us: [support@r2c.dev](mailto:support@r2c.dev)
+* Join our [Slack](https://r2c.dev/slack)
 
 ### Developing docs locally
 
