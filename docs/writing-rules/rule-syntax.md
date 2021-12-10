@@ -76,7 +76,7 @@ The below optional fields must reside underneath a `patterns` or `pattern-either
 
 | Field                                                           | Type     | Description                                                                                                              |
 | :-------------------------------------------------------------- | :------- | :----------------------------------------------------------------------------------------------------------------------- |
-| [`metavariable-regex`](#metavariable-regex)     | `map`    | Search metavariables for [Python `re`](https://docs.python.org/3/library/re.html#re.match) compatible expressions |
+| [`metavariable-regex`](#metavariable-regex)     | `map`    | Search metavariables for [Python `re`](https://docs.python.org/3/library/re.html#re.match) compatible expressions; regex matching is **unanchored** |
 | [`metavariable-pattern`](#metavariable-pattern)     | `map`    | Matches metavariables with a pattern formula  |
 | [`metavariable-comparison`](#metavariable-comparison)     | `map`    | Compare metavariables against basic [Python expressions](https://docs.python.org/3/reference/expressions.html#comparisons) |
 | [`pattern-not`](#pattern-not)                   | `string` | Logical NOT - remove findings matching this expression                                                                  |
@@ -142,7 +142,7 @@ This operator will filter findings that have _any overlap_ with the supplied reg
 
 The `metavariable-regex` operator searches metavariables for a [Python `re`](https://docs.python.org/3/library/re.html#re.match) compatible expression. This is useful for filtering results based on a [metavariable’s](pattern-syntax.mdx#metavariables) value. It requires the `metavariable` and `regex` keys and can be combined with other pattern operators.
 
-<iframe src="https://semgrep.dev/embed/editor?snippet=584j" border="0" frameBorder="0" width="100%" height="435"></iframe>
+<iframe src="https://semgrep.dev/embed/editor?snippet=Oyrw"  border="0" frameBorder="0" width="100%" height="435"></iframe>
 
 :::info
 Include quotes in your regular expression when using `metavariable-regex` to search string literals. See [this snippet](https://semgrep.dev/s/mschwager:include-quotes) for more details. [String matching](pattern-syntax.mdx#string-matching) functionality can also be used to search string literals.
