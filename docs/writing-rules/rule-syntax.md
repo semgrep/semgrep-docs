@@ -144,6 +144,10 @@ The `metavariable-regex` operator searches metavariables for a [Python `re`](htt
 
 <iframe src="https://semgrep.dev/embed/editor?snippet=Oyrw"  border="0" frameBorder="0" width="100%" height="435"></iframe>
 
+Regex matching is **unanchored**. For anchored matching, use `^` for start-of-string anchoring and `$` for end-of-string anchoring. The next example, using the same expression as above but anchored, will find no matches :
+
+<iframe src="https://semgrep.dev/embed/editor?snippet=ved8"  border="0" frameBorder="0" width="100%" height="435"></iframe>
+
 :::info
 Include quotes in your regular expression when using `metavariable-regex` to search string literals. See [this snippet](https://semgrep.dev/s/mschwager:include-quotes) for more details. [String matching](pattern-syntax.mdx#string-matching) functionality can also be used to search string literals.
 :::
