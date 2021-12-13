@@ -7,12 +7,12 @@ description: "Semgrep is LGPL-licensed and contributions are welcome. Get starte
 
 Semgrep is LGPL-licensed and contributions are welcome.
 
-To start contributing, first please make sure you read and agree with the following:
+To start contributing, first please make sure you:
 
-* [Semgrep Contributor Covenant Code of Conduct](https://github.com/returntocorp/semgrep/blob/develop/CODE_OF_CONDUCT.md)
-* [Semgrep Contributor License Agreement (CLA)](https://cla-assistant.io/returntocorp/semgrep)
+* Read and agree with the [Semgrep Contributor Covenant Code of Conduct](https://github.com/returntocorp/semgrep/blob/develop/CODE_OF_CONDUCT.md).
+* Read and sign the [Semgrep Contributor License Agreement (CLA)](https://cla-assistant.io/returntocorp/semgrep-docs).
 
-The purpose of the CLA is to allow future relicensing without having to track down any past contributor. By signing the CLA, **your contribution will remain under the current license (LGPL) regardless of future changes**.
+The purpose of the CLA is to allow future relicensing without having to track down any past contributor. By signing the CLA, you are granting r2c a non-exclusive license to use your contribution while retaining your ownership of it.
 
 Then check out a few ways you can get involved:
 
