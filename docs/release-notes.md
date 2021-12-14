@@ -24,7 +24,7 @@ Semgrep now provides experimental support for the Solidity programming language.
 
 ##### Python
 
-Comprehension variables now have the correct scope, which means that a pattern like `[$X for $X in $ITERATOR]` now correctly matches [v for v in foo()]. ([#4260](https://github.com/returntocorp/semgrep/issues/4260))
+Comprehension variables now have the correct scope, which means that a pattern like `[$X for $X in $ITERATOR]` now correctly matches `[v for v in foo()]`. ([#4260](https://github.com/returntocorp/semgrep/issues/4260))
 
 ##### Semgrep reports relative file paths with `.semgrepignore`
 
