@@ -28,7 +28,7 @@ Comprehension variables now have the correct scope, which means that a pattern l
 
 ##### Semgrep reports relative file paths with `.semgrepignore`
 
-Previously, when you used Semgrep with .semgrepignore file, Semgrep reported targets with absolute instead of relative file paths. This issue has now been fixed. ([#4402](https://github.com/returntocorp/semgrep/pull/4402))
+Previously, when you used Semgrep with `.semgrepignore` file, Semgrep reported targets with absolute instead of relative file paths. This issue has now been fixed. ([#4402](https://github.com/returntocorp/semgrep/pull/4402))
 
 ##### Additional information
 
