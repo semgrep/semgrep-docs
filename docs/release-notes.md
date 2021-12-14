@@ -52,7 +52,7 @@ Semgrep now has improved filtering of rules based on file content, resulting in 
 
 ##### Semgrep CLI
 
-Semgrep CLI now respects .semgrepignore files. For more information about ignoring files, see [Semgrep documentation](https://semgrep.dev/docs/cli-usage/#ignoring-files).
+Semgrep CLI now respects `.semgrepignore` files. For more information about ignoring files, see [Semgrep documentation](https://semgrep.dev/docs/cli-usage/#ignoring-files).
 
 ##### Java support improvement
 
