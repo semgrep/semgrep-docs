@@ -40,7 +40,7 @@ To view the original release information, see [the changelog of this release on 
 
 ##### .semgrepignore
 
-Previously, when you used Semgrep with .semgrepignore file, Semgrep failed to run on files that were not subpaths of the directory where Semgrep was used.
+Previously, when you used Semgrep with a `.semgrepignore` file, Semgrep failed to run on files that were not subpaths of the directory where Semgrep was used.
 
 ### Version 0.76.0
 
