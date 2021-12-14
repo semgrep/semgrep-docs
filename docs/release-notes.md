@@ -10,6 +10,98 @@ toc_max_heading_level: 2
 
 Welcome to Semgrep release notes. This document provides an overview of the changes, additions, and fixes made in different versions.
 
+## December 2021
+
+### Version 0.76.2
+
+#### Additions
+
+##### Support for Solidity
+
+Semgrep now provides experimental support for the Solidity programming language.
+
+#### Fixes
+
+##### Python
+
+Comprehension variables now have the correct scope, which means that a pattern like `[$X for $X in $ITERATOR]` now correctly matches `[v for v in foo()]`. ([#4260](https://github.com/returntocorp/semgrep/issues/4260))
+
+##### Semgrep reports relative file paths with `.semgrepignore`
+
+Previously, when you used Semgrep with `.semgrepignore` file, Semgrep reported targets with absolute instead of relative file paths. This issue has now been fixed. ([#4402](https://github.com/returntocorp/semgrep/pull/4402))
+
+##### Additional information
+
+To view the original release information, see [the changelog of this release on GitHub](https://github.com/returntocorp/semgrep/releases/tag/v0.76.2).
+
+### Version 0.76.1
+
+#### Fixes
+
+##### `.semgrepignore`
+
+Previously, when you used Semgrep with a `.semgrepignore` file, Semgrep failed to run on files that were not subpaths of the directory where Semgrep was used.
+
+### Version 0.76.0
+
+#### Additions
+
+##### Improved filtering of rules
+
+Semgrep now has improved filtering of rules based on file content, resulting in notable speedup for NodeJsScan rules.
+
+##### Semgrep CLI
+
+Semgrep CLI now respects `.semgrepignore` files. For more information about ignoring files, see [Semgrep documentation](https://semgrep.dev/docs/cli-usage/#ignoring-files).
+
+##### Java support improvement
+
+Semgrep now supports ellipsis in generics, for example: `class Foo\&lt;...\&gt;` ([#4335](https://github.com/returntocorp/semgrep/issues/4335))
+
+#### Fixes
+
+##### Java
+
+When you use Semgrep to search for patterns that do not specify generics, Semgrep now also matches classes that are using generics. For example: `class $X {...}` which is not specifying generics, now matches `class Foo\&lt;T\&gt; { }`. ([#4335](https://github.com/returntocorp/semgrep/issues/4335))
+
+##### TypeScript
+
+Semgrep now correctly parses TypeScript type definitions. ([#4330](https://github.com/returntocorp/semgrep/issues/4330))
+
+##### taint-mode
+
+Semgrep taint-mode now reports findings when the Left Hand Side (LHS) operand of an access operator is a sink (for example as in `$SINK-\&gt;method`), and the LHS operand is a tainted variable. ([#4320](https://github.com/returntocorp/semgrep/issues/4320))
+
+##### metavariable-comparison
+
+Semgrep metavariable-comparison does not return a `NotHandled` error anymore. ([#4328](https://github.com/returntocorp/semgrep/issues/4328))
+
+##### semgrep-core
+
+Fix a segmentation fault on Apple M1 processors when using `-filter_irrelevant_rules` on rules with very large pattern-either fields. ([#4305](https://github.com/returntocorp/semgrep/issues/4305))
+
+##### Python
+
+Generate correct lexical exn for unbalanced braces. ([#4310](https://github.com/returntocorp/semgrep/issues/4310))
+
+##### YAML
+
+Fix off-by-one error in location of arrays.
+
+#### Changes
+
+##### semgrep-core
+
+Log messages are now tagged with the process id.
+
+##### Given `--output` Semgrep no longer prints search results to stdout
+
+When using `--output` parameter, Semgrep no longer prints findings to standard output (stdout), but it only saves or posts those findings to the specified file or URL.
+
+##### Additional information
+
+To view the original release information, see [the changelog of this release on GitHub](https://github.com/returntocorp/semgrep/releases/tag/v0.76.0).
+
 ## November 2021
 
 ### Version 0.75.0
@@ -66,7 +158,7 @@ When a `switch` was not followed by another statement, and the last statement of
 
 #### Additional information
 
-To view the original release information, see [this release on GitHub](https://github.com/returntocorp/semgrep/releases/tag/v0.72.0).
+To view the original release information, see [the changelog of this release on GitHub](https://github.com/returntocorp/semgrep/releases/tag/v0.72.0).
 
 ### Version 0.73.0
 
@@ -88,7 +180,7 @@ Previously, Semgrep's constant propagation handled specific corner cases by rais
 
 #### Additional information
 
-To view the original release information, see [this release on GitHub](https://github.com/returntocorp/semgrep/releases/tag/v0.73.0).
+To view the original release information, see [the changelog of this release on GitHub](https://github.com/returntocorp/semgrep/releases/tag/v0.73.0).
 
 ### Version 0.72.0
 
@@ -171,7 +263,7 @@ Previously, Semgrep only scanned files that matched a file extension for the lan
 
 #### Additional information
 
-To view the original release information, see [this release on GitHub](https://github.com/returntocorp/semgrep/releases/tag/v0.72.0).
+To view the original release information, see [the changelog of this release on GitHub](https://github.com/returntocorp/semgrep/releases/tag/v0.72.0).
 
 ### Version 0.71.0
 
@@ -203,7 +295,7 @@ To view the original release information, see [this release on GitHub](https://g
 
 #### Additional information
 
-To view the original release information, see [this release on GitHub](https://github.com/returntocorp/semgrep/releases/tag/v0.71.0).
+To view the original release information, see [the changelog of this release on GitHub](https://github.com/returntocorp/semgrep/releases/tag/v0.71.0).
 
 ## October 2021
 
@@ -226,7 +318,7 @@ Experimental Bash support. ([#4081](https://github.com/returntocorp/semgrep/pull
 
 #### Additional information
 
-To view the original release information, see [this release on GitHub](https://github.com/returntocorp/semgrep/releases/tag/v0.70.0).
+To view the original release information, see [the changelog of this release on GitHub](https://github.com/returntocorp/semgrep/releases/tag/v0.70.0).
 
 ### Version 0.69.1
 
@@ -236,7 +328,7 @@ To view the original release information, see [this release on GitHub](https://g
 
 #### Additional information
 
-To view the original release information, see [this release on GitHub](https://github.com/returntocorp/semgrep/releases/tag/v0.69.1).
+To view the original release information, see [the changelog of this release on GitHub](https://github.com/returntocorp/semgrep/releases/tag/v0.69.1).
 
 ### Version 0.69.0
 
@@ -264,7 +356,7 @@ To view the original release information, see [this release on GitHub](https://g
 
 #### Additional information
 
-To view the original release information, see [this release on GitHub](https://github.com/returntocorp/semgrep/releases/tag/v0.69.0).
+To view the original release information, see [the changelog of this release on GitHub](https://github.com/returntocorp/semgrep/releases/tag/v0.69.0).
 
 ### Version 0.68.2
 
@@ -274,7 +366,7 @@ To view the original release information, see [this release on GitHub](https://g
 
 #### Additional information
 
-To view the original release information, see [this release on GitHub](https://github.com/returntocorp/semgrep/releases/tag/v0.68.2).
+To view the original release information, see [the changelog of this release on GitHub](https://github.com/returntocorp/semgrep/releases/tag/v0.68.2).
 
 ### Version 0.68.1
 
@@ -288,7 +380,7 @@ To view the original release information, see [this release on GitHub](https://g
 
 #### Additional information
 
-To view the original release information, see [this release on GitHub](https://github.com/returntocorp/semgrep/releases/tag/v0.68.1).
+To view the original release information, see [the changelog of this release on GitHub](https://github.com/returntocorp/semgrep/releases/tag/v0.68.1).
 
 ### Version 0.68.0
 
@@ -312,7 +404,7 @@ To view the original release information, see [this release on GitHub](https://g
 
 #### Additional information
 
-To view the original release information, see [this release on GitHub](https://github.com/returntocorp/semgrep/releases/tag/v0.68.0).
+To view the original release information, see [the changelog of this release on GitHub](https://github.com/returntocorp/semgrep/releases/tag/v0.68.0).
 
 ## September 2021
 
