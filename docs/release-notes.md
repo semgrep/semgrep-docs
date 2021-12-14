@@ -84,7 +84,7 @@ Fix a segmentation fault on Apple M1 processors when using `-filter_irrelevant_r
 
 Generate correct lexical exn for unbalanced braces. ([#4310](https://github.com/returntocorp/semgrep/issues/4310))
 
-##### YAML
+##### YAML
 
 Fix off-by-one error in location of arrays.
 
