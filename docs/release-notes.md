@@ -38,7 +38,7 @@ To view the original release information, see [the changelog of this release on 
 
 #### Fixes
 
-##### .semgrepignore
+##### `.semgrepignore`
 
 Previously, when you used Semgrep with a `.semgrepignore` file, Semgrep failed to run on files that were not subpaths of the directory where Semgrep was used.
 
