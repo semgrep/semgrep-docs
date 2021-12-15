@@ -69,7 +69,7 @@ If you are using Github Actions to run Semgrep, no extra changes are needed to g
 
 ### GitLab merge request comments
 
-Merge request comments are currently supported for gitlab.com users only. [Sign up for the GitLab beta](https://go.r2c.dev/join-gitlab-beta) if you have a self-hosted instance of GitLab and are interested in receiving MR comments.
+Merge request comments are currently supported for gitlab.com users only.
 
 Automated comments on GitLab merge requests look like this:
 
