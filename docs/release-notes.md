@@ -142,7 +142,7 @@ In constant propagation, Python strings are now evaluated as string literals. Yo
 
 ##### Ruby
 
-Ruby blocks are now represented with an extra function call in Semgrep&#39;s generic asynchronous syntax tree (AST) so that both `f(...)` and `f($X)` correctly match `f(x)` in `f(x) { |n| puts n }`. ([#3880](https://github.com/returntocorp/semgrep/issues/3880))
+Ruby blocks are now represented with an extra function call in Semgrep&#39;s generic abstract syntax tree (AST) so that both `f(...)` and `f($X)` correctly match `f(x)` in `f(x) { |n| puts n }`. ([#3880](https://github.com/returntocorp/semgrep/issues/3880))
 
 ##### Generic filters exclude large and binary files
 
@@ -297,7 +297,7 @@ To view the original release information, see [the changelog of this release on 
 
 To view the original release information, see [the changelog of this release on GitHub](https://github.com/returntocorp/semgrep/releases/tag/v0.71.0).
 
-## October 2021
+## October 2021
 
 ### Version 0.70.0
 
