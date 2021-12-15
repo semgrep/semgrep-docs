@@ -5,11 +5,13 @@ description: "Ways you can get more information when semgrep CLI or CI hangs, cr
 
 import MoreHelp from "/src/components/MoreHelp"
 
-# Troubleshooting Semgrep CI/action/agent
+# Troubleshooting Semgrep 
+
+## Troubleshooting Semgrep CI/action/agent
 
 If you're seeing results reported for files that weren't touched, Github actions timing out, or anything else related to running semgrep in CI, see instructions here based on your CI provider.
 
-## Github
+### Github
 
 The first piece of information we use are the github-action logs. You can send them to us by clicking the settings button next to "search logs" and then "download log archive".
 
@@ -38,15 +40,15 @@ semgrep:
           retention-days: 1
 ```
 
-## Other
+### Other
 
 We currently don't have instructions for other providers, but logs for the action are always saved in `.semgrep_logs/`. There will be two files, `semgrep_agent_logs` and `semgrep_agent_output`. The former is a more verbose logging of what happened; the second contains the output that the action collected for semgrep. If you are running in docker, you can find the logs there.
 
 
-# Troubleshooting Semgrep CLI 
+## Troubleshooting Semgrep CLI 
 
 
-## Semgrep exited with code -11 (or -9)
+### Semgrep exited with code -11 (or -9)
 
 This can happen when Semgrep crashes, usually as a result of memory exhaustion. `-11` and `-9` are the POSIX signals raised to cause the crash. Try increasing your stack limit, as suggested (`ulimit -s [limit]`). If you are working in a container where you can set the memory you are working with, you can also try increasing this limit. Alternatively, you can add `--max-memory [limit]` to your Semgrep run, which will stop a rule/file scan if it reaches the limit. 
 
@@ -54,11 +56,11 @@ Additionally, you can run Semgrep in singlethreaded mode with `--jobs 1`.
 
 When reporting these errors, please include the rule it failed on, the total size of the files (or the files themselves if possible!), the maximum memory used by Semgrep (an estimate from `top` is fine), and your system specifications.
 
-## Semgrep is too slow
+### Semgrep is too slow
 
 We record Semgrep runtimes for each file and rule. This information is displayed when you include `--time`. How you choose to interact with the `--time` output depends on your goals.
 
-### I am a user who just wants to run faster
+#### I am a user who just wants to run faster
 
 Just run Semgrep with `--time` and not `--json`. This will output a list of the rules and files that took the longest. Oftentimes, users find that those files shouldn't have been scanned in the first place.
 
@@ -66,9 +68,9 @@ The first step to improving Semgrep's speed is limiting its run to only the file
 
 If you're still slow, you may want to examine the slowest rules. You may find that some of them don't apply to your codebase and can be skipped.
 
-### I am a contributer who wants to improve Semgrep's engine
+#### I am a contributer who wants to improve Semgrep's engine
 
-#### Interpreting the result object
+##### Interpreting the result object
 
 For full timing information, run Semgrep with `--time` and `--json`. In addition, you will want to `time` the entire command to get the true wall time. Here is an example result object.
 
@@ -125,11 +127,11 @@ The lists `rule_parse_info`, `match_times`, `parse_times`, and `run_times` are a
 
 Note that `parse_times` is given for each rule, but a file should only be parsed once (the first number). Afterwards, the parse time represents the time spent retrieving the file's AST from the cache.
 
-#### Negative values in the metrics
+##### Negative values in the metrics
 
 When a time is not measured, by default it has the value -1. It is common to a have a normal runtime but -1 for the parse time or match time; this indicates an error in parsing.
 
-#### Tips for exploring semgrep results
+##### Tips for exploring semgrep results
 
 There are several scripts already written to analyze and summarize these timing data. Find them in [`scripts/processing-output`](https://github.com/returntocorp/semgrep/tree/develop/scripts/processing-output). If you have a timing file, you will probably want to run
 
@@ -139,7 +141,7 @@ python read_timing.py [your_timing_file]
 
 You may need to adjust the line `result_times = results` based on whether you have a timing file or the full results (in which case this should be `result_times = results["time"]`)
 
-## How to get help
+### How to get help
 
 Please check the [Support](/support/) page to get help from the Semgrep maintainers & community, via Slack, GitHub, email, or phone.
 
