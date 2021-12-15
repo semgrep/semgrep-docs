@@ -42,6 +42,7 @@ Generic pattern matching has the following properties:
 * A document is interpreted as a nested sequence of ASCII words, ASCII punctuation, and other bytes.
 * `...` allows skipping non-matching elements, up to 10 lines down the last match.
 * `$X` (metavariable) matches any word.
+* `$...X` (ellipsis metavariable) matches a sequence of words, up to 10 lines down the last match.
 * Indentation determines primary nesting in the document.
 * Common ASCII braces `()`, `[]`, and `{}` introduce secondary nesting but only within single lines. Therefore, misinterpreted or mismatched braces don't disturb the structure of the rest of document.
 * The document must be at least as indented as the pattern: any indentation specified in the pattern must be honored in the document.
