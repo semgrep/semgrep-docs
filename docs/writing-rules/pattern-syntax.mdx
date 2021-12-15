@@ -323,6 +323,8 @@ those constructs, e.g., Ruby).
 
 ### Typed Metavariables
 
+#### Syntax
+
 Typed metavariables only match a metavariable if it’s declared as a specific type. For example, you may want to specifically check that `==` is never used for strings.
 
 Java:
@@ -346,35 +348,6 @@ public class Example {
     }
 }
 ```
-
-Go:
-
-```text
-pattern: "$X == ($Y : string)"
-```
-
-```go
-func main() {
-    var x string
-    var y string
-    var a int
-    var b int
-
-    // Matched
-    if x == y {
-       x = y
-    }
-
-    // Not matched
-    if a == b {
-       a = b
-    }
-}
-```
-
-:::caution
-For Go, Semgrep currently does not recognize the type of all variables that are declared on the same line. That is, the following will not take both `a` and `b` as `int`s: `var a, b = 1, 2`
-:::
 
 C:
 
@@ -420,6 +393,37 @@ function foo(a: string, b: number) {
   }
 }
 ```
+
+Go:
+
+```text
+pattern: "$X == ($Y : string)"
+```
+
+```go
+func main() {
+    var x string
+    var y string
+    var a int
+    var b int
+
+    // Matched
+    if x == y {
+       x = y
+    }
+
+    // Not matched
+    if a == b {
+       a = b
+    }
+}
+```
+
+:::caution
+For Go, Semgrep currently does not recognize the type of all variables that are declared on the same line. That is, the following will not take both `a` and `b` as `int`s: `var a, b = 1, 2`
+:::
+
+#### Using Typed Metavariables
 
 Type inference applies to the entire file! One common way to use typed metavariables is to check for a function called on a specific type of object. For example, let's say you're looking for calls to a potentially unsafe logger in a class like this:
 
