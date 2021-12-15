@@ -570,6 +570,46 @@ pattern: 1+
 
 A complete expression is needed (like `1 + $X`)
 
+### Ellipsis and statement blocks
+
+The [ellipsis operator](#ellipsis-operator) does *not* jump from inner to outer statement blocks.
+
+For example, this pattern:
+
+```text
+foo()
+...
+bar()
+```
+
+matches:
+
+```python
+foo()
+baz()
+bar()
+```
+
+and also matches:
+
+```python
+foo()
+baz()
+if cond:
+    bar()
+```
+
+but it does *not* match:
+
+```python
+if cond:
+    foo()
+baz()
+bar()
+```
+
+because `...` cannot jump from the inner block where `foo()` is, to the outer block where `bar()` is.
+
 ### Partial statements
 
 Partial statements are partially supported. For example,
