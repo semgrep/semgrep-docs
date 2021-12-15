@@ -68,7 +68,7 @@ module.exports = {
     {
       type: 'category',
       label: 'Troubleshooting',
-      items: ['troubleshooting/gitlab-sast', 'troubleshooting/rules', 'troubleshooting/semgrep-app', 'troubleshooting/semgrep-cli'],
+      items: ['troubleshooting/gitlab-sast', 'troubleshooting/rules', 'troubleshooting/semgrep-app', 'troubleshooting/semgrep'],
     },
     'language-support',
     'support',

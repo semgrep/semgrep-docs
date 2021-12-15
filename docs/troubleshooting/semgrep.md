@@ -1,16 +1,54 @@
 ---
-slug: semgrep-cli
-description: "Ways you can get more information when semgrep CLI hangs, crashes, or just takes too long."
+slug: semgrep
+description: "Ways you can get more information when semgrep CLI or CI hangs, crashes, or just takes too long."
 ---
 
 import MoreHelp from "/src/components/MoreHelp"
+
+# Troubleshooting Semgrep CI/action/agent
+
+If you're seeing results reported for files that weren't touched, Github actions timing out, or anything else related to running semgrep in CI, see instructions here based on your CI provider.
+
+## Github
+
+The first piece of information we use are the github-action logs. You can send them to us by clicking the settings button next to "search logs" and then "download log archive".
+
+If this doesn't have the information we need, you can get more information by saving the logs semgrep-action produces. On each run, semgrep-action creates a `.semgrep_logs` folder and saves there the debug logs and the output collected from semgrep, including the timing data described below.
+
+To collect these logs, you need to upload them as an artifact. Modify your workflow to match this:
+
+```yaml
+semgrep:
+    name: semgrep with managed policy
+    runs-on: ubuntu-20.04
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          submodules: recursive
+      - uses: returntocorp/semgrep-action@v1
+        with:
+          publishToken: ${{ secrets.SEMGREP_APP_TOKEN }}
+      - name: package-logs
+        run: tar czf logs.tgz .semgrep_logs/
+      - name: upload-logs
+        uses: actions/upload-artifact@v2
+        with:
+          name: logs.tgz
+          path: logs.tgz
+          retention-days: 1
+```
+
+## Other
+
+We currently don't have instructions for other providers, but logs for the action are always saved in `.semgrep_logs/`. There will be two files, `semgrep_agent_logs` and `semgrep_agent_output`. The former is a more verbose logging of what happened; the second contains the output that the action collected for semgrep. If you are running in docker, you can find the logs there.
+
 
 # Troubleshooting Semgrep CLI 
 
 
 ## Semgrep exited with code -11 (or -9)
 
-This can happen when Semgrep crashes, usually as a result of memory exhaustion. Try increasing your stack limit, as suggested (`ulimit -s [limit]`). If you are working in a container where you can set the memory you are working with, you can also try increasing this limit. Alternatively, you can add `--max-memory [limit]` to your Semgrep run, which will stop a rule/file scan if it reaches the limit. 
+This can happen when Semgrep crashes, usually as a result of memory exhaustion. `-11` and `-9` are the POSIX signals raised to cause the crash. Try increasing your stack limit, as suggested (`ulimit -s [limit]`). If you are working in a container where you can set the memory you are working with, you can also try increasing this limit. Alternatively, you can add `--max-memory [limit]` to your Semgrep run, which will stop a rule/file scan if it reaches the limit. 
 
 Additionally, you can run Semgrep in singlethreaded mode with `--jobs 1`.
 
