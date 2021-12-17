@@ -221,7 +221,7 @@ If no `.semgrepignore` file is found, no default will be provided.
 - `4`: Semgrep encountered an invalid pattern
 - `5`: Semgrep config is not valid yaml
 - `6`: Rule with `pattern-where-python` found but `--dangerously-allow-arbitrary-code-execution-from-rules` was not set. See `--dangerously-allow-arbitrary-code-execution-from-rules`.
-- `7`: All rules in config are invalid. If semgrep is run with `--strict` then this exit code is returned when any rule in the configs are invalid.
+- `7`: At least one rule in config is invalid
 - `8`: Semgrep does not understand specified language
 - `9`: Semgrep exceeded match timeout. See `--timeout`
 - `10`: Semgrep exceeded max memory while matching. See `--max-memory`.
