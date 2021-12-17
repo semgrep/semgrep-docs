@@ -15,7 +15,11 @@ If you're seeing results reported for files that weren't touched, Github actions
 
 The first piece of information we use are the github-action logs. You can send them to us by clicking the settings button next to "search logs" and then "download log archive".
 
-If this doesn't have the information we need, you can get more information by saving the logs semgrep-action produces. On each run, semgrep-action creates a `.semgrep_logs` folder and saves there the debug logs and the output collected from semgrep, including the timing data described below.
+If this doesn't have the information we need, you can get more information by saving the logs semgrep-action produces. On each run, semgrep-action creates a `.semgrep_logs` folder and saves there: 
+
+- The debug logs 
+- The output collected from semgrep (including the timing data described below)
+- If run using a semgrep-app configuration, the flat list of rules run
 
 To collect these logs, you need to upload them as an artifact. Modify your workflow to match this:
 
