@@ -31,8 +31,10 @@ semgrep:
         with:
           publishToken: ${{ secrets.SEMGREP_APP_TOKEN }}
       - name: package-logs
+        if: always()
         run: tar czf logs.tgz .semgrep_logs/
       - name: upload-logs
+        if: always()
         uses: actions/upload-artifact@v2
         with:
           name: logs.tgz
