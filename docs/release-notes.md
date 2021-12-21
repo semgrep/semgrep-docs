@@ -12,6 +12,58 @@ Welcome to Semgrep release notes. This document provides an overview of the chan
 
 ## December 2021
 
+### Version 0.77.0
+
+#### Highlights
+
+##### Semgrep CLI and Semgrep CI now ignore the same patterns
+
+With this update, Semgrep CLI now ignores the same patterns as the Semgrep CI by default. Find [the default .semgrepignore on GitHub](https://github.com/returntocorp/semgrep/blob/develop/semgrep/semgrep/templates/.semgrepignore). If you want to return to Semgrep’s previous behavior, create an empty `.semgrepignore` file. However, creating a new `.semgrepignore` overrides the default setup.
+
+##### Autofix improvement
+
+An autofix improvement from [https://github.com/chair6](https://github.com/chair6) from Hashicorp! Big shoutout to them. Fixes several issues (auto fixing multiple things in the same set of lines). This change addresses several issues related to autofix by adding per-file line and column offset tracking, and uses those offsets when making edits to files. The improvement addresses several edge cases in the existing autofix implementation that Semgrep did not handle correctly previously. The addressed issues are the following: [#4428](https://github.com/returntocorp/semgrep/issues/4428), [#3577](https://github.com/returntocorp/semgrep/issues/3577), [#3388](https://github.com/returntocorp/semgrep/issues/3388).
+
+#### Additions
+
+##### Scala
+
+Semgrep now correctly matches patterns as `List(...)`.
+
+##### `semgrepignore.`
+
+Default set of `.semgrepignore` patterns (in `semgrep/templates/.semgrepignore`) is now used by default. You can override the default behavior by your own setup of the `semgrepignore.` file.
+
+##### Java
+
+You can now use ellipsis metavariables for parameters. ([#4420](https://github.com/returntocorp/semgrep/issues/4420))
+
+#### Fixes
+
+The fixed section now remains only as changelog notes. To see the changelog notes, visit [Semgrep changelog](https://github.com/returntocorp/semgrep/releases/tag/v0.77.0).
+
+#### Changes
+
+##### Constant propagation
+
+Constant propagation is now fully a must analysis, if a variable is undefined in some path then it is considered as a non-constant.
+
+##### Dataflow
+
+Dataflow now considers only reachable nodes, which prevents some false-positive or false-negative findings.
+
+##### The `--time` option now includes time spent on processing
+
+With this update, Semgrep's `--time` option output includes the time spent on getting the configs, running the matching engine, and processing of ignores.
+
+##### semgrep-core improvement
+
+The semgrep-core logs a warning when a worker process is consuming above 400 MiB of memory or reaches 80% of the specified memory limit. This change is made to help diagnose out of memory (OOM) related crashes.
+
+##### Additional information
+
+To view the original release information, see [the changelog of this release on GitHub](https://github.com/returntocorp/semgrep/releases/tag/v0.77.0).
+
 ### Version 0.76.2
 
 #### Additions

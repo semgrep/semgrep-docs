@@ -29,7 +29,7 @@ Yes! Semgrep is safe to run on your private code. The Common Clause restriction 
 
 #### I’m a security professional and want to use the semgrep-rules project with my clients as part of my paid services. Is that ok?
 
-Probably! If you have a typical consulting service and running semgrep-rules is just part of your assessments, that’s great—and of course feel free to refer your clients to the hosted [Semgrep.dev](https://semgrep.dev/). But if your entire service is about scanning code and you want to charge for running the semgrep-rules repo that r2c did the work to create and maintain, that’s something you’d need to reach out to us about.
+If you have a typical consulting service and running `semgrep` or `semgrep-rules` is part of your assessments, that’s great and of course feel free to refer your clients to the [hosted app](https://semgrep.dev/). But if your entire service is about scanning code and you want to charge for running the `semgrep-rules` repository that r2c and the community created and maintains, you need to discuss this with us.
 
 #### What is your support policy?
 
