@@ -20,10 +20,90 @@ Semgrep CLI is free open-source software (FOSS), licensed under LGPL 2.1. Semgre
 
 Semgrep App, which builds on Semgrep CLI and CI, enables developer teams to create their own institutional code standards, enforce them, and analyze findings. Semgrep App has both free and paid tiers.
 
-
 ## Choosing a Semgrep App tier
 
 Semgrep App has three tiers:
+
+| Tier | Price | Description |
+| ---- | ------- | -------- | 
+| **Community** | Free | For general-purpose security scanning.  |
+| **Team** | $40/mo per seat | For the enforcement of company-specific coding standards, private rules, and the analysis of findings.  |
+| **Enterprise** | Custom pricing | For custom solutions, including deployment into virtual private clouds (VPCs) with dedicated technical support.  |
+
+Semgrep App integrates with a GitHub or GitLab account at either the organizational or individual level. There is no limit to the number of members in an organization for all tiers.
+
+Billing depends on the number of **seats**. Any member whose code has been scanned by Semgrep App takes up a seat.
+
+Members who do **not** run any scans on their code do not need a seat and are not billed. Semgrep Team tier features apply to the entire organization, even if not all members are billed for a seat.
+
+### Comparing free and paid tier features
+
+#### Organizational management
+
+| Feature  | Community | Team | Enterprise |
+| -------  | --------- | ------- | -------- |
+| **Member limit** | ♾️ unlimited | ♾️  unlimited | ♾️  unlimited |
+| **Project limit** |♾️  unlimited | ♾️  unlimited | ♾️  unlimited |
+
+#### Findings, language support, and rules
+
+| Feature  | Community | Team | Enterprise |
+| -------  | --------- | ------- | -------- | 
+| **Findings retention** | 1 month | 1 year | 1 year+ (custom) |
+| **Community rule registry** | ✔️ yes | ✔️  yes  | ✔️  yes | 
+| **Named rules** | ✔️ yes | ✔️ yes | ✔️  yes |
+| **Private rules** | ❌ no | ✔️ yes | ✔️  yes |
+| **Custom rule messages** | ❌ no | ✔️  yes | ✔️  yes |
+| **Custom language support** | ❌ no | ❌ no | ✔️  yes |
+
+Notes:
+
+* **Named rules** are rules that have been saved through the [Playground](https://semgrep.dev/editor). Named rules  created by Community tier members are public and available in the Playground.
+* **Custom rule messages** can be applied to public and private rules.
+
+#### Deployment, integrations, and notifications
+
+| Feature  | Community | Team | Enterprise |
+| -------  | --------- | ------- | -------- | 
+| **Automatic CI/CD** | ✔️ yes | ✔️  yes  | ✔️  yes | 
+| **Slack notifications** | ✔️ yes | ✔️  yes  | ✔️  yes | 
+| **Email notifications** | ✔️ yes | ✔️  yes  | ✔️  yes | 
+| **Webhook integration** | ❌ no | ✔️  yes | ✔️  yes |
+| **Jira integration** | ❌ no | ✔️  yes | ✔️  yes |
+| **VPC deployment** | ❌ no | ❌ no | ✔️  yes |
+
+Notes:
+
+* There is no limit to the number of integrations or notification channels. You can make more than one integration of any type.
+* **Webhook integration** uses a generic webhook to send JSON messages. These messages are triggered when a policy is changed, a new scan runs, or a new finding has emerged.
+* **Jira integration** allows organizations to directly create Jira tickets from a finding.
+
+#### Authentication
+
+| Feature                                  | Community | Team | Enterprise |
+| ------                                    | --------- | ------- | -------- | 
+| **GitHub/GitLab single sign-on (SSO)** | ✔️ yes | ✔️  yes  | ✔️  yes | 
+| **SAML SSO** | ❌ no | ✔️  yes | ✔️  yes |
+| **Role-based access control (RBAC)** | ❌ no | ✔️  yes | ✔️  yes |
+| **Custom authentication features** | ❌ no |  ❌ no | ✔️  yes |
+
+Notes:
+
+* Available **RBAC roles** are `admin` and `user`.
+
+#### Support
+
+| Feature  | Community | Team | Enterprise |
+| -------  | --------- | ------- | -------- | 
+| **Slack support** | Community Slack | Private Slack channel | Private Slack channel |
+| **Semgrep support portal** | ❌ no | ✔️  yes | ✔️  yes |
+| **Customer success manager** | ❌ no | ❌ no | ✔️  yes |
+| **Dedicated and customized onboarding** | ❌ no | ❌ no | ✔️  yes |
+
+Notes:
+
+* Request support and track the status of your tickets through the [Semgrep Support Portal](https://support.semgrep.dev/hc/en-us), which is available 8 hours a day, 5 days a week.
+
 
 ## Determining your plan needs
 
