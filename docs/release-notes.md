@@ -22,7 +22,7 @@ With this update, Semgrep CLI now ignores the same patterns as the Semgrep CI by
 
 ##### Autofix improvement
 
-An autofix improvement from [https://github.com/chair6](https://github.com/chair6) from Hashicorp! Big shoutout to them. Fixes several issues (auto fixing multiple things in the same set of lines)
+An autofix improvement from [https://github.com/chair6](https://github.com/chair6) from Hashicorp! Big shoutout to them. Fixes several issues (auto fixing multiple things in the same set of lines). This change addresses several issues related to autofix by adding per-file line and column offset tracking, and uses those offsets when making edits to files. The improvement addresses several edge cases in the existing autofix implementation that Semgrep did not handle correctly previously. The addressed issues are the following: [#4428](https://github.com/returntocorp/semgrep/issues/4428), [#3577](https://github.com/returntocorp/semgrep/issues/3577), [#3388](https://github.com/returntocorp/semgrep/issues/3388).
 
 #### Additions
 
@@ -52,7 +52,7 @@ Constant propagation is now fully a must analysis, if a variable is undefined in
 
 Dataflow now considers only reachable nodes, which prevents some false-positive or false-negative findings.
 
-##### The `–time` option now includes time spent on processing
+##### The `--time` option now includes time spent on processing
 
 With this update, Semgrep's `--time` option output includes the time spent on getting the configs, running the matching engine, and processing of ignores.
 
