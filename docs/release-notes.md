@@ -22,7 +22,7 @@ With this update, Semgrep CLI now ignores the same patterns as the Semgrep CI by
 
 ##### Autofix improvement
 
-An autofix improvement from https://github.com/chair6 from Hashicorp! Big shoutout to them. Fixes several issues (auto fixing multiple things in the same set of lines)
+An autofix improvement from [https://github.com/chair6](https://github.com/chair6) from Hashicorp! Big shoutout to them. Fixes several issues (auto fixing multiple things in the same set of lines)
 
 #### Additions
 
