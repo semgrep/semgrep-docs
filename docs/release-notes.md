@@ -32,7 +32,7 @@ Semgrep now correctly matches patterns as `List(...)`.
 
 ##### `semgrepignore.`
 
-Default set of `.semgrepignore` patterns (in `semgrep/templates/.semgrepignore`) are now used by default. You can override the default behavior by your own setup of `semgrepignore.` file.
+Default set of `.semgrepignore` patterns (in `semgrep/templates/.semgrepignore`) is now used by default. You can override the default behavior by your own setup of the `semgrepignore.` file.
 
 ##### Java
 
@@ -59,6 +59,10 @@ With this update, Semgrep's `--time` option output includes the time spent on ge
 ##### semgrep-core improvement
 
 The semgrep-core logs a warning when a worker process is consuming above 400 MiB of memory or reaches 80% of the specified memory limit. This change is made to help diagnose out of memory (OOM) related crashes.
+
+##### Additional information
+
+To view the original release information, see [the changelog of this release on GitHub](https://github.com/returntocorp/semgrep/releases/tag/v0.77.0).
 
 ### Version 0.76.2
 
