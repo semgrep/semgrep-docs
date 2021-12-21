@@ -27,7 +27,7 @@ import MoreHelp from "/src/components/MoreHelp"
 | Ruby       |                            | Rust                       |
 | TypeScript |                            | YAML                       |
 | TSX        |                            | Generic (ERB, Jinja, etc.) |
-|            |                            |                            |
+|            |                            |  Solidity                          |
 
 ## Support expectations
 
