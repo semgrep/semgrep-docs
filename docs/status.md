@@ -25,7 +25,7 @@ import MoreHelp from "/src/components/MoreHelp"
 | JSX        |                            | OCaml                      |
 | Python     |                            | PHP                        |
 | Ruby       |                            | Rust                       |
-| TypeScript |                            | YAML                       |
+| TypeScript |                            | Solidity                   |
 | TSX        |                            | YAML                       |
 |            |                            | Generic (ERB, Jinja, etc.) |
 
