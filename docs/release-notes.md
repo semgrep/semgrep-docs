@@ -31,6 +31,7 @@ An autofix improvement from [https://github.com/chair6](https://github.com/chair
 Semgrep now correctly matches patterns as `List(...)`.
 
 ##### `semgrepignore.`
+
 Default set of `.semgrepignore` patterns (in `semgrep/templates/.semgrepignore`) are now used by default. You can override the default behavior by your own setup of `semgrepignore.` file.
 
 ##### Java
