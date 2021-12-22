@@ -604,8 +604,6 @@ C/C++: Fixed stack overflows (segmentation faults) when processing very large fi
 
 - Added precise error location for the Semgrep metachecker, for example to detect duplicate patterns in a rule.
 
-## July 2021
-
 ### Version 0.58.2
 
 #### Additions
