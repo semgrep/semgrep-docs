@@ -220,7 +220,7 @@ If no `.semgrepignore` file is found, no default will be provided.
 - `3`: Semgrep failed to parse a file in the specified language
 - `4`: Semgrep encountered an invalid pattern
 - `5`: Semgrep config is not valid yaml
-- `6`: Rule with `pattern-where-python` found but `--dangerously-allow-arbitrary-code-execution-from-rules` was not set. See `--dangerously-allow-arbitrary-code-execution-from-rules`.
+- `6`: Rule with `pattern-where-python` found but `--dangerously-allow-arbitrary-code-execution-from-rules` was not set. See `--dangerously-allow-arbitrary-code-execution-from-rules`. (Note: `pattern-where-python` is no longer supported in Semgrep, so this applies only to legacy Semgrep versions).
 - `7`: At least one rule in config is invalid
 - `8`: Semgrep does not understand specified language
 - `9`: Semgrep exceeded match timeout. See `--timeout`
