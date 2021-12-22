@@ -59,9 +59,9 @@ Semgrep supports 17+ languages.
 | JSX        |                            | OCaml                      |
 | Python     |                            | PHP                        |
 | Ruby       |                            | Rust                       |
-| TypeScript |                            | YAML                       |
-| TSX        |                            | Generic (ERB, Jinja, etc.) |
-|            |                            |                            |
+| TypeScript |                            | Solidity                   |
+| TSX        |                            | YAML                       |
+|            |                            | Generic (ERB, Jinja, etc.) |
 
 </div>
 
