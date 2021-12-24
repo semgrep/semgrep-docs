@@ -32,7 +32,7 @@ Semgrep now correctly matches patterns as `List(...)`.
 
 ##### `semgrepignore.`
 
-Default set of `.semgrepignore` patterns (in `semgrep/templates/.semgrepignore`) is now used by default. You can override the default behavior by your own setup of the `semgrepignore.` file.
+Default set of `.semgrepignore` patterns (in `semgrep/templates/.semgrepignore`) is now used by default. You can override the default behavior by creating your own `.semgrepignore` file.
 
 ##### Java
 
