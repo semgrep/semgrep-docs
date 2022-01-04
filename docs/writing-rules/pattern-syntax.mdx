@@ -323,10 +323,78 @@ those constructs, e.g., Ruby).
 
 ### Typed Metavariables
 
-Typed metavariables only match a metavariable if it’s declared as a specific type. For example, you may want to specifically check that `==` is never used for
-strings.
+#### Syntax
 
-Go:
+Typed metavariables only match a metavariable if it’s declared as a specific type. For example, you may want to specifically check that `==` is never used for strings.
+
+##### Java:
+
+```text
+pattern: $X == (String $Y)
+```
+
+```java
+public class Example {
+    public int foo(String a, int b) {
+        // Matched
+        if (a == "hello") {
+            return 1;
+        }
+
+        // Not matched
+        if (b == 2) {
+            return -1;
+        }
+    }
+}
+```
+
+##### C:
+
+```text
+pattern: $X == (char *$Y)
+```
+
+```c
+int main() {
+    char *a = "Hello";
+    int b = 1;
+
+    // Matched
+    if (a == "world") {
+        return 1;
+    }
+
+    // Not matched
+    if (b == 2) {
+        return -1;
+    }
+
+    return 0;
+}
+```
+
+##### TypeScript:
+
+```text
+pattern: $X == ($Y : string)
+```
+
+```typescript
+function foo(a: string, b: number) {
+  // Matched
+  if (a == "hello") {
+    return 1;
+  }
+
+  // Not matched
+  if (b == 1) {
+    return -1;
+  }
+}
+```
+
+##### Go:
 
 ```text
 pattern: "$X == ($Y : string)"
@@ -355,72 +423,32 @@ func main() {
 For Go, Semgrep currently does not recognize the type of all variables that are declared on the same line. That is, the following will not take both `a` and `b` as `int`s: `var a, b = 1, 2`
 :::
 
-Java:
+#### Using Typed Metavariables
 
-```text
-pattern: $X == (String $Y)
+Type inference applies to the entire file! One common way to use typed metavariables is to check for a function called on a specific type of object. For example, let's say you're looking for calls to a potentially unsafe logger in a class like this:
+
 ```
+class Test {
+    static Logger logger;
 
-```java
-public class Example {
-    public int foo(String a, int b) {
-        // Matched
-        if (a == "hello") {
-            return 1;
-        }
-
-        // Not matched
-        if (b == 2) {
-            return -1;
-        }
+    public static void run_test(String input, int num) {
+        logger.log("Running a test with " + input);
+        
+        test(input, Math.log(num));
     }
 }
 ```
 
-C:
+If you searched for `$X.log(...)`, you would also match `Math.log(num)`. Instead, you can search for
 
-```text
-pattern: $X == (char *$Y)
+```
+(Logger $X).log(...)
 ```
 
-```c
-int main() {
-    char *a = "Hello";
-    int b = 1;
+which will only give you the call to `logger`.
 
-    // Matched
-    if (a == "world") {
-        return 1;
-    }
+See the rule [here](https://semgrep.dev/s/emjin:logger_search)
 
-    // Not matched
-    if (b == 2) {
-        return -1;
-    }
-
-    return 0;
-}
-```
-
-TypeScript:
-
-```text
-pattern: $X == ($Y : string)
-```
-
-```typescript
-function foo(a: string, b: number) {
-  // Matched
-  if (a == "hello") {
-    return 1;
-  }
-
-  // Not matched
-  if (b == 1) {
-    return -1;
-  }
-}
-```
 
 :::caution
 Since matching happens within a single file, this is only guaranteed to work for local variables and arguments. Additionally, Semgrep currently understands types on a shallow level. For example, if you have `int[] A`, it will not recognize `A[0]` as an integer. If you have a class with fields, you will not be able to use typechecking on field accesses, and it will not recognize the class’s field as the expected type. Literal types are understood to a limited extent. Expanded type support is under active development.
@@ -569,6 +597,46 @@ pattern: 1+
 ```
 
 A complete expression is needed (like `1 + $X`)
+
+### Ellipses and statement blocks
+
+The [ellipsis operator](#ellipsis-operator) does *not* jump from inner to outer statement blocks.
+
+For example, this pattern:
+
+```text
+foo()
+...
+bar()
+```
+
+matches:
+
+```python
+foo()
+baz()
+bar()
+```
+
+and also matches:
+
+```python
+foo()
+baz()
+if cond:
+    bar()
+```
+
+but it does *not* match:
+
+```python
+if cond:
+    foo()
+baz()
+bar()
+```
+
+because `...` cannot jump from the inner block where `foo()` is, to the outer block where `bar()` is.
 
 ### Partial statements
 

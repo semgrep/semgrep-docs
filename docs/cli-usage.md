@@ -15,154 +15,200 @@ The following usage documentation is for the [Semgrep command line tool](https:/
 See `semgrep --help` for command line options.
 
 ```sh
-usage: semgrep [-h] [-g | -f CONFIG | -e PATTERN] [-l LANG] [--validate]
-               [--strict] [--optimizations [OPTIMIZATIONS]] [--exclude EXCLUDE] 
-               [--include INCLUDE] [--no-git-ignore] [--skip-unknown-extensions]
-               [--dangerously-allow-arbitrary-code-execution-from-rules]
-               [-j JOBS] [--timeout TIMEOUT] [--max-memory MAX_MEMORY]
-               [--timeout-threshold TIMEOUT_THRESHOLD] [--severity SEVERITY]
-               [-q] [--no-rewrite-rule-ids] [-o OUTPUT] [--json]
-               [--save-test-output-tar] [--debugging-json] [--junit-xml]
-               [--sarif] [--test] [--test-ignore-todo] [--dump-ast] [--error]
-               [-a] [--dryrun] [--disable-nosem]
-               [--max-lines-per-finding MAX_LINES_PER_FINDING] [-v] [--debug]
-               [--version] [--force-color] [--disable-version-check]
-               [target [target ...]]
+Usage: semgrep [OPTIONS] [TARGET]...
 
-semgrep CLI. For more information about semgrep, go to https://semgrep.dev/
+  Semgrep CLI. Searches TARGET paths for matches to rules or patterns. Defaults to
+  searching entire current working directory.
 
-positional arguments:
-  target                Search these files or directories. Defaults to entire
-                        current working directory. Implied argument if piping
-                        to semgrep.
+  To get started quickly, run
 
-optional arguments:
-  -h, --help            show this help message and exit
-  --exclude EXCLUDE     Skip any file or directory that matches this pattern;
-                        --exclude='*.py' will ignore the following: foo.py,
-                        src/foo.py, foo.py/bar.sh. --exclude='tests' will
-                        ignore tests/foo.py as well as a/b/tests/c/foo.py. Can
-                        add multiple times. Overrides includes.
-  --include INCLUDE     Filter files or directories by path. The argument is a
-                        glob-style pattern such as 'foo.*' that must match the
-                        path. This is an extra filter in addition to other
-                        applicable filters. For example, specifying the
-                        language with '-l javascript' might preselect files
-                        'src/foo.jsx' and 'lib/bar.js'. Specifying one of '--
-                        include=src', '--include=*.jsx', or '--
-                        include=src/foo.*' will restrict the selection to the
-                        single file 'src/foo.jsx'. A choice of multiple '--
-                        include' patterns can be specified. For example, '--
-                        include=foo.* --include=bar.*' will select both
-                        'src/foo.jsx' and 'lib/bar.js'. Glob-style patterns
-                        follow the syntax supported by python, which is
-                        documented at
-                        https://docs.python.org/3/library/glob.html
-  --no-git-ignore       Don`t skip files ignored by git. Scanning starts from
-                        the root folder specified on the semgrep command line.
-                        Normally, if the scanning root is within a git
-                        repository, only the tracked files and the new files
-                        would be scanned. Git submodules and git-ignored files
-                        would normally be skipped. This option will disable
-                        git-aware filtering. Setting this flag does nothing if
-                        the scanning root is not in a git repository.
-  --skip-unknown-extensions
-                        Scan only known file extensions, even if unrecognized
-                        ones are explicitly targeted.
-  --test-ignore-todo    Ignore rules marked as '#todoruleid:' in test files.
-  --version             Show the version and exit.
-  --force-color         Always include ANSI color in the output, even if not
-                        writing to a TTY
-  --disable-version-check
-                        Disable checking for latest version.
+      semgrep --config auto .
 
-config:
-  -g, --generate-config
-                        Generate starter configuration file, .semgrep.yml
-  -f CONFIG, -c CONFIG, --config CONFIG
-                        YAML configuration file, directory of YAML files
-                        ending in .yml|.yaml, URL of a configuration file, or
-                        semgrep registry entry name. See
-                        https://semgrep.dev/docs/writing-rules/rule-syntax for
-                        information on configuration file format.
-  -e PATTERN, --pattern PATTERN
-                        Code search pattern. See
-                        https://semgrep.dev/docs/writing-rules/pattern-syntax
-                        for information on pattern features.
-  -l LANG, --lang LANG  Parse pattern and all files in specified language.
-                        Must be used with -e/--pattern.
-  --validate            Validate configuration file(s). No search is
-                        performed.
-  --strict              Only invoke semgrep if configuration files(s) are
-                        valid.
-  --optimizations [OPTIMIZATIONS]
-                        Turn on/off optimizations. Default = 'none'. Use 'all' to turn all optimizations on.
-  --dangerously-allow-arbitrary-code-execution-from-rules
-                        WARNING: allow rules to run arbitrary code. ONLY
-                        ENABLE IF YOU TRUST THE SOURCE OF ALL RULES IN YOUR
-                        CONFIGURATION.
-  -j JOBS, --jobs JOBS  Number of subprocesses to use to run checks in
-                        parallel. Defaults to the number of CPUs on the
-                        system.
-  --timeout TIMEOUT     Maximum time to spend running a rule on a single file
-                        in seconds. If set to 0 will not have time limit.
-                        Defaults to 30 s.
-  --max-memory MAX_MEMORY
-                        Maximum memory to use running a rule on a single file
-                        in MB. If set to 0 will not have memory limit.
-                        Defaults to 0.
-  --timeout-threshold TIMEOUT_THRESHOLD
-                        Maximum number of rules that can timeout on a file
-                        before the file is skipped. If set to 0 will not have
-                        limit. Defaults to 0.
-  --severity SEVERITY   Report findings only from rules matching the supplied
-                        severity level. By default all applicable rules are
-                        run.Can add multiple times. Each should be one of
-                        INFO, WARNING, or ERROR.
+  This will automatically fetch rules for your project from the Semgrep Registry. NOTE:
+  Using `--config auto` will log in to the Semgrep Registry with your project URL.
 
-output:
-  -q, --quiet           Do not print any logging messages to stderr. Finding
-                        output will still be sent to stdout. Exit code
-                        provides success status.
-  --no-rewrite-rule-ids
-                        Do not rewrite rule ids when they appear in nested
-                        sub-directories (by default, rule 'foo' in
-                        test/rules.yaml will be renamed 'test.foo').
-  -o OUTPUT, --output OUTPUT
-                        Save search results to a file or post to URL. Default
-                        is to print to stdout.
-  --json                Output results in JSON format.
-  --save-test-output-tar
-                        Store json output as a tarball that will be uploaded
-                        as a Github artifact.
-  --debugging-json      Output JSON with extra debugging information
-                        (experimental).
-  --junit-xml           Output results in JUnit XML format.
-  --sarif               Output results in SARIF format.
-  --test                Run test suite.
-  --dump-ast            Show AST of the input file or passed expression and
-                        then exit (can use --json).
-  --error               Exit 1 if there are findings. Useful for CI and
-                        scripts.
-  -a, --autofix         Apply the autofix patches. WARNING: data loss can
-                        occur with this flag. Make sure your files are stored
-                        in a version control system.
-  --dryrun              Do autofixes, but don`t write them to a file. This
-                        will print the changes to the console. This lets you
-                        see the changes before you commit to them. Only works
-                        with the --autofix flag. Otherwise does nothing.
-  --disable-nosem       Disable the effect of 'nosem'. This will report
-                        findings on lines containing a 'nosem' comment at the
-                        end.
-  --max-lines-per-finding MAX_LINES_PER_FINDING
-                        Maximum number of lines of code that will be shown for
-                        each match before trimming (set to 0 for unlimited).
-  --debug               Set the logging level to DEBUG
+  For more information about Semgrep, go to https://semgrep.dev.
 
-logging:
-  -v, --verbose         Show more details about what rules are running, which
-                        files failed to parse, etc.
+  NOTE: By default, Semgrep will report pseudonymous usage metrics to its server if you
+  pull your configuration from the Semgrep registy. To learn more about how and why
+  these metrics are collected, please see
+  https://github.com/returntocorp/semgrep/PRIVACY.md. To modify this behavior, see the
+  --metrics option below.
+
+Options:
+  -a, --autofix / --no-autofix    Apply autofix patches. WARNING: data loss can occur
+                                  with this flag. Make sure your files are stored in a
+                                  version control system. Note that this mode is
+                                  experimental and not guaranteed to function properly.
+  --replacement TEXT              An autofix expression that will be applied to any
+                                  matches found with --pattern. Only valid with a
+                                  command-line specified pattern.
+  --error / --no-error            Exit 1 if there are findings. Useful for CI and
+                                  scripts.
+  -l, --lang TEXT                 Parse pattern and all files in specified language.
+                                  Must be used with -e/--pattern.
+  --metrics [auto|on|off]         Configures how usage metrics are sent to the Semgrep
+                                  server. If 'auto', metrics are sent whenever the
+                                  --config value pulls from the Semgrep server. If 'on',
+                                  metrics are always sent. If 'off', metrics are
+                                  disabled altogether and not sent. If absent, the
+                                  SEMGREP_SEND_METRICS environment variable value will
+                                  be used. If no environment variable, defaults to
+                                  'auto'.
+  --severity [INFO|WARNING|ERROR]
+                                  Report findings only from rules matching the supplied
+                                  severity level. By default all applicable rules are
+                                  run.Can add multiple times. Each should be one of
+                                  INFO, WARNING, or ERROR.
+  --strict / --no-strict          Return a nonzero exit code when WARN level errors are
+                                  encountered. Fails early if invalid configuration
+                                  files are present. Defaults to --no-strict.
+  Configuration options: [mutually_exclusive]
+    -c, -f, --config TEXT         YAML configuration file, directory of YAML files
+                                  ending in .yml|.yaml, URL of a configuration file, or
+                                  Semgrep registry entry name.
+                                  
+                                  Use --config auto to automatically obtain rules
+                                  tailored to this project; your project URL will be
+                                  used to log in to the Semgrep registry.
+                                  
+                                  See https://semgrep.dev/docs/writing-rules/rule-syntax
+                                  for information on configuration file format.
+    -e, --pattern TEXT            Code search pattern. See
+                                  https://semgrep.dev/docs/writing-rules/pattern-syntax
+                                  for information on pattern features.
+  Alternate modes:                No search is performed in these modes
+    --validate                    Validate configuration file(s). No search is
+                                  performed.
+    --version                     Show the version and exit.
+  Path options:                   By default, Semgrep scans all git-tracked files with
+                                  extensions matching rules' languages. These options
+                                  alter which files Semgrep scans.
+    --exclude TEXT                Skip any file or directory that matches this pattern;
+                                  --exclude='*.py' will ignore the following: foo.py,
+                                  src/foo.py, foo.py/bar.sh. --exclude='tests' will
+                                  ignore tests/foo.py as well as a/b/tests/c/foo.py. Can
+                                  add multiple times. If present, any --include
+                                  directives are ignored.
+    --include TEXT                Filter files or directories by path. The argument is a
+                                  glob-style pattern such as 'foo.*' that must match the
+                                  path. This is an extra filter in addition to other
+                                  applicable filters. For example, specifying the
+                                  language with '-l javascript' might preselect files
+                                  'src/foo.jsx' and 'lib/bar.js'. Specifying one of '--
+                                  include=src', '--include=*.jsx', or '--
+                                  include=src/foo.*' will restrict the selection to the
+                                  single file 'src/foo.jsx'. A choice of multiple '--
+                                  include' patterns can be specified. For example, '--
+                                  include=foo.* --include=bar.*' will select both
+                                  'src/foo.jsx' and 'lib/bar.js'. Glob-style patterns
+                                  follow the syntax supported by python, which is
+                                  documented at
+                                  https://docs.python.org/3/library/glob.html
+    --max-target-bytes BYTES      Maximum size for a file to be scanned by Semgrep, e.g
+                                  '1.5MB'. Any input program larger than this will be
+                                  ignored. A zero or negative value disables this
+                                  filter. Defaults to 1000000 bytes.
+    --use-git-ignore / --no-git-ignore
+                                  Skip files ignored by git. Scanning starts from the
+                                  root folder specified on the Semgrep command line.
+                                  Normally, if the scanning root is within a git
+                                  repository,  only the tracked files and the new files
+                                  would be scanned. Git submodules and git-ignored files
+                                  would normally be skipped. --no-git-ignore will
+                                  disable git-aware filtering. Setting this flag does
+                                  nothing if the scanning root is not in a git
+                                  repository.
+    --scan-unknown-extensions / --skip-unknown-extensions
+                                  If true, explicit files will be scanned using the
+                                  language specified in --lang. If --skip-unknown-
+                                  extensions, these files will not be scanned
+  Performance and memory options: 
+    --enable-version-check / --disable-version-check
+                                  Checks Semgrep servers to see if the latest version is
+                                  run; disabling this may reduce exit time after
+                                  returning results.
+    -j, --jobs INTEGER            Number of subprocesses to use to run checks in
+                                  parallel. Defaults to the number of cores on the
+                                  system.
+    --max-memory INTEGER          Maximum system memory to use running a rule on a
+                                  single file in MB. If set to 0 will not have memory
+                                  limit. Defaults to 0.
+    --optimizations [all|none]    Turn on/off optimizations. Default = 'all'. Use 'none'
+                                  to turn all optimizations off.
+    --timeout INTEGER             Maximum time to spend running a rule on a single file
+                                  in seconds. If set to 0 will not have time limit.
+                                  Defaults to 30 s.
+    --timeout-threshold INTEGER   Maximum number of rules that can timeout on a file
+                                  before the file is skipped. If set to 0 will not have
+                                  limit. Defaults to 0.
+  Display options: 
+    --enable-nosem / --disable-nosem
+                                  --enable-nosem enables 'nosem'. Findings will not be
+                                  reported on lines containing a 'nosem' comment at the
+                                  end. Enabled by default.
+    --force-color / --no-force-color
+                                  Always include ANSI color in the output, even if not
+                                  writing to a TTY; defaults to using the TTY status
+    --max-chars-per-line INTEGER  Maximum number of characters to show per line.
+    --max-lines-per-finding INTEGER
+                                  Maximum number of lines of code that will be shown for
+                                  each match before trimming (set to 0 for unlimited).
+    -o, --output TEXT             Save search results to a file or post to URL. Default
+                                  is to print to stdout.
+    --rewrite-rule-ids / --no-rewrite-rule-ids
+                                  Rewrite rule ids when they appear in nested sub-
+                                  directories (Rule 'foo' in test/rules.yaml will be
+                                  renamed 'test.foo').
+    --time / --no-time            Include a timing summary with the resultsIf output
+                                  format is json, provides times for each pair (rule,
+                                  target).
+  Output formats: [mutually_exclusive]
+                                  Uses ASCII output if no format specified.
+    --emacs                       Output results in Emacs single-line format.
+    --json                        Output results in JSON format.
+    --junit-xml                   Output results in JUnit XML format.
+    --sarif                       Output results in SARIF format.
+    --vim                         Output results in vim single-line format.
+  Verbosity options: [mutually_exclusive]
+    -q, --quiet                   Only output findings.
+    -v, --verbose                 Show more details about what rules are running, which
+                                  files failed to parse, etc.
+    --debug                       All of --verbose, but with additional debugging
+                                  information.
+  Test and debug options: 
+    --test                        Run test suite.
+    --test-ignore-todo / --no-test-ignore-todo
+                                  If --test-ignore-todo, ignores rules marked as
+                                  '#todoruleid:' in test files.
+    --dump-ast / --no-dump-ast    If --dump-ast, shows AST of the input file or passed
+                                  expression and then exit (can use --json).
+    --dryrun / --no-dryrun        If --dryrun, does not write autofixes to a file. This
+                                  will print the changes to the console. This lets you
+                                  see the changes before you commit to them. Only works
+                                  with the --autofix flag. Otherwise does nothing.
+  --help                          Show this message and exit.
 ```
+
+## Ignoring Files
+
+The Semgrep command line tool supports a `.semgrepignore` file that follows the `.gitignore` syntax and is used to skip files and directories during scanning. This is commonly used to avoid vendored and test related code. For a complete example, see the [.semgrepignore file on Semgrep’s source code](https://github.com/returntocorp/semgrep/blob/develop/.semgrepignore).
+
+`.semgrepignore` syntax mirrors `.gitignore` syntax, with the following modifications:
+* "Include" patterns (lines starting with "!") are not supported.
+* "Character range" patterns (lines including a collection of characters inside brackets) are not supported.
+* An ":include ..." directive is added, which allows another file to be included in the ignore pattern list;
+    typically this included file would be the project .gitignore. No attempt at cycle detection is made.
+* Any line beginning with a colon, but not ":include ", will raise an error.
+* "\:" is added to escape leading colons.
+
+Unsupported patterns are silently removed from the pattern list (this is done so that gitignore files may be
+included without raising errors), although the removal will be logged.
+
+For a description of `.gitignore` syntax, see [the documentation](https://git-scm.com/docs/gitignore)
+
+If no `.semgrepignore` file is found, no default will be provided.
+
 
 ## Exit codes
 
@@ -175,7 +221,7 @@ logging:
 - `4`: Semgrep encountered an invalid pattern
 - `5`: Semgrep config is not valid yaml
 - `6`: Rule with `pattern-where-python` found but `--dangerously-allow-arbitrary-code-execution-from-rules` was not set. See `--dangerously-allow-arbitrary-code-execution-from-rules`.
-- `7`: All rules in config are invalid. If semgrep is run with `--strict` then this exit code is returned when any rule in the configs are invalid.
+- `7`: At least one rule in config is invalid
 - `8`: Semgrep does not understand specified language
 - `9`: Semgrep exceeded match timeout. See `--timeout`
 - `10`: Semgrep exceeded max memory while matching. See `--max-memory`.

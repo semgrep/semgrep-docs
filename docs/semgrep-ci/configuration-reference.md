@@ -31,6 +31,8 @@ since branching off from your `main` branch, set
 SEMGREP_BASELINE_REF=main
 ```
 
+NOTE: performing a diff scan after a full-project scan of the same branch will close the full-project scan's findings. This is because all findings are marked as fixed if the branch they are on is re-scanned and they are no longer reported. Therefore, it is best to perform diff scans on branches other than your `main` branch.
+
 ## Connect to Semgrep App (`SEMGREP_APP_TOKEN`)
 
 Instead of `SEMGREP_RULES`, you can configure which rules to run with Semgrep App.

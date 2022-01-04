@@ -63,12 +63,12 @@ module.exports = {
     {
       type: 'category',
       label: 'Semgrep App',
-      items: ['semgrep-app/rule-board', 'semgrep-app/managing-policy', 'semgrep-app/integrations', 'semgrep-app/notifications', 'semgrep-app/sso', 'semgrep-app/pricing-and-billing'],
+      items: ['semgrep-app/rule-board', 'semgrep-app/managing-policy', 'semgrep-app/findings','semgrep-app/integrations', 'semgrep-app/notifications', 'semgrep-app/sso', 'semgrep-app/pricing-and-billing', 'semgrep-app/rbac'],
     },
     {
       type: 'category',
       label: 'Troubleshooting',
-      items: ['troubleshooting/gitlab-sast', 'troubleshooting/rules', 'troubleshooting/semgrep-app'],
+      items: ['troubleshooting/gitlab-sast', 'troubleshooting/rules', 'troubleshooting/semgrep-app', 'troubleshooting/semgrep'],
     },
     'language-support',
     'support',
@@ -121,6 +121,7 @@ module.exports = {
         },
       ],
     },
+    'release-notes',
     'security'
   ],
 };

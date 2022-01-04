@@ -45,20 +45,23 @@ Semgrep is developed and commercially supported by [r2c, a software security com
 
 Semgrep supports 17+ languages.
 
+<!--  coupling: if you modify this table, copy paste it also to status.md -->
+
 <div id="language-support-table">
 
 | GA ✅      | Beta 🐛                     | Experimental 🚧            |
 |:---------- |:---------------------------|:---------------------------|
-| C#         | Terraform                  | C                          |
-| Go         |                            | Kotlin                     |
-| Java       |                            | Lua                        |
-| JavaScript |                            | OCaml                      |
-| JSON       |                            | PHP                        |
-| JSX        |                            | R                          |
-| Python     |                            | Rust                       |
-| Ruby       |                            | YAML                       |
-| TypeScript |                            | Generic (ERB, Jinja, etc.) |
-| TSX        |                            |                            |
+| C#         | Kotlin                     | Bash                       |
+| Go         | Terraform                  | C                          |
+| Java       | Scala                      | C++                        |
+| JavaScript |                            | Hack                       |
+| JSON       |                            | Lua                        |
+| JSX        |                            | OCaml                      |
+| Python     |                            | PHP                        |
+| Ruby       |                            | Rust                       |
+| TypeScript |                            | Solidity                   |
+| TSX        |                            | YAML                       |
+|            |                            | Generic (ERB, Jinja, etc.) |
 
 </div>
 
@@ -68,6 +71,6 @@ To determine experimental, beta, or general availability (GA) status we scan a w
 
 Semgrep is an evolution of [pfff](https://github.com/returntocorp/pfff/), which began at [Facebook](https://github.com/facebookarchive/pfff) in 2009, which itself was an evolution of the Linux refactoring tool [Coccinelle](https://en.wikipedia.org/wiki/Coccinelle_(software)). [r2c](https://r2c.dev/team) revitalized the project after its original author, [Yoann Padioleau](https://github.com/aryx), joined the company.
 
-## Development Philosophy
+## Understanding Semgrep development philosophy
 
 See the [Semgrep CLI Philosophy](contributing/semgrep-philosophy/) for details about why Semgrep is free, our goals for development, and the designed capabailities and limits of the static analysis engine.

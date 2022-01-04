@@ -29,7 +29,7 @@ Yes! Semgrep is safe to run on your private code. The Common Clause restriction 
 
 #### I’m a security professional and want to use the semgrep-rules project with my clients as part of my paid services. Is that ok?
 
-Probably! If you have a typical consulting service and running semgrep-rules is just part of your assessments, that’s great—and of course feel free to refer your clients to the hosted [Semgrep.dev](https://semgrep.dev/). But if your entire service is about scanning code and you want to charge for running the semgrep-rules repo that r2c did the work to create and maintain, that’s something you’d need to reach out to us about.
+If you have a typical consulting service and running `semgrep` or `semgrep-rules` is part of your assessments, that’s great and of course feel free to refer your clients to the [hosted app](https://semgrep.dev/). But if your entire service is about scanning code and you want to charge for running the `semgrep-rules` repository that r2c and the community created and maintains, you need to discuss this with us.
 
 #### What is your support policy?
 
@@ -109,7 +109,7 @@ Both Semgrep and SonarQube use static analysis to find bugs, but there are a few
 
 - Extending Semgrep with custom rules is simple, since Semgrep rules look like the source code you’re writing. Writing custom rules with SonarQube is [restricted to a handful of languages](https://docs.sonarqube.org/latest/extend/adding-coding-rules/) and requires familiarity with Java and abstract syntax trees (ASTs).
 - Semgrep is LGPL-2.1, SonarQube offers an open-source version but it is missing features. For example, 12 of the supported languages are not available in the open-source offering, and more powerful dataflow features are only available in the paid versions.
-- Semgrep supports autofixes; SonarQube does not.
+- Semgrep supports user-defined autofixes; SonarQube does not.
 - Semgrep focuses on speed and ease-of-use, making analysis possible at up to 20K-100K loc/sec per rule. SonarQube authors [report approximately 0.4K loc/sec for rulesets in production](https://web.archive.org/web/20210127020636/https://community.sonarsource.com/t/performance-guide-for-large-project-analysis/148/2).
 - Semgrep CI supports scanning only changed files (differential analysis), SonarQube does not
 - Both have publicly available rules

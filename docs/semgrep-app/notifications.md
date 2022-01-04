@@ -69,7 +69,7 @@ If you are using Github Actions to run Semgrep, no extra changes are needed to g
 
 ### GitLab merge request comments
 
-Merge request comments are currently supported for gitlab.com users only. [Sign up for the GitLab beta](https://go.r2c.dev/join-gitlab-beta) if you have a self-hosted instance of GitLab and are interested in receiving MR comments.
+Merge request comments are currently supported for gitlab.com users only.
 
 Automated comments on GitLab merge requests look like this:
 
@@ -106,7 +106,7 @@ semgrep:
     GITLAB_TOKEN: $PAT
 ```
 
-Note: GitLab MR comments are only available to logged-in semgrep.dev users, requiring both a Semgrep deployment ID and a Semgrep API token.
+NOTE: GitLab MR comments are only available to logged-in semgrep.dev users, requiring both a Semgrep deployment ID and a Semgrep API token.
 
 ### Webhooks
 
@@ -123,12 +123,8 @@ Semgrep App will send a POST request containing an array of all the scan's findi
   {
     "semgrep_finding": {
       "id": "241dbe518caf15f800131d2d0c70bf08",
-      "mute_date": null,
-      "assigned_date": null,
       "ref": "refs/pull/2658/merge",
       "start_date": "None",
-      "fix_date": null,
-      "end_date": null,
       "check_id": "log-exc-info",
       "path": "server/semgrep_app/handlers/registry.py",
       "line": 185,
@@ -147,7 +143,7 @@ Semgrep App will send a POST request containing an array of all the scan's findi
       "references": ["https://tomcat.apache.org/tomcat-5.5-doc/servletapi/"],
       "source": "https://semgrep.dev/r/java.servlets.security.cookie-issecure-false.cookie-issecure-false",
       "technology": ["servlet",  "tomcat"],
-      "vulnerability": "Insecure Transport"},
+      "vulnerability": "Insecure Transport",
       "metadata": {
         "dev.semgrep.actions": [],
         "semgrep.policy": {
