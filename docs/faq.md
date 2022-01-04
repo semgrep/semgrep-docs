@@ -13,7 +13,7 @@ import MoreHelp from "/src/components/MoreHelp"
 
 ## General
 
-#### How are Semgrep and its rules licensed?
+### How are Semgrep and its rules licensed?
 
 The [Semgrep command line tool](https://github.com/returntocorp/semgrep) is open-source, licensed under [LGPL 2.1](<https://tldrlegal.com/license/gnu-lesser-general-public-license-v2.1-(lgpl-2.1)>) — you can use it at work, on private and proprietary code, no problem!
 
@@ -23,19 +23,19 @@ The source for many of r2c’s rules is available at [returntocorp/semgrep-rules
 
 If the LGPL + Common Clause license is an issue for you as a contributor, please give us feedback! r2c may be able to offer you semgrep-rules under a separate license on a case-by-case basis.
 
-#### Is it ok to run Semgrep or the r2c rules on my work projects?
+### Is it ok to run Semgrep or the r2c rules on my work projects?
 
 Yes! Semgrep is safe to run on your private code. The Common Clause restriction only comes into effect if you are _selling_ the rules provided in the semgrep-rules repository. If that’s the case, you’ll need to talk with r2c first to get permission.
 
-#### I’m a security professional and want to use the semgrep-rules project with my clients as part of my paid services. Is that ok?
+### I’m a security professional and want to use the semgrep-rules project with my clients as part of my paid services. Is that ok?
 
 If you have a typical consulting service and running `semgrep` or `semgrep-rules` is part of your assessments, that’s great and of course feel free to refer your clients to the [hosted app](https://semgrep.dev/). But if your entire service is about scanning code and you want to charge for running the `semgrep-rules` repository that r2c and the community created and maintains, you need to discuss this with us.
 
-#### What is your support policy?
+### What is your support policy?
 
 Help is available for all users, free or otherwise, through the [r2c Community Slack](https://r2c.dev/slack). Semgrep Team tier customers receive 8\*5 email/phone/Slack support with committed SLAs. See [Support](../support/) for more details.
 
-#### Can I embed the live editor in my website or blog post?
+### Can I embed the live editor in my website or blog post?
 
 Yes! You can embed a special version of the editor with an `iframe`. The source is `https://semgrep.dev/embed/editor?snippet=<snippet-id>` where the `snippet-id` is either the short identifier generated when you share an editor link (this usually looks like `DzKv`) or the named identifier from a saved rule (this usually looks like `username:rule-name`).
 
@@ -119,25 +119,25 @@ See [the Semgrep development philosophy](../contributing/semgrep-philosophy/) fo
 
 ## Privacy and Security
 
-#### Where do you store data?
+### Where do you store data?
 
 r2c uses Amazon Web Services (US region) for storing customer data.
 
-#### How is data secured, including data-at-rest and data-in-transit?
+### How is data secured, including data-at-rest and data-in-transit?
 
 All customer data is located in AWS (US region). Amazon RDS encrypted DB instances use industry standard AES-256 encryption and TLS 1.2 or higher is used for all data-in-transit.
 
-#### Is private source code shared with r2c?
+### Is private source code shared with r2c?
 
 No. Semgrep CI runs fully in your CI pipeline and your source-code never leaves your environment. Only meta-data related to Semgrep runs (see below) are sent to Semgrep's service.
 
-#### What data is stored?
+### What data is stored?
 
 [Semgrep](https://github.com/returntocorp/semgrep) may send data to Semgrep App in accordance with the [metrics policy](/metrics).
 
 Semgrep CI sends two types of data to r2c servers: scan data and findings data. Scan data includes project id, CI environment, and scan meta-data. Findings data are used to provide human readable content for notifications and integrations, as well tracking results as new, fixed, or duplicate. For more information and detailed description for each data field, refer to Semgrep CI [PRIVACY.md](https://github.com/returntocorp/semgrep-action/blob/develop/PRIVACY.md). 
 
-#### What network requests are made?
+### What network requests are made?
 
 Semgrep CI makes network requests in accordance with the data storage mentioned above.
 
@@ -149,17 +149,17 @@ Semgrep CI makes network requests in accordance with the data storage mentioned 
 
 ## Configuration
 
-#### How do I configure Semgrep for different projects?
+### How do I configure Semgrep for different projects?
 
 Semgrep App provides centralized policy management. See [Managing CI policy](../semgrep-app/managing-policy/) for more details.
 
-#### What is a policy?
+### What is a policy?
 
 A policy is a simple collection of rules and a definition of what to do with rule results: fail the Semgrep CI run and/or send non-blocking notifications to third-party services like Slack. Please see [Managing CI policy](../semgrep-app/managing-policy/) for more details.
 
 ## Monitoring
 
-#### Do you have a visualization UI?
+### Do you have a visualization UI?
 
 Dashboarding is available for Semgrep Team users. Semgrep also supports posting results via web hooks to any JSON endpoint, so you can easily integrate it with your favorite visualization tool.
 
