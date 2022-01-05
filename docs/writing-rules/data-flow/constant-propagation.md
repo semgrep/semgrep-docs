@@ -28,7 +28,7 @@ Mutable objects
 
 In general, Semgrep assumes that constant objects are immutable and they will not be modified by function calls. This may lead to false positives, especially in languages where strings are mutable such as C and Ruby.
 
-The only exception (for now) are method calls whose returning value is being ignored. In that case, Semgrep assumes that the method call may be mutating the callee object. This helps reducing false positives in Ruby, for example:
+The only exceptions (for now) are method calls whose returning value is being ignored. In those cases, Semgrep assumes that the method call may be mutating the callee object. This helps reducing false positives in Ruby, for example:
 
 <iframe src="https://semgrep.dev/embed/editor?snippet=08yB" border="0" frameBorder="0" width="100%" height="435"></iframe>
 
