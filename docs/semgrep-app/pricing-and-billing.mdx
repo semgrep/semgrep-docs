@@ -65,7 +65,7 @@ Notes:
 
 | Feature  | Community | Team | Enterprise |
 | -------  | --------- | ------- | -------- | 
-| **Automatic CI/CD** | ✔️ yes | ✔️  yes  | ✔️  yes | 
+| **Automatic CI/CD integration** | ✔️ yes | ✔️  yes  | ✔️  yes | 
 | **Slack notifications** | ✔️ yes | ✔️  yes  | ✔️  yes | 
 | **Email notifications** | ✔️ yes | ✔️  yes  | ✔️  yes | 
 | **Webhook integration** | ❌ no | ✔️  yes | ✔️  yes |
@@ -75,6 +75,7 @@ Notes:
 Notes:
 
 * There is no limit to the number of integrations or notification channels. You can make more than one integration of any type.
+* **Automatic CI/CD integration** means that repositories added to Semgrep are scanned as part of the code repository's CI pipeline when a pull request is made.
 * **Webhook integration** uses a generic webhook to send JSON messages. These messages are triggered when a policy is changed, a new scan runs, or a new finding has emerged.
 * **Jira integration** allows organizations to directly create Jira tickets from a finding.
 
@@ -89,6 +90,7 @@ Notes:
 
 Notes:
 
+* GitLab SSO is only available for users of GitLab.com. This does not include self-managed GitLab instances.
 * Available **RBAC roles** are `admin` and `user`.
 
 #### Support
@@ -102,7 +104,8 @@ Notes:
 
 Notes:
 
-* Request support and track the status of your tickets through the [Semgrep Support Portal](https://support.semgrep.dev/hc/en-us), which is available 8 hours a day, 5 days a week.
+* Email, phone, and chat support is available 8 hours a day, 5 days a week.
+* Request support and track the status of your tickets through the [Semgrep Support Portal](https://support.semgrep.dev/hc/en-us) at any time.
 
 
 ## Determining your plan needs
@@ -121,7 +124,7 @@ Should your plan exceed the limit, we will reach out and come up with a new plan
 
 ## Upgrading your plan
 
-To upgrade to the **Team tier** through **credit card**:
+To upgrade to the **Team tier** through a **credit card**:
 
 1. In the Settings page, select the Payment tab.
 2. Select the number of seats to purchase.
@@ -134,7 +137,7 @@ To upgrade to the **Enterprise tier**, please [contact us](https://semgrep.dev/c
 
 ### Billing
 
-Team tier users are charged monthly. Enterprise tier users are charged at an agreed-upon billing cycle. For any concerns, send an email to [billing@r2c.dev](mailto:billing@r2c.dev) to get in touch with our sales team.
+Team tier users who pay through a credit card are charged monthly. Enterprise tier users are charged at an agreed-upon billing cycle. For any concerns such as custom payment methods and billing cycles, send an email to [billing@r2c.dev](mailto:billing@r2c.dev) to get in touch with our sales team.
 
 ## Modifying or canceling your plan
 
@@ -148,7 +151,7 @@ Pay through the following methods:
 <dt>Pay using your credit card.</dt>
 <dd>The payment will be processed through Stripe.</dd>
 <dt>Pay through a purchase order or invoice.</dt>
-<dd>Send an email to [billing@r2c.dev](mailto:billing@r2c.dev) to get in touch with our sales team.</dd>
+<dd>Send an email to <a href='mailto:billing@r2c.dev'>billing@r2c.dev</a> to get in touch with our sales team.</dd>
 </dl>
 
 
