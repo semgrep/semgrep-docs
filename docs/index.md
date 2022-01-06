@@ -43,7 +43,7 @@ Semgrep is developed and commercially supported by [r2c, a software security com
 
 ## Language support
 
-Semgrep supports 17+ languages.
+Semgrep supports 20+ languages.
 
 <!--  coupling: if you modify this table, copy paste it also to status.md -->
 
