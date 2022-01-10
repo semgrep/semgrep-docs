@@ -11,7 +11,7 @@ import MoreHelp from "/src/components/MoreHelp"
 
 ![Screenshot of role-based access control ](../img/rbac-overview.png)<br />
 
-Access control in Semgrep App determines the resources and features that are available to users based on their role. This **role-based access control (RBAC)** feature is available for organizations on Team/Enterprise tiers.
+Access control in Semgrep App determines the resources and features that are available to users based on their role. This **role-based access control (RBAC)** feature is available for organizations on **Team/Enterprise tiers**.
 
 ## Setting up RBAC
 
