@@ -52,7 +52,7 @@ The Findings page displays the following fields:
 
 | Field       | Description |
 | ----------  | ------------ |
-| **Severity**    | The impact of a finding. Possible values: Low, Medium, High,and Critical. |
+| **Severity**    | The impact of a finding. Possible values: Low, Medium, High, and Critical. |
 | **Finding**     | The file, line, and branch of the pattern match in the code. Clicking on this field brings you to the exact location in the codebase. |
 | **Project**     | The name of the project codebase where the finding was found. Clicking on this field brings you to the project’s URL. |
 | **Rule**        | The name of the rule matched with the code. Clicking on this field brings you to the rule’s entry in the [rule registry](https://semgrep.dev/r). |
@@ -108,7 +108,7 @@ To **ignore findings**:
 
 1. Click **Open** to see all open findings.
 2. After the findings are filtered, perform one of these steps:
-    - Select all of the results by clicking on the header row checkbox.
+    - Select all of the results by clicking on the header row checkbox. You can navigate to the next pages and add to the current selected items.
     - Select relevant findings one-by-one by clicking on their checkboxes individually.
 3. Click the **Triage** button.
 4. Click **Ignore**.
