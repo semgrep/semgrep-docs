@@ -108,7 +108,7 @@ To **ignore findings**:
 
 1. Click **Open** to see all open findings.
 2. After the findings are filtered, perform one of these steps:
-    - Select all of the results by clicking on the header row checkbox. You can navigate to the next pages and add to the current selected items.
+    - Select all of the results by clicking on the header row checkbox. You can navigate to succeeding pages and add to the current selection.
     - Select relevant findings one-by-one by clicking on their checkboxes individually.
 3. Click the **Triage** button.
 4. Click **Ignore**.
@@ -118,7 +118,7 @@ To **open findings**:
 
 1. Click **Ignored** to see all ignored findings.
 2. After the findings are filtered, perform one of these steps:
-    - Select all of the results by clicking on the header row checkbox.
+    - Select all of the results by clicking on the header row checkbox. You can navigate to succeeding pages and add to the current selection.
     - Select relevant findings one-by-one by clicking on their checkboxes individually.
 3. Click the **Triage** button.
 4. Click **Open**.
