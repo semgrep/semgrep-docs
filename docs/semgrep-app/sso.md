@@ -28,10 +28,12 @@ Generating `Client ID` and `Client Secret`.
 ![Generating Client ID and Client Secret via the Okta](../img/sso-clientID-clientSecret.png "Generating Client ID and Client Secret via the Okta")
 
 Providing the `Base URL/Domain`, `Display Name`, and `Email Domain`. 
+
 :::info
   `Base URL/Domain` used here is `drewdennison.okta.com` seen 
   on the above screenshot.
 :::
+
 ![Providing the Base URL/Domain, Display Name, and Email Domain](../img/sso-providing-BaseURL-DisplayName-EmailDomain.png "Providing the Base URL/Domain, Display Name, and Email Domain")
 
 
