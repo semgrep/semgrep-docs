@@ -1,8 +1,8 @@
 # `semgrep` contributing
 
-The following explains how to build `semgrep` so that you can make and test changes to the Python wrapper. You may want to read the README first to understand the relationship between `semgrep`, `semgrep-core`, and `spacegrep`.
+The following explains how to build `semgrep` so that you can make and test changes to the Python wrapper. You may want to read the README first to understand the relationship between `semgrep` and `semgrep-core`.
 
-## Getting `semgrep-core` and `spacegrep` binaries
+## Getting `semgrep-core` binary
 
 If you would like to install `semgrep-core` and `spacegrep` from source (for example, because you want to fix a parse error), follow the instructions in [Building `semgrep-core`](semgrep-core-contributing.md#building-semgrep-core) and skip this section.
 
@@ -12,10 +12,9 @@ and inside should be the necessary binaries. You can confirm this by running:
 
 ```bash
 $ ./semgrep-core --help
-$ ./spacegrep --help
 ```
 
-Copy these files to somewhere in your `$PATH` so `semgrep` can find them. For
+Copy this file to somewhere in your `$PATH` so `semgrep` can find them. For
 example, you may create a `~/bin/` directory within the repository. [Include it in your `$PATH`](https://unix.stackexchange.com/questions/26047/how-to-correctly-add-a-path-to-path)
 and run the binary from there.
 
@@ -23,9 +22,9 @@ Alternatively, you may include it somewhere like `/usr/local/bin/`.
 
 ## Setting up the environment
 
-Once you have `semgrep-core` and `spacegrep` installed, you will be able to build `semgrep`. You will need Python >= 3.6 as well.
+Once you have `semgrep-core` installed, you will be able to build `semgrep`. You will need Python >= 3.6 as well.
 
-Most `semgrep` development will operate inside the `semgrep` directory (from the top level of this repo, `semgrep/semgrep/`):
+The `semgrep` command is a Python wrapper around the `semgrep-core` executable which is written in OCaml. Most Python development is done inside the `semgrep` directory (from the top level of this repo, `semgrep/semgrep/`):
 
 ```
 $ cd semgrep
