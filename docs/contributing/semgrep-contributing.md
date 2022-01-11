@@ -4,7 +4,7 @@ The following explains how to build `semgrep` so that you can make and test chan
 
 ## Getting `semgrep-core` binary
 
-If you would like to install `semgrep-core` and `spacegrep` from source (for example, because you want to fix a parse error), follow the instructions in [Building `semgrep-core`](semgrep-core-contributing.md#building-semgrep-core) and skip this section.
+If you would like to install `semgrep-core` from source (for example, because you want to fix a parse error), follow the instructions in [Building `semgrep-core`](semgrep-core-contributing.md#building-semgrep-core) and skip this section.
 
 Otherwise, visit the [releases page](https://github.com/returntocorp/semgrep/releases)
 and grab the latest zipfile or tarball for your platform. Extract this archive
@@ -92,7 +92,7 @@ brew install semgrep
 
 Now you can run `semgrep --help` from anywhere.
 
-If you have installed `semgrep-core` and `spacegrep` from source, there are convenient targets in the root Makefile that let you update all binaries. After you pull, simply run
+If you have installed `semgrep-core` from source, there are convenient targets in the root Makefile that let you update all binaries. After you pull, simply run
 
 ```
 make rebuild
