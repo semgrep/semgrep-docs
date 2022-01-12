@@ -12,7 +12,9 @@ SSO (single sign-on) is a Team/Enterprise tier feature. Organizations can choose
 
 ## OAuth2/OIDC
 
-OAuth2/OIDC can be configured via the Semgrep App Dashboard. Please visit the <b>Configure SSO</b> tab under Settings to edit the SSO configuration.
+OAuth2/OIDC is configured through **Semgrep App Dashboard**. 
+
+To edit SSO configuration, click on **Settings > Configure SSO tab**.
 
 There you’ll find a `providerId` and `Redirect URL`.
 
