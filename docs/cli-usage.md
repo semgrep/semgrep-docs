@@ -236,6 +236,8 @@ tests/
 .semgrep_logs/
 ```
 
+If you do not want Semgrep to ignore any files in your project, you can create an empty `.semgrepignore` file.
+
 
 ## Exit codes
 
