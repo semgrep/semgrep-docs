@@ -17,10 +17,10 @@ OAuth2/OIDC is configured through the **Semgrep App Dashboard**.
 To set up SSO:
 
 1. From the **App Dashboard**, click on **Settings > Configure SSO tab**.
-2. Copy the `providerId` and `Redirect URL`.
-![Finding providerId and RedirectURL via the Semgrep App](../img/sso-finding-providerId-and-Redirect-URL.png "Finding providerId and RedirectURL via the Semgrep App")
-3.Generate a `Client ID` and `Client Secret` through your authentication provider by pasting `providerId` and `Redirect URL` values as needed.
-![Generating Client ID and Client Secret via the Okta](../img/sso-clientID-clientSecret.png "Generating Client ID and Client Secret via the Okta")
+2. Copy the `Provider ID` and `Redirect URI`.
+![Finding providerId and RedirectURL via the Semgrep App](../img/sso-finding-providerId-and-Redirect-URL.png "Finding Provider ID and RedirectURI via the Semgrep App")
+3.Generate a `Client ID` and `Client Secret` through your authentication provider by pasting `Provider ID` and `Redirect URI` values as needed.
+![Generating Client ID and Client Secret via the Okta](../img/sso-clientID-clientSecret.png "Generating Client ID and Client Secret through Okta")
 4. From your authentication provider, copy the values for `Base URL/Domain` and `Email Domain` to Semgrep's Configure SSO tab. `Base URL/Domain` is `Okta domain` for Okta SSO.
 5. Provide a descriptive `Display Name`.
 ![Providing the Base URL/Domain, Display Name, and Email Domain](../img/sso-providing-BaseURL-DisplayName-EmailDomain.png "Providing the Base URL/Domain, Display Name, and Email Domain")
