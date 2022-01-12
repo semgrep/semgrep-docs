@@ -208,6 +208,7 @@ included without raising errors), although the removal will be logged.
 For a description of `.gitignore` syntax, see [the documentation](https://git-scm.com/docs/gitignore)
 
 If no `.semgrepignore` file is found in the directory you are running the Semgrep CLI from, the following will be used by default:
+
 ```
 # Ignore git items
 .gitignore
