@@ -207,7 +207,34 @@ included without raising errors), although the removal will be logged.
 
 For a description of `.gitignore` syntax, see [the documentation](https://git-scm.com/docs/gitignore)
 
-If no `.semgrepignore` file is found, no default will be provided.
+If no `.semgrepignore` file is found in the directory you are running the Semgrep CLI from, the following will be used by default:
+```
+# Ignore git items
+.gitignore
+.git/
+:include .gitignore
+
+# Common large paths
+node_modules/
+build/
+dist/
+vendor/
+.env/
+.venv/
+.tox/
+*.min.js
+
+# Common test paths
+test/
+tests/
+*_test.go
+
+# Semgrep rules folder
+.semgrep
+
+# Semgrep-action log folder
+.semgrep_logs/
+```
 
 
 ## Exit codes
