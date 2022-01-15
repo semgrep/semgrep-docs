@@ -49,7 +49,7 @@ Generic pattern matching has the following properties:
 
 ## Caveats and limitations
 
-Spacegrep should work fine with any human-readable text, as long as it’s primarily based on ASCII symbols. In practice, it might work great with some languages and less well with others. In general, it’s possible or even easy to write code in weird ways that will prevent Spacegrep from matching. Note it’s not good for detecting malicious code. For example, in HTML one can write `&#x48;&#x65;&#x6C;&#x6C;&#x6F`; instead of `Hello` and this is not something Spacegrep would match if the pattern is `Hello`, unlike if it had full HTML support.
+Generic mode should work fine with any human-readable text, as long as it’s primarily based on ASCII symbols. In practice, it might work great with some languages and less well with others. In general, it’s possible or even easy to write code in weird ways that will prevent generic mode from matching. Note it’s not good for detecting malicious code. For example, in HTML one can write `&#x48;&#x65;&#x6C;&#x6C;&#x6F`; instead of `Hello` and this is not something the generic mode would match if the pattern is `Hello`, unlike if it had full HTML support.
 
 With respect to Semgrep operators and features:
 
