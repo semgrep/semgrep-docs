@@ -55,11 +55,11 @@ Options:
                                   SEMGREP_SEND_METRICS environment variable value will
                                   be used. If no environment variable, defaults to
                                   'auto'.
-  --severity [INFO|WARNING|ERROR]
+  --severity [INFO|WARNING|ERROR|INVENTORY]
                                   Report findings only from rules matching the supplied
                                   severity level. By default all applicable rules are
                                   run.Can add multiple times. Each should be one of
-                                  INFO, WARNING, or ERROR.
+                                  INFO, WARNING, ERROR or INVENTORY.
   --strict / --no-strict          Return a nonzero exit code when WARN level errors are
                                   encountered. Fails early if invalid configuration
                                   files are present. Defaults to --no-strict.
@@ -189,6 +189,20 @@ Options:
                                   with the --autofix flag. Otherwise does nothing.
   --help                          Show this message and exit.
 ```
+## Autocomplete
+
+The Semgrep command line tool supports autocomplete on all command options, and on configuration rulesets. When typing any option or option parameter, press tab twice to use. When typing out a registry ruleset name (`semgrep --config p/`'), Semgrep will autocomplete with any matching options that are publicly available on the registry. For example `semgrep --config p/` will list all publicly available rulesets, and `semgrep --config p/java<tab><tab>` will list all available rulesets that start with "java". Note: ruleset autocomplete requires internet connection, and will not autocomplete private rulesets or individual rules.
+
+To enable add the corresponding line to the correct profile given by the table below, corresponding to your shell configuration:
+
+| Shell | File                                      | Add Line                                           |
+| :---- | :---------------------------------------- | :------------------------------------------------- |
+| Bash  | ` ~/.bashrc`                              | `eval "$(_SEMGREP_COMPLETE=bash_source semgrep)"`  |
+| ZSH   | `~/.zshrc`                                | `eval "$(_SEMGREP_COMPLETE=zsh_source semgrep)"`   |
+| Fish  | `~/.config/fish/completions/foo-bar.fish` | `eval (env _SEMGREP_COMPLETE=fish_source semgrep)` |
+
+After modifying your shell configuration, you must start a new shell for the changes to take effect.
+
 
 ## Ignoring Files
 
