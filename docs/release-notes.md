@@ -10,6 +10,33 @@ toc_max_heading_level: 2
 
 Welcome to Semgrep release notes. This document provides an overview of the changes, additions, and fixes made in different versions.
 
+## January 2022
+
+### Version 0.78.0
+
+#### Additions
+
+##### Symbolic propagation
+
+Semgrep can now symbolically propagate simple definitions. For example, given
+an assignment `x = foo.bar()` followed by a call `x.baz()`, Semgrep will keep track of `x`'s definition, and it will successfully match `x.baz()` with a pattern like `foo.bar().baz()`. This feature should help writing simple yet powerful rules, by letting the dataflow engine take care of any intermediate assignments. Symbolic propagation is still experimental and is disabled by default. It must be enabled on a per-rule basis using `options:` and setting `symbolic_propagation: true`. ([#2783](https://github.com/returntocorp/semgrep/issues/2783), [#2859](https://github.com/returntocorp/semgrep/issues/2859), [#3207](https://github.com/returntocorp/semgrep/issues/3207))
+
+##### Verbose output
+
+`--verbose` now outputs a timing and file breakdown summary at the end.
+
+##### Metavariables
+
+`metavariable-comparison` now handles metavariables that bind to arbitrary constant expressions (instead of just code variables).
+
+##### Dockerfile
+
+Pre-alpha support for Dockerfile as a new target language.
+
+#### Additional information
+
+To see the complete change notes, visit the [Semgrep changelog](https://github.com/returntocorp/semgrep/releases/tag/v0.78.0).
+
 ## December 2021
 
 ### Version 0.77.0
