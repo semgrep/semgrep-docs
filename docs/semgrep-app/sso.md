@@ -33,7 +33,7 @@ SAML2.0 is configured through the **Semgrep App Dashboard**.
 
 To set up SSO:
 
-1. From your authentication provider, create the SAML app.
+1. From your **authentication provider**, create the **SAML app**.
 ![Creating SAML app through Okta](../img/saml-creating-app.png "Creating SAML app through Okta")
 2. From the **App Dashboard**, click on **Settings > Configure SSO: SAML**.
 3. Copy the `Provider ID`, the `Single sign on URL`, and `Audience URI` and paste the values as needed in your authentication provider.
