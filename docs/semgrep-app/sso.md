@@ -46,6 +46,6 @@ To set up SSO:
 6. Provide a descriptive `Display Name`.
 ![Providing the Base URL/Domain, Display Name, and Email Domain](../img/sso-providing-BaseURL-DisplayName-EmailDomain.png "Providing the Base URL/Domain, Display Name, and Email Domain")
 
-In case you encounter issues during the setup process, please reach out to [support@r2c.dev](mailto:support@r2c.dev) for assistance.
+If you encounter issues during the setup process, reach out to [support@r2c.dev](mailto:support@r2c.dev) for assistance.
 
 <MoreHelp />
