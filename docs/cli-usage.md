@@ -55,11 +55,11 @@ Options:
                                   SEMGREP_SEND_METRICS environment variable value will
                                   be used. If no environment variable, defaults to
                                   'auto'.
-  --severity [INFO|WARNING|ERROR|INVENTORY]
+  --severity [INFO|WARNING|ERROR]
                                   Report findings only from rules matching the supplied
                                   severity level. By default all applicable rules are
                                   run.Can add multiple times. Each should be one of
-                                  INFO, WARNING, ERROR or INVENTORY.
+                                  INFO, WARNING, or ERROR.
   --strict / --no-strict          Return a nonzero exit code when WARN level errors are
                                   encountered. Fails early if invalid configuration
                                   files are present. Defaults to --no-strict.
