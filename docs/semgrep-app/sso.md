@@ -36,7 +36,7 @@ To set up SSO:
 1. From your **authentication provider**, create the **SAML app**.
 ![Creating SAML app through Okta](../img/saml-creating-app.png "Creating SAML app through Okta")
 2. From the **App Dashboard**, click on **Settings > Configure SSO: SAML**.
-3. Copy the `Provider ID`, the `Single sign on URL`, and `Audience URI` and paste the values as needed in your authentication provider.
+3. Copy the `Provider ID`, the `Single sign on URL`, and `Audience URI`. Paste the values as needed in your authentication provider.
 ![Finding Provider ID, Single sign on URL, and Audience URI via the Semgrep App](../img/saml-finding-providerId-SsoURL-and-AudienceURI.png "Finding Provider ID, Single sign on URL, and Audience URI via the Semgrep App")
 4. From your authentication provider, add in 2 attribute statements `name` and `email`.
 ![Filling in attribute statements in Okta](../img/saml-attribute-statements.png "Filling in attribute statements through Okta")
