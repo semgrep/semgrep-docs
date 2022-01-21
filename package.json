@@ -4,8 +4,8 @@
   "private": true,
   "scripts": {
     "docusaurus": "docusaurus",
-    "start": "python3 copy-default-semgrepignore.py && bash copy-metrics-md && docusaurus start",
-    "build": "python3 copy-default-semgrepignore.py && bash copy-metrics-md && docusaurus build",
+    "start": "bash run-build-scripts && docusaurus start",
+    "build": "bash run-build-scripts && docusaurus build",
     "swizzle": "docusaurus swizzle",
     "deploy": "docusaurus deploy",
     "clear": "docusaurus clear",
