@@ -11,9 +11,9 @@ import MoreHelp from "/src/components/MoreHelp"
 
 ## Inline comments
 
-Semgrep allows for ignoring findings in code by specifying a `nosemgrep` comment on the first line of a finding. Comments take the form of `nosemgrep` or `nosemgrep: <rule-id>`. This functionality works across languages. Previously this was implemented with the comment `nosem`, and lines with these comments will continue to be ignored.
+Semgrep allows for ignoring findings in code by specifying a `nosemgrep` comment on the first line of a finding or on the line preceding it. Comments take the form of `nosemgrep` or `nosemgrep: <rule-id>`. This functionality works across languages. Previously this was implemented with the comment `nosem`, and lines with these comments will continue to be ignored.
 
-A stand-alone `nosemgrep` comment ignores all Semgrep findings for the line on which it appears. A `nosemgrep` comment specifying a specific rule ID only ignores the specified rule. Multiple rules can be ignored using a comma-delimited list.
+A stand-alone `nosemgrep` comment ignores all Semgrep findings for the line on which it appears or on the line of code that follows. A `nosemgrep` comment specifying a specific rule ID only ignores the specified rule. Multiple rules can be ignored using a comma-delimited list.
 
 For example, in JavaScript:
 
@@ -24,12 +24,18 @@ bad_func(); // nosemgrep: rule-id-1, rule-id-2
 bad_func(   // nosemgrep: rule-id-1
   arg
 );
+
+// nosemgrep
+bad_func();
 ```
 
 For example, in Python:
 
 ```python
 bad_func()  # nosemgrep: rule-id-1
+
+# nosemgrep: rule-id-1
+bad_func()
 ```
 
 :::info
