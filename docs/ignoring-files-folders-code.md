@@ -1,5 +1,5 @@
 ---
-slug: pricing-and-billing
+slug: ignoring-files-folders-code 
 append_help_link: true
 title: Ignoring files, folders, or code
 description: ""
@@ -20,9 +20,9 @@ All Semgrep environments (CLI, CI, and App) adhere to user-defined or Semgrep-de
 ## Reference summary
 
 | Method  | Usage    | Examples |
-|:--------|:---------|:---------|
-| To ignore blocks of code: `nosemgrep` | Create a comment, followed by a space, followed by nosemgrep at the first line or preceding line of the pattern match. |   ` // nosemgrep` <br> `# nosemgrep` |
-| To ignore files and folders: `.semgrepignore` | Create a .semgrepignore file and add patterns for files and folders there. Patterns follow .gitignore syntax with some caveats. See Defining files and folders in .semgrepignore. | `.gitignore` <br> `.git` |
+|:------- |:-------- |:-------- |
+| To ignore blocks of code: `nosemgrep` | Create a comment, followed by a space, followed by nosemgrep at the first line or preceding line of the pattern match. |   ` // nosemgrep` <br /> `# nosemgrep` |
+| To ignore files and folders: `.semgrepignore` | Create a .semgrepignore file and add patterns for files and folders there. Patterns follow .gitignore syntax with some caveats. See Defining files and folders in .semgrepignore. | `.gitignore` <br /> `.git` |
 
 
 ## Understanding Semgrep defaults
@@ -66,7 +66,10 @@ This document defines files, folders and code as those that are relevant to a Se
 
 Semgrep provides several methods to customize ignore behavior. Refer to the following table to see which method suits your goal:
 
- **table goes here**
+**table goes here**
+| Goal | Method |
+|:---- |:------ |
+
 
 ## Defining files and folders in `.semgrepignore`
 
