@@ -12,6 +12,21 @@ Welcome to Semgrep release notes. This document provides an overview of the chan
 
 ## January 2022
 
+### Version 0.79.0
+
+#### Additions
+
+
+##### Ignoring code
+
+Support for placing nosemgrep comments on the line before a match, causing such match to be ignored ([#3521](https://github.com/returntocorp/semgrep/issues/3521)).
+
+
+#### Changes
+
+##### Verbose output
+
+Parse errors (reported with `--verbose`) appear once per file, not once per rule/file.
 ### Version 0.78.0
 
 #### Additions
