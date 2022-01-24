@@ -60,7 +60,7 @@ With respect to Semgrep operators and features:
 
 ## Troubleshooting
 
-# Common pitfall #1: not enough `...`
+### Common pitfall #1: not enough `...`
 
 Here's an innocuous pattern that should match the call to a function `f()`:
 ```
@@ -102,7 +102,7 @@ The [solution](https://semgrep.dev/s/9v9R) is to use multiple `...` in the patte
 f(... ...)
 ```
 
-# Common pitfall #2: not enough indentation
+### Common pitfall #2: not enough indentation
 
 Rule of thumb:
 > If the target code is always indented, use indentation in the pattern.
