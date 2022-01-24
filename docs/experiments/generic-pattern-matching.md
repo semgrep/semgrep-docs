@@ -62,6 +62,9 @@ With respect to Semgrep operators and features:
 
 ### Common pitfall #1: not enough `...`
 
+Rule of thumb:
+> If the pattern commonly matches many lines, use `... ...` (20 lines), or `... ... ...` (30 lines) etc. to make sure to match all the lines.
+
 Here's an innocuous pattern that should match the call to a function `f()`:
 ```
 f(...)
