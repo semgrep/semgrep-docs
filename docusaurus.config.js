@@ -182,6 +182,7 @@ module.exports = {
           { from: "/sample-ci-configs", to: "/semgrep-ci/sample-ci-configs/" },
           { from: "/status/", to: "/language-support/" },
           { from: "/cli-reference/", to: "/cli-usage/" },
+          { from: "/ignoring-findings/", to: "/ignoring-files-folders-code/" },
         ]
       }
     ],
