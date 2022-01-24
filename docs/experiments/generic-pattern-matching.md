@@ -107,7 +107,7 @@ f(... ...)
 Rule of thumb:
 > If the target code is always indented, use indentation in the pattern.
 
-In the following example we want to match the `system` sections containing a `name` field.
+In the following example, we want to match the `system` sections containing a `name` field:
 ```
 # match here
 [system]
