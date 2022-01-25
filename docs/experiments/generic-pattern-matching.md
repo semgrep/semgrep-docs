@@ -84,7 +84,7 @@ f(
 )
 ```
 
-But it will [fail](https://semgrep.dev/s/1z6Q) here because there are too many lines:
+But it will [fail](https://semgrep.dev/s/1z6Q) here because the function arguments span more than 10 lines:
 ```
 f(
   1,
