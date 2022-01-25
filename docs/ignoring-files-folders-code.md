@@ -2,7 +2,7 @@
 slug: ignoring-files-folders-code 
 append_help_link: true
 title: Ignoring files, folders, or code
-description: ""
+description: "This documents various methods to skip or ignore files, folders, or code that are not relevant to a Semgrep scan."
 ---
 
 import MoreHelp from "/src/components/MoreHelp"
@@ -22,7 +22,7 @@ All Semgrep environments (CLI, CI, and App) adhere to user-defined or Semgrep-de
 | Method  | Usage    | Examples |
 |:------- |:-------- |:-------- |
 | To ignore blocks of code: `nosemgrep` | Create a comment, followed by a space, followed by nosemgrep at the first line or preceding line of the pattern match. | ` // nosemgrep` &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <br /> `# nosemgrep` |
-| To ignore files and folders: `.semgrepignore` | Create a .semgrepignore file and add patterns for files and folders there. Patterns follow .gitignore syntax with some caveats. See Defining files and folders in .semgrepignore. | `.gitignore` <br /> `.git` |
+| To ignore files and folders: `.semgrepignore` | Create a .semgrepignore file and add patterns for files and folders there. Patterns follow .gitignore syntax with some caveats. See Defining files and folders in .semgrepignore. | `.gitignore` <br /><br /> `.git` |
 
 
 ## Understanding Semgrep defaults
@@ -53,13 +53,13 @@ Note that the default `.semgrepignore` file is opinionated and causes Semgrep to
 
 Semgrep will ignore files beyond the scope of Semgrep's use.
 
-* Large files (defaults to 1MB)
+* Large files (maximum file size defaults to 1MB)
 * Binary files
 * Unknown file extensions (file extensions not matched with any supported programming language)
 
 Large files and unknown file extensions are included or excluded through command line flags (See [CLI reference](https://semgrep.dev/docs/cli-usage/)). Binary files are never scanned.
 
-This document defines files, folders and code as those that are relevant to a Semgrep scan. For example, `.jpg` files are not a part of Semgrep's scope and therefore are not part of the scope of this document.
+This document defines files, folders and code as those that are **relevant to a Semgrep scan**. For example, `.jpg` files are not a part of Semgrep's scope and therefore are not part of the scope of this document.
 
 
 ## Customizing ignore behavior

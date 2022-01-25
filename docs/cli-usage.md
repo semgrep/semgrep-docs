@@ -210,7 +210,32 @@ For a description of `.gitignore` syntax, see [the documentation](https://git-sc
 If no `.semgrepignore` file is found in the directory you are running the Semgrep CLI from, the following will be used by default:
 
 ```
-DEFAULT_SEMGREPIGNORE_TEXT
+# Ignore git items
+.gitignore
+.git/
+:include .gitignore
+
+# Common large paths
+node_modules/
+build/
+dist/
+vendor/
+.env/
+.venv/
+.tox/
+*.min.js
+
+# Common test paths
+test/
+tests/
+*_test.go
+
+# Semgrep rules folder
+.semgrep
+
+# Semgrep-action log folder
+.semgrep_logs/
+
 ```
 
 If you do not want Semgrep to ignore any files in your project, you can create an empty `.semgrepignore` file.
