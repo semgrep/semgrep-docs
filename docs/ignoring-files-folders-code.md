@@ -21,8 +21,8 @@ All Semgrep environments (CLI, CI, and App) adhere to user-defined or Semgrep-de
 
 | Method  | Usage    | Examples |
 |:------- |:-------- |:-------- |
-| To ignore blocks of code: `nosemgrep` | Create a comment, followed by a space, followed by nosemgrep at the first line or preceding line of the pattern match. | ` // nosemgrep` &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <br /> `# nosemgrep` |
-| To ignore files and folders: `.semgrepignore` | Create a .semgrepignore file and add patterns for files and folders there. Patterns follow .gitignore syntax with some caveats. See Defining files and folders in .semgrepignore. | `.gitignore` <br /><br /> `.git` |
+| To ignore blocks of code: `nosemgrep` | Create a comment, followed by a space (` `), followed by `nosemgrep` at the first line or preceding line of the pattern match. | ` // nosemgrep` &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <br /> `# nosemgrep` |
+| To ignore files and folders: `.semgrepignore` | Create a `.semgrepignore` file and add patterns for files and folders there. Patterns follow `.gitignore` syntax with some caveats. See [Defining files and folders in `.semgrepignore`](#defining-files-and-folders-in-semgrepignore). | `.gitignore` <br /><br /> `.git` |
 
 
 ## Understanding Semgrep defaults
@@ -58,7 +58,7 @@ Semgrep will ignore files beyond the scope of Semgrep's use.
 
 Large files and unknown file extensions are included or excluded through command line flags (See [CLI reference](https://semgrep.dev/docs/cli-usage/)). Binary files are never scanned.
 
-This document defines files, folders and code as those that are **relevant to a Semgrep scan**. For example, `.jpg` files are not a part of Semgrep's scope and therefore are not part of the scope of this document.
+This document defines **files, folders and code** as those that are **relevant to a Semgrep scan**. For example, `.jpg` files are not a part of Semgrep's scope and therefore are not part of the scope of this document.
 
 
 ## Customizing ignore behavior
@@ -67,29 +67,29 @@ Semgrep provides several methods to customize ignore behavior. Refer to the foll
 
 | Goal | Method |
 |:---- |:------ |
-| To scan all files each time you run Semgrep (no files will be ignored) | Create an empty `.semgrepignore` file. An empty `.semgrepignore` will result in patterns within .gitignore **to be scanned**. |
+| To scan all files each time you run Semgrep (no files will be ignored) | Create an empty `.semgrepignore` file. An empty `.semgrepignore` will result in patterns within `.gitignore` **to be scanned**. |
 | To ignore files and folders in `.git` and `.gitignore`. | Add `.git` and `.gitignore` to your `.semgrepignore` file. |
 | To ignore custom files and folders each time you run a scan. | Add these files to your `.semgrepignore` file or define them through Semgrep App.|
 | To ignore specific code blocks each time you run a scan. | Create a comment with the word `nosemgrep`. |
 | To ignore files or folders for a particular scan. | Run Semgrep with the flag `--exclude` followed by the pattern or file to be excluded. See CLI reference.
 | To include files or folders for a particular scan. | Run Semgrep with the flag `--include` followed by the  pattern or file to be included. See CLI reference. When including a pattern from a `.gitignore` or `.semgrepignore` file, `--include` overrides both, resulting in the file's inclusion in the scan. |
 | To include files or folders defined within a `.gitignore` for a particular scan. | Run Semgrep with the flag `--no-git-ignore`, which will override any definitions in `.semgrepignore` as well. |
-| To ignore files or folders for a particular rule | Edit the rule to set the `paths` key with one or more patterns. See Rule syntax.
+| To ignore files or folders for a particular rule | Edit the rule to set the `paths` key with one or more patterns. See [Rule syntax](../writing-rules/rule-syntax#paths).
 
 
 ## Defining files and folders in `.semgrepignore`
 
-`.semgrepignore` syntax mirrors .gitignore syntax, with the following modifications:
+`.semgrepignore` syntax mirrors `.gitignore` syntax, with the following modifications:
 
-* "Include" patterns (lines starting with "!") are unsupported.
+* "Include" patterns (lines starting with `!`) are unsupported.
 * "Character range" patterns (lines including a collection of characters inside brackets) are unsupported.
-* An ":include ..." directive is added, which allows another file to be included in the ignore pattern list; typically this included file would be the project .gitignore. No attempt at cycle detection is made.
-* Any line beginning with a colon, but not :include, will raise an error.
-* \: is added to escape leading colons.
+* An `:include ...` directive is added, which allows another file to be included in the ignore pattern list; typically this included file would be the project `.gitignore`. No attempt at cycle detection is made.
+* Any line beginning with a colon, but not `:include`, will raise an error.
+* `\:` is added to escape leading colons.
 
-Unsupported patterns are silently removed from the pattern list (this is done so that .gitignore files may be included without raising errors), although the removal will be logged.
+Unsupported patterns are silently removed from the pattern list (this is done so that `.gitignore` files may be included without raising errors). The removal will be logged.
 
-For a description of .gitignore syntax, see [.gitignore documentation](https://git-scm.com/docs/gitignore).
+For a description of `.gitignore` syntax, see [.gitignore documentation](https://git-scm.com/docs/gitignore).
 
 
 ## Defining files and folders in Semgrep App
@@ -173,7 +173,7 @@ Previous annotations for ignoring code inline, such as `nosem`, are deprecated.
 
 ## Disabling rules on Semgrep App
 
-Semgrep App users can disable rules and rulesets through the Rule Board. See [Removing rules or rulesets](https://semgrep.dev/docs/semgrep-app/rule-board/#removing-rules-or-rulesets).
+Semgrep App users can disable rules and rulesets through the Rule Board. See [Removing rules or rulesets](../semgrep-app/rule-board/#removing-rules-or-rulesets).
 
 
 ## Known issues
