@@ -58,12 +58,90 @@ With respect to Semgrep operators and features:
 * pattern operators like either/not/inside are supported
 * inline regular expressions for strings (`"=~/word.*/"`) is not supported 
 
+## Troubleshooting
+
+### Common pitfall #1: not enough `...`
+
+Rule of thumb:
+> If the pattern commonly matches many lines, use `... ...` (20 lines), or `... ... ...` (30 lines) etc. to make sure to match all the lines.
+
+Here's an innocuous pattern that should match the call to a function `f()`:
+```
+f(...)
+```
+It matches the following code [just fine](https://semgrep.dev/s/9v9R):
+```
+f(
+  1,
+  2,
+  3,
+  4,
+  5,
+  6,
+  7,
+  8,
+  9
+)
+```
+
+But it will [fail](https://semgrep.dev/s/1z6Q) here because the function arguments span more than 10 lines:
+```
+f(
+  1,
+  2,
+  3,
+  4,
+  5,
+  6,
+  7,
+  8,
+  9,
+  10
+)
+```
+
+The [solution](https://semgrep.dev/s/9v9R) is to use multiple `...` in the pattern:
+```
+f(... ...)
+```
+
+### Common pitfall #2: not enough indentation
+
+Rule of thumb:
+> If the target code is always indented, use indentation in the pattern.
+
+In the following example, we want to match the `system` sections containing a `name` field:
+```
+# match here
+[system]
+  name = "Debian"
+
+# DON'T match here
+[system]
+  max_threads = 2
+[user]
+  name = "Admin Overlord"
+```
+
+❌ This pattern will [incorrectly](https://semgrep.dev/s/ry1A) catch the `name` field in the `user` section:
+```
+[system]
+...
+name = ...
+```
+
+✅ This pattern will catch [only](https://semgrep.dev/s/bXAr) the `name` field in the `system` section:
+```
+[system]
+  ...
+  name = ...
+```
+
 ## Command line example
 
-Sample pattern `exec.pat` contains: `exec(...)`
+Sample pattern: `exec(...)`
 
-Sample document `exec.doc` contains:
-
+Sample target file `exec.txt` contains:
 ```bash
 import exec as safe_function
 safe_function(user_input)
@@ -87,15 +165,23 @@ print("exec(bar)")
 
 Output:
 ```bash
-$ spacegrep -p exec.pat -d exec.doc
-exec("ls")
-exec(some_var)
-exec (foo)
-exec (
-    bar
-)
-# exec(foo)
-print("exec(bar)")
+$ semgrep -l generic -e 'exec(...)` exec.text
+7:exec("ls")
+--------------------------------------------------------------------------------
+11:exec(some_var)
+--------------------------------------------------------------------------------
+19:exec (foo)
+--------------------------------------------------------------------------------
+23:exec (
+24:128
+25:    bar
+26:129
+27:)
+--------------------------------------------------------------------------------
+31:# exec(foo)
+--------------------------------------------------------------------------------
+35:print("exec(bar)")
+ran 1 rules on 1 files: 6 findings
 ```
 
 ## Semgrep Registry rules for generic pattern matching
