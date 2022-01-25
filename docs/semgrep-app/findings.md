@@ -68,7 +68,7 @@ Semgrep App assists in the triage process through the use of **comments** and **
 | Triage state | Description |
 | -----------  | ------------ |
 | **Open** | Open findings require action, such as rewriting the code for vulnerabilities, or refactoring the code. Findings are open by default. |
-| **Ignored** | Findings that are ignored will not be acted upon. This may be a false positive or deprioritized issue. Findings can be ignored through Semgrep App (see below) or in the code. See [Ignoring findings](../ignoring-findings.md) for more information.  |
+| **Ignored** | Findings that are ignored will not be acted upon. This may be a false positive or deprioritized issue. Findings can be ignored through Semgrep App (See [Managing triage states](#managing-triage-states-bulk-triage)) |
 | **Closed** | Findings are considered closed under any of the following conditions: <ul><li>After a new scan, the code has been addressed such that the rule pattern no longer matches the code.</li><li>The rule has been removed from your Rule Board.</li></ul> |
 
 ### Filtering findings
@@ -153,7 +153,7 @@ To **create a ticket**:
 
 * [Integrations](integrations.md)
 * [Rule Board](rule-board.md)
-* [Ignoring findings](../ignoring-findings.md)
+* [Ignoring files, folders, and code](../ignoring-files-folders-code.md)
 
 ## Additional references
 

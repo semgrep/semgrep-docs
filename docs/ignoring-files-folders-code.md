@@ -36,7 +36,6 @@ The following is **Semgrep's default `.semgrepignore` file**:
 
 ```
 DEFAULT_SEMGREPIGNORE_TEXT
-
 ```
 
 :::caution
