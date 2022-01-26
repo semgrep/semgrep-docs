@@ -40,26 +40,33 @@ Only one of `pattern`, `patterns`, `pattern-either`, or `pattern-regex` is requi
 <details>
 <summary>Expand table of extensions and tags</summary>
 
-| Language   | Extensions     | Tags                                 |
-|:-----------|:---------------|:-------------------------------------|
-| C          | `.c`           | `c`                                  |
-| C#         | `.cs`          | `csharp`, `cs`, `C#`                 |
-| Go         | `.go`          | `go`, `golang`                       |
-| Java       | `.java`        | `java`                               |
-| JavaScript | `.js`, `.jsx`  | `js`, `jsx`, `javascript`            |
-| JSON       | `.json`        | `json`, `JSON`, `Json`               |
-| JSX        | `.js`, `.jsx`  | `js`, `jsx`, `javascript`            |
-| Kotlin     |                |                                      |
-| Lua        | `.lua`         | `lua`                                |
-| OCaml      | `.ml`, `.mli`  | `ocaml`, `ml`                        |
-| PHP        | `.php`         | `php`                                |
-| Python     | `.py`, `.pyi`  | `python`, `python2`, `python3`, `py` |
-| R          |                |                                      |
-| Ruby       | `.rb`          | `ruby`, `rb`                         |
-| Rust       | `.rs`          | `rust`, `Rust`, `rs`                 |
-| TypeScript | `.ts`, `.tsx`  | `ts`, `tsx`, `typescript`            |
-| TSX        | `.ts`, `.tsx`  | `ts`, `tsx`, `typescript`            |
-| YAML       | `.yaml`        | `yaml`                               |
+| Language   | Extensions             | Tags                                 |
+|:-----------|:-----------------------|:-------------------------------------|
+| Bash       | `.sh`                  | `bash`                               |
+| C          | `.c`                   | `c`                                  |
+| C++        | `.cpp`, `.h`           | `cpp`                                |
+| C#         | `.cs`                  | `csharp`, `cs`, `C#`                 |
+| Generic    |                        | `generic`                            |
+| Go         | `.go`                  | `go`, `golang`                       |
+| Hack       | `.h`, `.hack`          | `hack`                               |
+| Java       | `.java`                | `java`                               |
+| JavaScript | `.js`, `.jsx`          | `js`, `jsx`, `javascript`            |
+| JSON       | `.json`                | `json`, `JSON`, `Json`               |
+| JSX        | `.js`, `.jsx`          | `js`, `jsx`, `javascript`            |
+| Kotlin     |  `.kt`, `.kts`, `.ktm` | `kotlin`                             |
+| Lua        | `.lua`                 | `lua`                                |
+| OCaml      | `.ml`, `.mli`          | `ocaml`, `ml`                        |
+| PHP        | `.php`                 | `php`                                |
+| Python     | `.py`, `.pyi`          | `python`, `python2`, `python3`, `py` |
+| R          | `.r`, `.rda`, `rds`    | `r`                                  |
+| Ruby       | `.rb`                  | `ruby`, `rb`                         |
+| Rust       | `.rs`                  | `rust`, `Rust`, `rs`                 |
+| Scala      | `.scala`, `.sc`        | `scala`                              |
+| Solidity   | `.sol`                 | `solidity`                           |
+| Terraform  | `.tf`                  | `hcl`                                |
+| TypeScript | `.ts`, `.tsx`          | `ts`, `tsx`, `typescript`            |
+| TSX        | `.ts`, `.tsx`          | `ts`, `tsx`, `typescript`            |
+| YAML       | `.yaml`                | `yaml`                               |
 
 </details>
 
