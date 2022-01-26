@@ -48,7 +48,7 @@ The default `.semgrepignore` file is opinionated and causes Semgrep to skip thes
 :::
 
 
-## Files, folders and code beyond Semgrep's scope
+## Files, folders, and code beyond Semgrep's scope
 
 Semgrep will ignore files beyond the scope of Semgrep's use.
 
@@ -107,7 +107,7 @@ Including files and folders through this method is **additive**. When Semgrep Ap
 
 ## Ignoring code through nosemgrep
 
-To ignore blocks of code, define an **inline comment**, followed by a **space** ( ), followed by the word `nosemgrep` at either the **first line** or **the line preceding** the potential match. Semgrep will ignore all rule pattern matches. This functionality works across all supported languages.
+To ignore blocks of code, define an **inline comment**, followed by a **space** (` `), followed by the word `nosemgrep` at either the **first line** or **the line preceding** the potential match. Semgrep will ignore all rule pattern matches. This functionality works across all supported languages.
 
 `nosemgrep` in Python:
 
@@ -134,11 +134,11 @@ bad_func2(   // nosemgrep
 
 :::info
 
-The space ( ) before `nosemgrep` is required for Semgrep to detect this annotation.
+The space (` `) before `nosemgrep` is required for Semgrep to detect this annotation.
 
 :::
 
-To ignore blocks of code for a **particular rule**, enter its rule-id as follows: `nosemgrep: <rule-id>`. To ignore **multiple rules**, use a comma-delimited list.
+To ignore blocks of code for a **particular rule**, enter its rule-id as follows: `nosemgrep: RULE_ID`. To ignore **multiple rules**, use a comma-delimited list.
 
 Python examples:
 
