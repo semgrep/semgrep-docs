@@ -16,7 +16,7 @@ There are two ways to create a rule:
 The simple view is best for quick and simple pattern-matching use cases. It provides the most common pattern-matching operators in Semgrep. This view is used by default.
 
 
-![alt_text](images/image1.png "image_tooltip")
+![alt_text](../img/playground.png "image_tooltip")
 
 
 The following keys are supported in Simple View:
@@ -53,7 +53,7 @@ To create a rule in simple view:
 
 1. Ensure that you are in simple view:
 
-![alt_text](images/image2.png "image_tooltip")
+![alt_text](../img/playground-simple-view.png "image_tooltip")
 
 
 2. Click **File > New** to start from a blank slate.
@@ -71,7 +71,7 @@ To create a rule in the advanced view:
 
 1. Ensure that you're in **Advanced view**.
 
-![alt_text](images/image3.png "image_tooltip")
+![alt_text](../img/playground-advanced-view.png "image_tooltip")
 
 2. Enter the keys and values needed to finish your rule.
 
@@ -87,7 +87,7 @@ To **run a rule**:
 To **use a sample** from the Playground:
 
 1. Click **Tools** > **Load sample *`<code>LANGUAGE</code>`* code**.
-![alt_text](images/image4.png "image_tooltip")
+![alt_text](../img/playground-sample-code.png "image_tooltip")
 2. Select any of the following:
     1. hello world
     2. 100-line file
@@ -204,7 +204,7 @@ To add your rule to your CI pipeline:
 2. Select the CI environment from the tabs under the header **Use in CI**.
 3. Click on the **clipboard icon** on the upper right of the snippet to copy it.
 4. Paste the snippet into the config file specified above the snippet.
-![alt_text](images/image5.png "image_tooltip")
+![alt_text](../img/playground-use-ci.png "image_tooltip")
 
 
 ## Embedding a rule in your site
