@@ -12,7 +12,7 @@ import MoreHelp from "/src/components/MoreHelp"
 
 **Ignoring files, folders, or code** means Semgrep will not scan certain defined items within your repository or working directory. Thus no findings are generated.
 
-This is separate from **ignoring a finding**, which is a triage operation after a Semgrep scan has found a match. To ignore a finding or manage triage states, refer to [Managing findings](../managing-findings).
+This is separate from [ignoring a **finding**](../managing-findings), which is a triage operation after a Semgrep scan has found a match.
 
 All Semgrep environments (CLI, CI, and App) adhere to user-defined or Semgrep-defined ignore patterns.
 
