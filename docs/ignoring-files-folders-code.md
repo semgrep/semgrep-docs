@@ -40,7 +40,7 @@ DEFAULT_SEMGREPIGNORE_TEXT
 
 :::caution
 
-Note that the default `.semgrepignore` file is opinionated and causes Semgrep to skip these folders:
+The default `.semgrepignore` file is opinionated and causes Semgrep to skip these folders:
 
 * `/tests`, `/test`
 * `/vendors`
