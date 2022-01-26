@@ -10,7 +10,7 @@ import MoreHelp from "/src/components/MoreHelp"
 
 # Ignoring files, folders, or code
 
-**Ignoring files, folders, or code** means Semgrep will not scan certain defined items within your repository or working directory. Thus no findings are generated.
+**Ignoring files, folders, or code** means Semgrep will not scan certain defined items within your repository or working directory. Thus no findings are generated from the ignored items.
 
 This is separate from [ignoring a **finding**](../managing-findings), which is a triage operation after a Semgrep scan has found a match.
 
