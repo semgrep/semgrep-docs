@@ -1,4 +1,13 @@
-# Semgrep Playground
+---
+slug: playground
+append_help_link: true
+title: Semgrep Playground
+description: "Semgrep Playground is a beginner-friendly environment for creating your first rules."
+---
+
+import MoreHelp from "/src/components/MoreHelp"
+
+# Creating rules with Semgrep Playground
 
 Semgrep Playground is a live editor used to create and test rule patterns on sample code. By testing the pattern out on sample code, you are able to quickly assess the purpose, utility, and speed of a rule as well as save it for later refinement, reuse, or for sharing.
 
@@ -16,7 +25,7 @@ There are two ways to create a rule:
 The simple view is best for quick and simple pattern-matching use cases. It provides the most common pattern-matching operators in Semgrep. This view is used by default.
 
 
-![alt_text](../img/playground.png "image_tooltip")
+![alt_text](img/playground.png "image_tooltip")
 
 
 The following keys are supported in Simple View:
@@ -53,7 +62,7 @@ To create a rule in simple view:
 
 1. Ensure that you are in simple view:
 
-![alt_text](../img/playground-simple-view.png "image_tooltip")
+![alt_text](img/playground-simple-view.png "image_tooltip")
 
 
 2. Click **File > New** to start from a blank slate.
@@ -65,13 +74,13 @@ To create a rule in simple view:
 
 ### Using advanced view
 
-The advanced view is a YAML editor for writing a rule using any valid key from the Semgrep [schema](https://semgrep.dev/docs/writing-rules/rule-syntax/). It provides default values for the minimum required keys for a Semgrep rule definition and expects the user to modify and add keys to finish the rule.
+The advanced view is a YAML editor for writing a rule using any valid key from the Semgrep [schema](../writing-rules/rule-syntax/). It provides default values for the minimum required keys for a Semgrep rule definition and expects the user to modify and add keys to finish the rule.
 
 To create a rule in the advanced view:
 
 1. Ensure that you're in **Advanced view**.
 
-![alt_text](../img/playground-advanced-view.png "image_tooltip")
+![alt_text](img/playground-advanced-view.png "image_tooltip")
 
 2. Enter the keys and values needed to finish your rule.
 
@@ -87,7 +96,7 @@ To **run a rule**:
 To **use a sample** from the Playground:
 
 1. Click **Tools** > **Load sample *`<code>LANGUAGE</code>`* code**.
-![alt_text](../img/playground-sample-code.png "image_tooltip")
+![alt_text](img/playground-sample-code.png "image_tooltip")
 2. Select any of the following:
     1. hello world
     2. 100-line file
@@ -99,7 +108,7 @@ To **use a sample** from the Playground:
 
 **Testing a rule** ensures that it meets your standards for precision and speed. Aside from running a rule on the Playground, it is possible to test a rule by creating comment annotations for intended and unintended matches. This is achieved by creating a test file. 
 
-Refer to (Testing rules)[https://semgrep.dev/docs/writing-rules/testing-rules/] for the syntax and method to run test files.
+Refer to [Testing rules](../writing-rules/testing-rules) for the syntax and method to run test files.
 
 
 ### Debugging errors when creating a rule
@@ -116,12 +125,12 @@ Check that the **Language is** value and **Test code** language match. Use full 
 
 #### The pattern syntax is invalid
 
-Check your metavariable definitions, and use of operators. Metavariables must be uppercase letters preceded by a dollar sign $, such as `$PAYMENT_OUTPUT` or `$X`. Refer to Pattern syntax[https://semgrep.dev/docs/writing-rules/pattern-syntax/].
+Check your metavariable definitions, and use of operators. Metavariables must be uppercase letters preceded by a dollar sign $, such as `$PAYMENT_OUTPUT` or `$X`. Refer to [Pattern syntax](../writing-rules/pattern-syntax/).
 
 
 #### The YAML syntax is unparsable in Advanced view
 
-Check for spelling and indentation issues. The key names must match Semgrep's schema[https://semgrep.dev/docs/writing-rules/rule-syntax/].
+Check for spelling and indentation issues. The key names must match [Semgrep's schema](https://semgrep.dev/docs/writing-rules/rule-syntax/).
 
 #### The rule does not behave as expected or does not find the desired match
 
@@ -147,7 +156,7 @@ These benchmarks take into account the **visual complexity** of the rule.
 
 ## Adding a rule to the Rule Board
 
-**Adding a rule to the (Rule Board)**[https://semgrep.dev/docs/semgrep-app/rule-board/] allows you to quickly set a rule as part of every Semgrep scan. To add a rule to the Rule Board:
+**Adding a rule to the [Rule Board](../semgrep-app/rule-board/)** allows you to quickly set a rule as part of every Semgrep scan. To add a rule to the Rule Board:
 
 1. Ensure that you are logged-in.
 2. Click **Add to Rule Board**.
@@ -204,7 +213,7 @@ To add your rule to your CI pipeline:
 2. Select the CI environment from the tabs under the header **Use in CI**.
 3. Click on the **clipboard icon** on the upper right of the snippet to copy it.
 4. Paste the snippet into the config file specified above the snippet.
-![alt_text](../img/playground-use-ci.png "image_tooltip")
+![alt_text](img/playground-use-ci.png "image_tooltip")
 
 
 ## Embedding a rule in your site
