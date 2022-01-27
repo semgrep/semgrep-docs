@@ -9,6 +9,7 @@ import MoreHelp from "/src/components/MoreHelp"
 
 # Creating rules with Semgrep Playground
 
+
 Semgrep Playground is a live editor used to create and test rule patterns on sample code. By testing the pattern out on sample code, you are able to quickly assess the purpose, utility, and speed of a rule as well as save it for later refinement, reuse, or for sharing.
 
 
@@ -22,13 +23,11 @@ There are two ways to create a rule:
 
 ### Using simple view
 
-The simple view is best for quick and simple pattern-matching use cases. It provides the most common pattern-matching operators in Semgrep. This view is used by default.
+Simple view provides the** most common pattern-matching operators in Semgrep**. This view is used by default.
 
+![Screenshot of default playground view](img/playground.png "Default playground view")
 
-![alt_text](img/playground.png "image_tooltip")
-
-
-The following keys are supported in Simple View:
+The following **keys** are **supported** in Simple View:
 
 * `language`
 * `pattern`
@@ -40,7 +39,7 @@ The following keys are supported in Simple View:
 * `message`
 * `autofix`
 
-The following metadata keys are supported in simple view:
+The following **metadata keys** are **supported** in simple view:
 
 * `category`
 * `technology`
@@ -48,28 +47,25 @@ The following metadata keys are supported in simple view:
 
 The simple view has the following limitations:
 
-* It supports only one language per rule.
-* It does not have support for the following operators: 
+* It supports only **one language** per rule.
+* It does **not** have support for the following operators: 
     * `pattern-not-regex`
     * `metavariable-regex`
     * `metavariable-pattern`
     * `metavariable-comparison`
-* It does not support the following experimental features:
+* It does **not** support the following experimental features:
     * Join mode
     * Taint mode
 
-To create a rule in simple view:
+To **create a rule** in simple view:
 
 1. Ensure that you are in simple view:
-
-![alt_text](img/playground-simple-view.png "image_tooltip")
-
-
+![Screenshot of simple view](img/playground-simple-view.png "Simple view")
 2. Click **File > New** to start from a blank slate.
 3. Select a language from the **language is **drop-down box. This refers to the language that the test code is written in.
 4. Enter the pattern to test for after the **code is** button.
-5. Optional: Click on the **plus **button to add fields for additional operators. Select the pattern operator and enter the pattern.
-6. Optional: Click on **Rule metadata** to enter additional metadata fields.
+5. **Optional:** Click on the **plus **button to add fields for additional operators. Select the pattern operator and enter the pattern.
+6. **Optional:** Click on **Rule metadata** to enter additional metadata fields.
 
 
 ### Using advanced view
@@ -249,3 +245,5 @@ The finished result is:
 ```
 <iframe title="Semgrep example no prints" src="https://semgrep.dev/embed/editor?snippet=IDENTIFIER" width="100%" height="432" frameborder="0"></iframe>
 ```
+
+<MoreHelp />
