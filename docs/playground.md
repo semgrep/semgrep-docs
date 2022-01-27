@@ -3,6 +3,8 @@ slug: playground
 append_help_link: true
 title: Semgrep Playground
 description: "Semgrep Playground is a beginner-friendly environment for creating your first rules."
+hide_title: true
+
 ---
 
 import MoreHelp from "/src/components/MoreHelp"
@@ -60,7 +62,7 @@ The simple view has the following limitations:
 To **create a rule** in simple view:
 
 1. Ensure that you are in simple view:
-![Screenshot of simple view](img/playground-simple-view.png "Simple view")
+![Screenshot of simple view](img/playground-simple-view.png "Playground simple view")
 2. Click **File > New** to start from a blank slate.
 3. Select a language from the **language is **drop-down box. This refers to the language that the test code is written in.
 4. Enter the pattern to test for after the **code is** button.
@@ -70,13 +72,13 @@ To **create a rule** in simple view:
 
 ### Using advanced view
 
-The advanced view is a YAML editor for writing a rule using any valid key from the Semgrep [schema](../writing-rules/rule-syntax/). It provides default values for the minimum required keys for a Semgrep rule definition and expects the user to modify and add keys to finish the rule.
+The advanced view is a YAML editor for writing a rule **using any valid key from the Semgrep [schema](../writing-rules/rule-syntax/)**. It provides default values for the minimum required keys for a Semgrep rule definition and expects the user to modify and add keys to finish the rule.
 
 To create a rule in the advanced view:
 
 1. Ensure that you're in **Advanced view**.
 
-![alt_text](img/playground-advanced-view.png "image_tooltip")
+![Screenshot of advanced view](img/playground-advanced-view.png "Playground advanced view")
 
 2. Enter the keys and values needed to finish your rule.
 
@@ -86,13 +88,13 @@ To create a rule in the advanced view:
 To **run a rule**: 
 
 1. Enter your own code snippet or use samples from the Playground.
-2. Optional: Use the `develop` branch docker image by clicking **Tools > Use develop docker image**. This docker image contains the latest code pushed to Semgrep's repository, including experimental features. 
-3. Press **Run **or `**Ctrl+Enter**`.
+2. **Optional:** Use the `develop` branch docker image by clicking **Tools > Use develop docker image**. This docker image contains the latest code pushed to Semgrep's repository, including experimental features. 
+3. Press **Run** or **Ctrl+Enter**.
 
 To **use a sample** from the Playground:
 
-1. Click **Tools** > **Load sample *`<code>LANGUAGE</code>`* code**.
-![alt_text](img/playground-sample-code.png "image_tooltip")
+1. Click **Tools > Load sample `LANGUAGE` code**.
+![Screenshot of Playground sample code menu](img/playground-sample-code.png "Playground sample code menu")
 2. Select any of the following:
     1. hello world
     2. 100-line file
@@ -100,7 +102,7 @@ To **use a sample** from the Playground:
 3. The rule is executed automatically on the selected option.
 4. To run again, press Run or type **Ctrl+Enter**.
 
-100-line and 1000-line files are taken at random from GitHub open source projects.
+100-line and 1000-line files are from random from GitHub open source projects.
 
 **Testing a rule** ensures that it meets your standards for precision and speed. Aside from running a rule on the Playground, it is possible to test a rule by creating comment annotations for intended and unintended matches. This is achieved by creating a test file. 
 
@@ -126,11 +128,11 @@ Check your metavariable definitions, and use of operators. Metavariables must be
 
 #### The YAML syntax is unparsable in Advanced view
 
-Check for spelling and indentation issues. The key names must match [Semgrep's schema](https://semgrep.dev/docs/writing-rules/rule-syntax/).
+Check for spelling and indentation issues. The key names must match [Semgrep's schema](../writing-rules/rule-syntax/).
 
 #### The rule does not behave as expected or does not find the desired match
 
-File a **bug**[https://github.com/returntocorp/semgrep/issues/new?title=semgrep.dev%20bug%20report] or reach out through **Semgrep Community Slack**[https://r2c.dev/slack].
+File a [bug](https://github.com/returntocorp/semgrep/issues/new?title=semgrep.dev%20bug%20report) or reach out through [Semgrep Community Slack](https://r2c.dev/slack).
 
 
 ### Evaluating a rule's performance
@@ -166,17 +168,17 @@ A rule is saved by either **explicitly naming it** or when it is **assigned a sh
 To explicitly name a rule:
 
 1. Sign into Semgrep.
-2. Click on the **Untitled rule** box.
+2. Click the **Untitled rule** box.
 3. Enter the name of your rule and press **Save**.
 
 To assign a random shortcode:
 
-1. Click on **Share**. This will auto-generate a random shortcode and URL to access the rule.
+1. Click **Share**. This will auto-generate a random shortcode and URL to access the rule.
 
 To retrieve or open a rule:
 
-1. Click **File > Open…**
-2. Enter the rule's name in the **Filter…** search box or scroll to find the rule.
+1. Click **File > Open**
+2. Enter the rule's name in the **Filter** search box or scroll to find the rule.
 3. Click on the rule. The rule loads into the Playground.
 
 To rename a rule:
@@ -189,7 +191,7 @@ To rename a rule:
 
 ## Using a rule in CI
 
-Using a rule in your CI pipeline enables you to run the rule at a certain hook or event. This allows users to add guardrails against security, style, and general code violations.
+Using a rule in your CI pipeline enables you to **run the rule at a certain hook or event**. This allows users to add guardrails against security, style, and general code violations.
 
 Semgrep can be used in the following CI environments:
 
@@ -208,8 +210,8 @@ To add your rule to your CI pipeline:
 1. Click **Share**.
 2. Select the CI environment from the tabs under the header **Use in CI**.
 3. Click on the **clipboard icon** on the upper right of the snippet to copy it.
-4. Paste the snippet into the config file specified above the snippet.
-![alt_text](img/playground-use-ci.png "image_tooltip")
+4. Paste the snippet into the **config file** specified above the snippet.
+![Screenshot of Playground > CI menu](img/playground-use-ci.png "Playground CI menu")
 
 
 ## Embedding a rule in your site
@@ -231,14 +233,15 @@ To embed a rule:
 
 1. In the Playground, click **Share**.
 2. Copy the **identifier**. This comes in two patterns:
-    1. For signed-in users: **<code>[username]:[rule-name]</code>**, such as <code>ievans:print-to-logger</code>
-    2. For anonymous users: [4-letter shortcode], such as **dZkP**
-3. Create the **URL reference**. Substitute the identifier in this template: `<code>https://semgrep.dev/embed/editor?snippet=IDENTIFIER</code>`. For example, using the identifier ievans:print-to-logger creates `<code>https://semgrep.dev/embed/editor?snippet=IDENTIFIER</code>`.
+    1. For signed-in users: `[username]:[rule-name]`, such as `ievans:print-to-logger`
+    2. For anonymous users: `[4-letter shortcode]`, such as **dZkP**
+3. Create the **URL reference**. Substitute the identifier in this template: `https://semgrep.dev/embed/editor?snippet=IDENTIFIER`. For example, using the identifier ievans:print-to-logger creates `https://semgrep.dev/embed/editor?snippet=IDENTIFIER`.
 4. **Optional:** To test the URL reference, enter the URL in your browser's address bar.
-5. In the following snippet, replace the `<code>src</code>` placeholder value with the previously-created URL reference:
+![Screenshot of the embedded Playground in its own tab](img/playground-widget.png "Embedded playground in its own tab")
+5. In the following snippet, replace the `src` placeholder value with the previously-created **URL reference**:
 
 ```
- <iframe title="Semgrep example no prints" src="`URL Reference`" width="100%" height="432" frameborder="0"></iframe>
+ <iframe title="Semgrep example no prints" src="URL_REFERENCE" width="100%" height="432" frameborder="0"></iframe>
 ```
 The finished result is:
 
