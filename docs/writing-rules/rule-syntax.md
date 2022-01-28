@@ -381,7 +381,7 @@ Enable/disable the following matching features:
 | :--------------------- | :------ | :--------------------------------------------------------------------- |
 | `vardef_assign`        | `true`  | Assignment patterns (e.g., `$X = $E`) will match variable declarations (e.g., `var x = 1;`). |
 | `attr_expr`            | `true`  | Expression patterns (e.g., `f($X)`) will match attributes (e.g., `@f(a)`). |
-| `constant_propagation` | `true`  | [Constant propagation](./pattern-syntax.mdx#constants), including [intra-procedural flow-sensitive constant propagation](../experiments/overview.md#constant-propagation). |
+| `constant_propagation` | `true`  | [Constant propagation](./pattern-syntax.mdx#constants), including [intra-procedural flow-sensitive constant propagation](../data-flow/constant-propagation/). |
 | `ac_matching`          | `true`  | [Matching modulo associativity and commutativity](./pattern-syntax.mdx#associative-and-commutative-operators), we treat Boolean AND/OR as associative, and bitwise AND/OR/XOR as both associative and commutative. |
 | `commutative_boolop`   | `false` | Treat Boolean AND/OR as commutative even if not semantically accurate. |
 

@@ -51,7 +51,7 @@ module.exports = {
         {
           type: 'category',
           label: 'Experiments 🧪',
-          items: ['experiments/overview', 'experiments/generic-pattern-matching', 'experiments/join-mode', 'experiments/project-depends-on']
+          items: ['experiments/overview', 'experiments/generic-pattern-matching', 'experiments/join-mode', 'experiments/project-depends-on', 'experiments/symbolic-propagation']
         },
         'upgrading'
       ],
