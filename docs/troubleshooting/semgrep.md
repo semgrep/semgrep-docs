@@ -56,9 +56,9 @@ We currently don't have instructions for other providers, but logs for the actio
 
 It is possible to reproduce some parts of Semgrep CI locally to aid in debugging through the following steps:
 
-- First go to the [API token page](https://semgrep.dev/orgs/semgrep/settings/tokens) and create a new API token
-- Run `semgrep login` on your machine which will ask you to paste your API key
-- Run `SEMGREP_REPO_NAME=<your-org-here>/<repo-name-here> semgrep --config policy` (i.e. `SEMGREP_REPO_NAME=returntocorp/semgrep semgrep --config policy` for the github repo `returntocorp/semgrep`). This will fetch the rules configured on any semgrep.dev policy for this repo and run it locally
+- First go to the [API token page](https://semgrep.dev/orgs/-/settings/tokens) and create a new API token
+- Run `semgrep login` on your machine and paste your API key when prompted
+- Run `SEMGREP_REPO_NAME=<your-org-here>/<repo-name-here> semgrep --config policy` (For example, `SEMGREP_REPO_NAME=returntocorp/semgrep semgrep --config policy` would be used for the GitHub repository `returntocorp/semgrep`). This will fetch the rules configured on all Semgrep App policies for this repository and run a local Semgrep scan using those rules.
 
 ## Troubleshooting Semgrep CLI
 
