@@ -12,7 +12,7 @@ If you want the best introduction to writing Semgrep rules, use the interactive,
 
 ### Do it live!
 
-You can write and share rules directly from the [Playground](https://semgrep.dev/editor). You can also write rules in your terminal and run them with the Semgrep command line tool.
+You can write and share rules directly from the [Playground](https://semgrep.dev/playground). You can also write rules in your terminal and run them with the Semgrep command line tool.
 
 You can write rules that do things like:
 
@@ -23,7 +23,7 @@ You can write rules that do things like:
 
 This rule detects the use of `is` when comparing Python strings. `is` checks reference equality, not value equality, and can exhibit nondeterministic behavior.
 
-<iframe title="Semgrep example Python is comparison" src="https://semgrep.dev/embed/editor?snippet=Ppde" width="100%" height="432px" frameBorder="0"></iframe>
+<iframe title="Semgrep example Python is comparison" src="https://semgrep.dev/embed/playground?snippet=Ppde" width="100%" height="432px" frameBorder="0"></iframe>
 
 ### Reference material
 

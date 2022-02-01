@@ -22,7 +22,7 @@ Semgrep analyzes code locally on your computer or in your build environment: **c
 
 Its rules look like the code you already write; no abstract syntax trees, regex wrestling, or painful DSLs. Here's a quick rule for finding Python `print()` statements, run it by clicking the [▸] button:
 
-<iframe title="Semgrep example no prints" src="https://semgrep.dev/embed/editor?snippet=ievans:print-to-logger" width="100%" height="432px" frameBorder="0"></iframe>
+<iframe title="Semgrep example no prints" src="https://semgrep.dev/embed/playground?snippet=ievans:print-to-logger" width="100%" height="432px" frameBorder="0"></iframe>
 <br />
 
 <!-- <EditorWidget snippetId={"ievans:print-to-logger2"} /> -->
@@ -31,7 +31,7 @@ The Semgrep ecosystem includes:
 
 * [Semgrep](getting-started/) - the open-source command line tool at the heart of everything
 * [Semgrep CI](semgrep-ci/overview/) - a specialized Docker image for running Semgrep in CI environments
-* [Semgrep Playground](https://semgrep.dev/editor) - an online interactive editor for writing and sharing rules
+* [Semgrep Playground](https://semgrep.dev/playground) - an online interactive editor for writing and sharing rules
 * [Semgrep Registry](https://semgrep.dev/explore) - 1,000+ community-driven rules covering security, correctness, and performance bugs
 * [Semgrep App](https://semgrep.dev/manage) - deploy, manage, and monitor Semgrep at scale with free and paid tiers
 

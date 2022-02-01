@@ -83,7 +83,7 @@ The new cards will appear on your board when you next open the page.
 
 ### Custom rules from the playground
 
-When writing rules in [Semgrep Playground](https://semgrep.dev/editor),
+When writing rules in [Semgrep Playground](https://semgrep.dev/playground),
 you will see a button named "Add to Policy".
 Click this button and select the "Rule board" option.
 The new card will appear on your board when you next open the page.
