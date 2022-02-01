@@ -2,11 +2,41 @@
 
 The following explains how to build `semgrep` so that you can make and test changes to the Python wrapper. You may want to read the README first to understand the relationship between `semgrep` and `semgrep-core`.
 
-## Getting `semgrep-core` binary
+## Getting the `semgrep-core` binary
 
-If you would like to install `semgrep-core` from source (for example, because you want to fix a parse error), follow the instructions in [Building `semgrep-core`](semgrep-core-contributing.md#building-semgrep-core) and skip this section.
+This section is relevant if you are not planning to edit the source code of `semgrep-core`.
+If you are going make edits to `semgrep-core`,
+for example because you want to fix a parse error,
+skip this section and follow the instructions in [Building `semgrep-core`](semgrep-core-contributing.md#building-semgrep-core) instead.
 
-Otherwise, visit the [releases page](https://github.com/returntocorp/semgrep/releases)
+### From Homebrew
+
+When you install Semgrep via Homebrew with `brew install semgrep`,
+the `semgrep-core` binary is bundled within that installation,
+but is not made available on your `$PATH` by default.
+
+You can add the bundled binary to your `$PATH` with this series of commands,
+provided you have `jq` installed:
+
+```bash
+export SEMGREP_BREW_INSTALLED_VERSION="$(brew info --json semgrep | jq .[0].installed[0].version -r)"
+export SEMGREP_BREW_INSTALL_PATH="$(brew --cellar semgrep)/${SEMGREP_BREW_INSTALLED_VERSION}"
+export SEMGREP_BREW_PYTHON_PACKAGE_PATH="$(${SEMGREP_BREW_INSTALL_PATH}/libexec/bin/python -m pip list -v | grep '^semgrep\b' | awk '{ print $3 }')"
+export SEMGREP_BREW_CORE_BINARY_PATH="${SEMGREP_BREW_PYTHON_PACKAGE_PATH}/semgrep/bin"
+export PATH="${SEMGREP_BREW_CORE_BINARY_PATH}:${PATH}"
+```
+
+### Manually
+
+:::caution
+
+If you get the binary this way,
+you will need to manually update it when the interface between `semgrep` and `semgrep-core` changes.
+Such changes have historically happened once every two months.
+
+:::
+
+Visit the [releases page](https://github.com/returntocorp/semgrep/releases)
 and grab the latest zipfile or tarball for your platform. Extract this archive
 and inside should be the necessary binaries. You can confirm this by running:
 
@@ -19,6 +49,7 @@ example, you may create a `~/bin/` directory within the repository. [Include it 
 and run the binary from there.
 
 Alternatively, you may include it somewhere like `/usr/local/bin/`.
+
 
 ## Setting up the environment
 
