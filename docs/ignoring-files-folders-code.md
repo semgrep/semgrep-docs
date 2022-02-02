@@ -35,32 +35,7 @@ Without user customization, Semgrep refers to the following to define ignored fi
 In the absence of a user-generated `.semgrepignore`, Semgrep will refer to its repository's `.semgrepignore` default template:
 
 ```
-# Ignore git items
-.gitignore
-.git/
-:include .gitignore
-
-# Common large paths
-node_modules/
-build/
-dist/
-vendor/
-.env/
-.venv/
-.tox/
-*.min.js
-
-# Common test paths
-test/
-tests/
-*_test.go
-
-# Semgrep rules folder
-.semgrep
-
-# Semgrep-action log folder
-.semgrep_logs/
-
+DEFAULT_SEMGREPIGNORE_TEXT
 ```
 
 :::caution
