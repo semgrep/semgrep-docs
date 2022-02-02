@@ -45,7 +45,8 @@ The downsides of using a pre-compiled binary are:
    for example to fix a parse error.
 2. Semgrep will fail if the interface between `semgrep` and `semgrep-core` has changed
    since the binary was compiled.
-   This has historically been happening around every two months.
+   This has historically been happening around every two months,
+   but can happen at any time without notice.
 
 With that in mind, the available shortcuts are:
 ### The Homebrew shortcut
