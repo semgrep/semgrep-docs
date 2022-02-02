@@ -2,7 +2,7 @@
 slug: semgrep-registry-license
 append_help_link: true
 description: >-
-  Learn about licensing of Semgrep and the Semgrep Registry’s rules
+  The license used by some Semgrep Registry rules
 ---
 
 # Semgrep Registry license
