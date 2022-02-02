@@ -28,7 +28,10 @@ The root `Makefile` contains targets that take care of building the
 right things. It is commented. Please refer to it and keep it
 up-to-date.
 
-To link all necessary dependencies, run (at the repository root `semgrep/`)
+Run the below commands at the repository root (`semgrep/`, not `semgrep/semgrep/`),
+inside your pipenv shell.
+
+To link all necessary dependencies, run
 
 ```
 make dev-setup
