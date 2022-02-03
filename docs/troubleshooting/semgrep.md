@@ -5,7 +5,7 @@ description: "Ways you can get more information when semgrep CLI or CI hangs, cr
 
 import MoreHelp from "/src/components/MoreHelp"
 
-# Troubleshooting Semgrep 
+# Troubleshooting Semgrep
 
 ## Troubleshooting Semgrep CI/action/agent
 
@@ -15,9 +15,9 @@ If you're seeing results reported for files that weren't touched, Github actions
 
 The first piece of information we use are the github-action logs. You can send them to us by clicking the settings button next to "search logs" and then "download log archive".
 
-If this doesn't have the information we need, you can get more information by saving the logs semgrep-action produces. On each run, semgrep-action creates a `.semgrep_logs` folder and saves there: 
+If this doesn't have the information we need, you can get more information by saving the logs semgrep-action produces. On each run, semgrep-action creates a `.semgrep_logs` folder and saves there:
 
-- The debug logs 
+- The debug logs
 - The output collected from semgrep (including the timing data described below)
 - If run using a semgrep-app configuration, the flat list of rules run
 
@@ -50,13 +50,22 @@ semgrep:
 
 We currently don't have instructions for other providers, but logs for the action are always saved in `.semgrep_logs/`. There will be two files, `semgrep_agent_logs` and `semgrep_agent_output`. The former is a more verbose logging of what happened; the second contains the output that the action collected for semgrep. If you are running in docker, you can find the logs there.
 
+## Troubleshooting Semgrep CI
 
-## Troubleshooting Semgrep CLI 
+### Reproducing the run locally
+
+It is possible to reproduce some parts of Semgrep CI locally to aid in debugging through the following steps:
+
+- First go to the [API token page](https://semgrep.dev/orgs/-/settings/tokens) and create a new API token
+- Run `semgrep login` on your machine and paste your API key when prompted
+- Run `SEMGREP_REPO_NAME=<your-org-here>/<repo-name-here> semgrep --config policy` (For example, `SEMGREP_REPO_NAME=returntocorp/semgrep semgrep --config policy` would be used for the GitHub repository `returntocorp/semgrep`). This will fetch the rules configured on all Semgrep App policies for this repository and run a local Semgrep scan using those rules.
+
+## Troubleshooting Semgrep CLI
 
 
 ### Semgrep exited with code -11 (or -9)
 
-This can happen when Semgrep crashes, usually as a result of memory exhaustion. `-11` and `-9` are the POSIX signals raised to cause the crash. Try increasing your stack limit, as suggested (`ulimit -s [limit]`). If you are working in a container where you can set the memory you are working with, you can also try increasing this limit. Alternatively, you can add `--max-memory [limit]` to your Semgrep run, which will stop a rule/file scan if it reaches the limit. 
+This can happen when Semgrep crashes, usually as a result of memory exhaustion. `-11` and `-9` are the POSIX signals raised to cause the crash. Try increasing your stack limit, as suggested (`ulimit -s [limit]`). If you are working in a container where you can set the memory you are working with, you can also try increasing this limit. Alternatively, you can add `--max-memory [limit]` to your Semgrep run, which will stop a rule/file scan if it reaches the limit.
 
 Additionally, you can run Semgrep in singlethreaded mode with `--jobs 1`.
 
@@ -70,7 +79,7 @@ We record Semgrep runtimes for each file and rule. This information is displayed
 
 Just run Semgrep with `--time` and not `--json`. This will output a list of the rules and files that took the longest. Oftentimes, users find that those files shouldn't have been scanned in the first place.
 
-The first step to improving Semgrep's speed is limiting its run to only the files you care about. You can do this by adding a `.semgrepignore` file. See [how to ignore files & directories in Semgrep CI](/semgrep-ci/overview.md#ignoring-files-directories). 
+The first step to improving Semgrep's speed is limiting its run to only the files you care about. You can do this by adding a `.semgrepignore` file. See [how to ignore files & directories in Semgrep CI](/semgrep-ci/overview.md#ignoring-files-directories).
 
 If you're still slow, you may want to examine the slowest rules. You may find that some of them don't apply to your codebase and can be skipped.
 
@@ -121,9 +130,9 @@ For full timing information, run Semgrep with `--time` and `--json`. In addition
 
 All the information about timing is contained under `time`.
 
-The first section is `profiling_times`. This contains wall time durations of various steps we consider interesting: getting the rule config files (`config_time`), running the main engine (`core_time`), and processing the ignores (`ignores_time`). The `total_time` field represents the sum of these steps. 
+The first section is `profiling_times`. This contains wall time durations of various steps we consider interesting: getting the rule config files (`config_time`), running the main engine (`core_time`), and processing the ignores (`ignores_time`). The `total_time` field represents the sum of these steps.
 
-The remaining fields report engine performance. Together, `rule_parse_info` and `targets` should capture all the time spent running `semgrep-core`. 
+The remaining fields report engine performance. Together, `rule_parse_info` and `targets` should capture all the time spent running `semgrep-core`.
 
 `rule_parse_info` is straightfoward. It records the time spent parsing each rule.
 

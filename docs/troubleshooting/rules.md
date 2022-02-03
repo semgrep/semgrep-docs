@@ -57,7 +57,9 @@ If you isolated the issue to one specific pattern, here are some common issues t
 
 ## If a regex pattern doesn't match where it should
 
-When using `metavariable-regex`, the regex will match against all characters of the found metavariable. This means that if the metavariable matches a `"foo"` string in your code, the `metavariable-regex` pattern will run against a five character string with the quote characters at either end.
+- When using `metavariable-regex`, the regex will match against all characters of the found metavariable. This means that if the metavariable matches a `"foo"` string in your code, the `metavariable-regex` pattern will run against a five character string with the quote characters at either end.
+- Note that using the pipe (`|`) character will append a newline to your regex! If you are writing `pattern-regex: |` and then a newline with the regex, you almost certainly want the `|-` operator as in `pattern-regex: |-` to remove that trailing newline.
+
 
 ## How to get help
 
