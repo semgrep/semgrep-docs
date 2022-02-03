@@ -94,7 +94,8 @@ To create a rule in the advanced view:
 To **run a rule**: 
 
 1. Enter your own code snippet or use samples from the Playground.
-2. **Optional:** Use the `develop` branch docker image by clicking **Tools > Use develop docker image**. This docker image contains the latest code pushed to Semgrep's repository, including experimental features. 
+2. Optional: Use the `develop` branch docker image by clicking **Tools > Use develop docker image**. This docker image contains the latest code pushed to Semgrep's repository, including experimental features. 
+
 3. Press **Run** or **Ctrl+Enter**.
 
 To **use a sample** from the Playground:
