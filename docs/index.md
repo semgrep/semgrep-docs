@@ -31,7 +31,7 @@ The Semgrep ecosystem includes:
 
 * [Semgrep](getting-started/) - the open-source command line tool at the heart of everything
 * [Semgrep CI](semgrep-ci/overview/) - a specialized Docker image for running Semgrep in CI environments
-* [Semgrep Playground](https://semgrep.dev/editor) - an online interactive editor for writing and sharing rules
+* [Semgrep Playground](https://semgrep.dev/editor) - an online interactive tool for writing and sharing rules
 * [Semgrep Registry](https://semgrep.dev/explore) - 1,000+ community-driven rules covering security, correctness, and performance bugs
 * [Semgrep App](https://semgrep.dev/manage) - deploy, manage, and monitor Semgrep at scale with free and paid tiers
 
