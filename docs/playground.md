@@ -53,7 +53,8 @@ The following **metadata keys** are **supported** in simple view:
 
 The simple view has the following limitations:
 
-* It supports only **one language** per rule.
+* Supports only **one language** per rule.
+
 * It does **not** have support for the following operators: 
     * `pattern-not-regex`
     * `metavariable-regex`
