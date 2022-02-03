@@ -51,6 +51,7 @@ The following **metadata keys** are **supported** in simple view:
 * `technology`
 * `source-rule-url`
 
+#### Limitations of simple view
 The simple view has the following limitations:
 
 * Supports only **one language** per rule.
