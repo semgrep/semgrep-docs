@@ -241,7 +241,8 @@ To embed a rule:
     1. For signed-in users: `[username]:[rule-name]`, such as `ievans:print-to-logger`
     2. For anonymous users: `[4-letter shortcode]`, such as **dZkP**
 3. Create the **URL reference**. Substitute the identifier in this template: `https://semgrep.dev/embed/editor?snippet=IDENTIFIER`. For example, using the identifier ievans:print-to-logger creates `https://semgrep.dev/embed/editor?snippet=IDENTIFIER`.
-4. **Optional:** To test the URL reference, enter the URL in your browser's address bar.
+4. Optional: To test the URL reference, enter the URL in your browser's address bar.
+
 ![Screenshot of the embedded Playground in its own tab](img/playground-widget.png "Embedded playground in its own tab")
 5. In the following snippet, replace the `src` placeholder value with the previously-created **URL reference**:
 
