@@ -29,7 +29,7 @@ There are two ways to create a rule:
 
 ### Using simple view
 
-Simple view provides the** most common pattern-matching operators in Semgrep**. This view is used by default.
+Simple view provides the **most common pattern-matching operators in Semgrep**. This view is used by default.
 
 ![Screenshot of default playground view](img/playground.png "Default playground view")
 
