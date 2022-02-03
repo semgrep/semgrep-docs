@@ -178,7 +178,7 @@ To explicitly name a rule:
 
 To assign a random shortcode:
 
-1. Click **Share**. This will auto-generate a random shortcode and URL to access the rule.
+1. Click **Share**. This auto-generates a random shortcode and URL to access the rule.
 
 To retrieve or open a rule:
 
