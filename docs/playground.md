@@ -236,7 +236,7 @@ The Embedded Playground has two panes:
     <dd>This displays the rule data. The rule must have a **reference **(either a short identifier or saved name) from Semgrep Playground.</dd>
     <dt>Test Code</dt>
     <dd>This displays the code that the rule will act upon. On the bottom right is the Run button, which will run the rule on the test code.</dd>
-<dl>
+</dl>
 
 Both panes are editable, allowing viewers to try the Semgrep rule out for themselves or to change parts of the rule.
 
