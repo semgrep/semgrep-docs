@@ -19,7 +19,9 @@ Semgrep Playground is a live editor used to create and test rule patterns on sam
 
 There are two ways to create a rule:
 
-* **Simple view.** The simple view is best for quick and simple pattern-matching use cases, but does not display all of Semgrep's operators.
+<dl>
+    <dt>Simple view</dt>
+    <dd>The simple view is best for quick and simple pattern-matching use cases, but does not display all Semgrep operators.</dd>
 * **Advanced view.** The advanced view provides the minimum required keys for a Semgrep rule and expects users to fill in additional keys, such as pattern operators or metadata, to complete the rule.
 
 
