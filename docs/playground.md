@@ -175,7 +175,7 @@ To explicitly name a rule:
 
 1. Sign into Semgrep.
 2. Click the **Untitled rule** box.
-3. Enter the name of your rule and press **Save**.
+3. Enter the name of your rule and click **Save**.
 
 To assign a random shortcode:
 
