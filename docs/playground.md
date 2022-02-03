@@ -33,7 +33,7 @@ Simple view provides the **most common pattern-matching operators in Semgrep**. 
 
 ![Screenshot of default playground view](img/playground.png "Default playground view")
 
-The following **keys** are **supported** in Simple View:
+The following **keys** are **supported** in simple view:
 
 * `language`
 * `pattern`
@@ -45,18 +45,22 @@ The following **keys** are **supported** in Simple View:
 * `message`
 * `autofix`
 
+These keys appear as drop-down boxes.
+
 The following **metadata keys** are **supported** in simple view:
 
 * `category`
 * `technology`
 * `source-rule-url`
 
+To view these metadata keys, Click **Rule Metadata**.
+
 #### Limitations of simple view
-The simple view has the following limitations:
+Simple view has the following limitations:
 
 * Supports only **one language** per rule.
 
-* Does **not** include support for the following operators: 
+* Does **not** include support for the following operators:
 
     * `pattern-not-regex`
     * `metavariable-regex`
@@ -91,10 +95,10 @@ To create a rule in the advanced view:
 
 ## Running and testing a rule
 
-To **run a rule**: 
+To **run a rule**:
 
 1. Enter your own code snippet or use samples from the Playground.
-2. Optional: Use the `develop` branch docker image by clicking **Tools > Use develop docker image**. This docker image contains the latest code pushed to Semgrep's repository, including experimental features. 
+2. Optional: Use the `develop` branch docker image by clicking **Tools > Use develop docker image**. This docker image contains the latest code pushed to Semgrep's repository, including experimental features.
 
 3. Press **Run** or **Ctrl+Enter**.
 
@@ -190,7 +194,7 @@ To retrieve or open a rule:
 
 To rename a rule:
 
-1. Sign into Semgrep. 
+1. Sign into Semgrep.
 2. In the Playground, open the rule to rename.
 3. Enter a new name and press **Save**. This creates a new rule.
 4. Delete the old rule to complete the renaming process.
@@ -227,8 +231,12 @@ The **Embedded Playground** is an interactive editor which can be embedded in an
 
 The Embedded Playground has two panes:
 
-* **Rule Pane.** This displays the rule data. The rule must have a **reference **(either a short identifier or saved name) from Semgrep Playground.
-* **Test Code.** This displays the code that the rule will act upon. On the bottom right is the Run button, which will run the rule on the test code.
+<dl>
+    <dt>Rule Pane</dt>
+    <dd>This displays the rule data. The rule must have a **reference **(either a short identifier or saved name) from Semgrep Playground.</dd>
+    <dt>Test Code</dt>
+    <dd>This displays the code that the rule will act upon. On the bottom right is the Run button, which will run the rule on the test code.</dd>
+<dl>
 
 Both panes are editable, allowing viewers to try the Semgrep rule out for themselves or to change parts of the rule.
 
@@ -244,7 +252,6 @@ To embed a rule:
     2. For anonymous users: `[4-letter shortcode]`, such as **dZkP**
 3. Create the **URL reference**. Substitute the identifier in this template: `https://semgrep.dev/embed/editor?snippet=IDENTIFIER`. For example, using the identifier ievans:print-to-logger creates `https://semgrep.dev/embed/editor?snippet=IDENTIFIER`.
 4. Optional: To test the URL reference, enter the URL in your browser's address bar.
-
 ![Screenshot of the embedded Playground in its own tab](img/playground-widget.png "Embedded playground in its own tab")
 5. In the following snippet, replace the `src` placeholder value with the previously-created **URL reference**:
 
