@@ -250,7 +250,7 @@ To embed a rule:
 2. Copy the **identifier**. This comes in two patterns:
     1. For signed-in users: `[username]:[rule-name]`, such as `ievans:print-to-logger`
     2. For anonymous users: `[4-letter shortcode]`, such as **dZkP**
-3. Create the **URL reference**. Substitute the identifier in this template: `https://semgrep.dev/embed/editor?snippet=IDENTIFIER`. For example, using the identifier ievans:print-to-logger creates `https://semgrep.dev/embed/editor?snippet=IDENTIFIER`.
+3. Create the **URL reference**. Substitute the identifier in this template: `https://semgrep.dev/embed/editor?snippet=IDENTIFIER`. For example, using the identifier `ievans:print-to-logger` creates `https://semgrep.dev/embed/editor?snippet=ievans:print-to-logger`.
 4. Optional: To test the URL reference, enter the URL in your browser's address bar.
 ![Screenshot of the embedded Playground in its own tab](img/playground-widget.png "Embedded playground in its own tab")
 5. In the following snippet, replace the `src` placeholder value with the previously-created **URL reference**:
@@ -258,10 +258,10 @@ To embed a rule:
 ```
  <iframe title="Semgrep example no prints" src="URL_REFERENCE" width="100%" height="432" frameborder="0"></iframe>
 ```
-The finished result is:
+Our example's finished result is:
 
 ```
-<iframe title="Semgrep example no prints" src="https://semgrep.dev/embed/editor?snippet=IDENTIFIER" width="100%" height="432" frameborder="0"></iframe>
+<iframe title="Semgrep example no prints" src="https://semgrep.dev/embed/editor?snippet=ievans:print-to-logger" width="100%" height="432" frameborder="0"></iframe>
 ```
 
 <MoreHelp />
