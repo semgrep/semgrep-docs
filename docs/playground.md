@@ -206,7 +206,7 @@ Semgrep can be used in the following CI environments:
 * AppVeyor
 * TravisCI
 
-**Prerequisites:**
+### Prerequisites
 
 1. Ensure that you have sufficient permissions to update your CI environment.
 
