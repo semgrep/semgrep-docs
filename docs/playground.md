@@ -111,7 +111,7 @@ To **use a sample** from the Playground:
 
 100-line and 1000-line files are from random from GitHub open source projects.
 
-**Testing a rule** ensures that it meets your standards for precision and speed. Aside from running a rule on the Playground, it is possible to test a rule by creating comment annotations for intended and unintended matches. This is achieved by creating a test file. 
+**Testing a rule** ensures that it meets your standards for precision and speed. Aside from running a rule in the Playground, it is possible to test a rule by creating comment annotations for intended and unintended matches. You can achieve this by creating a test file.
 
 Refer to [Testing rules](../writing-rules/testing-rules) for the syntax and method to run test files.
 
