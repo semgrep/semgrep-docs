@@ -170,7 +170,7 @@ These benchmarks take into account the **visual complexity** of the rule.
 
 ## Saving and sharing a Semgrep rule
 
-A rule is saved by either **explicitly naming it** or when it is **assigned a shortcode** for sharing. Rules are **unlisted **by default. This means they do not appear publicly in the Registry[] nor can they be searched for, but are accessible via their sharing URL.
+A rule is saved by either **explicitly naming it** or when it is **assigned a shortcode** for sharing. Rules are **unlisted** by default. This means they do not appear publicly in the Registry[] nor can they be searched for, but are accessible through their sharing URL.
 
 To explicitly name a rule:
 
