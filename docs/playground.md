@@ -62,7 +62,8 @@ The simple view has the following limitations:
     * `metavariable-regex`
     * `metavariable-pattern`
     * `metavariable-comparison`
-* It does **not** support the following experimental features:
+* Does **not** support the following experimental features:
+
     * Join mode
     * Taint mode
 
