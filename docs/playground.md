@@ -165,7 +165,9 @@ These benchmarks take into account the **visual complexity** of the rule.
 
 ## Adding a rule to the Rule Board
 
-**Adding a rule to the [Rule Board](../semgrep-app/rule-board/)** allows you to quickly set a rule as part of every Semgrep scan. To add a rule to the Rule Board:
+The [Rule Board](../semgrep-app/rule-board/) displays rules that Semgrep App uses to scan your project's code. Adding a rule to the Rule Board allows you to quickly set a rule as part of every Semgrep scan.
+
+To add a rule to the Rule Board:
 
 1. Ensure that you are logged-in.
 2. Click **Add to Rule Board**.
