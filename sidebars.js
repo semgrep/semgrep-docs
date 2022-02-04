@@ -24,7 +24,7 @@ module.exports = {
         {
           type: 'category',
           label: 'Running rules',
-          items: ['rules', 'running-rules', 'managing-findings', 'semgrep-registry-license'],
+          items: ['rules', 'running-rules', 'managing-findings'],
         },
         {
           type: 'category',
@@ -46,6 +46,7 @@ module.exports = {
         'cli-usage',
         'ignoring-files-folders-code',
         'extensions',
+        'licensing',
         'faq',
         'metrics',
         {
