@@ -10,12 +10,59 @@ toc_max_heading_level: 2
 
 Welcome to Semgrep release notes. This document provides an overview of the changes, additions, and fixes made in different versions.
 
+## February 2022
+
+### Version 0.81.0
+
+#### Additions
+
+##### Dockerfile
+
+Improved support for metavariables and ellipses. ([#4556](https://github.com/returntocorp/semgrep/pull/4556), [#4577](https://github.com/returntocorp/semgrep/pull/4577))
+
+#### Fixes
+
+##### Java
+
+Match resources in Java try-with-resources statements. ([#4228](https://github.com/returntocorp/semgrep/issues/4228))
+
+#### Additional information
+
+To see the complete change notes, visit the [Semgrep changelog](https://github.com/returntocorp/semgrep/releases/tag/v0.81.0).
+
 ## January 2022
+
+### Version 0.80.0
+
+#### Additions
+
+##### Autocomplete
+
+Autocomplete is now available for CLI options.
+
+##### Dockerfile
+
+Support for Semgrep's metavariables where argument expansion is already supported. ([#4556](https://github.com/returntocorp/semgrep/pull/4556))
+
+#### Changes
+
+##### Ruby
+
+You can now use an atom to match an identifier of the same name. ([#4550](https://github.com/returntocorp/semgrep/issues/4550))
+
+#### Fixes
+
+##### Missing target file does not lead to Semgrep crash
+
+Before this update, handling a missing target file could crash Semgrep. This issue has been fixed. ([#4462](https://github.com/returntocorp/semgrep/issues/4462))
+
+#### Additional information
+
+To see the complete change notes, visit the [Semgrep changelog](https://github.com/returntocorp/semgrep/releases/tag/v0.80.0).
 
 ### Version 0.79.0
 
 #### Additions
-
 
 ##### Ignoring code
 
