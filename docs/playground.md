@@ -27,7 +27,7 @@ There are two ways to create a rule:
 </dl>
 
 
-### Using simple view
+### Learning Semgrep basics through simple view 
 
 Simple view provides the **most common pattern-matching operators in Semgrep**. This view is used by default.
 
@@ -82,7 +82,7 @@ To **create a rule** in simple view:
 6. Optional: Click on **Rule metadata** to enter additional metadata fields.
 
 
-### Using advanced view
+### Writing complex rules using the advanced view
 
 The advanced view is a YAML editor for writing a rule **using any valid key from the Semgrep [schema](../writing-rules/rule-syntax/)**. It provides default values for the minimum required keys for a Semgrep rule definition and expects the user to modify and add keys to finish the rule.
 
@@ -93,14 +93,13 @@ To create a rule in the advanced view:
 2. Enter the keys and values needed to finish your rule.
 
 
-## Running and testing a rule
+## Running and testing a rule for precision
 
 To **run a rule**:
 
 1. Enter your own code snippet or use samples from the Playground.
 2. Optional: Use the `develop` branch docker image by clicking **Tools > Use develop docker image**. This docker image contains the latest code pushed to Semgrep's repository, including experimental features.
-
-3. Press **Run** or **Ctrl+Enter**.
+3. Click **Run** or press **Ctrl+Enter** (**⌘++Enter** on Macs).
 
 To **use a sample** from the Playground:
 
@@ -111,7 +110,7 @@ To **use a sample** from the Playground:
     2. 100-line file
     3. 1000-line file
 3. The rule is executed automatically on the selected option.
-4. To run again, press Run or type **Ctrl+Enter**.
+4. To run again, click Run or press **Ctrl+Enter** (**⌘++Enter** on Macs).
 
 100-line and 1000-line files are from random from GitHub open source projects.
 
@@ -163,9 +162,9 @@ The **Performance **column displays how long it takes in seconds for Semgrep to 
 These benchmarks take into account the **visual complexity** of the rule.
 
 
-## Adding a rule to the Rule Board
+## Setting code standards by adding a rule to the Rule Board
 
-The [Rule Board](../semgrep-app/rule-board/) displays rules that Semgrep App uses to scan your project's code. Adding a rule to the Rule Board allows you to quickly set a rule as part of every Semgrep scan.
+The [Rule Board](../semgrep-app/rule-board/) displays rules that Semgrep App uses to scan your project's code. Adding a rule to the Rule Board allows you to quickly set a rule as part of every Semgrep scan. A rule on the Rule Board is represented as a card and can be placed on either the Audit Board or the Block board depending on the importance of the rule. Rules can be dragged from one column to another.
 
 To add a rule to the Rule Board:
 
@@ -173,10 +172,9 @@ To add a rule to the Rule Board:
 2. Click **Add to Rule Board**.
 3. Select either the Audit or Block boards depending on the importance of the rule. Matches for rules on the Block board will prevent PR merges within a CI environment.
 
-
 ## Saving and sharing a Semgrep rule
 
-A rule is saved by either **explicitly naming it** or when it is **assigned a shortcode** for sharing. Rules are **unlisted** by default. This means they do not appear publicly in the Registry[] nor can they be searched for, but are accessible through their sharing URL.
+A rule is saved by either **explicitly naming it** or when it is **assigned a shortcode** for sharing. Rules are **unlisted** by default. This means they do not appear publicly in the Registry nor can they be searched for, but are accessible through their sharing URL.
 
 To explicitly name a rule:
 
