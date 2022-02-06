@@ -19,7 +19,7 @@ The [Semgrep command line tool](https://github.com/returntocorp/semgrep) is open
 
 The [Semgrep Registry](https://semgrep.dev/explore) contains rules from different contributors. Most rules, including all community-contributed rules, are under [MIT license](https://tldrlegal.com/license/mit-license). Some of the Registry rules written by r2c are licensed under the [Semgrep Registry license](../licensing/#semgrep-registry-license).
 
-The source for many r2c-written Registry rules is available at [returntocorp/semgrep-rules](https://github.com/returntocorp/semgrep-rules/). Those licensed under the Semgrep Registry license they can’t be resold without r2c’s permission. Since r2c offers a paid, hosted application (Semgrep App), it’s important to have this restriction so other companies, like major cloud providers, can’t just resell our rules as a competing service.
+The source for many r2c-written Registry rules is available at [returntocorp/semgrep-rules](https://github.com/returntocorp/semgrep-rules/). Those licensed under the Semgrep Registry license can’t be resold without r2c’s permission. Since r2c offers a paid, hosted application (Semgrep App), it’s important to have this restriction so other companies, like major cloud providers, can’t just resell our rules as a competing service.
 
 #### Is it ok to run Semgrep or the r2c rules on my work projects?
 
