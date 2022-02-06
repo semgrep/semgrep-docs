@@ -9,7 +9,7 @@ description: >-
 
 ## Semgrep
 
-Semgrep is [licensed under GPL](https://github.com/returntocorp/semgrep/blob/develop/LICENSE).
+Semgrep is [licensed under GPL v3](https://github.com/returntocorp/semgrep/blob/develop/LICENSE).
 
 ## Semgrep rules
 
