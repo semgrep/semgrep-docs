@@ -46,6 +46,7 @@ module.exports = {
         'cli-usage',
         'ignoring-files-folders-code',
         'extensions',
+        'licensing',
         'faq',
         'metrics',
         {
