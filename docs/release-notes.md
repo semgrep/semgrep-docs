@@ -18,7 +18,7 @@ Welcome to Semgrep release notes. This document provides an overview of the chan
 
 ##### Dockerfile
 
-Improved support for metavariables and ellipses. ([#4556](https://github.com/returntocorp/semgrep/pull/4556), [#4577](https://github.com/returntocorp/semgrep/pull/4577))
+Complete support for metavariables and anonymous ellipses except in ENV instructions. ([#4556](https://github.com/returntocorp/semgrep/pull/4556), [#4577](https://github.com/returntocorp/semgrep/pull/4577))
 
 #### Fixes
 
@@ -400,7 +400,7 @@ Semgrep's CLI output no longer displays severity levels.
 
 ##### Scanning for executable scripts with shebang
 
-Previously, Semgrep only scanned files that matched a file extension for the language that was scanned. Scripting languages are often written extensionless with the script interpreter in a shebang. Now, Semgrep now scans executable scripts in which shebang interpreter directives match the language of the rule. ([#3986](https://github.com/returntocorp/semgrep/pull/3986))
+Previously, Semgrep only scanned files that matched a file extension for the language that was scanned. Scripting languages are often written extensionless with the script interpreter in a shebang. Now, Semgrep scans executable scripts in which shebang interpreter directives match the language of the rule. ([#3986](https://github.com/returntocorp/semgrep/pull/3986))
 
 #### Additional information
 
