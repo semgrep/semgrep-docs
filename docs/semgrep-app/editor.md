@@ -112,9 +112,9 @@ In the following example, run the rule and click on the three-dot menu to view t
 To **test a rule**:
 
 1. Create at least one **true positive**: a code sample intended to match the rule.
-2. Above this potential match, create a comment, followed by a space (` `), followed by `ruleid:RULE_ID` which specifies the rule that should match. In the preceding example, this is `//ruleid:hardcoded-conditional`.
+2. Above this potential match, create a comment, followed by a space (` `), followed by `ruleid:RULE_ID` which specifies the rule that should match. In the preceding example, this is `// ruleid:hardcoded-conditional`.
 3. Create at least one **true negative**: a code sample intended not to match the rule.
-4. Above this non-match, create a comment followed by a space ( ), followed by `ok:RULE_ID`.
+4. Above this non-match, create a comment followed by a space ( ), followed by `ok:RULE_ID`. For example, `// ok:hardcoded-conditional`.
 5. Optional: add more code samples with their corresponding annotations.
 6. Click **Run**. Semgrep will detect the annotations and validate the rule based on your tests.
 
