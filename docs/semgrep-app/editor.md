@@ -90,7 +90,7 @@ Another method of creating rules is by **forking/copying** from existing rules f
 
 ### Debugging syntax issues
 
-The editor will not save, share, or run if the YAML syntax is **unparseable**. The editor supports error handling, such as for the following cases:
+The editor will not save, share, or run if the YAML syntax is **unparseable**. The editor supports error handling, for the following cases:
 
 - Invalid language keys
 - Incorrect severity fields
@@ -140,7 +140,7 @@ To delete a rule, right click on its entry in the Library pane and select **Dele
 
 ## Setting code standards with the Rule Board
 
-Adding a rule to the Rule Board institutionalizes the rule to be applied to all projects scanned by Semgrep App. The rule can be added to either the **Audit** or **Blocker** columns. Rules in the Blocker column will prevent PRs from being merged until the finding is resolved.
+Adding a rule to the Rule Board applies the rule across all projects scanned by Semgrep App. The rule can be added to either the **Audit** or **Blocker** columns. Rules in the Blocker column will prevent PRs from being merged until the finding is resolved.
 
 To add a rule to the Rule Board:
 
@@ -151,7 +151,7 @@ To add a rule to the Rule Board:
 
 ## Contributing to the open-source Semgrep Registry
 
-r2c, the maintainers of Semgrep, welcome contributions to the Registry. This is achieved by creating a pull request (PR) either on the repository itself or through the Editor. Contributions to the Registry can be discovered by anyone through the [Registry front-end](https://semgrep.dev/explore) and Editor.
+r2c, the maintainers of Semgrep, welcome contributions to the Registry. This is achieved by creating a pull request (PR) either on the repository itself or through the Editor. Contributions to the Registry can be discovered by anyone through the [Registry](https://semgrep.dev/explore) and Editor.
 
 Guidelines for faster rule acceptance:
 
