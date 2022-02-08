@@ -180,7 +180,7 @@ Parse_python.parse                       :      0.828 sec          1 count
 This is especially useful when you don't call directly semgrep-core, but
 instead use the python wrapper semgrep.
 
-Note that since semgrep 0.82, you can pass the `--dump-command-for-core` (or the shorter `-d`) to `semgrep` to get the command the python wrapper will use to call semgrep-core. For example:
+Note that since semgrep 0.82, you can pass the `--dump-command-for-core` (or the shorter `-d`) to `semgrep` to get the command the python wrapper will use to call semgrep-core (this is an hidden option, which is why you will not see it in `semgrep --help`). For example:
 
 ```bash
 $ semgrep --dump-command-for-core --config bench/zulip/input/rules/zulip/rules.zulip.semgrep.yml.yaml bench/zulip/input/zulip/
