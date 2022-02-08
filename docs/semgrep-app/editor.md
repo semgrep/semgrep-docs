@@ -140,7 +140,7 @@ To delete a rule, right click on its entry in the Library pane and select **Dele
 
 ## Setting code standards with the Rule Board
 
-Adding a rule to the Rule Board institutionalizes the rule to be applied to all projects scanned by Semgrep App. The rule can be added to either the **Audit** or **Blocker** columns. Rules in the Blocker column will prevent PRs from being merged until the finding is resolved.
+Adding a rule to the Rule Board applies the rule across all projects scanned by Semgrep App. The rule can be added to either the **Audit** or **Blocker** columns. Rules in the Blocker column will prevent PRs from being merged until the finding is resolved.
 
 To add a rule to the Rule Board:
 
