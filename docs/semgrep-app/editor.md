@@ -90,7 +90,7 @@ Another method of creating rules is by **forking/copying** from existing rules f
 
 ### Debugging syntax issues
 
-The editor will not save, share, or run if the YAML syntax is **unparseable**. The editor supports error handling, such as for the following cases:
+The editor will not save, share, or run if the YAML syntax is **unparseable**. The editor supports error handling, for the following cases:
 
 - Invalid language keys
 - Incorrect severity fields
