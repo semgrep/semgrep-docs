@@ -67,6 +67,7 @@ module.exports = {
       label: 'Semgrep App',
       items: ['semgrep-app/rule-board', 'semgrep-app/managing-policy', 'semgrep-app/findings','semgrep-app/integrations', 'semgrep-app/notifications', 'semgrep-app/sso', 'semgrep-app/rbac', 'semgrep-app/pricing-and-billing'],
     },
+    'playground',
     {
       type: 'category',
       label: 'Troubleshooting',
