@@ -136,7 +136,7 @@ Check that the **Language is** value and **Test code** language match. Use full 
 Check your metavariable definitions, and use of operators. Metavariables must be uppercase letters preceded by a dollar sign $, such as `$PAYMENT_OUTPUT` or `$X`. Refer to [Pattern syntax](../writing-rules/pattern-syntax/).
 
 
-#### The YAML syntax is unparsable in Advanced view
+#### The YAML syntax is unparsable in the Advanced view
 
 Check for spelling and indentation issues. The key names must match [Semgrep's schema](../writing-rules/rule-syntax/).
 
