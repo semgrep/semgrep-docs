@@ -77,7 +77,7 @@ To **create a rule** in simple view:
 ![Screenshot of simple view](img/playground-simple-view.png "Playground simple view")
 2. Click **File > New** to start from a blank slate.
 3. Select a language from the **language is** drop-down box to specify a language in which the test code is written.
-4. Enter the pattern to test for after the **code is** button.
+4. After the **code is** button, enter the pattern to test.
 5. Optional: Click on the **plus** button to add fields for additional operators. Select the pattern operator and enter the pattern.
 6. Optional: Click on **Rule metadata** to enter additional metadata fields.
 
