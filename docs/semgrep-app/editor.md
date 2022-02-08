@@ -86,7 +86,7 @@ Another method of creating rules is by **forking/copying** from existing rules f
 6. Click **Run** to validate your rule.
 7. Click **Save** to save your rule. The following rule displays the end result.
 
-[https://semgrep.dev/embed/editor?snippet=s-santillan:use-of-md2](https://semgrep.dev/embed/editor?snippet=s-santillan:use-of-md2)
+<iframe title="Prevent use of MD2" src="https://semgrep.dev/embed/editor?snippet=s-santillan:use-of-md2" width="100%" height="432px" frameBorder="0"></iframe>
 
 ### Debugging syntax issues
 
@@ -105,9 +105,9 @@ If no schema or spelling errors are detected, check for indentation or newline i
 
 Evaluating a rule through testing ensures that it meets your standards for precision and speed, thus **reducing false positives**. Semgrep uses certain annotations in comments to enable users to test which blocks of code are intended to match with a rule, and which blocks of code should not match.
 
-In the following example, run the rule and click on the three-dot menu to see that all tests pass.
+In the following example, run the rule and click on the three-dot menu to view the result of the tests.
 
-[https://semgrep.dev/embed/editor?snippet=7n1W](https://semgrep.dev/embed/editor?snippet=7n1W)
+<iframe title="Testing example" src="https://semgrep.dev/embed/editor?snippet=s-santillan:snippet=7n1W" width="100%" height="432px" frameBorder="0"></iframe>
 
 To **test a rule**:
 
@@ -148,7 +148,6 @@ To add a rule to the Rule Board:
 2. Select which column (Audit or Blocker) to add the rule to, depending on the rule’s relevance.
 3. The rule appears on your Rule Board, under the corresponding column.
 
-[img: Adding rule (to add once updates are pushed to prod)]
 
 ## Contributing to the open-source Semgrep Registry
 
@@ -197,7 +196,7 @@ Guidelines for faster rule acceptance:
 
 To **create a PR** from the Editor:
 
-1. Click **Share > Public**.
+1. Click **Share > Public.**
 2. Optional: Enter the path to the rule following the namespace `language.group.subgroup.rule_name`. A repository maintainer can also set this for the rule.
 3. Optional: Preview the rule.
 4. Click **Create PR**.
