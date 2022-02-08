@@ -27,13 +27,13 @@ There are two ways to create a rule:
 </dl>
 
 
-### Learning Semgrep basics through simple view 
+### Learning Semgrep basics through the simple view 
 
-Simple view provides the **most common pattern-matching operators in Semgrep**. This view is used by default.
+The simple view provides the **most common pattern-matching operators in Semgrep**. This view is used by default.
 
 ![Screenshot of default playground view](img/playground.png "Default playground view")
 
-The following **keys** are **supported** in simple view:
+The following **keys** are **supported** in this view:
 
 * `language`
 * `pattern`
@@ -47,7 +47,7 @@ The following **keys** are **supported** in simple view:
 
 These keys appear as drop-down boxes.
 
-The following **metadata keys** are **supported** in simple view:
+The following **metadata keys** are **supported** in this view:
 
 * `category`
 * `technology`
@@ -55,8 +55,9 @@ The following **metadata keys** are **supported** in simple view:
 
 To view these metadata keys, Click **Rule Metadata**.
 
-#### Limitations of simple view
-Simple view has the following limitations:
+#### Limitations of the simple view
+
+The simple view has the following limitations:
 
 * Supports only **one language** per rule.
 
@@ -66,15 +67,16 @@ Simple view has the following limitations:
     * `metavariable-regex`
     * `metavariable-pattern`
     * `metavariable-comparison`
+
 * Does **not** support the following experimental features:
 
     * Join mode
     * Taint mode
 
-To **create a rule** in simple view:
+To **create a rule** in the simple view:
 
-1. Ensure that you are in simple view:
-![Screenshot of simple view](img/playground-simple-view.png "Playground simple view")
+1. Ensure that you are in the **Simple view**:
+![Screenshot of the simple view](img/playground-simple-view.png "Playground simple view")
 2. Click **File > New** to start from a blank slate.
 3. Select a language from the **language is** drop-down box to specify a language in which the test code is written.
 4. After the **code is** button, enter the pattern to test.
@@ -88,8 +90,8 @@ The advanced view is a YAML editor for writing a rule **using any valid key from
 
 To create a rule in the advanced view:
 
-1. Ensure that you're in **Advanced view**.
-![Screenshot of advanced view](img/playground-advanced-view.png "Playground advanced view")
+1. Ensure that you are in the **Advanced view**.
+![Screenshot of the advanced view](img/playground-advanced-view.png "Playground advanced view")
 2. Enter the keys and values needed to finish your rule.
 
 
@@ -136,7 +138,7 @@ Check that the **Language is** value and **Test code** language match. Use full 
 Check your metavariable definitions, and use of operators. Metavariables must be uppercase letters preceded by a dollar sign $, such as `$PAYMENT_OUTPUT` or `$X`. Refer to [Pattern syntax](../writing-rules/pattern-syntax/).
 
 
-#### The YAML syntax is unparsable in the Advanced view
+#### The YAML syntax is unparsable in the advanced view
 
 Check for spelling and indentation issues. The key names must match [Semgrep's schema](../writing-rules/rule-syntax/).
 
