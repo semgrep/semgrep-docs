@@ -95,6 +95,20 @@ dt {
     font-weight:700;
 }
 
+dd > ul {
+    margin: unset;
+}
+dd {
+    margin-bottom: 0.3rem;
+}
+
+dl {
+    margin-bottom: var(--ifm-leading);
+}
+
+.bordered {
+    border: 2px solid black;
+}
 
 /* navbar */
 
