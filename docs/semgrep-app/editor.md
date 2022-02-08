@@ -151,7 +151,7 @@ To add a rule to the Rule Board:
 
 ## Contributing to the open-source Semgrep Registry
 
-r2c, the maintainers of Semgrep, welcome contributions to the Registry. This is achieved by creating a pull request (PR) either on the repository itself or through the Editor. Contributions to the Registry can be discovered by anyone through the [Registry front-end](https://semgrep.dev/explore) and Editor.
+r2c, the maintainers of Semgrep, welcome contributions to the Registry. This is achieved by creating a pull request (PR) either on the repository itself or through the Editor. Contributions to the Registry can be discovered by anyone through the [Registry](https://semgrep.dev/explore) and Editor.
 
 Guidelines for faster rule acceptance:
 
