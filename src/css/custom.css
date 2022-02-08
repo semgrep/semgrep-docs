@@ -106,6 +106,10 @@ dl {
     margin-bottom: var(--ifm-leading);
 }
 
+.bordered {
+    border: 2px solid black;
+}
+
 /* navbar */
 
 .navbar {

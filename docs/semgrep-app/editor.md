@@ -57,7 +57,11 @@ Semgrep Registry rules are initially grouped by **directory**. Most of these dir
 
 To group by ruleset, right click on the empty space on the **official registry** entry and select **Group by ruleset**.
 
-![editor-groupbyruleset.png](../img/editor-groupbyruleset.png)
+<div class = "bordered">
+
+![Screenshot of the Editor's right click menu to group by rulesets](../img/editor-groupbyruleset.png)
+
+</div>
 
 ## Creating a rule
 
@@ -75,11 +79,10 @@ Refer to [Rule syntax](https://semgrep.dev/docs/writing-rules/rule-syntax/) for 
 
 Another method of creating rules is by **forking/copying** from existing rules found in Semgrep Registry. For example, Semgrep’s Java `crypto` ruleset prohibits the use of weak hashing algorithms `SHA-1` and `MD5`. An organization may want to further limit the use of other hash functions as part of their standards or security compliance. The next steps illustrate forking through copying an existing `use-of-sha1` rule and changing the rule to forbid MD2 hashes.
 
-1. Enter related terms into the search bar to find potential rules. In our example, this is `SHA1.`
-![Screenshot of Library pane with SHA1 filter](../img/editor-SHA1.png)
-
-2. Registry rules cannot be edited directly. They can be **forked** by **right-clicking on their entry** in the Library and selecting **Fork rule.**
-![Screenshot of forking menu](../img/editor-forking.png)
+1. Enter related terms into the search bar to find potential rules. In our example, this is `SHA1.` <div class="bordered">
+![Screenshot of Library pane with SHA1 filter](../img/editor-SHA1.png)</div>
+2. Registry rules cannot be edited directly. They can be **forked** by **right-clicking on their entry** in the Library and selecting **Fork rule.** <div class = "bordered">
+![Screenshot of forking menu](../img/editor-forking.png) </div>
 3. The rule is copied to your organization’s rules.
 4. Enter edits to finalize your rule. In this example, the patterns are changed to find matches for [MD2](https://docs.oracle.com/javase/9/docs/specs/security/standard-names.html#messagedigest-algorithms) and the severity is increased from `WARNING` to `ERROR`.
 5. Enter updates to test cases.
@@ -107,7 +110,7 @@ Evaluating a rule through testing ensures that it meets your standards for preci
 
 In the following example, run the rule and click on the three-dot menu to view the result of the tests.
 
-<iframe title="Testing example" src="https://semgrep.dev/embed/editor?snippet=s-santillan:snippet=7n1W" width="100%" height="432px" frameBorder="0"></iframe>
+<iframe title="Testing example" src="https://semgrep.dev/embed/editor?snippet=7n1W" width="100%" height="432px" frameBorder="0"></iframe>
 
 To **test a rule**:
 
