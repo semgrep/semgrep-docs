@@ -25,7 +25,7 @@ Semgrep App, which builds on Semgrep CLI and CI, enables developer and security 
 Semgrep App has three tiers:
 
 | Tier | Price | Description |
-| ---- | ------- | -------- | 
+| ---- | ------- | -------- |
 | **Community** | Free | For general-purpose security scanning.  |
 | **Team** | US$40 monthly per seat | For the enforcement of company-specific coding standards, private rules, and the analysis of findings.  |
 | **Enterprise** | Custom pricing | For custom solutions, including deployment into virtual private clouds (VPCs) with dedicated technical support.  |
@@ -48,17 +48,20 @@ Members who do **not** run any scans on their code do not need a seat and are no
 #### Findings, language support, and rules
 
 | Feature  | Community | Team | Enterprise |
-| -------  | --------- | ------- | -------- | 
+| -------  | --------- | ------- | -------- |
 | **Findings retention** | 1 month | 1 year | 1 year+ (custom) |
-| **Community rule registry** | ✔️ yes | ✔️  yes  | ✔️  yes | 
+| **Community rule registry** | ✔️ yes | ✔️  yes  | ✔️  yes |
 | **Named rules** | ✔️ yes | ✔️ yes | ✔️  yes |
+| **Editor** | ✔️ yes | ✔️ yes | ✔️  yes |
 | **Private rules** | ❌ no | ✔️ yes | ✔️  yes |
+| **Developer feedback** | ❌ no | ✔️ yes | ✔️  yes |
 | **Custom rule messages** | ❌ no | ✔️  yes | ✔️  yes |
 | **Custom language support** | ❌ no | ❌ no | ✔️  yes |
 
 Notes:
 
 * **Named rules** are rules that have been saved through the [Playground](https://semgrep.dev/editor). The Playground is an online tool where you can write your rule patterns and test them on sample code. Named rules created by Community tier members are public and available in the Playground.
+* [The Editor](../editor) is a live, interactive tool for writing rules. The Editor is free for all tiers, but writing and managing **private rules** is a **Team/Enterprise tier** feature.
 * **Custom rule messages** can be applied to public and private rules.
 
 #### Deployment, integrations, and notifications
