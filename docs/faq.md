@@ -68,7 +68,7 @@ As Semgrep evolves, a query like `foo("password")` becomes smarter. In the origi
 
 **3. Integrated: Semgrep understands git and other version-control systems**
 
-It’s easy to write a new Semgrep rule and have it only apply _going forward_. You can [mute findings](../ignoring-findings/) of course, but we have [built-in support for this with Semgrep CI](/semgrep-ci/overview/) and GitHub/GitLab/etc. integrations.
+It’s easy to write a new Semgrep rule and have it only apply _going forward_. You can [ignore findings](../ignoring-files-folders-code) of course, but we have [built-in support for this with Semgrep CI](/semgrep-ci/overview/) and GitHub/GitLab/etc. integrations.
 
 **4. Portable: If you write a Semgrep rule, it runs anywhere**
 
