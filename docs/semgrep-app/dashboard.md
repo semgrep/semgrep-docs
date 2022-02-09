@@ -108,7 +108,7 @@ In Team/Enterprise Dashboards, these additional metrics are visible:
 * Most disliked
 * Slowest
 
-The **Most disliked** metric is taken from the **Developer Feedback** feature. It is a simple poll conducted by the Semgrep bot within Github in which developers vote on the usefulness of a rule. This feature is available for Team/Enterprise users.
+The **Most disliked** metric is taken from the **Developer Feedback** feature. Developers are able to provide feedback on findings that are not the most accurate. This feature is available for Team/Enterprise users.
 
 ![Screenshot of developer feedback end flow](../img/dashboard-devfeedback2.png)
 
