@@ -58,23 +58,23 @@ These community projects are designed to test code scanners and teach security c
 ```sh
 # juice-shop, a vulnerable Node.js + Express app
 $ git clone https://github.com/bkimminich/juice-shop
-$ semgrep --config p/security-audit juice-shop
+$ semgrep --config=auto juice-shop
 
 # railsgoat, a vulnerable Ruby on Rails app
 $ git clone https://github.com/OWASP/railsgoat
-$ semgrep --config p/security-audit railsgoat
+$ semgrep --config=auto railsgoat
 
 # govwa, a vulnerable Go app
 $ git clone https://github.com/0c34/govwa
-$ semgrep --config p/security-audit govwa
+$ semgrep --config=auto govwa
 
 # vulnerable Python + Flask app
 $ git clone https://github.com/we45/Vulnerable-Flask-App
-$ semgrep --config p/security-audit Vulnerable-Flask-App
+$ semgrep --config=auto Vulnerable-Flask-App
 
 # WebGoat, a vulnerable Java + Spring app
 $ git clone https://github.com/WebGoat/WebGoat
-$ semgrep --config p/security-audit WebGoat
+$ semgrep --config=auto WebGoat
 ```
 
 </p>
