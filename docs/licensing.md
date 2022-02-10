@@ -7,15 +7,6 @@ description: >-
 
 # Licensing
 
-## Semgrep
-
-Semgrep is [licensed under GPL v3](https://github.com/returntocorp/semgrep/blob/develop/LICENSE).
-
-## Semgrep rules
-
-### Community-contributed rules
-
-All community-contributed rules in the Semgrep Registry are licensed under [MIT license](https://github.com/returntocorp/semgrep-rules/blob/develop/LICENSE).
 
 ### r2c-written rules
 
