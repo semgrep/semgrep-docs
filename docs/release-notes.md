@@ -24,7 +24,7 @@ With this update, you can use experimental baseline scanning by issuing the foll
 semgrep --baseline-commit GIT_COMMIT_HASH
 ```
 
-Use this option with a commit hash or a branch name. The `--baseline-commit` option limits the scan results introduced after the commit you specify.
+Use this option with a commit hash or a branch name. The `--baseline-commit` option limits the scan results to those introduced after the commit you specify.
 For example, you have a repository with 10 commits, use the commit hash of the 8th commit, and Semgrep returns scan results introduced by changes in commits 9 and 10. ([#4571](https://github.com/returntocorp/semgrep/pull/4571))
 
 #### Changes
