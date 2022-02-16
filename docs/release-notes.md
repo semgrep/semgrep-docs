@@ -872,7 +872,7 @@ This version also includes release notes for Semgrep version 0.53.0.
 
 ```
 
-$ARG = [$V];
+ARG = [$V];
 
 ...
 

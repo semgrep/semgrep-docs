@@ -69,7 +69,7 @@ eval(safe_get_user_input())
 Run the tests with the following:
 
 ```sh
-$ python -m semgrep --quiet --test rules/
+python -m semgrep --quiet --test rules/
 1 yaml files tested
 check id scoring:
 --------------------------------------------------------------------------------
@@ -89,7 +89,7 @@ final confusion matrix: TP: 1 TN: 2 FP: 1 FN: 1
 To avoid failing on TODOs you can specify `--test-ignore-todo`:
 
 ```sh
-$ python -m semgrep --quiet --test --test-ignore-todo rules/
+python -m semgrep --quiet --test --test-ignore-todo rules/
 1 yaml files tested
 check id scoring:
 --------------------------------------------------------------------------------
@@ -103,7 +103,7 @@ final confusion matrix: TP: 1 TN: 1 FP: 0 FN: 0
 To store rules and test targets in different directories you can specify `--config`:
 
 ```sh
-$ tree tests
+tree tests
 tests
 ├── rules
 │   └── python
@@ -116,7 +116,7 @@ tests
 ```
 
 ```sh
-$ python -m semgrep --quiet --test --config /tmp/tests/rules/ /tmp/tests/targets/
+python -m semgrep --quiet --test --config /tmp/tests/rules/ /tmp/tests/targets/
 1 yaml files tested
 check id scoring:
 --------------------------------------------------------------------------------

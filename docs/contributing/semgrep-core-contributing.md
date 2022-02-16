@@ -138,11 +138,11 @@ The source of Semgrep contains also a .vscode/ directory at its root containing 
 Note that dune and ocamlmerlin must be in your PATH for vscode to correctly build and provide cross-reference on the code. In case of problems, do:
 
 ```bash
-$ cd /path/to/semgrep
-$ eval $(opam env)
-$ dune        --version # just checking dune is in your PATH
-$ ocamlmerlin -version  # just checking ocamlmerlin is in your PATH
-$ code .
+cd /path/to/semgrep
+eval $(opam env)
+dune        --version # just checking dune is in your PATH
+ocamlmerlin -version  # just checking ocamlmerlin is in your PATH
+code .
 ```
 
 ## Testing performance
@@ -153,8 +153,8 @@ You can pass the -profile command-line argument to semgrep-core to get
 a short profile of the code, for example:
 
 ``` bash
-$ cd semgrep-core
-$ ./bin/semgrep-core -profile -e foo tests/python
+cd semgrep-core
+./bin/semgrep-core -profile -e foo tests/python
 ---------------------
 profiling result
 ---------------------
@@ -183,7 +183,7 @@ instead use the python wrapper semgrep.
 Note that since semgrep 0.82, you can pass the `--dump-command-for-core` (or the shorter `-d`) to `semgrep` to get the command the python wrapper will use to call semgrep-core (this is an hidden option, which is why you will not see it in `semgrep --help`). For example:
 
 ```bash
-$ semgrep --dump-command-for-core --config bench/zulip/input/rules/zulip/rules.zulip.semgrep.yml.yaml bench/zulip/input/zulip/
+semgrep --dump-command-for-core --config bench/zulip/input/rules/zulip/rules.zulip.semgrep.yml.yaml bench/zulip/input/zulip/
 Running 10 rules...
 /home/pad/github/semgrep/semgrep/semgrep/bin/semgrep-core -json -rules semgrep_rules.yaml -j 20 -targets semgrep_targets.txt -timeout 30 -timeout_threshold 0 -max_memory 0 -json_time -fast
 ```
