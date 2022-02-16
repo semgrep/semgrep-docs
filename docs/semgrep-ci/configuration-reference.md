@@ -37,7 +37,7 @@ since branching off from your `main` branch, set the following:
 To only report findings newly added
 after a specific commit, set the following:
     ```sh
-    SEMGREP_BASELINE_REF=<GIT_COMMIT_HASH>
+    SEMGREP_BASELINE_REF=<font color='red'>*GIT_COMMIT_HASH*</font>
     ```
 
 ## Connect to Semgrep App (`SEMGREP_APP_TOKEN`)
