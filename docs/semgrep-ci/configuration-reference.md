@@ -22,9 +22,9 @@ SEMGREP_RULES="p/security-audit p/secrets"
 
 ## Diff-aware scanning (`SEMGREP_BASELINE_REF`)
 
-For [diff-aware scans](overview.md#features), set this variable to create a baseline. This option limits scan results to those introduced after the git commit, in a branch, or tag. For example, you have a repository with 10 commits. You set the commit number 8 as the baseline. Consequently, Semgrep only returns scan results introduced by changes in commits 9 and 10.
+For [diff-aware scans](overview.md#features), set this variable to compare to a baseline. This option limits scan results to those introduced after the git commit, in a branch, or tag. For example, you have a repository with 10 commits. You set the commit number 8 as the baseline. Consequently, Semgrep only returns scan results introduced by changes in commits 9 and 10.
 
-NOTE: It is best to perform diff scans on branches other than your `main` branch. Performing a diff scan after a full-project scan of the same branch closes findings of the full-project. All findings of a particular branch are marked as fixed when the branch is re-scanned. As a consequence, Semgrep no longer reports their findings.
+NOTE: It is best to perform diff scans on branches other than your `main` branch. Performing a diff scan after a full-project scan of the same branch closes findings of the full-project. All findings of a particular branch are marked as fixed when the branch is re-scanned. As a consequence, Semgrep no longer reports its findings.
 
 ### Examples of `SEMGREP_BASELINE_REF`
 
