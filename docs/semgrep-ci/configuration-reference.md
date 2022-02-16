@@ -30,15 +30,15 @@ NOTE: It is recommended to perform baseline scans on branches other than your `m
 
 To only report findings newly added
 since branching off from your `main` branch, set the following:
-    ```sh
-    SEMGREP_BASELINE_REF=$(git merge-base main HEAD)
-    ```
+```sh
+SEMGREP_BASELINE_REF=$(git merge-base main HEAD)
+```
 
 To only report findings newly added
 after a specific commit, set the following:
-    ```sh
-    SEMGREP_BASELINE_REF=<font color='red'>*GIT_COMMIT_HASH*</font>
-    ```
+```sh
+SEMGREP_BASELINE_REF=<font color='blue'>*GIT_COMMIT_HASH*</font>
+```
 
 ## Connect to Semgrep App (`SEMGREP_APP_TOKEN`)
 
