@@ -1,4 +1,4 @@
-# Recursive Join Demo
+# Recursive joins
 
 Join mode is an extension on top of Semgrep that runs multiple rules at once and only returns results if certain conditions are met. Join mode is an experimental mode that lets you cross file boundaries, allowing you to write rules for whole code bases instead of individual files. More information is available in the docs, here: https://semgrep.dev/docs/experiments/join-mode/
 
