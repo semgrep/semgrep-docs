@@ -72,7 +72,7 @@ Run the tests with the following:
 python -m semgrep --quiet --test rules/
 ```
 
-Wich will produce the following output:
+Which will produce the following output:
 ```sh
 1 yaml files tested
 check id scoring:
