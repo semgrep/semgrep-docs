@@ -36,6 +36,7 @@ Usage: semgrep [OPTIONS] [TARGET]...
   --metrics option below.
 
 Options:
+  -h, --help                      Show this message and exit.
   -a, --autofix / --no-autofix    Apply autofix patches. WARNING: data loss can occur
                                   with this flag. Make sure your files are stored in a
                                   version control system. Note that this mode is
@@ -187,7 +188,6 @@ Options:
                                   will print the changes to the console. This lets you
                                   see the changes before you commit to them. Only works
                                   with the --autofix flag. Otherwise does nothing.
-  --help                          Show this message and exit.
 ```
 ## Autocomplete
 
