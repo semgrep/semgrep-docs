@@ -34,10 +34,14 @@ rules:
 print(1 == 1)
 ```
 
-Running Semgrep produces the following findings:
+Running Semgrep
 
 ```sh
 semgrep --quiet --config test.yaml test.py
+```
+Running Semgrep produces the following findings:
+
+```sh
 test.py
 severity:warning rule:finding-test: Finding test 1
 1:print(1 == 1)

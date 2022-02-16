@@ -70,6 +70,10 @@ Run the tests with the following:
 
 ```sh
 python -m semgrep --quiet --test rules/
+```
+
+Wich will produce the following output:
+```sh
 1 yaml files tested
 check id scoring:
 --------------------------------------------------------------------------------
@@ -90,6 +94,10 @@ To avoid failing on TODOs you can specify `--test-ignore-todo`:
 
 ```sh
 python -m semgrep --quiet --test --test-ignore-todo rules/
+```
+
+will produce the following output:
+```sh
 1 yaml files tested
 check id scoring:
 --------------------------------------------------------------------------------
@@ -104,6 +112,10 @@ To store rules and test targets in different directories you can specify `--conf
 
 ```sh
 tree tests
+```
+
+will produce the following output:
+```sh
 tests
 ├── rules
 │   └── python
@@ -117,6 +129,10 @@ tests
 
 ```sh
 python -m semgrep --quiet --test --config /tmp/tests/rules/ /tmp/tests/targets/
+```
+
+will produce the following output:
+```sh
 1 yaml files tested
 check id scoring:
 --------------------------------------------------------------------------------
