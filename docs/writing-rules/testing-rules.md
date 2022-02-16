@@ -96,7 +96,7 @@ To avoid failing on TODOs you can specify `--test-ignore-todo`:
 python -m semgrep --quiet --test --test-ignore-todo rules/
 ```
 
-will produce the following output:
+This will produce the following output:
 ```sh
 1 yaml files tested
 check id scoring:
