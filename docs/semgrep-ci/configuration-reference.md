@@ -10,7 +10,7 @@ import MoreHelp from "/src/components/MoreHelp"
 Configure Semgrep CI by passing these environment variables in your CI job.
 
 :::info
-While environment variables are the preferred way to configure Semgrep CI, any of these options can be passed as command-line options. Refer to the output of `semgrep-agent --help` to find the corresponding flags.
+While environment variables are the preferred way to configure Semgrep CI, pass any of these options as command-line options. Refer to the output of `semgrep-agent --help` to find the corresponding flags.
 :::
 
 
