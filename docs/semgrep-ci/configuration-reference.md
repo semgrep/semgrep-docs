@@ -22,9 +22,9 @@ SEMGREP_RULES="p/security-audit p/secrets"
 
 ## Diff-aware scanning (`SEMGREP_BASELINE_REF`)
 
-For [diff-aware scans](overview.md#features), set this variable to compare to a baseline. This option limits scan results to those introduced after the git commit, in a branch, or tag. For example, you have a repository with 10 commits. You set the commit number 8 as the baseline. Consequently, Semgrep only returns scan results introduced by changes in commits 9 and 10.
+For [diff-aware scans](overview.md#features), this option limits scan results to those introduced after the git commit, in a branch, or tag. For example, you have a repository with 10 commits. You set the commit number 8 as the baseline. Consequently, Semgrep only returns scan results introduced by changes in commits 9 and 10.
 
-NOTE: It is recommended to perform baseline scans on branches other than your `main` branch. The Semgrep App keeps track of which findings have been fixed on a given branch. If you configure baseline scans on your main branch comparing the latest main commit to the penultimate commit, Semgrep mistakenly considers all findings except those added in the latest commit as fixed.
+NOTE: It is recommended to perform baseline scans on other branches than your `main` branch. The Semgrep App keeps track of which findings have been fixed on a given branch. If you configure baseline scans on your main branch, and compare the last commit to the penultimate commit, Semgrep wrongly considers all findings as fixed. In this case, Semgrep only reports findings that appear in the last commit.
  
 ### Examples of `SEMGREP_BASELINE_REF`
 
@@ -33,6 +33,8 @@ since branching off from your `main` branch, set the following:
 ```sh
 SEMGREP_BASELINE_REF=$(git merge-base main HEAD)
 ```
+
+NOTE: Because of an issue, the option `SEMGREP_BASELINE_REF=main` does not work correctly. The `SEMGREP_BASELINE_REF=$(git merge-base main HEAD)` is a workaround that allows Semgrep to only report the findings made on a topic branch after it diverged from the main branch. 
 
 To only report findings newly added
 after a specific commit, set the following:
