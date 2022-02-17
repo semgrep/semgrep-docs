@@ -36,9 +36,8 @@ SEMGREP_BASELINE_REF=$(git merge-base main HEAD)
 
 To only report findings newly added
 after a specific commit, set the following:
-```sh
-SEMGREP_BASELINE_REF=<font color='blue'>*GIT_COMMIT_HASH*</font>
-```
+<pre class="language-bash"><code>SEMGREP_BASELINE_REF=<span class="token-line" style="color: blue;"><i>GIT_COMMIT_HASH</i></span>
+</code></pre>
 
 ## Connect to Semgrep App (`SEMGREP_APP_TOKEN`)
 
