@@ -1,15 +1,19 @@
 ---
 slug: faq
 append_help_link: true
+hide_table_of_contents: true
 description: >-
   Frequently asked questions about Semgrep, comparisons to similar tools,
   rule licensing, technical support, and more.
 ---
 
 import MoreHelp from "/src/components/MoreHelp"
+import TOCInline from "@theme/TOCInline"
+
 
 # Frequently Asked Questions
 
+<TOCInline toc={toc} />
 
 ## General
 
