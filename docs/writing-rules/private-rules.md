@@ -13,40 +13,44 @@ As we continue to develop and refine this feature, we welcome and appreciate all
 
 ## Getting started
 
-***DEPLOYMENT_ID*** can be found in Semgrep App [here](https://semgrep.dev/manage/settings)
-
-***SEMGREP_TOKEN*** can be generated in Semgrep App [here](https://semgrep.dev/manage/settings/tokens)
-
-### Dockerhub
-In a directory with the rule file RULE_YAML you want to upload run:
-```
-docker pull returntocorp/semgrep-upload:latest
-docker run -v $(pwd):/rules -e SEMGREP_UPLOAD_DEPLOYMENT=DEPLOYMENT_ID -e SEMGREP_TOKEN=SOME_TOKEN returntocorp/semgrep-upload:latest /rules/RULE_YAML
-```
-
-### Using different registry_url
-
-You can change the registry URL used by setting the SEMGREP_REGISTRY_BASE_URL env variable
-
-### Local Dev
+Run 
 
 ```
-make setup
-pipenv install
-pipenv run python upload_private_rules.py rule.yaml --deployment_id DEPLOYMENT_ID --token SOME_TOKEN
+semgrep login
+semgrep publish myrules/
 ```
 
-### Docker Dev
+Test cases will be included as well (see [testing Semgrep rules](../writing-rules/testing-rules)).
+
+You can also publish rules as unlisted with the same command:
 
 ```
-make build
-docker run -v $(pwd):/src -e SEMGREP_UPLOAD_DEPLOYMENT=DEPLOYMENT_ID -e SEMGREP_TOKEN=SOME_TOKEN returntocorp/semgrep-upload /src/RULE_YAML
+semgrep publish --visiblity=unlisted myrules/
 ```
 
-### Deploy
+## Automatically Publishing Rules
+
+Here is a sample Github Actions workflow to automatically publish rules from a private Git repo after they are merged:
 
 ```
-make deploy
+name: semgrep-publish
+
+on:
+  push:
+    branches:
+    - main
+
+jobs:
+  publish:
+    name: public-private-semgrep-rules
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+      with:
+        path: semgrep-rules
+    - name: publish private semgrep rules
+      run: |
+        docker run --rm -v ${GITHUB_WORKSPACE}/semgrep-rules:/src returntocorp/semgrep:develop publish --visibility=org_private /src
 ```
 
 ## FAQ
