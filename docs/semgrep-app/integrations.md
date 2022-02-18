@@ -145,9 +145,10 @@ Here is a sample of a webhook sent from Semgrep with findings:
 ![Screenshot of Semgrep webhook JSON with findings ](../img/integrations-webhook-findings.png)<br />
 
 
-#### See also:
+## See also
 
-[Notifcations -> Webhooks](notifications.md/#webhooks)
+* [Notifications -> Webhooks](notifications.md/#webhooks)
+* [Integrating Semgrep with webhooks](https://support.semgrep.dev/hc/en-us/articles/4415975269275-Integrating-Semgrep-with-Webhooks)
 
 <!---
 ### Amazon S3

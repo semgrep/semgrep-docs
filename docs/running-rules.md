@@ -79,6 +79,6 @@ You may find some files that Semgrep previously parsed are now skipped; this hap
 ## Findings
 
 * See [Managing findings](../managing-findings/) for information on Semgrep findings.
-* See [Ignoring findings](../ignoring-findings/) for details on suppressing rule output.
+* See [Ignoring findings](../ignoring-files-folders-code/) for details on suppressing rule output.
 
 <MoreHelp />

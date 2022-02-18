@@ -10,6 +10,139 @@ toc_max_heading_level: 2
 
 Welcome to Semgrep release notes. This document provides an overview of the changes, additions, and fixes made in different versions.
 
+## February 2022
+
+### Version 0.82.0
+
+#### Additions
+
+##### Support of semgrep --baseline-commit
+
+With this update, you can use experimental baseline scanning by issuing the following command:
+
+```
+semgrep --baseline-commit GIT_COMMIT_HASH
+```
+
+Use this option with a commit hash or a branch name. The `--baseline-commit` option limits the scan results to those introduced after the commit you specify.
+For example, you have a repository with 10 commits, use the commit hash of the 8th commit, and Semgrep returns scan results introduced by changes in commits 9 and 10. ([#4571](https://github.com/returntocorp/semgrep/pull/4571))
+
+#### Changes
+
+##### Scans indicate skipped target paths
+
+Semgrep scans now indicate a breakdown of skipped target paths with the reason for the scan skip. In addition, using the `--verbose` mode lists all skipped paths.
+
+##### Performance improvement of semgrep-core
+
+All rules are now sent directly to semgrep-core, resulting in a significant performance increase for small-to-medium-sized code repositories. This improvement led to the following changes:
+- Static Analysis Results Interchange Format (SARIF) output includes all used rules.
+- Error messages use the full path of rules.
+- Progress bar reports by file instead of by rule.
+
+##### Python 3.7 is the minimum version to use Semgrep
+
+The required minimum version of Python for Semgrep is now 3.7 instead of EOL 3.6.
+
+##### Bloom filter
+
+Bloom filter optimization now considers `import` module file names. As a consequence, Semgrep matches patterns such as `import { $X } from 'foo'` with increased performance. ([#4605](https://github.com/returntocorp/semgrep/pull/4605))
+
+##### Indentation removed to provide additional space
+
+Indentation is now removed from matches to provide more space.
+
+#### Additional information
+
+To see the complete change notes, visit the [Semgrep changelog](https://github.com/returntocorp/semgrep/releases/tag/v0.82.0).
+
+### Version 0.81.0
+
+#### Additions
+
+##### Dockerfile
+
+Complete support for metavariables and anonymous ellipses except in ENV instructions. ([#4556](https://github.com/returntocorp/semgrep/pull/4556), [#4577](https://github.com/returntocorp/semgrep/pull/4577))
+
+#### Fixes
+
+##### Java
+
+Match resources in Java try-with-resources statements. ([#4228](https://github.com/returntocorp/semgrep/issues/4228))
+
+#### Additional information
+
+To see the complete change notes, visit the [Semgrep changelog](https://github.com/returntocorp/semgrep/releases/tag/v0.81.0).
+
+## January 2022
+
+### Version 0.80.0
+
+#### Additions
+
+##### Autocomplete
+
+Autocomplete is now available for CLI options.
+
+##### Dockerfile
+
+Support for Semgrep's metavariables where argument expansion is already supported. ([#4556](https://github.com/returntocorp/semgrep/pull/4556))
+
+#### Changes
+
+##### Ruby
+
+You can now use an atom to match an identifier of the same name. ([#4550](https://github.com/returntocorp/semgrep/issues/4550))
+
+#### Fixes
+
+##### Missing target file does not lead to Semgrep crash
+
+Before this update, handling a missing target file could crash Semgrep. This issue has been fixed. ([#4462](https://github.com/returntocorp/semgrep/issues/4462))
+
+#### Additional information
+
+To see the complete change notes, visit the [Semgrep changelog](https://github.com/returntocorp/semgrep/releases/tag/v0.80.0).
+
+### Version 0.79.0
+
+#### Additions
+
+##### Ignoring code
+
+Support for placing nosemgrep comments on the line before a match, causing such match to be ignored ([#3521](https://github.com/returntocorp/semgrep/issues/3521)).
+
+
+#### Changes
+
+##### Verbose output
+
+Parse errors (reported with `--verbose`) appear once per file, not once per rule/file.
+### Version 0.78.0
+
+#### Additions
+
+##### Symbolic propagation
+
+Semgrep can now symbolically propagate simple definitions. For example, given
+an assignment `x = foo.bar()` followed by a call `x.baz()`, Semgrep will keep track of `x`'s definition, and it will successfully match `x.baz()` with a pattern like `foo.bar().baz()`. This feature should help writing simple yet powerful rules, by letting the dataflow engine take care of any intermediate assignments. Symbolic propagation is still experimental and is disabled by default. It must be enabled on a per-rule basis using `options:` and setting `symbolic_propagation: true`. ([#2783](https://github.com/returntocorp/semgrep/issues/2783), [#2859](https://github.com/returntocorp/semgrep/issues/2859), [#3207](https://github.com/returntocorp/semgrep/issues/3207))
+
+##### Verbose output
+
+`--verbose` now outputs a timing and file breakdown summary at the end.
+
+##### Metavariables
+
+`metavariable-comparison` now handles metavariables that bind to arbitrary constant expressions (instead of just code variables).
+
+##### Dockerfile
+
+Pre-alpha support for Dockerfile as a new target language.
+
+#### Additional information
+
+To see the complete change notes, visit the [Semgrep changelog](https://github.com/returntocorp/semgrep/releases/tag/v0.78.0).
+
 ## December 2021
 
 ### Version 0.77.0
@@ -32,7 +165,7 @@ Semgrep now correctly matches patterns as `List(...)`.
 
 ##### `semgrepignore.`
 
-Default set of `.semgrepignore` patterns (in `semgrep/templates/.semgrepignore`) is now used by default. You can override the default behavior by your own setup of the `semgrepignore.` file.
+Default set of `.semgrepignore` patterns (in `semgrep/templates/.semgrepignore`) is now used by default. You can override the default behavior by creating your own `.semgrepignore` file.
 
 ##### Java
 
@@ -311,7 +444,7 @@ Semgrep's CLI output no longer displays severity levels.
 
 ##### Scanning for executable scripts with shebang
 
-Previously, Semgrep only scanned files that matched a file extension for the language that was scanned. Scripting languages are often written extensionless with the script interpreter in a shebang. Now, Semgrep now scans executable scripts in which shebang interpreter directives match the language of the rule. ([#3986](https://github.com/returntocorp/semgrep/pull/3986))
+Previously, Semgrep only scanned files that matched a file extension for the language that was scanned. Scripting languages are often written extensionless with the script interpreter in a shebang. Now, Semgrep scans executable scripts in which shebang interpreter directives match the language of the rule. ([#3986](https://github.com/returntocorp/semgrep/pull/3986))
 
 #### Additional information
 

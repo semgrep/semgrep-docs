@@ -1,6 +1,6 @@
 # `semgrep-core` contributing
 
-The following explains how to build `semgrep-core` so you can make and test changes to the OCaml code. This will also install the `spacegrep` binary so it can be called by `semgrep`. Once you have `semgrep-core` and `spacegrep` installed, you can refer to [semgrep-contributing](semgrep-contributing.md) to see how to build and run the Semgrep application.
+The following explains how to build `semgrep-core` so you can make and test changes to the OCaml code. Once you have `semgrep-core` installed, you can refer to [semgrep-contributing](semgrep-contributing.md) to see how to build and run the Semgrep application.
 
 ## Building `semgrep-core`
 
@@ -28,7 +28,10 @@ The root `Makefile` contains targets that take care of building the
 right things. It is commented. Please refer to it and keep it
 up-to-date.
 
-To link all necessary dependencies, run (at the repository root `semgrep/`)
+Run the below commands at the repository root (`semgrep/`, not `semgrep/semgrep/`),
+inside your pipenv shell.
+
+To link all necessary dependencies, run
 
 ```
 make dev-setup
@@ -46,13 +49,7 @@ Finally, test the installation with
 semgrep-core -help
 ```
 
-You should also be able to run
-
-```
-spacegrep --help
-```
-
-At this point, you have the `semgrep-core` and `spacegrep` binaries, so if you would like to finish the Semgrep installation, go to the [Python-side instructions](semgrep-contributing.md).
+At this point, you have the `semgrep-core` binary, so if you would like to finish the Semgrep installation, go to the [Python-side instructions](semgrep-contributing.md).
 
 ### Installing after a change
 
@@ -183,6 +180,17 @@ Parse_python.parse                       :      0.828 sec          1 count
 This is especially useful when you don't call directly semgrep-core, but
 instead use the python wrapper semgrep.
 
+Note that since semgrep 0.82, you can pass the `--dump-command-for-core` (or the shorter `-d`) to `semgrep` to get the command the python wrapper will use to call semgrep-core (this is an hidden option, which is why you will not see it in `semgrep --help`). For example:
+
+```bash
+$ semgrep --dump-command-for-core --config bench/zulip/input/rules/zulip/rules.zulip.semgrep.yml.yaml bench/zulip/input/zulip/
+Running 10 rules...
+/home/pad/github/semgrep/semgrep/semgrep/bin/semgrep-core -json -rules semgrep_rules.yaml -j 20 -targets semgrep_targets.txt -timeout 30 -timeout_threshold 0 -max_memory 0 -json_time -fast
+```
+
+where `semgrep_rules.yaml` and `semgrep_targets.txt` are files created by `semgrep` that respectively contain the list of rules and targets. It is easy then to copy-paste this command and possibly add a `-profile` or `-debug` to get more information.
+
+
 You can also use the SEMGREP_CORE_DEBUG environment variable to add debugging
 information, for example:
 
@@ -238,12 +246,15 @@ Compilation:
 
 Running (examples in Python):
 
-* To match a rule file against a target: `sc -config [your-rule].yaml [your-target].py -lang python`
+* To match a rule file against a target: `sc -rules [your-rule].yaml [your-target].py -lang python`
 * To match a pattern against a target: `sc -f [your-pattern].sgrep [your-target].py -lang python`
 * To dump a pattern AST: `sc -dump_pattern [your-pattern].sgrep -lang python`
 * To dump a target AST: `sc -dump_ast [your-target].py -lang python` 
 * To dump a pattern Python AST: `pf -dump_python [your_pattern].sgrep -sgrep_mode -lang python`
 * To dump a target Python AST: `pf -dump_python [your_pattern].sgrep -lang python`
+
+Debugging:
+* To get the semgrep-core command the python wrapper will use: `semgrep --dump-command-for-core --config [your-config] [your-target-directory]`
 
 Try it out: `sc -f tests/python/dots_stmts.sgrep tests/python/dots_stmts.py -lang python`
 

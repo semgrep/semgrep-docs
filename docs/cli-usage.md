@@ -189,26 +189,26 @@ Options:
                                   with the --autofix flag. Otherwise does nothing.
   --help                          Show this message and exit.
 ```
+## Autocomplete
+
+The Semgrep command line tool supports autocomplete on all command options, and on configuration rulesets. When typing any option or option parameter, press tab twice to use. When typing out a registry ruleset name (`semgrep --config p/`'), Semgrep will autocomplete with any matching options that are publicly available on the registry. For example `semgrep --config p/` will list all publicly available rulesets, and `semgrep --config p/java<tab><tab>` will list all available rulesets that start with "java". Note: ruleset autocomplete requires internet connection, and will not autocomplete private rulesets or individual rules.
+
+To enable add the corresponding line to the correct profile given by the table below, corresponding to your shell configuration:
+
+| Shell | File                                      | Add Line                                           |
+| :---- | :---------------------------------------- | :------------------------------------------------- |
+| Bash  | ` ~/.bashrc`                              | `eval "$(_SEMGREP_COMPLETE=bash_source semgrep)"`  |
+| ZSH   | `~/.zshrc`                                | `eval "$(_SEMGREP_COMPLETE=zsh_source semgrep)"`   |
+| Fish  | `~/.config/fish/completions/foo-bar.fish` | `eval (env _SEMGREP_COMPLETE=fish_source semgrep)` |
+
+After modifying your shell configuration, you must start a new shell for the changes to take effect.
+
 
 ## Ignoring Files
 
-The Semgrep command line tool supports a `.semgrepignore` file that follows the `.gitignore` syntax and is used to skip files and directories during scanning. This is commonly used to avoid vendored and test related code. For a complete example, see the [.semgrepignore file on Semgrep’s source code](https://github.com/returntocorp/semgrep/blob/develop/.semgrepignore).
+The Semgrep command line tool supports a `.semgrepignore` file that follows `.gitignore` syntax and is used to skip files and directories during scanning. This is commonly used to avoid vendored and test related code. For a complete example, see the [.semgrepignore file on Semgrep’s source code](https://github.com/returntocorp/semgrep/blob/develop/.semgrepignore).
 
-`.semgrepignore` syntax mirrors `.gitignore` syntax, with the following modifications:
-* "Include" patterns (lines starting with "!") are not supported.
-* "Character range" patterns (lines including a collection of characters inside brackets) are not supported.
-* An ":include ..." directive is added, which allows another file to be included in the ignore pattern list;
-    typically this included file would be the project .gitignore. No attempt at cycle detection is made.
-* Any line beginning with a colon, but not ":include ", will raise an error.
-* "\:" is added to escape leading colons.
-
-Unsupported patterns are silently removed from the pattern list (this is done so that gitignore files may be
-included without raising errors), although the removal will be logged.
-
-For a description of `.gitignore` syntax, see [the documentation](https://git-scm.com/docs/gitignore)
-
-If no `.semgrepignore` file is found, no default will be provided.
-
+In addition to `.semgrepignore` there are several methods to set up ignore patterns. See [Ignoring files, folders, or code](../ignoring-files-folders-code).
 
 ## Exit codes
 
@@ -220,7 +220,7 @@ If no `.semgrepignore` file is found, no default will be provided.
 - `3`: Semgrep failed to parse a file in the specified language
 - `4`: Semgrep encountered an invalid pattern
 - `5`: Semgrep config is not valid yaml
-- `6`: Rule with `pattern-where-python` found but `--dangerously-allow-arbitrary-code-execution-from-rules` was not set. See `--dangerously-allow-arbitrary-code-execution-from-rules`.
+- `6`: Rule with `pattern-where-python` found but `--dangerously-allow-arbitrary-code-execution-from-rules` was not set. See `--dangerously-allow-arbitrary-code-execution-from-rules`. (Note: `pattern-where-python` is no longer supported in Semgrep, so this applies only to legacy Semgrep versions).
 - `7`: At least one rule in config is invalid
 - `8`: Semgrep does not understand specified language
 - `9`: Semgrep exceeded match timeout. See `--timeout`

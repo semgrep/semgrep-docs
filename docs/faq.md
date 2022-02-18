@@ -19,29 +19,27 @@ import TOCInline from "@theme/TOCInline"
 
 ### How are Semgrep and its rules licensed?
 
-The [Semgrep command line tool](https://github.com/returntocorp/semgrep) is open-source, licensed under [LGPL 2.1](<https://tldrlegal.com/license/gnu-lesser-general-public-license-v2.1-(lgpl-2.1)>) — you can use it at work, on private and proprietary code, no problem!
+The [Semgrep command line tool](https://github.com/returntocorp/semgrep) is open-source, licensed under [GPL v3](<https://tldrlegal.com/license/gnu-general-public-license-v3-(gpl-3)>) — you can use it at work, on private and proprietary code, no problem!
 
-The [Semgrep Registry](https://semgrep.dev/explore) contains rules from many different contributors, often under differing licenses. If you use Semgrep Registry through Semgrep.dev, r2c is vetting the rules to make sure that the licenses are compatible with using them at your company.
+The [Semgrep Registry](https://semgrep.dev/explore) contains rules from different contributors. Most rules, including all community-contributed rules, are under [MIT license](https://tldrlegal.com/license/mit-license). Some of the Registry rules written by r2c are licensed under the [Semgrep Registry license](../licensing/#semgrep-registry-license).
 
-The source for many of r2c’s rules is available at [returntocorp/semgrep-rules](https://github.com/returntocorp/semgrep-rules/). These are licensed as LGPL 2.1 under the [Commons Clause](https://commonsclause.com/). This means the source for the rules is available, but they can’t be resold without r2c’s permission. Although the Commons Clause and related licenses like the BSL/SSPL are embraced by many great open-source projects ([Sentry](https://blog.sentry.io/2019/11/06/relicensing-sentry/), [Cockroach](https://www.cockroachlabs.com/blog/oss-relicensing-cockroachdb/), [Mongo](https://www.mongodb.com/licensing/server-side-public-license/faq)), they are not technically open-source under the OSI definition. Why do we have this restriction if we love open source software so much? Since r2c offers a paid, hosted version at Semgrep.dev, it’s important for us to have this restriction so other companies like major cloud providers can’t just resell our rules as a competing service.
-
-If the LGPL + Common Clause license is an issue for you as a contributor, please give us feedback! r2c may be able to offer you semgrep-rules under a separate license on a case-by-case basis.
+The source for many r2c-written Registry rules is available at [returntocorp/semgrep-rules](https://github.com/returntocorp/semgrep-rules/). Those licensed under the Semgrep Registry license can’t be resold without r2c’s permission. Since r2c offers a paid, hosted application (Semgrep App), it’s important to have this restriction so other companies, like major cloud providers, can’t just resell our rules as a competing service.
 
 ### Is it ok to run Semgrep or the r2c rules on my work projects?
 
-Yes! Semgrep is safe to run on your private code. The Common Clause restriction only comes into effect if you are _selling_ the rules provided in the semgrep-rules repository. If that’s the case, you’ll need to talk with r2c first to get permission.
+Yes! Semgrep is safe to run on your private code. The [Semgrep Registry license’s](../licensing/#semgrep-registry-license) commercial restrictions only come into effect if you are _selling_ the rules provided in the semgrep-rules repository. If that’s the case, you’ll need to talk with r2c first to get permission.
 
 ### I’m a security professional and want to use the semgrep-rules project with my clients as part of my paid services. Is that ok?
 
-If you have a typical consulting service and running `semgrep` or `semgrep-rules` is part of your assessments, that’s great and of course feel free to refer your clients to the [hosted app](https://semgrep.dev/). But if your entire service is about scanning code and you want to charge for running the `semgrep-rules` repository that r2c and the community created and maintains, you need to discuss this with us.
+If you have a typical consulting service and running `semgrep` or `semgrep-rules` is part of your assessments, that’s great and of course feel free to refer your clients to the [Semgrep App](https://semgrep.dev/). But if your entire service is about scanning code and you want to charge for running the `semgrep-rules` repository that r2c and the community created and maintains, you need to discuss this with r2c.
 
 ### What is your support policy?
 
 Help is available for all users, free or otherwise, through the [r2c Community Slack](https://r2c.dev/slack). Semgrep Team tier customers receive 8\*5 email/phone/Slack support with committed SLAs. See [Support](../support/) for more details.
 
-### Can I embed the live editor in my website or blog post?
+### Can I embed the Playground in my website or blog post?
 
-Yes! You can embed a special version of the editor with an `iframe`. The source is `https://semgrep.dev/embed/editor?snippet=<snippet-id>` where the `snippet-id` is either the short identifier generated when you share an editor link (this usually looks like `DzKv`) or the named identifier from a saved rule (this usually looks like `username:rule-name`).
+Yes! You can embed a special version of Semgrep Playground with an `iframe`. The source is `https://semgrep.dev/embed/editor?snippet=<snippet-id>` where the `snippet-id` is either the short identifier generated when you share a Playground link (this usually looks like `DzKv`) or the named identifier from a saved rule (this usually looks like `username:rule-name`).
 
 ```html
 <iframe title="Semgrep example no prints" src="https://semgrep.dev/embed/editor?snippet=DzKv" width="100%" height="432" frameborder="0"></iframe>
@@ -56,7 +54,7 @@ Yes! You can embed a special version of the editor with an `iframe`. The source 
 
 Semgrep is an open-source tool with a simple syntax for writing rules: if you can write code, you can write a Semgrep rule — no program analysis PhD required!
 
-To our knowledge, the only other tool with the explicit goal of allowing custom rules is GitHub’s proprietary tool, CodeQL. CodeQL has a domain-specific language which is extremely powerful but is designed for those with significant program analysis expertise, whereas Semgrep is designed for the security engineer or developer who wants to automate code review. Our goal is to make writing a Semgrep rule as easy as copying the code you want to find—and letting the Semgrep engine to make the rule and autofix high-quality enough to run in CI or the editor.
+To our knowledge, the only other tool with the explicit goal of allowing custom rules is GitHub’s proprietary tool, CodeQL. CodeQL has a domain-specific language which is extremely powerful but is designed for those with significant program analysis expertise, whereas Semgrep is designed for the security engineer or developer who wants to automate code review. Our goal is to make writing a Semgrep rule as easy as copying the code you want to find—and letting the Semgrep engine to make the rule and autofix high-quality enough to run in CI or your text editor or IDE.
 
 Our hosted offering, [Semgrep App](https://semgrep.dev/manage), has a generous free tier (even for private repos!). It offers a hosted CI integration with one-click setup so you can start running Semgrep right away. Its diff-awareness lets you scan new code and doesn’t force you to fix all the existing issues when you first start out. For users running inside orgs with lots of repos, the hosted offering also offers a policy and notification system that makes it easy to tune Semgrep so that it only reports issues or suggest fixes that actually get applied. Our goal is a 99% fix rate for what Semgrep reports.
 
@@ -74,7 +72,7 @@ As Semgrep evolves, a query like `foo("password")` becomes smarter. In the origi
 
 **3. Integrated: Semgrep understands git and other version-control systems**
 
-It’s easy to write a new Semgrep rule and have it only apply _going forward_. You can [mute findings](../ignoring-findings/) of course, but we have [built-in support for this with Semgrep CI](/semgrep-ci/overview/) and GitHub/GitLab/etc. integrations.
+It’s easy to write a new Semgrep rule and have it only apply _going forward_. You can [ignore findings](../ignoring-files-folders-code) of course, but we have [built-in support for this with Semgrep CI](/semgrep-ci/overview/) and GitHub/GitLab/etc. integrations.
 
 **4. Portable: If you write a Semgrep rule, it runs anywhere**
 
