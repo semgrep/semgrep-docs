@@ -15,13 +15,13 @@ Explore the [Semgrep Registry](https://semgrep.dev/explore) and run rules and ru
 
 ```sh
 # Automatically survey languages and frameworks and run recommended Registry rules
-$ semgrep --config=auto path/to/src
+semgrep --config=auto path/to/src
 
 # Run a ruleset with rules for many languages using --config
-$ semgrep --config=<ruleset-id> path/to/src
+semgrep --config=<ruleset-id> path/to/src
 
 # Run simultaneously with Registry rulesets and local rules
-$ semgrep --config=<ruleset-id> --config=path/to/yml path/to/src
+semgrep --config=<ruleset-id> --config=path/to/yml path/to/src
 ```
 
 When the Registry is used, [usage metrics](../metrics) are collected.

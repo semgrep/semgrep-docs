@@ -127,7 +127,7 @@ ensure files are well-formatted and check for basic linting bugs. If you don't
 have `pre-commit` installed the following command will do so for you:
 
 ```
-$ python -m pip install pre-commit
+python -m pip install pre-commit
 ```
 
 Our `pre-commit` configuration uses Docker images. Please ensure you have
@@ -135,13 +135,13 @@ Our `pre-commit` configuration uses Docker images. Please ensure you have
 `pre-commit`. Install the `pre-commit` hooks with the following command:
 
 ```
-$ pre-commit install
+pre-commit install
 ```
 
 To ensure `pre-commit` is working as expected, run the following command:
 
 ```
-$ pre-commit run --all
+pre-commit run --all
 ```
 
 Once `pre-commit` is working you may commit code and create pull requests as
