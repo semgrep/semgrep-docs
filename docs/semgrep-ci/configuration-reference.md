@@ -34,7 +34,7 @@ since branching off from your `main` branch, set the following:
 SEMGREP_BASELINE_REF=$(git merge-base main HEAD)
 ```
 
-NOTE: Because of an issue, the option `SEMGREP_BASELINE_REF=main` does not work correctly. The `SEMGREP_BASELINE_REF=$(git merge-base main HEAD)` is a workaround that allows Semgrep to only report the findings made on a topic branch after it diverged from the main branch. 
+NOTE: Because of an issue, the option `SEMGREP_BASELINE_REF=main` does not work correctly. The `SEMGREP_BASELINE_REF=$(git merge-base main HEAD)` is a workaround that allows Semgrep to only report the findings made on a topic branch after it diverged from the `main` branch. 
 
 To only report findings newly added
 after a specific commit, set the following:
