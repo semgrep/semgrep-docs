@@ -38,17 +38,12 @@ NOTE: Because of an issue, the option `SEMGREP_BASELINE_REF=main` does not work 
 
 To only report findings newly added
 after a specific commit, set the following:
-<pre class="language-bash"><code>SEMGREP_BASELINE_REF=<span class="token-line" style="color: blue;"><i>GIT_COMMIT_HASH</i></span>
-</code></pre>
-
-## Connect to Semgrep App (`SEMGREP_APP_TOKEN`)
+<pre class="language-bash"><code>SEMGREP_BASELINE_REF=<span className="placeholder">INSERT_GIT_COMMIT_HASH</span></code></pre>
 
 Instead of `SEMGREP_RULES`, configure which rules to run with Semgrep App.
 Get your token from [Semgrep App > Settings](https://semgrep.dev/manage/settings).
 
-```
-SEMGREP_APP_TOKEN=secret
-```
+<pre class="language-bash"><code>SEMGREP_APP_TOKEN=<span className="placeholder">TOKEN_VALUE</span></code></pre>
 
 ## Get hyperlinks in Semgrep App
 
