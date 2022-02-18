@@ -59,7 +59,7 @@ You can add the bundled binary to your `$PATH` with this series of commands,
 provided you have `jq` installed:
 
 ```bash
-export SEMGREP_BREW_INSTALLED_VERSION="$(brew info --json semgrep | jq .[0].installed[0].version -r)"
+export SEMGREP_BREW_INSTALLED_VERSION="$(brew info --json semgrep | jq '.[0].installed[0].version' -r)"
 export SEMGREP_BREW_INSTALL_PATH="$(brew --cellar semgrep)/${SEMGREP_BREW_INSTALLED_VERSION}"
 export SEMGREP_BREW_PYTHON_PACKAGE_PATH="$(${SEMGREP_BREW_INSTALL_PATH}/libexec/bin/python -m pip list -v | grep '^semgrep\b' | awk '{ print $3 }')"
 export SEMGREP_BREW_CORE_BINARY_PATH="${SEMGREP_BREW_PYTHON_PACKAGE_PATH}/semgrep/bin"
