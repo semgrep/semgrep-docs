@@ -69,6 +69,6 @@ Private rules cannot currently be deleted. Please contact us at [support@r2c.dev
 
 ### What happens if a rule with the same ID is published?
 
-Rules are required to have unique IDs. If a rule with the same ID as an existing rule is published, it will override the previous rule.
+Rules are required to have unique IDs. If a rule with the same ID as an existing rule is published, it will overwrite the previous rule.
 
 <MoreHelp />
