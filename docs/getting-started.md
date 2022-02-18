@@ -36,13 +36,14 @@ You can work with [Semgrep](https://github.com/returntocorp/semgrep/) locally to
     semgrep -e '$X == $X' --lang=py path/to/src
     ```
 
-### 
+NOTE: When you use the Semgrep Registry for any ruleset (like the auto ruleset above), [usage metrics](../metrics) are collected.
 
-See [CLI Reference](../cli-usage/) for command line options and exit codes.
+### Next steps
 
-When you use the Semgrep Registry for any ruleset (like the auto ruleset above), [usage metrics](../metrics) are collected.
+Here are some additional resources you may now use:
 
-Visit [Running rules](../running-rules/) to learn more or try Semgrep on known vulnerable test projects:
+- See [CLI Reference](../cli-usage/) for command line options and exit codes.
+- Visit [Running rules](../running-rules/) to learn more or try Semgrep on known vulnerable test projects:
 
 <details><summary>Expand for sample projects! 🎉</summary>
 <p>
@@ -80,7 +81,7 @@ semgrep --config=auto
 </details>
 <br />
 
-## Write a rule
+## Writing a rule
 
 Once Semgrep is running locally, see the [Semgrep Tutorial](https://semgrep.dev/learn) to learn how to write precise rules.
 
@@ -118,10 +119,10 @@ check the available [Semgrep extensions](../extensions/).
 
 For teams running Semgrep on multiple projects, see [Semgrep App](https://semgrep.dev/manage). Its free and paid tiers let users:
 
-1. Centrally define code standards
-2. Monitor the impact of standards
-3. Host private rules
-4. Push notifications to 3rd-party services
+1. Centrally define code standards.
+2. Monitor the impact of standards.
+3. Host private rules.
+4. Push notifications to 3rd-party services.
 
 ## Upgrading
 
