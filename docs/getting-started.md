@@ -1,52 +1,46 @@
 ---
 slug: getting-started
 append_help_link: true
-description: "Start by running Semgrep locally to scan your code. It runs offline on uncompiled code: no code leaves your machine."
+description: "This article provides basic informatin on how to start using Semgrep CLI."
 ---
 
-# Getting started
+# Getting started with Semgrep CLI
 
+## Running Semgrep locally
 
-## Run Semgrep locally
+You can work with [Semgrep](https://github.com/returntocorp/semgrep/) locally to scan your code. It runs offline on uncompiled code. **No code leaves your computer**. To run Semgrep locally:
 
-Start by running [Semgrep](https://github.com/returntocorp/semgrep/) locally to scan your code. It runs offline on uncompiled code: **no code leaves your machine**.
+1. Install Semgrep. Use one of the following options depending on your system and preference:
+    - For macOS:
+        ```sh
+        brew install semgrep
+        ```
+    - For Ubuntu, Windows through Windows Subsystem for Linux (WSL), Linux, macOS:
+        ```sh
+        python3 -m pip install semgrep
+        ```
+    - To try Semgrep without installation run through Docker:
+        ```sh
+        docker run --rm -v "${PWD}:/src" returntocorp/semgrep --config=auto
+        ```
+2. Confirm installation by printing help manual page to your terminal. To do so, run the following command:
+    ```sh
+    semgrep --help
+    ```
+3. Automatically survey languages and frameworks and run recommended Semgrep Registry rules:
+    ```sh
+    semgrep --config=auto path/to/source_code
+    ```
+4. Optional: Check for Python `==` where the left and right sides are the same (this is often a bug):
+    ```sh
+    semgrep -e '$X == $X' --lang=py path/to/src
+    ```
 
-Install Semgrep using Homebrew or pip, or run without installation via Docker:
-
-For macOS:
-
-```sh
-brew install semgrep
-```
-
-For Ubuntu / Windows via WSL / Linux / macOS:
-
-```sh
-python3 -m pip install semgrep
-```
-
-To try Semgrep without installation run via Docker:
-
-```sh
-docker run --rm -v "${PWD}:/src" returntocorp/semgrep --config=auto
-```
-
-Confirm installation and run both a simple “grep-like” rule and the auto ruleset:
-
-```sh
-# Confirm installation by running --help. It should print to your terminal.
-semgrep --help
-
-# Check for Python == where the left and right sides are the same (often a bug)
-semgrep -e '$X == $X' --lang=py path/to/src
-
-# Automatically survey languages and frameworks and run recommended Registry rules
-semgrep --config=auto path/to/src
-```
+### 
 
 See [CLI Reference](../cli-usage/) for command line options and exit codes.
 
-When the Registry is used for any ruleset (like the auto ruleset above), [usage metrics](../metrics) are collected.
+When you use the Semgrep Registry for any ruleset (like the auto ruleset above), [usage metrics](../metrics) are collected.
 
 Visit [Running rules](../running-rules/) to learn more or try Semgrep on known vulnerable test projects:
 
@@ -88,18 +82,17 @@ semgrep --config=auto
 
 ## Write a rule
 
-Once Semgrep is running locally, see the [Semgrep Tutorial](https://semgrep.dev/learn) to quickly learn how to write precise rules.
+Once Semgrep is running locally, see the [Semgrep Tutorial](https://semgrep.dev/learn) to learn how to write precise rules.
 
 Semgrep rules can cover a wide range of use cases:
 
-- Automating code review comments
-- Detecting secure coding violations
-- Detecting API routes, database models, or similar code segments
-- Identifying authentication violations
-- Lightweight vulnerability detection
-- Scanning configuration files
+- Automating code review comments.
+- Detecting secure coding violations.
+- Detecting API routes, database models, or similar code segments.
+- Identifying authentication violations.
+- Lightweight vulnerability detection.
+- Scanning configuration files.
 - And more! Check out more use cases [here](../writing-rules/rule-ideas/).
-
 
 Visit [Writing Rules > Getting started](../writing-rules/overview/) for an in-depth guide and reference material.
 
