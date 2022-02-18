@@ -147,3 +147,11 @@ $ pre-commit run --all
 Once `pre-commit` is working you may commit code and create pull requests as
 you would expect. Pull requests require approval of at least one maintainer and
 [CI to be passing](https://github.com/returntocorp/semgrep/actions).
+
+### Troubleshooting pre-commit
+
+On M1 macs some `pre-commit` tests may fail.
+
+If those checks are running in docker containers (such as `hadolint`) and exit with code 137, this means they are running into a memory limit.
+This is because for running x86_64 images on an M1 mac, docker will utilize an emulation with qemu that can cause higher memory consumption.
+To fix this, change the memory limit in Docker Desktop in the Resources section of the Preferences, 8.00GB should be sufficient.
