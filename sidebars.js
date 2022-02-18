@@ -24,7 +24,7 @@ module.exports = {
         {
           type: 'category',
           label: 'Running rules',
-          items: ['rules', 'running-rules', 'ignoring-findings', 'managing-findings'],
+          items: ['rules', 'running-rules', 'managing-findings'],
         },
         {
           type: 'category',
@@ -44,13 +44,15 @@ module.exports = {
           ],
         },
         'cli-usage',
+        'ignoring-files-folders-code',
         'extensions',
+        'licensing',
         'faq',
         'metrics',
         {
           type: 'category',
           label: 'Experiments 🧪',
-          items: ['experiments/overview', 'experiments/generic-pattern-matching', 'experiments/join-mode']
+          items: ['experiments/overview', 'experiments/generic-pattern-matching', 'experiments/join-mode', 'experiments/project-depends-on', 'experiments/symbolic-propagation']
         },
         'upgrading'
       ],
@@ -63,8 +65,9 @@ module.exports = {
     {
       type: 'category',
       label: 'Semgrep App',
-      items: ['semgrep-app/rule-board', 'semgrep-app/managing-policy', 'semgrep-app/findings','semgrep-app/integrations', 'semgrep-app/notifications', 'semgrep-app/sso', 'semgrep-app/pricing-and-billing', 'semgrep-app/rbac'],
+      items: ['semgrep-app/dashboard', 'semgrep-app/rule-board', 'semgrep-app/managing-policy', 'semgrep-app/findings', 'semgrep-app/integrations', 'semgrep-app/editor', 'semgrep-app/notifications', 'semgrep-app/sso', 'semgrep-app/rbac', 'semgrep-app/pricing-and-billing'],
     },
+    'playground',
     {
       type: 'category',
       label: 'Troubleshooting',

@@ -1,52 +1,86 @@
 # `semgrep` contributing
 
-The following explains how to build `semgrep` so that you can make and test changes to the Python wrapper. You may want to read the README first to understand the relationship between `semgrep`, `semgrep-core`, and `spacegrep`.
+The following explains how to build `semgrep` so that you can make and test changes to the Python wrapper. You may want to read the README first to understand the relationship between `semgrep` and `semgrep-core`.
 
-## Getting `semgrep-core` and `spacegrep` binaries
+## Setting up the environment
 
-If you would like to install `semgrep-core` and `spacegrep` from source (for example, because you want to fix a parse error), follow the instructions in [Building `semgrep-core`](semgrep-core-contributing.md#building-semgrep-core) and skip this section.
+You will need Python >= 3.6.
 
-Otherwise, visit the [releases page](https://github.com/returntocorp/semgrep/releases)
+Most Python development is done inside the `semgrep` directory (from the top level of this repo, `semgrep/semgrep/`):
+
+```bash
+$ cd semgrep
+```
+
+We use [`pipenv`](https://github.com/pypa/pipenv) to manage our virtual environment.
+You can install it like this:
+
+```bash
+$ python -m pip install pipenv
+```
+
+Next we need to initialize the environment.
+This command will install dev dependencies such as pytest and will also install semgrep in editable mode in the pipenv.
+
+```bash
+$ SEMGREP_SKIP_BIN=true python -m pipenv install --dev
+```
+
+:::note
+SEMGREP_SKIP_BIN` tells the installer that we will bring our own semgrep-core; see below.*
+:::
+
+## Getting the `semgrep-core` binary
+
+Almost all usages of `semgrep` require the `semgrep-core` binary.
+To get this binary,
+your safest bet is to follow the instructions in [Building `semgrep-core`](semgrep-core-contributing.md#building-semgrep-core),
+which takes around 20 minutes.
+
+Two shortcuts are available as alternatives,
+where you use a pre-compiled binary.
+The downsides of using a pre-compiled binary are:
+
+1. You will not be able to make edits to `semgrep-core`,
+   for example to fix a parse error.
+2. Semgrep will fail if the interface between `semgrep` and `semgrep-core` has changed
+   since the binary was compiled.
+   This has historically been happening around every two months,
+   but can happen at any time without notice.
+
+With that in mind, the available shortcuts are:
+### The Homebrew shortcut
+
+If you installed Semgrep via Homebrew with `brew install semgrep`,
+a `semgrep-core` binary was bundled within that installation,
+but is not made available on your `$PATH` by default.
+
+You can add the bundled binary to your `$PATH` with this series of commands,
+provided you have `jq` installed:
+
+```bash
+export SEMGREP_BREW_INSTALLED_VERSION="$(brew info --json semgrep | jq .[0].installed[0].version -r)"
+export SEMGREP_BREW_INSTALL_PATH="$(brew --cellar semgrep)/${SEMGREP_BREW_INSTALLED_VERSION}"
+export SEMGREP_BREW_PYTHON_PACKAGE_PATH="$(${SEMGREP_BREW_INSTALL_PATH}/libexec/bin/python -m pip list -v | grep '^semgrep\b' | awk '{ print $3 }')"
+export SEMGREP_BREW_CORE_BINARY_PATH="${SEMGREP_BREW_PYTHON_PACKAGE_PATH}/semgrep/bin"
+export PATH="${SEMGREP_BREW_CORE_BINARY_PATH}:${PATH}"
+```
+
+### The manual shortcut
+
+Visit the [releases page](https://github.com/returntocorp/semgrep/releases)
 and grab the latest zipfile or tarball for your platform. Extract this archive
 and inside should be the necessary binaries. You can confirm this by running:
 
 ```bash
 $ ./semgrep-core --help
-$ ./spacegrep --help
 ```
 
-Copy these files to somewhere in your `$PATH` so `semgrep` can find them. For
+Copy this file to somewhere in your `$PATH` so `semgrep` can find them. For
 example, you may create a `~/bin/` directory within the repository. [Include it in your `$PATH`](https://unix.stackexchange.com/questions/26047/how-to-correctly-add-a-path-to-path)
 and run the binary from there.
 
 Alternatively, you may include it somewhere like `/usr/local/bin/`.
-
-## Setting up the environment
-
-Once you have `semgrep-core` and `spacegrep` installed, you will be able to build `semgrep`. You will need Python >= 3.6 as well.
-
-Most `semgrep` development will operate inside the `semgrep` directory (from the top level of this repo, `semgrep/semgrep/`):
-
-```
-$ cd semgrep
-```
-
-We use [`pipenv`](https://github.com/pypa/pipenv) to manage our virtual
-environment. If you don't have `pipenv` installed, the following command will do
-so for you:
-
-```
-$ python -m pip install pipenv
-```
-
-Next we need to initialize the environment:
-
-```
-$ SEMGREP_SKIP_BIN=true python -m pipenv install --dev
-```
-
-*`SEMGREP_SKIP_BIN` tells the installer that we will bring our own binaries.*
-This command will install dev dependencies such as pytest and will also install semgrep in editable mode in the pipenv.
 
 ## Running `semgrep`
 
@@ -93,7 +127,7 @@ brew install semgrep
 
 Now you can run `semgrep --help` from anywhere.
 
-If you have installed `semgrep-core` and `spacegrep` from source, there are convenient targets in the root Makefile that let you update all binaries. After you pull, simply run
+If you have installed `semgrep-core` from source, there are convenient targets in the root Makefile that let you update all binaries. After you pull, simply run
 
 ```
 make rebuild
