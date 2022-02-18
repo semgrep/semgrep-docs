@@ -98,28 +98,4 @@ The possible transitions are defined as follows:
     Fixed issues will stay fixed even if their rule is removed.
 :::
 
-### Analytics
-
-Semgrep App provides analytics to measure Semgrep performance within your organization. Visit [Dashboard > Findings](https://semgrep.dev/manage/findings?tab=summary) and use measurements like fix rate and findings over time to get the most out of your Semgrep deployment:
-
-![Blocking vs. non-blocking findings](img/sankey-diagram.png "Blocking vs. non-blocking findings")
-
-Filter findings to drill down into specific areas:
-
-![Findings filters](img/findings-filters.png "Findings filters")
-
-View individual findings and their associated state:
-
-![Individual finding state](img/findings-table.png "Individual finding state")
-
-Track high, or low, performing policies, rulesets, and rules:
-
-![Ruleset performance](img/ruleset-findings.png "Ruleset performance")
-
-:::info
-The "rate" for any state is `(state total / total of all states)`, e.g., `fix rate = (fixed / (fixed + open + muted))`.
-:::
-
-For more information on blocking vs. non-blocking visit [Managing CI policy](../semgrep-app/managing-policy/).
-
 <MoreHelp />
