@@ -127,10 +127,6 @@ module.exports = {
       facetFilters: [],
       //... other Algolia params
     },
-    gtag: {
-      // You can also use your "G-" Measurement ID here.
-      trackingID: 'G-1851JH9FSR',
-    },
     image: 'https://semgrep.dev/thumbnail.png'
   },
   scripts: [
@@ -152,6 +148,10 @@ module.exports = {
         },
         theme: {
           customCss: require.resolve('./src/css/custom.css'),
+        },
+        gtag: {
+          // You can also use your "G-" Measurement ID here.
+          trackingID: 'G-1851JH9FSR',
         },
       },
     ],
