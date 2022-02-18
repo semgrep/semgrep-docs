@@ -24,7 +24,7 @@ module.exports = {
         {
           type: 'category',
           label: 'Running rules',
-          items: ['rules', 'running-rules', 'managing-findings'],
+          items: ['running-rules', 'managing-findings'],
         },
         {
           type: 'category',
