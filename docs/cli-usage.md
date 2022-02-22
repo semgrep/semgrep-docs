@@ -37,6 +37,7 @@ Usage: semgrep [OPTIONS] [TARGET]...
 
 Options:
   -h, --help                      Show this message and exit.
+  --apply                         Print a list of job postings at r2c.
   -a, --autofix / --no-autofix    Apply autofix patches. WARNING: data loss can occur
                                   with this flag. Make sure your files are stored in a
                                   version control system. Note that this mode is
