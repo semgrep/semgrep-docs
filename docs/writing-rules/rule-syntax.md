@@ -211,7 +211,8 @@ Comparison expressions support simple arithmetic as well as composition with [bo
 
 Building off of the previous example this will still catch code like `set_port(80)` but will no longer catch `set_port(443)` or `set_port(8080)`.
 
-The `metavariable-comparison` operator also takes optional `base: int` and `strip: bool` keys. These keys set the integer base the metavariable value should be interpreted as and remove quotes from the metavariable value, respectively.
+The `metavariable-comparison` operator also takes two optional keys.
+First, `base: int` sets the integer base the metavariable value should be interpreted as.
 
 For example, `base`:
 
@@ -219,11 +220,13 @@ For example, `base`:
 
 This will interpret metavariable values found in code as octal, so `0700` will be detected, but `0400` will not.
 
+Second, `strip: bool` makes Semgrep extract the first group of digits when a string is matched.
 For example, `strip`:
 
 <iframe src="https://semgrep.dev/embed/editor?snippet=AlqB" border="0" frameBorder="0" width="100%" height="435"></iframe>
 
 This will remove quotes (`'`, `"`, and `` ` ``) from both ends of the metavariable content. So `"2147483648"` will be detected but `"2147483646"` will not. This is useful when you expect strings to contain integer or float data.
+It will also remove any other non-digit characters. This lets you match a string like `"12px"` and compare against the number `12` from within that string.
 
 ### `pattern-not`
 
