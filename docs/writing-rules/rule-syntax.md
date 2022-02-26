@@ -210,7 +210,7 @@ Comparison expressions support the following language features:
 - arithmetic operators: `+`, `-`, `*`, `/`, `%`
 - comparison operators: `>`, `>=`, `==`, `!=`, `<=`, `<`, `in`
 - boolean logic operators: `not`, `and`, `or`
-- the Python `int(value)` function
+- the Python `int(value: Any) -> str` function
 - a `digits(value: str) -> str` function which extracts the first group of digits from a string
 
 A rule that uses a combination of these operators can check if a value is even or odd:
