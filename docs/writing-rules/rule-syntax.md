@@ -205,14 +205,22 @@ The `metavariable-comparison` operator is a mapping which requires the `metavari
 
 This will catch code like `set_port(80)` or `set_port(443)`, but not `set_port(8080)`.
 
-Comparison expressions support simple arithmetic as well as composition with [boolean operators](https://docs.python.org/3/reference/expressions.html#boolean-operations) to allow for more complex matching. This is particularly useful for checking that metavariables are divisible by particular values, such as enforcing that a particular value is even or odd:
+Comparison expressions support the following language features:
+
+- arithmetic operators: `+`, `-`, `*`, `/`, `%`
+- comparison operators: `>`, `>=`, `==`, `!=`, `<=`, `<`, `in`
+- boolean logic operators: `not`, `and`, `or`
+- the Python `int(value)` function
+- a `digits(value: str) -> str` function which extracts the first group of digits from a string
+
+A rule that uses a combination of these operators can check if a value is even or odd:
 
 <iframe src="https://semgrep.dev/embed/editor?snippet=qq9R" border="0" frameBorder="0" width="100%" height="435"></iframe>
 
 Building off of the previous example this will still catch code like `set_port(80)` but will no longer catch `set_port(443)` or `set_port(8080)`.
 
-The `metavariable-comparison` operator also takes two optional keys.
-First, `base: int` sets the integer base the metavariable value should be interpreted as.
+`metavariable-comparison` also takes two optional keys.
+First, `base: int` sets the numeric base of the metavariable value.
 
 For example, `base`:
 
@@ -220,13 +228,15 @@ For example, `base`:
 
 This will interpret metavariable values found in code as octal, so `0700` will be detected, but `0400` will not.
 
-Second, `strip: bool` makes Semgrep extract the first group of digits when a string is matched.
-For example, `strip`:
+Second, `strip: bool`. When a string is matched with this set to `true`, Semgrep extracts the first group of digits.
+This is just a shortcut to replace any metavar usage such as `$X` with `int(digits($X))` in the comparison.
+For example:
 
 <iframe src="https://semgrep.dev/embed/editor?snippet=AlqB" border="0" frameBorder="0" width="100%" height="435"></iframe>
 
-This will remove quotes (`'`, `"`, and `` ` ``) from both ends of the metavariable content. So `"2147483648"` will be detected but `"2147483646"` will not. This is useful when you expect strings to contain integer or float data.
-It will also remove any other non-digit characters. This lets you match a string like `"12px"` and compare against the number `12` from within that string.
+This removes quotes (`'`, `"`, and `` ` ``) from both ends of the metavariable content.
+So `"2147483648"` is detected but `"2147483646"` is not. This is useful when you expect strings to contain integer or float data.
+It also removes any other non-digit characters. This enables you to match a string like `"12px"` and compare against the number `12` from within that string.
 
 ### `pattern-not`
 
