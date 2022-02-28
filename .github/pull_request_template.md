@@ -1,3 +1,8 @@
-### Security
+# Thanks for improving Semgrep Docs 😀
 
-- [ ] Change has no security implications (otherwise, ping the security team)
+### Please ensure
+
+- [ ] A subject matter expert (SME) reviews the content
+- [ ] A technical writer reviews the content or PR
+- [ ] This change has no security implications or else you have pinged the security team
+- [ ] Redirects are added if the PR changes page URLs
