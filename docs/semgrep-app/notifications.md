@@ -59,13 +59,15 @@ Automated comments on GitHub pull requests look like this:
 <br />
 An inline GitHub pull request comment.
 
-Note that [Semgrep App](https://semgrep.dev/manage) uses the permissions requested by [the Semgrep GitHub App](https://github.com/marketplace/semgrep-dev) to leave PR comments.
+If you would like to allow Semgrep to automatically suggest quick fixes, visit the [projects page](https://semgrep.dev/orgs/-/projects), select a project, and toggle "Autofix" on.
+
+Note that [Semgrep App](https://semgrep.dev/manage) uses the permissions requested by [the Semgrep GitHub App](https://github.com/marketplace/semgrep-dev) to leave PR comments. You can verify that you have granted these permissions by visiting either https://github.com/organizations/<your_org_name>/settings/installations or https://github.com/organizations/<your_org_name>/<your_repo_name>/settings/installations).
 
 If you are using Github Actions to run Semgrep, no extra changes are needed to get PR comments. If you are using another CI provider, in addition to the environment variables you set after following [sample CI configurations](/semgrep-ci/sample-ci-configs/) you need to ensure that the following environment variables are correctly defined:
 
-- `SEMGREP_COMMIT` is set to the full commit hash of the code being scanned (e.g. `d8875d6a63bba2b377a57232e404d2e367dce82d`)
-- `SEMGREP_PR_ID` is set to the PR number of the pull request on Github (e.g. `2900`)
+- `SEMGREP_PR_ID` is set to the PR number of the pull request on Github (e.g. `2901`)
 - `SEMGREP_REPO_NAME` is set to the repo name (e.g., `returntocorp/semgrep`)
+- `SEMGREP_REPO_URL` is set to the repository URL where your project is viewable online (e.g., `https://github.com/returntocorp/semgrep`)
 
 ### GitLab merge request comments
 
@@ -106,7 +108,9 @@ semgrep:
     GITLAB_TOKEN: $PAT
 ```
 
-NOTE: GitLab MR comments are only available to logged-in semgrep.dev users, requiring both a Semgrep deployment ID and a Semgrep API token.
+If you would like to allow Semgrep to automatically suggest quick fixes, visit the [projects page](https://semgrep.dev/orgs/-/projects), select a project, and toggle "Autofix" on.
+
+NOTE: GitLab MR comments are only available to logged-in semgrep.dev users, as they require a Semgrep API token.
 
 ### Webhooks
 
