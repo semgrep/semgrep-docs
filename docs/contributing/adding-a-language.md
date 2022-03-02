@@ -59,10 +59,10 @@ If you're lucky, the language you want to add can be added with the
 script `add-simple-lang`:
 
 ```
-$ cd lang
-$ ./add-simple-lang --help
-$ ...  # follow the instructions from --help
+cd lang
+./add-simple-lang --help
 ```
+follow the instructions from --help
 
 This often works with languages that define a single dialect using a
 `grammar.js` file at the root of the project. If this simplified

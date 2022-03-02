@@ -12,6 +12,50 @@ Welcome to Semgrep release notes. This document provides an overview of the chan
 
 ## February 2022
 
+### Version 0.82.0
+
+#### Additions
+
+##### Support of semgrep --baseline-commit
+
+With this update, you can use experimental baseline scanning by issuing the following command:
+
+```
+semgrep --baseline-commit GIT_COMMIT_HASH
+```
+
+Use this option with a commit hash or a branch name. The `--baseline-commit` option limits the scan results to those introduced after the commit you specify.
+For example, you have a repository with 10 commits, use the commit hash of the 8th commit, and Semgrep returns scan results introduced by changes in commits 9 and 10. ([#4571](https://github.com/returntocorp/semgrep/pull/4571))
+
+#### Changes
+
+##### Scans indicate skipped target paths
+
+Semgrep scans now indicate a breakdown of skipped target paths with the reason for the scan skip. In addition, using the `--verbose` mode lists all skipped paths.
+
+##### Performance improvement of semgrep-core
+
+All rules are now sent directly to semgrep-core, resulting in a significant performance increase for small-to-medium-sized code repositories. This improvement led to the following changes:
+- Static Analysis Results Interchange Format (SARIF) output includes all used rules.
+- Error messages use the full path of rules.
+- Progress bar reports by file instead of by rule.
+
+##### Python 3.7 is the minimum version to use Semgrep
+
+The required minimum version of Python for Semgrep is now 3.7 instead of EOL 3.6.
+
+##### Bloom filter
+
+Bloom filter optimization now considers `import` module file names. As a consequence, Semgrep matches patterns such as `import { $X } from 'foo'` with increased performance. ([#4605](https://github.com/returntocorp/semgrep/pull/4605))
+
+##### Indentation removed to provide additional space
+
+Indentation is now removed from matches to provide more space.
+
+#### Additional information
+
+To see the complete change notes, visit the [Semgrep changelog](https://github.com/returntocorp/semgrep/releases/tag/v0.82.0).
+
 ### Version 0.81.0
 
 #### Additions
@@ -872,7 +916,7 @@ This version also includes release notes for Semgrep version 0.53.0.
 
 ```
 
-$ARG = [$V];
+ARG = [$V];
 
 ...
 
