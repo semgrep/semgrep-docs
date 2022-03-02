@@ -13,24 +13,43 @@ As we continue to develop and refine this feature, we welcome and appreciate all
 
 ## Getting started
 
-Run 
+To create private rules, use the [Semgrep CLI](../getting-started.md) to run these commands:
 
+1. Interactively login to Semgrep:
 ```
 semgrep login
+```
+
+2. Run `semgrep publish` followed by the path to your private rules: 
+```
 semgrep publish myrules/
 ```
 
-Test cases will be included as well (see [testing Semgrep rules](../writing-rules/testing-rules)).
+If the directory contains test cases for the rules, Semgrep will upload them as well (see [testing Semgrep rules](../writing-rules/testing-rules)).
 
-You can also publish rules as unlisted with the same command:
+You can also change the visibility of the rules. For instance, to publish the rules as unlisted (which doesn't require authentication but won't be displayed in the public registry):
 
 ```
 semgrep publish --visiblity=unlisted myrules/
 ```
 
-## Automatically Publishing Rules
+Run `semgrep publish --help` for more details.
 
-Here is a sample Github Actions workflow to automatically publish rules from a private Git repo after they are merged:
+## Viewing and using private rules
+
+View your rule in the [editor](https://semgrep.dev/orgs/-/editor) under the folder corresponding to your organization name. 
+
+You can also find it in the [registry](https://semgrep.dev/r) by searching for [organization-id].[rule-id]. For example: `r2c.test-rule-id`. 
+
+To enforce the rule on a new scans, add the rule in the [registry](https://semgrep.dev/r) to an existing policy.
+
+## Automatically publishing rules
+
+This section provides a sample of GitHub Actions workflow to automatically publish rules from a private Git repository after a merge to the `main`, `master`, or `develop` branches.
+
+1. Make sure that `SEMGREP_APP_TOKEN` is defined in your Github project or organization's secrets.
+
+2. Create the following file at `.github/workflows/semgrep-publish.yml`:
 
 ```
 name: semgrep-publish
@@ -38,7 +57,9 @@ name: semgrep-publish
 on:
   push:
     branches:
+    - develop
     - main
+    - master
 
 jobs:
   publish:
@@ -50,27 +71,22 @@ jobs:
         path: semgrep-rules
     - name: publish private semgrep rules
       run: |
-        docker run --env SEMGREP_APP_TOKEN=$SEMGREP_APP_TOKEN --rm -v ${GITHUB_WORKSPACE}/semgrep-rules:/src returntocorp/semgrep:develop publish --visibility=org_private /src
+        docker run --env SEMGREP_APP_TOKEN=$SEMGREP_APP_TOKEN --rm -v ${GITHUB_WORKSPACE}/semgrep-rules:/src returntocorp/semgrep:develop publish --visibility=org_private /src/private_rule_dir
       env:
         SEMGREP_APP_TOKEN: ${{ secrets.SEMGREP_APP_TOKEN }}
 ```
+## Appendix
 
-## FAQ
+### Visibility of private rules
 
-### Can users from other organizations see my private rules?
+Private rules are only visible to logged-in members of your organization.
 
-No! Private rules are only visible to members of your organization.
-
-### How can I view/use my rule?
-
-You can view your rule in the [registry](https://semgrep.dev/r) by searching for [organization-id].[rule-id]. Example: r2c.test-rule-id. From here, you can add it to an existing policy to be enforced on new scans.
-
-### Can I delete rules I've created?
+### Deleting private rules
 
 Private rules cannot currently be deleted. Please contact us at [support@r2c.dev](mailto:support@r2c.dev?subject=Remove%20Private%20Rule) if you'd wish to have a rule removed.
 
-### What happens if a rule with the same ID is published?
+### Publishing a rule with the same rule ID
 
-Rules are required to have unique IDs. If a rule with the same ID as an existing rule is published, it will overwrite the previous rule.
+Rules have unique IDs. If you publish a rule with the same ID as an existing rule, the new rule overwrites the previous one.
 
 <MoreHelp />
