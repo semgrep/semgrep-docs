@@ -9,31 +9,32 @@ import MoreHelp from "/src/components/MoreHelp"
 
 Users in the [Team and Enterprise tier](https://semgrep.dev/pricing) for Semgrep App can publish rules to the Semgrep Registry that are not visible to others outside their organization. This can be useful for organizations where rules may contain code-sensitive information or legal requirements prevent using a public registry.
 
-As we continue to develop and refine this feature, we welcome and appreciate all feedback via email at [product@r2c.dev](mailto:product@r2c.dev) or in our [Community Slack](https://r2c.dev/slack).
+As we continue to develop and refine this feature, we welcome and appreciate your feedback! Email us at [product@r2c.dev](mailto:product@r2c.dev) or contact us in our [Community Slack](https://r2c.dev/slack).
 
 ## Getting started
 
 To create private rules, use the [Semgrep CLI](../getting-started.md) to run these commands:
 
 1. Interactively login to Semgrep:
-```
-semgrep login
-```
 
-2. Run `semgrep publish` followed by the path to your private rules: 
-```
-semgrep publish myrules/
-```
+    ```
+    semgrep login
+    ```
+2. Run `semgrep publish` followed by the path to your private rules:
+
+    ```
+    semgrep publish myrules/
+    ```
 
 If the directory contains test cases for the rules, Semgrep will upload them as well (see [testing Semgrep rules](../writing-rules/testing-rules)).
 
 You can also change the visibility of the rules. For instance, to publish the rules as unlisted (which doesn't require authentication but won't be displayed in the public registry):
 
-```
-semgrep publish --visiblity=unlisted myrules/
-```
+    ```
+    semgrep publish --visiblity=unlisted myrules/
+    ```
 
-Run `semgrep publish --help` for more details.
+For more details, run `semgrep publish --help`.
 
 ## Viewing and using private rules
 
@@ -41,40 +42,39 @@ View your rule in the [editor](https://semgrep.dev/orgs/-/editor) under the fold
 
 You can also find it in the [registry](https://semgrep.dev/r) by searching for [organization-id].[rule-id]. For example: `r2c.test-rule-id`. 
 
-To enforce the rule on a new scans, add the rule in the [registry](https://semgrep.dev/r) to an existing policy.
+To enforce the rule on new scans, add the rule in the [registry](https://semgrep.dev/r) to an existing policy.
 
 ## Automatically publishing rules
 
 This section provides a sample of GitHub Actions workflow to automatically publish rules from a private Git repository after a merge to the `main`, `master`, or `develop` branches.
 
 1. Make sure that `SEMGREP_APP_TOKEN` is defined in your Github project or organization's secrets.
-
 2. Create the following file at `.github/workflows/semgrep-publish.yml`:
+    ```
+    name: semgrep-publish
 
-```
-name: semgrep-publish
+    on:
+      push:
+        branches:
+        - develop
+        - main
+        - master
 
-on:
-  push:
-    branches:
-    - develop
-    - main
-    - master
+    jobs:
+      publish:
+        name: public-private-semgrep-rules
+        runs-on: ubuntu-latest
+        steps:
+        - uses: actions/checkout@v2
+          with:
+            path: semgrep-rules
+        - name: publish private semgrep rules
+          run: |
+            docker run --env SEMGREP_APP_TOKEN=$SEMGREP_APP_TOKEN --rm -v ${GITHUB_WORKSPACE}/semgrep-rules:/src returntocorp/semgrep:develop publish --visibility=org_private /src/private_rule_dir
+          env:
+            SEMGREP_APP_TOKEN: ${{ secrets.SEMGREP_APP_TOKEN }}
+    ```
 
-jobs:
-  publish:
-    name: public-private-semgrep-rules
-    runs-on: ubuntu-latest
-    steps:
-    - uses: actions/checkout@v2
-      with:
-        path: semgrep-rules
-    - name: publish private semgrep rules
-      run: |
-        docker run --env SEMGREP_APP_TOKEN=$SEMGREP_APP_TOKEN --rm -v ${GITHUB_WORKSPACE}/semgrep-rules:/src returntocorp/semgrep:develop publish --visibility=org_private /src/private_rule_dir
-      env:
-        SEMGREP_APP_TOKEN: ${{ secrets.SEMGREP_APP_TOKEN }}
-```
 ## Appendix
 
 ### Visibility of private rules
