@@ -7,7 +7,7 @@ import MoreHelp from "/src/components/MoreHelp"
 
 # Private rules
 
-Users in the [Team and Enterprise tier](https://semgrep.dev/pricing) for Semgrep App can publish rules to the Semgrep Registry that are not visible to others outside their organization. This can be useful for organizations where rules may contain code-sensitive information or legal requirements prevent using a public registry.
+Users in the [Team and Enterprise tier](https://semgrep.dev/pricing) for Semgrep App can publish rules to the Semgrep Registry as private rules that are not visible to others outside their organization. The private rules enable you to hide code-sensitive information or legal requirements that prevent you from using a public registry.
 
 As we continue to develop and refine this feature, we welcome and appreciate your feedback! Email us at [product@r2c.dev](mailto:product@r2c.dev) or contact us in our [Community Slack](https://r2c.dev/slack).
 
@@ -17,22 +17,23 @@ To create private rules, use the [Semgrep CLI](../getting-started.md) to run the
 
 1. Interactively login to Semgrep:
 
-    ```
+    ```sh
     semgrep login
     ```
+
 2. Run `semgrep publish` followed by the path to your private rules:
 
-    ```
+    ```sh
     semgrep publish myrules/
     ```
 
-If the directory contains test cases for the rules, Semgrep will upload them as well (see [testing Semgrep rules](../writing-rules/testing-rules)).
+If the directory contains test cases for the rules, Semgrep uploads them as well (see [testing Semgrep rules](../writing-rules/testing-rules)).
 
-You can also change the visibility of the rules. For instance, to publish the rules as unlisted (which doesn't require authentication but won't be displayed in the public registry):
+You can also change the visibility of the rules. For instance, to publish the rules as unlisted (which does not require authentication but will not be displayed in the public registry):
 
-    ```
-    semgrep publish --visiblity=unlisted myrules/
-    ```
+```sh
+semgrep publish --visiblity=unlisted myrules/
+```
 
 For more details, run `semgrep publish --help`.
 
@@ -50,7 +51,8 @@ This section provides a sample of GitHub Actions workflow to automatically publi
 
 1. Make sure that `SEMGREP_APP_TOKEN` is defined in your Github project or organization's secrets.
 2. Create the following file at `.github/workflows/semgrep-publish.yml`:
-    ```
+
+    ```yaml
     name: semgrep-publish
 
     on:
@@ -83,7 +85,7 @@ Private rules are only visible to logged-in members of your organization.
 
 ### Deleting private rules
 
-Private rules cannot currently be deleted. Please contact us at [support@r2c.dev](mailto:support@r2c.dev?subject=Remove%20Private%20Rule) if you'd wish to have a rule removed.
+You cannot delete private rules. To remove a private rule, contact us at [support@r2c.dev](mailto:support@r2c.dev?subject=Remove%20Private%20Rule).
 
 ### Publishing a rule with the same rule ID
 
