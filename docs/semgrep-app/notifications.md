@@ -124,19 +124,16 @@ In the following screenshot, Semgrep detects the use of a native Python XML libr
 
 #### Enabling autofix for your GitLab or GitHub code repository
 
+Autofix requires PR or MR comments to be enabled for your repository or organization. Follow the steps in [GitHub pull request comments](#github-pull-request-comments) or [GitLab merge request comments](#gitlab-merge-request-comments) to enable this feature.
 
-**Prerequisites:**
+To enable autofix:
 
-* **For GitLab users:** GitLab users must be signed in to semgrep.dev as they require a Semgrep API token.
-* **For GitHub users:** Ensure you have granted sufficient permissions requested by Semgrep GitHub App for the repository or organization that will receive PR autofix suggestions.
-
-1. Sign in to your [Semgrep App account](https://semgrep.dev/login).
-2. Click **Projects** from the **App sidebar**.
-3. Click the name of the project to enable autofix for.
-4. Click the toggle for **Autofix (beta)**.
+2. Sign in to your [Semgrep App account](https://semgrep.dev/login).
+3. Click **Projects** from the **App sidebar**.
+4. Click the name of the project to enable autofix for.
+5. Click the toggle for **Autofix (beta)**.
 ![Screenshot of autofix toggle](../img/notifications-enable-autofix.png)
-5. After enabling autofix, your succeeding scans will include PR or MR suggestions where applicable.
-
+6. All scans performed after enabling autofix will generate inline PR or MR comments with code suggestions for applicable rules.
 
 
 ### Webhooks
