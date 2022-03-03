@@ -63,7 +63,7 @@ Note that [Semgrep App](https://semgrep.dev/manage) uses the permissions request
 
 If you are using GitHub Actions to run Semgrep, no extra changes are needed to get PR comments. If you are using another CI provider, in addition to the environment variables you set after following [sample CI configurations](/semgrep-ci/sample-ci-configs/) you need to ensure that the following environment variables are correctly defined:
 
-- `SEMGREP_PR_ID` is set to the PR number of the pull request on Github (e.g. `2901`)
+- `SEMGREP_PR_ID` is set to the PR number of the pull request on Github (for example, `2901`)
 - `SEMGREP_REPO_NAME` is set to the repo name (e.g., `returntocorp/semgrep`)
 - `SEMGREP_REPO_URL` is set to the repository URL where your project is viewable online (e.g., `https://github.com/returntocorp/semgrep`)
 
