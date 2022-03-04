@@ -83,7 +83,7 @@ Options:
                                   To run multiple rule files simultaneously, use --config
                                   before every YAML, URL, or Semgrep registry
                                   entry name. For example:
-                                  `semgrep --config p/python --config myrules/myrule.yaml`
+                                  `semgrep --config p/java --config p/secrets`
                                   
                                   See https://semgrep.dev/docs/writing-
                                   rules/rule-syntax for information on
