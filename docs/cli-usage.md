@@ -83,7 +83,7 @@ Options:
                                   To run multiple rule files simultaneously, use -f
                                   before every YAML, URL, or Semgrep registry
                                   entry name. For example:
-                                  `semgrep -f your/java.net.url. -f path/secrets`.
+                                  `semgrep -f your/java.net.url -f config/rule.yml
                                   
                                   See https://semgrep.dev/docs/writing-
                                   rules/rule-syntax for information on
