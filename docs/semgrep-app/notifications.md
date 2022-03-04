@@ -106,7 +106,6 @@ semgrep:
     GITLAB_TOKEN: $PAT
 ```
 
-If you would like to allow Semgrep to automatically suggest quick fixes, visit the [projects page](https://semgrep.dev/orgs/-/projects), select a project, and toggle "Autofix" on.
 
 NOTE: GitLab MR comments are only available to logged-in semgrep.dev users, as they require a Semgrep API token.
 
