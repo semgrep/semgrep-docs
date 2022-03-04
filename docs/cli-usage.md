@@ -79,6 +79,11 @@ Options:
                                   rules tailored to this project; your project
                                   URL will be used to log in to the Semgrep
                                   registry.
+
+                                  To run multiple rule files simultaneously, use -f
+                                  before every YAML, URL, or Semgrep registry
+                                  entry name. For example:
+                                  `semgrep -f your/java.net.url. -f path/secrets`.
                                   
                                   See https://semgrep.dev/docs/writing-
                                   rules/rule-syntax for information on
@@ -217,7 +222,6 @@ To enable add the corresponding line to the correct profile given by the table b
 | Fish  | `~/.config/fish/completions/foo-bar.fish` | `eval (env _SEMGREP_COMPLETE=fish_source semgrep)` |
 
 After modifying your shell configuration, you must start a new shell for the changes to take effect.
-
 
 ## Ignoring Files
 
