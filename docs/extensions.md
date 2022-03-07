@@ -48,5 +48,6 @@ Add yours [with a pull request](https://github.com/returntocorp/semgrep-docs)!
 - [mobsfscan](https://github.com/MobSF/mobsfscan)
 - [nodejsscan](https://github.com/ajinabraham/nodejsscan)
 - [SALUS](https://github.com/coinbase/salus/blob/master/docs/scanners/semgrep.md)
+- [Scanmycode CE (Community Edition)](https://github.com/marcinguy/scanmycode-ce) 
 
 <MoreHelp />
