@@ -19,7 +19,7 @@ RegEx denial of service is caused by poorly-constructed regular expressions that
 
 <iframe src="https://semgrep.dev/embed/editor?snippet=5Lwk" border="0" frameBorder="0" width="100%" height="435"></iframe>
 
-## Entropygi
+## Entropy
 
 ```yaml
 metavariable-analysis:
