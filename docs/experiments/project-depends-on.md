@@ -13,7 +13,7 @@ We welcome external contributors to try out the key, but keep in mind there's no
 `r2c-internal-project-depends-on` patterns must specify three keys:
 
 * `namespace`: The package registry where the third party dependency is found
-* `package`: The name of the third party dependency as it appears in a lockfile
+* `package`: The name of the third party dependency as it appears in the lockfile
 * `version`: A semantic version range. Uses [Python packaging specifiers](https://packaging.pypa.io/en/latest/specifiers.html) which support almost all NPM operators, except `^`
 
 ## Example
