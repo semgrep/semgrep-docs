@@ -37,7 +37,7 @@ rules:
 
 ## Supported Languages
 
-| Language   | Namesapce  | Scans dependencies from          |
+| Language   | Namespace  | Scans dependencies from          |
 |:---------- |:-----------|:---------------------------------|
 | Python     | pypi       | `Pipfile.lock`                   |
 | JavaScript | npm        | `yarn.lock`, `package-lock json` |
