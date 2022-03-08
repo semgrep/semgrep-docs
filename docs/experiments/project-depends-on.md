@@ -40,7 +40,7 @@ rules:
 | Language   | Namespace  | Scans dependencies from          |
 |:---------- |:-----------|:---------------------------------|
 | Python     | pypi       | `Pipfile.lock`                   |
-| JavaScript | npm        | `yarn.lock`, `package-lock json` |
+| JavaScript | npm        | `yarn.lock`, `package-lock.json` |
 | Java       | maven      | `pom.xml`                        |
 | Go         | gomod      | `go.sum`                         |
 | Ruby       | gem        | `Gemfile.lock`                   |
