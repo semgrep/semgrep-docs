@@ -18,7 +18,7 @@ We welcome external contributors to try out the key, but keep in mind there's no
 
 ## Example
 
-Here’s an example project-depends-on rule that looks for a known vulnerable version of the AWS CLI from April 2017, but only reports the vulnerability if the `s3` module (where the vulnerability is located) is actually being used:
+Here’s an example `project-depends-on` rule that looks for a known vulnerable version of the AWS CLI from April 2017, but only reports the vulnerability if the `s3` module (where the vulnerability is located) is actually being used:
 
 ```yaml
 rules:
