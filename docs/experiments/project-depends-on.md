@@ -45,3 +45,7 @@ rules:
 | Go         | gomod      | `go.sum`                         |
 | Ruby       | gem        | `Gemfile.lock`                   |
 | Rust       | cargo      | `cargo.lock`                     |
+
+## Limitations
+
+* Dependency resolution uses the source of dependency information with the *least amount of ambiguity* available. For all supported languages except Java, this is a lockfile, which lists exact version information for each dependency that a project uses. We do not scan, for example, `package.json` files, because they can contain version ranges. In the case of Java, Maven does not support the creation of lockfiles, so `pom.xml` is the least ambiguous source of information we have.
