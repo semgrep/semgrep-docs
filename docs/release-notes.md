@@ -37,7 +37,7 @@ You can now use `r2c-internal-project-depends-on` with lockfiles for Java, Go, R
 
 ##### Improved PHP support
 
-PHP: TPL files are now considered PHP files. ([#4763](https://github.com/returntocorp/semgrep/pull/4763))
+Semgrep now treats TPL files as PHP files. ([#4763](https://github.com/returntocorp/semgrep/pull/4763))
 
 ##### Improved Scala support
 
