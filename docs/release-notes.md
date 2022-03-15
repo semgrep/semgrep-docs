@@ -10,6 +10,42 @@ toc_max_heading_level: 2
 
 Welcome to Semgrep release notes. This document provides an overview of the changes, additions, and fixes made in different versions.
 
+## March 2022
+
+### Version 0.84.0
+
+#### Additions
+
+##### Semgrep CLI lists supported languages
+
+Semgrep CLI now includes `--show-supported-languages` flag to display the list of languages supported by semgrep. Thanks to John Wu for this contribution! ([#4754](https://github.com/returntocorp/semgrep/pull/4754))
+
+##### JSX (JavaScript) improvement
+
+Semgrep CLI now provides the following improvements for JSX (JavaScript extension) scans:
+
+- Semgrep scans for JSX self closing tags (XML elements) such as `<foo />` can result in a match of explicitly closed tags, for example: `<foo >some child</foo>`. You can now disable this behavior by rule options: `xml_singleton_loose_matching: false` (#4730)
+- New rule option `xml_attrs_implicit_ellipsis` that allows you to disable the implicit ellipsis `...` that was added to JSX attributes patterns.
+
+##### Updated validation of rules
+
+The `semgrep --config [file] --validate` now checks for invalid metavariables.
+
+##### The `project-depends-on` now supports more languages
+
+You can now use `r2c-internal-project-depends-on` with lockfiles for Java, Go, Ruby, and Rust. ([#4699](https://github.com/returntocorp/semgrep/pull/4699))
+
+##### Improved PHP support
+
+PHP: TPL files are now considered PHP files. ([#4763](https://github.com/returntocorp/semgrep/pull/4763))
+
+##### Improved Scala support
+
+Semgrep CLI now provides the following improvements for Scala language scans:
+
+- Custom string interpolators. ([#4655](https://github.com/returntocorp/semgrep/issues/4655))
+- Support for parsing scripts that contain plain definitions outside of an object or class.
+
 ## February 2022
 
 ### Version 0.83.0
