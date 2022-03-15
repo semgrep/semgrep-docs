@@ -18,7 +18,7 @@ Welcome to Semgrep release notes. This document provides an overview of the chan
 
 ##### Semgrep CLI lists supported languages
 
-Semgrep CLI now includes `--show-supported-languages` flag to display the list of languages supported by semgrep. Thanks to John Wu for this contribution! ([#4754](https://github.com/returntocorp/semgrep/pull/4754))
+Semgrep CLI now includes `--show-supported-languages` flag to display the list of languages supported by Semgrep. Thanks to John Wu for this contribution! ([#4754](https://github.com/returntocorp/semgrep/pull/4754))
 
 ##### JSX (JavaScript) improvement
 
