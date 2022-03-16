@@ -13,7 +13,6 @@ Configure Semgrep CI by passing these environment variables in your CI job.
 While environment variables are the preferred way to configure Semgrep CI, pass any of these options as command-line options. Refer to the output of `semgrep-agent --help` to find the corresponding flags.
 :::
 
-
 ## Select rules to scan with (`SEMGREP_RULES`)
 
 ```sh

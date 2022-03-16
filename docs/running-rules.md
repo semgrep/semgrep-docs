@@ -72,7 +72,7 @@ Create a YAML rule file that you can run repeatedly.
 
 ### Running multiple rules simultaneously
 
-To run multiple rule files simultaneously, use `--config` before every YAML URL, or Semgrep registry entry name. See the following code example (substitute the colored values as necessary):
+To run multiple rules simultaneously, use `--config` before every YAML URL, or Semgrep registry entry name. See the following code example (substitute the colored values as necessary):
 
 <pre class="language-bash"><code>semgrep --config <span className="placeholder">p/python</span> --config <span className="placeholder">myrules/myrule.yaml</span></code></pre>
 
