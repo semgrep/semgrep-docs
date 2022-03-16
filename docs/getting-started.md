@@ -1,7 +1,7 @@
 ---
 slug: getting-started
 append_help_link: true
-description: "This article provides basic informatin on how to start using Semgrep CLI."
+description: "How to start using Semgrep CLI."
 ---
 
 # Getting started with Semgrep CLI
