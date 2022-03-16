@@ -10,7 +10,103 @@ toc_max_heading_level: 2
 
 Welcome to Semgrep release notes. This document provides an overview of the changes, additions, and fixes made in different versions.
 
+## March 2022
+
+### Version 0.84.0
+
+#### Additions
+
+##### Semgrep CLI lists supported languages
+
+Semgrep CLI now includes `--show-supported-languages` flag to display the list of languages supported by Semgrep. Thanks to John Wu for this contribution! ([#4754](https://github.com/returntocorp/semgrep/pull/4754))
+
+##### JSX (JavaScript) improvement
+
+Semgrep CLI now provides the following improvements for JSX (JavaScript extension) scans:
+
+- Semgrep scans for JSX self closing tags (XML elements) such as `<foo />` can result in a match of explicitly closed tags, for example: `<foo >some child</foo>`. You can now disable this behavior by rule options: `xml_singleton_loose_matching: false` (#4730)
+- New rule option `xml_attrs_implicit_ellipsis` that allows you to disable the implicit ellipsis `...` that was added to JSX attributes patterns.
+
+##### Updated validation of rules
+
+The `semgrep --config [file] --validate` now checks for invalid metavariables.
+
+##### The `project-depends-on` now supports more languages
+
+You can now use `r2c-internal-project-depends-on` with lockfiles for Java, Go, Ruby, and Rust. ([#4699](https://github.com/returntocorp/semgrep/pull/4699))
+
+##### Improved PHP support
+
+Semgrep now treats TPL files as PHP files. ([#4763](https://github.com/returntocorp/semgrep/pull/4763))
+
+##### Improved Scala support
+
+Semgrep CLI now provides the following improvements for Scala language scans:
+
+- Custom string interpolators. ([#4655](https://github.com/returntocorp/semgrep/issues/4655))
+- Support for parsing scripts that contain plain definitions outside of an object or class.
+
 ## February 2022
+
+### Version 0.83.0
+
+#### Additions
+
+##### Semgrep logs
+
+Semgrep now saves logs of its last run to `~/.semgrep/last.log`.
+
+##### New recursive operator in join mode
+
+Join mode enables you to cross file boundaries, allowing you to write rules for whole code bases instead of individual files. With this update, you can now use a new recursive operator `-->` to recursively chain Semgrep rules based on metavariable contents. ([#4684](https://github.com/returntocorp/semgrep/pull/4684))
+
+##### Scanned paths under `paths.scanned` key
+
+Semgrep now lists the scanned paths in its JSON output under the `paths.scanned` key.
+
+##### The `--verbose` option lists skipped paths
+
+With the `--verbose` option, the skipped paths are listed under the `paths.skipped` key.
+
+##### C# improvement
+
+Semgrep now supports typed metavariables in C#. ([#4657](https://github.com/returntocorp/semgrep/issues/4657))
+
+##### The `metavariable-analysis`
+
+Experimental `metavariable-analysis` feature that supports two kinds of analyses rules: 
+- Prediction of regular expression denial-of-service vulnerabilities (Regular expression Denial of Service (ReDoS) analyzer). ([#4700](https://github.com/returntocorp/semgrep/pull/4700))
+- High-entropy string detection (`entropy`). ([#4672](https://github.com/returntocorp/semgrep/pull/4672))
+
+##### The `semgrep publish`
+
+A new subcommand `semgrep publish` allows users to upload private, unlisted, or public rules to the Semgrep Registry.
+
+#### Changes
+
+##### Constant propagation
+
+Improved constant propagation for global constants.
+
+##### PHP improvement
+
+Constant propagation is now aware of `escapeshellarg` and `htmlspecialchars_decode`. If you give these functions constant arguments, Semgrep assumes that their output is also a constant.
+
+##### Use different environment variable
+
+The environment variable used by Semgrep login changed from `SEMGREP_LOGIN_TOKEN` to `SEMGREP_APP_TOKEN`.
+
+#### Fixes
+
+The fixes section includes only important or breaking fixes. To see the full list of fixes, see [Semgrep changelog](https://github.com/returntocorp/semgrep/releases/tag/v0.83.0).
+
+##### Limit for Perl Compatible Regular Expressions (PCRE) engine retries
+
+With this update, the Perl Compatible Regular Expressions (PCRE) engine is now configured to limit hanging scans. As a consequence, the hanging scans which took a long time to process are now stopped after a specific limit is reached. However, some scan results may not be reported as their processing was above this limit.
+
+#### Additional information
+
+To see the complete change notes, visit the [Semgrep changelog](https://github.com/returntocorp/semgrep/releases/tag/v0.83.0).
 
 ### Version 0.82.0
 

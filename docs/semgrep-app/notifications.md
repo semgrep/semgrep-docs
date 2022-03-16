@@ -59,13 +59,13 @@ Automated comments on GitHub pull requests look like this:
 <br />
 An inline GitHub pull request comment.
 
-Note that [Semgrep App](https://semgrep.dev/manage) uses the permissions requested by [the Semgrep GitHub App](https://github.com/marketplace/semgrep-dev) to leave PR comments.
+Note that [Semgrep App](https://semgrep.dev/manage) uses the permissions requested by [the Semgrep GitHub App](https://github.com/marketplace/semgrep-dev) to leave PR comments. You can verify that you have granted these permissions by visiting either `https://github.com/organizations/<your_org_name>/settings/installations` or `https://github.com/organizations/<your_org_name>/<your_repo_name>/settings/installations`.
 
-If you are using Github Actions to run Semgrep, no extra changes are needed to get PR comments. If you are using another CI provider, in addition to the environment variables you set after following [sample CI configurations](/semgrep-ci/sample-ci-configs/) you need to ensure that the following environment variables are correctly defined:
+If you are using GitHub Actions to run Semgrep, no extra changes are needed to get PR comments. If you are using another CI provider, in addition to the environment variables you set after following [sample CI configurations](/semgrep-ci/sample-ci-configs/) you need to ensure that the following environment variables are correctly defined:
 
-- `SEMGREP_COMMIT` is set to the full commit hash of the code being scanned (e.g. `d8875d6a63bba2b377a57232e404d2e367dce82d`)
-- `SEMGREP_PR_ID` is set to the PR number of the pull request on Github (e.g. `2900`)
-- `SEMGREP_REPO_NAME` is set to the repo name (e.g., `returntocorp/semgrep`)
+- `SEMGREP_PR_ID` is set to the PR number of the pull request on Github (for example, `2901`)
+- `SEMGREP_REPO_NAME` is set to the repo name (for example, `returntocorp/semgrep`)
+- `SEMGREP_REPO_URL` is set to the repository URL where your project is viewable online (for example, `https://github.com/returntocorp/semgrep`)
 
 ### GitLab merge request comments
 
@@ -106,7 +106,34 @@ semgrep:
     GITLAB_TOKEN: $PAT
 ```
 
-NOTE: GitLab MR comments are only available to logged-in semgrep.dev users, requiring both a Semgrep deployment ID and a Semgrep API token.
+
+NOTE: GitLab MR comments are only available to logged-in semgrep.dev users, as they require a Semgrep API token.
+
+### Automatically fix your findings through pull or merge requests
+
+[Autofix](../experiments/overview.md/#autofix) is a Semgrep feature in which rules contain suggested fixes to resolve findings. Either metavariables or regex matches are replaced with a potential fix. Due to their complexity, not all rules make use of autofix, but for rules that use this feature, autofix allows you to quickly resolve findings as part of your code review workflow. Semgrep App can suggest these fixes through PR or MR comments within GitHub or GitLab, thus integrating seamlessly with your review environment.
+
+Autofix is free to use for all tiers.
+
+In the following screenshot, Semgrep detects the use of a native Python XML library, which is vulnerable to XML external entity (XXE) attacks. The PR comment automatically suggests a fix by replacing `import xml` to `import defusedxml`.
+
+
+![Screenshot of a sample autofix PR suggestion](../img/notifications-github-suggestions.png)
+
+
+#### Enabling autofix for your GitLab or GitHub code repository
+
+Autofix requires PR or MR comments to be enabled for your repository or organization. Follow the steps in [GitHub pull request comments](#github-pull-request-comments) or [GitLab merge request comments](#gitlab-merge-request-comments) to enable this feature.
+
+To enable autofix:
+
+2. Sign in to your [Semgrep App account](https://semgrep.dev/login).
+3. Click **Projects** from the **App sidebar**.
+4. Click the name of the project to enable autofix for.
+5. Click the toggle for **Autofix (beta)**.
+![Screenshot of autofix toggle](../img/notifications-enable-autofix.png)
+6. All scans performed after enabling autofix will generate inline PR or MR comments with code suggestions for applicable rules.
+
 
 ### Webhooks
 

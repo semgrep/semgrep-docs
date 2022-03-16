@@ -305,7 +305,7 @@ for step-by-step instructions.
 
 Now that you have added your new language 'X' to pfff, do the following:
 1. Add the new pfff submodule to semgrep-core.
-2. In `Check_semgrep.ml`, add 'X' to `lang_has_no_dollar_ids`/ If the grammar
+2. In `Check_pattern.ml`, add 'X' to `lang_has_no_dollar_ids`/ If the grammar
    has no dollar identifiers, add it above 'true'. Otherwise, add it above 'false'.
 3. In `synthesizing/Pretty_print_generic.ml`, add 'X' to the appropriate functions:
    * print_bool
