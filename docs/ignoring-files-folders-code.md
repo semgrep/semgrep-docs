@@ -58,7 +58,7 @@ Semgrep will ignore files beyond the scope of Semgrep's use.
 * Binary files
 * Unknown file extensions (file extensions not matched with any supported programming language)
 
-Large files and unknown file extensions are included or excluded through command line flags (See [CLI reference](https://semgrep.dev/docs/cli-usage/)). Binary files are never scanned.
+Large files and unknown file extensions are included or excluded through command line flags (See [CLI reference](https://semgrep.dev/docs/cli-reference/)). Binary files are never scanned.
 
 This document defines **files, folders and code** as those that are **relevant to a Semgrep scan**. For example, `.jpg` files are not a part of Semgrep's scope and therefore are not part of the scope of this document.
 
@@ -73,7 +73,7 @@ Semgrep provides several methods to customize ignore behavior. Refer to the foll
 | To ignore files and folders in `.gitignore`. | Add `.gitignore` to your `.semgrepignore` file. |
 | To ignore custom files and folders each time you run a scan. | Add these files to your `.semgrepignore` file or [define them through Semgrep App](#defining-files-and-folders-in-semgrep-app).|
 | To ignore specific code blocks each time you run a scan. | Create a comment with the word `nosemgrep`. |
-| To ignore files or folders for a particular scan. | Run Semgrep with the flag `--exclude` followed by the pattern or file to be excluded. See [CLI reference](../cli-usage/).
+| To ignore files or folders for a particular scan. | Run Semgrep with the flag `--exclude` followed by the pattern or file to be excluded. See [CLI reference](../cli-reference/).
 | To include files or folders for a particular scan. | Run Semgrep with the flag `--include` followed by the  pattern or file to be included. See CLI reference. When including a pattern from a `.gitignore` or `.semgrepignore` file, `--include` overrides both, resulting in the file's inclusion in the scan. |
 | To include files or folders defined within a `.gitignore` for a particular scan. | Run Semgrep with the flag `--no-git-ignore`, which will override its definition within `.semgrepignore` as well. |
 | To ignore files or folders for a particular rule. | Edit the rule to set the `paths` key with one or more patterns. See [Rule syntax](../writing-rules/rule-syntax#paths).

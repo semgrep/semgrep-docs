@@ -42,7 +42,7 @@ NOTE: When you use the Semgrep Registry for any ruleset (like the auto ruleset a
 
 Here are some additional resources you may now use:
 
-- See [CLI Reference](../cli-usage/) for command line options and exit codes.
+- See [CLI Reference](../cli-reference/) for command line options and exit codes.
 - Visit [Running rules](../running-rules/) to learn more or try Semgrep on known vulnerable test projects:
 
 <details><summary>Expand for sample projects! 🎉</summary>

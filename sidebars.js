@@ -43,7 +43,7 @@ module.exports = {
             'writing-rules/private-rules'
           ],
         },
-        'cli-usage',
+        'cli-reference',
         'ignoring-files-folders-code',
         'extensions',
         'licensing',

@@ -1,5 +1,5 @@
 ---
-slug: cli-usage
+slug: cli-reference
 append_help_link: true
 description: "Reference for the Semgrep command line tool including options and exit code behavior."
 ---
@@ -209,6 +209,7 @@ Options:
                                   before you commit to them. Only works with
                                   the --autofix flag. Otherwise does nothing.
 ```
+
 ## Autocomplete
 
 The Semgrep command line tool supports autocomplete on all command options, and on configuration rulesets. When typing any option or option parameter, press tab twice to use. When typing out a registry ruleset name (`semgrep --config p/`'), Semgrep will autocomplete with any matching options that are publicly available on the registry. For example `semgrep --config p/` will list all publicly available rulesets, and `semgrep --config p/java<tab><tab>` will list all available rulesets that start with "java". Note: ruleset autocomplete requires internet connection, and will not autocomplete private rulesets or individual rules.
