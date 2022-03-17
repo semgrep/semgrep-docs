@@ -19,7 +19,6 @@ import MoreHelp from "/src/components/MoreHelp"
 Semgrep CI runs fully in your build environment: **your code is never sent anywhere**.
 :::
 
-
 ## Getting started
 
 Semgrep CI behaves like other static analysis and linting tools: it runs a set of user-configured rules and returns a non-zero exit code if there are findings, resulting in its job showing a ✅ or ❌.

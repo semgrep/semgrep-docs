@@ -80,7 +80,7 @@ Options:
                                   URL will be used to log in to the Semgrep
                                   registry.
 
-                                  To run multiple rule files simultaneously, use --config
+                                  To run multiple rules simultaneously, use --config
                                   before every YAML, URL, or Semgrep registry
                                   entry name. For example:
                                   `semgrep --config p/python --config myrules/myrule.yaml`
