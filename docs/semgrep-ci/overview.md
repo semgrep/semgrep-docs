@@ -2,7 +2,7 @@
 slug: overview
 append_help_link: true
 description: >-
-  Semgrep CI is a specialized Docker image for running Semgrep in CI environments. It can either be used stand-alone or connected with Semgrep App for centralized rule and findings management. Rapidly scan every commit and block new bugs with Semgrep CI.
+  Semgrep CI is a Semgrep CLI with with a special wrapper for running Semgrep in CI environments. It can either be used stand-alone or connected with Semgrep App for centralized rule and findings management. Rapidly scan every commit and block new bugs with Semgrep CI.
 ---
 
 import MoreHelp from "/src/components/MoreHelp"
