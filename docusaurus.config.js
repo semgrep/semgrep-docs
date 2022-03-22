@@ -150,6 +150,10 @@ module.exports = {
         theme: {
           customCss: require.resolve('./src/css/custom.css'),
         },
+        googleAnalytics: {
+          trackingID: 'UA-106134149-12',
+          anonymizeIP: true,
+        },
         gtag: {
           // You can also use your "G-" Measurement ID here.
           trackingID: 'G-1851JH9FSR',
