@@ -1,6 +1,6 @@
 # Recursive joins
 
-Join mode is an extension on top of Semgrep that runs multiple rules at once and only returns results if certain conditions are met. Join mode is an experimental mode that lets you cross file boundaries, allowing you to write rules for whole code bases instead of individual files. More information is available in the docs, here: https://semgrep.dev/docs/experiments/join-mode/
+Join mode is an extension of Semgrep that runs multiple rules at once and only returns results if certain conditions are met. Join mode is an experimental mode that lets you cross file boundaries, allowing you to write rules for whole code bases instead of individual files. More information is available in [these docs](/docs/experiments/join-mode/).
 
 Recursive join mode adds a new recursive operator, `-->`, which executes a recursive query on the given condition. This lets you write a Semgrep rule that effectively crawls the codebase on some condition, letting you build chains such as function call chains or class inheritance chains.
 
@@ -66,15 +66,15 @@ A join condition like this, `python-callgraph.$CALLER --> python-callgraph.$CALL
 
 ## Example Rule
 
-To really utilize join mode, it's important to think of a join mode rule as "asking questions about the whole project", rather than looking for a single pattern. For example, to find a SQL injection, you need to understand a few things about the project:
+It's important to think of a join mode rule as "asking questions about the whole project", rather than looking for a single pattern. For example, to find a SQL injection, you need to understand a few things about the project:
 
 1. Is there any user input?
 1. Do any functions manually build a SQL string using function input?
 1. Can the user input reach the function that manually builds the SQL string?
 
-Now, you can write individual Semgrep rules that gather information about each of these questions. This example will use https://github.com/ScaleSec/vulnado as an example for finding a SQL injection. Vulnado is a Spring application.
+Now, you can write individual Semgrep rules that gather information about each of these questions. This example  uses [Vulnado](https://github.com/ScaleSec/vulnado) for finding a SQL injection. Vulnado is a Spring application.
 
-The first rule will look for user input into the Spring application. This rule also captures sinks that use a user-inputtable parameter as an argument.
+The first rule looks for user input into the Spring application. This rule also captures sinks that use a user-inputtable parameter as an argument.
 
 ```yaml
 rules:
@@ -162,7 +162,7 @@ The `on:` conditions, in order, read like this:
 - Match when a method with user input has a $SINK that is the $CALLER in the pseudo-callgraph, and
 - Match when the $CALLEE is the $METHODNAME of a method that uses a parameter to construct a SQL string.
 
-Running this on vulnado will produce tables that look like this:
+Running this on Vulnado will produce tables that look like this:
 
 |$RETURNTYPE |$USERINPUTMETHOD |$TYPE      |$PARAMETER  |$OBJ     |$SINK       |
 |------------|-----------------|-----------|------------|---------|------------|
