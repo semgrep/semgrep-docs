@@ -57,7 +57,14 @@ module.exports = {
             'experiments/generic-pattern-matching',
             { type: 'category',
               label: 'Join mode',
-              items: ['experiments/join-mode/join-mode', 'experiments/join-mode/recursive-joins']
+              items: [
+                {
+                  type: 'doc',
+                  label: 'Overview',
+                  id: 'experiments/join-mode/overview'
+                },
+                'experiments/join-mode/recursive-joins'
+              ]
             },
             'experiments/project-depends-on',
             'experiments/symbolic-propagation',
