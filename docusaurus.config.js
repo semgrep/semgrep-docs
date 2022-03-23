@@ -183,6 +183,7 @@ module.exports = {
           { from: "/status/", to: "/language-support/" },
           { from: "/cli-reference/", to: "/cli-usage/" },
           { from: "/ignoring-findings/", to: "/ignoring-files-folders-code/" },
+          { from: "/experiments/join-mode/", to: "/experiments/join-mode/join-mode/" },
         ]
       }
     ],
