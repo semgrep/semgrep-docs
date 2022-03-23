@@ -9,21 +9,21 @@ You will need Python >= 3.6.
 Most Python development is done inside the `semgrep` directory (from the top level of this repo, `semgrep/semgrep/`):
 
 ```bash
-$ cd semgrep
+cd semgrep
 ```
 
 We use [`pipenv`](https://github.com/pypa/pipenv) to manage our virtual environment.
 You can install it like this:
 
 ```bash
-$ python -m pip install pipenv
+python -m pip install pipenv
 ```
 
 Next we need to initialize the environment.
 This command will install dev dependencies such as pytest and will also install semgrep in editable mode in the pipenv.
 
 ```bash
-$ SEMGREP_SKIP_BIN=true python -m pipenv install --dev
+SEMGREP_SKIP_BIN=true python -m pipenv install --dev
 ```
 
 :::note
@@ -59,7 +59,7 @@ You can add the bundled binary to your `$PATH` with this series of commands,
 provided you have `jq` installed:
 
 ```bash
-export SEMGREP_BREW_INSTALLED_VERSION="$(brew info --json semgrep | jq .[0].installed[0].version -r)"
+export SEMGREP_BREW_INSTALLED_VERSION="$(brew info --json semgrep | jq '.[0].installed[0].version' -r)"
 export SEMGREP_BREW_INSTALL_PATH="$(brew --cellar semgrep)/${SEMGREP_BREW_INSTALLED_VERSION}"
 export SEMGREP_BREW_PYTHON_PACKAGE_PATH="$(${SEMGREP_BREW_INSTALL_PATH}/libexec/bin/python -m pip list -v | grep '^semgrep\b' | awk '{ print $3 }')"
 export SEMGREP_BREW_CORE_BINARY_PATH="${SEMGREP_BREW_PYTHON_PACKAGE_PATH}/semgrep/bin"
@@ -73,7 +73,7 @@ and grab the latest zipfile or tarball for your platform. Extract this archive
 and inside should be the necessary binaries. You can confirm this by running:
 
 ```bash
-$ ./semgrep-core --help
+./semgrep-core --help
 ```
 
 Copy this file to somewhere in your `$PATH` so `semgrep` can find them. For
@@ -87,19 +87,19 @@ Alternatively, you may include it somewhere like `/usr/local/bin/`.
 You will want to be in the pipenv environment whenever you run semgrep. Start a shell with
 
 ```
-$ python -m pipenv shell
+python -m pipenv shell
 ```
 
 Make sure you are in `semgrep/semgrep/`. Within the shell, run:
 
 ```
-$ python -m semgrep --help
+python -m semgrep --help
 ```
 
 To try a simple analysis, you can run:
 
 ```
-$ echo 'if 1 == 1: pass' | python -m semgrep --lang python --pattern '$X == $X' -
+echo 'if 1 == 1: pass' | python -m semgrep --lang python --pattern '$X == $X' -
 /tmp/...
 1:if 1 == 1: pass
 ```
@@ -151,13 +151,13 @@ docker build -t semgrep .
 To run tests, run the following command within the pipenv shell:
 
 ```
-$ python -m pytest
+python -m pytest
 ```
 
 This command will run comprehensize parse tests on many open source projects. To skip these slow tests run:
 
 ```sh
-$ python -m pytest --ignore=tests/qa/test_public_repos.py
+python -m pytest --ignore=tests/qa/test_public_repos.py
 ```
 
 If you want to update the tests to match to the current output:
@@ -168,18 +168,18 @@ make regenerate-tests
 Running a single test file is simple too:
 
 ```
-$ python -m pytest path/to/test.py
+python -m pytest path/to/test.py
 ```
 
 Or running an individual test function:
 
 ```
-$ python -m pytest -k test_func_name path/to/test.py
+python -m pytest -k test_func_name path/to/test.py
 ```
 
 `semgrep` also includes [`pytest-benchmark`](https://pytest-benchmark.readthedocs.io/en/latest/)
 to allow for basic benchmarking functionality. This can be run like so:
 
 ```
-$ python -m pytest --benchmark-only
+python -m pytest --benchmark-only
 ```
