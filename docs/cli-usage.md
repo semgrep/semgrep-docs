@@ -189,6 +189,7 @@ Options:
     --emacs                       Output results in Emacs single-line format.
     --json                        Output results in JSON format.
     --junit-xml                   Output results in JUnit XML format.
+    --reviewdog                   Output results in Reviewdog JSON format.
     --sarif                       Output results in SARIF format.
     --vim                         Output results in vim single-line format.
     -q, --quiet                   Only output findings.
