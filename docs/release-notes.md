@@ -42,7 +42,7 @@ When scanning multiple languages, Semgrep now prints a table of how many rules a
 
 The following inconsistencies were fixed: ([#4776](https://github.com/returntocorp/semgrep/pull/4776))
 
-##### Explicitly targeted files are now affected by global filters
+##### Explicitly targeted files are now unaffected by global filters
 
 Previously, explicitly targeted files (files that are directly passed to the command line) were unaffected by most global filters: global include or exclude patterns, and the file size limit. Now, the `semgrepignore.` patterns do not affect explicitly targeted files as well.
 
