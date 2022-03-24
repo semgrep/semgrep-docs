@@ -44,7 +44,7 @@ The following inconsistencies were fixed: ([#4776](https://github.com/returntoco
 
 ##### Explicitly targeted files are now affected by global filters
 
-Previously, explicitly targeted files (files that are directly passed to the command line) were unaffected by most global filters: global include or exclude patterns, and the file size limit. The `.semgrepignore` patterns do not affect explicitly targeted files. The described issue has been fixed.
+Previously, explicitly targeted files (files that are directly passed to the command line) were unaffected by most global filters: global include or exclude patterns, and the file size limit. Now, the `semgrepignore.` patterns do not affect explicitly targeted files also.
 
 ##### Semgrep scans with `--skip-unknown-extensions` flag now use shebang
 
