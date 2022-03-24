@@ -196,3 +196,8 @@ li.menu__list-item a:hover {
 .footer__title {
   color: rgb(198, 200, 204);
 }
+
+.theme-doc-sidebar-item-category-level-1 .menu__link--sublist {
+    color: red;
+    font-size: 0.5em;
+}

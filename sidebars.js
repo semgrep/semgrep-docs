@@ -17,6 +17,20 @@ module.exports = {
   tutorialSidebar: [
     'Docs home',
     {
+        type: 'category',
+        label: 'WELCOME',
+        collapsed: false,
+        items: [
+          'getting-started',
+          {
+            type: 'category',
+            label: 'Running rules',
+            collapsed: true,
+            items: ['rules', 'running-rules', 'managing-findings'],
+          }
+        ]
+    },
+    {
       type: 'category',
       label: 'Semgrep',
       items: [
