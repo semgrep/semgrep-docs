@@ -44,7 +44,7 @@ The following inconsistencies were fixed: ([#4776](https://github.com/returntoco
 
 ##### Explicitly targeted files are now affected by global filters
 
-Previously, explicitly targeted files (files that are directly passed to the command line) were unaffected by most global filters: global include or exclude patterns, and the file size limit. Now, the `semgrepignore.` patterns do not affect explicitly targeted files as well.
+Previously, explicitly targeted files (files that are directly passed to the command line) were unaffected by most global filters: global include or exclude patterns, and the file size limit. Now, the `.semgrepignore` patterns do not affect explicitly targeted files as well.
 
 ##### Semgrep scans with `--skip-unknown-extensions` flag now use shebang
 
@@ -321,7 +321,7 @@ An autofix improvement from [https://github.com/chair6](https://github.com/chair
 
 Semgrep now correctly matches patterns as `List(...)`.
 
-##### `semgrepignore.`
+##### `.semgrepignore`
 
 Default set of `.semgrepignore` patterns (in `semgrep/templates/.semgrepignore`) is now used by default. You can override the default behavior by creating your own `.semgrepignore` file.
 
