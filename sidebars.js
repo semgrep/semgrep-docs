@@ -66,7 +66,6 @@ module.exports = {
                 'experiments/join-mode/recursive-joins'
               ]
             },
-            'experiments/project-depends-on',
             'experiments/symbolic-propagation',
             'experiments/metavariable-analysis'
           ]
