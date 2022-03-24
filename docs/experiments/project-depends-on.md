@@ -6,15 +6,37 @@ description: "project-depends-on lets Semgrep rules only returns results if the 
 
 # project-depends-on
 
-Under this key, third-party dependencies can be specified along with the semver (semantic version) range that the rule should trigger for. `project-depends-on` filters the rule unless one of the children is matched by a lockfile. In this initial release, the key is named `r2c-internal-project-depends-on` to signal that the syntax & behavior for the key is not stable and may be subject to removal or future changes. 
+Under this key, third-party dependencies can be specified along with the semver (semantic version) range that the rule should trigger for. `project-depends-on` filters the rule unless one of the children is matched by a lockfile. 
 
 We welcome external contributors to try out the key, but keep in mind there's no expectation of stability across releases yet.
 
-`r2c-internal-project-depends-on` patterns must specify three keys:
+The `project-depends-on` key must specify either a dependency, or a sequence of dependencies under a `depends-on-either` key.
+
+A dependency consists of three keys:
 
 * `namespace`: The package registry where the third party dependency is found
 * `package`: The name of the third party dependency as it appears in the lockfile
 * `version`: A semantic version range. Uses [Python packaging specifiers](https://packaging.pypa.io/en/latest/specifiers.html) which support almost all NPM operators, except `^`
+
+So a `project-depends-on` key will either look like this:
+```yaml
+project-depends-on:
+  namespace: ...
+  package: ...
+  version: ...
+```
+or this:
+```yaml
+project-depends-on:
+  depends-on-either:
+    - namespace: ...
+      package: ...
+      version: ...
+    - namespace: ...
+      package: ...
+      version: ...
+    ...
+```
 
 ## Example
 
@@ -23,14 +45,13 @@ Here’s an example `project-depends-on` rule that looks for a known vulnerable 
 ```yaml
 rules:
 - id: vulnerable-awscli-apr-2017
-  patterns:
-    - pattern-either:
-      - pattern: boto3.resource('s3', ...)
-      - pattern: boto3.client('s3', ...)
-    - r2c-internal-project-depends-on:
-      - namespace: pypi
-        package: awscli
-        version: "<= 1.11.82"
+  pattern-either:
+  - pattern: boto3.resource('s3', ...)
+  - pattern: boto3.client('s3', ...)
+  project-depends-on:
+    namespace: pypi
+    package: awscli
+    version: "<= 1.11.82"
   message: this version of awscli is subject to a directory traversal vulnerability in the s3 module
   languages: [python]
 ```
