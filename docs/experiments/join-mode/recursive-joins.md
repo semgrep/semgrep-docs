@@ -188,7 +188,7 @@ Running this on Vulnado produces tables that look like this:
 
 The join conditions selects rows which meet the conditions.
 
-- Match when a method with user input has a $SINK that is the $CALLER in the pseudo-callgraph:
+- Match when a method with user input has a $SINK that is the $CALLER in the pseudo-callgraph.
 
 |... |user-input.$SINK    |== |callgraph.$CALLER   |... |
 |----|---------|---|----------|----|
