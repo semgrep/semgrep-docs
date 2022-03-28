@@ -176,6 +176,9 @@ module.exports = {
         redirects: [
           { from: "/writing-rules/pattern-logic", to: "/writing-rules/rule-syntax/" },
           { from: "/writing-rules/index", to: "/writing-rules/overview/" },
+          { from: "/semgrep-ci/managing-policy", to: "/semgrep-app/rule-board/" },
+          { from: "/managing-policy", to: "/semgrep-app/rule-board/" },
+          { from: "/semgrep-app/managing-policy", to: "/semgrep-app/rule-board/" },
           { from: "/integrations", to: "/semgrep-app/notifications/" },
           { from: "/notifications", to: "/semgrep-app/notifications/" },
           { from: "/sso", to: "/semgrep-app/sso/" },
