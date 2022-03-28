@@ -1,7 +1,7 @@
 ---
 slug: getting-started
 append_help_link: true
-description: "This getting started guides you through the installation of Semgrep, shows you how to run Semgrep locally, and gives an overview of benefits which you may reap by writing Semgrep rules and by using Semgrep CI."
+description: "This getting started guides you through the installation of Semgrep, shows you how to run Semgrep locally, and provides an overview of benefits which you may reap by writing Semgrep rules and by using Semgrep CI."
 ---
 
 # Getting started with Semgrep CLI
