@@ -50,8 +50,7 @@ On each scan that has at least one finding, you will receive one email from Semg
 Pull request comments are left when
 
 1. Semgrep finds a result in CI, and
-2. [the CI policy has pull request comments enabled](managing-policy.md#changing-policy-actions)
-3. the Semgrep GitHub App has been granted permissions to post inline PR comments.
+2. the Semgrep GitHub App has been granted permissions to post inline PR comments.
 
 Automated comments on GitHub pull requests look like this:
 
