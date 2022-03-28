@@ -52,7 +52,24 @@ module.exports = {
         {
           type: 'category',
           label: 'Experiments 🧪',
-          items: ['experiments/overview', 'experiments/generic-pattern-matching', 'experiments/join-mode', 'experiments/project-depends-on', 'experiments/symbolic-propagation','experiments/metavariable-analysis']
+          items: [
+            'experiments/overview',
+            'experiments/generic-pattern-matching',
+            { type: 'category',
+              label: 'Join mode',
+              items: [
+                {
+                  type: 'doc',
+                  label: 'Overview',
+                  id: 'experiments/join-mode/overview'
+                },
+                'experiments/join-mode/recursive-joins'
+              ]
+            },
+            'experiments/project-depends-on',
+            'experiments/symbolic-propagation',
+            'experiments/metavariable-analysis'
+          ]
         },
         'upgrading'
       ],

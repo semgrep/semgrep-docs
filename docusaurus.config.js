@@ -150,6 +150,10 @@ module.exports = {
         theme: {
           customCss: require.resolve('./src/css/custom.css'),
         },
+        googleAnalytics: {
+          trackingID: 'UA-106134149-12',
+          anonymizeIP: true,
+        },
         gtag: {
           // You can also use your "G-" Measurement ID here.
           trackingID: 'G-1851JH9FSR',
@@ -183,6 +187,7 @@ module.exports = {
           { from: "/sample-ci-configs", to: "/semgrep-ci/sample-ci-configs/" },
           { from: "/status/", to: "/language-support/" },
           { from: "/ignoring-findings/", to: "/ignoring-files-folders-code/" },
+          { from: "/experiments/join-mode/", to: "/experiments/join-mode/overview/" },
         ]
       }
     ],

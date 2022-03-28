@@ -12,6 +12,68 @@ Welcome to Semgrep release notes. This document provides an overview of the chan
 
 ## March 2022
 
+### Version 0.85.0
+
+#### Additions
+
+##### C# improvement
+
+Semgrep uses the latest tree-sitter-c-sharp with support for most C# 10.0 features.
+
+##### HTML improvement
+
+Support for metavariables on tags (for example: `\&lt;$TAG\&gt;...\&lt;/$TAG\&gt;`). ([#4078](https://github.com/returntocorp/semgrep/issues/4078))
+
+##### Scala improvement
+
+The data-flow engine now handles expression blocks. Previously, Semgrep did not report some false negatives when run with taint analysis on expression blocks, which are now reported.
+
+##### Dockerfile improvement
+
+Allow for example `CMD …` to match both `CMD ls` and `CMD [&quot;ls&quot;]`. ([#4770](https://github.com/returntocorp/semgrep/issues/4770))
+
+##### Semgrep informs about used rules for multiple languages
+
+When scanning multiple languages, Semgrep now prints a table of how many rules and files are used for each language.
+
+#### Changes
+
+##### File targeting logic
+
+The following inconsistencies were fixed: ([#4776](https://github.com/returntocorp/semgrep/pull/4776))
+
+##### Explicitly targeted files are now unaffected by global filters
+
+Previously, explicitly targeted files (files that are directly passed to the command line) were unaffected by most global filters: global include or exclude patterns, and the file size limit. Now, the `.semgrepignore` patterns do not affect explicitly targeted files as well.
+
+##### Semgrep scans with `--skip-unknown-extensions` flag now use shebang
+
+Previously, `--skip-unknown-extensions` skipped files based only on file extension, even though extensionless shell scripts expose their language through the shebang of the first line. As a result, when you set `--skip-unknown-extensions` flag, Semgrep always skipped explicitly targeted shell files with no extension. Now, Semgrep with said flag decides if a file is a correct language using both extensions and shebangs.
+
+##### Faster scans with `--baseline-commit` flag
+
+These optimizations were added:
+
+- When `--baseline-commit` is set, Semgrep runs the **current scan**, then switches to the `–baseline-commit`, and runs the **baseline scan**. The current scan now excludes files that are unchanged between the baseline and the current commit according to the output of `git status`.
+
+- The **baseline scan** now excludes rules and files that had no matches in the **current scan**.
+
+- When `git ls-files` is unavailable or `--disable-git-ignore` is set, Semgrep walks the file system to find all target files. Semgrep now walks the file system 30% faster compared to previous versions.
+
+##### Improved Semgrep output format
+
+The output format is updated to visually separate lines with headings and indentation.
+
+#### Fixes
+
+##### Deep expression matching and metavariable interaction
+
+Semgrep does not stop at the first match and enumerates all possible matches if a metavariable is used in a deep expression pattern (for example: `\&lt;... $X ...\&gt;`). This fix can introduce performance regressions.
+
+#### Additional information
+
+To see the complete change notes, visit the [Semgrep changelog](https://github.com/returntocorp/semgrep/releases/tag/v0.85.0).
+
 ### Version 0.84.0
 
 #### Additions
@@ -259,7 +321,7 @@ An autofix improvement from [https://github.com/chair6](https://github.com/chair
 
 Semgrep now correctly matches patterns as `List(...)`.
 
-##### `semgrepignore.`
+##### `.semgrepignore`
 
 Default set of `.semgrepignore` patterns (in `semgrep/templates/.semgrepignore`) is now used by default. You can override the default behavior by creating your own `.semgrepignore` file.
 
