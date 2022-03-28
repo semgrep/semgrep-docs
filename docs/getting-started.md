@@ -1,7 +1,7 @@
 ---
 slug: getting-started
 append_help_link: true
-description: "How to start using Semgrep CLI."
+description: "This getting started guides you through the installation of Semgrep, shows you how to run Semgrep locally, and gives an overview of benefits which you may reach by writing Semgrep rules and by using Semgrep CI."
 ---
 
 # Getting started with Semgrep CLI
@@ -79,11 +79,10 @@ semgrep --config=auto
 
 </p>
 </details>
-<br />
 
 ## Writing a rule
 
-Once Semgrep is running locally, see the [Semgrep Tutorial](https://semgrep.dev/learn) to learn how to write precise rules.
+Once Semgrep is running locally, see the [Semgrep Tutorial](https://semgrep.dev/learn) to learn how to write precise rules to check your code.
 
 Semgrep rules can cover a wide range of use cases:
 
@@ -110,7 +109,7 @@ This rule is used to find and discourage `print(...)` in production code. You ca
 
 ## Run Semgrep continuously
 
-Finally, Semgrep is at its best when used to continuously scan code.
+Semgrep is at its best when used to continuously scan code.
 Check out [Semgrep CI](../semgrep-ci/overview/) to learn how to get results where you already work:
 GitHub, GitLab, Slack, Jira, and more.
 To get results even earlier in the development process,
