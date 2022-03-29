@@ -160,11 +160,8 @@ Notifications require connection to Semgrep App. You can get notified about new 
 - [emails](/semgrep-app/notifications/#email)
 - [webhooks](/semgrep-app/notifications/#webhooks) (paid feature in Semgrep App)
 
-To set up notifications:
 
-1. Follow the links above to create a notification channel.
-2. [Add the created channel to one or more policies](/semgrep-app/managing-policy/#changing-policy-actions)
-as a policy action. Only the rules in these policies will trigger notifications.
+Refer to [Notifications](/semgrep-app/notifications) to learn more.
 
 :::note
 Notifications are sent only the first time a given finding is seen. [See how notifications are de-duplicated](/semgrep-app/notifications/#de-duplication)
@@ -269,13 +266,13 @@ To use your Semgrep App account, set `--publish-token`. This acts as your userna
 
 #### Ignoring specific rules in a ruleset or policy
 
-You can customize the ruleset you're using to ignore some of its rules by [editing the Semgrep App policy](/semgrep-app/managing-policy/#editing-a-policy) used for your scans.
+You can customize the ruleset you're using to ignore some of its rules by [editing the Semgrep App Rule Board](/semgrep-app/rule-board).
 
 #### Getting notifications instead of blocking builds
 
 Some rules point out hotspots that require careful review but are not certain to be insecure code. You might want to disable blocking when scanning with such rules, and instead use a [CI integration](/semgrep-app/notifications/) to get notifications.
 
-You can set this up by [changing the actions of the Semgrep App policy](/semgrep-app/managing-policy/#changing-policy-actions) used for your scans.
+You can set this up through the [Rule Board](/semgrep-app/rule-board).
 
 <MoreHelp />
 
