@@ -22,7 +22,7 @@ Semgrep uses the latest tree-sitter-c-sharp with support for most C# 10.0 featur
 
 ##### HTML improvement
 
-Support for metavariables on tags (for example: `\&lt;$TAG\&gt;...\&lt;/$TAG\&gt;`). ([#4078](https://github.com/returntocorp/semgrep/issues/4078))
+Support for metavariables on tags (for example: `<$TAG>...</$TAG>`). ([#4078](https://github.com/returntocorp/semgrep/issues/4078))
 
 ##### Scala improvement
 
@@ -30,7 +30,7 @@ The data-flow engine now handles expression blocks. Previously, Semgrep did not 
 
 ##### Dockerfile improvement
 
-Allow for example `CMD …` to match both `CMD ls` and `CMD [&quot;ls&quot;]`. ([#4770](https://github.com/returntocorp/semgrep/issues/4770))
+Allow for example `CMD …` to match both `CMD ls` and `CMD ["ls"]`. ([#4770](https://github.com/returntocorp/semgrep/issues/4770))
 
 ##### Semgrep informs about used rules for multiple languages
 
@@ -68,7 +68,7 @@ The output format is updated to visually separate lines with headings and indent
 
 ##### Deep expression matching and metavariable interaction
 
-Semgrep does not stop at the first match and enumerates all possible matches if a metavariable is used in a deep expression pattern (for example: `\&lt;... $X ...\&gt;`). This fix can introduce performance regressions.
+Semgrep does not stop at the first match and enumerates all possible matches if a metavariable is used in a deep expression pattern (for example: `<... $X ...>`). This fix can introduce performance regressions.
 
 #### Additional information
 
@@ -399,13 +399,13 @@ Semgrep CLI now respects `.semgrepignore` files. For more information about igno
 
 ##### Java support improvement
 
-Semgrep now supports ellipsis in generics, for example: `class Foo\&lt;...\&gt;` ([#4335](https://github.com/returntocorp/semgrep/issues/4335))
+Semgrep now supports ellipsis in generics, for example: `class Foo<...>` ([#4335](https://github.com/returntocorp/semgrep/issues/4335))
 
 #### Fixes
 
 ##### Java
 
-When you use Semgrep to search for patterns that do not specify generics, Semgrep now also matches classes that are using generics. For example: `class $X {...}` which is not specifying generics, now matches `class Foo\&lt;T\&gt; { }`. ([#4335](https://github.com/returntocorp/semgrep/issues/4335))
+When you use Semgrep to search for patterns that do not specify generics, Semgrep now also matches classes that are using generics. For example: `class $X {...}` which is not specifying generics, now matches `class Foo<T> { }`. ([#4335](https://github.com/returntocorp/semgrep/issues/4335))
 
 ##### TypeScript
 
@@ -413,7 +413,7 @@ Semgrep now correctly parses TypeScript type definitions. ([#4330](https://githu
 
 ##### taint-mode
 
-Semgrep taint-mode now reports findings when the Left Hand Side (LHS) operand of an access operator is a sink (for example as in `$SINK-\&gt;method`), and the LHS operand is a tainted variable. ([#4320](https://github.com/returntocorp/semgrep/issues/4320))
+Semgrep taint-mode now reports findings when the Left Hand Side (LHS) operand of an access operator is a sink (for example as in `$SINK->method`), and the LHS operand is a tainted variable. ([#4320](https://github.com/returntocorp/semgrep/issues/4320))
 
 ##### metavariable-comparison
 
@@ -479,17 +479,17 @@ Semgrep is now more efficiently measuring its performance. The new `profiling_ti
 
 ##### Constant propagation
 
-In constant propagation, Python strings are now evaluated as string literals. You can now match any kind of Python string (raw, byte, or unicode) by the `&quot;...&quot;` operator. ([#3881](https://github.com/returntocorp/semgrep/issues/3881))
+In constant propagation, Python strings are now evaluated as string literals. You can now match any kind of Python string (raw, byte, or unicode) by the `"..."` operator. ([#3881](https://github.com/returntocorp/semgrep/issues/3881))
 
 #### Fixes
 
 ##### Ruby
 
-Ruby blocks are now represented with an extra function call in Semgrep&#39;s generic abstract syntax tree (AST) so that both `f(...)` and `f($X)` correctly match `f(x)` in `f(x) { |n| puts n }`. ([#3880](https://github.com/returntocorp/semgrep/issues/3880))
+Ruby blocks are now represented with an extra function call in Semgrep's generic abstract syntax tree (AST) so that both `f(...)` and `f($X)` correctly match `f(x)` in `f(x) { |n| puts n }`. ([#3880](https://github.com/returntocorp/semgrep/issues/3880))
 
 ##### Generic filters exclude large and binary files
 
-Generic filters exclude large files and binary files to &#39;generic&#39; and &#39;regex&#39; targets as it was already done for the other languages.
+Generic filters exclude large files and binary files to 'generic' and 'regex' targets as it was already done for the other languages.
 
 ##### PHP
 
@@ -519,7 +519,7 @@ Before this update, Semgrep sometimes reported `Pcre.Error(BadUTF8) error` when 
 
 ##### Constant propagation improvements
 
-Previously, Semgrep's constant propagation handled specific corner cases by raising an &quot;impossible&quot; error. Constant propagation now handles corner cases more gracefully instead of raising errors.
+Previously, Semgrep's constant propagation handled specific corner cases by raising an "impossible" error. Constant propagation now handles corner cases more gracefully instead of raising errors.
 
 #### Additional information
 
@@ -569,7 +569,7 @@ This update includes various enhancements for the Go language. Semgrep is now ab
 Parsing of Scala is improved with this update, because Semgrep is now able to parse:
 
 - Case object within blocks.
-- Typed patterns with variables that begin with an underscore: `case _x : Int =\&gt; …`
+- Typed patterns with variables that begin with an underscore: `case _x : Int => …`
 - Unicode identifiers.
 - Nullary constructors with no arguments in more positions.
 - The `infix` type operators with tuple arguments.
@@ -626,7 +626,7 @@ To view the original release information, see [the changelog of this release on 
 - Constant propagation: Previously an assignment as `[x,y] = f()` was not counted as an assignment to `x` or `y` by constant propagation. Now these types of assignments are recognized by both basic and dataflow based constant propagations. As a result, tuple, or array destructuring assignments now correctly prevent constant propagation. ([#4109](https://github.com/returntocorp/semgrep/pull/4109))
 - JS: Semgrep now correctly parses metavariables in template strings. ([#4139](https://github.com/returntocorp/semgrep/pull/4139))
 - Scala: Semgrep now parses underscore separators in number literals. In addition, Semgrep now parses long suffixes (`l` and `L`) on number literals. ([#4155](https://github.com/returntocorp/semgrep/pull/4155))
-- Scala: Semgrep parses name arguments in arbitrary function types, for example `(=\&gt; Int) =\&gt; Int`. ([#4178](https://github.com/returntocorp/semgrep/pull/4178))
+- Scala: Semgrep parses name arguments in arbitrary function types, for example `(=> Int) => Int`. ([#4178](https://github.com/returntocorp/semgrep/pull/4178))
 - Bash: Various fixes and improvements.
 - Kotlin: Ellipsis operator in class and body parameters are now supported. ([#4141](https://github.com/returntocorp/semgrep/issues/4141))
 - Go: Method interface pattern is now supported. ([#4172](https://github.com/returntocorp/semgrep/issues/4172))
@@ -650,7 +650,7 @@ Experimental Bash support. ([#4081](https://github.com/returntocorp/semgrep/pull
 
 #### Fixes
 
-- Go: Ellipsis operator `(...)` is now supported in the import list. For example, import `(... &quot;error&quot; ...)`. ([#4067](https://github.com/returntocorp/semgrep/issues/4067))
+- Go: Ellipsis operator `(...)` is now supported in the import list. For example, import `(..."error"...)`. ([#4067](https://github.com/returntocorp/semgrep/issues/4067))
 - Java: Ellipsis operator in method chain calls can now match 0 elements. For example: o. ... .foo() now also matches o.foo(). ([#4082](https://github.com/returntocorp/semgrep/issues/4082))
 - Previously, Semgrep crashed when used with a YAML rule file that contained only comments. This bug is now fixed. As a result, Semgrep gracefully handles YAML rule files that contain only comments. ([#3773](https://github.com/returntocorp/semgrep/issues/3773))
 
@@ -695,7 +695,7 @@ To view the original release information, see [the changelog of this release on 
 - taint-mode: In version 0.68.0, sanitizers matching a source or a sink were automatically filtered out. This allowed a pattern sanitizer such as $F(...) to sanitize every other function without conflicting with neither sources nor sinks. As a consequence, other idioms used to specify sanitizers were broken. To resolve this issue, there are now two types of sanitizers:
 
 - The default semantics of sanitizers is reverted to the state before version 0.68.0. By default, if a sanitizer matches a source or a sink, that source or sink becomes sanitized.
-- A new type of sanitizer is now available. To prevent the sanitizer from overriding a source or a sink annotation when they match exactly, specify this sanitizer with a not\_conflicting: true flag in the sanitizer declaration. This allows using sanitizer patterns such as $F(...) without the need to explicitly filter for sources and sinks from sanitization. ([#4033](https://github.com/returntocorp/semgrep/pull/4033))
+- A new type of sanitizer is now available. To prevent the sanitizer from overriding a source or a sink annotation when they match exactly, specify this sanitizer with a not_conflicting: true flag in the sanitizer declaration. This allows using sanitizer patterns such as $F(...) without the need to explicitly filter for sources and sinks from sanitization. ([#4033](https://github.com/returntocorp/semgrep/pull/4033))
 
 #### Additional information
 
@@ -729,7 +729,7 @@ To view the original release information, see [the changelog of this release on 
 
 #### Additions
 
-- Semgrep now enables you to scan input code from subshells. See the following example: semgrep -e 'a' --lang js \&lt;(echo 'a'). ([#3966](https://github.com/returntocorp/semgrep/pull/3966))
+- Semgrep now enables you to scan input code from subshells. See the following example: `semgrep -e 'a' --lang js <(echo 'a')` ([#3966](https://github.com/returntocorp/semgrep/pull/3966))
 
 #### Fixes
 
@@ -761,16 +761,16 @@ To view the original release information, see [the changelog of this release on 
 #### Fixes
 
 - Fix CFG dummy nodes to always connect to exit node
-- Deep ellipsis \&lt;... x ...\&gt; now matches sub-expressions of statements
+- Deep ellipsis <... x ...> now matches sub-expressions of statements
 - Ruby: treat 'foo' as a function call when alone on its line ([#3811](https://github.com/returntocorp/semgrep/issues/3811))
-- Fixed bug in semgrep-core's -filter\_irrelevant\_rules causing Semgrep to incorrectly skip a file ([#3755](https://github.com/returntocorp/semgrep/issues/3755))
+- Fixed bug in semgrep-core's -filter_irrelevant_rules causing Semgrep to incorrectly skip a file ([#3755](https://github.com/returntocorp/semgrep/issues/3755))
 - PHP: allows more keywords as valid field names ([#3954](https://github.com/returntocorp/semgrep/issues/3954))
 
 #### Changes
 
 - Taint no longer analyzes dead/unreachable code
 - Improve error message for segmentation faults/stack overflows
-- Attribute-expression equivalence that allows matching expression patterns against attributes, it is enabled by default but can be disabled via rule options: with attr\_expr: false ([#3489](https://github.com/returntocorp/semgrep/issues/3489))
+- Attribute-expression equivalence that allows matching expression patterns against attributes, it is enabled by default but can be disabled via rule options: with attr_expr: false ([#3489](https://github.com/returntocorp/semgrep/issues/3489))
 - Improved Kotlin parsing from 35% to 77% on our Kotlin corpus
 
 ### Version 0.66.0
@@ -781,7 +781,7 @@ To view the original release information, see [the changelog of this release on 
 
 #### Fixes
 
-- Dataflow: Recognize &quot;concat&quot; method and interpret it in a language-dependent manner ([#3316](https://github.com/returntocorp/semgrep/issues/3316))
+- Dataflow: Recognize "concat" method and interpret it in a language-dependent manner ([#3316](https://github.com/returntocorp/semgrep/issues/3316))
 - PHP: allows certain keywords as valid field names ([#3907](https://github.com/returntocorp/semgrep/issues/3907))
 
 #### Changes
@@ -800,7 +800,7 @@ To view the original release information, see [the changelog of this release on 
 #### Fixes
 
 - Taint detection with ternary ifs ([#3778](https://github.com/returntocorp/semgrep/issues/3778))
-- Fixed corner-case crash affecting the pattern: $X optimization (&quot;empty And; no positive terms in And&quot;)
+- Fixed corner-case crash affecting the pattern: $X optimization ("empty And; no positive terms in And")
 - PHP: Added support for parsing labels and goto ([#3592](https://github.com/returntocorp/semgrep/issues/3592))
 - PHP: Parse correctly constants named PUBLIC or DEFAULT ([#3589](https://github.com/returntocorp/semgrep/issues/3589))
 - Go: Added type inference for struct literals ([#3622](https://github.com/returntocorp/semgrep/issues/3622))
@@ -820,7 +820,7 @@ To view the original release information, see [the changelog of this release on 
 #### Fixes
 
 - Java: separate import static from regular imports during matching ([#3772](https://github.com/returntocorp/semgrep/issues/3772))
-- Taint mode will now benefit from semgrep-core's -filter\_irrelevant\_rules
+- Taint mode will now benefit from semgrep-core's -filter_irrelevant_rules
 - Taint mode should no longer report duplicate matches ([#3742](https://github.com/returntocorp/semgrep/issues/3742))
 - Only change source directory when running in docker context ([#3732](https://github.com/returntocorp/semgrep/pull/3732))
 
@@ -902,8 +902,8 @@ C/C++: Fixed stack overflows (segmentation faults) when processing very large fi
 - New iteration of taint-mode that allows to specify sources/sanitizers/sinks using arbitrary pattern formulas. This provides plenty of flexibility. Note that we breaks compatibility with the previous taint-mode format, e.g., - source(...) must now be written as - pattern: source(...).
 - Experimental support for HTML. This does not rely on the generic mode but instead parses the HTML using tree-sitter-html. This allows some semantic matching (e.g., matching attributes in any order).
 - js alpha support ([#1751](https://github.com/returntocorp/semgrep/issues/1751))
-- New matching option implicit\_ellipsis that allows disabling the implicit ... that are added to record patterns, plus allow matching &quot;spread fields&quot; (JS ...x) at any position ([#3120](https://github.com/returntocorp/semgrep/issues/3120))
-- Support globstar (\*\*) syntax in path include/exclude ([#3173](https://github.com/returntocorp/semgrep/pull/3173))
+- New matching option implicit_ellipsis that allows disabling the implicit ... that are added to record patterns, plus allow matching "spread fields" (JS ...x) at any position ([#3120](https://github.com/returntocorp/semgrep/issues/3120))
+- Support globstar (**) syntax in path include/exclude ([#3173](https://github.com/returntocorp/semgrep/pull/3173))
 
 #### Fixes
 
@@ -935,7 +935,7 @@ C/C++: Fixed stack overflows (segmentation faults) when processing very large fi
 
 #### Additions
 
-- New options: field in a YAML rule to enable/disable certain features (e.g., constant propagation) (See[https://github.com/returntocorp/semgrep/blob/develop/semgrep-core/src/core/Config\_semgrep.atd](https://github.com/returntocorp/semgrep/blob/develop/semgrep-core/src/core/Config_semgrep.atd) for the list of available features one can enable/disable)
+- New options: field in a YAML rule to enable/disable certain features (e.g., constant propagation) (See [https://github.com/returntocorp/semgrep/blob/develop/semgrep-core/src/core/Config_semgrep.atd](https://github.com/returntocorp/semgrep/blob/develop/semgrep-core/src/core/Config_semgrep.atd) for the list of available features one can enable/disable)
 - Capture groups in pattern-regex: in $1, $2, etc. ([#3356](https://github.com/returntocorp/semgrep/issues/3356))
 - Support metavariables inside atoms (e.g., foo(:$ATOM))
 - Support metavariables and ellipsis inside regexp literals (e.g., foo(/.../))
@@ -947,7 +947,7 @@ C/C++: Fixed stack overflows (segmentation faults) when processing very large fi
 
 #### Fixes
 
-- C#: parse \_\_makeref, \_\_reftype, \_\_refvalue ([#3364](https://github.com/returntocorp/semgrep/pull/3364))
+- C#: parse __makeref, __reftype, __refvalue ([#3364](https://github.com/returntocorp/semgrep/pull/3364))
 - Java: parsing of dots inside function annotations with brackets ([#3389](https://github.com/returntocorp/semgrep/pull/3389))
 - Do not pretend that short-circuit Boolean AND and OR operators are commutative ([#3399](https://github.com/returntocorp/semgrep/issues/3399))
 - metavariable-pattern: Fix crash when nesting a non-generic pattern within a generic rule
@@ -956,10 +956,10 @@ C/C++: Fixed stack overflows (segmentation faults) when processing very large fi
 
 #### Changes
 
-- generic mode: files that don&#39;t look like nicely-indented programs are no longer ignored, which may cause accidental slowdowns in setups where excessively large files are not excluded explicitly ([#3418](https://github.com/returntocorp/semgrep/pull/3418))
+- generic mode: files that don't look like nicely-indented programs are no longer ignored, which may cause accidental slowdowns in setups where excessively large files are not excluded explicitly ([#3418](https://github.com/returntocorp/semgrep/pull/3418))
 - metavariable-comparison: Fix crash when comparing integers and floats
 - Do not filter findings with the same range but different metavariable bindings ([#3310](https://github.com/returntocorp/semgrep/pull/3310))
-- Set parsing\_state.have\_timeout when a timeout occurs ([#3438](https://github.com/returntocorp/semgrep/pull/3438))
+- Set parsing_state.have_timeout when a timeout occurs ([#3438](https://github.com/returntocorp/semgrep/pull/3438))
 - Set a timeout of 10s per file ([#3434](https://github.com/returntocorp/semgrep/pull/3434))
 - Improvements to contributing documentation ([#3353](https://github.com/returntocorp/semgrep/pull/3353))
 - Memoize getting ranges to speed up rules with large ranges
@@ -970,7 +970,7 @@ C/C++: Fixed stack overflows (segmentation faults) when processing very large fi
 #### Additions
 
 - Associative-commutative matching for Boolean AND and OR operations ([#3198](https://github.com/returntocorp/semgrep/issues/3198))
-- Support metavariables inside strings (e.g., foo(&quot;$VAR&quot;))
+- Support metavariables inside strings (e.g., foo("$VAR"))
 - Support metavariables inside atoms (e.g., foo(:$ATOM))
 - metavariable-pattern: allow matching the content of a metavariable under a different language
 
@@ -1018,7 +1018,7 @@ This version includes release notes for Semgrep version 0.53.0 as well.
 #### Additions
 
 - Alpha support for Scala
-- Metrics collection of project\_hash in cases where git is not available
+- Metrics collection of project_hash in cases where git is not available
 - Taint mode now also analyzes top-level statements
 - Per rule parse times and per rule-file parse and match times added to opt-in metrics
 - $...MVAR can now match a list of statements (not just a list of arguments) ([#3170](https://github.com/returntocorp/semgrep/issues/3170))
@@ -1070,7 +1070,7 @@ This version also includes release notes for Semgrep version 0.53.0.
 
 #### Fixes
 
-- JavaScript/TypeScript: allow the deep expression operator `\&lt;... ...\&gt;` in expression statement position, for example:
+- JavaScript/TypeScript: allow the deep expression operator `<... ...>` in expression statement position, for example:
 
 ```
 
@@ -1078,7 +1078,7 @@ ARG = [$V];
 
 ...
 
-\&lt;... $O[$ARG] ...\&gt;; // this works now
+<... $O[$ARG] ...>; // this works now
 
 ```
 
@@ -1113,12 +1113,12 @@ ARG = [$V];
 - $...ARGS can now match an empty list of arguments, just like ... ([#3177](https://github.com/returntocorp/semgrep/issues/3177))
 - JSON and SARIF outputs sort keys for predictable results
 - .git/ directories are ignored when scanning
-- External Python API (semgrep\_main.invoke\_semgrep) now takes an optional OutputSettings argument for controlling output
-- json\_time has moved to OutputSettings.output\_time, this and many other OutputSettings arguments have been made optional
+- External Python API (semgrep_main.invoke_semgrep) now takes an optional OutputSettings argument for controlling output
+- json_time has moved to OutputSettings.output_time, this and many other OutputSettings arguments have been made optional
 
 #### Removed
 
-- --json-time flag in favor of --json + --time
+- `--json-time` flag in favor of `--json` + `--time`
 
 ## April 2021
 
@@ -1126,10 +1126,10 @@ ARG = [$V];
 
 #### Additions
 
-- Support for matching multiple arguments with a metavariable ([#3009](https://github.com/returntocorp/semgrep/issues/3009)). This is done with a &quot;spread metavariable&quot; operator that looks like $...ARGS. This used to be available only for JavaScript and TypeScript, and is now available for the other languages (Python, Java, Go, C, Ruby, PHP, and OCaml).
-- A new --optimizations [STR] command-line flag to turn on/off some optimizations. Use &quot;none&quot; to turn off everything and &quot;all&quot; to turn on everything. Just using --optimizations is equivalent to --optimizations all, and not using --optimizations is equivalent to --optimizations none.
-- JavaScript/TypeScript: Support ... inside JSX text to match any text, as in \&lt;a href=&quot;foo&quot;\&gt;...\&lt;/a\&gt; ([#2963](https://github.com/returntocorp/semgrep/issues/2963))
-- JavaScript/TypeScript: Support metavariables for JSX attribute values, as in \&lt;a href=$X\&gt;some text\&lt;/a\&gt; ([#2964](https://github.com/returntocorp/semgrep/issues/2964))
+- Support for matching multiple arguments with a metavariable ([#3009](https://github.com/returntocorp/semgrep/issues/3009)). This is done with a "spread metavariable" operator that looks like $...ARGS. This used to be available only for JavaScript and TypeScript, and is now available for the other languages (Python, Java, Go, C, Ruby, PHP, and OCaml).
+- A new --optimizations [STR] command-line flag to turn on or off some optimizations. Use "none" to turn off everything and "all" to turn on everything. Just using `--optimizations` is equivalent to `--optimizations` all, and not using `--optimizations` is equivalent to `--optimizations` none.
+- JavaScript/TypeScript: Support `...` inside JSX text to match any text, as in `<a href="foo">...</a>`. ([#2963](https://github.com/returntocorp/semgrep/issues/2963))
+- JavaScript/TypeScript: Support metavariables for JSX attribute values, as in `<a href=$X>some text</a>`. ([#2964](https://github.com/returntocorp/semgrep/issues/2964))
 
 #### Fixes
 
@@ -1186,7 +1186,7 @@ ARG = [$V];
 
 #### Changes
 
-- Deep expression matches (\&lt;... foo ...\&gt;) now match within the bodies of anonymous functions (a.k.a. lambda-expressions) and arbitrary language-specific statements (e.g., the Golang go statement)
+- Deep expression matches (<... foo ...>) now match within the bodies of anonymous functions (a.k.a. lambda-expressions) and arbitrary language-specific statements (e.g., the Golang go statement)
 
 ### Version 0.45.0
 
@@ -1196,9 +1196,9 @@ ARG = [$V];
 
 #### Fixes
 
-- Ellipses in template strings don&#39;t match string literals ([#2780](https://github.com/returntocorp/semgrep/issues/2780))
+- Ellipses in template strings don't match string literals ([#2780](https://github.com/returntocorp/semgrep/issues/2780))
 - Go: correctly parse select/switch clauses like in tree-sitter ([#2847](https://github.com/returntocorp/semgrep/issues/2847))
-- Go: parse correctly &#39;for ...&#39; header in Go patterns ([#2838](https://github.com/returntocorp/semgrep/issues/2838))
+- Go: parse correctly 'for ...' header in Go patterns ([#2838](https://github.com/returntocorp/semgrep/issues/2838))
 
 ## Finding remaining release notes
 
