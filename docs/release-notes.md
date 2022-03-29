@@ -1118,7 +1118,7 @@ ARG = [$V];
 
 #### Removed
 
-- --json-time flag in favor of --json + --time
+- `--json-time` flag in favor of `--json` + `--time`
 
 ## April 2021
 
@@ -1127,9 +1127,9 @@ ARG = [$V];
 #### Additions
 
 - Support for matching multiple arguments with a metavariable ([#3009](https://github.com/returntocorp/semgrep/issues/3009)). This is done with a "spread metavariable" operator that looks like $...ARGS. This used to be available only for JavaScript and TypeScript, and is now available for the other languages (Python, Java, Go, C, Ruby, PHP, and OCaml).
-- A new --optimizations [STR] command-line flag to turn on/off some optimizations. Use "none" to turn off everything and "all" to turn on everything. Just using --optimizations is equivalent to --optimizations all, and not using --optimizations is equivalent to --optimizations none.
-- JavaScript/TypeScript: Support ... inside JSX text to match any text, as in <a href="foo">...</a> ([#2963](https://github.com/returntocorp/semgrep/issues/2963))
-- JavaScript/TypeScript: Support metavariables for JSX attribute values, as in <a href=$X>some text</a> ([#2964](https://github.com/returntocorp/semgrep/issues/2964))
+- A new --optimizations [STR] command-line flag to turn on or off some optimizations. Use "none" to turn off everything and "all" to turn on everything. Just using `--optimizations` is equivalent to `--optimizations` all, and not using `--optimizations` is equivalent to `--optimizations` none.
+- JavaScript/TypeScript: Support `...` inside JSX text to match any text, as in `<a href="foo">...</a>`. ([#2963](https://github.com/returntocorp/semgrep/issues/2963))
+- JavaScript/TypeScript: Support metavariables for JSX attribute values, as in `<a href=$X>some text</a>`. ([#2964](https://github.com/returntocorp/semgrep/issues/2964))
 
 #### Fixes
 
