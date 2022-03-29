@@ -98,7 +98,7 @@ Both Semgrep and CodeQL use static analysis to find bugs, but there are a few di
 - Semgrep is LGPL-2.1 and free to run anywhere; CodeQL is not open source and you must pay to run it on any non-open-source code
 
 - Semgrep supports autofixes; CodeQL does not.
-- Semgrep focuses on speed and ease of use. Because it doesn’t require a buildable environment, it doesn’t have some of the analysis features like interprocedural dataflow analysis that CodeQL does. (Semgrep does have [limited intraproceedural dataflow](/writing-rules/data-flow/))
+- Semgrep focuses on speed and ease of use. Because it doesn’t require a buildable environment, it doesn’t have some of the analysis features like interprocedural dataflow analysis that CodeQL does. (Semgrep does have [limited intraproceedural dataflow](/writing-rules/data-flow/overview/))
 - Both have publicly available rules
 - Semgrep rules look like the source code you’re writing; CodeQL has a separate domain-specific-language for writing queries.
 - Semgrep has an online, hosted free plan; both have a hosted paid plan
@@ -153,11 +153,11 @@ Semgrep CI makes network requests in accordance with the data storage mentioned 
 
 ### How do I configure Semgrep for different projects?
 
-Semgrep App provides centralized policy management. See [Managing CI policy](../semgrep-app/managing-policy/) for more details.
+Semgrep App provides centralized policy management. See the [Rule Board](../semgrep-app/rule-board/) for more details.
 
 ### What is a policy?
 
-A policy is a simple collection of rules and a definition of what to do with rule results: fail the Semgrep CI run and/or send non-blocking notifications to third-party services like Slack. Please see [Managing CI policy](../semgrep-app/managing-policy/) for more details.
+A policy is a simple collection of rules and a definition of what to do with rule results: fail the Semgrep CI run and/or send non-blocking notifications to third-party services like Slack. Please see the [Rule Board](../semgrep-app/rule-board/) for more details.
 
 ## Monitoring
 
