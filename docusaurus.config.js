@@ -150,6 +150,10 @@ module.exports = {
         theme: {
           customCss: require.resolve('./src/css/custom.css'),
         },
+        googleAnalytics: {
+          trackingID: 'UA-106134149-12',
+          anonymizeIP: true,
+        },
         gtag: {
           // You can also use your "G-" Measurement ID here.
           trackingID: 'G-1851JH9FSR',
@@ -172,18 +176,20 @@ module.exports = {
         redirects: [
           { from: "/writing-rules/pattern-logic", to: "/writing-rules/rule-syntax/" },
           { from: "/writing-rules/index", to: "/writing-rules/overview/" },
-          { from: "/semgrep-ci/managing-policy", to: "/semgrep-app/managing-policy/" },
-          { from: "/managing-policy", to: "/semgrep-app/managing-policy/" },
+          { from: "/semgrep-ci/managing-policy", to: "/semgrep-app/rule-board/" },
+          { from: "/managing-policy", to: "/semgrep-app/rule-board/" },
+          { from: "/semgrep-app/managing-policy", to: "/semgrep-app/rule-board/" },
           { from: "/integrations", to: "/semgrep-app/notifications/" },
           { from: "/notifications", to: "/semgrep-app/notifications/" },
           { from: "/sso", to: "/semgrep-app/sso/" },
-          { from: "/experiments", to: "/experiments/overview/" },          
+          { from: "/experiments", to: "/experiments/overview/" },
           { from: "/upgrade", to: "/upgrading/" },
           { from: "/semgrep-ci", to: "/semgrep-ci/overview/" },
           { from: "/sample-ci-configs", to: "/semgrep-ci/sample-ci-configs/" },
           { from: "/status/", to: "/language-support/" },
           { from: "/cli-reference/", to: "/cli-usage/" },
           { from: "/ignoring-findings/", to: "/ignoring-files-folders-code/" },
+          { from: "/experiments/join-mode/", to: "/experiments/join-mode/overview/" },
         ]
       }
     ],
