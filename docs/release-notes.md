@@ -71,7 +71,7 @@ Semgrep now supports XDG Base Directory specification format. ([#4818](https://g
 
 #### Additional information
 
-To see the complete change notes, visit the [Semgrep changelog](https://github.com/returntocorp/semgrep/releases/tag/v0.85.0).
+To see the complete change notes, visit the [Semgrep changelog](https://github.com/returntocorp/semgrep/releases/).
 
 ### Version 0.85.0
 
