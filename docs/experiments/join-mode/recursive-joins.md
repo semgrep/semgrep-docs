@@ -50,7 +50,7 @@ rules:
       $CALLEE(...)
 ```
 
-A join condition such as the following: `python-callgraph.$CALLER --> python-callgraph.$CALLEE` Produces a table below. Notice how `function_1` appears with `function_4` and `function_5` as callees, even though it is not directly called.
+A join condition such as the following: `python-callgraph.$CALLER --> python-callgraph.$CALLEE` produces a table below. Notice how `function_1` appears with `function_4` and `function_5` as callees, even though it is not directly called.
 
 | $CALLER  | $CALLEE  |
 |----------|----------|
