@@ -34,10 +34,14 @@ rules:
 print(1 == 1)
 ```
 
+Running Semgrep
+
+```sh
+semgrep --quiet --config test.yaml test.py
+```
 Running Semgrep produces the following findings:
 
 ```sh
-$ semgrep --quiet --config test.yaml test.py
 test.py
 severity:warning rule:finding-test: Finding test 1
 1:print(1 == 1)
@@ -64,7 +68,7 @@ These pieces of state correspond to:
 1. `index`: an index into identical findings within a file. This is used to disambiguate findings.
 
 :::info
-`syntactic context` is normalized by removing indentation, [`nosemgrep`](../ignoring-files-folders-code) comments, and whitespace.
+`syntactic context` is normalized by removing indentation, [`nosemgrep`](../ignoring-files-folders-code/#ignoring-code-through-nosemgrep) comments, and whitespace.
 :::
 
 These are hashed and returned as the syntactic identifier: `syntactic_id`. This is how Semgrep CI uniquely identifies findings and tracks them across state transitions. Semgrep CI does not store or transmit code contents. The `syntactic context` is hashed using a one-way hashing function making it impossible to recover the original contents.
@@ -97,5 +101,6 @@ The possible transitions are defined as follows:
 :::info
     Fixed issues will stay fixed even if their rule is removed.
 :::
+
 
 <MoreHelp />

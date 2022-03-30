@@ -110,6 +110,11 @@ dl {
     border: 2px solid black;
 }
 
+.placeholder {
+    color: #E3116C;
+    font-style: italic;
+}
+
 /* navbar */
 
 .navbar {

@@ -35,13 +35,13 @@ Confirm installation and run both a simple “grep-like” rule and the auto rul
 
 ```sh
 # Confirm installation by running --help. It should print to your terminal.
-$ semgrep --help
+semgrep --help
 
 # Check for Python == where the left and right sides are the same (often a bug)
-$ semgrep -e '$X == $X' --lang=py path/to/src
+semgrep -e '$X == $X' --lang=py path/to/src
 
 # Automatically survey languages and frameworks and run recommended Registry rules
-$ semgrep --config=auto path/to/src
+semgrep --config=auto path/to/src
 ```
 
 See [CLI Reference](../cli-usage/) for command line options and exit codes.
@@ -57,29 +57,29 @@ These community projects are designed to test code scanners and teach security c
 
 ```sh
 # juice-shop, a vulnerable Node.js + Express app
-$ git clone https://github.com/bkimminich/juice-shop
-$ cd juice-shop
-$ semgrep --config=auto
+git clone https://github.com/bkimminich/juice-shop
+cd juice-shop
+semgrep --config=auto
 
 # railsgoat, a vulnerable Ruby on Rails app
-$ git clone https://github.com/OWASP/railsgoat
-$ cd railsgoat
-$ semgrep --config=auto
+git clone https://github.com/OWASP/railsgoat
+cd railsgoat
+semgrep --config=auto
 
 # govwa, a vulnerable Go app
-$ git clone https://github.com/0c34/govwa
-$ cd govwa
-$ semgrep --config=auto 
+git clone https://github.com/0c34/govwa
+cd govwa
+semgrep --config=auto 
 
 # vulnerable Python + Flask app
-$ git clone https://github.com/we45/Vulnerable-Flask-App
-$ cd Vulnerable-Flask-App
-$ semgrep --config=auto 
+git clone https://github.com/we45/Vulnerable-Flask-App
+cd Vulnerable-Flask-App
+semgrep --config=auto 
 
 # WebGoat, a vulnerable Java + Spring app
-$ git clone https://github.com/WebGoat/WebGoat
-$ cd WebGoat
-$ semgrep --config=auto 
+git clone https://github.com/WebGoat/WebGoat
+cd WebGoat
+semgrep --config=auto 
 ```
 
 </p>

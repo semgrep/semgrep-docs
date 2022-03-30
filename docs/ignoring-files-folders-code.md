@@ -32,7 +32,7 @@ Without user customization, Semgrep refers to the following to define ignored fi
 * Semgrep's default `.semgrepignore` file
 * Your repository's `.gitignore` file (if it exists)
 
-In the absence of a user-generated `.semgrepignore`, Semgrep will refer to its repository's `.semgrepignore` default template:
+In the absence of a user-generated `.semgrepignore`, Semgrep will refer to [its repository's default template](://github.com/returntocorp/semgrep/blob/develop/semgrep/semgrep/templates/.semgrepignore):
 
 ```
 DEFAULT_SEMGREPIGNORE_TEXT
@@ -44,6 +44,8 @@ The default `.semgrepignore` file is opinionated and causes Semgrep to skip thes
 
 * `/tests`, `/test`
 * `/vendors`
+
+To include the above folders, create a `.semgrepignore` file without those paths.
 
 :::
 
@@ -138,7 +140,7 @@ The space (` `) before `nosemgrep` is required for Semgrep to detect this annota
 
 :::
 
-To ignore blocks of code for a **particular rule**, enter its rule-id as follows: `nosemgrep: RULE_ID`. To ignore **multiple rules**, use a comma-delimited list.
+To ignore blocks of code for a **particular rule**, enter its `rule-id` as follows: `nosemgrep: RULE_ID`. To ignore **multiple rules**, use a comma-delimited list. `rule-ids` must be referenced with their namespace.
 
 Python examples:
 
@@ -151,13 +153,13 @@ bad_func2()
 
 ```
 
-Javascript examples:
+Javascript examples wherein rules are stored in a `configs` subdirectory:
 
 ```javascript
 
-bad_func(); // nosemgrep: rule-id-3
+bad_func(); // nosemgrep: configs.rule-id-3
 
-bad_func(   // nosemgrep: rule-id-3, rule-id-4
+bad_func(   // nosemgrep: configs.rule-id-3, configs.rule-id-4
     arg
 
 );
