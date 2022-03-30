@@ -92,7 +92,7 @@ semgrep:
   script:
     # SEMGREP_APP_TOKEN can be obtained from semgrep.dev/manage/settings.
     # The SEMGREP_APP_TOKEN should be treated like a secret and not hard-coded into your code.
-    - semgrep-agent --publish-token $SEMGREP_APP_TOKEN
+    - semgrep-agent --publish-token $SEMGREP_APP_TOKEN TODO
   rules:
   # Scan changed files in MRs, block on new issues only (existing issues ignored)
   - if: $CI_MERGE_REQUEST_IID

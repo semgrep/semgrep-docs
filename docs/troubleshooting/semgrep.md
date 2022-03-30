@@ -7,15 +7,15 @@ import MoreHelp from "/src/components/MoreHelp"
 
 # Troubleshooting Semgrep
 
-## Troubleshooting Semgrep CI/action/agent
+## Troubleshooting Semgrep CI
 
-If you're seeing results reported for files that weren't touched, Github actions timing out, or anything else related to running semgrep in CI, see instructions here based on your CI provider.
+If you're seeing results reported for files that were not touched, Github actions timing out, or any other related issues concerning running Semgrep in CI, see instructions below based on your CI provider.
 
 ### Github
 
 The first piece of information we use are the github-action logs. You can send them to us by clicking the settings button next to "search logs" and then "download log archive".
 
-If this doesn't have the information we need, you can get more information by saving the logs semgrep-action produces. On each run, semgrep-action creates a `.semgrep_logs` folder and saves there:
+If this doesn't have the information we need, you can get more information by saving the logs Semgrep CI produces. On each run, Semgrep CI creates a `.semgrep_logs` folder and saves there:
 
 - The debug logs
 - The output collected from semgrep (including the timing data described below)
@@ -30,7 +30,7 @@ semgrep:
     container:
       image: returntocorp/semgrep:0.85
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v3 TODO
       - run: semgrep ci
         env:
           SEMGREP_APP_TOKEN: ${{ secrets.SEMGREP_APP_TOKEN }}
@@ -39,7 +39,7 @@ semgrep:
         run: tar czf logs.tgz .semgrep_logs/
       - name: upload-logs
         if: always()
-        uses: actions/upload-artifact@v2
+        uses: actions/upload-artifact@v2 TODO
         with:
           name: logs.tgz
           path: logs.tgz

@@ -9,7 +9,7 @@ import MoreHelp from "/src/components/MoreHelp"
 # Sample CI configurations
 
 The sample configuration files below
-run [Semgrep CI](https://github.com/returntocorp/semgrep-action)
+run [Semgrep CI](https://github.com/returntocorp/semgrep-action) TODO
 on various continuous integration providers.
 
 ## GitHub Actions
@@ -86,7 +86,7 @@ jobs:
 
 ```yaml
 semgrep:
-  image: returntocorp/semgrep-agent:v1
+  image: returntocorp/semgrep-agent:v1 TODO
   script: semgrep-agent
 
   rules:
@@ -287,7 +287,7 @@ jobs:
     #   SEMGREP_TIMEOUT: 300
 
     docker:
-      - image: returntocorp/semgrep-agent:v1
+      - image: returntocorp/semgrep-agent:v1 TODO
     steps:
       - checkout
       - run:
@@ -311,7 +311,7 @@ workflows:
 
 ## Other providers
 
-To run Semgrep CI on any other provider,
+TODO To run Semgrep CI on any other provider,
 use the `returntocorp/semgrep-agent:v1` Docker image,
 and run the `semgrep-agent` command.
 

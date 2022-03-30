@@ -1,6 +1,6 @@
 ---
 slug: configuration-reference
-description: "Reference for running Semgrep CI in your CI job or on the command line using semgrep-agent. Learn how to select rules to scan with, enable diff-aware scanning, connect to Semgrep App, and more."
+description: "Reference for running Semgrep CI in your CI job or on the command line. Learn how to select rules to scan with, enable diff-aware scanning, connect to Semgrep App, and more."
 ---
 
 import MoreHelp from "/src/components/MoreHelp"
@@ -10,7 +10,7 @@ import MoreHelp from "/src/components/MoreHelp"
 Configure Semgrep CI by passing these environment variables in your CI job.
 
 :::info
-While environment variables are the preferred way to configure Semgrep CI, pass any of these options as command-line options. Refer to the output of `semgrep-agent --help` to find the corresponding flags.
+While environment variables are the preferred way to configure Semgrep CI, pass any of these options as command-line options. Refer to the output of TODO `semgrep-agent --help` to find the corresponding flags.
 :::
 
 ## Select rules to scan with (`SEMGREP_RULES`)
@@ -29,17 +29,13 @@ NOTE: It is recommended to perform baseline scans on other branches than your `m
 
 To only report findings newly added
 since branching off from your `main` branch, set the following:
-```sh
-SEMGREP_BASELINE_REF=$(git merge-base main HEAD)
-```
-
-NOTE: Because of an issue, the option `SEMGREP_BASELINE_REF=main` does not work correctly. The `SEMGREP_BASELINE_REF=$(git merge-base main HEAD)` is a workaround that allows Semgrep to only report the findings made on a topic branch after it diverged from the `main` branch. 
+<pre class="language-bash"><code>SEMGREP_BASELINE_REF=<span className="placeholder">TOPIC-BRANCH-NAME</span></code></pre>
 
 To only report findings newly added
 after a specific commit, set the following:
 <pre class="language-bash"><code>SEMGREP_BASELINE_REF=<span className="placeholder">INSERT_GIT_COMMIT_HASH</span></code></pre>
 
-Instead of `SEMGREP_RULES`, configure which rules to run with Semgrep App.
+TODO Instead of `SEMGREP_RULES`, configure which rules to run with Semgrep App.
 Get your token from [Semgrep App > Settings](https://semgrep.dev/manage/settings).
 
 <pre class="language-bash"><code>SEMGREP_APP_TOKEN=<span className="placeholder">TOKEN_VALUE</span></code></pre>
