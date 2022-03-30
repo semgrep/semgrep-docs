@@ -41,7 +41,7 @@ You can now use metavariable ellipsis inside a `<script>` tag. For example `<scr
 
 ##### Semgrep CI is now a part of Semgrep CLI
 
-In Semgrep CLI, Semgrep CI is now available under the `semgrep ci` subcommand that auto-detects settings from your CI environment and can upload findings to Semgrep App when logged in.
+You can now run Semgrep CI with `semgrep ci` subcommand that auto-detects settings from your CI environment and can upload findings to Semgrep App when logged in.
 
 #### Changes
 
