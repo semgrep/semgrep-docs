@@ -8,9 +8,7 @@ import MoreHelp from "/src/components/MoreHelp"
 
 # Sample CI configurations
 
-The sample configuration files below
-run [Semgrep CI](https://github.com/returntocorp/semgrep-action) TODO
-on various continuous integration providers.
+The sample configuration files below run Semgrep CI on various continuous integration providers.
 
 ## GitHub Actions
 
@@ -72,7 +70,7 @@ jobs:
       #   if: always()
 ```
 
-**Feature support**
+### Feature support
 
 | Feature | Status |
 | --- | --- |
@@ -86,8 +84,8 @@ jobs:
 
 ```yaml
 semgrep:
-  image: returntocorp/semgrep-agent:v1 TODO
-  script: semgrep-agent
+  image: returntocorp/semgrep
+  script: semgrep ci
 
   rules:
   # Scan changed files in MRs, block on new issues only (existing issues ignored)
@@ -122,13 +120,13 @@ semgrep:
   #   SEMGREP_TIMEOUT: 300
 
   # Upload findings to GitLab SAST Dashboard (remove `script:` line above) [step 2/2]
-  # script: semgrep-agent --gitlab-json > gl-sast-report.json || true
+  # script: semgrep ci --gitlab-json > gl-sast-report.json || true
   # artifacts:
   #   reports:
   #     sast: gl-sast-report.json
 ```
 
-**Feature support**
+### Feature support
 
 | Feature | Status |
 | --- | --- |
@@ -152,8 +150,8 @@ pipeline {
         spec:
           containers:
           - name: semgrep
-            image: 'returntocorp/semgrep-agent:v1'
-            command:
+            image: 'returntocorp/semgrep'
+            command: 'semgrep ci'
             - cat
             tty: true
         """
@@ -186,7 +184,7 @@ environment {
   }
 
   stages {
-    stage('Semgrep_agent') {
+    stage('Semgrep CI') {
       when {
         // Scan changed files in PRs, block on new issues only (existing issues ignored)
         expression { env.CHANGE_ID && env.BRANCH_NAME.startsWith("PR-") }
@@ -199,7 +197,7 @@ environment {
 }
 ```
 
-**Feature support**
+### Feature support
 
 | Feature | Status |
 | --- | --- |
@@ -213,10 +211,10 @@ environment {
 
 ```yaml
 - label: ":semgrep: Semgrep"
-  command: semgrep-agent
+  command: semgrep ci
   plugins:
     - docker#v3.7.0:
-        image: returntocorp/semgrep-agent:v1
+        image: returntocorp/semgrep
         workdir: /<org_name>/<repo_name>
         environment:
           - "SEMGREP_RULES=p/security-audit p/secrets" # more at semgrep.dev/explore
@@ -239,7 +237,7 @@ environment {
         #   - "SEMGREP_TIMEOUT=300"
 ```
 
-**Feature support**
+### Feature support
 
 | Feature | Status |
 | --- | --- |
@@ -287,19 +285,19 @@ jobs:
     #   SEMGREP_TIMEOUT: 300
 
     docker:
-      - image: returntocorp/semgrep-agent:v1 TODO
+      - image: returntocorp/semgrep
     steps:
       - checkout
       - run:
           name: "Semgrep scan"
-          command: semgrep-agent
+          command: semgrep ci
 workflows:
   main:
     jobs:
       - semgrep-scan
 ```
 
-**Feature support**
+### Feature support
 
 | Feature | Status |
 | --- | --- |
@@ -311,9 +309,9 @@ workflows:
 
 ## Other providers
 
-TODO To run Semgrep CI on any other provider,
-use the `returntocorp/semgrep-agent:v1` Docker image,
-and run the `semgrep-agent` command.
+To run Semgrep CI on any other provider,
+use the `returntocorp/semgrep` image,
+and run the `semgrep ci` command.
 
 Using the [configuration reference](../configuration-reference/),
 you can run Semgrep in the following CI providers:

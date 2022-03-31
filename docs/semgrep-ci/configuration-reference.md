@@ -10,7 +10,7 @@ import MoreHelp from "/src/components/MoreHelp"
 Configure Semgrep CI by passing these environment variables in your CI job.
 
 :::info
-While environment variables are the preferred way to configure Semgrep CI, pass any of these options as command-line options. Refer to the output of TODO `semgrep-agent --help` to find the corresponding flags.
+While environment variables are the preferred way to configure Semgrep CI, pass any of these options as command-line options. Refer to the output of `semgrep ci --help` to find the corresponding flags.
 :::
 
 ## Select rules to scan with (`SEMGREP_RULES`)
@@ -35,7 +35,9 @@ To only report findings newly added
 after a specific commit, set the following:
 <pre class="language-bash"><code>SEMGREP_BASELINE_REF=<span className="placeholder">INSERT_GIT_COMMIT_HASH</span></code></pre>
 
-TODO Instead of `SEMGREP_RULES`, configure which rules to run with Semgrep App.
+## Semgrep App token
+
+You can configure which rules to run also with Semgrep App.
 Get your token from [Semgrep App > Settings](https://semgrep.dev/manage/settings).
 
 <pre class="language-bash"><code>SEMGREP_APP_TOKEN=<span className="placeholder">TOKEN_VALUE</span></code></pre>

@@ -88,7 +88,7 @@ To enable MR comments:
 For example:
 ```yaml
 semgrep:
-  image: returntocorp/semgrep-agent:v1
+  image: returntocorp/semgrep
   script:
     # SEMGREP_APP_TOKEN can be obtained from semgrep.dev/manage/settings.
     # The SEMGREP_APP_TOKEN should be treated like a secret and not hard-coded into your code.
@@ -100,7 +100,7 @@ semgrep:
   # - if: $CI_COMMIT_BRANCH == $CI_DEFAULT_BRANCH
 
   variables:
-    SEMGREP_AGENT_DEBUG: 1
+    SEMGREP_AGENT_DEBUG: 1 TODO
     # Gives Semgrep permission to post inline comments
     GITLAB_TOKEN: $PAT
 ```

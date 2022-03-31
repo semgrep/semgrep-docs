@@ -7,7 +7,6 @@ import MoreHelp from "/src/components/MoreHelp"
 
 # Troubleshooting Semgrep App
 
-
 ## If a project reports the last scan 'never started'
 
 This status means that your CI job never authenticated to Semgrep App.
@@ -32,7 +31,6 @@ Check the log output for any hints about what the issue is.
 
 * Enable workflows to allow Semgrep to scan.
 
-
 ## If a project reports the last scan 'never finished'
 
 This status means that your CI jobs start and authenticate correctly, but fail before completion.
@@ -48,7 +46,7 @@ Many CI providers have a time limit for how long a job can run. Semgrep CI also 
 - Please [reach out](/support/) to the Semgrep maintainers for help with tracking down the cause. Semgrep scans most large projects with hundreds of rules within a few minutes, and long runtimes are typically caused by just one rule or source code file taking too long.
 - To drastically cut run times, you can use Semgrep CI's diff-aware scanning to skip scanning unchanged files. For more details, see [Semgrep CI's behavior](/semgrep-ci/overview/#behavior).
 - You can skip scanning large and complex source code files (such as minified JS or generated code) if you know their path by adding a `.semgrepignore` file. See [how to ignore files & directories in Semgrep CI](/semgrep-ci/overview.md#ignoring-files-directories).
-- You can increase Semgrep CI's own run time limit by setting a `semgrep-agent --timeout <seconds>` TODO flag, or by setting a `SEMGREP_TIMEOUT=<seconds>` environment variable. To fully disable the time limit, set this value to `0`.
+- You can increase Semgrep CI's own run time limit by setting a `semgrep-agent --timeout <seconds>` flag, or by setting a `SEMGREP_TIMEOUT=<seconds>` environment variable. To fully disable the time limit, set this value to `0`.
 
 ## If you're unable to comment on Semgrep Registry pages
 
