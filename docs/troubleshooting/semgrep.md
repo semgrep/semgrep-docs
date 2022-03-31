@@ -7,61 +7,7 @@ import MoreHelp from "/src/components/MoreHelp"
 
 # Troubleshooting Semgrep
 
-## Troubleshooting Semgrep CI
-
-If you're seeing results reported for files that were not touched, Github actions timing out, or any other related issues concerning running Semgrep in CI, see instructions below based on your CI provider.
-
-### Github
-
-The first piece of information we use are the github-action logs. You can send them to us by clicking the settings button next to "search logs" and then "download log archive".
-
-If this doesn't have the information we need, you can get more information by saving the logs Semgrep CI produces. On each run, Semgrep CI creates a `.semgrep_logs` folder and saves there:
-
-- The debug logs
-- The output collected from semgrep (including the timing data described below)
-- If run using a semgrep-app configuration, the flat list of rules run
-
-To collect these logs, you need to upload them as an artifact. Modify your workflow to match this:
-
-```yaml
-semgrep:
-    name: semgrep with managed policy
-    runs-on: ubuntu-20.04
-    container:
-      image: returntocorp/semgrep:0.85
-    steps:
-      - uses: actions/checkout@v3 TODO
-      - run: semgrep ci
-        env:
-          SEMGREP_APP_TOKEN: ${{ secrets.SEMGREP_APP_TOKEN }}
-      - name: package-logs
-        if: always()
-        run: tar czf logs.tgz .semgrep_logs/
-      - name: upload-logs
-        if: always()
-        uses: actions/upload-artifact@v2 TODO
-        with:
-          name: logs.tgz
-          path: logs.tgz
-          retention-days: 1
-```
-
-### Other
-
-We currently don't have instructions for other providers, but logs for the action are always saved in `.semgrep_logs/`. There will be two files, `semgrep_agent_logs` and `semgrep_agent_output`. The former is a more verbose logging of what happened; the second contains the output that the action collected for semgrep. If you are running in docker, you can find the logs there.
-
-## Troubleshooting Semgrep CI
-
-### Reproducing the run locally
-
-It is possible to reproduce some parts of Semgrep CI locally to aid in debugging through the following steps:
-
-- First go to the [API token page](https://semgrep.dev/orgs/-/settings/tokens) and create a new API token
-- Run `semgrep login` on your machine and paste your API key when prompted
-- Run `SEMGREP_REPO_NAME=<your-org-here>/<repo-name-here> semgrep --config policy` (For example, `SEMGREP_REPO_NAME=returntocorp/semgrep semgrep --config policy` would be used for the GitHub repository `returntocorp/semgrep`). This will fetch the rules configured on all Semgrep App policies for this repository and run a local Semgrep scan using those rules.
-
 ## Troubleshooting Semgrep CLI
-
 
 ### Semgrep exited with code -11 (or -9)
 
