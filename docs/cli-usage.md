@@ -233,17 +233,17 @@ In addition to `.semgrepignore` there are several methods to set up ignore patte
 
 `semgrep` may exit with the following exit codes:
 
-- `0`: Semgrep ran successfully and found no errors (or did find errors, but the `--error` flag is *not* set)
-- `1`: Semgrep ran successfully and found issues in your code (and the `--error` flag is set)
-- `2`: Semgrep failed
-- `3`: Semgrep failed to parse a file in the specified language
-- `4`: Semgrep encountered an invalid pattern
-- `5`: Semgrep config is not valid yaml
-- `6`: Rule with `pattern-where-python` found but `--dangerously-allow-arbitrary-code-execution-from-rules` was not set. See `--dangerously-allow-arbitrary-code-execution-from-rules`. (Note: `pattern-where-python` is no longer supported in Semgrep, so this applies only to legacy Semgrep versions).
-- `7`: At least one rule in config is invalid
-- `8`: Semgrep does not understand specified language
-- `9`: Semgrep exceeded match timeout. See `--timeout`
-- `10`: Semgrep exceeded max memory while matching. See `--max-memory`.
-- `11`: Semgrep encountered a lexical error when running rule on a file.
+- 0: Semgrep ran successfully and found no errors (or did find errors, but the `--error` flag is **not** set).
+- 1: Semgrep ran successfully and found issues in your code (and the `--error` flag is set).
+- 2: Semgrep failed.
+- 3: Semgrep failed to parse a file in the specified language.
+- 4: Semgrep encountered an invalid pattern.
+- 5: Semgrep config is not valid YAML.
+- 6: Rule with `pattern-where-python` found but `--dangerously-allow-arbitrary-code-execution-from-rules` was not set. See `--dangerously-allow-arbitrary-code-execution-from-rules`. (Note: `pattern-where-python` is no longer supported in Semgrep, so this applies only to legacy Semgrep versions).
+- 7: At least one rule in config is invalid.
+- 8: Semgrep does not understand specified language.
+- 9: Semgrep exceeded match timeout. See `--timeout`.
+- 10: Semgrep exceeded maximum memory while matching. See `--max-memory`.
+- 11: Semgrep encountered a lexical error when running rule on a file.
 
 <MoreHelp />
