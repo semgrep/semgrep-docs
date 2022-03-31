@@ -12,6 +12,67 @@ Welcome to Semgrep release notes. This document provides an overview of the chan
 
 ## March 2022
 
+### Version 0.86.5
+
+#### Additions
+
+##### Semgrep findings available in two GitLab formats
+
+Semgrep can now output findings in the following formats:
+
+- GitLab SAST report format with `--gitlab-sast`.
+- GitLab secret detection report format with `--gitlab-secrets`.
+
+##### JSON output fingerprint of each finding
+
+JSON output now includes a fingerprint of each finding. This fingerprint remains consistent when scanned code is just moved or reindented.
+
+##### Go improvement
+
+Use latest `tree-sitter-go` with support for Go 1.18 generics. ([#4823](https://github.com/returntocorp/semgrep/issues/4823))
+
+##### Terraform support
+
+Basic support for constant propagation of locals and variables. ([#1147](https://github.com/returntocorp/semgrep/issues/1147), [#4816](https://github.com/returntocorp/semgrep/issues/4816))
+
+##### Ellipsis metavariable in HTML
+
+You can now use metavariable ellipsis inside a `<script>` tag. For example `<script>$...JS</script>`. ([#4841](https://github.com/returntocorp/semgrep/issues/4841)) 
+
+##### Semgrep CI is now a part of Semgrep CLI
+
+You can now run Semgrep CI with `semgrep ci` subcommand that auto-detects settings from your CI environment and can upload findings to Semgrep App when logged in.
+
+#### Changes
+
+##### SARIF output
+
+SARIF output includes matching code snippet ([#4812](https://github.com/returntocorp/semgrep/issues/4812))
+
+##### Python wheel
+
+Removed tests from published Python wheel.
+
+##### Findings comparison changes
+
+Findings are now considered identical between baseline and current scans, meaning that:
+
+- Two findings are now identical after whitespace changes such as re-indentation.
+- Two findings are now identical after a nosemgrep comment is added.
+- Findings are now different if the same code triggered them on different lines.
+
+##### Semgrep docker image running as root
+
+Docker image now runs as root to allow the docker image to be used in CI/CD pipelines.
+
+##### XDG Base Directory
+
+Semgrep now supports XDG Base Directory specification format. ([#4818](https://github.com/returntocorp/semgrep/issues/4818))
+
+#### Additional information
+
+To see the complete change notes, visit the [Semgrep changelog](https://github.com/returntocorp/semgrep/releases/).
+
 ### Version 0.85.0
 
 #### Additions
