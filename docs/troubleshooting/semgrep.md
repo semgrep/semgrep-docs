@@ -7,6 +7,61 @@ import MoreHelp from "/src/components/MoreHelp"
 
 # Troubleshooting Semgrep
 
+## Troubleshooting Semgrep CI
+
+If you're seeing results reported for files that were not touched, Github actions timing out, or anything else related to running semgrep in CI, see instructions in sections below on your CI provider.
+
+### Github
+
+The first piece of information r2c uses are the github-action logs. You can send them to r2c by clicking the settings button next to **search logs** and then **download log archive**.
+
+If this does not have the information you need, save the logs that Semgrep CI produces. On each run, Semgrep CI creates a `.semgrep_logs` folder with the following information:
+
+- The debug logs
+- The output collected from Semgrep (including the timing data described below).
+- If a run used a Semgrep configuration, the flat list of rules run is listed.
+
+To collect these logs, you need to upload them as an artifact. Modify your workflow to match the following:
+
+```yaml
+semgrep:
+    name: semgrep with managed policy
+    runs-on: ubuntu-20.04
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          submodules: recursive
+      - uses: returntocorp/semgrep-action@v1
+        with:
+          publishToken: ${{ secrets.SEMGREP_APP_TOKEN }}
+      - name: package-logs
+        if: always()
+        run: tar czf logs.tgz .semgrep_logs/
+      - name: upload-logs
+        if: always()
+        uses: actions/upload-artifact@v2
+        with:
+          name: logs.tgz
+          path: logs.tgz
+          retention-days: 1
+```
+
+### Other
+
+Logs for the action are always saved in `.semgrep_logs/`. There are two files, `semgrep_agent_logs` and `semgrep_agent_output`. The former is a more verbose logging of what happened; the second contains the output that the action collected for semgrep. If you are running in docker, you can find the logs there.
+
+### Reproducing the run locally
+
+It is possible to reproduce some parts of Semgrep CI locally to aid in debugging through the following steps:
+
+1. Go to the [API token page](https://semgrep.dev/orgs/-/settings/tokens) and create a new API token.
+2. Run the following command, and then paste in your API key when prompted:
+    ```
+    semgrep login
+    ```
+3. Run the following code: <pre class="language-bash"><code>SEMGREP_REPO_NAME=<span className="placeholder">your-organization</span>/<span className="placeholder">repository-name</span> semgrep ci</code></pre>
+(For example, `SEMGREP_REPO_NAME=returntocorp/semgrep semgrep ci` would be used for the GitHub repository `returntocorp/semgrep`). This fetches the rules configured on all Semgrep App policies for this repository and run a local Semgrep scan using those rules.
+
 ## Troubleshooting Semgrep CLI
 
 ### Semgrep exited with code -11 (or -9)
