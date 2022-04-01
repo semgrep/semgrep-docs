@@ -82,17 +82,13 @@ To enable MR comments:
 3. Create an API token on gitlab.com by going to [Profile > Access Tokens](https://gitlab.com/-/profile/personal_access_tokens) and adding a token with `api` scope.
 4. Copy the token that GitLab gives you.
 5. Navigate to your repository's Settings > CI/CD, scroll down to 'Variables', and click 'Expand'. The url will end with something like: /username/project/-/settings/ci_cd.
-6. Click to 'Add variable', give the new variable the key `PAT` and use the token you copied in step 2 as the value. Select "mask variable" and **UNSELECT "protect variable"**.
+6. Click to **Add variable**, give the new variable the key `PAT` and use the token you copied in step 2 as the value. Select **mask variable** and **UNSELECT "protect variable"**.
 7. Update your .gitlab-ci.yml to pass the content of your PAT in through the environment variable `GITLAB_TOKEN`.
 
 For example:
 ```yaml
 semgrep:
   image: returntocorp/semgrep
-  script:
-    # SEMGREP_APP_TOKEN can be obtained from semgrep.dev/manage/settings.
-    # The SEMGREP_APP_TOKEN should be treated like a secret and not hard-coded into your code.
-    - semgrep-agent --publish-token $SEMGREP_APP_TOKEN TODO
   rules:
   # Scan changed files in MRs, block on new issues only (existing issues ignored)
   - if: $CI_MERGE_REQUEST_IID
@@ -100,11 +96,8 @@ semgrep:
   # - if: $CI_COMMIT_BRANCH == $CI_DEFAULT_BRANCH
 
   variables:
-    SEMGREP_AGENT_DEBUG: 1 TODO
-    # Gives Semgrep permission to post inline comments
     GITLAB_TOKEN: $PAT
 ```
-
 
 NOTE: GitLab MR comments are only available to logged-in semgrep.dev users, as they require a Semgrep API token.
 
