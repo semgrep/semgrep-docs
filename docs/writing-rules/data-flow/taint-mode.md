@@ -19,7 +19,7 @@ These operators (which act as `pattern-either` operators) take a list of pattern
 
 For example:
 
-<iframe src="https://semgrep.dev/embed/editor?snippet=P8oz" border="0" frameBorder="0" width="100%" height="435"></iframe>
+<iframe src="https://semgrep.dev/embed/editor?snippet=P8oz" border="0" frameBorder="0" width="100%" height="432"></iframe>
 
 Here Semgrep tracks the data returned by `get_user_input()`, which is the source of taint. Think of Semgrep running the pattern `get_user_input(...)` on your code, finding all places where `get_user_input` gets called, and labeling them as tainted. That is exactly what is happening under the hood!
 
@@ -38,23 +38,23 @@ Minimizing false positives via sanitizers
 
 Since taint mode is intra-procedural, it does not know what other functions do, and Semgrep is careful to assume that taint could propagate through other functions, for example:
 
-<iframe src="https://semgrep.dev/embed/editor?snippet=XO6q" border="0" frameBorder="0" width="100%" height="435"></iframe>
+<iframe src="https://semgrep.dev/embed/editor?snippet=XO6q" border="0" frameBorder="0" width="100%" height="432"></iframe>
 
 Here, `some_safe_function` receives tainted data as input and, to be on the safe side, Semgrep assumes that it will also return tainted data as output. Therefore Semgrep produces a finding.
 
 In some codebases this assumption may produce too many false positives—in this example, `some_safe_function` may not be returning tainted data after all. If that is the case, you could first consider enumerating such functions as sanitizers (which in a sense they are):
 
-<iframe src="https://semgrep.dev/embed/editor?snippet=jwey" border="0" frameBorder="0" width="100%" height="435"></iframe>
+<iframe src="https://semgrep.dev/embed/editor?snippet=jwey" border="0" frameBorder="0" width="100%" height="432"></iframe>
 
 If this is too cumbersome, then you can easily "turn it around" and instead assume that every function call is a sanitizer by default:
 
-<iframe src="https://semgrep.dev/embed/editor?snippet=y1jZ" border="0" frameBorder="0" width="100%" height="435"></iframe>
+<iframe src="https://semgrep.dev/embed/editor?snippet=y1jZ" border="0" frameBorder="0" width="100%" height="432"></iframe>
 
 For convenience, Semgrep has a special kind of _not-conflicting_ sanitizer for this purpose, declared with `not_conflicting: true`. A pattern like `$F(...)` matches every function call. If it were acting as a regular sanitizer, it would also apply to any source or sink that had the same function-call shape. In this example, this would sanitize all calls to `sink` and [Semgrep would produce no findings at all](https://semgrep.dev/s/rYrj).
 
 If you use this approach, you instead have to enumerate your taint propagators—with `pattern-not`—if there are any:
 
-<iframe src="https://semgrep.dev/embed/editor?snippet=9rJ2" border="0" frameBorder="0" width="100%" height="435"></iframe>
+<iframe src="https://semgrep.dev/embed/editor?snippet=9rJ2" border="0" frameBorder="0" width="100%" height="432"></iframe>
 
 Semgrep also considers that indexing an array with a tainted index leads to tainted data. Again, it is easy to disable this via sanitizers:
 
@@ -141,8 +141,8 @@ However, you typically do not want to use the same metavariable across these dif
 
 In the following example, whatever object goes into `make_tainted` becomes tainted by side-effect, and you want to check that these tainted objects never go into a `sink` function. If you use the same metavariable `$TAINTED` in both the source and the sink specification, it does not work as expected:
 
-<iframe src="https://semgrep.dev/embed/editor?snippet=Q64P" border="0" frameBorder="0" width="100%" height="435"></iframe>
+<iframe src="https://semgrep.dev/embed/editor?snippet=Q64P" border="0" frameBorder="0" width="100%" height="432"></iframe>
 
 For it to work, you must use different metavariables:
 
-<iframe src="https://semgrep.dev/embed/editor?snippet=Pg8q" border="0" frameBorder="0" width="100%" height="435"></iframe>
+<iframe src="https://semgrep.dev/embed/editor?snippet=Pg8q" border="0" frameBorder="0" width="100%" height="432"></iframe>
