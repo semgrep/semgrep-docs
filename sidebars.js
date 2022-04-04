@@ -68,7 +68,8 @@ module.exports = {
             },
             'experiments/project-depends-on',
             'experiments/symbolic-propagation',
-            'experiments/metavariable-analysis'
+            'experiments/metavariable-analysis',
+            'experiments/focus-metavariable'
           ]
         },
         'upgrading'
