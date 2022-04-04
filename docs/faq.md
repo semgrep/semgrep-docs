@@ -10,7 +10,6 @@ description: >-
 import MoreHelp from "/src/components/MoreHelp"
 import TOCInline from "@theme/TOCInline"
 
-
 # Frequently Asked Questions
 
 <TOCInline toc={toc} />
@@ -21,9 +20,9 @@ import TOCInline from "@theme/TOCInline"
 
 The [Semgrep command line tool](https://github.com/returntocorp/semgrep) is open-source, licensed under [GPL v3](<https://tldrlegal.com/license/gnu-general-public-license-v3-(gpl-3)>) — you can use it at work, on private and proprietary code, no problem!
 
-The [Semgrep Registry](https://semgrep.dev/explore) contains rules from different contributors. Most rules, including all community-contributed rules, are under [MIT license](https://tldrlegal.com/license/mit-license). Some of the Registry rules written by r2c are licensed under the [Semgrep Registry license](../licensing/#semgrep-registry-license).
+The [Semgrep Registry](https://semgrep.dev/explore) contains rules from different contributors. Most rules, including all community-contributed rules, are under [MIT license](https://tldrlegal.com/license/mit-license). Some of the Semgrep Registry rules written by r2c are licensed under the [Semgrep Registry license](../licensing/#semgrep-registry-license).
 
-The source for many r2c-written Registry rules is available at [returntocorp/semgrep-rules](https://github.com/returntocorp/semgrep-rules/). Those licensed under the Semgrep Registry license can’t be resold without r2c’s permission. Since r2c offers a paid, hosted application (Semgrep App), it’s important to have this restriction so other companies, like major cloud providers, can’t just resell our rules as a competing service.
+The source for many r2c-written Registry rules is available at [returntocorp/semgrep-rules](https://github.com/returntocorp/semgrep-rules/). Those rules licensed under the Semgrep Registry license cannot be resold without r2c’s permission. Since r2c offers a paid, hosted application (Semgrep App), it’s important to have this restriction so other companies, like major cloud providers, cannot resell r2c rules as a competing service.
 
 ### Is it ok to run Semgrep or the r2c rules on my work projects?
 
@@ -33,13 +32,13 @@ Yes! Semgrep is safe to run on your private code. The [Semgrep Registry license�
 
 If you have a typical consulting service and running `semgrep` or `semgrep-rules` is part of your assessments, that’s great and of course feel free to refer your clients to the [Semgrep App](https://semgrep.dev/). But if your entire service is about scanning code and you want to charge for running the `semgrep-rules` repository that r2c and the community created and maintains, you need to discuss this with r2c.
 
-### What is your support policy?
+### Contacting r2c support 
 
-Help is available for all users, free or otherwise, through the [r2c Community Slack](https://r2c.dev/slack). Semgrep Team tier customers receive 8\*5 email/phone/Slack support with committed SLAs. See [Support](../support/) for more details.
+Our support and help is available for all users, free or otherwise, through the [r2c Community Slack](https://r2c.dev/slack). Semgrep Team tier customers receive 8\*5 email/phone/Slack support with committed SLAs. See [Support](../support/) for more details.
 
-### Can I embed the Playground in my website or blog post?
+### Embeding the Playground in my website or blog post
 
-Yes! You can embed a special version of Semgrep Playground with an `iframe`. The source is `https://semgrep.dev/embed/editor?snippet=<snippet-id>` where the `snippet-id` is either the short identifier generated when you share a Playground link (this usually looks like `DzKv`) or the named identifier from a saved rule (this usually looks like `username:rule-name`).
+Embed a special version of Semgrep Playground with an `iframe`. The source is `https://semgrep.dev/embed/editor?snippet=<snippet-id>` where the `snippet-id` is either the short identifier generated when you share a Playground link (this usually looks like `DzKv`) or the named identifier from a saved rule (this usually looks like `username:rule-name`).
 
 ```html
 <iframe title="Semgrep example no prints" src="https://semgrep.dev/embed/editor?snippet=DzKv" width="100%" height="432" frameborder="0"></iframe>
