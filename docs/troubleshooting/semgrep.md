@@ -9,7 +9,7 @@ import MoreHelp from "/src/components/MoreHelp"
 
 ## Troubleshooting Semgrep CI
 
-If you're seeing results reported for files that were not touched, Github actions timing out, or anything else related to running semgrep in CI, see instructions in sections below on your CI provider.
+If you're seeing results reported files that have not changed since the last scan, Github actions timing out, or anything else related to running semgrep in CI, see instructions in sections below on your CI provider.
 
 ### Github
 
