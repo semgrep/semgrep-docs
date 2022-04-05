@@ -89,6 +89,8 @@ These instructions have been used on the following providers by the community:
 
 ## Set additional environment variables
 
+See additional environment variables below:
+
 ```sh
 SEMGREP_BRANCH=mybranch
 SEMGREP_COMMIT=abcd1234  # commit SHA being scanned
