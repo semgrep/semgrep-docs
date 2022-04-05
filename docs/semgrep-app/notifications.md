@@ -82,7 +82,7 @@ To enable MR comments:
 3. Copy the token created in the previous step.
 4. Navigate to your repository's Settings > CI/CD, scroll down to 'Variables', and click 'Expand'. The URL of the page where you are ends with: /username/project/-/settings/ci_cd.
 5. Click to **Add variable**, give the new variable the key `PAT` and use the token you copied in step 3 as the value. And then, select **mask variable** and **UNSELECT "protect variable"**.
-6. Update your .gitlab-ci.yml file with variable `GITLAB_TOKEN` and value `$PAT`. See the example code below for details.
+6. Update your .gitlab-ci.yml file with variable `GITLAB_TOKEN` and value `$PAT`. See the example code below for details:
 
 For example:
 ```yaml
