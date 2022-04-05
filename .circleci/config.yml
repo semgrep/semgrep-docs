@@ -9,6 +9,9 @@ jobs:
       - restore_cache:
           key: dependency-cache-{{ checksum "yarn.lock" }}
       - run:
+          name: Install aws cli
+          command: sudo apt-get -y -qq install awscli && aws --version
+      - run:
           name: Install Deps
           command: yarn install
       - save_cache:
