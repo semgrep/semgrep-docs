@@ -7,9 +7,11 @@ Semgrep CI enables you to run Semgrep in CI environments. It can either be used 
 
 import MoreHelp from "/src/components/MoreHelp"
 
-# Semgrep CI
+# Semgrep CI overview
 
-Semgrep CI enables you to run Semgrep in CI environments. It can also optionally connect to [Semgrep App](https://semgrep.dev/manage) for centralized rule and findings management.
+## Introduction
+
+Semgrep CI enables you to run Semgrep in CI environments. You can use it solely for the purpose of checking your code in CI pipeline or connect Semgrep CI to [Semgrep App](https://semgrep.dev/manage) for centralized rule and findings management.
 
 - **Scan every commit**. Semgrep CI rapidly scans modified files on pull and merge requests, protecting developer productivity. Usually, full-project scans are reserved for special branches, such as trunk branches, and diff-aware scans are done on other branches before merging them into the trunk.
 - **Block new bugs**. You shouldn’t have to fix existing bugs just to adopt a tool. Semgrep CI reports newly introduced issues on pull and merge requests, scanning them at their base and HEAD commits to compare findings. Developers are significantly more likely to fix the issues they introduced themselves on PRs and MRs.
@@ -19,11 +21,13 @@ Semgrep CI enables you to run Semgrep in CI environments. It can also optionally
 Semgrep CI runs fully in your build environment: **your code is never sent anywhere**.
 :::
 
-## Getting started
+**Note**: Semgrep CI is a subcommand of Semgrep CLI, so you can test the code and behavior of Semgrep CI in your command line using `semgrep ci` command. This means that all the capabilities of Semgrep CLI are available in Semgrep CI.
+
+## Adding Semgrep CI to your repository
 
 Semgrep CI behaves like other static analysis and linting tools: it runs a set of user-configured rules and returns a non-zero exit code if there are findings, resulting in its job showing a ✅ or ❌.
 
-Start by copying the below relevant template for your CI provider. Read through the comments in the template to adjust when and what Semgrep CI scans, selecting pull and merge requests, full scans on your trunk branch, or both.
+Copy the relevant template for your CI provider from the sections below. Read through the comments in the template to adjust Semgrep CI scan settings, selecting pull and merge requests, full scans on your branch.
 
 Once Semgrep CI is running, explore the [Semgrep Registry](https://semgrep.dev/explore) to find and add more project-specific rules.
 
@@ -65,6 +69,22 @@ semgrep-agent --baseline-ref main
 
 To connect your Semgrep CI scans to Semgrep App, you can optionally provide the following environment variables:
 
+#### Sample configurations
+
+These instructions have been used on the following providers by the community:
+
+- Bitbucket Pipelines TODO ask why there are no links
+- Bitrise
+- Buildbot
+- TeamCity CI
+- Codefresh
+- Travis CI
+- Buildkite [(sample configuration)](../sample-ci-configs/#buildkite)
+- Jenkins [(sample configuration)](../sample-ci-configs/#jenkins)
+- CircleCI [(sample configuration)](../sample-ci-configs/#circleci) 
+
+<br />
+
 <details><summary>Environment Variables</summary>
 <br />
 
@@ -83,31 +103,9 @@ SEMGREP_TIMEOUT=1800  # Maximum Semgrep run time in seconds, or 0 to disable tim
 
 </details>
 
-## Run semgrep_agent
+## Reviewing Findings
 
-```sh
-semgrep-agent --publish-token $SEMGREP_APP_TOKEN
-```
-
-<br />
-
-These instructions have been used on the following providers by the community:
-
-
-| CI Providers         |                       |  
-|:---------- |:---------------------------|
-| Bitbucket Pipelines | Codeship |
-| Bitrise | GitHub Actions [(sample configuration)](../sample-ci-configs/#github-actions) |
-| Buildbot | GitLab CI [(sample configuration)](../sample-ci-configs/#gitlab-ci) |
-| Buildkite [(sample configuration)](../sample-ci-configs/#buildkite) | Jenkins [(sample configuration)](../sample-ci-configs/#jenkins) |
-| CircleCI [(sample configuration)](../sample-ci-configs/#circleci) | TeamCity CI |
-| Codefresh | Travis CI |
-
-<br />
-
-# Reviewing Findings
-
-## Scan output
+### Scan output
 
 Semgrep CI exits with exit code 1 if the scan returned any findings.
 This will cause your CI provider to show a ❌ next to the job.
@@ -145,7 +143,7 @@ Non-blocking rules return [non-blocking findings](#getting-notifications-instead
 
 ### Integrations
 
-Semgrep CI comes with many integrations with other services, to get you results in the workflow you're already used to, whether you're a developer or part of a security team.
+For users of Semgrep App, you can integrate Semgrep CI with many other services, to get you results in the workflow you're already used to, whether you're a developer or part of a security team.
 
 #### Notifications
 
@@ -159,7 +157,6 @@ Notifications require connection to Semgrep App. You can get notified about new 
 - [Slack messages](/semgrep-app/notifications/#slack)
 - [emails](/semgrep-app/notifications/#email)
 - [webhooks](/semgrep-app/notifications/#webhooks) (paid feature in Semgrep App)
-
 
 Refer to [Notifications](/semgrep-app/notifications) to learn more.
 
