@@ -3,7 +3,7 @@ version: 2.1
 jobs:
   test:
     docker:
-      - image: cimg/node:16
+      - image: cimg/node:16.14.2
     steps:
       - checkout
       - restore_cache:
@@ -20,7 +20,7 @@ jobs:
           command: yarn build
   deployStaging:
     docker:
-      - image: cimg/node:16
+      - image: cimg/node:16.14.2
     steps:
       - checkout
       - restore_cache:
@@ -39,7 +39,7 @@ jobs:
           command: aws s3 sync build/ s3://staging-semgrep-dev/docs
   deployProd:
     docker:
-      - image: cimg/node:16
+      - image: cimg/node:16.14.2
     steps:
       - checkout
       - restore_cache:
