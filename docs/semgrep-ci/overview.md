@@ -68,7 +68,7 @@ Set the `--baseline-ref` flag to the git ref (branch name, tag, or commit hash) 
 semgrep-agent --baseline-ref main
 ```
 
-The community succesfully run Semgrep CI on the following platforms (some include a link to sample configuration):
+The community successfully run Semgrep CI on the following platforms (some include a link to sample configuration):
 
 - Bitbucket Pipelines TODO ask why there are no links
 - Bitrise
