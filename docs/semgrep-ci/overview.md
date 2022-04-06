@@ -57,8 +57,10 @@ To add Semgrep CI to any CI environment, use the [`returntocorp/semgrep-agent:v1
 For full project scans:
 
 ```sh
-docker run -v $(pwd):/src --workdir /src returntocorp/semgrep-agent:v1 semgrep-agent --config auto --config <other rule or rulesets>
+docker run -v $(pwd):/src --workdir /src returntocorp/semgrep semgrep ci --config auto --config <other rule or rulesets>
 ```
+
+**Note**: If you need to use a different image than docker, install Semgrep CI by `pip install semgrep`.
 
 Set the `--baseline-ref` flag to the git ref (branch name, tag, or commit hash) to use it as a baseline. Semgrep will scan only the files modified in your branch and output the difference in findings between the baseline branch and the new branch. If you are using Semgrep App, it will also close all prior findings on that branch that it no longer finds, treating them as fixed. Therefore, doing full scans and diff scans on the same branch is not recommended. For example, to report findings newly added since branching off from your `main` branch, run
 
@@ -66,21 +68,17 @@ Set the `--baseline-ref` flag to the git ref (branch name, tag, or commit hash) 
 semgrep-agent --baseline-ref main
 ```
 
-To connect your Semgrep CI scans to Semgrep App, you can optionally provide the following environment variables:
-
-#### Sample configurations
-
-These instructions have been used on the following providers by the community:
+The community succesfully run Semgrep CI on the following platforms (some include a link to sample configuration):
 
 - Bitbucket Pipelines TODO ask why there are no links
 - Bitrise
 - Buildbot
-- TeamCity CI
-- Codefresh
-- Travis CI
 - Buildkite [(sample configuration)](../sample-ci-configs/#buildkite)
-- Jenkins [(sample configuration)](../sample-ci-configs/#jenkins)
 - CircleCI [(sample configuration)](../sample-ci-configs/#circleci) 
+- Codefresh
+- Jenkins [(sample configuration)](../sample-ci-configs/#jenkins)
+- TeamCity CI
+- Travis CI
 
 <br />
 
