@@ -52,7 +52,7 @@ If you’re already running [GitLab SAST](https://docs.gitlab.com/ee/user/applic
 
 ### Other CI providers
 
-The community successfully run Semgrep CI on the following platforms (some include a link to sample configuration):
+The community successfully ran Semgrep in the following CI platforms (some include a link to sample configuration):
 
 - Bitbucket Pipelines
 - Bitrise
