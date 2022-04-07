@@ -62,12 +62,6 @@ docker run -v $(pwd):/src --workdir /src returntocorp/semgrep semgrep ci --confi
 
 **Note**: If you need to use a different image than docker, install Semgrep CI by `pip install semgrep`.
 
-Set the `--baseline-ref` flag to the git ref (branch name, tag, or commit hash) to use it as a baseline. Semgrep will scan only the files modified in your branch and output the difference in findings between the baseline branch and the new branch. If you are using Semgrep App, it will also close all prior findings on that branch that it no longer finds, treating them as fixed. Therefore, doing full scans and diff scans on the same branch is not recommended. For example, to report findings newly added since branching off from your `main` branch, run
-
-```sh
-semgrep-agent --baseline-ref main
-```
-
 The community successfully run Semgrep CI on the following platforms (some include a link to sample configuration):
 
 - Bitbucket Pipelines
