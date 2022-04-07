@@ -151,7 +151,7 @@ Notifications require connection to Semgrep App. You can get notified about new 
 - [emails](/semgrep-app/notifications/#email)
 - [webhooks](/semgrep-app/notifications/#webhooks) (paid feature in Semgrep App)
 
-Refer to [Notifications](/semgrep-app/notifications) to learn more.
+To set up notifications, see [Notifications document](/semgrep-app/notifications) for more information.
 
 :::note
 Notifications are sent only the first time a given finding is seen. [See how notifications are de-duplicated](/semgrep-app/notifications/#de-duplication)
