@@ -52,7 +52,7 @@ If you’re already running [GitLab SAST](https://docs.gitlab.com/ee/user/applic
 
 ### Other CI providers
 
-To add Semgrep CI to any CI environment, use the [`returntocorp/semgrep-agent:v1`](https://hub.docker.com/r/returntocorp/semgrep-agent) Docker image directly:
+To add Semgrep CI to any CI environment, use the [`returntocorp/semgrep`](https://hub.docker.com/r/returntocorp/semgrep) Docker image directly:
 
 For full project scans:
 
@@ -70,7 +70,7 @@ semgrep-agent --baseline-ref main
 
 The community successfully run Semgrep CI on the following platforms (some include a link to sample configuration):
 
-- Bitbucket Pipelines TODO ask why there are no links
+- Bitbucket Pipelines
 - Bitrise
 - Buildbot
 - Buildkite [(sample configuration)](../sample-ci-configs/#buildkite)

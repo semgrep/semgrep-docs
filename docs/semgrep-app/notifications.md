@@ -66,7 +66,7 @@ If you are using GitHub Actions to run Semgrep, no extra changes are needed to g
 - `SEMGREP_REPO_NAME` is set to the repo name (for example, `returntocorp/semgrep`)
 - `SEMGREP_REPO_URL` is set to the repository URL where your project is viewable online (for example, `https://github.com/returntocorp/semgrep`)
 
-### WIP TODO Enabling Semgrep APP to post comments on GitLab merge request
+### Enabling Semgrep APP to post comments on GitLab merge request
 
 This section documents how to configure GitLab to enable Semgrep App to post comments for merge requests.
 
@@ -88,7 +88,9 @@ For example:
 ```yaml
 semgrep:
   image: returntocorp/semgrep
-  script: semgrep ci
+  script:
+   # Semgrep CI retrieves the SEMGREP_APP_TOKEN environment variable using GitLab web user interface
+    - semgrep ci
   rules:
   # Scan changed files in MRs, block on new issues only (existing issues ignored)
   - if: $CI_MERGE_REQUEST_IID
@@ -98,6 +100,8 @@ semgrep:
   variables:
     GITLAB_TOKEN: $PAT
 ```
+
+
 
 NOTE: GitLab MR comments are only available to logged-in semgrep.dev users, as they require a Semgrep API token.
 

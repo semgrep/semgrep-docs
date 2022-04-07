@@ -46,9 +46,13 @@ semgrep:
           retention-days: 1
 ```
 
-### Other
+### Retrieving Semgrep CI logs
 
-Logs for the action are always saved in `.semgrep_logs/`. There are two files, `semgrep_agent_logs` and `semgrep_agent_output`. The former is a more verbose logging of what happened; the second contains the output that the action collected for semgrep. If you are running in docker, you can find the logs there.
+When you run `semgrep ci --config p/ci` logs are saved in `~/.semgrep/last.log`. Some more information can be found in `~/.semgrep/semgrep_rules.yml`.
+
+#### Legacy Semgrep Action
+
+There are two files, `semgrep_agent_logs` and `semgrep_agent_output`. The former is more verbose logging of what happened; the second contains the output that the action collected for semgrep. If you are running in Docker, you can find the logs there.
 
 ### Reproducing the run locally
 
