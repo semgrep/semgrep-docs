@@ -309,12 +309,11 @@ workflows:
 
 ## Other providers
 
-To run Semgrep CI on any other provider,
-use the `returntocorp/semgrep` image,
-and run the `semgrep ci` command.
+To run Semgrep CI on any other provider, use the `returntocorp/semgrep` image, and run the `semgrep ci` command.
 
-Using the [configuration reference](../configuration-reference/),
-you can run Semgrep in the following CI providers:
+**Note**: If you need to use a different image than docker, install Semgrep CI by `pip install semgrep`.
+
+Using the [configuration reference](../configuration-reference/), you can run Semgrep in the following CI providers:
 
 - AppVeyor
 - Bamboo
@@ -325,8 +324,6 @@ you can run Semgrep in the following CI providers:
 - CircleCI [(sample configuration)](#circleci)
 - Codeship
 - Codefresh
-- GitHub Actions [(sample configuration)](#github-actions)
-- GitLab CI [(sample configuration)](#gitlab-ci)
 - Jenkins [(sample configuration)](#jenkins)
 - TeamCity CI
 - Travis CI
