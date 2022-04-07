@@ -103,7 +103,7 @@ The following thresholds define each maturity level:
 
 Visit the cheat sheet generation script and associated semgrep-core test files to learn more about each feature:
 
-* [generation script](https://github.com/returntocorp/semgrep/blob/develop/scripts/generate_cheatsheet.py)
+* [generation script](https://github.com/returntocorp/semgrep/blob/develop/scripts/generate_test_matrix.py)
 * [semgrep-core test files](https://github.com/returntocorp/semgrep/tree/develop/semgrep-core/tests)
 ## Language parse rates
 
