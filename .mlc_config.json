@@ -9,5 +9,6 @@
     {
       "pattern": "^https://www.baeldung.com/" // when automated tests hit this, site returns a CAPTCHA
     }
-  ]
+  ],
+  "aliveStatusCodes": [429, 200]
 }
