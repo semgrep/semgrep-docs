@@ -52,16 +52,6 @@ If you’re already running [GitLab SAST](https://docs.gitlab.com/ee/user/applic
 
 ### Other CI providers
 
-To add Semgrep CI to any CI environment, use the [`returntocorp/semgrep`](https://hub.docker.com/r/returntocorp/semgrep) Docker image directly:
-
-For full project scans:
-
-```sh
-docker run -v $(pwd):/src --workdir /src returntocorp/semgrep semgrep ci --config auto --config <other rule or rulesets>
-```
-
-**Note**: If you need to use a different image than docker, install Semgrep CI by `pip install semgrep`.
-
 The community successfully run Semgrep CI on the following platforms (some include a link to sample configuration):
 
 - Bitbucket Pipelines
@@ -73,6 +63,16 @@ The community successfully run Semgrep CI on the following platforms (some inclu
 - Jenkins [(sample configuration)](../sample-ci-configs/#jenkins)
 - TeamCity CI
 - Travis CI
+
+To add Semgrep CI to any CI environment, use the [`returntocorp/semgrep`](https://hub.docker.com/r/returntocorp/semgrep) Docker image directly.
+
+For full project scans:
+
+```sh
+docker run -v $(pwd):/src --workdir /src returntocorp/semgrep semgrep ci --config auto --config <other rule or rulesets>
+```
+
+**Note**: If you need to use a different image than docker, install Semgrep CI by `pip install semgrep`.
 
 <br />
 
