@@ -19,7 +19,7 @@ import MoreHelp from "/src/components/MoreHelp"
 |:---------- |:---------------------------|:---------------------------|
 | C#         | Kotlin                     | Bash                       |
 | Go         | Terraform                  | C                          |
-| Java       | Scala                      | C++                        |
+| Java       |                            | C++                        |
 | JavaScript |                            | Dockerfile                 |
 | JSON       |                            | Hack                       |
 | JSX        |                            | Lua                        |
@@ -27,7 +27,7 @@ import MoreHelp from "/src/components/MoreHelp"
 | Ruby       |                            | PHP                        |
 | TypeScript |                            | Rust                       |
 | TSX        |                            | Solidity                   |
-|            |                            | YAML                       |
+| Scala      |                            | YAML                       |
 |            |                            | Generic (ERB, Jinja, etc.) |
 
 ## Support expectations
