@@ -10,12 +10,32 @@ import MoreHelp from "/src/components/MoreHelp"
 
 The following usage documentation is for the [Semgrep command line tool](https://github.com/returntocorp/semgrep).
 
-## Command-line options
+## Semgrep commands
 
-See `semgrep --help` for command line options.
+See `semgrep --help` for a list of available commands.
 
-```sh
-Usage: semgrep -h [OPTIONS] [TARGET]...
+```
+Usage: semgrep [OPTIONS] COMMAND [ARGS]...
+
+  To get started quickly, run `semgrep scan --config auto`
+
+Options:
+  --help  Show this message and exit.
+
+Commands:
+  ci       The recommended way to run semgrep in CI
+  login    Obtain and save credentials for semgrep.dev
+  logout   Remove locally stored credentials to semgrep.dev
+  publish  Upload rule to semgrep.dev
+  scan     Run semgrep rules on files
+```
+
+## `semgrep scan` options
+
+See `semgrep scan --help` for command line options available for scans.
+
+```
+Usage: semgrep scan [OPTIONS] [TARGET]...
 
   Run semgrep rules on files
 
@@ -230,8 +250,8 @@ Options:
     --junit-xml                   Output results in JUnit XML format.
     --sarif                       Output results in SARIF format.
     --vim                         Output results in vim single-line format.
-
 ```
+
 ## Autocomplete
 
 The Semgrep command line tool supports autocomplete on all command options, and on configuration rulesets. When typing any option or option parameter, press tab twice to use. When typing out a registry ruleset name (`semgrep --config p/`'), Semgrep will autocomplete with any matching options that are publicly available on the registry. For example `semgrep --config p/` will list all publicly available rulesets, and `semgrep --config p/java<tab><tab>` will list all available rulesets that start with "java". Note: ruleset autocomplete requires internet connection, and will not autocomplete private rulesets or individual rules.
