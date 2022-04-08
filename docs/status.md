@@ -19,7 +19,7 @@ import MoreHelp from "/src/components/MoreHelp"
 |:---------- |:---------------------------|:---------------------------|
 | C#         | Kotlin                     | Bash                       |
 | Go         | Terraform                  | C                          |
-| Java       | Scala                      | C++                        |
+| Java       |                            | C++                        |
 | JavaScript |                            | Dockerfile                 |
 | JSON       |                            | Hack                       |
 | JSX        |                            | Lua                        |
@@ -27,7 +27,7 @@ import MoreHelp from "/src/components/MoreHelp"
 | Ruby       |                            | PHP                        |
 | TypeScript |                            | Rust                       |
 | TSX        |                            | Solidity                   |
-|            |                            | YAML                       |
+| Scala      |                            | YAML                       |
 |            |                            | Generic (ERB, Jinja, etc.) |
 
 ## Support expectations
@@ -103,7 +103,7 @@ The following thresholds define each maturity level:
 
 Visit the cheat sheet generation script and associated semgrep-core test files to learn more about each feature:
 
-* [generation script](https://github.com/returntocorp/semgrep/blob/develop/scripts/generate_test_matrix.py)
+* [generation script](https://github.com/returntocorp/semgrep/blob/develop/scripts/generate_cheatsheet.py)
 * [semgrep-core test files](https://github.com/returntocorp/semgrep/tree/develop/semgrep-core/tests)
 ## Language parse rates
 

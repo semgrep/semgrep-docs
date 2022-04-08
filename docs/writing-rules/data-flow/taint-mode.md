@@ -30,7 +30,7 @@ Finally, the rule specifes that anything matching either `html_output(...)` or `
 You can find more examples of taint rules in the [Semrep Registry](https://semgrep.dev/r?owasp=injection%2Cxss), for instance: [express-sandbox-code-injection](https://semgrep.dev/editor?registry=javascript.express.security.express-sandbox-injection.express-sandbox-code-injection).
 
 :::info
-If a [metavariable](../../pattern-syntax/#metavariables) such as `$X` is specified in both `pattern-sources:` and `pattern-sinks:`, it is considered to be the _same_ metavariable. This means that any finding requires not only that a _source_'s taint goes into a _sink_, but also that `$X` matches the same code in both the source and the sink. The same applies to metavariables used in `pattern-sources:` and `pattern-sanitizers:`. In general, it is safer to avoid reusing the same metavariable across these operators, unless you have a specific purpose in mind. See section on [Metavariable unification](#metavariable-unification) for examples.
+[Metavariables](../../pattern-syntax/#metavariables) used in `pattern-sources` are considered _different_ from those used in `pattern-sinks`, even if they have the same name! See [Metavariables, rule message, and unification](#metavariables-rule-message-and-unification) for further details.
 :::
 
 Minimizing false positives via sanitizers
@@ -132,17 +132,19 @@ pattern-sanitizers:
     - pattern: $PATH
 ```
 
-Metavariable unification
-------------------------
+Metavariables, rule message, and unification
+--------------------------------------------
 
-A metavariable that is used in both `pattern-sources:` and `pattern-sinks:` is considered the _same_ metavariable. Thus, a finding will only happen if there is taint going from a _source_ to a _sink_, *and* if the metavariables associated with both the source and the sink can be unified. Unification requires that whatever a metavariable binds to in each of these operators is, syntactically speaking, the "same" piece of code; for example, if a metavariable binds to a code variable `x` in the source match, it must bind to the same code variable `x` in the sink match. The same applies to metavariables that are common to `pattern-sources:` and `pattern-sanitizers:`, sanitization only happens if the metavariables can be unified. This restriction is necessary for coherence and so that these metavariables can be used to compose the rule's message.
+The patterns specified by `pattern-sources` and `pattern-sinks` (and `pattern-sanitizers`) are all independent of each other. If a metavariable used in `pattern-sources` has the same name as a metavariable used in `pattern-sinks`, these are still different metavariables.
 
-However, you typically do not want to use the same metavariable across these different operators, since it may have unintended consequences! Unless you have a specific goal in mind, you should probably use different metavariables when matching sources, sanitizers, and sinks.
+In the message of a taint-mode rule, you can refer to any metavariable bound by `pattern-sinks`, as well as to any metavariable bound by `pattern-sources` that does not conflict with a metavariable bound by `pattern-sinks`.
 
-In the following example, whatever object goes into `make_tainted` becomes tainted by side-effect, and you want to check that these tainted objects never go into a `sink` function. If you use the same metavariable `$TAINTED` in both the source and the sink specification, it does not work as expected:
+Semgrep can also treat metavariables with the same name as the _same_ metavariable, simply set `taint_unify_mvars: true` using rule `options`. Unification enforces that whatever a metavariable binds to in each of these operators is, syntactically speaking, the **same** piece of code. For example, if a metavariable binds to a code variable `x` in the source match, it must bind to the same code variable `x` in the sink match. In general, unless you know what you are doing, avoid metavariable unification between sources and sinks.
 
-<iframe src="https://semgrep.dev/embed/editor?snippet=Q64P" border="0" frameBorder="0" width="100%" height="432"></iframe>
+:::info
+Semgrep used to have a different behavior, see release notes for 0.87.0 for more information.
+:::
 
-For it to work, you must use different metavariables:
+The following example demonstrates the use of source and sink metavariable unification:
 
-<iframe src="https://semgrep.dev/embed/editor?snippet=Pg8q" border="0" frameBorder="0" width="100%" height="432"></iframe>
+<iframe src="https://semgrep.dev/embed/editor?snippet=obRd" border="0" frameBorder="0" width="100%" height="432"></iframe>
