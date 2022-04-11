@@ -120,7 +120,7 @@ semgrep:
   #   SEMGREP_TIMEOUT: 300
 
   # Upload findings to GitLab SAST Dashboard (remove `script:` line above) [step 2/2]
-  # script: semgrep ci --gitlab-json > gl-sast-report.json || true
+  # script: semgrep ci --gitlab-sast > gl-sast-report.json || true
   # artifacts:
   #   reports:
   #     sast: gl-sast-report.json
