@@ -66,7 +66,7 @@ If you are using GitHub Actions to run Semgrep, no extra changes are needed to g
 - `SEMGREP_REPO_NAME` is set to the repo name (for example, `returntocorp/semgrep`)
 - `SEMGREP_REPO_URL` is set to the repository URL where your project is viewable online (for example, `https://github.com/returntocorp/semgrep`)
 
-### Enabling Semgrep APP to post comments on GitLab merge request
+### Enabling Semgrep App to post comments on GitLab merge request
 
 This section documents how to configure GitLab to enable Semgrep App to post comments for merge requests.
 
