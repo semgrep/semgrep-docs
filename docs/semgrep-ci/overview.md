@@ -1,15 +1,16 @@
 ---
 slug: overview
 append_help_link: true
-description: >-
-  Semgrep CI is a specialized Docker image for running Semgrep in CI environments. It can either be used stand-alone or connected with Semgrep App for centralized rule and findings management. Rapidly scan every commit and block new bugs with Semgrep CI.
+description: "Semgrep CI enables you to run Semgrep in CI environments. It can either be used stand-alone or connected with Semgrep App for centralized rule and findings management. Rapidly scan every commit and block new bugs with Semgrep CI."
 ---
 
 import MoreHelp from "/src/components/MoreHelp"
 
-# Semgrep CI
+# Semgrep CI overview
 
-[Semgrep CI](https://github.com/returntocorp/semgrep-action) (aka Semgrep Action or `semgrep-agent`) is a specialized Docker image for running Semgrep in CI environments. It can also optionally connect to [Semgrep App](https://semgrep.dev/manage) for centralized rule and findings management.
+## Introduction
+
+Semgrep CI enables you to run Semgrep in CI environments. You can use it solely for the purpose of checking your code in CI pipeline or connect Semgrep CI to [Semgrep App](https://semgrep.dev/manage) for centralized rule and findings management.
 
 - **Scan every commit**. Semgrep CI rapidly scans modified files on pull and merge requests, protecting developer productivity. Usually, full-project scans are reserved for special branches, such as trunk branches, and diff-aware scans are done on other branches before merging them into the trunk.
 - **Block new bugs**. You shouldn’t have to fix existing bugs just to adopt a tool. Semgrep CI reports newly introduced issues on pull and merge requests, scanning them at their base and HEAD commits to compare findings. Developers are significantly more likely to fix the issues they introduced themselves on PRs and MRs.
@@ -19,11 +20,13 @@ import MoreHelp from "/src/components/MoreHelp"
 Semgrep CI runs fully in your build environment: **your code is never sent anywhere**.
 :::
 
-## Getting started
+**Note**: Semgrep CI is a subcommand of Semgrep CLI, so you can test the code and behavior of Semgrep CI on your machine by running `semgrep ci`.
+
+## Adding Semgrep CI to your repository
 
 Semgrep CI behaves like other static analysis and linting tools: it runs a set of user-configured rules and returns a non-zero exit code if there are findings, resulting in its job showing a ✅ or ❌.
 
-Start by copying the below relevant template for your CI provider. Read through the comments in the template to adjust when and what Semgrep CI scans, selecting pull and merge requests, full scans on your trunk branch, or both.
+Copy the relevant template for your CI provider from the sections below. Read through the comments in the template to adjust Semgrep CI scan settings, selecting pull and merge requests, full scans on your branch.
 
 Once Semgrep CI is running, explore the [Semgrep Registry](https://semgrep.dev/explore) to find and add more project-specific rules.
 
@@ -49,103 +52,79 @@ If you’re already running [GitLab SAST](https://docs.gitlab.com/ee/user/applic
 
 ### Other CI providers
 
-To add Semgrep CI to any CI environment, use the [`returntocorp/semgrep-agent:v1`](https://hub.docker.com/r/returntocorp/semgrep-agent) Docker image directly:
+The community successfully ran Semgrep in the following CI platforms (some include a link to sample configuration):
+
+- Bitbucket Pipelines
+- Bitrise
+- Buildbot
+- Buildkite [(sample configuration)](../sample-ci-configs/#buildkite)
+- CircleCI [(sample configuration)](../sample-ci-configs/#circleci) 
+- Codefresh
+- Jenkins [(sample configuration)](../sample-ci-configs/#jenkins)
+- TeamCity CI
+- Travis CI
+
+To add Semgrep CI to any CI environment, use the [`returntocorp/semgrep`](https://hub.docker.com/r/returntocorp/semgrep) Docker image directly.
 
 For full project scans:
 
 ```sh
-docker run -v $(pwd):/src --workdir /src returntocorp/semgrep-agent:v1 semgrep-agent --config auto --config <other rule or rulesets>
+semgrep scan --config auto --config <other rule or rulesets>
 ```
 
-Set the `--baseline-ref` flag to the git ref (branch name, tag, or commit hash) to use it as a baseline. Semgrep will scan only the files modified in your branch and output the difference in findings between the baseline branch and the new branch. If you are using Semgrep App, it will also close all prior findings on that branch that it no longer finds, treating them as fixed. Therefore, doing full scans and diff scans on the same branch is not recommended. For example, to report findings newly added since branching off from your `main` branch, run
+**Note**: If you cannot use the Docker image, install Semgrep CI with `pip install semgrep`.
 
-```sh
-semgrep-agent --baseline-ref main
-```
+## Reviewing Findings
 
-To connect your Semgrep CI scans to Semgrep App, you can optionally provide the following environment variables:
-
-<details><summary>Environment Variables</summary>
-<br />
-
-## Set additional environment variables
-
-```sh
-SEMGREP_BRANCH=mybranch
-SEMGREP_COMMIT=abcd1234  # commit SHA being scanned
-SEMGREP_JOB_URL=https://example.com/me/myjob  # URL to CI logs
-SEMGREP_REPO_NAME=myorg/myrepository  # project name to show on Semgrep App
-SEMGREP_REPO_URL=https://gitwebsite.com/myrepository
-SEMGREP_PR_ID=123
-SEMGREP_PR_TITLE="Added four new bugs"  # shown in Slack notifications if set
-SEMGREP_TIMEOUT=1800  # Maximum Semgrep run time in seconds, or 0 to disable timeouts
-```
-
-</details>
-
-## Run semgrep_agent
-
-```sh
-semgrep-agent --publish-token $SEMGREP_APP_TOKEN
-```
-
-<br />
-
-These instructions have been used on the following providers by the community:
-
-
-| CI Providers         |                       |  
-|:---------- |:---------------------------|
-| Bitbucket Pipelines | Codeship |
-| Bitrise | GitHub Actions [(sample configuration)](../sample-ci-configs/#github-actions) |
-| Buildbot | GitLab CI [(sample configuration)](../sample-ci-configs/#gitlab-ci) |
-| Buildkite [(sample configuration)](../sample-ci-configs/#buildkite) | Jenkins [(sample configuration)](../sample-ci-configs/#jenkins) |
-| CircleCI [(sample configuration)](../sample-ci-configs/#circleci) | TeamCity CI |
-| Codefresh | Travis CI |
-
-<br />
-
-# Reviewing Findings
-
-## Scan output
+### Scan output
 
 Semgrep CI exits with exit code 1 if the scan returned any findings.
-This will cause your CI provider to show a ❌ next to the job.
+This causes your CI provider to show a ❌ next to the job,
+preventing the pull request from being merged. 
 You can find a description of the findings in the log output.
 
 <details>
 <summary>Click for an example of Semgrep CI's job output</summary>
 
 ```sh
-=== looking for current issues in 1 file
-| 1 current issue found
-=== looking for pre-existing issues in 1 file
-| No pre-existing issues found
-
-python.flask.security.injection.os-system-injection.os-system-injection
-     > flask_todomvc/todos.py:30
-     ╷
-   30│   os.system(id)
-     ╵
-     = User data detected in os.system. This could be vulnerable to a command
-       injection and should be avoided. If this must be done, use the
-       'subprocess' module instead and pass the arguments as a list.
-
-=== exiting with failing status
+Scanning across multiple languages:
+         python | 127 rules × 1 file 
+    <multilang> |   3 rules × 1 file 
+  Current version has 2 findings.
+Switching repository to baseline commit 'f74fdbb855f179d2858c487ae25871ef65d2fb09'.
+  Will report findings introduced by these commits:
+    * a833b40 Update server.py
+Scanning 1 file with 2 python rules.
+Findings:
+  src/server.py 
+     python.lang.security.audit.dangerous-system-call.dangerous-system-call
+        Found dynamic content used in a system call. This is dangerous if external data can reach
+        this function call because it allows a malicious actor to execute commands. Use the
+        'subprocess' module instead, which is easier to use without accidentally exposing a command
+        injection vulnerability.
+        Details: https://sg.run/vzKA
+         10┆ os.system(cmd)
+Some files were skipped.
+  Scan was limited to files changed since baseline commit.
+Ran 371 rules on 1 file: 1 finding.
+Ran 371 blocking rules, 0 audit rules, and 0 internal rules used for rule recommendations.
+Reporting findings to semgrep.dev ...
+Success.
+Has findings for blocking rules so exiting with code 1
 ```
 
 </details>
 <br />
 
 :::note
-Rules are 'blocking' by default and behave as described above.
+Rules are *blocking* by default and behave as described above.
 When connected to Semgrep App, you can also add non-blocking rules to your scans.
 Non-blocking rules return [non-blocking findings](#getting-notifications-instead-of-blocking-builds) which notify you via an integration but do not show up in log output, and do not cause jobs to fail with a ❌.
 :::
 
 ### Integrations
 
-Semgrep CI comes with many integrations with other services, to get you results in the workflow you're already used to, whether you're a developer or part of a security team.
+For users of Semgrep App, you can integrate Semgrep CI with many other services, to get you results in the workflow you're already used to, whether you're a developer or part of a security team.
 
 #### Notifications
 
@@ -160,8 +139,7 @@ Notifications require connection to Semgrep App. You can get notified about new 
 - [emails](/semgrep-app/notifications/#email)
 - [webhooks](/semgrep-app/notifications/#webhooks) (paid feature in Semgrep App)
 
-
-Refer to [Notifications](/semgrep-app/notifications) to learn more.
+To set up notifications, see [Notifications document](/semgrep-app/notifications) for more information.
 
 :::note
 Notifications are sent only the first time a given finding is seen. [See how notifications are de-duplicated](/semgrep-app/notifications/#de-duplication)
