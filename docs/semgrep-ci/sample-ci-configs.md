@@ -150,8 +150,8 @@ pipeline {
         spec:
           containers:
           - name: semgrep
-            image: 'returntocorp/semgrep'
-            command: 'semgrep ci'
+            image: 'returntocorp/semgrep-agent:v1'
+            command:
             - cat
             tty: true
         """
