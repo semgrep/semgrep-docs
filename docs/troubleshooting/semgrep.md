@@ -48,7 +48,7 @@ semgrep:
 
 ### Retrieving Semgrep CI logs
 
-When you run `semgrep ci --config p/ci` logs are saved in `~/.semgrep/last.log`. Some more information can be found in `~/.semgrep/semgrep_rules.yml`.
+When you run `semgrep ci --config p/ci` logs are saved in `~/.semgrep/last.log`. Find additional information in `~/.semgrep/semgrep_rules.yml`.
 
 #### Legacy Semgrep Action
 

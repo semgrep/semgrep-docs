@@ -69,7 +69,7 @@ To add Semgrep CI to any CI environment, use the [`returntocorp/semgrep`](https:
 For full project scans:
 
 ```sh
-docker run -v $(pwd):/src --workdir /src returntocorp/semgrep semgrep ci --config auto --config <other rule or rulesets>
+semgrep ci --config auto --config <other rule or rulesets>
 ```
 
 **Note**: If you need to use a different image than docker, install Semgrep CI by `pip install semgrep`.
