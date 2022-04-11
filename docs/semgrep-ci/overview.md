@@ -20,7 +20,7 @@ Semgrep CI enables you to run Semgrep in CI environments. You can use it solely 
 Semgrep CI runs fully in your build environment: **your code is never sent anywhere**.
 :::
 
-**Note**: Semgrep CI is a subcommand of Semgrep CLI, so you can test the code and behavior of Semgrep CI in your command line using `semgrep ci` command. This means that all the capabilities of Semgrep CLI are available in Semgrep CI.
+**Note**: Semgrep CI is a subcommand of Semgrep CLI, so you can test the code and behavior of Semgrep CI on your machine by running `semgrep ci`.
 
 ## Adding Semgrep CI to your repository
 
