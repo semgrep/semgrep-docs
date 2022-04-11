@@ -48,11 +48,7 @@ semgrep:
 
 ### Retrieving Semgrep CI logs
 
-When you run `semgrep ci --config p/ci` logs are saved in `~/.semgrep/last.log`. Find additional information in `~/.semgrep/semgrep_rules.yml`.
-
-#### Legacy Semgrep Action
-
-There are two files, `semgrep_agent_logs` and `semgrep_agent_output`. The former is more verbose logging of what happened; the second contains the output that the action collected for semgrep. If you are running in Docker, you can find the logs there.
+When you run `semgrep ci --config p/ci` logs are saved in `~/.semgrep/last.log`.
 
 ### Reproducing the run locally
 

@@ -69,67 +69,55 @@ To add Semgrep CI to any CI environment, use the [`returntocorp/semgrep`](https:
 For full project scans:
 
 ```sh
-semgrep ci --config auto --config <other rule or rulesets>
+semgrep scan --config auto --config <other rule or rulesets>
 ```
 
-**Note**: If you need to use a different image than docker, install Semgrep CI by `pip install semgrep`.
-
-<br />
-
-<details><summary>Environment Variables</summary>
-<br />
-
-## Set additional environment variables
-
-See additional environment variables below:
-
-```sh
-SEMGREP_BRANCH=mybranch
-SEMGREP_COMMIT=abcd1234  # commit SHA being scanned
-SEMGREP_JOB_URL=https://example.com/me/myjob  # URL to CI logs
-SEMGREP_REPO_NAME=myorg/myrepository  # project name to show on Semgrep App
-SEMGREP_REPO_URL=https://gitwebsite.com/myrepository
-SEMGREP_PR_ID=123
-SEMGREP_PR_TITLE="Added four new bugs"  # shown in Slack notifications if set
-SEMGREP_TIMEOUT=1800  # Maximum Semgrep run time in seconds, or 0 to disable timeouts
-```
-
-</details>
+**Note**: If you cannot use the Docker image, install Semgrep CI with `pip install semgrep`.
 
 ## Reviewing Findings
 
 ### Scan output
 
 Semgrep CI exits with exit code 1 if the scan returned any findings.
-This will cause your CI provider to show a ❌ next to the job.
+This causes your CI provider to show a ❌ next to the job,
+preventing the pull request from being merged. 
 You can find a description of the findings in the log output.
 
 <details>
 <summary>Click for an example of Semgrep CI's job output</summary>
 
 ```sh
-=== looking for current issues in 1 file
-| 1 current issue found
-=== looking for pre-existing issues in 1 file
-| No pre-existing issues found
-
-python.flask.security.injection.os-system-injection.os-system-injection
-     > flask_todomvc/todos.py:30
-     ╷
-   30│   os.system(id)
-     ╵
-     = User data detected in os.system. This could be vulnerable to a command
-       injection and should be avoided. If this must be done, use the
-       'subprocess' module instead and pass the arguments as a list.
-
-=== exiting with failing status
+Scanning across multiple languages:
+         python | 127 rules × 1 file 
+    <multilang> |   3 rules × 1 file 
+  Current version has 2 findings.
+Switching repository to baseline commit 'f74fdbb855f179d2858c487ae25871ef65d2fb09'.
+  Will report findings introduced by these commits:
+    * a833b40 Update server.py
+Scanning 1 file with 2 python rules.
+Findings:
+  src/server.py 
+     python.lang.security.audit.dangerous-system-call.dangerous-system-call
+        Found dynamic content used in a system call. This is dangerous if external data can reach
+        this function call because it allows a malicious actor to execute commands. Use the
+        'subprocess' module instead, which is easier to use without accidentally exposing a command
+        injection vulnerability.
+        Details: https://sg.run/vzKA
+         10┆ os.system(cmd)
+Some files were skipped.
+  Scan was limited to files changed since baseline commit.
+Ran 371 rules on 1 file: 1 finding.
+Ran 371 blocking rules, 0 audit rules, and 0 internal rules used for rule recommendations.
+Reporting findings to semgrep.dev ...
+Success.
+Has findings for blocking rules so exiting with code 1
 ```
 
 </details>
 <br />
 
 :::note
-Rules are 'blocking' by default and behave as described above.
+Rules are *blocking* by default and behave as described above.
 When connected to Semgrep App, you can also add non-blocking rules to your scans.
 Non-blocking rules return [non-blocking findings](#getting-notifications-instead-of-blocking-builds) which notify you via an integration but do not show up in log output, and do not cause jobs to fail with a ❌.
 :::
