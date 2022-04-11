@@ -89,7 +89,7 @@ For example:
 semgrep:
   image: returntocorp/semgrep
   script:
-   # Semgrep CI retrieves the SEMGREP_APP_TOKEN environment variable using GitLab web user interface
+   # Semgrep retrieves the SEMGREP_APP_TOKEN environment variable if you set it on the GitLab web user interface
     - semgrep ci
   rules:
   # Scan changed files in MRs, block on new issues only (existing issues ignored)
