@@ -13,7 +13,7 @@ If you're seeing results reported files that have not changed since the last sca
 
 ### Github
 
-The first piece of information r2c uses are the github-action logs. You can send them to r2c by clicking the settings button next to **search logs** and then **download log archive**.
+The first piece of information r2c uses are the GitHub Actions logs. You can send them to r2c by clicking the settings button next to **search logs** and then **download log archive**.
 
 If this does not have the information you need, save the logs that Semgrep CI produces. On each run, Semgrep CI creates a `.semgrep_logs` folder with the following information:
 
