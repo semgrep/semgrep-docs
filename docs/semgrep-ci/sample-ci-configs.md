@@ -184,7 +184,7 @@ environment {
   }
 
   stages {
-    stage('Semgrep CI') {
+    stage('Semgrep_agent') {
       when {
         // Scan changed files in PRs, block on new issues only (existing issues ignored)
         expression { env.CHANGE_ID && env.BRANCH_NAME.startsWith("PR-") }
