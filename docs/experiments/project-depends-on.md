@@ -10,7 +10,7 @@ This Semgrep rules key allows specifying third-party dependencies along with the
 
 We welcome external contributors to try out the key, but keep in mind there's no expectation of stability across releases yet. **The API and behavior of this feature is subject to change**.
 
-The `r2c-internal-project-depends-on` key must specify either a dependency, or a sequence of dependencies under a `depends-on-either` key.
+In the rules.yaml, specify `r2c-internal-project-depends-on` key either as a dependency, or a sequence of dependencies with `depends-on-either` key (see the example below).
 
 A dependency consists of three keys:
 
