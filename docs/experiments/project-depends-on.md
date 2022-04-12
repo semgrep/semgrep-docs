@@ -25,7 +25,9 @@ r2c-internal-project-depends-on:
   package: ...
   version: ...
 ```
-or this:
+
+Or it can have the following layout with `depends-on-either`:
+
 ```yaml
 r2c-internal-project-depends-on:
   depends-on-either:
