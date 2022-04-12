@@ -1,7 +1,7 @@
 ---
 slug: r2c-internal-project-depends-on
 append_help_link: true
-description: "r2c-internal-project-depends-on lets Semgrep rules only returns results if the project depends on a specific version of a third-party package."
+description: "r2c-internal-project-depends-on lets Semgrep rules only return results if the project depends on a specific version of a third-party package."
 ---
 
 # r2c-internal-project-depends-on
@@ -60,19 +60,10 @@ rules:
 
 ## Findings
 
-Findings produced by rules with the `r2c-internal-project-depends-on` key can be of two types: _reachable_ and _nonreachable_.
-A _reachable_ finding is one with both a dependency match and a pattern match: a vulnerable dependency was found and 
-the vulnerable part of the dependency (according to the patterns in the rule) is used somewhere in code. An _unreachable_ 
-finding is one with only a dependency match. Reachable findings are reported as coming from the code that was pattern matched. 
-Unreachable findings are reported as coming from the lockfile that was dependency matched. Both kinds of findings specify their kind,
-along with all matched dependencies, in the `extra` field of semgrep's JSON output, using the `dependency_match_only` and `dependency_matches` fields, respectively.
-
-## Findings
-
 Findings produced by rules with the `r2c-internal-project-depends-on` rule can be of two types: _reachable_ and _nonreachable_.
 
 - A _reachable_ finding is one with both a dependency match and a pattern match: a vulnerable dependency was found and the vulnerable part of the dependency (according to the patterns in the rule) is used somewhere in the code.
-- An _unreachable_ finding is one with only a dependency match. Reachable findings are reported as coming from the code that was pattern matched. Unreachable findings are reported as coming from the lockfile that was dependency matched. For both types of findings, Semgrep specifies whether they are unreachable or reachable along with all matched dependencies, in the extra field of Semgrep's JSON output, using the dependency_match_only and dependency_matches fields, respectively.
+- An _unreachable_ finding is one with only a dependency match. Reachable findings are reported as coming from the code that was pattern matched. Unreachable findings are reported as coming from the lockfile that was dependency matched. For both types of findings, Semgrep specifies whether they are unreachable or reachable along with all matched dependencies, in the `extra` field of Semgrep's JSON output, using the `dependency_match_only` and `dependency_matches` fields, respectively.
 
 A finding is only considered reachable if the file containing the pattern match actually depends on the dependencies in the lockfile containing the dependency match. A file depends on a lockfile if it is the nearest lockfile going up the directory tree.
 
