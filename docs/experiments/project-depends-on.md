@@ -6,7 +6,7 @@ description: "r2c-internal-project-depends-on lets Semgrep rules only returns re
 
 # r2c-internal-project-depends-on
 
-Under this key, third-party dependencies can be specified along with the semver (semantic version) range that the rule should trigger for. `r2c-internal-project-depends-on` filters the rule unless one of the children is matched by a lockfile. 
+This Semgrep rules key allows specifying third-party dependencies along with the semver (semantic version) range that should trigger the rule. The `r2c-internal-project-depends-on` filters the rule unless one of the children is matched by a lockfile. 
 
 We welcome external contributors to try out the key, but keep in mind there's no expectation of stability across releases yet. **The API and behavior of this feature is subject to change**.
 
