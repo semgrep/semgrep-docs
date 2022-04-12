@@ -42,7 +42,7 @@ r2c-internal-project-depends-on:
 
 ## Example
 
-Here’s an example `r2c-internal-project-depends-on` rule that looks for a known vulnerable version of the AWS CLI from April 2017, but only reports the vulnerability if the `s3` module (where the vulnerability is located) is actually being used:
+Here is an example `r2c-internal-project-depends-on` rule that searches for a known vulnerable version of the AWS CLI from April 2017, but only reports the vulnerability if the `s3` module (where the vulnerability is located) is actually used:
 
 ```yaml
 rules:
