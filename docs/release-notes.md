@@ -12,19 +12,19 @@ Welcome to Semgrep release notes. This document provides an overview of the chan
 
 ## April 2022
 
-Version 0.87.0
+### Version 0.87.0
 
-### Additions
+#### Additions
 
-- A new `focus-metavariable` operator that enables you to focus (or zoom in) the match on the code region delimited by a metavariable. This operator is useful for narrowing down the code matched by a rule, to focus on what really matters. For more information, see [focus-metavariable documentation](https://semgrep.dev/docs/experiments/focus-metavariable/). ([#4453](https://github.com/returntocorp/semgrep/issues/4453))
+- A new `focus-metavariable` operator that enables you to focus (or zoom in) the match on the code region delimited by a metavariable. This operator is useful for narrowing down the code matched by a rule, to focus on what really matters. For more information, see [focus-metavariable documentation](/experiments/focus-metavariable/). ([#4453](https://github.com/returntocorp/semgrep/issues/4453))
 
 - Semgrep CI uses `GITHUB_SERVER_URL` to generate URLs if it is available.
 
 - You can now set `NO_COLOR=1` to force-disable colored output.
 
-### Changes
+#### Changes
 
-- taint-mode: Unification of metavariables between sources and sinks is no longer enforced by default. It was not clear that this is the most natural behavior as it was confusing even for experienced Semgrep users. Instead, each set of metavariables is now considered independent by Semgrep. The metavariables available to the rule message are all metavariables bound by `pattern-sinks`, and the subset of metavariables bound by `pattern-sources` that do not collide with the ones bound by `pattern-sinks`. We do not expect this change to break many taint rules because source-sink metavariable unification had a bug (see #4464) that prevented metavariables bound by a `pattern-inside` to be unified, thus limiting the usefulness of the feature. Nonetheless, it is still possible to enforce metavariable unification by setting `taint_unify_mvars: true` in the rule options.
+- taint-mode: Unification of metavariables between sources and sinks is no longer enforced by default. It was not clear that this is the most natural behavior as it was confusing even for experienced Semgrep users. Instead, each set of metavariables is now considered independent by Semgrep. The metavariables available to the rule message are all metavariables bound by `pattern-sinks`, and the subset of metavariables bound by `pattern-sources` that do not collide with the ones bound by `pattern-sinks`. We do not expect this change to break many taint rules because source-sink metavariable unification had a bug (see #4464) that prevented metavariables bound by a `pattern-inside` to be unified, thus limiting the usefulness of the feature. Nonetheless, it is still possible to enforce metavariable unification by setting `taint_unify_mvars: true` in the rule options. For more information, see section [Metavariables, rule message, and unification](/writing-rules/data-flow/taint-mode/#metavariables-rule-message-and-unification).
 
 - The `returntocorp/semgrep` Docker image no longer sets `semgrep` as the entrypoint. This means that Semgrep is no longer prepended automatically to any command you run in the image. This makes it possible to use the image in CI executors that run provisioning commands within the image.
 
