@@ -15,7 +15,7 @@ In the rules.yaml, specify `r2c-internal-project-depends-on` key either as a dep
 A dependency consists of three keys:
 
 * `namespace`: The package registry where the third-party dependency is found.
-* `package`: The name of the third party dependency as it appears in the lockfile
+* `package`: The name of the third-party dependency as it appears in the lockfile.
 * `version`: A semantic version range. Uses [Python packaging specifiers](https://packaging.pypa.io/en/latest/specifiers.html) which support almost all NPM operators, except `^`
 
 So a `r2c-internal-project-depends-on` key will either look like this:
