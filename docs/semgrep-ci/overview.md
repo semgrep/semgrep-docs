@@ -145,7 +145,7 @@ To set up notifications, see [Notifications document](/semgrep-app/notifications
 Notifications are sent only the first time a given finding is seen. [See how notifications are de-duplicated](/semgrep-app/notifications/#de-duplication)
 :::
 
-#### Security Dashboards
+#### Dashboard
 
 ![Screenshot of Semgrep App's findings dashboard showing a bar chart of findings over time, and a list of the most recent findings](../img/semgrep-app-overview.png)<br />
 Semgrep App's findings overview page
