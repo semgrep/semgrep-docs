@@ -29,7 +29,7 @@ yarn build
 This command generates static content into the `build` directory. Preview the production build by running:
 
 ```console
-yarn serve
+yarn start
 ```
 
 ## Creating content
