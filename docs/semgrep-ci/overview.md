@@ -253,32 +253,3 @@ Some rules point out hotspots that require careful review but are not certain to
 You can set this up through the [Rule Board](/semgrep-app/rule-board).
 
 <MoreHelp />
-
-<!-- # Technical details
-
-## Behavior
-
-Semgrep CI uses environment variables
-to detect what context it's running in.
-When it's running on a GitHub pull request or GitLab merge request,
-diff-aware mode is automatically enabled,
-with the branch-off point considered the baseline.
-When using other providers, you need to set environment variables
-that tell Semgrep CI what it should use as the baseline commit.
-Many of our [sample CI configs for various providers](sample-ci-configs.md)
-set these environment variables.
-
-In diff-aware scans,
-Semgrep CI determines which findings are new
-by [finding all modified files](https://github.com/returntocorp/semgrep-action/blob/develop/src/semgrep_agent/targets.py),
-and running two scans on them behind the scenes.
-First, it scans the current commit.
-Then, it checks out the baseline commit
-and scans the files that have findings currently.
-Any findings that already existed in the baseline version are ignored.
-Two [findings are considered identical](https://github.com/returntocorp/semgrep-action/blob/develop/src/semgrep_agent/findings.py)
-if the have the same rule ID, file path, matched source code, and count within the file.
-The matched source code content is compared with whitespace trimmed,
-so that re-indenting code doesn't create new findings.
-This means that you will get notified about new findings when
-a rule's ID changes, when a file is renamed, and when the code matched by a finding changes. -->
