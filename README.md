@@ -20,7 +20,7 @@ Contributions to the docs are welcome! To start contributing, first please make 
 2. Install: `yarn install`
 3. Run locally: `yarn start` and then go to: `<http://localhost:3000/>`
 
-## Preview Production Build
+## Preview production build
 
 ```console
 yarn build
