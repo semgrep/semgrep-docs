@@ -68,7 +68,7 @@ If you are using GitHub Actions to run Semgrep, no extra changes are needed to g
 
 ### Enabling Semgrep App to post comments on GitLab merge request
 
-This section documents how to configure GitLab to enable Semgrep App to post comments for merge requests.
+This section documents how to enable Semgrep App to post comments on merge requests.
 
 Automated comments on GitLab merge requests look like this:
 
