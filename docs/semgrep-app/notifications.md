@@ -101,8 +101,6 @@ semgrep:
     GITLAB_TOKEN: $PAT
 ```
 
-
-
 NOTE: GitLab MR comments are only available to logged-in semgrep.dev users, as they require a Semgrep API token.
 
 ### Automatically fix your findings through pull or merge requests
@@ -112,7 +110,6 @@ NOTE: GitLab MR comments are only available to logged-in semgrep.dev users, as t
 Autofix is free to use for all tiers.
 
 In the following screenshot, Semgrep detects the use of a native Python XML library, which is vulnerable to XML external entity (XXE) attacks. The PR comment automatically suggests a fix by replacing `import xml` to `import defusedxml`.
-
 
 ![Screenshot of a sample autofix PR suggestion](../img/notifications-github-suggestions.png)
 
@@ -125,11 +122,11 @@ To enable autofix:
 
 1. Sign in to your [Semgrep App account](https://semgrep.dev/login).
 2. Click **Projects** from the **App sidebar**.
-3. Click the name of the project to enable autofix for.
+3. Click the name of the project for which to enable autofix.
 4. Click the toggle for **Autofix (beta)**.
 ![Screenshot of autofix toggle](../img/notifications-enable-autofix.png)
-5. All scans performed after enabling autofix will generate inline PR or MR comments with code suggestions for applicable rules.
 
+All scans performed after enabling autofix generate inline PR or MR comments with code suggestions for applicable rules.
 
 ### Webhooks
 
