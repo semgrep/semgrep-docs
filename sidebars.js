@@ -68,7 +68,8 @@ module.exports = {
             },
             'experiments/project-depends-on',
             'experiments/symbolic-propagation',
-            'experiments/metavariable-analysis'
+            'experiments/metavariable-analysis',
+            'experiments/focus-metavariable'
           ]
         },
         'upgrading'
@@ -82,7 +83,7 @@ module.exports = {
     {
       type: 'category',
       label: 'Semgrep App',
-      items: ['semgrep-app/dashboard', 'semgrep-app/rule-board', 'semgrep-app/managing-policy', 'semgrep-app/findings', 'semgrep-app/integrations', 'semgrep-app/editor', 'semgrep-app/notifications', 'semgrep-app/sso', 'semgrep-app/rbac', 'semgrep-app/pricing-and-billing'],
+      items: ['semgrep-app/dashboard', 'semgrep-app/rule-board', 'semgrep-app/findings', 'semgrep-app/integrations', 'semgrep-app/editor', 'semgrep-app/notifications', 'semgrep-app/sso', 'semgrep-app/rbac', 'semgrep-app/pricing-and-billing'],
     },
     'playground',
     {

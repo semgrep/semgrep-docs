@@ -1,6 +1,8 @@
 name: Check Markdown links
 
-on: [pull_request]
+on:
+  schedule:
+    - cron: "31 23 * * 4"
 
 jobs:
   markdown-link-check:
@@ -12,5 +14,5 @@ jobs:
           use-quiet-mode: "yes"
           use-verbose-mode: "yes"
           base-branch: "main"
-          check-modified-files-only: "yes"
+          check-modified-files-only: "no"
           config-file: ".mlc_config.json"

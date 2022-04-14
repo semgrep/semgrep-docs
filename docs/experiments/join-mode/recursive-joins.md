@@ -1,12 +1,12 @@
 # Recursive joins
 
-Join mode is an extension of Semgrep that runs multiple rules at once and only returns results if certain conditions are met. Join mode is an experimental mode that lets you cross file boundaries, allowing you to write rules for whole code bases instead of individual files. More information is available in [these docs](/docs/experiments/join-mode/overview).
+Join mode is an extension of Semgrep that runs multiple rules at once and only returns results if certain conditions are met. Join mode is an experimental mode that enables you to cross file boundaries, allowing you to write rules for whole codebases instead of individual files. More information is available in [Join mode overview](./overview/).
 
-Recursive join mode adds a new recursive operator, `-->`, which executes a recursive query on the given condition. This lets you write a Semgrep rule that effectively crawls the codebase on some condition, letting you build chains such as function call chains or class inheritance chains.
+Recursive join mode has a recursive operator, `-->`, which executes a recursive query on the given condition. This recursive operator allows you to write a Semgrep rule that effectively crawls the codebase on a condition you specify, letting you build chains such as function call chains or class inheritance chains.
 
 ## How recursve join mode works
 
-Behind the scenes, join rules turn captured metavariables into database table columns. This means a rule with $FUNCTIONNAME, $FUNCTIONCALLED, and $PARAMETER would be a table that looks like this:
+In the background, join rules turn captured metavariables into database table columns. For example, a rule with $FUNCTIONNAME, $FUNCTIONCALLED, and $PARAMETER is a table similar to the following:
 
 | $FUNCTIONNAME | $FUNCTIONCALLED | $PARAMETER   |
 |---------------|-----------------|--------------|
@@ -50,7 +50,7 @@ rules:
       $CALLEE(...)
 ```
 
-A join condition like this, `python-callgraph.$CALLER --> python-callgraph.$CALLEE`, will produce a table like this. Notice how `function_1` appears with `function_4` and `function_5` as callees, even though it isn't directly called.
+A join condition such as the following: `python-callgraph.$CALLER --> python-callgraph.$CALLEE` produces a table below. Notice how `function_1` appears with `function_4` and `function_5` as callees, even though it is not directly called.
 
 | $CALLER  | $CALLEE  |
 |----------|----------|
@@ -66,15 +66,15 @@ A join condition like this, `python-callgraph.$CALLER --> python-callgraph.$CALL
 
 ## Example Rule
 
-It's important to think of a join mode rule as "asking questions about the whole project", rather than looking for a single pattern. For example, to find a SQL injection, you need to understand a few things about the project:
+It's important to think of a join mode rule as "asking questions about the whole project", rather than looking for a single pattern. For example, to find an SQL injection, you need to understand a few things about the project:
 
 1. Is there any user input?
-1. Do any functions manually build a SQL string using function input?
+1. Do any functions manually build an SQL string using function input?
 1. Can the user input reach the function that manually builds the SQL string?
 
-Now, you can write individual Semgrep rules that gather information about each of these questions. This example  uses [Vulnado](https://github.com/ScaleSec/vulnado) for finding a SQL injection. Vulnado is a Spring application.
+Now, you can write individual Semgrep rules that gather information about each of these questions. This example uses [Vulnado](https://github.com/ScaleSec/vulnado) for finding an SQL injection. Vulnado is a Spring application.
 
-The first rule looks for user input into the Spring application. This rule also captures sinks that use a user-inputtable parameter as an argument.
+The first rule searches for user input into the Spring application. This rule also captures sinks that use a user-inputtable parameter as an argument.
 
 ```yaml
 rules:
@@ -95,7 +95,7 @@ rules:
     - pattern: $PARAMETER
 ```
 
-A second rule looks for all methods in the application that build a SQL string with a method parameter.
+A second rule looks for all methods in the application that build an SQL string with a method parameter.
 
 ```yaml
 rules:
@@ -135,7 +135,7 @@ rules:
   - pattern: $OBJ.$CALLEE(...)
 ```
 
-The join rule, at last, looks like this:
+The join rule, is displayed as follows:
 
 ```yaml
 rules:
@@ -157,12 +157,12 @@ rules:
     - 'callgraph.$CALLEE == formatted-sql.$METHODNAME'
 ```
 
-The `on:` conditions, in order, read like this:
+The `on:` conditions, in order, read as follows:
 - Recursively generate a pseudo callgraph on $CALLER to $CALLEE.
-- Match when a method with user input has a $SINK that is the $CALLER in the pseudo-callgraph, and
-- Match when the $CALLEE is the $METHODNAME of a method that uses a parameter to construct a SQL string.
+- Match when a method with user input has a $SINK that is the $CALLER in the pseudo-callgraph.
+- Match when the $CALLEE is the $METHODNAME of a method that uses a parameter to construct an SQL string.
 
-Running this on Vulnado will produce tables that look like this:
+Running this on Vulnado produces tables that look like this:
 
 |$RETURNTYPE |$USERINPUTMETHOD |$TYPE      |$PARAMETER  |$OBJ     |$SINK       |
 |------------|-----------------|-----------|------------|---------|------------|
@@ -186,15 +186,15 @@ Running this on Vulnado will produce tables that look like this:
 |getUser    |fetch      |
 |...        |...        |
 
-The join conditions will select rows which meet the conditions.
+The join conditions selects rows which meet the conditions.
 
-- Match when a method with user input has a $SINK that is the $CALLER in the pseudo-callgraph, and
+- Match when a method with user input has a $SINK that is the $CALLER in the pseudo-callgraph.
 
 |... |user-input.$SINK    |== |callgraph.$CALLER   |... |
 |----|---------|---|----------|----|
 |... |getUser  |== |getUser   |... |
 
-- Match when the $CALLEE is the $METHODNAME of a method that uses a parameter to construct a SQL string.
+- Match when the $CALLEE is the $METHODNAME of a method that uses a parameter to construct an SQL string.
 
 |...|callgraph.$CALLEE  |== |formatted-sql.$METHODNAME|...|
 |---|---------|---|-----------|---|

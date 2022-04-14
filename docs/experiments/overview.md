@@ -75,7 +75,7 @@ rules:
 
 ## Generic pattern matching
 
-See [generic pattern matching](../generic-pattern-matching/).
+See [generic pattern matching](./generic-pattern-matching/).
 
 ## Deprecated experiments
 
@@ -89,4 +89,4 @@ Equivalences enable defining equivalent code patterns (i.e. a commutative proper
 
 For example:
 
-<iframe src="https://semgrep.dev/embed/editor?snippet=jNnn" border="0" frameBorder="0" width="100%" height="435"></iframe>
+<iframe src="https://semgrep.dev/embed/editor?snippet=jNnn" border="0" frameBorder="0" width="100%" height="432"></iframe>

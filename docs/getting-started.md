@@ -8,7 +8,7 @@ description: "This getting started guides you through the installation of Semgre
 
 ## Running Semgrep locally
 
-You can work with [Semgrep](https://github.com/returntocorp/semgrep/) locally to scan your code. It runs offline on uncompiled code. **No code leaves your computer**. To run Semgrep locally:
+Start by running [Semgrep](https://github.com/returntocorp/semgrep/) locally to scan your code. Semgrep runs offline on uncompiled code. **No code leaves your computer**.
 
 1. Install Semgrep. Use one of the following options depending on your system and preference:
     - For macOS:
@@ -21,7 +21,7 @@ You can work with [Semgrep](https://github.com/returntocorp/semgrep/) locally to
         ```
     - To try Semgrep without installation run through Docker:
         ```sh
-        docker run --rm -v "${PWD}:/src" returntocorp/semgrep --config=auto
+        docker run --rm -v "${PWD}:/src" returntocorp/semgrep semgrep --config=auto
         ```
 2. Confirm installation by printing help manual page to your terminal. To do so, run the following command:
     ```sh
@@ -29,7 +29,7 @@ You can work with [Semgrep](https://github.com/returntocorp/semgrep/) locally to
     ```
 3. Automatically survey languages and frameworks and run recommended Semgrep Registry rules:
     ```sh
-    semgrep --config=auto path/to/source_code
+    semgrep --config=auto path/to/src
     ```
 4. Optional: Check for Python `==` where the left and right sides are the same (this is often a bug):
     ```sh
@@ -40,7 +40,7 @@ NOTE: When you use the Semgrep Registry for any ruleset (like the auto ruleset a
 
 ### Next steps
 
-Here are some additional resources you may now use:
+Here are some additional resources you may use:
 
 - See [CLI Reference](../cli-reference/) for command line options and exit codes.
 - Visit [Running rules](../running-rules/) to learn more or try Semgrep on known vulnerable test projects:
