@@ -24,7 +24,7 @@ module.exports = {
         {
           type: 'category',
           label: 'Running rules',
-          items: ['rules', 'running-rules', 'managing-findings'],
+          items: ['running-rules', 'managing-findings'],
         },
         {
           type: 'category',
@@ -43,7 +43,7 @@ module.exports = {
             'writing-rules/private-rules'
           ],
         },
-        'cli-usage',
+        'cli-reference',
         'ignoring-files-folders-code',
         'extensions',
         'licensing',
