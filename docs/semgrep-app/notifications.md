@@ -49,8 +49,8 @@ On each scan that has at least one finding, you will receive one email from Semg
 
 Pull request comments are created when:
 
-1. Semgrep finds a result in CI, and
-2. the Semgrep GitHub App has been granted permissions to post inline PR comments.
+1. Semgrep finds a result in CI.
+2. The Semgrep GitHub App has permissions to post inline PR comments.
 
 Automated comments on GitHub pull requests are displayed as follows:
 
