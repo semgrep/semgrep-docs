@@ -36,7 +36,7 @@ semgrep:
       - run: semgrep ci
       - name: package-logs
         if: always()
-        run: tar czf logs.tgz .semgrep_logs/
+        run: tar czf logs.tgz ~/.semgrep/last.log
       - name: upload-logs
         if: always()
         uses: actions/upload-artifact@v3
