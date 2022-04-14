@@ -32,34 +32,118 @@ jobs:
   semgrep:
     name: Scan
     runs-on: ubuntu-latest
+    container:
+      image: returntocorp/semgrep
     # Skip any PR created by dependabot to avoid permission issues
     if: (github.actor != 'dependabot[bot]')
     steps:
       # Fetch project source
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
 
-      - uses: returntocorp/semgrep-action@v1
-        with:
-          config: >- # more at semgrep.dev/explore
+      - run: semgrep ci
+        env:
+          SEMGREP_RULES: >- # more at semgrep.dev/explore
             p/security-audit
             p/secrets
 
-        # == Optional settings in the `with:` block
+        # == Optional settings in the `env:` block
 
         # Instead of `config:`, use rules set in Semgrep App.
         # Get your token from semgrep.dev/manage/settings.
-        #   publishToken: ${{ secrets.SEMGREP_APP_TOKEN }}
-
-        # Never fail the build due to findings on pushes.
-        # Instead, just collect findings for semgrep.dev/manage/findings
-        #   auditOn: push
-
-        # Upload findings to GitHub Advanced Security Dashboard [step 1/2]
-        # See also the next step.
-        #   generateSarif: "1"
+        #   SEMGREP_APP_TOKEN: ${{ secrets.SEMGREP_APP_TOKEN }}
 
         # Change job timeout (default is 1800 seconds; set to 0 to disable)
-        # env:
+        #   SEMGREP_TIMEOUT: 300
+
+      # Upload findings to GitHub Advanced Security Dashboard [step 2/2]
+      # - name: Upload SARIF file for GitHub Advanced Security Dashboard
+      #   uses: github/codeql-action/upload-sarif@v1
+      #   with:
+      #     sarif_file: semgrep.sarif
+      #   if: always()
+```
+
+<details><summary>Alternate job that uploads findings to GitHub Advanced Security Dashboard</summary>
+<p>
+
+```yaml
+name: Semgrep
+on:
+  pull_request: {}
+jobs:
+  semgrep:
+    name: Scan
+    runs-on: ubuntu-latest
+    container:
+      image: returntocorp/semgrep
+    steps:
+      - uses: actions/checkout@v3
+
+      # Select rules for your scan with one of these two options.
+      # Option 1: set hard-coded rulesets
+      - run: semgrep scan --sarif --output=semgrep.sarif
+        env:
+          SEMGREP_RULES: >- # more at semgrep.dev/explore
+            p/security-audit
+            p/secrets
+      # Option 2: scan with rules set in Semgrep App's rule board
+      # - run: semgrep scan --sarif --output=semgrep.sarif --config=policy
+      #   env:
+      #     SEMGREP_APP_TOKEN: ${{ secrets.SEMGREP_APP_TOKEN }}
+
+      - name: Upload SARIF file for GitHub Advanced Security Dashboard
+        uses: github/codeql-action/upload-sarif@v2
+        with:
+          sarif_file: semgrep.sarif
+        if: always()
+```
+
+</p>
+</details>
+
+## GitHub Actions
+
+```yaml
+name: Semgrep
+
+on:
+  # Scan changed files in PRs, block on new issues only (existing issues ignored)
+  pull_request: {}
+
+  # Scan all files on branches, block on any issues
+  # push:
+  #   branches: ["master", "main"]
+
+  # Schedule this job to run at a certain time, using cron syntax
+  # Note that * is a special character in YAML so you have to quote this string
+  # schedule:
+  #   - cron: '30 0 1,15 * *' # scheduled for 00:30 UTC on both the 1st and 15th of the month
+
+jobs:
+  semgrep:
+    name: Scan
+    runs-on: ubuntu-latest
+    container:
+      image: returntocorp/semgrep
+    # Skip any PR created by dependabot to avoid permission issues
+    if: (github.actor != 'dependabot[bot]')
+    steps:
+      # Fetch project source
+      - uses: actions/checkout@v3
+
+      - run: semgrep ci
+        env:
+          SEMGREP_RULES: >- # more at semgrep.dev/explore
+            p/security-audit
+            p/secrets
+
+        # == Optional settings in the `env:` block
+
+        # Instead of `config:`, use rules set in Semgrep App.
+        # Get your token from semgrep.dev/manage/settings.
+        #   SEMGREP_APP_TOKEN: ${{ secrets.SEMGREP_APP_TOKEN }}
+
+        # Change job timeout (default is 1800 seconds; set to 0 to disable)
         #   SEMGREP_TIMEOUT: 300
 
       # Upload findings to GitHub Advanced Security Dashboard [step 2/2]

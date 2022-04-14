@@ -27,19 +27,19 @@ To collect these logs, you need to upload them as an artifact. Modify your workf
 semgrep:
     name: semgrep with managed policy
     runs-on: ubuntu-20.04
+    env:
+      SEMGREP_APP_TOKEN: ${{ secrets.SEMGREP_APP_TOKEN }}
+    container:
+      image: returntocorp/semgrep
     steps:
-      - uses: actions/checkout@v2
-        with:
-          submodules: recursive
-      - uses: returntocorp/semgrep-action@v1
-        with:
-          publishToken: ${{ secrets.SEMGREP_APP_TOKEN }}
+      - uses: actions/checkout@v3
+      - run: semgrep ci
       - name: package-logs
         if: always()
-        run: tar czf logs.tgz .semgrep_logs/
+        run: tar czf logs.tgz ~/.semgrep/last.log
       - name: upload-logs
         if: always()
-        uses: actions/upload-artifact@v2
+        uses: actions/upload-artifact@v3
         with:
           name: logs.tgz
           path: logs.tgz
