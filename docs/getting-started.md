@@ -56,6 +56,9 @@ git clone https://github.com/bkimminich/juice-shop
 cd juice-shop
 semgrep --config=auto
 
+# or if you don't have Semgrep installed, replace the semgrep command with:
+docker run --rm -v "$(pwd)/juice-shop:/src" returntocorp/semgrep semgrep --config p/security-audit /src
+
 # railsgoat, a vulnerable Ruby on Rails app
 git clone https://github.com/OWASP/railsgoat
 cd railsgoat
