@@ -145,13 +145,13 @@ To set up notifications, see [Notifications document](/semgrep-app/notifications
 Notifications are sent only the first time a given finding is seen. [See how notifications are de-duplicated](/semgrep-app/notifications/#de-duplication)
 :::
 
-#### Dashboard
+#### Security dashboards
 
 ![Screenshot of Semgrep App's findings dashboard showing a bar chart of findings over time, and a list of the most recent findings](../img/semgrep-app-overview.png)<br />
 Semgrep App's findings overview page
 
-The dashboard gives you an overview of all your findings organization-wide.
-You can review Semgrep CI's findings through:
+The dashboards give you an overview of all your findings organization-wide.
+You can review Semgrep CI's findings through the following security dashboards:
 
 - [GitLab SAST Security Dashboard](https://docs.gitlab.com/ee/user/application_security/security_dashboard/) (requires GitLab Ultimate subscription)
 - [GitHub Advanced Security Dashboard](https://docs.github.com/en/github/getting-started-with-github/learning-about-github/about-github-advanced-security) (requires GitHub Enterprise subscription)
