@@ -45,14 +45,14 @@ To receive email notifications about Semgrep findings on pull requests and code 
 
 On each scan that has at least one finding, you will receive one email from Semgrep with a summary of all of the findings from that scan.
 
-### GitHub pull request comments
+### Enabling GitHub pull request comments
 
-Pull request comments are left when
+Pull request comments are created when:
 
 1. Semgrep finds a result in CI, and
 2. the Semgrep GitHub App has been granted permissions to post inline PR comments.
 
-Automated comments on GitHub pull requests look like this:
+Automated comments on GitHub pull requests are displayed as follows:
 
 ![Screenshot of a GitHub PR comment](../img/semgrep-pull-request.png)
 <br />
@@ -66,11 +66,11 @@ If you are using GitHub Actions to run Semgrep, no extra changes are needed to g
 - `SEMGREP_REPO_NAME` is set to the repo name (for example, `returntocorp/semgrep`)
 - `SEMGREP_REPO_URL` is set to the repository URL where your project is viewable online (for example, `https://github.com/returntocorp/semgrep`)
 
-### Enabling Semgrep App to post comments on GitLab merge request
+### Enabling GitLab merge request comments
 
 This section documents how to enable Semgrep App to post comments on merge requests.
 
-Automated comments on GitLab merge requests look like this:
+Automated comments on GitLab merge requests are displayed as follows:
 
 <img width="600" src="/docs/img/gitlab-mr-comment.png" alt="Screenshot of a GitLab MR comment" /><br />
 An inline GitLab merge request comment left by a custom Semgrep rule
