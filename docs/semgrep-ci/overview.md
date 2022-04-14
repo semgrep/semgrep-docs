@@ -238,9 +238,7 @@ In providers other than GitHub Actions and GitLab CI, Semgrep CI doesn't infer a
 
 [Non-blocking findings](#getting-notifications-instead-of-blocking-builds) do not affect the exit code.
 
-### Semgrep App connection
-
-To use your Semgrep App account, set `--publish-token`. This acts as your username and password for authentication. You can generate an API token on the [Dashboard > Settings](https://semgrep.dev/manage/settings) page.
+### Appendix
 
 #### Ignoring specific rules in a ruleset or policy
 
