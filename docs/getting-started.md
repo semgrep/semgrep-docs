@@ -36,7 +36,7 @@ Start by running [Semgrep](https://github.com/returntocorp/semgrep/) locally to 
     semgrep -e '$X == $X' --lang=py path/to/src
     ```
 
-NOTE: When you use the Semgrep Registry for any ruleset (like the auto ruleset above), [usage metrics](../metrics) are collected.
+When you use the Semgrep Registry for any ruleset (like the auto ruleset above), [usage metrics](../metrics) are collected.
 
 ### Next steps
 
