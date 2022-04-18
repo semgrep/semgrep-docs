@@ -42,25 +42,13 @@ jobs:
 
       - run: semgrep ci
         env:
-          SEMGREP_RULES: >- # more at semgrep.dev/explore
+          # Select rules for your scan with one of these two options.
+          # Option 1: set hard-coded rulesets
+          SEMGREP_RULES: >- # more at semgrep.dev/r
             p/security-audit
             p/secrets
-
-        # == Optional settings in the `env:` block
-
-        # Instead of `config:`, use rules set in Semgrep App.
-        # Get your token from semgrep.dev/manage/settings.
-        #   SEMGREP_APP_TOKEN: ${{ secrets.SEMGREP_APP_TOKEN }}
-
-        # Change job timeout (default is 1800 seconds; set to 0 to disable)
-        #   SEMGREP_TIMEOUT: 300
-
-      # Upload findings to GitHub Advanced Security Dashboard [step 2/2]
-      # - name: Upload SARIF file for GitHub Advanced Security Dashboard
-      #   uses: github/codeql-action/upload-sarif@v1
-      #   with:
-      #     sarif_file: semgrep.sarif
-      #   if: always()
+          # Option 2: scan with rules set in Semgrep App's rule board
+          # SEMGREP_APP_TOKEN: ${{ secrets.SEMGREP_APP_TOKEN }}
 ```
 
 <details><summary>Alternate job that uploads findings to GitHub Advanced Security Dashboard</summary>
@@ -83,7 +71,7 @@ jobs:
       # Option 1: set hard-coded rulesets
       - run: semgrep scan --sarif --output=semgrep.sarif
         env:
-          SEMGREP_RULES: >- # more at semgrep.dev/explore
+          SEMGREP_RULES: >- # more at semgrep.dev/r
             p/security-audit
             p/secrets
       # Option 2: scan with rules set in Semgrep App's rule board
