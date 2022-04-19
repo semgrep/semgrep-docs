@@ -7,7 +7,7 @@ description: "Get started with Semgrep App to scan for security vulnerabilities 
 
 # Scanning cloud repositories with Semgrep App
 
-Semgrep App enables you to run scans on multiple repositories by integrating with your GitHub or GitLab-hosted account. Scans are powered by **rules**. A Semgrep rule encapsulates pattern-matching logic and data-flow analysis used to find code violations, security issues, outdated libraries, and other issues.
+Semgrep App enables you to run scans on multiple repositories by integrating with your GitHub or GitLab SaaS account. Scans are powered by **rules**. A Semgrep rule encapsulates pattern-matching logic and data-flow analysis used to find code violations, security issues, outdated libraries, and other issues.
 
 
 ![Diagram of Semgrep App flow](../img/semgrep-app-diagram.png "Diagram of Semgrep App flow")
@@ -22,7 +22,7 @@ Semgrep App enables you to scan whole repositories on a cloud. You can try Semgr
 
 ## Signing into Semgrep App
 
-Signing into Semgrep App requires either a GitHub or hosted GitLab account. Semgrep App also supports Single Sign-On (SSO) on Team or Enterprise tiers. This guide focuses on GitHub and GitLab sign-ins. See [SSO Configuration](https://semgrep.dev/docs/semgrep-app/sso/) for information on single sign-on.
+Signing into Semgrep App requires either a GitHub or GitLab account. Semgrep App also supports Single Sign-On (SSO) on Team or Enterprise tiers. This guide focuses on GitHub and GitLab sign-ins. See [SSO Configuration](https://semgrep.dev/docs/semgrep-app/sso/) for information on single sign-on.
 
 **Prerequisites:**
 
