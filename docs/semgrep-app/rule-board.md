@@ -34,7 +34,7 @@ Semgrep App detects the framework and language when scanning a project and only 
 
 ### Through the search bar
 
-1. Click **Add rules**. A sidebar appears.
+1. Click **Add rules**. A drawer appears.
 2. Search for rules by entering a relevant search term, such as your programming language, OWASP category, or framework in the search bar.
 3. Optional: Display the rules within a ruleset by clicking on the **Expand** icon beside the name of the ruleset.
 4. Optional: Display the rule definition by clicking on the **View in Playground** icon beside the name of the rule.
@@ -43,81 +43,47 @@ Semgrep App detects the framework and language when scanning a project and only 
 
 ### From Semgrep Registry
 
-
-1. Search
-As you explore the [Semgrep Registry](https://semgrep.dev/r),
-you will see buttons named "Add these to Policy".
-Click this button and select the "Rule board" option.
-The new cards will appear on your board when you next open the page.
-
-When writing rules in [Semgrep Playground](https://semgrep.dev/editor),
-you will see a button named "Add to Policy".
-Click this button and select the "Rule board" option.
-The new card will appear on your board when you next open the page.
+1. Click a rule or ruleset in [Semgrep Registry](https://semgrep.dev/r).
+2. Click **Add these to Rule Board** or **Add to Rule Board**.
+3. Select which column to place the rule or ruleset in. 
+4. The new card appears on your Rule Board.
 
 ### From Semgrep Playground
 
+1. Enter a name and save your rule.
+2. Click **Add to Rule Board**.
+3. Select which column to place the rule or ruleset in. 
+4. The new card appears on your Rule Board.
+
 ### From the in-app Editor
+
+1. From the **Library** pane, click the rule to add to the Rule Board. The rule appears on the code pane.
+2. Click **Add to Rule Board**.
+3. Select which column to place the rule or ruleset in. 
+4. The new card appears on your Rule Board.
 
 ## Removing rules or rulesets
 
-To remove a ruleset:
+To remove a rule or ruleset:
 
 1. Click the **garbage can** icon.
 2. Click **Remove**.
 3. Click **Save changes**.
 
-Rules within a ruleset can't be deleted. They can be disabled. To disable a rule:
+:::info
 
-1. Drag...
-2. Click Save.
-
-
-
-
-## Removing rules or rulesets
-
-### Rules
-
-To disable just one rule from a ruleset,
-expand the ruleset with the "rules" button.
-Then drag specific rules to the side column on the right.
-This will disable those rules but keep the rest of the ruleset enabled.
+Individual rules within rulesets can only be disabled, not deleted.
+:::
 
 ## Configuring notifications
 
-Notifications enable you to keep track of Semgrep scans within your preferred environment, such as email or Slack.
+[Notifications](../integrations) enable you to keep track of Semgrep scans within your preferred environment, such as email or Slack. They are configured for each column.
 
-Prerequisites
+Prerequisites:
 
 * An existing notification channel
 
-
-To configure notifications click the bell button in the top right corner of a column.
-
-You can enable [third-party notifications](../notifications/)
-and [inline pull request comments](../notifications/#pull-request-comments)
-on a per-column basis in the resulting panel.
-## Columns
-
-
-
-### Side column
-
-The side column on the right of the board displays various kinds of cards that are inactive.
-
-#### Registry search
-
-Search the Semgrep Registry for rulesets via the search box at the top of the side column.
-Search results will appear in this column.
-
-#### Recommended cards
-
-Semgrep will recommend relevant rulesets based on technologies it finds in your repositories and show them here.
-
-#### Disabled rules
-
-Find and restore rules previously removed from active rulesets here.
-
+1. Click the gear icon of the column to add a notification for.
+2. Click the notifications to add for that column.
 
 <MoreHelp />
