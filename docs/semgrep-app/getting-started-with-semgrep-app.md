@@ -92,8 +92,6 @@ Semgrep requires the following permissions (scopes) in order to function:
 
 
 <dl>
-    <dt>`api`</dt>
-    <dd>Legacy usage enables Semgrep App to retrieve repositories from GitLab.</dd>
     <dt>`openid`, `email`, and `profile`</dt>
     <dd>Enables authentication of a session through OpenID.</dd>
 </dl>
