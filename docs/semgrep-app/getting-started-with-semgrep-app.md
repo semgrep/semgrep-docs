@@ -7,17 +7,15 @@ description: "Get started with Semgrep App to scan for security vulnerabilities 
 
 # Scanning cloud repositories with Semgrep App
 
-Semgrep App enables you to run scans on multiple repositories by integrating with your GitHub or GitLab SaaS account. Scans are powered by **rules**. A Semgrep rule encapsulates pattern-matching logic and data-flow analysis used to find code violations, security issues, outdated libraries, and other issues.
-
+Semgrep App enables you to run scans on multiple repositories by integrating with your GitHub or GitLab SaaS account. Semgrep uses **rules** to scan code. Matches found based on those rules are called **findings**. A Semgrep rule encapsulates pattern-matching logic and data-flow analysis used to find code violations, security issues, outdated libraries, and other issues.
 
 ![Diagram of Semgrep App flow](../img/semgrep-app-diagram.png "Diagram of Semgrep App flow")
 
+Many rules are available from [Semgrep Registry](https://semgrep.dev/r), an open-source, community-driven repository of rules. Write your own rules to create specific security checks.
 
-Many rules are available from [Semgrep Registry](https://semgrep.dev/r), an open-source, community-driven repository of rules. Write your own rules to create general security checks through the Registry while customizing Semgrep to work for your team's specific secret-keeping and API practices.
+Semgrep App's Rule Board feature determines what rules Semgrep uses and what action to undertake when a match is found. The Rule Board can prevent pull requests (PRs) or merge requests (MRs) from merging until findings are resolved. This helps prevent vulnerable code from shipping to widely-accessible environments, such as production or staging servers.
 
-After performing a scan, use Semgrep App's Rule Board feature to prevent pull requests (PRs) or merge requests (MRs) from merging until findings are resolved. This helps prevent vulnerable code from shipping to widely-accessible environments, such as production or staging servers.
-
-Semgrep App enables you to scan whole repositories on a cloud. You can try Semgrep CLI for local scans as well. For more information, see [Getting started with Semgrep CLI](https://semgrep.dev/docs/getting-started/).
+Semgrep App enables you to deploy, configure, and manage Semgrep in your continuous integration (CI) environment. You can try Semgrep CLI for local scans as well. For more information, see [Getting started with Semgrep CLI](https://semgrep.dev/docs/getting-started/).
 
 
 ## Signing into Semgrep App
@@ -98,7 +96,7 @@ Semgrep requires the following permissions (scopes) in order to function:
 
 ## Performing a scan
 
-Scanning is Semgrep's primary operation. Scan results (findings) depend on rules. Scanning is powered by rules. At first scan, Semgrep App uses a default ruleset selected to enforce best practices for a repository's framework and programming language. Future scans may be further tuned to an organization's specific practices.
+Scanning is Semgrep's primary operation. When you first sign into Semgrep App, it uses a default ruleset selected to enforce best practices for a repository's framework and programming language. Future scans may be further tuned to an organization's specific practices.
 
 Semgrep App enables users to choose what findings prevent a pull or merge request (PR or MR) from merging into the repository. Setting these blocking and non-blocking rules is achieved through the Rule Board.
 
