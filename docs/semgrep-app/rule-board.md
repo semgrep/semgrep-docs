@@ -21,7 +21,7 @@ The columns and their corresonding actions are:
     <dt>PR/MR Comments</dt>
     <dd>Rules that display findings to developers through PR or MRs.</dd>
     <dt>Block</dt>
-    <dd>Rules here show block merges and commits, in addition to showing findings in Semgrep App and PRs or MRs.</dd>
+    <dd>Rules that block merges and commits, in addition to showing findings in Semgrep App and PRs or MRs.</dd>
 </dl>
 
 ![Screenshot of the default state of the rule board](../img/rule-board.png)
