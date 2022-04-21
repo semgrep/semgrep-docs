@@ -268,7 +268,7 @@ Semgrep provides the following environments to learn, experiment, and write Semg
 
 ### Receiving feedback about a rule
 
-[Developer feedback](https://semgrep.dev/docs/semgrep-app/dashboard/#rule-performance-through-developer-feedbackhttps://semgrep.dev/docs/semgrep-app/dashboard/#rule-performance-through-developer-feedback) is a Team/Enterprise tier feature in which developers are able to submit feedback about a rule or finding. This is used to evaluate a rule's performance:
+[Developer feedback](https://semgrep.dev/docs/semgrep-app/dashboard/#rule-performance-through-developer-feedbackhttps://semgrep.dev/docs/semgrep-app/dashboard/#rule-performance-through-developer-feedback) is a Team/Enterprise tier feature in which developers can submit feedback about a rule or finding. This is used to evaluate a rule's performance:
 
 * Is the rule's message clear?
 * Does the rule have too many false positives?
