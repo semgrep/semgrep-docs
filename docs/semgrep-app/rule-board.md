@@ -19,7 +19,7 @@ The columns and their corresonding actions are:
     <dt>Audit</dt>
     <dd>Rules that display findings only on Semgrep App.</dd>
     <dt>PR/MR Comments</dt>
-    <dd>Rules here show findings to developers through PR or MRs.</dd>
+    <dd>Rules that display findings to developers through PR or MRs.</dd>
     <dt>Block</dt>
     <dd>Rules here show block merges and commits, in addition to showing findings in Semgrep App and PRs or MRs.</dd>
 </dl>
