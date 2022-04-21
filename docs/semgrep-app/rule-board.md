@@ -16,9 +16,9 @@ Rules and rulesets are displayed as **cards**. Group cards by dragging and dropp
 The columns and their corresonding actions are:
 
 <dl>
-    <dt>Audit</dt>
+    <dt>Monitor</dt>
     <dd>Rules that display findings only on Semgrep App.</dd>
-    <dt>PR/MR Comments</dt>
+    <dt>Comment</dt>
     <dd>Rules that display findings to developers through PR or MRs.</dd>
     <dt>Block</dt>
     <dd>Rules that block merges and commits, in addition to showing findings in Semgrep App and PRs or MRs.</dd>
