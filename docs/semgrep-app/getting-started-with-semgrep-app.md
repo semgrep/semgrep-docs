@@ -18,7 +18,8 @@ Semgrep App's Rule Board feature determines what rules Semgrep uses and what act
 Semgrep App enables you to deploy, configure, and manage Semgrep in your continuous integration (CI) environment. You can try Semgrep CLI for local scans as well. For more information, see [Getting started with Semgrep CLI](https://semgrep.dev/docs/getting-started/).
 
 
-## Signing into Semgrep App
+## Signing in to Semgrep App
+
 
 Signing into Semgrep App requires either a GitHub or GitLab account. Semgrep App also supports Single Sign-On (SSO) on Team or Enterprise tiers. This guide focuses on GitHub and GitLab sign-ins. See [SSO Configuration](https://semgrep.dev/docs/semgrep-app/sso/) for information on single sign-on.
 
