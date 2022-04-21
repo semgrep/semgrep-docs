@@ -9,7 +9,7 @@ import MoreHelp from "/src/components/MoreHelp"
 # Rule board
 
 
-The Rule Board is a visual representation of the rules that Semgrep App uses to scan code. Rules can be organized into rulesets. Rulesets are rules related through programming language, OWASP category, framework, and so on.
+The Rule Board is a visual representation of the rules that Semgrep App uses to scan code. Rules can be organized in rulesets. Rulesets are rules related through a programming language, OWASP category, or framework.
 
 Rules and rulesets are displayed as **cards**. Group cards by dragging and dropping cards into the columns. Columns represent the actions undertaken in response to findings from that rule or ruleset.
 
