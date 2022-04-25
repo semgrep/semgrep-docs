@@ -15,6 +15,7 @@ import MoreHelp from "/src/components/MoreHelp"
 
 <!-- coupling: if you modify this table, copy paste it also in index.md -->
 <!-- coupling: should match what is in semgrep-core/tests/Test.ml Maturity level testing -->
+<!-- for readability, please keep each column in alphabetical order -->
 | GA ✅      | Beta 🐛                     | Experimental 🚧            |
 |:---------- |:---------------------------|:---------------------------|
 | C#         | Kotlin                     | Bash                       |
@@ -25,9 +26,9 @@ import MoreHelp from "/src/components/MoreHelp"
 | JSX        |                            | Lua                        |
 | Python     |                            | OCaml                      |
 | Ruby       |                            | PHP                        |
-| TypeScript |                            | Rust                       |
+| Scala      |                            | Rust                       |
 | TSX        |                            | Solidity                   |
-| Scala      |                            | YAML                       |
+| TypeScript |                            | YAML                       |
 |            |                            | Generic (ERB, Jinja, etc.) |
 
 ## Support expectations
