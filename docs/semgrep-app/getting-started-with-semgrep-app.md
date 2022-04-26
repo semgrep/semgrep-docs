@@ -113,7 +113,7 @@ To add a project:
 
 1. Ensure you are signed in to Semgrep App.
 2. Click **Projects** on the left sidebar.
-3. Optional: If you do not see the repository you want to add in the **Projects **page of Semgrep app, follow the steps in the succeeding sections to ensure that Semgrep App can detect the repository.{{
+3. Optional: If you do not see the repository you want to add in the **Projects **page of Semgrep app, follow the steps in the succeeding sections to ensure that Semgrep App can detect the repository.
 4. Click **Setup New Project**, and then select which repository provider Semgrep to integrate with.
 5. For **GitHub Actions**:
     1. Click **Add CI Job **next to the name of the project to add.
