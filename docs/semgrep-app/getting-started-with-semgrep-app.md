@@ -13,7 +13,8 @@ Semgrep App enables you to run scans on multiple repositories by integrating wit
 
 Many rules are available from [Semgrep Registry](https://semgrep.dev/r), an open-source, community-driven repository of rules. You can also write your own rules to customize Semgrep for your team's specific practices, or publish rules for the community.
 
-Semgrep App's Rule Board feature determines what rules Semgrep uses and what action to undertake when a match is found. The Rule Board can prevent pull requests (PRs) or merge requests (MRs) from merging until findings are resolved. This helps prevent vulnerable code from shipping to widely-accessible environments, such as production or staging servers.
+With Semgrep App's Rule Board you can determine which rules Semgrep uses and what action Semgrep undertakes when it generates a finding. The Rule Board can block pull requests (PRs) or merge requests (MRs) from merging until findings are resolved. This behavior helps to prevent vulnerable code from shipping to widely-accessible environments, such as production or staging servers.
+
 
 Semgrep App enables you to deploy, configure, and manage Semgrep in your continuous integration (CI) environment. You can try Semgrep CLI for local scans as well. For more information, see [Getting started with Semgrep CLI](https://semgrep.dev/docs/getting-started/).
 
