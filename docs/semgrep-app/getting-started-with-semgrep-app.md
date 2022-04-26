@@ -203,7 +203,7 @@ The Rule Board is composed of three columns:
     <dd>Rules here show block merges and commits, in addition to showing findings in Semgrep App and PRs or MRs.</dd>
 </dl>    
 
-To add rules and rulesets into your Rule Board:
+To add rules and rulesets to your Rule Board:
 
 1. Click **Rule Board** on the left sidebar.
 2. Click Add Rules. A right-side drawer appears.
