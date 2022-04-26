@@ -32,7 +32,8 @@ Signing in to Semgrep App requires either a GitHub or GitLab account. Semgrep Ap
 
 ### Signing in with GitHub
 
-To sign into Semgrep with a GitHub account:
+To sign in to Semgrep with a GitHub account:
+
 
 1. Click the following link: [Sign into Semgrep](https://semgrep.dev/login?return_path=/manage/projects).
 2. Select **Sign in with GitHub**. You are redirected to the GitHub sign in page if you are not currently signed in.
