@@ -13,16 +13,19 @@ Semgrep App enables you to run scans on multiple repositories by integrating wit
 
 Many rules are available from [Semgrep Registry](https://semgrep.dev/r), an open-source, community-driven repository of rules. You can also write your own rules to customize Semgrep for your team's specific practices, or publish rules for the community.
 
-Semgrep App's Rule Board feature determines what rules Semgrep uses and what action to undertake when a match is found. The Rule Board can prevent pull requests (PRs) or merge requests (MRs) from merging until findings are resolved. This helps prevent vulnerable code from shipping to widely-accessible environments, such as production or staging servers.
+With Semgrep App's Rule Board you can determine which rules Semgrep uses and what action Semgrep undertakes when it generates a finding. The Rule Board can block pull requests (PRs) or merge requests (MRs) from merging until findings are resolved. This behavior helps to prevent vulnerable code from shipping to widely-accessible environments, such as production or staging servers.
+
 
 Semgrep App enables you to deploy, configure, and manage Semgrep in your continuous integration (CI) environment. You can try Semgrep CLI for local scans as well. For more information, see [Getting started with Semgrep CLI](https://semgrep.dev/docs/getting-started/).
 
 
-## Signing into Semgrep App
+## Signing in to Semgrep App
 
-Signing into Semgrep App requires either a GitHub or GitLab account. Semgrep App also supports Single Sign-On (SSO) on Team or Enterprise tiers. This guide focuses on GitHub and GitLab sign-ins. See [SSO Configuration](https://semgrep.dev/docs/semgrep-app/sso/) for information on single sign-on.
 
-**Prerequisites:**
+Signing in to Semgrep App requires either a GitHub or GitLab account. Semgrep App supports Single Sign-On (SSO) on Team or Enterprise tiers. This guide focuses on GitHub and GitLab sign-ins. See [SSO Configuration](https://semgrep.dev/docs/semgrep-app/sso/) for information on single sign-on.
+
+
+### **Prerequisites
 
 * A GitHub or GitLab SaaS account.
 * At least one repository associated with the account.
@@ -30,7 +33,8 @@ Signing into Semgrep App requires either a GitHub or GitLab account. Semgrep App
 
 ### Signing in with GitHub
 
-To sign into Semgrep with a GitHub account:
+To sign in to Semgrep with a GitHub account:
+
 
 1. Click the following link: [Sign into Semgrep](https://semgrep.dev/login?return_path=/manage/projects).
 2. Select **Sign in with GitHub**. You are redirected to the GitHub sign in page if you are not currently signed in.
@@ -110,7 +114,7 @@ To add a project:
 
 1. Ensure you are signed in to Semgrep App.
 2. Click **Projects** on the left sidebar.
-3. Optional: If you do not see the repository you want to add in the **Projects **page of Semgrep app, follow the steps in the succeeding sections to ensure that Semgrep App can detect the repository.{{
+3. Optional: If you do not see the repository you want to add in the **Projects **page of Semgrep app, follow the steps in the succeeding sections to ensure that Semgrep App can detect the repository.
 4. Click **Setup New Project**, and then select which repository provider Semgrep to integrate with.
 5. For **GitHub Actions**:
     1. Click **Add CI Job **next to the name of the project to add.
@@ -151,7 +155,8 @@ By default, scans are triggered through the following parameters, which are defi
 
 To change these scan parameters, either:
 
-* Edit `semgrep.yml` file manually.
+* Edit the `semgrep.yml` file manually.
+
 * Remove the project and redo the steps described in Adding a project section.
 
 Additional scan parameters include:
@@ -176,7 +181,7 @@ To see additional scan parameters:
 
 Semgrep App's Rule Board displays all rules and rulesets that are used to scan repositories. These rules are scanned based on the repository's programming language and framework as well as additional Semgrep parameters, such as ignored files.
 
-For example, given five repositories each with different programming languages, the Rule Board will only scan using rules and rulesets for that repository's language that are in the Rule Board.
+For example, given five repositories each with different programming languages, the Rule Board only scans using rules and rulesets for that repository's language that are in the Rule Board.
 
 Semgrep's speed is not affected by having multiple rules for different languages in the Rule Board.
 
@@ -199,7 +204,7 @@ The Rule Board is composed of three columns:
     <dd>Rules here show block merges and commits, in addition to showing findings in Semgrep App and PRs or MRs.</dd>
 </dl>    
 
-To add rules and rulesets into your Rule Board:
+To add rules and rulesets to your Rule Board:
 
 1. Click **Rule Board** on the left sidebar.
 2. Click Add Rules. A right-side drawer appears.
@@ -223,7 +228,7 @@ Both the Dashboard and the Findings page display the results of a scan. These pa
 
 The **[Findings](https://semgrep.dev/docs/semgrep-app/findings/#managing-triage-states-bulk-triage)** page is used to triage findings. Triaging refers to prioritizing a finding based on criteria set by your team or organization. While severity is a factor in triage, your organization may define additional criteria based on coding standards, business, or product goals.
 
-To see rule specifics that triggered the finding, click on the rule entry.
+To see the rule specifics that triggered the finding, click on the rule entry.
 
 
 ### Automatically resolving findings
@@ -241,7 +246,7 @@ Include code suggestions that resolve findings in both GitHub and GitLab through
 
 Semgrep app supports various phases of the development cycle through the following features:
 
-* Integrations keep teams informed without having to leave their working environment, such as Slack or email.
+* Integrations keep teams informed without having to leave their working environments, such as Slack or email.
 * Forking Registry rules to easily write custom rules, enabling teams to enforce their own standards.
 * Developer feedback enables teams to collaborate and improve on scan quality.
 
@@ -267,7 +272,7 @@ Semgrep provides the following environments to learn, experiment, and write Semg
 
 ### Receiving feedback about a rule
 
-[Developer feedback](https://semgrep.dev/docs/semgrep-app/dashboard/#rule-performance-through-developer-feedbackhttps://semgrep.dev/docs/semgrep-app/dashboard/#rule-performance-through-developer-feedback) is a Team/Enterprise tier feature in which developers are able to submit feedback about a rule or finding. This is used to evaluate a rule's performance:
+[Developer feedback](https://semgrep.dev/docs/semgrep-app/dashboard/#rule-performance-through-developer-feedbackhttps://semgrep.dev/docs/semgrep-app/dashboard/#rule-performance-through-developer-feedback) is a Team/Enterprise tier feature in which developers can submit feedback about a rule or finding. This is used to evaluate a rule's performance:
 
 * Is the rule's message clear?
 * Does the rule have too many false positives?
