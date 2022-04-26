@@ -4,7 +4,7 @@ The following explains how to build `semgrep` so that you can make and test chan
 
 ## Setting up the environment
 
-You will need Python >= 3.6.
+You will need Python >= 3.7.
 
 Most Python development is done inside the `semgrep` directory (from the top level of this repo, `semgrep/semgrep/`):
 
@@ -84,16 +84,10 @@ Alternatively, you may include it somewhere like `/usr/local/bin/`.
 
 ## Running `semgrep`
 
-You will want to be in the pipenv environment whenever you run semgrep. Start a shell with
+Make sure you are in `semgrep/semgrep/`, then run:
 
 ```
-python -m pipenv shell
-```
-
-Make sure you are in `semgrep/semgrep/`. Within the shell, run:
-
-```
-python -m semgrep --help
+pipenv run semgrep --help
 ```
 
 To try a simple analysis, you can run:
@@ -148,16 +142,10 @@ docker build -t semgrep .
 
 `semgrep` uses [`pytest`](https://docs.pytest.org/en/latest/) for testing.
 
-To run tests, run the following command within the pipenv shell:
+To run tests, run the following command:
 
 ```
-python -m pytest
-```
-
-This command will run comprehensize parse tests on many open source projects. To skip these slow tests run:
-
-```sh
-python -m pytest --ignore=tests/qa/test_public_repos.py
+pipenv run pytest
 ```
 
 If you want to update the tests to match to the current output:
@@ -168,18 +156,18 @@ make regenerate-tests
 Running a single test file is simple too:
 
 ```
-python -m pytest path/to/test.py
+pipenv run pytest path/to/test.py
 ```
 
 Or running an individual test function:
 
 ```
-python -m pytest -k test_func_name path/to/test.py
+pipenv run pytest -k test_func_name path/to/test.py
 ```
 
 `semgrep` also includes [`pytest-benchmark`](https://pytest-benchmark.readthedocs.io/en/latest/)
 to allow for basic benchmarking functionality. This can be run like so:
 
 ```
-python -m pytest --benchmark-only
+pipenv run pytest --benchmark-only
 ```
