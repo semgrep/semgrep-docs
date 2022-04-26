@@ -245,7 +245,7 @@ Include code suggestions that resolve findings in both GitHub and GitLab through
 
 Semgrep app supports various phases of the development cycle through the following features:
 
-* Integrations keep teams informed without having to leave their working environment, such as Slack or email.
+* Integrations keep teams informed without having to leave their working environments, such as Slack or email.
 * Forking Registry rules to easily write custom rules, enabling teams to enforce their own standards.
 * Developer feedback enables teams to collaborate and improve on scan quality.
 
