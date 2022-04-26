@@ -154,7 +154,8 @@ By default, scans are triggered through the following parameters, which are defi
 
 To change these scan parameters, either:
 
-* Edit `semgrep.yml` file manually.
+* Edit the `semgrep.yml` file manually.
+
 * Remove the project and redo the steps described in Adding a project section.
 
 Additional scan parameters include:
