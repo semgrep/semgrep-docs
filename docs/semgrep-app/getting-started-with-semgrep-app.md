@@ -180,7 +180,7 @@ To see additional scan parameters:
 
 Semgrep App's Rule Board displays all rules and rulesets that are used to scan repositories. These rules are scanned based on the repository's programming language and framework as well as additional Semgrep parameters, such as ignored files.
 
-For example, given five repositories each with different programming languages, the Rule Board will only scan using rules and rulesets for that repository's language that are in the Rule Board.
+For example, given five repositories each with different programming languages, the Rule Board only scans using rules and rulesets for that repository's language that are in the Rule Board.
 
 Semgrep's speed is not affected by having multiple rules for different languages in the Rule Board.
 
