@@ -123,9 +123,12 @@ bad_func2()
 
 ```javascript
 
-bad_func1(); // nosemgrep
+// nosemgrep
+bad_func1()
 
-bad_func2(   // nosemgrep
+bad_func2(); // nosemgrep
+
+bad_func3(   // nosemgrep
     arg
 );
 
@@ -154,11 +157,13 @@ Javascript examples wherein rules are stored in a `configs` subdirectory:
 
 ```javascript
 
-bad_func(); // nosemgrep: configs.rule-id-3
+// nosemgrep: configs.rule-id-3
+bad_func1()
 
-bad_func(   // nosemgrep: configs.rule-id-3, configs.rule-id-4
+bad_func2(); // nosemgrep: configs.rule-id-3
+
+bad_func3(   // nosemgrep: configs.rule-id-3, configs.rule-id-4
     arg
-
 );
 
 ```

@@ -45,14 +45,14 @@ To receive email notifications about Semgrep findings on pull requests and code 
 
 On each scan that has at least one finding, you will receive one email from Semgrep with a summary of all of the findings from that scan.
 
-### GitHub pull request comments
+### Enabling GitHub pull request comments
 
-Pull request comments are left when
+Pull request comments are created when:
 
-1. Semgrep finds a result in CI, and
-2. the Semgrep GitHub App has been granted permissions to post inline PR comments.
+1. Semgrep finds a result in CI.
+2. The Semgrep GitHub App has permissions to post inline PR comments.
 
-Automated comments on GitHub pull requests look like this:
+Automated comments on GitHub pull requests are displayed as follows:
 
 ![Screenshot of a GitHub PR comment](../img/semgrep-pull-request.png)
 <br />
@@ -66,11 +66,11 @@ If you are using GitHub Actions to run Semgrep, no extra changes are needed to g
 - `SEMGREP_REPO_NAME` is set to the repo name (for example, `returntocorp/semgrep`)
 - `SEMGREP_REPO_URL` is set to the repository URL where your project is viewable online (for example, `https://github.com/returntocorp/semgrep`)
 
-### Enabling Semgrep App to post comments on GitLab merge request
+### Enabling GitLab merge request comments
 
-This section documents how to configure GitLab to enable Semgrep App to post comments for merge requests.
+This section documents how to enable Semgrep App to post comments on merge requests.
 
-Automated comments on GitLab merge requests look like this:
+Automated comments on GitLab merge requests are displayed as follows:
 
 <img width="600" src="/docs/img/gitlab-mr-comment.png" alt="Screenshot of a GitLab MR comment" /><br />
 An inline GitLab merge request comment left by a custom Semgrep rule
@@ -101,8 +101,6 @@ semgrep:
     GITLAB_TOKEN: $PAT
 ```
 
-
-
 NOTE: GitLab MR comments are only available to logged-in semgrep.dev users, as they require a Semgrep API token.
 
 ### Automatically fix your findings through pull or merge requests
@@ -113,7 +111,6 @@ Autofix is free to use for all tiers.
 
 In the following screenshot, Semgrep detects the use of a native Python XML library, which is vulnerable to XML external entity (XXE) attacks. The PR comment automatically suggests a fix by replacing `import xml` to `import defusedxml`.
 
-
 ![Screenshot of a sample autofix PR suggestion](../img/notifications-github-suggestions.png)
 
 
@@ -123,13 +120,13 @@ Autofix requires PR or MR comments to be enabled for your repository or organiza
 
 To enable autofix:
 
-2. Sign in to your [Semgrep App account](https://semgrep.dev/login).
-3. Click **Projects** from the **App sidebar**.
-4. Click the name of the project to enable autofix for.
-5. Click the toggle for **Autofix (beta)**.
+1. Sign in to your [Semgrep App account](https://semgrep.dev/login).
+2. Click **Projects** from the **App sidebar**.
+3. Click the name of the project for which to enable autofix.
+4. Click the toggle for **Autofix (beta)**.
 ![Screenshot of autofix toggle](../img/notifications-enable-autofix.png)
-6. All scans performed after enabling autofix will generate inline PR or MR comments with code suggestions for applicable rules.
 
+All scans performed after enabling autofix generate inline PR or MR comments with code suggestions for applicable rules.
 
 ### Webhooks
 
