@@ -5,6 +5,8 @@ title: Getting started with Semgrep App
 description: "Get started with Semgrep App to scan for security vulnerabilities on cloud repositories hosted on GitHub and GitLab."
 ---
 
+import MoreHelp from "/src/components/MoreHelp"
+
 # Scanning cloud repositories with Semgrep App
 
 Semgrep App enables you to run scans on multiple repositories by integrating with your GitHub or GitLab SaaS account. Semgrep uses **rules** to scan code. Matches found based on those rules are called **findings**. A Semgrep rule encapsulates pattern-matching logic and data-flow analysis used to find code violations, security issues, outdated libraries, and other issues.
@@ -271,7 +273,7 @@ Semgrep provides the following environments to learn, experiment, and write Semg
 
 ### Receiving feedback about a rule
 
-[Developer feedback](https://semgrep.dev/docs/semgrep-app/dashboard/#rule-performance-through-developer-feedbackhttps://semgrep.dev/docs/semgrep-app/dashboard/#rule-performance-through-developer-feedback) is a Team/Enterprise tier feature in which developers can submit feedback about a rule or finding. This is used to evaluate a rule's performance:
+[Developer feedback](https://semgrep.dev/docs/semgrep-app/dashboard/#rule-performance-through-developer-feedback) is a Team/Enterprise tier feature in which developers can submit feedback about a rule or finding. This is used to evaluate a rule's performance:
 
 * Is the rule's message clear?
 * Does the rule have too many false positives?
@@ -281,4 +283,6 @@ Semgrep provides the following environments to learn, experiment, and write Semg
 
 ### Getting support
 
-Refer to [Troubleshooting Semgrep App](https://semgrep.dev/docs/troubleshooting/semgrep-app/) for common installation issues. Help is also available for all users through the[ r2c Community Slack](https://r2c.dev/slack).
+Refer to [Troubleshooting Semgrep App](../troubleshooting/semgrep-app/) for common installation issues. Help is also available for all users through the[ r2c Community Slack](https://r2c.dev/slack).
+
+<MoreHelp />
