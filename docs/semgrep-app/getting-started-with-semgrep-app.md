@@ -167,7 +167,7 @@ Additional scan parameters include:
 **Autofix**
     Select this toggle to enable autofix, which creates suggestions in addition to PR or MR comments. For example, a rule may suggest using a function such as `logging.debug()` instead of `print()`.
 
-**Path ignores**
+<dt>Path ignores</dt>
 	<dd>Paths and files specified here are not scanned by Semgrep App.</dd>
 
 To see additional scan parameters:
