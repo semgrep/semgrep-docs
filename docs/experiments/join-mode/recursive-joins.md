@@ -212,7 +212,7 @@ rule:spring-sql-injection: SQLi
 ran 0 rules on 0 files: 1 findings
 ```
 
-## Example of an inline rule
+## Recursive join with an inline rule example
 
 The following rule attempts to detect cross-site scripting in Flask application by checking whether a template variable is rendered unsafely through Python code.
 
