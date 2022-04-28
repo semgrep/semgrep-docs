@@ -161,7 +161,8 @@ To change these scan parameters, either:
 
 Additional scan parameters include:
 
-**Rule recommendation**
+<dl>
+    <dt>Rule recommendation</dt>
     Select this toggle to receive rule recommendations in the Rule Board based on the framework and language of the repository.
 
 **Autofix**
