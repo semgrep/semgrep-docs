@@ -17,26 +17,20 @@ Many rules are available from [Semgrep Registry](https://semgrep.dev/r), an open
 
 With Semgrep App's Rule Board you can determine which rules Semgrep uses and what action Semgrep undertakes when it generates a finding. The Rule Board can block pull requests (PRs) or merge requests (MRs) from merging until findings are resolved. This behavior helps to prevent vulnerable code from shipping to widely-accessible environments, such as production or staging servers.
 
-
 Semgrep App enables you to deploy, configure, and manage Semgrep in your continuous integration (CI) environment. You can try Semgrep CLI for local scans as well. For more information, see [Getting started with Semgrep CLI](https://semgrep.dev/docs/getting-started/).
-
 
 ## Signing in to Semgrep App
 
-
 Signing in to Semgrep App requires either a GitHub or GitLab account. Semgrep App supports Single Sign-On (SSO) on Team or Enterprise tiers. This guide focuses on GitHub and GitLab sign-ins. See [SSO Configuration](https://semgrep.dev/docs/semgrep-app/sso/) for information on single sign-on.
-
 
 ### Prerequisites
 
 * A GitHub or GitLab SaaS account.
 * At least one repository associated with the account.
 
-
 ### Signing in with GitHub
 
 To sign in to Semgrep with a GitHub account:
-
 
 1. Click the following link: [Sign into Semgrep](https://semgrep.dev/login?return_path=/manage/projects).
 2. Select **Sign in with GitHub**. You are redirected to the GitHub sign in page if you are not currently signed in.
@@ -47,7 +41,6 @@ To sign in to Semgrep with a GitHub account:
 7. Optional: Fill out the survey and click Complete or click Skip to omit this step.
 
 You are now signed in to Semgrep App.
-
 
 #### Permissions for GitHub
 
@@ -166,10 +159,11 @@ Additional scan parameters include:
 <dl>
     <dt>Rule recommendation</dt>
     <dd>Select this toggle to receive rule recommendations in the Rule Board based on the framework and language of the repository.</dd>
-<dt>Autofix</dt>
+    <dt>Autofix</dt>
     <dd>Select this toggle to enable autofix, which creates suggestions in addition to PR or MR comments. For example, a rule may suggest using a function such as <code>logging.debug()</code> instead of <code>print()</code>.</dd>
-<dt>Path ignores</dt>
+    <dt>Path ignores</dt>
 	<dd>Paths and files specified here are not scanned by Semgrep App.</dd>
+</dl>
 
 To see additional scan parameters:
 
@@ -190,7 +184,7 @@ You may select rules and rulesets from your own rules, your organization's rules
 
 
 
-![alt_text](../img/rule-board.png "image_tooltip")
+![Screenshot of Rule board](../img/rule-board.png "Screenshot of Rule board")
 
 
 The Rule Board is composed of three columns:
@@ -213,7 +207,7 @@ To add rules and rulesets to your Rule Board:
 4. Drag a card from the search results to the appropriate column.
 5. Select **Save changes**.
 
-For more information on operations such as filtering and deleting as well as Rule board management, see [Rule board](https://semgrep.dev/docs/semgrep-app/rule-board/).
+For more information on operations such as filtering and deleting as well as Rule board management, see [Rule board](../rule-board/).
 
 
 ## Viewing and managing findings
@@ -222,12 +216,12 @@ For more information on operations such as filtering and deleting as well as Rul
 ### Viewing findings of a scan
 
 
-![alt_text](../img/dashboard-view.png "image_tooltip")
+![Screenshot of Dashboard](../img/dashboard-view.png "Screenshot of Dashboard")
 
 
-Both the Dashboard and the Findings page display the results of a scan. These pages are accessible from the left sidebar in Semgrep App. The **[Dashboard](https://semgrep.dev/docs/semgrep-app/dashboard/)** is a report view to assist in evaluating security posture across repositories. It organizes findings into OWASP categories, enabling users to assess habits and trends within their team or organization.
+Both the Dashboard and the Findings page display the results of a scan. These pages are accessible from the left sidebar in Semgrep App. The **[Dashboard](../dashboard/)** is a report view to assist in evaluating security posture across repositories. It organizes findings into OWASP categories, enabling users to assess habits and trends within their team or organization.
 
-The **[Findings](https://semgrep.dev/docs/semgrep-app/findings/#managing-triage-states-bulk-triage)** page is used to triage findings. Triaging refers to prioritizing a finding based on criteria set by your team or organization. While severity is a factor in triage, your organization may define additional criteria based on coding standards, business, or product goals.
+The **[Findings](../findings/#managing-triage-states-bulk-triage)** page is used to triage findings. Triaging refers to prioritizing a finding based on criteria set by your team or organization. While severity is a factor in triage, your organization may define additional criteria based on coding standards, business, or product goals.
 
 To see the rule specifics that triggered the finding, click on the rule entry.
 
@@ -235,13 +229,10 @@ To see the rule specifics that triggered the finding, click on the rule entry.
 ### Automatically resolving findings
 
 
-
-
-![alt_text](../img/notifications-github-suggestions.png "image_tooltip")
+![Screenshot of autofix in GitHub](../img/notifications-github-suggestions.png "Screenshot of autofix in GitHub")
 
 
 Include code suggestions that resolve findings in both GitHub and GitLab through Semgrep App's autofix feature. This improves the fix rate of findings by reducing the steps needed to resolve a finding. See the section above on Running a scan to enable autofix.
-
 
 ## Going further with Semgrep App
 
@@ -253,8 +244,7 @@ Semgrep app supports various phases of the development cycle through the followi
 
 ### Tracking findings and receiving notifications
 
-Receive notifications of new findings through email and Slack after every scan. Additionally, Enterprise or Team tier users are able to set up notifications through webhooks and can track findings on Jira. See [Integrations](https://semgrep.dev/docs/semgrep-app/integrations/) documentation for more information.
-
+Receive notifications of new findings through email and Slack after every scan. Additionally, Enterprise or Team tier users are able to set up notifications through webhooks and can track findings on Jira. See [Integrations](../integrations/) documentation for more information.
 
 ### Writing your own rules
 
@@ -268,18 +258,17 @@ Semgrep provides the following environments to learn, experiment, and write Semg
     <dt><a href="https://semgrep.dev/playground">Playground</a></dt>
     <dd>Learn the nuances of Semgrep operators by creating your own rules and run Semgrep on your own test cases.</dd>
     <dt><a href= "https://semgrep.dev/login?return_path=/orgs/-/editor">Editor</a></dt>
-    <dd>Fork existing security rules to customize them for your own organization or team's use in this advanced editor. Refer to <a href="https://semgrep.dev/docs/semgrep-app/editor/#jumpstart-rule-writing-using-existing-rules">Writing rules using Semgrep Editor</a>.</dd>
+    <dd>Fork existing security rules to customize them for your own organization or team's use in this advanced editor. Refer to <a href="../editor/#jumpstart-rule-writing-using-existing-rules">Writing rules using Semgrep Editor</a>.</dd>
 </dl>
 
 ### Receiving feedback about a rule
 
-[Developer feedback](https://semgrep.dev/docs/semgrep-app/dashboard/#rule-performance-through-developer-feedback) is a Team/Enterprise tier feature in which developers can submit feedback about a rule or finding. This is used to evaluate a rule's performance:
+[Developer feedback](../dashboard/#rule-performance-through-developer-feedback) is a Team/Enterprise tier feature in which developers can submit feedback about a rule or finding. This is used to evaluate a rule's performance:
 
 * Is the rule's message clear?
 * Does the rule have too many false positives?
 * Should the rule be ignored for a certain file or block of code?
 * Are there additional improvements to the rule, such as possible autofix values?
-
 
 ### Getting support
 
