@@ -1,10 +1,10 @@
 # Recursive joins
 
-Join mode is an extension of Semgrep that runs multiple rules at once and only returns results if certain conditions are met. Join mode is an experimental mode that enables you to cross file boundaries, allowing you to write rules for whole codebases instead of individual files. More information is available in [Join mode overview](./overview/).
+Join mode is an extension of Semgrep that runs multiple rules at once and only returns results if certain conditions are met. This is an experimental mode that enables you to cross file boundaries, allowing you to write rules for whole codebases instead of individual files. More information is available in [Join mode overview](./overview/).
 
 Recursive join mode has a recursive operator, `-->`, which executes a recursive query on the given condition. This recursive operator allows you to write a Semgrep rule that effectively crawls the codebase on a condition you specify, letting you build chains such as function call chains or class inheritance chains.
 
-## How recursve join mode works
+## How recursive join mode works
 
 In the background, join rules turn captured metavariables into database table columns. For example, a rule with $FUNCTIONNAME, $FUNCTIONCALLED, and $PARAMETER is a table similar to the following:
 
@@ -16,7 +16,7 @@ In the background, join rules turn captured metavariables into database table co
 
 The join conditions then join various tables together and return a result if any rows match the criteria.
 
-Recursive join mode conditions use [recursive joins](https://www.sqlite.org/lang_with.html#recursive_common_table_expressions) to construct a table that recursively joins with itself. For example, you can use a Semgrep rule that gets all function calls and join it recursively to approximate a callgraph.
+Recursive join mode conditions use [recursive joins](https://www.sqlite.org/lang_with.html#recursive_common_table_expressions) to construct a table that recursively joins with itself. For example, you can use a Semgrep rule that gets all function calls and join them recursively to approximate a callgraph.
 
 Consider the following Python script and rule.
 
@@ -64,7 +64,7 @@ A join condition such as the following: `python-callgraph.$CALLER --> python-cal
 |function_4|function_5|
 |function_5|print     |
 
-## Example Rule
+## Example rule
 
 It's important to think of a join mode rule as "asking questions about the whole project", rather than looking for a single pattern. For example, to find an SQL injection, you need to understand a few things about the project:
 
@@ -186,7 +186,7 @@ Running this on Vulnado produces tables that look like this:
 |getUser    |fetch      |
 |...        |...        |
 
-The join conditions selects rows which meet the conditions.
+The join conditions select rows which meet the conditions.
 
 - Match when a method with user input has a $SINK that is the $CALLER in the pseudo-callgraph.
 
@@ -211,6 +211,55 @@ rule:spring-sql-injection: SQLi
 55:      String query = "select * from users where username = '" + un + "' limit 1";
 ran 0 rules on 0 files: 1 findings
 ```
+
+## Example of an inline rule
+
+The following rule attempts to detect cross-site scripting in Flask application by checking whether a template variable is rendered unsafely through Python code.
+
+```yaml
+rules:
+- id: flask-likely-xss
+  mode: join
+  join:
+    rules:
+      - id: user-input
+        pattern: |
+          $VAR = flask.request.$SOMETHING.get(...)
+        languages: [python]
+      - id: unescaped-extensions
+        languages: [python]
+        patterns:
+        - pattern: |
+            flask.render_template("$TEMPLATE", ..., $KWARG=$VAR, ...)
+        - metavariable-regex:
+            metavariable: '$TEMPLATE'
+            regex: ".*(?<!html)$"
+      - id: template-vars
+        languages: [generic]
+        pattern: |
+          {{ $VAR }}
+    on:
+    - 'user-input.$VAR == unescaped-extensions.$VAR'
+    - 'unescaped-extensions.$KWARG == template-vars.$VAR'
+    - 'unescaped-extensions.$TEMPLATE < template-vars.path'
+  message: |
+    Detected a XSS vulnerability: '$VAR' is rendered
+    unsafely in '$TEMPLATE'.
+  severity: ERROR
+```
+
+The required fields under the `rules` key are the following:
+- `id`
+- `languages`
+- A set of `pattern` clauses. 
+
+The optional fields under the `rules` key are the following:
+- `message` 
+- `severity`
+
+:::note
+Refer to the metavariables captured by the rule in the `on` conditions by the rule `id`. For inline rules, aliases do **not** work.
+:::
 
 ## Limitations
 
