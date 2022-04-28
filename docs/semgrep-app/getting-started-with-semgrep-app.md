@@ -163,7 +163,7 @@ Additional scan parameters include:
 
 <dl>
     <dt>Rule recommendation</dt>
-    Select this toggle to receive rule recommendations in the Rule Board based on the framework and language of the repository.
+    <dd>Select this toggle to receive rule recommendations in the Rule Board based on the framework and language of the repository.</dd>
 **Autofix**
     Select this toggle to enable autofix, which creates suggestions in addition to PR or MR comments. For example, a rule may suggest using a function such as `logging.debug()` instead of `print()`.
 
