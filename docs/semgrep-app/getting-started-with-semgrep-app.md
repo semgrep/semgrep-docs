@@ -165,7 +165,7 @@ Additional scan parameters include:
     <dt>Rule recommendation</dt>
     <dd>Select this toggle to receive rule recommendations in the Rule Board based on the framework and language of the repository.</dd>
 <dt>Autofix</dt>
-    Select this toggle to enable autofix, which creates suggestions in addition to PR or MR comments. For example, a rule may suggest using a function such as `logging.debug()` instead of `print()`.
+    <dd>Select this toggle to enable autofix, which creates suggestions in addition to PR or MR comments. For example, a rule may suggest using a function such as <code>logging.debug()</code> instead of <code>print()</code>.</dd>
 
 <dt>Path ignores</dt>
 	<dd>Paths and files specified here are not scanned by Semgrep App.</dd>
