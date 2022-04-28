@@ -4,7 +4,7 @@ Join mode is an extension of Semgrep that runs multiple rules at once and only r
 
 Recursive join mode has a recursive operator, `-->`, which executes a recursive query on the given condition. This recursive operator allows you to write a Semgrep rule that effectively crawls the codebase on a condition you specify, letting you build chains such as function call chains or class inheritance chains.
 
-## How recursive join mode works
+## Understanding recursive join mode
 
 In the background, join rules turn captured metavariables into database table columns. For example, a rule with $FUNCTIONNAME, $FUNCTIONCALLED, and $PARAMETER is a table similar to the following:
 
