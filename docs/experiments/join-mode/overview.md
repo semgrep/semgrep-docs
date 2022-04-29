@@ -137,6 +137,55 @@ The `as` key behaves similarly to `AS` clauses in SQL. This lets you rename the 
 
 The `join` key is required when in join mode. This is just a top-level key that groups the join rule parts together.
 
+#### Inline rule example
+
+The following rule attempts to detect cross-site scripting in Flask application by checking whether a template variable is rendered unsafely through Python code.
+
+```yaml
+rules:
+- id: flask-likely-xss
+  mode: join
+  join:
+    rules:
+      - id: user-input
+        pattern: |
+          $VAR = flask.request.$SOMETHING.get(...)
+        languages: [python]
+      - id: unescaped-extensions
+        languages: [python]
+        patterns:
+        - pattern: |
+            flask.render_template("$TEMPLATE", ..., $KWARG=$VAR, ...)
+        - metavariable-regex:
+            metavariable: '$TEMPLATE'
+            regex: ".*(?<!html)$"
+      - id: template-vars
+        languages: [generic]
+        pattern: |
+          {{ $VAR }}
+    on:
+    - 'user-input.$VAR == unescaped-extensions.$VAR'
+    - 'unescaped-extensions.$KWARG == template-vars.$VAR'
+    - 'unescaped-extensions.$TEMPLATE < template-vars.path'
+  message: |
+    Detected a XSS vulnerability: '$VAR' is rendered
+    unsafely in '$TEMPLATE'.
+  severity: ERROR
+```
+
+The required fields under the `rules` key are the following:
+- `id`
+- `languages`
+- A set of `pattern` clauses. 
+
+The optional fields under the `rules` key are the following:
+- `message` 
+- `severity`
+
+:::note
+Refer to the metavariables captured by the rule in the `on` conditions by the rule `id`. For inline rules, aliases do **not** work.
+:::
+
 ### `refs`
 
 Short for references, `refs` is a list of external rules that make up your code patterns. Each entry in `refs` is an object with the required key `rule` and optional keys `renames` and `as`.
