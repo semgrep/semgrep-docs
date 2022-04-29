@@ -12,7 +12,7 @@ Welcome to Semgrep release notes. This document provides an overview of the chan
 
 ## April 2022
 
-These release notes now include edited important and breaking changes. To see the complete change notes, visit [Semgrep changelog](https://github.com/returntocorp/semgrep/releases).
+These release notes now include edited important and breaking changes. To see the complete change notes, visit the [Semgrep changelog](https://github.com/returntocorp/semgrep/releases).
 
 ### Semgrep App
 
