@@ -212,55 +212,6 @@ rule:spring-sql-injection: SQLi
 ran 0 rules on 0 files: 1 findings
 ```
 
-## Inline rule example
-
-The following rule attempts to detect cross-site scripting in Flask application by checking whether a template variable is rendered unsafely through Python code.
-
-```yaml
-rules:
-- id: flask-likely-xss
-  mode: join
-  join:
-    rules:
-      - id: user-input
-        pattern: |
-          $VAR = flask.request.$SOMETHING.get(...)
-        languages: [python]
-      - id: unescaped-extensions
-        languages: [python]
-        patterns:
-        - pattern: |
-            flask.render_template("$TEMPLATE", ..., $KWARG=$VAR, ...)
-        - metavariable-regex:
-            metavariable: '$TEMPLATE'
-            regex: ".*(?<!html)$"
-      - id: template-vars
-        languages: [generic]
-        pattern: |
-          {{ $VAR }}
-    on:
-    - 'user-input.$VAR == unescaped-extensions.$VAR'
-    - 'unescaped-extensions.$KWARG == template-vars.$VAR'
-    - 'unescaped-extensions.$TEMPLATE < template-vars.path'
-  message: |
-    Detected a XSS vulnerability: '$VAR' is rendered
-    unsafely in '$TEMPLATE'.
-  severity: ERROR
-```
-
-The required fields under the `rules` key are the following:
-- `id`
-- `languages`
-- A set of `pattern` clauses. 
-
-The optional fields under the `rules` key are the following:
-- `message` 
-- `severity`
-
-:::note
-Refer to the metavariables captured by the rule in the `on` conditions by the rule `id`. For inline rules, aliases do **not** work.
-:::
-
 ## Limitations
 
 Join mode only works on the metavariable contents, which means it's fundamentally operating with text strings and not code constructs. There will be some false positives if similarly-named metavariables are extracted.
