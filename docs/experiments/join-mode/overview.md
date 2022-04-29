@@ -147,6 +147,55 @@ This points to an external rule location to use in this join rule. Currently, jo
 
 Anything that works with `semgrep --config <here>` will work as the value for `rule`.
 
+#### Inline rule example
+
+The following rule attempts to detect cross-site scripting in Flask application by checking whether a template variable is rendered unsafely through Python code.
+
+```yaml
+rules:
+- id: flask-likely-xss
+  mode: join
+  join:
+    rules:
+      - id: user-input
+        pattern: |
+          $VAR = flask.request.$SOMETHING.get(...)
+        languages: [python]
+      - id: unescaped-extensions
+        languages: [python]
+        patterns:
+        - pattern: |
+            flask.render_template("$TEMPLATE", ..., $KWARG=$VAR, ...)
+        - metavariable-regex:
+            metavariable: '$TEMPLATE'
+            regex: ".*(?<!html)$"
+      - id: template-vars
+        languages: [generic]
+        pattern: |
+          {{ $VAR }}
+    on:
+    - 'user-input.$VAR == unescaped-extensions.$VAR'
+    - 'unescaped-extensions.$KWARG == template-vars.$VAR'
+    - 'unescaped-extensions.$TEMPLATE < template-vars.path'
+  message: |
+    Detected a XSS vulnerability: '$VAR' is rendered
+    unsafely in '$TEMPLATE'.
+  severity: ERROR
+```
+
+The required fields under the `rules` key are the following:
+- `id`
+- `languages`
+- A set of `pattern` clauses. 
+
+The optional fields under the `rules` key are the following:
+- `message` 
+- `severity`
+
+:::note
+Refer to the metavariables captured by the rule in the `on` conditions by the rule `id`. For inline rules, aliases do **not** work.
+:::
+
 ### `renames`
 
 An optional key for an object in `refs`, `renames` will rename the metavariables from the associated `rule`. The value of `renames` is a list of objects whose keys are `from` and `to`. The `from` key specifies the metavariable to rename, and the `to` key specifies the new name of the metavariable.
