@@ -137,16 +137,6 @@ The `as` key behaves similarly to `AS` clauses in SQL. This lets you rename the 
 
 The `join` key is required when in join mode. This is just a top-level key that groups the join rule parts together.
 
-### `refs`
-
-Short for references, `refs` is a list of external rules that make up your code patterns. Each entry in `refs` is an object with the required key `rule` and optional keys `renames` and `as`.
-
-### `rule`
-
-This points to an external rule location to use in this join rule. Currently, join mode requires external rules. Additionally, even though Semgrep rule files can typically contain multiple rules under the `rules` key, join mode **will only use the first rule in the file**.
-
-Anything that works with `semgrep --config <here>` will work as the value for `rule`.
-
 #### Inline rule example
 
 The following rule attempts to detect cross-site scripting in Flask application by checking whether a template variable is rendered unsafely through Python code.
@@ -195,6 +185,16 @@ The optional fields under the `rules` key are the following:
 :::note
 Refer to the metavariables captured by the rule in the `on` conditions by the rule `id`. For inline rules, aliases do **not** work.
 :::
+
+### `refs`
+
+Short for references, `refs` is a list of external rules that make up your code patterns. Each entry in `refs` is an object with the required key `rule` and optional keys `renames` and `as`.
+
+### `rule`
+
+This points to an external rule location to use in this join rule. Currently, join mode requires external rules. Additionally, even though Semgrep rule files can typically contain multiple rules under the `rules` key, join mode **will only use the first rule in the file**.
+
+Anything that works with `semgrep --config <here>` will work as the value for `rule`.
 
 ### `renames`
 
