@@ -10,7 +10,6 @@ RUN if [ "${NODE_VERSION}" != "none" ]; then su vscode -c "umask 0002 && . /usr/
 
 WORKDIR /workspaces/semgrep-docs/
 COPY package.json yarn.lock ./
-RUN yarn install
 
 # [Optional] If your pip requirements rarely change, uncomment this section to add them to the image.
 # COPY requirements.txt /tmp/pip-tmp/
