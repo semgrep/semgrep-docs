@@ -19,6 +19,7 @@ RELEASE_NAME = json.loads(subprocess.run(["curl","https://api.github.com/repos/r
 ## List of text replacements to occur when building the docs
 ## {"file":FILE,"find":FIND,"replace":REPLACE} will find the text FIND in FILE and replace it with REPLACE
 replacements = [
+    {"file":"docs/cli-reference.md", "find":"DEFAULT_SEMGREPIGNORE_TEXT", "replace":DEFAULT_SEMGREPIGNORE},
     {"file":"docs/ignoring-files-folders-code.md", "find":"DEFAULT_SEMGREPIGNORE_TEXT", "replace":DEFAULT_SEMGREPIGNORE},
     {"file":"docs/extensions.md", "find":"SEMGREP_VERSION_LATEST", "replace":RELEASE_NAME},
 ]
