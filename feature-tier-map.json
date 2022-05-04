@@ -1,0 +1,31 @@
+// Sample mapping file. We can also use a js file for this.
+
+{
+    // easily rename tiers when necessary
+    "feature_tiers": [
+        "enterprise" : "Enterprise",
+        "team" : "Team",
+        "community" : "Community"
+    ],
+
+    // mappings section
+    "feature_maps": [
+
+        //H1 (applies to whole article)
+        "rbac-map": {
+            "tier_headings" : [
+                "team",
+                "community"
+            ],
+            "feature_title" : "Role-based Access Control"
+        },
+
+        //H2, H3... (applies to subheadings within article)
+        "integrations-slackapp-map" : {
+            "tier_headings" : [
+                "team"
+            ],
+            "feature_title" : "Slack Webapp"
+       }
+    ]
+}
