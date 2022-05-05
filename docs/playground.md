@@ -68,7 +68,7 @@ The simple view has the following limitations:
     * `metavariable-pattern`
     * `metavariable-comparison`
 
-* Does **not** support the following experimental features:
+* Does **not** support the following modes:
 
     * Join mode
     * Taint mode

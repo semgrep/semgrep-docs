@@ -26,6 +26,8 @@ The Playground is composed of three panes and a top menu.
     <dd>Save, share, and add your rule to the Rule Board through this menu.</dd>
 </dl>
 
+To resize the panes, position your mouse over the borders and click-drag to the desired width. You can hide the entire library pane to give more space for the editing panes.
+
 ## Creating a rule
 
 There are two views that can be used to create a rule:
@@ -37,15 +39,13 @@ There are two views that can be used to create a rule:
     <dd>The advanced view provides the minimum required YAML keys for a Semgrep rule. To complete the rule, the advanced view requires users to fill in additional keys such as pattern operators or metadata.</dd>
 </dl>
 
-Switching between both views can help users debug their rules.
-
 ### Learning Semgrep basics through the simple view 
 
 The simple view provides the **most common pattern-matching operators in Semgrep**. This view is used by default.
 
 ![Screenshot of default playground view](img/playground.png "Default playground view")
 
-The following **keys** are **supported** in this view:
+The following **keys** are supported in this view as drop-down boxes:
 
 * `language`
 * `pattern`
@@ -54,18 +54,8 @@ The following **keys** are **supported** in this view:
 * `pattern-not`
 * `pattern-not-inside`
 * `pattern-regex`
-* `message`
 * `autofix`
 
-These keys appear as drop-down boxes.
-
-The following **metadata keys** are **supported** in this view:
-
-* `category`
-* `technology`
-* `source-rule-url`
-
-To view these metadata keys, Click **Rule Metadata**.
 
 #### Limitations of the simple view
 
@@ -80,7 +70,7 @@ The simple view has the following limitations:
     * `metavariable-pattern`
     * `metavariable-comparison`
 
-* Does **not** support the following experimental features:
+* Does **not** support the following modes:
 
     * Join mode
     * Taint mode
@@ -93,8 +83,7 @@ To **create a rule** in the simple view:
 3. Select a language from the **language is** drop-down box to specify a language in which the test code is written.
 4. After the **code is** button, enter the pattern to test.
 5. Optional: Click on the **plus** button to add fields for additional operators. Select the pattern operator and enter the pattern.
-6. Optional: Click on **Rule metadata** to enter additional metadata fields.
-
+6. Optional: Click on **Rule metadata** tab on the **Sample code** pane to enter additional metadata fields.
 
 ### Writing complex rules using the advanced view
 
@@ -137,7 +126,6 @@ Refer to [Testing rules](../writing-rules/testing-rules) for the syntax and meth
 
 Common errors are syntax or match issues.
 
-
 #### The pattern can't be parsed for the language
 
 Check that the **Language is** value and **Test code** language match. Use full AST elements for the language. For example:
@@ -157,7 +145,6 @@ Check for spelling and indentation issues. The key names must match [Semgrep's s
 #### The rule does not behave as expected or does not find the desired match
 
 File a [bug](https://github.com/returntocorp/semgrep/issues/new?title=semgrep.dev%20bug%20report) or reach out through [Semgrep Community Slack](https://r2c.dev/slack).
-
 
 ### Evaluating a rule's performance
 
