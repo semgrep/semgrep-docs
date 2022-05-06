@@ -46,6 +46,7 @@ module.exports = {
         'cli-reference',
         'ignoring-files-folders-code',
         'extensions',
+        'interfile-code-analysis-with-deepsemgrep',
         'licensing',
         'faq',
         'metrics',
