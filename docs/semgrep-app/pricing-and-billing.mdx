@@ -45,35 +45,46 @@ Members who do **not** run any scans on their code do not need a seat and are no
 | **Member limit** | ♾️ unlimited | ♾️  unlimited | ♾️  unlimited |
 | **Project limit** |♾️  unlimited | ♾️  unlimited | ♾️  unlimited |
 
+#### Deployments
+
+| Feature  | Community | Team | Enterprise |
+| -------  | --------- | ------- | -------- |
+| **GitHub Enterprise deployment**  | ❌ no | ✔️  yes | ✔️  yes |
+| **GitLab Self Managed deployment**  | ❌ no | ✔️  yes | ✔️  yes |
+| **VPC deployment** | ❌ no | ❌ no | ✔️  yes |
+
 #### Findings, language support, and rules
 
 | Feature  | Community | Team | Enterprise |
 | -------  | --------- | ------- | -------- |
 | **Findings retention** | 1 month | 1 year | 1 year+ (custom) |
 | **Community rule registry** | ✔️ yes | ✔️  yes  | ✔️  yes |
-| **Named rules** | ✔️ yes | ✔️ yes | ✔️  yes |
+| **Custom rules** | ✔️ yes | ✔️ yes | ✔️  yes |
 | **Editor** | ✔️ yes | ✔️ yes | ✔️  yes |
-| **Private rules** | ❌ no | ✔️ yes | ✔️  yes |
-| **Developer feedback** | ❌ no | ✔️ yes | ✔️  yes |
+| **Autofix through PR/MR comments** | ❌ no | ✔️ yes | ✔️  yes |
 | **Custom rule messages** | ❌ no | ✔️  yes | ✔️  yes |
+| **DeepSemgrep** | ❌ no | ✔️  yes | ✔️  yes |
+| **Developer feedback** | ❌ no | ✔️ yes | ✔️  yes |
+| **Private rules** | ❌ no | ✔️ yes | ✔️  yes |
 | **Custom language support** | ❌ no | ❌ no | ✔️  yes |
 
 Notes:
 
-* **Named rules** are rules that have been saved through the [Playground](https://semgrep.dev/editor). The Playground is an online tool where you can write your rule patterns and test them on sample code. Named rules created by Community tier members are public and available in the Playground.
+* **Custom rules** are rules that have been saved through either the [Playground](https://semgrep.dev/playground) or the Editor. The Playground is an online tool where you can write your rule patterns and test them on sample code.
 * [The Editor](../editor) is a live, interactive tool for writing rules. The Editor is free for all tiers, but writing and managing **private rules** is a **Team/Enterprise tier** feature.
 * **Custom rule messages** can be applied to public and private rules.
+* **Custom language support** refers to TODO
+* **Autofix through PR/MR comments** TODO
 
-#### Deployment, integrations, and notifications
+#### Integrations, and notifications
 
 | Feature  | Community | Team | Enterprise |
-| -------  | --------- | ------- | -------- | 
-| **Automatic CI/CD integration** | ✔️ yes | ✔️  yes  | ✔️  yes | 
-| **Slack notifications** | ✔️ yes | ✔️  yes  | ✔️  yes | 
-| **Email notifications** | ✔️ yes | ✔️  yes  | ✔️  yes | 
-| **Webhook integration** | ❌ no | ✔️  yes | ✔️  yes |
+| -------  | --------- | ------- | -------- |
+| **Automatic CI/CD integration** | ✔️ yes | ✔️  yes  | ✔️  yes |
+| **Email notifications** | ✔️ yes | ✔️  yes  | ✔️  yes |
+| **Slack notifications** | ✔️ yes | ✔️  yes  | ✔️  yes |
 | **Jira integration** | ❌ no | ✔️  yes | ✔️  yes |
-| **VPC deployment** | ❌ no | ❌ no | ✔️  yes |
+| **Webhook integration** | ❌ no | ✔️  yes | ✔️  yes |
 
 Notes:
 
@@ -85,8 +96,8 @@ Notes:
 #### Authentication
 
 | Feature                                  | Community | Team | Enterprise |
-| ------                                    | --------- | ------- | -------- | 
-| **GitHub or GitLab single sign-on (SSO)** | ✔️ yes | ✔️  yes  | ✔️  yes | 
+| ------                                    | --------- | ------- | -------- |
+| **GitHub or GitLab single sign-on (SSO)** | ✔️ yes | ✔️  yes  | ✔️  yes |
 | **SAML SSO** | ❌ no | ✔️  yes | ✔️  yes |
 | **Role-based access control (RBAC)** | ❌ no | ✔️  yes | ✔️  yes |
 | **Custom authentication features** | ❌ no |  ❌ no | ✔️  yes |
@@ -96,10 +107,10 @@ Notes:
 * GitLab SSO is only available for users of GitLab.com. This does not include self-managed GitLab instances.
 * Available **RBAC roles** are `admin` and `user`.
 
-#### Support
+#### Support and troubleshooting
 
 | Feature  | Community | Team | Enterprise |
-| -------  | --------- | ------- | -------- | 
+| -------  | --------- | ------- | -------- |
 | **Slack support** | Community Slack | Private Slack channel | Private Slack channel |
 | **Semgrep support portal** | ❌ no | ✔️  yes | ✔️  yes |
 | **Customer success manager** | ❌ no | ❌ no | ✔️  yes |
