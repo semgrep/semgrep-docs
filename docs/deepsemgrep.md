@@ -1,9 +1,9 @@
 ---
-slug: interfile-code-analysis-with-deepsemgrep
+slug: deepsemgrep
 description: "This document provides an overview of DeepSemgrep use cases, such as use of DeepSemgrep in type inferences, class inheritance, constant propagation, taint analysis."
 ---
 
-# Interfile code analysis with DeepSemgrep
+# DeepSemgrep
 
 Improve your scan results for entire codebases with multi-file coding paradigms using DeepSemgrep instead of Semgrep's regular intrafile (within-a-single-file) approach. In most object-oriented programming styles, it is expected that classes are in different files. DeepSemgrep empowers you to easily scan whole repositories with classes in different files to find vulnerabilities in your code. DeepSemgrep is an extension of Semgrep which leverages global analysis tools, uses the same rules or rules with subtle changes as Semgrep.
 
