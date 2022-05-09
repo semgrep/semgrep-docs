@@ -162,8 +162,8 @@ Use webhooks and the below snippet to integrate with GitHub.
 ```Groovy
 pipeline {
   agent any
-    environment {
-      SEMGREP_RULES = "p/security-audit p/secrets" // more at semgrep.dev/explore
+    // environment {
+      // SEMGREP_RULES = "p/security-audit p/secrets" // more at semgrep.dev/explore
 
       // SEMGREP_BASELINE_REF = "main"
 
@@ -176,12 +176,12 @@ pipeline {
       // SEMGREP_PR_ID = "${env.CHANGE_ID}"
 
       // SEMGREP_TIMEOUT = "300"
-    }
+    // }
     stages {
       stage('Semgrep-Scan') {
         steps {
           sh 'pip3 install semgrep'
-          sh 'semgrep ci'
+          sh 'semgrep ci --config auto'
       }
     }
   }
