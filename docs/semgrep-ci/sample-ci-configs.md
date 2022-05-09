@@ -161,55 +161,25 @@ Use webhooks and the below snippet to integrate with GitHub.
 
 ```Groovy
 pipeline {
-  agent {
-    kubernetes {
-      yaml """
-        apiVersion: v1
-        kind: Pod
-        spec:
-          containers:
-          - name: semgrep
-            image: 'returntocorp/semgrep-agent:v1'
-            command:
-            - cat
-            tty: true
-        """
-      defaultContainer 'semgrep'
-    }
-  }
+  agent any
+    // environment {
+      // SEMGREP_BASELINE_REF = "main"
 
-environment {
-    SEMGREP_RULES = "p/security-audit p/secrets" // more at semgrep.dev/explore
-    SEMGREP_BASELINE_REF = "origin/${env.CHANGE_TARGET}"
+      // SEMGREP_APP_TOKEN = credentials('SEMGREP_APP_TOKEN')
+      // SEMGREP_REPO_URL = env.GIT_URL.replaceFirst(/^(.*).git$/,'$1')
+      // SEMGREP_BRANCH = "${GIT_BRANCH}"
+      // SEMGREP_JOB_URL = "${BUILD_URL}"
+      // SEMGREP_REPO_NAME = env.GIT_URL.replaceFirst(/^https:\/\/github.com\/(.*).git$/, '$1')
+      // SEMGREP_COMMIT = "${GIT_COMMIT}"
+      // SEMGREP_PR_ID = "${env.CHANGE_ID}"
 
-    // == Optional settings in the `environment {}` block
-
-    // Instead of `SEMGREP_RULES:`, use rules set in Semgrep App.
-    // Get your token from semgrep.dev/manage/settings.
-    //   SEMGREP_APP_TOKEN: credentials('SEMGREP_APP_TOKEN')
-    //   SEMGREP_REPO_URL = env.GIT_URL.replaceFirst(/^(.*).git$/,'$1')
-    //   SEMGREP_BRANCH = "${CHANGE_BRANCH}"
-    //   SEMGREP_JOB_URL = "${BUILD_URL}"
-    //   SEMGREP_REPO_NAME = env.GIT_URL.replaceFirst(/^https:\/\/github.com\/(.*).git$/, '$1')
-    //   SEMGREP_COMMIT = "${GIT_COMMIT}"
-    //   SEMGREP_PR_ID = "${env.CHANGE_ID}"
-
-    // Never fail the build due to findings.
-    // Instead, just collect findings for semgrep.dev/manage/findings
-    //   SEMGREP_AUDIT_ON = "unknown"
-
-    // Change job timeout (default is 1800 seconds; set to 0 to disable)
-    //   SEMGREP_TIMEOUT = "300"
-  }
-
-  stages {
-    stage('Semgrep_agent') {
-      when {
-        // Scan changed files in PRs, block on new issues only (existing issues ignored)
-        expression { env.CHANGE_ID && env.BRANCH_NAME.startsWith("PR-") }
-      }
-      steps {
-        sh 'git fetch origin ${SEMGREP_BASELINE_REF#origin/} && semgrep-agent'
+      // SEMGREP_TIMEOUT = "300"
+    // }
+    stages {
+      stage('Semgrep-Scan') {
+        steps {
+          sh 'pip3 install semgrep'
+          sh 'semgrep ci --config auto'
       }
     }
   }
