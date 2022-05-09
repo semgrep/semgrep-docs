@@ -163,8 +163,6 @@ Use webhooks and the below snippet to integrate with GitHub.
 pipeline {
   agent any
     // environment {
-      // SEMGREP_RULES = "p/security-audit p/secrets" // more at semgrep.dev/explore
-
       // SEMGREP_BASELINE_REF = "main"
 
       // SEMGREP_APP_TOKEN = credentials('SEMGREP_APP_TOKEN')
