@@ -7,16 +7,15 @@ description: "This document provides an overview of DeepSemgrep use cases, such 
 
 ## Introduction
 
-Improve your scan results for entire codebases with multi-file coding paradigms using DeepSemgrep instead of Semgrep's regular intrafile (within-a-single-file) approach. In most object-oriented programming styles, it is expected that classes are in different files. DeepSemgrep empowers you to easily scan whole repositories with classes in different files to find vulnerabilities in your code. DeepSemgrep is a proprietary extension of free and open source Semgrep which leverages global analysis tools, and uses the same rules as Semgrep.
+Improve your scan results for entire codebases with interfile coding paradigms using DeepSemgrep instead of Semgrep's regular intrafile (within-a-single-file) approach. In most object-oriented programming styles, it is expected that classes are in different files. DeepSemgrep empowers you to easily scan whole repositories with classes in different files to find vulnerabilities in your code. DeepSemgrep is a proprietary extension of free and open source Semgrep which leverages global analysis tools, and uses the same rules as Semgrep.
 
 This document demonstrates the utility of DeepSemgrep through use cases, guiding you through examples of Semgrep rules that you can use to search for particular patterns in code. Both Semgrep rules and code on which rules are tested are marked as code snippets and introduced always as a rule, code, or file used to illustrate the capabilities of DeepSemgrep.
 
 ## Obtaining DeepSemgrep
 
 To get DeepSemgrep, follow these steps:
-
 1. Submit your email on the following website [DeepSemgrep beta form](https://semgrep.dev/deep-semgrep-beta).
-2. Semgrep team contacts you on your email address, follow the steps and instructions in the email.
+2. Semgrep team contacts you at your email address, follow the steps and instructions in the email.
 3. Start using DeepSemgrep by using the following command:
     ```sh
     semgrep login
@@ -38,7 +37,7 @@ Use DeepSemgrep in command-line with `semgrep --deep`.
 
 ### Class inheritance
 
-This section compares the possible results of a scan across multiple files using Semgrep and DeepSemgrep.
+This section compares the possible findings of a scan across multiple files using Semgrep and DeepSemgrep.
 
 To scan for methods that throw a particular exception, `ExampleException`, use the following rule:
 
@@ -125,7 +124,7 @@ public class App {
 
 #### Using fully-qualified name in DeepSemgrep
 
-To to make the rule more precise, DeepSemgrep allows you to use fully-qualified names. To detect instances where `BadRequest` is thrown, run DeepSemgrep. Considering that the original Semgrep rule is run interfile, to disambiguate `ExampleException` from other exceptions that can have the same name, amend the rule to search for `example.ExampleException`:
+To make the rule more precise, DeepSemgrep allows you to use fully-qualified names. To detect instances where `BadRequest` is thrown, run DeepSemgrep. Considering that the original Semgrep rule is run interfile, to disambiguate `ExampleException` from other exceptions that can have the same name, amend the rule to search for `example.ExampleException`:
 
 Rule:
 ```yaml
@@ -213,14 +212,14 @@ Test an interactive example in the [Playground](https://semgrep.dev/s/chegg:log4
 
 This rule searches for any function called by an object of type `Logger`, using the restriction within an import for `org.apache.log4j.<ANYTHING>` to make sure that logger is a vulnerable log4j logger.
 
-The log4j rule illustrates the use of typed metavariables in Semgrep. With DeepSemgrep you may achieve higher fidelity results for the following reasons:
+The log4j rule illustrates the use of typed metavariables in Semgrep. With DeepSemgrep you may achieve higher fidelity findings for the following reasons:
 
 If another class extends the log4j `Logger`, as shown before, DeepSemgrep still detects it. If you have a safe wrapper, you can modify the rule to exclude matches using the safe wrapper class to avoid false positives.
 If the `Logger` object is created by a factory method in another class, DeepSemgrep still detects it.
 
 #### Using fully-qualified name in DeepSemgrep
 
-To to make the rule more precise, DeepSemgrep allows you to use fully-qualified names. This also makes the rule a little prettier by eliminating the `pattern-inside`!
+To make the rule more precise, DeepSemgrep allows you to use fully-qualified names. This also makes the rule a little prettier by eliminating the `pattern-inside`!
 
 Rule:
 ```yaml
@@ -239,6 +238,10 @@ rules:
 With DeepSegremp, this rule finds the use of any instance of log4j’s `Logger` class.
 
 Allowing typed metavariables to access information from the entire program enables users to query any variable for its type and use that information in conjunction with the rest of the code resulting in more accurate findings.
+
+#### Limitations of class inheritance in DeepSemgrep
+
+For Java, DeepSemgrep cannot understand that `org.apache.log4j.*` imports `org.apache.log4j.Logger`.
 
 ## Constant propagation
 
@@ -317,7 +320,7 @@ rules:
   severity: WARNING
 ```
 
-With DeepSemgrep, this rule matches the last three calls to `dangerous`, since these calls are selected from the `Employees` table, though each one obtains the table name in a different way:
+With DeepSemgrep, this rule matches the last three calls to `dangerous`, since these calls are selected from the `Employees` table, though each one obtains the table name differently:
 
 ```java
 package com.example;
@@ -395,7 +398,7 @@ public class App {
 
 Test the example in the [Playground](https://semgrep.dev/s/emjin:dangerous-taint).
 
-Comparing DeepSemgrep to Semgrep, Semgrep could be mislead in this example. If `read_input` was in another file, it would be impossible for Semgrep to know that `read_input` had called `get_user_input`. Of course, the rule could include `read_input` as another source, but if wrappers are being written frequently this might not be a good approach.
+Comparing DeepSemgrep to Semgrep, Semgrep can be misled in this example. If `read_input` was in another file, it would be impossible for Semgrep to know that `read_input` had called `get_user_input`. Of course, the rule could include `read_input` as another source, but if wrappers are being written frequently this might not be a good approach.
 
 With DeepSemgrep, the taint rule can track calls to `get_user_input` over multiple jumps in multiple files. It can also handle more complicated situations with sources and sinks. Since DeepSemgrep rules are just Semgrep rules, the normal taint documentation is a good explanation of those.
 
