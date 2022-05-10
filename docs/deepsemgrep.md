@@ -239,10 +239,6 @@ With DeepSegremp, this rule finds the use of any instance of log4j’s `Logger` 
 
 Allowing typed metavariables to access information from the entire program enables users to query any variable for its type and use that information in conjunction with the rest of the code resulting in more accurate findings.
 
-#### Limitations of class inheritance in DeepSemgrep
-
-For Java, DeepSemgrep cannot understand that `org.apache.log4j.*` imports `org.apache.log4j.Logger`.
-
 ## Constant propagation
 
 ### Finding dangerous calls
