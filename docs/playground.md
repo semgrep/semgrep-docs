@@ -94,7 +94,7 @@ Advanced mode is a YAML editor for writing a rule **using any valid key from the
 To create a rule in advanced mode:
 
 1. Ensure that you are in the **Advanced mode**.
-![Screenshot of the advanced view](img/playground-advanced-view.png "Playground advanced mode")
+![Screenshot of the advanced view](img/pleditor-advanced.png "Playground advanced mode")
 2. Enter the keys and values needed to finish your rule. 
 3. Click **Run** or press **Ctrl+Enter** (**⌘++Enter** on Macs).
 
