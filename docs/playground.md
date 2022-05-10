@@ -128,10 +128,11 @@ Check for spelling and indentation issues. The key names must match [Semgrep's s
 
 File a [bug](https://github.com/returntocorp/semgrep/issues/new?title=semgrep.dev%20bug%20report) or reach out through [Semgrep Community Slack](https://r2c.dev/slack).
 
-## Exploring rules through the Registry
+## Exploring rules through Semgrep Registry
 
-Sign in to Semgrep App to gain access to the Registry and your library of saved rules.
+[Semgrep Registry](https://semgrep.dev/r/) is an open-source, community-driven repository of rules to ensure secure code and enforce coding standards. These rules can be used as a starting point for writing your own custom rules. 
 
+[Signing in to Semgrep App](https://semgrep.dev/login?return_path=/playground/) enables you to access the Registry directly from the Playground's Library pane.
 
 ## Setting code standards by adding a rule to the Rule Board
 
@@ -141,7 +142,7 @@ To add a rule to the Rule Board:
 
 1. Ensure that you are signed in.
 2. Click **Add to Rule Board**.
-3. Select either the Audit or Block boards depending on the importance of the rule. Matches for rules on the Block board will prevent PR merges within a CI environment.
+3. Select either the Monitor, Comment, or Block boards based on the importance of the rule. Findings for rules on the Block board will prevent PR merges within a CI environment. Findings for rules on the Comment board will leave comments within the PR or MR.
 
 ## Embedding a rule in your site
 
