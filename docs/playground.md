@@ -9,7 +9,7 @@ hide_title: true
 
 import MoreHelp from "/src/components/MoreHelp"
 
-# Creating rules with Semgrep Playground
+# Creating and managing rules with Semgrep Playground
 
 Semgrep Playground is a live editor used to create and test rule patterns on sample code. By testing rule patterns on sample code, you are able to quickly assess the purpose, utility, and speed of a rule as well as save it for later refinement, reuse, or sharing.
 
@@ -19,7 +19,7 @@ The Playground is composed of three panes and a top menu.
 
 <dl>
     <dt>Library</dt>
-    <dd>View and open various rules through the library. You must be signed in to see your saved rules and access the registry.</dd>
+    <dd>View and open various rules through the library. You must be signed in to view your saved rules and access the Registry.</dd>
     <dt>Rule editor</dt>
     <dd>Enter your rule's YAML schema in this pane. This pane supports both a simple and advanced view.</dd>
     <dt>Sample code</dt>
@@ -128,6 +128,10 @@ Check for spelling and indentation issues. The key names must match [Semgrep's s
 
 File a [bug](https://github.com/returntocorp/semgrep/issues/new?title=semgrep.dev%20bug%20report) or reach out through [Semgrep Community Slack](https://r2c.dev/slack).
 
+## Exploring rules through the Registry
+
+Sign in to Semgrep App to gain access to the Registry and your library of saved rules.
+
 
 ## Setting code standards by adding a rule to the Rule Board
 
@@ -138,59 +142,6 @@ To add a rule to the Rule Board:
 1. Ensure that you are signed in.
 2. Click **Add to Rule Board**.
 3. Select either the Audit or Block boards depending on the importance of the rule. Matches for rules on the Block board will prevent PR merges within a CI environment.
-
-## Saving and sharing a Semgrep rule
-
-A rule is saved by either **explicitly naming it** or when it is **assigned a shortcode** for sharing. Rules are **unlisted** by default. This means they do not appear publicly in the Registry nor can they be searched for, but are accessible through their sharing URL.
-
-To explicitly name a rule:
-
-1. Sign into Semgrep.
-2. Click the **Untitled rule** box.
-3. Enter the name of your rule and click **Save**.
-
-To assign a random shortcode:
-
-1. Click **Share**. This auto-generates a random shortcode and URL to access the rule.
-
-To retrieve or open a rule:
-
-1. Click **File > Open**
-2. Enter the rule's name in the **Filter** search box or scroll to find the rule.
-3. Click on the rule. The rule loads into the Playground.
-
-To rename a rule:
-
-1. Sign into Semgrep.
-2. In the Playground, open the rule to rename.
-3. Enter a new name and press **Save**. This creates a new rule.
-4. Delete the old rule to complete the renaming process.
-
-
-## Using a rule in CI
-
-Using a rule in your CI pipeline enables you to **run the rule at a certain hook or event**. This allows users to add guardrails against security, style, and general code violations.
-
-Semgrep can be used in the following CI environments:
-
-* GitHub (pre-commit and workflows)
-* GitLab
-* CircleCI
-* AppVeyor
-* TravisCI
-
-### Prerequisites
-
-* Ensure that you have sufficient permissions to update your CI environment.
-
-To add your rule to your CI pipeline:
-
-1. Click **Share**.
-2. Select the CI environment from the tabs under the header **Use in CI**.
-3. Click on the **clipboard icon** on the upper right of the snippet to copy it.
-4. Paste the snippet into the **config file** specified above the snippet.
-![Screenshot of Playground > CI menu](img/playground-use-ci.png "Playground CI menu")
-
 
 ## Embedding a rule in your site
 
