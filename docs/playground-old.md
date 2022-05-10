@@ -1,7 +1,7 @@
 ---
-slug: playground
+slug: playground-old
 append_help_link: true
-title: Semgrep Playground
+title: Semgrep Playground (Legacy)
 description: "Semgrep Playground is a beginner-friendly environment for creating your first rules."
 hide_title: true
 

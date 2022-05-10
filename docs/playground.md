@@ -32,18 +32,18 @@ To resize the panes, position your mouse over the borders and click-drag to the 
 
 ## Creating a rule
 
-There are two views that can be used to create a rule:
+There are two modes that can be used to create a rule:
 
 <dl>
-    <dt>Simple view</dt>
-    <dd>The simple view is best for quick and simple pattern-matching use cases, but does not display all Semgrep operators.</dd>
-    <dt>Advanced view</dt>
-    <dd>The advanced view provides the minimum required YAML keys for a Semgrep rule. To complete the rule, the advanced view requires users to fill in additional keys such as pattern operators or metadata.</dd>
+    <dt>Simple mode</dt>
+    <dd>Simple mode is best for quick and simple pattern-matching use cases, but does not display all Semgrep operators.</dd>
+    <dt>Advanced mode</dt>
+    <dd>Advanced mode provides the minimum required YAML keys for a Semgrep rule. To complete the rule, advanced mode requires users to fill in additional keys such as pattern operators or metadata.</dd>
 </dl>
 
 ### Learning Semgrep basics through simple mode
 
-Simple mode provides the **most common pattern-matching operators in Semgrep**. This view is used by default.
+Simple mode provides the **most common pattern-matching operators in Semgrep**.
 
 
 The following **keys** are supported in this mode as drop-down boxes:
@@ -76,52 +76,33 @@ Simple mode has the following limitations:
     * Join mode
     * Taint mode
 
-To **create a rule** in the simple view:
+To **create a rule** in simple mode:
 
-1. Ensure that you are in the **Simple view**:
-![Screenshot of the simple view](img/pleditor-simple.png "Playground simple view")
+1. Ensure that you are in **Simple mode**:
+![Screenshot of the simple view](img/pleditor-simple.png "Playground simple mode")
 2. Click **File > New** to start from a blank slate.
 3. Select a language from the **language is** drop-down box to specify a language in which the test code is written.
-4. After the **code is** button, enter the pattern to test.
+4. After the **code is** button, enter the rule pattern.
 5. Optional: Click on the **plus** button to add fields for additional operators. Select the pattern operator and enter the pattern.
 6. Optional: Click on **Rule metadata** tab on the **Sample code** pane to enter additional metadata fields.
+7. Click **Run** or press **Ctrl+Enter** (**⌘++Enter** on Macs).
 
-### Writing complex rules using the advanced view
+### Writing complex rules using advanced mode
 
-The advanced view is a YAML editor for writing a rule **using any valid key from the Semgrep [schema](../writing-rules/rule-syntax/)**. It provides default values for the minimum required keys for a Semgrep rule definition and expects the user to modify and add keys to finish the rule.
+Advanced mode is a YAML editor for writing a rule **using any valid key from the Semgrep [schema](../writing-rules/rule-syntax/)**. It provides default values for the minimum required keys for a Semgrep rule definition and expects the user to modify and add keys to finish the rule.
 
-To create a rule in the advanced view:
+To create a rule in advanced mode:
 
-1. Ensure that you are in the **Advanced view**.
+1. Ensure that you are in the **Advanced mode**.
 ![Screenshot of the advanced view](img/playground-advanced-view.png "Playground advanced mode")
-2. Enter the keys and values needed to finish your rule.
-
+2. Enter the keys and values needed to finish your rule. 
+3. Click **Run** or press **Ctrl+Enter** (**⌘++Enter** on Macs).
 
 ## Running and testing a rule for precision
 
-To **run a rule**:
-
-1. Enter your own code snippet or use samples from the Playground.
-2. Optional: Use the `develop` branch docker image by clicking **Tools > Use develop docker image**. This docker image contains the latest code pushed to Semgrep's repository, including experimental features.
-3. Click **Run** or press **Ctrl+Enter** (**⌘++Enter** on Macs).
-
-To **use a sample** from the Playground:
-
-1. Click **Tools > Load sample `LANGUAGE` code**.
-![Screenshot of Playground sample code menu](img/playground-sample-code.png "Playground sample code menu")
-2. Select any of the following:
-    1. hello world
-    2. 100-line file
-    3. 1000-line file
-3. The rule is executed automatically on the selected option.
-4. To run again, click Run or press **Ctrl+Enter** (**⌘++Enter** on Macs).
-
-100-line and 1000-line files are from random from GitHub open source projects.
-
-**Testing a rule** ensures that it meets your standards for precision and speed. Aside from running a rule in the Playground, it is possible to test a rule by creating comment annotations for intended and unintended matches. You can achieve this by creating a test file.
+**Testing a rule** ensures that it meets your standards for precision and speed. Aside from running a rule in the Playground, it is possible to test a rule by creating comment annotations for intended and unintended findings (matches). You can achieve this by creating assertions within the test pane.
 
 Refer to [Testing rules](../writing-rules/testing-rules) for the syntax and method to run test files.
-
 
 ### Debugging errors when creating a rule
 
@@ -147,22 +128,6 @@ Check for spelling and indentation issues. The key names must match [Semgrep's s
 
 File a [bug](https://github.com/returntocorp/semgrep/issues/new?title=semgrep.dev%20bug%20report) or reach out through [Semgrep Community Slack](https://r2c.dev/slack).
 
-### Evaluating a rule's performance
-
-After running Semgrep on the test code, a summary of findings appears under the **Matches** column.
-
-The **Performance **column displays how long it takes in seconds for Semgrep to run your rule. It also displays the following benchmarks:
-
-* Blazing
-* Quick
-* Decent
-* Fair
-* Okay
-* Slow
-* Sluggish
-
-These benchmarks take into account the **visual complexity** of the rule.
-
 
 ## Setting code standards by adding a rule to the Rule Board
 
@@ -170,7 +135,7 @@ The [Rule Board](../semgrep-app/rule-board/) displays rules that Semgrep App use
 
 To add a rule to the Rule Board:
 
-1. Ensure that you are logged-in.
+1. Ensure that you are signed in.
 2. Click **Add to Rule Board**.
 3. Select either the Audit or Block boards depending on the importance of the rule. Matches for rules on the Block board will prevent PR merges within a CI environment.
 
@@ -216,8 +181,7 @@ Semgrep can be used in the following CI environments:
 
 ### Prerequisites
 
-
-1. Ensure that you have sufficient permissions to update your CI environment.
+* Ensure that you have sufficient permissions to update your CI environment.
 
 To add your rule to your CI pipeline:
 
@@ -252,7 +216,7 @@ To embed a rule:
 1. In the Playground, click **Share**.
 2. Copy the **identifier**. This comes in two patterns:
     1. For signed-in users: `[username]:[rule-name]`, such as `ievans:print-to-logger`
-    2. For anonymous users: `[4-letter shortcode]`, such as **dZkP**
+    2. For anonymous users: `[4-letter permalink]`, such as **dZkP**
 3. Create the **URL reference**. Substitute the identifier in this template: `https://semgrep.dev/embed/editor?snippet=IDENTIFIER`. For example, using the identifier `ievans:print-to-logger` creates `https://semgrep.dev/embed/editor?snippet=ievans:print-to-logger`.
 4. Optional: To test the URL reference, enter the URL in your browser's address bar.
 ![Screenshot of the embedded Playground in its own tab](img/playground-widget.png "Embedded playground in its own tab")
