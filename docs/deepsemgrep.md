@@ -244,7 +244,7 @@ Allowing typed metavariables to access information from the entire program enabl
 
 ### Finding dangerous calls
 
-[Constant propagation](https://semgrep.dev/docs/writing-rules/data-flow/constant-propagation/) provides a syntax for eliminating false positives in Semgrep rules. DeepSemgrep does not use the dataflow engine for constant propagation. Even if a variable is set to a constant before being used in a function call several lines below, Semgrep knows that it must have that value and matches the function call. For more information, see [Pattern Syntax](https://semgrep.dev/docs/writing-rules/pattern-syntax/#constants)
+[Constant propagation](https://semgrep.dev/docs/writing-rules/data-flow/constant-propagation/) provides a syntax for eliminating false positives in Semgrep rules. Even if a variable is set to a constant before being used in a function call several lines below, Semgrep knows that it must have that value and matches the function call. DeepSemgrep does not use the dataflow engine for constant propagation. For more information, see [Pattern Syntax](https://semgrep.dev/docs/writing-rules/pattern-syntax/#constants)
 
 For example, this rule looks for non-constant values passed to the `dangerous` function:
 
