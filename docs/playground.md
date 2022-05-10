@@ -130,9 +130,25 @@ File a [bug](https://github.com/returntocorp/semgrep/issues/new?title=semgrep.de
 
 ## Exploring rules through Semgrep Registry
 
-[Semgrep Registry](https://semgrep.dev/r/) is an open-source, community-driven repository of rules to ensure secure code and enforce coding standards. These rules can be used as a starting point for writing your own custom rules. 
+[Semgrep Registry](https://semgrep.dev/r/) is an open-source, community-driven repository of rules. Thtese rules can detect OWASP vulnerabilities, best practice violations, and security issues for a wide variety of languages and frameworks. These rules can be used as a starting point for writing your own custom rules by creating a forked rule. 
 
 [Signing in to Semgrep App](https://semgrep.dev/login?return_path=/playground/) enables you to access the Registry directly from the Playground's Library pane.
+
+### Jumpstart rule writing using existing rules
+
+Another method of creating rules is by **forking/copying** from existing rules found in Semgrep Registry. For example, Semgrep’s Java `crypto` ruleset prohibits the use of weak hashing algorithms `SHA-1` and `MD5`. An organization may want to further limit the use of other hash functions as part of their standards or security compliance. The next steps illustrate forking through copying an existing `use-of-sha1` rule and changing the rule to forbid MD2 hashes.
+
+1. Enter related terms into the search bar to find potential rules. In our example, this is `SHA1.` <div class="bordered">
+![Screenshot of Library pane with SHA1 filter](img/editor-SHA1.png)</div>
+2. Registry rules cannot be edited directly. They can be **forked** by **right-clicking on their entry** in the Library and selecting **Fork rule.** <div class = "bordered">
+![Screenshot of forking menu](img/editor-forking.png) </div>
+3. The rule is copied to your organization’s rules.
+4. Enter edits to finalize your rule. In this example, the patterns are changed to find matches for [MD2](https://docs.oracle.com/javase/9/docs/specs/security/standard-names.html#messagedigest-algorithms) and the severity is increased from `WARNING` to `ERROR`.
+5. Enter updates to test cases.
+6. Click **Run** to validate your rule.
+7. Click **Save** to save your rule. The following rule displays the end result.
+
+<iframe title="Prevent use of MD2" src="https://semgrep.dev/embed/editor?snippet=s-santillan:use-of-md2" width="100%" height="432px" frameBorder="0"></iframe>
 
 ## Setting code standards by adding a rule to the Rule Board
 
@@ -142,7 +158,7 @@ To add a rule to the Rule Board:
 
 1. Ensure that you are signed in.
 2. Click **Add to Rule Board**.
-3. Select either the Monitor, Comment, or Block boards based on the importance of the rule. Findings for rules on the Block board will prevent PR merges within a CI environment. Findings for rules on the Comment board will leave comments within the PR or MR.
+3. Select either the **Monitor**, **Comment**, or **Block** board based on the importance of the rule. Findings for rules on the Block board will prevent PR merges within a CI environment. Findings for rules on the Comment board will leave comments within the PR or MR.
 
 ## Embedding a rule in your site
 
