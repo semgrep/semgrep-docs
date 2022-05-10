@@ -32,6 +32,8 @@ To get DeepSemgrep, follow these steps:
     semgrep --deep --config=myrule.yaml
     ```
 
+Use DeepSemgrep in command-line with `semgrep --deep`.
+
 ## Type inference and class inheritance
 
 ### Class inheritance
