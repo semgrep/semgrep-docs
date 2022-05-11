@@ -130,7 +130,7 @@ File a [bug](https://github.com/returntocorp/semgrep/issues/new?title=semgrep.de
 
 ## Exploring rules through Semgrep Registry
 
-[Semgrep Registry](https://semgrep.dev/r/) is an open-source, community-driven repository of rules. Thtese rules can detect OWASP vulnerabilities, best practice violations, and security issues for a wide variety of languages and frameworks. These rules can be used as a starting point for writing your own custom rules by creating a forked rule. 
+[Semgrep Registry](https://semgrep.dev/r/) is an open-source, community-driven repository of rules. These rules can detect OWASP vulnerabilities, best practice violations, and security issues for a wide variety of languages and frameworks. These rules can be used as a starting point for writing your own custom rules by creating a forked rule. 
 
 [Signing in to Semgrep App](https://semgrep.dev/login?return_path=/playground/) enables you to access the Registry directly from the Playground's Library pane.
 
