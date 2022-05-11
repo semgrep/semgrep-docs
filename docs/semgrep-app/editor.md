@@ -43,7 +43,7 @@ The editor is composed of three panes and a top menu.
         </ul>
         <strong>Private rules</strong> are denoted by a <strong>lock</strong> icon overlaid over the file icon.
     </dd>
-    <dt>YAML editor</dt>
+    <dt>Rule editor</dt>
     <dd>Enter your rule’s YAML schema in this pane.</dd>
     <dt>Sample code window</dt>
     <dd>Enter your rule’s test code in this pane and click the <strong>Run button</strong> to verify that the rule runs as intended. A <strong>matches panel</strong> appears after Semgrep is run to display matches and tests.</dd>
