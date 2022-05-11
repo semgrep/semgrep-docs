@@ -119,7 +119,6 @@ To **use a sample** from the Playground:
 
 Refer to [Testing rules](../writing-rules/testing-rules) for the syntax and method to run test files.
 
-
 ### Debugging errors when creating a rule
 
 Common errors are syntax or match issues.
