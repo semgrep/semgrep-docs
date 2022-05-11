@@ -190,7 +190,7 @@ To rename a rule:
 
 ## Using a rule in CI
 
-Using a rule in your CI pipeline enables you to **run the rule at a certain hook or event**. This allows users to add guardrails against security, style, and general code violations.
+Using a rule in your CI (Continuous integration) pipeline enables you to **run the rule at a certain hook or event**. This allows users to add guardrails against security, style, and general code violations.
 
 Semgrep can be used in the following CI environments:
 
@@ -205,7 +205,9 @@ Semgrep can be used in the following CI environments:
 The prerequisite for using a rule in CI is as follows:
 
 1. Ensure that you have sufficient permissions to update your CI environment.
-### Using a rule in CI procedure
+
+### Use a rule in CI
+
 To add your rule to your CI pipeline:
 
 1. Click **Share**.
@@ -213,28 +215,19 @@ To add your rule to your CI pipeline:
 3. Click on the **clipboard icon** on the upper right of the snippet to copy it.
 4. Paste the snippet into the **config file** specified above the snippet.
 ![Screenshot of Playground > CI menu](img/playground-use-ci.png "Playground CI menu")
+
 ## Embedding a rule in your site
 
 The **Embedded Playground** is an interactive editor which can be embedded in an external domain or web page such as a blog post. It is a means to display Semgrep's rules in action.
 
-The Embedded Playground has two panes:
-
-<dl>
-    <dt>Rule Pane</dt>
-    <dd>This displays the rule data. The rule must have a <strong>reference</strong> (either a short identifier or saved name) from Semgrep Playground.</dd>
-    <dt>Test Code</dt>
-    <dd>This displays the code that the rule will act upon. On the bottom right is the Run button, which will run the rule on the test code.</dd>
-</dl>
-
-Both panes are editable, allowing viewers to try the Semgrep rule out for themselves or to change parts of the rule.
-
 ### Prerequisite
-
 
 The prerequisite for embedding a rule in your site is the following:
 
 - A site or page with sufficient editing permissions for you to embed the rule.
-### Embedding a rule procedure
+
+### Embed a rule
+
 To embed a rule:
 
 1. In the Playground, click **Share**.
