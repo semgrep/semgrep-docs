@@ -204,9 +204,8 @@ Semgrep can be used in the following CI environments:
 
 The prerequisite for using a rule in CI is as follows:
 
-
 1. Ensure that you have sufficient permissions to update your CI environment.
-
+### Using a rule in CI procedure
 To add your rule to your CI pipeline:
 
 1. Click **Share**.
@@ -214,7 +213,6 @@ To add your rule to your CI pipeline:
 3. Click on the **clipboard icon** on the upper right of the snippet to copy it.
 4. Paste the snippet into the **config file** specified above the snippet.
 ![Screenshot of Playground > CI menu](img/playground-use-ci.png "Playground CI menu")
-
 ## Embedding a rule in your site
 
 The **Embedded Playground** is an interactive editor which can be embedded in an external domain or web page such as a blog post. It is a means to display Semgrep's rules in action.
@@ -236,7 +234,7 @@ Both panes are editable, allowing viewers to try the Semgrep rule out for themse
 The prerequisite for embedding a rule in your site is the following:
 
 - A site or page with sufficient editing permissions for you to embed the rule.
-
+### Embedding a rule procedure
 To embed a rule:
 
 1. In the Playground, click **Share**.
