@@ -80,7 +80,7 @@ To **create a rule** in the simple view:
 
 ### Writing complex rules using the advanced view
 
-The advanced view is a YAML editor for writing a rule **using any valid key from the Semgrep [schema](../writing-rules/rule-syntax/)**. It provides default values for the minimum required keys for a Semgrep rule definition and expects the user to modify and add keys to finish the rule.
+The advanced view is a YAML editor for writing a rule **using any valid key from the Semgrep [schema](../writing-rules/rule-syntax/)**. Advanced view provides default values for the required keys for a Semgrep rule definition and expects the user to modify and add keys to finish the rule.
 
 To create a rule in the advanced view:
 
