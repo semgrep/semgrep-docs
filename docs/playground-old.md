@@ -13,7 +13,6 @@ import MoreHelp from "/src/components/MoreHelp"
 
 Semgrep Playground is a live editor used to create and test rule patterns on sample code. By testing the pattern out on sample code, you are able to quickly assess the purpose, utility, and speed of a rule as well as save it for later refinement, reuse, or sharing.
 
-
 ## Creating a rule
 
 There are two ways to create a rule:
