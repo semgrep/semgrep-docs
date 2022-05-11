@@ -44,7 +44,7 @@ The following **keys** are **supported** in the simple view:
 
 These keys appear as drop-down boxes.
 
-The following **metadata keys** are **supported** in this view:
+The following **metadata keys** are **supported** in the simple view:
 
 * `category`
 * `technology`
