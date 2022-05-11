@@ -58,7 +58,6 @@ The simple view has the following limitations:
 
 * Supports only **one language** per rule.
 * Does **not** include support for the following operators:
-
     * `pattern-not-regex`
     * `metavariable-regex`
     * `metavariable-pattern`
