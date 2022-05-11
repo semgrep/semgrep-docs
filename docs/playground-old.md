@@ -24,7 +24,6 @@ There are two ways to create a rule:
     <dd>The advanced view provides the minimum required YAML keys for a Semgrep rule. To complete the rule, the advanced view requires users to fill in additional keys such as pattern operators or metadata.</dd>
 </dl>
 
-
 ### Learning Semgrep basics through the simple view 
 
 The simple view provides the **most common pattern-matching operators in Semgrep**. This view is used by default.
