@@ -30,7 +30,7 @@ The simple view provides the **most common pattern-matching operators in Semgrep
 
 ![Screenshot of default playground view](img/playground.png "Default playground view")
 
-The following **keys** are **supported** in this view:
+The following **keys** are **supported** in the simple view:
 
 * `language`
 * `pattern`
