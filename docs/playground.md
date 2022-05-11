@@ -28,7 +28,7 @@ The Playground is composed of three panes and a top menu.
     <dd>Save, share, and add your rule to the Rule Board through this menu.</dd>
 </dl>
 
-To resize the panes, position your mouse over the borders and click-drag to the desired width. You can hide the entire library pane to give more space for the editing panes.
+To resize the panes, position your mouse over the borders and drag to the desired width. You can hide the entire library pane to give more space for the editing panes.
 
 ## Creating a rule
 
