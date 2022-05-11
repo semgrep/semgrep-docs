@@ -89,7 +89,7 @@ To **create a rule** in simple mode:
 
 ### Writing complex rules using advanced mode
 
-Advanced mode is a YAML editor for writing a rule **using any valid key from the Semgrep [schema](../writing-rules/rule-syntax/)**. It provides default values for the minimum required keys for a Semgrep rule definition and expects the user to modify and add keys to finish the rule.
+Advanced mode is a YAML editor for writing a rule **using any valid key from the Semgrep [schema](../writing-rules/rule-syntax/)**. Advanced mode provides default values for the required keys for a Semgrep rule definition and expects the user to modify and add keys to finish the rule.
 
 To create a rule in advanced mode:
 
