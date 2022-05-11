@@ -77,7 +77,6 @@ To **create a rule** in the simple view:
 5. Optional: Click on the **plus** button to add fields for additional operators. Select the pattern operator and enter the pattern.
 6. Optional: Click on **Rule metadata** to enter additional metadata fields.
 
-
 ### Writing complex rules using the advanced view
 
 The advanced view is a YAML editor for writing a rule **using any valid key from the Semgrep [schema](../writing-rules/rule-syntax/)**. Advanced view provides default values for the required keys for a Semgrep rule definition and expects the user to modify and add keys to finish the rule.
