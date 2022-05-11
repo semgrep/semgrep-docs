@@ -230,7 +230,7 @@ The Embedded Playground has two panes:
 
 Both panes are editable, allowing viewers to try the Semgrep rule out for themselves or to change parts of the rule.
 
-### Prerequisites
+### Prerequisite
 
 
 The prerequisite for embedding a rule in your site is the following:
