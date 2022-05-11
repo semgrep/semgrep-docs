@@ -198,7 +198,6 @@ To rename a rule:
 3. Enter a new name and press **Save**. This creates a new rule.
 4. Delete the old rule to complete the renaming process.
 
-
 ## Using a rule in CI
 
 Using a rule in your CI pipeline enables you to **run the rule at a certain hook or event**. This allows users to add guardrails against security, style, and general code violations.
