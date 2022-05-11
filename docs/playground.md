@@ -32,7 +32,7 @@ To resize the panes, position your mouse over the borders and click-drag to the 
 
 ## Creating a rule
 
-There are two modes that can be used to create a rule:
+Use two modes to create a rule:
 
 <dl>
     <dt>Simple mode</dt>
