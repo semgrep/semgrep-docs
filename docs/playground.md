@@ -158,7 +158,7 @@ To add a rule to the Rule Board:
 
 1. Ensure that you are signed in.
 2. Click **Add to Rule Board**.
-3. Select either the **Monitor**, **Comment**, or **Block** board based on the importance of the rule. Findings for rules on the Block board will prevent PR merges within a CI environment. Findings for rules on the Comment board will leave comments within the PR or MR.
+3. Select either the **Monitor**, **Comment**, or **Block** board based on the importance of the rule. Findings for rules on the Block board prevent PR merges within a CI environment. Findings for rules on the Comment board leave comments within the PR or MR.
 
 ## Embedding a rule in your site
 
