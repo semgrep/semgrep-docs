@@ -200,7 +200,9 @@ Semgrep can be used in the following CI environments:
 * AppVeyor
 * TravisCI
 
-### Prerequisites
+### Prerequisite
+
+The prerequisite for using a rule in CI is as follows:
 
 
 1. Ensure that you have sufficient permissions to update your CI environment.
