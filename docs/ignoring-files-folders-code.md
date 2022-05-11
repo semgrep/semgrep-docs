@@ -32,7 +32,7 @@ Without user customization, Semgrep refers to the following to define ignored fi
 In the absence of a user-generated `.semgrepignore`, Semgrep will refer to [its repository's default template](https://github.com/returntocorp/semgrep/blob/develop/semgrep/semgrep/templates/.semgrepignore):
 
 ```
-DEFAULT_SEMGREPIGNORE_TXT
+DEFAULT_SEMGREPIGNORE_TEXT
 ```
 
 :::caution
