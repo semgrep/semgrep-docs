@@ -159,7 +159,6 @@ The **Performance **column displays how long it takes in seconds for Semgrep to 
 
 These benchmarks take into account the **visual complexity** of the rule.
 
-
 ## Setting code standards by adding a rule to the Rule Board
 
 The [Rule Board](../semgrep-app/rule-board/) displays rules that Semgrep App uses to scan your project's code. Adding a rule to the Rule Board allows you to quickly set a rule as part of every Semgrep scan. A rule on the Rule Board is represented as a card and can be placed on either the Audit Board or the Block board depending on the importance of the rule. Rules can be dragged from one column to another.
