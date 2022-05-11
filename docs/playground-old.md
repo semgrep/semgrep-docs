@@ -116,7 +116,6 @@ Refer to [Testing rules](../writing-rules/testing-rules) for the syntax and meth
 
 Common errors are syntax or match issues.
 
-
 #### The pattern can't be parsed for the language
 
 Check that the **Language is** value and **Test code** language match. Use full AST elements for the language. For example:
