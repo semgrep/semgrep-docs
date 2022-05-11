@@ -64,7 +64,6 @@ The simple view has the following limitations:
     * `metavariable-comparison`
 
 * Does **not** support the following modes:
-
     * Join mode
     * Taint mode
 
