@@ -88,7 +88,6 @@ To create a rule in the advanced view:
 ![Screenshot of the advanced view](img/playground-advanced-view.png "Playground advanced view")
 2. Enter the keys and values needed to finish your rule.
 
-
 ## Running and testing a rule for precision
 
 To **run a rule**:
