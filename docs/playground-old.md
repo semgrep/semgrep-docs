@@ -144,7 +144,6 @@ Check for spelling and indentation issues. The key names must match [Semgrep's s
 
 File a [bug](https://github.com/returntocorp/semgrep/issues/new?title=semgrep.dev%20bug%20report) or reach out through [Semgrep Community Slack](https://r2c.dev/slack).
 
-
 ### Evaluating a rule's performance
 
 After running Semgrep on the test code, a summary of findings appears under the **Matches** column.
