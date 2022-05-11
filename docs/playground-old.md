@@ -205,7 +205,7 @@ Semgrep can be used in the following CI environments:
 The prerequisite for using a rule in CI is as follows:
 
 1. Ensure that you have sufficient permissions to update your CI environment.
-
+### Using a rule in CI procedure
 To add your rule to your CI pipeline:
 
 1. Click **Share**.
