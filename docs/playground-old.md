@@ -232,7 +232,10 @@ Both panes are editable, allowing viewers to try the Semgrep rule out for themse
 
 ### Prerequisites
 
-1. A site or page with sufficient editing permissions for you to embed the rule.
+
+The prerequisite for embedding a rule in your site is the following:
+
+- A site or page with sufficient editing permissions for you to embed the rule.
 
 To embed a rule:
 
