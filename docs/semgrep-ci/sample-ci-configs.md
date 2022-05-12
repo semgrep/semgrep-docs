@@ -145,7 +145,7 @@ semgrep:
   #     sast: gl-sast-report.json
 ```
 
-### Feature support
+### Feature support
 
 | Feature | Status |
 | --- | --- |
@@ -296,6 +296,40 @@ workflows:
 | **results in pull request comments** | ✅ [sign up for Semgrep App free](https://semgrep.dev/login) |
 | **automatic CI setup** | ❌ not available |
 
+## Bitbucket
+
+```yaml
+image: atlassian/default-image:latest
+
+pipelines:
+  default:
+    - parallel:
+      - step:
+          name: 'Run Scan with current branch'
+          deployment: dev
+          image: returntocorp/semgrep
+          script:
+            # Set SEMGREP Variables
+            # - export SEMGREP_REPO_URL=$BITBUCKET_GIT_HTTP_ORIGIN
+            # - export SEMGREP_REPO_NAME=$BITBUCKET_REPO_FULL_NAME
+            # - export SEMGREP_BRANCH=$BITBUCKET_BRANCH
+            # - export SEMGREP_JOB_URL="${SEMGREP_REPO_URL}/addon/pipelines/home#!/results/${BITBUCKET_PIPELINE_UUID}"
+            # - export SEMGREP_COMMIT=$BITBUCKET_COMMIT
+            # - export SEMGREP_PR_ID=$BITBUCKET_PR_ID
+            # - export $SEMGREP_APP_TOKEN
+            - semgrep ci --config auto
+```
+
+### Feature Support
+
+| Feature | Status |
+| --- | --- |
+| **diff-aware scanning** | ✅ [configure manually](configuration-reference.md#diff-aware-scanning-semgrep_baseline_ref) |
+| **hyperlinks in Semgrep App** | ✅ [configure manually](configuration-reference.md#get-hyperlinks-in-semgrep-cloud) |
+| **results in native dashboard** | 💢 not applicable |
+| **results in pull request comments** | ✅ [sign up for Semgrep App free](https://semgrep.dev/login) |
+| **automatic CI setup** | ❌ not available |
+
 ## Other providers
 
 To run Semgrep CI on any other provider, use the `returntocorp/semgrep` image, and run the `semgrep ci` command.
@@ -306,7 +340,7 @@ Using the [configuration reference](../configuration-reference/), you can run Se
 
 - AppVeyor
 - Bamboo
-- Bitbucket Pipelines
+- Bitbucket Pipelines [(sample configuration)](#bitbucket)
 - Bitrise
 - Buildbot
 - Buildkite [(sample configuration)](#buildkite)
