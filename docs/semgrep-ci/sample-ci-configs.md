@@ -305,7 +305,7 @@ pipelines:
   default:
     - parallel:
       - step:
-          name: 'Run Scan with current branch'
+          name: 'Run Semgrep scan with current branch'
           deployment: dev
           image: returntocorp/semgrep
           script:
@@ -320,7 +320,7 @@ pipelines:
             - semgrep ci --config auto
 ```
 
-### Feature Support
+### Feature support
 
 | Feature | Status |
 | --- | --- |
