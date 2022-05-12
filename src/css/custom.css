@@ -182,6 +182,14 @@ li.menu__list-item a:hover {
   transition-duration: 5ms;
 }
 
+@media (max-width: 997px) {
+  .tocCollapsible_node_modules-\@docusaurus-theme-classic-lib-next-theme-TOCCollapsible-styles-module,
+  .table-of-contents__link, 
+  .clean-btn.navbar-sidebar__back {
+    color: #fff;
+  }
+}
+
 /* footer */
 
 .footer--dark {
