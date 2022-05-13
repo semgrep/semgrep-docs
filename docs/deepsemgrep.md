@@ -20,7 +20,7 @@ To get DeepSemgrep, follow these steps:
     ```sh
     semgrep login
     ```
-4. Use a link that Semgrep prints to the command-line.
+4. Follow the link that Semgrep prints to the command-line.
 5. Use the following commands:
     ```sh
     semgrep install-deep-semgrep
