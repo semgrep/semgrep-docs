@@ -15,7 +15,7 @@ This document demonstrates the utility of DeepSemgrep through use cases, guiding
 
 To get DeepSemgrep, follow these steps:
 1. Submit your email using the [DeepSemgrep beta form](https://semgrep.dev/deep-semgrep-beta).
-2. Semgrep team contacts you at your email address, follow the steps and instructions in the email.
+2. Follow the steps and instructions in the email you receive from the Semgrep team.
 3. Start using DeepSemgrep by using the following command:
     ```sh
     semgrep login
