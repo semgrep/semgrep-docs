@@ -95,7 +95,6 @@ The following thresholds define each maturity level:
         * `deep_expr_operator`
         * `dots_method_chaining`
         * `equivalence_constant_propagation`
-        * `equivalence_eq`
         * `equivalence_naming_import` (language dependent)
         * `metavar_anno` (language dependent)
         * `metavar_key_value`
