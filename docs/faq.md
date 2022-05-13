@@ -10,6 +10,29 @@ description: >-
 import MoreHelp from "/src/components/MoreHelp"
 import TOCInline from "@theme/TOCInline"
 
+example_exception.java:
+```java
+package example;
+
+public class ExampleException extends Exception {
+
+    public ExampleException(String exception) {
+        super(exception);
+    }
+}
+```
+
+bad_request.java:
+```java
+package example; 
+
+class BadRequest extends ExampleException {
+  public BadRequest(String exception) {
+    super(exception);
+  }
+}
+```
+
 
 # Frequently Asked Questions
 
