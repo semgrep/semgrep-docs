@@ -99,6 +99,7 @@ module.exports = {
         label: 'Contributing',
         items: [
           'contributing/contributing',
+          'contributing/contributing-rules',
           'contributing/contributing-code',
           {
             type: 'doc',

@@ -3,67 +3,121 @@ slug: contributing-to-semgrep-rules-repository
 description: "This article outlines how to contribute to Semgrep rules repository.."
 ---
 
-# Contributing to Semgrep rules repository
+# Contributing to Semgrep rules
 
-You can contribute to [Semgrep rules repository](https://github.com/returntocorp/semgrep-rules). This article sums up the process given in [Semgrep rules repository Readme](https://github.com/returntocorp/semgrep-rules#semgrep-rules).
+## Two ways how to contribute
 
-## Contribution guidelines
+We welcome your contributions to Semgrep rules! There are two ways in which you can contribute to Semgrep rules repository:
 
-Fork and make a pull request in the [Semgrep rules repository](https://github.com/returntocorp/semgrep-rules). r2c contacts you about signing CLA.
+For users of Semgrep App
+Contribute to the Semgrep rules repository through Semgrep App. This workflow is recommended. See [TODO link in markdown] Contributing with rules through Semgrep App section for more information. This workflow creates the necessary pull request for you and streamlines the whole process.
+For contributors to the repository through GitHub [TODO, change this to a description list] 
+Contribute to the Semgrep [rules repository](https://github.com/returntocorp/semgrep-rules) through your own pull request. See [TODO link in markdown] Contributing through GitHub for detailed information.
 
-We're happy to help!
+### Contributing through Semgrep App (recommended)
 
-- Email us at [support@r2c.dev](mailto:support@r2c.dev).
-- Join our [Slack](https://r2c.dev/slack).
+To contribute to the Semgrep rules repository through Semgrep App, follow these steps:
+1. Go to [Semgrep App Editor](https://semgrep.dev/orgs/-/editor).
+2. Click **Create New Rule**.
+3. Make one of the following steps:
+    a. Create a new rule and test code, and then click **Save**. Note: The test file must contain at least one positive and one negative test case in order to get approved!
+    b. Select a rule from a category in **Semgrep Registry**. Modify the rule or test code, click **Save**, and then **Fork**.
+4. Click **Share**.
+This workflow automatically creates a pull request in GitHub [rules repository](https://github.com/returntocorp/semgrep-rules).
 
-## Development Workflow
+### Contributing through GitHub
 
-Pull requests require approval of at least one maintainer and for [CI jobs to pass](https://github.com/returntocorp/semgrep-rules/actions).
+Feel free to fork our repository and make a pull request; we'll contact you about signing our CLA. Make a pull request to the  [TODO, change this to a description list] [rules repository](https://github.com/returntocorp/semgrep-rules) with two files:
+1. The semgrep pattern (.yml)
+2. The test file (with the file extension of the language or framework). The test file must contain at least one positive and one negative test case in order to get approved!
 
-To get a rule ready for review, the CI jobs will check for these things:
-1. [Formatting applied by `pre-commit`](#pre-commit)
-2. [Passing tests](#tests)
-3. [Passing metalinter checks](#metalinter)
+See an example of a [pull request](https://github.com/returntocorp/semgrep-rules/pull/1728/files) to the rules repository.
+Pull requests require approval of at least one maintainer and successfully passed [CI jobs](https://github.com/returntocorp/semgrep-rules/actions).
 
-In addition, we recommend:
-1. [Having a good rule message.](#rule-messages) A good message includes a 1) description of the pattern, 2) a description of why this pattern was detected, 3) and how to fix the issue.
-1. [Using namespacing for your rule.](#rule-namespacing)
-1. [Metadata.](#rule-metadata) Including references is very helpful!
+#### Installing pre-commit
 
-### `pre-commit`
 
-To install [pre-commit](https://pre-commit.com/):
+Install pre-commit if you are contributing to the rules repository through GitHub but you are **not** contributing through sharing your rule in Semgrep App.
+1. Install [pre-commit](https://pre-commit.com/) by issuing the following command:
+    ```sh
+    python -m pip install pre-commit
+    ```
+2. Install the pre-commit hooks:
+    ```sh
+    pre-commit install
+    ```
+To check if `pre-commit` is working as expected, run the following command:
+    ```sh
+    pre-commit run --all
+    ```
+Once `pre-commit` is set up you may commit code and create pull requests.
 
-```
-$ python -m pip install pre-commit
-```
+## Rule writing
 
-Then, install the pre-commit hooks:
+### Understanding rules repository file structure
 
-```
-$ pre-commit install
-```
+The namespacing format for contributing rules in the [rules repository](https://github.com/returntocorp/semgrep-rules) is `<language>/<framework>/<category>/$MORE`. If the rule does not belong to a particular framework, add it to the language directory instead.
 
-To check if `pre-commit` is working as expected,
-run the following command:
+### Rule messages
 
-```
-$ pre-commit run --all
-```
+A good rule message includes:
+1. A description of the pattern. For example: missing parameter, dangerous flag, out-of-order function calls.
+2. A description of why this pattern was detected. For example: logic bug, introduces a security vulnerability, bad practice.
+3. An alternative that resolves the issue. For example: use another function, validate data first, and discard the dangerous flag.
 
-Once `pre-commit` is set up you may commit code and create pull requests as you would expect.
+For an example of a good rule message, see [this rule for Django's mark_safe()](https://github.com/returntocorp/semgrep-rules/blob/develop/python/django/security/audit/avoid-mark-safe.yaml).
 
-### Tests
+:::note
+'mark_safe()' is used to mark a string as *safe* for HTML output. This disables escaping and may expose the content to XSS attacks. Use 'django.utils.html.format_html()' to build HTML for rendering instead.
+:::
 
-Test files should always accompany new rules. A good test file should include at least one test that the rule should flag on, and at least one test that the rule should not flag on. Test file names must match the rule file name, except for the extension. For example, if the rule is in `my-rule.yaml`, the tests should be in `my-rule.js` (or another valid extension for the target language). Inside the test file, expected findings should be marked with a comment that reads `ruleid: my-rule` on the line directly above. Include code that should **not** be detected with `ok: my-rule`. Use the appropriate single-line comment syntax for the target language (`#` for Python, `//` for JavaScript, etc.). An example is listed below.
+### Rule quality checker
 
+When you contribute rules to the rules repository, our quality checkers (linters) evaluate if the rule conforms to r2c standards. Use Semgrep to [scan semgrep-rules](https://r2c.dev/blog/2021/how-we-made-semgrep-rules-run-on-semgrep-rules/)! The `semgrep-rule-lints` job runs linters on a new rule submission to check for mistakes, performance problems, and best practices for submitting to the Semgrep rules repository.
+
+### Including additional details with rule metadata
+
+Rules require a `metadata` key where you can specify a category of the rule, the technology which a rule is targeting, and give additional information as references. See the following example of a rule with all metadata fields [check-dynamic-render-local-file-include](https://semgrep.dev/orgs/adamkvitek/editor/s/returntocorp:check-dynamic-render-local-file-include).
+
+Include the following keys under `metadata` field:
+- Include `category` field. Choose one of the following values for the `category` metadata field
+    - `security` - If you use this value, include include `owasp` and `cwe` fields as well. See the [example rule](https://semgrep.dev/orgs/-/editor/s/returntocorp:check-dynamic-render-local-file-include) to see their use. See [common weaknesses](https://cwe.mitre.org/) and [OWASP categories](https://owasp.org/www-project-top-ten/) as well for more details. If a `security` rule is detecting the use of a bad pattern, append an `audit` to your namespace. This distinguishes the rule from a `security` rule that is aiming to detect a vulnerability.
+    - `best-practice`
+    - `correctness`
+    - `maintainability`
+    - `performance`
+- Include `technology` field. This is usually the library or framework the rule is targeting, for example `django`. If it's for the language itself, use only the language name, for example `python`.
+- Include `references` field. References can provide additional context to users of the rule. It is good practice to include at least one reference for each rule.
+- The use of the YAML multiline string operator `>-` when rule messages span multiple lines. This presents the best-looking rule message in the command-line.
+
+Some examples:
+- [python.lang.security.deserialization.avoid-pyyaml-load.yaml](https://semgrep.dev/orgs/-/editor/r/python.lang.security.deserialization.avoid-pyyaml-load.avoid-pyyaml-load)
+- [python/flask/security/dangerous-template-string.yaml](https://semgrep.dev/orgs/-/editor/r/python/flask/security/dangerous-template-string.yaml)
+- [python/flask/security/audit/render-template-string.yaml](https://semgrep.dev/orgs/-/editor/r/python/flask/security/audit/render-template-string.yaml)
+- [javascript/lang/best-practice/assigned-undefined.yaml](https://semgrep.dev/orgs/-/editor/r/javascript/lang/best-practice/assigned-undefined.yaml)
+- [java/rmi/security/server-dangerous-class-deserizaliation.yaml](https://semgrep.dev/orgs/-/editor/r/javascript/lang/best-practice/assigned-undefined.yaml)
+
+## Tests
+
+Include a test file to accompany new rules. A good test file includes the following:
+- At least one test where the rule detects a true positive finding. This is called a true positive finding.
+- At least one test where the rule does **not** detect a finding. This is called a true negative finding.
+
+See an example of this approach in the [Semgrep App](https://semgrep.dev/orgs/-/editor/s/returntocorp:aws-provider-static-credentials).
+
+Test file names must match the rule file name, except for the file extension. For example, if the rule is in `my-rule.yaml`, name the test `my-rule.js`. (With any valid extension for the target language.)
+
+In the test file, mark what is demonstratively expected to be a finding. See the examples of rule and test file below:
+
+Rule file:
 ```yaml
 rules:
 - id: my-rule
   pattern: var $X = "...";
-  ...
+  …
 ```
 
+Test file:
 ```js
 // ruleid: my-rule
 var strdata = "hello";
@@ -72,130 +126,3 @@ var numdata = 1;
 ```
 
 For more information, visit [Testing rules](https://semgrep.dev/docs/writing-rules/testing-rules/).
-
-### Metalinter
-
-We use Semgrep to [scan semgrep-rules](https://r2c.dev/blog/2021/how-we-made-semgrep-rules-run-on-semgrep-rules/)! The `semgrep-rule-lints` job will run a few lints on a new rule submission to check for mistakes, performance problems, and best-practices for submitting to this repository.
-
-We have developed a few best-practices for rules submitted to this repository based on how Semgrep CLI users want to interact with the data. The `semgrep-rule-lints` job will check for the following metadata:
-
-- The presence of a `category` metadata field. This is one of {security, best-practice, correctness, maintainability, performance}.
-- The presence of a `technology` metadata field. This is usually the library or framework the rule is targeting, e.g., `django`. If it's for the language itself, just use the language name, e.g., `python`.
-- The use of the YAML multiline string operator `>-` when rule messages span multiple lines. This presents the best-looking rule message in the terminal.
-- For `security` category rules, the presence of `owasp` and `cwe` metadata tags. This lets users group Semgrep results by familiar security tags. An example of an `owasp` tag is: <br>
-`owasp: 'A9: Using Components with Known Vulnerabilities'` <br>
-and an example of a `cwe` tag is: <br>
-`cwe: 'CWE-327: Use of a Broken or Risky Cryptographic Algorithm'`
-
-### Rule Messages
-
-A good rule message includes:
-1. A description of the pattern (e.g., missing parameter, dangerous flag, out-of-order function calls).
-1. A description of why this pattern was detected (e.g., logic bug, introduces a security vulnerability, bad practice).
-1. An alternative that resolves the issue (e.g., use another function, validate data first, discard the dangerous flag).
-
-For an example of a good rule message, see [this rule for Django's `mark_safe()`](https://github.com/returntocorp/semgrep-rules/blob/develop/python/django/security/audit/avoid-mark-safe.yaml).
-
-> 'mark_safe()' is used to mark a string as "safe" for HTML output. This disables escaping and could therefore subject the content to XSS attacks. Use 'django.utils.html.format_html()' to build HTML for rendering instead.
-
-### Rule Namespacing
-
-The namespacing format for contributing rules in this directory is `<language>/<framework>/<category>/$MORE`. If a `framework` isn't applicable, use the literal `lang` instead.
-
-`category` is one of:
-- security
-- correctness
-- best-practice
-- maintainability
-- performance
-
-If a `security` rule is discouraging the use of a bad pattern (such as formatted SQL strings), we recommended appending `audit` to your namespace. This distinguishes it from a `security` rule that is specifically aiming to detect a vulnerability.
-
-Some examples:
-
-```txt
-python/lang/security/deserialization/avoid-pyyaml-load.yaml
-python/lang/security/audit/eval-detected.yaml
-python/flask/security/dangerous-template-string.yaml
-python/flask/security/audit/render-template-string.yaml
-javascript/lang/best-practice/assigned-undefined.yaml
-java/rmi/security/server-dangerous-class-deserizaliation.yaml
-```
-
-### Rule Metadata
-
-Rules may contain a `metadata` key. You can put anything in the `metadata` section. The `metalinter` section has descriptions of the metadata keys we expect in a good rule, but here are a few more key descriptions:
-
-### References
-
-You can add `references` to rule metadata. References are helpful because they can provide additional context to users of the rule. It is good practice to include at least one reference for each rule.
-
-### Security Metadata
-
-Semgrep features security rules that target [common weaknesses](https://cwe.mitre.org/) and [OWASP categories](https://owasp.org/www-project-top-ten/). `security` rules in this repository should have metadata fields for `cwe` (and `owasp` when applicable).
-
-### Sample rule with metadata
-
-```yaml
-rules:
-- id: render-template-string
-  ...
-  metadata:
-    cwe: "CWE-96: Improper Neutralization of Directives in Statically Saved Code ('Static Code Injection')"
-    owasp: 'A01:2017 Injection'
-    references:
-    - https://nvisium.com/blog/2016/03/09/exploring-ssti-in-flask-jinja2.html
-```
-
-
-
-## Contributing
-
-We welcome Semgrep rule contributions directly to this repository! Since this repo is maintained by r2c, there are some extra benefits-for example, if there are bug reports for your rule, we’ll take responsibility to help fix it. If you are submitting to the semgrep-rules repo (rather than your own, separate repository as mentioned above) we’ll ask you to make r2c a joint owner of your contributions. While you still own copyright rights to your rule, joint ownership allows r2c to license these contributions to other [Semgrep Registry](https://semgrep.dev/r) users pursuant to the LGPL 2.1 under the [Commons Clause](https://commonsclause.com/). Check out the [Contributing Guidelines](/CONTRIBUTING.md) to get started.
-
-You can also contact us at support@r2c.dev to make Semgrep rule contributions. We will import your rules for everyone to use!
-
-### Rulesets
-
-Rulesets -- combined sets of rules from the Semgrep registry -- are organized in a private repository. If you want to modify existing sets or create your own, please contact us at support@r2c.dev.
-
-If you have more questions, please see the [FAQ section in the Semgrep docs](https://semgrep.dev/docs/faq).
-
-## Help
-
-Join [Slack](https://r2c.dev/slack) for the fastest answers to your questions! Or contact the team at [support@r2c.dev](mailto:support@r2c.dev).
-
-### Rule Namespacing
-
-The namespacing format for contributing rules is `<language>.<framework>.<category>.$MORE`. If a `framework` isn't applicable, use `lang` instead.
-
-`category` is one of:
-- security
-- correctness
-- best-practice
-- maintainability
-- performance
-
-If a `security` rule is discouraging the use of a bad pattern (such as formatted SQL strings), we recommended appending `audit` to your namespace. This distinguishes it from a `security` rule that is specifically aiming to detect a vulnerability.
-
-<p align="center">
-    <img src="https://web-assets.r2c.dev/semgrep-live-namespacing.png" alt="semgrep.live rule namespace" width="500" />
-</p>
-
-### Github Action To Run Tests
-
-If you fork this repo or create your own, you can add a special [semgrep-rules-test](https://github.com/marketplace/actions/semgrep-rules-test) Github Action to your workflow that will automatically test your rules by running `make test` using the latest version of semgrep.
-
-See ours [here](.github/workflows/semgrep-rules-test.yml)
-
-### Benchmarks
-The [benchmark job](https://github.com/returntocorp/semgrep-rules/actions?query=workflow%3Arule-benchmarks) runs every weekend. It uploads a few artifacts, which can be downloaded. If you download the test logs, there are two relevant pieces of information in there: the benchmark table, which roughly shows the performance of every rule that completes in under 60 seconds, and any failed tests are rules that did not complete within 60 seconds.
-
-To run benchmark tests locally, do the following from the root of `semgrep-rules`:
-```
-pipenv shell
-pipenv install --dev
-export PYTHONPATH=.
-pytest --timeout=60 --rule-directory=[path_to_rule_directory] --git-repo=[git_URL] tests/performance/test_public_repos.py
-```
-If you omit `--git-repo` from the pytest command, it will run the provided benchmark repo.
