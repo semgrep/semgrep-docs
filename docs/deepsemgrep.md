@@ -96,7 +96,7 @@ DeepSemgrep uses interfile class inheritance information when matching [typed me
 The rule searches for any variable of type `ExampleException` being logged. Semgrep is **not** able to find instances of `BadRequest` being logged, unlike DeepSemgrep. Allowing typed metavariables to access information from the entire program enables users to query any variable for its type and use that information in conjunction with the rest of the code resulting in more accurate findings.
 
 :::note
-For a more realistic example where typed metavariables are used, see the following [rule that the Semgrep community wrote](https://semgrep.dev/playground/s/chegg:log4j2_tainted_argument) to find code vulnerable to the log4j vulnerability.
+For a more realistic example where typed metavariables are used, see the following [rule written by Semgrep community](https://semgrep.dev/playground/s/chegg:log4j2_tainted_argument) to find code vulnerable to the log4j vulnerability.
 :::
 
 Try to run DeepSemgrep in cloned [DeepSemgrep testing repository](https://github.com/returntocorp/deep-semgrep-tests). Go to `docs/class_inheritance_with_typed_metavariables` and run the following command:
