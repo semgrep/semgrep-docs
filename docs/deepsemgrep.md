@@ -155,7 +155,7 @@ Semgrep allows you to search for the flow of any potentially exploitable input i
 
 To continue with the previous example, we have modified our previous files a bit. Semgrep is searching for dangerous calls using data obtained by calling `get_user_input`. The rule does this by specifying the source of taint as `get_user_input(...)` and the sink as `dangerous(...);`.
 
-<iframe title="Semgrep example no prints" src="https://semgrep.dev/embed/editor?snippet=emjin:dangerous-taint" width="100%" height="432" frameborder="0"></iframe>
+<iframe title="Semgrep example no prints" src="https://semgrep.dev/embed/editor?snippet=adamkvitek:dangerous-taint" width="100%" height="432" frameborder="0"></iframe>
 
 Here, Semgrep matches `dangerous(“Select * from “ + user_input`), because `user_input` is obtained by calling `get_user_input`. However, it does not match the similar call using `still_user_input`, because its analysis does not cross function boundaries to know that `still_user_input` is a wrapper function for `user_input`.
 
