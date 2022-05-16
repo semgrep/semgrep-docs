@@ -14,6 +14,7 @@ This document demonstrates the utility of DeepSemgrep through use cases, guiding
 ### Obtaining DeepSemgrep
 
 To get and install DeepSemgrep, follow these steps:
+
 1. Submit your email using the [DeepSemgrep beta form](https://semgrep.dev/deep-semgrep-beta).
 2. Follow the steps and instructions in the email you receive from the Semgrep team.
 3. Start using DeepSemgrep with the following command:
@@ -36,7 +37,9 @@ Use DeepSemgrep in the command-line with `semgrep --deep`.
 
 DeepSemgrep displays its full value with more files. This makes the usual embedded code that you can see in Semgrep examples not useful for demonstrating the capabilities of DeepSemgrep because embedded code from the Semgrep App only displays one rule and one test file at a time.
 
-To learn by doing, use DeepSemgrep while reading this documentation. Follow this document by cloning our [DeepSemgrep testing code repository](https://github.com/returntocorp/deep-semgrep-tests) and test the procedures in the sections below.
+To learn by doing, use DeepSemgrep while reading this documentation. Follow this document while testing code examples in a [DeepSemgrep testing code repository](https://github.com/returntocorp/deep-semgrep-tests).
+
+To find code examples used in this document, go to `docs` directory in the DeepSemgrep testing code repository. To see the difference between findings of DeepSemgrep compared to Semgrep, in each directory under `docs` run `semgrep --config deep.yaml` (obtain Semgrep findings) and then `semgrep --config deep.yaml . --deep` (obtain DeepSemgrep findings).
 
 ## Type inference and class inheritance
 
