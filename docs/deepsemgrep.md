@@ -13,7 +13,7 @@ This document demonstrates the utility of DeepSemgrep through use cases, guiding
 
 ### Obtaining DeepSemgrep
 
-To get DeepSemgrep, follow these steps:
+To get and install DeepSemgrep, follow these steps:
 1. Submit your email using the [DeepSemgrep beta form](https://semgrep.dev/deep-semgrep-beta).
 2. Follow the steps and instructions in the email you receive from the Semgrep team.
 3. Start using DeepSemgrep with the following command:
@@ -25,7 +25,7 @@ To get DeepSemgrep, follow these steps:
     ```sh
     semgrep install-deep-semgrep
     ```
-6. To test DeepSemgrep, use the following command:
+6. To test DeepSemgrep, use the following command with your own rules:
     ```sh
     semgrep --deep --config=myrule.yaml
     ```
@@ -39,6 +39,7 @@ DeepSemgrep displays its full value with more files. This makes the usual embedd
 To learn by doing, use DeepSemgrep while reading this documentation. Follow this document by cloning our [DeepSemgrep testing code repository](https://github.com/returntocorp/deep-semgrep-tests) and test the procedures in the sections below.
 
 ## Type inference and class inheritance
+
 ### Class inheritance
 
 This section compares the possible findings of a scan across multiple files using Semgrep and DeepSemgrep. There is an `app.java` file that includes two check functions that throw exceptions. We are looking for methods that throw a particular exception, `ExampleException`. When using this rule, Semgrep matches code that throws `ExampleException` but not `BadRequest`. 
@@ -167,9 +168,11 @@ semgrep --config deep.yaml . --deep
 ### Difference between DeepSemgrep and join mode
 
 DeepSemgrep is different from [join mode](https://semgrep.dev/docs/experiments/join-mode/overview/), which also allows you to perform interfile analyses by letting you join on the metavariable matches in separate rules.
+
 ### Future development of DeepSemgrep
 
 We’re excited to hear what’s on your mind. As users explore the limits of DeepSemgrep, we want to know what they’re failing to express. We believe that interfile type inference, constant propagation, and taint tracking combined allow users to express most restrictions on a program and enforce them quickly.
+
 ### Supported languages
 
 DeepSemgrep now offers beta support for Java and Ruby.
