@@ -7,7 +7,17 @@ import MoreHelp from "/src/components/MoreHelp"
 
 # Running rules
 
-Existing and custom Semgrep rules can be run locally with the Semrgep command line tool or continuously with Semgrep CI. See [Getting started](../getting-started/) for their respective installation and setup.
+## Introduction
+
+Rules are specific patterns based on which Semgrep reports findings in code. These findings may help you to catch issues of security, performance, correctness, and other bugs. Rules are stored in open-source Semgrep Registry that enables you to scan code without need to write anything custom.
+
+Contribute to the registry by writing your own rules and adding them to the <a href="https://github.com/returntocorp/semgrep-rules" target="_blank">Semgrep rules repository</a>.
+
+<div className="lang-container" style={{marginBottom: '20px'}}>
+  <iframe width="900" height="400" frameBorder="0" src="https://dashboard.semgrep.dev/metric/semgrep-rules.num/graph"></iframe>
+</div>
+
+You can run existing and custom Semgrep rules locally with the Semrgep command line tool or continuously with Semgrep CI. See [Getting started](../getting-started/) for their respective installation and setup.
 
 ## Run Registry rules
 
@@ -15,13 +25,13 @@ Explore the [Semgrep Registry](https://semgrep.dev/explore) and run rules and ru
 
 ```sh
 # Automatically survey languages and frameworks and run recommended Registry rules
-$ semgrep --config=auto path/to/src
+semgrep --config=auto path/to/src
 
 # Run a ruleset with rules for many languages using --config
-$ semgrep --config=<ruleset-id> path/to/src
+semgrep --config=<ruleset-id> path/to/src
 
 # Run simultaneously with Registry rulesets and local rules
-$ semgrep --config=<ruleset-id> --config=path/to/yml path/to/src
+semgrep --config=<ruleset-id> --config=path/to/yml path/to/src
 ```
 
 When the Registry is used, [usage metrics](../metrics) are collected.
@@ -70,7 +80,13 @@ Create a YAML rule file that you can run repeatedly.
     semgrep --config path/to/rule.yaml
     ```
 
-### Appendix
+### Running multiple rules simultaneously
+
+To run multiple rules simultaneously, use `--config` before every YAML URL, or Semgrep registry entry name. See the following code example (substitute the colored values as necessary):
+
+<pre class="language-bash"><code>semgrep --config <span className="placeholder">p/python</span> --config <span className="placeholder">myrules/myrule.yaml</span></code></pre>
+
+## Appendix
 
 We are working on optimizations to improve Semgrep's performance, which necessitates a change in rules processing. If you are using v0.55.0 or later and encounter an unexpected metavariable binding or missing result, try running with `--optimizations none` to use the original code path. 
 

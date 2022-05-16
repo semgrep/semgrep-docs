@@ -110,6 +110,11 @@ dl {
     border: 2px solid black;
 }
 
+.placeholder {
+    color: #E3116C;
+    font-style: italic;
+}
+
 /* navbar */
 
 .navbar {
@@ -175,6 +180,14 @@ li.menu__list-item a:hover {
 .menu__link {
   transition-timing-function: linear;
   transition-duration: 5ms;
+}
+
+@media (max-width: 997px) {
+  .tocCollapsible_node_modules-\@docusaurus-theme-classic-lib-next-theme-TOCCollapsible-styles-module,
+  .table-of-contents__link, 
+  .clean-btn.navbar-sidebar__back {
+    color: #fff;
+  }
 }
 
 /* footer */

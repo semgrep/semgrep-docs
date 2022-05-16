@@ -1,6 +1,6 @@
 ---
 slug: configuration-reference
-description: "Reference for running Semgrep CI in your CI job or on the command line using semgrep-agent. Learn how to select rules to scan with, enable diff-aware scanning, connect to Semgrep App, and more."
+description: "Reference for running Semgrep CI in your CI job or on the command line. Learn how to select rules to scan with, enable diff-aware scanning, connect to Semgrep App, and more."
 ---
 
 import MoreHelp from "/src/components/MoreHelp"
@@ -10,9 +10,8 @@ import MoreHelp from "/src/components/MoreHelp"
 Configure Semgrep CI by passing these environment variables in your CI job.
 
 :::info
-While environment variables are the preferred way to configure Semgrep CI, any of these options can be passed as command line options as well. Refer to the output of `semgrep-agent --help` to find the corresponding flags.
+While environment variables are the preferred way to configure Semgrep CI, pass any of these options as command-line options. Refer to the output of `semgrep ci --help` to find the corresponding flags.
 :::
-
 
 ## Select rules to scan with (`SEMGREP_RULES`)
 
@@ -22,25 +21,28 @@ SEMGREP_RULES="p/security-audit p/secrets"
 
 ## Diff-aware scanning (`SEMGREP_BASELINE_REF`)
 
-For [diff-aware scans](overview.md#features), set this variable
-to the git ref (branch name, tag, or commit hash) to use as a baseline.
-For example, to report findings newly added
-since branching off from your `main` branch, set
+For [diff-aware scans](overview.md#features), this option filters scan results to those introduced after the git commit, in a branch, or tag. For example, you have a repository with 10 commits. You set the commit number 8 as the baseline. Consequently, Semgrep only returns scan results introduced by changes in commits 9 and 10.
 
-```sh
-SEMGREP_BASELINE_REF=main
-```
+:::note
+It is recommended to perform baseline scans on other branches than your `main` branch. The Semgrep App keeps track of which findings have been fixed on a given branch. If you configure baseline scans on your main branch, and compare the last commit to the penultimate commit, Semgrep wrongly considers all findings as fixed. In this case, Semgrep only reports findings that appear in the last commit.
+:::
+ 
+### Examples of `SEMGREP_BASELINE_REF`
 
-NOTE: performing a diff scan after a full-project scan of the same branch will close the full-project scan's findings. This is because all findings are marked as fixed if the branch they are on is re-scanned and they are no longer reported. Therefore, it is best to perform diff scans on branches other than your `main` branch.
+To only report findings newly added
+since branching off from your `main` branch, set the following:
+<pre class="language-bash"><code>SEMGREP_BASELINE_REF=<span className="placeholder">TOPIC-BRANCH-NAME</span></code></pre>
 
-## Connect to Semgrep App (`SEMGREP_APP_TOKEN`)
+To only report findings newly added
+after a specific commit, set the following:
+<pre class="language-bash"><code>SEMGREP_BASELINE_REF=<span className="placeholder">INSERT_GIT_COMMIT_HASH</span></code></pre>
 
-Instead of `SEMGREP_RULES`, you can configure which rules to run with Semgrep App.
+## Semgrep App token
+
+You can configure which rules to run also with Semgrep App.
 Get your token from [Semgrep App > Settings](https://semgrep.dev/manage/settings).
 
-```
-SEMGREP_APP_TOKEN=secret
-```
+<pre class="language-bash"><code>SEMGREP_APP_TOKEN=<span className="placeholder">TOKEN_VALUE</span></code></pre>
 
 ## Get hyperlinks in Semgrep App
 

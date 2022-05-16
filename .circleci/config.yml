@@ -3,11 +3,14 @@ version: 2.1
 jobs:
   test:
     docker:
-      - image: circleci/node:16
+      - image: cimg/node:16.14.2
     steps:
       - checkout
       - restore_cache:
           key: dependency-cache-{{ checksum "yarn.lock" }}
+      - run:
+          name: Install aws cli
+          command: sudo apt-get update && sudo apt-get -y -qq install awscli && aws --version
       - run:
           name: Install Deps
           command: yarn install
@@ -20,14 +23,14 @@ jobs:
           command: yarn build
   deployStaging:
     docker:
-      - image: circleci/node:16
+      - image: cimg/node:16.14.2
     steps:
       - checkout
       - restore_cache:
           key: dependency-cache-{{ checksum "yarn.lock" }}
       - run:
           name: Install aws cli
-          command: sudo apt-get -y -qq install awscli && aws --version
+          command: sudo apt-get update && sudo apt-get -y -qq install awscli && aws --version
       - run:
           name: Install Deps
           command: yarn install
@@ -39,14 +42,14 @@ jobs:
           command: aws s3 sync build/ s3://staging-semgrep-dev/docs
   deployProd:
     docker:
-      - image: circleci/node:16
+      - image: cimg/node:16.14.2
     steps:
       - checkout
       - restore_cache:
           key: dependency-cache-{{ checksum "yarn.lock" }}
       - run:
           name: Install aws cli
-          command: sudo apt-get -y -qq install awscli && aws --version
+          command: sudo apt-get update && sudo apt-get -y -qq install awscli && aws --version
       - run:
           name: Install Deps
           command: yarn install

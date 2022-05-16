@@ -10,15 +10,15 @@ Stay up to date by running the latest automatically in CI. Or use the following 
 
 Using Homebrew:
 ```sh
-$ brew upgrade semgrep
+brew upgrade semgrep
 ```
 
 Using pip:
 ```sh
-$ python3 -m pip install --upgrade semgrep
+python3 -m pip install --upgrade semgrep
 ```
 
 Using Docker:
 ```sh
-$ docker pull returntocorp/semgrep:latest
+docker pull returntocorp/semgrep:latest
 ```

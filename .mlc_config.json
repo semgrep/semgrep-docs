@@ -1,13 +1,18 @@
 {
   "ignorePatterns": [
     {
-      "pattern": "^http://localhost:"
-    }, 
-    {
-      "pattern": "^http://127.0.0.1:"
+      "pattern": "^https*://127.0.0.1"
     },
     {
-      "pattern": "^https://www.baeldung.com/" // when automated tests hit this, site returns a CAPTCHA
+      "pattern": "^http://localhost:"
+    },
+    {
+      "pattern": "https://gitlab.com/-/*"
     }
-  ]
+  ],
+  "timeout": "20s",
+  "retryOn429": true,
+  "retryCount": 2,
+  "fallbackRetryDelay": "30s",
+  "aliveStatusCodes": [200, 206, 301, 400, 429]
 }

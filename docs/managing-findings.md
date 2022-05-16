@@ -34,10 +34,14 @@ rules:
 print(1 == 1)
 ```
 
+Running Semgrep
+
+```sh
+semgrep --quiet --config test.yaml test.py
+```
 Running Semgrep produces the following findings:
 
 ```sh
-$ semgrep --quiet --config test.yaml test.py
 test.py
 severity:warning rule:finding-test: Finding test 1
 1:print(1 == 1)
@@ -64,7 +68,7 @@ These pieces of state correspond to:
 1. `index`: an index into identical findings within a file. This is used to disambiguate findings.
 
 :::info
-`syntactic context` is normalized by removing indentation, [`nosemgrep`](../ignoring-findings/#ignoring-findings-via-inline-comments) comments, and whitespace.
+`syntactic context` is normalized by removing indentation, [`nosemgrep`](../ignoring-files-folders-code/#ignoring-code-through-nosemgrep) comments, and whitespace.
 :::
 
 These are hashed and returned as the syntactic identifier: `syntactic_id`. This is how Semgrep CI uniquely identifies findings and tracks them across state transitions. Semgrep CI does not store or transmit code contents. The `syntactic context` is hashed using a one-way hashing function making it impossible to recover the original contents.
@@ -98,28 +102,5 @@ The possible transitions are defined as follows:
     Fixed issues will stay fixed even if their rule is removed.
 :::
 
-### Analytics
-
-Semgrep App provides analytics to measure Semgrep performance within your organization. Visit [Dashboard > Findings](https://semgrep.dev/manage/findings?tab=summary) and use measurements like fix rate and findings over time to get the most out of your Semgrep deployment:
-
-![Blocking vs. non-blocking findings](img/sankey-diagram.png "Blocking vs. non-blocking findings")
-
-Filter findings to drill down into specific areas:
-
-![Findings filters](img/findings-filters.png "Findings filters")
-
-View individual findings and their associated state:
-
-![Individual finding state](img/findings-table.png "Individual finding state")
-
-Track high, or low, performing policies, rulesets, and rules:
-
-![Ruleset performance](img/ruleset-findings.png "Ruleset performance")
-
-:::info
-The "rate" for any state is `(state total / total of all states)`, e.g., `fix rate = (fixed / (fixed + open + muted))`.
-:::
-
-For more information on blocking vs. non-blocking visit [Managing CI policy](../semgrep-app/managing-policy/).
 
 <MoreHelp />

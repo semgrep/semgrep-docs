@@ -23,9 +23,10 @@ module.exports = {
         target: '_self'
       },
       items: [
-        { to: 'https://semgrep.dev/explore', label: 'Rules', position: 'left', target: '_self' },
+        { to: 'https://semgrep.dev/explore', label: 'Registry', position: 'left', target: '_self' },
         { to: 'https://semgrep.dev/editor', label: 'Playground', position: 'left', target: '_self' },
-        { to: 'https://semgrep.dev/manage', label: 'Dashboard', position: 'left', target: '_self' },
+        { to: 'https://semgrep.dev/manage', label: 'App', position: 'left', target: '_self' },
+        { to: 'https://semgrep.dev/pricing', label: 'Pricing', position: 'left', target: '_self' },
         { to: 'https://semgrep.dev/docs/', label: 'Docs', position: 'left', target: '_self' },
       ],
     },
@@ -111,6 +112,7 @@ module.exports = {
     prism: {
       theme: lightCodeTheme,
       darkTheme: darkCodeTheme,
+      additionalLanguages: ['java'],
     },
     algolia: {
       apiKey: 'f53612c29d04a2ff71dce6e3b2f76752',
@@ -149,6 +151,10 @@ module.exports = {
         theme: {
           customCss: require.resolve('./src/css/custom.css'),
         },
+        googleAnalytics: {
+          trackingID: 'UA-106134149-12',
+          anonymizeIP: true,
+        },
         gtag: {
           // You can also use your "G-" Measurement ID here.
           trackingID: 'G-1851JH9FSR',
@@ -171,18 +177,20 @@ module.exports = {
         redirects: [
           { from: "/writing-rules/pattern-logic", to: "/writing-rules/rule-syntax/" },
           { from: "/writing-rules/index", to: "/writing-rules/overview/" },
-          { from: "/semgrep-ci/managing-policy", to: "/semgrep-app/managing-policy/" },
-          { from: "/managing-policy", to: "/semgrep-app/managing-policy/" },
+          { from: "/semgrep-ci/managing-policy", to: "/semgrep-app/rule-board/" },
+          { from: "/managing-policy", to: "/semgrep-app/rule-board/" },
+          { from: "/semgrep-app/managing-policy", to: "/semgrep-app/rule-board/" },
           { from: "/integrations", to: "/semgrep-app/notifications/" },
           { from: "/notifications", to: "/semgrep-app/notifications/" },
           { from: "/sso", to: "/semgrep-app/sso/" },
-          { from: "/experiments", to: "/experiments/overview/" },          
+          { from: "/experiments", to: "/experiments/overview/" },
           { from: "/upgrade", to: "/upgrading/" },
           { from: "/semgrep-ci", to: "/semgrep-ci/overview/" },
           { from: "/sample-ci-configs", to: "/semgrep-ci/sample-ci-configs/" },
           { from: "/status/", to: "/language-support/" },
-          { from: "/cli-reference/", to: "/cli-usage/" },
           { from: "/ignoring-findings/", to: "/ignoring-files-folders-code/" },
+          { from: "/experiments/join-mode/", to: "/experiments/join-mode/overview/" },
+          { from: "/providers/", to: "/semgrep-ci/overview/" }
         ]
       }
     ],
