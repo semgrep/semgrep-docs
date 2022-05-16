@@ -47,7 +47,7 @@ To find code examples used in this document, go to `docs` directory in the DeepS
 
 This section compares the possible findings of a scan across multiple files using Semgrep and DeepSemgrep. There is an `app.java` file that includes two check functions that throw exceptions. We are looking for methods that throw a particular exception, `ExampleException`. When using this rule, Semgrep matches code that throws `ExampleException` but not `BadRequest`. 
 
-<iframe title="Semgrep example no prints"src="https://semgrep.dev/embed/editor?snippet=emjin:throw-exception-example" width="100%" height="432" frameborder="0"></iframe>
+<iframe title="Semgrep example no prints"src="https://semgrep.dev/embed/editor?snippet=adamkvitek:throw-exception-example" width="100%" height="432" frameborder="0"></iframe>
 
 This rule matches code that throws `ExampleException` but not `BadRequest`. Check other files in the `docs/class_inheritance` directory. In the context of all files, you can find that this match does **not** capture the whole picture. The `BadRequest` extends `ExampleException`:
 
@@ -91,7 +91,7 @@ If you are following in the cloned [DeepSemgrep testing repository](https://gith
 
 DeepSemgrep uses interfile class inheritance information when matching [typed metavariables](https://semgrep.dev/docs/writing-rules/pattern-syntax/#typed-metavariables). Continuing the example from the previous section, see the following example file, where we have defined some exceptions and logged them:
 
-<iframe title="Semgrep example no prints" src="https://semgrep.dev/embed/editor?snippet=returntocorp:log-exception-example1-copy" width="100%" height="432" frameborder="0"></iframe>
+<iframe title="Semgrep example no prints" src="https://semgrep.dev/embed/editor?snippet=adamkvitek:log-exception-example1-copy" width="100%" height="432" frameborder="0"></iframe>
 
 The rule searches for any variable of type `ExampleException` being logged. Semgrep is **not** able to find instances of `BadRequest` being logged, unlike DeepSemgrep. Allowing typed metavariables to access information from the entire program enables users to query any variable for its type and use that information in conjunction with the rest of the code resulting in more accurate findings.
 
@@ -111,7 +111,7 @@ semgrep --config deep.yaml . --deep
 
 [Constant propagation](https://semgrep.dev/docs/writing-rules/pattern-syntax/#constants) provides a syntax for eliminating false positives in Semgrep rules. Even if a variable is set to a constant before being used in a function call several lines below, Semgrep knows that it must have that value and matches the function call. For example, this rule looks for non-constant values passed to the `dangerous` function:
 
-<iframe title="Semgrep example no prints" src="https://semgrep.dev/embed/editor?snippet=emjin:dangerous-call" width="100%" height="432" frameborder="0"></iframe>
+<iframe title="Semgrep example no prints" src="https://semgrep.dev/embed/editor?snippet=adamkvitek:dangerous-call" width="100%" height="432" frameborder="0"></iframe>
 
 Semgrep matches the first and second calls because Semgrep cannot find a constant value for either `user_input` or `EMPLOYEE_TABLE_NAME`.
 
