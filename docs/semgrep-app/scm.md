@@ -10,7 +10,7 @@ import MoreHelp from "/src/components/MoreHelp"
 
 # Integrating Semgrep into source code management (SCM) tools
 
-Semgrep App's Team tier supports repositories hosted on both **GitHub Enterprise (GHE)** and **GitLab Self Managed (GLSM)** plans. Create multiple integrations in different self-hosted or custom servers.
+Semgrep App's Team and Enterprise tiers support repositories hosted on both **GitHub Enterprise (GHE)** and **GitLab Self Managed (GLSM)** plans. Create multiple integrations in different self-hosted or custom servers.
 
 ## Prerequisites
 
@@ -55,7 +55,7 @@ Integrate Semgrep into these custom source code management (SCM) tools by follow
     <ol>
         <li>Create a personal access token (PAT) by following the steps outlined in this <a href='https://docs.gitlab.com/ee/user/profile/personal_access_tokens.html'>guide to creating a PAT</a>.</li>
         <li>Enter the personal access token generated into the Access Token field.</li>
-        <li>Enter your GLSM base URL into the **SCM Base URL** field.</li>
+        <li>Enter your GLSM base URL into the <strong>SCM Base URL</strong> field.</li>
     </ol>
 </ol>
 
