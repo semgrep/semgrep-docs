@@ -89,7 +89,7 @@ If you are following in the cloned [DeepSemgrep testing repository](https://gith
 
 ### Using class inheritance with typed metavariables
 
-DeepSemgrep uses interfile class inheritance information when matching [typed metavariables](https://semgrep.dev/docs/writing-rules/pattern-syntax/#typed-metavariables). Continuing the example from the previous section, see the following example file, which has  defined some exceptions and includes their logging:
+DeepSemgrep uses interfile class inheritance information when matching [typed metavariables](https://semgrep.dev/docs/writing-rules/pattern-syntax/#typed-metavariables). Continuing the example from the previous section, see the following example file, which has defined some exceptions and includes their logging:
 
 <iframe title="Semgrep example no prints" src="https://semgrep.dev/embed/editor?snippet=adamkvitek:log-exception-example1-copy" width="100%" height="432" frameborder="0"></iframe>
 
