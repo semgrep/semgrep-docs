@@ -102,19 +102,19 @@ The below optional fields must reside underneath a `patterns` field.
 
 The `pattern` operator looks for code matching its expression. This can be basic expressions like `$X == $X` or unwanted function calls like `hashlib.md5(...)`.
 
-<iframe src="https://semgrep.dev/embed/editor?snippet=gJo5" border="0" frameBorder="0" width="100%" height="435"></iframe>
+<iframe src="https://semgrep.dev/embed/editor?snippet=gJo5" border="0" frameBorder="0" width="100%" height="432"></iframe>
 
 ### `patterns`
 
 The `patterns` operator performs a logical AND operation on one or more child patterns. This is useful for chaining multiple patterns together that all must be true.
 
-<iframe src="https://semgrep.dev/embed/editor?snippet=Q83q" border="0" frameBorder="0" width="100%" height="435"></iframe>
+<iframe src="https://semgrep.dev/embed/editor?snippet=Q83q" border="0" frameBorder="0" width="100%" height="432"></iframe>
 
 ### `pattern-either`
 
 The `pattern-either` operator performs a logical OR operation on one or more child patterns. This is useful for chaining multiple patterns together where any may be true.
 
-<iframe src="https://semgrep.dev/embed/editor?snippet=4yX9" border="0" frameBorder="0" width="100%" height="435"></iframe>
+<iframe src="https://semgrep.dev/embed/editor?snippet=4yX9" border="0" frameBorder="0" width="100%" height="432"></iframe>
 
 This rule looks for usage of the Python standard library functions `hashlib.md5` or `hashlib.sha1`. Depending on their usage, these hashing functions are [considered insecure](https://shattered.io/).
 
@@ -126,11 +126,11 @@ The `pattern-regex` operator searches files for substrings matching the given [P
 
 The `pattern-regex` operator can be combined with other pattern operators:
 
-<iframe src="https://semgrep.dev/embed/editor?snippet=Ppvv" border="0" frameBorder="0" width="100%" height="435"></iframe>
+<iframe src="https://semgrep.dev/embed/editor?snippet=Ppvv" border="0" frameBorder="0" width="100%" height="432"></iframe>
 
 It can also be used as a standalone, top-level operator:
 
-<iframe src="https://semgrep.dev/embed/editor?snippet=J3vP" border="0" frameBorder="0" width="100%" height="435"></iframe>
+<iframe src="https://semgrep.dev/embed/editor?snippet=J3vP" border="0" frameBorder="0" width="100%" height="432"></iframe>
 
 :::info
 Single (`'`) and double (`"`) quotes [behave differently](https://docs.octoprint.org/en/master/configuration/yaml.html#scalars) in YAML syntax. Single quotes are typically preferred when using backslashes (`\`) with `pattern-regex`.
@@ -138,7 +138,7 @@ Single (`'`) and double (`"`) quotes [behave differently](https://docs.octoprint
 
 Note that if the regex uses groups, the metavariables `$1`, `$2`, etc. will be bound to the content of the captured group.
 
-<iframe src="https://semgrep.dev/embed/editor?snippet=8RkB" border="0" frameBorder="0" width="100%" height="435"></iframe>
+<iframe src="https://semgrep.dev/embed/editor?snippet=8RkB" border="0" frameBorder="0" width="100%" height="432"></iframe>
 
 ### `pattern-not-regex`
 
@@ -148,17 +148,17 @@ The syntax for this operator is the same as `pattern-regex`.
 
 This operator will filter findings that have _any overlap_ with the supplied regular expression. For example, if you use `pattern-regex` to detect `Foo==1.1.1` and it also detects `Foo-Bar==3.0.8` and `Bar-Foo==3.0.8`, you can use `pattern-not-regex` to filter the unwanted findings.
 
-<iframe src="https://semgrep.dev/embed/editor?snippet=8n5Q" border="0" frameBorder="0" width="100%" height="435"></iframe>
+<iframe src="https://semgrep.dev/embed/editor?snippet=8n5Q" border="0" frameBorder="0" width="100%" height="432"></iframe>
 
 ### `metavariable-regex`
 
 The `metavariable-regex` operator searches metavariables for a [Python `re`](https://docs.python.org/3/library/re.html#re.match) compatible expression. This is useful for filtering results based on a [metavariable’s](pattern-syntax.mdx#metavariables) value. It requires the `metavariable` and `regex` keys and can be combined with other pattern operators.
 
-<iframe src="https://semgrep.dev/embed/editor?snippet=Oyrw"  border="0" frameBorder="0" width="100%" height="435"></iframe>
+<iframe src="https://semgrep.dev/embed/editor?snippet=Oyrw"  border="0" frameBorder="0" width="100%" height="432"></iframe>
 
 Regex matching is **unanchored**. For anchored matching, use `^` for start-of-string anchoring and `$` for end-of-string anchoring. The next example, using the same expression as above but anchored, will find no matches :
 
-<iframe src="https://semgrep.dev/embed/editor?snippet=ved8"  border="0" frameBorder="0" width="100%" height="435"></iframe>
+<iframe src="https://semgrep.dev/embed/editor?snippet=ved8"  border="0" frameBorder="0" width="100%" height="432"></iframe>
 
 :::info
 Include quotes in your regular expression when using `metavariable-regex` to search string literals. See [this snippet](https://semgrep.dev/s/mschwager:include-quotes) for more details. [String matching](pattern-syntax.mdx#string-matching) functionality can also be used to search string literals.
@@ -170,7 +170,7 @@ The `metavariable-pattern` operator matches metavariables with a pattern formula
 
 For example, it can be used to filter out matches that do _not_ match certain criteria:
 
-<iframe src="https://semgrep.dev/embed/editor?snippet=DwbP" border="0" frameBorder="0" width="100%" height="435"></iframe>
+<iframe src="https://semgrep.dev/embed/editor?snippet=DwbP" border="0" frameBorder="0" width="100%" height="432"></iframe>
 
 :::info
 In this case it is possible to start a `patterns` AND operation with a `pattern-not`, because there is an implicit `pattern: ...` that matches the content of the metavariable.
@@ -178,7 +178,7 @@ In this case it is possible to start a `patterns` AND operation with a `pattern-
 
 It is also useful in combination with `pattern-either`:
 
-<iframe src="https://semgrep.dev/embed/editor?snippet=Aw88" border="0" frameBorder="0" width="100%" height="435"></iframe>
+<iframe src="https://semgrep.dev/embed/editor?snippet=Aw88" border="0" frameBorder="0" width="100%" height="432"></iframe>
 
 :::tip
 It is possible to nest `metavariable-pattern` inside `metavariable-pattern`!
@@ -194,11 +194,11 @@ If the metavariable's content is a string, then it is possible to use `metavaria
 
 For example, we can match JavaScript code inside HTML:
 
-<iframe src="https://semgrep.dev/embed/editor?snippet=z95k" border="0" frameBorder="0" width="100%" height="435"></iframe>
+<iframe src="https://semgrep.dev/embed/editor?snippet=z95k" border="0" frameBorder="0" width="100%" height="432"></iframe>
 
 We can also use this feature to filter regex matches:
 
-<iframe src="https://semgrep.dev/embed/editor?snippet=pkNk" border="0" frameBorder="0" width="100%" height="435"></iframe>
+<iframe src="https://semgrep.dev/embed/editor?snippet=pkNk" border="0" frameBorder="0" width="100%" height="432"></iframe>
 
 ### `metavariable-comparison`
 
@@ -206,13 +206,13 @@ The `metavariable-comparison` operator compares metavariables against a basic [P
 
 The `metavariable-comparison` operator is a mapping which requires the `metavariable` and `comparison` keys. It can be combined with other pattern operators:
 
-<iframe src="https://semgrep.dev/embed/editor?snippet=GWv6" border="0" frameBorder="0" width="100%" height="435"></iframe>
+<iframe src="https://semgrep.dev/embed/editor?snippet=GWv6" border="0" frameBorder="0" width="100%" height="432"></iframe>
 
 This will catch code like `set_port(80)` or `set_port(443)`, but not `set_port(8080)`.
 
 Comparison expressions support simple arithmetic as well as composition with [boolean operators](https://docs.python.org/3/reference/expressions.html#boolean-operations) to allow for more complex matching. This is particularly useful for checking that metavariables are divisible by particular values, such as enforcing that a particular value is even or odd:
 
-<iframe src="https://semgrep.dev/embed/editor?snippet=qq9R" border="0" frameBorder="0" width="100%" height="435"></iframe>
+<iframe src="https://semgrep.dev/embed/editor?snippet=qq9R" border="0" frameBorder="0" width="100%" height="432"></iframe>
 
 Building off of the previous example this will still catch code like `set_port(80)` but will no longer catch `set_port(443)` or `set_port(8080)`.
 
@@ -220,13 +220,13 @@ The `metavariable-comparison` operator also takes optional `base: int` and `stri
 
 For example, `base`:
 
-<iframe src="https://semgrep.dev/embed/editor?snippet=R8vN" border="0" frameBorder="0" width="100%" height="435"></iframe>
+<iframe src="https://semgrep.dev/embed/editor?snippet=R8vN" border="0" frameBorder="0" width="100%" height="432"></iframe>
 
 This will interpret metavariable values found in code as octal, so `0700` will be detected, but `0400` will not.
 
 For example, `strip`:
 
-<iframe src="https://semgrep.dev/embed/editor?snippet=AlqB" border="0" frameBorder="0" width="100%" height="435"></iframe>
+<iframe src="https://semgrep.dev/embed/editor?snippet=AlqB" border="0" frameBorder="0" width="100%" height="432"></iframe>
 
 This will remove quotes (`'`, `"`, and `` ` ``) from both ends of the metavariable content. So `"2147483648"` will be detected but `"2147483646"` will not. This is useful when you expect strings to contain integer or float data.
 
@@ -234,19 +234,19 @@ This will remove quotes (`'`, `"`, and `` ` ``) from both ends of the metavariab
 
 The `pattern-not` operator is the opposite of the `pattern` operator. It finds code that does not match its expression. This is useful for eliminating common false positives.
 
-<iframe src="https://semgrep.dev/embed/editor?snippet=Q83q" border="0" frameBorder="0" width="100%" height="435"></iframe>
+<iframe src="https://semgrep.dev/embed/editor?snippet=Q83q" border="0" frameBorder="0" width="100%" height="432"></iframe>
 
 ### `pattern-inside`
 
 The `pattern-inside` operator keeps matched findings that reside within its expression. This is useful for finding code inside other pieces of code like functions or if blocks.
 
-<iframe src="https://semgrep.dev/embed/editor?snippet=B4lR" border="0" frameBorder="0" width="100%" height="435"></iframe>
+<iframe src="https://semgrep.dev/embed/editor?snippet=B4lR" border="0" frameBorder="0" width="100%" height="432"></iframe>
 
 ### `pattern-not-inside`
 
 The `pattern-not-inside` operator keeps matched findings that do not reside within its expression. It is the opposite of `pattern-inside`. This is useful for finding code that’s missing a corresponding cleanup action like disconnect, close, or shutdown. It’s also useful for finding problematic code that isn't inside code that mitigates the issue.
 
-<iframe src="https://semgrep.dev/embed/editor?snippet=DJ6G" border="0" frameBorder="0" width="100%" height="435"></iframe>
+<iframe src="https://semgrep.dev/embed/editor?snippet=DJ6G" border="0" frameBorder="0" width="100%" height="432"></iframe>
 
 The above rule looks for files that are opened but never closed, possibly leading to resource exhaustion. It looks for the `open(...)` pattern _and not_ a following `close()` pattern.
 

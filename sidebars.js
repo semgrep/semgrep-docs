@@ -24,7 +24,7 @@ module.exports = {
         {
           type: 'category',
           label: 'Running rules',
-          items: ['rules', 'running-rules', 'managing-findings'],
+          items: ['running-rules', 'managing-findings'],
         },
         {
           type: 'category',
@@ -43,7 +43,7 @@ module.exports = {
             'writing-rules/private-rules'
           ],
         },
-        'cli-usage',
+        'cli-reference',
         'ignoring-files-folders-code',
         'extensions',
         'licensing',
@@ -83,7 +83,7 @@ module.exports = {
     {
       type: 'category',
       label: 'Semgrep App',
-      items: ['semgrep-app/dashboard', 'semgrep-app/rule-board', 'semgrep-app/findings', 'semgrep-app/integrations', 'semgrep-app/editor', 'semgrep-app/notifications', 'semgrep-app/sso', 'semgrep-app/rbac', 'semgrep-app/pricing-and-billing'],
+      items: ['semgrep-app/getting-started-with-semgrep-app', 'semgrep-app/dashboard', 'semgrep-app/rule-board', 'semgrep-app/findings', 'semgrep-app/integrations', 'semgrep-app/editor', 'semgrep-app/notifications', 'semgrep-app/sso', 'semgrep-app/rbac', 'semgrep-app/pricing-and-billing'],
     },
     'playground',
     {

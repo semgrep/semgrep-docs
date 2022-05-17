@@ -112,6 +112,7 @@ module.exports = {
     prism: {
       theme: lightCodeTheme,
       darkTheme: darkCodeTheme,
+      additionalLanguages: ['java'],
     },
     algolia: {
       apiKey: 'f53612c29d04a2ff71dce6e3b2f76752',
@@ -187,9 +188,9 @@ module.exports = {
           { from: "/semgrep-ci", to: "/semgrep-ci/overview/" },
           { from: "/sample-ci-configs", to: "/semgrep-ci/sample-ci-configs/" },
           { from: "/status/", to: "/language-support/" },
-          { from: "/cli-reference/", to: "/cli-usage/" },
           { from: "/ignoring-findings/", to: "/ignoring-files-folders-code/" },
           { from: "/experiments/join-mode/", to: "/experiments/join-mode/overview/" },
+          { from: "/providers/", to: "/semgrep-ci/overview/" }
         ]
       }
     ],

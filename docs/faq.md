@@ -18,7 +18,7 @@ import TOCInline from "@theme/TOCInline"
 
 ### How are Semgrep and its rules licensed?
 
-The [Semgrep command line tool](https://github.com/returntocorp/semgrep) is open-source, licensed under [GPL v3](<https://tldrlegal.com/license/gnu-general-public-license-v3-(gpl-3)>) — you can use it at work, on private and proprietary code, no problem!
+The [Semgrep command line tool](https://github.com/returntocorp/semgrep) is open-source, licensed under [LGPL 2.1](https://tldrlegal.com/license/gnu-lesser-general-public-license-v2.1-(lgpl-2.1)) — you can use it at work, on private and proprietary code, no problem!
 
 The [Semgrep Registry](https://semgrep.dev/explore) contains rules from different contributors. Most rules, including all community-contributed rules, are under [MIT license](https://tldrlegal.com/license/mit-license). Some of the Semgrep Registry rules written by r2c are licensed under the [Semgrep Registry license](../licensing/#semgrep-registry-license).
 
@@ -136,7 +136,12 @@ No. Semgrep CI runs fully in your CI pipeline and your source-code never leaves 
 
 [Semgrep](https://github.com/returntocorp/semgrep) may send data to Semgrep App in accordance with the [metrics policy](/metrics).
 
-Semgrep CI sends two types of data to r2c servers: scan data and findings data. Scan data includes project id, CI environment, and scan meta-data. Findings data are used to provide human readable content for notifications and integrations, as well tracking results as new, fixed, or duplicate. For more information and detailed description for each data field, refer to Semgrep CI [PRIVACY.md](https://github.com/returntocorp/semgrep-action/blob/develop/PRIVACY.md). 
+Configure Semgrep CI to explicitly send two types of data to Semgrep App. These types of data are scan data and findings data.
+
+- Scan data includes project name, CI environment, and scan meta-data.
+- Findings data are used to provide human-readable content for notifications and integrations, as well tracking results as new, fixed, or duplicate.
+
+For more information and a detailed description of each data field, refer to [the relevant section in PRIVACY.md](https://github.com/returntocorp/semgrep/blob/develop/PRIVACY.md#data-collected-when-explicitly-requested).
 
 ### What network requests are made?
 

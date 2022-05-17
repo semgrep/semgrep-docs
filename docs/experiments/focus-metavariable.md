@@ -18,10 +18,10 @@ This works but it matches the entire function definition. Sometimes, this is not
 
 To specify that you are only interested in the code matched by a particular metavariable, in our example `$ARG`, use `focus-metavariable`.
 
-<iframe src="https://semgrep.dev/embed/editor?snippet=4kk8" border="0" frameBorder="0" width="100%" height="435"></iframe>
+<iframe src="https://semgrep.dev/embed/editor?snippet=4kk8" border="0" frameBorder="0" width="100%" height="432"></iframe>
 
 Note that `focus-metavariable: $ARG` is not the same as `pattern: $ARG`! Using `pattern: $ARG` finds all the uses of the parameter `x` which is not what we want! (Note that `pattern: $ARG` does not match the formal parameter declaration, because in this context `$ARG` only matches expressions.)
 
-<iframe src="https://semgrep.dev/embed/editor?snippet=PPPe" border="0" frameBorder="0" width="100%" height="435"></iframe>
+<iframe src="https://semgrep.dev/embed/editor?snippet=PPPe" border="0" frameBorder="0" width="100%" height="432"></iframe>
 
 In short, `focus-metavariable: $X` is not a pattern in itself, it does not perform any matching, it only focuses the matching on the code already bound to `$X` by other patterns. Whereas `pattern: $X` matches `$X` against your code (and in this context, `$X` only matches expressions)!

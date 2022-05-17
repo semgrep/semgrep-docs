@@ -1,5 +1,6 @@
 ---
 slug: trophy-case
+hide_table_of_contents: true
 description: "This is a list of vulnerabilities found and security fixes made with Semgrep."
 ---
 
