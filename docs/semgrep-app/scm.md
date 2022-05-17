@@ -2,7 +2,7 @@
 slug: scm 
 append_help_link: true
 title: Integrating Semgrep into source code management (SCM) tools
-description: "Integrate Semgrep into self-hosted and custom SCM tools."
+description: "Integrate Semgrep into self-hosted and custom SCM tools such as GitHub Enterprise and GitLab Self Hosted."
 hide_title: true
 ---
 
@@ -10,7 +10,7 @@ import MoreHelp from "/src/components/MoreHelp"
 
 # Integrating Semgrep into source code management (SCM) tools
 
-Semgrep App's Team tier supports repositories hosted on both GitHub Enterprise (GHE) and GitLab Self Managed (GLSM) plans. Create multiple integrations in different self-hosted or custom servers.
+Semgrep App's Team tier supports repositories hosted on both **GitHub Enterprise (GHE)** and **GitLab Self Managed (GLSM)** plans. Create multiple integrations in different self-hosted or custom servers.
 
 ## Prerequisites
 
@@ -19,7 +19,7 @@ You need the following privileges and permissions to integrate Semgrep into GHE 
 * Permission to create a personal access token (PAT) for the repository to scan Semgrep on.
 * Permission to add secrets into your [GitHub](https://docs.github.com/en/actions/security-guides/encrypted-secrets) or [GitLab](https://docs.gitlab.com/ee/ci/secrets/) environments.
 
-## Integrating Semgrep into GHE and GLSM
+## Integrating Semgrep into GitHub Enterprise or GitLab Self Managed 
 
 Integrate Semgrep into these custom source code management (SCM) tools by following the steps below:
 
@@ -55,6 +55,7 @@ Integrate Semgrep into these custom source code management (SCM) tools by follow
     1. Click **Projects > Setup New Project**.
     2. Select your CI provider.
     3. Semgrep App detects repositories from your SCM integration.
+10. Add a new repository by following the steps in [Adding a project](../getting-started-with-semgrep-app/#adding-a-project).
 
 ## Additional references
 * [Semgrep's May 2022 updates: DeepSemgrep, New Playground, and Self Managed GitHub and GitLab support](https://r2c.dev/blog/2022/semgreps-may-2022-updates/)

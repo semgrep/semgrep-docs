@@ -128,7 +128,11 @@ To add a project:
     1. Create a Semgrep App token by clicking **Settings > Tokens > Create new token**, then return to the project setup by clicking on the back arrow on your browser.
     2. Add the Semgrep App token as a project [environment variable](https://circleci.com/docs/2.0/env-vars/) named `SEMGREP_APP_TOKEN`.
     3. Copy the snippet provided and commit the `circleci/config.yml` file.
-8. If successful, Semgrep App scans the repository for the first time using default, pre-selected rules.
+8. For **other CI providers**:
+    1. Create a Semgrep App token by clicking **Settings > Tokens > Create new token**, then return to the project setup by clicking on the back arrow on your browser.
+    2. Add the Semgrep App token as a project environment variable named `SEMGREP_APP_TOKEN`.
+    3. Copy the snippet provided and commit your CI provider's `config.yml` file.
+9. If successful, Semgrep App scans the repository for the first time using default, pre-selected rules.
 
 To ensure that your GitHub repository is **detected** by Semgrep App:
 
