@@ -45,11 +45,11 @@ To find code examples used in this document, go to `docs` directory in the DeepS
 
 ### Class inheritance
 
-This section compares the possible findings of a scan across multiple files using Semgrep and DeepSemgrep. The file `app.java` includes two check functions that throw exceptions. This example looks for methods that throw a particular exception, `ExampleException`. When using this rule, Semgrep matches code that throws `ExampleException` but not `BadRequest`. 
+This section compares the possible findings of a scan across multiple files using Semgrep and DeepSemgrep. The file `app.java` includes two check functions that throw exceptions. This example looks for methods that throw a particular exception, `ExampleException`.
 
 <iframe title="Semgrep example no prints"src="https://semgrep.dev/embed/editor?snippet=adamkvitek:throw-exception-example" width="100%" height="432" frameborder="0"></iframe>
 
-This rule matches code that throws `ExampleException` but not `BadRequest`. Check other files in the `docs/class_inheritance` directory. In the context of all files, you can find that this match does **not** capture the whole picture. The `BadRequest` extends `ExampleException`:
+When using this rule, Semgrep matches code that throws `ExampleException` but not `BadRequest`. Check other files in the `docs/class_inheritance` directory. In the context of all files, you can find that this match does **not** capture the whole picture. The `BadRequest` extends `ExampleException`:
 
 File `example_exception.java`:
 ```java
