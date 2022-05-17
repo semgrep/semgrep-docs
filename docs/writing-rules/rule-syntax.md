@@ -396,8 +396,9 @@ Enable/disable the following matching features:
 | `constant_propagation` | `true`  | [Constant propagation](./pattern-syntax.mdx#constants), including [intra-procedural flow-sensitive constant propagation](../data-flow/constant-propagation/). |
 | `ac_matching`          | `true`  | [Matching modulo associativity and commutativity](./pattern-syntax.mdx#associative-and-commutative-operators), we treat Boolean AND/OR as associative, and bitwise AND/OR/XOR as both associative and commutative. |
 | `commutative_boolop`   | `false` | Treat Boolean AND/OR as commutative even if not semantically accurate. |
+| `xml_attrs_implicit_ellipsis`   | `true` | XML/JSX/HTML element patterns have implicit ellipsis for attributes (e.g., `<div />` will match `<div foo="1">`. |
 
-The full list of available options can be consulted [here](https://github.com/returntocorp/semgrep/blob/develop/semgrep-core/src/core/Config_semgrep.atd). Note that options not included in the table above are considered experimental, and they may change or be removed without notice.
+The full list of available options can be consulted [here](https://github.com/returntocorp/semgrep/blob/develop/interfaces/Config_semgrep.atd). Note that options not included in the table above are considered experimental, and they may change or be removed without notice.
 
 ## `fix`
 
