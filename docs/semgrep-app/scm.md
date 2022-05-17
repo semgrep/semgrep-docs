@@ -10,7 +10,7 @@ import MoreHelp from "/src/components/MoreHelp"
 
 # Integrating Semgrep into source code management (SCM) tools
 
-Semgrep App's Team and Enterprise tiers support repositories hosted on both **GitHub Enterprise (GHE)** and **GitLab Self Managed (GLSM)** plans. Create multiple integrations in different self-hosted or custom servers.
+Semgrep App's Team and Enterprise tiers support repositories hosted on both **GitHub Enterprise (GHE)** and **GitLab Self Managed (GLSM)** plans. This feature supports all GLSM tiers (Free, Premium, or Ultimate). Create multiple integrations in different self-hosted or custom servers.
 
 ## Prerequisites
 
