@@ -89,7 +89,7 @@ If you are following in the cloned [DeepSemgrep testing repository](https://gith
 
 ### Using class inheritance with typed metavariables
 
-DeepSemgrep uses interfile class inheritance information when matching [typed metavariables](https://semgrep.dev/docs/writing-rules/pattern-syntax/#typed-metavariables). Continuing the example from the previous section, see the following example file, where we have defined some exceptions and logged them:
+DeepSemgrep uses interfile class inheritance information when matching [typed metavariables](https://semgrep.dev/docs/writing-rules/pattern-syntax/#typed-metavariables). Continuing the example from the previous section, see the following example file, which has  defined some exceptions and includes their logging:
 
 <iframe title="Semgrep example no prints" src="https://semgrep.dev/embed/editor?snippet=adamkvitek:log-exception-example1-copy" width="100%" height="432" frameborder="0"></iframe>
 
@@ -99,7 +99,7 @@ The rule searches for any variable of type `ExampleException` being logged. Semg
 For a more realistic example where typed metavariables are used, see the following [rule written by Semgrep community](https://semgrep.dev/playground/s/chegg:log4j2_tainted_argument) to find code vulnerable to the log4j vulnerability.
 :::
 
-Try to run DeepSemgrep in cloned [DeepSemgrep testing repository](https://github.com/returntocorp/deep-semgrep-tests). Go to `docs/class_inheritance_with_typed_metavariables` and run the following command:
+Try to run DeepSemgrep in the cloned [DeepSemgrep testing repository](https://github.com/returntocorp/deep-semgrep-tests). Go to `docs/class_inheritance_with_typed_metavariables` and run the following command:
 
 ```sh
 semgrep --config deep.yaml . --deep
@@ -115,7 +115,7 @@ semgrep --config deep.yaml . --deep
 
 Semgrep matches the first and second calls because Semgrep cannot find a constant value for either `user_input` or `EMPLOYEE_TABLE_NAME`.
 
-Now, let's make the example a bit more complicated to illustrate what DeepSemgrep can do. If the `EMPLOYEE_TABLE_NAME` is imported from a global constants file with the following content:
+Now consider an example a bit more complicated to illustrate what DeepSemgrep can do. If the `EMPLOYEE_TABLE_NAME` is imported from a global constants file with the following content:
 
 Global constants file:
 ```java
@@ -130,7 +130,7 @@ public final class Constants {
 
 DeepSemgrep matches the first call without any change to the rule.
 
-Try to run DeepSemgrep in cloned [DeepSemgrep testing repository](https://github.com/returntocorp/deep-semgrep-tests). Go to `docs/constant_propagation_dangerous_calls` and run the following command:
+Try to run DeepSemgrep in the cloned [DeepSemgrep testing repository](https://github.com/returntocorp/deep-semgrep-tests). Go to `docs/constant_propagation_dangerous_calls` and run the following command:
 
 ```sh
 semgrep --config deep.yaml . --deep
@@ -143,7 +143,7 @@ In the previous example, we only cared whether the string was constant or not, s
 
 With DeepSemgrep, this rule matches the last three calls to `dangerous`, since these calls are selected from the `Employees` table, though each one obtains the table name differently:
 
-Try to run DeepSemgrep in cloned [DeepSemgrep testing repository](https://github.com/returntocorp/deep-semgrep-tests). Go to `docs/constant_propagation_propagating_values` and run the following command:
+Try to run DeepSemgrep in the cloned [DeepSemgrep testing repository](https://github.com/returntocorp/deep-semgrep-tests). Go to `docs/constant_propagation_propagating_values` and run the following command:
 
 ```sh
 semgrep --config deep.yaml . --deep
@@ -161,7 +161,7 @@ Here, Semgrep matches `dangerous(“Select * from “ + user_input`), because `u
 
 DeepSemgrep matches both dangerous calls, because it does cross function boundaries. In fact, with DeepSemgrep, the taint rule can track calls to `get_user_input` over multiple jumps in multiple files. 
 
-Try to run DeepSemgrep in cloned [DeepSemgrep testing repository](https://github.com/returntocorp/deep-semgrep-tests). Go to `docs/taint_tracking` and run the following command:
+Try to run DeepSemgrep in the cloned [DeepSemgrep testing repository](https://github.com/returntocorp/deep-semgrep-tests). Go to `docs/taint_tracking` and run the following command:
 
 ```sh
 semgrep --config deep.yaml . --deep
