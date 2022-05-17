@@ -43,7 +43,8 @@ Integrate Semgrep into these custom source code management (SCM) tools by follow
 </div>
 
 6. Select your SCM provider.
-7. For **GitHub Enterprise**, follow the steps below:
+7. For **GitHub Enterprise**, follow these steps:
+
     1. Create a personal access token (PAT) by following the steps outlined in this [guide to creating a PAT](https://docs.github.com/en/enterprise-server@3.1/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token).
     2. Enter the personal access token generated into the Access Token field.
     3. Enter your GHE base URL into the SCM Base URL.
