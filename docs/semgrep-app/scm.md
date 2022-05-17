@@ -32,7 +32,7 @@ Integrate Semgrep into these custom source code management (SCM) tools by follow
 
 </div>
 
-3. Enter the name of your parent organization.
+3. Confirm the name of your organization. If the provided name is incorrect, please contact r2c at support@r2c.dev 
 4. Sign out, then sign in again to enable SCM management.
 5. Click **Settings** > **SCM management** > **Configure new SCM**.
 
