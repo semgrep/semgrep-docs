@@ -16,7 +16,7 @@ Semgrep App's Team tier supports repositories hosted on both **GitHub Enterprise
 
 You need the following permissions to integrate Semgrep into GHE or GLSM servers:
 
-* Permission to create a personal access token (PAT) for the repository to scan Semgrep on. This PAT is used to enable Semgrep App to create pull request (PR) or merge request (MR) comments.
+* Permission to create a personal access token (PAT) for the repository to scan Semgrep on. This PAT is used to enable Semgrep App to create pull request (PR) or merge request (MR) comments for findings that can be [autofixed](../notifications/#automatically-fix-your-findings-through-pull-or-merge-requests).
 * Permission to add CI/CD secrets into your [GitHub](https://docs.github.com/en/actions/security-guides/encrypted-secrets) or [GitLab](https://docs.gitlab.com/ee/ci/secrets/) environments.
 
 ## Integrating Semgrep into GitHub Enterprise or GitLab Self Managed 
