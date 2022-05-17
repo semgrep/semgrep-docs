@@ -42,21 +42,28 @@ Integrate Semgrep into these custom source code management (SCM) tools by follow
 
 </div>
 
-6. Select your SCM provider.
-7. For **GitHub Enterprise**, follow these steps:
+6. Select your SCM provider:
 
-    1. Create a personal access token (PAT) by following the steps outlined in this [guide to creating a PAT](https://docs.github.com/en/enterprise-server@3.1/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token).
-    2. Enter the personal access token generated into the Access Token field.
-    3. Enter your GHE base URL into the SCM Base URL.
-8. For **GitLab Self Managed**, follow these steps:
-    1. Create a personal access token (PAT) by following the steps outlined in this [guide to creating a PAT](https://docs.gitlab.com/ee/user/profile/personal_access_tokens.html).
-    2. Enter the personal access token generated into the Access Token field.
-    3. Enter your GLSM base URL into the **SCM Base URL** field.
-9. Ensure that your SCM integration successfully detects repositories by following the steps below:
+<ol type="A">
+    <li>For <strong>GitHub Enterprise</strong> follow these steps:</li>
+    <ol>
+        <li>Create a personal access token (PAT) by following the steps outlined in this <a href="https://docs.github.com/en/enterprise-server@3.1/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token">guide to creating a PAT</a>.</li>
+        <li>Enter the personal access token generated into the Access Token field.</li>
+        <li>Enter your GHE base URL into the SCM Base URL.</li>
+   </ol>
+    <li>For <strong>GitLab Self Managed</strong>, follow these steps:</li>
+    <ol>
+        <li>Create a personal access token (PAT) by following the steps outlined in this <a href='https://docs.gitlab.com/ee/user/profile/personal_access_tokens.html'>guide to creating a PAT</a>.</li>
+        <li>Enter the personal access token generated into the Access Token field.</li>
+        <li>Enter your GLSM base URL into the **SCM Base URL** field.</li>
+    </ol>
+</ol>
+
+7. Ensure that your SCM integration successfully detects repositories by following these steps:
     1. Click **Projects > Setup New Project**.
     2. Select your CI provider.
     3. Semgrep App detects repositories from your SCM integration.
-10. Add a new repository by following the steps in [Adding a project](../getting-started-with-semgrep-app/#adding-a-project).
+8. Add a new repository by following the steps in [Adding a project](../getting-started-with-semgrep-app/#adding-a-project).
 
 ## Additional references
 * [Semgrep's May 2022 updates: DeepSemgrep, New Playground, and Self Managed GitHub and GitLab support](https://r2c.dev/blog/2022/semgreps-may-2022-updates/)
