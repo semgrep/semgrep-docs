@@ -1,6 +1,6 @@
 ---
 slug: deepsemgrep
-description: "This document provides an overview of DeepSemgrep use cases, such as use of DeepSemgrep in type inferences, class inheritance, constant propagation, taint analysis."
+description: "This document provides an overview of DeepSemgrep use cases, such as its use in type inferences, class inheritance, constant propagation, taint analysis."
 ---
 
 # DeepSemgrep
@@ -33,11 +33,11 @@ To get and install DeepSemgrep, follow these steps:
 
 Use DeepSemgrep in the command-line with `semgrep --deep`.
 
-### Cloning DeepSemgrep testing code repository
+### Cloning the DeepSemgrep testing repository
 
-DeepSemgrep displays its full value with more files. This makes the usual embedded code that you can see in Semgrep examples not useful for demonstrating the capabilities of DeepSemgrep because embedded code from the Semgrep App only displays one rule and one test file at a time.
+DeepSemgrep’s full value is achieved when scanning with more files. Semgrep’s usual embedded code examples are not useful for demonstrating the capabilities of DeepSemgrep because embedded code from Semgrep App only displays one rule and one test file at a time.
 
-To learn by doing, use DeepSemgrep while reading this documentation. Follow this document while testing code examples in a [DeepSemgrep testing code repository](https://github.com/returntocorp/deep-semgrep-tests).
+To learn by doing, use DeepSemgrep while reading this documentation. Follow this document while testing code examples in the [DeepSemgrep testing repository](https://github.com/returntocorp/deep-semgrep-tests).
 
 To find code examples used in this document, go to `docs` directory in the DeepSemgrep testing code repository. To see the difference between findings of DeepSemgrep compared to Semgrep, in each directory under `docs` run `semgrep --config deep.yaml` (obtain Semgrep findings) and then `semgrep --config deep.yaml . --deep` (obtain DeepSemgrep findings).
 
@@ -45,7 +45,7 @@ To find code examples used in this document, go to `docs` directory in the DeepS
 
 ### Class inheritance
 
-This section compares the possible findings of a scan across multiple files using Semgrep and DeepSemgrep. There is an `app.java` file that includes two check functions that throw exceptions. We are looking for methods that throw a particular exception, `ExampleException`. When using this rule, Semgrep matches code that throws `ExampleException` but not `BadRequest`. 
+This section compares the possible findings of a scan across multiple files using Semgrep and DeepSemgrep. The file `app.java` includes two check functions that throw exceptions. This example looks for methods that throw a particular exception, `ExampleException`. When using this rule, Semgrep matches code that throws `ExampleException` but not `BadRequest`. 
 
 <iframe title="Semgrep example no prints"src="https://semgrep.dev/embed/editor?snippet=adamkvitek:throw-exception-example" width="100%" height="432" frameborder="0"></iframe>
 
