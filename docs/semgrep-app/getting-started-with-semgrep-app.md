@@ -161,7 +161,8 @@ Additional scan parameters include:
 
 <dl>
     <dt>Rule recommendation</dt>
-    <dd>Select this toggle to receive rule recommendations in the Rule Board based on the framework and language of the repository. Rule recommendations are only suggestions and will not be included in a scan unless you add the recommendation into a rule board.</dd>
+    <dd>Select this toggle to receive rule recommendations in the Rule Board based on the framework and language of the repository. Rule recommendations are only suggestions and will not be included in a scan unless you add the recommendations into a rule board.</dd>
+
     <dt>Autofix</dt>
     <dd>Select this toggle to enable autofix, which creates suggestions in addition to PR or MR comments. For example, a rule may suggest using a function such as <code>logging.debug()</code> instead of <code>print()</code>.</dd>
     <dt>Path ignores</dt>
