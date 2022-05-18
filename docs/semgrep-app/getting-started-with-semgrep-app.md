@@ -88,7 +88,6 @@ You are now signed in to Semgrep App.
 
 Semgrep requires the following permissions (scopes) in order to function:
 
-
 <dl>
     <dt>`openid`, `email`, and `profile`</dt>
     <dd>Enables authentication of a session through OpenID.</dd>
@@ -99,7 +98,6 @@ Semgrep requires the following permissions (scopes) in order to function:
 Scanning is Semgrep's primary operation. When you first sign into Semgrep App, it uses a default ruleset selected to enforce best practices for a repository's framework and programming language. Future scans may be further tuned to an organization's specific practices.
 
 Semgrep App enables users to choose what findings prevent a pull or merge request (PR or MR) from merging into the repository. Setting these blocking and non-blocking rules is achieved through the Rule Board.
-
 
 ### Adding a project
 
@@ -163,7 +161,8 @@ Additional scan parameters include:
 
 <dl>
     <dt>Rule recommendation</dt>
-    <dd>Select this toggle to receive rule recommendations in the Rule Board based on the framework and language of the repository.</dd>
+    <dd>Select this toggle to receive rule recommendations in the Rule Board based on the framework and language of the repository. Rule recommendations are only suggestions and will not be included in a scan unless you add the recommendations into a rule board.</dd>
+
     <dt>Autofix</dt>
     <dd>Select this toggle to enable autofix, which creates suggestions in addition to PR or MR comments. For example, a rule may suggest using a function such as <code>logging.debug()</code> instead of <code>print()</code>.</dd>
     <dt>Path ignores</dt>
