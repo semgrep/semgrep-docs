@@ -19,7 +19,7 @@ import TOCInline from "@theme/TOCInline"
 
 ### How are Semgrep and its rules licensed?
 
-The [Semgrep command line tool](https://github.com/returntocorp/semgrep) is open-source, licensed under [GPL v3](<https://tldrlegal.com/license/gnu-general-public-license-v3-(gpl-3)>) — you can use it at work, on private and proprietary code, no problem!
+The [Semgrep command line tool](https://github.com/returntocorp/semgrep) is open-source, licensed under [LGPL 2.1](https://tldrlegal.com/license/gnu-lesser-general-public-license-v2.1-(lgpl-2.1)) — you can use it at work, on private and proprietary code, no problem!
 
 The [Semgrep Registry](https://semgrep.dev/explore) contains rules from different contributors. Most rules, including all community-contributed rules, are under [MIT license](https://tldrlegal.com/license/mit-license). Some of the Registry rules written by r2c are licensed under the [Semgrep Registry license](../licensing/#semgrep-registry-license).
 
@@ -98,7 +98,7 @@ Both Semgrep and CodeQL use static analysis to find bugs, but there are a few di
 - Semgrep is LGPL-2.1 and free to run anywhere; CodeQL is not open source and you must pay to run it on any non-open-source code
 
 - Semgrep supports autofixes; CodeQL does not.
-- Semgrep focuses on speed and ease of use. Because it doesn’t require a buildable environment, it doesn’t have some of the analysis features like interprocedural dataflow analysis that CodeQL does. (Semgrep does have [limited intraproceedural dataflow](/writing-rules/data-flow/))
+- Semgrep focuses on speed and ease of use. Because it doesn’t require a buildable environment, it doesn’t have some of the analysis features like interprocedural dataflow analysis that CodeQL does. (Semgrep does have [limited intraproceedural dataflow](/writing-rules/data-flow/overview/))
 - Both have publicly available rules
 - Semgrep rules look like the source code you’re writing; CodeQL has a separate domain-specific-language for writing queries.
 - Semgrep has an online, hosted free plan; both have a hosted paid plan
@@ -137,7 +137,12 @@ No. Semgrep CI runs fully in your CI pipeline and your source-code never leaves 
 
 [Semgrep](https://github.com/returntocorp/semgrep) may send data to Semgrep App in accordance with the [metrics policy](/metrics).
 
-Semgrep CI sends two types of data to r2c servers: scan data and findings data. Scan data includes project id, CI environment, and scan meta-data. Findings data are used to provide human readable content for notifications and integrations, as well tracking results as new, fixed, or duplicate. For more information and detailed description for each data field, refer to Semgrep CI [PRIVACY.md](https://github.com/returntocorp/semgrep-action/blob/develop/PRIVACY.md). 
+Configure Semgrep CI to explicitly send two types of data to Semgrep App. These types of data are scan data and findings data.
+
+- Scan data includes project name, CI environment, and scan meta-data.
+- Findings data are used to provide human-readable content for notifications and integrations, as well tracking results as new, fixed, or duplicate.
+
+For more information and a detailed description of each data field, refer to [the relevant section in PRIVACY.md](https://github.com/returntocorp/semgrep/blob/develop/PRIVACY.md#data-collected-when-explicitly-requested).
 
 ### What network requests are made?
 
@@ -153,11 +158,11 @@ Semgrep CI makes network requests in accordance with the data storage mentioned 
 
 ### How do I configure Semgrep for different projects?
 
-Semgrep App provides centralized policy management. See [Managing CI policy](../semgrep-app/managing-policy/) for more details.
+Semgrep App provides centralized policy management. See the [Rule Board](../semgrep-app/rule-board/) for more details.
 
 ### What is a policy?
 
-A policy is a simple collection of rules and a definition of what to do with rule results: fail the Semgrep CI run and/or send non-blocking notifications to third-party services like Slack. Please see [Managing CI policy](../semgrep-app/managing-policy/) for more details.
+A policy is a simple collection of rules and a definition of what to do with rule results: fail the Semgrep CI run and/or send non-blocking notifications to third-party services like Slack. Please see the [Rule Board](../semgrep-app/rule-board/) for more details.
 
 ## Monitoring
 

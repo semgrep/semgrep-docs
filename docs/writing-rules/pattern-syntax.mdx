@@ -121,7 +121,7 @@ The YAML `|` operator allows for [multiline strings](https://yaml-multiline.info
 The ellipsis operator can also be used for the function name. Indeed,
 In some cases, you may want to match any function definitions:
 regular functions, methods, but also anonymous functions (a.k.a. lambdas).
-In that case you can use ellipsis in place of the name of the function
+In that case you can use an ellipsis in place of the name of the function
 to match named or anonymous functions. For example,
 in Javascript the pattern `function ...($X) { ... }` will
 match any function with one parameter:
@@ -456,7 +456,7 @@ Since matching happens within a single file, this is only guaranteed to work for
 
 ### Ellipsis Metavariables
 
-You can combine ellipsis and metavariables to match a sequence
+You can combine ellipses and metavariables to match a sequence
 of arguments and store the matched sequence in a metavariable.
 For example the pattern `foo($...ARGS, 3, $...ARGS)` will
 match:

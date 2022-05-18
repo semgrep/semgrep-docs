@@ -15,19 +15,20 @@ import MoreHelp from "/src/components/MoreHelp"
 
 <!-- coupling: if you modify this table, copy paste it also in index.md -->
 <!-- coupling: should match what is in semgrep-core/tests/Test.ml Maturity level testing -->
+<!-- for readability, please keep each column in alphabetical order -->
 | GA ✅      | Beta 🐛                     | Experimental 🚧            |
 |:---------- |:---------------------------|:---------------------------|
 | C#         | Kotlin                     | Bash                       |
 | Go         | Terraform                  | C                          |
-| Java       | Scala                      | C++                        |
+| Java       |                            | C++                        |
 | JavaScript |                            | Dockerfile                 |
 | JSON       |                            | Hack                       |
 | JSX        |                            | Lua                        |
 | Python     |                            | OCaml                      |
 | Ruby       |                            | PHP                        |
-| TypeScript |                            | Rust                       |
+| Scala      |                            | Rust                       |
 | TSX        |                            | Solidity                   |
-|            |                            | YAML                       |
+| TypeScript |                            | YAML                       |
 |            |                            | Generic (ERB, Jinja, etc.) |
 
 ## Support expectations
@@ -94,7 +95,6 @@ The following thresholds define each maturity level:
         * `deep_expr_operator`
         * `dots_method_chaining`
         * `equivalence_constant_propagation`
-        * `equivalence_eq`
         * `equivalence_naming_import` (language dependent)
         * `metavar_anno` (language dependent)
         * `metavar_key_value`
@@ -103,7 +103,7 @@ The following thresholds define each maturity level:
 
 Visit the cheat sheet generation script and associated semgrep-core test files to learn more about each feature:
 
-* [generation script](https://github.com/returntocorp/semgrep/blob/develop/scripts/generate_test_matrix.py)
+* [generation script](https://github.com/returntocorp/semgrep/blob/develop/scripts/generate_cheatsheet.py)
 * [semgrep-core test files](https://github.com/returntocorp/semgrep/tree/develop/semgrep-core/tests)
 ## Language parse rates
 

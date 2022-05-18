@@ -8,9 +8,7 @@ import MoreHelp from "/src/components/MoreHelp"
 
 # Sample CI configurations
 
-The sample configuration files below
-run [Semgrep CI](https://github.com/returntocorp/semgrep-action)
-on various continuous integration providers.
+The sample configuration files below run Semgrep CI on various continuous integration providers.
 
 ## GitHub Actions
 
@@ -34,45 +32,64 @@ jobs:
   semgrep:
     name: Scan
     runs-on: ubuntu-latest
+    container:
+      image: returntocorp/semgrep
     # Skip any PR created by dependabot to avoid permission issues
     if: (github.actor != 'dependabot[bot]')
     steps:
       # Fetch project source
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
 
-      - uses: returntocorp/semgrep-action@v1
-        with:
-          config: >- # more at semgrep.dev/explore
+      - run: semgrep ci
+        env:
+          # Select rules for your scan with one of these two options.
+          # Option 1: set hard-coded rulesets
+          SEMGREP_RULES: >- # more at semgrep.dev/r
             p/security-audit
             p/secrets
-
-        # == Optional settings in the `with:` block
-
-        # Instead of `config:`, use rules set in Semgrep App.
-        # Get your token from semgrep.dev/manage/settings.
-        #   publishToken: ${{ secrets.SEMGREP_APP_TOKEN }}
-
-        # Never fail the build due to findings on pushes.
-        # Instead, just collect findings for semgrep.dev/manage/findings
-        #   auditOn: push
-
-        # Upload findings to GitHub Advanced Security Dashboard [step 1/2]
-        # See also the next step.
-        #   generateSarif: "1"
-
-        # Change job timeout (default is 1800 seconds; set to 0 to disable)
-        # env:
-        #   SEMGREP_TIMEOUT: 300
-
-      # Upload findings to GitHub Advanced Security Dashboard [step 2/2]
-      # - name: Upload SARIF file for GitHub Advanced Security Dashboard
-      #   uses: github/codeql-action/upload-sarif@v1
-      #   with:
-      #     sarif_file: semgrep.sarif
-      #   if: always()
+          # Option 2: scan with rules set in Semgrep App's rule board
+          # SEMGREP_APP_TOKEN: ${{ secrets.SEMGREP_APP_TOKEN }}
 ```
 
-**Feature support**
+<details><summary>Alternate job that uploads findings to GitHub Advanced Security Dashboard</summary>
+<p>
+
+```yaml
+name: Semgrep
+on:
+  pull_request: {}
+jobs:
+  semgrep:
+    name: Scan
+    runs-on: ubuntu-latest
+    container:
+      image: returntocorp/semgrep
+    steps:
+      - uses: actions/checkout@v3
+
+      # Select rules for your scan with one of these two options.
+      # Option 1: set hard-coded rulesets
+      - run: semgrep scan --sarif --output=semgrep.sarif
+        env:
+          SEMGREP_RULES: >- # more at semgrep.dev/r
+            p/security-audit
+            p/secrets
+      # Option 2: scan with rules set in Semgrep App's rule board
+      # - run: semgrep scan --sarif --output=semgrep.sarif --config=policy
+      #   env:
+      #     SEMGREP_APP_TOKEN: ${{ secrets.SEMGREP_APP_TOKEN }}
+
+      - name: Upload SARIF file for GitHub Advanced Security Dashboard
+        uses: github/codeql-action/upload-sarif@v2
+        with:
+          sarif_file: semgrep.sarif
+        if: always()
+```
+
+</p>
+</details>
+
+### Feature support
 
 | Feature | Status |
 | --- | --- |
@@ -86,8 +103,8 @@ jobs:
 
 ```yaml
 semgrep:
-  image: returntocorp/semgrep-agent:v1
-  script: semgrep-agent
+  image: returntocorp/semgrep
+  script: semgrep ci
 
   rules:
   # Scan changed files in MRs, block on new issues only (existing issues ignored)
@@ -122,13 +139,13 @@ semgrep:
   #   SEMGREP_TIMEOUT: 300
 
   # Upload findings to GitLab SAST Dashboard (remove `script:` line above) [step 2/2]
-  # script: semgrep-agent --gitlab-json > gl-sast-report.json || true
+  # script: semgrep ci --gitlab-sast > gl-sast-report.json || true
   # artifacts:
   #   reports:
   #     sast: gl-sast-report.json
 ```
 
-**Feature support**
+### Feature support
 
 | Feature | Status |
 | --- | --- |
@@ -144,62 +161,32 @@ Use webhooks and the below snippet to integrate with GitHub.
 
 ```Groovy
 pipeline {
-  agent {
-    kubernetes {
-      yaml """
-        apiVersion: v1
-        kind: Pod
-        spec:
-          containers:
-          - name: semgrep
-            image: 'returntocorp/semgrep-agent:v1'
-            command:
-            - cat
-            tty: true
-        """
-      defaultContainer 'semgrep'
-    }
-  }
+  agent any
+    // environment {
+      // SEMGREP_BASELINE_REF = "main"
 
-environment {
-    SEMGREP_RULES = "p/security-audit p/secrets" // more at semgrep.dev/explore
-    SEMGREP_BASELINE_REF = "origin/${env.CHANGE_TARGET}"
+      // SEMGREP_APP_TOKEN = credentials('SEMGREP_APP_TOKEN')
+      // SEMGREP_REPO_URL = env.GIT_URL.replaceFirst(/^(.*).git$/,'$1')
+      // SEMGREP_BRANCH = "${GIT_BRANCH}"
+      // SEMGREP_JOB_URL = "${BUILD_URL}"
+      // SEMGREP_REPO_NAME = env.GIT_URL.replaceFirst(/^https:\/\/github.com\/(.*).git$/, '$1')
+      // SEMGREP_COMMIT = "${GIT_COMMIT}"
+      // SEMGREP_PR_ID = "${env.CHANGE_ID}"
 
-    // == Optional settings in the `environment {}` block
-
-    // Instead of `SEMGREP_RULES:`, use rules set in Semgrep App.
-    // Get your token from semgrep.dev/manage/settings.
-    //   SEMGREP_APP_TOKEN: credentials('SEMGREP_APP_TOKEN')
-    //   SEMGREP_REPO_URL = env.GIT_URL.replaceFirst(/^(.*).git$/,'$1')
-    //   SEMGREP_BRANCH = "${CHANGE_BRANCH}"
-    //   SEMGREP_JOB_URL = "${BUILD_URL}"
-    //   SEMGREP_REPO_NAME = env.GIT_URL.replaceFirst(/^https:\/\/github.com\/(.*).git$/, '$1')
-    //   SEMGREP_COMMIT = "${GIT_COMMIT}"
-    //   SEMGREP_PR_ID = "${env.CHANGE_ID}"
-
-    // Never fail the build due to findings.
-    // Instead, just collect findings for semgrep.dev/manage/findings
-    //   SEMGREP_AUDIT_ON = "unknown"
-
-    // Change job timeout (default is 1800 seconds; set to 0 to disable)
-    //   SEMGREP_TIMEOUT = "300"
-  }
-
-  stages {
-    stage('Semgrep_agent') {
-      when {
-        // Scan changed files in PRs, block on new issues only (existing issues ignored)
-        expression { env.CHANGE_ID && env.BRANCH_NAME.startsWith("PR-") }
-      }
-      steps {
-        sh 'git fetch origin ${SEMGREP_BASELINE_REF#origin/} && semgrep-agent'
+      // SEMGREP_TIMEOUT = "300"
+    // }
+    stages {
+      stage('Semgrep-Scan') {
+        steps {
+          sh 'pip3 install semgrep'
+          sh 'semgrep ci --config auto'
       }
     }
   }
 }
 ```
 
-**Feature support**
+### Feature support
 
 | Feature | Status |
 | --- | --- |
@@ -213,10 +200,10 @@ environment {
 
 ```yaml
 - label: ":semgrep: Semgrep"
-  command: semgrep-agent
+  command: semgrep ci
   plugins:
     - docker#v3.7.0:
-        image: returntocorp/semgrep-agent:v1
+        image: returntocorp/semgrep
         workdir: /<org_name>/<repo_name>
         environment:
           - "SEMGREP_RULES=p/security-audit p/secrets" # more at semgrep.dev/explore
@@ -239,7 +226,7 @@ environment {
         #   - "SEMGREP_TIMEOUT=300"
 ```
 
-**Feature support**
+### Feature support
 
 | Feature | Status |
 | --- | --- |
@@ -287,19 +274,53 @@ jobs:
     #   SEMGREP_TIMEOUT: 300
 
     docker:
-      - image: returntocorp/semgrep-agent:v1
+      - image: returntocorp/semgrep
     steps:
       - checkout
       - run:
           name: "Semgrep scan"
-          command: semgrep-agent
+          command: semgrep ci
 workflows:
   main:
     jobs:
       - semgrep-scan
 ```
 
-**Feature support**
+### Feature support
+
+| Feature | Status |
+| --- | --- |
+| **diff-aware scanning** | ✅ [configure manually](configuration-reference.md#diff-aware-scanning-semgrep_baseline_ref) |
+| **hyperlinks in Semgrep App** | ✅ [configure manually](configuration-reference.md#get-hyperlinks-in-semgrep-cloud) |
+| **results in native dashboard** | 💢 not applicable |
+| **results in pull request comments** | ✅ [sign up for Semgrep App free](https://semgrep.dev/login) |
+| **automatic CI setup** | ❌ not available |
+
+## Bitbucket
+
+```yaml
+image: atlassian/default-image:latest
+
+pipelines:
+  default:
+    - parallel:
+      - step:
+          name: 'Run Semgrep scan with current branch'
+          deployment: dev
+          image: returntocorp/semgrep
+          script:
+            # Set SEMGREP Variables
+            # - export SEMGREP_REPO_URL=$BITBUCKET_GIT_HTTP_ORIGIN
+            # - export SEMGREP_REPO_NAME=$BITBUCKET_REPO_FULL_NAME
+            # - export SEMGREP_BRANCH=$BITBUCKET_BRANCH
+            # - export SEMGREP_JOB_URL="${SEMGREP_REPO_URL}/addon/pipelines/home#!/results/${BITBUCKET_PIPELINE_UUID}"
+            # - export SEMGREP_COMMIT=$BITBUCKET_COMMIT
+            # - export SEMGREP_PR_ID=$BITBUCKET_PR_ID
+            # - export $SEMGREP_APP_TOKEN
+            - semgrep ci --config auto
+```
+
+### Feature support
 
 | Feature | Status |
 | --- | --- |
@@ -311,24 +332,21 @@ workflows:
 
 ## Other providers
 
-To run Semgrep CI on any other provider,
-use the `returntocorp/semgrep-agent:v1` Docker image,
-and run the `semgrep-agent` command.
+To run Semgrep CI on any other provider, use the `returntocorp/semgrep` image, and run the `semgrep ci` command.
 
-Using the [configuration reference](../configuration-reference/),
-you can run Semgrep in the following CI providers:
+**Note**: If you need to use a different image than docker, install Semgrep CI by `pip install semgrep`.
+
+Using the [configuration reference](../configuration-reference/), you can run Semgrep in the following CI providers:
 
 - AppVeyor
 - Bamboo
-- Bitbucket Pipelines
+- Bitbucket Pipelines [(sample configuration)](#bitbucket)
 - Bitrise
 - Buildbot
 - Buildkite [(sample configuration)](#buildkite)
 - CircleCI [(sample configuration)](#circleci)
 - Codeship
 - Codefresh
-- GitHub Actions [(sample configuration)](#github-actions)
-- GitLab CI [(sample configuration)](#gitlab-ci)
 - Jenkins [(sample configuration)](#jenkins)
 - TeamCity CI
 - Travis CI

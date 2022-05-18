@@ -39,7 +39,7 @@ module.exports = {
         {
           type: 'category',
           label: 'Running rules',
-          items: ['rules', 'running-rules', 'managing-findings'],
+          items: ['running-rules', 'managing-findings'],
         },
         {
           type: 'category',
@@ -58,7 +58,7 @@ module.exports = {
             'writing-rules/private-rules'
           ],
         },
-        'cli-usage',
+        'cli-reference',
         'ignoring-files-folders-code',
         'extensions',
         'licensing',
@@ -67,7 +67,25 @@ module.exports = {
         {
           type: 'category',
           label: 'Experiments 🧪',
-          items: ['experiments/overview', 'experiments/generic-pattern-matching', 'experiments/join-mode', 'experiments/project-depends-on', 'experiments/symbolic-propagation','experiments/metavariable-analysis']
+          items: [
+            'experiments/overview',
+            'experiments/generic-pattern-matching',
+            { type: 'category',
+              label: 'Join mode',
+              items: [
+                {
+                  type: 'doc',
+                  label: 'Overview',
+                  id: 'experiments/join-mode/overview'
+                },
+                'experiments/join-mode/recursive-joins'
+              ]
+            },
+            'experiments/project-depends-on',
+            'experiments/symbolic-propagation',
+            'experiments/metavariable-analysis',
+            'experiments/focus-metavariable'
+          ]
         },
         'upgrading'
       ],
@@ -79,11 +97,12 @@ module.exports = {
       items: ['semgrep-ci/overview', 'semgrep-ci/configuration-reference', 'semgrep-ci/sample-ci-configs']
     },
     {
-      type: 'category',
       label: 'SEMGREP APP',
-      items: ['semgrep-app/dashboard', 'semgrep-app/rule-board', 'semgrep-app/managing-policy', 'semgrep-app/findings', 'semgrep-app/integrations', 'semgrep-app/editor', 'semgrep-app/notifications', 'semgrep-app/sso', 'semgrep-app/rbac', 'semgrep-app/pricing-and-billing'],
+      type: 'category',
+      items: ['semgrep-app/getting-started-with-semgrep-app', 'semgrep-app/scm', 'semgrep-app/dashboard', 'semgrep-app/rule-board', 'semgrep-app/findings', 'semgrep-app/integrations', 'semgrep-app/editor', 'semgrep-app/notifications', 'semgrep-app/sso', 'semgrep-app/rbac', 'semgrep-app/pricing-and-billing'],
     },
     'playground',
+    'deepsemgrep',
     {
       type: 'category',
       label: 'Troubleshooting',

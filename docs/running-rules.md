@@ -7,7 +7,17 @@ import MoreHelp from "/src/components/MoreHelp"
 
 # Running rules
 
-Existing and custom Semgrep rules can be run locally with the Semrgep command line tool or continuously with Semgrep CI. See [Getting started](../getting-started/) for their respective installation and setup.
+## Introduction
+
+Rules are specific patterns based on which Semgrep reports findings in code. These findings may help you to catch issues of security, performance, correctness, and other bugs. Rules are stored in open-source Semgrep Registry that enables you to scan code without need to write anything custom.
+
+Contribute to the registry by writing your own rules and adding them to the <a href="https://github.com/returntocorp/semgrep-rules" target="_blank">Semgrep rules repository</a>.
+
+<div className="lang-container" style={{marginBottom: '20px'}}>
+  <iframe width="900" height="400" frameBorder="0" src="https://dashboard.semgrep.dev/metric/semgrep-rules.num/graph"></iframe>
+</div>
+
+You can run existing and custom Semgrep rules locally with the Semrgep command line tool or continuously with Semgrep CI. See [Getting started](../getting-started/) for their respective installation and setup.
 
 ## Run Registry rules
 

@@ -12,7 +12,7 @@ Semgrep supports intra-procedural constant propagation. This analysis tracks whe
 
 For example:
 
-<iframe src="https://semgrep.dev/embed/editor?snippet=Gw7z" border="0" frameBorder="0" width="100%" height="435"></iframe>
+<iframe src="https://semgrep.dev/embed/editor?snippet=Gw7z" border="0" frameBorder="0" width="100%" height="432"></iframe>
 
 `metavariable-comparison`
 -------------------------
@@ -21,7 +21,7 @@ Using constant propagation, the [`metavariable-comparison`](../../rule-syntax/#m
 
 For example:
 
-<iframe src="https://semgrep.dev/embed/editor?snippet=Dyzd" border="0" frameBorder="0" width="100%" height="435"></iframe>
+<iframe src="https://semgrep.dev/embed/editor?snippet=Dyzd" border="0" frameBorder="0" width="100%" height="432"></iframe>
 
 Mutable objects
 ---------------
@@ -30,7 +30,7 @@ In general, Semgrep assumes that constant objects are immutable and they will no
 
 The only exceptions (for now) are method calls whose returning value is being ignored. In those cases, Semgrep assumes that the method call may be mutating the callee object. This helps reducing false positives in Ruby, for example:
 
-<iframe src="https://semgrep.dev/embed/editor?snippet=08yB" border="0" frameBorder="0" width="100%" height="435"></iframe>
+<iframe src="https://semgrep.dev/embed/editor?snippet=08yB" border="0" frameBorder="0" width="100%" height="432"></iframe>
 
 
 Disabling constant propagation
@@ -38,4 +38,4 @@ Disabling constant propagation
 
 It is possible to disable constant propagation in a per-rule basis via rule [`options:`](../rule-syntax.md#options) by setting `constant_propagtion: false`.
 
-<iframe src="https://semgrep.dev/embed/editor?snippet=jwvn" border="0" frameBorder="0" width="100%" height="435"></iframe>
+<iframe src="https://semgrep.dev/embed/editor?snippet=jwvn" border="0" frameBorder="0" width="100%" height="432"></iframe>

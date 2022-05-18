@@ -114,11 +114,7 @@ You can always run `semgrep` from `semgrep/semgrep/`, which will use your latest
 pipenv install --dev
 ```
 
-Some people have encountered difficulties with the above. If it fails, you can also try (within the `semgrep/semgrep/` directory)
-
-```
-sudo pip install -e .
-```
+Some people have encountered difficulties with the above. If it fails, you can reach out to the [`semgrep` team on Slack](https://r2c.dev/slack).
 
 If you have an M1 Mac, this may install the incorrect executable. You can run this instead
 ```

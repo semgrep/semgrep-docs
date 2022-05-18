@@ -27,6 +27,9 @@ Semgrep by default runs entirely locally (unless you set it up yourself in a ser
 1. **Run anywhere**<br/>
 Semgrep is small (<100MB), has minimal runtime dependencies, and should be easily installable via your programming language or operating system package manager. 
 
+1. **Keep easy things easy, and hard things possible.**<br/>
+Using Semgrep to scan your code, and writing rules with which to scan, should be easy. Semgrep also smooths the process with delightful defaults and support every step of the way. But it’s also adaptable, and we welcome you using Semgrep in your own custom way. Hey, there are even [examples of scanning cat pictures out there](https://youtu.be/ybWB2Vf2V50?t=1182).
+
 1. **Beginner-friendly**<br/>
 You shouldn’t need a PhD in program analysis, or even to understand what an AST is, in order to be effective with Semgrep. A novice programmer should be able to write their first Semgrep rule in 60 seconds.
 
@@ -43,11 +46,11 @@ Given the same input, Semgrep gives the same output.
 Semgrep can run without internet access so developers can write code from airplanes or beaches.
 
 1. **Rules are safe to run no matter where they came from**<br/>
-Rules shouldn’t have the capability to run arbitrary code on your system, only to act as a function that produces a deterministic output message. We may let the user explicitly violate this trust boundary through flags like —dangerously-run-rules.
+Rules shouldn’t have the capability to run arbitrary code on your system, only to act as a function that produces a deterministic output message.
 
 1. **Single-file analysis**<br/>
 To stay fast and limit complexity, we draw a line at crossing file boundaries during analysis. We lose the ability to detect certain complex interprocedural issues, but that’s an explicit tradeoff we make.<br/><br/>
-Our goal is to catch what a senior engineer would catch in code review: Semgrep isn’t designed to find a crazy issue that’s 300 calls from start to finish and evaded the team for 20 years. Instead, it’s designed for enforcing best-practices and automating the code review tasks that an excellent senior engineer would be capable of.<br/><br/>
+Our goal is to catch what a senior engineer would catch in code review: Semgrep isn’t designed to find a crazy issue that’s 300 calls from start to finish and evaded the team for 20 years. Instead, it’s designed for enforcing best-practices and automating the code review tasks that an excellent senior engineer would be capable of. For a discussion of why expressive creativity is better than a powerful engine, [see this excellent blog post by Devdatta Akhawe](https://devd.me/log/posts/static-analysis/).<br/><br/>
 As a corollary: if you design your codebase so that code in a file is safe today, it's still safe after a colleague makes a change twenty function calls away in another file.
 
 1. **Designed to run while code is being written**<br/>
