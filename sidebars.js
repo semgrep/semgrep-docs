@@ -32,7 +32,8 @@ module.exports = {
     },
     {
       type: 'category',
-      label: 'Semgrep',
+      label: 'SEMGREP FEATURES',
+      collapsed: false,
       items: [
         'getting-started',
         {
@@ -73,12 +74,13 @@ module.exports = {
     },
     {
       type: 'category',
-      label: 'Semgrep CI',
-      items: ['semgrep-ci/overview', 'semgrep-ci/configuration-reference', 'semgrep-ci/sample-ci-configs'],
+      label: 'SEMGREP CI',
+      collapsed: false,
+      items: ['semgrep-ci/overview', 'semgrep-ci/configuration-reference', 'semgrep-ci/sample-ci-configs']
     },
     {
       type: 'category',
-      label: 'Semgrep App',
+      label: 'SEMGREP APP',
       items: ['semgrep-app/dashboard', 'semgrep-app/rule-board', 'semgrep-app/managing-policy', 'semgrep-app/findings', 'semgrep-app/integrations', 'semgrep-app/editor', 'semgrep-app/notifications', 'semgrep-app/sso', 'semgrep-app/rbac', 'semgrep-app/pricing-and-billing'],
     },
     'playground',

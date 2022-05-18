@@ -197,7 +197,8 @@ li.menu__list-item a:hover {
   color: rgb(198, 200, 204);
 }
 
-.theme-doc-sidebar-item-category-level-1 .menu__link--sublist {
-    color: red;
-    font-size: 0.5em;
+.theme-doc-sidebar-item-category-level-1 > .menu__list-item-collapsible > a.menu__link--sublist {
+    color: purple;
+    font-size: 0.7em;
+    font-weight: 600;
 }
