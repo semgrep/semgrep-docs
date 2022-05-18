@@ -27,7 +27,7 @@ To create private rules, use the [Semgrep CLI](../getting-started.md) to run the
     semgrep publish myrules/
     ```
 
-If the directory contains test cases for the rules, Semgrep uploads them as well (see [testing Semgrep rules](../writing-rules/testing-rules)).
+If the directory contains test cases for the rules, Semgrep uploads them as well (see [testing Semgrep rules](../../writing-rules/testing-rules)).
 
 You can also change the visibility of the rules. For instance, to publish the rules as unlisted (which does not require authentication but will not be displayed in the public registry):
 
@@ -72,7 +72,7 @@ This section provides a sample of GitHub Actions workflow to automatically publi
             path: semgrep-rules
         - name: publish private semgrep rules
           run: |
-            docker run --env SEMGREP_APP_TOKEN=$SEMGREP_APP_TOKEN --rm -v ${GITHUB_WORKSPACE}/semgrep-rules:/src returntocorp/semgrep:develop publish --visibility=org_private /src/private_rule_dir
+            docker run --env SEMGREP_APP_TOKEN=$SEMGREP_APP_TOKEN --rm -v ${GITHUB_WORKSPACE}/semgrep-rules:/src returntocorp/semgrep:develop semgrep publish --visibility=org_private /src/private_rule_dir
           env:
             SEMGREP_APP_TOKEN: ${{ secrets.SEMGREP_APP_TOKEN }}
     ```

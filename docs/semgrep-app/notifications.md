@@ -45,15 +45,14 @@ To receive email notifications about Semgrep findings on pull requests and code 
 
 On each scan that has at least one finding, you will receive one email from Semgrep with a summary of all of the findings from that scan.
 
-### GitHub pull request comments
+### Enabling GitHub pull request comments
 
-Pull request comments are left when
+Pull request comments are created when:
 
-1. Semgrep finds a result in CI, and
-2. [the CI policy has pull request comments enabled](managing-policy.md#changing-policy-actions)
-3. the Semgrep GitHub App has been granted permissions to post inline PR comments.
+1. Semgrep finds a result in CI.
+2. The Semgrep GitHub App has permissions to post inline PR comments.
 
-Automated comments on GitHub pull requests look like this:
+Automated comments on GitHub pull requests are displayed as follows:
 
 ![Screenshot of a GitHub PR comment](../img/semgrep-pull-request.png)
 <br />
@@ -67,33 +66,31 @@ If you are using GitHub Actions to run Semgrep, no extra changes are needed to g
 - `SEMGREP_REPO_NAME` is set to the repo name (for example, `returntocorp/semgrep`)
 - `SEMGREP_REPO_URL` is set to the repository URL where your project is viewable online (for example, `https://github.com/returntocorp/semgrep`)
 
-### GitLab merge request comments
+### Enabling GitLab merge request comments
 
-Merge request comments are currently supported for gitlab.com users only.
+This section documents how to enable Semgrep App to post comments on merge requests.
 
-Automated comments on GitLab merge requests look like this:
+Automated comments on GitLab merge requests are displayed as follows:
 
 <img width="600" src="/docs/img/gitlab-mr-comment.png" alt="Screenshot of a GitLab MR comment" /><br />
 An inline GitLab merge request comment left by a custom Semgrep rule
 
 To enable MR comments:
 
-1. Log into Semgrep's [Dashboard > Settings](https://semgrep.dev/manage/settings) to obtain your deployment ID and an API token.
-2. Examine your policy settings by navigating to your [policy settings](https://semgrep.dev/manage/policies/starter-policy?tab=settings). Make sure that PR comments are enabled (MR comments and PR comments are enabled by the same toggle switch).
-3. Create an API token on gitlab.com by going to [Profile > Access Tokens](https://gitlab.com/-/profile/personal_access_tokens) and adding a token with `api` scope.
-4. Copy the token that GitLab gives you.
-5. Navigate to your repository's Settings > CI/CD, scroll down to 'Variables', and click 'Expand'. The url will end with something like: /username/project/-/settings/ci_cd.
-6. Click to 'Add variable', give the new variable the key `PAT` and use the token you copied in step 2 as the value. Select "mask variable" and **UNSELECT "protect variable"**.
-7. Update your .gitlab-ci.yml to pass the content of your PAT in through the environment variable `GITLAB_TOKEN`.
+1. Log into Semgrep's [Settings](https://semgrep.dev/manage/settings) to obtain your deployment ID and an API token.
+2. Create an API token in GitLab by going to [Profile > Access Tokens](https://gitlab.com/-/profile/personal_access_tokens) and adding a token with `api` scope.
+3. Copy the token created in the previous step.
+4. Navigate to your repository's Settings > CI/CD, scroll down to 'Variables', and click 'Expand'. The URL of the page where you are ends with: /username/project/-/settings/ci_cd.
+5. Click to **Add variable**, give the new variable the key `PAT` and use the token you copied in step 3 as the value. And then, select **mask variable** and **UNSELECT "protect variable"**.
+6. Update your .gitlab-ci.yml file with variable `GITLAB_TOKEN` and value `$PAT`. See the example code below for details:
 
 For example:
 ```yaml
 semgrep:
-  image: returntocorp/semgrep-agent:v1
+  image: returntocorp/semgrep
   script:
-    # SEMGREP_APP_TOKEN can be obtained from semgrep.dev/manage/settings.
-    # The SEMGREP_APP_TOKEN should be treated like a secret and not hard-coded into your code.
-    - semgrep-agent --publish-token $SEMGREP_APP_TOKEN
+   # Semgrep retrieves the SEMGREP_APP_TOKEN environment variable if you set it on the GitLab web user interface
+    - semgrep ci
   rules:
   # Scan changed files in MRs, block on new issues only (existing issues ignored)
   - if: $CI_MERGE_REQUEST_IID
@@ -101,11 +98,8 @@ semgrep:
   # - if: $CI_COMMIT_BRANCH == $CI_DEFAULT_BRANCH
 
   variables:
-    SEMGREP_AGENT_DEBUG: 1
-    # Gives Semgrep permission to post inline comments
     GITLAB_TOKEN: $PAT
 ```
-
 
 NOTE: GitLab MR comments are only available to logged-in semgrep.dev users, as they require a Semgrep API token.
 
@@ -117,7 +111,6 @@ Autofix is free to use for all tiers.
 
 In the following screenshot, Semgrep detects the use of a native Python XML library, which is vulnerable to XML external entity (XXE) attacks. The PR comment automatically suggests a fix by replacing `import xml` to `import defusedxml`.
 
-
 ![Screenshot of a sample autofix PR suggestion](../img/notifications-github-suggestions.png)
 
 
@@ -127,13 +120,13 @@ Autofix requires PR or MR comments to be enabled for your repository or organiza
 
 To enable autofix:
 
-2. Sign in to your [Semgrep App account](https://semgrep.dev/login).
-3. Click **Projects** from the **App sidebar**.
-4. Click the name of the project to enable autofix for.
-5. Click the toggle for **Autofix (beta)**.
+1. Sign in to your [Semgrep App account](https://semgrep.dev/login).
+2. Click **Projects** from the **App sidebar**.
+3. Click the name of the project for which to enable autofix.
+4. Click the toggle for **Autofix (beta)**.
 ![Screenshot of autofix toggle](../img/notifications-enable-autofix.png)
-6. All scans performed after enabling autofix will generate inline PR or MR comments with code suggestions for applicable rules.
 
+All scans performed after enabling autofix generate inline PR or MR comments with code suggestions for applicable rules.
 
 ### Webhooks
 

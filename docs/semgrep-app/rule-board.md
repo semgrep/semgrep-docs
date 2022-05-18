@@ -1,113 +1,93 @@
 ---
 slug: rule-board
 append_help_link: true
+description: "The Rule Board is a visual representation of the rules that Semgrep App uses to scan code. Rules are cards, and are grouped into columns representing the actions undertaken (whether to block, comment, or silently monitor) when a finding surfaces."
 ---
 
 import MoreHelp from "/src/components/MoreHelp"
 
 # Rule board
 
-The rule board is a visual representation of the rules
-that Semgrep App uses to scan code in CI.
 
-Rules and rulesets are displayed as cards,
-which you can drag and drop between columns.
-The placement of cards in columns determines the Semgrep rules that run in CI and the actions taken in response to findings.
+The Rule Board is a visual representation of the rules that Semgrep App uses to scan code. Rules can be organized in rulesets. Rulesets are rules related through a programming language, OWASP category, or framework.
+
+Rules and rulesets are displayed as **cards**. Group cards by dragging and dropping cards into the columns. Columns represent the actions undertaken in response to findings from that rule or ruleset.
+
+The columns and their corresonding actions are:
+
+<dl>
+    <dt>Monitor</dt>
+    <dd>Rules that display findings only on Semgrep App.</dd>
+    <dt>Comment</dt>
+    <dd>Rules that display findings to developers through PR or MRs.</dd>
+    <dt>Block</dt>
+    <dd>Rules that block merges and commits, in addition to showing findings in Semgrep App and PRs or MRs.</dd>
+</dl>
 
 ![Screenshot of the default state of the rule board](../img/rule-board.png)
 
-## Columns
+Semgrep App is  pre-configured to use the `default` ruleset. The `default` ruleset scans for security vulnerabilities in common programming languages and frameworks.
 
-### Audit column
-
-Findings from cards placed in this column are hidden from developers by default.
-They will not block merging of pull requests or be reported in the code review process.
-You can [set these findings to notify you](#setting-up-notifications) via various channels.
-
-:::tip
-
-  To show results to developers in a non-blocking manner,
-  you can set this column to notify via PR comments.
-
-:::
-
-### Block column
-
-Findings from cards placed in this column are shown to developers as blocking in CI.
-These findings need to be addressed before merging the PR.
-
-### Side column
-
-The side column on the right of the board displays various kinds of cards that are inactive.
-
-#### Registry search
-
-Search the Semgrep Registry for rulesets via the search box at the top of the side column.
-Search results will appear in this column.
-
-#### Recommended cards
-
-Semgrep will recommend relevant rulesets based on technologies it finds in your repositories and show them here.
-
-#### Disabled rules
-
-Find and restore rules previously removed from active rulesets here.
+Semgrep App detects the framework and language when scanning a project and only runs rules relevant for that framework and language.
 
 ## Adding rules or rulesets
 
-There are various ways to add cards to your rule board.
+### Through the search bar
 
-### Recommended rulesets
-
-The side column displays recommended rulesets for technologies in your repositories.
-Try adding all these cards to the Audit column as they appear.
-
-### Rulesets by name
-
-Use the search in the side column to find specific rulesets.
-Rulesets are usually named after technologies and vulnerability classes.
+1. Click **Add rules**. A drawer appears.
+2. Search for rules by entering a relevant search term, such as your programming language, OWASP category, or framework in the search bar.
+3. Optional: Display the rules within a ruleset by clicking on the **Expand** icon beside the name of the ruleset.
+4. Optional: Display the rule definition by clicking on the **View in Playground** icon beside the name of the rule.
+5. Drag the card and drop it on the relevant column.
+6. Once you are done adding rules and rulesets, click **Save changes**.
 
 :::tip
-
-  If you're unsure about a ruleset,
-  try expanding it and dragging just some of its rules onto the board.
-
+Discover suggested rulesets based on your projects's frameworks and technologies through **rule recommendations**. These recommendations appear when opening the drawer, enabling the user to choose from a curated list. Only rulesets explicitly added to a column will be included in a scan. To view these **rule recommendations**, see [Running a scan](../getting-started-with-semgrep-app/#running-a-scan).
 :::
 
-### Rules from the registry
+### From Semgrep Registry
 
-As you explore the [Semgrep Registry](https://semgrep.dev/r),
-you will see buttons named "Add these to Policy".
-Click this button and select the "Rule board" option.
-The new cards will appear on your board when you next open the page.
+1. Click a rule or ruleset in [Semgrep Registry](https://semgrep.dev/r).
+2. Click **Add these to Rule Board** or **Add to Rule Board**.
+3. Select which column to place the rule or ruleset in. 
+4. The new card appears on your Rule Board.
 
-### Custom rules from the playground
+### From Semgrep Playground
 
-When writing rules in [Semgrep Playground](https://semgrep.dev/editor),
-you will see a button named "Add to Policy".
-Click this button and select the "Rule board" option.
-The new card will appear on your board when you next open the page.
+1. Enter a name and save your rule.
+2. Click **Add to Rule Board**.
+3. Select which column to place the rule or ruleset in. 
+4. The new card appears on your Rule Board.
+
+### From the in-app Editor
+
+1. From the **Library** pane, click the rule to add to the Rule Board. The rule appears on the code pane.
+2. Click **Add to Rule Board**.
+3. Select which column to place the rule or ruleset in. 
+4. The new card appears on your Rule Board.
 
 ## Removing rules or rulesets
 
-### Rulesets
+To remove a rule or ruleset:
 
-To remove a ruleset, just drag it to the side column on the right.
+1. Click the **garbage can** icon.
+2. Click **Remove**.
+3. Click **Save changes**.
 
-### Rules
+:::info
 
-To disable just one rule from a ruleset,
-expand the ruleset with the "rules" button.
-Then drag specific rules to the side column on the right.
-This will disable those rules but keep the rest of the ruleset enabled.
+Individual rules within rulesets can only be disabled, not deleted.
+:::
 
 ## Configuring notifications
 
-To configure notifications,
-click the bell button in the top right corner of a column.
+[Notifications](../integrations) enable you to keep track of Semgrep scans within your preferred environment, such as email or Slack. They are configured for each column.
 
-You can enable [third-party notifications](../notifications/)
-and [inline pull request comments](../notifications/#pull-request-comments)
-on a per-column basis in the resulting panel.
+Prerequisites:
+
+* An existing notification channel
+
+1. Click the gear icon of the column to add a notification for.
+2. Click the notifications to add for that column.
 
 <MoreHelp />
