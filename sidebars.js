@@ -86,6 +86,7 @@ module.exports = {
       items: ['semgrep-app/getting-started-with-semgrep-app', 'semgrep-app/scm', 'semgrep-app/dashboard', 'semgrep-app/rule-board', 'semgrep-app/findings', 'semgrep-app/integrations', 'semgrep-app/editor', 'semgrep-app/notifications', 'semgrep-app/sso', 'semgrep-app/rbac', 'semgrep-app/pricing-and-billing'],
     },
     'playground',
+    'deepsemgrep',
     {
       type: 'category',
       label: 'Troubleshooting',
