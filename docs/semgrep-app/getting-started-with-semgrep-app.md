@@ -3,6 +3,7 @@ slug: getting-started-with-semgrep-app
 append_help_link: true
 title: Getting started with Semgrep App
 description: "Get started with Semgrep App to scan for security vulnerabilities on cloud repositories hosted on GitHub and GitLab."
+hide_title: true
 ---
 
 import MoreHelp from "/src/components/MoreHelp"
@@ -87,7 +88,6 @@ You are now signed in to Semgrep App.
 
 Semgrep requires the following permissions (scopes) in order to function:
 
-
 <dl>
     <dt>`openid`, `email`, and `profile`</dt>
     <dd>Enables authentication of a session through OpenID.</dd>
@@ -98,7 +98,6 @@ Semgrep requires the following permissions (scopes) in order to function:
 Scanning is Semgrep's primary operation. When you first sign into Semgrep App, it uses a default ruleset selected to enforce best practices for a repository's framework and programming language. Future scans may be further tuned to an organization's specific practices.
 
 Semgrep App enables users to choose what findings prevent a pull or merge request (PR or MR) from merging into the repository. Setting these blocking and non-blocking rules is achieved through the Rule Board.
-
 
 ### Adding a project
 
@@ -127,7 +126,11 @@ To add a project:
     1. Create a Semgrep App token by clicking **Settings > Tokens > Create new token**, then return to the project setup by clicking on the back arrow on your browser.
     2. Add the Semgrep App token as a project [environment variable](https://circleci.com/docs/2.0/env-vars/) named `SEMGREP_APP_TOKEN`.
     3. Copy the snippet provided and commit the `circleci/config.yml` file.
-8. If successful, Semgrep App scans the repository for the first time using default, pre-selected rules.
+8. For **other CI providers**:
+    1. Create a Semgrep App token by clicking **Settings > Tokens > Create new token**, then return to the project setup by clicking on the back arrow on your browser.
+    2. Add the Semgrep App token as a project environment variable named `SEMGREP_APP_TOKEN`.
+    3. Copy the snippet provided and commit your CI provider's `config.yml` file.
+9. If successful, Semgrep App scans the repository for the first time using default, pre-selected rules.
 
 To ensure that your GitHub repository is **detected** by Semgrep App:
 
@@ -158,7 +161,8 @@ Additional scan parameters include:
 
 <dl>
     <dt>Rule recommendation</dt>
-    <dd>Select this toggle to receive rule recommendations in the Rule Board based on the framework and language of the repository.</dd>
+    <dd>Select this toggle to receive rule recommendations in the Rule Board based on the framework and language of the repository. Rule recommendations are only suggestions and will not be included in a scan unless you add the recommendations into a rule board.</dd>
+
     <dt>Autofix</dt>
     <dd>Select this toggle to enable autofix, which creates suggestions in addition to PR or MR comments. For example, a rule may suggest using a function such as <code>logging.debug()</code> instead of <code>print()</code>.</dd>
     <dt>Path ignores</dt>
