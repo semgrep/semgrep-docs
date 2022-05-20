@@ -11,10 +11,10 @@ There are two ways in which you can contribute to the Semgrep rules repository:
 
 <dl>
     <dt>For users of Semgrep App</dt>
-    <dd>Contribute to the Semgrep rules repository through Semgrep App. This workflow is recommended. See <a href="contributing-through-semgrep-app-(recommended)"> Contributing through Semgrep App (recommended)</a>. This workflow creates the necessary pull request for you and streamlines the whole process.
+    <dd>Contribute to the Semgrep rules repository through Semgrep App. This workflow is recommended. See <a href="#contributing-through-semgrep-app-recommended"> Contributing through Semgrep App (recommended)</a>. This workflow creates the necessary pull request for you and streamlines the whole process.
 </dd>
     <dt>For contributors to the repository through GitHub</dt>
-    <dd>Contribute to the Semgrep rules repository through a pull request. See the <a href="contributing-through-github"> Contributing through GitHub</a> section for detailed information.</dd>
+    <dd>Contribute to the Semgrep rules repository through a pull request. See the <a href="#contributing-through-github"> Contributing through GitHub</a> section for detailed information.</dd>
 </dl>
 
 ### Contributing through Semgrep App (recommended)
