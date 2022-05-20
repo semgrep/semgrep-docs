@@ -9,7 +9,7 @@ Your contributions are welcome!
 
 To contribute, read and agree with the [Contributor Covenant Code of Conduct](https://github.com/returntocorp/semgrep/blob/develop/CODE_OF_CONDUCT.md).
 
-There are various ways in which you may contribute:
+Your contribution can help in various places:
 
 |      Contribution      |      Where to contribute      |
 |------------------------|-------------------------------|
