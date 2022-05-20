@@ -11,8 +11,8 @@ To contribute, read and agree with the [Contributor Covenant Code of Conduct](ht
 
 There are various ways in which you may contribute:
 
-| Contribution | Where to contribute |
-|-----------------------|-----------------------|
+|      Contribution      |      Where to contribute      |
+|------------------------|-------------------------------|
 | File a Semgrep issue. | See the [Semgrep GitHub repository](https://github.com/returntocorp/semgrep/issues/new/choose). |
 | Fix an issue. | Pick a bug from the [good first issues](https://github.com/returntocorp/semgrep/issues?q=is%3Aopen+is%3Aissue+label%3A%22good+first+issue%22) or work on any of the [currently open bugs](https://github.com/returntocorp/semgrep/issues?q=is%3Aopen+is%3Aissue+label%3Abug). |
 | Contribute to the rules repository. | Add new rules through Semgrep App or GitHub. See [Contributing to Semgrep rules](.../../contributing-rules.md). |
