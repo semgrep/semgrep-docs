@@ -97,7 +97,7 @@ Include the following keys under the `metadata` field:
 - Include the `references` field. References can provide additional context to users of the rule. It is good practice to include at least one reference for each rule.
 - The use of the YAML multiline string operator `>-` when rule messages span multiple lines. This presents the best-looking rule message in the command-line.
 
-Some examples:
+Rule examples:
 - [python.lang.security.deserialization.avoid-pyyaml-load.yaml](https://semgrep.dev/orgs/-/editor/r/python.lang.security.deserialization.avoid-pyyaml-load.avoid-pyyaml-load)
 - [python/flask/security/dangerous-template-string.yaml](https://semgrep.dev/orgs/-/editor/r/python/flask/security/dangerous-template-string.yaml)
 - [python/flask/security/audit/render-template-string.yaml](https://semgrep.dev/orgs/-/editor/r/python/flask/security/audit/render-template-string.yaml)
