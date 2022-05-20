@@ -19,6 +19,54 @@ While environment variables are the preferred way to configure Semgrep CI, pass 
 SEMGREP_RULES="p/security-audit p/secrets"
 ```
 
+## Suppressing blocking comments or errors
+
+Semgrep in CI can block a pull request (PR) or a merge request (MR) from being merged. This can be caused by Semgrep's blocking comment or Semgrep's in CI internal error. One option to avoid blocked PRs and MRs is to change configuration of blocking comments in the Rule Board of Semgrep App. Other option that Semgrep in CI allows you is to only disable blocking comments without chaning configuration of rules in the Rule Board.
+
+You can configure Semgrep in CI behavior to suppress blocking comments or internal Semgrep in CI errors by the following options in your Semgrep in CI YAML configuration file: 
+
+- `semgrep ci` - Semgrep in CI fails on blocking comments, CI fails on internal error.
+- `semgrep ci || [ $? != 1 ]` - Semgrep in CI fails on blocking comments, CI ignores internal error.
+- `semgrep ci || true` - Semgrep in CI passes on blocking findings, CI ignores internal error.
+
+To enable one of these options, insert the code under `steps` key, see the following example from GitHub Actions (GHA):
+
+```yaml
+steps:
+    - uses: actions/checkout@v3
+    - name: Scan and suppress internal errors
+    run: semgrep ci || [ $? != 1 ]
+```
+
+See the full GHA configuration file below:
+
+```yaml
+name: Semgrep
+on:
+  pull_request: {}
+  push:
+    branches:
+      - main
+      - master
+    paths:
+      - .github/workflows/semgrep.yml
+  schedule:
+    - cron: '0 0 * * 0'
+  workflow_dispatch: {}
+jobs:
+  semgrep:
+    name: Scan
+    runs-on: ubuntu-20.04
+    env:
+      SEMGREP_APP_TOKEN: ${{ secrets.SEMGREP_APP_TOKEN }}
+    container:
+      image: returntocorp/semgrep
+    steps:
+      - uses: actions/checkout@v3
+      - name: Scan and suppress internal errors
+        run: semgrep ci || [ $? != 1 ]
+```
+
 ## Diff-aware scanning (`SEMGREP_BASELINE_REF`)
 
 For [diff-aware scans](overview.md#features), this option filters scan results to those introduced after the git commit, in a branch, or tag. For example, you have a repository with 10 commits. You set the commit number 8 as the baseline. Consequently, Semgrep only returns scan results introduced by changes in commits 9 and 10.
