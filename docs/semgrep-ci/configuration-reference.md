@@ -23,7 +23,7 @@ SEMGREP_RULES="p/security-audit p/secrets"
 
 Semgrep in CI can block a pull request (PR) or a merge request (MR) from being merged. This block can be caused by Semgrep's blocking comment or Semgrep's in CI internal error. One option to avoid blocked PRs and MRs is to change configuration of blocking comments in the rule board of Semgrep App. Another option that Semgrep in CI allows you is to disable blocking comments without changing the setup of rules in the rule board.
 
-You can configure Semgrep in CI behavior to suppress blocking comments or internal Semgrep in CI errors by the following options in your Semgrep in CI YAML configuration file: 
+Configure Semgrep in CI behavior to suppress blocking comments or internal Semgrep in CI errors blocking your pipeline by the following options in your Semgrep in CI YAML configuration file: 
 
 - `semgrep ci` - Semgrep in CI fails on blocking comments, CI fails on internal error.
 - `semgrep ci || [ $? != 1 ]` - Semgrep in CI fails on blocking comments, CI ignores internal error.
