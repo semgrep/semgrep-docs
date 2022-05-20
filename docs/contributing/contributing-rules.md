@@ -5,14 +5,17 @@ description: "This article outlines how to contribute to Semgrep rules repositor
 
 # Contributing to Semgrep rules
 
-## Two ways how to contribute
+## Introduction
 
-We welcome your contributions to Semgrep rules! There are two ways in which you can contribute to Semgrep rules repository:
+There are two ways in which you can contribute to Semgrep rules repository:
 
-For users of Semgrep App
-Contribute to the Semgrep rules repository through Semgrep App. This workflow is recommended. See [TODO link in markdown] Contributing with rules through Semgrep App section for more information. This workflow creates the necessary pull request for you and streamlines the whole process.
-For contributors to the repository through GitHub [TODO, change this to a description list] 
-Contribute to the Semgrep [rules repository](https://github.com/returntocorp/semgrep-rules) through your own pull request. See [TODO link in markdown] Contributing through GitHub for detailed information.
+<dl>
+    <dt>For users of Semgrep App</dt>
+    <dd>Contribute to the Semgrep rules repository through Semgrep App. This workflow is recommended. See <a href="contributing-through-semgrep-app-(recommended)"> Contributing through Semgrep App (recommended)</a>. This workflow creates the necessary pull request for you and streamlines the whole process.
+</dd>
+    <dt>For contributors to the repository through GitHub</dt>
+    <dd>Contribute to the Semgrep rules repository through a pull request. See the <a href="contributing-through-github"> Contributing through GitHub</a> section for detailed information.</dd>
+</dl>
 
 ### Contributing through Semgrep App (recommended)
 
@@ -27,7 +30,7 @@ This workflow automatically creates a pull request in GitHub [rules repository](
 
 ### Contributing through GitHub
 
-Feel free to fork our repository and make a pull request; we'll contact you about signing our CLA. Make a pull request to the  [TODO, change this to a description list] [rules repository](https://github.com/returntocorp/semgrep-rules) with two files:
+Feel free to fork our repository and make a pull request; we'll contact you about signing our CLA. Make a pull request to the [rules repository](https://github.com/returntocorp/semgrep-rules) with two files:
 1. The semgrep pattern (.yml)
 2. The test file (with the file extension of the language or framework). The test file must contain at least one positive and one negative test case in order to get approved!
 

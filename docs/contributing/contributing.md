@@ -12,11 +12,11 @@ There are various ways in which you may contribute:
 
 | Contribution | Where to contribute |
 |-----------------------|-----------------------|
-| File a Semgrep issue. | [Semgrep GitHub repository](https://github.com/returntocorp/semgrep/issues/new/choose) |
-| Fix an issue or a bug. | Pick a bug from the [good first issues](https://github.com/returntocorp/semgrep/issues?q=is%3Aopen+is%3Aissue+label%3A%22good+first+issue%22) or work on any of the [currently open bugs](https://github.com/returntocorp/semgrep/issues?q=is%3Aopen+is%3Aissue+label%3Abug). |
+| File a Semgrep issue. | See the [Semgrep GitHub repository](https://github.com/returntocorp/semgrep/issues/new/choose). |
+| Fix an issue. | Pick a bug from the [good first issues](https://github.com/returntocorp/semgrep/issues?q=is%3Aopen+is%3Aissue+label%3A%22good+first+issue%22) or work on any of the [currently open bugs](https://github.com/returntocorp/semgrep/issues?q=is%3Aopen+is%3Aissue+label%3Abug). |
 | Contribute to the rules repository. | Add new rules through Semgrep App or GitHub. See [Contributing to Semgrep rules](.../../contributing-rules.md). |
 | Add a new feature. | See the [enhancement issues](https://github.com/returntocorp/semgrep/issues?q=is%3Aopen+is%3Aissue+label%3Aenhancement) for inspiration. |
 | Update the documentation you are reading right now! | Create a PR or an issue in the [Documentation repository](https://github.com/returntocorp/semgrep-docs). |
-| Help others from the community! | Check [r2c Community Slack](https://r2c.dev/slack). |
+| Help others in the community. | Check [r2c Community Slack](https://r2c.dev/slack). |
 
-See the [contribution guidelines](contributing-code.md) for info about the development workflow, testing, and creating PRs. For a higher-level view of Semgrep’s design principles, see the [Semgrep CLI philosophy](../semgrep-philosophy/).
+For any contribution to Semgrep code (bug fix or fixed issue, feature), read more about development workflow and testing in the [contribution guidelines](contributing-code.md). For a high-level view of Semgrep’s design principles, see the [Semgrep CLI philosophy](../contributing/philosophy.md).
