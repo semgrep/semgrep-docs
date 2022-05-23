@@ -26,7 +26,7 @@ module.exports = {
             type: 'category',
             label: 'Running rules',
             collapsed: true,
-            items: ['rules', 'running-rules', 'managing-findings'],
+            items: ['running-rules', 'managing-findings'],
           }
         ]
     },
@@ -99,13 +99,15 @@ module.exports = {
     {
       label: 'SEMGREP APP',
       type: 'category',
+      collapsed: false,
       items: ['semgrep-app/getting-started-with-semgrep-app', 'semgrep-app/scm', 'semgrep-app/dashboard', 'semgrep-app/rule-board', 'semgrep-app/findings', 'semgrep-app/integrations', 'semgrep-app/editor', 'semgrep-app/notifications', 'semgrep-app/sso', 'semgrep-app/rbac', 'semgrep-app/pricing-and-billing'],
     },
     'playground',
     'deepsemgrep',
     {
       type: 'category',
-      label: 'Troubleshooting',
+      label: 'TROUBLESHOOTING',
+      collapsed: false,
       items: ['troubleshooting/gitlab-sast', 'troubleshooting/rules', 'troubleshooting/semgrep-app', 'troubleshooting/semgrep'],
     },
     'language-support',
@@ -113,7 +115,8 @@ module.exports = {
     'trophy-case',
     {
         type: 'category',
-        label: 'Contributing',
+        label: 'CONTRIBUTING',
+        collapsible: false,
         items: [
           'contributing/contributing',
           'contributing/contributing-code',
@@ -135,7 +138,8 @@ module.exports = {
     },
     {
       type: 'category',
-      label: 'Cheat sheets',
+      label: 'CHEAT SHEETS',
+      collapsible: false,
       items: [
         {
           type: 'category',
