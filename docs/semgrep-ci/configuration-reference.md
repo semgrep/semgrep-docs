@@ -29,7 +29,7 @@ Configure Semgrep in CI behavior to suppress blocking comments or internal Semgr
 - `semgrep ci || [ $? != 1 ]` - Semgrep in CI fails on blocking comments, CI ignores internal error.
 - `semgrep ci || true` - Semgrep in CI passes on blocking findings, CI ignores internal error.
 
-To enable one of these options, insert the code under `steps` key, see the following example from GitHub Actions (GHA):
+To enable one of these options, insert the code under the `run` key, see the following example from GitHub Actions (GHA):
 
 ```yaml
 steps:
