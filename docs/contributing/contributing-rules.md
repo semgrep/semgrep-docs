@@ -23,7 +23,7 @@ To contribute to the Semgrep rules repository through Semgrep App, follow these 
 1. Go to [Semgrep App Editor](https://semgrep.dev/orgs/-/editor).
 2. Click **Create New Rule**.
 3. Make one of the following steps:
-    - Create a new rule and test code, and then click **Save**. Note: The test file must contain at least one positive and one negative test case in order to get approved!
+    - Create a new rule and test code, and then click **Save**. Note: The test file must contain at least one true positive and one true negative test case in order to get approved
     - Select a rule from a category in **Semgrep Registry**. Modify the rule or test code, click **Save**, and then **Fork**.
 4. Click **Share**.
 
