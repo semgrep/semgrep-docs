@@ -21,13 +21,13 @@ SEMGREP_RULES="p/security-audit p/secrets"
 
 ## Suppressing blocking comments or errors
 
-Semgrep in CI can block a pull request (PR) or a merge request (MR) from being merged. This block can be caused by Semgrep's blocking comment or Semgrep's in CI internal error. One option to avoid blocked PRs and MRs is to change configuration of blocking comments in the rule board of Semgrep App. Another option that Semgrep in CI allows you is to disable blocking comments without changing the setup of rules in the rule board.
+Semgrep in CI can block a pull request (PR) or a merge request (MR) from being merged. This block can be caused by Semgrep's blocking comment or internal error of Semgrep. One option to avoid blocked PRs and MRs is to change configuration of blocking comments in the rule board of Semgrep App. Another option that Semgrep in CI allows you is to disable blocking comments without changing the setup of rules in the rule board.
 
 Configure Semgrep in CI behavior to suppress blocking comments or internal Semgrep in CI errors blocking your pipeline by the following options in your Semgrep in CI YAML configuration file: 
 
 - `semgrep ci` - Semgrep in CI fails on blocking comments, CI fails on internal error.
-- `semgrep ci || [ $? != 1 ]` - Semgrep in CI fails on blocking comments, CI ignores internal error.
-- `semgrep ci || true` - Semgrep in CI passes on blocking findings, CI ignores internal error.
+- `semgrep ci || [ $? != 1 ]` - Semgrep in CI fails on blocking comments, CI ignores internal errors.
+- `semgrep ci || true` - Semgrep in CI passes on blocking findings, CI ignores internal errors.
 
 To enable one of these options, insert the code under the `run` key, see the following example from GitHub Actions (GHA):
 
@@ -67,6 +67,10 @@ jobs:
         run: semgrep ci || [ $? != 1 ]
 ```
 
+:::info
+This functionality replaces previous audit mode `SEMGREP_AUDIT_ON` (collecting findings silently [Semgrep App > Findings](https://semgrep.dev/manage/findings)).
+:::
+
 ## Diff-aware scanning (`SEMGREP_BASELINE_REF`)
 
 For [diff-aware scans](overview.md#features), this option filters scan results to those introduced after the git commit, in a branch, or tag. For example, you have a repository with 10 commits. You set the commit number 8 as the baseline. Consequently, Semgrep only returns scan results introduced by changes in commits 9 and 10.
@@ -104,15 +108,6 @@ SEMGREP_JOB_URL="https://ci-server.com/jobs/1234"
 SEMGREP_REPO_NAME="foo/bar"
 SEMGREP_COMMIT="a52bc1ef"
 SEMGREP_PR_ID="44"
-```
-
-## Collect findings silently (`SEMGREP_AUDIT_ON`)
-
-Set this to never fail the build due to findings when scanning.
-Instead, just collect findings for [Semgrep App > Findings](https://semgrep.dev/manage/findings).
-
-```
-SEMGREP_AUDIT_ON="unknown"
 ```
 
 ## Configure a job timeout (`SEMGREP_TIMEOUT`)
