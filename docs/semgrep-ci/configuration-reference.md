@@ -67,6 +67,10 @@ jobs:
         run: semgrep ci || [ $? != 1 ]
 ```
 
+:::info
+This functionality replaces previous audit mode `SEMGREP_AUDIT_ON` (collecting findings silently for [Semgrep App > Findings](https://semgrep.dev/manage/findings)).
+:::
+
 ## Diff-aware scanning (`SEMGREP_BASELINE_REF`)
 
 For [diff-aware scans](overview.md#features), this option filters scan results to those introduced after the git commit, in a branch, or tag. For example, you have a repository with 10 commits. You set the commit number 8 as the baseline. Consequently, Semgrep only returns scan results introduced by changes in commits 9 and 10.
