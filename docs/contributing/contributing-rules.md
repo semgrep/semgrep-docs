@@ -33,7 +33,7 @@ This workflow automatically creates a pull request in the GitHub [rules reposito
 
 Fork our repository and make a pull request; we'll contact you about signing our Contributor License Agreement (CLA). Install pre-commit (see [installing pre-commit](#installing-pre-commit)) and make a pull request to the [rules repository](https://github.com/returntocorp/semgrep-rules) with two files:
 1. The semgrep pattern (.yml)
-2. The test file (with the file extension of the language or framework). The test file must contain at least one positive and one negative test case in order to get approved!
+2. The test file (with the file extension of the language or framework). The test file must contain at least one true positive and one true negative test case in order to get approved.
 
 See an example of a [pull request](https://github.com/returntocorp/semgrep-rules/pull/1728/files) to the rules repository. Pull requests require the approval of at least one maintainer and successfully passed [CI jobs](https://github.com/returntocorp/semgrep-rules/actions).
 
