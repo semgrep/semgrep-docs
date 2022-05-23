@@ -38,7 +38,7 @@ steps:
       run: semgrep ci || [ $? != 1 ]
 ```
 
-See the full GHA configuration file below:
+See a full GHA configuration file below:
 
 ```yaml
 name: Semgrep
