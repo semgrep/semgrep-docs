@@ -19,13 +19,11 @@ module.exports = {
     {
         type: 'category',
         label: 'WELCOME',
-        collapsed: false,
         items: [
           'getting-started',
           {
             type: 'category',
             label: 'Running rules',
-            collapsed: true,
             items: ['running-rules', 'managing-findings'],
           }
         ]
@@ -33,7 +31,6 @@ module.exports = {
     {
       type: 'category',
       label: 'SEMGREP FEATURES',
-      collapsed: false,
       items: [
         'getting-started',
         {
@@ -93,13 +90,11 @@ module.exports = {
     {
       type: 'category',
       label: 'SEMGREP CI',
-      collapsed: false,
       items: ['semgrep-ci/overview', 'semgrep-ci/configuration-reference', 'semgrep-ci/sample-ci-configs']
     },
     {
       label: 'SEMGREP APP',
       type: 'category',
-      collapsed: false,
       items: ['semgrep-app/getting-started-with-semgrep-app', 'semgrep-app/scm', 'semgrep-app/dashboard', 'semgrep-app/rule-board', 'semgrep-app/findings', 'semgrep-app/integrations', 'semgrep-app/editor', 'semgrep-app/notifications', 'semgrep-app/sso', 'semgrep-app/rbac', 'semgrep-app/pricing-and-billing'],
     },
     'playground',
@@ -107,7 +102,6 @@ module.exports = {
     {
       type: 'category',
       label: 'TROUBLESHOOTING',
-      collapsed: false,
       items: ['troubleshooting/gitlab-sast', 'troubleshooting/rules', 'troubleshooting/semgrep-app', 'troubleshooting/semgrep'],
     },
     'language-support',
@@ -139,7 +133,6 @@ module.exports = {
     {
       type: 'category',
       label: 'CHEAT SHEETS',
-      collapsible: false,
       items: [
         {
           type: 'category',

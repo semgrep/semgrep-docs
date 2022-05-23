@@ -7,7 +7,7 @@
 
 /* You can override the default Infima variables here. */
 :root {
-  --ifm-color-primary: #5f36d9;
+  --ifm-color-primary: #5f36d9; /*use for category headers */
   --ifm-color-primary-dark: #5127cd;
   --ifm-color-primary-darker: #4c25c2;
   --ifm-color-primary-darkest: #3f1ea0;
