@@ -35,7 +35,7 @@ To enable one of these options, insert the code under `steps` key, see the follo
 steps:
     - uses: actions/checkout@v3
     - name: Scan and suppress internal errors
-    run: semgrep ci || [ $? != 1 ]
+      run: semgrep ci || [ $? != 1 ]
 ```
 
 See the full GHA configuration file below:
