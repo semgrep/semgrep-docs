@@ -25,7 +25,7 @@ Semgrep in CI can block a pull request (PR) or a merge request (MR) from being m
 
 Configure Semgrep in CI behavior to suppress blocking comments or internal Semgrep in CI errors blocking your pipeline by the following options in your Semgrep in CI YAML configuration file: 
 
-- `semgrep ci` - Semgrep in CI fails on blocking comments, CI fails on internal error.
+- `semgrep ci` - Semgrep in CI fails on blocking comments, CI fails on internal errors.
 - `semgrep ci || [ $? != 1 ]` - Semgrep in CI fails on blocking comments, CI ignores internal errors.
 - `semgrep ci || true` - Semgrep in CI passes on blocking findings, CI ignores internal errors.
 
