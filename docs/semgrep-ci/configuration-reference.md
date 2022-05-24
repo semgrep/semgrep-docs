@@ -68,7 +68,7 @@ jobs:
 ```
 
 :::info
-This functionality replaces previous audit mode `SEMGREP_AUDIT_ON` (collecting findings silently for [Semgrep App > Findings](https://semgrep.dev/manage/findings)).
+This functionality replaces the audit mode `SEMGREP_AUDIT_ON` (collecting findings silently for [Semgrep App > Findings](https://semgrep.dev/manage/findings)).
 :::
 
 ## Diff-aware scanning (`SEMGREP_BASELINE_REF`)
