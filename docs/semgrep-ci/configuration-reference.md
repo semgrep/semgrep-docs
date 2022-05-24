@@ -19,15 +19,15 @@ While environment variables are the preferred way to configure Semgrep CI, pass 
 SEMGREP_RULES="p/security-audit p/secrets"
 ```
 
-## Suppressing blocking comments or errors
+## Suppressing blocking findings or errors
 
-Semgrep in CI can block a pull request (PR) or a merge request (MR) from being merged. This block can be caused by Semgrep's blocking comment or internal error of Semgrep. One option to avoid blocked PRs and MRs is to change configuration of blocking comments in the rule board of Semgrep App. Another option that Semgrep in CI allows you is to disable blocking comments without changing the setup of rules in the rule board.
+Most CI providers block pull requests (PRs) or merge requests (MRs) on non-zero exit codes. Semgrep exits with a non-zero exit code (exit code 1) when it reports a blocking finding. Other non-zero exit codes that also block your PRs and MRs signify an issue in running Semgrep (exit code 2 and above). For more information about specific Semgrep exit codes see [CLI reference](../../cli-reference/#exit-codes).
 
-Configure the behavior of Semgrep in CI to suppress blocking comments or internal Semgrep errors blocking your pipeline by using the following options in your YAML configuration file: 
+Configure the behavior of Semgrep in CI to suppress blocking findings or internal Semgrep errors blocking your pipeline by using the following options in your YAML configuration file: 
 
-- `semgrep ci` - Semgrep in CI fails on blocking comments, CI fails on internal errors.
-- `semgrep ci || [ $? != 1 ]` - Semgrep in CI fails on blocking comments, CI ignores internal errors.
-- `semgrep ci || true` - Semgrep in CI passes on blocking findings, CI ignores internal errors.
+- `semgrep ci` - Semgrep in CI **fails** on blocking findings, CI **fails** on internal errors.
+- `semgrep ci || [ $? != 1 ]` - Semgrep in CI **fails** on blocking findings, CI **passes** on internal errors.
+- `semgrep ci || true` - Semgrep in CI **passes** on blocking findings, CI **passes** on internal errors.
 
 To enable one of these options, insert the code under the `run` key, see the following example from GitHub Actions (GHA):
 
