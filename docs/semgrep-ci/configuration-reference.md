@@ -21,7 +21,7 @@ SEMGREP_RULES="p/security-audit p/secrets"
 
 ## Suppressing blocking findings or errors
 
-Most CI providers block pull requests (PRs) or merge requests (MRs) on non-zero exit codes. Semgrep exits with a non-zero exit code (exit code 1) when it reports a blocking finding. Other non-zero exit codes that also block your PRs and MRs signify an issue in running Semgrep (exit code 2 and above). For more information about specific Semgrep exit codes see [CLI reference](../../cli-reference/#exit-codes).
+Most CI providers block pull requests (PRs) or merge requests (MRs) on non-zero exit codes. Semgrep exits with a non-zero exit code (exit code 1) when it reports a blocking finding or there is an issue in running Semgrep (exit code 2 and above). For more information about specific Semgrep exit codes see [CLI reference](../../cli-reference/#exit-codes).
 
 Configure the behavior of Semgrep in CI to suppress blocking findings or internal Semgrep errors blocking your pipeline by using the following options in your YAML configuration file: 
 
