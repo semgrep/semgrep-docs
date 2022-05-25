@@ -108,7 +108,7 @@ Rule examples:
 
 Include a test file to accompany new rules. A good test file includes the following:
 
-- At least one test where the rule detects a true positive finding. This is called a true positive finding.
+- At least one test where the rule detects a finding. This is called a true positive finding.
 - At least one test where the rule does **not** detect a finding. This is called a true negative finding.
 
 See an example of this approach in the [Semgrep App](https://semgrep.dev/orgs/-/editor/s/returntocorp:aws-provider-static-credentials).
