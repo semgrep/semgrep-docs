@@ -24,37 +24,15 @@ This section explains how to run [Semgrep Registry](https://semgrep.dev/explore)
 1. Copy the code for local install, and then add the path to the source code you want to check:
     <pre class="language-bash"><code>semgrep --config="<span className="placeholder">RULESET-ID</span>" <span className="placeholder">path/to/src</span></code></pre>
 1. Optional: Run registry rules simultaneously with local rules:
-    ```sh
-    semgrep --config=RULESET-ID --config=path/to/yml path/to/src
-    ```
+   <pre class="language-bash"><code>semgrep --config="<span className="placeholder">RULESET-ID</span>" --config=<span className="placeholder">path/to/yml path/to/src</span></code></pre>
 
-When the Semgrep Registry is used, [usage metrics](../metrics) are collected.
+When you use the Semgrep Registry, Semgrep collects [usage metrics](../metrics).
 
 Add rulesets to Semgrep in CI scans using their "Add to Policy" button on Semgrep Community and Semgrep Team tiers.
 
-## Running local rules
-
-Local rules can be either:
-
-- Ephemeral rules with the `-e` or `--pattern` flags for use in a single command.
-- Configured in YAML rule files that conform to the [Rule syntax](../writing-rules/rule-syntax/) schema.
-
-:::tip
-See [Writing rules > Getting started](../writing-rules/overview/) to learn how to write rules.
-:::
-
-### Ephemeral rules
-
-Use the `-e` or `--pattern` flags in your terminal for ephemeral rules that are used once.
-
-For example: Check for Python `==` where the left and right sides are the same (often a bug): 
-```sh
-semgrep -e '$X == $X' --lang=py path/to/src
-```
-
 ## Writing your own rule file
 
-Create a YAML rule file that you can run repeatedly.
+To make your own local rule file, follow these steps:
 
 1. Create a `rule.yaml` file.
 2. Below is a simple example rule for Python which you can paste into your `rule.yaml` file.
@@ -68,11 +46,25 @@ Create a YAML rule file that you can run repeatedly.
       pattern: $SOMEVAR is "..."
       severity: ERROR
     ```
-    See [Getting started](../writing-rules/overview/) for the full example.
 3. Run the following command to run local YAML rule files:
     ```sh
     semgrep --config path/to/rule.yaml
     ```
+
+For more information, see [Getting started](../writing-rules/overview/).
+
+### Ephemeral rules
+
+Use the `-e` or `--pattern` flags in your terminal for ephemeral rules that are used once.
+
+For example: Check for Python `==` where the left and right sides are the same (often a bug):
+```sh
+semgrep -e '$X == $X' --lang=py path/to/src
+```
+
+:::info
+Both local rule.yaml and ephemeral rules are called *local rules*.
+:::
 
 ### Running multiple rules simultaneously
 
