@@ -60,8 +60,7 @@ jobs:
           # save it in your GitHub Secrets.
           SEMGREP_APP_TOKEN: ${{ secrets.SEMGREP_APP_TOKEN }}
           # Option 2: set hard-coded rulesets, viewable in logs.
-          #SEMGREP_RULES: >- # more at semgrep.dev/explore
-          #  p/default
+          # SEMGREP_RULES: p/default # more at semgrep.dev/explore
 ```
 
 <details><summary>Alternate job that uploads findings to GitHub Advanced Security Dashboard</summary>
@@ -92,11 +91,9 @@ jobs:
         env:
           SEMGREP_APP_TOKEN: ${{ secrets.SEMGREP_APP_TOKEN }}
       # Option 2: set hard-coded rulesets, viewable in logs.
-      - run: semgrep scan --sarif --output=semgrep.sarif
-        env:
-          SEMGREP_RULES: >- # more at semgrep.dev/explore
-            p/security-audit
-            p/secrets
+      # - run: semgrep scan --sarif --output=semgrep.sarif
+      #   env:
+      #     SEMGREP_RULES: p/default # more at semgrep.dev/explore
 
       - name: Upload SARIF file for GitHub Advanced Security Dashboard
         uses: github/codeql-action/upload-sarif@v2
@@ -129,7 +126,7 @@ semgrep:
 
   rules:
   # Determine when you want Semgrep to scan your code.
-  # Use as many of the following options as you want.
+  # Use Option 1, 2, or both.
   # Option 1: scan changed files in MRs, block on new issues only (existing
   # issues ignored)
   - if: $CI_MERGE_REQUEST_IID
@@ -142,8 +139,7 @@ semgrep:
     # Get your token at semgrep.dev/orgs/-/settings/tokens.
     SEMGREP_APP_TOKEN: $SEMGREP_APP_TOKEN
     # Option 2: set hard-coded rulesets, viewable in logs.
-    SEMGREP_RULES: >- # more at semgrep.dev/explore
-      p/default
+    SEMGREP_RULES: p/default # more at semgrep.dev/explore
 
   # == Other optional settings in the `variables:` block
 
