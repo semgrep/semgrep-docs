@@ -135,6 +135,7 @@ Try to run DeepSemgrep in the cloned [DeepSemgrep testing repository](https://gi
 ```sh
 semgrep --config deep.yaml . --deep
 ```
+
 ### Propagating values
 
 In the previous example, we only cared whether the string was constant or not, so we used `”...”`, but constant propagation also propagates the constant value. To illustrate the use of DeepSemgrep with constant propagation, the rule from the previous section is changed to search for calls to `dangerous("Employees");`.
@@ -157,15 +158,16 @@ To continue with the previous example, we have modified our previous files a bit
 
 <iframe title="Semgrep example no prints" src="https://semgrep.dev/embed/editor?snippet=adamkvitek:dangerous-taint" width="100%" height="432" frameborder="0"></iframe>
 
-Here, Semgrep matches `dangerous(“Select * from “ + user_input`), because `user_input` is obtained by calling `get_user_input`. However, it does not match the similar call using `still_user_input`, because its analysis does not cross function boundaries to know that `still_user_input` is a wrapper function for `user_input`.
+Here, Semgrep matches `dangerous(“Select * from “ + user_input)`, because `user_input` is obtained by calling `get_user_input`. However, it does not match the similar call using `still_user_input`, because its analysis does not cross function boundaries to know that `still_user_input` is a wrapper function for `user_input`.
 
-DeepSemgrep matches both dangerous calls, because it does cross function boundaries. In fact, with DeepSemgrep, the taint rule can track calls to `get_user_input` over multiple jumps in multiple files. 
+DeepSemgrep matches both dangerous calls, because it does cross function boundaries. In fact, with DeepSemgrep, the taint rule can track calls to `get_user_input` over multiple jumps in multiple files.
 
 Try to run DeepSemgrep in the cloned [DeepSemgrep testing repository](https://github.com/returntocorp/deep-semgrep-tests). Go to `docs/taint_tracking` and run the following command:
 
 ```sh
 semgrep --config deep.yaml . --deep
 ```
+
 ## Appendix
 
 ### Difference between DeepSemgrep and join mode
