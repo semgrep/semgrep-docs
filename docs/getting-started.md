@@ -31,10 +31,6 @@ Start by running [Semgrep](https://github.com/returntocorp/semgrep/) locally to 
     ```sh
     semgrep --config=auto path/to/src
     ```
-4. Optional: Check for Python `==` where the left and right sides are the same (this is often a bug):
-    ```sh
-    semgrep -e '$X == $X' --lang=py path/to/src
-    ```
 
 When you use the Semgrep Registry for any ruleset (like the auto ruleset above), [usage metrics](../metrics) are collected.
 
@@ -44,6 +40,7 @@ Here are some additional resources you may use:
 
 - See [CLI Reference](../cli-reference/) for command line options and exit codes.
 - Visit [Running rules](../running-rules/) to learn more or try Semgrep on known vulnerable test projects:
+- Explore Semgrep [rules](https://semgrep.dev/r) collection. 
 
 <details><summary>Expand for sample projects! 🎉</summary>
 <p>
@@ -83,32 +80,6 @@ semgrep --config=auto
 </p>
 </details>
 
-## Writing a rule
-
-Once Semgrep is running locally, see the [Semgrep Tutorial](https://semgrep.dev/learn) to learn how to write precise rules to check your code.
-
-Semgrep rules can cover a wide range of use cases:
-
-- Automating code review comments.
-- Detecting secure coding violations.
-- Detecting API routes, database models, or similar code segments.
-- Identifying authentication violations.
-- Lightweight vulnerability detection.
-- Scanning configuration files.
-- And more! Check out more use cases [here](../writing-rules/rule-ideas/).
-
-Visit [Writing Rules > Getting started](../writing-rules/overview/) for an in-depth guide and reference material.
-
-This rule is used to find and discourage `print(...)` in production code. You can edit this rule here or visit the [Playground](https://semgrep.dev/editor) to write and deploy your own rule.
-
-<iframe title="Semgrep example with Python Flask routes" src="https://semgrep.dev/embed/editor?snippet=ievans:print-to-logger" width="100%" height="432px" frameBorder="0"></iframe>
-<br /><br />
-
-![A reviewer writes a Semgrep rule and adds it to an organization-wide policy](./img/semgrep-ci.gif)
-
-<br />
-<p>A reviewer writes a Semgrep rule and adds it to an organization-wide policy.
-</p>
 
 ## Run Semgrep continuously
 
