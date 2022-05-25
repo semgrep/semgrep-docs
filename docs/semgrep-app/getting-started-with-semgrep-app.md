@@ -3,12 +3,16 @@ slug: getting-started-with-semgrep-app
 append_help_link: true
 title: Getting started with Semgrep App
 description: "Get started with Semgrep App to scan for security vulnerabilities on cloud repositories hosted on GitHub and GitLab."
-hide_title: true
 ---
 
 import MoreHelp from "/src/components/MoreHelp"
 
-# Scanning cloud repositories with Semgrep App
+Semgrep App supports code scanning from:
+
+* a local command-line interface (CLI)
+* a cloud repository, such as GitHub and GitLab
+
+This guide walks you through scanning code in both environments.
 
 Semgrep App enables you to run scans on multiple repositories by integrating with your GitHub or GitLab SaaS account. Semgrep uses **rules** to scan code. Matches found based on those rules are called **findings**. A Semgrep rule encapsulates pattern-matching logic and data-flow analysis used to find code violations, security issues, outdated libraries, and other issues.
 
@@ -18,7 +22,7 @@ Many rules are available from [Semgrep Registry](https://semgrep.dev/r), an open
 
 With Semgrep App's Rule Board you can determine which rules Semgrep uses and what action Semgrep undertakes when it generates a finding. The Rule Board can block pull requests (PRs) or merge requests (MRs) from merging until findings are resolved. This behavior helps to prevent vulnerable code from shipping to widely-accessible environments, such as production or staging servers.
 
-Semgrep App enables you to deploy, configure, and manage Semgrep in your continuous integration (CI) environment. You can try Semgrep CLI for local scans as well. For more information, see [Getting started with Semgrep CLI](https://semgrep.dev/docs/getting-started/).
+Semgrep App enables you to deploy, configure, and manage Semgrep in your continuous integration (CI) environment. Semgrep App supports the upload of findings from CLI scans as well. For more information, see [Getting started with Semgrep CLI](https://semgrep.dev/docs/getting-started/).
 
 ## Signing in to Semgrep App
 
@@ -56,20 +60,6 @@ This section explains why Semgrep App requires specific permissions. Semgrep App
     <dd>Enables Semgrep App to start or stop scans on the repository and commit files for continuous integration.</dd>
 </dl>
 
-The GitHub integration app is called `semgrep-app`. It requires the following permissions:
-
-<dl>
-    <dt>Read and write permissions to <a href="https://docs.github.com/en/actions">GitHub Actions</a></dt>
-    <dd>Allows Semgrep App to cancel stuck jobs, rerun jobs, pull logs from jobs, and perform on-demand scanning.</dd>
-    <dt>Read permissions to <a href="https://docs.github.com/en/rest/reference/checks">GitHub Checks</a></dt>
-    <dd>Facilitates debugging of Semgrep App when configured out of GitHub Actions.</dd>
-    <dt>Read and write to GitHub Security Events</dt>
-    <dd>Enables integration with the GitHub Advanced Security to show Semgrep results.</dd>
-    <dt><code>.semgrepignore</code> single-file access</dt>
-    <dd>Allows debugging of requests and automatic syncing of <code>.semgrepignore</code> between the Semgrep App UI and what is checked into the repository.</dd>
-    <dt>Read/write GitHub secrets</dt>
-    <dd>Enables automatically adding of the Semgrep App Token to your repository secrets when onboarding projects. This simplifies bulk onboarding of repositories. <strong>Semgrep App cannot read the values of your existing or future secrets due to the security design of GitHub Secrets.</strong> This permission only permits Semgrep App to know the secret name and programmatically adds the Semgrep token to your repository secrets.</dd>
-</dl>
 
 ### Signing in with GitLab
 
@@ -99,10 +89,13 @@ Scanning is Semgrep's primary operation. When you first sign into Semgrep App, i
 
 Semgrep App enables users to choose what findings prevent a pull or merge request (PR or MR) from merging into the repository. Setting these blocking and non-blocking rules is achieved through the Rule Board.
 
-### Adding a project
+### Scanning a new project 
 
-A **project** is a repository from your GitHub or GitLab account that you add to Semgrep App for scanning. Semgrep App can run scans on many projects with rules set in the Rule Board. When you add a project, Semgrep scans it for the first time with pre-selected rules chosen based on the repository's language and framework.
+A **project** is either:
+* A repository from your GitHub or GitLab account that you add to Semgrep App for scanning.
+* A local git repository.
 
+Semgrep App can run scans on many projects with rules set in the Rule Board. When you add a project, Semgrep scans it for the first time with pre-selected rules chosen based on the repository's language and framework.
 
 To add a project:
 
