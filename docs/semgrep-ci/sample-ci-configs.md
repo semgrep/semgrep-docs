@@ -26,7 +26,7 @@ on:
   # https://docs.github.com/en/actions/using-workflows/events-that-trigger-workflows#pull_request
   pull_request: {}
 
-  # Option 2: scan all files on branches, block on any issues
+  # Option 2: Scan all files on branches, block on any issues
   # push:
   #   branches: ["master", "main"]
 
