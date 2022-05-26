@@ -20,7 +20,7 @@ on:
   # Determine when you want Semgrep to scan your code.
   # Use as many of the following options as you want.
   # Option 1: scan changed files in PRs, block on new issues only (existing
-  # issues in the repository ignored).
+  # issues in the repository are ignored).
   # To run on specific types of PR states (opened, reopened, etc) or particular
   # paths or branches, see the GitHub docs at:
   # https://docs.github.com/en/actions/using-workflows/events-that-trigger-workflows#pull_request
