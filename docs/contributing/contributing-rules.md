@@ -113,7 +113,7 @@ Include a test file to accompany new rules. A good test file includes the follow
 
 See an example of this approach in the [Semgrep App](https://semgrep.dev/orgs/-/editor/s/returntocorp:aws-provider-static-credentials).
 
-Test file names must match the rule file name, except for the file extension. For example, if the rule is in `my-rule.yaml`, name the test `my-rule.js`. (With any valid extension for the target language.)
+Test file names must match the rule file name, except for the file extension. For example, if the rule is in `my-rule.yaml`, name the test `my-rule.js`. (You can use any valid extension for the target language.)
 
 In the test file, mark what is demonstratively expected to be a finding. See the examples of the rule and test file below:
 
