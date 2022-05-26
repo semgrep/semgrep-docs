@@ -80,7 +80,7 @@ For an example of a good rule message, see [this rule for Django's mark_safe()](
 
 ### Rule quality checker
 
-When you contribute rules to the rules repository, our quality checkers (linters) evaluate if the rule conforms to r2c standards. The `semgrep-rule-lints` job runs linters on a new rule to check for mistakes, performance problems, and best practices for submitting to the Semgrep rules repository. To improve your rule writing, you can as well use Semgrep to [scan semgrep-rules](https://r2c.dev/blog/2021/how-we-made-semgrep-rules-run-on-semgrep-rules/).
+When you contribute rules to the rules repository, our quality checkers (linters) evaluate if the rule conforms to r2c standards. The `semgrep-rule-lints` job runs linters on a new rule to check for mistakes, performance problems, and best practices for submitting to the Semgrep rules repository. To improve your rule writing, you can actually use Semgrep itself to [scan semgrep-rules](https://r2c.dev/blog/2021/how-we-made-semgrep-rules-run-on-semgrep-rules/).
 
 ### Including additional details with rule metadata
 
