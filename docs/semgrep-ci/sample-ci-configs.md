@@ -139,7 +139,7 @@ semgrep:
     # Get your token at semgrep.dev/orgs/-/settings/tokens.
     SEMGREP_APP_TOKEN: $SEMGREP_APP_TOKEN
     # Option 2: set hard-coded rulesets, viewable in logs.
-    SEMGREP_RULES: p/default # more at semgrep.dev/explore
+    SEMGREP_RULES: p/default # See more at semgrep.dev/explore.
 
   # == Other optional settings in the `variables:` block
 
