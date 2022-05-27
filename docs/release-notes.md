@@ -81,7 +81,7 @@ These release notes include upgrades for all versions ranging between **0.91.0**
 
     If you send the code, you get the following notice in the terminal:
 
-    ```console
+    ```sh
     Sent feedback. Thanks for your contribution!
     You can view and extend the generated rule template here: https://semgrep.dev/s/ylAk
     ```
