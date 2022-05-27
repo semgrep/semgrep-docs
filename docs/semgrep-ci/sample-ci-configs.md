@@ -84,7 +84,7 @@ jobs:
       - uses: actions/checkout@v3
 
       # Select rules for your scan with one of these two options.
-      # Option 1: scan with rules set in Semgrep App's rule board
+      # Option 1: Scan with rules set in Semgrep App's rule board.
       # Make a token at semgrep.dev/orgs/-/settings/tokens, and then
       # save it in your GitHub Secrets.
       - run: semgrep scan --sarif --output=semgrep.sarif --config=policy
