@@ -20,14 +20,14 @@ on:
   # Determine when you want Semgrep to scan your code.
   # Use as many of the following options as you want.
   #
-  # Option 1: scan changed files in PRs, block on new issues only (existing
-  # issues in the repository are ignored).
+  # Option 1: Scan changed files in PRs, only report new findings (existing
+  # findings in the repository are ignored).
   # To run on specific types of PR states (opened, reopened, etc) or particular
   # paths or branches, see the following GitHub documentation:
   # https://docs.github.com/en/actions/using-workflows/events-that-trigger-workflows#pull_request
   pull_request: {}
 
-  # Option 2: Scan all files on branches, block on any issues
+  # Option 2: Scan all files on branches, report any findings.
   # push:
   #   branches: ["master", "main"]
 
@@ -130,10 +130,10 @@ semgrep:
   # Determine when you want Semgrep to scan your code.
   # Use Option 1, 2, or both.
   #
-  # Option 1: Scan changed files in MRs, block on new issues only (existing
-  # issues ignored).
+  # Option 1: Scan changed files in MRs, only report new findings (existing
+  # findings ignored).
   - if: $CI_MERGE_REQUEST_IID
-  # Option 2: Scan all files on the default branch, block on any issues
+  # Option 2: Scan all files on the default branch, report any findings.
   # - if: $CI_COMMIT_BRANCH == $CI_DEFAULT_BRANCH
 
   variables:
@@ -280,7 +280,7 @@ jobs:
       # Get your token at semgrep.dev/orgs/-/settings/tokens
       SEMGREP_APP_TOKEN: $SEMGREP_APP_TOKEN
 
-      # Scan changed files in PRs, block on new issues only (existing issues ignored)
+      # Scan changed files in PRs, only report new findings (existing findings ignored)
       SEMGREP_BASELINE_REF: << parameters.default_branch >>
 
     # == Optional settings in the `environment:` block
