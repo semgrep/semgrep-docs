@@ -272,7 +272,7 @@ jobs:
         type: string
         default: main
     environment:
-      # Scan with rules set in Semgrep App's rule board
+      # Scan with rules set in Semgrep App's rule board.
       # Get your token at semgrep.dev/orgs/-/settings/tokens
       SEMGREP_APP_TOKEN: $SEMGREP_APP_TOKEN
 
