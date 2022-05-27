@@ -10,6 +10,96 @@ toc_max_heading_level: 2
 
 Welcome to Semgrep release notes. This document provides an overview of the changes, additions, and fixes made in different versions.
 
+## May 2022
+
+### Semgrep App
+
+
+### Semgrep CLI and Semgrep in CI
+
+These release notes include upgrades for all versions ranging between **0.91.0** and **0.94.0**.
+
+#### Changes
+
+- taint-mode: Let's say that the `taint(x)` function makes `x` argument tainted by side-effect. Previously, Semgrep had to rely on a workaround that declared that any occurrence of `x` inside `taint(x); ...` was a taint source. If `x` was overwritten with safe data, this was not recognized by the taint engine. Also, if `taint(x)` occurred inside of, for example, an `if` block, any occurrence of `x` outside that block was not considered tainted. Now, if you specify that the code variable itself is a taint source (using `focus-metavariable`), the taint engine will handle this as expected, and it will not suffer from the aforementioned limitations. We believe that this change should not break existing taint rules, but please report any regressions that you may find.
+
+- taint-mode: Let's say that the `sanitize(x)` function sanitizes `x` argument by side-effect. Previously, Semgrep had to rely on a workaround that declared that any occurrence of `x` inside `sanitize(x); ...` was sanitized. If `x` is later overwritten with tainted data, the taint engine would still consider `x` parameter as safe. Now, if you specify that the code variable itself is sanitized (using `focus-metavariable`), the taint engine handles this as expected and it will not suffer from such limitation. We believe that this change should not break existing taint rules, but please report any regressions that you may find.
+
+- The dot access ellipsis now matches field accesses in addition to method calls. See the following example in [Semgrep Playground](https://semgrep.dev/playground/s/9010).
+    <iframe title="Semgrep example no prints"src="https://semgrep.dev/embed/editor?snippet=adamkvitek:release-notes-field-access" width="100%" height="432" frameborder="0"></iframe>
+  
+- In this version, we have made several performance improvements to the code that surrounds our source parsing and matching core. This includes file targeting, rule fetching, and similar parts of the codebase. When we tested `semgrep scan --config auto` on the Semgrep repository itself, the performance improved from 50-54 seconds to 28-30 seconds.
+    - As part of these changes, we removed `:include .gitignore` and `.git/` from the default `.semgrepignore` patterns. This should not cause any difference in which files are targeted as other parts of Semgrep ignore these files already.
+    - A full breakdown of our performance updates, including some upcoming ones, can be found in this [GitHub comment that gives an overview of these changes](https://github.com/returntocorp/semgrep/issues/5257#issuecomment-1133395694).
+
+- If a metrics event request times out, Semgrep no longer retries the request. This avoids Semgrep waiting 10-20 seconds before exiting if these requests are slow.
+
+- The metrics collection timeout has been raised from 2 seconds to 3 seconds.
+
+- Files, where only a part of the code was skipped due to a parse failure, are now listed as `partially scanned` in the end-of-scan skip report.
+
+- The `isAuthenticated` was added to metrics sent to Semgrep backend. This is a boolean flag that is true if you are logged in.
+
+- Semgrep in CI prints out all findings instead of hiding nonblocking findings. ([#5116](https://github.com/returntocorp/semgrep/issues/5116))
+
+#### Additions
+
+- `metavariable-regex` now supports an optional `constant-propagation` key. When this is set to `true`, information learned from constant propagation is used when matching the metavariable against the regex. By default, it is set to `false`.
+
+- Dockerfile: Constant propagation now works on variables declared with `ENV`.
+
+- Added `shouldafound`. You can report false negatives through the CLI. See the following use case of `shouldafound`.
+
+    Testing file `test.go`:
+    ```go                                    
+    package main
+    ​
+    import "fmt"
+    ​
+    func main() {
+        fmt.Println("foo")
+    }
+    ```
+
+    Now, let's notify Semgrep creators that they missed some vulnerable code:
+    ```sh
+    semgrep shouldafound --email "test@foo.com" --start 5 --end 7
+    -m "Semgrep missed a vulnerable code here" ./test.go
+    ```
+
+    This will send the following information to semgrep.dev:
+
+    ```sh
+    {
+      "email": "test@foo.com",
+      "lines": "func main() {\n    fmt.Println(\"foo\")\n}\n",
+      "message": "Semgrep missed a vulnerable code here",
+      "path": "test.go"
+    }
+    OK to send? [y/N]: y
+    ```
+
+    If you send the code, you get the following notice in the terminal:
+
+    ```console
+    Sent feedback. Thanks for your contribution!
+    You can view and extend the generated rule template here: https://semgrep.dev/s/ylAk
+    ```
+
+- Dataflow: The dataflow engine now handles `if-then-else` **expressions** as in OCaml, Ruby etc. Previously it only handled `if-then-else` **statements**. ([#4965](https://github.com/returntocorp/semgrep/issues/4965))
+
+- The JSON output of the Semgrep scan is now fully specified using [ATD](https://atd.readthedocs.io/) and JSON Schema (https://json-schema.org/). See the semgrep-interfaces submodule under interfaces/ (for example, `interfaces/semgrep-interfaces/Semgrep_output_v0.atd` for the ATD specifications).
+
+- The JSON output of `semgrep scan` now contains a `version`: field with the version of Semgrep used to generate the match results.
+
+- taint-mode: Previously, to declare a function parameter as a taint source, Semgrep relied on a workaround that declared that any occurrence of the parameter was a taint source. If the parameter was overwritten with safe data, this was not recognized by the taint engine. Now, `focus-metavariable` can be used to specify that a function parameter is a source of taint, and the taint engine handles this as expected.
+
+- taint-mode: Add basic support for object destructuring in languages such as JavaScript. For example, given `let {x} = E`, Semgrep now infers that `x` is tainted if `E` is tainted.
+
+#### Additional information
+
+To see the complete change notes which include fixed issues, visit the [Semgrep changelog](https://github.com/returntocorp/semgrep/releases/).
+
 ## April 2022
 
 These release notes now include edited important and breaking changes. To see the complete change notes, visit the [Semgrep changelog](https://github.com/returntocorp/semgrep/releases).
@@ -27,7 +117,7 @@ These release notes now include edited important and breaking changes. To see th
 - The `Audit` column within the Rule Board has been renamed to `Monitor`. Findings generated by rules within this column are displayed only on Semgrep App.
 ![New rule board.](img/rule-board.png "New rule board.")
 
-### Semgrep CLI and CI
+### Semgrep CLI and Semgrep in CI
 
 These release notes encompass upgrades for all versions ranging between **0.87.0** and **0.90.0**.
 
