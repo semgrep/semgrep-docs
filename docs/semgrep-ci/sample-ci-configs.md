@@ -59,7 +59,7 @@ jobs:
           # Make a token at semgrep.dev/orgs/-/settings/tokens, and then
           # save it in your GitHub Secrets.
           SEMGREP_APP_TOKEN: ${{ secrets.SEMGREP_APP_TOKEN }}
-          # Option 2: set hard-coded rulesets, viewable in logs.
+          # Option 2: Set hard-coded rulesets, viewable in logs.
           # SEMGREP_RULES: p/default # more at semgrep.dev/explore
 ```
 
