@@ -19,6 +19,7 @@ name: Semgrep
 on:
   # Determine when you want Semgrep to scan your code.
   # Use as many of the following options as you want.
+  #
   # Option 1: scan changed files in PRs, block on new issues only (existing
   # issues in the repository ignored).
   # To run on specific types of PR states (opened, reopened, etc) or particular
@@ -83,7 +84,8 @@ jobs:
     steps:
       - uses: actions/checkout@v3
 
-      # Select rules for your scan with one of these two options.
+      # Select rules for your scan with one of these two options:
+      #
       # Option 1: scan with rules set in Semgrep App's rule board
       # Make a token at semgrep.dev/orgs/-/settings/tokens, and then
       # save it in your GitHub Secrets.
@@ -93,7 +95,7 @@ jobs:
       # Option 2: set hard-coded rulesets, viewable in logs.
       # - run: semgrep scan --sarif --output=semgrep.sarif
       #   env:
-      #     SEMGREP_RULES: p/default # more at semgrep.dev/explore
+      #     SEMGREP_RULES: p/default # See more at semgrep.dev/explore.
 
       - name: Upload SARIF file for GitHub Advanced Security Dashboard
         uses: github/codeql-action/upload-sarif@v2
@@ -127,6 +129,7 @@ semgrep:
   rules:
   # Determine when you want Semgrep to scan your code.
   # Use Option 1, 2, or both.
+  #
   # Option 1: scan changed files in MRs, block on new issues only (existing
   # issues ignored)
   - if: $CI_MERGE_REQUEST_IID
@@ -134,7 +137,8 @@ semgrep:
   # - if: $CI_COMMIT_BRANCH == $CI_DEFAULT_BRANCH
 
   variables:
-    # Select rules for your scan with one of these two options.
+    # Select rules for your scan with one of these two options:
+    #
     # Option 1: scan with rules set in Semgrep App's rule board
     # Get your token at semgrep.dev/orgs/-/settings/tokens.
     SEMGREP_APP_TOKEN: $SEMGREP_APP_TOKEN
@@ -283,7 +287,7 @@ jobs:
 
     # Instead of `SEMGREP_APP_TOKEN:`, set hard-coded rulesets, 
     # viewable in logs.
-    #   SEMGREP_RULES: p/default # more at semgrep.dev/explore
+    #   SEMGREP_RULES: p/default # See more at semgrep.dev/explore.
     #   SEMGREP_REPO_NAME: << parameters.repo_path >>
     #   SEMGREP_REPO_URL: << pipeline.project.git_url >>
     #   SEMGREP_BRANCH: << pipeline.git.branch >>
