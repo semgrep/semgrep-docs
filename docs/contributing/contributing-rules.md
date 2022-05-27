@@ -23,7 +23,7 @@ To contribute to the Semgrep rules repository through Semgrep App, follow these 
 1. Go to [Semgrep App Editor](https://semgrep.dev/orgs/-/editor).
 2. Click **Create New Rule**.
 3. Make one of the following steps:
-    - Create a new rule and test code, and then click **Save**. Note: The test file must contain at least one true positive and one true negative test case in order to get approved
+    - Create a new rule and test code, and then click **Save**. Note: The test file must contain at least one true positive and one true negative test case in order to be approved. See [Tests](#tests) section of this document for more information.
     - Select a rule from a category in **Semgrep Registry**. Modify the rule or test code, click **Save**, and then **Fork**.
 4. Click **Share**.
 
@@ -32,8 +32,8 @@ This workflow automatically creates a pull request in the GitHub [rules reposito
 ### Contributing through GitHub
 
 Fork our repository and make a pull request; we'll contact you about signing our Contributor License Agreement (CLA). Install pre-commit (see [installing pre-commit](#installing-pre-commit)) and make a pull request to the [rules repository](https://github.com/returntocorp/semgrep-rules) with two files:
-1. The semgrep pattern (.yml)
-2. The test file (with the file extension of the language or framework). The test file must contain at least one true positive and one true negative test case in order to get approved.
+1. The semgrep pattern (as YAML file).
+2. The test file (with the file extension of the language or framework). The test file must contain at least one true positive and one true negative test case in order to get approved. See [Tests](#tests) section of this document for more information.
 
 See an example of a [pull request](https://github.com/returntocorp/semgrep-rules/pull/1728/files) to the rules repository. Pull requests require the approval of at least one maintainer and successfully passed [CI jobs](https://github.com/returntocorp/semgrep-rules/actions).
 
@@ -72,9 +72,9 @@ A well-written rule message includes:
 2. Description of why this pattern was detected. For example: logic bug, introduces a security vulnerability, bad practice.
 3. An alternative that resolves the issue. For example: Use another function, validate data first, and discard the dangerous flag.
 
-For an example of a good rule message, see [this rule for Django's mark_safe()](https://github.com/returntocorp/semgrep-rules/blob/develop/python/django/security/audit/avoid-mark-safe.yaml).
+For an example of a good rule message, see: [this rule for Django's mark_safe](https://semgrep.dev/r?q=python.django.security.audit.avoid-mark-safe.avoid-mark-safe).
 
-:::note
+:::info
 'mark_safe()' is used to mark a string as *safe* for HTML output. This disables escaping and may expose the content to XSS attacks. Use 'django.utils.html.format_html()' to build HTML for rendering instead.
 :::
 
