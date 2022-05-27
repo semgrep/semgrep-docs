@@ -19,6 +19,7 @@ name: Semgrep
 on:
   # Determine when you want Semgrep to scan your code.
   # Use as many of the following options as you want.
+  # (Currently Options 1 and 3 are active).
   #
   # Option 1: Scan changed files in PRs, only report new findings (existing
   # findings in the repository are ignored).
@@ -33,8 +34,8 @@ on:
 
   # Option 3: Schedule CI job to run at a certain time, using cron syntax.
   # Note: the asterisk sign * is a special character in YAML so you have to quote this string
-  # schedule:
-  #   - cron: '30 0 1,15 * *' # scheduled for 00:30 UTC on both the 1st and 15th of the month
+  schedule:
+    - cron: '30 0 1,15 * *' # scheduled for 00:30 UTC on both the 1st and 15th of the month
 
 jobs:
   semgrep:
