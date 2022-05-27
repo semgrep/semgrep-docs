@@ -127,7 +127,7 @@ semgrep:
   rules:
   # Determine when you want Semgrep to scan your code.
   # Use Option 1, 2, or both.
-  # Option 1: scan changed files in MRs, block on new issues only (existing
+  # Option 1: Scan changed files in MRs, block on new issues only (existing
   # issues ignored)
   - if: $CI_MERGE_REQUEST_IID
   # Option 2: scan all files on default branch, block on any issues
