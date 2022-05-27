@@ -60,7 +60,7 @@ Once `pre-commit` is set up you may commit code and create pull requests.
 
 ## Rule writing
 
-### Understanding rules repository file structure
+### Understanding rule namespacing
 
 The namespacing format for contributing rules in the [rules repository](https://github.com/returntocorp/semgrep-rules) is `<language>/<framework>/<category>/$MORE`. If the rule does not belong to a particular framework, add it to the language directory, which uses the word `lang` in place of the `<framework>`.
 
