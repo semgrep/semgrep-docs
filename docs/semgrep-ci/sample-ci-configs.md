@@ -130,7 +130,7 @@ semgrep:
   # Option 1: Scan changed files in MRs, block on new issues only (existing
   # issues ignored)
   - if: $CI_MERGE_REQUEST_IID
-  # Option 2: scan all files on default branch, block on any issues
+  # Option 2: Scan all files on the default branch, block on any issues
   # - if: $CI_COMMIT_BRANCH == $CI_DEFAULT_BRANCH
 
   variables:
