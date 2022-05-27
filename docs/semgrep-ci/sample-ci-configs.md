@@ -55,7 +55,7 @@ jobs:
       - run: semgrep ci
         env:
           # Select rules for your scan with one of these two options.
-          # Option 1: scan with rules set in Semgrep App's rule board
+          # Option 1: Scan with rules set in Semgrep App's rule board
           # Make a token at semgrep.dev/orgs/-/settings/tokens, and then
           # save it in your GitHub Secrets.
           SEMGREP_APP_TOKEN: ${{ secrets.SEMGREP_APP_TOKEN }}
