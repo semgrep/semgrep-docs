@@ -23,7 +23,7 @@ To contribute to the Semgrep rules repository through Semgrep App, follow these 
 1. Go to [Semgrep App Editor](https://semgrep.dev/orgs/-/editor).
 2. Click **Create New Rule**.
 3. Make one of the following steps:
-    - Create a new rule and test code, and then click **Save**. Note: The test file must contain at least one true positive and one true negative test case in order to be approved. See [Tests](#tests) section of this document for more information.
+    - Create a new rule and test code, and then click **Save**. Note: The test file must contain at least one true positive and one true negative test case to be approved. See the [Tests](#tests) section of this document for more information.
     - Select a rule from a category in **Semgrep Registry**. Modify the rule or test code, click **Save**, and then **Fork**.
 4. Click **Share**.
 
@@ -33,7 +33,7 @@ This workflow automatically creates a pull request in the GitHub [rules reposito
 
 Fork our repository and make a pull request; we'll contact you about signing our Contributor License Agreement (CLA). Install pre-commit (see [installing pre-commit](#installing-pre-commit)) and make a pull request to the [rules repository](https://github.com/returntocorp/semgrep-rules) with two files:
 1. The semgrep pattern (as YAML file).
-2. The test file (with the file extension of the language or framework). The test file must contain at least one true positive and one true negative test case in order to get approved. See [Tests](#tests) section of this document for more information.
+2. The test file (with the file extension of the language or framework). The test file must contain at least one true positive and one true negative test case to be approved. See the [Tests](#tests) section of this document for more information.
 
 See an example of a [pull request](https://github.com/returntocorp/semgrep-rules/pull/1728/files) to the rules repository. Pull requests require the approval of at least one maintainer and successfully passed [CI jobs](https://github.com/returntocorp/semgrep-rules/actions).
 
