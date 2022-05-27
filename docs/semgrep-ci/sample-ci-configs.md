@@ -48,7 +48,7 @@ jobs:
     # Skip any PR created by dependabot to avoid permission issues
     if: (github.actor != 'dependabot[bot]')
     steps:
-      # Fetch project source with GitHub Actions Checkout
+      # Fetch project source with GitHub Actions Checkout.
       - uses: actions/checkout@v3
 
       # Run the "semgrep ci" command on the command line of the docker image.
