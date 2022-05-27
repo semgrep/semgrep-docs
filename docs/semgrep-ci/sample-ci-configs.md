@@ -135,7 +135,7 @@ semgrep:
 
   variables:
     # Select rules for your scan with one of these two options.
-    # Option 1: scan with rules set in Semgrep App's rule board
+    # Option 1: Scan with rules set in Semgrep App's rule board
     # Get your token at semgrep.dev/orgs/-/settings/tokens.
     SEMGREP_APP_TOKEN: $SEMGREP_APP_TOKEN
     # Option 2: set hard-coded rulesets, viewable in logs.
