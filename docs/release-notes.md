@@ -14,6 +14,16 @@ Welcome to Semgrep release notes. This document provides an overview of the chan
 
 ### Semgrep App
 
+#### Additions
+
+- Team and Enterprise tier users can now integrate Semgrep into their GitHub Enterprise (GHE) and GitLab Self-Managed (GLSM) repositories. See [Integrating Semgrep into source code management (SCM) tools](https://semgrep.dev/docs/semgrep-app/scm/).
+- You can now scan locally through Semgrep CLI and then upload findings to Semgrep App.
+- Semgrep App now has a project setup page for integrating Semgrep with Jenkins. To create a new project with Jenkins, log in to Semgrep App and click **[Projects](https://semgrep.dev/orgs/-/projects)** > **Scan new project** > **Run scan in CI** > **Jenkins**.
+
+#### Changes
+
+- The Playground UI is now similar to Semgrep App's Editor UI for a consistent experience.
+
 
 ### Semgrep CLI and Semgrep in CI
 
