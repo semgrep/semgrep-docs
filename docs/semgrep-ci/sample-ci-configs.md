@@ -90,7 +90,7 @@ jobs:
       - run: semgrep scan --sarif --output=semgrep.sarif --config=policy
         env:
           SEMGREP_APP_TOKEN: ${{ secrets.SEMGREP_APP_TOKEN }}
-      # Option 2: set hard-coded rulesets, viewable in logs.
+      # Option 2: Set hard-coded rulesets, viewable in logs.
       # - run: semgrep scan --sarif --output=semgrep.sarif
       #   env:
       #     SEMGREP_RULES: p/default # more at semgrep.dev/explore
