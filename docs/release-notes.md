@@ -58,9 +58,9 @@ These release notes include upgrades for all versions ranging between **0.91.0**
 
 - Dockerfile: Constant propagation now works on variables declared with `ENV`.
 
-- Added `shouldafound`. You can report false negatives through the CLI. See the following use case of `shouldafound`.
+- Added `shouldafound`. You can report false negatives through the CLI. See the following use case of `shouldafound`:
 
-    Testing file `test.go`:
+    See the following file `test.go`:
     ```go                                    
     package main
     ​
@@ -71,7 +71,7 @@ These release notes include upgrades for all versions ranging between **0.91.0**
     }
     ```
 
-    Now, let's notify Semgrep creators that they missed some vulnerable code:
+    Let's notify Semgrep creators that they missed some vulnerable code in the previous file:
     ```sh
     semgrep shouldafound --email "test@foo.com" --start 5 --end 7
     -m "Semgrep missed a vulnerable code here" ./test.go
