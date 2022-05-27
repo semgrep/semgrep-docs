@@ -30,7 +30,7 @@ on:
   # push:
   #   branches: ["master", "main"]
 
-  # Option 3: schedule this job to run at a certain time, using cron syntax
+  # Option 3: Schedule CI job to run at a certain time, using cron syntax.
   # Note that * is a special character in YAML so you have to quote this string
   # schedule:
   #   - cron: '30 0 1,15 * *' # scheduled for 00:30 UTC on both the 1st and 15th of the month
