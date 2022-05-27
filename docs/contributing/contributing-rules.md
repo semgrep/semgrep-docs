@@ -1,6 +1,6 @@
 ---
 slug: contributing-to-semgrep-rules-repository
-description: "This article outlines how to contribute to Semgrep rules repository.."
+description: "This article outlines how to contribute to Semgrep rules repository."
 ---
 
 # Contributing to Semgrep rules
