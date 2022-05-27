@@ -21,18 +21,18 @@ on:
   # Use as many of the following options as you want.
   #
   # Option 1: scan changed files in PRs, block on new issues only (existing
-  # issues in the repository ignored).
+  # issues in the repository are ignored).
   # To run on specific types of PR states (opened, reopened, etc) or particular
-  # paths or branches, see the GitHub docs at:
+  # paths or branches, see the following GitHub documentation:
   # https://docs.github.com/en/actions/using-workflows/events-that-trigger-workflows#pull_request
   pull_request: {}
 
-  # Option 2: scan all files on branches, block on any issues
+  # Option 2: Scan all files on branches, block on any issues
   # push:
   #   branches: ["master", "main"]
 
-  # Option 3: schedule this job to run at a certain time, using cron syntax
-  # Note that * is a special character in YAML so you have to quote this string
+  # Option 3: Schedule CI job to run at a certain time, using cron syntax.
+  # Note: the asterisk sign * is a special character in YAML so you have to quote this string
   # schedule:
   #   - cron: '30 0 1,15 * *' # scheduled for 00:30 UTC on both the 1st and 15th of the month
 
@@ -49,18 +49,18 @@ jobs:
     # Skip any PR created by dependabot to avoid permission issues
     if: (github.actor != 'dependabot[bot]')
     steps:
-      # Fetch project source with GitHub Actions Checkout
+      # Fetch project source with GitHub Actions Checkout.
       - uses: actions/checkout@v3
 
       # Run the "semgrep ci" command on the command line of the docker image.
       - run: semgrep ci
         env:
           # Select rules for your scan with one of these two options.
-          # Option 1: scan with rules set in Semgrep App's rule board
+          # Option 1: Scan with rules set in Semgrep App's rule board
           # Make a token at semgrep.dev/orgs/-/settings/tokens, and then
           # save it in your GitHub Secrets.
           SEMGREP_APP_TOKEN: ${{ secrets.SEMGREP_APP_TOKEN }}
-          # Option 2: set hard-coded rulesets, viewable in logs.
+          # Option 2: Set hard-coded rulesets, viewable in logs.
           # SEMGREP_RULES: p/default # more at semgrep.dev/explore
 ```
 
@@ -86,13 +86,13 @@ jobs:
 
       # Select rules for your scan with one of these two options:
       #
-      # Option 1: scan with rules set in Semgrep App's rule board
+      # Option 1: Scan with rules set in Semgrep App's rule board.
       # Make a token at semgrep.dev/orgs/-/settings/tokens, and then
       # save it in your GitHub Secrets.
       - run: semgrep scan --sarif --output=semgrep.sarif --config=policy
         env:
           SEMGREP_APP_TOKEN: ${{ secrets.SEMGREP_APP_TOKEN }}
-      # Option 2: set hard-coded rulesets, viewable in logs.
+      # Option 2: Set hard-coded rulesets, viewable in logs.
       # - run: semgrep scan --sarif --output=semgrep.sarif
       #   env:
       #     SEMGREP_RULES: p/default # See more at semgrep.dev/explore.
@@ -130,20 +130,20 @@ semgrep:
   # Determine when you want Semgrep to scan your code.
   # Use Option 1, 2, or both.
   #
-  # Option 1: scan changed files in MRs, block on new issues only (existing
-  # issues ignored)
+  # Option 1: Scan changed files in MRs, block on new issues only (existing
+  # issues ignored).
   - if: $CI_MERGE_REQUEST_IID
-  # Option 2: scan all files on default branch, block on any issues
+  # Option 2: Scan all files on the default branch, block on any issues
   # - if: $CI_COMMIT_BRANCH == $CI_DEFAULT_BRANCH
 
   variables:
     # Select rules for your scan with one of these two options:
     #
-    # Option 1: scan with rules set in Semgrep App's rule board
+    # Option 1: Scan with rules set in Semgrep App's rule board
     # Get your token at semgrep.dev/orgs/-/settings/tokens.
     SEMGREP_APP_TOKEN: $SEMGREP_APP_TOKEN
     # Option 2: set hard-coded rulesets, viewable in logs.
-    SEMGREP_RULES: p/default # more at semgrep.dev/explore
+    SEMGREP_RULES: p/default # See more at semgrep.dev/explore.
 
   # == Other optional settings in the `variables:` block
 
@@ -276,7 +276,7 @@ jobs:
         type: string
         default: main
     environment:
-      # Scan with rules set in Semgrep App's rule board
+      # Scan with rules set in Semgrep App's rule board.
       # Get your token at semgrep.dev/orgs/-/settings/tokens
       SEMGREP_APP_TOKEN: $SEMGREP_APP_TOKEN
 
