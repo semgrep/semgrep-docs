@@ -44,14 +44,19 @@ Find more about the rules repository by reading the [Rule writing](#rule-writing
 Install pre-commit if you are contributing to the rules repository through GitHub but you are **not** contributing through sharing your rule in Semgrep App.
 
 1. Install [pre-commit](https://pre-commit.com/) by issuing the following command:
+
     ```sh
     python -m pip install pre-commit
     ```
+
 2. Install the pre-commit hooks:
+
     ```sh
     pre-commit install
     ```
-To check if `pre-commit` is working as expected, run the following command:
+
+3. To check if `pre-commit` is working as expected, run the following command:
+
     ```sh
     pre-commit run --all
     ```
