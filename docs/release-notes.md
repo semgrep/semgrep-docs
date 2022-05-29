@@ -24,7 +24,6 @@ Welcome to Semgrep release notes. This document provides an overview of the chan
 
 - The Playground UI is now similar to Semgrep App's Editor UI for a consistent experience.
 
-
 ### Semgrep CLI and Semgrep in CI
 
 These release notes include upgrades for all versions ranging between **0.91.0** and **0.94.0**.
@@ -58,7 +57,7 @@ These release notes include upgrades for all versions ranging between **0.91.0**
 
 - Dockerfile: Constant propagation now works on variables declared with `ENV`.
 
-- Added `shouldafound`. You can report false negatives through the CLI. See the following use case of `shouldafound`:
+- Added `shouldafound`. You can report false negatives that Semgrep should have found through the Semgrep CLI itself. See the following use case of `shouldafound`:
 
     See the following file `test.go`:
     ```go                                    
