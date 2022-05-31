@@ -94,7 +94,8 @@ Semgrep App enables users to choose what findings prevent a pull or merge reques
 A **project** is a repository from either:
 
 * Your GitHub or GitLab account that you add to Semgrep App for scanning. Projects from GitHub or GitLab are integrated through Semgrep App.
-* A local git repository in your machine. Projects from your local machine are integrated through Semgrep CLI.
+* A local Git repository in your machine. Projects from your local machine are integrated through Semgrep CLI.
+
 
 Semgrep App can run scans on many projects with rules set in the Rule Board. First-time Semgrep App users scan projects with pre-selected rules chosen based on the repository's language and framework. To view these pre-selected rules, see the [Registry default ruleset](https://semgrep.dev/p/default).
 
