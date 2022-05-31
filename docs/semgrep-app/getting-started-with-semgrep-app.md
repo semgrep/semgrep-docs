@@ -2,7 +2,7 @@
 slug: getting-started-with-semgrep-app
 append_help_link: true
 title: Getting started with Semgrep App
-description: "Get started with Semgrep App to scan for security vulnerabilities on cloud repositories hosted on GitHub and GitLab."
+description: "Get started with Semgrep App to scan for security vulnerabilities on both local and remote repositories hosted on GitHub and GitLab."
 ---
 
 import MoreHelp from "/src/components/MoreHelp"
