@@ -12,7 +12,8 @@ Semgrep App supports code scanning from:
 * a local command-line interface (CLI)
 * a cloud repository, such as GitHub and GitLab
 
-This guide walks you through scanning code in both environments.
+This guide walks you through scanning code in both types of environments.
+
 
 Semgrep App enables you to run scans on multiple repositories by integrating with your GitHub or GitLab SaaS account. Semgrep uses **rules** to scan code. Matches found based on those rules are called **findings**. A Semgrep rule encapsulates pattern-matching logic and data-flow analysis used to find code violations, security issues, outdated libraries, and other issues.
 
