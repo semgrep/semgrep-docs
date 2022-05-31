@@ -29,9 +29,7 @@ Semgrep App enables you to deploy, configure, and manage Semgrep in your continu
 
 Signing in to Semgrep App requires either a GitHub or GitLab account. Semgrep App supports Single Sign-On (SSO) on Team or Enterprise tiers. This guide focuses on GitHub and GitLab sign-ins. See [SSO Configuration](https://semgrep.dev/docs/semgrep-app/sso/) for information on single sign-on.
 
-### Prerequisite
-
-* A GitHub or GitLab SaaS account. The account is used to confirm your identity.
+**Prerequisite:** A GitHub or GitLab SaaS account. The account is used to confirm your identity.
 
 ### Signing in with GitHub
 
@@ -114,9 +112,9 @@ Semgrep App can run scans on many projects with rules set in the Rule Board. Fir
 
 Over time, users modify the Rule Board with rules specific to their codebase's security or business goals.  
 
-#### Option A: Adding a local repository through Semgrep CLI
+#### Option A: Scanning a local repository through Semgrep CLI
 
-Adding a local repository is considered a standalone scan. This means the scan is manually triggered and is not continuous, unlike a CI job. 
+Scanning a project from the CLI is a standalone action. This means that you manually triggered the scan. Scans from CLI are not continuous nor scheduled, unlike scans run in a CI job.
 
 **Prequisite:** Semgrep CLI must be installed. See [Getting started with Semgrep CLI](../../getting-started).
 
@@ -208,9 +206,11 @@ $> export SEMGREP_COMMIT=fa4e36b9369e5b039bh2220b5h9R61a38b077f29
 
 *Figure 3.* Partial screenshot of findings page with hyperlinks.
 
-#### Option B: Adding a cloud repository from GitHub or GitLab
+#### Option B: Scanning a repository from GitHub or GitLab
 
-Adding a cloud repository ensures that Semgrep scans your codebase every time a PR or MR is created. 
+Scanning a repository from SCM providers such as GitHub or GitLab ensures that Semgrep scans your codebase every time a PR or MR is created. To add a repository:
+
+**Prerequisite:** A GitHub or GitLab SaaS repository associated with your account.
 
 1. Ensure you are signed in to Semgrep App.
 2. Click **Projects** on the left sidebar.
