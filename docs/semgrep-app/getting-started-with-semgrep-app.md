@@ -60,6 +60,20 @@ This section explains why Semgrep App requires specific permissions. Semgrep App
     <dd>Enables Semgrep App to start or stop scans on the repository and commit files for continuous integration.</dd>
 </dl>
 
+The GitHub integration app is called `semgrep-app`. This app is used to integrate Semgrep into GitHub repositories. It requires the following permissions:
+
+<dl>
+    <dt>Read and write permissions to <a href="https://docs.github.com/en/actions">GitHub Actions</a></dt>
+    <dd>Allows Semgrep App to cancel stuck jobs, rerun jobs, pull logs from jobs, and perform on-demand scanning.</dd>
+    <dt>Read permissions to <a href="https://docs.github.com/en/rest/reference/checks">GitHub Checks</a></dt>
+    <dd>Facilitates debugging of Semgrep App when configured out of GitHub Actions.</dd>
+    <dt>Read and write to GitHub Security Events</dt>
+    <dd>Enables integration with the GitHub Advanced Security to show Semgrep results.</dd>
+    <dt><code>.semgrepignore</code> single-file access</dt>
+    <dd>Allows debugging of requests and automatic syncing of <code>.semgrepignore</code> between the Semgrep App UI and what is checked into the repository.</dd>
+    <dt>Read/write GitHub secrets</dt>
+    <dd>Enables automatically adding of the Semgrep App Token to your repository secrets when onboarding projects. This simplifies bulk onboarding of repositories. <strong>Semgrep App cannot read the values of your existing or future secrets due to the security design of GitHub Secrets.</strong> This permission only permits Semgrep App to know the secret name and programmatically adds the Semgrep token to your repository secrets.</dd>
+</dl>
 
 ### Signing in with GitLab
 
@@ -96,7 +110,6 @@ A **project** is a repository from either:
 * Your GitHub or GitLab account that you add to Semgrep App for scanning. Projects from GitHub or GitLab are integrated through Semgrep App.
 * A local Git repository in your machine. Projects from your local machine are integrated through Semgrep CLI.
 
-
 Semgrep App can run scans on many projects with rules set in the Rule Board. First-time Semgrep App users scan projects with pre-selected rules chosen based on the repository's language and framework. To view these pre-selected rules, see the [Registry default ruleset](https://semgrep.dev/p/default).
 
 Over time, users modify the Rule Board with rules specific to their codebase's security or business goals.  
@@ -130,7 +143,10 @@ Scans from local repositories do not access their corresponding remote repositor
 ![Screenshot of findings page snippet with no hyperlinks](../img/findings-no-hyperlinks.png "Screenshot of findings page snippet with no hyperlinks")
 *Figure 1.* Partial screenshot of findings page with no hyperlinks.
 
-Local repository scans require additional configuration to link to their corresponding remote repositories. Set up environment variables within your command line to configure cross-linking between local and remote repositories within Semgrep App.
+Local repository scans require additional configuration to **create hyperlinks to their corresponding remote repositories**. Set up environment variables within your command line to configure cross-linking between local and remote repositories within Semgrep App.
+
+![Screenshot of sample environment variables on a Linux shell](../img/app-ci-setenvvar.png "Screenshot of sample environment variables on a Linux shell")
+*Figure 2.* Sample environment variables set up on a Linux shell.
 
 To set up environment variables:
 
@@ -187,6 +203,10 @@ commit fa4e36b9369e5b039bh2220b5h9R61a38b077f29 (HEAD -> s_juiceshop, origin/mas
 # Set the commit hash
 $> export SEMGREP_COMMIT=fa4e36b9369e5b039bh2220b5h9R61a38b077f29
  ```
+
+![Screenshot of findings page snippet with hyperlinks](../img/findings-with-hyperlinks.png "Screenshot of findings page snippet with hyperlinks")
+
+*Figure 3.* Partial screenshot of findings page with hyperlinks.
 
 #### Option B: Adding a cloud repository from GitHub or GitLab
 
