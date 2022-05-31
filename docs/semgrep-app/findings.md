@@ -69,7 +69,7 @@ Semgrep App assists in the triage process through the use of **comments** and **
 | -----------  | ------------ |
 | **Open** | Open findings require action, such as rewriting the code for vulnerabilities, or refactoring the code. Findings are open by default. |
 | **Ignored** | Findings that are ignored will not be acted upon. This may be a false positive or deprioritized issue. Findings can be ignored through Semgrep App (see [Managing triage states](#managing-triage-states-bulk-triage)). |
-| **Fixed** | Fixed findings are findings that were detected in a previous scan but no longer trigger a match in the most recent scan. The rule that detected the finding and the code that triggered the match must both be active in the previous and most recent scan. |
+| **Fixed** | Fixed findings are findings that were detected in a previous scan but no longer trigger a match in the most recent scan. The rule that detected the finding and the code that triggered the match must both be active in the most recent scan. |
 
 ### Filtering findings
 
