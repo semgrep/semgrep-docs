@@ -9,8 +9,8 @@ import MoreHelp from "/src/components/MoreHelp"
 
 Semgrep App supports code scanning from:
 
-* a local command-line interface (CLI)
-* a cloud repository, such as GitHub and GitLab
+* local command-line interfaces (CLI)
+* source code management (SCM) systems, such as GitHub and GitLab, through continuous integration (CI)
 
 This guide walks you through scanning code in both environments.
 
@@ -28,10 +28,9 @@ Semgrep App enables you to deploy, configure, and manage Semgrep in your continu
 
 Signing in to Semgrep App requires either a GitHub or GitLab account. Semgrep App supports Single Sign-On (SSO) on Team or Enterprise tiers. This guide focuses on GitHub and GitLab sign-ins. See [SSO Configuration](https://semgrep.dev/docs/semgrep-app/sso/) for information on single sign-on.
 
-### Prerequisites
+### Prerequisite
 
 * A GitHub or GitLab SaaS account.
-* At least one repository associated with the account.
 
 ### Signing in with GitHub
 
