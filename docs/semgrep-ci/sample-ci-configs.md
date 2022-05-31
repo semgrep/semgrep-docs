@@ -129,13 +129,20 @@ semgrep:
 
   rules:
   # Determine when you want Semgrep to scan your code.
-  # Use Option 1, 2, or both.
+  # Use as many of the following options as you want.
   #
   # Option 1: Scan changed files in MRs, only report new findings (existing
   # findings ignored).
   - if: $CI_MERGE_REQUEST_IID
+
   # Option 2: Scan all files on the default branch, report any findings.
   # - if: $CI_COMMIT_BRANCH == $CI_DEFAULT_BRANCH
+
+  # Option 3: Schedule CI job to run at a certain time, using cron syntax. 
+  # Instructions for setting this up are here: 
+  # https://docs.gitlab.com/ee/ci/pipelines/schedules.html
+  # As an initial setup, we recommend scanning your whole project on 1st and 
+  # 15th of the month, in addition to running Option 1.
 
   variables:
     # Select rules for your scan with one of these two options:
