@@ -31,7 +31,7 @@ Signing in to Semgrep App requires either a GitHub or GitLab account. Semgrep Ap
 
 ### Prerequisite
 
-* A GitHub or GitLab SaaS account.
+* A GitHub or GitLab SaaS account. The account is used to confirm your identity.
 
 ### Signing in with GitHub
 
@@ -139,7 +139,7 @@ To set up environment variables:
     1. Retrieve the URL by navigating to your online repository. Copy the value in the address bar. This is your `URL_ADDRESS`.
     2. Set the variable by entering the text below, substituting `URL_ADDRESS` with the value from the previous step.
     <pre><code>
-    SEMGREP_REPO_URL=<em>URL_ADDRESS</em>
+    export SEMGREP_REPO_URL=<em>URL_ADDRESS</em>
     </code></pre>
 3. Set up the `SEMGREP_BRANCH`:
     1. Run the following to retrieve the branch name:
@@ -148,13 +148,13 @@ To set up environment variables:
     ```
     2. Set the variable by entering the text below, substituting `BRANCH_NAME` with the value from the previous step.
     <pre><code>
-    SEMGREP_BRANCH=<em>BRANCH_NAME</em>
+    export SEMGREP_BRANCH=<em>BRANCH_NAME</em>
     </code></pre>
 4. Set up the `SEMGREP_REPO_NAME`:
     1. Retrieve the repository name by logging in to your GitHub or GitLab account and copying the repository name from your dashboard. 
     2. Set the variable by entering the text below, substituting `REPO_NAME` with the value from the previous step.
     <pre><code>
-    SEMGREP_REPO_NAME=<em>REPO_NAME</em>
+    export SEMGREP_REPO_NAME=<em>REPO_NAME</em>
     </code></pre>
 5. Set up the `SEMGREP_COMMIT`:
     1. Run the following to retrieve the commit hash:
@@ -163,30 +163,29 @@ To set up environment variables:
     ```
     2. Set the variable by entering the text below, substituting `COMMIT_HASH` with the value from the previous step.
     <pre><code>
-    SEMGREP_COMMIT=<em>COMMIT_HASH</em>
+    export SEMGREP_COMMIT=<em>COMMIT_HASH</em>
     </code></pre>
 
 Sample values:
 
 ```
 # Set the repository URL
-$> SEMGREP_REPO_URL=https://github.com/corporation/s_juiceshop
+$> export SEMGREP_REPO_URL=https://github.com/corporation/s_juiceshop
 
 # Set the repository name
-$> SEMGREP_REPO_NAME=corporation/s_juiceshop
+$> export SEMGREP_REPO_NAME=corporation/s_juiceshop
 
 # Retrieve the branch 
 $> git rev-parse --abbrev-ref HEAD
 s_update
 # Set the branch
-$> SEMGREP_BRANCH=s_update
+$> export SEMGREP_BRANCH=s_update
 
 # Retrieve the commit hash
 $> git log -n 1
 commit fa4e36b9369e5b039bh2220b5h9R61a38b077f29 (HEAD -> s_juiceshop, origin/master, origin/HEAD, master)
 # Set the commit hash
-$> SEMGREP_COMMIT=fa4e36b9369e5b039bh2220b5h9R61a38b077f29
-
+$> export SEMGREP_COMMIT=fa4e36b9369e5b039bh2220b5h9R61a38b077f29
  ```
 
 #### Option B: Adding a cloud repository from GitHub or GitLab
