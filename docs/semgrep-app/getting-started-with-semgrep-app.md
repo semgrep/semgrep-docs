@@ -159,7 +159,7 @@ To set up environment variables:
     1. Run the following to retrieve the branch name:
         ```bash
         git rev-parse --abbrev-ref HEAD
-    ```
+        ```
     2. Set the variable by entering the text below, substituting `BRANCH_NAME` with the value from the previous step.
     <pre><code>
     export SEMGREP_BRANCH=<em>BRANCH_NAME</em>
