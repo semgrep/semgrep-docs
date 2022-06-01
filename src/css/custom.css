@@ -26,6 +26,30 @@
   --ifm-navbar-height: 50px;
 }
 
+
+
+/******************************************************************************
+ *                                                                            *
+ * SIDEBAR                                                                    *
+ *                                                                            *
+ *****************************************************************************/
+
+.menu__list-item-collapsible > a:not([href]) {
+    color: var(--ifm-color-primary);
+    vertical-align: bottom;
+    font-size: 0.7rem;
+    font-weight: 600;
+    padding-bottom: 0rem;
+    padding-top: 1.6rem;
+}
+
+.menu__list-item:not(:first-child) {
+    margin-top: 0rem;
+}
+
+.menu__link {
+    line-height: 1.15;
+}
 .docusaurus-highlight-code-line {
   background-color: rgba(0, 0, 0, 0.1);
   display: block;
@@ -205,8 +229,3 @@ li.menu__list-item a:hover {
   color: rgb(198, 200, 204);
 }
 
-.theme-doc-sidebar-item-category-level-1 > .menu__list-item-collapsible > a.menu__link--sublist {
-    color: purple;
-    font-size: 0.7em;
-    font-weight: 600;
-}

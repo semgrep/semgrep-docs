@@ -19,6 +19,7 @@ module.exports = {
     {
         type: 'category',
         label: 'WELCOME',
+        collapsible: false,
         items: [
           'getting-started',
           {
@@ -31,8 +32,8 @@ module.exports = {
     {
       type: 'category',
       label: 'SEMGREP FEATURES',
+      collapsible: false,
       items: [
-        'getting-started',
         {
           type: 'category',
           label: 'Running rules',
@@ -55,7 +56,6 @@ module.exports = {
             'writing-rules/private-rules'
           ],
         },
-        'cli-reference',
         'ignoring-files-folders-code',
         'extensions',
         'licensing',
@@ -89,12 +89,28 @@ module.exports = {
     },
     {
       type: 'category',
+      label: 'SEMGREP CLI',
+      collapsible: false,
+      items: ['getting-started', 'cli-reference']
+    },
+
+        ,
+    {
+      type: 'category',
       label: 'SEMGREP CI',
+      collapsible: false,
       items: ['semgrep-ci/overview', 'semgrep-ci/configuration-reference', 'semgrep-ci/sample-ci-configs']
     },
+    //{
+    //  type: 'html',
+    //  value: 'SEMGREP APP',
+    //  className: 'sidebar-title',
+    //},
     {
       label: 'SEMGREP APP',
       type: 'category',
+      collapsible: false,
+      className: 'sidebar-title',
       items: ['semgrep-app/getting-started-with-semgrep-app', 'semgrep-app/scm', 'semgrep-app/dashboard', 'semgrep-app/rule-board', 'semgrep-app/findings', 'semgrep-app/integrations', 'semgrep-app/editor', 'semgrep-app/notifications', 'semgrep-app/sso', 'semgrep-app/rbac', 'semgrep-app/pricing-and-billing'],
     },
     'playground',
@@ -102,6 +118,7 @@ module.exports = {
     {
       type: 'category',
       label: 'TROUBLESHOOTING',
+      collapsible: false,
       items: ['troubleshooting/gitlab-sast', 'troubleshooting/rules', 'troubleshooting/semgrep-app', 'troubleshooting/semgrep'],
     },
     'language-support',
