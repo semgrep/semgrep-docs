@@ -41,7 +41,7 @@ Find more about the rules repository by reading the [Rule writing](#rule-writing
 
 #### Installing `pre-commit`
 
-If you are contributing to the rules repository through GitHub but you are **not** contributing through sharing your rule in Semgrep App, install `pre-commit`. Follow [pre-commit installation documentation](https://pre-commit.com/#installation). Once `pre-commit` is set up you may commit code and create pull requests.
+If you are contributing to the rules repository through GitHub but you are **not** contributing through sharing your rule in Semgrep App, install `pre-commit`. Follow [pre-commit installation documentation](https://pre-commit.com/#installation). Once `pre-commit` is set up you may commit code and create pull requests to rules repository.
 
 ## Rule writing
 
