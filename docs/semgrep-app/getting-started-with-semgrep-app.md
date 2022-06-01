@@ -172,7 +172,7 @@ To set up environment variables:
     </code></pre>
 5. Set up the `SEMGREP_COMMIT`:
     1. Run the following to retrieve the commit hash:
-    ```bash
+        ```bash
         git log -n 1
         ```
     2. Set the variable by entering the text below, substituting `COMMIT_HASH` with the value from the previous step.
