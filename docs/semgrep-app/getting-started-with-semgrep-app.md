@@ -123,7 +123,7 @@ Scanning a project from the CLI is a standalone action. This means that you manu
 3. Click **Scan new project** > **Run a scan locally**.
 4. Log in to Semgrep from the CLI:
 ``` 
-semgrep login
+    semgrep login
     ```
 6. Follow the instructions on the CLI.
 5. After logging in, run a scan by entering the following command. This command sends the findings to Semgrep App.
