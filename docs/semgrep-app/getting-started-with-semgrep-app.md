@@ -88,12 +88,11 @@ You are now signed in to Semgrep App.
 
 #### Permissions for GitLab
 
-Semgrep requires the following permissions (scopes) in order to function:
+Semgrep requires the following permissions (scopes) to enable the authentication of a session:
 
-<dl>
-    <dt>`openid`, `email`, and `profile`</dt>
-    <dd>Enables authentication of a session through OpenID.</dd>
-</dl>
+* `openid`
+* `email`
+* `profile`
 
 ## Performing a scan
 
