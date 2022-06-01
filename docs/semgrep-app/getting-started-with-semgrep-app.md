@@ -127,7 +127,7 @@ semgrep login
 ```
 6. Follow the instructions on the CLI.
 5. After logging in, run a scan by entering the following command. This command sends the findings to Semgrep App.
-```
+    ```
     semgrep ci
     ```
 6. View your project's [findings](https://semgrep.dev/orgs/-/findings).
