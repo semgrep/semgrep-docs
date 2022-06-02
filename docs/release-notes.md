@@ -95,15 +95,15 @@ These release notes include upgrades for all versions ranging between **0.91.0**
     You can view and extend the generated rule template here: https://semgrep.dev/s/ylAk
     ```
 
-- Dataflow: The dataflow engine now handles `if-then-else` **expressions** as in OCaml, Ruby etc. Previously it only handled `if-then-else` **statements**. ([#4965](https://github.com/returntocorp/semgrep/issues/4965))
-
-- The JSON output of the Semgrep scan is now fully specified using [ATD](https://atd.readthedocs.io/) and JSON Schema (https://json-schema.org/). See the semgrep-interfaces submodule under interfaces/ (for example, `interfaces/semgrep-interfaces/Semgrep_output_v0.atd` for the ATD specifications).
-
-- The JSON output of `semgrep scan` now contains a `version`: field with the version of Semgrep used to generate the match results.
+- dataflow: The [data-flow analysis engine](https://semgrep.dev/docs/writing-rules/data-flow/) now handles `if-then-else` **expressions** as in OCaml, Ruby etc. Previously it only handled `if-then-else` **statements**. ([#4965](https://github.com/returntocorp/semgrep/issues/4965))
 
 - taint-mode: Previously, to declare a function parameter as a taint source, Semgrep relied on a workaround that declared that any occurrence of the parameter was a taint source. If the parameter was overwritten with safe data, this was not recognized by the taint engine. Now, `focus-metavariable` can be used to specify that a function parameter is a source of taint, and the taint engine handles this as expected.
 
 - taint-mode: Add basic support for object destructuring in languages such as JavaScript. For example, given `let {x} = E`, Semgrep now infers that `x` is tainted if `E` is tainted.
+
+- The JSON output of the Semgrep scan is now fully specified using [ATD](https://atd.readthedocs.io/) and JSON Schema (https://json-schema.org/). See the semgrep-interfaces submodule under interfaces/ (for example, `interfaces/semgrep-interfaces/Semgrep_output_v0.atd` for the ATD specifications).
+
+- The JSON output of `semgrep scan` now contains a `version`: field with the version of Semgrep used to generate the match results.
 
 #### Additional information
 
