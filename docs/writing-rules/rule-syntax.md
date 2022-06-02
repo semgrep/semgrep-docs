@@ -29,7 +29,7 @@ All required fields must be present at the top-level of a rule, immediately unde
 | [`pattern`](#pattern)_\*_               | `string` | Find code matching this expression                                                                |
 | [`patterns`](#patterns)_\*_             | `array`  | Logical AND of multiple patterns                                                                  |
 | [`pattern-either`](#pattern-either)_\*_ | `array`  | Logical OR of multiple patterns                                                                   |
-| [`pattern-regex`](#pattern-regex)_\*_   | `string` | Find code matching this [PCRE](https://www.pcre.org/original/doc/html/pcrepattern.html)-compatible pattern |
+| [`pattern-regex`](#pattern-regex)_\*_   | `string` | Find code matching this [PCRE](https://www.pcre.org/original/doc/html/pcrepattern.html)-compatible pattern in multiline mode |
 
 
 :::info
@@ -94,7 +94,7 @@ The below optional fields must reside underneath a `patterns` field.
 | [`metavariable-comparison`](#metavariable-comparison)     | `map`    | Compare metavariables against basic [Python expressions](https://docs.python.org/3/reference/expressions.html#comparisons) |
 | [`pattern-not`](#pattern-not)                   | `string` | Logical NOT - remove findings matching this expression                                                                  |
 | [`pattern-not-inside`](#pattern-not-inside)     | `string` | Keep findings that do not lie inside this pattern                                                                       |
-| [`pattern-not-regex`](#pattern-not-regex)   | `string` | Filter results using [Python `re`](https://docs.python.org/3/library/re.html) compatible expressions  |
+| [`pattern-not-regex`](#pattern-not-regex)   | `string` | Filter results using a [PCRE](https://www.pcre.org/original/doc/html/pcrepattern.html)-compatible pattern in multiline mode |
 
 ## Operators
 
@@ -120,7 +120,7 @@ This rule looks for usage of the Python standard library functions `hashlib.md5`
 
 ### `pattern-regex`
 
-The `pattern-regex` operator searches files for substrings matching the given [PCRE](https://www.pcre.org/original/doc/html/pcrepattern.html) pattern. This is useful for migrating existing regular expression code search functionality to Semgrep. PCRE "Perl-Compatible Regular Expressions" is a full-featured regex library that is widely compatible with Perl of course, but also with the respective regex libraries of Python, JavaScript, Go, Ruby, and Java.
+The `pattern-regex` operator searches files for substrings matching the given [PCRE](https://www.pcre.org/original/doc/html/pcrepattern.html) pattern. This is useful for migrating existing regular expression code search functionality to Semgrep. PCRE "Perl-Compatible Regular Expressions" is a full-featured regex library that is widely compatible with Perl of course, but also with the respective regex libraries of Python, JavaScript, Go, Ruby, and Java. Patterns are compiled in multiline mode, i.e. `^` and `$` will match at the beginning and end of lines respectively in addition to the beginning and end of input (since Semgrep 0.95.0).
 
 ⚠️ PCRE supports only a [limited number of Unicode character properties](https://www.pcre.org/original/doc/html/pcrepattern.html#uniextseq). For example, `\p{Egyptian_Hieroglyphs}` is supported but `\p{Bidi_Control}` isn't.
 
@@ -142,7 +142,7 @@ Note that if the regex uses groups, the metavariables `$1`, `$2`, etc. will be b
 
 ### `pattern-not-regex`
 
-The `pattern-not-regex` operator filters results using a [Python `re`](https://docs.python.org/3/library/re.html) regular expression. This is most useful when combined with regular-expression only rules, providing an easy way to filter findings without having to use negative lookaheads. `pattern-not-regex` will work with regular `pattern` clauses, too.
+The `pattern-not-regex` operator filters results using a [PCRE](https://www.pcre.org/original/doc/html/pcrepattern.html) regular expression in multiline mode. This is most useful when combined with regular-expression only rules, providing an easy way to filter findings without having to use negative lookaheads. `pattern-not-regex` will work with regular `pattern` clauses, too.
 
 The syntax for this operator is the same as `pattern-regex`.
 
@@ -152,11 +152,11 @@ This operator will filter findings that have _any overlap_ with the supplied reg
 
 ### `metavariable-regex`
 
-The `metavariable-regex` operator searches metavariables for a [Python `re`](https://docs.python.org/3/library/re.html#re.match) compatible expression. This is useful for filtering results based on a [metavariable’s](pattern-syntax.mdx#metavariables) value. It requires the `metavariable` and `regex` keys and can be combined with other pattern operators.
+The `metavariable-regex` operator searches metavariables for a [PCRE](https://www.pcre.org/original/doc/html/pcrepattern.html) regular expression. This is useful for filtering results based on a [metavariable’s](pattern-syntax.mdx#metavariables) value. It requires the `metavariable` and `regex` keys and can be combined with other pattern operators.
 
 <iframe src="https://semgrep.dev/embed/editor?snippet=Oyrw"  border="0" frameBorder="0" width="100%" height="432"></iframe>
 
-Regex matching is **unanchored**. For anchored matching, use `^` for start-of-string anchoring and `$` for end-of-string anchoring. The next example, using the same expression as above but anchored, will find no matches :
+Regex matching is **unanchored**. For anchored matching, use `\A` for start-of-string anchoring and `\Z` for end-of-string anchoring. The next example, using the same expression as above but anchored, will find no matches:
 
 <iframe src="https://semgrep.dev/embed/editor?snippet=ved8"  border="0" frameBorder="0" width="100%" height="432"></iframe>
 
