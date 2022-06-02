@@ -22,16 +22,8 @@ module.exports = {
         collapsible: false,
         items: [
             'getting-started',
-            'semgrep-app/getting-started-with-semgrep-app'
-            'contributing/philosophy'
-            {
-                type: 'category',
-                label: 'Running rules',
-                items: [
-                    'running-rules',
-                    'managing-findings'
-                ],
-            }
+            'semgrep-app/getting-started-with-semgrep-app',
+            'contributing/philosophy',
         ]
     },
     {
@@ -42,7 +34,7 @@ module.exports = {
         'language-support',
         {
             type: 'category',
-            label: 'Scanning with rules for code correctness',
+            label: 'Scanning with rules',
             items: [
                 'running-rules',
                 'managing-findings'
@@ -50,7 +42,7 @@ module.exports = {
         },
         {
             type: 'category',
-            label: 'Writing rules',
+            label: 'Writing your custom rules',
             items: [
                 'writing-rules/overview',
                 'writing-rules/pattern-examples',
@@ -106,8 +98,7 @@ module.exports = {
         items: [
             {
                 type: 'category',
-                label: 'SEMGREP CLI',
-                collapsible: false,
+                label: 'Semgrep CLI',
                 items: [
                     'getting-started',
                     'cli-reference',
@@ -117,8 +108,7 @@ module.exports = {
             },
             {
                 type: 'category',
-                label: 'SEMGREP CI',
-                collapsible: false,
+                label: 'Semgrep CI',
                 items: [
                     'semgrep-ci/overview',
                     'semgrep-ci/configuration-reference',
@@ -127,10 +117,8 @@ module.exports = {
                 ]
             },
             {
-                label: 'SEMGREP APP',
+                label: 'Semgrep App',
                 type: 'category',
-                collapsible: false,
-                className: 'sidebar-title',
                 items: [
                     'semgrep-app/getting-started-with-semgrep-app',
                     'semgrep-app/scm',
@@ -163,7 +151,7 @@ module.exports = {
             'playground',
             {
                 type: 'category',
-                label: 'CHEAT SHEETS',
+                label: 'Cheat sheets',
                 items: [
                     {
                         type: 'category',
@@ -189,7 +177,7 @@ module.exports = {
             },
             'trophy-case',
         ]
-    'support',
+    },
     {
         type: 'category',
         label: 'CONTRIBUTING',
@@ -210,7 +198,7 @@ module.exports = {
             'contributing/adding-a-language',
             'contributing/updating-a-grammar',
             'contributing/troubleshooting',
-            'contributing/philosophy'
+            'contributing/philosophy',
         ]
     },
     {
@@ -218,6 +206,7 @@ module.exports = {
         label: 'ABOUT SEMGREP',
         collapsible: false,
         items: [
+            'support',
             'release-notes',
             'security',
             'licensing',
