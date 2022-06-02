@@ -387,16 +387,20 @@ def foo(something):
 
 ## `options`
 
-Enable/disable the following matching features:
+Enable, disable, or modify the following matching features:
+
+<!-- Options are sorted alphabetically -->
 
 | Option                 | Default | Description                                                            |
 | :--------------------- | :------ | :--------------------------------------------------------------------- |
-| `vardef_assign`        | `true`  | Assignment patterns (e.g., `$X = $E`) will match variable declarations (e.g., `var x = 1;`). |
-| `attr_expr`            | `true`  | Expression patterns (e.g., `f($X)`) will match attributes (e.g., `@f(a)`). |
-| `constant_propagation` | `true`  | [Constant propagation](./pattern-syntax.mdx#constants), including [intra-procedural flow-sensitive constant propagation](../data-flow/constant-propagation/). |
 | `ac_matching`          | `true`  | [Matching modulo associativity and commutativity](./pattern-syntax.mdx#associative-and-commutative-operators), we treat Boolean AND/OR as associative, and bitwise AND/OR/XOR as both associative and commutative. |
+| `attr_expr`            | `true`  | Expression patterns (e.g., `f($X)`) will match attributes (e.g., `@f(a)`). |
 | `commutative_boolop`   | `false` | Treat Boolean AND/OR as commutative even if not semantically accurate. |
-| `xml_attrs_implicit_ellipsis`   | `true` | Any XML/JSX/HTML element patterns have implicit ellipsis for attributes (for example: `<div />` matches `<div foo="1">`. |
+| `constant_propagation` | `true`  | [Constant propagation](./pattern-syntax.mdx#constants), including [intra-procedural flow-sensitive constant propagation](../data-flow/constant-propagation/). |
+| `generic_comment_style` | none   | In generic mode, assume that comments follow the specified syntax. They are then ignored for matching purposes. Allowed values for comment styles are `c` for traditional C-style comments (`/* ... */`), `cpp` for modern C or C++ comments (`// ...` or `/* ... */`), and `shell` (`# ...`). By default, the generic mode does not recognize any comments. Available since Semgrep 0.95. |
+| `generic_ellipsis_max_span` | `10` | In generic mode, this is the maximum number of newlines that an ellipsis pattern `...` can match or equivalently, the maximum number of lines covered by the match minus one. The default value is `10` (newlines) for performance reasons. Increase it with caution. Note that the same effect as `20` can be achieved without changing this setting and by writing `... ...` in the pattern instead of `...`. Setting it to `0` is useful with line-oriented languages (for example [INI](https://en.wikipedia.org/wiki/INI_file) or key-value pairs in general) to force a match to not extend to the next line of code. Available since Semgrep 0.95. |
+| `vardef_assign`        | `true`  | Assignment patterns (for example `$X = $E`) match variable declarations (for example `var x = 1;`). |
+| `xml_attrs_implicit_ellipsis` | `true` | Any XML/JSX/HTML element patterns have implicit ellipsis for attributes (for example: `<div />` matches `<div foo="1">`. |
 
 The full list of available options can be consulted [here](https://github.com/returntocorp/semgrep/blob/develop/interfaces/Config_semgrep.atd). Note that options not included in the table above are considered experimental, and they may change or be removed without notice.
 
