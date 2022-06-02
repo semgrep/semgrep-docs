@@ -130,10 +130,11 @@ module.exports = {
                     'semgrep-app/notifications',
                     'semgrep-app/sso',
                     'semgrep-app/rbac',
-                    'semgrep-app/pricing-and-billing',
                     'troubleshooting/semgrep-app'
                 ],
             },
+            'deepsemgrep',
+            'semgrep-app/pricing-and-billing',
         ]
     },
     //{
@@ -141,7 +142,6 @@ module.exports = {
     //  value: 'SEMGREP APP',
     //  className: 'sidebar-title',
     //},
-    'deepsemgrep',
 
     {
         type: 'category',
