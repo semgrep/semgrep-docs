@@ -2,13 +2,18 @@
 slug: getting-started-with-semgrep-app
 append_help_link: true
 title: Getting started with Semgrep App
-description: "Get started with Semgrep App to scan for security vulnerabilities on cloud repositories hosted on GitHub and GitLab."
-hide_title: true
+description: "Get started with Semgrep App to scan for security vulnerabilities on both local and remote repositories hosted on GitHub and GitLab."
 ---
 
 import MoreHelp from "/src/components/MoreHelp"
 
-# Scanning cloud repositories with Semgrep App
+Semgrep App supports code scanning from:
+
+* local command-line interfaces (CLI)
+* source code management (SCM) systems, such as GitHub and GitLab, through continuous integration (CI)
+
+This guide walks you through scanning code in both types of environments.
+
 
 Semgrep App enables you to run scans on multiple repositories by integrating with your GitHub or GitLab SaaS account. Semgrep uses **rules** to scan code. Matches found based on those rules are called **findings**. A Semgrep rule encapsulates pattern-matching logic and data-flow analysis used to find code violations, security issues, outdated libraries, and other issues.
 
@@ -18,16 +23,13 @@ Many rules are available from [Semgrep Registry](https://semgrep.dev/r), an open
 
 With Semgrep App's Rule Board you can determine which rules Semgrep uses and what action Semgrep undertakes when it generates a finding. The Rule Board can block pull requests (PRs) or merge requests (MRs) from merging until findings are resolved. This behavior helps to prevent vulnerable code from shipping to widely-accessible environments, such as production or staging servers.
 
-Semgrep App enables you to deploy, configure, and manage Semgrep in your continuous integration (CI) environment. You can try Semgrep CLI for local scans as well. For more information, see [Getting started with Semgrep CLI](https://semgrep.dev/docs/getting-started/).
+Semgrep App enables you to deploy, configure, and manage Semgrep in your continuous integration (CI) environment. Semgrep App supports the upload of findings from CLI scans as well. For more information, see [Getting started with Semgrep CLI](https://semgrep.dev/docs/getting-started/).
 
 ## Signing in to Semgrep App
 
 Signing in to Semgrep App requires either a GitHub or GitLab account. Semgrep App supports Single Sign-On (SSO) on Team or Enterprise tiers. This guide focuses on GitHub and GitLab sign-ins. See [SSO Configuration](https://semgrep.dev/docs/semgrep-app/sso/) for information on single sign-on.
 
-### Prerequisites
-
-* A GitHub or GitLab SaaS account.
-* At least one repository associated with the account.
+**Prerequisite:** A GitHub or GitLab SaaS account. The account is used to confirm your identity.
 
 ### Signing in with GitHub
 
@@ -56,7 +58,7 @@ This section explains why Semgrep App requires specific permissions. Semgrep App
     <dd>Enables Semgrep App to start or stop scans on the repository and commit files for continuous integration.</dd>
 </dl>
 
-The GitHub integration app is called `semgrep-app`. It requires the following permissions:
+The GitHub integration app is called `semgrep-app`. This app is used to integrate Semgrep into GitHub repositories. It requires the following permissions:
 
 <dl>
     <dt>Read and write permissions to <a href="https://docs.github.com/en/actions">GitHub Actions</a></dt>
@@ -86,12 +88,11 @@ You are now signed in to Semgrep App.
 
 #### Permissions for GitLab
 
-Semgrep requires the following permissions (scopes) in order to function:
+Semgrep requires the following permissions (scopes) to enable the authentication of a session:
 
-<dl>
-    <dt>`openid`, `email`, and `profile`</dt>
-    <dd>Enables authentication of a session through OpenID.</dd>
-</dl>
+* `openid`
+* `email`
+* `profile`
 
 ## Performing a scan
 
@@ -99,17 +100,121 @@ Scanning is Semgrep's primary operation. When you first sign into Semgrep App, i
 
 Semgrep App enables users to choose what findings prevent a pull or merge request (PR or MR) from merging into the repository. Setting these blocking and non-blocking rules is achieved through the Rule Board.
 
-### Adding a project
+### Scanning a new project 
 
-A **project** is a repository from your GitHub or GitLab account that you add to Semgrep App for scanning. Semgrep App can run scans on many projects with rules set in the Rule Board. When you add a project, Semgrep scans it for the first time with pre-selected rules chosen based on the repository's language and framework.
+A **project** is a repository from either:
 
+* Your GitHub or GitLab account that you add to Semgrep App for scanning. Projects from GitHub or GitLab are integrated through Semgrep App.
+* A local Git repository in your machine. Projects from your local machine are integrated through Semgrep CLI.
 
-To add a project:
+Semgrep App can run scans on many projects with rules set in the Rule Board. First-time Semgrep App users scan projects with pre-selected rules chosen based on the repository's language and framework. To view these pre-selected rules, see the [Registry default ruleset](https://semgrep.dev/p/default).
+
+Over time, users modify the Rule Board with rules specific to their codebase's security or business goals.  
+
+#### Option A: Scanning a local repository through Semgrep CLI
+
+Scanning a project from the CLI is a standalone action. This means that you manually triggered the scan. Scans from CLI are not continuous nor scheduled, unlike scans run in a CI job.
+
+**Prequisite:** Semgrep CLI must be installed. See [Getting started with Semgrep CLI](../../getting-started).
 
 1. Ensure you are signed in to Semgrep App.
 2. Click **Projects** on the left sidebar.
-3. Optional: If you do not see the repository you want to add in the **Projects **page of Semgrep app, follow the steps in the succeeding sections to ensure that Semgrep App can detect the repository.
-4. Click **Setup New Project**, and then select which repository provider Semgrep to integrate with.
+3. Click **Scan new project** > **Run a scan locally**.
+4. Log in to Semgrep from the CLI:
+    ``` 
+    semgrep login
+    ```
+6. Follow the instructions on the CLI.
+5. After logging in, run a scan by entering the following command. This command sends the findings to Semgrep App.
+    ```
+    semgrep ci
+    ```
+6. View your project's [findings](https://semgrep.dev/orgs/-/findings).
+
+:::note
+Scans from local repositories do not access their corresponding remote repositories. For this reason, links to specific lines of code in the Findings page are not created. See [Linking local scans to their remote repositories](#linking-local-scans-to-their-remote-repositories) for a workaround.
+:::
+
+##### Linking local scans to their remote repositories 
+
+![Screenshot of findings page snippet with no hyperlinks](../img/findings-no-hyperlinks.png "Screenshot of findings page snippet with no hyperlinks")
+*Figure 1.* Partial screenshot of findings page with no hyperlinks.
+
+Local repository scans require additional configuration to **create hyperlinks to their corresponding remote repositories**. Set up environment variables within your command line to configure cross-linking between local and remote repositories within Semgrep App.
+
+![Screenshot of sample environment variables on a Linux shell](../img/app-ci-setenvvar.png "Screenshot of sample environment variables on a Linux shell")
+*Figure 2.* Sample environment variables set up on a Linux shell.
+
+To set up environment variables:
+
+1. Ensure that your current working directory is the root of the repository to create links for. 
+2. Set up the `SEMGREP_REPO_URL`:
+    1. Retrieve the URL by navigating to your online repository. Copy the value in the address bar. This is your `URL_ADDRESS`.
+    2. Set the variable by entering the text below, substituting `URL_ADDRESS` with the value from the previous step.
+    <pre><code>
+    export SEMGREP_REPO_URL=<em>URL_ADDRESS</em>
+    </code></pre>
+3. Set up the `SEMGREP_BRANCH`:
+    1. Run the following to retrieve the branch name:
+        ```bash
+        git rev-parse --abbrev-ref HEAD
+        ```
+    2. Set the variable by entering the text below, substituting `BRANCH_NAME` with the value from the previous step.
+    <pre><code>
+    export SEMGREP_BRANCH=<em>BRANCH_NAME</em>
+    </code></pre>
+4. Set up the `SEMGREP_REPO_NAME`:
+    1. Retrieve the repository name by logging in to your GitHub or GitLab account and copying the repository name from your dashboard. 
+    2. Set the variable by entering the text below, substituting `REPO_NAME` with the value from the previous step.
+    <pre><code>
+    export SEMGREP_REPO_NAME=<em>REPO_NAME</em>
+    </code></pre>
+5. Set up the `SEMGREP_COMMIT`:
+    1. Run the following to retrieve the commit hash:
+        ```bash
+        git log -n 1
+        ```
+    2. Set the variable by entering the text below, substituting `COMMIT_HASH` with the value from the previous step.
+    <pre><code>
+    export SEMGREP_COMMIT=<em>COMMIT_HASH</em>
+    </code></pre>
+
+Sample values:
+
+```
+# Set the repository URL
+$> export SEMGREP_REPO_URL=https://github.com/corporation/s_juiceshop
+
+# Set the repository name
+$> export SEMGREP_REPO_NAME=corporation/s_juiceshop
+
+# Retrieve the branch 
+$> git rev-parse --abbrev-ref HEAD
+s_update
+# Set the branch
+$> export SEMGREP_BRANCH=s_update
+
+# Retrieve the commit hash
+$> git log -n 1
+commit fa4e36b9369e5b039bh2220b5h9R61a38b077f29 (HEAD -> s_juiceshop, origin/master, origin/HEAD, master)
+# Set the commit hash
+$> export SEMGREP_COMMIT=fa4e36b9369e5b039bh2220b5h9R61a38b077f29
+ ```
+
+![Screenshot of findings page snippet with hyperlinks](../img/findings-with-hyperlinks.png "Screenshot of findings page snippet with hyperlinks")
+
+*Figure 3.* Partial screenshot of findings page with hyperlinks.
+
+#### Option B: Scanning a repository from GitHub or GitLab
+
+Scanning a repository from SCM providers such as GitHub or GitLab ensures that Semgrep scans your codebase every time a PR or MR is created. To add a repository:
+
+**Prerequisite:** A GitHub or GitLab SaaS repository associated with your account.
+
+1. Ensure you are signed in to Semgrep App.
+2. Click **Projects** on the left sidebar.
+3. Optional: If you do not see the repository you want to add in the **Projects** page of Semgrep app, follow the steps in the succeeding sections to ensure that Semgrep App can detect the repository.
+4. Click **Scan new project**, and then select which repository provider Semgrep to integrate with.
 5. For **GitHub Actions**:
     1. Click **Add CI Job **next to the name of the project to add.
     2. Optional: If you do not see the repository you want to add, follow the succeeding guide on **detecting GitHub repositories**.
@@ -141,11 +246,9 @@ To ensure that your GitHub repository is **detected** by Semgrep App:
     1. All repositories will display all current and future public and private repositories.
     2. Only select repositories will display explicitly selected repositories.
 
-
 ### Running a scan
 
 By default, scans are triggered through the following parameters, which are defined during a project's initial setup in Semgrep App:
-
 
 * Either a daily or weekly schedule.
 * Upon every PR or MR.
@@ -185,18 +288,15 @@ Semgrep's speed is not affected by having multiple rules for different languages
 
 You may select rules and rulesets from your own rules, your organization's rules, or rules from the Registry.
 
-
-
 ![Screenshot of Rule board](../img/rule-board.png "Screenshot of Rule board")
-
 
 The Rule Board is composed of three columns:
 
 
 <dl>
-    <dt>Audit</dt>
+    <dt>Monitor</dt>
     <dd>Rules here show findings only on Semgrep App.</dd>
-    <dt>PR/MR Comments</dt>
+    <dt>Comment</dt>
     <dd>Rules here show findings to developers through PRs or MRs.</dd>
     <dt>Block</dt>
     <dd>Rules here show block merges and commits, in addition to showing findings in Semgrep App and PRs or MRs.</dd>
@@ -218,9 +318,7 @@ For more information on operations such as filtering and deleting as well as Rul
 
 ### Viewing findings of a scan
 
-
 ![Screenshot of Dashboard](../img/dashboard-view.png "Screenshot of Dashboard")
-
 
 Both the Dashboard and the Findings page display the results of a scan. These pages are accessible from the left sidebar in Semgrep App. The **[Dashboard](../dashboard/)** is a report view to assist in evaluating security posture across repositories. It organizes findings into OWASP categories, enabling users to assess habits and trends within their team or organization.
 
@@ -228,12 +326,9 @@ The **[Findings](../findings/#managing-triage-states-bulk-triage)** page is used
 
 To see the rule specifics that triggered the finding, click on the rule entry.
 
-
 ### Automatically resolving findings
 
-
 ![Screenshot of autofix in GitHub](../img/notifications-github-suggestions.png "Screenshot of autofix in GitHub")
-
 
 Include code suggestions that resolve findings in both GitHub and GitLab through Semgrep App's autofix feature. This improves the fix rate of findings by reducing the steps needed to resolve a finding. See the section above on Running a scan to enable autofix.
 
