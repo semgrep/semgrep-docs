@@ -13,7 +13,7 @@ Rules are specific patterns based on which Semgrep reports findings in code. The
 
 You can run existing and custom Semgrep rules locally with the Semrgep command line interface (Semgrep CLI) or continuously with Semgrep in CI.
 
-The following diagram displays a current number of Semgrep rules:
+The following diagram displays the current number of Semgrep rules:
 <div className="lang-container" style={{marginBottom: '20px'}}>
   <iframe width="900" height="400" frameBorder="0" src="https://dashboard.semgrep.dev/metric/semgrep-rules.num/graph"></iframe>
 </div>
