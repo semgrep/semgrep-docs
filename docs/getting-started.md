@@ -32,7 +32,9 @@ Start by running [Semgrep](https://github.com/returntocorp/semgrep/) locally to 
     semgrep --config=auto path/to/src
     ```
 
-When you use the Semgrep Registry for any ruleset (like the auto ruleset above), [usage metrics](../metrics) are collected.
+:::info
+When you use `--config=auto` the name of your project will be sent to Semgrep Registry as an identifier to make selecting relevant rules fast next time; your source code will not be uploaded. Also, when you use the Semgrep Registry for any ruleset (like the auto ruleset above), [usage metrics](../metrics) are collected. Alternatively, make your own rules and run them locally. To try rules locally, see [Writing your own rules](../running-rules/#writing-your-own-rule-file).
+:::
 
 ### Next steps
 
