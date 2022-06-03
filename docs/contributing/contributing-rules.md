@@ -39,24 +39,9 @@ See an example of a [pull request](https://github.com/returntocorp/semgrep-rules
 
 Find more about the rules repository by reading the [Rule writing](#rule-writing) and [Tests](#tests) sections.
 
-#### Installing pre-commit
+#### Installing `pre-commit`
 
-Install pre-commit if you are contributing to the rules repository through GitHub but you are **not** contributing through sharing your rule in Semgrep App.
-
-1. Install [pre-commit](https://pre-commit.com/) by issuing the following command:
-    ```sh
-    python -m pip install pre-commit
-    ```
-2. Install the pre-commit hooks:
-    ```sh
-    pre-commit install
-    ```
-To check if `pre-commit` is working as expected, run the following command:
-    ```sh
-    pre-commit run --all
-    ```
-
-Once `pre-commit` is set up you may commit code and create pull requests.
+If you are contributing to the rules repository through GitHub but you are **not** contributing through sharing your rule in Semgrep App, install `pre-commit`. Follow [pre-commit installation documentation](https://pre-commit.com/#installation). Once `pre-commit` is set up you may commit code and create pull requests to rules repository.
 
 ## Rule writing
 
@@ -87,7 +72,7 @@ When you contribute rules to the rules repository, our quality checkers (linters
 Rules require a `metadata` key where you can specify a category of the rule, the technology which a rule is targeting, and give additional information as references. See the following example of a rule with all metadata fields [check-dynamic-render-local-file-include](https://semgrep.dev/orgs/adamkvitek/editor/s/returntocorp:check-dynamic-render-local-file-include).
 
 Include the following keys under the `metadata` field:
-- Include `category` field. Choose one of the following values for the `category` metadata field
+- Include `category` field, and then choose one of the following values for this field:
     - `security` - If you use this value, include `owasp` and `cwe` fields as well. To see these fields in use, check the [example rule](https://semgrep.dev/orgs/-/editor/s/returntocorp:check-dynamic-render-local-file-include), and [Common Weakness Enumeration](https://cwe.mitre.org/) (CWE) and [OWASP categories](https://owasp.org/www-project-top-ten/) for more details. If a `security` rule is detecting the use of a bad pattern, append an `audit` to your namespace. This distinguishes the rule from a `security` rule that is aiming to detect a vulnerability.
     - `best-practice`
     - `correctness`
