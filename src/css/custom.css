@@ -41,7 +41,7 @@
     padding-top: 1.6rem;
 }
 
-.menu__list-item-collapsible:hover {
+.theme-doc-sidebar-item-category-level-1 > .menu__list-item-collapsible:hover {
     background: unset;
     color: var(--ifm-color-primary);
 }
