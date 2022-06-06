@@ -19,8 +19,8 @@ Contributions to the docs are welcome! To start contributing, first please make 
 1. Clone the repo.
 2. Install: `yarn install`.
 3. There are two options to run the docs locally:
-    A. Enter `yarn dev` and then go to `<http://localhost:3000/>`. This option is for contributors and writers.
-    B. Enter `yarn start` and then go to: `<http://localhost:3000/>`. This option is for displaying an accurate preview of the live documentation.It runs a script that replaces certain identifiers with code or file templates. These replacements ensure that certain code or file templates are up-to-date.
+    1. Enter `yarn dev` and then go to `<http://localhost:3000/>`. This option is for contributors and writers.
+    2. Enter `yarn start` and then go to: `<http://localhost:3000/>`. This option is for displaying an accurate preview of the live documentation.It runs a script that replaces certain identifiers with code or file templates. These replacements ensure that certain code or file templates are up-to-date.
 
 ## Preview production build
 
