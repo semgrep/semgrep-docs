@@ -26,6 +26,12 @@
   --ifm-navbar-height: 50px;
 }
 
+@media screen and (max-width: 1000px) {
+    .theme-doc-toc-mobile > .clean-btn {
+        color: white;
+    }
+}
+
 /******************************************************************************
  *                                                                            *
  * SIDEBAR                                                                    *
