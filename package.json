@@ -6,6 +6,7 @@
     "docusaurus": "docusaurus",
     "start": "bash run-build-scripts && docusaurus start",
     "build": "bash run-build-scripts && docusaurus build",
+    "dev": "docusaurus start",
     "swizzle": "docusaurus swizzle",
     "deploy": "docusaurus deploy",
     "clear": "docusaurus clear",
