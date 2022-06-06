@@ -26,8 +26,6 @@
   --ifm-navbar-height: 50px;
 }
 
-
-
 /******************************************************************************
  *                                                                            *
  * SIDEBAR                                                                    *
@@ -43,6 +41,21 @@
     padding-top: 1.6rem;
 }
 
+.menu__list-item-collapsible:hover {
+    background: unset;
+    color: var(--ifm-color-primary);
+}
+
+.menu__list-item-collapsible > a:not([href]):hover {
+    color: var(--ifm-color-primary);
+}
+
+
+.menu__list-item-collapsible > a:hover {
+    color: var(--ifm-color-primary);
+
+}
+
 .menu__list-item:not(:first-child) {
     margin-top: 0rem;
 }
@@ -50,6 +63,17 @@
 .menu__link {
     line-height: 1.15;
 }
+
+.menu__list-item {
+    font-size: 0.9rem;
+}
+
+/******************************************************************************
+ *                                                                            *
+ * THEME AND COLORS                                                           *
+ *                                                                            *
+ *****************************************************************************/
+
 .docusaurus-highlight-code-line {
   background-color: rgba(0, 0, 0, 0.1);
   display: block;
