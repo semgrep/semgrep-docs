@@ -134,21 +134,6 @@ module.exports = {
                     'troubleshooting/semgrep-app'
                 ],
             },
-            'semgrep-app/pricing-and-billing',
-        ]
-    },
-    //{
-    //  type: 'html',
-    //  value: 'SEMGREP APP',
-    //  className: 'sidebar-title',
-    //},
-
-    {
-        type: 'category',
-        label: 'LEARN SEMGREP',
-        collapsible: false,
-        items: [
-            'playground',
             {
                 type: 'category',
                 label: 'Cheat sheets',
@@ -175,6 +160,21 @@ module.exports = {
                     },
                 ],
             },
+            'semgrep-app/pricing-and-billing',
+        ]
+    },
+    //{
+    //  type: 'html',
+    //  value: 'SEMGREP APP',
+    //  className: 'sidebar-title',
+    //},
+
+    {
+        type: 'category',
+        label: 'LEARN SEMGREP',
+        collapsible: false,
+        items: [
+            'playground',
             'trophy-case',
         ]
     },
