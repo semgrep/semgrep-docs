@@ -198,7 +198,6 @@ module.exports = {
             'contributing/adding-a-language',
             'contributing/updating-a-grammar',
             'contributing/troubleshooting',
-            'contributing/philosophy',
         ]
     },
     {
