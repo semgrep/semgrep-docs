@@ -118,4 +118,25 @@ To change the job timeout from the default of 1800 seconds. Set to 0 to disable 
 SEMGREP_TIMEOUT="300"
 ```
 
+## Enabling GitLab MR comments (non standard CI configuration)
+
+Configuration provided in this section is not needed for a standard standard CI setup. Use this configuration only when you are using GitLab runners to provide MR comments while you are not using GitLab MR job. Set the following variables in your Semgrep in CI configuration file:
+
+<pre class="language-bash"><code>
+export GITLAB_CI='true'<br/>
+export CI_PROJECT_PATH='<span className="placeholder">USERNAME/PROJECTNAME</span>'<br/>
+export CI_MERGE_REQUEST_PROJECT_URL='<span className="placeholder">https://gitlab.com/USERNAME/PROJECTNAME</span>'<br/>
+export CI_PROJECT_URL=$<span className="placeholder">CI_MERGE_REQUEST_PROJECT_URL</span><br/>
+export CI_COMMIT_SHA=<span className="placeholder">SHA</span><br/>
+export CI_COMMIT_REF_NAME=<span className="placeholder">REF</span><br/>
+export CI_MERGE_REQUEST_TARGET_BRANCH_NAME=<span className="placeholder">BRANCH_NAME</span><br/>
+export CI_JOB_URL=<span className="placeholder">JOB_URL</span><br/>
+export CI_PIPELINE_SOURCE='<span className="placeholder">MERGE_REQUEST_EVENT</span>'<br/>
+export CI_MERGE_REQUEST_IID=<span className="placeholder">REQUEST_IID</span><br/>
+export CI_MERGE_REQUEST_DIFF_BASE_SHA=<span className="placeholder">SHA</span><br/>
+export CI_MERGE_REQUEST_TITLE=<span className="placeholder">MERGE_REQUEST_TITLE</span><br/>
+</code></pre>
+
+See GitLab [Predefined variables reference](https://docs.gitlab.com/ee/ci/variables/predefined_variables.html) for information about specific variables.
+
 <MoreHelp />
