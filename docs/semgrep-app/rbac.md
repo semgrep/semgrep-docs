@@ -10,9 +10,16 @@ import MoreHelp from "/src/components/MoreHelp"
 
 # Managing users and roles
 
-Every person that signs into Semgrep App is first signed into a **personal account**. This is your identity in Semgrep. In a personal account, your findings, projects, private rules, and scans are visible only to you.
+Accounts enable you to manage access to Semgrep resources, such as scans and findings, with varying levels of collaboration and visibility.
 
-To collaborate with others, create an **organization account**. An organization account in Semgrep App requires an existing organization from your source code management (SCM) tool. Creating this type of account integrates Semgrep App into your organization.
+Semgrep App supports two account types:
+
+<dl>
+    <dt>Personal account</dt>
+    <dd>Every person who signs into Semgrep App is first signed into a **personal account**. In a personal account, your findings, projects, private rules, and scans are visible only to you.</dd>
+    <dt>Organization account</dt>
+    <dd>To collaborate with others, create an **organization account**. An organization account in Semgrep App requires an existing organization from your source code management (SCM) tool. Creating this type of account integrates Semgrep App into your organization. A user may join many organizations.</dd>
+</dl>
 
 Users from the same organization are able to sign into Semgrep App with their SCM's credentials and are automatically added to the organization account. Semgrep App is also able to detect the organization's repositories for scanning.
 
