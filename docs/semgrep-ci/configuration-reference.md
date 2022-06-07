@@ -118,9 +118,9 @@ To change the job timeout from the default of 1800 seconds. Set to 0 to disable 
 SEMGREP_TIMEOUT="300"
 ```
 
-## Enabling GitLab MR comments (non standard CI configuration)
+## Enabling GitLab MR comments (non-standard CI configuration)
 
-Configuration provided in this section is not needed for a standard standard CI setup. Use this configuration only when you are using GitLab runners to provide MR comments while you are not using GitLab MR job. Set the following variables in your Semgrep in CI configuration file:
+The configuration provided in this section is not needed for a standard CI setup. Use this configuration only when you are using GitLab runners to provide MR comments while you are not using GitLab MR job. Set the following variables in your Semgrep in CI configuration file:
 
 <pre class="language-bash"><code>
 export GITLAB_CI='true'<br/>
