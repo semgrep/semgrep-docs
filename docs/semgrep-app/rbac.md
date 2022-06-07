@@ -10,6 +10,24 @@ import MoreHelp from "/src/components/MoreHelp"
 
 # Managing users and roles
 
+Every person that signs into Semgrep App is first signed into a **personal account**. This is your identity in Semgrep. In a personal account, your findings, projects, private rules, and scans are visible only to you.
+
+To collaborate with others, create an **organization account**. An organization account in Semgrep App requires an existing organization from your source code management (SCM) tool. Creating this type of account integrates Semgrep App into your organization.
+
+Users from the same organization are able to sign into Semgrep App with their SCM's credentials and are automatically added to the organization account. Semgrep App is also able to detect the organization's repositories for scanning.
+
+In organization accounts, collaborators can collectively manage Semgrep App. By default, users are able to: 
+
+* Add projects to scan
+* View and triage findings
+* Determine what rules to run and actions
+* Manage tokens and other settings
+* View an organization's private rules
+
+Semgrep App can restrict features based on user roles. See [Controlling access through roles](#controlling-access-through-roles).
+
+By creating an organization account, teams are able to collaborate on rule writing and the management of repositories. They are able to enforce organization-wide standards and secure their repositories at scale.
+
 ## Controlling access through roles
 
 ![Screenshot of role-based access control ](../img/rbac-overview.png)<br />
@@ -35,7 +53,7 @@ The following table displays features available to each role:
 | Feature               | `member`  | `admin`   | Additional notes                                                                   |
 | ---------             | --------- | --------- | ---------                                                                          |
 | Overview              | yes       | yes       |                                                                                    |
-| Projects              | no        | yes       | Only `admin` can manage projects.                                                   |
+| Projects              | no        | yes       | Only `admin` can manage projects.                                                  |
 | Rule Board (Policies) | no        | yes       | Only `admin` can manage policies and rules.                                        |
 | Findings              | yes       | yes       | Both `admin` and `member` roles can sort, filter, comment on, and triage findings. |
 | Analytics             | no        | yes       |                                                                                    |
