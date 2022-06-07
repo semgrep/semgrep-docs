@@ -120,7 +120,7 @@ SEMGREP_TIMEOUT="300"
 
 ## Enabling GitLab MR comments (non-standard CI configuration)
 
-The configuration provided in this section is not needed for a standard Semgrep in CI setup. Use this configuration only when you are using GitLab runners to provide MR comments while you are not using GitLab MR job. In the code snippet below, magenta-colored values are placeholders which need to be substituted. Set up the following environment variables within your command line to allow Semgrep create MR comments in GitLab:
+The configuration provided in this section is not needed for a standard Semgrep in CI setup. Use this configuration only when you are using GitLab runners to provide MR comments while you are not using GitLab MR job. In the code snippet below, magenta-colored values are placeholders that you can substitute. Set up the following environment variables within your command line to allow Semgrep to create MR comments in GitLab:
 
 <pre class="language-bash"><code>
 export GITLAB_CI='true'<br/>
