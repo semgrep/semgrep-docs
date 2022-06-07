@@ -1,5 +1,5 @@
 ---
-slug: role-based-access-control
+slug: user-management 
 append_help_link: true
 title: Managing users and roles 
 description: "Learn about roles, user management, and how to implement role-based access control in Semgrep App."
