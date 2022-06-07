@@ -34,7 +34,7 @@ module.exports = {
         'language-support',
         {
             type: 'category',
-            label: 'Scanning with rules',
+            label: 'Scanning code with rules',
             items: [
                 'running-rules',
                 'managing-findings'
@@ -42,7 +42,7 @@ module.exports = {
         },
         {
             type: 'category',
-            label: 'Writing your custom rules',
+            label: 'Writing custom rules',
             items: [
                 'writing-rules/overview',
                 'writing-rules/pattern-examples',
@@ -89,11 +89,12 @@ module.exports = {
             'experiments/focus-metavariable'
           ]
         },
+        'deepsemgrep',
       ],
     },
     {
         type: 'category',
-        label: 'SEMGREP PRODUCTS',
+        label: 'USING SEMGREP',
         collapsible: false,
         items: [
             {
@@ -108,7 +109,7 @@ module.exports = {
             },
             {
                 type: 'category',
-                label: 'Semgrep CI',
+                label: 'Semgrep in CI',
                 items: [
                     'semgrep-ci/overview',
                     'semgrep-ci/configuration-reference',
@@ -133,7 +134,6 @@ module.exports = {
                     'troubleshooting/semgrep-app'
                 ],
             },
-            'deepsemgrep',
             'semgrep-app/pricing-and-billing',
         ]
     },
