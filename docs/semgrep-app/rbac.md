@@ -12,7 +12,7 @@ import MoreHelp from "/src/components/MoreHelp"
 
 Accounts enable you to manage access to Semgrep resources, such as scans and findings, with varying levels of collaboration and visibility.
 
-Semgrep App supports two account types:
+Semgrep App has two types of accounts:
 
 <dl>
     <dt>Personal account</dt>
