@@ -1,13 +1,16 @@
 ---
 slug: role-based-access-control
 append_help_link: true
-title: Role-based access control
-description: "This page informs users of role-based access control in Semgrep App and teaches users about roles and role management."
+title: Managing users and roles 
+description: "Learn about roles, user management, and how to implement role-based access control in Semgrep App."
 ---
 
 import MoreHelp from "/src/components/MoreHelp"
 
-# Controlling access through roles
+
+# Managing users and roles
+
+## Controlling access through roles
 
 ![Screenshot of role-based access control ](../img/rbac-overview.png)<br />
 
