@@ -139,4 +139,21 @@ export CI_MERGE_REQUEST_TITLE='<span className="placeholder">MERGE_REQUEST_TITLE
 
 Replace magenta-colored placeholders in the code snippet above with your specific values (for example <code><span className="placeholder">USERNAME</span></code>). For more information on all of these variables see GitLab documentation [Predefined variables reference](https://docs.gitlab.com/ee/ci/variables/predefined_variables.html). You can find an exhaustive example with sample values in [List all environment variables](https://docs.gitlab.com/ee/ci/variables/index.html#list-all-environment-variables).
 
+Example with sample values:
+
+```sh
+export GITLAB_CI='true'
+export CI_PROJECT_PATH="gitlab-org/gitlab-foss"
+export CI_MERGE_REQUEST_PROJECT_URL="https://example.com/gitlab-org/gitlab-foss"
+export CI_PROJECT_URL="$CI_MERGE_REQUEST_PROJECT_URL"
+export CI_COMMIT_SHA="1ecfd275763eff1d6b4844ea3168962458c9f27a"
+export CI_COMMIT_REF_NAME="main"
+export CI_MERGE_REQUEST_TARGET_BRANCH_NAME="main"
+export CI_JOB_URL="https://gitlab.com/gitlab-examples/ci-debug-trace/-/jobs/379424655"
+export CI_PIPELINE_SOURCE="web"
+export CI_MERGE_REQUEST_IID="1"
+export CI_MERGE_REQUEST_DIFF_BASE_SHA="1ecfd275763eff1d6b4844ea6874447h694gh23d"
+export CI_MERGE_REQUEST_TITLE="Testing branches"
+```
+
 <MoreHelp />
