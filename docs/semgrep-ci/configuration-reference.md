@@ -140,7 +140,6 @@ export CI_MERGE_REQUEST_TITLE='<span className="placeholder">MERGE_REQUEST_TITLE
 Replace magenta-colored placeholders in the code snippet above with your specific values (for example <code><span className="placeholder">USERNAME</span></code>). For more information on all of these variables see GitLab documentation [Predefined variables reference](https://docs.gitlab.com/ee/ci/variables/predefined_variables.html). You can find an exhaustive example with sample values in [List all environment variables](https://docs.gitlab.com/ee/ci/variables/index.html#list-all-environment-variables).
 
 Example with sample values:
-
 ```sh
 export GITLAB_CI='true'
 export CI_PROJECT_PATH="gitlab-org/gitlab-foss"
