@@ -32,18 +32,25 @@ Semgrep App has three tiers:
 
 Semgrep App integrates with a GitHub or GitLab account at either the organizational or individual level. There is no limit to the number of members in an organization for all tiers.
 
-Billing depends on the number of **seats**. Any member whose code has been scanned by Semgrep App takes up a seat.
+Billing depends on the number of **seats**. Any organization member who has made a commit in a project within the past 30 days is considered a **contributor** and takes up a seat.
 
-Members who do **not** run any scans on their code do not need a seat and are not billed. Semgrep Team tier features apply to the entire organization, even if not all members are billed for a seat.
+Members who do **not** make any commits on the code do not need a seat and are not billed. Semgrep Team tier features apply to the entire organization, even if not all members are billed for a seat.
 
 ### Comparing free and paid tier features
 
-#### Organizational management
+#### Organizational management and usage limits
 
 | Feature  | Community | Team | Enterprise |
 | -------  | --------- | ------- | -------- |
-| **Member limit** | ♾️ unlimited | ♾️  unlimited | ♾️  unlimited |
+| **Member limit** | 20 seats | ♾️  unlimited | ♾️  unlimited |
 | **Project limit** |♾️  unlimited | ♾️  unlimited | ♾️  unlimited |
+
+Notes:
+
+* Member usage limits are visible in your [settings page](https://semgrep.dev/orgs/-/settings).
+* If your organization exceeds the member limit:
+    * Only the 20 most recent contributors can view findings from scans run by Semgrep.
+    * Overlimit findings data is retained for three months. When your organization goes below the usage limit, or upgrades to Team or Enterprise, the findings data will be accessible again.
 
 #### Source code management (SCM) support
 
@@ -129,9 +136,9 @@ Notes:
 
 ### Number of seats
 
-Within your team or organization, assess the number of members whose code needs scanning. That will determine the number of seats needed for purchase.
+Within your team or organization, assess the number of members that make commits. That will determine the number of seats needed for purchase.
 
-For example, if a project has 4 unique contributors who push code during the billing period and Semgrep runs on their merge or pull requests, only 4 seats are required even if the organization has a total of 10 members. If these unique contributors commit to many projects within the same organization, they will only be counted once, so no additional seats are required.
+For example, if a project has 4 unique contributors who create commits during the billing period and Semgrep runs on their merge or pull requests, only 4 seats are required even if the organization has a total of 10 members. If these unique contributors commit to many projects within the same organization, they will only be counted once, so no additional seats are required.
 
 All members of the organization, regardless of seat status, have access to paid features for the chosen tier. This means that project managers and other non-programming roles can still view the Semgrep App dashboard.
 
