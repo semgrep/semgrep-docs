@@ -13,42 +13,56 @@ The sample configuration files below run Semgrep CI on various continuous integr
 ## GitHub Actions
 
 ```yaml
+# Name of this GitHub Actions workflow.
 name: Semgrep
 
 on:
-  # Scan changed files in PRs, block on new issues only (existing issues ignored)
+  # Determine when you want Semgrep to scan your code.
+  # Use as many of the following options as you want.
+  # (Currently Options 1 and 3 are active).
+  #
+  # Option 1: Scan changed files in PRs, only report new findings (existing
+  # findings in the repository are ignored).
+  # To run on specific types of PR states (opened, reopened, etc) or particular
+  # paths or branches, see the following GitHub documentation:
+  # https://docs.github.com/en/actions/using-workflows/events-that-trigger-workflows#pull_request
   pull_request: {}
 
-  # Scan all files on branches, block on any issues
+  # Option 2: Scan all files on branches, report any findings.
   # push:
   #   branches: ["master", "main"]
 
-  # Schedule this job to run at a certain time, using cron syntax
-  # Note that * is a special character in YAML so you have to quote this string
-  # schedule:
-  #   - cron: '30 0 1,15 * *' # scheduled for 00:30 UTC on both the 1st and 15th of the month
+  # Option 3: Schedule CI job to run at a certain time, using cron syntax.
+  # Note: the asterisk sign * is a special character in YAML so you have to quote this string
+  schedule:
+    - cron: '30 0 1,15 * *' # scheduled for 00:30 UTC on both the 1st and 15th of the month
 
 jobs:
   semgrep:
+    # User definable name of this GitHub Actions job.
     name: Scan
+    # Only change the if you are self-hosting. See also:
+    # https://docs.github.com/en/actions/using-jobs/choosing-the-runner-for-a-job#choosing-self-hosted-runners
     runs-on: ubuntu-latest
     container:
+      # A Docker image with Semgrep installed. Don't change this.
       image: returntocorp/semgrep
     # Skip any PR created by dependabot to avoid permission issues
     if: (github.actor != 'dependabot[bot]')
     steps:
-      # Fetch project source
+      # Fetch project source with GitHub Actions Checkout.
       - uses: actions/checkout@v3
 
+      # Run the "semgrep ci" command on the command line of the docker image.
       - run: semgrep ci
         env:
           # Select rules for your scan with one of these two options.
-          # Option 1: set hard-coded rulesets
-          SEMGREP_RULES: >- # more at semgrep.dev/r
-            p/security-audit
-            p/secrets
-          # Option 2: scan with rules set in Semgrep App's rule board
-          # SEMGREP_APP_TOKEN: ${{ secrets.SEMGREP_APP_TOKEN }}
+          # Option 1: Scan with rules set in Semgrep App's rule board
+          # Make a token at semgrep.dev/orgs/-/settings/tokens, and then
+          # save it in your GitHub Secrets.
+          SEMGREP_APP_TOKEN: ${{ secrets.SEMGREP_APP_TOKEN }}
+          # Option 2: Set hard-coded rulesets, viewable in logs.
+          # SEMGREP_RULES: p/default # more at semgrep.dev/explore
 ```
 
 <details><summary>Alternate job that uploads findings to GitHub Advanced Security Dashboard</summary>
@@ -60,24 +74,29 @@ on:
   pull_request: {}
 jobs:
   semgrep:
+    # User definable name of this GitHub Actions job.
     name: Scan
+    # Only change the if you are self-hosting. See also:
+    # https://docs.github.com/en/actions/using-jobs/choosing-the-runner-for-a-job#choosing-self-hosted-runners
     runs-on: ubuntu-latest
     container:
+      # A Docker image with Semgrep installed. Don't change this.
       image: returntocorp/semgrep
     steps:
       - uses: actions/checkout@v3
 
-      # Select rules for your scan with one of these two options.
-      # Option 1: set hard-coded rulesets
-      - run: semgrep scan --sarif --output=semgrep.sarif
+      # Select rules for your scan with one of these two options:
+      #
+      # Option 1: Scan with rules set in Semgrep App's rule board.
+      # Make a token at semgrep.dev/orgs/-/settings/tokens, and then
+      # save it in your GitHub Secrets.
+      - run: semgrep scan --sarif --output=semgrep.sarif --config=policy
         env:
-          SEMGREP_RULES: >- # more at semgrep.dev/r
-            p/security-audit
-            p/secrets
-      # Option 2: scan with rules set in Semgrep App's rule board
-      # - run: semgrep scan --sarif --output=semgrep.sarif --config=policy
+          SEMGREP_APP_TOKEN: ${{ secrets.SEMGREP_APP_TOKEN }}
+      # Option 2: Set hard-coded rulesets, viewable in logs.
+      # - run: semgrep scan --sarif --output=semgrep.sarif
       #   env:
-      #     SEMGREP_APP_TOKEN: ${{ secrets.SEMGREP_APP_TOKEN }}
+      #     SEMGREP_RULES: p/default # See more at semgrep.dev/explore.
 
       - name: Upload SARIF file for GitHub Advanced Security Dashboard
         uses: github/codeql-action/upload-sarif@v2
@@ -103,25 +122,38 @@ jobs:
 
 ```yaml
 semgrep:
+  # A Docker image with Semgrep installed.
   image: returntocorp/semgrep
+  # Run the "semgrep ci" command on the command line of the docker image.
   script: semgrep ci
 
   rules:
-  # Scan changed files in MRs, block on new issues only (existing issues ignored)
+  # Determine when you want Semgrep to scan your code.
+  # Use as many of the following options as you want.
+  #
+  # Option 1: Scan changed files in MRs, only report new findings (existing
+  # findings ignored).
   - if: $CI_MERGE_REQUEST_IID
-  # Scan all files on default branch, block on any issues
+
+  # Option 2: Scan all files on the default branch, report any findings.
   # - if: $CI_COMMIT_BRANCH == $CI_DEFAULT_BRANCH
 
+  # Option 3: Schedule CI job to run at a certain time, using cron syntax. 
+  # Instructions for setting this up are here: 
+  # https://docs.gitlab.com/ee/ci/pipelines/schedules.html
+  # As an initial setup, we recommend scanning your whole project on 1st and 
+  # 15th of the month, in addition to running Option 1.
+
   variables:
-    SEMGREP_RULES: >- # more at semgrep.dev/explore
-      p/security-audit
-      p/secrets
+    # Select rules for your scan with one of these two options:
+    #
+    # Option 1: Scan with rules set in Semgrep App's rule board
+    # Get your token at semgrep.dev/orgs/-/settings/tokens.
+    SEMGREP_APP_TOKEN: $SEMGREP_APP_TOKEN
+    # Option 2: set hard-coded rulesets, viewable in logs.
+    # SEMGREP_RULES: p/default # See more at semgrep.dev/explore.
 
-  # == Optional settings in the `variables:` block
-
-  # Instead of `SEMGREP_RULES:`, use rules set in Semgrep App.
-  # Get your token from semgrep.dev/manage/settings.
-  #   SEMGREP_APP_TOKEN: $SEMGREP_APP_TOKEN
+  # == Other optional settings in the `variables:` block
 
   # Receive inline MR comments (requires Semgrep App account)
   # Setup instructions: https://semgrep.dev/docs/notifications/#gitlab-merge-request-comments
@@ -206,13 +238,15 @@ pipeline {
         image: returntocorp/semgrep
         workdir: /<org_name>/<repo_name>
         environment:
-          - "SEMGREP_RULES=p/security-audit p/secrets" # more at semgrep.dev/explore
+          # Scan with rules set in Semgrep App's rule board
+          # Make a token at semgrep.dev/orgs/-/settings/tokens
+          - "SEMGREP_APP_TOKEN=${SEMGREP_APP_TOKEN}"
 
         # == Optional settings in the `environment:` block
 
-        # Instead of `SEMGREP_RULES:`, use rules set in Semgrep App.
-        # Get your token from semgrep.dev/manage/settings.
-        #   - "SEMGREP_APP_TOKEN=${SEMGREP_APP_TOKEN}"
+        # Instead of `SEMGREP_APP_TOKEN:`, set hard-coded rulesets, 
+        # viewable in logs.
+        #   - "SEMGREP_RULES=p/default" # more at semgrep.dev/explore
         #   - "SEMGREP_JOB_URL=${BUILDKITE_BUILD_URL}"
         #   - "SEMGREP_BRANCH=${BUILDKITE_BRANCH}"
         #   - "SEMGREP_REPO_NAME=<org_name>/<repo_name>"
@@ -250,18 +284,18 @@ jobs:
         type: string
         default: main
     environment:
-      SEMGREP_RULES: >- # more at semgrep.dev/explore
-        p/security-audit
-        p/secrets
+      # Scan with rules set in Semgrep App's rule board.
+      # Get your token at semgrep.dev/orgs/-/settings/tokens
+      SEMGREP_APP_TOKEN: $SEMGREP_APP_TOKEN
 
-      # Scan changed files in PRs, block on new issues only (existing issues ignored)
+      # Scan changed files in PRs, only report new findings (existing findings ignored)
       SEMGREP_BASELINE_REF: << parameters.default_branch >>
 
     # == Optional settings in the `environment:` block
 
-    # Instead of `SEMGREP_RULES:`, use rules set in Semgrep App.
-    # Get your token from semgrep.dev/manage/settings.
-    #   SEMGREP_APP_TOKEN: $SEMGREP_APP_TOKEN
+    # Instead of `SEMGREP_APP_TOKEN:`, set hard-coded rulesets, 
+    # viewable in logs.
+    #   SEMGREP_RULES: p/default # See more at semgrep.dev/explore.
     #   SEMGREP_REPO_NAME: << parameters.repo_path >>
     #   SEMGREP_REPO_URL: << pipeline.project.git_url >>
     #   SEMGREP_BRANCH: << pipeline.git.branch >>

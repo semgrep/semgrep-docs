@@ -29,7 +29,7 @@ All required fields must be present at the top-level of a rule, immediately unde
 | [`pattern`](#pattern)_\*_               | `string` | Find code matching this expression                                                                |
 | [`patterns`](#patterns)_\*_             | `array`  | Logical AND of multiple patterns                                                                  |
 | [`pattern-either`](#pattern-either)_\*_ | `array`  | Logical OR of multiple patterns                                                                   |
-| [`pattern-regex`](#pattern-regex)_\*_   | `string` | Find code matching this [PCRE](https://www.pcre.org/original/doc/html/pcrepattern.html)-compatible pattern |
+| [`pattern-regex`](#pattern-regex)_\*_   | `string` | Find code matching this [PCRE](https://www.pcre.org/original/doc/html/pcrepattern.html)-compatible pattern in multiline mode |
 
 
 :::info
@@ -94,7 +94,7 @@ The below optional fields must reside underneath a `patterns` field.
 | [`metavariable-comparison`](#metavariable-comparison)     | `map`    | Compare metavariables against basic [Python expressions](https://docs.python.org/3/reference/expressions.html#comparisons) |
 | [`pattern-not`](#pattern-not)                   | `string` | Logical NOT - remove findings matching this expression                                                                  |
 | [`pattern-not-inside`](#pattern-not-inside)     | `string` | Keep findings that do not lie inside this pattern                                                                       |
-| [`pattern-not-regex`](#pattern-not-regex)   | `string` | Filter results using [Python `re`](https://docs.python.org/3/library/re.html) compatible expressions  |
+| [`pattern-not-regex`](#pattern-not-regex)   | `string` | Filter results using a [PCRE](https://www.pcre.org/original/doc/html/pcrepattern.html)-compatible pattern in multiline mode |
 
 ## Operators
 
@@ -120,7 +120,7 @@ This rule looks for usage of the Python standard library functions `hashlib.md5`
 
 ### `pattern-regex`
 
-The `pattern-regex` operator searches files for substrings matching the given [PCRE](https://www.pcre.org/original/doc/html/pcrepattern.html) pattern. This is useful for migrating existing regular expression code search functionality to Semgrep. PCRE "Perl-Compatible Regular Expressions" is a full-featured regex library that is widely compatible with Perl of course, but also with the respective regex libraries of Python, JavaScript, Go, Ruby, and Java.
+The `pattern-regex` operator searches files for substrings matching the given [PCRE](https://www.pcre.org/original/doc/html/pcrepattern.html) pattern. This is useful for migrating existing regular expression code search functionality to Semgrep. PCRE "Perl-Compatible Regular Expressions" is a full-featured regex library that is widely compatible with Perl of course, but also with the respective regex libraries of Python, JavaScript, Go, Ruby, and Java. Patterns are compiled in multiline mode, i.e. `^` and `$` will match at the beginning and end of lines respectively in addition to the beginning and end of input (since Semgrep 0.95.0).
 
 ⚠️ PCRE supports only a [limited number of Unicode character properties](https://www.pcre.org/original/doc/html/pcrepattern.html#uniextseq). For example, `\p{Egyptian_Hieroglyphs}` is supported but `\p{Bidi_Control}` isn't.
 
@@ -142,7 +142,7 @@ Note that if the regex uses groups, the metavariables `$1`, `$2`, etc. will be b
 
 ### `pattern-not-regex`
 
-The `pattern-not-regex` operator filters results using a [Python `re`](https://docs.python.org/3/library/re.html) regular expression. This is most useful when combined with regular-expression only rules, providing an easy way to filter findings without having to use negative lookaheads. `pattern-not-regex` will work with regular `pattern` clauses, too.
+The `pattern-not-regex` operator filters results using a [PCRE](https://www.pcre.org/original/doc/html/pcrepattern.html) regular expression in multiline mode. This is most useful when combined with regular-expression only rules, providing an easy way to filter findings without having to use negative lookaheads. `pattern-not-regex` will work with regular `pattern` clauses, too.
 
 The syntax for this operator is the same as `pattern-regex`.
 
@@ -152,11 +152,11 @@ This operator will filter findings that have _any overlap_ with the supplied reg
 
 ### `metavariable-regex`
 
-The `metavariable-regex` operator searches metavariables for a [Python `re`](https://docs.python.org/3/library/re.html#re.match) compatible expression. This is useful for filtering results based on a [metavariable’s](pattern-syntax.mdx#metavariables) value. It requires the `metavariable` and `regex` keys and can be combined with other pattern operators.
+The `metavariable-regex` operator searches metavariables for a [PCRE](https://www.pcre.org/original/doc/html/pcrepattern.html) regular expression. This is useful for filtering results based on a [metavariable’s](pattern-syntax.mdx#metavariables) value. It requires the `metavariable` and `regex` keys and can be combined with other pattern operators.
 
 <iframe src="https://semgrep.dev/embed/editor?snippet=Oyrw"  border="0" frameBorder="0" width="100%" height="432"></iframe>
 
-Regex matching is **unanchored**. For anchored matching, use `^` for start-of-string anchoring and `$` for end-of-string anchoring. The next example, using the same expression as above but anchored, will find no matches :
+Regex matching is **unanchored**. For anchored matching, use `\A` for start-of-string anchoring and `\Z` for end-of-string anchoring. The next example, using the same expression as above but anchored, will find no matches:
 
 <iframe src="https://semgrep.dev/embed/editor?snippet=ved8"  border="0" frameBorder="0" width="100%" height="432"></iframe>
 
@@ -387,16 +387,20 @@ def foo(something):
 
 ## `options`
 
-Enable/disable the following matching features:
+Enable, disable, or modify the following matching features:
+
+<!-- Options are sorted alphabetically -->
 
 | Option                 | Default | Description                                                            |
 | :--------------------- | :------ | :--------------------------------------------------------------------- |
-| `vardef_assign`        | `true`  | Assignment patterns (e.g., `$X = $E`) will match variable declarations (e.g., `var x = 1;`). |
-| `attr_expr`            | `true`  | Expression patterns (e.g., `f($X)`) will match attributes (e.g., `@f(a)`). |
-| `constant_propagation` | `true`  | [Constant propagation](./pattern-syntax.mdx#constants), including [intra-procedural flow-sensitive constant propagation](../data-flow/constant-propagation/). |
 | `ac_matching`          | `true`  | [Matching modulo associativity and commutativity](./pattern-syntax.mdx#associative-and-commutative-operators), we treat Boolean AND/OR as associative, and bitwise AND/OR/XOR as both associative and commutative. |
+| `attr_expr`            | `true`  | Expression patterns (e.g., `f($X)`) will match attributes (e.g., `@f(a)`). |
 | `commutative_boolop`   | `false` | Treat Boolean AND/OR as commutative even if not semantically accurate. |
-| `xml_attrs_implicit_ellipsis`   | `true` | Any XML/JSX/HTML element patterns have implicit ellipsis for attributes (for example: `<div />` matches `<div foo="1">`. |
+| `constant_propagation` | `true`  | [Constant propagation](./pattern-syntax.mdx#constants), including [intra-procedural flow-sensitive constant propagation](../data-flow/constant-propagation/). |
+| `generic_comment_style` | none   | In generic mode, assume that comments follow the specified syntax. They are then ignored for matching purposes. Allowed values for comment styles are `c` for traditional C-style comments (`/* ... */`), `cpp` for modern C or C++ comments (`// ...` or `/* ... */`), and `shell` (`# ...`). By default, the generic mode does not recognize any comments. Available since Semgrep 0.96. |
+| `generic_ellipsis_max_span` | `10` | In generic mode, this is the maximum number of newlines that an ellipsis pattern `...` can match or equivalently, the maximum number of lines covered by the match minus one. The default value is `10` (newlines) for performance reasons. Increase it with caution. Note that the same effect as `20` can be achieved without changing this setting and by writing `... ...` in the pattern instead of `...`. Setting it to `0` is useful with line-oriented languages (for example [INI](https://en.wikipedia.org/wiki/INI_file) or key-value pairs in general) to force a match to not extend to the next line of code. Available since Semgrep 0.96. |
+| `vardef_assign`        | `true`  | Assignment patterns (for example `$X = $E`) match variable declarations (for example `var x = 1;`). |
+| `xml_attrs_implicit_ellipsis` | `true` | Any XML/JSX/HTML element patterns have implicit ellipsis for attributes (for example: `<div />` matches `<div foo="1">`. |
 
 The full list of available options can be consulted [here](https://github.com/returntocorp/semgrep/blob/develop/interfaces/Config_semgrep.atd). Note that options not included in the table above are considered experimental, and they may change or be removed without notice.
 
