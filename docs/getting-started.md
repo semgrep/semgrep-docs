@@ -85,19 +85,11 @@ semgrep --config=auto
 
 ## Run Semgrep continuously
 
-Semgrep is at its best when used to continuously scan code.
-Check out [Semgrep CI](../semgrep-ci/overview/) to learn how to get results where you already work:
-GitHub, GitLab, Slack, Jira, and more.
-To get results even earlier in the development process,
-such as in a Git pre-commit hook or VS Code,
-check the available [Semgrep extensions](../extensions/).
+Semgrep is at its best when used to continuously scan code. Check out [Semgrep CI](../semgrep-ci/overview/) to learn how to get results where you already work: GitHub, GitLab, Slack, Jira, and more. To get results even earlier in the development process, such as in a Git pre-commit hook or VS Code, check the available [Semgrep extensions](../extensions/).
 
-For teams running Semgrep on multiple projects, see [Semgrep App](https://semgrep.dev/manage). Its free and paid tiers let users:
+For teams running Semgrep on multiple projects, see . Its free and paid tiers let users:
 
-1. Centrally define code standards.
-2. Monitor the impact of standards.
-3. Host private rules.
-4. Push notifications to 3rd-party services.
+Check out [Semgrep App](https://semgrep.dev/manage) to integrate CI with PR or MR comments, monitor progress, host private rules (paid tier), and much more! 
 
 ## Upgrading
 
