@@ -184,6 +184,7 @@ module.exports = {
         collapsible: false,
         items: [
             'contributing/contributing',
+            'contributing/contributing-rules',
             'contributing/contributing-code',
             {
                 type: 'doc',
