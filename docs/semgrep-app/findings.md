@@ -22,7 +22,6 @@ Types of findings:
 * reviewing authentication or authorization logic
 * custom pattern matches based on your own custom rules
 
-
 After a finding is generated, developers may:
 
 * View the Semgrep rule and the matching code.
@@ -30,7 +29,6 @@ After a finding is generated, developers may:
 * Ignore the finding.
 * Comment on the finding.
 * Create a Jira ticket from the finding (for Enterprise/Team Tier users.)
-
 
 The Semgrep App Finding page displays findings across all projects connected to Semgrep App. It is updated after every scan. Scans are initiated through your CI/CD pipeline, such as GitHub actions. The retention period of these findings varies based on your organization’s tier:
 
@@ -124,9 +122,10 @@ To **open findings**:
 4. Click **Open**.
 5. Optional: Include a **comment** explaining the action.
 
-To **close findings**, do one of the two options:
+To **fix a finding**, update, or refactor the code such that the Semgrep rule pattern no longer matches the code.
 
-* Update, fix, or refactor the code such that the Semgrep rule pattern no longer matches the code.
+
+
 * Remove the rule from the Rule Board.
 
 To **remove a rule** from the Rule Board:
@@ -141,7 +140,7 @@ To **view comments**:
 
 ## Creating Jira tickets from findings
 
-Semgrep supports the creation of Jira tickets from a finding. This feature is available to Team/Enterprise Tier users.
+Semgrep supports the creation of Jira tickets from a finding. This enables developers and project managers to relevant issues within their own project or bug tracking environment. This feature is available to Team/Enterprise Tier users.
 
 To **create a ticket**:
 
