@@ -33,7 +33,7 @@ In organization accounts, collaborators can collectively manage Semgrep App. By 
 
 Semgrep App can restrict features based on user roles. See [Controlling access through roles](#controlling-access-through-roles).
 
-By creating an organization account, teams are able to collaborate on rule writing and the management of repositories. They are able to enforce organization-wide standards and secure their repositories at scale.
+By creating an organization account, teams can collaborate on rule writing and the management of repositories. Teams with organization accounts can enforce organization-wide standards and secure their repositories at scale.
 
 ## Controlling access through roles
 
