@@ -218,6 +218,10 @@ pipeline {
 }
 ```
 
+:::note
+`--config auto` sends your repository's URL to Semgrep Registry to fetch pre-configured rules for security and correctness.
+:::
+
 ### Feature support
 
 | Feature | Status |
@@ -353,6 +357,10 @@ pipelines:
             # - export $SEMGREP_APP_TOKEN
             - semgrep ci --config auto
 ```
+
+:::note
+`--config auto` sends your repository's URL to Semgrep Registry to fetch pre-configured rules for security and correctness.
+:::
 
 ### Feature support
 
