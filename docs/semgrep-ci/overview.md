@@ -72,7 +72,11 @@ For full project scans:
 semgrep scan --config auto --config <other rule or rulesets>
 ```
 
-**Note**: If you cannot use the Docker image, install Semgrep CI with `pip install semgrep`.
+If you cannot use the Docker image, install Semgrep CI with `pip install semgrep`.
+
+:::note
+`--config auto` sends your repository's URL to Semgrep Registry to fetch pre-configured rules for security and correctness.
+:::
 
 ## Reviewing Findings
 
