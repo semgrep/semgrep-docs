@@ -18,7 +18,7 @@ Semgrep App has two types of accounts:
     <dt>Personal account</dt>
     <dd>Every person who signs into Semgrep App is first signed in to a <strong>personal account</strong>. In a personal account, your findings, projects, private rules, and scans are visible only to you.</dd>
     <dt>Organization account</dt>
-    <dd>To collaborate with others, create an <strong>organization account</strong>. An organization account in Semgrep App requires an existing organization from your source code management (SCM) tool. Creating this type of account integrates Semgrep App into your organization. A user can have many organizations, provided that they are a member of that organization in their SCM.</dd>
+    <dd>To collaborate with others, create an <strong>organization account</strong>. An organization account in Semgrep App requires an existing organization from your source code management (SCM) tool. Creating this type of account integrates Semgrep App into your organization. A user can be part of many Semgrep App organization accounts, provided that they are a member of that organization in their SCM.</dd>
 </dl>
 
 Users from the same organization can sign into Semgrep App with their SCM's credentials and are automatically added to the organization account. Semgrep App can also detect the organization's repositories available for scanning.
