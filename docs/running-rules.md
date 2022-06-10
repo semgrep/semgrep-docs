@@ -9,17 +9,33 @@ import MoreHelp from "/src/components/MoreHelp"
 
 ## Introduction
 
-Rules are specific patterns based on which Semgrep reports findings in code. These findings may help you to catch issues of security, performance, correctness, and other bugs. Rules are stored in open-source [Semgrep Registry](https://github.com/returntocorp/semgrep-rules) that enables you to scan code without need to write anything custom.
+Rules are specific patterns based on which Semgrep reports findings in code. These findings may help you to catch issues of security, performance, correctness, and other bugs. Rules are stored in an open-source [Semgrep Registry](https://github.com/returntocorp/semgrep-rules) that enables you to scan code without need to write anything custom. Use Semgrep rules in the following ways:
 
-You can run existing and custom Semgrep rules locally with the Semrgep command line interface (Semgrep CLI) or continuously with Semgrep in CI.
+- Create and run ephemeral rules in the command line.
+- Use existing Semgrep Registry rules or add new rules to Semgrep Registry.
+- Create your local YAML-defined rules.
+
+You can either run existing and custom Semgrep rules locally with the Semrgep command line interface (Semgrep CLI) or continuously with Semgrep in CI.
 
 The following diagram displays the current number of Semgrep rules:
 <div className="lang-container" style={{marginBottom: '20px'}}>
   <iframe width="900" height="400" frameBorder="0" src="https://dashboard.semgrep.dev/metric/semgrep-rules.num/graph"></iframe>
 </div>
 
+## Ephemeral rules
 
-## Running registry rules
+Use the `-e` or `--pattern` flags in your terminal for ephemeral rules that are used once.
+
+For example: Check for Python `==` where the left and right sides are the same (often a bug):
+```sh
+semgrep -e '$X == $X' --lang=py path/to/src
+```
+
+:::info
+Both local rule.yaml and ephemeral rules are called *local rules*.
+:::
+
+## Running Semgrep Registry rules
 
 This section explains how to run [Semgrep Registry](https://semgrep.dev/explore) rules locally. See the following examples of how you may test Semgrep rules:
 
@@ -27,18 +43,18 @@ This section explains how to run [Semgrep Registry](https://semgrep.dev/explore)
     ```sh
     semgrep --config=auto path/to/src
     ```
-1. Explore the [Semgrep Registry](https://semgrep.dev/explore) and select a rule you would like to run.
-1. On the page of the rule, click **Run Locally**.
-1. Copy the code for local install, and then add the path to the source code you want to check:
+2. Explore the [Semgrep Registry](https://semgrep.dev/explore) and choose a rule.
+3. On the page of the rule, click **Run Locally**.
+4. Copy the code for local install, and then add the path to the source code you want to check:
     <pre class="language-bash"><code>semgrep --config="<span className="placeholder">RULESET-ID</span>" <span className="placeholder">path/to/src</span></code></pre>
-1. Optional: Run registry rules simultaneously with local rules:
+5. Optional: Run registry rules simultaneously with local rules:
    <pre class="language-bash"><code>semgrep --config="<span className="placeholder">RULESET-ID</span>" --config=<span className="placeholder">path/to/yml path/to/src</span></code></pre>
 
 When you use the Semgrep Registry, Semgrep collects [usage metrics](../metrics).
 
 Add rulesets to Semgrep in CI scans using their "Add to Policy" button on Semgrep Community and Semgrep Team tiers.
 
-## Writing your own rule file
+## Creating and using YAML-defined rules file
 
 To make your own local rule file, follow these steps:
 
@@ -61,20 +77,7 @@ To make your own local rule file, follow these steps:
 
 For more information, see [Getting started](../writing-rules/overview/).
 
-### Ephemeral rules
-
-Use the `-e` or `--pattern` flags in your terminal for ephemeral rules that are used once.
-
-For example: Check for Python `==` where the left and right sides are the same (often a bug):
-```sh
-semgrep -e '$X == $X' --lang=py path/to/src
-```
-
-:::info
-Both local rule.yaml and ephemeral rules are called *local rules*.
-:::
-
-### Running multiple rules simultaneously
+## Running multiple rules simultaneously
 
 To run multiple rules simultaneously, use `--config` before every YAML URL, or Semgrep registry entry name. See the following code example (substitute the colored values as necessary):
 
