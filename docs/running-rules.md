@@ -35,8 +35,8 @@ semgrep --config=<ruleset-id> --config=path/to/yml path/to/src
 ```
 
 :::note
-* When the Registry is used, [usage metrics](../metrics) are collected.
-* `--config auto` sends your repository's URL to Semgrep Registry to fetch pre-configured rules for security and correctness.
+* `--config auto` sends your repository's git URL to [Semgrep Registry](https://semgrep.dev/r) to find rules configured for your repository and as a key for cached rule recommendations.
+* When Semgrep Registry is used, [usage metrics](../metrics) are collected.
 :::
 
 Rulesets can be added to Semgrep CI scans using their "Add to Policy" button on Semgrep Community and Semgrep Team.

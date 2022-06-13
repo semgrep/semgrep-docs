@@ -219,7 +219,7 @@ pipeline {
 ```
 
 :::note
-`--config auto` sends your repository's URL to Semgrep Registry to fetch pre-configured rules for security and correctness.
+`--config auto` sends your repository's git URL to [Semgrep Registry](https://semgrep.dev/r) to find rules configured for your repository and as a key for cached rule recommendations.
 :::
 
 ### Feature support
