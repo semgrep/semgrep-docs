@@ -75,7 +75,7 @@ Automated comments on GitLab merge requests are displayed as follows:
 <img width="600" src="/docs/img/gitlab-mr-comment.png" alt="Screenshot of a GitLab MR comment" /><br />
 An inline GitLab merge request comment left by a custom Semgrep rule
 
-To enable MR comments:
+#### To enable MR comments
 
 1. Log into Semgrep's [Settings](https://semgrep.dev/manage/settings) to obtain your deployment ID and an API token.
 2. Create an API token in GitLab by going to [Profile > Access Tokens](https://gitlab.com/-/profile/personal_access_tokens) and adding a token with `api` scope.
@@ -84,24 +84,24 @@ To enable MR comments:
 5. Click to **Add variable**, give the new variable the key `PAT` and use the token you copied in step 3 as the value. And then, select **mask variable** and **UNSELECT "protect variable"**.
 6. Update your .gitlab-ci.yml file with variable `GITLAB_TOKEN` and value `$PAT`. See the example code below for details:
 
-For example:
+#### Example
 ```yaml
 semgrep:
   image: returntocorp/semgrep
   script:
-   # Semgrep retrieves the SEMGREP_APP_TOKEN environment variable if you set it on the GitLab web user interface
     - semgrep ci
   rules:
-  # Scan changed files in MRs, block on new issues only (existing issues ignored)
   - if: $CI_MERGE_REQUEST_IID
-  # Scan all files on default branch, block on any issues
-  # - if: $CI_COMMIT_BRANCH == $CI_DEFAULT_BRANCH
 
   variables:
+    SEMGREP_APP_TOKEN: $SEMGREP_APP_TOKEN
     GITLAB_TOKEN: $PAT
 ```
+For more config options, see [GitLab CI Sample](https://semgrep.dev/docs/semgrep-ci/sample-ci-configs/#gitlab-ci).
 
-NOTE: GitLab MR comments are only available to logged-in semgrep.dev users, as they require a Semgrep API token.
+:::note
+GitLab MR comments are only available to logged-in semgrep.dev users, as they require a Semgrep API token.
+:::
 
 ### Automatically fix your findings through pull or merge requests
 
