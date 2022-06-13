@@ -9,8 +9,8 @@ jobs:
       - uses: actions/checkout@master
       - uses: gaurav-nelson/github-action-markdown-link-check@1
         with:
+          use-quiet-mode: "yes"        
           use-verbose-mode: "yes"
-          use-quiet-mode: "yes"
           base-branch: "main"
           check-modified-files-only: "yes"
           config-file: ".mlc_config.json"
