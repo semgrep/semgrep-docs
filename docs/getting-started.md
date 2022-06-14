@@ -36,7 +36,10 @@ Start by running [Semgrep](https://github.com/returntocorp/semgrep/) locally to 
     semgrep -e '$X == $X' --lang=py path/to/src
     ```
 
-When you use the Semgrep Registry for any ruleset (like the auto ruleset above), [usage metrics](../metrics) are collected.
+:::note
+* `--config auto` sends your repository's project URL to [Semgrep Registry](https://semgrep.dev/r) to find rules configured for your repository and as a key for cached rule recommendations.
+* When Semgrep Registry is used, [usage metrics](../metrics) are collected by default.
+:::
 
 ### Next steps
 

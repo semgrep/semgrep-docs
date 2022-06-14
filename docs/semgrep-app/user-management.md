@@ -1,13 +1,41 @@
 ---
-slug: role-based-access-control
+slug: user-management 
 append_help_link: true
-title: Role-based access control
-description: "This page informs users of role-based access control in Semgrep App and teaches users about roles and role management."
+title: Managing users and roles 
+description: "Learn about roles, user management, and how to implement role-based access control in Semgrep App."
 ---
 
 import MoreHelp from "/src/components/MoreHelp"
 
-# Controlling access through roles
+
+# Managing users and roles
+
+Accounts enable you to manage access to Semgrep resources, such as scans and findings, with varying levels of collaboration and visibility.
+
+Semgrep App has two types of accounts:
+
+<dl>
+    <dt>Personal account</dt>
+    <dd>Every person who signs into Semgrep App is first signed in to a <strong>personal account</strong>. In a personal account, your findings, projects, private rules, and scans are visible only to you.</dd>
+    <dt>Organization account</dt>
+    <dd>To collaborate with others, create an <strong>organization account</strong>. An organization account in Semgrep App requires an existing organization from your source code management (SCM) tool. Creating this type of account integrates Semgrep App into your organization. A user can be part of many Semgrep App organization accounts, provided that they are a member of that organization in their SCM.</dd>
+</dl>
+
+Users from the same organization can sign into Semgrep App with their SCM's credentials and are automatically added to the organization account. Semgrep App can also detect the organization's repositories available for scanning.
+
+In organization accounts, collaborators can collectively manage Semgrep App. By default, users can:
+
+* Add projects to scan.
+* View and triage findings.
+* Determine what rules to run and set up actions that Semgrep App will perform.
+* Manage tokens and other settings.
+* View an organization's private rules.
+
+Semgrep App can restrict features based on user roles. See [Controlling access through roles](#controlling-access-through-roles).
+
+By creating an organization account, teams can collaborate on rule writing and the management of repositories. Teams with organization accounts can enforce organization-wide standards and secure their repositories at scale.
+
+## Controlling access through roles
 
 ![Screenshot of role-based access control ](../img/rbac-overview.png)<br />
 
@@ -21,10 +49,10 @@ Semgrep App divides users into two roles:
 * `member`
 
 :::info
-Users in organizations without RBAC enabled are `admin` by default.
+Users in organizations without RBAC enabled are assigned an `admin` role by default.
 :::
 :::info
-Community-tier (Free) users are `admin` by default.
+Community-tier (Free) users are assigned an `admin` role by default.
 :::
 
 The following table displays features available to each role:
@@ -32,7 +60,7 @@ The following table displays features available to each role:
 | Feature               | `member`  | `admin`   | Additional notes                                                                   |
 | ---------             | --------- | --------- | ---------                                                                          |
 | Overview              | yes       | yes       |                                                                                    |
-| Projects              | no        | yes       | Only `admin` can manage projects.                                                   |
+| Projects              | no        | yes       | Only `admin` can manage projects.                                                  |
 | Rule Board (Policies) | no        | yes       | Only `admin` can manage policies and rules.                                        |
 | Findings              | yes       | yes       | Both `admin` and `member` roles can sort, filter, comment on, and triage findings. |
 | Analytics             | no        | yes       |                                                                                    |
