@@ -93,16 +93,6 @@ module.exports = {
       ],
     },
     {
-<<<<<<< HEAD
-      type: 'category',
-      label: 'Semgrep CI',
-      items: ['semgrep-ci/overview', 'semgrep-ci/configuration-reference', 'semgrep-ci/sample-ci-configs'],
-    },
-    {
-      type: 'category',
-      label: 'Semgrep App',
-      items: ['semgrep-app/getting-started-with-semgrep-app', 'semgrep-app/scm', 'semgrep-app/dashboard', 'semgrep-app/rule-board', 'semgrep-app/findings', 'semgrep-app/integrations', 'semgrep-app/editor', 'semgrep-app/notifications', 'semgrep-app/sso', 'semgrep-app/user-management', 'semgrep-app/pricing-and-billing'],
-=======
         type: 'category',
         label: 'USING SEMGREP',
         collapsible: false,
@@ -140,7 +130,7 @@ module.exports = {
                     'semgrep-app/editor',
                     'semgrep-app/notifications',
                     'semgrep-app/sso',
-                    'semgrep-app/rbac',
+                    'semgrep-app/user-management',
                     'troubleshooting/semgrep-app'
                 ],
             },
@@ -172,14 +162,7 @@ module.exports = {
             },
             'semgrep-app/pricing-and-billing',
         ]
->>>>>>> main
     },
-    //{
-    //  type: 'html',
-    //  value: 'SEMGREP APP',
-    //  className: 'sidebar-title',
-    //},
-
     {
         type: 'category',
         label: 'LEARN SEMGREP',
