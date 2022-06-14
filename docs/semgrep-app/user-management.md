@@ -23,7 +23,7 @@ Semgrep App has two types of accounts:
 
 Users from the same organization can sign into Semgrep App with their SCM's credentials and are automatically added to the organization account. Semgrep App can also detect the organization's repositories available for scanning.
 
-In organization accounts, collaborators can collectively manage Semgrep App. By default, users are able to: 
+In organization accounts, collaborators can collectively manage Semgrep App. By default, users can:
 
 * Add projects to scan
 * View and triage findings
