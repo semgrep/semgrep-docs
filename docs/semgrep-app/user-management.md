@@ -27,7 +27,7 @@ In organization accounts, collaborators can collectively manage Semgrep App. By 
 
 * Add projects to scan.
 * View and triage findings.
-* Determine what rules to run and actions.
+* Determine what rules to run and set up actions that Semgrep App will perform.
 * Manage tokens and other settings.
 * View an organization's private rules.
 
