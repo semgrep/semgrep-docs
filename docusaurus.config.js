@@ -188,7 +188,7 @@ module.exports = {
           { from: "/semgrep-ci", to: "/semgrep-ci/overview/" },
           { from: "/sample-ci-configs", to: "/semgrep-ci/sample-ci-configs/" },
           { from: "/status/", to: "/supported-languages/" },
-          { from: "/language-support/", to: "/supported-languages/" }
+          { from: "/language-support/", to: "/supported-languages/" },
           { from: "/ignoring-findings/", to: "/ignoring-files-folders-code/" },
           { from: "/experiments/join-mode/", to: "/experiments/join-mode/overview/" },
           { from: "/providers/", to: "/semgrep-ci/overview/" },
