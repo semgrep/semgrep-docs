@@ -218,6 +218,10 @@ pipeline {
 }
 ```
 
+:::note
+`--config auto` sends your repository's project URL to [Semgrep Registry](https://semgrep.dev/r) to find rules configured for your repository and as a key for cached rule recommendations.
+:::
+
 ### Feature support
 
 | Feature | Status |
@@ -353,6 +357,10 @@ pipelines:
             # - export $SEMGREP_APP_TOKEN
             - semgrep ci --config auto
 ```
+
+:::note
+`--config auto` sends your repository's project URL to [Semgrep Registry](https://semgrep.dev/r) to find rules configured for your repository and as a key for cached rule recommendations.
+:::
 
 ### Feature support
 
