@@ -31,7 +31,7 @@ module.exports = {
       label: 'SEMGREP FEATURES',
       collapsible: false,
       items: [
-        'language-support',
+        'supported-languages',
         {
             type: 'category',
             label: 'Scanning code with rules',

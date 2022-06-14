@@ -1,6 +1,6 @@
 ---
-slug: language-support
-id: language-support
+slug: supported-languages
+id: supported-languages
 append_help_link: true
 description: >-
   Semgrep supports over a dozen languages. Learn about generally available, beta, and experimentally supported languages.
