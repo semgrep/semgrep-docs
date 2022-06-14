@@ -135,6 +135,10 @@ module.exports = {
     {
       src: 'https://semgrep.dev/docs/fs.js',
       async: true
+    },
+    {
+      src: '/docs/js/gtm.js',
+      async: true
     }
   ],
   presets: [
