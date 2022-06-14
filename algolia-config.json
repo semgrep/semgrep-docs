@@ -4,7 +4,7 @@
     {
       "url": "https://semgrep.dev/docs/release-notes",
       "tags": ["release_notes"],
-      "page_rank": -1
+      "page_rank": -100
     },
     {
      "url": "https://semgrep.dev/docs"
