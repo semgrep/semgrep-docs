@@ -7,7 +7,7 @@
 
 /* You can override the default Infima variables here. */
 :root {
-  --ifm-color-primary: #5f36d9;
+  --ifm-color-primary: #5f36d9; /*use for category headers */
   --ifm-color-primary-dark: #5127cd;
   --ifm-color-primary-darker: #4c25c2;
   --ifm-color-primary-darkest: #3f1ea0;
@@ -25,6 +25,60 @@
   --ifm-font-family-monospace: "Menlo", "Courier New", monospace;
   --ifm-navbar-height: 50px;
 }
+
+@media screen and (max-width: 1000px) {
+    .theme-doc-toc-mobile > .clean-btn {
+        color: white;
+    }
+}
+
+/******************************************************************************
+ *                                                                            *
+ * SIDEBAR                                                                    *
+ *                                                                            *
+ *****************************************************************************/
+
+.menu__list-item-collapsible > a:not([href]) {
+    color: var(--ifm-color-primary);
+    vertical-align: bottom;
+    font-size: 0.7rem;
+    font-weight: 600;
+    padding-bottom: 0rem;
+    padding-top: 1.6rem;
+}
+
+.theme-doc-sidebar-item-category-level-1 > .menu__list-item-collapsible:hover {
+    background: unset;
+    color: var(--ifm-color-primary);
+}
+
+.menu__list-item-collapsible > a:not([href]):hover {
+    color: var(--ifm-color-primary);
+}
+
+
+.menu__list-item-collapsible > a:hover {
+    color: var(--ifm-color-primary);
+
+}
+
+.menu__list-item:not(:first-child) {
+    margin-top: 0rem;
+}
+
+.menu__link {
+    line-height: 1.15;
+}
+
+.menu__list-item {
+    font-size: 0.9rem;
+}
+
+/******************************************************************************
+ *                                                                            *
+ * THEME AND COLORS                                                           *
+ *                                                                            *
+ *****************************************************************************/
 
 .docusaurus-highlight-code-line {
   background-color: rgba(0, 0, 0, 0.1);
@@ -204,3 +258,4 @@ li.menu__list-item a:hover {
 .footer__title {
   color: rgb(198, 200, 204);
 }
+

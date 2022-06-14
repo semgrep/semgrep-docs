@@ -17,38 +17,55 @@ module.exports = {
   tutorialSidebar: [
     'Docs home',
     {
+        type: 'category',
+        label: 'WELCOME',
+        collapsible: false,
+        items: [
+            'getting-started',
+            'semgrep-app/getting-started-with-semgrep-app',
+            'contributing/philosophy',
+        ]
+    },
+    {
       type: 'category',
-      label: 'Semgrep',
+      label: 'SEMGREP FEATURES',
+      collapsible: false,
       items: [
-        'getting-started',
+        'supported-languages',
         {
-          type: 'category',
-          label: 'Running rules',
-          items: ['running-rules', 'managing-findings'],
+            type: 'category',
+            label: 'Scanning code with rules',
+            items: [
+                'running-rules',
+                'managing-findings'
+            ],
         },
         {
-          type: 'category',
-          label: 'Writing rules',
-          items: [
-            'writing-rules/overview',
-            'writing-rules/pattern-examples',
-            'writing-rules/pattern-syntax',
-            'writing-rules/rule-ideas',
-            'writing-rules/rule-syntax',
-            { type: 'category',
-              label: 'Data-flow analysis',
-              items: ['writing-rules/data-flow/overview', 'writing-rules/data-flow/constant-propagation', 'writing-rules/data-flow/taint-mode', 'writing-rules/data-flow/status']
-            },
-            'writing-rules/testing-rules',
-            'writing-rules/private-rules'
-          ],
+            type: 'category',
+            label: 'Writing custom rules',
+            items: [
+                'writing-rules/overview',
+                'writing-rules/pattern-examples',
+                'writing-rules/pattern-syntax',
+                'writing-rules/rule-ideas',
+                'writing-rules/rule-syntax',
+                'writing-rules/testing-rules',
+                'writing-rules/private-rules',
+                'troubleshooting/rules'
+            ]
         },
-        'cli-reference',
         'ignoring-files-folders-code',
         'extensions',
-        'licensing',
-        'faq',
-        'metrics',
+        {
+            type: 'category',
+            label: 'Data-flow analysis',
+            items: [
+                'writing-rules/data-flow/overview',
+                'writing-rules/data-flow/constant-propagation',
+                'writing-rules/data-flow/taint-mode',
+                'writing-rules/data-flow/status'
+            ]
+        },
         {
           type: 'category',
           label: 'Experiments 🧪',
@@ -56,15 +73,15 @@ module.exports = {
             'experiments/overview',
             'experiments/generic-pattern-matching',
             { type: 'category',
-              label: 'Join mode',
-              items: [
-                {
-                  type: 'doc',
-                  label: 'Overview',
-                  id: 'experiments/join-mode/overview'
-                },
-                'experiments/join-mode/recursive-joins'
-              ]
+                label: 'Join mode',
+                items: [
+                    {
+                        type: 'doc',
+                        label: 'Overview',
+                        id: 'experiments/join-mode/overview'
+                    },
+                    'experiments/join-mode/recursive-joins'
+                ]
             },
             'experiments/project-depends-on',
             'experiments/symbolic-propagation',
@@ -72,10 +89,11 @@ module.exports = {
             'experiments/focus-metavariable'
           ]
         },
-        'upgrading'
+        'deepsemgrep',
       ],
     },
     {
+<<<<<<< HEAD
       type: 'category',
       label: 'Semgrep CI',
       items: ['semgrep-ci/overview', 'semgrep-ci/configuration-reference', 'semgrep-ci/sample-ci-configs'],
@@ -84,67 +102,128 @@ module.exports = {
       type: 'category',
       label: 'Semgrep App',
       items: ['semgrep-app/getting-started-with-semgrep-app', 'semgrep-app/scm', 'semgrep-app/dashboard', 'semgrep-app/rule-board', 'semgrep-app/findings', 'semgrep-app/integrations', 'semgrep-app/editor', 'semgrep-app/notifications', 'semgrep-app/sso', 'semgrep-app/user-management', 'semgrep-app/pricing-and-billing'],
+=======
+        type: 'category',
+        label: 'USING SEMGREP',
+        collapsible: false,
+        items: [
+            {
+                type: 'category',
+                label: 'Semgrep CLI',
+                items: [
+                    'getting-started',
+                    'cli-reference',
+                    'upgrading',
+                    'troubleshooting/semgrep'
+                ]
+            },
+            {
+                type: 'category',
+                label: 'Semgrep in CI',
+                items: [
+                    'semgrep-ci/overview',
+                    'semgrep-ci/configuration-reference',
+                    'semgrep-ci/sample-ci-configs',
+                    'troubleshooting/gitlab-sast'
+                ]
+            },
+            {
+                label: 'Semgrep App',
+                type: 'category',
+                items: [
+                    'semgrep-app/getting-started-with-semgrep-app',
+                    'semgrep-app/scm',
+                    'semgrep-app/dashboard',
+                    'semgrep-app/rule-board',
+                    'semgrep-app/findings',
+                    'semgrep-app/integrations',
+                    'semgrep-app/editor',
+                    'semgrep-app/notifications',
+                    'semgrep-app/sso',
+                    'semgrep-app/rbac',
+                    'troubleshooting/semgrep-app'
+                ],
+            },
+            {
+                type: 'category',
+                label: 'Cheat sheets',
+                items: [
+                    {
+                        type: 'category',
+                        label: 'Command injection',
+                        items: [
+                            'cheat-sheets/go-command-injection',
+                            'cheat-sheets/python-command-injection'
+                        ]
+                    },
+                    {
+                        type: 'category',
+                        label: 'XSS',
+                        items: [
+                            'cheat-sheets/django-xss',
+                            'cheat-sheets/express-xss',
+                            'cheat-sheets/flask-xss',
+                            'cheat-sheets/go-xss',
+                            'cheat-sheets/java-jsp-xss',
+                            'cheat-sheets/rails-xss'
+                        ]
+                    },
+                ],
+            },
+            'semgrep-app/pricing-and-billing',
+        ]
+>>>>>>> main
     },
-    'playground',
-    'deepsemgrep',
-    {
-      type: 'category',
-      label: 'Troubleshooting',
-      items: ['troubleshooting/gitlab-sast', 'troubleshooting/rules', 'troubleshooting/semgrep-app', 'troubleshooting/semgrep'],
-    },
-    'language-support',
-    'support',
-    'trophy-case',
+    //{
+    //  type: 'html',
+    //  value: 'SEMGREP APP',
+    //  className: 'sidebar-title',
+    //},
+
     {
         type: 'category',
-        label: 'Contributing',
+        label: 'LEARN SEMGREP',
+        collapsible: false,
         items: [
-          'contributing/contributing',
-          'contributing/contributing-rules',
-          'contributing/contributing-code',
-          {
-            type: 'doc',
-            id: 'contributing/semgrep-core-contributing',
-            label: 'semgrep-core contributing'
-          },
-          {
-            type: 'doc',
-            id: 'contributing/semgrep-contributing',
-            label: 'semgrep contributing'
-          },
-          'contributing/adding-a-language',
-          'contributing/updating-a-grammar',
-          'contributing/troubleshooting',
-          'contributing/philosophy'
+            'playground',
+            'trophy-case',
         ]
     },
     {
-      type: 'category',
-      label: 'Cheat sheets',
-      items: [
-        {
-          type: 'category',
-          label: 'Command injection',
-          items: [
-            'cheat-sheets/go-command-injection',
-            'cheat-sheets/python-command-injection'
-          ]
-        },
-        {
-          type: 'category',
-          label: 'XSS',
-          items: [
-            'cheat-sheets/django-xss',
-            'cheat-sheets/express-xss',
-            'cheat-sheets/flask-xss',
-            'cheat-sheets/go-xss',
-            'cheat-sheets/java-jsp-xss',
-            'cheat-sheets/rails-xss'
-          ]
-        },
-      ],
+        type: 'category',
+        label: 'CONTRIBUTING',
+        collapsible: false,
+        items: [
+            'contributing/contributing',
+            'contributing/contributing-rules',
+            'contributing/contributing-code',
+            {
+                type: 'doc',
+                id: 'contributing/semgrep-core-contributing',
+                label: 'semgrep-core contributing'
+            },
+            {
+               type: 'doc',
+               id: 'contributing/semgrep-contributing',
+               label: 'semgrep contributing'
+            },
+            'contributing/adding-a-language',
+            'contributing/updating-a-grammar',
+            'contributing/troubleshooting',
+        ]
     },
-    'release-notes',
-    'security'
+    {
+        type: 'category',
+        label: 'ABOUT SEMGREP',
+        collapsible: false,
+        items: [
+            'support',
+            'release-notes',
+            'security',
+            'licensing',
+            'faq',
+            'metrics'
+        ],
+    },
   ],
 };
