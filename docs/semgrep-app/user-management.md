@@ -25,11 +25,11 @@ Users from the same organization can sign into Semgrep App with their SCM's cred
 
 In organization accounts, collaborators can collectively manage Semgrep App. By default, users can:
 
-* Add projects to scan
-* View and triage findings
-* Determine what rules to run and actions
-* Manage tokens and other settings
-* View an organization's private rules
+* Add projects to scan.
+* View and triage findings.
+* Determine what rules to run and actions.
+* Manage tokens and other settings.
+* View an organization's private rules.
 
 Semgrep App can restrict features based on user roles. See [Controlling access through roles](#controlling-access-through-roles).
 
@@ -49,10 +49,10 @@ Semgrep App divides users into two roles:
 * `member`
 
 :::info
-Users in organizations without RBAC enabled are `admin` by default.
+Users in organizations without RBAC enabled are assigned an `admin` role by default.
 :::
 :::info
-Community-tier (Free) users are `admin` by default.
+Community-tier (Free) users are assigned an `admin` role by default.
 :::
 
 The following table displays features available to each role:
