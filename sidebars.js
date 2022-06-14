@@ -130,7 +130,7 @@ module.exports = {
                     'semgrep-app/editor',
                     'semgrep-app/notifications',
                     'semgrep-app/sso',
-                    'semgrep-app/rbac',
+                    'semgrep-app/user-management',
                     'troubleshooting/semgrep-app'
                 ],
             },
@@ -163,12 +163,6 @@ module.exports = {
             'semgrep-app/pricing-and-billing',
         ]
     },
-    //{
-    //  type: 'html',
-    //  value: 'SEMGREP APP',
-    //  className: 'sidebar-title',
-    //},
-
     {
         type: 'category',
         label: 'LEARN SEMGREP',
