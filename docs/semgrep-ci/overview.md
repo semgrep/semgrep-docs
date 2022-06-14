@@ -75,7 +75,7 @@ semgrep scan --config auto --config <other rule or rulesets>
 If you cannot use the Docker image, install Semgrep CI with `pip install semgrep`.
 
 :::note
-`--config auto` sends your repository's git URL to [Semgrep Registry](https://semgrep.dev/r) to find rules configured for your repository and as a key for cached rule recommendations.
+`--config auto` sends your repository's project URL to [Semgrep Registry](https://semgrep.dev/r) to find rules configured for your repository and as a key for cached rule recommendations.
 :::
 
 ## Reviewing Findings

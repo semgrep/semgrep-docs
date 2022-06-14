@@ -37,8 +37,8 @@ Start by running [Semgrep](https://github.com/returntocorp/semgrep/) locally to 
     ```
 
 :::note
-* `--config auto` sends your repository's git URL to [Semgrep Registry](https://semgrep.dev/r) to find rules configured for your repository and as a key for cached rule recommendations.
-* When Semgrep Registry is used, [usage metrics](../metrics) are collected.
+* `--config auto` sends your repository's project URL to [Semgrep Registry](https://semgrep.dev/r) to find rules configured for your repository and as a key for cached rule recommendations.
+* When Semgrep Registry is used, [usage metrics](../metrics) are collected by default.
 :::
 
 ### Next steps
