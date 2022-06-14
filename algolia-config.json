@@ -3,7 +3,7 @@
   "start_urls": [
     {
       "url": "https://semgrep.dev/docs/release-notes",
-      "tags": ["releaste_notes"],
+      "tags": ["release_notes"],
       "page_rank": -1
     },
     {
