@@ -12,7 +12,7 @@ import MoreHelp from "/src/components/MoreHelp"
 
 ![Screenshot of Semgrep App Findings page ](../img/app-findings-overview.png)<br />
 
-A finding is the core result of Semgrep's analysis. Findings are generated when a Semgrep rule matches a piece of code.
+A **finding** is the core result of Semgrep's analysis. Findings are generated when a Semgrep rule matches a piece of code.
 
 Types of findings:
 
@@ -22,6 +22,10 @@ Types of findings:
 * reviewing authentication or authorization logic
 * custom pattern matches based on your own custom rules
 
+Findings include a `message` that describes the security issue or bug that must be resolved. Findings may also provide an `autofix` that fixes the issue by creating a suggestion within your source code management (SCM) tool, such as GitHub or GitLab.
+
+
+## Working with findings 
 After a finding is generated, developers may:
 
 * View the Semgrep rule and the matching code.
@@ -29,6 +33,8 @@ After a finding is generated, developers may:
 * Ignore the finding.
 * Comment on the finding.
 * Create a Jira ticket from the finding (for Enterprise/Team Tier users.)
+
+In some cases, findings can be **false positives**. 
 
 The Semgrep App Finding page displays findings across all projects connected to Semgrep App. It is updated after every scan. Scans are initiated through your CI/CD pipeline, such as GitHub actions. The retention period of these findings varies based on your organization’s tier:
 
