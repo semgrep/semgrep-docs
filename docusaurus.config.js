@@ -135,6 +135,10 @@ module.exports = {
     {
       src: 'https://semgrep.dev/docs/fs.js',
       async: true
+    },
+    {
+      src: '/docs/js/gtm.js',
+      async: true
     }
   ],
   presets: [
@@ -150,10 +154,6 @@ module.exports = {
         },
         theme: {
           customCss: require.resolve('./src/css/custom.css'),
-        },
-        googleAnalytics: {
-          trackingID: 'UA-106134149-12',
-          anonymizeIP: true,
         },
         gtag: {
           // You can also use your "G-" Measurement ID here.
@@ -187,10 +187,12 @@ module.exports = {
           { from: "/upgrade", to: "/upgrading/" },
           { from: "/semgrep-ci", to: "/semgrep-ci/overview/" },
           { from: "/sample-ci-configs", to: "/semgrep-ci/sample-ci-configs/" },
-          { from: "/status/", to: "/language-support/" },
+          { from: "/status/", to: "/supported-languages/" },
+          { from: "/language-support/", to: "/supported-languages/" },
           { from: "/ignoring-findings/", to: "/ignoring-files-folders-code/" },
           { from: "/experiments/join-mode/", to: "/experiments/join-mode/overview/" },
-          { from: "/providers/", to: "/semgrep-ci/overview/" }
+          { from: "/providers/", to: "/semgrep-ci/overview/" },
+          { from: "/semgrep-app/role-based-access-control", to: "/semgrep-app/user-management/" }
         ]
       }
     ],
