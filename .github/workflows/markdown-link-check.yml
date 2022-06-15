@@ -7,12 +7,9 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@master
-      # (ssantillan) Uncomment this line and remove labeneko line when
-      # https://github.com/gaurav-nelson/github-action-markdown-link-check/issues/132
-      # is fixed.
-      # - uses: gaurav-nelson/github-action-markdown-link-check@1.0.13
-      - uses: labeneko/github-action-markdown-link-check@02373ae78d2b9882098e0fd4e6c9b25cdc212b01
-          use-quiet-mode: "yes"
+      - uses: gaurav-nelson/github-action-markdown-link-check@v1
+        with:
+          use-quiet-mode: "yes"        
           use-verbose-mode: "yes"
           base-branch: "main"
           check-modified-files-only: "yes"

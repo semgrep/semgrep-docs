@@ -63,7 +63,7 @@ This rule detects when HTML autoescaping is explicitly disabled for a Django tem
 
 _Time to write this rule: **10 minutes**_
 
-Semgrep [natively supports JSON and YAML](../status.md) and can be used to write rules for configuration files. This rule checks for skipped TLS verification in Kubernetes clusters.
+Semgrep [natively supports JSON and YAML](../supported-languages.md) and can be used to write rules for configuration files. This rule checks for skipped TLS verification in Kubernetes clusters.
 
 <iframe src="https://semgrep.dev/embed/editor?snippet=minusworld:docs-kubernetes-skip-tls-verify" title="Match configuration files with Semgrep" width="100%" height="432px" frameBorder="0"></iframe>
 
