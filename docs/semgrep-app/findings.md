@@ -22,10 +22,10 @@ Types of findings:
 * reviewing authentication or authorization logic
 * custom pattern matches based on your own custom rules
 
-Findings include a `message` that describes the security issue or bug that must be resolved. Findings may also provide an `autofix` that fixes the issue by creating a suggestion within your source code management (SCM) tool, such as GitHub or GitLab.
+Findings include a `message` field that describes the security issue or bug that must be resolved. Findings may also provide an `autofix` field that fixes the issue by creating a suggestion within your source code management (SCM) tool, such as GitHub or GitLab.
 
+## Working with findings and false positives
 
-## Working with findings 
 After a finding is generated, developers may:
 
 * View the Semgrep rule and the matching code.
@@ -34,14 +34,15 @@ After a finding is generated, developers may:
 * Comment on the finding.
 * Create a Jira ticket from the finding (for Enterprise/Team Tier users.)
 
-In some cases, findings can be **false positives**. 
+In some cases, findings can be **false positives**. A **false positive** finding is a match that does not meet the goal of the rule. This may be due to a flaw in the rule's logic. Possible solutions include:
 
-The Semgrep App Finding page displays findings across all projects connected to Semgrep App. It is updated after every scan. Scans are initiated through your CI/CD pipeline, such as GitHub actions. The retention period of these findings varies based on your organization’s tier:
+* Edit the rule to address false positives. Create [test cases](../writing-rules/testing-rules) to ensure that the rule behaves as intended.
+* If the rule produces too many false positives or has a high false positive rate, you can remove the rule. See [triaging findings](#triaging-findings).
+* If the rule rarely produces false positives, an errant false positive can be ignored. See [triaging findings](#triaging-findings).
 
-| Retention period | Tier availability |
-| ---------------  | ----------------- |
-| 30-day findings retention | Community (Free) |
-| 1-year findings retention | Team/Enterprise |
+:::tip
+If a rule from Semgrep Registry is useful but also captures too many false positives, you can reach out to support@semgrep.dev. This will assist rule-writing efforts and improve the quality of rules that you run. 
+:::
 
 ## Viewing data in the Findings page
 
@@ -50,18 +51,27 @@ The Semgrep App Finding page displays findings across all projects connected to 
 1. Sign in to Semgrep App.
 2. The **Findings** page can be found on the left sidebar.
 
+### Understanding retention periods
+
+The Semgrep App Finding page displays findings across all projects connected to Semgrep App. It is updated after every scan. Scans are initiated through your CI/CD pipeline, such as GitHub actions. The retention period of these findings varies based on your organization’s tier:
+
+| Retention period | Tier availability |
+| ---------------  | ----------------- |
+| 30-day findings retention | Community (Free) |
+| 1-year findings retention | Team/Enterprise |
+
 ### Understanding the Findings data
 
 The Findings page displays the following fields:
 
 | Field       | Description |
 | ----------  | ------------ |
-| **Severity**    | The impact of a finding. Possible values: Low, Medium, High, and Critical. |
-| **Finding**     | The file, line, and branch of the pattern match in the code. Clicking on this field brings you to the exact location in the codebase. |
-| **Project**     | The name of the project codebase where the finding was found. Clicking on this field brings you to the project’s URL. |
-| **Rule**        | The name of the rule matched with the code. Clicking on this field brings you to the rule’s entry in the [rule registry](https://semgrep.dev/r). |
-| **Introduced**  | The time when this finding was first found. Clicking on the header row sorts the table by latest or earliest findings. |
-| **Status**      | Refers to a finding’s state. |
+| **Severity**    | The impact of a finding. Possible values: <ul><li>Low</li><li>Medium</li><li>High </li><li>Critical</li></ul> |
+| **Finding**     | The file, line, and branch of the match in the code. Clicking this field brings you to the exact location in the codebase. |
+| **Project**     | The name of the repository where the finding was found. Clicking this field brings you to the project’s URL. |
+| **Rule**        | The name of the rule that  matched with the code. Clicking this field brings you to the rule’s entry in the [rule registry](https://semgrep.dev/r). |
+| **Introduced**  | The time when this finding was first found. Clicking the header row sorts the table by latest or earliest findings. |
+| **Status**      | Refers to a finding’s triage state. Refer to the following table to understand triage states. |
 
 ## Triaging findings
 
@@ -72,8 +82,13 @@ Semgrep App assists in the triage process through the use of **comments** and **
 | Triage state | Description |
 | -----------  | ------------ |
 | **Open** | Open findings require action, such as rewriting the code for vulnerabilities, or refactoring the code. Findings are open by default. |
-| **Ignored** | Findings that are ignored will not be acted upon. This may be a false positive or deprioritized issue. Findings can be ignored through Semgrep App (see [Managing triage states](#managing-triage-states-bulk-triage)). |
+| **Ignored** | Findings that are ignored will not be acted upon. This may be a false positive or deprioritized issue. Findings can be ignored through Semgrep App (see [Managing triage states](#managing-triage-states-bulk-triage)). There are two types of ignored findings: <dl><dt>Ignored - App</dt><dd>The ignore status was set within Semgrep App.</dd><dt>Ignored - Code</dt><dd>The ignore status was set from the code itself. Using a `nosemgrep` annotation within the code falls under this type.</dd></dl> |
 | **Fixed** | Fixed findings are findings that were detected in a previous scan but no longer trigger a match in the most recent scan. The rule that detected the finding and the code that triggered the match must both be active in the most recent scan. |
+
+Findings can also be **removed**. A removed finding does not count towards a fix rate or total number of findings. A finding is considered removed if it is not found in the most recent scan due to either of the following conditions:
+
+* You removed the rule from the Rule Board.
+* You removed the file containing the code from the list of files that Semgrep scans.
 
 ### Filtering findings
 
@@ -81,10 +96,10 @@ Filtering allows you to easily isolate groups of findings for ease in triaging a
 
 | Filter criteria | Description |
 | -----------  | ------------ |
-| **Project** | Filter by projects connected to Semgrep App. |
+| **Project** | Filter by repositories connected to Semgrep App. |
 | **Rules** | Filter by rules or rulesets that are included in your Rule Board or Policies page. More than one rule can be selected for filtering. |
 | **Refs** | Filter by branches in your codebase. More than one branch can be selected for filtering. |
-| **Actions** | Filter by blocking or non-blocking rules in your Rule Board or Policies page. Only one action can be selected for filtering. |
+| **Actions** | Filter by monitoring, commenting, or blocking rules in your Rule Board or Policies page. Only one action can be selected for filtering. |
 | **Severities** | Filter by the severity of a finding. More than one severity can be selected. |
 
 To filter through all findings:
@@ -130,14 +145,10 @@ To **open findings**:
 
 To **fix a finding**, update, or refactor the code such that the Semgrep rule pattern no longer matches the code.
 
-
-
-* Remove the rule from the Rule Board.
-
 To **remove a rule** from the Rule Board:
 
 1. Click **Rule Board**.
-2. Click on the ruleset that contains the rule.
+2. Click the ruleset that contains the rule.
 3. Drag the rule tile to the **Discard rule** section.
 
 To **view comments**:
