@@ -192,7 +192,8 @@ module.exports = {
           { from: "/ignoring-findings/", to: "/ignoring-files-folders-code/" },
           { from: "/experiments/join-mode/", to: "/experiments/join-mode/overview/" },
           { from: "/providers/", to: "/semgrep-ci/overview/" },
-          { from: "/semgrep-app/role-based-access-control", to: "/semgrep-app/user-management/" }
+          { from: "/semgrep-app/role-based-access-control", to: "/semgrep-app/user-management/" },
+          { from: "/cli-usage/", to: "/cli-reference/" }
         ]
       }
     ],
