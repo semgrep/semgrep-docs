@@ -20,7 +20,7 @@ All Semgrep environments (CLI, CI, and App) adhere to user-defined or Semgrep-de
 | Method  | Usage    | Examples |
 |:--------|:---------|:---------|
 | To ignore blocks of code: `nosemgrep` | Create a comment, followed by a space (` `), followed by `nosemgrep` at the first line or preceding line of the pattern match. | ` // nosemgrep` &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; `// nosemgrep: rule-id` <br /> `# nosemgrep` |
-| To ignore files and folders: `.semgrepignore` | Create a `.semgrepignore` file in your **repository's root directory** or your **project's working directory** and add patterns for files and folders there. Patterns follow `.gitignore` syntax with some caveats. See [Defining files and folders in `.semgrepignore`](#defining-files-and-folders-in-semgrepignore). | [`.semgrepignore` sample file](https://raw.githubusercontent.com/returntocorp/semgrep/develop/semgrep/semgrep/templates/.semgrepignore) |
+| To ignore files and folders: `.semgrepignore` | Create a `.semgrepignore` file in your **repository's root directory** or your **project's working directory** and add patterns for files and folders there. Patterns follow `.gitignore` syntax with some caveats. See [Defining files and folders in `.semgrepignore`](#defining-files-and-folders-in-semgrepignore). | [`.semgrepignore` sample file](https://raw.githubusercontent.com/returntocorp/semgrep/develop/cli/src/semgrep/templates/.semgrepignore) |
 
 ## Understanding Semgrep defaults
 
@@ -29,7 +29,7 @@ Without user customization, Semgrep refers to the following to define ignored fi
 * Semgrep's default `.semgrepignore` file
 * Your repository's `.gitignore` file (if it exists)
 
-In the absence of a user-generated `.semgrepignore`, Semgrep will refer to [its repository's default template](https://github.com/returntocorp/semgrep/blob/develop/semgrep/semgrep/templates/.semgrepignore):
+In the absence of a user-generated `.semgrepignore`, Semgrep will refer to [its repository's default template](https://github.com/returntocorp/semgrep/blob/develop/cli/src/semgrep/templates/.semgrepignore):
 
 ```
 DEFAULT_SEMGREPIGNORE_TEXT
