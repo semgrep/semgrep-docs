@@ -513,7 +513,7 @@ To see the complete change notes, visit the [Semgrep changelog](https://github.c
 
 ##### Semgrep CLI and Semgrep CI now ignore the same patterns
 
-With this update, Semgrep CLI now ignores the same patterns as the Semgrep CI by default. Find [the default .semgrepignore on GitHub](https://github.com/returntocorp/semgrep/blob/develop/semgrep/semgrep/templates/.semgrepignore). If you want to return to Semgrep’s previous behavior, create an empty `.semgrepignore` file. However, creating a new `.semgrepignore` overrides the default setup.
+With this update, Semgrep CLI now ignores the same patterns as the Semgrep CI by default. Find [the default .semgrepignore on GitHub](https://github.com/returntocorp/semgrep/blob/develop/cli/src/semgrep/templates/.semgrepignore). If you want to return to Semgrep’s previous behavior, create an empty `.semgrepignore` file. However, creating a new `.semgrepignore` overrides the default setup.
 
 ##### Autofix improvement
 
@@ -1407,4 +1407,3 @@ ARG = [$V];
 ## Finding remaining release notes
 
 This document encompasses only a limited number of release notes. See the changelog that includes descriptions of older versions than displayed in this document: [Semgrep GitHub changelog](https://github.com/returntocorp/semgrep/releases)
-
