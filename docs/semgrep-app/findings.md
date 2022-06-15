@@ -60,7 +60,7 @@ The Semgrep App Finding page displays findings across all projects connected to 
 | 30-day findings retention | Community (Free) |
 | 1-year findings retention | Team/Enterprise |
 
-### Understanding the Findings data
+### Understanding the Findings page
 
 The Findings page displays the following fields:
 
@@ -75,7 +75,7 @@ The Findings page displays the following fields:
 
 ## Triaging findings
 
-Triaging means prioritizing a finding based on a policy or criteria set by your team or organization. While severity is a factor in triage, your organization may define additional criteria based on coding standards, business, or product goals.
+**Triaging** means prioritizing a finding based on a policy or criteria set by your team or organization. While severity is a factor in triage, your organization may define additional criteria based on coding standards, business, or product goals.
 
 Semgrep App assists in the triage process through the use of **comments** and **triage states**:
 
@@ -145,7 +145,7 @@ To **open findings**:
 
 To **fix a finding**, update, or refactor the code such that the Semgrep rule pattern no longer matches the code.
 
-To **remove a rule** from the Rule Board:
+To **remove a rule** from the Rule Board: TODO
 
 1. Click **Rule Board**.
 2. Click the ruleset that contains the rule.
@@ -164,6 +164,18 @@ To **create a ticket**:
 1. Set up a Jira integration through the [Integrations](https://semgrep.dev/docs/semgrep-app/integrations/) guide.
 2. Click on the **three-dot icon** of the entry.
 3. Click **Create issue with Jira**.
+
+
+## Deduplicating findings
+
+Duplicate findings arise due to scans occurring on the same code in different branches. Semgrep scans are performed on both mainline (trunk) and non-mainline branches. There are two types of scans:
+
+<dl>
+    <dt>Full scan</dt>
+    <dd>Scans the repository in its entirety. Full scans are performed on mainline branches, such as `master` or `main`. This scan is performed on a scheduled basis.</dd>
+    <dt>Diff-aware scan</dt>
+    <dd>Diff-aware scans are performed on non-mainline branches, scanning the repository's files based on the commit where the branch diverged from the mainline branch (or diverged from the last commit that was fully scanned? TODO)</dd>
+</dl>
 
 ## See also
 
