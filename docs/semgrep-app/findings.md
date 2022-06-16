@@ -14,55 +14,40 @@ import MoreHelp from "/src/components/MoreHelp"
 
 A **finding** is the core result of Semgrep's analysis. Findings are generated when a Semgrep rule matches a piece of code.
 
-A finding can be categorized based on the issue or code it detects:
+A finding can be categorized **based on the issue or code it detects**:
 
 * anti-patterns
-* security vulnerabilities, business, or logic bugs
-* audits for dangerous function use
-* reviewing authentication or authorization logic
-* custom pattern matches based on your own custom rules
+* security vulnerabilities (such as dangerous function usage)
+* business or logic bugs
+* matches based on your own custom rules (such as organization-specific authentication logic)
 
 Semgrep rules provide a metadata schema to identify common categories such as the above. Semgrep findings include a `message` field that describes the security issue or bug that must be resolved. Findings may also provide an `autofix` field that fixes the issue by creating a suggestion within your source code management (SCM) tool, such as GitHub or GitLab.
 
-Another way of categorizing findings is based on the validity of of the match:
+Another way of categorizing findings is **based on the validity of of the match**:
 
 <dl>
     <dt>True positive</dt>
-    <dd></dd>
+    <dd>Rules are written to match a certain code pattern. A true positive is a genuine match. The rule is capturing code as intended.</dd>
     <dt>False positive</dt>
-    <dd></dd>
-    <dt>True negative</dt>
-    <dd></dd>
+    <dd>A false positive is a mismatch between the intended purpose of the rule and the code it matched. A finding is generated but does not meet the rule's intended need. Rules with a high false positivity rate are said to be <strong>noisy</strong>.</dd>
     <dt>False negative</dt>
-    <dd></dd>
+    <dd>A false negative is a finding that should have been found by a rule, but was not. This could be due to a flaw in the rule's logic. See <a href="../release-notes/#additions-1"><code>semgrep shouldafound</code></a>.</dd>
 </dl>
 
-## Working with findings and false positives
+## Working with findings
 
 After a finding is generated, developers can:
 
-* **Fix the issue detected by the finding.** This is the intended workflow. In this case, the rule produces a **true positive** finding (such as a security issue) as intended.
+* **Fix the issue detected by the finding.** This is the intended workflow. In this case, the rule produces a **true positive** finding (such as a security issue) as intended and developers must refactor or address the code such that the rule no longer matches it.
 * **View the Semgrep rule and the matching code.** For developers aiming to understand their team's security posture, Semgrep provides a top-level report view through the Dashboard and a list view of findings in the Findings page that can be filtered by repository, rule, branch, or triage action.
-* **Triage the finding.** If the finding is not useful or important, it can be deprioritized through triaging. Triage actions include commenting and ignoring. This is one method to prevent or reduce **false positives**.
+* **Triage the finding.** If the finding is not useful or important, it can be deprioritized through triaging. Triage actions include commenting and ignoring. This is one method to reduce **false positives**.
 * **Remove the rule or code that generated the finding**.
-* **Create a Jira ticket from the finding (for Enterprise/Team Tier users.)**
-
-In some cases, findings can be **false positives**. A **false positive** finding is a match that does not meet the goal of the rule. This may be due to a flaw in the rule's logic. Possible solutions include:
-
-* Edit the rule to address false positives. Create [test cases](../writing-rules/testing-rules) to ensure that the rule behaves as intended.
-* If the rule produces too many false positives or has a high false positive rate, you can remove the rule. See [triaging findings](#triaging-findings).
-* If the rule rarely produces false positives, an errant false positive can be ignored. See [triaging findings](#triaging-findings).
+* **Create a Jira ticket from the finding (for Enterprise/Team Tier users.)** For findings that require more extensive refactoring, a ticket can be created in Jira to track its resolution.
 
 :::tip
-If a rule from Semgrep Registry is useful but also captures too many false positives, you can reach out to support@semgrep.dev. This will assist rule-writing efforts and improve the quality of rules that you run. 
+* An additional method to address false positives is to improve the rule. Create [test cases](../writing-rules/testing-rules) to ensure that the rule performs as intended.
+* If a rule from Semgrep Registry is useful but also captures too many false positives, you can reach out to support@semgrep.dev. This will assist rule-writing efforts and improve the quality of rules that you run. 
 :::
-
-## Viewing data in the Findings page
-
-### Navigating to the Findings page
-
-1. Sign in to Semgrep App.
-2. The **Findings** page can be found on the left sidebar.
 
 ### Understanding retention periods
 
@@ -73,6 +58,13 @@ The Semgrep App Finding page displays findings across all projects connected to 
 | 30-day findings retention | Community (Free) |
 | 1-year findings retention | Team/Enterprise |
 
+## Viewing data in the Findings page
+
+### Navigating to the Findings page
+
+1. Sign in to Semgrep App.
+2. The **Findings** page can be found on the left sidebar.
+
 ### Understanding the Findings page
 
 The Findings page displays the following fields:
@@ -82,7 +74,7 @@ The Findings page displays the following fields:
 | **Severity**    | The impact of a finding. Possible values: <ul><li>Low</li><li>Medium</li><li>High </li><li>Critical</li></ul> |
 | **Finding**     | The file, line, and branch of the match in the code. Clicking this field brings you to the exact location in the codebase. |
 | **Project**     | The name of the repository where the finding was found. Clicking this field brings you to the project’s URL. |
-| **Rule**        | The name of the rule that  matched with the code. Clicking this field brings you to the rule’s entry in the [rule registry](https://semgrep.dev/r). |
+| **Rule**        | The name of the rule that  matched with the code. Clicking this field brings you to the rule’s entry in the [Rule Registry](https://semgrep.dev/r). |
 | **Introduced**  | The time when this finding was first found. Clicking the header row sorts the table by latest or earliest findings. |
 | **Status**      | Refers to a finding’s triage state. Refer to the following table to understand triage states. |
 
@@ -177,7 +169,6 @@ To **create a ticket**:
 1. Set up a Jira integration through the [Integrations](https://semgrep.dev/docs/semgrep-app/integrations/) guide.
 2. Click on the **three-dot icon** of the entry.
 3. Click **Create issue with Jira**.
-
 
 ## Deduplicating findings
 
