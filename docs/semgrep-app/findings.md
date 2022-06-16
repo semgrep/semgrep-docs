@@ -14,7 +14,7 @@ import MoreHelp from "/src/components/MoreHelp"
 
 A **finding** is the core result of Semgrep's analysis. Findings are generated when a Semgrep rule matches a piece of code.
 
-Types of findings:
+A finding can be categorized based on the issue or code it detects:
 
 * anti-patterns
 * security vulnerabilities, business, or logic bugs
@@ -22,17 +22,30 @@ Types of findings:
 * reviewing authentication or authorization logic
 * custom pattern matches based on your own custom rules
 
-Findings include a `message` field that describes the security issue or bug that must be resolved. Findings may also provide an `autofix` field that fixes the issue by creating a suggestion within your source code management (SCM) tool, such as GitHub or GitLab.
+Semgrep rules provide a metadata schema to identify common categories such as the above. Semgrep findings include a `message` field that describes the security issue or bug that must be resolved. Findings may also provide an `autofix` field that fixes the issue by creating a suggestion within your source code management (SCM) tool, such as GitHub or GitLab.
+
+Another way of categorizing findings is based on the validity of of the match:
+
+<dl>
+    <dt>True positive</dt>
+    <dd></dd>
+    <dt>False positive</dt>
+    <dd></dd>
+    <dt>True negative</dt>
+    <dd></dd>
+    <dt>False negative</dt>
+    <dd></dd>
+</dl>
 
 ## Working with findings and false positives
 
-After a finding is generated, developers may:
+After a finding is generated, developers can:
 
-* View the Semgrep rule and the matching code.
-* Fix the issue detected by the finding.
-* Ignore the finding.
-* Comment on the finding.
-* Create a Jira ticket from the finding (for Enterprise/Team Tier users.)
+* **Fix the issue detected by the finding.** This is the intended workflow. In this case, the rule produces a **true positive** finding (such as a security issue) as intended.
+* **View the Semgrep rule and the matching code.** For developers aiming to understand their team's security posture, Semgrep provides a top-level report view through the Dashboard and a list view of findings in the Findings page that can be filtered by repository, rule, branch, or triage action.
+* **Triage the finding.** If the finding is not useful or important, it can be deprioritized through triaging. Triage actions include commenting and ignoring. This is one method to prevent or reduce **false positives**.
+* **Remove the rule or code that generated the finding**.
+* **Create a Jira ticket from the finding (for Enterprise/Team Tier users.)**
 
 In some cases, findings can be **false positives**. A **false positive** finding is a match that does not meet the goal of the rule. This may be due to a flaw in the rule's logic. Possible solutions include:
 
@@ -64,7 +77,7 @@ The Semgrep App Finding page displays findings across all projects connected to 
 
 The Findings page displays the following fields:
 
-| Field       | Description |
+| Field       | Description  |
 | ----------  | ------------ |
 | **Severity**    | The impact of a finding. Possible values: <ul><li>Low</li><li>Medium</li><li>High </li><li>Critical</li></ul> |
 | **Finding**     | The file, line, and branch of the match in the code. Clicking this field brings you to the exact location in the codebase. |
