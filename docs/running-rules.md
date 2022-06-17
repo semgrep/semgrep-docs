@@ -62,7 +62,7 @@ semgrep -e '$X == $X' --lang=py path/to/src
 ```
 
 :::info
-Both local rule.yaml and ephemeral rules are called *local rules*.
+Both local yaml files and ephemeral rules are called *local rules*.
 :::
 
 ### Creating and using YAML-defined rules file
