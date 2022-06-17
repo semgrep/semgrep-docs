@@ -151,11 +151,11 @@ To **open findings**:
 
 To **fix a finding**, update, or refactor the code such that the Semgrep rule pattern no longer matches the code.
 
-To **remove a rule** from the Rule Board: TODO
+To **remove a rule** from the Rule Board:
 
 1. Click **Rule Board**.
 2. Click the ruleset that contains the rule.
-3. Drag the rule tile to the **Discard rule** section.
+3. Click the garbage can icon next to the rule you're deleting.
 
 To **view comments**:
 
