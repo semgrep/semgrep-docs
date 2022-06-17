@@ -51,7 +51,7 @@ function calls with specific arguments. For example, the pattern `insecure_funct
 insecure_function("MALICIOUS_STRING", arg1, arg2)
 ```
 
-Functions and classes can be referenced by their fully qualified name, e.g.,
+Functions and classes can be referenced by their fully qualified name, for example,
 
 - `django.utils.safestring.mark_safe(...)` or `mark_safe(...)`
 - `System.out.println(...)` or `println(...)`
@@ -167,7 +167,7 @@ crypto.set_secret_key("HARDCODED SECRET")
 This also works with [constant propagation](#constants).
 
 In languages where regular expressions use a special syntax
-(e.g., Javascript), the pattern `/.../` will match
+(for example, Javascript), the pattern `/.../` will match
 any regular expression construct:
 
 ```javascript
@@ -255,7 +255,7 @@ if can_make_request:
 ```
 
 :::tip
-Half or partial statements can't be matches; both of the examples above must specify the contents of the condition’s body (e.g., `$BODY` or `...`), otherwise they are not valid patterns.
+Half or partial statements can't be matches; both of the examples above must specify the contents of the condition’s body (e.for example`$BODY` or `...`), otherwise they are not valid patterns.
 :::
 
 ## Metavariables
@@ -319,7 +319,7 @@ or in a [`metavariable-regex`](../rule-syntax/#metavariable-regex).
 
 You can also use `/$X/` and `:$X` to respectively match
 any regular expressions or atoms (in languages that support
-those constructs, e.g., Ruby).
+those constructs, for example, Ruby).
 
 ### Typed Metavariables
 
@@ -524,7 +524,7 @@ Semgrep performs associative-commutative (AC) matching. For example, `... && B &
 
 Under AC-matching metavariables behave similarly to `...`. For example, `A | $X` can match `A | B | C` in four different ways (`$X` can bind to `B`, or `C`, or `B | C`). In order to avoid a combinatorial explosion, Semgrep will only perform AC-matching with metavariables if the number of potential matches is _small_, otherwise it will produce just one match (if possible) where each metavariable is bound to a single operand.
 
-Using [`options`](../rule-syntax/#options) it is possible to entirely disable AC-matching. It is also possible to treat boolean AND and OR operators (e.g., `&&` in `||` in C-family languages) as commutative, which can be useful despite not being semantically accurate.
+Using [`options`](../rule-syntax/#options) it is possible to entirely disable AC-matching. It is also possible to treat boolean AND and OR operators (for example, `&&` in `||` in C-family languages) as commutative, which can be useful despite not being semantically accurate.
 
 ## Deep expression operator
 
@@ -653,7 +653,7 @@ context in which to search for other things.
 It is possible to just match the header of a function (without its body),
 for example `int foo(...)` to match just the header part of the
 function `foo`. In the same way, you can just match a class header
-(e.g., with `class $A`).
+(for example, with `class $A`).
 
 ## Deprecated features
 
@@ -671,6 +671,6 @@ The pattern `requests.get("=~/dev\./i")` matches:
 requests.get("api.dev.corp.com")  # Oops, development API left in
 ```
 
-To search for specific strings, use the syntax `"=~/<regexp>/"`. Advanced regexp features are available, such as case-insensitive regexps with `'/i'` (e.g., `"=~/foo/i"`). Matching occurs anywhere in the string unless the regexp `^` anchor character is used: `"=~/^foo.*/"` checks if a string begins with `foo`.
+To search for specific strings, use the syntax `"=~/<regexp>/"`. Advanced regexp features are available, such as case-insensitive regexps with `'/i'` (for example, `"=~/foo/i"`). Matching occurs anywhere in the string unless the regexp `^` anchor character is used: `"=~/^foo.*/"` checks if a string begins with `foo`.
 
 <MoreHelp />

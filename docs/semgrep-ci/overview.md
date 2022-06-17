@@ -192,7 +192,7 @@ See [Writing rules](/writing-rules/overview/) to learn how to write custom rules
 
 Your own custom rules can be added to your Semgrep CI configuration just like [Registry rules](#registry-rules-and-rulesets/) by:
 
-1. Including their [Playground](https://semgrep.dev/editor) share ID (e.g. `s/susan:named-rule`)
+1. Including their [Playground](https://semgrep.dev/editor) share ID (for example `s/susan:named-rule`)
 2. Adding the directory or file path to the local file containing the rule
 3. Adding the rule to a `.semgrep/` directory, which is included by default
 

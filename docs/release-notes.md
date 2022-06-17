@@ -1013,7 +1013,7 @@ To view the original release information, see [the changelog of this release on 
 
 #### Changes
 
-- Grouped semgrep CLI options and added constraints when useful (e.g., cannot use --vim and --emacs at the same time)
+- Grouped semgrep CLI options and added constraints when useful (for example, cannot use --vim and --emacs at the same time)
 
 ### Version 0.64.0
 
@@ -1103,8 +1103,8 @@ C/C++: Fixed stack overflows (segmentation faults) when processing very large fi
 
 #### Additions
 
-- New iteration of taint-mode that allows to specify sources/sanitizers/sinks using arbitrary pattern formulas. This provides plenty of flexibility. Note that we breaks compatibility with the previous taint-mode format, e.g., - source(...) must now be written as - pattern: source(...).
-- Experimental support for HTML. This does not rely on the generic mode but instead parses the HTML using tree-sitter-html. This allows some semantic matching (e.g., matching attributes in any order).
+- New iteration of taint-mode that allows to specify sources/sanitizers/sinks using arbitrary pattern formulas. This provides plenty of flexibility. Note that we breaks compatibility with the previous taint-mode format, for example, - source(...) must now be written as - pattern: source(...).
+- Experimental support for HTML. This does not rely on the generic mode but instead parses the HTML using tree-sitter-html. This allows some semantic matching (for example, matching attributes in any order).
 - js alpha support ([#1751](https://github.com/returntocorp/semgrep/issues/1751))
 - New matching option implicit_ellipsis that allows disabling the implicit ... that are added to record patterns, plus allow matching "spread fields" (JS ...x) at any position ([#3120](https://github.com/returntocorp/semgrep/issues/3120))
 - Support globstar (**) syntax in path include/exclude ([#3173](https://github.com/returntocorp/semgrep/pull/3173))
@@ -1114,7 +1114,7 @@ C/C++: Fixed stack overflows (segmentation faults) when processing very large fi
 - Apple M1: Semgrep installed from Homebrew no longer hangs ([#2432](https://github.com/returntocorp/semgrep/issues/2432))
 - Ruby command shells are distinguished from strings ([#3343](https://github.com/returntocorp/semgrep/issues/3343))
 - Java varargs are now correctly matched ([#3455](https://github.com/returntocorp/semgrep/issues/3455))
-- Support for partial statements (e.g., try { ... }) for Java ([#3417](https://github.com/returntocorp/semgrep/issues/3417))
+- Support for partial statements (for example, try { ... }) for Java ([#3417](https://github.com/returntocorp/semgrep/issues/3417))
 - Java generics are now correctly stored in the AST ([#3505](https://github.com/returntocorp/semgrep/pull/3505))
 - Constant propagation now works inside Python with statements ([#3402](https://github.com/returntocorp/semgrep/issues/3402))
 - Metavariable value replacement in message/autofix no longer mixes up short and long names like $X vs $X2 ([#3458](https://github.com/returntocorp/semgrep/issues/3458))
@@ -1139,10 +1139,10 @@ C/C++: Fixed stack overflows (segmentation faults) when processing very large fi
 
 #### Additions
 
-- New options: field in a YAML rule to enable/disable certain features (e.g., constant propagation) (See [https://github.com/returntocorp/semgrep/blob/develop/semgrep-core/src/core/Config_semgrep.atd](https://github.com/returntocorp/semgrep/blob/develop/semgrep-core/src/core/Config_semgrep.atd) for the list of available features one can enable/disable)
+- New options: field in a YAML rule to enable/disable certain features (for example, constant propagation) (See [https://github.com/returntocorp/semgrep/blob/develop/semgrep-core/src/core/Config_semgrep.atd](https://github.com/returntocorp/semgrep/blob/develop/semgrep-core/src/core/Config_semgrep.atd) for the list of available features one can enable/disable)
 - Capture groups in pattern-regex: in $1, $2, etc. ([#3356](https://github.com/returntocorp/semgrep/issues/3356))
-- Support metavariables inside atoms (e.g., foo(:$ATOM))
-- Support metavariables and ellipsis inside regexp literals (e.g., foo(/.../))
+- Support metavariables inside atoms (for example, foo(:$ATOM))
+- Support metavariables and ellipsis inside regexp literals (for example, foo(/.../))
 - Associative-commutative matching for bitwise OR, AND, and XOR operations
 - Add support for $...MVAR in generic patterns
 - Add support for $...MVAR in generic patterns
@@ -1174,8 +1174,8 @@ C/C++: Fixed stack overflows (segmentation faults) when processing very large fi
 #### Additions
 
 - Associative-commutative matching for Boolean AND and OR operations ([#3198](https://github.com/returntocorp/semgrep/issues/3198))
-- Support metavariables inside strings (e.g., foo("$VAR"))
-- Support metavariables inside atoms (e.g., foo(:$ATOM))
+- Support metavariables inside strings (for example, foo("$VAR"))
+- Support metavariables inside atoms (for example, foo(:$ATOM))
 - metavariable-pattern: allow matching the content of a metavariable under a different language
 
 #### Fixes
@@ -1361,7 +1361,7 @@ ARG = [$V];
 
 #### Changes
 
-- The extra lines data is now consistent across scan types (e.g., semgrep-core, spacegrep, pattern-regex)
+- The extra lines data is now consistent across scan types (for example, semgrep-core, spacegrep, pattern-regex)
 
 ### Version 0.47.0
 
@@ -1374,7 +1374,7 @@ ARG = [$V];
 #### Fixes
 
 - Single field pattern in JSON, allowing $FLD: { ... } pattern
-- Config detection in files with many suffix delimiters, like this.that.check.yaml. More concretely: configs end with .yaml, YAML language tests end with .test.yaml, and everything else is handled by its respective language extension (e.g., .py).
+- Config detection in files with many suffix delimiters, like this.that.check.yaml. More concretely: configs end with .yaml, YAML language tests end with .test.yaml, and everything else is handled by its respective language extension (for example, .py).
 - Single array field in YAML in a pattern is parsed as a field, not a one element array
 
 ### Version 0.46.0
@@ -1390,7 +1390,7 @@ ARG = [$V];
 
 #### Changes
 
-- Deep expression matches (<... foo ...>) now match within the bodies of anonymous functions (a.k.a. lambda-expressions) and arbitrary language-specific statements (e.g., the Golang go statement)
+- Deep expression matches (<... foo ...>) now match within the bodies of anonymous functions (a.k.a. lambda-expressions) and arbitrary language-specific statements (for example, the Golang go statement)
 
 ### Version 0.45.0
 

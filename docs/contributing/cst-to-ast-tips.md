@@ -39,8 +39,8 @@ See how it's done for example in [`Parse_go_tree_sitter.ml`](https://github.com/
 
 CST and AST type definitions make heavy use of algebraic data types to
 accommodate nodes of different kinds under the same type.
-Those are known as variants (e.g. `Expr e`) and
-polymorphic variants in OCaml jargon (e.g. `` `Expr e``).
+Those are known as variants (for example `Expr e`) and
+polymorphic variants in OCaml jargon (for example `` `Expr e``).
 
 Parametrized types in OCaml are like generics in languages like Java.
 The OCaml type for a list of ints is denoted `int list`, which would

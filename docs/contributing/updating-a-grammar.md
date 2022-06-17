@@ -37,7 +37,7 @@ Here are the main components:
   generates OCaml parsing code from tree-sitter grammars extended
   with `...` and such. Publishes code into the git repos of the
   form `semgrep-X`.
-* the original tree-sitter grammar `tree-sitter-X` e.g.,
+* the original tree-sitter grammar `tree-sitter-X` for example,
   [tree-sitter-ruby](https://github.com/tree-sitter/tree-sitter-ruby):
   the original tree-sitter grammar for the language.
   This is the git submodule `lang/semgrep-grammars/src/tree-sitter-X`
@@ -51,7 +51,7 @@ Here are the main components:
   It is modified so as to accommodate various requirements of the
   ocaml-tree-sitter code generator. `lang/X/src` and
   `lang/X/ocaml-src` contain the C/C++/OCaml code that will published
-  into semgrep-X e.g.
+  into semgrep-X for example
   [semgrep-ruby](https://github.com/returntocorp/semgrep-ruby)
   and used by semgrep.
 * [semgrep-X](https://github.com/returntocorp/semgrep-ruby):
@@ -161,7 +161,7 @@ cd lang
 
 This step is safe. Semgrep at this point is unaffected by those
 changes. There is now a new commit at
-`https://github.com/returntocorp/semgrep-X` e.g.
+`https://github.com/returntocorp/semgrep-X` for example
 https://github.com/returntocorp/semgrep-javascript.
 The [`fyi/` folder](https://github.com/returntocorp/semgrep-javascript/tree/main/fyi)
 contains original files from which the code was generated.

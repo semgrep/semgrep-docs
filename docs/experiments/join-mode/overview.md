@@ -127,7 +127,7 @@ severity:error rule:flask-likely-xss: Detected a XSS vulnerability: '$VAR' is re
 
 For convenience, when writing a join mode rule, you can use the `renames` and `as` keys. 
 
-The `renames` key will let you rename metavariables from one rule to something else in your conditions. **This is necessary for named expressions, e.g., `$...EXPR`.**
+The `renames` key will let you rename metavariables from one rule to something else in your conditions. **This is necessary for named expressions, for example, `$...EXPR`.**
 
 The `as` key behaves similarly to `AS` clauses in SQL. This lets you rename the result set for use in the conditions. If the `as` key is not specified, the result set uses the **rule ID**.
 
@@ -201,7 +201,7 @@ Anything that works with `semgrep --config <here>` will work as the value for `r
 An optional key for an object in `refs`, `renames` will rename the metavariables from the associated `rule`. The value of `renames` is a list of objects whose keys are `from` and `to`. The `from` key specifies the metavariable to rename, and the `to` key specifies the new name of the metavariable.
 
 :::warning
-Renaming is necessary for named expressions, e.g., `$...EXPR`.
+Renaming is necessary for named expressions, for example, `$...EXPR`.
 :::
 
 ### `as`

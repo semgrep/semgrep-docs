@@ -297,7 +297,7 @@ The functions for this conversion are in either `semgrep-core/src/parsing/pfff/`
 
 ### Matching
 
-The matching functions are contained in `semgrep-core/src/engine/` (e.g. `Match_rules.ml`, `Match_patterns.ml`) and `semgrep-core/src/matching/` (e.g. `Generic_vs_generic.ml`). There are several possible matchers to invoke
+The matching functions are contained in `semgrep-core/src/engine/` (for example `Match_rules.ml`, `Match_patterns.ml`) and `semgrep-core/src/matching/` (for example `Generic_vs_generic.ml`). There are several possible matchers to invoke
 
 * spacegrep (for generic mode)
 * regexp (to match by regexp instead of semgrep patterns)

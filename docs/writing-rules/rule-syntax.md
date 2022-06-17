@@ -22,7 +22,7 @@ All required fields must be present at the top-level of a rule, immediately unde
 
 | Field                                                   | Type     | Description                                                                                       |
 | :------------------------------------------------------ | :------- | :------------------------------------------------------------------------------------------------ |
-| `id`                                                    | `string` | Unique, descriptive identifier, e.g., `no-unused-variable`                                        |
+| `id`                                                    | `string` | Unique, descriptive identifier, for example, `no-unused-variable`                                        |
 | `message`                                               | `string` | Message highlighting why this rule fired and how to remediate the issue                           |
 | `severity`                                              | `string` | One of: `INFO`, `WARNING`, or `ERROR`                                                             |
 | `languages`                                             | `array`  | See [language extensions and tags](#language-extensions-and-tags)                                 |
@@ -394,7 +394,7 @@ Enable, disable, or modify the following matching features:
 | Option                 | Default | Description                                                            |
 | :--------------------- | :------ | :--------------------------------------------------------------------- |
 | `ac_matching`          | `true`  | [Matching modulo associativity and commutativity](./pattern-syntax.mdx#associative-and-commutative-operators), we treat Boolean AND/OR as associative, and bitwise AND/OR/XOR as both associative and commutative. |
-| `attr_expr`            | `true`  | Expression patterns (e.g., `f($X)`) will match attributes (e.g., `@f(a)`). |
+| `attr_expr`            | `true`  | Expression patterns (for example, `f($X)`) will match attributes (for example, `@f(a)`). |
 | `commutative_boolop`   | `false` | Treat Boolean AND/OR as commutative even if not semantically accurate. |
 | `constant_propagation` | `true`  | [Constant propagation](./pattern-syntax.mdx#constants), including [intra-procedural flow-sensitive constant propagation](../data-flow/constant-propagation/). |
 | `generic_comment_style` | none   | In generic mode, assume that comments follow the specified syntax. They are then ignored for matching purposes. Allowed values for comment styles are `c` for traditional C-style comments (`/* ... */`), `cpp` for modern C or C++ comments (`// ...` or `/* ... */`), and `shell` (`# ...`). By default, the generic mode does not recognize any comments. Available since Semgrep 0.96. |

@@ -129,5 +129,5 @@ Try answering these questions to uncover important rules for your project.
 1. What vulnerability classes from bug bounty submissions reoccur (or appear in different places of the codebase)?
 1. Are there eng / perf patterns? Consistent exception handlers?
 1. What issues were caused by misconfigurations in Infrastructure-as-Code files (JSON)?
-1. What are some “invariants” that should hold about your code - things that should always or never be true (e.g. every admin route checks if user is admin)?
+1. What are some “invariants” that should hold about your code - things that should always or never be true (e.g.for examplery admin route checks if user is admin)?
 1. What methods/APIs are deprecated and you’re trying to move away from?

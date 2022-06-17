@@ -124,7 +124,7 @@ Ban `__html__` in classes. Alternatively, prefer `mark_safe()` if necessary.
 
 ### 1.E. Using **html_safe()**
 
-The `html_safe()` decorator adds the `__html__` magic method to the supplied class. The added `__html__` magic method will return the exact string representation of the class (e.g., `str(self)`). Because objects with the `__html__` method are not escaped, this could create a XSS vulnerability.
+The `html_safe()` decorator adds the `__html__` magic method to the supplied class. The added `__html__` magic method will return the exact string representation of the class (for example, `str(self)`). Because objects with the `__html__` method are not escaped, this could create a XSS vulnerability.
 
 Example:
 
