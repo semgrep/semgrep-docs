@@ -13,8 +13,8 @@ Rules are specific patterns based on which Semgrep reports findings in code. The
 
 - Use existing [Semgrep Registry rules](#running-semgrep-registry-rules) or add new rules to Semgrep Registry and run them.
 - Local rules:
-  - Create and run [ephemeral rules](#ephemeral-rules) in the command line.
-  - Create and run [YAML-defined rules](#creating-and-using-yaml-defined-rules-file).
+  - Create and run one-off [ephemeral rules](#ephemeral-rules) in the command line.
+  - Create and run [YAML-defined rules in a file](#creating-and-using-yaml-defined-rules-file).
 - Run your [local rules simultaneously with Semgrep Registry rules](#running-multiple-rules-simultaneously). 
 
 You can run all rules on your local code or continuously in your Source Code Management (SCM) service (such as GitHub or GitLab) with Semgrep in CI.
