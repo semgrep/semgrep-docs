@@ -541,7 +541,7 @@ The above rule makes use of many operators. It uses `pattern-either`, `patterns`
 
 ## Full specification
 
-The [full configuration-file format](https://github.com/returntocorp/semgrep/blob/develop/semgrep/semgrep/rule_schema.yaml) is defined as
+The [full configuration-file format](https://github.com/returntocorp/semgrep/blob/develop/cli/src/semgrep/rule_schema.yaml) is defined as
 a [jsonschema](http://json-schema.org/specification.html) object.
 
 <MoreHelp />
