@@ -9,24 +9,19 @@ import MoreHelp from "/src/components/MoreHelp"
 
 ## Introduction
 
-Rules are specific patterns based on which Semgrep reports findings in code. These findings may help you to catch issues of security, performance, correctness, and other bugs. Rules are stored in an open-source [Semgrep Registry](https://github.com/returntocorp/semgrep-rules) that enables you to scan code without need to write anything custom. Use Semgrep rules in the following ways:
+Rules are specific patterns based on which Semgrep reports findings in code. These findings may help you to catch issues of security, performance, correctness, and other bugs. Rules are stored in an open-source [Semgrep Registry](https://github.com/returntocorp/semgrep-rules) that enables you to scan code without need to write anything custom. The list below covers different kinds of Semgrep rules:
 
-- Use existing [Semgrep Registry rules](#running-semgrep-registry-rules) or add new rules to Semgrep Registry and run them.
+- Use existing [Semgrep Registry rules](#running-semgrep-registry-rules) or add new rules to Semgrep Registry and run them. See [Contributing to Semgrep rules](https://semgrep.dev/docs/contributing/contributing-to-semgrep-rules-repository/) to find out how to add new rules.
 - Local rules:
   - Create and run one-off [ephemeral rules](#ephemeral-rules) in the command line.
   - Create and run [YAML-defined rules in a file](#creating-and-using-yaml-defined-rules-file).
 - Run your [local rules simultaneously with Semgrep Registry rules](#running-multiple-rules-simultaneously). 
 
-You can run all rules on your local code or continuously in your Source Code Management (SCM) service (such as GitHub or GitLab) with Semgrep in CI.
+You can run all rules on your local code or continuously in your Source Code Management (SCM) service (such as GitHub or GitLab) with Semgrep in CI. For more information, see [Semgrep CI overview](semgrep-ci/overview.md).
 
-The following diagram displays the current number of Semgrep rules:
-<div className="lang-container" style={{marginBottom: '20px'}}>
-  <iframe width="900" height="400" frameBorder="0" src="https://dashboard.semgrep.dev/metric/semgrep-rules.num/graph"></iframe>
-</div>
+## Running Semgrep Registry rules locally
 
-## Running Semgrep Registry rules
-
-This section explains how to run [Semgrep Registry](https://semgrep.dev/explore) rules locally. See the following examples of how you may test Semgrep rules:
+Try to run the following example of [Semgrep Registry](https://semgrep.dev/explore) rules:
 
 1. Test how Semgrep automatically surveys languages and frameworks and run recommended rules for your source code:
     ```sh
@@ -44,7 +39,7 @@ This section explains how to run [Semgrep Registry](https://semgrep.dev/explore)
 * When Semgrep Registry is used, [usage metrics](../metrics) are collected by default.
 :::
 
-Add rulesets to Semgrep in CI scans using their "Add to Policy" button on Semgrep Community and Semgrep Team tiers.
+Add rulesets to Semgrep in CI scans using their **Add to Policy** button on Semgrep Community and Semgrep Team tiers.
 
 ## Using local rules
 
@@ -106,6 +101,13 @@ To run multiple rules simultaneously, use `--config` before every YAML URL, or S
 
 ## Next steps
 
-Contribute to the registry by writing your own rules and adding them to the <a href="https://github.com/returntocorp/semgrep-rules" target="_blank">Semgrep rules repository</a>.
+Contribute to the registry by writing your own rules and adding them to the <a href="https://github.com/returntocorp/semgrep-rules" target="_blank">Semgrep rules repository</a>. Find out how to contribute to Semgrep rules repository by reading [Contributing to Semgrep rules](contributing/contributing-rules.md) guide.
+
+## Number of Semgrep rules
+
+The following diagram displays the current number of Semgrep rules:
+<div className="lang-container" style={{marginBottom: '20px'}}>
+  <iframe width="900" height="400" frameBorder="0" src="https://dashboard.semgrep.dev/metric/semgrep-rules.num/graph"></iframe>
+</div>
 
 <MoreHelp />

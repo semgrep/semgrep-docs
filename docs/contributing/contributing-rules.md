@@ -59,6 +59,8 @@ A well-written rule message includes:
 
 For an example of a good rule message, see: [this rule for Django's mark_safe](https://semgrep.dev/r?q=python.django.security.audit.avoid-mark-safe.avoid-mark-safe).
 
+Use the YAML multiline string operator `>-` when a rule message spans multiple lines. This presents the best-looking rule message in the command-line.
+
 :::info
 'mark_safe()' is used to mark a string as *safe* for HTML output. This disables escaping and may expose the content to XSS attacks. Use 'django.utils.html.format_html()' to build HTML for rendering instead.
 :::
@@ -80,7 +82,6 @@ Include the following keys under the `metadata` field:
     - `performance`
 - Include the `technology` field. This is usually the library or framework the rule is targeting, for example `django`. If it's for the language itself, use only the language name, for example `python`.
 - Include the `references` field. References can provide additional context to users of the rule. It is good practice to include at least one reference for each rule.
-- The use of the YAML multiline string operator `>-` when rule messages span multiple lines. This presents the best-looking rule message in the command-line.
 
 Rule examples:
 - [python.lang.security.deserialization.avoid-pyyaml-load.yaml](https://semgrep.dev/orgs/-/editor/r/python.lang.security.deserialization.avoid-pyyaml-load.avoid-pyyaml-load)
