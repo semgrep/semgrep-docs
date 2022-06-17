@@ -173,7 +173,9 @@ To **create a ticket**:
 
 ## Deduplicating findings
 
-Semgrep App scans are performed on both mainline (trunk) and non-mainline branches. Duplicate findings arise due to scans occurring on the same code in different branches. There are two types of scans:
+Semgrep App scans are performed on both mainline (trunk) and non-mainline branches. Findings are generated on a per-branch basis. Duplicate findings arise due to scans occurring on the same code in different branches.
+
+There are two types of scans:
 
 <dl>
     <dt>Full scan</dt>
