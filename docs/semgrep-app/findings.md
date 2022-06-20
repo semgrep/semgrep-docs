@@ -63,7 +63,7 @@ The Semgrep App Finding page displays findings across all projects connected to 
 | 30-day findings retention | Community (Free) |
 | 1-year findings retention | Team/Enterprise |
 
-## Viewing data in the Findings page
+## Viewing data on the Findings page
 
 ### Navigating to the Findings page
 
@@ -139,7 +139,7 @@ To **ignore findings**:
 1. Click **Open** to see all open findings.
 2. After the findings are filtered, perform one of these steps:
     - Select all of the results by clicking on the header row checkbox. You can navigate to succeeding pages and add to the current selection.
-    - Select relevant findings one-by-one by clicking on their checkboxes individually.
+    - Select relevant findings one by one by clicking on their checkboxes individually.
 3. Click the **Triage** button.
 4. Click **Ignore**.
 5. Optional: Include a **comment** explaining the action.
@@ -149,7 +149,7 @@ To **open findings**:
 1. Click **Ignored** to see all ignored findings.
 2. After the findings are filtered, perform one of these steps:
     - Select all of the results by clicking on the header row checkbox. You can navigate to succeeding pages and add to the current selection.
-    - Select relevant findings one-by-one by clicking on their checkboxes individually.
+    - Select relevant findings one by one by clicking on their checkboxes individually.
 3. Click the **Triage** button.
 4. Click **Open**.
 5. Optional: Include a **comment** explaining the action.
@@ -184,7 +184,7 @@ There are two types of scans:
 
 <dl>
     <dt>Full scan</dt>
-    <dd>Scans the repository in its entirety. Full scans are performed on mainline branches, such as `master` or `main`. This scan is performed on a scheduled basis.</dd>
+    <dd>Scans the repository in its entirety. It is recommended to perform full scans on mainline branches, such as `master` or `main`. This scan is performed on a scheduled basis.</dd>
     <dt>Diff-aware scan</dt>
     <dd>Diff-aware scans are performed on non-mainline branches, such as in pull requests and merge requests. Diff scans traverse the repository's files based on the commit where the branch diverged from the mainline branch (or diverged from the last commit that was fully scanned?)</dd>
 </dl>
