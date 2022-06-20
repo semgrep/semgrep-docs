@@ -23,7 +23,7 @@ A finding can be categorized **based on the issue or code it detects**:
 
 Semgrep rules provide a metadata schema to identify common categories such as the above. Semgrep findings include a `message` field that describes the security issue or bug that must be resolved. Findings may also provide a `fix` field that fixes the issue by creating a suggestion within your source code management (SCM) tool, such as GitHub or GitLab.
 
-Another way of categorizing findings is **based on the validity of of the match**:
+Another way of categorizing findings is **based on the validity of the match**:
 
 <dl>
     <dt>True positive</dt>
