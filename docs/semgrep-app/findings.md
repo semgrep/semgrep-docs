@@ -95,7 +95,7 @@ Semgrep App assists in the triage process through the use of **comments** and **
 | **Ignored** | Findings that are ignored will not be acted upon. This may be a false positive or deprioritized issue. Findings can be ignored through Semgrep App (see [Managing triage states](#managing-triage-states-bulk-triage)). There are two types of ignored findings: <dl><dt>Ignored - App</dt><dd>The ignore status was set within Semgrep App.</dd><dt>Ignored - Code</dt><dd>The ignore status was set from the code itself. Using a `nosemgrep` annotation within the code falls under this type.</dd></dl> |
 | **Fixed** | Fixed findings are findings that were detected in a previous scan but no longer trigger a match in the most recent scan. The rule that detected the finding and the code that triggered the match must both be active in the most recent scan. |
 
-Findings can also be **removed**. A removed finding does not count towards a fix rate or total number of findings. A finding is considered removed if it is not found in the most recent scan due to either of the following conditions:
+Findings can also be **removed**. A removed finding does not count towards a fix rate or the total number of findings. A finding is considered removed if it is not found in the most recent scan due to either of the following conditions:
 
 * You removed the rule from the Rule Board.
 * You deleted the file containing the code.
