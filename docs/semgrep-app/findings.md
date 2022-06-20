@@ -160,7 +160,8 @@ To **remove a rule** from the Rule Board:
 
 1. Click **Rule Board**.
 2. Click the ruleset that contains the rule.
-3. Click the garbage can icon next to the rule you're deleting.
+3. Click the **garbage can** icon next to the rule you're deleting.
+4. Click ****Save**.
 
 To **view comments**:
 
