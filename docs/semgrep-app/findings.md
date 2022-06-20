@@ -181,7 +181,7 @@ There are two types of scans:
     <dt>Full scan</dt>
     <dd>Scans the repository in its entirety. Full scans are performed on mainline branches, such as `master` or `main`. This scan is performed on a scheduled basis.</dd>
     <dt>Diff-aware scan</dt>
-    <dd>Diff-aware scans are performed on non-mainline branches, scanning the repository's files based on the commit where the branch diverged from the mainline branch (or diverged from the last commit that was fully scanned?)</dd>
+    <dd>Diff-aware scans are performed on non-mainline branches, such as in pull requests and merge requests. Diff scans traverse the repository's files based on the commit where the branch diverged from the mainline branch (or diverged from the last commit that was fully scanned?)</dd>
 </dl>
 
 If a finding is fixed in one branch (such as `main`) but open in another (such as `production`), and the code fixes are present in both branches, initiate a scan on the branch(es) with open findings to mark the findings as fixed.
