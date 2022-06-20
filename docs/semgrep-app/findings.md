@@ -21,7 +21,7 @@ A finding can be categorized **based on the issue or code it detects**:
 * business or logic bugs
 * matches based on your own custom rules (such as organization-specific authentication logic)
 
-Semgrep rules provide a metadata schema to identify common categories such as the above. Semgrep findings include a `message` field that describes the security issue or bug that must be resolved. Findings may also provide an `autofix` field that fixes the issue by creating a suggestion within your source code management (SCM) tool, such as GitHub or GitLab.
+Semgrep rules provide a metadata schema to identify common categories such as the above. Semgrep findings include a `message` field that describes the security issue or bug that must be resolved. Findings may also provide a `fix` field that fixes the issue by creating a suggestion within your source code management (SCM) tool, such as GitHub or GitLab.
 
 Another way of categorizing findings is **based on the validity of of the match**:
 
@@ -31,7 +31,12 @@ Another way of categorizing findings is **based on the validity of of the match*
     <dt>False positive</dt>
     <dd>A false positive is a mismatch between the intended purpose of the rule and the code it matched. A finding is generated but does not meet the rule's intended need. Rules with a high false positivity rate are said to be <strong>noisy</strong>.</dd>
     <dt>False negative</dt>
-    <dd>A false negative is a finding that should have been found by a rule, but was not. This could be due to a flaw in the rule's logic. See <a href="../release-notes/#additions-1"><code>semgrep shouldafound</code></a>.</dd>
+    <dd>A false negative is a finding that should have been found by a rule, but was not. This can happen for two reasons:
+    <ul>
+        <li>A flaw in the rule's logic. See <a href="../release-notes/#additions-1"><code>semgrep shouldafound</code></a>.</li>
+        <li>A bug within semgrep itself.</li>
+    </ul>
+    </dd>
 </dl>
 
 ## Working with findings
@@ -40,7 +45,7 @@ After a finding is generated, developers can:
 
 * **Fix the issue detected by the finding.** This is Semgrep's primary goal. In this case, the rule produces a **true positive** finding (such as a security issue) as intended and developers must refactor or address the code such that the rule no longer matches it.
 * **View the Semgrep rule and the matching code.** For developers aiming to understand their team's security posture, Semgrep provides a top-level report view through the Dashboard and a list view of findings in the Findings page that can be filtered by repository, rule, branch, or triage action.
-* **Triage the finding.** If the finding is not useful or important, it can be deprioritized through triaging. Triage actions include commenting and ignoring. This is one method to reduce **false positives**.
+* **Triage the finding.** If the finding is not useful or important, it can be deprioritized through triaging. Triage actions include ignoring and reopening. Triaging a finding to ignore it is one method to handle **false positives** without changing the rule or code.
 * **Remove the rule or code that generated the finding**. There are cases where Semgrep scans a file not meant for scanning or when a rule is irrelevant. You can remove the rule from the Rule board or add the file to the ignore list.
 * **Create a Jira ticket from the finding (for Enterprise/Team Tier users.)** For findings that require more extensive refactoring, a ticket can be created in Jira to track its resolution.
 
