@@ -17,7 +17,7 @@ A **finding** is the core result of Semgrep's analysis. Findings are generated w
 A finding can be categorized **based on the issue or code it detects**:
 
 * anti-patterns
-* security vulnerabilities (such as dangerous function usage)
+* Security vulnerabilities (such as dangerous function usage)
 * Business or logic bugs
 * matches based on your own custom rules (such as organization-specific authentication logic)
 
