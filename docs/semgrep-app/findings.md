@@ -18,7 +18,7 @@ A finding can be categorized **based on the issue or code it detects**:
 
 * anti-patterns
 * security vulnerabilities (such as dangerous function usage)
-* business or logic bugs
+* Business or logic bugs
 * matches based on your own custom rules (such as organization-specific authentication logic)
 
 Semgrep rules provide a metadata schema to identify common categories such as the above. Semgrep findings include a `message` field that describes the security issue or bug that must be resolved. Findings may also provide a `fix` field that fixes the issue by creating a suggestion within your source code management (SCM) tool, such as GitHub or GitLab.
