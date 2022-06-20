@@ -163,7 +163,7 @@ To **view comments**:
 
 ## Creating Jira tickets from findings
 
-Semgrep supports the creation of Jira tickets from a finding. This enables developers and project managers to relevant issues within their own project or bug tracking environment. This feature is available to Team/Enterprise Tier users.
+Semgrep supports the creation of Jira tickets from a finding. This enables developers and project managers to create relevant issues within their own project or bug tracking environment. This feature is available to Team/Enterprise Tier users.
 
 To **create a ticket**:
 
