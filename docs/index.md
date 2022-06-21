@@ -45,8 +45,8 @@ Semgrep is developed and commercially supported by [r2c, a software security com
 
 Semgrep supports 20+ languages.
 
-<!--  coupling: if you modify this table, copy paste it also to status.md -->
-<!--  for readability, please keep each column in alphabetical order -->
+<!--  coupling: If you modify this table, copy paste it also to supported-languages.md! -->
+<!--  For readability, please keep each column in alphabetical order. -->
 
 <div id="language-support-table">
 
@@ -58,12 +58,12 @@ Semgrep supports 20+ languages.
 | JavaScript |                            | Dockerfile                 |
 | JSON       |                            | Hack                       |
 | JSX        |                            | Lua                        |
-| Python     |                            | OCaml                      |
-| Ruby       |                            | PHP                        |
-| Scala      |                            | Rust                       |
-| TSX        |                            | Solidity                   |
-| TypeScript |                            | YAML                       |
-|            |                            | Generic (ERB, Jinja, etc.) |
+| PHP        |                            | OCaml                      |
+| Python     |                            | R                          |
+| Ruby       |                            | Rust                       |
+| Scala      |                            | Solidity                   |
+| TSX        |                            | YAML                       |
+| TypeScript |                            | Generic (ERB, Jinja, etc.) |
 
 </div>
 

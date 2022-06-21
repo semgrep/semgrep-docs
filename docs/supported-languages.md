@@ -10,12 +10,12 @@ import MoreHelp from "/src/components/MoreHelp"
 
 # Supported languages
 
-
 ## Language maturity
 
-<!-- coupling: if you modify this table, copy paste it also in index.md -->
-<!-- coupling: should match what is in semgrep-core/tests/Test.ml Maturity level testing -->
-<!-- for readability, please keep each column in alphabetical order -->
+<!-- coupling: If you modify this table, copy paste it also in index.md! -->
+<!-- coupling: Should match what is in semgrep-core/tests/Test.ml Maturity level testing. -->
+<!-- For readability, please keep each column in alphabetical order. -->
+
 | GA ✅      | Beta 🐛                     | Experimental 🚧            |
 |:---------- |:---------------------------|:---------------------------|
 | C#         | Kotlin                     | Bash                       |
@@ -57,7 +57,7 @@ Generally speaking, the features-by-maturity level are roughly: **experimental)*
 
 The following thresholds define each maturity level:
 
-<!-- coupling: if you modify the features in the levels below, change also 
+<!-- coupling: If you modify the features in the levels below, change also 
      semgrep-core/tests/Test.ml and its maturity level regression testing code.
 -->
 
