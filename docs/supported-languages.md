@@ -99,6 +99,7 @@ The following thresholds define each maturity level:
         * `metavar_anno` (language dependent)
         * `metavar_key_value`
         * `metavar_typed` (language dependent)
+        * `metavar_ellipsis_args`
         * `regexp_string`
 
 Visit the cheat sheet generation script and associated semgrep-core test files to learn more about each feature:
