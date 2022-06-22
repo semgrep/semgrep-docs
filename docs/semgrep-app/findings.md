@@ -34,7 +34,7 @@ Another way of categorizing findings is **based on the validity of the match**:
     <dd>A false negative is a finding that should have been found by a rule, but was not. This can happen for two reasons:
     <ul>
         <li>A flaw in the rule's logic. See <a href="../release-notes/#additions-1"><code>semgrep shouldafound</code></a>.</li>
-        <li>A bug within semgrep itself.</li>
+        <li>A bug within Semgrep itself.</li>
     </ul>
     </dd>
 </dl>
