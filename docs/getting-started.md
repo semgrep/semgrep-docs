@@ -43,7 +43,7 @@ Here are some additional resources you may use:
 
 - See [CLI Reference](../cli-reference/) for command line options and exit codes.
 - Visit [Running rules](../running-rules/) to learn more or try Semgrep on known vulnerable test projects:
-- Explore Semgrep [rules](https://semgrep.dev/r) collection to add rules to your project or try your hand at [writing a rule](../writing-rules/overview/) yourself. 
+- Explore the Semgrep [Rule Registry](https://semgrep.dev/r) to add rules to your project or try your hand at [writing a rule](../writing-rules/overview/) yourself. 
 
 <details><summary>Expand for sample projects! 🎉</summary>
 <p>
@@ -86,7 +86,7 @@ semgrep --config=auto
 
 ## Run Semgrep continuously
 
-Semgrep is at its best when used to continuously scan code. Check out [Semgrep CI](../semgrep-ci/overview/) to learn how to get results where you already work: GitHub, GitLab, Slack, Jira, and more. To get results even earlier in the development process, such as in a Git pre-commit hook or VS Code, check the available [Semgrep extensions](../extensions/).
+Semgrep is at its best when used to continuously scan code. Check out [Semgrep in CI](../semgrep-ci/overview/) to learn how to get results where you already work: GitHub, GitLab, Slack, Jira, and more. To get results even earlier in the development process, such as in a Git pre-commit hook or VS Code, check the available [Semgrep extensions](../extensions/).
 
 Check out [Semgrep App](https://semgrep.dev/manage) to integrate CI with PR or MR comments, monitor progress, host private rules (paid tier), and much more! 
 
