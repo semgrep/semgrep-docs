@@ -27,14 +27,14 @@ Semgrep App has three tiers:
 | Tier | Price | Description |
 | ---- | ------- | -------- |
 | **Community** | Free | For general-purpose security scanning.  |
-| **Team** | US$40 monthly per seat | For the enforcement of company-specific coding standards, private rules, and the analysis of findings.  |
+| **Team** | US$40 monthly per developer | For the enforcement of company-specific coding standards, private rules, and the analysis of findings.  |
 | **Enterprise** | Custom pricing | For custom solutions, including deployment into virtual private clouds (VPCs) with dedicated technical support.  |
 
 Semgrep App integrates with a GitHub or GitLab account at either the organizational or individual level. There is no limit to the number of members in an organization for all tiers.
 
-Billing depends on the number of **seats**. Any organization member who has made a commit in a project within the past 30 days is considered a **contributor** and takes up a seat.
+Billing depends on the number of **developers**. Any organization member who has made a commit in a project within the past 30 days is considered a **developer**.
 
-Members who do **not** make any commits on the code do not need a seat and are not billed. Semgrep Team tier features apply to the entire organization, even if not all members are billed for a seat.
+Members who do **not** make any commits on the code do not need to pay for Semgrep and are not billed. Semgrep Team tier features apply to the entire organization, even if not all members are billed.
 
 ### Comparing free and paid tier features
 
@@ -51,6 +51,7 @@ Notes:
 * If your organization exceeds the member limit:
     * Only the 20 most recent developers can view findings from scans run by Semgrep.
     * Overlimit findings data is retained for three months. When your organization goes below the usage limit, or upgrades to Team or Enterprise, the findings data will be accessible again.
+    * You are notified of a 30-day grace period through in-app notifications and emails. After this grace period ends, additional developers (the 21st onwards) will not receive notifications or comments. Findings introduced by additional developers won't be surfaced in Semgrep App.
 
 #### Source code management (SCM) support
 
@@ -151,7 +152,7 @@ Should your plan exceed the limit, we will reach out and come up with a new plan
 To upgrade to the **Team tier** through a **credit card**:
 
 1. In the Settings page, select the Payment tab.
-2. Select the number of seats to purchase.
+2. Select the number of developers to purchase licenses for.
 3. Fill in your payment details.
 
 
