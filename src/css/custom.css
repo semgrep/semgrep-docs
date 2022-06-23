@@ -171,6 +171,13 @@ dl {
 
 /* navbar */
 
+/* announcement banner */
+.announcementBar_node_modules-\@docusaurus-theme-classic-lib-next-theme-AnnouncementBar-styles-module {
+  position: sticky;
+}
+
+/* rest of navbar */
+
 .navbar {
   height: 50px;
 }
@@ -180,9 +187,9 @@ dl {
 }
 
 .navbar__inner {
-  position: fixed;
+  position: sticky;
   left: 5px;
-  top: 0;
+  top: 30px;
   padding: 0 10px;
 }
 
