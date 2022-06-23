@@ -59,15 +59,30 @@ A well-written rule message includes:
 
 For an example of a good rule message, see: [this rule for Django's mark_safe](https://semgrep.dev/r?q=python.django.security.audit.avoid-mark-safe.avoid-mark-safe).
 
-Use the YAML multiline string operator `>-` when a rule message spans multiple lines. This presents the best-looking rule message in the command-line.
+Use the YAML multiline string operator `>-`. Write the rule message as just one long line or multiple lines, they are interpreted as one line. This presents the best-looking rule message on the command-line.
+
+```yaml
+message: >-
+  This is one line
+  of text. Also, when
+  we say that "quotes
+  are only quotes".
+  they are just quotes. 
+```
+
+The command-line output will be similar to the following:
+
+```
+This is one line of text. Also, when we say that "quotes are only quotes" they are just quotes.
+```
 
 :::info
-'mark_safe()' is used to mark a string as *safe* for HTML output. This disables escaping and may expose the content to XSS attacks. Use 'django.utils.html.format_html()' to build HTML for rendering instead.
+`mark_safe()` is used to mark a string as *safe* for HTML output. This disables escaping and may expose the content to XSS attacks. Instead, use `django.utils.html.format_html()` to build HTML for rendering.
 :::
 
 ### Rule quality checker
 
-When you contribute rules to the rules repository, our quality checkers (linters) evaluate if the rule conforms to r2c standards. The `semgrep-rule-lints` job runs linters on a new rule to check for mistakes, performance problems, and best practices for submitting to the Semgrep rules repository. To improve your rule writing, you can actually use Semgrep itself to [scan semgrep-rules](https://r2c.dev/blog/2021/how-we-made-semgrep-rules-run-on-semgrep-rules/).
+When you contribute rules to the rules repository, our quality checkers (linters) evaluate if the rule conforms to r2c standards. The `semgrep-rule-lints` job runs linters on a new rule to check for mistakes, performance problems, and best practices for submitting to the Semgrep rules repository. To improve your rule writing, use Semgrep itself to [scan semgrep-rules](https://r2c.dev/blog/2021/how-we-made-semgrep-rules-run-on-semgrep-rules/).
 
 ### Including additional details with rule metadata
 
