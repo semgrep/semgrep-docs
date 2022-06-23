@@ -9,37 +9,34 @@ import MoreHelp from "/src/components/MoreHelp"
 
 ## Introduction
 
-Rules are specific patterns based on which Semgrep reports findings in code. These findings may help you to catch issues of security, performance, correctness, and other bugs. Rules are stored in an open-source [Semgrep Registry](https://github.com/returntocorp/semgrep-rules) that enables you to scan code without need to write anything custom. The list below covers different kinds of Semgrep rules:
+Semgrep reports findings in code based on rules. These rules use specific patterns to match code. When Semgrep matches a code, it is reported as a finding. Findings may help you to catch issues of security, performance, and correctness. Rules are stored in an open-source [Semgrep Registry](https://github.com/returntocorp/semgrep-rules) that enables you to scan code without need to write anything custom. The list below covers different kinds of Semgrep rules:
 
-- Use existing [Semgrep Registry rules](#running-semgrep-registry-rules) or add new rules to Semgrep Registry and run them. See [Contributing to Semgrep rules](https://semgrep.dev/docs/contributing/contributing-to-semgrep-rules-repository/) to find out how to add new rules.
+- Existing [Semgrep Registry rules](#running-semgrep-registry-rules). See [Contributing to Semgrep rules](https://semgrep.dev/docs/contributing/contributing-to-semgrep-rules-repository/) to find out how to add new rules.
 - Local rules:
-  - Create and run one-off [ephemeral rules](#ephemeral-rules) in the command line.
-  - Create and run [YAML-defined rules in a file](#creating-and-using-yaml-defined-rules-file).
-- Run your [local rules simultaneously with Semgrep Registry rules](#running-multiple-rules-simultaneously). 
+  - One-off [ephemeral rules](#ephemeral-rules) used in the command line.
+  - The [YAML-defined rules](#creating-and-using-yaml-defined-rules-file) in a file.
+- Combination of [local rules with Semgrep Registry rules](#running-multiple-rules-simultaneously). 
 
-You can run all rules on your local code or continuously in your Source Code Management (SCM) service (such as GitHub or GitLab) with Semgrep in CI. For more information, see [Semgrep CI overview](semgrep-ci/overview.md).
+You can run all rules on your code locally or continuously in your Source Code Management (SCM) service (such as GitHub or GitLab) with Semgrep in CI. For more information, see [Semgrep CI overview](semgrep-ci/overview.md).
 
 ## Running Semgrep Registry rules locally
 
-Try to run the following example of [Semgrep Registry](https://semgrep.dev/explore) rules:
+Test how Semgrep automatically surveys languages and frameworks and run recommended rules for your source code (substitute the `PATH/TO/SRC` with path to your source code):
+<pre class="language-bash"><code>semgrep --config=auto <span className="placeholder">PATH/TO/SRC</span></code></pre>
 
-1. Test how Semgrep automatically surveys languages and frameworks and run recommended rules for your source code:
-    ```sh
-    semgrep --config=auto path/to/src
-    ```
-2. Explore the [Semgrep Registry](https://semgrep.dev/explore) and choose a rule.
-3. On the page of the rule, click **Run Locally**.
-4. Copy the code for local install, and then add the path to the source code you want to check:
-    <pre class="language-bash"><code>semgrep --config="<span className="placeholder">RULESET-ID</span>" <span className="placeholder">PATH/TO/SRC</span></code></pre>
-5. Optional: Run registry rules simultaneously with local rules:
-   <pre class="language-bash"><code>semgrep --config="<span className="placeholder">RULESET-ID</span>" --config=<span className="placeholder">PATH/TO/YML PATH/TO/SRC</span></code></pre>
-
-:::note
+:::info
 * `--config auto` sends your repository's project URL to [Semgrep Registry](https://semgrep.dev/r) to find rules configured for your repository and as a key for cached rule recommendations.
 * When Semgrep Registry is used, [usage metrics](../metrics) are collected by default.
 :::
 
-Add rulesets to Semgrep in CI scans using their **Add to Policy** button on Semgrep Community and Semgrep Team tiers.
+Explore the Semgrep Registry by following these steps:
+
+1. See the [Semgrep Registry](https://semgrep.dev/explore) and choose a rule.
+2. On the page of the rule, click **Run Locally**.
+3. Copy the code for local install, and then add the path to the source code you want to check in your terminal:
+    <pre class="language-bash"><code>semgrep --config="<span className="placeholder">RULESET-ID</span>" <span className="placeholder">PATH/TO/SRC</span></code></pre>
+4. Optional: Run registry rules simultaneously with local rules:
+   <pre class="language-bash"><code>semgrep --config="<span className="placeholder">RULESET-ID</span>" --config=<span className="placeholder">PATH/TO/YML PATH/TO/SRC</span></code></pre>
 
 ## Using local rules
 
