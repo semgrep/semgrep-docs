@@ -36,7 +36,7 @@ Explore the Semgrep Registry by following these steps:
 3. Copy the code for local install, and then add the path to the source code you want to check in your terminal:
     <pre class="language-bash"><code>semgrep --config="<span className="placeholder">RULESET-ID</span>" <span className="placeholder">PATH/TO/SRC</span></code></pre>
 4. Optional: Run registry rules simultaneously with local rules:
-   <pre class="language-bash"><code>semgrep --config="<span className="placeholder">RULESET-ID</span>" --config=<span className="placeholder">PATH/TO/YAML PATH/TO/SRC</span></code></pre>
+   <pre class="language-bash"><code>semgrep --config="<span className="placeholder">RULESET-ID</span>" --config=<span className="placeholder">PATH/TO/MYRULE.YAML PATH/TO/SRC</span></code></pre>
 
 :::info
 Try Semgrep [Rule Board](semgrep-app/rule-board.md) to determine which rules Semgrep uses and what action Semgrep undertakes when it generates a finding.
