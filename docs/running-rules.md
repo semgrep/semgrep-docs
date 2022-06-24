@@ -110,7 +110,7 @@ Contribute to the registry by writing your own rules and adding them to the <a h
 
 ## Number of Semgrep rules
 
-The following diagram displays the current number of Semgrep rules:
+Semgrep supports a large number of languages and rules! Their number is continuously expanding.
 <div className="lang-container" style={{marginBottom: '20px'}}>
   <iframe width="900" height="400" frameBorder="0" src="https://dashboard.semgrep.dev/metric/semgrep-rules.num/graph"></iframe>
 </div>
