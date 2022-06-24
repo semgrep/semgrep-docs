@@ -234,7 +234,7 @@ pipeline {
 
 ## Buildkite
 
-```yaml
+```
 - label: ":semgrep: Semgrep"
   commands:
     - export SEMGREP_BASELINE_REF=""
