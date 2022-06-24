@@ -39,7 +39,7 @@ Explore the Semgrep Registry by following these steps:
    <pre class="language-bash"><code>semgrep --config="<span className="placeholder">RULESET-ID</span>" --config=<span className="placeholder">PATH/TO/YAML PATH/TO/SRC</span></code></pre>
 
 :::info
-Try Semgrep Rule Board to determine which rules Semgrep uses and what action Semgrep undertakes when it generates a finding.
+Try Semgrep [Rule Board](semgrep-app/rule-board.md) to determine which rules Semgrep uses and what action Semgrep undertakes when it generates a finding.
 :::
 
 ### Running Semgrep Registry continuously
