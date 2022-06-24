@@ -129,7 +129,7 @@ module.exports = {
       facetFilters: [],
       //... other Algolia params
     },
-    image: 'https://semgrep.dev/thumbnail.png'
+    image: 'https://semgrep.dev/thumbnail.png',
   },
   scripts: [
     {
