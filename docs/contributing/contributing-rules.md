@@ -59,22 +59,7 @@ A well-written rule message includes:
 
 For an example of a good rule message, see: [this rule for Django's mark_safe](https://semgrep.dev/r?q=python.django.security.audit.avoid-mark-safe.avoid-mark-safe).
 
-Use the YAML multiline string operator `>-` when rule messages span multiple lines. This presents the best-looking rule message on the command-line.
-
-```yaml
-message: >-
-  This is one line
-  of text. Also, when
-  we say that "quotes
-  are only quotes".
-  they are just quotes. 
-```
-
-The command-line output will be similar to the following:
-
-```
-This is one line of text. Also, when we say that "quotes are only quotes" they are just quotes.
-```
+Use the YAML multiline string operator `>-` when rule messages span multiple lines. This presents the best-looking rule message on the command-line without having to worry about line wrapping or escaping the quote or backslash characters.
 
 :::info
 `mark_safe()` is used to mark a string as *safe* for HTML output. This disables escaping and may expose the content to XSS attacks. Instead, use `django.utils.html.format_html()` to build HTML for rendering.
