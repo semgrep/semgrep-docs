@@ -72,7 +72,7 @@ Both local `rule.yaml` files and ephemeral rules are called *local rules*.
 
 ### YAML-defined rules
 
-Create a YAML file where you define your own rules and run them with Semgrep. To make your own local rule file, follow these steps:
+You can create a YAML file where you define your own rules and run them with Semgrep. To make your own local rule file, follow these steps:
 
 1. Create a `rule.yaml` file.
 2. Below is a simple example rule for Python which you can paste into your `rule.yaml` file.
