@@ -9,19 +9,19 @@ import MoreHelp from "/src/components/MoreHelp"
 
 ## Introduction
 
-Semgrep reports findings in code based on rules. These rules use specific patterns to match code. When Semgrep matches a code, it is reported as a finding. Findings may help you to catch issues of security, performance, and correctness. Rules are stored in an open-source [Semgrep Registry](https://github.com/returntocorp/semgrep-rules) that enables you to scan code without need to write anything custom. The list below covers different kinds of Semgrep rules:
+Semgrep reports findings in code based on rules. These rules use specific patterns to match code. When Semgrep matches a portion of code, it is reported as a finding. Findings may help you to catch issues of security, performance, correctness, and best practices. Rules are stored in an open-source [Semgrep Registry](https://github.com/returntocorp/semgrep-rules) that enables you to scan code without need to write anything custom. The list below covers different kinds of Semgrep rules:
 
-- Existing [Semgrep Registry rules](#running-semgrep-registry-rules). See [Contributing to Semgrep rules](https://semgrep.dev/docs/contributing/contributing-to-semgrep-rules-repository/) to find out how to add new rules.
+- Existing [Semgrep Registry rules](#running-semgrep-registry-rules) or [rules contributed to the Semgrep Registry by you](https://semgrep.dev/docs/contributing/contributing-to-semgrep-rules-repository/) to find out how to add new rules.
 - Local rules:
-  - One-off [ephemeral rules](#ephemeral-rules) used in the command line.
+  - One-off [ephemeral rules](#ephemeral-rules) passed into the command line.
   - The [YAML-defined rules](#creating-and-using-yaml-defined-rules-file) in a file.
-- Combination of [local rules with Semgrep Registry rules](#running-multiple-rules-simultaneously). 
+- A combination of [local rules and Semgrep Registry rules](#running-multiple-rules-simultaneously). 
 
 You can run all rules on your code locally or continuously in your Source Code Management (SCM) service (such as GitHub or GitLab) with Semgrep in CI. For more information, see [Semgrep CI overview](semgrep-ci/overview.md).
 
 ## Running Semgrep Registry rules locally
 
-Test how Semgrep automatically surveys languages and frameworks and run recommended rules for your source code (substitute the `PATH/TO/SRC` with path to your source code):
+You can test how Semgrep automatically surveys languages and frameworks and run recommended rules for your source code with the following command (substitute the `PATH/TO/SRC` with path to your source code):
 <pre class="language-bash"><code>semgrep --config=auto <span className="placeholder">PATH/TO/SRC</span></code></pre>
 
 :::info
@@ -67,7 +67,7 @@ semgrep -e '$X == $X' --lang=py path/to/src
 ```
 
 :::info
-Both local yaml files and ephemeral rules are called *local rules*.
+Both local `rule.yaml` files and ephemeral rules are called *local rules*.
 :::
 
 ### Creating and using YAML-defined rules file
