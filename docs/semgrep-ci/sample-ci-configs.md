@@ -253,9 +253,6 @@ pipeline {
           # Scan with rules set in Semgrep App's rule board
           # Make a token at semgrep.dev/orgs/-/settings/tokens
           - "SEMGREP_APP_TOKEN"
-
-        # Change job timeout (default is 1800 seconds; set to 0 to disable)
-        #   - "SEMGREP_TIMEOUT=300"
 ```
 
 ### Feature support
