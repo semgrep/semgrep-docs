@@ -9,7 +9,6 @@ import MoreHelp from "/src/components/MoreHelp"
 
 # Managing findings in Semgrep App
 
-
 ![Screenshot of Semgrep App Findings page ](../img/app-findings-overview.png)<br />
 
 A **finding** is the core result of Semgrep's analysis. Findings are generated when a Semgrep rule matches a piece of code.
@@ -34,7 +33,7 @@ Another way of categorizing findings is **based on the validity of the match**:
     <dd>A false negative is a finding that should have been found by a rule, but was not. This can happen for two reasons:
     <ul>
         <li>A flaw in the rule's logic. See <a href="../release-notes/#additions-1"><code>semgrep shouldafound</code></a>.</li>
-        <li>A bug within Semgrep itself.</li>
+        <li>A bug within Semgrep itself. See the list of [Semgrep Issues](https://github.com/returntocorp/semgrep/issues) to file a bug report.</li>
     </ul>
     </dd>
 </dl>
