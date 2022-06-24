@@ -59,7 +59,7 @@ A well-written rule message includes:
 
 For an example of a good rule message, see: [this rule for Django's mark_safe](https://semgrep.dev/r?q=python.django.security.audit.avoid-mark-safe.avoid-mark-safe).
 
-Use the YAML multiline string operator `>-`. This operator enables you to write the rule message as one long line or multiple lines. Whichever way you choose, all will be interpreted as one line. This presents the best-looking rule message on the command-line.
+Use the YAML multiline string operator `>-` when rule messages span multiple lines. This presents the best-looking rule message on the command-line.
 
 ```yaml
 message: >-

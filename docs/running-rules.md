@@ -9,7 +9,7 @@ import MoreHelp from "/src/components/MoreHelp"
 
 ## Introduction
 
-Semgrep reports findings in code based on rules. These rules use specific patterns to match code. When Semgrep matches a portion of code, it is reported as a finding. Findings may help you to catch issues of security, performance, correctness, and best practices. Rules are stored in an open-source [Semgrep Registry](https://github.com/returntocorp/semgrep-rules) that enables you to scan code without need to write anything custom. The list below covers different kinds of Semgrep rules:
+Semgrep reports findings in code based on rules, which use specific patterns to match code. When Semgrep matches a portion of code, it is reported as a finding. Findings may help you to catch issues of security, performance, correctness, and best practices. Rules are stored in an open-source [Semgrep Registry](https://github.com/returntocorp/semgrep-rules) that enables you to scan code without the need to write anything custom. The list below covers different kinds of Semgrep rules:
 
 - Existing [Semgrep Registry rules](#running-semgrep-registry-rules) or [rules contributed to the Semgrep Registry by you](https://semgrep.dev/docs/contributing/contributing-to-semgrep-rules-repository/) to find out how to add new rules.
 - [Local rules](#creating-and-using-local-rules):
@@ -72,7 +72,7 @@ Both local `rule.yaml` files and ephemeral rules are called *local rules*.
 
 ### YAML-defined rules
 
-You can create a YAML file where you define your own rules and run them with Semgrep. To make your own local rule file, follow these steps:
+To create a local YAML file where you define your own rules and run them with Semgrepe, follow these steps:
 
 1. Create a `rule.yaml` file.
 2. Below is a simple example rule for Python which you can paste into your `rule.yaml` file.
