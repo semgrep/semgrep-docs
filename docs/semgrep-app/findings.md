@@ -9,9 +9,11 @@ import MoreHelp from "/src/components/MoreHelp"
 
 # Managing findings in Semgrep App
 
-![Screenshot of Semgrep App Findings page ](../img/app-findings-overview.png)<br />
 
 A **finding** is the core result of Semgrep's analysis. Findings are generated when a Semgrep rule matches a piece of code.
+
+![Screenshot of Semgrep App Findings page ](../img/app-findings-overview.png)<br />
+*Figure 1.* Screenshot of findings page.
 
 A finding can be categorized **based on the issue or code it detects**:
 
@@ -133,6 +135,7 @@ Bulk triage can be performed by filtering through the findings, and then you can
 * Ignored
 
 ![Screenshot of Semgrep App triage menu](../img/app-findings-triage.png)<br />
+*Figure 2.* Screenshot of Findings page triage menu.
 
 To **ignore findings**:
 
