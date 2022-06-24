@@ -17,7 +17,7 @@ Semgrep reports findings in code based on rules. These rules use specific patter
   - The [YAML-defined rules](#creating-and-using-yaml-defined-rules-file) in a file.
 - A combination of [local rules and Semgrep Registry rules](#running-multiple-rules-simultaneously). 
 
-You can run all rules on your code locally or continuously in your Source Code Management (SCM) service (such as GitHub or GitLab) with Semgrep in CI. For more information, see [Semgrep CI overview](semgrep-ci/overview.md).
+You can run all rules on your code completely locally or continuously in your Source Code Management (SCM) service (such as GitHub or GitLab) with Semgrep in CI. For more information, see [Semgrep CI overview](semgrep-ci/overview.md).
 
 ## Running Semgrep Registry rules locally
 
