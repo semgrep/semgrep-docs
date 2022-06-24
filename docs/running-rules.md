@@ -26,7 +26,7 @@ Test how Semgrep automatically surveys languages and frameworks and run recommen
 
 :::info
 * `--config auto` sends your repository's project URL to [Semgrep Registry](https://semgrep.dev/r) to find rules configured for your repository and as a key for cached rule recommendations.
-* When Semgrep Registry is used, [usage metrics](../metrics) are collected by default.
+* When Semgrep Registry is used, [usage metrics](metrics.md) are collected by default.
 :::
 
 Explore the Semgrep Registry by following these steps:
@@ -36,7 +36,11 @@ Explore the Semgrep Registry by following these steps:
 3. Copy the code for local install, and then add the path to the source code you want to check in your terminal:
     <pre class="language-bash"><code>semgrep --config="<span className="placeholder">RULESET-ID</span>" <span className="placeholder">PATH/TO/SRC</span></code></pre>
 4. Optional: Run registry rules simultaneously with local rules:
-   <pre class="language-bash"><code>semgrep --config="<span className="placeholder">RULESET-ID</span>" --config=<span className="placeholder">PATH/TO/YML PATH/TO/SRC</span></code></pre>
+   <pre class="language-bash"><code>semgrep --config="<span className="placeholder">RULESET-ID</span>" --config=<span className="placeholder">PATH/TO/YAML PATH/TO/SRC</span></code></pre>
+
+:::info
+Try Semgrep Rule Board to determine which rules Semgrep uses and what action Semgrep undertakes when it generates a finding.
+:::
 
 ### Running Semgrep Registry continuously
 
