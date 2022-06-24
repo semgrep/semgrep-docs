@@ -48,7 +48,7 @@ After a finding is generated, developers can:
 * **View the Semgrep rule and the matching code.** For developers aiming to understand their team's security posture, Semgrep provides a top-level report view through the Dashboard and a list view of findings in the Findings page that can be filtered by repository, rule, branch, or triage action.
 * **Triage the finding.** If the finding is not useful or important, it can be deprioritized through triaging. Triage actions include ignoring and reopening. Triaging a finding to ignore it is one method to handle **false positives** without changing the rule or code.
 * **Remove the rule or code that generated the finding**. There are cases where Semgrep scans a file not meant for scanning or when a rule is irrelevant. You can remove the rule from the Rule board or add the file to the ignore list. To remove a rule, see [Managing triage states](../findings/#managing-triage-states-bulk-triage).
-* **Create a Jira ticket from the finding (for Enterprise/Team Tier users.)** For findings that require more extensive refactoring, a ticket can be created in Jira to track its resolution.
+* **Create a Jira ticket from the finding (for Enterprise/Team Tier users.)** For findings that require more extensive refactoring, users can create a ticket in Jira through Semgrep App to track its resolution.
 
 :::tip
 * An additional method to address false positives is to improve the rule. Create [test cases](../writing-rules/testing-rules) to ensure that the rule performs as intended.
