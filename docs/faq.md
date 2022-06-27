@@ -34,7 +34,7 @@ If you have a typical consulting service and running [`semgrep` repository](http
 
 ### Contacting r2c support 
 
-Our support and help is available for all users, free or otherwise, through the [r2c Community Slack](https://r2c.dev/slack). Semgrep Team tier customers receive 8\*5 email/phone/Slack support with committed SLAs. See [Support](../support/) for more details.
+All users can contact r2c support. Regardless if you a free tier user or higher tier, reach our support through the [r2c Community Slack](https://r2c.dev/slack). Semgrep Team tier customers receive 8\*5 email/phone/Slack support with committed SLAs. See [Support](../support/) for more details.
 
 ### Embedding the Playground in my website or blog post
 
