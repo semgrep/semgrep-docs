@@ -17,8 +17,8 @@ module.exports = {
     navbar: {
       logo: {
         alt: 'Semgrep logo',
-        src: 'img/semgrep-icon-text-horizontal.svg',
-        srcDark: 'img/semgrep-icon-text-horizontal-dark.svg',
+        src: 'img/semgrep-logo-rainbow.svg',
+        srcDark: 'img/semgrep-logo-rainbow.svg',
         href: 'https://semgrep.dev',
         target: '_self'
       },
@@ -129,7 +129,7 @@ module.exports = {
       facetFilters: [],
       //... other Algolia params
     },
-    image: 'https://semgrep.dev/thumbnail.png'
+    image: 'https://semgrep.dev/thumbnail.png',
   },
   scripts: [
     {
@@ -192,7 +192,8 @@ module.exports = {
           { from: "/ignoring-findings/", to: "/ignoring-files-folders-code/" },
           { from: "/experiments/join-mode/", to: "/experiments/join-mode/overview/" },
           { from: "/providers/", to: "/semgrep-ci/overview/" },
-          { from: "/semgrep-app/role-based-access-control", to: "/semgrep-app/user-management/" }
+          { from: "/semgrep-app/role-based-access-control", to: "/semgrep-app/user-management/" },
+          { from: "/cli-usage/", to: "/cli-reference/" }
         ]
       }
     ],

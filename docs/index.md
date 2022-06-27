@@ -32,7 +32,7 @@ The Semgrep ecosystem includes:
 * [Semgrep](getting-started/) - the open-source command line tool at the heart of everything
 * [Semgrep CI](semgrep-ci/overview/) - a specialized Docker image for running Semgrep in CI environments
 * [Semgrep Playground](https://semgrep.dev/editor) - an online interactive tool for writing and sharing rules
-* [Semgrep Registry](https://semgrep.dev/explore) - 1,000+ community-driven rules covering security, correctness, and performance bugs
+* [Semgrep Registry](https://semgrep.dev/explore) - 2,000+ community-driven rules covering security, correctness, and performance bugs
 * [Semgrep App](https://semgrep.dev/manage) - deploy, manage, and monitor Semgrep at scale with free and paid tiers
 
 Semgrep is developed and commercially supported by [r2c, a software security company](https://r2c.dev).
@@ -45,8 +45,8 @@ Semgrep is developed and commercially supported by [r2c, a software security com
 
 Semgrep supports 20+ languages.
 
-<!--  coupling: if you modify this table, copy paste it also to status.md -->
-<!--  for readability, please keep each column in alphabetical order -->
+<!--  coupling: If you modify this table, copy paste it also to supported-languages.md! -->
+<!--  For readability, please keep each column in alphabetical order. -->
 
 <div id="language-support-table">
 
@@ -58,16 +58,16 @@ Semgrep supports 20+ languages.
 | JavaScript |                            | Dockerfile                 |
 | JSON       |                            | Hack                       |
 | JSX        |                            | Lua                        |
-| Python     |                            | OCaml                      |
-| Ruby       |                            | PHP                        |
-| Scala      |                            | Rust                       |
-| TSX        |                            | Solidity                   |
-| TypeScript |                            | YAML                       |
-|            |                            | Generic (ERB, Jinja, etc.) |
+| PHP        |                            | OCaml                      |
+| Python     |                            | R                          |
+| Ruby       |                            | Rust                       |
+| Scala      |                            | Solidity                   |
+| TSX        |                            | YAML                       |
+| TypeScript |                            | Generic (ERB, Jinja, etc.) |
 
 </div>
 
-To determine experimental, beta, or general availability (GA) status we scan a wide corpus of projects and measure the parse rate of each language. For more details see [the breakdown of all supported languages](language-support/).
+To determine experimental, beta, or general availability (GA) status we scan a wide corpus of projects and measure the parse rate of each language. For more details see [the breakdown of all supported languages](supported-languages/).
 
 ## History
 
