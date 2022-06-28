@@ -63,7 +63,7 @@ The Semgrep App Finding page displays findings across all projects connected to 
 | Retention period | Tier availability |
 | ---------------  | ----------------- |
 | 30-day findings retention | Community (Free) |
-|    Unlimited retention    | Team/Enterprise |
+|     5 years retention      | Team/Enterprise  |
 
 ## Viewing data on the Findings page
 
