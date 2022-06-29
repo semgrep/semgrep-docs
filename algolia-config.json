@@ -7,6 +7,11 @@
       "page_rank": -100
     },
     {
+      "url": "https://semgrep.dev/docs/supported-languages",
+      "tags": ["supported_languages"],
+      "page_rank": 100
+    },
+    {
      "url": "https://semgrep.dev/docs"
     }
   ],
@@ -14,7 +19,7 @@
   "stop_urls": [],
   "js_render": false,
   "selectors": {
-    "default": { 
+    "default": {
       "lvl0": {
         "selector": "(//ul[contains(@class,'menu__list')]//a[contains(@class, 'menu__link menu__link--sublist menu__link--active')]/text() | //nav[contains(@class, 'navbar')]//a[contains(@class, 'navbar__link--active')]/text())[last()]",
         "type": "xpath",
