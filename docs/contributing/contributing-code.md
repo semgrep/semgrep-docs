@@ -149,6 +149,16 @@ Once `pre-commit` is working you may commit code and create pull requests as
 you would expect. Pull requests require approval of at least one maintainer and
 [CI to be passing](https://github.com/returntocorp/semgrep/actions).
 
+In addition to the above, and depending on the nature of the change, you may want to add an entry to the changelog. A tool called `towncrier` is used for changelog management. There is a directory at the root of the repository, `changelog.d`, which contains individual changelog entries, each in their own file. An example of such a file is contained in the repository, but the format is described below as well.
+
+A changelog entry file named `cli123.fixed` would indicate that the branch contains changes that addressed a CLI ticket number 123, and that the changes fixed existing functionality. A changlog entry file named `pa321.added` would indicate that new functionality was added in support of PA ticket number 321. If you are an open-source contributor or otherwise don't have a ticket number to reference, you can also substitute the first part of the changelog entry filename with another string, such as a GitHub issue number or a semantic name, such as `gh1234.added` or `logoutput.fixed`. 
+
+Acceptable suffixes include:
+- `added` - for new features or other previously non-existing functionality
+- `changed` - for items that have changed the way semgrep functions
+- `fixed` - for bugfixes or other improvements
+- `infra` - for workflow improvements or other non-code updates
+
 ### Troubleshooting pre-commit
 
 On M1 macs some `pre-commit` tests may fail.
