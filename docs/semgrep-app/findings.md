@@ -122,11 +122,6 @@ To filter through all findings:
 3. The page then refreshes to reflect the additional criteria.
 4. Additional values may be selected to further refine your filter.
 
-### Sorting findings
-
-* Findings may be sorted by their respective fields (see **Fields** table above).
-* To sort a finding, click on the desired **row header**.
-
 ### Managing triage states (bulk triage)
 
 Bulk triage can be performed by filtering through the findings, and then you can select which findings to be:
