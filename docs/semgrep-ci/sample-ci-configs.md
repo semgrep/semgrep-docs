@@ -234,34 +234,25 @@ pipeline {
 
 ## Buildkite
 
-```yaml
+```
 - label: ":semgrep: Semgrep"
-  command: semgrep ci
+  commands:
+    - export SEMGREP_BASELINE_REF=""
+    - export SEMGREP_REPO_URL="$(echo "$BUILDKITE_REPO" | sed -e 's#.\{4\}$##')"
+    - export SEMGREP_BRANCH=${BUILDKITE_BRANCH}
+    - export SEMGREP_COMMIT=${BUILDKITE_COMMIT}
+    - export SEMGREP_PR_ID=${BUILDKITE_PULL_REQUEST}
+    - echo "$BUILDKITE_REPO" | sed 's#https://github.com/##' | sed 's#.git##'
+    - export SEMGREP_REPO_NAME="$(echo "$BUILDKITE_REPO" | sed -e 's#https://github.com/##' | sed -e 's#.git##')"
+    - semgrep ci 
+  
   plugins:
     - docker#v3.7.0:
         image: returntocorp/semgrep
-        workdir: /<org_name>/<repo_name>
         environment:
           # Scan with rules set in Semgrep App's rule board
           # Make a token at semgrep.dev/orgs/-/settings/tokens
-          - "SEMGREP_APP_TOKEN=${SEMGREP_APP_TOKEN}"
-
-        # == Optional settings in the `environment:` block
-
-        # Instead of `SEMGREP_APP_TOKEN:`, set hard-coded rulesets, 
-        # viewable in logs.
-        #   - "SEMGREP_RULES=p/default" # more at semgrep.dev/explore
-        #   - "SEMGREP_JOB_URL=${BUILDKITE_BUILD_URL}"
-        #   - "SEMGREP_BRANCH=${BUILDKITE_BRANCH}"
-        #   - "SEMGREP_REPO_NAME=<org_name>/<repo_name>"
-        #   - "SEMGREP_REPO_URL=<github_url>"
-
-        # Never fail the build due to findings.
-        # Instead, just collect findings for semgrep.dev/manage/findings
-        #   - "SEMGREP_AUDIT_ON=unknown"
-
-        # Change job timeout (default is 1800 seconds; set to 0 to disable)
-        #   - "SEMGREP_TIMEOUT=300"
+          - "SEMGREP_APP_TOKEN"
 ```
 
 ### Feature support
