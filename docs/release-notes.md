@@ -8,7 +8,78 @@ toc_max_heading_level: 2
 
 # Release notes
 
-Welcome to Semgrep release notes. This document provides an overview of the changes, additions, and fixes made in different versions.
+Welcome to Semgrep release notes. This document provides an overview of the changes, additions and selected important fixes. Release notes published since April 2022 include Semgrep CLI, CI, and Semgrep App updates.
+
+## June 2022
+
+### Semgrep App
+
+
+
+### Semgrep CLI and Semgrep in CI
+
+These release notes include upgrades for all versions ranging between **0.95.0** and **0.101.0**.
+
+### Additions
+
+- Semgrep installation through PyPi is now supported on Apple M1 processors!
+- Semgrep now supports the R language as an experimental language. Thanks to Zythosec for contributions! (#2360)
+- Bash: Semgrep now supports subshell syntax for example commands in parentheses. (#5629)
+- Java: You can now use a metavariable in a package directive, for example, `package $X`, which is useful to bind the package name and use it in the error message. (#5420)
+- Building the foundation for an improved Visual Studio Code user experience, Semgrep now has an experimental Language Server Protocol (LSP) daemon mode. A client program (such as Visual Studio Code) would typically run the  LSP daemon. If you feel like an adventurer, all you need to do to start it is to run `semgrep lsp --config p/r2c`. Stay tuned for more LSP goodness!
+- Semgrep in CI:
+  - Starting to run Semgrep CI in your pipelines was easier in GitHub and GitLab than for any other CI provider. With this release, the process has been simplified for many other CI providers! Previously, for any provider except for GitHub and GitLab, you would have to commit a lengthy configuration file to enable Semgrep in CI to start working in your pipeline. Now, the autodetection of the CI environment supports Azure Pipelines, Bitbucket, Buildkite, CircleCI, Jenkins, and Travis CI in addition to GitHub and GitLab. Now you have no need to commit big configuration files again for these providers!
+  - You can now disable version checks with an environment variable by setting `SEMGREP_ENABLE_VERSION_CHECK=0`.
+  - Accept `SEMGREP_BASELINE_REF` as alias for `SEMGREP_BASELINE_COMMIT`.
+- taint-mode:
+  - Taint tracking now analyzes lambdas in their surrounding context. Previously, if a variable became tainted outside a lambda, and this variable was used inside the lambda causing the taint to reach a sink, this was not detected because any nested lambdas were "opaque" to the analysis. Taint tracking looked at lambdas but as isolated functions. With this update, lambdas are simply analyzed as if they were statement blocks. However, taint tracking still does not follow the flow of taint through the lambda's arguments!
+  - New experimental `pattern-propagators` feature that allows you to specify arbitrary patterns for the propagation of taint by side-effect. In particular, this allows specifying how taint propagates through side-effectful function calls. For example, you can specify when tainted data is added to an array then the array itself becomes tainted. (#4509)
+- Dataflow: 
+  - Spread operators in record expressions (for example `{...foo}`) are now translated into the Dataflow Intermediate Language (IL).
+  - XML elements (for example JSX elements) have now a basic translation to the Dataflow IL, meaning that dataflow analysis (constant propagation, taint tracking) can now operate inside these elements. (#5115)
+- Generic mode:
+  - New option `generic_ellipsis_max_span` for controlling how many lines an ellipsis can match. (#5211)
+  - New option `generic_comment_style` for ignoring comments that follow the specified syntax (C style, C++ style, or Shell style). (#3428)
+- `r2c-internal-project-depends-on`:
+  - Pretty printing for SCA results.
+  - Support for Poetry and Gradle lockfiles.
+- Metrics:
+  - A list of features used during execution is now included among metrics. Examples of such features are: languages scanned, CLI options passed, keys used in rules, or certain code paths reached, such as using an `:include` instruction in a `.semgrepignore` file. These strings will **not** include user data or specific settings. As an example, with `semgrep scan --output=secret.txt` we send `"option/output"` but will **not** send `"option/output=secret.txt"`.
+  - An anonymous Event ID has been included among metrics. This is an ID generated at send-time and will be used to de-duplicate events that potentially get duplicated during transmission.
+  - Metrics now include an anonymous User ID. This ID is stored in the `~/.semgrep/settings.yml` file. If the ID disappears, the next run will generate a new ID randomly. See the <a target="_self" href="https://semgrep.dev/docs/metrics/#anonymous-user-id" >Anonymous User ID in PRIVACY.md</a> for more details.
+
+### Changes
+
+- PHP: Semgrep PHP support now reached switch to GA General Availability (GA) maturity! Thanks a lot to Sjoerd Langkemper for most of the heavy work!
+- Gitlab SAST output is now v14.1.2 compliant.
+- The following deprecated `semgrep scan` options are now removed:
+  `--json-stats`, `--json-time`, `--debugging-json`, `--save-test-output-tar`, `--synthesize-patterns`,
+  `--generate-config/-g`, `--dangerously-allow-arbitrary-code-execution-from-rules`,
+  and `--apply` (which was an easter egg for job applications, not the same as `--autofix`).
+- Rules are now downloaded from the Semgrep Registry in JSON format instead of YAML. This speeds up rule parsing in the Semgrep CLI, making a `semgrep --config auto` run on the semgrep Python package in 14s instead of 16s.
+- The output summarizing scan results has been simplified.
+- Previously, you could use `$X` in a message to interpolate the variable captured by a metavariable named `$X`, but there was no way to access the underlying value. However, sometimes that value is more important than the captured variable. Now you can use the syntax `value($X)` to interpolate the underlying propagated value if it exists (if not, it will just use the variable name).
+
+  **Example**: Take a target file such as the following:
+
+  ```py
+  x = 42
+  log(x)
+  ```
+
+  Now take a rule to find that log command:
+  ```yaml
+  - id: example_log
+    message: Logged $SECRET: value($SECRET)
+    pattern: log(42)
+    languages: [python]
+  ```
+
+  Before this update, the same rule applied to our test example would give you the message `Logged x: value(x)`. Now, it gives the message `Logged x: 42`.
+
+#### Additional information
+
+Bug fixes are not included in these release notes unless they are potentially breaking your workflow. To see the complete change notes for Semgrep CLI and CI that include fixes, visit the [Semgrep changelog](https://github.com/returntocorp/semgrep/releases/).
 
 ## May 2022
 
