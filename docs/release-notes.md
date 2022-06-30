@@ -8,7 +8,7 @@ toc_max_heading_level: 2
 
 # Release notes
 
-Welcome to Semgrep release notes. This document provides an overview of the changes, additions and selected important fixes. Release notes published since April 2022 include Semgrep CLI, CI, and Semgrep App updates.
+Welcome to Semgrep release notes. This document provides an overview of the changes, additions and selected important fixes. Release notes published since April 2022 include Semgrep CLI, CI, and Semgrep App updates. Release notes published since April 2022 include updates from more versions collected together.
 
 ## June 2022
 
