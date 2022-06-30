@@ -8,7 +8,7 @@ toc_max_heading_level: 2
 
 # Release notes
 
-Welcome to Semgrep release notes. This document provides an overview of the changes, additions and selected important fixes. Release notes published since April 2022 include Semgrep CLI, CI, and Semgrep App updates. Release notes published since April 2022 include updates from more versions collected together.
+Welcome to Semgrep release notes. This document provides an overview of the changes, additions, and selected important fixes. Release notes published since April 2022 include Semgrep CLI, CI, and Semgrep App updates. Release notes published since April 2022 also include updates from more versions collected together.
 
 ## June 2022
 
@@ -47,9 +47,9 @@ These release notes include upgrades for all versions ranging between **0.95.0**
 - Java: You can now use a metavariable in a package directive, for example, `package $X`, which is useful to bind the package name and use it in the error message. ([Issue #5420](https://github.com/returntocorp/semgrep/issues/5420))
 - Building the foundation for an improved Visual Studio Code user experience, Semgrep now has an experimental Language Server Protocol (LSP) daemon mode. A client program (such as Visual Studio Code) would typically run the  LSP daemon. If you feel like an adventurer, all you need to do to start it is to run `semgrep lsp --config p/r2c`. Stay tuned for more LSP goodness!
 - Semgrep in CI:
-  - Starting to run Semgrep CI in your pipelines was easier in GitHub and GitLab than for any other CI provider. With this release, the process has been simplified for many other CI providers! Previously, for any provider except for GitHub and GitLab, you would have to commit a lengthy configuration file to enable Semgrep in CI to start working in your pipeline. Now, the autodetection of the CI environment supports Azure Pipelines, Bitbucket, Buildkite, CircleCI, Jenkins, and Travis CI in addition to GitHub and GitLab. Now you have no need to commit big configuration files again for these providers!
+  - Starting to run Semgrep CI in your pipelines was easier in GitHub and GitLab than for any other CI provider. With this release, the process has been simplified for many other CI providers! Previously, for any provider except for GitHub and GitLab, you would have to commit a lengthy configuration file to enable Semgrep in CI to start working in your pipeline. Now, the autodetection of the CI environment supports Azure Pipelines, Bitbucket, Buildkite, CircleCI, Jenkins, and Travis CI in addition to GitHub and GitLab. Now you do not need to commit big configuration files again for these providers!
   - You can now disable version checks with an environment variable by setting `SEMGREP_ENABLE_VERSION_CHECK=0`.
-  - Accept `SEMGREP_BASELINE_REF` as alias for `SEMGREP_BASELINE_COMMIT`.
+  - Accept `SEMGREP_BASELINE_REF` as an alias for `SEMGREP_BASELINE_COMMIT`.
   - The `ci` CLI command now includes ignored findings in output formats according to their configuration.
 - taint-mode:
   - Taint tracking now analyzes lambdas in their surrounding context. Previously, if a variable became tainted outside a lambda, and this variable was used inside the lambda causing the taint to reach a sink, this was not detected because any nested lambdas were "opaque" to the analysis. Taint tracking looked at lambdas but as isolated functions. With this update, lambdas are simply analyzed as if they were statement blocks. However, taint tracking still does not follow the flow of taint through the lambda's arguments!
@@ -60,9 +60,6 @@ These release notes include upgrades for all versions ranging between **0.95.0**
 - Generic mode:
   - New option `generic_ellipsis_max_span` for controlling how many lines an ellipsis can match. ([Issue #5211](https://github.com/returntocorp/semgrep/issues/5211))
   - New option `generic_comment_style` for ignoring comments that follow the specified syntax (C style, C++ style, or Shell style). ([Issue #3428](https://github.com/returntocorp/semgrep/issues/3428))
-- `r2c-internal-project-depends-on`:
-  - Pretty printing for SCA results.
-  - Support for Poetry and Gradle lockfiles.
 - Metrics:
   - A list of features used during execution is now included among metrics. Examples of such features are: languages scanned, CLI options passed, keys used in rules, or certain code paths reached, such as using an `:include` instruction in a `.semgrepignore` file. These strings will **not** include user data or specific settings. As an example, with `semgrep scan --output=secret.txt` we send `"option/output"` but will **not** send `"option/output=secret.txt"`.
   - An anonymous Event ID has been included among metrics. This is an ID generated at send-time and will be used to de-duplicate events that potentially get duplicated during transmission.
