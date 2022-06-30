@@ -14,13 +14,32 @@ Welcome to Semgrep release notes. This document provides an overview of the chan
 
 ### Semgrep App
 
+#### Additions
 
+- Effective August 1, 2022, Semgrep App Community tier will be limited to 20 developers each month. Please see our [Usage Limits FAQ](https://semgrep.dev/faq-usage-limits) for more information. 
+- You can now see the number of developers committing to private repositories scanned by Semgrep App in the **Settings page**.
+- New accounts can now try out Semgrep with the default inclusion of `juice-shop`, an intentionally vulnerable codebase. This enables new users to explore Semgrep's scanning capability, dashboard, and features.
+- Additional scan status messages have been added in the Projects page, under the **Last scan** row to better assist users in troubleshooting and understanding scan behavior.
+- [Team or Enterprise Tier] You can now **tag** repositories within Semgrep App with up to 10 tags. Tagging enables teams to group together related repositories. Tags are implemented in [Semgrep's API](https://semgrep.dev/api/v1/docs/#section/Introduction), enabling you to filter and group repository findings through tags.
+
+#### Changes
+
+- **Semgrep App Findings page**: The **Closed** tab is now labeled as Fixed. This change prevents confusion between findings that were fixed and findings that were removed.
+- Findings that Semgrep App found in a previous scan but no longer found them in the latest scan are called **Fixed findings**. To mark findings as fixed, the rule that matched the code and the file that was scanned must still be present during the latest scan. Under these conditions, Semgrep App concludes that the finding is fixed.
+- Removed findings are not included in the count in the Fixed findings tab. **Removed findings** are findings in the code that were previously found by a rule, but either the rule or the file containing the code has been removed in the most recent scan. Thus, the code cannot be considered "fixed", but is instead "removed." See [Semgrep App Findings](https://semgrep.dev/docs/semgrep-app/findings/) documentation for more information.
+- Both fixed findings and removed findings were previously counted together in the Closed tab, causing confusion as to the actual count of fixed findings. Now only findings that were purposefully fixed or addressed are counted.
+- PR Fix Rate has been renamed to **Comment Fix Rate**. The use of a more general term, "comment", captures both GitLab merge requests (MRs) and GitHub pull requests (PRs).
+- The **Comment Fix Rate** is the percentage of PR or MR comments fixed by developers. These PR or MR comments are findings detected by Semgrep from rules in the Comment column of your Rule Board.
+
+#### Fixes
+
+- When adding GitHub projects, Semgrep App previously redirected the user to GitHub and then back into Semgrep App's Dashboard page while adding a project. Because of this, users would have to manually return to the Projects page to finish adding a project. Semgrep App now correctly redirects users to the Project page.
 
 ### Semgrep CLI and Semgrep in CI
 
 These release notes include upgrades for all versions ranging between **0.95.0** and **0.101.0**.
 
-### Additions
+#### Additions
 
 - Semgrep installation through PyPi is now supported on Apple M1 processors!
 - Semgrep now supports the R language as an experimental language. Thanks to Zythosec for contributions! (#2360)
@@ -48,7 +67,7 @@ These release notes include upgrades for all versions ranging between **0.95.0**
   - An anonymous Event ID has been included among metrics. This is an ID generated at send-time and will be used to de-duplicate events that potentially get duplicated during transmission.
   - Metrics now include an anonymous User ID. This ID is stored in the `~/.semgrep/settings.yml` file. If the ID disappears, the next run will generate a new ID randomly. See the <a target="_self" href="https://semgrep.dev/docs/metrics/#anonymous-user-id" >Anonymous User ID in PRIVACY.md</a> for more details.
 
-### Changes
+#### Changes
 
 - PHP: Semgrep PHP support now reached switch to GA General Availability (GA) maturity! Thanks a lot to Sjoerd Langkemper for most of the heavy work!
 - Gitlab SAST output is now v14.1.2 compliant.
@@ -77,7 +96,7 @@ These release notes include upgrades for all versions ranging between **0.95.0**
 
   Before this update, the same rule applied to our test example would give you the message `Logged x: value(x)`. Now, it gives the message `Logged x: 42`.
 
-#### Additional information
+##### Additional information
 
 Bug fixes are not included in these release notes unless they are potentially breaking your workflow. To see the complete change notes for Semgrep CLI and CI that include fixes, visit the [Semgrep changelog](https://github.com/returntocorp/semgrep/releases/).
 
