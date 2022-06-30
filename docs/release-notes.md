@@ -42,9 +42,9 @@ These release notes include upgrades for all versions ranging between **0.95.0**
 #### Additions
 
 - Semgrep installation through PyPi is now supported on Apple M1 processors!
-- Semgrep now supports the R language as an experimental language. Thanks to Zythosec for contributions! ([#2360](https://github.com/returntocorp/semgrep/issues/2360))
-- Bash: Semgrep now supports subshell syntax for example commands in parentheses. ([#5629](https://github.com/returntocorp/semgrep/issues/5629))
-- Java: You can now use a metavariable in a package directive, for example, `package $X`, which is useful to bind the package name and use it in the error message. ([#5420](https://github.com/returntocorp/semgrep/issues/5420))
+- Semgrep now supports the R language as an experimental language. Thanks to Zythosec for contributions! ([Issue #2360](https://github.com/returntocorp/semgrep/issues/2360))
+- Bash: Semgrep now supports subshell syntax for example commands in parentheses. ([Issue #5629](https://github.com/returntocorp/semgrep/issues/5629))
+- Java: You can now use a metavariable in a package directive, for example, `package $X`, which is useful to bind the package name and use it in the error message. ([Issue #5420](https://github.com/returntocorp/semgrep/issues/5420))
 - Building the foundation for an improved Visual Studio Code user experience, Semgrep now has an experimental Language Server Protocol (LSP) daemon mode. A client program (such as Visual Studio Code) would typically run the  LSP daemon. If you feel like an adventurer, all you need to do to start it is to run `semgrep lsp --config p/r2c`. Stay tuned for more LSP goodness!
 - Semgrep in CI:
   - Starting to run Semgrep CI in your pipelines was easier in GitHub and GitLab than for any other CI provider. With this release, the process has been simplified for many other CI providers! Previously, for any provider except for GitHub and GitLab, you would have to commit a lengthy configuration file to enable Semgrep in CI to start working in your pipeline. Now, the autodetection of the CI environment supports Azure Pipelines, Bitbucket, Buildkite, CircleCI, Jenkins, and Travis CI in addition to GitHub and GitLab. Now you have no need to commit big configuration files again for these providers!
@@ -53,13 +53,13 @@ These release notes include upgrades for all versions ranging between **0.95.0**
   - The `ci` CLI command now includes ignored findings in output formats according to their configuration.
 - taint-mode:
   - Taint tracking now analyzes lambdas in their surrounding context. Previously, if a variable became tainted outside a lambda, and this variable was used inside the lambda causing the taint to reach a sink, this was not detected because any nested lambdas were "opaque" to the analysis. Taint tracking looked at lambdas but as isolated functions. With this update, lambdas are simply analyzed as if they were statement blocks. However, taint tracking still does not follow the flow of taint through the lambda's arguments!
-  - New experimental `pattern-propagators` feature that allows you to specify arbitrary patterns for the propagation of taint by side-effect. In particular, this allows specifying how taint propagates through side-effectful function calls. For example, you can specify when tainted data is added to an array then the array itself becomes tainted. ([#4509](https://github.com/returntocorp/semgrep/issues/4509))
+  - New experimental `pattern-propagators` feature that allows you to specify arbitrary patterns for the propagation of taint by side-effect. In particular, this allows specifying how taint propagates through side-effectful function calls. For example, you can specify when tainted data is added to an array then the array itself becomes tainted. ([Issue #4509](https://github.com/returntocorp/semgrep/issues/4509))
 - Dataflow: 
   - Spread operators in record expressions (for example `{...foo}`) are now translated into the Dataflow Intermediate Language (IL).
-  - XML elements (for example JSX elements) have now a basic translation to the Dataflow IL, meaning that dataflow analysis (constant propagation, taint tracking) can now operate inside these elements. ([#5115](https://github.com/returntocorp/semgrep/issues/5115))
+  - XML elements (for example JSX elements) have now a basic translation to the Dataflow IL, meaning that dataflow analysis (constant propagation, taint tracking) can now operate inside these elements. ([Issue #5115](https://github.com/returntocorp/semgrep/issues/5115))
 - Generic mode:
-  - New option `generic_ellipsis_max_span` for controlling how many lines an ellipsis can match. ([#5211](https://github.com/returntocorp/semgrep/issues/5211))
-  - New option `generic_comment_style` for ignoring comments that follow the specified syntax (C style, C++ style, or Shell style). ([#3428](https://github.com/returntocorp/semgrep/issues/3428))
+  - New option `generic_ellipsis_max_span` for controlling how many lines an ellipsis can match. ([Issue #5211](https://github.com/returntocorp/semgrep/issues/5211))
+  - New option `generic_comment_style` for ignoring comments that follow the specified syntax (C style, C++ style, or Shell style). ([Issue #3428](https://github.com/returntocorp/semgrep/issues/3428))
 - `r2c-internal-project-depends-on`:
   - Pretty printing for SCA results.
   - Support for Poetry and Gradle lockfiles.
@@ -70,7 +70,7 @@ These release notes include upgrades for all versions ranging between **0.95.0**
 
 #### Changes
 
-- PHP: Semgrep PHP support now reached switch to GA General Availability (GA) maturity! Thanks a lot to Sjoerd Langkemper for most of the heavy work!
+- PHP: Semgrep PHP support now reached GA General Availability (GA) maturity! Thanks a lot to Sjoerd Langkemper for most of the heavy work!
 - Gitlab SAST output is now v14.1.2 compliant.
 - The following deprecated `semgrep scan` options are now removed:
   `--json-stats`, `--json-time`, `--debugging-json`, `--save-test-output-tar`, `--synthesize-patterns`,
