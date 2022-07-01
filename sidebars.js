@@ -132,7 +132,7 @@ module.exports = {
                     'semgrep-app/sso',
                     'semgrep-app/user-management',
                     'troubleshooting/semgrep-app',
-                    'semgrep-app/semgrep-web-app'
+                    'semgrep-app/semgrep-api'
                 ],
             },
             {
