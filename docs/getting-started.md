@@ -1,7 +1,7 @@
 ---
 slug: getting-started
 append_help_link: true
-description: "This getting started guides you through the installation of Semgrep, shows you how to run Semgrep locally, and provides an overview of benefits which you may reap by writing Semgrep rules and by using Semgrep CI."
+description: "This getting started guides you through the installation of Semgrep, shows you how to run Semgrep locally, and provides an overview of benefits which you may reap by using Semgrep CI."
 ---
 
 # Getting started with Semgrep CLI
@@ -32,54 +32,16 @@ Start by running [Semgrep](https://github.com/returntocorp/semgrep/) locally to 
     Substitute the `PATH/TO/SRC` with the path to your source code.
 
 :::note
-* When Semgrep Registry is used, [usage metrics](../metrics) are collected by default.
+When Semgrep Registry is used, [usage metrics](../metrics) are collected by default.
 :::
 
 ### Next steps
 
-Here are some additional resources you may use:
+By completing this guide, you are now familiar with a simple use of Semgrep. Here are some additional resources to follow:
 
-- Visit [Running rules](../running-rules/) to learn more or try Semgrep on known vulnerable test projects.
+- **Recommended**: See [Running rules](../running-rules/) to understand Semgrep rules, different types of rules.
 - See [CLI Reference](../cli-reference/) for command line options and exit codes.
 - Explore the Semgrep [Rules Registry](https://semgrep.dev/r) to add rules to your project or try your hand at [writing a rule](../writing-rules/overview/) yourself.
-
-<details><summary>Expand for sample projects! 🎉</summary>
-<p>
-
-These community projects are designed to test code scanners and teach security concepts. Try cloning and scanning them with Semgrep.
-
-```sh
-# juice-shop, a vulnerable Node.js + Express app
-git clone https://github.com/bkimminich/juice-shop
-cd juice-shop
-semgrep --config=auto
-
-# or if you don't have Semgrep installed, replace the semgrep command with:
-docker run --rm -v "$(pwd)/juice-shop:/src" returntocorp/semgrep semgrep --config p/security-audit /src
-
-# railsgoat, a vulnerable Ruby on Rails app
-git clone https://github.com/OWASP/railsgoat
-cd railsgoat
-semgrep --config=auto
-
-# govwa, a vulnerable Go app
-git clone https://github.com/0c34/govwa
-cd govwa
-semgrep --config=auto 
-
-# vulnerable Python + Flask app
-git clone https://github.com/we45/Vulnerable-Flask-App
-cd Vulnerable-Flask-App
-semgrep --config=auto 
-
-# WebGoat, a vulnerable Java + Spring app
-git clone https://github.com/WebGoat/WebGoat
-cd WebGoat
-semgrep --config=auto 
-```
-
-</p>
-</details>
 
 ## Run Semgrep continuously
 
@@ -90,3 +52,43 @@ Check out [Semgrep App](https://semgrep.dev/manage) to integrate CI with PR or M
 ## Upgrading
 
 We [release new Semgrep versions](https://github.com/returntocorp/semgrep/releases) often! See [upgrading](../upgrading/) for more details.
+
+## Testing Semgrep on vulnerable repositories
+
+The following community projects are designed to test code scanners and teach security concepts. Try cloning and scanning them with Semgrep.
+
+<details><summary>Expand for sample projects! 🎉</summary>
+<p>
+
+```sh
+# juice-shop, a vulnerable Node.js + Express app:
+git clone https://github.com/bkimminich/juice-shop
+cd juice-shop
+semgrep --config=auto
+
+# Or if you don't have Semgrep installed, replace the semgrep command with:
+docker run --rm -v "$(pwd)/juice-shop:/src" returntocorp/semgrep semgrep --config p/security-audit /src
+
+# Try railsgoat, a vulnerable Ruby on Rails app:
+git clone https://github.com/OWASP/railsgoat
+cd railsgoat
+semgrep --config=auto
+
+# govwa, a vulnerable Go app:
+git clone https://github.com/0c34/govwa
+cd govwa
+semgrep --config=auto 
+
+# vulnerable Python + Flask app:
+git clone https://github.com/we45/Vulnerable-Flask-App
+cd Vulnerable-Flask-App
+semgrep --config=auto 
+
+# WebGoat, a vulnerable Java + Spring app:
+git clone https://github.com/WebGoat/WebGoat
+cd WebGoat
+semgrep --config=auto 
+```
+
+</p>
+</details>
