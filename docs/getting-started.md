@@ -19,7 +19,7 @@ Start by running [Semgrep](https://github.com/returntocorp/semgrep/) locally to 
         ```sh
         python3 -m pip install semgrep
         ```
-    - To try Semgrep without installation run through Docker:
+    - To try out Semgrep without installation you may run it through Docker:
         ```sh
         docker run --rm -v "${PWD}:/src" returntocorp/semgrep semgrep --config=auto
         ```
@@ -79,7 +79,7 @@ git clone https://github.com/0c34/govwa
 cd govwa
 semgrep --config=auto 
 
-# vulnerable Python + Flask app:
+# Vulnerable Python + Flask app:
 git clone https://github.com/we45/Vulnerable-Flask-App
 cd Vulnerable-Flask-App
 semgrep --config=auto 
