@@ -10,7 +10,7 @@ import MoreHelp from "/src/components/MoreHelp"
 
 # Integrating Semgrep into source code management (SCM) tools
 
-Semgrep App's Team tier supports repositories hosted on both **GitHub Enterprise (GHE)** and **GitLab Self Managed (GLSM)** plans.
+Semgrep App's Team and Enterprise tiers support repositories hosted on both **GitHub Enterprise (GHE)** and **GitLab Self Managed (GLSM)** plans.
 
 ## Prerequisites
 
@@ -70,7 +70,7 @@ Integrate Semgrep into these custom source code management (SCM) tools by follow
 
 ## Receiving PR or MR comments in your VPN or on-premise SCM
 
-PR or MR comments are comments or suggestions made by Semgrep App in your SCM tool. These comments provide a description of the issue detected by Semgrep and may offer possible solutions. These comments are a means for security teams (or any team responsible for creating standards) to help their fellow developers write safe and standards-compliant code.
+PR or MR comments are comments or suggestions made by Semgrep App in your source code management tool. These comments provide a description of the issue detected by Semgrep and may offer possible solutions. These comments are a means for security teams (or any team responsible for creating standards) to help their fellow developers write safe and standards-compliant code.
 
 To enable this feature within self-hosted SCMs behind firewalls or VPNs (Virtual Private Networks), follow the steps below.
 
