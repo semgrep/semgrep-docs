@@ -32,7 +32,6 @@ Start by running [Semgrep](https://github.com/returntocorp/semgrep/) locally to 
     Substitute the `PATH/TO/SRC` with the path to your source code.
 
 :::note
-* `--config auto` sends your repository's project URL to [Semgrep Registry](https://semgrep.dev/r) to find rules configured for your repository and as a key for cached rule recommendations.
 * When Semgrep Registry is used, [usage metrics](../metrics) are collected by default.
 :::
 
