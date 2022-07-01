@@ -21,7 +21,7 @@ You can run all rules on your code completely locally or continuously in your So
 
 ## Running Semgrep Registry rules locally
 
-You can test how Semgrep automatically surveys languages and frameworks and run recommended rules for your source code with the following command (substitute the `PATH/TO/SRC` with path to your source code):
+You can test Semgrep Registry rules with the following command (substitute the `PATH/TO/SRC` with the path to your source code):
 <pre class="language-bash"><code>semgrep --config=auto <span className="placeholder">PATH/TO/SRC</span></code></pre>
 
 :::info
