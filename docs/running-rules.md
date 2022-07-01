@@ -21,8 +21,9 @@ You can run all rules on your code completely locally or continuously in your So
 
 ## Running Semgrep Registry rules locally
 
-You can test Semgrep Registry rules with the following command (substitute the `PATH/TO/SRC` with the path to your source code):
+You can test Semgrep Registry rules with the following command:
 <pre class="language-bash"><code>semgrep --config=auto <span className="placeholder">PATH/TO/SRC</span></code></pre>
+Substitute the `PATH/TO/SRC` with the path to your source code.
 
 :::info
 * `--config auto` sends your repository's project URL to [Semgrep Registry](https://semgrep.dev/r) to find rules configured for your repository and as a key for cached rule recommendations.

@@ -27,10 +27,9 @@ Start by running [Semgrep](https://github.com/returntocorp/semgrep/) locally to 
     ```sh
     semgrep --help
     ```
-3. Automatically survey languages and frameworks and run recommended Semgrep Registry rules:
-    ```sh
-    semgrep --config=auto path/to/src
-    ```
+3. Run recommended Semgrep Registry rules:
+    <pre class="language-bash"><code>semgrep --config=auto <span className="placeholder">PATH/TO/SRC</span></code></pre>
+    Substitute the `PATH/TO/SRC` with the path to your source code.
 
 :::note
 * `--config auto` sends your repository's project URL to [Semgrep Registry](https://semgrep.dev/r) to find rules configured for your repository and as a key for cached rule recommendations.
@@ -41,9 +40,9 @@ Start by running [Semgrep](https://github.com/returntocorp/semgrep/) locally to 
 
 Here are some additional resources you may use:
 
+- Visit [Running rules](../running-rules/) to learn more or try Semgrep on known vulnerable test projects.
 - See [CLI Reference](../cli-reference/) for command line options and exit codes.
-- Visit [Running rules](../running-rules/) to learn more or try Semgrep on known vulnerable test projects:
-- Explore the Semgrep [Rule Registry](https://semgrep.dev/r) to add rules to your project or try your hand at [writing a rule](../writing-rules/overview/) yourself. 
+- Explore the Semgrep [Rules Registry](https://semgrep.dev/r) to add rules to your project or try your hand at [writing a rule](../writing-rules/overview/) yourself.
 
 <details><summary>Expand for sample projects! 🎉</summary>
 <p>
@@ -82,7 +81,6 @@ semgrep --config=auto
 
 </p>
 </details>
-
 
 ## Run Semgrep continuously
 
