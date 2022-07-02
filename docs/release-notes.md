@@ -43,7 +43,7 @@ These release notes include upgrades for all versions ranging between **0.95.0**
 
 - Semgrep installation through PyPi is now supported on Apple M1 processors!
 - Semgrep now supports the R language as an experimental language. Thanks to Zythosec for contributions! ([Issue #2360](https://github.com/returntocorp/semgrep/issues/2360))
-- Bash: Semgrep now supports subshell syntax for example commands in parentheses. ([Issue #5629](https://github.com/returntocorp/semgrep/issues/5629))
+- Bash: Semgrep now supports subshell syntax. This can be used, for example, in commands in parentheses. ([Issue #5629](https://github.com/returntocorp/semgrep/issues/5629))
 - Java: You can now use a metavariable in a package directive, for example, `package $X`, which is useful to bind the package name and use it in the error message. ([Issue #5420](https://github.com/returntocorp/semgrep/issues/5420))
 - Building the foundation for an improved Visual Studio Code user experience, Semgrep now has an experimental Language Server Protocol (LSP) daemon mode. A client program (such as Visual Studio Code) would typically run the  LSP daemon. If you feel like an adventurer, all you need to do to start it is to run `semgrep lsp --config p/r2c`. Stay tuned for more LSP goodness!
 - Semgrep in CI:

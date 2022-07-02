@@ -43,16 +43,6 @@ By completing this guide, you are now familiar with a simple use of Semgrep. Her
 - See [CLI Reference](../cli-reference/) for command line options and exit codes.
 - Explore the Semgrep [Rules Registry](https://semgrep.dev/r) to add rules to your project or try your hand at [writing a rule](../writing-rules/overview/) yourself.
 
-## Run Semgrep continuously
-
-Semgrep is at its best when used to continuously scan code. Check out [Semgrep in CI](../semgrep-ci/overview/) to learn how to get results where you already work: GitHub, GitLab, Slack, Jira, and more. To get results even earlier in the development process, such as in a Git pre-commit hook or VS Code, check the available [Semgrep extensions](../extensions/).
-
-Check out [Semgrep App](https://semgrep.dev/manage) to integrate CI with PR or MR comments, monitor progress, host private rules (paid tier), and much more! 
-
-## Upgrading
-
-We [release new Semgrep versions](https://github.com/returntocorp/semgrep/releases) often! See [upgrading](../upgrading/) for more details.
-
 ## Testing Semgrep on vulnerable repositories
 
 The following community projects are designed to test code scanners and teach security concepts. Try cloning and scanning them with Semgrep.
@@ -79,7 +69,7 @@ git clone https://github.com/0c34/govwa
 cd govwa
 semgrep --config=auto 
 
-# Vulnerable Python + Flask app:
+# Vulnerable-Flask-App, vulnerable Python + Flask:
 git clone https://github.com/we45/Vulnerable-Flask-App
 cd Vulnerable-Flask-App
 semgrep --config=auto 
@@ -92,3 +82,13 @@ semgrep --config=auto
 
 </p>
 </details>
+
+## Run Semgrep continuously
+
+Semgrep is at its best when used to continuously scan code. Check out [Semgrep in CI](../semgrep-ci/overview/) to learn how to get results where you already work: GitHub, GitLab, Slack, Jira, and more. To get results even earlier in the development process, such as in a Git pre-commit hook or VS Code, check the available [Semgrep extensions](../extensions/).
+
+Check out [Semgrep App](https://semgrep.dev/manage) to integrate CI with PR or MR comments, monitor progress, host private rules (paid tier), and much more! 
+
+## Upgrading
+
+We [release new Semgrep versions](https://github.com/returntocorp/semgrep/releases) often! See [upgrading](../upgrading/) for more details.
