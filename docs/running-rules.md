@@ -10,9 +10,12 @@ import MoreHelp from "/src/components/MoreHelp"
 ## Introduction
 
 Rules are instructions based on which Semgrep detects patterns in code. When Semgrep reports a code using mentioned rules, the detected code is called a finding. The process of scanning and detecting a piece of code is sometimes called matching, as Semgrep matches the code using rules to report a finding.
-Such findings can help you catch issues of security, performance, correctness, and best practices. You can define custom rules through Semgrep's rule syntax or you can rely on rules created by the community or r2c. Rules are stored in an open-source [Semgrep Registry](https://github.com/returntocorp/semgrep-rules) that enables you to scan code without the need to write anything custom. The list below covers different kinds of Semgrep rules:
 
-- Existing [Semgrep Registry rules](#running-semgrep-registry-rules) or [rules contributed to the Semgrep Registry by you](https://semgrep.dev/docs/contributing/contributing-to-semgrep-rules-repository/) to find out how to add new rules.
+Semgrep findings can help you to catch issues of security, performance, correctness, and enforce best practices. You can define custom rules through Semgrep's rule syntax or you can rely on rules created by the community or r2c. Rules are stored in an open-source [Semgrep Registry](https://github.com/returntocorp/semgrep-rules) that enables you to scan code without the need to write anything custom.
+
+The list below covers different kinds of Semgrep rules:
+
+- Existing [Semgrep Registry rules](#running-semgrep-registry-rules). You may also contribute to the Semgrep rules repository, see [Contributing to Semgrep rules](contributing/contributing-rules.md).
 - [Local rules](#creating-and-using-local-rules):
   - One-off [ephemeral rules](#ephemeral-rules) passed into the command line.
   - [YAML-defined rules](#yaml-defined-rules).
@@ -27,7 +30,7 @@ You can test Semgrep Registry rules with the following command:
 Substitute the `PATH/TO/SRC` with the path to your source code.
 
 :::info
-When Semgrep Registry is used, [usage metrics](metrics.md) are collected by default.
+By default, when Semgrep Registry is used, Semgrep collects [usage metrics](./metrics.md).
 :::
 
 Explore the Semgrep Registry by following these steps:
