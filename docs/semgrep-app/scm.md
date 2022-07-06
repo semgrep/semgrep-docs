@@ -10,14 +10,24 @@ import MoreHelp from "/src/components/MoreHelp"
 
 # Integrating Semgrep into source code management (SCM) tools
 
-Semgrep App's Team tier supports repositories hosted on both **GitHub Enterprise (GHE)** and **GitLab Self Managed (GLSM)** plans. Create multiple integrations in different self-hosted or custom servers.
+Semgrep App's Team and Enterprise tiers support repositories hosted on **GitHub Enterprise (GHE)** and **GitLab Self Managed (GLSM)** plans. When referring to SCM tools, this term means explicitly GHE or GLSM plans in this document.
 
 ## Prerequisites
 
 You need the following permissions to integrate Semgrep into GHE or GLSM servers:
 
-* Permission to create a personal access token (PAT) for the repository to scan Semgrep on. This PAT is used to enable Semgrep App to create pull request (PR) or merge request (MR) comments for findings that can be [autofixed](../notifications/#automatically-fix-your-findings-through-pull-or-merge-requests).
-* Permission to add CI/CD secrets into your [GitHub](https://docs.github.com/en/actions/security-guides/encrypted-secrets) or [GitLab](https://docs.gitlab.com/ee/ci/secrets/) environments.
+* Permission to create a **personal access token (PAT)** for the repository to scan with Semgrep. This PAT is used to enable Semgrep App to create pull request (PR) or merge request (MR) comments for findings. These comments provide a description of the issue detected by Semgrep and may offer possible solutions.
+* Permission to add **CI/CD secrets** into your [GitHub](https://docs.github.com/en/actions/security-guides/encrypted-secrets) or [GitLab](https://docs.gitlab.com/ee/ci/secrets/) environments.
+
+### Table of required scopes for PATs
+
+Semgrep App requires PATs with assigned scopes. These scopes grant necessary permissions to the PAT and vary depending on the user's SCM.
+
+| GitHub Enterprise          | GitLab Self-Managed        |
+|:---------------------------|:---------------------------|
+| <ul><li>`public_repo`</li> <li>`repo:status`</li> <li>`user:email`</li> <li>`write:discussion`</li></ul> | `api` |
+
+
 
 ## Integrating Semgrep into GitHub Enterprise or GitLab Self Managed 
 
@@ -44,12 +54,12 @@ Integrate Semgrep into these custom source code management (SCM) tools by follow
 
 6. Select your SCM provider.
 7. For **GitHub Enterprise**, follow these steps:
+    1. Create a PAT by following the steps outlined in this [guide to creating a PAT](https://docs.github.com/en/enterprise-server@3.1/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token). Ensure that the PAT is **[created with the required scopes](../scm/#table-of-required-scopes-for-pats)**.
 
-    1. Create a personal access token (PAT) by following the steps outlined in this [guide to creating a PAT](https://docs.github.com/en/enterprise-server@3.1/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token).
     2. Enter the personal access token generated into the Access Token field.
     3. Enter your GHE base URL into the SCM Base URL.
 8. For **GitLab Self Managed**, follow these steps:
-    1. Create a personal access token (PAT) by following the steps outlined in this [guide to creating a PAT](https://docs.gitlab.com/ee/user/profile/personal_access_tokens.html).
+    1. Create a PAT by following the steps outlined in this [guide to creating a PAT](https://docs.gitlab.com/ee/user/profile/personal_access_tokens.html). Ensure that the PAT is **[created with the required scopes](../scm/#table-of-required-scopes-for-pats)**.
     2. Enter the personal access token generated into the Access Token field.
     3. Enter your GLSM base URL into the **SCM Base URL** field.
 9. Ensure that your SCM integration successfully detects repositories by following the steps below:
@@ -57,6 +67,20 @@ Integrate Semgrep into these custom source code management (SCM) tools by follow
     2. Select your CI provider.
     3. Semgrep App detects repositories from your SCM integration.
 10. Add a new repository by following the steps in [Adding a project](../getting-started-with-semgrep-app/#adding-a-project).
+
+## Receiving PR or MR comments in your VPN or on-premise SCM
+
+PR or MR comments are comments or suggestions made by Semgrep App in your source code management tool. These comments provide a description of the issue detected by Semgrep and may offer possible solutions. These comments are a means for security teams (or any team responsible for creating standards) to help their fellow developers write safe and standards-compliant code.
+
+To enable this feature within self-hosted SCMs behind firewalls or VPNs (Virtual Private Networks), follow the steps below.
+
+ 1. Make a request to Semgrep support to enable PR or MR comments. You can send an email to [support@r2c.dev](mailto:support@r2c.dev) or message us in your private channel in the [r2c Community Slack](https://r2c.dev/slack).
+ 2. Add the IP address `52.34.175.113` to your VPN's allowlist. This IP address is **static and outbound**.
+ 3. Test that you are able to receive findings by manually triggering a scan through your CI provider.
+
+:::tip
+Receiving PR or MR comments may require additional steps depending on the custom configuration of your VPN or SCM. Reach out to Semgrep support through the [r2c Community Slack](https://r2c.dev/slack) or send an email to [support@r2c.dev](mailto:support@r2c.dev) for any concerns.
+:::
 
 ## Additional references
 * [Semgrep's May 2022 updates: DeepSemgrep, New Playground, and Self Managed GitHub and GitLab support](https://r2c.dev/blog/2022/semgreps-may-2022-updates/)
