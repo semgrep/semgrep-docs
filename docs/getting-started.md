@@ -32,16 +32,16 @@ Start by running [Semgrep](https://github.com/returntocorp/semgrep/) locally to 
     Substitute the `PATH/TO/SRC` with the path to your source code.
 
 :::note
-When Semgrep Registry is used, [usage metrics](../metrics) are collected by default.
+By default, when Semgrep Registry is used, Semgrep collects [usage metrics](./metrics.md).
 :::
 
 ### Next steps
 
 By completing this guide, you are now familiar with a simple use of Semgrep. Here are some additional resources to follow:
 
-- **Recommended**: See [Running rules](../running-rules/) to understand Semgrep rules, different types of rules.
-- See [CLI Reference](../cli-reference/) for command line options and exit codes.
-- Explore the Semgrep [Rules Registry](https://semgrep.dev/r) to add rules to your project or try your hand at [writing a rule](../writing-rules/overview/) yourself.
+- See [Running rules](./running-rules.md) to try out and understand more about Semgrep rules.
+- Explore the Semgrep [Rules Registry](https://semgrep.dev/r) to add rules to your project or [writing a rule](./writing-rules/overview.md).
+- See [CLI Reference](./cli-reference.md) for command line options and exit codes.
 
 ## Testing Semgrep on vulnerable repositories
 
@@ -85,10 +85,10 @@ semgrep --config=auto
 
 ## Run Semgrep continuously
 
-Semgrep is at its best when used to continuously scan code. Check out [Semgrep in CI](../semgrep-ci/overview/) to learn how to get results where you already work: GitHub, GitLab, Slack, Jira, and more. To get results even earlier in the development process, such as in a Git pre-commit hook or VS Code, check the available [Semgrep extensions](../extensions/).
+Semgrep is at its best when used to continuously scan code. Check out [Semgrep in CI](semgrep-ci/overview.md/) to learn how to get results where you already work: GitHub, GitLab, Slack, Jira, and more. To get results even earlier in the development process, such as in a Git pre-commit hook or VS Code, check the available [Semgrep extensions](./extensions.md).
 
 Check out [Semgrep App](https://semgrep.dev/manage) to integrate CI with PR or MR comments, monitor progress, host private rules (paid tier), and much more! 
 
 ## Upgrading
 
-We [release new Semgrep versions](https://github.com/returntocorp/semgrep/releases) often! See [upgrading](../upgrading/) for more details.
+We [release new Semgrep versions](https://github.com/returntocorp/semgrep/releases) often! See [upgrading](./upgrading.md) for more details.
