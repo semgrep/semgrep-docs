@@ -150,33 +150,33 @@ To set up environment variables:
 1. Ensure that your current working directory is the root of the repository to create links for. 
 2. Set up the `SEMGREP_REPO_URL`:
     1. Retrieve the URL by navigating to your online repository. Copy the value in the address bar. This is your `URL_ADDRESS`.
-    2. Set the variable by entering the text below, substituting `URL_ADDRESS` with the value from the previous step.
+    2. Set the variable by entering the text below, substituting <code><span className="placeholder">URL_ADDRESS</span></code> with the value from the previous step.
     <pre><code>
-    export SEMGREP_REPO_URL=<em>URL_ADDRESS</em>
+    export SEMGREP_REPO_URL=<span className="placeholder">URL_ADDRESS</span>
     </code></pre>
 3. Set up the `SEMGREP_BRANCH`:
     1. Run the following to retrieve the branch name:
         ```bash
         git rev-parse --abbrev-ref HEAD
         ```
-    2. Set the variable by entering the text below, substituting `BRANCH_NAME` with the value from the previous step.
+    2. Set the variable by entering the text below, substituting <code><span className="placeholder">BRANCH_NAME</span></code> with the value from the previous step.
     <pre><code>
-    export SEMGREP_BRANCH=<em>BRANCH_NAME</em>
+    export SEMGREP_BRANCH=<span className="placeholder">BRANCH_NAME</span>
     </code></pre>
 4. Set up the `SEMGREP_REPO_NAME`:
     1. Retrieve the repository name by logging in to your GitHub or GitLab account and copying the repository name from your dashboard. 
-    2. Set the variable by entering the text below, substituting `REPO_NAME` with the value from the previous step.
+    2. Set the variable by entering the text below, substituting <code><span className="placeholder">REPO_NAME</span></code> with the value from the previous step.
     <pre><code>
-    export SEMGREP_REPO_NAME=<em>REPO_NAME</em>
+    export SEMGREP_REPO_NAME=<span className="placeholder">REPO_NAME</span>
     </code></pre>
 5. Set up the `SEMGREP_COMMIT`:
     1. Run the following to retrieve the commit hash:
         ```bash
         git log -n 1
         ```
-    2. Set the variable by entering the text below, substituting `COMMIT_HASH` with the value from the previous step.
+    2. Set the variable by entering the text below, substituting <code><span className="placeholder">COMMIT_HASH</span></code> with the value from the previous step.
     <pre><code>
-    export SEMGREP_COMMIT=<em>COMMIT_HASH</em>
+    export SEMGREP_COMMIT=<span className="placeholder">COMMIT_HASH</span>
     </code></pre>
 
 Sample values:
