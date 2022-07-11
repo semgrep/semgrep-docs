@@ -47,9 +47,7 @@ Usage: semgrep scan [OPTIONS] [TARGET]...
 
       semgrep --config auto .
 
-  This will automatically fetch rules for your project from the Semgrep
-  Registry. NOTE: Using `--config auto` will log in to the Semgrep Registry
-  with your project URL.
+  This will automatically fetch rules for your project from the Semgrep Registry. 
 
   For more information about Semgrep, go to https://semgrep.dev.
 
