@@ -17,8 +17,8 @@ module.exports = {
     navbar: {
       logo: {
         alt: 'Semgrep logo',
-        src: 'img/semgrep-logo-rainbow.svg',
-        srcDark: 'img/semgrep-logo-rainbow.svg',
+        src: 'img/semgrep-icon-text-horizontal.svg',
+        srcDark: 'img/semgrep-icon-text-horizontal-dark.svg',
         href: 'https://semgrep.dev',
         target: '_self'
       },
