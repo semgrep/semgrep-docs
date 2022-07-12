@@ -76,7 +76,7 @@ RUN eval `curl -s "http://www.very-secure-website.net"`
 
 ## Extract mode rule schema
 
-Extract mode rules **require** the following usual Semgrep rule keys:
+Extract mode rules **require** the following [usual Semgrep rule keys](../../writing-rules/rule-syntax/#required):
   - `id`
   - `languages`
   - One of `pattern`, `patterns`, `pattern-either`, or `pattern-regex`
