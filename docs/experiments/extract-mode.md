@@ -66,7 +66,7 @@ else:
     print("Success")
 ```
 
-Likewise, if our query included a Dockerfile such as the example below Semgrep would match the contained Bash and report a match with the `curl-eval` rule.
+Likewise, if our query included a Dockerfile with an offending Bash command, such as the example below, Semgrep would match the contained Bash and report a match with the `curl-eval` rule.
 
 ```dockerfile
 FROM fedora
