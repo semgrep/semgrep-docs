@@ -33,9 +33,9 @@ rules:
       - pattern: eval ...
 ```
 
-Usually, this rule would only be run against Bash files. However, our project might contain Dockerfiles or Python scripts which invoke Bash commands&mdash;this rule won't currently be run against any Bash contained in those files.
+Usually, this rule would only be run against Bash files. However, our project might contain Dockerfiles or Python scripts which invoke Bash commands&mdash;without an extract mode rule Semgrep won't know about any contained Bash, and therefore, will **not** run any Bash rules against those contained commands.
 
-However, with extract mode we can supplement our Bash rule with instructions on how to extract any Bash commands we might be using in a Docker `RUN` instruction or via Python's `os.system` standard library function.
+However, with extract mode we can provide Semgrep with instructions on how to extract any Bash commands we might be using in a Docker `RUN` instruction or as an argument to Python's `os.system` standard library function.
 
 ```yaml
 rules:
@@ -55,7 +55,7 @@ rules:
     dest-language: bash
 ```
 
-By adding the above extract mode rules, Semgrep matches the below Python file, reporting the contained Bash as matching with the `curl-eval` rule.
+By adding the extract mode rules show above, Semgrep can match the Bash contained in the below Python file, and will report the contained Bash as  matching against the `curl-eval` rule.
 
 ```python
 from os import system
@@ -66,7 +66,7 @@ else:
     print("Success")
 ```
 
-Likewise, if our query included a Dockerfile with an offending Bash command, such as the example below, Semgrep would match the contained Bash and report a match with the `curl-eval` rule.
+Likewise, if our query included a Dockerfile with an equivalent Bash command, such as the example below, Semgrep would report the contained Bash as matching against the `curl-eval` rule.
 
 ```dockerfile
 FROM fedora
