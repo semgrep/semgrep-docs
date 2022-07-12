@@ -48,24 +48,7 @@ Semgrep supports 20+ languages.
 <!--  coupling: If you modify this table, copy paste it also to supported-languages.md! -->
 <!--  For readability, please keep each column in alphabetical order. -->
 
-<div id="language-support-table">
-
-| GA ✅      | Beta 🐛                     | Experimental 🚧            |
-|:---------- |:---------------------------|:---------------------------|
-| C#         | Kotlin                     | Bash                       |
-| Go         | Terraform                  | C                          |
-| Java       |                            | C++                        |
-| JavaScript |                            | Dockerfile                 |
-| JSON       |                            | Hack                       |
-| JSX        |                            | Lua                        |
-| PHP        |                            | OCaml                      |
-| Python     |                            | R                          |
-| Ruby       |                            | Rust                       |
-| Scala      |                            | Solidity                   |
-| TSX        |                            | YAML                       |
-| TypeScript |                            | Generic (ERB, Jinja, etc.) |
-
-</div>
+{@import /modules/reference-modules/supported-languages.md}
 
 To determine experimental, beta, or general availability (GA) status we scan a wide corpus of projects and measure the parse rate of each language. For more details see [the breakdown of all supported languages](supported-languages/).
 

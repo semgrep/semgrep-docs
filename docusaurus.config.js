@@ -1,5 +1,6 @@
 const lightCodeTheme = require('prism-react-renderer/themes/github');
 const darkCodeTheme = require('prism-react-renderer/themes/dracula');
+const @import = require('remark-import-partial');
 
 /** @type {import('@docusaurus/types').DocusaurusConfig} */
 module.exports = {
@@ -159,6 +160,7 @@ module.exports = {
           editUrl:
             'https://github.com/returntocorp/semgrep-docs/edit/main',
           routeBasePath: '/'
+          remarkPlugins: [remark-import-partial]
         },
         theme: {
           customCss: require.resolve('./src/css/custom.css'),
