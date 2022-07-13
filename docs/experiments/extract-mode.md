@@ -14,7 +14,7 @@ Extract mode enables you to run existing rules on subsections of files where the
 
 Without extract mode, writing rules to validate template, Markdown or configuration files which contain code in another language can be burdensome and require significant rule duplication.
 
-Let's take the following Bash rule as an example (a simplified version of the [`curl-eval`](https://github.com/returntocorp/semgrep-rules/blob/release/bash/curl/security/curl-eval.yaml) rule form the Semgrep Registry):
+Let's take the following Bash rule as an example (a simplified version of the [`curl-eval`](https://github.com/returntocorp/semgrep-rules/blob/release/bash/curl/security/curl-eval.yaml) rule from the Semgrep Registry):
 
 ```yaml
 rules:
