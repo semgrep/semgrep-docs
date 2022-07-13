@@ -31,6 +31,27 @@ Other than annotations there are three things to remember when creating tests:
 The `.test.yaml` file extension can also be used for test files. This is necessary when testing YAML language rules.
 :::
 
+## Testing autofix
+
+Semgrep's testing mechanism also provides a way to test the behaviour of any fixes defined in the rules.
+To define a test for autofix behaviour: 
+
+1. Create a new code file with the `.fixed` suffix before the annotation. 
+   For example, the autofix test file for a rule with test code in `path/to/rule.py` will be named `path/to/rule.fixed.py`.
+2. This file should contain the expected result of applying autofixes to the test code file.
+3. Any future runs of the command `semgrep --test` will apply the autofix to the original testcode (`path/to/rule.py`) and verify whether this matches the expected outcome defined in the autofix test file (`path/to/rule.fixed.py`).
+   If there is a mismatch, the line diffs will be printed.
+
+:::info
+Hint: creating an autofix test for a rule whose autofix is functioning as expected can take less than a minute with the following flow of commands:
+```sh
+cp rule.py rule.fixed.py
+semgrep --config rule.yaml rule.fixed.py --autofix
+```
+
+This will apply the fix of the rule to the testcode. It is advised to manually inspect whether the fix behaves as expected (e.g. using `vimdiff rule.py rule.fixed.py`).
+:::
+
 ## Example
 
 Consider the following rule:
@@ -39,8 +60,9 @@ Consider the following rule:
 rules:
 - id: insecure-eval-use
   patterns:
-  - pattern: eval(...)
+  - pattern: eval($VAR)
   - pattern-not: eval("...")
+  fix: secure_eval($VAR)
   message: Calling 'eval' with user input
   languages: [python]
   severity: WARNING
@@ -107,6 +129,77 @@ semgrep --test --config tests/rules/ tests/targets/
 will produce the same output as before.
 
 The subdirectory structure of these two directories must be the same for Semgrep to correctly find the associated files.
+
+To test the autofix behaviour, you can add the autofix test file `rules/detect-eval.fixed.py` to represent the expected outcome of applying the fix to the test code:
+
+```python
+from lib import get_user_input, safe_get_user_input, secure_eval
+
+user_input = get_user_input()
+# ruleid: insecure-eval-use
+secure_eval(user_input)
+
+# ok: insecure-eval-use
+eval('print("Hardcoded eval")')
+
+totally_safe_eval = eval
+# todoruleid: insecure-eval-use
+totally_safe_eval(user_input)
+
+# todook: insecure-eval-use
+secure_eval(safe_get_user_input())
+```
+
+So that the directory structure looks like this:
+
+```sh
+$ tree tests
+
+tests
+├── rules
+│   └── python
+│       └── insecure-eval-use.yaml
+└── targets
+    └── python
+        └── insecure-eval-use.py
+        └── insecure-eval-use.fixed.py
+
+4 directories, 2 files
+```
+
+The command
+
+```sh
+semgrep --test --config tests/rules/ tests/targets/
+```
+
+will now results in
+
+```sh
+1/1: ✓ All tests passed
+1/1: ✓ All fix tests passed
+```
+
+If the fix does not behave as expected, the output will print a line diff.
+For example, if we replace `secure_eval` with `safe_eval`, we can see that lines 5 and 15 are not as expected.
+
+```sh
+1/1: ✓ All tests passed
+0/1: 1 fix tests did not pass:
+--------------------------------------------------------------------------------
+	✖ targets/python/detect-eval.fixed.py <> autofix applied to targets/python/detect-eval.py
+
+	---
+	+++
+	@@ -5 +5 @@
+	-safe_eval(user_input)
+	+secure_eval(user_input)
+	@@ -15 +15 @@
+	-safe_eval(safe_get_user_input())
+	+secure_eval(safe_get_user_input())
+
+```
+
 
 ## Validating rules
 
