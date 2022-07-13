@@ -14,7 +14,7 @@ Extract mode enables you to run existing rules on subsections of files where the
 
 Without extract mode, writing rules to validate template, Markdown or configuration files which contain code in another language can be burdensome and require significant rule duplication.
 
-Let's take the following Bash rule as an example (a simplified version of [our `curl-eval` rule](https://github.com/returntocorp/semgrep-rules/blob/release/bash/curl/security/curl-eval.yaml)):
+Let's take the following Bash rule as an example (a simplified version of the [`curl-eval`](https://github.com/returntocorp/semgrep-rules/blob/release/bash/curl/security/curl-eval.yaml) rule from the Semgrep Registry):
 
 ```yaml
 rules:
@@ -33,9 +33,9 @@ rules:
       - pattern: eval ...
 ```
 
-Usually, this rule would only be run against Bash files. However, our project might contain Dockerfiles or Python scripts which invoke Bash commands&mdash;without an extract mode rule Semgrep won't know about any contained Bash, and therefore, will **not** run any Bash rules against those contained commands.
+Usually, Semgrep uses this rule only against Bash files. However, a project might contain Dockerfiles or Python scripts that invoke Bash commands&mdash;without an extract mode rule, Semgrep does **not** run any Bash rules against commands contained in files of different languages.
 
-However, with extract mode we can provide Semgrep with instructions on how to extract any Bash commands we might be using in a Docker `RUN` instruction or as an argument to Python's `os.system` standard library function.
+However, with extract mode, you can provide Semgrep with instructions on how to extract any Bash commands used in a Docker `RUN` instruction or as an argument to Python's `os.system` standard library function.
 
 ```yaml
 rules:
@@ -55,7 +55,7 @@ rules:
     dest-language: bash
 ```
 
-By adding the extract mode rules show above, Semgrep can match the Bash contained in the below Python file, and will report the contained Bash as  matching against the `curl-eval` rule.
+By adding the extract mode rules as shown in the previous code snippet, Semgrep matches Bash code contained in the following Python file and reports the contained Bash as matching against the `curl-eval` rule.
 
 ```python
 from os import system
@@ -66,7 +66,7 @@ else:
     print("Success")
 ```
 
-Likewise, if our query included a Dockerfile with an equivalent Bash command, such as the example below, Semgrep would report the contained Bash as matching against the `curl-eval` rule.
+Likewise, if a query included a Dockerfile with an equivalent Bash command, Semgrep reports the contained Bash as matching against the `curl-eval` rule. See the following Dockerfile example that contains a Bash command:
 
 ```dockerfile
 FROM fedora
@@ -89,7 +89,7 @@ The extract mode specific fields are further explained in two sections below.
 
 ### `extract`
 
-The `extract` key is required when in extract mode. The value must be a metavariable appearing in your pattern(s), and the value bound to that metavariable will be extracted.
+The `extract` key is required when in extract mode. The value must be a metavariable appearing in your pattern(s). Semgrep uses the code bound to the metavariable for subsequent queries of non-extract mode rules targeting `dest-language`.
 
 ### `dest-language`
 
