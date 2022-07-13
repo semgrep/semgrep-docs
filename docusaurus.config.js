@@ -119,7 +119,7 @@ module.exports = {
       indexName: 'docs',
 
       // Optional: see doc section below
-      contextualSearch: false,
+      contextualSearch: true,
 
       // Optional: see doc section below
       appId: 'RGEY1AKPUC',
