@@ -69,82 +69,44 @@ eval(safe_get_user_input())
 Run the tests with the following:
 
 ```sh
-python -m semgrep --quiet --test rules/
+semgrep --test rules/
 ```
 
 Which will produce the following output:
 ```sh
-1 yaml files tested
-check id scoring:
---------------------------------------------------------------------------------
-(TODO: 2) rules/detect-eval.yaml
-	✖ insecure-eval-use                                  TP: 1 TN: 2 FP: 1 FN: 1
-	test: rules/detect-eval.py, expected lines: [5, 12], reported lines: [5, 15]
---------------------------------------------------------------------------------
-final confusion matrix: TP: 1 TN: 2 FP: 1 FN: 1
---------------------------------------------------------------------------------
+1/1: ✓ All tests passed
+No tests for fixes found.
 ```
 
-- True positives (`TP`) correspond to `ruleid`
-- True negatives (`TN`) correspond to `ok`
-- False positives (`FP`) correspond to `todook`
-- False negatives (`FN`) correspond to `todoruleid`
-
+As you can see, semgrep tests automatically avoid failing on lines marked with `# todoruleid` or `# todook`.
 To avoid failing on TODOs you can specify `--test-ignore-todo`:
 
-```sh
-python -m semgrep --quiet --test --test-ignore-todo rules/
-```
-
-This will produce the following output:
-```sh
-1 yaml files tested
-check id scoring:
---------------------------------------------------------------------------------
-(TODO: 2) rules/detect-eval.yaml
-	✔ insecure-eval-use                                  TP: 1 TN: 1 FP: 0 FN: 0
---------------------------------------------------------------------------------
-final confusion matrix: TP: 1 TN: 1 FP: 0 FN: 0
---------------------------------------------------------------------------------
-```
-
-To store rules and test targets in different directories you can specify `--config`:
+To store rules and test targets in different directories you can specify `--config`.
+For the following directory structure,
 
 ```sh
-tree tests
-```
+$ tree tests
 
-will produce the following output:
-```sh
 tests
 ├── rules
 │   └── python
-│       └── test.yaml
+│       └── insecure-eval-use.yaml
 └── targets
     └── python
-        └── test.py
+        └── insecure-eval-use.py
 
 4 directories, 2 files
 ```
 
+the command
+
 ```sh
-python -m semgrep --quiet --test --config /tmp/tests/rules/ /tmp/tests/targets/
+semgrep --test --config tests/rules/ tests/targets/
 ```
 
-will produce the following output:
-```sh
-1 yaml files tested
-check id scoring:
---------------------------------------------------------------------------------
-(TODO: 0) /tmp/tests/rules/python/test.yaml
-	✔ eqeq-is-bad                                        TP: 1 TN: 0 FP: 0 FN: 0
---------------------------------------------------------------------------------
-final confusion matrix: TP: 1 TN: 0 FP: 0 FN: 0
---------------------------------------------------------------------------------
-```
+will produce the same output as before.
 
-The subdirectory structure of these two directories must be the same for Semgrep to
-correctly find the associated files.
+The subdirectory structure of these two directories must be the same for Semgrep to correctly find the associated files.
 
 ## Validating rules
 
