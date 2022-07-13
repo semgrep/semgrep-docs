@@ -85,6 +85,9 @@ Extract mode rules **also require** two additional fields:
   - `extract`
   - `dest-language`
 
+Extract mode has one **optional** field:
+  - `reduce`
+
 The extract mode specific fields are further explained in two sections below.
 
 ### `extract`
@@ -94,6 +97,14 @@ The `extract` key is required when in extract mode. The value must be a metavari
 ### `dest-language`
 
 The `dest-language` key is required when in extract mode. The value must be a [language tag](../../writing-rules/rule-syntax/#language-extensions-and-tags) other than `generic`.
+
+### `reduce`
+
+The `reduce` key is optional when in extract mode. The value of this key specifies a method to combine the ranges extracted by a single rule within a file.
+
+The value must be one of:
+  - `separate` (default)&mdash;treat all matched ranges as separate units for subseqent queries
+  - `concat`&mdash;concatenate all matched ranges together and treat this result as a single unit for subseqent queries
 
 
 ## Limitations of extract mode
