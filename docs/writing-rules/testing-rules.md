@@ -133,7 +133,7 @@ produces the same output as in the previous example.
 
 The subdirectory structure of these two directories must be the same for Semgrep to correctly find the associated files.
 
-To test the autofix behaviour, you can add the autofix test file `rules/detect-eval.fixed.py` to represent the expected outcome of applying the fix to the test code:
+To test the autofix behavior, add the autofix test file `rules/detect-eval.fixed.py` to represent the expected outcome of applying the fix to the test code:
 
 ```python
 from lib import get_user_input, safe_get_user_input, secure_eval
