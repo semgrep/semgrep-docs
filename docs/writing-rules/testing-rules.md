@@ -102,7 +102,7 @@ Which will produce the following output:
 No tests for fixes found.
 ```
 
-As you can see, semgrep tests automatically avoid failing on lines marked with `# todoruleid` or `# todook`.
+Semgrep tests automatically avoid failing on lines marked with `# todoruleid` or `# todook`.
 To avoid failing on TODOs you can specify `--test-ignore-todo`:
 
 To store rules and test targets in different directories you can specify `--config`.
