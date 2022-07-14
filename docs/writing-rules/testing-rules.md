@@ -45,7 +45,7 @@ When you use `semgrep --test`, Semgrep applies the autofix rule to the original 
    If there is a mismatch, the line diffs will be printed.
 
 :::info
-Hint: creating an autofix test for a rule whose autofix is functioning as expected can take less than a minute with the following flow of commands:
+Hint: Creating an autofix test for a rule with autofix can take less than a minute with the following flow of commands:
 ```sh
 cp rule.py rule.fixed.py
 semgrep --config rule.yaml rule.fixed.py --autofix
