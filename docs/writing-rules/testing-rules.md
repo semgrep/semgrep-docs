@@ -38,7 +38,7 @@ To define a test for autofix behavior:
 
 1. Create a new **autofix test file** with the `.fixed` suffix before the file type extension.  
    For example, the autofix test file for a rule with test code in `path/to/rule.py` will be named `path/to/rule.fixed.py`.
-2. This file should contain the expected result of applying autofixes to the test code file.
+2. Within the autofix test file, enter the expected result of applied autofix rule to the test code.
 3. Any future runs of the command `semgrep --test` will apply the autofix to the original testcode (`path/to/rule.py`) and verify whether this matches the expected outcome defined in the autofix test file (`path/to/rule.fixed.py`).
    If there is a mismatch, the line diffs will be printed.
 
