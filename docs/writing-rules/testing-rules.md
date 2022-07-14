@@ -33,7 +33,7 @@ The `.test.yaml` file extension can also be used for test files. This is necessa
 
 ## Testing autofix
 
-Semgrep's testing mechanism also provides a way to test the behaviour of any fixes defined in the rules.
+Semgrep's testing mechanism also provides a way to test the behavior of any `fix` values defined in the rules.
 To define a test for autofix behaviour: 
 
 1. Create a new code file with the `.fixed` suffix before the annotation. 
