@@ -103,7 +103,6 @@ No tests for fixes found.
 ```
 
 Semgrep tests automatically avoid failing on lines marked with `# todoruleid` or `# todook`.
-To avoid failing on TODOs you can specify `--test-ignore-todo`:
 
 To store rules and test targets in different directories you can specify `--config`.
 For the following directory structure,
