@@ -106,7 +106,7 @@ Semgrep tests automatically avoid failing on lines marked with `# todoruleid` or
 ## Storing rules and test targets in different directories
 
 Creating different directories for rules and tests helps users manage a growing library of custom rules.
-To store rules and test targets in different directories you can specify `--config`.
+To store rules and test targets in different directories use the `--config` option.
 For the following directory structure,
 
 ```sh
