@@ -23,13 +23,14 @@ import MoreHelp from "/src/components/MoreHelp"
 | Java       |                            | C++                        |
 | JavaScript |                            | Dockerfile                 |
 | JSON       |                            | Hack                       |
-| JSX        |                            | Lua                        |
-| PHP        |                            | OCaml                      |
-| Python     |                            | R                          |
-| Ruby       |                            | Rust                       |
-| Scala      |                            | Solidity                   |
-| TSX        |                            | YAML                       |
-| TypeScript |                            | Generic (ERB, Jinja, etc.) |
+| JSX        |                            | HTML                       |
+| PHP        |                            | Lua                        |
+| Python     |                            | OCaml                      |
+| Ruby       |                            | R                          |
+| Scala      |                            | Rust                       |
+| TSX        |                            | Solidity                   |
+| TypeScrip  |                            | YAML                       |
+|            |                            | Generic (ERB, Jinja, etc.) |
 
 ## Support expectations
 
