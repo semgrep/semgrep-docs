@@ -120,7 +120,7 @@ tests
 4 directories, 2 files
 ```
 
-Use the following command:
+Use of the following command:
 
 ```sh
 semgrep --test --config tests/rules/ tests/targets/
