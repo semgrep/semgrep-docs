@@ -51,7 +51,7 @@ cp rule.py rule.fixed.py
 semgrep --config rule.yaml rule.fixed.py --autofix
 ```
 
-This will apply the fix of the rule to the testcode. It is advised to manually inspect whether the fix behaves as expected (e.g. using `vimdiff rule.py rule.fixed.py`).
+These commands apply the rule's autofix to the test code. It is advised to manually inspect whether the fix behaves as expected (e.g. using `vimdiff rule.py rule.fixed.py`).
 :::
 
 ## Example
