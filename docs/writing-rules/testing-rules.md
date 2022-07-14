@@ -127,7 +127,7 @@ the command
 semgrep --test --config tests/rules/ tests/targets/
 ```
 
-will produce the same output as before.
+produces the same output as in the previous example.
 
 The subdirectory structure of these two directories must be the same for Semgrep to correctly find the associated files.
 
