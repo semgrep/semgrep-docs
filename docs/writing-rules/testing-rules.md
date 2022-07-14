@@ -31,6 +31,28 @@ Other than annotations there are three things to remember when creating tests:
 The `.test.yaml` file extension can also be used for test files. This is necessary when testing YAML language rules.
 :::
 
+## Testing autofix
+
+Semgrep's testing mechanism also provides a way to test the behavior of any `fix` values defined in the rules.
+To define a test for autofix behavior: 
+
+1. Create a new **autofix test file** with the `.fixed` suffix before the file type extension.  
+   For example, the autofix test file for a rule with test code in `path/to/rule.py` will be named `path/to/rule.fixed.py`.
+2. Within the autofix test file, enter the expected result of applied autofix rule to the test code.
+3. Run `semgrep --test` to verify that your autofix test file is correctly detected.
+
+When you use `semgrep --test`, Semgrep applies the autofix rule to the original test code (`path/to/rule.py`), and then verifies whether this matches the expected outcome defined in the autofix test file (`path/to/rule.fixed.py)`. If there is a mismatch, the line diffs are printed.
+
+:::info
+**Hint**: Creating an autofix test for a rule with autofix can take less than a minute with the following flow of commands:
+```sh
+cp rule.py rule.fixed.py
+semgrep --config rule.yaml rule.fixed.py --autofix
+```
+
+These commands apply the autofix of the rule to the test code. After Semgrep delivers a fix, inspect whether the outcome of this fix looks as expected (for example using `vimdiff rule.py rule.fixed.py`).
+:::
+
 ## Example
 
 Consider the following rule:
@@ -39,8 +61,9 @@ Consider the following rule:
 rules:
 - id: insecure-eval-use
   patterns:
-  - pattern: eval(...)
+  - pattern: eval($VAR)
   - pattern-not: eval("...")
+  fix: secure_eval($VAR)
   message: Calling 'eval' with user input
   languages: [python]
   severity: WARNING
@@ -69,82 +92,120 @@ eval(safe_get_user_input())
 Run the tests with the following:
 
 ```sh
-python -m semgrep --quiet --test rules/
+semgrep --test rules/
 ```
 
 Which will produce the following output:
 ```sh
-1 yaml files tested
-check id scoring:
---------------------------------------------------------------------------------
-(TODO: 2) rules/detect-eval.yaml
-	✖ insecure-eval-use                                  TP: 1 TN: 2 FP: 1 FN: 1
-	test: rules/detect-eval.py, expected lines: [5, 12], reported lines: [5, 15]
---------------------------------------------------------------------------------
-final confusion matrix: TP: 1 TN: 2 FP: 1 FN: 1
---------------------------------------------------------------------------------
+1/1: ✓ All tests passed
+No tests for fixes found.
 ```
 
-- True positives (`TP`) correspond to `ruleid`
-- True negatives (`TN`) correspond to `ok`
-- False positives (`FP`) correspond to `todook`
-- False negatives (`FN`) correspond to `todoruleid`
+Semgrep tests automatically avoid failing on lines marked with `# todoruleid` or `# todook`.
 
-To avoid failing on TODOs you can specify `--test-ignore-todo`:
+## Storing rules and test targets in different directories
+## Storing rules and test targets in different directories
 
-```sh
-python -m semgrep --quiet --test --test-ignore-todo rules/
-```
+Creating different directories for rules and tests helps users manage a growing library of custom rules.
+Creating different directories for rules and tests helps users manage a growing library of custom rules.
+To store rules and test targets in different directories use the `--config` option.
 
-This will produce the following output:
-```sh
-1 yaml files tested
-check id scoring:
---------------------------------------------------------------------------------
-(TODO: 2) rules/detect-eval.yaml
-	✔ insecure-eval-use                                  TP: 1 TN: 1 FP: 0 FN: 0
---------------------------------------------------------------------------------
-final confusion matrix: TP: 1 TN: 1 FP: 0 FN: 0
---------------------------------------------------------------------------------
-```
-
-To store rules and test targets in different directories you can specify `--config`:
+For example, the directory with the following structure:
 
 ```sh
-tree tests
-```
+$ tree tests
 
-will produce the following output:
-```sh
 tests
 ├── rules
 │   └── python
-│       └── test.yaml
+│       └── insecure-eval-use.yaml
 └── targets
     └── python
-        └── test.py
+        └── insecure-eval-use.py
 
 4 directories, 2 files
 ```
 
+The following command:
+
 ```sh
-python -m semgrep --quiet --test --config /tmp/tests/rules/ /tmp/tests/targets/
+semgrep --test --config tests/rules/ tests/targets/
 ```
 
-will produce the following output:
-```sh
-1 yaml files tested
-check id scoring:
---------------------------------------------------------------------------------
-(TODO: 0) /tmp/tests/rules/python/test.yaml
-	✔ eqeq-is-bad                                        TP: 1 TN: 0 FP: 0 FN: 0
---------------------------------------------------------------------------------
-final confusion matrix: TP: 1 TN: 0 FP: 0 FN: 0
---------------------------------------------------------------------------------
+Produces the same output as in the previous example.
+
+The subdirectory structure of these two directories must be the same for Semgrep to correctly find the associated files.
+
+To test the autofix behavior, add the autofix test file `rules/detect-eval.fixed.py` to represent the expected outcome of applying the fix to the test code:
+
+```python
+from lib import get_user_input, safe_get_user_input, secure_eval
+
+user_input = get_user_input()
+# ruleid: insecure-eval-use
+secure_eval(user_input)
+
+# ok: insecure-eval-use
+eval('print("Hardcoded eval")')
+
+totally_safe_eval = eval
+# todoruleid: insecure-eval-use
+totally_safe_eval(user_input)
+
+# todook: insecure-eval-use
+secure_eval(safe_get_user_input())
 ```
 
-The subdirectory structure of these two directories must be the same for Semgrep to
-correctly find the associated files.
+So that the directory structure is printed as the following:
+
+```sh
+$ tree tests
+
+tests
+├── rules
+│   └── python
+│       └── insecure-eval-use.yaml
+└── targets
+    └── python
+        └── insecure-eval-use.py
+        └── insecure-eval-use.fixed.py
+
+4 directories, 2 files
+```
+
+The following command:
+
+```sh
+semgrep --test --config tests/rules/ tests/targets/
+```
+
+will now results in
+
+```sh
+1/1: ✓ All tests passed
+1/1: ✓ All fix tests passed
+```
+
+If the fix does not behave as expected, the output will print a line diff.
+For example, if we replace `secure_eval` with `safe_eval`, we can see that lines 5 and 15 are not as expected.
+
+```sh
+1/1: ✓ All tests passed
+0/1: 1 fix tests did not pass:
+--------------------------------------------------------------------------------
+	✖ targets/python/detect-eval.fixed.py <> autofix applied to targets/python/detect-eval.py
+
+	---
+	+++
+	@@ -5 +5 @@
+	-safe_eval(user_input)
+	+secure_eval(user_input)
+	@@ -15 +15 @@
+	-safe_eval(safe_get_user_input())
+	+secure_eval(safe_get_user_input())
+
+```
+
 
 ## Validating rules
 
