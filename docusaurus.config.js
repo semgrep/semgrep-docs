@@ -134,7 +134,7 @@ module.exports = {
       id: 'office-hours',
       content:
         'Semgrep Weekly Wednesday Office Hours! 🕙 Every Wednesday at 10am PT. <a target="_blank" rel="noopener noreferrer" href="https://get.semgrep.dev/officehours">Save your seat</a> to join us on July 27th!',
-      backgroundColor: '#5F36D9',
+      backgroundColor: '#00a674',
       textColor: '#ffffff',
       isCloseable: false,
     },
