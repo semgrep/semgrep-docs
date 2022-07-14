@@ -34,7 +34,7 @@ The `.test.yaml` file extension can also be used for test files. This is necessa
 ## Testing autofix
 
 Semgrep's testing mechanism also provides a way to test the behavior of any `fix` values defined in the rules.
-To define a test for autofix behaviour: 
+To define a test for autofix behavior: 
 
 1. Create a new code file with the `.fixed` suffix before the annotation. 
    For example, the autofix test file for a rule with test code in `path/to/rule.py` will be named `path/to/rule.fixed.py`.
