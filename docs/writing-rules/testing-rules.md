@@ -41,17 +41,16 @@ To define a test for autofix behavior:
 2. Within the autofix test file, enter the expected result of applied autofix rule to the test code.
 3. Run `semgrep --test` to verify that your autofix test file is correctly detected.
 
-When you use `semgrep --test`, Semgrep applies the autofix rule to the original test code (`path/to/rule.py`), and then verifies whether this matches the expected outcome defined in the autofix test file (`path/to/rule.fixed.py)`. If there is a mismatch, the line diffs are printed.```
-   If there is a mismatch, the line diffs will be printed.
+When you use `semgrep --test`, Semgrep applies the autofix rule to the original test code (`path/to/rule.py`), and then verifies whether this matches the expected outcome defined in the autofix test file (`path/to/rule.fixed.py)`. If there is a mismatch, the line diffs are printed.
 
 :::info
-Hint: Creating an autofix test for a rule with autofix can take less than a minute with the following flow of commands:
+**Hint**: Creating an autofix test for a rule with autofix can take less than a minute with the following flow of commands:
 ```sh
 cp rule.py rule.fixed.py
 semgrep --config rule.yaml rule.fixed.py --autofix
 ```
 
-These commands apply the rule's autofix to the test code. It is advised to manually inspect whether the fix behaves as expected (e.g. using `vimdiff rule.py rule.fixed.py`).
+These commands apply the autofix of the rule to the test code. After Semgrep delivers a fix, inspect whether the outcome of this fix looks as expected (for example using `vimdiff rule.py rule.fixed.py`).
 :::
 
 ## Example
@@ -103,11 +102,15 @@ No tests for fixes found.
 ```
 
 Semgrep tests automatically avoid failing on lines marked with `# todoruleid` or `# todook`.
+
+## Storing rules and test targets in different directories
 ## Storing rules and test targets in different directories
 
 Creating different directories for rules and tests helps users manage a growing library of custom rules.
+Creating different directories for rules and tests helps users manage a growing library of custom rules.
 To store rules and test targets in different directories use the `--config` option.
-For the following directory structure,
+
+For example, the directory with the following structure:
 
 ```sh
 $ tree tests
@@ -123,13 +126,13 @@ tests
 4 directories, 2 files
 ```
 
-the command
+The following command:
 
 ```sh
 semgrep --test --config tests/rules/ tests/targets/
 ```
 
-produces the same output as in the previous example.
+Produces the same output as in the previous example.
 
 The subdirectory structure of these two directories must be the same for Semgrep to correctly find the associated files.
 
@@ -153,7 +156,7 @@ totally_safe_eval(user_input)
 secure_eval(safe_get_user_input())
 ```
 
-So that the directory structure looks like this:
+So that the directory structure is printed as the following:
 
 ```sh
 $ tree tests
@@ -170,7 +173,7 @@ tests
 4 directories, 2 files
 ```
 
-The command
+The following command:
 
 ```sh
 semgrep --test --config tests/rules/ tests/targets/
