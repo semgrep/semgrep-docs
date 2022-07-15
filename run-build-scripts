@@ -2,3 +2,5 @@
 
 python3 replace-on-build.py
 bash copy-metrics-md
+pipenv install
+pipenv run python3 create-supported-languages.py

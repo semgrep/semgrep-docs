@@ -1,0 +1,3 @@
+[submodule "src/semgrep-langs"]
+	path = src/semgrep-langs
+	url = git@github.com:returntocorp/semgrep-langs.git
