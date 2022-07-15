@@ -46,8 +46,6 @@ Semgrep is developed and commercially supported by [r2c, a software security com
 
 ## Language support
 
-Semgrep supports 20+ languages.
-
 <SupportedLanguagesTable />
 
 To determine experimental, beta, or general availability (GA) status we scan a wide corpus of projects and measure the parse rate of each language. For more details see [the breakdown of all supported languages](supported-languages/).
