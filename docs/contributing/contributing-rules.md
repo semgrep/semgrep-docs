@@ -19,13 +19,17 @@ There are two ways in which you can contribute to the Semgrep rules repository:
 
 ### Contributing through Semgrep App (recommended)
 
-To contribute to the Semgrep rules repository through Semgrep App, follow these steps:
+Publish rules in the open-source Semgrep Registry to share them with the Semgrep community. To contribute and publish rules to the Semgrep Registry, follow these steps:
+
 1. Go to [Semgrep App Editor](https://semgrep.dev/orgs/-/editor).
 2. Click **Create New Rule**.
 3. Make one of the following steps:
     - Create a new rule and test code, and then click **Save**. Note: The test file must contain at least one true positive and one true negative test case to be approved. See the [Tests](#tests) section of this document for more information.
     - Select a rule from a category in **Semgrep Registry**. Modify the rule or test code, click **Save**, and then **Fork**.
 4. Click **Share**.
+5. Click **Publish to Registry**.
+6. Fill in the required and optional fields.
+7. Click **Continue**, and then click **Create PR**.
 
 This workflow automatically creates a pull request in the GitHub [rules repository](https://github.com/returntocorp/semgrep-rules). Find more about the rules repository by reading the [Rule writing](#rule-writing) and [Tests](#tests) sections.
 
