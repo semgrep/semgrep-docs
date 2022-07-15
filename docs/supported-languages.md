@@ -6,7 +6,7 @@ description: >-
   Semgrep supports more than two dozen languages. Learn about generally available, beta, and experimentally supported languages.
 ---
 
-import SupportedLanguagesTable from './modules/reference-modules/_supported-languages-table.mdx'
+import SupportedLanguagesTable from '/src/components/modules/reference-modules/_supported-languages-table.mdx'
 import MoreHelp from "/src/components/MoreHelp"
 
 # Supported languages

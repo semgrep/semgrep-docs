@@ -8,7 +8,7 @@ description: >-
   for finding bugs and enforcing code standards at editor, commit, and CI time.
 ---
 
-import SupportedLanguagesTable from './modules/reference-modules/_supported-languages-table.mdx'
+import SupportedLanguagesTable from '/src/components/modules/reference-modules/_supported-languages-table.mdx'
 import MoreHelp from "/src/components/MoreHelp"
 
 <br />
