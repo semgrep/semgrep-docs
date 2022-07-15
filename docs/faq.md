@@ -28,13 +28,13 @@ The source for many r2c-written Registry rules is available at [returntocorp/sem
 
 Yes! Semgrep is safe to run on your private code. The [Semgrep Registry license’s](../licensing/#semgrep-registry-license) commercial restrictions only come into effect if you are _selling_ the rules provided in the semgrep-rules repository. If that’s the case, you’ll need to talk with r2c first to get permission.
 
-### I’m a security professional and want to use the [`semgrep-rules repository`](https://github.com/returntocorp/semgrep-rules) with my clients as part of my paid services. Is that ok?
+### I’m a security professional and want to use the rules from the [`semgrep-rules` repository](https://github.com/returntocorp/semgrep-rules) with my clients as part of my paid services. Is that ok?
 
 If you have a typical consulting service and running [`semgrep` repository](https://github.com/returntocorp/semgrep) or [`semgrep-rules` repository](https://github.com/returntocorp/semgrep-rules) is part of your assessments, that’s great and of course feel free to refer your clients to the [Semgrep App](https://semgrep.dev/). But if your entire service is about scanning code and you want to charge for running the `semgrep-rules` repository that r2c and the community created and maintains, you need to discuss this with r2c.
 
 ### Contacting r2c support 
 
-All users can contact r2c support. Regardless if you are free tier user or higher tier, reach our support through the [r2c Community Slack](https://r2c.dev/slack). Semgrep Team tier customers receive 8\*5 email/phone/Slack support with committed SLAs. See [Support](../support/) for more details.
+All users can contact r2c support. Regardless if you are free tier or paid tier user, reach our support through the [r2c Community Slack](https://r2c.dev/slack). Semgrep Team tier customers receive 8\*5 email/phone/Slack support with committed SLAs. See [Support](../support/) for more details.
 
 ### Embedding the Playground in my website or blog post
 
@@ -79,7 +79,7 @@ Many other tools require a buildable environment or can only be run in a VM. Sem
 
 And many more: see [the Semgrep philosophy](../contributing/semgrep-philosophy/) for further reading.
 
-### Comparing Semgrep to other linters
+### Comparing Semgrep to linters
 
 Linters use static analysis but typically have a narrower scope for analysis (most rules typically operate on a single line). Some linters also cover stylistic decisions (for example use of tabs versus spaces), but Semgrep doesn’t care about whitespace or formatting.
 
