@@ -8,6 +8,7 @@ import CicleCheck from '../img/circle-check-solid.svg'
 import CodePullRequest from '../img/code-pull-request-solid.svg'
 import EarthAmericas from '../img/earth-americas-solid.svg'
 import FloppyDisk from '../img/floppy-disk-solid.svg'
+import CodeBranch from '../img/code-branch-solid.svg'
 
 # Contributing to Semgrep rules
 
@@ -31,7 +32,7 @@ Publish rules in the open-source Semgrep Registry to share them with the Semgrep
 2. Click **Create New Rule**.
 3. Make one of the following steps:
     - Create a new rule and test code, and then click <FloppyDisk className="inline_svg" /> **Save**. Note: The test file must contain at least one true positive and one true negative test case to be approved. See the [Tests](#tests) section of this document for more information.
-    - Select a rule from a category in **Semgrep Registry**. Modify the rule or test code, click **Save**, and then **Fork**.
+    - Select a rule from a category in **Semgrep Registry**. Modify the rule or test code, click <FloppyDisk className="inline_svg" /> **Save**, and then <CodeBranch className="inline_svg" /> **Fork**.
 4. Click <EarthAmericas className="inline_svg" /> **Share**.
 5. Click <CloudArrowUp className="inline_svg" /> **Publish to Registry**.
 1. Fill in the required and optional fields.
