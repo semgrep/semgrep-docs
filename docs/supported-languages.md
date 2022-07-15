@@ -3,7 +3,7 @@ slug: supported-languages
 id: supported-languages
 append_help_link: true
 description: >-
-  Semgrep supports over a dozen languages. Learn about generally available, beta, and experimentally supported languages.
+  Semgrep supports more than two dozen languages. Learn about generally available, beta, and experimentally supported languages.
 ---
 
 import SupportedLanguagesTable from './modules/reference-modules/_supported-languages-table.mdx'
