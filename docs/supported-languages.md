@@ -6,30 +6,14 @@ description: >-
   Semgrep supports over a dozen languages. Learn about generally available, beta, and experimentally supported languages.
 ---
 
+import SupportedLanguagesTable from './modules/reference-modules/_supported-languages-table.mdx'
 import MoreHelp from "/src/components/MoreHelp"
 
 # Supported languages
 
 ## Language maturity
 
-<!-- coupling: If you modify this table, copy paste it also in index.md! -->
-<!-- coupling: Should match what is in semgrep-core/tests/Test.ml Maturity level testing. -->
-<!-- For readability, please keep each column in alphabetical order. -->
-
-| GA ✅      | Beta 🐛                     | Experimental 🚧            |
-|:---------- |:---------------------------|:---------------------------|
-| C#         | Kotlin                     | Bash                       |
-| Go         | Terraform                  | C                          |
-| Java       |                            | C++                        |
-| JavaScript |                            | Dockerfile                 |
-| JSON       |                            | Hack                       |
-| JSX        |                            | Lua                        |
-| PHP        |                            | OCaml                      |
-| Python     |                            | R                          |
-| Ruby       |                            | Rust                       |
-| Scala      |                            | Solidity                   |
-| TSX        |                            | YAML                       |
-| TypeScript |                            | Generic (ERB, Jinja, etc.) |
+<SupportedLanguagesTable />
 
 ## Support expectations
 
