@@ -92,19 +92,23 @@ The extract mode specific fields are further explained in two sections below.
 
 ### `extract`
 
-The `extract` key is required when in extract mode. The value must be a metavariable appearing in your pattern(s). Semgrep uses the code bound to the metavariable for subsequent queries of non-extract mode rules targeting `dest-language`.
+The `extract` key is required in extract mode. The value must be a metavariable appearing in your pattern(s). Semgrep uses the code bound to the metavariable for subsequent queries of non-extract mode rules targeting `dest-language`.
 
 ### `dest-language`
 
-The `dest-language` key is required when in extract mode. The value must be a [language tag](../../writing-rules/rule-syntax/#language-extensions-and-tags) other than `generic`.
+The `dest-language` key is required in extract mode. The value must be a [language tag](../../writing-rules/rule-syntax/#language-extensions-and-tags) other than `generic`.
 
 ### `reduce`
 
-The `reduce` key is optional when in extract mode. The value of this key specifies a method to combine the ranges extracted by a single rule within a file.
+The `reduce` key is optional in extract mode. The value of this key specifies a method to combine the ranges extracted by a single rule within a file.
 
-The value must be one of:
-  - `separate` (default)&mdash;treat all matched ranges as separate units for subseqent queries
-  - `concat`&mdash;concatenate all matched ranges together and treat this result as a single unit for subseqent queries
+The value of `reduce` key must be one of the following:
+<dl>
+    <dt><code>separate</code></dt>
+    <dd><p>Treat all matched ranges as separate units for subsequent queries. This is the <b>default</b> value.</p></dd>
+    <dt><code>concat</code></dt>
+    <dd><p>Concatenate all matched ranges together and treat this result as a single unit for subsequent queries.</p></dd>
+</dl>
 
 
 ## Limitations of extract mode
