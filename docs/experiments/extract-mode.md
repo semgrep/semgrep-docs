@@ -88,7 +88,7 @@ Extract mode rules **also require** two additional fields:
 Extract mode has one **optional** field:
   - `reduce`
 
-The extract mode specific fields are further explained in two sections below.
+The fields specific to extract mode are further explained in the sections below.
 
 ### `extract`
 
