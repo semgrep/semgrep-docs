@@ -8,10 +8,7 @@ import MoreHelp from "/src/components/MoreHelp"
 
 # Testing rules
 
-Semgrep provides a convenient testing mechanism for your rules. You can
-simply write code and provide a few
-annotations to let Semgrep know where you are or aren't expecting findings. Semgrep
-provides the following annotations:
+Semgrep provides a convenient testing mechanism for your rules. You can simply write code and provide a few annotations to let Semgrep know where you are or aren't expecting findings. Semgrep provides the following annotations:
 
 - `ruleid: <rule-id>`, for protecting against false negatives
 - `ok: <rule-id>` for protecting against false positives
@@ -23,9 +20,8 @@ Other than annotations there are three things to remember when creating tests:
 1. The `--test` flag tells Semgrep to run tests in the specified directory.
 2. Annotations are specified as a comment above the offending line.
 3. Semgrep looks for tests based on the rule filename and the languages
-   specified in the rule. In other words, `path/to/rule.yaml` will look for
-   `path/to/rule.py`, `path/to/rule.js`, etc., based on the languages specified
-   in the rule.
+   specified in the rule. In other words, `path/to/rule.yaml` searches for
+   `path/to/rule.py`, `path/to/rule.js` and similar, based on the languages specified in the rule.
 
 :::info
 The `.test.yaml` file extension can also be used for test files. This is necessary when testing YAML language rules.
@@ -34,10 +30,11 @@ The `.test.yaml` file extension can also be used for test files. This is necessa
 ## Testing autofix
 
 Semgrep's testing mechanism also provides a way to test the behavior of any `fix` values defined in the rules.
+
 To define a test for autofix behavior: 
 
 1. Create a new **autofix test file** with the `.fixed` suffix before the file type extension.  
-   For example, the autofix test file for a rule with test code in `path/to/rule.py` will be named `path/to/rule.fixed.py`.
+   For example, name the autofix test file of a rule with test code in `path/to/rule.py` as `path/to/rule.fixed.py`.
 2. Within the autofix test file, enter the expected result of applied autofix rule to the test code.
 3. Run `semgrep --test` to verify that your autofix test file is correctly detected.
 
@@ -104,13 +101,10 @@ No tests for fixes found.
 Semgrep tests automatically avoid failing on lines marked with `# todoruleid` or `# todook`.
 
 ## Storing rules and test targets in different directories
-## Storing rules and test targets in different directories
 
-Creating different directories for rules and tests helps users manage a growing library of custom rules.
-Creating different directories for rules and tests helps users manage a growing library of custom rules.
-To store rules and test targets in different directories use the `--config` option.
+Creating different directories for rules and tests helps users manage a growing library of custom rules. To store rules and test targets in different directories use the `--config` option.
 
-For example, the directory with the following structure:
+For example, in the directory with the following structure:
 
 ```sh
 $ tree tests
@@ -126,7 +120,7 @@ tests
 4 directories, 2 files
 ```
 
-The following command:
+Use of the following command:
 
 ```sh
 semgrep --test --config tests/rules/ tests/targets/
@@ -173,21 +167,21 @@ tests
 4 directories, 2 files
 ```
 
-The following command:
+Use of the following command:
 
 ```sh
 semgrep --test --config tests/rules/ tests/targets/
 ```
 
-will now results in
+Results in the following outcome:
 
 ```sh
 1/1: ✓ All tests passed
 1/1: ✓ All fix tests passed
 ```
 
-If the fix does not behave as expected, the output will print a line diff.
-For example, if we replace `secure_eval` with `safe_eval`, we can see that lines 5 and 15 are not as expected.
+If the fix does not behave as expected, the output prints a line diff.
+For example, if we replace `secure_eval` with `safe_eval`, we can see that lines 5 and 15 are not rendered as expected.
 
 ```sh
 1/1: ✓ All tests passed
@@ -206,15 +200,14 @@ For example, if we replace `secure_eval` with `safe_eval`, we can see that lines
 
 ```
 
-
 ## Validating rules
 
 At r2c, we believe in checking the code we write, and that includes rules.
 
-You can run `semgrep --validate --config [file]` to check the given config. This will run a combination of Semgrep rules and OCaml checks against your rules to search for things like duplicate patterns and missing fields. All rules submitted to the semgrep-rules repository are validated.
+You can run `semgrep --validate --config [filename]` to check given the configuration. This command runs a combination of Semgrep rules and OCaml checks against your rules to search for issues such as duplicate patterns and missing fields. All rules submitted to the semgrep-rules repository are validated.
 
 The semgrep rules are pulled from `p/semgrep-rule-lints`.
 
-This feature is still experimental and under active development. Feedback is welcome!
+This feature is still experimental and under active development. Your feedback is welcomed!
 
 <MoreHelp />
