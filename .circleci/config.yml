@@ -1,11 +1,17 @@
 version: 2.1
 
-jobs:
-  test:
+executors:
+  common-image:
     docker:
-      - image: cimg/node:16.14.2
+      - image: cimg/python:3.10.5-node
+
+
+commands:
+  install-all-the-things:
+    description: Run common installation commands
     steps:
       - checkout
+      - run: git submodule update --init --recursive
       - restore_cache:
           key: dependency-cache-{{ checksum "yarn.lock" }}
       - run:
@@ -14,6 +20,16 @@ jobs:
       - run:
           name: Install Deps
           command: yarn install
+      - run:
+          name: Install pipenv
+          command: python3 -m pip install --upgrade pip && python3 -m pip install pipenv && pipenv install
+
+jobs:
+  test:
+    executor:
+      name: common-image
+    steps:
+      - install-all-the-things: {}
       - save_cache:
           key: dependency-cache-{{ checksum "yarn.lock" }}
           paths:
@@ -22,18 +38,10 @@ jobs:
           name: Yarn Build
           command: yarn build
   deployStaging:
-    docker:
-      - image: cimg/node:16.14.2
+    executor:
+      name: common-image
     steps:
-      - checkout
-      - restore_cache:
-          key: dependency-cache-{{ checksum "yarn.lock" }}
-      - run:
-          name: Install aws cli
-          command: sudo apt-get update && sudo apt-get -y -qq install awscli && aws --version
-      - run:
-          name: Install Deps
-          command: yarn install
+      - install-all-the-things: {}
       - run:
           name: Build site
           command: yarn build
@@ -41,18 +49,10 @@ jobs:
           name: Yarn Deploy Staging
           command: aws s3 sync build/ s3://staging-semgrep-dev/docs
   deployProd:
-    docker:
-      - image: cimg/node:16.14.2
+    executor:
+      name: common-image
     steps:
-      - checkout
-      - restore_cache:
-          key: dependency-cache-{{ checksum "yarn.lock" }}
-      - run:
-          name: Install aws cli
-          command: sudo apt-get update && sudo apt-get -y -qq install awscli && aws --version
-      - run:
-          name: Install Deps
-          command: yarn install
+      - install-all-the-things: {}
       - run:
           name: Build site
           command: yarn build
