@@ -233,7 +233,6 @@ pipeline {
 ```
 - label: ":semgrep: Semgrep"
   commands:
-    - export SEMGREP_BASELINE_REF=""
     - export SEMGREP_REPO_URL="$(echo "$BUILDKITE_REPO" | sed -e 's#.\{4\}$##')"
     - export SEMGREP_BRANCH=${BUILDKITE_BRANCH}
     - export SEMGREP_COMMIT=${BUILDKITE_COMMIT}
