@@ -52,6 +52,6 @@ rows = [
 ]
 
 # Generate the supported languages file
-template = env.get_template("supported-languages.md.j2")
-with (Path(__file__).parent / "docs" / "supported-languages.md").open("w") as fd:
+template = env.get_template("_supported-languages-table.md.j2")
+with (Path(__file__).parent / "src" / "componenets" / "modules" / "reference-modules" / "_supported-languages-table.mdx").open("w") as fd:
     fd.write(template.render(supported_langs="\n".join(rows)))
