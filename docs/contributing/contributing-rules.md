@@ -30,13 +30,13 @@ Publish rules in the open-source Semgrep Registry to share them with the Semgrep
 
 1. Go to [Semgrep App Editor](https://semgrep.dev/orgs/-/editor).
 2. Click **Create New Rule**.
-3. Make one of the following steps:
-    - Create a new rule and test code, and then click <FloppyDisk className="inline_svg" /> **Save**. Note: The test file must contain at least one true positive and one true negative test case to be approved. See the [Tests](#tests) section of this document for more information.
-    - Select a rule from a category in **Semgrep Registry**. Modify the rule or test code, click <FloppyDisk className="inline_svg" /> **Save**, and then <CodeBranch className="inline_svg" /> **Fork**.
+3. Choose one of the following steps:
+    1. Create a new rule and test code, and then click <FloppyDisk className="inline_svg" /> **Save**. Note: The test file must contain at least one true positive and one true negative test case to be approved. See the [Tests](#tests) section of this document for more information.
+    2. Select a rule from a category in **Semgrep Registry**. Click <CodeBranch className="inline_svg" /> **Fork**, modify the rule or test code, and then click <FloppyDisk className="inline_svg" /> **Save**.
 4. Click <EarthAmericas className="inline_svg" /> **Share**.
 5. Click <CloudArrowUp className="inline_svg" /> **Publish to Registry**.
-1. Fill in the required and optional fields.
-2. Click <CicleCheck className="inline_svg" /> **Continue**, and then click <CodePullRequest className="inline_svg" /> **Create PR**.
+6. Fill in the required and optional fields.
+7. Click <CicleCheck className="inline_svg" /> **Continue**, and then click <CodePullRequest className="inline_svg" /> **Create PR**.
 
 This workflow automatically creates a pull request in the GitHub [rules repository](https://github.com/returntocorp/semgrep-rules). Find more about the rules repository by reading the [Rule writing](#rule-writing) and [Tests](#tests) sections.
 
