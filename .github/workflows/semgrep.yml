@@ -1,5 +1,5 @@
-Review CI configuration
-Review our semgrep.yml config file.
+# Review CI configuration
+# Review our semgrep.yml config file.
 
 name: Semgrep
 on:
