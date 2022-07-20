@@ -133,7 +133,7 @@ module.exports = {
     announcementBar: {
       id: 'office-hours',
       content:
-        'Semgrep Weekly Wednesday Office Hours! 🕙 Every Wednesday at 10am PT. <a target="_blank" rel="noopener noreferrer" href="https://get.semgrep.dev/officehours">Save your seat</a> to join us on July 27th!',
+        '😎 Semgrep Summer Meetup on July 27: Life of a rule + Semgrep roadmap preview - <a target="_blank" rel="noopener noreferrer" href="https://get.semgrep.dev/summermeetup.html?utm_source=website&utm_medium=docs&utm_campaign=summer-meetup&utm_id=0x17">Save your seat</a>!',
       backgroundColor: '#00a674',
       textColor: '#ffffff',
       isCloseable: false,
