@@ -16,10 +16,10 @@
   --ifm-color-primary-lightest: #ffffff;
   --ifm-code-font-size: 95%;
   --ifm-menu-color-active: #00c292;
-  --ifm-link-color: #00b581;
+  --ifm-link-color: #008456;
   --ifm-menu-color-background-hover: #006739;
   --ifm-menu-color-background-active: #006739;
-  --ifm-footer-link-hover-color: #006739;
+  --ifm-footer-link-hover-color: #00c292;
   --ifm-menu-link-sublist-icon-filter: invert(16%) sepia(98%) saturate(3800%)
     hue-rotate(254deg) brightness(40%) contrast(88%);
   --ifm-font-family-monospace: "Menlo", "Courier New", monospace;
@@ -100,7 +100,7 @@ html[data-theme="dark"] {
   --ifm-color-primary-light: #2acfa6;
   --ifm-color-primary-lighter: #77dec0;
   --ifm-color-primary-lightest: #ffffff;
-  --ifm-link-color: #00b581;
+  --ifm-link-color: #008456;
   --ifm-menu-color-active: #00b581;
   --docsearch-highlight-color: var(--ifm-color-primary-darker);
 }
