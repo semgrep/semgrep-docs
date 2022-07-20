@@ -200,7 +200,6 @@ dl {
 
 @media (min-width: 997px) {
   .navbar__inner {
-    max-width: 1170px;
     align-items: center;
     flex-wrap: inherit;
   }
