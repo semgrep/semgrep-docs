@@ -170,8 +170,9 @@ dl {
 }
 
 .inline_svg {
-    height: 16px;
-    width: 16px;
+    height: 14px;
+    width: 15px;
+    fill: currentColor;
 }
 
 /* navbar */
