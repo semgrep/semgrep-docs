@@ -169,6 +169,11 @@ dl {
     font-style: italic;
 }
 
+.inline_svg {
+    height: 16px;
+    width: 16px;
+}
+
 /* navbar */
 
 /* announcement banner */
