@@ -59,11 +59,11 @@ The following table displays features available to each role:
 
 | Feature               | `member`  | `admin`   | Additional notes                                                                   |
 | ---------             | --------- | --------- | ---------                                                                          |
-| Overview              | yes       | yes       |                                                                                    |
+| Dashboard             | yes       | yes       |                                                                                    |
 | Projects              | no        | yes       | Only `admin` can manage projects.                                                  |
 | Rule Board (Policies) | no        | yes       | Only `admin` can manage policies and rules.                                        |
 | Findings              | yes       | yes       | Both `admin` and `member` roles can sort, filter, comment on, and triage findings. |
-| Analytics             | no        | yes       |                                                                                    |
+| Editor                | yes       | yes       | `member` roles are able to write and modify rules within an organization.          |
 | Settings              | no        | yes       |                                                                                    |
 | Community             | yes       | yes       |                                                                                    |
 | Registry              | yes       | yes       |                                                                                    |

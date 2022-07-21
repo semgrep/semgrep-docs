@@ -17,8 +17,8 @@ module.exports = {
     navbar: {
       logo: {
         alt: 'Semgrep logo',
-        src: 'img/semgrep-logo-rainbow.svg',
-        srcDark: 'img/semgrep-logo-rainbow.svg',
+        src: 'img/semgrep-icon-text-horizontal.svg',
+        srcDark: 'img/semgrep-icon-text-horizontal-dark.svg',
         href: 'https://semgrep.dev',
         target: '_self'
       },
@@ -133,7 +133,7 @@ module.exports = {
     announcementBar: {
       id: 'office-hours',
       content:
-        'Semgrep Weekly Wednesday Office Hours! 🕙 Every Wednesday at 10am PT. <a target="_blank" rel="noopener noreferrer" href="https://get.semgrep.dev/officehours">Save your seat</a> to join us on July 20th!',
+        '😎 Semgrep Summer Meetup on July 27: Life of a rule + Semgrep roadmap preview - <a target="_blank" rel="noopener noreferrer" href="https://get.semgrep.dev/summermeetup.html?utm_source=website&utm_medium=docs&utm_campaign=summer-meetup&utm_id=0x17">Save your seat</a>!',
       backgroundColor: '#5F36D9',
       textColor: '#ffffff',
       isCloseable: false,
@@ -171,11 +171,11 @@ module.exports = {
     ],
     [
       '@docusaurus/plugin-sitemap',
-        {
-          changefreq: 'weekly',
-          priority: 0.5,
-          trailingSlash: false,
-        },
+      {
+        changefreq: 'weekly',
+        priority: 0.5,
+        trailingSlash: false,
+      },
     ],
   ],
   plugins: [
