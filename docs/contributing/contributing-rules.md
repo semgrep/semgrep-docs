@@ -26,7 +26,7 @@ There are two ways in which you can contribute to the Semgrep rules repository:
 
 ### Contributing through Semgrep App (recommended)
 
-Publish rules in the open-source Semgrep Registry and share them with the Semgrep community to help more people benefit from your rule-writing efforts and contribute to the field of software security. To contribute and publish rules to the Semgrep Registry, follow these steps:
+Publish rules in the open-source Semgrep Registry and share them with the Semgrep community to help others benefit from your rule-writing efforts and contribute to the field of software security. To contribute and publish rules to the Semgrep Registry, follow these steps:
 
 1. Go to [Semgrep App Editor](https://semgrep.dev/orgs/-/editor).
 2. Click **Create New Rule**.
