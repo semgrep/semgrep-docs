@@ -20,9 +20,9 @@ import TOCInline from "@theme/TOCInline"
 
 The [Semgrep command line tool](https://github.com/returntocorp/semgrep) is open-source, licensed under [LGPL 2.1](https://tldrlegal.com/license/gnu-lesser-general-public-license-v2.1-(lgpl-2.1)) — you can use it at work, on private and proprietary code, no problem!
 
-The [Semgrep Registry](https://semgrep.dev/explore) contains rules from different contributors. Most rules, including all community-contributed rules, are under the [MIT license](https://tldrlegal.com/license/mit-license). Semgrep Registry rules written by r2c are licensed under the [Common Clause](https://github.com/returntocorp/semgrep-rules/blob/develop/LICENSE).
+The [Semgrep Registry](https://semgrep.dev/explore) contains rules from different contributors. Most rules, including all community-contributed rules, are under the [MIT license](https://tldrlegal.com/license/mit-license). Semgrep Registry rules written by r2c are licensed under an [LGPL 2.1 and Common Clause license](https://github.com/returntocorp/semgrep-rules/blob/develop/LICENSE).
 
-The source for many r2c-written Registry rules is available at [returntocorp/semgrep-rules](https://github.com/returntocorp/semgrep-rules/). Those rules licensed under the Common Clause license cannot be resold without r2c’s permission. Since r2c offers a paid, hosted application (Semgrep App), it’s important to have this restriction so other companies, like major cloud providers, cannot resell r2c rules as a competing service.
+The source for many r2c-written Registry rules is available at [returntocorp/semgrep-rules](https://github.com/returntocorp/semgrep-rules/). Those rules licensed under the LGPL 2.1 with Common Clause license cannot be resold without r2c’s permission. Since r2c offers a paid, hosted application (Semgrep App), it’s important to have this restriction so other companies, like major cloud providers, cannot resell r2c rules as a competing service.
 
 ### Is it ok to run Semgrep or the r2c rules on my work projects?
 
