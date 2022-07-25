@@ -240,7 +240,7 @@ The `pattern-not` operator is the opposite of the `pattern` operator. It finds c
 
 The `pattern-inside` operator keeps matched findings that reside within its expression. This is useful for finding code inside other pieces of code like functions or if blocks.
 
-<iframe src="https://semgrep.dev/embed/editor?snippet=B4lR" border="0" frameBorder="0" width="100%" height="432"></iframe>
+<iframe src="https://semgrep.dev/embed/editor?snippet=Z8Dw" border="0" frameBorder="0" width="100%" height="432"></iframe>
 
 ### `pattern-not-inside`
 
