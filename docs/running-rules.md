@@ -26,8 +26,8 @@ You can run all rules on your code locally or continuously in your Source Code M
 ## Running Semgrep Registry rules locally
 
 You can test Semgrep Registry rules with the following command:
-<pre class="language-bash"><code>semgrep --config=auto <span className="placeholder">PATH/TO/SRC</span></code></pre>
-Substitute the `PATH/TO/SRC` with the path to your source code.
+<pre class="language-bash"><code>semgrep --config=auto [<span className="placeholder">PATH/TO/SRC</span>]</code></pre>
+Substitute the optional placeholder <code>[<span className="placeholder">PATH/TO/SRC</span>]</code> with the path to your source code.
 
 :::info
 By default, when Semgrep Registry is used, Semgrep collects [usage metrics](./metrics.md).
@@ -38,7 +38,7 @@ Explore the Semgrep Registry by following these steps:
 1. See the [Semgrep Registry](https://semgrep.dev/r) and choose a rule.
 2. On the page of the rule, click **Run Locally**.
 3. Copy the code for local install, and then add the path to the source code you want to check in your terminal:
-    <pre class="language-bash"><code>semgrep --config="<span className="placeholder">RULESET-ID</span>" <span className="placeholder">PATH/TO/SRC</span></code></pre>
+    <pre class="language-bash"><code>semgrep --config="<span className="placeholder">RULESET-ID</span>" [<span className="placeholder">PATH/TO/SRC</span>]</code></pre>
 4. Optional: Run registry rules simultaneously with local rules:
    <pre class="language-bash"><code>semgrep --config="<span className="placeholder">RULESET-ID</span>" --config=<span className="placeholder">PATH/TO/MYRULE.YAML PATH/TO/SRC</span></code></pre>
 
