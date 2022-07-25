@@ -11,15 +11,15 @@ import MoreHelp from "/src/components/MoreHelp"
 
 Rules are instructions based on which Semgrep detects patterns in code. When Semgrep reports a code using mentioned rules, the detected code is called a finding. The process of scanning and detecting a piece of code is sometimes called matching, as Semgrep matches the code using rules to report a finding.
 
-Semgrep findings can help you to catch issues of security, performance, correctness, and enforce best practices. You can define custom rules through Semgrep's rule syntax or rely on rules created by the community or r2c. Rules are stored in [Semgrep Registry](https://semgrep.dev/r) that enables you to scan code without the need to write anything custom. Semgrep Registry lives in an [open-source repository](https://github.com/returntocorp/semgrep-rules).
+Semgrep findings can help you to catch issues of security, performance, correctness, and enforce best practices. You can define custom rules through Semgrep's rule syntax or rely on rules created by the community or r2c. Rules are stored in [Semgrep Registry](https://semgrep.dev/r) that enables you to scan code without the need to write anything custom. Semgrep Registry is stored in an [open-source repository](https://github.com/returntocorp/semgrep-rules).
 
 The list below covers different kinds of Semgrep rules:
 
-- Existing [Semgrep Registry rules](#running-semgrep-registry-rules). You may also contribute to the Semgrep rules repository, see [Contributing to Semgrep rules](contributing/contributing-rules.md).
+- Existing [Semgrep Registry rules](#running-semgrep-registry-rules-locally). You may also contribute to the Semgrep rules repository, see [Contributing to Semgrep rules](contributing/contributing-rules.md).
 - [Local rules](#creating-and-using-local-rules):
   - One-off [ephemeral rules](#ephemeral-rules) passed into the command line.
   - [YAML-defined rules](#yaml-defined-rules).
-- A combination of [local rules and Semgrep Registry rules](#running-multiple-rules-simultaneously). 
+- A combination of [local rules and Semgrep Registry rules](#running-multiple-rules-simultaneously) or a combination of multiple rules in general.
 
 You can run all rules on your code locally or continuously in your Source Code Management (SCM) service (such as GitHub or GitLab) with Semgrep in CI. For more information, see [Semgrep CI overview](semgrep-ci/overview.md).
 
