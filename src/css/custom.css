@@ -6,6 +6,8 @@
  */
 
 /* You can override the default Infima variables here. */
+
+
 :root {
   --ifm-color-primary: #5f36d9; /*use for category headers */
   --ifm-color-primary-dark: #5127cd;
@@ -14,7 +16,7 @@
   --ifm-color-primary-light: #714ddd;
   --ifm-color-primary-lighter: #7a58df;
   --ifm-color-primary-lightest: #957ae6;
-  --ifm-code-font-size: 95%;
+  --ifm-code-font-size: 85%;
   --ifm-menu-color-active: #5f36d9;
   --ifm-link-color: #5430bf;
   --ifm-menu-color-background-hover: #5430bf;
@@ -22,7 +24,7 @@
   --ifm-footer-link-hover-color: #bca6ff;
   --ifm-menu-link-sublist-icon-filter: invert(16%) sepia(98%) saturate(3800%)
     hue-rotate(254deg) brightness(40%) contrast(88%);
-  --ifm-font-family-monospace: "Menlo", "Courier New", monospace;
+  --ifm-font-family-monospace: "JetBrains Mono", "Menlo", "Courier New", monospace;
   --ifm-navbar-height: 50px;
 }
 
@@ -109,6 +111,7 @@ html[data-theme="dark"] {
 /* color vars are overwritten above */
 
 @import url("https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@100;200;300;400;500;600;700;800;900&display=swap");
 
 /* globals */
 html {
