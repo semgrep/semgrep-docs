@@ -113,6 +113,7 @@ module.exports = {
                 label: 'Semgrep in CI',
                 items: [
                     'semgrep-ci/overview',
+                    'semgrep-ci/manual-ci-setup',
                     'semgrep-ci/configuration-reference',
                     'semgrep-ci/sample-ci-configs',
                     'troubleshooting/gitlab-sast'
