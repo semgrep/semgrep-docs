@@ -225,7 +225,7 @@ pipeline {
 | **diff-aware scanning** | ✅ [configure manually](configuration-reference.md#diff-aware-scanning-semgrep_baseline_ref) |
 | **hyperlinks in Semgrep App** | ✅ [configure manually](configuration-reference.md#get-hyperlinks-in-semgrep-cloud) |
 | **results in native dashboard** | 💢 not applicable |
-| **results in pull request comments** | ✅ [sign up for Semgrep App free](https://semgrep.dev/login) |
+| **results in pull request comments** | ❌ not available |
 | **automatic CI setup** | ❌ not available |
 
 ## Buildkite
@@ -257,7 +257,7 @@ pipeline {
 | **diff-aware scanning** | ✅ [configure manually](configuration-reference.md#diff-aware-scanning-semgrep_baseline_ref)|
 | **hyperlinks in Semgrep App** | ✅ [configure manually](configuration-reference.md#get-hyperlinks-in-semgrep-cloud) |
 | **results in native dashboard** | 💢 not applicable |
-| **results in pull request comments** | ✅ [sign up for Semgrep App free](https://semgrep.dev/login) |
+| **results in pull request comments** | ❌ not available |
 | **automatic CI setup** | ❌ not available |
 
 ## CircleCI
@@ -317,7 +317,7 @@ workflows:
 | **diff-aware scanning** | ✅ [configure manually](configuration-reference.md#diff-aware-scanning-semgrep_baseline_ref) |
 | **hyperlinks in Semgrep App** | ✅ [configure manually](configuration-reference.md#get-hyperlinks-in-semgrep-cloud) |
 | **results in native dashboard** | 💢 not applicable |
-| **results in pull request comments** | ✅ [sign up for Semgrep App free](https://semgrep.dev/login) |
+| **results in pull request comments** | ❌ not available |
 | **automatic CI setup** | ❌ not available |
 
 ## Bitbucket
@@ -351,7 +351,7 @@ pipelines:
 | **diff-aware scanning** | ✅ [configure manually](configuration-reference.md#diff-aware-scanning-semgrep_baseline_ref) |
 | **hyperlinks in Semgrep App** | ✅ [configure manually](configuration-reference.md#get-hyperlinks-in-semgrep-cloud) |
 | **results in native dashboard** | 💢 not applicable |
-| **results in pull request comments** | ✅ [sign up for Semgrep App free](https://semgrep.dev/login) |
+| **results in pull request comments** | ❌ not available |
 | **automatic CI setup** | ❌ not available |
 
 ## Other providers
