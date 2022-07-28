@@ -130,14 +130,6 @@ module.exports = {
       //... other Algolia params
     },
     image: 'https://semgrep.dev/thumbnail.png',
-    announcementBar: {
-      id: 'office-hours',
-      content:
-        '😎 Semgrep Summer Meetup on July 27: Life of a rule + Semgrep roadmap preview - <a target="_blank" rel="noopener noreferrer" href="https://get.semgrep.dev/summermeetup.html?utm_source=website&utm_medium=docs&utm_campaign=summer-meetup&utm_id=0x17">Save your seat</a>!',
-      backgroundColor: '#5F36D9',
-      textColor: '#ffffff',
-      isCloseable: false,
-    },
   },
   scripts: [
     {
