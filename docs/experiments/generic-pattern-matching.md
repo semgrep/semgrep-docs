@@ -169,7 +169,7 @@ password = $...PASSWORD
 
 Unfortunately, this doesn't work either because it captures too
 much. The value assigned to `$...PASSWORD` is now
-`p@$$w0rd`@lt;newline&gt;`server = example.com`. This is because in
+`p@$$w0rd`&lt;newline&gt;`server = example.com`. This is because in
 generic mode, an ellipsis extends until the end of the current block
 or up to 10 lines down, whichever comes first. To prevent this,
 specify the option `generic_ellipsis_max_span: 0` in the Semgrep
