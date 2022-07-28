@@ -243,8 +243,8 @@ pipelines:
           deployment: dev
           image: returntocorp/semgrep
           script:
-            - export SEMGREP_RULES="p/default" # TODO get confirmation from Holden
-            - semgrep ci # TODO confirm that this will work
+            - export SEMGREP_RULES="p/default" 
+            - semgrep ci
 ```
 
 ### CircleCI
@@ -268,9 +268,7 @@ jobs:
     parameters:
       repo_path:
         type: string
-		    # Change This to your repository path.
-			  # Sara: Isn't there a way to fetch these values from Circle CI so it's not hardcoded?
-			  # TODO Check with Holden.
+       # Change This to your repository path.
         default: myorg/semgrep-test-repo
       default_branch:
         type: string
@@ -315,7 +313,7 @@ From Buildkite's main page, click **Pipelines > ➕ button** to perform these st
 ```yaml
 - label: ":semgrep: Semgrep"
   commands:
-    - export SEMGREP_RULES='p/default' # to confirm with Holden that this will work
+    - export SEMGREP_RULES='p/default' 
     - semgrep ci 
   
   plugins:
@@ -333,7 +331,7 @@ Reference or add the [returntocorp/semgrep](https://hub.docker.com/r/returntocor
 
 #### Install `semgrep`
 
-If you cannot use the Semgrep, Docker image, do the following steps.
+If you cannot use the Semgrep docker image, do the following steps.
 
 1. Run `pip install semgrep` inside the container or CI environment
 2. Run `semgrep ci --config auto`.
@@ -359,20 +357,18 @@ Semgrep provides a **fail open** option. This enables you to suppress findings o
 	<dd>The Semgrep CI job <strong>passes</strong> on blocking findings and on internal errors. </dd>
 </dl>
 
-<!-- Refer to [Semgrep exit codes]() to understand various internal issues that cause Semgrep to fail. -->
+Refer to [Semgrep exit codes](../cli-reference/) to understand various internal issues that cause Semgrep to fail.
 ### Setting a scan schedule
 
-The following table is a summary of methods and resources to set up schedules
-for different CI providers.
+The following table is a summary of methods and resources to set up schedules for different CI providers.
 
 TODO
 ### Customizing rules and rulesets
 
 #### Exploring Semgrep Registry for useful rulesets
 
-Semgrep CI accepts a list of rules and rulesets to run on each scan.
+Semgrep CI accepts a list of rules and rulesets to run on each scan. 
 
-TODO
 
 #### Writing your own rules
 
