@@ -7,6 +7,11 @@
       "page_rank": -100
     },
     {
+      "url": "https://semgrep.dev/docs/rule-updates",
+      "tags": ["rule_updates"],
+      "page_rank": -100
+    },
+    {
       "url": "https://semgrep.dev/docs/supported-languages",
       "tags": ["supported_languages"],
       "page_rank": 100
