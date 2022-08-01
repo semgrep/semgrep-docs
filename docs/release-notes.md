@@ -12,6 +12,17 @@ Welcome to Semgrep release notes. This document provides an overview of the chan
 
 ## July 2022
 
+### Semgrep App
+
+#### Additions
+- Semgrep App now integrates with Slack through a Slack app. To create a new integration, go to **Settings > Integrations > Add Integration > Slack**. Previously, Semgrep App used Slack webhooks.
+- Enable autofix for all of your Projects (repositories connected to Semgrep App) by clicking on **Settings > Deployment > Autofix**.
+
+#### Changes
+- Clicking on the Project Name in the Projects page now takes you to that project's Findings page. Click the gear icon at the end of the Project's row to go to the project's Settings page.
+- Semgrep App detects additional environment variables depending on your provider. This simplifies the creation and committing of the configuration file when adding a new Project (repository) in Semgrep App.
+- UI and UX improvements to **Scan new project** workflow.
+
 ### Semgrep CLI
 
 These release notes include upgrades for all versions ranging between 0.102.0 and 0.107.0.
