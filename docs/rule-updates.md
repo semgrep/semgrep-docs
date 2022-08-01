@@ -9,7 +9,7 @@ import LinkToRegistryRule from "/src/components/LinkToRegistryRule"
 
 # Rule updates
 
-Welcome to monthly rule updates! This documet includes selected new rules and updates about community and free tier rules.
+Welcome to monthly rule updates! This document includes selected new rules and rule updates made by the Semgrep community and r2c.
 
 ## July 2022
 
