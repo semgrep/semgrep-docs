@@ -18,7 +18,7 @@ These release notes include upgrades for all versions ranging between 0.102.0 an
 
 #### Additions
 
-- Semgrep CI:
+- Semgrep in CI:
   - Fail-open support: Added `--suppress-errors` and `--no-suppress-errors` (the default is `--no-suppress-errors`).
   - Support for podman environments!
   - Semgrep in CI does not block builds on triage ignored issues.
@@ -82,7 +82,6 @@ These release notes include upgrades for all versions ranging between 0.102.0 an
 - Using the ellipses operator in XML or HTML elements is now more permissive of whitespace. Previously, in order to have an element with an ellipsis no leading or trailing whitespace was permitted in the element contents, for example `<tag>...</tag>` was the only permitted form. Now, leading or trailing whitespace is ignored when the substantive content of the element is only an ellipsis.
 - `--verbose` no longer displays timing information, use `--verbose --time` to display the timing.
 - The `semgrep --test` output produced expected lines and reported lines that were difficult to read and interpret. This change introduces missed and incorrect lines making it easier to see the differences in output. See more information about `semgrep --test` in [Testing rules](/writing-rules/testing-rules.md) documentation.
-- The timeout for Git operations has been decreased from 100 seconds to 500 seconds.
 
 ## June 2022
 
