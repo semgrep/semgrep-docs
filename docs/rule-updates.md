@@ -13,7 +13,7 @@ Welcome to monthly rule updates! This document includes selected new rules and r
 
 ## July 2022
 
-### New Community rules
+### New rules from Semgrep community 
 
 - <LinkToRegistryRule ruleId="csharp.dotnet.security.audit.missing-or-broken-authorization.missing-or-broken-authorization" />
 - <LinkToRegistryRule ruleId="csharp.dotnet.security.audit.open-directory-listing.open-directory-listing" />
