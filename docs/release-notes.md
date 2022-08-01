@@ -12,35 +12,45 @@ Welcome to Semgrep release notes. This document provides an overview of the chan
 
 ## July 2022
 
-### Semgrep CLI and Semgrep in CI
+### Semgrep CLI
 
-These release notes include upgrades for all versions ranging between 0.102.0 and 0.106.0.
+These release notes include upgrades for all versions ranging between 0.102.0 and 0.107.0.
 
 #### Additions
 
-- Semgrep in CI:
+- Semgrep CI:
+  - Fail-open support: Added `--suppress-errors` and `--no-suppress-errors` (the default is `--no-suppress-errors`).
   - Support for podman environments!
   - Semgrep in CI does not block builds on triage ignored issues.
-  - The timeout for Git commands Semgrep runs is now configurable. To do configure timeout, set the `SEMGREP_GIT_COMMAND_TIMEOUT` environment variable. The time unit used as value for this key is in seconds. The default value is 300.
-  - The `SEMGREP_GHA_MIN_FETCH_DEPTH` environment variable lets you set how many commits `semgrep ci` fetches from the remote at the minimum when calculating the merge-base in GitHub Actions. Having more commits available helps Semgrep determine what changes came from the current pull request, fixing issues where Semgrep would report findings that weren't touched in a given pull request. This value is set to 0 by default. (Issue #5664)
+  - The timeout for Git commands Semgrep runs is now configurable. To configure the timeout, set the `SEMGREP_GIT_COMMAND_TIMEOUT` environment variable. The time unit used as value for this key is in seconds. The default value is 300.
+  - The `SEMGREP_GHA_MIN_FETCH_DEPTH` environment variable lets you set how many commits `semgrep ci` fetches from the remote at the minimum when calculating the merge-base in GitHub Actions. Having more commits available helps Semgrep determine what changes came from the current pull request, fixing issues where Semgrep would report findings that weren't touched in a given pull request. This value is set to 0 by default. (Issue [#5664](https://github.com/returntocorp/semgrep/pull/5664))
 
 - Extract mode:
   - New Semgrep CLI experimental extract mode. This mode runs a Semgrep rule on a codebase and extracts code from matches, treating it as a different language. This allows you to supplement an existing set of rules, for example, for JavaScript, by writing additional rules to find JavaScript in files of a different language than JavaScript. For example, JavaScript code in HTML or template files. While this is somewhat possible with `metavariable-pattern`, this reduces the work from an M \* N problem to an M \+ N. To know more about extract mode, see [Extract mode](experiments/extract-mode.md) documentation.
   - Extract mode now has a concatenation reduction (`concat`). Disjoint snippets within a file can be treated as one unified file. - You can use extract mode to scan for generic languages (use value `generic` in `dest-language`).
 
-- Scala: Ellipsis are now allowed in for loop function headers, allowing you to write patterns such as `for (...; $X <- $Y if $COND; ...) { ... }` to match nested for loops. (Issue #5650)
+- Taint mode:
+  - Add experimental support for _taint labels_, which is an ability to attach labels to different kinds of taint. Both sources and sinks can restrict what labels are present in the data that passes through them in order to apply. This allows you to write more complex taint rules that previously required unappealing workarounds. Taint labels are also helpful for writing certain classes of typestate analyses (for example, check that a file descriptor is not used after being closed).- Introduced the `--dataflow-traces` flag, which directs the Semgrep CLI to explain how non-local values lead to a finding. Currently, this only applies to taint mode findings and it will trace the path from the taint source to the taint sink.
+  - Added taint traces as part of Semgrep JSON output. This helps explain how the sink became tainted.
 
-- Taint mode: Added taint traces as part of Semgrep JSON output. This helps explain how the sink became tainted.
-- Previously, expression statement patterns (for example `foo();`) were always matching when the expression statement was a bit deeper in the expression (for example, `x = foo();`). This default behavior can now be disabled through rule `options:` with `implicit_deep_exprstmt: false`. (Issue #5472)
-- LSP support: Improving **experimental** Language Server Protocol (LSP) support for metavariable inlay hints, hot reloading, App integration, scan commands, and much more!
+- General and language support additons:
+  - New language Elixir with experimental support!
+  - Scala: Ellipsis are now allowed in for loop function headers, allowing you to write patterns such as `for (...; $X <- $Y if $COND; ...) { ... }` to match nested for loops. (Issue [#5650](https://github.com/returntocorp/semgrep/issues/5650))
+  - Kotlin: Support for ellipsis in field access (for example, `obj. ... .bar()`).
+  - Semgrep now reports, among other metadata, file extensions from App-connected scans that do *not* match the language of any enabled rule. This addition can make the development of new rules more effective by improving language prioritization.
+  - Previously, expression statement patterns (for example `foo();`) were always matching when the expression statement was a bit deeper in the expression (for example, `x = foo();`). This default behavior can now be disabled through rule `options:` with `implicit_deep_exprstmt: false` in rules YAML file. (Issue [#5472](https://github.com/returntocorp/semgrep/issues/5472))
+  - Changed `semgrep-core` so it runs on YAML files that do not have a top-level `rules: ...` key. As a result, you can now copy from the playground editor directly into a local rules YAML file for use with `semgrep-core`!
+  - LSP support: Improving **experimental** Language Server Protocol (LSP) support for metavariable inlay hints, hot reloading, App integration, scan commands, and much more!
 
 #### Changes
+
+- Breaking changes in the `dataflow_trace` JSON output to make it more easily consumable by Semgrep App. Added content for `taint_source` and `intermediate_vars`, and collapsed the multiple `taint_source` locations into one.
 
 - General performance improvements:
   - By default, Semgrep no longer stores the time or output of skipped targets. This improvement significantly reduced Semgrep's memory consumption in large repositories!
   - Another improvement in Semgrep's memory consumption has been achieved by passing the targets in a more condensed structure. Previously, we told Semgrep which rules to run on which target by listing out all the `rule_id` each target needs to run. Now, we have a separate `rule_id` list and for each target, we only list the `rule_id` indices. This has a significant impact in large repositories, mainly when run with multiple processes.
 
-- `metavariable-comparison`:
+- metavariable-comparison:
   - The `metavariable-comparison` allows you to strip `'`, `"`, and `` ` `` from the metavariable content, enabling you to scan for strings containing integer or float data. See [metavariable-comparison](writing-rules/rule-syntax.md/#metavariable-comparison) documentation to get more information. With this update, the `metavariable` field is now only required for `strip: true`. You are no longer required to include the `metavariable` field for the default `strip: false`.
   - The `metavariable-comparison` now also works on metavariables that cannot be evaluated as simple literals. In such cases, Semgrep takes the string representation of the code bound by the metavariable. Use this string representation through `str($MVAR)`. For example:
 
