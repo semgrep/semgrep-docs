@@ -31,7 +31,10 @@ These release notes include upgrades for all versions ranging between 0.102.0 an
 
 - Semgrep in CI:
   - Fail-open support: Added `--suppress-errors` and `--no-suppress-errors` (the default is `--no-suppress-errors`).
-  - Support for podman environments!
+  - The `cli/scripts/compare.py` to compare rules for different versions of Semgrep is now supported on podman environments (compare-script-podman). You can use this script with the following syntax:
+    ```
+    pipenv run ./scripts/compare.py --use-podman 0.103.0 0.106.0 0B1B
+    ```
   - Semgrep in CI does not block builds on triage ignored issues.
   - The timeout for Git commands Semgrep runs is now configurable. To configure the timeout, set the `SEMGREP_GIT_COMMAND_TIMEOUT` environment variable. The time unit used as a value for this key is in seconds. The default value is `300` which represents 5 minutes.
   - The `SEMGREP_GHA_MIN_FETCH_DEPTH` environment variable lets you set how many commits `semgrep ci` fetches from the remote at the minimum when calculating the merge-base in GitHub Actions. Having more commits available helps Semgrep determine what changes came from the current pull request, fixing issues where Semgrep would otherwise report findings that were not touched in a given pull request. This value is set to 0 by default. (Issue [#5664](https://github.com/returntocorp/semgrep/pull/5664))
