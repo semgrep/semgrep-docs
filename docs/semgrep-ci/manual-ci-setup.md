@@ -354,7 +354,7 @@ Semgrep provides a **fail open** option. This enables you to suppress findings o
 	<dt><code>semgrep ci || [ $? != 1 ]</code></dt>
 	<dd>The Semgrep CI job <strong>fails</strong> on blocking findings, but <strong>passes</strong> on internal errors. </dd>
 	<dt><code>semgrep ci || true</code></dt>
-	<dd>The Semgrep CI job <strong>passes</strong> on blocking findings and on internal errors. </dd>
+	<dd><strong>Pass</strong> on blocking findings and on internal errors. </dd>
 </dl>
 
 Refer to [Semgrep exit codes](../cli-reference/#exit-codes) to understand various internal issues that cause Semgrep to fail.
