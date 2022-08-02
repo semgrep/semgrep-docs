@@ -50,7 +50,7 @@ These release notes include upgrades for all versions ranging between 0.102.0 an
   - New language Elixir with experimental support!
   - Scala: Ellipsis are now allowed in for loop function headers, allowing you to write patterns such as `for (...; $X <- $Y if $COND; ...) { ... }` to match nested for loops. (Issue [#5650](https://github.com/returntocorp/semgrep/issues/5650))
   - Kotlin: Support for ellipsis in field access (for example, `obj. ... .bar()`).
-  - Semgrep now reports, among other metadata, file extensions from App-connected scans that do **not** match the language of any enabled rule. This addition can make the development of new rules more effective by improving language prioritization.
+  - For users logged-in under `semgrep login` while using Semgrep App. Semgrep now reports file extensions from App-connected scans that do **not** match the language of any enabled rule. This addition can make the development of new rules more effective by improving language prioritization.
   - Previously, expression statement patterns (for example `foo();`) were always matching when the expression statement was a bit deeper in the expression (for example, `x = foo();`). This default behavior can now be disabled through rule `options:` with `implicit_deep_exprstmt: false` in rules YAML file. (Issue [#5472](https://github.com/returntocorp/semgrep/issues/5472))
   - LSP support: Improving **experimental** Language Server Protocol (LSP) support for metavariable inlay hints, hot reloading, App integration, scan commands, and much more!
 
