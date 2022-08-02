@@ -350,7 +350,7 @@ Semgrep provides a **fail open** option. This enables you to suppress findings o
 
 <dl>
 	<dt><code>semgrep ci</code></dt>
-	<dd>The Semgrep CI job<strong>fails</strong> on blocking findings or on internal errors.</dd>
+	<dd>The Semgrep CI job <strong>fails</strong> on blocking findings or on internal errors.</dd>
 	<dt><code>semgrep ci || [ $? != 1 ]</code></dt>
 	<dd>The Semgrep CI job <strong>fails</strong> on blocking findings, but <strong>passes</strong> on internal errors. </dd>
 	<dt><code>semgrep ci || true</code></dt>
