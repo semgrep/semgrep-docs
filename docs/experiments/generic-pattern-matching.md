@@ -139,9 +139,7 @@ name = ...
 
 ### Handling line-based input
 
-Many simple configuration formats are a collection of key/value pairs
-delimited by newlines. For example, we would like to extract the
-`password` value from the following made-up input:
+This section explains how to use Semgrep's generic mode to match single lines of code using ellipsis metavariable. Many simple configuration formats are collections of key and value pairs delimited by newlines. For example, to extract the `password` value from the following made-up input:
 
 ```
 username = bob
