@@ -140,17 +140,17 @@ For more information, visit [Testing rules](https://semgrep.dev/docs/writing-rul
 
 For debugging purposes, you can compare rule performance between different versions of Semgrep. Find a script in [Semgrep source code](https://github.com/returntocorp/semgrep), located in `cli/scripts/compare.py`. Compare rules for different versions of Semgrep by the following command:
 
-<pre class="language-bash"><code>pipenv run ./scripts/compare.py <span className="placeholder">VERSION_NUMBER OTHER_VERSION_NUMBER RULE_ID</span></code></pre>
+<pre class="language-bash"><code>pipenv run ./cli/scripts/compare.py <span className="placeholder">VERSION_NUMBER OTHER_VERSION_NUMBER RULE_ID</span></code></pre>
 
 Substitute the optional placeholder <code><span className="placeholder">VERSION_NUMBER OTHER_VERSION_NUMBER RULE_ID</span></code> with the respective version numbers and a rule ID you want to compare. 
 
 Resulting input can be similar to the following:
 ```
-pipenv run ./scripts/compare.py 0.103.0 0.106.0 0B1B
+pipenv run ./cli/scripts/compare.py 0.103.0 0.106.0 0B1B
 ```
 
 To use this script with Podman, issue `--use-podman` in the command:
 
 ```
-pipenv run ./scripts/compare.py --use-podman 0.103.0 0.106.0 0B1B
+pipenv run ./cli/scripts/compare.py --use-podman 0.103.0 0.106.0 0B1B
 ```
