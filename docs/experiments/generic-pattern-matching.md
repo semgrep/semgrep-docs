@@ -137,7 +137,7 @@ name = ...
   name = ...
 ```
 
-### How to handle line-based input
+### Handling line-based input
 
 Many simple configuration formats are a collection of key/value pairs
 delimited by newlines. For example, we would like to extract the
