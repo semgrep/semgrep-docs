@@ -52,7 +52,7 @@ An alternative method of running Semgrep in your CI is to run the `semgrep scan`
 
 ### GitHub Actions
 
-To add Semgrep into your GitHub Actions pipeline, do the following steps.
+To add Semgrep into your GitHub Actions pipeline:
 
 1. Create a `semgrep.yaml` configuration file to add a Semgrep command as part of your GithubActions pipeline. Refer to the [GitHub Actions code snippet](#github-actions-code-snippet).
 2. Optional: You can also review the [GitHub Actions workflow syntax](https://docs.github.com/en/actions/using-workflows/workflow-syntax-for-github-actions) to help with editing the configuration file.
