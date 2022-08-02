@@ -139,7 +139,11 @@ name = ...
 
 ### Handling line-based input
 
-This section explains how to use Semgrep's generic mode to match single lines of code using ellipsis metavariable. Many simple configuration formats are collections of key and value pairs delimited by newlines. For example, to extract the `password` value from the following made-up input:
+This section explains how to use Semgrep's generic mode to match
+single lines of code using an ellipsis metavariable. Many simple
+configuration formats are collections of key and value pairs delimited
+by newlines. For example, to extract the `password` value from the
+following made-up input:
 
 ```
 username = bob
