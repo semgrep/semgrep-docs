@@ -186,7 +186,11 @@ semgrep:
 
 ### Jenkins
 
-To add Semgrep into your Jenkins pipeline, do the following steps. Your UI may vary depending on your Jenkins installation. These steps use a Classic UI Jenkins interface.
+:::note
+Your UI may vary depending on your Jenkins installation. These steps use a Classic UI Jenkins interface.
+:::
+
+To add Semgrep into your Jenkins pipeline:
 
 1. Edit or create your `Jenkinsfile` configuration file to add a Semgrep `step` as part of your Pipeline. Refer to the [Jenkins CI code snippet](#jenkins-ci-code-snippet). You can edit your `Jenkinsfile` from Jenkins's interface.
 2. Optional: You can also review [`Jenkinsfile` usage](https://www.jenkins.io/doc/book/pipeline/jenkinsfile/) to help with editing the configuration file.
@@ -217,7 +221,7 @@ pipeline {
 
 ### BitBucket Pipelines
 
-To add Semgrep into your GitLab CI/CD pipeline, do the following steps.
+To add Semgrep into your BitBucket Pipeline:
 
 1. Create or edit a `bitbucket-pipelines.yml` configuration file to add
    a Semgrep `step` as part of your pipeline. Refer to the [BitBucket Pipelines code snippet](#bitbucket-pipelines-code-snippet).
@@ -239,17 +243,17 @@ pipelines:
   default:
     - parallel:
       - step:
-          name: 'Run Semgrep scan with current branch'
-          deployment: dev
-          image: returntocorp/semgrep
-          script:
-            - export SEMGREP_RULES="p/default" 
-            - semgrep ci
+        name: 'Run Semgrep scan with current branch'
+        deployment: dev
+        image: returntocorp/semgrep
+        script:
+          - export SEMGREP_RULES="p/default" 
+          - semgrep ci
 ```
 
 ### CircleCI
 
-To add Semgrep into your CircleCI pipeline, do the following steps.
+To add Semgrep into your CircleCI pipeline:
 
 1. Create or edit a `config.yml` configuration file to add a Semgrep command as
    part of your CircleCI workflow. Refer to the [CircleCI code snippet](#circleci-code-snippet).
@@ -296,7 +300,7 @@ workflows:
 
 ### Buildkite
 
-To add Semgrep into your CircleCI pipeline, do the following steps.
+To add Semgrep into your Buildkite pipeline:
 
 1. Create or edit a `pipelines.yml` configuration file to add a Semgrep command as part of your pipeline. Refer to the [BuildKite code snippet](#buildkite-code-snippet). This configuration file can also be stored within Buildkite.
 2. Optional: You can also review the [Buildkite steps definition](https://buildkite.com/docs/pipelines/defining-steps) to help with editing the configuration file.
@@ -318,12 +322,12 @@ From Buildkite's main page, click **Pipelines > ➕ button** to perform these st
   
   plugins:
     - docker#v3.7.0:
-        image: returntocorp/semgrep
+      image: returntocorp/semgrep
 ```
 
-### Running Semgrep in CI with other CI providers
+### Running Semgrep through other CI providers
 
-Do one of the following methods to run Semgrep in CI with other CI providers.
+Use either of the following methods to run Semgrep through other CI providers.
 
 #### Direct docker usage 
 
@@ -331,10 +335,28 @@ Reference or add the [returntocorp/semgrep](https://hub.docker.com/r/returntocor
 
 #### Install `semgrep`
 
-If you cannot use the Semgrep docker image, do the following steps.
+If you cannot use the Semgrep docker image, install `semgrep` as a step or command within your CI job:
 
-1. Run `pip install semgrep` inside the container or CI environment
-2. Run `semgrep ci --config auto`.
+1. Add `pip install semgrep` into the configuration file as a step or command, depending on your CI provider's syntax.
+2. Run any valid `semgrep ci` command, such as `semgrep ci --config auto`.
+
+See the following example using BitBucket Pipelines:
+
+```yaml
+image: atlassian/default-image:latest
+
+pipelines:
+  default:
+    - parallel:
+      - step:
+          name: 'Run Semgrep scan with current branch'
+          deployment: dev
+          script:
+          - pip install semgrep
+            - export SEMGREP_RULES="p/default" 
+            - semgrep ci
+```
+
 
 Your customization options with other CI providers vary depending on working environment variables.
 
@@ -388,9 +410,9 @@ TODO
 
 ### Ignoring files
 
-By default Semgrep CI skips files and directories such as tests/, node_modules/, and vendor/. It uses the same default .semgrepignore as the CLI, which can be found in the [CLI Reference](https://semgrep.dev/docs/cli-reference/#ignoring-files). This is used by Semgrep CI when no explicit .semgrepignore file is found in the root of your project.
+By default `semgrep ci` skips files and directories such as `tests/`, `node_modules/`, and `vendor/`. It uses the same default `.semgrepignore` as the `semgrep` command. This default `semgrepignore`  can be found in the [CLI Reference](https://semgrep.dev/docs/cli-reference/#ignoring-files). This is used by `semgrep ci` when no explicit `.semgrepignore` file is found in the root of your repository.
 
-Use a `.semgrepignore` file to exclude files and directories from a scan. The `.semgrepignore` file follows `.gitignore` syntax. You can exclude vendored code and code for tests through this feature.
+You can copy and commit the default `.semgrepignore` and extend it with your own entries or write one from scratch. `.semgrepignore` follows `.gitignore` syntax. If Semgrep detects a `.semgrepignore` file within your repository, it won't append entries from the default `.semgrepignore` file.
 
 For a complete example, see the [.semgrepignore file on Semgrep’s source code](https://github.com/returntocorp/semgrep/blob/develop/.semgrepignore).
 
