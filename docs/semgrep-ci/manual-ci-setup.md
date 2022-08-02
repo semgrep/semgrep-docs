@@ -8,7 +8,7 @@ hide_title: true
 
 import MoreHelp from "/src/components/MoreHelp"
 
-# Manually integrating Semgrep in various CI providers
+# Manually integrating Semgrep in various Continuous Integration providers
 
 Run Semgrep in your CI pipeline to scan your repository for code vulnerabilities and other issues.
 
