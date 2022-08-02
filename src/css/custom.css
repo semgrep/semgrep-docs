@@ -113,6 +113,10 @@ html[data-theme="dark"] {
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=JetBrains+Mono:wght@400;700&display=swap');
 
 /* globals */
+
+* {
+  font-variant-ligatures: none;
+}
 html {
   font-family: "Inter", sans-serif !important;
   font-weight: 400;
