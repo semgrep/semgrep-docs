@@ -33,11 +33,11 @@ These release notes include upgrades for all versions ranging between 0.102.0 an
   - Fail-open support: Added `--suppress-errors` and `--no-suppress-errors` (the default is `--no-suppress-errors`).
   - Support for podman environments!
   - Semgrep in CI does not block builds on triage ignored issues.
-  - The timeout for Git commands Semgrep runs is now configurable. To configure the timeout, set the `SEMGREP_GIT_COMMAND_TIMEOUT` environment variable. The time unit used as value for this key is in seconds. The default value is 300.
+  - The timeout for Git commands Semgrep runs is now configurable. To configure the timeout, set the `SEMGREP_GIT_COMMAND_TIMEOUT` environment variable. The time unit used as a value for this key is in seconds. The default value is `300` which represents 5 minutes.
   - The `SEMGREP_GHA_MIN_FETCH_DEPTH` environment variable lets you set how many commits `semgrep ci` fetches from the remote at the minimum when calculating the merge-base in GitHub Actions. Having more commits available helps Semgrep determine what changes came from the current pull request, fixing issues where Semgrep would otherwise report findings that were not touched in a given pull request. This value is set to 0 by default. (Issue [#5664](https://github.com/returntocorp/semgrep/pull/5664))
 
 - Extract mode:
-  - New Semgrep CLI experimental extract mode. This mode runs a Semgrep rule on a codebase and extracts code from matches, treating it as a different language. This allows you to supplement an existing set of rules, for example, for JavaScript, by writing additional rules to find JavaScript in files of a different language than JavaScript. For example, JavaScript code in HTML or template files. While this is somewhat possible with `metavariable-pattern`, this reduces the work from an M \* N problem to an M \+ N. To know more about extract mode, see [Extract mode](experiments/extract-mode.md) documentation.
+  - New Semgrep CLI experimental extract mode. This mode runs a Semgrep rule on a codebase and extracts code from matches, treating it as a different language. This allows you to supplement an existing set of rules, for example, by writing additional rules to find JavaScript in files of a different language than JavaScript. Among many possible use cases, this enables you to write rules for HTML code in JavaScript code or in template files. While this is somewhat possible with `metavariable-pattern`, this reduces the work from an M \* N problem to an M \+ N. To know more about extract mode, see [Extract mode](experiments/extract-mode.md) documentation.
   - Extract mode now has a concatenation reduction (`concat`). Disjoint snippets within a file can be treated as one unified file. 
   - You can use extract mode to scan for generic languages (use value `generic` in `dest-language`).
 
@@ -52,7 +52,6 @@ These release notes include upgrades for all versions ranging between 0.102.0 an
   - Kotlin: Support for ellipsis in field access (for example, `obj. ... .bar()`).
   - Semgrep now reports, among other metadata, file extensions from App-connected scans that do **not** match the language of any enabled rule. This addition can make the development of new rules more effective by improving language prioritization.
   - Previously, expression statement patterns (for example `foo();`) were always matching when the expression statement was a bit deeper in the expression (for example, `x = foo();`). This default behavior can now be disabled through rule `options:` with `implicit_deep_exprstmt: false` in rules YAML file. (Issue [#5472](https://github.com/returntocorp/semgrep/issues/5472))
-  - Changed `semgrep-core` so it runs on YAML files that do not have a top-level `rules: ...` key. As a result, you can now copy from the playground editor directly into a local rules YAML file for use with `semgrep-core`!
   - LSP support: Improving **experimental** Language Server Protocol (LSP) support for metavariable inlay hints, hot reloading, App integration, scan commands, and much more!
 
 #### Changes
@@ -60,8 +59,7 @@ These release notes include upgrades for all versions ranging between 0.102.0 an
 - Breaking changes in the `dataflow_trace` JSON output to make it more easily consumable by Semgrep App. Added content for `taint_source` and `intermediate_vars`, and collapsed the multiple `taint_source` locations into one.
 
 - General performance improvements:
-  - By default, Semgrep no longer stores the time or output of skipped targets. This improvement significantly reduced Semgrep's memory consumption in large repositories!
-  - Another improvement in Semgrep's memory consumption has been achieved by passing the targets in a more condensed structure. Previously, we told Semgrep which rules to run on which target by listing out all the `rule_id` each target needs to run. Now, we have a separate `rule_id` list and for each target, we only list the `rule_id` indices. This has a significant impact in large repositories, mainly when run with multiple processes.
+  - Semgrep significantly reduced its memory consumption in large repositories!
 
 - metavariable-comparison:
   - The `metavariable-comparison` allows you to strip `'`, `"`, and `` ` `` from the metavariable content, enabling you to scan for strings containing integer or float data. See [metavariable-comparison](writing-rules/rule-syntax.md/#metavariable-comparison) documentation to get more information. With this update, the `metavariable` field is now only required for `strip: true`. You are no longer required to include the `metavariable` field for the default `strip: false`.
