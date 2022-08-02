@@ -147,9 +147,7 @@ password = p@$$w0rd
 server = example.com
 ```
 
-Unfortunately, the following pattern won't work the way we want
-because in generic mode, metavariables will only capture a single word
-(alphanumeric sequence):
+Unfortunately, the following pattern does not match the whole line. In generic mode, metavariables only capture a single word (alphanumeric sequence):
 
 ```
 password = $PASSWORD
