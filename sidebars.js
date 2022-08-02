@@ -204,6 +204,7 @@ module.exports = {
         items: [
             'support',
             'release-notes',
+            'rule-updates',
             'security',
             'licensing',
             'faq',
