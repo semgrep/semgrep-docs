@@ -346,7 +346,7 @@ The following sections describe methods to customize your CI job.
 
 By default, Semgrep CI exits with exit code 1 if the scan returns any findings. This causes the job to fail.
 
-Semgrep provides a **fail open** option. This enables you to suppress findings or internal Semgrep errors that block your pipeline.  Use any of the following commands:
+Semgrep provides a **fail open** option. This enables you to suppress findings or internal Semgrep errors that block your pipeline.  You can accomplish this in several different ways:
 
 <dl>
 	<dt><code>semgrep ci</code></dt>
