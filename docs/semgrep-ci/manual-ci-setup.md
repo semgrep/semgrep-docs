@@ -12,7 +12,7 @@ import MoreHelp from "/src/components/MoreHelp"
 
 Run Semgrep in your CI pipeline to scan your repository for code vulnerabilities and other issues.
 
-There are two general steps to setting up Semgrep in your CI pipeline manually.
+There are two general steps to setting up Semgrep in your CI pipeline manually:
 
 1. Set up the CI job or action to scan with Semgrep and receive an exit code.
 2. Refine the CI job's parameters.
