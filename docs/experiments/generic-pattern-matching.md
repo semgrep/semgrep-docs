@@ -155,7 +155,7 @@ password = $PASSWORD
 
 This pattern matches the input file but does not assign the value `p` to `$PASSWORD` instead of the full value `p@$$w0rd`.
 
-To match an arbitrary sequence of items and capture their value in the this example:
+To match an arbitrary sequence of items and capture their value in the example:
 
 1. Use a named ellipsis, by changing the pattern to the following:
 
