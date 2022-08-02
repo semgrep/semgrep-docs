@@ -153,8 +153,7 @@ Unfortunately, the following pattern does not match the whole line. In generic m
 password = $PASSWORD
 ```
 
-This would match the input file but would assign the value `p`
-to `$PASSWORD` instead of the full value `p@$$w0rd`.
+This pattern matches the input file but does not assign the value `p` to `$PASSWORD` instead of the full value `p@$$w0rd`.
 
 To match an arbitrary sequence of items (words, punctuation, etc.) and
 capture its value, we must use a named ellipsis. Our pattern becomes:
