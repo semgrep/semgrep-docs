@@ -155,37 +155,39 @@ password = $PASSWORD
 
 This pattern matches the input file but does not assign the value `p` to `$PASSWORD` instead of the full value `p@$$w0rd`.
 
-To match an arbitrary sequence of items (words, punctuation, etc.) and
-capture its value, we must use a named ellipsis. Our pattern becomes:
+To match an arbitrary sequence of items and capture their value in the this example:
 
-```
-password = $...PASSWORD
-```
+1. Use a named ellipsis, by changing the pattern to the following:
 
-Unfortunately, this doesn't work either because it captures too
-much. The value assigned to `$...PASSWORD` is now
-`p@$$w0rd`&lt;newline&gt;`server = example.com`. This is because in
-generic mode, an ellipsis extends until the end of the current block
-or up to 10 lines down, whichever comes first. To prevent this,
-specify the option `generic_ellipsis_max_span: 0` in the Semgrep
-rule. This will force the ellipsis to match within a single line.
-The [resulting
-rule](https://semgrep.dev/playground/s/returntocorp:password-in-config-file)
-is:
+    ```yaml
+    password = $...PASSWORD
+    ```
 
-```yaml
-id: password-in-config-file
-pattern: |
-  password = $...PASSWORD
-options:
-  # prevent ellipses from matching multiple lines
-  generic_ellipsis_max_span: 0
-message: |
-  password found in config file: $...PASSWORD
-languages:
-  - generic
-severity: WARNING
-```
+    This still leads Semgrep to capture too much information. The value assigned to `$...PASSWORD` are now `p@$$w0rd` and<br />
+    `server = example.com`. In generic mode, an ellipsis extends until the end of the current block or up to 10 lines below, whichever comes first. To prevent this behavior, continue with the next step.
+
+2. In the Semgrep rule, specify the following key:
+   
+    ```yaml
+    generic_ellipsis_max_span: 0
+    ```
+
+    This option forces the ellipsis operator to match patterns within a single line.
+    Example of the [resulting rule](https://semgrep.dev/playground/s/returntocorp:password-in-config-file):
+
+    ```yaml
+    id: password-in-config-file
+    pattern: |
+      password = $...PASSWORD
+    options:
+      # prevent ellipses from matching multiple lines
+      generic_ellipsis_max_span: 0
+    message: |
+      password found in config file: $...PASSWORD
+    languages:
+      - generic
+    severity: WARNING
+    ```
 
 ## Command line example
 
