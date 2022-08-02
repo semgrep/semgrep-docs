@@ -31,13 +31,10 @@ These release notes include upgrades for all versions ranging between 0.102.0 an
 
 - Semgrep in CI:
   - Fail-open support: Added `--suppress-errors` and `--no-suppress-errors` (the default is `--no-suppress-errors`).
-  - The `cli/scripts/compare.py` to compare rules for different versions of Semgrep is now supported on podman environments (compare-script-podman). You can use this script with the following syntax:
-    ```
-    pipenv run ./scripts/compare.py --use-podman 0.103.0 0.106.0 0B1B
-    ```
   - Semgrep in CI does not block builds on triage ignored issues.
   - The timeout for Git commands Semgrep runs is now configurable. To configure the timeout, set the `SEMGREP_GIT_COMMAND_TIMEOUT` environment variable. The time unit used as a value for this key is in seconds. The default value is `300` which represents 5 minutes.
   - The `SEMGREP_GHA_MIN_FETCH_DEPTH` environment variable lets you set how many commits `semgrep ci` fetches from the remote at the minimum when calculating the merge-base in GitHub Actions. Having more commits available helps Semgrep determine what changes came from the current pull request, fixing issues where Semgrep would otherwise report findings that were not touched in a given pull request. This value is set to 0 by default. (Issue [#5664](https://github.com/returntocorp/semgrep/pull/5664))
+  - The `cli/scripts/compare.py` to compare rules for different versions of Semgrep is now supported on Podman environments. For more information, see [Contributing to Semgrep rules](contributing/contributing-rules.md/#comparing-rule-performance-between-different-versions-of-semgrep) documentation.
 
 - Extract mode:
   - New Semgrep CLI experimental extract mode. This mode runs a Semgrep rule on a codebase and extracts code from matches, treating it as a different language. This allows you to supplement an existing set of rules, for example, by writing additional rules to find JavaScript in files of a different language than JavaScript. Among many possible use cases, this enables you to write rules for HTML code in JavaScript code or in template files. While this is somewhat possible with `metavariable-pattern`, this reduces the work from an M \* N problem to an M \+ N. To know more about extract mode, see [Extract mode](experiments/extract-mode.md) documentation.
@@ -45,11 +42,11 @@ These release notes include upgrades for all versions ranging between 0.102.0 an
   - You can use extract mode to scan for generic languages (use value `generic` in `dest-language`).
 
 - Taint mode:
-  - Add experimental support for _taint labels_, which is an ability to attach labels to different kinds of taint. Both sources and sinks can restrict what labels are present in the data that passes through them in order to apply. This allows you to write more complex taint rules that previously required unappealing workarounds. Taint labels are also helpful for writing certain classes of typestate analyses (for example, check that a file descriptor is not used after being closed).
+  - Add experimental support for _taint labels_, which is the ability to attach labels to different kinds of taint. Both sources and sinks can restrict what labels are present in the data that passes through them in order to apply. This allows you to write more complex taint rules that previously required unappealing workarounds. Taint labels are also helpful for writing certain classes of typestate analyses (for example, check that a file descriptor is not used after being closed).
   - Introduced the `--dataflow-traces` flag, which directs the Semgrep CLI to explain how non-local values lead to a finding. Currently, this only applies to taint mode findings and it traces the path from the taint source to the taint sink.
   - Added taint traces as part of Semgrep JSON output. This helps explain how the sink became tainted.
 
-- General and language support additons:
+- General and language support additions:
   - New language Elixir with experimental support!
   - Scala: Ellipsis are now allowed in for loop function headers, allowing you to write patterns such as `for (...; $X <- $Y if $COND; ...) { ... }` to match nested for loops. (Issue [#5650](https://github.com/returntocorp/semgrep/issues/5650))
   - Kotlin: Support for ellipsis in field access (for example, `obj. ... .bar()`).
@@ -93,7 +90,7 @@ These release notes include upgrades for all versions ranging between 0.102.0 an
 
 - Using the ellipses operator in XML or HTML elements is now more permissive of whitespace. Previously, in order to have an element with an ellipsis no leading or trailing whitespace was permitted in the element contents, for example `<tag>...</tag>` was the only permitted form. Now, leading or trailing whitespace is ignored when the substantive content of the element is only an ellipsis.
 - `--verbose` no longer displays timing information, use `--verbose --time` to display the timing.
-- The `semgrep --test` output produced expected lines and reported lines that were difficult to read and interpret. This change introduces missed and incorrect lines making it easier to see the differences in output. See more information about `semgrep --test` in [Testing rules](/writing-rules/testing-rules.md) documentation.
+- The `semgrep --test` output produced expected lines and reported lines that were difficult to read and interpret. This change introduces missed and incorrect lines making it easier to see the differences in output. See more information about the `semgrep --test` in the [Testing rules](/writing-rules/testing-rules.md) documentation.
 
 ## June 2022
 
