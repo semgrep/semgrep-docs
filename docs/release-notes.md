@@ -15,10 +15,12 @@ Welcome to Semgrep release notes. This document provides an overview of the chan
 ### Semgrep App
 
 #### Additions
+
 - Semgrep App now integrates with Slack through a Slack app. To create a new integration, go to **Settings > Integrations > Add Integration > Slack**. Previously, Semgrep App used Slack webhooks.
 - Enable autofix for all of your Projects (repositories connected to Semgrep App) by clicking on **Settings > Deployment > Autofix**.
 
 #### Changes
+
 - Clicking on the Project Name in the Projects page now takes you to that project's Findings page. Click the gear icon at the end of the Project's row to go to the project's Settings page.
 - Semgrep App detects additional environment variables depending on your provider. This simplifies the creation and committing of the configuration file when adding a new Project (repository) in Semgrep App.
 - UI and UX improvements to **Scan new project** workflow.
@@ -47,7 +49,7 @@ These release notes include upgrades for all versions ranging between 0.102.0 an
   - Added taint traces as part of Semgrep JSON output. This helps explain how the sink became tainted.
 
 - General and language support additions:
-  - New language Elixir with experimental support!
+  - Semgrep has an experimental support for **Elixir** language!
   - Scala: Ellipsis are now allowed in for loop function headers, allowing you to write patterns such as `for (...; $X <- $Y if $COND; ...) { ... }` to match nested for loops. (Issue [#5650](https://github.com/returntocorp/semgrep/issues/5650))
   - Kotlin: Support for ellipsis in field access (for example, `obj. ... .bar()`).
   - For users logged-in under `semgrep login` while using Semgrep App. Semgrep now reports file extensions from App-connected scans that do **not** match the language of any enabled rule. This addition can make the development of new rules more effective by improving language prioritization.
@@ -91,6 +93,10 @@ These release notes include upgrades for all versions ranging between 0.102.0 an
 - Using the ellipses operator in XML or HTML elements is now more permissive of whitespace. Previously, in order to have an element with an ellipsis no leading or trailing whitespace was permitted in the element contents, for example `<tag>...</tag>` was the only permitted form. Now, leading or trailing whitespace is ignored when the substantive content of the element is only an ellipsis.
 - `--verbose` no longer displays timing information, use `--verbose --time` to display the timing.
 - The `semgrep --test` output produced expected lines and reported lines that were difficult to read and interpret. This change introduces missed and incorrect lines making it easier to see the differences in output. See more information about the `semgrep --test` in the [Testing rules](/writing-rules/testing-rules.md) documentation.
+
+##### Additional information
+
+Bug fixes are not included in the release notes unless they are potentially breaking your workflow. To see the complete change notes for Semgrep CLI and CI that include fixes, visit the [Semgrep changelog](https://github.com/returntocorp/semgrep/releases/).
 
 ## June 2022
 
