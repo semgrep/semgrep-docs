@@ -24,7 +24,7 @@ This guide defines a job or CI job as a script executed within a certain environ
 
 By refining a job's parameters, you are able to achieve the following goals:
 
-* **Run Semgrep on a schedule.** Run full scans on mainline branches at a least intrusive time on developer teams.
+* **Run Semgrep on a schedule.** Run full scans on mainline branches at the least intrusive time on developer teams.
 * **Run Semgrep with custom rules.** Apply rules specific to your organization's business goals and coding conventions.
 * **Run Semgrep when an event triggers.** Run Semgrep when a pull or merge request (PR or MR) is created. These event triggers or event hooks are dependent on your CI provider. 
 * **Run Semgrep on relevant files and blocks of code.** Configure Semgrep to ignore files and folders such as test files, configuration files, and files from other vendors.
