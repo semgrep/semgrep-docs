@@ -5,6 +5,7 @@ description: "Semgrep CI integrates with 3rd party services when connected to Se
 ---
 
 import MoreHelp from "/src/components/MoreHelp"
+import ProcedureIntegrateSlack from "/src/components/modules/_procedure-integrate-slack.mdx"
 
 # Notifications
 
@@ -23,21 +24,11 @@ Semgrep App also keeps track of notifications that have already been sent,
 so consecutive scans of the same changes in the same pull request
 won't send duplicate notifications.
 
-## Notification channels
+## Adding notification channels
 
 ### Slack
 
-![Screenshot of a Slack notification describing the details of a finding](../img/slack-notification.png)
-<br />
-A Slack notification triggered by new findings in a pull request
-
-To receive Slack notifications about Semgrep findings on pull requests and code pushes, visit [Dashboard > Integrations](https://semgrep.dev/manage/integrations) and select 'Add integration' or 'Setup First Integration' and then choose 'Slack'. Give your channel a name, and then follow the setup instructions on the page to retrieve your Webhook URL.
-
-![An empty Slack channel integration that still needs to be filled in](../img/notification-setup.png "An empty Slack channel integration that still needs to be filled in")
-
-Use the 'Test' button to send a test notification and ensure that your channel is configured properly.
-
-![A correctly configured Slack webhook will send a notification like this](../img/test-notification.png "Correctly configured webhook will send a notification like this")
+<ProcedureIntegrateSlack />
 
 ### Email
 

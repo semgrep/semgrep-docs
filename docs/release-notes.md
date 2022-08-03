@@ -16,7 +16,7 @@ Welcome to Semgrep release notes. This document provides an overview of the chan
 
 #### Additions
 
-- Semgrep App now integrates with Slack through a Slack app. To create a new integration, go to **Settings > Integrations > Add Integration > Slack**. Previously, Semgrep App used Slack webhooks.
+- Semgrep App now integrates with Slack through a Slack app. To create a new integration, go to **Settings** > **Integrations** > **Add Integration** > **Slack**. Previously, Semgrep App used Slack webhooks.
 - Enable autofix for all of your Projects (repositories connected to Semgrep App) by clicking on **Settings > Deployment > Autofix**.
 
 #### Changes

@@ -6,6 +6,7 @@ description: "Semgrep App contains 3rd party integrations to allow users to add 
 ---
 
 import MoreHelp from "/src/components/MoreHelp"
+import ProcedureIntegrateSlack from "/src/components/modules/procedure-modules/_procedure-integrate-slack.mdx"
 
 # Integrating Semgrep App with third-party tools
 
@@ -45,28 +46,7 @@ This section describes how to integrate Semgrep App into particular third-party 
 
 ### Slack
 
-Integrating with Slack allows Semgrep to send findings to a channel on your Slack workspace.
-
-To set it up, create an app within Slack and enable that app's **Incoming Webhooks** feature. By creating a webhook, you'll have a URL that serves as Semgrep's endpoint to your Slack workspace. Follow the guide below to create the app and webook, and integrate with Semgrep:
-
-1. Log in to your Slack account. Enter your login details in [Slack workspace](https://slack.com/workspace-signin).
-2. Create an app in your Slack workspace by following this link: [Slack apps](https://api.slack.com/apps?new_app=1).
-3. Select **From scratch** and fill in the fields for your app's name and workspace.
-![Screenshot of a Slack form to fill out new app details](../img/slack-create-app-name.png)
-4. You will be redirected to your new app's settings page. Alternatively, you can find this page by viewing your apps [here](https://api.slack.com/apps) and selecting your integration app from the menu.
-5. Click on **Incoming Webhooks** on the left menu, and then enable the toggle.
-6. After you have enabled **Incoming Webhooks**, follow one of these steps:
-    - Generate a **Webhook URL**.
-    - Request to add a new webhook from a workspace owner.
-7. After you have obtained the Webhook URL, return to Semgrep and create a new Slack integration. Name the integration and copy-paste the URL into the **Slack URL** field. You may opt to select the **Inventory** flag to include notifications about Code Asset Inventory findings.
-8. Click **Test**, and then select in which Slack channel you receive notifications.
-![Screenshot of the Slack Request Webhook  ](../img/slack-integration-hooktest.png)<br />
-9. Click **Save**.
-10. Turn notifications on by going to the **Rule board**, clicking on the **gear icon**, then clicking on the **toggle** next to the name of the integration.
-
-Here is a sample of a Slack message sent from Semgrep with findings:
-
-![Screenshot of Slack message with findings ](../img/slack-semgrep-findings.png)<br />
+<ProcedureIntegrateSlack />
 
 #### Additional resources
 
@@ -128,7 +108,7 @@ To create a Jira ticket from Semgrep:
 
 Webhooks are a feature available in Semgrep's Team tier and above.
 
-Webhooks are a generic method for Semgrep to post JSON-formatted findings after each scan to your URL endpoint.  To set up a webhook:
+Webhooks are a generic method for Semgrep to post JSON-formatted findings after each scan to your URL endpoint. To set up a webhook:
 
 1. In **Integrations,** click **Add Integration.**
 2. Click **Webhook.**

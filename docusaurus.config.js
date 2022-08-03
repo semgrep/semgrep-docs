@@ -13,6 +13,7 @@ module.exports = {
   organizationName: 'r2c', // Usually your GitHub org/user name.
   projectName: 'semgrep', // Usually your repo name.
   trailingSlash: true,
+  staticDirectories: ['static', 'docs'],
   themeConfig: {
     navbar: {
       logo: {
