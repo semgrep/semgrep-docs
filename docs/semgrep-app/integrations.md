@@ -29,7 +29,7 @@ To find available integrations for Semgrep App, follow these steps:
 2. Click **Settings**.
 3. Click **Integrations**.
 
-![Screenshot of Semgrep's "Create New Integration Channel" menu](../img/integration-firstview.png)<br />
+![Screenshot of Semgrep's "Create New Integration Channel" menu](/img/integration-firstview.png)<br />
 
 ## Managing integrations
 
@@ -38,7 +38,7 @@ To view, disable, or enable your saved integration channels:
 1. In the **Integrations** tab, click the **gear** icon within the **Rule board**.
 2. Select the toggles to turn notifications on or off for each channel.
 
-![Screenshot of the Semgrep rule board with integrations](../img/integration-ruleboard.png)<br />
+![Screenshot of the Semgrep rule board with integrations](/img/integration-ruleboard.png)<br />
 
 ## Integrating various third-party tools
 
@@ -73,7 +73,7 @@ To set up email integration:
 
 Here is a sample of an email sent from Semgrep with findings:
 
-![Screenshot of Semgrep email with findings ](../img/integrations-email-findings.png)<br />
+![Screenshot of Semgrep email with findings ](/img/integrations-email-findings.png)<br />
 
 #### See also
 [Notifcations -> Email](notifications.md/#email)
@@ -99,9 +99,9 @@ To set up Jira integration:
 To create a Jira ticket from Semgrep:
 
 1. In **Findings**, click on the **three-dot icon** of the entry to create a Jira ticket for the finding.
-![Creating a Jira ticket from the Findings page](../img/jira-findings-page.png)<br />
+![Creating a Jira ticket from the Findings page](/img/jira-findings-page.png)<br />
 2. Select **Create issue with `[YOUR_INTEGRATION_NAME]`**.
-![Output of Jira integration](../img/jira-template.png)
+![Output of Jira integration](/img/jira-template.png)
 
 
 ### Webhooks
@@ -116,13 +116,13 @@ Webhooks are a generic method for Semgrep to post JSON-formatted findings after 
 4. Enter the **Webhook URL.**
 5. Select the **Inventory** check box if you would like to receive notifications about Code Asset Inventory findings.
 6. To ensure that Semgrep can post to your URL, click **Test.** 
-![Successful webhook integration test](../img/webhook-successful-test.png)<br />
+![Successful webhook integration test](/img/webhook-successful-test.png)<br />
 7. Click **Save.**
 8. Turn notifications on by going to the **Rule board**, clicking on the **gear icon**, then clicking on the **toggle** next to the name of the integration.
 
 Here is a sample of a webhook sent from Semgrep with findings:
 
-![Screenshot of Semgrep webhook JSON with findings ](../img/integrations-webhook-findings.png)<br />
+![Screenshot of Semgrep webhook JSON with findings ](/img/integrations-webhook-findings.png)<br />
 
 
 ## See also

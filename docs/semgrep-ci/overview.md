@@ -129,7 +129,7 @@ For users of Semgrep App, you can integrate Semgrep CI with many other services,
 
 #### Notifications
 
-![Screenshot of a Slack notification describing the details of a finding](../img/slack-notification.png)<br />
+![Screenshot of a Slack notification describing the details of a finding](/img/slack-notification.png)<br />
 A Slack notification triggered by new findings in a pull request
 
 Notifications require connection to Semgrep App. You can get notified about new findings via:
@@ -148,7 +148,7 @@ Notifications are sent only the first time a given finding is seen. [See how not
 
 #### Security dashboards
 
-![Screenshot of Semgrep App's findings dashboard showing a bar chart of findings over time, and a list of the most recent findings](../img/semgrep-app-overview.png)<br />
+![Screenshot of Semgrep App's findings dashboard showing a bar chart of findings over time, and a list of the most recent findings](/img/semgrep-app-overview.png)<br />
 Semgrep App's findings overview page
 
 The dashboards give you an overview of all your findings organization-wide.

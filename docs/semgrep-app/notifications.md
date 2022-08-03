@@ -5,7 +5,7 @@ description: "Semgrep CI integrates with 3rd party services when connected to Se
 ---
 
 import MoreHelp from "/src/components/MoreHelp"
-import ProcedureIntegrateSlack from "/src/components/modules/_procedure-integrate-slack.mdx"
+import ProcedureIntegrateSlack from "/src/components/modules/procedure-modules/_procedure-integrate-slack.mdx"
 
 # Notifications
 
@@ -45,7 +45,7 @@ Pull request comments are created when:
 
 Automated comments on GitHub pull requests are displayed as follows:
 
-![Screenshot of a GitHub PR comment](../img/semgrep-pull-request.png)
+![Screenshot of a GitHub PR comment](/img/semgrep-pull-request.png)
 <br />
 An inline GitHub pull request comment.
 
@@ -63,7 +63,7 @@ This section documents how to enable Semgrep App to post comments on merge reque
 
 Automated comments on GitLab merge requests are displayed as follows:
 
-<img width="600" src="/docs/img/gitlab-mr-comment.png" alt="Screenshot of a GitLab MR comment" /><br />
+<img width="600" src="/do/img/gitlab-mr-comment.png" alt="Screenshot of a GitLab MR comment" /><br />
 An inline GitLab merge request comment left by a custom Semgrep rule
 
 To enable MR comments:
@@ -102,7 +102,7 @@ Autofix is free to use for all tiers.
 
 In the following screenshot, Semgrep detects the use of a native Python XML library, which is vulnerable to XML external entity (XXE) attacks. The PR comment automatically suggests a fix by replacing `import xml` to `import defusedxml`.
 
-![Screenshot of a sample autofix PR suggestion](../img/notifications-github-suggestions.png)
+![Screenshot of a sample autofix PR suggestion](/img/notifications-github-suggestions.png)
 
 
 #### Enabling autofix for your GitLab or GitHub code repository
@@ -115,7 +115,7 @@ To enable autofix:
 2. Click **Projects** from the **App sidebar**.
 3. Click the name of the project for which to enable autofix.
 4. Click the toggle for **Autofix (beta)**.
-![Screenshot of autofix toggle](../img/notifications-enable-autofix.png)
+![Screenshot of autofix toggle](/img/notifications-enable-autofix.png)
 
 All scans performed after enabling autofix generate inline PR or MR comments with code suggestions for applicable rules.
 
