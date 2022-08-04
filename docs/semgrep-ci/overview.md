@@ -155,7 +155,7 @@ The dashboards give you an overview of all your findings organization-wide.
 You can review Semgrep CI's findings through the following security dashboards:
 
 - [GitLab SAST Security Dashboard](https://docs.gitlab.com/ee/user/application_security/security_dashboard/) (requires GitLab Ultimate subscription)
-- [GitHub Advanced Security Dashboard](https://docs.github.com/en/github/getting-started-with-github/learning-about-github/about-github-advanced-security) (requires GitHub Enterprise subscription)
+- [GitHub Advanced Security Dashboard](https://docs.github.com/en/get-started/learning-about-github/about-github-advanced-security) (requires GitHub Enterprise subscription)
 - [Semgrep App](https://semgrep.dev/manage) (free and paid tiers available)
 
 ## Advanced Configuration
