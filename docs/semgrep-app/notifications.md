@@ -5,6 +5,7 @@ description: "Semgrep CI integrates with 3rd party services when connected to Se
 ---
 
 import MoreHelp from "/src/components/MoreHelp"
+import ProcedureIntegrateSlack from "/src/components/modules/procedure-modules/_procedure-integrate-slack.mdx"
 
 # Notifications
 
@@ -23,21 +24,11 @@ Semgrep App also keeps track of notifications that have already been sent,
 so consecutive scans of the same changes in the same pull request
 won't send duplicate notifications.
 
-## Notification channels
+## Adding notification channels
 
 ### Slack
 
-![Screenshot of a Slack notification describing the details of a finding](../img/slack-notification.png)
-<br />
-A Slack notification triggered by new findings in a pull request
-
-To receive Slack notifications about Semgrep findings on pull requests and code pushes, visit [Dashboard > Integrations](https://semgrep.dev/manage/integrations) and select 'Add integration' or 'Setup First Integration' and then choose 'Slack'. Give your channel a name, and then follow the setup instructions on the page to retrieve your Webhook URL.
-
-![An empty Slack channel integration that still needs to be filled in](../img/notification-setup.png "An empty Slack channel integration that still needs to be filled in")
-
-Use the 'Test' button to send a test notification and ensure that your channel is configured properly.
-
-![A correctly configured Slack webhook will send a notification like this](../img/test-notification.png "Correctly configured webhook will send a notification like this")
+<ProcedureIntegrateSlack />
 
 ### Email
 
@@ -54,7 +45,7 @@ Pull request comments are created when:
 
 Automated comments on GitHub pull requests are displayed as follows:
 
-![Screenshot of a GitHub PR comment](../img/semgrep-pull-request.png)
+![Screenshot of a GitHub PR comment](/img/semgrep-pull-request.png)
 <br />
 An inline GitHub pull request comment.
 
@@ -72,7 +63,7 @@ This section documents how to enable Semgrep App to post comments on merge reque
 
 Automated comments on GitLab merge requests are displayed as follows:
 
-<img width="600" src="/docs/img/gitlab-mr-comment.png" alt="Screenshot of a GitLab MR comment" /><br />
+<img width="600" src="/do/img/gitlab-mr-comment.png" alt="Screenshot of a GitLab MR comment" /><br />
 An inline GitLab merge request comment left by a custom Semgrep rule
 
 To enable MR comments:
@@ -111,7 +102,7 @@ Autofix is free to use for all tiers.
 
 In the following screenshot, Semgrep detects the use of a native Python XML library, which is vulnerable to XML external entity (XXE) attacks. The PR comment automatically suggests a fix by replacing `import xml` to `import defusedxml`.
 
-![Screenshot of a sample autofix PR suggestion](../img/notifications-github-suggestions.png)
+![Screenshot of a sample autofix PR suggestion](/img/notifications-github-suggestions.png)
 
 
 #### Enabling autofix for your GitLab or GitHub code repository
@@ -124,7 +115,7 @@ To enable autofix:
 2. Click **Projects** from the **App sidebar**.
 3. Click the name of the project for which to enable autofix.
 4. Click the toggle for **Autofix (beta)**.
-![Screenshot of autofix toggle](../img/notifications-enable-autofix.png)
+![Screenshot of autofix toggle](/img/notifications-enable-autofix.png)
 
 All scans performed after enabling autofix generate inline PR or MR comments with code suggestions for applicable rules.
 

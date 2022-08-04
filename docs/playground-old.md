@@ -28,7 +28,7 @@ There are two ways to create a rule:
 
 The simple view provides the **most common pattern-matching operators in Semgrep**. This view is used by default.
 
-![Screenshot of default playground view](img/playground.png "Default playground view")
+![Screenshot of default playground view](/img/playground.png "Default playground view")
 
 The following **keys** are **supported** in the simple view:
 
@@ -70,7 +70,7 @@ The simple view has the following limitations:
 To **create a rule** in the simple view:
 
 1. Ensure that you are in the **Simple view**:
-![Screenshot of the simple view](img/playground-simple-view.png "Playground simple view")
+![Screenshot of the simple view](/img/playground-simple-view.png "Playground simple view")
 2. Click **File > New** to start from a blank slate.
 3. Specify in which language the test code is written by selecting a language from the **language is** drop-down box.
 4. After the **code is** button, enter the pattern to test.
@@ -84,7 +84,7 @@ The advanced view is a YAML editor for writing a rule **using any valid key from
 To create a rule in the advanced view:
 
 1. Ensure that you are in the **Advanced view**.
-![Screenshot of the advanced view](img/playground-advanced-view.png "Playground advanced view")
+![Screenshot of the advanced view](/img/playground-advanced-view.png "Playground advanced view")
 2. Enter the keys and values needed to finish your rule.
 
 ## Running and testing a rule for precision
@@ -98,7 +98,7 @@ To **run a rule**:
 To **use a sample** from the Playground:
 
 1. Click **Tools > Load sample `LANGUAGE` code**.
-![Screenshot of Playground sample code menu](img/playground-sample-code.png "Playground sample code menu")
+![Screenshot of Playground sample code menu](/img/playground-sample-code.png "Playground sample code menu")
 2. Select any of the following:
     1. hello world
     2. 100-line file
@@ -214,7 +214,7 @@ To add your rule to your CI pipeline:
 2. Select the CI environment from the tabs under the header **Use in CI**.
 3. Click on the **clipboard icon** on the upper right of the snippet to copy it.
 4. Paste the snippet into the **config file** specified above the snippet.
-![Screenshot of Playground > CI menu](img/playground-use-ci.png "Playground CI menu")
+![Screenshot of Playground > CI menu](/img/playground-use-ci.png "Playground CI menu")
 
 ## Embedding a rule in your site
 
@@ -236,7 +236,7 @@ To embed a rule:
     2. For anonymous users: `[4-letter shortcode]`, such as **dZkP**
 3. Create the **URL reference**. Substitute the identifier in this template: `https://semgrep.dev/embed/editor?snippet=IDENTIFIER`. For example, using the identifier `ievans:print-to-logger` creates `https://semgrep.dev/embed/editor?snippet=ievans:print-to-logger`.
 4. Optional: To test the URL reference, enter the URL in your browser's address bar.
-![Screenshot of the embedded Playground in its own tab](img/playground-widget.png "Embedded playground in its own tab")
+![Screenshot of the embedded Playground in its own tab](/img/playground-widget.png "Embedded playground in its own tab")
 5. In the following snippet, replace the `src` placeholder value with the previously-created **URL reference**:
 
 ```
