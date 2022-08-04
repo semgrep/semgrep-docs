@@ -23,22 +23,22 @@ Currently, Semgrep App integrates with the following tools:
 
 ## Finding available integrations
 
-To find available integrations for Semgrep App, follow these steps:
+To find available [integrations for Semgrep App](https://semgrep.dev/orgs/-/settings/integrations), follow these steps:
 
 1. Sign in to your [Semgrep App account](https://semgrep.dev/).
 2. Click **Settings**.
 3. Click **Integrations**.
-
-![Screenshot of Semgrep's "Create New Integration Channel" menu](/img/integration-firstview.png)<br />
+    ![Screenshot of Semgrep's "Create New Integration Channel" menu](/img/integration-firstview.png)
+4. Click **Add Integration** (or **Setup First Integration** if this is your first integration).
+    ![Screenshot of Integrations page while adding the first integration.](/img/integrations.png)<br />
 
 ## Managing integrations
 
-To view, disable, or enable your saved integration channels:
+To view, add, remove, disable, or enable your saved integration channels:
 
-1. In the **Integrations** tab, click the **gear** icon within the **Rule board**.
-2. Select the toggles to turn notifications on or off for each channel.
-
-![Screenshot of the Semgrep rule board with integrations](/img/integration-ruleboard.png)<br />
+1. In the **Settings** > **[Integrations](https://semgrep.dev/orgs/-/settings/integrations)** page, explore the options available for specific integration.
+2. In the **[Rule board](https://semgrep.dev/orgs/-/board)**, click the **gear** icon to enable or disable an integration.
+    ![Screenshot of Semgrep's Rule board integration modal](/img/rule-board-integrations.png)
 
 ## Integrating various third-party tools
 
@@ -110,19 +110,19 @@ Webhooks are a feature available in Semgrep's Team tier and above.
 
 Webhooks are a generic method for Semgrep to post JSON-formatted findings after each scan to your URL endpoint. To set up a webhook:
 
-1. In **Integrations,** click **Add Integration.**
-2. Click **Webhook.**
+1. Go to **Settings** > **[Integrations](https://semgrep.dev/orgs/-/settings/integrations)**, and then click **Add Integration**.
+2. Click **Webhook**.
 3. Enter a **Name** for the integration.
-4. Enter the **Webhook URL.**
+4. Enter the **Webhook URL**.
 5. Select the **Inventory** check box if you would like to receive notifications about Code Asset Inventory findings.
-6. To ensure that Semgrep can post to your URL, click **Test.** 
+6. To ensure that Semgrep can post to your URL, click **Test**. 
 ![Successful webhook integration test](/img/webhook-successful-test.png)<br />
 7. Click **Save.**
 8. Turn notifications on by going to the **Rule board**, clicking on the **gear icon**, then clicking on the **toggle** next to the name of the integration.
 
 Here is a sample of a webhook sent from Semgrep with findings:
 
-![Screenshot of Semgrep webhook JSON with findings ](/img/integrations-webhook-findings.png)<br />
+![Screenshot of Semgrep webhook JSON with findings](/img/integrations-webhook-findings.png)<br />
 
 
 ## See also
