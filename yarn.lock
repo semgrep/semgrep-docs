@@ -2094,6 +2094,48 @@
   dependencies:
     "@fortawesome/fontawesome-common-types" "6.1.2"
 
+"@fortawesome/pro-duotone-svg-icons@^6.1.2":
+  version "6.1.2"
+  resolved "https://npm.fontawesome.com/@fortawesome/pro-duotone-svg-icons/-/6.1.2/pro-duotone-svg-icons-6.1.2.tgz#a562da19bacbb58da355bb4ad27f53f13702053a"
+  integrity sha512-sUB+nVtY32XC2P/xkaG481csWfZ0MKXzDycwl3YEEi7POx77eF+qnD7HnaKaDNrln7H+ntEelnvRdVti59tQ/Q==
+  dependencies:
+    "@fortawesome/fontawesome-common-types" "6.1.2"
+
+"@fortawesome/pro-light-svg-icons@^6.1.2":
+  version "6.1.2"
+  resolved "https://npm.fontawesome.com/@fortawesome/pro-light-svg-icons/-/6.1.2/pro-light-svg-icons-6.1.2.tgz#90bbe97de6c9d921469de185abdcb8330e8eaf95"
+  integrity sha512-RPtgsmdIxj8tbmWCt+ulncl6DxgtrRD/EkBa8J9QPB/9++/nrIWyvybce8K7hWYzIIeYu+TZhSwGxtrBD0D6BA==
+  dependencies:
+    "@fortawesome/fontawesome-common-types" "6.1.2"
+
+"@fortawesome/pro-regular-svg-icons@^6.1.2":
+  version "6.1.2"
+  resolved "https://npm.fontawesome.com/@fortawesome/pro-regular-svg-icons/-/6.1.2/pro-regular-svg-icons-6.1.2.tgz#f232ce529f59e8279536ce6fdd52f408e2ddf2b3"
+  integrity sha512-5BQ3Guv+FRDyXJ9qy5SQZc+tWsCstQscd4JILb8dFzFtZsDef9cDgxxFEj//QmyrVI45kKVhjfGY8voHHvMQTQ==
+  dependencies:
+    "@fortawesome/fontawesome-common-types" "6.1.2"
+
+"@fortawesome/pro-solid-svg-icons@^6.1.2":
+  version "6.1.2"
+  resolved "https://npm.fontawesome.com/@fortawesome/pro-solid-svg-icons/-/6.1.2/pro-solid-svg-icons-6.1.2.tgz#ecdab98c3e901c72e99c5a1a961070b3b80e05d6"
+  integrity sha512-E1TzmbuO0Klch/EqAjh4WPs93Oss8KwY5MUi2pcSyflN8sq5UqnMZFLWGlLQy24BXeMwgMDw4Aa9xH6lVNg1ig==
+  dependencies:
+    "@fortawesome/fontawesome-common-types" "6.1.2"
+
+"@fortawesome/pro-thin-svg-icons@^6.1.2":
+  version "6.1.2"
+  resolved "https://npm.fontawesome.com/@fortawesome/pro-thin-svg-icons/-/6.1.2/pro-thin-svg-icons-6.1.2.tgz#20dd695caffccc27bf983e6a89b5404588b2767d"
+  integrity sha512-X4zq1SPqs6wK3QcK/6maLUVfqKHdx5hh9IwBreDCZfCncJH09stmpVEU+BvjlhxXGgt2Fb8v+UJbz410z3XOtg==
+  dependencies:
+    "@fortawesome/fontawesome-common-types" "6.1.2"
+
+"@fortawesome/react-fontawesome@^0.2.0":
+  version "0.2.0"
+  resolved "https://npm.fontawesome.com/@fortawesome/react-fontawesome/-/0.2.0/react-fontawesome-0.2.0.tgz#d90dd8a9211830b4e3c08e94b63a0ba7291ddcf4"
+  integrity sha512-uHg75Rb/XORTtVt7OS9WoK8uM276Ufi7gCzshVWkUJbHhh3svsUUeqXerrM96Wm7fRiDzfKRwSoahhMIkGAYHw==
+  dependencies:
+    prop-types "^15.8.1"
+
 "@hapi/hoek@^9.0.0":
   version "9.3.0"
   resolved "https://registry.yarnpkg.com/@hapi/hoek/-/hoek-9.3.0.tgz#8368869dcb735be2e7f5cb7647de78e167a251fb"
@@ -6804,7 +6846,7 @@ prompts@^2.4.2:
     kleur "^3.0.3"
     sisteransi "^1.0.5"
 
-prop-types@^15.6.2, prop-types@^15.7.2:
+prop-types@^15.6.2, prop-types@^15.7.2, prop-types@^15.8.1:
   version "15.8.1"
   resolved "https://registry.yarnpkg.com/prop-types/-/prop-types-15.8.1.tgz#67d87bf1a694f48435cf332c24af10214a3140b5"
   integrity sha512-oj87CgZICdulUohogVAR7AjlC0327U4el4L6eAvOqCeudMDVU0NThNaV+b9Df4dXgSP1gXMTnPdhfe/2qDH5cg==
