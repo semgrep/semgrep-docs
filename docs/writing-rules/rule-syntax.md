@@ -159,7 +159,7 @@ It is possible to nest `metavariable-pattern` inside `metavariable-pattern`!
 The metavariable should be bound to an expression, a statement, or a list of statements, for this test to be meaningful. A metavariable bound to a list of function arguments, a type, or a pattern, will always evaluate to false.
 :::
 
-### Nested language
+#### `metavariable-pattern` with nested language
 
 If the metavariable's content is a string, then it is possible to use `metavariable-pattern` to match this string as code by specifying the target language via the `language` key.
 
@@ -186,6 +186,29 @@ Comparison expressions support simple arithmetic as well as composition with [bo
 <iframe src="https://semgrep.dev/embed/editor?snippet=qq9R" border="0" frameBorder="0" width="100%" height="432"></iframe>
 
 Building off of the previous example this will still catch code like `set_port(80)` but will no longer catch `set_port(443)` or `set_port(8080)`.
+
+The `comparison` key accepts Python expression using:
+
+- Boolean, string, integer, and float literals.
+- Boolean operators `not`, `or`, and `and`.
+- Arithmetic operators `+`, `-`, `*`, `/`, and `%`.
+- Comparison operators `==`, `!=`, `<`, `<=`, `>`, and `>=`.
+- Function `int()` to convert strings into integers.
+- Function `str()` to convert numbers into strings.
+- Lists and the `in` infix operator.
+- Function `re.match()` to match a regular expression (without the optional `flags` argument).
+
+And, of course, you can use Semgrep metavariables like `$MVAR`, which are evaluated as follows:
+
+- If `$MVAR` binds to a literal, then that literal is the value assigned to `$MVAR`.
+- If `$MVAR` binds to a code variable that is known to be a constant, and constant propagation is enabled (as it is by default), then that constant is the value assigned to `$MVAR`.
+- Otherwise the code bound to the `$MVAR` is kept unevvaluated, and its string representation can be obtainer using the `str()` function, as in `str($MVAR)`. For example, if `$MVAR` binds to the code variable `x`, `str($MVAR)` evaluates to the string literal `"x"`.
+
+#### Legacy `metavariable-comparison` keys
+
+:::info
+The use of the following keys could be avoided by using the `int()` function, as in `int($ARG) > 0o600` or `int($ARG) > 2147483647`.
+:::
 
 The `metavariable-comparison` operator also takes optional `base: int` and `strip: bool` keys. These keys set the integer base the metavariable value should be interpreted as and remove quotes from the metavariable value, respectively.
 
