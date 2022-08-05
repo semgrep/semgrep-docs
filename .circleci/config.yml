@@ -39,7 +39,7 @@ jobs:
           command: yarn build
       - run:
           name: Yarn Deploy Staging
-          command: aws s3 sync build/ s3://staging-semgrep-dev/docs
+          command: aws s3 sync build/ s3://staging-semgrep-dev/docs --delete
   deployProd:
     docker:
       - image: cimg/node:16.14.2
@@ -58,7 +58,7 @@ jobs:
           command: yarn build
       - run:
           name: Yarn Prod Deploy
-          command: aws s3 sync build/ s3://semgrep-docs/docs
+          command: aws s3 sync build/ s3://semgrep-docs/docs --delete
 
 workflows:
   build-and-deploy:
