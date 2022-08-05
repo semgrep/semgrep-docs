@@ -86,8 +86,7 @@ module.exports = {
             'experiments/extract-mode',
             'experiments/project-depends-on',
             'experiments/symbolic-propagation',
-            'experiments/metavariable-analysis',
-            'experiments/focus-metavariable'
+            'experiments/metavariable-analysis'
           ]
         },
         'deepsemgrep',
