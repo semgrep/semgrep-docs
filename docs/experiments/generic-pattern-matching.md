@@ -1,11 +1,13 @@
 ---
 append_help_link: true
-description: "Semgrep can match matches generic patterns in languages that it doesn’t yet support. You can use generic pattern matching for languages that don’t yet have a parser, configuration files, and other structured data, such as HTML or XML. Generic pattern matching is experimental."
+description: "Semgrep can match generic patterns in languages that it doesn’t yet support. You can use generic pattern matching for languages that don’t yet have a parser, configuration files, and other structured data. Generic pattern matching is experimental."
 ---
 
 # Generic pattern matching
+
 ## Introduction
-Semgrep can match matches generic patterns in languages that it doesn’t yet support. You can use generic pattern matching for languages that don’t yet have a parser, configuration files, and other structured data, such as HTML or XML. Generic pattern matching is experimental.
+
+Semgrep can match generic patterns in languages that it does **not** yet support. You can use generic pattern matching for languages that do **not** yet have a parser, configuration files, and other structured data. Generic pattern matching is experimental.
 
 As an example, consider this rule:
 ```yaml
@@ -40,7 +42,7 @@ resource "aws_s3_bucket" "b" {
 Generic pattern matching has the following properties:
 
 * A document is interpreted as a nested sequence of ASCII words, ASCII punctuation, and other bytes.
-* `...` allows skipping non-matching elements, up to 10 lines down the last match.
+* `...` (ellipsis operator) allows skipping non-matching elements, up to 10 lines down the last match.
 * `$X` (metavariable) matches any word.
 * `$...X` (ellipsis metavariable) matches a sequence of words, up to 10 lines down the last match.
 * Indentation determines primary nesting in the document.
