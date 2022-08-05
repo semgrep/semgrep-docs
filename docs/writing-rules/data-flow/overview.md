@@ -1,5 +1,5 @@
 ---
-slug: /writing-rules/data-flow
+slug: overview
 append_help_link: true
 description: >-
   Semgrep can run data-flow analyses on your code, this is used for constant propagation and for taint tracking.
