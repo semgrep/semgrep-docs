@@ -19,6 +19,7 @@
     "@docusaurus/plugin-client-redirects": "^2.0.0-beta.20",
     "@docusaurus/preset-classic": "^2.0.0-beta.20",
     "@docusaurus/theme-search-algolia": "^2.0.0-beta.20",
+    "@fortawesome/fontawesome-pro": "^6.1.2",
     "@fortawesome/fontawesome-svg-core": "^6.1.2",
     "@fortawesome/free-regular-svg-icons": "^6.1.2",
     "@fortawesome/free-solid-svg-icons": "^6.1.2",
