@@ -3,12 +3,12 @@ slug: contributing-to-semgrep-rules-repository
 description: "This article outlines how to contribute to Semgrep rules repository."
 ---
 
-import CloudArrowUp from '../img/cloud-arrow-up.svg'
-import CicleCheck from '../img/circle-check-solid.svg'
-import CodePullRequest from '../img/code-pull-request-solid.svg'
-import EarthAmericas from '../img/earth-americas-solid.svg'
-import FloppyDisk from '../img/floppy-disk-solid.svg'
-import CodeBranch from '../img/code-branch-solid.svg'
+import CloudArrowUp from '/img/cloud-arrow-up.svg'
+import CicleCheck from '/img/circle-check-solid.svg'
+import CodePullRequest from '/img/code-pull-request-solid.svg'
+import EarthAmericas from '/img/earth-americas-solid.svg'
+import FloppyDisk from '/img/floppy-disk-solid.svg'
+import CodeBranch from '/img/code-branch-solid.svg'
 
 # Contributing to Semgrep rules
 

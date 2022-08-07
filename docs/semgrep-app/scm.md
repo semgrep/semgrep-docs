@@ -38,7 +38,7 @@ Integrate Semgrep into these custom source code management (SCM) tools by follow
 
 <div class = "bordered">
 
-![Screenshot of SCM configuration tab](../img/app-scm.png)
+![Screenshot of SCM configuration tab](/img/app-scm.png)
 
 </div>
 

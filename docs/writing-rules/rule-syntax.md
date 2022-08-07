@@ -439,7 +439,7 @@ When invoked with `semgrep -f rule.yaml project/`, the above rule will run on fi
 - any file matching the `project/static/*.js` glob pattern
 
 :::note
-The glob syntax is from [Python's `pathlib`](https://docs.python.org/3/library/pathlib.html#pathlib.PurePath.match) and is used to match against the given file and all its parent directories.
+The glob syntax is from [Python's `wcmatch`](https://pypi.org/project/wcmatch/) and is used to match against the given file and all its parent directories.
 :::
 
 ### Limiting a rule to paths
@@ -456,6 +456,7 @@ rules:
         - "project/server"
         - "project/schemata"
         - "project/static/*.js"
+        - "tests/**/*.js"
 ```
 
 When invoked with `semgrep -f rule.yaml project/`, this rule will run on files inside `project/`, but results will be returned only for:
@@ -463,6 +464,7 @@ When invoked with `semgrep -f rule.yaml project/`, this rule will run on files i
 - files whose name ends in `_test.go`, such as `project/backend/server_test.go`
 - files inside `project/server`, `project/schemata`, or their subdirectories
 - files matching the `project/static/*.js` glob pattern
+- all files with the `.js` extension, arbitrary depth inside the tests folder
 
 If you are writing tests for your rules, you will need to add any test file or directory to the included paths as well.
 

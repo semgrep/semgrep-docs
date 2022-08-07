@@ -19,6 +19,10 @@ Usage: semgrep [OPTIONS] COMMAND [ARGS]...
 
   To get started quickly, run `semgrep scan --config auto`
 
+  Run `semgrep SUBCOMMAND --help` for more information on each subcommand
+
+  If no subcommand is passed, will run `scan` subcommand by default
+
 Options:
   -h, --help  Show this message and exit.
 
@@ -26,6 +30,7 @@ Commands:
   ci            The recommended way to run semgrep in CI
   login         Obtain and save credentials for semgrep.dev
   logout        Remove locally stored credentials to semgrep.dev
+  lsp           [EXPERIMENTAL] Start the Semgrep LSP server.
   publish       Upload rule to semgrep.dev
   scan          Run semgrep rules on files
   shouldafound  Report a false negative in this project.
@@ -36,7 +41,7 @@ Commands:
 See `semgrep scan --help` for command line options available for scans.
 
 ```
-Usage: semgrep scan [OPTIONS] [TARGET]...
+Usage: semgrep scan [OPTIONS] [TARGETS]...
 
   Run semgrep rules on files
 
@@ -47,7 +52,9 @@ Usage: semgrep scan [OPTIONS] [TARGET]...
 
       semgrep --config auto .
 
-  This will automatically fetch rules for your project from the Semgrep Registry. 
+  This will automatically fetch rules for your project from the Semgrep
+  Registry. NOTE: Using `--config auto` will log in to the Semgrep Registry
+  with your project URL.
 
   For more information about Semgrep, go to https://semgrep.dev.
 
