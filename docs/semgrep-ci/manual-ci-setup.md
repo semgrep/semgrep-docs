@@ -10,7 +10,7 @@ import MoreHelp from "/src/components/MoreHelp"
 
 # Manually integrating Semgrep in various Continuous Integration providers
 
-Run Semgrep in your CI pipeline to scan your repository for code vulnerabilities and other issues.
+Run Semgrep in your Continuous Integration (CI) pipeline to scan your repository for code vulnerabilities and other issues.
 
 There are two general steps to setting up Semgrep in your CI pipeline manually:
 
@@ -28,12 +28,16 @@ By refining a job's parameters, you are able to achieve the following goals:
 * **Run Semgrep with custom rules.** Apply rules specific to your organization's business goals and coding conventions.
 * **Run Semgrep when an event triggers.** Run Semgrep when a pull or merge request (PR or MR) is created. These event triggers or event hooks are dependent on your CI provider. 
 * **Run Semgrep on relevant files and blocks of code.** Configure Semgrep to ignore files and folders such as test files, configuration files, and files from other vendors.
-* **Pass a Semgrep CI job even when scans report findings.** By default, manual configurations fail when any finding is detected. Configure Semgrep to pass CI jobs even when findings are reported (a **fail open** state).
+* **Configure a Semgrep CI job to pass or fail when any finding is detected.** By default, manual configurations pass when any finding is detected. You can also configure Semgrep to fail CI jobs when findings are reported (a **fail closed** state).
+* **Output, export, or save findings to a file.** 
 
 ## Limitations of manually configured Semgrep CI scans 
 
 * Findings are not tiered based on severity and actions cannot be undertaken based on severity. This means that either any finding will cause the job to fail, or any finding still allows the job to pass.
-* Findings are dumped to a log and are not tracked over time, so there is no record of a finding's state, such as opened, closed, or ignored.
+* Findings are dumped to a log and are not tracked over time, so there is no record of a finding's **triage state**, such as opened, closed, or ignored.
+
+:::note
+`semgrep ci` prevents the duplication of findings by scanning only the changes in files in pull or merge requests. This is different from Semgrep App's capability to track a finding's **triage state**, as each finding has a record.
 
 ## Setting up the CI job
 
@@ -412,7 +416,7 @@ TODO
 
 By default `semgrep ci` skips files and directories such as `tests/`, `node_modules/`, and `vendor/`. It uses the same default `.semgrepignore` as the `semgrep` command. This default `semgrepignore`  can be found in the [CLI Reference](https://semgrep.dev/docs/cli-reference/#ignoring-files). This is used by `semgrep ci` when no explicit `.semgrepignore` file is found in the root of your repository.
 
-You can copy and commit the default `.semgrepignore` and extend it with your own entries or write one from scratch. `.semgrepignore` follows `.gitignore` syntax. If Semgrep detects a `.semgrepignore` file within your repository, it won't append entries from the default `.semgrepignore` file.
+You can copy and commit the default `.semgrepignore` to the **root of your repository** and extend it with your own entries or write one from scratch. `.semgrepignore` follows `.gitignore` syntax. If Semgrep detects a `.semgrepignore` file within your repository, it won't append entries from the default `.semgrepignore` file.
 
 For a complete example, see the [.semgrepignore file on Semgrep’s source code](https://github.com/returntocorp/semgrep/blob/develop/.semgrepignore).
 
