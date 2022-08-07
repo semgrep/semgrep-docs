@@ -8,9 +8,9 @@ hide_title: true
 
 import MoreHelp from "/src/components/MoreHelp"
 
-# Manually integrating Semgrep in various Continuous Integration providers
+# Integrating Semgrep in CI providers without Semgrep App
 
-Run Semgrep in your Continuous Integration (CI) pipeline to scan your repository for code vulnerabilities and other issues.
+Run Semgrep in your Continuous Integration (CI) pipeline to scan your repository for code vulnerabilities and other issues. This guide explains how to set up Semgrep in your pipeline without the use of Semgrep App.
 
 There are two general steps to setting up Semgrep in your CI pipeline manually:
 
@@ -29,7 +29,7 @@ By refining a job's parameters, you are able to achieve the following goals:
 * **Run Semgrep when an event triggers.** Run Semgrep when a pull or merge request (PR or MR) is created. These event triggers or event hooks are dependent on your CI provider. 
 * **Run Semgrep on relevant files and blocks of code.** Configure Semgrep to ignore files and folders such as test files, configuration files, and files from other vendors.
 * **Configure a Semgrep CI job to pass or fail when any finding is detected.** By default, manual configurations pass when any finding is detected. You can also configure Semgrep to fail CI jobs when findings are reported (a **fail closed** state).
-* **Output, export, or save findings to a file.** 
+* **Output, export, or save findings to a file.** Semgrep can save to a number of file formats. 
 
 ## Limitations of manually configured Semgrep CI scans 
 
