@@ -54,7 +54,7 @@ An alternative method of running Semgrep in your CI is to run the `semgrep scan`
 
 To add Semgrep into your GitHub Actions pipeline:
 
-1. Create a `semgrep.yaml` configuration file to add a Semgrep command as part of your GithubActions pipeline. Refer to the [GitHub Actions code snippet](#github-actions-code-snippet).
+1. Create a `semgrep.yaml` configuration file to add a Semgrep command as part of your Github Actions pipeline. Refer to the [GitHub Actions code snippet](#github-actions-code-snippet).
 2. Optional: You can also review the [GitHub Actions workflow syntax](https://docs.github.com/en/actions/using-workflows/workflow-syntax-for-github-actions) to help with editing the configuration file.
 3. Commit the configuration file into the `./github/workflows` folder within the target repository. The Semgrep job starts automatically upon detecting the `semgrep.yaml` commit in the previous step
 4. Optional: Re-run or view the job from the GitHub Actions interface.
@@ -115,7 +115,7 @@ jobs:
 To add Semgrep into your GitLab CI/CD pipeline:
 
 1. Create or edit a `.gitlab-ci.yml` configuration file to add a Semgrep
-   command as part of your pipeline. Refer to the [GitLab CI/CD code
+   command as part of your GitLab CI/CD pipeline. Refer to the [GitLab CI/CD code
    snippet](#gitlab-cicd-code-snippet).
 2. Optional: You can also review the [GitLab configuration guide](https://docs.gitlab.com/ee/ci/yaml/gitlab_ci_yaml.html) to help with editing the configuration file. 
 3. Commit the configuration file into the root folder within the target repository. The Semgrep job starts automatically upon detecting the `.gitlab-ci.yml` commit in the previous step.
@@ -192,7 +192,7 @@ Your UI may vary depending on your Jenkins installation. These steps use a Class
 
 To add Semgrep into your Jenkins pipeline:
 
-1. Edit or create your `Jenkinsfile` configuration file to add a Semgrep `step` as part of your Pipeline. Refer to the [Jenkins CI code snippet](#jenkins-ci-code-snippet). You can edit your `Jenkinsfile` from Jenkins's interface.
+1. Edit or create your `Jenkinsfile` configuration file to add a Semgrep `step` as part of your Jenkins Pipeline. Refer to the [Jenkins CI code snippet](#jenkins-ci-code-snippet). You can edit your `Jenkinsfile` from Jenkins's interface.
 2. Optional: You can also review [`Jenkinsfile` usage](https://www.jenkins.io/doc/book/pipeline/jenkinsfile/) to help with editing the configuration file.
 3. If you are using Jenkins Classic UI, [save your `Jenkinsfile`](https://www.jenkins.io/doc/book/pipeline/getting-started/#through-the-classic-ui) within the Jenkins interface. Otherwise, commit the configuration file into the root folder within the target repository. The Semgrep job starts automatically upon detecting the `Jenkinsfile` commit in the previous step. 
 4. Optional: Re-run the stage from [Jenkins's interface](https://www.jenkins.io/doc/book/pipeline/running-pipelines/#restarting-from-the-classic-ui).
