@@ -40,7 +40,7 @@ See [Advanced Configuration](#advanced-configuration) for further customizations
 You can add Semgrep CI automatically to a GitHub repository by clicking "Set up" on the [Projects page](https://semgrep.dev/manage/projects) of Semgrep App. You'll be able to adjust pull request and  merge behavior before Semgrep App asks to commit a workflow file to your repository.
 :::
 
-To manually add Semgrep CI to GitHub Actions, add a `.github/workflows/semgrep.yml` file to your repository. Follow the [workflow syntax for GitHub Actions](https://docs.github.com/en/actions/reference/workflow-syntax-for-github-actions).
+To manually add Semgrep CI to GitHub Actions, add a `.github/workflows/semgrep.yml` file to your repository. Follow the [workflow syntax for GitHub Actions](https://docs.github.com/en/actions/using-workflows/workflow-syntax-for-github-actions).
 
 See this [example GitHub Actions workflow configuration](../sample-ci-configs/#github-actions) for Semgrep CI.
 
@@ -235,7 +235,7 @@ In providers other than GitHub Actions and GitLab CI, Semgrep CI doesn't infer a
 
 | Exit code | Meaning |
 | --- | --- |
-| **0** | Scan completed successfully and found no blocking findings or error suppression is configured by default, meaning that Semgrep in CI by default blocks pipeline only on blocking findings configured in Rule Board of Semgrep App. (To change this default behavior, see [Configuring blocking findings or errors](/semgrep-ci/configuration-reference.md/#configuring-blocking-findings-or-errors)). |
+| **0** | Scan completed successfully and found no blocking findings or error suppression is configured. Even if Semgrep ends with an internal error, it ends with the status `0`. This internal error suppression is configured by default, meaning that Semgrep in CI by default blocks pipeline only on blocking findings configured in Rule Board of Semgrep App or with any Semgrep findings if you are not using Semgrep App. (To change this default behavior, see [Configuring blocking findings or errors](/semgrep-ci/configuration-reference.md/#configuring-blocking-findings-or-errors)). |
 | **1** | Scan completed successfully and found blocking findings |
 | **2** | Scan failed (error suppression mentioned in **`0`** disabled). Print the error details. |
 
