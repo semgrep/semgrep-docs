@@ -192,7 +192,7 @@ semgrep:
 ### Jenkins
 
 :::note
-Your UI may vary depending on your Jenkins installation. These steps use a Classic UI Jenkins interface.
+Your UI (user interface) may vary depending on your Jenkins installation. These steps use a Classic UI Jenkins interface.
 :::
 
 To add Semgrep into your Jenkins pipeline:
@@ -319,7 +319,7 @@ To add Semgrep into your Buildkite pipeline:
 5. Customize the job's behavior, such as its rules to scan and files to ignore.
 
 :::note
-From Buildkite's main page, click **Pipelines > ➕ button** to perform these steps within Buildkite's UI.
+These steps can be performed from within Buildkite's interface. From Buildkite's main page, click **Pipelines > ➕ button** to perform these steps within Buildkite's UI.
 :::
 
 #### Buildkite code snippet
