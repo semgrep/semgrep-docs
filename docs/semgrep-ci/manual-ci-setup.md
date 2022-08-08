@@ -17,7 +17,7 @@ There are two general steps to setting up Semgrep in your CI pipeline manually:
 1. Set up the CI job or action to scan with Semgrep and receive an exit code.
 2. Refine the CI job's parameters.
 
-<!-- ![Steps to integrate Semgrep in CI manually](images/image1.png "image_tooltip") -->
+![Steps to integrate Semgrep in CI without Semgrep App](/img/semgrep-ci-overview-noapp.png "Steps to integrate Semgrep in CI without Semgrep App")
 *Figure 1. Steps to integrate Semgrep in CI manually.*
 
 This guide defines a job or CI job as a script executed within a certain environment and managed by a CI provider.
@@ -28,20 +28,19 @@ By refining a job's parameters, you are able to achieve the following goals:
 * **Run Semgrep with custom rules.** Apply rules specific to your organization's business goals and coding conventions.
 * **Run Semgrep when an event triggers.** Run Semgrep when a pull or merge request (PR or MR) is created. These event triggers or event hooks are dependent on your CI provider. 
 * **Run Semgrep on relevant files and blocks of code.** Configure Semgrep to ignore files and folders such as test files, configuration files, and files from other vendors.
-* **Configure a Semgrep CI job to pass or fail when any finding is detected.** By default, manual configurations pass when any finding is detected. You can also configure Semgrep to fail CI jobs when findings are reported (a **fail closed** state).
+* **Configure a Semgrep CI job to pass or fail when any finding is detected.** By default, manual configurations pass when any finding is detected. You can also configure Semgrep to fail CI jobs when findings are reported.
 * **Output, export, or save findings to a file.** Semgrep can save to a number of file formats, including SARIF and JSON. 
 
 ## Limitations of manually configured Semgrep CI scans 
 
-* Findings are not tiered based on severity and actions cannot be undertaken based on severity. This means that either any finding will cause the job to fail, or any finding still allows the job to pass.
+* Findings are not tiered based on a user-defined criteria (such as severity) and actions cannot be undertaken based on a user-defined criteria. This means that either any finding will cause the job to fail, or any finding still allows the job to pass.
 * Findings are dumped to a log and are not tracked over time, so there is no record of a finding's **triage state**, such as opened, closed, or ignored.
 
 :::note
 `semgrep ci` prevents the duplication of findings by scanning only the changes in files in pull or merge requests. This is different from Semgrep App's capability to track a finding's **triage state**, as each finding has a record.
+:::
 
 ## Setting up the CI job
-
-### Introduction
 
  `semgrep ci` is the command used to run Semgrep in a CI environment. In most cases, this is the recommended command to run in the CI job. It is a subset of the `semgrep scan` command. Features of this command include:
  
@@ -51,7 +50,7 @@ By refining a job's parameters, you are able to achieve the following goals:
  * `semgrep ci` can be run on a local `.git` repository at any time to test its behavior before running it within a CI environment.
 
 :::note
-An alternative method of running Semgrep in your CI is to run the `semgrep scan` command, passing rules to scan, for example `semgrep scan --config auto` which performs a full scan of the repository every time the job is run.
+An alternative method of running Semgrep in your CI is to run the `semgrep scan` command, passing rules to scan, for example `semgrep scan --config p/default`, which performs a full scan of the repository every time the job is run. For more details, see [`semgrep scan` options](/cli-reference/#semgrep-scan-options).
 :::
 
 ### GitHub Actions
@@ -209,14 +208,17 @@ This code snippet uses Jenkins declarative syntax.
 ```javascript
 pipeline {
   agent any
-    stages {
-      stage('Semgrep-Scan') {
-	      environment { 
-          SEMGREP_RULES = 'p/default'
+  stages {
+    stage('Semgrep-Scan') {
+        environment { 
+          SEMGREP_RULES = "p/default"
+          SEMGREP_TIMEOUT = "300"
+          // for Holden to confirm - because this is for diff-aware scanning
+          SEMGREP_BASELINE_REF = "${GIT_BRANCH}"
         } 
-        steps {
-          sh 'pip3 install semgrep'
-          sh 'semgrep ci'
+      steps {
+        sh 'pip3 install semgrep'
+        sh 'semgrep ci'
       }
     }
   }
@@ -252,6 +254,8 @@ pipelines:
         image: returntocorp/semgrep
         script:
           - export SEMGREP_RULES="p/default" 
+          - export SEMGREP_TIMEOUT="300" 
+          - export SEMGREP_BASELINE_REF=$BITBUCKET_BRANCH
           - semgrep ci
 ```
 
@@ -285,9 +289,9 @@ jobs:
       # Scan changed files in PRs, only report new findings (existing findings ignored)
       SEMGREP_BASELINE_REF: << parameters.default_branch >>
       SEMGREP_RULES: p/default
-	
-    # Change job timeout (in seconds; default is 1800 seconds. Set to 0 to disable)
-    #   SEMGREP_TIMEOUT: 300
+
+      # Change job timeout (in seconds; default is 1800 seconds. Set to 0 to disable)
+      # SEMGREP_TIMEOUT: 300
 
     docker:
       - image: returntocorp/semgrep
@@ -321,7 +325,9 @@ From Buildkite's main page, click **Pipelines > ➕ button** to perform these st
 ```yaml
 - label: ":semgrep: Semgrep"
   commands:
-    - export SEMGREP_RULES='p/default' 
+    - export SEMGREP_RULES="p/default"
+    - export SEMGREP_TIMEOUT="300"
+    - export SEMGREP_BASELINE_REF=${BUILDKITE_BRANCH}
     - semgrep ci 
   
   plugins:
@@ -436,5 +442,10 @@ Migrate to Semgrep App to:
     * Show the finding to your team through the use of PR and MR comments.
     * Block the pull or merge request.
 
-TODO
+To migrate to Semgrep App:
+
+1. Create an account in Semgrep App.
+2. Click > Scan New Project and follow the steps in [Integrating Semgrep in CI providers with Semgrep App].
+3. Optional: If you have previously set a custom `SEMGREP_TIMEOUT` or `SEMGREP_BASELINE_REF` environment variable, copy them to the CI configuration file created by Semgrep App. Do not copy `SEMGREP_RULES`.
+4. Optional: Remove the old CI job that does not use Semgrep App.
 
