@@ -19,17 +19,21 @@ While environment variables are the preferred way to configure Semgrep CI, pass 
 SEMGREP_RULES="p/security-audit p/secrets"
 ```
 
-## Suppressing blocking findings or errors
+## Configuring blocking findings or errors 
 
-Most CI providers block pull requests (PRs) or merge requests (MRs) on non-zero exit codes. Semgrep can be configured to suppress errors (this is the default behavior) or surface all errors depeding on the needs of your specific projects. This behavior is controlled via the `--suppress-errors/--no-suppress-errors` flag, and defaults to suppressing all errors _except_ blocking findings, which surface as exit code 1.
+Most CI providers block pull requests (PRs) or merge requests (MRs) on non-zero exit codes. Semgrep can be configured to suppress errors (this is the default behavior) or surface all errors depending on the needs of your teams and projects. Configure this behavior by the `--suppress-errors` or `--no-suppress-errors` flags.
 
-Semgrep always exits with a non-zero exit code (exit code 1) when it reports a blocking finding. The `--suppress-errors/--no-suppress-errors` controls whether or not semgrep errors in running Semgrep (exit code 2 and above) are surfaced in CI. When the default behavior (equivalent to passing `--suppress-errros`) is left on, Semgrep CI will send an anonymous crash report to a crash-reporting server and then exit with exit code 0. If this behavior is disabled by passing the `--no-suppress-errors` flag to `semgrep ci`, then all exit codes, including internal errors, will be surfaced to the CI provider. For more information about specific Semgrep exit codes see [CLI reference](../../cli-reference/#exit-codes).
+Semgrep always exits with a non-zero exit code (exit code 1) when it reports a blocking finding. The `--suppress-errors/--no-suppress-errors` controls whether or not semgrep errors in running Semgrep (exit code 2 and above) are surfaced in CI. When the default behavior (equivalent to passing `--suppress-errors`) is left on, Semgrep CI will send a crash report to a crash-reporting server and then exit with exit code 0. This report only contains information that would've otherwise gone to Semgrep App (if configured) on a scan, no additional information is passed. If this behavior is disabled by passing the `--no-suppress-errors` flag to `semgrep ci`, then all exit codes, including internal errors, will be surfaced to the CI provider.
 
 Configure the behavior of Semgrep in CI to suppress blocking findings or internal Semgrep errors blocking your pipeline by using the following options in your YAML configuration file: 
 
-- `semgrep ci` - Semgrep in CI **fails** on blocking findings, CI **passes** on internal errors.
-- `semgrep ci --no-suppress-errros` - Semgrep in CI **fails** on blocking findings, CI **fails** on internal errors.
+- `semgrep ci` - This is the default state. Semgrep in CI **fails** on blocking findings, CI **passes** on internal errors. Semgrep sends an anonymous crash report to a crash-reporting server, and then exits with exit code `0`. Optional: Define it explicitly by using `--suppress-errors` flag.
+- `semgrep ci --no-suppress-errors` - Semgrep in CI **fails** on blocking findings, CI **fails** on internal errors. If used, all exit codes, including internal errors, are surfaced to the CI provider.
 - `semgrep ci || true` - Semgrep in CI **passes** on blocking findings, CI **passes** on internal errors.
+
+:::info
+For more information about specific Semgrep exit codes see [CLI reference](../../cli-reference/#exit-codes).
+:::
 
 To enable one of these options, insert the code under the `run` key, see the following example from GitHub Actions (GHA):
 
@@ -66,7 +70,7 @@ jobs:
     steps:
       - uses: actions/checkout@v3
       - name: Scan and suppress internal errors
-        run: semgrep ci || [ $? != 1 ]
+        run: semgrep ci
 ```
 
 :::info

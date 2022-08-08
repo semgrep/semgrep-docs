@@ -26,7 +26,7 @@ Semgrep CI runs fully in your build environment: **your code is never sent anywh
 
 Semgrep CI behaves like other static analysis and linting tools: it runs a set of user-configured rules and returns a non-zero exit code if there are findings, resulting in its job showing a ✅ or ❌.
 
-By default, Semgrep CI will suppress internal errors - if Semgrep CI encounters an error, it will log the error to the console, send a report to a crash-reporting server, and then allow CI to continue. This default behavior can be overridden, and this is discussed in the [Advanced Configuration](#exit-codes) section below, as well as in the [CI Configuration Reference](../configuration-reference.md/#ci-configuration-reference).
+By default, Semgrep CI suppresses internal errors. If Semgrep in CI encounters an error, it logs the error to the console, sends a report to a crash-reporting server, and then lets CI continue. This default behavior can be overridden. See the [Advanced Configuration](#exit-codes) section below and [Configuring blocking findings or errors](/semgrep-ci/configuration-reference.md/#configuring-blocking-findings-or-errors).
 
 Copy the relevant template for your CI provider from the sections below. Read through the comments in the template to adjust Semgrep CI scan settings, selecting pull and merge requests, full scans on your branch.
 
@@ -235,9 +235,9 @@ In providers other than GitHub Actions and GitLab CI, Semgrep CI doesn't infer a
 
 | Exit code | Meaning |
 | --- | --- |
-| **0** | Scan completed successfully and found no blocking findings, or error suppression was configured (this is configured by defualt) |
+| **0** | Scan completed successfully and found no blocking findings or error suppression is configured by default, meaning that Semgrep in CI by default blocks pipeline only on blocking findings configured in Rule Board of Semgrep App. (To change this default behavior, see [Configuring blocking findings or errors](/semgrep-ci/configuration-reference.md/#configuring-blocking-findings-or-errors)). |
 | **1** | Scan completed successfully and found blocking findings |
-| **2** | Scan failed and printed the error's details and error suppression was disabled |
+| **2** | Scan failed (error suppression mentioned in **`0`** disabled). Print the error details. |
 
 [Non-blocking findings](#getting-notifications-instead-of-blocking-builds) do not affect the exit code.
 
