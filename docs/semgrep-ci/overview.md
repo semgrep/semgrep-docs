@@ -235,9 +235,9 @@ In providers other than GitHub Actions and GitLab CI, Semgrep CI doesn't infer a
 
 | Exit code | Meaning |
 | --- | --- |
-| **0** | Scan completed successfully and found no blocking findings or error suppression is configured. Even if Semgrep ends with an internal error, it ends with the status `0`. This internal error suppression is configured by default, meaning that Semgrep in CI by default blocks pipeline only on blocking findings configured in Rule Board of Semgrep App or with any Semgrep findings if you are not using Semgrep App. (To change this default behavior, see [Configuring blocking findings or errors](/semgrep-ci/configuration-reference.md/#configuring-blocking-findings-or-errors)). |
+| **0** | Scan completed successfully and found no blocking findings. By default, if Semgrep ends with an internal error, it concludes with the status `0` also. Semgrep in CI by default blocks pipeline **only** on blocking findings configured in Rule Board of Semgrep App or with **all** Semgrep findings if you are **not** using Semgrep App. For more information or to change the default behavior, see [Configuring blocking findings or errors](/semgrep-ci/configuration-reference.md/#configuring-blocking-findings-or-errors). |
 | **1** | Scan completed successfully and found blocking findings |
-| **2** | Scan failed (error suppression mentioned in **`0`** disabled). Print the error details. |
+| **2** | Scan failed (error suppression mentioned in **`0`** description above is disabled). Semgrep in CI prints the error details. |
 
 [Non-blocking findings](#getting-notifications-instead-of-blocking-builds) do not affect the exit code.
 
