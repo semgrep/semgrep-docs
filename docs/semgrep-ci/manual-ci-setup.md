@@ -12,10 +12,11 @@ import MoreHelp from "/src/components/MoreHelp"
 
 Run Semgrep in your Continuous Integration (CI) pipeline to scan your repository for code vulnerabilities and other issues. This guide explains how to set up Semgrep in your pipeline without the use of Semgrep App.
 
-There are two general steps to setting up Semgrep in your CI pipeline manually:
+There are three general steps to setting up Semgrep in your CI pipeline manually:
 
 1. Set up the CI job or action to scan with Semgrep and receive an exit code.
-2. Refine the CI job's parameters.
+2. Test the CI job, which means you are able to view findings in the CI provider's log.
+3. Refine the CI job's parameters. It is easier to troubleshoot any parameters after testing that the job runs.
 
 ![Steps to integrate Semgrep in CI without Semgrep App](/img/semgrep-ci-overview-noapp.png "Steps to integrate Semgrep in CI without Semgrep App")
 *Figure 1. Steps to integrate Semgrep in CI manually.*
@@ -374,11 +375,11 @@ Your customization options with other CI providers vary depending on working env
 
 The following sections describe methods to customize your CI job.
 
-### Passing the CI job 
+### Passing or failing the CI job
 
-By default, Semgrep CI exits with exit code 1 if the scan returns any findings. This causes the job to fail.
+By default, Semgrep CI exits with exit code 0 if the scan returns any findings. This causes the job to pass.
 
-Semgrep provides a **fail open** option. This enables you to suppress findings or internal Semgrep errors that block your pipeline.  You can accomplish this in several different ways:
+Semgrep provides a **fail closed** option. This enables you to suppress findings or internal Semgrep errors that block your pipeline. You can accomplish this in several different ways:
 
 <dl>
 	<dt><code>semgrep ci</code></dt>
@@ -395,7 +396,14 @@ Refer to [Semgrep exit codes](../cli-reference/#exit-codes) to understand variou
 
 The following table is a summary of methods and resources to set up schedules for different CI providers.
 
-TODO
+| CI provider | Where to set schedule | Resource |
+| ----------- | --------------------  | -------  |
+| GitHub Actions | Within `semgrep.yml` file | [Sample code snippet](#github-actions-code-snippet) |
+| GitLab CI/CD | Within GitLab CI/CD interface |[Official documentation](https://docs.gitlab.com/ee/ci/pipelines/schedules.html) |
+| Jenkins | Within Jenkins interface |  [Official documentation](https://www.jenkins.io/doc/book/pipeline/running-pipelines/#scheduling-jobs-in-jenkins) |
+| BitBucket Pipelines | Within BitBucket Pipelines interface | [Official documentation](https://support.atlassian.com/bitbucket-cloud/docs/pipeline-triggers/) |
+| CircleCI | Within CircleCI interface | [Official documentation](https://circleci.com/docs/scheduled-pipelines#get-started-with-scheduled-pipelines-in-circleci) |
+| Buildkite | Within Buildkite interface | [Official documentation](https://buildkite.com/docs/pipelines/scheduled-builds) |
 
 ### Customizing rules and rulesets
 
@@ -445,7 +453,8 @@ Migrate to Semgrep App to:
 To migrate to Semgrep App:
 
 1. Create an account in Semgrep App.
-2. Click > Scan New Project and follow the steps in [Integrating Semgrep in CI providers with Semgrep App].
+2. Click **Projects > Scan New Project** and follow the steps in [Integrating Semgrep in CI providers with Semgrep App](/semgrep-app/getting-started-with-semgrep-app).
 3. Optional: If you have previously set a custom `SEMGREP_TIMEOUT` or `SEMGREP_BASELINE_REF` environment variable, copy them to the CI configuration file created by Semgrep App. Do not copy `SEMGREP_RULES`.
 4. Optional: Remove the old CI job that does not use Semgrep App.
 
+<MoreHelp />
