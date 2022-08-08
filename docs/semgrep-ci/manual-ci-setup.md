@@ -407,24 +407,47 @@ The following table is a summary of methods and resources to set up schedules fo
 
 ### Customizing rules and rulesets
 
-#### Exploring Semgrep Registry for useful rulesets
+#### Adding rules to scan with `semgrep ci`
 
-`semgrep ci` accepts a list of rules and rulesets to run on each scan. The list is delimited by a space (` `) if the variable is exported from a command or script block, such as in the BitBucket Pipeline example. The list can also be delimited by a newline if the `SEMGREP_RULES` variable is declared through YAML syntax.
+`semgrep ci` accepts a list of rules and rulesets to run on each scan. The rules and rulesets can come from the [Semgrep Registry](https://semgrep.dev/r/), or your own rules. The sources for rules to scan with are:
 
+* A `.semgrep` folder located at the root of your repository.
+* The value of the `SEMGREP_RULES` environment variable.
 
-Example snippet for space-delimited list using `export SEMGREP_RULES`:
+The `SEMGREP_RULES` environment variable accepts a list of local and remote rules and rulesets to run. The `SEMGREP_RULES` list is delimited by a space (` `) if the variable is exported from a shell command or script block. For example, see the following BitBucket Pipeline snippet:
 
-Example snippet for newline-delimited list using `SEMGREP_RULES` YAML syntax:
+```yaml
+# ...
+  script:
+    - export SEMGREP_RULES="p/nginx p/ci no-exec.yml" 
+    - semgrep ci
+# ...
+```
 
+The line defining `SEMGREP_RULES` defines three difference sources, delimited by a space:
+
+```
+- export SEMGREP_RULES="p/nginx p/ci no-exec.yml" 
+```
+
+The example references two rulesets from Semgrep Registry (`p/nginx` and `p/ci`)and a rule available in the repository (`no-exec.yml`).
+
+If the `SEMGREP_RULES` environment variable is defined from a YAML block, the list of rules and rulesets to run is delimited by a newline. See the following example of a GitLab CI/CD snippet:
+```YAML
+# ...
+variables:
+  SEMGREP_RULES: >-
+    p/nginx
+    p/ci
+    no-exec.yml
+# ...
+```
 
 #### Writing your own rules
 
 Write custom rules to enforce your team's coding standards and security practices. Rules can be forked from existing community-written rules.
 
 See [Writing rules](https://semgrep.dev/docs/writing-rules/overview/) to learn how to write custom rules.
-
-TODO
-
 
 ### Ignoring files
 
