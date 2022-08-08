@@ -29,6 +29,7 @@ By refining a job's parameters, you are able to achieve the following goals:
 * **Run Semgrep with custom rules.** Apply rules specific to your organization's business goals and coding conventions.
 * **Run Semgrep when an event triggers.** Run Semgrep when a pull or merge request (PR or MR) is created. These event triggers or event hooks are dependent on your CI provider. 
 * **Run Semgrep on relevant files and blocks of code.** Configure Semgrep to ignore files and folders such as test files, configuration files, and files from other vendors.
+<!-- Waiting for DevOps to confirm the below statement -->
 * **Configure a Semgrep CI job to pass or fail when any finding is detected.** By default, manual configurations pass when any finding is detected. You can also configure Semgrep to fail CI jobs when findings are reported.
 * **Output, export, or save findings to a file.** Semgrep can save to a number of file formats, including SARIF and JSON. 
 
@@ -377,7 +378,8 @@ The following sections describe methods to customize your CI job.
 
 ### Passing or failing the CI job
 
-By default, Semgrep CI exits with exit code 0 if the scan returns any findings. This causes the job to pass.
+<!-- I am waiting for Devops to tell me about the changes in fail open behavior, so please skip this section for now -->
+By default, a Semgrep CI job exits with the exit code 0 if the scan returns any findings. This causes the job to fail.
 
 Semgrep provides a **fail closed** option. This enables you to suppress findings or internal Semgrep errors that block your pipeline. You can accomplish this in several different ways:
 
