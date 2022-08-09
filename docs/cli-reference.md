@@ -284,26 +284,15 @@ In addition to `.semgrepignore` there are several methods to set up ignore patte
 
 Semgrep can finish with the following exit codes:
 
-<dl>
-  <dt>0</dt>
-    <dd><p>Semgrep ran successfully and found no errors (or did find errors, but the <code>--error</code> flag is <b>not</b> set).</p></dd>
-  <dt>1</dt>
-    <dd><p>Semgrep ran successfully and found issues in your code (and the <code>--error</code> flag is set).</p></dd>
-  <dt>2</dt>
-    <dd><p>Semgrep failed.</p></dd>
-  <dt>4</dt>
-    <dd><p>Semgrep encountered an invalid pattern in rule schema.</p></dd>
-  <dt>5</dt>
-    <dd><p>Semgrep configuration is not valid YAML.</p></dd>
-  <dt>7</dt>
-    <dd><p>At least one rule in configuration is invalid.</p></dd>
-  <dt>8</dt>
-    <dd><p>Semgrep does not understand specified language.</p></dd>
-  <dt>13</dt>
-    <dd><p>The API key is invalid.</p></dd>
-  <dt>14</dt>
-    <dd><p>Semgrep scan failed.</p></dd>
-</dl>
+- **1**: Semgrep ran successfully and found issues in your code (and the `--error` flag is set).
+- **0**: Semgrep ran successfully and found no errors (or did find errors, but the `--error` flag is **not** set).
+- **2**: Semgrep failed.
+- **4**: Semgrep encountered an invalid pattern in rule schema.
+- **5**: Semgrep configuration is not valid YAML.
+- **7**: At least one rule in configuration is invalid.
+- **8**: Semgrep does not understand specified language.
+- **13**: The API key is invalid.
+- **14**: Semgrep scan failed.
 
 <!-- REMOVED STATUSES (NOT USED ANYMORE)
 - 3: Semgrep failed to parse a file in the specified language.
@@ -312,6 +301,7 @@ Semgrep can finish with the following exit codes:
 - 9: Semgrep exceeded match timeout. See `--timeout`.
 - 10: Semgrep exceeded maximum memory while matching. See `--max-memory`.
 - 11: Semgrep encountered a lexical error when running rule on a file.
+- 12: Semgrep found too many matches.
 -->
 
 <MoreHelp />
