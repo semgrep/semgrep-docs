@@ -151,16 +151,34 @@ h5 {
     font-size: 18px;
 }
 
-/* Definition/description lists styling */
+/* Definition/description lists styling with flex*/
+
+dl {
+  display: flex;
+  flex-flow: row wrap;
+}
 dt {
-    font-weight:700;
-    float: left;
-    clear: left;
-    text-align: right;
-    font-weight: bold;
+  flex-basis: 20%;
+  padding: 2px 8px;
+  text-align: left;
+  font-weight: 700;
+}
+dd {
+  flex-basis: 80%;
+  flex-grow: 1;
+  margin: 0;
+  margin-bottom: 0.3rem;
+  padding: 2px 4px;
 }
 
-/* Uncomment to display the ":" colon after entries in defintion/description lists */
+/* Definition/description lists styling */
+/*
+dt {
+    font-weight: 700;
+}
+*/
+
+/*  Display the ":" colon after entries in defintion/description lists */
 /*
 dt::after {
   content: ":";
@@ -169,9 +187,6 @@ dt::after {
 
 dd > ul {
     margin: unset;
-}
-dd {
-    margin-bottom: 0.3rem;
 }
 
 dl {
