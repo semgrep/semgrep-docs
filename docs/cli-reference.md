@@ -294,4 +294,13 @@ Semgrep can conclude with the following exit codes:
 - 13: The API key is invalid.
 - 14: Semgrep scan failed.
 
+<!-- REMOVED STATUSES (NOT USED ANYMORE)
+- 3: Semgrep failed to parse a file in the specified language.
+- 4: Semgrep encountered an invalid pattern.
+- 6: Rule with `pattern-where-python` found but `--dangerously-allow-arbitrary-code-execution-from-rules` was not set. See `--dangerously-allow-arbitrary-code-execution-from-rules`. (Note: `pattern-where-python` is no longer supported in Semgrep, so this applies only to legacy Semgrep versions).
+- 9: Semgrep exceeded match timeout. See `--timeout`.
+- 10: Semgrep exceeded maximum memory while matching. See `--max-memory`.
+- 11: Semgrep encountered a lexical error when running rule on a file.
+-->
+
 <MoreHelp />
