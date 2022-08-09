@@ -154,10 +154,6 @@ h5 {
 /* Definition/description lists styling */
 dt {
     font-weight:700;
-    float: left;
-    clear: left;
-    text-align: right;
-    font-weight: bold;
 }
 
 /* Uncomment to display the ":" colon after entries in defintion/description lists */
