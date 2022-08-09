@@ -100,7 +100,7 @@ module.exports = {
         items: [
             {
                 type: 'category',
-                label: 'Semgrep CLI',
+                label: 'Semgrep command-line interface (CLI)',
                 items: [
                     'getting-started',
                     'cli-reference',
@@ -110,7 +110,7 @@ module.exports = {
             },
             {
                 type: 'category',
-                label: 'Semgrep in CI',
+                label: 'Semgrep in continuous integration (CI)',
                 items: [
                     'semgrep-ci/overview',
                     'semgrep-ci/configuration-reference',
