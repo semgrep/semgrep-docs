@@ -38,11 +38,18 @@ Semgrep App is able to generate configuration files for the following providers:
 * Buildkite
 
 1. Create an account.
-2. Click Projects > Scan New Project > Run Scan in CI.
+2. Click **Projects > Scan New Project > Run Scan in CI**.
 3. Select your provider from the menu.
 4. Follow the steps outlined in the page.
 
 ### Other CI providers (supported through environment variables)
+
+TODO 
+1. Generate a Semgrep App token.
+2. Add this token as a credential, secret, 
+3. Add the `semgrep ci` command to your CI provider's configuration file.
+3. Test that...
+
 
 ## Refining Semgrep App and your CI job parameters
 
