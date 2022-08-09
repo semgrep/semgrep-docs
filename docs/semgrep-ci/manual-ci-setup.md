@@ -479,9 +479,17 @@ For information on ignoring individual findings in code, see the [Ignoring findi
 
 ### Saving or exporting findings to a file
 
-To save or export findings, pass the following options:
+To save or export findings, you can pass file format options and send the formatted findings to a file.
 
+For example, to save to a JSON file:
 
+`semgrep ci --json --output findings.json`
+
+You can also use output redirection (`>`):
+
+`semgrep ci --sarif > findings.sarif`
+
+Refer to the [CLI reference](/cli-reference) for output formats.
 
 ## Migrating to Semgrep App from a manual CI setup
 
