@@ -282,17 +282,28 @@ In addition to `.semgrepignore` there are several methods to set up ignore patte
 
 <!-- The exit codes are located in cli/src/semgrep/error.py in open source code of Semgrep repository. -->
 
-Semgrep can conclude with the following exit codes:
+Semgrep can finish with the following exit codes:
 
-- 0: Semgrep ran successfully and found no errors (or did find errors, but the `--error` flag is **not** set).
-- 1: Semgrep ran successfully and found issues in your code (and the `--error` flag is set).
-- 2: Semgrep failed.
-- 4: Semgrep encountered an invalid pattern in rule schema.
-- 5: Semgrep configuration is not valid YAML.
-- 7: At least one rule in configuration is invalid.
-- 8: Semgrep does not understand specified language.
-- 13: The API key is invalid.
-- 14: Semgrep scan failed.
+<dl>
+  <dt>0</dt>
+    <dd><p>Semgrep ran successfully and found no errors (or did find errors, but the <code>--error</code> flag is <b>not</b> set).</p></dd>
+  <dt>1</dt>
+    <dd><p>Semgrep ran successfully and found issues in your code (and the <code>--error</code> flag is set).</p></dd>
+  <dt>2</dt>
+    <dd><p>Semgrep failed.</p></dd>
+  <dt>4</dt>
+    <dd><p>Semgrep encountered an invalid pattern in rule schema.</p></dd>
+  <dt>5</dt>
+    <dd><p>Semgrep configuration is not valid YAML.</p></dd>
+  <dt>7</dt>
+    <dd><p>At least one rule in configuration is invalid.</p></dd>
+  <dt>8</dt>
+    <dd><p>Semgrep does not understand specified language.</p></dd>
+  <dt>13</dt>
+    <dd><p>The API key is invalid.</p></dd>
+  <dt>14</dt>
+    <dd><p>Semgrep scan failed.</p></dd>
+</dl>
 
 <!-- REMOVED STATUSES (NOT USED ANYMORE)
 - 3: Semgrep failed to parse a file in the specified language.
