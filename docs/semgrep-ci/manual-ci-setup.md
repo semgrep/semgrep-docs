@@ -10,13 +10,13 @@ import MoreHelp from "/src/components/MoreHelp"
 
 # Running Semgrep in continuous integration (CI) without Semgrep App
 
-Run Semgrep in your Continuous Integration (CI) pipeline to scan your repository for code vulnerabilities and other issues. This guide explains how to set up Semgrep in your pipeline without the use of Semgrep App.
+Run Semgrep in your Continuous Integration (CI) pipeline to scan your repository for code vulnerabilities and other issues. This guide explains how to set up Semgrep in your pipeline without the use of Semgrep App, also known as a **stand-alone** setup.
 
-There are three general steps to setting up Semgrep in your CI pipeline manually:
+There are three general steps to setting up Semgrep in your CI pipeline:
 
 1. Set up the CI job or action to scan with Semgrep and receive an exit code.
-2. Test the CI job, which means you are able to view findings in the CI provider's log.
-3. Refine the CI job's parameters. It is easier to troubleshoot any parameters after testing that the job runs.
+2. Test that the Semgrep job is scanning your repository and that you are able to view scan results in your CI provider's log.
+3. Refine the CI job's parameters. It is easier to troubleshoot any parameters after testing that the job runs successfully.
 
 ![Steps to run Semgrep in CI without Semgrep App](/img/semgrep-ci-overview-noapp.png "Steps to integrate Semgrep in CI without Semgrep App")
 *Figure 1. Steps to run Semgrep in CI manually.*
@@ -29,13 +29,12 @@ By refining a job's parameters, you are able to achieve the following goals:
 * **Run Semgrep with custom rules.** Apply rules specific to your organization's business goals and coding conventions.
 * **Run Semgrep when an event triggers.** Run Semgrep when a pull or merge request (PR or MR) is created. These event triggers or event hooks are dependent on your CI provider. 
 * **Run Semgrep on relevant files and blocks of code.** Configure Semgrep to ignore files and folders such as test files, configuration files, and files from other vendors.
-<!-- Waiting for DevOps to confirm the below statement -->
-* **Configure a Semgrep CI job to pass or fail when any finding is detected.** By default, manual configurations pass when any finding is detected. You can also configure Semgrep to fail CI jobs when findings are reported.
+* **Configure a Semgrep CI job to pass even when any finding is detected.** By default, manual configurations pass when any finding is detected. You can also configure Semgrep to fail CI jobs when findings are reported.
 * **Output, export, or save findings to a file.** Semgrep can save to a number of file formats, including SARIF and JSON. 
 
 ## Limitations of manually configured Semgrep CI scans 
 
-* Findings are not tiered based on a user-defined criteria (such as severity) and actions cannot be undertaken based on a user-defined criteria. This means that either any finding will cause the job to fail, or any finding still allows the job to pass.
+* Findings are not tiered based on a user-defined criteria (such as severity) and actions cannot be undertaken based on a user-defined criteria. To tier findings and block PRs or MRs based on your own defined criteria, use Semgrep App's [Rule Board](/semgrep-app/rule-board).
 * Findings are dumped to a log and are not tracked over time, so there is no record of a finding's **triage state**, such as opened, closed, or ignored.
 
 :::note
@@ -50,10 +49,6 @@ By refining a job's parameters, you are able to achieve the following goals:
  * `semgrep ci` makes use of environment variables to configure its behavior. 
  * `semgrep ci` performs a diff-aware scan by default. This means it only scans changes in files when run on a pull or merge request.
  * `semgrep ci` can be run on a local `.git` repository at any time to test its behavior before running it within a CI environment.
-
-:::note
-An alternative method of running Semgrep in your CI is to run the `semgrep scan` command, passing rules to scan, for example `semgrep scan --config p/default`, which performs a full scan of the repository every time the job is run. For more details, see [`semgrep scan` options](/cli-reference/#semgrep-scan-options).
-:::
 
 ### GitHub Actions
 
@@ -76,43 +71,40 @@ If you are self-hosting your repository, you must [use a self-hosted runner](htt
 name: Semgrep
 
 on:
-
-  # Scan pull requests.
+  # To scan changed files in PRs (diff-aware scanning):
   pull_request: {}
-
-  # Scan all files on branches, report any findings.
+  # To scan mainline branches and report all findings:
   push:
     branches: ["master", "main"]
-
-  # Schedule CI job to run at a certain time, using cron syntax.
+  # To schedule the CI job (this method uses cron syntax):
   schedule:
     - cron: '30 0 1,15 * *' # scheduled for 00:30 UTC on both the 1st and 15th of the month
 
 jobs:
   semgrep:
-
-    # User definable name of this GitHub Actions job.
+    # User-definable name of this GitHub Actions job:
     name: Scan
-
-    # Only change the `runs-on` value if you are self-hosting. 
+    # If you are self-hosting, change the following `runs-on` value: 
     runs-on: ubuntu-latest
 
     container:
       # A Docker image with Semgrep installed. Don't change this.
       image: returntocorp/semgrep
 
-    # Skip any PR created by dependabot to avoid permission issues
+    # To skip any PR created by dependabot to avoid permission issues:
     if: (github.actor != 'dependabot[bot]')
 
     steps:
-
       # Fetch project source with GitHub Actions Checkout.
       - uses: actions/checkout@v3
-
       # Run the "semgrep ci" command on the command line of the docker image.
       - run: semgrep ci
         env:
-          SEMGREP_RULES: p/default # more at semgrep.dev/explore
+           # Define rules to scan with through the SEMGREP_RULES environment variable. 
+           SEMGREP_RULES: p/default # more at semgrep.dev/explore
+           # Uncomment SEMGREP_TIMEOUT to set this job's timeout (in seconds):
+           # (Default is 1800 seconds. Set to 0 to disable.)
+           # SEMGREP_TIMEOUT: 300
 ```
 
 ### GitLab CI/CD
@@ -135,25 +127,22 @@ If you are already running [GitLab SAST](https://docs.gitlab.com/ee/user/applica
 
 ```yaml
 semgrep:
-
   # A Docker image with Semgrep installed.
   image: returntocorp/semgrep
-
   # Run the "semgrep ci" command on the command line of the docker image.
   script: semgrep ci
 
   rules:
-    # Scan changed files in MRs, only report new findings (existing findings ignored)
+    # To scan changed files in MRs (diff-aware scanning):
     - if: $CI_MERGE_REQUEST_IID
-    # Scan all files on the default branch, report any findings.
+    # To scan all files on the default branch and report any findings:
     - if: $CI_COMMIT_BRANCH == $CI_DEFAULT_BRANCH
 
   variables:
-
-    # Define rules through the SEMGREP_RULES environment variable. 
+    # Define rules to scan with through the SEMGREP_RULES environment variable. 
     SEMGREP_RULES: p/default
-
-    # Change job timeout (value in seconds; default is 1800 seconds. Set to 0 to disable)
+    # Uncomment SEMGREP_TIMEOUT to set this job's timeout (in seconds):
+    # (Default is 1800 seconds. Set to 0 to disable.)
     #   SEMGREP_TIMEOUT: 300
 ```
 
@@ -161,26 +150,21 @@ semgrep:
 
 ```yaml
 semgrep:
-
   # A Docker image with Semgrep installed.
   image: returntocorp/semgrep
 
   rules:
-
-    # Scan changed files in MRs, only report new findings (existing findings ignored)
+    # To scan changed files in MRs (diff-aware scanning):
     - if: $CI_MERGE_REQUEST_IID
-  
-    # Scan all files on the default branch, report any findings.
+    # To scan all files on the default branch and report any findings:
     - if: $CI_COMMIT_BRANCH == $CI_DEFAULT_BRANCH
 
   variables:
-
-    # Define rules through the SEMGREP_RULES environment variable. 
+    # Define rules to scan with through the SEMGREP_RULES environment variable. 
     SEMGREP_RULES: p/default # See more at semgrep.dev/explore.
-
-    # Change job timeout (value in seconds; default is 1800 seconds. Set to 0 to disable)
+    # Uncomment SEMGREP_TIMEOUT to set this job's timeout (in seconds):
+    # (Default is 1800 seconds. Set to 0 to disable.)
     # SEMGREP_TIMEOUT: 300
-  
     # Upload findings to GitLab SAST Dashboard
     SEMGREP_GITLAB_JSON: "1"
     script: semgrep ci --gitlab-sast > gl-sast-report.json || true
@@ -213,8 +197,11 @@ pipeline {
   stages {
     stage('Semgrep-Scan') {
         environment { 
+        // Define rules to scan with through the SEMGREP_RULES environment variable. 
           SEMGREP_RULES = "p/default"
-          SEMGREP_TIMEOUT = "300"
+       // Uncomment SEMGREP_TIMEOUT to set this job's timeout (in seconds):
+       // (Default is 1800 seconds. Set to 0 to disable.)
+          // SEMGREP_TIMEOUT = "300"
           // for Holden to confirm - because this is for diff-aware scanning
           SEMGREP_BASELINE_REF = "${GIT_BRANCH}"
         } 
@@ -233,7 +220,7 @@ To add Semgrep into your BitBucket Pipeline:
 
 1. Create or edit a `bitbucket-pipelines.yml` configuration file to add
    a Semgrep `step` as part of your pipeline. Refer to the [BitBucket Pipelines code snippet](#bitbucket-pipelines-code-snippet).
-2. Optional: You can also review the [Bitbucket guidelines guide](https://support.atlassian.com/bitbucket-cloud/docs/configure-bitbucket-pipelinesyml/) to help with editing the configuration file.
+2. Optional: You can also review the [BitBucket guidelines](https://support.atlassian.com/bitbucket-cloud/docs/configure-bitbucket-pipelinesyml/) to help with editing the configuration file.
 3. Commit the configuration file into the root folder within the target repository. The Semgrep job starts automatically upon detecting the `bitbucket-pipelines.yml` commit in the previous step.
 4. Optional: Re-run or view the Pipeline by clicking from **your repository > Pipelines**.
 5. Customize the job's behavior, such as its rules to scan and files to ignore.
@@ -374,14 +361,13 @@ Your customization options with other CI providers vary depending on working env
 
 ## Refining the CI job
 
-The following sections describe methods to customize your CI job.
+The following sections describe methods to customize your CI job. Many of these features require the correct setup of environment variables.
 
 ### Passing or failing the CI job
 
-<!-- I am waiting for Devops to tell me about the changes in fail open behavior, so please skip this section for now -->
-By default, a Semgrep CI job exits with the exit code 0 if the scan returns any findings. This causes the job to fail.
+By default, a Semgrep CI job exits with exit code 1 if the scan returns any findings. This causes the job to fail.
 
-Semgrep provides a **fail closed** option. This enables you to suppress findings or internal Semgrep errors that block your pipeline. You can accomplish this in several different ways:
+Semgrep provides **fail open** options. These options enable you to suppress findings or internal Semgrep errors that block your pipeline:
 
 <dl>
 	<dt><code>semgrep ci</code></dt>
@@ -393,6 +379,23 @@ Semgrep provides a **fail closed** option. This enables you to suppress findings
 </dl>
 
 Refer to [Semgrep exit codes](../cli-reference/#exit-codes) to understand various internal issues that cause Semgrep to fail.
+
+### Diff-aware scanning
+
+To enable diff-aware scanning, Semgrep provides a `SEMGREP_BASELINE_REF` environment variable that users can set with the **commit hash** or **branch name** as the baseline. For example, given a repository with 10 commits, setting SEMGREP_BASELINE_REF to the 8th commit will return results introduced by changes in the 9th and 10th commit.
+
+To only report findings newly added since branching off from your `main` branch, set the following:
+<pre class="language-bash"><code>SEMGREP_BASELINE_REF=<span className="placeholder">TOPIC-BRANCH-NAME</span></code></pre>
+
+To only report findings newly added
+after a specific commit, set the following:
+<pre class="language-bash"><code>SEMGREP_BASELINE_REF=<span className="placeholder">INSERT_GIT_COMMIT_HASH</span></code></pre>
+
+
+
+:::note
+GitHub Actions and GitLab CI/CD diff-aware scanning works automatically, without the need to set `SEMGREP_BASELINE_REF`.
+:::
 
 ### Setting a scan schedule
 
@@ -453,9 +456,9 @@ See [Writing rules](https://semgrep.dev/docs/writing-rules/overview/) to learn h
 
 ### Ignoring files
 
-By default `semgrep ci` skips files and directories such as `tests/`, `node_modules/`, and `vendor/`. It uses the same default `.semgrepignore` as the `semgrep` command. This default `semgrepignore`  can be found in the [Semgrep GitHub repository](https://github.com/returntocorp/semgrep/blob/develop/.semgrepignore). This is used by `semgrep ci` when no explicit `.semgrepignore` file is found in the root of your repository.
+By default `semgrep ci` skips files and directories such as `tests/`, `node_modules/`, and `vendor/`. It uses the default `.semgrepignore` file which can be found in the [Semgrep GitHub repository](https://github.com/returntocorp/semgrep/blob/develop/.semgrepignore). This default is used when no explicit `.semgrepignore` file is found in the root of your repository.
 
-You can copy and commit the default `.semgrepignore` to the **root of your repository** and extend it with your own entries or write one from scratch. `.semgrepignore` follows `.gitignore` syntax. If Semgrep detects a `.semgrepignore` file within your repository, it won't append entries from the default `.semgrepignore` file.
+You can copy and commit the default `.semgrepignore` file to the **root of your repository** and extend it with your own entries or write one from scratch. If Semgrep detects a `.semgrepignore` file within your repository, it won't append entries from the default `.semgrepignore` file.
 
 For a complete example, see the [.semgrepignore file on Semgrep’s source code](https://github.com/returntocorp/semgrep/blob/develop/.semgrepignore).
 
@@ -464,6 +467,12 @@ For a complete example, see the [.semgrepignore file on Semgrep’s source code]
 :::
 
 For information on ignoring individual findings in code, see the [Ignoring findings page](https://semgrep.dev/docs/ignoring-findings/).
+
+### Saving or exporting findings to a file
+
+To save or export findings, pass the following options:
+
+
 
 ## Migrating to Semgrep App from a manual CI setup
 
