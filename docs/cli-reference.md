@@ -280,19 +280,18 @@ In addition to `.semgrepignore` there are several methods to set up ignore patte
 
 ## Exit codes
 
-`semgrep` may exit with the following exit codes:
+<!-- The exit codes are located in cli/src/semgrep/error.py in open source code of Semgrep repository. -->
+
+Semgrep can conclude with the following exit codes:
 
 - 0: Semgrep ran successfully and found no errors (or did find errors, but the `--error` flag is **not** set).
 - 1: Semgrep ran successfully and found issues in your code (and the `--error` flag is set).
 - 2: Semgrep failed.
-- 3: Semgrep failed to parse a file in the specified language.
-- 4: Semgrep encountered an invalid pattern.
+- 4: Semgrep encountered an invalid pattern in rule schema.
 - 5: Semgrep configuration is not valid YAML.
-- 6: Rule with `pattern-where-python` found but `--dangerously-allow-arbitrary-code-execution-from-rules` was not set. See `--dangerously-allow-arbitrary-code-execution-from-rules`. (Note: `pattern-where-python` is no longer supported in Semgrep, so this applies only to legacy Semgrep versions).
 - 7: At least one rule in configuration is invalid.
 - 8: Semgrep does not understand specified language.
-- 9: Semgrep exceeded match timeout. See `--timeout`.
-- 10: Semgrep exceeded maximum memory while matching. See `--max-memory`.
-- 11: Semgrep encountered a lexical error when running rule on a file.
+- 13: The API key is invalid.
+- 14: Semgrep scan failed.
 
 <MoreHelp />
