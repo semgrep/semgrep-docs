@@ -21,9 +21,13 @@ SEMGREP_RULES="p/security-audit p/secrets"
 
 ## Configuring blocking findings or errors
 
-Most CI providers block pull requests (PRs) or merge requests (MRs) on non-zero exit codes. Semgrep can be configured to suppress errors (this is the default behavior) or surface all errors depending on the needs of your teams and projects. Configure this behavior by the `--suppress-errors` or `--no-suppress-errors` flags.
+Most CI providers block pull requests (PRs) or merge requests (MRs) when the pipeline ends with an exit code other than zero (other than status successful). However, Semgrep in CI is by default configured to suppress internal errors and only report blocking findings to stop your pipeline. Configure this behavior by the `--suppress-errors` or `--no-suppress-errors` flags.
 
-By default, Semgrep blocks your pipeline when it reports a blocking finding (exit code `1`). Blocking findings are defined in [Rule Board](https://semgrep.dev/orgs/-/board) of Semgrep App or encompass **all** Semgrep findings if you do **not** use Semgrep App with Semgrep in CI. Also, the default behavior is such that when Semgrep encounters errors (exit code `2` and above) your pipeline is **not** blocked. When the default behavior is configured, Semgrep in CI sends a crash report to a crash-reporting server and lets CI job continue. This report is anonymous and contains information that is usually sent to Semgrep App.
+In further detail, the default behavior of Semgrep in CI towards blocking findings and errors is as follows:
+- When the default behavior is configured, Semgrep encounters an error (exit code `2` and above) pipeline is **not** blocked. Semgrep in CI sends a crash report to a crash-reporting server and lets CI job continue. This report is anonymous and contains information that is usually sent to Semgrep App.
+- A pipeline is blocked when Semgrep reports a blocking finding (exit code `1`). Blocking findings can mean the following:
+    - Findings defined in [Rule Board](https://semgrep.dev/orgs/-/board) of Semgrep App. To avoid blocking findings, remove rules from the **Block** column of [Rule Board](https://semgrep.dev/orgs/-/board).
+    - If you do **not** use Semgrep App with Semgrep in CI, blocking findings encompass **all** Semgrep findings.
 
 Configure and change the setup of blocking findings or errors in your CI pipeline by using the following options in your YAML configuration file:
 

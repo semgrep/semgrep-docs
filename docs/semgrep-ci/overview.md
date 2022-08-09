@@ -26,7 +26,7 @@ Semgrep CI runs fully in your build environment: **your code is never sent anywh
 
 Semgrep CI behaves like other static analysis and linting tools: it runs a set of user-configured rules and returns a non-zero exit code if there are findings, resulting in its job showing a ✅ or ❌.
 
-By default, Semgrep CI suppresses internal errors. If Semgrep in CI encounters an error, it logs the error to the console, sends a report to a crash-reporting server, and then lets CI continue. This default behavior can be overridden. See the [Advanced Configuration](#exit-codes) section below and [Configuring blocking findings or errors](/semgrep-ci/configuration-reference.md/#configuring-blocking-findings-or-errors).
+By default, Semgrep CI suppresses internal errors. If Semgrep in CI encounters an error, it logs the error to the console, sends a report to a crash-reporting server, and then lets CI continue. This default behavior can be overridden. See the [Exit codes](#exit-codes) section below and [Configuring blocking findings or errors](/semgrep-ci/configuration-reference.md/#configuring-blocking-findings-or-errors).
 
 Copy the relevant template for your CI provider from the sections below. Read through the comments in the template to adjust Semgrep CI scan settings, selecting pull and merge requests, full scans on your branch.
 
@@ -235,7 +235,7 @@ In providers other than GitHub Actions and GitLab CI, Semgrep CI doesn't infer a
 
 | Exit code | Meaning |
 | --- | --- |
-| **0** | Scan completed successfully and found no blocking findings. By default, if Semgrep ends with an internal error, it concludes with the status `0` also. Semgrep in CI by default blocks pipeline **only** on blocking findings configured in Rule Board of Semgrep App or with **all** Semgrep findings if you are **not** using Semgrep App. For more information or to change the default behavior, see [Configuring blocking findings or errors](/semgrep-ci/configuration-reference.md/#configuring-blocking-findings-or-errors). |
+| **0** | Scan successful and found no blocking findings. By default, internal errors are not blocking the pipeline (CI always results in status `0`), but blocking findings block the pipeline (status `1`). To change the default behavior, see [Configuring blocking findings or errors](/semgrep-ci/configuration-reference.md/#configuring-blocking-findings-or-errors). |
 | **1** | Scan completed successfully and found blocking findings |
 | **2** | Scan failed (error suppression mentioned in **`0`** description above is disabled). Semgrep in CI prints the error details. |
 
