@@ -1,14 +1,14 @@
 ---
 slug: manual-ci-setup
 append_help_link: true
-title: Manually integrating Semgrep in various CI providers
+title: Running Semgrep in CI without Semgrep App 
 description: ""
 hide_title: true
 ---
 
 import MoreHelp from "/src/components/MoreHelp"
 
-# Integrating Semgrep in CI providers without Semgrep App
+# Running Semgrep in continuous integration (CI) without Semgrep App
 
 Run Semgrep in your Continuous Integration (CI) pipeline to scan your repository for code vulnerabilities and other issues. This guide explains how to set up Semgrep in your pipeline without the use of Semgrep App.
 
@@ -18,8 +18,8 @@ There are three general steps to setting up Semgrep in your CI pipeline manually
 2. Test the CI job, which means you are able to view findings in the CI provider's log.
 3. Refine the CI job's parameters. It is easier to troubleshoot any parameters after testing that the job runs.
 
-![Steps to integrate Semgrep in CI without Semgrep App](/img/semgrep-ci-overview-noapp.png "Steps to integrate Semgrep in CI without Semgrep App")
-*Figure 1. Steps to integrate Semgrep in CI manually.*
+![Steps to run Semgrep in CI without Semgrep App](/img/semgrep-ci-overview-noapp.png "Steps to integrate Semgrep in CI without Semgrep App")
+*Figure 1. Steps to run Semgrep in CI manually.*
 
 This guide defines a job or CI job as a script executed within a certain environment and managed by a CI provider.
 
