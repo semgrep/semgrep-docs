@@ -391,7 +391,7 @@ Refer to [Semgrep exit codes](../cli-reference/#exit-codes) to understand variou
 
 ### Diff-aware scanning
 
-To enable diff-aware scanning, Semgrep provides a `SEMGREP_BASELINE_REF` environment variable that users can set with the **commit hash** or **branch name** as the baseline. For example, given a repository with 10 commits, setting SEMGREP_BASELINE_REF to the 8th commit will return results introduced by changes in the 9th and 10th commit.
+To enable diff-aware scanning, Semgrep provides a `SEMGREP_BASELINE_REF` environment variable that users can set with the **commit hash** or **branch name** as the baseline. For example, given a repository with 10 commits, setting `SEMGREP_BASELINE_REF` to the 8th commit will return results introduced by changes in the 9th and 10th commit.
 
 To only report findings newly added since branching off from your `main` branch, set the following:
 <pre class="language-bash"><code>SEMGREP_BASELINE_REF=<span className="placeholder">TOPIC-BRANCH-NAME</span></code></pre>
