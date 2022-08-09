@@ -143,7 +143,7 @@ semgrep:
     SEMGREP_RULES: p/default
     # Uncomment SEMGREP_TIMEOUT to set this job's timeout (in seconds):
     # (Default is 1800 seconds. Set to 0 to disable.)
-    #   SEMGREP_TIMEOUT: 300
+    # SEMGREP_TIMEOUT: 300
 ```
 
 #### GitLab CI/CD code snipppet with GitLab SAST
@@ -197,13 +197,13 @@ pipeline {
   stages {
     stage('Semgrep-Scan') {
         environment { 
-        // Define rules to scan with through the SEMGREP_RULES environment variable. 
+          // Define rules to scan with through the SEMGREP_RULES environment variable. 
           SEMGREP_RULES = "p/default"
-       // Uncomment SEMGREP_TIMEOUT to set this job's timeout (in seconds):
-       // (Default is 1800 seconds. Set to 0 to disable.)
+          // To scan changed files in PRs or MRs (diff-aware scanning):
+          SEMGREP_BASELINE_REF = "${GIT_BRANCH}" //Holden -- kindly confirm?
+          // Uncomment SEMGREP_TIMEOUT to set this job's timeout (in seconds):
+          // (Default is 1800 seconds. Set to 0 to disable.)
           // SEMGREP_TIMEOUT = "300"
-          // for Holden to confirm - because this is for diff-aware scanning
-          SEMGREP_BASELINE_REF = "${GIT_BRANCH}"
         } 
       steps {
         sh 'pip3 install semgrep'
@@ -242,9 +242,13 @@ pipelines:
         deployment: dev
         image: returntocorp/semgrep
         script:
+          # Define rules to scan with through the SEMGREP_RULES environment variable. 
           - export SEMGREP_RULES="p/default" 
-          - export SEMGREP_TIMEOUT="300" 
+          # To scan changed files in PRs or MRs (diff-aware scanning):
           - export SEMGREP_BASELINE_REF=$BITBUCKET_BRANCH
+          # Uncomment SEMGREP_TIMEOUT to set this job's timeout (in seconds):
+          # (Default is 1800 seconds. Set to 0 to disable.)
+          # - export SEMGREP_TIMEOUT="300" 
           - semgrep ci
 ```
 
@@ -275,11 +279,12 @@ jobs:
         type: string
         default: main
     environment:
-      # Scan changed files in PRs, only report new findings (existing findings ignored)
-      SEMGREP_BASELINE_REF: << parameters.default_branch >>
+      # Define rules to scan with through the SEMGREP_RULES environment variable. 
       SEMGREP_RULES: p/default
-
-      # Change job timeout (in seconds; default is 1800 seconds. Set to 0 to disable)
+      # To scan changed files in PRs or MRs (diff-aware scanning):
+      SEMGREP_BASELINE_REF: << parameters.default_branch >>
+      # Uncomment SEMGREP_TIMEOUT to set this job's timeout (in seconds):
+      # (Default is 1800 seconds. Set to 0 to disable.)
       # SEMGREP_TIMEOUT: 300
 
     docker:
@@ -314,9 +319,13 @@ These steps can be performed from within Buildkite's interface. From Buildkite's
 ```yaml
 - label: ":semgrep: Semgrep"
   commands:
+    # Define rules to scan with through the SEMGREP_RULES environment variable. 
     - export SEMGREP_RULES="p/default"
-    - export SEMGREP_TIMEOUT="300"
+    # To scan changed files in PRs or MRs (diff-aware scanning):
     - export SEMGREP_BASELINE_REF=${BUILDKITE_BRANCH}
+    # Uncomment SEMGREP_TIMEOUT to set this job's timeout (in seconds):
+    # (Default is 1800 seconds. Set to 0 to disable.)
+    # - export SEMGREP_TIMEOUT="300"
     - semgrep ci 
   
   plugins:
