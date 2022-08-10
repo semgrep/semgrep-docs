@@ -31,24 +31,18 @@ In further detail, the default behavior of Semgrep in CI towards blocking findin
 
 Configure and change the setup of blocking findings or errors in your CI pipeline by using the following options in your YAML configuration file:
 
-- `semgrep ci` - This is the default state. Semgrep in CI **fails** on blocking findings, CI **passes** on internal errors. Semgrep sends an anonymous crash report to a crash-reporting server, and then exits with exit code `0`. Optional: Define it explicitly by using `--suppress-errors` flag.
+- `semgrep ci` - This is the default state. Semgrep in CI **fails** on blocking findings, CI **passes** on internal errors. Semgrep sends an anonymous crash report to a crash-reporting server and exits with exit code `0`. Optional: Define it explicitly by using `semgrep ci --suppress-errors` flag.
 - `semgrep ci --no-suppress-errors` - Semgrep in CI **fails** on blocking findings, CI **fails** on internal errors. If you use this flag, all exit codes, including internal errors, are surfaced to the CI provider.
 - `semgrep ci || true` - Semgrep in CI **passes** on blocking findings, CI **passes** on internal errors.
 
 :::info
-For more information about specific Semgrep exit codes see [CLI reference](../../cli-reference/#exit-codes).
+- For more information about specific Semgrep exit codes see [CLI reference](../../cli-reference/#exit-codes).
+- This functionality replaces the audit mode `SEMGREP_AUDIT_ON` (collecting findings silently for [Semgrep App > Findings](https://semgrep.dev/manage/findings)).
 :::
 
-To enable one of these options, insert the code under the `run` key, see the following example from GitHub Actions (GHA):
+### Examples of blocking findings or errors configuration
 
-```yaml
-steps:
-    - uses: actions/checkout@v3
-    - name: Scan and suppress internal errors
-      run: semgrep ci --no-suppress-errors
-```
-
-See a full GHA configuration file below:
+The following code displays Semgrep in CI configuration file for GitHub Actions (GHA) with the default setup (`run: semgrep ci`):
 
 ```yaml
 name: Semgrep
@@ -77,9 +71,32 @@ jobs:
         run: semgrep ci
 ```
 
-:::info
-This functionality replaces the audit mode `SEMGREP_AUDIT_ON` (collecting findings silently for [Semgrep App > Findings](https://semgrep.dev/manage/findings)).
-:::
+The code snippet above displays the default state. Semgrep in CI **fails** on blocking findings, CI **passes** on internal errors. Semgrep sends an anonymous crash report to a crash-reporting server and exits with exit code `0`. Optional: Define this state explicitly on the last line by using the `semgrep ci --suppress-errors` flag. The resulting code is the following:
+
+```
+steps:
+  - uses: actions/checkout@v3
+  - name: Scan and suppress internal errors
+    run: semgrep ci --suppress-errors
+```
+
+To configure Semgrep in CI to **fail** on blocking findings and to **fail** on internal errors, use `semgrep ci --no-suppress-errors`. Change the flag after the `run` key in the configuration file to the following:
+
+```yaml
+steps:
+    - uses: actions/checkout@v3
+    - name: Scan and suppress internal errors
+      run: semgrep ci --no-suppress-errors
+```
+
+To configure Semgrep in CI to **pass** on blocking findings and CI to **pass** on internal errors, use `semgrep ci || true` . Change the flag after the `run` key in the configuration file to the following:
+
+```yaml
+steps:
+    - uses: actions/checkout@v3
+    - name: Scan and suppress internal errors
+      run: semgrep ci || true
+```
 
 ## Diff-aware scanning (`SEMGREP_BASELINE_REF`)
 
