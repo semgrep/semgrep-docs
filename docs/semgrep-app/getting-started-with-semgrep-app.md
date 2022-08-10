@@ -377,7 +377,8 @@ Refer to [Troubleshooting Semgrep App](../troubleshooting/semgrep-app/) for comm
 ### Semgrep App session details
 
 - The time before you need to reauthenticate to Semgrep App is 7 days.
-- This session timeout is not configurable and the session token is valid for 7 days.
+- Semgrep App session token is valid for 7 days.
+- This session timeout is not configurable.
 - Semgrep App is not using cookies but `localStorage` to store access tokens. The data in `localStorage` expire every 7 days. 
 
 <MoreHelp />
