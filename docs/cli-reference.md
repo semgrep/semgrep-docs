@@ -282,7 +282,7 @@ In addition to `.semgrepignore` there are several methods to set up ignore patte
 
 <!-- Source code reference - the exit codes are located in the Semgrep repository - https://github.com/returntocorp/semgrep/blob/develop/cli/src/semgrep/error.py. -->
 
-Semgrep can conclude with the following exit codes:
+Semgrep can finish with the following exit codes:
 
 - **1**: Semgrep ran successfully and found issues in your code (and the `--error` flag is set).
 - **0**: Semgrep ran successfully and found no errors (or did find errors, but the `--error` flag is **not** set).
