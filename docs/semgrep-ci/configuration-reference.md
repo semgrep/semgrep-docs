@@ -34,7 +34,15 @@ Configure and change the setup of blocking findings or errors in your CI pipelin
 - `semgrep ci` - This is the default state. Semgrep in CI **fails** on blocking findings, CI **passes** on internal errors. If Semgrep encounters an internal error, it sends an anonymous crash report to a crash-reporting server and exits with exit code `0`. Optional: Define it explicitly by using `semgrep ci --suppress-errors` flag.
 - `semgrep ci --no-suppress-errors` - Semgrep in CI **fails** on blocking findings, CI **fails** on internal errors. If you use this flag, all exit codes, including internal errors, are surfaced to the CI provider.
 - `semgrep ci || true` - Semgrep in CI **passes** on blocking findings, CI **passes** on internal errors.
+See the following table that summarizes these configuration options:
 
+| CI option                           | Description                         |
+|-------------------------------------|-------------------------------------|
+| `semgrep ci`                        | Default: CI **fails** on blocking findings, CI **passes** on internal errors.  |
+| `semgrep ci --no-suppress-errors`   | CI **fails** on blocking findings, CI **fails** on internal errors.            |
+| `semgrep ci || true`                | CI **passes** on blocking findings, CI **passes** on internal errors.          |
+
+To configure these options, insert the code after the `run` key (for example `run: semgrep ci --suppress-errors` to explicitly state the default option). See the [Examples of blocking findings or errors configuration](#examples-of-blocking-findings-or-errors-configuration) below.
 :::info
 - For more information about specific Semgrep exit codes see [CLI reference](../../cli-reference/#exit-codes).
 - This functionality replaces the audit mode `SEMGREP_AUDIT_ON` (collecting findings silently for [Semgrep App > Findings](https://semgrep.dev/manage/findings)).
