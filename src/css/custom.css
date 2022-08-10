@@ -151,17 +151,9 @@ h5 {
     font-size: 18px;
 }
 
-/* Definition/description lists styling */
 dt {
     font-weight:700;
 }
-
-/* Uncomment to display the ":" colon after entries in defintion/description lists */
-/*
-dt::after {
-  content: ":";
-}
-*/
 
 dd > ul {
     margin: unset;
