@@ -31,7 +31,7 @@ In further detail, the default behavior of Semgrep in CI towards blocking findin
 
 Configure and change the setup of blocking findings or errors in your CI pipeline by using the following options in your YAML configuration file:
 
-- `semgrep ci` - This is the default state. Semgrep in CI **fails** on blocking findings, CI **passes** on internal errors.  If Semgrep encounters an internal error, it sends an anonymous crash report to a crash-reporting server and exits with exit code `0`. Optional: Define it explicitly by using `semgrep ci --suppress-errors` flag.
+- `semgrep ci` - This is the default state. Semgrep in CI **fails** on blocking findings, CI **passes** on internal errors. If Semgrep encounters an internal error, it sends an anonymous crash report to a crash-reporting server and exits with exit code `0`. Optional: Define it explicitly by using `semgrep ci --suppress-errors` flag.
 - `semgrep ci --no-suppress-errors` - Semgrep in CI **fails** on blocking findings, CI **fails** on internal errors. If you use this flag, all exit codes, including internal errors, are surfaced to the CI provider.
 - `semgrep ci || true` - Semgrep in CI **passes** on blocking findings, CI **passes** on internal errors.
 
