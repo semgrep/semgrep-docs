@@ -6,6 +6,7 @@ description: ""
 hide_title: true
 ---
 
+import CiScheduling from "/src/components/CiScheduling.mdx"
 import MoreHelp from "/src/components/MoreHelp"
 
 # Running Semgrep in continuous integration (CI) without Semgrep App
@@ -408,16 +409,7 @@ GitHub Actions and GitLab CI/CD diff-aware scanning works automatically, without
 
 ### Setting a scan schedule
 
-The following table is a summary of methods and resources to set up schedules for different CI providers.
-
-| CI provider | Where to set schedule | Resource |
-| ----------- | --------------------  | -------  |
-| GitHub Actions | Within `semgrep.yml` file | [Sample code snippet](#github-actions-code-snippet) |
-| GitLab CI/CD | Within GitLab CI/CD interface |[Official documentation](https://docs.gitlab.com/ee/ci/pipelines/schedules.html) |
-| Jenkins | Within Jenkins interface |  [Official documentation](https://www.jenkins.io/doc/book/pipeline/running-pipelines/#scheduling-jobs-in-jenkins) |
-| BitBucket Pipelines | Within BitBucket Pipelines interface | [Official documentation](https://support.atlassian.com/bitbucket-cloud/docs/pipeline-triggers/) |
-| CircleCI | Within CircleCI interface | [Official documentation](https://circleci.com/docs/scheduled-pipelines#get-started-with-scheduled-pipelines-in-circleci) |
-| Buildkite | Within Buildkite interface | [Official documentation](https://buildkite.com/docs/pipelines/scheduled-builds) |
+<CiScheduling />
 
 ### Customizing rules and rulesets
 
