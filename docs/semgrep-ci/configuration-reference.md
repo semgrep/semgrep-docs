@@ -28,7 +28,7 @@ This section documents how Semgrep in CI pipelines handles blocking findings and
 
 Semgrep blocks the pull requests (PRs) or merge requests (MRs) in its default configuration only when it matches a blocking finding. 
 
-Blocking findings are the following:
+Blocking findings can be defined as:
 
 - Findings defined in [Rule Board](https://semgrep.dev/orgs/-/board) of Semgrep App. Avoid blocking findings by removing rules from the **Block** column of the [Rule Board](https://semgrep.dev/orgs/-/board).
 - If you do **not** use Semgrep App with Semgrep in CI (stand-alone setup), blocking findings encompass all Semgrep findings. Any finding in this setup blocks your PRs or MRs.
