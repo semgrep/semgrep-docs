@@ -33,7 +33,7 @@ Blocking findings are the following:
 - Findings defined in [Rule Board](https://semgrep.dev/orgs/-/board) of Semgrep App. Avoid blocking findings, by removing rules from the **Block** column of the [Rule Board](https://semgrep.dev/orgs/-/board).
 - If you do **not** use Semgrep App with Semgrep in CI (**stand-alone** setup), blocking findings encompass **all** Semgrep findings. Any finding in this setup blocks your PRs or MRs.
 
-When Semgrep encounters an internal error, it does not block your pipeline because errors are by default suppressed and not surfaced to the CI provider. In case of an internal error, Semgrep sends an anonymous crash report to a crash-reporting server and does not block your CI pipeline. This configuration can be changed.
+When Semgrep encounters an internal error, it does not block your pipeline as errors are by default suppressed and not surfaced to the CI provider. In case of an internal error, Semgrep sends an anonymous crash report to a crash-reporting server and does not block your CI pipeline. This configuration can be changed.
 
 ### Configuration options for blocking findings and errors
 
