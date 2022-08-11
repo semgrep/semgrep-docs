@@ -8,13 +8,13 @@ import BlockFindingsErrorsConfigs from '/src/components/modules/reference-module
 
 # Continuous Integration (CI) configuration reference
 
-This section documents how Semgrep blocks your CI pipeline in the default setup and which configuration options you can use to change blocking behavior.
+Configure Semgrep CI by passing various environment variables in your Continuous Integration (CI) jobs.
 
 :::info
 While environment variables are the preferred way to configure Semgrep CI, pass any of these options as command-line options. Refer to the output of `semgrep ci --help` to find the corresponding flags.
 :::
 
-## Select rules to scan with (`SEMGREP_RULES`)
+## Selecting rules to scan with (`SEMGREP_RULES`)
 
 ```sh
 SEMGREP_RULES="p/security-audit p/secrets"
@@ -22,39 +22,33 @@ SEMGREP_RULES="p/security-audit p/secrets"
 
 ## Configuring blocking findings and errors
 
-This section documents how Semgrep can block your CI pipeline in the default setup and which configuration options you may use to change blocking behavior.
+This section documents how Semgrep in CI pipelines handles blocking findings and errors in its default setup. This section also provides three configuration options you can use to change or revert to the default behavior.
 
 ### Default configuration of blocking findings and error suppression
 
-In the default setup, Semgrep blocks the pull requests (PRs) or merge requests (MRs) only when it matches a blocking finding. 
+Semgrep blocks the pull requests (PRs) or merge requests (MRs) in its default configuration only when it matches a blocking finding. 
 
 Blocking findings are the following:
 
-- Findings defined in [Rule Board](https://semgrep.dev/orgs/-/board) of Semgrep App. Avoid blocking findings, by removing rules from the **Block** column of the [Rule Board](https://semgrep.dev/orgs/-/board).
-- If you do **not** use Semgrep App with Semgrep in CI (**stand-alone** setup), blocking findings encompass **all** Semgrep findings. Any finding in this setup blocks your PRs or MRs.
+- Findings defined in [Rule Board](https://semgrep.dev/orgs/-/board) of Semgrep App. Avoid blocking findings by removing rules from the **Block** column of the [Rule Board](https://semgrep.dev/orgs/-/board).
+- If you do **not** use Semgrep App with Semgrep in CI (stand-alone setup), blocking findings encompass all Semgrep findings. Any finding in this setup blocks your PRs or MRs.
 
-When Semgrep encounters an internal error, it does not block your pipeline as errors are by default suppressed and not surfaced to the CI provider. In case of an internal error, Semgrep sends an anonymous crash report to a crash-reporting server and does not block your CI pipeline. This configuration can be changed.
+By default, Semgrep does not block your pipeline when it encounters an internal error. Semgrep suppresses all errors and does not surface them to the CI provider. In case of an internal error, Semgrep sends an anonymous crash report to a crash-reporting server and does not block your CI pipeline. To change the default configuration, see the sections below.
 
 ### Configuration options for blocking findings and errors
 
-Configure, change or revert to the default setup of blocking findings and errors in your CI pipeline using the following options in your YAML configuration file:
+Configure, change or revert to the default setup of blocking findings and errors in your CI pipeline using the following options in CI configuration file:
 
-- `semgrep ci` - The default state. Semgrep in CI **fails** on blocking findings, CI **passes** on internal errors. If Semgrep encounters an internal error, it sends an anonymous crash report to a crash-reporting server and exits with exit code `0` (success). Consequently, Semgrep in CI does not report other statuses than `0` or `1` by default (success or a blocking finding). Optional: Define this setting explicitly using the `--suppress-errors` flag (see examples below).
-- `semgrep ci --no-suppress-errors` - Semgrep in CI **fails** on blocking findings, CI **fails** on internal errors. If you use this flag, all exit codes, including internal errors, surface to the CI provider.
-- `semgrep ci || true` - Semgrep in CI **passes** on blocking findings, CI **passes** on internal errors.
-
-See the following table that summarizes these configuration options:
+| CI option                                      | Description                         |
+|------------------------------------------------|-------------------------------------|
+| `semgrep ci` or `semgrep ci --suppress-errors` | Default: CI **fails** on blocking findings, CI **passes** on internal errors.  |
+| `semgrep ci --no-suppress-errors`              | CI **fails** on blocking findings, CI **fails** on internal errors.            |
+| <code>semgrep ci &vert;&vert; true</code>      | CI **passes** on blocking findings, CI **passes** on internal errors.          |
  
-| CI option                                 | Description                         |
-|-------------------------------------------|-------------------------------------|
-| `semgrep ci`                              | Default: CI **fails** on blocking findings, CI **passes** on internal errors.  |
-| `semgrep ci --no-suppress-errors`         | CI **fails** on blocking findings, CI **fails** on internal errors.            |
-| <code>semgrep ci &vert;&vert; true</code> | CI **passes** on blocking findings, CI **passes** on internal errors.          |
- 
-To change this configuration, insert one of the configuration options after the following keys in Semgrep in CI YAML configuration files:
-- On GitHub, use one of the options after the `run` key (for example, `run: semgrep ci --suppress-errors` to state the default option).
-- On GitLab, use one of the options after the `script` key (for example, `script: semgrep ci --suppress-errors` to state the default option).
-- Insert these options in an equivalent key in configuration files of other CI providers.
+To change this configuration, insert one of the configuration options (flags) after the following keys in in CI YAML configuration file of Semgrep:
+- On GitHub, insert the flag after the `run` key (for example, `run: semgrep ci --suppress-errors` to state the default option).
+- On GitLab, insert the flag after the `script` key (for example, `script: semgrep ci --suppress-errors` to state the default option).
+- Insert these flags in an equivalent key in configuration files of other CI providers.
  
 See the [Examples of blocking findings and errors configuration](#examples-of-blocking-findings-and-errors-configuration) below.
  
@@ -62,7 +56,13 @@ See the [Examples of blocking findings and errors configuration](#examples-of-bl
 - For more information about specific Semgrep exit codes, see [CLI reference](../../cli-reference/#exit-codes).
 - This functionality replaces the audit mode `SEMGREP_AUDIT_ON` (collecting findings silently for [Semgrep App > Findings](https://semgrep.dev/manage/findings)).
 :::
- 
+
+To find more details about some of these configuration options, see the following list:
+
+- `semgrep ci` - The default state. Semgrep in CI **fails** on blocking findings, CI **passes** on internal errors. If Semgrep encounters an internal error, it sends an anonymous crash report to a crash-reporting server and exits with exit code `0` (success). Consequently, Semgrep in CI does not report other statuses than `0` or `1` by default (success or a blocking finding). Optional: Define this setting explicitly using the `--suppress-errors` flag.
+- `semgrep ci --no-suppress-errors` - Semgrep in CI **fails** on blocking findings, CI **fails** on internal errors. If you use this flag, all exit codes, including internal errors, surface to the CI provider.
+- `semgrep ci || true` - Semgrep in CI **passes** on blocking findings, CI **passes** on internal errors.
+
 ### Examples of blocking findings and errors configuration
 
 <BlockFindingsErrorsConfigs />
