@@ -8,6 +8,7 @@ hide_title: true
 
 import MoreHelp from "/src/components/MoreHelp"
 import CiScheduling from "/src/components/CiScheduling.mdx"
+import CiIgnoringFiles from "/src/components/CiIgnoringFiles.mdx"
 
 # Running Semgrep in continuous integration (CI) with Semgrep App
 
@@ -201,7 +202,11 @@ Optional: set a timeout
 
 TODO
 
-### Blocking PRs or MRs through the Rule board
+### Customizing rules through the Rule Board
+
+The Rule Board enables you to:
+
+* Add or remove rules and rulesets that are used to scan your code.
 
 TODO
 
@@ -209,11 +214,9 @@ TODO
 
 <CiScheduling />
 
-### Customizing rules and rulesets
-
 ### Ignoring files
 
-<CiIngnoringFiles />
+<CiIgnoringFiles />
 
 ## Appendix: Compatibility of environment variables
 
