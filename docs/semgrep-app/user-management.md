@@ -37,7 +37,7 @@ By creating an organization account, teams can collaborate on rule writing and t
 
 ## Controlling access through roles
 
-![Screenshot of role-based access control ](../img/rbac-overview.png)<br />
+![Screenshot of role-based access control ](/img/rbac-overview.png)<br />
 
 Access control in Semgrep App determines the resources and features that are available to users based on their role. This **role-based access control (RBAC)** feature is available for organizations on **Team/Enterprise tiers**.
 
@@ -59,11 +59,11 @@ The following table displays features available to each role:
 
 | Feature               | `member`  | `admin`   | Additional notes                                                                   |
 | ---------             | --------- | --------- | ---------                                                                          |
-| Overview              | yes       | yes       |                                                                                    |
+| Dashboard             | yes       | yes       |                                                                                    |
 | Projects              | no        | yes       | Only `admin` can manage projects.                                                  |
 | Rule Board (Policies) | no        | yes       | Only `admin` can manage policies and rules.                                        |
 | Findings              | yes       | yes       | Both `admin` and `member` roles can sort, filter, comment on, and triage findings. |
-| Analytics             | no        | yes       |                                                                                    |
+| Editor                | yes       | yes       | `member` roles are able to write and modify rules within an organization.          |
 | Settings              | no        | yes       |                                                                                    |
 | Community             | yes       | yes       |                                                                                    |
 | Registry              | yes       | yes       |                                                                                    |

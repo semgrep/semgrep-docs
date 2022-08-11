@@ -5,6 +5,7 @@ description: "This document describes Semgrep’s YAML rule syntax including req
 ---
 
 import MoreHelp from "/src/components/MoreHelp"
+import LanguageExtensionsTags from '/src/components/modules/reference-modules/_language-extensions-tags.mdx'
 
 # Rule syntax
 
@@ -37,38 +38,8 @@ Only one of `pattern`, `patterns`, `pattern-either`, or `pattern-regex` is requi
 :::
 
 #### Language extensions and tags
-<details>
-<summary>Expand table of extensions and tags</summary>
 
-| Language   | Extensions             | Tags                                 |
-|:-----------|:-----------------------|:-------------------------------------|
-| Bash       | `.sh`                  | `bash`                               |
-| C          | `.c`                   | `c`                                  |
-| C++        | `.cpp`, `.h`           | `cpp`                                |
-| C#         | `.cs`                  | `csharp`, `cs`, `C#`                 |
-| Generic    |                        | `generic`                            |
-| Go         | `.go`                  | `go`, `golang`                       |
-| Hack       | `.h`, `.hack`          | `hack`                               |
-| Java       | `.java`                | `java`                               |
-| JavaScript | `.js`, `.jsx`          | `js`, `jsx`, `javascript`            |
-| JSON       | `.json`                | `json`, `JSON`, `Json`               |
-| JSX        | `.js`, `.jsx`          | `js`, `jsx`, `javascript`            |
-| Kotlin     |  `.kt`, `.kts`, `.ktm` | `kotlin`                             |
-| Lua        | `.lua`                 | `lua`                                |
-| OCaml      | `.ml`, `.mli`          | `ocaml`, `ml`                        |
-| PHP        | `.php`                 | `php`                                |
-| Python     | `.py`, `.pyi`          | `python`, `python2`, `python3`, `py` |
-| R          | `.r`, `.rda`, `rds`    | `r`                                  |
-| Ruby       | `.rb`                  | `ruby`, `rb`                         |
-| Rust       | `.rs`                  | `rust`, `Rust`, `rs`                 |
-| Scala      | `.scala`, `.sc`        | `scala`                              |
-| Solidity   | `.sol`                 | `solidity`                           |
-| Terraform  | `.tf`                  | `hcl`                                |
-| TypeScript | `.ts`, `.tsx`          | `ts`, `tsx`, `typescript`            |
-| TSX        | `.ts`, `.tsx`          | `ts`, `tsx`, `typescript`            |
-| YAML       | `.yaml`                | `yaml`                               |
-
-</details>
+<LanguageExtensionsTags />
 
 ### Optional
 
@@ -240,7 +211,7 @@ The `pattern-not` operator is the opposite of the `pattern` operator. It finds c
 
 The `pattern-inside` operator keeps matched findings that reside within its expression. This is useful for finding code inside other pieces of code like functions or if blocks.
 
-<iframe src="https://semgrep.dev/embed/editor?snippet=B4lR" border="0" frameBorder="0" width="100%" height="432"></iframe>
+<iframe src="https://semgrep.dev/embed/editor?snippet=Z8Dw" border="0" frameBorder="0" width="100%" height="432"></iframe>
 
 ### `pattern-not-inside`
 
@@ -468,7 +439,7 @@ When invoked with `semgrep -f rule.yaml project/`, the above rule will run on fi
 - any file matching the `project/static/*.js` glob pattern
 
 :::note
-The glob syntax is from [Python's `pathlib`](https://docs.python.org/3/library/pathlib.html#pathlib.PurePath.match) and is used to match against the given file and all its parent directories.
+The glob syntax is from [Python's `wcmatch`](https://pypi.org/project/wcmatch/) and is used to match against the given file and all its parent directories.
 :::
 
 ### Limiting a rule to paths
@@ -485,6 +456,7 @@ rules:
         - "project/server"
         - "project/schemata"
         - "project/static/*.js"
+        - "tests/**/*.js"
 ```
 
 When invoked with `semgrep -f rule.yaml project/`, this rule will run on files inside `project/`, but results will be returned only for:
@@ -492,6 +464,7 @@ When invoked with `semgrep -f rule.yaml project/`, this rule will run on files i
 - files whose name ends in `_test.go`, such as `project/backend/server_test.go`
 - files inside `project/server`, `project/schemata`, or their subdirectories
 - files matching the `project/static/*.js` glob pattern
+- all files with the `.js` extension, arbitrary depth inside the tests folder
 
 If you are writing tests for your rules, you will need to add any test file or directory to the included paths as well.
 
@@ -541,7 +514,7 @@ The above rule makes use of many operators. It uses `pattern-either`, `patterns`
 
 ## Full specification
 
-The [full configuration-file format](https://github.com/returntocorp/semgrep/blob/develop/cli/src/semgrep/rule_schema.yaml) is defined as
+The [full configuration-file format](https://github.com/returntocorp/semgrep-interfaces/blob/main/rule_schema.yaml) is defined as
 a [jsonschema](http://json-schema.org/specification.html) object.
 
 <MoreHelp />

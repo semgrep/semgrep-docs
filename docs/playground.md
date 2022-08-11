@@ -15,7 +15,7 @@ Semgrep Playground is a live editor used to create and test rule patterns on sam
 
 The Playground is composed of three panes and a top menu.
 
-![Screenshot of default playground view](img/playground-editor.png "Default playground view")
+![Screenshot of default playground view](/img/playground-editor.png "Default playground view")
 
 <dl>
     <dt>Library</dt>
@@ -79,7 +79,7 @@ Simple mode has the following limitations:
 To **create a rule** in simple mode:
 
 1. Ensure that you are in **Simple mode**:
-![Screenshot of the simple view](img/pleditor-simple.png "Playground simple mode")
+![Screenshot of the simple view](/img/pleditor-simple.png "Playground simple mode")
 2. Click **File > New** to start from a blank slate.
 3. Select a language from the **language is** drop-down box to specify a language in which the test code is written.
 4. After the **code is** button, enter the rule pattern.
@@ -94,7 +94,7 @@ Advanced mode is a YAML editor for writing a rule **using any valid key from the
 To create a rule in advanced mode:
 
 1. Ensure that you are in the **Advanced mode**.
-![Screenshot of the advanced view](img/pleditor-advanced.png "Playground advanced mode")
+![Screenshot of the advanced view](/img/pleditor-advanced.png "Playground advanced mode")
 2. Enter the keys and values needed to finish your rule. 
 3. Click **Run** or press **Ctrl+Enter** (**⌘++Enter** on Macs).
 
@@ -139,9 +139,9 @@ File a [bug](https://github.com/returntocorp/semgrep/issues/new?title=semgrep.de
 Another method of creating rules is by **forking** or **copying** from existing rules found in Semgrep Registry. For example, Semgrep’s Java `crypto` ruleset prohibits the use of weak hashing algorithms `SHA-1` and `MD5`. An organization can further limit the use of other hash functions as part of its standards or security compliance. The next steps illustrate forking through copying an existing `use-of-sha1` rule and changing the rule to forbid MD2 hashes.
 
 1. Enter related terms into the search bar to find potential rules. In our example, this is `SHA1.` <div class="bordered">
-![Screenshot of Library pane with SHA1 filter](img/editor-SHA1.png)</div>
+![Screenshot of Library pane with SHA1 filter](/img/editor-SHA1.png)</div>
 2. Registry rules cannot be edited directly. They can be **forked** by **right-clicking on their entry** in the Library and selecting **Fork rule.** <div class = "bordered">
-![Screenshot of forking menu](img/editor-forking.png) </div>
+![Screenshot of forking menu](/img/editor-forking.png) </div>
 3. The rule is copied to your organization’s rules.
 4. Enter edits to finalize your rule. In this example, the patterns are changed to find matches for [MD2](https://docs.oracle.com/javase/9/docs/specs/security/standard-names.html#messagedigest-algorithms) and the severity is increased from `WARNING` to `ERROR`.
 5. Enter updates to test cases.
@@ -187,7 +187,7 @@ To embed a rule:
     2. For anonymous users: `[4-letter permalink]`, such as **dZkP**
 3. Create the **URL reference**. Substitute the identifier in this template: `https://semgrep.dev/embed/editor?snippet=IDENTIFIER`. For example, using the identifier `ievans:print-to-logger` creates `https://semgrep.dev/embed/editor?snippet=ievans:print-to-logger`.
 4. Optional: To test the URL reference, enter the URL in your browser's address bar.
-![Screenshot of the embedded Playground in its own tab](img/playground-widget.png "Embedded playground in its own tab")
+![Screenshot of the embedded Playground in its own tab](/img/playground-widget.png "Embedded playground in its own tab")
 5. In the following snippet, replace the `src` placeholder value with the previously-created **URL reference**:
 
 ```

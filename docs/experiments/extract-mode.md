@@ -96,7 +96,7 @@ The `extract` key is required in extract mode. The value must be a metavariable 
 
 ### `dest-language`
 
-The `dest-language` key is required in extract mode. The value must be a [language tag](../../writing-rules/rule-syntax/#language-extensions-and-tags) other than `generic`.
+The `dest-language` key is required in extract mode. The value must be a [language tag](../../writing-rules/rule-syntax/#language-extensions-and-tags).
 
 ### `reduce`
 

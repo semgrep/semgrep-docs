@@ -6,6 +6,8 @@
  */
 
 /* You can override the default Infima variables here. */
+
+
 :root {
   --ifm-color-primary: #00c292; /*use for category headers */
   --ifm-color-primary-dark: #00b581;
@@ -22,7 +24,7 @@
   --ifm-footer-link-hover-color: #00c292;
   --ifm-menu-link-sublist-icon-filter: invert(16%) sepia(98%) saturate(3800%)
     hue-rotate(254deg) brightness(40%) contrast(88%);
-  --ifm-font-family-monospace: "Menlo", "Courier New", monospace;
+  --ifm-font-family-monospace: "JetBrains Mono", "Menlo", "Courier New", monospace;
   --ifm-navbar-height: 50px;
 }
 
@@ -108,9 +110,13 @@ html[data-theme="dark"] {
 /* begin customized styles for Semgrep docs */
 /* color vars are overwritten above */
 
-@import url("https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=JetBrains+Mono:wght@400;700&display=swap');
 
 /* globals */
+
+* {
+  font-variant-ligatures: none;
+}
 html {
   font-family: "Inter", sans-serif !important;
   font-weight: 400;
@@ -167,6 +173,12 @@ dl {
 .placeholder {
     color: #E3116C;
     font-style: italic;
+}
+
+.inline_svg {
+    height: 14px;
+    width: 15px;
+    fill: currentColor;
 }
 
 /* navbar */

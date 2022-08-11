@@ -225,7 +225,7 @@ pipeline {
 | **diff-aware scanning** | ✅ [configure manually](configuration-reference.md#diff-aware-scanning-semgrep_baseline_ref) |
 | **hyperlinks in Semgrep App** | ✅ [configure manually](configuration-reference.md#get-hyperlinks-in-semgrep-cloud) |
 | **results in native dashboard** | 💢 not applicable |
-| **results in pull request comments** | ✅ [sign up for Semgrep App free](https://semgrep.dev/login) |
+| **results in pull request comments** | ❌ not available |
 | **automatic CI setup** | ❌ not available |
 
 ## Buildkite
@@ -233,7 +233,6 @@ pipeline {
 ```
 - label: ":semgrep: Semgrep"
   commands:
-    - export SEMGREP_BASELINE_REF=""
     - export SEMGREP_REPO_URL="$(echo "$BUILDKITE_REPO" | sed -e 's#.\{4\}$##')"
     - export SEMGREP_BRANCH=${BUILDKITE_BRANCH}
     - export SEMGREP_COMMIT=${BUILDKITE_COMMIT}
@@ -258,7 +257,7 @@ pipeline {
 | **diff-aware scanning** | ✅ [configure manually](configuration-reference.md#diff-aware-scanning-semgrep_baseline_ref)|
 | **hyperlinks in Semgrep App** | ✅ [configure manually](configuration-reference.md#get-hyperlinks-in-semgrep-cloud) |
 | **results in native dashboard** | 💢 not applicable |
-| **results in pull request comments** | ✅ [sign up for Semgrep App free](https://semgrep.dev/login) |
+| **results in pull request comments** | ❌ not available |
 | **automatic CI setup** | ❌ not available |
 
 ## CircleCI
@@ -318,7 +317,7 @@ workflows:
 | **diff-aware scanning** | ✅ [configure manually](configuration-reference.md#diff-aware-scanning-semgrep_baseline_ref) |
 | **hyperlinks in Semgrep App** | ✅ [configure manually](configuration-reference.md#get-hyperlinks-in-semgrep-cloud) |
 | **results in native dashboard** | 💢 not applicable |
-| **results in pull request comments** | ✅ [sign up for Semgrep App free](https://semgrep.dev/login) |
+| **results in pull request comments** | ❌ not available |
 | **automatic CI setup** | ❌ not available |
 
 ## Bitbucket
@@ -352,7 +351,7 @@ pipelines:
 | **diff-aware scanning** | ✅ [configure manually](configuration-reference.md#diff-aware-scanning-semgrep_baseline_ref) |
 | **hyperlinks in Semgrep App** | ✅ [configure manually](configuration-reference.md#get-hyperlinks-in-semgrep-cloud) |
 | **results in native dashboard** | 💢 not applicable |
-| **results in pull request comments** | ✅ [sign up for Semgrep App free](https://semgrep.dev/login) |
+| **results in pull request comments** | ❌ not available |
 | **automatic CI setup** | ❌ not available |
 
 ## Other providers

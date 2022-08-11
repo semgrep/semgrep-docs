@@ -28,8 +28,8 @@ Start by running [Semgrep](https://github.com/returntocorp/semgrep/) locally to 
     semgrep --help
     ```
 3. Run recommended Semgrep Registry rules:
-    <pre class="language-bash"><code>semgrep --config=auto <span className="placeholder">PATH/TO/SRC</span></code></pre>
-    Substitute the <code><span className="placeholder">PATH/TO/SRC</span></code> with the path to your source code.
+    <pre class="language-bash"><code>semgrep --config=auto [<span className="placeholder">PATH/TO/SRC</span>]</code></pre>
+    Substitute the optional placeholder <code>[<span className="placeholder">PATH/TO/SRC</span>]</code> with the path to your source code.
 
 :::note
 By default, when Semgrep Registry is used, Semgrep collects [usage metrics](./metrics.md).

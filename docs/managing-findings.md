@@ -86,7 +86,7 @@ Semgrep App finding states are defined as follows:
 1. `MUTED`: the finding has been ignored by a `nosemgrep` comment or via `.semgrepignore`.
 1. `REMOVED`: the finding's rule isn't enabled on the repository anymore. The rule was removed from the used ruleset, the rule was removed from the policy, or the containing policy was detached from the repo.
 
-![Finding state transitions](img/finding-states.svg "Finding state transitions")
+![Finding state transitions](/img/finding-states.svg "Finding state transitions")
 
 The possible transitions are defined as follows:
 
