@@ -271,10 +271,6 @@ version: 2.1
 jobs:
   semgrep-scan:
     parameters:
-      repo_path:
-        type: string
-        # Change this to your repository path. (confirm with Holden)
-        default: myorg/semgrep-test-repo
       default_branch:
         type: string
         default: main
