@@ -1,0 +1,114 @@
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
+The following code displays Semgrep in the CI configuration file for GitHub Actions (GHA) with the default setup (`run: semgrep ci`):
+ 
+```yaml
+name: Semgrep
+on:
+  pull_request: {}
+  push:
+    branches:
+      - main
+      - master
+    paths:
+      - .github/workflows/semgrep.yml
+  schedule:
+    - cron: '0 0 * * 0'
+  workflow_dispatch: {}
+jobs:
+  semgrep:
+    name: Scan
+    runs-on: ubuntu-20.04
+    env:
+      SEMGREP_APP_TOKEN: ${{ secrets.SEMGREP_APP_TOKEN }}
+    container:
+      image: returntocorp/semgrep
+    steps:
+      - uses: actions/checkout@v3
+      - name: Scan and suppress internal errors
+        run: semgrep ci
+```
+ 
+The default configuration displayed above lets Semgrep in CI **fail** on blocking findings but **pass** on internal errors. If Semgrep encounters an internal error, it sends an anonymous crash report to a crash-reporting server and exits with exit code `0`. Consequently, Semgrep in CI does not report other statuses than `0` or `1` by default. Optional: Define this configuration explicitly using the `--suppress-errors` flag. The resulting code is the following:
+ 
+```yaml
+steps:
+  - uses: actions/checkout@v3
+  - name: Scan and suppress internal errors
+    run: semgrep ci --suppress-errors
+```
+ 
+To change the configuration of blocking findings and errors in GitLab, insert one of the configuration options after the `script` key. For example, use `script: semgrep ci --suppress-errors` to state the default option. Similarly, use options described above, such as `script: semgrep ci --no-suppress-errors` or `script: semgrep ci || true`.
+
+The following code snippets in different tabs display the position of the default flag in configuration files of various CI providers (the code snippets are shortened):
+
+<Tabs
+    defaultValue="github"
+    values={[
+    {label: 'GitHub Actions', value: 'github'},
+    {label: 'GitLab CI/CD', value: 'gitlab'},
+    {label: 'Jenkins', value: 'jenkins'},
+    {label: 'BitBucket Pipelines', value: 'bitbucket'},
+    {label: 'CircleCI', value: 'circleci'},
+    {label: 'Buildkite', value: 'buildkite'},
+    ]}>
+<TabItem value="github">
+
+```yaml
+steps:
+- uses: actions/checkout@v3
+- name: Scan and suppress internal errors
+   run: semgrep ci --suppress-errors
+```
+
+</TabItem>
+<TabItem value="gitlab">
+
+```yaml
+semgrep:
+  image: returntocorp/semgrep
+  script: semgrep ci --suppress-errors
+```
+
+</TabItem>
+<TabItem value="jenkins">
+
+```javascript
+steps {
+    sh 'pip3 install semgrep'
+    sh 'semgrep ci --suppress-errors'
+}
+```
+
+</TabItem>
+<TabItem value="bitbucket">
+
+```yaml
+script:
+  - semgrep ci --suppress-errors
+```
+
+</TabItem>
+<TabItem value="circleci">
+
+```yaml
+steps:
+    - checkout
+    - run:
+        name: "Semgrep scan"
+        command: semgrep ci --suppress-errors
+```
+
+</TabItem>
+<TabItem value="buildkite">
+
+```yaml
+commands:
+    - semgrep ci --suppress-errors
+```
+
+</TabItem>
+</Tabs>
+
+<!-- imports: This file is currently imported to: configuration-reference.md -->
