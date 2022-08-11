@@ -20,6 +20,10 @@ Run Semgrep in your continous integration (CI) pipeline to scan your repository 
 
 This guide explains how to connect your repository to Semgrep App to scan continuously.
 
+:::note
+Semgrep 0.98.0 introduced changes to how certain CI providers fetch environment variables. Some environment variables may be **deprecated**. Refer to the appendix at the end of this document for more information.
+:::
+
 ![Steps to run Semgrep in CI without Semgrep App](/img/semgrep-ci-overview-app.png "Steps to integrate Semgrep in CI with Semgrep App")
 *Figure 1. Steps to run Semgrep in CI with Semgrep App.*
 
@@ -209,7 +213,7 @@ TODO
 
 ### Ignoring files
 
-
+<CiIngnoringFiles />
 
 ## Appendix: Compatibility of environment variables
 
