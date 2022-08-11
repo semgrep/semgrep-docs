@@ -33,13 +33,13 @@ Blocking findings are the following:
 - Findings defined in [Rule Board](https://semgrep.dev/orgs/-/board) of Semgrep App. Avoid blocking findings, by removing rules from the **Block** column of the [Rule Board](https://semgrep.dev/orgs/-/board).
 - If you do **not** use Semgrep App with Semgrep in CI (**stand-alone** setup), blocking findings encompass **all** Semgrep findings. Any finding in this setup blocks your PRs or MRs.
 
-When Semgrep encounters an internal error, it does not block your pipeline because errors are by default suppressed and not surfaced to the CI provider. Semgrep can finish with various exit codes (For more information about specific exit codes, see [CLI reference](../../cli-reference/#exit-codes)). In short, exit code `0` reports that Semgrep ran successfully, and exit code `1` reports a blocking finding. Any status greater than `1` reports internal Semgrep errors. In the default configuration, Semgrep does not surface any status **greater** than `1` to the CI provider, meaning that your PRs and MRs are not blocked by internal Semgrep errors. If Semgrep encounters an internal error, it sends an anonymous crash report to a crash-reporting server and exits with exit code `0` (Semgrep reports success). This configuration can be changed.
+When Semgrep encounters an internal error, it does not block your pipeline because errors are by default suppressed and not surfaced to the CI provider. In case of an internal error, Semgrep sends an anonymous crash report to a crash-reporting server and does not block your CI pipeline. This configuration can be changed.
 
 ### Configuration options for blocking findings and errors
 
 Configure, change or revert to the default setup of blocking findings and errors in your CI pipeline using the following options in your YAML configuration file:
 
-- `semgrep ci` - The default state. Semgrep in CI **fails** on blocking findings, CI **passes** on internal errors. If Semgrep encounters an internal error, it sends an anonymous crash report to a crash-reporting server and exits with exit code `0`. Consequently, Semgrep in CI does not report other statuses than `0` or `1` by default. Optional: Define this setting explicitly using the `--suppress-errors` flag (see examples below).
+- `semgrep ci` - The default state. Semgrep in CI **fails** on blocking findings, CI **passes** on internal errors. If Semgrep encounters an internal error, it sends an anonymous crash report to a crash-reporting server and exits with exit code `0` (success). Consequently, Semgrep in CI does not report other statuses than `0` or `1` by default (success or a blocking finding). Optional: Define this setting explicitly using the `--suppress-errors` flag (see examples below).
 - `semgrep ci --no-suppress-errors` - Semgrep in CI **fails** on blocking findings, CI **fails** on internal errors. If you use this flag, all exit codes, including internal errors, surface to the CI provider.
 - `semgrep ci || true` - Semgrep in CI **passes** on blocking findings, CI **passes** on internal errors.
 
