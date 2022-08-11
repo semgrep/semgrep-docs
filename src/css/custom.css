@@ -278,3 +278,7 @@ li.menu__list-item a:hover {
   color: rgb(198, 200, 204);
 }
 
+.yt_embed {
+    padding-bottom: 1rem;
+}
+
