@@ -29,13 +29,13 @@ Support for certain features of Semgrep App depend on your CI provider or source
 
 <dl>
     <dt>Diff-aware scanning</dt>
-    <dd></dd>
-    <dt>Hyperlinks to code that generated the finding</dt>
-    <dd></dd>
-    <dt>SCM security dashboard</dt>
-    <dd></dd>
+    <dd>Semgrep App can scan changes in files when running on a pull or merge request (PR or MR). This keeps the scan fast and reduces finding duplication.</dd>
     <dt>Receiving results (findings) as PR or MR comments</dt>
-    <dd></dd>
+    <dd>This feature enables you to receive [PR or MR comments](/docs/semgrep-app/notifications/#enabling-github-pull-request-comments) from Semgrep App on the lines of code that generated a finding.</dd>
+    <dt>Hyperlinks to code</dt>
+    <dd>Semgrep App collects findings in a Findings page. In this page, you can click on a finding to view the lines of code in your repository that generated the finding.</dd>
+    <dt>SCM security dashboard</dt>
+    <dd>Send Semgrep findings to your SCM's security dashboard.</dd>
 </dl>
 
 | Feature | GitHub | GitLab | BitBucket | CI Provider support |
@@ -69,7 +69,7 @@ This section applies to the following providers:
 These providers are explicitly listed in Semgrep App, and Semgrep App is able to generate CI configuration files for you to commit into your repository.
 
 :::note
-Any SCM (such as GitHub or GitLab) should work with the above CI providers, but steps and feature enablement may vary for on-premise or virtual private cloud (VPC) deployments.
+GitHub, GitLab, and BitBucket should work with the above CI providers, but steps and feature enablement may vary for **on-premise, self-hosted, or virtual private cloud (VPC) deployments**, such as GitHub Enterprise.
 :::
 
 
@@ -78,7 +78,7 @@ To set up the CI job and connect with Semgrep App:
 1. Sign in to [Semgrep App](https://semgrep.dev/login). See [Signing in to Semgrep App](/docs/semgrep-app/getting-started-with-semgrep-app/#signing-in-to-semgrep-app) for details on requested permissions and repository access.
 2. Click **Projects > Scan New Project > Run Scan in CI**.
 3. Select your provider from the menu.
-4. Optional: Some providers may ask you to select your organization within your source code management (SCM) tool.
+4. Optional: Some providers may ask you to select your organization if applicable to your SCM tool.
 5. Follow the steps outlined in the page:
     1. Optional: Additional permissions may be requested for Semgrep App to perform certain actions in your SCM tool, such as GitHub. If you prefer not to grant these permissions, Semgrep App provides alternative instructions in the **Don't want to install the app?** section within the page itself.
     2. Click **Create new API token**. This is your `SEMGREP_APP_TOKEN` environment variable.
@@ -92,10 +92,10 @@ To set up the CI job and connect with Semgrep App:
 Other CI providers, such as **Drone CI** and **AppVeyor**, can run Semgrep continuously and connect to Semgrep App through the use of environment variables provided in this document. The general steps are:
 
 1. Create a CI job running Semgrep.
-2. Create a `SEMGREP_APP_TOKEN` and add it as a credential, secret, or token into your CI provider.
-3. Grant permissions for Semgrep App from your source code management (SCM) tool, such as GitHub or GitLab.
+2. Create a `SEMGREP_APP_TOKEN` and add it as a credential, secret, or token into your CI provider and CI configuration file
+3. For GitHub users: Grant permissions for Semgrep App.
 4. Run the job by pushing (merging) a file or creating a PR or MR. Semgrep detects the `SEMGREP_APP_TOKEN`, sends it to Semgrep App for verification, and if verified, findings are sent to Semgrep App.
-5. Optional: Define additional environment variables to enable other Semgrep App features, such as hyperlinks to the code that generated the finding. This is done last because it is easier to set up and troubleshoot and CI jobs after verifying the CI job and connection to Semgrep App.
+5. Define additional environment variables to enable other Semgrep App features, such as hyperlinks to the code that generated the finding. This is done last because it is easier to set up and troubleshoot and CI jobs after verifying the CI job and connection to Semgrep App.
 
 #### Create a CI job running Semgrep
 
@@ -108,7 +108,7 @@ There are two methods to adding Semgrep to your CI pipeline:
 
 The following example is a `bitbucket-pipelines.yml` file that adds Semgrep through the Docker image:
 
-<details><summary>Add Semgrep through the Docker image</summary>
+<details><summary>Add Semgrep through the Docker image.</summary>
 
 ```yaml
 image: atlassian/default-image:latest
@@ -122,6 +122,8 @@ pipelines:
         # Reference the Semgrep Docker image:
         image: returntocorp/semgrep
         script:
+        # You need to set the token as an environment variable 
+        # (see Create a `SEMGREP_APP_TOKEN` section).
           - export $SEMGREP_APP_TOKEN
           # Run semgrep ci:
           - semgrep ci
@@ -131,7 +133,7 @@ pipelines:
 
 The next example is a `Jenkinsfile` configuration that adds Semgrep by installing it:
 
-<details><summary>Add Semgrep by installing it</summary>
+<details><summary>Add Semgrep by installing it.</summary>
 
 ```javascript
 pipeline {
@@ -139,6 +141,8 @@ pipeline {
   stages {
     stage('Semgrep-Scan') {
         environment { 
+          // You need to set the token as an environment variable 
+          // (see Create a `SEMGREP_APP_TOKEN` section).
           SEMGREP_APP_TOKEN = credentials('SEMGREP_APP_TOKEN')
         } 
       steps {
@@ -153,29 +157,49 @@ pipeline {
 
 </details>
 
-#### Create a `SEMGREP_APP_TOKEN`
+#### Create a `SEMGREP_APP_TOKEN` and set the environment variable in your CI configuration file
 
+To create a `SEMGREP_APP_TOKEN`:
 1. Sign in to Semgrep App.
-2. Click Settings > Tokens.
-3. 
+2. Click **Settings > Tokens**.
+3. Click **Create new token**.
+4. Copy the name and value, then click **Update**.
+5. Store the token value into your CI provider. Tokens can also be referred to as `secrets`, `credentials`, or `secure variables`. The steps to do this vary depending on your CI provider.
+6. Add the `SEMGREP_APP_TOKEN` environment variable into your Semgrep CI job. Refer to your CI provider's documentation. You can also see the examples in [Create a CI job](#create-a-ci-job-running-semgrep).
 
-#### Grant permissions for Semgrep App from your SCM (GitHub or GitLab)
+#### Grant permissions for Semgrep App (GitHub repositories only)
 
-GitHub and GitLab can receive PR or MR comments from Semgrep App. To do this, Semgrep App must have certain permissions within your SCM. 
-
-1.
+Follow these steps for GitHub permissions access:
 
 #### Run the job
 
+Run the job by committing code to the trunkline branch if it does not start automatically.
 
+#### Set the environment variables
 
-## Refining the CI job 
+To only report findings newly added since branching off from your main branch (**diff-aware scanning**), set the following:
 
-The following 
+`SEMGREP_BASELINE_REF=TOPIC-BRANCH-NAME`
+
+To **enable hyperlinks**, the following environment variables must be added into your CI configuration file:
+
+```
+SEMGREP_REPO_URL="https://github.com/foo/bar"
+SEMGREP_BRANCH="feature/add-new-bugs"
+SEMGREP_JOB_URL="https://ci-server.com/jobs/1234"
+SEMGREP_REPO_NAME="foo/bar"
+SEMGREP_COMMIT="a52bc1ef"
+SEMGREP_PR_ID="44"
+```
+Optional: set a timeout
 
 ## Refining the Semgrep App configuration
 
+TODO
+
 ### Blocking PRs or MRs through the Rule board
+
+TODO
 
 ### Setting a scan schedule
 
@@ -185,11 +209,13 @@ The following
 
 ### Ignoring files
 
+
+
 ## Appendix: Compatibility of environment variables
 
-Semgrep App can fetch values of environment variables for [In-App providers](#in-app-providers-such-as-github-actions-gitlab-cicd-jenkins). For this reason, not all CI providers make use of the same environment variables.
+Starting from Semgrep 0.98.0, Semgrep App can fetch values of environment variables for [In-App providers](#in-app-providers-such-as-github-actions-gitlab-cicd-jenkins). Therefore, not all CI providers need the same environment variables.
 
-| Environment variable |
+| Environment variable | 
 | -------- |
 | 
 
