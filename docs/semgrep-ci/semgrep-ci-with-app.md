@@ -3,6 +3,7 @@ slug: semgrep-ci-with-app
 append_help_link: true
 description: ""
 title: Running Semgrep in CI with Semgrep App
+hide_title: true
 ---
 
 import MoreHelp from "/src/components/MoreHelp"
@@ -17,29 +18,33 @@ Run Semgrep in your continous integration (CI) pipeline to scan your repository 
 * Triage (ignore) false-positive findings from low-performing rules.
 * Fork existing rules to create custom rules and add them to Semgrep App for scanning.
 
-This guide explains how to connect your repository to Semgrep App to scan continuously. 
+This guide explains how to connect your repository to Semgrep App to scan continuously.
+
+![Steps to run Semgrep in CI without Semgrep App](/img/semgrep-ci-overview-app.png "Steps to integrate Semgrep in CI with Semgrep App")
+*Figure 1. Steps to run Semgrep in CI with Semgrep App.*
 
 ## Feature support
 
-Certain features of Semgrep App are dependent on your SCM and CI provider.
+Support for certain features of Semgrep App depend on your CI provider or SCM. Some of these features may be supported automatically or require more configuration. The following tables break down the features and their availability depending on CI provider or SCM.
 
-Features dependent on your CI provider include:
 <dl>
-    <dt>Diff-aware scanning.</dt>
-    <dt>Hyperlinks to code that generated the finding.</dt>
-    <dt>SCM security dashboard.</dt>
+    <dt>Diff-aware scanning</dt>
+    <dd></dd>
+    <dt>Hyperlinks to code that generated the finding</dt>
+    <dd></dd>
+    <dt>SCM security dashboard</dt>
+    <dd></dd>
+    <dt>Receiving results (findings) as PR or MR comments</dt>
+    <dd></dd>
 </dl>
 
-
-
-TODO table summarizing support
-
-| Feature | Level of support |
-| ------- | -------- |
-| Diff-aware scanning | Available | 
-| Hyperlinks | Available |
-| SCM security dashboard | Available |
-*Table 1. Features and support levels for GitHub Actions and GitLab CI/CD*
+| Feature | GitHub | GitLab | BitBucket | CI Provider support |
+| ------- | -------- | ------- | -------- | ---------------- |
+| **Diff-aware scanning** | ✅ Yes | ✅ Yes | ✅ Yes  | ✅ Available (may need additional set up) | 
+| **Hyperlinks** | ✅ Yes | ✅ Yes | ✅ Yes  |  ✅ Available (may need additional set up) |
+| **SCM security dashboard** |  ✅ GitHub Advanced Security Dashboard |  ✅ GitLab SAST Dashboard | ❌ No | ❗ Only GitHub Actions and GitLab CI/CD |
+| **PR or MR comments** |  ✅ Yes | ✅ Yes | ❌ No | ✅ CI provider agnostic; feature support is dependent on SCM |
+*Table 1. List of features and supported SCMs and CI providers.*
 
 ## Setting up the CI job and Semgrep App connection
 
@@ -75,9 +80,11 @@ To set up the CI job and connect with Semgrep App:
     4. Click **Check connection**. Semgrep App starts the scan.
 7. After verifying that Semgrep App is able to scan the repository, you can customize the CI job or Semgrep App configuration.
 
+
+:::
 ### Other CI providers (supported through environment variables)
 
-Other CI providers can run Semgrep continuously and connect to Semgrep App through the use of environment variables provided in this document. The general steps are:
+Other CI providers, such as Drone CI and AppVeyor, can run Semgrep continuously and connect to Semgrep App through the use of environment variables provided in this document. The general steps are:
 
 1. Create a CI job running Semgrep.
 2. Create a `SEMGREP_APP_TOKEN` and add it as a credential, secret, or token into your CI provider.
@@ -159,5 +166,9 @@ The following
 
 ### Ignoring files
 
+## Appendix: Compatibility of environment variables
 
-
+Environment variables differ based on your CI provider.
+    
+* 
+When troubleshooting Semgrep App, there is no need to define these variables in the configuration file as Semgrep App will not use them.
