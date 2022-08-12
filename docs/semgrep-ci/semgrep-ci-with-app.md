@@ -22,7 +22,8 @@ Run Semgrep in your continous integration (CI) pipeline to scan your repository 
 This guide explains how to connect your repository to Semgrep App to scan continuously.
 
 :::note
-Semgrep 0.98.0 introduced changes to how certain CI providers fetch environment variables. Some environment variables may be **deprecated**. Refer to the appendix at the end of this document for more information.
+* This guide's configuration and feature support are for Semgrep-App-connected CI jobs. If you are configuring a stand-alone `semgrep ci` job, refer to this guide: TODOLINK.
+* Semgrep 0.98.0 introduced changes to how certain CI providers fetch environment variables. Some environment variables may be **deprecated**. Refer to the appendix at the end of this document for more information.
 :::
 
 ![Steps to run Semgrep in CI without Semgrep App](/img/semgrep-ci-overview-app.png "Steps to integrate Semgrep in CI with Semgrep App")
@@ -30,13 +31,13 @@ Semgrep 0.98.0 introduced changes to how certain CI providers fetch environment 
 
 ## Feature support
 
-Support for certain features of Semgrep App depend on your CI provider or source code management tool (SCM). Some of these features may be supported automatically or require more configuration. The following tables break down the features and their availability depending on CI provider or SCM.
+Support for certain features of Semgrep App depend on your CI provider or source code management tool (SCM). The following table breaks down the features and their availability depending on CI provider or SCM.
 
 <dl>
     <dt>Diff-aware scanning</dt>
     <dd>Semgrep App can scan changes in files when running on a pull or merge request (PR or MR). This keeps the scan fast and reduces finding duplication.</dd>
     <dt>Receiving results (findings) as PR or MR comments</dt>
-    <dd>This feature enables you to receive [PR or MR comments](/docs/semgrep-app/notifications/#enabling-github-pull-request-comments) from Semgrep App on the lines of code that generated a finding.</dd>
+    <dd>This feature enables you to receive <a href="/docs/semgrep-app/notifications/#enabling-github-pull-request-comments">PR or MR comments</a> from Semgrep App on the lines of code that generated a finding.</dd>
     <dt>Hyperlinks to code</dt>
     <dd>Semgrep App collects findings in a Findings page. In this page, you can click on a finding to view the lines of code in your repository that generated the finding.</dd>
     <dt>SCM security dashboard</dt>
@@ -77,7 +78,6 @@ These providers are explicitly listed in Semgrep App, and Semgrep App is able to
 GitHub, GitLab, and BitBucket should work with the above CI providers, but steps and feature enablement may vary for **on-premise, self-hosted, or virtual private cloud (VPC) deployments**, such as GitHub Enterprise.
 :::
 
-
 To set up the CI job and connect with Semgrep App:
 
 1. Sign in to [Semgrep App](https://semgrep.dev/login). See [Signing in to Semgrep App](/docs/semgrep-app/getting-started-with-semgrep-app/#signing-in-to-semgrep-app) for details on requested permissions and repository access.
@@ -91,16 +91,22 @@ To set up the CI job and connect with Semgrep App:
     4. Click **Check connection**. Semgrep App starts the scan.
 7. After verifying that Semgrep App is able to scan the repository, you can customize the CI job or Semgrep App configuration.
 
+#### Setting up security dashboards for GitHub and GitLab
+
+Todo
 
 ### Other CI providers (supported through environment variables)
 
 Other CI providers, such as **Drone CI** and **AppVeyor**, can run Semgrep continuously and connect to Semgrep App through the use of environment variables provided in this document. The general steps are:
 
 1. Create a CI job running Semgrep.
-2. Create a `SEMGREP_APP_TOKEN` and add it as a credential, secret, or token into your CI provider and CI configuration file
-3. For GitHub users: Grant permissions for Semgrep App.
-4. Run the job by pushing (merging) a file or creating a PR or MR. Semgrep detects the `SEMGREP_APP_TOKEN`, sends it to Semgrep App for verification, and if verified, findings are sent to Semgrep App.
-5. Define additional environment variables to enable other Semgrep App features, such as hyperlinks to the code that generated the finding. This is done last because it is easier to set up and troubleshoot and CI jobs after verifying the CI job and connection to Semgrep App.
+2. Create a `SEMGREP_APP_TOKEN` and add it as a credential, secret, or token into your CI provider and CI configuration file.
+3. For GitHub repositories: Grant permissions for Semgrep App.
+4. If the job does not start automatically, run the job by committing code or creating a PR or MR.
+5. Semgrep detects the `SEMGREP_APP_TOKEN`, sends it to Semgrep App for verification, and if verified, findings are sent to Semgrep App.
+6. Define additional environment variables to enable other Semgrep App features. This is done last because it is easier to set up and troubleshoot and CI jobs after verifying the CI job and connection to Semgrep App.
+
+The next sections go over these steps in detail.
 
 #### Create a CI job running Semgrep
 
@@ -178,7 +184,7 @@ Follow these steps for GitHub permissions access:
 
 #### Run the job
 
-Run the job by committing code to the trunkline branch if it does not start automatically.
+Run the job by committing code if it does not start automatically.
 
 #### Set the environment variables
 
@@ -196,7 +202,12 @@ SEMGREP_REPO_NAME="foo/bar"
 SEMGREP_COMMIT="a52bc1ef"
 SEMGREP_PR_ID="44"
 ```
-Optional: set a timeout
+
+To **set a timeout** for the Semgrep job, set the following:
+
+```
+SEMGREP_TIMEOUT
+```
 
 ## Refining the Semgrep App configuration
 
