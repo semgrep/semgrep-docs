@@ -69,17 +69,25 @@ To find more details about some of these configuration options, see the followin
 
 ## Diff-aware scanning (`SEMGREP_BASELINE_REF`)
 
-For [diff-aware scans](overview.md#features), this option filters scan results to those introduced after the git commit, in a branch, or tag. For example, you have a repository with 10 commits. You set the commit number 8 as the baseline. Consequently, Semgrep only returns scan results introduced by changes in commits 9 and 10.
+There are two ways to run a semgrep scan: as a full scan or as a diff-aware scan.
+
+A full scan will scan your entire code base and report every finding in the code base. We recommend doing a full scan of your `main` branch at a regular cadence, such as every night or every week, depending on your own needs. This will ensure that Semgrep App has a full list of all findings in your code base, regardless of when they were introduced. To run a full scan, simply run `semgrep ci` without setting `SEMGREP_BASELINE_REF` environment variabel.
+
+A diff-aware scan will scan your code before and after some "baseline" and only report findings that are newly introduced in the commits after that baseline. For example, imagine you have a repository with 10 commits and you set commit number 8 as the baseline. Consequently, Semgrep only returns scan results introduced by changes in commits 9 and 10. This is how `semgrep ci` should be run in pull requests and merge requests, since it will report only the findings that are created by those code changes. To run a diff-aware scan, use `SEMGREP_BASELINE_REF=<ref> semgrep ci` where ref can be a commit hash, branch name, or other git ref.
 
 :::note
-It is recommended to perform baseline scans on other branches than your `main` branch. The Semgrep App keeps track of which findings have been fixed on a given branch. If you configure baseline scans on your main branch, and compare the last commit to the penultimate commit, Semgrep wrongly considers all findings as fixed. In this case, Semgrep only reports findings that appear in the last commit.
+Never perform diff scans on your `main` branch. The Semgrep App keeps track of which findings have been fixed on a given branch. If you configure diff scans on your main branch, and compare the last commit to the penultimate commit, Semgrep wrongly considers all findings from before the penultimate commit to be fixed.
+:::
+
+:::note
+Never perform full scans on branches that are not your `main` branch. Performing full scans on every branch will slow down your CI jobs, show developers findings they didn't introduce, and result in many duplicated findings in the Semgrep App, resulting in poorer experience there as well.
 :::
  
 ### Examples of `SEMGREP_BASELINE_REF`
 
 To only report findings newly added
 since branching off from your `main` branch, set the following:
-<pre class="language-bash"><code>SEMGREP_BASELINE_REF=<span className="placeholder">TOPIC-BRANCH-NAME</span></code></pre>
+<pre class="language-bash"><code>SEMGREP_BASELINE_REF=<span className="placeholder">main</span></code></pre>
 
 To only report findings newly added
 after a specific commit, set the following:

@@ -356,7 +356,7 @@ pipelines:
 
 ## Other providers
 
-To run Semgrep CI on any other provider, use the `returntocorp/semgrep` image, and run the `semgrep ci` command.
+To run Semgrep CI on any other provider, use the `returntocorp/semgrep` image, and run the `semgrep ci` command with SEMGREP_BASELINE_REF set for diff-aware scanning.
 
 **Note**: If you need to use a different image than docker, install Semgrep CI by `pip install semgrep`.
 
