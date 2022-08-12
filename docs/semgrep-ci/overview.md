@@ -76,9 +76,10 @@ semgrep ci
 
 For diff-aware scans:
 
-```sh
-SEMGREP_BASELINE_REF=<ref> semgrep ci
-```
+<pre class="language-bash">
+<code>SEMGREP_BASELINE_REF=<span classname="placeholder">REF</span></code>
+semgrep ci
+</pre>
 
 If you cannot use the Docker image, install Semgrep CI with `pip install semgrep`.
 
