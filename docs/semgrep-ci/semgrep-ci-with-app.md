@@ -31,7 +31,6 @@ The following video walks you through setting Semgrep in your CI through Semgrep
 
 <iframe class="yt_embed" width="100%" height="432px" src="https://www.youtube.com/embed/ukIUM3j0gZY" frameborder="0" allowfullscreen></iframe>
 
-
 ## Feature support
 
 Support for certain features of Semgrep App depend on your CI provider or source code management tool (SCM). The following table breaks down the features and their availability:
@@ -91,12 +90,20 @@ To set up the CI job and connect with Semgrep App:
     2. Click **Create new API token**. This is your `SEMGREP_APP_TOKEN` environment variable.
     3. Click **Copy snippet**, then paste and commit the snippet into your configuration file (the filename is indicated in the page).
     4. Click **Check connection**. Semgrep App starts the scan.
-7. After verifying that Semgrep App is able to scan the repository, you can customize the CI job or Semgrep App configuration LINKTODO.
+7. After verifying that Semgrep App is able to scan the repository, you can [customize the CI job or Semgrep App configuration](#refining-the-semgrep-app-configuration).
 
 #### Setting up security dashboards for GitHub and GitLab
 
-Todo
+TODO
+Refer to these sample configuration files to set up security dashboards for GitHub and GitLab.
 
+<details><summary>GitHub: Sample `semgrep.yml` configuration file </summary>
+
+</details>
+
+<details><summary>GitLab: Sample `semgrep.yml` configuration file </summary>
+
+</details>
 ### Other CI providers (environment variables setup)
 
 Other CI providers, such as **Drone CI** and **AppVeyor**, can run Semgrep continuously and connect to Semgrep App through the use of environment variables provided in this document. The general steps are:
@@ -183,8 +190,6 @@ To create a `SEMGREP_APP_TOKEN`:
 #### Grant permissions for Semgrep App (GitHub repositories only)
 
 Follow these steps for GitHub permissions access:
-
-TODO
 
 #### Run the job
 
