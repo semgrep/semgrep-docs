@@ -280,7 +280,7 @@ In addition to `.semgrepignore` there are several methods to set up ignore patte
 
 ## Exit codes
 
-<!-- The exit codes are located in cli/src/semgrep/error.py in open source code of Semgrep repository. -->
+<!-- Source code reference - the exit codes are located in the Semgrep repository - https://github.com/returntocorp/semgrep/blob/develop/cli/src/semgrep/error.py. -->
 
 Semgrep can finish with the following exit codes:
 
@@ -292,7 +292,6 @@ Semgrep can finish with the following exit codes:
 - **7**: At least one rule in configuration is invalid.
 - **8**: Semgrep does not understand specified language.
 - **13**: The API key is invalid.
-- **14**: Semgrep scan failed.
 
 <!-- REMOVED STATUSES (NOT USED ANYMORE)
 - 3: Semgrep failed to parse a file in the specified language.

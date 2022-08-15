@@ -9,19 +9,19 @@
 
 
 :root {
-  --ifm-color-primary: #5f36d9; /*use for category headers */
-  --ifm-color-primary-dark: #5127cd;
-  --ifm-color-primary-darker: #4c25c2;
-  --ifm-color-primary-darkest: #3f1ea0;
-  --ifm-color-primary-light: #714ddd;
-  --ifm-color-primary-lighter: #7a58df;
-  --ifm-color-primary-lightest: #957ae6;
-  --ifm-code-font-size: 90%;
-  --ifm-menu-color-active: #5f36d9;
-  --ifm-link-color: #5430bf;
-  --ifm-menu-color-background-hover: #5430bf;
-  --ifm-menu-color-background-active: #5430bf;
-  --ifm-footer-link-hover-color: #bca6ff;
+  --ifm-color-primary: #00c292; /*use for category headers */
+  --ifm-color-primary-dark: #00b581;
+  --ifm-color-primary-darker: #00a674;
+  --ifm-color-primary-darkest: #008456;
+  --ifm-color-primary-light: #2acfa6;
+  --ifm-color-primary-lighter: #77dec0;
+  --ifm-color-primary-lightest: #ffffff;
+  --ifm-code-font-size: 95%;
+  --ifm-menu-color-active: #00c292;
+  --ifm-link-color: #008456;
+  --ifm-menu-color-background-hover: #006739;
+  --ifm-menu-color-background-active: #006739;
+  --ifm-footer-link-hover-color: #00c292;
   --ifm-menu-link-sublist-icon-filter: invert(16%) sepia(98%) saturate(3800%)
     hue-rotate(254deg) brightness(40%) contrast(88%);
   --ifm-font-family-monospace: "JetBrains Mono", "Menlo", "Courier New", monospace;
@@ -95,15 +95,15 @@ html[data-theme="dark"] .docusaurus-highlight-code-line {
 
 html[data-theme="dark"] {
   --ifm-background-color: #000000;
-  --ifm-color-primary: #bca6ff;
-  --ifm-color-primary-dark: #9c7cff;
-  --ifm-color-primary-darker: #8c67ff;
-  --ifm-color-primary-darkest: #5d28ff;
-  --ifm-color-primary-light: #dcd0ff;
-  --ifm-color-primary-lighter: #ece5ff;
+  --ifm-color-primary: #00c292;
+  --ifm-color-primary-dark: #00b581;
+  --ifm-color-primary-darker: #00a674;
+  --ifm-color-primary-darkest: #008456;
+  --ifm-color-primary-light: #2acfa6;
+  --ifm-color-primary-lighter: #77dec0;
   --ifm-color-primary-lightest: #ffffff;
-  --ifm-link-color: #9c7cff;
-  --ifm-menu-color-active: #9c7cff;
+  --ifm-link-color: #008456;
+  --ifm-menu-color-active: #00b581;
   --docsearch-highlight-color: var(--ifm-color-primary-darker);
 }
 
@@ -218,39 +218,48 @@ dl {
 /* rest of navbar */
 
 .navbar {
-  height: 50px;
+  height: 78px;
 }
 
 .navbar.navbar--fixed-top {
   padding: 0;
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
 }
 
 .navbar__inner {
   position: sticky;
   left: 5px;
   top: 30px;
-  padding: 0 10px;
+  padding: 0 12px;
+}
+
+@media (min-width: 997px) {
+  .navbar__inner {
+    align-items: center;
+    flex-wrap: inherit;
+  }
 }
 
 .navbar__items {
-  height: 50px;
+  height: 78px;
 }
 
 .navbar__brand {
-  margin-right: 0;
+  margin-right: 1rem;
 }
 
 a.navbar__item.navbar__link {
-  font-weight: normal;
-  padding-left: 10px;
-  padding-right: 10px;
-
+  font-weight: 500;
+  padding: 5px 16px;
   border: none;
   border-radius: 3px;
   cursor: pointer;
-  font-size: 16px;
+  font-size: 1rem;
   justify-content: center;
-  padding: 5px 10px;
   text-align: left;
   vertical-align: middle;
   min-height: 30px;
@@ -265,7 +274,7 @@ a.navbar__item.navbar__link:hover {
 }
 
 .navbar__logo {
-  height: 20px;
+  height: 25px;
 }
 
 /* sidenav */
@@ -288,17 +297,17 @@ li.menu__list-item a:hover {
   .clean-btn.navbar-sidebar__back {
     color: #fff;
   }
-}
+}rgb(0, 181, 129)
 
 /* footer */
 
 .footer--dark {
   background: linear-gradient(
       249.38deg,
-      rgb(76, 24, 118) 32.7%,
-      rgba(24, 28, 118, 0) 105.76%
+      rgba(0, 181, 129, 0) 32.7%,
+      rgba(0, 166, 116) 105.76%
     ),
-    rgb(17, 36, 62);
+    rgb(4, 82, 47);
 }
 
 .footer__title {
