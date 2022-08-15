@@ -80,7 +80,7 @@ Semgrep scans can be classified by scope. The scope of a scan refers to what lin
 
 :::note
 * Do **not** perform diff-aware scans on your `main` branch. The Semgrep App keeps track of which findings have been fixed on a given branch. If you configure diff scans on your main branch, and compare the last commit to the penultimate commit, Semgrep wrongly considers all findings from before the penultimate commit to be fixed.
-* Do not perform full scans on non-mainline or non-trunk branches. Performing full scans on every branch will slow down your CI jobs, show developers findings they didn't introduce, and result in many duplicated findings in the Semgrep App, resulting in poorer experience there as well.
+* Do **not** perform full scans on non-mainline or non-trunk branches. Performing full scans on every branch slows down your CI jobs, displays findings that developers did not introduce, and results in many duplicated findings in the Semgrep App, resulting in a poorer experience.
 :::
  
 ### Examples of `SEMGREP_BASELINE_REF`
