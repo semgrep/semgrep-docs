@@ -1,6 +1,8 @@
 ---
 slug: configuration-reference
 description: "Reference for running Semgrep CI in your CI job or on the command line. Learn how to select rules to scan with, enable diff-aware scanning, connect to Semgrep App, and more."
+title: CI configuration reference
+hide_title: true
 ---
 
 import MoreHelp from "/src/components/MoreHelp"
