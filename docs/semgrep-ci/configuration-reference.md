@@ -71,19 +71,16 @@ To find more details about some of these configuration options, see the followin
 
 There are two ways to run a semgrep scan:
 
-<dl><dt>Full scan</dt>
-<dd>A full scan will scan your entire codebase and report every finding in the codebase. It is recommended to perform a full scan of your `main` branch at a regular cadence, such as every night or every week, depending on your own needs. This ensures that Semgrep App has a full list of all findings in your code base, regardless of when they were introduced. To run a full scan, simply run `semgrep ci` without setting `SEMGREP_BASELINE_REF` environment variable.</dd>
-
-<dt>Diff-aware scan</dt>
-<dd>A diff-aware scan runs on your code before and after some "baseline" and only reports findings that are newly introduced in the commits after that baseline. For example, imagine you have a repository with 10 commits and you set commit number 8 as the baseline. Consequently, Semgrep only returns scan results introduced by changes in commits 9 and 10. This is how `semgrep ci` should be run in pull requests and merge requests, since it will report only the findings that are created by those code changes. To run a diff-aware scan, use `SEMGREP_BASELINE_REF=<ref> semgrep ci` where ref can be a commit hash, branch name, or other git ref.
-</dd></dl>
-
-:::note
-Never perform diff scans on your `main` branch. The Semgrep App keeps track of which findings have been fixed on a given branch. If you configure diff scans on your main branch, and compare the last commit to the penultimate commit, Semgrep wrongly considers all findings from before the penultimate commit to be fixed.
-:::
+<dl>
+    <dt>Full scan</dt>
+    <dd>A full scan will scan your entire codebase and report every finding in the codebase. It is recommended to perform a full scan of your <code>main</code> branch at a regular cadence, such as every night or every week, depending on your own needs. This ensures that Semgrep App has a full list of all findings in your code base, regardless of when they were introduced. To run a full scan, simply run <code>semgrep ci</code> without setting <code>SEMGREP_BASELINE_REF</code> environment variable.</dd>
+    <dt>Diff-aware scan</dt>
+    <dd>A diff-aware scan runs on your code before and after some "baseline" and only reports findings that are newly introduced in the commits after that baseline. For example, imagine you have a repository with 10 commits and you set commit number 8 as the baseline. Consequently, Semgrep only returns scan results introduced by changes in commits 9 and 10. This is how <code>semgrep ci</code> should be run in pull requests and merge requests, since it will report only the findings that are created by those code changes. To run a diff-aware scan, use <code>SEMGREP_BASELINE_REF=<span class="placeholder">REF</span> semgrep ci</code> where <span class="placeholder">REF</span> can be a commit hash, branch name, or other git ref.</dd>
+</dl>
 
 :::note
-Never perform full scans on branches that are not your `main` branch. Performing full scans on every branch will slow down your CI jobs, show developers findings they didn't introduce, and result in many duplicated findings in the Semgrep App, resulting in poorer experience there as well.
+* Do not perform diff-aware scans on your `main` branch. The Semgrep App keeps track of which findings have been fixed on a given branch. If you configure diff scans on your main branch, and compare the last commit to the penultimate commit, Semgrep wrongly considers all findings from before the penultimate commit to be fixed.
+* Do not perform full scans on non-mainline or non-trunk branches. Performing full scans on every branch will slow down your CI jobs, show developers findings they didn't introduce, and result in many duplicated findings in the Semgrep App, resulting in poorer experience there as well.
 :::
  
 ### Examples of `SEMGREP_BASELINE_REF`
