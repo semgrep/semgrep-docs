@@ -69,7 +69,9 @@ To find more details about some of these configuration options, see the followin
 
 ## Diff-aware scanning (`SEMGREP_BASELINE_REF`)
 
-There are two ways to run a semgrep scan:
+There are two scopes to run a semgrep scan:
+
+Semgrep scans can be classified by scope. The scope of a scan refers to what lines of code are scanned in a codebase. When classifying scans by scope, there are two types of scans:
 
 <dl>
     <dt>Full scan</dt>
