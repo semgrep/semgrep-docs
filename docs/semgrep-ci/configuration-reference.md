@@ -6,7 +6,7 @@ hide_title: true
 ---
 
 import MoreHelp from "/src/components/MoreHelp"
-import BlockFindingsErrorsConfigs from '/src/components/modules/reference-modules/_block-findings-errors-configs.mdx'
+import BlockFindingsErrorsConfigs from '/src/components/reference/_block-findings-errors-configs.mdx'
 
 # Continuous Integration (CI) configuration reference
 
