@@ -249,10 +249,11 @@ pipelines:
         script:
           # Define rules to scan with through the SEMGREP_RULES environment variable. 
           - export SEMGREP_RULES="p/default" 
-          # To scan changed files in PRs or MRs (diff-aware scanning):
+          # Scan changed files in PRs or MRs (diff-aware scanning):
           - export SEMGREP_BASELINE_REF=$BITBUCKET_BRANCH
           # Uncomment SEMGREP_TIMEOUT to set this job's timeout (in seconds):
-          # (Default is 1800 seconds. Set to 0 to disable.)
+          # Default timeout is 1800 seconds (30 minutes).
+          # Set to 0 to disable the timeout.
           # - export SEMGREP_TIMEOUT="300" 
           - semgrep ci
 ```
