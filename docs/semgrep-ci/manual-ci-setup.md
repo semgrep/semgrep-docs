@@ -158,9 +158,9 @@ semgrep:
   image: returntocorp/semgrep
 
   rules:
-    # To scan changed files in MRs (diff-aware scanning):
+    # Scan changed files in MRs (diff-aware scanning):
     - if: $CI_MERGE_REQUEST_IID
-    # To scan all files on the default branch and report any findings:
+    # Scan all files on the default branch and report any findings:
     - if: $CI_COMMIT_BRANCH == $CI_DEFAULT_BRANCH
 
   variables:
