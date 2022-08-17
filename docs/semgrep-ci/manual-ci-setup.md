@@ -102,7 +102,7 @@ jobs:
       # Run the "semgrep ci" command on the command line of the docker image.
       - run: semgrep ci
         env:
-           # Define rules to scan with through the SEMGREP_RULES environment variable. 
+           # Add the rules that Semgrep uses by setting the SEMGREP_RULES environment variable. 
            SEMGREP_RULES: p/default # more at semgrep.dev/explore
            # Uncomment SEMGREP_TIMEOUT to set this job's timeout (in seconds):
            # Default timeout is 1800 seconds (30 minutes).
@@ -142,7 +142,7 @@ semgrep:
     - if: $CI_COMMIT_BRANCH == $CI_DEFAULT_BRANCH
 
   variables:
-    # Define rules to scan through the SEMGREP_RULES environment variable. 
+    # Define rules to scan with by setting the SEMGREP_RULES environment variable. 
     SEMGREP_RULES: p/default
     # Uncomment SEMGREP_TIMEOUT to set this job's timeout (in seconds):
     # Default timeout is 1800 seconds (30 minutes).
@@ -164,7 +164,7 @@ semgrep:
     - if: $CI_COMMIT_BRANCH == $CI_DEFAULT_BRANCH
 
   variables:
-    # Define rules to scan with through the SEMGREP_RULES environment variable. 
+    # Add the rules that Semgrep uses by setting the SEMGREP_RULES environment variable. 
     SEMGREP_RULES: p/default # See more rules at semgrep.dev/explore.
     # Uncomment SEMGREP_TIMEOUT to set this job's timeout (in seconds):
     # Default timeout is 1800 seconds (30 minutes).
@@ -202,7 +202,7 @@ pipeline {
   stages {
     stage('Semgrep-Scan') {
         environment { 
-          // Define rules to scan with through the SEMGREP_RULES environment variable. 
+          // Add the rules that Semgrep uses by setting the SEMGREP_RULES environment variable. 
           SEMGREP_RULES = "p/default"
           // Scan changed files in PRs or MRs (diff-aware scanning):
           SEMGREP_BASELINE_REF = "${GIT_BRANCH}" //Holden -- kindly confirm?
@@ -248,7 +248,7 @@ pipelines:
         deployment: dev
         image: returntocorp/semgrep
         script:
-          # Define rules to scan with through the SEMGREP_RULES environment variable. 
+          # Define rules to scan with by setting the SEMGREP_RULES environment variable. 
           - export SEMGREP_RULES="p/default" 
           # Scan changed files in PRs or MRs (diff-aware scanning):
           - export SEMGREP_BASELINE_REF=$BITBUCKET_BRANCH
@@ -282,7 +282,7 @@ jobs:
         type: string
         default: main
     environment:
-      # Define rules to scan with through the SEMGREP_RULES environment variable. 
+      # Define rules to scan with by setting the SEMGREP_RULES environment variable. 
       SEMGREP_RULES: p/default
       # Scan changed files in PRs or MRs (diff-aware scanning):
       SEMGREP_BASELINE_REF: << parameters.default_branch >>
@@ -323,7 +323,7 @@ These steps can be performed from within Buildkite's interface. From Buildkite's
 ```yaml
 - label: ":semgrep: Semgrep"
   commands:
-    # Define rules to scan with through the SEMGREP_RULES environment variable. 
+    # Define rules to scan with by setting the SEMGREP_RULES environment variable. 
     - export SEMGREP_RULES="p/default"
     # To scan changed files in PRs or MRs (diff-aware scanning):
     - export SEMGREP_BASELINE_REF=${BUILDKITE_BRANCH}
