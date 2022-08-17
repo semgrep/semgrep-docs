@@ -325,7 +325,8 @@ These steps can be performed from within Buildkite's interface. From Buildkite's
     # To scan changed files in PRs or MRs (diff-aware scanning):
     - export SEMGREP_BASELINE_REF=${BUILDKITE_BRANCH}
     # Uncomment SEMGREP_TIMEOUT to set this job's timeout (in seconds):
-    # (Default is 1800 seconds. Set to 0 to disable.)
+    # Default timeout is 1800 seconds (30 minutes).
+    # Set to 0 to disable the timeout.
     # - export SEMGREP_TIMEOUT="300"
     - semgrep ci 
   
