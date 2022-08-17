@@ -88,7 +88,7 @@ jobs:
     runs-on: ubuntu-latest
 
     container:
-      # A Docker image with Semgrep installed. Don't change this.
+      # A Docker image with Semgrep installed. Do not change this.
       image: returntocorp/semgrep
 
     # To skip any PR created by dependabot to avoid permission issues:
