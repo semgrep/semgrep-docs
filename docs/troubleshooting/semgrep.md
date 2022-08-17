@@ -68,7 +68,7 @@ For example, `SEMGREP_REPO_NAME=returntocorp/semgrep semgrep ci` would be used f
 
 This can happen when Semgrep crashes, usually as a result of memory exhaustion. `-11` and `-9` are the POSIX signals raised to cause the crash. Try increasing your stack limit, as suggested (`ulimit -s [limit]`). If you are working in a container where you can set the memory you are working with, you can also try increasing this limit. Alternatively, you can add `--max-memory [limit]` to your Semgrep run, which will stop a rule/file scan if it reaches the limit.
 
-Additionally, you can run Semgrep in singlethreaded mode with `--jobs 1`.
+Additionally, you can run Semgrep in single-threaded mode with `--jobs 1`.
 
 When reporting these errors, please include the rule it failed on, the total size of the files (or the files themselves if possible!), the maximum memory used by Semgrep (an estimate from `top` is fine), and your system specifications.
 
@@ -84,7 +84,7 @@ The first step to improving Semgrep's speed is limiting its run to only the file
 
 If you're still slow, you may want to examine the slowest rules. You may find that some of them don't apply to your codebase and can be skipped.
 
-#### I am a contributer who wants to improve Semgrep's engine
+#### I am a contributor who wants to improve Semgrep's engine
 
 ##### Interpreting the result object
 
@@ -137,7 +137,7 @@ The remaining fields report engine performance. Together, `rule_parse_info` and 
 
 `rule_parse_info` is straightfoward. It records the time spent parsing each rule.
 
-`targets` poses more difficulty. Since files are run in parallel, the amount of time spent parsing (`parse_times`) and matching (`match_times`) will inevitably be meaningless compared against `total_time` or `core_time`. Therefore, the total run time (`run_times`) of each target for each rule is taken within the parallel run. This helps contextualize the time spent parsing and matching each target. The sum of the run times thus can (and uusally should) be longer than the total time.
+`targets` poses more difficulty. Since files are run in parallel, the amount of time spent parsing (`parse_times`) and matching (`match_times`) will inevitably be meaningless compared against `total_time` or `core_time`. Therefore, the total run time (`run_times`) of each target for each rule is taken within the parallel run. This helps contextualize the time spent parsing and matching each target. The sum of the run times thus can (and usually should) be longer than the total time.
 
 The lists `rule_parse_info`, `match_times`, `parse_times`, and `run_times` are all in the same order as `rules`. That is, the parse time of rule `rules[0]` is `rule_parse_info[0]`.
 
