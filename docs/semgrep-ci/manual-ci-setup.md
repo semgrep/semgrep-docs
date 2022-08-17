@@ -477,7 +477,7 @@ For information on ignoring individual findings in code, see the [Ignoring findi
 
 ### Saving or exporting findings to a file
 
-To save or export findings, you can pass file format options and send the formatted findings to a file.
+To save or export findings, pass file format options and send the formatted findings to a file.
 
 For example, to save to a JSON file:
 
