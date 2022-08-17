@@ -449,7 +449,7 @@ The line defining `SEMGREP_RULES` defines three difference sources, delimited by
 - export SEMGREP_RULES="p/nginx p/ci no-exec.yml" 
 ```
 
-The example references two rulesets from Semgrep Registry (`p/nginx` and `p/ci`)and a rule available in the repository (`no-exec.yml`).
+The example references two rulesets from Semgrep Registry (`p/nginx` and `p/ci`) and a rule available in the repository (`no-exec.yml`).
 
 If the `SEMGREP_RULES` environment variable is defined from a YAML block, the list of rules and rulesets to run is delimited by a newline. See the following example of a GitLab CI/CD snippet:
 ```YAML
