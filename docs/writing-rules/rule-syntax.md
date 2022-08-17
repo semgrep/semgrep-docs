@@ -5,7 +5,7 @@ description: "This document describes Semgrep’s YAML rule syntax including req
 ---
 
 import MoreHelp from "/src/components/MoreHelp"
-import LanguageExtensionsTags from '/src/components/modules/reference-modules/_language-extensions-tags.mdx'
+import LanguageExtensionsTags from '/src/components/reference/_language-extensions-tags.mdx'
 
 # Rule syntax
 

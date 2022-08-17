@@ -63,12 +63,11 @@ PR or MR comments are comments or suggestions made by Semgrep App in your source
 
 To enable this feature within self-hosted SCMs behind firewalls or VPNs (Virtual Private Networks), follow the steps below.
 
- 1. Make a request to Semgrep support to enable PR or MR comments. You can send an email to [support@r2c.dev](mailto:support@r2c.dev) or message us in your private channel in the [r2c Community Slack](https://r2c.dev/slack).
- 2. Add the IP address `52.34.175.113` to your VPN's allowlist. This IP address is **static and outbound**.
- 3. Test that you are able to receive findings by manually triggering a scan through your CI provider.
+ 1. Add the IP address `52.34.175.113` to your VPN's allowlist. This IP address is **static and outbound**.
+ 2. Test that you are able to receive findings by manually triggering a scan through your CI provider.
 
 :::tip
-Receiving PR or MR comments may require additional steps depending on the custom configuration of your VPN or SCM. Reach out to Semgrep support through the [r2c Community Slack](https://r2c.dev/slack) or send an email to [support@r2c.dev](mailto:support@r2c.dev) for any concerns.
+Receiving PR or MR comments may require additional steps depending on the custom configuration of your VPN or SCM (for example, if you use a static IP without a hostname). Reach out to Semgrep support through the [r2c Community Slack](https://r2c.dev/slack) or send an email to [support@r2c.dev](mailto:support@r2c.dev) for any concerns.
 :::
 
 ## Additional references

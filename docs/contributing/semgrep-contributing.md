@@ -6,7 +6,7 @@ The `semgrep-cli` name refers to the project which exposes the actual `semgrep` 
 You may want to read the README first to understand the relationship between `semgrep-cli` and `semgrep-core`.
 ## Setting up the environment
 
-You will need Python >= 3.6.
+You will need Python >= 3.7.
 
 Most Python development is done inside the `cli` directory:
 
@@ -86,16 +86,10 @@ Alternatively, you may include it somewhere like `/usr/local/bin/`.
 
 ## Running `semgrep-cli`
 
-You will want to be in the pipenv environment whenever you run semgrep. Start a shell with
+Ensure that you are in `cli/` directory, and then issue the following command:
 
 ```
-python -m pipenv shell
-```
-
-Make sure you are in `cli/`. Within the shell, run:
-
-```
-python -m semgrep --help
+pipenv run semgrep --help
 ```
 
 To try a simple analysis, you can run:
@@ -146,16 +140,16 @@ docker build -t semgrep .
 
 `semgrep-cli` uses [`pytest`](https://docs.pytest.org/en/latest/) for testing.
 
-To run tests, run the following command within the pipenv shell:
+To run tests, run the following command:
 
 ```
-pytest
+pipenv run pytest
 ```
 
 There are some much slower tests which run semgrep on many open source projects. To run these slow tests, run:
 
 ```sh
-pytest tests/qa
+pipenv run pytest tests/qa
 ```
 
 If you want to update the tests to match to the current output:
@@ -166,18 +160,18 @@ make regenerate-tests
 Running a single test file is simple too:
 
 ```
-pytest path/to/test.py
+pipenv run pytest path/to/test.py
 ```
 
 Or running an individual test function:
 
 ```
-pytest -k test_func_name path/to/test.py
+pipenv run pytest path/to/test.py::test_func_name
 ```
 
 `semgrep-cli` also includes [`pytest-benchmark`](https://pytest-benchmark.readthedocs.io/en/latest/)
 to allow for basic benchmarking functionality. This can be run like so:
 
 ```
-pytest --benchmark-only
+pipenv run pytest --benchmark-only
 ```
