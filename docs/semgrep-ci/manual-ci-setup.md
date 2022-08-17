@@ -73,14 +73,14 @@ If you are self-hosting your repository, you must [use a self-hosted runner](htt
 name: Semgrep
 
 on:
-  # To scan changed files in PRs (diff-aware scanning):
+  # Scan changed files in PRs (diff-aware scanning):
   pull_request: {}
-  # To scan mainline branches and report all findings:
+  # Scan mainline branches and report all findings:
   push:
     branches: ["master", "main"]
-  # To schedule the CI job (this method uses cron syntax):
+  # Schedule the CI job (this method uses cron syntax):
   schedule:
-    - cron: '30 0 1,15 * *' # scheduled for 00:30 UTC on both the 1st and 15th of the month
+    - cron: '30 0 1,15 * *' # Scheduled for 00:30 UTC on both the 1st and 15th of the month
 
 jobs:
   semgrep:
