@@ -354,6 +354,37 @@ pipelines:
 | **results in pull request comments** | ❌ not available |
 | **automatic CI setup** | ❌ not available |
 
+## Azure
+
+```yaml
+# trigger:
+#  - master
+
+pool:
+  vmImage: ubuntu-latest
+# variables:
+# - group: Semgrep app token group
+
+steps: 
+
+- script: |
+    python -m pip install --upgrade pip
+    pip install semgrep
+    semgrep ci --config auto
+  env: 
+    SEMGREP_PR_ID: $(System.PullRequest.PullRequestNumber)
+```
+
+### Feature support
+
+| Feature | Status |
+| --- | --- |
+| **diff-aware scanning** | ✅ [configure manually](configuration-reference.md#diff-aware-scanning-semgrep_baseline_ref) |
+| **hyperlinks in Semgrep App** | ✅ [configure manually](configuration-reference.md#get-hyperlinks-in-semgrep-cloud) |
+| **results in native dashboard** | 💢 not applicable |
+| **results in pull request comments** | ❌ not available |
+| **automatic CI setup** | ❌ not available |
+
 ## Other providers
 
 To run Semgrep CI on any other provider, use the `returntocorp/semgrep` image, and run the `semgrep ci` command with SEMGREP_BASELINE_REF set for diff-aware scanning.
@@ -363,7 +394,8 @@ To run Semgrep CI on any other provider, use the `returntocorp/semgrep` image, a
 Using the [configuration reference](../configuration-reference/), you can run Semgrep in the following CI providers:
 
 - AppVeyor
-- Bamboo
+- Azure [(sample configuration)](#azure)
+- Bamboo 
 - Bitbucket Pipelines [(sample configuration)](#bitbucket)
 - Bitrise
 - Buildbot
