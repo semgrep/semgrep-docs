@@ -465,7 +465,7 @@ See [Writing rules](https://semgrep.dev/docs/writing-rules/overview/) to learn h
 
 By default `semgrep ci` skips files and directories such as `tests/`, `node_modules/`, and `vendor/`. It uses the default `.semgrepignore` file which can be found in the [Semgrep GitHub repository](https://github.com/returntocorp/semgrep/blob/develop/.semgrepignore). This default is used when no explicit `.semgrepignore` file is found in the root of your repository.
 
-You can copy and commit the default `.semgrepignore` file to the **root of your repository** and extend it with your own entries or write one from scratch. If Semgrep detects a `.semgrepignore` file within your repository, it won't append entries from the default `.semgrepignore` file.
+You can copy and commit the default `.semgrepignore` file to the **root of your repository** and extend it with your own entries or write one from scratch. If Semgrep detects a `.semgrepignore` file within your repository, it does not append entries from the default `.semgrepignore` file.
 
 For a complete example, see the [.semgrepignore file on Semgrep’s source code](https://github.com/returntocorp/semgrep/blob/develop/.semgrepignore).
 
