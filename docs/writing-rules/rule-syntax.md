@@ -198,16 +198,16 @@ The `comparison` key accepts Python expression using:
 - Lists and the `in` infix operator.
 - Function `re.match()` to match a regular expression (without the optional `flags` argument).
 
-And, of course, you can use Semgrep metavariables like `$MVAR`, which are evaluated as follows:
+You can use Semgrep metavariables such as `$MVAR`, which Semgrep evaluates as follows:
 
 - If `$MVAR` binds to a literal, then that literal is the value assigned to `$MVAR`.
-- If `$MVAR` binds to a code variable that is known to be a constant, and constant propagation is enabled (as it is by default), then that constant is the value assigned to `$MVAR`.
+- If `$MVAR` binds to a code variable that is a constant, and constant propagation is enabled (as it is by default), then that constant is the value assigned to `$MVAR`.
 - Otherwise the code bound to the `$MVAR` is kept unevvaluated, and its string representation can be obtainer using the `str()` function, as in `str($MVAR)`. For example, if `$MVAR` binds to the code variable `x`, `str($MVAR)` evaluates to the string literal `"x"`.
 
 #### Legacy `metavariable-comparison` keys
 
 :::info
-The use of the following keys could be avoided by using the `int()` function, as in `int($ARG) > 0o600` or `int($ARG) > 2147483647`.
+You can avoid the use of the legacy keys described below (`base: int` and `strip: bool`) by using the `int()` function, as in `int($ARG) > 0o600` or `int($ARG) > 2147483647`.
 :::
 
 The `metavariable-comparison` operator also takes optional `base: int` and `strip: bool` keys. These keys set the integer base the metavariable value should be interpreted as and remove quotes from the metavariable value, respectively.
