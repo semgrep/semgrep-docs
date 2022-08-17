@@ -45,7 +45,7 @@ Running Semgrep in CI without Semgrep App bears specific limitations compared to
 
 ## Setting up the CI job
 
- `semgrep ci` is the command used to run Semgrep in a CI environment. In most cases, this is the recommended command to run in the CI job. It is a subset of the `semgrep scan` command. Features of this command include:
+ `semgrep ci` is the command used to run Semgrep in a CI environment. In most cases, this is the recommended command to run in the CI job. This command is a subset of the `semgrep scan` command. `semgrep ci` command has the following characteristics:
  
  * `semgrep ci` is git-aware. This means it is able to detect branches and git states. 
  * `semgrep ci` makes use of environment variables to configure its behavior. 
