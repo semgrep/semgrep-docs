@@ -57,7 +57,7 @@ Running Semgrep in CI without Semgrep App bears specific limitations compared to
 To add Semgrep into your GitHub Actions pipeline:
 
 1. Create a `semgrep.yaml` configuration file to add a Semgrep command as part of your Github Actions pipeline. Refer to the [GitHub Actions code snippet](#github-actions-code-snippet).
-2. Optional: You can also review the [GitHub Actions workflow syntax](https://docs.github.com/en/actions/using-workflows/workflow-syntax-for-github-actions) to help with editing the configuration file.
+2. Optional: Review the [GitHub Actions workflow syntax](https://docs.github.com/en/actions/using-workflows/workflow-syntax-for-github-actions) to help with editing the configuration file.
 3. Commit the configuration file into the `./github/workflows` folder within the target repository. The Semgrep job starts automatically upon detecting the `semgrep.yaml` commit in the previous step
 4. Optional: Re-run or view the job from the GitHub Actions interface.
 5. Customize the job's behavior, such as its rules to scan and files to ignore.
@@ -117,7 +117,7 @@ To add Semgrep into your GitLab CI/CD pipeline:
 1. Create or edit a `.gitlab-ci.yml` configuration file to add a Semgrep
    command as part of your GitLab CI/CD pipeline. Refer to the [GitLab CI/CD code
    snippet](#gitlab-cicd-code-snippet).
-2. Optional: Read the [GitLab configuration guide](https://docs.gitlab.com/ee/ci/yaml/gitlab_ci_yaml.html) to help with editing the configuration file. 
+2. Optional: Review the [GitLab configuration guide](https://docs.gitlab.com/ee/ci/yaml/gitlab_ci_yaml.html) to help with editing the configuration file. 
 3. Commit the configuration file into the root folder within the target repository. The Semgrep job starts automatically upon detecting the `.gitlab-ci.yml` commit in the previous step.
 4. Optional: Re-run or view the job from your GitLab project's **CI/CD > Pipelines page**.
 5. Customize the job's behavior, such as its rules to scan and files to ignore.
@@ -187,7 +187,7 @@ Your UI (user interface) may vary depending on your Jenkins installation. These 
 To add Semgrep into your Jenkins pipeline:
 
 1. Edit or create your `Jenkinsfile` configuration file to add a Semgrep `step` as part of your Jenkins Pipeline. Refer to the [Jenkins CI code snippet](#jenkins-ci-code-snippet). You can edit your `Jenkinsfile` from Jenkins's interface.
-2. Optional: You can also review [`Jenkinsfile` usage](https://www.jenkins.io/doc/book/pipeline/jenkinsfile/) to help with editing the configuration file.
+2. Optional: Review [`Jenkinsfile` usage](https://www.jenkins.io/doc/book/pipeline/jenkinsfile/) to help with editing the configuration file.
 3. If you are using Jenkins Classic UI, save your [`Jenkinsfile`](https://www.jenkins.io/doc/book/pipeline/getting-started/#through-the-classic-ui) within the Jenkins interface. Otherwise, commit the configuration file into the root folder within the target repository. The Semgrep job starts automatically upon detecting the `Jenkinsfile` commit in the previous step. 
 4. Optional: Re-run the stage from [Jenkins's interface](https://www.jenkins.io/doc/book/pipeline/running-pipelines/#restarting-from-the-classic-ui).
 6. Customize the job's behavior, such as its rules to scan and files to ignore.
@@ -226,7 +226,7 @@ To add Semgrep into your BitBucket Pipeline:
 
 1. Create or edit a `bitbucket-pipelines.yml` configuration file to add
    a Semgrep `step` as part of your pipeline. Refer to the [BitBucket Pipelines code snippet](#bitbucket-pipelines-code-snippet).
-2. Optional: You can also review the [BitBucket guidelines](https://support.atlassian.com/bitbucket-cloud/docs/configure-bitbucket-pipelinesyml/) to help with editing the configuration file.
+2. Optional: Review the [BitBucket guidelines](https://support.atlassian.com/bitbucket-cloud/docs/configure-bitbucket-pipelinesyml/) to help with editing the configuration file.
 3. Commit the configuration file into the root folder within the target repository. The Semgrep job starts automatically upon detecting the `bitbucket-pipelines.yml` commit in the previous step.
 4. Optional: Re-run or view the Pipeline by clicking from **your repository > Pipelines**.
 5. Customize the job's behavior, such as its rules to scan and files to ignore.
@@ -265,7 +265,7 @@ To add Semgrep into your CircleCI pipeline:
 
 1. Create or edit a `config.yml` configuration file to add a Semgrep command as
    part of your CircleCI workflow. Refer to the [CircleCI code snippet](#circleci-code-snippet).
-2. Optional: You can also review the [CirclCI YAML introduction](https://circleci.com/docs/introduction-to-yaml-configurations) to help with editing the configuration file.
+2. Optional: Review the [CirclCI YAML introduction](https://circleci.com/docs/introduction-to-yaml-configurations) to help with editing the configuration file.
 3. Commit the configuration file into the `/.circleci` folder within the target
    repository.
 4. The Semgrep job starts automatically upon detecting the `config.yml` commit in the previous step.
@@ -309,7 +309,7 @@ workflows:
 To add Semgrep into your Buildkite pipeline:
 
 1. Create or edit a `pipelines.yml` configuration file to add a Semgrep command as part of your pipeline. Refer to the [BuildKite code snippet](#buildkite-code-snippet). This configuration file can also be stored within Buildkite.
-2. Optional: You can also review the [Buildkite steps definition](https://buildkite.com/docs/pipelines/defining-steps) to help with editing the configuration file.
+2. Optional: Review the [Buildkite steps definition](https://buildkite.com/docs/pipelines/defining-steps) to help with editing the configuration file.
 3. If you are using Buildkite to store the configuration, save the file. Otherwise, commit the configuration file into the `/.buildkite` folder within the target repository.
 4. The Semgrep job starts automatically upon detecting the `pipelines.yml` commit in the previous step.
 5. Customize the job's behavior, such as its rules to scan and files to ignore.
