@@ -27,53 +27,75 @@ Semgrep App has three tiers:
 | Tier | Price | Description |
 | ---- | ------- | -------- |
 | **Community** | Free | For general-purpose security scanning.  |
-| **Team** | US$40 monthly per seat | For the enforcement of company-specific coding standards, private rules, and the analysis of findings.  |
+| **Team** | US$40 monthly per developer | For the enforcement of company-specific coding standards, private rules, and the analysis of findings.  |
 | **Enterprise** | Custom pricing | For custom solutions, including deployment into virtual private clouds (VPCs) with dedicated technical support.  |
 
 Semgrep App integrates with a GitHub or GitLab account at either the organizational or individual level. There is no limit to the number of members in an organization for all tiers.
 
-Billing depends on the number of **seats**. Any member whose code has been scanned by Semgrep App takes up a seat.
+Billing depends on the number of **developers**. Any organization member who has made a commit in a project within the past 30 days is considered a **developer**.
 
-Members who do **not** run any scans on their code do not need a seat and are not billed. Semgrep Team tier features apply to the entire organization, even if not all members are billed for a seat.
+Members who do **not** make any commits on the code do not need to pay for Semgrep and are not billed. Semgrep Team tier features apply to the entire organization, even if not all members are billed.
 
 ### Comparing free and paid tier features
 
-#### Organizational management
+#### Organizational management and usage limits
 
 | Feature  | Community | Team | Enterprise |
 | -------  | --------- | ------- | -------- |
-| **Member limit** | ♾️ unlimited | ♾️  unlimited | ♾️  unlimited |
+| **Member limit** | 20 developers | ♾️  unlimited | ♾️  unlimited |
 | **Project limit** |♾️  unlimited | ♾️  unlimited | ♾️  unlimited |
+
+Notes:
+
+* Member usage limits are visible in your [settings page](https://semgrep.dev/orgs/-/settings).
+* If your organization exceeds the member limit:
+    * Only the 20 most recent developers can view findings from Semgrep scans.
+    * Overlimit findings data is retained for three months. When your organization goes below the usage limit, or upgrades to Team or Enterprise, the findings data will be accessible again.
+    * You are notified of a 30-day grace period through in-app notifications and emails. After this grace period ends, additional developers (the 21st onwards) will not receive notifications or comments. Findings introduced by additional developers won't be surfaced in Semgrep App.
+
+#### Source code management (SCM) support
+
+| Feature  | Community | Team | Enterprise |
+| -------  | --------- | ------- | -------- |
+| **GitHub**  | ✔️ yes | ✔️ yes | ✔️  yes |
+| **GitLab SaaS**  | ✔️ yes | ✔️ yes | ✔️  yes |
+| **GitHub Enterprise**  | ❌ no | ✔️  yes | ✔️  yes |
+| **GitLab Self Managed**  | ❌ no | ✔️  yes | ✔️  yes |
+| **VPC deployment** | ❌ no | ❌ no | ✔️  yes |
 
 #### Findings, language support, and rules
 
 | Feature  | Community | Team | Enterprise |
 | -------  | --------- | ------- | -------- |
-| **Findings retention** | 1 month | 1 year | 1 year+ (custom) |
+| **Custom rules** | ✔️ yes | ✔️ yes | ✔️  yes |
 | **Community rule registry** | ✔️ yes | ✔️  yes  | ✔️  yes |
-| **Named rules** | ✔️ yes | ✔️ yes | ✔️  yes |
 | **Editor** | ✔️ yes | ✔️ yes | ✔️  yes |
-| **Private rules** | ❌ no | ✔️ yes | ✔️  yes |
-| **Developer feedback** | ❌ no | ✔️ yes | ✔️  yes |
+| **Autofix through PR/MR comments** | ❌ no | ✔️ yes | ✔️  yes |
 | **Custom rule messages** | ❌ no | ✔️  yes | ✔️  yes |
+| **DeepSemgrep** | ❌ no | ✔️  yes | ✔️  yes |
+| **Developer feedback** | ❌ no | ✔️ yes | ✔️  yes |
+| **Private rules** | ❌ no | ✔️ yes | ✔️  yes |
 | **Custom language support** | ❌ no | ❌ no | ✔️  yes |
+| **Findings retention** | 1 month | 5 years | 5 years |
 
 Notes:
 
-* **Named rules** are rules that have been saved through the [Playground](https://semgrep.dev/editor). The Playground is an online tool where you can write your rule patterns and test them on sample code. Named rules created by Community tier members are public and available in the Playground.
-* [The Editor](../editor) is a live, interactive tool for writing rules. The Editor is free for all tiers, but writing and managing **private rules** is a **Team/Enterprise tier** feature.
+* **Custom rules** are rules that you can create and save through either the [Playground](https://semgrep.dev/playground) or the Editor. The Playground and the [Editor](../editor) are online tools where you can write your rule patterns and test them on sample code. You must be signed in to use the Editor.
+* Developers can create fixes to their rules through an `autofix` key. For example, when banning outdated libraries, setting an autofix value with the correct library replaces the banned library.
+* Semgrep App provides this functionality with **Autofix through PR/MR comments**. These comments appear as suggestions that developers can commit with a single click.
 * **Custom rule messages** can be applied to public and private rules.
+* **DeepSemgrep** enables interfile tracking within a codebase, keeping track of class and function definitions beyond a single file.
+* **Developer feedback** is a means for developers to communicate to security or rule-writing teams about a rule's precision. Discover what rules result in false positives and refine them through this feature.
 
-#### Deployment, integrations, and notifications
+#### Integrations and notifications
 
 | Feature  | Community | Team | Enterprise |
-| -------  | --------- | ------- | -------- | 
-| **Automatic CI/CD integration** | ✔️ yes | ✔️  yes  | ✔️  yes | 
-| **Slack notifications** | ✔️ yes | ✔️  yes  | ✔️  yes | 
-| **Email notifications** | ✔️ yes | ✔️  yes  | ✔️  yes | 
-| **Webhook integration** | ❌ no | ✔️  yes | ✔️  yes |
+| -------  | --------- | ------- | -------- |
+| **Automatic CI/CD integration** | ✔️ yes | ✔️  yes  | ✔️  yes |
+| **Email notifications** | ✔️ yes | ✔️  yes  | ✔️  yes |
+| **Slack notifications** | ✔️ yes | ✔️  yes  | ✔️  yes |
 | **Jira integration** | ❌ no | ✔️  yes | ✔️  yes |
-| **VPC deployment** | ❌ no | ❌ no | ✔️  yes |
+| **Webhook integration** | ❌ no | ✔️  yes | ✔️  yes |
 
 Notes:
 
@@ -85,8 +107,8 @@ Notes:
 #### Authentication
 
 | Feature                                  | Community | Team | Enterprise |
-| ------                                    | --------- | ------- | -------- | 
-| **GitHub or GitLab single sign-on (SSO)** | ✔️ yes | ✔️  yes  | ✔️  yes | 
+| ------                                    | --------- | ------- | -------- |
+| **GitHub or GitLab single sign-on (SSO)** | ✔️ yes | ✔️  yes  | ✔️  yes |
 | **SAML SSO** | ❌ no | ✔️  yes | ✔️  yes |
 | **Role-based access control (RBAC)** | ❌ no | ✔️  yes | ✔️  yes |
 | **Custom authentication features** | ❌ no |  ❌ no | ✔️  yes |
@@ -96,10 +118,10 @@ Notes:
 * GitLab SSO is only available for users of GitLab.com. This does not include self-managed GitLab instances.
 * Available **RBAC roles** are `admin` and `user`.
 
-#### Support
+#### Support and troubleshooting
 
 | Feature  | Community | Team | Enterprise |
-| -------  | --------- | ------- | -------- | 
+| -------  | --------- | ------- | -------- |
 | **Slack support** | Community Slack | Private Slack channel | Private Slack channel |
 | **Semgrep support portal** | ❌ no | ✔️  yes | ✔️  yes |
 | **Customer success manager** | ❌ no | ❌ no | ✔️  yes |
@@ -113,13 +135,13 @@ Notes:
 
 ## Determining your plan needs
 
-### Number of seats
+### Number of developers
 
-Within your team or organization, assess the number of members whose code needs scanning. That will determine the number of seats needed for purchase.
+Within your team or organization, assess the number of members that make commits. That determines the number of developers needed for the plan purchase.
 
-For example, if a project has 4 unique contributors who push code during the billing period and Semgrep runs on their merge or pull requests, only 4 seats are required even if the organization has a total of 10 members. If these unique contributors commit to many projects within the same organization, they will only be counted once, so no additional seats are required.
+For example, if a project has 4 unique developers who create commits during the billing period while Semgrep is scanning their repositories, only 4 developers are required even if the organization has a total of 10 members. If these unique developers commit to many projects within the same organization, they are counted once, so no additional cost is charged.
 
-All members of the organization, regardless of seat status, have access to paid features for the chosen tier. This means that project managers and other non-programming roles can still view the Semgrep App dashboard.
+All members of the organization, regardless of developer status, have access to paid features for the chosen tier. This means that project managers and other non-programming roles can still view the Semgrep App dashboard.
 
 ### Plan limits
 
@@ -130,11 +152,11 @@ Should your plan exceed the limit, we will reach out and come up with a new plan
 To upgrade to the **Team tier** through a **credit card**:
 
 1. In the Settings page, select the Payment tab.
-2. Select the number of seats to purchase.
+2. Select the number of developers to purchase licenses for.
 3. Fill in your payment details.
 
 
-![Screenshot of Semgrep App payment menu](../img/billing-and-pricing-payment.png)<br />
+![Screenshot of Semgrep App payment menu](/img/billing-and-pricing-payment.png)<br />
 
 To upgrade to the **Enterprise tier**, please [contact us](https://semgrep.dev/contact).
 
@@ -160,7 +182,7 @@ Pay through the following methods:
 
 ## See also
 
-* [Supported languages](https://semgrep.dev/docs/language-support/)
+* [Supported languages](https://semgrep.dev/docs/supported-languages/)
 * [List of vulnerabilities found and fixed with Semgrep](https://semgrep.dev/docs/trophy-case/)
 * [Frequently asked questions](https://semgrep.dev/docs/faq/)
 

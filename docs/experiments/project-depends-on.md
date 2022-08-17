@@ -58,16 +58,16 @@ rules:
   languages: [python]
 ```
 
-## Findings
+## Findings of r2c-internal-project-depends-on
 
-Findings produced by rules with the `r2c-internal-project-depends-on` rule can be of two types: _reachable_ and _nonreachable_.
+Findings produced by rules with the `r2c-internal-project-depends-on` can be of two types: _reachable_ and _nonreachable_.
 
 - A _reachable_ finding is one with both a dependency match and a pattern match: a vulnerable dependency was found and the vulnerable part of the dependency (according to the patterns in the rule) is used somewhere in the code.
 - An _unreachable_ finding is one with only a dependency match. Reachable findings are reported as coming from the code that was pattern matched. Unreachable findings are reported as coming from the lockfile that was dependency matched. For both types of findings, Semgrep specifies whether they are unreachable or reachable along with all matched dependencies, in the `extra` field of Semgrep's JSON output, using the `dependency_match_only` and `dependency_matches` fields, respectively.
 
 A finding is only considered reachable if the file containing the pattern match actually depends on the dependencies in the lockfile containing the dependency match. A file depends on a lockfile if it is the nearest lockfile going up the directory tree.
 
-## Supported Languages
+## r2c-internal-project-depends-on language support 
 
 | Language   | Namespace  | Scans dependencies from          |
 |:---------- |:-----------|:---------------------------------|

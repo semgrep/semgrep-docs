@@ -19,15 +19,21 @@ Usage: semgrep [OPTIONS] COMMAND [ARGS]...
 
   To get started quickly, run `semgrep scan --config auto`
 
+  Run `semgrep SUBCOMMAND --help` for more information on each subcommand
+
+  If no subcommand is passed, will run `scan` subcommand by default
+
 Options:
-  --help  Show this message and exit.
+  -h, --help  Show this message and exit.
 
 Commands:
-  ci       The recommended way to run semgrep in CI
-  login    Obtain and save credentials for semgrep.dev
-  logout   Remove locally stored credentials to semgrep.dev
-  publish  Upload rule to semgrep.dev
-  scan     Run semgrep rules on files
+  ci            The recommended way to run semgrep in CI
+  login         Obtain and save credentials for semgrep.dev
+  logout        Remove locally stored credentials to semgrep.dev
+  lsp           [EXPERIMENTAL] Start the Semgrep LSP server.
+  publish       Upload rule to semgrep.dev
+  scan          Run semgrep rules on files
+  shouldafound  Report a false negative in this project.
 ```
 
 ## `semgrep scan` options
@@ -35,7 +41,7 @@ Commands:
 See `semgrep scan --help` for command line options available for scans.
 
 ```
-Usage: semgrep scan [OPTIONS] [TARGET]...
+Usage: semgrep scan [OPTIONS] [TARGETS]...
 
   Run semgrep rules on files
 
@@ -274,19 +280,27 @@ In addition to `.semgrepignore` there are several methods to set up ignore patte
 
 ## Exit codes
 
-`semgrep` may exit with the following exit codes:
+<!-- Source code reference - the exit codes are located in the Semgrep repository - https://github.com/returntocorp/semgrep/blob/develop/cli/src/semgrep/error.py. -->
 
-- 0: Semgrep ran successfully and found no errors (or did find errors, but the `--error` flag is **not** set).
-- 1: Semgrep ran successfully and found issues in your code (and the `--error` flag is set).
-- 2: Semgrep failed.
+Semgrep can finish with the following exit codes:
+
+- **1**: Semgrep ran successfully and found issues in your code (and the `--error` flag is set).
+- **0**: Semgrep ran successfully and found no errors (or did find errors, but the `--error` flag is **not** set).
+- **2**: Semgrep failed.
+- **4**: Semgrep encountered an invalid pattern in rule schema.
+- **5**: Semgrep configuration is not valid YAML.
+- **7**: At least one rule in configuration is invalid.
+- **8**: Semgrep does not understand specified language.
+- **13**: The API key is invalid.
+
+<!-- REMOVED STATUSES (NOT USED ANYMORE)
 - 3: Semgrep failed to parse a file in the specified language.
 - 4: Semgrep encountered an invalid pattern.
-- 5: Semgrep configuration is not valid YAML.
 - 6: Rule with `pattern-where-python` found but `--dangerously-allow-arbitrary-code-execution-from-rules` was not set. See `--dangerously-allow-arbitrary-code-execution-from-rules`. (Note: `pattern-where-python` is no longer supported in Semgrep, so this applies only to legacy Semgrep versions).
-- 7: At least one rule in configuration is invalid.
-- 8: Semgrep does not understand specified language.
 - 9: Semgrep exceeded match timeout. See `--timeout`.
 - 10: Semgrep exceeded maximum memory while matching. See `--max-memory`.
 - 11: Semgrep encountered a lexical error when running rule on a file.
+- 12: Semgrep found too many matches.
+-->
 
 <MoreHelp />

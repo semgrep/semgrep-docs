@@ -24,7 +24,7 @@ The columns and their corresonding actions are:
     <dd>Rules that block merges and commits, in addition to showing findings in Semgrep App and PRs or MRs.</dd>
 </dl>
 
-![Screenshot of the default state of the rule board](../img/rule-board.png)
+![Screenshot of the default state of the rule board](/img/rule-board.png)
 
 Semgrep App is  pre-configured to use the `default` ruleset. The `default` ruleset scans for security vulnerabilities in common programming languages and frameworks.
 
@@ -40,6 +40,10 @@ Semgrep App detects the framework and language when scanning a project and only 
 4. Optional: Display the rule definition by clicking on the **View in Playground** icon beside the name of the rule.
 5. Drag the card and drop it on the relevant column.
 6. Once you are done adding rules and rulesets, click **Save changes**.
+
+:::tip
+Discover suggested rulesets based on your projects's frameworks and technologies through **rule recommendations**. These recommendations appear when opening the drawer, enabling the user to choose from a curated list. Only rulesets explicitly added to a column will be included in a scan. To view these **rule recommendations**, see [Running a scan](../getting-started-with-semgrep-app/#running-a-scan).
+:::
 
 ### From Semgrep Registry
 

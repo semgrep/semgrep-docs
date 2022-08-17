@@ -9,41 +9,53 @@ import MoreHelp from "/src/components/MoreHelp"
 
 ## Introduction
 
-Rules are specific patterns based on which Semgrep reports findings in code. These findings may help you to catch issues of security, performance, correctness, and other bugs. Rules are stored in open-source Semgrep Registry that enables you to scan code without need to write anything custom.
+Rules are instructions based on which Semgrep detects patterns in code. When Semgrep reports a code using mentioned rules, the detected code is called a finding. The process of scanning and detecting a piece of code is sometimes called matching, as Semgrep matches the code using rules to report a finding.
 
-Contribute to the registry by writing your own rules and adding them to the <a href="https://github.com/returntocorp/semgrep-rules" target="_blank">Semgrep rules repository</a>.
+Semgrep findings can help you to catch issues of security, performance, correctness, and enforce best practices. You can define custom rules through Semgrep's rule syntax or rely on rules created by the community or r2c. Rules are stored in [Semgrep Registry](https://semgrep.dev/r) that enables you to scan code without the need to write anything custom. Semgrep Registry is stored in an [open-source repository](https://github.com/returntocorp/semgrep-rules).
 
-<div className="lang-container" style={{marginBottom: '20px'}}>
-  <iframe width="900" height="400" frameBorder="0" src="https://dashboard.semgrep.dev/metric/semgrep-rules.num/graph"></iframe>
-</div>
+The list below covers different kinds of Semgrep rules:
 
-You can run existing and custom Semgrep rules locally with the Semrgep command line tool or continuously with Semgrep CI. See [Getting started](../getting-started/) for their respective installation and setup.
+- Existing [Semgrep Registry rules](#running-semgrep-registry-rules-locally). You may also contribute to the Semgrep rules repository, see [Contributing to Semgrep rules](contributing/contributing-rules.md).
+- [Local rules](#creating-and-using-local-rules):
+  - One-off [ephemeral rules](#ephemeral-rules) passed into the command line.
+  - [YAML-defined rules](#yaml-defined-rules).
+- A combination of [local rules and Semgrep Registry rules](#running-multiple-rules-simultaneously) or a combination of multiple rules in general.
 
-## Run Registry rules
+You can run all rules on your code locally or continuously in your Source Code Management (SCM) service (such as GitHub or GitLab) with Semgrep in CI. For more information, see [Semgrep CI overview](semgrep-ci/overview.md).
 
-Explore the [Semgrep Registry](https://semgrep.dev/explore) and run rules and rulesets via:
+## Running Semgrep Registry rules locally
 
-```sh
-# Automatically survey languages and frameworks and run recommended Registry rules
-semgrep --config=auto path/to/src
+You can test Semgrep Registry rules with the following command:
+<pre class="language-bash"><code>semgrep --config=auto [<span className="placeholder">PATH/TO/SRC</span>]</code></pre>
+Substitute the optional placeholder <code>[<span className="placeholder">PATH/TO/SRC</span>]</code> with the path to your source code.
 
-# Run a ruleset with rules for many languages using --config
-semgrep --config=<ruleset-id> path/to/src
+:::info
+By default, when Semgrep Registry is used, Semgrep collects [usage metrics](./metrics.md).
+:::
 
-# Run simultaneously with Registry rulesets and local rules
-semgrep --config=<ruleset-id> --config=path/to/yml path/to/src
-```
+Explore the Semgrep Registry by following these steps:
 
-When the Registry is used, [usage metrics](../metrics) are collected.
+1. See the [Semgrep Registry](https://semgrep.dev/r) and choose a rule.
+2. On the page of the rule, click **Run Locally**.
+3. Copy the code for local install, and then add the path to the source code you want to check in your terminal:
+    <pre class="language-bash"><code>semgrep --config="<span className="placeholder">RULESET-ID</span>" [<span className="placeholder">PATH/TO/SRC</span>]</code></pre>
+4. Optional: Run registry rules simultaneously with local rules:
+   <pre class="language-bash"><code>semgrep --config="<span className="placeholder">RULESET-ID</span>" --config=<span className="placeholder">PATH/TO/MYRULE.YAML PATH/TO/SRC</span></code></pre>
 
-Rulesets can be added to Semgrep CI scans using their "Add to Policy" button on Semgrep Community and Semgrep Team.
+:::info
+Try Semgrep [Rule Board](semgrep-app/rule-board.md) to determine which rules Semgrep uses and what action Semgrep undertakes when it generates a finding.
+:::
 
-## Run local rules
+### Running Semgrep Registry continuously
+
+To use Semgrep Registry continuously in your CI/CD pipeline, see the [Semgrep in CI](https://semgrep.dev/docs/semgrep-ci/overview) documentation.
+
+## Creating and using local rules
 
 Local rules can be either:
 
-- Ephemeral rules with the `-e` or `--pattern` flags for use in a single command.
-- Configured in YAML rule files that conform to the [Rule syntax](../writing-rules/rule-syntax/) schema.
+- [Ephemeral rules](#ephemeral-rules) with the `-e` or `--pattern` flags for use in a single command.
+- Configured in [YAML rule files](#yaml-defined-rules) that conform to the [Rule syntax](../writing-rules/rule-syntax/) schema.
 
 :::tip
 See [Writing rules > Getting started](../writing-rules/overview/) to learn how to write rules.
@@ -53,14 +65,18 @@ See [Writing rules > Getting started](../writing-rules/overview/) to learn how t
 
 Use the `-e` or `--pattern` flags in your terminal for ephemeral rules that are used once.
 
-For example: Check for Python `==` where the left and right sides are the same (often a bug): 
+For example: Check for Python `==` where the left and right sides are the same (often a bug):
 ```sh
 semgrep -e '$X == $X' --lang=py path/to/src
 ```
 
+:::info
+Both local `rule.yaml` files and ephemeral rules are called *local rules*.
+:::
+
 ### YAML-defined rules
 
-Create a YAML rule file that you can run repeatedly.
+To create a local YAML file where you define your own rules and run them with Semgrep, follow these steps:
 
 1. Create a `rule.yaml` file.
 2. Below is a simple example rule for Python which you can paste into your `rule.yaml` file.
@@ -74,27 +90,33 @@ Create a YAML rule file that you can run repeatedly.
       pattern: $SOMEVAR is "..."
       severity: ERROR
     ```
-    See [Getting started](../writing-rules/overview/) for the full example.
 3. Run the following command to run local YAML rule files:
     ```sh
     semgrep --config path/to/rule.yaml
     ```
 
-### Running multiple rules simultaneously
+For more information, see [Getting started](../writing-rules/overview/).
 
-To run multiple rules simultaneously, use `--config` before every YAML URL, or Semgrep registry entry name. See the following code example (substitute the colored values as necessary):
+## Running multiple rules simultaneously
 
-<pre class="language-bash"><code>semgrep --config <span className="placeholder">p/python</span> --config <span className="placeholder">myrules/myrule.yaml</span></code></pre>
+To run multiple rules simultaneously, use `--config` before every YAML URL, or Semgrep registry entry name. This option let's you include your local rules as well as Semgrep Registry rules. See the following code example (substitute the colored values as necessary):
 
-## Appendix
-
-We are working on optimizations to improve Semgrep's performance, which necessitates a change in rules processing. If you are using v0.55.0 or later and encounter an unexpected metavariable binding or missing result, try running with `--optimizations none` to use the original code path. 
-
-You may find some files that Semgrep previously parsed are now skipped; this happens when Semgrep can confirm the rule does not match the file without parsing it. You can similarly run Semgrep with `--optimizations none` to avoid this behavior.
+<pre class="language-bash"><code>semgrep --config <span className="placeholder">p/python</span> --config <span className="placeholder">MYRULES/MYRULE.YAML</span></code></pre>
 
 ## Findings
 
 * See [Managing findings](../managing-findings/) for information on Semgrep findings.
 * See [Ignoring findings](../ignoring-files-folders-code/) for details on suppressing rule output.
+
+## Next steps
+
+Find out how to contribute to [Semgrep rules repository](https://github.com/returntocorp/semgrep-rules) by reading [Contributing to Semgrep rules](contributing/contributing-rules.md) guide.
+
+## Number of Semgrep rules
+
+Semgrep supports a large number of languages and rules! Their number is continuously expanding.
+<div className="lang-container" style={{marginBottom: '20px'}}>
+  <iframe width="900" height="400" frameBorder="0" src="https://dashboard.semgrep.dev/metric/semgrep-rules.num/graph"></iframe>
+</div>
 
 <MoreHelp />

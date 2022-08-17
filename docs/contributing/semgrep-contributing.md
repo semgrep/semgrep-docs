@@ -1,15 +1,17 @@
-# `semgrep` contributing
+# `semgrep-cli` contributing
 
-The following explains how to build `semgrep` so that you can make and test changes to the Python wrapper. You may want to read the README first to understand the relationship between `semgrep` and `semgrep-core`.
 
+The following explains how to build `semgrep-cli` so that you can make and test changes to the Python wrapper.
+The `semgrep-cli` name refers to the project which exposes the actual `semgrep` command.
+You may want to read the README first to understand the relationship between `semgrep-cli` and `semgrep-core`.
 ## Setting up the environment
 
 You will need Python >= 3.7.
 
-Most Python development is done inside the `semgrep` directory (from the top level of this repo, `semgrep/semgrep/`):
+Most Python development is done inside the `cli` directory:
 
 ```bash
-cd semgrep
+cd cli
 ```
 
 We use [`pipenv`](https://github.com/pypa/pipenv) to manage our virtual environment.
@@ -32,7 +34,7 @@ SEMGREP_SKIP_BIN` tells the installer that we will bring our own semgrep-core; s
 
 ## Getting the `semgrep-core` binary
 
-Almost all usages of `semgrep` require the `semgrep-core` binary.
+Almost all usages of `semgrep-cli` require the `semgrep-core` binary.
 To get this binary,
 your safest bet is to follow the instructions in [Building `semgrep-core`](semgrep-core-contributing.md#building-semgrep-core),
 which takes around 20 minutes.
@@ -43,7 +45,7 @@ The downsides of using a pre-compiled binary are:
 
 1. You will not be able to make edits to `semgrep-core`,
    for example to fix a parse error.
-2. Semgrep will fail if the interface between `semgrep` and `semgrep-core` has changed
+2. Semgrep will fail if the interface between `semgrep-cli` and `semgrep-core` has changed
    since the binary was compiled.
    This has historically been happening around every two months,
    but can happen at any time without notice.
@@ -76,13 +78,13 @@ and inside should be the necessary binaries. You can confirm this by running:
 ./semgrep-core --help
 ```
 
-Copy this file to somewhere in your `$PATH` so `semgrep` can find them. For
+Copy this file to somewhere in your `$PATH` so `semgrep-cli` can find them. For
 example, you may create a `~/bin/` directory within the repository. [Include it in your `$PATH`](https://unix.stackexchange.com/questions/26047/how-to-correctly-add-a-path-to-path)
 and run the binary from there.
 
 Alternatively, you may include it somewhere like `/usr/local/bin/`.
 
-## Running `semgrep`
+## Running `semgrep-cli`
 
 Ensure that you are in `cli/` directory, and then issue the following command:
 
@@ -102,17 +104,13 @@ Congratulations, you have Semgrep running locally!
 
 ## Installing `semgrep`
 
-You can always run `semgrep` from `semgrep/semgrep/`, which will use your latest changes in that directory, but you may also want to install the `semgrep` binary. To do this, run
+You can always run `semgrep` from `cli/`, which will use your latest changes in that directory, but you may also want to install the `semgrep` binary. To do this, run
 
 ```
 pipenv install --dev
 ```
 
-Some people have encountered difficulties with the above. If it fails, you can also try (within the `semgrep/semgrep/` directory)
-
-```
-sudo pip install -e .
-```
+Some people have encountered difficulties with the above. If it fails, you can reach out to the [`semgrep` team on Slack](https://r2c.dev/slack).
 
 If you have an M1 Mac, this may install the incorrect executable. You can run this instead
 ```
@@ -127,7 +125,7 @@ If you have installed `semgrep-core` from source, there are convenient targets i
 make rebuild
 ```
 
-See the Makefile in `semgrep/`
+See the Makefile in `cli/`
 
 ## Troubleshooting
 
@@ -140,12 +138,18 @@ docker build -t semgrep .
 
 ## Testing
 
-`semgrep` uses [`pytest`](https://docs.pytest.org/en/latest/) for testing.
+`semgrep-cli` uses [`pytest`](https://docs.pytest.org/en/latest/) for testing.
 
 To run tests, run the following command:
 
 ```
 pipenv run pytest
+```
+
+There are some much slower tests which run semgrep on many open source projects. To run these slow tests, run:
+
+```sh
+pipenv run pytest tests/qa
 ```
 
 If you want to update the tests to match to the current output:
@@ -162,10 +166,10 @@ pipenv run pytest path/to/test.py
 Or running an individual test function:
 
 ```
-pipenv run pytest -k test_func_name path/to/test.py
+pipenv run pytest path/to/test.py::test_func_name
 ```
 
-`semgrep` also includes [`pytest-benchmark`](https://pytest-benchmark.readthedocs.io/en/latest/)
+`semgrep-cli` also includes [`pytest-benchmark`](https://pytest-benchmark.readthedocs.io/en/latest/)
 to allow for basic benchmarking functionality. This can be run like so:
 
 ```

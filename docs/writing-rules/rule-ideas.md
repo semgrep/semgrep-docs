@@ -15,7 +15,7 @@ _Time to write this rule: **5 minutes**_
 
 You can use Semgrep and its GitHub integration to [automate PR comments](/semgrep-app/notifications/) that you frequently make in code reviews. Writing a custom rule for the code pattern you want to target is usually straightforward. If you want to understand the Semgrep syntax, see the [documentation](../pattern-syntax/) or try the [tutorial](https://semgrep.dev/learn). 
 
-![A reviewer writes a Semgrep rule and adds it to an organization-wide policy](../img/semgrep-ci.gif)
+![A reviewer writes a Semgrep rule and adds it to an organization-wide policy](/img/semgrep-ci.gif)
 <br />
 A reviewer writes a Semgrep rule and adds it to an organization-wide policy.
 
@@ -63,7 +63,7 @@ This rule detects when HTML autoescaping is explicitly disabled for a Django tem
 
 _Time to write this rule: **10 minutes**_
 
-Semgrep [natively supports JSON and YAML](../status.md) and can be used to write rules for configuration files. This rule checks for skipped TLS verification in Kubernetes clusters.
+Semgrep [natively supports JSON and YAML](../supported-languages.md) and can be used to write rules for configuration files. This rule checks for skipped TLS verification in Kubernetes clusters.
 
 <iframe src="https://semgrep.dev/embed/editor?snippet=minusworld:docs-kubernetes-skip-tls-verify" title="Match configuration files with Semgrep" width="100%" height="432px" frameBorder="0"></iframe>
 

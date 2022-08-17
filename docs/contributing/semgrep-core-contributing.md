@@ -11,8 +11,8 @@ The following explains how to build `semgrep-core` so you can make and test chan
 ```bash
 brew install opam
 opam init
-opam switch create 4.12.0 ocaml-base-compiler.4.12.0
-opam switch 4.12.0
+opam switch create 4.14.0 ocaml-base-compiler.4.14.0
+opam switch 4.14.0
 eval $(opam env)
 ```
 
@@ -28,8 +28,7 @@ The root `Makefile` contains targets that take care of building the
 right things. It is commented. Please refer to it and keep it
 up-to-date.
 
-Run the below commands at the repository root (`semgrep/`, not `semgrep/semgrep/`),
-inside your pipenv shell.
+Run the below commands at the repository root, inside your pipenv shell.
 
 To link all necessary dependencies, run
 
@@ -195,7 +194,7 @@ semgrep --dump-command-for-core --config bench/zulip/input/rules/zulip/rules.zul
 will output:
 ```bash
 Running 10 rules...
-/home/pad/github/semgrep/semgrep/semgrep/bin/semgrep-core -json -rules semgrep_rules.yaml -j 20 -targets semgrep_targets.txt -timeout 30 -timeout_threshold 0 -max_memory 0 -json_time -fast
+/home/pad/github/semgrep/cli/src/semgrep/bin/semgrep-core -json -rules semgrep_rules.yaml -j 20 -targets semgrep_targets.txt -timeout 30 -timeout_threshold 0 -max_memory 0 -json_time -fast
 ```
 
 where `semgrep_rules.yaml` and `semgrep_targets.txt` are files created by `semgrep` that respectively contain the list of rules and targets. It is easy then to copy-paste this command and possibly add a `-profile` or `-debug` to get more information.
