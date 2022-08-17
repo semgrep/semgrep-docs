@@ -5,7 +5,7 @@ description: "Semgrep CI integrates with 3rd party services when connected to Se
 ---
 
 import MoreHelp from "/src/components/MoreHelp"
-import ProcedureIntegrateSlack from "/src/components/modules/procedure-modules/_procedure-integrate-slack.mdx"
+import ProcedureIntegrateSlack from "/src/components/procedure/_integrate-slack.mdx"
 
 # Notifications
 
