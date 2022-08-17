@@ -204,10 +204,11 @@ pipeline {
         environment { 
           // Define rules to scan with through the SEMGREP_RULES environment variable. 
           SEMGREP_RULES = "p/default"
-          // To scan changed files in PRs or MRs (diff-aware scanning):
+          // Scan changed files in PRs or MRs (diff-aware scanning):
           SEMGREP_BASELINE_REF = "${GIT_BRANCH}" //Holden -- kindly confirm?
           // Uncomment SEMGREP_TIMEOUT to set this job's timeout (in seconds):
-          // (Default is 1800 seconds. Set to 0 to disable.)
+          // Default timeout is 1800 seconds (30 minutes).
+          // Set to 0 to disable the timeout.
           // SEMGREP_TIMEOUT = "300"
         } 
       steps {
