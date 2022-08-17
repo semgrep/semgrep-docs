@@ -346,7 +346,7 @@ Reference or add the [returntocorp/semgrep](https://hub.docker.com/r/returntocor
 
 #### Install `semgrep`
 
-If you cannot use the Semgrep docker image, install `semgrep` as a step or command within your CI job:
+If you cannot use the Semgrep Docker image, install Semgrep as a step or command within your CI job:
 
 1. Add `pip install semgrep` into the configuration file as a step or command, depending on your CI provider's syntax.
 2. Run any valid `semgrep ci` command, such as `semgrep ci --config auto`.
