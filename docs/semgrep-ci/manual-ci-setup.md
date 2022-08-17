@@ -116,7 +116,7 @@ To add Semgrep into your GitLab CI/CD pipeline:
 1. Create or edit a `.gitlab-ci.yml` configuration file to add a Semgrep
    command as part of your GitLab CI/CD pipeline. Refer to the [GitLab CI/CD code
    snippet](#gitlab-cicd-code-snippet).
-2. Optional: You can also review the [GitLab configuration guide](https://docs.gitlab.com/ee/ci/yaml/gitlab_ci_yaml.html) to help with editing the configuration file. 
+2. Optional: Read the [GitLab configuration guide](https://docs.gitlab.com/ee/ci/yaml/gitlab_ci_yaml.html) to help with editing the configuration file. 
 3. Commit the configuration file into the root folder within the target repository. The Semgrep job starts automatically upon detecting the `.gitlab-ci.yml` commit in the previous step.
 4. Optional: Re-run or view the job from your GitLab project's **CI/CD > Pipelines page**.
 5. Customize the job's behavior, such as its rules to scan and files to ignore.
