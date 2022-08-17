@@ -84,7 +84,7 @@ Alternatively, you may include it somewhere like `/usr/local/bin/`.
 
 ## Running `semgrep`
 
-Make sure you are in `cli/`, then run:
+Ensure that you are in `cli/` directory, and then issue the following command:
 
 ```
 pipenv run semgrep --help
