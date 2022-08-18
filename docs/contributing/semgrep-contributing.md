@@ -127,6 +127,29 @@ make rebuild
 
 See the Makefile in `cli/`
 
+## Adding python packages to `semgrep`
+
+While developing you may find that you would like to add a package as a dependency. You can do so with pipenv. For example, suppose you would like to add the package `pyyaml` to Semgrep.
+
+Semgrep uses mypy to do static type-checking of its python code. This means that when you add a new package, you will also need to add typing stubs for that package or else pre-commit and your IDE will likely complain, as they will be unable to do any type-checking for the functions in the imported package. To fix this, you will need the corresponding package with typing stubs. For our `pyyaml` example, the corresponding package is `types-pyyaml`.
+
+```
+pipenv install --dev types-pyyaml
+```
+
+Here we use --dev to specify that this package is needed for development but not in production. This command will update `cli/Pipfile` with the typing stubs package, and will add both the typing stubs and the package itself to your `Pipfile.lock`. This should allow you to import the package in your code. For example, `import yaml as pyyaml`.
+
+Next, you will need to manually add the package to `cli/setup.py` in the `install_requires` list variable. You can find the version number either in the `Pipfile.lock` changes or by looking up online the most recent major version of the package.
+
+```
+install_requires = [
+   ...
+   "pyyaml~=6.0",
+]
+```
+
+This change allows docker to find the package when building. Without this change, if you create a pull request you will see a CI job called `build docker image` fail with a `ModuleNotFoundError`, indicating that it is unable to find your package.
+
 ## Troubleshooting
 
 For a reference build that's known to work, consult the root `Dockerfile`
