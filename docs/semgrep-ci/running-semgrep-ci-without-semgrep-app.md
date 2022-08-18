@@ -254,7 +254,7 @@ pipelines:
           # Define rules to scan with by setting the SEMGREP_RULES environment variable. 
           - export SEMGREP_RULES="p/default" 
           # Scan changed files in PRs or MRs (diff-aware scanning):
-          - export SEMGREP_BASELINE_REF=$BITBUCKET_BRANCH
+          # - export SEMGREP_BASELINE_REF=$BITBUCKET_BRANCH
           # Uncomment SEMGREP_TIMEOUT to set this job's timeout (in seconds):
           # Default timeout is 1800 seconds (30 minutes).
           # Set to 0 to disable the timeout.
@@ -288,7 +288,7 @@ jobs:
       # Define rules to scan with by setting the SEMGREP_RULES environment variable. 
       SEMGREP_RULES: p/default
       # Scan changed files in PRs or MRs (diff-aware scanning):
-      SEMGREP_BASELINE_REF: << parameters.default_branch >>
+      # SEMGREP_BASELINE_REF: << parameters.default_branch >>
       # Uncomment SEMGREP_TIMEOUT to set this job's timeout (in seconds):
       # Default timeout is 1800 seconds (30 minutes).
       # Set to 0 to disable the timeout.
@@ -329,7 +329,7 @@ These steps can be performed from within Buildkite's interface. From Buildkite's
     # Define rules to scan with by setting the SEMGREP_RULES environment variable. 
     - export SEMGREP_RULES="p/default"
     # To scan changed files in PRs or MRs (diff-aware scanning):
-    - export SEMGREP_BASELINE_REF=${BUILDKITE_BRANCH}
+    # - export SEMGREP_BASELINE_REF=${BUILDKITE_BRANCH}
     # Uncomment SEMGREP_TIMEOUT to set this job's timeout (in seconds):
     # Default timeout is 1800 seconds (30 minutes).
     # Set to 0 to disable the timeout.
@@ -360,7 +360,7 @@ This method is used in the [Jenkins CI code snippet](#jenkins-ci-code-snippet).
 
 ## Configuring the CI job
 
-The following sections describe methods to customize your CI job. Many of these features require the correct setup of environment variables.
+The following sections describe methods to customize your CI job.
 
 ### Passing or failing the CI job
 
