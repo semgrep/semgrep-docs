@@ -1,8 +1,8 @@
 ---
-slug: manual-ci-setup
+slug: running-semgrep-ci-without-semgrep-app
 append_help_link: true
 title: Running Semgrep in CI without Semgrep App 
-description: ""
+description: "This document guides you through setting up semgrep in continuous integration without connecting to Semgrep App."
 hide_title: true
 ---
 
@@ -52,7 +52,7 @@ Running Semgrep in CI without Semgrep App bears specific limitations compared to
  
  * `semgrep ci` is git-aware. This means it is able to detect branches and git states. 
  * `semgrep ci` makes use of environment variables to configure its behavior. 
- * `semgrep ci` performs a full scan by default. It can be configured to perform a diff-aware scan. See [Setting the scope of a Semgrep scan(Setting-the-scope-of-a-semgrep-scan).
+ * `semgrep ci` performs a full scan by default. It can be configured to perform a diff-aware scan. See [Setting the scope of a Semgrep scan(#Setting-the-scope-of-a-semgrep-scan).
  * `semgrep ci` can be run on a local `.git` repository at any time to test its behavior before running it within a CI environment.
 
  ### Setting the scope of a Semgrep scan
