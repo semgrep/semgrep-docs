@@ -52,10 +52,8 @@ Running Semgrep in CI without Semgrep App bears specific limitations compared to
  
  * `semgrep ci` is git-aware. This means it is able to detect branches and git states. 
  * `semgrep ci` makes use of environment variables to configure its behavior. 
- * `semgrep ci` performs a full scan by default. It can be configured to perform a diff-aware scan. See [Setting the scope of a Semgrep scan(#Setting-the-scope-of-a-semgrep-scan).
+ * `semgrep ci` performs a full scan by default. This is the recommended behavior. Semgrep can be configured to perform a diff-aware scan.
  * `semgrep ci` can be run on a local `.git` repository at any time to test its behavior before running it within a CI environment.
-
- ### Setting the scope of a Semgrep scan
 
 ### GitHub Actions
 
@@ -210,7 +208,7 @@ pipeline {
           // Add the rules that Semgrep uses by setting the SEMGREP_RULES environment variable. 
           SEMGREP_RULES = "p/default"
           // Scan changed files in PRs or MRs (diff-aware scanning):
-          SEMGREP_BASELINE_REF = "${GIT_BRANCH}" //Holden -- kindly confirm?
+          // SEMGREP_BASELINE_REF = "${GIT_BRANCH}" //Holden -- kindly confirm?
           // Uncomment SEMGREP_TIMEOUT to set this job's timeout (in seconds):
           // Default timeout is 1800 seconds (30 minutes).
           // Set to 0 to disable the timeout.
@@ -349,36 +347,18 @@ Use either of the following methods to run Semgrep through other CI providers.
 
 #### Direct docker usage 
 
-Reference or add the [returntocorp/semgrep](https://hub.docker.com/r/returntocorp/semgrep) Docker image directly. The method to add the Docker image varies based on the CI provider.
+Reference or add the [returntocorp/semgrep](https://hub.docker.com/r/returntocorp/semgrep) Docker image directly. The method to add the Docker image varies based on the CI provider. This method is used in the [BitBucket Pipelines code snippet](#bitbucket-pipelines-code-snippet).
 
-#### Install `semgrep`
+#### Install `semgrep` within your CI job
 
 If you cannot use the Semgrep Docker image, install Semgrep as a step or command within your CI job:
 
-1. Add `pip install semgrep` into the configuration file as a step or command, depending on your CI provider's syntax.
+1. Add `pip3 install semgrep` into the configuration file as a step or command, depending on your CI provider's syntax.
 2. Run any valid `semgrep ci` command, such as `semgrep ci --config auto`.
 
-See the following example using BitBucket Pipelines:
+This method is used in the [Jenkins CI code snippet](#jenkins-ci-code-snippet).
 
-```yaml
-image: atlassian/default-image:latest
-
-pipelines:
-  default:
-    - parallel:
-      - step:
-          name: 'Run Semgrep scan with current branch'
-          deployment: dev
-          script:
-          - pip install semgrep
-            - export SEMGREP_RULES="p/default" 
-            - semgrep ci
-```
-
-
-Your customization options with other CI providers vary depending on working environment variables.
-
-## Refining the CI job
+## Configuring the CI job
 
 The following sections describe methods to customize your CI job. Many of these features require the correct setup of environment variables.
 
@@ -406,14 +386,12 @@ To enable diff-aware scanning, Semgrep provides a `SEMGREP_BASELINE_REF` environ
 To only report findings newly added since branching off from your `main` branch, set the following:
 <pre class="language-bash"><code>SEMGREP_BASELINE_REF=<span className="placeholder">TOPIC-BRANCH-NAME</span></code></pre>
 
-To only report findings newly added
-after a specific commit, set the following:
+To only report findings newly added after a specific commit, set the following:
 <pre class="language-bash"><code>SEMGREP_BASELINE_REF=<span className="placeholder">INSERT_GIT_COMMIT_HASH</span></code></pre>
 
-
-
 :::note
-GitHub Actions and GitLab CI/CD diff-aware scanning works automatically, without the need to set `SEMGREP_BASELINE_REF`.
+* GitHub Actions and GitLab CI/CD diff-aware scanning works automatically, without the need to set `SEMGREP_BASELINE_REF`.
+* Depending on your CI provider, it may be necessary to create a separate job or script block for Semgrep to perform both full scans and diff-aware scans.
 :::
 
 ### Setting a scan schedule
