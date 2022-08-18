@@ -269,8 +269,7 @@ To add Semgrep into your CircleCI pipeline:
 1. Create or edit a `config.yml` configuration file to add a Semgrep command as
    part of your CircleCI workflow. Refer to the [CircleCI code snippet](#circleci-code-snippet).
 2. Optional: Review the [CirclCI YAML introduction](https://circleci.com/docs/introduction-to-yaml-configurations) to help with editing the configuration file.
-3. Commit the configuration file into the `/.circleci` folder within the target
-   repository.
+3. Commit the configuration file into the `/.circleci` folder within the target repository.
 4. The Semgrep job starts automatically upon detecting the `config.yml` commit in the previous step.
 5. Customize the job's behavior, such as its rules to scan and files to ignore.
 
