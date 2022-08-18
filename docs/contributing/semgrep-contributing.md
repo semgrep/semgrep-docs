@@ -129,9 +129,9 @@ See the Makefile in `cli/`
 
 ## Adding python packages to `semgrep`
 
-While developing you may find that you would like to add a package as a dependency. You can do so with pipenv. For example, suppose you would like to add the package `pyyaml` to Semgrep.
+While developing you may find that you would like to add a package dependency. Semgrep uses mypy to do static type-checking of its python code, so when you add a new python package, you will also need to add typing stubs for that package. You can add the package you want along with its typing package in three steps. For example, suppose you would like to add the package `pyyaml` to Semgrep.
 
-Semgrep uses mypy to do static type-checking of its python code. This means that when you add a new package, you will also need to add typing stubs for that package or else pre-commit and your IDE will likely complain, as they will be unable to do any type-checking for the functions in the imported package. To fix this, you will need the corresponding package with typing stubs. For our `pyyaml` example, the corresponding package is `types-pyyaml`.
+First, you will need to install the corresponding package with typing stubs. For our `pyyaml` example, the corresponding package is `types-pyyaml`.
 
 ```
 pipenv install --dev types-pyyaml
@@ -139,7 +139,16 @@ pipenv install --dev types-pyyaml
 
 Here we use --dev to specify that this package is needed for development but not in production. This command will update `cli/Pipfile` with the typing stubs package, and will add both the typing stubs and the package itself to your `Pipfile.lock`. This should allow you to import the package in your code. For example, `import yaml as pyyaml`.
 
-Next, you will need to manually add the package to `cli/setup.py` in the `install_requires` list variable. You can find the version number either in the `Pipfile.lock` changes or by looking up online the most recent major version of the package.
+Next, you will need to manually add the typing stubs package to `.pre-commit-config.yaml` so that the pre-commit mypy hook can find the package.
+
+```
+      - id: mypy
+        additional_dependencies: &mypy-deps
+          - ...
+          - types-PyYAML
+```
+
+Finally, you will need to manually add the original package to `cli/setup.py` in the `install_requires` list variable. You can find the version number either in the `Pipfile.lock` changes or by looking up online the most recent major version of the package.
 
 ```
 install_requires = [
