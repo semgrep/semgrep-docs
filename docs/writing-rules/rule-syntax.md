@@ -81,7 +81,7 @@ The `patterns` operator performs a logical AND operation on one or more child pa
 
 <iframe src="https://semgrep.dev/embed/editor?snippet=Q83q" border="0" frameBorder="0" width="100%" height="432"></iframe>
 
-### Evaluation strategy
+#### `patterns` operator evaluation strategy
 
 Note that the order in which the child patterns are declared in a `patterns` operator has no effect on the final result. A `patterns` operator is always evaluated in the same way:
 
