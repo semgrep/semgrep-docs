@@ -6,7 +6,7 @@ The `semgrep-cli` name refers to the project which exposes the actual `semgrep` 
 You may want to read the README first to understand the relationship between `semgrep-cli` and `semgrep-core`.
 ## Setting up the environment
 
-You will need Python >= 3.6.
+You will need Python >= 3.7.
 
 Most Python development is done inside the `cli` directory:
 
@@ -86,16 +86,10 @@ Alternatively, you may include it somewhere like `/usr/local/bin/`.
 
 ## Running `semgrep-cli`
 
-You will want to be in the pipenv environment whenever you run semgrep. Start a shell with
+Ensure that you are in `cli/` directory, and then issue the following command:
 
 ```
-python -m pipenv shell
-```
-
-Make sure you are in `cli/`. Within the shell, run:
-
-```
-python -m semgrep --help
+pipenv run semgrep --help
 ```
 
 To try a simple analysis, you can run:
@@ -133,6 +127,37 @@ make rebuild
 
 See the Makefile in `cli/`
 
+## Adding python packages to `semgrep`
+
+Semgrep uses `mypy` to do static type-checking of its Python code. Therefore, when adding a new Python package, you also need to add typing stubs for that package. This can be done in three steps. For example, suppose you would like to add the package `pyyaml` to Semgrep.
+
+Install the corresponding package with typing stubs. For our `pyyaml` example, the corresponding package is `types-pyyaml`.
+
+```
+pipenv install --dev types-pyyaml
+```
+Here `--dev` specifies that this package is needed for development but not in production. This command updates `cli/Pipfile` with the typing stubs package, and adds both the typing stubs and the package itself to your `Pipfile.lock`. This allows you to import the package in your code. For example, `import yaml as pyyaml`.
+
+Next, manually add the typing stubs package to `.pre-commit-config.yaml` so that the pre-commit mypy hook can find the package.
+
+```
+      - id: mypy
+        additional_dependencies: &mypy-deps
+          - ...
+          - types-PyYAML
+```
+
+Finally, manually add the original package to `cli/setup.py` in the `install_requires` list variable. You can find the version number either in the `Pipfile.lock` changes or by looking up online the most recent major version of the package.
+
+```
+install_requires = [
+   ...
+   "pyyaml~=6.0",
+]
+```
+
+This change makes your package a dependency of published Semgrep. Without this change, if you create a pull request, the CI job called `build docker image` fails with a `ModuleNotFoundError`, indicating that it is unable to find your package.
+
 ## Troubleshooting
 
 For a reference build that's known to work, consult the root `Dockerfile`
@@ -146,16 +171,16 @@ docker build -t semgrep .
 
 `semgrep-cli` uses [`pytest`](https://docs.pytest.org/en/latest/) for testing.
 
-To run tests, run the following command within the pipenv shell:
+To run tests, run the following command:
 
 ```
-pytest
+pipenv run pytest
 ```
 
 There are some much slower tests which run semgrep on many open source projects. To run these slow tests, run:
 
 ```sh
-pytest tests/qa
+pipenv run pytest tests/qa
 ```
 
 If you want to update the tests to match to the current output:
@@ -166,18 +191,18 @@ make regenerate-tests
 Running a single test file is simple too:
 
 ```
-pytest path/to/test.py
+pipenv run pytest path/to/test.py
 ```
 
 Or running an individual test function:
 
 ```
-pytest -k test_func_name path/to/test.py
+pipenv run pytest path/to/test.py::test_func_name
 ```
 
 `semgrep-cli` also includes [`pytest-benchmark`](https://pytest-benchmark.readthedocs.io/en/latest/)
 to allow for basic benchmarking functionality. This can be run like so:
 
 ```
-pytest --benchmark-only
+pipenv run pytest --benchmark-only
 ```

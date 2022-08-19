@@ -10,6 +10,30 @@ import MoreHelp from "/src/components/MoreHelp"
 
 The sample configuration files below run Semgrep CI on various continuous integration providers.
 
+## Feature support
+
+Support for certain features of Semgrep App depend on your CI provider or source code management tool (SCM). The following table breaks down the features and their availability:
+
+| Feature | GitHub | GitLab | BitBucket | CI Provider support |
+| ------- | -------- | ------- | -------- | ---------------- |
+| **Diff-aware scanning** | ✅ Yes | ✅ Yes | ✅ Yes  | ✅ Available (may need additional set up) | 
+| **Hyperlinks** | ✅ Yes | ✅ Yes | ✅ Yes  |  ✅ Available (may need additional set up) |
+| **SCM security dashboard** |  ✅ GitHub Advanced Security Dashboard |  ✅ GitLab SAST Dashboard | ❌ No | ❗ Only GitHub Actions and GitLab CI/CD |
+| **PR or MR comments in Semgrep App** |  ✅ Yes | ✅ Yes | ❌ No | ✅ CI provider agnostic; feature support is dependent on SCM |
+
+*Table 1.* List of features and supported SCMs and CI providers.
+
+<dl>
+    <dt>Diff-aware scanning</dt>
+    <dd>Semgrep can scan changes in files when running on a pull or merge request (PR or MR). This keeps the scan fast and reduces finding duplication.</dd>
+    <dt>Receiving results (findings) as PR or MR comments</dt>
+    <dd>This feature enables you to receive <a href="/docs/semgrep-app/notifications/#enabling-github-pull-request-comments">PR or MR comments</a> from Semgrep App on the lines of code that generated a finding.</dd>
+    <dt>Hyperlinks to code</dt>
+    <dd>Semgrep App collects findings in a Findings page. In this page, you can click on a finding to view the lines of code in your repository that generated the finding.</dd>
+    <dt>SCM security dashboard</dt>
+    <dd>Send Semgrep findings to your SCM's security dashboard.</dd>
+</dl>
+
 ## GitHub Actions
 
 ```yaml
@@ -108,15 +132,6 @@ jobs:
 </p>
 </details>
 
-### Feature support
-
-| Feature | Status |
-| --- | --- |
-| **diff-aware scanning** | ✅ automatic |
-| **hyperlinks in Semgrep App** | ✅ automatic |
-| **results in native dashboard**<br/><small>GitHub Advanced Security Dashboard</small> | ✅ available |
-| **results in pull request comments** | ✅ [sign up for Semgrep App free](https://semgrep.dev/login) |
-| **automatic CI setup** | ✅ [sign up for Semgrep App free](https://semgrep.dev/login) |
 
 ## GitLab CI
 
@@ -177,15 +192,6 @@ semgrep:
   #     sast: gl-sast-report.json
 ```
 
-### Feature support
-
-| Feature | Status |
-| --- | --- |
-| **diff-aware scanning** | ✅ automatic |
-| **hyperlinks in Semgrep App** | ✅ automatic |
-| **results in native dashboard**<br/><small>GitLab SAST Dashboard</small> | ✅ available |
-| **results in merge request comments** | ✅ [sign up for Semgrep App free](https://semgrep.dev/login) |
-| **automatic CI setup** | ❌ not available |
 
 ## Jenkins
 
@@ -218,15 +224,6 @@ pipeline {
 }
 ```
 
-### Feature support
-
-| Feature | Status |
-| --- | --- |
-| **diff-aware scanning** | ✅ [configure manually](configuration-reference.md#diff-aware-scanning-semgrep_baseline_ref) |
-| **hyperlinks in Semgrep App** | ✅ [configure manually](configuration-reference.md#get-hyperlinks-in-semgrep-cloud) |
-| **results in native dashboard** | 💢 not applicable |
-| **results in pull request comments** | ❌ not available |
-| **automatic CI setup** | ❌ not available |
 
 ## Buildkite
 
@@ -250,15 +247,6 @@ pipeline {
           - "SEMGREP_APP_TOKEN"
 ```
 
-### Feature support
-
-| Feature | Status |
-| --- | --- |
-| **diff-aware scanning** | ✅ [configure manually](configuration-reference.md#diff-aware-scanning-semgrep_baseline_ref)|
-| **hyperlinks in Semgrep App** | ✅ [configure manually](configuration-reference.md#get-hyperlinks-in-semgrep-cloud) |
-| **results in native dashboard** | 💢 not applicable |
-| **results in pull request comments** | ❌ not available |
-| **automatic CI setup** | ❌ not available |
 
 ## CircleCI
 
@@ -310,16 +298,6 @@ workflows:
       - semgrep-scan
 ```
 
-### Feature support
-
-| Feature | Status |
-| --- | --- |
-| **diff-aware scanning** | ✅ [configure manually](configuration-reference.md#diff-aware-scanning-semgrep_baseline_ref) |
-| **hyperlinks in Semgrep App** | ✅ [configure manually](configuration-reference.md#get-hyperlinks-in-semgrep-cloud) |
-| **results in native dashboard** | 💢 not applicable |
-| **results in pull request comments** | ❌ not available |
-| **automatic CI setup** | ❌ not available |
-
 ## Bitbucket
 
 ```yaml
@@ -344,26 +322,38 @@ pipelines:
             - semgrep ci --config auto
 ```
 
-### Feature support
+## Azure
 
-| Feature | Status |
-| --- | --- |
-| **diff-aware scanning** | ✅ [configure manually](configuration-reference.md#diff-aware-scanning-semgrep_baseline_ref) |
-| **hyperlinks in Semgrep App** | ✅ [configure manually](configuration-reference.md#get-hyperlinks-in-semgrep-cloud) |
-| **results in native dashboard** | 💢 not applicable |
-| **results in pull request comments** | ❌ not available |
-| **automatic CI setup** | ❌ not available |
+```yaml
+# trigger:
+#  - master
+
+pool:
+  vmImage: ubuntu-latest
+# variables:
+# - group: Semgrep app token group
+
+steps: 
+
+- script: |
+    python -m pip install --upgrade pip
+    pip install semgrep
+    semgrep ci --config auto
+  env: 
+    SEMGREP_PR_ID: $(System.PullRequest.PullRequestNumber)
+```
 
 ## Other providers
 
-To run Semgrep CI on any other provider, use the `returntocorp/semgrep` image, and run the `semgrep ci` command.
+To run Semgrep CI on any other provider, use the `returntocorp/semgrep` image, and run the `semgrep ci` command with SEMGREP_BASELINE_REF set for diff-aware scanning.
 
 **Note**: If you need to use a different image than docker, install Semgrep CI by `pip install semgrep`.
 
 Using the [configuration reference](../configuration-reference/), you can run Semgrep in the following CI providers:
 
 - AppVeyor
-- Bamboo
+- Azure [(sample configuration)](#azure)
+- Bamboo 
 - Bitbucket Pipelines [(sample configuration)](#bitbucket)
 - Bitrise
 - Buildbot

@@ -25,7 +25,7 @@
   --ifm-menu-link-sublist-icon-filter: invert(16%) sepia(98%) saturate(3800%)
     hue-rotate(254deg) brightness(40%) contrast(88%);
   --ifm-font-family-monospace: "JetBrains Mono", "Menlo", "Courier New", monospace;
-  --ifm-navbar-height: 50px;
+  --ifm-navbar-height: 78px;
 }
 
 @media screen and (max-width: 1000px) {
@@ -189,10 +189,6 @@ dl {
 }
 
 /* rest of navbar */
-
-.navbar {
-  height: 78px;
-}
 
 .navbar.navbar--fixed-top {
   padding: 0;

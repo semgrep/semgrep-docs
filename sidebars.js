@@ -86,8 +86,7 @@ module.exports = {
             'experiments/extract-mode',
             'experiments/project-depends-on',
             'experiments/symbolic-propagation',
-            'experiments/metavariable-analysis',
-            'experiments/focus-metavariable'
+            'experiments/metavariable-analysis'
           ]
         },
         'deepsemgrep',
@@ -113,8 +112,8 @@ module.exports = {
                 label: 'Semgrep in continuous integration (CI)',
                 items: [
                     'semgrep-ci/overview',
-                    'semgrep-ci/manual-ci-setup',
                     'semgrep-ci/semgrep-ci-with-app',
+                    'semgrep-ci/running-semgrep-ci-without-semgrep-app',
                     'semgrep-ci/configuration-reference',
                     'semgrep-ci/sample-ci-configs',
                     'troubleshooting/gitlab-sast'

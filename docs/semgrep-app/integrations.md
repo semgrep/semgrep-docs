@@ -6,7 +6,7 @@ description: "Semgrep App contains 3rd party integrations to allow users to add 
 ---
 
 import MoreHelp from "/src/components/MoreHelp"
-import ProcedureIntegrateSlack from "/src/components/modules/procedure-modules/_procedure-integrate-slack.mdx"
+import ProcedureIntegrateSlack from "/src/components/procedure/_integrate-slack.mdx"
 
 # Integrating Semgrep App with third-party tools
 
