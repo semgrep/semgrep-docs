@@ -129,25 +129,20 @@ See the Makefile in `cli/`
 
 ## Adding python packages to `semgrep`
 
-Semgrep uses `mypy` to do static type-checking of its Python code. Therefore, when adding a new Python package, you also need to add typing stubs for that package. This can be done in three steps. For example, suppose you would like to add the package `pyyaml` to Semgrep.
+Semgrep uses `mypy` to do static type-checking of its Python code. Therefore, when adding a new Python package, you also need to add typing stubs for that package. This can be done in three steps. For example, suppose you are adding the package `pyyaml` to Semgrep.
 
-Install the corresponding package with typing stubs. For our `pyyaml` example, the corresponding package is `types-pyyaml`.
-
+1. Install the corresponding package with typing stubs. For this `pyyaml` example, the corresponding package is `types-pyyaml`. In the following command, `--dev` specifies that this package is needed for development but not in production. This command updates `cli/Pipfile` with the typing stubs package, and adds both the typing stubs and the package itself to your `Pipfile.lock`. This allows you to import the package in your code (for example, `import yaml as pyyaml`).
 ```
 pipenv install --dev types-pyyaml
 ```
-Here `--dev` specifies that this package is needed for development but not in production. This command updates `cli/Pipfile` with the typing stubs package, and adds both the typing stubs and the package itself to your `Pipfile.lock`. This allows you to import the package in your code. For example, `import yaml as pyyaml`.
-
-Next, manually add the typing stubs package to `.pre-commit-config.yaml` so that the pre-commit mypy hook can find the package.
-
+2. Add the typing stubs package to `.pre-commit-config.yaml` so that the pre-commit `mypy` hook can find the package.
 ```
       - id: mypy
         additional_dependencies: &mypy-deps
           - ...
           - types-PyYAML
 ```
-
-Finally, manually add the original package to `cli/setup.py` in the `install_requires` list variable. You can find the version number either in the `Pipfile.lock` changes or by looking up online the most recent major version of the package.
+3. Add the original package to `cli/setup.py` in the `install_requires` list variable. You can find the version number either in the `Pipfile.lock` changes or by looking up online the most recent major version of the package.
 
 ```
 install_requires = [
