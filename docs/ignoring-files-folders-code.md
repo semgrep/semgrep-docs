@@ -8,7 +8,7 @@ description: "This documents various methods to skip or ignore files, folders, o
 import MoreHelp from "/src/components/MoreHelp"
 
 # Ignoring files, folders, or parts of code
-
+<!-- This file has DEFAULT SEMGREPIGNORE TEXT which gets substituted when yarn is ran. Because of this it was added to .gitignore and you have to add it manually when changed before you commit. Make sure you left the variable untouched -->
 Exclude specific files, folders or parts of code from results of Semgrep scans in your repository or working directory. Semgrep will not generate findings for the ignored items.
 
 This is separate from [ignoring a **finding**](../managing-findings), which is a triage operation after a Semgrep scan has found a match.
@@ -32,7 +32,27 @@ Without user customization, Semgrep refers to the following to define ignored fi
 In the absence of a user-generated `.semgrepignore`, Semgrep will refer to [its repository's default template](https://github.com/returntocorp/semgrep/blob/develop/cli/src/semgrep/templates/.semgrepignore):
 
 ```
-DEFAULT_SEMGREPIGNORE_TEXT
+# Common large paths
+node_modules/
+build/
+dist/
+vendor/
+.env/
+.venv/
+.tox/
+*.min.js
+
+# Common test paths
+test/
+tests/
+*_test.go
+
+# Semgrep rules folder
+.semgrep
+
+# Semgrep-action log folder
+.semgrep_logs/
+
 ```
 
 :::caution
