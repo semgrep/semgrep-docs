@@ -1,7 +1,7 @@
 ---
-slug: semgrep-ci-with-app
+slug: running-semgrep-ci-with-semgrep-app
 append_help_link: true
-description: ""
+description: "Run Semgrep CI with Semgrep App to manage findings and rules from a centralized dashboard as well as receive notifications in various channels."
 title: Running Semgrep in CI with Semgrep App
 hide_title: true
 ---
