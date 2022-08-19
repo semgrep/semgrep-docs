@@ -8,7 +8,7 @@ description: >-
 import MoreHelp from "/src/components/MoreHelp"
 
 # Extensions
-<!-- This file has v0.110.0 which gets substituted when yarn is ran. Because of this it was added to .gitignore and you have to add it manually when changed before you commit. Make sure you left the variable untouched -->
+
 Several third-party tools include Semgrep extensions.
 
 

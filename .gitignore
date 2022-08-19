@@ -8,10 +8,6 @@
 .docusaurus
 .cache-loader
 
-#Articles with variables
-/docs/extensions.md
-/docs/ignoring-files-folders-code.md
-
 # Misc
 .DS_Store
 .env.local

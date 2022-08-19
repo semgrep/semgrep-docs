@@ -8,7 +8,7 @@ description: "This documents various methods to skip or ignore files, folders, o
 import MoreHelp from "/src/components/MoreHelp"
 
 # Ignoring files, folders, or parts of code
-<!-- This file has DEFAULT SEMGREPIGNORE TEXT which gets substituted when yarn is ran. Because of this it was added to .gitignore and you have to add it manually when changed before you commit. Make sure you left the variable untouched -->
+
 Exclude specific files, folders or parts of code from results of Semgrep scans in your repository or working directory. Semgrep will not generate findings for the ignored items.
 
 This is separate from [ignoring a **finding**](../managing-findings), which is a triage operation after a Semgrep scan has found a match.
