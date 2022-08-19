@@ -129,15 +129,14 @@ See the Makefile in `cli/`
 
 ## Adding python packages to `semgrep`
 
-Semgrep uses mypy to do static type-checking of its python code, so when adding a new python package, you also need to add typing stubs for that package. This can be done in three steps. For example, suppose you would like to add the package `pyyaml` to Semgrep.
+Semgrep uses `mypy` to do static type-checking of its Python code. Therefore, when adding a new Python package, you also need to add typing stubs for that package. This can be done in three steps. For example, suppose you would like to add the package `pyyaml` to Semgrep.
 
-First, install the corresponding package with typing stubs. For our `pyyaml` example, the corresponding package is `types-pyyaml`.
+Install the corresponding package with typing stubs. For our `pyyaml` example, the corresponding package is `types-pyyaml`.
 
 ```
 pipenv install --dev types-pyyaml
 ```
-
-Here we use --dev to specify that this package is needed for development but not in production. This command updates `cli/Pipfile` with the typing stubs package, and adds both the typing stubs and the package itself to your `Pipfile.lock`. This allows you to import the package in your code. For example, `import yaml as pyyaml`.
+Here `--dev` specifies that this package is needed for development but not in production. This command updates `cli/Pipfile` with the typing stubs package, and adds both the typing stubs and the package itself to your `Pipfile.lock`. This allows you to import the package in your code. For example, `import yaml as pyyaml`.
 
 Next, manually add the typing stubs package to `.pre-commit-config.yaml` so that the pre-commit mypy hook can find the package.
 
