@@ -131,7 +131,7 @@ See the Makefile in `cli/`
 
 Semgrep uses `mypy` to do static type-checking of its python code. Therefore, when adding a new python package, you also need to add typing stubs for that package. This can be done in three steps. For example, suppose you would like to add the package `pyyaml` to Semgrep.
 
-1. Install the corresponding package with typing stubs. For our `pyyaml` example, the corresponding package is `types-pyyaml`.
+Install the corresponding package with typing stubs. For our `pyyaml` example, the corresponding package is `types-pyyaml`.
 
 ```
 pipenv install --dev types-pyyaml
