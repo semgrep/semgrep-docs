@@ -136,7 +136,7 @@ Install the corresponding package with typing stubs. For our `pyyaml` example, t
 ```
 pipenv install --dev types-pyyaml
 ```
-Here we use --dev to specify that this package is needed for development but not in production. This command updates `cli/Pipfile` with the typing stubs package, and adds both the typing stubs and the package itself to your `Pipfile.lock`. This allows you to import the package in your code. For example, `import yaml as pyyaml`.
+Here `--dev` specifies that this package is needed for development but not in production. This command updates `cli/Pipfile` with the typing stubs package, and adds both the typing stubs and the package itself to your `Pipfile.lock`. This allows you to import the package in your code. For example, `import yaml as pyyaml`.
 
 Next, manually add the typing stubs package to `.pre-commit-config.yaml` so that the pre-commit mypy hook can find the package.
 
