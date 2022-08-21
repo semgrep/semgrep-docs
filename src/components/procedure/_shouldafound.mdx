@@ -2,6 +2,7 @@
 This example guides you through steps to report false negatives with Semgrep CLI:
 
 1. See the following example file `test.go`:
+
     ```go                                    
     package main​
     
@@ -13,9 +14,12 @@ This example guides you through steps to report false negatives with Semgrep CLI
     ```
 
 1. In your command-line, run the following command:
+
     ```sh
-    semgrep shouldafound --email "test@foo.com" <br /> --start 5 --end 7 -m "Semgrep missed vulnerable code here" ./test.go
+    semgrep shouldafound --email "test@foo.com" --start 5 --end 7 -m "Semgrep missed vulnerable code here" ./test.go
     ```
+
+    Specify lines of code to report as false negatives using `--start` and `--end` options. The example above reports all lines between 5 and 7. 
 
     This sends the following information to semgrep.dev:
 
@@ -26,6 +30,7 @@ This example guides you through steps to report false negatives with Semgrep CLI
         "message": "Semgrep missed vulnerable code here",
         "path": "test.go"
     }
+    ```
 
 3. Press `y` to send this information to r2c:
 
