@@ -104,6 +104,7 @@ module.exports = {
                     'getting-started',
                     'cli-reference',
                     'upgrading',
+                    'reporting-false-negatives',
                     'troubleshooting/semgrep'
                 ]
             },
