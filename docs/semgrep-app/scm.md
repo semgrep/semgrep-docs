@@ -12,9 +12,15 @@ import MoreHelp from "/src/components/MoreHelp"
 
 Semgrep App's Team and Enterprise tiers support repositories hosted on **GitHub Enterprise (GHE)** and **GitLab Self Managed (GLSM)** plans. When referring to SCM tools, this term means explicitly GHE or GLSM plans in this document.
 
+:::note
+This document covers the enablement of features for GitHub Enterprise **Server** plans. For users of GitHub Enterprise **Cloud** plans, see [Getting started with Semgrep App](/docs/semgrep-app/getting-started-with-semgrep-app).
+
+:::
+
 ## Prerequisites
 
-You need the following permissions to integrate Semgrep into GHE or GLSM servers:
+You need the following permissions to integrate Semgrep into GHE Server or GLSM servers:
+
 
 * Permission to create a **personal access token (PAT)** for the repository to scan with Semgrep. This PAT is used to enable Semgrep App to create pull request (PR) or merge request (MR) comments for findings. These comments provide a description of the issue detected by Semgrep and may offer possible solutions.
 * Permission to add **CI/CD secrets** into your [GitHub](https://docs.github.com/en/actions/security-guides/encrypted-secrets) or [GitLab](https://docs.gitlab.com/ee/ci/secrets/) environments.
@@ -23,7 +29,8 @@ You need the following permissions to integrate Semgrep into GHE or GLSM servers
 
 Semgrep App requires PATs with assigned scopes. These scopes grant necessary permissions to the PAT and vary depending on the user's SCM.
 
-| GitHub Enterprise          | GitLab Self-Managed        |
+| GitHub Enterprise Server          | GitLab Self-Managed        |
+
 |:---------------------------|:---------------------------|
 | <ul><li>`public_repo`</li> <li>`repo:status`</li> <li>`user:email`</li> <li>`write:discussion`</li></ul> | `api` |
 
@@ -43,13 +50,15 @@ Integrate Semgrep into these custom source code management (SCM) tools by follow
 </div>
 
 3. Select your SCM provider.
-4. For **GitHub Enterprise**, follow these steps:
+4. For **GitHub Enterprise Server**, follow these steps:
+
     1. Create a PAT by following the steps outlined in this [guide to creating a PAT](https://docs.github.com/en/enterprise-server@3.1/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token). Ensure that the PAT is **[created with the required scopes](../scm/#table-of-required-scopes-for-pats)**.
-    2. Enter the personal access token generated into the Access Token field.
-    3. Enter your GHE base URL into the SCM Base URL.
+    2. Enter the personal access token generated into the **Access Token** field.
+    3. Enter your GHE Server base URL into the **SCM Base URL**.
+
 5. For **GitLab Self Managed**, follow these steps:
     1. Create a PAT by following the steps outlined in this [guide to creating a PAT](https://docs.gitlab.com/ee/user/profile/personal_access_tokens.html). Ensure that the PAT is **[created with the required scopes](../scm/#table-of-required-scopes-for-pats)**.
-    2. Enter the personal access token generated into the Access Token field.
+    2. Enter the personal access token generated into the **Access Token** field.
     3. Enter your GLSM base URL into the **SCM Base URL** field.
 6. Ensure that your SCM integration successfully detects repositories by following the steps below:
     1. Click **Projects > Setup New Project**.
