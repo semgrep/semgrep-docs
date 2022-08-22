@@ -145,10 +145,10 @@ Semgrep uses `mypy` to do static type-checking of its Python code. Therefore, wh
 3. Add the original package to `cli/setup.py` in the `install_requires` list variable. You can find the version number either in the `Pipfile.lock` changes or by looking up online the most recent major version of the package.
     ```
     install_requires = [
-   ...
-   "pyyaml~=6.0",
-]
-```
+       ...
+       "pyyaml~=6.0",
+    ]
+    ```
 
 This change makes your package a dependency of published Semgrep. Without this change, if you create a pull request, the CI job called `build docker image` fails with a `ModuleNotFoundError`, indicating that it is unable to find your package.
 
