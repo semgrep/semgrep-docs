@@ -22,8 +22,8 @@ Run Semgrep in your continous integration (CI) pipeline to scan your repository 
 
 This guide explains how to connect your repository to Semgrep App to scan continuously.
 
-:::note
-* This guide's configuration and feature support are specific to Semgrep-App-connected CI jobs. Refer to [Running Semgrep in CI without Semgrep App](../manual-ci-setup) for stand-alone CI jobs.
+:::info
+* This guide's configuration and feature support are specific to Semgrep-App-connected CI jobs. Refer to [Running Semgrep in CI without Semgrep App](../running-semgrep-ci-without-semgrep-app) for stand-alone CI jobs.
 * Semgrep 0.98.0 introduced changes to how certain CI providers fetch environment variables. Refer to the appendix at the end of this document for more information.
 :::
 
@@ -35,11 +35,11 @@ The following video walks you through setting Semgrep in your CI through Semgrep
 
 Support for certain features of Semgrep App depend on your CI provider or source code management tool (SCM). The following table breaks down the features and their availability:
 
-| Feature | GitHub | GitLab | BitBucket | CI Provider support |
+| Feature | GitHub | GitLab | BitBucket | CI provider support |
 | ------- | -------- | ------- | -------- | ---------------- |
 | **Diff-aware scanning** | ✅ Yes | ✅ Yes | ✅ Yes  | ✅ Available (may need additional set up) | 
 | **Hyperlinks** | ✅ Yes | ✅ Yes | ✅ Yes  |  ✅ Available (may need additional set up) |
-| **SCM security dashboard** |  ✅ GitHub Advanced Security Dashboard |  ✅ GitLab SAST Dashboard | ❌ No | ❗ Only GitHub Actions and GitLab CI/CD |
+| **SCM security dashboard** |  ✅ GitHub Advanced Security Dashboard |  ✅ GitLab Security Dashboard | ❌ No | ❗ Only GitHub Actions and GitLab CI/CD |
 | **PR or MR comments** |  ✅ Yes | ✅ Yes | ❌ No | ✅ CI provider agnostic; feature support is dependent on SCM |
 *Table 1.* List of features and supported SCMs and CI providers.
 
@@ -62,7 +62,7 @@ Support for certain features of Semgrep App depend on your CI provider or source
 
 Refer to the succeeding sections for guidance specific to your CI provider.
 
-### In-App Providers (such as GitHub Actions, GitLab CI/CD, Jenkins)
+### CI providers listed within Semgrep App (such as GitHub Actions, GitLab CI/CD, Jenkins)
 
 This section applies to the following providers:
 
@@ -72,11 +72,12 @@ This section applies to the following providers:
 * Bitbucket Pipelines
 * CircleCI
 * Buildkite
+* Azure Pipelines
 
-These providers are explicitly listed in Semgrep App, and Semgrep App is able to generate CI configuration files for you to commit into your repository.
+**In-app providers** are explicitly listed in Semgrep App, and Semgrep App is able to generate CI configuration files for you to commit into your repository.
 
 :::note
-GitHub, GitLab, and BitBucket should work with the above CI providers, but steps and feature enablement may vary for **on-premise, self-hosted, or virtual private cloud (VPC) deployments**, such as GitHub Enterprise.
+GitHub, GitLab, and BitBucket SCMs are compatible with the above CI providers, but steps and feature enablement may vary for **on-premise, self-hosted, or virtual private cloud (VPC) deployments**, such as GitHub Enterprise Server.
 :::
 
 To set up the CI job and connect with Semgrep App:
@@ -92,6 +93,21 @@ To set up the CI job and connect with Semgrep App:
     4. Click **Check connection**. Semgrep App starts the scan.
 7. After verifying that Semgrep App is able to scan the repository, you can [customize the CI job or Semgrep App configuration](#refining-the-semgrep-app-configuration).
 
+#### Sample CI configuration snippets
+
+Refer to the following table for links to sample CI configuration snippets:
+
+| In-app CI provider   | Sample CI configuration snippet |
+| :------------------- | :-----------------------------  |
+| GitHub Actions       |
+| GitLab CI/CD         |
+| Jenkins              |
+| Bitbucket Pipelines  |
+| CircleCI             |
+| Buildkite            |
+| Azure Pipelines      |
+
+
 #### Setting up security dashboards for GitHub and GitLab
 
 TODO
@@ -104,6 +120,7 @@ Refer to these sample configuration files to set up security dashboards for GitH
 <details><summary>GitLab: Sample `semgrep.yml` configuration file </summary>
 
 </details>
+
 ### Other CI providers (environment variables setup)
 
 Other CI providers, such as **Drone CI** and **AppVeyor**, can run Semgrep continuously and connect to Semgrep App through the use of environment variables provided in this document. The general steps are:
