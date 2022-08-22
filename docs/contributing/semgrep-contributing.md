@@ -143,9 +143,8 @@ Semgrep uses `mypy` to do static type-checking of its Python code. Therefore, wh
               - types-PyYAML
     ```
 3. Add the original package to `cli/setup.py` in the `install_requires` list variable. You can find the version number either in the `Pipfile.lock` changes or by looking up online the most recent major version of the package.
-
-```
-install_requires = [
+    ```
+    install_requires = [
    ...
    "pyyaml~=6.0",
 ]
