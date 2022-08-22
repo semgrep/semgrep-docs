@@ -18,7 +18,8 @@ This document covers the enablement of features for GitHub Enterprise **self-hos
 
 ## Prerequisites
 
-You need the following permissions to integrate Semgrep into GHE Self-Hosted or GLSM servers:
+You need the following permissions to integrate Semgrep into GHE Server or GLSM servers:
+
 
 * Permission to create a **personal access token (PAT)** for the repository to scan with Semgrep. This PAT is used to enable Semgrep App to create pull request (PR) or merge request (MR) comments for findings. These comments provide a description of the issue detected by Semgrep and may offer possible solutions.
 * Permission to add **CI/CD secrets** into your [GitHub](https://docs.github.com/en/actions/security-guides/encrypted-secrets) or [GitLab](https://docs.gitlab.com/ee/ci/secrets/) environments.
