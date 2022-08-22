@@ -292,8 +292,7 @@ You may select rules and rulesets from your own rules, your organization's rules
 
 The Rule Board is composed of three columns:
 
-
-<dl>
+<dl class='description-list__table'>
     <dt>Monitor</dt>
     <dd>Rules here show findings only on Semgrep App.</dd>
     <dt>Comment</dt>
@@ -350,7 +349,7 @@ Semgrep's pattern-matching behavior resembles a linter, but its data flow engine
 
 Semgrep provides the following environments to learn, experiment, and write Semgrep rules:
 
-<dl>
+<dl class='description-list__table'>
     <dt><a href="https://semgrep.dev/learn">Tutorial</a></dt>
 	<dd>Learn Semgrep's pattern matching syntax, rule composition, and advanced features.</dd>
     <dt><a href="https://semgrep.dev/playground">Playground</a></dt>

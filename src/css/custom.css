@@ -153,30 +153,26 @@ h5 {
 
 /* Definition/description lists styling with flex*/
 
-dl {
-  display: flex;
-  flex-flow: row wrap;
-}
-dt {
-  flex-basis: 20%;
-  padding: 2px 8px;
-  text-align: left;
-  font-weight: 700;
-}
-dd {
-  flex-basis: 80%;
-  flex-grow: 1;
-  margin: 0;
-  margin-bottom: 0.3rem;
-  padding: 2px 4px;
+.description-list__table {
+    display: flex;
+    flex-flow: row wrap;
 }
 
-/* Definition/description lists styling */
-/*
+.description-list__table > dt {
+    flex-basis: 20%;
+    padding: 2px 8px;
+    text-align: left;
+}
+.description-list__table > dd {
+    flex-basis: 80%;
+    flex-grow: 1;
+    margin: 0;
+    margin-bottom: 0.3rem;
+    padding: 2px 4px;
+}
 dt {
     font-weight: 700;
 }
-*/
 
 /*  Display the ":" colon after entries in defintion/description lists */
 /*
