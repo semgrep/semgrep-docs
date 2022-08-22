@@ -17,7 +17,7 @@ Run Semgrep in your continous integration (CI) pipeline to scan your repository 
 
 * Block pull or merge requests (PRs or MRs) based on the rule that generated the finding.
 * Scan many repositories and manage their findings in bulk.
-* Triage (ignore) false-positive findings from low-performing rules.
+* Ignore false-positive findings from noisy rules.
 * Fork existing rules to create custom rules and add them to Semgrep App for scanning.
 
 This guide explains how to connect your repository to Semgrep App to scan continuously.
@@ -45,14 +45,19 @@ Support for certain features of Semgrep App depend on your CI provider or source
 
 <dl>
     <dt>Diff-aware scanning</dt>
-    <dd>Semgrep App can scan changes in files when running on a pull or merge request (PR or MR). This keeps the scan fast and reduces finding duplication.</dd>
+    <dd>Semgrep App can scan only changes in files when running on a pull or merge request (PR or MR). This keeps the scan fast and reduces finding duplication.</dd>
     <dt>Receiving results (findings) as PR or MR comments</dt>
     <dd>This feature enables you to receive <a href="/docs/semgrep-app/notifications/#enabling-github-pull-request-comments">PR or MR comments</a> from Semgrep App on the lines of code that generated a finding.</dd>
     <dt>Hyperlinks to code</dt>
-    <dd>Semgrep App collects findings in a Findings page. In this page, you can click on a finding to view the lines of code in your repository that generated the finding.</dd>
+    <dd>Semgrep App collects findings in a Findings page. In this page, you can click on a finding to return to your SCM (Github, GitLab, or Bitbucket) to view the lines of code in your repository that generated the finding.</dd>
     <dt>SCM security dashboard</dt>
     <dd>Send Semgrep findings to your SCM's security dashboard.</dd>
 </dl>
+
+:::note
+* Your code does not leave your environment and is not sent to Semgrep App servers.
+* Semgrep App collects [**findings** data](docs/managing-findings/#semgrep-ci), which includes the line number of the code match, **not the code**. It is hashed using a one-way hashing function. Findings data is used to generate hyperlinks and support other Semgrep functions.
+:::
 
 ## Setting up the CI job and Semgrep App connection
 
@@ -82,7 +87,7 @@ GitHub, GitLab, and BitBucket SCMs are compatible with the above CI providers, b
 
 To set up the CI job and connect with Semgrep App:
 
-1. Sign in to [Semgrep App](https://semgrep.dev/login). See [Signing in to Semgrep App](/docs/semgrep-app/getting-started-with-semgrep-app/#signing-in-to-semgrep-app) for details on requested permissions and repository access.
+1. Sign in to [Semgrep App](https://semgrep.dev/login). See [Signing in to Semgrep App](/docs/semgrep-app/getting-started-with-semgrep-app/#signing-in-to-semgrep-app) for details on requested repository permissions and access.
 2. Click **Projects > Scan New Project > Run Scan in CI**.
 3. Select your provider from the menu.
 4. Optional: Some providers may ask you to select your organization if applicable to your SCM tool.
@@ -304,7 +309,7 @@ To help troubleshoot the features in this guide, ensure that you have updated yo
     <tr>
         <td><code>SEMGREP_BASELINE_REF</code></td>
         <td>Enable diff-aware scanning.</td>
-        <td>Required to enable diff-aware scanning for other CI providers not listed in Semgrep App.</td>
+        <td>Required to enable diff-aware scanning for CI providers <em>except</em> GitHub Actions or GitLab CI/CD.</td>
     </tr>
     <tr>
         <td><code>SEMGREP_TIMEOUT</code></td>
@@ -332,7 +337,9 @@ To help troubleshoot the features in this guide, ensure that you have updated yo
 </tbody>
 </table>
 
-Examples of other CI providers not listed in Semgrep App
+## Appendix: Examples of other CI providers not listed in Semgrep App
+
+The following CI providers have been texted by the community to run with Semgrep App:
 
 * AppVeyor
 * Bamboo
