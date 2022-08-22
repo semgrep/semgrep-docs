@@ -136,12 +136,12 @@ Semgrep uses `mypy` to do static type-checking of its Python code. Therefore, wh
 pipenv install --dev types-pyyaml
 ```
 2. Add the typing stubs package to `.pre-commit-config.yaml` so that the pre-commit `mypy` hook can find the package.
-```
-      - id: mypy
-        additional_dependencies: &mypy-deps
-          - ...
-          - types-PyYAML
-```
+    ```
+          - id: mypy
+            additional_dependencies: &mypy-deps
+              - ...
+              - types-PyYAML
+    ```
 3. Add the original package to `cli/setup.py` in the `install_requires` list variable. You can find the version number either in the `Pipfile.lock` changes or by looking up online the most recent major version of the package.
 
 ```
