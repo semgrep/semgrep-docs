@@ -233,43 +233,7 @@ These release notes include upgrades for all versions ranging between **0.91.0**
 
 - Dockerfile: Constant propagation now works on variables declared with `ENV`.
 
-- Added `shouldafound`. You can report false negatives that Semgrep should have found through the Semgrep CLI itself. See the following use case of `shouldafound`:
-
-    See the following file `test.go`:
-    ```go                                    
-    package main
-    ​
-    import "fmt"
-    ​
-    func main() {
-        fmt.Println("foo")
-    }
-    ```
-
-    Let's notify Semgrep creators that they missed some vulnerable code in the previous file:
-    ```sh
-    semgrep shouldafound --email "test@foo.com" --start 5 --end 7
-    -m "Semgrep missed a vulnerable code here" ./test.go
-    ```
-
-    This will send the following information to semgrep.dev:
-
-    ```sh
-    {
-      "email": "test@foo.com",
-      "lines": "func main() {\n    fmt.Println(\"foo\")\n}\n",
-      "message": "Semgrep missed a vulnerable code here",
-      "path": "test.go"
-    }
-    OK to send? [y/N]: y
-    ```
-
-    If you send the code, you get the following notice in the terminal:
-
-    ```sh
-    Sent feedback. Thanks for your contribution!
-    You can view and extend the generated rule template here: https://semgrep.dev/s/ylAk
-    ```
+- Added `shouldafound`. For more information, see [Reporting false negatives](/reporting-false-negatives.md).
 
 - dataflow: The [data-flow analysis engine](https://semgrep.dev/docs/writing-rules/data-flow/) now handles `if-then-else` **expressions** as in OCaml, Ruby etc. Previously it only handled `if-then-else` **statements**. ([#4965](https://github.com/returntocorp/semgrep/issues/4965))
 

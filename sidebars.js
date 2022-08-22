@@ -18,7 +18,7 @@ module.exports = {
     'Docs home',
     {
         type: 'category',
-        label: 'WELCOME',
+        label: 'Welcome',
         collapsible: false,
         items: [
             'getting-started',
@@ -28,7 +28,7 @@ module.exports = {
     },
     {
       type: 'category',
-      label: 'SEMGREP FEATURES',
+      label: 'Semgrep features',
       collapsible: false,
       items: [
         'supported-languages',
@@ -94,7 +94,7 @@ module.exports = {
     },
     {
         type: 'category',
-        label: 'USING SEMGREP',
+        label: 'Using Semgrep',
         collapsible: false,
         items: [
             {
@@ -104,6 +104,7 @@ module.exports = {
                     'getting-started',
                     'cli-reference',
                     'upgrading',
+                    'reporting-false-negatives',
                     'troubleshooting/semgrep'
                 ]
             },
@@ -168,7 +169,7 @@ module.exports = {
     },
     {
         type: 'category',
-        label: 'LEARN SEMGREP',
+        label: 'Learn Semgrep',
         collapsible: false,
         items: [
             'playground',
@@ -177,7 +178,7 @@ module.exports = {
     },
     {
         type: 'category',
-        label: 'CONTRIBUTING',
+        label: 'Contributing',
         collapsible: false,
         items: [
             'contributing/contributing',
@@ -200,7 +201,7 @@ module.exports = {
     },
     {
         type: 'category',
-        label: 'ABOUT SEMGREP',
+        label: 'About Semgrep',
         collapsible: false,
         items: [
             'support',

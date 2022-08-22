@@ -1,0 +1,46 @@
+
+This example guides you through steps to report false negatives with Semgrep CLI:
+
+1. See the following example file `test.go`:
+
+    ```go                                    
+    package main​
+    
+    import "fmt"
+    
+    func main() {
+        fmt.Println("foo")
+    }
+    ```
+
+1. In your command-line, run the following command:
+
+    ```sh
+    semgrep shouldafound --email "test@foo.com" --start 5 --end 7 -m "Semgrep missed vulnerable code here" ./test.go
+    ```
+
+    Specify lines of code to report as false negatives using `--start` and `--end` options. The example above reports all lines between 5 and 7. 
+
+    This sends the following information to semgrep.dev:
+
+    ```sh
+    {
+        "email": "test@foo.com",
+        "lines": "func main() {\n    fmt.Println(\"foo\")\n}\n",
+        "message": "Semgrep missed vulnerable code here",
+        "path": "test.go"
+    }
+    ```
+
+3. Press `y` to send this information to r2c:
+
+    ```
+    OK to send? [y/N]: y
+    ```
+
+If you send the code, you receive the following notice in your command-line:
+
+```sh
+Sent feedback. Thanks for your contribution!
+You can view and extend the generated rule template here: https://semgrep.dev/s/ylAk
+```
