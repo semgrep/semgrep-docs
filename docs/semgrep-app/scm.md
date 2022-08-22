@@ -29,7 +29,8 @@ You need the following permissions to integrate Semgrep into GHE Server or GLSM 
 
 Semgrep App requires PATs with assigned scopes. These scopes grant necessary permissions to the PAT and vary depending on the user's SCM.
 
-| GitHub Enterprise Self-Hosted          | GitLab Self-Managed        |
+| GitHub Enterprise Server          | GitLab Self-Managed        |
+
 |:---------------------------|:---------------------------|
 | <ul><li>`public_repo`</li> <li>`repo:status`</li> <li>`user:email`</li> <li>`write:discussion`</li></ul> | `api` |
 
