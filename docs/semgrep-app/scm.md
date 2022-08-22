@@ -52,7 +52,8 @@ Integrate Semgrep into these custom source code management (SCM) tools by follow
 4. For **GitHub Enterprise Self-Hosted**, follow these steps:
     1. Create a PAT by following the steps outlined in this [guide to creating a PAT](https://docs.github.com/en/enterprise-server@3.1/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token). Ensure that the PAT is **[created with the required scopes](../scm/#table-of-required-scopes-for-pats)**.
     2. Enter the personal access token generated into the **Access Token** field.
-    3. Enter your GHE Self-Hosted base URL into the **SCM Base URL**.
+    3. Enter your GHE Server base URL into the **SCM Base URL**.
+
 5. For **GitLab Self Managed**, follow these steps:
     1. Create a PAT by following the steps outlined in this [guide to creating a PAT](https://docs.gitlab.com/ee/user/profile/personal_access_tokens.html). Ensure that the PAT is **[created with the required scopes](../scm/#table-of-required-scopes-for-pats)**.
     2. Enter the personal access token generated into the **Access Token** field.
