@@ -322,7 +322,6 @@ Hyperlinks enable you to view the code that generated the finding from within yo
 
 To **enable hyperlinks**, the following environment variables must be added into your CI configuration file:
 
-TODO make better examples
 ```
 SEMGREP_REPO_NAME="foo/bar"
 SEMGREP_REPO_URL="https://github.com/foo/bar"
@@ -334,7 +333,7 @@ SEMGREP_PR_ID="44"
 
 ### Receiving PR or MR comments
 
-:::note
+:::info
 * Semgrep App does not support PR comments within BitBucket repositories.
 :::
 
@@ -353,6 +352,8 @@ The Rule Board enables you to:
 
 * Add or remove rules and rulesets that are used to scan your code.
 * Block PRs or MRs, leave comments on code, or monitor findings silently.
+
+TODO - modularize?
 
 ### Setting a scan schedule
 
