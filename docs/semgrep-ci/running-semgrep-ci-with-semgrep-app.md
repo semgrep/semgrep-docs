@@ -300,11 +300,14 @@ Refer to the following section to set up additional environment variables.
 
 ### Diff-aware scanning
 
-:::tip
-Diff-aware scanning is automatically enabled for all [CI providers listed in Semgrep App](#in-app-providers-such-as-github-actions-gitlab-cicd-jenkins).
-:::
-
 <DiffAwareScanning />
+
+:::info
+* Diff-aware scanning is automatically configured for GitHub Actions and GitLab CI/CD through the snippets provided by Semgrep App.
+* For other CI providers, Semgrep App configures a full scan. You can set up both diff-aware scanning and full scans through either of the following:
+    * Create separate jobs for diff-aware scans and full scans.
+    * If your CI provider supports conditional statements, use an if/then statement that detects the presence of `SEMGREP_BASELINE_REF`. 
+:::
 
 ### Enabling hyperlinks to code
 
@@ -320,7 +323,7 @@ Hyperlinks enable you to view the code that generated the finding from within yo
 ![Screenshot of findings page snippet with hyperlinks](/img/findings-with-hyperlinks.png "Screenshot of findings page snippet with hyperlinks")
 *Figure 3.* Partial screenshot of findings page with hyperlinks.
 
-To **enable hyperlinks**, the following environment variables must be added into your CI configuration file:
+To **enable hyperlinks**, additional environment variables must be added into your CI configuration file. The following example provides sample values that the environment variables accept. You can substitute your CI provider's variables.
 
 ```
 SEMGREP_REPO_NAME="foo/bar"
@@ -339,11 +342,12 @@ SEMGREP_PR_ID="44"
 
 To receive PR or MR comments in your repository, follow the steps to enable hyperlinks. Verify that comments are sent by adding rules to your Rule Board's **Comment** column that can match code to generate a finding.
 
-### Setting a timeout
-To **set a timeout** for the Semgrep job, set the following: TODO
+### Setting a custom timeout
+
+By default, Semgrep times out after 30 minutes. To **set a custom timeout** for the Semgrep job, set the `SEMGREP_TIMEOUT` environment variable in seconds. For example:
 
 ```
-SEMGREP_TIMEOUT
+SEMGREP_TIMEOUT="300"
 ```
 
 ### Customizing rules through the Rule Board
@@ -367,7 +371,7 @@ TODO - modularize?
 
 Starting from Semgrep 0.98.0, Semgrep App can fetch values of environment variables for [In-App providers](#in-app-providers-such-as-github-actions-gitlab-cicd-jenkins). Therefore, not all CI providers need the same environment variables.
 
-To help troubleshoot the features in this guide, ensure that you have updated your Semgrep installation and removed all unnecessary variables in your configuration file.
+To help troubleshoot the features in this guide, ensure that you have updated your Semgrep installation.
 
 <table>
 <thead>
@@ -394,7 +398,7 @@ To help troubleshoot the features in this guide, ensure that you have updated yo
     <tr>
         <td><code>SEMGREP_REPO_NAME</code></td>
         <td rowspan="6">Enables hyperlinks and PR or MR comments.</td>
-        <td rowspan="6">Required to enable hyperlinks and PR or MR comments for other CI providers not listed in Semgrep App.</td></tr>
+        <td rowspan="6">Required to enable hyperlinks and PR or MR comments.</td></tr>
     <tr>
         <td><code>SEMGREP_REPO_URL</code></td>
     </tr>
@@ -415,7 +419,7 @@ To help troubleshoot the features in this guide, ensure that you have updated yo
 
 ## Appendix: Examples of other CI providers not listed in Semgrep App
 
-The following CI providers have been texted by the community to run with Semgrep App:
+The following CI providers have been tested by the community to run with Semgrep App:
 
 * AppVeyor
 * Bamboo
