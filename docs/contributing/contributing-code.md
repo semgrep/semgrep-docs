@@ -149,25 +149,79 @@ Once `pre-commit` is working you may commit code and create pull requests as
 you would expect. Pull requests require approval of at least one maintainer and
 [CI to be passing](https://github.com/returntocorp/semgrep/actions).
 
+### Explaining code
+
+It's important for code to be easy to maintain. This allows all of us to
+spend more time on new features rather than spending it on studying
+legacy code. As a general rule of thumb, assume that all context that
+is not written down will be lost and forgotten. Useful context includes:
+
+* Why does this code exist?
+* What or who uses this code?
+* What does this code achieve?
+* Could this code be replaced by an off-the-shelf component? Why not?
+* Does it implement a formal specification or a well-known pattern? Where can
+  we learn more about it?
+
+We ask that **each source file start with one comment** that
+concisely answers these questions.
+
+Here's a short example:
+```
+(*
+   Generate unique names with a given prefix.
+*)
+```
+
+It could be improved by explaining a bit about the code's uses:
+```
+(*
+   Generate unique names with a given prefix. This is used to
+   name new grammar rules and new OCaml variables.
+*)
+```
+
 ### Adding a changelog entry
 
-Depending on the nature of the code contribution, you may add an entry to the changelog.
+#### Quick reference
 
-A changelog entry might be useful if you are:
+Add a new file named like `changelog.d/gh-1234.fixed` that contains
+a single paragraph of Markdown text such as:
+```
+Fix emojis absorbed by the fleeb generator
+```
+
+File name format:
+```
+gh-1234.fixed
+   ^^^^ ^^^^^
+   |    |
+   |    one of: "added", "changed", "fixed", "infra"
+   GitHub issue or pull request ID
+```
+
+Valid changelog file suffixes are:
+- `added` - New features or other previously non-existing functionality
+- `changed` - Items that have changed the way Semgrep functions
+- `fixed` - Bug fixes or other improvements
+- `infra` - Workflow improvements or other non-code updates
+
+#### When to add a changelog entry
+
+If you contribute code that affects users, you must add an entry
+to the changelog, in the [`changelog.d`
+folder](https://github.com/returntocorp/semgrep/tree/develop/changelog.d). At
+each Semgrep release, these files are automatically gathered and formatted to
+produce [release notes](https://github.com/returntocorp/semgrep/blob/develop/CHANGELOG.md).
+
+A changelog entry is required if you are:
 - Adding new features or other previously non-existing functionality.
 - Including important changes in the way Semgrep functions.
 - Submitting bug fixes or other improvements.
 - Creating workflow improvements or other non-code updates.
 
-A tool called `towncrier` is used for changelog management. At the root of the Semgrep repository, there is a directory `changelog.d`, which contains individual changelog entries, each in their own file. An example of such a file is contained in the repository. See also the description of the format below.
-
-This paragraph documents what file names you should create for changelog entries. A hypothetical changelog entry file named `cli-123.fixed` would indicate that the branch contains changes that addressed a CLI ticket number 123, and that the changes fixed existing functionality. Similarly, a hypothetical changelog entry file named `pa-321.added` would indicate that new functionality was added in support of PA ticket number 321. If you are an open-source contributor or don't have a ticket number to reference, substitute the first part of the changelog entry filename with another string, such as a GitHub issue number or a semantic name, such as `gh-1234.added` or `logoutput.fixed`.
-
-Acceptable changelog file suffixes include:
-- `added` - New features or other previously non-existing functionality
-- `changed` - Items that have changed the way Semgrep functions
-- `fixed` - Bug fixes or other improvements
-- `infra` - Workflow improvements or other non-code updates
+A tool called [`towncrier`](https://github.com/twisted/towncrier) is
+used for changelog management.
 
 ### Troubleshooting pre-commit
 
