@@ -117,14 +117,74 @@ Refer to the following table for links to sample CI configuration snippets:
 
 #### Setting up security dashboards for GitHub and GitLab
 
-TODO
-Refer to these sample configuration files to set up security dashboards for GitHub and GitLab.
+Refer to the following sample configurations to set up security dashboards for GitHub and GitLab.
 
-<details><summary>GitHub: Sample `semgrep.yml` configuration file </summary>
+<details><summary>GitHub: Sample <code>semgrep.yml</code> configuration file </summary>
 
+```yaml
+# Name of this GitHub Actions workflow.
+name: Semgrep
+
+on:
+  # Scan changed files in PRs (diff-aware scanning):
+  pull_request: {}
+
+jobs:
+  semgrep:
+    # User definable name of this GitHub Actions job:
+    name: Scan
+    # Only change the if you are self-hosting. See also:
+    # If you are self-hosting, change the following `runs-on` value: 
+    runs-on: ubuntu-latest
+
+    container:
+      # A Docker image with Semgrep installed. Do not change this.
+      image: returntocorp/semgrep
+
+    # To skip any PR created by dependabot to avoid permission issues:
+    if: (github.actor != 'dependabot[bot]')
+
+    steps:
+      - uses: actions/checkout@v3
+      - run: semgrep scan --sarif --output=semgrep.sarif --config=policy
+        env:
+          SEMGREP_APP_TOKEN: ${{ secrets.SEMGREP_APP_TOKEN }}
+      - name: Upload SARIF file for GitHub Advanced Security Dashboard
+        uses: github/codeql-action/upload-sarif@v2
+        with:
+          sarif_file: semgrep.sarif
+        if: always()
+```
 </details>
 
-<details><summary>GitLab: Sample `semgrep.yml` configuration file </summary>
+<details><summary>GitLab: Sample <code>.gitlab-ci.yml</code> configuration snippet</summary>
+
+```yaml
+semgrep:
+  # A Docker image with Semgrep installed.
+  image: returntocorp/semgrep
+
+  rules:
+    # Scan changed files in MRs (diff-aware scanning):
+    - if: $CI_MERGE_REQUEST_IID
+    # Scan all files on the default branch and report any findings:
+    - if: $CI_COMMIT_BRANCH == $CI_DEFAULT_BRANCH
+
+  variables:
+    # Add the rules that Semgrep uses by setting the SEMGREP_RULES environment variable. 
+    SEMGREP_RULES: p/default # See more rules at semgrep.dev/explore.
+    # Uncomment SEMGREP_TIMEOUT to set this job's timeout (in seconds):
+    # Default timeout is 1800 seconds (30 minutes).
+    # Set to 0 to disable the timeout.
+    # SEMGREP_TIMEOUT: 300
+    # Upload findings to GitLab SAST Dashboard
+    SEMGREP_GITLAB_JSON: "1"
+    script: semgrep ci --gitlab-sast > gl-sast-report.json || true
+    artifacts:
+      reports:
+        sast: gl-sast-report.json
+
+```
 
 </details>
 
@@ -132,23 +192,44 @@ Refer to these sample configuration files to set up security dashboards for GitH
 
 Other CI providers, such as **Drone CI** and **AppVeyor**, can run Semgrep continuously and connect to Semgrep App through the use of environment variables provided in this document. The general steps are:
 
-1. Create a CI job running Semgrep.
-2. Create a `SEMGREP_APP_TOKEN` and add it as a credential, secret, or token into your CI provider and CI configuration file.
-3. For GitHub repositories: Grant permissions for Semgrep App.
-4. If the job does not start automatically, run the job by committing code or creating a PR or MR.
+1. Create a `SEMGREP_APP_TOKEN` and add it as a credential, secret, or token into your CI provider and CI configuration file.
+2. For GitHub repositories: Grant permissions for [Semgrep App](https://github.com/marketplace/semgrep-dev).
+3. Create a CI job running Semgrep and commit the updated configuration file.
+4. The CI job starts automatically depending on your configuration and CI provider. If the job does not start, run the job by committing code or creating a PR or MR.
 5. Semgrep detects the `SEMGREP_APP_TOKEN`, sends it to Semgrep App for verification, and if verified, findings are sent to Semgrep App.
-6. Define additional environment variables to enable other Semgrep App features. This is done last because it is easier to set up and troubleshoot and CI jobs after verifying the CI job and connection to Semgrep App.
+6. Define additional environment variables to enable other Semgrep App features. This is done last because it is easier to set up and troubleshoot CI jobs after ensuring that the CI job runs correctly.
 
 The next sections go over these steps in detail.
 
-#### Create a CI job running Semgrep
+#### Creating a `SEMGREP_APP_TOKEN` 
+To create a `SEMGREP_APP_TOKEN`:
+1. Sign in to [Semgrep App](https://semgrep.dev/login).
+2. Click **Settings > Tokens**.
+3. Click **Create new token**.
+4. Copy the name and value, then click **Update**.
+5. Store the token value into your CI provider. Tokens can also be referred to as `secrets`, `credentials`, or `secure variables`. The steps to do this vary depending on your CI provider.
+6. Add the `SEMGREP_APP_TOKEN` environment variable into your Semgrep CI job. Refer to your CI provider's documentation for the correct syntax. You can also see the examples in [Create a CI job](#create-a-ci-job-running-semgrep).
 
-There are two methods to adding Semgrep to your CI pipeline:
+#### Granting permissions for Semgrep App (GitHub repositories only)
+
+:::tip
+Perform these steps before committing your CI job configuration to ensure that Semgrep App has the necessary permissions to scan your code.
+:::
+
+Follow these steps for GitHub permissions access:
+
+1. Go to the [Semgrep application](https://github.com/marketplace/semgrep-dev) within GitHub Marketplace.
+2. Click on **Install it for free**. Follow the instructions to begin the installation.
+2. Once `semgrep-app` is installed, select what repositories `semgrep-app` can access. Select **All repositories** or **Only select repositories**.
+4. Click **Install & Authorize** to finalize your installation.
+
+#### Creating a CI job running Semgrep
 
 1. Add Semgrep to your CI pipeline. Do either of the following:
     1. Reference or add the [Semgrep Docker image](https://hub.docker.com/r/returntocorp/semgrep). This is the recommended method.
     2. Add `pip install semgrep` into your configuration file as a step or command, depending on your CI provider's syntax.
-2. After adding Semgrep to your CI job, add `semgrep ci` as a step or command.
+2. Add `semgrep ci` as a step or command.
+3. Set the `SEMGREP_APP_TOKEN` environment variable within your configuration file.
 
 The following example is a `bitbucket-pipelines.yml` file that adds Semgrep through the Docker image:
 
@@ -201,29 +282,20 @@ pipeline {
 
 </details>
 
-#### Create a `SEMGREP_APP_TOKEN` and set the environment variable in your CI configuration file
+#### Running the job
 
-To create a `SEMGREP_APP_TOKEN`:
-1. Sign in to Semgrep App.
-2. Click **Settings > Tokens**.
-3. Click **Create new token**.
-4. Copy the name and value, then click **Update**.
-5. Store the token value into your CI provider. Tokens can also be referred to as `secrets`, `credentials`, or `secure variables`. The steps to do this vary depending on your CI provider.
-6. Add the `SEMGREP_APP_TOKEN` environment variable into your Semgrep CI job. Refer to your CI provider's documentation. You can also see the examples in [Create a CI job](#create-a-ci-job-running-semgrep).
+Depending on your CI provider and configuration, the job runs automatically. Otherwise, trigger the job by committing code or opening a PR or MR.
 
-#### Grant permissions for Semgrep App (GitHub repositories only)
+#### Verifying the connection between your CI job and Semgrep App 
 
-Follow these steps for GitHub permissions access:
+To verify that your Semgrep CI job is connected to Semgrep App:
 
-#### Run the job
+1. Go to your Semgrep App [Projects page](https://semgrep.dev/orgs/-/projects).
+2. Verify that your repository is listed on the Projects page and that Semgrep App is running a scan.
 
-Run the job by committing code if it does not start automatically.
+Refer to the following section to set up additional environment variables.
 
-#### Set the environment variables
-
-Refer to the following section to set up environment variables.
-
-## Refining the Semgrep App configuration
+## Configuring the Semgrep App CI job
 
 ### Diff-aware scanning
 
