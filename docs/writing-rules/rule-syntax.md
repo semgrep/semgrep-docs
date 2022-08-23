@@ -14,27 +14,68 @@ Getting started with rule writing? Try the [Semgrep Tutorial](https://semgrep.de
 
 This document describes Semgrep’s YAML rule syntax.
 
+Proper Semgrep rule-writing requires at least a basic understanding of YAML. A brief bootcamp is included in the next section – if you are already familiar with YAML, go ahead and skip it.
+
+## YAML Bootcamp
+
+For our purposes, a YAML object can be either a dictionary, list, or basic value. A dictionary is an unordered series of key-value pairings, and looks something like this:
+```
+a: apple
+b: banana
+c: cucumber
+```
+The above is a dictionary of three elements, which is `a` mapping to `apple`, `b` mapping to `banana`, and `c` mapping to `cucumber`. Notably, a dictionary can map a key to any object, which includes other dictionaries, lists, and the like.
+
+A YAML list is an ordered collection of objects. It looks like the following:
+```
+- first
+- second
+- third
+```
+
+A YAML basic value is anything like a float, string, or int. Mostly we will be concerned with strings.
+
+The important thing is that these objects can be nested and intermingled! For instance, you could have something like the following:
+```
+- a: “hi”
+  b: 
+  - “there”
+- a: “reader”
+```
+The above is a list of two elements – the first of which is a dictionary containing a mapping of `a` to `”hi”`, and a mapping of `b` to the singleton list of `”there”`. The second element of the outer list is a singleton dictionary mapping `a` to `“reader”`.
+
+And that’s all you need to know!
+
 ## Schema
+
+A Semgrep rule looks like the following:
+```
+rules:
+  - id: test-regex
+    and:
+      - inside: <$TAG ... >
+      - not:
+          regex: "div"
+    message: "test regex message"
+    languages: [generic]
+    severity: ERROR
+```
+
+It is a singleton dictionary mapping `rules` to a list of rule bodies.
+
+A rule body is described below: 
 
 ### Required
 
-All required fields must be present at the top-level of a rule, immediately underneath `rules`.
+A rule body is a dictionary which must contain the following key-value pairs:
 
-| Field                                                   | Type     | Description                                                                                       |
+| Key                                                   | Type of value     | Description                                                                                       |
 | :------------------------------------------------------ | :------- | :------------------------------------------------------------------------------------------------ |
 | `id`                                                    | `string` | Unique, descriptive identifier, e.g., `no-unused-variable`                                        |
 | `message`                                               | `string` | Message highlighting why this rule fired and how to remediate the issue                           |
 | `severity`                                              | `string` | One of: `INFO`, `WARNING`, or `ERROR`                                                             |
 | `languages`                                             | `array`  | See [language extensions and tags](#language-extensions-and-tags)                                 |
-| [`pattern`](#pattern)_\*_               | `string` | Find code matching this expression                                                                |
-| [`patterns`](#patterns)_\*_             | `array`  | Logical AND of multiple patterns                                                                  |
-| [`pattern-either`](#pattern-either)_\*_ | `array`  | Logical OR of multiple patterns                                                                   |
-| [`pattern-regex`](#pattern-regex)_\*_   | `string` | Find code matching this [PCRE](https://www.pcre.org/original/doc/html/pcrepattern.html)-compatible pattern in multiline mode |
-
-
-:::info
-Only one of `pattern`, `patterns`, `pattern-either`, or `pattern-regex` is required.
-:::
+| `match:` | `pattern`  | Match this pattern. Syntax described below.                                                                   |
 
 #### Language extensions and tags
 <details>
@@ -79,22 +120,37 @@ Only one of `pattern`, `patterns`, `pattern-either`, or `pattern-regex` is requi
 | [`metadata`](#metadata) | `object` | Arbitrary user-provided data; attach data to rules without affecting Semgrep’s behavior |
 | [`paths`](#paths)       | `object` | Paths to include or exclude when running this rule                                     |
 
-The below optional fields must reside underneath a `patterns` or `pattern-either` field.
+## Patterns
 
-| Field                                                           | Type     | Description                                                                                                              |
-| :-------------------------------------------------------------- | :------- | :----------------------------------------------------------------------------------------------------------------------- |
-| [`pattern-inside`](#pattern-inside)             | `string` | Keep findings that lie inside this pattern                                                                              |
+Patterns are the building blocks that make up Semgrep rules. A pattern defines a _range_, which refers to the region of interest in the text of the source code that the pattern matches.
 
-The below optional fields must reside underneath a `patterns` field.
+A pattern is a dictionary consisting of the following key-value pairs:
 
-| Field                                                           | Type     | Description                                                                                                              |
-| :-------------------------------------------------------------- | :------- | :----------------------------------------------------------------------------------------------------------------------- |
-| [`metavariable-regex`](#metavariable-regex)     | `map`    | Search metavariables for [Python `re`](https://docs.python.org/3/library/re.html#re.match) compatible expressions; regex matching is **unanchored** |
-| [`metavariable-pattern`](#metavariable-pattern)     | `map`    | Matches metavariables with a pattern formula  |
-| [`metavariable-comparison`](#metavariable-comparison)     | `map`    | Compare metavariables against basic [Python expressions](https://docs.python.org/3/reference/expressions.html#comparisons) |
-| [`pattern-not`](#pattern-not)                   | `string` | Logical NOT - remove findings matching this expression                                                                  |
-| [`pattern-not-inside`](#pattern-not-inside)     | `string` | Keep findings that do not lie inside this pattern                                                                       |
-| [`pattern-not-regex`](#pattern-not-regex)   | `string` | Filter results using a [PCRE](https://www.pcre.org/original/doc/html/pcrepattern.html)-compatible pattern in multiline mode |
+| `pattern`    | Description                                                                                                              |
+| :-------------------------------------------------------------- | :----------------------------------------------------------------------------------------------------------------------- |
+| `pattern: <string>` | Find code matching this expression 
+| `and: list<pattern>` | Intersection of the ranges of sub-patterns
+| `or: list<pattern>` | Union of the ranges of sub-patterns
+| `not: <pattern>` | Complement of the ranges of sub-patterns
+| `regex: <string>` | Find code matching this [PCRE](https://www.pcre.org/original/doc/html/pcrepattern.html)-compatible pattern in multiline mode |
+| `inside: <pattern>` | Keep findings that lie inside this pattern
+| `taint: <taint-body>` | Find code which matches this taint analysis. More details below. 
+
+:::info
+An `inside` pattern can only occur underneath an `and` or `or` pattern. (TODO: is this true still?)
+:::
+
+Additionally, patterns may be _modified_ using a `where` dictionary entry. This means that any pattern which contains a `where` modifier is a two-element dictionary, one entry of which is one of the above, and the other mapping a key `where` to a list of `where-pattern`s.
+
+| `where-pattern`    | Description                                                                                                              |
+| :-------------------------------------------------------------- | :----------------------------------------------------------------------------------------------------------------------- |
+| `comparison: <string>` | Only keep ranges which satisfy a basic [Python expression](https://docs.python.org/3/reference/expressions.html#comparisons) using metavariables |
+| `metavariable: <metavariable>` `<pattern>` | Only match ranges in the modified pattern where `<metavariable>` matches to `<pattern>` 
+| `focus: <metavariable>` | The range that the given metavariable matches in the modified pattern
+
+:::info
+Note that the second entry defines a dictionary with two keys: `metavariable` and `pattern`
+:::
 
 ## Operators
 
@@ -104,27 +160,27 @@ The `pattern` operator looks for code matching its expression. This can be basic
 
 <iframe src="https://semgrep.dev/embed/editor?snippet=gJo5" border="0" frameBorder="0" width="100%" height="432"></iframe>
 
-### `patterns`
+### `and`
 
-The `patterns` operator performs a logical AND operation on one or more child patterns. This is useful for chaining multiple patterns together that all must be true.
+The `and` operator performs an intersection on the ranges defined by its child patterns. This is useful for chaining multiple patterns together that all must be true.
 
 <iframe src="https://semgrep.dev/embed/editor?snippet=Q83q" border="0" frameBorder="0" width="100%" height="432"></iframe>
 
-### `pattern-either`
+### `or`
 
-The `pattern-either` operator performs a logical OR operation on one or more child patterns. This is useful for chaining multiple patterns together where any may be true.
+The `or` operator performs a union on the ranges defined by its child patterns. This is useful for chaining multiple patterns together where any may be true.
 
 <iframe src="https://semgrep.dev/embed/editor?snippet=4yX9" border="0" frameBorder="0" width="100%" height="432"></iframe>
 
 This rule looks for usage of the Python standard library functions `hashlib.md5` or `hashlib.sha1`. Depending on their usage, these hashing functions are [considered insecure](https://shattered.io/).
 
-### `pattern-regex`
+### `regex`
 
-The `pattern-regex` operator searches files for substrings matching the given [PCRE](https://www.pcre.org/original/doc/html/pcrepattern.html) pattern. This is useful for migrating existing regular expression code search functionality to Semgrep. PCRE "Perl-Compatible Regular Expressions" is a full-featured regex library that is widely compatible with Perl of course, but also with the respective regex libraries of Python, JavaScript, Go, Ruby, and Java. Patterns are compiled in multiline mode, i.e. `^` and `$` will match at the beginning and end of lines respectively in addition to the beginning and end of input (since Semgrep 0.95.0).
+The `regex` operator searches files for substrings matching the given [PCRE](https://www.pcre.org/original/doc/html/pcrepattern.html) pattern. This is useful for migrating existing regular expression code search functionality to Semgrep. PCRE "Perl-Compatible Regular Expressions" is a full-featured regex library that is widely compatible with Perl of course, but also with the respective regex libraries of Python, JavaScript, Go, Ruby, and Java. Patterns are compiled in multiline mode, i.e. `^` and `$` will match at the beginning and end of lines respectively in addition to the beginning and end of input (since Semgrep 0.95.0).
 
 ⚠️ PCRE supports only a [limited number of Unicode character properties](https://www.pcre.org/original/doc/html/pcrepattern.html#uniextseq). For example, `\p{Egyptian_Hieroglyphs}` is supported but `\p{Bidi_Control}` isn't.
 
-The `pattern-regex` operator can be combined with other pattern operators:
+The `regex` operator can be combined with other pattern operators:
 
 <iframe src="https://semgrep.dev/embed/editor?snippet=Ppvv" border="0" frameBorder="0" width="100%" height="432"></iframe>
 
@@ -133,24 +189,16 @@ It can also be used as a standalone, top-level operator:
 <iframe src="https://semgrep.dev/embed/editor?snippet=J3vP" border="0" frameBorder="0" width="100%" height="432"></iframe>
 
 :::info
-Single (`'`) and double (`"`) quotes [behave differently](https://docs.octoprint.org/en/master/configuration/yaml.html#scalars) in YAML syntax. Single quotes are typically preferred when using backslashes (`\`) with `pattern-regex`.
+Single (`'`) and double (`"`) quotes [behave differently](https://docs.octoprint.org/en/master/configuration/yaml.html#scalars) in YAML syntax. Single quotes are typically preferred when using backslashes (`\`) with `regex`.
 :::
 
 Note that if the regex uses groups, the metavariables `$1`, `$2`, etc. will be bound to the content of the captured group.
 
 <iframe src="https://semgrep.dev/embed/editor?snippet=8RkB" border="0" frameBorder="0" width="100%" height="432"></iframe>
 
-### `pattern-not-regex`
-
-The `pattern-not-regex` operator filters results using a [PCRE](https://www.pcre.org/original/doc/html/pcrepattern.html) regular expression in multiline mode. This is most useful when combined with regular-expression only rules, providing an easy way to filter findings without having to use negative lookaheads. `pattern-not-regex` will work with regular `pattern` clauses, too.
-
-The syntax for this operator is the same as `pattern-regex`.
-
-This operator will filter findings that have _any overlap_ with the supplied regular expression. For example, if you use `pattern-regex` to detect `Foo==1.1.1` and it also detects `Foo-Bar==3.0.8` and `Bar-Foo==3.0.8`, you can use `pattern-not-regex` to filter the unwanted findings.
-
-<iframe src="https://semgrep.dev/embed/editor?snippet=8n5Q" border="0" frameBorder="0" width="100%" height="432"></iframe>
-
 ### `metavariable-regex`
+
+TODO: maybe reappropriate this for regex
 
 The `metavariable-regex` operator searches metavariables for a [PCRE](https://www.pcre.org/original/doc/html/pcrepattern.html) regular expression. This is useful for filtering results based on a [metavariable’s](pattern-syntax.mdx#metavariables) value. It requires the `metavariable` and `regex` keys and can be combined with other pattern operators.
 
@@ -161,27 +209,27 @@ Regex matching is **unanchored**. For anchored matching, use `\A` for start-of-s
 <iframe src="https://semgrep.dev/embed/editor?snippet=ved8"  border="0" frameBorder="0" width="100%" height="432"></iframe>
 
 :::info
-Include quotes in your regular expression when using `metavariable-regex` to search string literals. See [this snippet](https://semgrep.dev/s/mschwager:include-quotes) for more details. [String matching](pattern-syntax.mdx#string-matching) functionality can also be used to search string literals.
+Include quotes in your regular expression when using `regex` to search string literals. See [this snippet](https://semgrep.dev/s/mschwager:include-quotes) for more details. [String matching](pattern-syntax.mdx#string-matching) functionality can also be used to search string literals.
 :::
 
-### `metavariable-pattern`
+### `metavariable`
 
-The `metavariable-pattern` operator matches metavariables with a pattern formula. This is useful for filtering results based on a [metavariable’s](pattern-syntax.mdx#metavariables) value. It requires the `metavariable` key, and exactly one key of `pattern`, `patterns`, `pattern-either`, or `pattern-regex`. This operator can be nested as well as combined with other operators.
+The `metavariable` where-clause matches metavariables with a pattern formula. This is useful for filtering results based on a [metavariable’s](pattern-syntax.mdx#metavariables) value. It requires the `metavariable` key, and exactly one key of the normal pattern operators (`pattern`, `and`, `or`, `regex`, `taint`, or `inside`). This operator can be nested as well as combined with other operators.
 
 For example, it can be used to filter out matches that do _not_ match certain criteria:
 
 <iframe src="https://semgrep.dev/embed/editor?snippet=DwbP" border="0" frameBorder="0" width="100%" height="432"></iframe>
 
 :::info
-In this case it is possible to start a `patterns` AND operation with a `pattern-not`, because there is an implicit `pattern: ...` that matches the content of the metavariable.
+In this case it is possible to start an `and` operation with a `not`, because there is an implicit `and: ...` that matches the content of the metavariable.
 :::
 
-It is also useful in combination with `pattern-either`:
+It is also useful in combination with `or`:
 
 <iframe src="https://semgrep.dev/embed/editor?snippet=Aw88" border="0" frameBorder="0" width="100%" height="432"></iframe>
 
 :::tip
-It is possible to nest `metavariable-pattern` inside `metavariable-pattern`!
+It is possible to stack `metavariable` constraints, by putting more of them within the list of `where-clause`s!
 :::
 
 :::info
@@ -190,7 +238,7 @@ The metavariable should be bound to an expression, a statement, or a list of sta
 
 ### Nested language
 
-If the metavariable's content is a string, then it is possible to use `metavariable-pattern` to match this string as code by specifying the target language via the `language` key.
+If the metavariable's content is a string, then it is possible to use `metavariable` to match this string as code by specifying the target language via the `language` key.
 
 For example, we can match JavaScript code inside HTML:
 
@@ -200,11 +248,11 @@ We can also use this feature to filter regex matches:
 
 <iframe src="https://semgrep.dev/embed/editor?snippet=pkNk" border="0" frameBorder="0" width="100%" height="432"></iframe>
 
-### `metavariable-comparison`
+### `comparison`
 
-The `metavariable-comparison` operator compares metavariables against a basic [Python comparison](https://docs.python.org/3/reference/expressions.html#comparisons) expression. This is useful for filtering results based on a [metavariable's](../writing-rules/pattern-syntax.mdx#metavariables) numeric value.
+The `comparison` where-clause compares metavariables against a basic [Python comparison](https://docs.python.org/3/reference/expressions.html#comparisons) expression. This is useful for filtering results based on a [metavariable's](../writing-rules/pattern-syntax.mdx#metavariables) numeric value.
 
-The `metavariable-comparison` operator is a mapping which requires the `metavariable` and `comparison` keys. It can be combined with other pattern operators:
+It can be combined with other pattern operators:
 
 <iframe src="https://semgrep.dev/embed/editor?snippet=GWv6" border="0" frameBorder="0" width="100%" height="432"></iframe>
 
@@ -216,7 +264,7 @@ Comparison expressions support simple arithmetic as well as composition with [bo
 
 Building off of the previous example this will still catch code like `set_port(80)` but will no longer catch `set_port(443)` or `set_port(8080)`.
 
-The `metavariable-comparison` operator also takes optional `base: int` and `strip: bool` keys. These keys set the integer base the metavariable value should be interpreted as and remove quotes from the metavariable value, respectively.
+The `comparison` where-clause also takes optional `base: int` and `strip: bool` keys. These keys set the integer base the metavariable value should be interpreted as and remove quotes from the metavariable value, respectively.
 
 For example, `base`:
 
@@ -230,19 +278,21 @@ For example, `strip`:
 
 This will remove quotes (`'`, `"`, and `` ` ``) from both ends of the metavariable content. So `"2147483648"` will be detected but `"2147483646"` will not. This is useful when you expect strings to contain integer or float data.
 
-### `pattern-not`
+### `not`
 
-The `pattern-not` operator is the opposite of the `pattern` operator. It finds code that does not match its expression. This is useful for eliminating common false positives.
+The `not` operator is the opposite of the `pattern` operator. It matches all ranges that were not matched by its child pattern. This is useful for eliminating common false positives.
 
 <iframe src="https://semgrep.dev/embed/editor?snippet=Q83q" border="0" frameBorder="0" width="100%" height="432"></iframe>
 
-### `pattern-inside`
+### `inside`
 
-The `pattern-inside` operator keeps matched findings that reside within its expression. This is useful for finding code inside other pieces of code like functions or if blocks.
+The `inside` operator keeps matched findings that reside within its pattern. This is useful for finding code inside other pieces of code like functions or if blocks, usually by combination via `and`.
 
 <iframe src="https://semgrep.dev/embed/editor?snippet=Z8Dw" border="0" frameBorder="0" width="100%" height="432"></iframe>
 
 ### `pattern-not-inside`
+
+TODO? use this
 
 The `pattern-not-inside` operator keeps matched findings that do not reside within its expression. It is the opposite of `pattern-inside`. This is useful for finding code that’s missing a corresponding cleanup action like disconnect, close, or shutdown. It’s also useful for finding problematic code that isn't inside code that mitigates the issue.
 
@@ -271,9 +321,9 @@ Example:
 ```yaml
 rules:
   - id: use-decimalfield-for-money
-    patterns:
-      - pattern: $FIELD = django.db.models.FloatField(...)
-      - pattern-inside: |
+    and:
+      - $FIELD = django.db.models.FloatField(...)
+      - inside: |
           class $CLASS(...):
               ...
       - pattern-where-python: "'price' in vars['$FIELD'] or 'salary' in vars['$FIELD']"
@@ -286,22 +336,23 @@ The above rule looks for use of Django’s [`FloatField`](https://docs.djangopro
 
 ## Metavariable matching
 
-Metavariable matching operates differently for logical AND (`patterns`) and logical OR (`pattern-either`) parent operators. Behavior is consistent across all child operators: `pattern`, `pattern-not`, `pattern-regex`, `pattern-inside`, `pattern-not-inside`.
+Metavariable matching operates differently for `and` pattern and `or` pattern parent operators. Behavior is consistent across all child operators: `pattern`, `not`, `regex`, `inside`, `taint`.
 
-### Metavariables in logical ANDs
+### Metavariables in `and` patterns
 
-Metavariable values must be identical across sub-patterns when performing logical AND operations with the `patterns` operator.
+Metavariable values must be identical across sub-patterns when performing intersections with the `and` operator.
 
 Example:
 
 ```yaml
 rules:
   - id: function-args-to-open
-    patterns:
-      - pattern-inside: |
-          def $F($X):
-              ...
-      - pattern: open($X)
+    match:
+      and:
+        - inside: |
+            def $F($X):
+                ...
+        - open($X)
     message: "Function argument passed to open() builtin"
     languages: [python]
     severity: ERROR
@@ -321,18 +372,18 @@ def foo(path):
     open(something_else)
 ```
 
-### Metavariables in logical ORs
+### Metavariables in `or` patterns 
 
-Metavariable matching does not affect the matching of logical OR operations with the `pattern-either` operator.
+Metavariable matching does not affect the matching of unions with the `or` operator.
 
 Example:
 
 ```yaml
 rules:
   - id: insecure-function-call
-    pattern-either:
-      - pattern: insecure_func1($X)
-      - pattern: insecure_func2($X)
+    or:
+      - insecure_func1($X)
+      - insecure_func2($X)
     message: "Insecure function use"
     languages: [python]
     severity: ERROR
@@ -352,18 +403,19 @@ insecure_func2(something_else)
 
 ### Metavariables in complex logic
 
-Metavariable matching still affects subsequent logical ORs if the parent is a logical AND.
+Metavariable matching still affects subsequent `or` patterns if the parent is an `and`.
 
 Example:
 
 ```yaml
-patterns:
-  - pattern-inside: |
-      def $F($X):
-        ...
-  - pattern-either:
-      - pattern: bar($X)
-      - pattern: baz($X)
+match:
+  and:
+    - inside: |
+        def $F($X):
+          ...
+    - or:
+        - bar($X)
+        - baz($X)
 ```
 
 The above rule matches both examples below:
@@ -413,8 +465,7 @@ Example:
 ```yaml
 rules:
   - id: use-dict-get
-    patterns:
-      - pattern: $DICT[$KEY]
+    match: $DICT[$KEY]
     fix: $DICT.get($KEY)
     message: "Use `.get()` method to avoid a KeyNotFound error"
     languages: [python]
@@ -430,8 +481,7 @@ Example:
 ```yaml
 rules:
   - id: eqeq-is-bad
-    patterns:
-      - [...]
+    match: [...]
     message: "useless comparison operation `$X == $X` or `$X != $X`"
     metadata:
       cve: CVE-2077-1234
@@ -451,7 +501,7 @@ Example:
 ```yaml
 rules:
   - id: eqeq-is-bad
-    pattern: $X == $X
+    match: $X == $X
     paths:
       exclude:
         - "*.jinja2"
@@ -478,7 +528,7 @@ Conversely, to run a rule _only_ on specific files, set a `paths:` key with one 
 ```yaml
 rules:
   - id: eqeq-is-bad
-    pattern: $X == $X
+    match: $X == $X
     paths:
       include:
         - "*_test.go"
@@ -518,26 +568,31 @@ This section contains more complex rules that perform advanced code searching.
 ```yaml
 rules:
   - id: eqeq-is-bad
-    patterns:
-      - pattern-not-inside: |
-          def __eq__(...):
-              ...
-      - pattern-not-inside: assert(...)
-      - pattern-not-inside: assertTrue(...)
-      - pattern-not-inside: assertFalse(...)
-      - pattern-either:
-          - pattern: $X == $X
-          - pattern: $X != $X
-          - patterns:
-              - pattern-inside: |
-                  def __init__(...):
-                       ...
-              - pattern: self.$X == self.$X
-      - pattern-not: 1 == 1
+    match:
+      and:
+        - not:
+            inside: |
+              def __eq__(...):
+                  ...
+        - not:
+            inside: assert(...)
+        - not:
+            inside: assertTrue(...)
+        - not:
+            inside: assertFalse(...)
+        - or:
+            - $X == $X
+            - $X != $X
+            - and:
+                - inside: |
+                    def __init__(...):
+                        ...
+                - self.$X == self.$X
+        - not: 1 == 1
     message: "useless comparison operation `$X == $X` or `$X != $X`"
 ```
 
-The above rule makes use of many operators. It uses `pattern-either`, `patterns`, `pattern`, and `pattern-inside` to carefully consider different cases, and uses `pattern-not-inside` and `pattern-not` to whitelist certain useless comparisons.
+The above rule makes use of many operators. It uses `or`, `and`, `pattern`, and `inside` to carefully consider different cases, and uses `not` to whitelist certain useless comparisons.
 
 ## Full specification
 
