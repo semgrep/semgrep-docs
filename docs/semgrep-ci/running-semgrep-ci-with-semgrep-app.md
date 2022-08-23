@@ -81,6 +81,8 @@ This section applies to the following providers:
 
 **In-app providers** are explicitly listed in Semgrep App, and Semgrep App is able to generate CI configuration files for you to commit into your repository.
 
+![Screenshot of Projects page CI provider modal list](/img/semgrep-app-new-project-providers.png "Screenshot of Projects page CI provider modal list")
+
 :::note
 GitHub, GitLab, and BitBucket SCMs are compatible with the above CI providers, but steps and feature enablement may vary for **on-premise, self-hosted, or virtual private cloud (VPC) deployments**, such as GitHub Enterprise Server.
 :::
@@ -104,7 +106,7 @@ Refer to the following table for links to sample CI configuration snippets:
 
 | In-app CI provider   | Sample CI configuration snippet |
 | :------------------- | :-----------------------------  |
-| GitHub Actions       |
+| GitHub Actions       | 
 | GitLab CI/CD         |
 | Jenkins              |
 | Bitbucket Pipelines  |
