@@ -10,6 +10,7 @@ import MoreHelp from "/src/components/MoreHelp"
 import CiScheduling from "/src/components/CiScheduling.mdx"
 import CiIgnoringFiles from "/src/components/CiIgnoringFiles.mdx"
 import DiffAwareScanning from "/src/components/DiffAwareScanning.mdx"
+import RuleBoard from "/src/components/reference/_rule-board.md"
 
 # Running Semgrep in continuous integration (CI) with Semgrep App
 
@@ -323,7 +324,7 @@ Hyperlinks enable you to view the code that generated the finding from within yo
 ![Screenshot of findings page snippet with hyperlinks](/img/findings-with-hyperlinks.png "Screenshot of findings page snippet with hyperlinks")
 *Figure 3.* Partial screenshot of findings page with hyperlinks.
 
-To **enable hyperlinks**, additional environment variables must be added into your CI configuration file. The following example provides sample values that the environment variables accept. You can substitute your CI provider's variables.
+To **enable hyperlinks**, additional environment variables must be added into your CI configuration file. The following example provides sample values that the environment variables accept. You can substitute these values with variables following your CI provider's syntax.
 
 ```
 SEMGREP_REPO_NAME="foo/bar"
@@ -352,12 +353,7 @@ SEMGREP_TIMEOUT="300"
 
 ### Customizing rules through the Rule Board
 
-The Rule Board enables you to:
-
-* Add or remove rules and rulesets that are used to scan your code.
-* Block PRs or MRs, leave comments on code, or monitor findings silently.
-
-TODO - modularize?
+<RuleBoard />
 
 ### Setting a scan schedule
 
