@@ -221,6 +221,7 @@ Follow these steps for GitHub permissions access:
 1. Go to the [Semgrep application](https://github.com/marketplace/semgrep-dev) within GitHub Marketplace.
 2. Click on **Install it for free**. Follow the instructions to begin the installation.
 2. Once `semgrep-app` is installed, select what repositories `semgrep-app` can access. Select **All repositories** or **Only select repositories**.
+![Screenshot of GitHub authorization page for Semgrep App](/img/semgrep-ci-github-access-repos.png "Screenshot of GitHub authorization page for Semgrep App")
 4. Click **Install & Authorize** to finalize your installation.
 
 #### Creating a CI job running Semgrep
