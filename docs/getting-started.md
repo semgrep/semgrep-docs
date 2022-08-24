@@ -10,6 +10,8 @@ description: "This getting started guides you through the installation of Semgre
 
 Start by running [Semgrep](https://github.com/returntocorp/semgrep/) locally to scan your code. Semgrep runs offline on uncompiled code. **No code leaves your computer**.
 
+**Prerequisite:** Semgrep requires Python 3.7 or later.
+
 1. Install Semgrep. Use one of the following options depending on your system and preference:
     - For macOS:
         ```sh
