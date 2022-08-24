@@ -13,7 +13,7 @@ In principle, all data-flow related features are available for any of our [suppo
 
 Make sure that you understand the [design trade-offs](#design-trade-offs) and limitations of the data-flow engine.
 
-At present, Semgrep provides no user-friendly way of specifying your own data-flow analyses, but please [let us know if you have suggestions](https://github.com/returntocorp/semgrep/issues/new/choose). And, if you can code in OCaml, then you are very welcome to [contribute](/contributing/how-to-contribute/).
+At present, Semgrep provides no user-friendly way of specifying your own data-flow analyses, but please [let us know if you have suggestions](https://github.com/returntocorp/semgrep/issues/new/choose). And, if you can code in OCaml, then you are very welcome to [contribute](/docs/contributing/contributing/).
 
 ## Design trade-offs
 
