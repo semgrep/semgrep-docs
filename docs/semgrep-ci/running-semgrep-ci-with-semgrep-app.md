@@ -107,13 +107,13 @@ Refer to the following table for links to sample CI configuration snippets:
 
 | In-app CI provider   | Sample CI configuration snippet |
 | :------------------- | :-----------------------------  |
-| GitHub Actions       | 
-| GitLab CI/CD         |
-| Jenkins              |
-| Bitbucket Pipelines  |
-| CircleCI             |
-| Buildkite            |
-| Azure Pipelines      |
+| GitHub Actions       |  [`semgrep.yml`](../sample-ci-configs/#github-actions) |
+| GitLab CI/CD         | [`.gitlab-ci.yml`](../sample-ci-configs/#gitlab-cicd) |
+| Jenkins              | [`Jenkinsfile`](../sample-ci-configs/#jenkins) |
+| Bitbucket Pipelines  | [`bitbucket-pipelines.yml`](../sample-ci-configs/#bitbucket-pipelines) |
+| CircleCI             | [`config.yml`](../sample-ci-configs/#circleci) |
+| Buildkite            | [`pipelines.yml`](../sample-ci-configs/#buildkite) |
+| Azure Pipelines      | [`azure-pipelines.yml`](../sample-ci-configs/#azure-pipelines) |
 
 
 #### Setting up security dashboards for GitHub and GitLab
