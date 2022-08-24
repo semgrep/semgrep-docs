@@ -8,6 +8,7 @@ Semgrep scans can be classified by scope. The scope of a scan refers to what lin
     <p>For example, imagine a hypothetical repository with 10 commits. You set commit number 8 as the baseline. Consequently, Semgrep only returns scan results introduced by changes in commits 9 and 10. This is how <code>semgrep ci</code> can run in pull requests and merge requests, since it reports only the findings that are created by those code changes. To run a diff-aware scan, use <code>SEMGREP_BASELINE_REF=<span class="placeholder">REF</span> semgrep ci</code> where <span class="placeholder">REF</span> can be a commit hash, branch name, or other git reference.</p></dd>
 </dl>
 
+![Flow chart of Semgrep code scanning behavior based on environment variable](/img/diagram-semgrep_baseline_ref.png "Flow chart of Semgrep code scanning behavior based on environment variable")
 :::note
 * Do **not** perform diff-aware scans on your `main` branch. Semgrep App keeps track of which findings have been fixed on a given branch. If you configure diff scans on your main branch, and compare the last commit to the penultimate commit, Semgrep wrongly considers all findings from before the penultimate commit to be fixed.
 * Do **not** perform full scans on non-mainline or non-trunk branches. Performing full scans on every branch slows down your CI jobs, displays findings that developers did not introduce, and results in many duplicated findings in Semgrep App, resulting in a poorer experience.
