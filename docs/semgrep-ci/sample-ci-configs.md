@@ -2,13 +2,18 @@
 slug: sample-ci-configs
 append_help_link: true
 description: "The sample configuration files below run Semgrep CI on continuous integration platforms such as GitHub, GitLab, Jenkins, Buildkite, CircleCI, and other providers."
+title: Sample CI configurations
+hide_title: true
 ---
 
 import MoreHelp from "/src/components/MoreHelp"
 
-# Sample CI configurations
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-The sample configuration files below run Semgrep CI on various continuous integration providers.
+# Sample continuous integration (CI) configurations
+
+This document provides sample configuration snippets to run Semgrep CI on various continuous integration (CI) providers.
 
 ## Feature support
 
@@ -35,6 +40,16 @@ Support for certain features of Semgrep App depend on your CI provider or source
 </dl>
 
 ## GitHub Actions
+
+<Tabs
+    defaultValue="gha-semgrep"
+    values={[
+    {label: 'CI with Semgrep App', value: 'gha-semgrep'},
+    {label: 'Stand-alone CI job', value: 'gha-scan-security'},
+    ]}
+>
+
+<TabItem value='gha-semgrep'>
 
 ```yaml
 # Name of this GitHub Actions workflow.
@@ -89,8 +104,11 @@ jobs:
           # SEMGREP_RULES: p/default # more at semgrep.dev/explore
 ```
 
+</TabItem>
+
+
 <details><summary>Alternate job that uploads findings to GitHub Advanced Security Dashboard</summary>
-<p>
+
 
 ```yaml
 name: Semgrep
@@ -129,9 +147,9 @@ jobs:
         if: always()
 ```
 
-</p>
 </details>
 
+</Tabs>
 
 ## GitLab CI
 
