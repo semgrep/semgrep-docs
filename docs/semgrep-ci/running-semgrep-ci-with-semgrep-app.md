@@ -363,7 +363,7 @@ SEMGREP_TIMEOUT="300"
 
 <CiIgnoringFiles />
 
-## Appendix: Compatibility of environment variables
+## Appendix A: Compatibility of environment variables
 
 Starting from Semgrep 0.98.0, Semgrep App can fetch values of environment variables for [In-App providers](#in-app-providers-such-as-github-actions-gitlab-cicd-jenkins). Therefore, not all CI providers need the same environment variables.
 
@@ -394,7 +394,7 @@ To help troubleshoot the features in this guide, ensure that you have updated yo
     <tr>
         <td><code>SEMGREP_REPO_NAME</code></td>
         <td rowspan="6">Enables hyperlinks and PR or MR comments.</td>
-        <td rowspan="6">Required to enable hyperlinks and PR or MR comments.</td></tr>
+        <td rowspan="5">Required to enable hyperlinks and PR or MR comments for other CI providers not listed in Semgrep App.</td></tr>
     <tr>
         <td><code>SEMGREP_REPO_URL</code></td>
     </tr>
@@ -409,11 +409,12 @@ To help troubleshoot the features in this guide, ensure that you have updated yo
     </tr>
     <tr>
         <td><code>SEMGREP_PR_ID</code></td>
+        <td>Required to enable hyperlinks and PR or MR comments for Azure Pipelines.</td>
     </tr>
 </tbody>
 </table>
 
-## Appendix: Examples of other CI providers not listed in Semgrep App
+## Appendix B: Examples of other CI providers not listed in Semgrep App
 
 The following CI providers have been tested by the community to run with Semgrep App:
 
@@ -427,11 +428,5 @@ The following CI providers have been tested by the community to run with Semgrep
 * Nomad
 * TeamCity CI
 * Travis CI
-
-
-
-
-
-
 
 <MoreHelp />
