@@ -67,9 +67,8 @@ To set up email integration:
 2. Click on **Email**.
 3. Enter a **Name** for the integration.
 4. Enter the **Email address** that will receive Semgrep findings.
-5. Select the **Inventory** check box if you would like to receive notifications about Code Asset Inventory findings.
-6. Click **Save.**
-7. Turn notifications on by going to the **Rule board**, clicking on the **gear icon**, then clicking on the **toggle** next to the name of the integration.
+5. Click **Save.**
+6. Turn notifications on by going to the **Rule board**, clicking on the **gear icon**, then clicking on the **toggle** next to the name of the integration.
 
 Here is a sample of an email sent from Semgrep with findings:
 
@@ -114,11 +113,10 @@ Webhooks are a generic method for Semgrep to post JSON-formatted findings after 
 2. Click **Webhook**.
 3. Enter a **Name** for the integration.
 4. Enter the **Webhook URL**.
-5. Select the **Inventory** check box if you would like to receive notifications about Code Asset Inventory findings.
-6. To ensure that Semgrep can post to your URL, click **Test**. 
+5. To ensure that Semgrep can post to your URL, click **Test**. 
 ![Successful webhook integration test](/img/webhook-successful-test.png)<br />
-7. Click **Save.**
-8. Turn notifications on by going to the **Rule board**, clicking on the **gear icon**, then clicking on the **toggle** next to the name of the integration.
+6. Click **Save.**
+7. Turn notifications on by going to the **Rule board**, clicking on the **gear icon**, then clicking on the **toggle** next to the name of the integration.
 
 Here is a sample of a webhook sent from Semgrep with findings:
 
