@@ -376,7 +376,7 @@ Semgrep provides **fail open** options. These options enable you to suppress fin
 	<dd><strong>Pass</strong> on blocking findings and on internal errors.</dd>
 </dl>
 
-Refer to [Semgrep exit codes](../cli-reference/#exit-codes) to understand various internal issues that cause Semgrep to fail.
+Refer to [Semgrep exit codes](docs/cli-reference/#exit-codes) to understand various internal issues that cause Semgrep to fail.
 
 ### Diff-aware scanning
 
