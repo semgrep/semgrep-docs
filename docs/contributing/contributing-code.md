@@ -173,7 +173,7 @@ Here's a short example:
 *)
 ```
 
-It could be improved by explaining a bit about the code's uses:
+It can be improved by explaining the code's uses:
 ```
 (*
    Generate unique names with a given prefix. This is used to
