@@ -137,6 +137,62 @@ name = ...
   name = ...
 ```
 
+### Handling line-based input
+
+This section explains how to use Semgrep's generic mode to match
+single lines of code using an ellipsis metavariable. Many simple
+configuration formats are collections of key and value pairs delimited
+by newlines. For example, to extract the `password` value from the
+following made-up input:
+
+```
+username = bob
+password = p@$$w0rd
+server = example.com
+```
+
+Unfortunately, the following pattern does not match the whole line. In generic mode, metavariables only capture a single word (alphanumeric sequence):
+
+```
+password = $PASSWORD
+```
+
+This pattern matches the input file but does not assign the value `p` to `$PASSWORD` instead of the full value `p@$$w0rd`.
+
+To match an arbitrary sequence of items and capture their value in the example:
+
+1. Use a named ellipsis, by changing the pattern to the following:
+
+    ```yaml
+    password = $...PASSWORD
+    ```
+
+    This still leads Semgrep to capture too much information. The value assigned to `$...PASSWORD` are now `p@$$w0rd` and<br />
+    `server = example.com`. In generic mode, an ellipsis extends until the end of the current block or up to 10 lines below, whichever comes first. To prevent this behavior, continue with the next step.
+
+2. In the Semgrep rule, specify the following key:
+   
+    ```yaml
+    generic_ellipsis_max_span: 0
+    ```
+
+    This option forces the ellipsis operator to match patterns within a single line.
+    Example of the [resulting rule](https://semgrep.dev/playground/s/returntocorp:password-in-config-file):
+
+    ```yaml
+    id: password-in-config-file
+    pattern: |
+      password = $...PASSWORD
+    options:
+      # prevent ellipses from matching multiple lines
+      generic_ellipsis_max_span: 0
+    message: |
+      password found in config file: $...PASSWORD
+    languages:
+      - generic
+    severity: WARNING
+    ```
+
 ## Command line example
 
 Sample pattern: `exec(...)`

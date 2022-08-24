@@ -6,6 +6,7 @@ description: "Semgrep App contains 3rd party integrations to allow users to add 
 ---
 
 import MoreHelp from "/src/components/MoreHelp"
+import ProcedureIntegrateSlack from "/src/components/procedure/_integrate-slack.mdx"
 
 # Integrating Semgrep App with third-party tools
 
@@ -22,22 +23,22 @@ Currently, Semgrep App integrates with the following tools:
 
 ## Finding available integrations
 
-To find available integrations for Semgrep App, follow these steps:
+To find available [integrations for Semgrep App](https://semgrep.dev/orgs/-/settings/integrations), follow these steps:
 
 1. Sign in to your [Semgrep App account](https://semgrep.dev/).
 2. Click **Settings**.
 3. Click **Integrations**.
-
-![Screenshot of Semgrep's "Create New Integration Channel" menu](../img/integration-firstview.png)<br />
+    ![Screenshot of Semgrep's "Create New Integration Channel" menu](/img/integration-firstview.png)
+4. Click **Add Integration** (or **Setup First Integration** if this is your first integration).
+    ![Screenshot of Integrations page while adding the first integration.](/img/integrations.png)<br />
 
 ## Managing integrations
 
-To view, disable, or enable your saved integration channels:
+To view, add, remove, disable, or enable your saved integration channels:
 
-1. In the **Integrations** tab, click the **gear** icon within the **Rule board**.
-2. Select the toggles to turn notifications on or off for each channel.
-
-![Screenshot of the Semgrep rule board with integrations](../img/integration-ruleboard.png)<br />
+1. In the **Settings** > **[Integrations](https://semgrep.dev/orgs/-/settings/integrations)** page, explore the options available for specific integration.
+2. In the **[Rule board](https://semgrep.dev/orgs/-/board)**, click the **gear** icon to enable or disable an integration.
+    ![Screenshot of Semgrep's Rule board integration modal](/img/rule-board-integrations.png)
 
 ## Integrating various third-party tools
 
@@ -45,28 +46,7 @@ This section describes how to integrate Semgrep App into particular third-party 
 
 ### Slack
 
-Integrating with Slack allows Semgrep to send findings to a channel on your Slack workspace.
-
-To set it up, create an app within Slack and enable that app's **Incoming Webhooks** feature. By creating a webhook, you'll have a URL that serves as Semgrep's endpoint to your Slack workspace. Follow the guide below to create the app and webook, and integrate with Semgrep:
-
-1. Log in to your Slack account. Enter your login details in [Slack workspace](https://slack.com/workspace-signin).
-2. Create an app in your Slack workspace by following this link: [Slack apps](https://api.slack.com/apps?new_app=1).
-3. Select **From scratch** and fill in the fields for your app's name and workspace.
-![Screenshot of a Slack form to fill out new app details](../img/slack-create-app-name.png)
-4. You will be redirected to your new app's settings page. Alternatively, you can find this page by viewing your apps [here](https://api.slack.com/apps) and selecting your integration app from the menu.
-5. Click on **Incoming Webhooks** on the left menu, and then enable the toggle.
-6. After you have enabled **Incoming Webhooks**, follow one of these steps:
-    - Generate a **Webhook URL**.
-    - Request to add a new webhook from a workspace owner.
-7. After you have obtained the Webhook URL, return to Semgrep and create a new Slack integration. Name the integration and copy-paste the URL into the **Slack URL** field. You may opt to select the **Inventory** flag to include notifications about Code Asset Inventory findings.
-8. Click **Test**, and then select in which Slack channel you receive notifications.
-![Screenshot of the Slack Request Webhook  ](../img/slack-integration-hooktest.png)<br />
-9. Click **Save**.
-10. Turn notifications on by going to the **Rule board**, clicking on the **gear icon**, then clicking on the **toggle** next to the name of the integration.
-
-Here is a sample of a Slack message sent from Semgrep with findings:
-
-![Screenshot of Slack message with findings ](../img/slack-semgrep-findings.png)<br />
+<ProcedureIntegrateSlack />
 
 #### Additional resources
 
@@ -93,7 +73,7 @@ To set up email integration:
 
 Here is a sample of an email sent from Semgrep with findings:
 
-![Screenshot of Semgrep email with findings ](../img/integrations-email-findings.png)<br />
+![Screenshot of Semgrep email with findings ](/img/integrations-email-findings.png)<br />
 
 #### See also
 [Notifcations -> Email](notifications.md/#email)
@@ -119,30 +99,30 @@ To set up Jira integration:
 To create a Jira ticket from Semgrep:
 
 1. In **Findings**, click on the **three-dot icon** of the entry to create a Jira ticket for the finding.
-![Creating a Jira ticket from the Findings page](../img/jira-findings-page.png)<br />
+![Creating a Jira ticket from the Findings page](/img/jira-findings-page.png)<br />
 2. Select **Create issue with `[YOUR_INTEGRATION_NAME]`**.
-![Output of Jira integration](../img/jira-template.png)
+![Output of Jira integration](/img/jira-template.png)
 
 
 ### Webhooks
 
 Webhooks are a feature available in Semgrep's Team tier and above.
 
-Webhooks are a generic method for Semgrep to post JSON-formatted findings after each scan to your URL endpoint.  To set up a webhook:
+Webhooks are a generic method for Semgrep to post JSON-formatted findings after each scan to your URL endpoint. To set up a webhook:
 
-1. In **Integrations,** click **Add Integration.**
-2. Click **Webhook.**
+1. Go to **Settings** > **[Integrations](https://semgrep.dev/orgs/-/settings/integrations)**, and then click **Add Integration**.
+2. Click **Webhook**.
 3. Enter a **Name** for the integration.
-4. Enter the **Webhook URL.**
+4. Enter the **Webhook URL**.
 5. Select the **Inventory** check box if you would like to receive notifications about Code Asset Inventory findings.
-6. To ensure that Semgrep can post to your URL, click **Test.** 
-![Successful webhook integration test](../img/webhook-successful-test.png)<br />
+6. To ensure that Semgrep can post to your URL, click **Test**. 
+![Successful webhook integration test](/img/webhook-successful-test.png)<br />
 7. Click **Save.**
 8. Turn notifications on by going to the **Rule board**, clicking on the **gear icon**, then clicking on the **toggle** next to the name of the integration.
 
 Here is a sample of a webhook sent from Semgrep with findings:
 
-![Screenshot of Semgrep webhook JSON with findings ](../img/integrations-webhook-findings.png)<br />
+![Screenshot of Semgrep webhook JSON with findings](/img/integrations-webhook-findings.png)<br />
 
 
 ## See also

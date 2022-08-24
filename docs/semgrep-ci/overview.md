@@ -26,6 +26,8 @@ Semgrep CI runs fully in your build environment: **your code is never sent anywh
 
 Semgrep CI behaves like other static analysis and linting tools: it runs a set of user-configured rules and returns a non-zero exit code if there are findings, resulting in its job showing a ✅ or ❌.
 
+By default, Semgrep CI suppresses internal errors. If Semgrep in CI encounters an error, it logs the error to the console, sends a report to a crash-reporting server, and then lets CI continue. This default behavior can be overridden. See the [Exit codes](#exit-codes) section below and [Configuring blocking findings and errors](/semgrep-ci/configuration-reference.md/#configuring-blocking-findings-and-errors).
+
 Copy the relevant template for your CI provider from the sections below. Read through the comments in the template to adjust Semgrep CI scan settings, selecting pull and merge requests, full scans on your branch.
 
 Once Semgrep CI is running, explore the [Semgrep Registry](https://semgrep.dev/explore) to find and add more project-specific rules.
@@ -38,7 +40,7 @@ See [Advanced Configuration](#advanced-configuration) for further customizations
 You can add Semgrep CI automatically to a GitHub repository by clicking "Set up" on the [Projects page](https://semgrep.dev/manage/projects) of Semgrep App. You'll be able to adjust pull request and  merge behavior before Semgrep App asks to commit a workflow file to your repository.
 :::
 
-To manually add Semgrep CI to GitHub Actions, add a `.github/workflows/semgrep.yml` file to your repository. Follow the [workflow syntax for GitHub Actions](https://docs.github.com/en/actions/reference/workflow-syntax-for-github-actions).
+To manually add Semgrep CI to GitHub Actions, add a `.github/workflows/semgrep.yml` file to your repository. Follow the [workflow syntax for GitHub Actions](https://docs.github.com/en/actions/using-workflows/workflow-syntax-for-github-actions).
 
 See this [example GitHub Actions workflow configuration](../sample-ci-configs/#github-actions) for Semgrep CI.
 
@@ -69,9 +71,15 @@ To add Semgrep CI to any CI environment, use the [`returntocorp/semgrep`](https:
 For full project scans:
 
 ```sh
-semgrep scan --config auto --config <other rule or rulesets>
+semgrep ci
 ```
 
+For diff-aware scans:
+
+<pre class="language-bash">
+SEMGREP_BASELINE_REF=<span class="placeholder">REF</span><br />
+semgrep ci
+</pre>
 If you cannot use the Docker image, install Semgrep CI with `pip install semgrep`.
 
 
@@ -129,7 +137,7 @@ For users of Semgrep App, you can integrate Semgrep CI with many other services,
 
 #### Notifications
 
-![Screenshot of a Slack notification describing the details of a finding](../img/slack-notification.png)<br />
+![Screenshot of a Slack notification describing the details of a finding](/img/slack-notification.png)<br />
 A Slack notification triggered by new findings in a pull request
 
 Notifications require connection to Semgrep App. You can get notified about new findings via:
@@ -148,14 +156,14 @@ Notifications are sent only the first time a given finding is seen. [See how not
 
 #### Security dashboards
 
-![Screenshot of Semgrep App's findings dashboard showing a bar chart of findings over time, and a list of the most recent findings](../img/semgrep-app-overview.png)<br />
+![Screenshot of Semgrep App's findings dashboard showing a bar chart of findings over time, and a list of the most recent findings](/img/semgrep-app-overview.png)<br />
 Semgrep App's findings overview page
 
 The dashboards give you an overview of all your findings organization-wide.
 You can review Semgrep CI's findings through the following security dashboards:
 
 - [GitLab SAST Security Dashboard](https://docs.gitlab.com/ee/user/application_security/security_dashboard/) (requires GitLab Ultimate subscription)
-- [GitHub Advanced Security Dashboard](https://docs.github.com/en/github/getting-started-with-github/learning-about-github/about-github-advanced-security) (requires GitHub Enterprise subscription)
+- [GitHub Advanced Security Dashboard](https://docs.github.com/en/get-started/learning-about-github/about-github-advanced-security) (requires GitHub Enterprise subscription)
 - [Semgrep App](https://semgrep.dev/manage) (free and paid tiers available)
 
 ## Advanced Configuration
@@ -233,9 +241,9 @@ In providers other than GitHub Actions and GitLab CI, Semgrep CI doesn't infer a
 
 | Exit code | Meaning |
 | --- | --- |
-| **0** | Scan completed successfully and found no blocking findings |
+| **0** | Scan successful and found no blocking findings. By default, internal errors are not blocking the pipeline (CI always results in status `0`), but blocking findings block the pipeline (status `1`). To change the default behavior, see [Configuring blocking findings and errors](/semgrep-ci/configuration-reference.md/#configuring-blocking-findings-and-errors). |
 | **1** | Scan completed successfully and found blocking findings |
-| **2** | Scan failed and printed the error's details |
+| **2** | Scan failed (error suppression mentioned in **`0`** description above is disabled). Semgrep in CI prints the error details. |
 
 [Non-blocking findings](#getting-notifications-instead-of-blocking-builds) do not affect the exit code.
 

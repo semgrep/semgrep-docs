@@ -18,7 +18,7 @@ module.exports = {
     'Docs home',
     {
         type: 'category',
-        label: 'WELCOME',
+        label: 'Welcome',
         collapsible: false,
         items: [
             'getting-started',
@@ -28,7 +28,7 @@ module.exports = {
     },
     {
       type: 'category',
-      label: 'SEMGREP FEATURES',
+      label: 'Semgrep features',
       collapsible: false,
       items: [
         'supported-languages',
@@ -86,8 +86,7 @@ module.exports = {
             'experiments/extract-mode',
             'experiments/project-depends-on',
             'experiments/symbolic-propagation',
-            'experiments/metavariable-analysis',
-            'experiments/focus-metavariable'
+            'experiments/metavariable-analysis'
           ]
         },
         'deepsemgrep',
@@ -95,24 +94,26 @@ module.exports = {
     },
     {
         type: 'category',
-        label: 'USING SEMGREP',
+        label: 'Using Semgrep',
         collapsible: false,
         items: [
             {
                 type: 'category',
-                label: 'Semgrep CLI',
+                label: 'Semgrep command-line interface (CLI)',
                 items: [
                     'getting-started',
                     'cli-reference',
                     'upgrading',
+                    'reporting-false-negatives',
                     'troubleshooting/semgrep'
                 ]
             },
             {
                 type: 'category',
-                label: 'Semgrep in CI',
+                label: 'Semgrep in continuous integration (CI)',
                 items: [
                     'semgrep-ci/overview',
+                    'semgrep-ci/running-semgrep-ci-without-semgrep-app',
                     'semgrep-ci/configuration-reference',
                     'semgrep-ci/sample-ci-configs',
                     'troubleshooting/gitlab-sast'
@@ -167,7 +168,7 @@ module.exports = {
     },
     {
         type: 'category',
-        label: 'LEARN SEMGREP',
+        label: 'Learn Semgrep',
         collapsible: false,
         items: [
             'playground',
@@ -176,7 +177,7 @@ module.exports = {
     },
     {
         type: 'category',
-        label: 'CONTRIBUTING',
+        label: 'Contributing',
         collapsible: false,
         items: [
             'contributing/contributing',
@@ -199,11 +200,12 @@ module.exports = {
     },
     {
         type: 'category',
-        label: 'ABOUT SEMGREP',
+        label: 'About Semgrep',
         collapsible: false,
         items: [
             'support',
             'release-notes',
+            'rule-updates',
             'security',
             'licensing',
             'faq',

@@ -9,7 +9,7 @@ import MoreHelp from "/src/components/MoreHelp"
 
 # Evaluating your security posture through the Dashboard
 
-![Screenshot of dashboard view](../img/dashboard-view.png)
+![Screenshot of dashboard view](/img/dashboard-view.png)
 
 The Findings Dashboard is an overview of your organization’s security posture from data aggregated within Semgrep App. With these metrics you are able to:
 
@@ -21,7 +21,7 @@ You can access the Dashboard by [logging into Semgrep App](https://semgrep.dev/l
 
 ## Assessing security readiness at a glance
 
-![Screenshot of dashboard header](../img/dashboard-header.png)
+![Screenshot of dashboard header](/img/dashboard-header.png)
 
 The **Header widget** displays high-level security analytics across your entire organization. This includes:
 <dl>
@@ -44,7 +44,7 @@ To change the time range of scan data over time:
 
 ## Summarizing a project’s security posture
 
-![Screenshot of dashboard projects](../img/dashboard-project.png)
+![Screenshot of dashboard projects](/img/dashboard-project.png)
 
 The **Projects widget** displays open findings, high severities, and PR fix rates per-project. Through this view you are able to see which projects have the amount number of findings. The columns are arranged in a descending order, from the project with the greatest amount of findings to the least.
 
@@ -52,7 +52,7 @@ To view the project’s findings, click on the project’s name. This takes you 
 
 ## Discovering trends in vulnerabilities through OWASP categories
 
-![Screenshot of dashboard categories](../img/dashboard-categories.png)
+![Screenshot of dashboard categories](/img/dashboard-categories.png)
 
 Trends in insecure code can emerge after multiple Semgrep scans over time. By identifying these patterns, security teams are better informed about specific areas for improvement. Semgrep enables security teams to see the breakdown of vulnerabilities detected through the **Categories widget**, which includes:
 
@@ -89,7 +89,7 @@ The color indicator next to the category name tells you in what state your organ
 
 ## Assessing rule performance
 
-![Screenshot of dashboard rules widget](../img/dashboard-rules.png)
+![Screenshot of dashboard rules widget](/img/dashboard-rules.png)
 
 The **Rules widget** provides a summary report for rule metrics, such as what rules are ignored or fired the most.
 
@@ -101,7 +101,7 @@ These data points can serve as a starting point for the following security audit
 
 ### Rule performance through Developer Feedback
 
-![Screenshot of developer feedback](../img/dashboard-devfeedback.png)
+![Screenshot of developer feedback](/img/dashboard-devfeedback.png)
 
 In Team/Enterprise Dashboards, these additional metrics are visible:
 
@@ -110,7 +110,7 @@ In Team/Enterprise Dashboards, these additional metrics are visible:
 
 The **Most disliked** metric is taken from the **Developer Feedback** feature. Developers are able to provide feedback on findings that are not the most accurate. This feature is available for Team/Enterprise users.
 
-![Screenshot of developer feedback end flow](../img/dashboard-devfeedback2.png)
+![Screenshot of developer feedback end flow](/img/dashboard-devfeedback2.png)
 
 ## See also
 

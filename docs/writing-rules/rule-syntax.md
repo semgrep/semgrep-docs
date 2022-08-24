@@ -5,6 +5,7 @@ description: "This document describes Semgrep’s YAML rule syntax including req
 ---
 
 import MoreHelp from "/src/components/MoreHelp"
+import LanguageExtensionsTags from '/src/components/reference/_language-extensions-tags.mdx'
 
 # Rule syntax
 
@@ -37,38 +38,8 @@ Only one of `pattern`, `patterns`, `pattern-either`, or `pattern-regex` is requi
 :::
 
 #### Language extensions and tags
-<details>
-<summary>Expand table of extensions and tags</summary>
 
-| Language   | Extensions             | Tags                                 |
-|:-----------|:-----------------------|:-------------------------------------|
-| Bash       | `.sh`                  | `bash`                               |
-| C          | `.c`                   | `c`                                  |
-| C++        | `.cpp`, `.h`           | `cpp`                                |
-| C#         | `.cs`                  | `csharp`, `cs`, `C#`                 |
-| Generic    |                        | `generic`                            |
-| Go         | `.go`                  | `go`, `golang`                       |
-| Hack       | `.h`, `.hack`          | `hack`                               |
-| Java       | `.java`                | `java`                               |
-| JavaScript | `.js`, `.jsx`          | `js`, `jsx`, `javascript`            |
-| JSON       | `.json`                | `json`, `JSON`, `Json`               |
-| JSX        | `.js`, `.jsx`          | `js`, `jsx`, `javascript`            |
-| Kotlin     |  `.kt`, `.kts`, `.ktm` | `kotlin`                             |
-| Lua        | `.lua`                 | `lua`                                |
-| OCaml      | `.ml`, `.mli`          | `ocaml`, `ml`                        |
-| PHP        | `.php`                 | `php`                                |
-| Python     | `.py`, `.pyi`          | `python`, `python2`, `python3`, `py` |
-| R          | `.r`, `.rda`, `rds`    | `r`                                  |
-| Ruby       | `.rb`                  | `ruby`, `rb`                         |
-| Rust       | `.rs`                  | `rust`, `Rust`, `rs`                 |
-| Scala      | `.scala`, `.sc`        | `scala`                              |
-| Solidity   | `.sol`                 | `solidity`                           |
-| Terraform  | `.tf`                  | `hcl`                                |
-| TypeScript | `.ts`, `.tsx`          | `ts`, `tsx`, `typescript`            |
-| TSX        | `.ts`, `.tsx`          | `ts`, `tsx`, `typescript`            |
-| YAML       | `.yaml`                | `yaml`                               |
-
-</details>
+<LanguageExtensionsTags />
 
 ### Optional
 
@@ -110,6 +81,17 @@ The `patterns` operator performs a logical AND operation on one or more child pa
 
 <iframe src="https://semgrep.dev/embed/editor?snippet=Q83q" border="0" frameBorder="0" width="100%" height="432"></iframe>
 
+#### `patterns` operator evaluation strategy
+
+Note that the order in which the child patterns are declared in a `patterns` operator has no effect on the final result. A `patterns` operator is always evaluated in the same way:
+
+1. Semgrep evaluates all _positive_ patterns, that is [`pattern-inside`](#pattern-inside)s, [`pattern`](#pattern)s, [`pattern-regex`](#pattern-regex)es, and [`pattern-either`](#pattern-either)s. Each range matched by each one of these patterns is intersected with the ranges matched by the other operators. The result is a set of _positive_ ranges. The positive ranges carry _metavariable bindings_. For example, in one range `$X` can be bound to the function call `foo()`, and in another range `$X` can be bound to the expression `a + b`.
+2. Semgrep evaluates all _negative_ patterns, that is [`pattern-not-inside`](#pattern-not-inside)s, [`pattern-not`](#pattern-not)s, and [`pattern-not-regex`](#pattern-not-regex)es. This gives a set of _negative ranges_ which are used to filter the positive ranges. This results in a strict subset of the positive ranges computed in the previous step.
+3. Semgrep evaluates all _conditionals_, that is [`metavariable-regex`](#metavariable-regex)es, [`metavariable-pattern`](#metavariable-pattern)s, and [`metavariable-comparison`](#metavariable-comparison)s. These conditional operators can only examine the metavariables bound in the positive ranges in step 1, that passed through the filter of negative patterns in step 2. Note that metavariables bound by negative patterns are _not_ available here.
+4. Semgrep applies all [`focus-metavariable`](#focus-metavariable)s, by computing the intersection of each positive range with the range of the metavariable on which we want to focus. Again, the only metavariables available to focus on are those bound by positive patterns.
+
+<!-- TODO: Add example to illustrate all of the above -->
+
 ### `pattern-either`
 
 The `pattern-either` operator performs a logical OR operation on one or more child patterns. This is useful for chaining multiple patterns together where any may be true.
@@ -150,6 +132,28 @@ This operator will filter findings that have _any overlap_ with the supplied reg
 
 <iframe src="https://semgrep.dev/embed/editor?snippet=8n5Q" border="0" frameBorder="0" width="100%" height="432"></iframe>
 
+### `focus-metavariable`
+
+The `focus-metavariable` operator puts the focus, or _zooms in_, on the code region matched by a metavariable. For example, to find all functions arguments annotated with the type `bad` you may write the following pattern:
+
+```yaml
+pattern: |
+  def $FUNC(..., $ARG : bad, ...):
+    ...
+```
+
+This works but it matches the entire function definition. Sometimes, this is not desirable. If the definition spans hundreds of lines they are all matched. In particular, if you are using [Semgrep App](https://semgrep.dev/login) and you have triaged a finding generated by this pattern, the same finding shows up again as new if you make any change to the definition of the function!
+
+To specify that you are only interested in the code matched by a particular metavariable, in our example `$ARG`, use `focus-metavariable`.
+
+<iframe src="https://semgrep.dev/embed/editor?snippet=4kk8" border="0" frameBorder="0" width="100%" height="432"></iframe>
+
+Note that `focus-metavariable: $ARG` is not the same as `pattern: $ARG`! Using `pattern: $ARG` finds all the uses of the parameter `x` which is not what we want! (Note that `pattern: $ARG` does not match the formal parameter declaration, because in this context `$ARG` only matches expressions.)
+
+<iframe src="https://semgrep.dev/embed/editor?snippet=PPPe" border="0" frameBorder="0" width="100%" height="432"></iframe>
+
+In short, `focus-metavariable: $X` is not a pattern in itself, it does not perform any matching, it only focuses the matching on the code already bound to `$X` by other patterns. Whereas `pattern: $X` matches `$X` against your code (and in this context, `$X` only matches expressions)!
+
 ### `metavariable-regex`
 
 The `metavariable-regex` operator searches metavariables for a [PCRE](https://www.pcre.org/original/doc/html/pcrepattern.html) regular expression. This is useful for filtering results based on a [metavariable’s](pattern-syntax.mdx#metavariables) value. It requires the `metavariable` and `regex` keys and can be combined with other pattern operators.
@@ -188,7 +192,7 @@ It is possible to nest `metavariable-pattern` inside `metavariable-pattern`!
 The metavariable should be bound to an expression, a statement, or a list of statements, for this test to be meaningful. A metavariable bound to a list of function arguments, a type, or a pattern, will always evaluate to false.
 :::
 
-### Nested language
+#### `metavariable-pattern` with nested language
 
 If the metavariable's content is a string, then it is possible to use `metavariable-pattern` to match this string as code by specifying the target language via the `language` key.
 
@@ -216,6 +220,29 @@ Comparison expressions support simple arithmetic as well as composition with [bo
 
 Building off of the previous example this will still catch code like `set_port(80)` but will no longer catch `set_port(443)` or `set_port(8080)`.
 
+The `comparison` key accepts Python expression using:
+
+- Boolean, string, integer, and float literals.
+- Boolean operators `not`, `or`, and `and`.
+- Arithmetic operators `+`, `-`, `*`, `/`, and `%`.
+- Comparison operators `==`, `!=`, `<`, `<=`, `>`, and `>=`.
+- Function `int()` to convert strings into integers.
+- Function `str()` to convert numbers into strings.
+- Lists and the `in` infix operator.
+- Function `re.match()` to match a regular expression (without the optional `flags` argument).
+
+You can use Semgrep metavariables such as `$MVAR`, which Semgrep evaluates as follows:
+
+- If `$MVAR` binds to a literal, then that literal is the value assigned to `$MVAR`.
+- If `$MVAR` binds to a code variable that is a constant, and constant propagation is enabled (as it is by default), then that constant is the value assigned to `$MVAR`.
+- Otherwise the code bound to the `$MVAR` is kept unevvaluated, and its string representation can be obtainer using the `str()` function, as in `str($MVAR)`. For example, if `$MVAR` binds to the code variable `x`, `str($MVAR)` evaluates to the string literal `"x"`.
+
+#### Legacy `metavariable-comparison` keys
+
+:::info
+You can avoid the use of the legacy keys described below (`base: int` and `strip: bool`) by using the `int()` function, as in `int($ARG) > 0o600` or `int($ARG) > 2147483647`.
+:::
+
 The `metavariable-comparison` operator also takes optional `base: int` and `strip: bool` keys. These keys set the integer base the metavariable value should be interpreted as and remove quotes from the metavariable value, respectively.
 
 For example, `base`:
@@ -240,7 +267,7 @@ The `pattern-not` operator is the opposite of the `pattern` operator. It finds c
 
 The `pattern-inside` operator keeps matched findings that reside within its expression. This is useful for finding code inside other pieces of code like functions or if blocks.
 
-<iframe src="https://semgrep.dev/embed/editor?snippet=B4lR" border="0" frameBorder="0" width="100%" height="432"></iframe>
+<iframe src="https://semgrep.dev/embed/editor?snippet=Z8Dw" border="0" frameBorder="0" width="100%" height="432"></iframe>
 
 ### `pattern-not-inside`
 
@@ -468,7 +495,7 @@ When invoked with `semgrep -f rule.yaml project/`, the above rule will run on fi
 - any file matching the `project/static/*.js` glob pattern
 
 :::note
-The glob syntax is from [Python's `pathlib`](https://docs.python.org/3/library/pathlib.html#pathlib.PurePath.match) and is used to match against the given file and all its parent directories.
+The glob syntax is from [Python's `wcmatch`](https://pypi.org/project/wcmatch/) and is used to match against the given file and all its parent directories.
 :::
 
 ### Limiting a rule to paths
@@ -485,6 +512,7 @@ rules:
         - "project/server"
         - "project/schemata"
         - "project/static/*.js"
+        - "tests/**/*.js"
 ```
 
 When invoked with `semgrep -f rule.yaml project/`, this rule will run on files inside `project/`, but results will be returned only for:
@@ -492,6 +520,7 @@ When invoked with `semgrep -f rule.yaml project/`, this rule will run on files i
 - files whose name ends in `_test.go`, such as `project/backend/server_test.go`
 - files inside `project/server`, `project/schemata`, or their subdirectories
 - files matching the `project/static/*.js` glob pattern
+- all files with the `.js` extension, arbitrary depth inside the tests folder
 
 If you are writing tests for your rules, you will need to add any test file or directory to the included paths as well.
 
@@ -541,7 +570,7 @@ The above rule makes use of many operators. It uses `pattern-either`, `patterns`
 
 ## Full specification
 
-The [full configuration-file format](https://github.com/returntocorp/semgrep/blob/develop/cli/src/semgrep/rule_schema.yaml) is defined as
+The [full configuration-file format](https://github.com/returntocorp/semgrep-interfaces/blob/main/rule_schema.yaml) is defined as
 a [jsonschema](http://json-schema.org/specification.html) object.
 
 <MoreHelp />

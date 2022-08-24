@@ -3,6 +3,13 @@ slug: contributing-to-semgrep-rules-repository
 description: "This article outlines how to contribute to Semgrep rules repository."
 ---
 
+import CloudArrowUp from '/img/cloud-arrow-up.svg'
+import CicleCheck from '/img/circle-check-solid.svg'
+import CodePullRequest from '/img/code-pull-request-solid.svg'
+import EarthAmericas from '/img/earth-americas-solid.svg'
+import FloppyDisk from '/img/floppy-disk-solid.svg'
+import CodeBranch from '/img/code-branch-solid.svg'
+
 # Contributing to Semgrep rules
 
 ## Introduction
@@ -19,15 +26,21 @@ There are two ways in which you can contribute to the Semgrep rules repository:
 
 ### Contributing through Semgrep App (recommended)
 
-To contribute to the Semgrep rules repository through Semgrep App, follow these steps:
+Publish rules in the open-source Semgrep Registry and share them with the Semgrep community to help others benefit from your rule-writing efforts and contribute to the field of software security. To contribute and publish rules to the Semgrep Registry, follow these steps:
+
 1. Go to [Semgrep App Editor](https://semgrep.dev/orgs/-/editor).
 2. Click **Create New Rule**.
-3. Make one of the following steps:
-    - Create a new rule and test code, and then click **Save**. Note: The test file must contain at least one true positive and one true negative test case to be approved. See the [Tests](#tests) section of this document for more information.
-    - Select a rule from a category in **Semgrep Registry**. Modify the rule or test code, click **Save**, and then **Fork**.
-4. Click **Share**.
+3. Choose one of the following:
+    - Create a new rule and test code, and then click <FloppyDisk className="inline_svg" /> **Save**. Note: The test file must contain at least one true positive and one true negative test case to be approved. See the [Tests](#tests) section of this document for more information.
+    - Select a rule from a category in **Semgrep Registry**. Click <CodeBranch className="inline_svg" /> **Fork**, modify the rule or test code, and then click <FloppyDisk className="inline_svg" /> **Save**.
+4. Click <EarthAmericas className="inline_svg" /> **Share**.
+5. Click <CloudArrowUp className="inline_svg" /> **Publish to Registry**.
+6. Fill in the required and optional fields.
+7. Click <CicleCheck className="inline_svg" /> **Continue**, and then click <CodePullRequest className="inline_svg" /> **Create PR**.
 
 This workflow automatically creates a pull request in the GitHub [rules repository](https://github.com/returntocorp/semgrep-rules). Find more about the rules repository by reading the [Rule writing](#rule-writing) and [Tests](#tests) sections.
+
+You can also publish rules to the Semgrep Registry as private rules. See the [Private rules](/docs/writing-rules/private-rules.md) documentation for more information.
 
 ### Contributing through GitHub
 
@@ -120,3 +133,24 @@ var numdata = 1;
 ```
 
 For more information, visit [Testing rules](https://semgrep.dev/docs/writing-rules/testing-rules/).
+
+## Advanced tips
+
+### Comparing rule performance between different versions of Semgrep
+
+For debugging purposes, you can compare rule performance between different versions of Semgrep. Find a script in [Semgrep source code](https://github.com/returntocorp/semgrep), located in `cli/scripts/compare.py`. Compare rules for different versions of Semgrep by the following command:
+
+<pre class="language-bash"><code>pipenv run ./cli/scripts/compare.py <span className="placeholder">VERSION_NUMBER OTHER_VERSION_NUMBER RULE_ID</span></code></pre>
+
+Substitute the optional placeholder <code><span className="placeholder">VERSION_NUMBER OTHER_VERSION_NUMBER RULE_ID</span></code> with the respective version numbers and a rule ID you want to compare. 
+
+Resulting input can be similar to the following:
+```
+pipenv run ./cli/scripts/compare.py 0.103.0 0.106.0 0B1B
+```
+
+To use this script with Podman, issue `--use-podman` in the command:
+
+```
+pipenv run ./cli/scripts/compare.py --use-podman 0.103.0 0.106.0 0B1B
+```

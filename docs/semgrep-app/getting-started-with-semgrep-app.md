@@ -17,7 +17,7 @@ This guide walks you through scanning code in both types of environments.
 
 Semgrep App enables you to run scans on multiple repositories by integrating with your GitHub or GitLab SaaS account. Semgrep uses **rules** to scan code. Matches found based on those rules are called **findings**. A Semgrep rule encapsulates pattern-matching logic and data-flow analysis used to find code violations, security issues, outdated libraries, and other issues.
 
-![Diagram of Semgrep App flow](../img/semgrep-app-diagram.png "Diagram of Semgrep App flow")
+![Diagram of Semgrep App flow](/img/semgrep-app-diagram.png "Diagram of Semgrep App flow")
 
 Many rules are available from [Semgrep Registry](https://semgrep.dev/r), an open-source, community-driven repository of rules. You can also write your own rules to customize Semgrep for your team's specific practices, or publish rules for the community.
 
@@ -137,12 +137,12 @@ Scans from local repositories do not access their corresponding remote repositor
 
 ##### Linking local scans to their remote repositories 
 
-![Screenshot of findings page snippet with no hyperlinks](../img/findings-no-hyperlinks.png "Screenshot of findings page snippet with no hyperlinks")
+![Screenshot of findings page snippet with no hyperlinks](/img/findings-no-hyperlinks.png "Screenshot of findings page snippet with no hyperlinks")
 *Figure 1.* Partial screenshot of findings page with no hyperlinks.
 
 Local repository scans require additional configuration to **create hyperlinks to their corresponding remote repositories**. Set up environment variables within your command line to configure cross-linking between local and remote repositories within Semgrep App.
 
-![Screenshot of sample environment variables on a Linux shell](../img/app-ci-setenvvar.png "Screenshot of sample environment variables on a Linux shell")
+![Screenshot of sample environment variables on a Linux shell](/img/app-ci-setenvvar.png "Screenshot of sample environment variables on a Linux shell")
 *Figure 2.* Sample environment variables set up on a Linux shell.
 
 To set up environment variables:
@@ -201,7 +201,7 @@ commit fa4e36b9369e5b039bh2220b5h9R61a38b077f29 (HEAD -> s_juiceshop, origin/mas
 $> export SEMGREP_COMMIT=fa4e36b9369e5b039bh2220b5h9R61a38b077f29
  ```
 
-![Screenshot of findings page snippet with hyperlinks](../img/findings-with-hyperlinks.png "Screenshot of findings page snippet with hyperlinks")
+![Screenshot of findings page snippet with hyperlinks](/img/findings-with-hyperlinks.png "Screenshot of findings page snippet with hyperlinks")
 
 *Figure 3.* Partial screenshot of findings page with hyperlinks.
 
@@ -288,7 +288,7 @@ Semgrep's speed is not affected by having multiple rules for different languages
 
 You may select rules and rulesets from your own rules, your organization's rules, or rules from the Registry.
 
-![Screenshot of Rule board](../img/rule-board.png "Screenshot of Rule board")
+![Screenshot of Rule board](/img/rule-board.png "Screenshot of Rule board")
 
 The Rule Board is composed of three columns:
 
@@ -318,7 +318,7 @@ For more information on operations such as filtering and deleting as well as Rul
 
 ### Viewing findings of a scan
 
-![Screenshot of Dashboard](../img/dashboard-view.png "Screenshot of Dashboard")
+![Screenshot of Dashboard](/img/dashboard-view.png "Screenshot of Dashboard")
 
 Both the Dashboard and the Findings page display the results of a scan. These pages are accessible from the left sidebar in Semgrep App. The **[Dashboard](../dashboard/)** is a report view to assist in evaluating security posture across repositories. It organizes findings into OWASP categories, enabling users to assess habits and trends within their team or organization.
 
@@ -328,7 +328,7 @@ To see the rule specifics that triggered the finding, click on the rule entry.
 
 ### Automatically resolving findings
 
-![Screenshot of autofix in GitHub](../img/notifications-github-suggestions.png "Screenshot of autofix in GitHub")
+![Screenshot of autofix in GitHub](/img/notifications-github-suggestions.png "Screenshot of autofix in GitHub")
 
 Include code suggestions that resolve findings in both GitHub and GitLab through Semgrep App's autofix feature. This improves the fix rate of findings by reducing the steps needed to resolve a finding. See the section above on Running a scan to enable autofix.
 
@@ -371,5 +371,14 @@ Semgrep provides the following environments to learn, experiment, and write Semg
 ### Getting support
 
 Refer to [Troubleshooting Semgrep App](../troubleshooting/semgrep-app/) for common installation issues. Help is also available for all users through the [r2c Community Slack](https://r2c.dev/slack).
+
+## Additional resources
+
+### Semgrep App session details
+
+- The time before you need to reauthenticate to Semgrep App is 7 days.
+- Semgrep App session token is valid for 7 days.
+- This session timeout is not configurable.
+- Semgrep App is not using cookies but `localStorage` to store access tokens. The data in `localStorage` expire every 7 days. 
 
 <MoreHelp />
