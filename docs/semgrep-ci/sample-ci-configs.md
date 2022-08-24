@@ -151,7 +151,7 @@ jobs:
 
 </Tabs>
 
-## GitLab CI
+## GitLab CI/CD
 
 ```yaml
 semgrep:
@@ -316,7 +316,7 @@ workflows:
       - semgrep-scan
 ```
 
-## Bitbucket
+## Bitbucket Pipelines
 
 ```yaml
 image: atlassian/default-image:latest
@@ -340,7 +340,7 @@ pipelines:
             - semgrep ci --config auto
 ```
 
-## Azure
+## Azure Pipelines
 
 ```yaml
 # trigger:

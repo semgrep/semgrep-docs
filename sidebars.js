@@ -113,6 +113,7 @@ module.exports = {
                 label: 'Semgrep in continuous integration (CI)',
                 items: [
                     'semgrep-ci/overview',
+                    'semgrep-ci/running-semgrep-ci-with-semgrep-app',
                     'semgrep-ci/running-semgrep-ci-without-semgrep-app',
                     'semgrep-ci/configuration-reference',
                     'semgrep-ci/sample-ci-configs',
