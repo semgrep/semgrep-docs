@@ -45,7 +45,7 @@ Support for certain features of Semgrep App depend on your CI provider or source
     defaultValue="gha-semgrep"
     values={[
     {label: 'CI with Semgrep App', value: 'gha-semgrep'},
-    {label: 'Stand-alone CI job', value: 'gha-scan-security'},
+    {label: 'Stand-alone CI job', value: 'gha-standalone'},
     ]}
 >
 
@@ -106,9 +106,20 @@ jobs:
 
 </TabItem>
 
+</Tabs>
 
 <details><summary>Alternate job that uploads findings to GitHub Advanced Security Dashboard</summary>
 
+
+<Tabs
+    defaultValue="gha-semgrep-dash"
+    values={[
+    {label: 'CI with Semgrep App', value: 'gha-semgrep-dash'},
+    {label: 'Stand-alone CI job', value: 'gha-standalone-dash'},
+    ]}
+>
+
+<TabItem value='gha-semgrep-dash'>
 
 ```yaml
 name: Semgrep
@@ -147,11 +158,36 @@ jobs:
         if: always()
 ```
 
-</details>
-
+</TabItem>
 </Tabs>
 
+</details>
+
+<!-- <TabItem value='gha-standalone'>
+
+gha standalone goes here
+
+</TabItem> -->
+
+
 ## GitLab CI/CD
+
+<!--
+<Tabs
+    defaultValue="glcicd-semgrep"
+    values={[
+    {label: 'CI with Semgrep App', value: 'glcicd-semgrep'},
+    {label: 'Stand-alone CI job', value: 'glcicd-standalone'},
+    ]}
+>
+
+<TabItem value='glcicd-semgrep'>
+
+test
+
+</TabItem>
+
+</Tabs> -->
 
 ```yaml
 semgrep:
