@@ -7,9 +7,9 @@ hide_title: true
 ---
 
 import MoreHelp from "/src/components/MoreHelp"
-import CiScheduling from "/src/components/CiScheduling.mdx"
-import CiIgnoringFiles from "/src/components/CiIgnoringFiles.mdx"
-import DiffAwareScanning from "/src/components/DiffAwareScanning.mdx"
+import CiScheduling from "/src/components/reference/_ci-scheduling.mdx"
+import CiIgnoringFiles from "/src/components/reference/_ci-ignoring-files.mdx"
+import DiffAwareScanning from "/src/components/reference/_diff-aware-scanning.mdx"
 import RuleBoard from "/src/components/reference/_rule-board.md"
 
 # Running Semgrep in continuous integration (CI) with Semgrep App
