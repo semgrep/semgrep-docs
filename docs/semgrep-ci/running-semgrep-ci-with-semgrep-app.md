@@ -303,12 +303,6 @@ Refer to the following section to set up additional environment variables.
 
 <DiffAwareScanning />
 
-:::info
-* Diff-aware scanning is automatically configured for GitHub Actions and GitLab CI/CD through the snippets provided by Semgrep App.
-* For other CI providers, Semgrep App configures a full scan. You can set up both diff-aware scanning and full scans through either of the following:
-    * Create separate jobs for diff-aware scans and full scans.
-    * If your CI provider supports conditional statements, use an if/then statement that detects the presence of `SEMGREP_BASELINE_REF`. 
-:::
 
 ### Enabling hyperlinks to code
 
