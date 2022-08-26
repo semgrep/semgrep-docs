@@ -13,7 +13,7 @@ Semgrep scans can be classified by scope. The scope of a scan refers to what lin
 
 :::info
 * Diff-aware scanning is automatically configured for GitHub Actions and GitLab CI/CD through the snippets provided by Semgrep App. Do **not** set `SEMGREP_BASELINE_REF` for GitHub Actions or GitLab CI/DD.
-* For other CI providers, Semgrep App configures a full scan. You can set up both diff-aware scanning and full scans through either of the following:
+* For other CI providers, Semgrep App provides a full scan configuration by default. You can set up both diff-aware scanning and full scans through either of the following:
     * Create separate jobs for diff-aware scans and full scans.
     * If your CI provider supports conditional statements, use an if/then statement that detects the presence of `SEMGREP_BASELINE_REF`. 
 :::
