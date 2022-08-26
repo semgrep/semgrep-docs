@@ -1,7 +1,7 @@
 
 This example guides you through steps to report false negatives with Semgrep CLI:
 
-1. See the following example file `test.go`:
+1. See the following example file `file.go`:
 
     ```go                                    
     package main​
@@ -16,7 +16,9 @@ This example guides you through steps to report false negatives with Semgrep CLI
 1. In your command-line, run the following command:
 
     ```sh
-    semgrep shouldafound --email "test@foo.com" --start 5 --end 7 -m "Semgrep missed vulnerable code here" ./test.go
+    semgrep shouldafound --email "my@email.com" \
+    -m "Semgrep missed vulnerable code here" \
+    --start 5 --end 7 path/to/my/file.go
     ```
 
     Specify lines of code to report as false negatives using `--start` and `--end` options. The example above reports all lines between 5 and 7. 
@@ -25,10 +27,10 @@ This example guides you through steps to report false negatives with Semgrep CLI
 
     ```sh
     {
-        "email": "test@foo.com",
+        "email": "my@email.com",
         "lines": "func main() {\n    fmt.Println(\"foo\")\n}\n",
         "message": "Semgrep missed vulnerable code here",
-        "path": "test.go"
+        "path": "path/to/my/file.go"
     }
     ```
 
@@ -37,6 +39,8 @@ This example guides you through steps to report false negatives with Semgrep CLI
     ```
     OK to send? [y/N]: y
     ```
+
+    **Note**: Anonymize the data you send to us, as `shouldafound` creates Semgrep Playground links which are public to anyone with access to the URL.
 
 If you send the code, you receive the following notice in your command-line:
 
