@@ -281,3 +281,7 @@ a.navbar__item.navbar__link:hover {
   color: rgb(198, 200, 204);
 }
 
+.yt_embed {
+    padding-bottom: 1rem;
+}
+
