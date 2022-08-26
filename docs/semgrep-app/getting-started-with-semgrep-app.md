@@ -370,6 +370,15 @@ Semgrep provides the following environments to learn, experiment, and write Semg
 
 ### Getting support
 
-Refer to [Troubleshooting Semgrep App](../troubleshooting/semgrep-app/) for common installation issues. Help is also available for all users through the [r2c Community Slack](https://r2c.dev/slack).
+Refer to [Troubleshooting Semgrep App](/docs/troubleshooting/semgrep-app/) for common installation issues. Help is also available for all users through the [r2c Community Slack](https://r2c.dev/slack).
+
+## Additional resources
+
+### Semgrep App session details
+
+- The time before you need to reauthenticate to Semgrep App is 7 days.
+- Semgrep App session token is valid for 7 days.
+- This session timeout is not configurable.
+- Semgrep App is not using cookies but `localStorage` to store access tokens. The data in `localStorage` expire every 7 days. 
 
 <MoreHelp />

@@ -34,7 +34,7 @@ Another way of categorizing findings is **based on the validity of the match**:
     <dt>False negative</dt>
     <dd>A false negative is a finding that should have been found by a rule, but was not. This can happen for two reasons:
     <ul>
-        <li>A flaw in the rule's logic. See <a href="../release-notes/#additions-1"><code>semgrep shouldafound</code></a>.</li>
+        <li>A flaw in the rule's logic. See <a href="/docs/reporting-false-negatives"><code>semgrep shouldafound</code></a>.</li>
         <li>A bug within Semgrep itself. See the list of <a href="https://github.com/returntocorp/semgrep/issues">Semgrep issues</a> to file a bug report.</li>
     </ul>
     </dd>
@@ -51,7 +51,7 @@ After a finding is generated, developers can:
 * **Create a Jira ticket from the finding (for Enterprise/Team Tier users.)** For findings that require more extensive refactoring, users can create a ticket in Jira through Semgrep App to track its resolution.
 
 :::tip
-* An additional method to address false positives is to improve the rule. Create [test cases](../writing-rules/testing-rules) to ensure that the rule performs as intended.
+* An additional method to address false positives is to improve the rule. Create [test cases](/docs/writing-rules/testing-rules) to ensure that the rule performs as intended.
 * If a rule from Semgrep Registry is useful but also captures too many false positives, you can reach out to support@semgrep.dev. This will assist rule-writing efforts and improve the quality of rules that you run. 
 * Additionally, you can also report rules with a high false positive rate from your SCM if you have enabled Semgrep App to leave comments in PRs. A link is provided after each comment for users to indicate if the finding is a false positive.
 :::

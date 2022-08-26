@@ -32,7 +32,7 @@ These release notes include upgrades for all versions ranging between 0.102.0 an
 #### Additions
 
 - Semgrep in CI:
-  - Fail-open support: Added `--suppress-errors` and `--no-suppress-errors` (the default is `--no-suppress-errors`).
+  - Fail-open support: Added `--suppress-errors` and `--no-suppress-errors` (the default is `--suppress-errors`). See [Configuring blocking findings and errors](/semgrep-ci/configuration-reference.md/#configuring-blocking-findings-and-errors) for more information.
   - Semgrep in CI does not block builds on triage ignored issues.
   - The timeout for Git commands Semgrep runs is now configurable. To configure the timeout, set the `SEMGREP_GIT_COMMAND_TIMEOUT` environment variable. The time unit used as a value for this key is in seconds. The default value is `300` which represents 5 minutes.
   - The `SEMGREP_GHA_MIN_FETCH_DEPTH` environment variable lets you set how many commits `semgrep ci` fetches from the remote at the minimum when calculating the merge-base in GitHub Actions. Having more commits available helps Semgrep determine what changes came from the current pull request, fixing issues where Semgrep would otherwise report findings that were not touched in a given pull request. This value is set to 0 by default. (Issue [#5664](https://github.com/returntocorp/semgrep/pull/5664))
@@ -233,43 +233,7 @@ These release notes include upgrades for all versions ranging between **0.91.0**
 
 - Dockerfile: Constant propagation now works on variables declared with `ENV`.
 
-- Added `shouldafound`. You can report false negatives that Semgrep should have found through the Semgrep CLI itself. See the following use case of `shouldafound`:
-
-    See the following file `test.go`:
-    ```go                                    
-    package main
-    ​
-    import "fmt"
-    ​
-    func main() {
-        fmt.Println("foo")
-    }
-    ```
-
-    Let's notify Semgrep creators that they missed some vulnerable code in the previous file:
-    ```sh
-    semgrep shouldafound --email "test@foo.com" --start 5 --end 7
-    -m "Semgrep missed a vulnerable code here" ./test.go
-    ```
-
-    This will send the following information to semgrep.dev:
-
-    ```sh
-    {
-      "email": "test@foo.com",
-      "lines": "func main() {\n    fmt.Println(\"foo\")\n}\n",
-      "message": "Semgrep missed a vulnerable code here",
-      "path": "test.go"
-    }
-    OK to send? [y/N]: y
-    ```
-
-    If you send the code, you get the following notice in the terminal:
-
-    ```sh
-    Sent feedback. Thanks for your contribution!
-    You can view and extend the generated rule template here: https://semgrep.dev/s/ylAk
-    ```
+- Added `shouldafound`. For more information, see [Reporting false negatives](/reporting-false-negatives.md).
 
 - dataflow: The [data-flow analysis engine](https://semgrep.dev/docs/writing-rules/data-flow/) now handles `if-then-else` **expressions** as in OCaml, Ruby etc. Previously it only handled `if-then-else` **statements**. ([#4965](https://github.com/returntocorp/semgrep/issues/4965))
 
@@ -319,7 +283,7 @@ These release notes encompass upgrades for all versions ranging between **0.87.0
 
 #### Additions
 
-- A new `focus-metavariable` operator that enables you to focus (or zoom in) the match on the code region delimited by a metavariable. This operator is useful for narrowing down the code matched by a rule, to focus on what matters. For more information, see [focus-metavariable documentation](/experiments/focus-metavariable/). ([#4453](https://github.com/returntocorp/semgrep/issues/4453))
+- A new `focus-metavariable` operator that enables you to focus (or zoom in) the match on the code region delimited by a metavariable. This operator is useful for narrowing down the code matched by a rule, to focus on what matters. For more information, see [focus-metavariable documentation](../writing-rules/rule-syntax/#focus-metavariable). ([#4453](https://github.com/returntocorp/semgrep/issues/4453))
 - Join mode now supports inline rules through the `rules` key underneath the `join` key. For more information, see [Inline rule example](/experiments/join-mode/overview/#inline-rule-example).
 
 Language support improvements:
