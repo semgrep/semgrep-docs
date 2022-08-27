@@ -232,6 +232,35 @@ To match an arbitrary sequence of items and capture their value in the example:
     severity: WARNING
     ```
 
+### Ignoring comments
+
+By default, the generic mode doesn't know about comments or code that
+should be ignored. In the following example, for some reason we want
+to detect CSS code that sets text color to blue. Here's the target
+code:
+
+```
+color: /* my fave color */ blue;
+```
+
+[`options.generic_comment_style`](https://semgrep.dev/docs/writing-rules/rule-syntax/#options)
+is an option that can be set to ignore
+C-style comments as is the case here. Our simple Semgrep rule is:
+
+```yaml
+id: css-blue-is-ugly
+pattern: |
+  color: blue
+options:
+  # ignore comments of the form /* ... */
+  generic_comment_style: c
+message: |
+  Blue is ugly.
+languages:
+  - generic
+severity: WARNING
+```
+
 ## Command line example
 
 Sample pattern: `exec(...)`
