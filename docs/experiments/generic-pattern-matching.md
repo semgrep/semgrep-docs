@@ -1,38 +1,72 @@
 ---
 append_help_link: true
-description: "Semgrep can match matches generic patterns in languages that it doesn’t yet support. You can use generic pattern matching for languages that don’t yet have a parser, configuration files, and other structured data, such as HTML or XML. Generic pattern matching is experimental."
+description: "Semgrep can match matches generic patterns in languages that it doesn’t yet support. You can use generic pattern matching for languages that don’t yet have a parser, configuration files, and other structured data such as XML. Generic pattern matching is experimental."
 ---
 
 # Generic pattern matching
 ## Introduction
-Semgrep can match matches generic patterns in languages that it doesn’t yet support. You can use generic pattern matching for languages that don’t yet have a parser, configuration files, and other structured data, such as HTML or XML. Generic pattern matching is experimental.
+Semgrep can match matches generic patterns in languages that it doesn’t yet support. You can use generic pattern matching for languages that don’t yet have a parser, configuration files, and other structured data such as XML. Generic pattern matching is experimental.
 
 As an example, consider this rule:
 ```yaml
 rules:
-- id: terraform-all-origins-allowed
-  patterns:
-  - pattern-inside: cors_rule { ... }
-  - pattern: allowed_origins = ["*"]
-  languages:
-  - generic
-  severity: WARNING
-  message: CORS rule on bucket permits any origin
+  - id: dynamic-proxy-scheme
+    pattern: proxy_pass $$SCHEME:// ...;
+    paths:
+      include:
+        - "*.conf"
+        - "*.vhost"
+        - sites-available/*
+        - sites-enabled/*
+    languages:
+      - generic
+    severity: WARNING
+    message: >-
+      The protocol scheme for this proxy is dynamically determined.
+      This can be dangerous if the scheme can be injected by an
+      attacker because it may forcibly alter the connection scheme.
+      Consider hardcoding a scheme for this proxy.
+    metadata:
+      references:
+        - https://github.com/yandex/gixy/blob/master/docs/en/plugins/ssrf.md
+      category: security
+      technology:
+        - nginx
+      confidence: MEDIUM
 ```
 
-The above rule matches this code snippet:
+The above rule [matches](https://semgrep.dev/playground/r/generic.nginx.security.dynamic-proxy-scheme.dynamic-proxy-scheme) this code snippet:
 
-```bash
-resource "aws_s3_bucket" "b" {
-  bucket = "s3-website-test-open.hashicorp.com"
-  acl    = "private"
+```
+server {
+  listen              443 ssl;
+  server_name         www.example.com;
+  keepalive_timeout   70;
 
-  cors_rule {
-    allowed_headers = ["*"]
-    allowed_methods = ["PUT", "POST"]
-    allowed_origins = ["*"]  # <--- Matches here
-    expose_headers  = ["ETag"]
-    max_age_seconds = 3000
+  ssl_certificate     www.example.com.crt;
+  ssl_certificate_key www.example.com.key;
+
+  location ~ /proxy/(.*)/(.*)/(.*)$ {
+    # ruleid: dynamic-proxy-scheme
+    proxy_pass $1://$2/$3;
+  }
+
+  location ~* ^/internal-proxy/(?<proxy_proto>https?)/(?<proxy_host>.*?)/(?<proxy_path>.*)$ {
+    internal;
+
+    # ruleid: dynamic-proxy-scheme
+    proxy_pass $proxy_proto://$proxy_host/$proxy_path ;
+    proxy_set_header Host $proxy_host;
+}
+
+  location ~ /proxy/(.*)/(.*)/(.*)$ {
+    # ok: dynamic-proxy-scheme
+    proxy_pass http://$2/$3/$1;
+  }
+
+  location ~ /proxy/(.*)/(.*)/(.*)$ {
+    # ok: dynamic-proxy-scheme
+    proxy_pass https://$1/$2/$3;
   }
 }
 ```
@@ -49,7 +83,7 @@ Generic pattern matching has the following properties:
 
 ## Caveats and limitations
 
-Generic mode should work fine with any human-readable text, as long as it’s primarily based on ASCII symbols. In practice, it might work great with some languages and less well with others. In general, it’s possible or even easy to write code in weird ways that will prevent generic mode from matching. Note it’s not good for detecting malicious code. For example, in HTML one can write `&#x48;&#x65;&#x6C;&#x6C;&#x6F`; instead of `Hello` and this is not something the generic mode would match if the pattern is `Hello`, unlike if it had full HTML support.
+Generic mode should work fine with any human-readable text, as long as it’s primarily based on ASCII symbols. In practice, it might work great with some languages and less well with others. In general, it’s possible or even easy to write code in weird ways that will prevent generic mode from matching. Note it’s not good for detecting malicious code. For example, in XML one can write `&#x48;&#x65;&#x6C;&#x6C;&#x6F`; instead of `Hello` and this is not something the generic mode would match if the pattern is `Hello`, unlike if it had full XML support.
 
 With respect to Semgrep operators and features:
 
