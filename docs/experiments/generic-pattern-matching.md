@@ -4,6 +4,11 @@ description: "Semgrep can match matches generic patterns in languages that it do
 ---
 
 # Generic pattern matching
+
+<!-- If you ever need to replace the examples below, a good way is to look
+     into the semgrep-rules repo under "generic" for an existing rule
+     that makes sense. -->
+
 ## Introduction
 Semgrep can match matches generic patterns in languages that it doesn’t yet support. You can use generic pattern matching for languages that don’t yet have a parser, configuration files, and other structured data such as XML. Generic pattern matching is experimental.
 
