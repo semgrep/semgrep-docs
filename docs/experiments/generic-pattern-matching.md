@@ -88,7 +88,16 @@ Generic pattern matching has the following properties:
 
 ## Caveats and limitations of generic mode
 
-Generic mode should work fine with any human-readable text, as long as it’s primarily based on ASCII symbols. In practice, it might work great with some languages and less well with others. In general, it’s possible or even easy to write code in weird ways that will prevent generic mode from matching. Note it’s not good for detecting malicious code. For example, in XML one can write `&#x48;&#x65;&#x6C;&#x6C;&#x6F`; instead of `Hello` and this is not something the generic mode would match if the pattern is `Hello`, unlike if it had full XML support.
+Semgrep can reliably understand the syntax of natively [supported languages](/supported-languages/). The generic mode is useful for unsupported languages, consequently bringing specific limitations.
+
+:::caution
+- Generic mode is not good for detecting malicious code.
+- The quality of results in the generic mode can vary depending on the language you use it for.
+:::
+
+The generic mode works fine with any human-readable text, as long as it is primarily based on ASCII symbols. Since the generic mode does not understand the syntax of the language you are scanning, the quality of the result may differ from language to language or even depend on specific code. As a consequence, the generic mode works well for some languages, but it does not give consistent results always. Generally, it's possible or even easy to write code in weird ways that prevent generic mode from matching. Note generic mode is not good for detecting malicious code.
+
+**Example**: In XML, one can write `&#x48;&#x65;&#x6C;&#x6C;&#x6F` instead of `Hello`. If a rule pattern in generic mode is `Hello`, Semgrep is unable to match the `&#x48;&#x65;&#x6C;&#x6C;&#x6F`, unlike if it had full XML support.
 
 With respect to Semgrep operators and features:
 
