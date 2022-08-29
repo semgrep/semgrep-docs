@@ -79,7 +79,7 @@ server {
 Generic pattern matching has the following properties:
 
 * A document is interpreted as a nested sequence of ASCII words, ASCII punctuation, and other bytes.
-* `...` allows skipping non-matching elements, up to 10 lines down the last match.
+* `...` (ellipsis operator) allows skipping non-matching elements, up to 10 lines down the last match.
 * `$X` (metavariable) matches any word.
 * `$...X` (ellipsis metavariable) matches a sequence of words, up to 10 lines down the last match.
 * Indentation determines primary nesting in the document.
