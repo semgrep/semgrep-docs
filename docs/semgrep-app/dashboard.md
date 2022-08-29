@@ -44,7 +44,7 @@ To change the time range of scan data over time:
 
 ## Filtering through findings from projects
 
-The Dashboard displays data from scans for **all of the organization's projects** by default. You can select one or a few projects to filter the dashboard widgets to only reflect scans from selected projects. Selecting a few projects gives you a more targeted view of those projects' security posture.
+The Dashboard displays data from scans for **all of the organization's projects** by default. Select one or a few projects to filter the dashboard widgets to only reflect scans from selected projects. Selecting a few projects gives you a more targeted view of those projects' security posture.
 
 To change the projects filter:
 
