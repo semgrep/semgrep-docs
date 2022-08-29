@@ -234,10 +234,10 @@ To match an arbitrary sequence of items and capture their value in the example:
 
 ### Ignoring comments
 
-By default, the generic mode doesn't know about comments or code that
-should be ignored. In the following example, for some reason we want
-to detect CSS code that sets text color to blue. Here's the target
-code:
+By default, the generic mode does **not** know about comments or code
+that can be ignored. In the following example, we are 
+scanning for CSS code that sets the text color to blue. The target code
+is the following:
 
 ```
 color: /* my fave color */ blue;
