@@ -243,9 +243,9 @@ is the following:
 color: /* my fave color */ blue;
 ```
 
-[`options.generic_comment_style`](https://semgrep.dev/docs/writing-rules/rule-syntax/#options)
-is an option that can be set to ignore
-C-style comments as is the case here. Our simple Semgrep rule is:
+Use the [`options.generic_comment_style`](/writing-rules/rule-syntax/#options)
+to ignore C-style comments as it is the case in our example.
+Our simple Semgrep rule is:
 
 ```yaml
 id: css-blue-is-ugly
