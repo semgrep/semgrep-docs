@@ -86,6 +86,7 @@ module.exports = {
             'experiments/extract-mode',
             'experiments/project-depends-on',
             'experiments/symbolic-propagation',
+            'experiments/taint-propagators',
             'experiments/metavariable-analysis'
           ]
         },
