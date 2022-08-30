@@ -6,6 +6,10 @@ description: "Taint propagators allow you to customize how taint is propagated."
 
 # Taint propagators
 
+Taint propagators allow you to customize how taint is propagated. 
+
+## Taint propagator example use
+
 Consider the following Python code:
 
 ```python
@@ -17,11 +21,11 @@ def test(s):
     sink(s.pop())
 ```
 
-Here, an unsafe `user_input` is stored into a set data-structure, and then we take
-a random element from that set and pass it into a `sink` function. Of course, this
-random element could be `user_input` itself, leading to an injection vulnerability!
+Code description: An unsafe `user_input` is stored into a `set` data structure.
+A random element from `set` is then passed into a `sink` function. This random
+element can be `user_input` itself, leading to an injection vulnerability!
 
-If we try to find this issue with this rule:
+Let's use the following rule to find the above-described issue: 
 
 ```yaml
 mode: taint
@@ -31,11 +35,11 @@ pattern-sinks:
 - pattern: sink(...)
 ```
 
-It will not find it. This is because, by itself, Semgrep only propagates taint
-through assignments.
+Semgrep only propagates taint through assignments. As a consequence, 
+Semgrep cannot find the issue using the rule displayed above.
 
-Using _taint propagators_ you can tell Semgrep how to propagate taint in these
-scenarios. Taint propagators are specified under the `pattern-propagators` key:
+The use of **taint propagators** enables Semgrep to propagate taint in these scenarios.
+Taint propagators are specified under the `pattern-propagators` key:
 
 ```yaml
 pattern-propagators:
@@ -44,10 +48,15 @@ pattern-propagators:
   to: $X
 ```
 
-A propagator consists of any arbitrary pattern, that must bind two metavariables
-of your choice. Then you must specify the `from` and the `to` metavariables.
-In our example, whenever Semgrep finds the pattern `$X.add($Y)`, it will check if
-`$Y` is tainted and, if it is, then it will propagate that taint to `$X`. Thus,
-adding tainted data to a set will mark the set itself as tainted.
+In the example above, whenever Semgrep finds the pattern `$X.add($Y)`, it checks if
+`$Y` is tainted. If `$Y` is tainted, Semgrep propagates that taint to `$X`. Thus,
+adding tainted data to a set marks the set itself as tainted.
 
 <iframe src="https://semgrep.dev/embed/editor?snippet=7lNe" border="0" frameBorder="0" width="100%" height="432"></iframe>
+
+## Propagator rule requirements
+
+A propagator rule necessitates:
+- Any arbitrary pattern that must bind two metavariables of your choice.
+- You must specify the `from` and the `to` metavariables.
+
