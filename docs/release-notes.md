@@ -22,19 +22,28 @@ Welcome to Semgrep release notes. This document provides an overview of the chan
 
 ### Semgrep CLI
 
-These release notes include upgrades for all versions ranging between 0.108.0 and 0.1??.0.
+These release notes include upgrades for all versions ranging between 0.108.0 and 0.111.0.
 
 #### Additions
 
-TODO
+- Semgrep now provides experimental support for the **Swift** language. See all languages that Semgrep supports in [Supported languages](https://semgrep.dev/docs/supported-languages/).
+- Add configuration options for using the tree-sitter library installed anywhere on the system.
+- Metrics now include language-aggregated parse rates (files, bytes). The purpose of this is to continue with parsing improvements. See [Semgrep privacy policy](/metrics.md) for more details.
+- Semgrep CI now accepts more formats of Git URLs for metadata that are sent to semgrep.dev.
 
 #### Changes
 
-TODO
+- Previously, the following error message appeared when metrics have not been uploaded within the set timeout timeframe:
+  ```
+  Error in send: HTTPSConnectionPool(host='metrics.semgrep.dev', port=443): Read timed out. (read timeout=3)
+  ```
+  As this caused confusion when running the CLI, this message is now displayed for development and debugging purposes only. Note that metrics are still successfully uploaded, but the success status is not sent in time for the current timeout set.
+
+- `semgrep ci` now defaults to fail open and always exits with exit code 0, which is equivalent to passing `--suppress-errors`. To disable this behavior, you can pass `--no-suppress-errors`, surfacing all exit codes to the CI provider. See [Configuring blocking findings and errors](/semgrep-ci/configuration-reference.md/#configuring-blocking-findings-and-errors) for more information.
 
 ##### Additional information
 
-Bug fixes are not included in the release notes unless they are potentially breaking your workflow. To see the complete change notes for Semgrep CLI and CI that include fixes, visit the [Semgrep changelog](https://github.com/returntocorp/semgrep/releases/).
+Minor bug fixes are not included in the release notes unless they are potentially breaking your workflow. To see the complete change notes for Semgrep CLI and CI that include fixes, visit the [Semgrep changelog](https://github.com/returntocorp/semgrep/releases/).
 
 ## July 2022
 
