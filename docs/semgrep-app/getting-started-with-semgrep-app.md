@@ -205,7 +205,7 @@ $> export SEMGREP_COMMIT=fa4e36b9369e5b039bh2220b5h9R61a38b077f29
 
 *Figure 3.* Partial screenshot of findings page with hyperlinks.
 
-#### Option B: Scanning a repository from GitHub or GitLab
+#### Option B: Scanning a repository in SCM
 
 Scanning a repository from SCM providers such as GitHub or GitLab ensures that Semgrep scans your codebase every time a PR or MR is created. To add a repository:
 
@@ -214,16 +214,18 @@ Scanning a repository from SCM providers such as GitHub or GitLab ensures that S
 1. Ensure you are signed in to Semgrep App.
 2. Click **Projects** on the left sidebar.
 3. Optional: If you do not see the repository you want to add in the **Projects** page of Semgrep app, follow the steps in the succeeding sections to ensure that Semgrep App can detect the repository.
-4. Click **Scan new project**, and then select which repository provider Semgrep to integrate with.
+4. Click **Scan new project**, and then click **Run scan in CI**.
+5. Select which repository provider Semgrep to integrate with.
 5. For **GitHub Actions**:
-    1. Click **Add CI Job **next to the name of the project to add.
-    2. Optional: If you do not see the repository you want to add, follow the succeeding guide on **detecting GitHub repositories**.
-    3. Click **Commit file**. This commits a `semgrep.yml` file containing pertinent scan parameters, such as schedule, what branch to scan on, and so on.
-    4. Semgrep App generates a token composed of a **Secret name** and **Secret value**. Copy and paste these into your repository's settings. Links are provided by Semgrep App.
-    5. Click **The secret's there, continue**.
-    6. Semgrep App creates a file for the CI job. Select toggles for desired features, such as scanning on a schedule.
+    1. Select the checkbox next to the name of the projects to add.
+    2. Optional: If you do not see the repository you want to add, follow the succeeding guide on **detecting GitHub repositories**. TODO
+    3. Click **Bulk add CI jobs**.
+    4. Click **Commit file**. This commits a `semgrep.yml` file containing pertinent scan parameters, such as schedule, what branch to scan on, and so on.
+    5. Semgrep App generates a token composed of a **Secret name** and **Secret value**. Copy and paste these into your repository's settings. Links are provided by Semgrep App.
+    6. Click **The secret's there, continue**.
+    7. Semgrep App creates a file for the CI job. Select toggles for desired features, such as scanning on a schedule.
 6. For **GitLab CI/CD**:
-    1. Create a Semgrep App token by clicking **Settings > Tokens > Create new token**, then return to the project setup by clicking on the back arrow on your browser.
+    1. Create a Semgrep App token by clicking **Create new API token**, and then follow the displayed instructions about saving the token.
     2. Add the Semgrep App token as a secret [CI/CD variable](https://docs.gitlab.com/ee/ci/variables/#custom-cicd-variables) named `SEMGREP_APP_TOKEN`.
     3. Select toggles to determine scan behavior.
     4. Copy the snippet provided to your `.gitlab-ci.yml` file and commit it.
