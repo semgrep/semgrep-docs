@@ -10,6 +10,32 @@ toc_max_heading_level: 2
 
 Welcome to Semgrep release notes. This document provides an overview of the changes, additions, and selected important fixes. Release notes published since April 2022 include Semgrep CLI, CI, and Semgrep App updates. Release notes published since April 2022 also include updates from more versions collected together.
 
+## August 2022
+
+### Semgrep App
+
+#### Additions
+
+- Azure Pipelines CI configuration is now available when adding a new repository to Semgrep App for scanning. Users can select **Azure Pipelines** from within the App, and Semgrep generates a code snippet that users can copy and commit to their configuration file to set up their CI job.
+- Users can now delete projects in bulk (also known as batch delete) from Semgrep App's interface. To do this, sign into **Semgrep App** > **Projects**, and click on **Edit Projects**.
+- Users can now see usage limits in **Semgrep App** > **Settings**.
+
+### Semgrep CLI
+
+These release notes include upgrades for all versions ranging between 0.108.0 and 0.1??.0.
+
+#### Additions
+
+TODO
+
+#### Changes
+
+TODO
+
+##### Additional information
+
+Bug fixes are not included in the release notes unless they are potentially breaking your workflow. To see the complete change notes for Semgrep CLI and CI that include fixes, visit the [Semgrep changelog](https://github.com/returntocorp/semgrep/releases/).
+
 ## July 2022
 
 ### Semgrep App

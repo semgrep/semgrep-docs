@@ -12,6 +12,110 @@ import MoreHelp from "/src/components/MoreHelp"
 
 Welcome to monthly rule updates! This document includes selected new rules, removed false positives (FP), and other rule updates. These new rules and their updates are made by the Semgrep community and r2c.
 
+## August 2022
+
+New community rules:
+* csharp.lang.security.ad.jwt-tokenvalidationparameters-no-expiry-validation.jwt-tokenvalidationparameters-no-expiry-validation
+* jwt-securitytoken-no-expiration.jwt-securitytoken-no-expiration (thanks @securecodeninja!)
+Community rule changes:
+* csharp.dotnet.security.audit.mass-assignment.mass-assignment
+    * Fixed taint source to focus on function argument
+* Updated various secrets-related rules:
+    * javascript.express.security.audit.express-session-hardcoded-secret.express-session-hardcoded-secret
+        * Added more patterns for hardcoded secrets in `express-session`
+    * javascript.express.security.express-jwt-hardcoded-secret.express-jwt-hardcoded-secret
+        * Added more import patterns to catch more cases
+    * javascript.jose.security.jwt-hardcode.hardcoded-jwt-secret
+        * Changed from ERROR to WARNING
+    * Updated to highlight smaller, relevant ranges of code
+        * java.java-jwt.security.jwt-hardcode.java-jwt-hardcoded-secret
+        * terraform.aws.security.aws-provider-static-credentials.aws-provider-static-credentials
+        * terraform.aws.security.aws-lambda-environment-credentials.aws-lambda-environment-credentials
+    * FP reduction: updated to taint mode to add more context
+        * go.jwt-go.security.jwt.hardcoded-jwt-key
+        * javascript.jsonwebtoken.security.jwt-hardcode.hardcoded-jwt-secret
+        * python.boto3.security.hardcoded-token.hardcoded-token
+* dockerfile.correctness.missing-assume-yes-switch.missing-assume-yes-switch
+    * Updated to work with multi flags such as `-yqq`
+* javascript.lang.security.audit.detect-non-literal-fs-filename.detect-non-literal-fs-filename
+    * Updated to taint mode and added more filesystem sources
+* ruby.rails.security.audit.avoid-tainted-shell-call.avoid-tainted-shell-call
+    * FP reduction: restricted sources to remove unlikely user input
+* typescript.react.security.react-markdown-insecure-html.react-markdown-insecure-html
+    * Added a pattern for `escapeHtml={false}`
+* yaml.github-actions.security.run-shell-injection.run-shell-injection
+    * Added a pattern for detecting manual user-supplied inputs
+* Updated to highlight smaller, relevant ranges of code
+    * ruby.lang.security.hardcoded-http-auth-in-controller.hardcoded-http-auth-in-controller
+    * ruby.rails.security.injection.tainted-sql-string.tainted-sql-string
+* FP reduction: updated to taint mode to add more context
+    * javascript.express.security.audit.xss.direct-response-write.direct-response-write
+    * javascript.lang.security.audit.detect-non-literal-regexp.detect-non-literal-regexp
+    * javascript.lang.security.detect-child-process.detect-child-process
+    * javascript.passport-jwt.security.passport-hardcode.hardcoded-passport-secret
+    * typescript.react.security.audit.react-unsanitized-method.react-unsanitized-method
+    * typescript.react.security.audit.react-unsanitized-property.react-unsanitized-property
+* Deprecated rules - these rules will no longer match anything
+    * javascript.jose.security.jwt-exposed-credentials.jwt-exposed-credentials
+    * javascript.jsonwebtoken.security.jwt-exposed-credentials.jwt-exposed-credentials
+    * javascript.lang.security.audit.non-constant-sql-query.non-constant-sql-query
+    * python.django.security.audit.xss.template-translate-no-escape.template-translate-no-escape
+New Teams-Tier rules
+* javascript.express.express-child-process.express-child-process
+* javascript.express.express-fs-filename.express-fs-filename
+* typescript.typescript.node.security.node-rsa-weak-key.node-rsa-weak-key
+* New Go Tier 1 Vulnerability rules
+    * go.net.active-debug-code.print-stack-trace.print-stack-trace
+    * go.net.active-debug-code.write-pprof-profile-output.write-pprof-profile-output
+    * go.net.command-injection.net-http-command-injection-taint.net-http-command-injection-taint
+    * go.net.sql.go-vanillasql-format-string-sqli-taint.go-vanillasql-format-string-sqli-taint
+    * go.net.sql.pg-orm-sqli-taint.pg-orm-sqli-taint
+    * go.net.sql.pg-sqli-taint.pg-sqli-taint
+    * go.net.sql.pgx-sqli-taint.pgx-sqli-taint
+    * go.net.ssrf.http-ssrf-taint.http-ssrf-taint
+    * go.net.xss.formatted-template-string-taint.formatted-template-string-taint
+    * go.net.xss.no-direct-write-to-responsewriter-taint.no-direct-write-to-responsewriter-taint
+    * go.net.xxe.libxml2-xxe-taint.libxml2-xxe-taint
+* New secrets detection rules which try to resolve cases where hardcoded strings are used as a secret in code
+    * csharp.jwt-dotnet.jwt-dotnet-hardcoded-secret.jwt-dotnet-hardcoded-secret
+    * csharp.lang.security.system.directoryentry-hardcoded-secret.directoryentry-hardcoded-secret
+    * csharp.lang.security.system.networkcredential-hardcoded-secret.networkcredential-hardcoded-secret
+    * csharp.lang.security.system.oracleconnectionstringbuilder-hardcoded-secret.oracleconnectionstringbuilder-hardcoded-secret
+    * csharp.lang.security.system.passwordauthenticationmethod-hardcoded-secret.passwordauthenticationmethod-hardcoded-secret
+    * csharp.lang.security.system.sqlconnection-hardcoded-secret.sqlconnection-hardcoded-secret
+    * csharp.lang.security.system.sqlconnectionstringbuilder-hardcoded-secret.sqlconnectionstringbuilder-hardcoded-secret
+    * csharp.mongo.csharp-mongo-hardcoded-secret.csharp-mongo-hardcoded-secret
+    * csharp.postgres.npgsqlconnectionstringbuilder-hardcoded-secret.npgsqlconnectionstringbuilder-hardcoded-secret
+    * java.jsch.jsch-hardcoded-secret.jsch-hardcoded-secret
+    * java.lang.security.properties.properties-hardcoded-secret.properties-hardcoded-secret
+    * java.lang.security.sql.drivermanager-hardcoded-secret.drivermanager-hardcoded-secret
+    * java.lang.security.system.system-setproperty-hardcoded-secret.system-setproperty-hardcoded-secret
+    * java.mongo.java-mongo-hardcoded-secret.java-mongo-hardcoded-secret
+    * java.mysql.mysql-jdbc-hardcoded-secret.mysql-jdbc-hardcoded-secret
+    * javascript.knex.node-knex-hardcoded-secret.node-knex-hardcoded-secret
+    * javascript.mongoose.node-mongoose-hardcoded-secret.node-mongoose-hardcoded-secret
+    * javascript.mssql.node-mysql-hardcoded-secret.node-mssql-hardcoded-secret
+    * javascript.mysql.node-mysql-hardcoded-secret.node-mysql-hardcoded-secret
+    * javascript.pg.node-pg-hardcoded-secret.node-pg-hardcoded-secret
+    * javascript.sequelize.node-sequelize-hardcoded-secret.node-sequelize-hardcoded-secret
+    * python.ldap3.python-ldap3-hardcoded-secret.python-ldap3-hardcoded-secret
+    * python.mysql.python-mysql-hardcoded-secret.python-mysql-hardcoded-secret
+    * python.psycopg2.python-psycopg2-hardcoded-secret.python-psycopg2-hardcoded-secret
+    * python.pyjwt.python-pyjwt-hardcoded-secret.python-pyjwt-hardcoded-secret
+    * python.pymongo.python-mongo-hardcoded-secret.python-mongo-hardcoded-secret
+    * python.pymongo.python-pymongo-hardcoded-secret.python-pymongo-hardcoded-secret
+    * python.pymysql.python-pymysql-hardcoded-secret.python-pymysql-hardcoded-secret
+    * python.sqlalchemy.python-sqlalchemy-hardcoded-secret.python-sqlalchemy-hardcoded-secret
+    * python.tormysql.python-tormysql-hardcoded-secret.python-tormysql-hardcoded-secret
+    * python.webrepl.python-webrepl-hardcoded-secret.python-webrepl-hardcoded-secret
+
+Updated Team-Tier rules
+* paid.paid.typescript.react.react-refs-prop.react-refs-prop
+    * Added more sinks
+* paid.paid.typescript.react.react-refs-url.react-refs-url
+    * Added more sinks
+
+
 ## July 2022
 
 ### New rules from Segmrep community and r2c
