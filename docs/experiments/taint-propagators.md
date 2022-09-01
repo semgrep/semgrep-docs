@@ -6,7 +6,7 @@ description: "Taint propagators allow you to customize how taint is propagated."
 
 # Taint propagators
 
-Taint propagators allow you to customize how taint is propagated. TODO
+Taint propagators allow you to specify additional structures through which taint spreads, that Semgrep by default might not mark as tainted.
 
 ## Taint propagator example use
 
@@ -58,4 +58,4 @@ Thus, adding tainted data to a set marks the set itself as tainted.
 
 A taint propagator rules necessitate:
 - Any arbitrary pattern that must bind two metavariables of your choice.
-- You must specify the `from` and the `to` metavariables. TODO
+- The `from` and `to` metavariables are required. `from` indicates where the tainted source must to pass “through” to propagate the taint. `to` specified what additional object or structure is tainted as a result.
