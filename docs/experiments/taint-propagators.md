@@ -58,4 +58,4 @@ Thus, adding tainted data to a set marks the set itself as tainted.
 
 A taint propagator rules necessitate:
 - Any arbitrary pattern that must bind two metavariables of your choice.
-- The `from` and `to` metavariables are required. `from` indicates where the tainted source must to pass “through” to propagate the taint. `to` specified what additional object or structure is tainted as a result.
+- The `from` and `to` metavariables. The `from` indicates the starting variable from which the tainted source passes through to propagate the taint. The `to` specifies what additional object or structure is tainted as a result.
