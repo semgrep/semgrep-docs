@@ -8,7 +8,7 @@ toc_max_heading_level: 2
 
 # Release notes
 
-Welcome to Semgrep release notes. This document provides an overview of the changes, additions, and selected important fixes. Release notes published since April 2022 include updates for Semgrep command-line interface (CLI), Semgrep in continuous integration (CI), and Semgrep App updates. Release notes published since April 2022 also include updates from more versions collected together.
+Welcome to Semgrep release notes. This document gives an overview of the changes, additions, and selected fixes. Release notes published since April 2022 include Semgrep CLI, CI, and Semgrep App updates. Release notes published since April 2022 encompass all versions released during the month.
 
 ## August 2022
 
@@ -44,6 +44,22 @@ These release notes include upgrades for versions ranging between 0.108.0 and 0.
 ##### Additional information
 
 Minor bug fixes are not included in the release notes unless they are potentially breaking your workflow. To see the complete change notes for Semgrep CLI and CI that include fixes, visit the [Semgrep changelog](https://github.com/returntocorp/semgrep/releases/).
+
+### Documentation updates
+
+- Consistent and exhaustive documentation about continuous integration (CI) both with and without Semgrep App:
+  - [Running Semgrep in continuous integration (CI) with Semgrep App](https://semgrep.dev/docs/semgrep-ci/running-semgrep-ci-with-semgrep-app/)
+  - [Running Semgrep in continuous integration (CI) without Semgrep App](https://semgrep.dev/docs/semgrep-ci/running-semgrep-ci-without-semgrep-app/)
+- Experimental taint propagators allow you to specify additional structures through which taint propagates. See how to use them in [Taint propagators](https://semgrep.dev/docs/experiments/taint-propagators/) article.
+- Updated [Generic pattern matching](https://semgrep.dev/docs/experiments/generic-pattern-matching/) documentation, rewritten examples and added new sections, including new [Handling line-based input](https://semgrep.dev/docs/experiments/generic-pattern-matching/#handling-line-based-input) section.
+- Introduced interface and color changes to fit new [semgrep.dev](https://semgrep.dev/) website design.
+- Report vulnerabilities that Semgrep should have found, but did not. You can report these false negatives directly from your command-line using built-in Semgrep flag. See [Reporting false negatives with shouldafound](https://semgrep.dev/docs/reporting-false-negatives/) article.
+- Contribution documentation now provides [Adding python packages to `semgrep`](https://semgrep.dev/docs/contributing/semgrep-contributing/#adding-python-packages-to-semgrep) section.
+- Updated and rewritten [Diff-aware scanning (SEMGREP_BASELINE_REF)](https://semgrep.dev/docs/semgrep-ci/configuration-reference/#diff-aware-scanning-semgrep_baseline_ref) section.
+- Updated fail open CI documentation in [Configuring blocking findings and errors](https://semgrep.dev/docs/semgrep-ci/configuration-reference/#configuring-blocking-findings-and-errors) section.
+- Added small section about [`patterns` operator evaluation strategy](https://semgrep.dev/docs/writing-rules/rule-syntax/#patterns-operator-evaluation-strategy).
+- Updated adding [Slack notifications section in Notifications](https://semgrep.dev/docs/semgrep-app/notifications/#slack) article, and updated [Integrating Semgrep App with third-party tools](https://semgrep.dev/docs/semgrep-app/integrations/)
+- Many other small updates and fixes have been introduced to the documentation website.
 
 ## July 2022
 
