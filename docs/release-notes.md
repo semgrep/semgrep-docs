@@ -50,16 +50,16 @@ Minor bug fixes are not included in the release notes unless they are potentiall
 - Consistent and exhaustive documentation about continuous integration (CI) both with and without Semgrep App:
   - [Running Semgrep in continuous integration (CI) with Semgrep App](https://semgrep.dev/docs/semgrep-ci/running-semgrep-ci-with-semgrep-app/)
   - [Running Semgrep in continuous integration (CI) without Semgrep App](https://semgrep.dev/docs/semgrep-ci/running-semgrep-ci-without-semgrep-app/)
-- Experimental taint propagators allow you to specify additional structures through which taint propagates. See how to use them in [Taint propagators](https://semgrep.dev/docs/experiments/taint-propagators/) article.
-- Updated [Generic pattern matching](https://semgrep.dev/docs/experiments/generic-pattern-matching/) documentation, rewritten examples and added new sections, including new [Handling line-based input](https://semgrep.dev/docs/experiments/generic-pattern-matching/#handling-line-based-input) section.
+- Experimental taint propagators allow you to specify additional structures through which taint propagates. See how to use them in the [Taint propagators](https://semgrep.dev/docs/experiments/taint-propagators/) article.
+- Updated [Generic pattern matching](https://semgrep.dev/docs/experiments/generic-pattern-matching/) documentation, rewritten examples, and added new sections, including a new [Handling line-based input](https://semgrep.dev/docs/experiments/generic-pattern-matching/#handling-line-based-input) section.
 - Introduced interface and color changes to fit new [semgrep.dev](https://semgrep.dev/) website design.
-- Report vulnerabilities that Semgrep should have found, but did not. You can report these false negatives directly from your command-line using built-in Semgrep flag. See [Reporting false negatives with shouldafound](https://semgrep.dev/docs/reporting-false-negatives/) article.
+- Report vulnerabilities that Semgrep should have found, but did not. You can report these false negatives directly from your command-line using a built-in Semgrep flag. See [Reporting false negatives with shouldafound](https://semgrep.dev/docs/reporting-false-negatives/) article.
 - Contribution documentation now provides [Adding python packages to `semgrep`](https://semgrep.dev/docs/contributing/semgrep-contributing/#adding-python-packages-to-semgrep) section.
 - Updated and rewritten [Diff-aware scanning (SEMGREP_BASELINE_REF)](https://semgrep.dev/docs/semgrep-ci/configuration-reference/#diff-aware-scanning-semgrep_baseline_ref) section.
 - Updated fail open CI documentation in [Configuring blocking findings and errors](https://semgrep.dev/docs/semgrep-ci/configuration-reference/#configuring-blocking-findings-and-errors) section.
-- Added small section about [`patterns` operator evaluation strategy](https://semgrep.dev/docs/writing-rules/rule-syntax/#patterns-operator-evaluation-strategy).
+- Added section about [`patterns` operator evaluation strategy](https://semgrep.dev/docs/writing-rules/rule-syntax/#patterns-operator-evaluation-strategy).
 - Updated adding [Slack notifications section in Notifications](https://semgrep.dev/docs/semgrep-app/notifications/#slack) article, and updated [Integrating Semgrep App with third-party tools](https://semgrep.dev/docs/semgrep-app/integrations/)
-- Many other small updates and fixes have been introduced to the documentation website.
+- Many other updates and fixes have been introduced to the documentation website.
 
 ## July 2022
 
