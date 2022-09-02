@@ -40,20 +40,6 @@ module.exports = {
                 'managing-findings'
             ],
         },
-        {
-            type: 'category',
-            label: 'Writing custom rules',
-            items: [
-                'writing-rules/overview',
-                'writing-rules/pattern-examples',
-                'writing-rules/pattern-syntax',
-                'writing-rules/rule-ideas',
-                'writing-rules/rule-syntax',
-                'writing-rules/testing-rules',
-                'writing-rules/private-rules',
-                'troubleshooting/rules'
-            ]
-        },
         'ignoring-files-folders-code',
         'extensions',
         {
@@ -175,6 +161,14 @@ module.exports = {
         items: [
             'playground',
             'trophy-case',
+            'writing-rules/overview',
+            'writing-rules/pattern-examples',
+            'writing-rules/pattern-syntax',
+            'writing-rules/rule-ideas',
+            'writing-rules/rule-syntax',
+            'writing-rules/testing-rules',
+            'writing-rules/private-rules',
+            'troubleshooting/rules'
         ]
     },
     {
