@@ -218,7 +218,7 @@ Scanning a repository from SCM providers such as GitHub or GitLab ensures that S
 5. Select which repository provider Semgrep to integrate with.
 6. For **GitHub Actions**:
     1. Select the checkbox next to the name of the projects to add.
-    2. Optional: If you do not see the repository you want to add, adjust [GitHub Application's Repository Access](https://github.com/settings/installations) configuration.
+    2. Optional: If you do not see the repository you want to add, adjust [GitHub Application's Repository Access](https://github.com/settings/installations) configuration. See [Detecting GitHub repositories](#detecting-github-repositories) for more information.
     3. Click **Bulk add CI jobs**.
     4. Click **Commit file**. This commits a `semgrep.yml` file containing pertinent scan parameters, such as schedule, what branch to scan on, and so on.
     5. Semgrep App generates a token composed of a **Secret name** and **Secret value**. Copy and paste these into your repository's settings. Links are provided by Semgrep App.
@@ -238,6 +238,8 @@ Scanning a repository from SCM providers such as GitHub or GitLab ensures that S
     2. Add the Semgrep App token as a project environment variable named `SEMGREP_APP_TOKEN`.
     3. Copy the snippet provided and commit your CI provider's `config.yml` file.
 10. If successful, Semgrep App scans the repository for the first time using default, pre-selected rules.
+
+#### Detecting GitHub repositories
 
 To ensure that your GitHub repository is **detected** by Semgrep App:
 
