@@ -281,7 +281,16 @@ a.navbar__item.navbar__link:hover {
   color: rgb(198, 200, 204);
 }
 
+/* not following conventions Todo rename to yt__embed */
 .yt_embed {
     padding-bottom: 1rem;
 }
 
+/* badge */
+
+.tag__badge {
+  backgroundColor: #ffc0cb;
+  borderRadius: 8px;
+  color: #000;
+  padding: 0.4rem;
+}
