@@ -239,7 +239,8 @@ Scanning a repository from SCM providers such as GitHub or GitLab ensures that S
     3. Copy the snippet provided and commit your CI provider's `config.yml` file.
 10. If successful, Semgrep App scans the repository for the first time using default, pre-selected rules.
 
-#### Detecting GitHub repositories
+##### Detecting GitHub repositories
+
 
 To ensure that your GitHub repository is **detected** by Semgrep App:
 
