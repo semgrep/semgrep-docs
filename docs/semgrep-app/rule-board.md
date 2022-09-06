@@ -71,8 +71,7 @@ Discover suggested rulesets based on your projects's frameworks and technologies
 To remove a rule or ruleset:
 
 1. Click the **garbage can** icon.
-2. Click **Remove**.
-3. Click **Save changes**.
+2. Click **Save changes**.
 
 :::info
 
