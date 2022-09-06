@@ -56,6 +56,6 @@ Thus, adding tainted data to a set marks the set itself as tainted.
 
 ## Requirements of taint propagator rules
 
-A taint propagator rules necessitate:
+A taint propagator rule must contain:
 - Any arbitrary pattern that must bind two metavariables of your choice.
 - The `from` and `to` metavariables. The `from` indicates the starting variable from which the tainted source passes through to propagate the taint. The `to` specifies what additional object or structure is tainted as a result.
