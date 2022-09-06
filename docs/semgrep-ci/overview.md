@@ -30,7 +30,7 @@ When running in CI, Semgrep runs fully in your build environment. Your code is n
 
 There are two methods to set up Semgrep in CI. 
 
-* To scale and automate your scans across many repositories, **use Semgrep App. **Semgrep App provides a centralized web application to manage findings and configure rulesets and notifications. This is the **recommended method** of integrating Semgrep in CI.
+* To scale and automate your scans across many repositories, **use Semgrep App**.Semgrep App provides a centralized web application to manage findings and configure rulesets and notifications. This is the **recommended method** of integrating Semgrep in CI.
 * To scan your code in a single CI pipeline, **create a stand-alone CI job or add Semgrep to a script block in your pipeline.** This means continuously scanning on a schedule or to trigger a scan upon the creation of a PR (pull request) or MR (merge request). This method does not require Semgrep App.
 
 Refer to the following table to help you choose what method best meets the needs of your development.
@@ -109,13 +109,13 @@ The following steps outline the general procedure to automate Semgrep in many CI
 5. Commit the configuration file and add `SEMGREP_APP_TOKEN` as a credential, token, or secret.
 6. The scan automatically begins.
 7. After the scan, Semgrep App reports findings (if any) into the Findings dashboard.
-8. Optional: If you are not satisfied with your CI job's behavior, troubleshoot and edit the configuration file. Refer to [Sample CI configuration for Semgrep App](semgrep-ci/sample-ci-configs).
+8. Optional: If you are not satisfied with your CI job's behavior, troubleshoot and edit the configuration file. Refer to [Sample CI configuration for Semgrep App](/docs/semgrep-ci/sample-ci-configs).
 9. Repeat from step 2 to integrate Semgrep into remaining repositories.
 
 #### Default behaviors of scans set up through Semgrep App
 
-* Findings do not block a PR or MR. The presence of findings can be customized to block a PR or MR through the [Rule Board](docs/semgrep-app/rule-board).
-* The CI job does not fail when detecting findings, but can still fail due to other errors. See [Semgrep error codes](../cli-reference/#error-codes).
+* Findings do not block a PR or MR. The presence of findings can be customized to block a PR or MR through the [Rule Board](/docs/semgrep-app/rule-board).
+* The CI job does not fail when detecting findings, but can still fail due to other errors. See [Semgrep error codes](/docs/cli-reference/#error-codes).
 * Scan output is presented in Semgrep App's Findings page, enabling users to click a link for the file and line in the code that generated the finding.
 
 ### General steps to integrate Semgrep in CI as a stand-alone job
