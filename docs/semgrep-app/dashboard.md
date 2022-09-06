@@ -12,48 +12,17 @@ hide_title: true
 import MoreHelp from "/src/components/MoreHelp"
 import Tags from "/src/components/Tags"
 
-<Tags tag="Semgrep App" />
-
+<ul id="tag__badge-list">
+{
+Object.entries(frontMatter).filter(
+    frontmatter => frontmatter[0] === 'tags')[0].pop().map(
+    (value) => <li class='tag__badge-item'>{value}</li> )
+}
+</ul>
 
 # Evaluating your security posture through the Dashboard
 
 ![Screenshot of dashboard view](/img/dashboard-view.png)
-
-<!-- 
-The Docusaurus renderer seems to be expecting a Map object, 
-but the base Object.entries.(frontMatter) is an Array object?
-Or is the problem that it is a map, within a map?
-Tried: for, while, forEach are all not rendering 
-- definitely requires a Map obj
--->
-
-<!-- Working but ugly -->
-<ul>
-{ 
-Object.entries(frontMatter).filter(
-    frontmatter => frontmatter[0] === 'tags'
-    ).flat().slice(1,).flat().map((value) => <li> {value} </li>)
-}
-</ul>
-
-<!-- Better -->
-
-<ul>
-{
-Object.entries(frontMatter).filter(
-    frontmatter => frontmatter[0] === 'tags')[0].pop().map(
-    (value) => <button class='tag__badge'><li classname='tag__badge'> {value} </li></button>)
-}
-</ul>
-
-<!--
-<p>
-{
-Object.entries(frontMatter).filter(frontmatter => frontmatter[0] === 'tags')[0].map(([key, value]) => <li key={key}><b>{key}</b>: {value}</li>)
-}
-</p>
--->
-
 
 The Findings Dashboard is an overview of your organization’s security posture from data aggregated within Semgrep App. With these metrics you are able to:
 

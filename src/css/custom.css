@@ -288,9 +288,25 @@ a.navbar__item.navbar__link:hover {
 
 /* badge */
 
-.tag__badge {
-  backgroundColor: #ffc0cb;
+#tag__badge-list {
+  display: flex;
+  flex-direction: row;
+  padding-left: 0rem;
+  padding-top: 0.8rem;
+  margin-bottom: 0.4rem
+}
+.tag__badge-item {
+  list-style: none !important;
   borderRadius: 8px;
-  color: #000;
-  padding: 0.4rem;
+  color: var(--ifm-color-primary);
+  padding-right: 1rem;
+  align-self: center;
+  margin-top: 0 !important;
+  text-transform: uppercase;
+  font-weight: 600;
+}
+
+.tag__badge-item:not(:last-child):after {
+  content: "|";
+  margin-left: 1rem;
 }
