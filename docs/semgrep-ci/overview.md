@@ -16,13 +16,13 @@ Semgrep is integrated into CI environments by creating a **job** (also known as 
 
 A Semgrep CI job can **connect to Semgrep App**, a centralized location for managing findings, sending notifications, and configuring Semgrep rules for scanning. Alternatively, a Semgrep CI job can be set up as a **stand-alone** job, which means it does not connect to Semgrep App.
 
-This document aims to help users choose which method best meets their goals in integrating Semgrep in their CI environment.
+This document helps users choose which method best meets their goals in integrating Semgrep in their CI environment.
 
-After selecting a method, refer to the links in the [Next steps](#next-steps) section for documentation on how to set up or refine your Semgrep in CI job.
+After selecting a method, refer to the links in the [Next steps](#next-steps) section for documentation on how to set up or refine your CI job.
 
 :::info
-When running in CI, Semgrep runs fully in your build environment. Your code is never sent anywhere.
-* Semgrep App collects [findings data](/docs/managing-findings/#semgrep-ci), which includes the line number of the code match, **not the code**. It is hashed using a one-way hashing function. Findings data is used to generate hyperlinks and support other Semgrep functions.
+When running in CI, Semgrep runs fully in the CI build environment. Your code is never sent anywhere.
+* Semgrep App collects [findings data](/docs/managing-findings/#semgrep-ci), which includes the line number of the code match, but **not the code**. It is hashed using a one-way hashing function. Findings data is used to generate line-specific hyperlinks to your source code management system and support other Semgrep functions.
 * CI scans that are not connected to Semgrep App do not send findings data to any servers.
 :::
 
