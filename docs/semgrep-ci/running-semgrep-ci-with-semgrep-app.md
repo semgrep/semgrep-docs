@@ -32,7 +32,7 @@ The following video walks you through setting Semgrep in your CI through Semgrep
 
 <iframe class="yt_embed" width="100%" height="432px" src="https://www.youtube.com/embed/ukIUM3j0gZY" frameborder="0" allowfullscreen></iframe>
 
-## Feature support
+## Semgrep App feature support
 
 Support for certain features of Semgrep App depend on your CI provider or source code management tool (SCM). The following table breaks down the features and their availability:
 
