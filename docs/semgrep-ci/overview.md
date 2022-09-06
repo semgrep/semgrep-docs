@@ -18,7 +18,7 @@ A Semgrep CI job can **connect to Semgrep App**, a centralized location for mana
 
 This document helps users choose which method best meets their goals in integrating Semgrep in their CI environment.
 
-After selecting a method, refer to the links in the [Next steps](#next-steps) section for documentation on how to set up or refine your Semgrep in CI job.
+After selecting a method, refer to the links in the [Next steps](#next-steps) section for documentation on how to set up or refine your CI job.
 
 :::info
 When running in CI, Semgrep runs fully in your build environment. Your code is never sent anywhere.
