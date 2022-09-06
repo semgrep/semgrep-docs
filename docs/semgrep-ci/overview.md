@@ -21,7 +21,7 @@ This document helps users choose which method best meets their goals in integrat
 After selecting a method, refer to the links in the [Next steps](#next-steps) section for documentation on how to set up or refine your CI job.
 
 :::info
-When running in CI, Semgrep runs fully in your build environment. Your code is never sent anywhere.
+When running in CI, Semgrep runs fully in the CI build environment. Your code is never sent anywhere.
 * Semgrep App collects [findings data](/docs/managing-findings/#semgrep-ci), which includes the line number of the code match, **not the code**. It is hashed using a one-way hashing function. Findings data is used to generate hyperlinks and support other Semgrep functions.
 * CI scans that are not connected to Semgrep App do not send findings data to any servers.
 :::
