@@ -2,10 +2,25 @@
 slug: getting-started-with-semgrep-app
 append_help_link: true
 title: Getting started with Semgrep App
+hide_title: true
 description: "Get started with Semgrep App to scan for security vulnerabilities on both local and remote repositories hosted on GitHub and GitLab."
+tags:
+    - Semgrep App
+    - Community Tier
+    - Team & Enterprise Tier
 ---
 
 import MoreHelp from "/src/components/MoreHelp"
+
+<ul id="tag__badge-list">
+{
+Object.entries(frontMatter).filter(
+    frontmatter => frontmatter[0] === 'tags')[0].pop().map(
+    (value) => <li class='tag__badge-item'>{value}</li> )
+}
+</ul>
+
+# Getting started with Semgrep App
 
 Semgrep App supports code scanning from:
 

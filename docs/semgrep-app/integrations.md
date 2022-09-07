@@ -2,11 +2,24 @@
 slug: integrations
 append_help_link: true
 title: Integrations
+hide_title: true
 description: "Semgrep App contains 3rd party integrations to allow users to add data from Semgrep to other tools that are part of their workflows."
+tags:
+    - Semgrep App
+    - Community Tier
+    - Team & Enterprise Tier
 ---
 
 import MoreHelp from "/src/components/MoreHelp"
 import ProcedureIntegrateSlack from "/src/components/procedure/_integrate-slack.mdx"
+
+<ul id="tag__badge-list">
+{
+Object.entries(frontMatter).filter(
+    frontmatter => frontmatter[0] === 'tags')[0].pop().map(
+    (value) => <li class='tag__badge-item'>{value}</li> )
+}
+</ul>
 
 # Integrating Semgrep App with third-party tools
 
