@@ -41,7 +41,7 @@ If you have a legitmate use case for a dangerous API, you can exempt a specific 
 
 _Time to write this rule: **5 minutes**_
 
-Semgrep's [dataflow engine with support for taint tracking](/writing-rules/data-flow/overview/) can be used to detect when data flows from a user-provided value into a security-sensitive function.
+Semgrep's [dataflow engine with support for taint tracking](/writing-rules/data-flow/data-flow-overview/) can be used to detect when data flows from a user-provided value into a security-sensitive function.
 
 This rule detects when a user of the ExpressJS framework passes user data into the `run()` method of a sandbox. 
 

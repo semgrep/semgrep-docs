@@ -194,7 +194,7 @@ module.exports = {
           { from: "/providers/", to: "/semgrep-ci/overview/" },
           { from: "/semgrep-app/role-based-access-control", to: "/semgrep-app/user-management/" },
           { from: "/cli-usage/", to: "/cli-reference/" },
-          { from: "/writing-rules/data-flow", to: "/writing-rules/data-flow/overview" }
+          { from: "/writing-rules/data-flow", to: "/writing-rules/data-flow/data-flow-overview" }
         ]
       }
     ],
