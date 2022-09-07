@@ -15,18 +15,6 @@ import MoreHelp from "/src/components/MoreHelp"
 
 <SupportedLanguagesTable />
 
-## Support expectations
-
-* **Experimental**: experimental support with many known bugs.
-    * Looking for dedicated users to help us improve these languages.
-    * Expect limited support responses, as these languages will be lowest priority.
-* **Beta**: supported language with known bugs.
-    * Looking for beta users to report bugs and rapidly iterate with our team.
-    * Expect best-effort support responses when there are no higher priority requests being handled.
-* **GA**: production-level support with few known bugs.
-    * Looking for bug reports and feedback from users.
-    * Expect timely and thorough support responses, generally within 24 hours.
-
 ## Maturity definitions
 
 Language maturity is determined by 3 factors in the Semgrep ecosystem:
