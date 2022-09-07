@@ -1,12 +1,23 @@
 ---
 slug: configuration-reference
 description: "Reference for running Semgrep CI in your CI job or on the command line. Learn how to select rules to scan with, enable diff-aware scanning, connect to Semgrep App, and more."
+tags:
+    - Semgrep in CI
+    - Community Tier
 title: CI configuration reference
 hide_title: true
 ---
 
 import MoreHelp from "/src/components/MoreHelp"
 import BlockFindingsErrorsConfigs from '/src/components/reference/_block-findings-errors-configs.mdx'
+
+<ul id="tag__badge-list">
+{
+Object.entries(frontMatter).filter(
+    frontmatter => frontmatter[0] === 'tags')[0].pop().map(
+    (value) => <li class='tag__badge-item'>{value}</li> )
+}
+</ul>
 
 # Continuous Integration (CI) configuration reference
 

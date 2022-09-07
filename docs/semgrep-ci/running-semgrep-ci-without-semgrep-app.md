@@ -3,10 +3,21 @@ slug: running-semgrep-ci-without-semgrep-app
 append_help_link: true
 title: Running Semgrep in CI without Semgrep App 
 description: "This document guides you through setting up semgrep in continuous integration without connecting to Semgrep App."
+tags:
+    - Semgrep in CI
+    - Community Tier
 hide_title: true
 ---
 
 import MoreHelp from "/src/components/MoreHelp"
+
+<ul id="tag__badge-list">
+{
+Object.entries(frontMatter).filter(
+    frontmatter => frontmatter[0] === 'tags')[0].pop().map(
+    (value) => <li class='tag__badge-item'>{value}</li> )
+}
+</ul>
 
 # Running Semgrep in continuous integration (CI) without Semgrep App
 

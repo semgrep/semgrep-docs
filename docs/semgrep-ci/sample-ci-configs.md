@@ -2,7 +2,20 @@
 slug: sample-ci-configs
 append_help_link: true
 description: "The sample configuration files below run Semgrep CI on continuous integration platforms such as GitHub, GitLab, Jenkins, Buildkite, CircleCI, and other providers."
+title: Sample CI configurations
+hide_title: true
+tags:
+    - Semgrep in CI
+    - Community Tier
 ---
+
+<ul id="tag__badge-list">
+{
+Object.entries(frontMatter).filter(
+    frontmatter => frontmatter[0] === 'tags')[0].pop().map(
+    (value) => <li class='tag__badge-item'>{value}</li> )
+}
+</ul>
 
 import MoreHelp from "/src/components/MoreHelp"
 
