@@ -8,6 +8,9 @@ description: "Taint propagators allow you to customize how taint is propagated."
 
 Taint propagators allow you to customize how taint is propagated. 
 
+The following video provides a quick overview of taint propagators:
+<iframe class="yt_embed" width="100%" height="432px" src="https://www.youtube.com/embed/6MxMhFPkZlU?start=175" frameborder="0" allowfullscreen></iframe>
+
 ## Taint propagator example use
 
 Consider the following Python code:

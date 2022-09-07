@@ -3,9 +3,22 @@ slug: dashboard
 append_help_link: true
 title: Dashboard 
 description: "The Dashboard is a summary view within Semgrep App to help security teams evaluate their organization's security posture."
+tags:
+    - Semgrep App
+    - Community Tier
+hide_title: true
 ---
 
 import MoreHelp from "/src/components/MoreHelp"
+import Tags from "/src/components/Tags"
+
+<ul id="tag__badge-list">
+{
+Object.entries(frontMatter).filter(
+    frontmatter => frontmatter[0] === 'tags')[0].pop().map(
+    (value) => <li class='tag__badge-item'>{value}</li> )
+}
+</ul>
 
 # Evaluating your security posture through the Dashboard
 
