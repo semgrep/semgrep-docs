@@ -20,7 +20,7 @@ In principle, all features related data-flow are available for any of Semgrep's 
 Ensure that you understand the [design trade-offs](#design-trade-offs) and limitations of the data-flow engine. For further details, see also the [data-flow status](#data-flow-status). 
 :::
 
-Semgrep provides no user-friendly way of specifying a new data-flow analysis, but please [let us know if you have suggestions](https://github.com/returntocorp/semgrep/issues/new/choose). If you can code in OCaml, your contribution is welcome to [contribute](/docs/contributing/contributing/).
+Semgrep provides no user-friendly way of specifying a new data-flow analysis, but please [let us know if you have suggestions](https://github.com/returntocorp/semgrep/issues/new/choose). If you can code in OCaml, your contribution is welcome. See [Contributing](/docs/contributing/contributing/) documentation for more details.
 
 ## Design trade-offs
 
