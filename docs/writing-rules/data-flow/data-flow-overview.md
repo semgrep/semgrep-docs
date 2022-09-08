@@ -8,7 +8,7 @@ sidebar_label: Engine overview
 
 import DataFlowStatus from "/src/components/concept/_data-flow-status.mdx"
 
-# Data-flow analyses engine overview
+# Data-flow analysis engine overview
 
 Semgrep provides an intra-procedural data-flow analyses engine that opens various Semgrep capabilities. Semgrep provides the following data-flow analyses:
 - [Constant propagation](../constant-propagation/) allows Semgrep to, for example, match `return 42` against `return x` when `x` can be reduced to `42` by constant folding. There is also a specific experimental feature of [Constant propagation](../constant-propagation/), called [Symbolic propagation](/experiments/symbolic-propagation/).
