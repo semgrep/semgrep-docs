@@ -63,7 +63,8 @@ module.exports = {
             items: [
                 'writing-rules/data-flow/data-flow-overview',
                 'writing-rules/data-flow/constant-propagation',
-                'writing-rules/data-flow/taint-mode'
+                'writing-rules/data-flow/taint-mode',
+                'writing-rules/data-flow/status'
             ]
         },
         {
