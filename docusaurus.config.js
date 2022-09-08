@@ -133,6 +133,11 @@ module.exports = {
   },
   scripts: [
     {
+      src: 'https://kit.fontawesome.com/9a8c23ae22.js',
+      crossorigin: 'anonymous',
+      async: true
+    },
+    {
       src: 'https://semgrep.dev/docs/fs.js',
       async: true
     },

@@ -8,6 +8,9 @@ description: "Taint propagators allow you to customize how taint is propagated."
 
 The default configuration of taint mode in Semgrep sometimes misses specific tainted structures. Taint propagators allow you to specify additional structures through which taint propagates. This enables you to create and use taint mode rules with taint propagators that are more efficient in detecting tainted structures. 
 
+The following video provides a quick overview of taint propagators:
+<iframe class="yt_embed" width="100%" height="432px" src="https://www.youtube.com/embed/6MxMhFPkZlU?start=175" frameborder="0" allowfullscreen></iframe>
+
 ## Taint propagator example use
 
 Consider the following Python code:
