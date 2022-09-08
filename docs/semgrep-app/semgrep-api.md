@@ -7,7 +7,7 @@ description: >-
   This document links to Semgrep API documentation.
 tags:
     - Semgrep App
-    - Team & Enterprise Tier
+    - Enterprise Tier
 ---
 
 <ul id="tag__badge-list">
