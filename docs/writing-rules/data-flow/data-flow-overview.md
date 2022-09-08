@@ -5,9 +5,9 @@ description: >-
   Semgrep can run data-flow analyses on your code, this is used for constant propagation and for taint tracking.
 ---
 
-# Data-flow analysis engine overview
+# Data-flow analysis engines overview
 
-Semgrep provides an intra-procedural data-flow analysis engine that opens various Semgrep capabilites. See the following data-flow analysis tools:
+Semgrep provides intra-procedural data-flow analysis engines that open various Semgrep capabilities. See the following data-flow analysis tools:
 - [Constant propagation](../constant-propagation/) allows Semgrep to, for example, match `return 42` against `return x` when `x` can be reduced to `42` by constant folding. There is also a specific experimental feature of [Constant propagation](../constant-propagation/), called [Symbolic propagation](/experiments/symbolic-propagation/).
 - [Taint tracking (known also as taint mode)](../taint-mode/) enables you to write simple rules that catch complex [injection bugs](https://owasp.org/www-community/Injection_Flaws), such as those that can result in [cross-site scripting (XSS)](https://owasp.org/www-community/attacks/xss/).
 
