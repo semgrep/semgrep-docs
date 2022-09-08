@@ -1,4 +1,4 @@
-In principle, the data-flow analyses engine (which provides taint tracking, constant propagation, and symbolic propagation) can run on any language [supported by Semgrep](/docs/supported-languages.md). However, the level of support is lower than for the regular Semgrep matching engine.
+In principle, the data-flow analysis engine (which provides taint tracking, constant propagation, and symbolic propagation) can run on any language [supported by Semgrep](/docs/supported-languages.md). However, the level of support is lower than for the regular Semgrep matching engine.
 
 When Semgrep performs an analysis of the code, it creates an **abstract syntax tree** (AST) which is then translated into an analysis-friendly **intermediate language** (IL). Subsequently, Semgrep runs mostly language-agnostic analysis on IL. However, this translation is not fully complete.
 
