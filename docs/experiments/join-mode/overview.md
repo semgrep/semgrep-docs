@@ -75,9 +75,11 @@ rules:
     .html as an extension. This could lead to XSS attacks.
   patterns:
   - pattern: flask.render_template("$PATH", ..., $VAR=$VALUE, ...)
-  - metavariable-regex:
-      metavariable: '$PATH'
-      regex: '.*(?<!html)$'
+  - metavariable-pattern:
+      metavariable: $PATH
+      language: generic
+      patterns:
+      - pattern-not-regex: .*\.html$
   languages: [python]
   severity: WARNING
 ```
@@ -156,9 +158,11 @@ rules:
         patterns:
         - pattern: |
             flask.render_template("$TEMPLATE", ..., $KWARG=$VAR, ...)
-        - metavariable-regex:
-            metavariable: '$TEMPLATE'
-            regex: ".*(?<!html)$"
+        - metavariable-pattern:
+            metavariable: $TEMPLATE
+            language: generic
+            patterns:
+            - pattern-not-regex: .*\.html$
       - id: template-vars
         languages: [generic]
         pattern: |
