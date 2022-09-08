@@ -2,13 +2,13 @@
 slug: data-flow-overview
 append_help_link: true
 description: >-
-  Semgrep can run data-flow analyses on your code, this is used for constant propagation and for taint tracking.
-sidebar_label: Engines overview
+  Semgrep can run data-flow analysis on your code, this is used for constant propagation and for taint tracking.
+sidebar_label: Engine overview
 ---
 
 import DataFlowStatus from "/src/components/concept/_data-flow-status.mdx"
 
-# Data-flow analysis engines overview
+# Data-flow analysis engine overview
 
 Semgrep provides intra-procedural data-flow analysis engines that open various Semgrep capabilities. See the following data-flow analysis tools:
 - [Constant propagation](../constant-propagation/) allows Semgrep to, for example, match `return 42` against `return x` when `x` can be reduced to `42` by constant folding. There is also a specific experimental feature of [Constant propagation](../constant-propagation/), called [Symbolic propagation](/experiments/symbolic-propagation/).
