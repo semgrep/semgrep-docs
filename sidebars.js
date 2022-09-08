@@ -157,11 +157,9 @@ module.exports = {
     },
     {
         type: 'category',
-        label: 'Learn Semgrep',
+        label: 'Writing custom rules',
         collapsible: false,
         items: [
-            'playground',
-            'trophy-case',
             'writing-rules/overview',
             'writing-rules/pattern-examples',
             'writing-rules/pattern-syntax',
@@ -169,7 +167,9 @@ module.exports = {
             'writing-rules/rule-syntax',
             'writing-rules/testing-rules',
             'writing-rules/private-rules',
-            'troubleshooting/rules'
+            'troubleshooting/rules',
+            'playground',
+            'trophy-case'
         ]
     },
     {
