@@ -304,6 +304,7 @@ a.navbar__item.navbar__link:hover {
   margin-top: 0 !important;
   text-transform: uppercase;
   font-weight: 600;
+  font-size: 0.8rem;
 }
 
 .tag__badge-item:not(:last-child):after {

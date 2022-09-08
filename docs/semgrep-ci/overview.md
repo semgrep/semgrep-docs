@@ -2,11 +2,22 @@
 slug: overview
 append_help_link: true
 description: "Semgrep can run CI environments. It can either be used stand-alone or connected with Semgrep App for centralized rule and findings management."
-hide_title: true
+tags:
+    - Semgrep in CI
+    - Community Tier
 title: Getting started with Semgrep in CI 
+hide_title: true
 ---
 
 import MoreHelp from "/src/components/MoreHelp"
+
+<ul id="tag__badge-list">
+{
+Object.entries(frontMatter).filter(
+    frontmatter => frontmatter[0] === 'tags')[0].pop().map(
+    (value) => <li class='tag__badge-item'>{value}</li> )
+}
+</ul>
 
 # Getting started with Semgrep in continuous integration (CI)
 

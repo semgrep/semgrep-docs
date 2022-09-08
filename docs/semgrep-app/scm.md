@@ -4,9 +4,20 @@ append_help_link: true
 title: Integrating Semgrep into source code management (SCM) tools
 description: "Integrate Semgrep into self-hosted and custom SCM tools such as GitHub Enterprise and GitLab Self Hosted."
 hide_title: true
+tags:
+    - Semgrep App
+    - Enterprise Tier
 ---
 
 import MoreHelp from "/src/components/MoreHelp"
+
+<ul id="tag__badge-list">
+{
+Object.entries(frontMatter).filter(
+    frontmatter => frontmatter[0] === 'tags')[0].pop().map(
+    (value) => <li class='tag__badge-item'>{value}</li> )
+}
+</ul>
 
 # Integrating Semgrep into source code management (SCM) tools
 
@@ -14,7 +25,6 @@ Semgrep App's Team and Enterprise tiers support repositories hosted on **GitHub 
 
 :::note
 This document covers the enablement of features for GitHub Enterprise **Server** plans. For users of GitHub Enterprise **Cloud** plans, see [Getting started with Semgrep App](/docs/semgrep-app/getting-started-with-semgrep-app).
-
 :::
 
 ## Prerequisites
@@ -30,7 +40,6 @@ You need the following permissions to integrate Semgrep into GHE Server or GLSM 
 Semgrep App requires PATs with assigned scopes. These scopes grant necessary permissions to the PAT and vary depending on the user's SCM.
 
 | GitHub Enterprise Server          | GitLab Self-Managed        |
-
 |:---------------------------|:---------------------------|
 | <ul><li>`public_repo`</li> <li>`repo:status`</li> <li>`user:email`</li> <li>`write:discussion`</li></ul> | `api` |
 

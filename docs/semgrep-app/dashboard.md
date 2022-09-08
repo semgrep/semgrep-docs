@@ -6,6 +6,7 @@ description: "The Dashboard is a summary view within Semgrep App to help securit
 tags:
     - Semgrep App
     - Community Tier
+    - Team & Enterprise Tier
 hide_title: true
 ---
 

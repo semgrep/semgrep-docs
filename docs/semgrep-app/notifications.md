@@ -1,11 +1,25 @@
 ---
 slug: notifications
 append_help_link: true
+title: Notifications
+hide_title: true
 description: "Semgrep CI integrates with 3rd party services when connected to Semgrep App. Learn how to get Slack or email alerts about findings and failures, how to get merge or pull request comments in your CI/CD pipeline, or how to integrate using webhooks."
+tags:
+    - Semgrep App
+    - Community Tier
+    - Team & Enterprise Tier
 ---
 
 import MoreHelp from "/src/components/MoreHelp"
 import ProcedureIntegrateSlack from "/src/components/procedure/_integrate-slack.mdx"
+
+<ul id="tag__badge-list">
+{
+Object.entries(frontMatter).filter(
+    frontmatter => frontmatter[0] === 'tags')[0].pop().map(
+    (value) => <li class='tag__badge-item'>{value}</li> )
+}
+</ul>
 
 # Notifications
 
