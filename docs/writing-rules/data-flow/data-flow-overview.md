@@ -5,15 +5,19 @@ description: >-
   Semgrep can run data-flow analyses on your code, this is used for constant propagation and for taint tracking.
 ---
 
+import DataFlowStatus from "/src/components/concept/_data-flow-status.mdx"
+
 # Data-flow analysis engines overview
 
 Semgrep provides intra-procedural data-flow analysis engines that open various Semgrep capabilities. See the following data-flow analysis tools:
 - [Constant propagation](../constant-propagation/) allows Semgrep to, for example, match `return 42` against `return x` when `x` can be reduced to `42` by constant folding. There is also a specific experimental feature of [Constant propagation](../constant-propagation/), called [Symbolic propagation](/experiments/symbolic-propagation/).
 - [Taint tracking (known also as taint mode)](../taint-mode/) enables you to write simple rules that catch complex [injection bugs](https://owasp.org/www-community/Injection_Flaws), such as those that can result in [cross-site scripting (XSS)](https://owasp.org/www-community/attacks/xss/).
 
-In principle, all data-flow related features are available for any of our [supported languages](/supported-languages/). For further details please check the [data-flow status](#data-flow-status) section.
+In principle, all data-flow related features are available for any of our [supported languages](/supported-languages/).
 
-Ensure that you understand the [design trade-offs](#design-trade-offs) and limitations of the data-flow engine. For further details please check the [data-flow status documentation](../data-flow-status/). 
+:::info
+Ensure that you understand the [design trade-offs](#design-trade-offs) and limitations of the data-flow engine. For further details, see also the [data-flow status](#data-flow-status). 
+:::
 
 At present, Semgrep provides no user-friendly way of specifying your own data-flow analysis, but please [let us know if you have suggestions](https://github.com/returntocorp/semgrep/issues/new/choose). If you can code in OCaml, your contribution is welcome to [contribute](/docs/contributing/contributing/).
 
@@ -29,5 +33,6 @@ Semgrep strives for simplicity and to deliver on promise, lightweight, and fast 
 
 Expect both false positives and false negatives. You can remove false positives in different ways, for example, using [pattern-not](../../rule-syntax/#pattern-not) and [pattern-not-inside](../../rule-syntax/#pattern-not-inside). We want to provide you with a way of eliminating false positives, so please [let file an issue if run into some](https://github.com/returntocorp/semgrep/issues/new/choose). We are rather happy to trade false negatives for simplicity and fewer false positives, but you are welcome to open a feature request if Semgrep misses some important bug you want to catch.
 
-Please [report any issues](https://github.com/returntocorp/semgrep/issues/new/choose) you encounter.
+## Data-flow status
 
+<DataFlowStatus />
