@@ -88,6 +88,7 @@ module.exports = {
             'experiments/project-depends-on',
             'experiments/symbolic-propagation',
             'experiments/taint-propagators',
+            'experiments/taint-labels',
             'experiments/metavariable-analysis'
           ]
         },
