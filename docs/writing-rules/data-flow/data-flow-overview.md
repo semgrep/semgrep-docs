@@ -2,15 +2,15 @@
 slug: data-flow-overview
 append_help_link: true
 description: >-
-  Semgrep can run data-flow analysis on your code, this is used for constant propagation and for taint tracking.
-sidebar_label: Engines overview
+  Semgrep can run data-flow analyses on your code, this is used for constant propagation and for taint tracking.
+sidebar_label: Engine overview
 ---
 
 import DataFlowStatus from "/src/components/concept/_data-flow-status.mdx"
 
-# Data-flow analysis engines overview
+# Data-flow analysis engine overview
 
-Semgrep provides intra-procedural data-flow analysis engines that open various Semgrep capabilities. There are two main data-flow analysis engines:
+Semgrep provides an intra-procedural data-flow analysis engine that opens various Semgrep capabilities. Semgrep provides the following data-flow analyses:
 - [Constant propagation](../constant-propagation/) allows Semgrep to, for example, match `return 42` against `return x` when `x` can be reduced to `42` by constant folding. There is also a specific experimental feature of [Constant propagation](../constant-propagation/), called [Symbolic propagation](/experiments/symbolic-propagation/).
 - [Taint tracking (known also as taint mode)](../taint-mode/) enables you to write simple rules that catch complex [injection bugs](https://owasp.org/www-community/Injection_Flaws), such as those that can result in [cross-site scripting (XSS)](https://owasp.org/www-community/attacks/xss/).
 
@@ -20,7 +20,7 @@ In principle, all data-flow related features are available for any of Semgrep's 
 Ensure that you understand the [design trade-offs](#design-trade-offs) and limitations of the data-flow engine. For further details, see also the [data-flow status](#data-flow-status). 
 :::
 
-Semgrep provides no user-friendly way of specifying a new data-flow analysis, but please [let us know if you have suggestions](https://github.com/returntocorp/semgrep/issues/new/choose). If you can code in OCaml, your contribution is welcome. See [Contributing](/docs/contributing/contributing/) documentation for more details.
+Semgrep provides no user-friendly way of specifying a new data-flow analysis. Please [let us know if you have suggestions](https://github.com/returntocorp/semgrep/issues/new/choose). If you can code in OCaml, your contribution is welcome. See [Contributing](/docs/contributing/contributing/) documentation for more details.
 
 ## Design trade-offs
 
