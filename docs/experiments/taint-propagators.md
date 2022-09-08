@@ -57,5 +57,5 @@ Thus, adding tainted data to a set marks the set itself as tainted.
 ## Requirements of taint propagator rules
 
 A taint propagator rule must contain:
-- Any arbitrary pattern that must bind two metavariables of your choice.
+- A `pattern` containing **two** metavariables. These two metavariables specify where taint is propagated **from** and **to**. For example, pattern `$X.add($Y)` includes two metavariables `$X` and `$Y`. Then specify which metavariable falls under `from` and which falls under `to` (see more information below).
 - The `from` and `to` metavariables. The `from` indicates the starting variable from which the tainted source passes through to propagate the taint. The `to` specifies what additional object or structure is tainted as a result.
