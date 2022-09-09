@@ -263,23 +263,16 @@ pipeline {
 
 ## CircleCI
 
-```yaml
+```
 version: 2.1
 jobs:
   semgrep-scan:
     parameters:
-      repo_path:
-        type: string
-        default: myorg/semgrep-test-repo
       default_branch:
         type: string
         default: main
     environment:
-      # Scan with rules set in Semgrep App's rule board.
-      # Get your token at semgrep.dev/orgs/-/settings/tokens
-      SEMGREP_APP_TOKEN: $SEMGREP_APP_TOKEN
-
-      # Scan changed files in PRs, only report new findings (existing findings ignored)
+    # Scan changed files in PRs, only report new findings (existing findings ignored)
       SEMGREP_BASELINE_REF: << parameters.default_branch >>
 
     # == Optional settings in the `environment:` block
@@ -287,13 +280,12 @@ jobs:
     # Instead of `SEMGREP_APP_TOKEN:`, set hard-coded rulesets, 
     # viewable in logs.
     #   SEMGREP_RULES: p/default # See more at semgrep.dev/explore.
-    #   SEMGREP_REPO_NAME: << parameters.repo_path >>
-    #   SEMGREP_REPO_URL: << pipeline.project.git_url >>
-    #   SEMGREP_BRANCH: << pipeline.git.branch >>
 
-    # Never fail the build due to findings.
-    # Instead, just collect findings for semgrep.dev/manage/findings
-    #   SEMGREP_AUDIT_ON: unknown
+    # These variables should be set to provide information to the Semgrep App.
+      SEMGREP_REPO_NAME: '$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME'
+      SEMGREP_REPO_URL: << pipeline.project.git_url >>
+      SEMGREP_BRANCH: << pipeline.git.branch >>
+
 
     # Change job timeout (default is 1800 seconds; set to 0 to disable)
     #   SEMGREP_TIMEOUT: 300
@@ -302,6 +294,12 @@ jobs:
       - image: returntocorp/semgrep
     steps:
       - checkout
+      # - run:
+      #     name: "Set environment variables" # for PR comments and  in-app hyperlinks to findings
+      #     command: |
+      #         echo 'export SEMGREP_COMMIT=$CIRCLE_SHA1' >> $BASH_ENV
+      #         echo 'export SEMGREP_PR_ID=${CIRCLE_PULL_REQUEST##*/}' >> $BASH_ENV
+      #         echo 'export SEMGREP_JOB_URL=$CIRCLE_BUILD_URL' >> $BASH_ENV
       - run:
           name: "Semgrep scan"
           command: semgrep ci
