@@ -1,12 +1,25 @@
 ---
 slug: gitlab-sast
+title: Troubleshooting GitLab SAST
+hide_title: true
 description: >-
   GitLab SAST includes an analyzer that runs Semgrep.
   Fix issues with semgrep-sast jobs running slowly,
   not showing results, or erroring.
+tags:
+    - Semgrep in CI
+    - Community Tier
 ---
 
 import MoreHelp from "/src/components/MoreHelp"
+
+<ul id="tag__badge-list">
+{
+Object.entries(frontMatter).filter(
+    frontmatter => frontmatter[0] === 'tags')[0].pop().map(
+    (value) => <li class='tag__badge-item'>{value}</li> )
+}
+</ul>
 
 # Troubleshooting GitLab SAST
 

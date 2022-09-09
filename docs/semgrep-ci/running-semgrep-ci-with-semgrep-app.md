@@ -2,6 +2,10 @@
 slug: running-semgrep-ci-with-semgrep-app
 append_help_link: true
 description: "Run Semgrep CI with Semgrep App to manage findings and rules from a centralized dashboard as well as receive notifications in various channels."
+tags:
+    - Semgrep in CI
+    - Community Tier
+    - Team & Enterprise Tier
 title: Running Semgrep in CI with Semgrep App
 hide_title: true
 ---
@@ -11,6 +15,15 @@ import CiScheduling from "/src/components/CiScheduling.mdx"
 import CiIgnoringFiles from "/src/components/CiIgnoringFiles.mdx"
 import DiffAwareScanning from "/src/components/DiffAwareScanning.mdx"
 import RuleBoard from "/src/components/reference/_rule-board.md"
+
+
+<ul id="tag__badge-list">
+{
+Object.entries(frontMatter).filter(
+    frontmatter => frontmatter[0] === 'tags')[0].pop().map(
+    (value) => <li class='tag__badge-item'>{value}</li> )
+}
+</ul>
 
 # Running Semgrep in continuous integration (CI) with Semgrep App
 
@@ -32,7 +45,7 @@ The following video walks you through setting Semgrep in your CI through Semgrep
 
 <iframe class="yt_embed" width="100%" height="432px" src="https://www.youtube.com/embed/ukIUM3j0gZY" frameborder="0" allowfullscreen></iframe>
 
-## Feature support
+## Semgrep App feature support
 
 Support for certain features of Semgrep App depend on your CI provider or source code management tool (SCM). The following table breaks down the features and their availability:
 

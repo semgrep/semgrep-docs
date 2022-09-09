@@ -3,10 +3,21 @@ slug: pricing-and-billing
 append_help_link: true
 title: Pricing and billing
 description: "Semgrep CLI and CI are free to use. Semgrep App has both free and paid tiers, each with their own features and levels of support."
+tags:
+    - Semgrep App
+    - Community Tier
+    - Team & Enterprise Tier
 ---
 
 import MoreHelp from "/src/components/MoreHelp"
 
+<ul id="tag__badge-list">
+{
+Object.entries(frontMatter).filter(
+    frontmatter => frontmatter[0] === 'tags')[0].pop().map(
+    (value) => <li class='tag__badge-item'>{value}</li> )
+}
+</ul>
 
 # Pricing and billing
 
@@ -47,11 +58,17 @@ Members who do **not** make any commits on the code do not need to pay for Semgr
 
 Notes:
 
-* Member usage limits are visible in your [settings page](https://semgrep.dev/orgs/-/settings).
+* Member usage limits are visible in your **[Settings page](https://semgrep.dev/orgs/-/settings) > Upgrade** tab.
 * If your organization exceeds the member limit:
     * Only the 20 most recent developers can view findings from Semgrep scans.
     * Overlimit findings data is retained for three months. When your organization goes below the usage limit, or upgrades to Team or Enterprise, the findings data will be accessible again.
     * You are notified of a 30-day grace period through in-app notifications and emails. After this grace period ends, additional developers (the 21st onwards) will not receive notifications or comments. Findings introduced by additional developers won't be surfaced in Semgrep App.
+
+<div class="bordered">
+
+![Screenshot of member limits](/img/member-limits-view.png "Screenshot of member limits")
+
+</div>
 
 #### Source code management (SCM) support
 
@@ -158,7 +175,7 @@ To upgrade to the **Team tier** through a **credit card**:
 
 ![Screenshot of Semgrep App payment menu](/img/billing-and-pricing-payment.png)<br />
 
-To upgrade to the **Enterprise tier**, please [contact us](https://semgrep.dev/contact).
+To upgrade to the **Enterprise tier**, please [contact us](https://semgrep.dev/contact-us).
 
 ### Billing
 

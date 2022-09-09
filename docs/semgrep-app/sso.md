@@ -2,11 +2,24 @@
 slug: sso
 append_help_link: true
 description: "SSO Configuration instruction"
+title: Single-sign on (SSO) configuration
+hide_title: true
+tags:
+    - Semgrep App
+    - Team & Enterprise Tier
 ---
+
+<ul id="tag__badge-list">
+{
+Object.entries(frontMatter).filter(
+    frontmatter => frontmatter[0] === 'tags')[0].pop().map(
+    (value) => <li class='tag__badge-item'>{value}</li> )
+}
+</ul>
 
 import MoreHelp from "/src/components/MoreHelp"
 
-# SSO Configuration
+#  Single-sign on (SSO) configuration
 
 **SSO (single sign-on)** is a **Team/Enterprise tier feature**. Semgrep supports [OAuth2/OIDC](#oauth2oidc) and [SAML 2.0](#saml-20).
 

@@ -133,6 +133,11 @@ module.exports = {
   },
   scripts: [
     {
+      src: 'https://kit.fontawesome.com/9a8c23ae22.js',
+      crossorigin: 'anonymous',
+      async: true
+    },
+    {
       src: 'https://semgrep.dev/docs/fs.js',
       async: true
     },
@@ -194,7 +199,7 @@ module.exports = {
           { from: "/providers/", to: "/semgrep-ci/overview/" },
           { from: "/semgrep-app/role-based-access-control", to: "/semgrep-app/user-management/" },
           { from: "/cli-usage/", to: "/cli-reference/" },
-          { from: "/writing-rules/data-flow", to: "/writing-rules/data-flow/overview" }
+          { from: "/writing-rules/data-flow", to: "/writing-rules/data-flow/data-flow-overview" }
         ]
       }
     ],

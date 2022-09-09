@@ -12,6 +12,116 @@ import MoreHelp from "/src/components/MoreHelp"
 
 Welcome to monthly rule updates! This document includes selected new rules, removed false positives (FP), and other rule updates. These new rules and their updates are made by the Semgrep community and r2c.
 
+## August 2022
+
+### Community tier
+
+#### New rules from Semgrep community and r2c
+
+- <LinkToRegistryRule ruleId="csharp.lang.security.ad.jwt-tokenvalidationparameters-no-expiry-validation.jwt-tokenvalidationparameters-no-expiry-validation" />
+- Thanks @securecodeninja! <LinkToRegistryRule ruleId="jwt-securitytoken-no-expiration.jwt-securitytoken-no-expiration" />
+
+#### Updated community tier rules
+
+- Fixed taint source to focus on function argument in <LinkToRegistryRule ruleId="csharp.dotnet.security.audit.mass-assignment.mass-assignment" />.
+- Updated various secrets-related rules:
+    - Added more patterns for hardcoded secrets in `express-session` <LinkToRegistryRule ruleId="javascript.express.security.audit.express-session-hardcoded-secret.express-session-hardcoded-secret" />.
+    - Added more import patterns to catch more cases <LinkToRegistryRule ruleId="javascript.express.security.express-jwt-hardcoded-secret.express-jwt-hardcoded-secret" />.
+    - Changed from ERROR to WARNING <LinkToRegistryRule ruleId="javascript.jose.security.jwt-hardcode.hardcoded-jwt-secret" />.
+    - Updated to highlight smaller, relevant ranges of code:
+        - <LinkToRegistryRule ruleId="java.java-jwt.security.jwt-hardcode.java-jwt-hardcoded-secret" />
+        - <LinkToRegistryRule ruleId="terraform.aws.security.aws-provider-static-credentials.aws-provider-static-credentials" />
+        - <LinkToRegistryRule ruleId="terraform.aws.security.aws-lambda-environment-credentials.aws-lambda-environment-credentials" />
+    - False positive (FP) reduction, updated in taint mode to provide more context:
+        - <LinkToRegistryRule ruleId="go.jwt-go.security.jwt.hardcoded-jwt-key" />
+        - <LinkToRegistryRule ruleId="javascript.jsonwebtoken.security.jwt-hardcode.hardcoded-jwt-secret" />
+        - <LinkToRegistryRule ruleId="python.boto3.security.hardcoded-token.hardcoded-token" />
+- Updated to work with multi flags such as `-yqq` in <LinkToRegistryRule ruleId="dockerfile.correctness.missing-assume-yes-switch.missing-assume-yes-switch" />.
+- Updated to taint mode and added more filesystem sources <LinkToRegistryRule ruleId="javascript.lang.security.audit.detect-non-literal-fs-filename.detect-non-literal-fs-filename" />.
+- Restricted sources to remove unlikely user input <LinkToRegistryRule ruleId="ruby.rails.security.audit.avoid-tainted-shell-call.avoid-tainted-shell-call" />.
+- Added a pattern for `escapeHtml={false}` <LinkToRegistryRule ruleId="typescript.react.security.react-markdown-insecure-html.react-markdown-insecure-html" />.
+- Added a pattern for detecting manual user-supplied inputs <LinkToRegistryRule ruleId="yaml.github-actions.security.run-shell-injection.run-shell-injection" />.
+- Updated to highlight smaller, relevant ranges of code:
+    - <LinkToRegistryRule ruleId="ruby.lang.security.hardcoded-http-auth-in-controller.hardcoded-http-auth-in-controller" />
+    - <LinkToRegistryRule ruleId="ruby.rails.security.injection.tainted-sql-string.tainted-sql-string" />
+- FP reduction: updated to taint mode to provide more context:
+    - <LinkToRegistryRule ruleId="javascript.express.security.audit.xss.direct-response-write.direct-response-write" />
+    - <LinkToRegistryRule ruleId="javascript.lang.security.audit.detect-non-literal-regexp.detect-non-literal-regexp" />
+    - <LinkToRegistryRule ruleId="javascript.lang.security.detect-child-process.detect-child-process" />
+    - <LinkToRegistryRule ruleId="javascript.passport-jwt.security.passport-hardcode.hardcoded-passport-secret" />
+    - <LinkToRegistryRule ruleId="typescript.react.security.audit.react-unsanitized-method.react-unsanitized-method" />
+    - <LinkToRegistryRule ruleId="typescript.react.security.audit.react-unsanitized-property.react-unsanitized-property" />
+
+#### Deprecated community tier rules
+
+Semgrep does no longer match anything with the following rules:
+
+- <LinkToRegistryRule ruleId="javascript.jose.security.jwt-exposed-credentials.jwt-exposed-credentials" />
+- <LinkToRegistryRule ruleId="javascript.jsonwebtoken.security.jwt-exposed-credentials.jwt-exposed-credentials" />
+- <LinkToRegistryRule ruleId="javascript.lang.security.audit.non-constant-sql-query.non-constant-sql-query" />
+- <LinkToRegistryRule ruleId="python.django.security.audit.xss.template-translate-no-escape.template-translate-no-escape" />
+
+### Team tier
+
+#### New Team tier rules
+
+- <LinkToRegistryRule ruleId="javascript.express.express-child-process.express-child-process" />
+- <LinkToRegistryRule ruleId="javascript.express.express-fs-filename.express-fs-filename" />
+- <LinkToRegistryRule ruleId="typescript.typescript.node.security.node-rsa-weak-key.node-rsa-weak-key" />
+
+- New Go rules:
+    - <LinkToRegistryRule ruleId="go.net.active-debug-code.print-stack-trace.print-stack-trace" />
+    - <LinkToRegistryRule ruleId="go.net.active-debug-code.write-pprof-profile-output.write-pprof-profile-output" />
+    - <LinkToRegistryRule ruleId="go.net.command-injection.net-http-command-injection-taint.net-http-command-injection-taint" />
+    - <LinkToRegistryRule ruleId="go.net.sql.go-vanillasql-format-string-sqli-taint.go-vanillasql-format-string-sqli-taint" />
+    - <LinkToRegistryRule ruleId="go.net.sql.pg-orm-sqli-taint.pg-orm-sqli-taint" />
+    - <LinkToRegistryRule ruleId="go.net.sql.pg-sqli-taint.pg-sqli-taint" />
+    - <LinkToRegistryRule ruleId="go.net.sql.pgx-sqli-taint.pgx-sqli-taint" />
+    - <LinkToRegistryRule ruleId="go.net.ssrf.http-ssrf-taint.http-ssrf-taint" />
+    - <LinkToRegistryRule ruleId="go.net.xss.formatted-template-string-taint.formatted-template-string-taint" />
+    - <LinkToRegistryRule ruleId="go.net.xss.no-direct-write-to-responsewriter-taint.no-direct-write-to-responsewriter-taint" />
+    - <LinkToRegistryRule ruleId="go.net.xxe.libxml2-xxe-taint.libxml2-xxe-taint" />
+
+- New secrets detection rules which try to resolve cases with hardcoded strings used as a secrets in code:
+    - <LinkToRegistryRule ruleId="csharp.jwt-dotnet.jwt-dotnet-hardcoded-secret.jwt-dotnet-hardcoded-secret" />
+    - <LinkToRegistryRule ruleId="csharp.lang.security.system.directoryentry-hardcoded-secret.directoryentry-hardcoded-secret" />
+    - <LinkToRegistryRule ruleId="csharp.lang.security.system.networkcredential-hardcoded-secret.networkcredential-hardcoded-secret" />
+    - <LinkToRegistryRule ruleId="csharp.lang.security.system.oracleconnectionstringbuilder-hardcoded-secret.oracleconnectionstringbuilder-hardcoded-secret" />
+    - <LinkToRegistryRule ruleId="csharp.lang.security.system.passwordauthenticationmethod-hardcoded-secret.passwordauthenticationmethod-hardcoded-secret" />
+    - <LinkToRegistryRule ruleId="csharp.lang.security.system.sqlconnection-hardcoded-secret.sqlconnection-hardcoded-secret" />
+    - <LinkToRegistryRule ruleId="csharp.lang.security.system.sqlconnectionstringbuilder-hardcoded-secret.sqlconnectionstringbuilder-hardcoded-secret" />
+    - <LinkToRegistryRule ruleId="csharp.mongo.csharp-mongo-hardcoded-secret.csharp-mongo-hardcoded-secret" />
+    - <LinkToRegistryRule ruleId="csharp.postgres.npgsqlconnectionstringbuilder-hardcoded-secret.npgsqlconnectionstringbuilder-hardcoded-secret" />
+    - <LinkToRegistryRule ruleId="java.jsch.jsch-hardcoded-secret.jsch-hardcoded-secret" />
+    - <LinkToRegistryRule ruleId="java.lang.security.properties.properties-hardcoded-secret.properties-hardcoded-secret" />
+    - <LinkToRegistryRule ruleId="java.lang.security.sql.drivermanager-hardcoded-secret.drivermanager-hardcoded-secret" />
+    - <LinkToRegistryRule ruleId="java.lang.security.system.system-setproperty-hardcoded-secret.system-setproperty-hardcoded-secret" />
+    - <LinkToRegistryRule ruleId="java.mongo.java-mongo-hardcoded-secret.java-mongo-hardcoded-secret" />
+    - <LinkToRegistryRule ruleId="java.mysql.mysql-jdbc-hardcoded-secret.mysql-jdbc-hardcoded-secret" />
+    - <LinkToRegistryRule ruleId="javascript.knex.node-knex-hardcoded-secret.node-knex-hardcoded-secret" />
+    - <LinkToRegistryRule ruleId="javascript.mongoose.node-mongoose-hardcoded-secret.node-mongoose-hardcoded-secret" />
+    - <LinkToRegistryRule ruleId="javascript.mssql.node-mysql-hardcoded-secret.node-mssql-hardcoded-secret" />
+    - <LinkToRegistryRule ruleId="javascript.mysql.node-mysql-hardcoded-secret.node-mysql-hardcoded-secret" />
+    - <LinkToRegistryRule ruleId="javascript.pg.node-pg-hardcoded-secret.node-pg-hardcoded-secret" />
+    - <LinkToRegistryRule ruleId="javascript.sequelize.node-sequelize-hardcoded-secret.node-sequelize-hardcoded-secret" />
+    - <LinkToRegistryRule ruleId="python.ldap3.python-ldap3-hardcoded-secret.python-ldap3-hardcoded-secret" />
+    - <LinkToRegistryRule ruleId="python.mysql.python-mysql-hardcoded-secret.python-mysql-hardcoded-secret" />
+    - <LinkToRegistryRule ruleId="python.psycopg2.python-psycopg2-hardcoded-secret.python-psycopg2-hardcoded-secret" />
+    - <LinkToRegistryRule ruleId="python.pyjwt.python-pyjwt-hardcoded-secret.python-pyjwt-hardcoded-secret" />
+    - <LinkToRegistryRule ruleId="python.pymongo.python-mongo-hardcoded-secret.python-mongo-hardcoded-secret" />
+    - <LinkToRegistryRule ruleId="python.pymongo.python-pymongo-hardcoded-secret.python-pymongo-hardcoded-secret" />
+    - <LinkToRegistryRule ruleId="python.pymysql.python-pymysql-hardcoded-secret.python-pymysql-hardcoded-secret" />
+    - <LinkToRegistryRule ruleId="python.sqlalchemy.python-sqlalchemy-hardcoded-secret.python-sqlalchemy-hardcoded-secret" />
+    - <LinkToRegistryRule ruleId="python.tormysql.python-tormysql-hardcoded-secret.python-tormysql-hardcoded-secret" />
+    - <LinkToRegistryRule ruleId="python.webrepl.python-webrepl-hardcoded-secret.python-webrepl-hardcoded-secret" />
+
+#### Updated Team tier rules
+
+Added more sinks for the following rules:
+
+- <LinkToRegistryRule ruleId="paid.paid.typescript.react.react-refs-prop.react-refs-prop" />
+- <LinkToRegistryRule ruleId="paid.paid.typescript.react.react-refs-url.react-refs-url" />
+
 ## July 2022
 
 ### New rules from Segmrep community and r2c
@@ -95,7 +205,7 @@ Limit sources to specific properties of Request object rather than all propertie
 - <LinkToRegistryRule ruleId="javascript.express.security.injection.raw-html-format" />
 - <LinkToRegistryRule ruleId="javascript.express.security.x-frame-options-misconfiguration" />
 
-The `python.lang.security.audit.dangerous` rules have been reworked. All Python *dangerous* rules have had their confidence level changed to LOW. Renamed rules:
+The `python.lang.security.audit.dangerous` rules have been reworked. All Python -dangerous- rules have had their confidence level changed to LOW. Renamed rules:
 - <LinkToRegistryRule ruleId="python.lang.security.audit.dangerous-asyncio-create-exec" /> renamed to <LinkToRegistryRule ruleId="python.lang.security.audit.dangerous-asyncio-create-exec-audit" />
 - <LinkToRegistryRule ruleId="python.lang.security.audit.dangerous-asyncio-exec" /> renamed to <LinkToRegistryRule ruleId="python.lang.security.audit.dangerous-asyncio-exec-audit" />
 - <LinkToRegistryRule ruleId="python.lang.security.audit.dangerous-asyncio-shell" /> renamed to <LinkToRegistryRule ruleId="python.lang.security.audit.dangerous-asyncio-shell-audit" />

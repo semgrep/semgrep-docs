@@ -3,9 +3,23 @@ slug: dashboard
 append_help_link: true
 title: Dashboard 
 description: "The Dashboard is a summary view within Semgrep App to help security teams evaluate their organization's security posture."
+tags:
+    - Semgrep App
+    - Community Tier
+    - Team & Enterprise Tier
+hide_title: true
 ---
 
 import MoreHelp from "/src/components/MoreHelp"
+import Tags from "/src/components/Tags"
+
+<ul id="tag__badge-list">
+{
+Object.entries(frontMatter).filter(
+    frontmatter => frontmatter[0] === 'tags')[0].pop().map(
+    (value) => <li class='tag__badge-item'>{value}</li> )
+}
+</ul>
 
 # Evaluating your security posture through the Dashboard
 
@@ -41,6 +55,15 @@ To change the time range of scan data over time:
 
 1. Click the **Last 1 month** button.
 2. Select a time range from the drop-down box. The Dashboard, including all widgets, reloads to reflect data from the selected time period.
+
+## Filtering through findings from projects
+
+The Dashboard displays data from scans for **all of the organization's projects** by default. Select one or a few projects to filter the dashboard widgets to only reflect scans from selected projects. Selecting a few projects gives you a more targeted view of those projects' security posture.
+
+To change the projects filter:
+
+1. Click the **All projects** button.
+2. Select the project(s) from the drop-down box. The Dashboard, including all widgets, reloads to reflect data from the selected project(s).
 
 ## Summarizing a project’s security posture
 

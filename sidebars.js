@@ -23,6 +23,7 @@ module.exports = {
         items: [
             'getting-started',
             'semgrep-app/getting-started-with-semgrep-app',
+            'semgrep-ci/overview',
             'contributing/philosophy',
         ]
     },
@@ -40,27 +41,13 @@ module.exports = {
                 'managing-findings'
             ],
         },
-        {
-            type: 'category',
-            label: 'Writing custom rules',
-            items: [
-                'writing-rules/overview',
-                'writing-rules/pattern-examples',
-                'writing-rules/pattern-syntax',
-                'writing-rules/rule-ideas',
-                'writing-rules/rule-syntax',
-                'writing-rules/testing-rules',
-                'writing-rules/private-rules',
-                'troubleshooting/rules'
-            ]
-        },
         'ignoring-files-folders-code',
         'extensions',
         {
             type: 'category',
             label: 'Data-flow analysis',
             items: [
-                'writing-rules/data-flow/overview',
+                'writing-rules/data-flow/data-flow-overview',
                 'writing-rules/data-flow/constant-propagation',
                 'writing-rules/data-flow/taint-mode',
                 'writing-rules/data-flow/status'
@@ -86,6 +73,7 @@ module.exports = {
             'experiments/extract-mode',
             'experiments/project-depends-on',
             'experiments/symbolic-propagation',
+            'experiments/taint-propagators',
             'experiments/metavariable-analysis'
           ]
         },
@@ -169,11 +157,19 @@ module.exports = {
     },
     {
         type: 'category',
-        label: 'Learn Semgrep',
+        label: 'Writing custom rules',
         collapsible: false,
         items: [
+            'writing-rules/overview',
+            'writing-rules/pattern-examples',
+            'writing-rules/pattern-syntax',
+            'writing-rules/rule-ideas',
+            'writing-rules/rule-syntax',
+            'writing-rules/testing-rules',
+            'writing-rules/private-rules',
+            'troubleshooting/rules',
             'playground',
-            'trophy-case',
+            'trophy-case'
         ]
     },
     {
