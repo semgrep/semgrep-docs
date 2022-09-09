@@ -7,6 +7,7 @@ hide_title: true
 tags:
     - Semgrep in CI
     - Community Tier
+    - Team & Enterprise Tier
 ---
 
 <ul id="tag__badge-list">
@@ -52,6 +53,11 @@ Support for certain features of Semgrep App depend on your CI provider or source
 
 ## GitHub Actions
 
+To use these snippets:
+
+1. Create a `semgrep.yml` file within `.github/workflows` in the repository you want to scan.
+2. Copy the relevant configuration file from the tabs provided and commit the file.
+
 <Tabs
     defaultValue="gha-semgrep"
     values={[
@@ -59,7 +65,6 @@ Support for certain features of Semgrep App depend on your CI provider or source
     {label: 'Stand-alone CI job', value: 'gha-standalone'},
     ]}
 >
-
 <TabItem value='gha-semgrep'>
 
 ```yaml
@@ -67,23 +72,12 @@ Support for certain features of Semgrep App depend on your CI provider or source
 name: Semgrep
 
 on:
-  # Determine when you want Semgrep to scan your code.
-  # Use as many of the following options as you want.
-  # (Currently Options 1 and 3 are active).
-  #
-  # Option 1: Scan changed files in PRs, only report new findings (existing
-  # findings in the repository are ignored).
-  # To run on specific types of PR states (opened, reopened, etc) or particular
-  # paths or branches, see the following GitHub documentation:
-  # https://docs.github.com/en/actions/using-workflows/events-that-trigger-workflows#pull_request
+  # Scan changed files in PRs (diff-aware scanning):
   pull_request: {}
-
-  # Option 2: Scan all files on branches, report any findings.
-  # push:
-  #   branches: ["master", "main"]
-
-  # Option 3: Schedule CI job to run at a certain time, using cron syntax.
-  # Note: the asterisk sign * is a special character in YAML so you have to quote this string
+  # Scan mainline branches and report all findings:
+  push:
+    branches: ["master", "main"]
+  # Schedule the CI job (this method uses cron syntax):
   schedule:
     - cron: '30 0 1,15 * *' # scheduled for 00:30 UTC on both the 1st and 15th of the month
 
@@ -91,36 +85,82 @@ jobs:
   semgrep:
     # User definable name of this GitHub Actions job.
     name: Scan
-    # Only change the if you are self-hosting. See also:
-    # https://docs.github.com/en/actions/using-jobs/choosing-the-runner-for-a-job#choosing-self-hosted-runners
+    # If you are self-hosting, change the following `runs-on` value: 
     runs-on: ubuntu-latest
+
     container:
-      # A Docker image with Semgrep installed. Don't change this.
+      # A Docker image with Semgrep installed. Do not change this.
       image: returntocorp/semgrep
-    # Skip any PR created by dependabot to avoid permission issues
+
+    # Skip any PR created by dependabot to avoid permission issues:
     if: (github.actor != 'dependabot[bot]')
+
     steps:
       # Fetch project source with GitHub Actions Checkout.
       - uses: actions/checkout@v3
-
       # Run the "semgrep ci" command on the command line of the docker image.
       - run: semgrep ci
         env:
-          # Select rules for your scan with one of these two options.
-          # Option 1: Scan with rules set in Semgrep App's rule board
-          # Make a token at semgrep.dev/orgs/-/settings/tokens, and then
-          # save it in your GitHub Secrets.
+          # Connect to Semgrep App through your SEMGREP_APP_TOKEN.
+          # Make sure you have generated a token from Semgrep App > Settings
+          # and you have added it to your GitHub secrets.
           SEMGREP_APP_TOKEN: ${{ secrets.SEMGREP_APP_TOKEN }}
-          # Option 2: Set hard-coded rulesets, viewable in logs.
-          # SEMGREP_RULES: p/default # more at semgrep.dev/explore
+
+          # Uncomment SEMGREP_TIMEOUT to set this job's timeout (in seconds):
+          # Default timeout is 1800 seconds (30 minutes).
+          # Set to 0 to disable the timeout.
+          # SEMGREP_TIMEOUT: 300
 ```
 
 </TabItem>
 
+<TabItem value='gha-standalone'>
+
+```yaml
+# Name of this GitHub Actions workflow.
+name: Semgrep
+
+on:
+  # Scan changed files in PRs (diff-aware scanning):
+  pull_request: {}:qa
+lkkkk
+  # Scan mainline branches and report all findings: push:
+    branches: ["master", "main"]
+  # Schedule the CI job (this method uses cron syntax):
+  schedule:
+    - cron: '30 0 1,15 * *' # Scheduled for 00:30 UTC on both the 1st and 15th of the month
+
+jobs:
+  semgrep:
+    # User-definable name of this GitHub Actions job:
+    name: Scan
+    # If you are self-hosting, change the following `runs-on` value: 
+    runs-on: ubuntu-latest
+
+    container:
+      # A Docker image with Semgrep installed. Do not change this.
+      image: returntocorp/semgrep
+
+    # Skip any PR created by dependabot to avoid permission issues:
+    if: (github.actor != 'dependabot[bot]')
+
+    steps:
+      # Fetch project source with GitHub Actions Checkout.
+      - uses: actions/checkout@v3
+      # Run the "semgrep ci" command on the command line of the docker image.
+      - run: semgrep ci
+        env:
+           # Add the rules that Semgrep uses by setting the SEMGREP_RULES environment variable. 
+           SEMGREP_RULES: p/default # more at semgrep.dev/explore
+           # Uncomment SEMGREP_TIMEOUT to set this job's timeout (in seconds):
+           # Default timeout is 1800 seconds (30 minutes).
+           # Set to 0 to disable the timeout.
+           # SEMGREP_TIMEOUT: 300
+```
+</TabItem>
 </Tabs>
 
 <details><summary>Alternate job that uploads findings to GitHub Advanced Security Dashboard</summary>
-
 
 <Tabs
     defaultValue="gha-semgrep-dash"
@@ -133,34 +173,99 @@ jobs:
 <TabItem value='gha-semgrep-dash'>
 
 ```yaml
+# Name of this GitHub Actions workflow.
 name: Semgrep
+
 on:
+  # Scan changed files in PRs (diff-aware scanning):
   pull_request: {}
+  # Scan mainline branches and report all findings:
+  push:
+    branches: ["master", "main"]
+  # Schedule the CI job (this method uses cron syntax):
+  schedule:
+    - cron: '30 0 1,15 * *' # scheduled for 00:30 UTC on both the 1st and 15th of the month
+
 jobs:
   semgrep:
     # User definable name of this GitHub Actions job.
     name: Scan
-    # Only change the if you are self-hosting. See also:
-    # https://docs.github.com/en/actions/using-jobs/choosing-the-runner-for-a-job#choosing-self-hosted-runners
+    # If you are self-hosting, change the following `runs-on` value: 
     runs-on: ubuntu-latest
-    container:
-      # A Docker image with Semgrep installed. Don't change this.
-      image: returntocorp/semgrep
-    steps:
-      - uses: actions/checkout@v3
 
-      # Select rules for your scan with one of these two options:
-      #
-      # Option 1: Scan with rules set in Semgrep App's rule board.
-      # Make a token at semgrep.dev/orgs/-/settings/tokens, and then
-      # save it in your GitHub Secrets.
-      - run: semgrep scan --sarif --output=semgrep.sarif --config=policy
+    container:
+      # A Docker image with Semgrep installed. Do not change this.
+      image: returntocorp/semgrep
+
+    # Skip any PR created by dependabot to avoid permission issues:
+    if: (github.actor != 'dependabot[bot]')
+
+    steps:
+      # Fetch project source with GitHub Actions Checkout.
+      - uses: actions/checkout@v3
+      # Run the "semgrep ci" command on the command line of the docker image.
+      - run: semgrep ci
         env:
+          # Connect to Semgrep App through your SEMGREP_APP_TOKEN.
+          # Make sure you have generated a token from Semgrep App > Settings
+          # and you have added it to your GitHub secrets.
           SEMGREP_APP_TOKEN: ${{ secrets.SEMGREP_APP_TOKEN }}
-      # Option 2: Set hard-coded rulesets, viewable in logs.
-      # - run: semgrep scan --sarif --output=semgrep.sarif
-      #   env:
-      #     SEMGREP_RULES: p/default # See more at semgrep.dev/explore.
+
+          # Uncomment SEMGREP_TIMEOUT to set this job's timeout (in seconds):
+          # Default timeout is 1800 seconds (30 minutes).
+          # Set to 0 to disable the timeout.
+          # SEMGREP_TIMEOUT: 300
+
+      - name: Upload SARIF file for GitHub Advanced Security Dashboard
+        uses: github/codeql-action/upload-sarif@v2
+        with:
+          sarif_file: semgrep.sarif
+        if: always()
+```
+
+</TabItem>
+<TabItem value='gha-standalone'>
+
+```yaml
+# Name of this GitHub Actions workflow.
+name: Semgrep
+
+on:
+  # Scan changed files in PRs (diff-aware scanning):
+  pull_request: {}
+  # Scan mainline branches and report all findings:
+  push:
+    branches: ["master", "main"]
+  # Schedule the CI job (this method uses cron syntax):
+  schedule:
+    - cron: '30 0 1,15 * *' # Scheduled for 00:30 UTC on both the 1st and 15th of the month
+
+jobs:
+  semgrep:
+    # User-definable name of this GitHub Actions job:
+    name: Scan
+    # If you are self-hosting, change the following `runs-on` value: 
+    runs-on: ubuntu-latest
+
+    container:
+      # A Docker image with Semgrep installed. Do not change this.
+      image: returntocorp/semgrep
+
+    # Skip any PR created by dependabot to avoid permission issues:
+    if: (github.actor != 'dependabot[bot]')
+
+    steps:
+      # Fetch project source with GitHub Actions Checkout.
+      - uses: actions/checkout@v3
+      # Run the "semgrep ci" command on the command line of the docker image.
+      - run: semgrep ci
+        env:
+           # Add the rules that Semgrep uses by setting the SEMGREP_RULES environment variable. 
+           SEMGREP_RULES: p/default # more at semgrep.dev/explore
+           # Uncomment SEMGREP_TIMEOUT to set this job's timeout (in seconds):
+           # Default timeout is 1800 seconds (30 minutes).
+           # Set to 0 to disable the timeout.
+           # SEMGREP_TIMEOUT: 300
 
       - name: Upload SARIF file for GitHub Advanced Security Dashboard
         uses: github/codeql-action/upload-sarif@v2
@@ -173,13 +278,6 @@ jobs:
 </Tabs>
 
 </details>
-
-<!-- <TabItem value='gha-standalone'>
-
-gha standalone goes here
-
-</TabItem> -->
-
 
 ## GitLab CI/CD
 
