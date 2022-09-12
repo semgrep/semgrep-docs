@@ -76,9 +76,7 @@ If you are using GitHub Actions to run Semgrep, no extra changes are needed to g
 This section documents how to enable Semgrep App to post comments on merge requests.
 
 Automated comments on GitLab merge requests are displayed as follows:
-
-<img width="600" src="/do/img/gitlab-mr-comment.png" alt="Screenshot of a GitLab MR comment" /><br />
-An inline GitLab merge request comment left by a custom Semgrep rule
+![Semgrep GitLab MR comment](/img/gitlab-mr-comment.png)
 
 To enable GitLab merge request comments, follow these steps: 
 
