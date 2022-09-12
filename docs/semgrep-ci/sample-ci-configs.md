@@ -283,6 +283,7 @@ To add a Semgrep configuration file in your GitHub Actions pipeline:
 
 ## GitLab CI/CD
 
+
 <Tabs
     defaultValue="glcicd-semgrep"
     values={[
@@ -362,6 +363,8 @@ To add a Semgrep configuration file in your GitHub Actions pipeline:
 
 </TabItem>
 </Tabs>
+
+<details><summary>Alternate job that uploads findings to GitLab SAST Dashboard</summary>
 
 <Tabs
     defaultValue="glcicd-semgrep-dash"
@@ -460,37 +463,101 @@ To add a Semgrep configuration file in your GitHub Actions pipeline:
 </TabItem>
 </Tabs>
 
+</details>
+
 ## Jenkins
 
-Use webhooks and the below snippet to integrate with GitHub.
+To add a Semgrep configuration file in your Jenkins pipeline:
 
-```Groovy
-pipeline {
-  agent any
-    // environment {
-      // SEMGREP_BASELINE_REF = "main"
+1. Edit or create your `Jenkinsfile` configuration file within `.github/workflows` in the repository you want to scan.
+2. Copy the relevant configuration file from the following tabs provided and commit the file.
+3. The Semgrep job starts automatically upon detecting the `Jenkinsfile` update.
+4. Optional: Create a separate CI job for diff-aware scanning, which scans only changed files in PRs or MRs, by repeating steps 1-3 and uncommenting the `SEMGREP_BASELINE_REF`.
 
-      // SEMGREP_APP_TOKEN = credentials('SEMGREP_APP_TOKEN')
-      // SEMGREP_REPO_URL = env.GIT_URL.replaceFirst(/^(.*).git$/,'$1')
-      // SEMGREP_BRANCH = "${GIT_BRANCH}"
-      // SEMGREP_JOB_URL = "${BUILD_URL}"
-      // SEMGREP_REPO_NAME = env.GIT_URL.replaceFirst(/^https:\/\/github.com\/(.*).git$/, '$1')
-      // SEMGREP_COMMIT = "${GIT_COMMIT}"
-      // SEMGREP_PR_ID = "${env.CHANGE_ID}"
 
-      // SEMGREP_TIMEOUT = "300"
-    // }
-    stages {
-      stage('Semgrep-Scan') {
-        steps {
-          sh 'pip3 install semgrep'
-          sh 'semgrep ci --config auto'
+<Tabs
+    defaultValue="jenkins-semgrep"
+    values={[
+    {label: 'CI with Semgrep App', value: 'jenkins-semgrep'},
+    {label: 'Stand-alone CI job', value: 'jenkins-standalone'},
+    ]}
+>
+
+<TabItem value='jenkins-semgrep'>
+
+These code snippets use Jenkins declarative syntax.
+
+  ```javascript
+  pipeline {
+    agent any
+      environment {
+        SEMGREP_APP_TOKEN = credentials('SEMGREP_APP_TOKEN')
+        SEMGREP_BRANCH = "${GIT_BRANCH}"
+  
+        // Uncomment the following line to scan changed 
+        // files in PRs or MRs (diff-aware scanning): 
+        // SEMGREP_BASELINE_REF = "main"
+  
+        // Optional:
+        // SEMGREP_TIMEOUT = "300"
+
+        // Troubleshooting:
+        // Uncomment the following lines to troubleshoot issues in detecting links to code.
+        // (For Semgrep versions before 0.98.0)
+        // SEMGREP_JOB_URL = "${BUILD_URL}"
+        // SEMGREP_COMMIT = "${GIT_COMMIT}"
+        // SEMGREP_PR_ID = "${env.CHANGE_ID}"
+        
+        // Uncomment the following lines to troubleshoot issues in detecting links to code.
+        // (Any Semgrep version.)
+        // SEMGREP_REPO_NAME = env.GIT_URL.replaceFirst(/^https:\/\/github.com\/(.*).git$/, '$1')
+        // SEMGREP_REPO_URL = env.GIT_URL.replaceFirst(/^(.*).git$/,'$1')
+  
+      }
+      stages {
+        stage('Semgrep-Scan') {
+          steps {
+            sh 'pip3 install semgrep'
+            sh 'semgrep ci'
+        }
       }
     }
   }
-}
-```
+  ```
 
+</TabItem>
+
+<TabItem value='jenkins-standalone'>
+
+These code snippets use Jenkins declarative syntax.
+
+  ```javascript
+  pipeline {
+    agent any
+      environment {
+        SEMGREP_RULES = "p/default" 
+        SEMGREP_BRANCH = "${GIT_BRANCH}"
+  
+        // Uncomment the following line to scan changed 
+        // files in PRs or MRs (diff-aware scanning): 
+        // SEMGREP_BASELINE_REF = "main"
+  
+        // Optional:
+        // SEMGREP_TIMEOUT = "300"
+      }
+      stages {
+        stage('Semgrep-Scan') {
+          steps {
+            sh 'pip3 install semgrep'
+            sh 'semgrep ci'
+        }
+      }
+    }
+  }
+  ```
+
+</TabItem>
+</Tabs>
 
 ## Buildkite
 
