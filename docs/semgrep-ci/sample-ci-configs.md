@@ -174,56 +174,56 @@ To add a Semgrep configuration file in your GitHub Actions pipeline:
 
 <TabItem value='gha-semgrep-dash'>
 
-```yaml
-# Name of this GitHub Actions workflow.
-name: Semgrep
-
-on:
-  # Scan changed files in PRs (diff-aware scanning):
-  pull_request: {}
-  # Scan mainline branches and report all findings:
-  push:
-    branches: ["master", "main"]
-  # Schedule the CI job (this method uses cron syntax):
-  schedule:
-    - cron: '30 0 1,15 * *' # scheduled for 00:30 UTC on both the 1st and 15th of the month
-
-jobs:
-  semgrep:
-    # User definable name of this GitHub Actions job.
-    name: Scan
-    # If you are self-hosting, change the following `runs-on` value: 
-    runs-on: ubuntu-latest
-
-    container:
-      # A Docker image with Semgrep installed. Do not change this.
-      image: returntocorp/semgrep
-
-    # Skip any PR created by dependabot to avoid permission issues:
-    if: (github.actor != 'dependabot[bot]')
-
-    steps:
-      # Fetch project source with GitHub Actions Checkout.
-      - uses: actions/checkout@v3
-      # Run the "semgrep ci" command on the command line of the docker image.
-      - run: semgrep ci
-        env:
-          # Connect to Semgrep App through your SEMGREP_APP_TOKEN.
-          # Make sure you have generated a token from Semgrep App > Settings
-          # and you have added it to your GitHub secrets.
-          SEMGREP_APP_TOKEN: ${{ secrets.SEMGREP_APP_TOKEN }}
-
-          # Uncomment SEMGREP_TIMEOUT to set this job's timeout (in seconds):
-          # Default timeout is 1800 seconds (30 minutes).
-          # Set to 0 to disable the timeout.
-          # SEMGREP_TIMEOUT: 300
-
-      - name: Upload SARIF file for GitHub Advanced Security Dashboard
-        uses: github/codeql-action/upload-sarif@v2
-        with:
-          sarif_file: semgrep.sarif
-        if: always()
-```
+  ```yaml
+  # Name of this GitHub Actions workflow.
+  name: Semgrep
+  
+  on:
+    # Scan changed files in PRs (diff-aware scanning):
+    pull_request: {}
+    # Scan mainline branches and report all findings:
+    push:
+      branches: ["master", "main"]
+    # Schedule the CI job (this method uses cron syntax):
+    schedule:
+      - cron: '30 0 1,15 * *' # scheduled for 00:30 UTC on both the 1st and 15th of the month
+  
+  jobs:
+    semgrep:
+      # User definable name of this GitHub Actions job.
+      name: Scan
+      # If you are self-hosting, change the following `runs-on` value: 
+      runs-on: ubuntu-latest
+  
+      container:
+        # A Docker image with Semgrep installed. Do not change this.
+        image: returntocorp/semgrep
+  
+      # Skip any PR created by dependabot to avoid permission issues:
+      if: (github.actor != 'dependabot[bot]')
+  
+      steps:
+        # Fetch project source with GitHub Actions Checkout.
+        - uses: actions/checkout@v3
+        # Run the "semgrep ci" command on the command line of the docker image.
+        - run: semgrep ci
+          env:
+            # Connect to Semgrep App through your SEMGREP_APP_TOKEN.
+            # Make sure you have generated a token from Semgrep App > Settings
+            # and you have added it to your GitHub secrets.
+            SEMGREP_APP_TOKEN: ${{ secrets.SEMGREP_APP_TOKEN }}
+  
+            # Uncomment SEMGREP_TIMEOUT to set this job's timeout (in seconds):
+            # Default timeout is 1800 seconds (30 minutes).
+            # Set to 0 to disable the timeout.
+            # SEMGREP_TIMEOUT: 300
+  
+        - name: Upload SARIF file for GitHub Advanced Security Dashboard
+          uses: github/codeql-action/upload-sarif@v2
+          with:
+            sarif_file: semgrep.sarif
+          if: always()
+  ```
 
 </TabItem>
 <TabItem value='gha-standalone-dash'>
@@ -283,7 +283,6 @@ jobs:
 
 ## GitLab CI/CD
 
-<!--
 <Tabs
     defaultValue="glcicd-semgrep"
     values={[
@@ -294,71 +293,172 @@ jobs:
 
 <TabItem value='glcicd-semgrep'>
 
-test
+  ```yaml
+  semgrep:
+    # A Docker image with Semgrep installed.
+    image: returntocorp/semgrep
+    # Run the "semgrep ci" command on the command line of the docker image.
+    script: semgrep ci
+  
+    rules:
+    # Scan changed files in MRs, (diff-aware scanning):
+    - if: $CI_MERGE_REQUEST_IID
+  
+    # Scan mainline (default) branches and report all findings.
+    - if: $CI_COMMIT_BRANCH == $CI_DEFAULT_BRANCH
+  
+    variables:
+      # Connect to Semgrep App through your SEMGREP_APP_TOKEN.
+      # Make sure you have generated a token from Semgrep App > Settings
+      # and you have added it as a variable in your GitLab CI/CD project settings.
+      SEMGREP_APP_TOKEN: $SEMGREP_APP_TOKEN
+  
+    # Other optional settings in the `variables` block:
+
+    # Never fail the build due to findings on pushes.
+    # Instead, just collect findings for semgrep.dev/manage/findings
+    #   SEMGREP_AUDIT_ON: push
+
+    # Change job timeout (default is 1800 seconds; set to 0 to disable)
+    #   SEMGREP_TIMEOUT: 300
+  
+    # Receive inline MR comments (requires Semgrep App account)
+    # Setup instructions: 
+    # https://semgrep.dev/docs/semgrep-app/notifications/#enabling-gitlab-merge-request-comments
+    #   GITLAB_TOKEN: $PAT
+  ```
 
 </TabItem>
 
-</Tabs> -->
+<TabItem value='glcicd-standalone'>
 
-## GitLab CI/CD
+  ```yaml
+  semgrep:
+    # A Docker image with Semgrep installed.
+    image: returntocorp/semgrep
+    # Run the "semgrep ci" command on the command line of the docker image.
+    script: semgrep ci
+  
+    rules:
+    # Scan changed files in MRs, (diff-aware scanning):
+    - if: $CI_MERGE_REQUEST_IID
+  
+    # Scan mainline (default) branches and report all findings.
+    - if: $CI_COMMIT_BRANCH == $CI_DEFAULT_BRANCH
+  
+    variables:
+      # Add the rules that Semgrep uses by setting the SEMGREP_RULES environment variable.
+      SEMGREP_RULES: p/default # See more at semgrep.dev/explore.
+  
+    # Other optional settings in the `variables` block:
 
-```yaml
-semgrep:
-  # A Docker image with Semgrep installed.
-  image: returntocorp/semgrep
-  # Run the "semgrep ci" command on the command line of the docker image.
-  script: semgrep ci
+    # Never fail the build due to findings on pushes.
+    # Instead, just collect findings for semgrep.dev/manage/findings
+    #   SEMGREP_AUDIT_ON: push
 
-  rules:
-  # Determine when you want Semgrep to scan your code.
-  # Use as many of the following options as you want.
-  #
-  # [Option 1] Scan changed files in MRs, only report new findings (existing
-  # findings ignored).
-  - if: $CI_MERGE_REQUEST_IID
+    # Change job timeout (default is 1800 seconds; set to 0 to disable)
+    #   SEMGREP_TIMEOUT: 300
+  ```
 
-  # [Option 2] Scan all files on the default branch, report any findings.
-  # - if: $CI_COMMIT_BRANCH == $CI_DEFAULT_BRANCH
+</TabItem>
+</Tabs>
 
-  # [Option 3] Schedule CI job to run at a certain time, using cron syntax. 
-  # Instructions for setting this up are here: 
-  # https://docs.gitlab.com/ee/ci/pipelines/schedules.html
-  # As an initial setup, we recommend scanning your whole project on 1st and 
-  # 15th of the month, in addition to running Option 1.
+<Tabs
+    defaultValue="glcicd-semgrep-dash"
+    values={[
+    {label: 'CI with Semgrep App', value: 'glcicd-semgrep-dash'},
+    {label: 'Stand-alone CI job', value: 'glcicd-standalone-dash'},
+    ]}
+>
 
-  variables:
-    # Select rules for your scan with one of these two options:
-    #
-    # [Option 1] Scan with rules set in Semgrep App's rule board
-    # Get your token at semgrep.dev/orgs/-/settings/tokens.
-    SEMGREP_APP_TOKEN: $SEMGREP_APP_TOKEN
-    # [Option 2] set hard-coded rulesets, viewable in logs.
-    # SEMGREP_RULES: p/default # See more at semgrep.dev/explore.
+<TabItem value='glcicd-semgrep-dash'>
 
-  # == Other optional settings in the `variables:` block ==
+  ```yaml
+  semgrep:
+    # A Docker image with Semgrep installed.
+    image: returntocorp/semgrep
+  
+    rules:
+    # Scan changed files in MRs, (diff-aware scanning):
+    - if: $CI_MERGE_REQUEST_IID
+  
+    # Scan mainline (default) branches and report all findings.
+    - if: $CI_COMMIT_BRANCH == $CI_DEFAULT_BRANCH
+  
+    variables:
+      # Connect to Semgrep App through your SEMGREP_APP_TOKEN.
+      # Make sure you have generated a token from Semgrep App > Settings
+      # and you have added it as a variable in your GitLab CI/CD project settings.
+      SEMGREP_APP_TOKEN: $SEMGREP_APP_TOKEN
+  
+      # Upload findings to GitLab SAST Dashboard:
+      SEMGREP_GITLAB_JSON: "1"
 
-  # Receive inline MR comments (requires Semgrep App account)
-  # Setup instructions: https://semgrep.dev/docs/semgrep-app/notifications/#enabling-gitlab-merge-request-comments
-  #   GITLAB_TOKEN: $PAT
+    # Other optional settings in the `variables` block:
 
-  # Never fail the build due to findings on pushes.
-  # Instead, just collect findings for semgrep.dev/manage/findings
-  #   SEMGREP_AUDIT_ON: push
+    # Never fail the build due to findings on pushes.
+    # Instead, just collect findings for semgrep.dev/manage/findings
+    #   SEMGREP_AUDIT_ON: push
 
-  # Upload findings to GitLab SAST Dashboard [step 1/2]
-  # See also the next step.
-  #   SEMGREP_GITLAB_JSON: "1"
+    # Change job timeout (default is 1800 seconds; set to 0 to disable)
+    #   SEMGREP_TIMEOUT: 300
+  
+    # Receive inline MR comments (requires Semgrep App account)
+    # Setup instructions: 
+    # https://semgrep.dev/docs/semgrep-app/notifications/#enabling-gitlab-merge-request-comments
+    #   GITLAB_TOKEN: $PAT
 
-  # Change job timeout (default is 1800 seconds; set to 0 to disable)
-  #   SEMGREP_TIMEOUT: 300
+    # Run the "semgrep ci" command on the command line of the docker image and send findings
+    # to GitLab SAST.
+    script: semgrep ci --gitlab-sast > gl-sast-report.json || true
+    artifacts:
+      reports:
+        sast: gl-sast-report.json
 
-  # Upload findings to GitLab SAST Dashboard (remove `script:` line above) [step 2/2]
-  # script: semgrep ci --gitlab-sast > gl-sast-report.json || true
-  # artifacts:
-  #   reports:
-  #     sast: gl-sast-report.json
-```
+  ```
 
+</TabItem>
+
+<TabItem value='glcicd-standalone-dash'>
+
+  ```yaml
+  semgrep:
+    # A Docker image with Semgrep installed.
+    image: returntocorp/semgrep
+  
+    rules:
+    # Scan changed files in MRs, (diff-aware scanning):
+    - if: $CI_MERGE_REQUEST_IID
+  
+    # Scan mainline (default) branches and report all findings.
+    - if: $CI_COMMIT_BRANCH == $CI_DEFAULT_BRANCH
+  
+    variables:
+      # Add the rules that Semgrep uses by setting the SEMGREP_RULES environment variable.
+      SEMGREP_RULES: p/default # See more at semgrep.dev/explore.
+
+      # Upload findings to GitLab SAST Dashboard:
+      SEMGREP_GITLAB_JSON: "1"
+
+    # Other optional settings in the `variables` block:
+
+    # Never fail the build due to findings on pushes.
+    # Instead, just collect findings for semgrep.dev/manage/findings
+    #   SEMGREP_AUDIT_ON: push
+
+    # Change job timeout (default is 1800 seconds; set to 0 to disable)
+    #   SEMGREP_TIMEOUT: 300
+  
+    # Run the "semgrep ci" command on the command line of the docker image and send findings
+    # to GitLab SAST.
+    script: semgrep ci --gitlab-sast > gl-sast-report.json || true
+    artifacts:
+      reports:
+        sast: gl-sast-report.json
+
+  ```
+</TabItem>
+</Tabs>
 
 ## Jenkins
 
