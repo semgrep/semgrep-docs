@@ -215,7 +215,8 @@ Scanning a repository from SCM providers such as GitHub or GitLab ensures that S
 2. Click **Projects** on the left sidebar.
 3. Optional: If you do not see the repository you want to add in the **Projects** page of Semgrep app, follow the steps in the succeeding sections to ensure that Semgrep App can detect the repository.
 4. Click **Scan new project**, and then click **Run scan in CI**.
-5. Select which repository provider Semgrep to integrate with.
+5. Select which repository provider for Semgrep to integrate with.
+
 6. For **GitHub Actions**:
     1. Select the checkbox next to the name of the projects to add.
     2. Optional: If you do not see the repository you want to add, adjust [GitHub Application's Repository Access](https://github.com/settings/installations) configuration. See [Detecting GitHub repositories](#detecting-github-repositories) for more information.
