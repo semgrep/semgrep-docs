@@ -88,20 +88,19 @@ An inline GitLab merge request comment left by a custom Semgrep rule
 4. Navigate to your repository's Settings > CI/CD, scroll down to 'Variables', and click 'Expand'. The URL of the page where you are ends with: /username/project/-/settings/ci_cd.
 5. Click to **Add variable**, give the new variable the key `PAT` and use the token you copied in step 3 as the value. And then, select **mask variable** and **UNSELECT "protect variable"**.
 6. Update your .gitlab-ci.yml file with variable `GITLAB_TOKEN` and value `$PAT`. See the example code below for details:
+    ```yaml
+    semgrep:
+      image: returntocorp/semgrep
+      script:
+        - semgrep ci
+      rules:
+      - if: $CI_MERGE_REQUEST_IID
 
-#### Example
-```yaml
-semgrep:
-  image: returntocorp/semgrep
-  script:
-    - semgrep ci
-  rules:
-  - if: $CI_MERGE_REQUEST_IID
+      variables:
+        SEMGREP_APP_TOKEN: $SEMGREP_APP_TOKEN
+        GITLAB_TOKEN: $PAT
+    ```
 
-  variables:
-    SEMGREP_APP_TOKEN: $SEMGREP_APP_TOKEN
-    GITLAB_TOKEN: $PAT
-```
 For more config options, see [GitLab CI Sample](https://semgrep.dev/docs/semgrep-ci/sample-ci-configs/#gitlab-ci).
 
 :::note
