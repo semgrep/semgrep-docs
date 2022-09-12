@@ -159,14 +159,14 @@ semgrep:
   # Determine when you want Semgrep to scan your code.
   # Use as many of the following options as you want.
   #
-  # Option 1: Scan changed files in MRs, only report new findings (existing
+  # [Option 1] Scan changed files in MRs, only report new findings (existing
   # findings ignored).
   - if: $CI_MERGE_REQUEST_IID
 
-  # Option 2: Scan all files on the default branch, report any findings.
+  # [Option 2] Scan all files on the default branch, report any findings.
   # - if: $CI_COMMIT_BRANCH == $CI_DEFAULT_BRANCH
 
-  # Option 3: Schedule CI job to run at a certain time, using cron syntax. 
+  # [Option 3] Schedule CI job to run at a certain time, using cron syntax. 
   # Instructions for setting this up are here: 
   # https://docs.gitlab.com/ee/ci/pipelines/schedules.html
   # As an initial setup, we recommend scanning your whole project on 1st and 
@@ -175,16 +175,16 @@ semgrep:
   variables:
     # Select rules for your scan with one of these two options:
     #
-    # Option 1: Scan with rules set in Semgrep App's rule board
+    # [Option 1] Scan with rules set in Semgrep App's rule board
     # Get your token at semgrep.dev/orgs/-/settings/tokens.
     SEMGREP_APP_TOKEN: $SEMGREP_APP_TOKEN
-    # Option 2: set hard-coded rulesets, viewable in logs.
+    # [Option 2] set hard-coded rulesets, viewable in logs.
     # SEMGREP_RULES: p/default # See more at semgrep.dev/explore.
 
-  # == Other optional settings in the `variables:` block
+  # == Other optional settings in the `variables:` block ==
 
   # Receive inline MR comments (requires Semgrep App account)
-  # Setup instructions: https://semgrep.dev/docs/notifications/#gitlab-merge-request-comments
+  # Setup instructions: https://semgrep.dev/docs/semgrep-app/notifications/#enabling-gitlab-merge-request-comments
   #   GITLAB_TOKEN: $PAT
 
   # Never fail the build due to findings on pushes.
