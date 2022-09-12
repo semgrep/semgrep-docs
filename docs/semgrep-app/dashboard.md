@@ -3,13 +3,27 @@ slug: dashboard
 append_help_link: true
 title: Dashboard 
 description: "The Dashboard is a summary view within Semgrep App to help security teams evaluate their organization's security posture."
+tags:
+    - Semgrep App
+    - Community Tier
+    - Team & Enterprise Tier
+hide_title: true
 ---
 
 import MoreHelp from "/src/components/MoreHelp"
+import Tags from "/src/components/Tags"
+
+<ul id="tag__badge-list">
+{
+Object.entries(frontMatter).filter(
+    frontmatter => frontmatter[0] === 'tags')[0].pop().map(
+    (value) => <li class='tag__badge-item'>{value}</li> )
+}
+</ul>
 
 # Evaluating your security posture through the Dashboard
 
-![Screenshot of dashboard view](../img/dashboard-view.png)
+![Screenshot of dashboard view](/img/dashboard-view.png)
 
 The Findings Dashboard is an overview of your organization’s security posture from data aggregated within Semgrep App. With these metrics you are able to:
 
@@ -21,7 +35,7 @@ You can access the Dashboard by [logging into Semgrep App](https://semgrep.dev/l
 
 ## Assessing security readiness at a glance
 
-![Screenshot of dashboard header](../img/dashboard-header.png)
+![Screenshot of dashboard header](/img/dashboard-header.png)
 
 The **Header widget** displays high-level security analytics across your entire organization. This includes:
 <dl>
@@ -42,9 +56,18 @@ To change the time range of scan data over time:
 1. Click the **Last 1 month** button.
 2. Select a time range from the drop-down box. The Dashboard, including all widgets, reloads to reflect data from the selected time period.
 
+## Filtering through findings from projects
+
+The Dashboard displays data from scans for **all of the organization's projects** by default. Select one or a few projects to filter the dashboard widgets to only reflect scans from selected projects. Selecting a few projects gives you a more targeted view of those projects' security posture.
+
+To change the projects filter:
+
+1. Click the **All projects** button.
+2. Select the project(s) from the drop-down box. The Dashboard, including all widgets, reloads to reflect data from the selected project(s).
+
 ## Summarizing a project’s security posture
 
-![Screenshot of dashboard projects](../img/dashboard-project.png)
+![Screenshot of dashboard projects](/img/dashboard-project.png)
 
 The **Projects widget** displays open findings, high severities, and PR fix rates per-project. Through this view you are able to see which projects have the amount number of findings. The columns are arranged in a descending order, from the project with the greatest amount of findings to the least.
 
@@ -52,7 +75,7 @@ To view the project’s findings, click on the project’s name. This takes you 
 
 ## Discovering trends in vulnerabilities through OWASP categories
 
-![Screenshot of dashboard categories](../img/dashboard-categories.png)
+![Screenshot of dashboard categories](/img/dashboard-categories.png)
 
 Trends in insecure code can emerge after multiple Semgrep scans over time. By identifying these patterns, security teams are better informed about specific areas for improvement. Semgrep enables security teams to see the breakdown of vulnerabilities detected through the **Categories widget**, which includes:
 
@@ -79,17 +102,9 @@ Trends in insecure code can emerge after multiple Semgrep scans over time. By id
 	<dd>Command injection occurs when an attacker uses some type of input to run <strong>system commands</strong> on the host operating system. This is also known as shell injection. In <a href="https://semgrep.dev/playground?registry=go.lang.security.audit.dangerous-syscall-exec.dangerous-syscall-exec">"Audit dangerous syscall"</a>, written for Golang, a finding is detected for non-static input to <code>syscall</code>, which if reached by user data, makes it vulnerable to exploitation.</dd>
 </dl>
 
-The color indicator next to the category name tells you in what state your organization’s projects are for each category.
-
-| Color | Meaning |
-| ------ | --------- |
-| Green | There are less impactful vulnerabilities detected in this category relative to other categories. |
-| Orange | There are some impactful vulnerabilities detected for this category relative to other categories. |
-| Red | There are plenty of impactful vulnerabilities for this category relative to other categories. Take action to reduce them by fixing the issues or identifying false positives. |
-
 ## Assessing rule performance
 
-![Screenshot of dashboard rules widget](../img/dashboard-rules.png)
+![Screenshot of dashboard rules widget](/img/dashboard-rules.png)
 
 The **Rules widget** provides a summary report for rule metrics, such as what rules are ignored or fired the most.
 
@@ -101,7 +116,7 @@ These data points can serve as a starting point for the following security audit
 
 ### Rule performance through Developer Feedback
 
-![Screenshot of developer feedback](../img/dashboard-devfeedback.png)
+![Screenshot of developer feedback](/img/dashboard-devfeedback.png)
 
 In Team/Enterprise Dashboards, these additional metrics are visible:
 
@@ -110,7 +125,7 @@ In Team/Enterprise Dashboards, these additional metrics are visible:
 
 The **Most disliked** metric is taken from the **Developer Feedback** feature. Developers are able to provide feedback on findings that are not the most accurate. This feature is available for Team/Enterprise users.
 
-![Screenshot of developer feedback end flow](../img/dashboard-devfeedback2.png)
+![Screenshot of developer feedback end flow](/img/dashboard-devfeedback2.png)
 
 ## See also
 

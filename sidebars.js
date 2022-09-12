@@ -18,20 +18,21 @@ module.exports = {
     'Docs home',
     {
         type: 'category',
-        label: 'WELCOME',
+        label: 'Welcome',
         collapsible: false,
         items: [
             'getting-started',
             'semgrep-app/getting-started-with-semgrep-app',
+            'semgrep-ci/overview',
             'contributing/philosophy',
         ]
     },
     {
       type: 'category',
-      label: 'SEMGREP FEATURES',
+      label: 'Semgrep features',
       collapsible: false,
       items: [
-        'language-support',
+        'supported-languages',
         {
             type: 'category',
             label: 'Scanning code with rules',
@@ -40,27 +41,13 @@ module.exports = {
                 'managing-findings'
             ],
         },
-        {
-            type: 'category',
-            label: 'Writing custom rules',
-            items: [
-                'writing-rules/overview',
-                'writing-rules/pattern-examples',
-                'writing-rules/pattern-syntax',
-                'writing-rules/rule-ideas',
-                'writing-rules/rule-syntax',
-                'writing-rules/testing-rules',
-                'writing-rules/private-rules',
-                'troubleshooting/rules'
-            ]
-        },
         'ignoring-files-folders-code',
         'extensions',
         {
             type: 'category',
             label: 'Data-flow analysis',
             items: [
-                'writing-rules/data-flow/overview',
+                'writing-rules/data-flow/data-flow-overview',
                 'writing-rules/data-flow/constant-propagation',
                 'writing-rules/data-flow/taint-mode',
                 'writing-rules/data-flow/status'
@@ -83,10 +70,11 @@ module.exports = {
                     'experiments/join-mode/recursive-joins'
                 ]
             },
+            'experiments/extract-mode',
             'experiments/project-depends-on',
             'experiments/symbolic-propagation',
-            'experiments/metavariable-analysis',
-            'experiments/focus-metavariable'
+            'experiments/taint-propagators',
+            'experiments/metavariable-analysis'
           ]
         },
         'deepsemgrep',
@@ -94,24 +82,27 @@ module.exports = {
     },
     {
         type: 'category',
-        label: 'USING SEMGREP',
+        label: 'Using Semgrep',
         collapsible: false,
         items: [
             {
                 type: 'category',
-                label: 'Semgrep CLI',
+                label: 'Semgrep command-line interface (CLI)',
                 items: [
                     'getting-started',
                     'cli-reference',
                     'upgrading',
+                    'reporting-false-negatives',
                     'troubleshooting/semgrep'
                 ]
             },
             {
                 type: 'category',
-                label: 'Semgrep in CI',
+                label: 'Semgrep in continuous integration (CI)',
                 items: [
                     'semgrep-ci/overview',
+                    'semgrep-ci/running-semgrep-ci-with-semgrep-app',
+                    'semgrep-ci/running-semgrep-ci-without-semgrep-app',
                     'semgrep-ci/configuration-reference',
                     'semgrep-ci/sample-ci-configs',
                     'troubleshooting/gitlab-sast'
@@ -130,8 +121,9 @@ module.exports = {
                     'semgrep-app/editor',
                     'semgrep-app/notifications',
                     'semgrep-app/sso',
-                    'semgrep-app/rbac',
-                    'troubleshooting/semgrep-app'
+                    'semgrep-app/user-management',
+                    'troubleshooting/semgrep-app',
+                    'semgrep-app/semgrep-api'
                 ],
             },
             {
@@ -163,24 +155,26 @@ module.exports = {
             'semgrep-app/pricing-and-billing',
         ]
     },
-    //{
-    //  type: 'html',
-    //  value: 'SEMGREP APP',
-    //  className: 'sidebar-title',
-    //},
-
     {
         type: 'category',
-        label: 'LEARN SEMGREP',
+        label: 'Writing custom rules',
         collapsible: false,
         items: [
+            'writing-rules/overview',
+            'writing-rules/pattern-examples',
+            'writing-rules/pattern-syntax',
+            'writing-rules/rule-ideas',
+            'writing-rules/rule-syntax',
+            'writing-rules/testing-rules',
+            'writing-rules/private-rules',
+            'troubleshooting/rules',
             'playground',
-            'trophy-case',
+            'trophy-case'
         ]
     },
     {
         type: 'category',
-        label: 'CONTRIBUTING',
+        label: 'Contributing',
         collapsible: false,
         items: [
             'contributing/contributing',
@@ -203,11 +197,12 @@ module.exports = {
     },
     {
         type: 'category',
-        label: 'ABOUT SEMGREP',
+        label: 'About Semgrep',
         collapsible: false,
         items: [
             'support',
             'release-notes',
+            'rule-updates',
             'security',
             'licensing',
             'faq',

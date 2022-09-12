@@ -1,10 +1,24 @@
 ---
 slug: rule-board
 append_help_link: true
+title: Rule board
+hide_title: true
 description: "The Rule Board is a visual representation of the rules that Semgrep App uses to scan code. Rules are cards, and are grouped into columns representing the actions undertaken (whether to block, comment, or silently monitor) when a finding surfaces."
+tags:
+    - Semgrep App
+    - Community Tier
+    - Team & Enterprise Tier
 ---
 
 import MoreHelp from "/src/components/MoreHelp"
+
+<ul id="tag__badge-list">
+{
+Object.entries(frontMatter).filter(
+    frontmatter => frontmatter[0] === 'tags')[0].pop().map(
+    (value) => <li class='tag__badge-item'>{value}</li> )
+}
+</ul>
 
 # Rule board
 
@@ -24,7 +38,7 @@ The columns and their corresonding actions are:
     <dd>Rules that block merges and commits, in addition to showing findings in Semgrep App and PRs or MRs.</dd>
 </dl>
 
-![Screenshot of the default state of the rule board](../img/rule-board.png)
+![Screenshot of the default state of the rule board](/img/rule-board.png)
 
 Semgrep App is  pre-configured to use the `default` ruleset. The `default` ruleset scans for security vulnerabilities in common programming languages and frameworks.
 
@@ -71,8 +85,7 @@ Discover suggested rulesets based on your projects's frameworks and technologies
 To remove a rule or ruleset:
 
 1. Click the **garbage can** icon.
-2. Click **Remove**.
-3. Click **Save changes**.
+2. Click **Save changes**.
 
 :::info
 

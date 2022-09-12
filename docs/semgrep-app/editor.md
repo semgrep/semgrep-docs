@@ -1,16 +1,29 @@
 ---
 slug: editor 
 append_help_link: true
-title: Editor 
+title: Editor
+hide_title: true
+tags:
+    - Semgrep App
+    - Community Tier
+    - Team & Enterprise Tier
 description: "Semgrep Editor is a powerful tool within Semgrep App to author rules and quickly apply these rules across an organization to enforce coding standards across an organization."
 ---
 
+<ul id="tag__badge-list">
+{
+Object.entries(frontMatter).filter(
+    frontmatter => frontmatter[0] === 'tags')[0].pop().map(
+    (value) => <li class='tag__badge-item'>{value}</li> )
+}
+</ul>
+
 import MoreHelp from "/src/components/MoreHelp"
+
 
 # Writing rules using Semgrep Editor
 
-
-![Screenshot of the Editor's splash screen](../img/editor-splashscreen.png)
+![Screenshot of the Editor's splash screen](/img/editor-splashscreen.png)
 
 **Semgrep Editor (Beta)** is an advanced tool for **rule writing**. Write rules on a YAML editor, verify their performance through tests, and add them to your organization’s [Rule Board](https://semgrep.dev/docs/semgrep-app/rule-board/) to enforce code standards and increase code security.
 
@@ -30,7 +43,7 @@ The Editor is free to use on all tiers, but saving a rule for **private use** is
 
 ## Viewing rules
 
-![Screenshot of the Editor's main view composed of three panes and top menu](../img/editor-panes.png)
+![Screenshot of the Editor's main view composed of three panes and top menu](/img/editor-panes.png)
 
 The editor is composed of three panes and a top menu.
 
@@ -59,7 +72,7 @@ To group by ruleset, right click on the empty space on the **official registry**
 
 <div class = "bordered">
 
-![Screenshot of the Editor's right click menu to group by rulesets](../img/editor-groupbyruleset.png)
+![Screenshot of the Editor's right click menu to group by rulesets](/img/editor-groupbyruleset.png)
 
 </div>
 
@@ -80,9 +93,9 @@ Refer to [Rule syntax](https://semgrep.dev/docs/writing-rules/rule-syntax/) for 
 Another method of creating rules is by **forking/copying** from existing rules found in Semgrep Registry. For example, Semgrep’s Java `crypto` ruleset prohibits the use of weak hashing algorithms `SHA-1` and `MD5`. An organization may want to further limit the use of other hash functions as part of their standards or security compliance. The next steps illustrate forking through copying an existing `use-of-sha1` rule and changing the rule to forbid MD2 hashes.
 
 1. Enter related terms into the search bar to find potential rules. In our example, this is `SHA1.` <div class="bordered">
-![Screenshot of Library pane with SHA1 filter](../img/editor-SHA1.png)</div>
+![Screenshot of Library pane with SHA1 filter](/img/editor-SHA1.png)</div>
 2. Registry rules cannot be edited directly. They can be **forked** by **right-clicking on their entry** in the Library and selecting **Fork rule.** <div class = "bordered">
-![Screenshot of forking menu](../img/editor-forking.png) </div>
+![Screenshot of forking menu](/img/editor-forking.png) </div>
 3. The rule is copied to your organization’s rules.
 4. Enter edits to finalize your rule. In this example, the patterns are changed to find matches for [MD2](https://docs.oracle.com/javase/9/docs/specs/security/standard-names.html#messagedigest-algorithms) and the severity is increased from `WARNING` to `ERROR`.
 5. Enter updates to test cases.
@@ -100,7 +113,7 @@ The editor will not save, share, or run if the YAML syntax is **unparseable**. T
 - Missing `id` key
 - Missing required schema fields
 
-![Screenshot of Editor's error message](../img/editor-errorwarn-message.png)
+![Screenshot of Editor's error message](/img/editor-errorwarn-message.png)
 
 If no schema or spelling errors are detected, check for indentation or newline issues. You can also get rule-writing help through the [community Slack](https://r2c.dev/slack).
 

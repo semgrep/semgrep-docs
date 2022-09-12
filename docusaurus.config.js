@@ -25,7 +25,7 @@ module.exports = {
       items: [
         { to: 'https://semgrep.dev/explore', label: 'Registry', position: 'left', target: '_self' },
         { to: 'https://semgrep.dev/editor', label: 'Playground', position: 'left', target: '_self' },
-        { to: 'https://semgrep.dev/manage', label: 'App', position: 'left', target: '_self' },
+        { to: 'https://semgrep.dev/orgs/-/', label: 'App', position: 'left', target: '_self' },
         { to: 'https://semgrep.dev/pricing', label: 'Pricing', position: 'left', target: '_self' },
         { to: 'https://semgrep.dev/docs/', label: 'Docs', position: 'left', target: '_self' },
       ],
@@ -129,11 +129,20 @@ module.exports = {
       facetFilters: [],
       //... other Algolia params
     },
-    image: 'https://semgrep.dev/thumbnail.png'
+    image: 'https://semgrep.dev/thumbnail.png',
   },
   scripts: [
     {
+      src: 'https://kit.fontawesome.com/9a8c23ae22.js',
+      crossorigin: 'anonymous',
+      async: true
+    },
+    {
       src: 'https://semgrep.dev/docs/fs.js',
+      async: true
+    },
+    {
+      src: '/docs/js/gtm.js',
       async: true
     }
   ],
@@ -151,10 +160,6 @@ module.exports = {
         theme: {
           customCss: require.resolve('./src/css/custom.css'),
         },
-        googleAnalytics: {
-          trackingID: 'UA-106134149-12',
-          anonymizeIP: true,
-        },
         gtag: {
           // You can also use your "G-" Measurement ID here.
           trackingID: 'G-1851JH9FSR',
@@ -163,11 +168,11 @@ module.exports = {
     ],
     [
       '@docusaurus/plugin-sitemap',
-        {
-          changefreq: 'weekly',
-          priority: 0.5,
-          trailingSlash: false,
-        },
+      {
+        changefreq: 'weekly',
+        priority: 0.5,
+        trailingSlash: false,
+      },
     ],
   ],
   plugins: [
@@ -187,10 +192,14 @@ module.exports = {
           { from: "/upgrade", to: "/upgrading/" },
           { from: "/semgrep-ci", to: "/semgrep-ci/overview/" },
           { from: "/sample-ci-configs", to: "/semgrep-ci/sample-ci-configs/" },
-          { from: "/status/", to: "/language-support/" },
+          { from: "/status/", to: "/supported-languages/" },
+          { from: "/language-support/", to: "/supported-languages/" },
           { from: "/ignoring-findings/", to: "/ignoring-files-folders-code/" },
           { from: "/experiments/join-mode/", to: "/experiments/join-mode/overview/" },
-          { from: "/providers/", to: "/semgrep-ci/overview/" }
+          { from: "/providers/", to: "/semgrep-ci/overview/" },
+          { from: "/semgrep-app/role-based-access-control", to: "/semgrep-app/user-management/" },
+          { from: "/cli-usage/", to: "/cli-reference/" },
+          { from: "/writing-rules/data-flow", to: "/writing-rules/data-flow/data-flow-overview" }
         ]
       }
     ],

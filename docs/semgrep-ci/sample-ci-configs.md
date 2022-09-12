@@ -2,13 +2,50 @@
 slug: sample-ci-configs
 append_help_link: true
 description: "The sample configuration files below run Semgrep CI on continuous integration platforms such as GitHub, GitLab, Jenkins, Buildkite, CircleCI, and other providers."
+title: Sample CI configurations
+hide_title: true
+tags:
+    - Semgrep in CI
+    - Community Tier
 ---
+
+<ul id="tag__badge-list">
+{
+Object.entries(frontMatter).filter(
+    frontmatter => frontmatter[0] === 'tags')[0].pop().map(
+    (value) => <li class='tag__badge-item'>{value}</li> )
+}
+</ul>
 
 import MoreHelp from "/src/components/MoreHelp"
 
 # Sample CI configurations
 
 The sample configuration files below run Semgrep CI on various continuous integration providers.
+
+## Feature support
+
+Support for certain features of Semgrep App depend on your CI provider or source code management tool (SCM). The following table breaks down the features and their availability:
+
+| Feature | GitHub | GitLab | BitBucket | CI Provider support |
+| ------- | -------- | ------- | -------- | ---------------- |
+| **Diff-aware scanning** | ✅ Yes | ✅ Yes | ✅ Yes  | ✅ Available (may need additional set up) | 
+| **Hyperlinks** | ✅ Yes | ✅ Yes | ✅ Yes  |  ✅ Available (may need additional set up) |
+| **SCM security dashboard** |  ✅ GitHub Advanced Security Dashboard |  ✅ GitLab SAST Dashboard | ❌ No | ❗ Only GitHub Actions and GitLab CI/CD |
+| **PR or MR comments in Semgrep App** |  ✅ Yes | ✅ Yes | ❌ No | ✅ CI provider agnostic; feature support is dependent on SCM |
+
+*Table 1.* List of features and supported SCMs and CI providers.
+
+<dl>
+    <dt>Diff-aware scanning</dt>
+    <dd>Semgrep can scan changes in files when running on a pull or merge request (PR or MR). This keeps the scan fast and reduces finding duplication.</dd>
+    <dt>Receiving results (findings) as PR or MR comments</dt>
+    <dd>This feature enables you to receive <a href="/docs/semgrep-app/notifications/#enabling-github-pull-request-comments">PR or MR comments</a> from Semgrep App on the lines of code that generated a finding.</dd>
+    <dt>Hyperlinks to code</dt>
+    <dd>Semgrep App collects findings in a Findings page. In this page, you can click on a finding to view the lines of code in your repository that generated the finding.</dd>
+    <dt>SCM security dashboard</dt>
+    <dd>Send Semgrep findings to your SCM's security dashboard.</dd>
+</dl>
 
 ## GitHub Actions
 
@@ -108,17 +145,8 @@ jobs:
 </p>
 </details>
 
-### Feature support
 
-| Feature | Status |
-| --- | --- |
-| **diff-aware scanning** | ✅ automatic |
-| **hyperlinks in Semgrep App** | ✅ automatic |
-| **results in native dashboard**<br/><small>GitHub Advanced Security Dashboard</small> | ✅ available |
-| **results in pull request comments** | ✅ [sign up for Semgrep App free](https://semgrep.dev/login) |
-| **automatic CI setup** | ✅ [sign up for Semgrep App free](https://semgrep.dev/login) |
-
-## GitLab CI
+## GitLab CI/CD
 
 ```yaml
 semgrep:
@@ -177,15 +205,6 @@ semgrep:
   #     sast: gl-sast-report.json
 ```
 
-### Feature support
-
-| Feature | Status |
-| --- | --- |
-| **diff-aware scanning** | ✅ automatic |
-| **hyperlinks in Semgrep App** | ✅ automatic |
-| **results in native dashboard**<br/><small>GitLab SAST Dashboard</small> | ✅ available |
-| **results in merge request comments** | ✅ [sign up for Semgrep App free](https://semgrep.dev/login) |
-| **automatic CI setup** | ❌ not available |
 
 ## Jenkins
 
@@ -218,77 +237,42 @@ pipeline {
 }
 ```
 
-### Feature support
-
-| Feature | Status |
-| --- | --- |
-| **diff-aware scanning** | ✅ [configure manually](configuration-reference.md#diff-aware-scanning-semgrep_baseline_ref) |
-| **hyperlinks in Semgrep App** | ✅ [configure manually](configuration-reference.md#get-hyperlinks-in-semgrep-cloud) |
-| **results in native dashboard** | 💢 not applicable |
-| **results in pull request comments** | ✅ [sign up for Semgrep App free](https://semgrep.dev/login) |
-| **automatic CI setup** | ❌ not available |
 
 ## Buildkite
 
-```yaml
+```
 - label: ":semgrep: Semgrep"
-  command: semgrep ci
+  commands:
+    - export SEMGREP_REPO_URL="$(echo "$BUILDKITE_REPO" | sed -e 's#.\{4\}$##')"
+    - export SEMGREP_BRANCH=${BUILDKITE_BRANCH}
+    - export SEMGREP_COMMIT=${BUILDKITE_COMMIT}
+    - export SEMGREP_PR_ID=${BUILDKITE_PULL_REQUEST}
+    - echo "$BUILDKITE_REPO" | sed 's#https://github.com/##' | sed 's#.git##'
+    - export SEMGREP_REPO_NAME="$(echo "$BUILDKITE_REPO" | sed -e 's#https://github.com/##' | sed -e 's#.git##')"
+    - semgrep ci 
+  
   plugins:
     - docker#v3.7.0:
         image: returntocorp/semgrep
-        workdir: /<org_name>/<repo_name>
         environment:
           # Scan with rules set in Semgrep App's rule board
           # Make a token at semgrep.dev/orgs/-/settings/tokens
-          - "SEMGREP_APP_TOKEN=${SEMGREP_APP_TOKEN}"
-
-        # == Optional settings in the `environment:` block
-
-        # Instead of `SEMGREP_APP_TOKEN:`, set hard-coded rulesets, 
-        # viewable in logs.
-        #   - "SEMGREP_RULES=p/default" # more at semgrep.dev/explore
-        #   - "SEMGREP_JOB_URL=${BUILDKITE_BUILD_URL}"
-        #   - "SEMGREP_BRANCH=${BUILDKITE_BRANCH}"
-        #   - "SEMGREP_REPO_NAME=<org_name>/<repo_name>"
-        #   - "SEMGREP_REPO_URL=<github_url>"
-
-        # Never fail the build due to findings.
-        # Instead, just collect findings for semgrep.dev/manage/findings
-        #   - "SEMGREP_AUDIT_ON=unknown"
-
-        # Change job timeout (default is 1800 seconds; set to 0 to disable)
-        #   - "SEMGREP_TIMEOUT=300"
+          - "SEMGREP_APP_TOKEN"
 ```
 
-### Feature support
-
-| Feature | Status |
-| --- | --- |
-| **diff-aware scanning** | ✅ [configure manually](configuration-reference.md#diff-aware-scanning-semgrep_baseline_ref)|
-| **hyperlinks in Semgrep App** | ✅ [configure manually](configuration-reference.md#get-hyperlinks-in-semgrep-cloud) |
-| **results in native dashboard** | 💢 not applicable |
-| **results in pull request comments** | ✅ [sign up for Semgrep App free](https://semgrep.dev/login) |
-| **automatic CI setup** | ❌ not available |
 
 ## CircleCI
 
-```yaml
+```
 version: 2.1
 jobs:
   semgrep-scan:
     parameters:
-      repo_path:
-        type: string
-        default: myorg/semgrep-test-repo
       default_branch:
         type: string
         default: main
     environment:
-      # Scan with rules set in Semgrep App's rule board.
-      # Get your token at semgrep.dev/orgs/-/settings/tokens
-      SEMGREP_APP_TOKEN: $SEMGREP_APP_TOKEN
-
-      # Scan changed files in PRs, only report new findings (existing findings ignored)
+    # Scan changed files in PRs, only report new findings (existing findings ignored)
       SEMGREP_BASELINE_REF: << parameters.default_branch >>
 
     # == Optional settings in the `environment:` block
@@ -296,13 +280,12 @@ jobs:
     # Instead of `SEMGREP_APP_TOKEN:`, set hard-coded rulesets, 
     # viewable in logs.
     #   SEMGREP_RULES: p/default # See more at semgrep.dev/explore.
-    #   SEMGREP_REPO_NAME: << parameters.repo_path >>
-    #   SEMGREP_REPO_URL: << pipeline.project.git_url >>
-    #   SEMGREP_BRANCH: << pipeline.git.branch >>
 
-    # Never fail the build due to findings.
-    # Instead, just collect findings for semgrep.dev/manage/findings
-    #   SEMGREP_AUDIT_ON: unknown
+    # These variables should be set to provide information to the Semgrep App.
+      SEMGREP_REPO_NAME: '$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME'
+      SEMGREP_REPO_URL: << pipeline.project.git_url >>
+      SEMGREP_BRANCH: << pipeline.git.branch >>
+
 
     # Change job timeout (default is 1800 seconds; set to 0 to disable)
     #   SEMGREP_TIMEOUT: 300
@@ -311,6 +294,12 @@ jobs:
       - image: returntocorp/semgrep
     steps:
       - checkout
+      # - run:
+      #     name: "Set environment variables" # for PR comments and  in-app hyperlinks to findings
+      #     command: |
+      #         echo 'export SEMGREP_COMMIT=$CIRCLE_SHA1' >> $BASH_ENV
+      #         echo 'export SEMGREP_PR_ID=${CIRCLE_PULL_REQUEST##*/}' >> $BASH_ENV
+      #         echo 'export SEMGREP_JOB_URL=$CIRCLE_BUILD_URL' >> $BASH_ENV
       - run:
           name: "Semgrep scan"
           command: semgrep ci
@@ -320,17 +309,7 @@ workflows:
       - semgrep-scan
 ```
 
-### Feature support
-
-| Feature | Status |
-| --- | --- |
-| **diff-aware scanning** | ✅ [configure manually](configuration-reference.md#diff-aware-scanning-semgrep_baseline_ref) |
-| **hyperlinks in Semgrep App** | ✅ [configure manually](configuration-reference.md#get-hyperlinks-in-semgrep-cloud) |
-| **results in native dashboard** | 💢 not applicable |
-| **results in pull request comments** | ✅ [sign up for Semgrep App free](https://semgrep.dev/login) |
-| **automatic CI setup** | ❌ not available |
-
-## Bitbucket
+## Bitbucket Pipelines
 
 ```yaml
 image: atlassian/default-image:latest
@@ -354,26 +333,38 @@ pipelines:
             - semgrep ci --config auto
 ```
 
-### Feature support
+## Azure Pipelines
 
-| Feature | Status |
-| --- | --- |
-| **diff-aware scanning** | ✅ [configure manually](configuration-reference.md#diff-aware-scanning-semgrep_baseline_ref) |
-| **hyperlinks in Semgrep App** | ✅ [configure manually](configuration-reference.md#get-hyperlinks-in-semgrep-cloud) |
-| **results in native dashboard** | 💢 not applicable |
-| **results in pull request comments** | ✅ [sign up for Semgrep App free](https://semgrep.dev/login) |
-| **automatic CI setup** | ❌ not available |
+```yaml
+# trigger:
+#  - master
+
+pool:
+  vmImage: ubuntu-latest
+# variables:
+# - group: Semgrep app token group
+
+steps: 
+
+- script: |
+    python -m pip install --upgrade pip
+    pip install semgrep
+    semgrep ci --config auto
+  env: 
+    SEMGREP_PR_ID: $(System.PullRequest.PullRequestNumber)
+```
 
 ## Other providers
 
-To run Semgrep CI on any other provider, use the `returntocorp/semgrep` image, and run the `semgrep ci` command.
+To run Semgrep CI on any other provider, use the `returntocorp/semgrep` image, and run the `semgrep ci` command with SEMGREP_BASELINE_REF set for diff-aware scanning.
 
 **Note**: If you need to use a different image than docker, install Semgrep CI by `pip install semgrep`.
 
 Using the [configuration reference](../configuration-reference/), you can run Semgrep in the following CI providers:
 
 - AppVeyor
-- Bamboo
+- Azure [(sample configuration)](#azure)
+- Bamboo 
 - Bitbucket Pipelines [(sample configuration)](#bitbucket)
 - Bitrise
 - Buildbot

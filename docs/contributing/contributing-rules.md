@@ -1,6 +1,7 @@
 ---
 slug: contributing-to-semgrep-rules-repository
 description: "This article outlines how to contribute to Semgrep rules repository."
+hide_title: true
 ---
 
 # Contributing to Semgrep rules
@@ -19,15 +20,22 @@ There are two ways in which you can contribute to the Semgrep rules repository:
 
 ### Contributing through Semgrep App (recommended)
 
-To contribute to the Semgrep rules repository through Semgrep App, follow these steps:
+Publish rules in the open-source Semgrep Registry and share them with the Semgrep community to help others benefit from your rule-writing efforts and contribute to the field of software security. To contribute and publish rules to the Semgrep Registry, follow these steps:
+
 1. Go to [Semgrep App Editor](https://semgrep.dev/orgs/-/editor).
-2. Click **Create New Rule**.
-3. Make one of the following steps:
-    - Create a new rule and test code, and then click **Save**. Note: The test file must contain at least one true positive and one true negative test case to be approved. See the [Tests](#tests) section of this document for more information.
-    - Select a rule from a category in **Semgrep Registry**. Modify the rule or test code, click **Save**, and then **Fork**.
-4. Click **Share**.
+2. Click <i className="fa-solid fa-file-plus-minus inline_svg"></i> **Create New Rule**.
+3. Choose one of the following:
+    - Create a new rule and test code, and then click <i className="fa-solid fa-floppy-disk inline_svg"></i> **Save**. Note: The test file must contain at least one true positive and one true negative test case to be approved. See the [Tests](#tests) section of this document for more information.
+    - Select a rule from a category in **Semgrep Registry**. Click <i className="fa-solid fa-code-branch inline_svg"></i> **Fork**,
+    modify the rule or test code, and then click <i className="fa-solid fa-floppy-disk inline_svg"></i> **Save**.
+4. Click <i className="fa-solid fa-earth-americas inline_svg"></i> **Share**.
+5. Click <i className="fa-solid fa-cloud-arrow-up inline_svg"></i> **Publish to Registry**.
+6. Fill in the required and optional fields.
+7. Click <i className="fa-solid fa-circle-check inline_svg"></i> **Continue**, and then click <i className="fa-solid fa-code-pull-request inline_svg"></i> **Create PR**.
 
 This workflow automatically creates a pull request in the GitHub [rules repository](https://github.com/returntocorp/semgrep-rules). Find more about the rules repository by reading the [Rule writing](#rule-writing) and [Tests](#tests) sections.
+
+You can also publish rules to the Semgrep Registry as private rules. See the [Private rules](/docs/writing-rules/private-rules.md) documentation for more information.
 
 ### Contributing through GitHub
 
@@ -59,13 +67,15 @@ A well-written rule message includes:
 
 For an example of a good rule message, see: [this rule for Django's mark_safe](https://semgrep.dev/r?q=python.django.security.audit.avoid-mark-safe.avoid-mark-safe).
 
+Use the YAML multiline string operator `>-` when rule messages span multiple lines. This presents the best-looking rule message on the command-line without having to worry about line wrapping or escaping the quote or backslash characters.
+
 :::info
-'mark_safe()' is used to mark a string as *safe* for HTML output. This disables escaping and may expose the content to XSS attacks. Use 'django.utils.html.format_html()' to build HTML for rendering instead.
+`mark_safe()` is used to mark a string as *safe* for HTML output. This disables escaping and may expose the content to XSS attacks. Instead, use `django.utils.html.format_html()` to build HTML for rendering.
 :::
 
 ### Rule quality checker
 
-When you contribute rules to the rules repository, our quality checkers (linters) evaluate if the rule conforms to r2c standards. The `semgrep-rule-lints` job runs linters on a new rule to check for mistakes, performance problems, and best practices for submitting to the Semgrep rules repository. To improve your rule writing, you can actually use Semgrep itself to [scan semgrep-rules](https://r2c.dev/blog/2021/how-we-made-semgrep-rules-run-on-semgrep-rules/).
+When you contribute rules to the rules repository, our quality checkers (linters) evaluate if the rule conforms to r2c standards. The `semgrep-rule-lints` job runs linters on a new rule to check for mistakes, performance problems, and best practices for submitting to the Semgrep rules repository. To improve your rule writing, use Semgrep itself to [scan semgrep-rules](https://r2c.dev/blog/2021/how-we-made-semgrep-rules-run-on-semgrep-rules/).
 
 ### Including additional details with rule metadata
 
@@ -80,7 +90,6 @@ Include the following keys under the `metadata` field:
     - `performance`
 - Include the `technology` field. This is usually the library or framework the rule is targeting, for example `django`. If it's for the language itself, use only the language name, for example `python`.
 - Include the `references` field. References can provide additional context to users of the rule. It is good practice to include at least one reference for each rule.
-- The use of the YAML multiline string operator `>-` when rule messages span multiple lines. This presents the best-looking rule message in the command-line.
 
 Rule examples:
 - [python.lang.security.deserialization.avoid-pyyaml-load.yaml](https://semgrep.dev/orgs/-/editor/r/python.lang.security.deserialization.avoid-pyyaml-load.avoid-pyyaml-load)
@@ -119,3 +128,24 @@ var numdata = 1;
 ```
 
 For more information, visit [Testing rules](https://semgrep.dev/docs/writing-rules/testing-rules/).
+
+## Advanced tips
+
+### Comparing rule performance between different versions of Semgrep
+
+For debugging purposes, you can compare rule performance between different versions of Semgrep. Find a script in [Semgrep source code](https://github.com/returntocorp/semgrep), located in `cli/scripts/compare.py`. Compare rules for different versions of Semgrep by the following command:
+
+<pre class="language-bash"><code>pipenv run ./cli/scripts/compare.py <span className="placeholder">VERSION_NUMBER OTHER_VERSION_NUMBER RULE_ID</span></code></pre>
+
+Substitute the optional placeholder <code><span className="placeholder">VERSION_NUMBER OTHER_VERSION_NUMBER RULE_ID</span></code> with the respective version numbers and a rule ID you want to compare. 
+
+Resulting input can be similar to the following:
+```
+pipenv run ./cli/scripts/compare.py 0.103.0 0.106.0 0B1B
+```
+
+To use this script with Podman, issue `--use-podman` in the command:
+
+```
+pipenv run ./cli/scripts/compare.py --use-podman 0.103.0 0.106.0 0B1B
+```

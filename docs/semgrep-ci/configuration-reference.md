@@ -1,89 +1,107 @@
 ---
 slug: configuration-reference
 description: "Reference for running Semgrep CI in your CI job or on the command line. Learn how to select rules to scan with, enable diff-aware scanning, connect to Semgrep App, and more."
+tags:
+    - Semgrep in CI
+    - Community Tier
+title: CI configuration reference
+hide_title: true
 ---
 
 import MoreHelp from "/src/components/MoreHelp"
+import BlockFindingsErrorsConfigs from '/src/components/reference/_block-findings-errors-configs.mdx'
 
-# CI configuration reference
+<ul id="tag__badge-list">
+{
+Object.entries(frontMatter).filter(
+    frontmatter => frontmatter[0] === 'tags')[0].pop().map(
+    (value) => <li class='tag__badge-item'>{value}</li> )
+}
+</ul>
 
-Configure Semgrep CI by passing these environment variables in your CI job.
+# Continuous Integration (CI) configuration reference
+
+Configure Semgrep CI by passing various environment variables in your Continuous Integration (CI) jobs.
 
 :::info
 While environment variables are the preferred way to configure Semgrep CI, pass any of these options as command-line options. Refer to the output of `semgrep ci --help` to find the corresponding flags.
 :::
 
-## Select rules to scan with (`SEMGREP_RULES`)
+## Selecting rules to scan with (`SEMGREP_RULES`)
 
 ```sh
 SEMGREP_RULES="p/security-audit p/secrets"
 ```
 
-## Suppressing blocking findings or errors
+## Configuring blocking findings and errors
 
-Most CI providers block pull requests (PRs) or merge requests (MRs) on non-zero exit codes. Semgrep exits with a non-zero exit code (exit code 1) when it reports a blocking finding or there is an issue in running Semgrep (exit code 2 and above). For more information about specific Semgrep exit codes see [CLI reference](../../cli-reference/#exit-codes).
+This section documents how Semgrep in CI pipelines handles blocking findings and errors in its default setup. This section also provides three configuration options you can use to change or revert to the default behavior.
 
-However, Semgrep in CI can run both in fail open and fail closed states. Configure the behavior of Semgrep in CI to suppress blocking findings or internal Semgrep errors blocking your pipeline by using the following options in your YAML configuration file: 
+### Default configuration of blocking findings and error suppression
 
-- `semgrep ci` - Semgrep in CI **fails** on blocking findings, CI **fails** on internal errors.
-- `semgrep ci || [ $? != 1 ]` - Semgrep in CI **fails** on blocking findings, CI **passes** on internal errors.
+Semgrep blocks the pull requests (PRs) or merge requests (MRs) in its default configuration only when it matches a blocking finding. 
+
+Blocking findings can be defined as:
+
+- Findings defined in [Rule Board](https://semgrep.dev/orgs/-/board) of Semgrep App. Avoid blocking findings by removing rules from the **Block** column of the [Rule Board](https://semgrep.dev/orgs/-/board).
+- If you do **not** use Semgrep App with Semgrep in CI (stand-alone setup), blocking findings encompass all Semgrep findings. Any finding in this setup blocks your PRs or MRs.
+
+By default, Semgrep does not block your pipeline when it encounters an internal error. Semgrep suppresses all errors and does not surface them to the CI provider. In case of an internal error, Semgrep sends an anonymous crash report to a crash-reporting server and does not block your CI pipeline. To change the default configuration, see the sections below.
+
+### Configuration options for blocking findings and errors
+
+Configure, change or revert to the default setup of blocking findings and errors in your CI pipeline using the following options in CI configuration file:
+
+| CI option                                      | Description                         |
+|------------------------------------------------|-------------------------------------|
+| `semgrep ci` or `semgrep ci --suppress-errors` | Default: CI **fails** on blocking findings, CI **passes** on internal errors.  |
+| `semgrep ci --no-suppress-errors`              | CI **fails** on blocking findings, CI **fails** on internal errors.            |
+| <code>semgrep ci &vert;&vert; true</code>      | CI **passes** on blocking findings, CI **passes** on internal errors.          |
+ 
+To change this configuration, insert one of the configuration options (flags) after the following keys in in CI YAML configuration file of Semgrep:
+- On GitHub, insert the flag after the `run` key (for example, `run: semgrep ci --suppress-errors` to state the default option).
+- On GitLab, insert the flag after the `script` key (for example, `script: semgrep ci --suppress-errors` to state the default option).
+- Insert these flags in an equivalent key in configuration files of other CI providers.
+ 
+See the [Examples of blocking findings and errors configuration](#examples-of-blocking-findings-and-errors-configuration) below.
+ 
+:::info
+- For more information about specific Semgrep exit codes, see [CLI reference](../../cli-reference/#exit-codes).
+- This functionality replaces the audit mode `SEMGREP_AUDIT_ON` (collecting findings silently for [Semgrep App > Findings](https://semgrep.dev/manage/findings)).
+:::
+
+To find more details about some of these configuration options, see the following list:
+
+- `semgrep ci` - The default state. Semgrep in CI **fails** on blocking findings, CI **passes** on internal errors. If Semgrep encounters an internal error, it sends an anonymous crash report to a crash-reporting server and exits with exit code `0` (success). Consequently, Semgrep in CI does not report other statuses than `0` or `1` by default (success or a blocking finding). Optional: Define this setting explicitly using the `--suppress-errors` flag.
+- `semgrep ci --no-suppress-errors` - Semgrep in CI **fails** on blocking findings, CI **fails** on internal errors. If you use this flag, all exit codes, including internal errors, surface to the CI provider.
 - `semgrep ci || true` - Semgrep in CI **passes** on blocking findings, CI **passes** on internal errors.
 
-To enable one of these options, insert the code under the `run` key, see the following example from GitHub Actions (GHA):
+### Examples of blocking findings and errors configuration
 
-```yaml
-steps:
-    - uses: actions/checkout@v3
-    - name: Scan and suppress internal errors
-      run: semgrep ci || [ $? != 1 ]
-```
-
-See a full GHA configuration file below:
-
-```yaml
-name: Semgrep
-on:
-  pull_request: {}
-  push:
-    branches:
-      - main
-      - master
-    paths:
-      - .github/workflows/semgrep.yml
-  schedule:
-    - cron: '0 0 * * 0'
-  workflow_dispatch: {}
-jobs:
-  semgrep:
-    name: Scan
-    runs-on: ubuntu-20.04
-    env:
-      SEMGREP_APP_TOKEN: ${{ secrets.SEMGREP_APP_TOKEN }}
-    container:
-      image: returntocorp/semgrep
-    steps:
-      - uses: actions/checkout@v3
-      - name: Scan and suppress internal errors
-        run: semgrep ci || [ $? != 1 ]
-```
-
-:::info
-This functionality replaces the audit mode `SEMGREP_AUDIT_ON` (collecting findings silently for [Semgrep App > Findings](https://semgrep.dev/manage/findings)).
-:::
+<BlockFindingsErrorsConfigs />
 
 ## Diff-aware scanning (`SEMGREP_BASELINE_REF`)
 
-For [diff-aware scans](overview.md#features), this option filters scan results to those introduced after the git commit, in a branch, or tag. For example, you have a repository with 10 commits. You set the commit number 8 as the baseline. Consequently, Semgrep only returns scan results introduced by changes in commits 9 and 10.
+Semgrep scans can be classified by scope. The scope of a scan refers to what lines of code are scanned in a codebase. When classifying scans by scope, there are two types of scans:
+
+<dl>
+    <dt>Full scan</dt>
+    <dd><p>A full scan runs on your entire codebase and reports every finding in the codebase. It is recommended to perform a full scan of your <code>main</code> branch at a regular cadence, such as every night or every week. This ensures that Semgrep App has a full list of all findings in your code base, regardless of when they were introduced. To run a full scan, run <code>semgrep ci</code> without setting <code>SEMGREP_BASELINE_REF</code> environment variable.</p></dd>
+    <dt>Diff-aware scan</dt>
+    <dd><p>A diff-aware scan runs on your code before and after some "baseline" and only reports findings that are newly introduced in the commits after that baseline.</p>
+    <p>For example, imagine a hypothetical repository with 10 commits. You set commit number 8 as the baseline. Consequently, Semgrep only returns scan results introduced by changes in commits 9 and 10. This is how <code>semgrep ci</code> can run in pull requests and merge requests, since it reports only the findings that are created by those code changes. To run a diff-aware scan, use <code>SEMGREP_BASELINE_REF=<span class="placeholder">REF</span> semgrep ci</code> where <span class="placeholder">REF</span> can be a commit hash, branch name, or other git reference.</p></dd>
+</dl>
 
 :::note
-It is recommended to perform baseline scans on other branches than your `main` branch. The Semgrep App keeps track of which findings have been fixed on a given branch. If you configure baseline scans on your main branch, and compare the last commit to the penultimate commit, Semgrep wrongly considers all findings as fixed. In this case, Semgrep only reports findings that appear in the last commit.
+* Do **not** perform diff-aware scans on your `main` branch. The Semgrep App keeps track of which findings have been fixed on a given branch. If you configure diff scans on your main branch, and compare the last commit to the penultimate commit, Semgrep wrongly considers all findings from before the penultimate commit to be fixed.
+* Do **not** perform full scans on non-mainline or non-trunk branches. Performing full scans on every branch slows down your CI jobs, displays findings that developers did not introduce, and results in many duplicated findings in the Semgrep App, resulting in a poorer experience.
 :::
  
 ### Examples of `SEMGREP_BASELINE_REF`
 
 To only report findings newly added
 since branching off from your `main` branch, set the following:
-<pre class="language-bash"><code>SEMGREP_BASELINE_REF=<span className="placeholder">TOPIC-BRANCH-NAME</span></code></pre>
+<pre class="language-bash"><code>SEMGREP_BASELINE_REF=main</code></pre>
 
 To only report findings newly added
 after a specific commit, set the following:

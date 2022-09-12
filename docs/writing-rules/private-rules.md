@@ -47,11 +47,10 @@ To enforce the rule on new scans, add the rule in the [registry](https://semgrep
 
 ## Automatically publishing rules
 
-This section provides a sample of GitHub Actions workflow to automatically publish rules from a private Git repository after a merge to the `main`, `master`, or `develop` branches.
+This section provides an example of how to automatically publish your private rules so they are accessible within your private organization. "Publishing" your private rules in this manner does not make them public. The following sample of the GitHub Actions workflow publishes rules from a private Git repository after a merge to the `main`, `master`, or `develop` branches.
 
 1. Make sure that `SEMGREP_APP_TOKEN` is defined in your Github project or organization's secrets.
 2. Create the following file at `.github/workflows/semgrep-publish.yml`:
-
     ```yaml
     name: semgrep-publish
 

@@ -8,7 +8,234 @@ toc_max_heading_level: 2
 
 # Release notes
 
-Welcome to Semgrep release notes. This document provides an overview of the changes, additions, and fixes made in different versions.
+Welcome to Semgrep release notes. This document gives an overview of the changes, additions, and selected fixes. Release notes published since April 2022 include Semgrep CLI, CI, and Semgrep App updates. Release notes published since April 2022 encompass all versions released during the month.
+
+## August 2022
+
+### Semgrep App
+
+#### Additions
+
+- Azure Pipelines CI configuration is now available when adding a new repository to Semgrep App for scanning. Users can select **Azure Pipelines** from within the App, and Semgrep generates a code snippet that users can copy and commit to their configuration file to set up their CI job.
+- Users can now delete projects in bulk (also known as batch delete) from Semgrep App's interface. To do this, sign into **Semgrep App** > **Projects**, and click on **Edit Projects**.
+- Users can now see usage limits in **Semgrep App** > **Settings**.
+
+### Semgrep CLI
+
+These release notes include upgrades for versions ranging between 0.108.0 and 0.111.0.
+
+#### Additions
+
+- Semgrep now provides experimental support for the **Swift** language. See all languages that Semgrep supports in [Supported languages](https://semgrep.dev/docs/supported-languages/).
+- Add configuration options for using the tree-sitter library installed anywhere on the system.
+- Metrics now include language-aggregated parse rates (files, bytes). The purpose of this is to continue with parsing improvements. See [Semgrep privacy policy](/metrics.md) for more details.
+- Semgrep CI now accepts more formats of Git URLs for metadata that are sent to semgrep.dev. This work in progress functionality enables working links from the Semgrep App Findings page. The user provides a fallback for repository name (`SEMGREP_REPO_NAME`) and repository URL (`SEMGREP_REPO_URL`) if these values are undefined by the CI job. We appreciate any bug reports or suggestions as this feature is still in development.
+
+#### Changes
+
+- Previously, the following error message appeared when metrics have not been uploaded within the set timeout timeframe:
+  ```
+  Error in send: HTTPSConnectionPool(host='metrics.semgrep.dev', port=443): Read timed out. (read timeout=3)
+  ```
+  As this caused confusion when running the CLI, this message is now displayed for development and debugging purposes only. Note that metrics are still successfully uploaded, but the success status is not sent in time for the current timeout set.
+
+- `semgrep ci` now defaults to fail open on internal errors and always exits with exit code 0, which is equivalent to passing `--suppress-errors`. To disable this behavior, you can pass `--no-suppress-errors`, surfacing all exit codes to the CI provider. See [Configuring blocking findings and errors](/semgrep-ci/configuration-reference.md/#configuring-blocking-findings-and-errors) for more information.
+
+##### Additional information
+
+Minor bug fixes are not included in the release notes unless they are potentially breaking your workflow. To see the complete change notes for Semgrep CLI and CI that include fixes, visit the [Semgrep changelog](https://github.com/returntocorp/semgrep/releases/).
+
+### Documentation updates
+
+- Consistent and exhaustive documentation about continuous integration (CI) both with and without Semgrep App:
+  - [Running Semgrep in continuous integration (CI) with Semgrep App](https://semgrep.dev/docs/semgrep-ci/running-semgrep-ci-with-semgrep-app/)
+  - [Running Semgrep in continuous integration (CI) without Semgrep App](https://semgrep.dev/docs/semgrep-ci/running-semgrep-ci-without-semgrep-app/)
+- Experimental taint propagators allow you to specify additional structures through which taint propagates. See how to use them in the [Taint propagators](https://semgrep.dev/docs/experiments/taint-propagators/) article.
+- Updated [Generic pattern matching](https://semgrep.dev/docs/experiments/generic-pattern-matching/) documentation, rewritten examples, and added new sections, including a new [Handling line-based input](https://semgrep.dev/docs/experiments/generic-pattern-matching/#handling-line-based-input) section.
+- Introduced interface and color changes to fit new [semgrep.dev](https://semgrep.dev/) website design.
+- Report vulnerabilities that Semgrep should have found, but did not. You can report these false negatives directly from your command-line using a built-in Semgrep flag. See [Reporting false negatives with shouldafound](https://semgrep.dev/docs/reporting-false-negatives/) article.
+- Contribution documentation now provides [Adding python packages to `semgrep`](https://semgrep.dev/docs/contributing/semgrep-contributing/#adding-python-packages-to-semgrep) section.
+- Updated and rewritten [Diff-aware scanning (SEMGREP_BASELINE_REF)](https://semgrep.dev/docs/semgrep-ci/configuration-reference/#diff-aware-scanning-semgrep_baseline_ref) section.
+- Updated fail open CI documentation in [Configuring blocking findings and errors](https://semgrep.dev/docs/semgrep-ci/configuration-reference/#configuring-blocking-findings-and-errors) section.
+- Added section about [`patterns` operator evaluation strategy](https://semgrep.dev/docs/writing-rules/rule-syntax/#patterns-operator-evaluation-strategy).
+- Updated adding [Slack notifications section in Notifications](https://semgrep.dev/docs/semgrep-app/notifications/#slack) article, and updated [Integrating Semgrep App with third-party tools](https://semgrep.dev/docs/semgrep-app/integrations/)
+- Many other updates and fixes have been introduced to the documentation website.
+
+## July 2022
+
+### Semgrep App
+
+#### Additions
+
+- Semgrep App now integrates with Slack through a Slack app. To create a new integration, go to **Settings** > **Integrations** > **Add Integration** > **Slack**. Previously, Semgrep App used Slack webhooks.
+- Enable autofix for all of your Projects (repositories connected to Semgrep App) by clicking on **Settings > Deployment > Autofix**.
+
+#### Changes
+
+- Clicking on the Project Name in the Projects page now takes you to that project's Findings page. Click the gear icon at the end of the Project's row to go to the project's Settings page.
+- Semgrep App detects additional environment variables depending on your provider. This simplifies the creation and committing of the configuration file when adding a new Project (repository) in Semgrep App.
+- UI and UX improvements to **Scan new project** workflow.
+
+### Semgrep CLI
+
+These release notes include upgrades for all versions ranging between 0.102.0 and 0.107.0.
+
+#### Additions
+
+- Semgrep in CI:
+  - Fail-open support: Added `--suppress-errors` and `--no-suppress-errors` (the default is `--suppress-errors`). See [Configuring blocking findings and errors](/semgrep-ci/configuration-reference.md/#configuring-blocking-findings-and-errors) for more information.
+  - Semgrep in CI does not block builds on triage ignored issues.
+  - The timeout for Git commands Semgrep runs is now configurable. To configure the timeout, set the `SEMGREP_GIT_COMMAND_TIMEOUT` environment variable. The time unit used as a value for this key is in seconds. The default value is `300` which represents 5 minutes.
+  - The `SEMGREP_GHA_MIN_FETCH_DEPTH` environment variable lets you set how many commits `semgrep ci` fetches from the remote at the minimum when calculating the merge-base in GitHub Actions. Having more commits available helps Semgrep determine what changes came from the current pull request, fixing issues where Semgrep would otherwise report findings that were not touched in a given pull request. This value is set to 0 by default. (Issue [#5664](https://github.com/returntocorp/semgrep/pull/5664))
+  - The `cli/scripts/compare.py` to compare rules for different versions of Semgrep is now supported on Podman environments. For more information, see [Contributing to Semgrep rules](contributing/contributing-rules.md/#comparing-rule-performance-between-different-versions-of-semgrep) documentation.
+
+- Extract mode:
+  - New Semgrep CLI experimental extract mode. This mode runs a Semgrep rule on a codebase and extracts code from matches, treating it as a different language. This allows you to supplement an existing set of rules, for example, by writing additional rules to find JavaScript in files of a different language than JavaScript. Among many possible use cases, this enables you to write rules for HTML code in JavaScript code or in template files. While this is somewhat possible with `metavariable-pattern`, this reduces the work from an M \* N problem to an M \+ N. To know more about extract mode, see [Extract mode](experiments/extract-mode.md) documentation.
+  - Extract mode now has a concatenation reduction (`concat`). Disjoint snippets within a file can be treated as one unified file. 
+  - You can use extract mode to scan for generic languages (use value `generic` in `dest-language`).
+
+- Taint mode:
+  - Add experimental support for _taint labels_, which is the ability to attach labels to different kinds of taint. Both sources and sinks can restrict what labels are present in the data that passes through them in order to apply. This allows you to write more complex taint rules that previously required unappealing workarounds. Taint labels are also helpful for writing certain classes of typestate analyses (for example, check that a file descriptor is not used after being closed).
+  - Introduced the `--dataflow-traces` flag, which directs the Semgrep CLI to explain how non-local values lead to a finding. Currently, this only applies to taint mode findings and it traces the path from the taint source to the taint sink.
+  - Added taint traces as part of Semgrep JSON output. This helps explain how the sink became tainted.
+
+- General and language support additions:
+  - Semgrep has an experimental support for **Elixir** language!
+  - Scala: Ellipsis are now allowed in for loop function headers, allowing you to write patterns such as `for (...; $X <- $Y if $COND; ...) { ... }` to match nested for loops. (Issue [#5650](https://github.com/returntocorp/semgrep/issues/5650))
+  - Kotlin: Support for ellipsis in field access (for example, `obj. ... .bar()`).
+  - For users logged-in under `semgrep login` while using Semgrep App. Semgrep now reports file extensions from App-connected scans that do **not** match the language of any enabled rule. This addition can make the development of new rules more effective by improving language prioritization.
+  - Previously, expression statement patterns (for example `foo();`) were always matching when the expression statement was a bit deeper in the expression (for example, `x = foo();`). This default behavior can now be disabled through rule `options:` with `implicit_deep_exprstmt: false` in rules YAML file. (Issue [#5472](https://github.com/returntocorp/semgrep/issues/5472))
+  - LSP support: Improving **experimental** Language Server Protocol (LSP) support for metavariable inlay hints, hot reloading, App integration, scan commands, and much more!
+
+#### Changes
+
+- Breaking changes in the `dataflow_trace` JSON output to make it more easily consumable by Semgrep App. Added content for `taint_source` and `intermediate_vars`, and collapsed the multiple `taint_source` locations into one.
+
+- General performance improvements:
+  - Semgrep significantly reduced its memory consumption in large repositories!
+
+- metavariable-comparison:
+  - The `metavariable-comparison` allows you to strip `'`, `"`, and `` ` `` from the metavariable content, enabling you to scan for strings containing integer or float data. See [metavariable-comparison](writing-rules/rule-syntax.md/#metavariable-comparison) documentation to get more information. With this update, the `metavariable` field is now only required for `strip: true`. You are no longer required to include the `metavariable` field for the default `strip: false`.
+  - The `metavariable-comparison` now also works on metavariables that cannot be evaluated as simple literals. In such cases, Semgrep takes the string representation of the code bound by the metavariable. Use this string representation through `str($MVAR)`. For example:
+
+    ```
+    - metavariable-comparison:
+        metavariable: $X
+        comparison: str($X) == str($Y)
+    ```
+
+    In this example, `$X` and `$Y` can bind to two different code variables and Semgrep checks whether these two code variables have the same name (for example two different variables but both named `x`).
+
+- metavariable-pattern:
+  - Metavariable-pattern now uses the same metavariable context as its parent. This can cause breaking changes for rules that reuse metavariables in the pattern. For example, consider the following formula:
+
+    ```
+    - patterns:
+       - pattern-either:
+           - pattern-inside: $OBJ.output($RESP)
+       - pattern: $RESP
+       - metavariable-pattern:
+           metavariable: $RESP
+           pattern: `...{ $OBJ }...`
+    ```
+
+    Previously, the `$OBJ` in the metavariable-pattern was a new metavariable. The formula behaved the same if that `$OBJ` was `$A` instead. Now, `$OBJ` unifies with the value bound by `$OBJ` in the pattern-inside.
+
+- Using the ellipses operator in XML or HTML elements is now more permissive of whitespace. Previously, in order to have an element with an ellipsis no leading or trailing whitespace was permitted in the element contents, for example `<tag>...</tag>` was the only permitted form. Now, leading or trailing whitespace is ignored when the substantive content of the element is only an ellipsis.
+- `--verbose` no longer displays timing information, use `--verbose --time` to display the timing.
+- The `semgrep --test` output produced expected lines and reported lines that were difficult to read and interpret. This change introduces missed and incorrect lines making it easier to see the differences in output. See more information about the `semgrep --test` in the [Testing rules](/writing-rules/testing-rules.md) documentation.
+
+##### Additional information
+
+Bug fixes are not included in the release notes unless they are potentially breaking your workflow. To see the complete change notes for Semgrep CLI and CI that include fixes, visit the [Semgrep changelog](https://github.com/returntocorp/semgrep/releases/).
+
+## June 2022
+
+### Semgrep App
+
+#### Additions
+
+- Effective August 1, 2022, Semgrep App Community tier will be limited to 20 developers each month. Please see our [Usage Limits FAQ](https://semgrep.dev/faq-usage-limits) for more information. 
+- You can now see the number of developers committing to private repositories scanned by Semgrep App in the **Settings page**.
+- New accounts can now try out Semgrep with the default inclusion of `juice-shop`, an intentionally vulnerable codebase. This enables new users to explore Semgrep's scanning capability, dashboard, and features.
+- Additional scan status messages have been added in the Projects page, under the **Last scan** row to better assist users in troubleshooting and understanding scan behavior.
+- [Team or Enterprise Tier] You can now **tag** repositories within Semgrep App with up to 10 tags. Tagging enables teams to group together related repositories. Tags are implemented in [Semgrep's API](https://semgrep.dev/api/v1/docs/#section/Introduction), enabling you to filter and group repository findings through tags.
+
+#### Changes
+
+- **Semgrep App Findings page**: The **Closed** tab is now labeled as Fixed. This change prevents confusion between findings that were fixed and findings that were removed.
+- Findings that Semgrep App found in a previous scan but no longer found them in the latest scan are called **Fixed findings**. To mark findings as fixed, the rule that matched the code and the file that was scanned must still be present during the latest scan. Under these conditions, Semgrep App concludes that the finding is fixed.
+- Removed findings are not included in the count in the Fixed findings tab. **Removed findings** are findings in the code that were previously found by a rule, but either the rule or the file containing the code has been removed in the most recent scan. Thus, the code cannot be considered "fixed", but is instead "removed." See [Semgrep App Findings](https://semgrep.dev/docs/semgrep-app/findings/) documentation for more information.
+- Both fixed findings and removed findings were previously counted together in the Closed tab, causing confusion as to the actual count of fixed findings. Now only findings that were purposefully fixed or addressed are counted.
+- PR Fix Rate has been renamed to **Comment Fix Rate**. The use of a more general term, "comment", captures both GitLab merge requests (MRs) and GitHub pull requests (PRs).
+- The **Comment Fix Rate** is the percentage of PR or MR comments fixed by developers. These PR or MR comments are findings detected by Semgrep from rules in the Comment column of your Rule Board.
+
+#### Fixes
+
+- When adding GitHub projects, Semgrep App previously redirected the user to GitHub and then back into Semgrep App's Dashboard page while adding a project. Because of this, users would have to manually return to the Projects page to finish adding a project. Semgrep App now correctly redirects users to the Project page.
+
+### Semgrep CLI and Semgrep in CI
+
+These release notes include upgrades for all versions ranging between **0.95.0** and **0.101.0**.
+
+#### Additions
+
+- Semgrep installation through PyPi is now supported on Apple M1 processors!
+- Semgrep now supports the R language as an experimental language. Thanks to Zythosec for contributions! ([Issue #2360](https://github.com/returntocorp/semgrep/issues/2360))
+- Bash: Semgrep now supports subshell syntax. This can be used, for example, in commands in parentheses. ([Issue #5629](https://github.com/returntocorp/semgrep/issues/5629))
+- Java: You can now use a metavariable in a package directive, for example, `package $X`, which is useful to bind the package name and use it in the error message. ([Issue #5420](https://github.com/returntocorp/semgrep/issues/5420))
+- Building the foundation for an improved Visual Studio Code user experience, Semgrep now has an experimental Language Server Protocol (LSP) daemon mode. A client program (such as Visual Studio Code) would typically run the  LSP daemon. If you feel like an adventurer, all you need to do to start it is to run `semgrep lsp --config p/r2c`. Stay tuned for more LSP goodness!
+- Semgrep in CI:
+  - Starting to run Semgrep CI in your pipelines was easier in GitHub and GitLab than for any other CI provider. With this release, the process has been simplified for many other CI providers! Previously, for any provider except for GitHub and GitLab, you would have to commit a lengthy configuration file to enable Semgrep in CI to start working in your pipeline. Now, the autodetection of the CI environment supports Azure Pipelines, Bitbucket, Buildkite, CircleCI, Jenkins, and Travis CI in addition to GitHub and GitLab. Now you do not need to commit big configuration files again for these providers!
+  - You can now disable version checks with an environment variable by setting `SEMGREP_ENABLE_VERSION_CHECK=0`.
+  - Accept `SEMGREP_BASELINE_REF` as an alias for `SEMGREP_BASELINE_COMMIT`.
+  - The `ci` CLI command now includes ignored findings in output formats according to their configuration.
+- taint-mode:
+  - Taint tracking now analyzes lambdas in their surrounding context. Previously, if a variable became tainted outside a lambda, and this variable was used inside the lambda causing the taint to reach a sink, this was not detected because any nested lambdas were "opaque" to the analysis. Taint tracking looked at lambdas but as isolated functions. With this update, lambdas are simply analyzed as if they were statement blocks. However, taint tracking still does not follow the flow of taint through the lambda's arguments!
+  - New experimental `pattern-propagators` feature that allows you to specify arbitrary patterns for the propagation of taint by side-effect. In particular, this allows specifying how taint propagates through side-effectful function calls. For example, you can specify when tainted data is added to an array then the array itself becomes tainted. ([Issue #4509](https://github.com/returntocorp/semgrep/issues/4509))
+- Dataflow: 
+  - Spread operators in record expressions (for example `{...foo}`) are now translated into the Dataflow Intermediate Language (IL).
+  - XML elements (for example JSX elements) have now a basic translation to the Dataflow IL, meaning that dataflow analysis (constant propagation, taint tracking) can now operate inside these elements. ([Issue #5115](https://github.com/returntocorp/semgrep/issues/5115))
+- Generic mode:
+  - New option `generic_ellipsis_max_span` for controlling how many lines an ellipsis can match. ([Issue #5211](https://github.com/returntocorp/semgrep/issues/5211))
+  - New option `generic_comment_style` for ignoring comments that follow the specified syntax (C style, C++ style, or Shell style). ([Issue #3428](https://github.com/returntocorp/semgrep/issues/3428))
+- Metrics:
+  - A list of features used during execution is now included among metrics. Examples of such features are: languages scanned, CLI options passed, keys used in rules, or certain code paths reached, such as using an `:include` instruction in a `.semgrepignore` file. These strings will **not** include user data or specific settings. As an example, with `semgrep scan --output=secret.txt` we send `"option/output"` but will **not** send `"option/output=secret.txt"`.
+  - An anonymous Event ID has been included among metrics. This is an ID generated at send-time and will be used to de-duplicate events that potentially get duplicated during transmission.
+  - Metrics now include an anonymous User ID. This ID is stored in the `~/.semgrep/settings.yml` file. If the ID disappears, the next run will generate a new ID randomly. See the <a target="_self" href="https://semgrep.dev/docs/metrics/#anonymous-user-id" >Anonymous User ID in PRIVACY.md</a> for more details.
+
+#### Changes
+
+- PHP: Semgrep PHP support now reached GA General Availability (GA) maturity! Thanks a lot to Sjoerd Langkemper for most of the heavy work!
+- Gitlab SAST output is now v14.1.2 compliant.
+- The following deprecated `semgrep scan` options are now removed:
+  `--json-stats`, `--json-time`, `--debugging-json`, `--save-test-output-tar`, `--synthesize-patterns`,
+  `--generate-config/-g`, `--dangerously-allow-arbitrary-code-execution-from-rules`,
+  and `--apply` (which was an easter egg for job applications, not the same as `--autofix`).
+- Rules are now downloaded from the Semgrep Registry in JSON format instead of YAML. This speeds up rule parsing in the Semgrep CLI, making a `semgrep --config auto` run on the semgrep Python package in 14s instead of 16s.
+- The output summarizing scan results has been simplified.
+- Previously, you could use `$X` in a message to interpolate the variable captured by a metavariable named `$X`, but there was no way to access the underlying value. However, sometimes that value is more important than the captured variable. Now you can use the syntax `value($X)` to interpolate the underlying propagated value if it exists (if not, it will just use the variable name).
+
+  **Example**: Take a target file such as the following:
+
+  ```py
+  x = 42
+  log(x)
+  ```
+
+  Now take a rule to find that log command:
+  ```yaml
+  - id: example_log
+    message: Logged $SECRET: value($SECRET)
+    pattern: log(42)
+    languages: [python]
+  ```
+
+  Before this update, the same rule applied to our test example would give you the message `Logged x: value(x)`. Now, it gives the message `Logged x: 42`.
+
+##### Additional information
+
+Bug fixes are not included in these release notes unless they are potentially breaking your workflow. To see the complete change notes for Semgrep CLI and CI that include fixes, visit the [Semgrep changelog](https://github.com/returntocorp/semgrep/releases/).
 
 ## May 2022
 
@@ -57,43 +284,7 @@ These release notes include upgrades for all versions ranging between **0.91.0**
 
 - Dockerfile: Constant propagation now works on variables declared with `ENV`.
 
-- Added `shouldafound`. You can report false negatives that Semgrep should have found through the Semgrep CLI itself. See the following use case of `shouldafound`:
-
-    See the following file `test.go`:
-    ```go                                    
-    package main
-    ​
-    import "fmt"
-    ​
-    func main() {
-        fmt.Println("foo")
-    }
-    ```
-
-    Let's notify Semgrep creators that they missed some vulnerable code in the previous file:
-    ```sh
-    semgrep shouldafound --email "test@foo.com" --start 5 --end 7
-    -m "Semgrep missed a vulnerable code here" ./test.go
-    ```
-
-    This will send the following information to semgrep.dev:
-
-    ```sh
-    {
-      "email": "test@foo.com",
-      "lines": "func main() {\n    fmt.Println(\"foo\")\n}\n",
-      "message": "Semgrep missed a vulnerable code here",
-      "path": "test.go"
-    }
-    OK to send? [y/N]: y
-    ```
-
-    If you send the code, you get the following notice in the terminal:
-
-    ```sh
-    Sent feedback. Thanks for your contribution!
-    You can view and extend the generated rule template here: https://semgrep.dev/s/ylAk
-    ```
+- Added `shouldafound`. For more information, see [Reporting false negatives](/reporting-false-negatives.md).
 
 - dataflow: The [data-flow analysis engine](https://semgrep.dev/docs/writing-rules/data-flow/) now handles `if-then-else` **expressions** as in OCaml, Ruby etc. Previously it only handled `if-then-else` **statements**. ([#4965](https://github.com/returntocorp/semgrep/issues/4965))
 
@@ -124,7 +315,7 @@ These release notes now include edited important and breaking changes. To see th
 
 - Unlisted rule visibility has been renamed to Public within the Editor.
 - The `Audit` column within the Rule Board has been renamed to `Monitor`. Findings generated by rules within this column are displayed only on Semgrep App.
-![New rule board.](img/rule-board.png "New rule board.")
+![New rule board.](/img/rule-board.png "New rule board.")
 
 ### Semgrep CLI and Semgrep in CI
 
@@ -143,7 +334,7 @@ These release notes encompass upgrades for all versions ranging between **0.87.0
 
 #### Additions
 
-- A new `focus-metavariable` operator that enables you to focus (or zoom in) the match on the code region delimited by a metavariable. This operator is useful for narrowing down the code matched by a rule, to focus on what matters. For more information, see [focus-metavariable documentation](/experiments/focus-metavariable/). ([#4453](https://github.com/returntocorp/semgrep/issues/4453))
+- A new `focus-metavariable` operator that enables you to focus (or zoom in) the match on the code region delimited by a metavariable. This operator is useful for narrowing down the code matched by a rule, to focus on what matters. For more information, see [focus-metavariable documentation](../writing-rules/rule-syntax/#focus-metavariable). ([#4453](https://github.com/returntocorp/semgrep/issues/4453))
 - Join mode now supports inline rules through the `rules` key underneath the `join` key. For more information, see [Inline rule example](/experiments/join-mode/overview/#inline-rule-example).
 
 Language support improvements:
@@ -513,7 +704,7 @@ To see the complete change notes, visit the [Semgrep changelog](https://github.c
 
 ##### Semgrep CLI and Semgrep CI now ignore the same patterns
 
-With this update, Semgrep CLI now ignores the same patterns as the Semgrep CI by default. Find [the default .semgrepignore on GitHub](https://github.com/returntocorp/semgrep/blob/develop/semgrep/semgrep/templates/.semgrepignore). If you want to return to Semgrep’s previous behavior, create an empty `.semgrepignore` file. However, creating a new `.semgrepignore` overrides the default setup.
+With this update, Semgrep CLI now ignores the same patterns as the Semgrep CI by default. Find [the default .semgrepignore on GitHub](https://github.com/returntocorp/semgrep/blob/develop/cli/src/semgrep/templates/.semgrepignore). If you want to return to Semgrep’s previous behavior, create an empty `.semgrepignore` file. However, creating a new `.semgrepignore` overrides the default setup.
 
 ##### Autofix improvement
 
@@ -1407,4 +1598,3 @@ ARG = [$V];
 ## Finding remaining release notes
 
 This document encompasses only a limited number of release notes. See the changelog that includes descriptions of older versions than displayed in this document: [Semgrep GitHub changelog](https://github.com/returntocorp/semgrep/releases)
-

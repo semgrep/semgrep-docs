@@ -1,253 +1,166 @@
 ---
 slug: overview
 append_help_link: true
-description: "Semgrep CI enables you to run Semgrep in CI environments. It can either be used stand-alone or connected with Semgrep App for centralized rule and findings management. Rapidly scan every commit and block new bugs with Semgrep CI."
+description: "Semgrep can run CI environments. It can either be used stand-alone or connected with Semgrep App for centralized rule and findings management."
+tags:
+    - Semgrep in CI
+    - Community Tier
+title: Getting started with Semgrep in CI 
+hide_title: true
 ---
 
 import MoreHelp from "/src/components/MoreHelp"
 
-# Semgrep CI overview
+<ul id="tag__badge-list">
+{
+Object.entries(frontMatter).filter(
+    frontmatter => frontmatter[0] === 'tags')[0].pop().map(
+    (value) => <li class='tag__badge-item'>{value}</li> )
+}
+</ul>
 
-## Introduction
+# Getting started with Semgrep in continuous integration (CI)
 
-Semgrep CI enables you to run Semgrep in CI environments. You can use it solely for the purpose of checking your code in CI pipeline or connect Semgrep CI to [Semgrep App](https://semgrep.dev/manage) for centralized rule and findings management.
+Semgrep can be run within CI (continuous integration) environments. By integrating Semgrep into your CI environment, your development cycle benefits from the automated scanning of repositories at every push event, pull or merge request (PR or MR).
 
-- **Scan every commit**. Semgrep CI rapidly scans modified files on pull and merge requests, protecting developer productivity. Usually, full-project scans are reserved for special branches, such as trunk branches, and diff-aware scans are done on other branches before merging them into the trunk.
-- **Block new bugs**. You shouldn’t have to fix existing bugs just to adopt a tool. Semgrep CI reports newly introduced issues on pull and merge requests, scanning them at their base and HEAD commits to compare findings. Developers are significantly more likely to fix the issues they introduced themselves on PRs and MRs.
-- **Get findings where you work**. Semgrep CI can connect to [Semgrep App](https://semgrep.dev/manage) to present findings in Slack, on PRs and MRs via inline comments, email, and through 3rd party services.
+Semgrep is integrated into CI environments by creating a **job** (also known as an **action** for some CI providers) that is run by the CI provider.
 
-:::info
-Semgrep CI runs fully in your build environment: **your code is never sent anywhere**.
-:::
+A Semgrep CI job can **connect to Semgrep App**, a centralized location for managing findings, sending notifications, and configuring Semgrep rules for scanning. Alternatively, a Semgrep CI job can be set up as a **stand-alone** job, which means it does not connect to Semgrep App.
 
-**Note**: Semgrep CI is a subcommand of Semgrep CLI, so you can test the code and behavior of Semgrep CI on your machine by running `semgrep ci`.
+This document helps users choose which method best meets their goals in integrating Semgrep in their CI environment.
 
-## Adding Semgrep CI to your repository
-
-Semgrep CI behaves like other static analysis and linting tools: it runs a set of user-configured rules and returns a non-zero exit code if there are findings, resulting in its job showing a ✅ or ❌.
-
-Copy the relevant template for your CI provider from the sections below. Read through the comments in the template to adjust Semgrep CI scan settings, selecting pull and merge requests, full scans on your branch.
-
-Once Semgrep CI is running, explore the [Semgrep Registry](https://semgrep.dev/explore) to find and add more project-specific rules.
-
-See [Advanced Configuration](#advanced-configuration) for further customizations, such as ignoring files and tuning performance.
-
-### GitHub Actions
+After selecting a method, refer to the links in the [Next steps](#next-steps) section for documentation on how to set up or refine your CI job.
 
 :::info
-You can add Semgrep CI automatically to a GitHub repository by clicking "Set up" on the [Projects page](https://semgrep.dev/manage/projects) of Semgrep App. You'll be able to adjust pull request and  merge behavior before Semgrep App asks to commit a workflow file to your repository.
+When running in CI, Semgrep runs fully in the CI build environment. Your code is never sent anywhere.
+* Semgrep App collects [findings data](/docs/managing-findings/#semgrep-ci), which includes the line number of the code match, but **not the code**. It is hashed using a one-way hashing function. Findings data is used to generate line-specific hyperlinks to your source code management system and support other Semgrep functions.
+* CI scans that are not connected to Semgrep App do not send findings data to any servers.
 :::
 
-To manually add Semgrep CI to GitHub Actions, add a `.github/workflows/semgrep.yml` file to your repository. Follow the [workflow syntax for GitHub Actions](https://docs.github.com/en/actions/reference/workflow-syntax-for-github-actions).
+## Choosing a method
 
-See this [example GitHub Actions workflow configuration](../sample-ci-configs/#github-actions) for Semgrep CI.
+There are two methods to set up Semgrep in CI. 
 
-### GitLab CI/CD
+* To scale and automate your scans across many repositories, **use Semgrep App**.Semgrep App provides a centralized web application to manage findings and configure rulesets and notifications. This is the **recommended method** of integrating Semgrep in CI.
+* To scan your code in a single CI pipeline, **create a stand-alone CI job or add Semgrep to a script block in your pipeline.** This means continuously scanning on a schedule or to trigger a scan upon the creation of a PR (pull request) or MR (merge request). This method does not require Semgrep App.
 
-To add Semgrep CI to GitLab CI/CD, add a `.gitlab-ci.yml` file to your repository if not already present. Add a block to run the Semgrep CI job in your pipeline, following [GitLab’s configuration guide for the .gitlab-ci.yml file](https://docs.gitlab.com/ee/ci/yaml/gitlab_ci_yaml.html).
+Refer to the following table to help you choose what method best meets the needs of your development.
 
-See this [example GitLab CI/CD configuration](../sample-ci-configs/#gitlab-ci) for Semgrep CI.
+### Feature comparison
 
-If you’re already running [GitLab SAST](https://docs.gitlab.com/ee/user/application_security/sast/) by including `template: Security/SAST.gitlab-ci.yml` in your CI/CD configuration, you can still include and customize Semgrep CI. GitLab SAST, including its `semgrep-sast` analyzer, will continue to run normally.
+The following table displays what features are available for manual (without Semgrep App) and automated (through Semgrep App) methods.
 
-### Other CI providers
+| Feature | Semgrep App (Community Tier) setup | Stand-alone CI job setup (without Semgrep App) |
+| :------ | :--------------------------------- | ---------------------------------------------- |
+| Scan on a schedule | ✔️ | ✔️ |
+| Scan with custom rules and rulesets | ✔️ | ✔️ |
+| Scan mainline (trunk) and non-mainline branches | ✔️ | ✔️ |
+| Trigger scans when a Pull request (PR) or merge request (MR) is created | ✔️ | ✔️ |
+| Prevent vulnerable code from merging into mainline branches | ✔️ | ✔️ |
+| Generate CI configuration files for [many providers](/docs/semgrep-ci/running-semgrep-ci-with-semgrep-app/#ci-providers-listed-within-semgrep-app-such-as-github-actions-gitlab-cicd-jenkins) | ✔️ | ❌ |
+| Receive PR or MR review comments in your source code management (SCM) tool | ✔️ | ❌ |
+| Manage false positives in bulk through triage | ✔️ | ❌ |
+| Receive notifications in Slack and email | ✔️ | ❌ |
+| Pricing | Free for up to 20 developers* | Free |
 
-The community successfully ran Semgrep in the following CI platforms (some include a link to sample configuration):
+*For teams larger than 20 developers, see the [Team or Enterprise tiers](/docs/semgrep-app/pricing-and-billing).
 
-- Bitbucket Pipelines
-- Bitrise
-- Buildbot
-- Buildkite [(sample configuration)](../sample-ci-configs/#buildkite)
-- CircleCI [(sample configuration)](../sample-ci-configs/#circleci) 
-- Codefresh
-- Jenkins [(sample configuration)](../sample-ci-configs/#jenkins)
-- TeamCity CI
-- Travis CI
+## Setting up a CI job with Semgrep App in two minutes
 
-To add Semgrep CI to any CI environment, use the [`returntocorp/semgrep`](https://hub.docker.com/r/returntocorp/semgrep) Docker image directly.
+The following video walks you through setting Semgrep in your CI through Semgrep App.
 
-For full project scans:
+<iframe class="yt_embed" width="100%" height="432px" src="https://www.youtube.com/embed/ukIUM3j0gZY" frameborder="0" allowfullscreen></iframe>
 
-```sh
-semgrep scan --config auto --config <other rule or rulesets>
-```
+## Understanding the CI job pipeline and default behavior
 
-**Note**: If you cannot use the Docker image, install Semgrep CI with `pip install semgrep`.
+The Semgrep CI job is similar to other static analysis and linting jobs. You create a CI job through a configuration file following the syntax set by your CI provider. The following features are available to most CI providers for both stand-alone (without Semgrep App) and Semgrep App configurations:
 
-## Reviewing Findings
+* Run Semgrep on a set schedule and time.
+* Trigger Semgrep to run on certain events, such as pull requests, (PR), merge requests (MR), and push events.
+* Set up CI jobs on PRs or MRs to scan only changes in files. This is called **diff-aware** scanning.
+* Scan with custom rules and rulesets.
+* Customize Semgrep to ignore irrelevant code files and folders, such as tests.
 
-### Scan output
+Any number of Semgrep CI jobs can be created for a single repository.
 
-Semgrep CI exits with exit code 1 if the scan returned any findings.
-This causes your CI provider to show a ❌ next to the job,
-preventing the pull request from being merged. 
-You can find a description of the findings in the log output.
+### Additional features of Semgrep App
 
-<details>
-<summary>Click for an example of Semgrep CI's job output</summary>
+In addition to the features mentioned previously, Semgrep App has the following features:
 
-```sh
-Scanning across multiple languages:
-         python | 127 rules × 1 file 
-    <multilang> |   3 rules × 1 file 
-  Current version has 2 findings.
-Switching repository to baseline commit 'f74fdbb855f179d2858c487ae25871ef65d2fb09'.
-  Will report findings introduced by these commits:
-    * a833b40 Update server.py
-Scanning 1 file with 2 python rules.
-Findings:
-  src/server.py 
-     python.lang.security.audit.dangerous-system-call.dangerous-system-call
-        Found dynamic content used in a system call. This is dangerous if external data can reach
-        this function call because it allows a malicious actor to execute commands. Use the
-        'subprocess' module instead, which is easier to use without accidentally exposing a command
-        injection vulnerability.
-        Details: https://sg.run/vzKA
-         10┆ os.system(cmd)
-Some files were skipped.
-  Scan was limited to files changed since baseline commit.
-Ran 371 rules on 1 file: 1 finding.
-Ran 371 blocking rules, 0 audit rules, and 0 internal rules used for rule recommendations.
-Reporting findings to semgrep.dev ...
-Success.
-Has findings for blocking rules so exiting with code 1
-```
+<dl>
+    <dt>Diff-aware scanning</dt>
+    <dd>Semgrep App can scan only changes in files when running on a pull or merge request (PR or MR). This keeps the scan fast, tracks when a finding is fixed, and reduces the number of duplicated findings.</dd>
+    <dt>Receiving results (findings) as PR or MR comments</dt>
+    <dd>This feature enables you to receive <a href="/docs/semgrep-app/notifications/#enabling-github-pull-request-comments">PR or MR comments</a> from Semgrep App on the lines of code that generated a finding.</dd>
+    <dt>Hyperlinks to code</dt>
+    <dd>Semgrep App collects findings in a Findings page. In this page, you can click on a finding to return to your SCM (Github, GitLab, or Bitbucket) to view the lines of code in your repository that generated the finding.</dd>
+    <dt>SCM security dashboard</dt>
+    <dd>Send Semgrep findings to your SCM's security dashboard.</dd>
+</dl>
 
-</details>
-<br />
+For more information on the features supported by CI providers and SCMs, see [Semgrep App feature support](/docs/semgrep-ci/running-semgrep-ci-with-semgrep-app/#semgrep-app-feature-support).
 
-:::note
-Rules are *blocking* by default and behave as described above.
-When connected to Semgrep App, you can also add non-blocking rules to your scans.
-Non-blocking rules return [non-blocking findings](#getting-notifications-instead-of-blocking-builds) which notify you via an integration but do not show up in log output, and do not cause jobs to fail with a ❌.
-:::
 
-### Integrations
+### General steps to integrate Semgrep in CI with Semgrep App
 
-For users of Semgrep App, you can integrate Semgrep CI with many other services, to get you results in the workflow you're already used to, whether you're a developer or part of a security team.
+This section describes a high-level view of steps to integrate Semgrep with Semgrep App.
 
-#### Notifications
+![High level view of steps to integrate and refine Semgrep in your CI environment with Semgrep App](/img/semgrep-ci-overview-app.png "High level view of steps to integrate and refine Semgrep in your CI environment with Semgrep App")
 
-![Screenshot of a Slack notification describing the details of a finding](../img/slack-notification.png)<br />
-A Slack notification triggered by new findings in a pull request
+_Figure 1._ High level view of steps to integrate and refine Semgrep in your CI environment with Semgrep App.
 
-Notifications require connection to Semgrep App. You can get notified about new findings via:
+Integrating Semgrep in your CI environment through Semgrep App is the **recommended method** for CI providers such as GitHub Actions and GitLab CI/CD. 
 
-- [GitHub pull request comments](/semgrep-app/notifications/#github-pull-request-comments)
-- GitLab merge request comments ([sign up for the beta here](https://go.r2c.dev/join-gitlab-beta))
-- [Slack messages](/semgrep-app/notifications/#slack)
-- [emails](/semgrep-app/notifications/#email)
-- [webhooks](/semgrep-app/notifications/#webhooks) (paid feature in Semgrep App)
+The following steps outline the general procedure to automate Semgrep in many CI environments wish Semgrep App.
 
-To set up notifications, see [Notifications document](/semgrep-app/notifications) for more information.
+1. [Sign in](https://semgrep.dev/login) to Semgrep App.
+2. Click on **Projects > Scan New Project**.
+3. Follow instructions in the App. These steps vary based on your CI provider.
+4. Semgrep App generates a `SEMGREP_APP_TOKEN` and creates a configuration file. 
+5. Commit the configuration file and add `SEMGREP_APP_TOKEN` as a credential, token, or secret.
+6. The scan automatically begins.
+7. After the scan, Semgrep App reports findings (if any) into the Findings dashboard.
+8. Optional: If you are not satisfied with your CI job's behavior, troubleshoot and edit the configuration file. Refer to [Sample CI configuration for Semgrep App](/docs/semgrep-ci/sample-ci-configs).
+9. Repeat from step 2 to integrate Semgrep into remaining repositories.
 
-:::note
-Notifications are sent only the first time a given finding is seen. [See how notifications are de-duplicated](/semgrep-app/notifications/#de-duplication)
-:::
+#### Default behaviors of scans set up through Semgrep App
 
-#### Security dashboards
+* Findings do not block a PR or MR. The presence of findings can be customized to block a PR or MR through the [Rule Board](/docs/semgrep-app/rule-board).
+* The CI job does not fail when detecting findings, but can still fail due to other errors. See [Semgrep exit codes](/docs/cli-reference/#exit-codes).
+* Scan output is presented in Semgrep App's Findings page, enabling users to click a link for the file and line in the code that generated the finding.
 
-![Screenshot of Semgrep App's findings dashboard showing a bar chart of findings over time, and a list of the most recent findings](../img/semgrep-app-overview.png)<br />
-Semgrep App's findings overview page
+### General steps to integrate Semgrep in CI as a stand-alone job
 
-The dashboards give you an overview of all your findings organization-wide.
-You can review Semgrep CI's findings through the following security dashboards:
+![High level view of steps to integrate a stand-alone Semgrep job in your CI environment](/img/semgrep-ci-overview-noapp.png "High level view of steps to integrate a stand-alone Semgrep in your CI environment")
+_Figure 2._ High level view of steps to integrate a stand-alone Semgrep job in your CI environment.
 
-- [GitLab SAST Security Dashboard](https://docs.gitlab.com/ee/user/application_security/security_dashboard/) (requires GitLab Ultimate subscription)
-- [GitHub Advanced Security Dashboard](https://docs.github.com/en/github/getting-started-with-github/learning-about-github/about-github-advanced-security) (requires GitHub Enterprise subscription)
-- [Semgrep App](https://semgrep.dev/manage) (free and paid tiers available)
+The following steps outline the general procedure to add Semgrep in CI as a stand-alone job.
 
-## Advanced Configuration
+1. Create or copy a configuration file (see [Sample CI configurations](/docs/semgrep-ci/sample-ci-configs)) following the syntax set by your CI provider.
+2. Commit the configuration file into the target repository.
+3. Follow any additional steps given by your CI provider to create the CI job. These steps vary based on your CI provider.
+4. Run the Semgrep CI job. The interface varies based on your CI provider.
+5. The CI job exits with an exit code. This exit code indicates whether findings were generated, if no findings were generated, or if an error occurred during the scan.
+6. Optional: If you are not satisfied with your CI job's behavior, troubleshoot and edit the configuration file.
+7. Repeat the entire process for the remaining repositories to integrate with Semgrep.
 
-### Registry rules and rulesets
+#### Default behaviors of manual Semgrep CI scans
+
+* If a scan detects **any finding**, Semgrep exits with an exit code of 1. **This causes the job to fail. **When scanning pull or merge requests, the job's failure blocks the PR or MR from merging.
+* Scan output is presented in the CI provider's logs. There are no links to click to view the code in the file itself.
 
 :::info
-These instructions apply to using Semgrep CI directly in your CI environment. For use with Semgrep App please use the "Add to policy" button next to any registry rule or ruleset, or visit [Dashboard > Policies](https://semgrep.dev/manage/policies).
+A stand-alone Semgrep CI job **can be customized to enable jobs with findings to pass**, but this is not default behavior, and Semgrep cannot undertake pass or fail actions based on the severity of a finding.
 :::
 
-Semgrep CI accepts a list of rules and rulesets to run on each scan. To add from the [Semgrep Registry](https://semgrep.dev/explore), just include the rule or ruleset identifier in your CI workflow file. Identifiers take the form `p/<ruleset-id>` and `r/<rule-id>`. These identifiers can be copied directly for any rule or ruleset directly from the Registry, and run locally using the `--config <identifier>` flag with the [Semgrep command line tool](/getting-started/#run-semgrep-locally).
+## Next steps
 
-For example, in GitLab CI/CD:
+After you have chosen a method, refer to the following documents for specific steps and code samples to set up and refine your Semgrep CI job.
 
-```yaml
-# ...
- variables:
-    SEMGREP_RULES: >-
-      p/security-audit
-      p/secrets
-# ...
-```
-
-Key names and configuration format for specific CI providers are available in the [sample CI configurations](../sample-ci-configs/).
-
-### Custom rules
-
-:::info
-See [Writing rules](/writing-rules/overview/) to learn how to write custom rules.
-:::
-
-Your own custom rules can be added to your Semgrep CI configuration just like [Registry rules](#registry-rules-and-rulesets/) by:
-
-1. Including their [Playground](https://semgrep.dev/editor) share ID (e.g. `s/susan:named-rule`)
-2. Adding the directory or file path to the local file containing the rule
-3. Adding the rule to a `.semgrep/` directory, which is included by default
-
-For example, in GitLab CI/CD:
-
-```yaml
-# ...
- variables:
-    SEMGREP_RULES: >-
-      s/dlukeomalley:translation-of-non-string  # Playground share ID
-      no-exec.yml                               # File containing one or more rules
-      .semgrep/                                 # Directory containing rule yaml files 
-# ...
-```
-
-If no configuration is provided and no `.semgrep.yml` or `.semgrep/` directory exists, Semgrep CI will exit with a non-zero error code.
-
-### Ignoring files
-
-Semgrep CI supports a `.semgrepignore` file that follows the `.gitignore` syntax and is used to skip files and directories during scanning. This is commonly used to avoid vendored and test related code. For a complete example, see the [.semgrepignore file on Semgrep’s source code](https://github.com/returntocorp/semgrep/blob/develop/.semgrepignore).
-
-:::caution
-`.semgrepignore` is only used by Semgrep CI and the Semgrep command line tool. It is not honored by integrations like [GitLab's Semgrep SAST Analyzer](https://gitlab.com/gitlab-org/security-products/analyzers/semgrep).
-:::
-
-By default Semgrep CI skips files and directories such as `tests/`, `node_modules/`, and `vendor/`. It uses the same default `.semgrepignore` as the CLI, which can be found in the [CLI Reference](https://semgrep.dev/docs/cli-reference/#ignoring-files). This is used by Semgrep CI when no explicit `.semgrepignore` file is found in the root of your project.
-
-For information on ignoring individual findings in code, see the [ignoring findings page](/ignoring-findings/).
-
-### Audit scans
-
-Semgrep CI has an audit mode that can be enabled to suppress non-zero exit codes when findings are found during branch scans. These scans are not differential in nature and by default pre-existing findings will fail the build. With audit mode enabled, even though findings will not cause non-zero exit codes, internal Semgrep errors and exception will still fail the build.
-
-This behavior is beneficial for those who want to ensure every merge to a branch is fully scanned but who don't want to interfere with the development process because of pre-existing issues. In this mode, [security dashboards](#security-dashboards) can still be kept up to date and [notifications](#notifications) can be received.
-
-In GitHub Actions, the most common event names are `push` and `pull_request`. To enable audit mode on branch pushes in GitHub Actions, set the option `auditOn: push` in your workflow file.
-
-In providers other than GitHub Actions and GitLab CI, Semgrep CI doesn't infer an event name from the environment. Therefore, all scan run on an event named `unknown`.
-
-### Exit codes
-
-| Exit code | Meaning |
-| --- | --- |
-| **0** | Scan completed successfully and found no blocking findings |
-| **1** | Scan completed successfully and found blocking findings |
-| **2** | Scan failed and printed the error's details |
-
-[Non-blocking findings](#getting-notifications-instead-of-blocking-builds) do not affect the exit code.
-
-### Appendix
-
-#### Ignoring specific rules in a ruleset or policy
-
-You can customize the ruleset you're using to ignore some of its rules by [editing the Semgrep App Rule Board](/semgrep-app/rule-board).
-
-#### Getting notifications instead of blocking builds
-
-Some rules point out hotspots that require careful review but are not certain to be insecure code. You might want to disable blocking when scanning with such rules, and instead use a [CI integration](/semgrep-app/notifications/) to get notifications.
-
-You can set this up through the [Rule Board](/semgrep-app/rule-board).
+| Document | User goal |
+| :------- | :-------  |
+| [Running Semgrep in CI with Semgrep App](../running-semgrep-ci-with-semgrep-app) | Set up CI with Semgrep App to manage findings, receive PR or MR comments in your repository, and manage scanning for many repositories |
+| [Running Semgrep in CI without Semgrep App](../running-semgrep-ci-without-semgrep-app) | Integrate Semgrep into a repository by committing a job configuration file. |
+| [Sample CI configurations](../sample-ci-configs) | Refer to this document for different configuration files of Semgrep App, arranged by CI provider. |
 
 <MoreHelp />

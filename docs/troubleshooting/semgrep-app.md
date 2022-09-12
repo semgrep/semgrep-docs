@@ -1,9 +1,25 @@
 ---
 slug: semgrep-app
 description: "Not seeing what you expect in Semgrep App? Follow these troubleshooting steps or find out how to get one-on-one help."
+title: Troubleshooting Semgrep App
+hide_title: true
+tags:
+    - Semgrep App
+    - Community Tier
+    - Team & Enterprise Tier
+
 ---
 
 import MoreHelp from "/src/components/MoreHelp"
+
+<ul id="tag__badge-list">
+{
+Object.entries(frontMatter).filter(
+    frontmatter => frontmatter[0] === 'tags')[0].pop().map(
+    (value) => <li class='tag__badge-item'>{value}</li> )
+}
+</ul>
+
 
 # Troubleshooting Semgrep App
 
@@ -27,7 +43,7 @@ Check the log output for any hints about what the issue is.
 - If the logs mention a missing token or an authentication failure, you can get a new token from the [Settings page of Semgrep App](https://semgrep.dev/manage/settings), and set it as `SEMGREP_APP_TOKEN` in your CI provider's secret management UI.
 - Alternatively, if this is the first scan after adding a new GitHub repository, and the repository is a fork, check your Actions tab to see if workflows are enabled:
 
-![Screenshot of GitHub's Actions tab with workflows disabled](../img/github-workflows-disabled.png)<br />
+![Screenshot of GitHub's Actions tab with workflows disabled](/img/github-workflows-disabled.png)<br />
 
 * Enable workflows to allow Semgrep to scan.
 

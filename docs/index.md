@@ -8,6 +8,9 @@ description: >-
   for finding bugs and enforcing code standards at editor, commit, and CI time.
 ---
 
+import SupportedLanguagesTable from '/src/components/reference/_supported-languages-table.mdx'
+import MoreHelp from "/src/components/MoreHelp"
+
 <br />
 <p align="center">
   <a href="https://semgrep.dev">
@@ -29,11 +32,10 @@ Its rules look like the code you already write; no abstract syntax trees, regex 
 
 The Semgrep ecosystem includes:
 
-* [Semgrep](getting-started/) - the open-source command line tool at the heart of everything
-* [Semgrep CI](semgrep-ci/overview/) - a specialized Docker image for running Semgrep in CI environments
-* [Semgrep Playground](https://semgrep.dev/editor) - an online interactive tool for writing and sharing rules
-* [Semgrep Registry](https://semgrep.dev/explore) - 1,000+ community-driven rules covering security, correctness, and performance bugs
-* [Semgrep App](https://semgrep.dev/manage) - deploy, manage, and monitor Semgrep at scale with free and paid tiers
+* [Semgrep](getting-started/) - The open-source command line tool at the heart of everything.
+* [Semgrep Playground](https://semgrep.dev/editor) - An online interactive tool for writing and sharing rules.
+* [Semgrep Registry](https://semgrep.dev/explore) - 2,000+ community-driven rules covering security, correctness, and performance bugs.
+* [Semgrep App](https://semgrep.dev/manage) - Deploy, manage, and monitor Semgrep at scale with free and paid tiers. Integrates with CI providers such as GitHub, GitLab, CircleCI, and more.
 
 Semgrep is developed and commercially supported by [r2c, a software security company](https://r2c.dev).
 
@@ -43,31 +45,9 @@ Semgrep is developed and commercially supported by [r2c, a software security com
 
 ## Language support
 
-Semgrep supports 20+ languages.
+<SupportedLanguagesTable />
 
-<!--  coupling: if you modify this table, copy paste it also to status.md -->
-<!--  for readability, please keep each column in alphabetical order -->
-
-<div id="language-support-table">
-
-| GA ✅      | Beta 🐛                     | Experimental 🚧            |
-|:---------- |:---------------------------|:---------------------------|
-| C#         | Kotlin                     | Bash                       |
-| Go         | Terraform                  | C                          |
-| Java       |                            | C++                        |
-| JavaScript |                            | Dockerfile                 |
-| JSON       |                            | Hack                       |
-| JSX        |                            | Lua                        |
-| Python     |                            | OCaml                      |
-| Ruby       |                            | PHP                        |
-| Scala      |                            | Rust                       |
-| TSX        |                            | Solidity                   |
-| TypeScript |                            | YAML                       |
-|            |                            | Generic (ERB, Jinja, etc.) |
-
-</div>
-
-To determine experimental, beta, or general availability (GA) status we scan a wide corpus of projects and measure the parse rate of each language. For more details see [the breakdown of all supported languages](language-support/).
+To determine experimental, beta, or general availability (GA) status we scan a wide corpus of projects and measure the parse rate of each language. For more details see [the breakdown of all supported languages](supported-languages/).
 
 ## History
 

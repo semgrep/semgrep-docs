@@ -1,47 +1,19 @@
 ---
-slug: language-support
-id: language-support
+slug: supported-languages
+id: supported-languages
 append_help_link: true
 description: >-
-  Semgrep supports over a dozen languages. Learn about generally available, beta, and experimentally supported languages.
+  Semgrep supports more than two dozen languages. Learn about generally available, beta, and experimentally supported languages.
 ---
 
+import SupportedLanguagesTable from '/src/components/reference/_supported-languages-table.mdx'
 import MoreHelp from "/src/components/MoreHelp"
 
 # Supported languages
 
-
 ## Language maturity
 
-<!-- coupling: if you modify this table, copy paste it also in index.md -->
-<!-- coupling: should match what is in semgrep-core/tests/Test.ml Maturity level testing -->
-<!-- for readability, please keep each column in alphabetical order -->
-| GA ✅      | Beta 🐛                     | Experimental 🚧            |
-|:---------- |:---------------------------|:---------------------------|
-| C#         | Kotlin                     | Bash                       |
-| Go         | Terraform                  | C                          |
-| Java       |                            | C++                        |
-| JavaScript |                            | Dockerfile                 |
-| JSON       |                            | Hack                       |
-| JSX        |                            | Lua                        |
-| Python     |                            | OCaml                      |
-| Ruby       |                            | PHP                        |
-| Scala      |                            | Rust                       |
-| TSX        |                            | Solidity                   |
-| TypeScript |                            | YAML                       |
-|            |                            | Generic (ERB, Jinja, etc.) |
-
-## Support expectations
-
-* **Experimental**: experimental support with many known bugs.
-    * Looking for dedicated users to help us improve these languages.
-    * Expect limited support responses, as these languages will be lowest priority.
-* **Beta**: supported language with known bugs.
-    * Looking for beta users to report bugs and rapidly iterate with our team.
-    * Expect best-effort support responses when there are no higher priority requests being handled.
-* **GA**: production-level support with few known bugs.
-    * Looking for bug reports and feedback from users.
-    * Expect timely and thorough support responses, generally within 24 hours.
+<SupportedLanguagesTable />
 
 ## Maturity definitions
 
@@ -57,7 +29,7 @@ Generally speaking, the features-by-maturity level are roughly: **experimental)*
 
 The following thresholds define each maturity level:
 
-<!-- coupling: if you modify the features in the levels below, change also 
+<!-- coupling: If you modify the features in the levels below, change also 
      semgrep-core/tests/Test.ml and its maturity level regression testing code.
 -->
 
@@ -99,6 +71,7 @@ The following thresholds define each maturity level:
         * `metavar_anno` (language dependent)
         * `metavar_key_value`
         * `metavar_typed` (language dependent)
+        * `metavar_ellipsis_args`
         * `regexp_string`
 
 Visit the cheat sheet generation script and associated semgrep-core test files to learn more about each feature:

@@ -9,6 +9,9 @@ description: >-
 
 Semgrep supports intra-procedural [taint tracking](https://en.wikipedia.org/wiki/Taint_checking). This is a kind of data-flow analysis that tracks the flow of untrusted (aka "tainted") data throughout a program. The analysis produces a finding whenever such data goes into a vulnerable function (aka "sink"), without first having been checked or transformed accordingly (aka "sanitized").
 
+The following video provides a quick overview of taint mode:
+<iframe class="yt_embed" width="100%" height="432px" src="https://www.youtube.com/embed/6MxMhFPkZlU" frameborder="0" allowfullscreen></iframe>
+
 Taint tracking rules must specify `mode: taint`, which enables the following operators:
 
 - `pattern-sources` (required)

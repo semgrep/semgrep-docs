@@ -6,7 +6,7 @@ description: "Symbolic propagation allows Semgrep to perform matching modulo var
 
 # Symbolic propagation
 
-Consider the following Python code:
+Symbolic propagation allows Semgrep to perform matching modulo variable assignments. Consider the following Python code:
 
 ```python
 import pandas

@@ -75,9 +75,11 @@ rules:
     .html as an extension. This could lead to XSS attacks.
   patterns:
   - pattern: flask.render_template("$PATH", ..., $VAR=$VALUE, ...)
-  - metavariable-regex:
-      metavariable: '$PATH'
-      regex: '.*(?<!html)$'
+  - metavariable-pattern:
+      metavariable: $PATH
+      language: generic
+      patterns:
+      - pattern-not-regex: .*\.html$
   languages: [python]
   severity: WARNING
 ```
@@ -108,7 +110,7 @@ We can translate these roughly into the following condition statements.
 Combining the three code pattern Semgrep rules and the three conditions gives us the join rule at the top of this section. This rule will match the code shown here.
 
 
-![Screenshot of code the join rule will match](../../img/join-mode-example.png)
+![Screenshot of code the join rule will match](/img/join-mode-example.png)
 
 
 ```bash
@@ -156,9 +158,11 @@ rules:
         patterns:
         - pattern: |
             flask.render_template("$TEMPLATE", ..., $KWARG=$VAR, ...)
-        - metavariable-regex:
-            metavariable: '$TEMPLATE'
-            regex: ".*(?<!html)$"
+        - metavariable-pattern:
+            metavariable: $TEMPLATE
+            language: generic
+            patterns:
+            - pattern-not-regex: .*\.html$
       - id: template-vars
         languages: [generic]
         pattern: |
