@@ -3,10 +3,21 @@ slug: running-semgrep-ci-without-semgrep-app
 append_help_link: true
 title: Running Semgrep in CI without Semgrep App 
 description: "This document guides you through setting up semgrep in continuous integration without connecting to Semgrep App."
+tags:
+    - Semgrep in CI
+    - Community Tier
 hide_title: true
 ---
 
 import MoreHelp from "/src/components/MoreHelp"
+
+<ul id="tag__badge-list">
+{
+Object.entries(frontMatter).filter(
+    frontmatter => frontmatter[0] === 'tags')[0].pop().map(
+    (value) => <li class='tag__badge-item'>{value}</li> )
+}
+</ul>
 
 # Running Semgrep in continuous integration (CI) without Semgrep App
 
@@ -61,7 +72,7 @@ To add Semgrep into your GitHub Actions pipeline:
 
 1. Create a `semgrep.yaml` configuration file to add a Semgrep command as part of your Github Actions pipeline. Refer to the [GitHub Actions code snippet](#github-actions-code-snippet).
 2. Optional: Review the [GitHub Actions workflow syntax](https://docs.github.com/en/actions/using-workflows/workflow-syntax-for-github-actions) to help with editing the configuration file.
-3. Commit the configuration file into the `./github/workflows` folder within the target repository. The Semgrep job starts automatically upon detecting the `semgrep.yaml` commit in the previous step
+3. Commit the configuration file into the `.github/workflows` folder within the target repository. The Semgrep job starts automatically upon detecting the `semgrep.yaml` commit in the previous step
 4. Optional: Re-run or view the job from the GitHub Actions interface.
 5. Customize the job's behavior, such as its rules to scan and files to ignore.
 

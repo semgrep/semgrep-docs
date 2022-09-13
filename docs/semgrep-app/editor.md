@@ -1,14 +1,27 @@
 ---
 slug: editor 
 append_help_link: true
-title: Editor 
+title: Editor
+hide_title: true
+tags:
+    - Semgrep App
+    - Community Tier
+    - Team & Enterprise Tier
 description: "Semgrep Editor is a powerful tool within Semgrep App to author rules and quickly apply these rules across an organization to enforce coding standards across an organization."
 ---
 
+<ul id="tag__badge-list">
+{
+Object.entries(frontMatter).filter(
+    frontmatter => frontmatter[0] === 'tags')[0].pop().map(
+    (value) => <li class='tag__badge-item'>{value}</li> )
+}
+</ul>
+
 import MoreHelp from "/src/components/MoreHelp"
 
-# Writing rules using Semgrep Editor
 
+# Writing rules using Semgrep Editor
 
 ![Screenshot of the Editor's splash screen](/img/editor-splashscreen.png)
 

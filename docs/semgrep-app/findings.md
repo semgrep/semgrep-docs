@@ -3,9 +3,22 @@ slug: findings
 append_help_link: true
 title: Findings
 description: "The Findings page allows users to view, manage, and triage Findings."
+hide_title: true
+tags:
+    - Semgrep App
+    - Community Tier
+    - Team & Enterprise Tier
 ---
 
 import MoreHelp from "/src/components/MoreHelp"
+
+<ul id="tag__badge-list">
+{
+Object.entries(frontMatter).filter(
+    frontmatter => frontmatter[0] === 'tags')[0].pop().map(
+    (value) => <li class='tag__badge-item'>{value}</li> )
+}
+</ul>
 
 # Managing findings in Semgrep App
 

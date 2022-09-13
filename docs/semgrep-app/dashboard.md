@@ -3,9 +3,23 @@ slug: dashboard
 append_help_link: true
 title: Dashboard 
 description: "The Dashboard is a summary view within Semgrep App to help security teams evaluate their organization's security posture."
+tags:
+    - Semgrep App
+    - Community Tier
+    - Team & Enterprise Tier
+hide_title: true
 ---
 
 import MoreHelp from "/src/components/MoreHelp"
+import Tags from "/src/components/Tags"
+
+<ul id="tag__badge-list">
+{
+Object.entries(frontMatter).filter(
+    frontmatter => frontmatter[0] === 'tags')[0].pop().map(
+    (value) => <li class='tag__badge-item'>{value}</li> )
+}
+</ul>
 
 # Evaluating your security posture through the Dashboard
 
@@ -87,14 +101,6 @@ Trends in insecure code can emerge after multiple Semgrep scans over time. By id
 	<dt>Command injection</dt>
 	<dd>Command injection occurs when an attacker uses some type of input to run <strong>system commands</strong> on the host operating system. This is also known as shell injection. In <a href="https://semgrep.dev/playground?registry=go.lang.security.audit.dangerous-syscall-exec.dangerous-syscall-exec">"Audit dangerous syscall"</a>, written for Golang, a finding is detected for non-static input to <code>syscall</code>, which if reached by user data, makes it vulnerable to exploitation.</dd>
 </dl>
-
-The color indicator next to the category name tells you in what state your organization’s projects are for each category.
-
-| Color | Meaning |
-| ------ | --------- |
-| Green | There are less impactful vulnerabilities detected in this category relative to other categories. |
-| Orange | There are some impactful vulnerabilities detected for this category relative to other categories. |
-| Red | There are plenty of impactful vulnerabilities for this category relative to other categories. Take action to reduce them by fixing the issues or identifying false positives. |
 
 ## Assessing rule performance
 

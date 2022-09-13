@@ -3,10 +3,21 @@ slug: pricing-and-billing
 append_help_link: true
 title: Pricing and billing
 description: "Semgrep CLI and CI are free to use. Semgrep App has both free and paid tiers, each with their own features and levels of support."
+tags:
+    - Semgrep App
+    - Community Tier
+    - Team & Enterprise Tier
 ---
 
 import MoreHelp from "/src/components/MoreHelp"
 
+<ul id="tag__badge-list">
+{
+Object.entries(frontMatter).filter(
+    frontmatter => frontmatter[0] === 'tags')[0].pop().map(
+    (value) => <li class='tag__badge-item'>{value}</li> )
+}
+</ul>
 
 # Pricing and billing
 
