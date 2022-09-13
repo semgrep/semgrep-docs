@@ -6,11 +6,43 @@ description: "Taint labels increase the expressiveness of taint-mode by allowing
 
 # Taint labels
 
-Previously taint mode could only track one kind of taint, data was either tainted or clean and that had to be specified using no more than a single pattern operator. Sometimes this is not enough. For example, data may become _dangerous_ through several steps that are not easily specified with a single pair source-sink. Taint labels increase the expressiveness of taint-mode by allowing to specify and track different kinds of taint through labels. 
+Taint labels increase the expressiveness of taint mode by allowing you to specify and track different kinds of taint through labels. This functionality has various uses, for example, when data becomes dangerous through several steps that are hard to specify through single pair of source and sink.
 
-We can attach labels to taint sources with the `label` key, e.g. `label: TAINTED`. Any valid Python identifier is accepted as a label. With that, the taint produced by a source will be labeled accordingly and can be individually tracked. A sink can be restricted to a subset of labels, using the `requires` key and a Python Boolean expression over labels, e.g. `requires: LABEL1 and not LABEL2`. A source can also be restricted via the `requires` key in the same way as a sink, in which case extra taint will only be produced if the source itself is tainted an satisfies the `requires` formula.
+To include taint labels into a taint mode rule, follow these steps:
 
-For example, let's say that `user_input` is dangerous but only when it passes through the `evil` function. We could specify this with taint labels as follows:
+1. Attach a `label` key to the taint source. For example, `label: TAINTED` or `label: INPUT`. See the example below:
+    ```yaml
+      pattern-sources:
+        - pattern: user_input
+          label: INPUT
+    ```
+    Semgrep accepts any valid Python identifier as a label.
+
+2. Restrict a taint source to a subset of labels using the `requires` key.  Extending the previous example, see the `requires: INPUT` below:
+    ```yaml
+        pattern-sources:
+          - pattern: user_input
+            label: INPUT
+          - pattern: evil(...)
+            requires: INPUT
+            label: EVIL
+    ```
+    The `requires` key accepts a Python Boolean expression over labels. For example: `requires: LABEL1 and not LABEL2`.
+
+3. Use the `requires` key to restrict a taint sink in the same way as source:
+    ```yaml
+        pattern-sinks:
+          - pattern: sink(...)
+            requires: EVIL
+    ```
+
+:::info
+- Semgrep accepts valid Python identifiers as labels.
+- Restrict a source to a subset of labels using the `requires` key. You can also use Python Boolean expressions instead. For example: `requires: LABEL1 and not LABEL2`.
+- Restrict a sink also. The extra taint is only produced if the source itself is tainted and satisfies the `requires` formula.
+:::
+
+In the example below, let's say that `user_input` is dangerous but only when it passes through the `evil` function. This can be specified with taint labels as follows:
 
 <iframe src="https://semgrep.dev/embed/editor?snippet=PwKY" border="0" frameBorder="0" width="100%" height="432"></iframe>
 
