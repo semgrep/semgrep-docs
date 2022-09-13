@@ -55,9 +55,10 @@ Support for certain features of Semgrep App depend on your CI provider or source
 
 To add a Semgrep configuration file in your GitHub Actions pipeline:
 
-1. Create a `semgrep.yaml` file within `.github/workflows` in the repository you want to scan.
-2. Copy the relevant configuration file from the tabs provided and commit the file.
-3. The Semgrep job starts automatically upon detecting the `semgrep.yml` file. You can also start the job from the GitHub Actions interface.
+1. Create a `semgrep.yml` file within `.github/workflows` in the repository you want to scan.
+2. Copy the relevant code snippet provided after these instructions.
+3. Commit the configuration file.
+4. The Semgrep job starts automatically upon detecting the committed `semgrep.yml` file. You can also start the job from the GitHub Actions interface.
 
 <Tabs
     defaultValue="gha-semgrep"
@@ -283,6 +284,12 @@ To add a Semgrep configuration file in your GitHub Actions pipeline:
 
 ## GitLab CI/CD
 
+To add a Semgrep configuration snippet in your GitLab CI/CD pipeline:
+
+1. Create or edit your `.gitlab-ci.yml` file in the repository you want to scan.
+2. Copy the relevant code snippet provided after these instructions.
+3. Commit the configuration file.
+4. The Semgrep job starts automatically upon detecting the committed `.gitlab-ci.yml` file. You can also view the job from your GitLab project's **CI/CD > Pipelines** page. 
 
 <Tabs
     defaultValue="glcicd-semgrep"
@@ -467,13 +474,13 @@ To add a Semgrep configuration file in your GitHub Actions pipeline:
 
 ## Jenkins
 
-To add a Semgrep configuration file in your Jenkins pipeline:
+To add a Semgrep configuration snippet in your Jenkins pipeline:
 
-1. Edit or create your `Jenkinsfile` configuration file within `.github/workflows` in the repository you want to scan.
-2. Copy the relevant configuration file from the following tabs provided and commit the file.
+1. Edit or create your `Jenkinsfile` configuration file in the repository you want to scan. You can also edit your `Jenkinsfile` from Jenkins's interface.
+2. Copy the relevant code snippet provided after these instructions.
+3. Commit the configuration file.
 3. The Semgrep job starts automatically upon detecting the `Jenkinsfile` update.
-4. Optional: Create a separate CI job for diff-aware scanning, which scans only changed files in PRs or MRs, by repeating steps 1-3 and uncommenting the `SEMGREP_BASELINE_REF`.
-
+4. Optional: Create a separate CI job for diff-aware scanning, which scans only changed files in PRs or MRs, by repeating steps 1-3 and uncommenting the `SEMGREP_BASELINE_REF` definition provided within the code snippet.
 
 <Tabs
     defaultValue="jenkins-semgrep"
@@ -485,7 +492,7 @@ To add a Semgrep configuration file in your Jenkins pipeline:
 
 <TabItem value='jenkins-semgrep'>
 
-These code snippets use Jenkins declarative syntax.
+This code snippet uses Jenkins declarative syntax.
 
   ```javascript
   pipeline {
@@ -499,16 +506,22 @@ These code snippets use Jenkins declarative syntax.
         // SEMGREP_BASELINE_REF = "main"
   
         // Optional:
+        // Uncomment SEMGREP_TIMEOUT to set this job's timeout (in seconds).
+        // Default timeout is 1800 seconds (30 minutes).
+        // Set to 0 to disable the timeout.
         // SEMGREP_TIMEOUT = "300"
 
         // Troubleshooting:
-        // Uncomment the following lines to troubleshoot issues in detecting links to code.
+
+        // Uncomment the following lines if Semgrep App > Findings Page does not create links
+        // to the code that generated a finding.
         // (For Semgrep versions before 0.98.0)
         // SEMGREP_JOB_URL = "${BUILD_URL}"
         // SEMGREP_COMMIT = "${GIT_COMMIT}"
         // SEMGREP_PR_ID = "${env.CHANGE_ID}"
         
-        // Uncomment the following lines to troubleshoot issues in detecting links to code.
+        // Uncomment the following lines if Semgrep App > Findings Page does not create links
+        // to the code that generated a finding.
         // (Any Semgrep version.)
         // SEMGREP_REPO_NAME = env.GIT_URL.replaceFirst(/^https:\/\/github.com\/(.*).git$/, '$1')
         // SEMGREP_REPO_URL = env.GIT_URL.replaceFirst(/^(.*).git$/,'$1')
@@ -529,7 +542,7 @@ These code snippets use Jenkins declarative syntax.
 
 <TabItem value='jenkins-standalone'>
 
-These code snippets use Jenkins declarative syntax.
+This code snippet uses Jenkins declarative syntax.
 
   ```javascript
   pipeline {
@@ -543,6 +556,9 @@ These code snippets use Jenkins declarative syntax.
         // SEMGREP_BASELINE_REF = "main"
   
         // Optional:
+        // Uncomment SEMGREP_TIMEOUT to set this job's timeout (in seconds).
+        // Default timeout is 1800 seconds (30 minutes).
+        // Set to 0 to disable the timeout.
         // SEMGREP_TIMEOUT = "300"
       }
       stages {
@@ -558,6 +574,84 @@ These code snippets use Jenkins declarative syntax.
 
 </TabItem>
 </Tabs>
+
+## Bitbucket Pipelines
+
+To add a Semgrep configuration snippet into your BitBucket Pipeline:
+
+
+1. Create or edit your `bitbucket-pipelines.yml` file in the repository you want to scan.
+2. Copy the relevant code snippet provided after these instructions.
+3. Commit the configuration file.
+4. The Semgrep job starts automatically upon detecting the committed `bitbucket-pipelines.yml` file. You can also view the job through BitBucket's interface, by clicking **your repository > Pipelines**. 
+
+:::note
+These steps can also be performed through BitBucket's UI wizard. This UI wizard can be accessed through **BitBucket > your repository > Pipelines > Create your first pipeline**.
+:::
+
+
+<Tabs
+    defaultValue="bitbucket-semgrep"
+    values={[
+    {label: 'CI with Semgrep App', value: 'bitbucket-semgrep'},
+    {label: 'Stand-alone CI job', value: 'bitbucket-standalone'},
+    ]}
+>
+
+<TabItem value='bitbucket-semgrep'>
+
+  ```yaml
+  image: atlassian/default-image:latest
+  
+  pipelines:
+    default:
+      - parallel:
+        - step:
+            name: 'Run Semgrep scan with current branch'
+            deployment: dev
+            image: returntocorp/semgrep
+            script:
+              # Set SEMGREP Variables
+              # - export SEMGREP_REPO_URL=$BITBUCKET_GIT_HTTP_ORIGIN
+              # - export SEMGREP_REPO_NAME=$BITBUCKET_REPO_FULL_NAME
+              # - export SEMGREP_BRANCH=$BITBUCKET_BRANCH
+              # - export SEMGREP_JOB_URL="${SEMGREP_REPO_URL}/addon/pipelines/home#!/results/${BITBUCKET_PIPELINE_UUID}"
+              # - export SEMGREP_COMMIT=$BITBUCKET_COMMIT
+              # - export SEMGREP_PR_ID=$BITBUCKET_PR_ID
+              # - export $SEMGREP_APP_TOKEN
+              - semgrep ci
+  ```
+
+</TabItem>
+
+
+<TabItem value='bitbucket-semgrep'>
+
+  ```yaml
+  image: atlassian/default-image:latest
+  
+  pipelines:
+    default:
+      - parallel:
+        - step:
+            name: 'Run Semgrep scan with current branch'
+            deployment: dev
+            image: returntocorp/semgrep
+            script:
+              # Set SEMGREP Variables
+              # - export SEMGREP_REPO_URL=$BITBUCKET_GIT_HTTP_ORIGIN
+              # - export SEMGREP_REPO_NAME=$BITBUCKET_REPO_FULL_NAME
+              # - export SEMGREP_BRANCH=$BITBUCKET_BRANCH
+              # - export SEMGREP_JOB_URL="${SEMGREP_REPO_URL}/addon/pipelines/home#!/results/${BITBUCKET_PIPELINE_UUID}"
+              # - export SEMGREP_COMMIT=$BITBUCKET_COMMIT
+              # - export SEMGREP_PR_ID=$BITBUCKET_PR_ID
+              # - export $SEMGREP_APP_TOKEN
+              - semgrep ci
+  ```
+
+</TabItem>
+</Tabs>
+
 
 ## Buildkite
 
@@ -596,7 +690,7 @@ jobs:
     # Scan changed files in PRs, only report new findings (existing findings ignored)
       SEMGREP_BASELINE_REF: << parameters.default_branch >>
 
-    # == Optional settings in the `environment:` block
+    # Optional settings in the `environment:` block
 
     # Instead of `SEMGREP_APP_TOKEN:`, set hard-coded rulesets, 
     # viewable in logs.
@@ -630,29 +724,6 @@ workflows:
       - semgrep-scan
 ```
 
-## Bitbucket Pipelines
-
-```yaml
-image: atlassian/default-image:latest
-
-pipelines:
-  default:
-    - parallel:
-      - step:
-          name: 'Run Semgrep scan with current branch'
-          deployment: dev
-          image: returntocorp/semgrep
-          script:
-            # Set SEMGREP Variables
-            # - export SEMGREP_REPO_URL=$BITBUCKET_GIT_HTTP_ORIGIN
-            # - export SEMGREP_REPO_NAME=$BITBUCKET_REPO_FULL_NAME
-            # - export SEMGREP_BRANCH=$BITBUCKET_BRANCH
-            # - export SEMGREP_JOB_URL="${SEMGREP_REPO_URL}/addon/pipelines/home#!/results/${BITBUCKET_PIPELINE_UUID}"
-            # - export SEMGREP_COMMIT=$BITBUCKET_COMMIT
-            # - export SEMGREP_PR_ID=$BITBUCKET_PR_ID
-            # - export $SEMGREP_APP_TOKEN
-            - semgrep ci --config auto
-```
 
 ## Azure Pipelines
 
