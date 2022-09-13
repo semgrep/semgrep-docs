@@ -265,7 +265,9 @@ gitup() {
   Good to know:
   - Merging in B can be done with a merge commit or by squashing the
     commits.
-  - If squashing commits in B, the original commit referenced by A becomes
-    orphaned when the branch is deleted but remains cached by git for
-    a while. This is usually sufficient to not require A to point to
-    the newly-squashed commit.
+  - If squashing commits in B, you must know that the original commit
+    referenced by A becomes orphaned when the branch is deleted but
+    remains cached by git for a while. This is usually sufficient to
+    not require A to point to the newly-squashed commit. _If this turns
+    out to be problematic in practice, we may have to disallow
+    commit squashing in the future._
