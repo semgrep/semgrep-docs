@@ -231,27 +231,9 @@ Scanning a repository from SCM providers such as GitHub or GitLab ensures that S
 3. Optional: If you do not see the repository you want to add in the **Projects** page of Semgrep app, follow the steps in the succeeding sections to ensure that Semgrep App can detect the repository.
 4. Click **Scan new project**, and then click **Run scan in CI**.
 5. Select which repository provider for Semgrep to integrate with.
-
-6. For **GitHub Actions**:
-    1. Select the checkbox next to the name of the projects to add.
-    2. Optional: If you do not see the repository you want to add, adjust [GitHub Application's Repository Access](https://github.com/settings/installations) configuration. See [Detecting GitHub repositories](#detecting-github-repositories) for more information.
-    3. Click **Bulk add CI jobs**.
-    4. Optional: Semgrep App creates a file for the CI job. Click **Review CI config** to see a Semgrep YAML (`semgrep.yml`) configuration file.
-    5. Click **Commit file**. This commits the `semgrep.yml` file containing pertinent scan parameters, such as schedule, what branch to scan on, and so on.
-7. For **GitLab CI/CD**:
-    1. Create a Semgrep App token by clicking **Create new API token**, and then follow the displayed instructions about saving the token.
-    2. Add the Semgrep App token as a secret [CI/CD variable](https://docs.gitlab.com/ee/ci/variables/#custom-cicd-variables) named `SEMGREP_APP_TOKEN`.
-    3. Select toggles to determine scan behavior.
-    4. Copy the snippet provided to your `.gitlab-ci.yml` file and commit it.
-8. For **CircleCI**:
-    1. Create a Semgrep App token by clicking **Settings > Tokens > Create new token**, then return to the project setup by clicking on the back arrow on your browser.
-    2. Add the Semgrep App token as a project [environment variable](https://circleci.com/docs/2.0/env-vars/) named `SEMGREP_APP_TOKEN`.
-    3. Copy the snippet provided and commit the `circleci/config.yml` file.
-9. For **other CI providers**:
-    1. Create a Semgrep App token by clicking **Settings > Tokens > Create new token**, then return to the project setup by clicking on the back arrow on your browser.
-    2. Add the Semgrep App token as a project environment variable named `SEMGREP_APP_TOKEN`.
-    3. Copy the snippet provided and commit your CI provider's `config.yml` file.
-10. If successful, Semgrep App scans the repository for the first time using default, pre-selected rules.
+6. Follow instructions displayed on Semgrep App page for particular repository provider.
+7. Optional: For **GitHub Actions**. If you do not see the repository you want to add, adjust [GitHub Application's Repository Access](https://github.com/settings/installations) configuration. See [Detecting GitHub repositories](#detecting-github-repositories) for more information.
+8. If successful, Semgrep App scans the repository for the first time using default, pre-selected rules.
 
 ##### Detecting GitHub repositories
 
