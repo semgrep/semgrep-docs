@@ -7,7 +7,7 @@ description: >-
 
 # Taint tracking
 
-Semgrep supports intra-procedural [taint tracking](https://en.wikipedia.org/wiki/Taint_checking). This data-flow analysis tracks the flow of untrusted (**tainted**) data throughout a program. If this data is not transformed or checked accordingly (**sanitized**), taint analysis reports a finding whenever tainted data reach a vulnerable function (**sink**).
+Semgrep supports intra-procedural [taint tracking](https://en.wikipedia.org/wiki/Taint_checking). This data-flow analysis tracks the flow of untrusted (**tainted**) data throughout a program. If tainted data are not transformed or checked accordingly (**sanitized**), taint analysis reports a finding whenever tainted data reach a vulnerable function (**sink**).
 
 The following video provides a quick overview of taint mode:
 <iframe class="yt_embed" width="100%" height="432px" src="https://www.youtube.com/embed/6MxMhFPkZlU" frameborder="0" allowfullscreen></iframe>
