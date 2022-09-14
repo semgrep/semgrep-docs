@@ -6,7 +6,7 @@ description: "Taint labels increase the expressiveness of taint-mode by allowing
 
 # Taint labels
 
-Taint labels increase the expressiveness of taint mode by allowing you to specify and track different kinds of taint through labels. This functionality has various uses, for example, when data becomes dangerous through several steps that are hard to specify through single pair of source and sink.
+Taint labels increase the expressiveness of taint analysis by allowing you to specify and track different kinds of tainted data. This functionality has various uses, for example, when data becomes dangerous in several steps that are hard to specify through single pair of source and sink.
 
 To include taint labels into a taint mode rule, follow these steps:
 
@@ -18,7 +18,7 @@ To include taint labels into a taint mode rule, follow these steps:
     ```
     Semgrep accepts any valid Python identifier as a label.
 
-2. Restrict a taint source to a subset of labels using the `requires` key.  Extending the previous example, see the `requires: INPUT` below:
+2. Restrict a taint source to a subset of labels using the `requires` key. Extending the previous example, see the `requires: INPUT` below:
     ```yaml
         pattern-sources:
           - pattern: user_input
@@ -27,7 +27,7 @@ To include taint labels into a taint mode rule, follow these steps:
             requires: INPUT
             label: EVIL
     ```
-    The `requires` key accepts a Python Boolean expression over labels. For example: `requires: LABEL1 and not LABEL2`.
+    Combine labels using `requires` key. To combine labels, use Python Boolean operators. For example: `requires: LABEL1 and not LABEL2`.
 
 3. Use the `requires` key to restrict a taint sink in the same way as source:
     ```yaml
@@ -38,7 +38,7 @@ To include taint labels into a taint mode rule, follow these steps:
 
 :::info
 - Semgrep accepts valid Python identifiers as labels.
-- Restrict a source to a subset of labels using the `requires` key. You can also use Python Boolean expressions instead. For example: `requires: LABEL1 and not LABEL2`.
+- Restrict a source to a subset of labels using the `requires` key. You can combine more labels in `requires` key using Python Boolean operators. For example: `requires: LABEL1 and not LABEL2`.
 - Restrict a sink also. The extra taint is only produced if the source itself is tainted and satisfies the `requires` formula.
 :::
 
