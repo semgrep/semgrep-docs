@@ -38,7 +38,7 @@ To include taint labels into a taint mode rule, follow these steps:
 
 :::info
 - Semgrep accepts valid Python identifiers as labels.
-- Restrict a source to a subset of labels using the `requires` key. You can combine more labels in `requires` key using Python Boolean operators. For example: `requires: LABEL1 and not LABEL2`.
+- Restrict a source to a subset of labels using the `requires` key. You can combine more labels in the `requires` key using Python Boolean operators. For example: `requires: LABEL1 and not LABEL2`.
 - Restrict a sink also. The extra taint is only produced if the source itself is tainted and satisfies the `requires` formula.
 :::
 
