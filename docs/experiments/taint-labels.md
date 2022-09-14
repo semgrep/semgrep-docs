@@ -6,7 +6,7 @@ description: "Taint labels increase the expressiveness of taint-mode by allowing
 
 # Taint labels
 
-Taint labels increase the expressiveness of taint analysis by allowing you to specify and track different kinds of tainted data. This functionality has various uses, for example, when data becomes dangerous in several steps that are hard to specify through single pair of source and sink.
+Taint labels increase the expressiveness of taint analysis by allowing you to specify and track different kinds of tainted data in one rule using labels. This functionality has various uses, for example, when data becomes dangerous in several steps that are hard to specify through single pair of source and sink.
 
 To include taint labels into a taint mode rule, follow these steps:
 
