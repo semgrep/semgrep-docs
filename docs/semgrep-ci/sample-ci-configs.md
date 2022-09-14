@@ -104,8 +104,8 @@ To add a Semgrep configuration file in your GitHub Actions pipeline:
         - run: semgrep ci
           env:
             # Connect to Semgrep App through your SEMGREP_APP_TOKEN.
-            # Make sure you have generated a token from Semgrep App > Settings
-            # and you have added it to your GitHub secrets.
+            # Generate a token from Semgrep App > Settings
+            # and add it to your GitHub secrets.
             SEMGREP_APP_TOKEN: ${{ secrets.SEMGREP_APP_TOKEN }}
   
             # Uncomment SEMGREP_TIMEOUT to set this job's timeout (in seconds):
@@ -210,8 +210,8 @@ To add a Semgrep configuration file in your GitHub Actions pipeline:
         - run: semgrep ci
           env:
             # Connect to Semgrep App through your SEMGREP_APP_TOKEN.
-            # Make sure you have generated a token from Semgrep App > Settings
-            # and you have added it to your GitHub secrets.
+            # Generate a token from Semgrep App > Settings
+            # and add it to your GitHub secrets.
             SEMGREP_APP_TOKEN: ${{ secrets.SEMGREP_APP_TOKEN }}
   
             # Uncomment SEMGREP_TIMEOUT to set this job's timeout (in seconds):
@@ -317,8 +317,8 @@ To add a Semgrep configuration snippet in your GitLab CI/CD pipeline:
   
     variables:
       # Connect to Semgrep App through your SEMGREP_APP_TOKEN.
-      # Make sure you have generated a token from Semgrep App > Settings
-      # and you have added it as a variable in your GitLab CI/CD project settings.
+      # Generate a token from Semgrep App > Settings
+      # and add it as a variable in your GitLab CI/CD project settings.
       SEMGREP_APP_TOKEN: $SEMGREP_APP_TOKEN
   
     # Other optional settings in the `variables` block:
@@ -397,8 +397,8 @@ To add a Semgrep configuration snippet in your GitLab CI/CD pipeline:
   
     variables:
       # Connect to Semgrep App through your SEMGREP_APP_TOKEN.
-      # Make sure you have generated a token from Semgrep App > Settings
-      # and you have added it as a variable in your GitLab CI/CD project settings.
+      # Generate a token from Semgrep App > Settings
+      # and add it as a variable in your GitLab CI/CD project settings.
       SEMGREP_APP_TOKEN: $SEMGREP_APP_TOKEN
   
       # Upload findings to GitLab SAST Dashboard:
@@ -479,8 +479,8 @@ To add a Semgrep configuration snippet in your Jenkins pipeline:
 1. Edit or create your `Jenkinsfile` configuration file in the repository you want to scan. You can also edit your `Jenkinsfile` from Jenkins's interface.
 2. Copy the relevant code snippet provided after these instructions.
 3. Commit the configuration file.
-3. The Semgrep job starts automatically upon detecting the `Jenkinsfile` update.
-4. Optional: Create a separate CI job for diff-aware scanning, which scans only changed files in PRs or MRs, by repeating steps 1-3 and uncommenting the `SEMGREP_BASELINE_REF` definition provided within the code snippet.
+4. The Semgrep job starts automatically upon detecting the `Jenkinsfile` update.
+5. Optional: Create a separate CI job for diff-aware scanning, which scans only changed files in PRs or MRs, by repeating steps 1-3 and uncommenting the `SEMGREP_BASELINE_REF` definition provided within the code snippet.
 
 <Tabs
     defaultValue="jenkins-semgrep"
@@ -498,6 +498,7 @@ This code snippet uses Jenkins declarative syntax.
   pipeline {
     agent any
       environment {
+        // The following variables are required for a Semgrep App-connected scan:
         SEMGREP_APP_TOKEN = credentials('SEMGREP_APP_TOKEN')
         SEMGREP_BRANCH = "${GIT_BRANCH}"
   
@@ -579,11 +580,11 @@ This code snippet uses Jenkins declarative syntax.
 
 To add a Semgrep configuration snippet into your BitBucket Pipeline:
 
-
 1. Create or edit your `bitbucket-pipelines.yml` file in the repository you want to scan.
 2. Copy the relevant code snippet provided after these instructions.
 3. Commit the configuration file.
 4. The Semgrep job starts automatically upon detecting the committed `bitbucket-pipelines.yml` file. You can also view the job through BitBucket's interface, by clicking **your repository > Pipelines**. 
+5. Optional: Create a separate CI job for diff-aware scanning, which scans only changed files in PRs or MRs, by repeating steps 1-3 and uncommenting the `SEMGREP_BASELINE_REF` definition provided within the code snippet.
 
 :::note
 These steps can also be performed through BitBucket's UI wizard. This UI wizard can be accessed through **BitBucket > your repository > Pipelines > Create your first pipeline**.
@@ -611,21 +612,42 @@ These steps can also be performed through BitBucket's UI wizard. This UI wizard 
             deployment: dev
             image: returntocorp/semgrep
             script:
-              # Set SEMGREP Variables
-              # - export SEMGREP_REPO_URL=$BITBUCKET_GIT_HTTP_ORIGIN
-              # - export SEMGREP_REPO_NAME=$BITBUCKET_REPO_FULL_NAME
-              # - export SEMGREP_BRANCH=$BITBUCKET_BRANCH
+              # The following variables are required to set up a Semgrep App-connected scan:
+              - export $SEMGREP_APP_TOKEN
+              - export SEMGREP_BRANCH=$BITBUCKET_BRANCH
+
+              # Uncomment the following line to scan changed 
+              # files in PRs or MRs (diff-aware scanning): 
+              # - export SEMGREP_BASELINE_REF = "main"
+
+              # Optional:
+              # Uncomment SEMGREP_TIMEOUT to set this job's timeout (in seconds).
+              # Default timeout is 1800 seconds (30 minutes).
+              # Set to 0 to disable the timeout.
+              # - export SEMGREP_TIMEOUT = "300"
+
+              # Troubleshooting:
+
+              # Uncomment the following lines if Semgrep App > Findings Page does not create links
+              # to the code that generated a finding.
+              # (For Semgrep versions before 0.98.0)
               # - export SEMGREP_JOB_URL="${SEMGREP_REPO_URL}/addon/pipelines/home#!/results/${BITBUCKET_PIPELINE_UUID}"
               # - export SEMGREP_COMMIT=$BITBUCKET_COMMIT
               # - export SEMGREP_PR_ID=$BITBUCKET_PR_ID
-              # - export $SEMGREP_APP_TOKEN
+
+              # Uncomment the following lines if Semgrep App > Findings Page does not create links
+              # to the code that generated a finding.
+              # (Any Semgrep version.)
+              # - export SEMGREP_REPO_URL=$BITBUCKET_GIT_HTTP_ORIGIN
+              # - export SEMGREP_REPO_NAME=$BITBUCKET_REPO_FULL_NAME
+
               - semgrep ci
   ```
 
 </TabItem>
 
 
-<TabItem value='bitbucket-semgrep'>
+<TabItem value='bitbucket-standalone'>
 
   ```yaml
   image: atlassian/default-image:latest
@@ -638,14 +660,18 @@ These steps can also be performed through BitBucket's UI wizard. This UI wizard 
             deployment: dev
             image: returntocorp/semgrep
             script:
-              # Set SEMGREP Variables
-              # - export SEMGREP_REPO_URL=$BITBUCKET_GIT_HTTP_ORIGIN
-              # - export SEMGREP_REPO_NAME=$BITBUCKET_REPO_FULL_NAME
-              # - export SEMGREP_BRANCH=$BITBUCKET_BRANCH
-              # - export SEMGREP_JOB_URL="${SEMGREP_REPO_URL}/addon/pipelines/home#!/results/${BITBUCKET_PIPELINE_UUID}"
-              # - export SEMGREP_COMMIT=$BITBUCKET_COMMIT
-              # - export SEMGREP_PR_ID=$BITBUCKET_PR_ID
-              # - export $SEMGREP_APP_TOKEN
+              - export SEMGREP_RULES = "p/default"
+
+              # Uncomment the following line to scan changed 
+              # files in PRs or MRs (diff-aware scanning): 
+              # - export SEMGREP_BASELINE_REF = "main"
+
+              # Optional:
+              # Uncomment SEMGREP_TIMEOUT to set this job's timeout (in seconds).
+              # Default timeout is 1800 seconds (30 minutes).
+              # Set to 0 to disable the timeout.
+              # - export SEMGREP_TIMEOUT = "300"
+
               - semgrep ci
   ```
 
