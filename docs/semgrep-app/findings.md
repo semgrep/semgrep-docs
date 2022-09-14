@@ -22,7 +22,6 @@ Object.entries(frontMatter).filter(
 
 # Managing findings in Semgrep App
 
-
 A **finding** is the core result of Semgrep's analysis. Findings are generated when a Semgrep rule matches a piece of code.
 
 ![Screenshot of Semgrep App Findings page ](/img/app-findings-overview.png)<br />
@@ -82,7 +81,7 @@ The Semgrep App Finding page displays findings across all projects connected to 
 ### Navigating to the Findings page
 
 1. Sign in to Semgrep App.
-2. Click on **Findings** page on the left sidebar.
+2. Click **Findings** on the left sidebar.
 
 ### Understanding the Findings page
 
@@ -129,7 +128,7 @@ Filtering allows you to easily isolate groups of findings for ease in triaging a
 
 To filter through all findings:
 
-1. Click on the filter criteria’s drop-down box.
+1. Click the filter criteria’s drop-down box.
 2. Enable displayed checkbox or write in a field value by which the findings are filtered.
 3. The page then refreshes to reflect the additional criteria.
 4. Additional values may be selected to further refine your filter.
@@ -146,7 +145,7 @@ Perform bulk triage by filtering through the findings, and then you can select w
 
 To **ignore findings**:
 
-1. Click on **Status** filter, and then click on **Open** toggle to see all open findings.
+1. Click the **Status** filter, and then select **Open** toggle to see all open findings.
 1. After the findings are selected, perform one of these steps:
     - Select all of the results by clicking on the header row checkbox. You can navigate to succeeding pages and add to the current selection.
     - Select relevant findings one by one by clicking on their checkboxes individually.
@@ -155,7 +154,7 @@ To **ignore findings**:
 
 To **open findings**:
 
-1. Click on **Status** filter, and then click on **Ignored** or **Fixed** toggle to see all ignored or fixed findings.
+1. Click the **Status** filter, and then select **Ignored** or **Fixed** toggle to see all ignored or fixed findings.
 2. After the findings are filtered, perform one of these steps:
     - Select all of the results by clicking on the header row checkbox. You can navigate to succeeding pages and add to the current selection.
     - Select relevant findings one by one by clicking on their checkboxes individually.
@@ -184,7 +183,7 @@ Semgrep supports the creation of Jira tickets from a finding. This enables devel
 To **create a ticket**:
 
 1. Set up a Jira integration through the [Integrations](https://semgrep.dev/docs/semgrep-app/integrations/) guide.
-2. Click on the **three-dot icon** of the entry.
+2. Click the **three-dot icon** of the entry.
 3. Click **Create issue with Jira**.
 
 ## Deduplicating findings
