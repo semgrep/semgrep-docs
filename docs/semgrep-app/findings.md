@@ -22,9 +22,9 @@ Object.entries(frontMatter).filter(
 
 # Managing findings in Semgrep App
 
-A **finding** is the core result of Semgrep's analysis. Findings are generated when a Semgrep rule matches a piece of code.
+A **finding** is the core result of Semgrep analysis. Findings are generated when a Semgrep rule matches a piece of code.
 
-![Screenshot of Semgrep App Findings page ](/img/app-findings-overview.png)<br />
+![Semgrep App Findings page](/img/app-findings-overview.png)<br />
 *Figure 1.* Screenshot of findings page.
 
 A finding can be categorized in two ways:
@@ -35,11 +35,11 @@ A finding can be categorized in two ways:
     - Business or logic bugs
     - Matches based on your own custom rules (such as organization-specific authentication logic)
 
-    Semgrep rules provide a metadata schema to identify common categories such as the above. Semgrep findings include a `message` field that describes the security issue or bug found in matching code. Findings may also provide a `fix` field that fixes the issue by creating a suggestion within your source code management (SCM) tool, such as GitHub or GitLab.
+    Semgrep rules provide a metadata schema to identify common categories such as the above. Semgrep findings include a `message` field that describes the security issue or bug found in matching code. Additionaly, findings can provide a `fix` field that fixes the issue by creating a suggestion within your source code management (SCM) tool, such as GitHub or GitLab.
 2. **Finding categorization based on the validity of the match**:
     <dl>
         <dt>True positive</dt>
-        <dd>Rules are written to match a certain code pattern. A true positive is a genuine match. The rule is capturing code as intended.</dd>
+        <dd>Rules are written to match a certain code pattern. A true positive is a genuine match. The rule is capturing the code as intended.</dd>
         <dt>False positive</dt>
         <dd>A false positive is a mismatch between the intended purpose of the rule and the code it matched. A finding is generated but does not meet the rule's intended need. Rules with a high false positivity rate are said to be <strong>noisy</strong>.</dd>
         <dt>False negative</dt>
@@ -63,8 +63,8 @@ After a finding is generated, developers can:
 
 :::tip
 * An additional method to address false positives is to improve the rule. Create [test cases](/docs/writing-rules/testing-rules) to ensure that the rule performs as intended.
-* If a rule from Semgrep Registry is useful but also captures too many false positives, you can reach out to support@semgrep.dev. This helps rule-writing efforts and improve the quality of rules that you run. 
-* Additionally, you can also report rules with a high false positive rate from your SCM if you have enabled Semgrep App to leave comments in PRs. A link is provided after each comment for users to indicate if the finding is a false positive.
+* If a rule from Semgrep Registry is useful but also captures too many false positives, you can reach out to support@semgrep.dev. This helps rule-writing efforts and improves the quality of rules that you run. 
+* Additionally, you can report rules with a high false positive rate from your SCM if you have enabled Semgrep App to leave comments in PRs. Semgrep App provides a link after each comment for users to indicate if the finding is a false positive.
 :::
 
 ### Understanding retention periods
@@ -87,12 +87,10 @@ The Semgrep App Finding page displays findings across all projects connected to 
 
 The Findings page consists of:
 
-<dl>
-    <dt>Findings filter panel</dt>
-    <dd>Panel which let's you filter for differnt fidings.</dd>
-    <dt>Findings information</dt>
-    <dd>Gives you details about findings. Each finding in the list includes rule name, Rule Board action column description, link to fidnings detail page, rule message, repository name, link to Git branch name, link to reported file and line of code. </dd>
-</dl>
+- **Findings filter panel**: Panel which lets you filter for different findings.
+- **Findings information**: Gives you details about findings. Each finding in the list includes rule name, Rule Board action column description, link to findings detail page, rule message, repository name, link to Git branch name, link to the reported file, and line of code.
+    ![Findings information panel](/img/app-findings.png)<br />
+    *Figure 2.* Screenshot of the findings information panel.
 
 ## Triaging findings
 
@@ -102,8 +100,8 @@ Semgrep App assists in the triage process through the use of **comments** and **
 
 | Triage state | Description |
 | -----------  | ------------ |
-| **Open** | Open findings require action, such as rewriting the code for vulnerabilities, or refactoring the code. Findings are open by default. |
-| **Ignored** | Findings that are ignored will not be acted upon. This may be a false positive or deprioritized issue. Findings can be ignored through Semgrep App (see [Managing triage states](#managing-triage-states-bulk-triage)). There are two types of ignored findings: <dl><dt>Ignored - App</dt><dd>The ignore status was set within Semgrep App.</dd><dt>Ignored - Code</dt><dd>The ignore status was set from the code itself. Using a `nosemgrep` annotation within the code falls under this type.</dd></dl> |
+| **Open** | Open findings require action, such as rewriting the code for vulnerabilities or refactoring the code. Findings are open by default. |
+| **Ignored** | Findings that are ignored are not acted upon. This can be a false positive or deprioritized issue. Findings can be ignored through Semgrep App (see [Managing triage states](#managing-triage-states-bulk-triage)). There are two types of ignored findings: <dl><dt>Ignored - App</dt><dd>The ignored status was set within Semgrep App.</dd><dt>Ignored - Code</dt><dd>The ignored status was set from the code itself. Using a `nosemgrep` annotation within the code falls under this type.</dd></dl> |
 | **Fixed** | Fixed findings are findings that were detected in a previous scan of a particular branch, but no longer trigger a match in the most recent scan of that same branch. The rule that detected the finding and the code that triggered the match must both be active in the most recent scan. |
 
 Findings can also be **removed**. A removed finding does not count towards a fix rate or the total number of findings. A finding is considered removed if it is not found in the most recent scan of the branch where the finding was detected due to any of the following conditions:
@@ -118,17 +116,17 @@ Filtering allows you to easily isolate groups of findings for ease in triaging a
 
 | Filter      | Description  |
 | ----------  | ------------ |
-| **Status**       | Filter for different findings’ triage states. Refer to the [following table](#triaging-findings) to understand triage states. |
+| **Status**       | Filter for different findings triage states. Refer to the [following table](#triaging-findings) to understand triage states. |
 | **Projects**     | Filter by repositories connected to Semgrep App. |
 | **Branches**     | Filter by findings in different branches. |
-| **Rules**        | Filter by rules or rulesets that are included in your Rule Board or Policies page. More than one rule can be selected for filtering. |
+| **Rules**        | Filter by rules or rulesets that are included in your Rule Board. More than one rule can be selected for filtering. |
 | **Rulesets**     | Filter by name of the ruleset where rules that matched the code belong. |
-| **Actions**     | Filter by monitoring, commenting, or blocking rules in your Rule Board or Policies page. |
-| **Severity**    | Filter by the severity of a finding. Possible values: <ul><li>Low</li><li>Medium</li><li>High </li></ul> |
+| **Actions**     | Filter by monitoring, commenting, or blocking rules in your Rule Board. |
+| **Severity**    | Filter by the severity of a finding. Possible values: <ul><li>Low</li><li>Medium</li><li>High</li></ul> |
 
 To filter through all findings:
 
-1. Click the filter criteria’s drop-down box.
+1. Click the filter criteria drop-down box.
 2. Enable displayed checkbox or write in a field value by which the findings are filtered.
 3. The page then refreshes to reflect the additional criteria.
 4. Additional values may be selected to further refine your filter.
@@ -136,12 +134,10 @@ To filter through all findings:
 ### Managing triage states (bulk triage)
 
 Perform bulk triage by filtering through the findings, and then you can select which findings to be:
-
-* Opened
-* Ignored
-
-![Screenshot of Semgrep App triage menu](/img/app-findings-triage.png)<br />
-*Figure 2.* Screenshot of Findings page triage menu.
+- Opened
+- Ignored
+    ![Screenshot of Semgrep App triage menu](/img/app-findings-triage.png)<br />
+    *Figure 3.* Screenshot of Findings page triage menu.
 
 To **ignore findings**:
 
@@ -167,18 +163,20 @@ To **remove a rule** from the Rule Board:
 
 1. Click **Rule Board**.
 2. Click the ruleset that contains the rule.
-3. Click the **garbage can** icon next to the rule you're deleting.
+3. Click the <i className="fa-solid fa-trash-can inline_svg"></i> **Remove rule** icon next to the rule you're deleting.
 4. Click **Save**.
 5. Manually initiate a Semgrep scan from your CI job or SCM tool to immediately remove findings generated by the removed rule.
 
 To **view and add comments**:
 
-1. Click the <i className="fa-regular fa-arrow-up-right-from-square inline_svg"></i> **Rule details** icon next to the finding’s status.
+1. Click the <i className="fa-regular fa-arrow-up-right-from-square inline_svg"></i> **Finding details** icon next to the finding’s status.
 2. Find the comments in the **History** section.
+    ![Semgrep App finding details page](/img/app-finding-details.png)<br />
+    *Figure 4.* Screenshot of Finding details page.
 
 ## Creating Jira tickets from findings
 
-Semgrep supports the creation of Jira tickets from a finding. This enables developers and project managers to create relevant issues within their own project or bug tracking environment. This feature is available to Team/Enterprise Tier users.
+Semgrep supports the creation of Jira tickets from a finding. This enables developers and project managers to create relevant issues within their own project or bug-tracking environment. This feature is available to Team/Enterprise Tier users.
 
 To **create a ticket**:
 
@@ -188,7 +186,7 @@ To **create a ticket**:
 
 ## Deduplicating findings
 
-Semgrep App scans are performed on both mainline (trunk) and non-mainline branches. Findings are generated on a per-branch basis. Duplicate findings arise due to scans occurring on the same code in different branches.
+Semgrep App scans are performed on both mainline (trunk) and non-mainline branches. Semgrep App generates findings on a per-branch basis. Duplicate findings arise due to scans occurring on the same code in different branches.
 
 There are two types of scans:
 
