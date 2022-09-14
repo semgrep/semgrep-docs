@@ -27,7 +27,7 @@ To include taint labels into a taint mode rule, follow these steps:
             requires: INPUT
             label: EVIL
     ```
-    Combine labels using `requires` key. To combine labels, use Python Boolean operators. For example: `requires: LABEL1 and not LABEL2`.
+    Combine labels using the `requires` key. To combine labels, use Python Boolean operators. For example: `requires: LABEL1 and not LABEL2`.
 
 3. Use the `requires` key to restrict a taint sink in the same way as source:
     ```yaml
