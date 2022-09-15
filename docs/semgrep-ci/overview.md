@@ -5,6 +5,7 @@ description: "Semgrep can run CI environments. It can either be used stand-alone
 tags:
     - Semgrep in CI
     - Community Tier
+    - Team & Enterprise Tier
 title: Getting started with Semgrep in CI 
 hide_title: true
 ---

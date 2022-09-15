@@ -9,6 +9,7 @@ description: >-
 tags:
     - Semgrep in CI
     - Community Tier
+    - Team & Enterprise Tier
 ---
 
 import MoreHelp from "/src/components/MoreHelp"

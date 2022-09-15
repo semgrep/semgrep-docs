@@ -5,6 +5,7 @@ description: "Run Semgrep CI with Semgrep App to manage findings and rules from 
 tags:
     - Semgrep in CI
     - Community Tier
+    - Team & Enterprise Tier
 title: Running Semgrep in CI with Semgrep App
 hide_title: true
 ---

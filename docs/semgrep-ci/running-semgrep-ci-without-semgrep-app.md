@@ -6,6 +6,7 @@ description: "This document guides you through setting up semgrep in continuous 
 tags:
     - Semgrep in CI
     - Community Tier
+    - Team & Enterprise Tier
 hide_title: true
 ---
 
