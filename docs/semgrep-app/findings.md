@@ -90,7 +90,7 @@ The Findings page consists of:
 - **Findings filter panel**: Panel which lets you filter for different findings.
 - **Findings information**: Gives you details about findings. Each finding in the list includes rule name, Rule Board action column description, link to findings detail page, rule message, repository name, link to Git branch name, link to the reported file, and line of code.
     ![Findings information panel](/img/app-findings.png)<br />
-    *Figure 2.* Screenshot of the findings information panel.
+    *Figure 2.* Findings information panel.
 
 ## Triaging findings
 
