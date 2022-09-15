@@ -172,7 +172,7 @@ To **view and add comments**:
 1. Click the <i className="fa-regular fa-arrow-up-right-from-square inline_svg"></i> **Finding details** icon next to the finding’s status.
 2. Find the comments in the **History** section.
     ![Semgrep App finding details page](/img/app-finding-details.png)<br />
-    *Figure 4.* Screenshot of Finding details page.
+    *Figure 4.* Findings details page.
 
 ## Creating Jira tickets from findings
 
