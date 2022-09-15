@@ -6,6 +6,7 @@ description: "This document guides you through setting up semgrep in continuous 
 tags:
     - Semgrep in CI
     - Community Tier
+    - Team & Enterprise Tier
 hide_title: true
 ---
 
@@ -107,7 +108,7 @@ jobs:
       # A Docker image with Semgrep installed. Do not change this.
       image: returntocorp/semgrep
 
-    # Skip any PR created by dependabot to avoid permission issues:
+    # To skip any PR created by dependabot to avoid permission issues:
     if: (github.actor != 'dependabot[bot]')
 
     steps:

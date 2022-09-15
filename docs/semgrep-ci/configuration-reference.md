@@ -4,6 +4,7 @@ description: "Reference for running Semgrep CI in your CI job or on the command 
 tags:
     - Semgrep in CI
     - Community Tier
+    - Team & Enterprise Tier
 title: CI configuration reference
 hide_title: true
 ---

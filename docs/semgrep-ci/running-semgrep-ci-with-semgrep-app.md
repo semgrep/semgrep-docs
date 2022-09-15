@@ -11,11 +11,10 @@ hide_title: true
 ---
 
 import MoreHelp from "/src/components/MoreHelp"
-import CiScheduling from "/src/components/CiScheduling.mdx"
-import CiIgnoringFiles from "/src/components/CiIgnoringFiles.mdx"
-import DiffAwareScanning from "/src/components/DiffAwareScanning.mdx"
+import CiScheduling from "/src/components/reference/_ci-scheduling.mdx"
+import CiIgnoringFiles from "/src/components/reference/_ci-ignoring-files.mdx"
+import DiffAwareScanning from "/src/components/reference/_diff-aware-scanning.mdx"
 import RuleBoard from "/src/components/reference/_rule-board.md"
-
 
 <ul id="tag__badge-list">
 {
@@ -70,7 +69,7 @@ Support for certain features of Semgrep App depend on your CI provider or source
 
 :::note
 * Your code does not leave your environment and is not sent to Semgrep App servers.
-* Semgrep App collects [**findings** data](docs/managing-findings/#semgrep-ci), which includes the line number of the code match, **not the code**. It is hashed using a one-way hashing function. Findings data is used to generate hyperlinks and support other Semgrep functions.
+* Semgrep App collects [**findings** data](/docs/managing-findings/#semgrep-ci), which includes the line number of the code match, **not the code**. It is hashed using a one-way hashing function. Findings data is used to generate hyperlinks and support other Semgrep functions.
 :::
 
 ## Setting up the CI job and Semgrep App connection
@@ -316,12 +315,6 @@ Refer to the following section to set up additional environment variables.
 
 <DiffAwareScanning />
 
-:::info
-* Diff-aware scanning is automatically configured for GitHub Actions and GitLab CI/CD through the snippets provided by Semgrep App.
-* For other CI providers, Semgrep App configures a full scan. You can set up both diff-aware scanning and full scans through either of the following:
-    * Create separate jobs for diff-aware scans and full scans.
-    * If your CI provider supports conditional statements, use an if/then statement that detects the presence of `SEMGREP_BASELINE_REF`. 
-:::
 
 ### Enabling hyperlinks to code
 
