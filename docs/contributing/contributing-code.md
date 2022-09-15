@@ -11,11 +11,11 @@ This README gives an overview of the repository. For further information on buil
 
 ## File structure
 
-Semgrep consists of a Python wrapper (`semgrep-cli`) around an OCaml engine (`semgrep-core`) which performs the core parsing/matching work. Within `semgrep-core`, there are two sources of parsers, `pfff`, linked as a [submodule](https://github.com/returntocorp/pfff), and `tree-sitter-lang`, built using [tree-sitter](https://github.com/tree-sitter/tree-sitter). Additionally, `semgrep-core` contains a subengine, `spacegrep`, for generic matching.
+Semgrep consists of a Python wrapper (`semgrep-cli`) around an OCaml engine (`semgrep-core`) which performs the core parsing/matching work. Within `semgrep-core`, there are two sources of parsers, [`pfff`](https://github.com/returntocorp/pfff), linked as a submodule, and `tree-sitter-lang`, built using [tree-sitter](https://github.com/tree-sitter/tree-sitter). Additionally, `semgrep-core` contains a subengine, `spacegrep`, for generic matching.
 
 You may also be interested in `perf`, which contains our code for running repositories against specific rulesets.
 
-There are many other files, but the below diagram broadly displays the file structure. 
+There are many other files, but the below diagram broadly displays the file structure.
 
 ```
 .
@@ -230,3 +230,44 @@ On M1 macs some `pre-commit` tests may fail.
 If those checks are running in docker containers (such as `hadolint`) and exit with code 137, this means they are running into a memory limit.
 This is because for running x86_64 images on an M1 mac, docker will utilize an emulation with qemu that can cause higher memory consumption.
 To fix this, change the memory limit in Docker Desktop in the Resources section of the Preferences, 8.00GB should be sufficient.
+
+### Working with git submodules
+
+A submodule is a reference to a specific commit in another git
+repository. This results in a subfolder containing a checkout of that
+repository at that particular commit. Submodules have a reputation of
+being tricky to use. To minimize problems, make sure to follow these
+guidelines:
+
+* When checking out a new branch or commit, update the submodules
+  using the command `git submodule update --init --recursive`.
+  Adding a shortcut to your shell can be useful. The following is a
+  Bash function that lets you call `gitup`. It goes into your `~/.bashrc`:
+
+```bash
+gitup() {
+  echo "git submodule update --init --recursive"
+  git submodule update --init --recursive
+}
+```
+
+* When modifying both a parent repo A and one of its submodules B,
+  make one pull request for each (PR A, PR B).
+  1. Before merging PR B, make sure the branch on repo B is **not
+     lagging behind** the main branch. This ensures that the submodule
+     includes all the latest changes made by others.
+  2. Make sure PR B is merged **before** PR A.
+     This ensures that other developers will pick up the changes on B
+     when making their own changes.
+  3. After merging PR A, check that submodule B is still up-to-date
+     with respect to its main branch, especially if PR B was merged
+     more than an hour ago.
+  Good to know:
+  - Merging in B can be done with a merge commit or by squashing the
+    commits.
+  - If squashing commits in B, you must know that the original commit
+    referenced by A becomes orphaned when the branch is deleted but
+    remains cached by git for a while. This is usually sufficient to
+    not require A to point to the newly-squashed commit. _If this turns
+    out to be problematic in practice, we may have to disallow
+    commit squashing in the future._
