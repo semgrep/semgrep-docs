@@ -137,7 +137,7 @@ Perform bulk triage by filtering through the findings, and then you can select w
 - Opened
 - Ignored
     ![Screenshot of Semgrep App triage menu](/img/app-findings-triage.png)<br />
-    *Figure 3.* Screenshot of Findings page triage menu.
+    *Figure 3.* Findings page triage menu.
 
 To **ignore findings**:
 
