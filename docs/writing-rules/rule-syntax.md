@@ -160,7 +160,7 @@ You can also focus multiple metavariables at once by specifying them in a list w
 
 However, note that this is different than using multiple `focus-metavariable`s. Because `focus-metavariable` _has_ to be directly under a `patterns`, using multiple `focus-metavariable`s will cause Semgrep to find the overlapping region of all of the focused code (see example below).
 
-<iframe src="https://semgrep.dev/embed/editor?snippet=Pwzq" border="0" frameBorder="0" width="100%" height="432"></iframe>
+<iframe src="https://semgrep.dev/embed/editor?snippet=19wx" border="0" frameBorder="0" width="100%" height="432"></iframe>
 
 ### `metavariable-regex`
 
