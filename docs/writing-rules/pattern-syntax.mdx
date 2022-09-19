@@ -465,6 +465,57 @@ match:
 foo(1,2,3,1,2)
 ```
 
+### Metavariables in messages
+
+You can use metavariables in messages. To do this, simply add the metavariable in the message (e.g. `Found $X!`) and it will be replaced with the value matched by the metavariable.
+
+For example, let's say your message is 
+
+`Creating a buffer using $X`
+
+and your formula is
+
+```yaml
+- pattern: |
+   byte[] buf = new byte[$X];
+```
+
+You run this against
+
+```java
+byte[] buf = new byte[size];
+```
+
+The message you get is `Creating a buffer using size`.
+
+Sometimes, however, the value matched by the metavariable is not the real value you were looking for. Consider this slightly different formula and program:
+
+Formula:
+
+```yaml
+- patterns:
+   - pattern: byte[] buf = new byte[$X];
+   - metavariable-comparison:
+        metavariable: $X
+        comparison: $X < 2048
+```
+
+Program:
+
+```java
+int size = 512;
+byte[] buf = new byte[size];
+```
+
+These will match because Semgrep performs constant propagation. It knows that `size` is `512`, so it knows that a buffer is created with size less than `2048`. But what is `$X`?
+
+If we use the message `Creating a buffer using $X` again, we see that the size is `size`. This is because the value matched by `$X` within the code is `size`. However, we know that the underlying value of `size` is `512`, and we might want to access that in our message. To do that, we can use `value($X)`. `value($X)` will be replaced by the propagated value of a metavariable if Semgrep has propagated a value, or just the metavariable otherwise. 
+
+As an example, see: (run it in the playground to see the message)
+
+<iframe title="Metavariable value in message example" src="https://semgrep.dev/embed/editor?snippet=returntocorp:value-in-message-example" width="100%" height="432" frameborder="0"></iframe>
+
+
 ## Equivalences
 
 Semgrep automatically searches for code that is semantically equivalent.
