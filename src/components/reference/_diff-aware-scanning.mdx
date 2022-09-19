@@ -1,3 +1,10 @@
+:::info
+* Diff-aware scanning is automatically configured for GitHub Actions and GitLab CI/CD when the user runs Semgrep on PR or MR events. Do **not** set `SEMGREP_BASELINE_REF` for GitHub Actions or GitLab CI/DD.
+* For other CI providers, Semgrep App provides a full scan configuration by default. You can set up both diff-aware scanning and full scans through either of the following:
+    * Create separate jobs for diff-aware scans and full scans.
+    * If your CI provider supports conditional statements, use an if/then statement that detects the presence of `SEMGREP_BASELINE_REF`. 
+:::
+
 Semgrep scans can be classified by scope. The scope of a scan refers to what lines of code are scanned in a codebase. When classifying scans by scope, there are two types of scans:
 
 <dl>
@@ -11,12 +18,6 @@ Semgrep scans can be classified by scope. The scope of a scan refers to what lin
 ![Flow chart of Semgrep code scanning behavior based on environment variable](/img/diagram-semgrep_baseline_ref.png "Flow chart of Semgrep code scanning behavior based on environment variable")
 
 
-:::info
-* Diff-aware scanning is automatically configured for GitHub Actions and GitLab CI/CD through the snippets provided by Semgrep App. Do **not** set `SEMGREP_BASELINE_REF` for GitHub Actions or GitLab CI/DD.
-* For other CI providers, Semgrep App provides a full scan configuration by default. You can set up both diff-aware scanning and full scans through either of the following:
-    * Create separate jobs for diff-aware scans and full scans.
-    * If your CI provider supports conditional statements, use an if/then statement that detects the presence of `SEMGREP_BASELINE_REF`. 
-:::
 
 :::caution
 * Do **not** perform diff-aware scans on your `main` branch. Semgrep App keeps track of which findings have been fixed on a given branch. If you configure diff-aware scans on your main branch, and compare the last commit to the penultimate commit, Semgrep wrongly considers all findings from before the penultimate commit to be fixed.
