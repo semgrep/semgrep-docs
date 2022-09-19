@@ -154,7 +154,10 @@ Note that `focus-metavariable: $ARG` is not the same as `pattern: $ARG`! Using `
 
 In short, `focus-metavariable: $X` is not a pattern in itself, it does not perform any matching, it only focuses the matching on the code already bound to `$X` by other patterns. Whereas `pattern: $X` matches `$X` against your code (and in this context, `$X` only matches expressions)!
 
-You can also focus multiple metavariables at once by specifying them in a list within a `focus-metavariable`. This will highlight all of the regions that are captured by the metavariables being focused.
+
+#### Using multiple `focus-metavariable`s
+
+Use multiple focus metavariables in one Semgrep rule by specifying each under a new `focus-metavariable` item in a YAML list. With this rule, Semgrep matches all pieces of code captured by the focus metavariables.
 
 <iframe src="https://semgrep.dev/embed/editor?snippet=493E" border="0" frameBorder="0" width="100%" height="432"></iframe>
 
