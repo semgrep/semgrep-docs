@@ -515,7 +515,7 @@ These will match because Semgrep performs constant propagation. It knows that `s
 
 If we use the message `Creating a buffer using $X` again, we see that the size is `size`. This is because the value matched by `$X` within the code is `size`. However, we know that the underlying value of `size` is `512`, and we might want to access that in our message. To do that, we can use `value($X)`. `value($X)` will be replaced by the propagated value of a metavariable if Semgrep has propagated a value, or just the metavariable otherwise. 
 
-As an example, see: (run it in the playground to see the message)
+Run the following example in Semgrep Playground to see the message (click **Open in Editor**, and then **Run**, unroll the **1 Match** to see the message):
 
 <iframe title="Metavariable value in message example" src="https://semgrep.dev/embed/editor?snippet=returntocorp:value-in-message-example" width="100%" height="432" frameborder="0"></iframe>
 
