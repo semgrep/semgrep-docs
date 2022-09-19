@@ -5,6 +5,7 @@ description: "Run Semgrep CI with Semgrep App to manage findings and rules from 
 tags:
     - Semgrep in CI
     - Community Tier
+    - Team & Enterprise Tier
 title: Running Semgrep in CI with Semgrep App
 hide_title: true
 ---
@@ -68,7 +69,7 @@ Support for certain features of Semgrep App depend on your CI provider or source
 
 :::note
 * Your code does not leave your environment and is not sent to Semgrep App servers.
-* Semgrep App collects [**findings** data](docs/managing-findings/#semgrep-ci), which includes the line number of the code match, **not the code**. It is hashed using a one-way hashing function. Findings data is used to generate hyperlinks and support other Semgrep functions.
+* Semgrep App collects [**findings** data](/docs/managing-findings/#semgrep-ci), which includes the line number of the code match, **not the code**. It is hashed using a one-way hashing function. Findings data is used to generate hyperlinks and support other Semgrep functions.
 :::
 
 ## Setting up the CI job and Semgrep App connection
