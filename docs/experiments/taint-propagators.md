@@ -6,7 +6,7 @@ description: "Taint propagators allow you to customize how taint is propagated."
 
 # Taint propagators
 
-Taint propagators allow you to customize how taint is propagated. 
+The default configuration of taint mode in Semgrep sometimes misses specific tainted structures. Taint propagators allow you to specify additional structures through which taint propagates. This enables you to create and use taint mode rules with taint propagators that are more efficient in detecting tainted structures. 
 
 The following video provides a quick overview of taint propagators:
 <iframe class="yt_embed" width="100%" height="432px" src="https://www.youtube.com/embed/6MxMhFPkZlU?start=175" frameborder="0" allowfullscreen></iframe>
@@ -52,14 +52,15 @@ pattern-propagators:
 ```
 
 In the example above, whenever Semgrep finds the pattern `$X.add($Y)`, it checks if
-`$Y` is tainted. If `$Y` is tainted, Semgrep propagates that taint to `$X`. Thus,
-adding tainted data to a set marks the set itself as tainted.
+`$Y` is tainted. If `$Y` is tainted, Semgrep propagates that taint to `$X`. 
+Thus, adding tainted data to a set marks the set itself as tainted.
 
 <iframe src="https://semgrep.dev/embed/editor?snippet=7lNe" border="0" frameBorder="0" width="100%" height="432"></iframe>
 
-## Propagator rule requirements
+## Requirements of taint propagator rules
 
-A propagator rule necessitates:
-- Any arbitrary pattern that must bind two metavariables of your choice.
-- You must specify the `from` and the `to` metavariables.
-
+A taint propagator rule must contain:
+1. A `pattern` containing **two** metavariables. These two metavariables specify where taint is propagated **from** and **to**. For example, pattern `$X.add($Y)` includes two metavariables `$X` and `$Y`. Then specify which metavariable falls under `from` and which falls under `to` (see more information below).
+2. The `to` and `from` metavariables. These metavariables can contain either a **variable** or an **expression**.
+    - The `from` metavariable specifies the entry point of the taint.
+    - The `to` metavariable specifies where the tainted data is propagated to, typically an object or data structure.

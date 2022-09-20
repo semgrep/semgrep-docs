@@ -220,7 +220,7 @@ $> export SEMGREP_COMMIT=fa4e36b9369e5b039bh2220b5h9R61a38b077f29
 
 *Figure 3.* Partial screenshot of findings page with hyperlinks.
 
-#### Option B: Scanning a repository in SCM
+#### Option B: Scanning a repository from GitHub or GitLab
 
 Scanning a repository from SCM providers such as GitHub or GitLab ensures that Semgrep scans your codebase every time a PR or MR is created. To add a repository:
 
