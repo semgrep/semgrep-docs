@@ -163,8 +163,6 @@ Use multiple focus metavariables in one Semgrep rule by specifying each under a 
 
 However, note that this is different than using multiple `focus-metavariable`s. Because `focus-metavariable` _has_ to be directly under a `patterns`, using multiple `focus-metavariable`s will cause Semgrep to find the overlapping region of all of the focused code (see example below).
 
-<iframe src="https://semgrep.dev/embed/editor?snippet=19wx" border="0" frameBorder="0" width="100%" height="432"></iframe>
-
 ### `metavariable-regex`
 
 The `metavariable-regex` operator searches metavariables for a [PCRE](https://www.pcre.org/original/doc/html/pcrepattern.html) regular expression. This is useful for filtering results based on a [metavariable’s](pattern-syntax.mdx#metavariables) value. It requires the `metavariable` and `regex` keys and can be combined with other pattern operators.
