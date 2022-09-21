@@ -161,7 +161,27 @@ Use multiple focus metavariables in one Semgrep rule by specifying each under a 
 
 <iframe src="https://semgrep.dev/embed/editor?snippet=493E" border="0" frameBorder="0" width="100%" height="432"></iframe>
 
-However, note that this is different than using multiple `focus-metavariable`s. Because `focus-metavariable` _has_ to be directly under a `patterns`, using multiple `focus-metavariable`s will cause Semgrep to find the overlapping region of all of the focused code (see example below).
+There are two methods of using multiple metavariables. Each of them can lead to different results:
+
+- **Recommended**: Including `focus-metavariable` with more metavariables directly under the `patterns` key returns results regardless of whether there is an overlap between these variables:
+    ```yaml
+        patterns:
+          - pattern: foo($X, ..., $Y)
+          - focus-metavariable: 
+            - $X
+            - $Y
+    ```
+    See the following example:
+    TODO IFRAME 
+- **Advanced**: Including more `focus-metavariable` keys with different metavariables under the `pattern` key lets Semgrep find **only** the overlapping region of all the focused code:
+    ```yaml
+        patterns:
+          - pattern: foo($X, ..., $Y)
+          - focus-metavariable: $X
+          - focus-metavariable: $Y
+    ```
+    See the following example:
+    <iframe src="https://semgrep.dev/embed/editor?snippet=e8OL" border="0" frameBorder="0" width="100%" height="432"></iframe>
 
 ### `metavariable-regex`
 
