@@ -88,7 +88,7 @@ The Semgrep App Finding page displays findings across all projects connected to 
 The Findings page consists of:
 
 - **Findings filter panel**: Panel which lets you filter for different findings.
-- **Findings information**: Gives you details about findings. Each finding in the list includes rule name, Rule Board action column description, link to findings detail page, rule message, repository name, link to Git branch name, link to the reported file, and line of code.
+- **Findings information**: Gives you details about findings. Each finding in the list includes rule name, Rule Board action column description, link to findings detail page, rule message, repository name, link to Git branch name, link to the reported file, and reported line of code.
     ![Findings information panel](/img/app-findings.png)<br />
     *Figure 2.* Findings information panel.
 
@@ -133,11 +133,11 @@ To filter through all findings:
 
 ### Managing triage states (bulk triage)
 
-Perform bulk triage by filtering through the findings, and then you can select which findings to be:
+Perform bulk triage by filtering through the findings, and then you can select which findings are:
 - Opened
 - Ignored
-    ![Screenshot of Semgrep App triage menu](/img/app-findings-triage.png)<br />
-    *Figure 3.* Findings page triage menu.
+![Screenshot of Semgrep App triage menu](/img/app-findings-triage.png)<br />
+*Figure 3.* Findings page triage menu.
 
 To **ignore findings**:
 
