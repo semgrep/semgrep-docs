@@ -465,6 +465,51 @@ match:
 foo(1,2,3,1,2)
 ```
 
+### Displaying matched metavariables in rule messages
+
+Display values of matched metavariables in rule messages. Add a metavariable to the rule message (for example `Found $X`) and Semgrep replaces it with the value of the detected metavariable.
+
+For example, see the following rule message and part of a Semgrep rule (formula): 
+
+```yaml
+- message: >-
+  Creating a buffer using $X
+- pattern: |
+   byte[] buf = new byte[$X];
+```
+
+Use the formula displayed above against the following code:
+
+```java
+byte[] buf = new byte[size];
+```
+
+The resulting message is:
+
+```
+Creating a buffer using size
+```
+
+Semgrep substitutes the $X with the value detected within the metavariable. In this case, the value was `size`.
+
+To display matched metavariable in rule message:
+
+1. Find the metavariable used in Semgrep rule. For example:
+    ```yaml
+    - pattern: |
+      byte[] buf = new byte[$X];
+    ```
+    Uses `$X` as a metavariable.
+2. Insert the metavariable to rule message:
+    ```yaml
+    - message: >-
+      Creating a buffer using $X
+    ```
+
+:::info
+There are specific limitations for nested variables which Semgrep cannot process correctly under specific circumstances. For more information see documentation of experimental feature [Displaying propagated value of metavariable](/experiments/display-propagated-metavariable-message)
+:::
+
 ## Equivalences
 
 Semgrep automatically searches for code that is semantically equivalent.
