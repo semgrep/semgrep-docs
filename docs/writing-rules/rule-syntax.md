@@ -154,35 +154,6 @@ Note that `focus-metavariable: $ARG` is not the same as `pattern: $ARG`! Using `
 
 In short, `focus-metavariable: $X` is not a pattern in itself, it does not perform any matching, it only focuses the matching on the code already bound to `$X` by other patterns. Whereas `pattern: $X` matches `$X` against your code (and in this context, `$X` only matches expressions)!
 
-
-#### Using multiple `focus-metavariable`s
-
-Use multiple focus metavariables in one Semgrep rule by specifying each under a new `focus-metavariable` item in a YAML list. With this rule, Semgrep matches all pieces of code captured by the focus metavariables.
-
-<iframe src="https://semgrep.dev/embed/editor?snippet=493E" border="0" frameBorder="0" width="100%" height="432"></iframe>
-
-There are two methods of using multiple metavariables. Each of them can lead to different results:
-
-- **Recommended**: Including `focus-metavariable` with more metavariables directly under the `patterns` key returns results regardless of whether there is an overlap between these variables:
-    ```yaml
-        patterns:
-          - pattern: foo($X, ..., $Y)
-          - focus-metavariable: 
-            - $X
-            - $Y
-    ```
-    See the following example:
-    TODO IFRAME 
-- **Advanced**: Including more `focus-metavariable` keys with different metavariables under the `pattern` key lets Semgrep find **only** the overlapping region of all the focused code:
-    ```yaml
-        patterns:
-          - pattern: foo($X, ..., $Y)
-          - focus-metavariable: $X
-          - focus-metavariable: $Y
-    ```
-    See the following example:
-    <iframe src="https://semgrep.dev/embed/editor?snippet=e8OL" border="0" frameBorder="0" width="100%" height="432"></iframe>
-
 ### `metavariable-regex`
 
 The `metavariable-regex` operator searches metavariables for a [PCRE](https://www.pcre.org/original/doc/html/pcrepattern.html) regular expression. This is useful for filtering results based on a [metavariable’s](pattern-syntax.mdx#metavariables) value. It requires the `metavariable` and `regex` keys and can be combined with other pattern operators.
