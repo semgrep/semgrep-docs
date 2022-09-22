@@ -154,6 +154,10 @@ Note that `focus-metavariable: $ARG` is not the same as `pattern: $ARG`! Using `
 
 In short, `focus-metavariable: $X` is not a pattern in itself, it does not perform any matching, it only focuses the matching on the code already bound to `$X` by other patterns. Whereas `pattern: $X` matches `$X` against your code (and in this context, `$X` only matches expressions)!
 
+:::info
+To make a list of multiple focus metavariables, see [Using multiple focus metavariables](/experiments/multiple-focus-metavariables) documentation.
+:::
+
 ### `metavariable-regex`
 
 The `metavariable-regex` operator searches metavariables for a [PCRE](https://www.pcre.org/original/doc/html/pcrepattern.html) regular expression. This is useful for filtering results based on a [metavariable’s](pattern-syntax.mdx#metavariables) value. It requires the `metavariable` and `regex` keys and can be combined with other pattern operators.
