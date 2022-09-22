@@ -1,11 +1,11 @@
 # Contributing code
 
-Semgrep welcomes contributions from anyone. If you have an idea for a feature
-or notice a bug please [open an issue](https://github.com/returntocorp/semgrep/issues/new/choose).
-Creating an issue first is preferable to moving directly to a pull request so
-that we can ensure you're on the right track without any wasted effort. This
-is also a great way to contribute to Semgrep even if you're not making changes
-yourself.
+This article documents how to contribute to [Semgrep repository](https://github.com/returntocorp/semgrep), providing you with details concerning repository's file structure, specifics of handling submodules, and many other details that help you to report issues, fix bugs, build and test Semgrep locally.
+
+Semgrep welcomes contributions from anyone. If you have an idea for a feature or find a bug:
+1. Open an issue from Semgrep's [GitHub](https://github.com/returntocorp/semgrep/issues/new/choose) issue template.
+
+Submit an issue first before making a pull request (PR). Submitting an issue is preferred to directly creating a PR so we can ensure you're on the right track without any wasted effort. This is also a great way to contribute to Semgrep even if you're not making changes yourself.
 
 This README gives an overview of the repository. For further information on building, you will be directed to [semgrep-core contributing](semgrep-core-contributing.md) and/or [semgrep-cli contributing](semgrep-contributing.md) in [Making a Change](#making-a-change). 
 
