@@ -472,22 +472,20 @@ Display values of matched metavariables in rule messages. Add a metavariable to 
 For example, see the following rule message and part of a Semgrep rule (formula): 
 
 ```yaml
-- message: >-
-  Creating a buffer using $X
-- pattern: |
-   byte[] buf = new byte[$X];
+- message: Setting a password on $MODEL
+- pattern: $MODEL.set_password(…)
 ```
 
 Use the formula displayed above against the following code:
 
-```java
-byte[] buf = new byte[size];
+```python
+user.set_password(new_password)
 ```
 
 The resulting message is:
 
 ```
-Creating a buffer using size
+Setting a password on user
 ```
 
 Semgrep substitutes the $X with the value detected within the metavariable. In this case, the value was `size`.
@@ -496,14 +494,12 @@ To display matched metavariable in rule message:
 
 1. Find the metavariable used in Semgrep rule. For example:
     ```yaml
-    - pattern: |
-      byte[] buf = new byte[$X];
+    - pattern: $MODEL.set_password(…)
     ```
-    Uses `$X` as a metavariable.
+    This formula uses `$MODEL` as a metavariable.
 2. Insert the metavariable to rule message:
     ```yaml
-    - message: >-
-      Creating a buffer using $X
+    - message: Setting a password on $MODEL
     ```
 
 :::info
