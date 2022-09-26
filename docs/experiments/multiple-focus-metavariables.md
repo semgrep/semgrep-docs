@@ -14,7 +14,7 @@ This feature is using `focus-metavariable`, see [`focus-metavariable`](/writing-
 
 <iframe src="https://semgrep.dev/embed/editor?snippet=493E" border="0" frameBorder="0" width="100%" height="432"></iframe>
 
-There are two methods of using multiple metavariables. Each of them can lead to different results:
+There are two methods of focusing on multiple metavariables. Each of them can lead to different results:
 
 - **Recommended**: Including `focus-metavariable` with more metavariables directly under the `patterns` key returns results regardless of whether there is an overlap between these variables:
     ```yaml
