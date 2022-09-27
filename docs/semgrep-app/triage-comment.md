@@ -9,31 +9,51 @@ tags:
 ---
 
 import MoreHelp from "/src/components/MoreHelp"
+import FindingsHistory from "/src/components/procedure/_app-findings-history.mdx"
 
 <ul id="tag__badge-list">
 {
 Object.entries(frontMatter).filter(
     frontmatter => frontmatter[0] === 'tags')[0].pop().map(
-    (value) => <li class='tag__badge-item'>{value}</li> )
+    (value) => <li className='tag__badge-item'>{value}</li> )
 }
 </ul>
 
 # Triaging findings through comments
 
-Triage findings through comments in GitHub to ignore blocking findings. To triage a finding, follow these steps:
-
-1. Find a blocking comment created by Semgrep App in GitHub.
-    TODO add a screenshot
-2. In the blocking comment, respond with:
-    ```
-    /semgrep ignore <reason>
-    ```
+Triage Semgrep App findings displayed as comments in GitHub by replying with another comment. 
 
 ## Requirements
 
-- Semgrep APP account
-- GitHub repository with enabled Semgrep App comments
+- Semgrep APP account. For more information, see [Getting started with Semgrep App](/semgrep-app/getting-started-with-semgrep-app.md).
+- GitHub repository with enabled Semgrep App comments. For more information, see [Enabling GitHub pull request comments](/semgrep-app/notifications/#enabling-github-pull-request-comments).
 
+## Ignoring findings through comments
 
+To triage a finding in GitHub, follow these steps:
+
+1. Find an open comment created by Semgrep App in GitHub:
+    ![Screenshot of Semgrep App comment in GitHub](/img/semgrep-app-comment-github.png)<br />
+    *Figure 1.* Screenshot of Semgrep App comment in GitHub.
+2. In the blocking comment, reply with:
+    <pre><code>
+    /semgrep ignore <span className="placeholder">&lt;reason&gt;</span>
+    </code></pre>
+    The placeholder <code><span className="placeholder">&lt;reason&gt;</span></code> is optional.
+3. Optional: Substitute the colored placehoder <code><span className="placeholder">&lt;reason&gt;</span></code> with any text that can help to understand why status of comment is ignored.
+
+:::info
+Ignoring a finding through comment in GitHub changes the status of the finding to **ignored** in Semgrep App. See [Findings](/semgrep-app/findings.md) page documentation for more details. The GitHub conversation itself is not automatically resolved by this process.
+:::
+
+:::tip
+You can also reopen a finding that was previously ignored. To do so, in the step 2. of procedure above, use <code>/semgrep open</code>.
+:::
+
+## Accessing history of a finding
+
+To access history of a finding, go to Semgrep App [Findings page](https://semgrep.dev/orgs/-/findings), and then follow these steps:
+
+<FindingsHistory />
 
 <MoreHelp />
