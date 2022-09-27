@@ -21,7 +21,7 @@ Object.entries(frontMatter).filter(
 
 # Triaging findings through comments
 
-Triage Semgrep App findings displayed as comments in GitHub by replying with another comment. 
+Triage Semgrep App findings are displayed as comments in GitHub pull request (PR) by replying with another comment. 
 
 ## Requirements
 
@@ -32,7 +32,7 @@ Triage Semgrep App findings displayed as comments in GitHub by replying with ano
 
 To triage a finding in GitHub, follow these steps:
 
-1. Find an open comment created by Semgrep App in GitHub:
+1. Find an open comment created by Semgrep App in GitHub PR:
     ![Screenshot of Semgrep App comment in GitHub](/img/semgrep-app-comment-github.png)<br />
     *Figure 1.* Screenshot of Semgrep App comment in GitHub.
 2. In the blocking comment, reply with:
@@ -40,19 +40,19 @@ To triage a finding in GitHub, follow these steps:
     /semgrep ignore <span className="placeholder">&lt;reason&gt;</span>
     </code></pre>
     The placeholder <code><span className="placeholder">&lt;reason&gt;</span></code> is optional.
-3. Optional: Substitute the colored placehoder <code><span className="placeholder">&lt;reason&gt;</span></code> with any text that can help to understand why status of comment is ignored.
+3. Optional: Substitute the colored placeholder <code><span className="placeholder">&lt;reason&gt;</span></code> with any text that can help to understand why the status of a comment is ignored.
 
 :::info
-Ignoring a finding through comment in GitHub changes the status of the finding to **ignored** in Semgrep App. See [Findings](/semgrep-app/findings.md) page documentation for more details. The GitHub conversation itself is not automatically resolved by this process.
+Ignoring a finding through a comment in GitHub changes the status of the finding to **ignored** in the Semgrep App. See [Findings](/semgrep-app/findings.md) page documentation for more details. The GitHub conversation itself is not automatically resolved by this process.
 :::
 
 :::tip
-You can also reopen a finding that was previously ignored. To do so, in the step 2. of procedure above, use <code>/semgrep open</code>.
+You can also reopen a finding that was previously ignored. To do so, in step 2. of the procedure above, use <code>/semgrep open</code>.
 :::
 
 ## Accessing history of a finding
 
-To access history of a finding, go to Semgrep App [Findings page](https://semgrep.dev/orgs/-/findings), and then follow these steps:
+To access the history of a finding, go to the Semgrep App [Findings page](https://semgrep.dev/orgs/-/findings), and then follow these steps:
 
 <FindingsHistory />
 
