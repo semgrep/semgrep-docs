@@ -6,6 +6,8 @@ hide_title: true
 description: "Triage your findings in GitHub using comments."
 tags:
     - Semgrep App
+    - Community Tier
+    - Team & Enterprise Tier
 ---
 
 import MoreHelp from "/src/components/MoreHelp"
