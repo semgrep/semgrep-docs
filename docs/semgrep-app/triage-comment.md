@@ -25,7 +25,7 @@ Triage your Semgrep App findings that are displayed as comments in GitHub pull r
 
 ## Requirements
 
-- Semgrep APP account. For more information, see [Getting started with Semgrep App](/semgrep-app/getting-started-with-semgrep-app.md).
+- Semgrep App account. For more information, see [Getting started with Semgrep App](/semgrep-app/getting-started-with-semgrep-app.md).
 - GitHub repository with enabled Semgrep App comments. For more information, see [Enabling GitHub pull request comments](/semgrep-app/notifications/#enabling-github-pull-request-comments).
 
 ## Ignoring findings through comments
