@@ -76,7 +76,8 @@ module.exports = {
             'experiments/taint-propagators',
             'experiments/taint-labels',
             'experiments/metavariable-analysis',
-            'experiments/multiple-focus-metavariables'
+            'experiments/multiple-focus-metavariables',
+            'experiments/display-propagated-metavariable'
           ]
         },
         'deepsemgrep',

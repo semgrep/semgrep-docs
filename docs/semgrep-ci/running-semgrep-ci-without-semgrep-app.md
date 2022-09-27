@@ -11,6 +11,9 @@ hide_title: true
 ---
 
 import MoreHelp from "/src/components/MoreHelp"
+import DiffAwareScanning from "/src/components/reference/_diff-aware-scanning.mdx"
+import CiScheduling from "/src/components/reference/_ci-scheduling.mdx"
+import CiIgnoringFiles from "/src/components/reference/_ci-ignoring-files.mdx"
 
 <ul id="tag__badge-list">
 {
@@ -392,31 +395,11 @@ Refer to [Semgrep exit codes](/docs/cli-reference/#exit-codes) to understand var
 
 ### Diff-aware scanning
 
-To enable diff-aware scanning, Semgrep provides a `SEMGREP_BASELINE_REF` environment variable that users can set with the **commit hash** or **branch name** as the baseline. For example, given a repository with 10 commits, setting `SEMGREP_BASELINE_REF` to the 8th commit will return results introduced by changes in the 9th and 10th commit.
-
-To only report findings newly added since branching off from your `main` branch, set the following:
-<pre class="language-bash"><code>SEMGREP_BASELINE_REF=<span className="placeholder">TOPIC-BRANCH-NAME</span></code></pre>
-
-To only report findings newly added after a specific commit, set the following:
-<pre class="language-bash"><code>SEMGREP_BASELINE_REF=<span className="placeholder">INSERT_GIT_COMMIT_HASH</span></code></pre>
-
-:::note
-* GitHub Actions and GitLab CI/CD diff-aware scanning works automatically, without the need to set `SEMGREP_BASELINE_REF`.
-* Depending on your CI provider, it may be necessary to create a separate job or script block for Semgrep to perform both full scans and diff-aware scans.
-:::
+<DiffAwareScanning />
 
 ### Setting a scan schedule
 
-The following table is a summary of methods and resources to set up schedules for different CI providers.
-
-| CI provider | Where to set schedule | Resource |
-| ----------- | --------------------  | -------  |
-| GitHub Actions | Within `semgrep.yml` file | [Sample code snippet](#github-actions-code-snippet) |
-| GitLab CI/CD | Within GitLab CI/CD interface |[Official documentation](https://docs.gitlab.com/ee/ci/pipelines/schedules.html) |
-| Jenkins | Within Jenkins interface |  [Official documentation](https://www.jenkins.io/doc/book/pipeline/running-pipelines/#scheduling-jobs-in-jenkins) |
-| BitBucket Pipelines | Within BitBucket Pipelines interface | [Official documentation](https://support.atlassian.com/bitbucket-cloud/docs/pipeline-triggers/) |
-| CircleCI | Within CircleCI interface | [Official documentation](https://circleci.com/docs/scheduled-pipelines#get-started-with-scheduled-pipelines-in-circleci) |
-| Buildkite | Within Buildkite interface | [Official documentation](https://buildkite.com/docs/pipelines/scheduled-builds) |
+<CiScheduling />
 
 ### Customizing rules and rulesets
 
@@ -464,17 +447,7 @@ See [Writing rules](https://semgrep.dev/docs/writing-rules/overview/) to learn h
 
 ### Ignoring files
 
-By default `semgrep ci` skips files and directories such as `tests/`, `node_modules/`, and `vendor/`. It uses the default `.semgrepignore` file which you can find in the [Semgrep GitHub repository](https://github.com/returntocorp/semgrep/blob/develop/.semgrepignore). This default is used when no explicit `.semgrepignore` file is found in the root of your repository.
-
-You can copy and commit the default `.semgrepignore` file to the **root of your repository** and extend it with your own entries or write one from scratch. If Semgrep detects a `.semgrepignore` file within your repository, it does not append entries from the default `.semgrepignore` file.
-
-For a complete example, see the [.semgrepignore file on Semgrep’s source code](https://github.com/returntocorp/semgrep/blob/develop/.semgrepignore).
-
-:::caution
-`.semgrepignore` is only used by Semgrep CI and the Semgrep command line tool. Integrations such as [GitLab's Semgrep SAST Analyzer](https://gitlab.com/gitlab-org/security-products/analyzers/semgrep) do not use it.
-:::
-
-For information on ignoring individual findings in code, see the [Ignoring findings page](https://semgrep.dev/docs/ignoring-findings/).
+<CiIgnoringFiles />
 
 ### Saving or exporting findings to a file
 
