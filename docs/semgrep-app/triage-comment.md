@@ -21,7 +21,7 @@ Object.entries(frontMatter).filter(
 
 # Triaging findings through comments
 
-Triage Semgrep App findings are displayed as comments in GitHub pull request (PR) by replying with another comment. 
+Triage your Semgrep App findings that are displayed as comments in GitHub pull requests (PR) by replying with another comment. 
 
 ## Requirements
 
