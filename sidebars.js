@@ -75,7 +75,8 @@ module.exports = {
             'experiments/symbolic-propagation',
             'experiments/taint-propagators',
             'experiments/taint-labels',
-            'experiments/metavariable-analysis'
+            'experiments/metavariable-analysis',
+            'experiments/display-propagated-metavariable'
           ]
         },
         'deepsemgrep',
