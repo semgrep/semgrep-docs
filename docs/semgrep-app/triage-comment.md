@@ -39,8 +39,7 @@ To triage a finding in GitHub, follow these steps:
     <pre><code>
     /semgrep ignore <span className="placeholder">&lt;reason&gt;</span>
     </code></pre>
-    The placeholder <code><span className="placeholder">&lt;reason&gt;</span></code> is optional.
-3. Optional: Substitute the colored placeholder <code><span className="placeholder">&lt;reason&gt;</span></code> with any text that can help to understand why the status of a comment is ignored.
+3. Substitute the colored placeholder <code><span className="placeholder">&lt;reason&gt;</span></code> with any text that can help to understand why the status of a comment is ignored.
 
 :::info
 Ignoring a finding through a comment in GitHub changes the status of the finding to **ignored** in the Semgrep App. See [Findings](/semgrep-app/findings.md) page documentation for more details. The GitHub conversation itself is not automatically resolved by this process.
