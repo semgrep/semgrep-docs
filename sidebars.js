@@ -124,7 +124,6 @@ module.exports = {
                     'semgrep-app/notifications',
                     'semgrep-app/sso',
                     'semgrep-app/user-management',
-                    'semgrep-app/triage-comment',
                     'troubleshooting/semgrep-app',
                     'semgrep-app/semgrep-api'
                 ],
