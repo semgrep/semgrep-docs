@@ -158,12 +158,11 @@ The YAML `|` operator allows for [multiline strings](https://yaml-multiline.info
 
 #### Ellipsis operator scope
 
-The `...` ellipsis operator matches everything in its sub-scope. See the following example:
+The `...` ellipsis operator matches everything in its current scope. The current scope of this operator is defined by the patterns that precede `...` in a rule. See the following example:
 
 <iframe src="https://semgrep.dev/embed/editor?snippet=zZx0" border="0" frameBorder="0" width="100%" height="432"></iframe>
 
 Semgrep matches the first occurrence of `bar` and `baz` in the test code as these objects fall under the scope of `foo` and `...`. The ellipsis operator does not match the second occurrence of `bar` and `baz` as they are not inside of the function definition, therefore these objects in their second occurrence are not inside the scope of the ellipsis operator.
-
 ### Strings
 
 The ellipsis operator can be used to search for strings containing any data. The pattern `crypto.set_secret_key("...")` matches:
