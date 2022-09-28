@@ -159,6 +159,17 @@ module.exports = {
     },
     {
         type: 'category',
+        label: 'Semgrep Supply Chain',
+        collapsible: false,
+        items: [
+            'semgrep-sc/sc-getting-started',
+            'semgrep-sc/sc-triage-remediation',
+            'semgrep-sc/sc-ignoring-deps',
+            'semgrep-sc/sc-glossary'
+        ]
+    },
+    {
+        type: 'category',
         label: 'Writing custom rules',
         collapsible: false,
         items: [
