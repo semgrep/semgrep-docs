@@ -11,7 +11,6 @@ tags:
 ---
 
 import MoreHelp from "/src/components/MoreHelp"
-import FindingsHistory from "/src/components/procedure/_app-findings-history.mdx"
 
 <ul id="tag__badge-list">
 {
