@@ -29,6 +29,10 @@ Semgrep App supports code scanning from:
 
 This guide walks you through scanning code in both types of environments.
 
+:::info
+Many improvements to the App experience only work with up-to-date Semgrep versions. For this reason, Semgrep App only supports the 10 most recent minor versions of the Semgrep open-source tool. For example, if the latest release was 0.114.0, then versions greater than 0.104.0 are supported and others may be deprecated or error out. It is recommended to use the "latest" tag for all Semgrep CI scans.
+:::
+
 
 Semgrep App enables you to run scans on multiple repositories by integrating with your GitHub or GitLab SaaS account. Semgrep uses **rules** to scan code. Matches found based on those rules are called **findings**. A Semgrep rule encapsulates pattern-matching logic and data-flow analysis used to find code violations, security issues, outdated libraries, and other issues.
 
@@ -135,16 +139,17 @@ Scanning a project from the CLI is a standalone action. This means that you manu
 1. Ensure you are signed in to Semgrep App.
 2. Click **Projects** on the left sidebar.
 3. Click **Scan new project** > **Run a scan locally**.
-4. Log in to Semgrep from the CLI:
+4. Ensure you are running a recent version of semgrep. Semgrep-app supports the 10 most recent minor versions of semgrep.
+5. Log in to Semgrep from the CLI:
     ``` 
     semgrep login
     ```
 6. Follow the instructions on the CLI.
-5. After logging in, run a scan by entering the following command. This command sends the findings to Semgrep App.
+7. After logging in, run a scan by entering the following command. This command sends the findings to Semgrep App.
     ```
     semgrep ci
     ```
-6. View your project's [findings](https://semgrep.dev/orgs/-/findings).
+8. View your project's [findings](https://semgrep.dev/orgs/-/findings).
 
 :::note
 Scans from local repositories do not access their corresponding remote repositories. For this reason, links to specific lines of code in the Findings page are not created. See [Linking local scans to their remote repositories](#linking-local-scans-to-their-remote-repositories) for a workaround.
