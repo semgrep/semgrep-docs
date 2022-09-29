@@ -9,6 +9,9 @@ title: Supported languages
 hide_title: true
 ---
 
+import SscIntro from "/src/components/concept/_ssc-intro.md"
+import MoreHelp from "/src/components/MoreHelp"
+
 <ul id="tag__badge-list">
 {
 Object.entries(frontMatter).filter(
@@ -23,7 +26,7 @@ Object.entries(frontMatter).filter(
 This document provides information about supported languages in Semgrep Supply Chain. For supported languages in **Semgrep**, see [Supported Languages](/supported-languages).
 :::
 
-Detect recently discovered [security vulnerabilities](https://nvd.nist.gov/vuln/full-listing) in your codebase's open-source dependencies using Semgrep Supply Chain. Leverage Semgrep's code-scanning capabilities to run high-signal rules that determine a vulnerability's [reachability](https://docs.google.com/document/d/1u8J9klICqDr7NS0x-_nf2paROEOL3XRc9nRkG8Pchs8/edit). Semgrep Supply Chain evaluates dependencies based on their version and use in your codebase.
+<SscIntro/>
 
 Semgrep Supply Chain parses **lockfiles** for dependencies, then scans your codebase for reachable findings based on the lockfiles. Some languages, such as Java, have several lockfiles, depending on your repository's package manager. For some languages, such as Javascript and Python, a manifest file is also parsed.
 
@@ -137,3 +140,5 @@ Their differences are outlined in the following table:
    </td>
   </tr>
 </table>
+
+<MoreHelp />
