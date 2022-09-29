@@ -39,7 +39,7 @@ def foo(x):
 
 ## Ellipsis operator
 
-The ellipsis operator (`...`) abstracts away a sequence of zero or more
+The `...` ellipsis operator abstracts away a sequence of zero or more
 arguments, statements, parameters, fields, characters, etc.
 
 ### Function calls
@@ -118,13 +118,13 @@ def parse_data(parser, data={}):  # Oops, mutable default arguments
 The YAML `|` operator allows for [multiline strings](https://yaml-multiline.info/).
 :::
 
-The ellipsis operator can also be used for the function name. Indeed,
-In some cases, you may want to match any function definitions:
-regular functions, methods, but also anonymous functions (a.k.a. lambdas).
+The ellipsis operator can also be used for the function name.
+Match any function definition:
+regular functions, methods, but also anonymous functions (such as lambdas).
 In that case you can use an ellipsis in place of the name of the function
 to match named or anonymous functions. For example,
-in Javascript the pattern `function ...($X) { ... }` will
-match any function with one parameter:
+in Javascript the pattern `function ...($X) { ... }` matches
+any function with one parameter:
 
 ```javascript
 function foo(a) {
@@ -155,6 +155,14 @@ class DataRetriever(InsecureBaseClass):
 :::tip
 The YAML `|` operator allows for [multiline strings](https://yaml-multiline.info/).
 :::
+
+#### Ellipsis operator scope
+
+The `...` ellipsis operator matches everything in its current scope. The current scope of this operator is defined by the patterns that precede `...` in a rule. See the following example:
+
+<iframe src="https://semgrep.dev/embed/editor?snippet=zZx0" border="0" frameBorder="0" width="100%" height="432"></iframe>
+
+Semgrep matches the first occurrence of `bar` and `baz` in the test code as these objects fall under the scope of `foo` and `...`. The ellipsis operator does not match the second occurrence of `bar` and `baz` as they are not inside of the function definition, therefore these objects in their second occurrence are not inside the scope of the ellipsis operator.
 
 ### Strings
 
