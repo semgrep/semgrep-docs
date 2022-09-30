@@ -134,7 +134,7 @@ This operator will filter findings that have _any overlap_ with the supplied reg
 
 ### `focus-metavariable`
 
-The `focus-metavariable` operator puts the focus, or _zooms in_, on the code region matched by a metavariable. For example, to find all functions arguments annotated with the type `bad` you may write the following pattern:
+The `focus-metavariable` operator puts the focus, or _zooms in_, on the code region matched by a single metavariable or a list of metavariables. For example, to find all functions arguments annotated with the type `bad` you may write the following pattern:
 
 ```yaml
 pattern: |
@@ -153,6 +153,10 @@ Note that `focus-metavariable: $ARG` is not the same as `pattern: $ARG`! Using `
 <iframe src="https://semgrep.dev/embed/editor?snippet=PPPe" border="0" frameBorder="0" width="100%" height="432"></iframe>
 
 In short, `focus-metavariable: $X` is not a pattern in itself, it does not perform any matching, it only focuses the matching on the code already bound to `$X` by other patterns. Whereas `pattern: $X` matches `$X` against your code (and in this context, `$X` only matches expressions)!
+
+:::info
+To make a list of multiple focus metavariables, see [Using multiple focus metavariables](/experiments/multiple-focus-metavariables) documentation.
+:::
 
 ### `metavariable-regex`
 
