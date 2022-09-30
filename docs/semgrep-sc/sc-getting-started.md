@@ -10,6 +10,7 @@ hide_title: true
 ---
 
 import MoreHelp from "/src/components/MoreHelp"
+import SscIntro from "/src/components/concept/_ssc-intro.md"
 
 <ul id="tag__badge-list">
 {
@@ -21,13 +22,14 @@ Object.entries(frontMatter).filter(
 
 # Scanning open-source dependencies
 
-Detect recently discovered [security vulnerabilities](https://nvd.nist.gov/vuln/full-listing) in your codebase's open-source dependencies using Semgrep Supply Chain. Leverage Semgrep's code-scanning capabilities to run high-signal rules that determine a vulnerability's [reachability](/docs/semgrep-sc/sc-glossary/#reachability). Semgrep Supply Chain evaluates dependencies based on their version and use in your codebase.
+<SscIntro/>
 
 :::note
 Semgrep Supply Chain is available for users that have **Semgrep Supply Chain Team License**. Contact sales@r2c.dev for more information.
 :::
 
-TODO add screenshot
+![Semgrep Supply chain overview page](/img/sc-overview.png)
+_Figure 1_. Semgrep Supply Chain overview page.
 
 Semgrep Supply Chain parses lockfiles for a list of dependencies, then scans your codebase using **rules **written with Semgrep's pattern syntax. Supply Chain rules specify the following:
 
@@ -43,7 +45,8 @@ Within Semgrep App, specific findings of a dependency and code match are called 
 
 The following diagram displays the relationship between a Supply Chain rule, the lockfile, and the codebase being scanned:
 
-TODO add screenshot
+![Relationship between a Supply Chain rule, lockfile, CVE record, and codebase](/img/sc-reachability-analysis.jpg)
+_Figure 2_. Relationship between a Supply Chain rule, lockfile, CVE record, and codebase.
 
 ## Semgrep and Semgrep Supply Chain
 
