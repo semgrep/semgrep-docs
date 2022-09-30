@@ -52,30 +52,21 @@ The latest findings are visible in **Supply chain > Overview**. Clicking **Triag
 
 Findings are grouped together by **vulnerability**. A specific finding in the code is called a **usage**. Usages are grouped under their respective vulnerabilities. Vulnerability entries are sorted as cards from newest to oldest then by severity from critical to low.
 
-
-
-
-
-
+TODO Add screenshot
 
 By assessing your vulnerabilities, you are able to determine reachable, true positives and the necessary effort to fix or resolve findings. After assessment, users typically decide between two actions:
-
-
 
 * **To ignore the vulnerabilities. **Vulnerabilities that are **ignored** are false positives, acceptable risks, or deprioritized findings due to some factor, such as time.
 * **To remediate or resolve the vulnerability.** These vulnerabilities are true positives that are prioritized due to factors such as reachability and severity. Possible remediation solutions include updating the dependency or removing the dependency and refactoring the code.
 
 To assess your findings, Semgrep Supply Chain provides the following methods:
 
-
 <table>
-  <tr>
-   <td><strong>Assessment action</strong>
-   </td>
-   <td><strong>Method</strong>
-   </td>
-  </tr>
-  <tr>
+  <thead><tr>
+   <th>Assessment action</th>
+   <th>Method</th>
+  </tr></thead>
+  <tbody><tr>
    <td>View specific code instance in your codebase.
    </td>
    <td>Click the links provided under <strong>Reachable via N usages</strong> within the vulnerability's entry.
@@ -98,21 +89,17 @@ To assess your findings, Semgrep Supply Chain provides the following methods:
    </td>
    <td>Click any of the filters available. Refer to the following table for filtering information.
    </td>
-  </tr>
+  </tr></tbody>
 </table>
 
-
-The following filters are provided:
-
+The following **filters** are provided:
 
 <table>
-  <tr>
-   <td><strong>Filter</strong>
-   </td>
-   <td><strong>Description</strong>
-   </td>
-  </tr>
-  <tr>
+  <thead><tr>
+   <th>Filter</th>
+   <th>Description</th>
+  </tr></thead>
+  <tbody><tr>
    <td>Exposure
    </td>
    <td>Filters based on the <a href="https://docs.google.com/document/d/1u8J9klICqDr7NS0x-_nf2paROEOL3XRc9nRkG8Pchs8/edit#">reachability</a> of a vulnerability. <strong>Reachable findings</strong> are displayed by default.
@@ -129,28 +116,24 @@ The following filters are provided:
    </td>
    <td>Filters based on the status of a vulnerability.
    </td>
-  </tr>
+  </tr></tbody>
 </table>
 
-
-The following status filters are provided:
-
+The following **status filters** are provided:
 
 <table>
-  <tr>
-   <td><strong>Status filter</strong>
-   </td>
-   <td><strong>Description</strong>
-   </td>
-  </tr>
-  <tr>
+  <thead><tr>
+   <th>Status filter</th>
+   <th>Description</th>
+  </tr></thead>
+  <tbody><tr>
    <td>New
    </td>
    <td>Vulnerabilities that have not undertaken triage or remediation action.
    </td>
   </tr>
   <tr>
-   <td>In progress
+   <td>In progress 
    </td>
    <td>Vulnerabilities with an attached Jira issue tracker or pull or merge request link.
    </td>
@@ -165,17 +148,13 @@ The following status filters are provided:
    <td>Ignored
    </td>
    <td>Vulnerabilities that have been triaged as ignored by the user. Semgrep Supply Chain provides the following options for developers to select:
-<ul>
-
-<li>False positive</li>
-
-<li>Acceptable risk</li>
-
-<li>No time to fix
-</li>
-</ul>
+    <ul>
+    <li>False positive</li>
+    <li>Acceptable risk</li>
+    <li>No time to fix</li>
+    </ul>
    </td>
-  </tr>
+  </tr></tbody>
 </table>
 
 
@@ -209,31 +188,26 @@ Another method to remediate vulnerabilities is to remove the dependency entirely
 
 To ignore a vulnerability:
 
-
-
-1. Optional: Filter vulnerabilities to apply criteria for a group findings to ignore.
+1. **Optional:** Filter vulnerabilities to apply criteria for a group findings to ignore.
 2. Click on the vulnerability's **Ignore **button. A drop-down menu appears.
 3. Click the reason for ignoring. 
 
-
 ## Appendix: Other helpful data points
-
 
 ### Viewing historical scan data
 
 The **Overview** tab displays two charts to assist you in understanding historical scan data:
 
-**Inbox size over time**
-
-	This is the amount of **reachable vulnerabilities** across all repositories that run Semgrep Supply Chain scans.** **The Y-axis goes down as triage actions are undertaken.
-
-**New vulnerabilities over time**
-
-	This is the amount of **reachable and unreachable vulnerabilities **over time across all repositories that run Semgrep Supply Chain scans. The chart generates a new bar every time a scan runs.
+<dl>
+<dt>Inbox size over time</dt>
+<dd>This is the amount of <strong>reachable vulnerabilities</strong> across all repositories that run Semgrep Supply Chain scans. The Y-axis goes down as triage actions are undertaken.</dd>
+<dt>New vulnerabilities over time</dt>
+<dd>This is the amount of <strong>reachable and unreachable vulnerabilities</strong> over time across all repositories that run Semgrep Supply Chain scans. The chart generates a new bar every time a scan runs.</dd>
+</dl>
 
 
 ### Viewing the latest advisories
 
-The **Advisories** tab displays the newest CVEs that Semgrep Supply Chain can detect.
+The **Advisories** tab displays the newest CVEs that Semgrep Supply Chain can detect. Click the individual entry to see the code pattern that the Advisory detects. 
 
 <MoreHelp />
