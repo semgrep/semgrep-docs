@@ -6,15 +6,15 @@ description: "With this rule, Semgrep matches all pieces of code captured by the
 
 # Using multiple focus metavariables
 
-Semgrep matches all pieces of code captured by focus metavariables when you specify them in a rule. Include the metavariables that you want to focus on by specifying each of them in a YAML list. This enables Semgrep to match these metavariables regardless of their position in code.
+Semgrep matches all pieces of code captured by focus metavariables when you specify them in a rule. Include the metavariables that you want to focus on by specifying each in a YAML list. This enables Semgrep to match these metavariables regardless of their position in code.
 
 :::info
 This feature is using `focus-metavariable`, see [`focus-metavariable`](/writing-rules/rule-syntax/#focus-metavariable) documentation for more information.  
 :::
 
-There are two methods of focusing on multiple metavariables. Each of them can lead to different results:
+There are two methods of focusing Semgrep on multiple metavariables. Each of them can lead to different results:
 
-- **Recommended**: Including `focus-metavariable` with more metavariables directly under the `patterns` key returns results regardless of whether there is an overlap between these variables:
+- **Recommended**, set union: Including `focus-metavariable` with more metavariables directly under the `patterns` key returns results regardless of whether there is an overlap between these variables:
     ```yaml
         patterns:
           - pattern: foo($X, ..., $Y)
@@ -24,7 +24,7 @@ There are two methods of focusing on multiple metavariables. Each of them can le
     ```
     See the following example:
     <iframe src="https://semgrep.dev/embed/editor?snippet=D602" border="0" frameBorder="0" width="100%" height="432"></iframe>
-- **Advanced**: Including more `focus-metavariable` keys with different metavariables under the `pattern` key lets Semgrep find **only** the overlapping region of all the focused code:
+- **Advanced**, set intersection: Including more `focus-metavariable` keys with different metavariables under the `pattern` returns results **only** for the overlapping region of all the focused code:
     ```yaml
         patterns:
           - pattern: foo($X, ..., $Y)
