@@ -138,7 +138,7 @@ Scanning a project from the CLI is a standalone action. This means that you manu
 
 :::info Prerequisites
 - Semgrep CLI must be installed. See [Getting started with Semgrep CLI](../../getting-started).
-- Ensure that you are running a recent version of Semgrep CLI. Semgrep-app supports the 10 most recent minor versions of semgrep.
+- Ensure that you are running a recent version of Semgrep CLI. Semgrep-app supports the 10 most recent minor versions of Semgrep.
 :::
 
 To scan a local repository through Semgrep CLI, follow these steps:
