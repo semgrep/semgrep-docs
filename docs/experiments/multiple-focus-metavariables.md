@@ -6,12 +6,11 @@ description: "With this rule, Semgrep matches all pieces of code captured by the
 
 # Using multiple focus metavariables
 
-With this syntax, Semgrep matches all pieces of code captured by the focus metavariables. Include the metavariables that you want to focus on by specifying each of them in a YAML list. This enables Semgrep to match these metavariables regardless of their position in code.
+Semgrep matches all pieces of code captured by focus metavariables when you specify them in a rule. Include the metavariables that you want to focus on by specifying each of them in a YAML list. This enables Semgrep to match these metavariables regardless of their position in code.
 
 :::info
 This feature is using `focus-metavariable`, see [`focus-metavariable`](/writing-rules/rule-syntax/#focus-metavariable) documentation for more information.  
 :::
-
 
 There are two methods of focusing on multiple metavariables. Each of them can lead to different results:
 
