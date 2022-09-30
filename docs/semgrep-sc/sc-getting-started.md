@@ -11,6 +11,7 @@ hide_title: true
 
 import MoreHelp from "/src/components/MoreHelp"
 import SscIntro from "/src/components/concept/_ssc-intro.md"
+import AdmonitionSscLicense from "/src/components/reference/_admonition-ssc-license.md"
 
 <ul id="tag__badge-list">
 {
@@ -22,11 +23,9 @@ Object.entries(frontMatter).filter(
 
 # Scanning open-source dependencies
 
-<SscIntro/>
+<SscIntro />
 
-:::note
-Semgrep Supply Chain is available for users that have **Semgrep Supply Chain Team License**. Contact sales@r2c.dev for more information.
-:::
+<AdmonitionSscLicense />
 
 ![Semgrep Supply chain overview page](/img/sc-overview.png)
 _Figure 1_. Semgrep Supply Chain overview page.
@@ -209,3 +208,4 @@ For more information, see [Triaging and remediating findings](/docs/semgrep-sc/t
 * [Software supply chain security is hard](https://r2c.dev/blog/2022/software-supply-chain-security-is-hard/)
 * [The best free, open-source supply-chain security tool? The lockfile](https://r2c.dev/blog/2022/the-best-free-open-source-supply-chain-tool-the-lockfile/)
 
+<MoreHelp />
