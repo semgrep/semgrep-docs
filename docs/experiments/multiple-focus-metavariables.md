@@ -24,7 +24,7 @@ There are two methods of focusing on multiple metavariables. Each of them can le
             - $Y
     ```
     See the following example:
-    TODO ADD IFRAME
+    <iframe src="https://semgrep.dev/embed/editor?snippet=D602" border="0" frameBorder="0" width="100%" height="432"></iframe>
 - **Advanced**: Including more `focus-metavariable` keys with different metavariables under the `pattern` key lets Semgrep find **only** the overlapping region of all the focused code:
     ```yaml
         patterns:
@@ -33,6 +33,11 @@ There are two methods of focusing on multiple metavariables. Each of them can le
           - focus-metavariable: $Y
     ```
     See the following example:
-    <iframe src="https://semgrep.dev/embed/editor?snippet=e8OL" border="0" frameBorder="0" width="100%" height="432"></iframe>
+    <iframe src="https://semgrep.dev/embed/editor?snippet=W4xy" border="0" frameBorder="0" width="100%" height="432"></iframe>
+
+:::tip
+Among many use cases, the **recommended** syntax for using multiple metavariables allows you to simplify taint analysis rule writing. For example, see the following rule:
+<iframe src="https://semgrep.dev/embed/editor?snippet=w6Qx" border="0" frameBorder="0" width="100%" height="432"></iframe>
+:::
 
 <!-- Once this feature is no longer experimental, move the text under the ### `focus-metavariable` to docs/writing-rules/rule-syntax.md and change the # Using multiple focus metavariables header to level 4 (####) -->
