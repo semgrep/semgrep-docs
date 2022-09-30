@@ -24,7 +24,8 @@ module.exports = {
             'getting-started',
             'semgrep-app/getting-started-with-semgrep-app',
             'semgrep-ci/overview',
-            'contributing/philosophy',
+            'semgrep-sc/sc-getting-started',
+            'contributing/philosophy'
         ]
     },
     {
