@@ -22,8 +22,6 @@ Object.entries(frontMatter).filter(
 
 # Triaging and remediating dependency findings
 
-TODO add screenshot
-
 <AdmonitionSscLicense />
 
 Perform triage and remediation on your open-source dependencies through the **Supply chain** page. This page displays relevant scan data through three tabs:
@@ -44,15 +42,24 @@ Perform triage and remediation on your open-source dependencies through the **Su
 <dd>This tab displays the latest <strong>Common Vulnerabilities and Exposures (CVEs)</strong> that are covered by Semgrep Supply Chain rules. This means that the CVEs listed in Advisories can be detected by a Semgrep Supply Chain scan.</dd>
 </dl>
 
+![Semgrep Supply Chain Vulnerabilities page](/img/sc-vulnerabilities.png)
+_Figure 1_. Semgrep Supply Chain Vulnerabilities page.
+
 ## Assessing and triaging dependency findings and usages
 
-**Prerequisite:** At least one repository that scans for dependencies through Semgrep Supply Chain. See [Scanning open-source dependencies](https://docs.google.com/document/d/1siR-6uNSPtV056HQoNLNU8WG1TmkBM5rDyenwVZG2TM/edit#heading=h.bmpe6pqb1e4c).
+**Prerequisite:** At least one repository that scans for dependencies through Semgrep Supply Chain. See [Scanning open-source dependencies](/docs/semgrep-sc/scanning-open-source-dependencies).
 
 The latest findings are visible in **Supply chain > Overview**. Clicking **Triage** opens the **Vulnerabilities** tab.
 
 Findings are grouped together by **vulnerability**. A specific finding in the code is called a **usage**. Usages are grouped under their respective vulnerabilities. Vulnerability entries are sorted as cards from newest to oldest then by severity from critical to low.
 
-TODO Add screenshot
+<div class="bordered">
+
+![A single vulnerability entry in Semgrep Supply Chain](/img/sc-ignore-reasons.png)
+
+</div>
+
+_Figure 2_. A single vulnerability entry in Semgrep Supply Chain.
 
 By assessing your vulnerabilities, you are able to determine reachable, true positives and the necessary effort to fix or resolve findings. After assessment, users typically decide between two actions:
 
@@ -102,7 +109,7 @@ The following **filters** are provided:
   <tbody><tr>
    <td>Exposure
    </td>
-   <td>Filters based on the <a href="https://docs.google.com/document/d/1u8J9klICqDr7NS0x-_nf2paROEOL3XRc9nRkG8Pchs8/edit#">reachability</a> of a vulnerability. <strong>Reachable findings</strong> are displayed by default.
+   <td>Filters based on the <a href="/docs/semgrep-sc/sc-glossary">reachability</a> of a vulnerability. <strong>Reachable findings</strong> are displayed by default.
    </td>
   </tr>
   <tr>
