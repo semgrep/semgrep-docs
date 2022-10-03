@@ -32,7 +32,7 @@ There are two methods of focusing Semgrep on multiple metavariables. Each of the
           - focus-metavariable: $Y
     ```
     See the following example:
-    <iframe src="https://semgrep.dev/embed/editor?snippet=W4xy" border="0" frameBorder="0" width="100%" height="432"></iframe>
+    <iframe src="https://semgrep.dev/embed/editor?snippet=AqJw" border="0" frameBorder="0" width="100%" height="432"></iframe>
 
 :::tip
 Among many use cases, the **recommended** syntax for using multiple metavariables allows you to simplify taint analysis rule writing. For example, see the following rule:
