@@ -94,13 +94,11 @@ Individual rules within rulesets can only be disabled, not deleted.
 
 ## Configuring notifications
 
-[Notifications](../integrations) enable you to keep track of Semgrep scans within your preferred environment, such as email or Slack. They are configured for each column.
+[Notifications](../notifications) enable you to keep track of Semgrep scans within your preferred environment, such as email or Slack. They are configured for each column.
 
-Prerequisites:
+1. Click the <i class="fa-solid fa-gear"></i> gear icon of the column to add a notification.
+2. Click **Manage Integrations** link.
 
-* An existing notification channel
-
-1. Click the gear icon of the column to add a notification for.
-2. Click the notifications to add for that column.
+For more information, follow guidelines for specific notification channel in [Notifications](../notifications) documentation.
 
 <MoreHelp />

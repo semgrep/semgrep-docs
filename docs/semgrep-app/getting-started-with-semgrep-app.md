@@ -44,7 +44,9 @@ Semgrep App enables you to deploy, configure, and manage Semgrep in your continu
 
 Signing in to Semgrep App requires either a GitHub or GitLab account. Semgrep App supports Single Sign-On (SSO) on Team or Enterprise tiers. This guide focuses on GitHub and GitLab sign-ins. See [SSO Configuration](https://semgrep.dev/docs/semgrep-app/sso/) for information on single sign-on.
 
-**Prerequisite:** A GitHub or GitLab SaaS account. The account is used to confirm your identity.
+:::info Prerequisite
+A GitHub or GitLab SaaS account. The account is used to confirm your identity.
+:::
 
 ### Signing in with GitHub
 
@@ -224,7 +226,9 @@ $> export SEMGREP_COMMIT=fa4e36b9369e5b039bh2220b5h9R61a38b077f29
 
 Scanning a repository from SCM providers such as GitHub or GitLab ensures that Semgrep scans your codebase every time a PR or MR is created. To add a repository:
 
-**Prerequisite:** A GitHub or GitLab SaaS repository associated with your account.
+:::info Prerequisite
+A GitHub or GitLab SaaS repository associated with your account.
+:::
 
 1. Ensure you are signed in to Semgrep App.
 2. Click **Projects** on the left sidebar.
