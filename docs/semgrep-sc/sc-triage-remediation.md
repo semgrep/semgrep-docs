@@ -28,14 +28,15 @@ Perform triage and remediation on your open-source dependencies through the **Su
 
 <dl>
 <dt>Overview</dt>
-    <dd>This tab displays the most recently discovered reachable vulnerabilities, advisories, and charts presenting historical data of vulnerabilities discovered in all repositories in which Supply Chain is enabled. The red badge displaying a number is your total count of <strong>reachable vulnerabilities</strong>.</dd>
+    <dd>This tab displays the most recently discovered reachable vulnerabilities, advisories, and charts presenting historical data of vulnerabilities discovered in all repositories in which Semgrep Supply Chain is enabled. The red badge is your total count of <strong>reachable vulnerabilities</strong>.</dd>
 <dt>Vulnerabilities</dt>
     <dd>This tab enables you to:
     <ul>
         <li>Filter findings.</li>
-        <li>View vulnerabilities in your repositories by providing links to specific lines of code.</li>
+        <li>View vulnerabilities in your repositories through links to specific lines of code.</li>
         <li>Triage many findings at once (bulk triage).</li>
-        <li>Remediate findings by adding links to Jira issues and pull requests.</li>
+        <li>Track the process of resolving findings by adding links to Jira issues and pull requests.</li>
+        <li>Remediate findings by providing versions to upgrade to.</li>
     </ul>
 </dd>
 <dt>Advisories</dt>
@@ -49,9 +50,11 @@ _Figure 1_. Semgrep Supply Chain Vulnerabilities page.
 
 **Prerequisite:** At least one repository that scans for dependencies through Semgrep Supply Chain. See [Scanning open-source dependencies](/docs/semgrep-sc/scanning-open-source-dependencies).
 
-The latest findings are visible in **Supply chain > Overview**. Clicking **Triage** opens the **Vulnerabilities** tab.
+To view the latest findings of Semgrep Supply Chain:
 
-Findings are grouped together by **vulnerability**. A specific finding in the code is called a **usage**. Usages are grouped under their respective vulnerabilities. Vulnerability entries are sorted as cards from newest to oldest then by severity from critical to low.
+1. The latest findings are visible in **Supply chain > Overview**. Clicking **Vulnerabilities** displays all findings for triage.
+
+Findings are grouped by **vulnerability**. A specific finding in the code is called a **usage**. Usages are grouped under their respective vulnerabilities. Vulnerability entries are sorted as cards from newest to oldest then by severity from critical to low.
 
 <div class="bordered">
 
@@ -61,10 +64,10 @@ Findings are grouped together by **vulnerability**. A specific finding in the co
 
 _Figure 2_. A single vulnerability entry in Semgrep Supply Chain.
 
-By assessing your vulnerabilities, you are able to determine reachable, true positives and the necessary effort to fix or resolve findings. After assessment, users typically decide between two actions:
+By assessing your vulnerabilities, you can determine reachable, true positives and the necessary effort to fix or resolve findings. After assessment, users typically decide between two triage actions:
 
-* **To ignore the vulnerabilities. **Vulnerabilities that are **ignored** are false positives, acceptable risks, or deprioritized findings due to some factor, such as time.
-* **To remediate or resolve the vulnerability.** These vulnerabilities are true positives that are prioritized due to factors such as reachability and severity. Possible remediation solutions include updating the dependency or removing the dependency and refactoring the code.
+* **Ignore the vulnerabilities. **Vulnerabilities that are **ignored** are false positives, acceptable risks, or deprioritized findings due to some factor, such as time.
+* **Remediate or resolve the vulnerability.** These vulnerabilities are true positives that are prioritized due to factors such as reachability and severity. Possible remediation solutions include updating the dependency or removing the dependency and refactoring the code.
 
 To assess your findings, Semgrep Supply Chain provides the following methods:
 
@@ -74,19 +77,19 @@ To assess your findings, Semgrep Supply Chain provides the following methods:
    <th>Method</th>
   </tr></thead>
   <tbody><tr>
-   <td>View specific code instance in your codebase.
+   <td>View specific pattern matches in your codebase.
    </td>
-   <td>Click the links provided under <strong>Reachable via N usages</strong> within the vulnerability's entry.
+   <td>Click links provided under <strong>Reachable via N usages</strong> within the vulnerability's entry.
    </td>
   </tr>
   <tr>
-   <td>View specific CVE entry in <a href="https://www.cve.org/">cve.org</a>.
+   <td>View specific CVE entries in <a href="https://www.cve.org/">cve.org</a>.
    </td>
    <td>Click the vulnerability's <strong>CVE badge</strong>.
    </td>
   </tr>
   <tr>
-   <td>View safe version to upgrade your dependency to.
+   <td>View safe versions to upgrade your dependencies.
    </td>
    <td>Visible on the vulnerability entry.
    </td>
@@ -164,42 +167,39 @@ The following **status filters** are provided:
   </tr></tbody>
 </table>
 
-
-
 ## Remediating true positives
 
+Remediate (or resolve) true positives in Semgrep Supply Chain through the following methods:
+
+* Update the dependency to a safe version that does not contain the vulnerability.
+* Remove the dependency and refactor all usages in the codebase.
 
 ### Updating the dependency
 
-Semgrep Supply Chain provides an update snippet you can copy and use to create a pull or merge request. Click on the **Upgrade** button to view and copy the snippet. When the pull or merge request is merged into the codebase, Semgrep Supply Chain detects that the finding is no longer present and updates the vulnerability's status to **Fixed**.
+Semgrep Supply Chain provides a snippet you can copy to update the dependency. Click on the **Upgrade** button to view and copy the snippet. When the pull or merge request is merged into the codebase, Semgrep Supply Chain detects that the finding is no longer present and updates the vulnerability's status to **Fixed**.
 
+### Removing the dependency and refactoring code
+
+Another method to remediate vulnerabilities is to remove the dependency entirely and refactor code. Upon merging any dependency removals, Semgrep Supply Chain scans the PR or MR, detects the changes in your lockfile, and updates the status to **Fixed**.
 
 ### Tracking the remediation process
 
 Semgrep Supply Chain enables you to track the progress of your remediation by providing fields for the following:
-
-
 
 * **Jira issue tracker**. This is the **card icon** seen in the vulnerability's entry.
 * **Pull or merge request (PR or MR) link**. This is the **merge icon** seen in the vulnerability's entry.
 
 Copy the PR or MR link or Jira issue link to the corresponding field. This changes the vulnerability's status to **In progress**.
 
-
-### Removing the dependency and refactoring code
-
-Another method to remediate vulnerabilities is to remove the dependency entirely and refactor code. Upon merging any dependency removals, Semgrep Supply Chain scans the PR or MR, detects the changes in your lockfile, and updates the status to **Fixed**.
-
-
 ## Ignoring vulnerabilities
 
 To ignore a vulnerability:
 
-1. **Optional:** Filter vulnerabilities to apply criteria for a group findings to ignore.
+1. **Optional:** Filter vulnerabilities to apply criteria for a group of findings to ignore.
 2. Click on the vulnerability's **Ignore **button. A drop-down menu appears.
 3. Click the reason for ignoring. 
 
-## Appendix: Other helpful data points
+## Additional data points
 
 ### Viewing historical scan data
 
@@ -207,9 +207,9 @@ The **Overview** tab displays two charts to assist you in understanding historic
 
 <dl>
 <dt>Inbox size over time</dt>
-<dd>This is the amount of <strong>reachable vulnerabilities</strong> across all repositories that run Semgrep Supply Chain scans. The Y-axis goes down as triage actions are undertaken.</dd>
+<dd>This is the number of <strong>reachable vulnerabilities</strong> across all repositories that run Semgrep Supply Chain scans. The Y-axis goes down as triage actions are undertaken.</dd>
 <dt>New vulnerabilities over time</dt>
-<dd>This is the amount of <strong>reachable and unreachable vulnerabilities</strong> over time across all repositories that run Semgrep Supply Chain scans. The chart generates a new bar every time a scan runs.</dd>
+<dd>This is the number of <strong>reachable and unreachable vulnerabilities</strong> over time across all repositories that run Semgrep Supply Chain scans. The chart generates a new bar every time a scan runs.</dd>
 </dl>
 
 
