@@ -64,7 +64,7 @@ Findings are grouped by **vulnerability**. A specific finding in the code is cal
 
 _Figure 2_. A single vulnerability entry in Semgrep Supply Chain.
 
-By assessing your vulnerabilities, you can determine reachable, true positives and the necessary effort to fix or resolve findings. After assessment, users typically decide between two triage actions:
+Semgrep Supply Chain assists in your organization's threat assessment and triage through this page. Within the **Vulnerabilities** tab, you can determine reachable, true positives and the necessary effort to fix or resolve findings. After assessment, Semgrep Supply Chain assists users to decide between two triage actions:
 
 * **Ignore the vulnerabilities. **Vulnerabilities that are **ignored** are false positives, acceptable risks, or deprioritized findings due to some factor, such as time.
 * **Remediate or resolve the vulnerability.** These vulnerabilities are true positives that are prioritized due to factors such as reachability and severity. Possible remediation solutions include updating the dependency or removing the dependency and refactoring the code.
@@ -112,19 +112,19 @@ The following **filters** are provided:
   <tbody><tr>
    <td>Exposure
    </td>
-   <td>Filters based on the <a href="/docs/semgrep-sc/sc-glossary">reachability</a> of a vulnerability. <strong>Reachable findings</strong> are displayed by default.
+   <td>Filters are based on the <a href="/docs/semgrep-sc/sc-glossary">reachability</a> of a vulnerability. <strong>Reachable findings</strong> are displayed by default.
    </td>
   </tr>
   <tr>
    <td>Severity
    </td>
-   <td>Filters based on the severity of a vulnerability. Semgrep Supply Chain rules use severity values set by GitHub Advisory Database.
+   <td>Filters are based on the severity of a vulnerability. Semgrep Supply Chain rules use severity values set by GitHub Advisory Database.
    </td>
   </tr>
   <tr>
    <td>Status
    </td>
-   <td>Filters based on the status of a vulnerability.
+   <td>Filters are based on the status of a vulnerability.
    </td>
   </tr></tbody>
 </table>
