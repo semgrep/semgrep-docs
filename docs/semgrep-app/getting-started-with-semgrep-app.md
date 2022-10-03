@@ -30,7 +30,7 @@ Semgrep App supports code scanning from:
 This guide walks you through scanning code in both types of environments.
 
 :::info
-Many improvements to the App experience only work with up-to-date Semgrep versions. For this reason, Semgrep App only supports the 10 most recent minor versions of the Semgrep open-source tool. For example, if the latest release was 0.114.0, then versions greater than 0.104.0 are supported and others may be deprecated or error out. It is recommended to use the "latest" tag for all Semgrep CI scans.
+Many improvements to the Semgrep App experience only work with up-to-date Semgrep CLI versions. For this reason, Semgrep App only supports the 10 most recent minor versions of the Semgrep open-source tool. For example, if the latest release was 0.114.0, all versions greater than 0.104.0 are supported while earlier versions, such as 0.103.0 can be deprecated or can result in failures. Use the **latest** tag for all Semgrep CI scans.
 :::
 
 
