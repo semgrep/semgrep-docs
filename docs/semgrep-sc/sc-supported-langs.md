@@ -47,7 +47,7 @@ The following table lists lockfiles, their package manager and language, and the
    <td><code>go.sum</code></td>
   </tr>
   <tr>
-   <td rowspan="2">Javascript / Typescript</td>
+   <td rowspan="2">JavaScript / TypeScript</td>
    <td>npm</td>
    <td><code>package-lock.json</code></td>
   </tr>
