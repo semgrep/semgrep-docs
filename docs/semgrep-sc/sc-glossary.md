@@ -17,7 +17,7 @@ Announcement of a vulnerability, typically but not always with an associated [Co
 
 ## Dependency
 
-Publicly available code used as a part of your application. Common examples include Flask, React, and Lodash. Each dependency is listed in a registry, such as npm for Javascript and PyPi for Python.
+Publicly available code used as a part of your application. Common examples include Flask, React, and Lodash. Each dependency is listed in a registry, such as npm for JavaScript and PyPI for Python.
 
 ## Exploitability
 
