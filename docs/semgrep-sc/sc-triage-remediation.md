@@ -24,7 +24,7 @@ Object.entries(frontMatter).filter(
 
 <AdmonitionSscLicense />
 
-Perform triage and remediation on your open-source dependencies through the **Supply chain** page. This page displays relevant scan data through three tabs:
+Perform triage and remediation on your open source dependencies through the **Supply chain** page. This page displays relevant scan data through three tabs:
 
 <dl>
 <dt>Overview</dt>
