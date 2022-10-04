@@ -132,11 +132,11 @@ Their differences are outlined in the following table:
    </td>
   </tr>
   <tr>
-   <td>Semgrep SAST language support
+   <td>Semgrep engine language support
    </td>
-   <td>Semgrep SAST support is GA.
+   <td>Semgrep engine support is GA.
    </td>
-   <td>Semgrep SAST support is at least Beta.
+   <td>Semgrep engine support is at least Beta.
    </td>
   </tr>
 </table>
