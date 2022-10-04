@@ -118,7 +118,7 @@ The following **filters** are provided:
   <tr>
    <td>Severity
    </td>
-   <td>Filters are based on the severity of a vulnerability. Semgrep Supply Chain rules use severity values set by GitHub Advisory Database.
+   <td>Filters are based on the severity of a vulnerability. Semgrep Supply Chain rules use severity values set by the GitHub Advisory Database.
    </td>
   </tr>
   <tr>
