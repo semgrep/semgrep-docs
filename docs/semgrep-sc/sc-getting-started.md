@@ -44,7 +44,7 @@ Within Semgrep App, specific findings of a dependency and code match are called 
 
 The following diagram displays the relationship between a Supply Chain rule, the lockfile, and the codebase being scanned:
 
-![Relationship between a Supply Chain rule, lockfile, CVE record, and codebase](/img/sc-reachability-analysis.jpg)
+![Relationship between a Supply Chain rule, lockfile, CVE record, and codebase](/img/sc-reachability-analysis.png)
 _Figure 2_. Relationship between a Supply Chain rule, lockfile, CVE record, and codebase.
 
 ## Semgrep and Semgrep Supply Chain
