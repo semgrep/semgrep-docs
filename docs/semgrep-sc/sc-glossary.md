@@ -41,7 +41,7 @@ A software tool that interacts with a package registry to download, upload, or s
 
 ## Package registry
 
-A package registry stores dependencies and provides a means to upload or download dependencies. Each programming language has its own separate registry such as npm for Javascript and PyPi for Python.
+A package registry stores dependencies and provides a means to upload or download dependencies. Each programming language has its own separate registry such as npm for JavaScript and PyPI for Python.
 
 ## Reachable finding (and reachable vulnerability)
 
