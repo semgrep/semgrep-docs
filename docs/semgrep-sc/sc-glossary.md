@@ -54,7 +54,7 @@ See also [Reachability](#reachability).
 
 ## Reachability
 
-Reachability refers to whether or not a vulnerable piece of code from a dependency is used in the codebase itself. In Semgrep Supply Chain, both a dependency's vulnerable version and code pattern must match before a vulnerability is considered reachable.
+Reachability refers to whether or not a vulnerable piece of code from a dependency is used in the codebase itself. In Semgrep Supply Chain, both a dependency's vulnerable version and code pattern must match for a vulnerability to be considered reachable.
 
 Semgrep Supply Chain performs reachability analysis to assist in triaging vulnerabilities. For more information, see Getting started with Semgrep Supply Chain.
 
