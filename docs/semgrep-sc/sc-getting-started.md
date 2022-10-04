@@ -198,7 +198,7 @@ Semgrep Supply Chain enables developers to perform triage and remediation throug
 * View specific **reachable** vulnerable lines of code in your codebase. This helps to evaluate the threat.
 * View specific lines of code where your dependency is being declared.
 * Triage a dependency finding.
-* Attach a PR or Jira ticket to the finding.
+* Attach a PR or MR, or Jira ticket to the finding.
 * Upgrade the dependency that generated the finding to a safe version. A safe version is any newer version of the dependency that does not contain the vulnerability. This resolves the finding.
 
 For more information, see [Triaging and remediating findings](/docs/semgrep-sc/triaging-and-remediating-vulnerabilities).
