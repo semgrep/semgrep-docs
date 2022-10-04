@@ -24,7 +24,8 @@ module.exports = {
             'getting-started',
             'semgrep-app/getting-started-with-semgrep-app',
             'semgrep-ci/overview',
-            'contributing/philosophy',
+            'semgrep-sc/sc-getting-started',
+            'contributing/philosophy'
         ]
     },
     {
@@ -166,6 +167,7 @@ module.exports = {
             'semgrep-sc/sc-getting-started',
             'semgrep-sc/sc-triage-remediation',
             'semgrep-sc/sc-ignoring-deps',
+            'semgrep-sc/sc-supported-langs',
             'semgrep-sc/sc-glossary'
         ]
     },
