@@ -114,7 +114,7 @@ Refer to [Supported languages](/docs/semgrep-sc/supply-chain-supported-languages
 ## Limitations of Semgrep Supply Chain scans
 
 * Semgrep Supply Chain supports scanning for transitive or indirect dependencies for all of its supported languages **except Java**. Findings are collected and displayed in **Semgrep App > Supply Chain**.
-* Semgrep Supply Chain detects transitivity only for **Python and Javascript **languages.
+* Semgrep Supply Chain detects transitivity only for **Python and JavaScript **languages.
 * Semgrep Supply Chain generates reachable findings only for direct dependencies.
 
 ## Scanning a repository with Semgrep Supply Chain
