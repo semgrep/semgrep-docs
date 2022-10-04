@@ -5,7 +5,7 @@ description: "Scan your codebase's open-source dependencies with Semgrep Supply 
 tags:
     - Semgrep Supply Chain
     - Team & Enterprise Tier
-title: Scanning open-source dependencies
+title: Scanning open source dependencies
 hide_title: true
 ---
 
