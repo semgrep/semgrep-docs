@@ -48,7 +48,7 @@ _Figure 1_. Semgrep Supply Chain Vulnerabilities page.
 
 ## Assessing and triaging dependency findings and usages
 
-**Prerequisite:** At least one repository that scans for dependencies through Semgrep Supply Chain. See [Scanning open-source dependencies](/docs/semgrep-sc/scanning-open-source-dependencies).
+**Prerequisite:** At least one repository that scans for dependencies through Semgrep Supply Chain. See [Scanning open source dependencies](/docs/semgrep-sc/scanning-open-source-dependencies).
 
 To view the latest findings of Semgrep Supply Chain:
 
