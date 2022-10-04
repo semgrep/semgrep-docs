@@ -21,7 +21,7 @@ Object.entries(frontMatter).filter(
 }
 </ul>
 
-# Scanning open-source dependencies
+# Scanning open source dependencies
 
 <SscIntro />
 
