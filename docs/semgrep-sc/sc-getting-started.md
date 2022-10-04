@@ -67,7 +67,7 @@ The following table displays differences between Semgrep and Semgrep Supply Chai
    </td>
    <td>First-party code (your codebase or repository)
    </td>
-   <td>Open-source dependencies 
+   <td>Open source dependencies 
    </td>
   </tr>
   <tr>
