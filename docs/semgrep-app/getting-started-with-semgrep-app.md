@@ -29,6 +29,10 @@ Semgrep App supports code scanning from:
 
 This guide walks you through scanning code in both types of environments.
 
+:::info
+Many improvements to the Semgrep App experience only work with up-to-date Semgrep CLI versions. For this reason, Semgrep App only supports the 10 most recent minor versions of the Semgrep open-source tool. For example, if the latest release was 0.114.0, all versions greater than 0.104.0 are supported while earlier versions, such as 0.103.0 can be deprecated or can result in failures. Use the **latest** tag for all Semgrep CI scans.
+:::
+
 
 Semgrep App enables you to run scans on multiple repositories by integrating with your GitHub or GitLab SaaS account. Semgrep uses **rules** to scan code. Matches found based on those rules are called **findings**. A Semgrep rule encapsulates pattern-matching logic and data-flow analysis used to find code violations, security issues, outdated libraries, and other issues.
 
@@ -132,7 +136,12 @@ Over time, users modify the Rule Board with rules specific to their codebase's s
 
 Scanning a project from the CLI is a standalone action. This means that you manually triggered the scan. Scans from CLI are not continuous nor scheduled, unlike scans run in a CI job.
 
-**Prequisite:** Semgrep CLI must be installed. See [Getting started with Semgrep CLI](../../getting-started).
+:::info Prerequisites
+- Semgrep CLI must be installed. See [Getting started with Semgrep CLI](../../getting-started).
+- Ensure that you are running a recent version of Semgrep CLI. Semgrep-app supports the 10 most recent minor versions of Semgrep.
+:::
+
+To scan a local repository through Semgrep CLI, follow these steps:
 
 1. Ensure you are signed in to Semgrep App.
 2. Click **Projects** on the left sidebar.
@@ -141,12 +150,12 @@ Scanning a project from the CLI is a standalone action. This means that you manu
     ``` 
     semgrep login
     ```
-6. Follow the instructions on the CLI.
-5. After logging in, run a scan by entering the following command. This command sends the findings to Semgrep App.
+5. Follow the instructions in the CLI.
+6. After logging in, run a scan by entering the following command. This command sends the findings to Semgrep App.
     ```
     semgrep ci
     ```
-6. View your project's [findings](https://semgrep.dev/orgs/-/findings).
+7. View your project's [findings](https://semgrep.dev/orgs/-/findings).
 
 :::note
 Scans from local repositories do not access their corresponding remote repositories. For this reason, links to specific lines of code in the Findings page are not created. See [Linking local scans to their remote repositories](#linking-local-scans-to-their-remote-repositories) for a workaround.
@@ -229,6 +238,8 @@ Scanning a repository from SCM providers such as GitHub or GitLab ensures that S
 :::info Prerequisite
 A GitHub or GitLab SaaS repository associated with your account.
 :::
+
+To scan a repository from GitHub or GitLab, follow these steps:
 
 1. Ensure you are signed in to Semgrep App.
 2. Click **Projects** on the left sidebar.
