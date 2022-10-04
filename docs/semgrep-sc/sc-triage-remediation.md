@@ -52,7 +52,7 @@ _Figure 1_. Semgrep Supply Chain Vulnerabilities page.
 
 To view the latest findings of Semgrep Supply Chain:
 
-1. The latest findings are visible in **Supply chain > Overview**. Clicking **Vulnerabilities** displays all findings for triage.
+1. The latest findings are visible in **Supply Chain > Overview**. Clicking **Vulnerabilities** displays all findings for triage.
 
 Findings are grouped by **vulnerability**. A specific finding in the code is called a **usage**. Usages are grouped under their respective vulnerabilities. Vulnerability entries are sorted as cards from newest to oldest then by severity from critical to low.
 
