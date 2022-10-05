@@ -35,7 +35,13 @@ These release notes include upgrades for versions ranging between 0.112.0 and 0.
 
 - You can now have multiple metavariables under `focus-metavariable`, which allows. Semgrep to highlight the values matched by multiple metavariables more easily in certain circumstances. For more information, see [Using multiple focus metavariables](https://semgrep.dev/docs/experiments/multiple-focus-metavariables/) documentation. (Issue [5686](https://github.com/returntocorp/semgrep/issues/5686))
 
-- Previously, you could only add tags for specific projects in the Semgrep App on the configuration page of a project. Now, you can add tags to the `semgrepconfig` YAML file that is automatically assigned to a project connected with Semgrep App. To manage tags, go to the Semgrep App [Projects](https://semgrep.dev/orgs/-/projects) tab, click on the project's <i class="fa-solid fa-gear"></i> cogwheel icon to enter project configuration page, and then remove or add tags, or add tags to your `semgrepconfig`. However, removing tags added through the `semgrepconfig` YAML file does not remove the tag from Semgrep App. To remove these tags, remove them on the project configuration page of the Semgrep App.
+- Previously, you could only add tags for specific projects in the Semgrep App on the configuration page of a project. Now, you can add tags to the `semgrep` YAML configuration file that is automatically assigned to a project connected with Semgrep App. To manage tags, go to the Semgrep App [Projects](https://semgrep.dev/orgs/-/projects) tab, click on the project's <i class="fa-solid fa-gear"></i> cogwheel icon to enter project configuration page, and then remove or add tags, or add tags to your `semgrep.yml`. However, removing tags added through the `semgrep.yml` does not remove the tag from Semgrep App. To remove these tags, remove them on the project configuration page of the Semgrep App.
+    Example of tags added to `semgrep.yml` file:
+    ```yaml
+    tags:
+        - favourite
+        - awesomeproject
+    ```
 
 - The Semgrep CLI output now displays non-blocking and blocking findings separately. CLI output also provides a list of the blocking rules that matched the code.
 
@@ -50,6 +56,22 @@ These release notes include upgrades for versions ranging between 0.112.0 and 0.
 ### Additional information
 
 Minor bug fixes are not included in the release notes unless they are potentially breaking your workflow. To see the complete change notes for Semgrep CLI and CI that include fixes, visit the [Semgrep changelog](https://github.com/returntocorp/semgrep/releases/).
+
+### Documentation updates
+
+- New documentation for experimental [Taint labels](https://semgrep.dev/docs/experiments/taint-labels/).
+- New documentation for [Displaying matched metavariables in rule messages](https://semgrep.dev/docs/writing-rules/pattern-syntax/#displaying-matched-metavariables-in-rule-messages) and experimental [Displaying propagated value of metavariables](https://semgrep.dev/docs/experiments/display-propagated-metavariable/).
+- New documentation for [Using multiple focus metavariables](https://semgrep.dev/docs/experiments/multiple-focus-metavariables/).
+- Added information about [Ellipsis operator scope](https://semgrep.dev/docs/writing-rules/pattern-syntax/#ellipsis-operator-scope).
+- Many documents, such as [Getting started with Semgrep App](https://semgrep.dev/docs/semgrep-app/getting-started-with-semgrep-app/) now display minimal Semgrep tier required for a particular feature documented on the page.
+- Updated [Managing findings in Semgrep App](https://semgrep.dev/docs/semgrep-app/findings/).
+- Updated [https://semgrep.dev/docs/experiments/taint-propagators/](https://semgrep.dev/docs/experiments/taint-propagators/) documentation.
+- [Taint mode](https://semgrep.dev/docs/writing-rules/data-flow/taint-mode/) documentation now includes introductory video.
+- Updated [Getting started with Semgrep in continuous integration (CI)](https://semgrep.dev/docs/semgrep-ci/overview/)
+- Updated [Data-flow analysis engine overview](https://semgrep.dev/docs/writing-rules/data-flow/data-flow-overview/).
+- Updated [Integrating Semgrep into source code management (SCM) tools](https://semgrep.dev/docs/semgrep-app/scm/).
+- Updated [Evaluating your security posture through the Dashboard](https://semgrep.dev/docs/semgrep-app/dashboard/).
+- Updated [Notifications](https://semgrep.dev/docs/semgrep-app/notifications/) documentation.
 
 ## August 2022
 
