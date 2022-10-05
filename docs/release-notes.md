@@ -10,6 +10,47 @@ toc_max_heading_level: 2
 
 Welcome to Semgrep release notes. This document gives an overview of the changes, additions, and selected fixes. Release notes published since April 2022 include Semgrep CLI, CI, and Semgrep App updates. Release notes published since April 2022 encompass all versions released during the month.
 
+## September 2022
+
+### Semgrep App
+
+#### Changes
+
+- The Findings page has been updated with UX/UI improvements to its filtering and triage functions.
+- The Dashboard page has been updated with UI improvements.
+
+#### Bug fixes
+
+- Previously, users could not receive merge request (MR) comments within GitLab repositories. This issue has been fixed. Users can now receive MR comments in GitLab from Semgrep App.
+- Update git URL parser to support optional organization after the hostname. For example `https://some.enterprise.scm/myorg/owner/repo`.
+- Various fixes and improvements to speed.
+
+### Semgrep CLI and Semgrep in CI
+
+These release notes include upgrades for versions ranging between 0.112.0 and 0.115.0.
+
+#### Additions
+
+- Exclude rules by ID using CLI flag `--exclude-rule`. To exclude a specific rule, use for example `semgrep --config=auto --exclude <code><span className="placeholder">RULE_ID</span></code>. (Issue [2530](https://github.com/returntocorp/semgrep/issues/2530), PR [5974](https://github.com/returntocorp/semgrep/pull/5974))
+
+- You can now have multiple metavariables under `focus-metavariable`, which allows. Semgrep to highlight the values matched by multiple metavariables more easily in certain circumstances. For more information, see [Using multiple focus metavariables](https://semgrep.dev/docs/experiments/multiple-focus-metavariables/) documentation. (Issue [5686](https://github.com/returntocorp/semgrep/issues/5686))
+
+- Previously, you could only add tags for specific projects in the Semgrep App on the configuration page of a project. Now, you can add tags to the `semgrepconfig` YAML file that is automatically assigned to a project connected with Semgrep App. To manage tags, go to the Semgrep App [Projects](https://semgrep.dev/orgs/-/projects) tab, click on the project's <i class="fa-solid fa-gear"></i> cogwheel icon to enter project configuration page, and then remove or add tags, or add tags to your `semgrepconfig`. However, removing tags added through the `semgrepconfig` YAML file does not remove the tag from Semgrep App. To remove these tags, remove them on the project configuration page of the Semgrep App.
+
+- The Semgrep CLI output now displays non-blocking and blocking findings separately. CLI output also provides a list of the blocking rules that matched the code.
+
+- taint-mode: Experimental support for basic field-sensitive taint tracking. Semgrep can now track `x.a` and `x.b` separately, so that for example: `x.a` can be tainted at the same time as `x.b` is clean, hence `sink(x.a)` can produce a finding but `sink(x.b)` does not. It is also possible for `x` to be tainted while `x.a` is clean. As a result, the number of false positives that Semgrep reports is reduced.
+
+#### Changes
+
+- generic mode: Allow text input without human-readable indentation up to 500 bytes. This value is subject to change. This relaxation is intended to facilitate testing a long line without a trailing newline. Semgrep users should not expect files that are not human-readable to be processed by Semgrep's generic mode, or in any mode for the matter. (Issues [6071](https://github.com/returntocorp/semgrep/issues/6071,) [6162]https://github.com/returntocorp/semgrep/issues/6162)
+
+- Changed behavior for renamed files in diff-aware scans. Semgrep no longer displays old issues to developers when they rename a file. As a result, findings in renamed files are displayed for security engineers but do not block or spam developers. (Issue [6157](https://github.com/returntocorp/semgrep/pull/6157))
+
+### Additional information
+
+Minor bug fixes are not included in the release notes unless they are potentially breaking your workflow. To see the complete change notes for Semgrep CLI and CI that include fixes, visit the [Semgrep changelog](https://github.com/returntocorp/semgrep/releases/).
+
 ## August 2022
 
 ### Semgrep App
