@@ -89,10 +89,10 @@ Upon enabling RBAC for the first time, current members of the organization are `
 
 ## Changing a user's role
 
-**Prerequisites**:
-
+:::info Prerequisites
 * You must be an `admin` to perform this operation.
 * You may need to log out and log back in after enabling RBAC for your organization.
+:::
 
 To **change a user's role**:
 

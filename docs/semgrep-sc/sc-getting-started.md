@@ -131,10 +131,11 @@ You can run a dependency scan within Semgrep App.
 This is the preferred method to enable and run Semgrep Supply Chain.
 :::
 
-**Prerequisites:** To run Semgrep Supply Chain, you need the following:
-
+:::info Prerequisites
+To run Semgrep Supply Chain, you need the following:
 * A Semgrep App account. See [Signing in to Semgrep App](/docs/semgrep-app/getting-started-with-semgrep-app/#signing-in-to-semgrep-app).
 * A project (repository) with a lockfile to scan. The repository must have at least one **lockfile**. See [Scanning a new project](/docs/semgrep-app/getting-started-with-semgrep-app/#scanning-a-new-project).
+:::
 
 To enable and run a Supply Chain (dependency) scan in Semgrep App:
 
