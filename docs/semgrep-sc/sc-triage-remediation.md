@@ -28,19 +28,18 @@ Perform triage and remediation on your open source dependencies through the **Su
 
 <dl>
 <dt>Overview</dt>
-    <dd>This tab displays the most recently discovered reachable vulnerabilities, advisories, and charts presenting historical data of vulnerabilities discovered in all repositories in which Semgrep Supply Chain is enabled. The red badge is your total count of <strong>reachable vulnerabilities</strong>.</dd>
+    <dd>This tab displays the most recently discovered reachable vulnerabilities, advisories, and charts presenting historical data of vulnerabilities discovered in all repositories for which Semgrep Supply Chain is enabled. The badge is your total count of <strong>reachable vulnerabilities</strong>.</dd>
 <dt>Vulnerabilities</dt>
     <dd>This tab enables you to:
     <ul>
         <li>Filter findings.</li>
-        <li>View vulnerabilities in your repositories through links to specific lines of code.</li>
-        <li>Triage many findings at once (bulk triage).</li>
+        <li>View reachable vulnerabilities in your repositories through links to specific lines of code.</li>
         <li>Track the process of resolving findings by adding links to Jira issues and pull requests.</li>
         <li>Remediate findings by providing versions to upgrade to.</li>
     </ul>
 </dd>
 <dt>Advisories</dt>
-<dd>This tab displays the latest <strong>Common Vulnerabilities and Exposures (CVEs)</strong> that are covered by Semgrep Supply Chain rules. This means that the CVEs listed in Advisories can be detected by a Semgrep Supply Chain scan.</dd>
+<dd>This tab displays the latest <strong>Common Vulnerabilities and Exposures (CVEs)</strong> that are covered by Semgrep Supply Chain rules. Use this tab to see the CVEs that Semgrep Supply Chain can detect.</dd>
 </dl>
 
 ![Semgrep Supply Chain Vulnerabilities page](/img/sc-vulnerabilities.png)
@@ -210,7 +209,7 @@ The **Overview** tab displays two charts to assist you in understanding historic
 <dl>
 <dt>Inbox size over time</dt>
 <dd>This is the number of <strong>reachable vulnerabilities</strong> across all repositories that run Semgrep Supply Chain scans. The Y-axis goes down as triage actions are undertaken.</dd>
-<dt>New vulnerabilities over time</dt>
+<dt>New findings over time</dt>
 <dd>This is the number of <strong>reachable and unreachable vulnerabilities</strong> over time across all repositories that run Semgrep Supply Chain scans. The chart generates a new bar every time a scan runs.</dd>
 </dl>
 
