@@ -54,7 +54,7 @@ These release notes include upgrades for versions ranging between 0.112.0 and 0.
 
 #### Changes
 
-- generic mode: Allow text input up to 500 bytes without human-readable indentation. This value is subject to change. This relaxation is intended to facilitate testing a long line without a trailing newline. Semgrep users should not expect files that are not human-readable to be processed by Semgrep's generic mode, or in any mode. (Issues [6071](https://github.com/returntocorp/semgrep/issues/6071), [6162](https://github.com/returntocorp/semgrep/issues/6162)
+- generic mode: Allow text input up to 500 bytes without human-readable indentation. This value is subject to change. This relaxation is intended to facilitate testing a long line without a trailing newline. Semgrep users should not expect files that are not human-readable to be processed by Semgrep's generic mode, or in any mode. (Issues [6071](https://github.com/returntocorp/semgrep/issues/6071), [6162](https://github.com/returntocorp/semgrep/issues/6162))
 
 - Changed behavior for renamed files in diff-aware scans. Semgrep no longer displays old issues to developers when they rename a file. As a result, findings in renamed files are displayed for security engineers but do not block or spam developers. (Issue [6157](https://github.com/returntocorp/semgrep/pull/6157))
 
