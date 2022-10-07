@@ -46,7 +46,7 @@ These release notes include upgrades for versions ranging between 0.112.0 and 0.
     ```
     These tags are displayed in Semgrep App [Projects](https://semgrep.dev/orgs/-/projects) tab also.
 
-    However, removing tags added through the `semgrepconfig.yml` does not remove the tag from Semgrep App. To remove these tags, remove them on the project configuration page of the Semgrep App.
+    However, removing tags added through the `.semgrepconfig.yml` does not remove the tag from Semgrep App. To remove these tags, remove them on the project configuration page of the Semgrep App.
 
 - The Semgrep CLI output now displays non-blocking and blocking findings separately. CLI output also provides a list of the blocking rules that matched the code.
 
