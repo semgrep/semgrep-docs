@@ -14,6 +14,100 @@ Welcome to monthly rule updates! This document includes selected new rules, remo
 
 ## August 2022
 
+<LinkToRegistryRule ruleId=" " />
+
+### Community tier
+
+#### New rules from Semgrep community and r2c
+
+- 100+ new Terraform rules for GCP! Thanks @mertcoskuner!
+- Python crypto operations with HMAC. Thanks @luisfontes19!
+    - <LinkToRegistryRule ruleId="python.cryptography.security.mode-without-authentication" />
+    - <LinkToRegistryRule ruleId="python.pycryptodome.security.mode-without-authentication" />
+- Spring actuator rules. Thanks @malexmave!
+    - <LinkToRegistryRule ruleId="java.spring.security.audit.spring-actuator-fully-enabled-yaml" />
+    - <LinkToRegistryRule ruleId="java.spring.security.audit.spring-actuator-fully-enabled" />
+    - <LinkToRegistryRule ruleId="java.spring.security.audit.spring-actuator-non-health-enabled-yaml" />
+    - <LinkToRegistryRule ruleId="java.spring.security.audit.spring-actuator-non-health-enabled" />
+- Rule for persistent secrets in Docker images. Thanks @Sjord!: <LinkToRegistryRule ruleId="dockerfile.security.secret-in-build-arg" />
+- Rule for GitHub Actions script injection: <LinkToRegistryRule ruleId="yaml.github-actions.security.github-script-injection" />
+- PHP XSS rule: <LinkToRegistryRule ruleId="php.lang.security.injection.echoed-request" />
+
+#### Changed community tier rules
+
+##### New metadata keys
+
+r2c is adding new metadata fields to better communicate the intent and importance of findings that a rule generates. The following list provides details about new metadata fields:
+- **Likelihood**: How likely is the impact highlighted by this finding to occur? Examples:
+    - Web application user input: HIGH
+    - OS environment: MEDIUM
+- **Impact**: How much damage can this issue cause? Examples:
+    - SQL Injection: HIGH
+    - Information disclosure: LOW
+- **Confidence**: How confident is the author that this finding is exploitable? Examples:
+    - User input + formatted SQL string + SQL sink + no intermediate function calls: HIGH
+    - User input + SQL sink: MEDIUM
+    - Formatted SQL string: LOW
+- **Subcategory**: A list of subcategories that allows the author to specify the intent of the rule. Current values are:
+    - **Audit**: This rule indicates the possible presence of a vulnerability, provided other conditions are present
+    - **Vuln**: This rule is specifically looking for an exploitable vulnerability
+- Addtionally, language rulesets (such as `p/javascript`) have been altered to include only rules that match the following conditions:
+    - Subcategory: Vuln
+    - Impact: HIGH
+
+#### Updated community tier rules
+
+- PyYAML rule updated for modern versions of PyYAML. This can lower the occurence of false positive findings. Thanks @shivankar-madaan: python.lang.security.deserialization.avoid-pyyaml-load
+- Added new case for C use-after-free where freed var is used in conditional. Thanks @zhengsidie. c.lang.security.use-after-free
+- Additional user input added. Thanks @jbergler! ruby.lang.security.no-eval
+- Reduced false positives by filtering safe attributes. Thanks @luisfontes19! python.flask.security.open-redirect 
+- Filtered false positive cases from:
+    - <LinkToRegistryRule ruleId="generic.secrets.security.detected-slack-webhook" />
+    - <LinkToRegistryRule ruleId="java.jax-rs.security.insecure-resteasy" />
+    - <LinkToRegistryRule ruleId="javascript.express.securty.audit.xss.direct-response-write" />
+    - <LinkToRegistryRule ruleId="javascript.express.security.audit.express-open-redirect" />
+    - <LinkToRegistryRule ruleId="ruby.rails.security.injection.tainted-sql-string" />
+    - <LinkToRegistryRule ruleId="ruby.rails.security.brakeman.check-regex-dos" />
+- Autofix added to the following rules:
+    - <LinkToRegistryRule ruleId="c.lang.correctness.c-string-equality" />
+    - <LinkToRegistryRule ruleId="csharp.lang.correctness.sslcertificatetrust.sslcertificatetrust-handshake-no-trust" />
+    - <LinkToRegistryRule ruleId="dockerfile.best-practice.maintainer-is-deprecated" />
+    - <LinkToRegistryRule ruleId="dockerfile.best-practice.use-shell-instruction" />
+    - <LinkToRegistryRule ruleId="generic.ci.security.use-frozen-lockfile" />
+    - <LinkToRegistryRule ruleId="go.lang.security.audit.net.use-tls" />
+    - <LinkToRegistryRule ruleId="go.lang.security.filepath-clean-misuse" />
+    - <LinkToRegistryRule ruleId="java.lang.security.audit.cbc-padding-oracle" />
+    - <LinkToRegistryRule ruleId="java.lang.security.audit.crypto.des-is-deprecated" />
+    - <LinkToRegistryRule ruleId="javascript.dompurify" />
+    - <LinkToRegistryRule ruleId="python.distributed.security" />
+    - <LinkToRegistryRule ruleId="python.django.security.audit.unvalidated-password" />
+    - <LinkToRegistryRule ruleId="python.jinja2.security.audit.autoescape-disabled-false" />
+    - <LinkToRegistryRule ruleId="python.jinja2.security.audit.missing-autoescape-disabled" />
+    - <LinkToRegistryRule ruleId="python.lang.correctness.exit" />
+    - <LinkToRegistryRule ruleId="python.lang.correctness.unchecked-returns" />
+    - <LinkToRegistryRule ruleId="python.pyramid.audit.authtkt-cookie-httponly-unsafe-value" />
+    - <LinkToRegistryRule ruleId="python.pyramid.audit.authtkt-cookie-samesite" />
+    - <LinkToRegistryRule ruleId="python.pyramid.audit.authtkt-cookie-secure-unsafe-value" />
+    - <LinkToRegistryRule ruleId="python.pyramid.audit.csrf-check-disabled" />
+    - <LinkToRegistryRule ruleId="python.pyramid.audit.csrf-origin-check-disabled-globally" />
+    - <LinkToRegistryRule ruleId="python.pyramid.audit.csrf-origin-check-disabled" />
+    - <LinkToRegistryRule ruleId="python.pyramid.audit.set-cookie-httponly-unsafe-value" />
+    - <LinkToRegistryRule ruleId="python.pyramid.audit.set-cookie-samesite-unsafe-value" />
+    - <LinkToRegistryRule ruleId="python.pyramid.audit.set-cookie-secure-unsafe-value" />
+    - <LinkToRegistryRule ruleId="python.pyramid.security.csrf-check-disabled-globally" />
+    - <LinkToRegistryRule ruleId="python.requests.best-practice.use-response-json-shortcut" />
+    - <LinkToRegistryRule ruleId="ruby.lang.security.bad-deserialization-yaml" />
+    - <LinkToRegistryRule ruleId="ruby.rails.correctness.rails-no-render-after-save" />
+    - <LinkToRegistryRule ruleId="yaml.kubernetes.best-practice.no-fractional-cpu-limits" />
+
+#### Deprecated community tier rules
+
+These rules no longer produce findings:
+
+- <LinkToRegistryRule ruleId="javascript.lang.security.detect-non-literal-require" />
+
+## August 2022
+
 ### Community tier
 
 #### New rules from Semgrep community and r2c
