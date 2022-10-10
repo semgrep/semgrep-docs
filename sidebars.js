@@ -24,7 +24,8 @@ module.exports = {
             'getting-started',
             'semgrep-app/getting-started-with-semgrep-app',
             'semgrep-ci/overview',
-            'contributing/philosophy',
+            'semgrep-sc/sc-getting-started',
+            'contributing/philosophy'
         ]
     },
     {
@@ -76,6 +77,7 @@ module.exports = {
             'experiments/taint-propagators',
             'experiments/taint-labels',
             'experiments/metavariable-analysis',
+            'experiments/multiple-focus-metavariables',
             'experiments/display-propagated-metavariable'
           ]
         },
@@ -155,6 +157,18 @@ module.exports = {
                 ],
             },
             'semgrep-app/pricing-and-billing',
+        ]
+    },
+    {
+        type: 'category',
+        label: 'Semgrep Supply Chain',
+        collapsible: false,
+        items: [
+            'semgrep-sc/sc-getting-started',
+            'semgrep-sc/sc-triage-remediation',
+            'semgrep-sc/sc-ignoring-deps',
+            'semgrep-sc/sc-supported-langs',
+            'semgrep-sc/sc-glossary'
         ]
     },
     {
