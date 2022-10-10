@@ -477,9 +477,9 @@ foo(1,2,3,1,2)
 
 Display values of matched metavariables in rule messages. Add a metavariable to the rule message (for example `Found $X`) and Semgrep replaces it with the value of the detected metavariable.
 
-To display matched metavariable in a rule message, add the same metavariable as you are searching for in your rule to the rule message. For example:
+To display matched metavariable in a rule message, add the same metavariable as you are searching for in your rule to the rule message.
 
-1. Find the metavariable used in the Semgrep rule. For example:
+1. Find the metavariable used in the Semgrep rule. See the following example of a part Semgrep rule (formula):
     ```yaml
     - pattern: $MODEL.set_password(…)
     ```
