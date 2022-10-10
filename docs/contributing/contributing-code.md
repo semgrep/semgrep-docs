@@ -3,17 +3,21 @@
 This article documents how to contribute to [Semgrep repository](https://github.com/returntocorp/semgrep), providing you with details concerning repository's file structure, specifics of handling submodules, and many other details that help you to report issues, fix bugs, build and test Semgrep locally.
 
 Semgrep welcomes contributions from anyone. If you have an idea for a feature or find a bug:
-1. Open an issue from Semgrep's [GitHub](https://github.com/returntocorp/semgrep/issues/new/choose) issue template.
+1. Open an issue in [Semgrep GitHub](https://github.com/returntocorp/semgrep/issues/new/choose) issue template.
 
 Submit an issue first before making a pull request (PR). Submitting an issue is preferred to directly creating a PR so we can ensure you're on the right track without any wasted effort. This is also a great way to contribute to Semgrep even if you're not making changes yourself.
 
-This README gives an overview of the repository. For further information on building, you will be directed to [semgrep-core contributing](semgrep-core-contributing.md) and/or [semgrep-cli contributing](semgrep-contributing.md) in [Making a Change](#making-a-change). 
+:::tip Submitting issues
+Submit an issue first before making a PR. See [Semgrep GitHub](https://github.com/returntocorp/semgrep/issues/new/choose) issue template.
+:::
 
-## File structure
+Further information can be found either in [semgrep-core contributing](semgrep-core-contributing.md) and in [semgrep-cli contributing](semgrep-contributing.md) in [Making a Change](#making-a-change).
 
-Semgrep consists of a Python wrapper (`semgrep-cli`) around an OCaml engine (`semgrep-core`) which performs the core parsing/matching work. Within `semgrep-core`, there are two sources of parsers, [`pfff`](https://github.com/returntocorp/pfff), linked as a submodule, and `tree-sitter-lang`, built using [tree-sitter](https://github.com/tree-sitter/tree-sitter). Additionally, `semgrep-core` contains a subengine, `spacegrep`, for generic matching.
+## TODO WIP Theoretical introduction
 
-You may also be interested in `perf`, which contains our code for running repositories against specific rulesets.
+### File structure
+
+Semgrep consists of a Python wrapper (`semgrep-cli`) around an OCaml engine (`semgrep-core`) which performs the core parsing or matching work. Within `semgrep-core`, there are two sources of parsers, [`pfff`](https://github.com/returntocorp/pfff), linked as a submodule, and `tree-sitter-lang`, built using [tree-sitter](https://github.com/tree-sitter/tree-sitter). Additionally, `semgrep-core` contains a subengine, `spacegrep`, for generic matching. The `perf`, which contains our code for running repositories against specific rulesets.
 
 There are many other files, but the below diagram broadly displays the file structure.
 
@@ -35,7 +39,7 @@ There are many other files, but the below diagram broadly displays the file stru
 
 Most of Semgrep's logic is in `cli/src` and `semgrep-core/src`. 
 
-## Code relationship
+### Code relationship
 
 The `semgrep-core` binary stands alone. Once built, it is possible to run `semgrep-core` on a semgrep rule for a given language with a file/directory and receive matches. 
 
@@ -77,9 +81,9 @@ The matched code is the same, but with `semgrep-cli` the output is more polished
 
 Currently, depending on the flags used, `spacegrep` is invoked both independently by `semgrep-cli` as a subprocess and by `semgrep-core` as a subfolder. Therefore, `semgrep-cli` requires the `spacegrep` binary, but building `semgrep-core` will build `spacegrep` as well.
 
-## Making a change
+### Making a change
 
-Semgrep runs on Python versions >= 3.6. If you don't have one of these versions installed, please do so before proceeding.
+Semgrep runs on Python versions >= 3.7. If you don't have one of these versions installed, please do so before proceeding.
 
 Because the Python and OCaml development paths are relatively independent, the instructions are divided into Python ([semgrep-cli contributing](semgrep-contributing.md)) and OCaml ([semgrep-core contributing](semgrep-core-contributing.md)).
 
@@ -91,7 +95,7 @@ If you only want to build `semgrep-cli`, go straight to [semgrep-cli contributin
 
 Below is a guide for what functionality each of `semgrep-cli` and `semgrep-core` controls.
 
-### Only `semgrep-cli`
+## Only `semgrep-cli`
 
 The python code for Semgrep performs pre and post-processing work. You likely need to touch only `semgrep-cli` if you want to affect
 
@@ -101,7 +105,7 @@ The python code for Semgrep performs pre and post-processing work. You likely ne
 
 Go to [semgrep-cli contributing](semgrep-contributing.md)
 
-### Only `semgrep-core`
+## Only `semgrep-core`
 
 The OCaml code for Semgrep performs all the parsing and matching work. You likely need to touch only `semgrep-core` if you want to
 
@@ -111,7 +115,7 @@ The OCaml code for Semgrep performs all the parsing and matching work. You likel
 
 Go to [semgrep-core contributing](semgrep-core-contributing.md)
 
-### Both `semgrep` and `semgrep-core`
+## Both `semgrep` and `semgrep-core`
 
 There are some features that cross through both OCaml and Python code. You will likely need to touch both `semgrep-cli` and `semgrep-core` if you want to
 
