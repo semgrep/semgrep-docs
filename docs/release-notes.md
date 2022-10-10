@@ -31,7 +31,7 @@ These release notes include upgrades for versions ranging between 0.112.0 and 0.
 
 #### Additions
 
-- Exclude rules by ID using CLI flag `--exclude-rule`. To exclude a specific rule, use for example `semgrep --config=auto --exclude <code><span className="placeholder">RULE_ID</span></code>. (Issue [2530](https://github.com/returntocorp/semgrep/issues/2530), PR [5974](https://github.com/returntocorp/semgrep/pull/5974))
+- Exclude rules by ID using CLI flag `--exclude-rule`. To exclude a specific rule, use for example <code>semgrep --config=auto --exclude <span className="placeholder">RULE_ID</span></code>. (Issue [2530](https://github.com/returntocorp/semgrep/issues/2530), PR [5974](https://github.com/returntocorp/semgrep/pull/5974))
 
 - You can now have multiple metavariables under `focus-metavariable`, which allows. Semgrep to highlight the values matched by multiple metavariables more easily in certain circumstances. For more information, see [Using multiple focus metavariables](/experiments/multiple-focus-metavariables/) documentation. (Issue [5686](https://github.com/returntocorp/semgrep/issues/5686))
 
