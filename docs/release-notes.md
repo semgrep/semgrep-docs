@@ -10,6 +10,73 @@ toc_max_heading_level: 2
 
 Welcome to Semgrep release notes. This document gives an overview of the changes, additions, and selected fixes. Release notes published since April 2022 include Semgrep CLI, CI, and Semgrep App updates. Release notes published since April 2022 encompass all versions released during the month.
 
+## September 2022
+
+### Semgrep App
+
+#### Changes
+
+- The Findings page has been updated with UX/UI improvements to its filtering and triage functions.
+- The Dashboard page has been updated with UI improvements.
+
+#### Bug fixes
+
+- Previously, users could not receive merge request (MR) comments within GitLab repositories. This issue has been fixed. Users can now receive MR comments in GitLab from Semgrep App.
+- Update git URL parser to support optional organization after the hostname. For example `https://some.enterprise.scm/myorg/owner/repo`.
+- Various fixes and improvements to speed.
+
+### Semgrep CLI
+
+These release notes include upgrades for versions ranging between 0.112.0 and 0.115.0.
+
+#### Additions
+
+- Exclude rules by ID using CLI flag `--exclude-rule`. To exclude a specific rule, use for example <code>semgrep --config=auto --exclude <span className="placeholder">RULE_ID</span></code>. (Issue [2530](https://github.com/returntocorp/semgrep/issues/2530), PR [5974](https://github.com/returntocorp/semgrep/pull/5974))
+
+- You can now have multiple metavariables under `focus-metavariable`, which allows. Semgrep to highlight the values matched by multiple metavariables more easily in certain circumstances. For more information, see [Using multiple focus metavariables](/experiments/multiple-focus-metavariables/) documentation. (Issue [5686](https://github.com/returntocorp/semgrep/issues/5686))
+
+- You can add tags for specific projects in the Semgrep App on the configuration page of a project. To manage tags, go to the Semgrep App [Projects](https://semgrep.dev/orgs/-/projects) tab, click on the project's <i class="fa-solid fa-gear"></i> cogwheel icon to enter project configuration page, and then add or remove tags.
+    With this update, you can create `.semgrepconfig.yml` file in the root directory of your repository and add tags in this file also.
+
+    Example of tags added to `.semgrepconfig.yml` file:
+    ```yaml
+    tags:
+        - favourite
+        - awesomeproject
+    ```
+    These tags are displayed in Semgrep App [Projects](https://semgrep.dev/orgs/-/projects) tab also.
+
+    However, removing tags added through the `.semgrepconfig.yml` does not remove the tag from Semgrep App. To remove these tags, remove them on the project configuration page of the Semgrep App.
+
+- The Semgrep CLI output now displays non-blocking and blocking findings separately. CLI output also provides a list of the blocking rules that matched the code.
+
+- taint-mode: Experimental support for basic field-sensitive taint tracking. Semgrep can now track `x.a` and `x.b` separately, so that for example: `x.a` can be tainted at the same time as `x.b` is clean, hence `sink(x.a)` can produce a finding but `sink(x.b)` does not. It is also possible for `x` to be tainted while `x.a` is clean. As a result, the number of false positives that Semgrep reports is reduced.
+
+#### Changes
+
+- generic mode: Allow text input up to 500 bytes without human-readable indentation. This value is subject to change. This relaxation is intended to facilitate testing a long line without a trailing newline. Semgrep users should not expect files that are not human-readable to be processed by Semgrep's generic mode, or in any mode. (Issues [6071](https://github.com/returntocorp/semgrep/issues/6071), [6162](https://github.com/returntocorp/semgrep/issues/6162))
+
+- Changed behavior for renamed files in diff-aware scans. Semgrep no longer displays old issues to developers when they rename a file. As a result, findings in renamed files are displayed for security engineers but do not block or spam developers. (Issue [6157](https://github.com/returntocorp/semgrep/pull/6157))
+
+### Additional information
+
+Minor bug fixes are not included in the release notes unless they are potentially breaking your workflow. To see the complete change notes for Semgrep CLI and CI that include fixes, visit the [Semgrep changelog](https://github.com/returntocorp/semgrep/releases/).
+
+### Documentation updates
+
+- New documentation for experimental [Taint labels](/experiments/taint-labels/).
+- New documentation for [Displaying matched metavariables in rule messages](/writing-rules/pattern-syntax/#displaying-matched-metavariables-in-rule-messages) and experimental [Displaying propagated value of metavariables](/experiments/display-propagated-metavariable/).
+- New documentation for [Using multiple focus metavariables](/experiments/multiple-focus-metavariables/).
+- Added information about [Ellipsis operator scope](/writing-rules/pattern-syntax/#ellipsis-operator-scope).
+- Many documents, such as [Getting started with Semgrep App](/semgrep-app/getting-started-with-semgrep-app/) now display minimal Semgrep tier required for a particular feature documented on the page.
+- Updated [Managing findings in Semgrep App](/semgrep-app/findings/).
+- [Taint mode](/writing-rules/data-flow/taint-mode/) documentation has been updated and now includes introductory video.
+- Updated [Getting started with Semgrep in continuous integration (CI)](/semgrep-ci/overview/)
+- Updated [Data-flow analysis engine overview](/writing-rules/data-flow/data-flow-overview/).
+- Updated [Integrating Semgrep into source code management (SCM) tools](/semgrep-app/scm/).
+- Updated [Evaluating your security posture through the Dashboard](/semgrep-app/dashboard/).
+- Updated [Notifications](/semgrep-app/notifications/) documentation.
+
 ## August 2022
 
 ### Semgrep App
@@ -26,7 +93,7 @@ These release notes include upgrades for versions ranging between 0.108.0 and 0.
 
 #### Additions
 
-- Semgrep now provides experimental support for the **Swift** language. See all languages that Semgrep supports in [Supported languages](https://semgrep.dev/docs/supported-languages/).
+- Semgrep now provides experimental support for the **Swift** language. See all languages that Semgrep supports in [Supported languages](/supported-languages/).
 - Add configuration options for using the tree-sitter library installed anywhere on the system.
 - Metrics now include language-aggregated parse rates (files, bytes). The purpose of this is to continue with parsing improvements. See [Semgrep privacy policy](/metrics.md) for more details.
 - Semgrep CI now accepts more formats of Git URLs for metadata that are sent to semgrep.dev. This work in progress functionality enables working links from the Semgrep App Findings page. The user provides a fallback for repository name (`SEMGREP_REPO_NAME`) and repository URL (`SEMGREP_REPO_URL`) if these values are undefined by the CI job. We appreciate any bug reports or suggestions as this feature is still in development.
@@ -48,17 +115,17 @@ Minor bug fixes are not included in the release notes unless they are potentiall
 ### Documentation updates
 
 - Consistent and exhaustive documentation about continuous integration (CI) both with and without Semgrep App:
-  - [Running Semgrep in continuous integration (CI) with Semgrep App](https://semgrep.dev/docs/semgrep-ci/running-semgrep-ci-with-semgrep-app/)
-  - [Running Semgrep in continuous integration (CI) without Semgrep App](https://semgrep.dev/docs/semgrep-ci/running-semgrep-ci-without-semgrep-app/)
-- Experimental taint propagators allow you to specify additional structures through which taint propagates. See how to use them in the [Taint propagators](https://semgrep.dev/docs/experiments/taint-propagators/) article.
-- Updated [Generic pattern matching](https://semgrep.dev/docs/experiments/generic-pattern-matching/) documentation, rewritten examples, and added new sections, including a new [Handling line-based input](https://semgrep.dev/docs/experiments/generic-pattern-matching/#handling-line-based-input) section.
+  - [Running Semgrep in continuous integration (CI) with Semgrep App](/semgrep-ci/running-semgrep-ci-with-semgrep-app/)
+  - [Running Semgrep in continuous integration (CI) without Semgrep App](/semgrep-ci/running-semgrep-ci-without-semgrep-app/)
+- Experimental taint propagators allow you to specify additional structures through which taint propagates. See how to use them in the [Taint propagators](/experiments/taint-propagators/) article.
+- Updated [Generic pattern matching](/experiments/generic-pattern-matching/) documentation, rewritten examples, and added new sections, including a new [Handling line-based input](/experiments/generic-pattern-matching/#handling-line-based-input) section.
 - Introduced interface and color changes to fit new [semgrep.dev](https://semgrep.dev/) website design.
-- Report vulnerabilities that Semgrep should have found, but did not. You can report these false negatives directly from your command-line using a built-in Semgrep flag. See [Reporting false negatives with shouldafound](https://semgrep.dev/docs/reporting-false-negatives/) article.
-- Contribution documentation now provides [Adding python packages to `semgrep`](https://semgrep.dev/docs/contributing/semgrep-contributing/#adding-python-packages-to-semgrep) section.
-- Updated and rewritten [Diff-aware scanning (SEMGREP_BASELINE_REF)](https://semgrep.dev/docs/semgrep-ci/configuration-reference/#diff-aware-scanning-semgrep_baseline_ref) section.
-- Updated fail open CI documentation in [Configuring blocking findings and errors](https://semgrep.dev/docs/semgrep-ci/configuration-reference/#configuring-blocking-findings-and-errors) section.
-- Added section about [`patterns` operator evaluation strategy](https://semgrep.dev/docs/writing-rules/rule-syntax/#patterns-operator-evaluation-strategy).
-- Updated adding [Slack notifications section in Notifications](https://semgrep.dev/docs/semgrep-app/notifications/#slack) article, and updated [Integrating Semgrep App with third-party tools](https://semgrep.dev/docs/semgrep-app/integrations/)
+- Report vulnerabilities that Semgrep should have found, but did not. You can report these false negatives directly from your command-line using a built-in Semgrep flag. See [Reporting false negatives with shouldafound](/reporting-false-negatives/) article.
+- Contribution documentation now provides [Adding python packages to `semgrep`](/contributing/semgrep-contributing/#adding-python-packages-to-semgrep) section.
+- Updated and rewritten [Diff-aware scanning (SEMGREP_BASELINE_REF)](/semgrep-ci/configuration-reference/#diff-aware-scanning-semgrep_baseline_ref) section.
+- Updated fail open CI documentation in [Configuring blocking findings and errors](/semgrep-ci/configuration-reference/#configuring-blocking-findings-and-errors) section.
+- Added section about [`patterns` operator evaluation strategy](/writing-rules/rule-syntax/#patterns-operator-evaluation-strategy).
+- Updated adding [Slack notifications section in Notifications](/semgrep-app/notifications/#slack) article, and updated [Integrating Semgrep App with third-party tools](/semgrep-app/integrations/)
 - Many other updates and fixes have been introduced to the documentation website.
 
 ## July 2022
@@ -165,7 +232,7 @@ Bug fixes are not included in the release notes unless they are potentially brea
 
 - **Semgrep App Findings page**: The **Closed** tab is now labeled as Fixed. This change prevents confusion between findings that were fixed and findings that were removed.
 - Findings that Semgrep App found in a previous scan but no longer found them in the latest scan are called **Fixed findings**. To mark findings as fixed, the rule that matched the code and the file that was scanned must still be present during the latest scan. Under these conditions, Semgrep App concludes that the finding is fixed.
-- Removed findings are not included in the count in the Fixed findings tab. **Removed findings** are findings in the code that were previously found by a rule, but either the rule or the file containing the code has been removed in the most recent scan. Thus, the code cannot be considered "fixed", but is instead "removed." See [Semgrep App Findings](https://semgrep.dev/docs/semgrep-app/findings/) documentation for more information.
+- Removed findings are not included in the count in the Fixed findings tab. **Removed findings** are findings in the code that were previously found by a rule, but either the rule or the file containing the code has been removed in the most recent scan. Thus, the code cannot be considered "fixed", but is instead "removed." See [Semgrep App Findings](/semgrep-app/findings/) documentation for more information.
 - Both fixed findings and removed findings were previously counted together in the Closed tab, causing confusion as to the actual count of fixed findings. Now only findings that were purposefully fixed or addressed are counted.
 - PR Fix Rate has been renamed to **Comment Fix Rate**. The use of a more general term, "comment", captures both GitLab merge requests (MRs) and GitHub pull requests (PRs).
 - The **Comment Fix Rate** is the percentage of PR or MR comments fixed by developers. These PR or MR comments are findings detected by Semgrep from rules in the Comment column of your Rule Board.
@@ -243,7 +310,7 @@ Bug fixes are not included in these release notes unless they are potentially br
 
 #### Additions
 
-- Team and Enterprise tier users can now integrate Semgrep into their GitHub Enterprise (GHE) and GitLab Self-Managed (GLSM) repositories. See [Integrating Semgrep into source code management (SCM) tools](https://semgrep.dev/docs/semgrep-app/scm/).
+- Team and Enterprise tier users can now integrate Semgrep into their GitHub Enterprise (GHE) and GitLab Self-Managed (GLSM) repositories. See [Integrating Semgrep into source code management (SCM) tools](/semgrep-app/scm/).
 - You can now scan locally through Semgrep CLI and then upload findings to Semgrep App.
 - Semgrep App now has a project setup page for integrating Semgrep with Jenkins. To create a new project with Jenkins, log in to Semgrep App and click **[Projects](https://semgrep.dev/orgs/-/projects)** > **Scan new project** > **Run scan in CI** > **Jenkins**.
 
@@ -286,7 +353,7 @@ These release notes include upgrades for all versions ranging between **0.91.0**
 
 - Added `shouldafound`. For more information, see [Reporting false negatives](/reporting-false-negatives.md).
 
-- dataflow: The [data-flow analysis engine](https://semgrep.dev/docs/writing-rules/data-flow/) now handles `if-then-else` **expressions** as in OCaml, Ruby etc. Previously it only handled `if-then-else` **statements**. ([#4965](https://github.com/returntocorp/semgrep/issues/4965))
+- dataflow: The [data-flow analysis engine](/writing-rules/data-flow/) now handles `if-then-else` **expressions** as in OCaml, Ruby etc. Previously it only handled `if-then-else` **statements**. ([#4965](https://github.com/returntocorp/semgrep/issues/4965))
 
 - taint-mode: Previously, to declare a function parameter as a taint source, Semgrep relied on a workaround that declared that any occurrence of the parameter was a taint source. If the parameter was overwritten with safe data, this was not recognized by the taint engine. Now, `focus-metavariable` can be used to specify that a function parameter is a source of taint, and the taint engine handles this as expected.
 
@@ -790,7 +857,7 @@ Semgrep now has improved filtering of rules based on file content, resulting in 
 
 ##### Semgrep CLI
 
-Semgrep CLI now respects `.semgrepignore` files. For more information about ignoring files, see [Semgrep documentation](https://semgrep.dev/docs/cli-reference/#ignoring-files).
+Semgrep CLI now respects `.semgrepignore` files. For more information about ignoring files, see [Semgrep documentation](/cli-reference/#ignoring-files).
 
 ##### Java support improvement
 
@@ -973,7 +1040,7 @@ Parsing of Scala is improved with this update, because Semgrep is now able to pa
 
 ##### Semgrep's pattern-regex now accepts unicode
 
-Semgrep's pattern-regex now supports hexadecimal notation of Unicode code points and assumes UTF-8. For more information, see [Semgrep documentation](https://semgrep.dev/docs/writing-rules/rule-syntax/#pattern-regex). ([#4240](https://github.com/returntocorp/semgrep/pull/4240))
+Semgrep's pattern-regex now supports hexadecimal notation of Unicode code points and assumes UTF-8. For more information, see [Semgrep documentation](/writing-rules/rule-syntax/#pattern-regex). ([#4240](https://github.com/returntocorp/semgrep/pull/4240))
 
 ##### Additional fixes and improvements in this version
 
