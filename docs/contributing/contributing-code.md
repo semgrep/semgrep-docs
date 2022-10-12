@@ -11,13 +11,17 @@ Submit an issue first before making a pull request (PR). Submitting an issue is 
 Submit an issue first before making a PR. See [Semgrep GitHub](https://github.com/returntocorp/semgrep/issues/new/choose) issue template.
 :::
 
-Further information can be found either in [semgrep-core contributing](semgrep-core-contributing.md) and in [semgrep-cli contributing](semgrep-contributing.md) in [Making a Change](#making-a-change).
-
-## TODO WIP Theoretical introduction
+## Introduction to Semgrep code
 
 ### File structure
 
-Semgrep consists of a Python wrapper (`semgrep-cli`) around an OCaml engine (`semgrep-core`) which performs the core parsing or matching work. Within `semgrep-core`, there are two sources of parsers, [`pfff`](https://github.com/returntocorp/pfff), linked as a submodule, and `tree-sitter-lang`, built using [tree-sitter](https://github.com/tree-sitter/tree-sitter). Additionally, `semgrep-core` contains a subengine, `spacegrep`, for generic matching. The `perf`, which contains our code for running repositories against specific rulesets.
+Semgrep consists of:
+- Python wrapper (`semgrep-cli`) 
+- OCaml engine (`semgrep-core`) which performs the core parsing and matching work. The `semgrep-core` includes the following parsers:
+    - [`pfff`](https://github.com/returntocorp/pfff), linked as a submodule.
+    - `tree-sitter-lang` (a parser generatorz), built using [tree-sitter](https://github.com/tree-sitter/tree-sitter).
+    - The `semgrep-core` contains a subengine, `spacegrep`, for generic matching.
+    - The `perf`, which contains our code for running repositories against specific rulesets.
 
 There are many other files, but the below diagram broadly displays the file structure.
 
