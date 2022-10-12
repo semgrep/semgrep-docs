@@ -186,7 +186,7 @@ To triage a finding in GitHub, follow these steps:
 
 1. Find an open comment created by Semgrep App in GitHub PR:
     ![Screenshot of Semgrep App comment in GitHub](/img/semgrep-app-comment-github.png)<br />
-    *Figure 1.* Screenshot of Semgrep App comment in GitHub.
+    *Figure 5.* Screenshot of Semgrep App comment in GitHub.
 2. In the comment, reply with:
     <pre><code>
     /semgrep ignore <span className="placeholder">&lt;reason&gt;</span>
