@@ -178,8 +178,9 @@ To **view and add comments** to history of a finding:
 
 Triage your Semgrep App findings displayed as comments in GitHub PRs by replying with another comment.
 
-:::info Prerequisite
-Private GitHub Cloud repository added as a project in Semgrep App. This feature is not enabled for public GitHub repositories. For information on adding a repository through Semgrep App, see [Getting started with Semgrep App](/semgrep-app/getting-started-with-semgrep-app/).
+:::info Prerequisites
+- A **private** GitHub.com repository. This feature is not enabled for public GitHub.com repositories or Github Enterprise public and private repositories.
+- GitHub Semgrep App installed in the repository that is also added as a project in Semgrep App. For more information, see [Getting started with Semgrep in continuous integration (CI)](/semgrep-ci/overview/).
 :::
 
 To triage a finding in GitHub, follow these steps:
