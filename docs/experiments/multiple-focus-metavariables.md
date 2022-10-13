@@ -21,6 +21,8 @@ There are two methods of focusing Semgrep on multiple metavariables. Each of the
 
 Include `focus-metavariable` with more metavariables directly under the `patterns` key to match these metavariables regardless of their position in code.
 
+For example, there is a pattern that is binding several metavariables. You want to produce matches focused on two or more of these metavariables. If you specify a list of metavariables under `focus-metavariable`, each focused metavariable matches code independently of the others.
+
 ```yaml
     patterns:
       - pattern: foo($X, ..., $Y)
