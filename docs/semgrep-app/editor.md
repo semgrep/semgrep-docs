@@ -80,6 +80,7 @@ To group by ruleset, right click on the empty space on the **official registry**
 
 To create a rule, click **Create rule** on the splash page or the **(+) sign** next to the Library label. The Editor provides the minimum fields to create a rule:
 
+- `rules`
 - `id`
 - `pattern`
 - `message`
@@ -108,6 +109,7 @@ Another method of creating rules is by **forking/copying** from existing rules f
 
 The editor will not save, share, or run if the YAML syntax is **unparseable**. The editor supports error handling, for the following cases:
 
+- Missing `rules` key at start
 - Invalid language keys
 - Incorrect severity fields
 - Missing `id` key
