@@ -6,7 +6,7 @@ description: "With this rule, Semgrep matches all pieces of code captured by the
 
 # Using multiple focus metavariables
 
-Semgrep matches all pieces of code captured by focus metavariables when you specify them in a rule. Include the metavariables that you want to focus on by specifying each in a YAML list. This enables Semgrep to match these metavariables regardless of their position in code.
+Semgrep matches all pieces of code captured by focus metavariables when you specify them in a rule. Include the metavariables that you want to focus on by specifying each in a YAML list or by including more focus-metavariables. 
 
 :::info
 This feature is using `focus-metavariable`, see [`focus-metavariable`](/writing-rules/rule-syntax/#focus-metavariable) documentation for more information.  
@@ -14,7 +14,7 @@ This feature is using `focus-metavariable`, see [`focus-metavariable`](/writing-
 
 There are two methods of focusing Semgrep on multiple metavariables. Each of them can lead to different results:
 
-- **Recommended**, set union: Including `focus-metavariable` with more metavariables directly under the `patterns` key returns results regardless of whether there is an overlap between these variables:
+- **Set union**: Including `focus-metavariable` with more metavariables directly under the `patterns` key returns results regardless of whether there is an overlap between these variables  
     ```yaml
         patterns:
           - pattern: foo($X, ..., $Y)
@@ -22,9 +22,15 @@ There are two methods of focusing Semgrep on multiple metavariables. Each of the
             - $X
             - $Y
     ```
-    See the following example:
-    <iframe src="https://semgrep.dev/embed/editor?snippet=D602" border="0" frameBorder="0" width="100%" height="432"></iframe>
-- **Advanced**, set intersection: Including more `focus-metavariable` keys with different metavariables under the `pattern` returns results **only** for the overlapping region of all the focused code:
+    This syntax enables Semgrep to match these metavariables regardless of their position in code. See the following example:
+    <iframe src="https://semgrep.dev/embed/editor?snippet=D602" border="0" frameBorder="0" width="100%" height="432"></iframe> 
+    
+    :::tip
+    Among many use cases, the **set union** syntax allows you to simplify taint analysis rule writing. For example, see the following rule:
+    <iframe src="https://semgrep.dev/embed/editor?snippet=w6Qx" border="0" frameBorder="0" width="100%" height="432"></iframe>
+    :::
+
+- **Set intersection**: Including more `focus-metavariable` keys with different metavariables under the `pattern` returns results **only** for the overlapping region of all the focused code:
     ```yaml
         patterns:
           - pattern: foo($X, ..., $Y)
@@ -33,10 +39,5 @@ There are two methods of focusing Semgrep on multiple metavariables. Each of the
     ```
     See the following example:
     <iframe src="https://semgrep.dev/embed/editor?snippet=AqJw" border="0" frameBorder="0" width="100%" height="432"></iframe>
-
-:::tip
-Among many use cases, the **recommended** syntax for using multiple metavariables allows you to simplify taint analysis rule writing. For example, see the following rule:
-<iframe src="https://semgrep.dev/embed/editor?snippet=w6Qx" border="0" frameBorder="0" width="100%" height="432"></iframe>
-:::
 
 <!-- Once this feature is no longer experimental, move the text under the ### `focus-metavariable` to docs/writing-rules/rule-syntax.md and change the # Using multiple focus metavariables header to level 4 (####) -->
