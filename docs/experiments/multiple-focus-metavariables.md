@@ -6,13 +6,16 @@ description: "With this rule, Semgrep matches all pieces of code captured by the
 
 # Using multiple focus metavariables
 
-Semgrep matches all pieces of code captured by focus metavariables when you specify them in a rule. Include the metavariables that you want to focus on by specifying each in a YAML list or by including more focus-metavariables. 
+Semgrep matches all pieces of code captured by focus metavariables when you specify them in a rule. Include the metavariables that you want to focus on by specifying each in a YAML list. 
 
 :::info
 This feature is using `focus-metavariable`, see [`focus-metavariable`](/writing-rules/rule-syntax/#focus-metavariable) documentation for more information.  
 :::
 
 There are two methods of focusing Semgrep on multiple metavariables. Each of them can lead to different results:
+
+- **Set union**: Experimental feature described below in section [Set union](#set-union). This syntax matches metavariables regardless of their position in code.
+- **Set intersection**: Only matches overlapping region of all the focused code. For more information, see [Including more focus metavariables using set intersection syntax](writing-rules/rule-syntax/#including-more-focus-metavariables-using-set-intersection-syntax).
 
 ## Set union
 
@@ -34,19 +37,5 @@ This syntax enables Semgrep to match these metavariables regardless of their pos
 Among many use cases, the **set union** syntax allows you to simplify taint analysis rule writing. For example, see the following rule:
 <iframe src="https://semgrep.dev/embed/editor?snippet=w6Qx" border="0" frameBorder="0" width="100%" height="432"></iframe>
 :::
-
-## Set intersection
-
-Include more `focus-metavariable` keys with different metavariables under the `pattern` to match results **only** for the overlapping region of all the focused code:
-
-```yaml
-    patterns:
-      - pattern: foo($X, ..., $Y)
-      - focus-metavariable: $X
-      - focus-metavariable: $Y
-```
-
-See the following example:
-<iframe src="https://semgrep.dev/embed/editor?snippet=AqJw" border="0" frameBorder="0" width="100%" height="432"></iframe>
 
 <!-- Once this feature is no longer experimental, move the text under the ### `focus-metavariable` to docs/writing-rules/rule-syntax.md and change the # Using multiple focus metavariables header to level 4 (####) -->
