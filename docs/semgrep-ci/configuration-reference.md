@@ -25,7 +25,7 @@ Object.entries(frontMatter).filter(
 Use this reference to configure Semgrep's behavior in CI environments. This reference includes both command-line options and environment variables. You can also define these variables within a CI configuration file. Refer to your CI provider's documentation for the correct syntax. Examples are written in a Bash environment except when otherwise stated.
 
 :::tip
-You can also set any of these environment variables within your local environment for testing or experimental purposes. Run `semgrep ci` after setting environment variables to see their effect.
+Unless otherwise stated, you can also set many of these environment variables within your local environment for testing or experimental purposes. Run `semgrep ci` after setting environment variables to see their effect.
 :::
 
 ### Environment variables for configuring scan behavior
@@ -34,7 +34,7 @@ These environment variables configure various aspects of your CI job, such as a 
 
 ### `SEMGREP_APP_TOKEN`
 
-Set `SEMGREP_APP_TOKEN` in your CI job to send findings to Semgrep App and use rules from the Rule Board. You must have a Semgrep App account to use this environment variable. To generate a token, see [TODOLINK]. `SEMGREP_APP_TOKEN` is incompatible with `SEMGREP_RULES`. Do not set `SEMGREP_RULES` environment variable within the same CI job as `SEMGREP_APP_TOKEN`.
+Set `SEMGREP_APP_TOKEN` to send findings to Semgrep App and use rules from the Rule Board. You must have a Semgrep App account to use this environment variable. To generate a token, see [TODOLINK]. `SEMGREP_APP_TOKEN` is incompatible with `SEMGREP_RULES`. Do not set `SEMGREP_RULES` environment variable within the same CI job as `SEMGREP_APP_TOKEN`.
 
 Example:
 
@@ -59,8 +59,8 @@ Set `SEMGREP_ENABLE_VERSION_CHECK` to 0 to **disable** version checks when runni
 Example:
 
 ```bash
-Disable version checks when running semgrep ci:
-export SEMGREP_ENABLE_VERSION_CHECK=0
+# Disable version checks when running semgrep ci:
+export SEMGREP_ENABLE_VERSION_CHECK="0"
 ```
 
 ### `SEMGREP_GHA_MIN_FETCH_DEPTH`
@@ -70,7 +70,7 @@ Set `SEMGREP_GHA_MIN_FETCH_DEPTH` to configure the **minimum** number of commits
 Example:
 
 ```bash
-export SEMGREP_GHA_MIN_FETCH_DEPTH=10
+export SEMGREP_GHA_MIN_FETCH_DEPTH="10"
 ```
 
 ### `SEMGREP_GIT_COMMAND_TIMEOUT`
@@ -86,7 +86,7 @@ export SEMGREP_GIT_COMMAND_TIMEOUT="180"
 
 ### `SEMGREP RULES`
 
-Set `SEMGREP_RULES` in your CI job to define rules and rulesets for your scan. Findings are logged within your CI environment. `SEMGREP_RULES` is incompatible with `SEMGREP_APP_TOKEN`. Do not set `SEMGREP_APP_TOKEN` environment variable within the same CI job as `SEMGREP_RULES`.
+Set `SEMGREP_RULES` to define rules and rulesets for your scan. Findings are logged within your CI environment. `SEMGREP_RULES` is incompatible with `SEMGREP_APP_TOKEN`. Do not set `SEMGREP_APP_TOKEN` environment variable within the same CI job as `SEMGREP_RULES`.
 
 Examples:
 
@@ -100,7 +100,7 @@ export SEMGREP_RULES="p/default no-exec.yml"
 
 ### `SEMGREP_TIMEOUT`
 
-Set `SEMGREP_TIMEOUT` in your CI job to define a custom timeout. The value must be in seconds. The default value is 1800 seconds (30 minutes).
+Set `SEMGREP_TIMEOUT` to define a custom timeout. The value must be in seconds. The default value is 1800 seconds (30 minutes).
 
 Example:
 
@@ -110,11 +110,13 @@ export SEMGREP_TIMEOUT="900"
 
 ## Environment variables for creating hyperlinks in Semgrep App
 
-By default, Semgrep App autodetects values such as the name of your repository, which Semgrep uses to generate hyperlinks (URLs) to findings in your repository. Set these variables to troubleshoot issues with hyperlinks in Semgrep App. Set any as needed or all of these environment variables to override autodetected CI environment values. 
+By default, Semgrep App autodetects values such as the name of your repository, which Semgrep uses to generate hyperlinks (URLs) to the specific repository code that generated the finding.
+
+Set any as needed or all of the following environment variables to troubleshoot and override autodetected CI environment values.
 
 ### `SEMGREP_BRANCH`
 
-Set `SEMGREP_BRANCH` in your CI job to correctly generate hyperlinks. This variable sets the branch for the URL. To avoid hardcoding this value, check your CI provider's documentation for available environment variables that can automatically detect the correct values for every CI job. 
+Set `SEMGREP_BRANCH` to define the branch name for the URL used to generate hyperlinks. To avoid hardcoding this value, check your CI provider's documentation for available environment variables that can automatically detect the correct values for every CI job. 
 
 Examples:
 
@@ -138,7 +140,7 @@ commands:
 
 ### `SEMGREP_COMMIT`
 
-Set `SEMGREP_BRANCH` in your CI job to correctly generate hyperlinks. This variable sets the commit hash for the URL. To avoid hardcoding this value, check your CI provider's documentation for available environment variables that can automatically detect the correct values for every CI job. 
+Set `SEMGREP_COMMIT` to define the the commit hash for the URL used to generate hyperlinks. To avoid hardcoding this value, check your CI provider's documentation for available environment variables that can automatically detect the correct values for every CI job. 
 
 Examples:
 
@@ -151,7 +153,7 @@ export SEMGREP_COMMIT="juice-shop-1"
 
 Within a BitBucket Pipelines configuration file:
 
-```
+```yaml
 image: atlassian/default-image:latest
 
 pipelines:
@@ -166,20 +168,72 @@ pipelines:
           ...
 ```
 
-### `SEMGREP_JOB_URL`
-
-Set `SEMGREP_JOB_URL` in your CI job to correctly generate hyperlinks. To avoid hardcoding this value, check your CI provider's documentation for available environment variables that can automatically detect the correct values for every CI job. 
-### `SEMGREP_PR_ID`
-
-Set `SEMGREP_PR_ID` to 
-
 ### `SEMGREP_REPO_NAME`
 
-Set `SEMGREP_BRANCH` in your CI job to correctly generate hyperlinks. To avoid hardcoding this value, check your CI provider's documentation for available environment variables that can automatically detect the correct values for every CI job. 
+Set `SEMGREP_REPO_NAME` in your CI job TODO . To avoid hardcoding this value, check your CI provider's documentation for available environment variables that can automatically detect the correct values for every CI job. 
+
+Examples:
+
+Within a Bash environment:
+
+```bash
+# This is a hardcoded value and must be changed to scan other repositories.
+export SEMGREP_REPO_NAME=""
+```
+
+Within a TODO environment:
+
 ### `SEMGREP_REPO_URL`
+
+Set `SEMGREP_REPO_URL` in your CI job TODO . To avoid hardcoding this value, check your CI provider's documentation for available environment variables that can automatically detect the correct values for every CI job. 
+
+Examples:
+
+Within a Bash environment:
+
+```bash
+# This is a hardcoded value and must be changed to scan other repositories.
+export SEMGREP_REPO_URL=""
+```
+
+Within a TODO environment:
+```
 
 ```
 
+## Environment variables for creating comments in pull or merge requests
+
+The following environment variables enable Semgrep App to create comments within your source code management (SCM) tool when Semgrep scans a pull or merge request. These comments can include code suggestions to fix a finding.
+
+### `SEMGREP_JOB_URL`
+
+:::info
+The following environment variable can only be set within a CI environment.
+:::
+
+Set `SEMGREP_JOB_URL` to enable Semgrep to leave PR or MR comments in your SCM. Check your CI provider's documentation for available environment variables that can automatically detect the correct values for every CI job. 
+
+The following example uses Jenkins declarative syntax:
+```javascript
+pipeline {
+  agent any
+      environment {
+      SEMGREP_JOB_URL="${BUILD_URL}"
+      ...
+```
+
+### `SEMGREP_PR_ID`
+
+Set `SEMGREP_PR_ID` to enable Semgrep to leave PR or MR comments in your SCM. Check your CI provider's documentation for available environment variables that can automatically detect the correct values for every CI job. 
+
+The following example uses Azure Pipelines:
+
+```yaml
+...
+steps:
+  - env:
+    SEMGREP_PR_ID: $(System.PullRequest.PullRequestNumber)
+    ...
 ```
 
 
