@@ -22,124 +22,168 @@ Object.entries(frontMatter).filter(
 
 # Continuous Integration (CI) configuration reference
 
-Configure Semgrep CI by passing various environment variables in your Continuous Integration (CI) jobs.
+Use this reference to configure Semgrep's behavior in CI environments. This reference includes both command-line options and environment variables. You can also define these variables within a CI configuration file. Refer to your CI provider's documentation for the correct syntax. Examples are written in a Bash environment except when otherwise stated.
 
-:::info
-While environment variables are the preferred way to configure Semgrep CI, pass any of these options as command-line options. Refer to the output of `semgrep ci --help` to find the corresponding flags.
+:::tip
+You can also set any of these environment variables within your local environment for testing or experimental purposes. Run `semgrep ci` after setting environment variables to see their effect.
 :::
 
-## Selecting rules to scan with (`SEMGREP_RULES`)
+### Environment variables for configuring scan behavior
 
-```sh
-SEMGREP_RULES="p/security-audit p/secrets"
+These environment variables configure various aspects of your CI job, such as a job's timeout or source of rules.
+
+### `SEMGREP_APP_TOKEN`
+
+Set `SEMGREP_APP_TOKEN` in your CI job to send findings to Semgrep App and use rules from the Rule Board. You must have a Semgrep App account to use this environment variable. To generate a token, see [TODOLINK]. `SEMGREP_APP_TOKEN` is incompatible with `SEMGREP_RULES`. Do not set `SEMGREP_RULES` environment variable within the same CI job as `SEMGREP_APP_TOKEN`.
+
+Example:
+
+```bash
+export SEMGREP_APP_TOKEN="038846a866f19972ba435754cab85d6bd926ca51107029249eb88441271341ad"
 ```
 
-## Configuring blocking findings and errors
+### `SEMGREP_BASELINE_REF`
 
-This section documents how Semgrep in CI pipelines handles blocking findings and errors in its default setup. This section also provides three configuration options you can use to change or revert to the default behavior.
+Set `SEMGREP_BASELINE_REF` to enable **[diff-aware scanning](/docs/semgrep-ci/running-semgrep-ci-with-semgrep-app/#diff-aware-scanning)** for CI providers that are **not** GitHub Actions or GitLab CI/CD. `SEMGREP_BASELINE_REF` refers to your codebase's default or trunk branch, such as `main` or `master`.
 
-### Default configuration of blocking findings and error suppression
+Example:
 
-Semgrep blocks the pull requests (PRs) or merge requests (MRs) in its default configuration only when it matches a blocking finding. 
-
-Blocking findings can be defined as:
-
-- Findings defined in [Rule Board](https://semgrep.dev/orgs/-/board) of Semgrep App. Avoid blocking findings by removing rules from the **Block** column of the [Rule Board](https://semgrep.dev/orgs/-/board).
-- If you do **not** use Semgrep App with Semgrep in CI (stand-alone setup), blocking findings encompass all Semgrep findings. Any finding in this setup blocks your PRs or MRs.
-
-By default, Semgrep does not block your pipeline when it encounters an internal error. Semgrep suppresses all errors and does not surface them to the CI provider. In case of an internal error, Semgrep sends an anonymous crash report to a crash-reporting server and does not block your CI pipeline. To change the default configuration, see the sections below.
-
-### Configuration options for blocking findings and errors
-
-Configure, change or revert to the default setup of blocking findings and errors in your CI pipeline using the following options in CI configuration file:
-
-| CI option                                      | Description                         |
-|------------------------------------------------|-------------------------------------|
-| `semgrep ci` or `semgrep ci --suppress-errors` | Default: CI **fails** on blocking findings, CI **passes** on internal errors.  |
-| `semgrep ci --no-suppress-errors`              | CI **fails** on blocking findings, CI **fails** on internal errors.            |
-| <code>semgrep ci &vert;&vert; true</code>      | CI **passes** on blocking findings, CI **passes** on internal errors.          |
- 
-To change this configuration, insert one of the configuration options (flags) after the following keys in in CI YAML configuration file of Semgrep:
-- On GitHub, insert the flag after the `run` key (for example, `run: semgrep ci --suppress-errors` to state the default option).
-- On GitLab, insert the flag after the `script` key (for example, `script: semgrep ci --suppress-errors` to state the default option).
-- Insert these flags in an equivalent key in configuration files of other CI providers.
- 
-See the [Examples of blocking findings and errors configuration](#examples-of-blocking-findings-and-errors-configuration) below.
- 
-:::info
-- For more information about specific Semgrep exit codes, see [CLI reference](../../cli-reference/#exit-codes).
-- This functionality replaces the audit mode `SEMGREP_AUDIT_ON` (collecting findings silently for [Semgrep App > Findings](https://semgrep.dev/manage/findings)).
-:::
-
-To find more details about some of these configuration options, see the following list:
-
-- `semgrep ci` - The default state. Semgrep in CI **fails** on blocking findings, CI **passes** on internal errors. If Semgrep encounters an internal error, it sends an anonymous crash report to a crash-reporting server and exits with exit code `0` (success). Consequently, Semgrep in CI does not report other statuses than `0` or `1` by default (success or a blocking finding). Optional: Define this setting explicitly using the `--suppress-errors` flag.
-- `semgrep ci --no-suppress-errors` - Semgrep in CI **fails** on blocking findings, CI **fails** on internal errors. If you use this flag, all exit codes, including internal errors, surface to the CI provider.
-- `semgrep ci || true` - Semgrep in CI **passes** on blocking findings, CI **passes** on internal errors.
-
-### Examples of blocking findings and errors configuration
-
-<BlockFindingsErrorsConfigs />
-
-## Diff-aware scanning (`SEMGREP_BASELINE_REF`)
-
-Semgrep scans can be classified by scope. The scope of a scan refers to what lines of code are scanned in a codebase. When classifying scans by scope, there are two types of scans:
-
-<dl>
-    <dt>Full scan</dt>
-    <dd><p>A full scan runs on your entire codebase and reports every finding in the codebase. It is recommended to perform a full scan of your <code>main</code> branch at a regular cadence, such as every night or every week. This ensures that Semgrep App has a full list of all findings in your code base, regardless of when they were introduced. To run a full scan, run <code>semgrep ci</code> without setting <code>SEMGREP_BASELINE_REF</code> environment variable.</p></dd>
-    <dt>Diff-aware scan</dt>
-    <dd><p>A diff-aware scan runs on your code before and after some "baseline" and only reports findings that are newly introduced in the commits after that baseline.</p>
-    <p>For example, imagine a hypothetical repository with 10 commits. You set commit number 8 as the baseline. Consequently, Semgrep only returns scan results introduced by changes in commits 9 and 10. This is how <code>semgrep ci</code> can run in pull requests and merge requests, since it reports only the findings that are created by those code changes. To run a diff-aware scan, use <code>SEMGREP_BASELINE_REF=<span class="placeholder">REF</span> semgrep ci</code> where <span class="placeholder">REF</span> can be a commit hash, branch name, or other git reference.</p></dd>
-</dl>
-
-:::note
-* Do **not** perform diff-aware scans on your `main` branch. The Semgrep App keeps track of which findings have been fixed on a given branch. If you configure diff scans on your main branch, and compare the last commit to the penultimate commit, Semgrep wrongly considers all findings from before the penultimate commit to be fixed.
-* Do **not** perform full scans on non-mainline or non-trunk branches. Performing full scans on every branch slows down your CI jobs, displays findings that developers did not introduce, and results in many duplicated findings in the Semgrep App, resulting in a poorer experience.
-:::
- 
-### Examples of `SEMGREP_BASELINE_REF`
-
-To only report findings newly added
-since branching off from your `main` branch, set the following:
-<pre class="language-bash"><code>SEMGREP_BASELINE_REF=main</code></pre>
-
-To only report findings newly added
-after a specific commit, set the following:
-<pre class="language-bash"><code>SEMGREP_BASELINE_REF=<span className="placeholder">INSERT_GIT_COMMIT_HASH</span></code></pre>
-
-## Semgrep App token
-
-You can configure which rules to run also with Semgrep App.
-Get your token from [Semgrep App > Settings](https://semgrep.dev/manage/settings).
-
-<pre class="language-bash"><code>SEMGREP_APP_TOKEN=<span className="placeholder">TOKEN_VALUE</span></code></pre>
-
-## Get hyperlinks in Semgrep App
-
-Set these variables to hyperlink to the correct repositories, files, and PRs
-in the Semgrep App UI & notifications.
-
-```sh
-SEMGREP_REPO_URL="https://github.com/foo/bar"
-SEMGREP_BRANCH="feature/add-new-bugs"
-SEMGREP_JOB_URL="https://ci-server.com/jobs/1234"
-SEMGREP_REPO_NAME="foo/bar"
-SEMGREP_COMMIT="a52bc1ef"
-SEMGREP_PR_ID="44"
+```bash
+export SEMGREP_BASELINE_REF="main"
 ```
 
-## Configure a job timeout (`SEMGREP_TIMEOUT`)
+### `SEMGREP_ENABLE_VERSION_CHECK`
 
-To change the job timeout from the default of 1800 seconds. Set to 0 to disable job timeout.
+Set `SEMGREP_ENABLE_VERSION_CHECK` to 0 to **disable** version checks when running `semgrep ci`. By default, Semgrep checks for new versions.
 
-```sh
-SEMGREP_TIMEOUT="300"
+Example:
+
+```bash
+Disable version checks when running semgrep ci:
+export SEMGREP_ENABLE_VERSION_CHECK=0
 ```
 
-## Enabling GitLab MR comments (non-standard CI configuration)
+### `SEMGREP_GHA_MIN_FETCH_DEPTH`
 
-The configuration provided in this section is not needed for a standard Semgrep in CI setup. Use this configuration only when you are using GitLab runners to provide MR comments while you are not using GitLab MR job. In the code snippet below, magenta-colored values are placeholders that you can substitute. Set up the following environment variables within your command line to allow Semgrep to create MR comments in GitLab:
+Set `SEMGREP_GHA_MIN_FETCH_DEPTH` to configure the **minimum** number of commits `semgrep ci` fetches from `remote` when calculating the merge-base in GitHub Actions. Having more commits available helps Semgrep determine what changes came from the current pull request, fixing issues where Semgrep would otherwise report findings that were not touched in a given pull request. This value is set to 0 by default. 
+
+Example:
+
+```bash
+export SEMGREP_GHA_MIN_FETCH_DEPTH=10
+```
+
+### `SEMGREP_GIT_COMMAND_TIMEOUT`
+
+Set `SEMGREP_GIT_COMMAND_TIMEOUT` to set a timeout for each individual Git command that Semgrep runs. The value is in seconds. The default value is 300 seconds (5 minutes).
+
+Example:
+
+```bash
+# Set each Git command that Semgrep runs to timeout in 3 minutes:
+export SEMGREP_GIT_COMMAND_TIMEOUT="180"
+```
+
+### `SEMGREP RULES`
+
+Set `SEMGREP_RULES` in your CI job to define rules and rulesets for your scan. Findings are logged within your CI environment. `SEMGREP_RULES` is incompatible with `SEMGREP_APP_TOKEN`. Do not set `SEMGREP_APP_TOKEN` environment variable within the same CI job as `SEMGREP_RULES`.
+
+Examples:
+
+```bash
+# Define a single ruleset:
+export SEMGREP_RULES="p/default"
+
+# Define multiple rule sources, delimited by a space: 
+export SEMGREP_RULES="p/default no-exec.yml"
+```
+
+### `SEMGREP_TIMEOUT`
+
+Set `SEMGREP_TIMEOUT` in your CI job to define a custom timeout. The value must be in seconds. The default value is 1800 seconds (30 minutes).
+
+Example:
+
+```bash
+export SEMGREP_TIMEOUT="900"
+```
+
+## Environment variables for creating hyperlinks in Semgrep App
+
+By default, Semgrep App autodetects values such as the name of your repository, which Semgrep uses to generate hyperlinks (URLs) to findings in your repository. Set these variables to troubleshoot issues with hyperlinks in Semgrep App. Set any as needed or all of these environment variables to override autodetected CI environment values. 
+
+### `SEMGREP_BRANCH`
+
+Set `SEMGREP_BRANCH` in your CI job to correctly generate hyperlinks. This variable sets the branch for the URL. To avoid hardcoding this value, check your CI provider's documentation for available environment variables that can automatically detect the correct values for every CI job. 
+
+Examples:
+
+Within a Bash environment:
+
+```bash
+# This is a hardcoded value and must be changed to scan other branches.
+export SEMGREP_BRANCH="juice-shop-1"
+```
+
+Within a Buildkite configuration file:
+
+```yaml
+- label: ":semgrep: Semgrep"
+commands:
+  # Use a Buildkite environment variable.
+  # It automatically detects the current branch the job is scanning.
+  - export SEMGREP_BRANCH=${BUILDKITE_BRANCH}
+  ...
+```
+
+### `SEMGREP_COMMIT`
+
+Set `SEMGREP_BRANCH` in your CI job to correctly generate hyperlinks. This variable sets the commit hash for the URL. To avoid hardcoding this value, check your CI provider's documentation for available environment variables that can automatically detect the correct values for every CI job. 
+
+Examples:
+
+Within a Bash environment:
+
+```bash
+# This is a hardcoded value and must be changed to scan other branches.
+export SEMGREP_COMMIT="juice-shop-1"
+```
+
+Within a BitBucket Pipelines configuration file:
+
+```
+image: atlassian/default-image:latest
+
+pipelines:
+  default:
+    - parallel:
+      - step:
+        name: 'Run Semgrep scan with current branch'
+        script:
+          # Use a BitBucket Pipelines environment variable.
+          # It automatically detects the current commit the job is scanning.
+          - export SEMGREP_COMMIT=$BITBUCKET_COMMIT 
+          ...
+```
+
+### `SEMGREP_JOB_URL`
+
+Set `SEMGREP_JOB_URL` in your CI job to correctly generate hyperlinks. To avoid hardcoding this value, check your CI provider's documentation for available environment variables that can automatically detect the correct values for every CI job. 
+### `SEMGREP_PR_ID`
+
+Set `SEMGREP_PR_ID` to 
+
+### `SEMGREP_REPO_NAME`
+
+Set `SEMGREP_BRANCH` in your CI job to correctly generate hyperlinks. To avoid hardcoding this value, check your CI provider's documentation for available environment variables that can automatically detect the correct values for every CI job. 
+### `SEMGREP_REPO_URL`
+
+```
+
+```
+
+
+## Environment variables to enable GitLab MR comments for non-standard CI configurations
 
 <pre class="language-bash"><code>
 export GITLAB_CI='true'<br/>
@@ -156,9 +200,10 @@ export CI_MERGE_REQUEST_DIFF_BASE_SHA='<span className="placeholder">SHA</span>'
 export CI_MERGE_REQUEST_TITLE='<span className="placeholder">MERGE_REQUEST_TITLE</span>'<br/>
 </code></pre>
 
-Replace magenta-colored placeholders in the code snippet above with your specific values (for example <code><span className="placeholder">USERNAME</span></code>). For more information on all of these variables see GitLab documentation [Predefined variables reference](https://docs.gitlab.com/ee/ci/variables/predefined_variables.html). You can find an exhaustive example with sample values in [List all environment variables](https://docs.gitlab.com/ee/ci/variables/index.html#list-all-environment-variables).
+Replace magenta-colored placeholders in the preceding code snippet with your specific values (for example <code><span className="placeholder">USERNAME</span></code>). For more information on all of these variables see GitLab documentation [Predefined variables reference](https://docs.gitlab.com/ee/ci/variables/predefined_variables.html). You can find an exhaustive example with sample values in [List all environment variables](https://docs.gitlab.com/ee/ci/variables/index.html#list-all-environment-variables).
 
 Example with sample values:
+
 ```sh
 export GITLAB_CI='true'
 export CI_PROJECT_PATH="gitlab-org/gitlab-foss"
@@ -174,4 +219,3 @@ export CI_MERGE_REQUEST_DIFF_BASE_SHA="1ecfd275763eff1d6b4844ea6874447h694gh23d"
 export CI_MERGE_REQUEST_TITLE="Testing branches"
 ```
 
-<MoreHelp />
