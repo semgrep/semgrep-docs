@@ -14,7 +14,7 @@ This feature is using `focus-metavariable`, see [`focus-metavariable`](/writing-
 
 
 - **Set union**: Experimental feature described below in section [Set union](#set-union). This syntax matches metavariables regardless of their position in code.
-- **Set intersection**: Only matches overlapping region of all the focused code. For more information, see [Including more focus metavariables using set intersection syntax](writing-rules/rule-syntax/#including-more-focus-metavariables-using-set-intersection-syntax).
+- **Set intersection**: Only matches the overlapping region of all the focused code. For more information, see [Including more focus metavariables using set intersection semantics](writing-rules/rule-syntax/#including-more-focus-metavariables-using-set-intersection-semantics).
 
 ## Set union
 
