@@ -108,6 +108,7 @@ module.exports = {
                     'semgrep-ci/running-semgrep-ci-with-semgrep-app',
                     'semgrep-ci/running-semgrep-ci-without-semgrep-app',
                     'semgrep-ci/configuration-reference',
+                    'semgrep-ci/configuring-blocking-and-errors-in-ci',
                     'semgrep-ci/sample-ci-configs',
                     'troubleshooting/gitlab-sast'
                 ]
