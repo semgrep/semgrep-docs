@@ -2,9 +2,23 @@
 slug: cli-reference
 append_help_link: true
 description: "Reference for the Semgrep command line tool including options and exit code behavior."
+tags:
+    - Semgrep CLI
+    - Community Tier
+    - Team & Enterprise Tier
+hide_title: true
+title: CLI reference
 ---
 
 import MoreHelp from "/src/components/MoreHelp"
+
+<ul id="tag__badge-list">
+{
+Object.entries(frontMatter).filter(
+    frontmatter => frontmatter[0] === 'tags')[0].pop().map(
+    (value) => <li class='tag__badge-item'>{value}</li> )
+}
+</ul>
 
 # CLI reference
 
@@ -277,6 +291,23 @@ After modifying your shell configuration, you must start a new shell for the cha
 The Semgrep command line tool supports a `.semgrepignore` file that follows `.gitignore` syntax and is used to skip files and directories during scanning. This is commonly used to avoid vendored and test related code. For a complete example, see the [.semgrepignore file on Semgrep’s source code](https://github.com/returntocorp/semgrep/blob/develop/.semgrepignore).
 
 In addition to `.semgrepignore` there are several methods to set up ignore patterns. See [Ignoring files, folders, or code](../ignoring-files-folders-code).
+
+## Connecting to Semgrep Registry through a proxy
+
+Semgrep uses the Python3 `requests` library. Set the following environment variables to point to your proxy:
+
+<pre>
+export HTTP_PROXY="<span className="placeholder">HTTP_PROXY_URL</span>"<br />
+export HTTPS_PROXY="<span className="placeholder">HTTPS_PROXY_URL</span>"
+</pre>
+
+For example:
+
+<pre>
+export HTTP_PROXY="http://10.10.1.10:3128" <br />
+export HTTPS_PROXY="http://10.10.1.10:1080"
+</pre>
+
 
 ## Exit codes
 
