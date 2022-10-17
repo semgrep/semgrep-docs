@@ -27,9 +27,9 @@ Semgrep requires Python 3.7 or later.
         ```sh
         docker run --rm -v "${PWD}:/src" returntocorp/semgrep semgrep --config=auto
         ```
-2. Confirm installation by printing help manual page to your terminal. To do so, run the following command:
+2. Confirm installation by running a simple search pattern in the current directory. To do so, run the following command:
     ```sh
-    semgrep --help
+    semgrep --pattern '1' --lang generic
     ```
 3. Run recommended Semgrep Registry rules:
     <pre class="language-bash"><code>semgrep --config=auto [<span className="placeholder">PATH/TO/SRC</span>]</code></pre>
