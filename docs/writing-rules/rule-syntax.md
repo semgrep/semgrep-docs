@@ -165,18 +165,6 @@ Include more `focus-metavariable` keys with different metavariables under the `p
       - focus-metavariable: $Y
 ```
 
-The formula above is equivalent to:
-
-```yaml
-    pattern-either:
-    - patterns:
-       - pattern: foo($X, ..., $Y)
-       - focus-metavariable: $X
-    - patterns:
-      - pattern: foo($X, ..., $Y)
-      - focus-metavariable: $Y
-```
-
 See the following example:
 <iframe src="https://semgrep.dev/embed/editor?snippet=AqJw" border="0" frameBorder="0" width="100%" height="432"></iframe>
 
