@@ -6,7 +6,7 @@ import LinkToRegistryRule from "/src/components/LinkToRegistryRule"
 
 # Command injection prevention for Python
 
-This is a command/code injection prevention cheat sheet by r2c. It contains code patterns of potential ways to run an OS command or arbitrary code in an application. Instead of scrutinizing code for exploitable vulnerabilities, the recommendations in this cheat sheet pave a safe road for developers that mitigates the possibility of command/code injection in your code. By following these recommendations, you can be reasonably sure your code is free of command/code injection.
+This is a command/code injection prevention cheat sheet by r2c. It contains code patterns of potential ways to run OS commands or arbitrary code in an application. Instead of scrutinizing code for exploitable vulnerabilities, the recommendations in this cheat sheet pave a safe road for developers that mitigates the possibility of command/code injection in your code. By following these recommendations, you can be reasonably sure your code is free of command/code injection.
 
 ## Mitigation summary
 
@@ -48,7 +48,7 @@ subprocess.Popen(['ls', '-l', user_input])
 subprocess.check_output('ls -l dir/')
 ```
 
-#### References:
+#### References
 
 - [**subprocess** module documentation](https://docs.python.org/3/library/subprocess.html)
 - [**shlex.split** documentation](https://docs.python.org/3/library/shlex.html#shlex.split)
@@ -58,7 +58,7 @@ subprocess.check_output('ls -l dir/')
 
 #### Mitigation
 
-Do not let user input into `subprocess` methods. Alternatively,
+Do not let user input into `subprocess` methods. Alternatively:
 
 - Always try to use an internal Python API (if it exists) instead of running an OS command.
 - Don’t pass user-controlled input.
@@ -87,7 +87,7 @@ subprocess.call('echo $HOME', shell=True)
 subprocess.call('echo $HOME', shell=False)
 ```
 
-#### References:
+#### References
 
 - [StackOverflow thread about **shell=True**](https://stackoverflow.com/questions/3172470/actual-meaning-of-shell-true-in-subprocess)
 - [Explanation of **shell** argument from documentation](https://docs.python.org/3/library/subprocess.html#frequently-used-arguments)
@@ -118,13 +118,13 @@ user_input = "foo && cat /etc/passwd" # value supplied by user
 os.popen("ls -l " + user_input)
 ```
 
-#### References:
+#### References
 
 - [**os** module documentation](https://docs.python.org/3/library/os.html)
 
 #### Mitigation
 
-Do not let user input into `os` methods. Alternatively,
+Do not let user input into `os` methods. Alternatively:
 
 - Always try to use an internal Python API (if it exists) instead of running an OS command.
 - Consider using `subprocess` functions with array of program arguments.
@@ -153,13 +153,13 @@ user_input = "cat /etc/passwd" # value supplied by user
 os.spawnve(os.P_WAIT, "/bin/bash", ["-c", user_input], os.environ)
 ```
 
-#### References:
+#### References
 
 - [**os** module documentation](https://docs.python.org/3/library/os.html)
 
 #### Mitigation
 
-Do not let user input into `spawn` methods. Alternatively,
+Do not let user input into `spawn` methods. Alternatively:
 
 - Always try to use an internal Python API (if it exists) instead of running an OS command.
 - Don’t pass user-controlled input.
@@ -188,13 +188,13 @@ user_input = "cat /etc/passwd" # value supplied by user
 os.execve("/bin/bash", ["/bin/bash", "-c", user_input], os.environ)
 ```
 
-#### References:
+#### References
 
 - [**os** module documentation](https://docs.python.org/3/library/os.html)
 
 #### Mitigation
 
-Do not let user input into `exec` methods. Alternatively,
+Do not let user input into `exec` methods. Alternatively:
 
 - Always try to use internal an Python API (if it exists) instead of running an OS command.
 - Don’t pass user-controlled input.
@@ -228,7 +228,7 @@ drwxrwxr-x.  2 user   user   4096 Oct 28 17:04 DIR3
 os.system("/bin/rm *")
 ```
 
-#### References:
+#### References
 
 - [Article about Unix wildcard poisoning tricks](https://www.defensecode.com/public/DefenseCode_Unix_WildCards_Gone_Wild.txt)
 
@@ -262,14 +262,14 @@ user_input = "cat /etc/passwd" # value supplied by user
 asyncio.subprocess.create_subprocess_shell(user_input)
 ```
 
-#### References:
+#### References
 
 - [**asyncio subprocess** documentation](https://docs.python.org/3/library/asyncio-subprocess.html)
 - [**Event Loop subprocess_shell** documentation](https://docs.python.org/3/library/asyncio-eventloop.html#asyncio.loop.subprocess_shell)
 
 #### Mitigation
 
-Do not let user input into `asyncio subprocess` methods. Alternatively,
+Do not let user input into `asyncio subprocess` methods. Alternatively:
 
 - Always try to use an internal Python API (if it exists) instead of running an OS command.
 - Consider using asyncio.subprocess functions with array of program arguments (e.g. `create_subprocess_exec`).
@@ -306,13 +306,13 @@ loop = asyncio.new_event_loop()
 loop.subprocess_exec(asyncio.SubprocessProtocol, ['ls', '-l', user_input])
 ```
 
-#### References:
+#### References
 
 - [**asyncio subprocess** documentation](https://docs.python.org/3/library/asyncio-subprocess.html)
 
 #### Mitigation
 
-Do not let user input into `asyncio subprocess` methods. Alternatively,
+Do not let user input into `asyncio subprocess` methods. Alternatively:
 
 - Always try to use an internal Python API (if it exists) instead of running an OS command.
 - Don’t pass user-controlled input.
@@ -342,13 +342,13 @@ user_input = "');import requests;requests.get('localhost:3000');print('"
 exec("foobar('{}')".format(user_input))
 ```
 
-#### References:
+#### References
 
 - [**exec** documentation](https://docs.python.org/3/library/functions.html#exec)
 
 #### Mitigation
 
-Do not use `exec()` for non literal values. Alternatively,
+Do not use `exec()` for non literal values. Alternatively:
 
 - Ensure executed content is not definable by external sources.
 - If it’s not possible, strip everything except alphanumeric characters from an input provided for the command string and arguments.
@@ -374,13 +374,13 @@ user_input = "__import__('code').InteractiveInterpreter().runsource('import requ
 eval(user_input)
 ```
 
-#### References:
+#### References
 
 - [**eval()** documentation](https://docs.python.org/3/library/functions.html#eval)
 
 #### Mitigation
 
-Do not use `eval()`. Alternatively,
+Do not use `eval()`. Alternatively:
 
 - Ensure evaluated content is not definable by external sources.
 - If it’s not possible, strip everything except alphanumeric characters from an input provided for the command string and arguments.
@@ -445,13 +445,13 @@ s.send(data_to_send)
 s.close()
 ```
 
-#### References:
+#### References
 
 - [**logging.config.listen()** documentation](https://docs.python.org/3/library/logging.config.html#logging.config.listen)
 
 #### Mitigation
 
-Verify what is sent across the socket. Alternatively,
+Verify what is sent across the socket. Alternatively:
 
 - To avoid the risk, use the verify argument to `logging.config.listen()` to prevent unrecognized configurations from being applied. This could be done by encrypting and/or signing what is sent across the socket, such that the verify callable can perform signature verification and/or decryption.
 
@@ -484,13 +484,13 @@ interpreter = code.InteractiveInterpreter()
 interpreter.runcode(code.compile_command(user_input))
 ```
 
-#### References:
+#### References
 
 - [**code** module documentation](https://docs.python.org/3/library/code.html)
 
 #### Mitigation
 
-Do not let user input in `InteractiveInterpreter`/`InteractiveConsole` methods. Alternatively,
+Do not let user input in `InteractiveInterpreter`/`InteractiveConsole` methods. Alternatively:
 
 - Ensure evaluated content is not definable by external sources.
 - If it’s not possible, strip everything except alphanumeric characters from an input provided for the command string and arguments.
@@ -517,13 +517,13 @@ user_input = "print('pwned')"
 _xxsubinterpreters.run_string(_xxsubinterpreters.create(), user_input)
 ```
 
-#### References:
+#### References
 
 - [**subinterpreters** documentation](https://pythondev.readthedocs.io/subinterpreters.html)
 
 #### Mitigation
 
-Do not let user input in `_xxsubinterpreters` methods. Alternatively,
+Do not let user input in `_xxsubinterpreters` methods. Alternatively:
 
 - Ensure evaluated content is not definable by external sources.
 - If it’s not possible, strip everything except alphanumeric characters from an input provided for the command string and arguments.
@@ -558,13 +558,13 @@ user_input = "print('pwned')"
 support.run_in_subinterp(user_input)
 ```
 
-#### References:
+#### References
 
 - [**test** module documentation](https://docs.python.org/3/library/test.html)
 
 #### Mitigation
 
-Do not let user input in `run_in_subinterp` function. Alternatively,
+Do not let user input in `run_in_subinterp` function. Alternatively:
 
 - Ensure evaluated content is not definable by external sources.
 - If it’s not possible, strip everything except alphanumeric characters from an input provided for the command string and arguments.
@@ -597,7 +597,7 @@ function = test1.__globals__[user_input]
 function()
 ```
 
-#### References:
+#### References
 
 - [Vulnerable code example](https://github.com/mpirnat/lets-be-bad-guys/blob/d92768fb3ade32956abd53bd6bb06e19d634a084/badguys/vulnerable/views.py#L181-L186)
 - [**locals()** documentation](https://docs.python.org/3/library/functions.html#locals)
@@ -632,13 +632,13 @@ def smth():
     get_type_hints(C)
 ```
 
-#### References:
+#### References
 
 - [**typing.get_type_hints** documentation](https://docs.python.org/3/library/typing.html#typing.get_type_hints)
 
 #### Mitigation
 
-Do not programmatically rewrite code annotations. Alternatively,
+Do not programmatically rewrite code annotations. Alternatively:
 
 - Ensure that annotations are not definable by external sources.
 
