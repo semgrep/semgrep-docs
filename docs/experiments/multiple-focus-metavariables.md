@@ -12,7 +12,6 @@ Semgrep matches all pieces of code captured by focus metavariables when you spec
 This feature is using `focus-metavariable`, see [`focus-metavariable`](/writing-rules/rule-syntax/#focus-metavariable) documentation for more information.  
 :::
 
-There are two methods of focusing Semgrep on multiple metavariables. Each of them can lead to different results:
 
 - **Set union**: Experimental feature described below in section [Set union](#set-union). This syntax matches metavariables regardless of their position in code.
 - **Set intersection**: Only matches overlapping region of all the focused code. For more information, see [Including more focus metavariables using set intersection syntax](writing-rules/rule-syntax/#including-more-focus-metavariables-using-set-intersection-syntax).
