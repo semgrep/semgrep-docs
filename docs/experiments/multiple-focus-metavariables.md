@@ -19,7 +19,7 @@ There are two ways in which you can include multiple focus metavariables:
 
 ## Set union
 
-Include `focus-metavariable` with more metavariables directly under the `patterns` key to match these metavariables regardless of their position in code.
+For example, there is a pattern that is binding several metavariables. You want to produce matches focused on two or more of these metavariables. If you specify a list of metavariables under `focus-metavariable`, each focused metavariable matches the code independently of the others.
 
 For example, there is a pattern that is binding several metavariables. You want to produce matches focused on two or more of these metavariables. If you specify a list of metavariables under `focus-metavariable`, each focused metavariable matches code independently of the others.
 
