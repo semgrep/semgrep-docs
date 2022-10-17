@@ -154,7 +154,7 @@ Note that `focus-metavariable: $ARG` is not the same as `pattern: $ARG`! Using `
 
 In short, `focus-metavariable: $X` is not a pattern in itself, it does not perform any matching, it only focuses the matching on the code already bound to `$X` by other patterns. Whereas `pattern: $X` matches `$X` against your code (and in this context, `$X` only matches expressions)!
 
-#### Including multiple focus metavariables using set intersection syntax
+#### Including multiple focus metavariables using set intersection semantics
 
 Include more `focus-metavariable` keys with different metavariables under the `pattern` to match results **only** for the overlapping region of all the focused code:
 
