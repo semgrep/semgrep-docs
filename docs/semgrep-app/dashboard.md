@@ -47,22 +47,22 @@ The **Header widget** displays high-level security analytics across your entire 
 	<dd>The percentage of findings that were fixed when findings were surfaced to developers via PR comments in previous scans. The number badge compares PR fix rate in the given time period against the previous time period.</dd>
 </dl>
 
-## Filtering through findings over time
+## Filtering findings by time
 
 The Dashboard displays data from scans for the **last one month** by default. This time range can be set to a broader or narrower value. By broadening the time range, security teams are able to see total numbers and statistics across an entire time period. Narrow time ranges can give insights into the most recent vulnerabilities creeping into the project.
 
 To change the time range of scan data over time:
 
-1. Click the **Last 1 month** button.
+1. Click the <i class="fa-solid fa-calendar-days"></i> **Last 1 month** button.
 2. Select a time range from the drop-down box. The Dashboard, including all widgets, reloads to reflect data from the selected time period.
 
-## Filtering through findings from projects
+## Filtering findings by projects
 
 The Dashboard displays data from scans for **all of the organization's projects** by default. Select one or a few projects to filter the dashboard widgets to only reflect scans from selected projects. Selecting a few projects gives you a more targeted view of those projects' security posture.
 
 To change the projects filter:
 
-1. Click the **All projects** button.
+1. Click the <i class="fa-solid fa-sliders"></i> **All projects** button.
 2. Select the project(s) from the drop-down box. The Dashboard, including all widgets, reloads to reflect data from the selected project(s).
 
 ## Summarizing a project’s security posture
