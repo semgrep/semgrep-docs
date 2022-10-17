@@ -25,16 +25,16 @@ Object.entries(frontMatter).filter(
 Use this reference to configure Semgrep's behavior in CI environments. This reference includes both command-line options and environment variables. You can also define these variables within a CI configuration file. Refer to your CI provider's documentation for the correct syntax. Examples are written in a Bash environment except when otherwise stated.
 
 :::tip
-Unless otherwise stated, you can also set many of these environment variables within your local environment for testing or experimental purposes. Run `semgrep ci` after setting environment variables to see their effect.
+Unless otherwise stated, you can also set many of these environment variables within your local environment for testing or experimental purposes. Run `semgrep ci` in your command line after setting environment variables to test their effect.
 :::
 
-### Environment variables for configuring scan behavior
+## Environment variables for configuring scan behavior
 
 These environment variables configure various aspects of your CI job, such as a job's timeout or source of rules.
 
 ### `SEMGREP_APP_TOKEN`
 
-Set `SEMGREP_APP_TOKEN` to send findings to Semgrep App and use rules from the Rule Board. You must have a Semgrep App account to use this environment variable. To generate a token, see [TODOLINK]. `SEMGREP_APP_TOKEN` is incompatible with `SEMGREP_RULES`. Do not set `SEMGREP_RULES` environment variable within the same CI job as `SEMGREP_APP_TOKEN`.
+Set `SEMGREP_APP_TOKEN` to send findings to Semgrep App and use rules from the Rule Board. You must have a Semgrep App account to use this environment variable. To generate a token, see [Creating a `SEMGREP_APP_TOKEN`](/docs/semgrep-ci/running-semgrep-ci-with-semgrep-app/#creating-a-semgrep_app_token). `SEMGREP_APP_TOKEN` is incompatible with `SEMGREP_RULES`. Do not set `SEMGREP_RULES` environment variable within the same CI job as `SEMGREP_APP_TOKEN`.
 
 Example:
 
@@ -133,14 +133,14 @@ Within a Buildkite configuration file:
 - label: ":semgrep: Semgrep"
 commands:
   # Use a Buildkite environment variable.
-  # It automatically detects the current branch the job is scanning.
+  # It automatically sets the current branch the job is scanning.
   - export SEMGREP_BRANCH=${BUILDKITE_BRANCH}
   ...
 ```
 
 ### `SEMGREP_COMMIT`
 
-Set `SEMGREP_COMMIT` to define the the commit hash for the URL used to generate hyperlinks. To avoid hardcoding this value, check your CI provider's documentation for available environment variables that can automatically detect the correct values for every CI job. 
+Set `SEMGREP_COMMIT` to define the commit hash for the URL used to generate hyperlinks. To avoid hardcoding this value, check your CI provider's documentation for available environment variables that can automatically detect the correct values for every CI job. 
 
 Examples:
 
@@ -163,14 +163,14 @@ pipelines:
         name: 'Run Semgrep scan with current branch'
         script:
           # Use a BitBucket Pipelines environment variable.
-          # It automatically detects the current commit the job is scanning.
+          # It automatically sets the current commit the job is scanning.
           - export SEMGREP_COMMIT=$BITBUCKET_COMMIT 
           ...
 ```
 
 ### `SEMGREP_REPO_NAME`
 
-Set `SEMGREP_REPO_NAME` in your CI job TODO . To avoid hardcoding this value, check your CI provider's documentation for available environment variables that can automatically detect the correct values for every CI job. 
+Set `SEMGREP_REPO_NAME` to define the repository name for the URL used to generate hyperlinks. To avoid hardcoding this value, check your CI provider's documentation for available environment variables that can automatically detect the correct values for every CI job. 
 
 Examples:
 
@@ -178,14 +178,26 @@ Within a Bash environment:
 
 ```bash
 # This is a hardcoded value and must be changed to scan other repositories.
-export SEMGREP_REPO_NAME=""
+export SEMGREP_REPO_NAME="corporation/s_juiceshop"
 ```
 
-Within a TODO environment:
+Within a CircleCI environment:
+
+```yaml
+jobs:
+  semgrep-scan:
+    environment:
+      ...
+      # Use a CircleCI environment variable.
+      # It automatically sets the current repository name the job is scanning.
+      SEMGREP_REPO_NAME: '$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME'
+      ..
+
+```
 
 ### `SEMGREP_REPO_URL`
 
-Set `SEMGREP_REPO_URL` in your CI job TODO . To avoid hardcoding this value, check your CI provider's documentation for available environment variables that can automatically detect the correct values for every CI job. 
+Set `SEMGREP_REPO_URL` to define the repository URL used to generate hyperlinks. To avoid hardcoding this value, check your CI provider's documentation for available environment variables that can automatically detect the correct values for every CI job. 
 
 Examples:
 
@@ -193,12 +205,20 @@ Within a Bash environment:
 
 ```bash
 # This is a hardcoded value and must be changed to scan other repositories.
-export SEMGREP_REPO_URL=""
+export SEMGREP_REPO_URL="https://github.com/corporation/s_juiceshop"
 ```
 
-Within a TODO environment:
-```
+Within a CircleCI environment:
 
+```yaml
+jobs:
+  semgrep-scan:
+    environment:
+      ...
+      # Use a CircleCI environment variable.
+      # It automatically sets the current repository URL.
+      SEMGREP_REPO_URL: << pipeline.project.git_url >>
+      ...
 ```
 
 ## Environment variables for creating comments in pull or merge requests
@@ -214,6 +234,7 @@ The following environment variable can only be set within a CI environment.
 Set `SEMGREP_JOB_URL` to enable Semgrep to leave PR or MR comments in your SCM. Check your CI provider's documentation for available environment variables that can automatically detect the correct values for every CI job. 
 
 The following example uses Jenkins declarative syntax:
+
 ```javascript
 pipeline {
   agent any
