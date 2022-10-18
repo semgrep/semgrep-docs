@@ -4,24 +4,22 @@ append_help_link: true
 description: "With this rule, Semgrep matches all pieces of code captured by the focus metavariables."
 ---
 
-# Using multiple focus metavariables using set union semantics
+# Including multiple focus metavariables using set union semantics
 
-Semgrep matches all pieces of code captured by focus metavariables when you specify them in a rule. Include the metavariables that you want to focus on by specifying each in a YAML list. 
+Semgrep matches all pieces of code captured by focus metavariables when you specify them in a rule. Specify the metavariables you want to focus on in a YAML list format.
 
 :::info
-This feature is using `focus-metavariable`, see [`focus-metavariable`](/writing-rules/rule-syntax/#focus-metavariable) documentation for more information.  
+This feature is using `focus-metavariable`, see [`focus-metavariable`](/writing-rules/rule-syntax/#focus-metavariable) documentation for more information.
 :::
 
 There are two ways in which you can include multiple focus metavariables:
 
-- **Set union**: Experimental feature described below in section [Set union](#set-union). This syntax matches metavariables regardless of their position in code.
-- **Set intersection**: Only matches the overlapping region of all the focused code. For more information, see [Including more focus metavariables using set intersection semantics](writing-rules/rule-syntax/#including-more-focus-metavariables-using-set-intersection-semantics).
+- **Set union**: Experimental feature described below in the section [Set union](#set-union). This feature returns the union of all matches of the specified metavariables.
+- **Set intersection**: Only matches the overlapping region of all the focused code. For more information, see [Including more focus metavariables using set intersection semantics](/writing-rules/rule-syntax/#including-multiple-focus-metavariables-using-set-intersection-semantics).
 
 ## Set union
 
-For example, there is a pattern that is binding several metavariables. You want to produce matches focused on two or more of these metavariables. If you specify a list of metavariables under `focus-metavariable`, each focused metavariable matches the code independently of the others.
-
-For example, there is a pattern that is binding several metavariables. You want to produce matches focused on two or more of these metavariables. If you specify a list of metavariables under `focus-metavariable`, each focused metavariable matches code independently of the others.
+For example, there is a pattern that binds several metavariables. You want to produce matches focused on two or more of these metavariables. If you specify a list of metavariables under `focus-metavariable`, each focused metavariable matches code independently of the others.
 
 ```yaml
     patterns:
