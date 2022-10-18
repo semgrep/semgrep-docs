@@ -232,7 +232,7 @@ The `comparison` key accepts Python expression using:
 - Comparison operators `==`, `!=`, `<`, `<=`, `>`, and `>=`.
 - Function `int()` to convert strings into integers.
 - Function `str()` to convert numbers into strings.
-- Lists and the `in`, `not in` infix operators.
+- Lists, together with the `in`, and `not in` infix operators.
 - Function `re.match()` to match a regular expression (without the optional `flags` argument).
 
 You can use Semgrep metavariables such as `$MVAR`, which Semgrep evaluates as follows:
