@@ -14,7 +14,7 @@ This feature is using `focus-metavariable`, see [`focus-metavariable`](/writing-
 
 There are two ways in which you can include multiple focus metavariables:
 
-- **Set union**: Experimental feature described below in the section [Set union](#set-union). This syntax returns the union of all matches of the specified metavariables.
+- **Set union**: Experimental feature described below in the section [Set union](#set-union). This feature returns the union of all matches of the specified metavariables.
 - **Set intersection**: Only matches the overlapping region of all the focused code. For more information, see [Including more focus metavariables using set intersection semantics](/writing-rules/rule-syntax/#including-multiple-focus-metavariables-using-set-intersection-semantics).
 
 ## Set union
