@@ -139,6 +139,8 @@ module.exports = {
                         label: 'Command injection',
                         items: [
                             'cheat-sheets/go-command-injection',
+                            'cheat-sheets/java-command-injection',
+                            'cheat-sheets/javascript-command-injection',
                             'cheat-sheets/python-command-injection'
                         ]
                     },

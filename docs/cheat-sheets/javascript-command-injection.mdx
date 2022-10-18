@@ -1,0 +1,140 @@
+---
+slug: javascript-command-injection
+---
+
+import LinkToRegistryRule from "/src/components/LinkToRegistryRule"
+
+# Command injection prevention for JavaScript
+
+This is command injection prevention cheat sheet by r2c. It contains code patterns of potential ways to run an OS command or arbitrary code in an application. Instead of scrutinizing code for exploitable vulnerabilities, the recommendations in this cheat sheet pave a safe road for developers that mitigates the possibility of command injection in your code. By following these recommendations, you can be reasonably sure your code is free of command injection.
+
+## Mitigation summary
+
+TODO
+
+#### Check your project for these conditions:
+
+```bash
+semgrep --config p/javascript-command-injection
+```
+
+---
+
+## 1. Running an OS command
+
+### 1.A. Spawning a shell with exec function
+
+`exec()` spawns a shell then executes the command within that shell, buffering any generated output. Never pass unsanitized user input to this function. Any input containing shell metacharacters can be used to trigger arbitrary command execution. 
+
+Example:
+
+```javascript
+child_process.exec(...)
+child_process.execSync(...)
+```
+
+#### References
+
+- [`child_process` module documentation](https://nodejs.org/dist/latest-v14.x/docs/api/child_process.html)
+
+#### Mitigation
+
+Try to avoid non-literal values for the command string. If it is not possible, then do not let running arbitrary commands, use a white list for inputs. Strip `!@#$;&*~"'{}][-+%^` characters from an input provided for command string. 
+
+#### Semgrep rule
+
+<LinkToRegistryRule ruleId="javascript.lang.security.detect-child-process.detect-child-process" />
+
+### 1.B. Spawning a process with spawn function
+
+`spawn()` spawns a new process using the given command. Allowing spawning arbitrary programs or running shell processes with arbitrary arguments can result in a command injection vulnerability.
+
+Example:
+
+```javascript
+child_process.spawn(...)
+child_process.spawnSync(...)
+```
+
+#### References
+
+[`child_process` module documentation](https://docs.oracle.com/javase/7/docs/api/java/lang/ProcessBuilder.html)
+
+#### Mitigation
+
+Try to avoid non-literal values for the command string. If it is not possible, then do not let running arbitrary commands, use a white list for inputs. 
+
+#### Semgrep rule
+
+<LinkToRegistryRule ruleId="javascript.lang.security.detect-child-process.detect-child-process" />
+
+### 1.C. spawn(...,{shell: true})
+
+Functions from `child_process` module have `shell` argument for specifying if the command should be executed through the shell. Using `shell: true` is dangerous because it propagates current shell settings and variables, which makes it much easier for a malicious actor to execute commands.
+
+Example:
+
+```javascript
+spawn(...,{shell: true})
+...
+```
+
+#### References
+
+[`child_process` module documentation](https://nodejs.org/dist/latest-v14.x/docs/api/child_process.html)
+
+#### Mitigation
+
+Use `shell: false` instead.
+
+#### Semgrep rule
+
+<LinkToRegistryRule ruleId="javascript.lang.security.audit.spawn-shell-true.spawn-shell-true" />
+
+## 2. Executing or evaluating code
+
+### 2.A. running code with `vm` module
+
+The `vm` module enables compiling and running code within V8 Virtual Machine contexts. The `vm` module is not a security mechanism. Do not use it to run untrusted code. If code passed to vm functions is controlled by user input it could result in command injection. 
+
+Example:
+
+```java
+vm.runInContext(...)
+...
+```
+
+#### References
+
+- [`vm` module documentation](https://nodejs.org/dist/latest-v14.x/docs/api/vm.html)
+
+#### Mitigation
+
+Do not let user input in `vm` functions.
+
+#### Semgrep rule
+
+<LinkToRegistryRule ruleId="javascript.lang.security.audit.vm-injection.vm-runincontext-context-injection" />
+
+### 2.B. eval(...)
+
+The `eval()` function evaluates JavaScript code represented as a string. Executing JavaScript from a string is an enormous security risk. It is far too easy for a bad actor to run arbitrary code when you use `eval()`. 
+
+Example:
+
+```java
+eval()
+...
+```
+
+#### References
+
+- [Never use eval()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/eval#never_use_eval!)
+
+#### Mitigation
+
+TODO Ensure evaluated content is not definable by external sources. TODO(1)
+
+#### Semgrep rule
+
+<LinkToRegistryRule ruleId="javascript.lang.security.detect-eval-with-expression.detect-eval-with-expression" />

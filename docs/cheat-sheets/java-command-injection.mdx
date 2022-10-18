@@ -22,7 +22,7 @@ semgrep --config p/go-command-injection
 
 ## 1. Running an OS command
 
-### 1.A. running OS commands with **Runtime.getRuntime().exec()**
+### 1.A. Running OS commands with **Runtime.getRuntime().exec()**
 
 `exec` executes the specified string command in a separate process. This is dangerous if a command string is controlled by user input and could result in a command injection.
 
@@ -44,7 +44,7 @@ Try to avoid non-literal values for the command string. If it is not possible, t
 
 <LinkToRegistryRule ruleId="java.lang.security.audit.tainted-cmd-from-http-request.tainted-cmd-from-http-request" />
 
-### 1.B. running OS processes with ProcessBuilder
+### 1.B. Running OS processes with ProcessBuilder
 
 ProcessBuilder class is used to create operating system processes. If the command string is controlled by user input it could result in command injection. 
 Example:
@@ -67,7 +67,7 @@ Try to avoid non-literal values for the command string. If it is not possible, t
 
 ## 2. Unsafe Reflection
 
-### 2.A. using reflection with Class.forName
+### 2.A. Using reflection with Class.forName
 
 `Class.forName` returns the Class object associated with the class or interface with the given string name. If an attacker can supply values that the application then uses to determine which class to instantiate or which method to invoke, the potential exists for the attacker to create control flow paths through the application that were not intended by the application developers. This attack vector may allow the attacker to bypass authentication or access control checks or otherwise cause the application to behave in an unexpected manner. 
 Example:
