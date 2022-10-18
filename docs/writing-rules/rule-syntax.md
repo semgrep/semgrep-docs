@@ -169,7 +169,7 @@ See the following example:
 <iframe src="https://semgrep.dev/embed/editor?snippet=AqJw" border="0" frameBorder="0" width="100%" height="432"></iframe>
 
 :::info
-To make a list of multiple focus metavariables using set union semantics that matches the metavariables regardless of their position in code, see [Using multiple focus metavariables](/experiments/multiple-focus-metavariables) documentation.
+To make a list of multiple focus metavariables using set union semantics that matches the metavariables regardless of their position in code, see [Including multiple focus metavariables using set union semantics](/experiments/multiple-focus-metavariables) documentation.
 :::
 
 ### `metavariable-regex`
