@@ -1,0 +1,140 @@
+---
+slug: ruby-command-injection
+---
+
+import LinkToRegistryRule from "/src/components/LinkToRegistryRule"
+
+# Command injection prevention for Ruby
+
+This is command injection prevention cheat sheet by r2c. It contains code patterns of potential ways to run an OS command or arbitrary code in an application. Instead of scrutinizing code for exploitable vulnerabilities, the recommendations in this cheat sheet pave a safe road for developers that mitigates the possibility of command injection in your code. By following these recommendations, you can be reasonably sure your code is free of command injection.
+
+## Mitigation summary
+
+TODO
+
+#### Check your project for these conditions:
+
+```bash
+semgrep --config p/ruby-command-injection
+```
+
+---
+
+## 1. Evaluating code
+
+### 1.A. Evaluating code with `eval`
+
+Evaluating code can be dangerous if dynamic content is used as an input. If this content is input that originates from outside the program, this can be a code injection vulnerability. 
+
+Example:
+
+```ruby
+eval(...)
+...
+```
+
+#### References
+
+- [eval() documentation](https://www.rubydoc.info/stdlib/core/Kernel:eval)
+
+#### Mitigation
+
+Ensure evaluated content is not definable by external sources. TODO(1)
+
+#### Semgrep rule
+
+<LinkToRegistryRule ruleId="ruby.lang.security.no-eval.ruby-eval" />
+
+## 2. Running an OS command
+
+### 2.A. Executing commands with `exec()`
+
+The `exec()` function replaces the current process by running the given external command, allowing user input in a command that is passed as an argument to `exec()`, this can create an opportunity for a command injection vulnerability.
+
+Example:
+
+```ruby
+exec(...)
+...
+```
+
+#### References
+
+- [`exec()` documentation](https://apidock.com/ruby/Kernel/exec)
+
+#### Mitigation
+
+Ensure evaluated content is not definable by external sources. TODO(1):
+
+#### Semgrep rule
+
+<LinkToRegistryRule ruleId="ruby.lang.security.dangerous-exec.dangerous-exec" />
+
+### 2.B. Using syscall() to run OS functions
+
+The `syscall()` calls the operating system function identified by num and returns the result of the function or raises SystemCallError if it failed.
+
+Example:
+
+```ruby
+syscall(...)
+...
+```
+
+#### References
+
+- [`syscall()` documentation](https://www.rubydoc.info/stdlib/core/Kernel:syscall)
+
+#### Mitigation
+
+As mentioned in the documentation - `syscall` is essentially unsafe and unportable.
+
+#### Semgrep rule
+
+<LinkToRegistryRule ruleId="ruby.lang.security.dangerous-syscall.dangerous-syscall" />
+
+### 2.C. Running code with Open3 module
+
+`Open3` grants you access to stdin, stdout, stderr and a thread to wait the child process when running another program. Such methods as `capture2`, `capture2e`, `capture3`, `popen2`, `popen2e`, `popen3`, `pipeline`, `pipeline_r`, `pipeline_rw`, `pipeline_start` and `pipeline_w` are intended for runnig commands provided as a string. Letting user supplied data in a command that is passed as an argument to one of these methods, can create an opportunity for a Command Injection vulnerability.
+
+Example:
+
+```java
+Open3.pipeline(...)
+...
+```
+
+#### References
+
+- [`Open3` documentation](https://docs.ruby-lang.org/en/2.0.0/Open3.html)
+
+#### Mitigation
+
+Do not let user input in `Open3` methods.
+
+#### Semgrep rule
+
+<LinkToRegistryRule ruleId="ruby.lang.security.dangerous-open3-pipeline.dangerous-open3-pipeline" />
+
+### 2.D. Using `open()` tu run subprocesses
+
+Creates an `IO` object connected to the given stream, file, or subprocess.description here. If first argument starts with a pipe character (`|`), a subprocess is created. Allowing user input in a command that is passed as an argument to `open()`, can create an opportunity for a Command Injection vulnerability.
+
+Example:
+
+```ruby
+open(...)
+...
+```
+
+#### References
+
+- [`open()` documentation](https://apidock.com/ruby/Kernel/open)
+
+#### Mitigation
+
+Ensure command is not definable by external sources. TODO(1)
+
+#### Semgrep rule
+
+<LinkToRegistryRule ruleId="ruby.lang.security.dangerous-open.dangerous-open" />

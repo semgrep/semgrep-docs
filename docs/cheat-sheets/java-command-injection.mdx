@@ -22,7 +22,7 @@ semgrep --config p/go-command-injection
 
 ## 1. Running an OS command
 
-### 1.A. Running OS commands with Runtime.getRuntime().exec()
+### 1.A. Running OS commands with `Runtime.getRuntime().exec()`
 
 `exec` executes the specified string command in a separate process. This is dangerous if a command string is controlled by user input and could result in a command injection.
 
