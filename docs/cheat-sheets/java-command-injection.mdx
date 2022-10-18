@@ -6,7 +6,7 @@ import LinkToRegistryRule from "/src/components/LinkToRegistryRule"
 
 # Command injection prevention for Java
 
-This is Command/Code injection prevention cheat sheet by r2c. It contains code patterns of potential ways to run an OS command or arbitrary code in an application. Instead of scrutinizing code for exploitable vulnerabilities, the recommendations in this cheat sheet pave a safe road for developers that mitigates the possibility of Command/Code injection in your code. By following these recommendations, you can be reasonably sure your code is free of Command/Code injection.
+This is command injection prevention cheat sheet by r2c. It contains code patterns of potential ways to run an OS command or arbitrary code in an application. Instead of scrutinizing code for exploitable vulnerabilities, the recommendations in this cheat sheet pave a safe road for developers that mitigates the possibility of command injection in your code. By following these recommendations, you can be reasonably sure your code is free of command injection.
 
 ## Mitigation summary
 
@@ -42,7 +42,7 @@ Try to avoid non-literal values for the command string. If it is not possible, t
 
 #### Semgrep rule
 
-TODO<LinkToRegistryRule ruleId="java.lang.security.audit.tainted-cmd-from-http-request.tainted-cmd-from-http-request" />
+<LinkToRegistryRule ruleId="java.lang.security.audit.tainted-cmd-from-http-request.tainted-cmd-from-http-request" />
 
 ### 1.B. running OS processes with ProcessBuilder
 
@@ -63,7 +63,7 @@ Try to avoid non-literal values for the command string. If it is not possible, t
 
 #### Semgrep rule
 
-TODO<LinkToRegistryRule ruleId="java.servlets.security.tainted-cmd-from-http-request.tainted-cmd-from-http-request" />
+<LinkToRegistryRule ruleId="java.servlets.security.tainted-cmd-from-http-request.tainted-cmd-from-http-request" />
 
 ## 2. Unsafe Reflection
 
