@@ -46,7 +46,7 @@ By completing this guide, you are now familiar with a simple use of Semgrep. Her
 - Follow tutorials on [Learn Semgrep](https://semgrep.dev/learn/) to learn about Semgrep interactively.
 - See [Running rules](./running-rules.md) to try out and understand more about Semgrep rules.
 - See [CLI Reference](./cli-reference.md) for command line options and exit codes.
-- Explore the Semgrep [Rules Registry](https://semgrep.dev/explore) to add rules to your project or [writing a rule](./writing-rules/overview.md). r2c curates rulesets that make running and managing rules at scale much easier. These rulesets are updated as new rules are added to the Rules Registry so you do not have to check the registry to pull in individual rules.
+- Explore the Semgrep [Rules Registry](https://semgrep.dev/explore) to add rules to your project or [writing a rule](./writing-rules/overview.md).
 
 ## Testing Semgrep on vulnerable repositories
 
