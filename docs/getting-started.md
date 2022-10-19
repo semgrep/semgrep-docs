@@ -43,10 +43,10 @@ By default, when Semgrep Registry is used, Semgrep collects [usage metrics](./me
 
 By completing this guide, you are now familiar with a simple use of Semgrep. Here are some additional resources to follow:
 
-- Follow [Learn Semgrep](https://semgrep.dev/learn/) to learn about Semgrep interactively.
+- Follow tutorials on [Learn Semgrep](https://semgrep.dev/learn/) to learn about Semgrep interactively.
 - See [Running rules](./running-rules.md) to try out and understand more about Semgrep rules.
 - Explore the Semgrep [Rules Registry](https://semgrep.dev/r) to add rules to your project or [writing a rule](./writing-rules/overview.md).
-- Check out [CLI Reference](./cli-reference.md) for command line options and exit codes.
+- See [CLI Reference](./cli-reference.md) for command line options and exit codes.
 
 ## Testing Semgrep on vulnerable repositories
 
