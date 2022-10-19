@@ -64,9 +64,8 @@ See [Writing rules > Getting started](../writing-rules/overview/) to learn how t
 Use the `-e` or `--pattern` flags in your terminal for ephemeral rules that are used once.
 
 For example: Check for Python `==` where the left and right sides are the same (often a bug):
-```sh
-semgrep -e '$X == $X' --lang=py path/to/src
-```
+<pre class="language-bash"><code>semgrep -e '$X == $X' --lang=py <span className="placeholder">PATH/TO/SRC</span></code></pre>
+Substitute the optional placeholder <code><span className="placeholder">PATH/TO/SRC</span></code> with the path to your source code.
 
 :::info
 Both local `rule.yaml` files and ephemeral rules are called *local rules*.
