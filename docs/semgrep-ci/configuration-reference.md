@@ -34,13 +34,22 @@ These environment variables configure various aspects of your CI job, such as a 
 
 ### `SEMGREP_APP_TOKEN`
 
-Set `SEMGREP_APP_TOKEN` to send findings to Semgrep App and use rules from the Rule Board. You must have a Semgrep App account to use this environment variable. To generate a token, see [Creating a `SEMGREP_APP_TOKEN`](/docs/semgrep-ci/running-semgrep-ci-with-semgrep-app/#creating-a-semgrep_app_token). `SEMGREP_APP_TOKEN` is incompatible with `SEMGREP_RULES`. Do not set `SEMGREP_RULES` environment variable within the same CI job as `SEMGREP_APP_TOKEN`.
+:::info Prerequisites
+* You must have a Semgrep App account to use this environment variable.
+* You must have a Semgrep App token. To generate a token, see [Creating a `SEMGREP_APP_TOKEN`](/docs/semgrep-ci/running-semgrep-ci-with-semgrep-app/#creating-a-semgrep_app_token).
+:::
+
+Set `SEMGREP_APP_TOKEN` to send findings to Semgrep App and use rules from the Rule Board. `SEMGREP_APP_TOKEN` is incompatible with `SEMGREP_RULES`.
 
 Example:
 
 ```bash
 export SEMGREP_APP_TOKEN="038846a866f19972ba435754cab85d6bd926ca51107029249eb88441271341ad"
 ```
+:::caution
+Do not set `SEMGREP_RULES` environment variable within the same CI job as `SEMGREP_APP_TOKEN`.
+:::
+
 
 ### `SEMGREP_BASELINE_REF`
 
@@ -86,7 +95,7 @@ export SEMGREP_GIT_COMMAND_TIMEOUT="180"
 
 ### `SEMGREP RULES`
 
-Set `SEMGREP_RULES` to define rules and rulesets for your scan. Findings are logged within your CI environment. `SEMGREP_RULES` is incompatible with `SEMGREP_APP_TOKEN`. Do not set `SEMGREP_APP_TOKEN` environment variable within the same CI job as `SEMGREP_RULES`.
+Set `SEMGREP_RULES` to define rules and rulesets for your scan. Findings are logged within your CI environment. `SEMGREP_RULES` is incompatible with `SEMGREP_APP_TOKEN`.
 
 Examples:
 
@@ -97,6 +106,10 @@ export SEMGREP_RULES="p/default"
 # Define multiple rule sources, delimited by a space: 
 export SEMGREP_RULES="p/default no-exec.yml"
 ```
+
+:::caution
+Do not set `SEMGREP_APP_TOKEN` environment variable within the same CI job as `SEMGREP_RULES`.
+:::
 
 ### `SEMGREP_TIMEOUT`
 
