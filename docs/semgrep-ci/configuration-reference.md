@@ -74,7 +74,11 @@ export SEMGREP_ENABLE_VERSION_CHECK="0"
 
 ### `SEMGREP_GHA_MIN_FETCH_DEPTH`
 
-Set `SEMGREP_GHA_MIN_FETCH_DEPTH` to configure the **minimum** number of commits `semgrep ci` fetches from `remote` when calculating the merge-base in GitHub Actions. Having more commits available helps Semgrep determine what changes came from the current pull request, fixing issues where Semgrep would otherwise report findings that were not touched in a given pull request. This value is set to 0 by default. 
+:::tip
+Only set `SEMGREP_GHA_MIN_FETCH_DEPTH` if you are encountering findings duplication within your diff-aware scans.
+:::
+
+Set `SEMGREP_GHA_MIN_FETCH_DEPTH` to configure the **minimum** number of commits `semgrep ci` fetches from `remote` when calculating the merge-base in GitHub Actions. For optimal performance, set `SEMGREP_GHA_MIN_FETCH_DEPTH` with a higher number of commits. Having more commits available helps Semgrep determine what changes came from the current pull request, fixing issues where Semgrep would otherwise report findings that were not touched in a given pull request. This value is set to 0 by default. 
 
 Example:
 
