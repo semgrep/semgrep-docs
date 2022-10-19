@@ -42,10 +42,6 @@ Explore the Semgrep Registry by following these steps:
 4. Optional: Run registry rules simultaneously with local rules:
    <pre class="language-bash"><code>semgrep --config="<span className="placeholder">RULESET-ID</span>" --config=<span className="placeholder">PATH/TO/MYRULE.YAML PATH/TO/SRC</span></code></pre>
 
-:::tip
-See Semgrep [Rule Board](semgrep-app/rule-board.md) to select which rules Semgrep uses and what action it undertakes when it generates a finding.
-:::
-
 ### Running Semgrep Registry continuously
 
 To use Semgrep Registry continuously in your CI/CD pipeline, see the [Semgrep in CI](https://semgrep.dev/docs/semgrep-ci/overview) documentation.
