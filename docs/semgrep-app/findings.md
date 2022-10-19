@@ -11,6 +11,7 @@ tags:
 ---
 
 import MoreHelp from "/src/components/MoreHelp"
+import TriageStates from "/src/components/reference/_triage-states.mdx"
 
 <ul id="tag__badge-list">
 {
@@ -98,11 +99,7 @@ The Findings page consists of:
 
 Semgrep App assists in the triage process through the use of **comments** and **triage states**:
 
-| Triage state | Description |
-| -----------  | ------------ |
-| **Open** | Open findings require action, such as rewriting the code for vulnerabilities or refactoring the code. Findings are open by default. |
-| **Ignored** | Findings that are ignored are not acted upon. This can be a false positive or deprioritized issue. Findings can be ignored through Semgrep App (see [Managing triage states](#managing-triage-states-bulk-triage)). |
-| **Fixed** | <p>Fixed findings were detected in a previous scan of a particular branch, but no longer trigger a match in the most recent scan of that same branch. The Semgrep rule that matched the finding and the code that triggered the match must both be active in the most recent scan. </p> <p> Change the triage status of a finding to **fixed** by: <ol type="a"><li>Fixing the code so the rule cannot match it.</li><li>Editing the Semgrep rule so it no longer matches the code.</li></ol></p> |
+<TriageStates />
 
 Findings can also be **removed**. A removed finding does not count towards a fix rate or the total number of findings. A finding is considered removed if it is not found in the most recent scan of the branch where the finding was detected due to any of the following conditions:
 
@@ -113,16 +110,6 @@ Findings can also be **removed**. A removed finding does not count towards a fix
 ### Filtering findings
 
 Filtering allows you to easily isolate groups of findings for ease in triaging and identifying related groups of issues. The following criteria are available for filtering:
-
-| Filter      | Description  |
-| ----------  | ------------ |
-| **Status**       | Filter for different findings triage states. Refer to the [following table](#triaging-findings) to understand triage states. |
-| **Projects**     | Filter by repositories connected to Semgrep App. |
-| **Branches**     | Filter by findings in different branches. |
-| **Rules**        | Filter by rules or rulesets that are included in your Rule Board. More than one rule can be selected for filtering. |
-| **Rulesets**     | Filter by name of the ruleset where rules that matched the code belong. |
-| **Actions**     | Filter by monitoring, commenting, or blocking rules in your Rule Board. |
-| **Severity**    | Filter by the severity of a finding. Possible values: <ul><li>Low</li><li>Medium</li><li>High</li></ul> |
 
 To filter through all findings:
 

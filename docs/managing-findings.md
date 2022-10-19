@@ -5,6 +5,7 @@ description: "A finding is the core result of Semgrep's analysis. Findings are g
 ---
 
 import MoreHelp from "/src/components/MoreHelp"
+import TriageStates from "/src/components/reference/_triage-states.mdx"
 
 # Managing findings
 
@@ -75,32 +76,23 @@ These are hashed and returned as the syntactic identifier: `syntactic_id`. This 
 
 ## Semgrep App
 
-Semgrep App builds on Semgrep CI findings to track state transitions and provide additional context for managing findings within your organization. Findings move between states according to their Semgrep CI `syntactic_id`, as mentioned above. A finding can occupy 4 states in Semgrep App: `OPEN`, `FIXED`, `MUTED`, `REMOVED`.
+Semgrep App builds on Semgrep CI findings to track state transitions and provide additional context for managing findings within your organization. A finding can occupy 4 states in Semgrep App: `OPEN`, `FIXED`, `IGNORED`, `REMOVED`.
 
 ### Finding states
 
-Semgrep App finding states are defined as follows:
+Semgrep App finding states are as follows:
 
-1. `OPEN`: the finding exists in the code and has not been muted.
-1. `FIXED`: the finding existed in the code, and is no longer found.
-1. `MUTED`: the finding has been ignored by a `nosemgrep` comment or via `.semgrepignore`.
-1. `REMOVED`: the finding's rule isn't enabled on the repository anymore. The rule was removed from the used ruleset, the rule was removed from the policy, or the containing policy was detached from the repo.
+1. `OPEN`: The finding exists in the code and has not been muted.
+1. `FIXED`: The finding existed in the code, and is no longer found.
+1. `IGNORED`: The finding has been ignored by a `nosemgrep` comment or through `.semgrepignore`.
+1. `REMOVED`: The finding's rule isn't enabled on the repository anymore. The rule was removed from the used ruleset, the rule was removed from the Rule Board.
 
-![Finding state transitions](/img/finding-states.svg "Finding state transitions")
+You can manage findings through triage states.
 
-The possible transitions are defined as follows:
-
-1. `Fix`: a previously identified `syntactic_id` no longer exists.
-1. `Regress`: a previously fixed `syntactic_id` has been reintroduced.
-1. `Mute`: a previously identified `syntactic_id` has been ignored.
-1. `Unmute`: a previously muted `syntactic_id` has been unignored.
-1. `Remove`: a previously identified or muted `syntactic_id`'s rule is no longer part of the scan.
-1. `Readd`: a previously removed `syntactic_id`'s rule is part of the scan again.
-    A readded issue can immediately be marked as fixed or muted.
+<TriageStates />
 
 :::info
-    Fixed issues will stay fixed even if their rule is removed.
+For more information, see [Getting started with Semgrep App](/semgrep-app/getting-started-with-semgrep-app/) and [Managing findings in Semgrep App](/semgrep-app/findings/).
 :::
-
 
 <MoreHelp />
