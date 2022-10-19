@@ -26,8 +26,8 @@ You can run all rules on your code locally or continuously in your Source Code M
 ## Running Semgrep Registry rules locally
 
 You can test Semgrep Registry rules with the following command:
-<pre class="language-bash"><code>semgrep --config=auto [<span className="placeholder">PATH/TO/SRC</span>]</code></pre>
-Substitute the optional placeholder <code>[<span className="placeholder">PATH/TO/SRC</span>]</code> with the path to your source code.
+<pre class="language-bash"><code>semgrep --config=auto <span className="placeholder">PATH/TO/SRC</span></code></pre>
+Substitute the optional placeholder <code><span className="placeholder">PATH/TO/SRC</span></code> with the path to your source code.
 
 :::info
 By default, when Semgrep Registry is used, Semgrep collects [usage metrics](./metrics.md).
@@ -38,12 +38,12 @@ Explore the Semgrep Registry by following these steps:
 1. See the [Semgrep Registry](https://semgrep.dev/r) and choose a rule.
 2. On the page of the rule, click **Run Locally**.
 3. Copy the code for local install, and then add the path to the source code you want to check in your terminal:
-    <pre class="language-bash"><code>semgrep --config="<span className="placeholder">RULESET-ID</span>" [<span className="placeholder">PATH/TO/SRC</span>]</code></pre>
+    <pre class="language-bash"><code>semgrep --config="<span className="placeholder">RULESET-ID</span>" <span className="placeholder">PATH/TO/SRC</span></code></pre>
 4. Optional: Run registry rules simultaneously with local rules:
    <pre class="language-bash"><code>semgrep --config="<span className="placeholder">RULESET-ID</span>" --config=<span className="placeholder">PATH/TO/MYRULE.YAML PATH/TO/SRC</span></code></pre>
 
-:::info
-Try Semgrep [Rule Board](semgrep-app/rule-board.md) to determine which rules Semgrep uses and what action Semgrep undertakes when it generates a finding.
+:::tip
+See Semgrep [Rule Board](semgrep-app/rule-board.md) to select which rules Semgrep uses and what action it undertakes when it generates a finding.
 :::
 
 ### Running Semgrep Registry continuously
@@ -91,9 +91,7 @@ To create a local YAML file where you define your own rules and run them with Se
       severity: ERROR
     ```
 3. Run the following command to run local YAML rule files:
-    ```sh
-    semgrep --config path/to/rule.yaml
-    ```
+    <pre class="language-bash"><code>semgrep --config <span className="placeholder">PATH/TO/MYRULE.YAML</span></code></pre>
 
 For more information, see [Getting started](../writing-rules/overview/).
 
@@ -101,7 +99,7 @@ For more information, see [Getting started](../writing-rules/overview/).
 
 To run multiple rules simultaneously, use `--config` before every YAML URL, or Semgrep registry entry name. This option let's you include your local rules as well as Semgrep Registry rules. See the following code example (substitute the colored values as necessary):
 
-<pre class="language-bash"><code>semgrep --config <span className="placeholder">p/python</span> --config <span className="placeholder">MYRULES/MYRULE.YAML</span></code></pre>
+<pre class="language-bash"><code>semgrep --config <span className="placeholder">p/python</span> --config <span className="placeholder">PATH/TO/MYRULE.YAML</span></code></pre>
 
 ## Findings
 
@@ -112,11 +110,12 @@ To run multiple rules simultaneously, use `--config` before every YAML URL, or S
 
 Find out how to contribute to [Semgrep rules repository](https://github.com/returntocorp/semgrep-rules) by reading [Contributing to Semgrep rules](contributing/contributing-rules.md) guide.
 
-## Number of Semgrep rules
+## Number of Semgrep Registry rules
 
 Semgrep supports a large number of languages and rules! Their number is continuously expanding.
+
 <div className="lang-container" style={{marginBottom: '20px'}}>
-  <iframe width="900" height="400" frameBorder="0" src="https://dashboard.semgrep.dev/metric/semgrep-rules.num/graph"></iframe>
+  <iframe width="900" height="400" frameBorder="0" src="https://dashboard.semgrep.dev/metric/registry.rules.num/graph"></iframe>
 </div>
 
 <MoreHelp />
