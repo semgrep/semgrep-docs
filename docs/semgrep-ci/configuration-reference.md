@@ -123,13 +123,13 @@ export SEMGREP_TIMEOUT="900"
 
 ## Environment variables for creating hyperlinks in Semgrep App
 
-By default, Semgrep App autodetects values such as the name of your repository, which Semgrep uses to generate hyperlinks (URLs) to the specific repository code that generated the finding.
+By default, Semgrep App autodetects values such as the name of your repository, which Semgrep uses to generate hyperlinks (URLs) to the specific repository code that generated the finding. These hyperlinks are in the [Findings](/docs/semgrep-app/findings) page.
 
 Set any as needed or all of the following environment variables to troubleshoot and override autodetected CI environment values.
 
 ### `SEMGREP_BRANCH`
 
-Set `SEMGREP_BRANCH` to define the branch name for the URL used to generate hyperlinks. To avoid hardcoding this value, check your CI provider's documentation for available environment variables that can automatically detect the correct values for every CI job. 
+Set `SEMGREP_BRANCH` to define the branch name for the URL used to generate hyperlinks in the [Findings](/docs/semgrep-app/findings) page. To avoid hardcoding this value, check your CI provider's documentation for available environment variables that can automatically detect the correct values for every CI job. 
 
 Examples:
 
@@ -153,7 +153,7 @@ commands:
 
 ### `SEMGREP_COMMIT`
 
-Set `SEMGREP_COMMIT` to define the commit hash for the URL used to generate hyperlinks. To avoid hardcoding this value, check your CI provider's documentation for available environment variables that can automatically detect the correct values for every CI job. 
+Set `SEMGREP_COMMIT` to define the commit hash for the URL used to generate hyperlinks in the [Findings](/docs/semgrep-app/findings) page. To avoid hardcoding this value, check your CI provider's documentation for available environment variables that can automatically detect the correct values for every CI job. 
 
 Examples:
 
@@ -183,7 +183,7 @@ pipelines:
 
 ### `SEMGREP_REPO_NAME`
 
-Set `SEMGREP_REPO_NAME` to define the repository name for the URL used to generate hyperlinks. To avoid hardcoding this value, check your CI provider's documentation for available environment variables that can automatically detect the correct values for every CI job. 
+Set `SEMGREP_REPO_NAME` to define the repository name for the URL used to generate hyperlinks in the [Findings](/docs/semgrep-app/findings) page. To avoid hardcoding this value, check your CI provider's documentation for available environment variables that can automatically detect the correct values for every CI job. 
 
 Examples:
 
@@ -210,7 +210,7 @@ jobs:
 
 ### `SEMGREP_REPO_URL`
 
-Set `SEMGREP_REPO_URL` to define the repository URL used to generate hyperlinks. To avoid hardcoding this value, check your CI provider's documentation for available environment variables that can automatically detect the correct values for every CI job. 
+Set `SEMGREP_REPO_URL` to define the repository URL used to generate hyperlinks in the [Findings](/docs/semgrep-app/findings) page. To avoid hardcoding this value, check your CI provider's documentation for available environment variables that can automatically detect the correct values for every CI job. 
 
 Examples:
 
