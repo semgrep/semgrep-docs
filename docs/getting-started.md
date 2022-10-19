@@ -32,7 +32,7 @@ Semgrep requires Python 3.7 or later.
     semgrep --pattern '127.$A.$B.$C' --lang generic /etc/hosts
     ```
 3. Run recommended Semgrep Registry rules:
-    <pre class="language-bash"><code>semgrep --config=auto [<span className="placeholder">PATH/TO/SRC</span>]</code></pre>
+    <pre class="language-bash"><code>semgrep --config=auto <span className="placeholder">PATH/TO/SRC</span></code></pre>
     Substitute the optional placeholder <code>[<span className="placeholder">PATH/TO/SRC</span>]</code> with the path to your source code.
 
 :::note
@@ -43,6 +43,7 @@ By default, when Semgrep Registry is used, Semgrep collects [usage metrics](./me
 
 By completing this guide, you are now familiar with a simple use of Semgrep. Here are some additional resources to follow:
 
+- Follow the tutorial to learn Semgrep interactively. See [Learn Semgrep](https://semgrep.dev/learn/).
 - See [Running rules](./running-rules.md) to try out and understand more about Semgrep rules.
 - Explore the Semgrep [Rules Registry](https://semgrep.dev/r) to add rules to your project or [writing a rule](./writing-rules/overview.md).
 - See [CLI Reference](./cli-reference.md) for command line options and exit codes.
