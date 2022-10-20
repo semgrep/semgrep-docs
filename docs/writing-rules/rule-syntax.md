@@ -154,8 +154,22 @@ Note that `focus-metavariable: $ARG` is not the same as `pattern: $ARG`! Using `
 
 In short, `focus-metavariable: $X` is not a pattern in itself, it does not perform any matching, it only focuses the matching on the code already bound to `$X` by other patterns. Whereas `pattern: $X` matches `$X` against your code (and in this context, `$X` only matches expressions)!
 
+#### Including multiple focus metavariables using set intersection semantics
+
+Include more `focus-metavariable` keys with different metavariables under the `pattern` to match results **only** for the overlapping region of all the focused code:
+
+```yaml
+    patterns:
+      - pattern: foo($X, ..., $Y)
+      - focus-metavariable: $X
+      - focus-metavariable: $Y
+```
+
+See the following example:
+<iframe src="https://semgrep.dev/embed/editor?snippet=AqJw" border="0" frameBorder="0" width="100%" height="432"></iframe>
+
 :::info
-To make a list of multiple focus metavariables, see [Using multiple focus metavariables](/experiments/multiple-focus-metavariables) documentation.
+To make a list of multiple focus metavariables using set union semantics that matches the metavariables regardless of their position in code, see [Including multiple focus metavariables using set union semantics](/experiments/multiple-focus-metavariables) documentation.
 :::
 
 ### `metavariable-regex`
@@ -232,7 +246,7 @@ The `comparison` key accepts Python expression using:
 - Comparison operators `==`, `!=`, `<`, `<=`, `>`, and `>=`.
 - Function `int()` to convert strings into integers.
 - Function `str()` to convert numbers into strings.
-- Lists and the `in` infix operator.
+- Lists, together with the `in`, and `not in` infix operators.
 - Function `re.match()` to match a regular expression (without the optional `flags` argument).
 
 You can use Semgrep metavariables such as `$MVAR`, which Semgrep evaluates as follows:
