@@ -22,10 +22,10 @@ Object.entries(frontMatter).filter(
 
 # Continuous Integration (CI) configuration reference
 
-Use this reference to configure Semgrep's behavior in CI environments. This reference includes both command-line options and environment variables. You can also define these variables within a CI configuration file. Refer to your CI provider's documentation for the correct syntax. Examples are written in a Bash environment except when otherwise stated.
+Use this reference to configure Semgrep's behavior in CI environments by setting environment variables. You can set these variables within a CI configuration file or your CI provider's interface. Refer to your CI provider's documentation for the correct syntax. Examples are written for a Bash environment unless otherwise stated.  
 
 :::tip
-Unless otherwise stated, you can also set many of these environment variables within your local environment for testing or experimental purposes. Run `semgrep ci` in your command line after setting environment variables to test their effect.
+You can also set many of these environment variables within your local development environment for testing or experimental purposes. Set these variables in your command line then run `semgrep ci` to test these environment variables locally.
 :::
 
 ## Environment variables for configuring scan behavior
