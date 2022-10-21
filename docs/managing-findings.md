@@ -53,7 +53,7 @@ severity:warning rule:finding-test: Finding test 2
 
 For more information on writing rules, see [Rule syntax](/writing-rules/rule-syntax/).
 
-## Semgrep in CI
+## Semgrep CI
 
 [Semgrep CI](/semgrep-ci/overview/), designed to continuously scan commits and builds, improves on Semgrep findings to track the lifetime of an individual finding. A Semgrep CI finding is defined by a 4-tuple:
 
@@ -63,10 +63,10 @@ For more information on writing rules, see [Rule syntax](/writing-rules/rule-syn
 
 These pieces of state correspond to:
 
-1. `rule ID`: the rule's ID within the Semgrep ecosystem.
-1. `file path`: the filesystem path where the finding occurred.
-1. `syntactic context`: the lines of code corresponding to the finding.
-1. `index`: an index into identical findings within a file. This is used to disambiguate findings.
+1. `rule ID`: The rule's ID within the Semgrep ecosystem.
+1. `file path`: The filesystem path where the finding occurred.
+1. `syntactic context`: The lines of code corresponding to the finding.
+1. `index`: An index into identical findings within a file. This is used to disambiguate findings.
 
 :::info
 `syntactic context` is normalized by removing indentation, [`nosemgrep`](../ignoring-files-folders-code/#ignoring-code-through-nosemgrep) comments, and whitespace.
