@@ -78,16 +78,9 @@ These are hashed and returned as the syntactic identifier: `syntactic_id`. This 
 
 Semgrep App builds on Semgrep CI findings to track state transitions and provide additional context for managing findings within your organization. A finding can occupy 4 states in Semgrep App: `OPEN`, `FIXED`, `IGNORED`, `REMOVED`.
 
-### Finding states
+### Finding statuses
 
-Semgrep App finding states are as follows:
-
-1. `OPEN`: The finding exists in the code and has not been muted.
-1. `FIXED`: The finding existed in the code, and is no longer found.
-1. `IGNORED`: The finding has been ignored by a `nosemgrep` comment or through `.semgrepignore`.
-1. `REMOVED`: The finding's rule isn't enabled on the repository anymore. The rule was removed from the used ruleset, the rule was removed from the Rule Board.
-
-You can manage findings through triage states in Semgrep App's Findings page. The triage states are as follows:
+You can manage findings through triage in Semgrep App's Findings page. The finding statuses are as follows:
 
 <TriageStates />
 
