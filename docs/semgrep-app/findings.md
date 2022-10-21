@@ -11,7 +11,7 @@ tags:
 ---
 
 import MoreHelp from "/src/components/MoreHelp"
-import TriageStates from "/src/components/reference/_triage-states.mdx"
+import TriageStatuses from "/src/components/reference/_triage-states.mdx"
 
 <ul id="tag__badge-list">
 {
@@ -99,7 +99,7 @@ The Findings page consists of:
 
 Semgrep App assists in the triage process through the use of **comments** and **triage**, and automatically marks findings as fixed when they are no longer found:
 
-<TriageStates />
+<TriageStatuses />
 
 ### Filtering findings
 

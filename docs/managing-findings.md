@@ -5,7 +5,7 @@ description: "A finding is the core result of Semgrep's analysis. Findings are g
 ---
 
 import MoreHelp from "/src/components/MoreHelp"
-import TriageStates from "/src/components/reference/_triage-states.mdx"
+import TriageStatuses from "/src/components/reference/_triage-states.mdx"
 
 # Managing findings
 
@@ -72,17 +72,17 @@ These pieces of state correspond to:
 `syntactic context` is normalized by removing indentation, [`nosemgrep`](../ignoring-files-folders-code/#ignoring-code-through-nosemgrep) comments, and whitespace.
 :::
 
-These are hashed and returned as the syntactic identifier: `syntactic_id`. This is how Semgrep CI uniquely identifies findings and tracks them across state transitions. Semgrep CI does not store or transmit code contents. The `syntactic context` is hashed using a one-way hashing function making it impossible to recover the original contents.
+These are hashed and returned as the syntactic identifier: `syntactic_id`. This is how Semgrep CI uniquely identifies findings and tracks them across status transitions. Semgrep CI does not store or transmit code contents. The `syntactic context` is hashed using a one-way hashing function making it impossible to recover the original contents.
 
 ## Semgrep App
 
-Semgrep App builds on Semgrep CI findings to track state transitions and provide additional context for managing findings within your organization. A finding can occupy 4 states in Semgrep App: `OPEN`, `FIXED`, `IGNORED`, `REMOVED`.
+Semgrep App builds on Semgrep CI findings to track status and provide additional context for managing findings within your organization. A finding can occupy 4 statuses in Semgrep App: `OPEN`, `FIXED`, `IGNORED`, `REMOVED`.
 
 ### Finding statuses
 
 You can manage findings through triage in Semgrep App's Findings page. The finding statuses are as follows:
 
-<TriageStates />
+<TriageStatuses />
 
 :::info
 For more information, see [Getting started with Semgrep App](/semgrep-app/getting-started-with-semgrep-app/) and [Managing findings in Semgrep App](/semgrep-app/findings/).
