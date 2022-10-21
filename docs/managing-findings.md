@@ -11,9 +11,9 @@ import TriageStatuses from "/src/components/reference/_triage-states.mdx"
 
 ## Findings
 
-A finding is the core result of Semgrep's analysis. Findings are generated when a Semgrep rule matches a piece of code. After matching, a finding can make its way through 3 parts of the Semgrep ecosystem: [Semgrep](https://github.com/returntocorp/semgrep), [Semgrep CI](../semgrep-ci/overview/), and [Semgrep App](https://semgrep.dev/manage).
+A finding is the core result of Semgrep's analysis. Findings are generated when a Semgrep rule matches a piece of code. After matching, a finding can make its way through 3 parts of the Semgrep ecosystem: [Semgrep CLI](https://github.com/returntocorp/semgrep), [Semgrep CI](/semgrep-ci/overview/), and [Semgrep App](https://semgrep.dev/manage).
 
-## Semgrep
+## Semgrep CLI
 
 Semgrep command line findings are produced by a specific rule matching a piece of code. Multiple rules can match the same piece of code, even if they are effectively the same rule. For example, consider the following rule and code snippet:
 
@@ -51,11 +51,11 @@ severity:warning rule:finding-test: Finding test 2
 1:print(1 == 1)
 ```
 
-For more information on writing rules, see [Rule syntax](../writing-rules/rule-syntax/).
+For more information on writing rules, see [Rule syntax](/writing-rules/rule-syntax/).
 
-## Semgrep CI
+## Semgrep in CI
 
-[Semgrep CI](../semgrep-ci/overview/), designed to continuously scan commits and builds, improves on Semgrep findings to track the lifetime of an individual finding. A Semgrep CI finding is defined by a 4-tuple:
+[Semgrep CI](/semgrep-ci/overview/), designed to continuously scan commits and builds, improves on Semgrep findings to track the lifetime of an individual finding. A Semgrep CI finding is defined by a 4-tuple:
 
 ```
 (rule ID, file path, syntactic context, index)
