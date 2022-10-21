@@ -58,8 +58,8 @@ After a finding is generated, developers can:
 
 - **Fix the issue detected by the finding.** This is Semgrep's primary goal. In this case, the rule produces a **true positive** finding (such as a security issue) as intended and developers must change or address the code such that the rule no longer matches it.
 - **View the Semgrep rule and the matching code.** For developers aiming to understand their team's security posture, Semgrep provides a top-level report view through the Dashboard and a list view of findings in the Findings page that can be filtered by repository, rule, branch, or triage action.
-- **Triage the finding.** If the finding is not useful or important, deprioritize it through triage. Triage actions include ignoring and reopening. Triaging a finding to ignore it is one method to handle **false positives** without changing the rule or code. To triage a finding, see [Managing finding status](../#managing-finding-status-bulk-triage)
-- **Remove the rule or code that generated the finding.** There are cases where Semgrep scans a file not meant for scanning or when a rule is irrelevant. You can remove the rule from the Rule board or add the file to the ignore list. To remove a rule, see [Removing rules or rulesets](../rule-board/#removing-rules-or-rulesets).
+- **Triage the finding.** If the finding is not useful or important, deprioritize it through triage. Triage actions include ignoring and reopening. Triaging a finding to ignore it is one method to handle **false positives** without changing the rule or code. To triage a finding, see [Managing finding status](#managing-finding-status-bulk-triage)
+- **Remove the rule or code that generated the finding.** There are cases where Semgrep scans a file not meant for scanning or when a rule is irrelevant. You can remove the rule from the Rule board or add the file to the ignore list. To remove a rule, see [Removing rules or rulesets](/semgrep-app/rule-board/#removing-rules-or-rulesets).
 - **Create a Jira ticket from the finding (for Enterprise/Team Tier users.)** For findings that require more extensive refactoring, users can create a ticket in Jira through Semgrep App to track its resolution.
 
 :::tip
@@ -97,7 +97,9 @@ The Findings page consists of:
 
 **Triaging** means prioritizing a finding based on a policy or criteria set by your team or organization. While severity is a factor in triage, your organization may define additional criteria based on coding standards, business, or product goals.
 
-Semgrep App assists in the triage process through the use of **comments** and **triage**, and automatically marks findings as fixed when they are no longer found:
+Semgrep App assists in the triage process through the use of **comments** and **triage**, and automatically marks findings as fixed when they are no longer found.
+
+The triage statuses are as follows:
 
 <TriageStatuses />
 
