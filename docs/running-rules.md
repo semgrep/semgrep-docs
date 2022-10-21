@@ -11,9 +11,9 @@ import MoreHelp from "/src/components/MoreHelp"
 
 Rules are instructions based on which Semgrep detects patterns in code. When Semgrep reports a code using mentioned rules, the detected code is called a finding. The process of scanning and detecting a piece of code is sometimes called matching, as Semgrep matches the code using rules to report a finding.
 
-Semgrep findings can help you to catch issues of security, performance, correctness, and enforce best practices. You can define custom rules through Semgrep's rule syntax or rely on rules created by the community or r2c. Rules are stored in [Semgrep Registry](https://semgrep.dev/r) which enables you to scan code without the need to write anything custom. Semgrep Registry is stored in an [open-source repository](https://github.com/returntocorp/semgrep-rules).
+Semgrep findings can help you to catch issues of security, performance, correctness, and enforce best practices. You can define custom rules through Semgrep's rule syntax or rely on rules created by the community or r2c. Rules are stored in [Semgrep Registry](https://semgrep.dev/explore) which enables you to scan code without the need to write anything custom. Semgrep Registry is stored in an [open-source repository](https://github.com/returntocorp/semgrep-rules).
 
-Rules can be organized in rulesets. Rulesets are rules related through a programming language, OWASP category, or framework. Explore available rulesets in [Semgrep Registry](https://semgrep.dev/explore). The rulesets are curated by r2c and updated as new rules are added to the [Semgrep Registry](https://semgrep.dev/explore). Therefore, you do not have to check the registry to pull individual rules.
+Rules can be organized in rulesets. Rulesets are rules related through a programming language, OWASP category, or framework. The rulesets are curated by r2c and updated as new rules are added to the [Semgrep Registry](https://semgrep.dev/explore). Therefore, you do not have to check the registry to pull individual rules.
 
 The list below covers different kinds of Semgrep rules:
 
@@ -37,7 +37,7 @@ By default, when Semgrep Registry is used, Semgrep collects [usage metrics](./me
 
 Explore the Semgrep Registry by following these steps:
 
-1. See the [Semgrep Registry](https://semgrep.dev/r) and choose a rule.
+1. See the [Semgrep Registry](https://semgrep.dev/explore), click a ruleset, and then choose a rule.
 2. On the page of the rule, click **Run Locally**.
 3. Copy the code for local install, and then add the path to the source code you want to check in your terminal:
     <pre class="language-bash"><code>semgrep --config="<span className="placeholder">RULESET-ID</span>" <span className="placeholder">PATH/TO/SRC</span></code></pre>

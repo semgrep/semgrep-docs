@@ -41,9 +41,9 @@ For more details, run `semgrep publish --help`.
 
 View your rule in the [editor](https://semgrep.dev/orgs/-/editor) under the folder corresponding to your organization name. 
 
-You can also find it in the [registry](https://semgrep.dev/r) by searching for [organization-id].[rule-id]. For example: `r2c.test-rule-id`. 
+You can also find it in the [registry](https://semgrep.dev/explore) by searching for [organization-id].[rule-id]. For example: `r2c.test-rule-id`. 
 
-To enforce the rule on new scans, add the rule in the [registry](https://semgrep.dev/r) to an existing policy.
+To enforce the rule on new scans, add the rule in the [registry](https://semgrep.dev/explore) to an existing policy.
 
 ## Automatically publishing rules
 
