@@ -76,7 +76,7 @@ These are hashed and returned as the syntactic identifier: `syntactic_id`. This 
 
 ## Semgrep App
 
-Semgrep App builds on Semgrep CI findings to track status and provide additional context for managing findings within your organization. A finding can occupy 4 statuses in Semgrep App: `OPEN`, `FIXED`, `IGNORED`, `REMOVED`.
+Semgrep App builds on Semgrep CI findings to track status and provide additional context for managing findings within your organization. A finding can occupy 4 statuses in Semgrep App: `OPEN`, `IGNORED`, `FIXED`, `REMOVED`.
 
 ### Finding status
 
