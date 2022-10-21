@@ -45,8 +45,8 @@ By completing this guide, you are now familiar with a simple use of Semgrep. Her
 
 - Follow tutorials on [Learn Semgrep](https://semgrep.dev/learn/) to learn about Semgrep interactively.
 - See [Running rules](./running-rules.md) to try out and understand more about Semgrep rules.
-- Explore the Semgrep [Rules Registry](https://semgrep.dev/r) to add rules to your project or [writing a rule](./writing-rules/overview.md).
 - See [CLI Reference](./cli-reference.md) for command line options and exit codes.
+- Explore the Semgrep [Rules Registry](https://semgrep.dev/explore) to add rules to your project or [writing a rule](./writing-rules/overview.md).
 
 ## Testing Semgrep on vulnerable repositories
 

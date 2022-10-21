@@ -129,7 +129,7 @@ The **Most disliked** metric is taken from the **Developer Feedback** feature. D
 
 ## See also
 
-* [Semgrep Registry](https://semgrep.dev/r)
+* [Semgrep Registry](https://semgrep.dev/explore)
 * [Findings](../findings)
 
 ## Additional references
