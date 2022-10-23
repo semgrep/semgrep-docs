@@ -55,7 +55,24 @@ For more information on writing rules, see [Rule syntax](/writing-rules/rule-syn
 
 ## Semgrep CI
 
-[Semgrep CI](/semgrep-ci/overview/), designed to continuously scan commits and builds, improves on Semgrep findings to track the lifetime of an individual finding.
+[Semgrep CI](/semgrep-ci/overview/), designed to continuously scan commits and builds, improves on Semgrep findings to track the lifetime of an individual finding. A Semgrep CI finding is defined by a 4-tuple:
+
+```
+(rule ID, file path, syntactic context, index)
+```
+
+These pieces of state correspond to:
+
+1. `rule ID`: The rule's ID within the Semgrep ecosystem.
+1. `file path`: The filesystem path where the finding occurred.
+1. `syntactic context`: The lines of code corresponding to the finding.
+1. `index`: An index into identical findings within a file. This is used to disambiguate findings.
+
+:::info
+`syntactic context` is normalized by removing indentation, [`nosemgrep`](../ignoring-files-folders-code/#ignoring-code-through-nosemgrep) comments, and whitespace.
+:::
+
+These are hashed and returned as the syntactic identifier: `syntactic_id`. This is how Semgrep CI uniquely identifies findings and tracks them across status transitions. Semgrep CI does not store or transmit code contents. The `syntactic context` is hashed using a one-way hashing function making it impossible to recover the original contents.
 
 ## Semgrep App
 
