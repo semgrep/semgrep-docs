@@ -55,9 +55,9 @@ For more information on writing rules, see [Rule syntax](/writing-rules/rule-syn
 
 ## Semgrep CI
 
-[Semgrep CI](/semgrep-ci/overview/), designed to continuously scan commits and builds, improves on Semgrep findings to track the lifetime of an individual finding.
+[Semgrep CI](/semgrep-ci/overview/), designed to continuously scan commits and builds, improves on Semgrep findings to track the lifetime of an individual finding. When configured to perform a diff scan, it will only show new findings relative to some specified baseline commit.
 
-In the code, Semgrep CI finding is defined by a 4-tuple:
+In the code, a Semgrep CI finding is defined by a 4-tuple:
 
 ```
 (rule ID, file path, syntactic context, index)
@@ -68,7 +68,7 @@ These states correspond to:
 1. `rule ID`: The rule's ID within the Semgrep ecosystem.
 1. `file path`: The filesystem path where the finding occurred.
 1. `syntactic context`: The lines of code corresponding to the finding.
-1. `index`: An index into identical findings within a file. This is used to disambiguate findings.
+1. `index`: An index into identical findings within a file. This is used to disambiguate findings if the same `syntactic context` occurs multiple times in the same file.
 
 ## Semgrep App
 
