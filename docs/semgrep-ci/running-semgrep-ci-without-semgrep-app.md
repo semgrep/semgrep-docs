@@ -401,7 +401,7 @@ Refer to [Semgrep exit codes](/docs/cli-reference/#exit-codes) to understand var
 
 #### Adding rules to scan with `semgrep ci`
 
-`semgrep ci` accepts a list of rules and rulesets to run on each scan. The rules and rulesets can come from the [Semgrep Registry](https://semgrep.dev/r/), or your own rules. The sources for rules to scan with are:
+`semgrep ci` accepts a list of rules and rulesets to run on each scan. The rules and rulesets can come from the [Semgrep Registry](https://semgrep.dev/explore/), or your own rules. The sources for rules to scan with are:
 
 * A `.semgrep` folder located at the root of your repository.
 * The value of the `SEMGREP_RULES` environment variable.
