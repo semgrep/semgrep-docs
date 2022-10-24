@@ -97,7 +97,7 @@ The Findings page consists of:
 
 **Triaging** means prioritizing a finding based on a policy or criteria set by your team or organization. While severity is a factor in triage, your organization may define additional criteria based on coding standards, business, or product goals.
 
-Semgrep App assists in the triage process through the use of **triage** and **bulk triage**:
+Semgrep App assists in the status tracking process through the use of **triage** and **bulk triage**, and by automatically marking findings as fixed or removed when appropriate.
 
 The triage statuses are as follows:
 
