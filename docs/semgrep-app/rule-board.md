@@ -22,7 +22,6 @@ Object.entries(frontMatter).filter(
 
 # Rule board
 
-
 The Rule Board is a visual representation of the rules that Semgrep App uses to scan code. Rules can be organized in rulesets. Rulesets are rules related through a programming language, OWASP category, or framework.
 
 Rules and rulesets are displayed as **cards**. Group cards by dragging and dropping cards into the columns. Columns represent the actions undertaken in response to findings from that rule or ruleset.
@@ -61,7 +60,7 @@ Discover suggested rulesets based on your projects's frameworks and technologies
 
 ### From Semgrep Registry
 
-1. Click a rule or ruleset in [Semgrep Registry](https://semgrep.dev/r).
+1. Click a rule or ruleset in [Semgrep Registry](https://semgrep.dev/explore).
 2. Click **Add these to Rule Board** or **Add to Rule Board**.
 3. Select which column to place the rule or ruleset in. 
 4. The new card appears on your Rule Board.
