@@ -109,24 +109,6 @@ module.exports = {
                 ]
             },
             {
-                label: 'Semgrep App',
-                type: 'category',
-                items: [
-                    'semgrep-app/getting-started-with-semgrep-app',
-                    'semgrep-app/scm',
-                    'semgrep-app/dashboard',
-                    'semgrep-app/rule-board',
-                    'semgrep-app/findings',
-                    'semgrep-app/integrations',
-                    'semgrep-app/editor',
-                    'semgrep-app/notifications',
-                    'semgrep-app/sso',
-                    'semgrep-app/user-management',
-                    'troubleshooting/semgrep-app',
-                    'semgrep-app/semgrep-api'
-                ],
-            },
-            {
                 type: 'category',
                 label: 'Cheat sheets',
                 items: [
@@ -152,6 +134,25 @@ module.exports = {
                     },
                 ],
             },
+        ]
+    },
+    {
+        type: 'category',
+        label: 'Semgrep App',
+        collapsible: false,
+        items: [
+            'semgrep-app/getting-started-with-semgrep-app',
+            'semgrep-app/scm',
+            'semgrep-app/dashboard',
+            'semgrep-app/rule-board',
+            'semgrep-app/findings',
+            'semgrep-app/integrations',
+            'semgrep-app/editor',
+            'semgrep-app/notifications',
+            'semgrep-app/sso',
+            'semgrep-app/user-management',
+            'troubleshooting/semgrep-app',
+            'semgrep-app/semgrep-api'
         ]
     },
     {
