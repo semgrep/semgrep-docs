@@ -76,7 +76,7 @@ Semgrep App builds on Semgrep CI findings to track status and provide additional
 
 ### Finding status
 
-You can manage finding status through triage in Semgrep App's Findings page. The finding statuses are as follows:
+You can manage finding status through triage in Semgrep App's **Findings** page. The finding statuses are as follows:
 
 <TriageStatuses />
 
