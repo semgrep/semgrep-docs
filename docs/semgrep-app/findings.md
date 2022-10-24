@@ -58,7 +58,7 @@ After a finding is generated, developers can:
 
 - **Fix the issue detected by the finding.** This is Semgrep's primary goal. In this case, the rule produces a **true positive** finding (such as a security issue) as intended and developers must change or address the code such that the rule no longer matches it.
 - **View the Semgrep rule and the matching code.** For developers aiming to understand their team's security posture, Semgrep provides a top-level report view through the Dashboard and a list view of findings in the Findings page that can be filtered by repository, rule, branch, or triage action.
-- **Triage the finding.** If the finding is not useful or important, deprioritize it through triage. Triage actions include ignoring and reopening. Triaging a finding to ignore it is one method to handle **false positives** without changing the rule or code. To triage a finding, see [Managing finding status](#managing-finding-status-bulk-triage)
+- **Triage the finding.** If the finding is not useful or important, deprioritize it through triage. Triage actions include ignoring and reopening. Triaging a finding to ignore it is one method to handle **false positives** without changing the rule or code. To triage a finding, see [Managing finding status](#managing-finding-status)
 - **Remove the rule or code that generated the finding.** There are cases where Semgrep scans a file not meant for scanning or when a rule is irrelevant. You can remove the rule from the Rule board or add the file to the ignore list. To remove a rule, see [Removing rules or rulesets](/semgrep-app/rule-board/#removing-rules-or-rulesets).
 - **Create a Jira ticket from the finding (for Enterprise/Team Tier users.)** For findings that require more extensive refactoring, users can create a ticket in Jira through Semgrep App to track its resolution.
 
@@ -124,11 +124,9 @@ To filter through all findings:
 3. The page then refreshes to reflect the additional criteria.
 4. Additional values may be selected to further refine your filter.
 
-### Managing finding status (bulk triage)
+### Managing finding status
 
-Perform bulk triage by filtering through the findings, and then you can select which findings are:
-- Opened
-- Ignored
+To manage, change, open or ignore findings, follow the the triage processes described below.
 ![Screenshot of Semgrep App triage menu](/img/app-findings-triage.png)<br />
 *Figure 3.* Findings page triage menu.
 
@@ -137,7 +135,7 @@ To **ignore findings**:
 1. Click the **Status** filter, and then select **Open** toggle to see all open findings.
 1. After the findings are selected, perform one of these steps:
     - Select all of the results by clicking on the header row checkbox. You can navigate to succeeding pages and add to the current selection.
-    - Select relevant findings one by one by clicking on their checkboxes individually.
+    - Select relevant findings one by one by clicking on their checkboxes. The finding's checkbox is marked as the colorful finding's status indicator (marked by letters **L** (Low), **M** (Medium), **H** (High)).
 2. Click the **Triage** button.
 3. Click **Ignore**.
 
@@ -146,7 +144,7 @@ To **open findings**:
 1. Click the **Status** filter, and then select **Ignored** or **Fixed** toggle to see all ignored or fixed findings.
 2. After the findings are filtered, perform one of these steps:
     - Select all of the results by clicking on the header row checkbox. You can navigate to succeeding pages and add to the current selection.
-    - Select relevant findings one by one by clicking on their checkboxes individually.
+    - Select relevant findings one by one by clicking on their checkboxes. The finding's checkbox is marked as the colorful finding's status indicator (marked by letters **L** (Low), **M** (Medium), **H** (High)).
 3. Click the **Triage** button.
 4. Click **Open**.
 
