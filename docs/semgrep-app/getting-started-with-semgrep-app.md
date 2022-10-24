@@ -337,7 +337,7 @@ For more information on operations such as filtering and deleting as well as Rul
 
 Both the Dashboard and the Findings page display the results of a scan. These pages are accessible from the left sidebar in Semgrep App. The **[Dashboard](../dashboard/)** is a report view to assist in evaluating security posture across repositories. It organizes findings into OWASP categories, enabling users to assess habits and trends within their team or organization.
 
-The **[Findings](../findings/#managing-triage-states-bulk-triage)** page is used to triage findings. Triaging refers to prioritizing a finding based on criteria set by your team or organization. While severity is a factor in triage, your organization may define additional criteria based on coding standards, business, or product goals.
+The **[Findings](/semgrep-app/findings/#managing-finding-status-bulk-triage)** page enables you to triage findings. Triaging refers to prioritizing a finding based on criteria set by your team or organization. While severity is a factor in triage, your organization may define additional criteria based on coding standards, business, or product goals.
 
 To see the rule specifics that triggered the finding, click on the rule entry.
 
