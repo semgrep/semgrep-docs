@@ -107,6 +107,16 @@ The triage statuses are as follows:
 
 Filtering allows you to easily isolate groups of findings for ease in triaging and identifying related groups of issues. The following criteria are available for filtering:
 
+| Filter      | Description  |
+| ----------  | ------------ |
+| **Status**       | Filter for different findings triage states. Refer to the [following table](#triaging-findings) to understand triage states. |
+| **Projects**     | Filter by repositories connected to Semgrep App. |
+| **Branches**     | Filter by findings in different branches. |
+| **Rules**        | Filter by rules or rulesets that are included in your Rule Board. More than one rule can be selected for filtering. |
+| **Rulesets**     | Filter by name of the ruleset where rules that matched the code belong. |
+| **Actions**     | Filter by monitoring, commenting, or blocking rules in your Rule Board. |
+| **Severity**    | Filter by the severity of a finding. Possible values: <ul><li>Low</li><li>Medium</li><li>High</li></ul> |
+
 To filter through all findings:
 
 1. Click the filter criteria drop-down box.
