@@ -18,14 +18,45 @@ module.exports = {
     'Docs home',
     {
         type: 'category',
-        label: 'Welcome',
+        label: 'Semgrep Platform',
         collapsible: false,
         items: [
-            'getting-started',
-            'semgrep-app/getting-started-with-semgrep-app',
-            'semgrep-ci/overview',
-            'semgrep-sc/sc-getting-started',
-            'contributing/philosophy'
+            {
+                type: 'category',
+                label: 'Welcome',
+                collapsible: true,
+                items: [
+                    'getting-started',
+                    'semgrep-app/getting-started-with-semgrep-app',
+                    'semgrep-ci/overview',
+                    'semgrep-sc/sc-getting-started',
+                    'contributing/philosophy'
+                ]
+            },
+            {
+                type: 'category',
+                label: 'Languages and features',
+                collapsible: true,
+                items: [
+                    'supported-languages',
+                    'extensions',
+                ]
+            },
+            {
+                type: 'category',
+                label: 'About Semgrep',
+                collapsible: true,
+                items: [
+                    'semgrep-app/pricing-and-billing',
+                    'support',
+                    'release-notes',
+                    'rule-updates',
+                    'security',
+                    'licensing',
+                    'faq',
+                    'metrics'
+                ]
+            }
         ]
     },
     {
@@ -33,48 +64,7 @@ module.exports = {
       label: 'Semgrep Platform',
       collapsible: false,
       items: [
-        'supported-languages',
-        'ignoring-files-folders-code',
-        'extensions',
-        {
-            type: 'category',
-            label: 'Data-flow analysis',
-            items: [
-                'writing-rules/data-flow/data-flow-overview',
-                'writing-rules/data-flow/constant-propagation',
-                'writing-rules/data-flow/taint-mode',
-                'writing-rules/data-flow/status'
-            ]
-        },
-        {
-          type: 'category',
-          label: 'Experiments 🧪',
-          items: [
-            'experiments/overview',
-            'experiments/generic-pattern-matching',
-            { type: 'category',
-                label: 'Join mode',
-                items: [
-                    {
-                        type: 'doc',
-                        label: 'Overview',
-                        id: 'experiments/join-mode/overview'
-                    },
-                    'experiments/join-mode/recursive-joins'
-                ]
-            },
-            'experiments/extract-mode',
-            'experiments/project-depends-on',
-            'experiments/symbolic-propagation',
-            'experiments/taint-propagators',
-            'experiments/taint-labels',
-            'experiments/metavariable-analysis',
-            'experiments/multiple-focus-metavariables',
-            'experiments/display-propagated-metavariable'
-          ]
-        },
         'deepsemgrep',
-        'semgrep-app/pricing-and-billing',
       ],
     },
     {
@@ -86,9 +76,10 @@ module.exports = {
                 type: 'category',
                 label: 'Semgrep command-line interface (CLI)',
                 items: [
+                    'getting-started',
                     'running-rules',
                     'managing-findings',
-                    'getting-started',
+                    'ignoring-files-folders-code',
                     'cli-reference',
                     'upgrading',
                     'reporting-false-negatives',
@@ -181,7 +172,44 @@ module.exports = {
             'writing-rules/private-rules',
             'troubleshooting/rules',
             'playground',
-            'trophy-case'
+            'trophy-case',
+        {
+            type: 'category',
+            label: 'Data-flow analysis',
+            items: [
+                'writing-rules/data-flow/data-flow-overview',
+                'writing-rules/data-flow/constant-propagation',
+                'writing-rules/data-flow/taint-mode',
+                'writing-rules/data-flow/status'
+            ]
+        },
+        {
+          type: 'category',
+          label: 'Experiments 🧪',
+          items: [
+            'experiments/overview',
+            'experiments/generic-pattern-matching',
+            { type: 'category',
+                label: 'Join mode',
+                items: [
+                    {
+                        type: 'doc',
+                        label: 'Overview',
+                        id: 'experiments/join-mode/overview'
+                    },
+                    'experiments/join-mode/recursive-joins'
+                ]
+            },
+            'experiments/extract-mode',
+            'experiments/project-depends-on',
+            'experiments/symbolic-propagation',
+            'experiments/taint-propagators',
+            'experiments/taint-labels',
+            'experiments/metavariable-analysis',
+            'experiments/multiple-focus-metavariables',
+            'experiments/display-propagated-metavariable'
+          ]
+        },
         ]
     },
     {
@@ -206,20 +234,6 @@ module.exports = {
             'contributing/updating-a-grammar',
             'contributing/troubleshooting',
         ]
-    },
-    {
-        type: 'category',
-        label: 'About Semgrep',
-        collapsible: false,
-        items: [
-            'support',
-            'release-notes',
-            'rule-updates',
-            'security',
-            'licensing',
-            'faq',
-            'metrics'
-        ],
-    },
-  ],
+    }
+  ]
 };
