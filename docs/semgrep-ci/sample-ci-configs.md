@@ -500,7 +500,6 @@ This code snippet uses Jenkins declarative syntax.
       environment {
         // The following variables are required for a Semgrep App-connected scan:
         SEMGREP_APP_TOKEN = credentials('SEMGREP_APP_TOKEN')
-        SEMGREP_BRANCH = "${GIT_BRANCH}"
   
         // Uncomment the following line to scan changed 
         // files in PRs or MRs (diff-aware scanning): 
@@ -516,17 +515,16 @@ This code snippet uses Jenkins declarative syntax.
 
         // Uncomment the following lines if Semgrep App > Findings Page does not create links
         // to the code that generated a finding.
-        // (For Semgrep versions before 0.98.0)
         // SEMGREP_JOB_URL = "${BUILD_URL}"
         // SEMGREP_COMMIT = "${GIT_COMMIT}"
         // SEMGREP_PR_ID = "${env.CHANGE_ID}"
+        // SEMGREP_BRANCH = "${GIT_BRANCH}"
         
         // Uncomment the following lines if Semgrep App > Findings Page does not create links
         // to the code that generated a finding.
         // (Any Semgrep version.)
         // SEMGREP_REPO_NAME = env.GIT_URL.replaceFirst(/^https:\/\/github.com\/(.*).git$/, '$1')
         // SEMGREP_REPO_URL = env.GIT_URL.replaceFirst(/^(.*).git$/,'$1')
-  
       }
       stages {
         stage('Semgrep-Scan') {
@@ -614,7 +612,6 @@ These steps can also be performed through BitBucket's UI wizard. This UI wizard 
             script:
               # The following variables are required to set up a Semgrep App-connected scan:
               - export $SEMGREP_APP_TOKEN
-              - export SEMGREP_BRANCH=$BITBUCKET_BRANCH
 
               # Uncomment the following line to scan changed 
               # files in PRs or MRs (diff-aware scanning): 
@@ -634,6 +631,7 @@ These steps can also be performed through BitBucket's UI wizard. This UI wizard 
               # - export SEMGREP_JOB_URL="${SEMGREP_REPO_URL}/addon/pipelines/home#!/results/${BITBUCKET_PIPELINE_UUID}"
               # - export SEMGREP_COMMIT=$BITBUCKET_COMMIT
               # - export SEMGREP_PR_ID=$BITBUCKET_PR_ID
+              # - export SEMGREP_BRANCH=$BITBUCKET_BRANCH
 
               # Uncomment the following lines if Semgrep App > Findings Page does not create links
               # to the code that generated a finding.
