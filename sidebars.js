@@ -40,6 +40,7 @@ module.exports = {
                 items: [
                     'supported-languages',
                     'extensions',
+                    'deepsemgrep'
                 ]
             },
             {
@@ -58,14 +59,6 @@ module.exports = {
                 ]
             }
         ]
-    },
-    {
-      type: 'category',
-      label: 'Semgrep Platform',
-      collapsible: false,
-      items: [
-        'deepsemgrep',
-      ],
     },
     {
         type: 'category',
@@ -132,18 +125,42 @@ module.exports = {
         label: 'Semgrep App',
         collapsible: false,
         items: [
-            'semgrep-app/getting-started-with-semgrep-app',
-            'semgrep-app/scm',
-            'semgrep-app/dashboard',
-            'semgrep-app/rule-board',
-            'semgrep-app/findings',
-            'semgrep-app/integrations',
-            'semgrep-app/editor',
-            'semgrep-app/notifications',
-            'semgrep-app/sso',
-            'semgrep-app/user-management',
-            'troubleshooting/semgrep-app',
-            'semgrep-app/semgrep-api'
+            {
+                type: 'category',
+                label: 'Scanning repositories',
+                items: [
+                    'semgrep-app/getting-started-with-semgrep-app',
+                    'semgrep-app/rule-board',
+                    'troubleshooting/semgrep-app'
+                ]
+            },
+            {
+                type: 'category',
+                label: 'Triaging findings',
+                items: [
+                    'semgrep-app/dashboard',
+                    'semgrep-app/findings'
+                ]
+            },
+            {
+                type: 'category',
+                label: 'Tracking and integrations',
+                items: [
+                    'semgrep-app/integrations',
+                    'semgrep-app/editor',
+                    'semgrep-app/notifications',
+                    'semgrep-app/semgrep-api'
+                ]
+            },
+            {
+                type: 'category',
+                label: 'Managing repositories and user accounts',
+                items: [
+                    'semgrep-app/scm',
+                    'semgrep-app/sso',
+                    'semgrep-app/user-management'
+                ]
+            }
         ]
     },
     {
@@ -151,11 +168,23 @@ module.exports = {
         label: 'Semgrep Supply Chain',
         collapsible: false,
         items: [
-            'semgrep-sc/sc-getting-started',
-            'semgrep-sc/sc-triage-remediation',
-            'semgrep-sc/sc-ignoring-deps',
-            'semgrep-sc/sc-supported-langs',
-            'semgrep-sc/sc-glossary'
+            {
+                type: 'category',
+                label: 'Detecting dependency vulnerabilities',
+                items: [
+                    'semgrep-sc/sc-getting-started',
+                    'semgrep-sc/sc-triage-remediation',
+                    'semgrep-sc/sc-ignoring-deps',
+                ]
+            },
+            {
+                type: 'category',
+                label: 'References',
+                items: [
+                    'semgrep-sc/sc-glossary'
+                ]
+                //'semgrep-sc/sc-supported-langs',
+            }
         ]
     },
     {
