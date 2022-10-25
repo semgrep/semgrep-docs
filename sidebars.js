@@ -216,7 +216,6 @@ module.exports = {
             'release-notes',
             'rule-updates',
             'security',
-            'licensing',
             'faq',
             'metrics'
         ],
