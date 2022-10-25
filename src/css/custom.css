@@ -110,7 +110,9 @@ html[data-theme="dark"] {
 .menu__list-item:not(:first-child) {
     margin-top: 0rem;
 }
-
+.menu__caret {
+    display: none;
+}
 .theme-doc-sidebar-item-category-level-1 > .menu__list-item-collapsible:hover {
   background: unset;
   color: var(--ifm-color-primary);
