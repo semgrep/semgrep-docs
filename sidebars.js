@@ -69,6 +69,8 @@ module.exports = {
                 type: 'category',
                 label: 'Semgrep command-line interface (CLI)',
                 items: [
+                    'running-rules',
+                    'managing-findings',
                     'getting-started',
                     'running-rules',
                     'managing-findings',
