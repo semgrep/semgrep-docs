@@ -110,8 +110,10 @@ html[data-theme="dark"] {
 .menu__list-item:not(:first-child) {
     margin-top: 0rem;
 }
-.menu__caret {
-    display: none;
+
+.menu__link--sublist-caret::after {
+    /* display: none; */
+    background: var(--ifm-menu-link-sublist-icon) 50% / 1rem 1rem;
 }
 .theme-doc-sidebar-item-category-level-1 > .menu__list-item-collapsible:hover {
   background: unset;
@@ -124,8 +126,8 @@ html[data-theme="dark"] {
 
 .menu__list-item {
     font-size: 0.9rem;
+    font-weight: 500;
 }
-
 /* globals */
 
 * {
