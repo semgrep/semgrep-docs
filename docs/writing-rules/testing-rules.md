@@ -69,7 +69,7 @@ rules:
 Given the above is named `rules/detect-eval.yaml`, you can create `rules/detect-eval.py`:
 
 ```python
-from lib import get_user_input, safe_get_user_input
+from lib import get_user_input, safe_get_user_input, secure_eval
 
 user_input = get_user_input()
 # ruleid: insecure-eval-use
