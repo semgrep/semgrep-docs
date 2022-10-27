@@ -498,7 +498,7 @@ This code snippet uses Jenkins declarative syntax.
   pipeline {
     agent any
       environment {
-        // The following variables are required for a Semgrep App-connected scan:
+        // The following variable is required for a Semgrep App-connected scan:
         SEMGREP_APP_TOKEN = credentials('SEMGREP_APP_TOKEN')
   
         // Uncomment the following line to scan changed 
@@ -670,6 +670,14 @@ These steps can also be performed through BitBucket's UI wizard. This UI wizard 
 
 ## Buildkite
 
+To add Semgrep into your Buildkite pipeline:
+
+1. Create or edit a `pipelines.yml` configuration file to add a Semgrep command as part of your pipeline. Refer to the [BuildKite code snippet](#buildkite-code-snippet). This configuration file can also be stored within Buildkite.
+2. Copy the relevant code snippet provided after these instructions.
+3. If you are using Buildkite to store the configuration, save the file. Otherwise, commit the configuration file into the `/.buildkite` folder within the target repository.
+4. The Semgrep job starts automatically upon detecting the committed `bitbucket-pipelines.yml` file. You can also view the job through BitBucket's interface, by clicking **your repository > Pipelines**. 
+5. Optional: Create a separate CI job for diff-aware scanning, which scans only changed files in PRs or MRs, by repeating steps 1-3 and uncommenting the `SEMGREP_BASELINE_REF` definition provided within the code snippet.
+
 ```
 - label: ":semgrep: Semgrep"
   commands:
@@ -685,8 +693,7 @@ These steps can also be performed through BitBucket's UI wizard. This UI wizard 
     - docker#v3.7.0:
         image: returntocorp/semgrep
         environment:
-          # Scan with rules set in Semgrep App's rule board
-          # Make a token at semgrep.dev/orgs/-/settings/tokens
+          # The following variable is required for a Semgrep App-connected scan:
           - "SEMGREP_APP_TOKEN"
 ```
 
