@@ -391,7 +391,7 @@ To help troubleshoot the features in this guide, ensure that you have updated yo
     <tr>
         <td><code>SEMGREP_BASELINE_REF</code></td>
         <td>Enable diff-aware scanning.</td>
-        <td>Required to enable diff-aware scanning for CI providers <em>except</em> GitHub Actions or GitLab CI/CD.</td>
+        <td>Required to enable diff-aware scanning for CI providers <strong>except</strong> GitHub Actions or GitLab CI/CD.</td>
     </tr>
     <tr>
         <td><code>SEMGREP_TIMEOUT</code></td>
@@ -399,8 +399,8 @@ To help troubleshoot the features in this guide, ensure that you have updated yo
         <td>Optional for all CI providers.</td></tr>
     <tr>
         <td><code>SEMGREP_REPO_NAME</code></td>
-        <td rowspan="6">Enables hyperlinks and PR or MR comments.</td>
-        <td rowspan="5">Required to enable hyperlinks and PR or MR comments for other CI providers not listed in Semgrep App.</td></tr>
+        <td rowspan="6">Enables hyperlinks to your codebase from Semgrep App and the creation of PR or MR comments.</td>
+        <td rowspan="5">Set these environment variables as needed to troubleshoot broken links for any CI provider <strong>except</strong> GitHub Actions and GitLab CI/CD.</td></tr>
     <tr>
         <td><code>SEMGREP_REPO_URL</code></td>
     </tr>

@@ -514,17 +514,13 @@ This code snippet uses Jenkins declarative syntax.
         // Troubleshooting:
 
         // Uncomment the following lines if Semgrep App > Findings Page does not create links
-        // to the code that generated a finding.
+        // to the code that generated a finding or if you are not receiving PR or MR comments.
         // SEMGREP_JOB_URL = "${BUILD_URL}"
         // SEMGREP_COMMIT = "${GIT_COMMIT}"
-        // SEMGREP_PR_ID = "${env.CHANGE_ID}"
         // SEMGREP_BRANCH = "${GIT_BRANCH}"
-        
-        // Uncomment the following lines if Semgrep App > Findings Page does not create links
-        // to the code that generated a finding.
-        // (Any Semgrep version.)
         // SEMGREP_REPO_NAME = env.GIT_URL.replaceFirst(/^https:\/\/github.com\/(.*).git$/, '$1')
         // SEMGREP_REPO_URL = env.GIT_URL.replaceFirst(/^(.*).git$/,'$1')
+        // SEMGREP_PR_ID = "${env.CHANGE_ID}"
       }
       stages {
         stage('Semgrep-Scan') {
@@ -626,16 +622,11 @@ These steps can also be performed through BitBucket's UI wizard. This UI wizard 
               # Troubleshooting:
 
               # Uncomment the following lines if Semgrep App > Findings Page does not create links
-              # to the code that generated a finding.
-              # (For Semgrep versions before 0.98.0)
+              # to the code that generated a finding or if you are not receiving PR or MR comments.
               # - export SEMGREP_JOB_URL="${SEMGREP_REPO_URL}/addon/pipelines/home#!/results/${BITBUCKET_PIPELINE_UUID}"
               # - export SEMGREP_COMMIT=$BITBUCKET_COMMIT
               # - export SEMGREP_PR_ID=$BITBUCKET_PR_ID
               # - export SEMGREP_BRANCH=$BITBUCKET_BRANCH
-
-              # Uncomment the following lines if Semgrep App > Findings Page does not create links
-              # to the code that generated a finding.
-              # (Any Semgrep version.)
               # - export SEMGREP_REPO_URL=$BITBUCKET_GIT_HTTP_ORIGIN
               # - export SEMGREP_REPO_NAME=$BITBUCKET_REPO_FULL_NAME
 
