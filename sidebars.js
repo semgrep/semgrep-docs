@@ -30,18 +30,10 @@ module.exports = {
     },
     {
       type: 'category',
-      label: 'Semgrep features',
+      label: 'Semgrep Platform',
       collapsible: false,
       items: [
         'supported-languages',
-        {
-            type: 'category',
-            label: 'Scanning code with rules',
-            items: [
-                'running-rules',
-                'managing-findings'
-            ],
-        },
         'ignoring-files-folders-code',
         'extensions',
         {
@@ -82,17 +74,20 @@ module.exports = {
           ]
         },
         'deepsemgrep',
+        'semgrep-app/pricing-and-billing',
       ],
     },
     {
         type: 'category',
-        label: 'Using Semgrep',
+        label: 'Semgrep',
         collapsible: false,
         items: [
             {
                 type: 'category',
                 label: 'Semgrep command-line interface (CLI)',
                 items: [
+                    'running-rules',
+                    'managing-findings',
                     'getting-started',
                     'cli-reference',
                     'upgrading',
@@ -108,27 +103,10 @@ module.exports = {
                     'semgrep-ci/running-semgrep-ci-with-semgrep-app',
                     'semgrep-ci/running-semgrep-ci-without-semgrep-app',
                     'semgrep-ci/configuration-reference',
+                    'semgrep-ci/configuring-blocking-and-errors-in-ci',
                     'semgrep-ci/sample-ci-configs',
                     'troubleshooting/gitlab-sast'
                 ]
-            },
-            {
-                label: 'Semgrep App',
-                type: 'category',
-                items: [
-                    'semgrep-app/getting-started-with-semgrep-app',
-                    'semgrep-app/scm',
-                    'semgrep-app/dashboard',
-                    'semgrep-app/rule-board',
-                    'semgrep-app/findings',
-                    'semgrep-app/integrations',
-                    'semgrep-app/editor',
-                    'semgrep-app/notifications',
-                    'semgrep-app/sso',
-                    'semgrep-app/user-management',
-                    'troubleshooting/semgrep-app',
-                    'semgrep-app/semgrep-api'
-                ],
             },
             {
                 type: 'category',
@@ -159,7 +137,25 @@ module.exports = {
                     },
                 ],
             },
-            'semgrep-app/pricing-and-billing',
+        ]
+    },
+    {
+        type: 'category',
+        label: 'Semgrep App',
+        collapsible: false,
+        items: [
+            'semgrep-app/getting-started-with-semgrep-app',
+            'semgrep-app/scm',
+            'semgrep-app/dashboard',
+            'semgrep-app/rule-board',
+            'semgrep-app/findings',
+            'semgrep-app/integrations',
+            'semgrep-app/editor',
+            'semgrep-app/notifications',
+            'semgrep-app/sso',
+            'semgrep-app/user-management',
+            'troubleshooting/semgrep-app',
+            'semgrep-app/semgrep-api'
         ]
     },
     {
@@ -223,7 +219,6 @@ module.exports = {
             'release-notes',
             'rule-updates',
             'security',
-            'licensing',
             'faq',
             'metrics'
         ],

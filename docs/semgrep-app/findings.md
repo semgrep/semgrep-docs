@@ -11,6 +11,7 @@ tags:
 ---
 
 import MoreHelp from "/src/components/MoreHelp"
+import TriageStatuses from "/src/components/reference/_triage-states.mdx"
 
 <ul id="tag__badge-list">
 {
@@ -57,8 +58,8 @@ After a finding is generated, developers can:
 
 - **Fix the issue detected by the finding.** This is Semgrep's primary goal. In this case, the rule produces a **true positive** finding (such as a security issue) as intended and developers must change or address the code such that the rule no longer matches it.
 - **View the Semgrep rule and the matching code.** For developers aiming to understand their team's security posture, Semgrep provides a top-level report view through the Dashboard and a list view of findings in the Findings page that can be filtered by repository, rule, branch, or triage action.
-- **Triage the finding.** If the finding is not useful or important, deprioritize it through triage. Triage actions include ignoring and reopening. Triaging a finding to ignore it is one method to handle **false positives** without changing the rule or code.
-- **Remove the rule or code that generated the finding.** There are cases where Semgrep scans a file not meant for scanning or when a rule is irrelevant. You can remove the rule from the Rule board or add the file to the ignore list. To remove a rule, see [Managing triage states](../findings/#managing-triage-states-bulk-triage).
+- **Triage the finding.** If the finding is not useful or important, deprioritize it through triage. Triage actions include ignoring and reopening. Triaging a finding to ignore it is one method to handle **false positives** without changing the rule or code. To triage a finding, see [Managing finding status](#managing-finding-status)
+- **Remove the rule or code that generated the finding.** There are cases where Semgrep scans a file not meant for scanning or when a rule is irrelevant. You can remove the rule from the Rule board or add the file to the ignore list. To remove a rule, see [Removing rules or rulesets](/semgrep-app/rule-board/#removing-rules-or-rulesets).
 - **Create a Jira ticket from the finding (for Enterprise/Team Tier users.)** For findings that require more extensive refactoring, users can create a ticket in Jira through Semgrep App to track its resolution.
 
 :::tip
@@ -96,19 +97,11 @@ The Findings page consists of:
 
 **Triaging** means prioritizing a finding based on a policy or criteria set by your team or organization. While severity is a factor in triage, your organization may define additional criteria based on coding standards, business, or product goals.
 
-Semgrep App assists in the triage process through the use of **comments** and **triage states**:
+Semgrep App uses the logic specified in the table below to automatically mark findings as either fixed or removed when a finding is no longer present in the code. You can also ignore findings in Semgrep App directly through **triage** or **bulk triage**.
 
-| Triage state | Description |
-| -----------  | ------------ |
-| **Open** | Open findings require action, such as rewriting the code for vulnerabilities or refactoring the code. Findings are open by default. |
-| **Ignored** | Findings that are ignored are not acted upon. This can be a false positive or deprioritized issue. Findings can be ignored through Semgrep App (see [Managing triage states](#managing-triage-states-bulk-triage)). |
-| **Fixed** | <p>Fixed findings were detected in a previous scan of a particular branch, but no longer trigger a match in the most recent scan of that same branch. The Semgrep rule that matched the finding and the code that triggered the match must both be active in the most recent scan. </p> <p> Change the triage status of a finding to **fixed** by: <ol type="a"><li>Fixing the code so the rule cannot match it.</li><li>Editing the Semgrep rule so it no longer matches the code.</li></ol></p> |
+The triage statuses are as follows:
 
-Findings can also be **removed**. A removed finding does not count towards a fix rate or the total number of findings. A finding is considered removed if it is not found in the most recent scan of the branch where the finding was detected due to any of the following conditions:
-
-* You removed the rule from the Rule Board.
-* You deleted the file containing the code.
-* The file is included in a `.semgrepignore` file.
+<TriageStatuses />
 
 ### Filtering findings
 
@@ -131,11 +124,9 @@ To filter through all findings:
 3. The page then refreshes to reflect the additional criteria.
 4. Additional values may be selected to further refine your filter.
 
-### Managing triage states (bulk triage)
+### Managing finding status
 
-Perform bulk triage by filtering through the findings, and then you can select which findings are:
-- Opened
-- Ignored
+To manage, change, open or ignore findings, follow the the triage processes described below.
 ![Screenshot of Semgrep App triage menu](/img/app-findings-triage.png)<br />
 *Figure 3.* Findings page triage menu.
 
@@ -144,7 +135,7 @@ To **ignore findings**:
 1. Click the **Status** filter, and then select **Open** toggle to see all open findings.
 1. After the findings are selected, perform one of these steps:
     - Select all of the results by clicking on the header row checkbox. You can navigate to succeeding pages and add to the current selection.
-    - Select relevant findings one by one by clicking on their checkboxes individually.
+    - Select relevant findings one by one by clicking on their checkboxes. The finding's checkbox is marked as the colorful finding's status indicator (marked by letters **L** (Low), **M** (Medium), **H** (High)).
 2. Click the **Triage** button.
 3. Click **Ignore**.
 
@@ -153,7 +144,7 @@ To **open findings**:
 1. Click the **Status** filter, and then select **Ignored** or **Fixed** toggle to see all ignored or fixed findings.
 2. After the findings are filtered, perform one of these steps:
     - Select all of the results by clicking on the header row checkbox. You can navigate to succeeding pages and add to the current selection.
-    - Select relevant findings one by one by clicking on their checkboxes individually.
+    - Select relevant findings one by one by clicking on their checkboxes. The finding's checkbox is marked as the colorful finding's status indicator (marked by letters **L** (Low), **M** (Medium), **H** (High)).
 3. Click the **Triage** button.
 4. Click **Open**.
 
@@ -165,7 +156,10 @@ To **remove a rule** from the Rule Board:
 2. Click the ruleset that contains the rule.
 3. Click the <i className="fa-solid fa-trash-can inline_svg"></i> **Remove rule** icon next to the rule you're deleting.
 4. Click **Save**.
-5. Manually initiate a Semgrep scan from your CI job or SCM tool to immediately remove findings generated by the removed rule.
+
+:::info
+When you remove a rule from the Rule Board, all associated findings on Findings page and Dashboard page are removed also.
+:::
 
 To **view and add comments** to history of a finding:
 
