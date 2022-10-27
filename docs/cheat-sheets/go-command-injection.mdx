@@ -90,7 +90,7 @@ func main() {
   // Path is the path of the command to run.
   Path: "echo",
   // Args holds command line arguments, including the command as Args[0].
-  Args: []string{ "echo", "hello" },
+  Args: []string{ "echo", "hello" }, TODO Add vulnerable example
   Stdout: os.Stdout,
   Stderr: os.Stdout,
   }
@@ -180,7 +180,7 @@ syscall.Exec(binary, args, env)
 syscall.ForkExec(binary, args, env)
 
 func vulnerableCode(userInput string) {
-  // Do not let `path` be defined by user input
+  //  Vulnerable: Do not let `path` be defined by user input
   path, _ := exec.LookPath(userInput)
   args := []string{"ls", "-a", "-l", "-h"}
   env := os.Environ()
