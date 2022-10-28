@@ -607,7 +607,7 @@ These steps can also be performed through BitBucket's UI wizard. This UI wizard 
       - parallel:
         - step:
             name: 'Run Semgrep scan with current branch'
-            deployment: dev
+            deployment: dev # https://support.atlassian.com/bitbucket-cloud/docs/set-up-and-monitor-deployments/
             image: returntocorp/semgrep
             script:
               # The following variables are required to set up a Semgrep App-connected scan:
@@ -615,8 +615,9 @@ These steps can also be performed through BitBucket's UI wizard. This UI wizard 
 
               # Uncomment the following line to scan changed 
               # files in PRs or MRs (diff-aware scanning): 
-              # - export SEMGREP_BASELINE_REF = "main"
-
+              # - export SEMGREP_BASELINE_REF = "origin/main"
+              # - git fetch origin "+refs/heads/*:refs/remotes/origin/*"
+    
               # Optional:
               # Uncomment SEMGREP_TIMEOUT to set this job's timeout (in seconds).
               # Default timeout is 1800 seconds (30 minutes).
