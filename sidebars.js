@@ -36,45 +36,8 @@ module.exports = {
         'supported-languages',
         'ignoring-files-folders-code',
         'extensions',
-        {
-            type: 'category',
-            label: 'Data-flow analysis',
-            items: [
-                'writing-rules/data-flow/data-flow-overview',
-                'writing-rules/data-flow/constant-propagation',
-                'writing-rules/data-flow/taint-mode',
-                'writing-rules/data-flow/status'
-            ]
-        },
-        {
-          type: 'category',
-          label: 'Experiments 🧪',
-          items: [
-            'experiments/overview',
-            'experiments/generic-pattern-matching',
-            { type: 'category',
-                label: 'Join mode',
-                items: [
-                    {
-                        type: 'doc',
-                        label: 'Overview',
-                        id: 'experiments/join-mode/overview'
-                    },
-                    'experiments/join-mode/recursive-joins'
-                ]
-            },
-            'experiments/extract-mode',
-            'experiments/project-depends-on',
-            'experiments/symbolic-propagation',
-            'experiments/taint-propagators',
-            'experiments/taint-labels',
-            'experiments/metavariable-analysis',
-            'experiments/multiple-focus-metavariables',
-            'experiments/display-propagated-metavariable'
-          ]
-        },
         'deepsemgrep',
-        'semgrep-app/pricing-and-billing',
+        'semgrep-app/pricing-and-billing'
       ],
     },
     {
@@ -181,6 +144,43 @@ module.exports = {
             'writing-rules/private-rules',
             'troubleshooting/rules',
             'playground',
+            {
+                type: 'category',
+                label: 'Data-flow analysis',
+                items: [
+                    'writing-rules/data-flow/data-flow-overview',
+                    'writing-rules/data-flow/constant-propagation',
+                    'writing-rules/data-flow/taint-mode',
+                    'writing-rules/data-flow/status'
+                ]
+            },
+            {
+              type: 'category',
+              label: 'Experiments 🧪',
+              items: [
+                'experiments/overview',
+                'experiments/generic-pattern-matching',
+                { type: 'category',
+                    label: 'Join mode',
+                    items: [
+                        {
+                            type: 'doc',
+                            label: 'Overview',
+                            id: 'experiments/join-mode/overview'
+                        },
+                        'experiments/join-mode/recursive-joins'
+                    ]
+                },
+                'experiments/extract-mode',
+                'experiments/project-depends-on',
+                'experiments/symbolic-propagation',
+                'experiments/taint-propagators',
+                'experiments/taint-labels',
+                'experiments/metavariable-analysis',
+                'experiments/multiple-focus-metavariables',
+                'experiments/display-propagated-metavariable'
+              ]
+            },
             'trophy-case'
         ]
     },
