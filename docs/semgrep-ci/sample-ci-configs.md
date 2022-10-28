@@ -207,7 +207,7 @@ To add a Semgrep configuration file in your GitHub Actions pipeline:
         # Fetch project source with GitHub Actions Checkout.
         - uses: actions/checkout@v3
         # Run the "semgrep ci" command on the command line of the docker image.
-        - run: semgrep ci
+        - run: semgrep ci --sarif --output=semgrep.sarif
           env:
             # Connect to Semgrep App through your SEMGREP_APP_TOKEN.
             # Generate a token from Semgrep App > Settings
@@ -261,7 +261,7 @@ To add a Semgrep configuration file in your GitHub Actions pipeline:
         # Fetch project source with GitHub Actions Checkout.
         - uses: actions/checkout@v3
         # Run the "semgrep ci" command on the command line of the docker image.
-        - run: semgrep ci
+        - run: semgrep ci --sarif --output=semgrep.sarif
           env:
              # Add the rules that Semgrep uses by setting the SEMGREP_RULES environment variable. 
              SEMGREP_RULES: p/default # more at semgrep.dev/explore
