@@ -53,8 +53,6 @@ Support for certain features of Semgrep App depend on your CI provider or source
 
 ## GitHub Actions
 
-<iframe class="yt_embed" width="100%" height="432px" src="https://www.youtube.com/embed/BqU7P84ZaUc" frameborder="0" allowfullscreen></iframe>
-
 To add a Semgrep configuration file in your GitHub Actions pipeline:
 
 1. Create a `semgrep.yml` file within `.github/workflows` in the repository you want to scan.
