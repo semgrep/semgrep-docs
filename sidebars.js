@@ -143,7 +143,6 @@ module.exports = {
             'writing-rules/testing-rules',
             'writing-rules/private-rules',
             'troubleshooting/rules',
-            'playground',
             {
                 type: 'category',
                 label: 'Data-flow analysis',
@@ -181,6 +180,7 @@ module.exports = {
                 'experiments/display-propagated-metavariable'
               ]
             },
+            'playground',
             'trophy-case'
         ]
     },
