@@ -274,7 +274,7 @@ Options:
 
 ## Autocomplete
 
-The Semgrep command line tool supports autocomplete on all command options, and on configuration rulesets. When typing any option or option parameter, press tab twice to use. When typing out a registry ruleset name (`semgrep --config p/`'), Semgrep will autocomplete with any matching options that are publicly available on the registry. For example `semgrep --config p/` will list all publicly available rulesets, and `semgrep --config p/java<tab><tab>` will list all available rulesets that start with "java". Note: ruleset autocomplete requires internet connection, and will not autocomplete private rulesets or individual rules.
+The Semgrep command line tool supports autocomplete on all command options, and on configuration rulesets. When typing any option or option parameter, press <kbd>tab</kbd> twice to use. When typing out a registry ruleset name (`semgrep --config p/`'), Semgrep will autocomplete with any matching options that are publicly available on the registry. For example `semgrep --config p/` will list all publicly available rulesets, and `semgrep --config p/java<tab><tab>` will list all available rulesets that start with "java". Note: ruleset autocomplete requires internet connection, and will not autocomplete private rulesets or individual rules.
 
 To enable add the corresponding line to the correct profile given by the table below, corresponding to your shell configuration:
 
