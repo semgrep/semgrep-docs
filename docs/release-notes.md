@@ -24,6 +24,8 @@ r2c now offers a new product: Semgrep Supply Chain, a software composition analy
 - You can now triage through PR comments, for more information see [Ignoring findings through comments](https://semgrep.dev/docs/semgrep-app/findings/#ignoring-findings-through-comments) documentation.
 - Semgrep Playground now displays its version number. To see the exact version that Semgrep Playground uses, click the <i class="fa-regular fa-ellipsis-vertical"></i> three-dot button, and then see the version number after the <i class="fa-solid fa-code-commit"></i> icon.
 
+    ![Semgrep Playground version number.](/img/semgrep-app-latest-version.png "Semgrep Playground version number.")
+
 #### Changes
 
 - Removing a rule automatically removes all findings that came from the removed rule. If you add a removed rule back, then you need to re-scan your code to get the findings from the previously removed rule again. For more information, see [Triaging findings](https://semgrep.dev/docs/semgrep-app/findings/#triaging-findings).
