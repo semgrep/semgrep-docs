@@ -21,15 +21,15 @@ r2c now offers a new product: Semgrep Supply Chain. Semgrep Supply Chain is a hi
 #### Additions
 
 - New demo project allows you to try out Semgrep App workflows. If your organization in Semgrep App does not have any projects assigned in the [Projects](https://semgrep.dev/orgs/-/projects) page, you can add the new demo project by clicking **Explore a demo project**.
-- You can now triage through PR comments, for more information see [Ignoring findings through comments](https://semgrep.dev/docs/semgrep-app/findings/#ignoring-findings-through-comments) documentation.
+- You can now triage through PR comments, for more information see [Ignoring findings through comments](/semgrep-app/findings/#ignoring-findings-through-comments) documentation.
 - Semgrep Playground now displays its version number. To see the exact version that Semgrep Playground uses, click the <i class="fa-regular fa-ellipsis-vertical"></i> three-dot button, and then see the version number after the <i class="fa-solid fa-code-commit"></i> icon.
 
     ![Semgrep Playground version number.](/img/semgrep-app-latest-version.png "Semgrep Playground version number.")
 
 #### Changes
 
-- Removing a rule automatically removes all findings that came from the removed rule. If you add a removed rule back, then you need to re-scan your code to get the findings from the previously removed rule again. For more information, see [Triaging findings](https://semgrep.dev/docs/semgrep-app/findings/#triaging-findings).
-- New [Findings](https://semgrep.dev/orgs/-/findings?tab=open) page styling. See [Managing findings in Semgrep App](https://semgrep.dev/docs/semgrep-app/findings/) documentation for additional information.
+- Removing a rule automatically removes all findings produced by the removed rule. If you add a removed rule back, then you need to re-scan your code to get the findings from the previously removed rule again. For more information, see [Triaging findings](/semgrep-app/findings/#triaging-findings).
+- New [Findings](https://semgrep.dev/orgs/-/findings?tab=open) page styling. See [Managing findings in Semgrep App](/semgrep-app/findings/) documentation for additional information.
 - Semgrep App experience is generally improved due to a significant number of fixed bugs.
 
 ### Semgrep CLI
@@ -59,7 +59,7 @@ These release notes include upgrades for versions ranging between 0.116.0 and 0.
         severity: WARNING
         ```
 
-    - The `taint_assume_safe_functions`, makes Semgrep assume that function calls do **not** propagate taint from their arguments to their output. Otherwise, Semgrep always assumes that functions may propagate taint. This is intended to replace **not-conflicting** sanitizers (added in v0.69.0, for more information, see [Minimizing false positives via sanitizers](https://semgrep.dev/docs/writing-rules/data-flow/taint-mode/#minimizing-false-positives-via-sanitizers)) in the future. This option is still experimental and needs to be complemented by other changes in future releases. To enable this option, include the `taint_assume_safe_functions: true` under the `options` key. For example:
+    - The `taint_assume_safe_functions`, makes Semgrep assume that function calls do **not** propagate taint from their arguments to their output. Otherwise, Semgrep always assumes that functions may propagate taint. This is intended to replace **not-conflicting** sanitizers (added in v0.69.0, for more information, see [Minimizing false positives via sanitizers](/writing-rules/data-flow/taint-mode/#minimizing-false-positives-via-sanitizers)) in the future. This option is still experimental and needs to be complemented by other changes in future releases. To enable this option, include the `taint_assume_safe_functions: true` under the `options` key. For example:
         ```yaml    
         rules:
           - id: tainted
@@ -136,33 +136,33 @@ These release notes include upgrades for versions ranging between 0.116.0 and 0.
 ##### Semgrep Supply Chain
 
 The following guides are now available for Semgrep Supply Chain:
-- [Scanning open source dependencies](https://semgrep.dev/docs/semgrep-sc/scanning-open-source-dependencies/) - Walks the user through setting up Semgrep Supply Chain scans and how Semgrep performs reachability analysis.
-- [Triaging and remediating dependency findings](https://semgrep.dev/docs/semgrep-sc/triaging-and-remediating-vulnerabilities/) - Provides workflows for triaging dependency findings.
-- [Ignoring lockfiles and dependencies](https://semgrep.dev/docs/semgrep-sc/ignoring-lockfiles-dependencies/) - Provides commands to fine-tune what files should not be scanned.
+- [Scanning open source dependencies](/semgrep-sc/scanning-open-source-dependencies/) - Walks the user through setting up Semgrep Supply Chain scans and how Semgrep performs reachability analysis.
+- [Triaging and remediating dependency findings](/semgrep-sc/triaging-and-remediating-vulnerabilities/) - Provides workflows for triaging dependency findings.
+- [Ignoring lockfiles and dependencies](/semgrep-sc/ignoring-lockfiles-dependencies/) - Provides commands to fine-tune what files should not be scanned.
 
 The following references are available for Semgrep Supply Chain:
-- [Supported languages](https://semgrep.dev/docs/semgrep-sc/supply-chain-supported-languages/) - All languages supported by Semgrep Supply Chain and their maturity levels.
-- [Glossary](https://semgrep.dev/docs/semgrep-sc/sc-glossary/) - A list of terms related to software composition analysis and how Semgrep Supply Chain relates to those terms
+- [Supported languages](/semgrep-sc/supply-chain-supported-languages/) - All languages supported by Semgrep Supply Chain and their maturity levels.
+- [Glossary](/semgrep-sc/sc-glossary/) - A list of terms related to software composition analysis and how Semgrep Supply Chain relates to those terms
 
 ##### Semgrep App
 
-- [Ignoring findings through comments](https://semgrep.dev/docs/semgrep-app/findings/#ignoring-findings-through-comments) section documents how to triage findings through GitHub comments.
+- [Ignoring findings through comments](/semgrep-app/findings/#ignoring-findings-through-comments) section documents how to triage findings through GitHub comments.
 
 ##### Semgrep CLI
 
-- New section [Connecting to Semgrep Registry through a proxy](https://semgrep.dev/docs/cli-reference/#connecting-to-semgrep-registry-through-a-proxy).
+- New section [Connecting to Semgrep Registry through a proxy](/cli-reference/#connecting-to-semgrep-registry-through-a-proxy).
 
 #### Changes
 
-- [CI configuration reference](https://semgrep.dev/docs/semgrep-ci/configuration-reference/) now includes all environment variables for CI, their uses, and how to set them.
-- [Getting started with Semgrep App](https://semgrep.dev/docs/semgrep-app/getting-started-with-semgrep-app/) now includes information about the last 10 supported versions of the Semgrep CLI.
+- [CI configuration reference](/semgrep-ci/configuration-reference/) now includes all environment variables for CI, their uses, and how to set them.
+- [Getting started with Semgrep App](/semgrep-app/getting-started-with-semgrep-app/) now includes information about the last 10 supported versions of the Semgrep CLI.
 - Updated a document and section that provides information on how to add multiple focus metavariables in:
-    - [Including multiple focus metavariables using set union semantics](https://semgrep.dev/docs/experiments/multiple-focus-metavariables/)
-    - [Including multiple focus metavariables using set intersection semantics](https://semgrep.dev/docs/writing-rules/rule-syntax/#including-multiple-focus-metavariables-using-set-intersection-semantics)
+    - [Including multiple focus metavariables using set union semantics](/experiments/multiple-focus-metavariables/)
+    - [Including multiple focus metavariables using set intersection semantics](/writing-rules/rule-syntax/#including-multiple-focus-metavariables-using-set-intersection-semantics)
 - Removing rules from a rule board now removes all associated findings. This change is reflected in the following documents:
-    - [Managing findings](https://semgrep.dev/docs/managing-findings/#semgrep-app).
-    - Section [Triaging findings](https://semgrep.dev/docs/semgrep-app/findings/#triaging-findings) in [Managing findings in Semgrep App](https://semgrep.dev/docs/semgrep-app/findings/).
-    - [Getting started with Semgrep App](https://semgrep.dev/docs/semgrep-app/getting-started-with-semgrep-app/).
+    - [Managing findings](/managing-findings/#semgrep-app).
+    - Section [Triaging findings](/semgrep-app/findings/#triaging-findings) in [Managing findings in Semgrep App](/semgrep-app/findings/).
+    - [Getting started with Semgrep App](/semgrep-app/getting-started-with-semgrep-app/).
 - Adjustments to the structure of the documentation in our left sidebar. Many iterative changes, improvements, and fixes to improve your docs reading experience.
 
 ## September 2022
