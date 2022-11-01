@@ -28,7 +28,7 @@ r2c now offers a new product: Semgrep Supply Chain. Semgrep Supply Chain is a hi
 
 #### Changes
 
-- Previously, when you removed a rule you had to rescan the code to remove findings produced by the rule. With this change, findings made by the removed rule are now automatically removed without rescanning. If you add a removed rule back, then you need to rescan your code to get the findings from the previously removed rule again. For more information, see [Triaging findings](/semgrep-app/findings/#triaging-findings).
+- Previously, when you removed a rule you had to rescan the code to remove findings associated with the rule. With this change, findings made by the removed rule are now automatically removed without rescanning. If you add a removed rule back, then you need to rescan your code to get the findings from the previously removed rule again. For more information, see [Triaging findings](/semgrep-app/findings/#triaging-findings).
 - New [Findings](https://semgrep.dev/orgs/-/findings?tab=open) page styling. See [Managing findings in Semgrep App](/semgrep-app/findings/) documentation for additional information.
 - Semgrep App experience is generally improved due to a significant number of fixed bugs.
 
