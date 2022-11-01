@@ -213,12 +213,41 @@ module.exports = {
         collapsible: false,
         items: [
             'support',
-            'release-notes',
-            'rule-updates',
+            'updates/release-notes-introduction',
+            'updates/rule-updates',
             'security',
             'faq',
             'metrics'
         ],
     },
   ],
+  updatesSidebar: [
+    {
+    type: 'category',
+        label: 'Release notes',
+        items: [
+            'updates/release-notes-introduction',
+            'updates/october-2022',
+            'updates/september-2022',
+            'updates/august-2022',
+            'updates/july-2022',
+            'updates/june-2022',
+            'updates/may-2022',
+            'updates/april-2022',
+            'updates/march-2022',
+            'updates/february-2022',
+            'updates/january-2022',
+            'updates/december-2021',
+            'updates/november-2021',
+            'updates/october-2021',
+            'updates/september-2021',
+            'updates/august-2021',
+            'updates/july-2021',
+            'updates/june-2021',
+            'updates/may-2021',
+            'updates/april-2021'
+        ]
+    },
+    'updates/rule-updates'
+],
 };
