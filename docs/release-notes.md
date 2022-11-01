@@ -14,7 +14,7 @@ Welcome to Semgrep release notes. This document gives an overview of the changes
 
 ### Semgrep Supply Chain
 
-r2c now offers a new product: Semgrep Supply Chain, a software composition analysis solution. Semgrep Supply Chain is a high-signal dependency scanner that detects reachable vulnerabilities in open source, third-party libraries in your code. Reach out to sales@r2c.dev to learn more.
+r2c now offers a new product: Semgrep Supply Chain. Semgrep Supply Chain is a high-signal dependency scanner that detects reachable vulnerabilities in open source, third-party libraries in your code. Learn more about [Semgrep Supply Chain](https://semgrep.dev/products/semgrep-supply-chain).
 
 ### Semgrep App
 
@@ -113,7 +113,7 @@ These release notes include upgrades for versions ranging between 0.116.0 and 0.
 
 #### Changes 
 
-- Previously, Semgrep in CI environments overrode user-defined environment variables with values it detected from the CI provider. Now, user-defined environment variables take precedence (override) Semgrep's detected values. By enabling you to override CI variables, you are able to troubleshoot issues such as hyperlinks to code in the Findings page and receiving comments in pull or merge requests.
+- Previously, Semgrep overrode user-defined environment variables with values it detected from the CI provider. Now, user-defined environment variables take precedence (override) Semgrep's detected values. By enabling you to override CI variables, you are able to troubleshoot issues such as hyperlinks to code in the Findings page and receiving comments in pull or merge requests.
      - This change affects the following CI providers:
         - Azure Pipelines
         - BitBucket Pipelines
