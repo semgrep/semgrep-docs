@@ -25,7 +25,7 @@ r2c now offers a new product: Semgrep Supply Chain. Semgrep Supply Chain is a hi
 
 ### Changes
 
-- Removing a rule automatically removes all findings produced by the removed rule. If you add a removed rule back, then you need to re-scan your code to get the findings from the previously removed rule again. For more information, see [Triaging findings](/semgrep-app/findings/#triaging-findings).
+- Previously, when you removed a rule you had to rescan the code to remove findings associated with the rule. With this change, findings made by the removed rule are now automatically removed without rescanning. If you add a removed rule back, then you need to rescan your code to get the findings from the previously removed rule again. For more information, see [Triaging findings](/semgrep-app/findings/#triaging-findings).
 - New [Findings](https://semgrep.dev/orgs/-/findings?tab=open) page styling. See [Managing findings in Semgrep App](/semgrep-app/findings/) documentation for additional information.
 - Semgrep App experience is generally improved due to a significant number of fixed bugs.
 
@@ -39,41 +39,8 @@ These release notes include upgrades for versions ranging between 0.116.0 and 0.
 
 - Taint mode now tracks taint coming from the default values of function parameters. For example, given `def test(url = "http://example.com"):`, if `"http://example.com"` is a taint source (as a consequence of not using TLS protocol), then `url` is marked as tainted. (Issue [#6298](https://github.com/returntocorp/semgrep/issues/6298))
 - Two new rule options that help to minimize false positives:
-    - The`taint_assume_safe_indexes`, which makes Semgrep assume that an array-access expression is safe even if the index expression is tainted. Otherwise Semgrep assumes that for example: `a[i]` is tainted if `i` is tainted, even if `a` is not. Enabling this option is recommended for high-signal rules, whereas disabling is preferred for audit rules. Currently, it is disabled by default to attain backwards compatibility, but this can change in the near future after some evaluation. To enable this option, include the `taint_assume_safe_indexes: true` under the `options` key. For example:
-        ```yaml
-        rules:
-      - id: tainted
-        languages:
-          - python
-        message: Match
-        mode: taint
-        options:
-          taint_assume_safe_indexes: true
-        pattern-sinks:
-          - pattern: sink(...)
-        pattern-sources:
-          - pattern: tainted(...)
-        severity: WARNING
-        ```
-
-    - The `taint_assume_safe_functions`, makes Semgrep assume that function calls do **not** propagate taint from their arguments to their output. Otherwise, Semgrep always assumes that functions may propagate taint. This is intended to replace **not-conflicting** sanitizers (added in v0.69.0, for more information, see [Minimizing false positives via sanitizers](/writing-rules/data-flow/taint-mode/#minimizing-false-positives-via-sanitizers)) in the future. This option is still experimental and needs to be complemented by other changes in future releases. To enable this option, include the `taint_assume_safe_functions: true` under the `options` key. For example:
-        ```yaml    
-        rules:
-          - id: tainted
-            languages:
-              - php
-                message: Match
-            mode: taint
-            options:
-              taint_assume_safe_functions: true
-            pattern-sinks:
-              - pattern: sink(...)
-            pattern-sources:
-              - pattern: tainted(...)
-            severity: WARNING
-        ```
-        (PR [#6327](https://github.com/returntocorp/semgrep/pull/6327))
-
+    - The`taint_assume_safe_indexes`, which makes Semgrep assume that an array-access expression is safe even if the index expression is tainted. Otherwise Semgrep assumes that for example: `a[i]` is tainted if `i` is tainted, even if `a` is not. Enabling this option is recommended for high-signal rules, whereas disabling is preferred for audit rules. Currently, it is disabled by default to attain backwards compatibility, but this can change in the near future after some evaluation. To enable this option, include the `taint_assume_safe_indexes: true` under the `options` key. For more information, see [Rule syntax](/writing-rules/rule-syntax/#options) documentation. (PR [#6327](https://github.com/returntocorp/semgrep/pull/6327))
+    - The `taint_assume_safe_functions`, makes Semgrep assume that function calls do **not** propagate taint from their arguments to their output. Otherwise, Semgrep always assumes that functions may propagate taint. This is intended to replace **not-conflicting** sanitizers (added in v0.69.0, for more information, see [Minimizing false positives via sanitizers](/writing-rules/data-flow/taint-mode/#minimizing-false-positives-via-sanitizers)) in the future. This option is still experimental and needs to be complemented by other changes in future releases. To enable this option, include the `taint_assume_safe_functions: true` under the `options` key. For more information, see [Rule syntax](/writing-rules/rule-syntax/#options) documentation. (PR [#6327](https://github.com/returntocorp/semgrep/pull/6327))
 - It is now possible to use `pattern-propagators` to propagate taint through higher-order iterators such as `forEach` in Java.
     For example:
     ```yaml
