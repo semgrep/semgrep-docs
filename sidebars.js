@@ -251,7 +251,8 @@ module.exports = {
             'updates/july-2021',
             'updates/june-2021',
             'updates/may-2021',
-            'updates/april-2021'
+            'updates/april-2021',
+            'updates/all-release-notes'
         ]
     },
     'updates/rule-updates'
