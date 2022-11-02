@@ -2,7 +2,7 @@
 slug: release-notes-introduction
 hide_title: true
 description: >-
-  Release notes include the changes, fixes, and additions in specific versions of Semgrep.
+  Release notes include the changes, fixes, and additions made in Semgrep over a month or in a specific version.
 ---
 
 # Release notes introduction
