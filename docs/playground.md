@@ -85,7 +85,7 @@ To **create a rule** in simple mode:
 4. After the **code is** button, enter the rule pattern.
 5. Optional: Click on the **plus** button to add fields for additional operators. Select the pattern operator and enter the pattern.
 6. Optional: Click on **Rule metadata** tab on the **Sample code** pane to enter additional metadata fields.
-7. Click **Run** or press **Ctrl+Enter** (**⌘++Enter** on Macs).
+7. Click **Run** or press <kbd>Ctrl</kbd>+<kbd>Enter</kbd> (<kbd>⌘</kbd>+<kbd>Enter</kbd> on Mac).
 
 ### Writing complex rules using advanced mode
 
@@ -96,7 +96,7 @@ To create a rule in advanced mode:
 1. Ensure that you are in the **Advanced mode**.
 ![Screenshot of the advanced view](/img/pleditor-advanced.png "Playground advanced mode")
 2. Enter the keys and values needed to finish your rule. 
-3. Click **Run** or press **Ctrl+Enter** (**⌘++Enter** on Macs).
+3. Click **Run** or press <kbd>Ctrl</kbd>+<kbd>Enter</kbd> (<kbd>⌘</kbd>+<kbd>Enter</kbd> on Mac).
 
 ## Running and testing a rule for precision
 
