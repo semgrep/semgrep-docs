@@ -476,7 +476,7 @@ To add a Semgrep configuration snippet in your GitLab CI/CD pipeline:
 
 To add a Semgrep configuration snippet in your Jenkins pipeline:
 
-1. Edit or create your `Jenkinsfile` configuration file in the repository you want to scan. You can also edit your `Jenkinsfile` from Jenkins's interface.
+1. Create or edit your `Jenkinsfile` configuration file in the repository you want to scan. You can also edit your `Jenkinsfile` from Jenkins's interface.
 2. Copy the relevant code snippet provided after these instructions.
 3. Commit the configuration file.
 4. The Semgrep job starts automatically upon detecting the `Jenkinsfile` update.
@@ -678,15 +678,41 @@ To add Semgrep into your Buildkite pipeline:
 4. The Semgrep job starts automatically upon detecting the committed `bitbucket-pipelines.yml` file. You can also view the job through BitBucket's interface, by clicking **your repository > Pipelines**. 
 5. Optional: Create a separate CI job for diff-aware scanning, which scans only changed files in PRs or MRs, by repeating steps 1-3 and uncommenting the `SEMGREP_BASELINE_REF` definition provided within the code snippet.
 
-```
+<Tabs
+    defaultValue="buildkite-semgrep"
+    values={[
+    {label: 'CI with Semgrep App', value: 'buildkite-semgrep'},
+    {label: 'Stand-alone CI job', value: 'buildkite-standalone'},
+    ]}
+>
+
+<TabItem value='buildkite-semgrep'>
+
+```yaml
 - label: ":semgrep: Semgrep"
   commands:
-    - export SEMGREP_REPO_URL="$(echo "$BUILDKITE_REPO" | sed -e 's#.\{4\}$##')"
-    - export SEMGREP_BRANCH=${BUILDKITE_BRANCH}
-    - export SEMGREP_COMMIT=${BUILDKITE_COMMIT}
-    - export SEMGREP_PR_ID=${BUILDKITE_PULL_REQUEST}
-    - echo "$BUILDKITE_REPO" | sed 's#https://github.com/##' | sed 's#.git##'
-    - export SEMGREP_REPO_NAME="$(echo "$BUILDKITE_REPO" | sed -e 's#https://github.com/##' | sed -e 's#.git##')"
+
+    # Uncomment the following line to scan changed 
+    # files in PRs or MRs (diff-aware scanning): 
+    # - export SEMGREP_BASELINE_REF = "main"
+    
+    # Optional:
+    # Uncomment SEMGREP_TIMEOUT to set this job's timeout (in seconds).
+    # Default timeout is 1800 seconds (30 minutes).
+    # Set to 0 to disable the timeout.
+    # - export SEMGREP_TIMEOUT = "300"
+
+    # Troubleshooting:
+
+    # Uncomment the following lines if Semgrep App > Findings Page does not create links
+    # to the code that generated a finding or if you are not receiving PR or MR comments.
+    # - export SEMGREP_COMMIT=${BUILDKITE_COMMIT}
+    # - export SEMGREP_PR_ID=${BUILDKITE_PULL_REQUEST}
+    # - export SEMGREP_BRANCH=${BUILDKITE_BRANCH}
+    # - export SEMGREP_REPO_URL="$(echo "$BUILDKITE_REPO" | sed -e 's#.\{4\}$##')"
+    # - echo "$BUILDKITE_REPO" | sed 's#https://github.com/##' | sed 's#.git##'
+    # - export SEMGREP_REPO_NAME="$(echo "$BUILDKITE_REPO" | sed -e 's#https://github.com/##' | sed -e 's#.git##')"
+    
     - semgrep ci 
   
   plugins:
@@ -697,10 +723,55 @@ To add Semgrep into your Buildkite pipeline:
           - "SEMGREP_APP_TOKEN"
 ```
 
+</TabItem>
+
+<TabItem value='buildkite-standalone'>
+
+```yaml
+- label: ":semgrep: Semgrep"
+  commands:
+    # Define rules to scan with by setting the SEMGREP_RULES environment variable. 
+    - export SEMGREP_RULES="p/default"
+
+    # To scan changed files in PRs or MRs (diff-aware scanning):
+    # - export SEMGREP_BASELINE_REF=${BUILDKITE_BRANCH}
+
+    # Uncomment SEMGREP_TIMEOUT to set this job's timeout (in seconds):
+    # Default timeout is 1800 seconds (30 minutes).
+    # Set to 0 to disable the timeout.
+    # - export SEMGREP_TIMEOUT="300"
+
+    - semgrep ci 
+  
+  plugins:
+    - docker#v3.7.0:
+      image: returntocorp/semgrep
+```
+</TabItem>
+
+</Tabs>
 
 ## CircleCI
 
-```
+To add Semgrep into your CircleCI pipeline:
+
+1. Create or edit your `config.yml` configuration file in the repository you want to scan.
+2. Copy the relevant code snippet provided after these instructions.
+3. Commit the configuration file into the `/.circleci` folder within the target repository.
+4. The Semgrep job starts automatically upon detecting the `config.yml` update.
+5. Optional: Create a separate CI job for diff-aware scanning, which scans only changed files in PRs or MRs, by repeating steps 1-3 and uncommenting the `SEMGREP_BASELINE_REF` definition provided within the code snippet.
+
+<Tabs
+    defaultValue="circleci-semgrep"
+    values={[
+    {label: 'CI with Semgrep App', value: 'circleci-semgrep'},
+    {label: 'Stand-alone CI job', value: 'circleci-standalone'},
+    ]}
+>
+
+<TabItem value='circleci-semgrep'>
+
+```yaml
 version: 2.1
 jobs:
   semgrep-scan:
@@ -722,7 +793,6 @@ jobs:
       SEMGREP_REPO_NAME: '$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME'
       SEMGREP_REPO_URL: << pipeline.project.git_url >>
       SEMGREP_BRANCH: << pipeline.git.branch >>
-
 
     # Change job timeout (default is 1800 seconds; set to 0 to disable)
     #   SEMGREP_TIMEOUT: 300
@@ -746,6 +816,8 @@ workflows:
       - semgrep-scan
 ```
 
+</TabItem>
+</Tabs>
 
 ## Azure Pipelines
 
