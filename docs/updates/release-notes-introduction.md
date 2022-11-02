@@ -7,4 +7,4 @@ description: >-
 
 # Release notes introduction
 
-Welcome to Semgrep release notes. This document gives an overview of the changes, additions, and selected fixes. Release notes published since April 2022 include Semgrep CLI, CI, and Semgrep App updates for all versions released during the month.
+Welcome to Semgrep release notes. This document gives an overview of the changes, additions, and selected fixes. Release notes published since April 2022 include Semgrep CLI, Semgrep in CI, Semgrep Supply Chain, and Semgrep App updates for all versions released during the month.
