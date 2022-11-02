@@ -213,7 +213,7 @@ module.exports = {
         collapsible: false,
         items: [
             'support',
-            'updates/release-notes-introduction',
+            {type: 'ref', id: 'updates/release-notes-introduction', label: 'Release notes'},
             'updates/rule-updates',
             'security',
             'faq',
@@ -231,8 +231,8 @@ module.exports = {
     {
     type: 'category',
         label: 'Release notes',
+        link: {type: 'doc', id: 'updates/release-notes-introduction'},
         items: [
-            'updates/release-notes-introduction',
             'updates/october-2022',
             'updates/september-2022',
             'updates/august-2022',
