@@ -66,7 +66,7 @@ server {
 
   location ~ /proxy/(.*)/(.*)/(.*)$ {
     # ok: dynamic-proxy-scheme
-    proxy_pass http://$2/$3/$1;
+    proxy_pass http://$1/$2/$3;
   }
 
   location ~ /proxy/(.*)/(.*)/(.*)$ {
