@@ -12,6 +12,51 @@ import MoreHelp from "/src/components/MoreHelp"
 
 Welcome to monthly rule updates! This document includes selected new rules, removed false positives (FP), and other rule updates. These new rules and their updates are made by the Semgrep community and r2c.
 
+## October 2022
+
+### Community tier
+
+#### New rules from Semgrep community and r2c
+
+- Thanks [@mtausig](https://github.com/mtausig)! <LinkToRegistryRule ruleId="csharp.dotnet.security.use_weak_rsa_encryption_padding" />
+- Thanks [@Sjord](https://github.com/sjord)! <LinkToRegistryRule ruleId="php.lang.security.redirect-to-request-uri" />
+- <LinkToRegistryRule ruleId="yaml.github-actions.security.workflow-run-target-code-checkout" />
+
+#### Updated community tier rules
+
+- Fixed issue where false positives were reported with multiple consecutive `<link>` tags in: <LinkToRegistryRule ruleId="html.security.audit.missing-integrity" />
+- Capture additional case when `ssl._create_unverified_context` is reassigned indirectly: <LinkToRegistryRule ruleId="python.lang.security.unverified-ssl-context" />
+- Filter case when a `dynamic` block is used inside `aws_eks_cluster`: <LinkToRegistryRule ruleId="terraform.lang.security.eks-insufficient-control-plane-logging" />
+- Fixed an issue where the rule was not properly scoped to Azure resources: <LinkToRegistryRule ruleId="terraform.azure.security.appservice.appservice-use-secure-tls-policy" />
+- Filter case when only static strings are used: <LinkToRegistryRule ruleId="javascript.browser.security.raw-html-join" />
+- Filter case when the user input is used as an index to a map: <LinkToRegistryRule ruleId="ruby.rails.security.brakeman.check-render-local-file-include" />
+- FP reduction by removing an unnecessary unanchored pattern: <LinkToRegistryRule ruleId="ruby.rails.security.audit.avoid-tainted-shell-call" />
+- Scope Laravel cookie rules to only scan inside files named `*session.php`: 
+    - <LinkToRegistryRule ruleId="php.laravel.security.laravel-cookie-http-only" />
+    - <LinkToRegistryRule ruleId="php.laravel.security.laravel-cookie-long-timeout" />
+    - <LinkToRegistryRule ruleId="php.laravel.security.laravel-cookie-null-domain" />
+    - <LinkToRegistryRule ruleId="php.laravel.security.laravel-cookie-same-site" />
+    - <LinkToRegistryRule ruleId="php.laravel.security.laravel-cookie-secure-set" />
+- Add additional taint sources: <LinkToRegistryRule ruleId="php.laravel.security.laravel-unsafe-validator" />
+
+### Team tier
+
+#### New team rules
+
+New rules for the Laravel PHP framework covering the following vulnerability classes:
+- Code injection
+- Command injection
+- SQL injection
+- Path traversal
+- CSRF
+- Cookie security
+- XSS
+- SSRF
+
+New rules for Go net/http package covering the following vulnerability classes:
+- SQL injection
+- Command injection
+
 ## September 2022
 
 ### Community tier

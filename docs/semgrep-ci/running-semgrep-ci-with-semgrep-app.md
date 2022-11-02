@@ -42,7 +42,7 @@ This guide explains how to connect your repository to Semgrep App to scan contin
 
 The following video walks you through setting Semgrep in your CI through Semgrep App.
 
-<iframe class="yt_embed" width="100%" height="432px" src="https://www.youtube.com/embed/ukIUM3j0gZY" frameborder="0" allowfullscreen></iframe>
+<iframe class="yt_embed" width="100%" height="432px" src="https://www.youtube.com/embed/BqU7P84ZaUc" frameborder="0" allowfullscreen></iframe>
 
 ## Semgrep App feature support
 
