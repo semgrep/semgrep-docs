@@ -222,6 +222,12 @@ module.exports = {
     },
   ],
   updatesSidebar: [
+    // Link to docs home page
+    {
+        type: 'link',
+        label: 'Docs home', // The link label
+        href: '/', // The internal path
+    },
     {
     type: 'category',
         label: 'Release notes',
