@@ -50,6 +50,7 @@ module.exports = {
           type: 'category',
           label: 'Experiments 🧪',
           items: [
+            'experiments/introduction',
             'experiments/autofix',
             'experiments/generic-pattern-matching',
             { type: 'category',
