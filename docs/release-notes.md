@@ -1520,7 +1520,7 @@ C/C++: Fixed stack overflows (segmentation faults) when processing very large fi
 
 #### Additions
 
-- New options: field in a YAML rule to enable/disable certain features (e.g., constant propagation) (See [https://github.com/returntocorp/semgrep/blob/develop/semgrep-core/src/core/Config_semgrep.atd](https://github.com/returntocorp/semgrep/blob/develop/semgrep-core/src/core/Config_semgrep.atd) for the list of available features one can enable/disable)
+- New options: field in a YAML rule to enable/disable certain features (e.g., constant propagation) (See [https://github.com/returntocorp/semgrep/blob/develop/interfaces/Config_semgrep.atd](https://github.com/returntocorp/semgrep/blob/develop/interfaces/Config_semgrep.atd) for the list of available features one can enable/disable)
 - Capture groups in pattern-regex: in $1, $2, etc. ([#3356](https://github.com/returntocorp/semgrep/issues/3356))
 - Support metavariables inside atoms (e.g., foo(:$ATOM))
 - Support metavariables and ellipsis inside regexp literals (e.g., foo(/.../))
