@@ -30,7 +30,7 @@ These release notes include upgrades for versions ranging between 0.112.0 and 0.
 
 - Exclude rules by ID using CLI flag `--exclude-rule`. To exclude a specific rule, use for example <code>semgrep --config=auto --exclude <span className="placeholder">RULE_ID</span></code>. (Issue [2530](https://github.com/returntocorp/semgrep/issues/2530), PR [5974](https://github.com/returntocorp/semgrep/pull/5974))
 
-- You can now have multiple metavariables under `focus-metavariable`, which allows. Semgrep to highlight the values matched by multiple metavariables more easily in certain circumstances. For more information, see [Using multiple focus metavariables](/experiments/multiple-focus-metavariables/) documentation. (Issue [5686](https://github.com/returntocorp/semgrep/issues/5686))
+- You can now have multiple metavariables under `focus-metavariable`, which allows. Semgrep to highlight the values matched by multiple metavariables more easily in certain circumstances. For more information, see [Using multiple focus metavariables](/writing-rules/experiments/multiple-focus-metavariables/) documentation. (Issue [5686](https://github.com/returntocorp/semgrep/issues/5686))
 
 - You can add tags for specific projects in the Semgrep App on the configuration page of a project. To manage tags, go to the Semgrep App [Projects](https://semgrep.dev/orgs/-/projects) tab, click on the project's <i class="fa-solid fa-gear"></i> cogwheel icon to enter project configuration page, and then add or remove tags.
     With this update, you can create `.semgrepconfig.yml` file in the root directory of your repository and add tags in this file also.
@@ -61,9 +61,9 @@ Minor bug fixes are not included in the release notes unless they are potentiall
 
 ## Documentation updates
 
-- New documentation for experimental [Taint labels](/experiments/taint-labels/).
-- New documentation for [Displaying matched metavariables in rule messages](/writing-rules/pattern-syntax/#displaying-matched-metavariables-in-rule-messages) and experimental [Displaying propagated value of metavariables](/experiments/display-propagated-metavariable/).
-- New documentation for [Using multiple focus metavariables](/experiments/multiple-focus-metavariables/).
+- New documentation for experimental [Taint labels](/writing-rules/experiments/taint-labels/).
+- New documentation for [Displaying matched metavariables in rule messages](/writing-rules/pattern-syntax/#displaying-matched-metavariables-in-rule-messages) and experimental [Displaying propagated value of metavariables](/writing-rules/experiments/display-propagated-metavariable/).
+- New documentation for [Using multiple focus metavariables](/writing-rules/experiments/multiple-focus-metavariables/).
 - Added information about [Ellipsis operator scope](/writing-rules/pattern-syntax/#ellipsis-operator-scope).
 - Many documents, such as [Getting started with Semgrep App](/semgrep-app/getting-started-with-semgrep-app/) now display minimal Semgrep tier required for a particular feature documented on the page.
 - Updated [Managing findings in Semgrep App](/semgrep-app/findings/).

@@ -42,7 +42,7 @@ These release notes encompass upgrades for all versions ranging between **0.87.0
 ### Additions
 
 - A new `focus-metavariable` operator that enables you to focus (or zoom in) the match on the code region delimited by a metavariable. This operator is useful for narrowing down the code matched by a rule, to focus on what matters. For more information, see [focus-metavariable documentation](../writing-rules/rule-syntax/#focus-metavariable). ([#4453](https://github.com/returntocorp/semgrep/issues/4453))
-- Join mode now supports inline rules through the `rules` key underneath the `join` key. For more information, see [Inline rule example](/experiments/join-mode/overview/#inline-rule-example).
+- Join mode now supports inline rules through the `rules` key underneath the `join` key. For more information, see [Inline rule example](/writing-rules/experiments/join-mode/overview/#inline-rule-example).
 
 Language support improvements:
 - Scala support is now officially fully GA.

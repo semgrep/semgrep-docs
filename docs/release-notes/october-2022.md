@@ -122,7 +122,7 @@ The following references are available for Semgrep Supply Chain:
 - [Getting started with Semgrep App](/semgrep-app/getting-started-with-semgrep-app/) now includes information about the last 10 supported versions of the Semgrep CLI.
 - [Running Semgrep in continuous integration (CI) with Semgrep App](/semgrep-ci/running-semgrep-ci-with-semgrep-app/) now includes a new video Scanning code with Semgrep using GitHub Actions.
 - Updated a document and section that provides information on how to add multiple focus metavariables in:
-    - [Including multiple focus metavariables using set union semantics](/experiments/multiple-focus-metavariables/)
+    - [Including multiple focus metavariables using set union semantics](/writing-rules/experiments/multiple-focus-metavariables/)
     - [Including multiple focus metavariables using set intersection semantics](/writing-rules/rule-syntax/#including-multiple-focus-metavariables-using-set-intersection-semantics)
 - Removing rules from a rule board now removes all associated findings. This change is reflected in the following documents:
     - [Managing findings](/managing-findings/#semgrep-app).

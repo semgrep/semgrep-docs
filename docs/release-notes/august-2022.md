@@ -47,8 +47,8 @@ Minor bug fixes are not included in the release notes unless they are potentiall
 - Consistent and exhaustive documentation about continuous integration (CI) both with and without Semgrep App:
   - [Running Semgrep in continuous integration (CI) with Semgrep App](/semgrep-ci/running-semgrep-ci-with-semgrep-app/)
   - [Running Semgrep in continuous integration (CI) without Semgrep App](/semgrep-ci/running-semgrep-ci-without-semgrep-app/)
-- Experimental taint propagators allow you to specify additional structures through which taint propagates. See how to use them in the [Taint propagators](/experiments/taint-propagators/) article.
-- Updated [Generic pattern matching](/experiments/generic-pattern-matching/) documentation, rewritten examples, and added new sections, including a new [Handling line-based input](/experiments/generic-pattern-matching/#handling-line-based-input) section.
+- Experimental taint propagators allow you to specify additional structures through which taint propagates. See how to use them in the [Taint propagators](/writing-rules/experiments/taint-propagators/) article.
+- Updated [Generic pattern matching](/writing-rules/experiments/generic-pattern-matching/) documentation, rewritten examples, and added new sections, including a new [Handling line-based input](/writing-rules/experiments/generic-pattern-matching/#handling-line-based-input) section.
 - Introduced interface and color changes to fit new [semgrep.dev](https://semgrep.dev/) website design.
 - Report vulnerabilities that Semgrep should have found, but did not. You can report these false negatives directly from your command-line using a built-in Semgrep flag. See [Reporting false negatives with shouldafound](/reporting-false-negatives/) article.
 - Contribution documentation now provides [Adding python packages to `semgrep`](/contributing/semgrep-contributing/#adding-python-packages-to-semgrep) section.
