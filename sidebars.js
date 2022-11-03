@@ -49,7 +49,7 @@ module.exports = {
         {
           type: 'category',
           label: 'Experiments 🧪',
-          link: {type: 'doc', id: 'experiments/introduction-experiments'},
+          link: {type: 'doc', id: 'experiments/introduction'},
           items: [,
             'experiments/autofix',
             'experiments/generic-pattern-matching',

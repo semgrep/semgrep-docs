@@ -1,6 +1,6 @@
 ---
-id: introduction-experiments
-slug: introduction-experiments
+id: introduction
+slug: introduction
 title: Introduction
 hide_title: true
 append_help_link: true
