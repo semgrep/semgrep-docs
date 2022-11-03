@@ -172,7 +172,7 @@ semgrep --config deep.yaml . --deep
 
 ### Difference between DeepSemgrep and join mode
 
-DeepSemgrep is different from [join mode](https://semgrep.dev/docs/experiments/join-mode/overview/), which also allows you to perform interfile analyses by letting you join on the metavariable matches in separate rules.
+DeepSemgrep is different from [join mode](/writing-rules/experiments/join-mode/overview/), which also allows you to perform interfile analyses by letting you join on the metavariable matches in separate rules.
 
 ### Future development of DeepSemgrep
 

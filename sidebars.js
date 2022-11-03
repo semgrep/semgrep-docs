@@ -156,30 +156,30 @@ module.exports = {
             {
                 type: 'category',
                 label: 'Experiments 🧪',
-                link: {type: 'doc', id: 'experiments/introduction'},
+                link: {type: 'doc', id: 'writing-rules/experiments/introduction'},
                 items: [,
-                  'experiments/autofix',
-                  'experiments/generic-pattern-matching',
+                  'writing-rules/experiments/autofix',
+                  'writing-rules/experiments/generic-pattern-matching',
                   { type: 'category',
                       label: 'Join mode',
                       items: [
                           {
                               type: 'doc',
                               label: 'Overview',
-                              id: 'experiments/join-mode/overview'
+                              id: 'writing-rules/experiments/join-mode/overview'
                           },
-                          'experiments/join-mode/recursive-joins'
+                          'writing-rules/experiments/join-mode/recursive-joins'
                       ]
                   },
-                  'experiments/extract-mode',
-                  'experiments/project-depends-on',
-                  'experiments/symbolic-propagation',
-                  'experiments/taint-propagators',
-                  'experiments/taint-labels',
-                  'experiments/metavariable-analysis',
-                  'experiments/multiple-focus-metavariables',
-                  'experiments/display-propagated-metavariable',
-                  'experiments/deprecated-experiments'
+                  'writing-rules/experiments/extract-mode',
+                  'writing-rules/experiments/project-depends-on',
+                  'writing-rules/experiments/symbolic-propagation',
+                  'writing-rules/experiments/taint-propagators',
+                  'writing-rules/experiments/taint-labels',
+                  'writing-rules/experiments/metavariable-analysis',
+                  'writing-rules/experiments/multiple-focus-metavariables',
+                  'writing-rules/experiments/display-propagated-metavariable',
+                  'writing-rules/experiments/deprecated-experiments'
                 ]
               },
             'playground',
