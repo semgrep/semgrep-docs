@@ -107,7 +107,7 @@ GitLab MR comments are only available to logged-in Semgrep users, as they requir
 
 ### Automatically fix your findings through pull or merge requests
 
-[Autofix](/experiments/autofix) is a Semgrep feature in which rules contain suggested fixes to resolve findings. Either metavariables or regex matches are replaced with a potential fix. Due to their complexity, not all rules make use of autofix, but for rules that use this feature, autofix allows you to quickly resolve findings as part of your code review workflow. Semgrep App can suggest these fixes through PR or MR comments within GitHub or GitLab, thus integrating seamlessly with your review environment.
+[Autofix](/writing-rules/experiments/autofix) is a Semgrep feature in which rules contain suggested fixes to resolve findings. Either metavariables or regex matches are replaced with a potential fix. Due to their complexity, not all rules make use of autofix, but for rules that use this feature, autofix allows you to quickly resolve findings as part of your code review workflow. Semgrep App can suggest these fixes through PR or MR comments within GitHub or GitLab, thus integrating seamlessly with your review environment.
 
 Autofix is free to use for all tiers.
 

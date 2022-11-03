@@ -125,7 +125,7 @@ The following references are available for Semgrep Supply Chain:
 - [Getting started with Semgrep App](/semgrep-app/getting-started-with-semgrep-app/) now includes information about the last 10 supported versions of the Semgrep CLI.
 - [Running Semgrep in continuous integration (CI) with Semgrep App](/semgrep-ci/running-semgrep-ci-with-semgrep-app/) now includes a new video Scanning code with Semgrep using GitHub Actions.
 - Updated a document and section that provides information on how to add multiple focus metavariables in:
-    - [Including multiple focus metavariables using set union semantics](/experiments/multiple-focus-metavariables/)
+    - [Including multiple focus metavariables using set union semantics](/writing-rules/experiments/multiple-focus-metavariables/)
     - [Including multiple focus metavariables using set intersection semantics](/writing-rules/rule-syntax/#including-multiple-focus-metavariables-using-set-intersection-semantics)
 - Removing rules from a rule board now removes all associated findings. This change is reflected in the following documents:
     - [Managing findings](/managing-findings/#semgrep-app).
@@ -156,7 +156,7 @@ These release notes include upgrades for versions ranging between 0.112.0 and 0.
 
 - Exclude rules by ID using CLI flag `--exclude-rule`. To exclude a specific rule, use for example <code>semgrep --config=auto --exclude <span className="placeholder">RULE_ID</span></code>. (Issue [2530](https://github.com/returntocorp/semgrep/issues/2530), PR [5974](https://github.com/returntocorp/semgrep/pull/5974))
 
-- You can now have multiple metavariables under `focus-metavariable`, which allows. Semgrep to highlight the values matched by multiple metavariables more easily in certain circumstances. For more information, see [Using multiple focus metavariables](/experiments/multiple-focus-metavariables/) documentation. (Issue [5686](https://github.com/returntocorp/semgrep/issues/5686))
+- You can now have multiple metavariables under `focus-metavariable`, which allows. Semgrep to highlight the values matched by multiple metavariables more easily in certain circumstances. For more information, see [Using multiple focus metavariables](/writing-rules/experiments/multiple-focus-metavariables/) documentation. (Issue [5686](https://github.com/returntocorp/semgrep/issues/5686))
 
 - You can add tags for specific projects in the Semgrep App on the configuration page of a project. To manage tags, go to the Semgrep App [Projects](https://semgrep.dev/orgs/-/projects) tab, click on the project's <i class="fa-solid fa-gear"></i> cogwheel icon to enter project configuration page, and then add or remove tags.
     With this update, you can create `.semgrepconfig.yml` file in the root directory of your repository and add tags in this file also.
@@ -187,9 +187,9 @@ Minor bug fixes are not included in the release notes unless they are potentiall
 
 ### Documentation updates
 
-- New documentation for experimental [Taint labels](/experiments/taint-labels/).
-- New documentation for [Displaying matched metavariables in rule messages](/writing-rules/pattern-syntax/#displaying-matched-metavariables-in-rule-messages) and experimental [Displaying propagated value of metavariables](/experiments/display-propagated-metavariable/).
-- New documentation for [Using multiple focus metavariables](/experiments/multiple-focus-metavariables/).
+- New documentation for experimental [Taint labels](/writing-rules/experiments/taint-labels/).
+- New documentation for [Displaying matched metavariables in rule messages](/writing-rules/pattern-syntax/#displaying-matched-metavariables-in-rule-messages) and experimental [Displaying propagated value of metavariables](/writing-rules/experiments/display-propagated-metavariable/).
+- New documentation for [Using multiple focus metavariables](/writing-rules/experiments/multiple-focus-metavariables/).
 - Added information about [Ellipsis operator scope](/writing-rules/pattern-syntax/#ellipsis-operator-scope).
 - Many documents, such as [Getting started with Semgrep App](/semgrep-app/getting-started-with-semgrep-app/) now display minimal Semgrep tier required for a particular feature documented on the page.
 - Updated [Managing findings in Semgrep App](/semgrep-app/findings/).
@@ -240,8 +240,8 @@ Minor bug fixes are not included in the release notes unless they are potentiall
 - Consistent and exhaustive documentation about continuous integration (CI) both with and without Semgrep App:
   - [Running Semgrep in continuous integration (CI) with Semgrep App](/semgrep-ci/running-semgrep-ci-with-semgrep-app/)
   - [Running Semgrep in continuous integration (CI) without Semgrep App](/semgrep-ci/running-semgrep-ci-without-semgrep-app/)
-- Experimental taint propagators allow you to specify additional structures through which taint propagates. See how to use them in the [Taint propagators](/experiments/taint-propagators/) article.
-- Updated [Generic pattern matching](/experiments/generic-pattern-matching/) documentation, rewritten examples, and added new sections, including a new [Handling line-based input](/experiments/generic-pattern-matching/#handling-line-based-input) section.
+- Experimental taint propagators allow you to specify additional structures through which taint propagates. See how to use them in the [Taint propagators](/writing-rules/experiments/taint-propagators/) article.
+- Updated [Generic pattern matching](/writing-rules/experiments/generic-pattern-matching/) documentation, rewritten examples, and added new sections, including a new [Handling line-based input](/writing-rules/experiments/generic-pattern-matching/#handling-line-based-input) section.
 - Introduced interface and color changes to fit new [semgrep.dev](https://semgrep.dev/) website design.
 - Report vulnerabilities that Semgrep should have found, but did not. You can report these false negatives directly from your command-line using a built-in Semgrep flag. See [Reporting false negatives with shouldafound](/reporting-false-negatives/) article.
 - Contribution documentation now provides [Adding python packages to `semgrep`](/contributing/semgrep-contributing/#adding-python-packages-to-semgrep) section.
@@ -280,7 +280,7 @@ These release notes include upgrades for all versions ranging between 0.102.0 an
   - The `cli/scripts/compare.py` to compare rules for different versions of Semgrep is now supported on Podman environments. For more information, see [Contributing to Semgrep rules](contributing/contributing-rules.md/#comparing-rule-performance-between-different-versions-of-semgrep) documentation.
 
 - Extract mode:
-  - New Semgrep CLI experimental extract mode. This mode runs a Semgrep rule on a codebase and extracts code from matches, treating it as a different language. This allows you to supplement an existing set of rules, for example, by writing additional rules to find JavaScript in files of a different language than JavaScript. Among many possible use cases, this enables you to write rules for HTML code in JavaScript code or in template files. While this is somewhat possible with `metavariable-pattern`, this reduces the work from an M \* N problem to an M \+ N. To know more about extract mode, see [Extract mode](experiments/extract-mode.md) documentation.
+  - New Semgrep CLI experimental extract mode. This mode runs a Semgrep rule on a codebase and extracts code from matches, treating it as a different language. This allows you to supplement an existing set of rules, for example, by writing additional rules to find JavaScript in files of a different language than JavaScript. Among many possible use cases, this enables you to write rules for HTML code in JavaScript code or in template files. While this is somewhat possible with `metavariable-pattern`, this reduces the work from an M \* N problem to an M \+ N. To know more about extract mode, see [Extract mode](/writing-rules/experiments/extract-mode.md) documentation.
   - Extract mode now has a concatenation reduction (`concat`). Disjoint snippets within a file can be treated as one unified file. 
   - You can use extract mode to scan for generic languages (use value `generic` in `dest-language`).
 
@@ -525,7 +525,7 @@ These release notes encompass upgrades for all versions ranging between **0.87.0
 #### Additions
 
 - A new `focus-metavariable` operator that enables you to focus (or zoom in) the match on the code region delimited by a metavariable. This operator is useful for narrowing down the code matched by a rule, to focus on what matters. For more information, see [focus-metavariable documentation](../writing-rules/rule-syntax/#focus-metavariable). ([#4453](https://github.com/returntocorp/semgrep/issues/4453))
-- Join mode now supports inline rules through the `rules` key underneath the `join` key. For more information, see [Inline rule example](/experiments/join-mode/overview/#inline-rule-example).
+- Join mode now supports inline rules through the `rules` key underneath the `join` key. For more information, see [Inline rule example](/writing-rules/experiments/join-mode/overview/#inline-rule-example).
 
 Language support improvements:
 - Scala support is now officially fully GA.
@@ -1520,7 +1520,7 @@ C/C++: Fixed stack overflows (segmentation faults) when processing very large fi
 
 #### Additions
 
-- New options: field in a YAML rule to enable/disable certain features (e.g., constant propagation) (See [https://github.com/returntocorp/semgrep/blob/develop/semgrep-core/src/core/Config_semgrep.atd](https://github.com/returntocorp/semgrep/blob/develop/semgrep-core/src/core/Config_semgrep.atd) for the list of available features one can enable/disable)
+- New options: field in a YAML rule to enable/disable certain features (e.g., constant propagation) (See [https://github.com/returntocorp/semgrep/blob/develop/interfaces/Config_semgrep.atd](https://github.com/returntocorp/semgrep/blob/develop/interfaces/Config_semgrep.atd) for the list of available features one can enable/disable)
 - Capture groups in pattern-regex: in $1, $2, etc. ([#3356](https://github.com/returntocorp/semgrep/issues/3356))
 - Support metavariables inside atoms (e.g., foo(:$ATOM))
 - Support metavariables and ellipsis inside regexp literals (e.g., foo(/.../))
