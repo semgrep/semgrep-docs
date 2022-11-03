@@ -213,8 +213,8 @@ module.exports = {
         collapsible: false,
         items: [
             'support',
-            {type: 'ref', id: 'updates/release-notes-introduction', label: 'Release notes'},
-            'updates/rule-updates',
+            {type: 'ref', id: 'release-notes/introduction', label: 'Release notes'},
+            'release-notes/rule-updates',
             'security',
             'faq',
             'metrics'
@@ -231,30 +231,30 @@ module.exports = {
     {
     type: 'category',
         label: 'Release notes',
-        link: {type: 'doc', id: 'updates/release-notes-introduction'},
+        link: {type: 'doc', id: 'release-notes/introduction'},
         items: [
-            'updates/october-2022',
-            'updates/september-2022',
-            'updates/august-2022',
-            'updates/july-2022',
-            'updates/june-2022',
-            'updates/may-2022',
-            'updates/april-2022',
-            'updates/march-2022',
-            'updates/february-2022',
-            'updates/january-2022',
-            'updates/december-2021',
-            'updates/november-2021',
-            'updates/october-2021',
-            'updates/september-2021',
-            'updates/august-2021',
-            'updates/july-2021',
-            'updates/june-2021',
-            'updates/may-2021',
-            'updates/april-2021',
-            'updates/all-release-notes'
+            'release-notes/october-2022',
+            'release-notes/september-2022',
+            'release-notes/august-2022',
+            'release-notes/july-2022',
+            'release-notes/june-2022',
+            'release-notes/may-2022',
+            'release-notes/april-2022',
+            'release-notes/march-2022',
+            'release-notes/february-2022',
+            'release-notes/january-2022',
+            'release-notes/december-2021',
+            'release-notes/november-2021',
+            'release-notes/october-2021',
+            'release-notes/september-2021',
+            'release-notes/august-2021',
+            'release-notes/july-2021',
+            'release-notes/june-2021',
+            'release-notes/may-2021',
+            'release-notes/april-2021',
+            'release-notes/all-release-notes'
         ]
     },
-    'updates/rule-updates'
+    'release-notes/rule-updates'
 ],
 };
