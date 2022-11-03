@@ -49,8 +49,9 @@ module.exports = {
         {
           type: 'category',
           label: 'Experiments 🧪',
-          items: [
-            'experiments/overview',
+          link: {type: 'doc', id: 'experiments/introduction'},
+          items: [,
+            'experiments/autofix',
             'experiments/generic-pattern-matching',
             { type: 'category',
                 label: 'Join mode',
@@ -70,7 +71,8 @@ module.exports = {
             'experiments/taint-labels',
             'experiments/metavariable-analysis',
             'experiments/multiple-focus-metavariables',
-            'experiments/display-propagated-metavariable'
+            'experiments/display-propagated-metavariable',
+            'experiments/deprecated-experiments'
           ]
         },
         'deepsemgrep',
