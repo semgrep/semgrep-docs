@@ -215,12 +215,48 @@ module.exports = {
         collapsible: false,
         items: [
             'support',
-            'release-notes',
-            'rule-updates',
+            {type: 'ref', id: 'release-notes/introduction', label: 'Release notes'},
+            'release-notes/rule-updates',
             'security',
             'faq',
             'metrics'
         ],
     },
   ],
+  updatesSidebar: [
+    // Link to docs home page
+    {
+        type: 'link',
+        label: 'Docs home', // The link label
+        href: '/', // The internal path
+    },
+    {
+    type: 'category',
+        label: 'Release notes',
+        link: {type: 'doc', id: 'release-notes/introduction'},
+        items: [
+            'release-notes/october-2022',
+            'release-notes/september-2022',
+            'release-notes/august-2022',
+            'release-notes/july-2022',
+            'release-notes/june-2022',
+            'release-notes/may-2022',
+            'release-notes/april-2022',
+            'release-notes/march-2022',
+            'release-notes/february-2022',
+            'release-notes/january-2022',
+            'release-notes/december-2021',
+            'release-notes/november-2021',
+            'release-notes/october-2021',
+            'release-notes/september-2021',
+            'release-notes/august-2021',
+            'release-notes/july-2021',
+            'release-notes/june-2021',
+            'release-notes/may-2021',
+            'release-notes/april-2021',
+            'release-notes/all-release-notes'
+        ]
+    },
+    'release-notes/rule-updates'
+],
 };
