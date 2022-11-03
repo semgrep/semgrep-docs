@@ -169,7 +169,7 @@ See the following example:
 <iframe src="https://semgrep.dev/embed/editor?snippet=AqJw" border="0" frameBorder="0" width="100%" height="432"></iframe>
 
 :::info
-To make a list of multiple focus metavariables using set union semantics that matches the metavariables regardless of their position in code, see [Including multiple focus metavariables using set union semantics](/experiments/multiple-focus-metavariables) documentation.
+To make a list of multiple focus metavariables using set union semantics that matches the metavariables regardless of their position in code, see [Including multiple focus metavariables using set union semantics](/writing-rules/experiments/multiple-focus-metavariables) documentation.
 :::
 
 ### `metavariable-regex`
@@ -590,7 +590,7 @@ The above rule makes use of many operators. It uses `pattern-either`, `patterns`
 
 ## Full specification
 
-The [full configuration-file format](https://github.com/returntocorp/semgrep-interfaces/blob/main/rule_schema.yaml) is defined as
+The [full configuration-file format](https://github.com/returntocorp/semgrep-interfaces/blob/main/rule_schema_v1.yaml) is defined as
 a [jsonschema](http://json-schema.org/specification.html) object.
 
 <MoreHelp />

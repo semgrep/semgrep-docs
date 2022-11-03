@@ -46,35 +46,8 @@ module.exports = {
                 'writing-rules/data-flow/status'
             ]
         },
-        {
-          type: 'category',
-          label: 'Experiments 🧪',
-          items: [
-            'experiments/overview',
-            'experiments/generic-pattern-matching',
-            { type: 'category',
-                label: 'Join mode',
-                items: [
-                    {
-                        type: 'doc',
-                        label: 'Overview',
-                        id: 'experiments/join-mode/overview'
-                    },
-                    'experiments/join-mode/recursive-joins'
-                ]
-            },
-            'experiments/extract-mode',
-            'experiments/project-depends-on',
-            'experiments/symbolic-propagation',
-            'experiments/taint-propagators',
-            'experiments/taint-labels',
-            'experiments/metavariable-analysis',
-            'experiments/multiple-focus-metavariables',
-            'experiments/display-propagated-metavariable'
-          ]
-        },
         'deepsemgrep',
-        'semgrep-app/pricing-and-billing',
+        'semgrep-app/pricing-and-billing'
       ],
     },
     {
@@ -180,6 +153,35 @@ module.exports = {
             'writing-rules/testing-rules',
             'writing-rules/private-rules',
             'troubleshooting/rules',
+            {
+                type: 'category',
+                label: 'Experiments 🧪',
+                link: {type: 'doc', id: 'writing-rules/experiments/introduction'},
+                items: [,
+                  'writing-rules/experiments/autofix',
+                  'writing-rules/experiments/generic-pattern-matching',
+                  { type: 'category',
+                      label: 'Join mode',
+                      items: [
+                          {
+                              type: 'doc',
+                              label: 'Overview',
+                              id: 'writing-rules/experiments/join-mode/overview'
+                          },
+                          'writing-rules/experiments/join-mode/recursive-joins'
+                      ]
+                  },
+                  'writing-rules/experiments/extract-mode',
+                  'writing-rules/experiments/project-depends-on',
+                  'writing-rules/experiments/symbolic-propagation',
+                  'writing-rules/experiments/taint-propagators',
+                  'writing-rules/experiments/taint-labels',
+                  'writing-rules/experiments/metavariable-analysis',
+                  'writing-rules/experiments/multiple-focus-metavariables',
+                  'writing-rules/experiments/display-propagated-metavariable',
+                  'writing-rules/experiments/deprecated-experiments'
+                ]
+              },
             'playground',
             'trophy-case'
         ]
@@ -213,12 +215,48 @@ module.exports = {
         collapsible: false,
         items: [
             'support',
-            'release-notes',
-            'rule-updates',
+            {type: 'ref', id: 'release-notes/introduction', label: 'Release notes'},
+            'release-notes/rule-updates',
             'security',
             'faq',
             'metrics'
         ],
     },
   ],
+  updatesSidebar: [
+    // Link to docs home page
+    {
+        type: 'link',
+        label: 'Docs home', // The link label
+        href: '/', // The internal path
+    },
+    {
+    type: 'category',
+        label: 'Release notes',
+        link: {type: 'doc', id: 'release-notes/introduction'},
+        items: [
+            'release-notes/october-2022',
+            'release-notes/september-2022',
+            'release-notes/august-2022',
+            'release-notes/july-2022',
+            'release-notes/june-2022',
+            'release-notes/may-2022',
+            'release-notes/april-2022',
+            'release-notes/march-2022',
+            'release-notes/february-2022',
+            'release-notes/january-2022',
+            'release-notes/december-2021',
+            'release-notes/november-2021',
+            'release-notes/october-2021',
+            'release-notes/september-2021',
+            'release-notes/august-2021',
+            'release-notes/july-2021',
+            'release-notes/june-2021',
+            'release-notes/may-2021',
+            'release-notes/april-2021',
+            'release-notes/all-release-notes'
+        ]
+    },
+    'release-notes/rule-updates'
+],
 };
