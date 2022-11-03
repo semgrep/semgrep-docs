@@ -238,10 +238,11 @@ jobs:
       ...
 ```
 
-## Environment variables for creating comments in pull or merge requests
+## Environment variable for creating comments in pull or merge requests
 
-The following environment variables enable Semgrep App to create comments within your source code management (SCM) tool when Semgrep scans a pull or merge request. These comments can include code suggestions to fix a finding.
+The following environment variable enables Semgrep App to create comments within your source code management (SCM) tool when Semgrep scans a pull or merge request. These comments can include code suggestions to fix a finding.
 
+<!-- Commented out SEMGREP_JOB_URL for now as it's not being used for any direct functionality 
 ### `SEMGREP_JOB_URL`
 
 :::info
@@ -258,7 +259,7 @@ pipeline {
       environment {
       SEMGREP_JOB_URL="${BUILD_URL}"
       ...
-```
+``` -->
 
 ### `SEMGREP_PR_ID`
 
