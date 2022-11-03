@@ -36,6 +36,16 @@ module.exports = {
         'supported-languages',
         'ignoring-files-folders-code',
         'extensions',
+        {
+            type: 'category',
+            label: 'Data-flow analysis',
+            items: [
+                'writing-rules/data-flow/data-flow-overview',
+                'writing-rules/data-flow/constant-propagation',
+                'writing-rules/data-flow/taint-mode',
+                'writing-rules/data-flow/status'
+            ]
+        },
         'deepsemgrep',
         'semgrep-app/pricing-and-billing'
       ],
@@ -145,41 +155,33 @@ module.exports = {
             'troubleshooting/rules',
             {
                 type: 'category',
-                label: 'Data-flow analysis',
-                items: [
-                    'writing-rules/data-flow/data-flow-overview',
-                    'writing-rules/data-flow/constant-propagation',
-                    'writing-rules/data-flow/taint-mode',
-                    'writing-rules/data-flow/status'
+                label: 'Experiments 🧪',
+                link: {type: 'doc', id: 'experiments/introduction'},
+                items: [,
+                  'experiments/autofix',
+                  'experiments/generic-pattern-matching',
+                  { type: 'category',
+                      label: 'Join mode',
+                      items: [
+                          {
+                              type: 'doc',
+                              label: 'Overview',
+                              id: 'experiments/join-mode/overview'
+                          },
+                          'experiments/join-mode/recursive-joins'
+                      ]
+                  },
+                  'experiments/extract-mode',
+                  'experiments/project-depends-on',
+                  'experiments/symbolic-propagation',
+                  'experiments/taint-propagators',
+                  'experiments/taint-labels',
+                  'experiments/metavariable-analysis',
+                  'experiments/multiple-focus-metavariables',
+                  'experiments/display-propagated-metavariable',
+                  'experiments/deprecated-experiments'
                 ]
-            },
-            {
-              type: 'category',
-              label: 'Experiments 🧪',
-              items: [
-                'experiments/overview',
-                'experiments/generic-pattern-matching',
-                { type: 'category',
-                    label: 'Join mode',
-                    items: [
-                        {
-                            type: 'doc',
-                            label: 'Overview',
-                            id: 'experiments/join-mode/overview'
-                        },
-                        'experiments/join-mode/recursive-joins'
-                    ]
-                },
-                'experiments/extract-mode',
-                'experiments/project-depends-on',
-                'experiments/symbolic-propagation',
-                'experiments/taint-propagators',
-                'experiments/taint-labels',
-                'experiments/metavariable-analysis',
-                'experiments/multiple-focus-metavariables',
-                'experiments/display-propagated-metavariable'
-              ]
-            },
+              },
             'playground',
             'trophy-case'
         ]

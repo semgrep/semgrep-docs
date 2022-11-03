@@ -2,11 +2,7 @@
 append_help_link: true
 ---
 
-# Experiments
-
-This document describes experimental features and how to try them. Have fun, [file bugs](https://github.com/returntocorp/semgrep/issues/new/choose), tweak the code, and most importantly share your thoughts! 
-
-## Autofix
+# Autofix
 
 Hands down the best way to enforce a code standard is to just automatically fix it. Semgrep's rule format supports a `fix:` key that supports metavariable replacement, much like message fields. This allows for value capture and rewriting.
 
@@ -28,7 +24,7 @@ rules:
   severity: WARNING
 ```
 
-### Autofix with regular expression replacement
+## Autofix with regular expression replacement
 
 A variant on the experimental `fix` key is `fix-regex`, which applies regular expression replacements (think `sed`) to matches found by Semgrep.
 
@@ -72,21 +68,3 @@ rules:
 <p align="center">
   <img src="https://web-assets.r2c.dev/inline-autofix-regex.gif" width="100%" alt="Apply Semgrep autofix direclty to a file"/>
 </p>
-
-## Generic pattern matching
-
-See [generic pattern matching](./generic-pattern-matching.md).
-
-## Deprecated experiments
-
-### Equivalences
-
-:::note
-This feature was deprecated in Semgrep v0.61.0.
-:::
-
-Equivalences enable defining equivalent code patterns (i.e. a commutative property: `$X + $Y <==> $Y + $X`). Equivalence rules use the `equivalences` top-level key and one `equivalence` key for each equivalence.
-
-For example:
-
-<iframe src="https://semgrep.dev/embed/editor?snippet=jNnn" border="0" frameBorder="0" width="100%" height="432"></iframe>
