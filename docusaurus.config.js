@@ -188,7 +188,7 @@ module.exports = {
           { from: "/integrations", to: "/semgrep-app/notifications/" },
           { from: "/notifications", to: "/semgrep-app/notifications/" },
           { from: "/sso", to: "/semgrep-app/sso/" },
-          { from: "/experiments", to: "/experiments/overview/" },
+          { from: "/experiments", to: "/experiments/introduction/" },
           { from: "/upgrade", to: "/upgrading/" },
           { from: "/semgrep-ci", to: "/semgrep-ci/overview/" },
           { from: "/sample-ci-configs", to: "/semgrep-ci/sample-ci-configs/" },
