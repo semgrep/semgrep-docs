@@ -34,7 +34,7 @@ This document provides information about supported languages and language maturi
 
 ## Semgrep
 
-[Intro TODO]
+Semgrep is a fast, open source, static analysis engine for finding bugs and enforcing code standards.
 
 ### Language maturity
 
@@ -42,17 +42,54 @@ This document provides information about supported languages and language maturi
 
 ### Maturity definitions
 
+#### Language maturity factors
 Language maturity is determined by 3 factors in the Semgrep ecosystem:
 
-1. **Parse rate** - how well Semgrep can parse code in a given language.
-1. **Feature support** - what [Semgrep features](writing-rules/pattern-syntax.mdx) are implemented for a given language.
-1. **Ruleset count** - number of [Semgrep rule groupings](https://semgrep.dev/explore) in the cloud app.
+<dl>
+    <dt>Parse rate</dt>
+    <dd>How well Semgrep can parse code in a given language.</dd>
+    <dt>Feature support</dt>
+    <dd>What <a href='writing-rules/pattern-syntax.mdx'>Semgrep features</a> are implemented for a given language.</dd>
+    <dt>Ruleset count</dt>
+    <dd>Number of <a href='https://semgrep.dev/explore'>Semgrep rule groupings</a> in Semgrep Registry.</dd>
+</dl>
 
-There are 3 levels of maturity: **experimental**, **beta**, and **generally available (GA)**. Each of these maturity levels are combined with a threshold of the factors above. When a language meets the maturity threshold for each of the factors then it’s moved into that maturity level.
+#### Levels of maturity
 
-Generally speaking, the features-by-maturity level are roughly: **experimental)** syntax support, ellipsis operator support, and basic metavariable support, **beta)** everything prior and nearly complete metavariable support and metavariable equality, **GA)** everything prior and all advanced features like regexp, equivalence, deep expression operator, typing, etc.
+There are 3 levels of maturity: 
 
-The following thresholds define each maturity level:
+<dl>
+<dt>Experimental</dt>
+<dd>Experimental languages support the following:
+<ul>
+    <li>Syntax</li>
+    <li>Ellipsis operator</li>
+    <li>Basic metavariable functionality</li>
+</ul>
+</dd>
+<dt>Beta</dt>
+<dd>Beta languages support the following:
+<ul>
+    <li>All features supported in Experimental</li>
+    <li>Complete metavariable support</li>
+    <li>Metavariable equality</li>
+</ul>
+</dd>
+<dt>Generally available</dt>
+<dd>Generally available languages support all advanced features such as the following:
+<ul>
+<li>All features supported in Beta</li>
+<li>Regexp</li>
+<li>Equivalence</li>
+<li>Deep expression operator</li>
+<li>Types and typing</li>
+</ul>
+</dd>
+</dl>
+
+Each of these maturity levels are combined with a threshold of the [language maturity factors](#language-maturity-factors). When a language meets the maturity threshold for each of the factors, it’s moved into that maturity level.
+
+The following **thresholds** define each maturity level:
 
 <!-- coupling: If you modify the features in the levels below, change also 
      semgrep-core/tests/Test.ml and its maturity level regression testing code.
@@ -75,7 +112,7 @@ The following thresholds define each maturity level:
     * Parse rate: 99%+
     * Rules: 5+
     * Features:
-        * All in experimental
+        * All items in Experimental
         * `metavar_class_def`
         * `metavar_func_def`
         * `metavar_cond`
@@ -87,8 +124,7 @@ The following thresholds define each maturity level:
     * Parse rate: 99.9%+
     * Rules: 10+
     * Features:
-        * All in experimental
-        * All in beta
+        * All items in Beta
         * `deep_expr_operator`
         * `dots_method_chaining`
         * `equivalence_constant_propagation`
@@ -131,11 +167,11 @@ The following tables list lockfiles, their package manager and language, and the
   </tr>
   <tr>
    <td rowspan="2">JavaScript / TypeScript</td>
-   <td>npm</td>
+   <td>npm (Node.js)</td>
    <td><code>package-lock.json</code></td>
   </tr>
   <tr>
-   <td>Yarn</td>
+   <td>Yarn, Yarn 2, Yarn 3</td>
    <td><code>yarn.lock</code></td>
   </tr>
   <tr>
@@ -175,7 +211,6 @@ The following tables list lockfiles, their package manager and language, and the
 
 
 _* `pom.xml` is not a lockfile, however Semgrep Supply Chain parses `pom.xml` as the source of truth for dependencies in Maven projects in conjunction with `MANIFEST.mf`._
-
 
 ### Maturity levels
 
