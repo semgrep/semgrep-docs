@@ -103,7 +103,7 @@ module.exports = {
                     type: 'generated-index',
                     title: 'Cheat sheets',
                     description:
-                      "This category provides you with r2c cheat sheets that help you to prevent specific vulnerabilities.",
+                      "This category provides r2c cheat sheets that help you to prevent specific vulnerabilities.",
                     keywords: ['cheat sheet']
                   },
                 items: [
