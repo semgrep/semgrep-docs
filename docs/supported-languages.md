@@ -49,9 +49,9 @@ Language maturity is determined by 3 factors in the Semgrep ecosystem:
     <dt>Parse rate</dt>
     <dd>How well Semgrep can parse code in a given language.</dd>
     <dt>Feature support</dt>
-    <dd>What <a href='writing-rules/pattern-syntax.mdx'>Semgrep features</a> are implemented for a given language.</dd>
+    <dd>What <a href='/writing-rules/pattern-syntax/'>Semgrep features</a> are implemented for a given language.</dd>
     <dt>Ruleset count</dt>
-    <dd>Number of <a href='https://semgrep.dev/explore'>Semgrep rule groupings</a> in Semgrep Registry.</dd>
+    <dd>Number of <a href='https://semgrep.dev/explore/'>Semgrep rule groupings</a> in Semgrep Registry.</dd>
 </dl>
 
 #### Levels of maturity
