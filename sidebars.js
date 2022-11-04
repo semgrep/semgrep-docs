@@ -39,8 +39,9 @@ module.exports = {
         {
             type: 'category',
             label: 'Data-flow analysis',
+            link: {type: 'doc', id: 'writing-rules/data-flow/overview'},
             items: [
-                'writing-rules/data-flow/data-flow-overview',
+                'writing-rules/data-flow/overview',
                 'writing-rules/data-flow/constant-propagation',
                 'writing-rules/data-flow/taint-mode',
                 'writing-rules/data-flow/status'
@@ -57,20 +58,34 @@ module.exports = {
         items: [
             {
                 type: 'category',
-                label: 'Semgrep command-line interface (CLI)',
+                label: 'Command-line interface (CLI)',
+                link: {
+                    type: 'generated-index',
+                    title: 'Semgrep command-line interface (CLI)',
+                    description:
+                      "Learn about Semgrep open source command line tool.",
+                    keywords: ['CLI']
+                  },
                 items: [
+                    'getting-started',
                     'running-rules',
                     'managing-findings',
-                    'getting-started',
-                    'cli-reference',
                     'upgrading',
                     'reporting-false-negatives',
+                    'cli-reference',
                     'troubleshooting/semgrep'
                 ]
             },
             {
                 type: 'category',
-                label: 'Semgrep in continuous integration (CI)',
+                label: 'Continuous integration (CI)',
+                link: {
+                    type: 'generated-index',
+                    title: 'Semgrep in continuous integration (CI)',
+                    description:
+                      "Find out about use of Semgrep in continuous integration (CI)",
+                    keywords: ['CI']
+                  },
                 items: [
                     'semgrep-ci/overview',
                     'semgrep-ci/running-semgrep-ci-with-semgrep-app',
@@ -84,6 +99,13 @@ module.exports = {
             {
                 type: 'category',
                 label: 'Cheat sheets',
+                link: {
+                    type: 'generated-index',
+                    title: 'Cheat sheets',
+                    description:
+                      "This category provides you with r2c cheat sheets that help you to prevent specific vulnerabilities.",
+                    keywords: ['cheat sheet']
+                  },
                 items: [
                     {
                         type: 'category',
@@ -162,6 +184,7 @@ module.exports = {
                   'writing-rules/experiments/generic-pattern-matching',
                   { type: 'category',
                       label: 'Join mode',
+                      link: {type: 'doc', id: 'writing-rules/experiments/join-mode/overview'},
                       items: [
                           {
                               type: 'doc',

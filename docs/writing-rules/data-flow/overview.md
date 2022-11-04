@@ -1,5 +1,5 @@
 ---
-slug: data-flow-overview
+slug: overview
 append_help_link: true
 description: >-
   Semgrep can run data-flow analyses on your code, this is used for constant propagation and for taint tracking.
@@ -20,7 +20,7 @@ In principle, all data-flow related features are available for any of Semgrep's 
 Ensure that you understand the [design trade-offs](#design-trade-offs) and limitations of the data-flow engine. For further details, see also the [data-flow status](#data-flow-status). 
 :::
 
-Semgrep provides no user-friendly way of specifying a new data-flow analysis. Please [let us know if you have suggestions](https://github.com/returntocorp/semgrep/issues/new/choose). If you can code in OCaml, your contribution is welcome. See [Contributing](/docs/contributing/contributing/) documentation for more details.
+Semgrep provides no user-friendly way of specifying a new data-flow analysis. Please [let us know if you have suggestions](https://github.com/returntocorp/semgrep/issues/new/choose). If you can code in OCaml, your contribution is welcome. See [Contributing](/contributing/overview/) documentation for more details.
 
 ## Design trade-offs
 
