@@ -24,8 +24,8 @@ To help with this effort, we require people to follow a strict list of metadata 
 An example of what this looks like can be found below:
 
 - [High confidence JavaScript/TypeScript rule](https://semgrep.dev/playground/r/javascript.express.security.audit.express-open-redirect.express-open-redirect)
-- [Medium confidence Python rule](https://semgrep.dev/playground/r/javascript.express.security.audit.express-open-redirect.express-open-redirect)
-- [Low confidence C# rule](https://semgrep.dev/playground/r/javascript.express.security.audit.express-open-redirect.express-open-redirect)
+- [Medium confidence Python rule](https://semgrep.dev/playground/r/python.lang.security.dangerous-system-call.dangerous-system-call)
+- [Low confidence C# rule](https://semgrep.dev/playground/r/cs.lang.security.insecure-deserialization.fast-json.insecure-fastjson-deserialization)
 
 ```
   metadata:
