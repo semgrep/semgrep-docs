@@ -13,6 +13,7 @@ tags:
 title: Supported languages
 ---
 
+import SupportedLanguagesTable from '/src/components/reference/_supported-languages-table.mdx'
 import SscIntro from "/src/components/concept/_ssc-intro.md"
 import MoreHelp from "/src/components/MoreHelp"
 
