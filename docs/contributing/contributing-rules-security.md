@@ -105,11 +105,8 @@ confidence: LOW
 
 ##### Likelihood:
 
-Including a likelihood indicator tells users and Semgrep App about the rule likelihood if how possible is this vulnerability going to occur, we use LOW, MEDIUM, and HIGH indicators:
+Including a likelihood, indicator tells users and Semgrep App, regardless of the vulnerability type, how easy it would be for an attacker to exploit the issue that has been found we use LOW, MEDIUM, and HIGH indicators:
 
-- HIGH
-- MEDIUM
-- LOW
 
 <b>HIGH</b>
 
@@ -160,6 +157,9 @@ likelihood: LOW
 ##### Impact:
 
 Including an impact indicator tells users and Semgrep App about the rule impact, and how much 'damage' would this vulnerability would cause to the application, we use LOW, MEDIUM, and HIGH indicators:
+
+- SQL Injection vulnerabilities
+- 
 
 
 <b>HIGH</b>
