@@ -37,7 +37,7 @@ func main() {
   // Command example
   cmd := exec.Command("echo", "hello")
 
-  // CommandContext is like Command but includes a context.
+  // CommandContext example
   err := exec.CommandContext(ctx, "sleep", "5").Run()
 
   // Not vulnerable
