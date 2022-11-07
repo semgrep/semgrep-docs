@@ -76,7 +76,7 @@ RUN eval `curl -s "http://www.very-secure-website.net"`
 
 ## Extract mode rule schema
 
-Extract mode rules **require** the following [usual Semgrep rule keys](../../writing-rules/rule-syntax/#required):
+Extract mode rules **require** the following [usual Semgrep rule keys](/writing-rules/rule-syntax/#required):
   - `id`
   - `languages`
   - One of `pattern`, `patterns`, `pattern-either`, or `pattern-regex`
@@ -96,7 +96,7 @@ The `extract` key is required in extract mode. The value must be a metavariable 
 
 ### `dest-language`
 
-The `dest-language` key is required in extract mode. The value must be a [language tag](../../writing-rules/rule-syntax/#language-extensions-and-tags).
+The `dest-language` key is required in extract mode. The value must be a [language tag](/writing-rules/rule-syntax/#language-extensions-and-tags).
 
 ### `reduce`
 
