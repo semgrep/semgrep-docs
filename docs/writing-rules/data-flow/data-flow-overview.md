@@ -27,7 +27,7 @@ Semgrep provides no user-friendly way of specifying a new data-flow analysis. Pl
 Semgrep strives for simplicity and delivers a lightweight, and fast static analysis. In addition to being intra-procedural, here are some other trade-offs:
 
 - No path sensitivity: All _potential_ execution paths are considered, despite that some may not be feasible.
-- No pointer or shape analysis: _Aliasing_ that happens in non-trivial ways may not be detected, such as through arrays or pointers. Individual elements in arrays or other data structures are not tracked. There is also no proper field sensitivity at present, but this may be developed in the future.
+- No pointer or shape analysis: _Aliasing_ that happens in non-trivial ways may not be detected, such as through arrays or pointers. Individual elements in arrays or other data structures are not tracked. There is limited field-sensitivity support in the taint engine, but none for constant propagation.
 - No soundness guarantees: Semgrep ignores the effects of `eval`-like functions on the program state. It doesn’t make worst-case sound assumptions, but rather "reasonable" ones.
 
 Expect both false positives and false negatives. You can remove false positives in different ways, for example, using [pattern-not](../../rule-syntax/#pattern-not) and [pattern-not-inside](../../rule-syntax/#pattern-not-inside). We want to provide you with a way of eliminating false positives, so please [let file an issue if run into some](https://github.com/returntocorp/semgrep/issues/new/choose). We are happy to trade false negatives for simplicity and fewer false positives, but you are welcome to open a feature request if Semgrep misses some difficult bug you want to catch.
