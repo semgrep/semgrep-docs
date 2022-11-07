@@ -237,7 +237,7 @@ Their differences are outlined in the following table:
    </td>
   </tr>
   <tr>
-   <td>Rule count
+   <td>Number of rules
    </td>
    <td>10+
    </td>
