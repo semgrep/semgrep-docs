@@ -122,7 +122,7 @@ Set `DEFAULT_TIMEOUT` to define a custom timeout. The value must be in seconds. 
 Example:
 
 ```bash
-export DEFAULT_TIMEOUT="60"
+export DEFAULT_TIMEOUT="20"
 ```
 
 ## Environment variables for creating hyperlinks in Semgrep App
