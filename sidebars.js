@@ -39,9 +39,9 @@ module.exports = {
         {
             type: 'category',
             label: 'Data-flow analysis',
-            link: {type: 'doc', id: 'writing-rules/data-flow/df-overview'},
+            link: {type: 'doc', id: 'writing-rules/data-flow/overview'},
             items: [
-                'writing-rules/data-flow/df-overview',
+                'writing-rules/data-flow/overview',
                 'writing-rules/data-flow/constant-propagation',
                 'writing-rules/data-flow/taint-mode',
                 'writing-rules/data-flow/status'
