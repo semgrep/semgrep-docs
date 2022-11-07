@@ -114,6 +114,7 @@ Semgrep requires the following permissions (scopes) to enable the authentication
 * `openid`
 * `email`
 * `profile`
+* `API`
 
 ## Performing a scan
 
