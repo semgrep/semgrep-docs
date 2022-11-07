@@ -115,14 +115,14 @@ export SEMGREP_RULES="p/default no-exec.yml"
 Do not set `SEMGREP_APP_TOKEN` environment variable within the same CI job as `SEMGREP_RULES`.
 :::
 
-### `SEMGREP_TIMEOUT`
+### `DEFAULT_TIMEOUT`
 
-Set `SEMGREP_TIMEOUT` to define a custom timeout. The value must be in seconds. The default value is 1800 seconds (30 minutes).
+Set `DEFAULT_TIMEOUT` to define a custom timeout. The value must be in seconds. The default value is 30 seconds. This timeout refers to the maximum amount of time Semgrep spends scanning a single file. By default, it attempts to scan each file with this timeout three times; you can control this using `--timeout-threshold`.
 
 Example:
 
 ```bash
-export SEMGREP_TIMEOUT="900"
+export DEFAULT_TIMEOUT="20"
 ```
 
 ## Environment variables for creating hyperlinks in Semgrep App
