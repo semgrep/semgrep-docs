@@ -199,6 +199,8 @@ _* Semgrep Supply Chain supports `requirements.txt` when it is used as a **lockf
 
 ### Beta
 
+This table provides information about the beta level of support for languages, specific package managers, and their lockfiles in Semgrep Supply Chain:
+
 <table>
   <thead><tr>
    <th>Language</th>
