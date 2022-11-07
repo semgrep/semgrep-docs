@@ -154,7 +154,7 @@ The following tables list lockfiles, their package manager and language, and the
 
 ### General Availability
 
-This table provides information about fully supported (generally available (GA)) languages, specific package managers, and their lockfiles in Semgrep Supply Chain:
+This table provides information about fully supported (generally available or GA) languages, specific package managers, and their lockfiles in Semgrep Supply Chain:
 
 <table>
 <thead><tr>
