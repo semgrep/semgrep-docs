@@ -56,7 +56,7 @@ Language maturity is determined by 3 factors in the Semgrep ecosystem:
 
 #### Levels of maturity
 
-There are 3 levels of maturity: 
+Semgrep defines 3 maturity levels: 
 
 <dl>
 <dt>Experimental</dt>
@@ -256,7 +256,7 @@ Their differences are outlined in the following table:
    </td>
   </tr>
   <tr>
-   <td>Semgrep engine language support
+   <td>Semgrep engine <a href='/docs/supported-languages#semgrep'>language support</a>
    </td>
    <td>Semgrep engine support is GA.
    </td>
