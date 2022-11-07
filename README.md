@@ -34,6 +34,8 @@ This command generates static content into the `build` directory. Preview the pr
 yarn serve
 ```
 
+Note: Production build allows you to test redirects. Manage redirects in `docusaurus.config.js`.
+
 ## Creating content
 
 Content is written in regular Markdown or MDX files. Markdown and MDX files optionally contain YAML style metadata (front matter) at the top of the file. You can use front matter to override attributes like the slug and other things.
