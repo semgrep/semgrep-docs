@@ -150,7 +150,6 @@ See [Parse rates by language](https://dashboard.semgrep.dev/).
 
 Semgrep Supply Chain parses **lockfiles** for dependencies, then scans your codebase for reachable findings based on the lockfiles. Some languages, such as Java, have several lockfiles, depending on your repository's package manager. For some languages, such as Javascript and Python, a manifest file is also parsed.
 
-The following tables list lockfiles, their package manager and language, and their support levels.
 
 ### General Availability
 
