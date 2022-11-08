@@ -268,7 +268,8 @@ By default, Semgrep scans are defined during a project's initial setup in Semgre
 
 * Daily or weekly schedule.
 * After every PR or MR.
-* Update to the `semgrep.yml` file.
+* Update to the `semgrep.yml` file (dependent on your CI provider).
+
 
 To change these scan parameters:
 
