@@ -61,28 +61,24 @@ Include a rule message that provides details about the matched pattern and infor
 2. Description of why this pattern was detected. For example: logic bug, introduces a security vulnerability, bad practice.
 3. An alternative that resolves the issue. For example: Use another function, validate data first, and discard the dangerous flag.
 
-For an example of a good rule message, see: [this rule for Django's mark_safe](https://semgrep.dev/r?q=python.django.security.audit.avoid-mark-safe.avoid-mark-safe).
-
 Use the YAML multiline string operator `>-` when rule messages span multiple lines. This presents the best-looking rule message on the command-line without having to worry about line wrapping or escaping the quote or backslash characters.
+
+For an example of a good rule message, see: [this rule for Django's mark_safe](https://semgrep.dev/r?q=python.django.security.audit.avoid-mark-safe.avoid-mark-safe).
 
 :::info Rule message example
 `mark_safe()` is used to mark a string as *safe* for HTML output. This disables escaping and may expose the content to XSS attacks. Instead, use `django.utils.html.format_html()` to build HTML for rendering.
 :::
 
-### Required fields
+### Including additional details with rule metadatazs
 
-Rules in the Semgrep Registry require specific metadata fields that ensure consistency across the ecosystem in both Semgrep App and Semgrep CLI.
-
-These fields help users of Semgrep to identify rules in different categories such as:
+Rules in the Semgrep Registry require specific metadata fields that ensure consistency across the ecosystem in both Semgrep App and Semgrep CLI. These fields help users of Semgrep to identify rules in different categories such as:
 
 - High confidence security rules for CI pipelines.
 - OWASP Top 10 or CWE Top 25 rule packs.
 - Technology. For example `react` so it is easy to find `p/react` rule packs.
 - Audit rules with lower confidence intended for code auditors
 
-#### Metadata
-
-To help with this effort, we require people to follow a strict list of metadata requirements that enable the above categories:
+To help identify rules in these categories, the following list of metadata is required that enable the above categories:
 
 - cwe
 - references
@@ -115,7 +111,7 @@ An example of what this looks like can be found below:
 ```
 A breakdown of what each field means is below with examples:
 
-##### CWE
+#### CWE
 
 Include the appropriate <a href="https://cwe.mitre.org/index.html">Comment Weakness Enumeration (CWE)</a> so users have the context to what vulnerability the rule should find. Some examples:
 
@@ -133,7 +129,7 @@ cwe:
   - 'CWE-79: Improper Neutralization of Input During Web Page Generation ('Cross-site Scripting')'
 ```
 
-##### Confidence
+#### Confidence
 
 Including confidence, indicators tell users and Semgrep App about the rule and if it should be actioned on, we use LOW, MEDIUM, and HIGH indicators:
 
@@ -174,7 +170,7 @@ Examples of LOW confidence rules generally find something which appears to be da
 confidence: LOW 
 ```
 
-##### Likelihood
+#### Likelihood
 
 Including a likelihood, indicator tells users and Semgrep App, regardless of the vulnerability type, how easy it would be for an attacker to exploit the issue that has been found we use LOW, MEDIUM, and HIGH indicators:
 
@@ -221,7 +217,7 @@ LOW likelihood rules tend to be which tends to be security rule which finds 'som
 likelihood: LOW 
 ```
 
-##### Impact
+#### Impact
 
 Including an impact indicator tells users and Semgrep App about the rule impact, and how much 'damage' would this vulnerability would cause to the application, we use LOW, MEDIUM, and HIGH indicators:
 
@@ -262,7 +258,7 @@ LOW impact rules are rules which are a security issue, but the impact will not b
 impact: LOW 
 ```
 
-##### Subcategory:
+#### Subcategory:
 
 Including a subcategory indicator tells users and Semgrep App about the rule type if it is a vulnerability, audit, or guardrail indicator:
 
@@ -296,7 +292,7 @@ subcategory:
   - guardrail
 ```
 
-##### References:
+#### References
 
 References help define specific rule packs for languages, libraries, and frameworks which are available on our <a href="https://semgrep.dev/r">Semgrep Registry</a>.
 
@@ -347,6 +343,6 @@ var numdata = 1;
 
 For more information, visit [Testing rules](https://semgrep.dev/docs/writing-rules/testing-rules/).
 
-### Rule quality checker
+## Rule quality checker
 
 When you contribute rules to the Semgrep Registry, our quality checkers (linters) evaluate if the rule conforms to r2c standards. The `semgrep-rule-lints` job runs linters on a new rule to check for mistakes, performance problems, and best practices for submitting to the Semgrep Registry. To improve your rule writing, use Semgrep itself to [scan semgrep-rules](https://r2c.dev/blog/2021/how-we-made-semgrep-rules-run-on-semgrep-rules/).
