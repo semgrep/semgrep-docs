@@ -25,7 +25,7 @@ import MoreHelp from "/src/components/MoreHelp"
 
 ![Screenshot of the Editor's splash screen](/img/editor-splashscreen.png)
 
-**Semgrep Editor (Beta)** is an advanced tool for **rule writing**. Write rules on a YAML editor, verify their performance through tests, and add them to your organization’s [Rule Board](https://semgrep.dev/docs/semgrep-app/rule-board/) to enforce code standards and increase code security.
+**Semgrep Editor** is an advanced tool for **rule writing**. Write rules on a YAML editor, verify their performance through tests, and add them to your organization’s [Rule Board](https://semgrep.dev/docs/semgrep-app/rule-board/) to enforce code standards and increase code security.
 
 To quickly learn Semgrep patterns and syntax, explore the Editor’s library of rules from the **public [Rule Registry](https://semgrep.dev/explore)**. Rules from the Registry can detect OWASP vulnerabilities, best practice violations, and security issues for a wide variety of languages and frameworks. Semgrep Editor enables you to **adapt these rules** for your own organization’s use by [forking](#jumpstart-rule-writing-using-existing-rules) them.
 
@@ -34,9 +34,9 @@ The Editor is free to use on all tiers, but saving a rule for **private use** is
 ## Accessing Semgrep Editor
 
 1. Sign in to your [Semgrep App account](https://semgrep.dev/login).
-2. Click **Editor (beta)** from the **App sidebar**. The **splash page** and **library pane** appear.
+2. Click **Editor** from the **App sidebar**. The **splash page** and **library pane** appear.
 3. Do any of the following steps:
-    1. To create a new rule, click on the **(+) plus sign** or **Create new rule** button.
+    1. To create a new rule, click on the <i class="fa-solid fa-circle-plus"></i> **(+) plus sign** or <i class="fa-solid fa-file-plus"></i> **Create new rule** button.
     2. To open any rule you’ve recently edited, select it from the **Recent** list.
     3. To view a sample rule, select it from the **Examples** list. The rule renders within the Editor.
     4. To start a tutorial or read the docs, select it from the **Learn** list. This navigates you away from the Editor.
@@ -147,7 +147,7 @@ For additional annotations designed to test false positives and false negatives,
 
 Upon saving, a rule’s visibility is **unlisted** by default. This rule can be shared with anyone through an identifier, even to non-Semgrep App users.
 
-A rule can be saved as a **private rule**, which is visible only to members within an organization. You can still share a private rule, but only members of the organization will see it. Private rules are a **Team/Enterprise tier feature**.
+A rule can be saved as a **private rule**, which is visible only to members within an organization. You can still share a private rule, but only members of the organization can see it. Private rules are a **Team/Enterprise tier feature**.
 
 - To set a rule’s visibility to private, click **Share > Private > Save change**.
 - To share a private or unlisted rule, click **Share** and copy the **URL link**.
@@ -214,10 +214,11 @@ Guidelines for faster rule acceptance:
 
 To **create a PR** from the Editor:
 
-1. Click **Share > Public.**
-2. Optional: Enter the path to the rule following the namespace `language.group.subgroup.rule_name`. A repository maintainer can also set this for the rule.
-3. Optional: Preview the rule.
-4. Click **Create PR**.
+TODO modularize
 
+1. Click <i className="fa-solid fa-earth-americas inline_svg"></i> **Share**.
+1. (Optional) Click <i className="fa-solid fa-cloud-arrow-up inline_svg"></i> **Publish to Registry**.
+1. Fill in the required and optional fields.
+1. Click <i className="fa-solid fa-circle-check inline_svg"></i> **Continue**, and then click <i className="fa-solid fa-code-pull-request inline_svg"></i> **Create PR**.
 
 <MoreHelp />

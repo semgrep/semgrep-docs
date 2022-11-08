@@ -8,7 +8,7 @@ hide_title: true
 
 ## Introduction
 
-There are two ways in which you can contribute rules to the Semgrep Registry:
+Publish rules in the open-source Semgrep Registry and share them with the Semgrep community to help others benefit from your rule-writing efforts and contribute to the field of software security. There are two ways in which you can contribute rules to the Semgrep Registry:
 
 <dl>
     <dt>For users of Semgrep App</dt>
@@ -20,13 +20,13 @@ There are two ways in which you can contribute rules to the Semgrep Registry:
 
 ### Contributing through Semgrep App (recommended)
 
-Publish rules in the open-source Semgrep Registry and share them with the Semgrep community to help others benefit from your rule-writing efforts and contribute to the field of software security. To contribute and publish rules to the Semgrep Registry, follow these steps:
+To contribute and publish rules to the Semgrep Registry through Semgrep App, follow these steps:
 
-1. Go to [Semgrep App Editor](https://semgrep.dev/orgs/-/editor).
+1. Go to [Playground](https://semgrep.dev/playground/new).
 2. Click <i className="fa-solid fa-file-plus-minus inline_svg"></i> **Create New Rule**.
 3. Choose one of the following:
-    - Create a new rule and test code, and then click <i className="fa-solid fa-floppy-disk inline_svg"></i> **Save**. Note: The test file must contain at least one true positive and one true negative test case to be approved. See the [Tests](#tests) section of this document for more information.
-    - Select a rule from a category in **Semgrep Registry**. Click <i className="fa-solid fa-code-branch inline_svg"></i> **Fork**,
+    - Create a new rule and test code by clicking <i class="fa-solid fa-circle-plus"></i>, and then click <i className="fa-solid fa-floppy-disk inline_svg"></i> **Save**. Note: The test file must contain at least one true positive and one true negative test case to be approved. See the [Tests](#tests) section of this document for more information.
+    - In the <i class="fa-solid fa-server"></i> **Library** panel, select a rule from a category in **Semgrep Registry**. Click <i className="fa-solid fa-code-branch inline_svg"></i> **Fork**,
     modify the rule or test code, and then click <i className="fa-solid fa-floppy-disk inline_svg"></i> **Save**.
 4. Click <i className="fa-solid fa-earth-americas inline_svg"></i> **Share**.
 5. Click <i className="fa-solid fa-cloud-arrow-up inline_svg"></i> **Publish to Registry**.
