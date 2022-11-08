@@ -8,7 +8,7 @@ description: "Join mode runs several Semgrep rules at once and only returns resu
 
 Join mode runs several Semgrep rules at once and only returns results if certain conditions on the results are met. Semgrep is brilliant for finding code patterns with an easy syntax, but its search is typically limited to single files. Join mode is an experimental mode that lets you cross file boundaries, allowing you to write rules for whole code bases instead of individual files. As the name implies, this was inspired by join clauses in SQL queries.
 
-You can think of join mode like this: distinct Semgrep rules are used to gather information about a code base. Then, conditions you define are used to select specific results from these rules, and the selected results are reported by Semgrep in the normal fashion. You can join results on metavariable contents or on the result's file path.
+Think of join mode like this: distinct Semgrep rules are used to gather information about a code base. Then, the conditions you define are used to select specific results from these rules, and the selected results are reported by Semgrep. You can join results on metavariable contents or on the result's file path.
 
 ## Example
 

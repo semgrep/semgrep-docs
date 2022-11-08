@@ -3,13 +3,13 @@ slug: contributing
 description: "Semgrep is LGPL-licensed and contributions are welcome. Get started by filing an issue, fixing a bug, contributing rules to the registry, adding a feature, or updating the docs. You can also contribute by helping others in the r2c Community Slack!"
 ---
 
-# Contributing
+# Contributing overview
 
 Your contributions are welcome!
 
 To contribute, read and agree with the [Contributor Covenant Code of Conduct](https://github.com/returntocorp/semgrep/blob/develop/CODE_OF_CONDUCT.md).
 
-Your contribution can help in various places:
+Your contributions can help in various places:
 
 |      Contribution      |      Where to contribute      |
 |------------------------|-------------------------------|
