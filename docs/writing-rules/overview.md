@@ -31,6 +31,6 @@ This rule detects the use of `is` when comparing Python strings. `is` checks ref
 in detail, and provides example use cases of the ellipsis
 operator, metavariables, and more.<br/>
 - [Rule syntax](rule-syntax.md) describes Semgrep YAML rule files, which can have multiple patterns, detailed output messages, and autofixes. The syntax allows the composition of individual patterns with boolean operators.
--[Contributing to Semgrep rules](../contributing/contributing-rules.md) gives you an overview of where and how you can contribute to Semgrep Registry rules. This document also provides some information about tests and appropriate metadata information you may use for your rules.
+-[Contributing rules](/contributing/contributing-to-semgrep-rules-repository/) gives you an overview of where and how you can contribute to Semgrep Registry rules. This document also provides some information about tests and appropriate metadata information you may use for your rules.
 
 Looking for ideas on what rules to write? See [Rule examples](../rule-ideas/) for common use cases and prompts to help you start writing rules from scratch.
