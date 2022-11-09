@@ -2,6 +2,7 @@
 slug: contributing-to-semgrep-rules-repository
 description: "This article outlines how to contribute to Semgrep Registry."
 hide_title: true
+toc_max_heading_level: 4
 ---
 
 # Contributing rules
