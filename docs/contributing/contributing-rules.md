@@ -152,11 +152,11 @@ Indicate confidence of the rule to detect true positives. See the possible optio
 
 - **HIGH** - Security concern, with high true positives. Useful in CI/CD pipelines.
 - **MEDIUM** - Security concern, but some false positives. Useful in CI/CD pipelines.
-- **LOW** - Expect a fair amount of false positives, similar to audit style rules. Can detect many false positives.
+- **LOW** - Expect a fair amount of false positives, similar to audit style rules. These rules can detect many false positives.
 
 ##### HIGH
 
-HIGH confidence rules can use Semgrep advanced features such as `metavariable-comparison` or `taint mode`, to be a true positive. Examples below:
+HIGH confidence rules can use Semgrep advanced features such as `metavariable-comparison` or `taint mode`, to be a true positive. See examples below:
 
 - https://semgrep.dev/orgs/-/editor/r/go.lang.security.audit.crypto.use_of_weak_rsa_key.use-of-weak-rsa-key
 - https://semgrep.dev/playground/r/javascript.express.security.audit.express-open-redirect.express-open-redirect
@@ -168,7 +168,7 @@ confidence: HIGH
 
 ##### MEDIUM
 
-MEDIUM confidence rules generally use Semgrep advanced features such as `metavariable-comparison` or `taint mode`, but with some false positives, below are some useful examples:
+MEDIUM confidence rules can use Semgrep advanced features such as `metavariable-comparison` or `taint mode`, but with some false positives. See examples below:
 
 - https://semgrep.dev/playground/r/javascript.express.security.audit.express-ssrf.express-ssrf
 - https://semgrep.dev/playground/r/javascript.express.security.express-xml2json-xxe.express-xml2json-xxe?editorMode=advanced
@@ -179,7 +179,8 @@ confidence: MEDIUM
 
 ##### LOW
 
-Examples of LOW confidence rules generally find something which appears to be dangerous and have a lot of false positives, below are some useful examples:
+Low confidence rules generally find something which appears to be dangerous while reporting a lot of false positives. See examples below:
+
 - https://semgrep.dev/playground/r/php.lang.security.eval-use.eval-use
 - https://semgrep.dev/playground/r/javascript.browser.security.dom-based-xss.dom-based-xss?editorMode=advanced
 
@@ -189,7 +190,7 @@ confidence: LOW
 
 #### Likelihood
 
-Including a likelihood, indicator tells users and Semgrep App, regardless of the vulnerability type, how easy it would be for an attacker to exploit the issue that has been found we use LOW, MEDIUM, and HIGH indicators:
+Specify how likely it is that an attacker can exploit the issue that has been found. The possible values are following:
 
 ##### HIGH
 
