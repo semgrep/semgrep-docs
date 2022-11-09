@@ -158,7 +158,6 @@ module.exports = {
             'semgrep-sc/sc-getting-started',
             'semgrep-sc/sc-triage-remediation',
             'semgrep-sc/sc-ignoring-deps',
-            'semgrep-sc/sc-supported-langs',
             'semgrep-sc/sc-glossary'
         ]
     },

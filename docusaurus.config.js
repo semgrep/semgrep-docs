@@ -215,7 +215,8 @@ module.exports = {
           { from: "/experiments/metavariable-analysis/", to: "/writing-rules/experiments/metavariable-analysis/" },
           { from: "/experiments/multiple-focus-metavariables/", to: "/writing-rules/experiments/multiple-focus-metavariables/" },
           { from: "/experiments/display-propagated-metavariable/", to: "/writing-rules/experiments/display-propagated-metavariable/" },
-          { from: "/experiments/deprecated-experiments/", to: "/writing-rules/experiments/deprecated-experiments/" }
+          { from: "/experiments/deprecated-experiments/", to: "/writing-rules/experiments/deprecated-experiments/" },
+          { from: "/semgrep-sc/supply-chain-supported-languages/", to: "/supported-languages/" }
         ]
       }
     ],
