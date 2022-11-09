@@ -161,7 +161,7 @@ Nest these metadata under the `metadata` key. The following metadata are require
   </tr>
   <tr>
    <td>References</td>
-   <td>Any additional information that gives more context to the user of the rule. This helps to specify rule packs in Semgrep Registry.</td>
+   <td>Any additional information that gives more context to the user of the rule. This helps to specify rulesets in Semgrep Registry.</td>
    <td>
      <pre>
         references:<br></br>
@@ -174,8 +174,8 @@ Nest these metadata under the `metadata` key. The following metadata are require
 
 These fields help users of Semgrep to identify rules in different categories such as:
 - High confidence security rules for CI pipelines.
-- OWASP Top 10 or CWE Top 25 rule packs.
-- Technology. For example, `react` so it is easy to find `p/react` rule packs.
+- OWASP Top 10 or CWE Top 25 rulesets.
+- Technology. For example, `react` so it is easy to find `p/react` rulesets.
 - Audit rules with lower confidence are intended for code auditors.
 
 Examples of rules with a full list of required metadata:
@@ -357,7 +357,7 @@ subcategory:
 
 #### References
 
-References help to define specific rule packs for languages, libraries, and frameworks that are available in <a href="https://semgrep.dev/explore">Semgrep Registry</a>. See the references in the following two rules:
+References help to define specific rulesets for languages, libraries, and frameworks that are available in <a href="https://semgrep.dev/explore">Semgrep Registry</a>. See the references in the following two rules:
 
 - A rule that is finding an issue in React: https://semgrep.dev/playground/r/typescript.react.security.audit.react-href-var.react-href-var?editorMode=advanced
     ```
