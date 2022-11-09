@@ -107,7 +107,7 @@ Rules in the Semgrep Registry require specific metadata fields that ensure consi
 - High confidence security rules for CI pipelines.
 - OWASP Top 10 or CWE Top 25 rule packs.
 - Technology. For example `react` so it is easy to find `p/react` rule packs.
-- Audit rules with lower confidence intended for code auditors
+- Audit rules with lower confidence intended for code auditors.
 
 Nest these metadata under the `metadata` key. The following metadata are required:
 
@@ -134,9 +134,9 @@ Nest these metadata under the `metadata` key. The following metadata are require
    <td><code>likelihood: MEDIUM</code></td>
   </tr>
   <tr>
-   <td>Likelihood</td>
+   <td>Impact</td>
    <td><code>HIGH</code>, <code>MEDIUM</code>, <code>LOW</code></td>
-   <td><code>likelihood: MEDIUM</code></td>
+   <td><code>impact: HIGH</code></td>
   </tr>
   </tbody>
 </table>
@@ -166,17 +166,15 @@ Details of each field are provided in subsections below with examples:
 
 #### CWE
 
-Include the appropriate <a href="https://cwe.mitre.org/index.html">Comment Weakness Enumeration (CWE)</a> so users have the context to what vulnerability the rule should find. Some examples:
+Include the appropriate <a href="https://cwe.mitre.org/index.html">Comment Weakness Enumeration (CWE)</a>. CWE can explain what vulnerability is your rule trying to find. Examples:
 
-If you were writing a SQL Injection rule you would use the following:
-
+If you write an SQL Injection rule, use the following:
 ```yaml
 cwe:                
   - 'CWE-89: Improper Neutralization of Special Elements used in an SQL Command ('SQL Injection')'
 ```
 
-If you were writing an XSS rule you would use the following:
-
+If you write an XSS rule, use the following:
 ```yaml
 cwe: 
   - 'CWE-79: Improper Neutralization of Input During Web Page Generation ('Cross-site Scripting')'
@@ -192,7 +190,7 @@ Indicate confidence of the rule to detect true positives. See the possible optio
 
 ##### HIGH
 
-HIGH confidence rules can use Semgrep advanced features such as `metavariable-comparison` or `taint mode`, to be a true positive. See examples below:
+HIGH confidence rules can use Semgrep advanced features such as `metavariable-comparison` or `taint mode`, to detect true positives. See examples below:
 
 - https://semgrep.dev/orgs/-/editor/r/go.lang.security.audit.crypto.use_of_weak_rsa_key.use-of-weak-rsa-key
 - https://semgrep.dev/playground/r/javascript.express.security.audit.express-open-redirect.express-open-redirect
@@ -230,7 +228,7 @@ Specify how likely it is that an attacker can exploit the issue that has been fo
 
 ##### HIGH
 
-HIGH likelihood rules specify a very high concern for an exploit. Examples:
+HIGH likelihood rules specify a very high concern that the vulnerability can be exploited. Examples:
 
 - The use of weak encryption: https://semgrep.dev/playground/r/go.lang.security.audit.crypto.use_of_weak_rsa_key.use-of-weak-rsa-key?editorMode=advanced
 - Disabled security feature in a configuration
@@ -243,7 +241,7 @@ likelihood: HIGH
 
 ##### MEDIUM
 
-MEDIUM likelihood rules tend to be vulnerable in most circumstances. Although can be hard for an attacker to exploit them. Also, these rules can find part of a problem, but not the whole issue. Examples:
+MEDIUM likelihood rules detect a vulnerability in most circumstances. Although it can be hard for an attacker to exploit them. Also, these rules can detect part of a problem, but not the whole issue. Examples:
 
 - `taint mode sources` which reach a `taint mode sink`  but the source is something which can only be vulnerable in certain conditions e.g. OS Environment Variables, or loading from disk: https://semgrep.dev/playground/r/python.aws-lambda.security.dangerous-spawn-process.dangerous-spawn-process?editorMode=advanced
 - `taint mode sources` with a `taint mode sink` but is missing a `taint mode sanitizer` which can introduce more false positives: https://semgrep.dev/playground/r/javascript.express.security.express-puppeteer-injection.express-puppeteer-injection?editorMode=advanced
@@ -265,18 +263,17 @@ likelihood: LOW
 
 #### Impact
 
-Indicate how much damage can this vulnerability cause. Use LOW, MEDIUM, and HIGH.
+Indicate how much damage can a vulnerability cause. Use LOW, MEDIUM, and HIGH.
 
 - SQL Injection vulnerabilities
 - 
 
 ##### HIGH
 
-HIGH impact rules can be extremely damaging, such as injection vulnerabilities. Examples:
+HIGH impact rules can detect extremely damaging vulnerabilities, such as injection vulnerabilities. Examples:
 
 - https://semgrep.dev/playground/r/javascript.sequelize.security.audit.sequelize-injection-express.express-sequelize-injection
 - https://semgrep.dev/playground/r/ruby.rails.security.audit.xxe.xml-external-entities-enabled.xml-external-entities-enabled?editorMode=advanced
-
 
 ```
 impact: HIGH 
@@ -284,7 +281,7 @@ impact: HIGH
 
 ##### MEDIUM
 
-MEDIUM impact rules are issues that are less likely to lead to full system compromise but still are fairly damaging to the application. Examples:
+MEDIUM impact rules are issues that are less likely to lead to full system compromise but still are fairly damaging. Examples:
 
 - https://semgrep.dev/playground/r/python.flask.security.injection.raw-html-concat.raw-html-format?editorMode=advanced
 - https://semgrep.dev/playground/r/python.flask.security.injection.ssrf-requests.ssrf-requests?editorMode=advanced
@@ -295,7 +292,7 @@ impact: MEDIUM
 
 ##### LOW
 
-LOW impact rules are rules which are a security issue, but the impact will not be too damaging to the application if discovered. 
+LOW impact rules are rules which are a security issue, but the impact is not too damaging to the application if discovered. 
 
 - https://semgrep.dev/playground/r/go.gorilla.security.audit.session-cookie-missing-secure.session-cookie-missing-secure?editorMode=advanced
 - https://semgrep.dev/playground/r/javascript.browser.security.raw-html-join.raw-html-join?editorMode=advanced
@@ -306,11 +303,11 @@ impact: LOW
 
 #### Subcategory
 
-Including a subcategory indicator tells users and Semgrep App about the rule type if it is a vulnerability, audit, or guardrail indicator:
+Include subcategory to explain what is the type of the rule. See the subsections below for more details.
 
 ##### vuln
 
-A vulnerability rule is something that will be something developers will want to resolve for example a SQL Injection rule which uses taint mode.
+A vulnerability rule is something that developers certainly want to resolve. For example, an SQL Injection rule which uses taint mode. Example:
 
 - https://semgrep.dev/playground/r/javascript.sequelize.security.audit.sequelize-injection-express.express-sequelize-injection
 
@@ -318,9 +315,10 @@ A vulnerability rule is something that will be something developers will want to
 subcategory:          
   - vuln
 ```
+
 ##### audit
 
-An audit rule, is useful for code auditors, for example, a SQL rule which just finds all uses of `database.exec(...)` which could be problematic.
+An audit rule is useful for code auditors. For example, an SQL rule which finds all uses of `database.exec(...)` that can be problematic. Example:
 
 - https://semgrep.dev/playground/r/generic.html-templates.security.unquoted-attribute-var.unquoted-attribute-var?editorMode=advanced
 
@@ -331,7 +329,7 @@ subcategory:
 
 ##### guardrail
 
-A guardrail rule, is useful for companies writing custom rules, for example finding all usages to non-standard XML parsing libraries, you should use only your company-approved library.
+A guardrail rule, is useful for companies writing custom rules. For example, finding all usages to non-standard XML parsing libraries within the company. The rule can also bring a message that a developer can use only a company-approved library.
 
 ```
 subcategory:          
@@ -340,16 +338,16 @@ subcategory:
 
 #### References
 
-References help define specific rule packs for languages, libraries, and frameworks which are available on our <a href="https://semgrep.dev/r">Semgrep Registry</a>.
+References help to define specific rule packs for languages, libraries, and frameworks which are available on our <a href="https://semgrep.dev/explore">Semgrep Registry</a>.
 
-For example, writing a rule to find an issue in react, you would include:
+For example, writing a rule to find an issue in react, you can include:
 - https://semgrep.dev/playground/r/typescript.react.security.audit.react-href-var.react-href-var?editorMode=advanced
 ```
 references: 
   - react
 ```
 
-Another example, writing a rule to find an issue in express, you would include:
+Another example, writing a rule to find an issue in Express, you can include:
 
 - https://semgrep.dev/playground/r/javascript.sequelize.security.audit.sequelize-injection-express.express-sequelize-injection
 
