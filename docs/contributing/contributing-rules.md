@@ -265,10 +265,8 @@ likelihood: LOW
 
 #### Impact
 
-Indicate how much damage can this vulnerability cause. Use LOW, MEDIUM, and HIGH.
+Indicate how much damage can this vulnerability causes. Use LOW, MEDIUM, and HIGH.
 
-- SQL Injection vulnerabilities
-- 
 
 ##### HIGH
 
