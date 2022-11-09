@@ -7,8 +7,6 @@ toc_max_heading_level: 4
 
 # Contributing rules
 
-## Introduction
-
 Publish rules in the open-source Semgrep Registry and share them with the Semgrep community to help others benefit from your rule-writing efforts and contribute to the field of software security. There are two ways in which you can contribute rules to the Semgrep Registry:
 
 <dl>
@@ -19,7 +17,7 @@ Publish rules in the open-source Semgrep Registry and share them with the Semgre
     <dd>Contribute rules to the Semgrep Registry through a pull request. See the <a href="#contributing-through-github"> Contributing through GitHub</a> section for detailed information.</dd>
 </dl>
 
-### Contributing through Semgrep App (recommended)
+## Contributing through Semgrep App (recommended)
 
 To contribute and publish rules to the Semgrep Registry through Semgrep App, follow these steps:
 
@@ -38,7 +36,7 @@ This workflow automatically creates a pull request in the GitHub [Semgrep Regist
 
 You can also publish rules to the Semgrep Registry as private rules. See the [Private rules](/docs/writing-rules/private-rules.md) documentation for more information.
 
-### Contributing through GitHub
+## Contributing through GitHub
 
 Fork our repository and make a pull request; we'll contact you about signing our Contributor License Agreement (CLA). Install pre-commit (see [installing pre-commit](#installing-pre-commit)) and make a pull request to the [Semgrep Registry](https://github.com/returntocorp/semgrep-rules) with two files:
 1. The semgrep pattern (as YAML file).
@@ -47,6 +45,17 @@ Fork our repository and make a pull request; we'll contact you about signing our
 See an example of a [pull request](https://github.com/returntocorp/semgrep-rules/pull/1728/files) to the Semgrep Registry. Pull requests require the approval of at least one maintainer and successfully passed [CI jobs](https://github.com/returntocorp/semgrep-rules/actions).
 
 Find more about the Semgrep Registry by reading the [Rule writing](#rule-writing) and [Tests](#tests) sections.
+
+## Rule requirements
+
+Every rule submitted to Semgrep Registry must include:
+
+- Rule ID - `ruleid`. Rule ID is created automatically by Semgrep App, but include it if you are contributing solely through GitHub without Semgrep App.
+- Test file. See [Tests](#tests) for more details. Test file must include:
+    - Code that Semgrep detects using the rule.
+    - Code that is clearly shown as `ok` and Semgrep should not detect it.
+- Rule message, for more information see [Rule messages](#rule-messages). 
+- Metadata fields. See [Including additional details with rule metadata](#including-additional-details-with-rule-metadata) for more details.
 
 ## Writing a rule for Semgrep Registry
 
@@ -65,7 +74,13 @@ See an example of this approach in the [Semgrep App](https://semgrep.dev/orgs/-/
 
 Test file names must match the rule file name, except for the file extension. For example, if the rule is in `my-rule.yaml`, name the test `my-rule.js`. (You can use any valid extension for the target language.)
 
-In the test file, mark what is demonstratively expected to be a finding. See the examples of the rule and test file below:
+:::info Requirements of test files
+In the test file, include examples that clearly mark:
+- What is expected to be a finding.
+- What is clearly not a finding.
+:::
+
+See the examples of the rule and test file below:
 
 Rule file:
 ```yaml
@@ -75,7 +90,7 @@ rules:
   …
 ```
 
-Test file:
+In the test file, mark an expected finding with a comment tag, mention **ruleid** of your rule in the comment before expected finding. Also mark the the code that is expected not to be a finding with a comment stating `ok` and add the **ruleid** also. See the example below:
 ```js
 // ruleid: my-rule
 var strdata = "hello";
@@ -87,7 +102,7 @@ For more information, visit [Testing rules](https://semgrep.dev/docs/writing-rul
 
 ### Rule messages
 
-Include a rule message that provides details about the matched pattern and informs how to mitigate any related issues. Provide the following information in a rule message:
+Include a rule message that provides details about the matched pattern and informs about how to mitigate any related issues. Provide the following information in a rule message:
 
 1. Description of the pattern. For example: missing parameter, dangerous flag, out-of-order function calls.
 2. Description of why this pattern was detected. For example: logic bug, introduces a security vulnerability, bad practice.
@@ -109,7 +124,7 @@ Nest these metadata under the `metadata` key. The following metadata are require
 
 <table>
   <thead><tr>
-   <th>Metadata field</th>
+   <th>Required metadata field</th>
    <th>Possible values</th>
    <th>Example use</th>
   </tr></thead>
@@ -117,34 +132,42 @@ Nest these metadata under the `metadata` key. The following metadata are require
   <tr>
    <td>CWE</td>
    <td>A <a href="https://cwe.mitre.org/index.html">Comment Weakness Enumeration (CWE)</a>.</td>
-   <td><code>cwe: "CWE-502: Deserialization of Untrusted Data"</code></td>
+   <td><pre>cwe: "CWE-502: Deserialization of Untrusted Data"</pre></td>
   </tr>
   <tr>
    <td>Confidence</td>
    <td><code>HIGH</code>, <code>MEDIUM</code>, <code>LOW</code></td>
-   <td><code>confidence: MEDIUM</code></td>
+   <td><pre>confidence: MEDIUM</pre></td>
   </tr>
   <tr>
    <td>Likelihood</td>
    <td><code>HIGH</code>, <code>MEDIUM</code>, <code>LOW</code></td>
-   <td><code>likelihood: MEDIUM</code></td>
+   <td><pre>likelihood: MEDIUM</pre></td>
   </tr>
   <tr>
    <td>Impact</td>
    <td><code>HIGH</code>, <code>MEDIUM</code>, <code>LOW</code></td>
-   <td><code>impact: HIGH</code></td>
+   <td><pre>impact: HIGH</pre></td>
   </tr>
   <tr>
    <td>Subcategory</td>
    <td><code>vuln</code>, <code>audit</code>, <code>guardrail</code></td>
-   <td><code>subcategory:
-  - vuln</code></td>
+   <td>
+    <pre>
+        subcategory:<br></br>
+        - vuln
+    </pre>
+  </td>
   </tr>
   <tr>
    <td>References</td>
    <td>Any additional information that gives more context to the user of the rule. This helps to specify rule packs in Semgrep Registry.</td>
-   <td><code>references:
-      - react</code></td>
+   <td>
+     <pre>
+        references:<br></br>
+        - react
+     </pre>
+   </td>
   </tr>
   </tbody>
 </table>
@@ -154,7 +177,6 @@ These fields help users of Semgrep to identify rules in different categories suc
 - OWASP Top 10 or CWE Top 25 rule packs.
 - Technology. For example, `react` so it is easy to find `p/react` rule packs.
 - Audit rules with lower confidence are intended for code auditors.
-
 
 Examples of rules with a full list of required metadata:
 - [High confidence JavaScript/TypeScript rule](https://semgrep.dev/playground/r/javascript.express.security.audit.express-open-redirect.express-open-redirect)
@@ -232,7 +254,7 @@ HIGH likelihood rules specify a very high concern that the vulnerability can be 
 - The use of weak encryption: https://semgrep.dev/playground/r/go.lang.security.audit.crypto.use_of_weak_rsa_key.use-of-weak-rsa-key?editorMode=advanced
 - Disabled security feature in a configuration: https://semgrep.dev/playground/r/javascript.angular.security.detect-angular-sce-disabled.detect-angular-sce-disabled
 - Hardcoded secrets that use a constant value `"..."`: https://semgrep.dev/playground/r/javascript.jose.security.jwt-hardcode.hardcoded-jwt-secret?editorMode=advanced
-- Rules which leverage `taint mode sources` which indicate sources that can come from an attacker. For example: HTTP `POST`, `GET`, `PUT`, `DELETE` request values: https://semgrep.dev/playground/r/javascript.express.security.audit.express-open-redirect.express-open-redirect
+- Rules which leverage `taint mode sources` which indicate sources that can come from an attacker. Such as HTTP `POST`, `GET`, `PUT`, `DELETE` request values. For example: https://semgrep.dev/playground/r/javascript.express.security.audit.express-open-redirect.express-open-redirect
 
 ```
 likelihood: HIGH
