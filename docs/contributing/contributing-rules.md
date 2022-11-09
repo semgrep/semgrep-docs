@@ -49,6 +49,37 @@ Find more about the Semgrep Registry by reading the [Rule writing](#rule-writing
 
 ## Writing a rule for Semgrep Registry
 
+### Tests
+
+Include a test file to accompany new rules. A good test file includes the following:
+
+- At least one test where the rule detects a finding. This is called a true positive finding.
+- At least one test where the rule does **not** detect a finding. This is called a true negative finding.
+
+See an example of this approach in the [Semgrep App](https://semgrep.dev/orgs/-/editor/s/returntocorp:aws-provider-static-credentials).
+
+Test file names must match the rule file name, except for the file extension. For example, if the rule is in `my-rule.yaml`, name the test `my-rule.js`. (You can use any valid extension for the target language.)
+
+In the test file, mark what is demonstratively expected to be a finding. See the examples of the rule and test file below:
+
+Rule file:
+```yaml
+rules:
+- id: my-rule
+  pattern: var $X = "...";
+  …
+```
+
+Test file:
+```js
+// ruleid: my-rule
+var strdata = "hello";
+// ok: my-rule
+var numdata = 1;
+```
+
+For more information, visit [Testing rules](https://semgrep.dev/docs/writing-rules/testing-rules/).
+
 ### Understanding rule namespacing
 
 The namespacing format for contributing rules in the [Semgrep Registry](https://github.com/returntocorp/semgrep-rules) is `<language>/<framework>/<category>/$MORE`. If the rule does not belong to a particular framework, add it to the language directory, which uses the word `lang` in place of the `<framework>` - `<language>/<lang>`.
@@ -89,7 +120,7 @@ Nest these metadata under the `metadata` key. The following metadata are require
   <tbody>
   <tr>
    <td>CWE</td>
-   <td>A <a href="https://cwe.mitre.org/index.html">Comment Weakness Enumeration (CWE)</a>. In the following format: <code>"CWE-NUMBER: STRING"</code></td>
+   <td>A <a href="https://cwe.mitre.org/index.html">Comment Weakness Enumeration (CWE)</a>.</td>
    <td><code>cwe: "CWE-502: Deserialization of Untrusted Data"</code></td>
   </tr>
   <tr>
@@ -98,9 +129,14 @@ Nest these metadata under the `metadata` key. The following metadata are require
    <td><code>confidence: MEDIUM</code></td>
   </tr>
   <tr>
-   <td>Confidence</td>
+   <td>Likelihood</td>
    <td><code>HIGH</code>, <code>MEDIUM</code>, <code>LOW</code></td>
-   <td><code>confidence: MEDIUM</code></td>
+   <td><code>likelihood: MEDIUM</code></td>
+  </tr>
+  <tr>
+   <td>Likelihood</td>
+   <td><code>HIGH</code>, <code>MEDIUM</code>, <code>LOW</code></td>
+   <td><code>likelihood: MEDIUM</code></td>
   </tr>
   </tbody>
 </table>
@@ -190,18 +226,15 @@ confidence: LOW
 
 #### Likelihood
 
-Specify how likely it is that an attacker can exploit the issue that has been found. The possible values are following:
+Specify how likely it is that an attacker can exploit the issue that has been found. The possible values are `LOW`, `MEDIUM`, `HIGH`.
 
 ##### HIGH
 
-HIGH likelihood rules tend to be something which is easily reasoned with if found very likely to be a concern:
+HIGH likelihood rules specify a very high concern for an exploit. Examples:
 
-Some general examples include:
-- The use of weak encryption
-  - https://semgrep.dev/playground/r/go.lang.security.audit.crypto.use_of_weak_rsa_key.use-of-weak-rsa-key?editorMode=advanced
+- The use of weak encryption: https://semgrep.dev/playground/r/go.lang.security.audit.crypto.use_of_weak_rsa_key.use-of-weak-rsa-key?editorMode=advanced
 - Disabled security feature in a configuration
-- Hardcoded secrets that use `"..."`
-  - https://semgrep.dev/playground/r/javascript.jose.security.jwt-hardcode.hardcoded-jwt-secret?editorMode=advanced
+- Hardcoded secrets that use `"..."`: https://semgrep.dev/playground/r/javascript.jose.security.jwt-hardcode.hardcoded-jwt-secret?editorMode=advanced
 - `taint mode sources` which reach a `taint mode sink` with `taint mode sanitizers`
 
 ```
@@ -210,13 +243,10 @@ likelihood: HIGH
 
 ##### MEDIUM
 
-MEDIUM likelihood rules tend to be vulnerable in most circumstances but may be hard for an attacker to achieve due to some constraints. In addition, rules that may only find part of a problem, not the whole issue:
+MEDIUM likelihood rules tend to be vulnerable in most circumstances. Although can be hard for an attacker to exploit them. Also, these rules can find part of a problem, but not the whole issue. Examples:
 
-Some general examples:
-- `taint mode sources` which reach a `taint mode sink`  but the source is something which can only be vulnerable in certain conditions e.g. OS Environment Variables, or loading from disk
-  - https://semgrep.dev/playground/r/python.aws-lambda.security.dangerous-spawn-process.dangerous-spawn-process?editorMode=advanced
-- `taint mode sources` with a `taint mode sink` but is missing a `taint mode sanitizer` which can introduce more false positives
-  - https://semgrep.dev/playground/r/javascript.express.security.express-puppeteer-injection.express-puppeteer-injection?editorMode=advanced
+- `taint mode sources` which reach a `taint mode sink`  but the source is something which can only be vulnerable in certain conditions e.g. OS Environment Variables, or loading from disk: https://semgrep.dev/playground/r/python.aws-lambda.security.dangerous-spawn-process.dangerous-spawn-process?editorMode=advanced
+- `taint mode sources` with a `taint mode sink` but is missing a `taint mode sanitizer` which can introduce more false positives: https://semgrep.dev/playground/r/javascript.express.security.express-puppeteer-injection.express-puppeteer-injection?editorMode=advanced
 
 ```
 likelihood: MEDIUM 
@@ -224,12 +254,10 @@ likelihood: MEDIUM
 
 ##### LOW
 
-LOW likelihood rules tend to be which tends to be security rule which finds 'something' dangerous, but does not do anything to ensure it is  vulnerable, for example:
+LOW likelihood rules tend to find something dangerous, but are not evaluating whether something is truly vulnerable, for example:
 
-- `taint mode sources` such as function arguments which may or may not be tainted which reach a `taint mode sink`
-  - https://semgrep.dev/playground/r/typescript.react.security.audit.react-href-var.react-href-var?editorMode=advanced
-- A rule which uses `search mode` to find the use of a dangerous function e.g. trustAsHTML, bypassSecurityTrust(), eval(), or innerHTML
-  - https://semgrep.dev/playground/r/javascript.browser.security.dom-based-xss.dom-based-xss?editorMode=advanced
+- `taint mode sources` such as function arguments which may or may not be tainted which reach a `taint mode sink`: https://semgrep.dev/playground/r/typescript.react.security.audit.react-href-var.react-href-var?editorMode=advanced
+- A rule which uses `search mode` to find the use of a dangerous function for example: `trustAsHTML`, `bypassSecurityTrust()`, `eval()`, or `innerHTML`: https://semgrep.dev/playground/r/javascript.browser.security.dom-based-xss.dom-based-xss?editorMode=advanced
 
 ```
 likelihood: LOW 
@@ -237,14 +265,14 @@ likelihood: LOW
 
 #### Impact
 
-Including an impact indicator tells users and Semgrep App about the rule impact, and how much 'damage' would this vulnerability would cause to the application, we use LOW, MEDIUM, and HIGH indicators:
+Indicate how much damage can this vulnerability cause. Use LOW, MEDIUM, and HIGH.
 
 - SQL Injection vulnerabilities
 - 
 
 ##### HIGH
 
-HIGH impact rules tend to be something which would be extremely damaging such as injection vulnerabilities, for example:
+HIGH impact rules can be extremely damaging, such as injection vulnerabilities. Examples:
 
 - https://semgrep.dev/playground/r/javascript.sequelize.security.audit.sequelize-injection-express.express-sequelize-injection
 - https://semgrep.dev/playground/r/ruby.rails.security.audit.xxe.xml-external-entities-enabled.xml-external-entities-enabled?editorMode=advanced
@@ -256,7 +284,7 @@ impact: HIGH
 
 ##### MEDIUM
 
-MEDIUM impact rules are issues that are less likely to lead to full system compromise but still are fairly damaging to the application.
+MEDIUM impact rules are issues that are less likely to lead to full system compromise but still are fairly damaging to the application. Examples:
 
 - https://semgrep.dev/playground/r/python.flask.security.injection.raw-html-concat.raw-html-format?editorMode=advanced
 - https://semgrep.dev/playground/r/python.flask.security.injection.ssrf-requests.ssrf-requests?editorMode=advanced
@@ -330,37 +358,6 @@ references:
   - express
 ```
 
-## Tests
-
-Include a test file to accompany new rules. A good test file includes the following:
-
-- At least one test where the rule detects a finding. This is called a true positive finding.
-- At least one test where the rule does **not** detect a finding. This is called a true negative finding.
-
-See an example of this approach in the [Semgrep App](https://semgrep.dev/orgs/-/editor/s/returntocorp:aws-provider-static-credentials).
-
-Test file names must match the rule file name, except for the file extension. For example, if the rule is in `my-rule.yaml`, name the test `my-rule.js`. (You can use any valid extension for the target language.)
-
-In the test file, mark what is demonstratively expected to be a finding. See the examples of the rule and test file below:
-
-Rule file:
-```yaml
-rules:
-- id: my-rule
-  pattern: var $X = "...";
-  …
-```
-
-Test file:
-```js
-// ruleid: my-rule
-var strdata = "hello";
-// ok: my-rule
-var numdata = 1;
-```
-
-For more information, visit [Testing rules](https://semgrep.dev/docs/writing-rules/testing-rules/).
-
-## Rule quality checker
+### Rule quality checker
 
 When you contribute rules to the Semgrep Registry, our quality checkers (linters) evaluate if the rule conforms to r2c standards. The `semgrep-rule-lints` job runs linters on a new rule to check for mistakes, performance problems, and best practices for submitting to the Semgrep Registry. To improve your rule writing, use Semgrep itself to [scan semgrep-rules](https://r2c.dev/blog/2021/how-we-made-semgrep-rules-run-on-semgrep-rules/).
