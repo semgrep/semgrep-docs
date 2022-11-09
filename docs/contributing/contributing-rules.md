@@ -230,7 +230,6 @@ Specify how likely it is that an attacker can exploit the issue that has been fo
 HIGH likelihood rules specify a very high concern that the vulnerability can be exploited. Examples:
 
 - The use of weak encryption: https://semgrep.dev/playground/r/go.lang.security.audit.crypto.use_of_weak_rsa_key.use-of-weak-rsa-key?editorMode=advanced
-- Disabled security feature in a configuration
 - Hardcoded secrets that use `"..."`: https://semgrep.dev/playground/r/javascript.jose.security.jwt-hardcode.hardcoded-jwt-secret?editorMode=advanced
 - `taint mode sources` which reach a `taint mode sink` with `taint mode sanitizers`
 
