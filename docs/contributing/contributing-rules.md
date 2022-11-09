@@ -138,6 +138,16 @@ Nest these metadata under the `metadata` key. The following metadata are require
    <td><code>HIGH</code>, <code>MEDIUM</code>, <code>LOW</code></td>
    <td><code>impact: HIGH</code></td>
   </tr>
+  <tr>
+   <td>Subcategory</td>
+   <td><code>HIGH</code>, <code>MEDIUM</code>, <code>LOW</code></td>
+   <td><code>impact: HIGH</code></td>
+  </tr>
+  <tr>
+   <td>References</td>
+   <td><code>HIGH</code>, <code>MEDIUM</code>, <code>LOW</code></td>
+   <td><code>impact: HIGH</code></td>
+  </tr>
   </tbody>
 </table>
 
@@ -145,7 +155,7 @@ Examples of rules with full list of required metadata:
 
 - [High confidence JavaScript/TypeScript rule](https://semgrep.dev/playground/r/javascript.express.security.audit.express-open-redirect.express-open-redirect)
 - [Medium confidence Python rule](https://semgrep.dev/playground/r/python.lang.security.dangerous-system-call.dangerous-system-call)
-- [Low confidence C# rule](https://semgrep.dev/playground/r/cs.lang.security.insecure-deserialization.fast-json.insecure-fastjson-deserialization)
+- [Low confidence C# rule](https://semgrep.dev/playground/r/csharp.lang.security.ssrf.rest-client.ssrf)
 
 ```
   metadata:
@@ -265,8 +275,6 @@ likelihood: LOW
 
 Indicate how much damage can a vulnerability cause. Use LOW, MEDIUM, and HIGH.
 
-- SQL Injection vulnerabilities
-- 
 
 ##### HIGH
 
