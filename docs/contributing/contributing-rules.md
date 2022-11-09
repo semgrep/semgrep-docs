@@ -230,8 +230,9 @@ Specify how likely it is that an attacker can exploit the issue that has been fo
 HIGH likelihood rules specify a very high concern that the vulnerability can be exploited. Examples:
 
 - The use of weak encryption: https://semgrep.dev/playground/r/go.lang.security.audit.crypto.use_of_weak_rsa_key.use-of-weak-rsa-key?editorMode=advanced
-- Hardcoded secrets that use `"..."`: https://semgrep.dev/playground/r/javascript.jose.security.jwt-hardcode.hardcoded-jwt-secret?editorMode=advanced
-- `taint mode sources` which reach a `taint mode sink` with `taint mode sanitizers`
+- Disabled security feature in a configuration: https://semgrep.dev/playground/r/javascript.angular.security.detect-angular-sce-disabled.detect-angular-sce-disabled
+- Hardcoded secrets that use a constant value `"..."`: https://semgrep.dev/playground/r/javascript.jose.security.jwt-hardcode.hardcoded-jwt-secret?editorMode=advanced
+- Rules which leverage `taint mode sources` which indicate sources that can come from an attacker. For example: HTTP `POST`, `GET`, `PUT`, `DELETE` request values: https://semgrep.dev/playground/r/javascript.express.security.audit.express-open-redirect.express-open-redirect
 
 ```
 likelihood: HIGH
