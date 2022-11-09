@@ -69,7 +69,7 @@ For an example of a good rule message, see: [this rule for Django's mark_safe](h
 `mark_safe()` is used to mark a string as *safe* for HTML output. This disables escaping and may expose the content to XSS attacks. Instead, use `django.utils.html.format_html()` to build HTML for rendering.
 :::
 
-### Including additional details with rule metadatazs
+### Including additional details with rule metadata
 
 Rules in the Semgrep Registry require specific metadata fields that ensure consistency across the ecosystem in both Semgrep App and Semgrep CLI. These fields help users of Semgrep to identify rules in different categories such as:
 
@@ -78,17 +78,34 @@ Rules in the Semgrep Registry require specific metadata fields that ensure consi
 - Technology. For example `react` so it is easy to find `p/react` rule packs.
 - Audit rules with lower confidence intended for code auditors
 
-To help identify rules in these categories, the following list of metadata is required that enable the above categories:
+Nest these metadata under the `metadata` key. The following metadata are required:
 
-- cwe
-- references
-- category
-- subcategory
-- likelihood
-- impact
-- confidence
+<table>
+  <thead><tr>
+   <th>Metadata field</th>
+   <th>Possible values</th>
+   <th>Example use</th>
+  </tr></thead>
+  <tbody>
+  <tr>
+   <td>CWE</td>
+   <td>A <a href="https://cwe.mitre.org/index.html">Comment Weakness Enumeration (CWE)</a>. In the following format: <code>"CWE-NUMBER: STRING"</code></td>
+   <td><code>cwe: "CWE-502: Deserialization of Untrusted Data"</code></td>
+  </tr>
+  <tr>
+   <td>Confidence</td>
+   <td><code>HIGH</code>, <code>MEDIUM</code>, <code>LOW</code></td>
+   <td><code>confidence: MEDIUM</code></td>
+  </tr>
+  <tr>
+   <td>Confidence</td>
+   <td><code>HIGH</code>, <code>MEDIUM</code>, <code>LOW</code></td>
+   <td><code>confidence: MEDIUM</code></td>
+  </tr>
+  </tbody>
+</table>
 
-An example of what this looks like can be found below:
+Examples of rules with full list of required metadata:
 
 - [High confidence JavaScript/TypeScript rule](https://semgrep.dev/playground/r/javascript.express.security.audit.express-open-redirect.express-open-redirect)
 - [Medium confidence Python rule](https://semgrep.dev/playground/r/python.lang.security.dangerous-system-call.dangerous-system-call)
@@ -109,7 +126,7 @@ An example of what this looks like can be found below:
     impact: STRING
     confidence: STRING
 ```
-A breakdown of what each field means is below with examples:
+Details of each field are provided in subsections below with examples:
 
 #### CWE
 
@@ -117,29 +134,29 @@ Include the appropriate <a href="https://cwe.mitre.org/index.html">Comment Weakn
 
 If you were writing a SQL Injection rule you would use the following:
 
-```
+```yaml
 cwe:                
   - 'CWE-89: Improper Neutralization of Special Elements used in an SQL Command ('SQL Injection')'
 ```
 
 If you were writing an XSS rule you would use the following:
 
-```
+```yaml
 cwe: 
   - 'CWE-79: Improper Neutralization of Input During Web Page Generation ('Cross-site Scripting')'
 ```
 
 #### Confidence
 
-Including confidence, indicators tell users and Semgrep App about the rule and if it should be actioned on, we use LOW, MEDIUM, and HIGH indicators:
+Indicate confidence of the rule to detect true positives. See the possible options below:
 
-- HIGH - Security concern, with high true positives (useful in CI/CD pipelines and for those who don't want to deal with false positives)
-- MEDIUM - Security concern, but some false positives (useful in CI/CD pipelines  and for those who are okay with minimal false positives)
-- LOW - Expect a fair amount of false positives, think audit style rules (Should only be run by those who are okay with a lot of false positives)
+- **HIGH** - Security concern, with high true positives. Useful in CI/CD pipelines.
+- **MEDIUM** - Security concern, but some false positives. Useful in CI/CD pipelines.
+- **LOW** - Expect a fair amount of false positives, similar to audit style rules. Can detect many false positives.
 
-<b>HIGH</b>
+##### HIGH
 
-HIGH confidence rules generally use Semgrep advanced features such as `metavariable-comparison` or `taint mode`, with the intent to be a true positive, below are some useful examples:
+HIGH confidence rules can use Semgrep advanced features such as `metavariable-comparison` or `taint mode`, to be a true positive. Examples below:
 
 - https://semgrep.dev/orgs/-/editor/r/go.lang.security.audit.crypto.use_of_weak_rsa_key.use-of-weak-rsa-key
 - https://semgrep.dev/playground/r/javascript.express.security.audit.express-open-redirect.express-open-redirect
@@ -149,7 +166,7 @@ HIGH confidence rules generally use Semgrep advanced features such as `metavaria
 confidence: HIGH 
 ```
 
-<b>MEDIUM</b>
+##### MEDIUM
 
 MEDIUM confidence rules generally use Semgrep advanced features such as `metavariable-comparison` or `taint mode`, but with some false positives, below are some useful examples:
 
@@ -160,7 +177,7 @@ MEDIUM confidence rules generally use Semgrep advanced features such as `metavar
 confidence: MEDIUM 
 ```
 
-<b>LOW</b>
+##### LOW
 
 Examples of LOW confidence rules generally find something which appears to be dangerous and have a lot of false positives, below are some useful examples:
 - https://semgrep.dev/playground/r/php.lang.security.eval-use.eval-use
@@ -174,7 +191,7 @@ confidence: LOW
 
 Including a likelihood, indicator tells users and Semgrep App, regardless of the vulnerability type, how easy it would be for an attacker to exploit the issue that has been found we use LOW, MEDIUM, and HIGH indicators:
 
-<b>HIGH</b>
+##### HIGH
 
 HIGH likelihood rules tend to be something which is easily reasoned with if found very likely to be a concern:
 
@@ -190,7 +207,7 @@ Some general examples include:
 likelihood: HIGH 
 ```
 
-<b>MEDIUM</b>
+##### MEDIUM
 
 MEDIUM likelihood rules tend to be vulnerable in most circumstances but may be hard for an attacker to achieve due to some constraints. In addition, rules that may only find part of a problem, not the whole issue:
 
@@ -204,7 +221,7 @@ Some general examples:
 likelihood: MEDIUM 
 ```
 
-<b>LOW</b>
+##### LOW
 
 LOW likelihood rules tend to be which tends to be security rule which finds 'something' dangerous, but does not do anything to ensure it is  vulnerable, for example:
 
@@ -224,7 +241,7 @@ Including an impact indicator tells users and Semgrep App about the rule impact,
 - SQL Injection vulnerabilities
 - 
 
-<b>HIGH</b>
+##### HIGH
 
 HIGH impact rules tend to be something which would be extremely damaging such as injection vulnerabilities, for example:
 
@@ -236,7 +253,7 @@ HIGH impact rules tend to be something which would be extremely damaging such as
 impact: HIGH 
 ```
 
-<b>MEDIUM</b>
+##### MEDIUM
 
 MEDIUM impact rules are issues that are less likely to lead to full system compromise but still are fairly damaging to the application.
 
@@ -247,7 +264,7 @@ MEDIUM impact rules are issues that are less likely to lead to full system compr
 impact: MEDIUM 
 ```
 
-<b>LOW</b>
+##### LOW
 
 LOW impact rules are rules which are a security issue, but the impact will not be too damaging to the application if discovered. 
 
@@ -258,11 +275,11 @@ LOW impact rules are rules which are a security issue, but the impact will not b
 impact: LOW 
 ```
 
-#### Subcategory:
+#### Subcategory
 
 Including a subcategory indicator tells users and Semgrep App about the rule type if it is a vulnerability, audit, or guardrail indicator:
 
-<b>vuln</b>
+##### vuln
 
 A vulnerability rule is something that will be something developers will want to resolve for example a SQL Injection rule which uses taint mode.
 
@@ -272,7 +289,7 @@ A vulnerability rule is something that will be something developers will want to
 subcategory:          
   - vuln
 ```
-<b>audit</b>
+##### audit
 
 An audit rule, is useful for code auditors, for example, a SQL rule which just finds all uses of `database.exec(...)` which could be problematic.
 
@@ -283,7 +300,7 @@ subcategory:
   - audit
 ```
 
-<b>guardrail</b>
+##### guardrail
 
 A guardrail rule, is useful for companies writing custom rules, for example finding all usages to non-standard XML parsing libraries, you should use only your company-approved library.
 
