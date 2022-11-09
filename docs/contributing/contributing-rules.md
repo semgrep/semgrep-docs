@@ -25,7 +25,7 @@ To contribute and publish rules to the Semgrep Registry through Semgrep App, fol
 1. Go to [Playground](https://semgrep.dev/playground/new).
 2. Click <i className="fa-solid fa-file-plus-minus inline_svg"></i> **Create New Rule**.
 3. Choose one of the following:
-    - Create a new rule and test code by clicking <i class="fa-solid fa-circle-plus"></i>, and then click <i className="fa-solid fa-floppy-disk inline_svg"></i> **Save**. Note: The test file must contain at least one true positive and one true negative test case to be approved. See the [Tests](#tests) section of this document for more information.
+    - Create a new rule and test code by clicking <i class="fa-solid fa-circle-plus"></i> **plus** icon, and then click <i className="fa-solid fa-floppy-disk inline_svg"></i> **Save**. Note: The test file must contain at least one true positive and one true negative test case to be approved. See the [Tests](#tests) section of this document for more information.
     - In the <i class="fa-solid fa-server"></i> **Library** panel, select a rule from a category in **Semgrep Registry**. Click <i className="fa-solid fa-code-branch inline_svg"></i> **Fork**,
     modify the rule or test code, and then click <i className="fa-solid fa-floppy-disk inline_svg"></i> **Save**.
 4. Click <i className="fa-solid fa-earth-americas inline_svg"></i> **Share**.
@@ -92,7 +92,7 @@ Include a rule message that provides details about the matched pattern and infor
 2. Description of why this pattern was detected. For example: logic bug, introduces a security vulnerability, bad practice.
 3. An alternative that resolves the issue. For example: Use another function, validate data first, and discard the dangerous flag.
 
-Use the YAML multiline string operator `>-` when rule messages span multiple lines. This presents the best-looking rule message on the command-line without having to worry about line wrapping or escaping the quote or backslash characters.
+Use the YAML multiline string operator `>-` when rule messages span multiple lines. This presents the best-looking rule message on the command line without having to worry about line wrapping or escaping the quote or using backslash.
 
 For an example of a good rule message, see: [this rule for Django's mark_safe](https://semgrep.dev/r?q=python.django.security.audit.avoid-mark-safe.avoid-mark-safe).
 
@@ -102,12 +102,7 @@ For an example of a good rule message, see: [this rule for Django's mark_safe](h
 
 ### Including additional details with rule metadata
 
-Rules in the Semgrep Registry require specific metadata fields that ensure consistency across the ecosystem in both Semgrep App and Semgrep CLI. These fields help users of Semgrep to identify rules in different categories such as:
-
-- High confidence security rules for CI pipelines.
-- OWASP Top 10 or CWE Top 25 rule packs.
-- Technology. For example `react` so it is easy to find `p/react` rule packs.
-- Audit rules with lower confidence intended for code auditors.
+Rules in the Semgrep Registry require specific metadata fields that ensure consistency across the ecosystem in both Semgrep App and Semgrep CLI.
 
 Nest these metadata under the `metadata` key. The following metadata are required:
 
@@ -153,15 +148,20 @@ Nest these metadata under the `metadata` key. The following metadata are require
   </tbody>
 </table>
 
-Examples of rules with full list of required metadata:
+These fields help users of Semgrep to identify rules in different categories such as:
+- High confidence security rules for CI pipelines.
+- OWASP Top 10 or CWE Top 25 rule packs.
+- Technology. For example, `react` so it is easy to find `p/react` rule packs.
+- Audit rules with lower confidence are intended for code auditors.
 
+
+Examples of rules with a full list of required metadata:
 - [High confidence JavaScript/TypeScript rule](https://semgrep.dev/playground/r/javascript.express.security.audit.express-open-redirect.express-open-redirect)
 - [Medium confidence Python rule](https://semgrep.dev/playground/r/python.lang.security.dangerous-system-call.dangerous-system-call)
 - [Low confidence C# rule](https://semgrep.dev/playground/r/csharp.lang.security.ssrf.rest-client.ssrf)
 
-Metadata example with empty data type indication values:
-
-```
+Metadata key example displaying data types:
+```yaml
   metadata:
     technology:
       - STRING
@@ -177,7 +177,7 @@ Metadata example with empty data type indication values:
     confidence: STRING
 ```
 
-Details of each field are provided in subsections below with examples:
+Details of each field are provided in the subsections below with examples.
 
 #### CWE
 
@@ -258,7 +258,7 @@ likelihood: HIGH
 
 MEDIUM likelihood rules detect a vulnerability in most circumstances. Although it can be hard for an attacker to exploit them. Also, these rules can detect part of a problem, but not the whole issue. Examples:
 
-- `taint mode sources` which reach a `taint mode sink`  but the source is something which can only be vulnerable in certain conditions e.g. OS Environment Variables, or loading from disk: https://semgrep.dev/playground/r/python.aws-lambda.security.dangerous-spawn-process.dangerous-spawn-process?editorMode=advanced
+- `taint mode sources` that reach a `taint mode sink`  but the source is something that is only vulnerable in certain conditions for example OS Environment Variables, or loading from disk: https://semgrep.dev/playground/r/python.aws-lambda.security.dangerous-spawn-process.dangerous-spawn-process?editorMode=advanced
 - `taint mode sources` with a `taint mode sink` but is missing a `taint mode sanitizer` which can introduce more false positives: https://semgrep.dev/playground/r/javascript.express.security.express-puppeteer-injection.express-puppeteer-injection?editorMode=advanced
 
 ```
@@ -316,11 +316,11 @@ impact: LOW
 
 #### Subcategory
 
-Include subcategory to explain what is the type of the rule. See the subsections below for more details.
+Include a subcategory to explain what is the type of the rule. See the subsections below for more details.
 
 ##### vuln
 
-A vulnerability rule is something that developers certainly want to resolve. For example, an SQL Injection rule which uses taint mode. Example:
+A vulnerability rule is something that developers certainly want to resolve. For example, an SQL Injection rule that uses taint mode. Example:
 
 - https://semgrep.dev/playground/r/javascript.sequelize.security.audit.sequelize-injection-express.express-sequelize-injection
 
@@ -331,7 +331,7 @@ subcategory:
 
 ##### audit
 
-An audit rule is useful for code auditors. For example, an SQL rule which finds all uses of `database.exec(...)` that can be problematic. Example:
+An audit rule is useful for code auditors. For example, an SQL rule which finds all uses of the `database.exec(...)` that can be problematic. Example:
 
 - https://semgrep.dev/playground/r/generic.html-templates.security.unquoted-attribute-var.unquoted-attribute-var?editorMode=advanced
 
@@ -351,7 +351,7 @@ subcategory:
 
 #### References
 
-References help to define specific rule packs for languages, libraries, and frameworks which are available in <a href="https://semgrep.dev/explore">Semgrep Registry</a>. See the references in the following two rules:
+References help to define specific rule packs for languages, libraries, and frameworks that are available in <a href="https://semgrep.dev/explore">Semgrep Registry</a>. See the references in the following two rules:
 
 - A rule that is finding an issue in React: https://semgrep.dev/playground/r/typescript.react.security.audit.react-href-var.react-href-var?editorMode=advanced
     ```
