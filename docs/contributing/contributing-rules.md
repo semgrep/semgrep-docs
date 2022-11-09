@@ -49,6 +49,10 @@ Find more about the Semgrep Registry by reading the [Rule writing](#rule-writing
 
 ## Writing a rule for Semgrep Registry
 
+### Understanding rule namespacing
+
+The namespacing format for contributing rules in the [Semgrep Registry](https://github.com/returntocorp/semgrep-rules) is `<language>/<framework>/<category>/$MORE`. If the rule does not belong to a particular framework, add it to the language directory, which uses the word `lang` in place of the `<framework>` - `<language>/<lang>`.
+
 ### Tests
 
 Include a test file to accompany new rules. A good test file includes the following:
@@ -79,10 +83,6 @@ var numdata = 1;
 ```
 
 For more information, visit [Testing rules](https://semgrep.dev/docs/writing-rules/testing-rules/).
-
-### Understanding rule namespacing
-
-The namespacing format for contributing rules in the [Semgrep Registry](https://github.com/returntocorp/semgrep-rules) is `<language>/<framework>/<category>/$MORE`. If the rule does not belong to a particular framework, add it to the language directory, which uses the word `lang` in place of the `<framework>` - `<language>/<lang>`.
 
 ### Rule messages
 
@@ -146,7 +146,7 @@ Nest these metadata under the `metadata` key. The following metadata are require
   </tr>
   <tr>
    <td>References</td>
-   <td>Any additional information that gives more context to the user.</td>
+   <td>Any additional information that gives more context to the user of the rule. This helps to specify rule packs in Semgrep Registry.</td>
    <td><code>references:
       - react</code></td>
   </tr>
