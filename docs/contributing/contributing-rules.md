@@ -140,13 +140,15 @@ Nest these metadata under the `metadata` key. The following metadata are require
   </tr>
   <tr>
    <td>Subcategory</td>
-   <td><code>HIGH</code>, <code>MEDIUM</code>, <code>LOW</code></td>
-   <td><code>impact: HIGH</code></td>
+   <td><code>vuln</code>, <code>audit</code>, <code>guardrail</code></td>
+   <td><code>subcategory:
+  - vuln</code></td>
   </tr>
   <tr>
    <td>References</td>
-   <td><code>HIGH</code>, <code>MEDIUM</code>, <code>LOW</code></td>
-   <td><code>impact: HIGH</code></td>
+   <td>Any additional information that gives more context to the user.</td>
+   <td><code>references:
+      - react</code></td>
   </tr>
   </tbody>
 </table>
@@ -156,6 +158,8 @@ Examples of rules with full list of required metadata:
 - [High confidence JavaScript/TypeScript rule](https://semgrep.dev/playground/r/javascript.express.security.audit.express-open-redirect.express-open-redirect)
 - [Medium confidence Python rule](https://semgrep.dev/playground/r/python.lang.security.dangerous-system-call.dangerous-system-call)
 - [Low confidence C# rule](https://semgrep.dev/playground/r/csharp.lang.security.ssrf.rest-client.ssrf)
+
+Metadata example with empty data type indication values:
 
 ```
   metadata:
@@ -172,6 +176,7 @@ Examples of rules with full list of required metadata:
     impact: STRING
     confidence: STRING
 ```
+
 Details of each field are provided in subsections below with examples:
 
 #### CWE
@@ -207,7 +212,7 @@ HIGH confidence rules can use Semgrep advanced features such as `metavariable-co
 - https://semgrep.dev/playground/r/javascript.jose.security.jwt-hardcode.hardcoded-jwt-secret?editorMode=advanced
 
 ```
-confidence: HIGH 
+confidence: HIGH
 ```
 
 ##### MEDIUM
@@ -218,7 +223,7 @@ MEDIUM confidence rules can use Semgrep advanced features such as `metavariable-
 - https://semgrep.dev/playground/r/javascript.express.security.express-xml2json-xxe.express-xml2json-xxe?editorMode=advanced
 
 ```
-confidence: MEDIUM 
+confidence: MEDIUM
 ```
 
 ##### LOW
@@ -229,7 +234,7 @@ Low confidence rules generally find something which appears to be dangerous whil
 - https://semgrep.dev/playground/r/javascript.browser.security.dom-based-xss.dom-based-xss?editorMode=advanced
 
 ```
-confidence: LOW 
+confidence: LOW
 ```
 
 #### Likelihood
@@ -246,7 +251,7 @@ HIGH likelihood rules specify a very high concern that the vulnerability can be 
 - `taint mode sources` which reach a `taint mode sink` with `taint mode sanitizers`
 
 ```
-likelihood: HIGH 
+likelihood: HIGH
 ```
 
 ##### MEDIUM
@@ -257,7 +262,7 @@ MEDIUM likelihood rules detect a vulnerability in most circumstances. Although i
 - `taint mode sources` with a `taint mode sink` but is missing a `taint mode sanitizer` which can introduce more false positives: https://semgrep.dev/playground/r/javascript.express.security.express-puppeteer-injection.express-puppeteer-injection?editorMode=advanced
 
 ```
-likelihood: MEDIUM 
+likelihood: MEDIUM
 ```
 
 ##### LOW
@@ -268,7 +273,7 @@ LOW likelihood rules tend to find something dangerous, but are not evaluating wh
 - A rule which uses `search mode` to find the use of a dangerous function for example: `trustAsHTML`, `bypassSecurityTrust()`, `eval()`, or `innerHTML`: https://semgrep.dev/playground/r/javascript.browser.security.dom-based-xss.dom-based-xss?editorMode=advanced
 
 ```
-likelihood: LOW 
+likelihood: LOW
 ```
 
 #### Impact
@@ -284,7 +289,7 @@ HIGH impact rules can detect extremely damaging vulnerabilities, such as injecti
 - https://semgrep.dev/playground/r/ruby.rails.security.audit.xxe.xml-external-entities-enabled.xml-external-entities-enabled?editorMode=advanced
 
 ```
-impact: HIGH 
+impact: HIGH
 ```
 
 ##### MEDIUM
@@ -295,7 +300,7 @@ MEDIUM impact rules are issues that are less likely to lead to full system compr
 - https://semgrep.dev/playground/r/python.flask.security.injection.ssrf-requests.ssrf-requests?editorMode=advanced
 
 ```
-impact: MEDIUM 
+impact: MEDIUM
 ```
 
 ##### LOW
@@ -320,7 +325,7 @@ A vulnerability rule is something that developers certainly want to resolve. For
 - https://semgrep.dev/playground/r/javascript.sequelize.security.audit.sequelize-injection-express.express-sequelize-injection
 
 ```
-subcategory:          
+subcategory:
   - vuln
 ```
 
@@ -340,29 +345,24 @@ subcategory:
 A guardrail rule, is useful for companies writing custom rules. For example, finding all usages to non-standard XML parsing libraries within the company. The rule can also bring a message that a developer can use only a company-approved library.
 
 ```
-subcategory:          
+subcategory:
   - guardrail
 ```
 
 #### References
 
-References help to define specific rule packs for languages, libraries, and frameworks which are available on our <a href="https://semgrep.dev/explore">Semgrep Registry</a>.
+References help to define specific rule packs for languages, libraries, and frameworks which are available in <a href="https://semgrep.dev/explore">Semgrep Registry</a>. See the references in the following two rules:
 
-For example, writing a rule to find an issue in react, you can include:
-- https://semgrep.dev/playground/r/typescript.react.security.audit.react-href-var.react-href-var?editorMode=advanced
-```
-references: 
-  - react
-```
-
-Another example, writing a rule to find an issue in Express, you can include:
-
-- https://semgrep.dev/playground/r/javascript.sequelize.security.audit.sequelize-injection-express.express-sequelize-injection
-
-```
-references: 
-  - express
-```
+- A rule that is finding an issue in React: https://semgrep.dev/playground/r/typescript.react.security.audit.react-href-var.react-href-var?editorMode=advanced
+    ```
+    references:
+      - react
+    ```
+- A rule that is detecting an issue in Express: https://semgrep.dev/playground/r/javascript.sequelize.security.audit.sequelize-injection-express.express-sequelize-injection
+    ```
+    references:
+      - express
+    ```
 
 ### Rule quality checker
 
