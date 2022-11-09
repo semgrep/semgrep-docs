@@ -109,7 +109,7 @@ The following table displays differences between Semgrep and Semgrep Supply Chai
 
 ## Language support
 
-Refer to [Supported languages](/docs/semgrep-sc/supply-chain-supported-languages) to see all languages supported by Semgrep Supply Chain.
+Refer to [Supported languages](/docs/supported-languages#semgrep-supply-chain) to see all languages supported by Semgrep Supply Chain.
 
 ## Limitations of Semgrep Supply Chain scans
 
