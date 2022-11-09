@@ -54,7 +54,8 @@ Every rule submitted to Semgrep Registry must include:
 - Test file. See [Tests](#tests) for more details. Test file must include:
     - Code that Semgrep detects using the rule.
     - Code that is clearly shown as `ok` and Semgrep should not detect it.
-- Rule message, for more information see [Rule messages](#rule-messages). 
+- Rule message, for more information see [Rule messages](#rule-messages).
+- Severity TODO
 - Metadata fields. See [Including additional details with rule metadata](#including-additional-details-with-rule-metadata) for more details.
 
 ## Writing a rule for Semgrep Registry
