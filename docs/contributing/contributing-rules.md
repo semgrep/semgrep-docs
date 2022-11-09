@@ -161,23 +161,6 @@ Examples of rules with a full list of required metadata:
 - [Medium confidence Python rule](https://semgrep.dev/playground/r/python.lang.security.dangerous-system-call.dangerous-system-call)
 - [Low confidence C# rule](https://semgrep.dev/playground/r/csharp.lang.security.ssrf.rest-client.ssrf)
 
-Metadata key example displaying data types:
-```yaml
-  metadata:
-    technology:
-      - STRING
-    references:
-      - https://STRING
-    cwe:
-      - "CWE-NUMBER: STRING"
-    category: security
-    subcategory:
-      - STRING
-    likelihood: STRING
-    impact: STRING
-    confidence: STRING
-```
-
 Details of each field are provided in the subsections below with examples.
 
 #### CWE
