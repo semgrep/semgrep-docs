@@ -10,7 +10,7 @@ description: >-
 import MoreHelp from "/src/components/MoreHelp"
 import TOCInline from "@theme/TOCInline"
 
-# Frequently Asked Questions
+# Frequently asked questions
 
 <TOCInline toc={toc} />
 
