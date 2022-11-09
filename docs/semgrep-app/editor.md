@@ -214,7 +214,6 @@ Guidelines for faster rule acceptance:
 
 To **create a PR** from the Editor:
 
-TODO modularize
 
 1. Click <i className="fa-solid fa-earth-americas inline_svg"></i> **Share**.
 1. (Optional) Click <i className="fa-solid fa-cloud-arrow-up inline_svg"></i> **Publish to Registry**.
