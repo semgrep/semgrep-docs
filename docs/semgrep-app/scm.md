@@ -6,7 +6,7 @@ description: "Integrate Semgrep into self-hosted and custom SCM tools such as Gi
 hide_title: true
 tags:
     - Semgrep App
-    - Enterprise Tier
+    - Team & Enterprise Tier
 ---
 
 import MoreHelp from "/src/components/MoreHelp"
