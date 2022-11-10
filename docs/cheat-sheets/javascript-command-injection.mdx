@@ -3,10 +3,11 @@ slug: javascript-command-injection
 ---
 
 import LinkToRegistryRule from "/src/components/LinkToRegistryRule"
+import CommandInjectionIntro from "/src/components/concept/_command-injection-intro.mdx"
 
 # Command injection prevention for JavaScript
 
-This is command injection prevention cheat sheet by r2c. It contains code patterns of potential ways to run an OS command or arbitrary code in an application. Instead of scrutinizing code for exploitable vulnerabilities, the recommendations in this cheat sheet pave a safe road for developers that mitigates the possibility of command injection in your code. By following these recommendations, you can be reasonably sure your code is free of command injection.
+<CommandInjectionIntro />
 
 #### Check your project for these conditions:
 
@@ -86,51 +87,3 @@ Use `shell: false` instead.
 #### Semgrep rule
 
 <LinkToRegistryRule ruleId="javascript.lang.security.audit.spawn-shell-true.spawn-shell-true" />
-
-## 2. Executing or evaluating code
-
-### 2.A. running code with `vm` module
-
-The `vm` module enables compiling and running code within V8 Virtual Machine contexts. The `vm` module is not a security mechanism. Do not use it to run untrusted code. If code passed to vm functions is controlled by user input it could result in command injection. 
-
-Example:
-
-```javascript
-vm.runInContext(...)
-...
-```
-
-#### References
-
-- [`vm` module documentation](https://nodejs.org/dist/latest-v14.x/docs/api/vm.html)
-
-#### Mitigation
-
-Do not let user input in `vm` functions.
-
-#### Semgrep rule
-
-<LinkToRegistryRule ruleId="javascript.lang.security.audit.vm-injection.vm-runincontext-context-injection" />
-
-### 2.B. eval(...)
-
-The `eval()` function evaluates JavaScript code represented as a string. Executing JavaScript from a string is an enormous security risk. It is far too easy for a bad actor to run arbitrary code when you use `eval()`. 
-
-Example:
-
-```javascript
-eval()
-...
-```
-
-#### References
-
-- [Never use eval()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/eval#never_use_eval!)
-
-#### Mitigation
-
-TODO Ensure evaluated content is not definable by external sources. TODO(1)
-
-#### Semgrep rule
-
-<LinkToRegistryRule ruleId="javascript.lang.security.detect-eval-with-expression.detect-eval-with-expression" />

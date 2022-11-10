@@ -109,6 +109,16 @@ module.exports = {
                 items: [
                     {
                         type: 'category',
+                        label: 'Code injection',
+                        items: [
+                            'cheat-sheets/java-code-injection',
+                            'cheat-sheets/javascript-code-injection',
+                            'cheat-sheets/python-code-injection',
+                            'cheat-sheets/ruby-code-injection'
+                        ]
+                    },
+                    {
+                        type: 'category',
                         label: 'Command injection',
                         items: [
                             'cheat-sheets/go-command-injection',

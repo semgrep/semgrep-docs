@@ -1,0 +1,58 @@
+---
+slug: javascript-code-injection
+---
+
+import LinkToRegistryRule from "/src/components/LinkToRegistryRule"
+import CodeInjectionIntro from "/src/components/concept/_code-injection-intro.mdx"
+
+# Code injection prevention for JavaScript
+
+<CodeInjectionIntro />
+
+## 1. Executing or evaluating code
+
+### 1.A. running code with `vm` module
+
+The `vm` module enables compiling and running code within V8 Virtual Machine contexts. The `vm` module is not a security mechanism. Do not use it to run untrusted code. If code passed to vm functions is controlled by user input it could result in command injection. 
+
+Example:
+
+```javascript
+vm.runInContext(...)
+...
+```
+
+#### References
+
+- [`vm` module documentation](https://nodejs.org/dist/latest-v14.x/docs/api/vm.html)
+
+#### Mitigation
+
+Do not let user input in `vm` functions.
+
+#### Semgrep rule
+
+<LinkToRegistryRule ruleId="javascript.lang.security.audit.vm-injection.vm-runincontext-context-injection" />
+
+### 1.B. eval(...)
+
+The `eval()` function evaluates JavaScript code represented as a string. Executing JavaScript from a string is an enormous security risk. It is far too easy for a bad actor to run arbitrary code when you use `eval()`. 
+
+Example:
+
+```javascript
+eval()
+...
+```
+
+#### References
+
+- [Never use eval()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/eval#never_use_eval!)
+
+#### Mitigation
+
+TODO Ensure evaluated content is not definable by external sources. TODO(1)
+
+#### Semgrep rule
+
+<LinkToRegistryRule ruleId="javascript.lang.security.detect-eval-with-expression.detect-eval-with-expression" />

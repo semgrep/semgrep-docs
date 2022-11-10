@@ -1,0 +1,35 @@
+---
+slug: ruby-code-injection
+---
+
+import LinkToRegistryRule from "/src/components/LinkToRegistryRule"
+import CodeInjectionIntro from "/src/components/concept/_code-injection-intro.mdx"
+
+# Code injection prevention for Ruby
+
+<CodeInjectionIntro />
+
+## 1. Evaluating code
+
+## 1.A. Evaluating code with `eval`
+
+Evaluating code can be dangerous if dynamic content is used as an input. If this content is input that originates from outside the program, this can be a code injection vulnerability. 
+
+Example:
+
+```ruby
+eval(...)
+...
+```
+
+### References
+
+- [eval() documentation](https://www.rubydoc.info/stdlib/core/Kernel:eval)
+
+### Mitigation
+
+Ensure evaluated content is not definable by external sources. TODO(1)
+
+### Semgrep rule
+
+<LinkToRegistryRule ruleId="ruby.lang.security.no-eval.ruby-eval" />
