@@ -54,10 +54,6 @@ Semgrep App detects the framework and language when scanning a project and only 
 5. Drag the card and drop it on the relevant column.
 6. Once you are done adding rules and rulesets, click **Save changes**.
 
-:::tip
-Discover suggested rulesets based on your projects's frameworks and technologies through **rule recommendations**. These recommendations appear when opening the drawer, enabling the user to choose from a curated list. Only rulesets explicitly added to a column will be included in a scan. To view these **rule recommendations**, see [Running a scan](../getting-started-with-semgrep-app/#running-a-scan).
-:::
-
 ### From Semgrep Registry
 
 1. Click a rule or ruleset in [Semgrep Registry](https://semgrep.dev/explore).

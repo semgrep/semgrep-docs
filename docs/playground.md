@@ -190,12 +190,12 @@ To embed a rule:
 ![Screenshot of the embedded Playground in its own tab](/img/playground-widget.png "Embedded playground in its own tab")
 5. In the following snippet, replace the `src` placeholder value with the previously-created **URL reference**:
 
-```
+```html
  <iframe title="Semgrep example no prints" src="URL_REFERENCE" width="100%" height="432" frameborder="0"></iframe>
 ```
 Our example's finished result is:
 
-```
+```html
 <iframe title="Semgrep example no prints" src="https://semgrep.dev/embed/editor?snippet=ievans:print-to-logger" width="100%" height="432" frameborder="0"></iframe>
 ```
 

@@ -311,3 +311,10 @@ a.navbar__item.navbar__link:hover {
   content: "|";
   margin-left: 1rem;
 }
+
+
+/* customized generated index cards */
+
+h2[class*="cardTitle_"][class~="text--truncate"], p[class*="cardDescription_"][class~="text--truncate"] {
+  white-space: normal;
+}

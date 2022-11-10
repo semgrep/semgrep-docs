@@ -200,6 +200,7 @@ module.exports = {
           { from: "/semgrep-app/role-based-access-control", to: "/semgrep-app/user-management/" },
           { from: "/cli-usage/", to: "/cli-reference/" },
           { from: "/writing-rules/data-flow", to: "/writing-rules/data-flow/data-flow-overview/" },
+          { from: "/writing-rules/data-flow/overview/", to: "/writing-rules/data-flow/data-flow-overview/"},
           { from: "/release-notes/", to: "/release-notes/introduction/" },
           { from: "/rule-updates/", to: "/release-notes/rule-updates/" },
           { from: "/experiments/overview/", to: "/writing-rules/experiments/introduction/" },
@@ -214,7 +215,8 @@ module.exports = {
           { from: "/experiments/metavariable-analysis/", to: "/writing-rules/experiments/metavariable-analysis/" },
           { from: "/experiments/multiple-focus-metavariables/", to: "/writing-rules/experiments/multiple-focus-metavariables/" },
           { from: "/experiments/display-propagated-metavariable/", to: "/writing-rules/experiments/display-propagated-metavariable/" },
-          { from: "/experiments/deprecated-experiments/", to: "/writing-rules/experiments/deprecated-experiments/" }
+          { from: "/experiments/deprecated-experiments/", to: "/writing-rules/experiments/deprecated-experiments/" },
+          { from: "/semgrep-sc/supply-chain-supported-languages/", to: "/supported-languages/" }
         ]
       }
     ],

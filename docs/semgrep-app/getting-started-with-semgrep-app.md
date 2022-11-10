@@ -122,7 +122,7 @@ Scanning is Semgrep's primary operation. When you first sign into Semgrep App, i
 
 Semgrep App enables users to choose what findings prevent a pull or merge request (PR or MR) from merging into the repository. Setting these blocking and non-blocking rules is achieved through the Rule Board.
 
-### Scanning a new project 
+### Scanning a new project
 
 A **project** is a repository from either:
 
@@ -264,35 +264,34 @@ To ensure that your GitHub repository is **detected** by Semgrep App:
 
 ### Running a scan
 
-By default, scans are triggered through the following parameters, which are defined during a project's initial setup in Semgrep App:
+By default, Semgrep scans are defined during a project's initial setup in Semgrep App. Semgrep scans are triggered by the following parameters:
 
-* Either a daily or weekly schedule.
-* Upon every PR or MR.
-* Upon every update to the `semgrep.yml` file.
+* Daily or weekly schedule.
+* After every PR or MR.
+* Update to the `semgrep.yml` file (dependent on your CI provider).
 
-To change these scan parameters, either:
 
-* Edit the `semgrep.yml` file manually.
+To change these scan parameters:
 
-* Remove the project and redo the steps described in Adding a project section.
+* Manually edit the `semgrep.yml` file.
+* Remove the project and redo the steps described in [Scanning a new project](#scanning-a-new-project) section.
 
-Additional scan parameters include:
+Set up additional scan parameters in your organization's [Projects](https://semgrep.dev/orgs/-/projects/-/repo-to-scan) page.
+
+To see additional scan parameters:
+
+1. Click **Projects** on the left sidebar.
+2. Select the name of the project to modify, and then click the respective <i class="fa-solid fa-gear"></i> **cogwheel** icon in the Settings column.
+3. Make edits as necessary.
+
+This page enables you to configure the following scan parameters:
 
 <dl>
-    <dt>Rule recommendation</dt>
-    <dd>Select this toggle to receive rule recommendations in the Rule Board based on the framework and language of the repository. Rule recommendations are only suggestions and will not be included in a scan unless you add the recommendations into a rule board.</dd>
     <dt>Autofix</dt>
     <dd>Select this toggle to enable autofix, which creates suggestions in addition to PR or MR comments. For example, a rule may suggest using a function such as <code>logging.debug()</code> instead of <code>print()</code>.</dd>
     <dt>Path ignores</dt>
 	<dd>Paths and files specified here are not scanned by Semgrep App.</dd>
 </dl>
-
-To see additional scan parameters:
-
-1. Click **Projects **on the left sidebar.
-2. Select the name of the project to modify.
-3. Make edits as necessary.
-
 
 ### Adding rules and rulesets to scan with
 
