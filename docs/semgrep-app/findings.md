@@ -177,6 +177,11 @@ Triage your Semgrep App findings displayed as comments in GitHub PRs by replying
 - GitHub Semgrep App installed in the repository that is also added as a project in Semgrep App. For more information, see [Getting started with Semgrep in continuous integration (CI)](/semgrep-ci/overview/).
 :::
 
+To enable triage through comments, follow these steps:
+
+1. In Semgrep App, go to your organization's [Settings](https://semgrep.dev/orgs/-/projects/-/repo-to-scan) page.
+2. Enable the **Triage via comment** toggle.
+
 To triage a finding in GitHub, follow these steps:
 
 1. Find an open comment created by Semgrep App in GitHub PR:

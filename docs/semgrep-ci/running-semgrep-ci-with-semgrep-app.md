@@ -332,7 +332,7 @@ Hyperlinks enable you to view the code that generated the finding from within yo
 
 To **enable hyperlinks**, additional environment variables must be added into your CI configuration file. The following example provides sample values that the environment variables accept. You can substitute these values with variables following your CI provider's syntax.
 
-```
+```sh
 SEMGREP_REPO_NAME="foo/bar"
 SEMGREP_REPO_URL="https://github.com/foo/bar"
 SEMGREP_BRANCH="feature/add-new-bugs"
@@ -353,7 +353,7 @@ To receive PR or MR comments in your repository, follow the steps to enable hype
 
 By default, Semgrep times out after 30 minutes. To **set a custom timeout** for the Semgrep job, set the `SEMGREP_TIMEOUT` environment variable in seconds. For example:
 
-```
+```sh
 SEMGREP_TIMEOUT="300"
 ```
 

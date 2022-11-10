@@ -105,7 +105,7 @@ The following guides are now available for Semgrep Supply Chain:
 - [Ignoring lockfiles and dependencies](/semgrep-sc/ignoring-lockfiles-dependencies/) - Provides commands to fine-tune what files should not be scanned.
 
 The following references are available for Semgrep Supply Chain:
-- [Supported languages](/semgrep-sc/supply-chain-supported-languages/) - All languages supported by Semgrep Supply Chain and their maturity levels.
+- [Supported languages](/docs/supported-languages#semgrep-supply-chain) - All languages supported by Semgrep Supply Chain and their maturity levels.
 - [Glossary](/semgrep-sc/sc-glossary/) - A list of terms related to software composition analysis and how Semgrep Supply Chain relates to those terms
 
 #### Semgrep App
