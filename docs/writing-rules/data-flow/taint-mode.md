@@ -149,5 +149,5 @@ The following example demonstrates the use of source and sink metavariable unifi
 <iframe src="https://semgrep.dev/embed/editor?snippet=obRd" border="0" frameBorder="0" width="100%" height="432"></iframe>
 
 :::info
-Semgrep used to have a different behavior, for more information, see [release notes for version 0.87.0](https://semgrep.dev/docs/release-notes/#version-0870).
+Semgrep used to have a different behavior, for more information, see [release notes for version 0.87.0](/release-notes/april-2022/#semgrep-cli-and-semgrep-in-ci).
 :::

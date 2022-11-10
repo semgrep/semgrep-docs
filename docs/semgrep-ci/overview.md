@@ -66,7 +66,7 @@ The following table displays what features are available for manual (without Sem
 
 *For teams larger than 20 developers, see the [Team or Enterprise tiers](/docs/semgrep-app/pricing-and-billing).
 
-## Setting up a CI job with Semgrep App in two minutes
+## Setting up a CI job with Semgrep App
 
 The following video walks you through setting Semgrep in your CI through Semgrep App.
 

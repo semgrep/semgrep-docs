@@ -107,11 +107,7 @@ To add a Semgrep configuration file in your GitHub Actions pipeline:
             # Generate a token from Semgrep App > Settings
             # and add it to your GitHub secrets.
             SEMGREP_APP_TOKEN: ${{ secrets.SEMGREP_APP_TOKEN }}
-  
-            # Uncomment SEMGREP_TIMEOUT to set this job's timeout (in seconds):
-            # Default timeout is 1800 seconds (30 minutes).
-            # Set to 0 to disable the timeout.
-            # SEMGREP_TIMEOUT: 300
+
   ```
 
 </TabItem>
@@ -154,11 +150,6 @@ To add a Semgrep configuration file in your GitHub Actions pipeline:
           env:
              # Add the rules that Semgrep uses by setting the SEMGREP_RULES environment variable. 
              SEMGREP_RULES: p/default # more at semgrep.dev/explore
-
-             # Uncomment SEMGREP_TIMEOUT to set this job's timeout (in seconds):
-             # Default timeout is 1800 seconds (30 minutes).
-             # Set to 0 to disable the timeout.
-             # SEMGREP_TIMEOUT: 300
   ```
 </TabItem>
 </Tabs>
@@ -207,17 +198,12 @@ To add a Semgrep configuration file in your GitHub Actions pipeline:
         # Fetch project source with GitHub Actions Checkout.
         - uses: actions/checkout@v3
         # Run the "semgrep ci" command on the command line of the docker image.
-        - run: semgrep ci
+        - run: semgrep ci --sarif --output=semgrep.sarif
           env:
             # Connect to Semgrep App through your SEMGREP_APP_TOKEN.
             # Generate a token from Semgrep App > Settings
             # and add it to your GitHub secrets.
             SEMGREP_APP_TOKEN: ${{ secrets.SEMGREP_APP_TOKEN }}
-  
-            # Uncomment SEMGREP_TIMEOUT to set this job's timeout (in seconds):
-            # Default timeout is 1800 seconds (30 minutes).
-            # Set to 0 to disable the timeout.
-            # SEMGREP_TIMEOUT: 300
   
         - name: Upload SARIF file for GitHub Advanced Security Dashboard
           uses: github/codeql-action/upload-sarif@v2
@@ -261,15 +247,11 @@ To add a Semgrep configuration file in your GitHub Actions pipeline:
         # Fetch project source with GitHub Actions Checkout.
         - uses: actions/checkout@v3
         # Run the "semgrep ci" command on the command line of the docker image.
-        - run: semgrep ci
+        - run: semgrep ci --sarif --output=semgrep.sarif
           env:
              # Add the rules that Semgrep uses by setting the SEMGREP_RULES environment variable. 
              SEMGREP_RULES: p/default # more at semgrep.dev/explore
 
-             # Uncomment SEMGREP_TIMEOUT to set this job's timeout (in seconds):
-             # Default timeout is 1800 seconds (30 minutes).
-             # Set to 0 to disable the timeout.
-             # SEMGREP_TIMEOUT: 300
         - name: Upload SARIF file for GitHub Advanced Security Dashboard
           uses: github/codeql-action/upload-sarif@v2
           with:
@@ -326,9 +308,6 @@ To add a Semgrep configuration snippet in your GitLab CI/CD pipeline:
     # Never fail the build due to findings on pushes.
     # Instead, just collect findings for semgrep.dev/manage/findings
     #   SEMGREP_AUDIT_ON: push
-
-    # Change job timeout (default is 1800 seconds; set to 0 to disable)
-    #   SEMGREP_TIMEOUT: 300
   
     # Receive inline MR comments (requires Semgrep App account)
     # Setup instructions: 
@@ -363,9 +342,6 @@ To add a Semgrep configuration snippet in your GitLab CI/CD pipeline:
     # Never fail the build due to findings on pushes.
     # Instead, just collect findings for semgrep.dev/manage/findings
     #   SEMGREP_AUDIT_ON: push
-
-    # Change job timeout (default is 1800 seconds; set to 0 to disable)
-    #   SEMGREP_TIMEOUT: 300
   ```
 
 </TabItem>
@@ -409,9 +385,6 @@ To add a Semgrep configuration snippet in your GitLab CI/CD pipeline:
     # Never fail the build due to findings on pushes.
     # Instead, just collect findings for semgrep.dev/manage/findings
     #   SEMGREP_AUDIT_ON: push
-
-    # Change job timeout (default is 1800 seconds; set to 0 to disable)
-    #   SEMGREP_TIMEOUT: 300
   
     # Receive inline MR comments (requires Semgrep App account)
     # Setup instructions: 
@@ -455,9 +428,6 @@ To add a Semgrep configuration snippet in your GitLab CI/CD pipeline:
     # Never fail the build due to findings on pushes.
     # Instead, just collect findings for semgrep.dev/manage/findings
     #   SEMGREP_AUDIT_ON: push
-
-    # Change job timeout (default is 1800 seconds; set to 0 to disable)
-    #   SEMGREP_TIMEOUT: 300
   
     # Run the "semgrep ci" command on the command line of the docker image and send findings
     # to GitLab SAST.
@@ -504,12 +474,6 @@ This code snippet uses Jenkins declarative syntax.
         // Uncomment the following line to scan changed 
         // files in PRs or MRs (diff-aware scanning): 
         // SEMGREP_BASELINE_REF = "main"
-  
-        // Optional:
-        // Uncomment SEMGREP_TIMEOUT to set this job's timeout (in seconds).
-        // Default timeout is 1800 seconds (30 minutes).
-        // Set to 0 to disable the timeout.
-        // SEMGREP_TIMEOUT = "300"
 
         // Troubleshooting:
 
@@ -553,12 +517,6 @@ This code snippet uses Jenkins declarative syntax.
         // Uncomment the following line to scan changed 
         // files in PRs or MRs (diff-aware scanning): 
         // SEMGREP_BASELINE_REF = "main"
-  
-        // Optional:
-        // Uncomment SEMGREP_TIMEOUT to set this job's timeout (in seconds).
-        // Default timeout is 1800 seconds (30 minutes).
-        // Set to 0 to disable the timeout.
-        // SEMGREP_TIMEOUT = "300"
       }
       stages {
         stage('Semgrep-Scan') {
@@ -607,7 +565,7 @@ These steps can also be performed through BitBucket's UI wizard. This UI wizard 
       - parallel:
         - step:
             name: 'Run Semgrep scan with current branch'
-            deployment: dev
+            deployment: dev # https://support.atlassian.com/bitbucket-cloud/docs/set-up-and-monitor-deployments/
             image: returntocorp/semgrep
             script:
               # The following variables are required to set up a Semgrep App-connected scan:
@@ -615,13 +573,8 @@ These steps can also be performed through BitBucket's UI wizard. This UI wizard 
 
               # Uncomment the following line to scan changed 
               # files in PRs or MRs (diff-aware scanning): 
-              # - export SEMGREP_BASELINE_REF = "main"
-
-              # Optional:
-              # Uncomment SEMGREP_TIMEOUT to set this job's timeout (in seconds).
-              # Default timeout is 1800 seconds (30 minutes).
-              # Set to 0 to disable the timeout.
-              # - export SEMGREP_TIMEOUT = "300"
+              # - export SEMGREP_BASELINE_REF = "origin/main"
+              # - git fetch origin "+refs/heads/*:refs/remotes/origin/*"
 
               # Troubleshooting:
 
@@ -663,12 +616,6 @@ These steps can also be performed through BitBucket's UI wizard. This UI wizard 
               # Uncomment the following line to scan changed 
               # files in PRs or MRs (diff-aware scanning): 
               # - export SEMGREP_BASELINE_REF = "main"
-
-              # Optional:
-              # Uncomment SEMGREP_TIMEOUT to set this job's timeout (in seconds).
-              # Default timeout is 1800 seconds (30 minutes).
-              # Set to 0 to disable the timeout.
-              # - export SEMGREP_TIMEOUT = "300"
 
               - semgrep ci
   ```
@@ -724,10 +671,6 @@ jobs:
       SEMGREP_REPO_NAME: '$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME'
       SEMGREP_REPO_URL: << pipeline.project.git_url >>
       SEMGREP_BRANCH: << pipeline.git.branch >>
-
-
-    # Change job timeout (default is 1800 seconds; set to 0 to disable)
-    #   SEMGREP_TIMEOUT: 300
 
     docker:
       - image: returntocorp/semgrep
