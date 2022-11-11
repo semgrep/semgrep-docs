@@ -55,6 +55,7 @@ Every rule submitted to Semgrep Registry must include:
     - Code that Semgrep detects using the rule.
     - Code that is clearly shown as `ok` and Semgrep should not detect it.
 - Rule message, for more information see [Rule messages](#rule-messages).
+- languages TODO
 - Severity TODO
 - Metadata fields. See [Including additional details with rule metadata](#including-additional-details-with-rule-metadata) for more details.
 
@@ -161,12 +162,22 @@ Nest these metadata under the `metadata` key. The following metadata are require
   </td>
   </tr>
   <tr>
-   <td>References</td>
+   <td>Technology</td>
    <td>Any additional information that gives more context to the user of the rule. This helps to specify rulesets in Semgrep Registry.</td>
    <td>
      <pre>
-        references:<br></br>
+        technology:<br></br>
         - react
+     </pre>
+   </td>
+  </tr>
+  <tr>
+   <td>References</td>
+   <td>Any additional information that gives more context to the user of the rule. This helps developers understand the issue and how to fix it.</td>
+   <td>
+     <pre>
+        references:<br></br>
+        - https://owasp.org/Top10/A04_2021-Insecure_Design/
      </pre>
    </td>
   </tr>
