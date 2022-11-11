@@ -50,7 +50,7 @@ Find more about the Semgrep Registry by reading the [Rule writing](#rule-writing
 
 Every rule submitted to Semgrep Registry must include:
 
-- Rule ID - `ruleid`. Rule ID is created automatically by Semgrep App, but include it if you are contributing solely through GitHub without Semgrep App.
+- Rule ID is created automatically by Semgrep App, but include it if you are contributing solely through GitHub without Semgrep App. Use a meaningful name for the rule ID. Example: `- id: detect-angular-sce-disabled`
 - Test file. See [Tests](#tests) for more details. Test file must include:
     - Code that Semgrep detects using the rule.
     - Code that is clearly shown as `ok` and Semgrep should not detect it.
