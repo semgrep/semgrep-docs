@@ -50,14 +50,27 @@ Find more about the Semgrep Registry by reading the [Rule writing](#rule-writing
 
 Every rule submitted to Semgrep Registry must include:
 
-- Rule ID is created automatically by Semgrep App, but include it if you are contributing solely through GitHub without Semgrep App. Use a meaningful name for the rule ID. Example: `- id: detect-angular-sce-disabled`
-- Test file. See [Tests](#tests) for more details. Test file must include:
-    - Code that Semgrep detects using the rule.
-    - Code that is clearly shown as `ok` and Semgrep should not detect it.
-- Rule message, for more information see [Rule messages](#rule-messages).
-- languages TODO
-- Severity TODO
-- Metadata fields. See [Including additional details with rule metadata](#including-additional-details-with-rule-metadata) for more details.
+<dl>
+    <dt>Rule ID</dt>
+    <dd>Rule ID is created automatically by Semgrep App, but include it if you are contributing solely through GitHub without Semgrep App. Use a meaningful name for the rule ID. Example: <code>- id: detect-angular-sce-disabled</code>.
+    </dd>
+    <dt>Test file</dt>
+    <dd>Test file in the language that the rule is targeting. See <a href="#tests"> Tests</a> for more details.</dd>
+    <dt>Rule message</dt>
+    <dd>Include details about the matched pattern and inform about mitigation of any related issues. See <a href="#rule-messages"> Rule messages</a> for more details.</dd>
+    <dt>Languages</dt>
+    <dd>Specify for which languages or language is the rule meant. For example:
+    <pre>
+    languages:<br />
+    - javascript<br />
+    - typescript
+    </pre>
+    </dd>
+    <dt>Severity</dt>
+    <dd>TODO</dd>
+    <dt>Metadata fields</dt>
+    <dd>Include metadata that help to evaluate various parameters of your rule. See <a href="#including-additional-details-with-rule-metadata"> Including additional details with rule metadata</a> where you can find a table with all required metadata and details in related sections below.</dd>
+</dl>
 
 ## Writing a rule for Semgrep Registry
 
@@ -67,7 +80,7 @@ The namespacing format for contributing rules in the [Semgrep Registry](https://
 
 ### Tests
 
-Include a test file to accompany new rules. A good test file includes the following:
+Include a test file in the language that your rule is targeting. A test file includes the following:
 
 - At least one test where the rule detects a finding. This is called a true positive finding.
 - At least one test where the rule does **not** detect a finding. This is called a true negative finding.
@@ -77,9 +90,10 @@ See an example of this approach in the [Semgrep App](https://semgrep.dev/orgs/-/
 Test file names must match the rule file name, except for the file extension. For example, if the rule is in `my-rule.yaml`, name the test `my-rule.js`. (You can use any valid extension for the target language.)
 
 :::info Requirements of test files
-In the test file, include examples that clearly mark:
-- What is expected to be a finding.
-- What is clearly not a finding.
+- In the test file, include examples that clearly mark:
+    - What is expected to be a finding.
+    - What is clearly not a finding.
+- The test file name must match the rule file name, except for the file extension.
 :::
 
 See the examples of the rule and test file below:
@@ -156,17 +170,17 @@ Nest these metadata under the `metadata` key. The following metadata are require
    <td><code>vuln</code>, <code>audit</code>, <code>guardrail</code></td>
    <td>
     <pre>
-        subcategory:<br></br>
+        subcategory:<br />
         - vuln
     </pre>
   </td>
   </tr>
   <tr>
    <td>Technology</td>
-   <td>Any additional information that gives more context to the user of the rule. This helps to specify rulesets in Semgrep Registry.</td>
+   <td>Any additional information about the technology that gives context to user of the rule. This helps to specify rulesets in Semgrep Registry.</td>
    <td>
      <pre>
-        technology:<br></br>
+        technology:<br />
         - react
      </pre>
    </td>
@@ -176,7 +190,7 @@ Nest these metadata under the `metadata` key. The following metadata are require
    <td>Any additional information that gives more context to the user of the rule. This helps developers understand the issue and how to fix it.</td>
    <td>
      <pre>
-        references:<br></br>
+        references:<br />
         - https://owasp.org/Top10/A04_2021-Insecure_Design/
      </pre>
    </td>
@@ -365,6 +379,17 @@ A guardrail rule, is useful for companies writing custom rules. For example, fin
 ```
 subcategory:
   - guardrail
+```
+
+#### Technology
+
+Any additional information about the technology that gives context to user of the rule. This helps to specify rulesets in Semgrep Registry.
+
+TODO - add rejpresentative rule examples.
+
+```yaml
+technology:
+- react
 ```
 
 #### References
