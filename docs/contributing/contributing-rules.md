@@ -386,12 +386,12 @@ subcategory:
 
 Any additional information about the technology that gives context to user of the rule. This helps to specify rulesets in Semgrep Registry.
 
-TODO - add rejpresentative rule examples.
+
+- <LinkToRegistryRule ruleId="javascript.express.security.audit.express-open-redirect.express-open-redirect" />
 
 ```yaml
 technology:
-- react
-```
+  - express
 
 #### References
 
