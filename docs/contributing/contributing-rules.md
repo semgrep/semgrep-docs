@@ -67,7 +67,7 @@ Every rule submitted to Semgrep Registry must include:
     </pre>
     </dd>
     <dt>Severity</dt>
-    <dd>TODO</dd>
+    <dd>TODO - Description of severity is. Possible values: <code>INFO</code>, <code>WARNING</code>, <code>ERROR</code>, <code>INVENTORY</code></dd>
     <dt>Metadata fields</dt>
     <dd>Include metadata that help to evaluate various parameters of your rule. See <a href="#including-additional-details-with-rule-metadata"> Including additional details with rule metadata</a> where you can find a table with all required metadata and details in related sections below.</dd>
 </dl>
@@ -177,7 +177,7 @@ Nest these metadata under the `metadata` key. The following metadata are require
   </tr>
   <tr>
    <td>Technology</td>
-   <td>Any additional information about the technology that gives context to user of the rule. This helps to specify rulesets in Semgrep Registry.</td>
+   <td>Additional information about the technology that gives context to user of the rule. This helps to specify rulesets in Semgrep Registry.</td>
    <td>
      <pre>
         technology:<br />
@@ -187,7 +187,7 @@ Nest these metadata under the `metadata` key. The following metadata are require
   </tr>
   <tr>
    <td>References</td>
-   <td>Any additional information that gives more context to the user of the rule. This helps developers understand the issue and how to fix it.</td>
+   <td>Additional information that gives more context to the user of the rule. This helps developers understand the issue and how to fix it.</td>
    <td>
      <pre>
         references:<br />
