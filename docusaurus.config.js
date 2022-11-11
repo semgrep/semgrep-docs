@@ -117,7 +117,7 @@ module.exports = {
             },
             {
               label: 'Semgrep release updates',
-              href: 'https://us18.campaign-archive.com/home/?u=ee2dc8f77e27d3739cf4df9ef&id=9b175e26fa'
+              href: 'https://twitter.com/semgrepreleases'
             }
           ],
         },
