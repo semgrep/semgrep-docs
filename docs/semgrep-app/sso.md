@@ -65,47 +65,28 @@ If you encounter issues during the setup process, reach out to [support@r2c.dev]
 
 The following is a guide to set up Semgrep as an Enterprise App with SAML SSO using Azure's Active Directory service.
 
-1.) To get started, navigate to **Azure Active Directory** from the Azure Dashboard.
+1.) To get started, you'll need an **Enterprise App** in **Azure Active Directory** with SAML SSO selected; refer to [this documentation](https://learn.microsoft.com/en-us/azure/active-directory/manage-apps/add-application-portal-setup-sso) regarding this proccess.
 
-2.) On the left-side menu, click **Enterprise Applications**.
+2.) Under **Basic Configuration**, you'll need to enter the `Entity ID` and the `Reply URL`. These are provided in the Semgrep App on the left-side **Settings** tab, under the **SSO** tab on the top, as `Audience URL` and `SSO URL`, respectively. Make sure you switch the provider type to **SAML2** in the SSO form in the Semgrep App.
 
-![Selecting Enterprise Applications](/img/azure-enterprise-applications.png "Selecting Enterprise Applications")
-
-3.) On the top bar, click **New Application**, then **Create your own application**. Give it a name, and check **Integrate any other application you don't find in the gallery (Non-gallery)**.
-
-![Create a new Enterprise Application](/img/azure-create-application.png "Create a new Enterprise Application")
-
-4.) On the left-side menu, click **Single sign-on**, then **SAML**. 
-
-![Select "Single sign-on"](/img/azure-select-sso.png "Select "Single sign-on")
-![Select "SAML"](/img/azure-select-saml.png "Select "SAML")
-
-5.) Under **Basic Configuration**, you'll need to enter the `Entity ID` and the `Reply URL`. These are provided in the Semgrep App on the left-side **Settings** tab, under the **SSO** tab on the top, as `Audience URL` and `SSO URL`, respectively. Make sure you switch the provider type to **SAML2** in the SSO form in the Semgrep App.
-
-![Adding "Entity ID" and "Reply URL" fields to the SSO config](/img/azure-sso-fields.png "Adding "Entity ID" and "Reply URL" fields to the SSO config")
 !["Entity ID" and "Reploy URL" fields from within the App](/img/azure-sso-fields-2.png ""Entity ID" and "Reploy URL" fields from within the App")
 
-6.) You'll need to add two attribute statements called `name` and `email`, making sure to set the `email` attribute to `user.mail`.
+3.) You'll need to add two attribute statements called `name` and `email`, making sure to set the `email` attribute to `user.mail`. For help regarding **Attributes and Claims**, refer to [this documentation](https://learn.microsoft.com/en-us/azure/active-directory/develop/active-directory-saml-claims-customization).
 
-![Adding attribute statements to the SSO config](/img/azure-sso-attributes.png "Adding attribute statements to the SSO config")
-
-7.) From within the Semgrep App, you'll need to add the `IdP SSO URL`, `IdP Issuer ID`, and `X.509 Certificate`. These can all be found in the Azure Single sign-on page; fill these fields with the `Login URL`, `Azure AD Identifier`, and `Certificate (Base64)`, respectively.
+4.) From within the Semgrep App, you'll need to add the `IdP SSO URL`, `IdP Issuer ID`, and `X.509 Certificate`. These can all be found in the Azure Single sign-on page; fill these fields with the `Login URL`, `Azure AD Identifier`, and `Certificate (Base64)`, respectively.
 
 ![Setting additional SSO form fields](/img/azure-sso-app-fields.png "Setting additional SSO form fields")
 
-![Login URL, Azure AD Identifier, and Certificate in Azure](/img/azure-sso-app-fields-2.png "Login URL, Azure AD Identifier, and Certificate in Azure")
-
-8.) At the top of the form, fill in your email domain and a display name for the SSO integration.
+5.) At the top of the form, fill in your email domain and a display name for the SSO integration.
 
 ![Display name and email domain in the SSO form](/img/azure-sso-app-fields-3.png "Display name and email domain in the SSO form")
 
-9.) Once all the fields are filled out, press the **Create/Update Auth Provider** button at the bottom of the form. You should see a green conformation message in the upper-left of the app to verify that we've recieved your SSO info.
+6.) Once all the fields are filled out, press the **Create/Update Auth Provider** button at the bottom of the form. You should see a green confirmation message in the upper-left of the app to verify that we've recieved your SSO info.
 
 ![Submitting your SSO info in the App](/img/azure-sso-submit.png "Submitting your SSO info in the App")
 
-You may still need to add users to the application in order for them to be able to log in with their domain emails. You can do this from the **Users and Groups** section on the left-side menu of your newly-created application.
+You may still need to add users to the application in order for them to be able to log in with their domain emails; refer to the [following documentation](https://learn.microsoft.com/en-us/azure/active-directory/manage-apps/assign-user-or-group-access-portal) for how to do this.
 
-![Giving users access to your Enterprise SSO App](/img/azure-sso-users.png "Giving users access to your Enterprise SSO App")
 
 
 
