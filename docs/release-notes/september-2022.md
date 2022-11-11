@@ -32,18 +32,7 @@ These release notes include upgrades for versions ranging between 0.112.0 and 0.
 
 - You can now have multiple metavariables under `focus-metavariable`, which allows. Semgrep to highlight the values matched by multiple metavariables more easily in certain circumstances. For more information, see [Using multiple focus metavariables](/writing-rules/experiments/multiple-focus-metavariables/) documentation. (Issue [5686](https://github.com/returntocorp/semgrep/issues/5686))
 
-- You can add tags for specific projects in the Semgrep App on the configuration page of a project. To manage tags, go to the Semgrep App [Projects](https://semgrep.dev/orgs/-/projects) tab, click on the project's <i class="fa-solid fa-gear"></i> cogwheel icon to enter project configuration page, and then add or remove tags.
-    With this update, you can create `.semgrepconfig.yml` file in the root directory of your repository and add tags in this file also.
-
-    Example of tags added to `.semgrepconfig.yml` file:
-    ```yaml
-    tags:
-        - favourite
-        - awesomeproject
-    ```
-    These tags are displayed in Semgrep App [Projects](https://semgrep.dev/orgs/-/projects) tab also.
-
-    However, removing tags added through the `.semgrepconfig.yml` does not remove the tag from Semgrep App. To remove these tags, remove them on the project configuration page of the Semgrep App.
+- You can add tags for specific projects in the Semgrep App on the configuration page of a project. With this update, you can create `.semgrepconfig.yml` file in the root directory of your repository and add tags in this file also. See [Managing projects through tags](/semgrep-app/tags/).
 
 - The Semgrep CLI output now displays non-blocking and blocking findings separately. CLI output also provides a list of the blocking rules that matched the code.
 
