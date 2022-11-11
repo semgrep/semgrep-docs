@@ -39,14 +39,15 @@ You can find more examples of taint rules in the [Semrep Registry](https://semgr
 Field sensitivity
 -----------------
 
-The taint engine has basic support for field sensitivity:
+The taint engine provides basic field sensitivity support:
 
-- It can track `x.a.b` as tainted, while `x` and `x.a` as not tainted. If `x.a.b` is tainted, any extension of `x.a.b` (such as `x.a.b.c`) will also be considered tainted.
-- If `x.a` is tainted, and later `x.a.b` is sanitized, the engine knows that `x.a.b` is not tainted but `x.a` or `x.a.c` are still tainted.
-- Taint tracking is _NOT_ index sensitive, if `x.a[i]` gets tainted, we consider `x.a` itself to be tainted. Crucially, if `x.a[i]` is sanitized, then `x.a` also gets sanitized.
+- Track `x.a.b` as tainted, while you can specify that `x` and `x.a` are not tainted. If `x.a.b` is tainted, any extension of `x.a.b` (such as `x.a.b.c`) is also considered tainted.
+- If `x.a` is tainted, and later `x.a.b` is sanitized, the engine detects that `x.a.b` is not tainted but `x.a` or `x.a.c` are still tainted.
+- Taint tracking is **not** index sensitive, if `x.a[i]` is tainted, Semgrep considers `x.a` itself also as tainted. However, if `x.a[i]` is sanitized, then `x.a` is also sanitized.
 
-Note that we track taint _per variable_ and not _per object in memory_, there is no alias analysis.
-
+:::note
+The taint engine does track taint **per variable** and not **per object in memory**. The taint engine does not perform alias analysis at present.
+:::
 Minimizing false positives via sanitizers
 -----------------------------------------
 
