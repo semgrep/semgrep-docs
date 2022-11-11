@@ -708,6 +708,15 @@ To add Semgrep into your CircleCI pipeline:
 4. The Semgrep job starts automatically upon detecting the `config.yml` update.
 5. Optional: Create a separate CI job for diff-aware scanning, which scans only changed files in PRs or MRs, by repeating steps 1-3 and uncommenting the `SEMGREP_BASELINE_REF` definition provided within the code snippet.
 
+<!-- 
+
+Note: CircleCI snippet does NOT set the SEMGREP_APP_TOKEN in the config file.
+From CSE: 
+It gets set from within the UI in the repository settings and automatically 
+gets put into the pipeline at runtime.
+
+-->
+
 <Tabs
     defaultValue="circleci-semgrep"
     values={[
@@ -727,26 +736,29 @@ jobs:
         type: string
         default: main
     environment:
-    # Scan changed files in PRs, only report new findings (existing findings ignored)
-      SEMGREP_BASELINE_REF: << parameters.default_branch >>
+      # Uncomment the following line to scan changed 
+      # files in PRs or MRs (diff-aware scanning): 
+      # - export SEMGREP_BASELINE_REF = "origin/main"
+      # - git fetch origin "+refs/heads/*:refs/remotes/origin/*"
+      # SEMGREP_BASELINE_REF: << parameters.default_branch >>
 
-    # Optional settings in the `environment:` block
+      # Troubleshooting:
 
-    # Instead of `SEMGREP_APP_TOKEN:`, set hard-coded rulesets, 
-    # viewable in logs.
-    #   SEMGREP_RULES: p/default # See more at semgrep.dev/explore.
-
-    # These variables should be set to provide information to the Semgrep App.
-      SEMGREP_REPO_NAME: '$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME'
-      SEMGREP_REPO_URL: << pipeline.project.git_url >>
-      SEMGREP_BRANCH: << pipeline.git.branch >>
+      # Uncomment the following lines if Semgrep App > Findings Page does not create links
+      # to the code that generated a finding or if you are not receiving PR or MR comments.
+      # SEMGREP_REPO_NAME: '$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME'
+      # SEMGREP_REPO_URL: << pipeline.project.git_url >>
+      # SEMGREP_BRANCH: << pipeline.git.branch >>
 
     docker:
       - image: returntocorp/semgrep
     steps:
       - checkout
+
+      # Uncomment the following lines if Semgrep App > Findings Page does not create links
+      # to the code that generated a finding or if you are not receiving PR or MR comments.
       # - run:
-      #     name: "Set environment variables" # for PR comments and  in-app hyperlinks to findings
+      #     name: "Manually set environment variables"
       #     command: |
       #         echo 'export SEMGREP_COMMIT=$CIRCLE_SHA1' >> $BASH_ENV
       #         echo 'export SEMGREP_PR_ID=${CIRCLE_PULL_REQUEST##*/}' >> $BASH_ENV
@@ -761,6 +773,40 @@ workflows:
 ```
 
 </TabItem>
+<TabItem value='circleci-standalone'>
+
+```yaml
+version: 2.1
+jobs:
+  semgrep-scan:
+    parameters:
+      default_branch:
+        type: string
+        default: main
+    environment:
+      SEMGREP_RULES: p/default
+
+      # Uncomment the following line to scan changed 
+      # files in PRs or MRs (diff-aware scanning): 
+      # - export SEMGREP_BASELINE_REF = "origin/main"
+      # - git fetch origin "+refs/heads/*:refs/remotes/origin/*"
+      # SEMGREP_BASELINE_REF: << parameters.default_branch >>
+
+    docker:
+      - image: returntocorp/semgrep
+    steps:
+      - checkout
+      - run:
+          name: "Semgrep scan"
+          command: semgrep ci
+workflows:
+  main:
+    jobs:
+      - semgrep-scan
+```
+
+</TabItem>
+
 </Tabs>
 
 ## Azure Pipelines
