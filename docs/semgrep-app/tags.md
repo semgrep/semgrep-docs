@@ -38,7 +38,7 @@ You can also add tags through a specific file added to your repository. To do so
 Tags added through `.semgrepconfig.yml` are displayed in Semgrep App [Projects](https://semgrep.dev/orgs/-/projects) tab also.
 
 :::note
-Removing tags added through the `.semgrepconfig.yml` does not remove the tag from Semgrep App. To remove these tags, remove them on the [Projects](https://semgrep.dev/orgs/-/projects) configuration page of the Semgrep App.
+Removing tags added through the `.semgrepconfig.yml` does not remove the tags from Semgrep App. To remove these tags, remove them on the [Projects](https://semgrep.dev/orgs/-/projects) configuration page of the Semgrep App.
 :::
 
 <MoreHelp />
