@@ -122,7 +122,7 @@ module.exports = {
           ],
         },
       ],
-      copyright: `Copyright © ${new Date().getFullYear()} r2c. Built with Docusaurus.`,
+      copyright: `Copyright © ${new Date().getFullYear()} r2c. Semgrep®️  is a registered trademark of r2c. This site is built with Docusaurus.`,
     },
     prism: {
       theme: lightCodeTheme,
