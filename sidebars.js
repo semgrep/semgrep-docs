@@ -241,7 +241,11 @@ module.exports = {
             'release-notes/rule-updates',
             'security',
             'faq',
-            'metrics'
+            {
+              type: 'doc',
+              id: 'metrics',
+              label: 'Semgrep privacy policy'
+            },
         ],
     },
   ],

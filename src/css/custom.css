@@ -315,10 +315,6 @@ a.navbar__item.navbar__link:hover {
 
 /* customized generated index cards */
 
-h2.text--truncate.cardTitle_node_modules-\@docusaurus-theme-classic-lib-theme-DocCard-styles-module {
-  white-space: normal;
-}
-
-p.text--truncate.cardDescription_node_modules-\@docusaurus-theme-classic-lib-theme-DocCard-styles-module {
+h2[class*="cardTitle_"][class~="text--truncate"], p[class*="cardDescription_"][class~="text--truncate"] {
   white-space: normal;
 }

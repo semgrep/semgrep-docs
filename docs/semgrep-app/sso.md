@@ -1,7 +1,7 @@
 ---
 slug: sso
 append_help_link: true
-description: "SSO Configuration instruction"
+description: "SSO configuration instruction"
 title: Single-sign on (SSO) configuration
 hide_title: true
 tags:
