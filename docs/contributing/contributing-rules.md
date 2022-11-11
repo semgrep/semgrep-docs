@@ -5,6 +5,9 @@ hide_title: true
 toc_max_heading_level: 4
 ---
 
+import LinkToRegistryRule from "/src/components/LinkToRegistryRule"
+import MoreHelp from "/src/components/MoreHelp"
+
 # Contributing rules
 
 Publish rules in the open-source Semgrep Registry and share them with the Semgrep community to help others benefit from your rule-writing efforts and contribute to the field of software security. There are two ways in which you can contribute rules to the Semgrep Registry:
@@ -85,8 +88,6 @@ Include a test file in the language that your rule is targeting. A test file inc
 - At least one test where the rule detects a finding. This is called a true positive finding.
 - At least one test where the rule does **not** detect a finding. This is called a true negative finding.
 
-See an example of this approach in the [Semgrep App](https://semgrep.dev/orgs/-/editor/s/returntocorp:aws-provider-static-credentials).
-
 Test file names must match the rule file name, except for the file extension. For example, if the rule is in `my-rule.yaml`, name the test `my-rule.js`. (You can use any valid extension for the target language.)
 
 :::info Requirements of test files
@@ -129,7 +130,7 @@ Use the YAML multiline string operator `>-` when rule messages span multiple lin
 For an example of a good rule message, see: [this rule for Django's mark_safe](https://semgrep.dev/r?q=python.django.security.audit.avoid-mark-safe.avoid-mark-safe).
 
 :::info Rule message example
-`mark_safe()` is used to mark a string as *safe* for HTML output. This disables escaping and may expose the content to XSS attacks. Instead, use `django.utils.html.format_html()` to build HTML for rendering.
+`mark_safe()` is used to mark a string as safe for HTML output. This disables escaping and may expose the content to XSS attacks. Instead, use `django.utils.html.format_html()` to build HTML for rendering.
 :::
 
 ### Including additional details with rule metadata
@@ -205,9 +206,9 @@ These fields help users of Semgrep to identify rules in different categories suc
 - Audit rules with lower confidence are intended for code auditors.
 
 Examples of rules with a full list of required metadata:
-- [High confidence JavaScript/TypeScript rule](https://semgrep.dev/playground/r/javascript.express.security.audit.express-open-redirect.express-open-redirect)
-- [Medium confidence Python rule](https://semgrep.dev/playground/r/python.lang.security.dangerous-system-call.dangerous-system-call)
-- [Low confidence C# rule](https://semgrep.dev/playground/r/csharp.lang.security.ssrf.rest-client.ssrf)
+- High confidence JavaScript and TypeScript rule: <LinkToRegistryRule ruleId="javascript.express.security.audit.express-open-redirect.express-open-redirect" />
+- Medium confidence Python rule: <LinkToRegistryRule ruleId="python.lang.security.dangerous-system-call.dangerous-system-call" />
+- Low confidence C# rule: <LinkToRegistryRule ruleId="csharp.lang.security.ssrf.rest-client.ssrf" />
 
 Details of each field are provided in the subsections below with examples.
 
@@ -239,9 +240,9 @@ Indicate confidence of the rule to detect true positives. See the possible optio
 
 HIGH confidence rules can use Semgrep advanced features such as `metavariable-comparison` or `taint mode`, to detect true positives. See examples below:
 
-- https://semgrep.dev/orgs/-/editor/r/go.lang.security.audit.crypto.use_of_weak_rsa_key.use-of-weak-rsa-key
-- https://semgrep.dev/playground/r/javascript.express.security.audit.express-open-redirect.express-open-redirect
-- https://semgrep.dev/playground/r/javascript.jose.security.jwt-hardcode.hardcoded-jwt-secret?editorMode=advanced
+- <LinkToRegistryRule ruleId="go.lang.security.audit.crypto.use_of_weak_rsa_key.use-of-weak-rsa-key" />
+- <LinkToRegistryRule ruleId="javascript.express.security.audit.express-open-redirect.express-open-redirect" />
+- <LinkToRegistryRule ruleId="javascript.jose.security.jwt-hardcode.hardcoded-jwt-secret" />
 
 ```
 confidence: HIGH
@@ -251,8 +252,8 @@ confidence: HIGH
 
 MEDIUM confidence rules can use Semgrep advanced features such as `metavariable-comparison` or `taint mode`, but with some false positives. See examples below:
 
-- https://semgrep.dev/playground/r/javascript.express.security.audit.express-ssrf.express-ssrf
-- https://semgrep.dev/playground/r/javascript.express.security.express-xml2json-xxe.express-xml2json-xxe?editorMode=advanced
+- <LinkToRegistryRule ruleId="javascript.express.security.audit.express-ssrf.express-ssrf" />
+- <LinkToRegistryRule ruleId="javascript.express.security.express-xml2json-xxe.express-xml2json-xxe" />
 
 ```
 confidence: MEDIUM
@@ -262,8 +263,8 @@ confidence: MEDIUM
 
 Low confidence rules generally find something which appears to be dangerous while reporting a lot of false positives. See examples below:
 
-- https://semgrep.dev/playground/r/php.lang.security.eval-use.eval-use
-- https://semgrep.dev/playground/r/javascript.browser.security.dom-based-xss.dom-based-xss?editorMode=advanced
+- <LinkToRegistryRule ruleId="php.lang.security.eval-use.eval-use" />
+- <LinkToRegistryRule ruleId="javascript.browser.security.dom-based-xss.dom-based-xss" />
 
 ```
 confidence: LOW
@@ -277,10 +278,10 @@ Specify how likely it is that an attacker can exploit the issue that has been fo
 
 HIGH likelihood rules specify a very high concern that the vulnerability can be exploited. Examples:
 
-- The use of weak encryption: https://semgrep.dev/playground/r/go.lang.security.audit.crypto.use_of_weak_rsa_key.use-of-weak-rsa-key?editorMode=advanced
-- Disabled security feature in a configuration: https://semgrep.dev/playground/r/javascript.angular.security.detect-angular-sce-disabled.detect-angular-sce-disabled
-- Hardcoded secrets that use a constant value `"..."`: https://semgrep.dev/playground/r/javascript.jose.security.jwt-hardcode.hardcoded-jwt-secret?editorMode=advanced
-- Rules which leverage `taint mode sources` which indicate sources that can come from an attacker. Such as HTTP `POST`, `GET`, `PUT`, `DELETE` request values. For example: https://semgrep.dev/playground/r/javascript.express.security.audit.express-open-redirect.express-open-redirect
+- The use of weak encryption: <LinkToRegistryRule ruleId="go.lang.security.audit.crypto.use_of_weak_rsa_key.use-of-weak-rsa-key" />
+- Disabled security feature in a configuration: <LinkToRegistryRule ruleId="javascript.angular.security.detect-angular-sce-disabled.detect-angular-sce-disabled" />
+- Hardcoded secrets that use a constant value `"..."`: <LinkToRegistryRule ruleId="javascript.jose.security.jwt-hardcode.hardcoded-jwt-secret" />
+- Rules which leverage `taint mode sources` which indicate sources that can come from an attacker. Such as HTTP `POST`, `GET`, `PUT`, `DELETE` request values. For example: <LinkToRegistryRule ruleId="javascript.express.security.audit.express-open-redirect.express-open-redirect" />
 
 ```
 likelihood: HIGH
@@ -290,8 +291,8 @@ likelihood: HIGH
 
 MEDIUM likelihood rules detect a vulnerability in most circumstances. Although it can be hard for an attacker to exploit them. Also, these rules can detect part of a problem, but not the whole issue. Examples:
 
-- `taint mode sources` that reach a `taint mode sink`  but the source is something that is only vulnerable in certain conditions for example OS Environment Variables, or loading from disk: https://semgrep.dev/playground/r/python.aws-lambda.security.dangerous-spawn-process.dangerous-spawn-process?editorMode=advanced
-- `taint mode sources` with a `taint mode sink` but is missing a `taint mode sanitizer` which can introduce more false positives: https://semgrep.dev/playground/r/javascript.express.security.express-puppeteer-injection.express-puppeteer-injection?editorMode=advanced
+- `taint mode sources` that reach a `taint mode sink`  but the source is something that is only vulnerable in certain conditions for example OS Environment Variables, or loading from disk: <LinkToRegistryRule ruleId="python.aws-lambda.security.dangerous-spawn-process.dangerous-spawn-process" />
+- `taint mode sources` with a `taint mode sink` but is missing a `taint mode sanitizer` which can introduce more false positives: <LinkToRegistryRule ruleId="javascript.express.security.express-puppeteer-injection.express-puppeteer-injection" />
 
 ```
 likelihood: MEDIUM
@@ -301,8 +302,8 @@ likelihood: MEDIUM
 
 LOW likelihood rules tend to find something dangerous, but are not evaluating whether something is truly vulnerable, for example:
 
-- `taint mode sources` such as function arguments which may or may not be tainted which reach a `taint mode sink`: https://semgrep.dev/playground/r/typescript.react.security.audit.react-href-var.react-href-var?editorMode=advanced
-- A rule which uses `search mode` to find the use of a dangerous function for example: `trustAsHTML`, `bypassSecurityTrust()`, `eval()`, or `innerHTML`: https://semgrep.dev/playground/r/javascript.browser.security.dom-based-xss.dom-based-xss?editorMode=advanced
+- `taint mode sources` such as function arguments which may or may not be tainted which reach a `taint mode sink`: <LinkToRegistryRule ruleId="typescript.react.security.audit.react-href-var.react-href-var" />
+- A rule which uses `search mode` to find the use of a dangerous function for example: `trustAsHTML`, `bypassSecurityTrust()`, `eval()`, or `innerHTML`: <LinkToRegistryRule ruleId="javascript.browser.security.dom-based-xss.dom-based-xss" />
 
 ```
 likelihood: LOW
@@ -317,8 +318,8 @@ Indicate how much damage can a vulnerability cause. Use LOW, MEDIUM, and HIGH.
 
 HIGH impact rules can detect extremely damaging vulnerabilities, such as injection vulnerabilities. Examples:
 
-- https://semgrep.dev/playground/r/javascript.sequelize.security.audit.sequelize-injection-express.express-sequelize-injection
-- https://semgrep.dev/playground/r/ruby.rails.security.audit.xxe.xml-external-entities-enabled.xml-external-entities-enabled?editorMode=advanced
+- <LinkToRegistryRule ruleId="javascript.sequelize.security.audit.sequelize-injection-express.express-sequelize-injection" />
+- <LinkToRegistryRule ruleId="ruby.rails.security.audit.xxe.xml-external-entities-enabled.xml-external-entities-enabled" />
 
 ```
 impact: HIGH
@@ -328,8 +329,8 @@ impact: HIGH
 
 MEDIUM impact rules are issues that are less likely to lead to full system compromise but still are fairly damaging. Examples:
 
-- https://semgrep.dev/playground/r/python.flask.security.injection.raw-html-concat.raw-html-format?editorMode=advanced
-- https://semgrep.dev/playground/r/python.flask.security.injection.ssrf-requests.ssrf-requests?editorMode=advanced
+- <LinkToRegistryRule ruleId="python.flask.security.injection.raw-html-concat.raw-html-format" />
+- <LinkToRegistryRule ruleId="python.flask.security.injection.ssrf-requests.ssrf-requests" />
 
 ```
 impact: MEDIUM
@@ -339,8 +340,8 @@ impact: MEDIUM
 
 LOW impact rules are rules which are a security issue, but the impact is not too damaging to the application if discovered. 
 
-- https://semgrep.dev/playground/r/go.gorilla.security.audit.session-cookie-missing-secure.session-cookie-missing-secure?editorMode=advanced
-- https://semgrep.dev/playground/r/javascript.browser.security.raw-html-join.raw-html-join?editorMode=advanced
+- <LinkToRegistryRule ruleId="go.gorilla.security.audit.session-cookie-missing-secure.session-cookie-missing-secure" />
+- <LinkToRegistryRule ruleId="javascript.browser.security.raw-html-join.raw-html-join" />
 
 ```
 impact: LOW 
@@ -354,7 +355,7 @@ Include a subcategory to explain what is the type of the rule. See the subsectio
 
 A vulnerability rule is something that developers certainly want to resolve. For example, an SQL Injection rule that uses taint mode. Example:
 
-- https://semgrep.dev/playground/r/javascript.sequelize.security.audit.sequelize-injection-express.express-sequelize-injection
+- <LinkToRegistryRule ruleId="javascript.sequelize.security.audit.sequelize-injection-express.express-sequelize-injection" />
 
 ```
 subcategory:
@@ -365,7 +366,7 @@ subcategory:
 
 An audit rule is useful for code auditors. For example, an SQL rule which finds all uses of the `database.exec(...)` that can be problematic. Example:
 
-- https://semgrep.dev/playground/r/generic.html-templates.security.unquoted-attribute-var.unquoted-attribute-var?editorMode=advanced
+- <LinkToRegistryRule ruleId="generic.html-templates.security.unquoted-attribute-var.unquoted-attribute-var" />
 
 ```
 subcategory:          
@@ -396,12 +397,12 @@ technology:
 
 References help to define specific rulesets for languages, libraries, and frameworks that are available in <a href="https://semgrep.dev/explore">Semgrep Registry</a>. See the references in the following two rules:
 
-- A rule that is finding an issue in React: https://semgrep.dev/playground/r/typescript.react.security.audit.react-href-var.react-href-var?editorMode=advanced
+- A rule that is finding an issue in React: <LinkToRegistryRule ruleId="typescript.react.security.audit.react-href-var.react-href-var" />
     ```
     references:
       - react
     ```
-- A rule that is detecting an issue in Express: https://semgrep.dev/playground/r/javascript.sequelize.security.audit.sequelize-injection-express.express-sequelize-injection
+- A rule that is detecting an issue in Express: <LinkToRegistryRule ruleId="javascript.sequelize.security.audit.sequelize-injection-express.express-sequelize-injection" />
     ```
     references:
       - express
@@ -410,3 +411,5 @@ References help to define specific rulesets for languages, libraries, and framew
 ### Rule quality checker
 
 When you contribute rules to the Semgrep Registry, our quality checkers (linters) evaluate if the rule conforms to r2c standards. The `semgrep-rule-lints` job runs linters on a new rule to check for mistakes, performance problems, and best practices for submitting to the Semgrep Registry. To improve your rule writing, use Semgrep itself to [scan semgrep-rules](https://r2c.dev/blog/2021/how-we-made-semgrep-rules-run-on-semgrep-rules/).
+
+<MoreHelp />
