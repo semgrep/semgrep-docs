@@ -643,12 +643,6 @@ To add Semgrep into your Buildkite pipeline:
     # files in PRs or MRs (diff-aware scanning): 
     # - export SEMGREP_BASELINE_REF = "main"
     
-    # Optional:
-    # Uncomment SEMGREP_TIMEOUT to set this job's timeout (in seconds).
-    # Default timeout is 1800 seconds (30 minutes).
-    # Set to 0 to disable the timeout.
-    # - export SEMGREP_TIMEOUT = "300"
-
     # Troubleshooting:
 
     # Uncomment the following lines if Semgrep App > Findings Page does not create links
@@ -682,11 +676,6 @@ To add Semgrep into your Buildkite pipeline:
 
     # To scan changed files in PRs or MRs (diff-aware scanning):
     # - export SEMGREP_BASELINE_REF=${BUILDKITE_BRANCH}
-
-    # Uncomment SEMGREP_TIMEOUT to set this job's timeout (in seconds):
-    # Default timeout is 1800 seconds (30 minutes).
-    # Set to 0 to disable the timeout.
-    # - export SEMGREP_TIMEOUT="300"
 
     - semgrep ci 
   
@@ -839,16 +828,11 @@ To run Semgrep CI on any other provider, use the `returntocorp/semgrep` image, a
 Using the [configuration reference](../configuration-reference/), you can run Semgrep in the following CI providers:
 
 - AppVeyor
-- Azure [(sample configuration)](#azure)
 - Bamboo 
-- Bitbucket Pipelines [(sample configuration)](#bitbucket)
 - Bitrise
 - Buildbot
-- Buildkite [(sample configuration)](#buildkite)
-- CircleCI [(sample configuration)](#circleci)
 - Codeship
 - Codefresh
-- Jenkins [(sample configuration)](#jenkins)
 - TeamCity CI
 - Travis CI
 
