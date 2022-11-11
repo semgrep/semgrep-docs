@@ -61,7 +61,7 @@ module.exports = {
             },
             {
               label: 'Twitter',
-              href: 'https://twitter.com/r2cdev',
+              href: 'https://twitter.com/semgrep',
             },
           ],
         },
