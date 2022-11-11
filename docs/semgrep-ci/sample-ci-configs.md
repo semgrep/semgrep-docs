@@ -800,24 +800,93 @@ workflows:
 
 ## Azure Pipelines
 
+To add Semgrep into your Azure Pipeline:
+
+1. Access the YAML pipeline editor within Azure Pipelines by following the [YAML pipeline editor](https://learn.microsoft.com/en-us/azure/devops/pipelines/get-started/yaml-pipeline-editor?view=azure-devops#edit-a-yaml-pipeline) guide.
+2. Copy the relevant code snippet provided after these instructions into the Azure Pipelines YAML editor.
+3. Save the code snippet.
+4. Set [environment variables](https://learn.microsoft.com/en-us/azure/devops/pipelines/process/variables?view=azure-devops&tabs=yaml%2Cbatch#secret-variables).
+5. Group the environment variables as a [variable group](https://learn.microsoft.com/en-us/azure/devops/pipelines/library/variable-groups?view=azure-devops&tabs=classic).
+6. Optional: Create a separate CI job for diff-aware scanning, which scans only changed files in PRs or MRs, by repeating steps 1-4 and and adding `SEMGREP_BASELINE_REF` as an environment variable. 
+
+<!-- 
+
+
+-->
+
+<Tabs
+    defaultValue="azure-semgrep"
+    values={[
+    {label: 'CI with Semgrep App', value: 'azure-semgrep'},
+    {label: 'Stand-alone CI job', value: 'azure-standalone'},
+    ]}
+>
+
+<TabItem value='azure-semgrep'>
+
+
 ```yaml
 # trigger:
 #  - master
 
 pool:
   vmImage: ubuntu-latest
-# variables:
-# - group: Semgrep app token group
+variables:
+- group: Semgrep app token group
 
 steps: 
 
 - script: |
     python -m pip install --upgrade pip
     pip install semgrep
-    semgrep ci --config auto
+    semgrep ci
   env: 
     SEMGREP_PR_ID: $(System.PullRequest.PullRequestNumber)
 ```
+
+### Environment variables to set
+
+Set these variables within Azure Pipelines UI following the steps in [Environment variables](https://learn.microsoft.com/en-us/azure/devops/pipelines/process/variables?view=azure-devops&tabs=yaml%2Cbatch#secret-variables):
+
+* `SEMGREP_APP_TOKEN`
+
+Set these environment variables to troubleshoot the links to the code that generated a finding or if you are not receiving PR or MR comments:
+
+* `SEMGREP_JOB_URL`
+* `SEMGREP_COMMIT`
+* `SEMGREP_BRANCH`
+* `SEMGREP_REPO_URL`
+* `SEMGREP_REPO_NAME`
+
+Set this environment variable for diff-aware scanning:
+
+* `SEMGREP_BASELINE_REF`. Its value is typically your trunkline branch, such as `main` or `master`.
+
+</TabItem>
+
+<TabItem value='azure-standalone'>
+
+
+```yaml
+# trigger:
+#  - master
+
+pool:
+  vmImage: ubuntu-latest
+
+steps: 
+
+- script: |
+    python -m pip install --upgrade pip
+    pip install semgrep
+    semgrep ci
+  env: 
+    SEMGREP_RULES: p/default
+```
+
+</TabItem>
+
+</Tabs>
 
 ## Other providers
 
