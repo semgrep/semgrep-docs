@@ -7,6 +7,7 @@ toc_max_heading_level: 4
 
 import LinkToRegistryRule from "/src/components/LinkToRegistryRule"
 import MoreHelp from "/src/components/MoreHelp"
+import RequiredRuleFields from "/src/components/reference/_required-rule-fields.mdx"
 
 # Contributing rules
 
@@ -51,7 +52,11 @@ Find more about the Semgrep Registry by reading the [Rule writing](#rule-writing
 
 ## Rule requirements
 
-Every rule submitted to Semgrep Registry must include:
+All rules in general, regardless whether they are intended only as local rules or for Semgrep Registry, have the same initial requirements:
+
+<RequiredRuleFields />
+
+Every rule submitted to Semgrep Registry has additional requirements: include:TODO
 
 <dl>
     <dt>Rule ID</dt>
@@ -71,8 +76,8 @@ Every rule submitted to Semgrep Registry must include:
     </dd>
     <dt>Severity</dt>
     <dd>TODO - Description of severity is. Possible values: <code>INFO</code>, <code>WARNING</code>, <code>ERROR</code>, <code>INVENTORY</code></dd>
-    <dt>Metadata fields</dt>
-    <dd>Include metadata that help to evaluate various parameters of your rule. See <a href="#including-additional-details-with-rule-metadata"> Including additional details with rule metadata</a> where you can find a table with all required metadata and details in related sections below.</dd>
+    <dt>(Optional) Metadata fields</dt>
+    <dd>If you select catageroy `security`. Include metadata that help to evaluate various parameters of your rule. See <a href="#including-additional-details-with-rule-metadata"> Including additional details with rule metadata</a> where you can find a table with all required metadata and details in related sections below.</dd>
 </dl>
 
 ## Writing a rule for Semgrep Registry
