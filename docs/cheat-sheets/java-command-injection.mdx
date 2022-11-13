@@ -26,7 +26,18 @@ semgrep --config p/java-command-injection
 Example:
 
 ```java
+
+ // exec example
 Runtime.getRuntime().exec("ls -la")
+
+// Vunerable
+String input = "&& cat /etc/passwd"; // value supplied by user input
+Runtime r = Runtime.getRuntime();
+r.exec("some_tool -t param1 param2 " + input);
+
+// Vunerable
+String input = "cat /etc/passwd"; // value supplied by user input
+Runtime.getRuntime().exec("bash", "-c", input);
 ```
 
 #### References
@@ -35,7 +46,9 @@ Runtime.getRuntime().exec("ls -la")
 
 #### Mitigation
 
-Try to avoid non-literal values for the command string. If it is not possible, then do not let running arbitrary commands, use a white list for inputs. Strip `!@#$;&*~"'{}][-+%^` characters from an input provided for command string. 
+- Try to avoid non-literal values for the command string.
+- If it is not possible, then do not let running arbitrary commands, use a white list for inputs.
+- Strip `!@#$;&*~"'{}][-+%^` characters from an input provided for command string. 
 
 #### Semgrep rule
 
@@ -47,7 +60,18 @@ ProcessBuilder class is used to create operating system processes. If the comman
 Example:
 
 ```java
-Process p = new ProcessBuilder("ls", "-la").start();
+ // ProcessBuilder example
+Process builder = new ProcessBuilder("ls", "-la").start();
+
+// Vunerable
+String input = "cat /etc/passwd"; // value supplied by user input
+ProcessBuilder builder = new ProcessBuilder();
+builder.command("bash", "-c", "some_tool -t param1 param2 " + input)
+
+// Vulnerable
+String input = "cat /etc/passwd"; // value supplied by user input
+ProcessBuilder builder = new ProcessBuilder();
+builder.command(input);
 ```
 
 #### References
@@ -56,7 +80,13 @@ Process p = new ProcessBuilder("ls", "-la").start();
 
 #### Mitigation
 
-Try to avoid non-literal values for the command string. If it is not possible, then do not let running arbitrary commands, use a white list for inputs. Do not put command arguments in a command string, use parameterization instead. (TODO: explain it) 
+- Try to avoid non-literal values for the command string.
+- If it is not possible, then do not let running arbitrary commands, use a white list for inputs.
+- Do not put command arguments in a command string, use parameterization instead.
+    use:
+    `new ProcessBuilder("/path/to/myCommand", "myArg1", inputValue);`
+    instead of:
+    `new ProcessBuilder("bash", "-c", "myCommand myArg1 " + inputValue);`
 
 #### Semgrep rule
 
