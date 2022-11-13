@@ -17,7 +17,8 @@ import CodeInjectionIntro from "/src/components/concept/_code-injection-intro.md
 Example:
 
 ```java
-Class t = Class.forName("java.lang.Thread")
+String userInput = "org.pwned.package"; // value supplied by user input
+Class<?> loadClass = Class.forName(userInput + ".MyThread");
 ```
 
 #### References
@@ -26,7 +27,8 @@ Class t = Class.forName("java.lang.Thread")
 
 #### Mitigation
 
-Try to avoid non-literal values for the command string. If it is not possible, then do not let running arbitrary commands, use a white list for inputs.
+- Try to avoid non-literal values for the `className` parameter in `Class.forName`.
+- If it is not possible, use a white list for inputs.
 
 #### Semgrep rule
 
