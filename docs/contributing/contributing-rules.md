@@ -76,7 +76,7 @@ In addition to the fields mentioned above, rules submitted to Semgrep Registry h
   <tbody>
   <tr>
    <td><code>metadata</code></td>
-   <td>Additional information to help users of the rule. Note that only <code>technology</code>, <code>category</code>, and <code>references</code> are required for the majority of submitted rules.
+   <td>Provide additional information. Note that only <code>technology</code>, <code>category</code>, and <code>references</code> are required for the majority of submitted rules.
    </td>
    <td>
     <ul>
