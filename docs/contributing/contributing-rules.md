@@ -52,31 +52,22 @@ Find more about the Semgrep Registry by reading the [Rule writing](#rule-writing
 
 ## Rule requirements
 
+### General rule requirements
+
 All rules in general, regardless whether they are intended only as local rules or for Semgrep Registry, have the same initial requirements. The following table is also included in [Rule Syntax](/writing-rules/rule-syntax/) article with more details.
 
 <RequiredRuleFields />
 
-Every rule also requires a test file. Test file in the language that the rule is targeting. See [Tests](#tests) for more details.
+Every rule also requires a test file in the language that the rule is targeting. See [Tests](#tests) for more details.
 
-Every rule submitted to Semgrep Registry has additional requirements:
+### Semgrep registry rule requirements
+
+In addition to keys mentioned aboce, rules submitted to Semgrep Registry have additional requirements:
 
 <dl>
-    <dt>Rule ID</dt>
-    <dd>Rule ID is created automatically by Semgrep App, but include it if you are contributing solely through GitHub without Semgrep App. Use a meaningful name for the rule ID. Example: <code>- id: detect-angular-sce-disabled</code>.
-    </dd>
-    <dt>Rule message</dt>
-    <dd>Include details about the matched pattern and inform about mitigation of any related issues. See <a href="#rule-messages"> Rule messages</a> for more details.</dd>
-    <dt>Languages</dt>
-    <dd>Specify for which languages or language is the rule meant. For example:
-    <pre>
-    languages:<br />
-    - javascript<br />
-    - typescript
-    </pre>
-    </dd>
-    <dt>Severity</dt>
-    <dd>TODO - Description of severity is. Possible values: <code>INFO</code>, <code>WARNING</code>, <code>ERROR</code>, <code>INVENTORY</code></dd>
-    <dt>(Optional) Metadata fields</dt>
+    <dt><code>technology</code></dt>
+    <dd>If you select catageroy `security`. Include metadata that help to evaluate various parameters of your rule. See <a href="#including-additional-details-with-rule-metadata"> Including additional details with rule metadata</a> where you can find a table with all required metadata and details in related sections below.</dd>
+    <dt><code>category</code></dt>
     <dd>If you select catageroy `security`. Include metadata that help to evaluate various parameters of your rule. See <a href="#including-additional-details-with-rule-metadata"> Including additional details with rule metadata</a> where you can find a table with all required metadata and details in related sections below.</dd>
 </dl>
 
