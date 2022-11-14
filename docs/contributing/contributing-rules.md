@@ -76,23 +76,20 @@ In addition to the fields mentioned above, rules submitted to Semgrep Registry h
   <tbody>
   <tr>
    <td><code>metadata</code></td>
-   <td>Provide additional information. Note that only <code>technology</code>, <code>category</code>, and <code>references</code> are required for the majority of submitted rules.
+   <td>Provide additional information. Note that <code>technology</code>, <code>category</code>, and <code>references</code> are required for all rules, there are additional requirements for security rules. See <a href="#including-fields-required-by-security-category"> Including fields required by security category</a>.
    </td>
    <td>
     <ul>
-        <li><code>cwe</code></li>
-        <li><code>owasp</code></li>
         <li><code>references</code></li>
         <li><code>category</code></li>
         <li><code>technology</code></li>
-        <li><code>license</code></li>
+        <!-- Security -->
+        <li><code>cwe</code></li>
         <li><code>confidence</code></li>
-        <li><code>cwe2022-top25</code></li>
         <li><code>subcategory</code></li>
         <li><code>likelihood</code></li>
         <li><code>impact</code></li>
         <li><code>subcategory</code></li>
-        <li><code>vulnerability</code></li>
     </ul>
    </td>
    <td>
@@ -115,9 +112,7 @@ In addition to the fields mentioned above, rules submitted to Semgrep Registry h
     <ul>
         <li><code>django</code></li>
         <li><code>docker</code></li>
-        <li><code>dockerfile</code></li>
-        <li><code>flask</code></li>
-        <li><code>gorilla</code></li>
+        <li><code>express</code></li>
         <li><code>kubernetes</code></li>
         <li><code>nginx</code></li>
         <li><code>react</code></li>
@@ -161,7 +156,7 @@ In addition to the fields mentioned above, rules submitted to Semgrep Registry h
    <td>
     <pre>
       references:<br />
-      - https://owasp.org/Top10/
+      - https://cheatsheetseries.owasp.org/cheatsheets/DOM_based_XSS_Prevention_Cheat_Sheet.html
     </pre>
    </td>
   </tr>
@@ -465,7 +460,7 @@ subcategory:
 
 #### Technology
 
-Any additional information about the technology that gives context to the user of the rule. This helps to specify rulesets in Semgrep Registry.
+Technology helps to define specific rulesets for languages, libraries, and frameworks that are available in <a href="https://semgrep.dev/explore">, for example `express` will be included in the `p/express` rulepack.
 
 - <LinkToRegistryRule ruleId="javascript.express.security.audit.express-open-redirect.express-open-redirect" />
 
@@ -476,7 +471,7 @@ technology:
 
 #### References
 
-References help to define specific rulesets for languages, libraries, and frameworks that are available in <a href="https://semgrep.dev/explore">Semgrep Registry</a>. See the references in the following two rules:
+References help provide more context to a developer on what the issue is, and how to remediate the vulnerability, see examples below:
 
 - A rule that is finding an issue in React: <LinkToRegistryRule ruleId="typescript.react.security.audit.react-href-var.react-href-var" />
     ```
