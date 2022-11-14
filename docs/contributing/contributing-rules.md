@@ -50,7 +50,9 @@ See an example of a [pull request](https://github.com/returntocorp/semgrep-rules
 
 Find more about the Semgrep Registry by reading the [Rule writing](#rule-writing) and [Tests](#tests) sections.
 
-## Rule requirements
+## Writing a rule for Semgrep Registry
+
+The following sections document necessary fields in rule files of Semgrep Registry, provide basic informatio nabout rule messages, inform about test files, rule quality checkers, and describe additional fields required by rules in the security category.
 
 ### General rule requirements
 
@@ -174,8 +176,6 @@ In addition to the fields mentioned above, rules submitted to Semgrep Registry h
 If you use catagory <code>security</code>, include additional metadata. See <a href="#including-fields-required-by-security-category"> Including fields required by security category</a> for more information.
 :::
 
-## Writing a rule for Semgrep Registry
-
 ### Understanding rule namespacing
 
 The namespacing format for contributing rules in the [Semgrep Registry](https://github.com/returntocorp/semgrep-rules) is `<language>/<framework>/<category>/$MORE`. If the rule does not belong to a particular framework, add it to the language directory, which uses the word `lang` in place of the `<framework>` - `<language>/<lang>`.
@@ -231,6 +231,10 @@ For an example of a good rule message, see: [this rule for Django's mark_safe](h
 :::note Rule message example
 `mark_safe()` is used to mark a string as safe for HTML output. This disables escaping and may expose the content to XSS attacks. Instead, use `django.utils.html.format_html()` to build HTML for rendering.
 :::
+
+### Rule quality checker
+
+When you contribute rules to the Semgrep Registry, our quality checkers (linters) evaluate if the rule conforms to r2c standards. The `semgrep-rule-lints` job runs linters on a new rule to check for mistakes, performance problems, and best practices for submitting to the Semgrep Registry. To improve your rule writing, use Semgrep itself to [scan semgrep-rules](https://r2c.dev/blog/2021/how-we-made-semgrep-rules-run-on-semgrep-rules/).
 
 ### Including fields required by security category
 
@@ -488,9 +492,5 @@ References help to define specific rulesets for languages, libraries, and framew
     references:
       - express
     ```
-
-### Rule quality checker
-
-When you contribute rules to the Semgrep Registry, our quality checkers (linters) evaluate if the rule conforms to r2c standards. The `semgrep-rule-lints` job runs linters on a new rule to check for mistakes, performance problems, and best practices for submitting to the Semgrep Registry. To improve your rule writing, use Semgrep itself to [scan semgrep-rules](https://r2c.dev/blog/2021/how-we-made-semgrep-rules-run-on-semgrep-rules/).
 
 <MoreHelp />
