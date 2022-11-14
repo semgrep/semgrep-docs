@@ -54,7 +54,7 @@ Find more about the Semgrep Registry by reading the [Rule writing](#rule-writing
 
 ### General rule requirements
 
-All rules in general, regardless whether they are intended only as local rules or for Semgrep Registry, have the same initial requirements. The following table is also included in [Rule Syntax](/writing-rules/rule-syntax/) article.
+All rules in general, regardless of whether they are intended only as local rules or for Semgrep Registry, have the same initial requirements. The following table is also included in the [Rule Syntax](/writing-rules/rule-syntax/) article.
 
 <RequiredRuleFields />
 
@@ -62,7 +62,7 @@ Every rule also requires a test file in the language that the rule is targeting.
 
 ### Semgrep registry rule requirements
 
-In addition to fields mentioned above, rules submitted to Semgrep Registry have additional required fields:
+In addition to the fields mentioned above, rules submitted to Semgrep Registry have additional required fields:
 
 <table>
   <thead><tr>
@@ -112,7 +112,7 @@ In addition to fields mentioned above, rules submitted to Semgrep Registry have 
   </tr>
   <tr>
    <td><code>technology</code></td>
-   <td>Nested under the <code>metadata</code> field. Additional information about the technology that gives context to user of the rule. This helps to specify rulesets in Semgrep Registry.</td>
+   <td>Nested under the <code>metadata</code> field. Additional information about the technology that gives context to a user of the rule. This helps to specify rulesets in Semgrep Registry.</td>
    <td>
     <ul>
         <li><code>django</code></li>
@@ -137,7 +137,7 @@ In addition to fields mentioned above, rules submitted to Semgrep Registry have 
   </tr>
   <tr>
    <td><code>category</code></td>
-   <td>Nested under the <code>metadata</code> field. Provide a category for users of the rule. If you use catageroy <code>security</code>, include additional metada. See <a href="#including-fields-required-by-security-category"> Including fields required by security category</a> for more information.
+   <td>Nested under the <code>metadata</code> field. Provide a category for users of the rule. If you use catagory <code>security</code>, include additional metadata. See <a href="#including-fields-required-by-security-category"> Including fields required by security category</a> for more information.
    </td>
    <td>
     <ul>
@@ -159,7 +159,7 @@ In addition to fields mentioned above, rules submitted to Semgrep Registry have 
 </table>
 
 :::note
-If you use catageroy <code>security</code>, include additional metada. See <a href="#including-fields-required-by-security-category"> Including fields required by security category</a> for more information.
+If you use catagory <code>security</code>, include additional metadata. See <a href="#including-fields-required-by-security-category"> Including fields required by security category</a> for more information.
 :::
 
 ## Writing a rule for Semgrep Registry
@@ -175,12 +175,12 @@ Include a test file in the language that your rule is targeting. A test file inc
 - At least one test where the rule detects a finding. This is called a true positive finding.
 - At least one test where the rule does **not** detect a finding. This is called a true negative finding.
 
-Test file names must match the rule file name, except for the file extension. For example, if the rule is in `my-rule.yaml`, name the test `my-rule.js`. (You can use any valid extension for the target language.)
+Test file names must match the rule file name, except for the file extension. For example, if the rule is in `my-rule.yaml`, the test file name must be `my-rule.js`. Use any valid extension for the target language.
 
 :::info Requirements of test files
-- In the test file, include examples that clearly mark:
+- In the test file, include examples that mark:
     - What is expected to be a finding.
-    - What is clearly not a finding.
+    - What is not a finding.
 - The test file name must match the rule file name, except for the file extension.
 :::
 
@@ -194,7 +194,7 @@ rules:
   …
 ```
 
-In the test file, mark an expected finding with a comment tag, mention **ruleid** of your rule in the comment before expected finding. Also mark the the code that is expected not to be a finding with a comment stating `ok` and add the **ruleid** also. See the example below:
+In the test file, mark an expected finding with a comment tag, and mention **ruleid** of your rule in the comment before the expected finding. Also, mark the code that is expected not to be a finding with a comment stating `ok` and add the **ruleid** also. See the example below:
 ```js
 // ruleid: my-rule
 var strdata = "hello";
@@ -212,7 +212,7 @@ Include a rule message that provides details about the matched pattern and infor
 2. Description of why this pattern was detected. For example: logic bug, introduces a security vulnerability, bad practice.
 3. An alternative that resolves the issue. For example: Use another function, validate data first, and discard the dangerous flag.
 
-Use the YAML multiline string operator `>-` when rule messages span multiple lines. This presents the best-looking rule message on the command line without having to worry about line wrapping or escaping the quote or using backslash.
+Use the YAML multiline string operator `>-` when rule messages span multiple lines. This presents the best-looking rule message on the command line without having to worry about line wrapping or escaping the quote or using the backslash.
 
 For an example of a good rule message, see: [this rule for Django's mark_safe](https://semgrep.dev/r?q=python.django.security.audit.avoid-mark-safe.avoid-mark-safe).
 
@@ -360,7 +360,7 @@ HIGH likelihood rules specify a very high concern that the vulnerability can be 
 - The use of weak encryption: <LinkToRegistryRule ruleId="go.lang.security.audit.crypto.use_of_weak_rsa_key.use-of-weak-rsa-key" />
 - Disabled security feature in a configuration: <LinkToRegistryRule ruleId="javascript.angular.security.detect-angular-sce-disabled.detect-angular-sce-disabled" />
 - Hardcoded secrets that use a constant value `"..."`: <LinkToRegistryRule ruleId="javascript.jose.security.jwt-hardcode.hardcoded-jwt-secret" />
-- Rules which leverage `taint mode sources` which indicate sources that can come from an attacker. Such as HTTP `POST`, `GET`, `PUT`, `DELETE` request values. For example: <LinkToRegistryRule ruleId="javascript.express.security.audit.express-open-redirect.express-open-redirect" />
+- Rules that leverage `taint mode sources` which indicate sources that can come from an attacker. Such as HTTP `POST`, `GET`, `PUT`, and `DELETE` request values. For example: <LinkToRegistryRule ruleId="javascript.express.security.audit.express-open-redirect.express-open-redirect" />
 
 ```
 likelihood: HIGH
@@ -370,7 +370,7 @@ likelihood: HIGH
 
 MEDIUM likelihood rules detect a vulnerability in most circumstances. Although it can be hard for an attacker to exploit them. Also, these rules can detect part of a problem, but not the whole issue. Examples:
 
-- `taint mode sources` that reach a `taint mode sink`  but the source is something that is only vulnerable in certain conditions for example OS Environment Variables, or loading from disk: <LinkToRegistryRule ruleId="python.aws-lambda.security.dangerous-spawn-process.dangerous-spawn-process" />
+- `taint mode sources` that reach a `taint mode sink`  but the source is only vulnerable in certain conditions for example OS Environment Variables, or loading from disk: <LinkToRegistryRule ruleId="python.aws-lambda.security.dangerous-spawn-process.dangerous-spawn-process" />
 - `taint mode sources` with a `taint mode sink` but is missing a `taint mode sanitizer` which can introduce more false positives: <LinkToRegistryRule ruleId="javascript.express.security.express-puppeteer-injection.express-puppeteer-injection" />
 
 ```
@@ -417,7 +417,7 @@ impact: MEDIUM
 
 ##### LOW
 
-LOW impact rules are rules which are a security issue, but the impact is not too damaging to the application if discovered. 
+LOW impact rules are rules that leverage a security issue, but the impact is not too damaging to the application if discovered. 
 
 - <LinkToRegistryRule ruleId="go.gorilla.security.audit.session-cookie-missing-secure.session-cookie-missing-secure" />
 - <LinkToRegistryRule ruleId="javascript.browser.security.raw-html-join.raw-html-join" />
@@ -454,7 +454,7 @@ subcategory:
 
 ##### guardrail
 
-A guardrail rule, is useful for companies writing custom rules. For example, finding all usages to non-standard XML parsing libraries within the company. The rule can also bring a message that a developer can use only a company-approved library.
+A guardrail rule is useful for companies writing custom rules. For example, finding all usages to non-standard XML parsing libraries within the company. The rule can also bring a message that a developer can use only a company-approved library.
 
 ```
 subcategory:
@@ -463,7 +463,7 @@ subcategory:
 
 #### Technology
 
-Any additional information about the technology that gives context to user of the rule. This helps to specify rulesets in Semgrep Registry.
+Any additional information about the technology that gives context to the user of the rule. This helps to specify rulesets in Semgrep Registry.
 
 - <LinkToRegistryRule ruleId="javascript.express.security.audit.express-open-redirect.express-open-redirect" />
 
