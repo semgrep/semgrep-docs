@@ -42,7 +42,7 @@ You can also publish rules as private rules outside of Semgrep Registry. These r
 
 ## Contributing through GitHub
 
-Fork our repository and make a pull request. We contact you about signing our Contributor License Agreement (CLA). Make a pull request to the [Semgrep Registry](https://github.com/returntocorp/semgrep-rules) with two files:
+Fork our repository and make a pull request. Sign our Contributor License Agreement (CLA) on GitHub before r2c can accept your contributions. Make a pull request to the [Semgrep Registry](https://github.com/returntocorp/semgrep-rules) with two files:
 1. The semgrep pattern (as YAML file).
 2. The test file (with the file extension of the language or framework). The test file must contain at least one true positive and one true negative test case to be approved. See the [Tests](#tests) section of this document for more information.
 
