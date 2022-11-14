@@ -33,4 +33,4 @@ The following articles guide you through rule writing basics or can provide you 
 - [Rule syntax](rule-syntax.md) describes Semgrep YAML rule files, which can have multiple patterns, detailed output messages, and autofixes. The syntax allows the composition of individual patterns with boolean operators.
 - [Contributing rules](/contributing/contributing-to-semgrep-rules-repository/) gives you an overview of where and how you can contribute to Semgrep Registry rules. This document also provides some information about tests and appropriate metadata information you may use for your rules.
 
-Looking for ideas on what rules to write? See [Rule ideas](/rule-ideas/) for common use cases and prompts to help you start writing rules from scratch.
+Looking for ideas on what rules to write? See [Rule ideas](/writing-rules/rule-ideas/) for common use cases and prompts to help you start writing rules from scratch.
