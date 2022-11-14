@@ -38,15 +38,15 @@ To contribute and publish rules to the Semgrep Registry through Semgrep App, fol
 
 This workflow automatically creates a pull request in the GitHub [Semgrep Registry](https://github.com/returntocorp/semgrep-rules). Find more about the Semgrep Registry by reading the [Rule writing](#rule-writing) and [Tests](#tests) sections.
 
-You can also publish rules to the Semgrep Registry as private rules. See the [Private rules](/docs/writing-rules/private-rules.md) documentation for more information.
+You can also publish rules as private rules outside of Semgrep Registry. These rules are not included in the Semgrep Registry, but they are accessible to your Semgrep organisation. See the [Private rules](/writing-rules/private-rules/) documentation for more information.
 
 ## Contributing through GitHub
 
-Fork our repository and make a pull request; we'll contact you about signing our Contributor License Agreement (CLA). Install pre-commit (see [installing pre-commit](#installing-pre-commit)) and make a pull request to the [Semgrep Registry](https://github.com/returntocorp/semgrep-rules) with two files:
+Fork our repository and make a pull request. We contact you about signing our Contributor License Agreement (CLA). Make a pull request to the [Semgrep Registry](https://github.com/returntocorp/semgrep-rules) with two files:
 1. The semgrep pattern (as YAML file).
 2. The test file (with the file extension of the language or framework). The test file must contain at least one true positive and one true negative test case to be approved. See the [Tests](#tests) section of this document for more information.
 
-See an example of a [pull request](https://github.com/returntocorp/semgrep-rules/pull/1728/files) to the Semgrep Registry. Pull requests require the approval of at least one maintainer and successfully passed [CI jobs](https://github.com/returntocorp/semgrep-rules/actions).
+Pull requests require the approval of at least one maintainer and successfully passed [CI jobs](https://github.com/returntocorp/semgrep-rules/actions).
 
 Find more about the Semgrep Registry by reading the [Rule writing](#rule-writing) and [Tests](#tests) sections.
 
@@ -76,7 +76,7 @@ In addition to the fields mentioned above, rules submitted to Semgrep Registry h
   <tbody>
   <tr>
    <td><code>metadata</code></td>
-   <td>Additional information to help users of the rule.
+   <td>Additional information to help users of the rule. Note that only <code>technology</code>, <code>category</code>, and <code>references</code> are required for the majority of submitted rules.
    </td>
    <td>
     <ul>
@@ -105,16 +105,12 @@ In addition to the fields mentioned above, rules submitted to Semgrep Registry h
         - unicode<br />
       references:<br />
         - https://trojansource.codes/<br />
-      confidence: LOW<br />
-      owasp:<br />
-        - A03:2021 - Injection<br />
-      cwe2022-top25: true<br />
-     </pre> 
+     </pre>
    </td>
   </tr>
   <tr>
    <td><code>technology</code></td>
-   <td>Nested under the <code>metadata</code> field. Additional information about the technology that gives context to a user of the rule. This helps to specify rulesets in Semgrep Registry.</td>
+   <td>Nested under the <code>metadata</code> field. Additional information about the technology. This helps to specify rulesets in Semgrep Registry.</td>
    <td>
     <ul>
         <li><code>django</code></li>
@@ -139,7 +135,7 @@ In addition to the fields mentioned above, rules submitted to Semgrep Registry h
   </tr>
   <tr>
    <td><code>category</code></td>
-   <td>Nested under the <code>metadata</code> field. Provide a category for users of the rule. If you use catagory <code>security</code>, include additional metadata. See <a href="#including-fields-required-by-security-category"> Including fields required by security category</a> for more information.
+   <td>Nested under the <code>metadata</code> field. If you use catagory <code>security</code>, include additional metadata. See <a href="#including-fields-required-by-security-category"> Including fields required by security category</a>.
    </td>
    <td>
     <ul>
@@ -173,7 +169,7 @@ In addition to the fields mentioned above, rules submitted to Semgrep Registry h
 </table>
 
 :::info
-If you use catagory <code>security</code>, include additional metadata. See <a href="#including-fields-required-by-security-category"> Including fields required by security category</a> for more information.
+If you use catagory <code>security</code>, include additional metadata. See <a href="#including-fields-required-by-security-category"> Including fields required by security category</a>.
 :::
 
 ### Understanding rule namespacing
