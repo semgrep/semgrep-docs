@@ -295,18 +295,18 @@ Details of each field mentioned above are provided in the subsections below with
 
 #### CWE
 
-Include the appropriate <a href="https://cwe.mitre.org/index.html">Comment Weakness Enumeration (CWE)</a>. CWE can explain what vulnerability is your rule trying to find. Examples:
+Include the appropriate <a href="https://cwe.mitre.org/index.html">Comment Weakness Enumeration (CWE)</a>. CWE can explain what vulnerability your rule is trying to find. Examples:
 
 If you write an SQL Injection rule, use the following:
 ```yaml
 cwe:                
-  - 'CWE-89: Improper Neutralization of Special Elements used in an SQL Command ('SQL Injection')'
+  - "CWE-89: Improper Neutralization of Special Elements used in an SQL Command ('SQL Injection')"
 ```
 
 If you write an XSS rule, use the following:
 ```yaml
 cwe: 
-  - 'CWE-79: Improper Neutralization of Input During Web Page Generation ('Cross-site Scripting')'
+  - "CWE-79: Improper Neutralization of Input During Web Page Generation ('Cross-site Scripting')"
 ```
 
 #### Confidence
@@ -481,12 +481,12 @@ References help to define specific rulesets for languages, libraries, and framew
 - A rule that is finding an issue in React: <LinkToRegistryRule ruleId="typescript.react.security.audit.react-href-var.react-href-var" />
     ```
     references:
-      - react
+      - https://reactjs.org/blog/2019/08/08/react-v16.9.0.html#deprecating-javascript-urls
     ```
 - A rule that is detecting an issue in Express: <LinkToRegistryRule ruleId="javascript.sequelize.security.audit.sequelize-injection-express.express-sequelize-injection" />
     ```
     references:
-      - express
+      - https://sequelize.org/docs/v6/core-concepts/raw-queries/#replacements
     ```
 
 <MoreHelp />
