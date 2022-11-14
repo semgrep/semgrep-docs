@@ -1,9 +1,9 @@
-All required fields must be present at the top-level of a rule, immediately underneath `rules`.
+All required fields must be present at the top-level of a rule, immediately under the `rules` key.
 
 |     Field     |   Type   | Description |
 | :------------ | :------- | :---------- |
 | `id`          | `string` | Unique, descriptive identifier, for example: `no-unused-variable`        |
-| `message`     | `string` | Message highlighting why this rule fired and how to remediate the issue |
+| `message`     | `string` | Message that includes why Semgrep matched this pattern and how to remediate it. See also [Rule messages](/contributing/contributing-rules/#rule-messages). |
 | `severity`    | `string` | One of: `INFO`, `WARNING`, or `ERROR` |
 | `languages`   | `array`  | See [language extensions and tags](#language-extensions-and-tags) |
 | [`pattern`](#pattern)_\*_     | `string` | Find code matching this expression |

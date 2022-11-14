@@ -52,18 +52,18 @@ Find more about the Semgrep Registry by reading the [Rule writing](#rule-writing
 
 ## Rule requirements
 
-All rules in general, regardless whether they are intended only as local rules or for Semgrep Registry, have the same initial requirements:
+All rules in general, regardless whether they are intended only as local rules or for Semgrep Registry, have the same initial requirements. The following table is also included in [Rule Syntax](/writing-rules/rule-syntax/) article with more details.
 
 <RequiredRuleFields />
 
-Every rule submitted to Semgrep Registry has additional requirements: include:TODO
+Every rule also requires a test file. Test file in the language that the rule is targeting. See [Tests](#tests) for more details.
+
+Every rule submitted to Semgrep Registry has additional requirements:
 
 <dl>
     <dt>Rule ID</dt>
     <dd>Rule ID is created automatically by Semgrep App, but include it if you are contributing solely through GitHub without Semgrep App. Use a meaningful name for the rule ID. Example: <code>- id: detect-angular-sce-disabled</code>.
     </dd>
-    <dt>Test file</dt>
-    <dd>Test file in the language that the rule is targeting. See <a href="#tests"> Tests</a> for more details.</dd>
     <dt>Rule message</dt>
     <dd>Include details about the matched pattern and inform about mitigation of any related issues. See <a href="#rule-messages"> Rule messages</a> for more details.</dd>
     <dt>Languages</dt>

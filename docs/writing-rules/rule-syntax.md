@@ -28,28 +28,28 @@ This document describes Semgrep’s YAML rule syntax.
 
 ### Optional
 
-| Field                                   | Type     | Description                                                                              |
-| :-------------------------------------- | :------- | :--------------------------------------------------------------------------------------- |
+| Field      | Type     | Description                         |
+| :--------- | :------- | :---------------------------------- |
 | [`options`](#options)   | `object` | Options object to enable/disable certain matching features |
-| [`fix`](#fix)           | `object` | Simple search-and-replace autofix functionality                                         |
+| [`fix`](#fix)           | `object` | Simple search-and-replace autofix functionality  |
 | [`metadata`](#metadata) | `object` | Arbitrary user-provided data; attach data to rules without affecting Semgrep’s behavior |
-| [`paths`](#paths)       | `object` | Paths to include or exclude when running this rule                                     |
+| [`paths`](#paths)       | `object` | Paths to include or exclude when running this rule |
 
 The below optional fields must reside underneath a `patterns` or `pattern-either` field.
 
-| Field                                                           | Type     | Description                                                                                                              |
-| :-------------------------------------------------------------- | :------- | :----------------------------------------------------------------------------------------------------------------------- |
+| Field                | Type     | Description              |
+| :------------------- | :------- | :----------------------- |
 | [`pattern-inside`](#pattern-inside)             | `string` | Keep findings that lie inside this pattern                                                                              |
 
 The below optional fields must reside underneath a `patterns` field.
 
-| Field                                                           | Type     | Description                                                                                                              |
-| :-------------------------------------------------------------- | :------- | :----------------------------------------------------------------------------------------------------------------------- |
-| [`metavariable-regex`](#metavariable-regex)     | `map`    | Search metavariables for [Python `re`](https://docs.python.org/3/library/re.html#re.match) compatible expressions; regex matching is **unanchored** |
-| [`metavariable-pattern`](#metavariable-pattern)     | `map`    | Matches metavariables with a pattern formula  |
-| [`metavariable-comparison`](#metavariable-comparison)     | `map`    | Compare metavariables against basic [Python expressions](https://docs.python.org/3/reference/expressions.html#comparisons) |
-| [`pattern-not`](#pattern-not)                   | `string` | Logical NOT - remove findings matching this expression                                                                  |
-| [`pattern-not-inside`](#pattern-not-inside)     | `string` | Keep findings that do not lie inside this pattern                                                                       |
+| Field            | Type     | Description           |
+| :--------------- | :------- | :-------------------- |
+| [`metavariable-regex`](#metavariable-regex)     | `map` | Search metavariables for [Python `re`](https://docs.python.org/3/library/re.html#re.match) compatible expressions; regex matching is **unanchored** |
+| [`metavariable-pattern`](#metavariable-pattern)     | `map` | Matches metavariables with a pattern formula  |
+| [`metavariable-comparison`](#metavariable-comparison)     | `map` | Compare metavariables against basic [Python expressions](https://docs.python.org/3/reference/expressions.html#comparisons) |
+| [`pattern-not`](#pattern-not) | `string` | Logical NOT - remove findings matching this expression |
+| [`pattern-not-inside`](#pattern-not-inside)     | `string` | Keep findings that do not lie inside this pattern |
 | [`pattern-not-regex`](#pattern-not-regex)   | `string` | Filter results using a [PCRE](https://www.pcre.org/original/doc/html/pcrepattern.html)-compatible pattern in multiline mode |
 
 ## Operators
