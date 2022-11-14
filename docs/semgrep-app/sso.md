@@ -65,15 +65,16 @@ If you encounter issues during the setup process, reach out to [support@r2c.dev]
 
 Set up Semgrep as an Enterprise App with SAML SSO using Azure's Active Directory service by following these steps:
 
-1. Enable **Enterprise App** in **Azure Active Directory** with SAML SSO selected. Follow the instructions in [Enable single sign-on for an enterprise application](https://learn.microsoft.com/en-us/azure/active-directory/manage-apps/add-application-portal-setup-sso).
-2. Go to Semgrep App [Settings](https://semgrep.dev/orgs/-/settings/sso) page. TODO Under **Basic Configuration**, you'll need to enter the `Entity ID` and the `Reply URL`. These are provided in the Semgrep App on the left-side **Settings** tab, under the **SSO** tab on the top, as `Audience URL` and `SSO URL`, respectively. Make sure you switch the provider type to **SAML2** in the SSO form in the Semgrep App.
+1. In **Azure Active Directory**, create **Enterprise App** for Semgrep with SAML SSO selected. Follow the six step procedure in [Enable single sign-on](https://learn.microsoft.com/en-us/azure/active-directory/manage-apps/add-application-portal-setup-sso#enable-single-sign-on).
+1. Go to Semgrep App [Settings](https://semgrep.dev/orgs/-/settings/sso) page. 
+1. In **Basic Configuration** of Azure Active directory, copy `Entity ID` and the `Reply URL`. These are provided in the Semgrep App on the left-side **Settings** tab, under the **SSO** tab on the top, as `Audience URL` and `SSO URL`, respectively. Make sure you switch the provider type to **SAML2** in the SSO form in the Semgrep App.
     !["Entity ID" and "Reply URL" fields in Semgrep App](/img/azure-sso-fields-2.png ""Entity ID" and "Reploy URL" fields from within the App")
-3. TODO You need to add two attribute statements called `name` and `email`, making sure to set the `email` attribute to `user.mail`. For help regarding **Attributes and Claims**, refer to [Customize claims issued in the SAML token for enterprise applications](https://learn.microsoft.com/en-us/azure/active-directory/develop/active-directory-saml-claims-customization) documentation.
-4. In the Azure Single sign-on page, find the `Login URL`, `Azure AD Identifier`, and `Certificate (Base64)`. Pate them to your [Settings](https://semgrep.dev/orgs/-/settings/sso) page of SAML2 SSO as `IdP SSO URL` (`Login URL`), `IdP Issuer ID` (`Azure AD Identifier`), and `X.509 Certificate` (`Certificate (Base64)`). 
+1. TODO You need to add two attribute statements called `name` and `email`, making sure to set the `email` attribute to `user.mail`. For help regarding **Attributes and Claims**, refer to TODO describe process.
+1. In the Azure Single sign-on page, find the `Login URL`, `Azure AD Identifier`, and `Certificate (Base64)`. Paste them to your [Settings](https://semgrep.dev/orgs/-/settings/sso) page of SAML2 SSO as `IdP SSO URL` (`Login URL`), `IdP Issuer ID` (`Azure AD Identifier`), and TODO - specify that this needs to be a certificate which can be downloaded - `X.509 Certificate` (`Certificate (Base64)`). 
     ![Setting additional SSO form fields](/img/azure-sso-app-fields.png "Setting additional SSO form fields")
-5. TODO At the top of the form, fill in your email domain and a display name for the SSO integration.
+1. In Semgrep App Settings page, fill in your email domain (meaning everything after the `@` sign, for example email `hello@johndoe1700gmail.onmicrosoft.com` has a domain `johndoe1700gmail.onmicrosoft.com`) and a display name for the SSO integration.
     ![Display name and email domain in the SSO form](/img/azure-sso-app-fields-3.png "Display name and email domain in the SSO form")
-6. Once all the fields are filled out, press the **Create/Update Auth Provider** button at the bottom of the form. See a green confirmation message in the upper-left of the app to verify that we've recieved your SSO info.
+1. Click the **Create/Update Auth Provider**. See a green confirmation message in the upper-left of the app to verify that we've recieved your SSO info.
     ![Submitting your SSO info in the App](/img/azure-sso-submit.png "Submitting your SSO info in the App")
 
 To add users to the application in so they can log in with their domain emails: refer to the [Assign users and groups to an application](https://learn.microsoft.com/en-us/azure/active-directory/manage-apps/assign-user-or-group-access-portal).
