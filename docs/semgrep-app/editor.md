@@ -181,4 +181,8 @@ To **create a PR** from the Semgrep Editor:
 1. Fill in the required and optional fields.
 1. Click <i className="fa-solid fa-circle-check inline_svg"></i> **Continue**, and then click <i className="fa-solid fa-code-pull-request inline_svg"></i> **Create PR**.
 
+:::info
+For general contributing guidelines, see [Contributing rules](/contributing/contributing-to-semgrep-rules-repository/).
+:::
+
 <MoreHelp />
