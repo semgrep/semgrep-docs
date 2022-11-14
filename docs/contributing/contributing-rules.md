@@ -54,7 +54,7 @@ Find more about the Semgrep Registry by reading the [Rule writing](#rule-writing
 
 ### General rule requirements
 
-All rules in general, regardless whether they are intended only as local rules or for Semgrep Registry, have the same initial requirements. The following table is also included in [Rule Syntax](/writing-rules/rule-syntax/) article with more details.
+All rules in general, regardless whether they are intended only as local rules or for Semgrep Registry, have the same initial requirements. The following table is also included in [Rule Syntax](/writing-rules/rule-syntax/) article.
 
 <RequiredRuleFields />
 
@@ -62,14 +62,105 @@ Every rule also requires a test file in the language that the rule is targeting.
 
 ### Semgrep registry rule requirements
 
-In addition to keys mentioned aboce, rules submitted to Semgrep Registry have additional requirements:
+In addition to fields mentioned above, rules submitted to Semgrep Registry have additional required fields:
 
-<dl>
-    <dt><code>technology</code></dt>
-    <dd>If you select catageroy `security`. Include metadata that help to evaluate various parameters of your rule. See <a href="#including-additional-details-with-rule-metadata"> Including additional details with rule metadata</a> where you can find a table with all required metadata and details in related sections below.</dd>
-    <dt><code>category</code></dt>
-    <dd>If you select catageroy `security`. Include metadata that help to evaluate various parameters of your rule. See <a href="#including-additional-details-with-rule-metadata"> Including additional details with rule metadata</a> where you can find a table with all required metadata and details in related sections below.</dd>
-</dl>
+<table>
+  <thead><tr>
+   <th>Field</th>
+   <th>Description</th>
+   <th>Possible values</th>
+   <th>Example</th>
+  </tr></thead>
+  <tbody>
+  <tr>
+   <td><code>metadata</code></td>
+   <td>Additional information to help users of the rule.
+   </td>
+   <td>
+    <ul>
+        <li><code>cwe</code></li>
+        <li><code>owasp</code></li>
+        <li><code>references</code></li>
+        <li><code>category</code></li>
+        <li><code>technology</code></li>
+        <li><code>license</code></li>
+        <li><code>confidence</code></li>
+        <li><code>cwe2022-top25</code></li>
+        <li><code>subcategory</code></li>
+        <li><code>likelihood</code></li>
+        <li><code>impact</code></li>
+        <li><code>subcategory</code></li>
+        <li><code>vulnerability</code></li>
+    </ul>
+   </td>
+   <td>
+    <pre>
+    metadata:<br />
+      cwe:<br />
+        - "CWE-94: (...)"<br />
+      category: security<br />
+      technology:<br />
+        - unicode<br />
+      references:<br />
+        - https://trojansource.codes/<br />
+      confidence: LOW<br />
+      owasp:<br />
+        - A03:2021 - Injection<br />
+      cwe2022-top25: true<br />
+     </pre> 
+   </td>
+  </tr>
+  <tr>
+   <td><code>technology</code></td>
+   <td>Nested under the <code>metadata</code> field. Additional information about the technology that gives context to user of the rule. This helps to specify rulesets in Semgrep Registry.</td>
+   <td>
+    <ul>
+        <li><code>django</code></li>
+        <li><code>docker</code></li>
+        <li><code>dockerfile</code></li>
+        <li><code>flask</code></li>
+        <li><code>gorilla</code></li>
+        <li><code>kubernetes</code></li>
+        <li><code>nginx</code></li>
+        <li><code>react</code></li>
+        <li><code>terraform</code></li>
+        <li><code>--no-technology--</code></li>
+    </ul>
+   </td>
+   <td>
+    <pre>
+        metadata:<br />
+        technology:<br />
+        - react
+    </pre> 
+   </td>
+  </tr>
+  <tr>
+   <td><code>category</code></td>
+   <td>Nested under the <code>metadata</code> field. Provide a category for users of the rule. If you use catageroy <code>security</code>, include additional metada. See <a href="#including-fields-required-by-security-category"> Including fields required by security category</a> for more information.
+   </td>
+   <td>
+    <ul>
+      <li><code>best-practice</code></li>
+      <li><code>correctness</code></li>
+      <li><code>maintainability</code></li>
+      <li><code>performance</code></li>
+      <li><code>portability</code></li>
+      <li><code>security</code></li>
+    </ul>
+    </td>
+    <td>
+    <pre>
+    category: security
+    </pre> 
+    </td>
+  </tr>
+  </tbody>
+</table>
+
+:::note
+If you use catageroy <code>security</code>, include additional metada. See <a href="#including-fields-required-by-security-category"> Including fields required by security category</a> for more information.
+:::
 
 ## Writing a rule for Semgrep Registry
 
@@ -125,20 +216,20 @@ Use the YAML multiline string operator `>-` when rule messages span multiple lin
 
 For an example of a good rule message, see: [this rule for Django's mark_safe](https://semgrep.dev/r?q=python.django.security.audit.avoid-mark-safe.avoid-mark-safe).
 
-:::info Rule message example
+:::note Rule message example
 `mark_safe()` is used to mark a string as safe for HTML output. This disables escaping and may expose the content to XSS attacks. Instead, use `django.utils.html.format_html()` to build HTML for rendering.
 :::
 
-### Including additional details with rule metadata
+### Including fields required by security category
 
-Rules in the Semgrep Registry require specific metadata fields that ensure consistency across the ecosystem in both Semgrep App and Semgrep CLI.
+Rules in category `security` in the Semgrep Registry require specific metadata fields that ensure consistency across the ecosystem in both Semgrep App and Semgrep CLI. Nest these metadata under the `metadata` field. 
 
-Nest these metadata under the `metadata` key. The following metadata are required:
+If your rule has a `category: security`, the following metadata are required:
 
 <table>
   <thead><tr>
    <th>Required metadata field</th>
-   <th>Possible values</th>
+   <th>Values</th>
    <th>Example use</th>
   </tr></thead>
   <tbody>
@@ -173,16 +264,6 @@ Nest these metadata under the `metadata` key. The following metadata are require
   </td>
   </tr>
   <tr>
-   <td>Technology</td>
-   <td>Additional information about the technology that gives context to user of the rule. This helps to specify rulesets in Semgrep Registry.</td>
-   <td>
-     <pre>
-        technology:<br />
-        - react
-     </pre>
-   </td>
-  </tr>
-  <tr>
    <td>References</td>
    <td>Additional information that gives more context to the user of the rule. This helps developers understand the issue and how to fix it.</td>
    <td>
@@ -206,7 +287,9 @@ Examples of rules with a full list of required metadata:
 - Medium confidence Python rule: <LinkToRegistryRule ruleId="python.lang.security.dangerous-system-call.dangerous-system-call" />
 - Low confidence C# rule: <LinkToRegistryRule ruleId="csharp.lang.security.ssrf.rest-client.ssrf" />
 
-Details of each field are provided in the subsections below with examples.
+:::note
+Details of each field mentioned above are provided in the subsections below with examples.
+:::
 
 #### CWE
 
@@ -381,7 +464,6 @@ subcategory:
 #### Technology
 
 Any additional information about the technology that gives context to user of the rule. This helps to specify rulesets in Semgrep Registry.
-
 
 - <LinkToRegistryRule ruleId="javascript.express.security.audit.express-open-redirect.express-open-redirect" />
 

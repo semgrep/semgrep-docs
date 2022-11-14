@@ -166,54 +166,15 @@ To add a rule to the Rule Board:
 2. Select which column (Audit or Blocker) to add the rule to, depending on the rule’s relevance.
 3. The rule appears on your Rule Board, under the corresponding column.
 
-
 ## Contributing to the open-source Semgrep Registry
 
-r2c, the maintainers of Semgrep, welcome contributions to the Registry. This is achieved by creating a pull request (PR) either on the repository itself or through the Editor. Contributions to the Registry can be discovered by anyone through the [Registry](https://semgrep.dev/explore) and Editor.
+To have your rule accepted faster, include the following:
 
-Guidelines for faster rule acceptance:
+- Include **test cases** for both a true positive and a true negative. See [Tests](/contributing/contributing-to-semgrep-rules-repository/#tests) for more details.
+- Include a descriptive rule **message**. See [Rule messages](/contributing/contributing-to-semgrep-rules-repository/#rule-messages) for more information.
+- Include **metadata fields**. See [Semgrep registry rule requirements](/contributing/contributing-to-semgrep-rules-repository/#semgrep-registry-rule-requirements) for more information.
 
-- Include **test cases** for both a true positive and a true negative.
-- Include a descriptive rule **message**.
-- Fill out **metadata fields** for the following:
-
-<table>
-  <tr>
-    <th>Metadata field</th>
-    <th>Sample values</th>
-  </tr>
-  <tr>
-    <td><code>category</code></td>
-    <td>
-        <ul>
-            <li><code>best-practice</code></li>
-            <li><code>correctness</code></li>
-            <li><code>maintainability</code></li>
-            <li><code>performance</code></li>
-            <li><code>portability</code></li>
-            <li><code>security</code></li>
-        </ul>
-    </td>
-  </tr>
-  <tr>
-    <td><code>technology</code></td>
-    <td>
-        <ul>
-            <li><code>django</code></li>
-            <li><code>docker</code></li>
-            <li><code>flask</code></li>
-            <li><code>kubernetes</code></li>
-            <li><code>nginx</code></li>
-            <li><code>react</code></li>
-            <li><code>terraform</code></li>
-            <li><code>TARGET_LANGUAGE</code></li>
-        </ul>
-    </td>
-  </tr>
-</table>
-
-To **create a PR** from the Editor:
-
+To **create a PR** from the Semgrep Editor:
 
 1. Click <i className="fa-solid fa-earth-americas inline_svg"></i> **Share**.
 1. (Optional) Click <i className="fa-solid fa-cloud-arrow-up inline_svg"></i> **Publish to Registry**.

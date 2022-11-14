@@ -45,9 +45,9 @@ The below optional fields must reside underneath a `patterns` field.
 
 | Field            | Type     | Description           |
 | :--------------- | :------- | :-------------------- |
-| [`metavariable-regex`](#metavariable-regex)     | `map` | Search metavariables for [Python `re`](https://docs.python.org/3/library/re.html#re.match) compatible expressions; regex matching is **unanchored** |
+| [`metavariable-regex`](#metavariable-regex)         | `map` | Search metavariables for [Python `re`](https://docs.python.org/3/library/re.html#re.match) compatible expressions; regex matching is **unanchored** |
 | [`metavariable-pattern`](#metavariable-pattern)     | `map` | Matches metavariables with a pattern formula  |
-| [`metavariable-comparison`](#metavariable-comparison)     | `map` | Compare metavariables against basic [Python expressions](https://docs.python.org/3/reference/expressions.html#comparisons) |
+| [`metavariable-comparison`](#metavariable-comparison) | `map` | Compare metavariables against basic [Python expressions](https://docs.python.org/3/reference/expressions.html#comparisons) |
 | [`pattern-not`](#pattern-not) | `string` | Logical NOT - remove findings matching this expression |
 | [`pattern-not-inside`](#pattern-not-inside)     | `string` | Keep findings that do not lie inside this pattern |
 | [`pattern-not-regex`](#pattern-not-regex)   | `string` | Filter results using a [PCRE](https://www.pcre.org/original/doc/html/pcrepattern.html)-compatible pattern in multiline mode |
@@ -87,7 +87,7 @@ This rule looks for usage of the Python standard library functions `hashlib.md5`
 
 ### `pattern-regex`
 
-The `pattern-regex` operator searches files for substrings matching the given [PCRE](https://www.pcre.org/original/doc/html/pcrepattern.html) pattern. This is useful for migrating existing regular expression code search functionality to Semgrep. PCRE "Perl-Compatible Regular Expressions" is a full-featured regex library that is widely compatible with Perl of course, but also with the respective regex libraries of Python, JavaScript, Go, Ruby, and Java. Patterns are compiled in multiline mode, i.e. `^` and `$` will match at the beginning and end of lines respectively in addition to the beginning and end of input (since Semgrep 0.95.0).
+The `pattern-regex` operator searches files for substrings matching the given [PCRE](https://www.pcre.org/original/doc/html/pcrepattern.html) pattern. This is useful for migrating existing regular expression code search functionality to Semgrep. PCRE "Perl-Compatible Regular Expressions" is a full-featured regex library that is widely compatible with Perl of course, but also with the respective regex libraries of Python, JavaScript, Go, Ruby, and Java. Patterns are compiled in multiline mode, i.e. `^` and `$` matches at the beginning and end of lines respectively in addition to the beginning and end of input (since Semgrep 0.95.0).
 
 ⚠️ PCRE supports only a [limited number of Unicode character properties](https://www.pcre.org/original/doc/html/pcrepattern.html#uniextseq). For example, `\p{Egyptian_Hieroglyphs}` is supported but `\p{Bidi_Control}` isn't.
 
@@ -103,17 +103,17 @@ It can also be used as a standalone, top-level operator:
 Single (`'`) and double (`"`) quotes [behave differently](https://docs.octoprint.org/en/master/configuration/yaml.html#scalars) in YAML syntax. Single quotes are typically preferred when using backslashes (`\`) with `pattern-regex`.
 :::
 
-Note that if the regex uses groups, the metavariables `$1`, `$2`, etc. will be bound to the content of the captured group.
+Note that if the regex uses groups, the metavariables such as `$1`, `$2`, and so on, are bound to the content of the captured group.
 
 <iframe src="https://semgrep.dev/embed/editor?snippet=8RkB" border="0" frameBorder="0" width="100%" height="432"></iframe>
 
 ### `pattern-not-regex`
 
-The `pattern-not-regex` operator filters results using a [PCRE](https://www.pcre.org/original/doc/html/pcrepattern.html) regular expression in multiline mode. This is most useful when combined with regular-expression only rules, providing an easy way to filter findings without having to use negative lookaheads. `pattern-not-regex` will work with regular `pattern` clauses, too.
+The `pattern-not-regex` operator filters results using a [PCRE](https://www.pcre.org/original/doc/html/pcrepattern.html) regular expression in multiline mode. This is most useful when combined with regular-expression only rules, providing an easy way to filter findings without having to use negative lookaheads. `pattern-not-regex` works with regular `pattern` clauses, too.
 
 The syntax for this operator is the same as `pattern-regex`.
 
-This operator will filter findings that have _any overlap_ with the supplied regular expression. For example, if you use `pattern-regex` to detect `Foo==1.1.1` and it also detects `Foo-Bar==3.0.8` and `Bar-Foo==3.0.8`, you can use `pattern-not-regex` to filter the unwanted findings.
+This operator filters findings that have _any overlap_ with the supplied regular expression. For example, if you use `pattern-regex` to detect `Foo==1.1.1` and it also detects `Foo-Bar==3.0.8` and `Bar-Foo==3.0.8`, you can use `pattern-not-regex` to filter the unwanted findings.
 
 <iframe src="https://semgrep.dev/embed/editor?snippet=8n5Q" border="0" frameBorder="0" width="100%" height="432"></iframe>
 
@@ -163,7 +163,7 @@ The `metavariable-regex` operator searches metavariables for a [PCRE](https://ww
 
 <iframe src="https://semgrep.dev/embed/editor?snippet=Oyrw"  border="0" frameBorder="0" width="100%" height="432"></iframe>
 
-Regex matching is **unanchored**. For anchored matching, use `\A` for start-of-string anchoring and `\Z` for end-of-string anchoring. The next example, using the same expression as above but anchored, will find no matches:
+Regex matching is **unanchored**. For anchored matching, use `\A` for start-of-string anchoring and `\Z` for end-of-string anchoring. The next example, using the same expression as above but anchored, finds no matches:
 
 <iframe src="https://semgrep.dev/embed/editor?snippet=ved8"  border="0" frameBorder="0" width="100%" height="432"></iframe>
 
@@ -192,7 +192,7 @@ It is possible to nest `metavariable-pattern` inside `metavariable-pattern`!
 :::
 
 :::info
-The metavariable should be bound to an expression, a statement, or a list of statements, for this test to be meaningful. A metavariable bound to a list of function arguments, a type, or a pattern, will always evaluate to false.
+The metavariable should be bound to an expression, a statement, or a list of statements, for this test to be meaningful. A metavariable bound to a list of function arguments, a type, or a pattern, always evaluate to false.
 :::
 
 #### `metavariable-pattern` with nested language
@@ -215,13 +215,13 @@ The `metavariable-comparison` operator is a mapping which requires the `metavari
 
 <iframe src="https://semgrep.dev/embed/editor?snippet=GWv6" border="0" frameBorder="0" width="100%" height="432"></iframe>
 
-This will catch code like `set_port(80)` or `set_port(443)`, but not `set_port(8080)`.
+This matches code such as `set_port(80)` or `set_port(443)`, but not `set_port(8080)`.
 
 Comparison expressions support simple arithmetic as well as composition with [boolean operators](https://docs.python.org/3/reference/expressions.html#boolean-operations) to allow for more complex matching. This is particularly useful for checking that metavariables are divisible by particular values, such as enforcing that a particular value is even or odd:
 
 <iframe src="https://semgrep.dev/embed/editor?snippet=qq9R" border="0" frameBorder="0" width="100%" height="432"></iframe>
 
-Building off of the previous example this will still catch code like `set_port(80)` but will no longer catch `set_port(443)` or `set_port(8080)`.
+Building on the previous example, this still matches code such as `set_port(80)` but it no longer matches `set_port(443)` or `set_port(8080)`.
 
 The `comparison` key accepts Python expression using:
 
@@ -252,13 +252,13 @@ For example, `base`:
 
 <iframe src="https://semgrep.dev/embed/editor?snippet=R8vN" border="0" frameBorder="0" width="100%" height="432"></iframe>
 
-This will interpret metavariable values found in code as octal, so `0700` will be detected, but `0400` will not.
+This interprets metavariable values found in code as octal. As a result, Semgrep detects `0700`, but it does **not** detect `0400`.
 
 For example, `strip`:
 
 <iframe src="https://semgrep.dev/embed/editor?snippet=AlqB" border="0" frameBorder="0" width="100%" height="432"></iframe>
 
-This will remove quotes (`'`, `"`, and `` ` ``) from both ends of the metavariable content. So `"2147483648"` will be detected but `"2147483646"` will not. This is useful when you expect strings to contain integer or float data.
+This removes quotes (`'`, `"`, and `` ` ``) from both ends of the metavariable content. As a result, Semgrep detects `"2147483648"`, but it does **not** detect `"2147483646"`. This is useful when you expect strings to contain integer or float data.
 
 ### `pattern-not`
 
@@ -455,7 +455,7 @@ rules:
 
 ## `metadata`
 
-To note extra information on a rule, such as a related CVE or the name of the security engineer who wrote the rule, use the `metadata:` key.
+Provide additional information for a rule with the `metadata:` key, such as a related CWE, likelihood, OWASP, and additional references.
 
 Example:
 
@@ -470,7 +470,12 @@ rules:
       discovered-by: Ikwa L'equale
 ```
 
-The metadata will also be shown in Semgrep’s output if you’re running it with `--json`.
+The metadata are also displayed in Semgrep’s output if you’re running it with `--json`.
+Rules with `category: security` have additional metadata requirements. See [Including fields required by security category](/contributing/contributing-to-semgrep-rules-repository/#including-fields-required-by-security-category) for more information.
+
+## `category`
+
+Provide a category for users of the rule. For example: `best-practice`, `correctness`, `maintainability`. For more information, see [Semgrep registry rule requirements](/contributing/contributing-to-semgrep-rules-repository/#semgrep-registry-rule-requirements).
 
 ## `paths`
 
@@ -492,7 +497,7 @@ rules:
         - project/static/*.js
 ```
 
-When invoked with `semgrep -f rule.yaml project/`, the above rule will run on files inside `project/`, but no results will be returned for:
+When invoked with `semgrep -f rule.yaml project/`, the above rule runes on files inside `project/`, but no results are returned for:
 
 - any file with a `.jinja2` file extension
 - any file whose name ends in `_test.go`, such as `project/backend/server_test.go`
@@ -520,14 +525,14 @@ rules:
         - "tests/**/*.js"
 ```
 
-When invoked with `semgrep -f rule.yaml project/`, this rule will run on files inside `project/`, but results will be returned only for:
+When invoked with `semgrep -f rule.yaml project/`, this rule runs on files inside `project/`, but results are returned only for:
 
 - files whose name ends in `_test.go`, such as `project/backend/server_test.go`
 - files inside `project/server`, `project/schemata`, or their subdirectories
 - files matching the `project/static/*.js` glob pattern
 - all files with the `.js` extension, arbitrary depth inside the tests folder
 
-If you are writing tests for your rules, you will need to add any test file or directory to the included paths as well.
+If you are writing tests for your rules, add any test file or directory to the included paths as well.
 
 :::note
 When mixing inclusion and exclusion filters, the exclusion ones take precedence.
