@@ -156,7 +156,7 @@ In addition to the fields mentioned above, rules submitted to Semgrep Registry h
     </td>
   </tr>
   <tr>
-   <td>References</td>
+   <td><code>references</code></td>
    <td>Additional information that gives more context to the user of the rule. This helps developers understand the issue and how to fix it.</td>
    <td>No finite value. Any additional information that gives more context.
    </td>
@@ -246,27 +246,27 @@ If your rule has a `category: security`, the following metadata are required:
   </tr></thead>
   <tbody>
   <tr>
-   <td>CWE</td>
+   <td><code>cwe</code></td>
    <td>A <a href="https://cwe.mitre.org/index.html">Comment Weakness Enumeration (CWE)</a>.</td>
    <td><pre>cwe: "CWE-502: Deserialization of Untrusted Data"</pre></td>
   </tr>
   <tr>
-   <td>Confidence</td>
+   <td><code>confidence</code></td>
    <td><code>HIGH</code>, <code>MEDIUM</code>, <code>LOW</code></td>
    <td><pre>confidence: MEDIUM</pre></td>
   </tr>
   <tr>
-   <td>Likelihood</td>
+   <td><code>likelihood</code></td>
    <td><code>HIGH</code>, <code>MEDIUM</code>, <code>LOW</code></td>
    <td><pre>likelihood: MEDIUM</pre></td>
   </tr>
   <tr>
-   <td>Impact</td>
+   <td><code>impact</code></td>
    <td><code>HIGH</code>, <code>MEDIUM</code>, <code>LOW</code></td>
    <td><pre>impact: HIGH</pre></td>
   </tr>
   <tr>
-   <td>Subcategory</td>
+   <td><code>subcategory</code></td>
    <td><code>vuln</code>, <code>audit</code>, <code>guardrail</code></td>
    <td>
     <pre>
