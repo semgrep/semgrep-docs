@@ -10,7 +10,7 @@ description: >-
 import MoreHelp from "/src/components/MoreHelp"
 import TOCInline from "@theme/TOCInline"
 
-# Frequently Asked Questions
+# Frequently asked questions
 
 <TOCInline toc={toc} />
 
@@ -26,7 +26,7 @@ The source for many r2c-written Registry rules is available at [returntocorp/sem
 
 ### Is it ok to run Semgrep or the r2c rules on my work projects?
 
-Yes! Semgrep is safe to run on your private code. The [Semgrep Registry license’s](https://github.com/returntocorp/semgrep-rules/blob/develop/LICENSE) commercial restrictions only come into effect if you are _selling_ the rules provided in the semgrep-rules repository. If that’s the case, you’ll need to talk with r2c first to get permission.
+Yes! Semgrep is safe to run on your private code. The [Semgrep Registry license’s](https://github.com/returntocorp/semgrep-rules/blob/develop/LICENSE) commercial restrictions only come into effect if you are _selling_ the rules provided in the Semgrep Registry. If that’s the case, you’ll need to talk with r2c first to get permission.
 
 ### I’m a security professional and want to use the rules from the [`semgrep-rules` repository](https://github.com/returntocorp/semgrep-rules) with my clients as part of my paid services. Is that ok?
 
