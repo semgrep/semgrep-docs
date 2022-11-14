@@ -1,115 +1,202 @@
 ---
 slug: contributing-to-semgrep-rules-repository
-description: "This article outlines how to contribute to Semgrep rules repository."
+description: "This article outlines how to contribute to Semgrep Registry."
 hide_title: true
+toc_max_heading_level: 4
 ---
 
-# Contributing to Semgrep rules
+import LinkToRegistryRule from "/src/components/LinkToRegistryRule"
+import MoreHelp from "/src/components/MoreHelp"
+import RequiredRuleFields from "/src/components/reference/_required-rule-fields.mdx"
 
-## Introduction
+# Contributing rules
 
-There are two ways in which you can contribute to the Semgrep rules repository:
+Publish rules in the open-source Semgrep Registry and share them with the Semgrep community to help others benefit from your rule-writing efforts and contribute to the field of software security. There are two ways in which you can contribute rules to the Semgrep Registry:
 
 <dl>
     <dt>For users of Semgrep App</dt>
-    <dd>Contribute to the Semgrep rules repository through Semgrep App. This workflow is recommended. See <a href="#contributing-through-semgrep-app-recommended"> Contributing through Semgrep App (recommended)</a>. This workflow creates the necessary pull request for you and streamlines the whole process.
+    <dd>Contribute rules to the Semgrep Registry through Semgrep App. This workflow is recommended. See <a href="#contributing-through-semgrep-app-recommended"> Contributing through Semgrep App (recommended)</a>. This workflow creates the necessary pull request for you and streamlines the whole process.
 </dd>
     <dt>For contributors to the repository through GitHub</dt>
-    <dd>Contribute to the Semgrep rules repository through a pull request. See the <a href="#contributing-through-github"> Contributing through GitHub</a> section for detailed information.</dd>
+    <dd>Contribute rules to the Semgrep Registry through a pull request. See the <a href="#contributing-through-github"> Contributing through GitHub</a> section for detailed information.</dd>
 </dl>
 
-### Contributing through Semgrep App (recommended)
+## Contributing through Semgrep App (recommended)
 
-Publish rules in the open-source Semgrep Registry and share them with the Semgrep community to help others benefit from your rule-writing efforts and contribute to the field of software security. To contribute and publish rules to the Semgrep Registry, follow these steps:
+To contribute and publish rules to the Semgrep Registry through Semgrep App, follow these steps:
 
-1. Go to [Semgrep App Editor](https://semgrep.dev/orgs/-/editor).
+1. Go to [Playground](https://semgrep.dev/playground/new).
 2. Click <i className="fa-solid fa-file-plus-minus inline_svg"></i> **Create New Rule**.
 3. Choose one of the following:
-    - Create a new rule and test code, and then click <i className="fa-solid fa-floppy-disk inline_svg"></i> **Save**. Note: The test file must contain at least one true positive and one true negative test case to be approved. See the [Tests](#tests) section of this document for more information.
-    - Select a rule from a category in **Semgrep Registry**. Click <i className="fa-solid fa-code-branch inline_svg"></i> **Fork**,
+    - Create a new rule and test code by clicking <i class="fa-solid fa-circle-plus"></i> **plus** icon, and then click <i className="fa-solid fa-floppy-disk inline_svg"></i> **Save**. Note: The test file must contain at least one true positive and one true negative test case to be approved. See the [Tests](#tests) section of this document for more information.
+    - In the <i class="fa-solid fa-server"></i> **Library** panel, select a rule from a category in **Semgrep Registry**. Click <i className="fa-solid fa-code-branch inline_svg"></i> **Fork**,
     modify the rule or test code, and then click <i className="fa-solid fa-floppy-disk inline_svg"></i> **Save**.
 4. Click <i className="fa-solid fa-earth-americas inline_svg"></i> **Share**.
 5. Click <i className="fa-solid fa-cloud-arrow-up inline_svg"></i> **Publish to Registry**.
 6. Fill in the required and optional fields.
 7. Click <i className="fa-solid fa-circle-check inline_svg"></i> **Continue**, and then click <i className="fa-solid fa-code-pull-request inline_svg"></i> **Create PR**.
 
-This workflow automatically creates a pull request in the GitHub [rules repository](https://github.com/returntocorp/semgrep-rules). Find more about the rules repository by reading the [Rule writing](#rule-writing) and [Tests](#tests) sections.
+This workflow automatically creates a pull request in the GitHub [Semgrep Registry](https://github.com/returntocorp/semgrep-rules). Find more about the Semgrep Registry by reading the [Rule writing](#rule-writing) and [Tests](#tests) sections.
 
 You can also publish rules to the Semgrep Registry as private rules. See the [Private rules](/docs/writing-rules/private-rules.md) documentation for more information.
 
-### Contributing through GitHub
+## Contributing through GitHub
 
-Fork our repository and make a pull request; we'll contact you about signing our Contributor License Agreement (CLA). Install pre-commit (see [installing pre-commit](#installing-pre-commit)) and make a pull request to the [rules repository](https://github.com/returntocorp/semgrep-rules) with two files:
+Fork our repository and make a pull request; we'll contact you about signing our Contributor License Agreement (CLA). Install pre-commit (see [installing pre-commit](#installing-pre-commit)) and make a pull request to the [Semgrep Registry](https://github.com/returntocorp/semgrep-rules) with two files:
 1. The semgrep pattern (as YAML file).
 2. The test file (with the file extension of the language or framework). The test file must contain at least one true positive and one true negative test case to be approved. See the [Tests](#tests) section of this document for more information.
 
-See an example of a [pull request](https://github.com/returntocorp/semgrep-rules/pull/1728/files) to the rules repository. Pull requests require the approval of at least one maintainer and successfully passed [CI jobs](https://github.com/returntocorp/semgrep-rules/actions).
+See an example of a [pull request](https://github.com/returntocorp/semgrep-rules/pull/1728/files) to the Semgrep Registry. Pull requests require the approval of at least one maintainer and successfully passed [CI jobs](https://github.com/returntocorp/semgrep-rules/actions).
 
-Find more about the rules repository by reading the [Rule writing](#rule-writing) and [Tests](#tests) sections.
+Find more about the Semgrep Registry by reading the [Rule writing](#rule-writing) and [Tests](#tests) sections.
 
-#### Installing `pre-commit`
+## Writing a rule for Semgrep Registry
 
-If you are contributing to the rules repository through GitHub but you are **not** contributing through sharing your rule in Semgrep App, install `pre-commit`. Follow [pre-commit installation documentation](https://pre-commit.com/#installation). Once `pre-commit` is set up you may commit code and create pull requests to rules repository.
+The following sections document necessary fields in rule files of Semgrep Registry, provide information about rule messages, inform about test files, mention rule quality checkers, and describe additional fields required by rules in the security category.
 
-## Rule writing
+### General rule requirements
+
+All rules in general, regardless of whether they are intended only as local rules or for Semgrep Registry, have the same initial requirements. The following table is also included in the [Rule Syntax](/writing-rules/rule-syntax/) article.
+
+<RequiredRuleFields />
+
+Every rule also requires a test file in the language that the rule is targeting. See [Tests](#tests) for more details.
+
+### Semgrep registry rule requirements
+
+In addition to the fields mentioned above, rules submitted to Semgrep Registry have additional required fields:
+
+<table>
+  <thead><tr>
+   <th>Field</th>
+   <th>Description</th>
+   <th>Possible values</th>
+   <th>Example</th>
+  </tr></thead>
+  <tbody>
+  <tr>
+   <td><code>metadata</code></td>
+   <td>Additional information to help users of the rule.
+   </td>
+   <td>
+    <ul>
+        <li><code>cwe</code></li>
+        <li><code>owasp</code></li>
+        <li><code>references</code></li>
+        <li><code>category</code></li>
+        <li><code>technology</code></li>
+        <li><code>license</code></li>
+        <li><code>confidence</code></li>
+        <li><code>cwe2022-top25</code></li>
+        <li><code>subcategory</code></li>
+        <li><code>likelihood</code></li>
+        <li><code>impact</code></li>
+        <li><code>subcategory</code></li>
+        <li><code>vulnerability</code></li>
+    </ul>
+   </td>
+   <td>
+    <pre>
+    metadata:<br />
+      cwe:<br />
+        - "CWE-94: (...)"<br />
+      category: security<br />
+      technology:<br />
+        - unicode<br />
+      references:<br />
+        - https://trojansource.codes/<br />
+      confidence: LOW<br />
+      owasp:<br />
+        - A03:2021 - Injection<br />
+      cwe2022-top25: true<br />
+     </pre> 
+   </td>
+  </tr>
+  <tr>
+   <td><code>technology</code></td>
+   <td>Nested under the <code>metadata</code> field. Additional information about the technology that gives context to a user of the rule. This helps to specify rulesets in Semgrep Registry.</td>
+   <td>
+    <ul>
+        <li><code>django</code></li>
+        <li><code>docker</code></li>
+        <li><code>dockerfile</code></li>
+        <li><code>flask</code></li>
+        <li><code>gorilla</code></li>
+        <li><code>kubernetes</code></li>
+        <li><code>nginx</code></li>
+        <li><code>react</code></li>
+        <li><code>terraform</code></li>
+        <li><code>--no-technology--</code></li>
+    </ul>
+   </td>
+   <td>
+    <pre>
+        metadata:<br />
+        technology:<br />
+        - react
+    </pre> 
+   </td>
+  </tr>
+  <tr>
+   <td><code>category</code></td>
+   <td>Nested under the <code>metadata</code> field. Provide a category for users of the rule. If you use catagory <code>security</code>, include additional metadata. See <a href="#including-fields-required-by-security-category"> Including fields required by security category</a> for more information.
+   </td>
+   <td>
+    <ul>
+      <li><code>best-practice</code></li>
+      <li><code>correctness</code></li>
+      <li><code>maintainability</code></li>
+      <li><code>performance</code></li>
+      <li><code>portability</code></li>
+      <li><code>security</code></li>
+    </ul>
+    </td>
+    <td>
+    <pre>
+    category: security
+    </pre> 
+    </td>
+  </tr>
+  <tr>
+   <td><code>references</code></td>
+   <td>Additional information that gives more context to the user of the rule. This helps developers understand the issue and how to fix it.</td>
+   <td>No finite value. Any additional information that gives more context.
+   </td>
+   <td>
+    <pre>
+      references:<br />
+      - https://owasp.org/Top10/
+    </pre>
+   </td>
+  </tr>
+  </tbody>
+</table>
+
+:::info
+If you use catagory <code>security</code>, include additional metadata. See <a href="#including-fields-required-by-security-category"> Including fields required by security category</a> for more information.
+:::
 
 ### Understanding rule namespacing
 
-The namespacing format for contributing rules in the [rules repository](https://github.com/returntocorp/semgrep-rules) is `<language>/<framework>/<category>/$MORE`. If the rule does not belong to a particular framework, add it to the language directory, which uses the word `lang` in place of the `<framework>`.
+The namespacing format for contributing rules in the [Semgrep Registry](https://github.com/returntocorp/semgrep-rules) is `<language>/<framework>/<category>/$MORE`. If the rule does not belong to a particular framework, add it to the language directory, which uses the word `lang` in place of the `<framework>` - `<language>/<lang>`.
 
-### Rule messages
+### Tests
 
-A well-written rule message includes:
-
-1. Description of the pattern. For example: missing parameter, dangerous flag, out-of-order function calls.
-2. Description of why this pattern was detected. For example: logic bug, introduces a security vulnerability, bad practice.
-3. An alternative that resolves the issue. For example: Use another function, validate data first, and discard the dangerous flag.
-
-For an example of a good rule message, see: [this rule for Django's mark_safe](https://semgrep.dev/r?q=python.django.security.audit.avoid-mark-safe.avoid-mark-safe).
-
-Use the YAML multiline string operator `>-` when rule messages span multiple lines. This presents the best-looking rule message on the command-line without having to worry about line wrapping or escaping the quote or backslash characters.
-
-:::info
-`mark_safe()` is used to mark a string as *safe* for HTML output. This disables escaping and may expose the content to XSS attacks. Instead, use `django.utils.html.format_html()` to build HTML for rendering.
-:::
-
-### Rule quality checker
-
-When you contribute rules to the rules repository, our quality checkers (linters) evaluate if the rule conforms to r2c standards. The `semgrep-rule-lints` job runs linters on a new rule to check for mistakes, performance problems, and best practices for submitting to the Semgrep rules repository. To improve your rule writing, use Semgrep itself to [scan semgrep-rules](https://r2c.dev/blog/2021/how-we-made-semgrep-rules-run-on-semgrep-rules/).
-
-### Including additional details with rule metadata
-
-Rules require a `metadata` key where you can specify a category of the rule, the technology which a rule is targeting, and give additional information as references. See the following example of a rule with all metadata fields [check-dynamic-render-local-file-include](https://semgrep.dev/orgs/adamkvitek/editor/s/returntocorp:check-dynamic-render-local-file-include).
-
-Include the following keys under the `metadata` field:
-- Include `category` field, and then choose one of the following values for this field:
-    - `security` - If you use this value, include `owasp` and `cwe` fields as well. To see these fields in use, check the [example rule](https://semgrep.dev/orgs/-/editor/s/returntocorp:check-dynamic-render-local-file-include), and [Common Weakness Enumeration](https://cwe.mitre.org/) (CWE) and [OWASP categories](https://owasp.org/www-project-top-ten/) for more details. If a `security` rule is detecting the use of a bad pattern, append an `audit` to your namespace. This distinguishes the rule from a `security` rule that is aiming to detect a vulnerability.
-    - `best-practice`
-    - `correctness`
-    - `maintainability`
-    - `performance`
-- Include the `technology` field. This is usually the library or framework the rule is targeting, for example `django`. If it's for the language itself, use only the language name, for example `python`.
-- Include the `references` field. References can provide additional context to users of the rule. It is good practice to include at least one reference for each rule.
-
-Rule examples:
-- [python.lang.security.deserialization.avoid-pyyaml-load.yaml](https://semgrep.dev/orgs/-/editor/r/python.lang.security.deserialization.avoid-pyyaml-load.avoid-pyyaml-load)
-- [python/flask/security/dangerous-template-string.yaml](https://semgrep.dev/orgs/-/editor/r/python/flask/security/dangerous-template-string.yaml)
-- [python/flask/security/audit/render-template-string.yaml](https://semgrep.dev/orgs/-/editor/r/python/flask/security/audit/render-template-string.yaml)
-- [javascript/lang/best-practice/assigned-undefined.yaml](https://semgrep.dev/orgs/-/editor/r/javascript/lang/best-practice/assigned-undefined.yaml)
-- [java/rmi/security/server-dangerous-class-deserizaliation.yaml](https://semgrep.dev/orgs/-/editor/r/javascript/lang/best-practice/assigned-undefined.yaml)
-
-## Tests
-
-Include a test file to accompany new rules. A good test file includes the following:
+Include a test file in the language that your rule is targeting. A test file includes the following:
 
 - At least one test where the rule detects a finding. This is called a true positive finding.
 - At least one test where the rule does **not** detect a finding. This is called a true negative finding.
 
-See an example of this approach in the [Semgrep App](https://semgrep.dev/orgs/-/editor/s/returntocorp:aws-provider-static-credentials).
+Test file names must match the rule file name, except for the file extension. For example, if the rule is in `my-rule.yaml`, the test file name must be `my-rule.js`. Use any valid extension for the target language.
 
-Test file names must match the rule file name, except for the file extension. For example, if the rule is in `my-rule.yaml`, name the test `my-rule.js`. (You can use any valid extension for the target language.)
+:::info Requirements of test files
+- In the test file, include examples that mark:
+    - What is expected to be a finding.
+    - What is not a finding.
+- The test file name must match the rule file name, except for the file extension.
+:::
 
-In the test file, mark what is demonstratively expected to be a finding. See the examples of the rule and test file below:
+See the examples of the rule and test file below:
 
 Rule file:
 ```yaml
@@ -119,7 +206,7 @@ rules:
   …
 ```
 
-Test file:
+In the test file, mark an expected finding with a comment tag, and mention **ruleid** of your rule in the comment before the expected finding. Also, mark the code that is expected not to be a finding with a comment stating `ok` and add the **ruleid** also. See the example below:
 ```js
 // ruleid: my-rule
 var strdata = "hello";
@@ -129,23 +216,281 @@ var numdata = 1;
 
 For more information, visit [Testing rules](https://semgrep.dev/docs/writing-rules/testing-rules/).
 
-## Advanced tips
+### Rule messages
 
-### Comparing rule performance between different versions of Semgrep
+Include a rule message that provides details about the matched pattern and informs about how to mitigate any related issues. Provide the following information in a rule message:
 
-For debugging purposes, you can compare rule performance between different versions of Semgrep. Find a script in [Semgrep source code](https://github.com/returntocorp/semgrep), located in `cli/scripts/compare.py`. Compare rules for different versions of Semgrep by the following command:
+1. Description of the pattern. For example: missing parameter, dangerous flag, out-of-order function calls.
+2. Description of why this pattern was detected. For example: logic bug, introduces a security vulnerability, bad practice.
+3. An alternative that resolves the issue. For example: Use another function, validate data first, and discard the dangerous flag.
 
-<pre class="language-bash"><code>pipenv run ./cli/scripts/compare.py <span className="placeholder">VERSION_NUMBER OTHER_VERSION_NUMBER RULE_ID</span></code></pre>
+Use the YAML multiline string operator `>-` when rule messages span multiple lines. This presents the best-looking rule message on the command line without having to worry about line wrapping or escaping the quote or using the backslash.
 
-Substitute the optional placeholder <code><span className="placeholder">VERSION_NUMBER OTHER_VERSION_NUMBER RULE_ID</span></code> with the respective version numbers and a rule ID you want to compare. 
+For an example of a good rule message, see: [this rule for Django's mark_safe](https://semgrep.dev/r?q=python.django.security.audit.avoid-mark-safe.avoid-mark-safe).
 
-Resulting input can be similar to the following:
+:::note Rule message example
+`mark_safe()` is used to mark a string as safe for HTML output. This disables escaping and may expose the content to XSS attacks. Instead, use `django.utils.html.format_html()` to build HTML for rendering.
+:::
+
+### Rule quality checker
+
+When you contribute rules to the Semgrep Registry, our quality checkers (linters) evaluate if the rule conforms to r2c standards. The `semgrep-rule-lints` job runs linters on a new rule to check for mistakes, performance problems, and best practices for submitting to the Semgrep Registry. To improve your rule writing, use Semgrep itself to [scan semgrep-rules](https://r2c.dev/blog/2021/how-we-made-semgrep-rules-run-on-semgrep-rules/).
+
+### Including fields required by security category
+
+Rules in category `security` in the Semgrep Registry require specific metadata fields that ensure consistency across the ecosystem in both Semgrep App and Semgrep CLI. Nest these metadata under the `metadata` field. 
+
+If your rule has a `category: security`, the following metadata are required:
+
+<table>
+  <thead><tr>
+   <th>Required metadata field</th>
+   <th>Values</th>
+   <th>Example use</th>
+  </tr></thead>
+  <tbody>
+  <tr>
+   <td><code>cwe</code></td>
+   <td>A <a href="https://cwe.mitre.org/index.html">Comment Weakness Enumeration (CWE)</a>.</td>
+   <td><pre>cwe: "CWE-502: Deserialization of Untrusted Data"</pre></td>
+  </tr>
+  <tr>
+   <td><code>confidence</code></td>
+   <td><code>HIGH</code>, <code>MEDIUM</code>, <code>LOW</code></td>
+   <td><pre>confidence: MEDIUM</pre></td>
+  </tr>
+  <tr>
+   <td><code>likelihood</code></td>
+   <td><code>HIGH</code>, <code>MEDIUM</code>, <code>LOW</code></td>
+   <td><pre>likelihood: MEDIUM</pre></td>
+  </tr>
+  <tr>
+   <td><code>impact</code></td>
+   <td><code>HIGH</code>, <code>MEDIUM</code>, <code>LOW</code></td>
+   <td><pre>impact: HIGH</pre></td>
+  </tr>
+  <tr>
+   <td><code>subcategory</code></td>
+   <td><code>vuln</code>, <code>audit</code>, <code>guardrail</code></td>
+   <td>
+    <pre>
+        subcategory:<br />
+        - vuln
+    </pre>
+  </td>
+  </tr>
+  </tbody>
+</table>
+
+These fields help users of Semgrep to identify rules in different categories such as:
+- High confidence security rules for CI pipelines.
+- OWASP Top 10 or CWE Top 25 rulesets.
+- Technology. For example, `react` so it is easy to find `p/react` rulesets.
+- Audit rules with lower confidence are intended for code auditors.
+
+Examples of rules with a full list of required metadata:
+- High confidence JavaScript and TypeScript rule: <LinkToRegistryRule ruleId="javascript.express.security.audit.express-open-redirect.express-open-redirect" />
+- Medium confidence Python rule: <LinkToRegistryRule ruleId="python.lang.security.dangerous-system-call.dangerous-system-call" />
+- Low confidence C# rule: <LinkToRegistryRule ruleId="csharp.lang.security.ssrf.rest-client.ssrf" />
+
+:::note
+Details of each field mentioned above are provided in the subsections below with examples.
+:::
+
+#### CWE
+
+Include the appropriate <a href="https://cwe.mitre.org/index.html">Comment Weakness Enumeration (CWE)</a>. CWE can explain what vulnerability is your rule trying to find. Examples:
+
+If you write an SQL Injection rule, use the following:
+```yaml
+cwe:                
+  - 'CWE-89: Improper Neutralization of Special Elements used in an SQL Command ('SQL Injection')'
 ```
-pipenv run ./cli/scripts/compare.py 0.103.0 0.106.0 0B1B
+
+If you write an XSS rule, use the following:
+```yaml
+cwe: 
+  - 'CWE-79: Improper Neutralization of Input During Web Page Generation ('Cross-site Scripting')'
 ```
 
-To use this script with Podman, issue `--use-podman` in the command:
+#### Confidence
+
+Indicate confidence of the rule to detect true positives. See the possible options below:
+
+- **HIGH** - Security concern, with high true positives. Useful in CI/CD pipelines.
+- **MEDIUM** - Security concern, but some false positives. Useful in CI/CD pipelines.
+- **LOW** - Expect a fair amount of false positives, similar to audit style rules. These rules can detect many false positives.
+
+##### HIGH
+
+HIGH confidence rules can use Semgrep advanced features such as `metavariable-comparison` or `taint mode`, to detect true positives. See examples below:
+
+- <LinkToRegistryRule ruleId="go.lang.security.audit.crypto.use_of_weak_rsa_key.use-of-weak-rsa-key" />
+- <LinkToRegistryRule ruleId="javascript.express.security.audit.express-open-redirect.express-open-redirect" />
+- <LinkToRegistryRule ruleId="javascript.jose.security.jwt-hardcode.hardcoded-jwt-secret" />
 
 ```
-pipenv run ./cli/scripts/compare.py --use-podman 0.103.0 0.106.0 0B1B
+confidence: HIGH
 ```
+
+##### MEDIUM
+
+MEDIUM confidence rules can use Semgrep advanced features such as `metavariable-comparison` or `taint mode`, but with some false positives. See examples below:
+
+- <LinkToRegistryRule ruleId="javascript.express.security.audit.express-ssrf.express-ssrf" />
+- <LinkToRegistryRule ruleId="javascript.express.security.express-xml2json-xxe.express-xml2json-xxe" />
+
+```
+confidence: MEDIUM
+```
+
+##### LOW
+
+Low confidence rules generally find something which appears to be dangerous while reporting a lot of false positives. See examples below:
+
+- <LinkToRegistryRule ruleId="php.lang.security.eval-use.eval-use" />
+- <LinkToRegistryRule ruleId="javascript.browser.security.dom-based-xss.dom-based-xss" />
+
+```
+confidence: LOW
+```
+
+#### Likelihood
+
+Specify how likely it is that an attacker can exploit the issue that has been found. The possible values are `LOW`, `MEDIUM`, `HIGH`.
+
+##### HIGH
+
+HIGH likelihood rules specify a very high concern that the vulnerability can be exploited. Examples:
+
+- The use of weak encryption: <LinkToRegistryRule ruleId="go.lang.security.audit.crypto.use_of_weak_rsa_key.use-of-weak-rsa-key" />
+- Disabled security feature in a configuration: <LinkToRegistryRule ruleId="javascript.angular.security.detect-angular-sce-disabled.detect-angular-sce-disabled" />
+- Hardcoded secrets that use a constant value `"..."`: <LinkToRegistryRule ruleId="javascript.jose.security.jwt-hardcode.hardcoded-jwt-secret" />
+- Rules that leverage `taint mode sources` which indicate sources that can come from an attacker. Such as HTTP `POST`, `GET`, `PUT`, and `DELETE` request values. For example: <LinkToRegistryRule ruleId="javascript.express.security.audit.express-open-redirect.express-open-redirect" />
+
+```
+likelihood: HIGH
+```
+
+##### MEDIUM
+
+MEDIUM likelihood rules detect a vulnerability in most circumstances. Although it can be hard for an attacker to exploit them. Also, these rules can detect part of a problem, but not the whole issue. Examples:
+
+- `taint mode sources` that reach a `taint mode sink`  but the source is only vulnerable in certain conditions for example OS Environment Variables, or loading from disk: <LinkToRegistryRule ruleId="python.aws-lambda.security.dangerous-spawn-process.dangerous-spawn-process" />
+- `taint mode sources` with a `taint mode sink` but is missing a `taint mode sanitizer` which can introduce more false positives: <LinkToRegistryRule ruleId="javascript.express.security.express-puppeteer-injection.express-puppeteer-injection" />
+
+```
+likelihood: MEDIUM
+```
+
+##### LOW
+
+LOW likelihood rules tend to find something dangerous, but are not evaluating whether something is truly vulnerable, for example:
+
+- `taint mode sources` such as function arguments which may or may not be tainted which reach a `taint mode sink`: <LinkToRegistryRule ruleId="typescript.react.security.audit.react-href-var.react-href-var" />
+- A rule which uses `search mode` to find the use of a dangerous function for example: `trustAsHTML`, `bypassSecurityTrust()`, `eval()`, or `innerHTML`: <LinkToRegistryRule ruleId="javascript.browser.security.dom-based-xss.dom-based-xss" />
+
+```
+likelihood: LOW
+```
+
+#### Impact
+
+Indicate how much damage can a vulnerability cause. Use LOW, MEDIUM, and HIGH.
+
+
+##### HIGH
+
+HIGH impact rules can detect extremely damaging vulnerabilities, such as injection vulnerabilities. Examples:
+
+- <LinkToRegistryRule ruleId="javascript.sequelize.security.audit.sequelize-injection-express.express-sequelize-injection" />
+- <LinkToRegistryRule ruleId="ruby.rails.security.audit.xxe.xml-external-entities-enabled.xml-external-entities-enabled" />
+
+```
+impact: HIGH
+```
+
+##### MEDIUM
+
+MEDIUM impact rules are issues that are less likely to lead to full system compromise but still are fairly damaging. Examples:
+
+- <LinkToRegistryRule ruleId="python.flask.security.injection.raw-html-concat.raw-html-format" />
+- <LinkToRegistryRule ruleId="python.flask.security.injection.ssrf-requests.ssrf-requests" />
+
+```
+impact: MEDIUM
+```
+
+##### LOW
+
+LOW impact rules are rules that leverage a security issue, but the impact is not too damaging to the application if discovered. 
+
+- <LinkToRegistryRule ruleId="go.gorilla.security.audit.session-cookie-missing-secure.session-cookie-missing-secure" />
+- <LinkToRegistryRule ruleId="javascript.browser.security.raw-html-join.raw-html-join" />
+
+```
+impact: LOW 
+```
+
+#### Subcategory
+
+Include a subcategory to explain what is the type of the rule. See the subsections below for more details.
+
+##### vuln
+
+A vulnerability rule is something that developers certainly want to resolve. For example, an SQL Injection rule that uses taint mode. Example:
+
+- <LinkToRegistryRule ruleId="javascript.sequelize.security.audit.sequelize-injection-express.express-sequelize-injection" />
+
+```
+subcategory:
+  - vuln
+```
+
+##### audit
+
+An audit rule is useful for code auditors. For example, an SQL rule which finds all uses of the `database.exec(...)` that can be problematic. Example:
+
+- <LinkToRegistryRule ruleId="generic.html-templates.security.unquoted-attribute-var.unquoted-attribute-var" />
+
+```
+subcategory:          
+  - audit
+```
+
+##### guardrail
+
+A guardrail rule is useful for companies writing custom rules. For example, finding all usages to non-standard XML parsing libraries within the company. The rule can also bring a message that a developer can use only a company-approved library.
+
+```
+subcategory:
+  - guardrail
+```
+
+#### Technology
+
+Any additional information about the technology that gives context to the user of the rule. This helps to specify rulesets in Semgrep Registry.
+
+- <LinkToRegistryRule ruleId="javascript.express.security.audit.express-open-redirect.express-open-redirect" />
+
+```yaml
+technology:
+  - express
+```
+
+#### References
+
+References help to define specific rulesets for languages, libraries, and frameworks that are available in <a href="https://semgrep.dev/explore">Semgrep Registry</a>. See the references in the following two rules:
+
+- A rule that is finding an issue in React: <LinkToRegistryRule ruleId="typescript.react.security.audit.react-href-var.react-href-var" />
+    ```
+    references:
+      - react
+    ```
+- A rule that is detecting an issue in Express: <LinkToRegistryRule ruleId="javascript.sequelize.security.audit.sequelize-injection-express.express-sequelize-injection" />
+    ```
+    references:
+      - express
+    ```
+
+<MoreHelp />
