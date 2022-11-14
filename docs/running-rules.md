@@ -15,7 +15,7 @@ Rules can be organized in rulesets. Rulesets are rules related through a program
 
 The list below covers different kinds of Semgrep rules:
 
-- Existing [Semgrep Registry rules](#running-semgrep-registry-rules-locally). You may also contribute to the Semgrep rules repository, see [Contributing rules](/contributing/contributing-to-semgrep-rules-repository/).
+- Existing [Semgrep Registry rules](#running-semgrep-registry-rules-locally). You can also contribute to the open source Semgrep Registry, see [Contributing rules](/contributing/contributing-to-semgrep-rules-repository/).
 - [Local rules](#creating-and-using-local-rules):
   - One-off [ephemeral rules](#ephemeral-rules) passed into the command line.
   - [YAML-defined rules](#yaml-defined-rules).
@@ -103,7 +103,7 @@ To run multiple rules simultaneously, use `--config` before every YAML URL, or S
 
 ## Next steps
 
-Find out how to contribute to [Semgrep rules repository](https://github.com/returntocorp/semgrep-rules) by reading [Contributing rules](/contributing/contributing-to-semgrep-rules-repository/) guide.
+Find out how to contribute to [Semgrep Registry](https://github.com/returntocorp/semgrep-rules) by reading [Contributing rules](/contributing/contributing-to-semgrep-rules-repository/) guide.
 
 ## Number of Semgrep Registry rules
 
