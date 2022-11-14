@@ -52,7 +52,7 @@ Find more about the Semgrep Registry by reading the [Rule writing](#rule-writing
 
 ## Writing a rule for Semgrep Registry
 
-The following sections document necessary fields in rule files of Semgrep Registry, provide basic informatio nabout rule messages, inform about test files, rule quality checkers, and describe additional fields required by rules in the security category.
+The following sections document necessary fields in rule files of Semgrep Registry, provide information about rule messages, inform about test files, mention rule quality checkers, and describe additional fields required by rules in the security category.
 
 ### General rule requirements
 
