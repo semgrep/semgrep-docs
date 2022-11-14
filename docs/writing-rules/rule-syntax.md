@@ -455,7 +455,7 @@ rules:
 
 ## `metadata`
 
-Provide additional information for a rule with the `metadata:` key, such as a related CWE, likelihood, OWASP, and additional references.
+Provide additional information for a rule with the `metadata:` key, such as a related CWE, likelihood, OWASP.
 
 Example:
 

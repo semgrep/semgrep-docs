@@ -155,10 +155,22 @@ In addition to the fields mentioned above, rules submitted to Semgrep Registry h
     </pre> 
     </td>
   </tr>
+  <tr>
+   <td>References</td>
+   <td>Additional information that gives more context to the user of the rule. This helps developers understand the issue and how to fix it.</td>
+   <td>No finite value. Any additional information that gives more context.
+   </td>
+   <td>
+    <pre>
+      references:<br />
+      - https://owasp.org/Top10/
+    </pre>
+   </td>
+  </tr>
   </tbody>
 </table>
 
-:::note
+:::info
 If you use catagory <code>security</code>, include additional metadata. See <a href="#including-fields-required-by-security-category"> Including fields required by security category</a> for more information.
 :::
 
@@ -262,16 +274,6 @@ If your rule has a `category: security`, the following metadata are required:
         - vuln
     </pre>
   </td>
-  </tr>
-  <tr>
-   <td>References</td>
-   <td>Additional information that gives more context to the user of the rule. This helps developers understand the issue and how to fix it.</td>
-   <td>
-     <pre>
-        references:<br />
-        - https://owasp.org/Top10/A04_2021-Insecure_Design/
-     </pre>
-   </td>
   </tr>
   </tbody>
 </table>
