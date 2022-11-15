@@ -91,14 +91,14 @@ In addition to the fields mentioned above, rules submitted to Semgrep Registry h
             </td>
             <td rowspan="2">
               <pre>
-              metadata:<br />
-                cwe:<br />
-                  - "CWE-94: (...)"<br />
-                category: security<br />
-                technology:<br />
-                  - unicode<br />
-                references:<br />
-                  - https://trojansource.codes/<br />
+              <code>metadata:<br /></code>
+              <code>  cwe:<br /></code>
+              <code>    - "CWE-94: (...)"<br /></code>
+              <code>  category: security<br /></code>
+              <code>  technology:<br /></code>
+              <code>    - unicode<br /></code>
+              <code>  references:<br /></code>
+              <code>    - https://trojansource.codes/<br /></code>
               </pre>
             </td>
         </tr>
@@ -132,9 +132,9 @@ In addition to the fields mentioned above, rules submitted to Semgrep Registry h
    </td>
    <td>
     <pre>
-        metadata:<br />
-        technology:<br />
-        - react
+        <code>metadata:<br /></code>
+        <code>  technology:<br /></code>
+        <code>    - react</code>
     </pre> 
    </td>
   </tr>
@@ -165,8 +165,8 @@ In addition to the fields mentioned above, rules submitted to Semgrep Registry h
    </td>
    <td>
     <pre  style="white-space: pre-wrap; word-break: keep-all;">
-    references:<br />
-      - https://cheatsheetseries.owasp.<br />org/cheatsheets/DOM_based_XSS_<br />Prevention_Cheat_Sheet.html
+    <code>references:<br /></code>
+    <code>  - https://cheatsheetseries.owasp.<br />org/cheatsheets/DOM_based_XSS_<br />Prevention_Cheat_Sheet.html</code>
     </pre>
    </td>
   </tr>
@@ -275,8 +275,8 @@ If your rule has a `category: security`, the following metadata are required:
    <td><code>vuln</code>, <code>audit</code>, <code>guardrail</code></td>
    <td>
     <pre>
-        subcategory:<br />
-        - vuln
+    <code>subcategory:<br /></code>
+    <code>  - vuln</code>
     </pre>
   </td>
   </tr>
@@ -330,7 +330,7 @@ HIGH confidence rules can use Semgrep advanced features such as `metavariable-co
 - <LinkToRegistryRule ruleId="javascript.express.security.audit.express-open-redirect.express-open-redirect" />
 - <LinkToRegistryRule ruleId="javascript.jose.security.jwt-hardcode.hardcoded-jwt-secret" />
 
-```
+```yaml
 confidence: HIGH
 ```
 
@@ -341,7 +341,7 @@ MEDIUM confidence rules can use Semgrep advanced features such as `metavariable-
 - <LinkToRegistryRule ruleId="javascript.express.security.audit.express-ssrf.express-ssrf" />
 - <LinkToRegistryRule ruleId="javascript.express.security.express-xml2json-xxe.express-xml2json-xxe" />
 
-```
+```yaml
 confidence: MEDIUM
 ```
 
@@ -352,7 +352,7 @@ Low confidence rules generally find something which appears to be dangerous whil
 - <LinkToRegistryRule ruleId="php.lang.security.eval-use.eval-use" />
 - <LinkToRegistryRule ruleId="javascript.browser.security.dom-based-xss.dom-based-xss" />
 
-```
+```yaml
 confidence: LOW
 ```
 
@@ -369,7 +369,7 @@ HIGH likelihood rules specify a very high concern that the vulnerability can be 
 - Hardcoded secrets that use a constant value `"..."`: <LinkToRegistryRule ruleId="javascript.jose.security.jwt-hardcode.hardcoded-jwt-secret" />
 - Rules that leverage `taint mode sources` which indicate sources that can come from an attacker. Such as HTTP `POST`, `GET`, `PUT`, and `DELETE` request values. For example: <LinkToRegistryRule ruleId="javascript.express.security.audit.express-open-redirect.express-open-redirect" />
 
-```
+```yaml
 likelihood: HIGH
 ```
 
@@ -380,7 +380,7 @@ MEDIUM likelihood rules detect a vulnerability in most circumstances. Although i
 - `taint mode sources` that reach a `taint mode sink`  but the source is only vulnerable in certain conditions for example OS Environment Variables, or loading from disk: <LinkToRegistryRule ruleId="python.aws-lambda.security.dangerous-spawn-process.dangerous-spawn-process" />
 - `taint mode sources` with a `taint mode sink` but is missing a `taint mode sanitizer` which can introduce more false positives: <LinkToRegistryRule ruleId="javascript.express.security.express-puppeteer-injection.express-puppeteer-injection" />
 
-```
+```yaml
 likelihood: MEDIUM
 ```
 
@@ -391,7 +391,7 @@ LOW likelihood rules tend to find something dangerous, but are not evaluating wh
 - `taint mode sources` such as function arguments which may or may not be tainted which reach a `taint mode sink`: <LinkToRegistryRule ruleId="typescript.react.security.audit.react-href-var.react-href-var" />
 - A rule which uses `search mode` to find the use of a dangerous function for example: `trustAsHTML`, `bypassSecurityTrust()`, `eval()`, or `innerHTML`: <LinkToRegistryRule ruleId="javascript.browser.security.dom-based-xss.dom-based-xss" />
 
-```
+```yaml
 likelihood: LOW
 ```
 
@@ -407,7 +407,7 @@ HIGH impact rules can detect extremely damaging vulnerabilities, such as injecti
 - <LinkToRegistryRule ruleId="javascript.sequelize.security.audit.sequelize-injection-express.express-sequelize-injection" />
 - <LinkToRegistryRule ruleId="ruby.rails.security.audit.xxe.xml-external-entities-enabled.xml-external-entities-enabled" />
 
-```
+```yaml
 impact: HIGH
 ```
 
@@ -418,7 +418,7 @@ MEDIUM impact rules are issues that are less likely to lead to full system compr
 - <LinkToRegistryRule ruleId="python.flask.security.injection.raw-html-concat.raw-html-format" />
 - <LinkToRegistryRule ruleId="python.flask.security.injection.ssrf-requests.ssrf-requests" />
 
-```
+```yaml
 impact: MEDIUM
 ```
 
@@ -429,7 +429,7 @@ LOW impact rules are rules that leverage a security issue, but the impact is not
 - <LinkToRegistryRule ruleId="go.gorilla.security.audit.session-cookie-missing-secure.session-cookie-missing-secure" />
 - <LinkToRegistryRule ruleId="javascript.browser.security.raw-html-join.raw-html-join" />
 
-```
+```yaml
 impact: LOW 
 ```
 
@@ -443,7 +443,7 @@ A vulnerability rule is something that developers certainly want to resolve. For
 
 - <LinkToRegistryRule ruleId="javascript.sequelize.security.audit.sequelize-injection-express.express-sequelize-injection" />
 
-```
+```yaml
 subcategory:
   - vuln
 ```
@@ -454,7 +454,7 @@ An audit rule is useful for code auditors. For example, an SQL rule which finds 
 
 - <LinkToRegistryRule ruleId="generic.html-templates.security.unquoted-attribute-var.unquoted-attribute-var" />
 
-```
+```yaml
 subcategory:          
   - audit
 ```
@@ -463,7 +463,7 @@ subcategory:
 
 A guardrail rule is useful for companies writing custom rules. For example, finding all usages to non-standard XML parsing libraries within the company. The rule can also bring a message that a developer can use only a company-approved library.
 
-```
+```yaml
 subcategory:
   - guardrail
 ```
@@ -484,12 +484,12 @@ technology:
 References help provide more context to a developer on what the issue is, and how to remediate the vulnerability, see examples below:
 
 - A rule that is finding an issue in React: <LinkToRegistryRule ruleId="typescript.react.security.audit.react-href-var.react-href-var" />
-    ```
+    ```yaml
     references:
       - https://reactjs.org/blog/2019/08/08/react-v16.9.0.html#deprecating-javascript-urls
     ```
 - A rule that is detecting an issue in Express: <LinkToRegistryRule ruleId="javascript.sequelize.security.audit.sequelize-injection-express.express-sequelize-injection" />
-    ```
+    ```yaml
     references:
       - https://sequelize.org/docs/v6/core-concepts/raw-queries/#replacements
     ```
