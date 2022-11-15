@@ -38,15 +38,15 @@ To contribute and publish rules to the Semgrep Registry through Semgrep App, fol
 
 This workflow automatically creates a pull request in the GitHub [Semgrep Registry](https://github.com/returntocorp/semgrep-rules). Find more about the Semgrep Registry by reading the [Rule writing](#rule-writing) and [Tests](#tests) sections.
 
-You can also publish rules to the Semgrep Registry as private rules. See the [Private rules](/docs/writing-rules/private-rules.md) documentation for more information.
+You can also publish rules as private rules outside of Semgrep Registry. These rules are not included in the Semgrep Registry, but they are accessible to your Semgrep organisation. See the [Private rules](/writing-rules/private-rules/) documentation for more information.
 
 ## Contributing through GitHub
 
-Fork our repository and make a pull request; we'll contact you about signing our Contributor License Agreement (CLA). Install pre-commit (see [installing pre-commit](#installing-pre-commit)) and make a pull request to the [Semgrep Registry](https://github.com/returntocorp/semgrep-rules) with two files:
+Fork our repository and make a pull request. Sign our Contributor License Agreement (CLA) on GitHub before r2c can accept your contributions. Make a pull request to the [Semgrep Registry](https://github.com/returntocorp/semgrep-rules) with two files:
 1. The semgrep pattern (as YAML file).
 2. The test file (with the file extension of the language or framework). The test file must contain at least one true positive and one true negative test case to be approved. See the [Tests](#tests) section of this document for more information.
 
-See an example of a [pull request](https://github.com/returntocorp/semgrep-rules/pull/1728/files) to the Semgrep Registry. Pull requests require the approval of at least one maintainer and successfully passed [CI jobs](https://github.com/returntocorp/semgrep-rules/actions).
+Pull requests require the approval of at least one maintainer and successfully passed [CI jobs](https://github.com/returntocorp/semgrep-rules/actions).
 
 Find more about the Semgrep Registry by reading the [Rule writing](#rule-writing) and [Tests](#tests) sections.
 
@@ -74,54 +74,55 @@ In addition to the fields mentioned above, rules submitted to Semgrep Registry h
    <th>Example</th>
   </tr></thead>
   <tbody>
-  <tr>
-   <td><code>metadata</code></td>
-   <td>Additional information to help users of the rule.
-   </td>
-   <td>
-    <ul>
-        <li><code>cwe</code></li>
-        <li><code>owasp</code></li>
-        <li><code>references</code></li>
-        <li><code>category</code></li>
-        <li><code>technology</code></li>
-        <li><code>license</code></li>
-        <li><code>confidence</code></li>
-        <li><code>cwe2022-top25</code></li>
-        <li><code>subcategory</code></li>
-        <li><code>likelihood</code></li>
-        <li><code>impact</code></li>
-        <li><code>subcategory</code></li>
-        <li><code>vulnerability</code></li>
-    </ul>
-   </td>
-   <td>
-    <pre>
-    metadata:<br />
-      cwe:<br />
-        - "CWE-94: (...)"<br />
-      category: security<br />
-      technology:<br />
-        - unicode<br />
-      references:<br />
-        - https://trojansource.codes/<br />
-      confidence: LOW<br />
-      owasp:<br />
-        - A03:2021 - Injection<br />
-      cwe2022-top25: true<br />
-     </pre> 
-   </td>
-  </tr>
+        <tr>
+            <td rowspan="2">
+                <code>metadata</code>
+            </td>
+            <td rowspan="2">
+                All rules require <code>technology</code>, <code>category</code>, and <code>references</code>. The <code>category: security</code> has more requirements. See <a href="#including-fields-required-by-security-category"> Including fields required by security category.</a>
+            </td>
+            <td>
+               Required by all Semgrep Registry rules:
+                <ul>
+                  <li><code>references</code></li>
+                  <li><code>category</code></li>
+                  <li><code>technology</code></li>
+                </ul>
+            </td>
+            <td rowspan="2">
+              <pre>
+              <code>metadata:<br /></code>
+              <code>  cwe:<br /></code>
+              <code>    - "CWE-94: (...)"<br /></code>
+              <code>  category: security<br /></code>
+              <code>  technology:<br /></code>
+              <code>    - unicode<br /></code>
+              <code>  references:<br /></code>
+              <code>    - https://trojansource.codes/<br /></code>
+              </pre>
+            </td>
+        </tr>
+        <tr>
+            <td>
+              Additionally required by <code>category: security</code>:
+              <ul>
+                  <li><code>cwe</code></li>
+                  <li><code>confidence</code></li>
+                  <li><code>subcategory</code></li>
+                  <li><code>likelihood</code></li>
+                  <li><code>impact</code></li>
+                  <li><code>subcategory</code></li>
+              </ul>
+            </td>
+        </tr>
   <tr>
    <td><code>technology</code></td>
-   <td>Nested under the <code>metadata</code> field. Additional information about the technology that gives context to a user of the rule. This helps to specify rulesets in Semgrep Registry.</td>
+   <td>Nested under the <code>metadata</code> field. Additional information about the technology. This helps to specify rulesets in Semgrep Registry.</td>
    <td>
     <ul>
         <li><code>django</code></li>
         <li><code>docker</code></li>
-        <li><code>dockerfile</code></li>
-        <li><code>flask</code></li>
-        <li><code>gorilla</code></li>
+        <li><code>express</code></li>
         <li><code>kubernetes</code></li>
         <li><code>nginx</code></li>
         <li><code>react</code></li>
@@ -131,15 +132,15 @@ In addition to the fields mentioned above, rules submitted to Semgrep Registry h
    </td>
    <td>
     <pre>
-        metadata:<br />
-        technology:<br />
-        - react
+        <code>metadata:<br /></code>
+        <code>  technology:<br /></code>
+        <code>    - react</code>
     </pre> 
    </td>
   </tr>
   <tr>
    <td><code>category</code></td>
-   <td>Nested under the <code>metadata</code> field. Provide a category for users of the rule. If you use catagory <code>security</code>, include additional metadata. See <a href="#including-fields-required-by-security-category"> Including fields required by security category</a> for more information.
+   <td>Nested under the <code>metadata</code> field. If you use catagory <code>security</code>, include additional metadata. See <a href="#including-fields-required-by-security-category"> Including fields required by security category</a>.
    </td>
    <td>
     <ul>
@@ -163,9 +164,9 @@ In addition to the fields mentioned above, rules submitted to Semgrep Registry h
    <td>No finite value. Any additional information that gives more context.
    </td>
    <td>
-    <pre>
-      references:<br />
-      - https://owasp.org/Top10/
+    <pre  style="white-space: pre-wrap; word-break: keep-all;">
+    <code>references:<br /></code>
+    <code>  - https://cheatsheetseries.owasp.<br />org/cheatsheets/DOM_based_XSS_<br />Prevention_Cheat_Sheet.html</code>
     </pre>
    </td>
   </tr>
@@ -173,7 +174,7 @@ In addition to the fields mentioned above, rules submitted to Semgrep Registry h
 </table>
 
 :::info
-If you use catagory <code>security</code>, include additional metadata. See <a href="#including-fields-required-by-security-category"> Including fields required by security category</a> for more information.
+If you use catagory <code>security</code>, include additional metadata. See <a href="#including-fields-required-by-security-category"> Including fields required by security category</a>.
 :::
 
 ### Understanding rule namespacing
@@ -274,18 +275,18 @@ If your rule has a `category: security`, the following metadata are required:
    <td><code>vuln</code>, <code>audit</code>, <code>guardrail</code></td>
    <td>
     <pre>
-        subcategory:<br />
-        - vuln
+    <code>subcategory:<br /></code>
+    <code>  - vuln</code>
     </pre>
   </td>
   </tr>
   </tbody>
 </table>
 
-These fields help users of Semgrep to identify rules in different categories such as:
+These fields help you to find rules in different categories such as:
 - High confidence security rules for CI pipelines.
 - OWASP Top 10 or CWE Top 25 rulesets.
-- Technology. For example, `react` so it is easy to find `p/react` rulesets.
+- Technology. For example, `react` so it is easy to find Reac rulesets.
 - Audit rules with lower confidence are intended for code auditors.
 
 Examples of rules with a full list of required metadata:
@@ -299,18 +300,18 @@ Details of each field mentioned above are provided in the subsections below with
 
 #### CWE
 
-Include the appropriate <a href="https://cwe.mitre.org/index.html">Comment Weakness Enumeration (CWE)</a>. CWE can explain what vulnerability is your rule trying to find. Examples:
+Include the appropriate <a href="https://cwe.mitre.org/index.html">Comment Weakness Enumeration (CWE)</a>. CWE can explain what vulnerability your rule is trying to find. Examples:
 
 If you write an SQL Injection rule, use the following:
 ```yaml
 cwe:                
-  - 'CWE-89: Improper Neutralization of Special Elements used in an SQL Command ('SQL Injection')'
+  - "CWE-89: Improper Neutralization of Special Elements used in an SQL Command ('SQL Injection')"
 ```
 
 If you write an XSS rule, use the following:
 ```yaml
 cwe: 
-  - 'CWE-79: Improper Neutralization of Input During Web Page Generation ('Cross-site Scripting')'
+  - "CWE-79: Improper Neutralization of Input During Web Page Generation ('Cross-site Scripting')"
 ```
 
 #### Confidence
@@ -329,7 +330,7 @@ HIGH confidence rules can use Semgrep advanced features such as `metavariable-co
 - <LinkToRegistryRule ruleId="javascript.express.security.audit.express-open-redirect.express-open-redirect" />
 - <LinkToRegistryRule ruleId="javascript.jose.security.jwt-hardcode.hardcoded-jwt-secret" />
 
-```
+```yaml
 confidence: HIGH
 ```
 
@@ -340,7 +341,7 @@ MEDIUM confidence rules can use Semgrep advanced features such as `metavariable-
 - <LinkToRegistryRule ruleId="javascript.express.security.audit.express-ssrf.express-ssrf" />
 - <LinkToRegistryRule ruleId="javascript.express.security.express-xml2json-xxe.express-xml2json-xxe" />
 
-```
+```yaml
 confidence: MEDIUM
 ```
 
@@ -351,7 +352,7 @@ Low confidence rules generally find something which appears to be dangerous whil
 - <LinkToRegistryRule ruleId="php.lang.security.eval-use.eval-use" />
 - <LinkToRegistryRule ruleId="javascript.browser.security.dom-based-xss.dom-based-xss" />
 
-```
+```yaml
 confidence: LOW
 ```
 
@@ -368,7 +369,7 @@ HIGH likelihood rules specify a very high concern that the vulnerability can be 
 - Hardcoded secrets that use a constant value `"..."`: <LinkToRegistryRule ruleId="javascript.jose.security.jwt-hardcode.hardcoded-jwt-secret" />
 - Rules that leverage `taint mode sources` which indicate sources that can come from an attacker. Such as HTTP `POST`, `GET`, `PUT`, and `DELETE` request values. For example: <LinkToRegistryRule ruleId="javascript.express.security.audit.express-open-redirect.express-open-redirect" />
 
-```
+```yaml
 likelihood: HIGH
 ```
 
@@ -379,7 +380,7 @@ MEDIUM likelihood rules detect a vulnerability in most circumstances. Although i
 - `taint mode sources` that reach a `taint mode sink`  but the source is only vulnerable in certain conditions for example OS Environment Variables, or loading from disk: <LinkToRegistryRule ruleId="python.aws-lambda.security.dangerous-spawn-process.dangerous-spawn-process" />
 - `taint mode sources` with a `taint mode sink` but is missing a `taint mode sanitizer` which can introduce more false positives: <LinkToRegistryRule ruleId="javascript.express.security.express-puppeteer-injection.express-puppeteer-injection" />
 
-```
+```yaml
 likelihood: MEDIUM
 ```
 
@@ -390,7 +391,7 @@ LOW likelihood rules tend to find something dangerous, but are not evaluating wh
 - `taint mode sources` such as function arguments which may or may not be tainted which reach a `taint mode sink`: <LinkToRegistryRule ruleId="typescript.react.security.audit.react-href-var.react-href-var" />
 - A rule which uses `search mode` to find the use of a dangerous function for example: `trustAsHTML`, `bypassSecurityTrust()`, `eval()`, or `innerHTML`: <LinkToRegistryRule ruleId="javascript.browser.security.dom-based-xss.dom-based-xss" />
 
-```
+```yaml
 likelihood: LOW
 ```
 
@@ -406,7 +407,7 @@ HIGH impact rules can detect extremely damaging vulnerabilities, such as injecti
 - <LinkToRegistryRule ruleId="javascript.sequelize.security.audit.sequelize-injection-express.express-sequelize-injection" />
 - <LinkToRegistryRule ruleId="ruby.rails.security.audit.xxe.xml-external-entities-enabled.xml-external-entities-enabled" />
 
-```
+```yaml
 impact: HIGH
 ```
 
@@ -417,7 +418,7 @@ MEDIUM impact rules are issues that are less likely to lead to full system compr
 - <LinkToRegistryRule ruleId="python.flask.security.injection.raw-html-concat.raw-html-format" />
 - <LinkToRegistryRule ruleId="python.flask.security.injection.ssrf-requests.ssrf-requests" />
 
-```
+```yaml
 impact: MEDIUM
 ```
 
@@ -428,7 +429,7 @@ LOW impact rules are rules that leverage a security issue, but the impact is not
 - <LinkToRegistryRule ruleId="go.gorilla.security.audit.session-cookie-missing-secure.session-cookie-missing-secure" />
 - <LinkToRegistryRule ruleId="javascript.browser.security.raw-html-join.raw-html-join" />
 
-```
+```yaml
 impact: LOW 
 ```
 
@@ -442,7 +443,7 @@ A vulnerability rule is something that developers certainly want to resolve. For
 
 - <LinkToRegistryRule ruleId="javascript.sequelize.security.audit.sequelize-injection-express.express-sequelize-injection" />
 
-```
+```yaml
 subcategory:
   - vuln
 ```
@@ -453,7 +454,7 @@ An audit rule is useful for code auditors. For example, an SQL rule which finds 
 
 - <LinkToRegistryRule ruleId="generic.html-templates.security.unquoted-attribute-var.unquoted-attribute-var" />
 
-```
+```yaml
 subcategory:          
   - audit
 ```
@@ -462,14 +463,14 @@ subcategory:
 
 A guardrail rule is useful for companies writing custom rules. For example, finding all usages to non-standard XML parsing libraries within the company. The rule can also bring a message that a developer can use only a company-approved library.
 
-```
+```yaml
 subcategory:
   - guardrail
 ```
 
 #### Technology
 
-Any additional information about the technology that gives context to the user of the rule. This helps to specify rulesets in Semgrep Registry.
+Technology helps to define specific rulesets for languages, libraries, and frameworks that are available in [Semgrep Registry](https://semgrep.dev/explore), for example `express` will be included in the `p/express` rulepack.
 
 - <LinkToRegistryRule ruleId="javascript.express.security.audit.express-open-redirect.express-open-redirect" />
 
@@ -480,17 +481,17 @@ technology:
 
 #### References
 
-References help to define specific rulesets for languages, libraries, and frameworks that are available in <a href="https://semgrep.dev/explore">Semgrep Registry</a>. See the references in the following two rules:
+References help provide more context to a developer on what the issue is, and how to remediate the vulnerability, see examples below:
 
 - A rule that is finding an issue in React: <LinkToRegistryRule ruleId="typescript.react.security.audit.react-href-var.react-href-var" />
-    ```
+    ```yaml
     references:
-      - react
+      - https://reactjs.org/blog/2019/08/08/react-v16.9.0.html#deprecating-javascript-urls
     ```
 - A rule that is detecting an issue in Express: <LinkToRegistryRule ruleId="javascript.sequelize.security.audit.sequelize-injection-express.express-sequelize-injection" />
-    ```
+    ```yaml
     references:
-      - express
+      - https://sequelize.org/docs/v6/core-concepts/raw-queries/#replacements
     ```
 
 <MoreHelp />
