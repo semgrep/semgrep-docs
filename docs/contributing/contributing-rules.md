@@ -74,40 +74,47 @@ In addition to the fields mentioned above, rules submitted to Semgrep Registry h
    <th>Example</th>
   </tr></thead>
   <tbody>
-  <tr>
-   <td><code>metadata</code></td>
-   <td>Note that <code>technology</code>, <code>category</code>, and <code>references</code> are required for all rules, there are additional requirements for security rules. See <a href="#including-fields-required-by-security-category"> Including fields required by security category</a>.
-   </td>
-   <td>
-    <p>Required by all Semgrep Registry rules:</p>
-    <ul>
-        <li><code>references</code></li>
-        <li><code>category</code></li>
-        <li><code>technology</code></li>
-    </ul>
-    <p>Additionally required by category security:</p>
-    <ul>
-        <li><code>cwe</code></li>
-        <li><code>confidence</code></li>
-        <li><code>subcategory</code></li>
-        <li><code>likelihood</code></li>
-        <li><code>impact</code></li>
-        <li><code>subcategory</code></li>
-    </ul>
-   </td>
-   <td>
-    <pre>
-    metadata:<br />
-      cwe:<br />
-        - "CWE-94: (...)"<br />
-      category: security<br />
-      technology:<br />
-        - unicode<br />
-      references:<br />
-        - https://trojansource.codes/<br />
-     </pre>
-   </td>
-  </tr>
+        <tr>
+            <td rowspan="2">
+                <code>metadata</code>
+            </td>
+            <td rowspan="2">
+                All rules require <code>technology</code>, <code>category</code>, and <code>references</code>. The <code>category: security</code> has more requirements. See <a href="#including-fields-required-by-security-category"> Including fields required by security category.</a>
+            </td>
+            <td>
+               Required by all Semgrep Registry rules:
+                <ul>
+                  <li><code>references</code></li>
+                  <li><code>category</code></li>
+                  <li><code>technology</code></li>
+                </ul>
+            </td>
+            <td rowspan="2">
+              <pre>
+              metadata:<br />
+                cwe:<br />
+                  - "CWE-94: (...)"<br />
+                category: security<br />
+                technology:<br />
+                  - unicode<br />
+                references:<br />
+                  - https://trojansource.codes/<br />
+              </pre>
+            </td>
+        </tr>
+        <tr>
+            <td>
+              Additionally required by category security:
+              <ul>
+                  <li><code>cwe</code></li>
+                  <li><code>confidence</code></li>
+                  <li><code>subcategory</code></li>
+                  <li><code>likelihood</code></li>
+                  <li><code>impact</code></li>
+                  <li><code>subcategory</code></li>
+              </ul>
+            </td>
+        </tr>
   <tr>
    <td><code>technology</code></td>
    <td>Nested under the <code>metadata</code> field. Additional information about the technology. This helps to specify rulesets in Semgrep Registry.</td>
@@ -157,9 +164,9 @@ In addition to the fields mentioned above, rules submitted to Semgrep Registry h
    <td>No finite value. Any additional information that gives more context.
    </td>
    <td>
-    <pre>
-      references:<br />
-      - https://cheatsheetseries.owasp.org/cheatsheets/DOM_based_XSS_Prevention_Cheat_Sheet.html
+    <pre  style="white-space: pre-wrap; word-break: keep-all;">
+    references:<br />
+      - https://cheatsheetseries.owasp.<br />org/cheatsheets/DOM_based_XSS_<br />Prevention_Cheat_Sheet.html
     </pre>
    </td>
   </tr>
