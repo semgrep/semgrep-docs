@@ -104,7 +104,7 @@ In addition to the fields mentioned above, rules submitted to Semgrep Registry h
         </tr>
         <tr>
             <td>
-              Additionally required by category security:
+              Additionally required by <code>category: security</code>:
               <ul>
                   <li><code>cwe</code></li>
                   <li><code>confidence</code></li>
