@@ -76,14 +76,17 @@ In addition to the fields mentioned above, rules submitted to Semgrep Registry h
   <tbody>
   <tr>
    <td><code>metadata</code></td>
-   <td>Provide additional information. Note that <code>technology</code>, <code>category</code>, and <code>references</code> are required for all rules, there are additional requirements for security rules. See <a href="#including-fields-required-by-security-category"> Including fields required by security category</a>.
+   <td>Note that <code>technology</code>, <code>category</code>, and <code>references</code> are required for all rules, there are additional requirements for security rules. See <a href="#including-fields-required-by-security-category"> Including fields required by security category</a>.
    </td>
    <td>
+    <p>Required by all Semgrep Registry rules:</p>
     <ul>
         <li><code>references</code></li>
         <li><code>category</code></li>
         <li><code>technology</code></li>
-        <!-- Security -->
+    </ul>
+    <p>Additionally required by category security:</p>
+    <ul>
         <li><code>cwe</code></li>
         <li><code>confidence</code></li>
         <li><code>subcategory</code></li>
@@ -273,10 +276,10 @@ If your rule has a `category: security`, the following metadata are required:
   </tbody>
 </table>
 
-These fields help users of Semgrep to identify rules in different categories such as:
+These fields help you to find rules in different categories such as:
 - High confidence security rules for CI pipelines.
 - OWASP Top 10 or CWE Top 25 rulesets.
-- Technology. For example, `react` so it is easy to find `p/react` rulesets.
+- Technology. For example, `react` so it is easy to find Reac rulesets.
 - Audit rules with lower confidence are intended for code auditors.
 
 Examples of rules with a full list of required metadata:
@@ -460,7 +463,7 @@ subcategory:
 
 #### Technology
 
-Technology helps to define specific rulesets for languages, libraries, and frameworks that are available in <a href="https://semgrep.dev/explore">, for example `express` will be included in the `p/express` rulepack.
+Technology helps to define specific rulesets for languages, libraries, and frameworks that are available in [Semgrep Registry](https://semgrep.dev/explore), for example `express` will be included in the `p/express` rulepack.
 
 - <LinkToRegistryRule ruleId="javascript.express.security.audit.express-open-redirect.express-open-redirect" />
 
