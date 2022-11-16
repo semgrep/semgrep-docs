@@ -130,25 +130,50 @@ To manage, change, open or ignore findings, follow the the triage processes desc
 ![Screenshot of Semgrep App triage menu](/img/app-findings-triage.png)<br />
 *Figure 3.* Findings page triage menu.
 
-To **ignore findings**:
+#### Ignoring findings
 
-1. Click the **Status** filter, and then select **Open** toggle to see all open findings.
-1. After the findings are selected, perform one of these steps:
-    - Select all of the results by clicking on the header row checkbox. You can navigate to succeeding pages and add to the current selection.
-    - Select relevant findings one by one by clicking on their checkboxes. The finding's checkbox is marked as the colorful finding's status indicator (marked by letters **L** (Low), **M** (Medium), **H** (High)).
-2. Click the **Triage** button.
-3. Click **Ignore**.
+##### Ignoring multiple findings
+
+To **ignore multiple findings**, follow these steps:
+
+1. On the [Findings](https://semgrep.dev/orgs/-/findings?tab=open) page, click the **Status** filter, and then select **Open** toggle to see all open findings.
+1. Perform one of these steps:
+    - Select all findings by clicking on the header row checkbox that states **Showing X open findings**. You can navigate to succeeding pages and add other results to the current selection.
+    - Select more findings by clicking on their checkboxes. The finding's checkbox is marked as the colorful finding's status indicator (marked by letters **L** (Low), **M** (Medium), **H** (High)).
+1. Click the **Triage** button.
+1. Optional: Select a reason of why you are ignoring a finding. Choose either: **False positive**, **Acceptable risk**, **No time to fix**
+1. Select **Ignored** from the dropdown menu.
+1. Click **Save**.
+
+##### Ignoring individual findings
+
+To **ignore individual findings**, follow these steps:
+
+1. On the [Findings](https://semgrep.dev/orgs/-/findings?tab=open) page, click the **Status** filter, and then select **Open** toggle to see all open findings.
+1. Next to a finding you want to ignore, click the **Ignore** <i class="fa-regular fa-chevron-down"></i>.
+1. Optional: Select a reason of why you are ignoring a finding. Choose either: **False positive**, **Acceptable risk**, **No time to fix**
+1. Click **Save**.
+1. Optional: 
+1. Click **Done**.
+
+#### Reopening findings
 
 To **open findings**:
 
-1. Click the **Status** filter, and then select **Ignored** or **Fixed** toggle to see all ignored or fixed findings.
-2. After the findings are filtered, perform one of these steps:
-    - Select all of the results by clicking on the header row checkbox. You can navigate to succeeding pages and add to the current selection.
+1. On the [Findings](https://semgrep.dev/orgs/-/findings?tab=open) page, click the **Status** filter, and then select **Ignored** or **Fixed** toggle to see all ignored or fixed findings.
+1. After the findings are filtered, perform one of these steps:
+    - Select all findings by clicking on the header row checkbox that states **Showing X open findings**. You can navigate to succeeding pages and add other results to the current selection.
     - Select relevant findings one by one by clicking on their checkboxes. The finding's checkbox is marked as the colorful finding's status indicator (marked by letters **L** (Low), **M** (Medium), **H** (High)).
-3. Click the **Triage** button.
-4. Click **Open**.
+1. Click the **Triage** button.
+1. Click **Open**.
 
-To **fix a finding**, update, or refactor the code such that the Semgrep rule pattern no longer matches the code.
+#### Fixing a finding
+
+To **fix a finding**:
+
+1. Update, or refactor the code such that the Semgrep rule pattern no longer matches the code.
+
+#### Removing a rule
 
 To **remove a rule** from the Rule Board:
 
