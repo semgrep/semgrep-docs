@@ -57,8 +57,9 @@ To add a Semgrep configuration file in your GitHub Actions pipeline:
 
 1. Create a `semgrep.yml` file within `.github/workflows` in the repository you want to scan.
 2. Copy the relevant code snippet provided in [Sample GitHub Actions configuration file](#sample-github-actions-configuration-file).
-3. Commit the configuration file.
-4. The Semgrep job starts automatically upon detecting the committed `semgrep.yml` file. You can also start the job from the GitHub Actions interface.
+3. Paste the relevant code snippet to `semgrep.yml` file. This is your Semgrep configuration file.
+4. Commit the configuration file under <code><span className="placeholder">/REPOSITORY-ROOT-DIRECTORY/.github/workflows/semgrep.yml</span></code>.
+5. The Semgrep job starts automatically upon detecting the committed `semgrep.yml` file. You can also start the job from the GitHub Actions interface.
 
 ### Sample GitHub Actions configuration file
 
@@ -83,7 +84,7 @@ To add a Semgrep configuration file in your GitHub Actions pipeline:
       branches: ["master", "main"]
     # Schedule the CI job (this method uses cron syntax):
     schedule:
-      - cron: '30 0 1,15 * *' # scheduled for 00:30 UTC on both the 1st and 15th of the month
+      - cron: '30 0 1,15 * *' # Scheduled for 00:30 UTC on both the 1st and 15th of the month
   
   jobs:
     semgrep:
@@ -271,7 +272,7 @@ To add a Semgrep configuration file in your GitHub Actions pipeline:
 To add a Semgrep configuration snippet in your GitLab CI/CD pipeline:
 
 1. Create or edit your `.gitlab-ci.yml` file in the repository you want to scan.
-2. Copy the relevant code snippet provided in [Sample GitLab CI/CD configuration snippet](#sample-gitlab-cicd-configuration-snippet).
+2. Copy the relevant code snippet provided in [Sample GitLab CI/CD configuration snippet](#sample-gitlab-cicd-configuration-snippet), and then paste it to your `.gitlab-ci.yml` file. This is your Semgrep configuration file.
 3. Commit the configuration file.
 4. The Semgrep job starts automatically upon detecting the committed `.gitlab-ci.yml` file. You can also view the job from your GitLab project's **CI/CD > Pipelines** page. 
 
@@ -452,7 +453,7 @@ To add a Semgrep configuration snippet in your Jenkins pipeline:
 
 1. Create or edit your `Jenkinsfile` configuration file in the repository you want to scan. You can also edit your `Jenkinsfile` from Jenkins's interface.
 2. Copy the relevant code snippet provided in [Sample Jenkins configuration snippet](#sample-jenkins-configuration-snippet).
-3. Commit the configuration file.
+3. Paste the relevant code snippet to your `Jenkinsfile`, and then commit the configuration file.
 4. The Semgrep job starts automatically upon detecting the `Jenkinsfile` update.
 5. Optional: Create a separate CI job for diff-aware scanning, which scans only changed files in PRs or MRs, by repeating steps 1-3 and uncommenting the `SEMGREP_BASELINE_REF` definition provided within the code snippet.
 
@@ -539,7 +540,7 @@ This code snippet uses Jenkins declarative syntax.
 To add a Semgrep configuration snippet into BitBucket Pipelines:
 
 1. Create or edit your `bitbucket-pipelines.yml` file in the repository you want to scan.
-2. Copy the relevant code snippet provided in [Sample BitBucket Pipelines configuration snippet](#sample-bitbucket-pipelines-configuration-snippet).
+2. Copy the relevant code snippet provided in [Sample BitBucket Pipelines configuration snippet](#sample-bitbucket-pipelines-configuration-snippet), and then paste it to your `bitbucket-pipelines.yml`.
 3. Commit the configuration file.
 4. The Semgrep job starts automatically upon detecting the committed `bitbucket-pipelines.yml` file. You can also view the job through BitBucket's interface, by clicking **your repository > Pipelines**. 
 5. Optional: Create a separate CI job for diff-aware scanning, which scans only changed files in PRs or MRs, by repeating steps 1-3 and uncommenting the `SEMGREP_BASELINE_REF` definition provided within the code snippet.
