@@ -159,14 +159,18 @@ To **ignore individual findings**, follow these steps:
 
 #### Reopening findings
 
-To **open findings**:
+##### Reopening multiple findings
+
+To **open findings**, follow these steps:
 
 1. On the [Findings](https://semgrep.dev/orgs/-/findings?tab=open) page, click the **Status** filter, and then select **Ignored** or **Fixed** toggle to see all ignored or fixed findings.
-1. After the findings are filtered, perform one of these steps:
+1. Perform one of these steps:
     - Select all findings by clicking on the header row checkbox that states **Showing X open findings**. You can navigate to succeeding pages and add other results to the current selection.
     - Select relevant findings one by one by clicking on their checkboxes. The finding's checkbox is marked as the colorful finding's status indicator (marked by letters **L** (Low), **M** (Medium), **H** (High)).
 1. Click the **Triage** button.
 1. Click **Open**.
+
+##### Reopening individual findings
 
 #### Fixing a finding
 
@@ -178,13 +182,14 @@ To **fix a finding**:
 
 To **remove a rule** from the Rule Board:
 
-1. Click **Rule Board**.
+1. In Semgrep App, click **[Rule board](https://semgrep.dev/orgs/-/board)**.
 2. Click the ruleset that contains the rule.
 3. Click the <i className="fa-solid fa-trash-can inline_svg"></i> **Remove rule** icon next to the rule you're deleting.
 4. Click **Save**.
 
 :::info
-When you remove a rule from the Rule Board, all associated findings on Findings page and Dashboard page are removed also.
+- Individual rules within rulesets can only be disabled, not deleted. To disable an individual rule, click the <i class="fa-light fa-toggle-large-on"></i> toggle to disable the rule.
+- When you remove a rule from the Rule Board, all associated findings on Findings page and Dashboard page are removed also.
 :::
 
 To **view and add comments** to history of a finding:
