@@ -6,7 +6,7 @@ import MoreHelp from "/src/components/MoreHelp"
 
 # Troubleshooting rules
 
-This page intends to help rule authors fix common mistakes when writing Semgrep rules. If you have a problem while running a rule you didn't write yourself, please [open a GitHub issue in the semgrep-rules repository](https://github.com/returntocorp/semgrep-rules/issues/new/choose)
+This page intends to help rule authors fix common mistakes when writing Semgrep rules. If you have a problem while running a rule you didn't write yourself, please [open a GitHub issue in the Semgrep Registry](https://github.com/returntocorp/semgrep-rules/issues/new/choose) repository.
 
 
 ## If your pattern can’t be parsed

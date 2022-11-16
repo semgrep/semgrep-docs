@@ -36,6 +36,18 @@ You can find more examples of taint rules in the [Semrep Registry](https://semgr
 [Metavariables](../../pattern-syntax/#metavariables) used in `pattern-sources` are considered _different_ from those used in `pattern-sinks`, even if they have the same name! See [Metavariables, rule message, and unification](#metavariables-rule-message-and-unification) for further details.
 :::
 
+Field sensitivity
+-----------------
+
+The taint engine provides basic field sensitivity support:
+
+- Track `x.a.b` as tainted, while you can specify that `x` and `x.a` are not tainted. If `x.a.b` is tainted, any extension of `x.a.b` (such as `x.a.b.c`) is also considered tainted.
+- If `x.a` is tainted, and later `x.a.b` is sanitized, the engine detects that `x.a.b` is not tainted but `x.a` or `x.a.c` are still tainted.
+- Taint tracking is **not** index sensitive, if `x.a[i]` is tainted, Semgrep considers `x.a` itself also as tainted. However, if `x.a[i]` is sanitized, then `x.a` is also sanitized.
+
+:::note
+The taint engine does track taint **per variable** and not **per object in memory**. The taint engine does not perform alias analysis at present.
+:::
 Minimizing false positives via sanitizers
 -----------------------------------------
 

@@ -44,6 +44,7 @@ Add yours [with a pull request](https://github.com/returntocorp/semgrep-docs)!
 - [DefectDojo](https://github.com/DefectDojo/django-DefectDojo/pull/2781)
 - [Dracon](https://github.com/thought-machine/dracon)
 - [GitLab SAST](https://docs.gitlab.com/ee/user/application_security/sast/#multi-project-support)
+- [GuardDog](https://github.com/datadog/guarddog)
 - [libsast](https://github.com/ajinabraham/libsast)
 - [mobsfscan](https://github.com/MobSF/mobsfscan)
 - [nodejsscan](https://github.com/ajinabraham/nodejsscan)

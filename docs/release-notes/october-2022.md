@@ -54,6 +54,8 @@ These release notes include upgrades for versions ranging between 0.116.0 and 0.
 
 ### Changes
 
+- Disabled Bloom filter optimization by default, due to undesired interactions with constant and symbolic propagation, while it appears to not provide a net major performance benefit. If you do notice a significant drop in performance after this change, please let us know.
+
 #### Taint mode
 
 - Removed basic experimental support for wrapper functions around taint sources. This was an early experiment to make Semgrep inter-procedural, but it was abandoned in favor of DeepSemgrep.
@@ -70,8 +72,6 @@ These release notes include upgrades for versions ranging between 0.116.0 and 0.
             ...
         - pattern: $FUNC(...)
    ```
-
-- Disabled Bloom filter optimization by default, due to undesired interactions with constant and symbolic propagation, while it appears to not provide a net major performance benefit. If you do notice a significant drop in performance after this change, please let us know.
 
 ## Semgrep in CI
 
