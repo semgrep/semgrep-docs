@@ -50,9 +50,6 @@ Setup (ocaml-tree-sitter-semgrep repo)
 As a model, you can use the existing setup for `ruby` or `javascript`. Our
 most complicated setup is for `typescript` and `tsx`.
 
-First install `npx` following
-[this doc](https://github.com/returntocorp/ocaml-tree-sitter-core/blob/master/doc/node-setup.md).
-
 ### Expedited setup
 
 If you're lucky, the language you want to add can be added with the

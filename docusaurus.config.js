@@ -25,9 +25,24 @@ module.exports = {
       items: [
         { to: 'https://semgrep.dev/explore', label: 'Registry', position: 'left', target: '_self' },
         { to: 'https://semgrep.dev/editor', label: 'Playground', position: 'left', target: '_self' },
-        { to: 'https://semgrep.dev/orgs/-/', label: 'App', position: 'left', target: '_self' },
+        {
+          type: 'dropdown',
+          label: 'Products',
+          position: 'left',
+          items: [
+            {
+              label: 'Semgrep App',
+              to: 'https://semgrep.dev/products/semgrep-app'
+            },
+            {
+              label: 'Semgrep Supply Chain',
+              to: 'https://semgrep.dev/products/semgrep-supply-chain'
+            }
+          ]
+        },
         { to: 'https://semgrep.dev/pricing', label: 'Pricing', position: 'left', target: '_self' },
         { to: 'https://semgrep.dev/docs/', label: 'Docs', position: 'left', target: '_self' },
+        { to: 'https://semgrep.dev/orgs/-/', label: 'Login', position: 'right', target: '_self' },
       ],
     },
     footer: {

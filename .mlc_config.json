@@ -14,5 +14,13 @@
   "retryOn429": true,
   "retryCount": 2,
   "fallbackRetryDelay": "30s",
-  "aliveStatusCodes": [200, 206, 301, 400, 429]
+  "aliveStatusCodes": [200, 206, 301, 400, 429],
+  "httpHeaders": [
+    {
+      "urls": ["https://docs.github.com/"],
+      "headers": {
+        "Accept-Encoding": "zstd, br, gzip, deflate"
+      }
+    }
+  ]
 }
