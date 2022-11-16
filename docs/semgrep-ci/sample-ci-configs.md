@@ -56,9 +56,11 @@ Support for certain features of Semgrep App depend on your CI provider or source
 To add a Semgrep configuration file in your GitHub Actions pipeline:
 
 1. Create a `semgrep.yml` file within `.github/workflows` in the repository you want to scan.
-2. Copy the relevant code snippet provided after these instructions.
+2. Copy the relevant code snippet provided in [Sample GitHub Actions configuration file](#sample-github-actions-configuration-file).
 3. Commit the configuration file.
 4. The Semgrep job starts automatically upon detecting the committed `semgrep.yml` file. You can also start the job from the GitHub Actions interface.
+
+### Sample GitHub Actions configuration file
 
 <Tabs
     defaultValue="gha-semgrep"
@@ -269,9 +271,11 @@ To add a Semgrep configuration file in your GitHub Actions pipeline:
 To add a Semgrep configuration snippet in your GitLab CI/CD pipeline:
 
 1. Create or edit your `.gitlab-ci.yml` file in the repository you want to scan.
-2. Copy the relevant code snippet provided after these instructions.
+2. Copy the relevant code snippet provided in [Sample GitLab CI/CD configuration snippet](#sample-gitlab-cicd-configuration-snippet).
 3. Commit the configuration file.
 4. The Semgrep job starts automatically upon detecting the committed `.gitlab-ci.yml` file. You can also view the job from your GitLab project's **CI/CD > Pipelines** page. 
+
+### Sample GitLab CI/CD configuration snippet
 
 <Tabs
     defaultValue="glcicd-semgrep"
@@ -447,10 +451,12 @@ To add a Semgrep configuration snippet in your GitLab CI/CD pipeline:
 To add a Semgrep configuration snippet in your Jenkins pipeline:
 
 1. Create or edit your `Jenkinsfile` configuration file in the repository you want to scan. You can also edit your `Jenkinsfile` from Jenkins's interface.
-2. Copy the relevant code snippet provided after these instructions.
+2. Copy the relevant code snippet provided in [Sample Jenkins configuration snippet](#sample-jenkins-configuration-snippet).
 3. Commit the configuration file.
 4. The Semgrep job starts automatically upon detecting the `Jenkinsfile` update.
 5. Optional: Create a separate CI job for diff-aware scanning, which scans only changed files in PRs or MRs, by repeating steps 1-3 and uncommenting the `SEMGREP_BASELINE_REF` definition provided within the code snippet.
+
+### Sample Jenkins configuration snippet
 
 <Tabs
     defaultValue="jenkins-semgrep"
@@ -530,10 +536,10 @@ This code snippet uses Jenkins declarative syntax.
 
 ## Bitbucket Pipelines
 
-To add a Semgrep configuration snippet into your BitBucket Pipeline:
+To add a Semgrep configuration snippet into BitBucket Pipelines:
 
 1. Create or edit your `bitbucket-pipelines.yml` file in the repository you want to scan.
-2. Copy the relevant code snippet provided after these instructions.
+2. Copy the relevant code snippet provided in [Sample BitBucket Pipelines configuration snippet](#sample-bitbucket-pipelines-configuration-snippet).
 3. Commit the configuration file.
 4. The Semgrep job starts automatically upon detecting the committed `bitbucket-pipelines.yml` file. You can also view the job through BitBucket's interface, by clicking **your repository > Pipelines**. 
 5. Optional: Create a separate CI job for diff-aware scanning, which scans only changed files in PRs or MRs, by repeating steps 1-3 and uncommenting the `SEMGREP_BASELINE_REF` definition provided within the code snippet.
@@ -542,6 +548,7 @@ To add a Semgrep configuration snippet into your BitBucket Pipeline:
 These steps can also be performed through BitBucket's UI wizard. This UI wizard can be accessed through **BitBucket > your repository > Pipelines > Create your first pipeline**.
 :::
 
+### Sample BitBucket Pipelines configuration snippet
 
 <Tabs
     defaultValue="bitbucket-semgrep"
@@ -619,11 +626,13 @@ These steps can also be performed through BitBucket's UI wizard. This UI wizard 
 
 To add Semgrep into your Buildkite pipeline:
 
-1. Create or edit a `pipelines.yml` configuration file to add a Semgrep command as part of your pipeline. Refer to the [BuildKite code snippet](#buildkite-code-snippet). This configuration file can also be stored within Buildkite.
-2. Copy the relevant code snippet provided after these instructions.
+1. Create or edit a `pipeline.yml` configuration file to add a Semgrep command as part of your pipeline. Refer to the [BuildKite code snippet](#buildkite-code-snippet). This configuration file can also be stored within Buildkite.
+2. Copy the relevant code snippet provided in [Sample Buildkite configuration snippet](#sample-buildkite-configuration-snippet).
 3. If you are using Buildkite to store the configuration, save the file. Otherwise, commit the configuration file into the `/.buildkite` folder within the target repository.
-4. The Semgrep job starts automatically upon detecting the committed `bitbucket-pipelines.yml` file. You can also view the job through BitBucket's interface, by clicking **your repository > Pipelines**. 
+4. The Semgrep job starts automatically upon detecting the committed `pipeline.yml` file. You can also view the job through BitBucket's interface, by clicking **your repository > Pipelines**. 
 5. Optional: Create a separate CI job for diff-aware scanning, which scans only changed files in PRs or MRs, by repeating steps 1-3 and uncommenting the `SEMGREP_BASELINE_REF` definition provided within the code snippet.
+
+### Sample Buildkite configuration snippet
 
 <Tabs
     defaultValue="buildkite-semgrep"
@@ -692,7 +701,7 @@ To add Semgrep into your Buildkite pipeline:
 To add Semgrep into your CircleCI pipeline:
 
 1. Create or edit your `config.yml` configuration file in the repository you want to scan.
-2. Copy the relevant code snippet provided after these instructions.
+2. Copy the relevant code snippet provided in [Sample CircleCI configuration snippet](#sample-circleci-configuration-snippet).
 3. Commit the configuration file into the `/.circleci` folder within the target repository.
 4. The Semgrep job starts automatically upon detecting the `config.yml` update.
 5. Optional: Create a separate CI job for diff-aware scanning, which scans only changed files in PRs or MRs, by repeating steps 1-3 and uncommenting the `SEMGREP_BASELINE_REF` definition provided within the code snippet.
@@ -705,6 +714,8 @@ It gets set from within the UI in the repository settings and automatically
 gets put into the pipeline at runtime.
 
 -->
+
+### Sample CircleCI configuration snippet
 
 <Tabs
     defaultValue="circleci-semgrep"
@@ -800,19 +811,16 @@ workflows:
 
 ## Azure Pipelines
 
-To add Semgrep into your Azure Pipeline:
+To add Semgrep into Azure Pipelines:
 
 1. Access the YAML pipeline editor within Azure Pipelines by following the [YAML pipeline editor](https://learn.microsoft.com/en-us/azure/devops/pipelines/get-started/yaml-pipeline-editor?view=azure-devops#edit-a-yaml-pipeline) guide.
-2. Copy the relevant code snippet provided after these instructions into the Azure Pipelines YAML editor.
+2. Copy the relevant code snippet provided in [Sample Azure Pipelines configuration snippet](#sample-azure-pipelines-configuration-snippet) into the Azure Pipelines YAML editor.
 3. Save the code snippet.
 4. Set [environment variables](https://learn.microsoft.com/en-us/azure/devops/pipelines/process/variables?view=azure-devops&tabs=yaml%2Cbatch#secret-variables).
 5. Group the environment variables as a [variable group](https://learn.microsoft.com/en-us/azure/devops/pipelines/library/variable-groups?view=azure-devops&tabs=classic).
 6. Optional: Create a separate CI job for diff-aware scanning, which scans only changed files in PRs or MRs, by repeating steps 1-4 and and adding `SEMGREP_BASELINE_REF` as an environment variable. 
 
-<!-- 
-
-
--->
+### Sample Azure Pipelines configuration snippet
 
 <Tabs
     defaultValue="azure-semgrep"
@@ -844,7 +852,7 @@ steps:
     SEMGREP_PR_ID: $(System.PullRequest.PullRequestNumber)
 ```
 
-### Environment variables to set
+### Setting environment variables in Azure Pipelines
 
 Set these variables within Azure Pipelines UI following the steps in [Environment variables](https://learn.microsoft.com/en-us/azure/devops/pipelines/process/variables?view=azure-devops&tabs=yaml%2Cbatch#secret-variables):
 
@@ -890,7 +898,7 @@ steps:
 
 ## Other providers
 
-To run Semgrep CI on any other provider, use the `returntocorp/semgrep` image, and run the `semgrep ci` command with SEMGREP_BASELINE_REF set for diff-aware scanning.
+To run Semgrep CI on any other provider, use the `returntocorp/semgrep` image, and run the `semgrep ci` command with `SEMGREP_BASELINE_REF` set for diff-aware scanning.
 
 **Note**: If you need to use a different image than docker, install Semgrep CI by `pip install semgrep`.
 
