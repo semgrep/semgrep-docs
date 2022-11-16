@@ -83,7 +83,7 @@ module.exports = {
                     type: 'generated-index',
                     title: 'Semgrep in continuous integration (CI)',
                     description:
-                      "Find out about use of Semgrep in continuous integration (CI)",
+                      "Learn how to use Semgrep in continuous integration (CI).",
                     keywords: ['CI']
                   },
                 items: [
