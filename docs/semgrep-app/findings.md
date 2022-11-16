@@ -153,7 +153,8 @@ To **ignore individual findings**, follow these steps:
 1. Next to a finding you want to ignore, click the **Ignore** <i class="fa-regular fa-chevron-down"></i>.
 1. Optional: Select a reason of why you are ignoring a finding. Choose either: **False positive**, **Acceptable risk**, **No time to fix**
 1. Click **Save**.
-1. Optional: 
+1. Optional: Select whether you want to ignore all findings in **Just this file**, **This directory**, or **Parent directory**.
+1. Optional: Enable the checkbox to: **Remove this rule from Rule board**. This removes the related rule that matched the finding.
 1. Click **Done**.
 
 #### Reopening findings
