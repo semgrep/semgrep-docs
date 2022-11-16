@@ -63,7 +63,7 @@ module.exports = {
                     type: 'generated-index',
                     title: 'Semgrep command-line interface (CLI)',
                     description:
-                      "Learn about Semgrep open source command line tool.",
+                      "Learn about the Semgrep open source command-line tool.",
                     keywords: ['CLI']
                   },
                 items: [

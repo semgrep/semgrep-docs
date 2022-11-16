@@ -1,6 +1,9 @@
 ---
 slug: semgrep
-description: "Ways you can get more information when semgrep CLI or CI hangs, crashes, or just takes too long."
+description: "Get more information when Semgrep CLI or CI hangs, crashes, times out, or is slow."
+title: Troubleshooting Semgrep
+hide_title: true
+append_help_link: true
 ---
 
 import MoreHelp from "/src/components/MoreHelp"

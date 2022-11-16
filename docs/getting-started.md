@@ -1,8 +1,12 @@
 ---
 slug: getting-started
 append_help_link: true
-description: "This getting started guides you through the installation of Semgrep, shows you how to run Semgrep locally, and provides an overview of benefits which you may reap by using Semgrep CI."
+description: "Install Semgrep, run Semgrep locally, and learn about the benefits of running Semgrep in CI (continuous integration)."
+title: Getting started with Semgrep CLI
+hide_title: true
 ---
+
+import MoreHelp from "/src/components/MoreHelp"
 
 # Getting started with Semgrep CLI
 
@@ -97,3 +101,5 @@ Check out [Semgrep App](https://semgrep.dev/manage) to integrate CI with PR or M
 ## Upgrading
 
 We [release new Semgrep versions](https://github.com/returntocorp/semgrep/releases) often! See [upgrading](./upgrading.md) for more details.
+
+<MoreHelp />
