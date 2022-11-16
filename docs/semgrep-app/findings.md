@@ -12,6 +12,7 @@ tags:
 
 import MoreHelp from "/src/components/MoreHelp"
 import TriageStatuses from "/src/components/reference/_triage-states.mdx"
+import RemoveRule from "/src/components/procedure/_remove-rule.mdx"
 
 <ul id="tag__badge-list">
 {
@@ -180,17 +181,9 @@ To **fix a finding**:
 
 #### Removing a rule
 
-To **remove a rule** from the Rule Board:
+<RemoveRule />
 
-1. In Semgrep App, click **[Rule board](https://semgrep.dev/orgs/-/board)**.
-2. Click the ruleset that contains the rule.
-3. Click the <i className="fa-solid fa-trash-can inline_svg"></i> **Remove rule** icon next to the rule you're deleting.
-4. Click **Save**.
-
-:::info
-- Individual rules within rulesets can only be disabled, not deleted. To disable an individual rule, click the <i class="fa-light fa-toggle-large-on"></i> toggle to disable the rule.
-- When you remove a rule from the Rule Board, all associated findings on Findings page and Dashboard page are removed also.
-:::
+#### Viewing and adding comments to finding's history
 
 To **view and add comments** to history of a finding:
 
