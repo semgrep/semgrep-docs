@@ -1,8 +1,14 @@
 ---
+slug: upgrading
 append_help_link: true
+description: "Update Semgrep by running the correct commands for your environment or operating system."
+title: Upgrading Semgrep
+hide_title: true
 ---
 
-# Upgrading
+import MoreHelp from "/src/components/MoreHelp"
+
+# Upgrading Semgrep
 
 We [release new Semgrep versions](https://github.com/returntocorp/semgrep/releases) often, with many performance and bug improvements. 
 
@@ -22,3 +28,6 @@ Using Docker:
 ```sh
 docker pull returntocorp/semgrep:latest
 ```
+
+
+<MoreHelp />

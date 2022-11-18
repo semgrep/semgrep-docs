@@ -63,7 +63,7 @@ module.exports = {
                     type: 'generated-index',
                     title: 'Semgrep command-line interface (CLI)',
                     description:
-                      "Learn about Semgrep open source command line tool.",
+                      "Learn about the Semgrep open source command-line tool.",
                     keywords: ['CLI']
                   },
                 items: [
@@ -83,7 +83,7 @@ module.exports = {
                     type: 'generated-index',
                     title: 'Semgrep in continuous integration (CI)',
                     description:
-                      "Find out about use of Semgrep in continuous integration (CI)",
+                      "Learn how to use Semgrep in continuous integration (CI).",
                     keywords: ['CI']
                   },
                 items: [

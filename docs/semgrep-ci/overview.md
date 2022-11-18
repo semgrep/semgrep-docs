@@ -1,7 +1,7 @@
 ---
 slug: overview
 append_help_link: true
-description: "Semgrep can run CI environments. It can either be used stand-alone or connected with Semgrep App for centralized rule and findings management."
+description: "Run Semgrep in CI environments. Learn about different features of Semgrep App-connected CI jobs and stand-alone Semgrep jobs."
 tags:
     - Semgrep in CI
     - Community Tier

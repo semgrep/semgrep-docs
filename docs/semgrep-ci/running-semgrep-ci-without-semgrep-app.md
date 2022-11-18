@@ -2,7 +2,7 @@
 slug: running-semgrep-ci-without-semgrep-app
 append_help_link: true
 title: Running Semgrep in CI without Semgrep App 
-description: "This document guides you through setting up semgrep in continuous integration without connecting to Semgrep App."
+description: "Set up Semgrep in CI without connecting to Semgrep App."
 tags:
     - Semgrep in CI
     - Community Tier

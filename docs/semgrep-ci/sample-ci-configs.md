@@ -1,7 +1,7 @@
 ---
 slug: sample-ci-configs
 append_help_link: true
-description: "The sample configuration files below run Semgrep CI on continuous integration platforms such as GitHub, GitLab, Jenkins, Buildkite, CircleCI, and other providers."
+description: "View sample configuration files to run Semgrep with various CI/CD providers such as GitHub, GitLab, Jenkins, Buildkite, CircleCI, and more."
 title: Sample CI configurations
 hide_title: true
 tags:
