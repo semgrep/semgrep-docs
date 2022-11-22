@@ -281,7 +281,7 @@ Set up additional scan parameters in your organization's [Projects](https://semg
 To see additional scan parameters:
 
 1. Click **Projects** on the left sidebar.
-2. Select the name of the project to modify, and then click the respective <i class="fa-solid fa-gear"></i> **cogwheel** icon in the Settings column.
+2. Select the name of the project to modify, and then click the respective <i class="fa-solid fa-gear"></i> **gear** icon in the Settings column.
 3. Make edits as necessary.
 
 This page enables you to configure the following scan parameters:
