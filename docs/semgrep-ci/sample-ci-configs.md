@@ -453,7 +453,7 @@ To add a Semgrep configuration snippet in your Jenkins pipeline:
 
 1. Create or edit your `Jenkinsfile` configuration file in the repository you want to scan. You can also edit your `Jenkinsfile` from Jenkins's interface.
 2. Copy the relevant code snippet provided in [Sample Jenkins configuration snippet](#sample-jenkins-configuration-snippet).
-3. Paste the code to your `Jenkinsfile`, and then commit this updated file.
+3. Paste the code to your `Jenkinsfile`, and then commit the file.
 4. The Semgrep job starts automatically upon detecting the `Jenkinsfile` update.
 5. Optional: Create a separate CI job for diff-aware scanning, which scans only changed files in PRs or MRs, by repeating steps 1-3 and uncommenting the `SEMGREP_BASELINE_REF` definition provided within the code snippet.
 
