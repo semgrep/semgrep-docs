@@ -1,7 +1,7 @@
 ---
 slug: running-semgrep-ci-with-semgrep-app
 append_help_link: true
-description: "Run Semgrep CI with Semgrep App to manage findings and rules from a centralized dashboard as well as receive notifications in various channels."
+description: "Set up your CI pipeline with Semgrep App for centralized rule and findings management."
 tags:
     - Semgrep in CI
     - Community Tier

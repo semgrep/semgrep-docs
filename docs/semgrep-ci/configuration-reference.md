@@ -1,6 +1,6 @@
 ---
 slug: configuration-reference
-description: "Reference for running Semgrep CI in your CI job or on the command line. Learn how to select rules to scan with, enable diff-aware scanning, connect to Semgrep App, and more."
+description: "Configure Semgrep in CI by setting various environment variables. Enable diff-aware scanning, connect to Semgrep App, and more."
 tags:
     - Semgrep in CI
     - Community Tier
