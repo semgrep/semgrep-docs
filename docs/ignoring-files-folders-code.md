@@ -45,7 +45,6 @@ The default `.semgrepignore` file causes Semgrep to skip these folders:
 To include the above folders, create a `.semgrepignore` file without those paths.
 :::
 
-
 ## Files, folders, and code beyond Semgrep's scope
 
 Semgrep by default ignores files beyond the scope of Semgrep's scans.
