@@ -158,6 +158,10 @@ To **ignore individual findings**, follow these steps:
 1. Optional: Enable the checkbox to: **Remove this rule from Rule board**. This removes the related rule that matched the finding.
 1. Click **Done**.
 
+:::note
+If you ignore all findings in **Just this file**, **This directory**, or **Parent directory** in the fifth step of the procedure above, these files or directories are added to `.semgrepignore` file. For more information, see [Ignoring files, folders, or parts of code](/ignoring-files-folders-code/).
+:::
+
 #### Reopening findings
 
 ##### Reopening multiple findings
@@ -262,7 +266,7 @@ If a finding is fixed in one branch (such as `main`) but open in another (such a
 
 * [Integrations](integrations.md)
 * [Rule Board](rule-board.md)
-* [Ignoring files, folders, or code](../ignoring-files-folders-code.md)
+* [Ignoring files, folders, or code](/ignoring-files-folders-code/)
 
 ## Additional references
 
