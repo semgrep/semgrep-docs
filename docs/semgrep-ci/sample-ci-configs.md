@@ -55,9 +55,9 @@ Support for certain features of Semgrep App depend on your CI provider or source
 
 To add a Semgrep configuration file in your GitHub Actions pipeline:
 
-1. Create a `semgrep.yml` file within `.github/workflows` in the repository you want to scan.
+1. Create a `semgrep.yml` file in `.github/workflows` in the repository you want to scan.
 2. Copy the relevant code snippet provided in [Sample GitHub Actions configuration file](#sample-github-actions-configuration-file).
-3. Paste the relevant code snippet to `semgrep.yml` file. This is your Semgrep configuration file.
+3. Paste the relevant code snippet to `semgrep.yml` file. This is your Semgrep configuration file for GitHub Actions.
 4. Commit the configuration file under <code><span className="placeholder">/REPOSITORY-ROOT-DIRECTORY/.github/workflows/semgrep.yml</span></code>.
 5. The Semgrep job starts automatically upon detecting the committed `semgrep.yml` file. You can also start the job from the GitHub Actions interface.
 
@@ -272,8 +272,8 @@ To add a Semgrep configuration file in your GitHub Actions pipeline:
 To add a Semgrep configuration snippet in your GitLab CI/CD pipeline:
 
 1. Create or edit your `.gitlab-ci.yml` file in the repository you want to scan.
-2. Copy the relevant code snippet provided in [Sample GitLab CI/CD configuration snippet](#sample-gitlab-cicd-configuration-snippet), and then paste it to your `.gitlab-ci.yml` file. This is your Semgrep configuration file.
-3. Commit the configuration file.
+2. Copy the relevant code snippet provided in [Sample GitLab CI/CD configuration snippet](#sample-gitlab-cicd-configuration-snippet), and then paste it to your `.gitlab-ci.yml` file.
+3. Commit the updated `.gitlab-ci.yml` file.
 4. The Semgrep job starts automatically upon detecting the committed `.gitlab-ci.yml` file. You can also view the job from your GitLab project's **CI/CD > Pipelines** page. 
 
 ### Sample GitLab CI/CD configuration snippet
@@ -453,7 +453,7 @@ To add a Semgrep configuration snippet in your Jenkins pipeline:
 
 1. Create or edit your `Jenkinsfile` configuration file in the repository you want to scan. You can also edit your `Jenkinsfile` from Jenkins's interface.
 2. Copy the relevant code snippet provided in [Sample Jenkins configuration snippet](#sample-jenkins-configuration-snippet).
-3. Paste the relevant code snippet to your `Jenkinsfile`, and then commit the configuration file.
+3. Paste the code to your `Jenkinsfile`, and then commit this updated file.
 4. The Semgrep job starts automatically upon detecting the `Jenkinsfile` update.
 5. Optional: Create a separate CI job for diff-aware scanning, which scans only changed files in PRs or MRs, by repeating steps 1-3 and uncommenting the `SEMGREP_BASELINE_REF` definition provided within the code snippet.
 
@@ -541,7 +541,7 @@ To add a Semgrep configuration snippet into BitBucket Pipelines:
 
 1. Create or edit your `bitbucket-pipelines.yml` file in the repository you want to scan.
 2. Copy the relevant code snippet provided in [Sample BitBucket Pipelines configuration snippet](#sample-bitbucket-pipelines-configuration-snippet), and then paste it to your `bitbucket-pipelines.yml`.
-3. Commit the configuration file.
+3. Commit the updated `bitbucket-pipelines.yml` configuration file.
 4. The Semgrep job starts automatically upon detecting the committed `bitbucket-pipelines.yml` file. You can also view the job through BitBucket's interface, by clicking **your repository > Pipelines**. 
 5. Optional: Create a separate CI job for diff-aware scanning, which scans only changed files in PRs or MRs, by repeating steps 1-3 and uncommenting the `SEMGREP_BASELINE_REF` definition provided within the code snippet.
 
@@ -629,7 +629,7 @@ To add Semgrep into your Buildkite pipeline:
 
 1. Create or edit a `pipeline.yml` configuration file to add a Semgrep command as part of your pipeline. Refer to the [BuildKite code snippet](#buildkite-code-snippet). This configuration file can also be stored within Buildkite.
 2. Copy the relevant code snippet provided in [Sample Buildkite configuration snippet](#sample-buildkite-configuration-snippet).
-3. If you are using Buildkite to store the configuration, save the file. Otherwise, commit the configuration file into the `/.buildkite` folder within the target repository.
+3. If you are using Buildkite to store the configuration, save the updated file. Otherwise, commit the updated configuration file into the `/.buildkite` folder within the target repository.
 4. The Semgrep job starts automatically upon detecting the committed `pipeline.yml` file. You can also view the job through BitBucket's interface, by clicking **your repository > Pipelines**. 
 5. Optional: Create a separate CI job for diff-aware scanning, which scans only changed files in PRs or MRs, by repeating steps 1-3 and uncommenting the `SEMGREP_BASELINE_REF` definition provided within the code snippet.
 
@@ -703,15 +703,15 @@ To add Semgrep into your CircleCI pipeline:
 
 1. Create or edit your `config.yml` configuration file in the repository you want to scan.
 2. Copy the relevant code snippet provided in [Sample CircleCI configuration snippet](#sample-circleci-configuration-snippet).
-3. Commit the configuration file into the `/.circleci` folder within the target repository.
+3. Commit the updated `config.yml` configuration file into the `/.circleci` folder in the target repository.
 4. The Semgrep job starts automatically upon detecting the `config.yml` update.
-5. Optional: Create a separate CI job for diff-aware scanning, which scans only changed files in PRs or MRs, by repeating steps 1-3 and uncommenting the `SEMGREP_BASELINE_REF` definition provided within the code snippet.
+5. Optional: Create a separate CI job for diff-aware scanning, which scans only changed files in PRs or MRs, by repeating steps 1-3 and uncommenting the `SEMGREP_BASELINE_REF` definition provided in the code snippet.
 
 <!-- 
 
 Note: CircleCI snippet does NOT set the SEMGREP_APP_TOKEN in the config file.
 From CSE: 
-It gets set from within the UI in the repository settings and automatically 
+It gets set from in the UI in the repository settings and automatically 
 gets put into the pipeline at runtime.
 
 -->
