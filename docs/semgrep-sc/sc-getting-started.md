@@ -185,8 +185,10 @@ For more information on diff-aware and full scans, see [Diff-aware scanning](/do
 
 #### Blocking a PR or MR
 
-* Reachable findings block a pull or merge request.
-* Unreachable findings **do not** block a pull or merge request.
+Supply chain findings **do not** block a pull or merge request,
+even if a finding is reachable.
+
+_Updated Nov 22nd, 2022: Old versions (Semgrep v0.122.0 and below) used to block on reachable supply chain findings._
 
 ## Ignoring dependency findings through `semgrepignore`
 
