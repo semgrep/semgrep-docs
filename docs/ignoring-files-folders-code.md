@@ -6,6 +6,7 @@ description: "This documents various methods to skip or ignore files, folders, o
 ---
 
 import MoreHelp from "/src/components/MoreHelp"
+import IgnoreIndividualFindings from "/src/components/procedure/_ignore-individual-findings.mdx"
 
 # Ignoring files, folders, or parts of code
 
@@ -33,7 +34,6 @@ In the absence of a user-generated `.semgrepignore`, Semgrep refers to [its repo
 
 ```
 DEFAULT_SEMGREPIGNORE_TEXT
-
 ```
 
 :::caution
@@ -99,13 +99,15 @@ To define files and folders in Semgrep App:
 2. From the Dashboard Sidebar, select **Projects** > **[Project name]**.
 3. Enter files and folders to ignore in the **Path Ignores** box.
 
-Including files and folders through this method is **additive**. When Semgrep App makes a scan, it looks for a `.semgrepignore` within the repository. If no `.semgrepignore` file is found, it temporarily creates one and add items from Semgrep App's Path Ignores. Adding items to the **Path Ignores** box does not override default Semgrep ignore patterns.
+Including files and folders through this method is **additive**. When Semgrep App makes a scan, it looks for a `.semgrepignore` within the repository. If no `.semgrepignore` file is found, Semgrep temporarily creates one and adds items from Semgrep App's Path Ignores. Adding items to the **Path Ignores** box does not override default Semgrep ignore patterns.
 
 You can also add files to `.semgrepignore` while triaging your findings by issuing the following steps:
 
 <IgnoreIndividualFindings />
 
-Adding files to `.semgrepignore` can be done as an optional step in the fifth step of the procedure described above. 
+:::note
+Add files to `.semgrepignore` in the fifth step of the procedure described above. 
+:::
 
 ## Ignoring code through nosemgrep
 
