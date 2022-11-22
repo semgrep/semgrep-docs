@@ -101,6 +101,12 @@ To define files and folders in Semgrep App:
 
 Including files and folders through this method is **additive**. When Semgrep App makes a scan, it looks for a `.semgrepignore` within the repository. If no `.semgrepignore` file is found, it temporarily creates one and add items from Semgrep App's Path Ignores. Adding items to the **Path Ignores** box does not override default Semgrep ignore patterns.
 
+You can also add files to `.semgrepignore` while triaging your findings by issuing the following steps:
+
+<IgnoreIndividualFindings />
+
+Adding files to `.semgrepignore` can be done as an optional step in the fifth step of the procedure described above. 
+
 ## Ignoring code through nosemgrep
 
 To ignore blocks of code, define an **inline comment**, followed by a **space** (` `), followed by the word `nosemgrep` at either the **first line** or **the line preceding** the potential match. Semgrep ignores all rule pattern matches. This functionality works across all supported languages.

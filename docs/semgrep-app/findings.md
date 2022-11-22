@@ -13,6 +13,7 @@ tags:
 import MoreHelp from "/src/components/MoreHelp"
 import TriageStatuses from "/src/components/reference/_triage-states.mdx"
 import RemoveRule from "/src/components/procedure/_remove-rule.mdx"
+import IgnoreIndividualFindings from "/src/components/procedure/_ignore-individual-findings.mdx"
 
 <ul id="tag__badge-list">
 {
@@ -150,13 +151,7 @@ To **ignore multiple findings**, follow these steps:
 
 To **ignore individual findings**, follow these steps:
 
-1. On the [Findings](https://semgrep.dev/orgs/-/findings?tab=open) page, click the **Status** filter, and then select **Open** toggle to see all open findings.
-1. Next to a finding you want to ignore, click the **Ignore** <i class="fa-regular fa-chevron-down"></i>.
-1. Optional: Select a reason of why you are ignoring a finding. Choose either: **False positive**, **Acceptable risk**, **No time to fix**
-1. Click **Save**.
-1. Optional: Select whether you want to ignore all findings in **Just this file**, **This directory**, or **Parent directory**.
-1. Optional: Enable the checkbox to: **Remove this rule from Rule board**. This removes the related rule that matched the finding.
-1. Click **Done**.
+<IgnoreIndividualFindings />
 
 :::note
 If you ignore all findings in **Just this file**, **This directory**, or **Parent directory** in the fifth step of the procedure above, these files or directories are added to `.semgrepignore` file. For more information, see [Ignoring files, folders, or parts of code](/ignoring-files-folders-code/).
