@@ -47,7 +47,7 @@ To include the above folders, create a `.semgrepignore` file without those paths
 
 ## Files, folders, and code beyond Semgrep's scope
 
-Semgrep by default ignores files beyond the scope of Semgrep's scans.
+There are files that Semgrep ignores even without `.semgrepignore`:
 
 * Large files (maximum file size defaults to 1MB)
 * Binary files
