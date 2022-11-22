@@ -97,7 +97,8 @@ To define files and folders in Semgrep App:
 
 1. Sign into [Semgrep App](https://semgrep.dev/login?return_path=/manage/projects).
 2. From the Dashboard Sidebar, select **Projects** > **[Project name]**.
-3. Enter files and folders to ignore in the **Path Ignores** box.
+3. Select the name of the project to modify, and then click the respective <i class="fa-solid fa-gear"></i> **gear** icon in the Settings column.
+4. Enter files and folders to ignore in the **Path Ignores** box.
 
 Including files and folders through this method is **additive**. When Semgrep App makes a scan, it looks for a `.semgrepignore` within the repository. If no `.semgrepignore` file is found, Semgrep temporarily creates one and adds items from Semgrep App's Path Ignores. Adding items to the **Path Ignores** box does not override default Semgrep ignore patterns.
 
