@@ -3,9 +3,8 @@ slug: gitlab-sast
 title: Troubleshooting GitLab SAST
 hide_title: true
 description: >-
-  GitLab SAST includes an analyzer that runs Semgrep.
-  Fix issues with semgrep-sast jobs running slowly,
-  not showing results, or erroring.
+  Fix issues with GitLab SAST's Semgrep analyzer, such as jobs running slowly,
+  not showing results, or returning errors.
 tags:
     - Semgrep in CI
     - Community Tier

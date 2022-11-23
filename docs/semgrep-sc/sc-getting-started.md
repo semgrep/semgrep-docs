@@ -139,9 +139,9 @@ To run Semgrep Supply Chain, you need the following:
 
 To enable and run a Supply Chain (dependency) scan in Semgrep App:
 
-1. Sign in to your Semgrep App account.
-2. Click **Projects > Gear icon** of the repository on which to run Supply Chain rules.
-3. Click **SSC toggle**. Semgrep Supply Chain rules are included in your next scan, that occurs based on your CI set up, such as schedules and events configuration (push, pull, and merge requests).
+1. Sign in to your Semgrep App account, and then go to **Projects** page.
+2. Click **[Projects](https://semgrep.dev/orgs/-/projects)**, and then click <i class="fa-solid fa-gear"></i> **gear** icon of the repository on which to run Supply Chain rules.
+3. Click <i class="fa-solid fa-toggle-large-on"></i> **SSC toggle**. Semgrep Supply Chain rules are included in your next scan, that occurs based on your CI set up, such as schedules and events configuration (push, pull, and merge requests).
 4. Optional: To start a dependency scan immediately, go to your CI provider's interface and manually begin the Semgrep workflow or job.
 
 The scan finishes and displays findings in the **Supply Chain** tab for further triage and remediation. See [Triaging and remediating dependency findings](/docs/semgrep-sc/triaging-and-remediating-vulnerabilities).

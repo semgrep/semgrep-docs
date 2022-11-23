@@ -2,7 +2,7 @@
 slug: running-semgrep-ci-without-semgrep-app
 append_help_link: true
 title: Running Semgrep in CI without Semgrep App 
-description: "This document guides you through setting up semgrep in continuous integration without connecting to Semgrep App."
+description: "Set up Semgrep in CI without connecting to Semgrep App."
 tags:
     - Semgrep in CI
     - Community Tier
@@ -445,7 +445,7 @@ Migrate to Semgrep App to:
 To migrate to Semgrep App:
 
 1. Create an account in [Semgrep App](https://semgrep.dev/login).
-2. Click **Projects > Scan New Project** and follow the steps in [Integrating Semgrep in CI providers with Semgrep App](/semgrep-app/getting-started-with-semgrep-app).
+2. Click **[Projects](https://semgrep.dev/orgs/-/projects)** > **Scan New Project** and follow the steps in [Integrating Semgrep in CI providers with Semgrep App](/semgrep-app/getting-started-with-semgrep-app).
 3. Optional: If you have previously set a custom `SEMGREP_TIMEOUT` environment variable, commit it to the CI configuration file created by Semgrep App. Do not copy `SEMGREP_RULES`.
 4. Optional: Remove the old CI job that does not use Semgrep App.
 

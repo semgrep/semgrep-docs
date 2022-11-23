@@ -123,9 +123,9 @@ Autofix requires PR or MR comments to be enabled for your repository or organiza
 To enable autofix:
 
 1. Sign in to your [Semgrep App account](https://semgrep.dev/login).
-2. Click **Projects** from the **App sidebar**.
+2. Click **[Projects](https://semgrep.dev/orgs/-/projects)** from the **App sidebar**.
 3. Click the name of the project for which to enable autofix.
-4. Click the toggle for **Autofix (beta)**.
+4. Click the <i class="fa-solid fa-toggle-large-on"></i> toggle for **Autofix**.
 ![Screenshot of autofix toggle](/img/notifications-enable-autofix.png)
 
 All scans performed after enabling autofix generate inline PR or MR comments with code suggestions for applicable rules.
