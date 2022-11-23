@@ -33,7 +33,28 @@ Without user customization, Semgrep refers to the following to define ignored fi
 In the absence of a user-generated `.semgrepignore`, Semgrep refers to [its repository's default template](https://github.com/returntocorp/semgrep/blob/develop/cli/src/semgrep/templates/.semgrepignore):
 
 ```
-DEFAULT_SEMGREPIGNORE_TEXT
+# Common large paths
+node_modules/
+build/
+dist/
+vendor/
+.env/
+.venv/
+.tox/
+*.min.js
+.npm/
+
+# Common test paths
+test/
+tests/
+*_test.go
+
+# Semgrep rules folder
+.semgrep
+
+# Semgrep-action log folder
+.semgrep_logs/
+
 ```
 
 :::caution
@@ -95,7 +116,7 @@ Another method for users to define ignore patterns is through a Project in Semgr
 To define files and folders in Semgrep App:
 
 1. Sign into [Semgrep App](https://semgrep.dev/login?return_path=/manage/projects).
-2. From the Dashboard Sidebar, select **Projects** > **[Project name]**.
+2. From the Dashboard Sidebar, select **[Projects](https://semgrep.dev/orgs/-/projects)** > **[Project name]**.
 3. Select the name of the project to modify, and then click the respective <i class="fa-solid fa-gear"></i> **gear** icon in the Settings column.
 4. Enter files and folders to ignore in the **Path Ignores** box.
 
