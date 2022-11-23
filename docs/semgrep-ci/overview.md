@@ -1,7 +1,7 @@
 ---
 slug: overview
 append_help_link: true
-description: "Semgrep can run CI environments. It can either be used stand-alone or connected with Semgrep App for centralized rule and findings management."
+description: "Run Semgrep in CI environments. Learn about different features of Semgrep App-connected CI jobs and stand-alone Semgrep jobs."
 tags:
     - Semgrep in CI
     - Community Tier
@@ -115,7 +115,7 @@ Integrating Semgrep in your CI environment through Semgrep App is the **recommen
 The following steps outline the general procedure to automate Semgrep in many CI environments wish Semgrep App.
 
 1. [Sign in](https://semgrep.dev/login) to Semgrep App.
-2. Click on **Projects > Scan New Project**.
+2. Click on **Projects** > **Scan New Project**.
 3. Follow instructions in the App. These steps vary based on your CI provider.
 4. Semgrep App generates a `SEMGREP_APP_TOKEN` and creates a configuration file. 
 5. Commit the configuration file and add `SEMGREP_APP_TOKEN` as a credential, token, or secret.

@@ -50,7 +50,7 @@ To find available [integrations for Semgrep App](https://semgrep.dev/orgs/-/sett
 To view, add, remove, disable, or enable your saved integration channels:
 
 1. In the **Settings** > **[Integrations](https://semgrep.dev/orgs/-/settings/integrations)** page, explore the options available for specific integration.
-2. In the **[Rule board](https://semgrep.dev/orgs/-/board)**, click the **gear** icon to enable or disable an integration.
+2. In the **[Rule board](https://semgrep.dev/orgs/-/board)**, click the <i class="fa-solid fa-gear"></i> **gear** icon to enable or disable an integration.
     ![Screenshot of Semgrep's Rule board integration modal](/img/rule-board-integrations.png)
 
 ## Integrating various third-party tools
@@ -81,7 +81,7 @@ To set up email integration:
 3. Enter a **Name** for the integration.
 4. Enter the **Email address** that will receive Semgrep findings.
 5. Click **Save.**
-6. Turn notifications on by going to the **Rule board**, clicking on the **gear icon**, then clicking on the **toggle** next to the name of the integration.
+6. Turn notifications on by going to the **Rule board**, clicking on the <i class="fa-solid fa-gear"></i> **gear** icon, and then click the <i class="fa-solid fa-toggle-large-on"></i> **toggle** next to the name of the integration.
 
 Here is a sample of an email sent from Semgrep with findings:
 
@@ -129,7 +129,7 @@ Webhooks are a generic method for Semgrep to post JSON-formatted findings after 
 5. To ensure that Semgrep can post to your URL, click **Test**. 
 ![Successful webhook integration test](/img/webhook-successful-test.png)<br />
 6. Click **Save.**
-7. Turn notifications on by going to the **Rule board**, clicking on the **gear icon**, then clicking on the **toggle** next to the name of the integration.
+7. Turn notifications on by going to the **Rule board**, clicking on the <i class="fa-solid fa-gear"></i> **gear** icon, then click the <i class="fa-solid fa-toggle-large-on"></i> **toggle** next to the name of the integration.
 
 Here is a sample of a webhook sent from Semgrep with findings:
 
@@ -149,7 +149,7 @@ Here is a sample of a webhook sent from Semgrep with findings:
 4. Optional: Select the **Inventory** check box to receive notifications about Code Asset Inventory findings.
 5. To ensure that Semgrep can post to your channel, click **Test**.
 6. Click **Save.**
-7. Turn notifications on by going to the **Rule board**, clicking on the **gear icon**, then clicking on the toggle next to the name of the integration.
+7. Turn notifications on by going to the **Rule board**, clicking on the <i class="fa-solid fa-gear"></i> **gear** icon, then click the <i class="fa-solid fa-toggle-large-on"></i> **toggle** next to the name of the integration.
 --->
 
 <MoreHelp />

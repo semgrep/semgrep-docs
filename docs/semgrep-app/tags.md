@@ -24,7 +24,7 @@ Add tags for specific projects in the Semgrep App on the configuration page of a
 
 To manage tags, follow these steps:
 1. Go to the Semgrep App [Projects](https://semgrep.dev/orgs/-/projects) tab.
-2. Click on the project's <i class="fa-solid fa-gear"></i> cogwheel icon to enter project configuration page, and then add or remove tags.
+2. Click on the project's <i class="fa-solid fa-gear"></i> **gear** icon to enter project configuration page, and then add or remove tags.
 
 You can also add tags through a specific file added to your repository. To do so, follow the instructions below:
 1. Create `.semgrepconfig.yml` file in the root directory of your repository.
