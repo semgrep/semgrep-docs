@@ -47,7 +47,7 @@ Runtime.getRuntime().exec("bash", "-c", input);
 #### Mitigation
 
 - Try to avoid non-literal values for the command string.
-- If it is not possible, then do not let running arbitrary commands, use an allow list for inputs.
+- If it is not possible, then do not let running arbitrary commands, use an allowlist for inputs.
 - Strip `!@#$;&*~"'{}][-+%^` characters from an input provided for command string. 
 
 #### Semgrep rule
@@ -81,7 +81,7 @@ builder.command(input);
 #### Mitigation
 
 - Try to avoid non-literal values for the command string.
-- If it is not possible, then do not let running arbitrary commands, use an allow list for inputs.
+- If it is not possible, then do not let running arbitrary commands, use an allowlist for inputs.
 - Do not put command arguments in a command string, use parameterization instead.
     use:
     `new ProcessBuilder("/path/to/myCommand", "myArg1", inputValue);`

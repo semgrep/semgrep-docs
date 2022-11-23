@@ -62,7 +62,7 @@ Do not let user input in `exec.Command` and `exec.CommandContext` functions. Alt
 
 - Always try to use internal Go API (if it exists) instead of running an OS command.
 - Try to avoid non-literal values for the command string.
-- If it is not possible, then do not let running arbitrary commands, use a white list for inputs.
+- If it is not possible, then do not let running arbitrary commands, use an allowlist for inputs.
 - Avoid running `sh` as a command with arguments, if it is not possible - strip everything except alphanumeric characters from an input provided for the command string and arguments.
 
 #### Semgrep rule
@@ -127,7 +127,7 @@ Do not let user input in `exec.Cmd` struct. Alternatively:
 
 - Always try to use internal Go API (if it exists) instead of running an OS command.
 - Try to avoid non-literal values for the command string.
-- If it is not possible, then do not let running arbitrary commands, use an allow list for inputs.
+- If it is not possible, then do not let running arbitrary commands, use an allowlist for inputs.
 - Avoid running `sh` as a command with arguments, if it is not possible - strip everything except alphanumeric characters from an input provided for the command string and arguments.
 
 
@@ -218,7 +218,7 @@ Do not let user input in `syscall.Exec` and `syscall.ForkExec` functions. Altern
 
 - Always try to use internal Go API (if it exists) instead of running an OS command.
 - Try to avoid non-literal values for the command string.
-- If it is not possible, then do not let running arbitrary commands, use a white list for inputs.
+- If it is not possible, then do not let running arbitrary commands, use an allowlist for inputs.
 - Avoid running `sh` as a command with arguments, if it is not possible - strip everything except alphanumeric characters from an input provided for the command string and arguments.
 
 #### Semgrep rule

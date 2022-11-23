@@ -126,7 +126,7 @@ Do not let user input into `os` methods. Alternatively:
 - Always try to use an internal Python API (if it exists) instead of running an OS command.
 - Consider using `subprocess` functions with array of program arguments.
 - Don’t pass user-controlled input.
-- If it is not possible, then don’t let running arbitrary commands. Use an allow list for inputs.
+- If it is not possible, then don’t let running arbitrary commands. Use an allowlist for inputs.
 
 #### Semgrep rule
 
@@ -271,7 +271,7 @@ Do not let user input into `asyncio subprocess` methods. Alternatively:
 - Always try to use an internal Python API (if it exists) instead of running an OS command.
 - Consider using asyncio.subprocess functions with array of program arguments (e.g. `create_subprocess_exec`).
 - Don’t pass user-controlled input.
-- If it’s not possible, then don’t let running arbitrary commands. Use an allow list for inputs.
+- If it’s not possible, then don’t let running arbitrary commands. Use an allowlist for inputs.
 
 #### Semgrep rule
 
