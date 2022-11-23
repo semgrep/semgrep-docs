@@ -13,6 +13,7 @@ tags:
 import MoreHelp from "/src/components/MoreHelp"
 import TriageStatuses from "/src/components/reference/_triage-states.mdx"
 import RemoveRule from "/src/components/procedure/_remove-rule.mdx"
+import IgnoreIndividualFindings from "/src/components/procedure/_ignore-individual-findings.mdx"
 
 <ul id="tag__badge-list">
 {
@@ -137,7 +138,7 @@ To manage, change, open or ignore findings, follow the the triage processes desc
 
 To **ignore multiple findings**, follow these steps:
 
-1. On the [Findings](https://semgrep.dev/orgs/-/findings?tab=open) page, click the **Status** filter, and then select **Open** toggle to see all open findings.
+1. On the [Findings](https://semgrep.dev/orgs/-/findings?tab=open) page, click the **Status** filter, and then select **Open** status to see all open findings.
 1. Perform one of these steps:
     - Select all findings by clicking on the header row checkbox that states **Showing X open findings**. You can navigate to succeeding pages and add other results to the current selection.
     - Select more findings by clicking on their checkboxes. The finding's checkbox is marked as the colorful finding's status indicator (marked by letters **L** (Low), **M** (Medium), **H** (High)).
@@ -150,13 +151,11 @@ To **ignore multiple findings**, follow these steps:
 
 To **ignore individual findings**, follow these steps:
 
-1. On the [Findings](https://semgrep.dev/orgs/-/findings?tab=open) page, click the **Status** filter, and then select **Open** toggle to see all open findings.
-1. Next to a finding you want to ignore, click the **Ignore** <i class="fa-regular fa-chevron-down"></i>.
-1. Optional: Select a reason of why you are ignoring a finding. Choose either: **False positive**, **Acceptable risk**, **No time to fix**
-1. Click **Save**.
-1. Optional: Select whether you want to ignore all findings in **Just this file**, **This directory**, or **Parent directory**.
-1. Optional: Enable the checkbox to: **Remove this rule from Rule board**. This removes the related rule that matched the finding.
-1. Click **Done**.
+<IgnoreIndividualFindings />
+
+:::note
+If you ignore all findings in **Just this file**, **This directory**, or **Parent directory** in the fifth step of the procedure above, these files or directories are added to `.semgrepignore` file. For more information, see [Ignoring files, folders, or parts of code](/ignoring-files-folders-code/).
+:::
 
 #### Reopening findings
 
@@ -164,7 +163,7 @@ To **ignore individual findings**, follow these steps:
 
 To **open findings**, follow these steps:
 
-1. On the [Findings](https://semgrep.dev/orgs/-/findings?tab=open) page, click the **Status** filter, and then select **Ignored** or **Fixed** toggle to see all ignored or fixed findings.
+1. On the [Findings](https://semgrep.dev/orgs/-/findings?tab=open) page, click the **Status** filter, and then select **Ignored** or **Fixed** status to see all ignored or fixed findings.
 1. Perform one of these steps:
     - Select all findings by clicking on the header row checkbox that states **Showing X open findings**. You can navigate to succeeding pages and add other results to the current selection.
     - Select relevant findings one by one by clicking on their checkboxes. The finding's checkbox is marked as the colorful finding's status indicator (marked by letters **L** (Low), **M** (Medium), **H** (High)).
@@ -176,7 +175,7 @@ To **open findings**, follow these steps:
 
 To **open individual findings**, follow these steps:
 
-1. On the [Findings](https://semgrep.dev/orgs/-/findings?tab=open) page, click the **Status** filter, and then select **Ignored** or **Fixed** toggle to see all ignored or fixed findings.
+1. On the [Findings](https://semgrep.dev/orgs/-/findings?tab=open) page, click the **Status** filter, and then select **Ignored** or **Fixed** status to see all ignored or fixed findings.
 1. Next to a finding you want to ignore, click the **Reopen** <i class="fa-regular fa-chevron-down"></i>.
 1. Optional: Add a note.
 1. Click **Save**.
@@ -212,7 +211,7 @@ Triage your Semgrep App findings displayed as comments in GitHub PRs by replying
 To enable triage through comments, follow these steps:
 
 1. In Semgrep App, go to your organization's [Settings](https://semgrep.dev/orgs/-/projects/-/repo-to-scan) page.
-2. Enable the **Triage via comment** toggle.
+2. Enable the **Triage via comment** <i class="fa-solid fa-toggle-large-on"></i> toggle.
 
 To triage a finding in GitHub, follow these steps:
 
@@ -262,7 +261,7 @@ If a finding is fixed in one branch (such as `main`) but open in another (such a
 
 * [Integrations](integrations.md)
 * [Rule Board](rule-board.md)
-* [Ignoring files, folders, or code](../ignoring-files-folders-code.md)
+* [Ignoring files, folders, or code](/ignoring-files-folders-code/)
 
 ## Additional references
 

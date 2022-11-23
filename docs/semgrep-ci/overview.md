@@ -115,7 +115,7 @@ Integrating Semgrep in your CI environment through Semgrep App is the **recommen
 The following steps outline the general procedure to automate Semgrep in many CI environments wish Semgrep App.
 
 1. [Sign in](https://semgrep.dev/login) to Semgrep App.
-2. Click on **Projects > Scan New Project**.
+2. Click on **Projects** > **Scan New Project**.
 3. Follow instructions in the App. These steps vary based on your CI provider.
 4. Semgrep App generates a `SEMGREP_APP_TOKEN` and creates a configuration file. 
 5. Commit the configuration file and add `SEMGREP_APP_TOKEN` as a credential, token, or secret.

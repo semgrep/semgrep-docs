@@ -145,7 +145,7 @@ Scanning a project from the CLI is a standalone action. This means that you manu
 To scan a local repository through Semgrep CLI, follow these steps:
 
 1. Ensure you are signed in to Semgrep App.
-2. Click **Projects** on the left sidebar.
+2. Click **[Projects](https://semgrep.dev/orgs/-/projects)** on the left sidebar.
 3. Click **Scan new project** > **Run a scan locally**.
 4. Log in to Semgrep from the CLI:
     ``` 
@@ -243,7 +243,7 @@ A GitHub or GitLab SaaS repository associated with your account.
 To scan a repository from GitHub or GitLab, follow these steps:
 
 1. Ensure you are signed in to Semgrep App.
-2. Click **Projects** on the left sidebar.
+2. Click **[Projects](https://semgrep.dev/orgs/-/projects)** on the left sidebar.
 3. Optional: If you do not see the repository you want to add in the **Projects** page of Semgrep app, follow the steps in the succeeding sections to ensure that Semgrep App can detect the repository.
 4. Click **Scan new project**, and then click **Run scan in CI**.
 5. Select which repository provider for Semgrep to integrate with.
@@ -280,8 +280,8 @@ Set up additional scan parameters in your organization's [Projects](https://semg
 
 To see additional scan parameters:
 
-1. Click **Projects** on the left sidebar.
-2. Select the name of the project to modify, and then click the respective <i class="fa-solid fa-gear"></i> **cogwheel** icon in the Settings column.
+1. Click **[Projects](https://semgrep.dev/orgs/-/projects)** on the left sidebar.
+2. Select the name of the project to modify, and then click the respective <i class="fa-solid fa-gear"></i> **gear** icon in the Settings column.
 3. Make edits as necessary.
 
 This page enables you to configure the following scan parameters:
