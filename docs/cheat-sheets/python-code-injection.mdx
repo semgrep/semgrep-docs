@@ -14,8 +14,8 @@ import CodeInjectionIntro from "/src/components/concept/_code-injection-intro.md
 ### 1.A. Executing code with **exec**
 
 `exec()` function supports dynamic execution of Python code.
-`exec()` can be dangerous if used to execute dynamic content.
-If this content can be input from outside the program, this may be a code injection vulnerability.
+`exec()` can be dangerous if it is used to execute dynamic content (non literal content).
+If this dynamic content has an input controllable by a user, it can cause a code injection vulnerability.
 
 Example:
 
