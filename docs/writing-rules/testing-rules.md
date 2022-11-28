@@ -5,6 +5,7 @@ description: "Semgrep provides a convenient testing mechanism for your rules. Yo
 ---
 
 import MoreHelp from "/src/components/MoreHelp"
+import EnableAutofix from "/src/components/_enable-autofix.mdx"
 
 # Testing rules
 
@@ -209,5 +210,9 @@ You can run `semgrep --validate --config [filename]` to check the configuration.
 The semgrep rules are pulled from `p/semgrep-rule-lints`.
 
 This feature is still experimental and under active development. Your feedback is welcomed!
+
+## Enabling autofix in Semgrep App
+
+<EnableAutofix />
 
 <MoreHelp />
