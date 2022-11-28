@@ -78,8 +78,8 @@ Do not use `eval()`. Alternatively:
 ### 1.C. Accepting logging configuration with **logging.config.listen()**
 
 `logging.config.listen()` starts up a socket server on the specified port, and listens for new configurations.
-Because portions of the logging configuration are passed through `eval()`, use of this function may open its users to a security risk.
-While the function only binds to a socket on localhost, and so does not accept connections from remote machines, there are scenarios where untrusted code could be run under the account of the process which calls `listen()`.
+As the `logging.config.listen()` configuration is passed through `eval()`, the use of this function can lead to a security risk.
+While the function only binds to a socket on localhost, and so does not accept connections from remote machines, there are scenarios where untrusted code can potentially run under the account of the process which calls `listen()`.
 
 Example:
 
@@ -96,7 +96,7 @@ t.start()
 # Client example: sending configuration from `data_to_send` variable to localhost:9999
 import socket, sys, struct
 
-# Config example: print("pwned") will be evaluated and "pwned" will be printed to the console
+# Config example: print("pwned") is evaluated and "pwned" is printed to the console
 data_to_send = """
 [loggers]
 keys=root
@@ -136,9 +136,8 @@ s.close()
 
 #### Mitigation
 
-Verify what is sent across the socket. Alternatively:
-
-- To avoid the risk, use the verify argument to `logging.config.listen()` to prevent unrecognized configurations from being applied. This could be done by encrypting and/or signing what is sent across the socket, such that the verify callable can perform signature verification and/or decryption.
+- Verify what is sent across the socket.
+- Alternatively: To avoid the risk, use the verify argument to `logging.config.listen()` to prevent applying unrecognized configurations. This can be done by encrypting or signing what is sent across the socket, such that the verify callable can perform signature verification or decryption.
 
 #### Semgrep rule
 
@@ -146,9 +145,9 @@ Verify what is sent across the socket. Alternatively:
 
 ### 1.D. Running code in interactive interpreter
 
-The code module provides facilities to implement read-eval-print loops in Python.
-Two classes: `InteractiveInterpreter` and `InteractiveConsole` are used for that.
-Both have methods that can execute Python code: `InteractiveInterpreter.runcode` executes a code object and `InteractiveConsole.push` interprets a string as Python code.
+The `code` module provides read-eval-print loops in Python.
+Two classes are included to provide interactive prompts, the `InteractiveInterpreter` and the `InteractiveConsole`.
+Both methods can execute Python code: `InteractiveInterpreter.runcode` executes a code object and `InteractiveConsole.push` interprets a string as Python code.
 This is dangerous if external data can reach these function calls because it allows a malicious actor to run arbitrary Python code.
 
 Example:
@@ -171,14 +170,14 @@ interpreter.runcode(code.compile_command(user_input))
 
 #### References
 
-- [**code** module documentation](https://docs.python.org/3/library/code.html)
+- [`code` module documentation](https://docs.python.org/3/library/code.html)
 
 #### Mitigation
 
-Do not let user input in `InteractiveInterpreter`/`InteractiveConsole` methods. Alternatively:
+Do not let the user input in `InteractiveInterpreter` or `InteractiveConsole` methods. Alternatively:
 
-- Ensure evaluated content is not definable by external sources.
-- If it’s not possible, strip everything except alphanumeric characters from an input provided for the command string and arguments.
+- Ensure that content that Python interprets is not controllable by external sources.
+- If it’s not possible, strip everything except alphanumeric characters from the input.
 
 #### Semgrep rule
 
@@ -186,8 +185,8 @@ Do not let user input in `InteractiveInterpreter`/`InteractiveConsole` methods. 
 
 ### 1.E. Using **subinterpreter** to run code
 
-`_xxsubinterpreters.run_string` is an internal Python function that interprets the string as Python code.
-If unverified user data can reach `run_string`, this is a command injection vulnerability.
+The `_xxsubinterpreters.run_string` is an internal Python function that interprets the string as Python code.
+If unverified user data can reach `run_string`, this is a code injection vulnerability.
 A malicious actor can inject a malicious string to execute arbitrary Python code.
 
 Example:
@@ -210,8 +209,8 @@ _xxsubinterpreters.run_string(_xxsubinterpreters.create(), user_input)
 
 Do not let user input in `_xxsubinterpreters` methods. Alternatively:
 
-- Ensure evaluated content is not definable by external sources.
-- If it’s not possible, strip everything except alphanumeric characters from an input provided for the command string and arguments.
+- Ensure that content that Python interprets is not controllable by external sources.
+- If it’s not possible, strip everything except alphanumeric characters from the input.
 
 #### Semgrep rule
 
@@ -219,7 +218,7 @@ Do not let user input in `_xxsubinterpreters` methods. Alternatively:
 
 ### 1.F. Running **subinterpreter** from regression tests package
 
-`run_in_subinterp` is a function from regression tests package for Python that runs code in subinterpreter.
+The `run_in_subinterp` is a function from the regression tests package (`test`) for Python that runs code in subinterpreter.
 This is dangerous if external data can reach this function call because it allows a malicious actor to run arbitrary Python code.
 
 Example:
@@ -251,8 +250,8 @@ support.run_in_subinterp(user_input)
 
 Do not let user input in `run_in_subinterp` function. Alternatively:
 
-- Ensure evaluated content is not definable by external sources.
-- If it’s not possible, strip everything except alphanumeric characters from an input provided for the command string and arguments.
+- Ensure that content that Python interprets is not controllable by external sources.
+- If it’s not possible, strip everything except alphanumeric characters from the input.
 
 #### Semgrep rule
 
@@ -260,9 +259,9 @@ Do not let user input in `run_in_subinterp` function. Alternatively:
 
 ## 2. Abusing built-in functions
 
-### 2.A. Accessing dictionary with current global/local symbol table
+### 2.A. Accessing dictionary with current global or local symbol table
 
-`globals()` and `locals()` return a dictionary representing the current global/local symbol table. Using non-static data to retrieve values from this table is extremely dangerous because it may allow an attacker to execute arbitrary code on the system. 
+`globals()` and `locals()` return a dictionary representing the current global or local symbol table. Using non-static data to retrieve values from this table is extremely dangerous because it can allow an attacker to execute arbitrary code on the system. 
 
 Example:
 
