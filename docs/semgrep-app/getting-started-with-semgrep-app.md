@@ -11,7 +11,7 @@ tags:
 ---
 
 import MoreHelp from "/src/components/MoreHelp"
-import EnableAutofix from "/src/components/_enable-autofix.mdx"
+import EnableAutofix from "/src/components/procedure/_enable-autofix.mdx"
 
 <ul id="tag__badge-list">
 {
