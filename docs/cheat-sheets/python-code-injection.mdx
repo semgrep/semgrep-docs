@@ -35,7 +35,7 @@ exec("foobar('{}')".format(user_input))
 
 Do not use `exec()` for non literal values. Alternatively:
 
-- Ensure executed content is not definable by external sources.
+- Ensure executed content is not controllable by external sources.
 - If it’s not possible, strip everything except alphanumeric characters from the input.
 - Don’t try to make `exec` safe with tricks like `{'__builtins__':{}}`
 
@@ -67,9 +67,9 @@ eval(user_input)
 
 Do not use `eval()`. Alternatively:
 
-- Ensure evaluated content is not controllable by external sources.
+- If you need to use `eval()` with non literal values, ensure that executed content is not controllable by external sources.
 - If it’s not possible, strip everything except alphanumeric characters from the input.
-- Don’t try to make `eval` safe with tricks like `{'__builtins__':{}}`
+- Don’t try to make `eval` safe with tricks such as `{'__builtins__':{}}`.
 
 #### Semgrep rule
 
