@@ -45,9 +45,9 @@ Do not use `exec()` for non literal values. Alternatively:
 
 ### 1.B. Evaluating code with **eval**
 
-`eval()` function evaluates string value as a Python expression.
-`eval()` can be dangerous if used to evaluate dynamic content.
-If this content can be input from outside the program, this may be a code injection vulnerability.
+`eval()` function supports dynamic execution of Python code.
+`eval()` can be dangerous if it is used to execute dynamic content (non literal content).
+If this dynamic content has an input controllable by a user, it can cause a code injection vulnerability.
 
 Example:
 
@@ -67,8 +67,8 @@ eval(user_input)
 
 Do not use `eval()`. Alternatively:
 
-- Ensure evaluated content is not definable by external sources.
-- If it’s not possible, strip everything except alphanumeric characters from an input provided for the command string and arguments.
+- Ensure evaluated content is not controllable by external sources.
+- If it’s not possible, strip everything except alphanumeric characters from the input.
 - Don’t try to make `eval` safe with tricks like `{'__builtins__':{}}`
 
 #### Semgrep rule
