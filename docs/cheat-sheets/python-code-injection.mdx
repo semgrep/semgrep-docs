@@ -36,7 +36,7 @@ exec("foobar('{}')".format(user_input))
 Do not use `exec()` for non literal values. Alternatively:
 
 - Ensure executed content is not definable by external sources.
-- If it’s not possible, strip everything except alphanumeric characters from an input provided for the command string and arguments.
+- If it’s not possible, strip everything except alphanumeric characters from the input.
 - Don’t try to make `exec` safe with tricks like `{'__builtins__':{}}`
 
 #### Semgrep rule
