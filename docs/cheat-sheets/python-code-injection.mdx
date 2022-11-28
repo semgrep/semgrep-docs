@@ -290,7 +290,7 @@ function()
 
 #### Mitigation
 
-Do not access global/local symbol tables. Refactor your code not to use `globals()` and `locals()`.
+Do not access global or local symbol tables. Refactor your code not to use `globals()` and `locals()`.
 
 #### Semgrep rule
 
@@ -299,7 +299,7 @@ Do not access global/local symbol tables. Refactor your code not to use `globals
 ### 2.B. Dynamically updating and accessing code annotations
 
 Annotations passed to `typing.get_type_hints()` are evaluated in `globals` and `locals` namespaces.
-Make sure that no arbitrary value can be written as the annotation and passed to the `typing.get_type_hints` function.
+Ensure that no arbitrary value can be written as the annotation and passed to the `typing.get_type_hints` function.
 
 Example:
 
@@ -325,7 +325,7 @@ def smth():
 
 Do not programmatically rewrite code annotations. Alternatively:
 
-- Ensure that annotations are not definable by external sources.
+- Ensure that annotations are not controllable by external sources.
 
 #### Semgrep rule
 
