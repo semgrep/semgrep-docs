@@ -185,8 +185,7 @@ For more information on diff-aware and full scans, see [Diff-aware scanning](/do
 
 #### Blocking a PR or MR
 
-Supply chain findings **do not** block a pull or merge request,
-even if a finding is reachable.
+Both reachable and unreachable findings of Semgrep Supply Chain do **not** block a pull or merge request.
 
 _Updated Nov 22nd, 2022: Old versions (Semgrep v0.122.0 and below) used to block on reachable supply chain findings._
 
