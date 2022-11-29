@@ -12,6 +12,7 @@ tags:
 
 import MoreHelp from "/src/components/MoreHelp"
 import ProcedureIntegrateSlack from "/src/components/procedure/_integrate-slack.mdx"
+import EnableAutofix from "/src/components/procedure/_enable-autofix.mdx"
 
 <ul id="tag__badge-list">
 {
@@ -115,18 +116,11 @@ In the following screenshot, Semgrep detects the use of a native Python XML libr
 
 ![Screenshot of a sample autofix PR suggestion](/img/notifications-github-suggestions.png)
 
-
 #### Enabling autofix for your GitLab or GitHub code repository
 
 Autofix requires PR or MR comments to be enabled for your repository or organization. Follow the steps in [GitHub pull request comments](#github-pull-request-comments) or [GitLab merge request comments](#gitlab-merge-request-comments) to enable this feature.
 
-To enable autofix:
-
-1. Sign in to your [Semgrep App account](https://semgrep.dev/login).
-2. Click **[Projects](https://semgrep.dev/orgs/-/projects)** from the **App sidebar**.
-3. Click the name of the project for which to enable autofix.
-4. Click the <i class="fa-solid fa-toggle-large-on"></i> toggle for **Autofix**.
-![Screenshot of autofix toggle](/img/notifications-enable-autofix.png)
+<EnableAutofix />
 
 All scans performed after enabling autofix generate inline PR or MR comments with code suggestions for applicable rules.
 
