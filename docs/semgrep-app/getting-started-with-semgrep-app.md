@@ -11,6 +11,7 @@ tags:
 ---
 
 import MoreHelp from "/src/components/MoreHelp"
+import EnableAutofix from "/src/components/procedure/_enable-autofix.mdx"
 
 <ul id="tag__badge-list">
 {
@@ -32,7 +33,6 @@ This guide walks you through scanning code in both types of environments.
 :::info
 Many improvements to the Semgrep App experience only work with up-to-date Semgrep CLI versions. For this reason, Semgrep App only supports the 10 most recent minor versions of the Semgrep open-source tool. For example, if the latest release was 0.114.0, all versions greater than 0.104.0 are supported while earlier versions, such as 0.103.0 can be deprecated or can result in failures. Use the **latest** tag for all Semgrep CI scans.
 :::
-
 
 Semgrep App enables you to run scans on multiple repositories by integrating with your GitHub or GitLab SaaS account. Semgrep uses **rules** to scan code. Matches found based on those rules are called **findings**. A Semgrep rule encapsulates pattern-matching logic and data-flow analysis used to find code violations, security issues, outdated libraries, and other issues.
 
@@ -106,7 +106,6 @@ The GitHub integration app is called `semgrep-app`. This app is used to integrat
 
 You are now signed in to Semgrep App.
 
-
 #### Permissions for GitLab
 
 Semgrep requires the following permissions (scopes) to enable the authentication of a session:
@@ -145,7 +144,7 @@ Scanning a project from the CLI is a standalone action. This means that you manu
 To scan a local repository through Semgrep CLI, follow these steps:
 
 1. Ensure you are signed in to Semgrep App.
-2. Click **Projects** on the left sidebar.
+2. Click **[Projects](https://semgrep.dev/orgs/-/projects)** on the left sidebar.
 3. Click **Scan new project** > **Run a scan locally**.
 4. Log in to Semgrep from the CLI:
     ``` 
@@ -243,7 +242,7 @@ A GitHub or GitLab SaaS repository associated with your account.
 To scan a repository from GitHub or GitLab, follow these steps:
 
 1. Ensure you are signed in to Semgrep App.
-2. Click **Projects** on the left sidebar.
+2. Click **[Projects](https://semgrep.dev/orgs/-/projects)** on the left sidebar.
 3. Optional: If you do not see the repository you want to add in the **Projects** page of Semgrep app, follow the steps in the succeeding sections to ensure that Semgrep App can detect the repository.
 4. Click **Scan new project**, and then click **Run scan in CI**.
 5. Select which repository provider for Semgrep to integrate with.
@@ -270,27 +269,24 @@ By default, Semgrep scans are defined during a project's initial setup in Semgre
 * After every PR or MR.
 * Update to the `semgrep.yml` file (dependent on your CI provider).
 
-
 To change these scan parameters:
 
 * Manually edit the `semgrep.yml` file.
 * Remove the project and redo the steps described in [Scanning a new project](#scanning-a-new-project) section.
 
-Set up additional scan parameters in your organization's [Projects](https://semgrep.dev/orgs/-/projects/-/repo-to-scan) page.
+Set up additional scan parameters in your organization's [Settings](https://semgrep.dev/orgs/-/settings) page.
 
-To see additional scan parameters:
+You can also configure additional configuration options for a specific project. To configure project specific settings, follow these steps:
 
-1. Click **Projects** on the left sidebar.
-2. Select the name of the project to modify, and then click the respective <i class="fa-solid fa-gear"></i> **cogwheel** icon in the Settings column.
-3. Make edits as necessary.
-
-This page enables you to configure the following scan parameters:
+1. Click **[Projects](https://semgrep.dev/orgs/-/projects)** on the left sidebar.
+2. Select the name of the project to modify, and then click the respective <i class="fa-solid fa-gear"></i> **gear** icon in the Settings column.
+3. Make changes as necessary.
 
 <dl>
-    <dt>Autofix</dt>
-    <dd>Select this toggle to enable autofix, which creates suggestions in addition to PR or MR comments. For example, a rule may suggest using a function such as <code>logging.debug()</code> instead of <code>print()</code>.</dd>
     <dt>Path ignores</dt>
-	<dd>Paths and files specified here are not scanned by Semgrep App.</dd>
+    <dd>Specify which directories or files you want to exclude from Semgrep scans. See <a href="/ignoring-files-folders-code/#defining-ignored-files-and-folders-in-semgrep-app">Defining ignored files and folders in Semgrep App</a> for specific details.</dd>
+    <dt>Tags</dt>
+	<dd>Add or remove tags to specific projects. See <a href="/semgrep-app/tags/">Managing projects through tags</a> for more information.</dd>
 </dl>
 
 ### Adding rules and rulesets to scan with
@@ -327,9 +323,7 @@ To add rules and rulesets to your Rule Board:
 
 For more information on operations such as filtering and deleting as well as Rule board management, see [Rule board](../rule-board/).
 
-
 ## Viewing and managing findings
-
 
 ### Viewing findings of a scan
 
@@ -346,6 +340,8 @@ To see the rule specifics that triggered the finding, click on the rule entry.
 ![Screenshot of autofix in GitHub](/img/notifications-github-suggestions.png "Screenshot of autofix in GitHub")
 
 Include code suggestions that resolve findings in both GitHub and GitLab through Semgrep App's autofix feature. This improves the fix rate of findings by reducing the steps needed to resolve a finding. See the section above on Running a scan to enable autofix.
+
+<EnableAutofix />
 
 ## Going further with Semgrep App
 

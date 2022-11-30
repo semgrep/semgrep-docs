@@ -1,7 +1,7 @@
 ---
 slug: running-semgrep-ci-with-semgrep-app
 append_help_link: true
-description: "Run Semgrep CI with Semgrep App to manage findings and rules from a centralized dashboard as well as receive notifications in various channels."
+description: "Set up your CI pipeline with Semgrep App for centralized rule and findings management."
 tags:
     - Semgrep in CI
     - Community Tier
@@ -103,7 +103,7 @@ GitHub, GitLab, and BitBucket SCMs are compatible with the above CI providers, b
 To set up the CI job and connect with Semgrep App:
 
 1. Sign in to [Semgrep App](https://semgrep.dev/login). See [Signing in to Semgrep App](/docs/semgrep-app/getting-started-with-semgrep-app/#signing-in-to-semgrep-app) for details on requested repository permissions and access.
-2. Click **Projects > Scan New Project > Run Scan in CI**.
+2. Click **[Projects](https://semgrep.dev/orgs/-/projects)** > **Scan New Project** > **Run Scan in CI**.
 3. Select your provider from the menu.
 4. Optional: Some providers may ask you to select your organization if applicable to your SCM tool.
 5. Follow the steps outlined in the page:
@@ -391,7 +391,7 @@ To help troubleshoot the features in this guide, ensure that you have updated yo
     <tr>
         <td><code>SEMGREP_BASELINE_REF</code></td>
         <td>Enable diff-aware scanning.</td>
-        <td>Required to enable diff-aware scanning for CI providers <em>except</em> GitHub Actions or GitLab CI/CD.</td>
+        <td>Required to enable diff-aware scanning for CI providers <strong>except</strong> GitHub Actions or GitLab CI/CD.</td>
     </tr>
     <tr>
         <td><code>SEMGREP_TIMEOUT</code></td>
@@ -399,8 +399,8 @@ To help troubleshoot the features in this guide, ensure that you have updated yo
         <td>Optional for all CI providers.</td></tr>
     <tr>
         <td><code>SEMGREP_REPO_NAME</code></td>
-        <td rowspan="6">Enables hyperlinks and PR or MR comments.</td>
-        <td rowspan="5">Required to enable hyperlinks and PR or MR comments for other CI providers not listed in Semgrep App.</td></tr>
+        <td rowspan="6">Enables hyperlinks to your codebase from Semgrep App and the creation of PR or MR comments.</td>
+        <td rowspan="5">Set these environment variables as needed to troubleshoot broken links for any CI provider <strong>except</strong> GitHub Actions and GitLab CI/CD.</td></tr>
     <tr>
         <td><code>SEMGREP_REPO_URL</code></td>
     </tr>

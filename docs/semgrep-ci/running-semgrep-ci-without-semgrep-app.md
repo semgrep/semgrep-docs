@@ -2,7 +2,7 @@
 slug: running-semgrep-ci-without-semgrep-app
 append_help_link: true
 title: Running Semgrep in CI without Semgrep App 
-description: "This document guides you through setting up semgrep in continuous integration without connecting to Semgrep App."
+description: "Set up Semgrep in CI without connecting to Semgrep App."
 tags:
     - Semgrep in CI
     - Community Tier
@@ -118,10 +118,6 @@ jobs:
         env:
            # Add the rules that Semgrep uses by setting the SEMGREP_RULES environment variable. 
            SEMGREP_RULES: p/default # more at semgrep.dev/explore
-           # Uncomment SEMGREP_TIMEOUT to set this job's timeout (in seconds):
-           # Default timeout is 1800 seconds (30 minutes).
-           # Set to 0 to disable the timeout.
-           # SEMGREP_TIMEOUT: 300
 ```
 
 ### GitLab CI/CD
@@ -158,10 +154,6 @@ semgrep:
   variables:
     # Define rules to scan with by setting the SEMGREP_RULES environment variable. 
     SEMGREP_RULES: p/default
-    # Uncomment SEMGREP_TIMEOUT to set this job's timeout (in seconds):
-    # Default timeout is 1800 seconds (30 minutes).
-    # Set to 0 to disable the timeout.
-    # SEMGREP_TIMEOUT: 300
 ```
 
 #### GitLab CI/CD code snipppet with GitLab SAST
@@ -179,11 +171,8 @@ semgrep:
 
   variables:
     # Add the rules that Semgrep uses by setting the SEMGREP_RULES environment variable. 
-    SEMGREP_RULES: p/default # See more rules at semgrep.dev/explore.
-    # Uncomment SEMGREP_TIMEOUT to set this job's timeout (in seconds):
-    # Default timeout is 1800 seconds (30 minutes).
-    # Set to 0 to disable the timeout.
-    # SEMGREP_TIMEOUT: 300
+    SEMGREP_RULES: p/default # See more rules at semgrep.dev/explore. 
+
     # Upload findings to GitLab SAST Dashboard
     SEMGREP_GITLAB_JSON: "1"
     script: semgrep ci --gitlab-sast > gl-sast-report.json || true
@@ -220,10 +209,6 @@ pipeline {
           SEMGREP_RULES = "p/default"
           // Scan changed files in PRs or MRs (diff-aware scanning):
           // SEMGREP_BASELINE_REF = "${GIT_BRANCH}"
-          // Uncomment SEMGREP_TIMEOUT to set this job's timeout (in seconds):
-          // Default timeout is 1800 seconds (30 minutes).
-          // Set to 0 to disable the timeout.
-          // SEMGREP_TIMEOUT = "300"
         } 
       steps {
         sh 'pip3 install semgrep'
@@ -266,10 +251,6 @@ pipelines:
           - export SEMGREP_RULES="p/default" 
           # Scan changed files in PRs or MRs (diff-aware scanning):
           # - export SEMGREP_BASELINE_REF=$BITBUCKET_BRANCH
-          # Uncomment SEMGREP_TIMEOUT to set this job's timeout (in seconds):
-          # Default timeout is 1800 seconds (30 minutes).
-          # Set to 0 to disable the timeout.
-          # - export SEMGREP_TIMEOUT="300" 
           - semgrep ci
 ```
 
@@ -299,10 +280,6 @@ jobs:
       SEMGREP_RULES: p/default
       # Scan changed files in PRs or MRs (diff-aware scanning):
       # SEMGREP_BASELINE_REF: << parameters.default_branch >>
-      # Uncomment SEMGREP_TIMEOUT to set this job's timeout (in seconds):
-      # Default timeout is 1800 seconds (30 minutes).
-      # Set to 0 to disable the timeout.
-      # SEMGREP_TIMEOUT: 300
 
     docker:
       - image: returntocorp/semgrep
@@ -340,10 +317,6 @@ These steps can be performed from within Buildkite's interface. From Buildkite's
     - export SEMGREP_RULES="p/default"
     # To scan changed files in PRs or MRs (diff-aware scanning):
     # - export SEMGREP_BASELINE_REF=${BUILDKITE_BRANCH}
-    # Uncomment SEMGREP_TIMEOUT to set this job's timeout (in seconds):
-    # Default timeout is 1800 seconds (30 minutes).
-    # Set to 0 to disable the timeout.
-    # - export SEMGREP_TIMEOUT="300"
     - semgrep ci 
   
   plugins:
@@ -472,7 +445,7 @@ Migrate to Semgrep App to:
 To migrate to Semgrep App:
 
 1. Create an account in [Semgrep App](https://semgrep.dev/login).
-2. Click **Projects > Scan New Project** and follow the steps in [Integrating Semgrep in CI providers with Semgrep App](/semgrep-app/getting-started-with-semgrep-app).
+2. Click **[Projects](https://semgrep.dev/orgs/-/projects)** > **Scan New Project** and follow the steps in [Integrating Semgrep in CI providers with Semgrep App](/semgrep-app/getting-started-with-semgrep-app).
 3. Optional: If you have previously set a custom `SEMGREP_TIMEOUT` environment variable, commit it to the CI configuration file created by Semgrep App. Do not copy `SEMGREP_RULES`.
 4. Optional: Remove the old CI job that does not use Semgrep App.
 
