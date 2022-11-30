@@ -122,7 +122,9 @@ todo
 
 #### Overview of effect of security measures
 
-##### DocumentBuilderFactory
+✅ Secure
+❌ Not Secure
+⚠️  An exception is thrown
 
 | DocumentBuilderFactory                                                              | DoS      | XML | XML              | XSL | XSL    | XSL     | XSL      | XSD | XSD    | XSD     |
 |-------------------------------------------------------------------------------------|----------|-----|------------------|-----|--------|---------|----------|-----|--------|---------|
@@ -143,3 +145,163 @@ todo
 | setFeature("http://apache.org/xml/features/nonvalidating/load-dtd-grammar", false)  | ✅⚠️       | ❌   | ❌                | ❌   | ✅      | ✅       | ✅        | ❌   | ✅      | ✅       |
 | setFeature("http://apache.org/xml/features/namespaces", false)                      | ✅⚠️       | ❌   | ❌                | ❌   | ✅      | ✅       | ✅        | ❌   | ✅      | ✅       |
 | setNamespaceAware(true)                                                             | ✅⚠️       | ❌   | ❌                | ❌   | ✅      | ✅       | ✅        | ❌   | ✅      | ✅       |
+
+| SAXBuilder                                                                          | DoS      | XML | XML              | XSL | XSL    | XSL     | XSL      | XSD | XSD    | XSD     |
+|-------------------------------------------------------------------------------------|----------|-----|------------------|-----|--------|---------|----------|-----|--------|---------|
+|                                                                                     | xml-bomb | dtd | parameter entity | dtd | import | include | document | dtd | import | include |
+| default                                                                             | ✅⚠️       | ❌   | ❌                | ❌   | ✅      | ✅       | ✅        | ❌   | ✅      | ✅       |
+| Default config DTDValidating                                                        | ✅⚠️       | ✅⚠️  | ❌                | ✅⚠️  | ✅⚠️     | ✅⚠️      | ✅⚠️       | ✅⚠️  | ✅⚠️     | ✅⚠️      |
+| Default config XSDValidating                                                        | ✅⚠️       | ✅⚠️  | ❌                | ✅⚠️  | ✅⚠️     | ✅⚠️      | ✅⚠️       | ✅⚠️  | ✅⚠️     | ✅⚠️      |
+| setFeature(XMLConstants.FEATURE_SECURE_PROCESSING, true)                            | ✅⚠️       | ❌   | ❌                | ❌   | ✅      | ✅       | ✅        | ❌   | ✅      | ✅       |
+| setAttribute(XMLConstants.ACCESS_EXTERNAL_DTD, "")                                  | ✅⚠️       | ✅⚠️  | ✅⚠️               | ✅⚠️  | ✅      | ✅       | ✅        | ✅⚠️  | ✅      | ✅       |
+| setAttribute(XMLConstants.ACCESS_EXTERNAL_SCHEMA, "")                               | ✅⚠️       | ❌   | ❌                | ❌   | ✅      | ✅       | ✅        | ❌   | ✅      | ✅       |
+| setAttribute(XMLConstants.ACCESS_EXTERNAL_STYLESHEET, "");                          | n/a      | n/a | n/a              | n/a | n/a    | n/a     | n/a      | n/a | n/a    | n/a     |
+| setFeature("http://apache.org/xml/features/disallow-doctype-decl", true)            | ✅⚠️       | ✅⚠️  | ✅⚠️               | ✅⚠️  | ✅      | ✅       | ✅        | ✅⚠️  | ✅      | ✅       |
+| setFeature("http://xml.org/sax/features/external-general-entities", false)          | ✅⚠️       | ✅   | ❌                | ✅   | ✅      | ✅       | ✅        | ✅   | ✅      | ✅       |
+| setFeature("http://xml.org/sax/features/external-parameter-entities", false)        | ✅⚠️       | ❌   | ✅                | ❌   | ✅      | ✅       | ✅        | ❌   | ✅      | ✅       |
+| setExpandEntities(false)                                                            | ✅⚠️       | ✅   | ❌                | ✅   | ✅      | ✅       | ✅        | ✅   | ✅      | ✅       |
+| setFeature("http://apache.org/xml/features/xinclude", false)                        | ✅⚠️       | ❌   | ❌                | ❌   | ✅      | ✅       | ✅        | ❌   | ✅      | ✅       |
+| setFeature("http://apache.org/xml/features/nonvalidating/load-external-dtd", false) | ✅⚠️       | ❌   | ❌                | ❌   | ✅      | ✅       | ✅        | ❌   | ✅      | ✅       |
+
+| SAXParserFactory                                                                    | DoS      | XML | XML              | XSL | XSL    | XSL     | XSL      | XSD | XSD    | XSD     |
+|-------------------------------------------------------------------------------------|----------|-----|------------------|-----|--------|---------|----------|-----|--------|---------|
+|                                                                                     | xml-bomb | dtd | parameter entity | dtd | import | include | document | dtd | import | include |
+| default                                                                             | ✅⚠️       | ❌   | ❌                | ❌   | ✅      | ✅       | ✅        | ❌   | ✅      | ✅       |
+| setFeature(XMLConstants.FEATURE_SECURE_PROCESSING, true)                            | ✅⚠️       | ✅⚠️  | ✅⚠️               | ✅⚠️  | ✅      | ✅       | ✅        | ✅⚠️  | ✅      | ✅       |
+| setAttribute(XMLConstants.ACCESS_EXTERNAL_DTD, "")                                  | n/a      | n/a | n/a              | n/a | n/a    | n/a     | n/a      | n/a | n/a    | n/a     |
+| setAttribute(XMLConstants.ACCESS_EXTERNAL_SCHEMA, "")                               | n/a      | n/a | n/a              | n/a | n/a    | n/a     | n/a      | n/a | n/a    | n/a     |
+| setAttribute(XMLConstants.ACCESS_EXTERNAL_STYLESHEET, "");                          | n/a      | n/a | n/a              | n/a | n/a    | n/a     | n/a      | n/a | n/a    | n/a     |
+| setFeature("http://apache.org/xml/features/disallow-doctype-decl", true)            | ✅⚠️       | ✅⚠️  | ✅⚠️               | ✅⚠️  | ✅      | ✅       | ✅        | ✅⚠️  | ✅      | ✅       |
+| setFeature("http://xml.org/sax/features/external-general-entities", false)          | ✅⚠️       | ✅   | ❌                | ✅   | ✅      | ✅       | ✅        | ✅   | ✅      | ✅       |
+| setFeature("http://xml.org/sax/features/external-parameter-entities", false)        | ✅⚠️       | ❌   | ✅                | ❌   | ✅      | ✅       | ✅        | ❌   | ✅      | ✅       |
+| setValidating(false)                                                                | ✅⚠️       | ❌   | ❌                | ❌   | ✅      | ✅       | ✅        | ❌   | ✅      | ✅       |
+| setExpandEntityReferences(false)                                                    | n/a      | n/a | n/a              | n/a | n/a    | n/a     | n/a      | n/a | n/a    | n/a     |
+| setXIncludeAware(false)                                                             | ✅⚠️       | ❌   | ❌                | ❌   | ✅      | ✅       | ✅        | ❌   | ✅      | ✅       |
+| setFeature("http://apache.org/xml/features/xinclude", false)                        | ✅⚠️       | ❌   | ❌                | ❌   | ✅      | ✅       | ✅        | ❌   | ✅      | ✅       |
+| setFeature("http://apache.org/xml/features/nonvalidating/load-external-dtd", false) | ✅⚠️       | ❌   | ❌                | ❌   | ✅      | ✅       | ✅        | ❌   | ✅      | ✅       |
+| setFeature("http://apache.org/xml/features/nonvalidating/load-dtd-grammar", false)  | n/a      | n/a | n/a              | n/a | n/a    | n/a     | n/a      | n/a | n/a    | n/a     |
+| setFeature("http://apache.org/xml/features/namespaces", false)                      | n/a      | n/a | n/a              | n/a | n/a    | n/a     | n/a      | n/a | n/a    | n/a     |
+| setNamespaceAware(true)                                                             | n/a      | n/a | n/a              | n/a | n/a    | n/a     | n/a      | n/a | n/a    | n/a     |
+
+| SAXParser                                                                           | DoS      | XML | XML              | XSL | XSL    | XSL     | XSL      | XSD | XSD    | XSD     |
+|-------------------------------------------------------------------------------------|----------|-----|------------------|-----|--------|---------|----------|-----|--------|---------|
+|                                                                                     | xml-bomb | dtd | parameter entity | dtd | import | include | document | dtd | import | include |
+| default                                                                             |          |     |                  |     |        |         |          |     |        |         |
+| setFeature(XMLConstants.FEATURE_SECURE_PROCESSING, true)                            | n/a      | n/a | n/a              | n/a | n/a    | n/a     | n/a      | n/a | n/a    | n/a     |
+| setProperty(XMLConstants.ACCESS_EXTERNAL_DTD, "")                                   | ✅⚠️       | ✅⚠️  | ✅⚠️               | ✅⚠️  | ✅      | ✅       | ✅        | ✅⚠️  | ✅      | ✅       |
+| setProperty(XMLConstants.ACCESS_EXTERNAL_SCHEMA, "")                                | ✅⚠️       | ❌   | ❌                | ❌   | ✅      | ✅       | ✅        | ❌   | ✅      | ✅       |
+| setProperty(XMLConstants.ACCESS_EXTERNAL_STYLESHEET, "");                           | n/a      | n/a | n/a              | n/a | n/a    | n/a     | n/a      | n/a | n/a    | n/a     |
+| setFeature("http://apache.org/xml/features/disallow-doctype-decl", true)            | n/a      | n/a | n/a              | n/a | n/a    | n/a     | n/a      | n/a | n/a    | n/a     |
+| setFeature("http://xml.org/sax/features/external-general-entities", false)          | n/a      | n/a | n/a              | n/a | n/a    | n/a     | n/a      | n/a | n/a    | n/a     |
+| setFeature("http://xml.org/sax/features/external-parameter-entities", false)        | n/a      | n/a | n/a              | n/a | n/a    | n/a     | n/a      | n/a | n/a    | n/a     |
+| setValidating(false)                                                                | n/a      | n/a | n/a              | n/a | n/a    | n/a     | n/a      | n/a | n/a    | n/a     |
+| setExpandEntityReferences(false)                                                    | n/a      | n/a | n/a              | n/a | n/a    | n/a     | n/a      | n/a | n/a    | n/a     |
+| setXIncludeAware(false)                                                             | n/a      | n/a | n/a              | n/a | n/a    | n/a     | n/a      | n/a | n/a    | n/a     |
+| setFeature("http://apache.org/xml/features/xinclude", false)                        | n/a      | n/a | n/a              | n/a | n/a    | n/a     | n/a      | n/a | n/a    | n/a     |
+| setFeature("http://apache.org/xml/features/nonvalidating/load-external-dtd", false) | n/a      | n/a | n/a              | n/a | n/a    | n/a     | n/a      | n/a | n/a    | n/a     |
+| setFeature("http://apache.org/xml/features/nonvalidating/load-dtd-grammar", false)  | n/a      | n/a | n/a              | n/a | n/a    | n/a     | n/a      | n/a | n/a    | n/a     |
+| setFeature("http://apache.org/xml/features/namespaces", false)                      | n/a      | n/a | n/a              | n/a | n/a    | n/a     | n/a      | n/a | n/a    | n/a     |
+| setNamespaceAware(true)                                                             | n/a      | n/a | n/a              | n/a | n/a    | n/a     | n/a      | n/a | n/a    | n/a     |
+
+| SAXReader                                                                           | DoS      | XML | XML              | XSL | XSL    | XSL     | XSL      | XSD | XSD    | XSD     |
+|-------------------------------------------------------------------------------------|----------|-----|------------------|-----|--------|---------|----------|-----|--------|---------|
+|                                                                                     | xml-bomb | dtd | parameter entity | dtd | import | include | document | dtd | import | include |
+| default                                                                             | ✅⚠️       | ❌   | ❌                | ❌   | ✅      | ✅       | ✅        | ❌   | ✅      | ✅       |
+| setFeature(XMLConstants.FEATURE_SECURE_PROCESSING, true)                            | ✅⚠️       | ❌   | ❌                | ❌   | ✅      | ✅       | ✅        | ❌   | ✅      | ✅       |
+| setAttribute(XMLConstants.ACCESS_EXTERNAL_DTD, "")                                  | ✅⚠️       | ❌   | ❌                | ❌   | ✅      | ✅       | ✅        | ❌   | ✅      | ✅       |
+| setAttribute(XMLConstants.ACCESS_EXTERNAL_SCHEMA, "")                               | ✅⚠️       | ❌   | ❌                | ❌   | ✅      | ✅       | ✅        | ❌   | ✅      | ✅       |
+| setAttribute(XMLConstants.ACCESS_EXTERNAL_STYLESHEET, "");                          | n/a      | n/a | n/a              | n/a | n/a    | n/a     | n/a      | n/a | n/a    | n/a     |
+| setFeature("http://apache.org/xml/features/disallow-doctype-decl", true)            | ✅⚠️       | ✅⚠️  | ✅⚠️               | ✅⚠️  | ✅      | ✅       | ✅        | ✅⚠️  | ✅      | ✅       |
+| setFeature("http://xml.org/sax/features/external-general-entities", false)          | ✅⚠️       | ✅   | ❌                | ✅   | ✅      | ✅       | ✅        | ✅   | ✅      | ✅       |
+| setFeature("http://xml.org/sax/features/external-parameter-entities", false)        | ✅⚠️       | ❌   | ✅                | ❌   | ✅      | ✅       | ✅        | ❌   | ✅      | ✅       |
+| setValidating(false)                                                                | n/a      | n/a | n/a              | n/a | n/a    | n/a     | n/a      | n/a | n/a    | n/a     |
+| setExpandEntityReferences(false)                                                    | n/a      | n/a | n/a              | n/a | n/a    | n/a     | n/a      | n/a | n/a    | n/a     |
+| setXIncludeAware(false)                                                             | n/a      | n/a | n/a              | n/a | n/a    | n/a     | n/a      | n/a | n/a    | n/a     |
+| setFeature("http://apache.org/xml/features/xinclude", false)                        | ✅⚠️       | ❌   | ❌                | ❌   | ✅      | ✅       | ✅        | ❌   | ✅      | ✅       |
+| setFeature("http://apache.org/xml/features/nonvalidating/load-external-dtd", false) | ✅⚠️       | ❌   | ❌                | ❌   | ✅      | ✅       | ✅        | ❌   | ✅      | ✅       |
+| setFeature("http://apache.org/xml/features/nonvalidating/load-dtd-grammar", false)  | n/a      | n/a | n/a              | n/a | n/a    | n/a     | n/a      | n/a | n/a    | n/a     |
+| setFeature("http://apache.org/xml/features/namespaces", false)                      | n/a      | n/a | n/a              | n/a | n/a    | n/a     | n/a      | n/a | n/a    | n/a     |
+| setNamespaceAware(true)                                                             | n/a      | n/a | n/a              | n/a | n/a    | n/a     | n/a      | n/a | n/a    | n/a     |
+| setIncludeExternalDTDDeclarations(false);                                           | ✅⚠️       | ❌   | ❌                | ❌   | ✅      | ✅       | ✅        | ❌   | ✅      | ✅       |
+
+| TransformerFactory/SAXTransformerFactory                                            | DoS      | XML | XML              | XSL | XSL    | XSL     | XSL      | XSD | XSD    | XSD     |
+|-------------------------------------------------------------------------------------|----------|-----|------------------|-----|--------|---------|----------|-----|--------|---------|
+|                                                                                     | xml-bomb | dtd | parameter entity | dtd | import | include | document | dtd | import | include |
+| default                                                                             | ✅⚠️       | ❌   | ❌                | ❌   | ❌      | ❌       | ❌        | n/a | n/a    | n/a     |
+| setFeature(XMLConstants.FEATURE_SECURE_PROCESSING, true)                            | ✅⚠️       | ✅⚠️  | ✅⚠️               | ✅⚠️  | ✅⚠️     | ✅⚠️      | ✅⚠️       | n/a | n/a    | n/a     |
+| setAttribute(XMLConstants.ACCESS_EXTERNAL_DTD, "")                                  | ✅⚠️       | ✅⚠️  | ✅⚠️               | ✅⚠️  | ❌      | ❌       | ❌        | n/a | n/a    | n/a     |
+| setAttribute(XMLConstants.ACCESS_EXTERNAL_SCHEMA, "")                               | n/a      | n/a | n/a              | n/a | n/a    | n/a     | n/a      | n/a | n/a    | n/a     |
+| setAttribute(XMLConstants.ACCESS_EXTERNAL_STYLESHEET, "");                          | ✅⚠️       | ❌   | ❌                | ❌   | ✅⚠️     | ✅⚠️      | ✅⚠️       | n/a | n/a    | n/a     |
+| setFeature("http://apache.org/xml/features/disallow-doctype-decl", true)            | n/a      | n/a | n/a              | n/a | n/a    | n/a     | n/a      | n/a | n/a    | n/a     |
+| setFeature("http://xml.org/sax/features/external-general-entities", false)          | n/a      | n/a | n/a              | n/a | n/a    | n/a     | n/a      | n/a | n/a    | n/a     |
+| setFeature("http://xml.org/sax/features/external-parameter-entities", false)        | n/a      | n/a | n/a              | n/a | n/a    | n/a     | n/a      | n/a | n/a    | n/a     |
+| setValidating(false)                                                                | n/a      | n/a | n/a              | n/a | n/a    | n/a     | n/a      | n/a | n/a    | n/a     |
+| setExpandEntityReferences(false)                                                    | n/a      | n/a | n/a              | n/a | n/a    | n/a     | n/a      | n/a | n/a    | n/a     |
+| setXIncludeAware(false)                                                             | n/a      | n/a | n/a              | n/a | n/a    | n/a     | n/a      | n/a | n/a    | n/a     |
+| setFeature("http://apache.org/xml/features/xinclude", false)                        | n/a      | n/a | n/a              | n/a | n/a    | n/a     | n/a      | n/a | n/a    | n/a     |
+| setFeature("http://apache.org/xml/features/nonvalidating/load-external-dtd", false) | n/a      | n/a | n/a              | n/a | n/a    | n/a     | n/a      | n/a | n/a    | n/a     |
+| setFeature("http://apache.org/xml/features/nonvalidating/load-dtd-grammar", false)  | n/a      | n/a | n/a              | n/a | n/a    | n/a     | n/a      | n/a | n/a    | n/a     |
+| setFeature("http://apache.org/xml/features/namespaces", false)                      | n/a      | n/a | n/a              | n/a | n/a    | n/a     | n/a      | n/a | n/a    | n/a     |
+| setNamespaceAware(true)                                                             | n/a      | n/a | n/a              | n/a | n/a    | n/a     | n/a      | n/a | n/a    | n/a     |
+
+| SchemaFactory                                                                       | DoS      | XML | XML              | XSL | XSL    | XSL     | XSL      | XSD | XSD    | XSD     |
+|-------------------------------------------------------------------------------------|----------|-----|------------------|-----|--------|---------|----------|-----|--------|---------|
+|                                                                                     | xml-bomb | dtd | parameter entity | dtd | import | include | document | dtd | import | include |
+| default                                                                             | ✅⚠️       | ❌   | ❌                | n/a | n/a    | n/a     | n/a      | ❌   | ❌      | ❌       |
+| setFeature(XMLConstants.FEATURE_SECURE_PROCESSING, true)                            | ✅⚠️       | ✅⚠️  | ✅⚠️               | n/a | n/a    | n/a     | n/a      | ✅⚠️  | ✅⚠️     | ✅⚠️      |
+| setAttribute(XMLConstants.ACCESS_EXTERNAL_DTD, "")                                  | ✅⚠️       | ✅⚠️  | ✅⚠️               | n/a | n/a    | n/a     | n/a      | ✅⚠️  | ❌      | ❌       |
+| setAttribute(XMLConstants.ACCESS_EXTERNAL_SCHEMA, "")                               | ✅⚠️       | ❌   | ❌                | n/a | n/a    | n/a     | n/a      | ❌   | ✅⚠️     | ✅⚠️      |
+| setAttribute(XMLConstants.ACCESS_EXTERNAL_STYLESHEET, "");                          | n/a      | n/a | n/a              | n/a | n/a    | n/a     | n/a      | n/a | n/a    | n/a     |
+| setFeature("http://apache.org/xml/features/disallow-doctype-decl", true)            | ✅⚠️       | ❌   | ❌                | n/a | n/a    | n/a     | n/a      | ✅⚠️  | ❌      | ❌       |
+| setFeature("http://xml.org/sax/features/external-general-entities", false)          | n/a      | n/a | n/a              | n/a | n/a    | n/a     | n/a      | n/a | n/a    | n/a     |
+| setFeature("http://xml.org/sax/features/external-parameter-entities", false)        | n/a      | n/a | n/a              | n/a | n/a    | n/a     | n/a      | n/a | n/a    | n/a     |
+| setValidating(false)                                                                | n/a      | n/a | n/a              | n/a | n/a    | n/a     | n/a      | n/a | n/a    | n/a     |
+| setExpandEntityReferences(false)                                                    | n/a      | n/a | n/a              | n/a | n/a    | n/a     | n/a      | n/a | n/a    | n/a     |
+| setXIncludeAware(false)                                                             | n/a      | n/a | n/a              | n/a | n/a    | n/a     | n/a      | n/a | n/a    | n/a     |
+| setFeature("http://apache.org/xml/features/xinclude", false)                        | n/a      | n/a | n/a              | n/a | n/a    | n/a     | n/a      | n/a | n/a    | n/a     |
+| setFeature("http://apache.org/xml/features/nonvalidating/load-external-dtd", false) | n/a      | n/a | n/a              | n/a | n/a    | n/a     | n/a      | n/a | n/a    | n/a     |
+| setFeature("http://apache.org/xml/features/nonvalidating/load-dtd-grammar", false)  | n/a      | n/a | n/a              | n/a | n/a    | n/a     | n/a      | n/a | n/a    | n/a     |
+| setFeature("http://apache.org/xml/features/namespaces", false)                      | n/a      | n/a | n/a              | n/a | n/a    | n/a     | n/a      | n/a | n/a    | n/a     |
+| setNamespaceAware(true)                                                             | n/a      | n/a | n/a              | n/a | n/a    | n/a     | n/a      | n/a | n/a    | n/a     |
+
+| Validator                                                                           | DoS      | XML | XML              |
+|-------------------------------------------------------------------------------------|----------|-----|------------------|
+|                                                                                     | xml-bomb | dtd | parameter entity |
+| default                                                                             | ✅⚠️       | ❌   | ❌                |
+| setFeature(XMLConstants.FEATURE_SECURE_PROCESSING, true)                            | ✅⚠️       | ✅⚠️  | ✅⚠️               |
+| setAttribute(XMLConstants.ACCESS_EXTERNAL_DTD, "")                                  | ✅⚠️       | ✅⚠️  | ✅⚠️               |
+| setAttribute(XMLConstants.ACCESS_EXTERNAL_SCHEMA, "")                               | ✅⚠️       | ❌   | ❌                |
+| setAttribute(XMLConstants.ACCESS_EXTERNAL_STYLESHEET, "");                          | n/a      | n/a | n/a              |
+| setFeature("http://apache.org/xml/features/disallow-doctype-decl", true)            | ✅⚠️       | ❌   | ❌                |
+| setFeature("http://xml.org/sax/features/external-general-entities", false)          | ✅⚠️       | ❌   | ❌                |
+| setFeature("http://xml.org/sax/features/external-parameter-entities", false)        | ✅⚠️       | ❌   | ❌                |
+| setValidating(false)                                                                | ✅⚠️       | n/a | n/a              |
+| setExpandEntityReferences(false)                                                    | ✅⚠️       | n/a | n/a              |
+| setXIncludeAware(false)                                                             | ✅⚠️       | n/a | n/a              |
+| setFeature("http://apache.org/xml/features/xinclude", false)                        | ✅⚠️       | n/a | n/a              |
+| setFeature("http://apache.org/xml/features/nonvalidating/load-external-dtd", false) | ✅⚠️       | n/a | n/a              |
+| setFeature("http://apache.org/xml/features/nonvalidating/load-dtd-grammar", false)  | ✅⚠️       | n/a | n/a              |
+| setFeature("http://apache.org/xml/features/namespaces", false)                      | ✅⚠️       | n/a | n/a              |
+| setNamespaceAware(true)                                                             | ✅⚠️       | n/a | n/a              |
+
+| XMLReader                                                                           | DoS      | XML | XML              | XSL | XSL    | XSL     | XSL      | XSD | XSD    | XSD     |
+|-------------------------------------------------------------------------------------|----------|-----|------------------|-----|--------|---------|----------|-----|--------|---------|
+|                                                                                     | xml-bomb | dtd | parameter entity | dtd | import | include | document | dtd | import | include |
+| default                                                                             | ✅⚠️       | ❌   | ❌                | ❌   | ✅      | ✅       | ✅        | ❌   | ✅      | ✅       |
+| setFeature(XMLConstants.FEATURE_SECURE_PROCESSING, true)                            | ✅⚠️       | ❌   | ❌                | ❌   | ✅      | ✅       | ✅        | ❌   | ✅      | ✅       |
+| setAttribute(XMLConstants.ACCESS_EXTERNAL_DTD, "")                                  | ✅⚠️       | ✅⚠️  | ✅⚠️               | ✅⚠️  | ✅      | ✅       | ✅        | ✅⚠️  | ✅      | ✅       |
+| setAttribute(XMLConstants.ACCESS_EXTERNAL_SCHEMA, "")                               | ✅⚠️       | ❌   | ❌                | ❌   | ✅      | ✅       | ✅        | ❌   | ✅      | ✅       |
+| setAttribute(XMLConstants.ACCESS_EXTERNAL_STYLESHEET, "");                          | n/a      | n/a | n/a              | n/a | n/a    | n/a     | n/a      | n/a | n/a    | n/a     |
+| setFeature("http://apache.org/xml/features/disallow-doctype-decl", true)            | ✅⚠️       | ✅⚠️  | ✅⚠️               | ✅⚠️  | ✅      | ✅       | ✅        | ✅⚠️  | ✅      | ✅       |
+| setFeature("http://xml.org/sax/features/external-general-entities", false)          | ✅⚠️       | ✅   | ❌                | ✅   | ✅      | ✅       | ✅        | ✅   | ✅      | ✅       |
+| setFeature("http://xml.org/sax/features/external-parameter-entities", false)        | ✅⚠️       | ❌   | ✅                | ❌   | ✅      | ✅       | ✅        | ❌   | ✅      | ✅       |
+| setValidating(false)                                                                | n/a      | n/a | n/a              | n/a | n/a    | n/a     | n/a      | n/a | n/a    | n/a     |
+| setExpandEntityReferences(false)                                                    | n/a      | n/a | n/a              | n/a | n/a    | n/a     | n/a      | n/a | n/a    | n/a     |
+| setXIncludeAware(false)                                                             | n/a      | n/a | n/a              | n/a | n/a    | n/a     | n/a      | n/a | n/a    | n/a     |
+| setFeature("http://apache.org/xml/features/xinclude", false)                        | ✅⚠️       | ❌   | ❌                | ❌   | ✅      | ✅       | ✅        | ❌   | ✅      | ✅       |
+| setFeature("http://apache.org/xml/features/nonvalidating/load-external-dtd", false) | ✅⚠️       | ❌   | ❌                | ❌   | ✅      | ✅       | ✅        | ❌   | ✅      | ✅       |
+| setFeature("http://apache.org/xml/features/nonvalidating/load-dtd-grammar", false)  | n/a      | n/a | n/a              | n/a | n/a    | n/a     | n/a      | n/a | n/a    | n/a     |
+| setFeature("http://apache.org/xml/features/namespaces", false)                      | n/a      | n/a | n/a              | n/a | n/a    | n/a     | n/a      | n/a | n/a    | n/a     |
+| setNamespaceAware(true)                                                             | n/a      | n/a | n/a              | n/a | n/a    | n/a     | n/a      | n/a | n/a    | n/a     |
+
+
