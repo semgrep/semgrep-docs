@@ -1,0 +1,145 @@
+---
+slug: java-xxe
+---
+
+import LinkToRegistryRule from "/src/components/LinkToRegistryRule"
+
+# XML External Entity prevention for Java
+
+This is an XML External Entity (XXE) prevention cheat sheet by r2c. It contains code patterns of potential XXE in an application. Instead of scrutinizing code for exploitable vulnerabilities, the recommendations in this cheat sheet pave a safe road for developers that mitigates the possibility of XXE in your code. By 
+following these recommendations, you can be reasonably sure your code is free of XXE.
+
+## Mitigation Summary
+
+On the one hand, the XML standard allows multiple ways to include external content, including but not limited to an external Document Type Definition (DTD), an external Entity Reference to external data, an general entity reference, and an external parameter reference.
+There are also several ways to include external content in XML Schemas and stylesheets.
+
+On the other hand, the Java API for XML Processing (JAXP) contains mutliple interfaces to process XML content. The Document Object Model (DOM) interface, the Simple API for XML (SAX) interface, and the Streaming API for XML (StAX) interface.
+Each of these interfaces have their own mitigation measures to disable allowing use of different sources of external content.
+The inconsitency in availability and even effect of these measures across the different APIs, combined with the variety of ways to include external content, makes it difficult to make a general recommendation. Many configurations that are secure for one parsers are not for another.
+However, the following settings have a consistent effect on a subset of parsers
+
+- For `DocumentBuilderFactory`. `SAXBuilder`, `SAXParser`, `SAXReader`, and `XMLReader` use:
+    ```
+    setFeature(http://apache.org/xml/features/disallow-doctype-decl, true);
+    ```
+- For `SAXTransformer`, `SchemaFactory`, and `Validator` use:
+    ```
+    setFeature(XMLConstants.FEATURE_SECURE_PROCESSING, true);
+    ```
+
+The complete Semgrep ruleset for this cheatsheet is available as part of the premium rules for Team Tier customers. It includes rules to verify these settings as well as a number of other combinations that are secure.
+
+---
+
+## 1 Exponential entity expansion
+
+Expontential entity expansion happens when there are several layers of nested entities that each on their own refer to a number of other entities.
+You can find an [example of such a payload](https://github.com/returntocorp/java-xxe-research/blob/main/payloads-new/xml-attacks/xml-bomb.xml) (sometimes called an XML Bomb) in our research project on GitHub.
+
+When a document like this is parsed, the parser will expand each of the nested references. The expansion becomes exponentially large and this can lead to excessive use of the resources and denial-of-service (DoS).
+We found that in Java such excessive use of resources throws an exception that, when carefully caught and handled, will prevent the attack. So no explicit security measures need to be taken.
+
+## 2 XML External Entity Injection
+
+XML External Entity Injection happens when the system identifier to some of the external content contains data controlled by an attacker. The parser will then dereference this identifier containing attacker-controlled XML code, leading to disclosure of confidential data, or even arbitrary code execution.
+
+### 2.A Ways to include external content in XML documents
+
+- External DTD: references an external Document Type Definition (DTD)
+    ```xml
+    <!DOCTYPE root_element SYSTEM "url">
+    ```
+- External Entity Reference: Refers to external data, the following is the syntax:
+    ```xml
+    <!ENTITY name SYSTEM "url">
+    ```
+- General entity reference, for example:
+    ```xml
+    <?xml version="1.0" standalone="no" ?>
+    <!DOCTYPE doc [<!ENTITY otherFile SYSTEM "otherFile.xml">]>
+    <doc>
+        <a>
+            <b>&otherFile;</b>
+        </a>
+    </doc>
+    ```
+- External Parameter Entities, for example:
+    ```xml
+    <?xml version="1.0" standalone="no"?>
+        <!DOCTYPE doc [
+          <!ENTITY % ent1 SYSTEM "http://www.example.com/student.dtd">
+          %ent1;
+        ]>
+    ```
+- XInclude: Includes an external infoset in an XML document, for example:
+    ```xml
+    <Book xmlns:xi="http://www.w3.org/2001/XInclude">
+        <xi:include href=toc.xml"/>
+        <xi:include href=part1.xml"/>
+        <xi:include href=part2.xml"/>
+        <xi:include href=index.xml"/>
+    </Book>
+    ```
+- References to XML Schema components using the schemaLocation attribute and import and include elements, for example:
+    ```xml
+    <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+        <xs:include schemaLocation="http://www.example.com/schema/schema1.xsd"/>
+        <!-- ... -->
+    </xs:schema>
+    ```
+- Combining style sheets using import or include elements, the following is the syntax:
+    ```xml
+    <xsl:include href="include.xsl"/>
+    ```
+- `xml-stylesheet` processing instruction: Used to include a stylesheet in an XML document, for example:
+    ```xml
+    <?xml-stylesheet href="include.xsl" type="text/xsl"?>
+    ```
+- XSLT document() function: Used to access nodes in an external XML document, for example:
+    ```xml
+    <xsl:variable name="dummy" select="document('DocumentFunc2.xml')"/>
+    ```
+
+#### References
+
+- [Oracle Docs](https://docs.oracle.com/en/java/javase/13/security/java-api-xml-processing-jaxp-security-guide.html)
+
+### 2.B Security measures
+
+#### Feature for Secure Processing (FSP)
+
+todo
+
+#### Disabling DTD processing
+
+todo
+
+
+#### Disabling external schema and stylesheet processing
+
+todo
+
+#### Overview of effect of security measures
+
+##### DocumentBuilderFactory
+
+| DocumentBuilderFactory                                                              | DoS      | XML | XML              | XSL | XSL    | XSL     | XSL      | XSD | XSD    | XSD     |
+|-------------------------------------------------------------------------------------|----------|-----|------------------|-----|--------|---------|----------|-----|--------|---------|
+|                                                                                     | xml-bomb | dtd | parameter entity | dtd | import | include | document | dtd | import | include |
+| default                                                                             | ✅⚠️       | ❌   | ❌                | ❌   | ✅      | ✅       | ✅        | ❌   | ✅      | ✅       |
+| setFeature(XMLConstants.FEATURE_SECURE_PROCESSING, true)                            | ✅⚠️       | ✅⚠️  | ✅⚠️               | ✅⚠️  | ✅      | ✅       | ✅        | ✅⚠️  | ✅      | ✅       |
+| setAttribute(XMLConstants.ACCESS_EXTERNAL_DTD, "")                                  | ✅⚠️       | ✅⚠️  | ✅⚠️               | ✅⚠️  | ✅      | ✅       | ✅        | ✅⚠️  | ✅      | ✅       |
+| setAttribute(XMLConstants.ACCESS_EXTERNAL_SCHEMA, "")                               | ✅⚠️       | ❌   | ❌                | ❌   | ✅      | ✅       | ✅        | ❌   | ✅      | ✅       |
+| setAttribute(XMLConstants.ACCESS_EXTERNAL_STYLESHEET, "");                          | n/a      | n/a | n/a              | n/a | n/a    | n/a     | n/a      | n/a | n/a    | n/a     |
+| setFeature("http://apache.org/xml/features/disallow-doctype-decl", true)            | ✅⚠️       | ✅⚠️  | ✅⚠️               | ✅⚠️  | ✅      | ✅       | ✅        | ✅⚠️  | ✅      | ✅       |
+| setFeature("http://xml.org/sax/features/external-general-entities", false)          | ✅⚠️       | ✅   | ❌                | ✅   | ✅      | ✅       | ✅        | ✅   | ✅      | ✅       |
+| setFeature("http://xml.org/sax/features/external-parameter-entities", false)        | ✅⚠️       | ❌   | ✅                | ❌   | ✅      | ✅       | ✅        | ❌   | ✅      | ✅       |
+| setValidating(false)                                                                | ✅⚠️       | ❌   | ❌                | ❌   | ✅      | ✅       | ✅        | ❌   | ✅      | ✅       |
+| setExpandEntityReferences(false)                                                    | ✅⚠️       | ❌   | ❌                | ❌   | ✅      | ✅       | ✅        | ❌   | ✅      | ✅       |
+| setXIncludeAware(false)                                                             | ✅⚠️       | ❌   | ❌                | ❌   | ✅      | ✅       | ✅        | ❌   | ✅      | ✅       |
+| setFeature("http://apache.org/xml/features/xinclude", false)                        | ✅⚠️       | ❌   | ❌                | ❌   | ✅      | ✅       | ✅        | ❌   | ✅      | ✅       |
+| setFeature("http://apache.org/xml/features/nonvalidating/load-external-dtd", false) | ✅⚠️       | ❌   | ❌                | ❌   | ✅      | ✅       | ✅        | ❌   | ✅      | ✅       |
+| setFeature("http://apache.org/xml/features/nonvalidating/load-dtd-grammar", false)  | ✅⚠️       | ❌   | ❌                | ❌   | ✅      | ✅       | ✅        | ❌   | ✅      | ✅       |
+| setFeature("http://apache.org/xml/features/namespaces", false)                      | ✅⚠️       | ❌   | ❌                | ❌   | ✅      | ✅       | ✅        | ❌   | ✅      | ✅       |
+| setNamespaceAware(true)                                                             | ✅⚠️       | ❌   | ❌                | ❌   | ✅      | ✅       | ✅        | ❌   | ✅      | ✅       |
