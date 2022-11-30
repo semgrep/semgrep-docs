@@ -2,8 +2,6 @@
 slug: java-xxe
 ---
 
-import LinkToRegistryRule from "/src/components/LinkToRegistryRule"
-
 # XML External Entity prevention for Java
 
 This is an XML External Entity (XXE) prevention cheat sheet by r2c. It contains code patterns of potential XXE in an application. Instead of scrutinizing code for exploitable vulnerabilities, the recommendations in this cheat sheet pave a safe road for developers that mitigates the possibility of XXE in your code. By 
@@ -11,12 +9,12 @@ following these recommendations, you can be reasonably sure your code is free of
 
 ## Mitigation Summary
 
-On the one hand, the XML standard allows multiple ways to include external content, including but not limited to an external Document Type Definition (DTD), an external Entity Reference to external data, an general entity reference, and an external parameter reference.
+XML security in Java is not easy to summarize. On the one hand, the XML standard allows multiple ways to include external content, including but not limited to external Document Type Definitions (DTD), external Entity References to external data, general entity references, and external parameter references.
 There are also several ways to include external content in XML Schemas and stylesheets.
 
 On the other hand, the Java API for XML Processing (JAXP) contains mutliple interfaces to process XML content. The Document Object Model (DOM) interface, the Simple API for XML (SAX) interface, and the Streaming API for XML (StAX) interface.
 Each of these interfaces have their own mitigation measures to disable allowing use of different sources of external content.
-The inconsitency in availability and even effect of these measures across the different APIs, combined with the variety of ways to include external content, makes it difficult to make a general recommendation. Many configurations that are secure for one parsers are not for another.
+The inconsitency in availability and even effect of these measures across the different APIs, combined with the variety of ways to include external content, makes it difficult to make a general recommendation. Many configurations that are secure for one parser are not for another.
 However, the following settings have a consistent effect on a subset of parsers
 
 - For `DocumentBuilderFactory`. `SAXBuilder`, `SAXParser`, `SAXReader`, and `XMLReader` use:
@@ -107,24 +105,44 @@ XML External Entity Injection happens when the system identifier to some of the 
 
 ### 2.B Security measures
 
+There are a number of security measures, not all of them are available for each class. To see an overview of which measures are available for which class, consult the docs, or go to Section 3 to view the tables with our research results.
+
 #### Feature for Secure Processing (FSP)
 
-todo
+Feature for Secure Processing (FSP) is considered the central mechanism for secure XML processing. It is defined as `javax.xml.XMLConstants.FEATURE_SECURE_PROCESSING`.
+For a number of classes this feature is able to protect the parser from all available payloads, but this is not the case for all of the classes we tested.
 
 #### Disabling DTD processing
 
-todo
+To disable DTD processing there are a few mechanisms available:
 
+- The `setFeature` method with the following url: `http://apache.org/xml/features/disallow-doctype-decl`. 
+- The `setProperty` method to set `XMLInputFactory.SUPPORT_DTD` to false.
+- The `setAttribute` method to set `XMLConstants.ACCESS_EXTERNAL_DTD` to an empty string (`“”`). 
+
+For some parsers, multiple of these methods are available. 
+
+For most parsers this setting adds additional security for processing XML documents, but it never has any effect on processing schemas or stylesheets. 
+However, there are classes such as `DocumentBuilderFactory`, `Validator`, and `SchemaFactory` where multiple of these methods are available, and setting the above mentioned features throws no exceptions, but only one of them has any effect on the security of the parser.
 
 #### Disabling external schema and stylesheet processing
 
-todo
+The `setAttribute` method can be used to set `XMLConstants.ACCESS_EXTERNAL_SCHEMA` and `XMLConstants.ACCESS_EXTERNAL_STYLESHEET` to an empty string to disable these features.
+The effects on security, however, are often limited, with no observed effect for a number of classes.
 
-#### Overview of effect of security measures
+#### Disabling external general entities and external parameter entities
+
+The  `setFeature` method can be used to set `http://xml.org/sax/features/external-general-entities` and `http://xml.org/sax/features/external-parameter-entities` to false. For the classes where these features are available, the combination of these two protects the parser against all of the tested payloads!
+Except for the `Validator` class, where they have no effect at all.
+There is also `setExpandEntityReferences` that can be set to false and seems to have the same effect as disabling external general entities, based on our testing.
+
+## 3 Overview of effect of security measures for each class
 
 ✅ Secure
 ❌ Not Secure
 ⚠️  An exception is thrown
+
+### 3.A DocumentBuilderFactory
 
 | DocumentBuilderFactory                                                              | DoS      | XML | XML              | XSL | XSL    | XSL     | XSL      | XSD | XSD    | XSD     |
 |-------------------------------------------------------------------------------------|----------|-----|------------------|-----|--------|---------|----------|-----|--------|---------|
@@ -146,6 +164,8 @@ todo
 | setFeature("http://apache.org/xml/features/namespaces", false)                      | ✅⚠️       | ❌   | ❌                | ❌   | ✅      | ✅       | ✅        | ❌   | ✅      | ✅       |
 | setNamespaceAware(true)                                                             | ✅⚠️       | ❌   | ❌                | ❌   | ✅      | ✅       | ✅        | ❌   | ✅      | ✅       |
 
+### 3.B SAXBuilder
+
 | SAXBuilder                                                                          | DoS      | XML | XML              | XSL | XSL    | XSL     | XSL      | XSD | XSD    | XSD     |
 |-------------------------------------------------------------------------------------|----------|-----|------------------|-----|--------|---------|----------|-----|--------|---------|
 |                                                                                     | xml-bomb | dtd | parameter entity | dtd | import | include | document | dtd | import | include |
@@ -162,6 +182,8 @@ todo
 | setExpandEntities(false)                                                            | ✅⚠️       | ✅   | ❌                | ✅   | ✅      | ✅       | ✅        | ✅   | ✅      | ✅       |
 | setFeature("http://apache.org/xml/features/xinclude", false)                        | ✅⚠️       | ❌   | ❌                | ❌   | ✅      | ✅       | ✅        | ❌   | ✅      | ✅       |
 | setFeature("http://apache.org/xml/features/nonvalidating/load-external-dtd", false) | ✅⚠️       | ❌   | ❌                | ❌   | ✅      | ✅       | ✅        | ❌   | ✅      | ✅       |
+
+### 3.C SAXParserFactory
 
 | SAXParserFactory                                                                    | DoS      | XML | XML              | XSL | XSL    | XSL     | XSL      | XSD | XSD    | XSD     |
 |-------------------------------------------------------------------------------------|----------|-----|------------------|-----|--------|---------|----------|-----|--------|---------|
@@ -183,6 +205,8 @@ todo
 | setFeature("http://apache.org/xml/features/namespaces", false)                      | n/a      | n/a | n/a              | n/a | n/a    | n/a     | n/a      | n/a | n/a    | n/a     |
 | setNamespaceAware(true)                                                             | n/a      | n/a | n/a              | n/a | n/a    | n/a     | n/a      | n/a | n/a    | n/a     |
 
+### 3.D SAXParser
+
 | SAXParser                                                                           | DoS      | XML | XML              | XSL | XSL    | XSL     | XSL      | XSD | XSD    | XSD     |
 |-------------------------------------------------------------------------------------|----------|-----|------------------|-----|--------|---------|----------|-----|--------|---------|
 |                                                                                     | xml-bomb | dtd | parameter entity | dtd | import | include | document | dtd | import | include |
@@ -202,6 +226,8 @@ todo
 | setFeature("http://apache.org/xml/features/nonvalidating/load-dtd-grammar", false)  | n/a      | n/a | n/a              | n/a | n/a    | n/a     | n/a      | n/a | n/a    | n/a     |
 | setFeature("http://apache.org/xml/features/namespaces", false)                      | n/a      | n/a | n/a              | n/a | n/a    | n/a     | n/a      | n/a | n/a    | n/a     |
 | setNamespaceAware(true)                                                             | n/a      | n/a | n/a              | n/a | n/a    | n/a     | n/a      | n/a | n/a    | n/a     |
+
+### 3.E SAXReader
 
 | SAXReader                                                                           | DoS      | XML | XML              | XSL | XSL    | XSL     | XSL      | XSD | XSD    | XSD     |
 |-------------------------------------------------------------------------------------|----------|-----|------------------|-----|--------|---------|----------|-----|--------|---------|
@@ -224,6 +250,8 @@ todo
 | setNamespaceAware(true)                                                             | n/a      | n/a | n/a              | n/a | n/a    | n/a     | n/a      | n/a | n/a    | n/a     |
 | setIncludeExternalDTDDeclarations(false);                                           | ✅⚠️       | ❌   | ❌                | ❌   | ✅      | ✅       | ✅        | ❌   | ✅      | ✅       |
 
+### 3.F TransformerFactory & SAXTransformerFactory
+
 | TransformerFactory/SAXTransformerFactory                                            | DoS      | XML | XML              | XSL | XSL    | XSL     | XSL      | XSD | XSD    | XSD     |
 |-------------------------------------------------------------------------------------|----------|-----|------------------|-----|--------|---------|----------|-----|--------|---------|
 |                                                                                     | xml-bomb | dtd | parameter entity | dtd | import | include | document | dtd | import | include |
@@ -243,6 +271,8 @@ todo
 | setFeature("http://apache.org/xml/features/nonvalidating/load-dtd-grammar", false)  | n/a      | n/a | n/a              | n/a | n/a    | n/a     | n/a      | n/a | n/a    | n/a     |
 | setFeature("http://apache.org/xml/features/namespaces", false)                      | n/a      | n/a | n/a              | n/a | n/a    | n/a     | n/a      | n/a | n/a    | n/a     |
 | setNamespaceAware(true)                                                             | n/a      | n/a | n/a              | n/a | n/a    | n/a     | n/a      | n/a | n/a    | n/a     |
+
+### 3.G SchemaFactory 
 
 | SchemaFactory                                                                       | DoS      | XML | XML              | XSL | XSL    | XSL     | XSL      | XSD | XSD    | XSD     |
 |-------------------------------------------------------------------------------------|----------|-----|------------------|-----|--------|---------|----------|-----|--------|---------|
@@ -264,6 +294,8 @@ todo
 | setFeature("http://apache.org/xml/features/namespaces", false)                      | n/a      | n/a | n/a              | n/a | n/a    | n/a     | n/a      | n/a | n/a    | n/a     |
 | setNamespaceAware(true)                                                             | n/a      | n/a | n/a              | n/a | n/a    | n/a     | n/a      | n/a | n/a    | n/a     |
 
+### 3.H Validator 
+
 | Validator                                                                           | DoS      | XML | XML              |
 |-------------------------------------------------------------------------------------|----------|-----|------------------|
 |                                                                                     | xml-bomb | dtd | parameter entity |
@@ -284,6 +316,8 @@ todo
 | setFeature("http://apache.org/xml/features/namespaces", false)                      | ✅⚠️       | n/a | n/a              |
 | setNamespaceAware(true)                                                             | ✅⚠️       | n/a | n/a              |
 
+### 3.I XMLReader 
+
 | XMLReader                                                                           | DoS      | XML | XML              | XSL | XSL    | XSL     | XSL      | XSD | XSD    | XSD     |
 |-------------------------------------------------------------------------------------|----------|-----|------------------|-----|--------|---------|----------|-----|--------|---------|
 |                                                                                     | xml-bomb | dtd | parameter entity | dtd | import | include | document | dtd | import | include |
@@ -303,5 +337,4 @@ todo
 | setFeature("http://apache.org/xml/features/nonvalidating/load-dtd-grammar", false)  | n/a      | n/a | n/a              | n/a | n/a    | n/a     | n/a      | n/a | n/a    | n/a     |
 | setFeature("http://apache.org/xml/features/namespaces", false)                      | n/a      | n/a | n/a              | n/a | n/a    | n/a     | n/a      | n/a | n/a    | n/a     |
 | setNamespaceAware(true)                                                             | n/a      | n/a | n/a              | n/a | n/a    | n/a     | n/a      | n/a | n/a    | n/a     |
-
 
