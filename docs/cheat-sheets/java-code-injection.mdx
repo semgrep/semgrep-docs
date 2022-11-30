@@ -11,14 +11,14 @@ import CodeInjectionIntro from "/src/components/concept/_code-injection-intro.md
 
 ## 1. Unsafe Reflection
 
-### 1.A. Using reflection with Class.forName
+### 1.A. Using unsafe reflection with user input in Class.forName
 
-`Class.forName` returns the Class object associated with the class or interface with the given string name. If an attacker can supply values that the application then uses to determine which class to instantiate or which method to invoke, the potential exists for the attacker to create control flow paths through the application that were not intended by the application developers. This attack vector may allow the attacker to bypass authentication or access control checks or otherwise cause the application to behave in an unexpected manner. 
+The `Class.forName` function returns the `Class` object for the class or interface with the name as a string. If an attacker can supply values that the application then uses to determine which class to instantiate or which method to invoke. The attacker can instantiate classes that application developers did not intend. This can lead to unexpected behavior. For example, broken authentication that results in access to private data, or otherwise allow the attacker to obtain control of application behavior causing the application to behave in an unexpected manner.
 Example:
 
 ```java
 String userInput = "org.pwned.package"; // value supplied by user input
-Class<?> loadClass = Class.forName(userInput + ".MyThread");
+Class<?> loadClass = Class.forName(userInput + ".AttackerThread");
 ```
 
 #### References
@@ -27,7 +27,7 @@ Class<?> loadClass = Class.forName(userInput + ".MyThread");
 
 #### Mitigation
 
-- Try to avoid non-literal values for the `className` parameter in `Class.forName`.
+- Try to avoid non-literal values in the first argument of `Class.forName()` such as for example `Class.forName(userInput + ".AttackerThread")`.
 - If it is not possible, use an allowlist for inputs.
 
 #### Semgrep rule
