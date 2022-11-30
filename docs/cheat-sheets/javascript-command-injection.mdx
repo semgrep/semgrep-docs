@@ -26,8 +26,14 @@ semgrep --config p/javascript-command-injection
 Example:
 
 ```javascript
-child_process.exec(...)
-child_process.execSync(...)
+const {exec, spawn} = require('child_process')
+
+const userInput = "$(pwn command)" // value supplied by user input
+
+// Vunerable
+exec(`cat *.js ${userInput}`, (error, stdout, stderr) => {
+  console.log(stdout)
+})
 ```
 
 #### References
@@ -49,8 +55,10 @@ Try to avoid non-literal values for the command string. If it is not possible, t
 Example:
 
 ```javascript
-child_process.spawn(...)
-child_process.spawnSync(...)
+const {spawnSync, spawn} = require('child_process')
+
+// Not vulnerable
+spawn('cat', ['*.js', userInput])
 ```
 
 #### References
