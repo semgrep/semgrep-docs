@@ -68,7 +68,7 @@ You are now signed in to Semgrep App.
 
 #### Permissions for GitHub
 
-This section explains Semgrep App permissions. Semgrep App requests the following permissions in order to log in through GitHub:
+This section explains Semgrep App permissions. Semgrep App requests the following permissions when you log in through GitHub:
 
 <dl>
     <dt>Verify your GitHub identity</dt>
