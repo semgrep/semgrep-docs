@@ -97,7 +97,7 @@ The GitHub integration app is called `semgrep-app`. This app is used to integrat
     <dt>Reading and writing secrets</dt>
     <dd>Enables automatically adding of the Semgrep App Token to your repository secrets when onboarding projects. Note: We cannot read the values of your existing or future secrets (only the names).</dd>
     <dt>Writing (and reading) 2 files</dt>
-    <dd>Enables Semgrep App to configure itself to run in CI by writing to <code>.github/workflows/semgrep.yml</code> and <code>.semgrepignore</code>.</dd>
+    <dd>Enables Semgrep App to configure itself to run in CI by writing to <code>.github/workflows/semgrep.yml</code> and <code>.semgrepignore</code> files.</dd>
     <dt>Writing (and reading) workflows</dt>
     <dd>Enables Semgrep App to configure itself to run in CI by writing to <code>.github/workflows/semgrep.yml</code>. GitHub allows writing to files within <code>.github/workflows/</code> only if this permission is granted along with "Writing a single file".</dd>
     <dt>Reading PRs, a single file, and workflows</dt>
