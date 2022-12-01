@@ -141,7 +141,7 @@ To **ignore multiple findings**, follow these steps:
 1. On the [Findings](https://semgrep.dev/orgs/-/findings?tab=open) page, click the **Status** filter, and then select **Open** status to see all open findings.
 1. Perform one of these steps:
     - Select all findings by clicking on the header row checkbox that states **Showing X open findings**. You can navigate to succeeding pages and add other results to the current selection.
-    - Select more findings by clicking on their checkboxes. The finding's checkbox is marked as the colorful finding's status indicator (marked by letters **L** (Low), **M** (Medium), **H** (High)).
+    - Select more findings by clicking on their checkboxes.
 1. Click the **Triage** button.
 1. Optional: Select a reason of why you are ignoring a finding. Choose either: **False positive**, **Acceptable risk**, **No time to fix**
 1. Select **Ignored** from the dropdown menu.
@@ -166,7 +166,7 @@ To **open findings**, follow these steps:
 1. On the [Findings](https://semgrep.dev/orgs/-/findings?tab=open) page, click the **Status** filter, and then select **Ignored** or **Fixed** status to see all ignored or fixed findings.
 1. Perform one of these steps:
     - Select all findings by clicking on the header row checkbox that states **Showing X open findings**. You can navigate to succeeding pages and add other results to the current selection.
-    - Select relevant findings one by one by clicking on their checkboxes. The finding's checkbox is marked as the colorful finding's status indicator (marked by letters **L** (Low), **M** (Medium), **H** (High)).
+    - Select relevant findings one by one by clicking on their checkboxes.
 1. Click the **Triage** button.
 1. In the **Triage state** dropdown menu, select **Reopened**.
 1. Click **Save**.
