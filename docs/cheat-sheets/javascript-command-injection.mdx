@@ -21,14 +21,14 @@ semgrep --config p/javascript-command-injection
 
 ### 1.A. Spawning a shell with exec function
 
-`exec()` spawns a shell then executes the command within that shell, buffering any generated output. Never pass unsanitized user input to this function. Any input containing shell metacharacters can be used to trigger arbitrary command execution. 
+The `exec()` function executes shell commands. It spawns a shell and then executes the command within the spawned shell, buffering any generated output. Never pass unsanitized user input to this function. Any input containing shell metacharacters can be used to trigger arbitrary command execution. 
 
 Example:
 
 ```javascript
 const {exec} = require('child_process')
 
-const userInput = "$(pwn command)" // value supplied by user input
+const userInput = "$(dangerous command)" // Value supplied by user input
 
 // Vunerable
 exec(`cat *.js ${userInput}`, (error, stdout, stderr) => {
@@ -42,7 +42,12 @@ exec(`cat *.js ${userInput}`, (error, stdout, stderr) => {
 
 #### Mitigation
 
-Try to avoid non-literal values for the command string. If it is not possible, then do not let running arbitrary commands, use an allowlist for inputs. Strip `!@#$;&*~"'{}][-+%^` characters from an input provided for the command string. 
+- Always try to use internal JavaScript (if it exists) instead of running an OS command. In other words, use internal language features instead of invoking commands that can be exploited.
+- Don’t pass user-controlled input or use an allowlist for inputs.
+- Avoid non-literal values for the command string.
+- Avoid running a shell as a command with arguments.
+- TODO <make these specific for each language with an exact specific array> TODO If it is not possible, use an array with a sequence of program arguments instead of a single string.
+- TODO myself <Use this wording for all other command injections> TODO Strip everything except alphanumeric characters from an input provided for the command string and arguments.
 
 #### Semgrep rule
 
@@ -50,7 +55,7 @@ Try to avoid non-literal values for the command string. If it is not possible, t
 
 ### 1.B. Spawning a process with spawn function
 
-`spawn()` and `spawnSync()` spawns a new process using the given command. Allowing spawning arbitrary programs or running shell processes with arbitrary arguments can result in a command injection vulnerability.
+The `spawn()` and `spawnSync()` functions spawn a new process using the command with a list of arguments. This allows to spawn any programs or running shell processes with arbitrary arguments that can result in a command injection vulnerability.
 
 Example:
 
@@ -76,7 +81,12 @@ spawn("sh", ["-c", userInput])
 
 #### Mitigation
 
-Try to avoid non-literal values for the command string. If it is not possible, then do not let running arbitrary commands, use an allowlist for inputs.
+- Always try to use internal JavaScript (if it exists) instead of running an OS command. In other words, use internal language features instead of invoking commands that can be exploited.
+- Don’t pass user-controlled input or use an allowlist for inputs.
+- Avoid non-literal values for the command string.
+- Avoid running a shell as a command with arguments.
+- TODO <make these specific for each language with an exact specific array> TODO Define a list of allowed arguments.
+- TODO myself <Use this wording for all other command injections> TODO Strip everything except alphanumeric characters from an input provided for the command string and arguments.
 
 #### Semgrep rule
 
@@ -84,7 +94,7 @@ Try to avoid non-literal values for the command string. If it is not possible, t
 
 ### 1.C. spawn(...,{shell: true})
 
-Functions from `child_process` module have `shell` argument for specifying if the command should be executed through the shell. Using `shell: true` is dangerous because it propagates current shell settings and variables, which makes it much easier for a malicious actor to execute commands.
+Functions from `child_process` module contains `shell` argument for specifying if the command should be executed through the shell. Using `shell: true` is dangerous because it propagates current shell settings and variables, which makes it much easier for a malicious actor to execute commands.
 
 Example:
 

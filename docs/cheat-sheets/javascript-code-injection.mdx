@@ -34,9 +34,9 @@ Do not let user input in `vm` functions.
 
 <LinkToRegistryRule ruleId="javascript.lang.security.audit.vm-injection.vm-runincontext-context-injection" />
 
-### 1.B. eval(...)
+### 1.B. `eval()` or `new Function()`
 
-The `eval()` function evaluates JavaScript code represented as a string. Executing JavaScript from a string is an enormous security risk. It is far too easy for a bad actor to run arbitrary code when you use `eval()`. 
+The `eval()` or `new Function()` function evaluates JavaScript code represented as a string. Executing JavaScript from a string is an enormous security risk. It is far too easy for a bad actor to run arbitrary code when you use `eval()` or `new Function()`.
 
 Example:
 
@@ -54,7 +54,9 @@ var x = new Function(`return ${userInput}(a,b)`)
 
 #### Mitigation
 
-TODO - Ensure that content that JavaScript interprets is not controllable by external sources. TODO(1)
+- Don't use `eval()` or `new Function()` if possible.
+- If you need to use `eval()` or `new Function()` with non literal values, ensure that executed content is not controllable by external sources.
+- If it’s not possible, strip everything except alphanumeric characters from the input.
 
 #### Semgrep rule
 
