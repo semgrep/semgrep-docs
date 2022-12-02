@@ -83,7 +83,7 @@ Semgrep App requests the following standard permissions set by GitHub when you f
     <dt>Know which resources you can access</dt>
     <dd>Semgrep does not use or access any resources when first logging in. However, you can choose to share resources at a later point in order to add repositories into Semgrep App.</dd>
     <dt>Act on your behalf</dt>
-    <dd>Enables Semgrep App to perform certain tasks <strong>only on resources that you choose to share with Semgrep App</strong>. By default, when you log into Semgrep App for the very first time, no resources are shared. Semgrep App never uses this permission and never performs any actions on your behalf. See <a href ="https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/authorizing-github-apps">When does a GitHub App act on your behalf?</a></dd>
+    <dd>Enables Semgrep App to perform certain tasks <strong>only on resources that you choose to share with Semgrep App</strong>. By default, when you log into Semgrep App for the very first time, no resources are shared. Semgrep App never uses this permission and never performs any actions on your behalf. See <a href ="https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/authorizing-github-apps">When does a GitHub App act on your behalf?</a> in GitHub documentation.</dd>
 </dl>
 
 ##### Permissions when integrating your repositories into Semgrep App
@@ -106,9 +106,9 @@ The GitHub integration app is called `semgrep-app`. This app is used to integrat
     <dt>Reading and writing secrets</dt>
     <dd>Enables automatically adding of the Semgrep App Token to your repository secrets when onboarding projects. Note: We cannot read the values of your existing or future secrets (only the names).</dd>
     <dt>Writing (and reading) 2 files</dt>
-    <dd>Enables Semgrep App to configure itself to run in CI by writing to <code>.github/workflows/semgrep.yml</code> and <code>.semgrepignore</code>.</dd>
-    <dt>Writing (and reading) workflows</dt>
-    <dd>Enables Semgrep App to configure itself to run in CI by writing to <code>.github/workflows/semgrep.yml</code>. GitHub allows writing to files within <code>.github/workflows/</code> only if this permission is granted along with "Writing a single file".</dd>
+    <dd>Enables Semgrep App to configure itself to run in CI by writing to <code>.github/workflows/semgrep.yml</code> and <code>.semgrepignore</code> files.</dd>
+    <dt>Writing and reading workflows</dt>
+    <dd>Enables Semgrep App to configure itself to run in CI by writing to <code>.github/workflows/semgrep.yml</code>. GitHub allows writing to files within <code>.github/workflows/</code> directory only if this permission is granted along with "Writing a single file".</dd>
     <dt>Reading PRs, a single file, and workflows</dt>
     <dd>Semgrep App only uses write permissions on these resources, but those can only be requested along with read permissions. Semgrep App never accesses your pull request data.</dd>
 </dl>
