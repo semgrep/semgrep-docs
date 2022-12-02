@@ -109,8 +109,8 @@ The GitHub integration app is called [`semgrep-app`](https://github.com/apps/sem
     <dd>Enables Semgrep App to configure itself to run in CI by writing to <code>.github/workflows/semgrep.yml</code> and <code>.semgrepignore</code> files.</dd>
     <dt>Writing and reading workflows</dt>
     <dd>Enables Semgrep App to configure itself to run in CI by writing to <code>.github/workflows/semgrep.yml</code>. GitHub allows writing to files within <code>.github/workflows/</code> directory only if this permission is granted along with "Writing a single file".</dd>
-    <dt>Reading PRs, a single file, and workflows</dt>
-    <dd>Semgrep App only uses write permissions on these resources, but those can only be requested along with read permissions. Semgrep App never accesses your pull request data.</dd>
+    <dt>Writing and reading pull requests</dt>
+    <dd>Write permissions allow Semgrep App to leave pull request comments about findings. Read permissions allow Semgrep App to automatically remove findings when the pull request that introduced them is closed without merging.</dd>
 </dl>
 
 ### Signing in with GitLab
