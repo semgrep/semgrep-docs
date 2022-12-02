@@ -27,7 +27,7 @@ toc_max_heading_level: 3
 ### Changes
 
 - The toggle to enable **Autofix** functionality has been moved from the project settings page to the global organization (Settings)[https://semgrep.dev/orgs/-/settings] page.
-- Previously, Semgrep App rescanned projects automatically every week. Now, newly added projects to Semgrep App that use GitHub Actions are by default rescanned every day. This update only affects newly added projects. (PR [#6738](https://github.com/returntocorp/semgrep-app/pull/6738))
+- Previously, Semgrep App rescanned projects automatically every week. Now, newly added projects to Semgrep App that use GitHub Actions are by default rescanned every day. This update only affects newly added projects.
 - Many bug fixes and performance improvements were introduced to make your experience with Semgrep App much more pleasant.
 
 ## Semgrep CLI
