@@ -33,6 +33,14 @@ import GhaSemgrepAppSastDash from "/src/components/code_snippets/_gha-semgrep-ap
 import GhaSemgrepAppStandaloneDash from "/src/components/code_snippets/_gha-semgrep-app-standalone-dash.mdx"
 import GhaSemgrepAppSsc from "/src/components/code_snippets/_gha-semgrep-app-ssc.mdx"
 
+<!-- GLCICD -->
+import GlcicdSemgrepAppSast from "/src/components/code_snippets/_glcicd-semgrep-app-sast.mdx"
+import GlcicdSemgrepAppStandalone from "/src/components/code_snippets/_glcicd-semgrep-app-standalone.mdx"
+import GlcicdSemgrepAppSastDash from "/src/components/code_snippets/_glcicd-semgrep-app-sast-dash.mdx"
+import GlcicdSemgrepAppStandaloneDash from "/src/components/code_snippets/_glcicd-semgrep-app-standalone-dash.mdx"
+import GlcicdSemgrepAppSsc from "/src/components/code_snippets/_glcicd-semgrep-app-ssc.mdx"
+
+<!-- -->
 
 # Sample continuous integration (CI) configurations
 
@@ -79,6 +87,7 @@ To add a Semgrep configuration file in your GitHub Actions pipeline:
     values={[
     {label: 'CI with Semgrep App', value: 'gha-semgrep'},
     {label: 'Stand-alone CI job', value: 'gha-standalone'},
+    {label: 'CI with Semgrep Supply Chain', value: 'gha-ssc'},
     ]}
 >
 
@@ -93,6 +102,13 @@ To add a Semgrep configuration file in your GitHub Actions pipeline:
 <GhaSemgrepAppStandalone />
 
 </TabItem>
+
+<TabItem value='gha-ssc'>
+
+<GhaSemgrepAppSsc />
+
+</TabItem>
+
 </Tabs>
 
 <details><summary>Alternate job that uploads findings to GitHub Advanced Security Dashboard</summary>
@@ -136,71 +152,24 @@ To add a Semgrep configuration snippet in your GitLab CI/CD pipeline:
     values={[
     {label: 'CI with Semgrep App', value: 'glcicd-semgrep'},
     {label: 'Stand-alone CI job', value: 'glcicd-standalone'},
+    {label: 'Stand-alone CI job', value: 'glcicd-ssc'},
     ]}
 >
 
 <TabItem value='glcicd-semgrep'>
 
-  ```yaml
-  semgrep:
-    # A Docker image with Semgrep installed.
-    image: returntocorp/semgrep
-    # Run the "semgrep ci" command on the command line of the docker image.
-    script: semgrep ci
-  
-    rules:
-    # Scan changed files in MRs, (diff-aware scanning):
-    - if: $CI_MERGE_REQUEST_IID
-  
-    # Scan mainline (default) branches and report all findings.
-    - if: $CI_COMMIT_BRANCH == $CI_DEFAULT_BRANCH
-  
-    variables:
-      # Connect to Semgrep App through your SEMGREP_APP_TOKEN.
-      # Generate a token from Semgrep App > Settings
-      # and add it as a variable in your GitLab CI/CD project settings.
-      SEMGREP_APP_TOKEN: $SEMGREP_APP_TOKEN
-  
-    # Other optional settings in the `variables` block:
-
-    # Never fail the build due to findings on pushes.
-    # Instead, just collect findings for semgrep.dev/manage/findings
-    #   SEMGREP_AUDIT_ON: push
-  
-    # Receive inline MR comments (requires Semgrep App account)
-    # Setup instructions: 
-    # https://semgrep.dev/docs/semgrep-app/notifications/#enabling-gitlab-merge-request-comments
-    #   GITLAB_TOKEN: $PAT
-  ```
+<GlcicdSemgrepAppSast />
 
 </TabItem>
 
 <TabItem value='glcicd-standalone'>
 
-  ```yaml
-  semgrep:
-    # A Docker image with Semgrep installed.
-    image: returntocorp/semgrep
-    # Run the "semgrep ci" command on the command line of the docker image.
-    script: semgrep ci
-  
-    rules:
-    # Scan changed files in MRs, (diff-aware scanning):
-    - if: $CI_MERGE_REQUEST_IID
-  
-    # Scan mainline (default) branches and report all findings.
-    - if: $CI_COMMIT_BRANCH == $CI_DEFAULT_BRANCH
-  
-    variables:
-      # Add the rules that Semgrep uses by setting the SEMGREP_RULES environment variable.
-      SEMGREP_RULES: p/default # See more at semgrep.dev/explore.
-  
-    # Other optional settings in the `variables` block:
+<GlcicdSemgrepAppStandalone />
 
-    # Never fail the build due to findings on pushes.
-    # Instead, just collect findings for semgrep.dev/manage/findings
-    #   SEMGREP_AUDIT_ON: push
-  ```
+</TabItem>
+<TabItem value='glcicd-ssc'>
+
+<GlcicdSemgrepAppSsc />
 
 </TabItem>
 </Tabs>
@@ -217,84 +186,14 @@ To add a Semgrep configuration snippet in your GitLab CI/CD pipeline:
 
 <TabItem value='glcicd-semgrep-dash'>
 
-  ```yaml
-  semgrep:
-    # A Docker image with Semgrep installed.
-    image: returntocorp/semgrep
-  
-    rules:
-    # Scan changed files in MRs, (diff-aware scanning):
-    - if: $CI_MERGE_REQUEST_IID
-  
-    # Scan mainline (default) branches and report all findings.
-    - if: $CI_COMMIT_BRANCH == $CI_DEFAULT_BRANCH
-  
-    variables:
-      # Connect to Semgrep App through your SEMGREP_APP_TOKEN.
-      # Generate a token from Semgrep App > Settings
-      # and add it as a variable in your GitLab CI/CD project settings.
-      SEMGREP_APP_TOKEN: $SEMGREP_APP_TOKEN
-  
-      # Upload findings to GitLab SAST Dashboard:
-      SEMGREP_GITLAB_JSON: "1"
-
-    # Other optional settings in the `variables` block:
-
-    # Never fail the build due to findings on pushes.
-    # Instead, just collect findings for semgrep.dev/manage/findings
-    #   SEMGREP_AUDIT_ON: push
-  
-    # Receive inline MR comments (requires Semgrep App account)
-    # Setup instructions: 
-    # https://semgrep.dev/docs/semgrep-app/notifications/#enabling-gitlab-merge-request-comments
-    #   GITLAB_TOKEN: $PAT
-
-    # Run the "semgrep ci" command on the command line of the docker image and send findings
-    # to GitLab SAST.
-    script: semgrep ci --gitlab-sast > gl-sast-report.json || true
-    artifacts:
-      reports:
-        sast: gl-sast-report.json
-
-  ```
+<GlcicdSemgrepAppSastDash />
 
 </TabItem>
 
 <TabItem value='glcicd-standalone-dash'>
 
-  ```yaml
-  semgrep:
-    # A Docker image with Semgrep installed.
-    image: returntocorp/semgrep
-  
-    rules:
-    # Scan changed files in MRs, (diff-aware scanning):
-    - if: $CI_MERGE_REQUEST_IID
-  
-    # Scan mainline (default) branches and report all findings.
-    - if: $CI_COMMIT_BRANCH == $CI_DEFAULT_BRANCH
-  
-    variables:
-      # Add the rules that Semgrep uses by setting the SEMGREP_RULES environment variable.
-      SEMGREP_RULES: p/default # See more at semgrep.dev/explore.
+<GlcicdSemgrepAppStandaloneDash />
 
-      # Upload findings to GitLab SAST Dashboard:
-      SEMGREP_GITLAB_JSON: "1"
-
-    # Other optional settings in the `variables` block:
-
-    # Never fail the build due to findings on pushes.
-    # Instead, just collect findings for semgrep.dev/manage/findings
-    #   SEMGREP_AUDIT_ON: push
-  
-    # Run the "semgrep ci" command on the command line of the docker image and send findings
-    # to GitLab SAST.
-    script: semgrep ci --gitlab-sast > gl-sast-report.json || true
-    artifacts:
-      reports:
-        sast: gl-sast-report.json
-
-  ```
 </TabItem>
 </Tabs>
 
