@@ -22,7 +22,7 @@ toc_max_heading_level: 3
 
 ### Additions
 
-- When you triage a finding, Semgrep App now displays a form that asks whether the finding was a **False positive**, **Acceptable risk**, or you had **No time to fix**. For more information, see [Managing finding status](/semgrep-app/findings/#managing-finding-status).
+- When you triage a finding, Semgrep App now displays a form that asks whether the finding was a **False positive**, **Acceptable risk**, or you had **No time to fix**. For more information, see [Managing finding status](/semgrep-app/findings/#managing-finding-status). ![Screenshot of Semgrep App triage menu](/img/app-findings-triage.png)
 - When ignoring an individual finding, you can now ignore similar future findings by selecting one of the following options: **Just this file**, **This directory**, or **Parent directory**. These options specify which files and directories Semgrep App ignores. In addition, you can now remove a rule when you triage a single finding without having to go to the Rule board. To ignore a rule while triaging a finding, enable the **Remove this rule from Rule board** when triaging an individual finding. See (Ignoring individual findings)[/semgrep-app/findings/#ignoring-individual-findings].
 
 ### Changes
