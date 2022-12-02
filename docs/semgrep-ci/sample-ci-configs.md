@@ -22,7 +22,16 @@ import MoreHelp from "/src/components/MoreHelp"
 
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
+
+<!-- Import code snippets.
+Read /src/components/code_snippets/readme to understand modular code snippet imports. -->
+
+<!-- GHA -->
 import GhaSemgrepAppSast from "/src/components/code_snippets/_gha-semgrep-app-sast.mdx"
+import GhaSemgrepAppStandalone from "/src/components/code_snippets/_gha-semgrep-app-standalone.mdx"
+import GhaSemgrepAppSastDash from "/src/components/code_snippets/_gha-semgrep-app-sast-dash.mdx"
+import GhaSemgrepAppStandaloneDash from "/src/components/code_snippets/_gha-semgrep-app-standalone-dash.mdx"
+import GhaSemgrepAppSsc from "/src/components/code_snippets/_gha-semgrep-app-ssc.mdx"
 
 
 # Sample continuous integration (CI) configurations
@@ -72,6 +81,7 @@ To add a Semgrep configuration file in your GitHub Actions pipeline:
     {label: 'Stand-alone CI job', value: 'gha-standalone'},
     ]}
 >
+
 <TabItem value='gha-semgrep'>
 
 <GhaSemgrepAppSast />
@@ -80,43 +90,8 @@ To add a Semgrep configuration file in your GitHub Actions pipeline:
 
 <TabItem value='gha-standalone'>
 
-  ```yaml
-  # Name of this GitHub Actions workflow.
-  name: Semgrep
-  
-  on:
-    # Scan changed files in PRs (diff-aware scanning):
-    pull_request: {}
-    # Scan mainline branches and report all findings: 
-    push:
-      branches: ["master", "main"]
-    # Schedule the CI job (this method uses cron syntax):
-    schedule:
-      - cron: '0 0 * * *' # Sets Semgrep to scan nightly at 00:00 UTC.
-  
-  jobs:
-    semgrep:
-      # User-definable name of this GitHub Actions job:
-      name: Scan
-      # If you are self-hosting, change the following `runs-on` value: 
-      runs-on: ubuntu-latest
-  
-      container:
-        # A Docker image with Semgrep installed. Do not change this.
-        image: returntocorp/semgrep
-  
-      # Skip any PR created by dependabot to avoid permission issues:
-      if: (github.actor != 'dependabot[bot]')
-  
-      steps:
-        # Fetch project source with GitHub Actions Checkout.
-        - uses: actions/checkout@v3
-        # Run the "semgrep ci" command on the command line of the docker image.
-        - run: semgrep ci
-          env:
-             # Add the rules that Semgrep uses by setting the SEMGREP_RULES environment variable. 
-             SEMGREP_RULES: p/default # more at semgrep.dev/explore
-  ```
+<GhaSemgrepAppStandalone />
+
 </TabItem>
 </Tabs>
 
@@ -132,98 +107,13 @@ To add a Semgrep configuration file in your GitHub Actions pipeline:
 
 <TabItem value='gha-semgrep-dash'>
 
-  ```yaml
-  # Name of this GitHub Actions workflow.
-  name: Semgrep
-  
-  on:
-    # Scan changed files in PRs (diff-aware scanning):
-    pull_request: {}
-    # Scan mainline branches and report all findings:
-    push:
-      branches: ["master", "main"]
-    # Schedule the CI job (this method uses cron syntax):
-    schedule:
-      - cron: '0 0 * * *' # Sets Semgrep to scan nightly at 00:00 UTC.
-  
-  jobs:
-    semgrep:
-      # User definable name of this GitHub Actions job.
-      name: Scan
-      # If you are self-hosting, change the following `runs-on` value: 
-      runs-on: ubuntu-latest
-  
-      container:
-        # A Docker image with Semgrep installed. Do not change this.
-        image: returntocorp/semgrep
-  
-      # Skip any PR created by dependabot to avoid permission issues:
-      if: (github.actor != 'dependabot[bot]')
-  
-      steps:
-        # Fetch project source with GitHub Actions Checkout.
-        - uses: actions/checkout@v3
-        # Run the "semgrep ci" command on the command line of the docker image.
-        - run: semgrep ci --sarif --output=semgrep.sarif
-          env:
-            # Connect to Semgrep App through your SEMGREP_APP_TOKEN.
-            # Generate a token from Semgrep App > Settings
-            # and add it to your GitHub secrets.
-            SEMGREP_APP_TOKEN: ${{ secrets.SEMGREP_APP_TOKEN }}
-  
-        - name: Upload SARIF file for GitHub Advanced Security Dashboard
-          uses: github/codeql-action/upload-sarif@v2
-          with:
-            sarif_file: semgrep.sarif
-          if: always()
-  ```
+<GhaSemgrepAppSastDash />
 
 </TabItem>
+
 <TabItem value='gha-standalone-dash'>
 
-  ```yaml
-  # Name of this GitHub Actions workflow.
-  name: Semgrep
-  
-  on:
-    # Scan changed files in PRs (diff-aware scanning):
-    pull_request: {}
-    # Scan mainline branches and report all findings: 
-    push:
-      branches: ["master", "main"]
-    # Schedule the CI job (this method uses cron syntax):
-    schedule:
-      - cron: '0 0 * * *' # Sets Semgrep to scan nightly at 00:00 UTC.
-  
-  jobs:
-    semgrep:
-      # User-definable name of this GitHub Actions job:
-      name: Scan
-      # If you are self-hosting, change the following `runs-on` value: 
-      runs-on: ubuntu-latest
-  
-      container:
-        # A Docker image with Semgrep installed. Do not change this.
-        image: returntocorp/semgrep
-  
-      # Skip any PR created by dependabot to avoid permission issues:
-      if: (github.actor != 'dependabot[bot]')
-  
-      steps:
-        # Fetch project source with GitHub Actions Checkout.
-        - uses: actions/checkout@v3
-        # Run the "semgrep ci" command on the command line of the docker image.
-        - run: semgrep ci --sarif --output=semgrep.sarif
-          env:
-             # Add the rules that Semgrep uses by setting the SEMGREP_RULES environment variable. 
-             SEMGREP_RULES: p/default # more at semgrep.dev/explore
-
-        - name: Upload SARIF file for GitHub Advanced Security Dashboard
-          uses: github/codeql-action/upload-sarif@v2
-          with:
-            sarif_file: semgrep.sarif
-          if: always()
-  ```
+<GhaSemgrepAppStandaloneDash />
 
 </TabItem>
 </Tabs>
