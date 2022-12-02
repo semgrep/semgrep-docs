@@ -22,6 +22,8 @@ import MoreHelp from "/src/components/MoreHelp"
 
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
+import GhaSemgrepAppSast from "/src/components/code_snippets/_gha-semgrep-app-sast.mdx"
+
 
 # Sample continuous integration (CI) configurations
 
@@ -72,46 +74,7 @@ To add a Semgrep configuration file in your GitHub Actions pipeline:
 >
 <TabItem value='gha-semgrep'>
 
-  ```yaml
-  # Name of this GitHub Actions workflow.
-  name: Semgrep
-  
-  on:
-    # Scan changed files in PRs (diff-aware scanning):
-    pull_request: {}
-    # Scan mainline branches and report all findings:
-    push:
-      branches: ["master", "main"]
-    # Schedule the CI job (this method uses cron syntax):
-    schedule:
-      - cron: '0 0 * * *' # Sets Semgrep to scan nightly.
-  
-  jobs:
-    semgrep:
-      # User definable name of this GitHub Actions job.
-      name: Scan
-      # If you are self-hosting, change the following `runs-on` value: 
-      runs-on: ubuntu-latest
-  
-      container:
-        # A Docker image with Semgrep installed. Do not change this.
-        image: returntocorp/semgrep
-  
-      # Skip any PR created by dependabot to avoid permission issues:
-      if: (github.actor != 'dependabot[bot]')
-  
-      steps:
-        # Fetch project source with GitHub Actions Checkout.
-        - uses: actions/checkout@v3
-        # Run the "semgrep ci" command on the command line of the docker image.
-        - run: semgrep ci
-          env:
-            # Connect to Semgrep App through your SEMGREP_APP_TOKEN.
-            # Generate a token from Semgrep App > Settings
-            # and add it to your GitHub secrets.
-            SEMGREP_APP_TOKEN: ${{ secrets.SEMGREP_APP_TOKEN }}
-
-  ```
+<GhaSemgrepAppSast />
 
 </TabItem>
 
