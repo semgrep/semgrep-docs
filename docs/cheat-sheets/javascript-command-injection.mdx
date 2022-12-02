@@ -91,31 +91,3 @@ spawn("sh", ["-c", userInput])
 #### Semgrep rule
 
 <LinkToRegistryRule ruleId="javascript.lang.security.detect-child-process.detect-child-process" />
-
-### 1.C. spawn(...,{shell: true})
-
-Functions from `child_process` module contains `shell` argument for specifying if the command should be executed through the shell. Using `shell: true` is dangerous because it propagates current shell settings and variables, which makes it much easier for a malicious actor to execute commands.
-
-Example:
-
-```javascript
-const {spawn} = require('child_process')
-
-// dangerous
-spawn('ls', ['-lh', '/usr'], {shell: true});
-
-// safe
-spawn('ls', ['-lh', '/usr'], {shell: false});
-```
-
-#### References
-
-[`child_process` module documentation](https://nodejs.org/dist/latest-v14.x/docs/api/child_process.html)
-
-#### Mitigation
-
-Use `shell: false` instead.
-
-#### Semgrep rule
-
-<LinkToRegistryRule ruleId="javascript.lang.security.audit.spawn-shell-true.spawn-shell-true" />
