@@ -105,7 +105,7 @@ The GitHub integration app is called [`semgrep-app`](https://github.com/apps/sem
     <dd>Enables integration with GitHub Advanced Security (for example, to show Semgrep results).</dd>
     <dt>Reading and writing secrets</dt>
     <dd>Enables automatically adding of the Semgrep App Token to your repository secrets when onboarding projects. Note: We cannot read the values of your existing or future secrets (only the names).</dd>
-    <dt>Writing (and reading) 2 files</dt>
+    <dt>Reading and writing 2 files</dt>
     <dd>Enables Semgrep App to configure itself to run in CI by writing to <code>.github/workflows/semgrep.yml</code> and <code>.semgrepignore</code> files.</dd>
     <dt>Writing and reading workflows</dt>
     <dd>Enables Semgrep App to configure itself to run in CI by writing to <code>.github/workflows/semgrep.yml</code>. GitHub allows writing to files within <code>.github/workflows/</code> directory only if this permission is granted along with "Writing a single file".</dd>
