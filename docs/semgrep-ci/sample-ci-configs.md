@@ -84,7 +84,7 @@ To add a Semgrep configuration file in your GitHub Actions pipeline:
       branches: ["master", "main"]
     # Schedule the CI job (this method uses cron syntax):
     schedule:
-      - cron: '30 0 1,15 * *' # Scheduled for 00:30 UTC on both the 1st and 15th of the month
+      - cron: '0 0 * * *' # Sets Semgrep to scan nightly.
   
   jobs:
     semgrep:
@@ -129,7 +129,7 @@ To add a Semgrep configuration file in your GitHub Actions pipeline:
       branches: ["master", "main"]
     # Schedule the CI job (this method uses cron syntax):
     schedule:
-      - cron: '30 0 1,15 * *' # Scheduled for 00:30 UTC on both the 1st and 15th of the month
+      - cron: '0 0 * * *' # Sets Semgrep to scan nightly at 00:00 UTC.
   
   jobs:
     semgrep:
@@ -181,7 +181,7 @@ To add a Semgrep configuration file in your GitHub Actions pipeline:
       branches: ["master", "main"]
     # Schedule the CI job (this method uses cron syntax):
     schedule:
-      - cron: '30 0 1,15 * *' # scheduled for 00:30 UTC on both the 1st and 15th of the month
+      - cron: '0 0 * * *' # Sets Semgrep to scan nightly at 00:00 UTC.
   
   jobs:
     semgrep:
@@ -230,7 +230,7 @@ To add a Semgrep configuration file in your GitHub Actions pipeline:
       branches: ["master", "main"]
     # Schedule the CI job (this method uses cron syntax):
     schedule:
-      - cron: '30 0 1,15 * *' # Scheduled for 00:30 UTC on both the 1st and 15th of the month
+      - cron: '0 0 * * *' # Sets Semgrep to scan nightly at 00:00 UTC.
   
   jobs:
     semgrep:
