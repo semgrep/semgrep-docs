@@ -70,12 +70,12 @@ You are now signed in to Semgrep App.
 
 This section explains Semgrep App permissions that are requested in two different events:
 
-* When first logging into Semgrep App through GitHub.
-* When first integrating, onboarding, or adding new repositories from GitHub to Semgrep App. To onboard new repositories you will be prompted to install the GitHub integration app called [`semgrep-app`](https://github.com/apps/semgrep-app).
+* When you first sign in through GitHub.
+* When you first add, integrate, or onboard your repositories to Semgrep App.
 
-##### Permissions when logging in through GitHub
+##### Permissions when signing in with GitHub
 
-Semgrep App requests the following standard permissions set by GitHub when you first log in. However, not all permissions are used by Semgrep App. Read the following list to see how Semgrep App uses permissions when logging in:
+Semgrep App requests the following standard permissions set by GitHub when you first sign in. However, not all permissions are used by Semgrep App. Read the following list to see how Semgrep App uses permissions when signing in:
 
 <dl>
     <dt>Verify your GitHub identity</dt>
@@ -83,12 +83,12 @@ Semgrep App requests the following standard permissions set by GitHub when you f
     <dt>Know which resources you can access</dt>
     <dd>Semgrep does not use or access any resources when first logging in. However, you can choose to share resources at a later point in order to add repositories into Semgrep App.</dd>
     <dt>Act on your behalf</dt>
-    <dd>Enables Semgrep App to perform certain tasks <strong>only on resources that you choose to share with Semgrep App</strong>. By default, when you log into Semgrep App for the very first time, no resources are shared. Semgrep App never uses this permission and never performs any actions on your behalf. See <a href ="https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/authorizing-github-apps">When does a GitHub App act on your behalf?</a> in GitHub documentation.</dd>
+    <dd>Enables Semgrep App to perform certain tasks <strong>only on resources that you choose to share with Semgrep App</strong>. Semgrep App never uses this permission and never performs any actions on your behalf, even after you have installed <code>semgrep-app</code>. See <a href ="https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/authorizing-github-apps">When does a GitHub App act on your behalf?</a> in GitHub documentation.</dd>
 </dl>
 
-##### Permissions when integrating your repositories into Semgrep App
+##### Permissions when adding your repositories into Semgrep App
 
-The GitHub integration app is called `semgrep-app`. This app is used to integrate Semgrep into user-selected GitHub repositories. It requires the following permissions:
+The GitHub integration app is called [`semgrep-app`](https://github.com/apps/semgrep-app). This app is used to integrate Semgrep into user-selected GitHub repositories. It requires the following permissions:
 
 <dl>
     <dt>Reading metadata of the repositories you select</dt>
