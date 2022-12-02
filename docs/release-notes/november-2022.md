@@ -23,17 +23,17 @@ toc_max_heading_level: 3
 ### Additions
 
 - When you triage a finding, Semgrep App now displays a form that asks whether the finding was a **False positive**, **Acceptable risk**, or you had **No time to fix**. For more information, see [Managing finding status](/semgrep-app/findings/#managing-finding-status). ![Screenshot of Semgrep App triage menu](/img/app-findings-triage.png)
-- When ignoring an individual finding, you can now ignore similar future findings by selecting one of the following options: **Just this file**, **This directory**, or **Parent directory**. These options specify which files and directories Semgrep App ignores. In addition, you can now remove a rule when you triage a single finding without having to go to the Rule board. To ignore a rule while triaging a finding, enable the **Remove this rule from Rule board** when triaging an individual finding. See (Ignoring individual findings)[/semgrep-app/findings/#ignoring-individual-findings].
+- When ignoring an individual finding, you can now ignore similar future findings by selecting one of the following options: **Just this file**, **This directory**, or **Parent directory**. These options specify which files and directories Semgrep App ignores. In addition, you can now remove a rule when you triage a single finding without having to go to the Rule board. To ignore a rule while triaging a finding, enable the **Remove this rule from Rule board** when triaging an individual finding. See [Ignoring individual findings](/semgrep-app/findings/#ignoring-individual-findings).
 
 ### Changes
 
-- The toggle to enable **Autofix** functionality has been moved from the project settings page to the global organization (Settings)[https://semgrep.dev/orgs/-/settings] page.
+- The toggle to enable **Autofix** functionality has been moved from the project settings page to the global organization [Settings](https://semgrep.dev/orgs/-/settings) page.
 - Previously, Semgrep App rescanned projects automatically every week. Now, newly added projects to Semgrep App that use GitHub Actions are by default rescanned every day. This update only affects newly added projects.
 - Many bug fixes and performance improvements were introduced to make your experience with Semgrep App much more pleasant.
 
 ## Semgrep CLI
 
-These release notes include upgrades for versions ranging between 0.120.0 and 0.123.0T. Version 0.119.0 of Semgrep was intentionally skipped. Version 0.120.0 immediately follows version 0.118.0.
+These release notes include upgrades for versions ranging between 0.120.0 and 0.123.0. Version 0.119.0 of Semgrep was intentionally skipped. Version 0.120.0 immediately follows version 0.118.0.
 
 ### Additions
 
@@ -42,7 +42,7 @@ These release notes include upgrades for versions ranging between 0.120.0 and 0.
 
 ### Changes
 
-- taint-mode: Semgrep’s taint analysis now provides basic field sensitivity support. See [Field sensitivity](/writing-rules/data-flow/taint-mode/#field-sensitivity) section for more details. 
+- taint-mode: Semgrep’s taint analysis now provides basic field sensitivity support. See (Field sensitivity)[/writing-rules/data-flow/taint-mode/#field-sensitivity] section for more details. 
 
 ## Semgrep in CI
 
@@ -58,6 +58,7 @@ These release notes include upgrades for versions ranging between 0.120.0 and 0.
     - SEMGREP_BRANCH
     - SEMGREP_JOB_URL
     - SEMGREP_COMMIT
+
   **Note**: Previous month, this update already affected Azure Pipelines, BitBucket Pipelines, Jenkins, and Travis CI.
 
 ## Documentation updates
@@ -83,7 +84,7 @@ These release notes include upgrades for versions ranging between 0.120.0 and 0.
 - The following CI documents have been updated to reflect the latest environment variable:
   - [Running Semgrep in continuous integration (CI) with Semgrep App](/semgrep-ci/running-semgrep-ci-with-semgrep-app/)
   - [Running Semgrep in continuous integration (CI) without Semgrep App](/semgrep-ci/running-semgrep-ci-without-semgrep-app/)
-  - [Sample continuous integration (CI) configurations] (/semgrep-ci/sample-ci-configs/)
+  - [Sample continuous integration [CI) configurations](/semgrep-ci/sample-ci-configs/)
 - Updated [Pricing and billing](/semgrep-app/pricing-and-billing/) page. [Semgrep Supply Chain supported languages](/supported-languages/#semgrep-supply-chain) are now part of Pricing and billing document.
 - The `SEMGREP_TIMEOUT ` information has been updated. See [`SEMGREP_TIMEOUT`](/semgrep-ci/configuration-reference/#semgrep_timeout) documentation for more details.
 - Collapsible items in the documentation sidebar now take you to overview pages for a given category or lead to introductory pages. Overview pages also provide an updated description for displayed cards that represent individual documents. For example: [Continuous integration (CI)](https://semgrep.dev/docs/category/continuous-integration-ci/), [Command-line interface (CLI)](https://semgrep.dev/docs/category/command-line-interface-cli/), [Data-flow analysis engine overview](https://semgrep.dev/docs/writing-rules/data-flow/data-flow-overview/)
