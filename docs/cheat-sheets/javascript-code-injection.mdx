@@ -41,8 +41,11 @@ The `eval()` function evaluates JavaScript code represented as a string. Executi
 Example:
 
 ```javascript
-eval()
-...
+const userInput = "1;require('child_process').exec('cat /etc/passwd')"
+eval(`var x = ${userInput}`)
+
+const userInput = "require('child_process').exec('cat /etc/passwd') && console.log"
+var x = new Function(`return ${userInput}(a,b)`)
 ```
 
 #### References

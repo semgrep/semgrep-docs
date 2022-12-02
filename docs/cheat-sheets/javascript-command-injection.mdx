@@ -26,7 +26,7 @@ semgrep --config p/javascript-command-injection
 Example:
 
 ```javascript
-const {exec, spawn} = require('child_process')
+const {exec} = require('child_process')
 
 const userInput = "$(pwn command)" // value supplied by user input
 
@@ -50,15 +50,24 @@ Try to avoid non-literal values for the command string. If it is not possible, t
 
 ### 1.B. Spawning a process with spawn function
 
-`spawn()` spawns a new process using the given command. Allowing spawning arbitrary programs or running shell processes with arbitrary arguments can result in a command injection vulnerability.
+`spawn()` and `spawnSync()` spawns a new process using the given command. Allowing spawning arbitrary programs or running shell processes with arbitrary arguments can result in a command injection vulnerability.
 
 Example:
 
 ```javascript
-const {spawnSync, spawn} = require('child_process')
+const {spawn} = require('child_process')
 
 // Not vulnerable
+const userInput = '' // value supplied by user input
 spawn('cat', ['*.js', userInput])
+
+// Vulnerable
+const userInput = 'pwn-command' // value supplied by user input
+spawn(userInput, ['-a', '-b'])
+
+// Vulnerable
+const userInput = 'echo 1 | cat /etc/passwd' // value supplied by user input
+spawn("sh", ["-c", userInput])
 ```
 
 #### References
@@ -80,8 +89,13 @@ Functions from `child_process` module have `shell` argument for specifying if th
 Example:
 
 ```javascript
-spawn(...,{shell: true})
-...
+const {spawn} = require('child_process')
+
+// dangerous
+spawn('ls', ['-lh', '/usr'], {shell: true});
+
+// safe
+spawn('ls', ['-lh', '/usr'], {shell: false});
 ```
 
 #### References
