@@ -38,11 +38,11 @@ These release notes include upgrades for versions ranging between 0.120.0 and 0.
 ### Additions
 
 - DeepSemgrep: Added installation path for DeepSemgrep on M1 machines.
-- Fail gracefully and print error message when running in unsupported Linux aarch64 or arm64 environment.
+- Fail gracefully and print an error message when running in unsupported Linux aarch64 or arm64 environment.
 
 ### Changes
 
-- taint-mode: Semgrep’s taint analysis now provides basic field sensitivity support. See (Field sensitivity)[/writing-rules/data-flow/taint-mode/#field-sensitivity] section for more details. 
+- taint-mode: Semgrep’s taint analysis now provides basic field sensitivity support. See [Field sensitivity](/writing-rules/data-flow/taint-mode/#field-sensitivity) section for more details. 
 
 ## Semgrep in CI
 
@@ -68,15 +68,15 @@ These release notes include upgrades for versions ranging between 0.120.0 and 0.
 #### General documentation additions
 
 - The [Contributing rules](/contributing/contributing-to-semgrep-rules-repository/) documentation now provides sections with [General rule requirements](/contributing/contributing-to-semgrep-rules-repository/#general-rule-requirements), [Semgrep registry rule requirements](/contributing/contributing-to-semgrep-rules-repository/#semgrep-registry-rule-requirements), and [Including fields required by security category](/contributing/contributing-to-semgrep-rules-repository/#including-fields-required-by-security-category).
-- You may now also log in to Semgrep App from documentation website. The **Login** button is available next to the docs search bar.
+- You may now also log in to Semgrep App from the documentation website. The **Login** button is available next to the docs search bar.
 
 #### Semgrep App
 
-- The [Managing projects through tags](/semgrep-app/tags/) document that explains how to use tags in projects added to Semgrep App.
+- The [Managing projects through tags](/semgrep-app/tags/) document explains how to use tags in projects added to Semgrep App.
 
 #### Semgrep CLI
 
-- The [Experiments](/writing-rules/experiments/introduction/) category now provides an introduction, in addition, [Deprecated experiments](/writing-rules/experiments/deprecated-experiments/) section is now an independent document.
+- The [Experiments](/writing-rules/experiments/introduction/) category now provides an introduction, in addition, the [Deprecated experiments](/writing-rules/experiments/deprecated-experiments/) section is now an independent document.
 - Added [Field sensitivity](/writing-rules/data-flow/taint-mode/#field-sensitivity) section to taint analysis documentation.
 
 ### Changes
@@ -91,6 +91,6 @@ These release notes include upgrades for versions ranging between 0.120.0 and 0.
 - Release notes that you are now reading have been split into one document for each month the Release notes category now has its own dedicated right sidebar. This change makes it easier to find changes that happened over the span of a month.
 - The [Experiments](/writing-rules/experiments/introduction/) category now falls under **Writing custom rules** section on our left sidenav.
 - Updated [Managing findings in Semgrep App](/semgrep-app/findings/) document, especially [Managing finding status](/semgrep-app/findings/#managing-finding-status) section to inform about the latest triage workflow updates.
-- Updated information about enabling autofix feature in various occurrences in our docs. For example: [Enabling autofix in Semgrep App](/writing-rules/testing-rules/#enabling-autofix-in-semgrep-app)
+- Updated information about enabling the autofix feature in various occurrences in our docs. For example: [Enabling autofix in Semgrep App](/writing-rules/testing-rules/#enabling-autofix-in-semgrep-app)
 - Updated [Defining ignored files and folders in Semgrep App](/writing-rules/testing-rules/#enabling-autofix-in-semgrep-app) to inform about how you can ignore files from the Findings page of Semgrep App.
 - Many fixed links, typos, and other necessary improvements for great docs experience.
