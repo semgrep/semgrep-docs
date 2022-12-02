@@ -15,7 +15,8 @@ toc_max_heading_level: 3
 
 - Added Supply Chain support for `requirements.txt` lockfiles (requires `requirement.in` manifest files).
 - Added support for Yarn 2 and Yarn 3 lockfiles.
-- Reachable Supply Chain findings no longer block pull requests when using `semgrep ci`. (Note that unreachable findings are non-blocking already.) 
+- Reachable Supply Chain findings no longer block pull requests when using `semgrep ci`. **Note**: Unreachable findings are non-blocking already.
+- Previously, Semgrep Supply Chain rescanned projects automatically every week. Now, newly added projects to Semgrep Supply Chain that use GitHub Actions are by default rescanned every day. This update only affects newly added projects.
 
 ## Semgrep App
 
@@ -84,7 +85,7 @@ These release notes include upgrades for versions ranging between 0.120.0 and 0.
   - [Running Semgrep in continuous integration (CI) without Semgrep App](/semgrep-ci/running-semgrep-ci-without-semgrep-app/)
   - [Sample continuous integration (CI) configurations] (/semgrep-ci/sample-ci-configs/)
 - Updated [Pricing and billing](/semgrep-app/pricing-and-billing/) page. [Semgrep Supply Chain supported languages](/supported-languages/#semgrep-supply-chain) are now part of Pricing and billing document.
-- The `SEMGREP_TIMEOUT ` information has been updated. See [`SEMGREP_TIMEOUT`](/semgrep-ci/configuration-reference/#semgrep_timeout) for more details.
+- The `SEMGREP_TIMEOUT ` information has been updated. See [`SEMGREP_TIMEOUT`](/semgrep-ci/configuration-reference/#semgrep_timeout) documentation for more details.
 - Collapsible items in the documentation sidebar now take you to overview pages for a given category or lead to introductory pages. Overview pages also provide an updated description for displayed cards that represent individual documents. For example: [Continuous integration (CI)](https://semgrep.dev/docs/category/continuous-integration-ci/), [Command-line interface (CLI)](https://semgrep.dev/docs/category/command-line-interface-cli/), [Data-flow analysis engine overview](https://semgrep.dev/docs/writing-rules/data-flow/data-flow-overview/)
 - Release notes that you are now reading have been split into one document for each month the Release notes category now has its own dedicated right sidebar. This change makes it easier to find changes that happened over the span of a month.
 - The [Experiments](/writing-rules/experiments/introduction/) category now falls under **Writing custom rules** section on our left sidenav.
