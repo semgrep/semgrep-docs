@@ -93,6 +93,7 @@ Support for certain features of Semgrep App depend on your CI provider or source
     <dd>Send Semgrep findings to your SCM's security dashboard.</dd>
 </dl>
 
+<!-- The list is not alphabetized. It is ranked based on popularity. -->
 ## GitHub Actions
 
 To add a Semgrep configuration file in your GitHub Actions pipeline:
@@ -101,8 +102,11 @@ To add a Semgrep configuration file in your GitHub Actions pipeline:
 2. Copy the relevant code snippet provided in [Sample GitHub Actions configuration file](#sample-github-actions-configuration-file).
 3. Paste the relevant code snippet to `semgrep.yml` file. This is your Semgrep configuration file for GitHub Actions.
 4. Commit the configuration file under <code><span className="placeholder">/REPOSITORY-ROOT-DIRECTORY/.github/workflows/semgrep.yml</span></code>.
-5. The Semgrep job starts automatically upon detecting the committed `semgrep.yml` file. You can also start the job from the GitHub Actions interface.
+5. The Semgrep job starts automatically upon detecting the committed `semgrep.yml` file. 
 
+:::note
+If you are self-hosting your repository, you must [use a self-hosted runner](https://docs.github.com/en/actions/using-jobs/choosing-the-runner-for-a-job#choosing-self-hosted-runners).
+:::
 ### Sample GitHub Actions configuration file
 
 <Tabs
@@ -224,6 +228,10 @@ To add a Semgrep configuration snippet in your GitLab CI/CD pipeline:
 
 ## Jenkins
 
+:::note
+Your UI (user interface) may vary depending on your Jenkins installation. These steps use a Classic UI Jenkins interface.
+:::
+
 To add a Semgrep configuration snippet in your Jenkins pipeline:
 
 1. Create or edit your `Jenkinsfile` configuration file in the repository you want to scan. You can also edit your `Jenkinsfile` from Jenkins's interface.
@@ -316,6 +324,10 @@ To add Semgrep into your Buildkite pipeline:
 3. If you are using Buildkite to store the configuration, save the updated file. Otherwise, commit the updated configuration file into the `/.buildkite` folder within the target repository.
 4. The Semgrep job starts automatically upon detecting the committed `pipeline.yml` file. You can also view the job through BitBucket's interface, by clicking **your repository > Pipelines**. 
 5. Optional: Create a separate CI job for diff-aware scanning, which scans only changed files in PRs or MRs, by repeating steps 1-3 and uncommenting the `SEMGREP_BASELINE_REF` definition provided within the code snippet.
+
+:::note
+These steps can be performed from within Buildkite's interface. From Buildkite's main page, click **Pipelines > ➕ button** to perform these steps within Buildkite's UI.
+:::
 
 ### Sample Buildkite configuration snippet
 
