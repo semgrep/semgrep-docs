@@ -46,20 +46,24 @@ import JenkinsSemgrepAppSsc from "/src/components/code_snippets/_jenkins-semgrep
 import JenkinsSemgrepAppStandalone from "/src/components/code_snippets/_jenkins-semgrep-app-standalone.mdx"
 
 <!--BitBucket Pipelines -->
-
 import BitbucketSemgrepAppSast from "/src/components/code_snippets/_bitbucket-semgrep-app-sast.mdx"
 import BitbucketSemgrepAppSsc from "/src/components/code_snippets/_bitbucket-semgrep-app-ssc.mdx"
 import BitbucketSemgrepAppStandalone from "/src/components/code_snippets/_bitbucket-semgrep-app-standalone.mdx"
 
 <!-- Buildkite -->
-
 import BuildkiteSemgrepAppSast from "/src/components/code_snippets/_buildkite-semgrep-app-sast.mdx"
 import BuildkiteSemgrepAppSsc from "/src/components/code_snippets/_buildkite-semgrep-app-ssc.mdx"
 import BuildkiteSemgrepAppStandalone from "/src/components/code_snippets/_buildkite-semgrep-app-standalone.mdx"
 
 <!-- CircleCI -->
+import CircleCiSemgrepAppSast from "/src/components/code_snippets/_circleci-semgrep-app-sast.mdx"
+import CircleCiSemgrepAppSsc from "/src/components/code_snippets/_circleci-semgrep-app-ssc.mdx"
+import CircleCiSemgrepAppStandalone from "/src/components/code_snippets/_circleci-semgrep-app-standalone.mdx"
 
 <!-- Azure Pipelines -->
+import AzureSemgrepAppSast from "/src/components/code_snippets/_azure-semgrep-app-sast.mdx"
+import AzureSemgrepAppSsc from "/src/components/code_snippets/_azure-semgrep-app-ssc.mdx"
+import AzureSemgrepAppStandalone from "/src/components/code_snippets/_azure-semgrep-app-standalone.mdx"
 
 # Sample continuous integration (CI) configurations
 
@@ -369,91 +373,25 @@ gets put into the pipeline at runtime.
     values={[
     {label: 'CI with Semgrep App', value: 'circleci-semgrep'},
     {label: 'Stand-alone CI job', value: 'circleci-standalone'},
+    {label: 'CI with Semgrep Supply Chain', value: 'circleci-ssc'},
     ]}
 >
 
 <TabItem value='circleci-semgrep'>
-
-```yaml
-version: 2.1
-jobs:
-  semgrep-scan:
-    parameters:
-      default_branch:
-        type: string
-        default: main
-    environment:
-      # Uncomment the following line to scan changed 
-      # files in PRs or MRs (diff-aware scanning): 
-      # - export SEMGREP_BASELINE_REF = "origin/main"
-      # - git fetch origin "+refs/heads/*:refs/remotes/origin/*"
-      # SEMGREP_BASELINE_REF: << parameters.default_branch >>
-
-      # Troubleshooting:
-
-      # Uncomment the following lines if Semgrep App > Findings Page does not create links
-      # to the code that generated a finding or if you are not receiving PR or MR comments.
-      # SEMGREP_REPO_NAME: '$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME'
-      # SEMGREP_REPO_URL: << pipeline.project.git_url >>
-      # SEMGREP_BRANCH: << pipeline.git.branch >>
-
-    docker:
-      - image: returntocorp/semgrep
-    steps:
-      - checkout
-
-      # Uncomment the following lines if Semgrep App > Findings Page does not create links
-      # to the code that generated a finding or if you are not receiving PR or MR comments.
-      # - run:
-      #     name: "Manually set environment variables"
-      #     command: |
-      #         echo 'export SEMGREP_COMMIT=$CIRCLE_SHA1' >> $BASH_ENV
-      #         echo 'export SEMGREP_PR_ID=${CIRCLE_PULL_REQUEST##*/}' >> $BASH_ENV
-      #         echo 'export SEMGREP_JOB_URL=$CIRCLE_BUILD_URL' >> $BASH_ENV
-      - run:
-          name: "Semgrep scan"
-          command: semgrep ci
-workflows:
-  main:
-    jobs:
-      - semgrep-scan
-```
+<CircleCiSemgrepAppSast /> 
 
 </TabItem>
 <TabItem value='circleci-standalone'>
 
-```yaml
-version: 2.1
-jobs:
-  semgrep-scan:
-    parameters:
-      default_branch:
-        type: string
-        default: main
-    environment:
-      SEMGREP_RULES: p/default
-
-      # Uncomment the following line to scan changed 
-      # files in PRs or MRs (diff-aware scanning): 
-      # - export SEMGREP_BASELINE_REF = "origin/main"
-      # - git fetch origin "+refs/heads/*:refs/remotes/origin/*"
-      # SEMGREP_BASELINE_REF: << parameters.default_branch >>
-
-    docker:
-      - image: returntocorp/semgrep
-    steps:
-      - checkout
-      - run:
-          name: "Semgrep scan"
-          command: semgrep ci
-workflows:
-  main:
-    jobs:
-      - semgrep-scan
-```
+<CircleCiSemgrepAppStandalone /> 
 
 </TabItem>
 
+<TabItem value='circleci-ssc'>
+
+<CircleCiSemgrepAppSsc /> 
+
+</TabItem>
 </Tabs>
 
 ## Azure Pipelines
@@ -474,73 +412,27 @@ To add Semgrep into Azure Pipelines:
     values={[
     {label: 'CI with Semgrep App', value: 'azure-semgrep'},
     {label: 'Stand-alone CI job', value: 'azure-standalone'},
+    {label: 'CI with Semgrep Supply Chain', value: 'azure-ssc'},
     ]}
 >
 
 <TabItem value='azure-semgrep'>
 
-
-```yaml
-# trigger:
-#  - master
-
-pool:
-  vmImage: ubuntu-latest
-variables:
-- group: Semgrep app token group
-
-steps: 
-
-- script: |
-    python -m pip install --upgrade pip
-    pip install semgrep
-    semgrep ci
-  env: 
-    SEMGREP_PR_ID: $(System.PullRequest.PullRequestNumber)
-```
-
-### Setting environment variables in Azure Pipelines
-
-Set these variables within Azure Pipelines UI following the steps in [Environment variables](https://learn.microsoft.com/en-us/azure/devops/pipelines/process/variables?view=azure-devops&tabs=yaml%2Cbatch#secret-variables):
-
-* `SEMGREP_APP_TOKEN`
-
-Set these environment variables to troubleshoot the links to the code that generated a finding or if you are not receiving PR or MR comments:
-
-* `SEMGREP_JOB_URL`
-* `SEMGREP_COMMIT`
-* `SEMGREP_BRANCH`
-* `SEMGREP_REPO_URL`
-* `SEMGREP_REPO_NAME`
-
-Set this environment variable for diff-aware scanning:
-
-* `SEMGREP_BASELINE_REF`. Its value is typically your trunkline branch, such as `main` or `master`.
+<AzureSemgrepAppSast /> 
 
 </TabItem>
 
 <TabItem value='azure-standalone'>
 
-
-```yaml
-# trigger:
-#  - master
-
-pool:
-  vmImage: ubuntu-latest
-
-steps: 
-
-- script: |
-    python -m pip install --upgrade pip
-    pip install semgrep
-    semgrep ci
-  env: 
-    SEMGREP_RULES: p/default
-```
+<AzureSemgrepAppStandalone /> 
 
 </TabItem>
 
+<TabItem value='azure-ssc'>
+
+<AzureSemgrepAppSsc /> 
+
+</TabItem>
 </Tabs>
 
 ## Other providers
@@ -557,6 +449,7 @@ Using the [configuration reference](../configuration-reference/), you can run Se
 - Buildbot
 - Codeship
 - Codefresh
+- Drone CI
 - TeamCity CI
 - Travis CI
 
