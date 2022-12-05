@@ -127,6 +127,13 @@ module.exports = {
                             'cheat-sheets/rails-xss'
                         ]
                     },
+                    {
+                        type: 'category',
+                        label: 'XXE',
+                        items: [
+                            'cheat-sheets/java-xxe'
+                        ]
+                    },
                 ],
             },
         ]
