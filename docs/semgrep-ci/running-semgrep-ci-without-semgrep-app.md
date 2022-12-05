@@ -71,12 +71,12 @@ Running Semgrep in CI without Semgrep App bears specific limitations compared to
 To integrate any CI provider in the following list, follow the instructions in [Sample CI configuration](/docs/semgrep-ci/sample-ci-configs).
 
 * [GitHub Actions](/docs/semgrep-ci/sample-ci-configs/#github-actions)
-* [GitLab CI/CD](/docs/semgrep-ci/sample-ci-configs/#github-actions)
-* [Jenkins](/docs/semgrep-ci/sample-ci-configs/#github-actions)
-* [Bitbucket Pipelines](/docs/semgrep-ci/sample-ci-configs/#github-actions)
-* [Buildkite](/docs/semgrep-ci/sample-ci-configs/#github-actions)
-* [CircleCI](/docs/semgrep-ci/sample-ci-configs/#github-actions)
-* [Azure Pipelines](/docs/semgrep-ci/sample-ci-configs/#github-actions)
+* [GitLab CI/CD](/docs/semgrep-ci/sample-ci-configs/#gitlab-cicd)
+* [Jenkins](/docs/semgrep-ci/sample-ci-configs/#jenkins)
+* [Bitbucket Pipelines](/docs/semgrep-ci/sample-ci-configs/#bitbucket-pipelines)
+* [Buildkite](/docs/semgrep-ci/sample-ci-configs/#buildkite)
+* [CircleCI](/docs/semgrep-ci/sample-ci-configs/#circleci)
+* [Azure Pipelines](/docs/semgrep-ci/sample-ci-configs/#azure-pipelines)
 
 ### Running Semgrep through other CI providers
 
