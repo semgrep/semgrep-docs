@@ -31,7 +31,9 @@ Semgrep App supports code scanning from:
 This guide walks you through scanning code in both types of environments.
 
 :::info
-Many improvements to the Semgrep App experience only work with up-to-date Semgrep CLI versions. For this reason, Semgrep App only supports the 10 most recent minor versions of the Semgrep open-source tool. For example, if the latest release was 0.114.0, all versions greater than 0.104.0 are supported while earlier versions, such as 0.103.0 can be deprecated or can result in failures. Use the **latest** tag for all Semgrep CI scans.
+Many improvements to the Semgrep App experience only work with up-to-date Semgrep CLI versions. For this reason, Semgrep App only supports the 10 most recent minor versions of the Semgrep open-source tool. For example, if the latest release was 0.114.0, all versions greater than 0.104.0 are supported while earlier versions, such as 0.103.0 can be deprecated or can result in failures.
+
+For Docker users: Use the [**latest** tag](https://hub.docker.com/r/returntocorp/semgrep/tags?page=1&name=latest) to ensure you are up-to-date.
 :::
 
 Semgrep App enables you to run scans on multiple repositories by integrating with your GitHub or GitLab SaaS account. Semgrep uses **rules** to scan code. Matches found based on those rules are called **findings**. A Semgrep rule encapsulates pattern-matching logic and data-flow analysis used to find code violations, security issues, outdated libraries, and other issues.
@@ -68,30 +70,49 @@ You are now signed in to Semgrep App.
 
 #### Permissions for GitHub
 
-This section explains why Semgrep App requires specific permissions. Semgrep App requires the following permissions in order to log in through GitHub:
+This section explains Semgrep App permissions that are requested in two different events:
+
+* When you first sign in through GitHub.
+* When you first add, integrate, or onboard your repositories to Semgrep App.
+
+##### Permissions when signing in with GitHub
+
+Semgrep App requests the following standard permissions set by GitHub when you first sign in. However, not all permissions are used by Semgrep App. Read the following list to see how Semgrep App uses permissions when signing in:
 
 <dl>
     <dt>Verify your GitHub identity</dt>
     <dd>Enables Semgrep App to read your GitHub profile data, such as your username.</dd>
     <dt>Know which resources you can access</dt>
-    <dd>Enables Semgrep App to access and display private repositories you can scan.</dd>
+    <dd>Semgrep does not use or access any resources when first logging in. However, you can choose to share resources at a later point in order to add repositories into Semgrep App.</dd>
     <dt>Act on your behalf</dt>
-    <dd>Enables Semgrep App to start or stop scans on the repository and commit files for continuous integration.</dd>
+    <dd>Enables Semgrep App to perform certain tasks <strong>only on resources that you choose to share with Semgrep App</strong>. Semgrep App never uses this permission and never performs any actions on your behalf, even after you have installed <code>semgrep-app</code>. See <a href ="https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/authorizing-github-apps">When does a GitHub App act on your behalf?</a> in GitHub documentation.</dd>
 </dl>
 
-The GitHub integration app is called `semgrep-app`. This app is used to integrate Semgrep into GitHub repositories. It requires the following permissions:
+##### Permissions when adding your repositories into Semgrep App
+
+The GitHub integration app is called [`semgrep-app`](https://github.com/apps/semgrep-app). This app is used to integrate Semgrep into user-selected GitHub repositories. It requires the following permissions:
 
 <dl>
-    <dt>Read and write permissions to <a href="https://docs.github.com/en/actions">GitHub Actions</a></dt>
-    <dd>Allows Semgrep App to cancel stuck jobs, rerun jobs, pull logs from jobs, and perform on-demand scanning.</dd>
-    <dt>Read permissions to <a href="https://docs.github.com/en/rest/reference/checks">GitHub Checks</a></dt>
-    <dd>Facilitates debugging of Semgrep App when configured out of GitHub Actions.</dd>
-    <dt>Read and write to GitHub Security Events</dt>
-    <dd>Enables integration with the GitHub Advanced Security to show Semgrep results.</dd>
-    <dt><code>.semgrepignore</code> single-file access</dt>
-    <dd>Allows debugging of requests and automatic syncing of <code>.semgrepignore</code> between the Semgrep App UI and what is checked into the repository.</dd>
-    <dt>Read/write GitHub secrets</dt>
-    <dd>Enables automatically adding of the Semgrep App Token to your repository secrets when onboarding projects. This simplifies bulk onboarding of repositories. <strong>Semgrep App cannot read the values of your existing or future secrets due to the security design of GitHub Secrets.</strong> This permission only permits Semgrep App to know the secret name and programmatically adds the Semgrep token to your repository secrets.</dd>
+    <dt>Reading metadata of the repositories you select</dt>
+    <dd>Enables Semgrep App to list repository names on the project setup page.</dd>
+    <dt>Reading the list of organization members</dt>
+    <dd>Enables Semgrep App to determine who can manage your Semgrep organization based on your GitHub organization's members list.</dd>
+    <dt>Reading and writing pull requests</dt>
+    <dd>Enables Semgrep App to comment about findings on pull requests.</dd>
+    <dt>Reading and writing actions</dt>
+    <dd>Enables Semgrep App to cancel stuck jobs, rerun jobs, pull logs from jobs, and perform on-demand scanning.</dd>
+    <dt>Reading <a href="https://docs.github.com/en/rest/reference/checks">GitHub Checks</a></dt>
+    <dd>Facilitates debugging of Semgrep App when configured out of <a href="https://docs.github.com/en/actions">GitHub Actions</a>.</dd>
+    <dt>Reading and writing security events</dt>
+    <dd>Enables integration with GitHub Advanced Security (for example, to show Semgrep results).</dd>
+    <dt>Reading and writing secrets</dt>
+    <dd>Enables automatically adding of the Semgrep App Token to your repository secrets when onboarding projects. Note: We cannot read the values of your existing or future secrets (only the names).</dd>
+    <dt>Reading and writing 2 files</dt>
+    <dd>Enables Semgrep App to configure itself to run in CI by writing to <code>.github/workflows/semgrep.yml</code> and <code>.semgrepignore</code> files.</dd>
+    <dt>Reading and writing workflows</dt>
+    <dd>Enables Semgrep App to configure itself to run in CI by writing to <code>.github/workflows/semgrep.yml</code>. GitHub allows writing to files within <code>.github/workflows/</code> directory only if this permission is granted along with "Writing a single file".</dd>
+    <dt>Reading and writing pull requests</dt>
+    <dd>Write permissions allow Semgrep App to leave pull request comments about findings. Read permissions allow Semgrep App to automatically remove findings when the pull request that introduced them is closed without merging.</dd>
 </dl>
 
 ### Signing in with GitLab
