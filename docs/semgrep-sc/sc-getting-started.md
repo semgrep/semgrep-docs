@@ -11,6 +11,23 @@ hide_title: true
 
 import MoreHelp from "/src/components/MoreHelp"
 
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
+import PlatformSigninIntro from "/src/components/concept/_platform-signin-intro.md"
+import PlatformSigninGithub from "/src/components/procedure/_platform-signin-github.md"
+import PlatformSigninGitlab from "/src/components/procedure/_platform-signin-gitlab.md"
+import PlatformAddRepo from "/src/components/procedure/_platform-add-repo.md"
+import CiScheduling from "/src/components/reference/_ci-scheduling.mdx"
+
+<ul id="tag__badge-list">
+{
+Object.entries(frontMatter).filter(
+    frontmatter => frontmatter[0] === 'tags')[0].pop().map(
+    (value) => <li class='tag__badge-item'>{value}</li> )
+}
+</ul>
+
 # Scanning open source dependencies 
 
 Semgrep Supply chain scans can be triggered from the Semgrep App interface.
@@ -31,7 +48,38 @@ Read [Step 3](#step-3-enabling-semgrep-supply-chain-scans-from-within-semgrep-ap
 
 ### Step 1: Creating an account in Semgrep App
 
-### Step 2: Adding projects to Semgrep App
+<PlatformSigninIntro />
+
+<Tabs
+    defaultValue="signin-github"
+    values={[
+    {label: 'Sign in with GitHub', value: 'signin-github'},
+    {label: 'Sign in with GitLab', value: 'signin-gitlab'},
+    ]}
+>
+
+<TabItem value='signin-github'>
+
+<PlatformSigninGithub />
+
+See [Permissions in GitHub](/docs/semgrep-app/getting-started-with-semgrep-app/#permissions-for-github) to learn more about how Semgrep features use requested permissions in GitHub.
+
+</TabItem>
+
+<TabItem value='signin-gitlab'>
+
+<PlatformSigninGitlab />
+
+See [Permissions in GitLab](docs/semgrep-app/getting-started-with-semgrep-app/#permissions-for-gitlab) to learn more about how Semgrep features use requested permissions in GitLab.
+
+</TabItem>
+
+</Tabs>
+
+### Step 2: Adding or onboarding a new repository
+
+
+<PlatformAddRepo />
 
 ### Step 3: Enabling Semgrep Supply Chain scans from within Semgrep App
 
@@ -40,7 +88,7 @@ To enable and run a Supply Chain (open source dependency) scan in Semgrep App:
 1. Sign in to your Semgrep App account, and then go to **Projects** page.
 2. Click **[Projects](https://semgrep.dev/orgs/-/projects)**, and then click <i class="fa-solid fa-gear"></i> **gear** icon of the repository on which to run Supply Chain rules.
 3. Click <i class="fa-solid fa-toggle-large-on"></i> **SSC toggle**. Semgrep Supply Chain rules are included in your next scan, that occurs based on your CI set up, such as schedules and events configuration (push, pull, and merge requests).
-4. Optional: To start a dependency scan immediately, go to your CI provider's interface and manually begin the Semgrep workflow or job.
+4. Optional: Some CI providers enable you to start workflows manually. To start a dependency scan immediately, go to your CI provider's interface and manually begin the Semgrep workflow or job.
 
 The scan finishes and displays findings in the **Supply Chain** tab for further triage and remediation. See [Triaging and remediating dependency findings](/docs/semgrep-sc/triaging-and-remediating-vulnerabilities).
 
@@ -81,7 +129,17 @@ For more information on diff-aware and full scans, see [Diff-aware scanning](/do
 
 Both reachable and unreachable findings of Semgrep Supply Chain do **not** block a pull request or merge request.
 
-_Updated Nov 22nd, 2022: Old versions (Semgrep v0.122.0 and below) used to block reachable findings._
+:::info
+Versions Semgrep v0.122.0 and below previously blocked reachable findings.
+:::
+
+### Step 4: Set a daily scan schedule
+
+Semgrep Supply Chain frequently releases new rules. In order to ensure that your repository is free of new vulnerabilities, **ensure that Semgrep Supply Chain scans your codebase every day**. 
+
+<CiScheduling />
+
+Your Semgrep Supply Chain scan setup is now complete.
 
 ## Ignoring dependency findings through `semgrepignore`
 
