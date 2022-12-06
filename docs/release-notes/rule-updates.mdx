@@ -10,7 +10,63 @@ import MoreHelp from "/src/components/MoreHelp"
 
 # Rule updates
 
-Welcome to monthly rule updates! This document includes selected new rules, removed false positives (FP), and other rule updates. These new rules and their updates are made by the Semgrep community and r2c.
+Welcome to monthly rule updates. This document includes selected new rules, removed false positives (FP), and other rule updates. These new rules and their updates are made by the Semgrep community and r2c.
+
+## November 2022
+
+### Community tier
+
+#### New rules from Semgrep community and r2c
+
+- Thanks [@Sjord](https://github.com/Sjord)! Added rule for links to plaintext URLs: <LinkToRegistryRule ruleId="html.security.plaintext-http-link.plaintext-http-link" />
+
+#### Updated community tier rules
+
+- Thanks [@harmw](https://github.com/harmw)! Match variations of auth token: <LinkToRegistryRule ruleId="detected-npm-registry-auth-token" />
+- Thanks [@keeganparr1](https://github.com/keeganparr1)! Arbitrary send ERC20: <LinkToRegistryRule ruleId="solidity.security.arbitrary-send-erc20.arbitrary-send-erc20" />
+- Thanks [@lnobrega-canarie](https://github.com/lnobrega-canarie)! Allow a template variable in the nonce attribute of a script tag: <LinkToRegistryRule ruleId="python.django.security.audit.xss.var-in-script-tag.var-in-script-tag" />
+- Thanks [@objectified](https://github.com/objectified)! Ignore cookies created by Spring's ResponseCookie builder:
+    - <LinkToRegistryRule ruleId="java.lang.security.audit.cookie-missing-httponly.cookie-missing-httponly" />
+    - <LinkToRegistryRule ruleId="java.lang.security.audit.cookie-missing-secure-flag.cookie-missing-secure-flag" />
+- Thanks [@kepten](https://github.com/kepten)! Update missing-integrity rule to handle HTML tags with newlines properly to reduce false positives: <LinkToRegistryRule ruleId="html.security.audit.missing-integrity.missing-integrity" />
+- FP reduction using taint analysis:
+    - <LinkToRegistryRule ruleId="java.lang.security.audit.xxe.documentbuilderfactory-disallow-doctype-decl-missing.documentbuilderfactory-disallow-doctype-decl-missing" />
+    - <LinkToRegistryRule ruleId="go.lang.correctness.use-filepath-join.use-filepath-join" />
+    - Thanks to [@ianmuscat](https://github.com/ianmuscat) for reporting this! <LinkToRegistryRule ruleId="php.lang.security.file-inclusion.file-inclusion" />
+- Improve autofix by leveraging new [AST-based fixes](https://r2c.dev/blog/2022/autofixing-code-with-semgrep/):
+    - <LinkToRegistryRule ruleId="javascript.dompurify.harden-dompurify-usage" />
+    - <LinkToRegistryRule ruleId="python.flask.best-practice.use-jsonify.use-jsonify" />
+    - <LinkToRegistryRule ruleId="python.flask.security.xss.audit.template-unquoted-attribute-var.template-unquoted-attribute-var" />
+- FP reduction using typed metavariables: <LinkToRegistryRule ruleId="java.lang.security.audit.command-injection-formatted-runtime-call.command-injection-formatted-runtime-call" />
+- Support shebang contexts for finding dangerous command executions: <LinkToRegistryRule ruleId="go.lang.security.audit.dangerous-exec-command.dangerous-exec-command" />
+- Filter localhost in Python rules for requests:
+    - <LinkToRegistryRule ruleId="python.lang.security.audit.insecure-transport.requests.request-with-http.request-with-http" />
+    - <LinkToRegistryRule ruleId="python.lang.security.audit.insecure-transport.requests.request-session-with-http.request-session-with-http" />
+    - <LinkToRegistryRule ruleId="python.lang.security.audit.insecure-transport.requests.request-session-http-in-with-context.request-session-http-in-with-context" />
+- Added autofix:
+    - <LinkToRegistryRule ruleId="java.lang.security.audit.crypto.use-of-md5.use-of-md5" />
+    - <LinkToRegistryRule ruleId="java.lang.security.audit.crypto.use-of-md5-digest-utils.use-of-md5-digest-utils" />
+- Improved external documentation references: <LinkToRegistryRule ruleId="javascript.lang.security.insecure-object-assign.insecure-object-assign" />
+- FP reduction by adding support for matching tuples in Python subprocess functions: <LinkToRegistryRule ruleId="python.lang.security.audit.dangerous-subprocess-use-audit.dangerous-subprocess-use-audit" />
+- Improve dockerfile rule to handle the `--frozen-lockfile` argument. Thanks [@ianmuscat](https://github.com/ianmuscat) for reporting this! <LinkToRegistryRule ruleId="generic.ci.security.use-frozen-lockfile.use-frozen-lockfile-yarn" />
+- FP reduction Java cookie rules. Thanks to [@peter17](https://github.com/peter17) for reporting this! <LinkToRegistryRule ruleId="java.lang.security.audit.cookie-missing-samesite.cookie-missing-samesite" />
+- FP reduction with improved patterns for `DocumentBuilderFactory`. Thanks [@coheigea](https://github.com/coheigea) for reporting this! <LinkToRegistryRule ruleId="java.lang.security.audit.xxe.documentbuilderfactory-disallow-doctype-decl-missing.documentbuilderfactory-disallow-doctype-decl-missing" />
+
+:::info Metadata required by security category
+All security rules now adopt an improved set of metadata fields. These fields are required when you contribute to Semgrep Registry with rules in security category. For more details, see [Including fields required by security category](/contributing/contributing-to-semgrep-rules-repository/#including-fields-required-by-security-category) section.
+:::
+
+### Team tier
+
+#### New and updated team tier rules
+
+New rules for hardcoded secrets:
+- Database libraries for Python.
+- Database libraries for JavaScript and TypeScript.
+
+- Improve existing rules for hardcoded secrets to cover more use cases.
+- FP reduction for existing rules for hardcoded secrets.
+- FP reduction for Go net/http rules.
 
 ## October 2022
 
