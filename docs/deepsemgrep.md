@@ -1,7 +1,10 @@
 ---
 slug: deepsemgrep
+append_help_link: true
 description: "This document provides an overview of DeepSemgrep use cases, such as its use in type inferences, class inheritance, constant propagation, taint analysis."
 ---
+
+import MoreHelp from "/src/components/MoreHelp"
 
 # DeepSemgrep
 
@@ -13,23 +16,29 @@ This document demonstrates the utility of DeepSemgrep through use cases, guiding
 
 ### Obtaining DeepSemgrep
 
+:::info Prerequisites
+- Team or Enterprise tier of Semgrep App. See [Pricing and billing](/semgrep-app/pricing-and-billing/).
+- Local installation of Semgrep CLI. See [Getting started with Semgrep CLI](/getting-started) to install Semgrep CLI.
+:::
+
 To get and install DeepSemgrep, follow these steps:
 
 1. Submit your email using the [DeepSemgrep beta form](https://semgrep.dev/deep-semgrep-beta).
-2. Follow the steps and instructions in the email you receive from the Semgrep team.
-3. Start using DeepSemgrep with the following command:
+1. Follow the steps and instructions in the email you receive from the Semgrep team.
+1. Start using DeepSemgrep with the following command:
     ```sh
     semgrep login
     ```
-4. Follow the link that Semgrep prints to the command-line.
-5. To install DeepSemgrep, use the following command:
+1. Follow the link that Semgrep prints to the command-line.
+1. To install DeepSemgrep, use the following command:
     ```sh
     semgrep install-deep-semgrep
     ```
-6. To test DeepSemgrep, use the following command with your own rules:
-    ```sh
-    semgrep --deep --config=myrule.yaml
-    ```
+1. To test DeepSemgrep, use the following command with your own rules:
+    <pre class="language-bash"><code>semgrep --deep -j 1 -f --metrics on <span className="placeholder">PATH/TO/rules.yaml</span></code></pre>
+    Substitute the optional placeholder <code><span className="placeholder">PATH/TO/rules.yaml</span></code> with the path to the ruleset you obtained from r2c team. This ruleset is specific for DeepSemgrep.
+
+Let us know what you think about the results in the <a href="https://r2c.dev/slack">Community Slack</a>.
 
 Use DeepSemgrep in the command-line with `semgrep --deep`.
 
@@ -181,3 +190,5 @@ We’re excited to hear what’s on your mind. As users explore the limits of De
 ### DeepSemgrep language support
 
 DeepSemgrep now offers beta support for Java and Ruby.
+
+<MoreHelp />
