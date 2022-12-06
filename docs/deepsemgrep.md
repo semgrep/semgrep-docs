@@ -38,9 +38,11 @@ To get and install DeepSemgrep, follow these steps:
     <pre class="language-bash"><code>semgrep --deep -j 1 -f --metrics on <span className="placeholder">PATH/TO/rules.yaml</span></code></pre>
     Substitute the optional placeholder <code><span className="placeholder">PATH/TO/rules.yaml</span></code> with the path to the ruleset you obtained from r2c team. This ruleset is specific for DeepSemgrep.
 
-Let us know what you think about the results in the <a href="https://r2c.dev/slack">Community Slack</a>.
-
 Use DeepSemgrep in the command-line with `semgrep --deep`.
+
+:::note
+Let us know what you think about the results in the <a href="https://r2c.dev/slack">Community Slack</a>.
+:::
 
 ### Cloning the DeepSemgrep testing repository
 
