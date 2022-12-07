@@ -14,17 +14,21 @@ Improve your scan results for entire codebases with interfile coding paradigms u
 
 This document demonstrates the utility of DeepSemgrep through use cases, guiding you through examples of Semgrep rules. Both Semgrep rules and code on which rules are tested are marked as code snippets and introduced always as a rule, code, or file used to illustrate the capabilities of DeepSemgrep.
 
-### Installing DeepSemgrep
+## Installing DeepSemgrep
+
+To enable DeepSemgrep installation, schedule a product demo by following these steps:
+
+1. Submit your email using the [DeepSemgrep beta form](https://semgrep.dev/deep-semgrep-beta).
+1. Follow the steps and instructions in the email you receive from the Semgrep team and schedule a product demo.
+
+After product demo, you'll receive a new custom ruleset! Follow the instructions below to get your findings.
 
 :::info Prerequisites
-- Team or Enterprise tier of Semgrep App. See [Pricing and billing](/semgrep-app/pricing-and-billing/).
 - Local installation of Semgrep CLI. See [Getting started with Semgrep CLI](/getting-started) to install Semgrep CLI.
 :::
 
 To install DeepSemgrep, follow these steps:
 
-1. Submit your email using the [DeepSemgrep beta form](https://semgrep.dev/deep-semgrep-beta).
-1. Follow the steps and instructions in the email you receive from the Semgrep team.
 1. Log in to Semgrep CLI with the following command:
     ```sh
     semgrep login
