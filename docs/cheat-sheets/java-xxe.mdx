@@ -1,5 +1,6 @@
 ---
 slug: java-xxe
+toc_max_heading_level: 4
 ---
 
 # XML External Entity prevention for Java
@@ -102,11 +103,11 @@ XML External Entity Injection happens when the system identifier to some of the 
 
 #### References
 
-- [Oracle Docs](https://docs.oracle.com/en/java/javase/13/security/java-api-xml-processing-jaxp-security-guide.html)
+- [13 Java API for XML Processing (JAXP) Security Guide ](https://docs.oracle.com/en/java/javase/13/security/java-api-xml-processing-jaxp-security-guide.html) in Oracle documentation.
 
 ### 2.B Security measures
 
-There are several security measures, but not all of them are available for each class. To see an overview of which measures are available for which class, consult the docs, or go to Section 3 to view the tables with our research results.
+There are several security measures, but not all of them are available for each class. To see an overview of which measures are available for which class see section [2.C Overview of effect of security measures for each class](#2c-overview-of-effect-of-security-measures-for-each-class) with r2c research results.
 
 #### Feature for Secure Processing (FSP)
 
@@ -137,13 +138,22 @@ The  `setFeature` method can be used to set `http://xml.org/sax/features/externa
 Except for the `Validator` class, where they have no effect at all.
 There is also `setExpandEntityReferences` that can be set to false and seems to have the same effect as disabling external general entities, based on our testing.
 
-## 3 Overview of effect of security measures for each class
+### 2.C Overview of effect of security measures for each class
 
-✅ Secure
-❌ Not Secure
-⚠️  An exception is thrown
+Summarizing security measures against XXE is not easy as not all security measures work for every class (as mentioned in section [2.B Security measures](#2b-security-measures)). The tables below this section can help you to choose the best security measures against a specific vulnerability.
 
-### 3.A DocumentBuilderFactory
+:::info Table legend
+- Each table represents one Java class. For example `DocumentBuilderFactory`.
+- Columns display possible ways how a class can be attacked (for example dtd or xml-bomb).
+- Rows represent ways to secure the code against the attack.
+
+✅ - Secure<br />
+❌ - Not Secure<br />
+⚠️  - An exception is thrown<br />
+n/a - Not available
+:::
+
+#### DocumentBuilderFactory
 
 | DocumentBuilderFactory                                                              | DoS      | XML | XML              | XSL | XSL    | XSL     | XSL      | XSD | XSD    | XSD     |
 |-------------------------------------------------------------------------------------|----------|-----|------------------|-----|--------|---------|----------|-----|--------|---------|
@@ -165,7 +175,7 @@ There is also `setExpandEntityReferences` that can be set to false and seems to 
 | setFeature("http://apache.org/xml/features/namespaces", false)                      | ✅⚠️       | ❌   | ❌                | ❌   | ✅      | ✅       | ✅        | ❌   | ✅      | ✅       |
 | setNamespaceAware(true)                                                             | ✅⚠️       | ❌   | ❌                | ❌   | ✅      | ✅       | ✅        | ❌   | ✅      | ✅       |
 
-### 3.B SAXBuilder
+#### SAXBuilder
 
 | SAXBuilder                                                                          | DoS      | XML | XML              | XSL | XSL    | XSL     | XSL      | XSD | XSD    | XSD     |
 |-------------------------------------------------------------------------------------|----------|-----|------------------|-----|--------|---------|----------|-----|--------|---------|
@@ -184,7 +194,7 @@ There is also `setExpandEntityReferences` that can be set to false and seems to 
 | setFeature("http://apache.org/xml/features/xinclude", false)                        | ✅⚠️       | ❌   | ❌                | ❌   | ✅      | ✅       | ✅        | ❌   | ✅      | ✅       |
 | setFeature("http://apache.org/xml/features/nonvalidating/load-external-dtd", false) | ✅⚠️       | ❌   | ❌                | ❌   | ✅      | ✅       | ✅        | ❌   | ✅      | ✅       |
 
-### 3.C SAXParserFactory
+#### SAXParserFactory
 
 | SAXParserFactory                                                                    | DoS      | XML | XML              | XSL | XSL    | XSL     | XSL      | XSD | XSD    | XSD     |
 |-------------------------------------------------------------------------------------|----------|-----|------------------|-----|--------|---------|----------|-----|--------|---------|
@@ -206,7 +216,7 @@ There is also `setExpandEntityReferences` that can be set to false and seems to 
 | setFeature("http://apache.org/xml/features/namespaces", false)                      | n/a      | n/a | n/a              | n/a | n/a    | n/a     | n/a      | n/a | n/a    | n/a     |
 | setNamespaceAware(true)                                                             | n/a      | n/a | n/a              | n/a | n/a    | n/a     | n/a      | n/a | n/a    | n/a     |
 
-### 3.D SAXParser
+#### SAXParser
 
 | SAXParser                                                                           | DoS      | XML | XML              | XSL | XSL    | XSL     | XSL      | XSD | XSD    | XSD     |
 |-------------------------------------------------------------------------------------|----------|-----|------------------|-----|--------|---------|----------|-----|--------|---------|
@@ -228,7 +238,7 @@ There is also `setExpandEntityReferences` that can be set to false and seems to 
 | setFeature("http://apache.org/xml/features/namespaces", false)                      | n/a      | n/a | n/a              | n/a | n/a    | n/a     | n/a      | n/a | n/a    | n/a     |
 | setNamespaceAware(true)                                                             | n/a      | n/a | n/a              | n/a | n/a    | n/a     | n/a      | n/a | n/a    | n/a     |
 
-### 3.E SAXReader
+#### SAXReader
 
 | SAXReader                                                                           | DoS      | XML | XML              | XSL | XSL    | XSL     | XSL      | XSD | XSD    | XSD     |
 |-------------------------------------------------------------------------------------|----------|-----|------------------|-----|--------|---------|----------|-----|--------|---------|
@@ -251,7 +261,7 @@ There is also `setExpandEntityReferences` that can be set to false and seems to 
 | setNamespaceAware(true)                                                             | n/a      | n/a | n/a              | n/a | n/a    | n/a     | n/a      | n/a | n/a    | n/a     |
 | setIncludeExternalDTDDeclarations(false);                                           | ✅⚠️       | ❌   | ❌                | ❌   | ✅      | ✅       | ✅        | ❌   | ✅      | ✅       |
 
-### 3.F TransformerFactory & SAXTransformerFactory
+#### TransformerFactory & SAXTransformerFactory
 
 | TransformerFactory/SAXTransformerFactory                                            | DoS      | XML | XML              | XSL | XSL    | XSL     | XSL      | XSD | XSD    | XSD     |
 |-------------------------------------------------------------------------------------|----------|-----|------------------|-----|--------|---------|----------|-----|--------|---------|
@@ -273,7 +283,7 @@ There is also `setExpandEntityReferences` that can be set to false and seems to 
 | setFeature("http://apache.org/xml/features/namespaces", false)                      | n/a      | n/a | n/a              | n/a | n/a    | n/a     | n/a      | n/a | n/a    | n/a     |
 | setNamespaceAware(true)                                                             | n/a      | n/a | n/a              | n/a | n/a    | n/a     | n/a      | n/a | n/a    | n/a     |
 
-### 3.G SchemaFactory 
+#### SchemaFactory 
 
 | SchemaFactory                                                                       | DoS      | XML | XML              | XSL | XSL    | XSL     | XSL      | XSD | XSD    | XSD     |
 |-------------------------------------------------------------------------------------|----------|-----|------------------|-----|--------|---------|----------|-----|--------|---------|
@@ -295,7 +305,7 @@ There is also `setExpandEntityReferences` that can be set to false and seems to 
 | setFeature("http://apache.org/xml/features/namespaces", false)                      | n/a      | n/a | n/a              | n/a | n/a    | n/a     | n/a      | n/a | n/a    | n/a     |
 | setNamespaceAware(true)                                                             | n/a      | n/a | n/a              | n/a | n/a    | n/a     | n/a      | n/a | n/a    | n/a     |
 
-### 3.H Validator 
+#### Validator 
 
 | Validator                                                                           | DoS      | XML | XML              |
 |-------------------------------------------------------------------------------------|----------|-----|------------------|
@@ -317,7 +327,7 @@ There is also `setExpandEntityReferences` that can be set to false and seems to 
 | setFeature("http://apache.org/xml/features/namespaces", false)                      | ✅⚠️       | n/a | n/a              |
 | setNamespaceAware(true)                                                             | ✅⚠️       | n/a | n/a              |
 
-### 3.I XMLReader 
+#### XMLReader 
 
 | XMLReader                                                                           | DoS      | XML | XML              | XSL | XSL    | XSL     | XSL      | XSD | XSD    | XSD     |
 |-------------------------------------------------------------------------------------|----------|-----|------------------|-----|--------|---------|----------|-----|--------|---------|
