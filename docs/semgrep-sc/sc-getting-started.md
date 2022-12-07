@@ -81,7 +81,7 @@ See [Permissions in GitLab](docs/semgrep-app/getting-started-with-semgrep-app/#p
 
 <PlatformAddRepo />
 
-### Step 3: Enabling Semgrep Supply Chain scans from within Semgrep App
+### Step 3: Enabling Semgrep Supply Chain scans from Semgrep App
 
 To enable and run a Supply Chain (open source dependency) scan in Semgrep App:
 
