@@ -21,7 +21,7 @@ To enable DeepSemgrep installation, schedule a product demo by following these s
 1. Submit your email using the [DeepSemgrep beta form](https://semgrep.dev/deep-semgrep-beta).
 1. Follow the steps and instructions in the email you receive from the Semgrep team and schedule a product demo.
 
-After product demo, you'll receive a new custom ruleset! Follow the instructions below to get your findings.
+After your product demo, you'll get access to a new ruleset! Follow the instructions below to get your findings.
 
 :::info Prerequisite
 - Local installation of Semgrep CLI. See [Getting started with Semgrep CLI](/getting-started) to install Semgrep CLI.
@@ -38,14 +38,16 @@ To install DeepSemgrep, follow these steps:
     ```sh
     semgrep install-deep-semgrep
     ```
-1. To test DeepSemgrep, use the following command with your own rules:
-    <pre class="language-bash"><code>semgrep --deep --config <span className="placeholder">PATH/TO/deepsemgrep-alpha-rules.yaml</span> --dataflow-traces</code></pre>
-    Substitute the placeholder <code><span className="placeholder">PATH/TO/deepsemgrep-alpha-rules.yaml</span></code> with the path to the rule you obtained from r2c team. This YAML rule file is specific for DeepSemgrep.
+1. To test DeepSemgrep, use the following command:
+    ```bash
+    semgrep --deep --config "p/deepsemgrep" --dataflow-traces
+    ```
+    The `p/deepsemgrep` is a DeepSeemgrep specific ruleset for which you obtained access after your product demo.
 1. Optional: We appreciate your help gathering data as we improve DeepSemgrep! If you are fine with sending r2c usage metrics, run the command with `--time --metrics on`:
-    <pre class="language-bash"><code>semgrep --deep --config <span className="placeholder">PATH/TO/deepsemgrep-alpha-rules.yaml</span> --dataflow-traces --time --metrics on</code></pre>
+    ```bash
+    semgrep --deep --config "p/deepsemgrep" --dataflow-traces --time --metrics on
+    ```
     See [Semgrep Privacy Policy](/metrics) for details of what is being send to r2c.
-
-Use DeepSemgrep in the command-line with `semgrep --deep`.
 
 :::note
 Let us know what you think about the results in the <a href="https://r2c.dev/slack">Community Slack</a>.
@@ -102,7 +104,7 @@ If you are following in the cloned [DeepSemgrep testing repository](https://gith
     ```
 2. Run DeepSemgrep:
     ```sh
-    semgrep --config deep.yaml . --deep
+    semgrep --config deep.yaml . --deep --dataflow-traces
     ```
 
 ### Using class inheritance with typed metavariables
