@@ -35,8 +35,11 @@ To install DeepSemgrep, follow these steps:
     semgrep install-deep-semgrep
     ```
 1. To test DeepSemgrep, use the following command with your own rules:
-    <pre class="language-bash"><code>semgrep --deep -j 1 --metrics on --config <span className="placeholder">PATH/TO/deepsemgrep-alpha-rules.yaml</span></code></pre>
+    <pre class="language-bash"><code>semgrep --deep --config <span className="placeholder">PATH/TO/deepsemgrep-alpha-rules.yaml</span> --dataflow-traces</code></pre>
     Substitute the optional placeholder <code><span className="placeholder">PATH/TO/deepsemgrep-alpha-rules.yaml</span></code> with the path to the rule you obtained from r2c team. This YAML rule file is specific for DeepSemgrep.
+1. Optional: We appreciate your help gathering data as we improve DeepSemgrep! If you are fine with sending r2c usage metrics, run the command with optional `--time --metrics on`:
+    <pre class="language-bash"><code>semgrep --deep --config <span className="placeholder">PATH/TO/deepsemgrep-alpha-rules.yaml</span> --dataflow-traces --time --metrics on</code></pre>
+    See [Semgrep Privacy Policy](/metrics) for details of what is being send with this optional command.
 
 Use DeepSemgrep in the command-line with `semgrep --deep`.
 
