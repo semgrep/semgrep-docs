@@ -25,7 +25,7 @@ To install DeepSemgrep, follow these steps:
 
 1. Submit your email using the [DeepSemgrep beta form](https://semgrep.dev/deep-semgrep-beta).
 1. Follow the steps and instructions in the email you receive from the Semgrep team.
-1. Start using DeepSemgrep with the following command:
+1. Log in to Semgrep CLI with the following command:
     ```sh
     semgrep login
     ```
