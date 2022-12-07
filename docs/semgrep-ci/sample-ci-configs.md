@@ -23,6 +23,48 @@ import MoreHelp from "/src/components/MoreHelp"
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
+<!-- Import code snippets.
+Read /src/components/code_snippets/readme to understand modular code snippet imports. -->
+
+<!-- GHA -->
+import GhaSemgrepAppSast from "/src/components/code_snippets/_gha-semgrep-app-sast.mdx"
+import GhaSemgrepAppStandalone from "/src/components/code_snippets/_gha-semgrep-app-standalone.mdx"
+import GhaSemgrepAppSastDash from "/src/components/code_snippets/_gha-semgrep-app-sast-dash.mdx"
+import GhaSemgrepAppStandaloneDash from "/src/components/code_snippets/_gha-semgrep-app-standalone-dash.mdx"
+import GhaSemgrepAppSsc from "/src/components/code_snippets/_gha-semgrep-app-ssc.mdx"
+
+<!-- GLCICD -->
+import GlcicdSemgrepAppSast from "/src/components/code_snippets/_glcicd-semgrep-app-sast.mdx"
+import GlcicdSemgrepAppStandalone from "/src/components/code_snippets/_glcicd-semgrep-app-standalone.mdx"
+import GlcicdSemgrepAppSastDash from "/src/components/code_snippets/_glcicd-semgrep-app-sast-dash.mdx"
+import GlcicdSemgrepAppStandaloneDash from "/src/components/code_snippets/_glcicd-semgrep-app-standalone-dash.mdx"
+import GlcicdSemgrepAppSsc from "/src/components/code_snippets/_glcicd-semgrep-app-ssc.mdx"
+
+<!-- Jenkins -->
+import JenkinsSemgrepAppSast from "/src/components/code_snippets/_jenkins-semgrep-app-sast.mdx"
+import JenkinsSemgrepAppSsc from "/src/components/code_snippets/_jenkins-semgrep-app-ssc.mdx"
+import JenkinsSemgrepAppStandalone from "/src/components/code_snippets/_jenkins-semgrep-app-standalone.mdx"
+
+<!--BitBucket Pipelines -->
+import BitbucketSemgrepAppSast from "/src/components/code_snippets/_bitbucket-semgrep-app-sast.mdx"
+import BitbucketSemgrepAppSsc from "/src/components/code_snippets/_bitbucket-semgrep-app-ssc.mdx"
+import BitbucketSemgrepAppStandalone from "/src/components/code_snippets/_bitbucket-semgrep-app-standalone.mdx"
+
+<!-- Buildkite -->
+import BuildkiteSemgrepAppSast from "/src/components/code_snippets/_buildkite-semgrep-app-sast.mdx"
+import BuildkiteSemgrepAppSsc from "/src/components/code_snippets/_buildkite-semgrep-app-ssc.mdx"
+import BuildkiteSemgrepAppStandalone from "/src/components/code_snippets/_buildkite-semgrep-app-standalone.mdx"
+
+<!-- CircleCI -->
+import CircleCiSemgrepAppSast from "/src/components/code_snippets/_circleci-semgrep-app-sast.mdx"
+import CircleCiSemgrepAppSsc from "/src/components/code_snippets/_circleci-semgrep-app-ssc.mdx"
+import CircleCiSemgrepAppStandalone from "/src/components/code_snippets/_circleci-semgrep-app-standalone.mdx"
+
+<!-- Azure Pipelines -->
+import AzureSemgrepAppSast from "/src/components/code_snippets/_azure-semgrep-app-sast.mdx"
+import AzureSemgrepAppSsc from "/src/components/code_snippets/_azure-semgrep-app-ssc.mdx"
+import AzureSemgrepAppStandalone from "/src/components/code_snippets/_azure-semgrep-app-standalone.mdx"
+
 # Sample continuous integration (CI) configurations
 
 This document provides sample configuration snippets to run Semgrep CI on various continuous integration (CI) providers.
@@ -51,6 +93,7 @@ Support for certain features of Semgrep App depend on your CI provider or source
     <dd>Send Semgrep findings to your SCM's security dashboard.</dd>
 </dl>
 
+<!-- The list is not alphabetized. It is ranked based on popularity. -->
 ## GitHub Actions
 
 To add a Semgrep configuration file in your GitHub Actions pipeline:
@@ -59,8 +102,11 @@ To add a Semgrep configuration file in your GitHub Actions pipeline:
 2. Copy the relevant code snippet provided in [Sample GitHub Actions configuration file](#sample-github-actions-configuration-file).
 3. Paste the relevant code snippet to `semgrep.yml` file. This is your Semgrep configuration file for GitHub Actions.
 4. Commit the configuration file under <code><span className="placeholder">/REPOSITORY-ROOT-DIRECTORY/.github/workflows/semgrep.yml</span></code>.
-5. The Semgrep job starts automatically upon detecting the committed `semgrep.yml` file. You can also start the job from the GitHub Actions interface.
+5. The Semgrep job starts automatically upon detecting the committed `semgrep.yml` file. 
 
+:::note
+If you are self-hosting your repository, you must [use a self-hosted runner](https://docs.github.com/en/actions/using-jobs/choosing-the-runner-for-a-job#choosing-self-hosted-runners).
+:::
 ### Sample GitHub Actions configuration file
 
 <Tabs
@@ -68,93 +114,28 @@ To add a Semgrep configuration file in your GitHub Actions pipeline:
     values={[
     {label: 'CI with Semgrep App', value: 'gha-semgrep'},
     {label: 'Stand-alone CI job', value: 'gha-standalone'},
+    {label: 'CI with Semgrep Supply Chain', value: 'gha-ssc'},
     ]}
 >
+
 <TabItem value='gha-semgrep'>
 
-  ```yaml
-  # Name of this GitHub Actions workflow.
-  name: Semgrep
-  
-  on:
-    # Scan changed files in PRs (diff-aware scanning):
-    pull_request: {}
-    # Scan mainline branches and report all findings:
-    push:
-      branches: ["master", "main"]
-    # Schedule the CI job (this method uses cron syntax):
-    schedule:
-      - cron: '30 0 1,15 * *' # Scheduled for 00:30 UTC on both the 1st and 15th of the month
-  
-  jobs:
-    semgrep:
-      # User definable name of this GitHub Actions job.
-      name: Scan
-      # If you are self-hosting, change the following `runs-on` value: 
-      runs-on: ubuntu-latest
-  
-      container:
-        # A Docker image with Semgrep installed. Do not change this.
-        image: returntocorp/semgrep
-  
-      # Skip any PR created by dependabot to avoid permission issues:
-      if: (github.actor != 'dependabot[bot]')
-  
-      steps:
-        # Fetch project source with GitHub Actions Checkout.
-        - uses: actions/checkout@v3
-        # Run the "semgrep ci" command on the command line of the docker image.
-        - run: semgrep ci
-          env:
-            # Connect to Semgrep App through your SEMGREP_APP_TOKEN.
-            # Generate a token from Semgrep App > Settings
-            # and add it to your GitHub secrets.
-            SEMGREP_APP_TOKEN: ${{ secrets.SEMGREP_APP_TOKEN }}
-
-  ```
+<GhaSemgrepAppSast />
 
 </TabItem>
 
 <TabItem value='gha-standalone'>
 
-  ```yaml
-  # Name of this GitHub Actions workflow.
-  name: Semgrep
-  
-  on:
-    # Scan changed files in PRs (diff-aware scanning):
-    pull_request: {}
-    # Scan mainline branches and report all findings: 
-    push:
-      branches: ["master", "main"]
-    # Schedule the CI job (this method uses cron syntax):
-    schedule:
-      - cron: '30 0 1,15 * *' # Scheduled for 00:30 UTC on both the 1st and 15th of the month
-  
-  jobs:
-    semgrep:
-      # User-definable name of this GitHub Actions job:
-      name: Scan
-      # If you are self-hosting, change the following `runs-on` value: 
-      runs-on: ubuntu-latest
-  
-      container:
-        # A Docker image with Semgrep installed. Do not change this.
-        image: returntocorp/semgrep
-  
-      # Skip any PR created by dependabot to avoid permission issues:
-      if: (github.actor != 'dependabot[bot]')
-  
-      steps:
-        # Fetch project source with GitHub Actions Checkout.
-        - uses: actions/checkout@v3
-        # Run the "semgrep ci" command on the command line of the docker image.
-        - run: semgrep ci
-          env:
-             # Add the rules that Semgrep uses by setting the SEMGREP_RULES environment variable. 
-             SEMGREP_RULES: p/default # more at semgrep.dev/explore
-  ```
+<GhaSemgrepAppStandalone />
+
 </TabItem>
+
+<TabItem value='gha-ssc'>
+
+<GhaSemgrepAppSsc />
+
+</TabItem>
+
 </Tabs>
 
 <details><summary>Alternate job that uploads findings to GitHub Advanced Security Dashboard</summary>
@@ -169,98 +150,13 @@ To add a Semgrep configuration file in your GitHub Actions pipeline:
 
 <TabItem value='gha-semgrep-dash'>
 
-  ```yaml
-  # Name of this GitHub Actions workflow.
-  name: Semgrep
-  
-  on:
-    # Scan changed files in PRs (diff-aware scanning):
-    pull_request: {}
-    # Scan mainline branches and report all findings:
-    push:
-      branches: ["master", "main"]
-    # Schedule the CI job (this method uses cron syntax):
-    schedule:
-      - cron: '30 0 1,15 * *' # scheduled for 00:30 UTC on both the 1st and 15th of the month
-  
-  jobs:
-    semgrep:
-      # User definable name of this GitHub Actions job.
-      name: Scan
-      # If you are self-hosting, change the following `runs-on` value: 
-      runs-on: ubuntu-latest
-  
-      container:
-        # A Docker image with Semgrep installed. Do not change this.
-        image: returntocorp/semgrep
-  
-      # Skip any PR created by dependabot to avoid permission issues:
-      if: (github.actor != 'dependabot[bot]')
-  
-      steps:
-        # Fetch project source with GitHub Actions Checkout.
-        - uses: actions/checkout@v3
-        # Run the "semgrep ci" command on the command line of the docker image.
-        - run: semgrep ci --sarif --output=semgrep.sarif
-          env:
-            # Connect to Semgrep App through your SEMGREP_APP_TOKEN.
-            # Generate a token from Semgrep App > Settings
-            # and add it to your GitHub secrets.
-            SEMGREP_APP_TOKEN: ${{ secrets.SEMGREP_APP_TOKEN }}
-  
-        - name: Upload SARIF file for GitHub Advanced Security Dashboard
-          uses: github/codeql-action/upload-sarif@v2
-          with:
-            sarif_file: semgrep.sarif
-          if: always()
-  ```
+<GhaSemgrepAppSastDash />
 
 </TabItem>
+
 <TabItem value='gha-standalone-dash'>
 
-  ```yaml
-  # Name of this GitHub Actions workflow.
-  name: Semgrep
-  
-  on:
-    # Scan changed files in PRs (diff-aware scanning):
-    pull_request: {}
-    # Scan mainline branches and report all findings: 
-    push:
-      branches: ["master", "main"]
-    # Schedule the CI job (this method uses cron syntax):
-    schedule:
-      - cron: '30 0 1,15 * *' # Scheduled for 00:30 UTC on both the 1st and 15th of the month
-  
-  jobs:
-    semgrep:
-      # User-definable name of this GitHub Actions job:
-      name: Scan
-      # If you are self-hosting, change the following `runs-on` value: 
-      runs-on: ubuntu-latest
-  
-      container:
-        # A Docker image with Semgrep installed. Do not change this.
-        image: returntocorp/semgrep
-  
-      # Skip any PR created by dependabot to avoid permission issues:
-      if: (github.actor != 'dependabot[bot]')
-  
-      steps:
-        # Fetch project source with GitHub Actions Checkout.
-        - uses: actions/checkout@v3
-        # Run the "semgrep ci" command on the command line of the docker image.
-        - run: semgrep ci --sarif --output=semgrep.sarif
-          env:
-             # Add the rules that Semgrep uses by setting the SEMGREP_RULES environment variable. 
-             SEMGREP_RULES: p/default # more at semgrep.dev/explore
-
-        - name: Upload SARIF file for GitHub Advanced Security Dashboard
-          uses: github/codeql-action/upload-sarif@v2
-          with:
-            sarif_file: semgrep.sarif
-          if: always()
-  ```
+<GhaSemgrepAppStandaloneDash />
 
 </TabItem>
 </Tabs>
@@ -283,71 +179,24 @@ To add a Semgrep configuration snippet in your GitLab CI/CD pipeline:
     values={[
     {label: 'CI with Semgrep App', value: 'glcicd-semgrep'},
     {label: 'Stand-alone CI job', value: 'glcicd-standalone'},
+    {label: 'CI with Semgrep Supply Chain', value: 'glcicd-ssc'},
     ]}
 >
 
 <TabItem value='glcicd-semgrep'>
 
-  ```yaml
-  semgrep:
-    # A Docker image with Semgrep installed.
-    image: returntocorp/semgrep
-    # Run the "semgrep ci" command on the command line of the docker image.
-    script: semgrep ci
-  
-    rules:
-    # Scan changed files in MRs, (diff-aware scanning):
-    - if: $CI_MERGE_REQUEST_IID
-  
-    # Scan mainline (default) branches and report all findings.
-    - if: $CI_COMMIT_BRANCH == $CI_DEFAULT_BRANCH
-  
-    variables:
-      # Connect to Semgrep App through your SEMGREP_APP_TOKEN.
-      # Generate a token from Semgrep App > Settings
-      # and add it as a variable in your GitLab CI/CD project settings.
-      SEMGREP_APP_TOKEN: $SEMGREP_APP_TOKEN
-  
-    # Other optional settings in the `variables` block:
-
-    # Never fail the build due to findings on pushes.
-    # Instead, just collect findings for semgrep.dev/manage/findings
-    #   SEMGREP_AUDIT_ON: push
-  
-    # Receive inline MR comments (requires Semgrep App account)
-    # Setup instructions: 
-    # https://semgrep.dev/docs/semgrep-app/notifications/#enabling-gitlab-merge-request-comments
-    #   GITLAB_TOKEN: $PAT
-  ```
+<GlcicdSemgrepAppSast />
 
 </TabItem>
 
 <TabItem value='glcicd-standalone'>
 
-  ```yaml
-  semgrep:
-    # A Docker image with Semgrep installed.
-    image: returntocorp/semgrep
-    # Run the "semgrep ci" command on the command line of the docker image.
-    script: semgrep ci
-  
-    rules:
-    # Scan changed files in MRs, (diff-aware scanning):
-    - if: $CI_MERGE_REQUEST_IID
-  
-    # Scan mainline (default) branches and report all findings.
-    - if: $CI_COMMIT_BRANCH == $CI_DEFAULT_BRANCH
-  
-    variables:
-      # Add the rules that Semgrep uses by setting the SEMGREP_RULES environment variable.
-      SEMGREP_RULES: p/default # See more at semgrep.dev/explore.
-  
-    # Other optional settings in the `variables` block:
+<GlcicdSemgrepAppStandalone />
 
-    # Never fail the build due to findings on pushes.
-    # Instead, just collect findings for semgrep.dev/manage/findings
-    #   SEMGREP_AUDIT_ON: push
-  ```
+</TabItem>
+<TabItem value='glcicd-ssc'>
+
+<GlcicdSemgrepAppSsc />
 
 </TabItem>
 </Tabs>
@@ -364,90 +213,24 @@ To add a Semgrep configuration snippet in your GitLab CI/CD pipeline:
 
 <TabItem value='glcicd-semgrep-dash'>
 
-  ```yaml
-  semgrep:
-    # A Docker image with Semgrep installed.
-    image: returntocorp/semgrep
-  
-    rules:
-    # Scan changed files in MRs, (diff-aware scanning):
-    - if: $CI_MERGE_REQUEST_IID
-  
-    # Scan mainline (default) branches and report all findings.
-    - if: $CI_COMMIT_BRANCH == $CI_DEFAULT_BRANCH
-  
-    variables:
-      # Connect to Semgrep App through your SEMGREP_APP_TOKEN.
-      # Generate a token from Semgrep App > Settings
-      # and add it as a variable in your GitLab CI/CD project settings.
-      SEMGREP_APP_TOKEN: $SEMGREP_APP_TOKEN
-  
-      # Upload findings to GitLab SAST Dashboard:
-      SEMGREP_GITLAB_JSON: "1"
-
-    # Other optional settings in the `variables` block:
-
-    # Never fail the build due to findings on pushes.
-    # Instead, just collect findings for semgrep.dev/manage/findings
-    #   SEMGREP_AUDIT_ON: push
-  
-    # Receive inline MR comments (requires Semgrep App account)
-    # Setup instructions: 
-    # https://semgrep.dev/docs/semgrep-app/notifications/#enabling-gitlab-merge-request-comments
-    #   GITLAB_TOKEN: $PAT
-
-    # Run the "semgrep ci" command on the command line of the docker image and send findings
-    # to GitLab SAST.
-    script: semgrep ci --gitlab-sast > gl-sast-report.json || true
-    artifacts:
-      reports:
-        sast: gl-sast-report.json
-
-  ```
+<GlcicdSemgrepAppSastDash />
 
 </TabItem>
 
 <TabItem value='glcicd-standalone-dash'>
 
-  ```yaml
-  semgrep:
-    # A Docker image with Semgrep installed.
-    image: returntocorp/semgrep
-  
-    rules:
-    # Scan changed files in MRs, (diff-aware scanning):
-    - if: $CI_MERGE_REQUEST_IID
-  
-    # Scan mainline (default) branches and report all findings.
-    - if: $CI_COMMIT_BRANCH == $CI_DEFAULT_BRANCH
-  
-    variables:
-      # Add the rules that Semgrep uses by setting the SEMGREP_RULES environment variable.
-      SEMGREP_RULES: p/default # See more at semgrep.dev/explore.
+<GlcicdSemgrepAppStandaloneDash />
 
-      # Upload findings to GitLab SAST Dashboard:
-      SEMGREP_GITLAB_JSON: "1"
-
-    # Other optional settings in the `variables` block:
-
-    # Never fail the build due to findings on pushes.
-    # Instead, just collect findings for semgrep.dev/manage/findings
-    #   SEMGREP_AUDIT_ON: push
-  
-    # Run the "semgrep ci" command on the command line of the docker image and send findings
-    # to GitLab SAST.
-    script: semgrep ci --gitlab-sast > gl-sast-report.json || true
-    artifacts:
-      reports:
-        sast: gl-sast-report.json
-
-  ```
 </TabItem>
 </Tabs>
 
 </details>
 
 ## Jenkins
+
+:::note
+Your UI (user interface) may vary depending on your Jenkins installation. These steps use a Classic UI Jenkins interface.
+:::
 
 To add a Semgrep configuration snippet in your Jenkins pipeline:
 
@@ -464,73 +247,25 @@ To add a Semgrep configuration snippet in your Jenkins pipeline:
     values={[
     {label: 'CI with Semgrep App', value: 'jenkins-semgrep'},
     {label: 'Stand-alone CI job', value: 'jenkins-standalone'},
+    {label: 'CI with Semgrep Supply Chain', value: 'jenkins-ssc'},
     ]}
 >
 
 <TabItem value='jenkins-semgrep'>
 
-This code snippet uses Jenkins declarative syntax.
-
-  ```javascript
-  pipeline {
-    agent any
-      environment {
-        // The following variable is required for a Semgrep App-connected scan:
-        SEMGREP_APP_TOKEN = credentials('SEMGREP_APP_TOKEN')
-  
-        // Uncomment the following line to scan changed 
-        // files in PRs or MRs (diff-aware scanning): 
-        // SEMGREP_BASELINE_REF = "main"
-
-        // Troubleshooting:
-
-        // Uncomment the following lines if Semgrep App > Findings Page does not create links
-        // to the code that generated a finding or if you are not receiving PR or MR comments.
-        // SEMGREP_JOB_URL = "${BUILD_URL}"
-        // SEMGREP_COMMIT = "${GIT_COMMIT}"
-        // SEMGREP_BRANCH = "${GIT_BRANCH}"
-        // SEMGREP_REPO_NAME = env.GIT_URL.replaceFirst(/^https:\/\/github.com\/(.*).git$/, '$1')
-        // SEMGREP_REPO_URL = env.GIT_URL.replaceFirst(/^(.*).git$/,'$1')
-        // SEMGREP_PR_ID = "${env.CHANGE_ID}"
-      }
-      stages {
-        stage('Semgrep-Scan') {
-          steps {
-            sh 'pip3 install semgrep'
-            sh 'semgrep ci'
-        }
-      }
-    }
-  }
-  ```
+<JenkinsSemgrepAppSast />
 
 </TabItem>
 
 <TabItem value='jenkins-standalone'>
 
-This code snippet uses Jenkins declarative syntax.
+<JenkinsSemgrepAppStandalone />
 
-  ```javascript
-  pipeline {
-    agent any
-      environment {
-        SEMGREP_RULES = "p/default" 
-        SEMGREP_BRANCH = "${GIT_BRANCH}"
-  
-        // Uncomment the following line to scan changed 
-        // files in PRs or MRs (diff-aware scanning): 
-        // SEMGREP_BASELINE_REF = "main"
-      }
-      stages {
-        stage('Semgrep-Scan') {
-          steps {
-            sh 'pip3 install semgrep'
-            sh 'semgrep ci'
-        }
-      }
-    }
-  }
-  ```
+</TabItem>
+
+<TabItem value='jenkins-ssc'>
+
+<JenkinsSemgrepAppSsc />
 
 </TabItem>
 </Tabs>
@@ -556,68 +291,25 @@ These steps can also be performed through BitBucket's UI wizard. This UI wizard 
     values={[
     {label: 'CI with Semgrep App', value: 'bitbucket-semgrep'},
     {label: 'Stand-alone CI job', value: 'bitbucket-standalone'},
+    {label: 'CI with Semgrep Supply Chain', value: 'bitbucket-ssc'},
     ]}
 >
 
 <TabItem value='bitbucket-semgrep'>
 
-  ```yaml
-  image: atlassian/default-image:latest
-  
-  pipelines:
-    default:
-      - parallel:
-        - step:
-            name: 'Run Semgrep scan with current branch'
-            deployment: dev # https://support.atlassian.com/bitbucket-cloud/docs/set-up-and-monitor-deployments/
-            image: returntocorp/semgrep
-            script:
-              # The following variables are required to set up a Semgrep App-connected scan:
-              - export $SEMGREP_APP_TOKEN
-
-              # Uncomment the following line to scan changed 
-              # files in PRs or MRs (diff-aware scanning): 
-              # - export SEMGREP_BASELINE_REF = "origin/main"
-              # - git fetch origin "+refs/heads/*:refs/remotes/origin/*"
-
-              # Troubleshooting:
-
-              # Uncomment the following lines if Semgrep App > Findings Page does not create links
-              # to the code that generated a finding or if you are not receiving PR or MR comments.
-              # - export SEMGREP_JOB_URL="${SEMGREP_REPO_URL}/addon/pipelines/home#!/results/${BITBUCKET_PIPELINE_UUID}"
-              # - export SEMGREP_COMMIT=$BITBUCKET_COMMIT
-              # - export SEMGREP_PR_ID=$BITBUCKET_PR_ID
-              # - export SEMGREP_BRANCH=$BITBUCKET_BRANCH
-              # - export SEMGREP_REPO_URL=$BITBUCKET_GIT_HTTP_ORIGIN
-              # - export SEMGREP_REPO_NAME=$BITBUCKET_REPO_FULL_NAME
-
-              - semgrep ci
-  ```
+<BitbucketSemgrepAppSast />
 
 </TabItem>
 
-
 <TabItem value='bitbucket-standalone'>
 
-  ```yaml
-  image: atlassian/default-image:latest
-  
-  pipelines:
-    default:
-      - parallel:
-        - step:
-            name: 'Run Semgrep scan with current branch'
-            deployment: dev
-            image: returntocorp/semgrep
-            script:
-              - export SEMGREP_RULES = "p/default"
+<BitbucketSemgrepAppStandalone />
 
-              # Uncomment the following line to scan changed 
-              # files in PRs or MRs (diff-aware scanning): 
-              # - export SEMGREP_BASELINE_REF = "main"
+</TabItem>
 
-              - semgrep ci
-  ```
+<TabItem value='bitbucket-ssc'>
+
+<BitbucketSemgrepAppSsc />
 
 </TabItem>
 </Tabs>
@@ -633,6 +325,10 @@ To add Semgrep into your Buildkite pipeline:
 4. The Semgrep job starts automatically upon detecting the committed `pipeline.yml` file. You can also view the job through BitBucket's interface, by clicking **your repository > Pipelines**. 
 5. Optional: Create a separate CI job for diff-aware scanning, which scans only changed files in PRs or MRs, by repeating steps 1-3 and uncommenting the `SEMGREP_BASELINE_REF` definition provided within the code snippet.
 
+:::note
+These steps can be performed from within Buildkite's interface. From Buildkite's main page, click **Pipelines > ➕ button** to perform these steps within Buildkite's UI.
+:::
+
 ### Sample Buildkite configuration snippet
 
 <Tabs
@@ -640,61 +336,27 @@ To add Semgrep into your Buildkite pipeline:
     values={[
     {label: 'CI with Semgrep App', value: 'buildkite-semgrep'},
     {label: 'Stand-alone CI job', value: 'buildkite-standalone'},
+    {label: 'CI with Semgrep Supply Chain', value: 'buildkite-ssc'},
     ]}
 >
 
 <TabItem value='buildkite-semgrep'>
 
-```yaml
-- label: ":semgrep: Semgrep"
-  commands:
-
-    # Uncomment the following line to scan changed 
-    # files in PRs or MRs (diff-aware scanning): 
-    # - export SEMGREP_BASELINE_REF = "main"
-    
-    # Troubleshooting:
-
-    # Uncomment the following lines if Semgrep App > Findings Page does not create links
-    # to the code that generated a finding or if you are not receiving PR or MR comments.
-    # - export SEMGREP_COMMIT=${BUILDKITE_COMMIT}
-    # - export SEMGREP_PR_ID=${BUILDKITE_PULL_REQUEST}
-    # - export SEMGREP_BRANCH=${BUILDKITE_BRANCH}
-    # - export SEMGREP_REPO_URL="$(echo "$BUILDKITE_REPO" | sed -e 's#.\{4\}$##')"
-    # - echo "$BUILDKITE_REPO" | sed 's#https://github.com/##' | sed 's#.git##'
-    # - export SEMGREP_REPO_NAME="$(echo "$BUILDKITE_REPO" | sed -e 's#https://github.com/##' | sed -e 's#.git##')"
-    
-    - semgrep ci 
-  
-  plugins:
-    - docker#v3.7.0:
-        image: returntocorp/semgrep
-        environment:
-          # The following variable is required for a Semgrep App-connected scan:
-          - "SEMGREP_APP_TOKEN"
-```
+<BuildkiteSemgrepAppSast />
 
 </TabItem>
 
 <TabItem value='buildkite-standalone'>
 
-```yaml
-- label: ":semgrep: Semgrep"
-  commands:
-    # Define rules to scan with by setting the SEMGREP_RULES environment variable. 
-    - export SEMGREP_RULES="p/default"
+<BuildkiteSemgrepAppStandalone />
 
-    # To scan changed files in PRs or MRs (diff-aware scanning):
-    # - export SEMGREP_BASELINE_REF=${BUILDKITE_BRANCH}
-
-    - semgrep ci 
-  
-  plugins:
-    - docker#v3.7.0:
-      image: returntocorp/semgrep
-```
 </TabItem>
 
+<TabItem value='buildkite-ssc'>
+
+<BuildkiteSemgrepAppSsc />
+
+</TabItem>
 </Tabs>
 
 ## CircleCI
@@ -723,91 +385,25 @@ gets put into the pipeline at runtime.
     values={[
     {label: 'CI with Semgrep App', value: 'circleci-semgrep'},
     {label: 'Stand-alone CI job', value: 'circleci-standalone'},
+    {label: 'CI with Semgrep Supply Chain', value: 'circleci-ssc'},
     ]}
 >
 
 <TabItem value='circleci-semgrep'>
-
-```yaml
-version: 2.1
-jobs:
-  semgrep-scan:
-    parameters:
-      default_branch:
-        type: string
-        default: main
-    environment:
-      # Uncomment the following line to scan changed 
-      # files in PRs or MRs (diff-aware scanning): 
-      # - export SEMGREP_BASELINE_REF = "origin/main"
-      # - git fetch origin "+refs/heads/*:refs/remotes/origin/*"
-      # SEMGREP_BASELINE_REF: << parameters.default_branch >>
-
-      # Troubleshooting:
-
-      # Uncomment the following lines if Semgrep App > Findings Page does not create links
-      # to the code that generated a finding or if you are not receiving PR or MR comments.
-      # SEMGREP_REPO_NAME: '$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME'
-      # SEMGREP_REPO_URL: << pipeline.project.git_url >>
-      # SEMGREP_BRANCH: << pipeline.git.branch >>
-
-    docker:
-      - image: returntocorp/semgrep
-    steps:
-      - checkout
-
-      # Uncomment the following lines if Semgrep App > Findings Page does not create links
-      # to the code that generated a finding or if you are not receiving PR or MR comments.
-      # - run:
-      #     name: "Manually set environment variables"
-      #     command: |
-      #         echo 'export SEMGREP_COMMIT=$CIRCLE_SHA1' >> $BASH_ENV
-      #         echo 'export SEMGREP_PR_ID=${CIRCLE_PULL_REQUEST##*/}' >> $BASH_ENV
-      #         echo 'export SEMGREP_JOB_URL=$CIRCLE_BUILD_URL' >> $BASH_ENV
-      - run:
-          name: "Semgrep scan"
-          command: semgrep ci
-workflows:
-  main:
-    jobs:
-      - semgrep-scan
-```
+<CircleCiSemgrepAppSast /> 
 
 </TabItem>
 <TabItem value='circleci-standalone'>
 
-```yaml
-version: 2.1
-jobs:
-  semgrep-scan:
-    parameters:
-      default_branch:
-        type: string
-        default: main
-    environment:
-      SEMGREP_RULES: p/default
-
-      # Uncomment the following line to scan changed 
-      # files in PRs or MRs (diff-aware scanning): 
-      # - export SEMGREP_BASELINE_REF = "origin/main"
-      # - git fetch origin "+refs/heads/*:refs/remotes/origin/*"
-      # SEMGREP_BASELINE_REF: << parameters.default_branch >>
-
-    docker:
-      - image: returntocorp/semgrep
-    steps:
-      - checkout
-      - run:
-          name: "Semgrep scan"
-          command: semgrep ci
-workflows:
-  main:
-    jobs:
-      - semgrep-scan
-```
+<CircleCiSemgrepAppStandalone /> 
 
 </TabItem>
 
+<TabItem value='circleci-ssc'>
+
+<CircleCiSemgrepAppSsc /> 
+
+</TabItem>
 </Tabs>
 
 ## Azure Pipelines
@@ -828,73 +424,27 @@ To add Semgrep into Azure Pipelines:
     values={[
     {label: 'CI with Semgrep App', value: 'azure-semgrep'},
     {label: 'Stand-alone CI job', value: 'azure-standalone'},
+    {label: 'CI with Semgrep Supply Chain', value: 'azure-ssc'},
     ]}
 >
 
 <TabItem value='azure-semgrep'>
 
-
-```yaml
-# trigger:
-#  - master
-
-pool:
-  vmImage: ubuntu-latest
-variables:
-- group: Semgrep app token group
-
-steps: 
-
-- script: |
-    python -m pip install --upgrade pip
-    pip install semgrep
-    semgrep ci
-  env: 
-    SEMGREP_PR_ID: $(System.PullRequest.PullRequestNumber)
-```
-
-### Setting environment variables in Azure Pipelines
-
-Set these variables within Azure Pipelines UI following the steps in [Environment variables](https://learn.microsoft.com/en-us/azure/devops/pipelines/process/variables?view=azure-devops&tabs=yaml%2Cbatch#secret-variables):
-
-* `SEMGREP_APP_TOKEN`
-
-Set these environment variables to troubleshoot the links to the code that generated a finding or if you are not receiving PR or MR comments:
-
-* `SEMGREP_JOB_URL`
-* `SEMGREP_COMMIT`
-* `SEMGREP_BRANCH`
-* `SEMGREP_REPO_URL`
-* `SEMGREP_REPO_NAME`
-
-Set this environment variable for diff-aware scanning:
-
-* `SEMGREP_BASELINE_REF`. Its value is typically your trunkline branch, such as `main` or `master`.
+<AzureSemgrepAppSast /> 
 
 </TabItem>
 
 <TabItem value='azure-standalone'>
 
-
-```yaml
-# trigger:
-#  - master
-
-pool:
-  vmImage: ubuntu-latest
-
-steps: 
-
-- script: |
-    python -m pip install --upgrade pip
-    pip install semgrep
-    semgrep ci
-  env: 
-    SEMGREP_RULES: p/default
-```
+<AzureSemgrepAppStandalone /> 
 
 </TabItem>
 
+<TabItem value='azure-ssc'>
+
+<AzureSemgrepAppSsc /> 
+
+</TabItem>
 </Tabs>
 
 ## Other providers
@@ -911,6 +461,7 @@ Using the [configuration reference](../configuration-reference/), you can run Se
 - Buildbot
 - Codeship
 - Codefresh
+- Drone CI
 - TeamCity CI
 - Travis CI
 
