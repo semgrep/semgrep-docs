@@ -200,6 +200,6 @@ We’re excited to hear what’s on your mind. As users explore the limits of De
 
 ### DeepSemgrep language support
 
-DeepSemgrep now offers beta support for Java and Ruby.
+DeepSemgrep now offers beta support for Java, Javascript/Typescript, and Ruby.
 
 <MoreHelp />
