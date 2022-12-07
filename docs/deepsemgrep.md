@@ -23,7 +23,7 @@ To enable DeepSemgrep installation, schedule a product demo by following these s
 
 After product demo, you'll receive a new custom ruleset! Follow the instructions below to get your findings.
 
-:::info Prerequisites
+:::info Prerequisite
 - Local installation of Semgrep CLI. See [Getting started with Semgrep CLI](/getting-started) to install Semgrep CLI.
 :::
 
