@@ -14,6 +14,10 @@ Improve your scan results for entire codebases with interfile coding paradigms u
 
 This document demonstrates the utility of DeepSemgrep through use cases, guiding you through examples of Semgrep rules. Both Semgrep rules and code on which rules are tested are marked as code snippets and introduced always as a rule, code, or file used to illustrate the capabilities of DeepSemgrep.
 
+### DeepSemgrep language support
+
+DeepSemgrep now offers alpha support for Java, Javascript/Typescript.
+
 ## Installing DeepSemgrep
 
 To enable DeepSemgrep installation, schedule a product demo by following these steps:
@@ -197,9 +201,5 @@ DeepSemgrep is different from [join mode](/writing-rules/experiments/join-mode/o
 ### Future development of DeepSemgrep
 
 We’re excited to hear what’s on your mind. As users explore the limits of DeepSemgrep, we want to know what they’re failing to express. We believe that interfile type inference, constant propagation, and taint tracking combined allow users to express most restrictions on a program and enforce them quickly.
-
-### DeepSemgrep language support
-
-DeepSemgrep now offers alpha support for Java, Javascript/Typescript.
 
 <MoreHelp />
