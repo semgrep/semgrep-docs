@@ -42,7 +42,7 @@ To install DeepSemgrep, follow these steps:
     ```sh
     semgrep install-deep-semgrep
     ```
-1. To test DeepSemgrep, use the following command:
+1. To test DeepSemgrep, use the following command in the root directory of the codebase to scan:
     ```bash
     semgrep --deep --config "p/deepsemgrep" --dataflow-traces
     ```
