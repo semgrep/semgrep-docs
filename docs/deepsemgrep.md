@@ -16,7 +16,7 @@ This document demonstrates the utility of DeepSemgrep through use cases, guiding
 
 ### DeepSemgrep language support
 
-DeepSemgrep now offers alpha support for Java, Javascript/Typescript.
+DeepSemgrep now offers alpha support for Java, JavaScript/TypeScript.
 
 ## Installing DeepSemgrep
 
