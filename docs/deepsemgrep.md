@@ -12,7 +12,7 @@ import MoreHelp from "/src/components/MoreHelp"
 
 Improve your scan results for entire codebases with interfile coding paradigms using DeepSemgrep instead of Semgrep's regular intrafile (within-a-single-file) approach. DeepSemgrep empowers you to easily scan whole repositories that have object-oriented programming paradigms with classes in different files to find vulnerabilities in your code. DeepSemgrep is a proprietary extension of free and open source Semgrep which leverages global analysis tools, and uses the same rules as Semgrep. 
 
-This document demonstrates the utility of DeepSemgrep through use cases, guiding you through examples of Semgrep rules. Both Semgrep rules and code on which rules are tested are marked as code snippets and introduced always as a rule, code, or file used to illustrate the capabilities of DeepSemgrep.
+This document demonstrates the utility of DeepSemgrep through use cases, guiding you through examples of Semgrep rules. Both Semgrep rules and code on which rules are tested are marked as code snippets and introduced always, as a rule, code, or file used to illustrate the capabilities of DeepSemgrep.
 
 ### DeepSemgrep language support
 
