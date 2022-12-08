@@ -42,12 +42,12 @@ To install DeepSemgrep, follow these steps:
     ```bash
     semgrep --deep --config "p/deepsemgrep" --dataflow-traces
     ```
-    The `p/deepsemgrep` is a DeepSeemgrep specific ruleset to which you obtained access after your product demo.
+    The `p/deepsemgrep` is a DeepSeemgrep-specific ruleset to which you gained access after your product demo.
 1. Optional: We appreciate your help gathering data as we improve DeepSemgrep! If you are fine with sending r2c usage metrics, run the command with `--time --metrics on`:
     ```bash
     semgrep --deep --config "p/deepsemgrep" --dataflow-traces --time --metrics on
     ```
-    See [Semgrep Privacy Policy](/metrics) for details of what is being send to r2c.
+    See [Semgrep Privacy Policy](/metrics) for details of what is being sent to r2c.
 
 :::note
 Let us know what you think about the results in the <a href="https://r2c.dev/slack">Community Slack</a>.
