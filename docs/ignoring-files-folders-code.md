@@ -156,7 +156,7 @@ bad_func2()
 
 ```
 
-Javascript examples wherein rules are stored in a `configs` subdirectory:
+JavaScript examples wherein rules are stored in a `configs` subdirectory:
 
 ```javascript
 

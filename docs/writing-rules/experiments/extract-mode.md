@@ -8,7 +8,7 @@ description: "This article explains the extract mode, which allows for easier ha
 
 ## Introduction
 
-Extract mode enables you to run existing rules on subsections of files where the rule language is different than the language of the file. For example, running a Javascript rule on code contained inside of script tags in an HTML document.
+Extract mode enables you to run existing rules on subsections of files where the rule language is different than the language of the file. For example, running a JavaScript rule on code contained inside of script tags in an HTML document.
 
 ## Example of extract mode
 
