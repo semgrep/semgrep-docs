@@ -219,7 +219,7 @@ module.exports = {
           { from: "/release-notes/", to: "/release-notes/introduction/" },
           { from: "/rule-updates/", to: "/release-notes/rule-updates/" },
           { from: "/experiments/overview/", to: "/writing-rules/experiments/introduction/" },
-          { from: "/experiments/generic-pattern-matching/", to: "/writing-rules/experiments/generic-pattern-matching/" },
+          { from: "/experiments/generic-pattern-matching/", to: "/writing-rules/generic-pattern-matching/" },
           { from: "/experiments/join-mode/overview/", to: "/writing-rules/experiments/join-mode/overview/" },
           { from: "/experiments/join-mode/recursive-joins/", to: "/writing-rules/experiments/join-mode/recursive-joins/" },
           { from: "/experiments/extract-mode/", to: "/writing-rules/experiments/extract-mode/" },
@@ -227,11 +227,14 @@ module.exports = {
           { from: "/experiments/symbolic-propagation/", to: "/writing-rules/experiments/symbolic-propagation/" },
           { from: "/experiments/taint-propagators/", to: "/writing-rules/experiments/taint-propagators/" },
           { from: "/experiments/taint-labels/", to: "/writing-rules/experiments/taint-labels/" },
-          { from: "/experiments/metavariable-analysis/", to: "/writing-rules/experiments/metavariable-analysis/" },
+          { from: "/experiments/metavariable-analysis/", to: "/writing-rules/metavariable-analysis/" },
           { from: "/experiments/multiple-focus-metavariables/", to: "/writing-rules/experiments/multiple-focus-metavariables/" },
           { from: "/experiments/display-propagated-metavariable/", to: "/writing-rules/experiments/display-propagated-metavariable/" },
           { from: "/experiments/deprecated-experiments/", to: "/writing-rules/experiments/deprecated-experiments/" },
-          { from: "/semgrep-sc/supply-chain-supported-languages/", to: "/supported-languages/" }
+          { from: "/semgrep-sc/supply-chain-supported-languages/", to: "/supported-languages/" },
+          { from: "/writing-rules/experiments/autofix/", to: "/writing-rules/autofix/" },
+          { from: "/writing-rules/experiments/generic-pattern-matching/", to: "/writing-rules/generic-pattern-matching/" },
+          { from: "/writing-rules/experiments/metavariable-analysis/", to: "/writing-rules/metavariable-analysis/" }
         ]
       }
     ],

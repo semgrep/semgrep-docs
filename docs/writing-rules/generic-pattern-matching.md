@@ -1,6 +1,6 @@
 ---
 append_help_link: true
-description: "Semgrep can match generic patterns in languages that it doesn’t support yet. You can use generic pattern matching for languages that do **not** have a parser, configuration files, or other structured data such as XML. Generic pattern matching is experimental."
+description: "Semgrep can match generic patterns in languages that it doesn’t support yet. You can use generic pattern matching for languages that do **not** have a parser, configuration files, or other structured data such as XML."
 ---
 
 # Generic pattern matching
@@ -10,7 +10,8 @@ description: "Semgrep can match generic patterns in languages that it doesn’t 
      that makes sense. -->
 
 ## Introduction
-Semgrep can match generic patterns in languages that it does **not** yet support. Use generic pattern matching for languages that do not have a parser, configuration files, or other structured data such as XML. Generic pattern matching is experimental.
+
+Semgrep can match generic patterns in languages that it does **not** yet support. Use generic pattern matching for languages that do not have a parser, configuration files, or other structured data such as XML.
 
 As an example, consider this rule:
 ```yaml

@@ -67,7 +67,7 @@ Semgrep [natively supports JSON and YAML](../supported-languages.md) and can be 
 
 <iframe src="https://semgrep.dev/embed/editor?snippet=minusworld:docs-kubernetes-skip-tls-verify" title="Match configuration files with Semgrep" width="100%" height="432px" frameBorder="0"></iframe>
 
-The [Generic pattern matching](/writing-rules/experiments/generic-pattern-matching.md) mode is for languages and file formats that Semgrep does not natively support. For example, you can write rules for Dockerfiles using the generic mode. The Dockerfile rule below checks for invalid port numbers.
+The [Generic pattern matching](/writing-rules/generic-pattern-matching/) mode is for languages and file formats that Semgrep does not natively support. For example, you can write rules for Dockerfiles using the generic mode. The Dockerfile rule below checks for invalid port numbers.
 
 <iframe src="https://semgrep.dev/embed/editor?snippet=minusworld:docs-dockerfile-invalid-port" title="Match Dockerfiles with Semgrep" width="100%" height="432px" frameBorder="0"></iframe>
 
