@@ -33,7 +33,7 @@ To install DeepSemgrep, follow these steps:
     ```sh
     semgrep login
     ```
-1. Follow the link that Semgrep prints to the command-line.
+1. Follow the link that Semgrep printed in the command-line.
 1. To install DeepSemgrep, use the following command:
     ```sh
     semgrep install-deep-semgrep
