@@ -253,7 +253,7 @@ Various errors can occur along the way.
 
 Compilation errors in C or C++ are usually due to a missing source
 file `scanner.c` or `scanner.cc`, or a grammar with a name that
-doesn't match the name inside the scanner file. Javascript files may
+doesn't match the name inside the scanner file. JavaScript files may
 also be missing, in particular in the case of grammars that extend
 existing grammars such as C++ for C or TypeScript for
 JavaScript. Check for `require()` calls in `grammar.js` and learn how
