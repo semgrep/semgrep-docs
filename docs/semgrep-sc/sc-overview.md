@@ -40,7 +40,7 @@ Semgrep Supply Chain generates a **finding **when it detects a match. If the dep
 
 A finding is **unreachable** if the dependency contains a known vulnerability, but the vulnerable matching code is not used in your codebase.
 
-Within Semgrep App, specific findings of a dependency and code match are called **usages**. Usages are grouped by their **vulnerability**. Vulnerabilities in Semgrep Supply Chain typically have a CVE number corresponding to the record in the [CVE Program](https://www.cve.org/About/Overview).
+In Semgrep App, specific findings of a dependency and code match are called **usages**. Usages are grouped by their **vulnerability**. Vulnerabilities in Semgrep Supply Chain typically have a CVE number corresponding to the record in the [CVE Program](https://www.cve.org/About/Overview).
 
 The following diagram displays the relationship between a Supply Chain rule, the lockfile, and the codebase being scanned:
 
