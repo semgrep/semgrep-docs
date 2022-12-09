@@ -25,7 +25,7 @@ Object.entries(frontMatter).filter(
 
 ![Screenshot of dashboard view](/img/dashboard-view.png)
 
-The Findings Dashboard is an overview of your organization’s security posture from data aggregated within Semgrep App. With these metrics you are able to:
+The Findings Dashboard is an overview of your organization’s security posture from data aggregated within Semgrep App. With these metrics you can:
 
 * View recurring security issues, consequently taking action on them.
 * Improve communication between developer teams and security teams.
@@ -69,7 +69,7 @@ To change the projects filter:
 
 ![Screenshot of dashboard projects](/img/dashboard-project.png)
 
-The **Projects widget** displays open findings, high severities, and PR fix rates per-project. Through this view you are able to see which projects have the amount number of findings. The columns are arranged in a descending order, from the project with the greatest amount of findings to the least.
+The **Projects widget** displays open findings, high severities, and PR fix rates per-project. Through this view you can see which projects have the amount number of findings. The columns are arranged in a descending order, from the project with the greatest amount of findings to the least.
 
 To view the project’s findings, click on the project’s name. This takes you to the [Findings page](../findings), where you can filter, sort, and triage findings.
 
@@ -83,7 +83,7 @@ Trends in insecure code can emerge after multiple Semgrep scans over time. By id
 	<dt>Code injection</dt>
 	<dd>Refers to poor handling of untrusted data (data from user inputs, integrations, and the like) that leads to malicious actors injecting their own code into the application. Semgrep Registry provides <a href="https://semgrep.dev/p/sql-injection">a ruleset guarding against SQL injection</a> for a variety of languages.</dd>
 	<dt>Cookie flag</dt>
-	<dd>Indicates issues with session management, specifically the misuse or underuse of cookie attributes such as <code>secure</code>, <code>HttpOnly</code>, <code>SameSite</code>, to prevent cookie theft and other cookie-related attacks. The Semgrep rule <a href="https://semgrep.dev/playground?registry=go.gorilla.security.audit.session-cookie-missing-httponly.session-cookie-missing-httponly">"Session Cookie Missing HttpOnly"</a> is an example written for Golang.</dd>
+	<dd>Indicates issues with session management, specifically the misuse or underuse of cookie attributes such as <code>secure</code>, <code>HttpOnly</code>, <code>SameSite</code>, to prevent cookie theft and other cookie-related attacks. The Semgrep rule <a href="https://semgrep.dev/playground?registry=go.gorilla.security.audit.session-cookie-missing-httponly.session-cookie-missing-httponly">"Session Cookie Missing HttpOnly"</a> is an example written for Go language.</dd>
 	<dt>Cross-site request forgery (CSRF)</dt>
 	<dd>This category tracks patterns in code that may result in CSRF attacks. CSRF attacks occur when an attacker induces users to perform unintentional actions. These issues can be detected based on a codebase’s framework, such as Django. In the rule, <a href="https://semgrep.dev/playground?registry=python.django.security.audit.csrf-exempt.no-csrf-exempt">"No CSRF Exempt"</a>, Semgrep detects when a Django route does not have a CSRF token, the lack of which could lead to an attack.</dd>
 	<dt>Active debug code</dt>
@@ -99,7 +99,7 @@ Trends in insecure code can emerge after multiple Semgrep scans over time. By id
 	<dt>Open redirect</dt>
 	<dd>Open redirects happen when user input is incorporated into a redirection target. Malicious actors can then construct a lengthy URL pointing away from the expected domain, though it appears authentic in the beginning of the URL string. This exploit is used in phishing by sending a user an email with a link that appears genuine but steers them away from the trusted domain. In this <a href="https://semgrep.dev/playground?registry=python.flask.security.open-redirect.open-redirect">Flask example</a>, data directly from the request is passed to the redirect function, which could be exploited.</dd>
 	<dt>Command injection</dt>
-	<dd>Command injection occurs when an attacker uses some type of input to run <strong>system commands</strong> on the host operating system. This is also known as shell injection. In <a href="https://semgrep.dev/playground?registry=go.lang.security.audit.dangerous-syscall-exec.dangerous-syscall-exec">"Audit dangerous syscall"</a>, written for Golang, a finding is detected for non-static input to <code>syscall</code>, which if reached by user data, makes it vulnerable to exploitation.</dd>
+	<dd>Command injection occurs when an attacker uses some type of input to run <strong>system commands</strong> on the host operating system. This is also known as shell injection. In <a href="https://semgrep.dev/playground?registry=go.lang.security.audit.dangerous-syscall-exec.dangerous-syscall-exec">"Audit dangerous syscall"</a>, written for Go programming language, a finding is detected for non-static input to <code>syscall</code>, which if reached by user data, makes it vulnerable to exploitation.</dd>
 </dl>
 
 ## Assessing rule performance
