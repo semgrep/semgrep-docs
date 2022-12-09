@@ -63,12 +63,65 @@ If you encounter issues during the setup process, reach out to [support@r2c.dev]
 
 ### Setting up SAML SSO with Azure Active Directory
 
-Set up Semgrep as an Enterprise App with SAML SSO using Azure's Active Directory service by following these steps:
+<!--
+Semgrep App doesn't have an integration app in Azure AD the way it does with Slack and GitHub.
+So, the user has to create a custom app (integration) for SAML SSO.
+We only use SOME steps in the documentation for Azure, so we'll have to make our own guide.
 
-1. In **Azure Active Directory**, create **Enterprise App** for Semgrep with SAML SSO selected. Follow the six step procedure in [Enable single sign-on](https://learn.microsoft.com/en-us/azure/active-directory/manage-apps/add-application-portal-setup-sso#enable-single-sign-on).
-1. Go to Semgrep App [Settings](https://semgrep.dev/orgs/-/settings/sso) page, and then click SAML2.
-1. In **Basic Configuration** of Azure Active directory, copy `Entity ID` and the `Reply URL`. These are provided in the Semgrep App on the left-side **Settings** tab, under the **SSO** tab on the top, as `Audience URL` and `SSO URL`, respectively. Make sure you switch the provider type to **SAML2** in the SSO form in the Semgrep App.
-    !["Entity ID" and "Reply URL" fields in Semgrep App](/img/azure-sso-fields-2.png ""Entity ID" and "Reploy URL" fields from within the App")
+The following references are used:
+
+-->
+
+:::info Prerequisites
+* An existing Azure Active Directory account.
+* Sufficient permissions within Azure Active Directory to create Enterprise Apps. See [Azure AD roles](https://learn.microsoft.com/en-us/azure/active-directory/roles/permissions-reference).
+:::
+
+Setting up SAML SSO using Azure Active Directory (Azure AD) consists of the following general steps:
+
+1. Creating a custom **Enterprise App** within Azure Active Directory.
+2. Setting up SAML SSO for your new Enterprise App.
+3. Adding users to your new Enterprise App.
+
+#### Creating a custom Enterprise App
+
+<!-- Rather than using portal.azure.com, which takes us to Azure Dashboard, sign in straight away to Azure AD -->
+
+1. Sign in to the [Azure AD portal](https://aad.portal.azure.com/).
+2. Click **Enterprise applications**.
+3. Click **New application** > **Create your own application**.
+4. Give your new application a name, such as `Semgrep SAML`.
+5. Click **Integrate any other application you don't find in the gallery (non-gallery)**.
+6. Click **Create**. This takes you to your new Enterprise Application's page.
+
+<!-- Should provide a screenshot to reassure users. -->
+
+ You have now created a custom Enterprise App for Semgrep to integrate into Azure AD. This enables you to set up SAML SSO.
+
+#### Setting up SAML SSO for your new Enterprise App
+
+1. From your new Enterprise App's page, Click **Single-sign on** > **SAML** tile. This takes you to the **Set up Single Sign-On with SAML** page.
+2. Under the **Basic SAML Configuration** form, click **Edit** to enter values for **Entity ID** and **Reply URL**. These values are retrieved from Semgrep App by performing the following steps:
+    1. Go to Semgrep App [Settings](https://semgrep.dev/orgs/-/settings/sso) page, and then click **SAML2** under **SSO Method** to display the SAML2 form.
+    2. From the SAML2 form, copy the **Audience URL** value and paste it into **Entity ID**.
+    3. From the SAML2 form, copy the **SSO URL** value and paste it into **Reply URL**. [Add a screenshot here]
+3. In the **Basic SAML Configuration** form, click **Save**.
+4. Under the **User Attributes & Claims** form, click **Edit**.
+
+
+#### Adding users to your new Enterprise App
+
+To add users to the application in so they can log in with their domain emails, refer to [Assign users and groups to an application](https://learn.microsoft.com/en-us/azure/active-directory/manage-apps/assign-user-or-group-access-portal).
+
+
+
+
+
+
+
+
+
+
 1. TODO You need to add two attribute statements called `name` and `email`, making sure to set the `email` attribute to `user.mail`. For help regarding **Attributes and Claims**, refer to TODO describe process.
 1. In the Azure Single sign-on page, find the `Login URL`, `Azure AD Identifier`, and `Certificate (Base64)`. Paste them to your [Settings](https://semgrep.dev/orgs/-/settings/sso) page of SAML2 SSO as `IdP SSO URL` (`Login URL`), `IdP Issuer ID` (`Azure AD Identifier`), and TODO - specify that this needs to be a certificate which can be downloaded - `X.509 Certificate` (`Certificate (Base64)`). 
     ![Setting additional SSO form fields](/img/azure-sso-app-fields.png "Setting additional SSO form fields")
@@ -77,6 +130,7 @@ Set up Semgrep as an Enterprise App with SAML SSO using Azure's Active Directory
 1. Click the **Create/Update Auth Provider**. See a green confirmation message in the upper-left of the app to verify that we've recieved your SSO info.
     ![Submitting your SSO info in the App](/img/azure-sso-submit.png "Submitting your SSO info in the App")
 
-To add users to the application in so they can log in with their domain emails: refer to the [Assign users and groups to an application](https://learn.microsoft.com/en-us/azure/active-directory/manage-apps/assign-user-or-group-access-portal).
+
+
 
 <MoreHelp />
