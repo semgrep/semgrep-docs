@@ -156,6 +156,7 @@ module.exports = {
         label: 'Semgrep Supply Chain',
         collapsible: false,
         items: [
+            'semgrep-sc/sc-overview',
             'semgrep-sc/sc-getting-started',
             'semgrep-sc/sc-triage-remediation',
             'semgrep-sc/sc-ignoring-deps',

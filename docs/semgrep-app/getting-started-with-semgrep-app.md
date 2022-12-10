@@ -12,6 +12,10 @@ tags:
 
 import MoreHelp from "/src/components/MoreHelp"
 import EnableAutofix from "/src/components/procedure/_enable-autofix.mdx"
+import PlatformSigninIntro from "/src/components/concept/_platform-signin-intro.md"
+import PlatformSigninGithub from "/src/components/procedure/_platform-signin-github.md"
+import PlatformSigninGitlab from "/src/components/procedure/_platform-signin-gitlab.md"
+import PlatformAddRepo from "/src/components/procedure/_platform-add-repo.md"
 
 <ul id="tag__badge-list">
 {
@@ -48,25 +52,11 @@ Semgrep App enables you to deploy, configure, and manage Semgrep in your continu
 
 ## Signing in to Semgrep App
 
-Signing in to Semgrep App requires either a GitHub or GitLab account. Semgrep App supports Single Sign-On (SSO) on Team or Enterprise tiers. This guide focuses on GitHub and GitLab sign-ins. See [SSO Configuration](https://semgrep.dev/docs/semgrep-app/sso/) for information on single sign-on.
-
-:::info Prerequisite
-A GitHub or GitLab SaaS account. The account is used to confirm your identity.
-:::
+<PlatformSigninIntro />
 
 ### Signing in with GitHub
 
-To sign in to Semgrep with a GitHub account:
-
-1. Click the following link: [Sign into Semgrep](https://semgrep.dev/login?return_path=/manage/projects).
-2. Select **Sign in with GitHub**. You are redirected to the GitHub sign in page if you are not currently signed in.
-3. Sign in with your credentials.
-4. Click **Authorize semgrep-app**. See the GitHub documentation about [Authorizing GitHub Apps](https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/authorizing-github-apps) to understand the scope of permissions requested by Semgrep.
-5. You are redirected back to Semgrep App.
-6. Click **Accept** to accept Semgrep's Terms of Service.
-7. Optional: Fill out the survey and click Complete or click Skip to omit this step.
-
-You are now signed in to Semgrep App.
+<PlatformSigninGithub />
 
 #### Permissions for GitHub
 
@@ -117,15 +107,7 @@ The GitHub integration app is called [`semgrep-app`](https://github.com/apps/sem
 
 ### Signing in with GitLab
 
-1. Click the following link: [Sign into Semgrep](https://semgrep.dev/login?return_path=/manage/projects).
-2. Select **Sign in with GitLab**. You are redirected to the GitLab sign in page if you are not currently signed in.
-3. Sign in with your credentials.
-4. Click **Authorize**. See the GitLab documentation about [Authorized applications](https://docs.gitlab.com/ee/integration/oauth_provider.html#authorized-applications) to understand the scope of permissions requested by Semgrep.
-5. You are redirected back to Semgrep App.
-6. Click **Accept** to accept Semgrep's Terms of Service.
-7. Optional: Fill out the survey and click Complete or click Skip to omit this step.
-
-You are now signed in to Semgrep App.
+<PlatformSigninGitlab />
 
 #### Permissions for GitLab
 
@@ -142,7 +124,7 @@ Scanning is Semgrep's primary operation. When you first sign into Semgrep App, i
 
 Semgrep App enables users to choose what findings prevent a pull or merge request (PR or MR) from merging into the repository. Setting these blocking and non-blocking rules is achieved through the Rule Board.
 
-### Scanning a new project
+### Adding or onboarding a new project (repository)
 
 A **project** is a repository from either:
 
@@ -252,24 +234,9 @@ $> export SEMGREP_COMMIT=fa4e36b9369e5b039bh2220b5h9R61a38b077f29
 
 *Figure 3.* Partial screenshot of findings page with hyperlinks.
 
-#### Option B: Scanning a repository from GitHub or GitLab
+#### Option B: Adding a repository from GitHub or GitLab
 
-Scanning a repository from SCM providers such as GitHub or GitLab ensures that Semgrep scans your codebase every time a PR or MR is created. To add a repository:
-
-:::info Prerequisite
-A GitHub or GitLab SaaS repository associated with your account.
-:::
-
-To scan a repository from GitHub or GitLab, follow these steps:
-
-1. Ensure you are signed in to Semgrep App.
-2. Click **[Projects](https://semgrep.dev/orgs/-/projects)** on the left sidebar.
-3. Optional: If you do not see the repository you want to add in the **Projects** page of Semgrep app, follow the steps in the succeeding sections to ensure that Semgrep App can detect the repository.
-4. Click **Scan new project**, and then click **Run scan in CI**.
-5. Select which repository provider for Semgrep to integrate with.
-6. Follow instructions displayed on Semgrep App page for particular repository provider.
-7. Optional: For **GitHub Actions**. If you do not see the repository you want to add, adjust [GitHub Application's Repository Access](https://github.com/settings/installations) configuration. See [Detecting GitHub repositories](#detecting-github-repositories) for more information.
-8. If successful, Semgrep App scans the repository for the first time using default, pre-selected rules.
+<PlatformAddRepo />
 
 ##### Detecting GitHub repositories
 
