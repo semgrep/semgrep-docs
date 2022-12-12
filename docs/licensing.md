@@ -11,7 +11,7 @@ This document provides an overview of the licenses of important products created
 
 <dl>
   <dt>Semgrep CLI</dt>
-    <dd>This project is open source and licensed under <a href="https://github.com/returntocorp/semgrep/blob/develop/LICENSE">LGPL 2.1</a>.</dd>
+    <dd>Semgrep CLI is an open source project licensed under <a href="https://github.com/returntocorp/semgrep/blob/develop/LICENSE">LGPL 2.1</a>.</dd>
   <dt>Semgrep Supply Chain</dt>
     <dd>Proprietary. See <a href="https://semgrep.dev/terms">Terms of Service</a>.</dd>
   <dt>Semgrep App</dt>
