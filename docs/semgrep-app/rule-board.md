@@ -1,13 +1,27 @@
 ---
 slug: rule-board
 append_help_link: true
+title: Rule board
+hide_title: true
 description: "The Rule Board is a visual representation of the rules that Semgrep App uses to scan code. Rules are cards, and are grouped into columns representing the actions undertaken (whether to block, comment, or silently monitor) when a finding surfaces."
+tags:
+    - Semgrep App
+    - Community Tier
+    - Team & Enterprise Tier
 ---
 
 import MoreHelp from "/src/components/MoreHelp"
+import RemoveRule from "/src/components/procedure/_remove-rule.mdx"
+
+<ul id="tag__badge-list">
+{
+Object.entries(frontMatter).filter(
+    frontmatter => frontmatter[0] === 'tags')[0].pop().map(
+    (value) => <li class='tag__badge-item'>{value}</li> )
+}
+</ul>
 
 # Rule board
-
 
 The Rule Board is a visual representation of the rules that Semgrep App uses to scan code. Rules can be organized in rulesets. Rulesets are rules related through a programming language, OWASP category, or framework.
 
@@ -41,13 +55,9 @@ Semgrep App detects the framework and language when scanning a project and only 
 5. Drag the card and drop it on the relevant column.
 6. Once you are done adding rules and rulesets, click **Save changes**.
 
-:::tip
-Discover suggested rulesets based on your projects's frameworks and technologies through **rule recommendations**. These recommendations appear when opening the drawer, enabling the user to choose from a curated list. Only rulesets explicitly added to a column will be included in a scan. To view these **rule recommendations**, see [Running a scan](../getting-started-with-semgrep-app/#running-a-scan).
-:::
-
 ### From Semgrep Registry
 
-1. Click a rule or ruleset in [Semgrep Registry](https://semgrep.dev/r).
+1. Click a rule or ruleset in [Semgrep Registry](https://semgrep.dev/explore).
 2. Click **Add these to Rule Board** or **Add to Rule Board**.
 3. Select which column to place the rule or ruleset in. 
 4. The new card appears on your Rule Board.
@@ -68,26 +78,15 @@ Discover suggested rulesets based on your projects's frameworks and technologies
 
 ## Removing rules or rulesets
 
-To remove a rule or ruleset:
-
-1. Click the **garbage can** icon.
-2. Click **Remove**.
-3. Click **Save changes**.
-
-:::info
-
-Individual rules within rulesets can only be disabled, not deleted.
-:::
+<RemoveRule />
 
 ## Configuring notifications
 
-[Notifications](../integrations) enable you to keep track of Semgrep scans within your preferred environment, such as email or Slack. They are configured for each column.
+[Notifications](../notifications) enable you to keep track of Semgrep scans within your preferred environment, such as email or Slack. They are configured for each column.
 
-Prerequisites:
+1. Click the <i class="fa-solid fa-gear"></i> **gear** icon of the column to add a notification.
+2. Click **Manage Integrations** link.
 
-* An existing notification channel
-
-1. Click the gear icon of the column to add a notification for.
-2. Click the notifications to add for that column.
+For more information, follow guidelines for specific notification channel in [Notifications](../notifications) documentation.
 
 <MoreHelp />

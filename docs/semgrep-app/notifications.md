@@ -1,11 +1,26 @@
 ---
 slug: notifications
 append_help_link: true
+title: Notifications
+hide_title: true
 description: "Semgrep CI integrates with 3rd party services when connected to Semgrep App. Learn how to get Slack or email alerts about findings and failures, how to get merge or pull request comments in your CI/CD pipeline, or how to integrate using webhooks."
+tags:
+    - Semgrep App
+    - Community Tier
+    - Team & Enterprise Tier
 ---
 
 import MoreHelp from "/src/components/MoreHelp"
 import ProcedureIntegrateSlack from "/src/components/procedure/_integrate-slack.mdx"
+import EnableAutofix from "/src/components/procedure/_enable-autofix.mdx"
+
+<ul id="tag__badge-list">
+{
+Object.entries(frontMatter).filter(
+    frontmatter => frontmatter[0] === 'tags')[0].pop().map(
+    (value) => <li class='tag__badge-item'>{value}</li> )
+}
+</ul>
 
 # Notifications
 
@@ -62,41 +77,38 @@ If you are using GitHub Actions to run Semgrep, no extra changes are needed to g
 This section documents how to enable Semgrep App to post comments on merge requests.
 
 Automated comments on GitLab merge requests are displayed as follows:
+![Semgrep GitLab MR comment](/img/gitlab-mr-comment.png)
 
-<img width="600" src="/do/img/gitlab-mr-comment.png" alt="Screenshot of a GitLab MR comment" /><br />
-An inline GitLab merge request comment left by a custom Semgrep rule
-
-To enable MR comments:
+To enable GitLab merge request comments, follow these steps: 
 
 1. Log into Semgrep's [Settings](https://semgrep.dev/manage/settings) to obtain your deployment ID and an API token.
 2. Create an API token in GitLab by going to [Profile > Access Tokens](https://gitlab.com/-/profile/personal_access_tokens) and adding a token with `api` scope.
 3. Copy the token created in the previous step.
 4. Navigate to your repository's Settings > CI/CD, scroll down to 'Variables', and click 'Expand'. The URL of the page where you are ends with: /username/project/-/settings/ci_cd.
 5. Click to **Add variable**, give the new variable the key `PAT` and use the token you copied in step 3 as the value. And then, select **mask variable** and **UNSELECT "protect variable"**.
-6. Update your .gitlab-ci.yml file with variable `GITLAB_TOKEN` and value `$PAT`. See the example code below for details:
+6. Update your `.gitlab-ci.yml` file with variable `GITLAB_TOKEN` and value `$PAT`. See the example below:
+    ```yaml
+    semgrep:
+      image: returntocorp/semgrep
+      script:
+        - semgrep ci
+      rules:
+      - if: $CI_MERGE_REQUEST_IID
 
-For example:
-```yaml
-semgrep:
-  image: returntocorp/semgrep
-  script:
-   # Semgrep retrieves the SEMGREP_APP_TOKEN environment variable if you set it on the GitLab web user interface
-    - semgrep ci
-  rules:
-  # Scan changed files in MRs, block on new issues only (existing issues ignored)
-  - if: $CI_MERGE_REQUEST_IID
-  # Scan all files on default branch, block on any issues
-  # - if: $CI_COMMIT_BRANCH == $CI_DEFAULT_BRANCH
+      variables:
+        SEMGREP_APP_TOKEN: $SEMGREP_APP_TOKEN
+        GITLAB_TOKEN: $PAT
+    ```
 
-  variables:
-    GITLAB_TOKEN: $PAT
-```
+For more config options, see [GitLab CI Sample](https://semgrep.dev/docs/semgrep-ci/sample-ci-configs/#gitlab-ci).
 
-NOTE: GitLab MR comments are only available to logged-in semgrep.dev users, as they require a Semgrep API token.
+:::note
+GitLab MR comments are only available to logged-in Semgrep users, as they require a Semgrep API token.
+:::
 
 ### Automatically fix your findings through pull or merge requests
 
-[Autofix](../experiments/overview.md/#autofix) is a Semgrep feature in which rules contain suggested fixes to resolve findings. Either metavariables or regex matches are replaced with a potential fix. Due to their complexity, not all rules make use of autofix, but for rules that use this feature, autofix allows you to quickly resolve findings as part of your code review workflow. Semgrep App can suggest these fixes through PR or MR comments within GitHub or GitLab, thus integrating seamlessly with your review environment.
+[Autofix](/writing-rules/autofix) is a Semgrep feature in which rules contain suggested fixes to resolve findings. Either metavariables or regex matches are replaced with a potential fix. Due to their complexity, not all rules make use of autofix, but for rules that use this feature, autofix allows you to quickly resolve findings as part of your code review workflow. Semgrep App can suggest these fixes through PR or MR comments within GitHub or GitLab, thus integrating seamlessly with your review environment.
 
 Autofix is free to use for all tiers.
 
@@ -104,18 +116,11 @@ In the following screenshot, Semgrep detects the use of a native Python XML libr
 
 ![Screenshot of a sample autofix PR suggestion](/img/notifications-github-suggestions.png)
 
-
 #### Enabling autofix for your GitLab or GitHub code repository
 
 Autofix requires PR or MR comments to be enabled for your repository or organization. Follow the steps in [GitHub pull request comments](#github-pull-request-comments) or [GitLab merge request comments](#gitlab-merge-request-comments) to enable this feature.
 
-To enable autofix:
-
-1. Sign in to your [Semgrep App account](https://semgrep.dev/login).
-2. Click **Projects** from the **App sidebar**.
-3. Click the name of the project for which to enable autofix.
-4. Click the toggle for **Autofix (beta)**.
-![Screenshot of autofix toggle](/img/notifications-enable-autofix.png)
+<EnableAutofix />
 
 All scans performed after enabling autofix generate inline PR or MR comments with code suggestions for applicable rules.
 

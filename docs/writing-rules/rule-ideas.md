@@ -41,7 +41,7 @@ If you have a legitmate use case for a dangerous API, you can exempt a specific 
 
 _Time to write this rule: **5 minutes**_
 
-Semgrep's [dataflow engine with support for taint tracking](/writing-rules/data-flow/overview/) can be used to detect when data flows from a user-provided value into a security-sensitive function.
+Semgrep's [dataflow engine with support for taint tracking](/writing-rules/data-flow/data-flow-overview/) can be used to detect when data flows from a user-provided value into a security-sensitive function.
 
 This rule detects when a user of the ExpressJS framework passes user data into the `run()` method of a sandbox. 
 
@@ -67,7 +67,7 @@ Semgrep [natively supports JSON and YAML](../supported-languages.md) and can be 
 
 <iframe src="https://semgrep.dev/embed/editor?snippet=minusworld:docs-kubernetes-skip-tls-verify" title="Match configuration files with Semgrep" width="100%" height="432px" frameBorder="0"></iframe>
 
-The [Generic pattern matching](../experiments/generic-pattern-matching.md) mode is for languages and file formats that Semgrep does not natively support. For example, you can write rules for Dockerfiles using the generic mode. The Dockerfile rule below checks for invalid port numbers.
+The [Generic pattern matching](/writing-rules/generic-pattern-matching/) mode is for languages and file formats that Semgrep does not natively support. For example, you can write rules for Dockerfiles using the generic mode. The Dockerfile rule below checks for invalid port numbers.
 
 <iframe src="https://semgrep.dev/embed/editor?snippet=minusworld:docs-dockerfile-invalid-port" title="Match Dockerfiles with Semgrep" width="100%" height="432px" frameBorder="0"></iframe>
 

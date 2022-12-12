@@ -5,6 +5,7 @@ description: "Semgrep provides a convenient testing mechanism for your rules. Yo
 ---
 
 import MoreHelp from "/src/components/MoreHelp"
+import EnableAutofix from "/src/components/procedure/_enable-autofix.mdx"
 
 # Testing rules
 
@@ -69,7 +70,7 @@ rules:
 Given the above is named `rules/detect-eval.yaml`, you can create `rules/detect-eval.py`:
 
 ```python
-from lib import get_user_input, safe_get_user_input
+from lib import get_user_input, safe_get_user_input, secure_eval
 
 user_input = get_user_input()
 # ruleid: insecure-eval-use
@@ -204,10 +205,14 @@ For example, if we replace `secure_eval` with `safe_eval`, we can see that lines
 
 At r2c, we believe in checking the code we write, and that includes rules.
 
-You can run `semgrep --validate --config [filename]` to check the configuration. This command runs a combination of Semgrep rules and OCaml checks against your rules to search for issues such as duplicate patterns and missing fields. All rules submitted to the semgrep-rules repository are validated.
+You can run `semgrep --validate --config [filename]` to check the configuration. This command runs a combination of Semgrep rules and OCaml checks against your rules to search for issues such as duplicate patterns and missing fields. All rules submitted to the Semgrep Registry are validated.
 
 The semgrep rules are pulled from `p/semgrep-rule-lints`.
 
 This feature is still experimental and under active development. Your feedback is welcomed!
+
+## Enabling autofix in Semgrep App
+
+<EnableAutofix />
 
 <MoreHelp />

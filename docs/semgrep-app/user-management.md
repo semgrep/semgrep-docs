@@ -2,8 +2,21 @@
 slug: user-management 
 append_help_link: true
 title: Managing users and roles 
+hide_title: true
 description: "Learn about roles, user management, and how to implement role-based access control in Semgrep App."
+tags:
+    - Semgrep App
+    - Community Tier
+    - Team & Enterprise Tier
 ---
+
+<ul id="tag__badge-list">
+{
+Object.entries(frontMatter).filter(
+    frontmatter => frontmatter[0] === 'tags')[0].pop().map(
+    (value) => <li class='tag__badge-item'>{value}</li> )
+}
+</ul>
 
 import MoreHelp from "/src/components/MoreHelp"
 
@@ -76,10 +89,10 @@ Upon enabling RBAC for the first time, current members of the organization are `
 
 ## Changing a user's role
 
-**Prerequisites**:
-
+:::info Prerequisites
 * You must be an `admin` to perform this operation.
 * You may need to log out and log back in after enabling RBAC for your organization.
+:::
 
 To **change a user's role**:
 

@@ -1,29 +1,42 @@
 ---
 slug: editor 
 append_help_link: true
-title: Editor 
+title: Editor
+hide_title: true
+tags:
+    - Semgrep App
+    - Community Tier
+    - Team & Enterprise Tier
 description: "Semgrep Editor is a powerful tool within Semgrep App to author rules and quickly apply these rules across an organization to enforce coding standards across an organization."
 ---
 
+<ul id="tag__badge-list">
+{
+Object.entries(frontMatter).filter(
+    frontmatter => frontmatter[0] === 'tags')[0].pop().map(
+    (value) => <li class='tag__badge-item'>{value}</li> )
+}
+</ul>
+
 import MoreHelp from "/src/components/MoreHelp"
+
 
 # Writing rules using Semgrep Editor
 
-
 ![Screenshot of the Editor's splash screen](/img/editor-splashscreen.png)
 
-**Semgrep Editor (Beta)** is an advanced tool for **rule writing**. Write rules on a YAML editor, verify their performance through tests, and add them to your organization’s [Rule Board](https://semgrep.dev/docs/semgrep-app/rule-board/) to enforce code standards and increase code security.
+**Semgrep Editor** is an advanced tool for **rule writing**. Write rules on a YAML editor, verify their performance through tests, and add them to your organization’s [Rule Board](https://semgrep.dev/docs/semgrep-app/rule-board/) to enforce code standards and increase code security.
 
-To quickly learn Semgrep patterns and syntax, explore the Editor’s library of rules from the **public [Rule Registry](https://semgrep.dev/r)**. Rules from the Registry can detect OWASP vulnerabilities, best practice violations, and security issues for a wide variety of languages and frameworks. Semgrep Editor enables you to **adapt these rules** for your own organization’s use by [forking](#jumpstart-rule-writing-using-existing-rules) them.
+To quickly learn Semgrep patterns and syntax, explore the Editor’s library of rules from the **public [Rule Registry](https://semgrep.dev/explore)**. Rules from the Registry can detect OWASP vulnerabilities, best practice violations, and security issues for a wide variety of languages and frameworks. Semgrep Editor enables you to **adapt these rules** for your own organization’s use by [forking](#jumpstart-rule-writing-using-existing-rules) them.
 
 The Editor is free to use on all tiers, but saving a rule for **private use** is a **Team/Enterprise tier feature**.
 
 ## Accessing Semgrep Editor
 
 1. Sign in to your [Semgrep App account](https://semgrep.dev/login).
-2. Click **Editor (beta)** from the **App sidebar**. The **splash page** and **library pane** appear.
+2. Click **Editor** from the **App sidebar**. The **splash page** and **library pane** appear.
 3. Do any of the following steps:
-    1. To create a new rule, click on the **(+) plus sign** or **Create new rule** button.
+    1. To create a new rule, click on the <i class="fa-solid fa-circle-plus"></i> **(+) plus sign** or <i class="fa-solid fa-file-plus"></i> **Create new rule** button.
     2. To open any rule you’ve recently edited, select it from the **Recent** list.
     3. To view a sample rule, select it from the **Examples** list. The rule renders within the Editor.
     4. To start a tutorial or read the docs, select it from the **Learn** list. This navigates you away from the Editor.
@@ -67,6 +80,7 @@ To group by ruleset, right click on the empty space on the **official registry**
 
 To create a rule, click **Create rule** on the splash page or the **(+) sign** next to the Library label. The Editor provides the minimum fields to create a rule:
 
+- `rules`
 - `id`
 - `pattern`
 - `message`
@@ -95,6 +109,7 @@ Another method of creating rules is by **forking/copying** from existing rules f
 
 The editor will not save, share, or run if the YAML syntax is **unparseable**. The editor supports error handling, for the following cases:
 
+- Missing `rules` key at start
 - Invalid language keys
 - Incorrect severity fields
 - Missing `id` key
@@ -132,7 +147,7 @@ For additional annotations designed to test false positives and false negatives,
 
 Upon saving, a rule’s visibility is **unlisted** by default. This rule can be shared with anyone through an identifier, even to non-Semgrep App users.
 
-A rule can be saved as a **private rule**, which is visible only to members within an organization. You can still share a private rule, but only members of the organization will see it. Private rules are a **Team/Enterprise tier feature**.
+A rule can be saved as a **private rule**, which is visible only to members within an organization. You can still share a private rule, but only members of the organization can see it. Private rules are a **Team/Enterprise tier feature**.
 
 - To set a rule’s visibility to private, click **Share > Private > Save change**.
 - To share a private or unlisted rule, click **Share** and copy the **URL link**.
@@ -151,58 +166,23 @@ To add a rule to the Rule Board:
 2. Select which column (Audit or Blocker) to add the rule to, depending on the rule’s relevance.
 3. The rule appears on your Rule Board, under the corresponding column.
 
-
 ## Contributing to the open-source Semgrep Registry
 
-r2c, the maintainers of Semgrep, welcome contributions to the Registry. This is achieved by creating a pull request (PR) either on the repository itself or through the Editor. Contributions to the Registry can be discovered by anyone through the [Registry](https://semgrep.dev/explore) and Editor.
+To have your rule accepted faster, include the following:
 
-Guidelines for faster rule acceptance:
+- Include **test cases** for both a true positive and a true negative. See [Tests](/contributing/contributing-to-semgrep-rules-repository/#tests) for more details.
+- Include a descriptive rule **message**. See [Rule messages](/contributing/contributing-to-semgrep-rules-repository/#rule-messages) for more information.
+- Include **metadata fields**. See [Semgrep registry rule requirements](/contributing/contributing-to-semgrep-rules-repository/#semgrep-registry-rule-requirements) for more information.
 
-- Include **test cases** for both a true positive and a true negative.
-- Include a descriptive rule **message**.
-- Fill out **metadata fields** for the following:
+To **create a PR** from the Semgrep Editor:
 
-<table>
-  <tr>
-    <th>Metadata field</th>
-    <th>Sample values</th>
-  </tr>
-  <tr>
-    <td><code>category</code></td>
-    <td>
-        <ul>
-            <li><code>best-practice</code></li>
-            <li><code>correctness</code></li>
-            <li><code>maintainability</code></li>
-            <li><code>performance</code></li>
-            <li><code>portability</code></li>
-            <li><code>security</code></li>
-        </ul>
-    </td>
-  </tr>
-  <tr>
-    <td><code>technology</code></td>
-    <td>
-        <ul>
-            <li><code>django</code></li>
-            <li><code>docker</code></li>
-            <li><code>flask</code></li>
-            <li><code>kubernetes</code></li>
-            <li><code>nginx</code></li>
-            <li><code>react</code></li>
-            <li><code>terraform</code></li>
-            <li><code>TARGET_LANGUAGE</code></li>
-        </ul>
-    </td>
-  </tr>
-</table>
+1. Click <i className="fa-solid fa-earth-americas inline_svg"></i> **Share**.
+1. (Optional) Click <i className="fa-solid fa-cloud-arrow-up inline_svg"></i> **Publish to Registry**.
+1. Fill in the required and optional fields.
+1. Click <i className="fa-solid fa-circle-check inline_svg"></i> **Continue**, and then click <i className="fa-solid fa-code-pull-request inline_svg"></i> **Create PR**.
 
-To **create a PR** from the Editor:
-
-1. Click **Share > Public.**
-2. Optional: Enter the path to the rule following the namespace `language.group.subgroup.rule_name`. A repository maintainer can also set this for the rule.
-3. Optional: Preview the rule.
-4. Click **Create PR**.
-
+:::info
+For general contributing guidelines, see [Contributing rules](/contributing/contributing-to-semgrep-rules-repository/).
+:::
 
 <MoreHelp />

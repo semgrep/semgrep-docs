@@ -11,11 +11,11 @@ This README gives an overview of the repository. For further information on buil
 
 ## File structure
 
-Semgrep consists of a Python wrapper (`semgrep-cli`) around an OCaml engine (`semgrep-core`) which performs the core parsing/matching work. Within `semgrep-core`, there are two sources of parsers, `pfff`, linked as a [submodule](https://github.com/returntocorp/pfff), and `tree-sitter-lang`, built using [tree-sitter](https://github.com/tree-sitter/tree-sitter). Additionally, `semgrep-core` contains a subengine, `spacegrep`, for generic matching.
+Semgrep consists of a Python wrapper (`semgrep-cli`) around an OCaml engine (`semgrep-core`) which performs the core parsing/matching work. Within `semgrep-core`, there are two sources of parsers, [`pfff`](https://github.com/returntocorp/pfff), linked as a submodule, and `tree-sitter-lang`, built using [tree-sitter](https://github.com/tree-sitter/tree-sitter). Additionally, `semgrep-core` contains a subengine, `spacegrep`, for generic matching.
 
 You may also be interested in `perf`, which contains our code for running repositories against specific rulesets.
 
-There are many other files, but the below diagram broadly displays the file structure. 
+There are many other files, but the below diagram broadly displays the file structure.
 
 ```
 .
@@ -79,7 +79,7 @@ Currently, depending on the flags used, `spacegrep` is invoked both independentl
 
 ## Making a change
 
-Semgrep runs on Python versions >= 3.6. If you don't have one of these versions installed, please do so before proceeding.
+Semgrep runs on Python versions >= 3.7. If you don't have one of these versions installed, please do so before proceeding.
 
 Because the Python and OCaml development paths are relatively independent, the instructions are divided into Python ([semgrep-cli contributing](semgrep-contributing.md)) and OCaml ([semgrep-core contributing](semgrep-core-contributing.md)).
 
@@ -149,25 +149,79 @@ Once `pre-commit` is working you may commit code and create pull requests as
 you would expect. Pull requests require approval of at least one maintainer and
 [CI to be passing](https://github.com/returntocorp/semgrep/actions).
 
+### Explaining code
+
+It's important for code to be easy to maintain. This allows all of us to
+spend more time on new features rather than spending it on studying
+legacy code. As a general rule of thumb, assume that all context that
+is not written down will be lost and forgotten. Useful context includes:
+
+* Why does this code exist?
+* What or who uses this code?
+* What does this code achieve?
+* Could this code be replaced by an off-the-shelf component? Why not?
+* Does it implement a formal specification or a well-known pattern? Where can
+  we learn more about it?
+
+We ask that **each source file start with one comment** that
+concisely answers these questions.
+
+Here's a short example:
+```
+(*
+   Generate unique names with a given prefix.
+*)
+```
+
+It can be improved by explaining the code's uses:
+```
+(*
+   Generate unique names with a given prefix. This is used to
+   name new grammar rules and new OCaml variables.
+*)
+```
+
 ### Adding a changelog entry
 
-Depending on the nature of the code contribution, you may add an entry to the changelog.
+#### Quick reference
 
-A changelog entry might be useful if you are:
+Add a new file named like `changelog.d/gh-1234.fixed` that contains
+a single paragraph of Markdown text such as:
+```
+Fix emojis absorbed by the fleeb generator
+```
+
+File name format:
+```
+gh-1234.fixed
+   ^^^^ ^^^^^
+   |    |
+   |    one of: "added", "changed", "fixed", "infra"
+   GitHub issue or pull request ID
+```
+
+Valid changelog file suffixes are:
+- `added` - New features or other previously non-existing functionality
+- `changed` - Items that have changed the way Semgrep functions
+- `fixed` - Bug fixes or other improvements
+- `infra` - Workflow improvements or other non-code updates
+
+#### When to add a changelog entry
+
+If you contribute code that affects users, you must add an entry
+to the changelog, in the [`changelog.d`
+folder](https://github.com/returntocorp/semgrep/tree/develop/changelog.d). At
+each Semgrep release, these files are automatically gathered and formatted to
+produce [release notes](https://github.com/returntocorp/semgrep/blob/develop/CHANGELOG.md).
+
+A changelog entry is required if you are:
 - Adding new features or other previously non-existing functionality.
 - Including important changes in the way Semgrep functions.
 - Submitting bug fixes or other improvements.
 - Creating workflow improvements or other non-code updates.
 
-A tool called `towncrier` is used for changelog management. At the root of the Semgrep repository, there is a directory `changelog.d`, which contains individual changelog entries, each in their own file. An example of such a file is contained in the repository. See also the description of the format below.
-
-This paragraph documents what file names you should create for changelog entries. A hypothetical changelog entry file named `cli-123.fixed` would indicate that the branch contains changes that addressed a CLI ticket number 123, and that the changes fixed existing functionality. Similarly, a hypothetical changelog entry file named `pa-321.added` would indicate that new functionality was added in support of PA ticket number 321. If you are an open-source contributor or don't have a ticket number to reference, substitute the first part of the changelog entry filename with another string, such as a GitHub issue number or a semantic name, such as `gh-1234.added` or `logoutput.fixed`.
-
-Acceptable changelog file suffixes include:
-- `added` - New features or other previously non-existing functionality
-- `changed` - Items that have changed the way Semgrep functions
-- `fixed` - Bug fixes or other improvements
-- `infra` - Workflow improvements or other non-code updates
+A tool called [`towncrier`](https://github.com/twisted/towncrier) is
+used for changelog management.
 
 ### Troubleshooting pre-commit
 
@@ -176,3 +230,44 @@ On M1 macs some `pre-commit` tests may fail.
 If those checks are running in docker containers (such as `hadolint`) and exit with code 137, this means they are running into a memory limit.
 This is because for running x86_64 images on an M1 mac, docker will utilize an emulation with qemu that can cause higher memory consumption.
 To fix this, change the memory limit in Docker Desktop in the Resources section of the Preferences, 8.00GB should be sufficient.
+
+### Working with git submodules
+
+A submodule is a reference to a specific commit in another git
+repository. This results in a subfolder containing a checkout of that
+repository at that particular commit. Submodules have a reputation of
+being tricky to use. To minimize problems, make sure to follow these
+guidelines:
+
+* When checking out a new branch or commit, update the submodules
+  using the command `git submodule update --init --recursive`.
+  Adding a shortcut to your shell can be useful. The following is a
+  Bash function that lets you call `gitup`. It goes into your `~/.bashrc`:
+
+```bash
+gitup() {
+  echo "git submodule update --init --recursive"
+  git submodule update --init --recursive
+}
+```
+
+* When modifying both a parent repo A and one of its submodules B,
+  make one pull request for each (PR A, PR B).
+  1. Before merging PR B, make sure the branch on repo B is **not
+     lagging behind** the main branch. This ensures that the submodule
+     includes all the latest changes made by others.
+  2. Make sure PR B is merged **before** PR A.
+     This ensures that other developers will pick up the changes on B
+     when making their own changes.
+  3. After merging PR A, check that submodule B is still up-to-date
+     with respect to its main branch, especially if PR B was merged
+     more than an hour ago.
+  Good to know:
+  - Merging in B can be done with a merge commit or by squashing the
+    commits.
+  - If squashing commits in B, you must know that the original commit
+    referenced by A becomes orphaned when the branch is deleted but
+    remains cached by git for a while. This is usually sufficient to
+    not require A to point to the newly-squashed commit. _If this turns
+    out to be problematic in practice, we may have to disallow
+    commit squashing in the future._

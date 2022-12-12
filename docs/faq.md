@@ -10,7 +10,7 @@ description: >-
 import MoreHelp from "/src/components/MoreHelp"
 import TOCInline from "@theme/TOCInline"
 
-# Frequently Asked Questions
+# Frequently asked questions
 
 <TOCInline toc={toc} />
 
@@ -26,7 +26,7 @@ The source for many r2c-written Registry rules is available at [returntocorp/sem
 
 ### Is it ok to run Semgrep or the r2c rules on my work projects?
 
-Yes! Semgrep is safe to run on your private code. The [Semgrep Registry license’s](https://github.com/returntocorp/semgrep-rules/blob/develop/LICENSE) commercial restrictions only come into effect if you are _selling_ the rules provided in the semgrep-rules repository. If that’s the case, you’ll need to talk with r2c first to get permission.
+Yes! Semgrep is safe to run on your private code. The [Semgrep Registry license’s](https://github.com/returntocorp/semgrep-rules/blob/develop/LICENSE) commercial restrictions only come into effect if you are _selling_ the rules provided in the Semgrep Registry. If that’s the case, you’ll need to talk with r2c first to get permission.
 
 ### I’m a security professional and want to use the rules from the [`semgrep-rules` repository](https://github.com/returntocorp/semgrep-rules) with my clients as part of my paid services. Is that ok?
 
@@ -96,7 +96,7 @@ Both Semgrep and CodeQL use static analysis to find bugs, but there are a few di
 - Semgrep operates directly on source code, whereas CodeQL requires a buildable environment
 - Semgrep is LGPL-2.1 and free to run anywhere; CodeQL is not open source and you must pay to run it on any non-open-source code
 - Semgrep supports autofixes; CodeQL does not.
-- Semgrep focuses on speed and ease of use. Because it doesn’t require a buildable environment, it doesn’t have some of the analysis features like interprocedural dataflow analysis that CodeQL does. (Semgrep does have [limited intraproceedural dataflow](/writing-rules/data-flow/overview/))
+- Semgrep focuses on speed and ease of use. Semgrep doesn’t require compiled code, it doesn’t yet provide some of the analysis features of CodeQL. Semgrep has [limited intraprocedural dataflow](/writing-rules/data-flow/data-flow-overview/) and the proprietary [DeepSemgrep](/deepsemgrep/) extension to Semgrep provides similar capabilities as CodeQL in terms of interprocedural dataflow analysis for a subset of supported languages.
 - Both have publicly available rules
 - Semgrep rules look like the source code you’re writing; CodeQL has a separate domain-specific-language for writing queries.
 - Semgrep has an online, hosted free plan; both have a hosted paid plan

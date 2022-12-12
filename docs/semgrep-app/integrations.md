@@ -2,11 +2,24 @@
 slug: integrations
 append_help_link: true
 title: Integrations
+hide_title: true
 description: "Semgrep App contains 3rd party integrations to allow users to add data from Semgrep to other tools that are part of their workflows."
+tags:
+    - Semgrep App
+    - Community Tier
+    - Team & Enterprise Tier
 ---
 
 import MoreHelp from "/src/components/MoreHelp"
 import ProcedureIntegrateSlack from "/src/components/procedure/_integrate-slack.mdx"
+
+<ul id="tag__badge-list">
+{
+Object.entries(frontMatter).filter(
+    frontmatter => frontmatter[0] === 'tags')[0].pop().map(
+    (value) => <li class='tag__badge-item'>{value}</li> )
+}
+</ul>
 
 # Integrating Semgrep App with third-party tools
 
@@ -37,7 +50,7 @@ To find available [integrations for Semgrep App](https://semgrep.dev/orgs/-/sett
 To view, add, remove, disable, or enable your saved integration channels:
 
 1. In the **Settings** > **[Integrations](https://semgrep.dev/orgs/-/settings/integrations)** page, explore the options available for specific integration.
-2. In the **[Rule board](https://semgrep.dev/orgs/-/board)**, click the **gear** icon to enable or disable an integration.
+2. In the **[Rule board](https://semgrep.dev/orgs/-/board)**, click the <i class="fa-solid fa-gear"></i> **gear** icon to enable or disable an integration.
     ![Screenshot of Semgrep's Rule board integration modal](/img/rule-board-integrations.png)
 
 ## Integrating various third-party tools
@@ -67,9 +80,8 @@ To set up email integration:
 2. Click on **Email**.
 3. Enter a **Name** for the integration.
 4. Enter the **Email address** that will receive Semgrep findings.
-5. Select the **Inventory** check box if you would like to receive notifications about Code Asset Inventory findings.
-6. Click **Save.**
-7. Turn notifications on by going to the **Rule board**, clicking on the **gear icon**, then clicking on the **toggle** next to the name of the integration.
+5. Click **Save.**
+6. Turn notifications on by going to the **Rule board**, clicking on the <i class="fa-solid fa-gear"></i> **gear** icon, and then click the <i class="fa-solid fa-toggle-large-on"></i> **toggle** next to the name of the integration.
 
 Here is a sample of an email sent from Semgrep with findings:
 
@@ -114,11 +126,10 @@ Webhooks are a generic method for Semgrep to post JSON-formatted findings after 
 2. Click **Webhook**.
 3. Enter a **Name** for the integration.
 4. Enter the **Webhook URL**.
-5. Select the **Inventory** check box if you would like to receive notifications about Code Asset Inventory findings.
-6. To ensure that Semgrep can post to your URL, click **Test**. 
+5. To ensure that Semgrep can post to your URL, click **Test**. 
 ![Successful webhook integration test](/img/webhook-successful-test.png)<br />
-7. Click **Save.**
-8. Turn notifications on by going to the **Rule board**, clicking on the **gear icon**, then clicking on the **toggle** next to the name of the integration.
+6. Click **Save.**
+7. Turn notifications on by going to the **Rule board**, clicking on the <i class="fa-solid fa-gear"></i> **gear** icon, then click the <i class="fa-solid fa-toggle-large-on"></i> **toggle** next to the name of the integration.
 
 Here is a sample of a webhook sent from Semgrep with findings:
 
@@ -128,7 +139,6 @@ Here is a sample of a webhook sent from Semgrep with findings:
 ## See also
 
 * [Notifications -> Webhooks](notifications.md/#webhooks)
-* [Integrating Semgrep with webhooks](https://support.semgrep.dev/hc/en-us/articles/4415975269275-Integrating-Semgrep-with-Webhooks)
 
 <!---
 ### Amazon S3
@@ -139,7 +149,7 @@ Here is a sample of a webhook sent from Semgrep with findings:
 4. Optional: Select the **Inventory** check box to receive notifications about Code Asset Inventory findings.
 5. To ensure that Semgrep can post to your channel, click **Test**.
 6. Click **Save.**
-7. Turn notifications on by going to the **Rule board**, clicking on the **gear icon**, then clicking on the toggle next to the name of the integration.
+7. Turn notifications on by going to the **Rule board**, clicking on the <i class="fa-solid fa-gear"></i> **gear** icon, then click the <i class="fa-solid fa-toggle-large-on"></i> **toggle** next to the name of the integration.
 --->
 
 <MoreHelp />

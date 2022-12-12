@@ -1,9 +1,22 @@
 ---
 slug: semgrep-api
 append_help_link: true
+title: Semgrep API
+hide_title: true
 description: >-
   This document links to Semgrep API documentation.
+tags:
+    - Semgrep App
+    - Team & Enterprise Tier 
 ---
+
+<ul id="tag__badge-list">
+{
+Object.entries(frontMatter).filter(
+    frontmatter => frontmatter[0] === 'tags')[0].pop().map(
+    (value) => <li class='tag__badge-item'>{value}</li> )
+}
+</ul>
 
 # Semgrep API
 

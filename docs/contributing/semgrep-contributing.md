@@ -127,6 +127,31 @@ make rebuild
 
 See the Makefile in `cli/`
 
+## Adding python packages to `semgrep`
+
+Semgrep uses `mypy` to do static type-checking of its Python code. Therefore, when adding a new Python package, you also need to add typing stubs for that package. This can be done in three steps. For example, suppose you are adding the package `pyyaml` to Semgrep.
+
+1. Install the corresponding package with typing stubs. For this `pyyaml` example, the corresponding package is `types-pyyaml`. In the following command, `--dev` specifies that this package is needed for development but not in production. This command updates `cli/Pipfile` with the typing stubs package, and adds both the typing stubs and the package itself to your `Pipfile.lock`. This allows you to import the package in your code (for example, `import yaml as pyyaml`).
+    ```
+    pipenv install --dev types-pyyaml
+    ```
+2. Add the typing stubs package to `.pre-commit-config.yaml` so that the pre-commit `mypy` hook can find the package.
+    ```
+          - id: mypy
+            additional_dependencies: &mypy-deps
+              - ...
+              - types-PyYAML
+    ```
+3. Add the original package to `cli/setup.py` in the `install_requires` list variable. You can find the version number either in the `Pipfile.lock` changes or by looking up online the most recent major version of the package.
+    ```
+    install_requires = [
+       ...
+       "pyyaml~=6.0",
+    ]
+    ```
+
+This change makes your package a dependency of published Semgrep. Without this change, if you create a pull request, the CI job called `build docker image` fails with a `ModuleNotFoundError`, indicating that it is unable to find your package.
+
 ## Troubleshooting
 
 For a reference build that's known to work, consult the root `Dockerfile`

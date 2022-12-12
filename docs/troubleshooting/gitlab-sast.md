@@ -1,12 +1,25 @@
 ---
 slug: gitlab-sast
+title: Troubleshooting GitLab SAST
+hide_title: true
 description: >-
-  GitLab SAST includes an analyzer that runs Semgrep.
-  Fix issues with semgrep-sast jobs running slowly,
-  not showing results, or erroring.
+  Fix issues with GitLab SAST's Semgrep analyzer, such as jobs running slowly,
+  not showing results, or returning errors.
+tags:
+    - Semgrep in CI
+    - Community Tier
+    - Team & Enterprise Tier
 ---
 
 import MoreHelp from "/src/components/MoreHelp"
+
+<ul id="tag__badge-list">
+{
+Object.entries(frontMatter).filter(
+    frontmatter => frontmatter[0] === 'tags')[0].pop().map(
+    (value) => <li class='tag__badge-item'>{value}</li> )
+}
+</ul>
 
 # Troubleshooting GitLab SAST
 
@@ -59,7 +72,7 @@ Semgrep CI skips scanning unchanged files in merge requests but still lets you k
 
 If you're not getting results where you should, or you get too many results, the problem might be with the patterns Semgrep scans for. Semgrep search patterns look just like the source code they're meant to find, so they are easy to learn and update.
 
-You can review the search patterns in the [rules directory of the `semgrep-sast` analyzer](https://gitlab.com/gitlab-org/security-products/analyzers/semgrep/-/tree/main/rules) and report issues to the GitLab team. We have a [Semgrep rule writing tutorial](https://semgrep.dev/learn) that will help better understand these rule files. You can also refer to the [Semgrep Registry](https://semgrep.dev/r) which is a collection of 2,000+ Semgrep rules curated by r2c.
+You can review the search patterns in the [rules directory of the `semgrep-sast` analyzer](https://gitlab.com/gitlab-org/security-products/analyzers/semgrep/-/tree/main/rules) and report issues to the GitLab team. We have a [Semgrep rule writing tutorial](https://semgrep.dev/learn) that will help better understand these rule files. You can also refer to the [Semgrep Registry](https://semgrep.dev/explore) which is a collection of 2,000+ Semgrep rules curated by r2c.
 
 ## If `semgrep-sast` crashes, fails, or is otherwise broken
 

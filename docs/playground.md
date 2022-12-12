@@ -85,7 +85,7 @@ To **create a rule** in simple mode:
 4. After the **code is** button, enter the rule pattern.
 5. Optional: Click on the **plus** button to add fields for additional operators. Select the pattern operator and enter the pattern.
 6. Optional: Click on **Rule metadata** tab on the **Sample code** pane to enter additional metadata fields.
-7. Click **Run** or press **Ctrl+Enter** (**⌘++Enter** on Macs).
+7. Click **Run** or press <kbd>Ctrl</kbd>+<kbd>Enter</kbd> (<kbd>⌘</kbd>+<kbd>Enter</kbd> on Mac).
 
 ### Writing complex rules using advanced mode
 
@@ -96,7 +96,7 @@ To create a rule in advanced mode:
 1. Ensure that you are in the **Advanced mode**.
 ![Screenshot of the advanced view](/img/pleditor-advanced.png "Playground advanced mode")
 2. Enter the keys and values needed to finish your rule. 
-3. Click **Run** or press **Ctrl+Enter** (**⌘++Enter** on Macs).
+3. Click **Run** or press <kbd>Ctrl</kbd>+<kbd>Enter</kbd> (<kbd>⌘</kbd>+<kbd>Enter</kbd> on Mac).
 
 ## Running and testing a rule for precision
 
@@ -130,7 +130,7 @@ File a [bug](https://github.com/returntocorp/semgrep/issues/new?title=semgrep.de
 
 ## Exploring rules through Semgrep Registry
 
-[Semgrep Registry](https://semgrep.dev/r/) is an open-source, community-driven repository of rules. These rules can detect OWASP vulnerabilities, best practice violations, and security issues for a wide variety of languages and frameworks. These rules can be used as a starting point for writing your own custom rules by creating a forked rule. 
+[Semgrep Registry](https://semgrep.dev/explore/) is an open-source, community-driven repository of rules. These rules can detect OWASP vulnerabilities, best practice violations, and security issues for a wide variety of languages and frameworks. These rules can be used as a starting point for writing your own custom rules by creating a forked rule. 
 
 [Signing in to Semgrep App](https://semgrep.dev/login?return_path=/playground/) enables you to access the Registry directly from the Playground's Library pane.
 
@@ -175,9 +175,9 @@ The Embedded Playground has two panes:
 
 Both panes are editable, allowing viewers to try the Semgrep rule out for themselves or to change parts of the rule.
 
-### Prerequisites
-
-1. A site or page with sufficient editing permissions for you to embed the rule.
+:::info Prerequisite
+A site or page with sufficient editing permissions for you to embed the rule.
+:::
 
 To embed a rule:
 
@@ -190,12 +190,12 @@ To embed a rule:
 ![Screenshot of the embedded Playground in its own tab](/img/playground-widget.png "Embedded playground in its own tab")
 5. In the following snippet, replace the `src` placeholder value with the previously-created **URL reference**:
 
-```
+```html
  <iframe title="Semgrep example no prints" src="URL_REFERENCE" width="100%" height="432" frameborder="0"></iframe>
 ```
 Our example's finished result is:
 
-```
+```html
 <iframe title="Semgrep example no prints" src="https://semgrep.dev/embed/editor?snippet=ievans:print-to-logger" width="100%" height="432" frameborder="0"></iframe>
 ```
 

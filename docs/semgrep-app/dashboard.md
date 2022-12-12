@@ -3,9 +3,23 @@ slug: dashboard
 append_help_link: true
 title: Dashboard 
 description: "The Dashboard is a summary view within Semgrep App to help security teams evaluate their organization's security posture."
+tags:
+    - Semgrep App
+    - Community Tier
+    - Team & Enterprise Tier
+hide_title: true
 ---
 
 import MoreHelp from "/src/components/MoreHelp"
+import Tags from "/src/components/Tags"
+
+<ul id="tag__badge-list">
+{
+Object.entries(frontMatter).filter(
+    frontmatter => frontmatter[0] === 'tags')[0].pop().map(
+    (value) => <li class='tag__badge-item'>{value}</li> )
+}
+</ul>
 
 # Evaluating your security posture through the Dashboard
 
@@ -33,14 +47,23 @@ The **Header widget** displays high-level security analytics across your entire 
 	<dd>The percentage of findings that were fixed when findings were surfaced to developers via PR comments in previous scans. The number badge compares PR fix rate in the given time period against the previous time period.</dd>
 </dl>
 
-## Filtering through findings over time
+## Filtering findings by time
 
 The Dashboard displays data from scans for the **last one month** by default. This time range can be set to a broader or narrower value. By broadening the time range, security teams are able to see total numbers and statistics across an entire time period. Narrow time ranges can give insights into the most recent vulnerabilities creeping into the project.
 
 To change the time range of scan data over time:
 
-1. Click the **Last 1 month** button.
+1. Click the <i class="fa-solid fa-calendar-days"></i> **Last 1 month** button.
 2. Select a time range from the drop-down box. The Dashboard, including all widgets, reloads to reflect data from the selected time period.
+
+## Filtering findings by projects
+
+The Dashboard displays data from scans for **all of the organization's projects** by default. Select one or a few projects to filter the dashboard widgets to only reflect scans from selected projects. Selecting a few projects gives you a more targeted view of those projects' security posture.
+
+To change the projects filter:
+
+1. Click the <i class="fa-solid fa-sliders"></i> **All projects** button.
+2. Select the project(s) from the drop-down box. The Dashboard, including all widgets, reloads to reflect data from the selected project(s).
 
 ## Summarizing a project’s security posture
 
@@ -64,7 +87,7 @@ Trends in insecure code can emerge after multiple Semgrep scans over time. By id
 	<dt>Cross-site request forgery (CSRF)</dt>
 	<dd>This category tracks patterns in code that may result in CSRF attacks. CSRF attacks occur when an attacker induces users to perform unintentional actions. These issues can be detected based on a codebase’s framework, such as Django. In the rule, <a href="https://semgrep.dev/playground?registry=python.django.security.audit.csrf-exempt.no-csrf-exempt">"No CSRF Exempt"</a>, Semgrep detects when a Django route does not have a CSRF token, the lack of which could lead to an attack.</dd>
 	<dt>Active debug code</dt>
-	<dd>A type of vulnerability stemming from debug code such as <code>alert</code> that may unintentionally telegraph sensitive application behavior or secrets. The Semgrep rule <a href="https://semgrep.dev/playground?registry=javascript.lang.best-practice.leftover_debugging.javascript-alert">"Leftover debugging"</a> is an example in Javascript.</dd>
+	<dd>A type of vulnerability stemming from debug code such as <code>alert</code> that may unintentionally telegraph sensitive application behavior or secrets. The Semgrep rule <a href="https://semgrep.dev/playground?registry=javascript.lang.best-practice.leftover_debugging.javascript-alert">"Leftover debugging"</a> is a JavaScript example.</dd>
 	<dt>Cryptography</dt>
 	<dd>Refers to the use of weak hashing algorithms and the like, such as the use of MD5 in tokens or secrets. This <a href="https://semgrep.dev/playground?registry=python.cryptography.security.insecure-cipher-algorithms.insecure-cipher-algorithm-blowfish">Blowfish detection rule for Python</a> provides a guardrail against easily decipherable ciphers.</dd>
 	<dt>Deserialization</dt>
@@ -78,14 +101,6 @@ Trends in insecure code can emerge after multiple Semgrep scans over time. By id
 	<dt>Command injection</dt>
 	<dd>Command injection occurs when an attacker uses some type of input to run <strong>system commands</strong> on the host operating system. This is also known as shell injection. In <a href="https://semgrep.dev/playground?registry=go.lang.security.audit.dangerous-syscall-exec.dangerous-syscall-exec">"Audit dangerous syscall"</a>, written for Golang, a finding is detected for non-static input to <code>syscall</code>, which if reached by user data, makes it vulnerable to exploitation.</dd>
 </dl>
-
-The color indicator next to the category name tells you in what state your organization’s projects are for each category.
-
-| Color | Meaning |
-| ------ | --------- |
-| Green | There are less impactful vulnerabilities detected in this category relative to other categories. |
-| Orange | There are some impactful vulnerabilities detected for this category relative to other categories. |
-| Red | There are plenty of impactful vulnerabilities for this category relative to other categories. Take action to reduce them by fixing the issues or identifying false positives. |
 
 ## Assessing rule performance
 
@@ -114,7 +129,7 @@ The **Most disliked** metric is taken from the **Developer Feedback** feature. D
 
 ## See also
 
-* [Semgrep Registry](https://semgrep.dev/r)
+* [Semgrep Registry](https://semgrep.dev/explore)
 * [Findings](../findings)
 
 ## Additional references

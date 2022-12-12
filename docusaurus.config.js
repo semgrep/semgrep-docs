@@ -25,9 +25,24 @@ module.exports = {
       items: [
         { to: 'https://semgrep.dev/explore', label: 'Registry', position: 'left', target: '_self' },
         { to: 'https://semgrep.dev/editor', label: 'Playground', position: 'left', target: '_self' },
-        { to: 'https://semgrep.dev/orgs/-/', label: 'App', position: 'left', target: '_self' },
+        {
+          type: 'dropdown',
+          label: 'Products',
+          position: 'left',
+          items: [
+            {
+              label: 'Semgrep App',
+              to: 'https://semgrep.dev/products/semgrep-app'
+            },
+            {
+              label: 'Semgrep Supply Chain',
+              to: 'https://semgrep.dev/products/semgrep-supply-chain'
+            }
+          ]
+        },
         { to: 'https://semgrep.dev/pricing', label: 'Pricing', position: 'left', target: '_self' },
         { to: 'https://semgrep.dev/docs/', label: 'Docs', position: 'left', target: '_self' },
+        { to: 'https://semgrep.dev/orgs/-/', label: 'Login', position: 'right', target: '_self' },
       ],
     },
     footer: {
@@ -133,6 +148,11 @@ module.exports = {
   },
   scripts: [
     {
+      src: 'https://kit.fontawesome.com/9a8c23ae22.js',
+      crossorigin: 'anonymous',
+      async: true
+    },
+    {
       src: 'https://semgrep.dev/docs/fs.js',
       async: true
     },
@@ -183,18 +203,38 @@ module.exports = {
           { from: "/integrations", to: "/semgrep-app/notifications/" },
           { from: "/notifications", to: "/semgrep-app/notifications/" },
           { from: "/sso", to: "/semgrep-app/sso/" },
-          { from: "/experiments", to: "/experiments/overview/" },
+          { from: "/experiments", to: "/writing-rules/experiments/introduction/" },
           { from: "/upgrade", to: "/upgrading/" },
           { from: "/semgrep-ci", to: "/semgrep-ci/overview/" },
           { from: "/sample-ci-configs", to: "/semgrep-ci/sample-ci-configs/" },
           { from: "/status/", to: "/supported-languages/" },
           { from: "/language-support/", to: "/supported-languages/" },
           { from: "/ignoring-findings/", to: "/ignoring-files-folders-code/" },
-          { from: "/experiments/join-mode/", to: "/experiments/join-mode/overview/" },
+          { from: "/experiments/join-mode/", to: "/writing-rules/experiments/join-mode/overview/" },
           { from: "/providers/", to: "/semgrep-ci/overview/" },
           { from: "/semgrep-app/role-based-access-control", to: "/semgrep-app/user-management/" },
           { from: "/cli-usage/", to: "/cli-reference/" },
-          { from: "/writing-rules/data-flow", to: "/writing-rules/data-flow/overview" }
+          { from: "/writing-rules/data-flow", to: "/writing-rules/data-flow/data-flow-overview/" },
+          { from: "/writing-rules/data-flow/overview/", to: "/writing-rules/data-flow/data-flow-overview/"},
+          { from: "/release-notes/", to: "/release-notes/introduction/" },
+          { from: "/rule-updates/", to: "/release-notes/rule-updates/" },
+          { from: "/experiments/overview/", to: "/writing-rules/experiments/introduction/" },
+          { from: "/experiments/generic-pattern-matching/", to: "/writing-rules/generic-pattern-matching/" },
+          { from: "/experiments/join-mode/overview/", to: "/writing-rules/experiments/join-mode/overview/" },
+          { from: "/experiments/join-mode/recursive-joins/", to: "/writing-rules/experiments/join-mode/recursive-joins/" },
+          { from: "/experiments/extract-mode/", to: "/writing-rules/experiments/extract-mode/" },
+          { from: "/experiments/r2c-internal-project-depends-on/", to: "/writing-rules/experiments/r2c-internal-project-depends-on/" },
+          { from: "/experiments/symbolic-propagation/", to: "/writing-rules/experiments/symbolic-propagation/" },
+          { from: "/experiments/taint-propagators/", to: "/writing-rules/experiments/taint-propagators/" },
+          { from: "/experiments/taint-labels/", to: "/writing-rules/experiments/taint-labels/" },
+          { from: "/experiments/metavariable-analysis/", to: "/writing-rules/metavariable-analysis/" },
+          { from: "/experiments/multiple-focus-metavariables/", to: "/writing-rules/experiments/multiple-focus-metavariables/" },
+          { from: "/experiments/display-propagated-metavariable/", to: "/writing-rules/experiments/display-propagated-metavariable/" },
+          { from: "/experiments/deprecated-experiments/", to: "/writing-rules/experiments/deprecated-experiments/" },
+          { from: "/semgrep-sc/supply-chain-supported-languages/", to: "/supported-languages/" },
+          { from: "/writing-rules/experiments/autofix/", to: "/writing-rules/autofix/" },
+          { from: "/writing-rules/experiments/generic-pattern-matching/", to: "/writing-rules/generic-pattern-matching/" },
+          { from: "/writing-rules/experiments/metavariable-analysis/", to: "/writing-rules/metavariable-analysis/" }
         ]
       }
     ],

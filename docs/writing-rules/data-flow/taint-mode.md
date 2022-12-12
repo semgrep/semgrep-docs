@@ -7,7 +7,10 @@ description: >-
 
 # Taint tracking
 
-Semgrep supports intra-procedural [taint tracking](https://en.wikipedia.org/wiki/Taint_checking). This is a kind of data-flow analysis that tracks the flow of untrusted (aka "tainted") data throughout a program. The analysis produces a finding whenever such data goes into a vulnerable function (aka "sink"), without first having been checked or transformed accordingly (aka "sanitized").
+Semgrep supports intra-procedural [taint tracking](https://en.wikipedia.org/wiki/Taint_checking). This data-flow analysis tracks the flow of untrusted (**tainted**) data throughout a program. If tainted data are not transformed or checked accordingly (**sanitized**), taint analysis reports a finding whenever tainted data reach a vulnerable function (**sink**).
+
+The following video provides a quick overview of taint mode:
+<iframe class="yt_embed" width="100%" height="432px" src="https://www.youtube.com/embed/6MxMhFPkZlU" frameborder="0" allowfullscreen></iframe>
 
 Taint tracking rules must specify `mode: taint`, which enables the following operators:
 
@@ -33,6 +36,18 @@ You can find more examples of taint rules in the [Semrep Registry](https://semgr
 [Metavariables](../../pattern-syntax/#metavariables) used in `pattern-sources` are considered _different_ from those used in `pattern-sinks`, even if they have the same name! See [Metavariables, rule message, and unification](#metavariables-rule-message-and-unification) for further details.
 :::
 
+Field sensitivity
+-----------------
+
+The taint engine provides basic field sensitivity support:
+
+- Track `x.a.b` as tainted, while you can specify that `x` and `x.a` are not tainted. If `x.a.b` is tainted, any extension of `x.a.b` (such as `x.a.b.c`) is also considered tainted.
+- If `x.a` is tainted, and later `x.a.b` is sanitized, the engine detects that `x.a.b` is not tainted but `x.a` or `x.a.c` are still tainted.
+- Taint tracking is **not** index sensitive, if `x.a[i]` is tainted, Semgrep considers `x.a` itself also as tainted. However, if `x.a[i]` is sanitized, then `x.a` is also sanitized.
+
+:::note
+The taint engine does track taint **per variable** and not **per object in memory**. The taint engine does not perform alias analysis at present.
+:::
 Minimizing false positives via sanitizers
 -----------------------------------------
 
@@ -146,5 +161,5 @@ The following example demonstrates the use of source and sink metavariable unifi
 <iframe src="https://semgrep.dev/embed/editor?snippet=obRd" border="0" frameBorder="0" width="100%" height="432"></iframe>
 
 :::info
-Semgrep used to have a different behavior, for more information, see [release notes for version 0.87.0](https://semgrep.dev/docs/release-notes/#version-0870).
+Semgrep used to have a different behavior, for more information, see [release notes for version 0.87.0](/release-notes/april-2022/#semgrep-cli-and-semgrep-in-ci).
 :::

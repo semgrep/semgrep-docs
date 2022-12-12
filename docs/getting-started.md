@@ -1,14 +1,22 @@
 ---
 slug: getting-started
 append_help_link: true
-description: "This getting started guides you through the installation of Semgrep, shows you how to run Semgrep locally, and provides an overview of benefits which you may reap by using Semgrep CI."
+description: "Install Semgrep, run Semgrep locally, and learn about the benefits of running Semgrep in CI (continuous integration)."
+title: Getting started with Semgrep CLI
+hide_title: true
 ---
+
+import MoreHelp from "/src/components/MoreHelp"
 
 # Getting started with Semgrep CLI
 
 ## Running Semgrep locally
 
 Start by running [Semgrep](https://github.com/returntocorp/semgrep/) locally to scan your code. Semgrep runs offline on uncompiled code. **No code leaves your computer**.
+
+:::info Prerequisite
+Semgrep requires Python 3.7 or later.
+:::
 
 1. Install Semgrep. Use one of the following options depending on your system and preference:
     - For macOS:
@@ -23,13 +31,13 @@ Start by running [Semgrep](https://github.com/returntocorp/semgrep/) locally to 
         ```sh
         docker run --rm -v "${PWD}:/src" returntocorp/semgrep semgrep --config=auto
         ```
-2. Confirm installation by printing help manual page to your terminal. To do so, run the following command:
+2. Confirm installation by running a simple search pattern. For example, run the following command:
     ```sh
-    semgrep --help
+    semgrep --pattern '127.$A.$B.$C' --lang generic /etc/hosts
     ```
 3. Run recommended Semgrep Registry rules:
-    <pre class="language-bash"><code>semgrep --config=auto [<span className="placeholder">PATH/TO/SRC</span>]</code></pre>
-    Substitute the optional placeholder <code>[<span className="placeholder">PATH/TO/SRC</span>]</code> with the path to your source code.
+    <pre class="language-bash"><code>semgrep --config=auto <span className="placeholder">PATH/TO/SRC</span></code></pre>
+    Substitute the optional placeholder <code><span className="placeholder">PATH/TO/SRC</span></code> with the path to your source code.
 
 :::note
 By default, when Semgrep Registry is used, Semgrep collects [usage metrics](./metrics.md).
@@ -39,9 +47,10 @@ By default, when Semgrep Registry is used, Semgrep collects [usage metrics](./me
 
 By completing this guide, you are now familiar with a simple use of Semgrep. Here are some additional resources to follow:
 
+- Follow tutorials on [Learn Semgrep](https://semgrep.dev/learn/) to learn about Semgrep interactively.
 - See [Running rules](./running-rules.md) to try out and understand more about Semgrep rules.
-- Explore the Semgrep [Rules Registry](https://semgrep.dev/r) to add rules to your project or [writing a rule](./writing-rules/overview.md).
 - See [CLI Reference](./cli-reference.md) for command line options and exit codes.
+- Explore the Semgrep [Rules Registry](https://semgrep.dev/explore) to add rules to your project or [writing a rule](./writing-rules/overview.md).
 
 ## Testing Semgrep on vulnerable repositories
 
@@ -92,3 +101,5 @@ Check out [Semgrep App](https://semgrep.dev/manage) to integrate CI with PR or M
 ## Upgrading
 
 We [release new Semgrep versions](https://github.com/returntocorp/semgrep/releases) often! See [upgrading](./upgrading.md) for more details.
+
+<MoreHelp />

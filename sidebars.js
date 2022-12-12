@@ -18,127 +18,94 @@ module.exports = {
     'Docs home',
     {
         type: 'category',
-        label: 'WELCOME',
+        label: 'Welcome',
         collapsible: false,
         items: [
             'getting-started',
             'semgrep-app/getting-started-with-semgrep-app',
-            'contributing/philosophy',
+            'semgrep-ci/overview',
+            'semgrep-sc/sc-getting-started',
+            'contributing/philosophy'
         ]
     },
     {
       type: 'category',
-      label: 'SEMGREP FEATURES',
+      label: 'Semgrep Platform',
       collapsible: false,
       items: [
         'supported-languages',
-        {
-            type: 'category',
-            label: 'Scanning code with rules',
-            items: [
-                'running-rules',
-                'managing-findings'
-            ],
-        },
-        {
-            type: 'category',
-            label: 'Writing custom rules',
-            items: [
-                'writing-rules/overview',
-                'writing-rules/pattern-examples',
-                'writing-rules/pattern-syntax',
-                'writing-rules/rule-ideas',
-                'writing-rules/rule-syntax',
-                'writing-rules/testing-rules',
-                'writing-rules/private-rules',
-                'troubleshooting/rules'
-            ]
-        },
         'ignoring-files-folders-code',
         'extensions',
         {
             type: 'category',
             label: 'Data-flow analysis',
+            link: {type: 'doc', id: 'writing-rules/data-flow/data-flow-overview'},
             items: [
-                'writing-rules/data-flow/overview',
+                'writing-rules/data-flow/data-flow-overview',
                 'writing-rules/data-flow/constant-propagation',
                 'writing-rules/data-flow/taint-mode',
                 'writing-rules/data-flow/status'
             ]
         },
-        {
-          type: 'category',
-          label: 'Experiments 🧪',
-          items: [
-            'experiments/overview',
-            'experiments/generic-pattern-matching',
-            { type: 'category',
-                label: 'Join mode',
-                items: [
-                    {
-                        type: 'doc',
-                        label: 'Overview',
-                        id: 'experiments/join-mode/overview'
-                    },
-                    'experiments/join-mode/recursive-joins'
-                ]
-            },
-            'experiments/extract-mode',
-            'experiments/project-depends-on',
-            'experiments/symbolic-propagation',
-            'experiments/metavariable-analysis',
-            'experiments/focus-metavariable'
-          ]
-        },
         'deepsemgrep',
+        'semgrep-app/pricing-and-billing'
       ],
     },
     {
         type: 'category',
-        label: 'USING SEMGREP',
+        label: 'Semgrep',
         collapsible: false,
         items: [
             {
                 type: 'category',
-                label: 'Semgrep command-line interface (CLI)',
+                label: 'Command-line interface (CLI)',
+                link: {
+                    type: 'generated-index',
+                    title: 'Semgrep command-line interface (CLI)',
+                    description:
+                      "Learn about the Semgrep open source command-line tool.",
+                    keywords: ['CLI']
+                  },
                 items: [
                     'getting-started',
-                    'cli-reference',
+                    'running-rules',
+                    'managing-findings',
                     'upgrading',
+                    'reporting-false-negatives',
+                    'cli-reference',
                     'troubleshooting/semgrep'
                 ]
             },
             {
                 type: 'category',
-                label: 'Semgrep in continuous integration (CI)',
+                label: 'Continuous integration (CI)',
+                link: {
+                    type: 'generated-index',
+                    title: 'Semgrep in continuous integration (CI)',
+                    description:
+                      "Learn how to use Semgrep in continuous integration (CI).",
+                    keywords: ['CI']
+                  },
                 items: [
                     'semgrep-ci/overview',
+                    'semgrep-ci/running-semgrep-ci-with-semgrep-app',
+                    'semgrep-ci/running-semgrep-ci-without-semgrep-app',
                     'semgrep-ci/configuration-reference',
+                    'semgrep-ci/configuring-blocking-and-errors-in-ci',
                     'semgrep-ci/sample-ci-configs',
                     'troubleshooting/gitlab-sast'
                 ]
             },
             {
-                label: 'Semgrep App',
-                type: 'category',
-                items: [
-                    'semgrep-app/getting-started-with-semgrep-app',
-                    'semgrep-app/scm',
-                    'semgrep-app/dashboard',
-                    'semgrep-app/rule-board',
-                    'semgrep-app/findings',
-                    'semgrep-app/integrations',
-                    'semgrep-app/editor',
-                    'semgrep-app/notifications',
-                    'semgrep-app/sso',
-                    'semgrep-app/user-management',
-                    'troubleshooting/semgrep-app',
-                    'semgrep-app/semgrep-api'
-                ],
-            },
-            {
                 type: 'category',
                 label: 'Cheat sheets',
+                link: {
+                    type: 'generated-index',
+                    title: 'Cheat sheets',
+                    description:
+                      "This category provides r2c cheat sheets that help you to prevent specific vulnerabilities.",
+                    keywords: ['cheat sheet']
+                  },
                 items: [
                     {
                         type: 'category',
@@ -162,21 +129,90 @@ module.exports = {
                     },
                 ],
             },
-            'semgrep-app/pricing-and-billing',
         ]
     },
     {
         type: 'category',
-        label: 'LEARN SEMGREP',
+        label: 'Semgrep App',
         collapsible: false,
         items: [
-            'playground',
-            'trophy-case',
+            'semgrep-app/getting-started-with-semgrep-app',
+            'semgrep-app/scm',
+            'semgrep-app/dashboard',
+            'semgrep-app/rule-board',
+            'semgrep-app/findings',
+            'semgrep-app/integrations',
+            'semgrep-app/editor',
+            'semgrep-app/notifications',
+            'semgrep-app/sso',
+            'semgrep-app/user-management',
+            'semgrep-app/tags',
+            'troubleshooting/semgrep-app',
+            'semgrep-app/semgrep-api'
         ]
     },
     {
         type: 'category',
-        label: 'CONTRIBUTING',
+        label: 'Semgrep Supply Chain',
+        collapsible: false,
+        items: [
+            'semgrep-sc/sc-overview',
+            'semgrep-sc/sc-getting-started',
+            'semgrep-sc/sc-triage-remediation',
+            'semgrep-sc/sc-ignoring-deps',
+            'semgrep-sc/sc-glossary'
+        ]
+    },
+    {
+        type: 'category',
+        label: 'Writing custom rules',
+        collapsible: false,
+        items: [
+            'writing-rules/overview',
+            'writing-rules/pattern-examples',
+            'writing-rules/pattern-syntax',
+            'writing-rules/rule-ideas',
+            'writing-rules/rule-syntax',
+            'writing-rules/testing-rules',
+            'writing-rules/private-rules',
+            'writing-rules/autofix',
+            'writing-rules/generic-pattern-matching',
+            'writing-rules/metavariable-analysis',
+            'troubleshooting/rules',
+            {
+                type: 'category',
+                label: 'Experiments 🧪',
+                link: {type: 'doc', id: 'writing-rules/experiments/introduction'},
+                items: [
+                  { type: 'category',
+                      label: 'Join mode',
+                      link: {type: 'doc', id: 'writing-rules/experiments/join-mode/overview'},
+                      items: [
+                          {
+                              type: 'doc',
+                              label: 'Overview',
+                              id: 'writing-rules/experiments/join-mode/overview'
+                          },
+                          'writing-rules/experiments/join-mode/recursive-joins'
+                      ]
+                  },
+                  'writing-rules/experiments/extract-mode',
+                  'writing-rules/experiments/project-depends-on',
+                  'writing-rules/experiments/symbolic-propagation',
+                  'writing-rules/experiments/taint-propagators',
+                  'writing-rules/experiments/taint-labels',
+                  'writing-rules/experiments/multiple-focus-metavariables',
+                  'writing-rules/experiments/display-propagated-metavariable',
+                  'writing-rules/experiments/deprecated-experiments'
+                ]
+              },
+            'playground',
+            'trophy-case'
+        ]
+    },
+    {
+        type: 'category',
+        label: 'Contributing',
         collapsible: false,
         items: [
             'contributing/contributing',
@@ -199,17 +235,57 @@ module.exports = {
     },
     {
         type: 'category',
-        label: 'ABOUT SEMGREP',
+        label: 'About Semgrep',
         collapsible: false,
         items: [
             'support',
-            'release-notes',
-            'rule-updates',
+            {type: 'ref', id: 'release-notes/introduction', label: 'Release notes'},
+            'release-notes/rule-updates',
             'security',
-            'licensing',
             'faq',
-            'metrics'
+            {
+              type: 'doc',
+              id: 'metrics',
+              label: 'Semgrep privacy policy'
+            },
         ],
     },
   ],
+  updatesSidebar: [
+    // Link to docs home page
+    {
+        type: 'link',
+        label: 'Docs home', // The link label
+        href: '/', // The internal path
+    },
+    {
+    type: 'category',
+        label: 'Release notes',
+        link: {type: 'doc', id: 'release-notes/introduction'},
+        items: [
+            'release-notes/november-2022',
+            'release-notes/october-2022',
+            'release-notes/september-2022',
+            'release-notes/august-2022',
+            'release-notes/july-2022',
+            'release-notes/june-2022',
+            'release-notes/may-2022',
+            'release-notes/april-2022',
+            'release-notes/march-2022',
+            'release-notes/february-2022',
+            'release-notes/january-2022',
+            'release-notes/december-2021',
+            'release-notes/november-2021',
+            'release-notes/october-2021',
+            'release-notes/september-2021',
+            'release-notes/august-2021',
+            'release-notes/july-2021',
+            'release-notes/june-2021',
+            'release-notes/may-2021',
+            'release-notes/april-2021',
+            'release-notes/all-release-notes'
+        ]
+    },
+    'release-notes/rule-updates'
+],
 };

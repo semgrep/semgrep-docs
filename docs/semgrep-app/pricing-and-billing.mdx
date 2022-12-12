@@ -3,10 +3,22 @@ slug: pricing-and-billing
 append_help_link: true
 title: Pricing and billing
 description: "Semgrep CLI and CI are free to use. Semgrep App has both free and paid tiers, each with their own features and levels of support."
+tags:
+    - Semgrep App
+    - Community Tier
+    - Team & Enterprise Tier
+hide_title: true
 ---
 
 import MoreHelp from "/src/components/MoreHelp"
 
+<ul id="tag__badge-list">
+{
+Object.entries(frontMatter).filter(
+    frontmatter => frontmatter[0] === 'tags')[0].pop().map(
+    (value) => <li class='tag__badge-item'>{value}</li> )
+}
+</ul>
 
 # Pricing and billing
 
@@ -20,15 +32,19 @@ Semgrep CLI is free open-source software (FOSS), licensed under LGPL 2.1. It is 
 
 Semgrep App, which builds on Semgrep CLI and CI, enables developer and security teams to create their own institutional code standards, enforce them, and analyze findings. Semgrep App has both free and paid tiers.
 
+:::info
+This page contains information for Semgrep App and Semgrep products. For Semgrep Supply Chain, a software composition analysis (SCA) product, see the [Semgrep Pricing](https://semgrep.dev/pricing) page.
+:::
+
 ## Choosing a Semgrep App tier
 
 Semgrep App has three tiers:
 
 | Tier | Price | Description |
 | ---- | ------- | -------- |
-| **Community** | Free | For general-purpose security scanning.  |
-| **Team** | US$40 monthly per developer | For the enforcement of company-specific coding standards, private rules, and the analysis of findings.  |
-| **Enterprise** | Custom pricing | For custom solutions, including deployment into virtual private clouds (VPCs) with dedicated technical support.  |
+| **Community** | Free | For individuals and small teams that need the essentials to secure their code. |
+| **Team** | US$40 monthly per developer per product | For bigger teams that want to scale their usage and access all features.  |
+| **Enterprise** | Custom pricing | For organizations needing custom features, control, and support. |
 
 Semgrep App integrates with a GitHub or GitLab account at either the organizational or individual level. There is no limit to the number of members in an organization for all tiers.
 
@@ -47,21 +63,29 @@ Members who do **not** make any commits on the code do not need to pay for Semgr
 
 Notes:
 
-* Member usage limits are visible in your [settings page](https://semgrep.dev/orgs/-/settings).
+* Member usage limits are visible in your **[Settings page](https://semgrep.dev/orgs/-/settings) > Upgrade** tab.
 * If your organization exceeds the member limit:
     * Only the 20 most recent developers can view findings from Semgrep scans.
     * Overlimit findings data is retained for three months. When your organization goes below the usage limit, or upgrades to Team or Enterprise, the findings data will be accessible again.
     * You are notified of a 30-day grace period through in-app notifications and emails. After this grace period ends, additional developers (the 21st onwards) will not receive notifications or comments. Findings introduced by additional developers won't be surfaced in Semgrep App.
 
+<div class="bordered">
+
+![Screenshot of member limits](/img/member-limits-view.png "Screenshot of member limits")
+
+</div>
+
 #### Source code management (SCM) support
 
 | Feature  | Community | Team | Enterprise |
 | -------  | --------- | ------- | -------- |
-| **GitHub**  | ✔️ yes | ✔️ yes | ✔️  yes |
+| **GitHub Free**  | ✔️ yes | ✔️ yes | ✔️  yes |
+| **GitHub Team** | ✔️ yes | ✔️ yes | ✔️  yes |
+| **GitHub Enterprise Cloud** |  ❌ no  | ✔️ yes | ✔️  yes |
+| **GitHub Enterprise Server** |  ❌ no | ✔️ yes | ✔️  yes |
 | **GitLab SaaS**  | ✔️ yes | ✔️ yes | ✔️  yes |
 | **GitHub Enterprise**  | ❌ no | ✔️  yes | ✔️  yes |
 | **GitLab Self Managed**  | ❌ no | ✔️  yes | ✔️  yes |
-| **VPC deployment** | ❌ no | ❌ no | ✔️  yes |
 
 #### Findings, language support, and rules
 
@@ -158,7 +182,7 @@ To upgrade to the **Team tier** through a **credit card**:
 
 ![Screenshot of Semgrep App payment menu](/img/billing-and-pricing-payment.png)<br />
 
-To upgrade to the **Enterprise tier**, please [contact us](https://semgrep.dev/contact).
+To upgrade to the **Enterprise tier**, please [contact us](https://semgrep.dev/contact-us).
 
 ### Billing
 
