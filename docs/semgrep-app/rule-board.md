@@ -87,7 +87,7 @@ To disable an individual rule, follow these steps:
 
 :::info
 - You can only disable individual rules that are part of rulesets in your rule board.
-- You can also reverse the procedure described procedure to enable disabled rules in rulesets.
+- You can also reverse the described procedure to enable disabled rules in rulesets.
 :::
 
 ## Removing rules or rulesets
