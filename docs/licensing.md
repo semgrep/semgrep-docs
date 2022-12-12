@@ -24,7 +24,7 @@ This document provides an overview of the licenses of important products created
     <ul>
     <li>Rules in the <a href="https://github.com/returntocorp/semgrep-rules">semgrep-rules</a> repository are licensed LGPL 2.1 under Common Clause v1.0. Review the <a href="https://github.com/returntocorp/semgrep-rules/blob/develop/LICENSE#L10">semgrep-rules license</a>.</li>
     <li>Rules from third-party repositories in the <a href="https://semgrep.dev/explore">Semgrep Registry</a> inherit the licenses of their source repositories. These licenses are displayed within the rule definition in the editor, for example, MIT license for dgryski’s rules.</li>
-    <li>Premium or higher rules are proprietary.</li>
+    <li>Premium rules are proprietary.</li>
     </ul>
     </dd>
 </dl>
