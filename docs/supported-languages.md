@@ -148,7 +148,7 @@ See [Parse rates by language](https://dashboard.semgrep.dev/).
 
 <SscIntro/>
 
-Semgrep Supply Chain parses **lockfiles** for dependencies, then scans your codebase for reachable findings based on the lockfiles. Some languages, such as Java, have several lockfiles, depending on your repository's package manager. For some languages, such as Javascript and Python, a manifest file is also parsed.
+Semgrep Supply Chain parses **lockfiles** for dependencies, then scans your codebase for reachable findings based on the lockfiles. Some languages, such as Java, have several lockfiles, depending on your repository's package manager. For some languages, such as JavaScript and Python, a manifest file is also parsed.
 
 
 ### General Availability

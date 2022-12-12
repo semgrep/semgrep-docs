@@ -1,0 +1,29 @@
+```yaml
+version: 2.1
+jobs:
+  semgrep-scan:
+    parameters:
+      default_branch:
+        type: string
+        default: main
+    environment:
+      SEMGREP_RULES: p/default
+
+      # Uncomment the following line to scan changed 
+      # files in PRs or MRs (diff-aware scanning): 
+      # - export SEMGREP_BASELINE_REF = "origin/main"
+      # - git fetch origin "+refs/heads/*:refs/remotes/origin/*"
+      # SEMGREP_BASELINE_REF: << parameters.default_branch >>
+
+    docker:
+      - image: returntocorp/semgrep
+    steps:
+      - checkout
+      - run:
+          name: "Semgrep scan"
+          command: semgrep ci --supply-chain
+workflows:
+  main:
+    jobs:
+      - semgrep-scan
+```

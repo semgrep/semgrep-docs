@@ -1,0 +1,40 @@
+```yaml
+semgrep:
+  # A Docker image with Semgrep installed.
+  image: returntocorp/semgrep
+
+  rules:
+  # Scan changed files in MRs, (diff-aware scanning):
+  - if: $CI_MERGE_REQUEST_IID
+
+  # Scan mainline (default) branches and report all findings.
+  - if: $CI_COMMIT_BRANCH == $CI_DEFAULT_BRANCH
+
+  variables:
+    # Connect to Semgrep App through your SEMGREP_APP_TOKEN.
+    # Generate a token from Semgrep App > Settings
+    # and add it as a variable in your GitLab CI/CD project settings.
+    SEMGREP_APP_TOKEN: $SEMGREP_APP_TOKEN
+
+    # Upload findings to GitLab SAST Dashboard:
+    SEMGREP_GITLAB_JSON: "1"
+
+  # Other optional settings in the `variables` block:
+
+  # Never fail the build due to findings on pushes.
+  # Instead, just collect findings for semgrep.dev/manage/findings
+  #   SEMGREP_AUDIT_ON: push
+
+  # Receive inline MR comments (requires Semgrep App account)
+  # Setup instructions: 
+  # https://semgrep.dev/docs/semgrep-app/notifications/#enabling-gitlab-merge-request-comments
+  #   GITLAB_TOKEN: $PAT
+
+  # Run the "semgrep ci" command on the command line of the docker image and send findings
+  # to GitLab SAST.
+  script: semgrep ci --gitlab-sast > gl-sast-report.json || true
+  artifacts:
+    reports:
+      sast: gl-sast-report.json
+
+```

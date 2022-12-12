@@ -26,7 +26,7 @@ rules:
 
 ## Autofix with regular expression replacement
 
-A variant on the experimental `fix` key is `fix-regex`, which applies regular expression replacements (think `sed`) to matches found by Semgrep.
+A variant on the `fix` key is `fix-regex`, which applies regular expression replacements (think `sed`) to matches found by Semgrep.
 
 `fix-regex` has two required fields:
 
