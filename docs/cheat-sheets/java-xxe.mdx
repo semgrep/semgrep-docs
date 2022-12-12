@@ -154,11 +154,11 @@ n/a - Not available
 :::
 
 #### DocumentBuilderFactory
-
+<font size="2">
 <table>
     <thead>
         <tr>
-            <th style={{"word-wrap": "break-word", "max-width": "20px"}} rowspan="3">Security feature</th>
+            <th rowspan="3">Security feature</th>
             <th colspan="10">Attack payload</th>
         </tr>
         <tr>
@@ -197,7 +197,7 @@ n/a - Not available
         </tr>
         <tr>
             <td>
-                <code style={{"font-size": "12px"}}>setFeature(XMLConstants. <b>FEATURE_SECURE_PROCESSING</b>, true)</code>
+                <code>setFeature(XMLConstants.<b>FEATURE_SECURE_PROCESSING</b>, true)</code>
             </td>
             <td> ✅⚠️  </td>
             <td> ✅⚠️  </td>
@@ -212,7 +212,7 @@ n/a - Not available
         </tr>
         <tr>
             <td>
-                <code>setAttribute(XMLConstants. <b>ACCESS_EXTERNAL_DTD</b>, "")</code>
+                <code>setAttribute(XMLConstants.<b>ACCESS_EXTERNAL_DTD</b>, "")</code>
             </td>
             <td> ✅⚠️  </td>
             <td> ✅⚠️  </td>
@@ -227,7 +227,187 @@ n/a - Not available
         </tr>
         <tr>
             <td>
-                <code>setAttribute(XMLConstants. <b>ACCESS_EXTERNAL_SCHEMA</b>, "")</code>
+                <code>setAttribute(XMLConstants.<b>ACCESS_EXTERNAL_SCHEMA</b>, "")</code>
+            </td>
+            <td> ✅⚠️  </td>
+            <td> ❌ </td>
+            <td> ❌ </td>
+            <td> ❌ </td>
+            <td> ✅ </td>
+            <td> ✅ </td>
+            <td> ✅ </td>
+            <td> ❌ </td>
+            <td> ✅ </td>
+            <td> ✅ </td>
+        </tr>
+        <tr>
+            <td>
+                <code>setAttribute(XMLConstants. <b>ACCESS_EXTERNAL_STYLESHEET</b>, "")</code>
+            </td>
+            <td> n/a </td>
+            <td> n/a </td>
+            <td> n/a </td>
+            <td> n/a </td>
+            <td> n/a </td>
+            <td> n/a </td>
+            <td> n/a </td>
+            <td> n/a </td>
+            <td> n/a </td>
+            <td> n/a </td>
+        </tr>
+        <tr>
+            <td>
+                <code>setFeature("http://apache.org/xml/features/<b>disallow-doctype-decl</b>", true)</code>
+            </td>
+            <td> ✅⚠️  </td>
+            <td> ✅⚠️  </td>
+            <td> ✅⚠️  </td>
+            <td> ✅⚠️  </td>
+            <td> ✅ </td>
+            <td> ✅ </td>
+            <td> ✅ </td>
+            <td> ✅⚠️  </td>
+            <td> ✅ </td>
+            <td> ✅ </td>
+        </tr>
+        <tr>
+            <td>
+                <code>setFeature("http://xml.org/sax/features/<b>external-general-entities</b>", false)</code>
+            </td>
+            <td> ✅⚠️  </td>
+            <td> ✅ </td>
+            <td> ❌ </td>
+            <td> ✅ </td>
+            <td> ✅ </td>
+            <td> ✅ </td>
+            <td> ✅ </td>
+            <td> ✅ </td>
+            <td> ✅ </td>
+            <td> ✅ </td>
+        </tr>
+        <tr>
+            <td>
+                <code>setFeature("http://xml.org/sax/features/<b>external-parameter-entities</b>", false)</code>
+            </td>
+            <td> ✅⚠️  </td>
+            <td> ❌ </td>
+            <td> ✅ </td>
+            <td> ❌ </td>
+            <td> ✅ </td>
+            <td> ✅ </td>
+            <td> ✅ </td>
+            <td> ❌ </td>
+            <td> ✅ </td>
+            <td> ✅ </td>
+        </tr>
+        <tr>
+            <td>
+                <code><b>setValidating</b>(false)</code>
+            </td>
+            <td> ✅⚠️  </td>
+            <td> ❌ </td>
+            <td> ❌ </td>
+            <td> ❌ </td>
+            <td> ✅ </td>
+            <td> ✅ </td>
+            <td> ✅ </td>
+            <td> ❌ </td>
+            <td> ✅ </td>
+            <td> ✅ </td>
+        </tr>
+        <tr>
+            <td>
+                <code><b>setExpandEntityReferences</b>(false)</code>
+            </td>
+            <td> ✅⚠️  </td>
+            <td> ❌ </td>
+            <td> ❌ </td>
+            <td> ❌ </td>
+            <td> ✅ </td>
+            <td> ✅ </td>
+            <td> ✅ </td>
+            <td> ❌ </td>
+            <td> ✅ </td>
+            <td> ✅ </td>
+        </tr>
+        <tr>
+            <td>
+                <code><b>setXIncludeAware</b>(false)</code>
+            </td>
+            <td> ✅⚠️  </td>
+            <td> ❌ </td>
+            <td> ❌ </td>
+            <td> ❌ </td>
+            <td> ✅ </td>
+            <td> ✅ </td>
+            <td> ✅ </td>
+            <td> ❌ </td>
+            <td> ✅ </td>
+            <td> ✅ </td>
+        </tr>
+        <tr>
+            <td>
+                <code>setFeature("http://apache.org/xml/features/<b>xinclude</b>", false)</code>
+            </td>
+            <td> ✅⚠️  </td>
+            <td> ❌ </td>
+            <td> ❌ </td>
+            <td> ❌ </td>
+            <td> ✅ </td>
+            <td> ✅ </td>
+            <td> ✅ </td>
+            <td> ❌ </td>
+            <td> ✅ </td>
+            <td> ✅ </td>
+        </tr>
+        <tr>
+            <td>
+                <code>setFeature("http://apache.org/xml/features/nonvalidating/<b>load-external-dtd</b>", false)</code>
+            </td>
+            <td> ✅⚠️  </td>
+            <td> ❌ </td>
+            <td> ❌ </td>
+            <td> ❌ </td>
+            <td> ✅ </td>
+            <td> ✅ </td>
+            <td> ✅ </td>
+            <td> ❌ </td>
+            <td> ✅ </td>
+            <td> ✅ </td>
+        </tr>
+        <tr>
+            <td>
+                <code>setFeature("http://apache.org/xml/features/nonvalidating/<b>load-dtd-grammar</b>", false)</code>
+            </td>
+            <td> ✅⚠️  </td>
+            <td> ❌ </td>
+            <td> ❌ </td>
+            <td> ❌ </td>
+            <td> ✅ </td>
+            <td> ✅ </td>
+            <td> ✅ </td>
+            <td> ❌ </td>
+            <td> ✅ </td>
+            <td> ✅ </td>
+        </tr>
+        <tr>
+            <td>
+                <code>setFeature("http://apache.org/xml/features/<b>namespaces</b>", false)</code>
+            </td>
+            <td> ✅⚠️  </td>
+            <td> ❌ </td>
+            <td> ❌ </td>
+            <td> ❌ </td>
+            <td> ✅ </td>
+            <td> ✅ </td>
+            <td> ✅ </td>
+            <td> ❌ </td>
+            <td> ✅ </td>
+            <td> ✅ </td>
+        </tr>
+        <tr>
+            <td>
+                <code><b>setNamespaceAware</b>(true)</code>
             </td>
             <td> ✅⚠️  </td>
             <td> ❌ </td>
@@ -242,200 +422,1287 @@ n/a - Not available
         </tr>
     </tbody>
 </table>
+</font>
 
-
-
-| Class `DocumentBuilderFactory`                                                              | DoS      | XML | XML              | XSL | XSL    | XSL     | XSL      | XSD | XSD    | XSD     |
-|-------------------------------------------------------------------------------------|----------|-----|------------------|-----|--------|---------|----------|-----|--------|---------|
-|                                                                                     | xml-bomb | dtd | parameter entity | dtd | import | include | document | dtd | import | include |
-| default                                                                               | ✅⚠️       | ❌   | ❌                | ❌   | ✅      | ✅       | ✅        | ❌   | ✅      | ✅       |
-| `setFeature(XMLConstants.FEATURE_SECURE_PROCESSING, true)`                            | ✅⚠️       | ✅⚠️  | ✅⚠️               | ✅⚠️  | ✅      | ✅       | ✅        | ✅⚠️  | ✅      | ✅       |
-| `setAttribute(XMLConstants.ACCESS_EXTERNAL_DTD, "")`                                  | ✅⚠️       | ✅⚠️  | ✅⚠️               | ✅⚠️  | ✅      | ✅       | ✅        | ✅⚠️  | ✅      | ✅       |
-| `setAttribute(XMLConstants.ACCESS_EXTERNAL_SCHEMA, "")`                               | ✅⚠️       | ❌   | ❌                | ❌   | ✅      | ✅       | ✅        | ❌   | ✅      | ✅       |
-| `setAttribute(XMLConstants.ACCESS_EXTERNAL_STYLESHEET, "");`                         | n/a      | n/a | n/a              | n/a | n/a    | n/a     | n/a      | n/a | n/a    | n/a     |
-| `setFeature("http://apache.org/xml/features/disallow-doctype-decl", true)`            | ✅⚠️       | ✅⚠️  | ✅⚠️               | ✅⚠️  | ✅      | ✅       | ✅        | ✅⚠️  | ✅      | ✅       |
-| `setFeature("http://xml.org/sax/features/external-general-entities", false)`          | ✅⚠️       | ✅   | ❌                | ✅   | ✅      | ✅       | ✅        | ✅   | ✅      | ✅       |
-| `setFeature("http://xml.org/sax/features/external-parameter-entities", false)`        | ✅⚠️       | ❌   | ✅                | ❌   | ✅      | ✅       | ✅        | ❌   | ✅      | ✅       |
-| `setValidating(false)`                                                                | ✅⚠️       | ❌   | ❌                | ❌   | ✅      | ✅       | ✅        | ❌   | ✅      | ✅       |
-| `setExpandEntityReferences(false)`                                                    | ✅⚠️       | ❌   | ❌                | ❌   | ✅      | ✅       | ✅        | ❌   | ✅      | ✅       |
-| `setXIncludeAware(false)`                                                             | ✅⚠️       | ❌   | ❌                | ❌   | ✅      | ✅       | ✅        | ❌   | ✅      | ✅       |
-| `setFeature("http://apache.org/xml/features/xinclude", false)`                        | ✅⚠️       | ❌   | ❌                | ❌   | ✅      | ✅       | ✅        | ❌   | ✅      | ✅       |
-| `setFeature("http://apache.org/xml/features/nonvalidating/load-external-dtd", false)` | ✅⚠️       | ❌   | ❌                | ❌   | ✅      | ✅       | ✅        | ❌   | ✅      | ✅       |
-| `setFeature("http://apache.org/xml/features/nonvalidating/load-dtd-grammar", false)`  | ✅⚠️       | ❌   | ❌                | ❌   | ✅      | ✅       | ✅        | ❌   | ✅      | ✅       |
-| `setFeature("http://apache.org/xml/features/namespaces", false)`                      | ✅⚠️       | ❌   | ❌                | ❌   | ✅      | ✅       | ✅        | ❌   | ✅      | ✅       |
-| `setNamespaceAware(true)`                                                             | ✅⚠️       | ❌   | ❌                | ❌   | ✅      | ✅       | ✅        | ❌   | ✅      | ✅       |
 
 #### SAXBuilder
 
-| Class `SAXBuilder`                                                                          | DoS      | XML | XML              | XSL | XSL    | XSL     | XSL      | XSD | XSD    | XSD     |
-|-------------------------------------------------------------------------------------|----------|-----|------------------|-----|--------|---------|----------|-----|--------|---------|
-|                                                                                     | xml-bomb | dtd | parameter entity | dtd | import | include | document | dtd | import | include |
-| default                                                                             | ✅⚠️       | ❌   | ❌                | ❌   | ✅      | ✅       | ✅        | ❌   | ✅      | ✅       |
-| Default config DTDValidating                                                        | ✅⚠️       | ✅⚠️  | ❌                | ✅⚠️  | ✅⚠️     | ✅⚠️      | ✅⚠️       | ✅⚠️  | ✅⚠️     | ✅⚠️      |
-| Default config XSDValidating                                                        | ✅⚠️       | ✅⚠️  | ❌                | ✅⚠️  | ✅⚠️     | ✅⚠️      | ✅⚠️       | ✅⚠️  | ✅⚠️     | ✅⚠️      |
-| `setFeature(XMLConstants.FEATURE_SECURE_PROCESSING, true)`                            | ✅⚠️       | ❌   | ❌                | ❌   | ✅      | ✅       | ✅        | ❌   | ✅      | ✅       |
-| `setAttribute(XMLConstants.ACCESS_EXTERNAL_DTD, "")`                                  | ✅⚠️       | ✅⚠️  | ✅⚠️               | ✅⚠️  | ✅      | ✅       | ✅        | ✅⚠️  | ✅      | ✅       |
-| `setAttribute(XMLConstants.ACCESS_EXTERNAL_SCHEMA, "")`                               | ✅⚠️       | ❌   | ❌                | ❌   | ✅      | ✅       | ✅        | ❌   | ✅      | ✅       |
-| `setAttribute(XMLConstants.ACCESS_EXTERNAL_STYLESHEET, "")`;                          | n/a      | n/a | n/a              | n/a | n/a    | n/a     | n/a      | n/a | n/a    | n/a     |
-| `setFeature("http://apache.org/xml/features/disallow-doctype-decl", true)`            | ✅⚠️       | ✅⚠️  | ✅⚠️               | ✅⚠️  | ✅      | ✅       | ✅        | ✅⚠️  | ✅      | ✅       |
-| `setFeature("http://xml.org/sax/features/external-general-entities", false)`          | ✅⚠️       | ✅   | ❌                | ✅   | ✅      | ✅       | ✅        | ✅   | ✅      | ✅       |
-| `setFeature("http://xml.org/sax/features/external-parameter-entities", false)`        | ✅⚠️       | ❌   | ✅                | ❌   | ✅      | ✅       | ✅        | ❌   | ✅      | ✅       |
-| `setExpandEntities(false)`                                                            | ✅⚠️       | ✅   | ❌                | ✅   | ✅      | ✅       | ✅        | ✅   | ✅      | ✅       |
-| `setFeature("http://apache.org/xml/features/xinclude", false)`                        | ✅⚠️       | ❌   | ❌                | ❌   | ✅      | ✅       | ✅        | ❌   | ✅      | ✅       |
-| `setFeature("http://apache.org/xml/features/nonvalidating/load-external-dtd", false)` | ✅⚠️       | ❌   | ❌                | ❌   | ✅      | ✅       | ✅        | ❌   | ✅      | ✅       |
+<font size="2">
+<table>
+    <thead>
+        <tr>
+            <th rowspan="3">Security feature</th>
+            <th colspan="10">Attack payload</th>
+        </tr>
+        <tr>
+            <th colspan="3">XML</th>
+            <th colspan="4">XSL</th>
+            <th colspan="3">XSD</th>
+        </tr>
+        <tr>
+            <th style={{"writing-mode" : "vertical-lr" }} >XML Bomb</th>
+            <th style={{"writing-mode" : "vertical-lr" }} >DTD</th>
+            <th style={{"writing-mode" : "vertical-lr" }} >Parameter entity</th>
+            <th style={{"writing-mode" : "vertical-lr" }} >DTD</th>
+            <th style={{"writing-mode" : "vertical-lr" }} >import</th>
+            <th style={{"writing-mode" : "vertical-lr" }} >include</th>
+            <th style={{"writing-mode" : "vertical-lr" }} >document</th>
+            <th style={{"writing-mode" : "vertical-lr" }} >DTD</th>
+            <th style={{"writing-mode" : "vertical-lr" }} >import</th>
+            <th style={{"writing-mode" : "vertical-lr" }} >include</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>
+                Default configuration
+            </td>
+            <td> ✅⚠️  </td>
+            <td> ❌ </td>
+            <td> ❌ </td>
+            <td> ❌ </td>
+            <td> ✅ </td>
+            <td> ✅ </td>
+            <td> ✅ </td>
+            <td> ❌ </td>
+            <td> ✅ </td>
+            <td> ✅ </td>
+        </tr>
+        <tr>
+            <td>
+                Default configuration DTDValidating
+            </td>
+            <td> ✅⚠️  </td>
+            <td> ✅⚠️  </td>
+            <td> ❌ </td>
+            <td> ✅⚠️  </td>
+            <td> ✅⚠️  </td>
+            <td> ✅⚠️  </td>
+            <td> ✅⚠️  </td>
+            <td> ✅⚠️  </td>
+            <td> ✅⚠️  </td>
+            <td> ✅⚠️  </td>
+        </tr>
+        <tr>
+            <td>
+                Default configuration XSDValidating
+            </td>
+            <td> ✅⚠️  </td>
+            <td> ✅⚠️  </td>
+            <td> ❌ </td>
+            <td> ✅⚠️  </td>
+            <td> ✅⚠️  </td>
+            <td> ✅⚠️  </td>
+            <td> ✅⚠️  </td>
+            <td> ✅⚠️  </td>
+            <td> ✅⚠️  </td>
+            <td> ✅⚠️  </td>
+        </tr>
+        <tr>
+            <td>
+                <code>setFeature(XMLConstants.<b>FEATURE_SECURE_PROCESSING</b>, true)</code>
+            </td>
+            <td> ✅⚠️  </td>
+            <td> ❌ </td>
+            <td> ❌ </td>
+            <td> ❌ </td>
+            <td> ✅ </td>
+            <td> ✅ </td>
+            <td> ✅ </td>
+            <td> ❌ </td>
+            <td> ✅ </td>
+            <td> ✅ </td>
+        </tr>
+        <tr>
+            <td>
+                <code>setAttribute(XMLConstants.<b>ACCESS_EXTERNAL_DTD</b>, "")</code>
+            </td>
+            <td> ✅⚠️  </td>
+            <td> ✅⚠️  </td>
+            <td> ✅⚠️  </td>
+            <td> ✅⚠️  </td>
+            <td> ✅  </td>
+            <td> ✅  </td>
+            <td> ✅  </td>
+            <td> ✅⚠️  </td>
+            <td> ✅  </td>
+            <td> ✅  </td>
+        </tr>
+        <tr>
+            <td>
+                <code>setAttribute(XMLConstants.<b>ACCESS_EXTERNAL_SCHEMA</b>, "")</code>
+            </td>
+            <td> ✅⚠️  </td>
+            <td> ❌ </td>
+            <td> ❌ </td>
+            <td> ❌ </td>
+            <td> ✅ </td>
+            <td> ✅ </td>
+            <td> ✅ </td>
+            <td> ❌ </td>
+            <td> ✅ </td>
+            <td> ✅ </td>
+        </tr>
+        <tr>
+            <td>
+                <code>setAttribute(XMLConstants. <b>ACCESS_EXTERNAL_STYLESHEET</b>, "")</code>
+            </td>
+            <td> n/a </td>
+            <td> n/a </td>
+            <td> n/a </td>
+            <td> n/a </td>
+            <td> n/a </td>
+            <td> n/a </td>
+            <td> n/a </td>
+            <td> n/a </td>
+            <td> n/a </td>
+            <td> n/a </td>
+        </tr>
+        <tr>
+            <td>
+                <code>setFeature("http://apache.org/xml/features/<b>disallow-doctype-decl</b>", true)</code>
+            </td>
+            <td> ✅⚠️  </td>
+            <td> ✅⚠️  </td>
+            <td> ✅⚠️  </td>
+            <td> ✅⚠️  </td>
+            <td> ✅  </td>
+            <td> ✅  </td>
+            <td> ✅  </td>
+            <td> ✅⚠️  </td>
+            <td> ✅  </td>
+            <td> ✅  </td>
+        </tr>
+        <tr>
+            <td>
+                <code>setFeature("http://xml.org/sax/features/<b>external-general-entities</b>", false)</code>
+            </td>
+            <td> ✅⚠️  </td>
+            <td> ✅ </td>
+            <td> ❌ </td>
+            <td> ✅ </td>
+            <td> ✅ </td>
+            <td> ✅ </td>
+            <td> ✅ </td>
+            <td> ✅ </td>
+            <td> ✅ </td>
+            <td> ✅ </td>
+        </tr>
+        <tr>
+            <td>
+                <code>setFeature("http://xml.org/sax/features/<b>external-parameter-entities</b>", false)</code>
+            </td>
+            <td> ✅⚠️  </td>
+            <td> ❌ </td>
+            <td> ✅ </td>
+            <td> ❌ </td>
+            <td> ✅ </td>
+            <td> ✅ </td>
+            <td> ✅ </td>
+            <td> ❌ </td>
+            <td> ✅ </td>
+            <td> ✅ </td>
+        </tr>
+        <tr>
+            <td>
+                <code><b>setExpandEntityReferences</b>(false)</code>
+            </td>
+            <td> ✅⚠️  </td>
+            <td> ✅ </td>
+            <td> ❌ </td>
+            <td> ✅ </td>
+            <td> ✅ </td>
+            <td> ✅ </td>
+            <td> ✅ </td>
+            <td> ✅ </td>
+            <td> ✅ </td>
+            <td> ✅ </td>
+        </tr>
+        <tr>
+            <td>
+                <code>setFeature("http://apache.org/xml/features/<b>xinclude</b>", false)</code>
+            </td>
+            <td> ✅⚠️  </td>
+            <td> ❌ </td>
+            <td> ❌ </td>
+            <td> ❌ </td>
+            <td> ✅ </td>
+            <td> ✅ </td>
+            <td> ✅ </td>
+            <td> ❌ </td>
+            <td> ✅ </td>
+            <td> ✅ </td>
+        </tr>
+        <tr>
+            <td>
+                <code>setFeature("http://apache.org/xml/features/nonvalidating/<b>load-external-dtd</b>", false)</code>
+            </td>
+            <td> ✅⚠️  </td>
+            <td> ❌ </td>
+            <td> ❌ </td>
+            <td> ❌ </td>
+            <td> ✅ </td>
+            <td> ✅ </td>
+            <td> ✅ </td>
+            <td> ❌ </td>
+            <td> ✅ </td>
+            <td> ✅ </td>
+        </tr>
+    </tbody>
+</table>
+</font>
 
 #### SAXParserFactory
 
-| Class `SAXParserFactory`                                                                    | DoS      | XML | XML              | XSL | XSL    | XSL     | XSL      | XSD | XSD    | XSD     |
-|-------------------------------------------------------------------------------------|----------|-----|------------------|-----|--------|---------|----------|-----|--------|---------|
-|                                                                                     | xml-bomb | dtd | parameter entity | dtd | import | include | document | dtd | import | include |
-| default                                                                             | ✅⚠️       | ❌   | ❌                | ❌   | ✅      | ✅       | ✅        | ❌   | ✅      | ✅       |
-| `setFeature(XMLConstants.FEATURE_SECURE_PROCESSING, true)`                            | ✅⚠️       | ✅⚠️  | ✅⚠️               | ✅⚠️  | ✅      | ✅       | ✅        | ✅⚠️  | ✅      | ✅       |
-| `setAttribute(XMLConstants.ACCESS_EXTERNAL_DTD, "")`                                  | n/a      | n/a | n/a              | n/a | n/a    | n/a     | n/a      | n/a | n/a    | n/a     |
-| `setAttribute(XMLConstants.ACCESS_EXTERNAL_SCHEMA, "")`                               | n/a      | n/a | n/a              | n/a | n/a    | n/a     | n/a      | n/a | n/a    | n/a     |
-| `setAttribute(XMLConstants.ACCESS_EXTERNAL_STYLESHEET, "");`                         | n/a      | n/a | n/a              | n/a | n/a    | n/a     | n/a      | n/a | n/a    | n/a     |
-| `setFeature("http://apache.org/xml/features/disallow-doctype-decl", true)`            | ✅⚠️       | ✅⚠️  | ✅⚠️               | ✅⚠️  | ✅      | ✅       | ✅        | ✅⚠️  | ✅      | ✅       |
-| `setFeature("http://xml.org/sax/features/external-general-entities", false)`          | ✅⚠️       | ✅   | ❌                | ✅   | ✅      | ✅       | ✅        | ✅   | ✅      | ✅       |
-| `setFeature("http://xml.org/sax/features/external-parameter-entities", false)`        | ✅⚠️       | ❌   | ✅                | ❌   | ✅      | ✅       | ✅        | ❌   | ✅      | ✅       |
-| `setValidating(false)`                                                                | ✅⚠️       | ❌   | ❌                | ❌   | ✅      | ✅       | ✅        | ❌   | ✅      | ✅       |
-| `setExpandEntityReferences(false)`                                                    | n/a      | n/a | n/a              | n/a | n/a    | n/a     | n/a      | n/a | n/a    | n/a     |
-| `setXIncludeAware(false)`                                                             | ✅⚠️       | ❌   | ❌                | ❌   | ✅      | ✅       | ✅        | ❌   | ✅      | ✅       |
-| `setFeature("http://apache.org/xml/features/xinclude", false)`                        | ✅⚠️       | ❌   | ❌                | ❌   | ✅      | ✅       | ✅        | ❌   | ✅      | ✅       |
-| `setFeature("http://apache.org/xml/features/nonvalidating/load-external-dtd", false)` | ✅⚠️       | ❌   | ❌                | ❌   | ✅      | ✅       | ✅        | ❌   | ✅      | ✅       |
-| `setFeature("http://apache.org/xml/features/nonvalidating/load-dtd-grammar", false)`  | n/a      | n/a | n/a              | n/a | n/a    | n/a     | n/a      | n/a | n/a    | n/a     |
-| `setFeature("http://apache.org/xml/features/namespaces", false)`                      | n/a      | n/a | n/a              | n/a | n/a    | n/a     | n/a      | n/a | n/a    | n/a     |
-| `setNamespaceAware(true)`                                                             | n/a      | n/a | n/a              | n/a | n/a    | n/a     | n/a      | n/a | n/a    | n/a     |
+<font size="2">
+<table>
+    <thead>
+        <tr>
+            <th rowspan="3">Security feature</th>
+            <th colspan="10">Attack payload</th>
+        </tr>
+        <tr>
+            <th colspan="3">XML</th>
+            <th colspan="4">XSL</th>
+            <th colspan="3">XSD</th>
+        </tr>
+        <tr>
+            <th style={{"writing-mode" : "vertical-lr" }} >XML Bomb</th>
+            <th style={{"writing-mode" : "vertical-lr" }} >DTD</th>
+            <th style={{"writing-mode" : "vertical-lr" }} >Parameter entity</th>
+            <th style={{"writing-mode" : "vertical-lr" }} >DTD</th>
+            <th style={{"writing-mode" : "vertical-lr" }} >import</th>
+            <th style={{"writing-mode" : "vertical-lr" }} >include</th>
+            <th style={{"writing-mode" : "vertical-lr" }} >document</th>
+            <th style={{"writing-mode" : "vertical-lr" }} >DTD</th>
+            <th style={{"writing-mode" : "vertical-lr" }} >import</th>
+            <th style={{"writing-mode" : "vertical-lr" }} >include</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>
+                Default configuration
+            </td>
+            <td> ✅⚠️  </td>
+            <td> ❌ </td>
+            <td> ❌ </td>
+            <td> ❌ </td>
+            <td> ✅ </td>
+            <td> ✅ </td>
+            <td> ✅ </td>
+            <td> ❌ </td>
+            <td> ✅ </td>
+            <td> ✅ </td>
+        </tr>
+        <tr>
+            <td>
+                <code>setFeature(XMLConstants.<b>FEATURE_SECURE_PROCESSING</b>, true)</code>
+            </td>
+            <td> ✅⚠️  </td>
+            <td> ✅⚠️  </td>
+            <td> ✅⚠️  </td>
+            <td> ✅⚠️  </td>
+            <td> ✅ </td>
+            <td> ✅ </td>
+            <td> ✅ </td>
+            <td> ✅⚠️  </td>
+            <td> ✅ </td>
+            <td> ✅ </td>
+        </tr>
+        <tr>
+            <td>
+                <code>setAttribute(XMLConstants.<b>ACCESS_EXTERNAL_DTD</b>, "")</code>
+            </td>
+            <td> n/a </td>
+            <td> n/a </td>
+            <td> n/a </td>
+            <td> n/a </td>
+            <td> n/a </td>
+            <td> n/a </td>
+            <td> n/a </td>
+            <td> n/a </td>
+            <td> n/a </td>
+            <td> n/a </td>
+        </tr>
+        <tr>
+            <td>
+                <code>setAttribute(XMLConstants.<b>ACCESS_EXTERNAL_SCHEMA</b>, "")</code>
+            </td>
+            <td> n/a </td>
+            <td> n/a </td>
+            <td> n/a </td>
+            <td> n/a </td>
+            <td> n/a </td>
+            <td> n/a </td>
+            <td> n/a </td>
+            <td> n/a </td>
+            <td> n/a </td>
+            <td> n/a </td>
+        </tr>
+        <tr>
+            <td>
+                <code>setAttribute(XMLConstants. <b>ACCESS_EXTERNAL_STYLESHEET</b>, "")</code>
+            </td>
+            <td> n/a </td>
+            <td> n/a </td>
+            <td> n/a </td>
+            <td> n/a </td>
+            <td> n/a </td>
+            <td> n/a </td>
+            <td> n/a </td>
+            <td> n/a </td>
+            <td> n/a </td>
+            <td> n/a </td>
+        </tr>
+        <tr>
+            <td>
+                <code>setFeature("http://apache.org/xml/features/<b>disallow-doctype-decl</b>", true)</code>
+            </td>
+            <td> ✅⚠️  </td>
+            <td> ✅⚠️  </td>
+            <td> ✅⚠️  </td>
+            <td> ✅⚠️  </td>
+            <td> ✅ </td>
+            <td> ✅ </td>
+            <td> ✅ </td>
+            <td> ✅⚠️  </td>
+            <td> ✅ </td>
+            <td> ✅ </td>
+        </tr>
+        <tr>
+            <td>
+                <code>setFeature("http://xml.org/sax/features/<b>external-general-entities</b>", false)</code>
+            </td>
+            <td> ✅⚠️  </td>
+            <td> ✅ </td>
+            <td> ❌ </td>
+            <td> ✅ </td>
+            <td> ✅ </td>
+            <td> ✅ </td>
+            <td> ✅ </td>
+            <td> ✅ </td>
+            <td> ✅ </td>
+            <td> ✅ </td>
+        </tr>
+        <tr>
+            <td>
+                <code>setFeature("http://xml.org/sax/features/<b>external-parameter-entities</b>", false)</code>
+            </td>
+            <td> ✅⚠️  </td>
+            <td> ❌ </td>
+            <td> ✅ </td>
+            <td> ❌ </td>
+            <td> ✅ </td>
+            <td> ✅ </td>
+            <td> ✅ </td>
+            <td> ❌ </td>
+            <td> ✅ </td>
+            <td> ✅ </td>
+        </tr>
+        <tr>
+            <td>
+                <code><b>setValidating</b>(false)</code>
+            </td>
+            <td> ✅⚠️  </td>
+            <td> ❌ </td>
+            <td> ❌ </td>
+            <td> ❌ </td>
+            <td> ✅ </td>
+            <td> ✅ </td>
+            <td> ✅ </td>
+            <td> ❌ </td>
+            <td> ✅ </td>
+            <td> ✅ </td>
+        </tr>
+        <tr>
+            <td>
+                <code><b>setExpandEntityReferences</b>(false)</code>
+            </td>
+            <td> n/a </td>
+            <td> n/a </td>
+            <td> n/a </td>
+            <td> n/a </td>
+            <td> n/a </td>
+            <td> n/a </td>
+            <td> n/a </td>
+            <td> n/a </td>
+            <td> n/a </td>
+            <td> n/a </td>
+        </tr>
+        <tr>
+            <td>
+                <code><b>setXIncludeAware</b>(false)</code>
+            </td>
+            <td> ✅⚠️  </td>
+            <td> ❌ </td>
+            <td> ❌ </td>
+            <td> ❌ </td>
+            <td> ✅ </td>
+            <td> ✅ </td>
+            <td> ✅ </td>
+            <td> ❌ </td>
+            <td> ✅ </td>
+            <td> ✅ </td>
+        </tr>
+        <tr>
+            <td>
+                <code>setFeature("http://apache.org/xml/features/<b>xinclude</b>", false)</code>
+            </td>
+            <td> ✅⚠️  </td>
+            <td> ❌ </td>
+            <td> ❌ </td>
+            <td> ❌ </td>
+            <td> ✅ </td>
+            <td> ✅ </td>
+            <td> ✅ </td>
+            <td> ❌ </td>
+            <td> ✅ </td>
+            <td> ✅ </td>
+        </tr>
+        <tr>
+            <td>
+                <code>setFeature("http://apache.org/xml/features/nonvalidating/<b>load-external-dtd</b>", false)</code>
+            </td>
+            <td> ✅⚠️  </td>
+            <td> ❌ </td>
+            <td> ❌ </td>
+            <td> ❌ </td>
+            <td> ✅ </td>
+            <td> ✅ </td>
+            <td> ✅ </td>
+            <td> ❌ </td>
+            <td> ✅ </td>
+            <td> ✅ </td>
+        </tr>
+        <tr>
+            <td>
+                <code>setFeature("http://apache.org/xml/features/nonvalidating/<b>load-dtd-grammar</b>", false)</code>
+            </td>
+            <td> n/a </td>
+            <td> n/a </td>
+            <td> n/a </td>
+            <td> n/a </td>
+            <td> n/a </td>
+            <td> n/a </td>
+            <td> n/a </td>
+            <td> n/a </td>
+            <td> n/a </td>
+            <td> n/a </td>
+        </tr>
+        <tr>
+            <td>
+                <code>setFeature("http://apache.org/xml/features/<b>namespaces</b>", false)</code>
+            </td>
+            <td> n/a </td>
+            <td> n/a </td>
+            <td> n/a </td>
+            <td> n/a </td>
+            <td> n/a </td>
+            <td> n/a </td>
+            <td> n/a </td>
+            <td> n/a </td>
+            <td> n/a </td>
+            <td> n/a </td>
+        </tr>
+        <tr>
+            <td>
+                <code><b>setNamespaceAware</b>(true)</code>
+            </td>
+            <td> n/a </td>
+            <td> n/a </td>
+            <td> n/a </td>
+            <td> n/a </td>
+            <td> n/a </td>
+            <td> n/a </td>
+            <td> n/a </td>
+            <td> n/a </td>
+            <td> n/a </td>
+            <td> n/a </td>
+        </tr>
+    </tbody>
+</table>
+</font>
 
 #### SAXParser
 
-| Class `SAXParser`                                                                           | DoS      | XML | XML              | XSL | XSL    | XSL     | XSL      | XSD | XSD    | XSD     |
-|-------------------------------------------------------------------------------------|----------|-----|------------------|-----|--------|---------|----------|-----|--------|---------|
-|                                                                                     | xml-bomb | dtd | parameter entity | dtd | import | include | document | dtd | import | include |
-| default                                                                             |          |     |                  |     |        |         |          |     |        |         |
-| `setFeature(XMLConstants.FEATURE_SECURE_PROCESSING, true)`                            | n/a      | n/a | n/a              | n/a | n/a    | n/a     | n/a      | n/a | n/a    | n/a     |
-| `setProperty(XMLConstants.ACCESS_EXTERNAL_DTD, "")`                                   | ✅⚠️       | ✅⚠️  | ✅⚠️               | ✅⚠️  | ✅      | ✅       | ✅        | ✅⚠️  | ✅      | ✅       |
-| `setProperty(XMLConstants.ACCESS_EXTERNAL_SCHEMA, "")`                                | ✅⚠️       | ❌   | ❌                | ❌   | ✅      | ✅       | ✅        | ❌   | ✅      | ✅       |
-| `setProperty(XMLConstants.ACCESS_EXTERNAL_STYLESHEET, "")`;                           | n/a      | n/a | n/a              | n/a | n/a    | n/a     | n/a      | n/a | n/a    | n/a     |
-| `setFeature("http://apache.org/xml/features/disallow-doctype-decl", true)`            | n/a      | n/a | n/a              | n/a | n/a    | n/a     | n/a      | n/a | n/a    | n/a     |
-| `setFeature("http://xml.org/sax/features/external-general-entities", false)`          | n/a      | n/a | n/a              | n/a | n/a    | n/a     | n/a      | n/a | n/a    | n/a     |
-| `setFeature("http://xml.org/sax/features/external-parameter-entities", false)`        | n/a      | n/a | n/a              | n/a | n/a    | n/a     | n/a      | n/a | n/a    | n/a     |
-| `setValidating(false)`                                                                | n/a      | n/a | n/a              | n/a | n/a    | n/a     | n/a      | n/a | n/a    | n/a     |
-| `setExpandEntityReferences(false)`                                                    | n/a      | n/a | n/a              | n/a | n/a    | n/a     | n/a      | n/a | n/a    | n/a     |
-| `setXIncludeAware(false)`                                                             | n/a      | n/a | n/a              | n/a | n/a    | n/a     | n/a      | n/a | n/a    | n/a     |
-| `setFeature("http://apache.org/xml/features/xinclude", false)`                        | n/a      | n/a | n/a              | n/a | n/a    | n/a     | n/a      | n/a | n/a    | n/a     |
-| `setFeature("http://apache.org/xml/features/nonvalidating/load-external-dtd", false)` | n/a      | n/a | n/a              | n/a | n/a    | n/a     | n/a      | n/a | n/a    | n/a     |
-| `setFeature("http://apache.org/xml/features/nonvalidating/load-dtd-grammar", false)`  | n/a      | n/a | n/a              | n/a | n/a    | n/a     | n/a      | n/a | n/a    | n/a     |
-| `setFeature("http://apache.org/xml/features/namespaces", false)`                      | n/a      | n/a | n/a              | n/a | n/a    | n/a     | n/a      | n/a | n/a    | n/a     |
-| `setNamespaceAware(true)`                                                             | n/a      | n/a | n/a              | n/a | n/a    | n/a     | n/a      | n/a | n/a    | n/a     |
+<font size="2">
+<table>
+    <thead>
+        <tr>
+            <th rowspan="3">Security feature</th>
+            <th colspan="10">Attack payload</th>
+        </tr>
+        <tr>
+            <th colspan="3">XML</th>
+            <th colspan="4">XSL</th>
+            <th colspan="3">XSD</th>
+        </tr>
+        <tr>
+            <th style={{"writing-mode" : "vertical-lr" }} >XML Bomb</th>
+            <th style={{"writing-mode" : "vertical-lr" }} >DTD</th>
+            <th style={{"writing-mode" : "vertical-lr" }} >Parameter entity</th>
+            <th style={{"writing-mode" : "vertical-lr" }} >DTD</th>
+            <th style={{"writing-mode" : "vertical-lr" }} >import</th>
+            <th style={{"writing-mode" : "vertical-lr" }} >include</th>
+            <th style={{"writing-mode" : "vertical-lr" }} >document</th>
+            <th style={{"writing-mode" : "vertical-lr" }} >DTD</th>
+            <th style={{"writing-mode" : "vertical-lr" }} >import</th>
+            <th style={{"writing-mode" : "vertical-lr" }} >include</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>
+                Default configuration
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <code>setFeature(XMLConstants.<b>FEATURE_SECURE_PROCESSING</b>, true)</code>
+            </td>
+            <td> n/a </td>
+            <td> n/a </td>
+            <td> n/a </td>
+            <td> n/a </td>
+            <td> n/a </td>
+            <td> n/a </td>
+            <td> n/a </td>
+            <td> n/a </td>
+            <td> n/a </td>
+            <td> n/a </td>
+        </tr>
+        <tr>
+            <td>
+                <code>setAttribute(XMLConstants.<b>ACCESS_EXTERNAL_DTD</b>, "")</code>
+            </td>
+            <td> ✅⚠️  </td>
+            <td> ✅⚠️  </td>
+            <td> ✅⚠️  </td>
+            <td> ✅⚠️  </td>
+            <td> ✅ </td>
+            <td> ✅ </td>
+            <td> ✅ </td>
+            <td> ✅⚠️  </td>
+            <td> ✅ </td>
+            <td> ✅ </td>
+        </tr>
+        <tr>
+            <td>
+                <code>setAttribute(XMLConstants.<b>ACCESS_EXTERNAL_SCHEMA</b>, "")</code>
+            </td>
+            <td> ✅⚠️  </td>
+            <td> ❌ </td>
+            <td> ❌ </td>
+            <td> ❌ </td>
+            <td> ✅ </td>
+            <td> ✅ </td>
+            <td> ✅ </td>
+            <td> ❌ </td>
+            <td> ✅ </td>
+            <td> ✅ </td>
+        </tr>
+        <tr>
+            <td>
+                <code>setAttribute(XMLConstants. <b>ACCESS_EXTERNAL_STYLESHEET</b>, "")</code>
+            </td>
+            <td> n/a </td>
+            <td> n/a </td>
+            <td> n/a </td>
+            <td> n/a </td>
+            <td> n/a </td>
+            <td> n/a </td>
+            <td> n/a </td>
+            <td> n/a </td>
+            <td> n/a </td>
+            <td> n/a </td>
+        </tr>
+        <tr>
+            <td> All other features
+            </td>
+            <td> n/a </td>
+            <td> n/a </td>
+            <td> n/a </td>
+            <td> n/a </td>
+            <td> n/a </td>
+            <td> n/a </td>
+            <td> n/a </td>
+            <td> n/a </td>
+            <td> n/a </td>
+            <td> n/a </td>
+        </tr>
+    </tbody>
+</table>
+</font>
 
 #### SAXReader
 
-| Class `SAXReader`                                                                           | DoS      | XML | XML              | XSL | XSL    | XSL     | XSL      | XSD | XSD    | XSD     |
-|-------------------------------------------------------------------------------------|----------|-----|------------------|-----|--------|---------|----------|-----|--------|---------|
-|                                                                                     | xml-bomb | dtd | parameter entity | dtd | import | include | document | dtd | import | include |
-| default                                                                             | ✅⚠️       | ❌   | ❌                | ❌   | ✅      | ✅       | ✅        | ❌   | ✅      | ✅       |
-| `setFeature(XMLConstants.FEATURE_SECURE_PROCESSING, true)`                            | ✅⚠️       | ❌   | ❌                | ❌   | ✅      | ✅       | ✅        | ❌   | ✅      | ✅       |
-| `setAttribute(XMLConstants.ACCESS_EXTERNAL_DTD, "")`                                  | ✅⚠️       | ❌   | ❌                | ❌   | ✅      | ✅       | ✅        | ❌   | ✅      | ✅       |
-| `setAttribute(XMLConstants.ACCESS_EXTERNAL_SCHEMA, "")`                               | ✅⚠️       | ❌   | ❌                | ❌   | ✅      | ✅       | ✅        | ❌   | ✅      | ✅       |
-| `setAttribute(XMLConstants.ACCESS_EXTERNAL_STYLESHEET, "")`;                          | n/a      | n/a | n/a              | n/a | n/a    | n/a     | n/a      | n/a | n/a    | n/a     |
-| `setFeature("http://apache.org/xml/features/disallow-doctype-decl", true)`            | ✅⚠️       | ✅⚠️  | ✅⚠️               | ✅⚠️  | ✅      | ✅       | ✅        | ✅⚠️  | ✅      | ✅       |
-| `setFeature("http://xml.org/sax/features/external-general-entities", false)`          | ✅⚠️       | ✅   | ❌                | ✅   | ✅      | ✅       | ✅        | ✅   | ✅      | ✅       |
-| `setFeature("http://xml.org/sax/features/external-parameter-entities", false)`        | ✅⚠️       | ❌   | ✅                | ❌   | ✅      | ✅       | ✅        | ❌   | ✅      | ✅       |
-| `setValidating(false)`                                                                | n/a      | n/a | n/a              | n/a | n/a    | n/a     | n/a      | n/a | n/a    | n/a     |
-| `setExpandEntityReferences(false)`                                                    | n/a      | n/a | n/a              | n/a | n/a    | n/a     | n/a      | n/a | n/a    | n/a     |
-| `setXIncludeAware(false)`                                                             | n/a      | n/a | n/a              | n/a | n/a    | n/a     | n/a      | n/a | n/a    | n/a     |
-| `setFeature("http://apache.org/xml/features/xinclude", false)`                        | ✅⚠️       | ❌   | ❌                | ❌   | ✅      | ✅       | ✅        | ❌   | ✅      | ✅       |
-| `setFeature("http://apache.org/xml/features/nonvalidating/load-external-dtd", false)` | ✅⚠️       | ❌   | ❌                | ❌   | ✅      | ✅       | ✅        | ❌   | ✅      | ✅       |
-| `setFeature("http://apache.org/xml/features/nonvalidating/load-dtd-grammar", false)`  | n/a      | n/a | n/a              | n/a | n/a    | n/a     | n/a      | n/a | n/a    | n/a     |
-| `setFeature("http://apache.org/xml/features/namespaces", false)`                      | n/a      | n/a | n/a              | n/a | n/a    | n/a     | n/a      | n/a | n/a    | n/a     |
-| `setNamespaceAware(true)`                                                             | n/a      | n/a | n/a              | n/a | n/a    | n/a     | n/a      | n/a | n/a    | n/a     |
-| `setIncludeExternalDTDDeclarations(false)`;                                           | ✅⚠️       | ❌   | ❌                | ❌   | ✅      | ✅       | ✅        | ❌   | ✅      | ✅       |
+<font size="2">
+<table>
+    <thead>
+        <tr>
+            <th rowspan="3">Security feature</th>
+            <th colspan="10">Attack payload</th>
+        </tr>
+        <tr>
+            <th colspan="3">XML</th>
+            <th colspan="4">XSL</th>
+            <th colspan="3">XSD</th>
+        </tr>
+        <tr>
+            <th style={{"writing-mode" : "vertical-lr" }} >XML Bomb</th>
+            <th style={{"writing-mode" : "vertical-lr" }} >DTD</th>
+            <th style={{"writing-mode" : "vertical-lr" }} >Parameter entity</th>
+            <th style={{"writing-mode" : "vertical-lr" }} >DTD</th>
+            <th style={{"writing-mode" : "vertical-lr" }} >import</th>
+            <th style={{"writing-mode" : "vertical-lr" }} >include</th>
+            <th style={{"writing-mode" : "vertical-lr" }} >document</th>
+            <th style={{"writing-mode" : "vertical-lr" }} >DTD</th>
+            <th style={{"writing-mode" : "vertical-lr" }} >import</th>
+            <th style={{"writing-mode" : "vertical-lr" }} >include</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>
+                Default configuration
+            </td>
+            <td> ✅⚠️  </td>
+            <td> ❌ </td>
+            <td> ❌ </td>
+            <td> ❌ </td>
+            <td> ✅ </td>
+            <td> ✅ </td>
+            <td> ✅ </td>
+            <td> ❌ </td>
+            <td> ✅ </td>
+            <td> ✅ </td>
+        </tr>
+        <tr>
+            <td>
+                <code>setFeature(XMLConstants.<b>FEATURE_SECURE_PROCESSING</b>, true)</code>
+            </td>
+            <td> ✅⚠️  </td>
+            <td> ❌ </td>
+            <td> ❌ </td>
+            <td> ❌ </td>
+            <td> ✅ </td>
+            <td> ✅ </td>
+            <td> ✅ </td>
+            <td> ❌ </td>
+            <td> ✅ </td>
+            <td> ✅ </td>
+        </tr>
+        <tr>
+            <td>
+                <code>setAttribute(XMLConstants.<b>ACCESS_EXTERNAL_DTD</b>, "")</code>
+            </td>
+            <td> ✅⚠️  </td>
+            <td> ❌ </td>
+            <td> ❌ </td>
+            <td> ❌ </td>
+            <td> ✅ </td>
+            <td> ✅ </td>
+            <td> ✅ </td>
+            <td> ❌ </td>
+            <td> ✅ </td>
+            <td> ✅ </td>
+        </tr>
+        <tr>
+            <td>
+                <code>setAttribute(XMLConstants.<b>ACCESS_EXTERNAL_SCHEMA</b>, "")</code>
+            </td>
+            <td> ✅⚠️  </td>
+            <td> ❌ </td>
+            <td> ❌ </td>
+            <td> ❌ </td>
+            <td> ✅ </td>
+            <td> ✅ </td>
+            <td> ✅ </td>
+            <td> ❌ </td>
+            <td> ✅ </td>
+            <td> ✅ </td>
+        </tr>
+        <tr>
+            <td>
+                <code>setAttribute(XMLConstants. <b>ACCESS_EXTERNAL_STYLESHEET</b>, "")</code>
+            </td>
+            <td> n/a </td>
+            <td> n/a </td>
+            <td> n/a </td>
+            <td> n/a </td>
+            <td> n/a </td>
+            <td> n/a </td>
+            <td> n/a </td>
+            <td> n/a </td>
+            <td> n/a </td>
+            <td> n/a </td>
+        </tr>
+        <tr>
+            <td>
+                <code>setFeature("http://apache.org/xml/features/<b>disallow-doctype-decl</b>", true)</code>
+            </td>
+            <td> ✅⚠️  </td>
+            <td> ✅⚠️  </td>
+            <td> ✅⚠️  </td>
+            <td> ✅⚠️  </td>
+            <td> ✅ </td>
+            <td> ✅ </td>
+            <td> ✅ </td>
+            <td> ✅⚠️  </td>
+            <td> ✅ </td>
+            <td> ✅ </td>
+        </tr>
+        <tr>
+            <td>
+                <code>setFeature("http://xml.org/sax/features/<b>external-general-entities</b>", false)</code>
+            </td>
+            <td> ✅⚠️  </td>
+            <td> ✅ </td>
+            <td> ❌ </td>
+            <td> ✅ </td>
+            <td> ✅ </td>
+            <td> ✅ </td>
+            <td> ✅ </td>
+            <td> ✅ </td>
+            <td> ✅ </td>
+            <td> ✅ </td>
+        </tr>
+        <tr>
+            <td>
+                <code>setFeature("http://xml.org/sax/features/<b>external-parameter-entities</b>", false)</code>
+            </td>
+            <td> ✅⚠️  </td>
+            <td> ❌ </td>
+            <td> ✅ </td>
+            <td> ❌ </td>
+            <td> ✅ </td>
+            <td> ✅ </td>
+            <td> ✅ </td>
+            <td> ❌ </td>
+            <td> ✅ </td>
+            <td> ✅ </td>
+        </tr>
+        <tr>
+            <td>
+                <code><b>setValidating</b>(false)</code>
+            </td>
+            <td> n/a </td>
+            <td> n/a </td>
+            <td> n/a </td>
+            <td> n/a </td>
+            <td> n/a </td>
+            <td> n/a </td>
+            <td> n/a </td>
+            <td> n/a </td>
+            <td> n/a </td>
+            <td> n/a </td>
+        </tr>
+        <tr>
+            <td>
+                <code><b>setExpandEntityReferences</b>(false)</code>
+            </td>
+            <td> n/a </td>
+            <td> n/a </td>
+            <td> n/a </td>
+            <td> n/a </td>
+            <td> n/a </td>
+            <td> n/a </td>
+            <td> n/a </td>
+            <td> n/a </td>
+            <td> n/a </td>
+            <td> n/a </td>
+        </tr>
+        <tr>
+            <td>
+                <code><b>setXIncludeAware</b>(false)</code>
+            </td>
+            <td> n/a </td>
+            <td> n/a </td>
+            <td> n/a </td>
+            <td> n/a </td>
+            <td> n/a </td>
+            <td> n/a </td>
+            <td> n/a </td>
+            <td> n/a </td>
+            <td> n/a </td>
+            <td> n/a </td>
+        </tr>
+        <tr>
+            <td>
+                <code>setFeature("http://apache.org/xml/features/<b>xinclude</b>", false)</code>
+            </td>
+            <td> ✅⚠️  </td>
+            <td> ❌ </td>
+            <td> ❌ </td>
+            <td> ❌ </td>
+            <td> ✅ </td>
+            <td> ✅ </td>
+            <td> ✅ </td>
+            <td> ❌ </td>
+            <td> ✅ </td>
+            <td> ✅ </td>
+        </tr>
+        <tr>
+            <td>
+                <code>setFeature("http://apache.org/xml/features/nonvalidating/<b>load-external-dtd</b>", false)</code>
+            </td>
+            <td> ✅⚠️  </td>
+            <td> ❌ </td>
+            <td> ❌ </td>
+            <td> ❌ </td>
+            <td> ✅ </td>
+            <td> ✅ </td>
+            <td> ✅ </td>
+            <td> ❌ </td>
+            <td> ✅ </td>
+            <td> ✅ </td>
+        </tr>
+        <tr>
+            <td>
+                <code>setFeature("http://apache.org/xml/features/nonvalidating/<b>load-dtd-grammar</b>", false)</code>
+            </td>
+            <td> n/a </td>
+            <td> n/a </td>
+            <td> n/a </td>
+            <td> n/a </td>
+            <td> n/a </td>
+            <td> n/a </td>
+            <td> n/a </td>
+            <td> n/a </td>
+            <td> n/a </td>
+            <td> n/a </td>
+        </tr>
+        <tr>
+            <td>
+                <code>setFeature("http://apache.org/xml/features/<b>namespaces</b>", false)</code>
+            </td>
+            <td> n/a </td>
+            <td> n/a </td>
+            <td> n/a </td>
+            <td> n/a </td>
+            <td> n/a </td>
+            <td> n/a </td>
+            <td> n/a </td>
+            <td> n/a </td>
+            <td> n/a </td>
+            <td> n/a </td>
+        </tr>
+        <tr>
+            <td>
+                <code><b>setNamespaceAware</b>(true)</code>
+            </td>
+            <td> n/a </td>
+            <td> n/a </td>
+            <td> n/a </td>
+            <td> n/a </td>
+            <td> n/a </td>
+            <td> n/a </td>
+            <td> n/a </td>
+            <td> n/a </td>
+            <td> n/a </td>
+            <td> n/a </td>
+        </tr>
+        <tr>
+            <td>
+                <code><b>setIncludeExternalDTDDeclarations</b>(false)</code>
+            </td>
+            <td> ✅⚠️  </td>
+            <td> ❌ </td>
+            <td> ❌ </td>
+            <td> ❌ </td>
+            <td> ✅ </td>
+            <td> ✅ </td>
+            <td> ✅ </td>
+            <td> ❌ </td>
+            <td> ✅ </td>
+            <td> ✅ </td>
+        </tr>
+    </tbody>
+</table>
+</font>
+
 
 #### TransformerFactory & SAXTransformerFactory
 
-| Class `TransformerFactory`/`SAXTransformerFactory`                                            | DoS      | XML | XML              | XSL | XSL    | XSL     | XSL      | XSD | XSD    | XSD     |
-|-------------------------------------------------------------------------------------|----------|-----|------------------|-----|--------|---------|----------|-----|--------|---------|
-|                                                                                     | xml-bomb | dtd | parameter entity | dtd | import | include | document | dtd | import | include |
-| default                                                                             | ✅⚠️       | ❌   | ❌                | ❌   | ❌      | ❌       | ❌        | n/a | n/a    | n/a     |
-| `setFeature(XMLConstants.FEATURE_SECURE_PROCESSING, true)`                            | ✅⚠️       | ✅⚠️  | ✅⚠️               | ✅⚠️  | ✅⚠️     | ✅⚠️      | ✅⚠️       | n/a | n/a    | n/a     |
-| `setAttribute(XMLConstants.ACCESS_EXTERNAL_DTD, "")`                                  | ✅⚠️       | ✅⚠️  | ✅⚠️               | ✅⚠️  | ❌      | ❌       | ❌        | n/a | n/a    | n/a     |
-| `setAttribute(XMLConstants.ACCESS_EXTERNAL_SCHEMA, "")`                               | n/a      | n/a | n/a              | n/a | n/a    | n/a     | n/a      | n/a | n/a    | n/a     |
-| `setAttribute(XMLConstants.ACCESS_EXTERNAL_STYLESHEET, "")`;                          | ✅⚠️       | ❌   | ❌                | ❌   | ✅⚠️     | ✅⚠️      | ✅⚠️       | n/a | n/a    | n/a     |
-| `setFeature("http://apache.org/xml/features/disallow-doctype-decl", true)`            | n/a      | n/a | n/a              | n/a | n/a    | n/a     | n/a      | n/a | n/a    | n/a     |
-| `setFeature("http://xml.org/sax/features/external-general-entities", false)`          | n/a      | n/a | n/a              | n/a | n/a    | n/a     | n/a      | n/a | n/a    | n/a     |
-| `setFeature("http://xml.org/sax/features/external-parameter-entities", false)`        | n/a      | n/a | n/a              | n/a | n/a    | n/a     | n/a      | n/a | n/a    | n/a     |
-| `setValidating(false)`                                                                | n/a      | n/a | n/a              | n/a | n/a    | n/a     | n/a      | n/a | n/a    | n/a     |
-| `setExpandEntityReferences(false)`                                                    | n/a      | n/a | n/a              | n/a | n/a    | n/a     | n/a      | n/a | n/a    | n/a     |
-| `setXIncludeAware(false)`                                                             | n/a      | n/a | n/a              | n/a | n/a    | n/a     | n/a      | n/a | n/a    | n/a     |
-| `setFeature("http://apache.org/xml/features/xinclude", false)`                        | n/a      | n/a | n/a              | n/a | n/a    | n/a     | n/a      | n/a | n/a    | n/a     |
-| `setFeature("http://apache.org/xml/features/nonvalidating/load-external-dtd", false)` | n/a      | n/a | n/a              | n/a | n/a    | n/a     | n/a      | n/a | n/a    | n/a     |
-| `setFeature("http://apache.org/xml/features/nonvalidating/load-dtd-grammar", false)`  | n/a      | n/a | n/a              | n/a | n/a    | n/a     | n/a      | n/a | n/a    | n/a     |
-| ``setFeature("http://apache.org/xml/features/namespaces", false)`                     | n/a      | n/a | n/a              | n/a | n/a    | n/a     | n/a      | n/a | n/a    | n/a     |
-| `setNamespaceAware(true)`                                                             | n/a      | n/a | n/a              | n/a | n/a    | n/a     | n/a      | n/a | n/a    | n/a     |
+These classes are not able to process XML Schema Definition (XSD) payloads.
+
+<font size="2">
+<table>
+    <thead>
+        <tr>
+            <th rowspan="3">Security feature</th>
+            <th colspan="7">Attack payload</th>
+        </tr>
+        <tr>
+            <th colspan="3">XML</th>
+            <th colspan="4">XSL</th>
+        </tr>
+        <tr>
+            <th style={{"writing-mode" : "vertical-lr" }} >XML Bomb</th>
+            <th style={{"writing-mode" : "vertical-lr" }} >DTD</th>
+            <th style={{"writing-mode" : "vertical-lr" }} >Parameter entity</th>
+            <th style={{"writing-mode" : "vertical-lr" }} >DTD</th>
+            <th style={{"writing-mode" : "vertical-lr" }} >import</th>
+            <th style={{"writing-mode" : "vertical-lr" }} >include</th>
+            <th style={{"writing-mode" : "vertical-lr" }} >document</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>
+                Default configuration
+            </td>
+            <td> ✅⚠️  </td>
+            <td> ❌ </td>
+            <td> ❌ </td>
+            <td> ❌ </td>
+            <td> ❌ </td>
+            <td> ❌ </td>
+            <td> ❌ </td>
+        </tr>
+        <tr>
+            <td>
+                <code>setFeature(XMLConstants.<b>FEATURE_SECURE_PROCESSING</b>, true)</code>
+            </td>
+            <td> ✅⚠️  </td>
+            <td> ✅⚠️  </td>
+            <td> ✅⚠️  </td>
+            <td> ✅⚠️  </td>
+            <td> ✅⚠️  </td>
+            <td> ✅⚠️  </td>
+            <td> ✅⚠️  </td>
+        </tr>
+        <tr>
+            <td>
+                <code>setAttribute(XMLConstants.<b>ACCESS_EXTERNAL_DTD</b>, "")</code>
+            </td>
+            <td> ✅⚠️  </td>
+            <td> ✅⚠️  </td>
+            <td> ✅⚠️  </td>
+            <td> ✅⚠️  </td>
+            <td> ❌ </td>
+            <td> ❌ </td>
+            <td> ❌ </td>
+        </tr>
+        <tr>
+            <td>
+                <code>setAttribute(XMLConstants. <b>ACCESS_EXTERNAL_STYLESHEET</b>, "")</code>
+            </td>
+            <td> ✅⚠️  </td>
+            <td> ❌ </td>
+            <td> ❌ </td>
+            <td> ❌ </td>
+            <td> ✅⚠️  </td>
+            <td> ✅⚠️  </td>
+            <td> ✅⚠️  </td>
+        </tr>
+        <tr>
+            <td> All other features
+            </td>
+            <td> n/a </td>
+            <td> n/a </td>
+            <td> n/a </td>
+            <td> n/a </td>
+            <td> n/a </td>
+            <td> n/a </td>
+            <td> n/a </td>
+        </tr>
+    </tbody>
+</table>
+</font>
 
 #### SchemaFactory 
 
-| Class `SchemaFactory`                                                                       | DoS      | XML | XML              | XSL | XSL    | XSL     | XSL      | XSD | XSD    | XSD     |
-|-------------------------------------------------------------------------------------|----------|-----|------------------|-----|--------|---------|----------|-----|--------|---------|
-|                                                                                     | xml-bomb | dtd | parameter entity | dtd | import | include | document | dtd | import | include |
-| default                                                                             | ✅⚠️       | ❌   | ❌                | n/a | n/a    | n/a     | n/a      | ❌   | ❌      | ❌       |
-| `setFeature(XMLConstants.FEATURE_SECURE_PROCESSING, true)`                            | ✅⚠️       | ✅⚠️  | ✅⚠️               | n/a | n/a    | n/a     | n/a      | ✅⚠️  | ✅⚠️     | ✅⚠️      |
-| `setAttribute(XMLConstants.ACCESS_EXTERNAL_DTD, "")`                                  | ✅⚠️       | ✅⚠️  | ✅⚠️               | n/a | n/a    | n/a     | n/a      | ✅⚠️  | ❌      | ❌       |
-| `setAttribute(XMLConstants.ACCESS_EXTERNAL_SCHEMA, "")`                               | ✅⚠️       | ❌   | ❌                | n/a | n/a    | n/a     | n/a      | ❌   | ✅⚠️     | ✅⚠️      |
-| `setAttribute(XMLConstants.ACCESS_EXTERNAL_STYLESHEET, "")`;                          | n/a      | n/a | n/a              | n/a | n/a    | n/a     | n/a      | n/a | n/a    | n/a     |
-| `setFeature("http://apache.org/xml/features/disallow-doctype-decl", true)`            | ✅⚠️       | ❌   | ❌                | n/a | n/a    | n/a     | n/a      | ✅⚠️  | ❌      | ❌       |
-| `setFeature("http://xml.org/sax/features/external-general-entities", false)`          | n/a      | n/a | n/a              | n/a | n/a    | n/a     | n/a      | n/a | n/a    | n/a     |
-| `setFeature("http://xml.org/sax/features/external-parameter-entities", false)`        | n/a      | n/a | n/a              | n/a | n/a    | n/a     | n/a      | n/a | n/a    | n/a     |
-| `setValidating(false)`                                                                | n/a      | n/a | n/a              | n/a | n/a    | n/a     | n/a      | n/a | n/a    | n/a     |
-| `setExpandEntityReferences(false)`                                                    | n/a      | n/a | n/a              | n/a | n/a    | n/a     | n/a      | n/a | n/a    | n/a     |
-| `setXIncludeAware(false)`                                                             | n/a      | n/a | n/a              | n/a | n/a    | n/a     | n/a      | n/a | n/a    | n/a     |
-| `setFeature("http://apache.org/xml/features/xinclude", false)`                        | n/a      | n/a | n/a              | n/a | n/a    | n/a     | n/a      | n/a | n/a    | n/a     |
-| `setFeature("http://apache.org/xml/features/nonvalidating/load-external-dtd", false)` | n/a      | n/a | n/a              | n/a | n/a    | n/a     | n/a      | n/a | n/a    | n/a     |
-| `setFeature("http://apache.org/xml/features/nonvalidating/load-dtd-grammar", false)`  | n/a      | n/a | n/a              | n/a | n/a    | n/a     | n/a      | n/a | n/a    | n/a     |
-| `setFeature("http://apache.org/xml/features/namespaces", false)`                      | n/a      | n/a | n/a              | n/a | n/a    | n/a     | n/a      | n/a | n/a    | n/a     |
-| `setNamespaceAware(true)`                                                             | n/a      | n/a | n/a              | n/a | n/a    | n/a     | n/a      | n/a | n/a    | n/a     |
+This class is unable to process XML Stylesheet Language (XSL) documents.
+
+<font size="2">
+<table>
+    <thead>
+        <tr>
+            <th rowspan="3">Security feature</th>
+            <th colspan="6">Attack payload</th>
+        </tr>
+        <tr>
+            <th colspan="3">XML</th>
+            <th colspan="3">XSD</th>
+        </tr>
+        <tr>
+            <th style={{"writing-mode" : "vertical-lr" }} >XML Bomb</th>
+            <th style={{"writing-mode" : "vertical-lr" }} >DTD</th>
+            <th style={{"writing-mode" : "vertical-lr" }} >Parameter entity</th>
+            <th style={{"writing-mode" : "vertical-lr" }} >DTD</th>
+            <th style={{"writing-mode" : "vertical-lr" }} >import</th>
+            <th style={{"writing-mode" : "vertical-lr" }} >include</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>
+                Default configuration
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <code>setFeature(XMLConstants.<b>FEATURE_SECURE_PROCESSING</b>, true)</code>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <code>setAttribute(XMLConstants.<b>ACCESS_EXTERNAL_DTD</b>, "")</code>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <code>setAttribute(XMLConstants.<b>ACCESS_EXTERNAL_SCHEMA</b>, "")</code>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <code>setFeature("http://apache.org/xml/features/<b>disallow-doctype-decl</b>", true)</code>
+            </td>
+        </tr>
+        <tr>
+            <td> All other features
+            </td>
+            <td> n/a </td>
+            <td> n/a </td>
+            <td> n/a </td>
+            <td> n/a </td>
+            <td> n/a </td>
+            <td> n/a </td>
+        </tr>
+    </tbody>
+</table>
+</font>
 
 #### Validator 
 
-| Class `Validator`                                                                           | DoS      | XML | XML              |
-|-------------------------------------------------------------------------------------|----------|-----|------------------|
-|                                                                                     | xml-bomb | dtd | parameter entity |
-| default                                                                             | ✅⚠️       | ❌   | ❌                |
-| `setFeature(XMLConstants.FEATURE_SECURE_PROCESSING, true)`                            | ✅⚠️       | ✅⚠️  | ✅⚠️               |
-| `setAttribute(XMLConstants.ACCESS_EXTERNAL_DTD, "")`                                  | ✅⚠️       | ✅⚠️  | ✅⚠️               |
-| `setAttribute(XMLConstants.ACCESS_EXTERNAL_SCHEMA, "")`                               | ✅⚠️       | ❌   | ❌                |
-| `setAttribute(XMLConstants.ACCESS_EXTERNAL_STYLESHEET, "")`;                          | n/a      | n/a | n/a              |
-| `setFeature("http://apache.org/xml/features/disallow-doctype-decl", true)`            | ✅⚠️       | ❌   | ❌                |
-| `setFeature("http://xml.org/sax/features/external-general-entities", false)`          | ✅⚠️       | ❌   | ❌                |
-| `setFeature("http://xml.org/sax/features/external-parameter-entities", false)`        | ✅⚠️       | ❌   | ❌                |
-| `setValidating(false)`                                                                | ✅⚠️       | n/a | n/a              |
-| `setExpandEntityReferences(false)`                                                    | ✅⚠️       | n/a | n/a              |
-| `setXIncludeAware(false)`                                                             | ✅⚠️       | n/a | n/a              |
-| `setFeature("http://apache.org/xml/features/xinclude", false)`                        | ✅⚠️       | n/a | n/a              |
-| `setFeature("http://apache.org/xml/features/nonvalidating/load-external-dtd", false)` | ✅⚠️       | n/a | n/a              |
-| `setFeature("http://apache.org/xml/features/nonvalidating/load-dtd-grammar", false)`  | ✅⚠️       | n/a | n/a              |
-| `setFeature("http://apache.org/xml/features/namespaces", false)`                      | ✅⚠️       | n/a | n/a              |
-| `setNamespaceAware(true)`                                                             | ✅⚠️       | n/a | n/a              |
+<font size="2">
+<table>
+    <thead>
+        <tr>
+            <th rowspan="3">Security feature</th>
+            <th colspan="10">Attack payload</th>
+        </tr>
+        <tr>
+            <th colspan="3">XML</th>
+            <th colspan="4">XSL</th>
+            <th colspan="3">XSD</th>
+        </tr>
+        <tr>
+            <th style={{"writing-mode" : "vertical-lr" }} >XML Bomb</th>
+            <th style={{"writing-mode" : "vertical-lr" }} >DTD</th>
+            <th style={{"writing-mode" : "vertical-lr" }} >Parameter entity</th>
+            <th style={{"writing-mode" : "vertical-lr" }} >DTD</th>
+            <th style={{"writing-mode" : "vertical-lr" }} >import</th>
+            <th style={{"writing-mode" : "vertical-lr" }} >include</th>
+            <th style={{"writing-mode" : "vertical-lr" }} >document</th>
+            <th style={{"writing-mode" : "vertical-lr" }} >DTD</th>
+            <th style={{"writing-mode" : "vertical-lr" }} >import</th>
+            <th style={{"writing-mode" : "vertical-lr" }} >include</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>
+                Default configuration
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <code>setFeature(XMLConstants.<b>FEATURE_SECURE_PROCESSING</b>, true)</code>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <code>setAttribute(XMLConstants.<b>ACCESS_EXTERNAL_DTD</b>, "")</code>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <code>setAttribute(XMLConstants.<b>ACCESS_EXTERNAL_SCHEMA</b>, "")</code>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <code>setAttribute(XMLConstants. <b>ACCESS_EXTERNAL_STYLESHEET</b>, "")</code>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <code>setFeature("http://apache.org/xml/features/<b>disallow-doctype-decl</b>", true)</code>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <code>setFeature("http://xml.org/sax/features/<b>external-general-entities</b>", false)</code>
+            </td>
+            <td> ✅⚠️  </td>
+            <td> ✅ </td>
+            <td> ❌ </td>
+        </tr>
+        <tr>
+            <td>
+                <code>setFeature("http://xml.org/sax/features/<b>external-parameter-entities</b>", false)</code>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <code><b>setValidating</b>(false)</code>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <code><b>setExpandEntityReferences</b>(false)</code>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <code><b>setXIncludeAware</b>(false)</code>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <code>setFeature("http://apache.org/xml/features/<b>xinclude</b>", false)</code>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <code>setFeature("http://apache.org/xml/features/nonvalidating/<b>load-external-dtd</b>", false)</code>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <code>setFeature("http://apache.org/xml/features/nonvalidating/<b>load-dtd-grammar</b>", false)</code>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <code>setFeature("http://apache.org/xml/features/<b>namespaces</b>", false)</code>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <code><b>setNamespaceAware</b>(true)</code>
+            </td>
+        </tr>
+    </tbody>
+</table>
+</font>
 
 #### XMLReader 
 
-| Class `XMLReader`                                                                           | DoS      | XML | XML              | XSL | XSL    | XSL     | XSL      | XSD | XSD    | XSD     |
-|-------------------------------------------------------------------------------------|----------|-----|------------------|-----|--------|---------|----------|-----|--------|---------|
-|                                                                                     | xml-bomb | dtd | parameter entity | dtd | import | include | document | dtd | import | include |
-| default                                                                             | ✅⚠️       | ❌   | ❌                | ❌   | ✅      | ✅       | ✅        | ❌   | ✅      | ✅       |
-| `setFeature(XMLConstants.FEATURE_SECURE_PROCESSING, true)`                            | ✅⚠️       | ❌   | ❌                | ❌   | ✅      | ✅       | ✅        | ❌   | ✅      | ✅       |
-| `setAttribute(XMLConstants.ACCESS_EXTERNAL_DTD, "")`                                  | ✅⚠️       | ✅⚠️  | ✅⚠️               | ✅⚠️  | ✅      | ✅       | ✅        | ✅⚠️  | ✅      | ✅       |
-| `setAttribute(XMLConstants.ACCESS_EXTERNAL_SCHEMA, "")`                               | ✅⚠️       | ❌   | ❌                | ❌   | ✅      | ✅       | ✅        | ❌   | ✅      | ✅       |
-| `setAttribute(XMLConstants.ACCESS_EXTERNAL_STYLESHEET, "");`                         | n/a      | n/a | n/a              | n/a | n/a    | n/a     | n/a      | n/a | n/a    | n/a     |
-| `setFeature("http://apache.org/xml/features/disallow-doctype-decl", true)`            | ✅⚠️       | ✅⚠️  | ✅⚠️               | ✅⚠️  | ✅      | ✅       | ✅        | ✅⚠️  | ✅      | ✅       |
-| `setFeature("http://xml.org/sax/features/external-general-entities", false)`          | ✅⚠️       | ✅   | ❌                | ✅   | ✅      | ✅       | ✅        | ✅   | ✅      | ✅       |
-| `setFeature("http://xml.org/sax/features/external-parameter-entities", false)`        | ✅⚠️       | ❌   | ✅                | ❌   | ✅      | ✅       | ✅        | ❌   | ✅      | ✅       |
-| `setValidating(false)`                                                                | n/a      | n/a | n/a              | n/a | n/a    | n/a     | n/a      | n/a | n/a    | n/a     |
-| `setExpandEntityReferences(false)`                                                    | n/a      | n/a | n/a              | n/a | n/a    | n/a     | n/a      | n/a | n/a    | n/a     |
-| `setXIncludeAware(false)`                                                             | n/a      | n/a | n/a              | n/a | n/a    | n/a     | n/a      | n/a | n/a    | n/a     |
-| `setFeature("http://apache.org/xml/features/xinclude", false)`                        | ✅⚠️       | ❌   | ❌                | ❌   | ✅      | ✅       | ✅        | ❌   | ✅      | ✅       |
-| `setFeature("http://apache.org/xml/features/nonvalidating/load-external-dtd", false)` | ✅⚠️       | ❌   | ❌                | ❌   | ✅      | ✅       | ✅        | ❌   | ✅      | ✅       |
-| `setFeature("http://apache.org/xml/features/nonvalidating/load-dtd-grammar", false)`  | n/a      | n/a | n/a              | n/a | n/a    | n/a     | n/a      | n/a | n/a    | n/a     |
-| `setFeature("http://apache.org/xml/features/namespaces", false)`                      | n/a      | n/a | n/a              | n/a | n/a    | n/a     | n/a      | n/a | n/a    | n/a     |
-| `setNamespaceAware(true)`                                                             | n/a      | n/a | n/a              | n/a | n/a    | n/a     | n/a      | n/a | n/a    | n/a     |
+<font size="2">
+<table>
+    <thead>
+        <tr>
+            <th rowspan="3">Security feature</th>
+            <th colspan="10">Attack payload</th>
+        </tr>
+        <tr>
+            <th colspan="3">XML</th>
+            <th colspan="4">XSL</th>
+            <th colspan="3">XSD</th>
+        </tr>
+        <tr>
+            <th style={{"writing-mode" : "vertical-lr" }} >XML Bomb</th>
+            <th style={{"writing-mode" : "vertical-lr" }} >DTD</th>
+            <th style={{"writing-mode" : "vertical-lr" }} >Parameter entity</th>
+            <th style={{"writing-mode" : "vertical-lr" }} >DTD</th>
+            <th style={{"writing-mode" : "vertical-lr" }} >import</th>
+            <th style={{"writing-mode" : "vertical-lr" }} >include</th>
+            <th style={{"writing-mode" : "vertical-lr" }} >document</th>
+            <th style={{"writing-mode" : "vertical-lr" }} >DTD</th>
+            <th style={{"writing-mode" : "vertical-lr" }} >import</th>
+            <th style={{"writing-mode" : "vertical-lr" }} >include</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>
+                Default configuration
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <code>setFeature(XMLConstants.<b>FEATURE_SECURE_PROCESSING</b>, true)</code>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <code>setAttribute(XMLConstants.<b>ACCESS_EXTERNAL_DTD</b>, "")</code>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <code>setAttribute(XMLConstants.<b>ACCESS_EXTERNAL_SCHEMA</b>, "")</code>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <code>setAttribute(XMLConstants. <b>ACCESS_EXTERNAL_STYLESHEET</b>, "")</code>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <code>setFeature("http://apache.org/xml/features/<b>disallow-doctype-decl</b>", true)</code>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <code>setFeature("http://xml.org/sax/features/<b>external-general-entities</b>", false)</code>
+            </td>
+            <td> ✅⚠️  </td>
+            <td> ✅ </td>
+            <td> ❌ </td>
+        </tr>
+        <tr>
+            <td>
+                <code>setFeature("http://xml.org/sax/features/<b>external-parameter-entities</b>", false)</code>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <code><b>setValidating</b>(false)</code>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <code><b>setExpandEntityReferences</b>(false)</code>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <code><b>setXIncludeAware</b>(false)</code>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <code>setFeature("http://apache.org/xml/features/<b>xinclude</b>", false)</code>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <code>setFeature("http://apache.org/xml/features/nonvalidating/<b>load-external-dtd</b>", false)</code>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <code>setFeature("http://apache.org/xml/features/nonvalidating/<b>load-dtd-grammar</b>", false)</code>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <code>setFeature("http://apache.org/xml/features/<b>namespaces</b>", false)</code>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <code><b>setNamespaceAware</b>(true)</code>
+            </td>
+        </tr>
+    </tbody>
+</table>
+</font>
 
