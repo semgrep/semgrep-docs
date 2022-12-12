@@ -18,8 +18,27 @@ The `vm` module enables compiling and running code within V8 Virtual Machine con
 Example:
 
 ```javascript
-vm.runInContext(...)
-...
+const vm = require('vm');
+const contextObject = { globalVar: 1 };
+
+// safe
+vm.runInContext('globalVar *= 2;', contextObject);
+
+// vulnerable 
+let userInput = 'this.constructor.constructor("return process.env")()'; // Value supplied by user input
+vm.runInContext(`globalVar = ${userInput};`, contextObject);
+```
+
+```javascript
+const vm = require('vm');
+// safe
+const code = `return 'hello ' + name`
+vm.compileFunction(code, [], { parsingContext: vm.createContext({ name: 'name' }) })
+
+// vulnerable
+let userInput = '1; while (true) {}'  // Value supplied by user input
+const code = `let x = ${userInput}; return 'hello ' + x`
+vm.compileFunction(code, [], { parsingContext: vm.createContext({ name: 'name' }) })
 ```
 
 #### References
