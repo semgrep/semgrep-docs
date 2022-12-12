@@ -47,7 +47,7 @@ exec(`cat *.js ${userInput}`, (error, stdout, stderr) => {
 - Avoid non-literal values for the command string.
 - Avoid running a shell as a command with arguments.
 - TODO __make these specific for each language with an exact specific array__ TODO If it is not possible, use an array with a sequence of program arguments instead of a single string.
-- TODO myself __Use this wording for all other command injections__ TODO Strip everything except alphanumeric characters from an input provided for the command string and arguments.
+- Strip everything except alphanumeric characters from an input provided for the command string and arguments.
 
 #### Semgrep rule
 
