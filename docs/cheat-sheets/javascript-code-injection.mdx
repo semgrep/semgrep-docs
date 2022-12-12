@@ -24,22 +24,16 @@ const contextObject = { globalVar: 1 };
 // safe
 vm.runInContext('globalVar *= 2;', contextObject);
 
-// vulnerable 
+// vulnerable
 let userInput = 'this.constructor.constructor("return process.env")()'; // Value supplied by user input
 vm.runInContext(`globalVar = ${userInput};`, contextObject);
-```
 
-```javascript
-const vm = require('vm');
 // safe
 const code = `return 'hello ' + name`
 vm.compileFunction(code, [], { parsingContext: vm.createContext({ name: 'name' }) })
 
 // vulnerable
-let userInput = '1; while (true) {}'  // Value supplied by user input
-const code = `let x = ${userInput}; return 'hello ' + x`
-vm.compileFunction(code, [], { parsingContext: vm.createContext({ name: 'name' }) })
-```
+let userInput = '1; while (true)
 
 #### References
 
@@ -47,7 +41,9 @@ vm.compileFunction(code, [], { parsingContext: vm.createContext({ name: 'name' }
 
 #### Mitigation
 
-Do not let user input in `vm` functions.
+- Don't use the `vm` module for running untrusted code.
+- If you need to use the `vm` module functions with non-literal values, ensure that executed content is not controllable by external sources.
+- If it’s not possible, strip everything except alphanumeric characters from the input.
 
 #### Semgrep rule
 
