@@ -1441,26 +1441,56 @@ This class is unable to process XML Stylesheet Language (XSL) documents.
             <td>
                 Default configuration
             </td>
+            <td> ✅⚠️  </td>
+            <td> ❌ </td>
+            <td> ❌ </td>
+            <td> ❌ </td>
+            <td> ❌ </td>
+            <td> ❌ </td>
         </tr>
         <tr>
             <td>
                 <code>setFeature(XMLConstants.<b>FEATURE_SECURE_PROCESSING</b>, true)</code>
             </td>
+            <td> ✅⚠️  </td>
+            <td> ✅⚠️  </td>
+            <td> ✅⚠️  </td>
+            <td> ✅⚠️  </td>
+            <td> ✅⚠️  </td>
+            <td> ✅⚠️  </td>
         </tr>
         <tr>
             <td>
                 <code>setAttribute(XMLConstants.<b>ACCESS_EXTERNAL_DTD</b>, "")</code>
             </td>
+            <td> ✅⚠️  </td>
+            <td> ✅⚠️  </td>
+            <td> ✅⚠️  </td>
+            <td> ✅⚠️  </td>
+            <td> ❌ </td>
+            <td> ❌ </td>
         </tr>
         <tr>
             <td>
                 <code>setAttribute(XMLConstants.<b>ACCESS_EXTERNAL_SCHEMA</b>, "")</code>
             </td>
+            <td> ✅⚠️  </td>
+            <td> ❌ </td>
+            <td> ❌ </td>
+            <td> ❌ </td>
+            <td> ✅⚠️  </td>
+            <td> ✅⚠️  </td>
         </tr>
         <tr>
             <td>
                 <code>setFeature("http://apache.org/xml/features/<b>disallow-doctype-decl</b>", true)</code>
             </td>
+            <td> ✅⚠️  </td>
+            <td> ❌ </td>
+            <td> ❌ </td>
+            <td> ✅⚠️  </td>
+            <td> ❌ </td>
+            <td> ❌ </td>
         </tr>
         <tr>
             <td> All other features
@@ -1478,29 +1508,22 @@ This class is unable to process XML Stylesheet Language (XSL) documents.
 
 #### Validator 
 
+Validators can only process XML documents, no XSL or XSD.
+
 <font size="2">
 <table>
     <thead>
         <tr>
             <th rowspan="3">Security feature</th>
-            <th colspan="10">Attack payload</th>
+            <th colspan="3">Attack payload</th>
         </tr>
         <tr>
             <th colspan="3">XML</th>
-            <th colspan="4">XSL</th>
-            <th colspan="3">XSD</th>
         </tr>
         <tr>
             <th style={{"writing-mode" : "vertical-lr" }} >XML Bomb</th>
             <th style={{"writing-mode" : "vertical-lr" }} >DTD</th>
             <th style={{"writing-mode" : "vertical-lr" }} >Parameter entity</th>
-            <th style={{"writing-mode" : "vertical-lr" }} >DTD</th>
-            <th style={{"writing-mode" : "vertical-lr" }} >import</th>
-            <th style={{"writing-mode" : "vertical-lr" }} >include</th>
-            <th style={{"writing-mode" : "vertical-lr" }} >document</th>
-            <th style={{"writing-mode" : "vertical-lr" }} >DTD</th>
-            <th style={{"writing-mode" : "vertical-lr" }} >import</th>
-            <th style={{"writing-mode" : "vertical-lr" }} >include</th>
         </tr>
     </thead>
     <tbody>
@@ -1508,84 +1531,65 @@ This class is unable to process XML Stylesheet Language (XSL) documents.
             <td>
                 Default configuration
             </td>
+            <td> ✅⚠️  </td>
+            <td> ❌ </td>
+            <td> ❌ </td>
         </tr>
         <tr>
             <td>
                 <code>setFeature(XMLConstants.<b>FEATURE_SECURE_PROCESSING</b>, true)</code>
             </td>
+            <td> ✅⚠️  </td>
+            <td> ✅⚠️  </td>
+            <td> ✅⚠️  </td>
         </tr>
         <tr>
             <td>
                 <code>setAttribute(XMLConstants.<b>ACCESS_EXTERNAL_DTD</b>, "")</code>
             </td>
+            <td> ✅⚠️  </td>
+            <td> ✅⚠️  </td>
+            <td> ✅⚠️  </td>
         </tr>
         <tr>
             <td>
                 <code>setAttribute(XMLConstants.<b>ACCESS_EXTERNAL_SCHEMA</b>, "")</code>
             </td>
-        </tr>
-        <tr>
-            <td>
-                <code>setAttribute(XMLConstants. <b>ACCESS_EXTERNAL_STYLESHEET</b>, "")</code>
-            </td>
+            <td> ✅⚠️  </td>
+            <td> ❌ </td>
+            <td> ❌ </td>
         </tr>
         <tr>
             <td>
                 <code>setFeature("http://apache.org/xml/features/<b>disallow-doctype-decl</b>", true)</code>
             </td>
+            <td> ✅⚠️  </td>
+            <td> ❌ </td>
+            <td> ❌ </td>
         </tr>
         <tr>
             <td>
                 <code>setFeature("http://xml.org/sax/features/<b>external-general-entities</b>", false)</code>
             </td>
             <td> ✅⚠️  </td>
-            <td> ✅ </td>
+            <td> ❌ </td>
             <td> ❌ </td>
         </tr>
         <tr>
             <td>
                 <code>setFeature("http://xml.org/sax/features/<b>external-parameter-entities</b>", false)</code>
             </td>
+            <td> ✅⚠️  </td>
+            <td> ❌ </td>
+            <td> ❌ </td>
         </tr>
         <tr>
             <td>
-                <code><b>setValidating</b>(false)</code>
+            All other features
             </td>
-        </tr>
-        <tr>
-            <td>
-                <code><b>setExpandEntityReferences</b>(false)</code>
-            </td>
-        </tr>
-        <tr>
-            <td>
-                <code><b>setXIncludeAware</b>(false)</code>
-            </td>
-        </tr>
-        <tr>
-            <td>
-                <code>setFeature("http://apache.org/xml/features/<b>xinclude</b>", false)</code>
-            </td>
-        </tr>
-        <tr>
-            <td>
-                <code>setFeature("http://apache.org/xml/features/nonvalidating/<b>load-external-dtd</b>", false)</code>
-            </td>
-        </tr>
-        <tr>
-            <td>
-                <code>setFeature("http://apache.org/xml/features/nonvalidating/<b>load-dtd-grammar</b>", false)</code>
-            </td>
-        </tr>
-        <tr>
-            <td>
-                <code>setFeature("http://apache.org/xml/features/<b>namespaces</b>", false)</code>
-            </td>
-        </tr>
-        <tr>
-            <td>
-                <code><b>setNamespaceAware</b>(true)</code>
-            </td>
+            <td> n/a </td>
+            <td> n/a </td>
+            <td> n/a </td>
         </tr>
     </tbody>
 </table>
