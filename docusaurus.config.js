@@ -226,6 +226,7 @@ module.exports = {
           { from: "/experiments/r2c-internal-project-depends-on/", to: "/writing-rules/experiments/r2c-internal-project-depends-on/" },
           { from: "/experiments/symbolic-propagation/", to: "/writing-rules/experiments/symbolic-propagation/" },
           { from: "/experiments/taint-propagators/", to: "/writing-rules/experiments/taint-propagators/" },
+          { from: "/writing-rules/experiments/taint-propagators/", to: "/writing-rules/data-flow/taint-mode/" },
           { from: "/experiments/taint-labels/", to: "/writing-rules/experiments/taint-labels/" },
           { from: "/experiments/metavariable-analysis/", to: "/writing-rules/metavariable-analysis/" },
           { from: "/experiments/multiple-focus-metavariables/", to: "/writing-rules/experiments/multiple-focus-metavariables/" },
