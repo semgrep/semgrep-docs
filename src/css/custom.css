@@ -182,6 +182,11 @@ dl {
     border: 2px solid black;
 }
 
+/*better way to add a border, respects markdown indent */
+img[src*="bordered"] {
+    border: 2px solid black;
+}
+
 .placeholder {
     color: #E3116C;
     font-style: italic;

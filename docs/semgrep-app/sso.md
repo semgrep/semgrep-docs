@@ -88,13 +88,12 @@ Setting up SAML SSO using Azure Active Directory (Azure AD) consists of the foll
 <!-- Rather than using portal.azure.com, which takes us to Azure Dashboard, sign in straight away to Azure AD -->
 
 1. Sign in to the [Azure AD portal](https://aad.portal.azure.com/).
-2. Click **Enterprise applications**.
-3. Click **New application** > **Create your own application**.
+2. Under **Manage**, click **Enterprise applications**.
+3. Click **New application** > **Create your own application**. A menu appears.
+![Create your own Application workflow in Azure AD](/img/azure-create-application.png#bordered)
 4. Give your new application a name, such as `Semgrep SAML`.
 5. Click **Integrate any other application you don't find in the gallery (non-gallery)**.
 6. Click **Create**. This takes you to your new Enterprise Application's page.
-
-<!-- Should provide a screenshot to reassure users. -->
 
 You have now created a custom Enterprise App for Semgrep to integrate into Azure AD. This enables you to set up SAML SSO.
 
@@ -106,9 +105,12 @@ You have now created a custom Enterprise App for Semgrep to integrate into Azure
     2. Copy the **Audience URL** value from Semgrep App to **Entity ID**.
     3. Copy the **SSO URL** value from Semgrep App to **Reply URL**. [TODO Add a screenshot here]
 3. In the **Basic SAML Configuration** form, click **Save**.
-4. Under the **User Attributes & Claims** form, click **Edit**.
-5. Add the attributes `name` and `email` by performing the following steps:
-    1. [TODO] - have to verify that these are new values and not edits
+4. Under the **User Attributes & Claims** form, click **Edit** > **Add new claim**.
+    1. Enter `name` in the **Name** field.
+    2. From the **Source attribute** drop-down box, select `user.givenname`.
+4. Under the **User Attributes & Claims** form, click **Edit** < **Add new claim**.
+    1. Enter `email` in the **Name** field.
+    2. From the **Source attribute** drop-down box, select `user.email`.
 6. Fill out the values required by Semgrep App's SAML2 form (**IdP SSO URL**, **IdP Issuer ID**, **X.509 Certificate**) by copying the values from Azure AD's **Set up Single Sign-On with SAML** page. Perform the following steps:
     1. Copy the **Login URL** value from Azure AD to **IDP SSO URL**. 
     2. Copy **Azure AD Identifier** value to **IdP Issuer ID**.
