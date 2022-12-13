@@ -185,6 +185,8 @@ dl {
 /*better way to add a border, respects markdown indent */
 img[src*="bordered"] {
     border: 2px solid black;
+    margin-right: auto;
+    display: block;
 }
 
 .placeholder {
