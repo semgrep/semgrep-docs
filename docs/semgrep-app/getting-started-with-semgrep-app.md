@@ -137,7 +137,6 @@ Over time, users modify the Rule Board with rules specific to their codebase's s
 
 :::info
 Start using Semgrep App by scanning a demo project that requires only 3 seconds to configure. See [Learning Semgrep App with a demo project](/semgrep-app/demo-project/) start using your demo project.
-
 :::
 
 #### Option A: Scanning a local repository through Semgrep CLI
