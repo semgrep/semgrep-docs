@@ -136,7 +136,8 @@ Semgrep App can run scans on many projects with rules set in the Rule Board. Fir
 Over time, users modify the Rule Board with rules specific to their codebase's security or business goals.
 
 :::info
-Start using Semgrep App by including a demo project that requires only 3 seconds to configure. See [Learning Semgrep App with a demo project](/semgrep-app/demo-project/) start using your demo project.
+Start using Semgrep App by scanning a demo project that requires only 3 seconds to configure. See [Learning Semgrep App with a demo project](/semgrep-app/demo-project/) start using your demo project.
+
 :::
 
 #### Option A: Scanning a local repository through Semgrep CLI
