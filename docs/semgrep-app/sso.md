@@ -119,7 +119,7 @@ You have now created a custom Enterprise App for Semgrep to integrate into Azure
     1. Copy the **Login URL** value from Azure AD to **IDP SSO URL** in Semgrep App. 
     2. Copy **Azure AD Identifier** value to **IdP Issuer ID** in Semgrep App.
     3. In **Set up Single Sign-On with SAML**, next to **Certificate (Base64)** click **Download**.
-    4. Copy the contents of the downloaded certificate to **X.509 Certificate**. 
+    4. In Semgrep App, under **X.509 Certificate**, click **Browse** and then add the downloaded file. 
     7. At the beginning of Semgrep App's SSO form, fill out **Email Domain** and **Display Name**.
 8. Click **Create/Update Auth Provider** at the beginning of of Semgrep App's SAML2 form.
 
