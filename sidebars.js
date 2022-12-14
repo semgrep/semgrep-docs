@@ -137,6 +137,7 @@ module.exports = {
         collapsible: false,
         items: [
             'semgrep-app/getting-started-with-semgrep-app',
+            'semgrep-app/demo-project',
             'semgrep-app/scm',
             'semgrep-app/dashboard',
             'semgrep-app/rule-board',
@@ -156,6 +157,7 @@ module.exports = {
         label: 'Semgrep Supply Chain',
         collapsible: false,
         items: [
+            'semgrep-sc/sc-overview',
             'semgrep-sc/sc-getting-started',
             'semgrep-sc/sc-triage-remediation',
             'semgrep-sc/sc-ignoring-deps',
