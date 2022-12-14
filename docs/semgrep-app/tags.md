@@ -18,6 +18,8 @@ Object.entries(frontMatter).filter(
 }
 </ul>
 
+import MoreHelp from "/src/components/MoreHelp"
+
 # Managing projects through tags
 
 Add tags for specific projects in the Semgrep App on the configuration page of a project.

@@ -87,7 +87,7 @@ Trends in insecure code can emerge after multiple Semgrep scans over time. By id
 	<dt>Cross-site request forgery (CSRF)</dt>
 	<dd>This category tracks patterns in code that may result in CSRF attacks. CSRF attacks occur when an attacker induces users to perform unintentional actions. These issues can be detected based on a codebase’s framework, such as Django. In the rule, <a href="https://semgrep.dev/playground?registry=python.django.security.audit.csrf-exempt.no-csrf-exempt">"No CSRF Exempt"</a>, Semgrep detects when a Django route does not have a CSRF token, the lack of which could lead to an attack.</dd>
 	<dt>Active debug code</dt>
-	<dd>A type of vulnerability stemming from debug code such as <code>alert</code> that may unintentionally telegraph sensitive application behavior or secrets. The Semgrep rule <a href="https://semgrep.dev/playground?registry=javascript.lang.best-practice.leftover_debugging.javascript-alert">"Leftover debugging"</a> is an example in Javascript.</dd>
+	<dd>A type of vulnerability stemming from debug code such as <code>alert</code> that may unintentionally telegraph sensitive application behavior or secrets. The Semgrep rule <a href="https://semgrep.dev/playground?registry=javascript.lang.best-practice.leftover_debugging.javascript-alert">"Leftover debugging"</a> is a JavaScript example.</dd>
 	<dt>Cryptography</dt>
 	<dd>Refers to the use of weak hashing algorithms and the like, such as the use of MD5 in tokens or secrets. This <a href="https://semgrep.dev/playground?registry=python.cryptography.security.insecure-cipher-algorithms.insecure-cipher-algorithm-blowfish">Blowfish detection rule for Python</a> provides a guardrail against easily decipherable ciphers.</dd>
 	<dt>Deserialization</dt>

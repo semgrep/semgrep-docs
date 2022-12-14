@@ -144,6 +144,7 @@ module.exports = {
         collapsible: false,
         items: [
             'semgrep-app/getting-started-with-semgrep-app',
+            'semgrep-app/demo-project',
             'semgrep-app/scm',
             'semgrep-app/dashboard',
             'semgrep-app/rule-board',
@@ -163,6 +164,7 @@ module.exports = {
         label: 'Semgrep Supply Chain',
         collapsible: false,
         items: [
+            'semgrep-sc/sc-overview',
             'semgrep-sc/sc-getting-started',
             'semgrep-sc/sc-triage-remediation',
             'semgrep-sc/sc-ignoring-deps',
@@ -181,14 +183,15 @@ module.exports = {
             'writing-rules/rule-syntax',
             'writing-rules/testing-rules',
             'writing-rules/private-rules',
+            'writing-rules/autofix',
+            'writing-rules/generic-pattern-matching',
+            'writing-rules/metavariable-analysis',
             'troubleshooting/rules',
             {
                 type: 'category',
                 label: 'Experiments 🧪',
                 link: {type: 'doc', id: 'writing-rules/experiments/introduction'},
-                items: [,
-                  'writing-rules/experiments/autofix',
-                  'writing-rules/experiments/generic-pattern-matching',
+                items: [
                   { type: 'category',
                       label: 'Join mode',
                       link: {type: 'doc', id: 'writing-rules/experiments/join-mode/overview'},
@@ -206,7 +209,6 @@ module.exports = {
                   'writing-rules/experiments/symbolic-propagation',
                   'writing-rules/experiments/taint-propagators',
                   'writing-rules/experiments/taint-labels',
-                  'writing-rules/experiments/metavariable-analysis',
                   'writing-rules/experiments/multiple-focus-metavariables',
                   'writing-rules/experiments/display-propagated-metavariable',
                   'writing-rules/experiments/deprecated-experiments'
