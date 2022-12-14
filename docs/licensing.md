@@ -11,13 +11,11 @@ This document provides an overview of the licenses of important products created
 
 <dl>
   <dt>Semgrep CLI</dt>
-    <dd>Semgrep CLI is an open source project licensed under <a href="https://github.com/returntocorp/semgrep/blob/develop/LICENSE">LGPL 2.1</a>.</dd>
+    <dd>Semgrep CLI is an open source project licensed under <a href="https://github.com/returntocorp/semgrep/blob/develop/LICENSE">LGPL 2.1</a>. Proprietary part of Semgrep is DeepSemgrep, for more information see <a href="https://semgrep.dev/terms">Terms of Service</a>.</dd>
   <dt>Semgrep Supply Chain</dt>
     <dd>Proprietary. See <a href="https://semgrep.dev/terms">Terms of Service</a>.</dd>
   <dt>Semgrep App</dt>
-    <dd>Proprietary. See <a href="https://semgrep.dev/terms">Terms of Service</a>.</dd>
-  <dt>DeepSemgrep</dt>
-    <dd>Proprietary. See <a href="https://semgrep.dev/terms">Terms of Service</a>.</dd>
+    <dd>Proprietary. See <a href="https://semgrep.dev/terms">Terms of Service</a>.</dd> 
   <dt>Semgrep Registry</dt>
     <dd>
     <a href="https://semgrep.dev/explore">Semgrep Registry</a> is a collection of rules and rulesets:
