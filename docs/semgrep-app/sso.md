@@ -103,7 +103,7 @@ You have now created a custom Enterprise App for Semgrep to integrate into Azure
 ![Screenshot of your Enterprise App's page](/img/azure-select-sso.png#bordered)
 2. Under the **Basic SAML Configuration** form, click **Edit** to enter values for **Entity ID** and **Reply URL**. These values are retrieved from Semgrep App by performing the following steps:
     1. Go to Semgrep App [Settings](https://semgrep.dev/orgs/-/settings/sso) page, and then click **SAML2** under **SSO Method** to display the SAML2 form.
-    2. Copy the **Audience URL** value from Semgrep App to **Entity ID**.
+    2. Copy the **Audience URL** value from Semgrep App, then in **Basic SAML Configuration**, under **Identifier (Entity ID)** click the **Add identifier** and paste in the URL.
     3. Copy the **SSO URL** value from Semgrep App to **Reply URL**.
 3. In the **Basic SAML Configuration** form, click **Save**.
 4. Under the **User Attributes & Claims** form, click **Edit** > **Add new claim**.
