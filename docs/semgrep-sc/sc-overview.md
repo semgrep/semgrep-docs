@@ -1,7 +1,7 @@
 ---
 slug: semgrep-supply-chain-overview 
 append_help_link: true
-description: "TODO"
+description: "Learn how Semgrep leverages its engine to scan open source dependencies with high-signal rules."
 tags:
     - Semgrep Supply Chain
     - Team & Enterprise Tier
