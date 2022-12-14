@@ -42,6 +42,9 @@ def foo(x):
 The `...` ellipsis operator abstracts away a sequence of zero or more
 arguments, statements, parameters, fields, characters, etc.
 
+An ellipsis can also match anything that's a not a sequence
+when it's unambiguous. Use cases are shown below.
+
 ### Function calls
 
 Use the ellipsis operator to search for function calls or
@@ -265,6 +268,31 @@ if can_make_request:
 :::tip
 Half or partial statements can't be matches; both of the examples above must specify the contents of the condition’s body (e.g., `$BODY` or `...`), otherwise they are not valid patterns.
 :::
+
+### Matching single items with an ellipsis
+
+While ellipses generally stand for sequences of like elements, they
+are also supported in other contexts where they would match
+any single item. The following pattern is valid in languages with a C-like
+syntax even though `...` matches a single boolean value rather than a
+sequence:
+
+```java
+if (...)
+  return 42;
+```
+
+Another example where a single expression is matched by an ellipsis is
+the right-hand side of assignments:
+
+```java
+foo = ...;
+```
+
+However, matching a sequence of items remains the default meaning of an
+ellipsis. For example, the pattern `bar(...)` would match `bar(a)`,
+but also `bar(a, b)` and `bar()`. To force a match on a single item,
+use a metavariable as in `bar($X)`.
 
 ## Metavariables
 
