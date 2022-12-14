@@ -131,7 +131,7 @@ module.exports = {
                         type: 'category',
                         label: 'XXE',
                         items: [
-                            'cheat-sheets/java-xxe'
+                            'cheat-sheets/java-xxe',
                         ]
                     },
                 ],
