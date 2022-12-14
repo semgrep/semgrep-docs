@@ -92,7 +92,7 @@ Setting up SAML SSO using Azure Active Directory (Azure AD) consists of the foll
 3. Click **New application** > **Create your own application**. A menu appears.
 ![Screenshot of create your own Application page in Azure AD](/img/azure-create-application.png#bordered)
 4. Give your new application a name, such as `Semgrep SAML`.
-5. Click **Integrate any other application you don't find in the gallery (non-gallery)**.
+5. Select **Integrate any other application you don't find in the gallery (non-gallery)**.
 6. Click **Create**. This takes you to your new Enterprise Application's page.
 
 You have now created a custom Enterprise App for Semgrep to integrate into Azure AD. This enables you to set up SAML SSO.
