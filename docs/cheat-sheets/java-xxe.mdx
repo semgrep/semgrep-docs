@@ -1,4 +1,4 @@
----
+--
 slug: java-xxe
 toc_max_heading_level: 4
 ---
@@ -132,7 +132,7 @@ However, there are classes such as `DocumentBuilderFactory`, `Validator`, and `S
 The `setAttribute` method can be used to set `XMLConstants.ACCESS_EXTERNAL_SCHEMA` and `XMLConstants.ACCESS_EXTERNAL_STYLESHEET` to an empty string to disable these features.
 The effects on security, however, are often limited, with no observed effect for a number of classes.
 
-#### Disabling external general entities and external parameter entities
+#### Disabling external entities
 
 The  `setFeature` method can be used to set `http://xml.org/sax/features/external-general-entities` and `http://xml.org/sax/features/external-parameter-entities` to false. For the classes where these features are available, the combination of these two protects the parser against all of the tested payloads!
 Except for the `Validator` class, where they have no effect at all.
@@ -1627,31 +1627,92 @@ Validators can only process XML documents, no XSL or XSD.
             <td>
                 Default configuration
             </td>
+            <td> ✅⚠️  </td>
+            <td> ❌ </td>
+            <td> ❌ </td>
+            <td> ❌ </td>
+            <td> ✅ </td>
+            <td> ✅ </td>
+            <td> ✅ </td>
+            <td> ❌ </td>
+            <td> ✅ </td>
+            <td> ✅ </td>
+
         </tr>
         <tr>
             <td>
                 <code>setFeature(XMLConstants.<b>FEATURE_SECURE_PROCESSING</b>, true)</code>
             </td>
+            <td> ✅⚠️  </td>
+            <td> ❌ </td>
+            <td> ❌ </td>
+            <td> ❌ </td>
+            <td> ✅ </td>
+            <td> ✅ </td>
+            <td> ✅ </td>
+            <td> ❌ </td>
+            <td> ✅ </td>
+            <td> ✅ </td>
         </tr>
         <tr>
             <td>
                 <code>setAttribute(XMLConstants.<b>ACCESS_EXTERNAL_DTD</b>, "")</code>
             </td>
+            <td> ✅⚠️  </td>
+            <td> ✅⚠️  </td>
+            <td> ✅⚠️  </td>
+            <td> ✅⚠️  </td>
+            <td> ✅ </td>
+            <td> ✅ </td>
+            <td> ✅ </td>
+            <td> ✅⚠️  </td>
+            <td> ✅ </td>
+            <td> ✅ </td>
         </tr>
         <tr>
             <td>
                 <code>setAttribute(XMLConstants.<b>ACCESS_EXTERNAL_SCHEMA</b>, "")</code>
             </td>
+            <td> ✅⚠️  </td>
+            <td> ❌ </td>
+            <td> ❌ </td>
+            <td> ❌ </td>
+            <td> ✅ </td>
+            <td> ✅ </td>
+            <td> ✅ </td>
+            <td> ❌ </td>
+            <td> ✅ </td>
+            <td> ✅ </td>
         </tr>
         <tr>
             <td>
                 <code>setAttribute(XMLConstants. <b>ACCESS_EXTERNAL_STYLESHEET</b>, "")</code>
             </td>
+            <td> n/a </td>
+            <td> n/a </td>
+            <td> n/a </td>
+            <td> n/a </td>
+            <td> n/a </td>
+            <td> n/a </td>
+            <td> n/a </td>
+            <td> n/a </td>
+            <td> n/a </td>
+            <td> n/a </td>
         </tr>
         <tr>
             <td>
                 <code>setFeature("http://apache.org/xml/features/<b>disallow-doctype-decl</b>", true)</code>
             </td>
+            <td> ✅⚠️  </td>
+            <td> ✅⚠️  </td>
+            <td> ✅⚠️  </td>
+            <td> ✅⚠️  </td>
+            <td> ✅ </td>
+            <td> ✅ </td>
+            <td> ✅ </td>
+            <td> ✅⚠️  </td>
+            <td> ✅ </td>
+            <td> ✅ </td>
         </tr>
         <tr>
             <td>
@@ -1660,51 +1721,148 @@ Validators can only process XML documents, no XSL or XSD.
             <td> ✅⚠️  </td>
             <td> ✅ </td>
             <td> ❌ </td>
+            <td> ✅ </td>
+            <td> ✅ </td>
+            <td> ✅ </td>
+            <td> ✅ </td>
+            <td> ✅ </td>
+            <td> ✅ </td>
+            <td> ✅ </td>
         </tr>
         <tr>
             <td>
                 <code>setFeature("http://xml.org/sax/features/<b>external-parameter-entities</b>", false)</code>
             </td>
+            <td> ✅⚠️  </td>
+            <td> ❌ </td>
+            <td> ✅ </td>
+            <td> ❌ </td>
+            <td> ✅ </td>
+            <td> ✅ </td>
+            <td> ✅ </td>
+            <td> ❌ </td>
+            <td> ✅ </td>
+            <td> ✅ </td>
         </tr>
         <tr>
             <td>
                 <code><b>setValidating</b>(false)</code>
             </td>
+            <td> n/a </td>
+            <td> n/a </td>
+            <td> n/a </td>
+            <td> n/a </td>
+            <td> n/a </td>
+            <td> n/a </td>
+            <td> n/a </td>
+            <td> n/a </td>
+            <td> n/a </td>
+            <td> n/a </td>
         </tr>
         <tr>
             <td>
                 <code><b>setExpandEntityReferences</b>(false)</code>
             </td>
+            <td> n/a </td>
+            <td> n/a </td>
+            <td> n/a </td>
+            <td> n/a </td>
+            <td> n/a </td>
+            <td> n/a </td>
+            <td> n/a </td>
+            <td> n/a </td>
+            <td> n/a </td>
+            <td> n/a </td>
         </tr>
         <tr>
             <td>
                 <code><b>setXIncludeAware</b>(false)</code>
             </td>
+            <td> n/a </td>
+            <td> n/a </td>
+            <td> n/a </td>
+            <td> n/a </td>
+            <td> n/a </td>
+            <td> n/a </td>
+            <td> n/a </td>
+            <td> n/a </td>
+            <td> n/a </td>
+            <td> n/a </td>
         </tr>
         <tr>
             <td>
                 <code>setFeature("http://apache.org/xml/features/<b>xinclude</b>", false)</code>
             </td>
+            <td> ✅⚠️  </td>
+            <td> ❌ </td>
+            <td> ❌ </td>
+            <td> ❌ </td>
+            <td> ✅ </td>
+            <td> ✅ </td>
+            <td> ✅ </td>
+            <td> ❌ </td>
+            <td> ✅ </td>
+            <td> ✅ </td>
         </tr>
         <tr>
             <td>
                 <code>setFeature("http://apache.org/xml/features/nonvalidating/<b>load-external-dtd</b>", false)</code>
             </td>
+            <td> ✅⚠️  </td>
+            <td> ❌ </td>
+            <td> ❌ </td>
+            <td> ❌ </td>
+            <td> ✅ </td>
+            <td> ✅ </td>
+            <td> ✅ </td>
+            <td> ❌ </td>
+            <td> ✅ </td>
+            <td> ✅ </td>
         </tr>
         <tr>
             <td>
                 <code>setFeature("http://apache.org/xml/features/nonvalidating/<b>load-dtd-grammar</b>", false)</code>
             </td>
+            <td> n/a </td>
+            <td> n/a </td>
+            <td> n/a </td>
+            <td> n/a </td>
+            <td> n/a </td>
+            <td> n/a </td>
+            <td> n/a </td>
+            <td> n/a </td>
+            <td> n/a </td>
+            <td> n/a </td>
         </tr>
         <tr>
             <td>
                 <code>setFeature("http://apache.org/xml/features/<b>namespaces</b>", false)</code>
             </td>
+            <td> n/a </td>
+            <td> n/a </td>
+            <td> n/a </td>
+            <td> n/a </td>
+            <td> n/a </td>
+            <td> n/a </td>
+            <td> n/a </td>
+            <td> n/a </td>
+            <td> n/a </td>
+            <td> n/a </td>
         </tr>
         <tr>
             <td>
                 <code><b>setNamespaceAware</b>(true)</code>
             </td>
+            <td> n/a </td>
+            <td> n/a </td>
+            <td> n/a </td>
+            <td> n/a </td>
+            <td> n/a </td>
+            <td> n/a </td>
+            <td> n/a </td>
+            <td> n/a </td>
+            <td> n/a </td>
+            <td> n/a </td>
         </tr>
     </tbody>
 </table>
