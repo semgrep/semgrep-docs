@@ -28,9 +28,11 @@ Object.entries(frontMatter).filter(
 }
 </ul>
 
-# Scanning open source dependencies 
+# Getting started with Semgrep Supply Chain
 
-Semgrep Supply chain scans can be triggered from the Semgrep App interface.
+Semgrep Supply Chain (TODO: define in 1 or 2 sentences - scan open source dependencies through reachability ).
+
+Semgrep Supply Chain scans can be set up from the Semgrep App interface.
 
 :::note
 Semgrep Supply Chain **supports monorepositories (monorepos)** by treating each subdirectory as its own repository. Findings are grouped under these repositories based on the lockfile or manifest file present in the subdirectory.
