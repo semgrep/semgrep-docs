@@ -137,6 +137,7 @@ module.exports = {
         collapsible: false,
         items: [
             'semgrep-app/getting-started-with-semgrep-app',
+            'semgrep-app/demo-project',
             'semgrep-app/scm',
             'semgrep-app/dashboard',
             'semgrep-app/rule-board',
