@@ -84,7 +84,6 @@ See [Permissions in GitLab](docs/semgrep-app/getting-started-with-semgrep-app/#p
 
 ### Step 2: Adding or onboarding a new repository
 
-
 <PlatformAddRepo />
 
 #### Detecting GitHub repositories
