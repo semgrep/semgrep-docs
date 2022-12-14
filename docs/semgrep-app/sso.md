@@ -110,7 +110,7 @@ You have now created a custom Enterprise App for Semgrep to integrate into Azure
     1. Enter `name` in the **Name** field.
     2. From the **Source attribute** drop-down box, select `user.givenname`.
     ![Screenshot of create your own Application page in Azure AD](/img/azure_ad-add-claim.png#bordered)
-4. Under the **User Attributes & Claims** form, click **Edit** < **Add new claim**.
+4. Under the **Attributes & Claims** form, click **Edit** > **Add new claim**.
     1. Enter `email` in the **Name** field.
     2. From the **Source attribute** drop-down box, select `user.email`.
 6. Fill out the values required by Semgrep App's SAML2 form (**IdP SSO URL**, **IdP Issuer ID**, **X.509 Certificate**) by copying the values from Azure AD's **Set up Single Sign-On with SAML** page. Perform the following steps:
