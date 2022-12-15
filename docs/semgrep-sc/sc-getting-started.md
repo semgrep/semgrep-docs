@@ -36,7 +36,7 @@ Semgrep Supply Chain detects recently discovered [security vulnerabilities](http
 This document walks you through the process of setting up open source dependency scanning with Semgrep Supply Chain.
 
 :::note
-Semgrep Supply Chain **supports monorepositories (monorepos)** by treating each subdirectory as its own repository. Findings are grouped under these repositories based on the [lockfile](/docs/semgrep-sc/sc-glossary/#lockfile) or manifest file present in the subdirectory.
+Semgrep Supply Chain **supports monorepositories (monorepos)** by treating each subdirectory as its own repository. Findings are grouped under these repositories based on the [lockfile](/semgrep-sc/sc-glossary/#lockfile) or manifest file present in the subdirectory.
 :::
 
 ## Scanning with Semgrep Supply Chain through Semgrep App
