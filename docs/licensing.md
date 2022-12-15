@@ -28,6 +28,6 @@ This document provides an overview of the licenses of important products created
 </dl>
 
 :::info
-In the [Semgrep Registry](https://semgrep.dev/explore) the license of each rule is displayed under the embedded rule preview. See the screenshot below with the license highlighted in red:
+In the [Semgrep Registry](https://semgrep.dev/explore) the license of each rule is displayed under the embedded rule preview. See the following screenshot with the license highlighted in red:
 ![Screenshot of a rule in Semgrep Registry](/img/semgrep-registry-license.png)
 :::
