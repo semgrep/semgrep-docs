@@ -62,7 +62,7 @@ Read [Step 3](#step-3-enabling-semgrep-supply-chain-scans-from-within-semgrep-ap
 
 <PlatformSigninGithub />
 
-See [Permissions in GitHub](/docs/semgrep-app/getting-started-with-semgrep-app/#permissions-for-github) to learn more about how Semgrep features use requested permissions in GitHub.
+See [Permissions in GitHub](/semgrep-app/getting-started-with-semgrep-app/#permissions-for-github) to learn more about how Semgrep features use requested permissions in GitHub.
 
 </TabItem>
 
@@ -70,7 +70,7 @@ See [Permissions in GitHub](/docs/semgrep-app/getting-started-with-semgrep-app/#
 
 <PlatformSigninGitlab />
 
-See [Permissions in GitLab](docs/semgrep-app/getting-started-with-semgrep-app/#permissions-for-gitlab) to learn more about how Semgrep features use requested permissions in GitLab.
+See [Permissions in GitLab](/semgrep-app/getting-started-with-semgrep-app/#permissions-for-gitlab) to learn more about how Semgrep features use requested permissions in GitLab.
 
 </TabItem>
 

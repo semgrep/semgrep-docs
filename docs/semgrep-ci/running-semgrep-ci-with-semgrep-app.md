@@ -102,7 +102,7 @@ GitHub, GitLab, and BitBucket SCMs are compatible with the above CI providers, b
 
 To set up the CI job and connect with Semgrep App:
 
-1. Sign in to [Semgrep App](https://semgrep.dev/login). See [Signing in to Semgrep App](/docs/semgrep-app/getting-started-with-semgrep-app/#signing-in-to-semgrep-app) for details on requested repository permissions and access.
+1. Sign in to [Semgrep App](https://semgrep.dev/login). See [Signing in to Semgrep App](/semgrep-app/getting-started-with-semgrep-app/#signing-in-to-semgrep-app) for details on requested repository permissions and access.
 2. Click **[Projects](https://semgrep.dev/orgs/-/projects)** > **Scan New Project** > **Run Scan in CI**.
 3. Select your provider from the menu.
 4. Optional: Some providers may ask you to select your organization if applicable to your SCM tool.
