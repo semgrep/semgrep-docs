@@ -144,7 +144,7 @@ Semgrep versions v0.122.0 and below previously blocked reachable findings.
 
 ### Step 4: Set a daily scan schedule
 
-Semgrep Supply Chain frequently releases new rules. To ensure that your repository is scanned with the latest Semgrep Supply Chain rules, **ensure that Semgrep Supply Chain scans your codebase every day**. 
+Semgrep Supply Chain frequently releases new rules. To ensure that your repository is scanned with the latest Semgrep Supply Chain rules, **configure Semgrep Supply Chain to scan your codebase every day**. 
 
 <CiScheduling />
 
