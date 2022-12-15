@@ -1,4 +1,4 @@
-Adding a repository from GitHub or GitLab enables Semgrep App to perform many of its core features, such as the ability to record, triage and manage findings.
+Adding a repository from GitHub or GitLab enables Semgrep App to perform many of its core features, such as the ability to record, triage, and manage findings.
 
 :::info Prerequisite
 A GitHub or GitLab SaaS repository associated with your account.
