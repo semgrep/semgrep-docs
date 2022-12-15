@@ -7,7 +7,7 @@ description: >-
 
 # Taint tracking
 
-Semgrep supports intra-procedural [taint tracking](https://en.wikipedia.org/wiki/Taint_checking). This data-flow analysis tracks the flow of untrusted (**tainted**) data throughout the body of a function or method. Tainted data originate from taint **sources**. If tainted data are not transformed or checked accordingly (**sanitized**), taint analysis reports a finding whenever tainted data reach a vulnerable function (what we call a **sink**). Tainted data flow from source to sink through **propagators** (assignments, function calls, etc).
+Semgrep supports intra-procedural [taint analysis](https://en.wikipedia.org/wiki/Taint_checking). This data-flow analysis feature tracks the flow of untrusted (**tainted**) data throughout the body of a function or method. Tainted data originate from tainted **sources**. If tainted data are not transformed or checked accordingly (**sanitized**), taint analysis reports a finding whenever tainted data reach a vulnerable function (called **sink**). Tainted data flow from sources to sinks through **propagators** (such as assignments, or function calls).
 
 The following video provides a quick overview of taint mode:
 <iframe class="yt_embed" width="100%" height="432px" src="https://www.youtube.com/embed/6MxMhFPkZlU" frameborder="0" allowfullscreen></iframe>
@@ -22,7 +22,7 @@ Taint tracking rules must specify `mode: taint`, which enables the following ope
 - `pattern-sanitizers` (optional)
 - `pattern-sinks` (required)
 
-These operators (which act as `pattern-either` operators) take a list of patterns that specify what is to be considered a source, a propagator, a sanitizer, or a sink. Note that you can use _any_ pattern operator and you have the same expressive power as in a `mode: search` rule.
+These operators (which act as `pattern-either` operators) take a list of patterns that specify what is considered a source, a propagator, a sanitizer, or a sink. Note that you can use **any** pattern operator and you have the same expressive power as in a `mode: search` rule.
 
 For example:
 
@@ -32,7 +32,7 @@ Here Semgrep tracks the data returned by `get_user_input()`, which is the source
 
 The rule specifies the sanitizer `sanitize_input(...)`, so any expression that matches that pattern will be considered sanitized. In particular, the expression `sanitize_input(data)` will be labeled as sanitized. Even if `data` is tainted, as it occurs inside a piece of sanitized code, it will not produce any findings.
 
-Finally, the rule specifes that anything matching either `html_output(...)` or `eval(...)` should be regarded as a sink. There are two calls `html_output(data)` and both are labeled as sinks. The first one in `route1` is not reported because `data` gets sanitized before reaching the sink, whereas the second one in `route2` is reported because `data` reaches the sink still being tainted.
+Finally, the rule specifies that anything matching either `html_output(...)` or `eval(...)` should be regarded as a sink. There are two calls `html_output(data)` that are both labeled as sinks. The first one in `route1` is not reported because `data` is sanitized before reaching the sink, whereas the second one in `route2` is reported because `data` that reaches the sink is still tainted.
 
 You can find more examples of taint rules in the [Semrep Registry](https://semgrep.dev/r?owasp=injection%2Cxss), for instance: [express-sandbox-code-injection](https://semgrep.dev/editor?registry=javascript.express.security.express-sandbox-injection.express-sandbox-code-injection).
 
@@ -45,8 +45,8 @@ Field sensitivity
 
 The taint engine provides basic field sensitivity support, it can:
 
-- Track that `x.a.b` is tainted, but not `x` or `x.a`. If `x.a.b` is tainted, any extension of `x.a.b` (such as `x.a.b.c`) is considered tainted by default.
-- Track that `x.a` is tainted, but remember that `x.a.b` has been sanitized. Thus the engine knows that `x.a.b` is not tainted, but `x.a` or `x.a.c` are still tainted.
+- Track that `x.a.b` is tainted, but `x` or `x.a` is  **not** tainted. If `x.a.b` is tainted, any extension of `x.a.b` (such as `x.a.b.c`) is considered tainted by default.
+- Track that `x.a` is tainted, but remember that `x.a.b` has been sanitized. Thus the engine records that `x.a.b` is **not** tainted, but `x.a` or `x.a.c` are still tainted.
 
 Taint tracking is **not** index sensitive, if `x.a[i]` is tainted, Semgrep considers the entire `x.a` as tainted. If `x.a[i]` is sanitized, then `x.a` is also sanitized.
 
@@ -60,7 +60,7 @@ Sources
 A taint source is specified by a pattern, and _any_ subexpression that is matched by this pattern will be regarded as a source of taint.
 
 :::note
-Given the source specification below, and a piece of code such as `source(sink(x))`, the call `sink(x)` will be reported as a tainted sink.
+Given the source specification below, and a piece of code such as `source(sink(x))`, the call `sink(x)` is reported as a tainted sink.
 The reason is that the pattern `source(...)` matches all of `source(sink(x))`, and that makes Semgrep label every subexpression in that piece of code as being a source. In particular, `x` is a source, and it is being passed into `sink`!
 
 ```yaml
@@ -71,7 +71,7 @@ pattern-sources:
 
 ### Function arguments as sources
 
-To specify that some argument of a function must be considered a taint source, simply write a pattern that matches that argument:
+To specify that an argument of a function must be considered a taint source, simply write a pattern that matches that argument:
 
 ```javascript
 pattern-sources:
@@ -92,7 +92,7 @@ make_tainted(my_set)
 sink(my_set)
 ```
 
-If we wrote the source specification below, the pattern formula would only match the occurrence of `x` that is the actual parameter of `make_tainted`, but it would not affect the occurrence of `x` that is passed to `sink`. They are the same variable, but they are different occurrences, and only the fist one is matched by the source specification. At the same time, Semgrep does not know that `make_tainted` is actually updating the variable `x` by side-effect. Thus, a taint rule using such specification would not produce any finding.
+Using the source specification below, the pattern formula only matches the occurrence of `x` that is the actual parameter of `make_tainted`, but it does not affect the occurrence of `x` that is passed to `sink`. Both are the same variable but in different occurrences. Only the first one is matched by the source specification. At the same time, Semgrep does not know that `make_tainted` is updating the variable `x` by side-effect. Thus, a taint rule using such specifications does not produce any finding.
 
 ```yaml
 pattern-sources:
@@ -101,7 +101,7 @@ pattern-sources:
   - focus-metavariable: $X
 ```
 
-Until recently, the recommended workaround has been to write a source specification like the one below. This tells Semgrep that _every_ occurrence of `$X` after `make_tainted($X)` must be considered a source.
+**Deprecated workaround**: The previously recommended workaround was to write a source specification such as the one specified below. This instructs Semgrep that **every** occurrence of `$X` after `make_tainted($X)` must be considered a source.
 
 ```yaml
 pattern-sources:
@@ -112,7 +112,7 @@ pattern-sources:
   - pattern: $X
 ```
 
-This has two main limitations. First, it will override any sanitization that may be performed on the code matched by `$X`.  In the example code below, the call `sink(x)` will be reported as tainted despite `x` has been re-assigned to a fresh set!
+This approach had two main limitations. First, it overrides any sanitization that can be performed on the code matched by `$X`.  In the example code below, the call `sink(x)` is reported as tainted despite `x` was re-assigned to a fresh set!
 
 ```python
 make_tainted(x)
@@ -120,7 +120,7 @@ x = set([])
 sink(x) # false positive
 ```
 
-Also, we must note that [`...` has limitations](/writing-rules/pattern-syntax/#ellipses-and-statement-blocks) and, for example, in the code below we would not get any finding from Semgrep if we used that source specification:
+Note also that [`...` ellipses operator](/writing-rules/pattern-syntax/#ellipses-and-statement-blocks) has limitations. For example, in the code below Semgrep does not match any finding if such source specification is in use:
 
 ```python
 if cond:
@@ -128,18 +128,18 @@ if cond:
 sink(x) # false negative
 ```
 
-The recommended solution nowadays is to set `by-side-effect: true`, being `by-side-effect` an option that is available for each individual source in a taint rule. When this option is enabled, _and_ the source specification matches a variable (or in general, an l-value) exactly, then Semgrep will assume that the variable (or l-value) becomes tainted by side-effect at the precise places where the source specification produces a match.
+It is now recommended to set `by-side-effect: true`, where `by-side-effect` is an option available for each individual source in a taint rule. When this option is enabled, and the source specification matches a variable (or in general, an l-value) exactly, then Semgrep assumes that the variable (or l-value) becomes tainted by side-effect at the precise places where the source specification produces a match.
 
-So, this is how we specify that `make_tainted` will update its argument making future occurrences tainted:
+So, this is how to specify that `make_tainted` updates its argument making future occurrences tainted:
 
 <iframe src="https://semgrep.dev/embed/editor?snippet=eRvy" border="0" frameBorder="0" width="100%" height="432"></iframe>
 
-There are also [sanitizers by side effect](#sanitizers-by-side-effect). For a good example of use of both sources and sanitizers by side-effect, take a look at rule [`c.lang.security.use-after-free.use-after-free`](https://semgrep.dev/playground/r/c.lang.security.use-after-free.use-after-free).
+There are also [sanitizers by side effect](#sanitizers-by-side-effect). For a good example of the use of both sources and sanitizers by side-effect, take a look at rule [`c.lang.security.use-after-free.use-after-free`](https://semgrep.dev/playground/r/c.lang.security.use-after-free.use-after-free).
 
 Propagators
 -----------
 
-By default, tainted data automatically propagates through assignments, operators, and function calls (from inputs to output). However, there are other ways taint can propagate, which may require language- or library-specific knowledge that Semgrep does not have built in.
+By default, tainted data automatically propagates through assignments, operators, and function calls (from inputs to output). However, there are other ways in which taint can propagate, which can require language or library-specific knowledge that Semgrep does not have built-in.
 
 Consider the following Python code where an unsafe `user_input` is stored into a `set` data structure. A random element from `set` is then passed into a `sink` function. This random element can be `user_input` itself, leading to an injection vulnerability!
 
@@ -152,7 +152,7 @@ def test(s):
     sink(s.pop())
 ```
 
-The following rule cannot find the above-described issue. The reason is that Semgrep does not know that executing `s.add(x)` makes `x` one of the elements in the set data structure `s`.
+The following rule cannot find the above-described issue. The reason is that Semgrep is not aware that executing `s.add(x)` makes `x` one of the elements in the set data structure `s`.
 
 ```yaml
 mode: taint
@@ -192,19 +192,19 @@ In general, a taint propagator must specify:
     - The `to` metavariable specifies where the tainted data is propagated to, typically an object or data structure.
 
 :::note
-When the `to` metavaraible matches a variable (or in general, an l-value), the taint will be propagated _by side-effect_.
+When the `to` metavariable matches a variable (or in general, an l-value), the taint is propagated _by side-effect_.
 See [Sources by side effect](#sources-by-side-effect) for an explanation of what this means.
 :::
 
-For example, pattern `$S.add($E)` includes two metavariables `$S` and `$E`. Given `from: $E` and `to: $S`, and with `$E` matching `x` and `$S` matching `s`, when `x` is tainted then `s` will become tainted (by side-effect) with the same taint as `x`.
+For example, pattern `$S.add($E)` includes two metavariables `$S` and `$E`. Given `from: $E` and `to: $S`, and with `$E` matching `x` and `$S` matching `s`, when `x` is tainted then `s` becomes tainted (by side-effect) with the same taint as `x`.
 
 Sanitizers
 -----------
 
-A sanitizer is specified by a pattern, and _any_ subexpression that is matched by this pattern will be regarded as sanitized.
+A sanitizer is specified by a pattern, and **any** subexpression that is matched by this pattern is regarded as sanitized.
 
 :::note
-Given the sanitizer specification below, and a piece of code such as `sanitize(sink(source))`, the call `sink(source)` will _NOT_ be reported.
+Given the sanitizer specification below, and a piece of code such as `sanitize(sink(source))`, the call `sink(source)` is **not** reported.
 The reason is that the pattern `sanitize(...)` matches all of `sanitize(sink(source))`, and that makes Semgrep label every subexpression in that piece of code as being sanitized. In particular, `source` is considered to be sanitized!
 
 ```yaml
@@ -227,7 +227,7 @@ check_if_safe(x)
 sink(x)
 ```
 
-Until recently, the recommended workaround has been to write a sanitizer specification like the one below. This tells Semgrep that _every_ occurrence of `$X` after `check_if_safe($X)` must be considered safe.
+**Deprecated workaround**: The previously recommended workaround was to write a sanitizer specification such as the one below. This instructs Semgrep that **every** occurrence of `$X` after `check_if_safe($X)` must be considered safe.
 
 ```yaml
 pattern-sanitizers:
@@ -238,7 +238,7 @@ pattern-sanitizers:
   - pattern: $X
 ```
 
-This has the same limitations as we discussed in [sources by side effect](#sources-by-side-effect). And the current recommendation is also to set `by-side-effect: true` for the sanitizer in question. Enabling `by-side-effect` for a given sanitizer, will tell Semgrep that whenever that sanitizer matches a variable (in general, an l-lvalue) exactly, then sanitization happens by side-effect. 
+This has the same limitations as documented in [sources by side effect](#sources-by-side-effect). It is now recommended to set `by-side-effect: true` for the sanitizer in question. Enabling `by-side-effect` for a given sanitizer instructs Semgrep that whenever that sanitizer matches a variable (in general, an l-lvalue) exactly, then sanitization happens by side-effect. 
 
 Sinks
 -----
@@ -273,32 +273,32 @@ This way we tell Semgrep that we do not want arrays to be accessed with tainted 
 Minimizing false positives
 --------------------------
 
-Since taint mode is intra-procedural, it does not know what other functions do. By default, Semgrep assumes that taint could always propagate through other functions.
+Since taint mode is intra-procedural, it does not recognize what other functions do. By default, Semgrep assumes that taint can always propagate through other functions.
 
-For example, in the code below, `some_safe_function` receives tainted data as input and, to be on the safe side, Semgrep assumes that it will also return tainted data as output. As a result, a finding is produced.
+For example, in the code below, `some_safe_function` receives tainted data as input, and to be on the safe side, Semgrep assumes that it also returns tainted data as output. As a result, a finding is produced.
 
 ```javascript
 var x = some_safe_function(tainted);
 sink(x);
 ```
 
-In some codebases, this conservative assumption may produce too many false positives. If that is the case, you could first consider enumerating such functions as sanitizers:
+In some codebases, this conservative assumption can generate too many false positives. If that is the case, consider enumerating such functions as sanitizers:
 
 ```yaml
 pattern-sanitizers:
 - pattern: some_safe_function(...)
 ```
 
-If this is too cumbersome, then you can easily make Semgrep assume the opposite, that is, to assume that functions are safe by default. This is done by setting `taint_assume_safe_functions: true` under the rule [`options`](/writing-rules/rule-syntax/#options) key. If you use this approach, you instead have to enumerate your taint propagators:
+If this is too cumbersome, then set Semgrep to assume that functions are safe by default. This is done by setting `taint_assume_safe_functions: true` under the rule [`options`](/writing-rules/rule-syntax/#options) key. If you use this approach, you have to enumerate your taint propagators:
 
 <iframe src="https://semgrep.dev/embed/editor?snippet=gBD0" border="0" frameBorder="0" width="100%" height="432"></iframe>
 
-Similarly, by default, Semgrep assumes that indexing an array with a tainted index (that is, `array[tainted]`) is a tainted expression, even if the array itself is not tainted. You can set `taint_assume_safe_indexes: true` to instead assume that these expressions are safe.
+Similarly, by default, Semgrep assumes that indexing an array with a tainted index (that is, `array[tainted]`) is a tainted expression, even if the array itself is not tainted. Set `taint_assume_safe_indexes: true` to instead assume that these expressions are safe.
 
-If you want to have very fine-grained control over how taint is propagated, you can set `taint_only_propagate_through_assignments: true`, and then Semgrep will only propagate taint via trivial assignemnts of the form `x = tainted`. You would need to specify taint propagators for anything else.
+If you want to have very fine-grained control over how taint is propagated, set `taint_only_propagate_through_assignments: true`. As a result, Semgrep only propagates taint through trivial assignments of the form `x = tainted`. In this case, you need to specify taint propagators for anything else.
 
 :::note
-Previously we recommended the use of so-called _not conflicting sanitizers_. This feature is no longer recommended and it should be considered deprecated.
+Previously, the use of so-called **not conflicting sanitizers** was recommended. This feature is now deprecated and no longer recommended.
 :::
 
 Metavariables, rule message, and unification
