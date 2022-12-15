@@ -128,7 +128,7 @@ sink(x) # false negative
 
 It is now recommended to set `by-side-effect: true`, where `by-side-effect` is an option available for each individual source in a taint rule. When this option is enabled, and the source specification matches a variable (or in general, an l-value) exactly, then Semgrep assumes that the variable (or l-value) becomes tainted by side-effect at the precise places where the source specification produces a match.
 
-So, this is how to specify that `make_tainted` updates its argument making future occurrences tainted:
+The following code specifies how to `make_tainted` updates its argument making future occurrences tainted:
 
 <iframe src="https://semgrep.dev/embed/editor?snippet=eRvy" border="0" frameBorder="0" width="100%" height="432"></iframe>
 
