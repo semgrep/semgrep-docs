@@ -46,64 +46,12 @@ XML External Entity Injection happens when the system identifier to some of the 
 
 ### 2.A Ways to include external content in XML documents
 
-- External Document Type Definition (DTD), References an external DTD, for example:
-    ```xml
-    <!DOCTYPE root_element SYSTEM "url">
-    ```
-- External Entity Reference, the syntax is as follows:
-    ```xml
-    <!ENTITY name SYSTEM "url">
-    ```
-- General entity reference, for example:
-    ```xml
-    <?xml version="1.0" standalone="no" ?>
-    <!DOCTYPE doc [<!ENTITY otherFile SYSTEM "otherFile.xml">]>
-    <doc>
-        <a>
-            <b>&otherFile;</b>
-        </a>
-    </doc>
-    ```
-- External Parameter Entities, for example:
-    ```xml
-    <?xml version="1.0" standalone="no"?>
-        <!DOCTYPE doc [
-          <!ENTITY % ent1 SYSTEM "http://www.example.com/student.dtd">
-          %ent1;
-        ]>
-    ```
-- XInclude - Includes an external infoset in an XML document, for example:
-    ```xml
-    <Book xmlns:xi="http://www.w3.org/2001/XInclude">
-        <xi:include href=toc.xml"/>
-        <xi:include href=part1.xml"/>
-        <xi:include href=part2.xml"/>
-        <xi:include href=index.xml"/>
-    </Book>
-    ```
-- References to XML Schema components using the `schemaLocation` attribute and import and include elements, for example:
-    ```xml
-    <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
-        <xs:include schemaLocation="http://www.example.com/schema/schema1.xsd"/>
-        <!-- ... -->
-    </xs:schema>
-    ```
-- Combining style sheets using import or include elements, the syntax is as follows:
-    ```xml
-    <xsl:include href="include.xsl"/>
-    ```
-- `xml-stylesheet` processing instruction: Used to include a stylesheet in an XML document, for example:
-    ```xml
-    <?xml-stylesheet href="include.xsl" type="text/xsl"?>
-    ```
-- XSLT document() function: Used to access nodes in an external XML document, for example:
-    ```xml
-    <xsl:variable name="dummy" select="document('DocumentFunc2.xml')"/>
-    ```
+There are a lot of ways external resources can be referenced in XML documents, XML Schemas, and XSLT stylesheets. 
+External content can be loaded through an External Document Type Definition (DTD), an External Entity Reference to external data, a General Entity reference, or an External Parameter Entity reference. 
+Additional XML code can also be included through `XInclude`, or references to XML Schema components using the `schemaLocation` attribute of `import` or `include` elements. 
+In stylesheets, multiple sheets can be combined using the `xsl:include` element, the `?xml-stylesheet` processing instruction, or the `document()` function.
 
-#### References
-
-- [13 Java API for XML Processing (JAXP) Security Guide ](https://docs.oracle.com/en/java/javase/13/security/java-api-xml-processing-jaxp-security-guide.html) in Oracle documentation.
+For examples of each of these ways of including external resources, visit the [Oracle docs on XML Processing](https://docs.oracle.com/en/java/javase/13/security/java-api-xml-processing-jaxp-security-guide.html) or take a look at r2c's [research project on GitHub](https://github.com/returntocorp/java-xxe-research/tree/main/payloads-new).
 
 ### 2.B Security measures
 
