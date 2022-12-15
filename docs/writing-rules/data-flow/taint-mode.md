@@ -55,7 +55,7 @@ The taint engine does track taint **per variable** and not **per object in memor
 Sources
 -------
 
-A taint source is specified by a pattern, and _any_ subexpression that is matched by this pattern will be regarded as a source of taint.
+A taint source is specified by a pattern. **Any** subexpression that this pattern matches is regarded as a source of taint.
 
 :::note
 Given the source specification below, and a piece of code such as `source(sink(x))`, the call `sink(x)` is reported as a tainted sink.
