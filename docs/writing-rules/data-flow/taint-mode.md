@@ -289,7 +289,7 @@ If this is too cumbersome, then set Semgrep to assume that functions are safe by
 
 Similarly, by default, Semgrep assumes that indexing an array with a tainted index (that is, `array[tainted]`) is a tainted expression, even if the array itself is not tainted. Set `taint_assume_safe_indexes: true` to instead assume that these expressions are safe.
 
-If you want to have very fine-grained control over how taint is propagated, set `taint_only_propagate_through_assignments: true`. As a result, Semgrep only propagates taint through trivial assignments of the form `x = tainted`. In this case, you need to specify taint propagators for anything else.
+If you want to have very fine-grained control over how taint is propagated, set `taint_only_propagate_through_assignments: true`, and then Semgrep only propagates taint through trivial assignments of the form `x = tainted`. In this case, you need to specify taint propagators or any other expression that can act as a taint propagator. For example, `x = taint_propagator(tainted)` or `x = tainted + "foo"` does not propagate any taint from `tainted` to `x` unless it is explicitly defined, whereas by default taint would propagate without explicit definition.
 
 :::note
 Previously, the use of so-called **not conflicting sanitizers** was recommended. This feature is now deprecated and no longer recommended.
