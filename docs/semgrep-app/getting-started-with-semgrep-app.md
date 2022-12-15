@@ -37,8 +37,8 @@ For Docker users: Use the [**latest** tag](https://hub.docker.com/r/returntocorp
 
 Semgrep App supports code scanning from:
 
-* local command-line interfaces (CLI)
-* source code management (SCM) systems, such as GitHub and GitLab, through continuous integration (CI)
+* Local command-line interfaces (CLI).
+* Source code management (SCM) systems, such as GitHub and GitLab, through continuous integration (CI).
 
 This guide walks you through scanning code in both types of environments.
 

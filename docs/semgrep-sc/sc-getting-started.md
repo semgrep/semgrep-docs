@@ -31,7 +31,7 @@ Object.entries(frontMatter).filter(
 
 # Getting started with Semgrep Supply Chain
 
-Semgrep Supply Chain detects recently discovered [security vulnerabilities](https://nvd.nist.gov/vuln/full-listing) in your codebase's open source dependencies, prioritizing findings through [reachability](/docs/semgrep-sc/sc-glossary#reachability) analysis. 
+Semgrep Supply Chain detects recently discovered [security vulnerabilities](https://nvd.nist.gov/vuln/full-listing) in your codebase's open source dependencies, prioritizing findings through [reachability](/semgrep-sc/sc-glossary#reachability) analysis. 
 
 This document walks you through the process of setting up open source dependency scanning with Semgrep Supply Chain.
 
