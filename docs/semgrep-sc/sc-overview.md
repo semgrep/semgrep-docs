@@ -119,7 +119,7 @@ Refer to [Supported languages](/docs/supported-languages#semgrep-supply-chain) t
 
 ## Next steps: Scanning your codebase
 
-To scan your codebase, follow the instructions in [Scanning open source dependencies](/docs/semgrep-sc/scanning-open-source-dependencies).
+To scan your codebase, follow the instructions in [Scanning open source dependencies](/semgrep-sc/scanning-open-source-dependencies).
 
 ## Additional references
 
