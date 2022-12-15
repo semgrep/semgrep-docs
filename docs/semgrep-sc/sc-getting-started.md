@@ -99,7 +99,7 @@ To enable and run a Supply Chain (open source dependency) scan in Semgrep App:
 3. Click <i class="fa-solid fa-toggle-large-on"></i> **SSC toggle**. Semgrep Supply Chain rules are included in your next scan, that occurs based on your CI set up, such as schedules and events configuration (push, pull, and merge requests).
 4. Optional: Some CI providers enable you to start workflows manually. To start a dependency scan immediately, go to your CI provider's interface and manually begin the Semgrep workflow or job.
 
-When the scan finishes, Semgrep App displays an overview of findings in the **Supply Chain** tab for further triage and remediation. See [Triaging and remediating dependency findings](/docs/semgrep-sc/triaging-and-remediating-vulnerabilities).
+When the scan finishes, Semgrep App displays an overview of findings in the **Supply Chain** tab for further triage and remediation. See [Triaging and remediating dependency findings](/semgrep-sc/triaging-and-remediating-vulnerabilities).
 
 #### Events that trigger a Supply Chain dependency scan
 
