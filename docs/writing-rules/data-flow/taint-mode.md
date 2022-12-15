@@ -29,7 +29,7 @@ For example:
 
 Here Semgrep tracks the data returned by `get_user_input()`, which is the source of taint. Think of Semgrep running the pattern `get_user_input(...)` on your code, finding all places where `get_user_input` gets called, and labeling them as tainted. That is exactly what is happening under the hood!
 
-The rule specifies the sanitizer `sanitize_input(...)`, so any expression that matches that pattern will be considered sanitized. In particular, the expression `sanitize_input(data)` will be labeled as sanitized. Even if `data` is tainted, as it occurs inside a piece of sanitized code, it will not produce any findings.
+The rule specifies the sanitizer `sanitize_input(...)`, so any expression that matches that pattern is considered sanitized. In particular, the expression `sanitize_input(data)` is labeled as sanitized. Even if `data` is tainted, as it occurs inside a piece of sanitized code, it does not produce any findings.
 
 Finally, the rule specifies that anything matching either `html_output(...)` or `eval(...)` should be regarded as a sink. There are two calls `html_output(data)` that are both labeled as sinks. The first one in `route1` is not reported because `data` is sanitized before reaching the sink, whereas the second one in `route2` is reported because `data` that reaches the sink is still tainted.
 
@@ -173,7 +173,7 @@ In the example above, Semgrep finds the pattern `$S.add($E)`, and it checks whet
 
 <iframe src="https://semgrep.dev/embed/editor?snippet=dGRE" border="0" frameBorder="0" width="100%" height="432"></iframe>
 
-Another situation where taint propagatos may be useful is to specify in Java that, when we iterate a collection that is tainted, the individual elements must also be considered tainted:
+Another situation where taint propagatos can be useful is to specify in Java that, when iterating a collection that is tainted, the individual elements must also be considered tainted:
 
 ```yaml
 pattern-propagators:
@@ -242,7 +242,7 @@ A sink is specified by a pattern but, unlike for sources and sanitizers, Semgrep
 
 ### Function argument as a sink
 
-If you specify a sink such as `sink(...)` then any tainted data passed to sink, through any of its arguments, will result in a match. You can narrow it down to a specific parameter this way: 
+If you specify a sink such as `sink(...)` then any tainted data passed to sink, through any of its arguments, results in a match. You can narrow it down to a specific parameter this way: 
 
 ```javascript
 pattern-sinks:
@@ -252,7 +252,7 @@ pattern-sinks:
     - focus-metavariable: $SINK
 ```
 
-This rule causes Semgrep to only annotate the first parameter passed to `$S.run` as the sink, rather than the method `$S.run` itself. If taint goes into any other parameter of `$S.run`, then that will not be considered a problem.
+This rule causes Semgrep to only annotate the first parameter passed to `$S.run` as the sink, rather than the method `$S.run` itself. If taint goes into any other parameter of `$S.run`, then that is not considered a problem.
 
 Remember, anything can be a sink, even the index of an array access:
 
