@@ -49,7 +49,7 @@ Semgrep Supply Chain scans can be set up from the [Semgrep App](https://semgrep.
 
 Perform the following steps to create an account in Semgrep App and add (onboard) a repository for scanning. By adding a repository to Semgrep App, you are able to set up Semgrep Supply Chain scans and receive findings for vulnerabilities which you can triage and remediate.
 
-Read [Step 3](#step-3-enabling-semgrep-supply-chain-scans-from-within-semgrep-app) if you have already created an account in Semgrep App and added a repository.
+Read [Step 3](#step-3-enabling-semgrep-supply-chain-scans-from-semgrep-app) if you have already created an account in Semgrep App and added a repository.
 
 ### Step 1: Creating an account in Semgrep App
 
