@@ -242,6 +242,7 @@ module.exports = {
             {type: 'ref', id: 'release-notes/introduction', label: 'Release notes'},
             'release-notes/rule-updates',
             'security',
+            'licensing',
             'faq',
             {
               type: 'doc',
