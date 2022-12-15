@@ -42,9 +42,10 @@ def foo(x):
 The `...` ellipsis operator abstracts away a sequence of zero or more
 arguments, statements, parameters, fields, characters, etc.
 
-An ellipsis can also match anything that's **not** a sequence
-when it's unambiguous. Use cases and examples are displayed
-below in the [Function calls](#function-calls) section.
+`...` can also match any single item that's a not part of a sequence
+when the context allows it.
+
+Use cases are shown below.
 
 ### Function calls
 
@@ -270,10 +271,10 @@ if can_make_request:
 Half or partial statements can't be matches; both of the examples above must specify the contents of the condition’s body (e.g., `$BODY` or `...`), otherwise they are not valid patterns.
 :::
 
-### Matching single items with an ellipsis operator
+### Matching single items with an ellipsis
 
-While ellipses generally stand for sequences of like elements, they
-are also supported in other contexts where they would match
+While `...` generally stands for sequences of like elements, it's
+are also supported in other contexts where it can match
 any single item. The following pattern is valid in languages with a C-like
 syntax even though `...` matches a single boolean value rather than a
 sequence:
