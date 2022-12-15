@@ -12,8 +12,7 @@ Semgrep supports intra-procedural [taint analysis](https://en.wikipedia.org/wiki
 The following video provides a quick overview of taint mode:
 <iframe class="yt_embed" width="100%" height="432px" src="https://www.youtube.com/embed/6MxMhFPkZlU" frameborder="0" allowfullscreen></iframe>
 
-Getting started
----------------
+## Getting started
 
 Taint tracking rules must specify `mode: taint`, which enables the following operators:
 
@@ -40,8 +39,7 @@ You can find more examples of taint rules in the [Semrep Registry](https://semgr
 [Metavariables](../../pattern-syntax/#metavariables) used in `pattern-sources` are considered _different_ from those used in `pattern-sinks`, even if they have the same name! See [Metavariables, rule message, and unification](#metavariables-rule-message-and-unification) for further details.
 :::
 
-Field sensitivity
------------------
+## Field sensitivity
 
 The taint engine provides basic field sensitivity support, it can:
 
@@ -136,8 +134,7 @@ So, this is how to specify that `make_tainted` updates its argument making futur
 
 There are also [sanitizers by side effect](#sanitizers-by-side-effect). For a good example of the use of both sources and sanitizers by side-effect, take a look at rule [`c.lang.security.use-after-free.use-after-free`](https://semgrep.dev/playground/r/c.lang.security.use-after-free.use-after-free).
 
-Propagators
------------
+## Propagators
 
 By default, tainted data automatically propagates through assignments, operators, and function calls (from inputs to output). However, there are other ways in which taint can propagate, which can require language or library-specific knowledge that Semgrep does not have built-in.
 
@@ -198,8 +195,7 @@ See [Sources by side effect](#sources-by-side-effect) for an explanation of what
 
 For example, pattern `$S.add($E)` includes two metavariables `$S` and `$E`. Given `from: $E` and `to: $S`, and with `$E` matching `x` and `$S` matching `s`, when `x` is tainted then `s` becomes tainted (by side-effect) with the same taint as `x`.
 
-Sanitizers
------------
+## Sanitizers
 
 A sanitizer is specified by a pattern, and **any** subexpression that is matched by this pattern is regarded as sanitized.
 
@@ -240,8 +236,7 @@ pattern-sanitizers:
 
 This has the same limitations as documented in [sources by side effect](#sources-by-side-effect). It is now recommended to set `by-side-effect: true` for the sanitizer in question. Enabling `by-side-effect` for a given sanitizer instructs Semgrep that whenever that sanitizer matches a variable (in general, an l-lvalue) exactly, then sanitization happens by side-effect. 
 
-Sinks
------
+## Sinks
 
 A sink is specified by a pattern but, unlike for sources and sanitizers, Semgrep finds the best match for the sink.
 
@@ -270,8 +265,7 @@ pattern-sinks:
 
 This way we tell Semgrep that we do not want arrays to be accessed with tainted indexes.
 
-Minimizing false positives
---------------------------
+## Minimizing false positives
 
 Since taint mode is intra-procedural, it does not recognize what other functions do. By default, Semgrep assumes that taint can always propagate through other functions.
 
@@ -301,8 +295,7 @@ If you want to have very fine-grained control over how taint is propagated, set 
 Previously, the use of so-called **not conflicting sanitizers** was recommended. This feature is now deprecated and no longer recommended.
 :::
 
-Metavariables, rule message, and unification
---------------------------------------------
+## Metavariables, rule message, and unification
 
 The patterns specified by `pattern-sources` and `pattern-sinks` (and `pattern-sanitizers`) are all independent of each other. If a metavariable used in `pattern-sources` has the same name as a metavariable used in `pattern-sinks`, these are still different metavariables.
 
