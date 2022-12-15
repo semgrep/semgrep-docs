@@ -156,7 +156,7 @@ See [Ignoring dependency findings](/docs/semgrep-sc/ignoring-lockfiles-dependenc
 
 ## Triaging and remediating dependency findings
 
-Semgrep Supply Chain enables developers to perform triage and remediation through the **[Vulnerabilities](https://semgrep.dev/orgs/-/supply-chain/vulnerabilities)** page. On this page you can perform the following:
+Semgrep Supply Chain enables developers to perform triage and remediation through the **[Vulnerabilities](https://semgrep.dev/orgs/-/supply-chain/vulnerabilities)** page. On this page you can perform the following actions:
 
 * View specific **reachable** vulnerable lines of code in your codebase. This helps to evaluate the threat.
 * View specific lines of code where your dependency is being declared.
