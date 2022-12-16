@@ -5,17 +5,13 @@ toc_max_heading_level: 4
 
 # XML External Entity prevention for Java
 
-This is an XML External Entity (XXE) prevention cheat sheet by r2c. It contains code patterns of potential XXE in an application. Instead of scrutinizing code for exploitable vulnerabilities, the recommendations in this cheat sheet pave a safe road for developers that mitigates the possibility of XXE in your code. By 
-following these recommendations, you can be reasonably sure your code is free of XXE.
+This is an XML External Entity (XXE) prevention cheat sheet by r2c. It contains code patterns of potential XXE in an application. The recommendations in this cheat sheet pave a safe road for developers that mitigate the possibility of XXE in your code. By following these recommendations, you can be reasonably sure that their code is free of XXE.
 
 ## Mitigation Summary
 
-XML security in Java is not easy to summarize. On the one hand, the XML standard allows multiple ways to include external content, including but not limited to external Document Type Definitions (DTD), external Entity References to external data, general entity references, and external parameter references.
-There are also several ways to include external content in XML Schemas and stylesheets.
+XML security in Java is not easy to summarize. The XML standard allows multiple ways to include external content, including but not limited to external Document Type Definitions (DTD), external Entity References to external data, general entity references, and external parameter references. There are also several ways to include external content in XML Schemas and stylesheets.
 
-On the other hand, the Java API for XML Processing (JAXP) contains multiple interfaces to process XML content. The Document Object Model (DOM) interface, the Simple API for XML (SAX) interface, and the Streaming API for XML (StAX) interface.
-Each of these interfaces has its mitigation measures to disable allowing the use of different sources of external content.
-The inconsistency in availability and even the effect of these measures across the different APIs, combined with the variety of ways to include external content, makes it difficult to make a general recommendation. Many configurations that are secure for one parser are not secure for another.
+The Java API for XML Processing (JAXP) contains multiple interfaces to process XML content. The Document Object Model (DOM) interface, the Simple API for XML (SAX) interface, and the Streaming API for XML (StAX) interface. Each of these interfaces has its mitigation measures to disable the use of different sources of external content. The inconsistency in availability and even the effect of these measures across the different APIs, combined with the variety of ways to include external content, makes it difficult to make a general recommendation. Many configurations that are secure for one parser are not secure for another.
 However, the following settings have a consistent effect on a subset of parsers
 
 - For `DocumentBuilderFactory`. `SAXBuilder`, `SAXParser`, `SAXReader`, and `XMLReader` use:
@@ -33,8 +29,8 @@ The complete Semgrep ruleset for this cheatsheet is available as part of the rul
 
 ## 1. Exponential entity expansion
 
-Exponential entity expansion occurs when there are several layers of nested entities that each on their own reference several other entities.
-You can find an example of such a payload, sometimes called an XML Bomb, in [r2c's research project on GitHub](https://github.com/returntocorp/java-xxe-research/blob/main/payloads-new/xml-attacks/xml-bomb.xml).
+Exponential entity expansion occurs when there are several layers of nested entities that reference several other entities.
+See an example of such a payload, called also an XML bomb, in [r2c's research project on GitHub](https://github.com/returntocorp/java-xxe-research/blob/main/payloads-new/xml-attacks/xml-bomb.xml).
 
 When a document like this is parsed, the parser will expand each of the nested references. The expansion becomes exponentially large and this can lead to excessive use of the resources and denial-of-service (DoS).
 We found that in Java, the JDK throws an exception when such excessive use of resources is detected. When it is carefully caught and handled, this will prevent the attack. So no explicit security measures need to be taken.
