@@ -32,31 +32,28 @@ The complete Semgrep ruleset for this cheatsheet is available as part of the rul
 Exponential entity expansion occurs when there are several layers of nested entities that reference several other entities.
 See an example of such a payload, called also an XML bomb, in [r2c's research project on GitHub](https://github.com/returntocorp/java-xxe-research/blob/main/payloads-new/xml-attacks/xml-bomb.xml).
 
-When a document like this is parsed, the parser will expand each of the nested references. The expansion becomes exponentially large and this can lead to excessive use of the resources and denial-of-service (DoS).
-We found that in Java, the JDK throws an exception when such excessive use of resources is detected. When it is carefully caught and handled, this will prevent the attack. So no explicit security measures need to be taken.
-This is the case for all recent versions of Java (17, 18, 19) and all older versions with long term support (8, 11).
+When a document containing an XML bomb is parsed, the parser expands each of the nested references. Consequently, this expansion becomes exponential leading to excessive use of resources and denial-of-service (DoS).
+We found that in Java, the JDK throws an exception when such excessive use of resources is detected. 
+Using this exception, if it is carefully caught and handled, the attack can be prevented. In such a case, no explicit security measures need to be taken. This is the case for all recent versions of Java (17, 18, 19) and all older versions with long-term support (8, 11).
 
 ## 2. XML External Entity Injection
 
-XML External Entity Injection happens when the system identifier to some of the external content contains data controlled by an attacker. The parser then dereferences this identifier containing attacker-controlled XML code, leading to the disclosure of confidential data, or even arbitrary code execution.
+XML External Entity Injection occurs when the system identifier to some of the external content contains data controlled by an attacker. The parser then dereferences this identifier containing attacker-controlled XML code, leading to the disclosure of confidential data, or even to arbitrary code execution.
 
 ### 2.A Ways to include external content in XML documents
 
-There are a lot of ways external resources can be referenced in XML documents, XML Schemas, and XSLT stylesheets. 
-External content can be loaded through an External Document Type Definition (DTD), an External Entity Reference to external data, a General Entity reference, or an External Parameter Entity reference. 
-Additional XML code can also be included through `XInclude`, or references to XML Schema components using the `schemaLocation` attribute of `import` or `include` elements. 
-In stylesheets, multiple sheets can be combined using the `xsl:include` element, the `?xml-stylesheet` processing instruction, or the `document()` function.
+There are many potential ways in which external resources can be referenced in XML documents, XML Schemas, and XSLT stylesheets. External content can be loaded through an External Document Type Definition (DTD), an External Entity Reference to external data, a General Entity reference, or an External Parameter Entity reference. Additional XML code can also be included through `XInclude`, or references to XML Schema components using the `schemaLocation` attribute of `import` or `include` elements. In stylesheets, multiple sheets can be combined using the `xsl:include` element, the `?xml-stylesheet` processing instruction, or the `document()` function.
 
-For examples of each of these ways of including external resources, visit the [Oracle docs on XML Processing](https://docs.oracle.com/en/java/javase/13/security/java-api-xml-processing-jaxp-security-guide.html) or take a look at r2c's [research project on GitHub](https://github.com/returntocorp/java-xxe-research/tree/main/payloads-new).
+For examples of each of these ways of including external resources, see the [Java API for XML Processing (JAXP) Security Guide](https://docs.oracle.com/en/java/javase/13/security/java-api-xml-processing-jaxp-security-guide.html) or take a look at r2c's [research project on GitHub](https://github.com/returntocorp/java-xxe-research/tree/main/payloads-new).
 
 ### 2.B Security measures
 
-There are several security measures, but not all of them are available for each class. To see an overview of which measures are available for which class see section [2.C Overview of effect of security measures for each class](#2c-overview-of-effect-of-security-measures-for-each-class) with r2c research results.
+There are several security measures, but not all of them are available for each class. See an overview of which measures are available for which class in section [2.C Overview of the effect of security measures for each class](#2c-overview-of-the-effect-of-security-measures-for-each-class) with r2c research results.
 
 #### Feature for Secure Processing (FSP)
 
 Feature for Secure Processing (FSP) is considered the central mechanism for secure XML processing. It is defined as `javax.xml.XMLConstants.FEATURE_SECURE_PROCESSING`.
-For various classes, this feature can protect the parser from all available payloads. This is however not the case for all of the classes we tested.
+For various classes, this feature can protect the parser from all available payloads. However, this is not the case for all of the classes we tested.
 
 #### Disabling DTD processing
 
@@ -66,15 +63,12 @@ To disable DTD processing with one of the available mechanisms:
 - The `setProperty` method to set `XMLInputFactory.SUPPORT_DTD` to false.
 - The `setAttribute` method to set `XMLConstants.ACCESS_EXTERNAL_DTD` to an empty string (`“”`). 
 
-For some parsers, multiple of these methods are available. 
-
-For most parsers, this setting adds additional security for processing XML documents. However, this does not affect the processing of schemas or stylesheets.
-However, there are classes such as `DocumentBuilderFactory`, `Validator`, and `SchemaFactory` where multiple of these methods are available, and setting the above-mentioned features throws no exceptions, but only one of them has any effect on the security of the parser.
+For some parsers, there are multiple methods to disable DTD processing. For most parsers, this setting adds additional security for processing XML documents. However, this does not affect the processing of schemas or stylesheets. Still, there are classes such as `DocumentBuilderFactory`, `Validator`, and `SchemaFactory` with multiple methods to disable DTD, and setting the above-mentioned features throws no exceptions, but only one of them has any effect on the security of the parser.
 
 #### Disabling external schema and stylesheet processing
 
 The `setAttribute` method can be used to set `XMLConstants.ACCESS_EXTERNAL_SCHEMA` and `XMLConstants.ACCESS_EXTERNAL_STYLESHEET` to an empty string to disable these features.
-The effects on security, however, are often limited, with no observed effect for a number of classes.
+The effects on security, however, are often limited, with no observed effect for several classes.
 
 #### Disabling external entities
 
@@ -82,13 +76,13 @@ The  `setFeature` method can be used to set `http://xml.org/sax/features/externa
 Except for the `Validator` class, where they have no effect at all.
 There is also `setExpandEntityReferences` that can be set to false and seems to have the same effect as disabling external general entities, based on our testing.
 
-### 2.C Overview of effect of security measures for each class
+### 2.C Overview of the effect of security measures for each class
 
 Summarizing security measures against XXE is not easy as not all security measures work for every class (as mentioned in section [2.B Security measures](#2b-security-measures)). The tables below this section can help you to choose the best security measures against a specific vulnerability.
 
 :::info Table legend
 - Each table represents one Java class. For example `DocumentBuilderFactory`.
-- Columns display attack payloads that can be used to exploit a vulnerability (for example dtd or XML Bomb).
+- Columns display attack payloads that can be potentially used to exploit a vulnerability (for example DTD or XML bomb).
 - Rows represent ways to configure the parsers.
 
 ✅ - Secure<br />
@@ -98,6 +92,7 @@ n/a - Not available
 :::
 
 #### DocumentBuilderFactory
+
 <font size="2">
 <table>
     <thead>
