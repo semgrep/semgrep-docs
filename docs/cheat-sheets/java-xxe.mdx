@@ -9,7 +9,7 @@ This is an XML External Entity (XXE) prevention cheat sheet by r2c. It contains 
 
 ## Mitigation Summary
 
-XML security in Java is not easy to summarize. The XML standard allows multiple ways to include external content, including but not limited to external Document Type Definitions (DTD), external Entity References to external data, general entity references, and external parameter references. There are also several ways to include external content in XML Schemas and stylesheets.
+It is not easy to summarize XML security in Java. The XML standard allows multiple ways to include external content, including but not limited to external Document Type Definitions (DTD), external Entity References to external data, general entity references, and external parameter references. There are also several ways to include external content in XML Schemas and stylesheets.
 
 The Java API for XML Processing (JAXP) contains multiple interfaces to process XML content. The Document Object Model (DOM) interface, the Simple API for XML (SAX) interface, and the Streaming API for XML (StAX) interface. Each of these interfaces has its mitigation measures to disable the use of different sources of external content. The inconsistency in availability and even the effect of these measures across the different APIs, combined with the variety of ways to include external content, makes it difficult to make a general recommendation. Many configurations that are secure for one parser are not secure for another.
 However, the following settings have a consistent effect on a subset of parsers
