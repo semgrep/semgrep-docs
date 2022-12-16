@@ -107,7 +107,7 @@ Filtering allows you to easily isolate groups of findings for ease in triaging a
 | **Actions**     | Filter by monitoring, commenting, or blocking rules in your Rule Board. |
 | **Confidences** | Filter by indication of the rule to detect true positives. The higher the confidence the more true positives the rule may detect.  |
 | **Categories**  |  Filter by various rule categories, such as security, or best practice rules. More than one category can be selected for filtering. |
-| **Branches**     | Filter by findings in different Git branches. More than one branch can be selected for filtering. |
+| **Branches**     | Filter by findings in different Git branches. |
 | **Rules**        | Filter by rules or rulesets that are included in your Rule Board. More than one rule can be selected for filtering. |
 | **Rulesets**     | Filter by name of the ruleset where rules that matched the code belong. More than one rule or ruleset can be selected for filtering. |
 
