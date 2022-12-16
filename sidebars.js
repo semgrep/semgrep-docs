@@ -150,6 +150,7 @@ module.exports = {
         collapsible: false,
         items: [
             'semgrep-app/getting-started-with-semgrep-app',
+            'semgrep-app/demo-project',
             'semgrep-app/scm',
             'semgrep-app/dashboard',
             'semgrep-app/rule-board',
@@ -212,7 +213,6 @@ module.exports = {
                   'writing-rules/experiments/extract-mode',
                   'writing-rules/experiments/project-depends-on',
                   'writing-rules/experiments/symbolic-propagation',
-                  'writing-rules/experiments/taint-propagators',
                   'writing-rules/experiments/taint-labels',
                   'writing-rules/experiments/multiple-focus-metavariables',
                   'writing-rules/experiments/display-propagated-metavariable',
@@ -255,6 +255,7 @@ module.exports = {
             {type: 'ref', id: 'release-notes/introduction', label: 'Release notes'},
             'release-notes/rule-updates',
             'security',
+            'licensing',
             'faq',
             {
               type: 'doc',
