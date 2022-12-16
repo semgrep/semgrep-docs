@@ -56,7 +56,7 @@ Thing.module_eval(%q{def hello() "#{user_input}" end})
 
 ### 1.B. Evaluating code with RubyVM::InstructionSequence
 
-The `InstructionSequence` class represents a compiled instructions for the Ruby Virtual Machine. See details in [RubyVM::InstructionSequence documentation](https://ruby-doc.org/core-2.6/RubyVM/InstructionSequence.html). The `RubyVM` class itself is **not** intended for regular users. As the `RubyVM` class enables compiling code it may not potentially be secure and can lead to code injection vulnerability if used with user input.
+The `InstructionSequence` class represents a compiled instructions for the Ruby Virtual Machine. See details in [RubyVM::InstructionSequence documentation](https://ruby-doc.org/core-2.6/RubyVM/InstructionSequence.html). The `RubyVM` class itself is **not** intended for regular users. As the `RubyVM` class enables compiling code it may not potentially be secure while used with user input. Using this class with user input can result in code injection vulnerability.
 
 Example:
 
