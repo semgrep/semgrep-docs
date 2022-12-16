@@ -119,7 +119,7 @@ To filter through findings:
 1. The page then refreshes to reflect the additional criteria.
 1. Optional: To futher refine your filter, select additional filters.
 
-#### Displaying findings reported in specific time
+#### Displaying findings reported in a specific time
 
 Display and filter for findings reported only in specific time. To display findings reported in a specific time, follow these steps:
 
