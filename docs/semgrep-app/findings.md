@@ -134,10 +134,17 @@ Display and filter for findings reported only in specific time. To display findi
 
 ### Grouping by rule
 
-Semgrep App enables you to group findings by a specific rule on the Findings page. To group findings by rules, follow these steps:
+Semgrep App enables you to group findings by a specific rule on the Findings page.
+
+![Screenshot of the Findings page with findings grouped by rule](/img/app-findings-overview-grouped-by-rule.png)<br />
+*Figure 3.* Screenshot of the Findings page with findings grouped by rule
+
+To group findings by rules, follow these steps:
 
 1. In Semgrep App, go to **[Findings](https://semgrep.dev/orgs/-/findings)** page.
-1. 
+1. Click the list under **View** stating **No grouping**, and then select **Group by Rule**.
+    ![Screenshot of the Group by Rule option](/img/app-finding-group-by-rule.png)<br />
+    *Figure 4.* Screenshot of the Group by Rule option.
 
 ## Triaging findings
 
@@ -153,7 +160,7 @@ The triage statuses are as follows:
 
 To manage, change, open or ignore findings, follow the the triage processes described below.
 ![Screenshot of Semgrep App triage menu](/img/app-findings-triage.png)<br />
-*Figure 3.* Findings page triage menu.
+*Figure 5.* Findings page triage menu.
 
 #### Ignoring findings
 
@@ -220,7 +227,7 @@ To **view and add comments** to history of a finding:
 1. Click the <i className="fa-regular fa-arrow-up-right-from-square inline_svg"></i> **Finding details** icon next to the finding’s status.
 2. Find the comments in the **History** section.
     ![Semgrep App finding details page](/img/app-finding-details.png)<br />
-    *Figure 4.* Findings details page.
+    *Figure 6.* Findings details page.
 
 ### Ignoring findings through comments
 
