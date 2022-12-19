@@ -44,10 +44,9 @@ exec(`cat *.js ${userInput}`, (error, stdout, stderr) => {
 
 - Always try to use internal JavaScript API (if it exists) instead of running an OS command. In other words, use internal language features instead of invoking commands that can be exploited.
 - Don’t pass user-controlled input or use an allowlist for inputs.
-- Avoid non-literal values for the command string.
-- Avoid running a shell as a command with arguments.
-- TODO __make these specific for each language with an exact specific array__ TODO If it is not possible, use an array with a sequence of program arguments instead of a single string.
-- Strip everything except alphanumeric characters from an input provided for the command string and arguments.
+- Avoid running a shell as a command with arguments. TODO add examples:
+- If it is not possible, use an array with a sequence of program arguments instead of a single string.
+- Avoid non-literal values for the command string. Strip everything except alphanumeric characters from an input provided for the command string and arguments.
 
 #### Semgrep rule
 
@@ -83,10 +82,9 @@ spawn("sh", ["-c", userInput])
 
 - Always try to use internal JavaScript API (if it exists) instead of running an OS command. In other words, use internal language features instead of invoking commands that can be exploited.
 - Don’t pass user-controlled input or use an allowlist for inputs.
-- Avoid non-literal values for the command string.
-- Avoid running a shell as a command with arguments.
-- TODO __make these specific for each language with an exact specific array__ TODO Define a list of allowed arguments.
-- Strip everything except alphanumeric characters from an input provided for the command string and arguments.
+- Avoid running a shell as a command with arguments. TODO add examples:
+- Define a list of allowed arguments.
+- Avoid non-literal values for the command string. Strip everything except alphanumeric characters from an input provided for the command string and arguments.
 
 #### Semgrep rule
 

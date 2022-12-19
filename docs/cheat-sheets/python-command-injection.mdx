@@ -61,7 +61,7 @@ Do not let user input into `subprocess` methods. Alternatively:
 - Don’t pass user-controlled input.
 - If it is not possible, use an array with a sequence of program arguments instead of a single string.
 - Use `shlex.split` to correctly parse a command string into an array and `shlex.quote` to correctly sanitize input as a command-line parameter.
-- Avoid running `sh` as a command with arguments. If it is not possible, strip everything except alphanumeric characters from an input provided for the command string and arguments.
+- Avoid running shell as a command with arguments. If it is not possible, strip everything except alphanumeric characters from an input provided for the command string and arguments.
 
 #### Semgrep rule
 
@@ -161,7 +161,7 @@ Do not let user input into `spawn` methods. Alternatively:
 - Always try to use an internal Python API (if it exists) instead of running an OS command.
 - Don’t pass user-controlled input.
 - Use `shlex.split` to correctly parse a command string into an array and `shlex.quote` to correctly sanitize input as a command-line parameter.
-- Avoid running `sh` as a command with arguments. If it’s not possible to avoid, strip everything except alphanumeric characters from an input provided for the command string and arguments.
+- Avoid running shell as a command with arguments. If it’s not possible to avoid, strip everything except alphanumeric characters from an input provided for the command string and arguments.
 
 #### Semgrep rule
 
@@ -196,7 +196,7 @@ Do not let user input into `exec` methods. Alternatively:
 - Always try to use internal an Python API (if it exists) instead of running an OS command.
 - Don’t pass user-controlled input.
 - Use `shlex.split` to correctly parse a command string into an array and `shlex.quote` to correctly sanitize input as a command-line parameter.
-- Avoid running `sh` as a command with arguments. If it’s not possible to avoid, strip everything except alphanumeric characters from an input provided for the command string and arguments.
+- Avoid running shell as a command with arguments. If it’s not possible to avoid, strip everything except alphanumeric characters from an input provided for the command string and arguments.
 
 #### Semgrep rule
 
@@ -314,7 +314,7 @@ Do not let user input into `asyncio subprocess` methods. Alternatively:
 - Always try to use an internal Python API (if it exists) instead of running an OS command.
 - Don’t pass user-controlled input.
 - Use `shlex.split` to correctly parse a command string into an array and `shlex.quote` to correctly sanitize input as a command-line parameter.
-- Avoid running `sh` as a command with arguments. If it’s not possible to avoid, strip everything except alphanumeric characters from an input provided for the command string and arguments.
+- Avoid running shell as a command with arguments. If it’s not possible to avoid, strip everything except alphanumeric characters from an input provided for the command string and arguments.
 
 #### Semgrep rule
 
