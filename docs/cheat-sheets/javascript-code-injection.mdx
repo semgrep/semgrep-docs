@@ -46,6 +46,7 @@ vm.compileFunction(code, [], { parsingContext: vm.createContext({ name: 'name' }
 
 // vulnerable
 let userInput = '1; while (true)
+```
 
 #### References
 
@@ -61,7 +62,7 @@ let userInput = '1; while (true)
 
 <LinkToRegistryRule ruleId="javascript.lang.security.audit.vm-injection.vm-runincontext-context-injection" />
 
-### 1.B. `eval()` or `new Function()`
+### 1.B. eval or new Function
 
 The `eval()` or `new Function()` function evaluates JavaScript code represented as a string. Executing JavaScript from a string is an enormous security risk. It is far too easy for a bad actor to run arbitrary code when you use `eval()` or `new Function()`.
 
