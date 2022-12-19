@@ -93,7 +93,7 @@ Refer to [Rule syntax](https://semgrep.dev/docs/writing-rules/rule-syntax/) for 
 
 Another method of creating rules is by **forking/copying** from existing rules found in Semgrep Registry. For example, Semgrep’s Java `crypto` ruleset prohibits the use of weak hashing algorithms `SHA-1` and `MD5`. An organization may want to further limit the use of other hash functions as part of their standards or security compliance. The next steps illustrate forking through copying an existing `use-of-sha1` rule and changing the rule to forbid MD2 hashes.
 
-1. Enter related terms into the search bar to find potential rules. In our example, this is `SHA1.` <div class="bordered">
+1. Enter related terms into the search bar to find potential rules. In our example, this is **use-of-sha**. <div class="bordered">
 ![Screenshot of Library pane with SHA1 filter](/img/editor-SHA1.png)</div>
 2. Registry rules cannot be edited directly. They can be **forked** by **right-clicking on their entry** in the Library and selecting **Fork rule.** <div class = "bordered">
 ![Screenshot of forking menu](/img/editor-forking.png) </div>
