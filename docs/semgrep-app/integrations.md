@@ -92,29 +92,37 @@ Here is a sample of an email sent from Semgrep with findings:
 
 ### Jira
 
+:::warning Deprecation notice
+Creating Jira tickets from Findings page has been deprecated. This feature may be reenabled in the future.
+:::
+
 Jira integration is a feature available in Semgrep's Team tier and above.
 
 This integration allows you to create Jira tickets directly from the **Findings** page with relevant information about a particular finding.
 
 To set up Jira integration:
 
-1. In **Integrations,** click **Add Integration**.
-2. Click on **Jira.**
-3. Enter a **Name** for the integration.
+1. Sign in to your Semgrep App account, and then go to **Settings** > **[Integrations](https://semgrep.dev/orgs/-/settings/integrations)**..
+2. 1. On the [Integrations](https://semgrep.dev/orgs/-/settings/integrations) page, click **Add Integration** (or **Setup First Integration** if this is your first integration), and then select **Jira.**
+3. Enter a **Name** of the integration.
 4. Enter the **email address** used for the Atlassian account.
 5. Enter your Atlassian **domain URL**.
-6. Enter your **Project key**. This is the prefix for tasks created within a project. Semgrep will create issues to the project identified here.
+6. Enter your **Project key**. This is the prefix for tasks created within a project. Semgrep creates issues to the project identified here.
 7. Enter the **Issue type.** This is the type of issue for Semgrep findings, for example, *Bug.*
-8. Enter the **API Token**. Tokens are generated through this link: [Manage API Tokens](https://support.atlassian.com/atlassian-account/docs/manage-api-tokens-for-your-atlassian-account).
+8. Enter the **API Token**.
+    - Generate the API token by following instructions in the **Create an API token** section in the following documentation: [Manage API Tokens](https://support.atlassian.com/atlassian-account/docs/manage-api-tokens-for-your-atlassian-account).
+    - Find existing API tokens in the [API Tokens](https://id.atlassian.com/manage-profile/security/api-tokens) page.
 9. Click **Save.**
 
-To create a Jira ticket from Semgrep:
+<!--- Commented out as this feature is no longer available TODO add and edit this section when Jira integration is back.
+
+To create a Jira ticket in Semgrep App:
 
 1. In **Findings**, click on the **three-dot icon** of the entry to create a Jira ticket for the finding.
 ![Creating a Jira ticket from the Findings page](/img/jira-findings-page.png)<br />
 2. Select **Create issue with `[YOUR_INTEGRATION_NAME]`**.
 ![Output of Jira integration](/img/jira-template.png)
-
+--->
 
 ### Webhooks
 

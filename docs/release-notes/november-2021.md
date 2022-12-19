@@ -23,7 +23,7 @@ In Semgrep CI, the option `--disable-nosem` now tags findings with the `is_ignor
 
 #### Method chaining
 
-Semgrep now supports method chaining patterns in Python, Golang, Ruby, and C#. ([#4300](https://github.com/returntocorp/semgrep/issues/4300))
+Semgrep now supports method chaining patterns in Python, Go, Ruby, and C#. ([#4300](https://github.com/returntocorp/semgrep/issues/4300))
 
 #### Scala
 
