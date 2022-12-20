@@ -146,7 +146,7 @@ The triage statuses are as follows:
 
 To manage, change, open or ignore findings, follow the the triage processes described below.
 ![Screenshot of Semgrep App triage menu](/img/app-findings-triage.png)<br />
-*Figure 5.* Findings page triage menu.
+*Figure 3.* Findings page triage menu.
 
 #### Ignoring findings
 
@@ -213,7 +213,7 @@ To **view and add comments** to history of a finding:
 1. Click the <i className="fa-regular fa-arrow-up-right-from-square inline_svg"></i> **Finding details** icon next to the finding’s status.
 2. Find the comments in the **History** section.
     ![Semgrep App finding details page](/img/app-finding-details.png)<br />
-    *Figure 6.* Findings details page.
+    *Figure 4.* Findings details page.
 
 ### Ignoring findings through comments
 
