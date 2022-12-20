@@ -65,6 +65,6 @@ DeepSemgrep is different from [join mode](/writing-rules/experiments/join-mode/o
 
 ### Future development of DeepSemgrep
 
-We’re excited to hear what’s on your mind. As users explore the limits of DeepSemgrep, we want to know what they’re failing to express. We believe that interfile type inference, constant propagation, and taint tracking combined allow users to express most restrictions on a program and enforce them quickly.
+We’re excited to hear what’s on your mind. As users explore the limits of DeepSemgrep, we want to know what they’re failing to express. We believe that interfile type inference, constant propagation, and taint tracking combined allow users to express most restrictions on a program and enforce them quickly. Let us know what you think about the results in the <a href="https://r2c.dev/slack">Community Slack</a>.
 
 <MoreHelp />
