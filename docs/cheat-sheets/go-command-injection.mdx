@@ -21,7 +21,7 @@ semgrep scan --config p/go-command-injection
 
 ### 1.A. running OS commands with exec.Command()
 
-The `Command` and `CommandContext` return the Cmd struct to execute the named program with the given arguments. If unverified user data can reach its call site, this may end up in a command injection vulnerability. Both `Command` and `CommandContext` have built-in protections that do not let command arguments cause trouble. But ensure that the command itself is not controlled by the user, also do not use `sh`, because internal protection does not work in this case.
+The `Command` and `CommandContext` execute commands with provided arguments. If unverified user data can reach its call site, this may end up in a command injection vulnerability. Both `Command` and `CommandContext` have built-in protections that do not let command arguments cause trouble. But ensure that the command itself is not controlled by the user, also do not use `sh`, because internal protection does not work in this case.
 
 Example:
 
