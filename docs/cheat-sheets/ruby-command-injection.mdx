@@ -89,8 +89,8 @@ open(user_input)
 - Do not let user input in `open` methods.
 - Always try to use internal Ruby API (if it exists) instead of running an OS command. In other words, use internal language features instead of invoking commands that can be exploited.
 - Don’t pass user-controlled input or use an allowlist for inputs.
-- Avoid running a shell as a command with arguments. TODO add for example:
 - Define a list of allowed arguments.
+- Strip everything except alphanumeric characters from an input provided for the command string and arguments.
 
 
 #### Semgrep rule
