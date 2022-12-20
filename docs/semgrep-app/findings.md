@@ -111,7 +111,7 @@ Filtering allows you to easily isolate groups of findings for ease in triaging a
 | **Rules**        | Filter by rules or rulesets that are included in your Rule Board. More than one rule can be selected for filtering. |
 | **Rulesets**     | Filter by name of the ruleset where rules that matched the code belong. More than one rule or ruleset can be selected for filtering. |
 
-You can also filter for findings reported from specific time periods or group findings by rule. See [Displaying findings reported in a specific time](/semgrep-app/findings/#displaying-findings-reported-in-a-specific-time).
+You can also filter for findings reported from specific time periods. See [Displaying findings reported in a specific time](/semgrep-app/findings/#displaying-findings-reported-in-a-specific-time).
 
 To filter through findings:
 
