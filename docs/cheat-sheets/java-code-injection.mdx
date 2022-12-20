@@ -9,6 +9,14 @@ import CodeInjectionIntro from "/src/components/concept/_code-injection-intro.md
 
 <CodeInjectionIntro />
 
+#### Check your project for these conditions:
+
+```bash
+semgrep scan --config="r/java.lang.security.audit.unsafe-reflection.unsafe-reflection"
+```
+
+---
+
 ## 1. Unsafe Reflection
 
 ### 1.A. Using unsafe reflection with user input in Class.forName

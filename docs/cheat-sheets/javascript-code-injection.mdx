@@ -9,6 +9,14 @@ import CodeInjectionIntro from "/src/components/concept/_code-injection-intro.md
 
 <CodeInjectionIntro />
 
+#### Check your project for these conditions:
+
+```bash
+semgrep scan --config="r/javascript.lang.security.audit.vm-injection.vm-runincontext-context-injection" --config="r/javascript.lang.security.detect-eval-with-expression.detect-eval-with-expression"
+```
+
+---
+
 ## 1. Executing or evaluating code
 
 ### 1.A. running code with VM module
