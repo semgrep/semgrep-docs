@@ -1,8 +1,15 @@
 name: Algolia scrape
 
 on:
+  workflow_dispatch:
+    inputs:
+      parameter:
+        description: Run from dispatch
   push:
-    branches: main
+    branches:
+      - main
+      - sara/mkt-480-update-algolia-scraper-and-config
+
 
 jobs:
   scrape:
@@ -25,4 +32,4 @@ jobs:
           docker run \
           -e APPLICATION_ID -e API_KEY \
           -e CONFIG="$(cat algolia-config.json)" \
-          algolia/docsearch-scraper:v1.15.0
+          algolia/docsearch-scraper:latest

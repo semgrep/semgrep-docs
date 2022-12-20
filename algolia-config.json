@@ -1,5 +1,5 @@
 {
-  "index_name": "docs",
+  "index_name": "mkt480_docs",
   "start_urls": [
     {
       "url": "https://semgrep.dev/docs/release-notes",
@@ -29,7 +29,7 @@
         "selector": "(//ul[contains(@class,'menu__list')]//a[contains(@class, 'menu__link menu__link--sublist menu__link--active')]/text() | //nav[contains(@class, 'navbar')]//a[contains(@class, 'navbar__link--active')]/text())[last()]",
         "type": "xpath",
         "global": true,
-        "default_value": "Documentation"
+        "default_value": "Semgrep documentation"
       },
       "lvl1": "header h1",
       "lvl2": "article h2",
