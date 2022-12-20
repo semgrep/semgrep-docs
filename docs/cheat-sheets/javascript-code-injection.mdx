@@ -63,8 +63,8 @@ let userInput = '1; while (true)
 #### Mitigation
 
 - Don't use the `vm` module for running untrusted code.
-- If you need to use the `vm` module functions with non-literal values, ensure that executed content is not controllable by external sources.
-- If it’s not possible, strip everything except alphanumeric characters from the input.
+- If you need to use functions of the `vm` module with non-literal values, ensure that executed content is not controllable by external sources.
+- If it's not possible, strip everything except alphanumeric characters from the input.
 
 #### Semgrep rule
 
@@ -86,13 +86,13 @@ var x = new Function(`return ${userInput}(a,b)`)
 
 #### References
 
-- [Never use eval()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/eval#never_use_eval!)
+- [Never use eval()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/eval#never_use_eval!) in MDN Web Docs documentation.
 
 #### Mitigation
 
 - Don't use `eval()` or `new Function()` if possible.
-- If you need to use `eval()` or `new Function()` with non literal values, ensure that executed content is not controllable by external sources.
-- If it’s not possible, strip everything except alphanumeric characters from the input.
+- If you need to use `eval()` or `new Function()` with non-literal values, ensure that executed content is not controllable by external sources.
+- If it's not possible, strip everything except alphanumeric characters from the input.
 
 #### Semgrep rule
 

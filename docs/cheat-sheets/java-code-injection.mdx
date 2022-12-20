@@ -21,7 +21,8 @@ semgrep scan --config="r/java.lang.security.audit.unsafe-reflection.unsafe-refle
 
 ### 1.A. Using unsafe reflection with user input in Class.forName
 
-The `Class.forName` function returns the `Class` object for the class or interface with the name as a string. If an attacker can supply values that the application then uses to determine which class to instantiate or which method to invoke. The attacker can instantiate classes that application developers did not intend. This can lead to unexpected behavior. For example, broken authentication that results in access to private data, or otherwise allow the attacker to obtain control of application behavior causing the application to behave in an unexpected manner.
+The `Class.forName` function returns the `Class` object for the class or interface with the name as a string. If an attacker supplies values that the application then uses to determine which class to instantiate or which method to invoke, the attacker can instantiate classes that the application developers did not intend. This can lead to unexpected behavior. For example, broken authentication that results in access to private data, or otherwise allow the attacker to obtain control of application behavior causing the application to behave in an unexpected manner.
+
 Example:
 
 ```java
@@ -35,7 +36,7 @@ Class<?> loadClass = Class.forName(userInput + ".AttackerThread");
 
 #### Mitigation
 
-- Try to avoid non-literal values in the first argument of `Class.forName()` such as for example `Class.forName(userInput + ".AttackerThread")`.
+- Try to avoid non-literal values in the first argument of `Class.forName()` such as `Class.forName(userInput + ".AttackerThread")`.
 - If it is not possible, use an allowlist for inputs.
 
 #### Semgrep rule

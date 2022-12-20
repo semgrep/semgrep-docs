@@ -21,7 +21,7 @@ semgrep scan --config p/ruby-command-injection
 
 ### 1.A. Evaluating code with `eval`
 
-Evaluating code can be dangerous if dynamic content is used as an input. If this input originates from outside the program, this can lead to a code injection vulnerability.
+Evaluating code can be dangerous if dynamic content is used as input. If this input originates from outside of the program it can lead to a code injection vulnerability.
 
 Examples:
 
@@ -55,7 +55,7 @@ Thing.module_eval(%q{def hello() "#{user_input}" end})
 #### Mitigation
 
 - Don't use `eval()`, `class_eval()`, `module_eval()`, or `instance_eval()` if possible.
-- If you need to use `eval()`, `class_eval()`, `module_eval()`, or `instance_eval()` with non literal values, ensure that executed content is not controllable by external sources.
+- If you need to use `eval()`, `class_eval()`, `module_eval()`, or `instance_eval()` with non-literal values, ensure that executed content is not controllable by external sources.
 - If it's not possible, strip everything except alphanumeric characters from the input.
 
 #### Semgrep rule
@@ -64,7 +64,7 @@ Thing.module_eval(%q{def hello() "#{user_input}" end})
 
 ### 1.B. Evaluating code with RubyVM::InstructionSequence
 
-The `InstructionSequence` class represents a compiled instructions for the Ruby Virtual Machine. See details in [RubyVM::InstructionSequence documentation](https://ruby-doc.org/core-2.6/RubyVM/InstructionSequence.html). The `RubyVM` class itself is **not** intended for regular users. As the `RubyVM` class enables compiling code it may not potentially be secure while used with user input. Using this class with user input can result in code injection vulnerability.
+An `InstructionSequence` class represents compiled instructions for the Ruby Virtual Machine. See details in [RubyVM::InstructionSequence documentation](https://ruby-doc.org/core-2.6/RubyVM/InstructionSequence.html). The `RubyVM` class itself is **not** intended for regular users. As the `RubyVM` class enables compiling code it may not potentially be secure while used with user input. Using this class with user input can result in code injection vulnerability.
 
 Example:
 
@@ -85,7 +85,7 @@ RubyVM::InstructionSequence.compile("a = 1 + #{user_input}")
 #### Mitigation
 
 - Don't use `RubyVM`, or `RubyVM::InstructionSequence` if possible.
-- If you need to use `RubyVM`, or `RubyVM::InstructionSequence` with non literal values and user input. Ensure that executed content is not controllable by external sources.
+- If you need to use `RubyVM`, or `RubyVM::InstructionSequence` with non-literal values and user input. Ensure that executed content is not controllable by external sources.
 
 #### Semgrep rule
 
