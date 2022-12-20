@@ -14,13 +14,18 @@ It is not easy to summarize XML security in Java. The XML standard allows multip
 The Java API for XML Processing (JAXP) contains multiple interfaces to process XML content. The Document Object Model (DOM) interface, the Simple API for XML (SAX) interface, and the Streaming API for XML (StAX) interface. Each of these interfaces has its mitigation measures to disable the use of different sources of external content. The inconsistency in availability and even the effect of these measures across the different APIs, combined with the variety of ways to include external content, makes it difficult to make a general recommendation. Many configurations that are secure for one parser are not secure for another.
 However, the following settings have a consistent effect on a subset of parsers
 
-- For `DocumentBuilderFactory`. `SAXBuilder`, `SAXParser`, `SAXReader`, and `XMLReader` use:
+- For `SAXBuilder`, `SAXParser`, and `XMLReader` use:
+    ```java
+    setAttribute(XMLConstants.ACCESS_EXTERNAL_DTD, "");
     ```
-    setFeature(http://apache.org/xml/features/disallow-doctype-decl, true);
-    ```
-- For `SAXTransformer`, `SchemaFactory`, and `Validator` use:
-    ```
+- For `DocumentBuilderFactory`, `TransformerFactory`, `SAXTransformer`, `SchemaFactory`, and `Validator` use:
+    ```java
     setFeature(XMLConstants.FEATURE_SECURE_PROCESSING, true);
+    ```
+- For `SAXReader` the only secure configuration is:
+    ```java
+    setFeature("http://apache.org/xml/features/<b>disallow-doctype-decl", true);
+
     ```
 
 The complete [Semgrep ruleset](https://semgrep.dev/r?q=java.lang.security.xxe&lang=Java) for this cheatsheet is available as part of the rules available in the Teams tier. This ruleset includes rules to verify these settings as well as several other combinations that are secure.
@@ -32,7 +37,7 @@ The complete [Semgrep ruleset](https://semgrep.dev/r?q=java.lang.security.xxe&la
 Exponential entity expansion occurs when there are several layers of nested entities that reference several other entities.
 See an example of such a payload, called also an XML bomb, in [r2c's research project on GitHub](https://github.com/returntocorp/java-xxe-research/blob/main/payloads-new/xml-attacks/xml-bomb.xml).
 
-When a document containing an XML bomb is parsed, the parser expands each of the nested references. Consequently, this expansion becomes exponential leading to excessive use of resources and denial-of-service (DoS).
+When a document containing an XML bomb is parsed, the parser expands each of the nested references. Consequently, this expansion becomes exponential leading to excessive use of resources and Denial-of-Service (DoS).
 We found that in Java, the JDK throws an exception when such excessive use of resources is detected. 
 Using this exception, if it is carefully caught and handled, the attack can be prevented. In such a case, no explicit security measures need to be taken. This is the case for all recent versions of Java (17, 18, 19) and all older versions with long-term support (8, 11).
 
@@ -72,7 +77,7 @@ The effects on security, however, are often limited, with no observed effect for
 
 #### Disabling external entities
 
-The  `setFeature` method can be used to set `http://xml.org/sax/features/external-general-entities` and `http://xml.org/sax/features/external-parameter-entities` to false. For the classes where these features are available, the combination of these two protects the parser against all of the tested payloads!
+The  `setFeature` method can be used to set `http://xml.org/sax/features/external-general-entities` and `http://xml.org/sax/features/external-parameter-entities` to `false`. For the classes where these features are available, the combination of these two protects the parser against all of the tested payloads!
 Except for the `Validator` class, where they have no effect at all.
 There is also `setExpandEntityReferences` that can be set to false and seems to have the same effect as disabling external general entities, based on our testing.
 
@@ -92,6 +97,8 @@ N/A - Not available
 :::
 
 #### DocumentBuilderFactory
+
+[`javax.xml.parsers.DocumentBuilderFactory`](https://docs.oracle.com/javase/7/docs/api/javax/xml/parsers/DocumentBuilderFactory.html) can be used to process all payload types. By default it is vulnerable against 4 of the attack payloads.
 
 <font size="2">
 <table>
@@ -366,6 +373,8 @@ N/A - Not available
 
 #### SAXBuilder
 
+[`org.jdom2.input.SAXBuilder`](http://www.jdom.org/docs/apidocs/org/jdom2/input/SAXBuilder.html) can process all 10 payloads. In the default configuration it is vulnerable for 4 of the attack payloads.
+
 <font size="2">
 <table>
     <thead>
@@ -592,6 +601,7 @@ N/A - Not available
 </font>
 
 #### SAXParserFactory
+[`javax.xml.parsers.SAXParserFactory`](https://docs.oracle.com/javase/7/docs/api/javax/xml/parsers/SAXParserFactory.html) can process all 10 attack payloads. Its default configuration is vulnerable to 4 of the attack payloads.
 
 <font size="2">
 <table>
@@ -864,6 +874,7 @@ N/A - Not available
 </font>
 
 #### SAXParser
+[`javax.xml.parsers.SAXParser`](https://docs.oracle.com/javase/7/docs/api/javax/xml/parsers/SAXParser.html) can process all 10 payloads. Its default configuration is vulnerable to 4 attack payloads.
 
 <font size="2">
 <table>
@@ -975,6 +986,7 @@ N/A - Not available
 </font>
 
 #### SAXReader
+[`org.dom4j.io.SAXReader`](https://dom4j.github.io/javadoc/2.0.1/org/dom4j/io/SAXReader.html) can process all 10 payloads. Its default configuration is vulnerable to 4 of the attack payloads.
 
 <font size="2">
 <table>
@@ -1264,7 +1276,8 @@ N/A - Not available
 
 #### TransformerFactory & SAXTransformerFactory
 
-These classes are not able to process XML Schema Definition (XSD) payloads.
+[`javax.xml.transform.TransformerFactory`](https://docs.oracle.com/javase/7/docs/api/javax/xml/transform/TransformerFactory.html) and [`javax.xml.transform.sax.SAXTransformerFactory`](https://docs.oracle.com/javase/7/docs/api/javax/xml/transform/sax/SAXTransformerFactory.html) 
+are not able to process XML Schema Definition (XSD) payloads. Out of the 7 payloads they can process, the default configurations parses 6 payloads insecurely.
 
 <font size="2">
 <table>
@@ -1353,7 +1366,8 @@ These classes are not able to process XML Schema Definition (XSD) payloads.
 
 #### SchemaFactory 
 
-This class is unable to process XML Stylesheet Language (XSL) documents.
+[`javax.xml.validation.SchemaFactory`](https://docs.oracle.com/javase/7/docs/api/javax/xml/validation/SchemaFactory.html) is unable to process XML Stylesheet Language (XSL) documents.
+Out of the 6 payloads it can process, the default configuration is vulnerable to 5 of them.
 
 <font size="2">
 <table>
@@ -1447,7 +1461,8 @@ This class is unable to process XML Stylesheet Language (XSL) documents.
 
 #### Validator 
 
-Validators can only process XML documents, not XSL or XSD.
+[`javax.xml.validation.Validator`](https://docs.oracle.com/javase/7/docs/api/javax/xml/validation/Validator.html) can only process XML documents, not XSL or XSD. 
+Out of the 3 attack payloads it can process, the default configuration is vulnerable to 2 of them.
 
 <font size="2">
 <table>
@@ -1535,6 +1550,8 @@ Validators can only process XML documents, not XSL or XSD.
 </font>
 
 #### XMLReader 
+[`org.xml.sax.XMLReader`](https://docs.oracle.com/javase/7/docs/api/org/xml/sax/XMLReader.html) can process all 10 payloads.
+The default configuration is vulnerable to 4 of the attack payloads.
 
 <font size="2">
 <table>
