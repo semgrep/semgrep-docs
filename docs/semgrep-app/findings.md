@@ -102,13 +102,7 @@ Filtering allows you to easily isolate groups of findings for ease in triaging a
 | Filter      | Description  |
 | ----------  | ------------ |
 | **Projects**     | Filter by repositories connected to Semgrep App. |
-| **Projects**     | Filter by repositories connected to Semgrep App. |
 | **Status**       | Filter for different findings triage states. Refer to the [following table](#triaging-findings) to understand triage states. |
-| **Severities**    | Filter by the severity of a finding. Possible values: <ul><li>Low</li><li>Medium</li><li>High</li></ul> |
-| **Actions**     | Filter by monitoring, commenting, or blocking rules in your Rule Board. |
-| **Confidences** | Filter by indication of the rule to detect true positives. The higher the confidence the more true positives the rule may detect.  |
-| **Categories**  |  Filter by various rule categories, such as security, or best practice rules. More than one category can be selected for filtering. |
-| **Branches**     | Filter by findings in different Git branches. |
 | **Severities**    | Filter by the severity of a finding. Possible values: <ul><li>Low</li><li>Medium</li><li>High</li></ul> |
 | **Actions**     | Filter by monitoring, commenting, or blocking rules in your Rule Board. |
 | **Confidences** | Filter by indication of the rule to detect true positives. The higher the confidence the more true positives the rule may detect.  |
@@ -252,7 +246,7 @@ To triage a finding in GitHub, follow these steps:
 
 1. Find an open comment created by Semgrep App in GitHub PR:
     ![Screenshot of Semgrep App comment in GitHub](/img/semgrep-app-comment-github.png)<br />
-    *Figure 5.* Screenshot of Semgrep App comment in GitHub.
+    *Figure 7.* Screenshot of Semgrep App comment in GitHub.
 2. In the comment, reply with:
     <pre><code>
     /semgrep ignore <span className="placeholder">&lt;reason&gt;</span>
