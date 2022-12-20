@@ -115,9 +115,8 @@ You can also filter for findings reported from specific time periods or group fi
 
 To filter through findings:
 
-1. Click the filter criteria.
-1. The page then refreshes to reflect the additional criteria.
-1. Optional: To futher refine your filter, select additional filters.
+1. Click the filter criteria. The page then refreshes to reflect the additional criteria.
+1. Optional: To further refine your filter, select additional filters.
 
 #### Displaying findings reported in a specific time
 
