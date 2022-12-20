@@ -19,9 +19,9 @@ semgrep scan --config p/go-command-injection
 
 ## 1. Running an OS command
 
-### 1.A. running OS commands with **exec.Command()**
+### 1.A. running OS commands with exec.Command()
 
-`Command` and `CommandContext` return the Cmd struct to execute the named program with the given arguments. If unverified user data can reach its call site, this may end up in a command injection vulnerability. Both `Command` and `CommandContext` have built-in protections that do not let command arguments cause trouble. But ensure that the command itself is not controlled by the user, also do not use `sh`, because internal protection does not work in this case.
+The `Command` and `CommandContext` return the Cmd struct to execute the named program with the given arguments. If unverified user data can reach its call site, this may end up in a command injection vulnerability. Both `Command` and `CommandContext` have built-in protections that do not let command arguments cause trouble. But ensure that the command itself is not controlled by the user, also do not use `sh`, because internal protection does not work in this case.
 
 Example:
 
@@ -70,7 +70,7 @@ Do not let user input in `exec.Command` and `exec.CommandContext` functions. Alt
 
 <LinkToRegistryRule ruleId="go.lang.security.audit.dangerous-exec-command.dangerous-exec-command" />
 
-### 1.B. Creating **exec.Cmd** struct
+### 1.B. Creating exec.Cmd struct
 
 `Cmd` represents an external command being prepared or run. If unverified user data can reach its call site, this may end up in a command injection vulnerability. Make sure that the command path and first argument are not controlled by the user, also do not use `sh`, because internal protection does not work in this case.
 
@@ -180,10 +180,10 @@ Do not let user input in command's `StdinPipe`. Alternatively:
 
 <LinkToRegistryRule ruleId="go.lang.security.audit.dangerous-command-write.dangerous-command-write" />
 
-### 1.D. running OS commands with **syscall.Exec()**
+### 1.D. running OS commands with syscall.Exec()
 
 
-`Exec`/`ForkExec` invokes the execve(2) system call. If unverified user data can reach it's call site, this is a command injection vulnerability. Make sure that the command is not controlled by the user, also do not run `sh` with any possibility of user input involved in command arguments.
+`Exec`or `ForkExec` invokes the execve(2) system call. If unverified user data can reach its call site, this is a command injection vulnerability. Make sure that the command is not controlled by the user, also do not run `sh` with any possibility of user input involved in command arguments.
 
 Example:
 
