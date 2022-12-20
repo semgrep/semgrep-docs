@@ -45,7 +45,8 @@ Runtime.getRuntime().exec("bash", "-c", input);
 #### Mitigation
 
 - Always try to use internal Java API (if it exists) instead of running an OS command. In other words, use internal language features instead of invoking commands that can be exploited.
-- Avoid running a shell as a command with arguments, if it is not possible, then strip the input of everything except alphanumeric characters provided for the command string and arguments.
+- Avoid running a shell as a command with arguments, e.g. `Runtime.getRuntime().exec("bash", "-c", userInput)`
+- If it is not possible, then strip the input of everything except alphanumeric characters provided for the command string and arguments.
 - Try to avoid non-literal values for the command string, such as `Runtime.getRuntime().exec("bash", "-c", input)` in the example above. Do not use `input` and similar functions.
 - If it is not possible, then do not let running arbitrary commands, use an allowlist for inputs.
 - Strip `!@#$;&*~"'{}][-+%^` characters from an input provided for command string. 
