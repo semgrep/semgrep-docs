@@ -111,7 +111,7 @@ Filtering allows you to easily isolate groups of findings for ease in triaging a
 | **Rules**        | Filter by rules or rulesets that are included in your Rule Board. More than one rule can be selected for filtering. |
 | **Rulesets**     | Filter by name of the ruleset where rules that matched the code belong. More than one rule or ruleset can be selected for filtering. |
 
-You can also filter for findings reported from specific time periods or group findings by rule. See [Displaying findings reported in a specific time](/semgrep-app/findings/#displaying-findings-reported-in-a-specific-time) and [Group by rule](/semgrep-app/findings/#grouping-by-rule) sections.
+You can also filter for findings reported from specific time periods or group findings by rule. See [Displaying findings reported in a specific time](/semgrep-app/findings/#displaying-findings-reported-in-a-specific-time).
 
 To filter through findings:
 
@@ -132,13 +132,6 @@ Display and filter for findings reported only in specific time. To display findi
     - Last 7 days
     - Last 1 day
 
-### Grouping by rule
-
-Semgrep App enables you to group findings by a specific rule on the Findings page. To group findings by rules, follow these steps:
-
-1. In Semgrep App, go to **[Findings](https://semgrep.dev/orgs/-/findings)** page.
-1. 
-
 ## Triaging findings
 
 **Triaging** means prioritizing a finding based on a policy or criteria set by your team or organization. While severity is a factor in triage, your organization may define additional criteria based on coding standards, business, or product goals.
@@ -153,7 +146,7 @@ The triage statuses are as follows:
 
 To manage, change, open or ignore findings, follow the the triage processes described below.
 ![Screenshot of Semgrep App triage menu](/img/app-findings-triage.png)<br />
-*Figure 3.* Findings page triage menu.
+*Figure 5.* Findings page triage menu.
 
 #### Ignoring findings
 
@@ -220,7 +213,7 @@ To **view and add comments** to history of a finding:
 1. Click the <i className="fa-regular fa-arrow-up-right-from-square inline_svg"></i> **Finding details** icon next to the finding’s status.
 2. Find the comments in the **History** section.
     ![Semgrep App finding details page](/img/app-finding-details.png)<br />
-    *Figure 4.* Findings details page.
+    *Figure 6.* Findings details page.
 
 ### Ignoring findings through comments
 
