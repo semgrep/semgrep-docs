@@ -61,7 +61,7 @@ Do not let user input into `subprocess` methods. Alternatively:
 - Don’t pass user-controlled input.
 - If it is not possible, use an array with a sequence of program arguments instead of a single string.
 - Use `shlex.split` to correctly parse a command string into an array and `shlex.quote` to correctly sanitize input as a command-line parameter.
-- Avoid running shell as a command with arguments, e.g. `subprocess.run(["bash", "-c", user_input])`
+- Avoid running shell as a command with arguments. For example: `subprocess.run(["bash", "-c", user_input])` TODO specify
 - If it is not possible, strip everything except alphanumeric characters from an input provided for the command string and arguments.
 
 #### Semgrep rule
@@ -162,7 +162,7 @@ Do not let user input into `spawn` methods. Alternatively:
 - Always try to use an internal Python API (if it exists) instead of running an OS command.
 - Don’t pass user-controlled input.
 - Use `shlex.split` to correctly parse a command string into an array and `shlex.quote` to correctly sanitize input as a command-line parameter.
-- Avoid running shell as a command with arguments, e.g. `os.spawnve(os.P_WAIT, "/bin/bash", ["-c", user_input], os.environ)`
+- Avoid running shell as a command with arguments. For example: `os.spawnve(os.P_WAIT, "/bin/bash", ["-c", user_input], os.environ)` TODO specify
 - If it’s not possible to avoid, strip everything except alphanumeric characters from an input provided for the command string and arguments.
 
 #### Semgrep rule
@@ -196,10 +196,10 @@ os.execve("/bin/bash", ["/bin/bash", "-c", user_input], os.environ)
 Do not let user input into `exec` methods. Alternatively:
 
 - Always try to use internal an Python API (if it exists) instead of running an OS command.
-- Don’t pass user-controlled input.
+- Don't pass user-controlled input.
 - Use `shlex.split` to correctly parse a command string into an array and `shlex.quote` to correctly sanitize input as a command-line parameter.
-- Avoid running shell as a command with arguments, e.g. `os.execve("/bin/bash", ["/bin/bash", "-c", user_input], os.environ)`
-- If it’s not possible to avoid, strip everything except alphanumeric characters from an input provided for the command string and arguments.
+- Avoid running shell as a command with arguments. For example: `os.execve("/bin/bash", ["/bin/bash", "-c", user_input], os.environ)` TODO specify
+- If it's not possible to avoid, strip everything except alphanumeric characters from an input provided for the command string and arguments.
 
 #### Semgrep rule
 
@@ -272,9 +272,9 @@ asyncio.subprocess.create_subprocess_shell(user_input)
 Do not let user input into `asyncio subprocess` methods. Alternatively:
 
 - Always try to use an internal Python API (if it exists) instead of running an OS command.
-- Consider using asyncio.subprocess functions with array of program arguments (e.g. `create_subprocess_exec`).
-- Don’t pass user-controlled input.
-- If it’s not possible, then don’t let running arbitrary commands. Use an allowlist for inputs.
+- Consider using `asyncio.subprocess` functions with array of program arguments (for example: `create_subprocess_exec`).
+- Don't pass user-controlled input.
+- If it's not possible, then don't let running arbitrary commands. Use an allowlist for inputs.
 
 #### Semgrep rule
 
@@ -315,10 +315,10 @@ loop.subprocess_exec(asyncio.SubprocessProtocol, ['ls', '-l', user_input])
 Do not let user input into `asyncio subprocess` methods. Alternatively:
 
 - Always try to use an internal Python API (if it exists) instead of running an OS command.
-- Don’t pass user-controlled input.
+- Don't pass user-controlled input.
 - Use `shlex.split` to correctly parse a command string into an array and `shlex.quote` to correctly sanitize input as a command-line parameter.
-- Avoid running shell as a command with arguments, e.g. `asyncio.subprocess.create_subprocess_exec("bash", ["bash", "-c", user_input])`
-- If it’s not possible to avoid, strip everything except alphanumeric characters from an input provided for the command string and arguments.
+- Avoid running shell as a command with arguments. For example: `asyncio.subprocess.create_subprocess_exec("bash", ["bash", "-c", user_input])` TODO specify
+- If it's not possible to avoid, strip everything except alphanumeric characters from an input provided for the command string and arguments.
 
 #### Semgrep rule
 

@@ -19,9 +19,9 @@ semgrep scan --config p/java-command-injection
 
 ## 1. Running an OS command
 
-### 1.A. Running OS commands with `Runtime.getRuntime().exec()`
+### 1.A. Running OS commands with Runtime.getRuntime().exec()
 
-`exec` executes the specified string command in a separate process. This is dangerous if a command string is controlled by user input and could result in a command injection.
+The `exec` executes the specified string command in a separate process. This is dangerous if a command string is controlled by user input and could result in a command injection.
 
 Example:
 
@@ -37,6 +37,7 @@ r.exec("some_tool -t param1 param2 " + input);
 // Vunerable
 String input = "cat /etc/passwd"; // value supplied by user input
 Runtime.getRuntime().exec("bash", "-c", input);
+```
 
 #### References
 
@@ -45,7 +46,7 @@ Runtime.getRuntime().exec("bash", "-c", input);
 #### Mitigation
 
 - Always try to use internal Java API (if it exists) instead of running an OS command. In other words, use internal language features instead of invoking commands that can be exploited.
-- Avoid running a shell as a command with arguments, e.g. `Runtime.getRuntime().exec("bash", "-c", userInput)`
+- Avoid running a shell as a command with arguments. For example `Runtime.getRuntime().exec("bash", "-c", userInput)` TODO specify
 - If it is not possible, then strip the input of everything except alphanumeric characters provided for the command string and arguments.
 - Try to avoid non-literal values for the command string, such as `Runtime.getRuntime().exec("bash", "-c", input)` in the example above. Do not use `input` and similar functions.
 - If it is not possible, then do not let running arbitrary commands, use an allowlist for inputs.
@@ -83,11 +84,15 @@ builder.command(input);
 
 - Try to avoid non-literal values for the command string.
 - If it is not possible, then do not let running arbitrary commands, use an allowlist for inputs.
-- Do not put command arguments in a command string, use parameterization instead.
-    use:
-    `new ProcessBuilder("/path/to/myCommand", "myArg1", inputValue);`
-    instead of:
-    `new ProcessBuilder("bash", "-c", "myCommand myArg1 " + inputValue);`
+- Do not include command arguments in a command string, use parameterization instead. For example:<br />
+    Use:
+    ```java
+    new ProcessBuilder("/path/to/myCommand", "myArg1", inputValue);
+    ```
+    Instead of:
+    ```java
+    new ProcessBuilder("bash", "-c", "myCommand myArg1 " + inputValue);
+    ```
 
 #### Semgrep rule
 

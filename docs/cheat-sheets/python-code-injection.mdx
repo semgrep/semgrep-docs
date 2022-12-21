@@ -21,7 +21,7 @@ semgrep scan --config p/python-command-injection
 
 ### 1.A. Executing code with exec
 
-An `exec()` function supports the dynamic execution of Python code. The `exec()` function can be dangerous if it is used to execute dynamic content (non-literal content). If this dynamic content has an input controllable by a user, it can cause a code injection vulnerability.
+The `exec()` function supports the dynamic execution of Python code. The `exec()` function can be dangerous if it is used to execute dynamic content (non-literal content). If this dynamic content has an input controllable by a user, it can cause a code injection vulnerability.
 
 Example:
 
@@ -51,7 +51,7 @@ Do not use `exec()` for non-literal values. Alternatively:
 
 ### 1.B. Evaluating code with eval
 
-An `eval()` function supports the dynamic execution of Python code. The `eval()` can be dangerous if it is used to execute dynamic content (non-literal content). If this dynamic content has an input controllable by a user, it can cause a code injection vulnerability.
+The `eval()` function supports the dynamic execution of Python code. The `eval()` can be dangerous if it is used to execute dynamic content (non-literal content). If this dynamic content has an input controllable by a user, it can cause a code injection vulnerability.
 
 Example:
 
@@ -81,7 +81,7 @@ Do not use `eval()`. Alternatively:
 
 ### 1.C. Accepting logging configuration with logging.config.listen()
 
-A `logging.config.listen()` function starts a socket server on the specified port, and listens for new configurations.
+The `logging.config.listen()` function starts a socket server on the specified port, and listens for new configurations.
 As the `logging.config.listen()` configuration is passed through `eval()`, the use of this function can lead to a security risk.
 While the function only binds to a socket on localhost, and so does not accept connections from remote machines, there are scenarios where untrusted code can potentially run under the account of the process which calls `listen()`.
 
@@ -149,7 +149,7 @@ s.close()
 
 ### 1.D. Running code in an interactive interpreter
 
-A `code` module provides read-eval-print loops in Python. Two classes are included to provide interactive prompts, the `InteractiveInterpreter` and the `InteractiveConsole`. Both methods can execute Python code: `InteractiveInterpreter.runcode` executes a code object and `InteractiveConsole.push` interprets a string as Python code. This is dangerous if external data reaches these function calls as it allows a malicious actor to run arbitrary Python code.
+The `code` module provides read-eval-print loops in Python. Two classes are included to provide interactive prompts, the `InteractiveInterpreter` and the `InteractiveConsole`. Both methods can execute Python code: `InteractiveInterpreter.runcode` executes a code object and `InteractiveConsole.push` interprets a string as Python code. This is dangerous if external data reaches these function calls as it allows a malicious actor to run arbitrary Python code.
 
 Example:
 
@@ -186,7 +186,7 @@ Do not let the user input in `InteractiveInterpreter` or `InteractiveConsole` me
 
 ### 1.E. Using subinterpreter to run code
 
-An `_xxsubinterpreters.run_string` is an internal Python function that interprets the string as Python code. This causes a code injection vulnerability when unverified user data reaches `run_string`. A malicious actor can inject a malicious string to execute arbitrary Python code.
+The `_xxsubinterpreters.run_string` is an internal Python function that interprets the string as Python code. This causes a code injection vulnerability when unverified user data reaches `run_string`. A malicious actor can inject a malicious string to execute arbitrary Python code.
 
 Example:
 
@@ -217,7 +217,7 @@ Do not let user input in `_xxsubinterpreters` methods. Alternatively:
 
 ### 1.F. Running subinterpreter from regression tests package
 
-A `run_in_subinterp` is a function from a Python regression tests package (`test`) that runs code in a subinterpreter. This is dangerous if external data reaches the `run_in_subinterp` function call because it allows a malicious actor to run arbitrary Python code.
+The `run_in_subinterp` is a function from a Python regression tests package (`test`) that runs code in a subinterpreter. This is dangerous if external data reaches the `run_in_subinterp` function call because it allows a malicious actor to run arbitrary Python code.
 
 Example:
 
@@ -259,7 +259,7 @@ Do not let user input in `run_in_subinterp` function. Alternatively:
 
 ### 2.A. Accessing dictionary with current global or local symbol table
 
-`globals()` and `locals()` return a dictionary representing the current global or local symbol table. Using non-static data to retrieve values from this table is extremely dangerous because it can allow an attacker to execute arbitrary code on the system. 
+The `globals()` and `locals()` return a dictionary representing the current global or local symbol table. Using non-static data to retrieve values from this table is extremely dangerous because it can allow an attacker to execute arbitrary code on the system. 
 
 Example:
 
@@ -295,7 +295,7 @@ Do not access global or local symbol tables. Refactor your code not to use `glob
 
 ### 2.B. Dynamically updating and accessing code annotations
 
-Annotations passed to `typing.get_type_hints()` are evaluated in `globals` and `locals` namespaces. Ensure that no arbitrary value can be written as the annotation and passed to the `typing.get_type_hints` function.
+Annotations passed to the `typing.get_type_hints()` function are evaluated in `globals` and `locals` namespaces. Ensure that no arbitrary value can be written as the annotation and passed to the `typing.get_type_hints` function.
 
 Example:
 
