@@ -54,7 +54,7 @@ Open3.pipeline("zcat #{user_input}”, "nroff -man", "colcrt")
 
 #### Mitigation
 
-- Do not let user input in `Open3` methods.
+- Do not let a user input in `Open3` methods.
 - Always try to use internal Ruby API (if it exists) instead of running an OS command. In other words, use internal language features instead of invoking commands that can be exploited.
 - Don’t pass user-controlled input or use an allowlist for inputs.
 - Avoid running a shell as a command with arguments. For example: `Open3.pipeline(["bash", "-c", user_input])` TODO specify
@@ -86,7 +86,7 @@ open(user_input)
 
 #### Mitigation
 
-- Do not let user input in `open` methods.
+- Do not let a user input in `open` methods.
 - Always try to use internal Ruby API (if it exists) instead of running an OS command. In other words, use internal language features instead of invoking commands that can be exploited.
 - Don’t pass user-controlled input or use an allowlist for inputs.
 - Define a list of allowed arguments.

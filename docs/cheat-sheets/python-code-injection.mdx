@@ -206,7 +206,7 @@ _xxsubinterpreters.run_string(_xxsubinterpreters.create(), user_input)
 
 #### Mitigation
 
-Do not let user input in `_xxsubinterpreters` methods. Alternatively:
+Do not let a user input in `_xxsubinterpreters` methods. Alternatively:
 
 - Ensure that content that Python interprets is not controllable by external sources.
 - If it’s not possible, strip everything except alphanumeric characters from the input.
@@ -246,7 +246,7 @@ support.run_in_subinterp(user_input)
 
 #### Mitigation
 
-Do not let user input in `run_in_subinterp` function. Alternatively:
+Do not let a user input in `run_in_subinterp` function. Alternatively:
 
 - Ensure that content that Python interprets is not controllable by external sources.
 - If it's not possible, strip everything except alphanumeric characters from the input.

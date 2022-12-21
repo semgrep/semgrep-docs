@@ -19,7 +19,7 @@ semgrep scan --config p/python-command-injection
 
 ## 1. Running an OS command
 
-### 1.A. Using **subprocess** module
+### 1.A. Using the subprocess module
 
 The `subprocess` module allows you to start new processes, connect to their input/output/error pipes, and obtain their return codes. Methods such as `Popen`, `run`, `call`, `check_call`, `check_output` are intended for running commands provided as an argument. Allowing user input in a command that is passed as an argument to one of these methods can create an opportunity for a command injection vulnerability.
 
@@ -55,10 +55,10 @@ subprocess.check_output('ls -l dir/')
 
 #### Mitigation
 
-Do not let user input into `subprocess` methods. Alternatively:
+Do not let a user input into `subprocess` methods. Alternatively:
 
 - Always try to use internal Python API (if it exists) instead of running an OS command. In other words, use internal language features instead of invoking commands that can be exploited.
-- Don’t pass user-controlled input.
+- Don't pass user-controlled input.
 - If it is not possible, use an array with a sequence of program arguments instead of a single string.
 - Use `shlex.split` to correctly parse a command string into an array and `shlex.quote` to correctly sanitize input as a command-line parameter.
 - Avoid running shell as a command with arguments. For example: `subprocess.run(["bash", "-c", user_input])` TODO specify
@@ -68,9 +68,9 @@ Do not let user input into `subprocess` methods. Alternatively:
 
 <LinkToRegistryRule ruleId="python.lang.security.audit.dangerous-subprocess-use" />
 
-### 1.B. **shell=True**
+### 1.B. shell=True
 
-Functions from `subprocess` module have the `shell` argument for specifying if the command should be executed through the shell.
+Functions from the `subprocess` module have the `shell` argument for specifying if the command should be executed through the shell.
 Using `shell=True` is dangerous because it propagates current shell settings and variables.
 This means that variables, glob patterns, and other special shell features in the command string are processed before the command is run,
 making it much easier for a malicious actor to execute commands. The `subprocess` module allows you to start new processes, connect to their input/output/error pipes, and obtain their return codes. Methods such as `Popen`, `run`, `call`, `check_call`, `check_output` are intended for running commands provided as an argument ('args'). Allowing user input in a command that is passed as an argument to one of these methods can create an opportunity for a command injection vulnerability.
@@ -98,7 +98,7 @@ Avoid using `shell=True`. Alternatively, use `shell=False` instead.
 
 <LinkToRegistryRule ruleId="python.lang.security.audit.subprocess-shell-true" />
 
-### 1.C. Using **os** module to execute commands
+### 1.C. Using os module to execute commands
 
 The `os` module provides a portable way of using operating system dependent functionality. Methods such as `system`, `popen` and deprecated `popen2`, `popen3` and `popen4` are intended for running commands provided as a string. Letting user supplied data into a command that is passed as an argument to one of these methods can create an opportunity for a command injection vulnerability.
 
@@ -122,7 +122,7 @@ os.popen("ls -l " + user_input)
 
 #### Mitigation
 
-Do not let user input into `os` methods. Alternatively:
+Do not let a user input into `os` methods. Alternatively:
 
 - Always try to use an internal Python API (if it exists) instead of running an OS command.
 - Consider using `subprocess` functions with array of program arguments.
@@ -133,7 +133,7 @@ Do not let user input into `os` methods. Alternatively:
 
 <LinkToRegistryRule ruleId="python.lang.security.audit.dangerous-system-call" />
 
-### 1.D. Using **os** module to spawn a process
+### 1.D. Using os module to spawn a process
 
 The `os` module allows executing the program path in a new process. Variations of spawn method including `spawnl`, `spawnle`, `spawnlp`, `spawnlpe`, `spawnv`, `spawnve`, `spawnvp`, `spawnvpe`, `posix_spawn` and `posix_spawnp` are intended for spawning a process with a program passed as a string argument. Allowing spawning of arbitrary programs or running shell processes with arbitrary arguments may result in a command injection vulnerability.
 
@@ -157,7 +157,7 @@ os.spawnve(os.P_WAIT, "/bin/bash", ["-c", user_input], os.environ)
 
 #### Mitigation
 
-Do not let user input into `spawn` methods. Alternatively:
+Do not let a user input into `spawn` methods. Alternatively:
 
 - Always try to use an internal Python API (if it exists) instead of running an OS command.
 - Don’t pass user-controlled input.
@@ -169,7 +169,7 @@ Do not let user input into `spawn` methods. Alternatively:
 
 <LinkToRegistryRule ruleId="python.lang.security.audit.dangerous-spawn-process.dangerous-spawn-process" />
 
-### 1.E. Replacing current process with **exec**
+### 1.E. Replacing current process with exec
 
 Execution methods of the `os` module are intended to execute a new program, replacing the current process. The available methods are `execl`, `execle`, `execlp`, `execlpe`, `execv`, `execve`, `execvp`, and `execvpe`. Allowing running of arbitrary programs or running shell processes with arbitrary arguments may result in a command injection vulnerability.
 
@@ -193,7 +193,7 @@ os.execve("/bin/bash", ["/bin/bash", "-c", user_input], os.environ)
 
 #### Mitigation
 
-Do not let user input into `exec` methods. Alternatively:
+Do not let a user input into `exec` methods. Alternatively:
 
 - Always try to use internal an Python API (if it exists) instead of running an OS command.
 - Don't pass user-controlled input.
@@ -242,9 +242,7 @@ Avoid wildcards in Unix shell commands.
 
 ### 1.G. Running shell commands asynchronously
 
-`asyncio.subprocess` is an async/await API to create and manage subprocesses.
-Such methods as `create_subprocess_shell` and Event Loop's `subprocess_shell` are intended for running shell commands provided as an argument 'cmd'.
-Allowing user input into a command that is passed as an argument to one of these methods can create an opportunity for a command injection vulnerability.
+The `asyncio.subprocess` is an async or await API to create and manage subprocesses. Such methods as `create_subprocess_shell` and Event Loop's `subprocess_shell` are intended for running shell commands provided as an argument 'cmd'. Allowing user input into a command that is passed as an argument to one of these methods can create an opportunity for a command injection vulnerability.
 
 Example:
 
@@ -269,7 +267,7 @@ asyncio.subprocess.create_subprocess_shell(user_input)
 
 #### Mitigation
 
-Do not let user input into `asyncio subprocess` methods. Alternatively:
+Do not let a user input into `asyncio.subprocess` methods. Alternatively:
 
 - Always try to use an internal Python API (if it exists) instead of running an OS command.
 - Consider using `asyncio.subprocess` functions with array of program arguments (for example: `create_subprocess_exec`).
@@ -282,9 +280,7 @@ Do not let user input into `asyncio subprocess` methods. Alternatively:
 
 ### 1.H. Creating subprocesses asynchronously
 
-`asyncio.subprocess` also allows the creation of subprocesses asynchronously.
-Such methods as `create_subprocess_exec` and Event Loop's `subprocess_exec` are intended for creating a subprocess from one or more string arguments specified by args.
-Allowing user input into a command that is passed as an argument to one of these methods can create an opportunity for a command injection vulnerability.
+The `asyncio.subprocess` also allows asynchronous creation of subprocesses. Such methods as `create_subprocess_exec` and Event Loop's `subprocess_exec` are intended for creating a subprocess from one or more string arguments specified by args. Allowing user input into a command that is passed as an argument to one of these methods can create an opportunity for a command injection vulnerability.
 
 Example:
 
@@ -308,11 +304,11 @@ loop.subprocess_exec(asyncio.SubprocessProtocol, ['ls', '-l', user_input])
 
 #### References
 
-- [**asyncio subprocess** documentation](https://docs.python.org/3/library/asyncio-subprocess.html)
+- [asyncio subprocess documentation](https://docs.python.org/3/library/asyncio-subprocess.html)
 
 #### Mitigation
 
-Do not let user input into `asyncio subprocess` methods. Alternatively:
+Do not let a user input into `asyncio subprocess` methods. Alternatively:
 
 - Always try to use an internal Python API (if it exists) instead of running an OS command.
 - Don't pass user-controlled input.
@@ -324,4 +320,3 @@ Do not let user input into `asyncio subprocess` methods. Alternatively:
 
 <LinkToRegistryRule ruleId="python.lang.security.audit.dangerous-asyncio-exec.dangerous-asyncio-exec" /><br/>
 <LinkToRegistryRule ruleId="python.lang.security.audit.dangerous-asyncio-create-exec.dangerous-asyncio-create-exec" />
-
