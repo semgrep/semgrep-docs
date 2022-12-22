@@ -61,7 +61,15 @@ Do not let a user input into `subprocess` methods. Alternatively:
 - Don't pass user-controlled input.
 - If it is not possible, use an array with a sequence of program arguments instead of a single string.
 - Use `shlex.split` to correctly parse a command string into an array and `shlex.quote` to correctly sanitize input as a command-line parameter.
-- Avoid running shell as a command with arguments. For example: `subprocess.run(["bash", "-c", user_input])` TODO specify
+- Do not include command arguments in a command string, use parameterization instead. For example:<br />
+    Use:
+    ```python
+    subprocess.run(["/path/to/myCommand", "myArg1", input_value])
+    ```
+    Instead of:
+    ```python
+    subprocess.run(["bash", "-c", "myCommand myArg1 " + input_value])
+    ```
 - If it is not possible, strip everything except alphanumeric characters from an input provided for the command string and arguments.
 
 #### Semgrep rule
@@ -162,7 +170,15 @@ Do not let a user input into `spawn` methods. Alternatively:
 - Always try to use an internal Python API (if it exists) instead of running an OS command.
 - Don’t pass user-controlled input.
 - Use `shlex.split` to correctly parse a command string into an array and `shlex.quote` to correctly sanitize input as a command-line parameter.
-- Avoid running shell as a command with arguments. For example: `os.spawnve(os.P_WAIT, "/bin/bash", ["-c", user_input], os.environ)` TODO specify
+- Do not include command arguments in a command string, use parameterization instead. For example:<br />
+    Use:
+    ```python
+    os.spawnve(os.P_WAIT, "/path/to/myCommand", ["myArg1", input_value], os.environ)
+    ```
+    Instead of:
+    ```python
+    os.spawnve(os.P_WAIT, "/bin/bash", ["-c", "myCommand myArg1 " + input_value], os.environ)
+    ```
 - If it’s not possible to avoid, strip everything except alphanumeric characters from an input provided for the command string and arguments.
 
 #### Semgrep rule
@@ -198,7 +214,15 @@ Do not let a user input into `exec` methods. Alternatively:
 - Always try to use internal an Python API (if it exists) instead of running an OS command.
 - Don't pass user-controlled input.
 - Use `shlex.split` to correctly parse a command string into an array and `shlex.quote` to correctly sanitize input as a command-line parameter.
-- Avoid running shell as a command with arguments. For example: `os.execve("/bin/bash", ["/bin/bash", "-c", user_input], os.environ)` TODO specify
+- Do not include command arguments in a command string, use parameterization instead. For example:<br />
+    Use:
+    ```python
+    os.execve("/path/to/myCommand", ["myCommand", "myArg1", input_value], os.environ)
+    ```
+    Instead of:
+    ```python
+    os.execve("/bin/bash", ["/bin/bash", "-c", "myCommand myArg1 " + input_value], os.environ)
+    ```
 - If it's not possible to avoid, strip everything except alphanumeric characters from an input provided for the command string and arguments.
 
 #### Semgrep rule
@@ -313,7 +337,15 @@ Do not let a user input into `asyncio subprocess` methods. Alternatively:
 - Always try to use an internal Python API (if it exists) instead of running an OS command.
 - Don't pass user-controlled input.
 - Use `shlex.split` to correctly parse a command string into an array and `shlex.quote` to correctly sanitize input as a command-line parameter.
-- Avoid running shell as a command with arguments. For example: `asyncio.subprocess.create_subprocess_exec("bash", ["bash", "-c", user_input])` TODO specify
+- Do not include command arguments in a command string, use parameterization instead. For example:<br />
+    Use:
+    ```python
+    asyncio.subprocess.create_subprocess_exec("/path/to/myCommand", ["myCommand", "myArg1", input_value])
+    ```
+    Instead of:
+    ```python
+    asyncio.subprocess.create_subprocess_exec("bash", ["bash", "-c", "myCommand myArg1 " + input_value])
+    ```
 - If it's not possible to avoid, strip everything except alphanumeric characters from an input provided for the command string and arguments.
 
 #### Semgrep rule

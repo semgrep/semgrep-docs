@@ -61,7 +61,15 @@ func main() {
 Do not let the user input in `exec.Command` and `exec.CommandContext` functions. Alternatively:
 
 - Always try to use internal Go API (if it exists) instead of running an OS command. In other words, use internal language features instead of invoking commands that can be exploited.
-- Avoid running shell as a command with arguments. For example: `exec.Command("sh", "-c", userInput)` TODO specify
+- Do not include command arguments in a command string, use parameterization instead. For example:<br />
+    Use:
+    ```go
+    exec.Command("/path/to/myCommand", "myArg1", inputValue)
+    ```
+    Instead of:
+    ```go
+    exec.Command("bash", "-c", "myCommand myArg1 " + inputValue)
+    ```
 - If it is not possible, then strip everything except alphanumeric characters from an input provided for the command string and arguments.
 - Try to avoid non-literal values for the command string.
 - If it is not possible, then do not let running arbitrary commands, use an allowlist for inputs.
@@ -129,7 +137,22 @@ Do not let the user input in `exec.Cmd` struct. Alternatively:
 - Always try to use internal Go API (if it exists) instead of running an OS command.
 - Try to avoid non-literal values for the command string.
 - If it is not possible, then do not let running arbitrary commands, use an allowlist for inputs.
-- Avoid running `sh` as a command with arguments, if it is not possible - strip everything except alphanumeric characters from an input provided for the command string and arguments.
+- Do not include command arguments in a command string, use parameterization instead. For example:<br />
+    Use:
+    ```go
+    cmd := &exec.Cmd {
+      Path: "/path/to/myCommand",
+      Args: []string{ "myCommand", "myArg1", inputValue },
+    }
+    ```
+    Instead of:
+    ```go
+    cmd := &exec.Cmd {
+      Path: "/bin/bash",
+      Args: []string{ "bash", "-c", "myCommand myArg1 " + inputValue },
+    }
+    ```
+- If it is not possible - strip everything except alphanumeric characters from an input provided for the command string and arguments.
 
 #### Semgrep rule
 
@@ -218,7 +241,16 @@ Do not let the user input in `syscall.Exec` and `syscall.ForkExec` functions. Al
 - Always try to use internal Go API (if it exists) instead of running an OS command.
 - Try to avoid non-literal values for the command string.
 - If it is not possible, then do not let running arbitrary commands, use an allowlist for inputs.
-- Avoid running `sh` as a command with arguments, if it is not possible - strip everything except alphanumeric characters from an input provided for the command string and arguments.
+- Do not include command arguments in a command string, use parameterization instead. For example:<br />
+    Use:
+    ```go
+    syscall.Exec("/path/to/myCommand", []string{"myCommand", "myArg1", inputValue}, env)
+    ```
+    Instead of:
+    ```go
+    syscall.Exec("/bin/bash", []string{"bash", "-c", "myCommand myArg1 " + inputValue}, env)
+    ```
+- If it is not possible - strip everything except alphanumeric characters from an input provided for the command string and arguments.
 
 #### Semgrep rule
 

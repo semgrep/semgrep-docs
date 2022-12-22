@@ -57,7 +57,15 @@ Open3.pipeline("zcat #{user_input}”, "nroff -man", "colcrt")
 - Do not let a user input in `Open3` methods.
 - Always try to use internal Ruby API (if it exists) instead of running an OS command. In other words, use internal language features instead of invoking commands that can be exploited.
 - Don’t pass user-controlled input or use an allowlist for inputs.
-- Avoid running a shell as a command with arguments. For example: `Open3.pipeline(["bash", "-c", user_input])` TODO specify
+- Do not include command arguments in a command string, use parameterization instead. For example:<br />
+    Use:
+    ```ruby
+    Open3.pipeline(["/path/to/myCommand", "myArg1", input_value])
+    ```
+    Instead of:
+    ```ruby
+    Open3.pipeline(["bash", "-c", "myCommand myArg1 " + input_value])
+    ```
 - Define a list of allowed arguments.
 - Avoid non-literal values for the command string. Strip everything except alphanumeric characters from an input provided for the command string and arguments.
 
