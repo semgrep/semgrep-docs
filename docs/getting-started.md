@@ -25,7 +25,7 @@ Semgrep CLI installation requires Python 3.7 or later.
         defaultValue="macOS"
         values={[
         {label: 'macOS', value: 'macOS'},
-        {label: 'Linux', value: 'Linux'},
+        {label: 'pip', value: 'pip'},
         {label: 'Docker:', value: 'Docker'},
         ]}
     >
@@ -38,7 +38,7 @@ Semgrep CLI installation requires Python 3.7 or later.
 
     </TabItem>
 
-    <TabItem value='Linux'>
+    <TabItem value='pip'>
 
     ```bash
     python3 -m pip install semgrep
