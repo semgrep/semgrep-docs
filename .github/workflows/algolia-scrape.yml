@@ -14,7 +14,6 @@ jobs:
   scrape:
     runs-on: ubuntu-latest
     steps:
-    comment out to test quickly
      - name: Wait for 4 minutes
        run: sleep 240s
        shell: bash
