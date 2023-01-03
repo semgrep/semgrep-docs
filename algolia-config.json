@@ -26,7 +26,7 @@
   "selectors": {
     "default": {
       "lvl0": {
-        "selector": ".breadcrumbs__item span.breadcrumbs__link",
+        "selector": ".breadcrumbs > li:nth-child(2) span.breadcrumbs__link",
         "global": true,
         "default_value": "Semgrep documentation"
       },
