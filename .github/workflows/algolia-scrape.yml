@@ -8,7 +8,6 @@ on:
   push:
     branches:
       - main
-      - sara/mkt-480-update-algolia-scraper-and-config
 
 
 jobs:
