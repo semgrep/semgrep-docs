@@ -26,8 +26,7 @@
   "selectors": {
     "default": {
       "lvl0": {
-        "selector": "(/html[@class='docs-wrapper docs-doc-page docs-version-current plugin-docs plugin-id-default docs-doc-id-semgrep-ci/overview']/body/div[@id='__docusaurus']/div[@id='docusaurus_skipToContent_fallback']/div[@class='docPage__5DB']/main[@class='docMainContainer_gTbr']/div[@class='container padding-top--md padding-bottom--lg']/div[@class='row']/div[@class='col docItemCol_VOVn']/div[@class='docItemContainer_Djhp']/article/nav[@class='theme-doc-breadcrumbs breadcrumbsContainer_Z_bl']/ul[@class='breadcrumbs']/li[@class='breadcrumbs__item'][2]/span[@class='breadcrumbs__link'])",
-        "type": "xpath",
+        "selector": ".breadcrumbs__item span.breadcrumbs__link",
         "global": true,
         "default_value": "Semgrep documentation"
       },
