@@ -84,7 +84,7 @@ The Semgrep App Finding page displays findings across all projects connected to 
 ### Navigating to the Findings page
 
 1. Sign in to Semgrep App.
-2. Click **Findings** on the left sidebar.
+2. Click **[Findings](https://semgrep.dev/orgs/-/findings)** in the left sidebar.
 
 ### Understanding the Findings page
 
@@ -95,6 +95,42 @@ The Findings page consists of:
     ![Findings information panel](/img/app-findings.png)<br />
     *Figure 2.* Findings information panel.
 
+### Filtering findings
+
+Filtering allows you to easily isolate groups of findings for ease in triaging and identifying related groups of issues. The following criteria are available for filtering:
+
+| Filter      | Description  |
+| ----------  | ------------ |
+| **Projects**     | Filter by repositories connected to Semgrep App. |
+| **Status**       | Filter for different findings triage states. Refer to the [following table](#triaging-findings) to understand triage states. |
+| **Severities**    | Filter by the severity of a finding. Possible values: <ul><li>Low</li><li>Medium</li><li>High</li></ul> |
+| **Actions**     | Filter by monitoring, commenting, or blocking rules in your Rule Board. |
+| **Confidences** | Filter by indication of the rule to detect true positives. The higher the confidence the more true positives the rule may detect.  |
+| **Categories**  |  Filter by various rule categories, such as security, or best practice rules. More than one category can be selected for filtering. |
+| **Branches**     | Filter by findings in different Git branches. |
+| **Rules**        | Filter by rules or rulesets that are included in your Rule Board. More than one rule can be selected for filtering. |
+| **Rulesets**     | Filter by name of the ruleset where rules that matched the code belong. More than one rule or ruleset can be selected for filtering. |
+
+You can also filter for findings reported from specific time periods. See [Displaying findings reported in a specific time](/semgrep-app/findings/#displaying-findings-reported-in-a-specific-time).
+
+To filter through findings:
+
+1. Click the filter criteria. The page then refreshes to reflect the additional criteria.
+1. Optional: To further refine your filter, select additional filters.
+
+#### Displaying findings reported in a specific time
+
+Display and filter for findings reported only in specific time. To display findings reported in a specific time, follow these steps:
+
+1. In Semgrep App, go to **[Findings](https://semgrep.dev/orgs/-/findings)** page.
+1. Click the <i class="fa-solid fa-calendar-days"></i> **All time** button.
+1. Select preferred time period for which to display findings. The following options are available:
+    - **All time** - This is the default option.
+    - Last 1 year
+    - Last 1 month
+    - Last 7 days
+    - Last 1 day
+
 ## Triaging findings
 
 **Triaging** means prioritizing a finding based on a policy or criteria set by your team or organization. While severity is a factor in triage, your organization may define additional criteria based on coding standards, business, or product goals.
@@ -104,27 +140,6 @@ Semgrep App uses the logic specified in the table below to automatically mark fi
 The triage statuses are as follows:
 
 <TriageStatuses />
-
-### Filtering findings
-
-Filtering allows you to easily isolate groups of findings for ease in triaging and identifying related groups of issues. The following criteria are available for filtering:
-
-| Filter      | Description  |
-| ----------  | ------------ |
-| **Status**       | Filter for different findings triage states. Refer to the [following table](#triaging-findings) to understand triage states. |
-| **Projects**     | Filter by repositories connected to Semgrep App. |
-| **Branches**     | Filter by findings in different branches. |
-| **Rules**        | Filter by rules or rulesets that are included in your Rule Board. More than one rule can be selected for filtering. |
-| **Rulesets**     | Filter by name of the ruleset where rules that matched the code belong. |
-| **Actions**     | Filter by monitoring, commenting, or blocking rules in your Rule Board. |
-| **Severity**    | Filter by the severity of a finding. Possible values: <ul><li>Low</li><li>Medium</li><li>High</li></ul> |
-
-To filter through all findings:
-
-1. Click the filter criteria drop-down box.
-2. Enable displayed checkbox or write in a field value by which the findings are filtered.
-3. The page then refreshes to reflect the additional criteria.
-4. Additional values may be selected to further refine your filter.
 
 ### Managing finding status
 
