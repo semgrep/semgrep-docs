@@ -1,16 +1,22 @@
 name: Algolia scrape
 
 on:
+  workflow_dispatch:
+    inputs:
+      parameter:
+        description: Run from dispatch
   push:
-    branches: main
+    branches:
+      - main
+
 
 jobs:
   scrape:
     runs-on: ubuntu-latest
     steps:
-      - name: Wait for 4 minutes
-        run: sleep 240s
-        shell: bash
+     - name: Wait for 4 minutes
+       run: sleep 240s
+       shell: bash
       - name: check out code 🛎
         uses: actions/checkout@v2
       # when scraping the site, inject secrets as environment variables
@@ -25,4 +31,4 @@ jobs:
           docker run \
           -e APPLICATION_ID -e API_KEY \
           -e CONFIG="$(cat algolia-config.json)" \
-          algolia/docsearch-scraper:v1.15.0
+          algolia/docsearch-scraper:latest
