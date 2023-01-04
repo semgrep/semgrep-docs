@@ -25,7 +25,6 @@ Semgrep CLI installation requires Python 3.7 or later.
         defaultValue="macOS"
         values={[
         {label: 'macOS', value: 'macOS'},
-        {label: 'pip', value: 'pip'},
         {label: 'Linux', value: 'Linux'},
         {label: 'Windows Subsystem for Linux (WSL)', value: 'Windows Subsystem for Linux (WSL)'},
         {label: 'Docker', value: 'Docker'},
@@ -38,9 +37,7 @@ Semgrep CLI installation requires Python 3.7 or later.
     brew install semgrep
     ```
 
-    </TabItem>
-
-    <TabItem value='pip'>
+    Alternatively:
 
     ```bash
     python3 -m pip install semgrep
