@@ -26,9 +26,9 @@ Semgrep CLI installation requires Python 3.7 or later.
         values={[
         {label: 'macOS', value: 'macOS'},
         {label: 'pip', value: 'pip'},
-        {label: 'Docker', value: 'Docker'},
         {label: 'Linux', value: 'Linux'},
         {label: 'Windows Subsystem for Linux (WSL)', value: 'Windows Subsystem for Linux (WSL)'},
+        {label: 'Docker', value: 'Docker'},
         ]}
     >
 
@@ -48,14 +48,6 @@ Semgrep CLI installation requires Python 3.7 or later.
 
     </TabItem>
 
-    <TabItem value='Docker'>
-
-    ```bash
-    docker run --rm -v "${PWD}:/src" returntocorp/semgrep semgrep --config=auto
-    ```
-
-    </TabItem>
-
     <TabItem value='Linux'>
 
     ```bash
@@ -68,6 +60,14 @@ Semgrep CLI installation requires Python 3.7 or later.
 
     ```bash
     python3 -m pip install semgrep
+    ```
+
+    </TabItem>
+
+    <TabItem value='Docker'>
+
+    ```bash
+    docker run --rm -v "${PWD}:/src" returntocorp/semgrep semgrep --config=auto
     ```
 
     </TabItem>
