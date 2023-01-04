@@ -53,7 +53,7 @@ module.exports = {
           items: [
             {
               label: 'Slack',
-              href: 'https://r2c.dev/slack',
+              href: 'https://go.semgrep.dev/slack',
             },
             {
               label: 'GitHub',
