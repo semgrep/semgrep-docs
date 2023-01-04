@@ -1,6 +1,6 @@
 ---
 slug: contributing
-description: "Semgrep is LGPL-licensed and contributions are welcome. Get started by filing an issue, fixing a bug, contributing rules to the registry, adding a feature, or updating the docs. You can also contribute by helping others in the r2c Community Slack!"
+description: "Semgrep is LGPL-licensed and contributions are welcome. Get started by filing an issue, fixing a bug, contributing rules to the registry, adding a feature, or updating the docs. You can also contribute by helping others in the Semgrep Community Slack!"
 ---
 
 # Contributing overview
@@ -18,6 +18,6 @@ Your contributions can help in various places:
 | Contribute rules to the Semgrep Registry. | Add new rules through Semgrep App or GitHub. See [Contributing rules](/contributing/contributing-to-semgrep-rules-repository/). |
 | Add a new feature. | See the [enhancement issues](https://github.com/returntocorp/semgrep/issues?q=is%3Aopen+is%3Aissue+label%3Aenhancement) for inspiration. |
 | Update the documentation you are reading right now! | Create a PR or an issue in the [Documentation repository](https://github.com/returntocorp/semgrep-docs). |
-| Help others in the community. | Check [r2c Community Slack](https://r2c.dev/slack). |
+| Help others in the community. | Check [Semgrep Community Slack](https://go.semgrep.dev/slack). |
 
 For any contribution to Semgrep code (bug fix or fixed issue, feature), read more about development workflow and testing in the [contribution guidelines](contributing-code.md). For a high-level view of Semgrep’s design principles, see the [Semgrep CLI philosophy](../contributing/philosophy.md).
