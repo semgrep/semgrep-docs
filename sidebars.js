@@ -47,7 +47,15 @@ module.exports = {
                 'writing-rules/data-flow/status'
             ]
         },
-        'deepsemgrep',
+        {
+            type: 'category',
+            label: 'Deepsemgrep',
+            link: {type: 'doc', id: 'deepsemgrep/deepsemgrep-introduction'},
+            items: [
+                'deepsemgrep/deepsemgrep-introduction',
+                'deepsemgrep/deepsemgrep-examples'
+            ]
+        },
         'semgrep-app/pricing-and-billing'
       ],
     },

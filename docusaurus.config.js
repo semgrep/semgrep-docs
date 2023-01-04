@@ -53,7 +53,7 @@ module.exports = {
           items: [
             {
               label: 'Slack',
-              href: 'https://r2c.dev/slack',
+              href: 'https://go.semgrep.dev/slack',
             },
             {
               label: 'GitHub',
@@ -235,7 +235,8 @@ module.exports = {
           { from: "/semgrep-sc/supply-chain-supported-languages/", to: "/supported-languages/" },
           { from: "/writing-rules/experiments/autofix/", to: "/writing-rules/autofix/" },
           { from: "/writing-rules/experiments/generic-pattern-matching/", to: "/writing-rules/generic-pattern-matching/" },
-          { from: "/writing-rules/experiments/metavariable-analysis/", to: "/writing-rules/metavariable-analysis/" }
+          { from: "/writing-rules/experiments/metavariable-analysis/", to: "/writing-rules/metavariable-analysis/" },
+          { from: "/deepsemgrep/", to: "/deepsemgrep/deepsemgrep-introduction/" }
         ]
       }
     ],
