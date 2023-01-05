@@ -49,7 +49,7 @@ See an example of such a payload, called also an XML bomb, in [r2c's research pr
 
 When a document containing an XML bomb is parsed, the parser expands each of the nested references. Consequently, this expansion becomes exponential leading to excessive use of resources and Denial-of-Service (DoS).
 We found that in Java, the JDK throws an exception when such excessive use of resources is detected. 
-Using this exception, if it is carefully caught and handled, the attack can be prevented. In such a case, no explicit security measures need to be taken. This is the case for all recent versions of Java (17, 18, 19) and all older versions with long-term support (8, 11).
+If this JDK exception is carefully caught and handled, the attack can be prevented. In such a case, no explicit security measures need to be taken. This is the case for all recent versions of Java (17, 18, 19) and all older versions with long-term support (8, 11).
 
 ## 2. XML External Entity Injection
 
