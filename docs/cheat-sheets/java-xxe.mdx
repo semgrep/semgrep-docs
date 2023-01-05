@@ -68,7 +68,7 @@ There are several security measures, but not all of them are available for each 
 #### Feature for Secure Processing (FSP)
 
 Feature for Secure Processing (FSP) is considered the central mechanism for secure XML processing. It is defined as `javax.xml.XMLConstants.FEATURE_SECURE_PROCESSING`.
-For various classes, this feature can protect the parser from all available payloads. However, this is not the case for all of the classes we tested.
+For various classes, this feature can protect the parser from all available payloads. However, this is not the case for all of the classes that have been tested to create this cheat sheet.
 
 #### Disabling DTD processing
 
@@ -83,13 +83,13 @@ For some parsers, there are multiple methods to disable DTD processing. For most
 #### Disabling external schema and stylesheet processing
 
 The `setAttribute` method can be used to set `XMLConstants.ACCESS_EXTERNAL_SCHEMA` and `XMLConstants.ACCESS_EXTERNAL_STYLESHEET` to an empty string to disable these features.
-The effects on security, however, are often limited, with no observed effect for several classes.
+The effects on security, however, are often limited with no observed effect for several classes.
 
 #### Disabling external entities
 
 Set `setFeature` to `false` to disable `http://xml.org/sax/features/external-general-entities` and `http://xml.org/sax/features/external-parameter-entities` features. When both of these features are disabled, all parsers are protected against all of the tested payloads.
 Except for the `Validator` class, where they have no effect at all.
-There is also `setExpandEntityReferences` that can be set to false and seems to have the same effect as disabling external general entities, based on our testing.
+There is also `setExpandEntityReferences` that can be set to `false` and seems to have the same effect as disabling external general entities, based on our testing.
 
 ## 3. Overview of the effect of security measures for each class
 
@@ -383,7 +383,7 @@ N/A - Not available
 
 ### 3.B SAXBuilder
 
-[`org.jdom2.input.SAXBuilder`](http://www.jdom.org/docs/apidocs/org/jdom2/input/SAXBuilder.html) can process all 10 payloads. In the default configuration it is vulnerable for 4 of the attack payloads.
+[`org.jdom2.input.SAXBuilder`](http://www.jdom.org/docs/apidocs/org/jdom2/input/SAXBuilder.html) can process all 10 payloads. In the default configuration, it is vulnerable to 4 of the attack payloads.
 
 <font size="2">
 <table>
@@ -612,7 +612,7 @@ N/A - Not available
 
 ### 3.C SAXParserFactory
 
-[`javax.xml.parsers.SAXParserFactory`](https://docs.oracle.com/javase/7/docs/api/javax/xml/parsers/SAXParserFactory.html) can process all 10 attack payloads. Its default configuration is vulnerable to 4 of the attack payloads.
+[`javax.xml.parsers.SAXParserFactory`](https://docs.oracle.com/javase/7/docs/api/javax/xml/parsers/SAXParserFactory.html) can process all 10 attack payloads. In its default configuration, it is vulnerable to 4 of the attack payloads.
 
 <font size="2">
 <table>
@@ -886,7 +886,7 @@ N/A - Not available
 
 ### 3.D SAXParser
 
-[`javax.xml.parsers.SAXParser`](https://docs.oracle.com/javase/7/docs/api/javax/xml/parsers/SAXParser.html) can process all 10 payloads. Its default configuration is vulnerable to 4 attack payloads.
+[`javax.xml.parsers.SAXParser`](https://docs.oracle.com/javase/7/docs/api/javax/xml/parsers/SAXParser.html) can process all 10 payloads. In its default configuration, it is vulnerable to 4 attack payloads.
 
 <font size="2">
 <table>
@@ -999,7 +999,7 @@ N/A - Not available
 
 ### 3.E SAXReader
 
-[`org.dom4j.io.SAXReader`](https://dom4j.github.io/javadoc/2.0.1/org/dom4j/io/SAXReader.html) can process all 10 payloads. Its default configuration is vulnerable to 4 of the attack payloads.
+[`org.dom4j.io.SAXReader`](https://dom4j.github.io/javadoc/2.0.1/org/dom4j/io/SAXReader.html) can process all 10 payloads. In its default configuration, it is vulnerable to 4 of the attack payloads.
 
 <font size="2">
 <table>
@@ -1380,7 +1380,7 @@ are not able to process XML Schema Definition (XSD) payloads. Out of the 7 paylo
 ### 3.G SchemaFactory 
 
 [`javax.xml.validation.SchemaFactory`](https://docs.oracle.com/javase/7/docs/api/javax/xml/validation/SchemaFactory.html) is unable to process XML Stylesheet Language (XSL) documents.
-Out of the 6 payloads it can process, the default configuration is vulnerable to 5 of them.
+Out of the 6 payloads it can process, the default configuration is vulnerable to 5.
 
 <font size="2">
 <table>
@@ -1475,7 +1475,7 @@ Out of the 6 payloads it can process, the default configuration is vulnerable to
 ### 3.H Validator 
 
 [`javax.xml.validation.Validator`](https://docs.oracle.com/javase/7/docs/api/javax/xml/validation/Validator.html) can only process XML documents, not XSL or XSD. 
-Out of the 3 attack payloads it can process, the default configuration is vulnerable to 2 of them.
+Out of the 3 attack payloads it can process, the default configuration is vulnerable to 2.
 
 <font size="2">
 <table>
