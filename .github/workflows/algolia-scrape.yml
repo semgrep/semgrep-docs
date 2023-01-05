@@ -14,9 +14,9 @@ jobs:
   scrape:
     runs-on: ubuntu-latest
     steps:
-      - name: Wait for 4 minutes
-        run: sleep 240s
-        shell: bash
+      # - name: Wait for 4 minutes
+      #   run: sleep 240s
+      #   shell: bash
       - name: check out code 🛎
         uses: actions/checkout@v2
       # when scraping the site, inject secrets as environment variables
