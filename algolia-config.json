@@ -21,7 +21,11 @@
     }
   ],
   "sitemap_urls": ["https://semgrep.dev/docs/sitemap.xml"],
-  "stop_urls": [],
+  "stop_urls": [
+    {
+      "url": "https://semgrep.dev/docs/tags/*"
+    }
+  ],
   "js_render": false,
   "selectors": {
     "default": {
