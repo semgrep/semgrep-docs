@@ -9,7 +9,7 @@ This is an XML External Entity (XXE) prevention cheat sheet by r2c. It contains 
 
 ## Mitigation Summary
 
-It is not easy to summarize XML security in Java. The XML standard allows multiple ways to include external content, including but not limited to external Document Type Definitions (DTD), external Entity References to external data, general entity references, and external parameter references. There are also several ways to include external content in XML Schemas and stylesheets.
+It is not easy to summarize Java XML security. The XML standard allows multiple ways to include external content, including but not limited to external Document Type Definitions (DTD), external Entity References to external data, general entity references, and external parameter references. There are also several ways to include external content in XML Schemas and stylesheets.
 
 The Java API for XML Processing (JAXP) contains multiple interfaces to process XML content:
 
@@ -17,7 +17,7 @@ The Java API for XML Processing (JAXP) contains multiple interfaces to process X
 - The Simple API for XML (SAX) interface
 - The Streaming API for XML (StAX) interface
 
-Each of these interfaces has its mitigation measures to disable the use of different sources of external content. The inconsistency in availability and even the effect of these measures across the different APIs, combined with the variety of ways to include external content makes it difficult to provide general mitigation recommendations. Many configurations that are secure for one parser are not secure for another.
+Each of these interfaces has its mitigation measures to disable the use of different sources of external content. The&nbsp;inconsistency in availability and even the effect of these measures across the different APIs, combined with the variety of ways to include external content makes it difficult to provide general mitigation recommendations. Many configurations that are secure for one parser are not secure for another.
 However, the following settings have a consistent effect on a subset of parsers
 
 - For `SAXBuilder`, `SAXParser`, and `XMLReader` use:
@@ -34,7 +34,7 @@ However, the following settings have a consistent effect on a subset of parsers
 
     ```
 
-The complete [Semgrep ruleset](https://semgrep.dev/r?q=java.lang.security.xxe&lang=Java) for this cheatsheet is available as part of the rules available in the Team tier. This ruleset includes rules to verify these settings as well as several other combinations that are secure.
+The complete [Semgrep ruleset](https://semgrep.dev/r?q=java.lang.security.xxe&lang=Java) that covers vulnerabilities mentioned in this cheat sheet is available as part of the rules available in the Team tier. This ruleset includes rules to verify these settings as well as several other combinations that are secure.
 
 The following infographics provides Java XXE security features overview:
 
@@ -63,7 +63,7 @@ For examples of each of these ways of including external resources, see the [Jav
 
 ### 2.B Security measures
 
-There are several security measures, but not all of them are available for each class. See an overview of which measures are available for which class in section [2.C Overview of the effect of security measures for each class](#2c-overview-of-the-effect-of-security-measures-for-each-class) with r2c research results.
+There are several security measures, but not all of them are available for each class. See an overview of which measures are available for which class in section [3. Overview of the effect of security measures for each class](#3-overview-of-the-effect-of-security-measures-for-each-class) with r2c research results.
 
 #### Feature for Secure Processing (FSP)
 
@@ -91,7 +91,7 @@ Set `setFeature` to `false` to disable `http://xml.org/sax/features/external-gen
 Except for the `Validator` class, where they have no effect at all.
 There is also `setExpandEntityReferences` that can be set to false and seems to have the same effect as disabling external general entities, based on our testing.
 
-### 2.C Overview of the effect of security measures for each class
+## 3. Overview of the effect of security measures for each class
 
 Summarizing security measures against XXE is not easy as not all security measures work for every class (as mentioned in section [2.B Security measures](#2b-security-measures)). The tables below this section can help you to choose the best security measures against a specific vulnerability.
 
@@ -106,7 +106,7 @@ Summarizing security measures against XXE is not easy as not all security measur
 N/A - Not available
 :::
 
-#### DocumentBuilderFactory
+### 3.A DocumentBuilderFactory
 
 [`javax.xml.parsers.DocumentBuilderFactory`](https://docs.oracle.com/javase/7/docs/api/javax/xml/parsers/DocumentBuilderFactory.html) can be used to process all payload types. By default it is vulnerable against 4 of the attack payloads.
 
@@ -381,7 +381,7 @@ N/A - Not available
 </font>
 
 
-#### SAXBuilder
+### 3.B SAXBuilder
 
 [`org.jdom2.input.SAXBuilder`](http://www.jdom.org/docs/apidocs/org/jdom2/input/SAXBuilder.html) can process all 10 payloads. In the default configuration it is vulnerable for 4 of the attack payloads.
 
@@ -610,7 +610,8 @@ N/A - Not available
 </table>
 </font>
 
-#### SAXParserFactory
+### 3.C SAXParserFactory
+
 [`javax.xml.parsers.SAXParserFactory`](https://docs.oracle.com/javase/7/docs/api/javax/xml/parsers/SAXParserFactory.html) can process all 10 attack payloads. Its default configuration is vulnerable to 4 of the attack payloads.
 
 <font size="2">
@@ -883,7 +884,8 @@ N/A - Not available
 </table>
 </font>
 
-#### SAXParser
+### 3.D SAXParser
+
 [`javax.xml.parsers.SAXParser`](https://docs.oracle.com/javase/7/docs/api/javax/xml/parsers/SAXParser.html) can process all 10 payloads. Its default configuration is vulnerable to 4 attack payloads.
 
 <font size="2">
@@ -995,7 +997,8 @@ N/A - Not available
 </table>
 </font>
 
-#### SAXReader
+### 3.E SAXReader
+
 [`org.dom4j.io.SAXReader`](https://dom4j.github.io/javadoc/2.0.1/org/dom4j/io/SAXReader.html) can process all 10 payloads. Its default configuration is vulnerable to 4 of the attack payloads.
 
 <font size="2">
@@ -1284,7 +1287,7 @@ N/A - Not available
 </font>
 
 
-#### TransformerFactory & SAXTransformerFactory
+### 3.F TransformerFactory & SAXTransformerFactory
 
 [`javax.xml.transform.TransformerFactory`](https://docs.oracle.com/javase/7/docs/api/javax/xml/transform/TransformerFactory.html) and [`javax.xml.transform.sax.SAXTransformerFactory`](https://docs.oracle.com/javase/7/docs/api/javax/xml/transform/sax/SAXTransformerFactory.html) 
 are not able to process XML Schema Definition (XSD) payloads. Out of the 7 payloads they can process, the default configurations parses 6 payloads insecurely.
@@ -1374,7 +1377,7 @@ are not able to process XML Schema Definition (XSD) payloads. Out of the 7 paylo
 </table>
 </font>
 
-#### SchemaFactory 
+### 3.G SchemaFactory 
 
 [`javax.xml.validation.SchemaFactory`](https://docs.oracle.com/javase/7/docs/api/javax/xml/validation/SchemaFactory.html) is unable to process XML Stylesheet Language (XSL) documents.
 Out of the 6 payloads it can process, the default configuration is vulnerable to 5 of them.
@@ -1469,7 +1472,7 @@ Out of the 6 payloads it can process, the default configuration is vulnerable to
 </table>
 </font>
 
-#### Validator 
+### 3.H Validator 
 
 [`javax.xml.validation.Validator`](https://docs.oracle.com/javase/7/docs/api/javax/xml/validation/Validator.html) can only process XML documents, not XSL or XSD. 
 Out of the 3 attack payloads it can process, the default configuration is vulnerable to 2 of them.
@@ -1559,7 +1562,8 @@ Out of the 3 attack payloads it can process, the default configuration is vulner
 </table>
 </font>
 
-#### XMLReader 
+### 3.I XMLReader
+
 [`org.xml.sax.XMLReader`](https://docs.oracle.com/javase/7/docs/api/org/xml/sax/XMLReader.html) can process all 10 payloads.
 The default configuration is vulnerable to 4 of the attack payloads.
 
