@@ -3,11 +3,11 @@ slug: java-xxe
 toc_max_heading_level: 4
 ---
 
-# XML External Entity prevention for Java
+# XML External entity prevention for Java
 
 This is an XML External Entity (XXE) prevention cheat sheet by r2c. It contains code patterns of potential XXE in an application. The recommendations in this cheat sheet pave a safe road for developers that mitigate the possibility of XXE in their code. By following these recommendations, you can be reasonably sure that their code is free of XXE.
 
-## Mitigation Summary
+## Mitigation summary
 
 It is not easy to summarize Java XML security. The XML standard allows multiple ways to include external content, including but not limited to external Document Type Definitions (DTD), external Entity References to external data, general entity references, and external parameter references. There are also several ways to include external content in XML Schemas and stylesheets.
 
@@ -34,7 +34,7 @@ However, the following settings have a consistent effect on a subset of parsers
 
     ```
 
-The complete [Semgrep ruleset](https://semgrep.dev/r?q=java.lang.security.xxe&lang=Java) that covers vulnerabilities mentioned in this cheat sheet is distributed as part of the rules available in the [Team tier](https://semgrep.dev/pricing). It includes rules to verify these settings as well as several other combinations that are secure.
+The complete [Semgrep ruleset](https://semgrep.dev/r?q=java.lang.security.xxe&lang=Java) that covers vulnerabilities mentioned in this cheat sheet is available as part of the rules available in the [Team tier](https://semgrep.dev/pricing). This ruleset includes rules to verify these settings as well as several other combinations that are secure.
 
 The following infographics provides Java XXE security features overview:
 
@@ -51,7 +51,7 @@ When a document containing an XML bomb is parsed, the parser expands each of the
 We found that in Java, the JDK throws an exception when such excessive use of resources is detected. 
 Using this exception, if it is carefully caught and handled, the attack can be prevented. In such a case, no explicit security measures need to be taken. This is the case for all recent versions of Java (17, 18, 19) and all older versions with long-term support (8, 11).
 
-## 2. XML External Entity Injection
+## 2. XML external entity injection
 
 XML External Entity Injection occurs when the system identifier to some of the external content contains data controlled by an attacker. The parser then dereferences this identifier containing attacker-controlled XML code, leading to the disclosure of confidential data, or even to arbitrary code execution.
 
