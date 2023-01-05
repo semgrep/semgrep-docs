@@ -1,5 +1,5 @@
 {
-  "index_name": "docs",
+  "index_name": "mkt480_docs",
   "start_urls": [
     {
       "url": "https://semgrep.dev/docs/release-notes",

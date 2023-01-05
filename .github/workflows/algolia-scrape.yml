@@ -8,6 +8,7 @@ on:
   push:
     branches:
       - main
+      - sara/mkt-486-dont-index-meta-pages-non-content-in
 
 jobs:
   scrape:
