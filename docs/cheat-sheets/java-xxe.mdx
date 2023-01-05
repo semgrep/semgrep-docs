@@ -17,7 +17,7 @@ The Java API for XML Processing (JAXP) contains multiple interfaces to process X
 - The Simple API for XML (SAX) interface
 - The Streaming API for XML (StAX) interface
 
-Each of these interfaces has its mitigation measures to disable the use of different sources of external content. The&nbsp;inconsistency in availability and even the effect of these measures across the different APIs, combined with the variety of ways to include external content makes it difficult to provide general mitigation recommendations. Many configurations that are secure for one parser are not secure for another.
+Each of these interfaces has its mitigation measures to disable the use of different sources of external content. The inconsistency in availability and even the effect of these measures across the different APIs, combined with the variety of ways to include external content makes it difficult to provide general mitigation recommendations. Many configurations that are secure for one parser are not secure for another.
 However, the following settings have a consistent effect on a subset of parsers
 
 - For `SAXBuilder`, `SAXParser`, and `XMLReader` use:
