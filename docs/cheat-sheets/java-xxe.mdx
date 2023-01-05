@@ -81,7 +81,7 @@ The effects on security, however, are often limited, with no observed effect for
 
 #### Disabling external entities
 
-The  `setFeature` method can be used to set `http://xml.org/sax/features/external-general-entities` and `http://xml.org/sax/features/external-parameter-entities` to `false`. For the classes where these features are available, the combination of these two protects the parser against all of the tested payloads!
+Set `setFeature` to `false` to disable `http://xml.org/sax/features/external-general-entities` and `http://xml.org/sax/features/external-parameter-entities` features. When both of these features are disabled, all parsers are protected against all of the tested payloads.
 Except for the `Validator` class, where they have no effect at all.
 There is also `setExpandEntityReferences` that can be set to false and seems to have the same effect as disabling external general entities, based on our testing.
 
