@@ -18,7 +18,7 @@ The Java API for XML Processing (JAXP) contains multiple interfaces to process X
 - The Streaming API for XML (StAX) interface
 
 Each of these interfaces has its mitigation measures to disable the use of different sources of external content. The inconsistency in availability and even the effect of these measures across the different APIs, combined with the variety of ways to include external content makes it difficult to provide general mitigation recommendations. Many configurations that are secure for one parser are not secure for another.
-However, the following settings have a consistent effect on a subset of parsers
+However, the following settings have a consistent effect on a subset of parsers:
 
 - For `SAXBuilder`, `SAXParser`, and `XMLReader` use:
     ```java
@@ -34,7 +34,7 @@ However, the following settings have a consistent effect on a subset of parsers
 
     ```
 
-The complete Semgrep [set of rules](https://semgrep.dev/r?q=java.lang.security.xxe&lang=Java) that covers vulnerabilities mentioned in this cheat sheet is available as part of the rules available in the [Team tier](https://semgrep.dev/pricing). This ruleset includes rules to verify these settings as well as several other combinations that are secure.
+The complete Semgrep [set of rules](https://semgrep.dev/r?q=java.lang.security.xxe&lang=Java) that covers vulnerabilities mentioned in this cheat sheet is distributed as part of the rules available in the [Team tier](https://semgrep.dev/pricing). This ruleset includes rules to verify these settings as well as several other combinations that are secure.
 
 The following infographics provides Java XXE security features overview:
 
