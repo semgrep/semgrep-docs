@@ -12,6 +12,63 @@ import MoreHelp from "/src/components/MoreHelp"
 
 Welcome to monthly rule updates. This document includes selected new rules, removed false positives (FP), and other rule updates. These new rules and their updates are made by the Semgrep community and r2c.
 
+## December 2022
+
+### Community tier
+
+#### New rules from Semgrep community and r2c
+
+- Thanks [@aabashkin](https://github.com/aabashkin)! Added rule for MongoDB NoSQL Injection: <LinkToRegistryRule ruleId="java.mongodb.security.injection.audit.mongodb-nosqli" />
+- Thanks [@rc-mattschwager](https://gihub.com/rc-mattschwager)! Added Rust security rules:
+    - <LinkToRegistryRule ruleId="rust.lang.security.args-os.args-os">
+    - <LinkToRegistryRule ruleId="rust.lang.security.args.args">
+    - <LinkToRegistryRule ruleId="rust.lang.security.current-exe.current-exe">
+    - <LinkToRegistryRule ruleId="rust.lang.security.insecure-hashes.insecure-hashes">
+    - <LinkToRegistryRule ruleId="rust.lang.security.reqwest-accept-invalid.reqwest-accept-invalid">
+    - <LinkToRegistryRule ruleId="rust.lang.security.reqwest-set-sensitive.reqwest-set-sensitive">
+    - <LinkToRegistryRule ruleId="rust.lang.security.rustls-dangerous.rustls-dangerous">
+    - <LinkToRegistryRule ruleId="rust.lang.security.ssl-verify-none.ssl-verify-none">
+    - <LinkToRegistryRule ruleId="rust.lang.security.temp-dir.temp-dir">
+    - <LinkToRegistryRule ruleId="rust.lang.security.unsafe-usage.unsafe-usage">
+- Thanks [@artem-fedorov](https://github.com/artem-fedorov)! Fixed typos, spurious spaces and other formatting mistakes in many rules!
+- Thanks [@nightshiba](https://github.com/nightshiba)! Improved SSRF detection in Flask: <LinkToRegistryRule ruleId="python.flask.security.injection.ssrf-requests.ssrf-requests" />
+- New rule for OS Command Injection in Argo workflows: <LinkToRegistryRule ruleId="yaml.argo.security.argo-workflow-parameter-command-injection.argo-workflow-parameter-command-injection" />
+
+#### Updated community tier rules
+
+- Thanks [@mpast](https://github.com/mpast)! FP reduction in Terraform rules for AWS and Azure:
+    - <LinkToRegistryRule ruleId="terraform.aws.best-practice.missing-aws-lb-deletion-protection.missing-aws-lb-deletion-protection" 
+    - <LinkToRegistryRule ruleId="terraform.azure.best-practice.azure-keyvault-recovery-enabled.azure-keyvault-recovery-enabled" 
+    - <LinkToRegistryRule ruleId="terraform.azure.security.azure-automation-encrypted.azure-automation-encrypted
+- Thanks [@ItsIgnacioPortal](https://github.com/ItsIgnacioPortal)! Added external references: <LinkToRegistryRule ruleId="yaml.github-actions.security.workflow-run-target-code-checkout.workflow-run-target-code-checkout" />
+- FP reduction with additional sanitizers: <LinkToRegistryRule ruleId="javascript.sequelize.security.audit.sequelize-injection-express.express-sequelize-injection" /> 
+- FP reduction with improved pattern for taint mode: <LinkToRegistryRule ruleId="javascript.express.security.audit.express-open-redirect.express-open-redirect" />
+- FP reduction with improved pattern for taint mode: <LinkToRegistryRule ruleId="javascript.express.security.injection.tainted-sql-string.tainted-sql-string" />
+- Reduced severity: <LinkToRegistryRule ruleId="dockerfile.audit.dockerfile-source-not-pinned.dockerfile-source-not-pinned" />
+- Added external references:
+    - <LinkToRegistryRule ruleId="ocaml.lang.best-practice.ref.ocamllint-ref-incr" />
+    - <LinkToRegistryRule ruleId="python.lang.maintainability.useless-ifelse.useless-if-conditional" />
+    - <LinkToRegistryRule ruleId="terraform.aws.best-practice.missing-aws-lb-deletion-protection.missing-aws-lb-deletion-protection" />
+    - <LinkToRegistryRule ruleId="terraform.azure.best-practice.azure-keyvault-recovery-enabled.azure-keyvault-recovery-enabled" />
+
+### Team tier
+
+#### New and updated team tier rules
+
+New rules for hardcoded secrets:
+- Network libraries for Python and Java.
+- Database libraries for Python.
+- Generic secrets in JavaScript.
+
+- New rules for Angular.
+- New rules for SSRF in JavaScript.
+- New rules for Open Redirect in JavaScript.
+- Improve existing rules for React to cover more use cases.
+- Improve existing rules for hardcoded secrets to cover more use cases.
+- Improve existing rules for command injection in JavaScript to cover more use cases.
+- FP reduction for existing rules for SQLi in JavaScript.
+- FP reduction for existing rules for hardcoded secrets in Python.
+
 ## November 2022
 
 ### Community tier
@@ -163,7 +220,7 @@ r2c is adding new metadata fields to better communicate the intent and importanc
 - Filtered false positive cases from:
     - <LinkToRegistryRule ruleId="generic.secrets.security.detected-slack-webhook" />
     - <LinkToRegistryRule ruleId="java.jax-rs.security.insecure-resteasy" />
-    - <LinkToRegistryRule ruleId="javascript.express.securty.audit.xss.direct-response-write" />
+    - <LinkToRegistryRule ruleId="javascript.express.security.audit.xss.direct-response-write" />
     - <LinkToRegistryRule ruleId="javascript.express.security.audit.express-open-redirect" />
     - <LinkToRegistryRule ruleId="ruby.rails.security.injection.tainted-sql-string" />
     - <LinkToRegistryRule ruleId="ruby.rails.security.brakeman.check-regex-dos" />
