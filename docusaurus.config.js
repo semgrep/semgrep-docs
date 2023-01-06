@@ -143,6 +143,19 @@ module.exports = {
       searchParameters: {},
       facetFilters: [],
       //... other Algolia params
+      "customRanking": [
+        "desc(weight.page_rank)"
+      ],
+      "ranking": [
+        "desc(weight.page_rank)",
+        "custom",
+        "words",
+        "filters",
+        "typo",
+        "attribute",
+        "proximity",
+        "exact"
+      ]
     },
     image: 'https://semgrep.dev/thumbnail.png',
   },
