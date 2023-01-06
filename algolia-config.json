@@ -55,12 +55,12 @@
     ]
   },
   "customRanking": [
-    "desc(weight.pageRank)",
+    "desc(weight.page_rank)",
     "desc(weight.level)",
     "asc(weight.position)"
   ],
   "ranking": [
-    "desc(weight.pageRank)",
+    "desc(weight.page_rank)",
     "words",
     "filters",
     "typo",
