@@ -55,7 +55,7 @@
     ]
   },
   "customRanking": [
-    "desc(weight.page_rank)",
+    "desc(weight.page_rank)"
   ],
   "ranking": [
     "desc(weight.page_rank)",
