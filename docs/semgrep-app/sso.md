@@ -23,6 +23,10 @@ import MoreHelp from "/src/components/MoreHelp"
 
 **SSO (single sign-on)** is a **Team/Enterprise tier feature**. Semgrep supports [OpenID Connect / Oauth2](#openid-connect--oauth2) and [SAML 2.0](#saml-20).
 
+:::info
+Add users through your Single Sign On provider without any additional steps in the Semgrep App after you configure the SSO for your organization. The only required steps to ensure that users are added to Semgrep App are on the side of the SSO provider. There are no additional emails with links to click on. When you follow the SSO steps, you are able to add onboard users with one click.
+:::
+
 ## OpenID Connect / Oauth2
 
 To set up SSO:
