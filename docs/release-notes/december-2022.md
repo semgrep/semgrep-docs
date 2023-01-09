@@ -37,7 +37,7 @@ These release notes include upgrades for versions ranging between 1.0.0 and 1.2.
 ### Additions
 
 - JSON output: Added a `max_memory_bytes` field to the output of the  `semgrep --json --time` which corresponds to the amount of memory allocated during the OCaml phase of Semgrep. This is useful for telemetry purposes.
-- DeepSemgrep: If you have a Team tier account in Semgrep App, and you enable the DeepSemgrep setting, then `semgrep ci` automatically runs the DeepSemgrep engine instead of the regular Semgrep CLI engine on full scans (but not in PR scans). To try and install DeepSemgrep, see the [DeepSemgrep](/deepsemgrep/deepsemgrep-introduction/) documentation.
+- DeepSemgrep: If you have a Team tier account in Semgrep App, and you enable the DeepSemgrep setting, then `semgrep ci` automatically runs the DeepSemgrep engine instead of the regular Semgrep CLI engine on full scans (but not in PR scans). See the [DeepSemgrep](/deepsemgrep/deepsemgrep-introduction/) documentation for installation details.
 
 ### Changes
 
