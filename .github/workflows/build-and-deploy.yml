@@ -1,0 +1,35 @@
+name: Build and Deploy Docs
+
+on: 
+  workflow_dispatch:
+  # push:
+  #     branches:
+  #     - main
+  #     - develop
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
+        with:
+          node-version: 16
+          cache: 'yarn'
+      - name: Install dependencies
+        run: yarn install
+      - name: Build
+        run: yarn run build
+      - name: Set AWS credentials
+        uses: aws-actions/configure-aws-credentials@v1
+        with:
+          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          aws-region: us-west-2
+      - name: Deploy to staging
+        if: github.ref == 'refs/heads/develop'
+        run: aws s3 sync build/ s3://staging-semgrep-dev/docs --delete
+      # - name: Deploy to production
+      #   if: 0 #github.ref == 'refs/heads/main' #FIXME: Needs prod URL
+      #   run: echo aws s3 sync build/ s3://semgrep-docs/docs --delete
