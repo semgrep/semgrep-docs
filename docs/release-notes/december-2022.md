@@ -55,7 +55,7 @@ These release notes include upgrades for versions ranging between 1.0.0 and 1.2.
 ### Changes
 
 - Updated [Getting started with Semgrep App](/semgrep-app/getting-started-with-semgrep-app/) to clarify how permissions are used by Semgrep, such as what files are read and what features are enabled by certain permissions.
-- Separated referential introductions from [Getting started with Semgrep Supply Chain](/semgrep-sc/scanning-open-source-dependencies/) into its a separate document, [Overview of Semgrep Supply Chain](/semgrep-sc/semgrep-supply-chain-overview/).
+- Separated referential introductions from [Getting started with Semgrep Supply Chain](/semgrep-sc/scanning-open-source-dependencies/) into a separate document, [Overview of Semgrep Supply Chain](/semgrep-sc/semgrep-supply-chain-overview/).
 - Updated [Installing DeepSemgrep](/deepsemgrep/deepsemgrep-introduction/#installing-deepsemgrep) section.
 - Updated [Filtering findings](/semgrep-app/findings/#filtering-findings) section with information about new filtering options.
 - The following documents have been moved out of the Experiments section as they are now considered GA:
