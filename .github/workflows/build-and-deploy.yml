@@ -2,13 +2,12 @@ name: Build and Deploy Docs
 
 on: 
   workflow_dispatch:
-  # push:
-  #     branches:
-  #     - main
-  #     - develop
-
+  push:
+      branches:
+      - main
+      - develop
 jobs:
-  build:
+  deploy:
     runs-on: ubuntu-latest
     timeout-minutes: 10
     steps:
@@ -30,6 +29,6 @@ jobs:
       - name: Deploy to staging
         if: github.ref == 'refs/heads/develop'
         run: aws s3 sync build/ s3://staging-semgrep-dev/docs --delete
-      # - name: Deploy to production
-      #   if: 0 #github.ref == 'refs/heads/main' #FIXME: Needs prod URL
-      #   run: echo aws s3 sync build/ s3://semgrep-docs/docs --delete
+      - name: Deploy to production
+        if: github.ref == 'refs/heads/main'
+        run: echo aws s3 sync build/ s3://semgrep-docs/docs --delete
