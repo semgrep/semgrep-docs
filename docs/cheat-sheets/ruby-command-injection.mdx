@@ -21,7 +21,7 @@ semgrep scan --config p/ruby-command-injection
 
 ### 1.A. Running code with Open3 module
 
-`Open3` grants access to running processes when running another program. For more information, see [Ruby documentation](https://docs.ruby-lang.org/en/2.0.0/Open3.html). Such methods as `capture2`, `capture2e`, `capture3`, `popen2`, `popen2e`, `popen3`, `pipeline`, `pipeline_r`, `pipeline_rw`, `pipeline_start` and `pipeline_w` are intended for runnig commands provided as a string. Letting user supplied data in a command that is passed as an argument to one of these methods, can create an opportunity for a command injection vulnerability.
+`Open3` grants access to running processes when running another program. For more information, see [Ruby documentation](https://docs.ruby-lang.org/en/2.0.0/Open3.html). Such methods as `capture2`, `capture2e`, `capture3`, `popen2`, `popen2e`, `popen3`, `pipeline`, `pipeline_r`, `pipeline_rw`, `pipeline_start` and `pipeline_w` are intended for running commands provided as a string. Letting user supplied data in a command that is passed as an argument to one of these methods, can create an opportunity for a command injection vulnerability.
 
 Example:
 
@@ -54,7 +54,7 @@ Open3.pipeline("zcat #{user_input}”, "nroff -man", "colcrt")
 
 #### Mitigation
 
-- Do not let a user input in `Open3` methods.
+- Do not pass user input to `Open3` methods.
 - Always try to use internal Ruby API (if it exists) instead of running an OS command. In other words, use internal language features instead of invoking commands that can be exploited.
 - Don’t pass user-controlled input or use an allowlist for inputs.
 - Do not include command arguments in a command string, use parameterization instead. For example:<br />
@@ -73,9 +73,9 @@ Open3.pipeline("zcat #{user_input}”, "nroff -man", "colcrt")
 
 <LinkToRegistryRule ruleId="ruby.lang.security.dangerous-open3-pipeline.dangerous-open3-pipeline" />
 
-### 1.B. Using open() tu run subprocesses
+### 1.B. Using open() to run subprocesses
 
-Creates an input/output (I/O) object connected to a stream, file, or subprocess. If the first argument starts with a pipe character (`|`), it creates a subprocess. An opportunity for command injection vulnerability is created when the subprocess includes user input in a command argument to `open()` function.
+The `open(...)` creates an input/output (I/O) object connected to a stream, file, or subprocess. If the first argument starts with a pipe character (`|`), it creates a subprocess. An opportunity for command injection vulnerability is created when the subprocess includes user input in a command argument to `open()` function.
 
 Example:
 
@@ -94,7 +94,7 @@ open(user_input)
 
 #### Mitigation
 
-- Do not let a user input in `open` methods.
+- Do not provide raw user input to `open` methods.
 - Always try to use internal Ruby API (if it exists) instead of running an OS command. In other words, use internal language features instead of invoking commands that can be exploited.
 - Don’t pass user-controlled input or use an allowlist for inputs.
 - Define a list of allowed arguments.
