@@ -107,7 +107,7 @@ The `dest-language` key is required in extract mode. The value must be a [langua
 
 ### `json`
 
-The `json` key is optional in extract mode. This boolean value defaults to "false" and it specifies if the extracted content should be parsed as raw source code or as a JSON array. Setting this key to "true" is useful extracting code from json formats such as Jupyter Notebooks.
+The `json` is an optional key in the extract mode. This boolean value defaults to `false` and specifies whether the extracted content is parsed as raw source code or as a JSON array. Setting the `json` key to `true` is useful in extracting code from JSON formats such as Jupyter Notebooks.
 
 ### `reduce`
 
