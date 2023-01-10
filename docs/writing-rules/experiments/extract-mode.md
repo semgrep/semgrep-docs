@@ -91,8 +91,9 @@ Extract mode rules **also require** two additional fields:
   - `extract`
   - `dest-language`
 
-Extract mode has one **optional** field:
+Extract mode has two **optional** field:
   - `reduce`
+  - `json`
 
 The fields specific to extract mode are further explained in the sections below.
 
@@ -103,6 +104,10 @@ The `extract` key is required in extract mode. The value must be a metavariable 
 ### `dest-language`
 
 The `dest-language` key is required in extract mode. The value must be a [language tag](/writing-rules/rule-syntax/#language-extensions-and-tags).
+
+### `json`
+
+The `json` key is optional in extract mode. This boolean value defaults to "false" and it specifies if the extracted content should be parsed as raw source code or as a JSON array. Setting this key to "true" is useful extracting code from json formats such as Jupyter Notebooks.
 
 ### `reduce`
 
@@ -119,7 +124,7 @@ The value of `reduce` key must be one of the following:
 
 ## Limitations of extract mode
 
-Currently, extract mode does not support additional processing for the extracted text, such as unescaping strings, which might be useful for some applications like Jupyter Notebooks.
+Although extract mode supports JSON array decoding via the `json` key, it does not support other additional processing for the extracted text, such as unescaping strings, which might be useful for some other applications.
 
 While extract mode can help to enable rules which try and track taint across a language boundary within a file, taint rules cannot have a source and sink split across the original file and extracted text.
 
