@@ -63,4 +63,4 @@ These release notes include upgrades for versions ranging between 1.0.0 and 1.2.
     - [Generic pattern matching](/writing-rules/generic-pattern-matching/)
     - [Metavariable analysis](/writing-rules/metavariable-analysis/)
     - Taint propagators - moved to [Taint tracking](/writing-rules/data-flow/taint-mode/#propagators) documentation
-- Updated screenshots in Semgrep App documentation, and many additional improvements, and fixes were made.
+- Updated screenshots in Semgrep App documentation. Many additional improvements and fixes were made.
