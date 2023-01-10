@@ -1,10 +1,10 @@
 name: Test build
 
 on: 
-  pull_requests:
+  pull_request:
 
 jobs:
-  deploy:
+  test:
     runs-on: ubuntu-latest
     timeout-minutes: 10
     steps:
