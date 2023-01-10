@@ -21,7 +21,7 @@ semgrep scan --config p/java-command-injection
 
 ### 1.A. Running OS commands with Runtime.getRuntime().exec()
 
-The `exec` executes the specified string command in a separate process. This is dangerous if a command string is controlled by user input and could result in a command injection.
+The `exec` call executes the specified string command in a separate process. This is dangerous if a command string is controlled by user input and could result in command injection.
 
 Example:
 
