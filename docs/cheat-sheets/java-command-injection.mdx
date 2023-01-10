@@ -56,9 +56,9 @@ Runtime.getRuntime().exec("bash", "-c", input);
     Runtime.getRuntime().exec("bash", "-c", "myCommand myArg1 " + inputValue)
     ```
 - If it is not possible, then strip the input of everything except alphanumeric characters provided for the command string and arguments.
-- Try to avoid non-literal values for the command string, such as `Runtime.getRuntime().exec("bash", "-c", input)` in the example above. Do not use `input` and similar functions.
-- If it is not possible, then do not let running arbitrary commands, use an allowlist for inputs.
-- Strip `!@#$;&*~"'{}][-+%^` characters from an input provided for command string. 
+- Do **not** use direct user input, even if it is sanitized.
+- If it is not possible to avoid direct user input, do not allow running arbitrary commands. Use an allowlist for inputs.
+- Strip `!@#$;&*~"'{}][-+%^` characters from user input that is incorporated in the command string which is later executed.
 
 #### Semgrep rule
 
@@ -90,8 +90,8 @@ builder.command(input);
 
 #### Mitigation
 
-- Try to avoid non-literal values for the command string.
-- If it is not possible, then do not let running arbitrary commands, use an allowlist for inputs.
+- Try to avoid non-literal values in the command string.
+- If it is not possible to prevent non-literal values in the command string, then do not allow running arbitrary commands. Use an allowlist for inputs.
 - Do not include command arguments in a command string, use parameterization instead. For example:<br />
     Use:
     ```java
