@@ -63,8 +63,8 @@ Here are the main components:
   suitable for pattern matching.
 
 Make sure the above is clear in your mind before proceeding further.
-If you have questions, the best way is reach out on our
-[community Slack channel](https://r2c.dev/slack).
+If you have questions, the best way is reach out on the [Semgrep
+Community Slack channel](https://go.semgrep.dev/slack).
 
 Before upgrading
 --

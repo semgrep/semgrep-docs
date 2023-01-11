@@ -47,7 +47,15 @@ module.exports = {
                 'writing-rules/data-flow/status'
             ]
         },
-        'deepsemgrep',
+        {
+            type: 'category',
+            label: 'Deepsemgrep',
+            link: {type: 'doc', id: 'deepsemgrep/deepsemgrep-introduction'},
+            items: [
+                'deepsemgrep/deepsemgrep-introduction',
+                'deepsemgrep/deepsemgrep-examples'
+            ]
+        },
         'semgrep-app/pricing-and-billing'
       ],
     },
@@ -138,6 +146,13 @@ module.exports = {
                             'cheat-sheets/go-xss',
                             'cheat-sheets/java-jsp-xss',
                             'cheat-sheets/rails-xss'
+                        ]
+                    },
+                    {
+                        type: 'category',
+                        label: 'XXE',
+                        items: [
+                            'cheat-sheets/java-xxe',
                         ]
                     },
                 ],
@@ -277,6 +292,7 @@ module.exports = {
         label: 'Release notes',
         link: {type: 'doc', id: 'release-notes/introduction'},
         items: [
+            'release-notes/december-2022',
             'release-notes/november-2022',
             'release-notes/october-2022',
             'release-notes/september-2022',
