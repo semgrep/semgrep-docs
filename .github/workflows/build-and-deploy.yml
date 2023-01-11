@@ -1,11 +1,12 @@
 name: Build and Deploy Docs
 
 on: 
-  workflow_dispatch:
+  workflow_dispatch: # This enables manual runs. Just in case.
   push:
       branches:
       - main
       - develop
+
 jobs:
   deploy:
     runs-on: ubuntu-latest
@@ -19,7 +20,7 @@ jobs:
       - name: Install dependencies
         run: yarn install
       - name: Build
-        run: yarn run build
+        run: yarn build
       - name: Set AWS credentials
         uses: aws-actions/configure-aws-credentials@v1
         with:
@@ -31,4 +32,4 @@ jobs:
         run: aws s3 sync build/ s3://staging-semgrep-dev/docs --delete
       - name: Deploy to production
         if: github.ref == 'refs/heads/main'
-        run: echo aws s3 sync build/ s3://semgrep-docs/docs --delete
+        run: aws s3 sync build/ s3://semgrep-docs/docs --delete

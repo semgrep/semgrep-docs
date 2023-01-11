@@ -44,6 +44,7 @@ import GlcicdSemgrepAppSsc from "/src/components/code_snippets/_glcicd-semgrep-a
 import JenkinsSemgrepAppSast from "/src/components/code_snippets/_jenkins-semgrep-app-sast.mdx"
 import JenkinsSemgrepAppSsc from "/src/components/code_snippets/_jenkins-semgrep-app-ssc.mdx"
 import JenkinsSemgrepAppStandalone from "/src/components/code_snippets/_jenkins-semgrep-app-standalone.mdx"
+import JenkinsSemgrepAppSastDocker from "/src/components/code_snippets/_jenkins-semgrep-app-sast-docker.mdx"
 
 <!--BitBucket Pipelines -->
 import BitbucketSemgrepAppSast from "/src/components/code_snippets/_bitbucket-semgrep-app-sast.mdx"
@@ -248,6 +249,7 @@ To add a Semgrep configuration snippet in your Jenkins pipeline:
     {label: 'CI with Semgrep App', value: 'jenkins-semgrep'},
     {label: 'Stand-alone CI job', value: 'jenkins-standalone'},
     {label: 'CI with Semgrep Supply Chain', value: 'jenkins-ssc'},
+    {label: 'CI with Semgrep App via Docker', value: 'jenkins-semgrep-docker'},
     ]}
 >
 
@@ -266,6 +268,12 @@ To add a Semgrep configuration snippet in your Jenkins pipeline:
 <TabItem value='jenkins-ssc'>
 
 <JenkinsSemgrepAppSsc />
+
+</TabItem>
+
+<TabItem value='jenkins-semgrep-docker'>
+
+<JenkinsSemgrepAppSastDocker />
 
 </TabItem>
 </Tabs>
