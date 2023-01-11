@@ -119,15 +119,22 @@ The following **filters** are provided:
   <tr>
    <td>Severity
    </td>
-   <td>Filters are based on the severity of a vulnerability. Semgrep Supply Chain rules use severity values set by the GitHub Advisory Database.
+   <td>Filters are based on the severity of a vulnerability. Semgrep Supply Chain rules use severity values set by the GitHub Advisory Database. All severities are displayed by default.
    </td>
   </tr>
   <tr>
    <td>Status
    </td>
-   <td>Filters are based on the status of a vulnerability.
+   <td>Filters are based on the status of a vulnerability. **New** findings are displayed by default.
    </td>
-  </tr></tbody>
+  </tr>
+  <tr>
+   <td>Transitivity
+   </td>
+   <td>Filters are based on the transitivity of a vulnerability. All findings regardless of transitivity are displayed by default.
+   </td>
+  </tr>
+  </tbody>
 </table>
 
 The following **status filters** are provided:

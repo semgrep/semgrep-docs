@@ -35,6 +35,8 @@ Semgrep Supply Chain detects recently discovered [security vulnerabilities](http
 
 This document walks you through the process of setting up open source dependency scanning with Semgrep Supply Chain.
 
+To learn more about how Semgrep Supply Chain performs reachability analysis, see [Overview of Semgrep Supply Chain](/semgrep-sc/semgrep-supply-chain-overview).
+
 :::note
 Semgrep Supply Chain **supports monorepositories (monorepos)** by treating each subdirectory as its own repository. Findings are grouped under these repositories based on the [lockfile](/semgrep-sc/sc-glossary/#lockfile) or manifest file present in the subdirectory.
 :::
@@ -95,10 +97,10 @@ To enable and run a Supply Chain (open source dependency) scan in Semgrep App:
 
 1. Sign in to your Semgrep App account, and then go to **Projects** page.
 2. Click **[Projects](https://semgrep.dev/orgs/-/projects)**, and then click <i class="fa-solid fa-gear"></i> **gear** icon of the repository on which to run Supply Chain rules.
-3. Click <i class="fa-solid fa-toggle-large-on"></i> **SSC toggle**. Semgrep Supply Chain rules are included in your next scan, that occurs based on your CI set up, such as schedules and events configuration (push, pull, and merge requests).
+3. Click <i class="fa-solid fa-toggle-large-on"></i> **Supply Chain**. Semgrep Supply Chain rules are included in your next scan, that occurs based on your CI set up, such as schedules and events configuration (push, pull, and merge requests).
 4. Optional: Some CI providers enable you to start workflows manually. To start a dependency scan immediately, go to your CI provider's interface and manually begin the Semgrep workflow or job.
 
-When the scan finishes, Semgrep App displays an overview of findings in the **Supply Chain** tab for further triage and remediation. See [Triaging and remediating dependency findings](/semgrep-sc/triaging-and-remediating-vulnerabilities).
+When the scan finishes, Semgrep App displays an overview of findings in the **Supply Chain** page for further triage and remediation. See [Triaging and remediating dependency findings](/semgrep-sc/triaging-and-remediating-vulnerabilities).
 
 #### Events that trigger a Supply Chain dependency scan
 
