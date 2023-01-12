@@ -1,12 +1,12 @@
 ---
 slug: go-xss
-description: "Go XSS prevention cheat sheet."
+description: "XSS prevention cheat sheet for Go 'net/http'."
 ---
 
 import LinkToRegistryRule from "/src/components/LinkToRegistryRule"
 import XssInjectionIntro from "/src/components/concept/_xss-injection-intro.mdx"
 
-# XSS prevention for Go 'net/http'
+# XSS prevention for Go net/http
 
 <XssInjectionIntro />
 
@@ -112,9 +112,9 @@ Ban `template.CSS`. Alternatively, if necessary, review each case carefully and 
 
 <LinkToRegistryRule ruleId="go.template.security.insecure-types.go-insecure-templates" />
 
-### 1.E. Escaped types: `template.JS`
+### 1.E. Escaped types: template.JS
 
-`template.JS` is a special type which instructs the template engine not to escape the content in JavaScript contexts, such as between `script` tags.
+The `template.JS` is a special type which instructs the template engine not to escape the content in JavaScript contexts, such as between `script` tags.
 
 Example:
 
@@ -136,9 +136,9 @@ Ban `template.JS`. Alternatively, place JavaScript code in files separate from H
 
 <LinkToRegistryRule ruleId="go.template.security.insecure-types.go-insecure-templates" />
 
-### 1.F. Escaped types: `template.JSStr`
+### 1.F. Escaped types: template.JSStr
 
-`template.JSStr` is a special type which instructs the template engine not to escape the content when in JavaScript contexts and in a string.
+The `template.JSStr` is a special type which instructs the template engine not to escape the content when in JavaScript contexts and in a string.
 
 Example:
 
@@ -180,9 +180,9 @@ Ban `template.Srcset`. Alternatively, prefer `template.HTML`, only if necessary.
 
 <LinkToRegistryRule ruleId="go.template.security.insecure-types.go-insecure-templates" />
 
-### 1.H. Escaped types: `template.URL`
+### 1.H. Escaped types: template.URL
 
-`template.URL` is a special type which instructs the template engine not to escape the content.
+The `template.URL` is a special type which instructs the template engine not to escape the content.
 
 Example:
 
@@ -206,7 +206,7 @@ Ban `template.URL`. Alternatively, if necessary, review each case carefully and 
 
 ## 2. Server code: Bypassing the template engine
 
-### 2.A. Writing directly to the response object: `fmt.Fprintf()`
+### 2.A. Writing directly to the response object: fmt.Fprintf()
 
 Writing directly to the response object bypasses the template engine which means content will not be autoescaped. This could introduce a XSS vulnerability.
 
@@ -251,7 +251,7 @@ Ban using `io.WriteString` with the HTTP response writer. Alternatively, use `ht
 
 <LinkToRegistryRule ruleId="go.lang.security.audit.xss.no-io-writestring-to-responsewriter.no-io-writestring-to-responsewriter" />
 
-### 2.C. Writing directly to the response object: `w.Write()` method
+### 2.C. Writing directly to the response object: w.Write() method
 
 Writing directly to the response object bypasses the template engine which means content will not be autoescaped. This could introduce a XSS vulnerability.
 
