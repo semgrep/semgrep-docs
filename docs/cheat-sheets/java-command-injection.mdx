@@ -1,5 +1,6 @@
 ---
 slug: java-command-injection
+description: "Mitigate command injection in Java."
 ---
 
 import LinkToRegistryRule from "/src/components/LinkToRegistryRule"
@@ -66,7 +67,7 @@ Runtime.getRuntime().exec("bash", "-c", input);
 
 ### 1.B. Running OS processes with ProcessBuilder
 
-ProcessBuilder class is used to create operating system processes. If the command string is controlled by user input it can result in command injection. 
+The `ProcessBuilder` class is used to create operating system processes. If the command string is controlled by user input it can result in command injection. 
 Example:
 
 ```java
