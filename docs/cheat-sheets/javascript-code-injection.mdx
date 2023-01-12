@@ -59,7 +59,7 @@ let userInput = '1; while (true)
 #### Mitigation
 
 - Don't use the `vm` module for running untrusted code.
-- If you need to use functions of the `vm` module with non-literal values, ensure that executed content is not controllable by external sources.
+- If you need to use functions of the `vm` module with non-literal values, ensure that the executed content cannot be controlled by external sources.
 - If it's not possible, strip everything except alphanumeric characters from the input.
 
 #### Semgrep rule
@@ -87,7 +87,7 @@ var x = new Function(`return ${userInput}(a,b)`)
 #### Mitigation
 
 - Don't use `eval()` or `new Function()` if possible.
-- If you need to use `eval()` or `new Function()` with non-literal values, ensure that executed content is not controllable by external sources.
+- If you need to use `eval()` or `new Function()` with non-literal values, ensure that the executed content cannot be controlled by external sources.
 - If it's not possible, strip everything except alphanumeric characters from the input.
 
 #### Semgrep rule
