@@ -107,11 +107,11 @@ The `dest-language` key is required in extract mode. The value must be a [langua
 
 ### `transform`
 
-The `transform` is an optional key in the extract mode. The value of this key specifies whether the extracted content is parsed as raw source code or as a JSON array. Setting the `json` key to `true` is useful in extracting code from JSON formats such as Jupyter Notebooks.
+The `transform` is an optional key in the extract mode. The value of this key specifies whether the extracted content is parsed as raw source code or as a JSON array.
 
 The value of `transform` key must be one of the following:
 <dl>
-    <dt><code>unquote_string</code></dt>
+    <dt><code>no_transform</code></dt>
     <dd><p>Extract the matched content as raw source code. This is the <b>default</b> value.</p></dd>
     <dt><code>concat_json_string_array</code></dt>
     <dd><p>Extract the matched content as a JSON array. Each element of the array correspond to a line the resulting source code. This value is useful in extracting code from JSON formats such as Jupyter Notebooks.</p></dd>
