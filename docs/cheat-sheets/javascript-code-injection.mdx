@@ -21,7 +21,7 @@ semgrep scan --config="r/javascript.lang.security.audit.vm-injection.vm-runincon
 
 ### 1.A. running code with VM module
 
-The `vm` module enables compiling and running code within V8 Virtual Machine contexts. The `vm` module is not secure. Do not use it to run untrusted code. If code passed to `vm` functions is controlled by user input it could result in code injection. See [VM (executing JavaScript)](https://nodejs.org/dist/latest-v18.x/docs/api/vm.html#vm-executing-javascript) documentation.
+The `vm` module enables compiling and running code within V8 Virtual Machine contexts. The `vm` module is not secure. Do not use it to run untrusted code. If user input is used as a part of the code passed to `vm` functions, it can result in code injection. See [VM (executing JavaScript)](https://nodejs.org/dist/latest-v18.x/docs/api/vm.html#vm-executing-javascript) documentation.
 
 The following list documents all potentially vulnerable functions that compile and execute code from the `vm` module:
 - `vm.runInContext`
