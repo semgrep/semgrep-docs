@@ -16,6 +16,7 @@ title: Supported languages
 import SupportedLanguagesTable from '/src/components/reference/_supported-languages-table.mdx'
 import SscIntro from "/src/components/concept/_ssc-intro.md"
 import MoreHelp from "/src/components/MoreHelp"
+import DeepSemgrepIntroduction from "/src/components/concept/_deepsemgrep-introduction.mdx"
 
 <ul id="tag__badge-list">
 {
@@ -31,6 +32,7 @@ This document provides information about supported languages and language maturi
 
 * Semgrep
 * Semgrep Supply Chain
+* DeepSemgrep
 
 ## Semgrep
 
@@ -150,7 +152,6 @@ See [Parse rates by language](https://dashboard.semgrep.dev/).
 
 Semgrep Supply Chain parses **lockfiles** for dependencies, then scans your codebase for reachable findings based on the lockfiles. Some languages, such as Java, have several lockfiles, depending on your repository's package manager. For some languages, such as JavaScript and Python, a manifest file is also parsed.
 
-
 ### General Availability
 
 This table provides information about fully supported (generally available or GA) languages, specific package managers, and their lockfiles in Semgrep Supply Chain:
@@ -217,7 +218,6 @@ This table provides information about the beta level of support for languages, s
   </tr></tbody>
 </table>
 
-
 _* `pom.xml` is not a lockfile, however Semgrep Supply Chain parses `pom.xml` as the source of truth for dependencies in Maven projects in conjunction with `MANIFEST.mf`._
 
 ### Maturity levels
@@ -264,4 +264,16 @@ Their differences are outlined in the following table:
    </td>
   </tr>
 </table>
+
+## DeepSemgrep
+
+<DeepSemgrepIntroduction />
+
+### Alpha support
+
+DeepSemgrep offers **alpha** support for the following languages:
+- **Java**
+- **JavaScript**
+- **TypeScript**
+
 <MoreHelp />
