@@ -117,15 +117,49 @@ module.exports = {
                 items: [
                     {
                         type: 'category',
-                        label: 'Command injection',
+                        label: 'Code injection',
+                        link: {
+                            type: 'generated-index',
+                            title: 'Code injection',
+                            description:
+                              "Code injection prevention cheat sheets by r2c.",
+                            keywords: ['code injection']
+                          },
                         items: [
-                            'cheat-sheets/go-command-injection',
-                            'cheat-sheets/python-command-injection'
+                            'cheat-sheets/java-code-injection',
+                            'cheat-sheets/javascript-code-injection',
+                            'cheat-sheets/python-code-injection',
+                            'cheat-sheets/ruby-code-injection'
                         ]
                     },
                     {
                         type: 'category',
+                        label: 'Command injection',
+                        link: {
+                            type: 'generated-index',
+                            title: 'Command injection',
+                            description:
+                              "Command injection prevention cheat sheets by r2c.",
+                            keywords: ['command injection']
+                          },
+                        items: [
+                                'cheat-sheets/go-command-injection',
+                                'cheat-sheets/java-command-injection',
+                                'cheat-sheets/javascript-command-injection',
+                                'cheat-sheets/python-command-injection',
+                                'cheat-sheets/ruby-command-injection'
+                            ]
+                    },
+                    {
+                        type: 'category',
                         label: 'XSS',
+                        link: {
+                            type: 'generated-index',
+                            title: 'XSS',
+                            description:
+                                "XSS prevention cheat sheets by r2c.",
+                            keywords: ['XSS']
+                            },
                         items: [
                             'cheat-sheets/django-xss',
                             'cheat-sheets/express-xss',
@@ -133,6 +167,20 @@ module.exports = {
                             'cheat-sheets/go-xss',
                             'cheat-sheets/java-jsp-xss',
                             'cheat-sheets/rails-xss'
+                        ]
+                    },
+                    {
+                        type: 'category',
+                        label: 'XXE',
+                        link: {
+                            type: 'generated-index',
+                            title: 'XXE',
+                            description:
+                                "XXE prevention cheat sheets by r2c.",
+                            keywords: ['XXE']
+                            },
+                        items: [
+                            'cheat-sheets/java-xxe',
                         ]
                     },
                 ],
@@ -272,6 +320,7 @@ module.exports = {
         label: 'Release notes',
         link: {type: 'doc', id: 'release-notes/introduction'},
         items: [
+            'release-notes/december-2022',
             'release-notes/november-2022',
             'release-notes/october-2022',
             'release-notes/september-2022',

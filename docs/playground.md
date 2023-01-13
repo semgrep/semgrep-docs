@@ -126,7 +126,7 @@ Check for spelling and indentation issues. The key names must match [Semgrep's s
 
 #### The rule does not behave as expected or does not find the desired match
 
-File a [bug](https://github.com/returntocorp/semgrep/issues/new?title=semgrep.dev%20bug%20report) or reach out through [Semgrep Community Slack](https://r2c.dev/slack).
+File a [bug](https://github.com/returntocorp/semgrep/issues/new?title=semgrep.dev%20bug%20report) or reach out through [Semgrep Community Slack](https://go.semgrep.dev/slack).
 
 ## Exploring rules through Semgrep Registry
 
@@ -188,15 +188,15 @@ To embed a rule:
 3. Create the **URL reference**. Substitute the identifier in this template: `https://semgrep.dev/embed/editor?snippet=IDENTIFIER`. For example, using the identifier `ievans:print-to-logger` creates `https://semgrep.dev/embed/editor?snippet=ievans:print-to-logger`.
 4. Optional: To test the URL reference, enter the URL in your browser's address bar.
 ![Screenshot of the embedded Playground in its own tab](/img/playground-widget.png "Embedded playground in its own tab")
-5. In the following snippet, replace the `src` placeholder value with the previously-created **URL reference**:
+5. In the following snippet, replace the `src="URL_REFERENCE"` placeholder value with the previously-created **URL reference**:
+    ```html
+    <iframe title="Semgrep example no prints" src="URL_REFERENCE" width="100%" height="432" frameborder="0"></iframe>
+    ```
 
-```html
- <iframe title="Semgrep example no prints" src="URL_REFERENCE" width="100%" height="432" frameborder="0"></iframe>
-```
-Our example's finished result is:
+    The rendered iframe example:
 
-```html
-<iframe title="Semgrep example no prints" src="https://semgrep.dev/embed/editor?snippet=ievans:print-to-logger" width="100%" height="432" frameborder="0"></iframe>
-```
+    ```html
+    <iframe title="Semgrep example no prints" src="https://semgrep.dev/embed/editor?snippet=ievans:print-to-logger" width="100%" height="432" frameborder="0"></iframe>
+    ```
 
 <MoreHelp />

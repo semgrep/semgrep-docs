@@ -53,7 +53,7 @@ module.exports = {
           items: [
             {
               label: 'Slack',
-              href: 'https://r2c.dev/slack',
+              href: 'https://go.semgrep.dev/slack',
             },
             {
               label: 'GitHub',
@@ -61,7 +61,7 @@ module.exports = {
             },
             {
               label: 'Twitter',
-              href: 'https://twitter.com/r2cdev',
+              href: 'https://twitter.com/semgrep',
             },
           ],
         },
@@ -117,17 +117,17 @@ module.exports = {
             },
             {
               label: 'Semgrep release updates',
-              href: 'https://us18.campaign-archive.com/home/?u=ee2dc8f77e27d3739cf4df9ef&id=9b175e26fa'
+              href: 'https://twitter.com/semgrepreleases'
             }
           ],
         },
       ],
-      copyright: `Copyright © ${new Date().getFullYear()} r2c. Built with Docusaurus.`,
+      copyright: `Copyright © ${new Date().getFullYear()} r2c. Semgrep®️  is a registered trademark of r2c. This site is built with Docusaurus.`,
     },
     prism: {
       theme: lightCodeTheme,
       darkTheme: darkCodeTheme,
-      additionalLanguages: ['java'],
+      additionalLanguages: ['java', 'ruby', 'csharp', 'rust'],
     },
     algolia: {
       apiKey: 'f53612c29d04a2ff71dce6e3b2f76752',
