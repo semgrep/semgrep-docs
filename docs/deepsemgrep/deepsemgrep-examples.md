@@ -10,7 +10,7 @@ This document provides an overview of DeepSemgrep utility on specific examples, 
 
 ## Cloning the DeepSemgrep testing repository
 
-DeepSemgrep’s value is mostly visible when scanning more files. Semgrep’s usual embedded code examples are not helpful in demonstrating the capabilities of DeepSemgrep because embedded code from Semgrep App only displays one rule and one test file at a time. To see the capabilities of DeepSemgrep fully clone the [DeepSemgrep testing repository](https://github.com/returntocorp/deep-semgrep-tests).
+DeepSemgrep’s value stands out when scanning more files. Semgrep’s usual embedded code examples are not helpful in demonstrating the capabilities of DeepSemgrep because embedded code from Semgrep App only displays one rule and one test file at a time. To see the capabilities of DeepSemgrep fully clone the [DeepSemgrep testing repository](https://github.com/returntocorp/deep-semgrep-tests).
 
 To learn by doing, use DeepSemgrep while reading this documentation. Follow this document while testing code examples in the [DeepSemgrep testing repository](https://github.com/returntocorp/deep-semgrep-tests).
 
