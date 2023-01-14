@@ -271,7 +271,7 @@ Their differences are outlined in the following table:
 
 ### Alpha support
 
-DeepSemgrep offers **alpha** support for the following languages:
+DeepSemgrep offers **beta** support for the following languages:
 - **Java**
 - **JavaScript**
 - **TypeScript**
