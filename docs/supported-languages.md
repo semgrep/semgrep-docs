@@ -144,7 +144,8 @@ Visit the cheat sheet generation script and associated semgrep-core test files t
 * [`semgrep-core` test files](https://github.com/returntocorp/semgrep/tree/develop/tests)
 
 :::info Feature and product maturity levels
-The detailed specifications given above apply only to language support. Language maturity levels differ from feature and product maturity levels. Unlike supported languages, features, and products marked here as experimental (alpha), beta or GA carry meaning used regularly in software terminology as a part of the software release life cycle. For a standard definition of these terms, see for example [Software release life cycle](https://en.wikipedia.org/wiki/Software_release_life_cycle).
+* The detailed specifications given above apply only to language support. Language maturity levels differ from feature and product maturity levels.
+* Semgrep features and products documented as experimental (alpha), beta, or GA generally follow the definitions in a [Software release life cycle](https://en.wikipedia.org/wiki/Software_release_life_cycle).
 :::
 
 ### Language parse rates
