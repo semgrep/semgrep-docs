@@ -214,11 +214,11 @@ This table provides information about the beta level of support for languages, s
   </tr>
   <tr>
    <td>Maven (single-file configurations)</td>
-   <td><code>pom.xml</code>*</td>
+   <td>Maven-generated dependency tree*</td>
   </tr></tbody>
 </table>
 
-_* `pom.xml` is not a lockfile, however Semgrep Supply Chain parses `pom.xml` as the source of truth for dependencies in Maven projects in conjunction with `MANIFEST.mf`._
+_*Semgrep Supply Chain requires a Maven-generated dependency tree. See [Setting up SSC scans for Apache Maven](/docs/semgrep-sc/scanning-open-source-dependencies/#apache-maven-java) for instructions to generate a dependency tree._
 
 ### Maturity levels
 
@@ -269,7 +269,7 @@ Their differences are outlined in the following table:
 
 <DeepSemgrepIntroduction />
 
-### Alpha support
+### Beta support
 
 DeepSemgrep offers **beta** support for the following languages:
 - **Java**
