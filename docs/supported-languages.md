@@ -95,7 +95,7 @@ Each of these maturity levels are combined with a threshold of the [language mat
 The following **thresholds** define each maturity level:
 
 <!-- coupling: If you modify the features in the levels below, change also 
-     semgrep-core/tests/Test.ml and its maturity level regression testing code.
+     /semgrep/blob/develop/tests/Test.ml and its maturity level regression testing code.
 -->
 
 * **Experimental**
@@ -141,7 +141,7 @@ The following **thresholds** define each maturity level:
 Visit the cheat sheet generation script and associated semgrep-core test files to learn more about each feature:
 
 * [Generation script](https://github.com/returntocorp/semgrep/blob/develop/scripts/generate_cheatsheet.py)
-* [`semgrep-core` test files](https://github.com/returntocorp/semgrep/tree/develop/semgrep-core/tests)
+* [`semgrep-core` test files](https://github.com/returntocorp/semgrep/tree/develop/tests)
 
 :::info Feature and product maturity levels
 The detailed specifications given above apply only to language support. Language maturity levels differ from feature and product maturity levels. Unlike supported languages, features, and products marked here as experimental (alpha), beta or GA carry meaning used regularly in software terminology as a part of the software release life cycle. For a standard definition of these terms, see for example [Software release life cycle](https://en.wikipedia.org/wiki/Software_release_life_cycle).
