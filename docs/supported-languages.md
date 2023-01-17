@@ -45,6 +45,7 @@ Semgrep is a fast, open source, static analysis engine for finding bugs and enfo
 ### Maturity definitions
 
 #### Language maturity factors
+
 Language maturity is determined by 3 factors in the Semgrep ecosystem:
 
 <dl>
@@ -94,7 +95,7 @@ Each of these maturity levels are combined with a threshold of the [language mat
 The following **thresholds** define each maturity level:
 
 <!-- coupling: If you modify the features in the levels below, change also 
-     semgrep-core/tests/Test.ml and its maturity level regression testing code.
+     /semgrep/blob/develop/tests/Test.ml and its maturity level regression testing code.
 -->
 
 * **Experimental**
@@ -140,7 +141,12 @@ The following **thresholds** define each maturity level:
 Visit the cheat sheet generation script and associated semgrep-core test files to learn more about each feature:
 
 * [Generation script](https://github.com/returntocorp/semgrep/blob/develop/scripts/generate_cheatsheet.py)
-* [`semgrep-core` test files](https://github.com/returntocorp/semgrep/tree/develop/semgrep-core/tests)
+* [`semgrep-core` test files](https://github.com/returntocorp/semgrep/tree/develop/tests)
+
+:::info Feature and product maturity levels
+* The detailed specifications given above apply only to language support. Language maturity levels differ from feature and product maturity levels.
+* Semgrep features and products documented as experimental, beta, or GA generally follow the definitions in a [Software release life cycle](https://en.wikipedia.org/wiki/Software_release_life_cycle).
+:::
 
 ### Language parse rates
 
@@ -269,7 +275,7 @@ Their differences are outlined in the following table:
 
 <DeepSemgrepIntroduction />
 
-### Alpha support
+### Beta support
 
 DeepSemgrep offers **beta** support for the following languages:
 - **Java**

@@ -26,7 +26,7 @@ There are quite a few GitHub repositories involved in porting a language.
 Here is the file hierarchy of the [semgrep
 repository](https://github.com/returntocorp/semgrep):
 
-``` shell
+```sh
 /semgrep-core/src
 ├── ocaml-tree-sitter-core  # runtime library for tree-sitter parsers
 ├── pfff                    # non-tree-sitter parsers
