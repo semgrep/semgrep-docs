@@ -167,4 +167,12 @@ Semgrep Supply Chain enables developers to perform triage and remediation throug
 
 For more information, see [Triaging and remediating findings](/docs/semgrep-sc/triaging-and-remediating-vulnerabilities).
 
+### Appendix: Setting up Semgrep Supply Chain scans for specific project management tools
+
+#### Apache Maven for Java
+
+
+
+
+
 <MoreHelp />
