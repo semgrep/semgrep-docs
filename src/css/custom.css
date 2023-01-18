@@ -332,3 +332,13 @@ a.navbar__item.navbar__link:hover {
 h2[class*="cardTitle_"][class~="text--truncate"], p[class*="cardDescription_"][class~="text--truncate"] {
   white-space: normal;
 }
+
+/* left sidebar collapse */
+
+button[class*="collapseSidebarButton"]:hover, div[class*="expandButton"]:hover {
+  background-color: #DFF7F0;
+}
+
+svg[class*="collapseSidebarButtonIcon"], svg[class*="expandButtonIcon"] {
+  filter: invert(45%) sepia(51%) saturate(1411%) hue-rotate(127deg) brightness(96%) contrast(101%); /* --ifm-color-primary-dark */
+}
