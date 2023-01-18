@@ -14,6 +14,11 @@ module.exports = {
   projectName: 'semgrep', // Usually your repo name.
   trailingSlash: true,
   themeConfig: {
+    docs: {
+      sidebar: {
+        hideable: true,
+      },
+    },
     navbar: {
       logo: {
         alt: 'Semgrep logo',
