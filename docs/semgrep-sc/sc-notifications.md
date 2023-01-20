@@ -52,33 +52,24 @@ To ensure that you have enabled Semgrep App to send PR or MR comments, refer to 
 
 <table>
 <tr>
-<td><strong>GitHub or GitLab plan</strong>
-</td>
-<td><strong>Document</strong>
-</td>
+    <td><strong>GitHub or GitLab plan</strong></td>
+    <td><strong>Document</strong></td>
 </tr>
 <tr>
-<td>GitHub Free, Pro, Team, and Enterprise Cloud
-</td>
-<td><a href="https://semgrep.dev/docs/semgrep-app/notifications/#enabling-github-pull-request-comments">Enabling GitHub pull request comments</a>
-</td>
+    <td>GitHub Free, Pro, Team, and Enterprise Cloud</td>
+    <td><a href="https://semgrep.dev/docs/semgrep-app/notifications/#enabling-github-pull-request-comments">Enabling GitHub pull request comments</a></td>
 </tr>
 <tr>
-<td>GitHub Enterprise Server
-</td>
-<td><a href="https://semgrep.dev/docs/semgrep-app/scm/">Integrating Semgrep into self-hosted repositories</a>
-</td>
+    <td>GitHub Enterprise Server</td>
+    <td><a href="https://semgrep.dev/docs/semgrep-app/scm/">Integrating Semgrep into self-hosted repositories</a></td>
 </tr>
 <tr>
-<td>GitLab SaaS
-</td>
-<td><a href="https://semgrep.dev/docs/semgrep-app/notifications/#enabling-gitlab-merge-request-comments">Enabling GitLab merge request comments</a>
-</td>
+    <td>GitLab SaaS</td>
+    <td><a href="https://semgrep.dev/docs/semgrep-app/notifications/#enabling-gitlab-merge-request-comments">Enabling GitLab merge request comments</a></td>
+</tr>
 <tr>
-<td>GitLab Self-managed
-</td>
-<td><a href="https://semgrep.dev/docs/semgrep-app/scm/">Integrating Semgrep into self-hosted repositories</a>
-</td>
+    <td>GitLab Self-managed</td>
+    <td><a href="https://semgrep.dev/docs/semgrep-app/scm/">Integrating Semgrep into self-hosted repositories</a></td>
 </tr>
 </table>
 
@@ -88,16 +79,12 @@ Both GitHub and GitLab provide features to prevent or block a PR or MR from merg
 
 <table>
 <tr>
-<td>GitHub
-</td>
-<td><a href="https://docs.github.com/en/repositories/configuring-branches-and-merges-in-your-repository/defining-the-mergeability-of-pull-requests/about-protected-branches#require-conversation-resolution-before-merging">Require conversation resolution before merging</a>
-</td>
+    <td>GitHub</td>
+    <td><a href="https://docs.github.com/en/repositories/configuring-branches-and-merges-in-your-repository/defining-the-mergeability-of-pull-requests/about-protected-branches#require-conversation-resolution-before-merging">Require conversation resolution before merging</a></td>
 </tr>
 <tr>
-<td>GitLab
-</td>
-<td><a href="https://docs.gitlab.com/ee/user/discussions/#prevent-merge-unless-all-threads-are-resolved">Prevent merge unless all threads are resolved</a>
-</td>
+    <td>GitLab</td>
+    <td><a href="https://docs.gitlab.com/ee/user/discussions/#prevent-merge-unless-all-threads-are-resolved">Prevent merge unless all threads are resolved</a></td>
 </tr>
 </table>
 
