@@ -111,11 +111,13 @@ The following table displays differences between Semgrep and Semgrep Supply Chai
 
 Refer to [Supported languages](/docs/supported-languages#semgrep-supply-chain) to see all languages supported by Semgrep Supply Chain.
 
-## Limitations of Semgrep Supply Chain scans
+## Transitive dependencies and reachability analysis
 
-* Semgrep Supply Chain supports scanning for transitive or indirect dependencies for all of its [supported languages](docs/supported-languages). Findings are collected and displayed in **Semgrep App > Supply Chain**.
-* Semgrep Supply Chain detects transitivity for the following languages **Python and JavaScript **languages.
-* Semgrep Supply Chain generates reachable findings only for direct dependencies.
+See [SSC glossary > Transitivity](/docs/semgrep-sc/sc-glossary/#transitive-or-indirect-dependency) for a definition of a transitive dependency.
+
+* Semgrep Supply Chain does **not** perform reachability analysis for transitive dependencies.
+* Semgrep Supply Chain supports scanning for transitive or indirect dependencies for all of its [supported languages](/docs/supported-languages#semgrep-supply-chain). Findings are collected and displayed in **Semgrep App > Supply Chain**.
+* In most cases, Semgrep Supply Chain generates **reachable findings** for **direct dependencies**. However, there are certain dependencies that are vulnerable simply through their inclusion in a codebase. Semgrep Supply Chain generates reachable findings for these types of dependencies even if they are transitive dependencies.
 
 ## Next steps: Scanning your codebase
 
