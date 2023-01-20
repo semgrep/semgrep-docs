@@ -5,7 +5,7 @@ description: "Receive notifications about reachable findings from your Semgrep S
 tags:
     - Semgrep Supply Chain
     - Team & Enterprise Tier
-title: Receiving notifications from Semgrep Supply Chain (SSC) scans
+title: Receiving notifications from SSC scans
 hide_title: true
 ---
 
@@ -21,21 +21,23 @@ Object.entries(frontMatter).filter(
 
 # Receiving notifications from Semgrep Supply Chain (SSC) scans
 
+Developers can be notified of vulnerabilities in their GitHub or GitLab environment through pull request or merge request comments.
+
 ## Receiving SSC notifications through pull request (PR) or merge request (MR) comments
 
+[TODO Add image]
 Semgrep Supply Chain can send pull request (PR) or merge request (MR) comments to notify developers in their GitHub or GitLab environment of **third-party reachable vulnerabilities** detected by a Semgrep Supply Chain scan. The following information is provided:
 
 <dl>
-    <dt>Risk</dt>
-    <dd>A description of the vulnerability, including the types of attack it is vulnerable to.</dd>
-
-    <dt>Fix</dt>
-    <dd>Indicates what versions to upgrade to, if any, that resolves or eliminates the vulnerability.</dd>
-
-    <dt>Reference</dt>
-    <dd>A link to additional information about the vulnerability from [GitHub Advisory Database](https://github.com/advisories) and the [National Vulnerability Database](https://nvd.nist.gov/vuln) (NVD), if available.</dd>
-
+<dt>Risk</dt>
+<dd>A description of the vulnerability, including the types of attack it is vulnerable to.</dd>
+<dt>Fix</dt>
+<dd>Indicates what versions to upgrade to, if any, that resolves or eliminates the vulnerability.</dd>
+<dt>Reference</dt>
+<dd>A link to additional information about the vulnerability from [GitHub Advisory Database](https://github.com/advisories) and the [National Vulnerability Database](https://nvd.nist.gov/vuln) (NVD), if available.</dd>
 </dl>
+
+TODO fix link
 
 :::info
 
