@@ -21,11 +21,13 @@ Object.entries(frontMatter).filter(
 
 # Receiving notifications from Semgrep Supply Chain (SSC) scans
 
-Developers can be notified of vulnerabilities in their GitHub or GitLab environment through pull request or merge request comments.
+Developers can be notified of vulnerabilities in their GitHub or GitLab environment through pull request (PR) or merge request (MR) comments.
 
-## Receiving SSC notifications through pull request (PR) or merge request (MR) comments
+## Receiving SSC notifications through PR or merge request MR comments
 
-[TODO Add image]
+![Semgrep Supply Chain PR comment](/img/ssc-pr-comment.png#bordered)
+_Figure 1_. Screenshot of a PR comment from SSC in a GitHub repository.
+
 Semgrep Supply Chain can send pull request (PR) or merge request (MR) comments to notify developers in their GitHub or GitLab environment of **third-party reachable vulnerabilities** detected by a Semgrep Supply Chain scan. The following information is provided:
 
 <dl>
@@ -34,21 +36,19 @@ Semgrep Supply Chain can send pull request (PR) or merge request (MR) comments t
 <dt>Fix</dt>
 <dd>Indicates what versions to upgrade to, if any, that resolves or eliminates the vulnerability.</dd>
 <dt>Reference</dt>
-<dd>A link to additional information about the vulnerability from [GitHub Advisory Database](https://github.com/advisories) and the [National Vulnerability Database](https://nvd.nist.gov/vuln) (NVD), if available.</dd>
+<dd>A link to additional information about the vulnerability from <a href="https://github.com/advisories">GitHub Advisory Database</a> and the <a href="https://nvd.nist.gov/vuln">National Vulnerability Database (NVD)</a>, if available.</dd>
 </dl>
 
-TODO fix link
-
 :::info
-
 Pull or merge requests with vulnerabilities detected by SSC are **not** blocked from merging.
-
 :::
 
 
 ### Enabling Semgrep Supply Chain to send PRs or MRs
 
-When you add or onboard a repository to Semgrep App, you typically provide permissions enabling Semgrep Supply Chain to send PR or MR comments to your repository without additional steps. PR or MR comments simply appear after Semgrep scans your pull or merge request.
+When you add or onboard a repository to Semgrep App, you typically provide permissions enabling Semgrep Supply Chain to send PR or MR comments to your repository without additional steps.
+
+PR or MR comments simply appear after Semgrep scans your pull or merge request.
 
 To ensure that you have enabled Semgrep App to send PR or MR comments, refer to the following documentation:
 
@@ -59,19 +59,19 @@ To ensure that you have enabled Semgrep App to send PR or MR comments, refer to 
 </tr>
 <tr>
     <td>GitHub Free, Pro, Team, and Enterprise Cloud</td>
-    <td><a href="https://semgrep.dev/docs/semgrep-app/notifications/#enabling-github-pull-request-comments">Enabling GitHub pull request comments</a></td>
+    <td><a href="/docs/semgrep-app/notifications/#enabling-github-pull-request-comments">Enabling GitHub pull request comments</a></td>
 </tr>
 <tr>
     <td>GitHub Enterprise Server</td>
-    <td><a href="https://semgrep.dev/docs/semgrep-app/scm/">Integrating Semgrep into self-hosted repositories</a></td>
+    <td><a href="/docs/semgrep-app/scm/">Integrating Semgrep into self-hosted repositories</a></td>
 </tr>
 <tr>
     <td>GitLab SaaS</td>
-    <td><a href="https://semgrep.dev/docs/semgrep-app/notifications/#enabling-gitlab-merge-request-comments">Enabling GitLab merge request comments</a></td>
+    <td><a href="/docs/semgrep-app/notifications/#enabling-gitlab-merge-request-comments">Enabling GitLab merge request comments</a></td>
 </tr>
 <tr>
     <td>GitLab Self-managed</td>
-    <td><a href="https://semgrep.dev/docs/semgrep-app/scm/">Integrating Semgrep into self-hosted repositories</a></td>
+    <td><a href="/docs/semgrep-app/scm/">Integrating Semgrep into self-hosted repositories</a></td>
 </tr>
 </table>
 
