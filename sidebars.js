@@ -30,40 +30,10 @@ module.exports = {
     },
     {
       type: 'category',
-      label: 'Semgrep Platform',
+      label: 'Semgrep Open Source Engine',
       collapsible: false,
       items: [
         'supported-languages',
-        'ignoring-files-folders-code',
-        'extensions',
-        {
-            type: 'category',
-            label: 'Data-flow analysis',
-            link: {type: 'doc', id: 'writing-rules/data-flow/data-flow-overview'},
-            items: [
-                'writing-rules/data-flow/data-flow-overview',
-                'writing-rules/data-flow/constant-propagation',
-                'writing-rules/data-flow/taint-mode',
-                'writing-rules/data-flow/status'
-            ]
-        },
-        {
-            type: 'category',
-            label: 'Deepsemgrep',
-            link: {type: 'doc', id: 'deepsemgrep/deepsemgrep-introduction'},
-            items: [
-                'deepsemgrep/deepsemgrep-introduction',
-                'deepsemgrep/deepsemgrep-examples'
-            ]
-        },
-        'semgrep-app/pricing-and-billing'
-      ],
-    },
-    {
-        type: 'category',
-        label: 'Semgrep',
-        collapsible: false,
-        items: [
             {
                 type: 'category',
                 label: 'Command-line interface (CLI)',
@@ -104,121 +74,152 @@ module.exports = {
                     'troubleshooting/gitlab-sast'
                 ]
             },
-            {
-                type: 'category',
-                label: 'Cheat sheets',
-                link: {
-                    type: 'generated-index',
-                    title: 'Cheat sheets',
-                    description:
-                      "This category provides r2c cheat sheets that help you to prevent specific vulnerabilities.",
-                    keywords: ['cheat sheet']
-                  },
-                items: [
-                    {
-                        type: 'category',
-                        label: 'Code injection',
-                        link: {
-                            type: 'generated-index',
-                            title: 'Code injection',
-                            description:
-                              "Code injection prevention cheat sheets by r2c.",
-                            keywords: ['code injection']
-                          },
-                        items: [
-                            'cheat-sheets/java-code-injection',
-                            'cheat-sheets/javascript-code-injection',
-                            'cheat-sheets/python-code-injection',
-                            'cheat-sheets/ruby-code-injection'
+        'ignoring-files-folders-code',
+        'extensions',
+        {
+            type: 'category',
+            label: 'Data-flow analysis',
+            link: {type: 'doc', id: 'writing-rules/data-flow/data-flow-overview'},
+            items: [
+                'writing-rules/data-flow/data-flow-overview',
+                'writing-rules/data-flow/constant-propagation',
+                'writing-rules/data-flow/taint-mode',
+                'writing-rules/data-flow/status'
+            ]
+        },
+        {
+            type: 'category',
+            label: 'Cheat sheets',
+            link: {
+                type: 'generated-index',
+                title: 'Cheat sheets',
+                description:
+                  "This category provides r2c cheat sheets that help you to prevent specific vulnerabilities.",
+                keywords: ['cheat sheet']
+              },
+            items: [
+                {
+                    type: 'category',
+                    label: 'Code injection',
+                    link: {
+                        type: 'generated-index',
+                        title: 'Code injection',
+                        description:
+                          "Code injection prevention cheat sheets by r2c.",
+                        keywords: ['code injection']
+                      },
+                    items: [
+                        'cheat-sheets/java-code-injection',
+                        'cheat-sheets/javascript-code-injection',
+                        'cheat-sheets/python-code-injection',
+                        'cheat-sheets/ruby-code-injection'
+                    ]
+                },
+                {
+                    type: 'category',
+                    label: 'Command injection',
+                    link: {
+                        type: 'generated-index',
+                        title: 'Command injection',
+                        description:
+                          "Command injection prevention cheat sheets by r2c.",
+                        keywords: ['command injection']
+                      },
+                    items: [
+                            'cheat-sheets/go-command-injection',
+                            'cheat-sheets/java-command-injection',
+                            'cheat-sheets/javascript-command-injection',
+                            'cheat-sheets/python-command-injection',
+                            'cheat-sheets/ruby-command-injection'
                         ]
-                    },
-                    {
-                        type: 'category',
-                        label: 'Command injection',
-                        link: {
-                            type: 'generated-index',
-                            title: 'Command injection',
-                            description:
-                              "Command injection prevention cheat sheets by r2c.",
-                            keywords: ['command injection']
-                          },
-                        items: [
-                                'cheat-sheets/go-command-injection',
-                                'cheat-sheets/java-command-injection',
-                                'cheat-sheets/javascript-command-injection',
-                                'cheat-sheets/python-command-injection',
-                                'cheat-sheets/ruby-command-injection'
-                            ]
-                    },
-                    {
-                        type: 'category',
-                        label: 'XSS',
-                        link: {
-                            type: 'generated-index',
-                            title: 'XSS',
-                            description:
-                                "XSS prevention cheat sheets by r2c.",
-                            keywords: ['XSS']
-                            },
-                        items: [
-                            'cheat-sheets/django-xss',
-                            'cheat-sheets/express-xss',
-                            'cheat-sheets/flask-xss',
-                            'cheat-sheets/go-xss',
-                            'cheat-sheets/java-jsp-xss',
-                            'cheat-sheets/rails-xss'
-                        ]
-                    },
-                    {
-                        type: 'category',
-                        label: 'XXE',
-                        link: {
-                            type: 'generated-index',
-                            title: 'XXE',
-                            description:
-                                "XXE prevention cheat sheets by r2c.",
-                            keywords: ['XXE']
-                            },
-                        items: [
-                            'cheat-sheets/java-xxe',
-                        ]
-                    },
-                ],
-            },
-        ]
+                },
+                {
+                    type: 'category',
+                    label: 'XSS',
+                    link: {
+                        type: 'generated-index',
+                        title: 'XSS',
+                        description:
+                            "XSS prevention cheat sheets by r2c.",
+                        keywords: ['XSS']
+                        },
+                    items: [
+                        'cheat-sheets/django-xss',
+                        'cheat-sheets/express-xss',
+                        'cheat-sheets/flask-xss',
+                        'cheat-sheets/go-xss',
+                        'cheat-sheets/java-jsp-xss',
+                        'cheat-sheets/rails-xss'
+                    ]
+                },
+                {
+                    type: 'category',
+                    label: 'XXE',
+                    link: {
+                        type: 'generated-index',
+                        title: 'XXE',
+                        description:
+                            "XXE prevention cheat sheets by r2c.",
+                        keywords: ['XXE']
+                        },
+                    items: [
+                        'cheat-sheets/java-xxe',
+                    ]
+                },
+            ],
+        },
+      ]
     },
     {
-        type: 'category',
-        label: 'Semgrep App',
-        collapsible: false,
-        items: [
-            'semgrep-app/getting-started-with-semgrep-app',
-            'semgrep-app/demo-project',
-            'semgrep-app/scm',
-            'semgrep-app/dashboard',
-            'semgrep-app/rule-board',
-            'semgrep-app/findings',
-            'semgrep-app/integrations',
-            'semgrep-app/editor',
-            'semgrep-app/notifications',
-            'semgrep-app/sso',
-            'semgrep-app/user-management',
-            'semgrep-app/tags',
-            'troubleshooting/semgrep-app',
-            'semgrep-app/semgrep-api'
-        ]
+      type: 'category',
+      label: 'Semgrep Pro Engine',
+      collapsible: false,
+      items: [
+        'deepsemgrep/deepsemgrep-introduction',
+        'deepsemgrep/deepsemgrep-examples'
+      ]
     },
     {
-        type: 'category',
-        label: 'Semgrep Supply Chain',
-        collapsible: false,
-        items: [
-            'semgrep-sc/sc-overview',
-            'semgrep-sc/sc-getting-started',
-            'semgrep-sc/sc-triage-remediation',
-            'semgrep-sc/sc-ignoring-deps',
-            'semgrep-sc/sc-glossary'
-        ]
+      type: 'category',
+      label: 'Semgrep Cloud Platform',
+      collapsible: false,
+      items: [
+        'semgrep-app/getting-started-with-semgrep-app',
+        'semgrep-app/demo-project',
+        'semgrep-app/scm',
+        'semgrep-app/dashboard',
+        'semgrep-app/rule-board',
+        'semgrep-app/findings',
+        'semgrep-app/integrations',
+        'semgrep-app/editor',
+        'semgrep-app/notifications',
+        'semgrep-app/sso',
+        'semgrep-app/user-management',
+        'semgrep-app/tags',
+        'troubleshooting/semgrep-app',
+        'semgrep-app/semgrep-api',
+        'semgrep-app/pricing-and-billing'
+      ]
+    },
+    {
+      type: 'category',
+      label: 'Semgrep Code',
+      collapsible: false,
+      items: [
+                'writing-rules/data-flow/data-flow-overview'
+      ]
+    },
+    {
+      type: 'category',
+      label: 'Semgrep Supply Chain',
+      collapsible: false,
+      items: [
+        'semgrep-sc/sc-overview',
+        'semgrep-sc/sc-getting-started',
+        'semgrep-sc/sc-triage-remediation',
+        'semgrep-sc/sc-ignoring-deps',
+        'semgrep-sc/sc-glossary'
+      ]
     },
     {
         type: 'category',
