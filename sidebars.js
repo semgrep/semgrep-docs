@@ -36,7 +36,7 @@ module.exports = {
         'supported-languages',
             {
                 type: 'category',
-                label: 'Command-line interface (CLI)',
+                label: 'Semgrep CLI',
                 link: {
                     type: 'generated-index',
                     title: 'Semgrep command-line interface (CLI)',
@@ -56,7 +56,7 @@ module.exports = {
             },
             {
                 type: 'category',
-                label: 'Continuous integration (CI)',
+                label: 'Semgrep in CI',
                 link: {
                     type: 'generated-index',
                     title: 'Semgrep in continuous integration (CI)',
@@ -172,15 +172,6 @@ module.exports = {
     },
     {
       type: 'category',
-      label: 'Semgrep Pro Engine',
-      collapsible: false,
-      items: [
-        'deepsemgrep/deepsemgrep-introduction',
-        'deepsemgrep/deepsemgrep-examples'
-      ]
-    },
-    {
-      type: 'category',
       label: 'Semgrep Cloud Platform',
       collapsible: false,
       items: [
@@ -199,6 +190,15 @@ module.exports = {
         'troubleshooting/semgrep-app',
         'semgrep-app/semgrep-api',
         'semgrep-app/pricing-and-billing'
+      ]
+    },
+    {
+      type: 'category',
+      label: 'Semgrep Pro Engine',
+      collapsible: false,
+      items: [
+        'deepsemgrep/deepsemgrep-introduction',
+        'deepsemgrep/deepsemgrep-examples'
       ]
     },
     {
