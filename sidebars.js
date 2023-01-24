@@ -18,12 +18,12 @@ module.exports = {
     'Docs home',
     {
         type: 'category',
-        label: 'Welcome',
+        label: 'Getting started',
         collapsible: false,
         items: [
             'getting-started',
-            'semgrep-app/getting-started-with-semgrep-app',
             'semgrep-ci/overview',
+            'semgrep-app/getting-started-with-semgrep-app',
             'semgrep-sc/sc-getting-started',
             'contributing/philosophy'
         ]

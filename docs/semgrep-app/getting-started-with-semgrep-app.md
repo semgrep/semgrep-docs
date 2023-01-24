@@ -1,7 +1,7 @@
 ---
 slug: getting-started-with-semgrep-app
 append_help_link: true
-title: Getting started with Semgrep App
+title: Semgrep Cloud Platform
 hide_title: true
 description: "Get started with Semgrep App to scan for security vulnerabilities on both local and remote repositories hosted on GitHub and GitLab."
 tags:

@@ -6,7 +6,7 @@ tags:
     - Semgrep in CI
     - Community Tier
     - Team & Enterprise Tier
-title: Getting started with Semgrep in CI 
+title: Semgrep in CI 
 hide_title: true
 ---
 
