@@ -176,14 +176,8 @@ module.exports = {
       collapsible: false,
       items: [
         'semgrep-app/getting-started-with-semgrep-app',
-        'semgrep-app/demo-project',
         'semgrep-app/scm',
-        'semgrep-app/dashboard',
-        'semgrep-app/rule-board',
-        'semgrep-app/findings',
         'semgrep-app/integrations',
-        'semgrep-app/editor',
-        'semgrep-app/notifications',
         'semgrep-app/sso',
         'semgrep-app/user-management',
         'semgrep-app/tags',
@@ -206,7 +200,12 @@ module.exports = {
       label: 'Semgrep Code',
       collapsible: false,
       items: [
-                'writing-rules/data-flow/data-flow-overview'
+        'semgrep-app/demo-project',
+        'semgrep-app/dashboard',
+        'semgrep-app/rule-board',
+        'semgrep-app/findings',
+        'semgrep-app/editor',
+        'semgrep-app/notifications',
       ]
     },
     {
@@ -218,6 +217,7 @@ module.exports = {
         'semgrep-sc/sc-getting-started',
         'semgrep-sc/sc-triage-remediation',
         'semgrep-sc/sc-ignoring-deps',
+        'semgrep-sc/sc-notifications',
         'semgrep-sc/sc-glossary'
       ]
     },
