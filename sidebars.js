@@ -217,6 +217,7 @@ module.exports = {
             'semgrep-sc/sc-getting-started',
             'semgrep-sc/sc-triage-remediation',
             'semgrep-sc/sc-ignoring-deps',
+            'semgrep-sc/sc-notifications',
             'semgrep-sc/sc-glossary'
         ]
     },
