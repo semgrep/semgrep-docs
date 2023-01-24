@@ -51,7 +51,7 @@ Receiving PR or MR comments for reachable findings, if any, is enabled by defaul
 #### Custom Semgrep setups
 
 :::note
-This section provides documentation if PR or MR comments do not appear for reachable Semgrep Supply Chain findings. You may require additional permissions or an access token to receive PR or MR comments.
+This section provides documentation if PR or MR comments do not appear for custom Semgrep setups, such as self-hosted repositories. You may require additional permissions or an access token to receive PR or MR comments.
 :::
 
 To ensure that you have enabled Semgrep App to send PR or MR comments, refer to the following documentation:
