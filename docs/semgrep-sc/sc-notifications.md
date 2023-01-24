@@ -46,9 +46,13 @@ Pull or merge requests with vulnerabilities detected by SSC are **not** blocked 
 
 ### Enabling Semgrep Supply Chain to send PRs or MRs
 
-When you add or onboard a repository to Semgrep App, you typically provide permissions enabling Semgrep Supply Chain to send PR or MR comments to your repository without additional steps.
+Receiving PR or MR comments for reachable findings, if any, is enabled by default. Comments appear after a Semgrep Supply Chain scan.
 
-PR or MR comments simply appear after Semgrep scans your pull or merge request.
+#### Custom Semgrep setups
+
+:::note
+This section provides documentation if PR or MR comments do not appear for reachable Semgrep Supply Chain findings. You may require additional permissions or an access token to receive PR or MR comments.
+:::
 
 To ensure that you have enabled Semgrep App to send PR or MR comments, refer to the following documentation:
 
