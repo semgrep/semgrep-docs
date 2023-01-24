@@ -178,7 +178,7 @@ module.exports = {
           routeBasePath: '/'
         },
         theme: {
-          customCss: require.resolve('./src/css/custom.css'),
+          customCss: require.resolve('./src/css/custom.scss'),
         },
         gtag: {
           // You can also use your "G-" Measurement ID here.
@@ -196,6 +196,7 @@ module.exports = {
     ],
   ],
   plugins: [
+    'docusaurus-plugin-sass',
     [
       '@docusaurus/plugin-client-redirects',
       {
