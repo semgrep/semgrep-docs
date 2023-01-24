@@ -246,7 +246,7 @@ This table provides information about the beta level of support for languages, s
    <td style={{"text-align": "center"}}>✔️ Yes</td>
   </tr>
   <tr>
-   <td>Maven (single-file configurations)</td>
+   <td>Maven</td>
    <td>Maven-generated dependency tree*</td>
    <td style={{"text-align": "center"}}>✔️ Yes</td>
    <td style={{"text-align": "center"}}>✔️ Yes</td>

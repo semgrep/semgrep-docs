@@ -177,13 +177,13 @@ Semgrep Supply Chain does not read `pom.xml` files to parse Maven projects. Inst
     <li>Generate a file outlining the project's dependency tree by adding the following command to your build pipeline:<br />
     <pre class="language-bash">mvn dependency:tree -DoutputFile=maven_dep_tree.txt</pre>
     For specific steps to add the command into your build pipeline, refer to your CI provider's documentation.</li>
-    <li>For monorepositories or similar directory structures, create additional dependency trees per project subdirectory. Semgrep Supply Chain can detect and parse them all.</li>
+    <li>For each `pom.xml` file with dependencies you want to scan, create additional dependency trees in their respective directories. Semgrep Supply Chain can detect and parse them all.</li>
     <li>Run the Semgrep workflow, action, or step after the dependency tree or trees have been generated.</li>
 </ol>
 
 :::caution
-* Ensure that Maven is installed in the build environment that is used to generate the dependency tree.
-* Ensure that you generate the dependency tree before running Semgrep.
+* Ensure that Maven is installed in the build environment that is used to generate the dependency trees.
+* Ensure that you generate dependency trees before running Semgrep.
 :::
 
 You can run the above commands in a local environment to test its behavior. The following screenshot displays the commands running in a local environment:
