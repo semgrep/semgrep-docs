@@ -78,6 +78,52 @@ module.exports = {
         'extensions',
         {
             type: 'category',
+            label: 'Writing custom rules',
+            collapsible: true,
+            items: [
+                'writing-rules/overview',
+                'writing-rules/pattern-examples',
+                'writing-rules/pattern-syntax',
+                'writing-rules/rule-ideas',
+                'writing-rules/rule-syntax',
+                'writing-rules/testing-rules',
+                'writing-rules/private-rules',
+                'writing-rules/autofix',
+                'writing-rules/generic-pattern-matching',
+                'writing-rules/metavariable-analysis',
+                'troubleshooting/rules',
+                {
+                    type: 'category',
+                    label: 'Experiments 🧪',
+                    link: {type: 'doc', id: 'writing-rules/experiments/introduction'},
+                    items: [
+                      { type: 'category',
+                          label: 'Join mode',
+                          link: {type: 'doc', id: 'writing-rules/experiments/join-mode/overview'},
+                          items: [
+                              {
+                                  type: 'doc',
+                                  label: 'Overview',
+                                  id: 'writing-rules/experiments/join-mode/overview'
+                              },
+                              'writing-rules/experiments/join-mode/recursive-joins'
+                          ]
+                      },
+                      'writing-rules/experiments/extract-mode',
+                      'writing-rules/experiments/project-depends-on',
+                      'writing-rules/experiments/symbolic-propagation',
+                      'writing-rules/experiments/taint-labels',
+                      'writing-rules/experiments/multiple-focus-metavariables',
+                      'writing-rules/experiments/display-propagated-metavariable',
+                      'writing-rules/experiments/deprecated-experiments'
+                    ]
+                  },
+                'playground',
+                'trophy-case'
+            ]
+        },
+        {
+            type: 'category',
             label: 'Data-flow analysis',
             link: {type: 'doc', id: 'writing-rules/data-flow/data-flow-overview'},
             items: [
@@ -220,52 +266,6 @@ module.exports = {
         'semgrep-sc/sc-notifications',
         'semgrep-sc/sc-glossary'
       ]
-    },
-    {
-        type: 'category',
-        label: 'Writing custom rules',
-        collapsible: false,
-        items: [
-            'writing-rules/overview',
-            'writing-rules/pattern-examples',
-            'writing-rules/pattern-syntax',
-            'writing-rules/rule-ideas',
-            'writing-rules/rule-syntax',
-            'writing-rules/testing-rules',
-            'writing-rules/private-rules',
-            'writing-rules/autofix',
-            'writing-rules/generic-pattern-matching',
-            'writing-rules/metavariable-analysis',
-            'troubleshooting/rules',
-            {
-                type: 'category',
-                label: 'Experiments 🧪',
-                link: {type: 'doc', id: 'writing-rules/experiments/introduction'},
-                items: [
-                  { type: 'category',
-                      label: 'Join mode',
-                      link: {type: 'doc', id: 'writing-rules/experiments/join-mode/overview'},
-                      items: [
-                          {
-                              type: 'doc',
-                              label: 'Overview',
-                              id: 'writing-rules/experiments/join-mode/overview'
-                          },
-                          'writing-rules/experiments/join-mode/recursive-joins'
-                      ]
-                  },
-                  'writing-rules/experiments/extract-mode',
-                  'writing-rules/experiments/project-depends-on',
-                  'writing-rules/experiments/symbolic-propagation',
-                  'writing-rules/experiments/taint-labels',
-                  'writing-rules/experiments/multiple-focus-metavariables',
-                  'writing-rules/experiments/display-propagated-metavariable',
-                  'writing-rules/experiments/deprecated-experiments'
-                ]
-              },
-            'playground',
-            'trophy-case'
-        ]
     },
     {
         type: 'category',
