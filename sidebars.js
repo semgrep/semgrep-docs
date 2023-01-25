@@ -30,7 +30,7 @@ module.exports = {
     },
     {
       type: 'category',
-      label: 'Semgrep Open Source Engine',
+      label: 'Semgrep OSS Engine',
       collapsible: false,
       items: [
         'supported-languages',
