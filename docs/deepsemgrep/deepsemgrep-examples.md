@@ -1,26 +1,30 @@
 ---
-slug: deepsemgrep-examples
+slug: semgrep-pro-engine-examples
 append_help_link: true
-description: "This document provides an overview of DeepSemgrep use cases, such as its use in type inferences, class inheritance, constant propagation, taint analysis."
+description: "This document provides an overview of Semgrep Pro Engine use cases, such as its use in type inferences, class inheritance, constant propagation, taint analysis."
 ---
 
-# DeepSemgrep examples
+# Semgrep Pro Engine (SPE) examples
 
-This document provides an overview of DeepSemgrep utility on specific examples, such as its use in type inferences, class inheritance, constant propagation, and taint analysis.
+This document provides an overview of Semgrep Pro Engine's capabilities through specific examples, such as its use in type inferences, class inheritance, constant propagation, and taint analysis.
 
-## Cloning the DeepSemgrep testing repository
+:::note
+Semgrep, when used as a standalone name, refers to Semgrep OSS Engine.
+:::
 
-DeepSemgrep’s value stands out when scanning more files. Semgrep’s usual embedded code examples are not helpful in demonstrating the capabilities of DeepSemgrep because embedded code from Semgrep App only displays one rule and one test file at a time. To see the capabilities of DeepSemgrep fully clone the [DeepSemgrep testing repository](https://github.com/returntocorp/deep-semgrep-tests).
+## Cloning the Semgrep Pro Engine testing repository
 
-To learn by doing, use DeepSemgrep while reading this documentation. Follow this document while testing code examples in the [DeepSemgrep testing repository](https://github.com/returntocorp/deep-semgrep-tests).
+Semgrep Pro Engine’s value stands out when scanning more files. Semgrep’s usual embedded code examples are not helpful in demonstrating the capabilities of SPE because embedded code from Semgrep App only displays one rule and one test file at a time. To see the capabilities of Semgrep Pro Engine fully clone the [Semgrep Pro Engine testing repository](https://github.com/returntocorp/deep-semgrep-tests).
 
-To find code examples used in this document, go to `docs` directory in the DeepSemgrep testing code repository. To see the difference between findings of DeepSemgrep compared to Semgrep, in each directory under `docs` run `semgrep --config deep.yaml` (obtain Semgrep findings) and then `semgrep --config deep.yaml . --deep` (obtain DeepSemgrep findings).
+To learn by doing, use Semgrep Pro Engine while reading this documentation. Follow this document while testing code examples in the [testing repository](https://github.com/returntocorp/deep-semgrep-tests).
+
+To find code examples used in this document, go to `docs` directory in the Semgrep Pro Engine testing code repository. To see the difference between findings of Semgrep Pro Engine compared to Semgrep OSS Engine, in each directory under `docs` run `semgrep --config deep.yaml` (obtain Semgrep findings) and then `semgrep --config deep.yaml . --deep` (obtain Semgrep Pro Engine findings).
 
 ## Type inference and class inheritance
 
 ### Class inheritance
 
-This section compares the possible findings of a scan across multiple files using Semgrep and DeepSemgrep. The file `app.java` includes two check functions that throw exceptions. This example looks for methods that throw a particular exception, `ExampleException`.
+This section compares the possible findings of a scan across multiple files using Semgrep and Semgrep Pro Engine. The file `app.java` includes two check functions that throw exceptions. This example looks for methods that throw a particular exception, `ExampleException`.
 
 <iframe title="Semgrep example no prints"src="https://semgrep.dev/embed/editor?snippet=adamkvitek:throw-exception-example" width="100%" height="432" frameborder="0"></iframe>
 
@@ -49,32 +53,32 @@ class BadRequest extends ExampleException {
 }
 ```
 
-Where `ExampleException` is thrown, we also want to find `BadRequest`, because `BadRequest` is a child of `ExampleException`. Unlike Semgrep, DeepSemgrep can find `BadRequest`. Since DeepSemgrep uses information from all the files in the directory it scans, it detects `BadRequest` and finds both thrown exceptions.
+Where `ExampleException` is thrown, we also want to find `BadRequest`, because `BadRequest` is a child of `ExampleException`. Unlike Semgrep, Semgrep Pro Engine can find `BadRequest`. Since Semgrep Pro Engine uses information from all the files in the directory it scans, it detects `BadRequest` and finds both thrown exceptions.
  
-If you are following in the cloned [DeepSemgrep testing repository](https://github.com/returntocorp/deep-semgrep-tests), in the `docs/class_inheritance` directory, try the following commands to test the difference:
+If you are following in the cloned [testing repository](https://github.com/returntocorp/deep-semgrep-tests), in the `docs/class_inheritance` directory, try the following commands to test the difference:
 
 1. Run Semgrep:
     ```sh
     semgrep --config deep.yaml .
     ```
-2. Run DeepSemgrep:
+2. Run Semgrep Pro Engine:
     ```sh
     semgrep --config deep.yaml . --deep --dataflow-traces
     ```
 
 ### Using class inheritance with typed metavariables
 
-DeepSemgrep uses interfile class inheritance information when matching [typed metavariables](https://semgrep.dev/docs/writing-rules/pattern-syntax/#typed-metavariables). Continuing the example from the previous section, see the following example file, which has defined some exceptions and includes their logging:
+Semgrep Pro Engine uses interfile class inheritance information when matching [typed metavariables](https://semgrep.dev/docs/writing-rules/pattern-syntax/#typed-metavariables). Continuing the example from the previous section, see the following example file, which has defined some exceptions and includes their logging:
 
 <iframe title="Semgrep example no prints" src="https://semgrep.dev/embed/editor?snippet=adamkvitek:log-exception-example1-copy" width="100%" height="432" frameborder="0"></iframe>
 
-The rule searches for any variable of type `ExampleException` being logged. Semgrep is **not** able to find instances of `BadRequest` being logged, unlike DeepSemgrep. Allowing typed metavariables to access information from the entire program enables users to query any variable for its type and use that information in conjunction with the rest of the code resulting in more accurate findings.
+The rule searches for any variable of type `ExampleException` being logged. Semgrep is **not** able to find instances of `BadRequest` being logged, unlike Semgrep Pro Engine. Allowing typed metavariables to access information from the entire program enables users to query any variable for its type and use that information in conjunction with the rest of the code resulting in more accurate findings.
 
 :::note
-For a more realistic example where typed metavariables are used, see the following [rule written by Semgrep community](https://semgrep.dev/playground/s/chegg:log4j2_tainted_argument) to find code vulnerable to the log4j vulnerability.
+For a more realistic example where typed metavariables are used, see the following [rule written by the Semgrep community](https://semgrep.dev/playground/s/chegg:log4j2_tainted_argument) to find code vulnerable to the log4j vulnerability.
 :::
 
-Try to run DeepSemgrep in the cloned [DeepSemgrep testing repository](https://github.com/returntocorp/deep-semgrep-tests). Go to `docs/class_inheritance_with_typed_metavariables` and run the following command:
+Try to run Semgrep Pro Engine in the cloned [testing repository](https://github.com/returntocorp/deep-semgrep-tests). Go to `docs/class_inheritance_with_typed_metavariables` and run the following command:
 
 ```sh
 semgrep --config deep.yaml . --deep
@@ -90,7 +94,7 @@ semgrep --config deep.yaml . --deep
 
 Semgrep matches the first and second calls because Semgrep cannot find a constant value for either `user_input` or `EMPLOYEE_TABLE_NAME`.
 
-Now consider an example a bit more complicated to illustrate what DeepSemgrep can do. If the `EMPLOYEE_TABLE_NAME` is imported from a global constants file with the following content:
+Now consider a more complicated example to illustrate what Semgrep Pro Engine can do. If the `EMPLOYEE_TABLE_NAME` is imported from a global constants file with the following content:
 
 Global constants file:
 ```java
@@ -103,9 +107,9 @@ public final class Constants {
 }
 ```
 
-DeepSemgrep matches the first call without any change to the rule.
+Semgrep Pro Engine matches the first call without any change to the rule.
 
-Try to run DeepSemgrep in the cloned [DeepSemgrep testing repository](https://github.com/returntocorp/deep-semgrep-tests). Go to `docs/constant_propagation_dangerous_calls` and run the following command:
+Run SPE in the cloned [Semgrep Pro Engine testing repository](https://github.com/returntocorp/deep-semgrep-tests). Go to `docs/constant_propagation_dangerous_calls` and run the following command:
 
 ```sh
 semgrep --config deep.yaml . --deep
@@ -113,13 +117,13 @@ semgrep --config deep.yaml . --deep
 
 ### Propagating values
 
-In the previous example, we only cared whether the string was constant or not, so we used `”...”`, but constant propagation also propagates the constant value. To illustrate the use of DeepSemgrep with constant propagation, the rule from the previous section is changed to search for calls to `dangerous("Employees");`.
+In the previous example, it only mattered whether the string was constant or not, so we used `”...”`, but constant propagation also propagates the constant value. To illustrate the use of Semgrep Pro Engine with constant propagation, the rule from the previous section is changed to search for calls to `dangerous("Employees");`.
 
 <iframe title="Semgrep example no prints" src="https://semgrep.dev/embed/editor?snippet=adamkvitek:propagating-values" width="100%" height="432" frameborder="0"></iframe>
 
-With DeepSemgrep, this rule matches the last three calls to `dangerous`, since these calls are selected from the `Employees` table, though each one obtains the table name differently:
+With SPE, this rule matches the last three calls to `dangerous`, since these calls are selected from the `Employees` table, though each one obtains the table name differently:
 
-Try to run DeepSemgrep in the cloned [DeepSemgrep testing repository](https://github.com/returntocorp/deep-semgrep-tests). Go to `docs/constant_propagation_propagating_values` and run the following command:
+Run Semgrep Pro Engine in the cloned [Semgrep Pro Engine testing repository](https://github.com/returntocorp/deep-semgrep-tests). Go to `docs/constant_propagation_propagating_values` and run the following command:
 
 ```sh
 semgrep --config deep.yaml . --deep
@@ -135,9 +139,9 @@ To continue with the previous example, we have modified our previous files a bit
 
 Here, Semgrep matches `dangerous(“Select * from “ + user_input)`, because `user_input` is obtained by calling `get_user_input`. However, it does not match the similar call using `still_user_input`, because its analysis does not cross function boundaries to know that `still_user_input` is a wrapper function for `user_input`.
 
-DeepSemgrep matches both dangerous calls, because it does cross function boundaries. In fact, with DeepSemgrep, the taint rule can track calls to `get_user_input` over multiple jumps in multiple files.
+Semgrep Pro Engine matches both dangerous calls, because it does cross function boundaries. In fact, with Semgrep Pro Engine, the taint rule can track calls to `get_user_input` over multiple jumps in multiple files.
 
-Try to run DeepSemgrep in the cloned [DeepSemgrep testing repository](https://github.com/returntocorp/deep-semgrep-tests). Go to `docs/taint_tracking` and run the following command:
+Run Semgrep Pro Engine in the cloned [testing repository](https://github.com/returntocorp/deep-semgrep-tests). Go to `docs/taint_tracking` and run the following command:
 
 ```sh
 semgrep --config deep.yaml . --deep
