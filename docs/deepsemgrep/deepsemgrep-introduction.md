@@ -39,7 +39,7 @@ To install DeepSemgrep, follow these steps:
 1. Follow the link that Semgrep printed in the command line.
 1. To install DeepSemgrep, use the following command:
     ```sh
-    semgrep install-deep-semgrep
+    semgrep install-semgrep-pro
     ```
 1. To test DeepSemgrep, use the following command in the root directory of the codebase to scan:
     ```bash
