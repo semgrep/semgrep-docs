@@ -108,7 +108,7 @@ Semgrep provides **fail open** options. These options enable you to suppress fin
 <dl>
 	<dt><code>semgrep ci</code></dt>
 	<dd><strong>Fail</strong> on blocking findings, but <strong>passes</strong> on internal errors. This is the default behavior.</dd>
-	<dt><code>semgrep ci --no suppress errors</code></dt>
+	<dt><code>semgrep ci --no-suppress-errors</code></dt>
 	<dd>The Semgrep CI job <strong>fails</strong> on blocking findings and on internal errors.</dd>
 	<dt><code>semgrep ci || true</code></dt>
 	<dd><strong>Pass</strong> on blocking findings and on internal errors.</dd>
