@@ -210,7 +210,7 @@ To **fix a finding**:
 To **view and add comments** to activity history of a finding:
 
 1. On the [Findings](https://semgrep.dev/orgs/-/findings?tab=open) page, click the heading of the finding card.
-2. Find the comments in the **Activity** section.
+2. View, or add the notes in the **Activity** section. To add a new note, click plus **New note**.
     ![Semgrep App finding details page](/img/app-finding-details.png)<br />
     *Figure 4.* Finding details page.
 
