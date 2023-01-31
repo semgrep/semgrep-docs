@@ -205,14 +205,16 @@ To **fix a finding**:
 
 <RemoveRule />
 
-#### Viewing and adding comments to finding's history
+#### Viewing and adding comments to finding's activity
 
-To **view and add comments** to history of a finding:
+To **view and add comments** to activity history of a finding:
 
-1. Click the <i className="fa-regular fa-arrow-up-right-from-square inline_svg"></i> **Finding details** icon next to the finding’s status.
-2. Find the comments in the **History** section.
+1. Click the heading of the finding card.
+2. Find the comments in the **Activity** section.
     ![Semgrep App finding details page](/img/app-finding-details.png)<br />
-    *Figure 4.* Findings details page.
+    *Figure 4.* Finding details page.
+
+You can also view the findings activity directly from the findings page by clicking on the comment bubble icon <i class="fa-regular fa-comment"></i> if it appears on the finding card.
 
 ### Ignoring findings through comments
 
