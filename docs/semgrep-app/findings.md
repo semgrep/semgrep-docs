@@ -205,7 +205,7 @@ To **fix a finding**:
 
 <RemoveRule />
 
-#### Viewing and adding comments to finding's activity
+#### Viewing and adding notes to findings
 
 To **view and add comments** to activity history of a finding:
 
