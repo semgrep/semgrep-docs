@@ -14,6 +14,11 @@ module.exports = {
   projectName: 'semgrep', // Usually your repo name.
   trailingSlash: true,
   themeConfig: {
+    docs: {
+      sidebar: {
+        hideable: true,
+      },
+    },
     navbar: {
       logo: {
         alt: 'Semgrep logo',
@@ -61,7 +66,7 @@ module.exports = {
             },
             {
               label: 'Twitter',
-              href: 'https://twitter.com/r2cdev',
+              href: 'https://twitter.com/semgrep',
             },
           ],
         },
@@ -117,17 +122,17 @@ module.exports = {
             },
             {
               label: 'Semgrep release updates',
-              href: 'https://us18.campaign-archive.com/home/?u=ee2dc8f77e27d3739cf4df9ef&id=9b175e26fa'
+              href: 'https://twitter.com/semgrepreleases'
             }
           ],
         },
       ],
-      copyright: `Copyright © ${new Date().getFullYear()} r2c. Built with Docusaurus.`,
+      copyright: `Copyright © ${new Date().getFullYear()} r2c. Semgrep®️  is a registered trademark of r2c. This site is built with Docusaurus.`,
     },
     prism: {
       theme: lightCodeTheme,
       darkTheme: darkCodeTheme,
-      additionalLanguages: ['java'],
+      additionalLanguages: ['java', 'ruby', 'csharp', 'rust'],
     },
     algolia: {
       apiKey: 'f53612c29d04a2ff71dce6e3b2f76752',
@@ -173,7 +178,7 @@ module.exports = {
           routeBasePath: '/'
         },
         theme: {
-          customCss: require.resolve('./src/css/custom.css'),
+          customCss: require.resolve('./src/css/custom.scss'),
         },
         gtag: {
           // You can also use your "G-" Measurement ID here.
@@ -191,6 +196,7 @@ module.exports = {
     ],
   ],
   plugins: [
+    'docusaurus-plugin-sass',
     [
       '@docusaurus/plugin-client-redirects',
       {

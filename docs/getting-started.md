@@ -7,30 +7,71 @@ hide_title: true
 ---
 
 import MoreHelp from "/src/components/MoreHelp"
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
 # Getting started with Semgrep CLI
 
-## Running Semgrep locally
+## Installing and running Semgrep locally
 
-Start by running [Semgrep](https://github.com/returntocorp/semgrep/) locally to scan your code. Semgrep runs offline on uncompiled code. **No code leaves your computer**.
+Install and run [Semgrep](https://github.com/returntocorp/semgrep/) locally to scan your code. Semgrep runs offline on uncompiled code. **No code leaves your computer**.
 
 :::info Prerequisite
-Semgrep requires Python 3.7 or later.
+Semgrep CLI installation requires Python 3.7 or later.
 :::
 
 1. Install Semgrep. Use one of the following options depending on your system and preference:
-    - For macOS:
-        ```sh
-        brew install semgrep
-        ```
-    - For Ubuntu, Windows through Windows Subsystem for Linux (WSL), Linux, macOS:
-        ```sh
-        python3 -m pip install semgrep
-        ```
-    - To try out Semgrep without installation you may run it through Docker:
-        ```sh
-        docker run --rm -v "${PWD}:/src" returntocorp/semgrep semgrep --config=auto
-        ```
+    <Tabs
+        defaultValue="macOS"
+        values={[
+        {label: 'macOS', value: 'macOS'},
+        {label: 'Linux', value: 'Linux'},
+        {label: 'Windows Subsystem for Linux (WSL)', value: 'Windows Subsystem for Linux (WSL)'},
+        {label: 'Docker', value: 'Docker'},
+        ]}
+    >
+
+    <TabItem value='macOS'>
+
+    ```bash
+    brew install semgrep
+    ```
+
+    Alternatively:
+
+    ```bash
+    python3 -m pip install semgrep
+    ```
+
+    </TabItem>
+
+    <TabItem value='Linux'>
+
+    ```bash
+    python3 -m pip install semgrep
+    ```
+
+    </TabItem>
+
+    <TabItem value='Windows Subsystem for Linux (WSL)'>
+
+    ```bash
+    python3 -m pip install semgrep
+    ```
+
+    </TabItem>
+
+    <TabItem value='Docker'>
+
+    ```bash
+    docker run --rm -v "${PWD}:/src" returntocorp/semgrep semgrep --config=auto
+    ```
+
+    </TabItem>
+
+    </Tabs>
+
+
 2. Confirm installation by running a simple search pattern. For example, run the following command:
     ```sh
     semgrep --pattern '127.$A.$B.$C' --lang generic /etc/hosts

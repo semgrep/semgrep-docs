@@ -315,8 +315,8 @@ export HTTPS_PROXY="http://10.10.1.10:1080"
 
 Semgrep can finish with the following exit codes:
 
-- **1**: Semgrep ran successfully and found issues in your code (and the `--error` flag is set).
 - **0**: Semgrep ran successfully and found no errors (or did find errors, but the `--error` flag is **not** set).
+- **1**: Semgrep ran successfully and found issues in your code (and the `--error` flag is set).
 - **2**: Semgrep failed.
 - **4**: Semgrep encountered an invalid pattern in rule schema.
 - **5**: Semgrep configuration is not valid YAML.
