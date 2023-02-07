@@ -141,7 +141,7 @@ Semgrep App enables you to group findings by a specific rule on the Findings pag
 To group findings by rules, follow these steps:
 
 1. In Semgrep App, go to **[Findings](https://semgrep.dev/orgs/-/findings)** page.
-1. Click the list under **View** stating **No grouping**, and then select **Group by Rule**.
+1. Click the list under **No grouping**, and then select **Group by Rule**.
     ![Screenshot of the Group by Rule option](/img/app-finding-group-by-rule.png)<br />
     *Figure 4.* Screenshot of the Group by Rule option.
 
