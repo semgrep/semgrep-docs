@@ -111,7 +111,7 @@ Filtering allows you to easily isolate groups of findings for ease in triaging a
 | **Rules**        | Filter by rules or rulesets that are included in your Rule Board. More than one rule can be selected for filtering. |
 | **Rulesets**     | Filter by name of the ruleset where rules that matched the code belong. More than one rule or ruleset can be selected for filtering. |
 
-You can also filter for findings reported from specific time periods. See [Displaying findings reported in a specific time](/semgrep-app/findings/#displaying-findings-reported-in-a-specific-time).
+You can also filter for findings reported from specific time periods or group findings by rule. See [Displaying findings reported in a specific time](/semgrep-app/findings/#displaying-findings-reported-in-a-specific-time) and [Group by rule](/semgrep-app/findings/#grouping-by-rule) sections.
 
 To filter through findings:
 
@@ -131,6 +131,20 @@ Display and filter for findings reported only in specific time. To display findi
     - Last 7 days
     - Last 1 day
 
+### Grouping by rule
+
+Semgrep App enables you to group findings by a specific rule on the Findings page.
+
+![Screenshot of the Findings page with findings grouped by rule](/img/app-findings-overview-grouped-by-rule.png)<br />
+*Figure 3.* Screenshot of the Findings page with findings grouped by rule
+
+To group findings by rules, follow these steps:
+
+1. In Semgrep App, go to **[Findings](https://semgrep.dev/orgs/-/findings)** page.
+1. Click the list under **No grouping**, and then select **Group by Rule**.
+    ![Screenshot of the Group by Rule option](/img/app-finding-group-by-rule.png)<br />
+    *Figure 4.* Screenshot of the Group by Rule option.
+
 ## Triaging findings
 
 **Triaging** means prioritizing a finding based on a policy or criteria set by your team or organization. While severity is a factor in triage, your organization may define additional criteria based on coding standards, business, or product goals.
@@ -145,7 +159,7 @@ The triage statuses are as follows:
 
 To manage, change, open or ignore findings, follow the the triage processes described below.
 ![Screenshot of Semgrep App triage menu](/img/app-findings-triage.png)<br />
-*Figure 3.* Findings page triage menu.
+*Figure 5.* Findings page triage menu.
 
 #### Ignoring findings
 
@@ -212,7 +226,7 @@ To **view and add notes** to the activity history of a finding:
 1. On the [Findings](https://semgrep.dev/orgs/-/findings?tab=open) page, click the heading of the finding card.
 2. View, or add the notes in the **Activity** section. To add a new note, click plus **New note**.
     ![Semgrep App finding details page](/img/app-finding-details.png)<br />
-    *Figure 4.* Finding details page.
+    *Figure 6.* Finding details page.
 
 You can also view the findings activity directly from the findings page by clicking on the comment bubble icon <i class="fa-regular fa-comment"></i> if it appears on the finding card.
 
@@ -234,7 +248,7 @@ To triage a finding in GitHub, follow these steps:
 
 1. Find an open comment created by Semgrep App in GitHub PR:
     ![Screenshot of Semgrep App comment in GitHub](/img/semgrep-app-comment-github.png)<br />
-    *Figure 5.* Screenshot of Semgrep App comment in GitHub.
+    *Figure 7.* Screenshot of Semgrep App comment in GitHub.
 2. In the comment, reply with:
     <pre><code>
     /semgrep ignore <span className="placeholder">&lt;reason&gt;</span>
