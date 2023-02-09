@@ -78,7 +78,6 @@ Usage: semgrep scan [OPTIONS] [TARGETS]...
   https://semgrep.dev/docs/metrics. To modify this behavior, see the --metrics
   option below.
 
-```
 Options:
   --replacement TEXT              An autofix expression that will be applied
                                   to any matches found with --pattern. Only
