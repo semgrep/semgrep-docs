@@ -306,6 +306,7 @@ Their differences are outlined in the following table:
 ### Beta support
 
 DeepSemgrep offers **beta** support for the following languages:
+- **Apex**
 - **Java**
 - **JavaScript**
 - **TypeScript**
