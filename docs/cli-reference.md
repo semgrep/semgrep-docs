@@ -171,6 +171,8 @@ Options:
                                   tests/foo.py as well as a/b/tests/c/foo.py.
                                   Can add multiple times. If present, any
                                   --include directives are ignored.
+    --exclude-rule TEXT           Skip any rule with the given id. Can add
+                                  multiple times.
     --include TEXT                Filter files or directories by path. The
                                   argument is a glob-style pattern such as
                                   'foo.*' that must match the path. This is an
@@ -210,7 +212,7 @@ Options:
                                   If true, explicit files will be scanned
                                   using the language specified in --lang. If
                                   --skip-unknown-extensions, these files will
-                                  not be scanned
+                                  not be scanned. Defaults to false.
   Performance and memory options: 
     --enable-version-check / --disable-version-check
                                   Checks Semgrep servers to see if the latest
@@ -218,10 +220,12 @@ Options:
                                   exit time after returning results.
     -j, --jobs INTEGER            Number of subprocesses to use to run checks
                                   in parallel. Defaults to the number of cores
-                                  on the system.
+                                  on the system (1 if using --pro).
     --max-memory INTEGER          Maximum system memory to use running a rule
-                                  on a single file in MB. If set to 0 will not
-                                  have memory limit. Defaults to 0.
+                                  on a single file in MiB. If set to 0 will
+                                  not have memory limit. Defaults to 0 for all
+                                  CLI scans. For CI scans that use the pro
+                                  engine, it defaults to 5000 MiB
     --optimizations [all|none]    Turn on/off optimizations. Default = 'all'.
                                   Use 'none' to turn all optimizations off.
     --timeout INTEGER             Maximum time to spend running a rule on a
@@ -230,6 +234,10 @@ Options:
     --timeout-threshold INTEGER   Maximum number of rules that can timeout on
                                   a file before the file is skipped. If set to
                                   0 will not have limit. Defaults to 3.
+    --interfile-timeout INTEGER   Maximum time to spend on interfile analysis.
+                                  If set to 0 will not have time limit.
+                                  Defaults to 0 s for all CLI scans. For CI
+                                  scans, it defaults to 3 hours.
   Display options: 
     --enable-nosem / --disable-nosem
                                   --enable-nosem enables 'nosem'. Findings
@@ -246,6 +254,9 @@ Options:
                                   Maximum number of lines of code that will be
                                   shown for each match before trimming (set to
                                   0 for unlimited).
+    --dataflow-traces             Explain how non-local values reach the
+                                  location of a finding (only affects text and
+                                  SARIF output).
     -o, --output TEXT             Save search results to a file or post to
                                   URL. Default is to print to stdout.
     --rewrite-rule-ids / --no-rewrite-rule-ids
@@ -270,6 +281,19 @@ Options:
     --junit-xml                   Output results in JUnit XML format.
     --sarif                       Output results in SARIF format.
     --vim                         Output results in vim single-line format.
+  Semgrep Pro Engine options: 
+    --pro-languages               Enable Pro languages (currently just Apex).
+                                  Requires Semgrep Pro Engine, contact
+                                  support@r2c.dev for more information on
+                                  this.
+    --pro-intrafile               Intra-file inter-procedural taint analysis.
+                                  Implies --pro-languages. Requires Semgrep
+                                  Pro Engine, contact support@r2c.dev for more
+                                  information on this.
+    --pro                         Inter-file analysis and Pro languages
+                                  (currently just Apex). Requires Semgrep Pro
+                                  Engine, contact support@r2c.dev for more
+                                  information on this.
 ```
 
 ## Autocomplete
