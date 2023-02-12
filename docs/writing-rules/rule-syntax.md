@@ -59,18 +59,16 @@ The below optional fields must reside underneath a `patterns` field.
 The `pattern` operator looks for code matching its expression. This can be basic expressions like `$X == $X` or unwanted function calls like `hashlib.md5(...)`.
 
 :::note Example
-[Semgrep Playground](https://semgrep.dev/s/gJo5) example. 
+Try this pattern in the [Semgrep Playground](https://semgrep.dev/s/gJo5). 
 :::
-
 
 ### `patterns`
 
 The `patterns` operator performs a logical AND operation on one or more child patterns. This is useful for chaining multiple patterns together that all must be true.
 
 :::note Example
-[Semgrep Playground](https://semgrep.dev/s/Q83q) example.
+Try this pattern in the [Semgrep Playground](https://semgrep.dev/s/Q83q).
 :::
-
 
 #### `patterns` operator evaluation strategy
 
@@ -88,7 +86,7 @@ Note that the order in which the child patterns are declared in a `patterns` ope
 The `pattern-either` operator performs a logical OR operation on one or more child patterns. This is useful for chaining multiple patterns together where any may be true.
 
 :::note Example
-[Semgrep Playground](https://semgrep.dev/s/4yX9) example.
+Try this pattern in the [Semgrep Playground](https://semgrep.dev/s/4yX9).
 :::
 
 This rule looks for usage of the Python standard library functions `hashlib.md5` or `hashlib.sha1`. Depending on their usage, these hashing functions are [considered insecure](https://shattered.io/).
@@ -101,9 +99,9 @@ The `pattern-regex` operator searches files for substrings matching the given [P
 PCRE supports only a [limited number of Unicode character properties](https://www.pcre.org/original/doc/html/pcrepattern.html#uniextseq). For example, `\p{Egyptian_Hieroglyphs}` is supported but `\p{Bidi_Control}` isn't.
 :::
 
-:::note Examples of the `pattern-regex` operator:
-- It can be combined with other pattern operators: [Semgrep Playground example](https://semgrep.dev/s/Ppvv)
-- It can be used as a standalone, top-level operator: [Semgrep Playground example](https://semgrep.dev/s/J3vP)
+:::note Examples of the `pattern-regex` operator
+- `pattern-regex` combined with other pattern operators: [Semgrep Playground example](https://semgrep.dev/s/Ppvv)
+- `pattern-regex` used as a standalone, top-level operator: [Semgrep Playground example](https://semgrep.dev/s/J3vP)
 :::
 
 :::info
@@ -113,7 +111,7 @@ Single (`'`) and double (`"`) quotes [behave differently](https://docs.octoprint
 Note that if the regex uses groups, the metavariables such as `$1`, `$2`, `$3` (and following), are bound to the content of the captured group.
 
 :::note Example
-[Semgrep Playground](https://semgrep.dev/s/8RkB) example.
+Try this pattern in the [Semgrep Playground](https://semgrep.dev/s/8RkB).
 :::
 
 ### `pattern-not-regex`
@@ -125,7 +123,7 @@ The syntax for this operator is the same as `pattern-regex`.
 This operator filters findings that have _any overlap_ with the supplied regular expression. For example, if you use `pattern-regex` to detect `Foo==1.1.1` and it also detects `Foo-Bar==3.0.8` and `Bar-Foo==3.0.8`, you can use `pattern-not-regex` to filter the unwanted findings.
 
 :::note Example
-[Semgrep Playground](https://semgrep.dev/s/8n5Q) example.
+Try this pattern in the [Semgrep Playground](https://semgrep.dev/s/8n5Q).
 :::
 
 ### `focus-metavariable`
@@ -143,13 +141,13 @@ This works but it matches the entire function definition. Sometimes, this is not
 To specify that you are only interested in the code matched by a particular metavariable, in our example `$ARG`, use `focus-metavariable`.
 
 :::note Example
-[Semgrep Playground](https://semgrep.dev/s/4kk8) example.
+Try this pattern in the [Semgrep Playground](https://semgrep.dev/s/4kk8).
 :::
 
 Note that `focus-metavariable: $ARG` is not the same as `pattern: $ARG`! Using `pattern: $ARG` finds all the uses of the parameter `x` which is not what we want! (Note that `pattern: $ARG` does not match the formal parameter declaration, because in this context `$ARG` only matches expressions.)
 
 :::note Example
-[Semgrep Playground](https://semgrep.dev/s/PPPe) example.
+Try this pattern in the [Semgrep Playground](https://semgrep.dev/s/PPPe).
 :::
 
 In short, `focus-metavariable: $X` is not a pattern in itself, it does not perform any matching, it only focuses the matching on the code already bound to `$X` by other patterns. Whereas `pattern: $X` matches `$X` against your code (and in this context, `$X` only matches expressions)!
@@ -166,7 +164,7 @@ Include more `focus-metavariable` keys with different metavariables under the `p
 ```
 
 :::note Example
-[Semgrep Playground](https://semgrep.dev/s/AqJw) example.
+Try this pattern in the [Semgrep Playground](https://semgrep.dev/s/AqJw).
 :::
 
 :::info
@@ -178,13 +176,13 @@ To make a list of multiple focus metavariables using set union semantics that ma
 The `metavariable-regex` operator searches metavariables for a [PCRE](https://www.pcre.org/original/doc/html/pcrepattern.html) regular expression. This is useful for filtering results based on a [metavariable’s](pattern-syntax.mdx#metavariables) value. It requires the `metavariable` and `regex` keys and can be combined with other pattern operators.
 
 :::note Example
-[Semgrep Playground](https://semgrep.dev/s/Oyrw) example.
+Try this pattern in the [Semgrep Playground](https://semgrep.dev/s/Oyrw).
 :::
 
 Regex matching is **unanchored**. For anchored matching, use `\A` for start-of-string anchoring and `\Z` for end-of-string anchoring. The next example, using the same expression as above but anchored, finds no matches:
 
 :::note Example
-[Semgrep Playground](https://semgrep.dev/s/ved8) example.
+Try this pattern in the [Semgrep Playground](https://semgrep.dev/s/ved8).
 :::
 
 :::info
@@ -198,7 +196,7 @@ The `metavariable-pattern` operator matches metavariables with a pattern formula
 For example, it can be used to filter out matches that do _not_ match certain criteria:
 
 :::note Example
-[Semgrep Playground](https://semgrep.dev/s/DwbP) example.
+Try this pattern in the [Semgrep Playground](https://semgrep.dev/s/DwbP).
 :::
 
 :::info
@@ -208,7 +206,7 @@ In this case it is possible to start a `patterns` AND operation with a `pattern-
 It is also useful in combination with `pattern-either`:
 
 :::note Example
-[Semgrep Playground](https://semgrep.dev/s/Aw88) example.
+Try this pattern in the [Semgrep Playground](https://semgrep.dev/s/Aw88).
 :::
 
 :::tip
@@ -223,8 +221,10 @@ The metavariable should be bound to an expression, a statement, or a list of sta
 
 If the metavariable's content is a string, then it is possible to use `metavariable-pattern` to match this string as code by specifying the target language via the `language` key. See the following examples of `metavariable-pattern`:
 
-- Semgrep matches JavaScript code inside HTML in the following [Semgrep Playground](https://semgrep.dev/s/z95k) example.
-Semgrep filters regex matches in the following [Semgrep Playground](https://semgrep.dev/s/pkNk) example.
+:::note Examples of `metavariable-pattern`
+- Match JavaScript code inside HTML in the following [Semgrep Playground](https://semgrep.dev/s/z95k) example.
+- Filtr regex matches in the following [Semgrep Playground](https://semgrep.dev/s/pkNk) example.
+:::
 
 ### `metavariable-comparison`
 
@@ -237,7 +237,7 @@ This matches code such as `set_port(80)` or `set_port(443)`, but not `set_port(8
 Comparison expressions support simple arithmetic as well as composition with [boolean operators](https://docs.python.org/3/reference/expressions.html#boolean-operations) to allow for more complex matching. This is particularly useful for checking that metavariables are divisible by particular values, such as enforcing that a particular value is even or odd.
 
 :::note Example
-[Semgrep Playground](https://semgrep.dev/s/qq9R) example.
+Try this pattern in the [Semgrep Playground](https://semgrep.dev/s/qq9R).
 :::
 
 Building on the previous example, this still matches code such as `set_port(80)` but it no longer matches `set_port(443)` or `set_port(8080)`.
@@ -268,13 +268,13 @@ You can avoid the use of the legacy keys described below (`base: int` and `strip
 The `metavariable-comparison` operator also takes optional `base: int` and `strip: bool` keys. These keys set the integer base the metavariable value should be interpreted as and remove quotes from the metavariable value, respectively.
 
 :::note Example of `metavariable-comparison` with `base`
-[Semgrep Playground](https://semgrep.dev/s/R8vN) example.
+Try this pattern in the [Semgrep Playground](https://semgrep.dev/s/R8vN).
 :::
 
 This interprets metavariable values found in code as octal. As a result, Semgrep detects `0700`, but it does **not** detect `0400`.
 
 :::note Example of `metavariable-comparison` with `strip`
-[Semgrep Playground](https://semgrep.dev/s/AlqB) example.
+Try this pattern in the [Semgrep Playground](https://semgrep.dev/s/AlqB).
 :::
 
 This removes quotes (`'`, `"`, and `` ` ``) from both ends of the metavariable content. As a result, Semgrep detects `"2147483648"`, but it does **not** detect `"2147483646"`. This is useful when you expect strings to contain integer or float data.
@@ -284,7 +284,7 @@ This removes quotes (`'`, `"`, and `` ` ``) from both ends of the metavariable c
 The `pattern-not` operator is the opposite of the `pattern` operator. It finds code that does not match its expression. This is useful for eliminating common false positives.
 
 :::note Example
-[Semgrep Playground](https://semgrep.dev/s/Q83q) example.
+Try this pattern in the [Semgrep Playground](https://semgrep.dev/s/Q83q).
 :::
 
 ### `pattern-inside`
@@ -292,7 +292,7 @@ The `pattern-not` operator is the opposite of the `pattern` operator. It finds c
 The `pattern-inside` operator keeps matched findings that reside within its expression. This is useful for finding code inside other pieces of code like functions or if blocks.
 
 :::note Example
-[Semgrep Playground](https://semgrep.dev/s/Z8Dw) example.
+Try this pattern in the [Semgrep Playground](https://semgrep.dev/s/Z8Dw).
 :::
 
 ### `pattern-not-inside`
@@ -300,7 +300,7 @@ The `pattern-inside` operator keeps matched findings that reside within its expr
 The `pattern-not-inside` operator keeps matched findings that do not reside within its expression. It is the opposite of `pattern-inside`. This is useful for finding code that’s missing a corresponding cleanup action like disconnect, close, or shutdown. It’s also useful for finding problematic code that isn't inside code that mitigates the issue.
 
 :::note Example
-[Semgrep Playground](https://semgrep.dev/s/DJ6G) example.
+Try this pattern in the [Semgrep Playground](https://semgrep.dev/s/DJ6G).
 :::
 
 The above rule looks for files that are opened but never closed, possibly leading to resource exhaustion. It looks for the `open(...)` pattern _and not_ a following `close()` pattern.
