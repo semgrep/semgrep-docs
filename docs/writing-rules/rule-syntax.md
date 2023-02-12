@@ -193,7 +193,7 @@ Include quotes in your regular expression when using `metavariable-regex` to sea
 
 The `metavariable-pattern` operator matches metavariables with a pattern formula. This is useful for filtering results based on a [metavariable’s](pattern-syntax.mdx#metavariables) value. It requires the `metavariable` key, and exactly one key of `pattern`, `patterns`, `pattern-either`, or `pattern-regex`. This operator can be nested as well as combined with other operators.
 
-For example, it can be used to filter out matches that do _not_ match certain criteria:
+For example, the `metavariable-pattern` can be used to filter out matches that do **not** match certain criteria:
 
 :::note Example
 Try this pattern in the [Semgrep Playground](https://semgrep.dev/s/DwbP).
@@ -203,7 +203,7 @@ Try this pattern in the [Semgrep Playground](https://semgrep.dev/s/DwbP).
 In this case it is possible to start a `patterns` AND operation with a `pattern-not`, because there is an implicit `pattern: ...` that matches the content of the metavariable.
 :::
 
-It is also useful in combination with `pattern-either`:
+The `metavariable-pattern` is also useful in combination with `pattern-either`:
 
 :::note Example
 Try this pattern in the [Semgrep Playground](https://semgrep.dev/s/Aw88).
