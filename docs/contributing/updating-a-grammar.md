@@ -115,8 +115,11 @@ cd lang
   ./test-lang X
 ```
 
-⚠️ Check the generated code for the presence of `Blank` nodes. Those
+:::caution
+Check the generated code for the presence of `Blank` nodes. Those
 correspond to [missing tokens](https://github.com/tree-sitter/tree-sitter/issues/1151).
+:::
+
 Check with:
 ```
 grep Blank lang/X/ocaml-src/lib/CST.ml
