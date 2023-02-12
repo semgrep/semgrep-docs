@@ -1,17 +1,12 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<urlset>
-  <url>
-    <loc>https://semgrep.dev/r?q=ajinabraham.njsscan.security_electronjs.electron_disable_websecurity</loc>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://semgrep.dev/r?q=ajinabraham.njsscan.security_electronjs.electron_experimental_features</loc>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://semgrep.dev/r?q=ajinabraham.njsscan.exec_os_command.generic_os_command_exec2</loc>
+    <loc>https://semgrep.dev/r?q=ajinabraham.njsscan.security_electronjs.electron_disable_websecurity</loc>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
@@ -21,7 +16,7 @@
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://semgrep.dev/r?q=meta.identical_pattern.identical-pattern</loc>
+    <loc>https://semgrep.dev/r?q=ajinabraham.njsscan.exec_os_command.generic_os_command_exec2</loc>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
@@ -41,12 +36,22 @@
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://semgrep.dev/r?q=meta.no_message.no-message</loc>
+    <loc>https://semgrep.dev/r?q=meta.unsatisfiable.unsatisfiable-rule</loc>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://semgrep.dev/r?q=meta.unsatisfiable.unsatisfiable-rule</loc>
+    <loc>https://semgrep.dev/r?q=meta.identical_pattern.identical-pattern</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://semgrep.dev/r?q=contrib.nodejsscan.exec_os_command.generic_os_command_exec2</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://semgrep.dev/r?q=meta.identical_id.identical-id</loc>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
@@ -61,17 +66,12 @@
     <priority>0.5</priority>
   </url>
   <url>
+    <loc>https://semgrep.dev/r?q=meta.no_message.no-message</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
     <loc>https://semgrep.dev/r?q=ajinabraham.njsscan.eval_drpc_deserialize.grpc_insecure_connection</loc>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://semgrep.dev/r?q=meta.identical_id.identical-id</loc>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://semgrep.dev/r?q=contrib.nodejsscan.exec_os_command.generic_os_command_exec2</loc>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
@@ -101,12 +101,12 @@
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://semgrep.dev/r?q=cs.lang.security.insecure-deserialization.newtonsoft.insecure-newtonsoft-deserialization</loc>
+    <loc>https://semgrep.dev/r?q=yaml.kubernetes.best-practice.no-fractional-cpu-limits.kubernetes.best-practice.no-fractional-cpu-limits</loc>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://semgrep.dev/r?q=yaml.kubernetes.best-practice.no-fractional-cpu-limits.kubernetes.best-practice.no-fractional-cpu-limits</loc>
+    <loc>https://semgrep.dev/r?q=cs.lang.security.insecure-deserialization.newtonsoft.insecure-newtonsoft-deserialization</loc>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
@@ -136,7 +136,7 @@
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://semgrep.dev/r?q=dgryski.semgrep-go.writestring.use-writer-not-writestring</loc>
+    <loc>https://semgrep.dev/r?q=dgryski.semgrep-go.unixnano.not-after</loc>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
@@ -151,11 +151,6 @@
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://semgrep.dev/r?q=dgryski.semgrep-go.unixnano.not-after</loc>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
     <loc>https://semgrep.dev/r?q=dgryski.semgrep-go.unixnano.not-before</loc>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
@@ -166,7 +161,7 @@
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://semgrep.dev/r?q=dgryski.semgrep-go.wronglock.wrong-lock-unlock</loc>
+    <loc>https://semgrep.dev/r?q=dgryski.semgrep-go.writestring.use-writer-not-writestring</loc>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
@@ -176,7 +171,17 @@
     <priority>0.5</priority>
   </url>
   <url>
+    <loc>https://semgrep.dev/r?q=dgryski.semgrep-go.wronglock.wrong-lock-unlock</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
     <loc>https://semgrep.dev/r?q=dgryski.semgrep-go.hmac-hash.hmac-needs-new</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://semgrep.dev/r?q=dgryski.semgrep-go.json-writer.json-encoder-needs-type</loc>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
@@ -191,107 +196,42 @@
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://semgrep.dev/r?q=dgryski.semgrep-go.json-writer.json-encoder-needs-type</loc>
+    <loc>https://semgrep.dev/r?q=dgryski.semgrep-go.badnilguard.bad-nil-guard</loc>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://semgrep.dev/r?q=dgryski.semgrep-go.mail-address.sprintf-mail-address</loc>
+    <loc>https://semgrep.dev/r?q=dgryski.semgrep-go.close-sql-query-rows.rows-not-closed</loc>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://semgrep.dev/r?q=dgryski.semgrep-go.marshaljson.marshal-json-pointer-receiver</loc>
+    <loc>https://semgrep.dev/r?q=dgryski.semgrep-go.contexttodo.context-todo</loc>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://semgrep.dev/r?q=dgryski.semgrep-go.mathbits.use-math-bits</loc>
+    <loc>https://semgrep.dev/r?q=dgryski.semgrep-go.errclosed.use-net-errclosed</loc>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://semgrep.dev/r?q=dgryski.semgrep-go.nilerr.return-nil</loc>
+    <loc>https://semgrep.dev/r?q=dgryski.semgrep-go.errnilcheck.err-nil-check</loc>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://semgrep.dev/r?q=dgryski.semgrep-go.nrtxn.newrelic-start-without-end</loc>
+    <loc>https://semgrep.dev/r?q=dgryski.semgrep-go.errtodo.err-todo</loc>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://semgrep.dev/r?q=dgryski.semgrep-go.oddbitwise.odd-bitwise</loc>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://semgrep.dev/r?q=dgryski.semgrep-go.oddcompare.odd-comparison</loc>
+    <loc>https://semgrep.dev/r?q=dgryski.semgrep-go.hashsum.hash-sum-without-write</loc>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://semgrep.dev/r?q=ajinabraham.njsscan.sql_injection.node_knex_sqli_injection</loc>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://semgrep.dev/r?q=ajinabraham.njsscan.good_anti_csrf.anti_csrf_control</loc>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://semgrep.dev/r?q=ajinabraham.njsscan.good_helmet_checks.helmet_header_check_csp</loc>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://semgrep.dev/r?q=ajinabraham.njsscan.good_helmet_checks.helmet_header_check_crossdomain</loc>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://semgrep.dev/r?q=ajinabraham.njsscan.good_helmet_checks.helmet_header_check_expect_ct</loc>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://semgrep.dev/r?q=dgryski.semgrep-go.hmac-bytes.use-hmac-equal</loc>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://semgrep.dev/r?q=dgryski.semgrep-go.oddmathbits.odd-bits-leadingzeros</loc>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://semgrep.dev/r?q=dgryski.semgrep-go.oserrors.os-error-handling-functions</loc>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://semgrep.dev/r?q=dgryski.semgrep-go.parseint-downcast.parseint-downcast</loc>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://semgrep.dev/r?q=dgryski.semgrep-go.readfull.io-readfull-n</loc>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://semgrep.dev/r?q=dgryski.semgrep-go.returnnil.return-nil</loc>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://semgrep.dev/r?q=dgryski.semgrep-go.sortslice.bad-sort-slice-function</loc>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://semgrep.dev/r?q=dgryski.semgrep-go.sprinterr.use-err-error</loc>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
@@ -342,101 +282,6 @@
   </url>
   <url>
     <loc>https://semgrep.dev/r?q=ajinabraham.njsscan.good_ratelimiting.rate_limit_control</loc>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://semgrep.dev/r?q=mobsf.mobsfscan.flag_secure.android_prevent_screenshot</loc>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://semgrep.dev/r?q=mobsf.mobsfscan.root_detection.android_root_detection</loc>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://semgrep.dev/r?q=mobsf.mobsfscan.tapjacking.android_detect_tapjacking</loc>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://semgrep.dev/r?q=mobsf.mobsfscan.tls_certificate_transparency.android_certificate_transparency</loc>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://semgrep.dev/r?q=mobsf.mobsfscan.tls_pinning.android_certificate_pinning</loc>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://semgrep.dev/r?q=mobsf.mobsfscan.aes_ecb.aes_ecb_mode</loc>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://semgrep.dev/r?q=mobsf.mobsfscan.aes_ecb.aes_ecb_mode_default</loc>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://semgrep.dev/r?q=mobsf.mobsfscan.weak_hashes.weak_hash</loc>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://semgrep.dev/r?q=mobsf.mobsfscan.weak_iv.weak_iv</loc>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://semgrep.dev/r?q=mobsf.mobsfscan.weak_key_size.weak_key_size</loc>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://semgrep.dev/r?q=mobsf.mobsfscan.jackson_deserialization.jackson_deserialization</loc>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://semgrep.dev/r?q=mobsf.mobsfscan.object_deserialization.object_deserialization</loc>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://semgrep.dev/r?q=mobsf.mobsfscan.command_injection.command_injection</loc>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://semgrep.dev/r?q=mobsf.mobsfscan.command_injection_formated.command_injection_warning</loc>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://semgrep.dev/r?q=mobsf.mobsfscan.webview_javascript_interface.webview_javascript_interface</loc>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://semgrep.dev/r?q=mobsf.mobsfscan.xmldecoder_xxe.xml_decoder_xxe</loc>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://semgrep.dev/r?q=mobsf.mobsfscan.xmlfactory_external_entities_enabled.xmlinputfactory_xxe_enabled</loc>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://semgrep.dev/r?q=mobsf.mobsfscan.xmlfactory_xxe.xmlinputfactory_xxe</loc>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://semgrep.dev/r?q=mobsf.mobsfscan.hidden_ui.android_hidden_ui</loc>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
@@ -566,7 +411,197 @@
     <priority>0.5</priority>
   </url>
   <url>
+    <loc>https://semgrep.dev/r?q=dgryski.semgrep-go.hmac-bytes.use-hmac-equal</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://semgrep.dev/r?q=dgryski.semgrep-go.oddmathbits.odd-bits-leadingzeros</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://semgrep.dev/r?q=dgryski.semgrep-go.oserrors.os-error-handling-functions</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://semgrep.dev/r?q=dgryski.semgrep-go.parseint-downcast.parseint-downcast</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://semgrep.dev/r?q=dgryski.semgrep-go.readfull.io-readfull-n</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://semgrep.dev/r?q=dgryski.semgrep-go.returnnil.return-nil</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://semgrep.dev/r?q=dgryski.semgrep-go.sortslice.bad-sort-slice-function</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://semgrep.dev/r?q=dgryski.semgrep-go.sprinterr.use-err-error</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://semgrep.dev/r?q=ajinabraham.njsscan.good_anti_csrf.anti_csrf_control</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://semgrep.dev/r?q=ajinabraham.njsscan.good_helmet_checks.helmet_header_check_csp</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://semgrep.dev/r?q=ajinabraham.njsscan.good_helmet_checks.helmet_header_check_crossdomain</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://semgrep.dev/r?q=ajinabraham.njsscan.good_helmet_checks.helmet_header_check_expect_ct</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://semgrep.dev/r?q=mobsf.mobsfscan.hidden_ui.android_hidden_ui</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://semgrep.dev/r?q=mobsf.mobsfscan.flag_secure.android_prevent_screenshot</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://semgrep.dev/r?q=mobsf.mobsfscan.root_detection.android_root_detection</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://semgrep.dev/r?q=mobsf.mobsfscan.tapjacking.android_detect_tapjacking</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://semgrep.dev/r?q=mobsf.mobsfscan.tls_certificate_transparency.android_certificate_transparency</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://semgrep.dev/r?q=mobsf.mobsfscan.tls_pinning.android_certificate_pinning</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://semgrep.dev/r?q=mobsf.mobsfscan.aes_ecb.aes_ecb_mode</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://semgrep.dev/r?q=mobsf.mobsfscan.aes_ecb.aes_ecb_mode_default</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://semgrep.dev/r?q=mobsf.mobsfscan.weak_hashes.weak_hash</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://semgrep.dev/r?q=mobsf.mobsfscan.weak_iv.weak_iv</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://semgrep.dev/r?q=mobsf.mobsfscan.weak_key_size.weak_key_size</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://semgrep.dev/r?q=mobsf.mobsfscan.jackson_deserialization.jackson_deserialization</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://semgrep.dev/r?q=mobsf.mobsfscan.object_deserialization.object_deserialization</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://semgrep.dev/r?q=mobsf.mobsfscan.command_injection.command_injection</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://semgrep.dev/r?q=mobsf.mobsfscan.command_injection_formated.command_injection_warning</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://semgrep.dev/r?q=mobsf.mobsfscan.webview_javascript_interface.webview_javascript_interface</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://semgrep.dev/r?q=mobsf.mobsfscan.xmldecoder_xxe.xml_decoder_xxe</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://semgrep.dev/r?q=mobsf.mobsfscan.xmlfactory_external_entities_enabled.xmlinputfactory_xxe_enabled</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://semgrep.dev/r?q=mobsf.mobsfscan.xmlfactory_xxe.xmlinputfactory_xxe</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
     <loc>https://semgrep.dev/r?q=ocaml.lang.correctness.useless_let.useless-let</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://semgrep.dev/r?q=dgryski.semgrep-go.mail-address.sprintf-mail-address</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://semgrep.dev/r?q=dgryski.semgrep-go.marshaljson.marshal-json-pointer-receiver</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://semgrep.dev/r?q=dgryski.semgrep-go.mathbits.use-math-bits</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://semgrep.dev/r?q=dgryski.semgrep-go.nilerr.return-nil</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://semgrep.dev/r?q=dgryski.semgrep-go.nrtxn.newrelic-start-without-end</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://semgrep.dev/r?q=dgryski.semgrep-go.oddbitwise.odd-bitwise</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://semgrep.dev/r?q=dgryski.semgrep-go.oddcompare.odd-comparison</loc>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
@@ -576,47 +611,7 @@
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://semgrep.dev/r?q=dgryski.semgrep-go.badnilguard.bad-nil-guard</loc>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://semgrep.dev/r?q=dgryski.semgrep-go.close-sql-query-rows.rows-not-closed</loc>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://semgrep.dev/r?q=dgryski.semgrep-go.contexttodo.context-todo</loc>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://semgrep.dev/r?q=dgryski.semgrep-go.errclosed.use-net-errclosed</loc>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://semgrep.dev/r?q=gitlab.bandit.B108-1</loc>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://semgrep.dev/r?q=dgryski.semgrep-go.errnilcheck.err-nil-check</loc>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://semgrep.dev/r?q=dgryski.semgrep-go.errtodo.err-todo</loc>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://semgrep.dev/r?q=dgryski.semgrep-go.hashsum.hash-sum-without-write</loc>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://semgrep.dev/r?q=ts.language.correctness.useless-ternary.useless-ternary</loc>
+    <loc>https://semgrep.dev/r?q=gitlab.bandit.B313.B314.B315.B316.B318.B319.B320.B405.B406.B407.B408.B409.B410</loc>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
@@ -626,22 +621,27 @@
     <priority>0.5</priority>
   </url>
   <url>
+    <loc>https://semgrep.dev/r?q=gitlab.bandit.B502.B503</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://semgrep.dev/r?q=gitlab.bandit.B108-1</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
     <loc>https://semgrep.dev/r?q=dgryski.semgrep-go.contextcancelable.cancelable-context-not-systematically-cancelled</loc>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
+    <loc>https://semgrep.dev/r?q=ts.language.correctness.useless-ternary.useless-ternary</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
     <loc>https://semgrep.dev/r?q=gitlab.bandit.B308.B703</loc>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://semgrep.dev/r?q=gitlab.bandit.B313.B314.B315.B316.B318.B319.B320.B405.B406.B407.B408.B409.B410</loc>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://semgrep.dev/r?q=gitlab.bandit.B502.B503</loc>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
@@ -656,27 +656,17 @@
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://semgrep.dev/r?q=ocaml.lang.correctness.useless_eq.useless-equal</loc>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
     <loc>https://semgrep.dev/r?q=ocaml.lang.portability.slash_tmp.not-portable-tmp-string</loc>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://semgrep.dev/r?q=dgryski.semgrep-go.joinpath.use-strings-join-path</loc>
+    <loc>https://semgrep.dev/r?q=ocaml.lang.correctness.useless_eq.useless-equal</loc>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://semgrep.dev/r?q=ocaml.lang.correctness.physical_vs_structural.physical-equal</loc>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://semgrep.dev/r?q=python.security.mongodb.mongo-client-bad-auth</loc>
+    <loc>https://semgrep.dev/r?q=csharp.lang.security.ssrf.csharp_ssrf.ssrf</loc>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
@@ -696,37 +686,7 @@
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://semgrep.dev/r?q=javascript.express.security.express-vm-injection.express-vm-runincontext-context-injection</loc>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://semgrep.dev/r?q=javascript.express.security.express-vm-injection.express-vm-runinnewcontext-context-injection</loc>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://semgrep.dev/r?q=javascript.express.security.express-vm-injection.express-vm-compilefunction-context-injection</loc>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://semgrep.dev/r?q=javascript.express.security.express-vm-injection.express-vm-code-injection</loc>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://semgrep.dev/r?q=csharp.lang.security.ssrf.csharp_ssrf.ssrf</loc>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
     <loc>https://semgrep.dev/r?q=ocaml.lang.correctness.useless-compare.useless-compare</loc>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://semgrep.dev/r?q=dgryski.semgrep-go.readeof.read-io-eof</loc>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
@@ -771,7 +731,42 @@
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://semgrep.dev/r?q=kotlin.lang.security.desede-is-deprecated.desede-is-deprecated</loc>
+    <loc>https://semgrep.dev/r?q=ocaml.lang.correctness.physical_vs_structural.physical-equal</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://semgrep.dev/r?q=python.security.mongodb.mongo-client-bad-auth</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://semgrep.dev/r?q=javascript.express.security.express-vm-injection.express-vm-runincontext-context-injection</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://semgrep.dev/r?q=javascript.express.security.express-vm-injection.express-vm-runinnewcontext-context-injection</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://semgrep.dev/r?q=javascript.express.security.express-vm-injection.express-vm-compilefunction-context-injection</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://semgrep.dev/r?q=javascript.express.security.express-vm-injection.express-vm-code-injection</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://semgrep.dev/r?q=dgryski.semgrep-go.joinpath.use-strings-join-path</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://semgrep.dev/r?q=dgryski.semgrep-go.readeof.read-io-eof</loc>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
@@ -781,7 +776,62 @@
     <priority>0.5</priority>
   </url>
   <url>
+    <loc>https://semgrep.dev/r?q=kotlin.lang.security.desede-is-deprecated.desede-is-deprecated</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://semgrep.dev/r?q=generic.ci.security.bash_reverse_shell</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
     <loc>https://semgrep.dev/r?q=terraform.aws.best-practice.missing-alb-drop-http-headers.missing-alb-drop-http-headers</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://semgrep.dev/r?q=contrib.nodejsscan.good_helmet_checks.helmet_header_nosniff</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://semgrep.dev/r?q=contrib.nodejsscan.good_helmet_checks.helmet_header_referrer_policy</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://semgrep.dev/r?q=contrib.nodejsscan.good_helmet_checks.helmet_header_xss_filter</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://semgrep.dev/r?q=contrib.nodejsscan.good_ratelimiting.rate_limit_control</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://semgrep.dev/r?q=ocaml.lang.correctness.useless-eq.useless-equal</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://semgrep.dev/r?q=ocaml.lang.correctness.useless-if.ocamllint-useless-if</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://semgrep.dev/r?q=ocaml.lang.correctness.useless-let.useless-let</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://semgrep.dev/r?q=ocaml.lang.portability.crlf-support.broken-input-line</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://semgrep.dev/r?q=python.correctness.suppressed-exception-handling-finally-break.suppressed-exception-handling-finally-break</loc>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
@@ -816,52 +866,7 @@
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://semgrep.dev/r?q=ocaml.lang.correctness.useless-eq.useless-equal</loc>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://semgrep.dev/r?q=ocaml.lang.correctness.useless-if.ocamllint-useless-if</loc>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://semgrep.dev/r?q=ocaml.lang.correctness.useless-let.useless-let</loc>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://semgrep.dev/r?q=ocaml.lang.portability.crlf-support.broken-input-line</loc>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://semgrep.dev/r?q=generic.ci.security.bash_reverse_shell</loc>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://semgrep.dev/r?q=python.correctness.suppressed-exception-handling-finally-break.suppressed-exception-handling-finally-break</loc>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://semgrep.dev/r?q=contrib.nodejsscan.good_helmet_checks.helmet_header_nosniff</loc>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://semgrep.dev/r?q=contrib.nodejsscan.good_helmet_checks.helmet_header_referrer_policy</loc>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://semgrep.dev/r?q=contrib.nodejsscan.good_helmet_checks.helmet_header_xss_filter</loc>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://semgrep.dev/r?q=contrib.nodejsscan.good_ratelimiting.rate_limit_control</loc>
+    <loc>https://semgrep.dev/r?q=yaml.semgrep.consistency.lang-consistency-bash.lang-consistency-bash</loc>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
@@ -871,27 +876,17 @@
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://semgrep.dev/r?q=yaml.semgrep.consistency.lang-consistency-bash.lang-consistency-bash</loc>
+    <loc>https://semgrep.dev/r?q=yaml.semgrep.consistency.lang-consistency-csharp.lang-consistency-csharp</loc>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://semgrep.dev/r?q=yaml.semgrep.consistency.lang-consistency-cpp.lang-consistency-cpp</loc>
+    <loc>https://semgrep.dev/r?q=yaml.semgrep.consistency.lang-consistency-dockerfile.lang-consistency-dockerfile</loc>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://semgrep.dev/r?q=generic.ci.security.use-frozen-lockfile.use-frozen-lockfile</loc>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://semgrep.dev/r?q=yaml.semgrep.consistency.lang-consistency-regex.lang-consistency-regex</loc>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://semgrep.dev/r?q=yaml.semgrep.consistency.lang-consistency-csharp.lang-consistency-csharp</loc>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
@@ -916,16 +911,6 @@
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://semgrep.dev/r?q=yaml.semgrep.consistency.lang-consistency-ts.lang-consistency-ts</loc>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://semgrep.dev/r?q=yaml.semgrep.consistency.lang-consistency-dockerfile.lang-consistency-dockerfile</loc>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
     <loc>https://semgrep.dev/r?q=yaml.semgrep.consistency.lang-consistency-kotlin.lang-consistency-kotlin</loc>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
@@ -936,12 +921,22 @@
     <priority>0.5</priority>
   </url>
   <url>
+    <loc>https://semgrep.dev/r?q=yaml.semgrep.consistency.lang-consistency-cpp.lang-consistency-cpp</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://semgrep.dev/r?q=yaml.semgrep.consistency.lang-consistency-regex.lang-consistency-regex</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
     <loc>https://semgrep.dev/r?q=yaml.semgrep.consistency.lang-consistency-solidity.lang-consistency-solidity</loc>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://semgrep.dev/r?q=python.attr.correctness.mutable-initializer.attr-mutable-initializer</loc>
+    <loc>https://semgrep.dev/r?q=yaml.semgrep.consistency.lang-consistency-ts.lang-consistency-ts</loc>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
@@ -956,7 +951,7 @@
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://semgrep.dev/r?q=ajinabraham.njsscan.tls_node.node_curl_ssl_verify_disable</loc>
+    <loc>https://semgrep.dev/r?q=python.attr.correctness.mutable-initializer.attr-mutable-initializer</loc>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
@@ -966,37 +961,22 @@
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://semgrep.dev/r?q=ajinabraham.njsscan.crypto_node.node_sha1</loc>
+    <loc>https://semgrep.dev/r?q=ajinabraham.njsscan.tls_node.node_curl_ssl_verify_disable</loc>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://semgrep.dev/r?q=ajinabraham.njsscan.crypto_node.node_aes_ecb</loc>
+    <loc>https://semgrep.dev/r?q=ajinabraham.njsscan.nosql_find_injection.node_nosqli_injection</loc>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://semgrep.dev/r?q=ajinabraham.njsscan.crypto_node.node_aes_noiv</loc>
+    <loc>https://semgrep.dev/r?q=ajinabraham.njsscan.nosql_injection.node_nosqli_js_injection</loc>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://semgrep.dev/r?q=ajinabraham.njsscan.crypto_node.node_weak_crypto</loc>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://semgrep.dev/r?q=ajinabraham.njsscan.crypto_node.node_insecure_random_generator</loc>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://semgrep.dev/r?q=ajinabraham.njsscan.timing_attack_node.node_timing_attack</loc>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://semgrep.dev/r?q=ajinabraham.njsscan.tls_node.node_tls_reject</loc>
+    <loc>https://semgrep.dev/r?q=ajinabraham.njsscan.regex_dos.regex_dos</loc>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
@@ -1026,17 +1006,22 @@
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://semgrep.dev/r?q=ajinabraham.njsscan.eval_vm_injection.vm_code_injection</loc>
+    <loc>https://semgrep.dev/r?q=ajinabraham.njsscan.eval_vm2_injection.vm2_context_injection</loc>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://semgrep.dev/r?q=ajinabraham.njsscan.eval_yaml_deserialize.yaml_deserialize</loc>
+    <loc>https://semgrep.dev/r?q=ajinabraham.njsscan.eval_vm_injection.vm_runincontext_injection</loc>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://semgrep.dev/r?q=ajinabraham.njsscan.server_side_template_injection.server_side_template_injection</loc>
+    <loc>https://semgrep.dev/r?q=ajinabraham.njsscan.eval_vm_injection.vm_runinnewcontext_injection</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://semgrep.dev/r?q=ajinabraham.njsscan.eval_vm_injection.vm_compilefunction_injection</loc>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
@@ -1076,6 +1061,16 @@
     <priority>0.5</priority>
   </url>
   <url>
+    <loc>https://semgrep.dev/r?q=ajinabraham.njsscan.header_injection.generic_header_injection</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://semgrep.dev/r?q=ajinabraham.njsscan.header_xss_protection.header_xss_lusca</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
     <loc>https://semgrep.dev/r?q=ajinabraham.njsscan.header_xss_protection.header_xss_generic</loc>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
@@ -1092,36 +1087,6 @@
   </url>
   <url>
     <loc>https://semgrep.dev/r?q=ajinabraham.njsscan.jwt_express_hardcoded.jwt_express_hardcoded</loc>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://semgrep.dev/r?q=ajinabraham.njsscan.jwt_hardcoded.hardcoded_jwt_secret</loc>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://semgrep.dev/r?q=ajinabraham.njsscan.jwt_none_algorithm.node_jwt_none_algorithm</loc>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://semgrep.dev/r?q=ajinabraham.njsscan.jwt_not_revoked.jwt_not_revoked</loc>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://semgrep.dev/r?q=ajinabraham.njsscan.ssrf_node.node_ssrf</loc>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://semgrep.dev/r?q=ajinabraham.njsscan.ssrf_phantomjs.phantom_ssrf</loc>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://semgrep.dev/r?q=ajinabraham.njsscan.ssrf_playwright.playwright_ssrf</loc>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
@@ -1371,157 +1336,42 @@
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://semgrep.dev/r?q=contrib.nodejsscan.good_anti_csrf.anti_csrf_control</loc>
+    <loc>https://semgrep.dev/r?q=ajinabraham.njsscan.open_redirect.express_open_redirect2</loc>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://semgrep.dev/r?q=contrib.nodejsscan.good_helmet_checks.helmet_header_check_csp</loc>
+    <loc>https://semgrep.dev/r?q=ajinabraham.njsscan.archive_path_overwrite.zip_path_overwrite</loc>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://semgrep.dev/r?q=contrib.nodejsscan.good_helmet_checks.helmet_header_check_crossdomain</loc>
+    <loc>https://semgrep.dev/r?q=ajinabraham.njsscan.archive_path_overwrite.zip_path_overwrite2</loc>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://semgrep.dev/r?q=contrib.nodejsscan.good_helmet_checks.helmet_header_check_expect_ct</loc>
+    <loc>https://semgrep.dev/r?q=ajinabraham.njsscan.archive_path_overwrite.admzip_path_overwrite</loc>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://semgrep.dev/r?q=ajinabraham.njsscan.express_bodyparser_dos.express_bodyparser</loc>
+    <loc>https://semgrep.dev/r?q=ajinabraham.njsscan.archive_path_overwrite.tar_path_overwrite</loc>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://semgrep.dev/r?q=ajinabraham.njsscan.regex_dos.regex_dos</loc>
+    <loc>https://semgrep.dev/r?q=javascript.react.correctness.hooks.set-state-no-op.calling-set-state-on-current-state</loc>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://semgrep.dev/r?q=ajinabraham.njsscan.regex_injection.regex_injection_dos</loc>
+    <loc>https://semgrep.dev/r?q=ajinabraham.njsscan.resolve_path_traversal.join_resolve_path_traversal</loc>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://semgrep.dev/r?q=ajinabraham.njsscan.security_electron.electron_disable_websecurity</loc>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://semgrep.dev/r?q=ajinabraham.njsscan.security_electron.electron_allow_http</loc>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://semgrep.dev/r?q=ajinabraham.njsscan.security_electron.electron_blink_integration</loc>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://semgrep.dev/r?q=ajinabraham.njsscan.security_electron.electron_nodejs_integration</loc>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://semgrep.dev/r?q=ajinabraham.njsscan.security_electron.electron_context_isolation</loc>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://semgrep.dev/r?q=ajinabraham.njsscan.security_electron.electron_experimental_features</loc>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://semgrep.dev/r?q=fix-intent-test-upload</loc>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://semgrep.dev/r?q=ajinabraham.njsscan.eval_vm2_injection.vm2_context_injection</loc>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://semgrep.dev/r?q=ajinabraham.njsscan.eval_vm_injection.vm_runincontext_injection</loc>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://semgrep.dev/r?q=ajinabraham.njsscan.eval_vm_injection.vm_runinnewcontext_injection</loc>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://semgrep.dev/r?q=ajinabraham.njsscan.eval_vm_injection.vm_compilefunction_injection</loc>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://semgrep.dev/r?q=ajinabraham.njsscan.hardcoded_passport.hardcoded_passport_secret</loc>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://semgrep.dev/r?q=ajinabraham.njsscan.hardcoded_secrets.node_password</loc>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://semgrep.dev/r?q=ajinabraham.njsscan.hardcoded_secrets.node_username</loc>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://semgrep.dev/r?q=ajinabraham.njsscan.hardcoded_secrets.node_api_key</loc>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://semgrep.dev/r?q=ajinabraham.njsscan.hardcoded_secrets.node_secret</loc>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://semgrep.dev/r?q=ajinabraham.njsscan.logic_bypass.node_logic_bypass</loc>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://semgrep.dev/r?q=ajinabraham.njsscan.header_cookie.cookie_session_no_path</loc>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://semgrep.dev/r?q=ajinabraham.njsscan.header_cookie.cookie_session_no_maxage</loc>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://semgrep.dev/r?q=ajinabraham.njsscan.header_cors_star.generic_cors</loc>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://semgrep.dev/r?q=ajinabraham.njsscan.header_cors_star.express_cors</loc>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://semgrep.dev/r?q=ajinabraham.njsscan.header_helmet_disabled.helmet_feature_disabled</loc>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://semgrep.dev/r?q=ajinabraham.njsscan.header_injection.generic_header_injection</loc>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://semgrep.dev/r?q=ajinabraham.njsscan.header_xss_protection.header_xss_lusca</loc>
+    <loc>https://semgrep.dev/r?q=ajinabraham.njsscan.xpathi_node.node_xpath_injection</loc>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
@@ -1551,6 +1401,11 @@
     <priority>0.5</priority>
   </url>
   <url>
+    <loc>https://semgrep.dev/r?q=fix-intent-test-upload</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
     <loc>https://semgrep.dev/r?q=ocaml.lang.portability.crlf-support.prefer-read-in-binary-mode</loc>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
@@ -1562,6 +1417,11 @@
   </url>
   <url>
     <loc>https://semgrep.dev/r?q=ocaml.lang.portability.slash-tmp.not-portable-tmp-string</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://semgrep.dev/r?q=csharp.lang.correctness.regioninfo.regioninfo-interop.correctness-regioninfo-interop</loc>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
@@ -1586,6 +1446,26 @@
     <priority>0.5</priority>
   </url>
   <url>
+    <loc>https://semgrep.dev/r?q=generic.dockerfile.best-practice.avoid-apk-upgrade.avoid-apk-upgrade</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://semgrep.dev/r?q=generic.dockerfile.best-practice.avoid-apt-get-upgrade.avoid-apt-get-upgrade</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://semgrep.dev/r?q=generic.dockerfile.best-practice.avoid-dnf-update.avoid-dnf-update</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://semgrep.dev/r?q=generic.dockerfile.best-practice.avoid-platform-with-from.avoid-platform-with-from</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
     <loc>https://semgrep.dev/r?q=generic.dockerfile.best-practice.avoid-yum-update.avoid-yum-update</loc>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
@@ -1602,6 +1482,51 @@
   </url>
   <url>
     <loc>https://semgrep.dev/r?q=generic.dockerfile.best-practice.missing-apk-no-cache.missing-apk-no-cache</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://semgrep.dev/r?q=generic.dockerfile.best-practice.missing-dnf-assume-yes-switch.missing-dnf-assume-yes-switch</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://semgrep.dev/r?q=generic.dockerfile.best-practice.missing-dnf-clean-all.missing-dnf-clean-all</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://semgrep.dev/r?q=generic.dockerfile.best-practice.missing-image-version.missing-image-version</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://semgrep.dev/r?q=generic.dockerfile.best-practice.missing-no-install-recommends.missing-no-install-recommends</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://semgrep.dev/r?q=generic.dockerfile.best-practice.missing-yum-assume-yes-switch.missing-yum-assume-yes-switch</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://semgrep.dev/r?q=generic.dockerfile.best-practice.missing-yum-clean-all.missing-yum-clean-all</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://semgrep.dev/r?q=generic.dockerfile.best-practice.missing-zypper-no-confirm-switch.missing-zypper-no-confirm-switch</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://semgrep.dev/r?q=generic.dockerfile.best-practice.nonsensical-command.nonsensical-command</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://semgrep.dev/r?q=generic.dockerfile.best-practice.prefer-apt-get.prefer-apt-get</loc>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
@@ -1706,117 +1631,22 @@
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://semgrep.dev/r?q=ajinabraham.njsscan.open_redirect.express_open_redirect2</loc>
+    <loc>https://semgrep.dev/r?q=terraform.aws.best-practice.missing-api-gateway-cache-cluster.missing-api-gateway-cache-cluster</loc>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://semgrep.dev/r?q=ajinabraham.njsscan.archive_path_overwrite.zip_path_overwrite</loc>
+    <loc>https://semgrep.dev/r?q=terraform.aws.best-practice.missing-autoscaling-group-tags.missing-autoscaling-group-tags</loc>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://semgrep.dev/r?q=ajinabraham.njsscan.archive_path_overwrite.zip_path_overwrite2</loc>
+    <loc>https://semgrep.dev/r?q=terraform.aws.best-practice.missing-cloudwatch-log-group-kms-key.missing-cloudwatch-log-group-kms-key</loc>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://semgrep.dev/r?q=ajinabraham.njsscan.archive_path_overwrite.admzip_path_overwrite</loc>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://semgrep.dev/r?q=ajinabraham.njsscan.archive_path_overwrite.tar_path_overwrite</loc>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://semgrep.dev/r?q=javascript.react.correctness.hooks.set-state-no-op.calling-set-state-on-current-state</loc>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://semgrep.dev/r?q=ajinabraham.njsscan.resolve_path_traversal.join_resolve_path_traversal</loc>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://semgrep.dev/r?q=ajinabraham.njsscan.xpathi_node.node_xpath_injection</loc>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://semgrep.dev/r?q=fix-intent-test-upload</loc>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://semgrep.dev/r?q=csharp.lang.correctness.regioninfo.regioninfo-interop.correctness-regioninfo-interop</loc>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://semgrep.dev/r?q=generic.dockerfile.best-practice.avoid-apk-upgrade.avoid-apk-upgrade</loc>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://semgrep.dev/r?q=generic.dockerfile.best-practice.avoid-apt-get-upgrade.avoid-apt-get-upgrade</loc>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://semgrep.dev/r?q=generic.dockerfile.best-practice.avoid-dnf-update.avoid-dnf-update</loc>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://semgrep.dev/r?q=generic.dockerfile.best-practice.avoid-platform-with-from.avoid-platform-with-from</loc>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://semgrep.dev/r?q=generic.dockerfile.best-practice.missing-dnf-assume-yes-switch.missing-dnf-assume-yes-switch</loc>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://semgrep.dev/r?q=generic.dockerfile.best-practice.missing-dnf-clean-all.missing-dnf-clean-all</loc>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://semgrep.dev/r?q=generic.dockerfile.best-practice.missing-image-version.missing-image-version</loc>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://semgrep.dev/r?q=generic.dockerfile.best-practice.missing-no-install-recommends.missing-no-install-recommends</loc>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://semgrep.dev/r?q=generic.dockerfile.best-practice.missing-yum-assume-yes-switch.missing-yum-assume-yes-switch</loc>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://semgrep.dev/r?q=generic.dockerfile.best-practice.missing-yum-clean-all.missing-yum-clean-all</loc>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://semgrep.dev/r?q=generic.dockerfile.best-practice.missing-zypper-no-confirm-switch.missing-zypper-no-confirm-switch</loc>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://semgrep.dev/r?q=generic.dockerfile.best-practice.nonsensical-command.nonsensical-command</loc>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://semgrep.dev/r?q=generic.dockerfile.best-practice.prefer-apt-get.prefer-apt-get</loc>
+    <loc>https://semgrep.dev/r?q=terraform.aws.best-practice.missing-cloudwatch-log-group-retention.missing-cloudwatch-log-group-retention</loc>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
@@ -1826,32 +1656,172 @@
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://semgrep.dev/r?q=terraform.aws.best-practice.aws-elasticache-automatic-backup-not-enabled.aws-elasticache-automatic-backup-not-enabled</loc>
+    <loc>https://semgrep.dev/r?q=contrib.nodejsscan.good_anti_csrf.anti_csrf_control</loc>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://semgrep.dev/r?q=terraform.aws.best-practice.aws-qldb-inadequate-ledger-permissions-mode.aws-qldb-inadequate-ledger-permissions-mode</loc>
+    <loc>https://semgrep.dev/r?q=contrib.nodejsscan.good_helmet_checks.helmet_header_check_csp</loc>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://semgrep.dev/r?q=terraform.aws.best-practice.aws-rds-cluster-iam-authentication-not-enabled.aws-rds-cluster-iam-authentication-not-enabled</loc>
+    <loc>https://semgrep.dev/r?q=contrib.nodejsscan.good_helmet_checks.helmet_header_check_crossdomain</loc>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://semgrep.dev/r?q=terraform.aws.best-practice.missing-aws-autoscaling-tags.missing-aws-autoscaling-tags</loc>
+    <loc>https://semgrep.dev/r?q=contrib.nodejsscan.good_helmet_checks.helmet_header_check_expect_ct</loc>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://semgrep.dev/r?q=terraform.aws.best-practice.missing-aws-cross-zone-lb.missing-aws-cross-zone-lb</loc>
+    <loc>https://semgrep.dev/r?q=ajinabraham.njsscan.express_bodyparser_dos.express_bodyparser</loc>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://semgrep.dev/r?q=terraform.aws.best-practice.missing-aws-qldb-deletion-protection.missing-aws-qldb-deletion-protection</loc>
+    <loc>https://semgrep.dev/r?q=ajinabraham.njsscan.regex_injection.regex_injection_dos</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://semgrep.dev/r?q=ajinabraham.njsscan.security_electron.electron_disable_websecurity</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://semgrep.dev/r?q=ajinabraham.njsscan.security_electron.electron_allow_http</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://semgrep.dev/r?q=ajinabraham.njsscan.security_electron.electron_blink_integration</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://semgrep.dev/r?q=ajinabraham.njsscan.security_electron.electron_nodejs_integration</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://semgrep.dev/r?q=ajinabraham.njsscan.security_electron.electron_context_isolation</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://semgrep.dev/r?q=ajinabraham.njsscan.security_electron.electron_experimental_features</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://semgrep.dev/r?q=fix-intent-test-upload</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://semgrep.dev/r?q=ajinabraham.njsscan.eval_vm_injection.vm_code_injection</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://semgrep.dev/r?q=ajinabraham.njsscan.eval_yaml_deserialize.yaml_deserialize</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://semgrep.dev/r?q=ajinabraham.njsscan.server_side_template_injection.server_side_template_injection</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://semgrep.dev/r?q=ajinabraham.njsscan.hardcoded_passport.hardcoded_passport_secret</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://semgrep.dev/r?q=ajinabraham.njsscan.hardcoded_secrets.node_password</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://semgrep.dev/r?q=ajinabraham.njsscan.hardcoded_secrets.node_username</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://semgrep.dev/r?q=ajinabraham.njsscan.hardcoded_secrets.node_api_key</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://semgrep.dev/r?q=ajinabraham.njsscan.hardcoded_secrets.node_secret</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://semgrep.dev/r?q=ajinabraham.njsscan.logic_bypass.node_logic_bypass</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://semgrep.dev/r?q=ajinabraham.njsscan.header_cookie.cookie_session_no_path</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://semgrep.dev/r?q=ajinabraham.njsscan.header_cookie.cookie_session_no_maxage</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://semgrep.dev/r?q=ajinabraham.njsscan.header_cors_star.generic_cors</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://semgrep.dev/r?q=ajinabraham.njsscan.header_cors_star.express_cors</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://semgrep.dev/r?q=ajinabraham.njsscan.header_helmet_disabled.helmet_feature_disabled</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://semgrep.dev/r?q=ajinabraham.njsscan.jwt_hardcoded.hardcoded_jwt_secret</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://semgrep.dev/r?q=ajinabraham.njsscan.jwt_none_algorithm.node_jwt_none_algorithm</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://semgrep.dev/r?q=ajinabraham.njsscan.jwt_not_revoked.jwt_not_revoked</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://semgrep.dev/r?q=ajinabraham.njsscan.ssrf_node.node_ssrf</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://semgrep.dev/r?q=ajinabraham.njsscan.ssrf_phantomjs.phantom_ssrf</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://semgrep.dev/r?q=ajinabraham.njsscan.ssrf_playwright.playwright_ssrf</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://semgrep.dev/r?q=contrib.owasp.java.ssrf.ssrf.owasp.java.ssrf.org.apache.commons.httpclient</loc>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
@@ -1886,7 +1856,17 @@
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://semgrep.dev/r?q=html.best-practice.robots-denied.robots-denied</loc>
+    <loc>https://semgrep.dev/r?q=java.lang.correctness.assignment-comparison.assignment-comparison</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://semgrep.dev/r?q=java.lang.correctness.eqeq.eqeq</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://semgrep.dev/r?q=java.lang.correctness.hardcoded-conditional.hardcoded-conditional</loc>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
@@ -2501,22 +2481,17 @@
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://semgrep.dev/r?q=terraform.aws.best-practice.missing-api-gateway-cache-cluster.missing-api-gateway-cache-cluster</loc>
+    <loc>https://semgrep.dev/r?q=terraform.aws.best-practice.aws-elasticache-automatic-backup-not-enabled.aws-elasticache-automatic-backup-not-enabled</loc>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://semgrep.dev/r?q=terraform.aws.best-practice.missing-autoscaling-group-tags.missing-autoscaling-group-tags</loc>
+    <loc>https://semgrep.dev/r?q=terraform.aws.best-practice.aws-qldb-inadequate-ledger-permissions-mode.aws-qldb-inadequate-ledger-permissions-mode</loc>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://semgrep.dev/r?q=terraform.aws.best-practice.missing-cloudwatch-log-group-kms-key.missing-cloudwatch-log-group-kms-key</loc>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://semgrep.dev/r?q=terraform.aws.best-practice.missing-cloudwatch-log-group-retention.missing-cloudwatch-log-group-retention</loc>
+    <loc>https://semgrep.dev/r?q=terraform.aws.best-practice.aws-rds-cluster-iam-authentication-not-enabled.aws-rds-cluster-iam-authentication-not-enabled</loc>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
@@ -2541,6 +2516,21 @@
     <priority>0.5</priority>
   </url>
   <url>
+    <loc>https://semgrep.dev/r?q=terraform.aws.best-practice.missing-aws-autoscaling-tags.missing-aws-autoscaling-tags</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://semgrep.dev/r?q=terraform.aws.best-practice.missing-aws-cross-zone-lb.missing-aws-cross-zone-lb</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://semgrep.dev/r?q=terraform.aws.best-practice.missing-aws-qldb-deletion-protection.missing-aws-qldb-deletion-protection</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
     <loc>https://semgrep.dev/r?q=c.lang.correctness.goto-fail.double_goto</loc>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
@@ -2552,11 +2542,6 @@
   </url>
   <url>
     <loc>https://semgrep.dev/r?q=c.lang.correctness.incorrect-use-sscanf-fn.incorrect-use-sscanf-fn</loc>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://semgrep.dev/r?q=contrib.owasp.java.ssrf.ssrf.owasp.java.ssrf.org.apache.commons.httpclient</loc>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
@@ -2596,17 +2581,12 @@
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://semgrep.dev/r?q=java.lang.correctness.assignment-comparison.assignment-comparison</loc>
+    <loc>https://semgrep.dev/r?q=html.best-practice.robots-denied.robots-denied</loc>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://semgrep.dev/r?q=java.lang.correctness.eqeq.eqeq</loc>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://semgrep.dev/r?q=java.lang.correctness.hardcoded-conditional.hardcoded-conditional</loc>
+    <loc>https://semgrep.dev/r?q=fix-intent-test-upload</loc>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
@@ -2631,6 +2611,11 @@
     <priority>0.5</priority>
   </url>
   <url>
+    <loc>https://semgrep.dev/r?q=bash.lang.best-practice.useless-cat.useless-cat</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
     <loc>https://semgrep.dev/r?q=dockerfile.best-practice.missing-zypper-clean.missing-zypper-clean</loc>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
@@ -2651,52 +2636,7 @@
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://semgrep.dev/r?q=fix-intent-test-upload</loc>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://semgrep.dev/r?q=scala.lang.correctness.positive-number-index-of.positive-number-index-of</loc>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://semgrep.dev/r?q=yaml.semgrep.duplicate-id.duplicate-id</loc>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://semgrep.dev/r?q=generic.dockerfile.best-practice.avoid-latest-version.avoid-latest-version</loc>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://semgrep.dev/r?q=generic.dockerfile.best-practice.missing-pip-no-cache-dir.missing-pip-no-cache-dir</loc>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://semgrep.dev/r?q=bash.lang.best-practice.useless-cat.useless-cat</loc>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://semgrep.dev/r?q=dockerfile.best-practice.missing-pip-no-cache-dir.missing-pip-no-cache-dir</loc>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://semgrep.dev/r?q=python.correctness.socket-shutdown-close.socket-shutdown-close</loc>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://semgrep.dev/r?q=typescript.react.portability.i18next.jsx-label-not-i18n.jsx-label-not-i18n</loc>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://semgrep.dev/r?q=dgryski.semgrep-go.hostport.sprintf-host-port</loc>
+    <loc>https://semgrep.dev/r?q=dockerfile.best-practice.set-pipefail.set-pipefail</loc>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
@@ -2741,7 +2681,42 @@
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://semgrep.dev/r?q=dockerfile.best-practice.set-pipefail.set-pipefail</loc>
+    <loc>https://semgrep.dev/r?q=scala.lang.correctness.positive-number-index-of.positive-number-index-of</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://semgrep.dev/r?q=yaml.semgrep.duplicate-id.duplicate-id</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://semgrep.dev/r?q=generic.dockerfile.best-practice.avoid-latest-version.avoid-latest-version</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://semgrep.dev/r?q=generic.dockerfile.best-practice.missing-pip-no-cache-dir.missing-pip-no-cache-dir</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://semgrep.dev/r?q=dockerfile.best-practice.missing-pip-no-cache-dir.missing-pip-no-cache-dir</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://semgrep.dev/r?q=python.correctness.socket-shutdown-close.socket-shutdown-close</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://semgrep.dev/r?q=typescript.react.portability.i18next.jsx-label-not-i18n.jsx-label-not-i18n</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://semgrep.dev/r?q=dgryski.semgrep-go.hostport.sprintf-host-port</loc>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
@@ -2791,17 +2766,12 @@
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://semgrep.dev/r?q=ajinabraham.njsscan.nosql_find_injection.node_nosqli_injection</loc>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://semgrep.dev/r?q=ajinabraham.njsscan.nosql_injection.node_nosqli_js_injection</loc>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
     <loc>https://semgrep.dev/r?q=gitlab.find_sec_bugs.HARD_CODE_KEY-1</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://semgrep.dev/r?q=dockerfile.best-practice.missing-apk-no-cache.missing-apk-no-cache</loc>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
@@ -2821,17 +2791,42 @@
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://semgrep.dev/r?q=dockerfile.best-practice.missing-apk-no-cache.missing-apk-no-cache</loc>
+    <loc>https://semgrep.dev/r?q=ajinabraham.njsscan.crypto_node.node_sha1</loc>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://semgrep.dev/r?q=dgryski.semgrep-go.oserrors.os-error-is-timeout</loc>
+    <loc>https://semgrep.dev/r?q=ajinabraham.njsscan.crypto_node.node_aes_ecb</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://semgrep.dev/r?q=ajinabraham.njsscan.crypto_node.node_aes_noiv</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://semgrep.dev/r?q=ajinabraham.njsscan.crypto_node.node_weak_crypto</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://semgrep.dev/r?q=ajinabraham.njsscan.crypto_node.node_insecure_random_generator</loc>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://semgrep.dev/r?q=dgryski.semgrep-go.oserrors.os-error-is-permission</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://semgrep.dev/r?q=ajinabraham.njsscan.timing_attack_node.node_timing_attack</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://semgrep.dev/r?q=dgryski.semgrep-go.oserrors.os-error-is-timeout</loc>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
@@ -2851,17 +2846,12 @@
     <priority>0.5</priority>
   </url>
   <url>
+    <loc>https://semgrep.dev/r?q=ajinabraham.njsscan.tls_node.node_tls_reject</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
     <loc>https://semgrep.dev/r?q=javascript.lang.correctness.no-replaceall.no-replaceall</loc>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://semgrep.dev/r?q=contrib.dlint.dlint-equivalent.insecure-exec-use</loc>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://semgrep.dev/r?q=dgryski.semgrep-go.oddcompare.odd-comparison-xor-neq-zero</loc>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
@@ -2871,37 +2861,47 @@
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://semgrep.dev/r?q=contrib.dlint.dlint-equivalent.insecure-eval-use</loc>
+    <loc>https://semgrep.dev/r?q=dgryski.semgrep-go.oddcompare.odd-comparison-xor-neq-zero</loc>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://semgrep.dev/r?q=contrib.dlint.dlint-equivalent.insecure-tarfile-use</loc>
+    <loc>https://semgrep.dev/r?q=contrib.dlint.dlint-equivalent.insecure-exec-use</loc>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://semgrep.dev/r?q=contrib.dlint.dlint-equivalent.insecure-subprocess-use</loc>
+    <loc>https://semgrep.dev/r?q=contrib.dlint.dlint-equivalent.insecure-os-exec-use</loc>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://semgrep.dev/r?q=contrib.dlint.dlint-equivalent.insecure-dl-use</loc>
+    <loc>https://semgrep.dev/r?q=contrib.dlint.dlint-equivalent.insecure-os-temp-use</loc>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://semgrep.dev/r?q=contrib.dlint.dlint-equivalent.insecure-gl-use</loc>
+    <loc>https://semgrep.dev/r?q=contrib.dlint.dlint-equivalent.insecure-xml-use</loc>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://semgrep.dev/r?q=contrib.dlint.dlint-equivalent.insecure-shelve-use</loc>
+    <loc>https://semgrep.dev/r?q=contrib.dlint.dlint-equivalent.insecure-yaml-use</loc>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://semgrep.dev/r?q=contrib.dlint.dlint-equivalent.insecure-marshal-use</loc>
+    <loc>https://semgrep.dev/r?q=contrib.dlint.dlint-equivalent.insecure-compile-use</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://semgrep.dev/r?q=contrib.dlint.dlint-equivalent.insecure-zipfile-use</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://semgrep.dev/r?q=contrib.dlint.dlint-equivalent.insecure-hashlib-use</loc>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
@@ -2946,37 +2946,32 @@
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://semgrep.dev/r?q=contrib.dlint.dlint-equivalent.insecure-os-exec-use</loc>
+    <loc>https://semgrep.dev/r?q=contrib.dlint.dlint-equivalent.insecure-tarfile-use</loc>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://semgrep.dev/r?q=contrib.dlint.dlint-equivalent.insecure-os-temp-use</loc>
+    <loc>https://semgrep.dev/r?q=contrib.dlint.dlint-equivalent.insecure-subprocess-use</loc>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://semgrep.dev/r?q=contrib.dlint.dlint-equivalent.insecure-xml-use</loc>
+    <loc>https://semgrep.dev/r?q=contrib.dlint.dlint-equivalent.insecure-dl-use</loc>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://semgrep.dev/r?q=contrib.dlint.dlint-equivalent.insecure-yaml-use</loc>
+    <loc>https://semgrep.dev/r?q=contrib.dlint.dlint-equivalent.insecure-gl-use</loc>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://semgrep.dev/r?q=contrib.dlint.dlint-equivalent.insecure-compile-use</loc>
+    <loc>https://semgrep.dev/r?q=contrib.dlint.dlint-equivalent.insecure-shelve-use</loc>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://semgrep.dev/r?q=contrib.dlint.dlint-equivalent.insecure-zipfile-use</loc>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://semgrep.dev/r?q=contrib.dlint.dlint-equivalent.insecure-hashlib-use</loc>
+    <loc>https://semgrep.dev/r?q=contrib.dlint.dlint-equivalent.insecure-marshal-use</loc>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
@@ -3017,191 +3012,6 @@
   </url>
   <url>
     <loc>https://semgrep.dev/r?q=contrib.owasp.java.xxe.saxparserfactory.owasp.java.xxe.javax.xml.parsers.SAXParserFactory</loc>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://semgrep.dev/r?q=dockerfile.best-practice.prefer-copy-over-add.prefer-copy-over-add</loc>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://semgrep.dev/r?q=terraform.azure.best-practice.azure-ad-used-auth-service-fabric.azure-ad-used-auth-service-fabric</loc>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://semgrep.dev/r?q=terraform.azure.best-practice.azure-appservice-java-version.azure-appservice-java-version</loc>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://semgrep.dev/r?q=terraform.azure.best-practice.azure-appservice-php-version.azure-appservice-php-version</loc>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://semgrep.dev/r?q=terraform.azure.best-practice.azure-appservice-python-version.azure-appservice-python-version</loc>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://semgrep.dev/r?q=terraform.azure.best-practice.azure-appservice-used-azure-files.azure-appservice-used-azure-files</loc>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://semgrep.dev/r?q=terraform.azure.best-practice.azure-defenderon-sqlservers-vms.azure-defenderon-sqlservers-vms</loc>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://semgrep.dev/r?q=terraform.azure.best-practice.azure-defenderon-sqlservers.azure-defenderon-sqlservers</loc>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://semgrep.dev/r?q=terraform.azure.best-practice.azure-defenderon-storage.azure-defenderon-storage</loc>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://semgrep.dev/r?q=terraform.azure.best-practice.azure-frontdoor-enables-waf.azure-frontdoor-enables-waf</loc>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://semgrep.dev/r?q=terraform.azure.best-practice.azure-frontdoor-use-wafmode.azure-frontdoor-use-wafmode</loc>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://semgrep.dev/r?q=terraform.azure.best-practice.azure-mariadb-geo-backup-enabled.azure-mariadb-geo-backup-enabled</loc>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://semgrep.dev/r?q=terraform.azure.best-practice.azure-mariadb-sslenforcement-enabled.azure-mariadb-sslenforcement-enabled</loc>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://semgrep.dev/r?q=terraform.azure.best-practice.azure-monitor-log-profile-categories.azure-monitor-log-profile-categories</loc>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://semgrep.dev/r?q=terraform.azure.best-practice.azure-monitor-log-profile-retention-days.azure-monitor-log-profile-retention-days</loc>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://semgrep.dev/r?q=terraform.azure.best-practice.azure-mysql-geo-backup-enabled.azure-mysql-geo-backup-enabled</loc>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://semgrep.dev/r?q=terraform.azure.best-practice.azure-postgresql-server-connection-throttling-enabled.azure-postgresql-server-connection-throttling-enabled</loc>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://semgrep.dev/r?q=terraform.azure.best-practice.azure-postgresql-server-log-checkpoint-enabled.azure-postgresql-server-log-checkpoint-enabled</loc>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://semgrep.dev/r?q=terraform.azure.best-practice.azure-postgresql-server-log-connections-enabled.azure-postgresql-server-log-connections-enabled</loc>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://semgrep.dev/r?q=terraform.azure.best-practice.azure-postgresql-ssl-enforcement-enabled.azure-postgresql-ssl-enforcement-enabled</loc>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://semgrep.dev/r?q=terraform.azure.best-practice.azure-securitycenter-email-alert-admins.azure-securitycenter-email-alert-admins</loc>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://semgrep.dev/r?q=terraform.azure.best-practice.azure-securitycenter-standard-pricing.azure-securitycenter-standard-pricing</loc>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://semgrep.dev/r?q=terraform.azure.best-practice.azure-sqlserver-email-alerts-enabled.azure-sqlserver-email-alerts-enabled</loc>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://semgrep.dev/r?q=terraform.azure.best-practice.azure-sqlserver-email-alerts-toadmins-enabled.azure-sqlserver-email-alerts-toadmins-enabled</loc>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://semgrep.dev/r?q=terraform.azure.best-practice.azure-sqlserver-threat-detection-types.azure-sqlserver-threat-detection-types</loc>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://semgrep.dev/r?q=terraform.azure.best-practice.azure-storage-account-enables-secure-transfer.azure-storage-account-enables-secure-transfer</loc>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://semgrep.dev/r?q=terraform.azure.best-practice.azure-synapse-workscape-enables-managed-virtual-network.azure-synapse-workscape-enables-managed-virtual-network</loc>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://semgrep.dev/r?q=terraform.azure.best-practice.azure-vmscale-sets-auto-os-image-patching-enabled.azure-vmscale-sets-auto-os-image-patching-enabled</loc>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://semgrep.dev/r?q=terraform.azure.best-practice.azure-waf-specificed-mode-app-gw.azure-waf-specificed-mode-app-gw</loc>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://semgrep.dev/r?q=terraform.azure.security.azure-monitor-log-profile-retention-days.azure-monitor-log-profile-retention-days</loc>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://semgrep.dev/r?q=terraform.azure.security.azure-network-watcher-flowlog-period.azure-network-watcher-flowlog-period</loc>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://semgrep.dev/r?q=typescript.react.portability.i18next.useselect-label-not-i18n.useselect-label-not-i18n</loc>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://semgrep.dev/r?q=python.django.correctness.nontext-field-must-set-null-true.nontext-field-must-set-null-true</loc>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://semgrep.dev/r?q=python.lang.correctness.pytest-assert_match-after-path-patch.pytest-assert_match-after-path-patch</loc>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://semgrep.dev/r?q=generic.dockerfile.correctness.multiple-cmd-instructions.multiple-cmd-instructions</loc>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://semgrep.dev/r?q=python.lang.correctness.useless-eqeq.useless-eqeq</loc>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://semgrep.dev/r?q=ocaml.lang.best-practice.exception.bad-reraise</loc>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
@@ -3331,12 +3141,202 @@
     <priority>0.5</priority>
   </url>
   <url>
+    <loc>https://semgrep.dev/r?q=terraform.azure.best-practice.azure-securitycenter-standard-pricing.azure-securitycenter-standard-pricing</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://semgrep.dev/r?q=terraform.azure.best-practice.azure-sqlserver-email-alerts-enabled.azure-sqlserver-email-alerts-enabled</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://semgrep.dev/r?q=terraform.azure.best-practice.azure-sqlserver-email-alerts-toadmins-enabled.azure-sqlserver-email-alerts-toadmins-enabled</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://semgrep.dev/r?q=terraform.azure.best-practice.azure-sqlserver-threat-detection-types.azure-sqlserver-threat-detection-types</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://semgrep.dev/r?q=terraform.azure.best-practice.azure-storage-account-enables-secure-transfer.azure-storage-account-enables-secure-transfer</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://semgrep.dev/r?q=terraform.azure.best-practice.azure-synapse-workscape-enables-managed-virtual-network.azure-synapse-workscape-enables-managed-virtual-network</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://semgrep.dev/r?q=terraform.azure.best-practice.azure-vmscale-sets-auto-os-image-patching-enabled.azure-vmscale-sets-auto-os-image-patching-enabled</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://semgrep.dev/r?q=terraform.azure.best-practice.azure-waf-specificed-mode-app-gw.azure-waf-specificed-mode-app-gw</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://semgrep.dev/r?q=terraform.azure.security.azure-monitor-log-profile-retention-days.azure-monitor-log-profile-retention-days</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://semgrep.dev/r?q=terraform.azure.security.azure-network-watcher-flowlog-period.azure-network-watcher-flowlog-period</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://semgrep.dev/r?q=typescript.react.portability.i18next.useselect-label-not-i18n.useselect-label-not-i18n</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://semgrep.dev/r?q=python.django.correctness.nontext-field-must-set-null-true.nontext-field-must-set-null-true</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://semgrep.dev/r?q=python.lang.correctness.pytest-assert_match-after-path-patch.pytest-assert_match-after-path-patch</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://semgrep.dev/r?q=generic.dockerfile.correctness.multiple-cmd-instructions.multiple-cmd-instructions</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://semgrep.dev/r?q=python.lang.correctness.useless-eqeq.useless-eqeq</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://semgrep.dev/r?q=ocaml.lang.best-practice.exception.bad-reraise</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://semgrep.dev/r?q=dockerfile.best-practice.prefer-copy-over-add.prefer-copy-over-add</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://semgrep.dev/r?q=terraform.azure.best-practice.azure-ad-used-auth-service-fabric.azure-ad-used-auth-service-fabric</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://semgrep.dev/r?q=terraform.azure.best-practice.azure-appservice-java-version.azure-appservice-java-version</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://semgrep.dev/r?q=terraform.azure.best-practice.azure-appservice-php-version.azure-appservice-php-version</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://semgrep.dev/r?q=terraform.azure.best-practice.azure-appservice-python-version.azure-appservice-python-version</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://semgrep.dev/r?q=terraform.azure.best-practice.azure-appservice-used-azure-files.azure-appservice-used-azure-files</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://semgrep.dev/r?q=terraform.azure.best-practice.azure-defenderon-sqlservers-vms.azure-defenderon-sqlservers-vms</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://semgrep.dev/r?q=terraform.azure.best-practice.azure-defenderon-sqlservers.azure-defenderon-sqlservers</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://semgrep.dev/r?q=terraform.azure.best-practice.azure-defenderon-storage.azure-defenderon-storage</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://semgrep.dev/r?q=terraform.azure.best-practice.azure-frontdoor-enables-waf.azure-frontdoor-enables-waf</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://semgrep.dev/r?q=terraform.azure.best-practice.azure-frontdoor-use-wafmode.azure-frontdoor-use-wafmode</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://semgrep.dev/r?q=terraform.azure.best-practice.azure-mariadb-geo-backup-enabled.azure-mariadb-geo-backup-enabled</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://semgrep.dev/r?q=terraform.azure.best-practice.azure-mariadb-sslenforcement-enabled.azure-mariadb-sslenforcement-enabled</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://semgrep.dev/r?q=terraform.azure.best-practice.azure-monitor-log-profile-categories.azure-monitor-log-profile-categories</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://semgrep.dev/r?q=terraform.azure.best-practice.azure-monitor-log-profile-retention-days.azure-monitor-log-profile-retention-days</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://semgrep.dev/r?q=terraform.azure.best-practice.azure-mysql-geo-backup-enabled.azure-mysql-geo-backup-enabled</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://semgrep.dev/r?q=terraform.azure.best-practice.azure-postgresql-server-connection-throttling-enabled.azure-postgresql-server-connection-throttling-enabled</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://semgrep.dev/r?q=terraform.azure.best-practice.azure-postgresql-server-log-checkpoint-enabled.azure-postgresql-server-log-checkpoint-enabled</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://semgrep.dev/r?q=terraform.azure.best-practice.azure-postgresql-server-log-connections-enabled.azure-postgresql-server-log-connections-enabled</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://semgrep.dev/r?q=terraform.azure.best-practice.azure-postgresql-ssl-enforcement-enabled.azure-postgresql-ssl-enforcement-enabled</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://semgrep.dev/r?q=terraform.azure.best-practice.azure-securitycenter-email-alert-admins.azure-securitycenter-email-alert-admins</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
     <loc>https://semgrep.dev/r?q=bash.lang.correctness.unquoted-expansion.unquoted-variable-expansion-in-command</loc>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://semgrep.dev/r?q=bash.lang.correctness.unquoted-expansion.unquoted-command-substitution-in-command</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://semgrep.dev/r?q=contrib.dlint.dlint-equivalent.insecure-eval-use</loc>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
@@ -3356,12 +3356,12 @@
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://semgrep.dev/r?q=typescript.react.best-practice.react-props-spreading.react-props-spreading</loc>
+    <loc>https://semgrep.dev/r?q=python.lang.correctness.baseclass-attribute-override.baseclass-attribute-override</loc>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://semgrep.dev/r?q=python.lang.correctness.baseclass-attribute-override.baseclass-attribute-override</loc>
+    <loc>https://semgrep.dev/r?q=typescript.react.best-practice.react-props-spreading.react-props-spreading</loc>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
@@ -3371,12 +3371,17 @@
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://semgrep.dev/r?q=python.lang.maintainability.useless-literal.useless-literal</loc>
+    <loc>https://semgrep.dev/r?q=dockerfile.best-practice.remove-package-cache.remove-package-cache</loc>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://semgrep.dev/r?q=dockerfile.best-practice.remove-package-lists.remove-package-lists</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://semgrep.dev/r?q=dockerfile.correctness.multiple-entrypoint-instructions.multiple-entrypoint-instructions</loc>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
@@ -3401,32 +3406,37 @@
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://semgrep.dev/r?q=python.lang.security.audit.dangerous-system-call.dangerous-system-call</loc>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://semgrep.dev/r?q=dockerfile.best-practice.remove-package-cache.remove-package-cache</loc>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
     <loc>https://semgrep.dev/r?q=javascript.lang.best-practice.leftover_debugging.javascript-confirm</loc>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://semgrep.dev/r?q=dockerfile.correctness.multiple-entrypoint-instructions.multiple-entrypoint-instructions</loc>
+    <loc>https://semgrep.dev/r?q=python.lang.security.audit.dangerous-system-call.dangerous-system-call</loc>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://semgrep.dev/r?q=dgryski.semgrep-go.marshaljson.marshal-json-misspell</loc>
+    <loc>https://semgrep.dev/r?q=python.lang.maintainability.useless-literal.useless-literal</loc>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://semgrep.dev/r?q=dgryski.semgrep-go.marshalyaml.unmarshal-yaml-misspell</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://semgrep.dev/r?q=dgryski.semgrep-go.oserrors.os-error-is-not-exist</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://semgrep.dev/r?q=dgryski.semgrep-go.writestring.use-write-not-fprint</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://semgrep.dev/r?q=dgryski.semgrep-go.marshaljson.marshal-json-misspell</loc>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
@@ -3441,22 +3451,7 @@
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://semgrep.dev/r?q=django-migration-slow-default</loc>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://semgrep.dev/r?q=dgryski.semgrep-go.oserrors.os-error-is-not-exist</loc>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://semgrep.dev/r?q=dgryski.semgrep-go.writestring.use-fprintf-not-write-fsprint</loc>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://semgrep.dev/r?q=jwt-securitytoken-no-expiration.jwt-securitytoken-no-expiration</loc>
+    <loc>https://semgrep.dev/r?q=dgryski.semgrep-go.oserrors.os-error-is-exist</loc>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
@@ -3466,17 +3461,12 @@
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://semgrep.dev/r?q=dgryski.semgrep-go.writestring.use-write-not-fprint</loc>
+    <loc>https://semgrep.dev/r?q=jwt-securitytoken-no-expiration.jwt-securitytoken-no-expiration</loc>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://semgrep.dev/r?q=dgryski.semgrep-go.oserrors.os-error-is-exist</loc>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://semgrep.dev/r?q=node-sequelize-hardcoded-secret</loc>
+    <loc>https://semgrep.dev/r?q=dgryski.semgrep-go.writestring.use-fprintf-not-write-fsprint</loc>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
@@ -3486,7 +3476,27 @@
     <priority>0.5</priority>
   </url>
   <url>
+    <loc>https://semgrep.dev/r?q=django-migration-slow-default</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
     <loc>https://semgrep.dev/r?q=python.lang.maintainability.useless-innerfunction.useless-inner-function</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://semgrep.dev/r?q=node-sequelize-hardcoded-secret</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://semgrep.dev/r?q=dgryski.semgrep-go.http-ctx-goroutine.http-request-go-context</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://semgrep.dev/r?q=dgryski.semgrep-go.ctx-time.ctx-done-and-timers</loc>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
@@ -3511,17 +3521,12 @@
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://semgrep.dev/r?q=python.lang.correctness.concurrent.uncaught-executor-exceptions</loc>
+    <loc>https://semgrep.dev/r?q=python.lang.correctness.unchecked-returns.unchecked-subprocess-call</loc>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://semgrep.dev/r?q=dgryski.semgrep-go.ctx-time.ctx-done-and-timers</loc>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://semgrep.dev/r?q=dgryski.semgrep-go.http-ctx-goroutine.http-request-go-context</loc>
+    <loc>https://semgrep.dev/r?q=python.requests.best-practice.use-response-json-shortcut.python.requests.best-practice.use-response-json-shortcut</loc>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
@@ -3541,27 +3546,22 @@
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://semgrep.dev/r?q=python.lang.correctness.unchecked-returns.unchecked-subprocess-call</loc>
+    <loc>https://semgrep.dev/r?q=python.lang.correctness.concurrent.uncaught-executor-exceptions</loc>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://semgrep.dev/r?q=python.requests.best-practice.use-response-json-shortcut.python.requests.best-practice.use-response-json-shortcut</loc>
+    <loc>https://semgrep.dev/r?q=typescript.react.react-dangerouslysetinnerhtml-prop.react-dangerouslysetinnerhtml-prop</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://semgrep.dev/r?q=typescript.react.react-create-element-dangerouslysetinnerhtml-prop.react-create-element-dangerouslysetinnerhtml-prop</loc>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://semgrep.dev/r?q=javascript.mssql.node-mysql-hardcoded-secret.node-mssql-hardcoded-secret</loc>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://semgrep.dev/r?q=javascript.express.express-fs-filename.express-fs-filename</loc>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://semgrep.dev/r?q=typescript.react.react-create-element-href-prop.react-create-element-href-prop</loc>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
@@ -3576,7 +3576,7 @@
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://semgrep.dev/r?q=javascript.aws-lambda.security.sequelize-sqli.sequelize-sqli</loc>
+    <loc>https://semgrep.dev/r?q=javascript.express.security.express-data-exfiltration.express-data-exfiltration</loc>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
@@ -3591,17 +3591,17 @@
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://semgrep.dev/r?q=java.lang.security.audit.tainted-session-from-http-request.tainted-session-from-http-request</loc>
+    <loc>https://semgrep.dev/r?q=java.lang.security.audit.sqli.tainted-sql-from-http-request.tainted-sql-from-http-request</loc>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://semgrep.dev/r?q=java.lang.security.audit.tainted-xpath-from-http-request.tainted-xpath-from-http-request</loc>
+    <loc>https://semgrep.dev/r?q=java.lang.security.audit.tainted-ldapi-from-http-request.tainted-ldapi-from-http-request</loc>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://semgrep.dev/r?q=java.spring.security.audit.spring-actuator-fully-enabled-yaml.spring-actuator-fully-enabled-yaml</loc>
+    <loc>https://semgrep.dev/r?q=java.lang.security.use-snakeyaml-constructor.use-snakeyaml-constructor</loc>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
@@ -3616,57 +3616,52 @@
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://semgrep.dev/r?q=javascript.apollo.security.apollo-axios-ssrf.apollo-axios-ssrf</loc>
+    <loc>https://semgrep.dev/r?q=javascript.aws-lambda.security.detect-child-process.detect-child-process</loc>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://semgrep.dev/r?q=javascript.argon2.security.unsafe-argon2-config.unsafe-argon2-config</loc>
+    <loc>https://semgrep.dev/r?q=javascript.aws-lambda.security.dynamodb-request-object.dynamodb-request-object</loc>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://semgrep.dev/r?q=javascript.audit.detect-replaceall-sanitization.detect-replaceall-sanitization</loc>
+    <loc>https://semgrep.dev/r?q=javascript.aws-lambda.security.knex-sqli.knex-sqli</loc>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://semgrep.dev/r?q=javascript.aws-lambda.security.tainted-eval.tainted-eval</loc>
+    <loc>https://semgrep.dev/r?q=javascript.aws-lambda.security.mysql-sqli.mysql-sqli</loc>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://semgrep.dev/r?q=javascript.aws-lambda.security.tainted-html-response.tainted-html-response</loc>
+    <loc>https://semgrep.dev/r?q=javascript.aws-lambda.security.pg-sqli.pg-sqli</loc>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://semgrep.dev/r?q=javascript.aws-lambda.security.tainted-html-string.tainted-html-string</loc>
+    <loc>https://semgrep.dev/r?q=javascript.aws-lambda.security.vm-runincontext-injection.vm-runincontext-injection</loc>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://semgrep.dev/r?q=javascript.aws-lambda.security.tainted-sql-string.tainted-sql-string</loc>
+    <loc>https://semgrep.dev/r?q=javascript.browser.security.open-redirect-from-function.js-open-redirect-from-function</loc>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://semgrep.dev/r?q=python.lang.security.audit.dangerous-asyncio-exec-audit.dangerous-asyncio-exec-audit</loc>
+    <loc>https://semgrep.dev/r?q=javascript.express.security.audit.express-check-csurf-middleware-usage.express-check-csurf-middleware-usage</loc>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://semgrep.dev/r?q=javascript.express.security.audit.express-libxml-vm-noent.express-libxml-vm-noent</loc>
+    <loc>https://semgrep.dev/r?q=javascript.express.security.audit.express-detect-notevil-usage.express-detect-notevil-usage</loc>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://semgrep.dev/r?q=javascript.express.security.audit.express-res-sendfile.express-res-sendfile</loc>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://semgrep.dev/r?q=javascript.express.security.cors-misconfiguration.cors-misconfiguration</loc>
+    <loc>https://semgrep.dev/r?q=javascript.express.security.audit.remote-property-injection.remote-property-injection</loc>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
@@ -8961,6 +8956,126 @@
     <priority>0.5</priority>
   </url>
   <url>
+    <loc>https://semgrep.dev/r?q=javascript.express.express-fs-filename.express-fs-filename</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://semgrep.dev/r?q=typescript.react.react-create-element-href-prop.react-create-element-href-prop</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://semgrep.dev/r?q=javascript.aws-lambda.security.sequelize-sqli.sequelize-sqli</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://semgrep.dev/r?q=dockerfile.security.missing-user.missing-user</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://semgrep.dev/r?q=java.lang.security.audit.crypto.use-of-sha1.use-of-sha1</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://semgrep.dev/r?q=java.lang.security.audit.crypto.weak-random.weak-random</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://semgrep.dev/r?q=java.lang.security.audit.tainted-session-from-http-request.tainted-session-from-http-request</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://semgrep.dev/r?q=java.lang.security.audit.tainted-xpath-from-http-request.tainted-xpath-from-http-request</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://semgrep.dev/r?q=java.spring.security.audit.spring-actuator-fully-enabled-yaml.spring-actuator-fully-enabled-yaml</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://semgrep.dev/r?q=javascript.ajv.security.audit.ajv-allerrors-true.ajv-allerrors-true</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://semgrep.dev/r?q=javascript.apollo.security.apollo-axios-ssrf.apollo-axios-ssrf</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://semgrep.dev/r?q=javascript.argon2.security.unsafe-argon2-config.unsafe-argon2-config</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://semgrep.dev/r?q=javascript.audit.detect-replaceall-sanitization.detect-replaceall-sanitization</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://semgrep.dev/r?q=javascript.aws-lambda.security.tainted-eval.tainted-eval</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://semgrep.dev/r?q=javascript.aws-lambda.security.tainted-html-response.tainted-html-response</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://semgrep.dev/r?q=javascript.aws-lambda.security.tainted-html-string.tainted-html-string</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://semgrep.dev/r?q=javascript.aws-lambda.security.tainted-sql-string.tainted-sql-string</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://semgrep.dev/r?q=python.lang.security.audit.dangerous-asyncio-exec-audit.dangerous-asyncio-exec-audit</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://semgrep.dev/r?q=javascript.express.security.audit.express-libxml-vm-noent.express-libxml-vm-noent</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://semgrep.dev/r?q=javascript.express.security.audit.express-res-sendfile.express-res-sendfile</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://semgrep.dev/r?q=javascript.express.security.cors-misconfiguration.cors-misconfiguration</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://semgrep.dev/r?q=javascript.express.security.express-vm-injection.express-vm-injection</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://semgrep.dev/r?q=javascript.express.security.express-vm2-injection.express-vm2-injection</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://semgrep.dev/r?q=dgryski.semgrep-go.oddifsequence.odd-sequence-ifs</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
     <loc>https://semgrep.dev/r?q=php.laravel.security.laravel-blade-form-missing-csrf.laravel-blade-form-missing-csrf</loc>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
@@ -8981,112 +9096,27 @@
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://semgrep.dev/r?q=typescript.react.react-dangerouslysetinnerhtml-prop.react-dangerouslysetinnerhtml-prop</loc>
+    <loc>https://semgrep.dev/r?q=node-sequelize-hardcoded-secret</loc>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://semgrep.dev/r?q=typescript.react.react-create-element-dangerouslysetinnerhtml-prop.react-create-element-dangerouslysetinnerhtml-prop</loc>
+    <loc>https://semgrep.dev/r?q=node-sequelize-hardcoded-secret</loc>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://semgrep.dev/r?q=javascript.express.security.express-data-exfiltration.express-data-exfiltration</loc>
+    <loc>https://semgrep.dev/r?q=python-mysql-hardcoded-secret</loc>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://semgrep.dev/r?q=dockerfile.security.missing-user.missing-user</loc>
+    <loc>https://semgrep.dev/r?q=python-mysql-hardcoded-secret</loc>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://semgrep.dev/r?q=java.lang.security.audit.crypto.use-of-sha1.use-of-sha1</loc>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://semgrep.dev/r?q=java.lang.security.audit.crypto.weak-random.weak-random</loc>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://semgrep.dev/r?q=java.lang.security.audit.sqli.tainted-sql-from-http-request.tainted-sql-from-http-request</loc>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://semgrep.dev/r?q=java.lang.security.audit.tainted-ldapi-from-http-request.tainted-ldapi-from-http-request</loc>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://semgrep.dev/r?q=java.lang.security.use-snakeyaml-constructor.use-snakeyaml-constructor</loc>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://semgrep.dev/r?q=javascript.ajv.security.audit.ajv-allerrors-true.ajv-allerrors-true</loc>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://semgrep.dev/r?q=javascript.aws-lambda.security.detect-child-process.detect-child-process</loc>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://semgrep.dev/r?q=javascript.aws-lambda.security.dynamodb-request-object.dynamodb-request-object</loc>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://semgrep.dev/r?q=javascript.aws-lambda.security.knex-sqli.knex-sqli</loc>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://semgrep.dev/r?q=javascript.aws-lambda.security.mysql-sqli.mysql-sqli</loc>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://semgrep.dev/r?q=javascript.aws-lambda.security.pg-sqli.pg-sqli</loc>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://semgrep.dev/r?q=javascript.aws-lambda.security.vm-runincontext-injection.vm-runincontext-injection</loc>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://semgrep.dev/r?q=javascript.browser.security.open-redirect-from-function.js-open-redirect-from-function</loc>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://semgrep.dev/r?q=javascript.express.security.audit.express-check-csurf-middleware-usage.express-check-csurf-middleware-usage</loc>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://semgrep.dev/r?q=javascript.express.security.audit.express-detect-notevil-usage.express-detect-notevil-usage</loc>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://semgrep.dev/r?q=javascript.express.security.audit.remote-property-injection.remote-property-injection</loc>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://semgrep.dev/r?q=javascript.express.security.express-vm-injection.express-vm-injection</loc>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://semgrep.dev/r?q=javascript.express.security.express-vm2-injection.express-vm2-injection</loc>
+    <loc>https://semgrep.dev/r?q=dgryski.semgrep-go.oddcompare.odd-comparison-subtract-gt-zero</loc>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
@@ -9107,6 +9137,26 @@
   </url>
   <url>
     <loc>https://semgrep.dev/r?q=csharp.dotnet.security.audit.missing-or-broken-authorization.missing-or-broken-authorization</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://semgrep.dev/r?q=csharp.dotnet.security.razor-template-injection.razor-template-injection</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://semgrep.dev/r?q=csharp.dotnet.security.use_deprecated_cipher_algorithm.use_deprecated_cipher_algorithm</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://semgrep.dev/r?q=csharp.dotnet.security.use_ecb_mode.use_ecb_mode</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://semgrep.dev/r?q=csharp.dotnet.security.use_weak_rng_for_keygeneration.use_weak_rng_for_keygeneration</loc>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
@@ -9171,47 +9221,7 @@
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://semgrep.dev/r?q=yaml.semgrep.metadata-impact.metadata-impact</loc>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://semgrep.dev/r?q=yaml.semgrep.metadata-likelihood-incorrect-value.metadata-likelihood-incorrect-value</loc>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://semgrep.dev/r?q=yaml.semgrep.metadata-likelihood.metadata-likelihood</loc>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://semgrep.dev/r?q=yaml.semgrep.metadata-subcategory-incorrect-value.metadata-subcategory-incorrect-value</loc>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://semgrep.dev/r?q=yaml.semgrep.metadata-subcategory.metadata-subcategory</loc>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://semgrep.dev/r?q=javascript.mogodb.node-mongodb-hardcoded-secret.node-mongodb-hardcoded-secret</loc>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://semgrep.dev/r?q=java.lang.security.audit.cookie-missing-secure-flag.cookie-missing-secure-flag</loc>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
     <loc>https://semgrep.dev/r?q=javascript.express.security.audit.express-cookie-settings.express-cookie-session-no-path</loc>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://semgrep.dev/r?q=javascript.jsonwebtoken.security.jwt-hardcode.hardcoded-jwt-secret</loc>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
@@ -9232,31 +9242,6 @@
   </url>
   <url>
     <loc>https://semgrep.dev/r?q=java.lang.security.audit.cookie-missing-samesite.cookie-missing-samesite</loc>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://semgrep.dev/r?q=javascript.angular.security.detect-angular-sce-disabled.detect-angular-sce-disabled</loc>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://semgrep.dev/r?q=javascript.express.security.audit.express-cookie-settings.express-cookie-session-default-name</loc>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://semgrep.dev/r?q=javascript.express.security.audit.express-cookie-settings.express-cookie-session-no-secure</loc>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://semgrep.dev/r?q=javascript.express.security.audit.express-cookie-settings.express-cookie-session-no-httponly</loc>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://semgrep.dev/r?q=javascript.express.security.audit.express-cookie-settings.express-cookie-session-no-domain</loc>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
@@ -9711,36 +9696,6 @@
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://semgrep.dev/r?q=node-sequelize-hardcoded-secret</loc>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://semgrep.dev/r?q=node-sequelize-hardcoded-secret</loc>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://semgrep.dev/r?q=python-mysql-hardcoded-secret</loc>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://semgrep.dev/r?q=python-mysql-hardcoded-secret</loc>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://semgrep.dev/r?q=dgryski.semgrep-go.oddifsequence.odd-sequence-ifs</loc>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://semgrep.dev/r?q=dgryski.semgrep-go.oddcompare.odd-comparison-subtract-gt-zero</loc>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
     <loc>https://semgrep.dev/r?q=dgryski.semgrep-go.nilerr.return-nil-err</loc>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
@@ -9791,26 +9746,6 @@
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://semgrep.dev/r?q=csharp.dotnet.security.razor-template-injection.razor-template-injection</loc>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://semgrep.dev/r?q=csharp.dotnet.security.use_deprecated_cipher_algorithm.use_deprecated_cipher_algorithm</loc>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://semgrep.dev/r?q=csharp.dotnet.security.use_ecb_mode.use_ecb_mode</loc>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://semgrep.dev/r?q=csharp.dotnet.security.use_weak_rng_for_keygeneration.use_weak_rng_for_keygeneration</loc>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
     <loc>https://semgrep.dev/r?q=html.security.audit.missing-integrity.missing-integrity</loc>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
@@ -9831,6 +9766,71 @@
     <priority>0.5</priority>
   </url>
   <url>
+    <loc>https://semgrep.dev/r?q=yaml.semgrep.metadata-impact.metadata-impact</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://semgrep.dev/r?q=yaml.semgrep.metadata-likelihood-incorrect-value.metadata-likelihood-incorrect-value</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://semgrep.dev/r?q=yaml.semgrep.metadata-likelihood.metadata-likelihood</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://semgrep.dev/r?q=yaml.semgrep.metadata-subcategory-incorrect-value.metadata-subcategory-incorrect-value</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://semgrep.dev/r?q=yaml.semgrep.metadata-subcategory.metadata-subcategory</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://semgrep.dev/r?q=javascript.mogodb.node-mongodb-hardcoded-secret.node-mongodb-hardcoded-secret</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://semgrep.dev/r?q=java.lang.security.audit.cookie-missing-secure-flag.cookie-missing-secure-flag</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://semgrep.dev/r?q=javascript.jsonwebtoken.security.jwt-hardcode.hardcoded-jwt-secret</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://semgrep.dev/r?q=javascript.angular.security.detect-angular-sce-disabled.detect-angular-sce-disabled</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://semgrep.dev/r?q=javascript.express.security.audit.express-cookie-settings.express-cookie-session-default-name</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://semgrep.dev/r?q=javascript.express.security.audit.express-cookie-settings.express-cookie-session-no-secure</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://semgrep.dev/r?q=javascript.express.security.audit.express-cookie-settings.express-cookie-session-no-httponly</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://semgrep.dev/r?q=javascript.express.security.audit.express-cookie-settings.express-cookie-session-no-domain</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
     <loc>https://semgrep.dev/r?q=decoded-xss</loc>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
@@ -9846,12 +9846,7 @@
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://semgrep.dev/r?q=bash.curl.security.curl-pipe-bash.curl-pipe-bash</loc>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://semgrep.dev/r?q=c.lang.security.insecure-use-memset.insecure-use-memset</loc>
+    <loc>https://semgrep.dev/r?q=contrib.nodejsscan.security_electronjs.electron_context_isolation</loc>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
@@ -9906,47 +9901,52 @@
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://semgrep.dev/r?q=contrib.nodejsscan.eval_sandbox.sandbox_code_injection</loc>
+    <loc>https://semgrep.dev/r?q=contrib.nodejsscan.eval_vm_injection.vm_runinnewcontext_injection</loc>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://semgrep.dev/r?q=contrib.nodejsscan.eval_vm2_injection.vm2_code_injection</loc>
+    <loc>https://semgrep.dev/r?q=contrib.nodejsscan.eval_vm_injection.vm_compilefunction_injection</loc>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://semgrep.dev/r?q=contrib.nodejsscan.eval_vm2_injection.vm2_context_injection</loc>
+    <loc>https://semgrep.dev/r?q=contrib.nodejsscan.eval_vm_injection.vm_code_injection</loc>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://semgrep.dev/r?q=contrib.nodejsscan.eval_vm_injection.vm_runincontext_injection</loc>
+    <loc>https://semgrep.dev/r?q=contrib.nodejsscan.eval_yaml_deserialize.yaml_deserialize</loc>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://semgrep.dev/r?q=contrib.nodejsscan.exec_shelljs.shelljs_os_command_exec</loc>
+    <loc>https://semgrep.dev/r?q=contrib.nodejsscan.exec_os_command.generic_os_command_exec</loc>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://semgrep.dev/r?q=contrib.nodejsscan.express_bodyparser_dos.express_bodyparser</loc>
+    <loc>https://semgrep.dev/r?q=contrib.nodejsscan.hardcoded_secrets.node_secret</loc>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://semgrep.dev/r?q=contrib.nodejsscan.hardcoded_passport.hardcoded_passport_secret</loc>
+    <loc>https://semgrep.dev/r?q=contrib.nodejsscan.hardcoded_secrets.node_username</loc>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://semgrep.dev/r?q=contrib.nodejsscan.hardcoded_secrets.node_password</loc>
+    <loc>https://semgrep.dev/r?q=contrib.nodejsscan.hardcoded_secrets.node_api_key</loc>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://semgrep.dev/r?q=contrib.nodejsscan.jwt_exposed_credentials.jwt_exposed_credentials</loc>
+    <loc>https://semgrep.dev/r?q=contrib.nodejsscan.header_cookie.cookie_session_default</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://semgrep.dev/r?q=contrib.nodejsscan.security_electronjs.electron_allow_http</loc>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
@@ -10676,7 +10676,12 @@
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://semgrep.dev/r?q=contrib.nodejsscan.security_electronjs.electron_context_isolation</loc>
+    <loc>https://semgrep.dev/r?q=bash.curl.security.curl-pipe-bash.curl-pipe-bash</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://semgrep.dev/r?q=c.lang.security.insecure-use-memset.insecure-use-memset</loc>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
@@ -10736,52 +10741,52 @@
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://semgrep.dev/r?q=contrib.nodejsscan.eval_vm_injection.vm_runinnewcontext_injection</loc>
+    <loc>https://semgrep.dev/r?q=contrib.nodejsscan.eval_sandbox.sandbox_code_injection</loc>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://semgrep.dev/r?q=contrib.nodejsscan.eval_vm_injection.vm_compilefunction_injection</loc>
+    <loc>https://semgrep.dev/r?q=contrib.nodejsscan.eval_vm2_injection.vm2_code_injection</loc>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://semgrep.dev/r?q=contrib.nodejsscan.eval_vm_injection.vm_code_injection</loc>
+    <loc>https://semgrep.dev/r?q=contrib.nodejsscan.eval_vm2_injection.vm2_context_injection</loc>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://semgrep.dev/r?q=contrib.nodejsscan.eval_yaml_deserialize.yaml_deserialize</loc>
+    <loc>https://semgrep.dev/r?q=contrib.nodejsscan.eval_vm_injection.vm_runincontext_injection</loc>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://semgrep.dev/r?q=contrib.nodejsscan.exec_os_command.generic_os_command_exec</loc>
+    <loc>https://semgrep.dev/r?q=contrib.nodejsscan.exec_shelljs.shelljs_os_command_exec</loc>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://semgrep.dev/r?q=contrib.nodejsscan.hardcoded_secrets.node_secret</loc>
+    <loc>https://semgrep.dev/r?q=contrib.nodejsscan.express_bodyparser_dos.express_bodyparser</loc>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://semgrep.dev/r?q=contrib.nodejsscan.hardcoded_secrets.node_username</loc>
+    <loc>https://semgrep.dev/r?q=contrib.nodejsscan.hardcoded_passport.hardcoded_passport_secret</loc>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://semgrep.dev/r?q=contrib.nodejsscan.hardcoded_secrets.node_api_key</loc>
+    <loc>https://semgrep.dev/r?q=contrib.nodejsscan.hardcoded_secrets.node_password</loc>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://semgrep.dev/r?q=contrib.nodejsscan.header_cookie.cookie_session_default</loc>
+    <loc>https://semgrep.dev/r?q=contrib.nodejsscan.jwt_exposed_credentials.jwt_exposed_credentials</loc>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://semgrep.dev/r?q=contrib.nodejsscan.security_electronjs.electron_allow_http</loc>
+    <loc>https://semgrep.dev/r?q=java.lang.security.xmlinputfactory-external-entities-enabled.xmlinputfactory-external-entities-enabled</loc>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
@@ -10831,42 +10836,27 @@
     <priority>0.5</priority>
   </url>
   <url>
+    <loc>https://semgrep.dev/r?q=ajinabraham.njsscan.generic.error_disclosure.generic_error_disclosure</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
     <loc>https://semgrep.dev/r?q=ajinabraham.njsscan.eval.eval_node.eval_nodejs</loc>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://semgrep.dev/r?q=ajinabraham.njsscan.crypto.crypto_node.node_md5</loc>
+    <loc>https://semgrep.dev/r?q=c.lang.security.insecure-use-printf-fn.insecure-use-printf-fn</loc>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://semgrep.dev/r?q=ajinabraham.njsscan.crypto.crypto_node.node_sha1</loc>
+    <loc>https://semgrep.dev/r?q=terraform.lang.security.ec2-imdsv1-optional.ec2-imdsv1-optional</loc>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://semgrep.dev/r?q=ajinabraham.njsscan.crypto.crypto_node.node_aes_ecb</loc>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://semgrep.dev/r?q=ajinabraham.njsscan.crypto.crypto_node.node_aes_noiv</loc>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://semgrep.dev/r?q=ajinabraham.njsscan.crypto.crypto_node.node_weak_crypto</loc>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://semgrep.dev/r?q=ajinabraham.njsscan.crypto.crypto_node.node_insecure_random_generator</loc>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://semgrep.dev/r?q=ajinabraham.njsscan.eval.eval_deserialize.serializetojs_deserialize</loc>
+    <loc>https://semgrep.dev/r?q=ajinabraham.njsscan.electronjs.security_electron.electron_experimental_features</loc>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
@@ -12416,11 +12406,6 @@
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://semgrep.dev/r?q=java.lang.security.xmlinputfactory-external-entities-enabled.xmlinputfactory-external-entities-enabled</loc>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
     <loc>https://semgrep.dev/r?q=java.lang.security.audit.xml-decoder.xml-decoder</loc>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
@@ -12446,22 +12431,37 @@
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://semgrep.dev/r?q=ajinabraham.njsscan.generic.error_disclosure.generic_error_disclosure</loc>
+    <loc>https://semgrep.dev/r?q=ajinabraham.njsscan.crypto.crypto_node.node_md5</loc>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://semgrep.dev/r?q=c.lang.security.insecure-use-printf-fn.insecure-use-printf-fn</loc>
+    <loc>https://semgrep.dev/r?q=ajinabraham.njsscan.crypto.crypto_node.node_sha1</loc>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://semgrep.dev/r?q=terraform.lang.security.ec2-imdsv1-optional.ec2-imdsv1-optional</loc>
+    <loc>https://semgrep.dev/r?q=ajinabraham.njsscan.crypto.crypto_node.node_aes_ecb</loc>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://semgrep.dev/r?q=ajinabraham.njsscan.electronjs.security_electron.electron_experimental_features</loc>
+    <loc>https://semgrep.dev/r?q=ajinabraham.njsscan.crypto.crypto_node.node_aes_noiv</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://semgrep.dev/r?q=ajinabraham.njsscan.crypto.crypto_node.node_weak_crypto</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://semgrep.dev/r?q=ajinabraham.njsscan.crypto.crypto_node.node_insecure_random_generator</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://semgrep.dev/r?q=ajinabraham.njsscan.eval.eval_deserialize.serializetojs_deserialize</loc>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
@@ -12536,27 +12536,22 @@
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://semgrep.dev/r?q=trailofbits.go.missing-runlock-on-rwmutex.missing-runlock-on-rwmutex</loc>
+    <loc>https://semgrep.dev/r?q=trailofbits.python.pickles-in-numpy.pickles-in-numpy</loc>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://semgrep.dev/r?q=trailofbits.go.missing-unlock-before-return.missing-unlock-before-return</loc>
+    <loc>https://semgrep.dev/r?q=trailofbits.python.pickles-in-pandas.pickles-in-pandas</loc>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://semgrep.dev/r?q=trailofbits.go.nil-check-after-call.nil-check-after-call</loc>
+    <loc>https://semgrep.dev/r?q=trailofbits.python.pickles-in-pytorch-distributed.pickles-in-pytorch-distributed</loc>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://semgrep.dev/r?q=trailofbits.go.racy-append-to-slice.racy-append-to-slice</loc>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://semgrep.dev/r?q=trailofbits.go.racy-write-to-map.racy-write-to-map</loc>
+    <loc>https://semgrep.dev/r?q=trailofbits.python.pickles-in-pytorch.pickles-in-pytorch</loc>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
@@ -12617,6 +12612,31 @@
   </url>
   <url>
     <loc>https://semgrep.dev/r?q=trailofbits.go.iterate-over-empty-map.iterate-over-empty-map</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://semgrep.dev/r?q=trailofbits.go.missing-runlock-on-rwmutex.missing-runlock-on-rwmutex</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://semgrep.dev/r?q=trailofbits.go.missing-unlock-before-return.missing-unlock-before-return</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://semgrep.dev/r?q=trailofbits.go.nil-check-after-call.nil-check-after-call</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://semgrep.dev/r?q=trailofbits.go.racy-append-to-slice.racy-append-to-slice</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://semgrep.dev/r?q=trailofbits.go.racy-write-to-map.racy-write-to-map</loc>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
@@ -12691,42 +12711,27 @@
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://semgrep.dev/r?q=trailofbits.python.pickles-in-numpy.pickles-in-numpy</loc>
+    <loc>https://semgrep.dev/r?q=generic.secrets.gitleaks.age-secret-key.age-secret-key</loc>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://semgrep.dev/r?q=trailofbits.python.pickles-in-pandas.pickles-in-pandas</loc>
+    <loc>https://semgrep.dev/r?q=generic.secrets.gitleaks.airtable-api-key.airtable-api-key</loc>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://semgrep.dev/r?q=trailofbits.python.pickles-in-pytorch-distributed.pickles-in-pytorch-distributed</loc>
+    <loc>https://semgrep.dev/r?q=generic.secrets.gitleaks.algolia-api-key.algolia-api-key</loc>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://semgrep.dev/r?q=trailofbits.python.pickles-in-pytorch.pickles-in-pytorch</loc>
+    <loc>https://semgrep.dev/r?q=generic.secrets.gitleaks.alibaba-access-key-id.alibaba-access-key-id</loc>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://semgrep.dev/r?q=generic.secrets.gitleaks.bittrex-access-key.bittrex-access-key</loc>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://semgrep.dev/r?q=generic.secrets.gitleaks.bittrex-secret-key.bittrex-secret-key</loc>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://semgrep.dev/r?q=generic.secrets.gitleaks.clojars-api-token.clojars-api-token</loc>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://semgrep.dev/r?q=generic.secrets.gitleaks.codecov-access-token.codecov-access-token</loc>
+    <loc>https://semgrep.dev/r?q=java.servlets.security.httpservlet-path-traversal-deepsemgrep.httpservlet-path-traversal-deepsemgrep</loc>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
@@ -16126,31 +16131,6 @@
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://semgrep.dev/r?q=generic.secrets.gitleaks.age-secret-key.age-secret-key</loc>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://semgrep.dev/r?q=generic.secrets.gitleaks.airtable-api-key.airtable-api-key</loc>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://semgrep.dev/r?q=generic.secrets.gitleaks.algolia-api-key.algolia-api-key</loc>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://semgrep.dev/r?q=generic.secrets.gitleaks.alibaba-access-key-id.alibaba-access-key-id</loc>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://semgrep.dev/r?q=java.servlets.security.httpservlet-path-traversal-deepsemgrep.httpservlet-path-traversal-deepsemgrep</loc>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
     <loc>https://semgrep.dev/r?q=generic.secrets.gitleaks.alibaba-secret-key.alibaba-secret-key</loc>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
@@ -16187,6 +16167,26 @@
   </url>
   <url>
     <loc>https://semgrep.dev/r?q=generic.secrets.gitleaks.bitbucket-client-secret.bitbucket-client-secret</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://semgrep.dev/r?q=generic.secrets.gitleaks.bittrex-access-key.bittrex-access-key</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://semgrep.dev/r?q=generic.secrets.gitleaks.bittrex-secret-key.bittrex-secret-key</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://semgrep.dev/r?q=generic.secrets.gitleaks.clojars-api-token.clojars-api-token</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://semgrep.dev/r?q=generic.secrets.gitleaks.codecov-access-token.codecov-access-token</loc>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
