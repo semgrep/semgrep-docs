@@ -13,7 +13,7 @@ toc_max_heading_level: 3
 
 ### Additions
 
-- Added a new **Exposure** category called **Not analyzed** within **Semgrep App > Vulnerabilities** page. Users who have enabled **Historical coverage** rules now see vulnerabilities detected from those rules under **Not analyzed**. This is because Historical coverage rules rules do not have reachability patterns, therefore it is not analyzed that their findings are reachable or unreachable.
+- Added a new **Exposure** category called **Not analyzed** within **Semgrep App > Vulnerabilities** page. Users who have enabled **Historical coverage** rules now see vulnerabilities detected from those rules under **Not analyzed**. This is because Historical coverage rules do not have reachability patterns, therefore it is not analyzed that their findings are reachable or unreachable.
 - The **Semgrep App** > **Advisories** page displays a new tag, **Reachability: review manually** for rules that must be reviewed manually.
     ![Semgrep App Advisories, Reachability review manually](/img/release-notes-semgrep-app-reachability-review.png)
 - You can now give feedback for **Supply Chain** rules. In the **Semgrep App > Advisories** page, click on an advisory to expand on it and click on the **Leave feedback for this rule** button.
@@ -51,12 +51,12 @@ These release notes include upgrades for versions ranging between 1.3.0 and 1.6.
 - Semgrep now provides experimental support for XML, Clojure, Lisp, Scheme, Dart, and Jsonnet languages.
 - Rust language support is now improved from Experimental to Beta!
 - Python: Constant propagation now recognizes the idiom `cond and X or Y`,
-as well as `True and X` and `False or X`. For example, `cond and "a" or "b"` is identified as a constant string. (Issue [#6079](https://github.com/returntocorp/semgrep/issues/6079))
+as well as `True and X` and `False or X`. For example, `cond and "a" or "b"` is identified as constant string. (Issue [#6079](https://github.com/returntocorp/semgrep/issues/6079))
 
 ### Changes
 
 - Tests: Allow `-test` to process entire file trees rather than single files. See more information about the `semgrep --test` in the [Testing rules](/writing-rules/testing-rules.md) documentation. (Issue [#5487](https://github.com/returntocorp/semgrep/issues/5487))
-- metavariable-pattern: For performance reasons the [generic mode](/writing-rules/generic-pattern-matching/) ignores target files that are machine-generated. However, this change prevented the use of `metavariable-pattern` operator on the text that seemed or was machine-generated, such as an RSA key contained in a file. This issue has been fixed. Now, when the analysis is requested within a `metavariable-pattern` operator, the generic mode always matches any text even if it seems to be machine-generated.
+- metavariable-pattern: For performance reasons the [generic mode](/writing-rules/generic-pattern-matching/) ignores target files that are machine-generated. However, this change prevented the use of the `metavariable-pattern` operator on the text that seemed or was machine-generated, such as an RSA key contained in a file. This issue has been fixed. Now, when the analysis is requested within a `metavariable-pattern` operator, the generic mode always matches any text even if it seems to be machine-generated.
 
 ## Semgrep Registry
 
@@ -75,7 +75,7 @@ as well as `True and X` and `False or X`. For example, `cond and "a" or "b"` is 
 
 ### Additions
 
-- Cheat sheets have been revisited, added, improved and rewritten:
+- Cheat sheets have been revisited, added, improved, and rewritten:
     - Added a new [XML External entity (XXE) prevention for Java](https://semgrep.dev/docs/cheat-sheets/java-xxe/) cheat sheet.
     - Added new command and code injection cheat sheets:
         - [Code injection prevention for Java](https://semgrep.dev/docs/cheat-sheets/java-code-injection/).
@@ -86,7 +86,7 @@ as well as `True and X` and `False or X`. For example, `cond and "a" or "b"` is 
         - [Command injection prevention for Ruby](https://semgrep.dev/docs/cheat-sheets/ruby-command-injection/).
         - Many other cheat sheets (such as [Command injection prevention for Go](https://semgrep.dev/docs/cheat-sheets/go-command-injection/)) now have updated examples and were enriched by other improvements.
 - Added a new document on how to set up [notifications for Semgrep Supply Chain](https://semgrep.dev/docs/semgrep-sc/receiving-notifications-from-ssc/) scans.
-- Added a new section [Transform](https://semgrep.dev/docs/writing-rules/experiments/extract-mode/#transform) to the Exctract mode documentation.
+- Added a new section [Transform](https://semgrep.dev/docs/writing-rules/experiments/extract-mode/#transform) to the Extract mode documentation.
 
 ### Changes
 
