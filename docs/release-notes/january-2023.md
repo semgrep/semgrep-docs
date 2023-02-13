@@ -17,7 +17,7 @@ toc_max_heading_level: 3
 - The **Semgrep App** > **Advisories** page displays a new tag, **Reachability: review manually** for rules that must be reviewed manually.
     ![Semgrep App Advisories, Reachability review manually](/img/release-notes-semgrep-app-reachability-review.png)
 - You can now give feedback for **Supply Chain** rules. In the **Semgrep App > Advisories** page, click on an advisory to expand on it and click on the **Leave feedback for this rule** button.
-    ![Screen Shot 2023-01-24 at 1.52.45 PM.png](Release%20notes%20January%202023%20draft%20a54192a13ba04adbb58180c9b90a331f/Screen_Shot_2023-01-24_at_1.52.45_PM.png)
+    ![Give rule feedback menu](/img/release-notes-give-rule-feedback.png)
 - Added `exposure` property to SARIF output for Semgrep Supply Chain findings.
 
 ### Changes
@@ -32,7 +32,7 @@ toc_max_heading_level: 3
 ### Additions
 
 - Display findings grouped together by rules that detected them! Group by rule view helps you to identify patterns in your code and to triage findings easily. Findings grouped by rule are sorted by count from high to low. This enables you to know which rules have fired the most. In comparison, regularly grouped findings are sorted by their recency (most recent findings are at the top of the Findings page). See how to enable this view on the Findings page in [Group by rule](/semgrep-app/findings/#grouping-by-rule) documentation.
-    ![Untitled](Release%20notes%20January%202023%20draft%20a54192a13ba04adbb58180c9b90a331f/Untitled.png)
+    ![Group by rule option on Findings page](/img/release-notes-group-by-rule.png)
 - Semgrep API now allows you to add or remove tags to a project. See [Managing projects through tags](/semgrep-app/tags/) documentation.
 
 ### Changes
@@ -56,7 +56,7 @@ as well as `True and X` and `False or X`. For example, `cond and "a" or "b"` is 
 ### Changes
 
 - Tests: Allow `-test` to process entire file trees rather than single files. See more information about the `semgrep --test` in the [Testing rules](/writing-rules/testing-rules.md) documentation. (Issue [#5487](https://github.com/returntocorp/semgrep/issues/5487))
-- metavariable-pattern: For performance reasons the [generic mode](https://semgrep.dev/docs/writing-rules/generic-pattern-matching/) ignores target files that are machine-generated. However, this change prevented the use of `metavariable-pattern` operator on the text that seemed or was machine-generated, such as an RSA key contained in a file. This issue has been fixed. Now, when the analysis is requested within a `metavariable-pattern` operator, the generic mode always matches any text even if it seems to be machine-generated.
+- metavariable-pattern: For performance reasons the [generic mode](/writing-rules/generic-pattern-matching/) ignores target files that are machine-generated. However, this change prevented the use of `metavariable-pattern` operator on the text that seemed or was machine-generated, such as an RSA key contained in a file. This issue has been fixed. Now, when the analysis is requested within a `metavariable-pattern` operator, the generic mode always matches any text even if it seems to be machine-generated.
 
 ## Semgrep Registry
 
