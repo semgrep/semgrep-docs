@@ -5,7 +5,7 @@ title: Findings
 description: "The Findings page allows users to view, manage, and triage Findings."
 hide_title: true
 tags:
-    - Semgrep App
+    - Semgrep Cloud Platform
     - Community Tier
     - Team & Enterprise Tier
 ---
@@ -23,11 +23,11 @@ Object.entries(frontMatter).filter(
 }
 </ul>
 
-# Managing findings in Semgrep App
+# Managing findings in Semgrep Cloud Platform
 
 A **finding** is the core result of Semgrep analysis. Findings are generated when a Semgrep rule matches a piece of code.
 
-![Semgrep App Findings page](/img/app-findings-overview.png)<br />
+![Semgrep Cloud Platform Findings page](/img/app-findings-overview.png)<br />
 *Figure 1.* Screenshot of findings page.
 
 A finding can be categorized in two ways:
@@ -62,17 +62,17 @@ After a finding is generated, developers can:
 - **View the Semgrep rule and the matching code.** For developers aiming to understand their team's security posture, Semgrep provides a top-level report view through the Dashboard and a list view of findings in the Findings page that can be filtered by repository, rule, branch, or triage action.
 - **Triage the finding.** If the finding is not useful or important, deprioritize it through triage. Triage actions include ignoring and reopening. Triaging a finding to ignore it is one method to handle **false positives** without changing the rule or code. To triage a finding, see [Managing finding status](#managing-finding-status)
 - **Remove the rule or code that generated the finding.** There are cases where Semgrep scans a file not meant for scanning or when a rule is irrelevant. You can remove the rule from the Rule board or add the file to the ignore list. To remove a rule, see [Removing rules or rulesets](/semgrep-app/rule-board/#removing-rules-or-rulesets).
-- **Create a Jira ticket from the finding (for Enterprise/Team Tier users.)** For findings that require more extensive refactoring, users can create a ticket in Jira through Semgrep App to track its resolution.
+<!-- - **Create a Jira ticket from the finding (for Enterprise/Team Tier users.)** For findings that require more extensive refactoring, users can create a ticket in Jira through Semgrep Cloud Platform to track its resolution. -->
 
 :::tip
 * An additional method to address false positives is to improve the rule. Create [test cases](/docs/writing-rules/testing-rules) to ensure that the rule performs as intended.
 * If a rule from Semgrep Registry is useful but also captures too many false positives, you can reach out to support@semgrep.dev. This helps rule-writing efforts and improves the quality of rules that you run. 
-* Additionally, you can report rules with a high false positive rate from your SCM if you have enabled Semgrep App to leave comments in PRs. Semgrep App provides a link after each comment for users to indicate if the finding is a false positive.
+* Additionally, you can report rules with a high false positive rate from your SCM if you have enabled Semgrep Cloud Platform to leave comments in PRs. Semgrep Cloud Platform provides a link after each comment for users to indicate if the finding is a false positive.
 :::
 
 ### Understanding retention periods
 
-The Semgrep App Finding page displays findings across all projects connected to Semgrep App. It is updated after every scan. Scans are initiated through your CI/CD pipeline, such as GitHub actions. The retention period of these findings varies based on your organization’s tier:
+The Semgrep Cloud Platform Finding page displays findings across all projects connected to Semgrep Cloud Platform. It is updated after every scan. Scans are initiated through your CI/CD pipeline, such as GitHub actions. The retention period of these findings varies based on your organization’s tier:
 
 | Retention period | Tier availability |
 | ---------------  | ----------------- |
@@ -83,7 +83,7 @@ The Semgrep App Finding page displays findings across all projects connected to 
 
 ### Navigating to the Findings page
 
-1. Sign in to Semgrep App.
+1. Sign in to Semgrep Cloud Platform.
 2. Click **[Findings](https://semgrep.dev/orgs/-/findings)** in the left sidebar.
 
 ### Understanding the Findings page
@@ -101,7 +101,7 @@ Filtering allows you to easily isolate groups of findings for ease in triaging a
 
 | Filter      | Description  |
 | ----------  | ------------ |
-| **Projects**     | Filter by repositories connected to Semgrep App. |
+| **Projects**     | Filter by repositories connected to Semgrep Cloud Platform. |
 | **Status**       | Filter for different findings triage states. Refer to the [following table](#triaging-findings) to understand triage states. |
 | **Severities**    | Filter by the severity of a finding. Possible values: <ul><li>Low</li><li>Medium</li><li>High</li></ul> |
 | **Actions**     | Filter by monitoring, commenting, or blocking rules in your Rule Board. |
@@ -122,7 +122,7 @@ To filter through findings:
 
 Display and filter for findings reported only in specific time. To display findings reported in a specific time, follow these steps:
 
-1. In Semgrep App, go to **[Findings](https://semgrep.dev/orgs/-/findings)** page.
+1. In Semgrep Cloud Platform, go to **[Findings](https://semgrep.dev/orgs/-/findings)** page.
 1. Click the <i class="fa-solid fa-calendar-days"></i> **All time** button.
 1. Select preferred time period for which to display findings. The following options are available:
     - **All time** - This is the default option.
@@ -133,14 +133,14 @@ Display and filter for findings reported only in specific time. To display findi
 
 ### Grouping by rule
 
-Semgrep App enables you to group findings by a specific rule on the Findings page.
+Semgrep Cloud Platform enables you to group findings by a specific rule on the Findings page.
 
 ![Screenshot of the Findings page with findings grouped by rule](/img/app-findings-overview-grouped-by-rule.png)<br />
 *Figure 3.* Screenshot of the Findings page with findings grouped by rule
 
 To group findings by rules, follow these steps:
 
-1. In Semgrep App, go to **[Findings](https://semgrep.dev/orgs/-/findings)** page.
+1. In Semgrep Cloud Platform, go to **[Findings](https://semgrep.dev/orgs/-/findings)** page.
 1. Click the list under **No grouping**, and then select **Group by Rule**.
     ![Screenshot of the Group by Rule option](/img/app-finding-group-by-rule.png)<br />
     *Figure 4.* Screenshot of the Group by Rule option.
@@ -149,7 +149,7 @@ To group findings by rules, follow these steps:
 
 **Triaging** means prioritizing a finding based on a policy or criteria set by your team or organization. While severity is a factor in triage, your organization may define additional criteria based on coding standards, business, or product goals.
 
-Semgrep App uses the logic specified in the table below to automatically mark findings as either fixed or removed when a finding is no longer present in the code. You can also ignore findings in Semgrep App directly through **triage** or **bulk triage**.
+Semgrep Cloud Platform uses the logic specified in the table below to automatically mark findings as either fixed or removed when a finding is no longer present in the code. You can also ignore findings in Semgrep Cloud Platform directly through **triage** or **bulk triage**.
 
 The triage statuses are as follows:
 
@@ -158,8 +158,8 @@ The triage statuses are as follows:
 ### Managing finding status
 
 To manage, change, open or ignore findings, follow the the triage processes described below.
-![Screenshot of Semgrep App triage menu](/img/app-findings-triage.png)<br />
-*Figure 5.* Findings page triage menu.
+![Screenshot of Semgrep Cloud Platform triage menu](/img/app-findings-triage.png)<br />
+*Figure 5* Findings page triage menu.
 
 #### Ignoring findings
 
@@ -225,30 +225,30 @@ To **view and add notes** to the activity history of a finding:
 
 1. On the [Findings](https://semgrep.dev/orgs/-/findings?tab=open) page, click the heading of the finding card.
 2. View, or add the notes in the **Activity** section. To add a new note, click plus **New note**.
-    ![Semgrep App finding details page](/img/app-finding-details.png)<br />
+    ![Semgrep Cloud Platform finding details page](/img/app-finding-details.png)<br />
     *Figure 6.* Finding details page.
 
 You can also view the findings activity directly from the findings page by clicking on the comment bubble icon <i class="fa-regular fa-comment"></i> if it appears on the finding card.
 
 ### Ignoring findings through comments
 
-Triage your Semgrep App findings displayed as comments in GitHub PRs by replying with another comment.
+Triage your Semgrep Cloud Platform findings displayed as comments in GitHub PRs by replying with another comment.
 
 :::info Prerequisites
 - A **private** GitHub.com repository. This feature is not enabled for public GitHub.com repositories or Github Enterprise public and private repositories.
-- GitHub Semgrep App installed in the repository that is also added as a project in Semgrep App. For more information, see [Getting started with Semgrep in continuous integration (CI)](/semgrep-ci/overview/).
+- GitHub Semgrep Cloud Platform installed in the repository that is also added as a project in Semgrep Cloud Platform. For more information, see [Getting started with Semgrep in continuous integration (CI)](/semgrep-ci/overview/).
 :::
 
 To enable triage through comments, follow these steps:
 
-1. In Semgrep App, go to your organization's [Settings](https://semgrep.dev/orgs/-/projects/-/repo-to-scan) page.
+1. In Semgrep Cloud Platform, go to your organization's [Settings](https://semgrep.dev/orgs/-/projects/-/repo-to-scan) page.
 2. Enable the **Triage via comment** <i class="fa-solid fa-toggle-large-on"></i> toggle.
 
 To triage a finding in GitHub, follow these steps:
 
-1. Find an open comment created by Semgrep App in GitHub PR:
-    ![Screenshot of Semgrep App comment in GitHub](/img/semgrep-app-comment-github.png)<br />
-    *Figure 7.* Screenshot of Semgrep App comment in GitHub.
+1. Find an open comment created by Semgrep Cloud Platform in GitHub PR:
+    ![Screenshot of Semgrep Cloud Platform comment in GitHub](/img/semgrep-app-comment-github.png)<br />
+    *Figure 7.* Screenshot of Semgrep Cloud Platform comment in GitHub.
 2. In the comment, reply with:
     <pre><code>
     /semgrep ignore <span className="placeholder">&lt;reason&gt;</span>
@@ -256,13 +256,14 @@ To triage a finding in GitHub, follow these steps:
 3. Substitute the colored placeholder <code><span className="placeholder">&lt;reason&gt;</span></code> with any text that can help to understand why the status of a comment is ignored.
 
 :::info
-Ignoring a finding through a comment in GitHub changes the status of the finding to **ignored** in the Semgrep App. See [Findings](/semgrep-app/findings.md) page documentation for more details. The GitHub conversation itself is not automatically resolved by this process.
+Ignoring a finding through a comment in GitHub changes the status of the finding to **ignored** in the Semgrep Cloud Platform. See [Findings](/semgrep-app/findings.md) page documentation for more details. The GitHub conversation itself is not automatically resolved by this process.
 :::
 
 :::tip
 You can also reopen a finding that was previously ignored. To do so, in step 2. of the procedure above, use `/semgrep open`. For `/semgrep open` the reason field is optional.
 :::
 
+<!--
 ## Creating Jira tickets from findings
 
 Semgrep supports the creation of Jira tickets from a finding. This enables developers and project managers to create relevant issues within their project or bug-tracking environment. This feature is available to Team/Enterprise Tier users.
@@ -272,10 +273,11 @@ To **create a ticket**:
 1. Set up a Jira integration through the [Integrations](https://semgrep.dev/docs/semgrep-app/integrations/) guide.
 2. Click the **three-dot icon** of the entry.
 3. Click **Create issue with Jira**.
+-->
 
 ## Deduplicating findings
 
-Semgrep App scans are performed on both mainline (trunk) and non-mainline branches. Semgrep App generates findings on a per-branch basis. Duplicate findings arise due to scans occurring on the same code in different branches.
+Semgrep Cloud Platform scans are performed on both mainline (trunk) and non-mainline branches. Semgrep Cloud Platform generates findings on a per-branch basis. Duplicate findings arise due to scans occurring on the same code in different branches.
 
 There are two types of scans:
 
