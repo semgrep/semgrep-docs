@@ -3,15 +3,17 @@ slug: rule-board
 append_help_link: true
 title: Rule board
 hide_title: true
-description: "The Rule Board is a visual representation of the rules that Semgrep App uses to scan code. Rules are cards, and are grouped into columns representing the actions undertaken (whether to block, comment, or silently monitor) when a finding surfaces."
+description: "The Rule Board is a visual representation of the rules that Semgrep Cloud Platform uses to scan code. Rules are cards, and are grouped into columns representing the actions undertaken (whether to block, comment, or silently monitor) when a finding surfaces."
 tags:
-    - Semgrep App
+    - Semgrep Cloud Platform
     - Community Tier
     - Team & Enterprise Tier
+    - Semgrep Code
 ---
 
 import MoreHelp from "/src/components/MoreHelp"
 import RemoveRule from "/src/components/procedure/_remove-rule.mdx"
+import DisableRule from "/src/components/procedure/_disable-rule.mdx"
 
 <ul id="tag__badge-list">
 {
@@ -23,26 +25,26 @@ Object.entries(frontMatter).filter(
 
 # Rule board
 
-The Rule Board is a visual representation of the rules that Semgrep App uses to scan code. Rules can be organized in rulesets. Rulesets are rules related through a programming language, OWASP category, or framework.
+The Rule Board is a visual representation of the rules that Semgrep Code uses for scanning. Rules can be organized in rulesets. Rulesets are rules related through a programming language, OWASP category, or framework.
 
-Rules and rulesets are displayed as **cards**. Group cards by dragging and dropping cards into the columns. Columns represent the actions undertaken in response to findings from that rule or ruleset.
+Rules and rulesets are displayed as **cards** in Semgrep Cloud Platform. Group cards by dragging and dropping cards into the columns. Columns represent the actions undertaken in response to findings from that rule or ruleset.
 
 The columns and their corresonding actions are:
 
 <dl>
     <dt>Monitor</dt>
-    <dd>Rules that display findings only on Semgrep App.</dd>
+    <dd>Rules that display findings only in Semgrep Cloud Platform.</dd>
     <dt>Comment</dt>
     <dd>Rules that display findings to developers through PR or MRs.</dd>
     <dt>Block</dt>
-    <dd>Rules that block merges and commits, in addition to showing findings in Semgrep App and PRs or MRs.</dd>
+    <dd>Rules that block merges and commits, in addition to showing findings in Semgrep Cloud Platform and PRs or MRs.</dd>
 </dl>
 
 ![Screenshot of the default state of the rule board](/img/rule-board.png)
 
-Semgrep App is  pre-configured to use the `default` ruleset. The `default` ruleset scans for security vulnerabilities in common programming languages and frameworks.
+Semgrep Code is pre-configured to use the `default` ruleset. The `default` ruleset scans for security vulnerabilities in common programming languages and frameworks.
 
-Semgrep App detects the framework and language when scanning a project and only runs rules relevant for that framework and language.
+Semgrep Code detects the framework and language when scanning a project and only runs rules relevant for that framework and language.
 
 ## Adding rules or rulesets
 
@@ -57,7 +59,7 @@ Semgrep App detects the framework and language when scanning a project and only 
 
 ### From Semgrep Registry
 
-1. Click a rule or ruleset in [Semgrep Registry](https://semgrep.dev/explore).
+1. Click a rule or ruleset in [Semgrep Registry](https://semgrep.dev/r/).
 2. Click **Add these to Rule Board** or **Add to Rule Board**.
 3. Select which column to place the rule or ruleset in. 
 4. The new card appears on your Rule Board.
@@ -78,18 +80,7 @@ Semgrep App detects the framework and language when scanning a project and only 
 
 ## Disabling rules
 
-To disable an individual rule, follow these steps:
-
-1. In Semgrep App, click **[Rule board](https://semgrep.dev/orgs/-/board)**.
-1. Click the ruleset that contains a rule you want to disable.
-1. Click the <i class="fa-solid fa-toggle-large-on"></i> toggle next to the rule.
-    ![Screenshot of a disabled rule in a ruleset](/img/rule-board-disabled-rule.png)
-
-:::info
-- You can only disable individual rules that are part of rulesets in your rule board.
-- You can also reverse the described procedure to enable disabled rules in rulesets.
-:::
-
+<DisableRule />
 ## Removing rules or rulesets
 
 <RemoveRule />

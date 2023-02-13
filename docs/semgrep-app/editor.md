@@ -4,10 +4,10 @@ append_help_link: true
 title: Editor
 hide_title: true
 tags:
-    - Semgrep App
+    - Semgrep Cloud Platform
     - Community Tier
     - Team & Enterprise Tier
-description: "Semgrep Editor is a powerful tool within Semgrep App to author rules and quickly apply these rules across an organization to enforce coding standards across an organization."
+description: "Semgrep Editor is a powerful tool within Semgrep Cloud Platform to author rules and quickly apply these rules across an organization to enforce coding standards across an organization."
 ---
 
 <ul id="tag__badge-list">
@@ -33,7 +33,7 @@ The Editor is free to use on all tiers, but saving a rule for **private use** is
 
 ## Accessing Semgrep Editor
 
-1. Sign in to your [Semgrep App account](https://semgrep.dev/login).
+1. Sign in to your [Semgrep Cloud Platform account](https://semgrep.dev/login).
 2. Click **Editor** from the **App sidebar**. The **splash page** and **library pane** appear.
 3. Do any of the following steps:
     1. To create a new rule, click on the <i class="fa-solid fa-circle-plus"></i> **(+) plus sign** or <i class="fa-solid fa-file-plus"></i> **Create new rule** button.
@@ -145,7 +145,7 @@ For additional annotations designed to test false positives and false negatives,
 
 ## Sharing a rule and setting a rule’s visibility
 
-Upon saving, a rule’s visibility is **unlisted** by default. This rule can be shared with anyone through an identifier, even to non-Semgrep App users.
+Upon saving, a rule’s visibility is **unlisted** by default. This rule can be shared with anyone through an identifier, even to non-Semgrep Cloud Platform users.
 
 A rule can be saved as a **private rule**, which is visible only to members within an organization. You can still share a private rule, but only members of the organization can see it. Private rules are a **Team/Enterprise tier feature**.
 
@@ -158,7 +158,7 @@ To delete a rule, right click on its entry in the Library pane and select **Dele
 
 ## Setting code standards with the Rule Board
 
-Adding a rule to the Rule Board applies the rule across all projects scanned by Semgrep App. The rule can be added to either the **Audit** or **Blocker** columns. Rules in the Blocker column will prevent PRs from being merged until the finding is resolved.
+Adding a rule to the Rule Board applies the rule across all projects scanned by Semgrep Cloud Platform. The rule can be added to either the **Audit** or **Blocker** columns. Rules in the Blocker column will prevent PRs from being merged until the finding is resolved.
 
 To add a rule to the Rule Board:
 
