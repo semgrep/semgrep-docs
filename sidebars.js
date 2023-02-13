@@ -22,15 +22,13 @@ module.exports = {
         collapsible: false,
         items: [
             'getting-started',
-            'semgrep-ci/overview',
-            'semgrep-app/getting-started-with-semgrep-app',
-            'semgrep-sc/sc-getting-started',
-            'contributing/philosophy'
+            'semgrep-code/overview',
+            'semgrep-sc/sc-getting-started'
         ]
     },
     {
       type: 'category',
-      label: 'Semgrep OSS Engine',
+      label: 'Semgrep',
       collapsible: false,
       items: [
         'supported-languages',
@@ -80,6 +78,7 @@ module.exports = {
             type: 'category',
             label: 'Writing custom rules',
             collapsible: true,
+            link: {type: 'doc', id: 'writing-rules/overview'},
             items: [
                 'writing-rules/overview',
                 'writing-rules/pattern-examples',
@@ -218,27 +217,18 @@ module.exports = {
     },
     {
       type: 'category',
-      label: 'Semgrep Cloud Platform',
+      label: 'Semgrep Cloud Platform (SCP)',
       collapsible: false,
       items: [
         'semgrep-app/getting-started-with-semgrep-app',
-        'semgrep-app/scm',
-        'semgrep-app/integrations',
+        'semgrep-app/dashboard',
         'semgrep-app/sso',
         'semgrep-app/user-management',
         'semgrep-app/tags',
-        'troubleshooting/semgrep-app',
         'semgrep-app/semgrep-api',
+        'semgrep-app/scm',
+        'troubleshooting/semgrep-app',
         'semgrep-app/pricing-and-billing'
-      ]
-    },
-    {
-      type: 'category',
-      label: 'Semgrep Pro Engine',
-      collapsible: false,
-      items: [
-        'deepsemgrep/deepsemgrep-introduction',
-        'deepsemgrep/deepsemgrep-examples'
       ]
     },
     {
@@ -246,17 +236,28 @@ module.exports = {
       label: 'Semgrep Code',
       collapsible: false,
       items: [
+        'semgrep-code/overview',
+        {
+          type: 'category',
+          label: 'Semgrep Pro Engine',
+          collapsible: true,
+          link: {type: 'doc', id: 'deepsemgrep/deepsemgrep-introduction'},
+          items: [
+            'deepsemgrep/deepsemgrep-introduction',
+            'deepsemgrep/deepsemgrep-examples'
+          ]
+        },
+        'semgrep-code/pro-rules',
         'semgrep-app/demo-project',
-        'semgrep-app/dashboard',
         'semgrep-app/rule-board',
         'semgrep-app/findings',
         'semgrep-app/editor',
         'semgrep-app/notifications',
-      ]
+        ]
     },
     {
       type: 'category',
-      label: 'Semgrep Supply Chain',
+      label: 'Semgrep Supply Chain (SSC)',
       collapsible: false,
       items: [
         'semgrep-sc/sc-overview',
@@ -301,6 +302,7 @@ module.exports = {
             'security',
             'licensing',
             'faq',
+            'contributing/philosophy',
             {
               type: 'doc',
               id: 'metrics',
