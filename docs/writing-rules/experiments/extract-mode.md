@@ -91,7 +91,7 @@ Extract mode rules **also require** two additional fields:
   - `extract`
   - `dest-language`
 
-Extract mode has two **optional** field:
+Extract mode has two **optional** fields:
   - `reduce`
   - `json`
 
