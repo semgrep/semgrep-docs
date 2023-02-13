@@ -2,7 +2,7 @@
 slug: getting-started
 append_help_link: true
 description: "Install Semgrep, run Semgrep locally, and learn about the benefits of running Semgrep in CI (continuous integration)."
-title: Semgrep CLI
+title: Semgrep OSS Engine
 hide_title: true
 ---
 
@@ -10,17 +10,19 @@ import MoreHelp from "/src/components/MoreHelp"
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-# Getting started with Semgrep CLI
+# Getting started with Semgrep OSS Engine
+
+The Semgrep Engine is the open-source foundation of Semgrep. Detect bugs, style violations, security issues, and more by scanning your code locally using [community-contributed rules](https://semgrep.dev/explore) as well as your own custom rules.
 
 ## Installing and running Semgrep locally
 
-Install and run [Semgrep](https://github.com/returntocorp/semgrep/) locally to scan your code. Semgrep runs offline on uncompiled code. **No code leaves your computer**.
+Install and run [Semgrep CLI](https://github.com/returntocorp/semgrep/) to scan your code locally using Semgrep OSS Engine. Semgrep CLI runs offline on uncompiled code. **No code leaves your computer**.
 
 :::info Prerequisite
 Semgrep CLI installation requires Python 3.7 or later.
 :::
 
-1. Install Semgrep. Use one of the following options depending on your system and preference:
+1. Install Semgrep CLI. Use one of the following options depending on your system and preference:
     <Tabs
         defaultValue="macOS"
         values={[
@@ -137,10 +139,24 @@ semgrep --config=auto
 
 Semgrep is at its best when used to continuously scan code. Check out [Semgrep in CI](semgrep-ci/overview.md/) to learn how to get results where you already work: GitHub, GitLab, Slack, Jira, and more. To get results even earlier in the development process, such as in a Git pre-commit hook or VS Code, check the available [Semgrep extensions](./extensions.md).
 
-Check out [Semgrep App](https://semgrep.dev/manage) to integrate CI with PR or MR comments, monitor progress, host private rules (paid tier), and much more! 
+Check out [Semgrep Cloud Platform](https://semgrep.dev/manage) (SCP) to integrate CI with PR or MR comments, monitor progress, host private rules (Team and Enterprise tiers), and much more! 
 
-## Upgrading
+## Logging into Semgrep Cloud Platform
 
-We [release new Semgrep versions](https://github.com/returntocorp/semgrep/releases) often! See [upgrading](./upgrading.md) for more details.
+Logging into SCP from your CLI enables you to:
+
+* Send findings from your local scans to SCP for findings triage.
+* Quickly configure scans to run either rules from your Rule board or different rules and rulesets. 
+* For Team or Enterprise users: run Pro rules from the CLI.
+
+To log in to SCP:
+
+1. Create an SCP account by clicking the link: [Sign in to Semgrep Cloud Platform](https://semgrep.dev/login).
+2. In your command line, enter `semgrep login`.
+3. Click the link provided in your CLI and follow the instructions.
+
+## Updating Semgrep
+
+We [release new Semgrep versions](https://github.com/returntocorp/semgrep/releases) often! See [Updating](./upgrading.md) for more details.
 
 <MoreHelp />
