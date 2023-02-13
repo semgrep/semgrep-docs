@@ -75,7 +75,7 @@ See also [NIST definition of threat](https://csrc.nist.gov/glossary/term/threat)
 
 A transitive or indirect dependency is a dependency of a dependency. If your codebase uses a dependency A, and A is dependent on B, then B is a transitive dependency. A real-world example is [Cloudinary](https://www.npmjs.com/package/cloudinary), which is dependent on Lodash. In this example, Lodash is a transitive dependency.
 
-Semgrep Supply Chain can parse manifest files for some languages to identify transitive dependencies. For more information, see [Supported languages](/docs/supported-languages#semgrep-supply-chain).
+For more information, see [Supported languages](/docs/supported-languages#semgrep-supply-chain).
 
 ## Usage
 
