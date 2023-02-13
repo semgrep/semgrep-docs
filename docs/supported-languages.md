@@ -7,7 +7,7 @@ description: >-
 hide_title: true
 tags:
     - Semgrep Supply Chain 
-    - Semgrep
+    - Semgrep OSS Engine
     - Community Tier
     - Team & Enterprise Tier
 title: Supported languages
@@ -30,13 +30,13 @@ Object.entries(frontMatter).filter(
 
 This document provides information about supported languages and language maturity definitions for the following products:
 
-* Semgrep
+* Semgrep OSS Engine
 * Semgrep Supply Chain
-* DeepSemgrep
+* Semgrep Pro Engine
 
-## Semgrep
+## Semgrep OSS Engine
 
-Semgrep is a fast, open source, static analysis engine for finding bugs and enforcing code standards.
+Semgrep OSS Engine offers a fast static analysis solution for finding bugs and enforcing code standards.
 
 ### Language maturity
 
@@ -50,7 +50,7 @@ Language maturity is determined by 3 factors in the Semgrep ecosystem:
 
 <dl>
     <dt>Parse rate</dt>
-    <dd>How well Semgrep can parse code in a given language.</dd>
+    <dd>How well Semgrep OSS Engine can parse code in a given language.</dd>
     <dt>Feature support</dt>
     <dd>What <a href='/writing-rules/pattern-syntax/'>Semgrep features</a> are implemented for a given language.</dd>
     <dt>Ruleset count</dt>
@@ -59,7 +59,7 @@ Language maturity is determined by 3 factors in the Semgrep ecosystem:
 
 #### Levels of maturity
 
-Semgrep defines 3 maturity levels: 
+Semgrep OSS Engine defines 3 maturity levels: 
 
 <dl>
 <dt>Experimental</dt>
@@ -290,24 +290,28 @@ Their differences are outlined in the following table:
    </td>
   </tr>
   <tr>
-   <td>Semgrep engine <a href='/docs/supported-languages#semgrep'>language support</a>
+   <td>Semgrep OSS Engine <a href='/docs/supported-languages#semgrep-oss-engine'>language support</a>
    </td>
-   <td>Semgrep engine support is GA.
+   <td>Semgrep OSS Engine support is GA.
    </td>
-   <td>Semgrep engine support is at least Beta.
+   <td>Semgrep OSS Engine support is at least Beta.
    </td>
   </tr>
 </table>
 
-## DeepSemgrep
+## Semgrep Pro Engine
 
 <DeepSemgrepIntroduction />
 
-### Beta support
+Semgrep Pro Engine offers support for the following languages:
 
-DeepSemgrep offers **beta** support for the following languages:
-- **Java**
-- **JavaScript**
-- **TypeScript**
+|  Language   | Support level |  Analysis type  |
+|-------------|---------------|-----------------|
+| Apex        | Experimental  | Interprocedural |
+| Java        |     Beta      |    Interfile    |
+| JavaScript  |     Beta      |    Interfile    |
+| TypeScript  |     Beta      |    Interfile    |
+
+To install and run Semgrep Pro Engine, see [Semgrep Pro Engine overview](/deepsemgrep/deepsemgrep-introduction/).
 
 <MoreHelp />
