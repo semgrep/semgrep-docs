@@ -4,6 +4,7 @@ append_help_link: true
 description: "Reference for the Semgrep command line tool including options and exit code behavior."
 tags:
     - Semgrep CLI
+    - Semgrep Code
     - Community Tier
     - Team & Enterprise Tier
 hide_title: true
