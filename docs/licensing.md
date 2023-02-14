@@ -10,11 +10,11 @@ description: >-
 This document provides an overview of the licenses of important products created by r2c. See the list of the products and their licenses below:
 
 <dl>
-  <dt>Semgrep CLI</dt>
-    <dd>Semgrep CLI is an open source project licensed under <a href="https://github.com/returntocorp/semgrep/blob/develop/LICENSE">LGPL 2.1</a>. The proprietary extension of Semgrep CLI is DeepSemgrep, see also <a href="https://semgrep.dev/terms">Terms of Service</a>.</dd>
+  <dt>Semgrep OSS Engine</dt>
+    <dd>Semgrep OSS Engine is an open source project licensed under <a href="https://github.com/returntocorp/semgrep/blob/develop/LICENSE">LGPL 2.1</a>. The proprietary extension of Semgrep OSS Engine is Semgrep Code, see also <a href="https://semgrep.dev/terms">Terms of Service</a>.</dd>
   <dt>Semgrep Supply Chain</dt>
     <dd>Proprietary. See <a href="https://semgrep.dev/terms">Terms of Service</a>.</dd>
-  <dt>Semgrep App</dt>
+  <dt>Semgrep Code, Semgrep Cloud Platform, Semgrep Pro Engine, and Semgrep Pro rules</dt>
     <dd>Proprietary. See <a href="https://semgrep.dev/terms">Terms of Service</a>.</dd> 
   <dt>Semgrep Registry</dt>
     <dd>

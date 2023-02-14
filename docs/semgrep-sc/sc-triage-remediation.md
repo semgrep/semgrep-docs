@@ -5,7 +5,7 @@ description: "Perform triage and remediation of dependency vulnerabilities throu
 tags:
     - Semgrep Supply Chain
     - Team & Enterprise Tier
-title: Triaging and remediating dependency findings
+title: Triage and remediation 
 hide_title: true
 ---
 

@@ -30,38 +30,49 @@ Its rules look like the code you already write; no abstract syntax trees, regex 
 
 <!-- <EditorWidget snippetId={"ievans:print-to-logger2"} /> -->
 
-The Semgrep ecosystem includes:
+The Semgrep ecosystem includes the following products:
 
-* [Semgrep](getting-started/) - The open-source command line tool at the heart of everything.
-* [Semgrep Supply Chain](https://semgrep.dev/products/semgrep-supply-chain) - high-signal dependency scanner that detects reachable vulnerabilities in open source, third-party libraries and functions across the SDLC.
-* [Semgrep App](https://semgrep.dev/manage) - Deploy, manage, and monitor Semgrep and Semgrep Supply Chain at scale with free and paid tiers. Integrates with CI providers such as GitHub, GitLab, CircleCI, and more.
+* [Semgrep OSS Engine](getting-started/) - The open-source engine at the heart of everything.
+* [Semgrep Cloud Platform (SCP)](semgrep-app/getting-started-with-semgrep-app) - Deploy, manage, and monitor SAST and SCA at scale using Semgrep, with [free and paid tiers](https://semgrep.dev/pricing). Integrates with continuous integration (CI) providers such as GitHub, GitLab, CircleCI, and more.
+* [Semgrep Code](https://semgrep.dev/products/semgrep-code) - Scan your code with Semgrep's Pro rules and Semgrep Pro Engine to find OWASP Top 10 vulnerabilities and protect against critical security risks specific to your organization. Semgrep Code provides both Community (free) and Team (paid) tiers.
+* [Semgrep Supply Chain (SSC)](https://semgrep.dev/products/semgrep-supply-chain) - A high-signal dependency scanner that detects reachable vulnerabilities in open source third-party libraries and functions across the software development life cycle (SDLC). Semgrep Supply Chain is available on Team (paid) tiers.
 
-and:
+Support and be supported by the Semgrep community through:
 
 * [Semgrep Playground](https://semgrep.dev/editor) - An online interactive tool for writing and sharing rules.
 * [Semgrep Registry](https://semgrep.dev/explore) - 2,000+ community-driven rules covering security, correctness, and dependency vulnerabilities.
-* [Semgrep App](https://semgrep.dev/manage) - Deploy, manage, and monitor Semgrep at scale with free and paid tiers. Integrates with CI providers such as GitHub, GitLab, CircleCI, and more.
 
 Semgrep is developed and commercially supported by [r2c, a software security company](https://r2c.dev).
 
 <p align="center">
-  <a href="/docs/getting-started"> Get started →</a>
+  <a href="/docs/getting-started">Get started →</a>
 </p>
-
-:::tip
-New: Semgrep Supply Chain finds reachable vulnerable dependencies in your code. [More →](https://semgrep.dev/products/semgrep-supply-chain)
-:::
 
 ## Language support
 
 <SupportedLanguagesTable />
 
-To determine experimental, beta, or general availability (GA) status we scan a wide corpus of projects and measure the parse rate of each language. For more details see [the breakdown of all supported languages](supported-languages/).
+To determine experimental, beta, or general availability (GA) status, r2c scans a wide corpus of projects and measure the parse rate of each language. For more details see [the breakdown of all supported languages](supported-languages/).
+
+## Environments
+
+The following table lists environments in which you can run various Semgrep products.
+
+
+| Product              | Local CLI | Remote CI |
+| -------------------- | --------- | --------- |
+| Semgrep OSS Engine  |  ✅  [Run locally with Semgrep Engine](getting-started)  |   ✅  Can send findings to [Semgrep Cloud Platform](semgrep-ci/running-semgrep-ci-with-semgrep-app) or run [stand-alone CI jobs](semgrep-ci/running-semgrep-ci-without-semgrep-app) |
+| Semgrep Code         |  ✅  Log in to access [Pro Engine](deepsemgrep/deepsemgrep-introduction) and [Pro rules](semgrep-code/pro-rules) (Team and Enterprise tier) |   ✅  Best used with [Semgrep Cloud Platform](semgrep-app/getting-started-with-semgrep-app) |
+| Semgrep Supply Chain |  ✅  Log in to access [Supply Chain](semgrep-sc/semgrep-supply-chain-overview) rules (Team and Enterprise tier)  |   ✅  Best used with [Semgrep Cloud Platform](semgrep-app/getting-started-with-semgrep-app) |
+
+:::info 
+Semgrep Cloud Platform is a hosted web application (SaaS) and as such is excluded from the table.
+:::
 
 ## History
 
 Semgrep is an evolution of [pfff](https://github.com/returntocorp/pfff/), which began at [Facebook](https://github.com/facebookarchive/pfff) in 2009, which itself was an evolution of the Linux refactoring tool [Coccinelle](https://en.wikipedia.org/wiki/Coccinelle_(software)). [r2c](https://r2c.dev/team) revitalized the project after its original author, [Yoann Padioleau](https://github.com/aryx), joined the company.
 
-## Understanding Semgrep development philosophy
+## Semgrep development philosophy
 
-See the [Semgrep CLI Philosophy](contributing/semgrep-philosophy/) for details about why Semgrep is free, our goals for development, and the designed capabailities and limits of the static analysis engine.
+See the [Semgrep OSS Engine Philosophy](contributing/semgrep-philosophy/) for details about why Semgrep is free, our goals for development, and the designed capabailities and limits of the static analysis engine.
