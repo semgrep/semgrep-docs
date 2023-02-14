@@ -45,7 +45,7 @@ Support and be supported by the Semgrep community through:
 Semgrep is developed and commercially supported by [r2c, a software security company](https://r2c.dev).
 
 <p align="center">
-  <a href="/docs/getting-started"> Get started →</a>
+  <a href="/docs/getting-started">Get started →</a>
 </p>
 
 ## Language support
