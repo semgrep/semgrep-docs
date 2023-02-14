@@ -34,7 +34,7 @@ Semgrep Cloud Platform has two types of accounts:
     <dd>To collaborate with others, create an <strong>organization account</strong>. An organization account in Semgrep Cloud Platform requires an existing organization from GitHub or GitLab. Creating this type of account integrates Semgrep Cloud Platform with your organization. A user can be part of many Semgrep Cloud Platform organization accounts, provided that they are a member of that organization in their SCM (source code management) tool, such as GitHub or GitLab.</dd>
 </dl>
 
-Users from the same organization can sign into Semgrep Cloud Platform with their SCM's credentials and are automatically added to the organization account. Semgrep Cloud Platform can also detect the organization's repositories available for scanning.
+Users from the same organization can sign in to Semgrep Cloud Platform with their SCM's credentials and are automatically added to the organization account. Semgrep Cloud Platform can also detect the organization's repositories available for scanning.
 
 In organization accounts, collaborators can collectively manage Semgrep Cloud Platform. By default, users can:
 
