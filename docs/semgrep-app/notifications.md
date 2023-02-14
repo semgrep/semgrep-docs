@@ -67,7 +67,7 @@ To view, add, remove, disable, or enable your saved channels:
 
 ### Email
 
-Receive Semgrep findings in an email address of your choice with email integration.
+Receive Semgrep findings via email.
 
 To set up email integration:
 
