@@ -109,7 +109,7 @@ The following performance differences may arise:
 
 ### Semgrep Pro Engine CI scan issues
 
-To ensure scans reliably complete, Semgrep Pro Engine can fall back to the use of Semgrep OSS. This ensures that in the vast majority of cases, scans run successfully.
+To ensure scans reliably complete, Semgrep Pro Engine can fall back to the use of Semgrep OSS Engine. This ensures that in the vast majority of cases, scans run successfully.
 
 If a scan uses more than 5&nbsp;GB of memory during pre-processing, the scan uses Semgrep OSS Engine to ensure lower memory consumption. Similarly, if the Semgrep Pro Engine scan doesn't complete after 3 hours, the Pro Engine results in time out and Semgrep OSS rescans the repository. Typically, this is because the repository is very large.
 
