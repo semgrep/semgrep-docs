@@ -80,7 +80,7 @@ You have now successfully run Semgrep Pro Engine and Pro rules on a project.
 
 ## Additional information
 
-### Experimental Support for Interprocedural Analysis
+### Experimental support for interprocedural analysis
 
 r2c is testing interprocedural analysis. This type of analysis keeps the fast scan times of OSS Semgrep, and still finds new vulnerabilities that cross functions. It's designed to improve pull requests results to help security professionsals build trust with developers. It is currently experimentally supported for **all languages**. 
 
