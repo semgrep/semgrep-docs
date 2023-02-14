@@ -305,12 +305,12 @@ Their differences are outlined in the following table:
 
 Semgrep Pro Engine offers support for the following languages:
 
-|  Language   | Support level |  Analysis type  |
-|-------------|---------------|-----------------|
-| Apex        | Experimental  | Interprocedural |
-| Java        |     Beta      |    Interfile    |
-| JavaScript  |     Beta      |    Interfile    |
-| TypeScript  |     Beta      |    Interfile    |
+|  Language   |  Analysis type  | Support level |
+|-------------|-----------------|---------------|
+| Apex        | Interprocedural | Experimental  |
+| Java        |    Interfile    |     Beta      |
+| JavaScript  |    Interfile    |     Beta      |
+| TypeScript  |    Interfile    |     Beta      |
 
 To install and run Semgrep Pro Engine, see [Semgrep Pro Engine overview](/deepsemgrep/deepsemgrep-introduction/).
 

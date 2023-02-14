@@ -25,7 +25,7 @@ Object.entries(frontMatter).filter(
 
 # Managing findings in Semgrep Cloud Platform
 
-A **finding** is the core result of Semgrep analysis. Findings are generated when a Semgrep rule matches a piece of code.
+Finding page enables you to easily manage **findings**. **Findings** are the core results of Semgrep analysis. The findings are generated when a Semgrep rule matches a piece of code.
 
 ![Semgrep Cloud Platform Findings page](/img/app-findings-overview.png)<br />
 *Figure 1.* Screenshot of findings page.
@@ -111,7 +111,7 @@ Filtering allows you to easily isolate groups of findings for ease in triaging a
 | **Rules**        | Filter by rules or rulesets that are included in your Rule Board. More than one rule can be selected for filtering. |
 | **Rulesets**     | Filter by name of the ruleset where rules that matched the code belong. More than one rule or ruleset can be selected for filtering. |
 
-You can also filter for findings reported from specific time periods or group findings by rule. See [Displaying findings reported in a specific time](/semgrep-app/findings/#displaying-findings-reported-in-a-specific-time) and [Group by rule](/semgrep-app/findings/#grouping-by-rule) sections.
+You can also filter for findings reported from specific time periods. See [Displaying findings reported in a specific time](/semgrep-app/findings/#displaying-findings-reported-in-a-specific-time).
 
 To filter through findings:
 
@@ -133,17 +133,23 @@ Display and filter for findings reported only in specific time. To display findi
 
 ### Grouping by rule
 
-Semgrep Cloud Platform enables you to group findings by a specific rule on the Findings page.
+Semgrep Cloud Platform by default groups findings by a specific rule on the Findings page. This view can be disabled.
 
-![Screenshot of the Findings page with findings grouped by rule](/img/app-findings-overview-grouped-by-rule.png)<br />
-*Figure 3.* Screenshot of the Findings page with findings grouped by rule
+![Screenshot of the Findings page with findings grouped by rule](/img/app-findings.png)<br />
+*Figure 3.* Screenshot of the Findings page with findings grouped by rule.
 
-To group findings by rules, follow these steps:
+### Disabling grouping by rule
+
+To disable grouping by rule, follow these steps:
 
 1. In Semgrep Cloud Platform, go to **[Findings](https://semgrep.dev/orgs/-/findings)** page.
-1. Click the list under **No grouping**, and then select **Group by Rule**.
-    ![Screenshot of the Group by Rule option](/img/app-finding-group-by-rule.png)<br />
-    *Figure 4.* Screenshot of the Group by Rule option.
+1. Click the list under **Group by Rule**, and then select **No grouping**.
+    ![Screenshot of the Group by Rule option](/img/cloud-platform-findings-no-grouping.png)<br />
+    *Figure 4.* Screenshot of the No grouping option.
+
+:::info
+Findings in the no grouping view are displayed by their recency. The most recent finding is at the top of the Findings page.
+:::
 
 ## Triaging findings
 
