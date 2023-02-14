@@ -97,7 +97,7 @@ Example:
 export SEMGREP_GIT_COMMAND_TIMEOUT="180"
 ```
 
-### `SEMGREP RULES`
+### `SEMGREP_RULES`
 
 Set `SEMGREP_RULES` to define rules and rulesets for your scan. Findings are logged within your CI environment. `SEMGREP_RULES` is incompatible with `SEMGREP_APP_TOKEN`.
 
