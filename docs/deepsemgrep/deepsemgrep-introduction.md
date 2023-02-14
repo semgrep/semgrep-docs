@@ -96,7 +96,7 @@ To try interprocedural analysis on the CLI:
 
 ### Events that trigger a Semgrep Pro Engine scan
 
-Semgrep Pro Engine only runs on full scans. **It does not run on pull or merge requests(PRs or MRs)**.
+Semgrep Pro Engine only runs on full scans. **It does not run on pull or merge requests (PRs or MRs)**.
 
 ### Performance differences of Semgrep Pro Engine and Semgrep OSS Engine
 
