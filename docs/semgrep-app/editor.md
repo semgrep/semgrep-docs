@@ -7,7 +7,7 @@ tags:
     - Semgrep Cloud Platform
     - Community Tier
     - Team & Enterprise Tier
-description: "Semgrep Editor is a powerful tool within Semgrep Cloud Platform to author rules and quickly apply these rules across an organization to enforce coding standards across an organization."
+description: "Semgrep Editor is a powerful tool within Semgrep Cloud Platform to write rules and quickly apply these rules across an organization to enforce coding standards across an organization."
 ---
 
 <ul id="tag__badge-list">
