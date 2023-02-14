@@ -131,12 +131,14 @@ Display and filter for findings reported only in specific time. To display findi
     - Last 7 days
     - Last 1 day
 
-### Disabling grouping by rule
+### Grouping by rule
 
-Semgrep Cloud Platform by default groups findings by a specific rule on the Findings page. 
+Semgrep Cloud Platform by default groups findings by a specific rule on the Findings page. This view can be disabled.
 
 ![Screenshot of the Findings page with findings grouped by rule](/img/app-findings.png)<br />
 *Figure 3.* Screenshot of the Findings page with findings grouped by rule.
+
+### Disabling grouping by rule
 
 To disable grouping by rule, follow these steps:
 
