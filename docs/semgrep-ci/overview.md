@@ -50,7 +50,7 @@ When running in CI, Semgrep runs fully in the CI build environment. Your code is
 There are two methods to set up Semgrep in CI. 
 
 * To scale and automate your scans across many repositories, **use Semgrep Cloud Platform (SCP)**. Semgrep Cloud Platform provides a centralized web application to manage findings and configure rulesets and notifications. This is the **recommended method** of integrating Semgrep in CI.
-* To scan your code in a single CI pipeline, **create a stand-alone CI job or add Semgrep to a script block in your pipeline.** You can still scan Semgrep on a schedule or trigger a scan based on events, but without Semgrep Cloud Platform.
+* To scan your code in a single CI pipeline, **create a stand-alone CI job or add Semgrep to a script block in your pipeline.** You can still run scans on a schedule or trigger a scan based on events, but without Semgrep Cloud Platform.
 
 Refer to the following table to help you choose what method best meets the needs of your development.
 
