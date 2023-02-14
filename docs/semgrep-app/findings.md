@@ -72,7 +72,7 @@ After a finding is generated, developers can:
 
 ### Understanding retention periods
 
-The Semgrep Cloud Platform Finding page displays findings across all projects connected to Semgrep Cloud Platform. It is updated after every scan. Scans are initiated through your CI/CD pipeline, such as GitHub actions. The retention period of these findings varies based on your organization’s tier:
+The Semgrep Cloud Platform Findings page displays findings across all projects connected to Semgrep Cloud Platform. It is updated after every scan. Scans are initiated through your CI/CD pipeline, such as GitHub actions. The retention period of these findings varies based on your organization’s tier:
 
 | Retention period | Tier availability |
 | ---------------  | ----------------- |
