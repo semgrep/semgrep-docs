@@ -133,7 +133,7 @@ Display and filter for findings reported only in specific time. To display findi
 
 ### Grouping by rule
 
-Semgrep Cloud Platform by default groups findings by a specific rule on the Findings page. Procedure documented in this section helps you to enable group by rule when it was disabled.
+Semgrep Cloud Platform by default groups findings by a specific rule on the Findings page. 
 
 ![Screenshot of the Findings page with findings grouped by rule](/img/app-findings.png)<br />
 *Figure 3.* Screenshot of the Findings page with findings grouped by rule.
