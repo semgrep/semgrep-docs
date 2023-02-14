@@ -94,7 +94,7 @@ Another method for users to define ignore patterns is through a Project in Semgr
 
 To define files and folders in Semgrep Cloud Platform:
 
-1. Sign into [Semgrep Cloud Platform](https://semgrep.dev/login?return_path=/manage/projects).
+1. Sign in to [Semgrep Cloud Platform](https://semgrep.dev/login?return_path=/manage/projects).
 2. From the Dashboard Sidebar, select **[Projects](https://semgrep.dev/orgs/-/projects)** > **[Project name]**.
 3. Select the name of the project to modify, and then click the respective <i class="fa-solid fa-gear"></i> **gear** icon in the Settings column.
 4. Enter files and folders to ignore in the **Path Ignores** box.
