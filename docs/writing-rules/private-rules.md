@@ -1,6 +1,6 @@
 ---
 slug: private-rules
-description: "Users in the Team and Enterprise tier for Semgrep Cloud Platform can publish rules to the Semgrep Registry that are not visible to others outside their organization. This can be useful for organizations where rules may contain code-sensitive information or legal requirements prevent using a public registry."
+description: "Users of the Team and Enterprise tier for Semgrep Code can publish rules to the Semgrep Registry that are not visible to others outside their organization. This can be useful for organizations where rules may contain code-sensitive information or legal requirements prevent using a public registry."
 ---
 
 import MoreHelp from "/src/components/MoreHelp"
