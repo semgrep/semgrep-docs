@@ -72,7 +72,7 @@ To enable Semgrep Pro Engine in Semgrep Cloud Platform, follow these steps:
 
 ### Testing through a demo project
 
-After enabling Semgrep Pro Engine, you can add a demo project to quickly try out Semgrep Pro Engine.
+After enabling Semgrep Pro Engine, you can add a demo project to quickly try Semgrep Pro Engine.
 
 <AddDemoProject />
 
