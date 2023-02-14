@@ -12,7 +12,7 @@ import TabItem from '@theme/TabItem';
 
 # Getting started with Semgrep OSS Engine
 
-The Semgrep Engine is the open-source foundation of Semgrep. Detect bugs, style violations, security issues, and more by scanning your code locally using [community-contributed rules](https://semgrep.dev/explore) as well as your own custom rules.
+The Semgrep OSS Engine is the foundation of Semgrep. Detect bugs, style violations, security issues, and more by scanning your code locally using [community-contributed rules](https://semgrep.dev/explore) as well as your own custom rules.
 
 ## Installing and running Semgrep locally
 
