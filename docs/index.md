@@ -30,7 +30,7 @@ Its rules look like the code you already write; no abstract syntax trees, regex 
 
 <!-- <EditorWidget snippetId={"ievans:print-to-logger2"} /> -->
 
-The Semgrep ecosystem includes the following tools:
+The Semgrep ecosystem includes the following products:
 
 * [Semgrep OSS Engine](getting-started/) - The open-source engine at the heart of everything.
 * [Semgrep Cloud Platform (SCP)](semgrep-app/getting-started-with-semgrep-app) - Deploy, manage, and monitor SAST and SCA at scale using Semgrep, with [free and paid tiers](https://semgrep.dev/pricing). Integrates with continuous integration (CI) providers such as GitHub, GitLab, CircleCI, and more.
