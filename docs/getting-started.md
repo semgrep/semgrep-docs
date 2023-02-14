@@ -146,7 +146,7 @@ Check out [Semgrep Cloud Platform](https://semgrep.dev/manage) (SCP) to integrat
 Logging into SCP from your CLI enables you to:
 
 * Send findings from your local scans to SCP for findings triage.
-* Quickly configure scans to run either rules from your Rule board or different rules and rulesets. 
+* Quickly configure local scans to run either rules from your Rule board or a different set of rules and rulesets. 
 * For Team or Enterprise users: run Pro rules from the CLI.
 
 To log in to SCP:
