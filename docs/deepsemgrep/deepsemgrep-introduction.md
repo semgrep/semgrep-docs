@@ -86,7 +86,7 @@ r2c is testing interprocedural analysis. This type of analysis keeps the fast sc
 
 To try interprocedural analysis on the CLI:
 
-1. Follow steps 1-3 in _Using Semgrep Pro Engine in CLI_
+1. Follow steps 1-3 in [_Using Semgrep Pro Engine in CLI_](#installing-semgrep-pro-engine-in-cli)
 
 1. Run the following command 
 
