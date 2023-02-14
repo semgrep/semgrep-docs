@@ -76,7 +76,7 @@ After enabling Semgrep Pro Engine, you can add a demo project to quickly try out
 
 <AddDemoProject />
 
-You have now successfully run Semgrep Pro Engine and Pro rules on a codebase.
+You have now successfully run Semgrep Pro Engine and Pro rules on a project.
 
 ## Additional information
 
