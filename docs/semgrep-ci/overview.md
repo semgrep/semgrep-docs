@@ -58,7 +58,7 @@ Refer to the following table to help you choose what method best meets the needs
 
 The following table displays what features are available for manual (without Semgrep Cloud Platform) and automated (through Semgrep Cloud Platform) methods.
 
-| Feature | Semgrep Cloud Platform (Community Tier) setup | Stand-alone CI job setup (without Semgrep Cloud Platform) |
+| Feature | Semgrep Cloud Platform setup | Stand-alone CI job setup (without Semgrep Cloud Platform) |
 | :------ | :--------------------------------- | ---------------------------------------------- |
 | Scan on a schedule | ✔️ | ✔️ |
 | Scan with custom rules and rulesets | ✔️ | ✔️ |

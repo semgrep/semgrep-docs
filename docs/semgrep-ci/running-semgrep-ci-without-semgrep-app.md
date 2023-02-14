@@ -49,7 +49,7 @@ By configuring a job's parameters, you are able to achieve the following goals:
 * **Configure a Semgrep CI job to pass even when any finding is detected**. By default, stand-alone configurations fail when any finding is detected. You can also configure Semgrep to pass CI jobs when findings are reported.
 * **Output, export, or save findings to a file**. Semgrep can save to a number of file formats, including SARIF and JSON.
 
-## Limitations of stand-alone Semgrep CI scans 
+## Limitations of Semgrep stand-alone CI scans 
 
 Running Semgrep in CI without Semgrep Cloud Platform bears specific limitations compared to the use of Semgrep in CI with Semgrep Cloud Platform. See the following list:
 

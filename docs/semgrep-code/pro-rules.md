@@ -34,12 +34,10 @@ Claudio's portions
 The Semgrep Registry includes the following kinds of rules:
 * **Community rules** - reviewed by r2c, these rules consist of contributions from Semgrep’s community. Community rules encompass a wide array of rules, including many that are made for security auditors.
 * **Third-party rules** - created directly by external contributors such as Trail of Bits, GitLab and many more.
-* **Private rules** - rules that can be authored and published by your own organization.
-* **Pro rules** - proprietary rules created by r2c targeted for developers who need accurate findings. These rules provide increased coverage for many programming languages and use the latest Semgrep features.
+* **Private rules** - rules that can be authored and published by your own organization and for use only by your organization.
+* **Pro rules** - proprietary rules created by r2c targeted for security and software engineers who need accurate findings. These rules provide increased coverage for many programming languages and use the latest Semgrep features.
 
 ## Introduction
-
-Semgrep Pro rules are an additional kind of rules served by the [Semgrep Registry](https://semgrep.dev/explore) and available in the [Team tier](https://semgrep.dev/pricing) or higher.
 
 The goal of Pro rules is to provide a set of well-supported rules with improved coverage across languages and vulnerability types. Semgrep Pro rules are written using Semgrep’s latest features and, in general, target users who are looking to produce highly accurate, actionable findings.
 
