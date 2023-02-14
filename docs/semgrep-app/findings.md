@@ -25,7 +25,7 @@ Object.entries(frontMatter).filter(
 
 # Managing findings in Semgrep Cloud Platform
 
-Finding page enables you to easily manage **findings**. **Findings** are the core results of Semgrep analysis. The findings is generated when a Semgrep rule matches a piece of code.
+Finding page enables you to easily manage **findings**. **Findings** are the core results of Semgrep analysis. The findings are generated when a Semgrep rule matches a piece of code.
 
 ![Semgrep Cloud Platform Findings page](/img/app-findings-overview.png)<br />
 *Figure 1.* Screenshot of findings page.
