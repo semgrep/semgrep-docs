@@ -75,7 +75,7 @@ To enable Semgrep Pro Engine in Semgrep Cloud Platform, follow these steps:
 
 ### Experimental support for interprocedural analysis
 
-Interprocedural analysis keeps the fast scan times of Semgrep OSS while also finding new vulnerabilities that cross functions. It's designed to improve results of pull or merge requests (PRs or MRs) and help security engineers build trust with developers.
+Interprocedural analysis keeps the fast scan times of Semgrep OSS while also finding new vulnerabilities that cross functions. It's designed to improve results shown in pull or merge requests (PRs or MRs) and help security engineers build trust with developers.
 
 To run Semgrep Pro Engine interprocedural analysis in the CLI:
 
