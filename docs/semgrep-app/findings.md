@@ -131,31 +131,22 @@ Display and filter for findings reported only in specific time. To display findi
     - Last 7 days
     - Last 1 day
 
-### Grouping by rule
+### Disabling grouping by rule
 
 Semgrep Cloud Platform by default groups findings by a specific rule on the Findings page. 
 
 ![Screenshot of the Findings page with findings grouped by rule](/img/app-findings.png)<br />
 *Figure 3.* Screenshot of the Findings page with findings grouped by rule.
 
-To group findings by rules, follow these steps:
-
-1. In Semgrep Cloud Platform, go to **[Findings](https://semgrep.dev/orgs/-/findings)** page.
-1. Click the list under **No grouping**, and then select **Group by Rule**.
-    ![Screenshot of the Group by Rule option](/img/cloud-platform-findings-group-by-rule.png)<br />
-    *Figure 4.* Screenshot of the Group by Rule option.
-
-#### Disabling grouping by rule
-
 To disable grouping by rule, follow these steps:
 
 1. In Semgrep Cloud Platform, go to **[Findings](https://semgrep.dev/orgs/-/findings)** page.
 1. Click the list under **Group by Rule**, and then select **No grouping**.
     ![Screenshot of the Group by Rule option](/img/cloud-platform-findings-no-grouping.png)<br />
-    *Figure 5.* Screenshot of the No grouping option.
+    *Figure 4.* Screenshot of the No grouping option.
 
 :::info
-Findings in this view are displayed by their recency. The most recent finding is at the top of the Findings page.
+Findings in the no grouping view are displayed by their recency. The most recent finding is at the top of the Findings page.
 :::
 
 ## Triaging findings
