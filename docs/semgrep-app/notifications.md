@@ -78,7 +78,7 @@ To set up email integration:
 5. Click **Save.**
 6. Turn notifications on by going to the **Rule board**, clicking on the <i class="fa-solid fa-gear"></i> **gear** icon, and then click the <i class="fa-solid fa-toggle-large-on"></i> **toggle** next to the name of the integration.
 
-![Screenshot of Semgrep email with findings ](/img/integrations-email-findings.png#bordered)
+![Screenshot of Semgrep Cloud Platform email with findings ](/img/integrations-email-findings.png#bordered)
 *Figure 2.* Sample of an email sent from Semgrep with findings.
 
 :::note Number of emails
