@@ -13,8 +13,8 @@ toc_max_heading_level: 3
 
 ### Additions
 
-- Added a new **Exposure** category called **Not analyzed** within **Semgrep App > Vulnerabilities** page. Users who have enabled **Historical coverage** rules now see vulnerabilities detected from those rules under **Not analyzed**. This is because Historical coverage rules do not have reachability patterns, therefore it is not analyzed that their findings are reachable or unreachable.
-- The **Semgrep App** > **Advisories** page displays a new tag, **Reachability: review manually** for rules that must be reviewed manually.
+- Added a new **Exposure** category called **Not analyzed** within **Semgrep App > Vulnerabilities** page. Users who have enabled **Historical coverage** rules now see vulnerabilities detected from those rules under **Not analyzed**. This is because Historical coverage rules do not have reachability patterns, therefore it is not known if their findings are reachable or unreachable.
+- The **Semgrep App** > **Advisories** page displays a new tag, **Reachability: review manually** for rules where the reachability of a finding depends on infrastructure usage patterns, instead of code patterns. Findings that appear from these rules appear under **Exposure > Reachable** within **Semgrep App > Vulnerabilities**, and include a short hint on how to determine if your infrastructure is vulnerable.
     ![Semgrep App Advisories, Reachability review manually](/img/release-notes-semgrep-app-reachability-review.png)
 - You can now give feedback for **Supply Chain** rules. In the **Semgrep App > Advisories** page, click on an advisory to expand on it and click on the **Leave feedback for this rule** button.
     ![Give rule feedback menu](/img/release-notes-give-rule-feedback.png)
@@ -22,8 +22,8 @@ toc_max_heading_level: 3
 
 ### Changes
 
-- The **Semgrep App > Vulnerabilities** page now hides transitive vulnerabilities by default. To see transitive vulnerabilities, click on **Transitive** under the **Transitivity** filter in the Semgrep App > Vulnerabilities page.
-- New lockfile parsers with improved error messages for all supported ecosystems except Rust
+- The **Semgrep App > Vulnerabilities** now lets you filter by whether a vulnerability is from a direct or a transitive dependency. You can find these options under the **Transitivity** filter in the Semgrep App > Vulnerabilities page. All options are selected by default.
+- Lockfile parsers have been rewritten to be able to provide with improved error messages upon parse errors. This affects all supported ecosystems except Rust.
 - Removed support for reading dependencies from `pom.xml` files. Instead, Semgrep Supply Chain reads dependencies from a `maven_dep_tree.txt` file, which can be generated using the following command:
     `mvn dependency:tree -DoutputFile=maven_dep_tree.txt`
 
@@ -41,6 +41,8 @@ toc_max_heading_level: 3
     - New read-only rule preview component at the bottom of the page to view the rule and test cases.
     - The interface is now standardized with the rest of the Findings page, showing information about the location of the finding under the heading.
     - New rule information card component that displays information about the rule. This information includes any references and information about the rule severity and confidence. ![Semgrep App finding details page](/img/app-finding-details.png)
+- Previously, new users who logged in with GitLab landed on a GitLab Groups page, then enable the GitLab groups they wanted to onboard, and then logout and login, in before landing on the Semgrep App > Dashboard page. Now, new users are immediately redirected to Semgrep App > Dashboard.
+  - In order to associate their Semgrep account with their GitLab Groups, users need to use the GitLab “Add Org” workflow, which brings them to the GitLab Groups page. This change also addresses a bug when enabling a GitLab Group that would cause the app to crash.
 
 ## Semgrep CLI
 
@@ -62,14 +64,7 @@ as well as `True and X` and `False or X`. For example, `cond and "a" or "b"` is 
 
 ### Changes
 
-- Semgrep Registry now displays gem icons on Team tier rules and rulesets.
-
-## Semgrep in CI
-
-### Changes
-
-- Previously, new users who logged in with GitLab landed on a GitLab Groups page, then enable the GitLab groups they wanted to onboard, and then logout and login, in before landing on the Semgrep App > Dashboard page. Now, new users are immediately redirected to Semgrep App > Dashboard.
-- In order to associate their Semgrep account with their GitLab Groups, users need to use the GitLab “Add Org” workflow, which brings them to the Gitlab Groups page. This change also addresses a bug when enabling a GitLab Group that would cause the app to crash.
+- Semgrep Registry now displays gem icons on Team tier rules, and rulesets that contain Team tier rules.
 
 ## Documentation updates
 
