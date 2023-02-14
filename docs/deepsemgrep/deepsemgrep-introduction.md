@@ -18,7 +18,7 @@ import AddDemoProject from "/src/components/procedure/_add-demo-project.mdx"
 
 ## Semgrep Pro engine language support
 
-Refer to [Supported languages](/supported-languages/#semgrep-pro-engine) to see languages supported by Semgrep Pro. Semgrep Cloud Platform users can also check language support in [Settings](https://semgrep.dev/orgs/-/settings) page.
+Refer to [Supported languages](/supported-languages/#semgrep-pro-engine) to see languages supported by Semgrep Pro Engine. Semgrep Cloud Platform users can also check language support in the [Settings page](https://semgrep.dev/orgs/-/settings).
 
 ## Using and running Semgrep Pro Engine
 
