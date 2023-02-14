@@ -42,7 +42,7 @@ To install and run Semgrep Pro Engine in the CLI, follow these steps:
     ```sh
     semgrep install-semgrep-pro
     ```
-1. To test Semgrep Pro Engine, use the following command in the root directory of the codebase to scan:
+1. Optional: To test Semgrep Pro Engine, use the following command in the root directory of the codebase to scan:
     ```bash
     semgrep --pro --config "p/default" 
     ```
@@ -68,31 +68,22 @@ To enable Semgrep Pro Engine in Semgrep Cloud Platform, follow these steps:
 1. Sign in to [Semgrep Cloud Platform](https://semgrep.dev/login).
 1. Select **[Settings](https://semgrep.dev/orgs/-/settings)**.
 1. Enable the <i class="fa-solid fa-toggle-large-on"></i> **Semgrep Pro Engine beta** toggle.
-1. Ensure that you have the **default ruleset** enabled in your **[Rule Board](https://semgrep.dev/orgs/-/board)**. This ruleset can be found in the **Monitor column**. If this ruleset is **not** added, go to [https://semgrep.dev/p/default](https://semgrep.dev/p/default) and click **Add to Rule Board**.
-
-### Testing through a demo project
-
-After enabling Semgrep Pro Engine, you can add a demo project to quickly try Semgrep Pro Engine.
-
-<AddDemoProject />
-
-You have now successfully run Semgrep Pro Engine and Pro rules on a project.
+1. Ensure that you have the **default ruleset** enabled in your **[Rule Board](https://semgrep.dev/orgs/-/board)**. In the Rule Board, the **default ruleset** is in the **Monitor column**. If this ruleset is **not** added, go to [https://semgrep.dev/p/default](https://semgrep.dev/p/default), and then click **Add to Rule Board**.
+1. Optional: If you don't have any projects added in your organization, follow the procedures described in [Scanning a repository from GitHub or GitLab](/semgrep-code/getting-started-with-semgrep-code/#semgrep-code-with-semgrep-cloud-platform) to scan a new project with Semgrep Pro Engine.
 
 ## Additional information
 
 ### Experimental support for interprocedural analysis
 
-Interprocedural analysis keeps the fast scan times of Semgrep OSS while also finding new vulnerabilities that cross functions. It's designed to improve results shown in pull requests and help security engineers build trust with developers.
+Interprocedural analysis keeps the fast scan times of Semgrep OSS while also finding new vulnerabilities that cross functions. It's designed to improve results of pull or merge requests (PRs or MRs) and help security engineers build trust with developers.
 
-To try interprocedural analysis on the CLI:
+To run Semgrep Pro Engine interprocedural analysis in the CLI:
 
-1. Follow steps 1-3 in [_Using Semgrep Pro Engine in CLI_](#installing-semgrep-pro-engine-in-cli)
-
-1. Run the following command 
-
-```bash
+1. Follow steps 1-3 in [Installing Semgrep Pro Engine in CLI](#installing-semgrep-pro-engine-in-cli).
+1. Run the following command:
+    ```bash
     semgrep --pro-intrafile --config "p/default" --time --metrics on
-```
+    ```
 
 ### Events that trigger a Semgrep Pro Engine scan
 

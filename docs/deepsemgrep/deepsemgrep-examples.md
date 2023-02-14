@@ -53,9 +53,9 @@ Try toggling the [Semgrep Pro Engine](https://semgrep.dev/s/Po9p) to see it matc
 semgrep --config pro.yaml . --pro
 ```
 
-#### ES6 & CommonJS
+#### ES6 and CommonJS
 
-The JavaScript/TypeScript ecosystems contain various ways for importing and exporting code, Semgrep Pro is able to track dataflow through ES6 imports/exports and some CommonJS export paths (See known limitations below). 
+The JavaScript and TypeScript ecosystems contain various ways for importing and exporting code, Semgrep Pro is able to track dataflow through ES6 imports/exports and some CommonJS export paths (See known limitations below). 
 
 <b>ES6</b>
 

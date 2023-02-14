@@ -25,7 +25,7 @@ Object.entries(frontMatter).filter(
 
 # Managing findings in Semgrep Cloud Platform
 
-A **finding** is the core result of Semgrep analysis. Findings are generated when a Semgrep rule matches a piece of code.
+Finding page enables you to easily manage **findings**. **Findings** are the core results of Semgrep analysis. The findings is generated when a Semgrep rule matches a piece of code.
 
 ![Semgrep Cloud Platform Findings page](/img/app-findings-overview.png)<br />
 *Figure 1.* Screenshot of findings page.
@@ -133,17 +133,30 @@ Display and filter for findings reported only in specific time. To display findi
 
 ### Grouping by rule
 
-Semgrep Cloud Platform enables you to group findings by a specific rule on the Findings page.
+Semgrep Cloud Platform by default groups findings by a specific rule on the Findings page. Procedure documented in this section helps you to enable group by rule when it was disabled.
 
-![Screenshot of the Findings page with findings grouped by rule](/img/app-findings-overview-grouped-by-rule.png)<br />
-*Figure 3.* Screenshot of the Findings page with findings grouped by rule
+![Screenshot of the Findings page with findings grouped by rule](/img/app-findings.png)<br />
+*Figure 3.* Screenshot of the Findings page with findings grouped by rule.
 
 To group findings by rules, follow these steps:
 
 1. In Semgrep Cloud Platform, go to **[Findings](https://semgrep.dev/orgs/-/findings)** page.
 1. Click the list under **No grouping**, and then select **Group by Rule**.
-    ![Screenshot of the Group by Rule option](/img/app-finding-group-by-rule.png)<br />
+    ![Screenshot of the Group by Rule option](/img/cloud-platform-findings-group-by-rule.png)<br />
     *Figure 4.* Screenshot of the Group by Rule option.
+
+#### Disabling grouping by rule
+
+To disable grouping by rule, follow these steps:
+
+1. In Semgrep Cloud Platform, go to **[Findings](https://semgrep.dev/orgs/-/findings)** page.
+1. Click the list under **Group by Rule**, and then select **No grouping**.
+    ![Screenshot of the Group by Rule option](/img/cloud-platform-findings-no-grouping.png)<br />
+    *Figure 5.* Screenshot of the No grouping option.
+
+:::info
+Findings in this view are displayed by their recency. The most recent finding is at the top of the Findings page.
+:::
 
 ## Triaging findings
 
