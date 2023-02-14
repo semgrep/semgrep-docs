@@ -270,7 +270,7 @@ Semgrep supports the creation of Jira tickets from a finding. This enables devel
 
 To **create a ticket**:
 
-1. Set up a Jira integration through the [Integrations](https://semgrep.dev/docs/semgrep-app/integrations/) guide.
+1. Set up a Jira integration through the [Notifications](/semgrep-app/notifications) guide.
 2. Click the **three-dot icon** of the entry.
 3. Click **Create issue with Jira**.
 -->
@@ -292,7 +292,7 @@ If a finding is fixed in one branch (such as `main`) but open in another (such a
 
 ## See also
 
-* [Integrations](integrations.md)
+* [Alerts and notifications](/semgrep-app/notifications)
 * [Rule Board](rule-board.md)
 * [Ignoring files, folders, or code](/ignoring-files-folders-code/)
 
