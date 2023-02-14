@@ -21,13 +21,13 @@ import MoreHelp from "/src/components/MoreHelp"
 
 #  Single-sign on (SSO) configuration
 
-**SSO (single sign-on)** is a **Team/Enterprise tier feature**. Semgrep Cloud Platform supports [OpenID Connect / Oauth2](#openid-connect--oauth2) and [SAML 2.0](#saml-20).
+**SSO (single sign-on)** is a **Team/Enterprise tier feature**. Semgrep Cloud Platform supports [OpenID Connect / OAuth2](#openid-connect--oauth2) and [SAML 2.0](#saml-20).
 
 :::info
 Add users through your Single Sign On provider without any additional steps in Semgrep Cloud Platform after you configure the SSO for your organization. The only required steps to ensure that users are added to Semgrep Cloud Platform are on the side of the SSO provider. There are **no** additional emails with links. When you follow the SSO steps, you are able to add onboard users with one click. 
 :::
 
-## OpenID Connect / Oauth2
+## OpenID Connect / OAuth2
 
 To set up SSO:
 

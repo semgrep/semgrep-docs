@@ -29,7 +29,7 @@ Add tags for specific projects in the Semgrep Cloud Platform through the followi
 
 :::tip Best practices
 *  Choose either Semgrep Cloud Platform (and API) or `.semgrepconfig.yml` to manage tags. **Do not use a mix of the two.**
-* Semgrep Cloud Platform and its API **never** overwrites your `.semgrepconfig.yml` file. If you choose to use `.semgrepconfig.yml` to manage your tags, use it **exclusively**. Do not use Semgrep Cloud Platform or the API to manage any tags. Any changes to your tags through Semgrep Cloud Platform will be overwritten after a CI scan due to values present in `.semgrepconfig.yml`.
+* Semgrep Cloud Platform and its API **never** overwrite your `.semgrepconfig.yml` file. If you choose to use `.semgrepconfig.yml` to manage your tags, use it **exclusively**. Do not use Semgrep Cloud Platform or the API to manage any tags. Any changes to your tags through Semgrep Cloud Platform will be overwritten after a CI scan due to values present in `.semgrepconfig.yml`.
 * Semgrep always prioritizes values in `.semgrepconfig.yml` as the source of truth.
 :::
 
