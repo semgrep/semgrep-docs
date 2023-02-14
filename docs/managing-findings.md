@@ -74,7 +74,7 @@ These states correspond to:
 
 ## Semgrep Cloud Platform
 
-Semgrep Cloud Platform builds on Semgrep CI findings to track status and provide additional context for managing findings within your organization. A finding can occupy 4 statuses in Semgrep Cloud Platform: `OPEN`, `IGNORED`, `FIXED`, `REMOVED`.
+Semgrep Cloud Platform builds on CI findings to track status and provide additional context for managing findings within your organization. A finding can occupy one of four statuses in Semgrep Cloud Platform: `OPEN`, `IGNORED`, `FIXED`, `REMOVED`.
 
 ### Finding status
 
