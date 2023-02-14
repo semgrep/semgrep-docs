@@ -26,7 +26,7 @@ Object.entries(frontMatter).filter(
 
 Receive notifications in various channels, such as Slack and email, through Semgrep Cloud Platform. This document guides you through setup procedures and Semgrep's deduplication behavior. This ensures that you receive high-signal notifications and alerts in your preferred channels.
 
-Currently, Semgrep Cloud Platform provides support for the following channels:
+Semgrep Cloud Platform provides support for the following channels:
 
 | Tool                               | Tier availability |
 | ----                               | ----------------  |
