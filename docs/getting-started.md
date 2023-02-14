@@ -153,7 +153,7 @@ To log in to SCP:
 
 1. Create an account by clicking the link: [Sign in to Semgrep Cloud Platform](https://semgrep.dev/login).
 2. In your command line, enter `semgrep login`.
-3. Click the link provided in your CLI and follow the instructions.
+3. Click the link provided in your terminal and follow the instructions.
 
 ## Updating Semgrep
 
