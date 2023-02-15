@@ -15,18 +15,15 @@ import ThemedImage from '@theme/ThemedImage'
 <br />
 <p align="center">
   <a href="https://semgrep.dev">
-    <img src="https://raw.githubusercontent.com/returntocorp/semgrep/develop/semgrep.svg" height="100" alt="Semgrep logo" />
+    <ThemedImage
+      alt="Semgrep themed logo"
+      sources={{
+        light: ('https://raw.githubusercontent.com/returntocorp/semgrep/develop/semgrep.svg'),
+        dark: ('https://raw.githubusercontent.com/returntocorp/semgrep-docs/main/static/img/semgrep-dark.svg'),
+      }} />
   </a>
 </p>
 <h3 align="center">Code scanning at ludicrous speed.<br />Find bugs and reachable dependency vulnerabilities in code.<br />Enforce your code standards on every commit.</h3>
-
-<ThemedImage
-  alt="Semgrep themed logo"
-  sources={{
-    light: ('https://raw.githubusercontent.com/returntocorp/semgrep/develop/semgrep.svg'),
-    dark: ('https://raw.githubusercontent.com/returntocorp/semgrep-docs/main/static/img/semgrep-dark.svg'),
-  }}
-/>
 
 Semgrep is a fast, open source, static analysis engine for finding bugs, detecting dependency vulnerabilities, and enforcing code standards. [Get started →](getting-started/)
 
