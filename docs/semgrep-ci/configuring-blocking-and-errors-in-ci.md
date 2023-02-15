@@ -55,7 +55,6 @@ See the [Examples of blocking findings and errors configuration](#examples-of-bl
  
 :::info
 - For more information about specific Semgrep exit codes, see [CLI reference](../../cli-reference/#exit-codes).
-- This functionality replaces the audit mode `SEMGREP_AUDIT_ON` (collecting findings silently for [Semgrep Cloud Platform > Findings](https://semgrep.dev/manage/findings)).
 :::
 
 To find more details about some of these configuration options, see the following list:
