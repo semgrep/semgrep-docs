@@ -10,6 +10,7 @@ description: >-
 
 import SupportedLanguagesTable from '/src/components/reference/_supported-languages-table.mdx'
 import MoreHelp from "/src/components/MoreHelp"
+import ThemedImage from '@theme/ThemedImage'
 
 <br />
 <p align="center">
@@ -18,6 +19,14 @@ import MoreHelp from "/src/components/MoreHelp"
   </a>
 </p>
 <h3 align="center">Code scanning at ludicrous speed.<br />Find bugs and reachable dependency vulnerabilities in code.<br />Enforce your code standards on every commit.</h3>
+
+<ThemedImage
+  alt="Semgrep themed logo"
+  sources={{
+    light: ('https://raw.githubusercontent.com/returntocorp/semgrep/develop/semgrep.svg'),
+    dark: ('https://raw.githubusercontent.com/returntocorp/semgrep-docs/main/static/img/semgrep-dark.svg'),
+  }}
+/>
 
 Semgrep is a fast, open source, static analysis engine for finding bugs, detecting dependency vulnerabilities, and enforcing code standards. [Get started →](getting-started/)
 

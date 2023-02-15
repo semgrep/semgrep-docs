@@ -23,7 +23,7 @@ module.exports = {
       logo: {
         alt: 'Semgrep logo',
         src: 'img/semgrep-icon-text-horizontal.svg',
-        srcDark: 'img/semgrep-icon-text-horizontal-dark.svg',
+        srcDark: 'img/semgrep-dark.svg',
         href: 'https://semgrep.dev',
         target: '_self'
       },
