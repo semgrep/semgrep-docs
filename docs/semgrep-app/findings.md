@@ -2,7 +2,7 @@
 slug: findings
 append_help_link: true
 title: Findings
-description: "The Findings page allows users to view, manage, and triage Findings."
+description: "The Code page allows users to view, manage, and triage Findings."
 hide_title: true
 tags:
     - Semgrep Cloud Platform
@@ -12,7 +12,6 @@ tags:
 
 import MoreHelp from "/src/components/MoreHelp"
 import TriageStatuses from "/src/components/reference/_triage-states.mdx"
-import RemoveRule from "/src/components/procedure/_remove-rule.mdx"
 import IgnoreIndividualFindings from "/src/components/procedure/_ignore-individual-findings.mdx"
 
 <ul id="tag__badge-list">
@@ -25,7 +24,7 @@ Object.entries(frontMatter).filter(
 
 # Managing findings in Semgrep Cloud Platform
 
-Finding page enables you to easily manage **findings**. **Findings** are the core results of Semgrep analysis. The findings are generated when a Semgrep rule matches a piece of code.
+A **Findings** is the core result of Semgrep analysis. The finding is generated when a Semgrep rule matches a piece of code. **Code** page of Semgrep Cloud Platform enables you to easily manage **findings**. 
 
 ![Semgrep Cloud Platform Findings page](/img/app-findings-overview.png)<br />
 *Figure 1.* Screenshot of findings page.
@@ -84,7 +83,7 @@ The Semgrep Cloud Platform Findings page displays findings across all projects c
 ### Navigating to the Findings page
 
 1. Sign in to Semgrep Cloud Platform.
-2. Click **[Findings](https://semgrep.dev/orgs/-/findings)** in the left sidebar.
+2. Click **[Code](https://semgrep.dev/orgs/-/findings)** in the left sidebar to enter **Findings** page.
 
 ### Understanding the Findings page
 
@@ -194,36 +193,25 @@ If you ignore all findings in **Just this file**, **This directory**, or **Paren
 
 #### Reopening findings
 
-##### Reopening multiple findings
-
 To **open findings**, follow these steps:
 
-1. On the [Findings](https://semgrep.dev/orgs/-/findings?tab=open) page, click the **Status** filter, and then select **Ignored** or **Fixed** status to see all ignored or fixed findings.
-1. Perform one of these steps:
-    - Select all findings by clicking on the header row checkbox that states **Showing X open findings**. You can navigate to succeeding pages and add other results to the current selection.
-    - Select relevant findings one by one by clicking on their checkboxes.
+1. On the [Code](https://semgrep.dev/orgs/-/findings?tab=open) page, click the **Status** filter, and then select **Ignored** or **Fixed** status to see all ignored or fixed findings.
+1. Select the checkbox on the left side of a finding. You can select more findings at once.
 1. Click the **Triage** button.
 1. In the **Triage state** dropdown menu, select **Reopened**.
 1. Click **Save**.
 
-##### Reopening individual findings
-
-To **open individual findings**, follow these steps:
-
-1. On the [Findings](https://semgrep.dev/orgs/-/findings?tab=open) page, click the **Status** filter, and then select **Ignored** or **Fixed** status to see all ignored or fixed findings.
-1. Next to a finding you want to ignore, click the **Reopen** <i class="fa-regular fa-chevron-down"></i>.
-1. Optional: Add a note.
-1. Click **Save**.
+1. Go to the Semgrep Cloud Platform [Code](https://semgrep.dev/orgs/-/findings?tab=open) page.
+1. Select the checkbox on the left side of a finding.
+1. Click **Triage**, and then under **Triage state** select **Ignore**.
+1. Optional: Select a reason of why you are ignoring a finding. Choose either: **False positive**, **Acceptable risk**, **No time to fix**
+1. Click **Ignore**.
 
 #### Fixing a finding
 
 To **fix a finding**:
 
 1. Update, or refactor the code such that the Semgrep rule pattern no longer matches the code.
-
-#### Removing a rule
-
-<RemoveRule />
 
 #### Viewing and adding notes to findings
 
@@ -262,7 +250,7 @@ To triage a finding in GitHub, follow these steps:
 3. Substitute the colored placeholder <code><span className="placeholder">&lt;reason&gt;</span></code> with any text that can help to understand why the status of a comment is ignored.
 
 :::info
-Ignoring a finding through a comment in GitHub changes the status of the finding to **ignored** in the Semgrep Cloud Platform. See [Findings](/semgrep-app/findings.md) page documentation for more details. The GitHub conversation itself is not automatically resolved by this process.
+Ignoring a finding through a comment in GitHub changes the status of the finding to **ignored** in the Semgrep Cloud Platform. See [Code](/semgrep-app/findings.md) page documentation for more details. The GitHub conversation itself is not automatically resolved by this process.
 :::
 
 :::tip
@@ -298,7 +286,7 @@ If a finding is fixed in one branch (such as `main`) but open in another (such a
 
 ## See also
 
-* [Alerts and notifications](/semgrep-app/notifications)
+* [Alerts and notifications](/semgrep-app/notifications/)
 * [Rule Board](rule-board.md)
 * [Ignoring files, folders, or code](/ignoring-files-folders-code/)
 

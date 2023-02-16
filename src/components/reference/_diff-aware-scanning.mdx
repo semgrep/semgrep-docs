@@ -17,8 +17,6 @@ Semgrep scans can be classified by scope. The scope of a scan refers to what lin
 
 ![Flow chart of Semgrep code scanning behavior based on environment variable](/img/diagram-semgrep_baseline_ref.png "Flow chart of Semgrep code scanning behavior based on environment variable")
 
-
-
 :::caution
 * Do **not** perform diff-aware scans on your `main` branch. Semgrep Cloud Platform keeps track of which findings have been fixed on a given branch. If you configure diff-aware scans on your main branch, and compare the last commit to the penultimate commit, Semgrep wrongly considers all findings from before the penultimate commit to be fixed.
 * Do **not** perform full scans on non-mainline or non-trunk branches. Performing full scans on every branch slows down your CI jobs, displays findings that developers did not introduce, and results in many duplicated findings in Semgrep Cloud Platform, resulting in a poorer experience.

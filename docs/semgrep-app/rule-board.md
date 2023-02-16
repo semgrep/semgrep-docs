@@ -48,7 +48,9 @@ Semgrep Code detects the framework and language when scanning a project and only
 
 ## Adding rules or rulesets
 
-### Through the search bar
+### Adding rules through the search bar
+
+To add rules or rulesets through the search bar, follow these steps:
 
 1. Click **Add rules**. A drawer appears.
 2. Search for rules by entering a relevant search term, such as your programming language, OWASP category, or framework in the search bar.
@@ -57,21 +59,27 @@ Semgrep Code detects the framework and language when scanning a project and only
 5. Drag the card and drop it on the relevant column.
 6. Once you are done adding rules and rulesets, click **Save changes**.
 
-### From Semgrep Registry
+### Adding rules or rulesets from Semgrep Registry
+
+To add rules or rulesets from Semgrep Registry, follow these steps:
 
 1. Click a rule or ruleset in [Semgrep Registry](https://semgrep.dev/r/).
 2. Click **Add these to Rule Board** or **Add to Rule Board**.
 3. Select which column to place the rule or ruleset in. 
 4. The new card appears on your Rule Board.
 
-### From Semgrep Playground
+### Adding rules or rulesets from Semgrep Playground
+
+To add rules or rulesets from Semgrep Playground, follow these steps: 
 
 1. Enter a name and save your rule.
 2. Click **Add to Rule Board**.
 3. Select which column to place the rule or ruleset in. 
 4. The new card appears on your Rule Board.
 
-### From the in-app Editor
+### Adding rules or rulesets from the in-app Editor
+
+To add rules or rulesets from in-app Editor:
 
 1. From the **Library** pane, click the rule to add to the Rule Board. The rule appears on the code pane.
 2. Click **Add to Rule Board**.
@@ -81,6 +89,7 @@ Semgrep Code detects the framework and language when scanning a project and only
 ## Disabling rules
 
 <DisableRule />
+
 ## Removing rules or rulesets
 
 <RemoveRule />

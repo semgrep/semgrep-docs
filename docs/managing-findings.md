@@ -78,7 +78,7 @@ Semgrep Cloud Platform builds on CI findings to track status and provide additio
 
 ### Finding status
 
-You can manage finding status through triage in Semgrep Cloud Platform's **Findings** page. The finding statuses are as follows:
+You can manage finding status through triage in Semgrep Cloud Platform's **Code** page. The finding statuses are as follows:
 
 <TriageStatuses />
 

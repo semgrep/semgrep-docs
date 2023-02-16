@@ -18,7 +18,7 @@ The Rule Board is composed of three columns:
     <dd>Rules here show findings to developers through PRs or MRs.</dd>
     <dt>Block</dt>
     <dd>Rules here show block merges and commits, in addition to showing findings in Semgrep Cloud Platform and PRs or MRs.</dd>
-</dl>    
+</dl>
 
 To add rules and rulesets to your Rule Board:
 
