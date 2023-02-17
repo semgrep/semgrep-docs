@@ -10,11 +10,17 @@ description: >-
 
 import SupportedLanguagesTable from '/src/components/reference/_supported-languages-table.mdx'
 import MoreHelp from "/src/components/MoreHelp"
+import ThemedImage from '@theme/ThemedImage'
 
 <br />
 <p align="center">
   <a href="https://semgrep.dev">
-    <img src="https://raw.githubusercontent.com/returntocorp/semgrep/develop/semgrep.svg" height="100" alt="Semgrep logo" />
+    <ThemedImage
+      alt="Semgrep themed logo"
+      sources={{
+        light: ('img/semgrep.svg'),
+        dark: ('img/semgrep-dark.svg'),
+      }} />
   </a>
 </p>
 <h3 align="center">Code scanning at ludicrous speed.<br />Find bugs and reachable dependency vulnerabilities in code.<br />Enforce your code standards on every commit.</h3>
