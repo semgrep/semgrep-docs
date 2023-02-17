@@ -66,6 +66,8 @@ import AzureSemgrepAppSast from "/src/components/code_snippets/_azure-semgrep-ap
 import AzureSemgrepAppSsc from "/src/components/code_snippets/_azure-semgrep-app-ssc.mdx"
 import AzureSemgrepAppStandalone from "/src/components/code_snippets/_azure-semgrep-app-standalone.mdx"
 
+import ScmFeatureReference from "/src/components/reference/_scm-feature-reference.md"
+
 # Sample continuous integration (CI) configurations
 
 This document provides sample configuration snippets to run Semgrep CI on various continuous integration (CI) providers.
@@ -74,28 +76,11 @@ This document provides sample configuration snippets to run Semgrep CI on variou
 
 Support for certain features of Semgrep Cloud Platform depend on your CI provider or source code management tool (SCM). The following table breaks down the features and their availability:
 
-| Feature | GitHub | GitLab | BitBucket | CI Provider support |
-| ------- | -------- | ------- | -------- | ---------------- |
-| **Diff-aware scanning** | ✅ Yes | ✅ Yes | ✅ Yes  | ✅ Available (may need additional set up) | 
-| **Hyperlinks** | ✅ Yes | ✅ Yes | ✅ Yes  |  ✅ Available (may need additional set up) |
-| **SCM security dashboard** |  ✅ GitHub Advanced Security Dashboard |  ✅ GitLab SAST Dashboard | ❌ No | ❗ Only GitHub Actions and GitLab CI/CD |
-| **PR or MR comments in Semgrep Cloud Platform** |  ✅ Yes | ✅ Yes | ❌ No | ✅ CI provider agnostic; feature support is dependent on SCM |
+<ScmFeatureReference />
 
-*Table 1.* List of features and supported SCMs and CI providers.
-
-<dl>
-    <dt>Diff-aware scanning</dt>
-    <dd>Semgrep can scan changes in files when running on a pull or merge request (PR or MR). This keeps the scan fast and reduces finding duplication.</dd>
-    <dt>Receiving results (findings) as PR or MR comments</dt>
-    <dd>This feature enables you to receive <a href="/docs/semgrep-app/notifications/#enabling-github-pull-request-comments">PR or MR comments</a> from Semgrep Cloud Platform on the lines of code that generated a finding.</dd>
-    <dt>Hyperlinks to code</dt>
-    <dd>Semgrep Cloud Platform collects findings in a Findings page. In this page, you can click on a finding to view the lines of code in your repository that generated the finding.</dd>
-    <dt>SCM security dashboard</dt>
-    <dd>Send Semgrep findings to your SCM's security dashboard.</dd>
-</dl>
-
-<!-- The list is not alphabetized. It is ranked based on popularity. -->
+<!-- The following list is not alphabetized. It is ranked based on popularity. -->
 <!-- Titles for tabs are based on the most recognizable product name; they don't have to be parallel -->
+
 ## GitHub Actions
 
 To add a Semgrep configuration file in your GitHub Actions pipeline:
