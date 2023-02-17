@@ -1,13 +1,13 @@
 ---
 slug: demo-project 
 append_help_link: true
-title: Learning Semgrep App with a demo project
+title: Learning Semgrep Code 
 hide_title: true
 tags:
-    - Semgrep App
+    - Semgrep Cloud Platform
     - Community Tier
     - Team & Enterprise Tier
-description: "Try Semgrep App workflows, triage findings and work with rules and rulesets without any setup necessary. See what Semgrep detects in OWASP Juice Shop."
+description: "Try Semgrep Code workflows, triage findings and work with rules and rulesets without any setup necessary. See what Semgrep detects in OWASP Juice Shop."
 ---
 
 import MoreHelp from "/src/components/MoreHelp"
@@ -24,7 +24,7 @@ Object.entries(frontMatter).filter(
 }
 </ul>
 
-# Learning Semgrep App with a demo project
+# Learning Semgrep Code with a demo project
 
 <DemoProjectIntro />
 

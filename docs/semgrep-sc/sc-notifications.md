@@ -5,7 +5,7 @@ description: "Receive notifications about reachable findings from your Semgrep S
 tags:
     - Semgrep Supply Chain
     - Team & Enterprise Tier
-title: Receiving notifications from SSC scans
+title: Alerts and notifications 
 hide_title: true
 ---
 
@@ -54,7 +54,7 @@ Receiving PR or MR comments for reachable findings, if any, is enabled by defaul
 This section provides documentation if PR or MR comments do not appear for custom Semgrep setups, such as self-hosted repositories. You may require additional permissions or an access token to receive PR or MR comments.
 :::
 
-To ensure that you have enabled Semgrep App to send PR or MR comments, refer to the following documentation:
+To ensure that you have enabled Semgrep Cloud Platform to send PR or MR comments, refer to the following documentation:
 
 <table>
 <tr>

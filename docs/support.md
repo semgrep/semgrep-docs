@@ -12,4 +12,4 @@ Other ways to get help:
 
 - Submit a [bug report](https://github.com/returntocorp/semgrep/issues).
 - Email the r2c team at [support@r2c.dev](mailto:support@r2c.dev).
-- Check [Semgrep status page](https://status.semgrep.dev) to see operational status, uptime or downtime of Semgrep App.
+- Check [Semgrep status page](https://status.semgrep.dev) to see operational status, uptime or downtime of Semgrep Cloud Platform.
