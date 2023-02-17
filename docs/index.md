@@ -18,7 +18,7 @@ import ThemedImage from '@theme/ThemedImage'
     <ThemedImage
       alt="Semgrep themed logo"
       sources={{
-        light: ('https://raw.githubusercontent.com/returntocorp/semgrep/develop/semgrep.svg'),
+        light: ('img/semgrep.svg'),
         dark: ('img/semgrep-dark.svg'),
       }} />
   </a>
