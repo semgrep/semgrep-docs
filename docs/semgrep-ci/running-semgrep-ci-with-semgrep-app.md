@@ -1,12 +1,12 @@
 ---
 slug: running-semgrep-ci-with-semgrep-app
 append_help_link: true
-description: "Set up your CI pipeline with Semgrep App for centralized rule and findings management."
+description: "Set up your CI pipeline with Semgrep Cloud Platform for centralized rule and findings management."
 tags:
     - Semgrep in CI
     - Community Tier
     - Team & Enterprise Tier
-title: Running Semgrep in CI with Semgrep App
+title: Running Semgrep in CI with Semgrep Cloud Platform
 hide_title: true
 ---
 
@@ -24,29 +24,30 @@ Object.entries(frontMatter).filter(
 }
 </ul>
 
-# Running Semgrep in continuous integration (CI) with Semgrep App
+# Running Semgrep in continuous integration (CI) with Semgrep Cloud Platform
 
-Run Semgrep in your continous integration (CI) pipeline to scan your repository for code vulnerabilities and other issues. Connect your CI pipeline with Semgrep App to:
+Run Semgrep in your continous integration (CI) pipeline to scan your repository for code vulnerabilities and other issues. Connect your CI pipeline with Semgrep Cloud Platform to:
 
 * Block pull or merge requests (PRs or MRs) based on the rule that generated the finding.
 * Scan many repositories and manage their findings in bulk.
 * Ignore false-positive findings from noisy rules.
-* Fork existing rules to create custom rules and add them to Semgrep App for scanning.
+* Fork existing rules to create custom rules and add them to Semgrep Cloud Platform for scanning.
 
-This guide explains how to connect your repository to Semgrep App to scan continuously.
+This guide explains how to connect your repository to Semgrep Cloud Platform to scan continuously.
 
 :::info
-* This guide's configuration and feature support are specific to Semgrep-App-connected CI jobs. Refer to [Running Semgrep in CI without Semgrep App](../running-semgrep-ci-without-semgrep-app) for stand-alone CI jobs.
+* This guide's configuration and feature support are specific to Semgrep-App-connected CI jobs. Refer to [Running Semgrep in CI without Semgrep Cloud Platform](../running-semgrep-ci-without-semgrep-app) for stand-alone CI jobs.
 * Semgrep 0.98.0 introduced changes to how certain CI providers fetch environment variables. Refer to the appendix at the end of this document for more information.
+* Semgrep Cloud Platform creates a SAST (Static Application Security Testing) job by default. To run dependency scans exclusively, refer to [Sample CI configurations](semgrep-ci/sample-ci-configs).
 :::
 
-The following video walks you through setting Semgrep in your CI through Semgrep App.
+The following video walks you through setting Semgrep in your CI through Semgrep Cloud Platform.
 
 <iframe class="yt_embed" width="100%" height="432px" src="https://www.youtube.com/embed/BqU7P84ZaUc" frameborder="0" allowfullscreen></iframe>
 
-## Semgrep App feature support
+## Semgrep Cloud Platform feature support
 
-Support for certain features of Semgrep App depend on your CI provider or source code management tool (SCM). The following table breaks down the features and their availability:
+Support for certain features of Semgrep Cloud Platform depend on your CI provider or source code management tool (SCM). The following table breaks down the features and their availability:
 
 | Feature | GitHub | GitLab | BitBucket | CI provider support |
 | ------- | -------- | ------- | -------- | ---------------- |
@@ -58,29 +59,29 @@ Support for certain features of Semgrep App depend on your CI provider or source
 
 <dl>
     <dt>Diff-aware scanning</dt>
-    <dd>Semgrep App can scan only changes in files when running on a pull or merge request (PR or MR). This keeps the scan fast and reduces finding duplication.</dd>
+    <dd>Semgrep Cloud Platform can scan only changes in files when running on a pull or merge request (PR or MR). This keeps the scan fast and reduces finding duplication.</dd>
     <dt>Receiving results (findings) as PR or MR comments</dt>
-    <dd>This feature enables you to receive <a href="/docs/semgrep-app/notifications/#enabling-github-pull-request-comments">PR or MR comments</a> from Semgrep App on the lines of code that generated a finding.</dd>
+    <dd>This feature enables you to receive <a href="/docs/semgrep-app/notifications/#enabling-github-pull-request-comments">PR or MR comments</a> from Semgrep Cloud Platform on the lines of code that generated a finding.</dd>
     <dt>Hyperlinks to code</dt>
-    <dd>Semgrep App collects findings in a Findings page. In this page, you can click on a finding to return to your SCM (Github, GitLab, or Bitbucket) to view the lines of code in your repository that generated the finding.</dd>
+    <dd>Semgrep Cloud Platform collects findings in a Findings page. In this page, you can click on a finding to return to your SCM (Github, GitLab, or Bitbucket) to view the lines of code in your repository that generated the finding.</dd>
     <dt>SCM security dashboard</dt>
     <dd>Send Semgrep findings to your SCM's security dashboard.</dd>
 </dl>
 
 :::note
-* Your code does not leave your environment and is not sent to Semgrep App servers.
-* Semgrep App collects [**findings** data](/docs/managing-findings/#semgrep-ci), which includes the line number of the code match, **not the code**. It is hashed using a one-way hashing function. Findings data is used to generate hyperlinks and support other Semgrep functions.
+* Your code does not leave your environment and is not sent to Semgrep Cloud Platform servers.
+* Semgrep Cloud Platform collects [**findings** data](/docs/managing-findings/#semgrep-ci), which includes the line number of the code match, **not the code**. It is hashed using a one-way hashing function. Findings data is used to generate hyperlinks and support other Semgrep functions.
 :::
 
-## Setting up the CI job and Semgrep App connection
+## Setting up the CI job and Semgrep Cloud Platform connection
 
-![Steps to run Semgrep in CI without Semgrep App](/img/semgrep-ci-overview-app.png "Steps to integrate Semgrep in CI with Semgrep App")
+![Steps to run Semgrep in CI without Semgrep Cloud Platform](/img/semgrep-ci-overview-app.png "Steps to integrate Semgrep in CI with Semgrep Cloud Platform")
 
-*Figure 1.* Steps to run Semgrep in CI with Semgrep App.
+*Figure 1.* Steps to run Semgrep in CI with Semgrep Cloud Platform.
 
 Refer to the succeeding sections for guidance specific to your CI provider.
 
-### CI providers listed within Semgrep App (such as GitHub Actions, GitLab CI/CD, Jenkins)
+### CI providers listed within Semgrep Cloud Platform (such as GitHub Actions, GitLab CI/CD, Jenkins)
 
 This section applies to the following providers:
 
@@ -92,7 +93,7 @@ This section applies to the following providers:
 * Buildkite
 * Azure Pipelines
 
-**In-app providers** are explicitly listed in Semgrep App, and Semgrep App is able to generate CI configuration files for you to commit into your repository.
+**In-app providers** are explicitly listed in Semgrep Cloud Platform, and Semgrep Cloud Platform is able to generate CI configuration files for you to commit into your repository.
 
 ![Screenshot of Projects page CI provider modal list](/img/semgrep-app-new-project-providers.png "Screenshot of Projects page CI provider modal list")
 
@@ -100,18 +101,18 @@ This section applies to the following providers:
 GitHub, GitLab, and BitBucket SCMs are compatible with the above CI providers, but steps and feature enablement may vary for **on-premise, self-hosted, or virtual private cloud (VPC) deployments**, such as GitHub Enterprise Server.
 :::
 
-To set up the CI job and connect with Semgrep App:
+To set up the CI job and connect with Semgrep Cloud Platform:
 
-1. Sign in to [Semgrep App](https://semgrep.dev/login). See [Signing in to Semgrep App](/semgrep-app/getting-started-with-semgrep-app/#signing-in-to-semgrep-app) for details on requested repository permissions and access.
+1. Sign in to [Semgrep Cloud Platform](https://semgrep.dev/login). See [Signing in to Semgrep Cloud Platform](/semgrep-app/getting-started-with-semgrep-app/#signing-in-to-semgrep-app) for details on requested repository permissions and access.
 2. Click **[Projects](https://semgrep.dev/orgs/-/projects)** > **Scan New Project** > **Run Scan in CI**.
 3. Select your provider from the menu.
 4. Optional: Some providers may ask you to select your organization if applicable to your SCM tool.
 5. Follow the steps outlined in the page:
-    1. Optional: Additional permissions may be requested for Semgrep App to perform certain actions in your SCM tool, such as GitHub. If you prefer not to grant these permissions, Semgrep App provides alternative instructions in the **Don't want to install the app?** section within the page itself.
+    1. Optional: Additional permissions may be requested for Semgrep Cloud Platform to perform certain actions in your SCM tool, such as GitHub. If you prefer not to grant these permissions, Semgrep Cloud Platform provides alternative instructions in the **Don't want to install the app?** section within the page itself.
     2. Click **Create new API token**. This is your `SEMGREP_APP_TOKEN` environment variable.
     3. Click **Copy snippet**, then paste and commit the snippet into your configuration file (the filename is indicated in the page).
-    4. Click **Check connection**. Semgrep App starts the scan.
-7. After verifying that Semgrep App is able to scan the repository, you can [customize the CI job or Semgrep App configuration](#refining-the-semgrep-app-configuration).
+    4. Click **Check connection**. Semgrep Cloud Platform starts the scan.
+7. After verifying that Semgrep Cloud Platform is able to scan the repository, you can [customize the CI job or Semgrep Cloud Platform configuration](#refining-the-semgrep-app-configuration).
 
 #### Sample CI configuration snippets
 
@@ -203,30 +204,30 @@ semgrep:
 
 ### Other CI providers (environment variables setup)
 
-Other CI providers, such as **Drone CI** and **AppVeyor**, can run Semgrep continuously and connect to Semgrep App through the use of environment variables provided in this document. The general steps are:
+Other CI providers, such as **Drone CI** and **AppVeyor**, can run Semgrep continuously and connect to Semgrep Cloud Platform through the use of environment variables provided in this document. The general steps are:
 
 1. Create a `SEMGREP_APP_TOKEN` and add it as a credential, secret, or token into your CI provider and CI configuration file.
-2. For GitHub repositories: Grant permissions for [Semgrep App](https://github.com/marketplace/semgrep-dev).
+2. For GitHub repositories: Grant permissions for [Semgrep Cloud Platform](https://github.com/marketplace/semgrep-dev).
 3. Create a CI job running Semgrep and commit the updated configuration file.
 4. The CI job starts automatically depending on your configuration and CI provider. If the job does not start, run the job by committing code or creating a PR or MR.
-5. Semgrep detects the `SEMGREP_APP_TOKEN`, sends it to Semgrep App for verification, and if verified, findings are sent to Semgrep App.
-6. Define additional environment variables to enable other Semgrep App features. This is done last because it is easier to set up and troubleshoot CI jobs after ensuring that the CI job runs correctly.
+5. Semgrep detects the `SEMGREP_APP_TOKEN`, sends it to Semgrep Cloud Platform for verification, and if verified, findings are sent to Semgrep Cloud Platform.
+6. Define additional environment variables to enable other Semgrep Cloud Platform features. This is done last because it is easier to set up and troubleshoot CI jobs after ensuring that the CI job runs correctly.
 
 The next sections go over these steps in detail.
 
 #### Creating a `SEMGREP_APP_TOKEN` 
 To create a `SEMGREP_APP_TOKEN`:
-1. Sign in to [Semgrep App](https://semgrep.dev/login).
+1. Sign in to [Semgrep Cloud Platform](https://semgrep.dev/login).
 2. Click **Settings > Tokens**.
 3. Click **Create new token**.
 4. Copy the name and value, then click **Update**.
 5. Store the token value into your CI provider. Tokens can also be referred to as `secrets`, `credentials`, or `secure variables`. The steps to do this vary depending on your CI provider.
 6. Add the `SEMGREP_APP_TOKEN` environment variable into your Semgrep CI job. Refer to your CI provider's documentation for the correct syntax. You can also see the examples in [Create a CI job](#create-a-ci-job-running-semgrep).
 
-#### Granting permissions for Semgrep App (GitHub repositories only)
+#### Granting permissions for Semgrep Cloud Platform (GitHub repositories only)
 
 :::tip
-Perform these steps before committing your CI job configuration to ensure that Semgrep App has the necessary permissions to scan your code.
+Perform these steps before committing your CI job configuration to ensure that Semgrep Cloud Platform has the necessary permissions to scan your code.
 :::
 
 Follow these steps for GitHub permissions access:
@@ -300,16 +301,16 @@ pipeline {
 
 Depending on your CI provider and configuration, the job runs automatically. Otherwise, trigger the job by committing code or opening a PR or MR.
 
-#### Verifying the connection between your CI job and Semgrep App 
+#### Verifying the connection between your CI job and Semgrep Cloud Platform 
 
-To verify that your Semgrep CI job is connected to Semgrep App:
+To verify that your Semgrep CI job is connected to Semgrep Cloud Platform:
 
-1. Go to your Semgrep App [Projects page](https://semgrep.dev/orgs/-/projects).
-2. Verify that your repository is listed on the Projects page and that Semgrep App is running a scan.
+1. Go to your Semgrep Cloud Platform [Projects page](https://semgrep.dev/orgs/-/projects).
+2. Verify that your repository is listed on the Projects page and that Semgrep Cloud Platform is running a scan.
 
 Refer to the following section to set up additional environment variables.
 
-## Configuring the Semgrep App CI job
+## Configuring the Semgrep Cloud Platform CI job
 
 ### Diff-aware scanning
 
@@ -319,7 +320,7 @@ Refer to the following section to set up additional environment variables.
 ### Enabling hyperlinks to code
 
 :::tip
-Hyperlinks are automatically enabled for all [CI providers listed in Semgrep App](#in-app-providers-such-as-github-actions-gitlab-cicd-jenkins).
+Hyperlinks are automatically enabled for all [CI providers listed in Semgrep Cloud Platform](#in-app-providers-such-as-github-actions-gitlab-cicd-jenkins).
 :::
 
 Hyperlinks enable you to view the code that generated the finding from within your repository.
@@ -344,7 +345,7 @@ SEMGREP_PR_ID="44"
 ### Receiving PR or MR comments
 
 :::info
-* Semgrep App does not support PR comments within BitBucket repositories.
+* Semgrep Cloud Platform does not support PR comments within BitBucket repositories.
 :::
 
 To receive PR or MR comments in your repository, follow the steps to enable hyperlinks. Verify that comments are sent by adding rules to your Rule Board's **Comment** column that can match code to generate a finding.
@@ -371,7 +372,7 @@ SEMGREP_TIMEOUT="300"
 
 ## Appendix A: Compatibility of environment variables
 
-Starting from Semgrep 0.98.0, Semgrep App can fetch values of environment variables for [In-App providers](#in-app-providers-such-as-github-actions-gitlab-cicd-jenkins). Therefore, not all CI providers need the same environment variables.
+Starting from Semgrep 0.98.0, Semgrep Cloud Platform can fetch values of environment variables for [In-App providers](#in-app-providers-such-as-github-actions-gitlab-cicd-jenkins). Therefore, not all CI providers need the same environment variables.
 
 To help troubleshoot the features in this guide, ensure that you have updated your Semgrep installation.
 
@@ -385,8 +386,8 @@ To help troubleshoot the features in this guide, ensure that you have updated yo
 </thead>
 <tbody>
     <tr><td><code>SEMGREP_APP_TOKEN</code></td>
-        <td>Establishes a connection to Semgrep App.</td>
-        <td>Required to enable Semgrep App for all CI providers.</td>
+        <td>Establishes a connection to Semgrep Cloud Platform.</td>
+        <td>Required to enable Semgrep Cloud Platform for all CI providers.</td>
     </tr>
     <tr>
         <td><code>SEMGREP_BASELINE_REF</code></td>
@@ -399,7 +400,7 @@ To help troubleshoot the features in this guide, ensure that you have updated yo
         <td>Optional for all CI providers.</td></tr>
     <tr>
         <td><code>SEMGREP_REPO_NAME</code></td>
-        <td rowspan="6">Enables hyperlinks to your codebase from Semgrep App and the creation of PR or MR comments.</td>
+        <td rowspan="6">Enables hyperlinks to your codebase from Semgrep Cloud Platform and the creation of PR or MR comments.</td>
         <td rowspan="5">Set these environment variables as needed to troubleshoot broken links for any CI provider <strong>except</strong> GitHub Actions and GitLab CI/CD.</td></tr>
     <tr>
         <td><code>SEMGREP_REPO_URL</code></td>
@@ -420,9 +421,9 @@ To help troubleshoot the features in this guide, ensure that you have updated yo
 </tbody>
 </table>
 
-## Appendix B: Examples of other CI providers not listed in Semgrep App
+## Appendix B: Examples of other CI providers not listed in Semgrep Cloud Platform
 
-The following CI providers have been tested by the community to run with Semgrep App:
+The following CI providers have been tested by the community to run with Semgrep Cloud Platform:
 
 * AppVeyor
 * Bamboo

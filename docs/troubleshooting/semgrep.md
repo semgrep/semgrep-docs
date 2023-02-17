@@ -1,7 +1,7 @@
 ---
 slug: semgrep
 description: "Get more information when Semgrep hangs, crashes, times out, or is slow."
-title: Troubleshooting Semgrep
+title: Troubleshooting
 hide_title: true
 append_help_link: true
 ---
@@ -63,7 +63,7 @@ It is possible to reproduce some parts of Semgrep CI locally to aid in debugging
     semgrep login
     ```
 3. Run the following code: <pre class="language-bash"><code>SEMGREP_REPO_NAME=<span className="placeholder">your-organization</span>/<span className="placeholder">repository-name</span> semgrep ci</code></pre>
-For example, `SEMGREP_REPO_NAME=returntocorp/semgrep semgrep ci` would be used for the GitHub repository `returntocorp/semgrep`. As a result, Semgrep fetches the rules configured on all Semgrep App policies for this repository and run a local Semgrep scan using those rules.
+For example, `SEMGREP_REPO_NAME=returntocorp/semgrep semgrep ci` would be used for the GitHub repository `returntocorp/semgrep`. As a result, Semgrep fetches the rules configured on all Semgrep Cloud Platform policies for this repository and run a local Semgrep scan using those rules.
 
 ## Troubleshooting Semgrep CLI
 

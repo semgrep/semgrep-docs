@@ -14,6 +14,11 @@ module.exports = {
   projectName: 'semgrep', // Usually your repo name.
   trailingSlash: true,
   themeConfig: {
+    docs: {
+      sidebar: {
+        hideable: true,
+      },
+    },
     navbar: {
       logo: {
         alt: 'Semgrep logo',
@@ -173,7 +178,7 @@ module.exports = {
           routeBasePath: '/'
         },
         theme: {
-          customCss: require.resolve('./src/css/custom.css'),
+          customCss: require.resolve('./src/css/custom.scss'),
         },
         gtag: {
           // You can also use your "G-" Measurement ID here.
@@ -191,6 +196,7 @@ module.exports = {
     ],
   ],
   plugins: [
+    'docusaurus-plugin-sass',
     [
       '@docusaurus/plugin-client-redirects',
       {
@@ -236,7 +242,8 @@ module.exports = {
           { from: "/writing-rules/experiments/autofix/", to: "/writing-rules/autofix/" },
           { from: "/writing-rules/experiments/generic-pattern-matching/", to: "/writing-rules/generic-pattern-matching/" },
           { from: "/writing-rules/experiments/metavariable-analysis/", to: "/writing-rules/metavariable-analysis/" },
-          { from: "/deepsemgrep/", to: "/deepsemgrep/deepsemgrep-introduction/" }
+          { from: "/deepsemgrep/", to: "/deepsemgrep/deepsemgrep-introduction/" },
+          { from: "/semgrep-app/integrations", to: "/semgrep-app/notifications/" }
         ]
       }
     ],
