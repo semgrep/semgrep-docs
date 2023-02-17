@@ -323,28 +323,52 @@ module.exports = {
         label: 'Release notes',
         link: {type: 'doc', id: 'release-notes/introduction'},
         items: [
-            'release-notes/january-2023',
-            'release-notes/december-2022',
-            'release-notes/november-2022',
-            'release-notes/october-2022',
-            'release-notes/september-2022',
-            'release-notes/august-2022',
-            'release-notes/july-2022',
-            'release-notes/june-2022',
-            'release-notes/may-2022',
-            'release-notes/april-2022',
-            'release-notes/march-2022',
-            'release-notes/february-2022',
-            'release-notes/january-2022',
-            'release-notes/december-2021',
-            'release-notes/november-2021',
-            'release-notes/october-2021',
-            'release-notes/september-2021',
-            'release-notes/august-2021',
-            'release-notes/july-2021',
-            'release-notes/june-2021',
-            'release-notes/may-2021',
-            'release-notes/april-2021',
+            {
+              type: 'category',
+              label: '2023',
+              collapsible: true,
+              link: {type: 'doc', id: 'release-notes/january-2023'},
+              items: [
+                'release-notes/january-2023'
+              ]
+            },
+            {
+              type: 'category',
+              label: '2022',
+              collapsible: true,
+              link: {type: 'doc', id: 'release-notes/december-2022'},
+              items: [
+                'release-notes/december-2022',
+                'release-notes/november-2022',
+                'release-notes/october-2022',
+                'release-notes/september-2022',
+                'release-notes/august-2022',
+                'release-notes/july-2022',
+                'release-notes/june-2022',
+                'release-notes/may-2022',
+                'release-notes/april-2022',
+                'release-notes/march-2022',
+                'release-notes/february-2022',
+                'release-notes/january-2022'
+              ]
+            },
+              {
+                type: 'category',
+                label: '2021',
+                collapsible: true,
+                link: {type: 'doc', id: 'release-notes/december-2021'},
+                items: [
+                  'release-notes/december-2021',
+                  'release-notes/november-2021',
+                  'release-notes/october-2021',
+                  'release-notes/september-2021',
+                  'release-notes/august-2021',
+                  'release-notes/july-2021',
+                  'release-notes/june-2021',
+                  'release-notes/may-2021',
+                  'release-notes/april-2021',
+                ]
+              },
             'release-notes/all-release-notes'
         ]
     },
