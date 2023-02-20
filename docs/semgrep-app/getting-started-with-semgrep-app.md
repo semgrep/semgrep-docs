@@ -15,11 +15,9 @@ import MoreHelp from "/src/components/MoreHelp"
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-import EnableAutofix from "/src/components/procedure/_enable-autofix.mdx"
 import PlatformSigninIntro from "/src/components/concept/_platform-signin-intro.md"
 import PlatformSigninGithub from "/src/components/procedure/_platform-signin-github.md"
 import PlatformSigninGitlab from "/src/components/procedure/_platform-signin-gitlab.md"
-import PlatformAddRepo from "/src/components/procedure/_platform-add-repo.md"
 import ScanTargets from "/src/components/reference/_scan-targets.mdx"
 import SscIntro from "/src/components/concept/_ssc-intro.md"
 import AdmonitionSscLicense from "/src/components/reference/_admonition-ssc-license.md"
