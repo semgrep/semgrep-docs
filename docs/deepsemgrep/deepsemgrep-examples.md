@@ -7,21 +7,23 @@ toc_max_heading_level: 5
 
 # Semgrep Pro Engine examples
 
-This document provides an overview of Semgrep Pro Engine (Semgrep Pro) features through specific examples, such as its use in type inferences, class inheritance, constant propagation, and taint analysis. Several examples provide a comparison between the results of Semgrep Pro and Semgrep OSS Engine (Semgrep OSS).
+This document provides an overview of Semgrep Pro Engine features through specific examples, such as its use in type inferences, class inheritance, constant propagation, and taint analysis. Several examples provide a comparison between the results of Semgrep Pro Engine and Semgrep OSS Engine.
 
-Use the following resources as you work through the examples:
+The following resources can help you as you work through the examples in this document:
 
-* Enable the **Semgrep Pro Engine beta** <i class="fa-solid fa-toggle-large-on"></i> toggle within the [playground](https://semgrep.dev/playground/new).
-    * Note this requires `interfile: true` to be included in the metadata, see the following [example](https://semgrep.dev/s/3NZb)
-* The [Semgrep Pro Engine testing repository](https://github.com/returntocorp/semgrep-pro-tests) 
-    * Clone the repository `git clone https://github.com/returntocorp/semgrep-pro-tests`
-    * Follow the instructions in the sections of this document below. Generally:
-        * To run Semgrep Pro Engine with interfile analysis, run `semgrep --pro --config=pro.yaml .`
-        * To run Semgrep Pro Engine with interprocedural analysis, run `semgrep --pro-intrafile --config=pro.yaml .`
+- Enable the <i class="fa-solid fa-toggle-large-on"></i> **Semgrep Pro Engine beta** toggle within the [Playground](https://semgrep.dev/playground/new).
+    - Rules you use in Semgrep Pro Engine require `interfile: true` key included in the metadata, see the following [example](https://semgrep.dev/s/3NZb).
+- The [Semgrep Pro Engine testing repository](https://github.com/returntocorp/semgrep-pro-tests) 
+    - Clone the repository `git clone https://github.com/returntocorp/semgrep-pro-tests`
+    - Follow the instructions in the sections of this document below. Generally:
+        - To run Semgrep Pro Engine with interfile analysis, run `semgrep --pro --config=pro.yaml .`
+        - To run Semgrep Pro Engine with interprocedural analysis, run `semgrep --pro-intrafile --config=pro.yaml .`
 
 ## Taint tracking
 
-Semgrep allows you to search for the flow of any potentially exploitable input into an important sink using taint mode. For more information, see [taint mode](https://semgrep.dev/docs/writing-rules/data-flow/taint-mode/) documentation.
+Semgrep OSS Engine allows you to search for the flow of any potentially exploitable input into an important sink using taint mode. For more information, see [Taint mode](/writing-rules/data-flow/taint-mode/) documentation.
+
+Examples in the 
 
 In the examples below, Semgrep is searching for dangerous calls using data obtained `get_user_input` call. The rule does this by specifying the source of taint as `get_user_input(...)` and the sink as `dangerous(...);`.
 
@@ -55,9 +57,9 @@ semgrep --config pro.yaml . --pro
 
 #### ES6 and CommonJS
 
-The JavaScript and TypeScript ecosystems contain various ways for importing and exporting code, Semgrep Pro is able to track dataflow through ES6 imports/exports and some CommonJS export paths (See known limitations below). 
+The JavaScript and TypeScript ecosystems contain various ways for importing and exporting code, Semgrep Pro Engine is can track dataflow through ES6 imports or exports and some CommonJS export paths (See known limitations below).
 
-<b>ES6</b>
+##### ES6
 
 Semgrep is able to track data through the definition of exports for es6:
 
@@ -75,7 +77,7 @@ import { readUser } from "./es6/es6";
 readUser()
 ```
 
-<b>CommonJS</b>
+##### CommonJS
 
 Semgrep is able to track data through the definition of exports for CommonJS when the function is defined inline:
 
@@ -97,7 +99,7 @@ To run Semgrep Pro in the cloned [Semgrep Pro Engine testing repository](https:/
 semgrep --config pro.yaml . --pro
 ```
 
-<b>Known limitations</b>
+##### Known limitations
 
 Currently Semgrep Pro Engine does not handle specific cases of CommmonJS where you define a function and assign it to an export later, Semgrep Pro Engine does not track the code below:
 
@@ -205,7 +207,7 @@ Try to run Semgrep Pro Engine in the cloned [Semgrep Pro Engine testing reposito
 ```sh
 semgrep --config pro.yaml . --pro
 ```
-#### JavaScript/TypeScript
+#### JavaScript and TypeScript
 
 <iframe title="Semgrep example no prints" src="https://semgrep.dev/embed/editor?snippet=BJ2x" width="100%" height="432" frameborder="0"></iframe>
 
@@ -244,7 +246,7 @@ Try to run Semgrep Pro Engine in the cloned [Semgrep Pro Engine testing reposito
 semgrep --config pro.yaml . --pro
 ```
 
-#### JavaScript/TypeScript
+#### JavaScript an TypeScript
 
 <iframe title="Semgrep example no prints" src="https://semgrep.dev/embed/editor?snippet=0xgB" width="100%" height="432" frameborder="0"></iframe>
 
