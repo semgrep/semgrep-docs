@@ -99,9 +99,9 @@ If you are self-hosting your repository, you must [use a self-hosted runner](htt
 <Tabs
     defaultValue="gha-semgrep"
     values={[
-    {label: 'Semgrep Code CI', value: 'gha-semgrep'},
-    {label: 'Stand-alone SAST CI', value: 'gha-standalone'},
-    {label: 'Semgrep Supply Chain CI ', value: 'gha-ssc'},
+    {label: 'Semgrep Code', value: 'gha-semgrep'},
+    {label: 'Stand-alone SAST', value: 'gha-standalone'},
+    {label: 'Semgrep Supply Chain', value: 'gha-ssc'},
     ]}
 >
 
@@ -130,8 +130,8 @@ If you are self-hosting your repository, you must [use a self-hosted runner](htt
 <Tabs
     defaultValue="gha-semgrep-dash"
     values={[
-    {label: 'Semgrep Code CI', value: 'gha-semgrep-dash'},
-    {label: 'Stand-alone SAST CI', value: 'gha-standalone-dash'},
+    {label: 'Semgrep Code', value: 'gha-semgrep-dash'},
+    {label: 'Stand-alone SAST', value: 'gha-standalone-dash'},
     ]}
 >
 
@@ -164,9 +164,9 @@ To add a Semgrep configuration snippet in your GitLab CI/CD pipeline:
 <Tabs
     defaultValue="glcicd-semgrep"
     values={[
-    {label: 'Semgrep Code CI', value: 'glcicd-semgrep'},
-    {label: 'Stand-alone SAST CI', value: 'glcicd-standalone'},
-    {label: 'Semgrep Supply Chain CI', value: 'glcicd-ssc'},
+    {label: 'Semgrep Code', value: 'glcicd-semgrep'},
+    {label: 'Stand-alone SAST', value: 'glcicd-standalone'},
+    {label: 'Semgrep Supply Chain', value: 'glcicd-ssc'},
     ]}
 >
 
@@ -193,8 +193,8 @@ To add a Semgrep configuration snippet in your GitLab CI/CD pipeline:
 <Tabs
     defaultValue="glcicd-semgrep-dash"
     values={[
-    {label: 'Semgrep Code CI', value: 'glcicd-semgrep-dash'},
-    {label: 'Stand-alone SAST CI', value: 'glcicd-standalone-dash'},
+    {label: 'Semgrep Code', value: 'glcicd-semgrep-dash'},
+    {label: 'Stand-alone SAST', value: 'glcicd-standalone-dash'},
     ]}
 >
 
@@ -232,9 +232,9 @@ To add a Semgrep configuration snippet in your Jenkins pipeline:
 <Tabs
     defaultValue="jenkins-semgrep"
     values={[
-    {label: 'Semgrep Code CI', value: 'jenkins-semgrep'},
-    {label: 'Stand-alone CI job', value: 'jenkins-standalone'},
-    {label: 'Semgrep Supply Chain CI', value: 'jenkins-ssc'},
+    {label: 'Semgrep Code', value: 'jenkins-semgrep'},
+    {label: 'Stand-alone SAST', value: 'jenkins-standalone'},
+    {label: 'Semgrep Supply Chain', value: 'jenkins-ssc'},
     {label: 'Semgrep Code (Docker)', value: 'jenkins-semgrep-docker'},
     ]}
 >
@@ -283,9 +283,9 @@ These steps can also be performed through BitBucket's UI wizard. This UI wizard 
 <Tabs
     defaultValue="bitbucket-semgrep"
     values={[
-    {label: 'Semgrep Code CI', value: 'bitbucket-semgrep'},
-    {label: 'Stand-alone SAST CI', value: 'bitbucket-standalone'},
-    {label: 'Semgrep Supply Chain CI', value: 'bitbucket-ssc'},
+    {label: 'Semgrep Code', value: 'bitbucket-semgrep'},
+    {label: 'Stand-alone SAST', value: 'bitbucket-standalone'},
+    {label: 'Semgrep Supply Chain', value: 'bitbucket-ssc'},
     ]}
 >
 
@@ -328,9 +328,9 @@ These steps can be performed from within Buildkite's interface. From Buildkite's
 <Tabs
     defaultValue="buildkite-semgrep"
     values={[
-    {label: 'Semgrep Code CI', value: 'buildkite-semgrep'},
-    {label: 'Stand-alone SAST CI', value: 'buildkite-standalone'},
-    {label: 'Semgrep Supply Chain CI', value: 'buildkite-ssc'},
+    {label: 'Semgrep Code', value: 'buildkite-semgrep'},
+    {label: 'Stand-alone SAST', value: 'buildkite-standalone'},
+    {label: 'Semgrep Supply Chain', value: 'buildkite-ssc'},
     ]}
 >
 
@@ -377,9 +377,9 @@ gets put into the pipeline at runtime.
 <Tabs
     defaultValue="circleci-semgrep"
     values={[
-    {label: 'Semgrep Code CI', value: 'circleci-semgrep'},
-    {label: 'Stand-alone SAST CI', value: 'circleci-standalone'},
-    {label: 'Semgrep Supply Chain CI', value: 'circleci-ssc'},
+    {label: 'Semgrep Code', value: 'circleci-semgrep'},
+    {label: 'Stand-alone SAST', value: 'circleci-standalone'},
+    {label: 'Semgrep Supply Chain', value: 'circleci-ssc'},
     ]}
 >
 
@@ -416,9 +416,9 @@ To add Semgrep into Azure Pipelines:
 <Tabs
     defaultValue="azure-semgrep"
     values={[
-    {label: 'Semgrep Code CI', value: 'azure-semgrep'},
-    {label: 'Stand-alone SAST CI', value: 'azure-standalone'},
-    {label: 'Semgrep Supply Chain CI', value: 'azure-ssc'},
+    {label: 'Semgrep Code', value: 'azure-semgrep'},
+    {label: 'Stand-alone SAST', value: 'azure-standalone'},
+    {label: 'Semgrep Supply Chain', value: 'azure-ssc'},
     ]}
 >
 
