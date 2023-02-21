@@ -1,15 +1,10 @@
-Features dependent on your SCM:
-
-| Feature | GitHub | GitLab | BitBucket |
-| ------- | -------- | ------- | -------- |
-| **PR or MR comments** |  ✅ Yes | ✅ Yes | ❌ No |
-
 Features dependent on your CI **and** SCM:
 
-| Feature | GitHub | GitLab | BitBucket | CI provider support |
-| ------- | -------- | ------- | -------- | ---------------- |
+| Feature | GitHub with GitHub Actions | GitLab with GL CI/CD | GitHub or GitLab with any CI provider support |
+| ------- | -------------------------- | ------------------ | ----------------------- | 
 | **Diff-aware scanning** | ✅ Supported | ✅ Supported | ✅ Supported  | ✅ Supported (may need additional set up) | 
 | **Hyperlinks** | ✅ Supported | ✅ Supported | ✅ Supported  |  ✅ Supported (may need additional set up) |
+| **PR or MR comments** |  ✅ Yes | ✅ Yes | 
 | **SCM security dashboard** |  ✅ GitHub Advanced Security Dashboard |  ✅ GitLab Security Dashboard | ❌ No | ❗ Only GitHub Actions and GitLab CI/CD |
 
 For example, if you use CircleCI as your CI provider on a GitHub repository, SCP does not have any support for GitHub Advanced Security Dashboard.
