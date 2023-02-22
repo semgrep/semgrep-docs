@@ -60,12 +60,12 @@
   "ranking": [
     "desc(weight.page_rank)",
     "custom",
-    "words",
     "filters",
     "typo",
     "attribute",
-    "proximity",
-    "exact"
+    "words",
+    "exact",
+    "proximity"
   ],
   "conversation_id": [
     "833762294"

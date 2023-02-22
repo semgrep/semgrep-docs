@@ -154,12 +154,12 @@ module.exports = {
       "ranking": [
         "desc(weight.page_rank)",
         "custom",
-        "words",
         "filters",
         "typo",
         "attribute",
-        "proximity",
-        "exact"
+        "words",
+        "exact",
+        "proximity"
       ]
     },
     image: 'https://semgrep.dev/thumbnail.png',
