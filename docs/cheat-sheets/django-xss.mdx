@@ -1,12 +1,14 @@
 ---
 slug: django-xss
+description: "Django XSS mitigation cheat sheet."
 ---
 
 import LinkToRegistryRule from "/src/components/LinkToRegistryRule"
+import XssInjectionIntro from "/src/components/concept/_xss-injection-intro.mdx"
 
 # XSS prevention for Django
 
-This is a cross-site scripting (XSS) prevention cheat sheet by r2c. It contains code patterns of potential XSS in an application. Instead of scrutinizing code for exploitable vulnerabilities, the recommendations in this cheat sheet pave a safe road for developers that mitigates the possibility of XSS in your code. By following these recommendations, you can be reasonably sure your code is free of XSS.
+<XssInjectionIntro />
 
 ## Mitigation summary
 
@@ -17,7 +19,7 @@ Semgrep ruleset for this cheatsheet: [https://semgrep.dev/p/minusworld.django-xs
 #### Check your project for these conditions:
 
 ```bash
-semgrep --config p/minusworld.django-xss
+semgrep scan --config p/minusworld.django-xss
 ```
 
 [PDF of this cheat sheet](https://web-assets.r2c.dev/security-cheat-sheets/xss/r2c-security-cheat-sheet-xss-prevention-for-django.pdf)
@@ -124,7 +126,7 @@ Ban `__html__` in classes. Alternatively, prefer `mark_safe()` if necessary.
 
 ### 1.E. Using **html_safe()**
 
-The `html_safe()` decorator adds the `__html__` magic method to the supplied class. The added `__html__` magic method will return the exact string representation of the class (e.g., `str(self)`). Because objects with the `__html__` method are not escaped, this could create a XSS vulnerability.
+The `html_safe()` decorator adds the `__html__` magic method to the supplied class. The added `__html__` magic method returns the exact string representation of the class (for example `str(self)`). Because objects with the `__html__` method are not escaped, this could create a XSS vulnerability.
 
 Example:
 

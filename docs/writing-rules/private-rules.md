@@ -1,13 +1,13 @@
 ---
 slug: private-rules
-description: "Users in the Team and Enterprise tier for Semgrep App can publish rules to the Semgrep Registry that are not visible to others outside their organization. This can be useful for organizations where rules may contain code-sensitive information or legal requirements prevent using a public registry."
+description: "Users of the Team and Enterprise tier for Semgrep Code can publish rules to the Semgrep Registry that are not visible to others outside their organization. This can be useful for organizations where rules may contain code-sensitive information or legal requirements prevent using a public registry."
 ---
 
 import MoreHelp from "/src/components/MoreHelp"
 
 # Private rules
 
-Users in the [Team and Enterprise tier](https://semgrep.dev/pricing) for Semgrep App can publish rules to the Semgrep Registry as private rules that are not visible to others outside their organization. The private rules enable you to hide code-sensitive information or legal requirements that prevent you from using a public registry.
+Users in the [Team and Enterprise tier](https://semgrep.dev/pricing) for Semgrep Code can publish rules to the Semgrep Registry as private rules that are not visible to others outside their organization. The private rules enable you to hide code-sensitive information or legal requirements that prevent you from using a public registry.
 
 As we continue to develop and refine this feature, we welcome and appreciate your feedback! Email us at [product@r2c.dev](mailto:product@r2c.dev) or contact us in the [Semgrep Community Slack](https://go.semgrep.dev/slack).
 

@@ -5,7 +5,7 @@ description: "Perform triage and remediation of dependency vulnerabilities throu
 tags:
     - Semgrep Supply Chain
     - Team & Enterprise Tier
-title: Triaging and remediating dependency findings
+title: Triage and remediation 
 hide_title: true
 ---
 
@@ -113,21 +113,28 @@ The following **filters** are provided:
   <tbody><tr>
    <td>Exposure
    </td>
-   <td>Filters are based on the <a href="/docs/semgrep-sc/sc-glossary">reachability</a> of a vulnerability. <strong>Reachable findings</strong> are displayed by default.
+   <td>Filters are based on the <a href="/docs/semgrep-sc/sc-glossary">reachability</a> of a vulnerability. The <strong>Reachable</strong> filter is selected by default.
    </td>
   </tr>
   <tr>
    <td>Severity
    </td>
-   <td>Filters are based on the severity of a vulnerability. Semgrep Supply Chain rules use severity values set by the GitHub Advisory Database.
+   <td>Filters are based on the severity of a vulnerability. Semgrep Supply Chain rules use severity values set by the GitHub Advisory Database. <strong>All severities</strong> are selected by default.
    </td>
   </tr>
   <tr>
    <td>Status
    </td>
-   <td>Filters are based on the status of a vulnerability.
+   <td>Filters are based on the status of a vulnerability. The <strong>New</strong> filter is selected by default.
    </td>
-  </tr></tbody>
+  </tr>
+  <tr>
+   <td>Transitivity
+   </td>
+   <td>Filters are based on the transitivity of a vulnerability. <strong>All transitivities</strong> are selected by default.
+   </td>
+  </tr>
+  </tbody>
 </table>
 
 The following **status filters** are provided:

@@ -1,4 +1,4 @@
-Semgrep App's Rule Board displays all rules and rulesets that are used to scan repositories. These rules are scanned based on the repository's programming language and framework as well as additional Semgrep parameters, such as ignored files.
+Semgrep Cloud Platform's Rule Board displays all rules and rulesets that are used to scan repositories. These rules are scanned based on the repository's programming language and framework as well as additional Semgrep parameters, such as ignored files.
 
 For example, given five repositories each with different programming languages, the Rule Board only scans using rules and rulesets for that repository's language that are in the Rule Board.
 
@@ -13,11 +13,11 @@ The Rule Board is composed of three columns:
 
 <dl>
     <dt>Monitor</dt>
-    <dd>Rules here show findings only on Semgrep App.</dd>
+    <dd>Rules here show findings only on Semgrep Cloud Platform.</dd>
     <dt>Comment</dt>
     <dd>Rules here show findings to developers through PRs or MRs.</dd>
     <dt>Block</dt>
-    <dd>Rules here show block merges and commits, in addition to showing findings in Semgrep App and PRs or MRs.</dd>
+    <dd>Rules here show block merges and commits, in addition to showing findings in Semgrep Cloud Platform and PRs or MRs.</dd>
 </dl>    
 
 To add rules and rulesets to your Rule Board:

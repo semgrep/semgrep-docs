@@ -211,7 +211,7 @@ The semgrep rules are pulled from `p/semgrep-rule-lints`.
 
 This feature is still experimental and under active development. Your feedback is welcomed!
 
-## Enabling autofix in Semgrep App
+## Enabling autofix in Semgrep Code
 
 <EnableAutofix />
 

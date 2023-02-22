@@ -3,7 +3,7 @@ slug: semgrep-philosophy
 description: "As you think about contributing to Semgrep, consider these design principles that have guided Semgrep CLI’s development so far."
 ---
 
-# Semgrep CLI philosophy
+# Semgrep OSS philosophy
 
 [Semgrep](https://semgrep.dev/) is a lightweight static analysis tool for many languages. It can find bug variants with patterns that look like source code.
 

@@ -2,35 +2,78 @@
 slug: getting-started
 append_help_link: true
 description: "Install Semgrep, run Semgrep locally, and learn about the benefits of running Semgrep in CI (continuous integration)."
-title: Getting started with Semgrep CLI
+title: Semgrep OSS Engine
 hide_title: true
 ---
 
 import MoreHelp from "/src/components/MoreHelp"
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-# Getting started with Semgrep CLI
+# Getting started with Semgrep OSS Engine
 
-## Running Semgrep locally
+The Semgrep OSS Engine is the foundation of Semgrep. Detect bugs, style violations, security issues, and more by scanning your code locally using [community-contributed rules](https://semgrep.dev/explore) as well as your own custom rules.
 
-Start by running [Semgrep](https://github.com/returntocorp/semgrep/) locally to scan your code. Semgrep runs offline on uncompiled code. **No code leaves your computer**.
+## Installing and running Semgrep locally
+
+Install and run [Semgrep CLI](https://github.com/returntocorp/semgrep/) to scan your code locally using Semgrep OSS Engine. Semgrep CLI runs offline on uncompiled code. **No code leaves your computer**.
 
 :::info Prerequisite
-Semgrep requires Python 3.7 or later.
+Semgrep CLI installation requires Python 3.7 or later.
 :::
 
-1. Install Semgrep. Use one of the following options depending on your system and preference:
-    - For macOS:
-        ```sh
-        brew install semgrep
-        ```
-    - For Ubuntu, Windows through Windows Subsystem for Linux (WSL), Linux, macOS:
-        ```sh
-        python3 -m pip install semgrep
-        ```
-    - To try out Semgrep without installation you may run it through Docker:
-        ```sh
-        docker run --rm -v "${PWD}:/src" returntocorp/semgrep semgrep --config=auto
-        ```
+1. Install Semgrep CLI. Use one of the following options depending on your system and preference:
+    <Tabs
+        defaultValue="macOS"
+        values={[
+        {label: 'macOS', value: 'macOS'},
+        {label: 'Linux', value: 'Linux'},
+        {label: 'Windows Subsystem for Linux (WSL)', value: 'Windows Subsystem for Linux (WSL)'},
+        {label: 'Docker', value: 'Docker'},
+        ]}
+    >
+
+    <TabItem value='macOS'>
+
+    ```bash
+    brew install semgrep
+    ```
+
+    Alternatively:
+
+    ```bash
+    python3 -m pip install semgrep
+    ```
+
+    </TabItem>
+
+    <TabItem value='Linux'>
+
+    ```bash
+    python3 -m pip install semgrep
+    ```
+
+    </TabItem>
+
+    <TabItem value='Windows Subsystem for Linux (WSL)'>
+
+    ```bash
+    python3 -m pip install semgrep
+    ```
+
+    </TabItem>
+
+    <TabItem value='Docker'>
+
+    ```bash
+    docker run --rm -v "${PWD}:/src" returntocorp/semgrep semgrep --config=auto
+    ```
+
+    </TabItem>
+
+    </Tabs>
+
+
 2. Confirm installation by running a simple search pattern. For example, run the following command:
     ```sh
     semgrep --pattern '127.$A.$B.$C' --lang generic /etc/hosts
@@ -96,10 +139,24 @@ semgrep --config=auto
 
 Semgrep is at its best when used to continuously scan code. Check out [Semgrep in CI](semgrep-ci/overview.md/) to learn how to get results where you already work: GitHub, GitLab, Slack, Jira, and more. To get results even earlier in the development process, such as in a Git pre-commit hook or VS Code, check the available [Semgrep extensions](./extensions.md).
 
-Check out [Semgrep App](https://semgrep.dev/manage) to integrate CI with PR or MR comments, monitor progress, host private rules (paid tier), and much more! 
+Check out [Semgrep Cloud Platform](https://semgrep.dev/manage) (SCP) to integrate Semgrep scans into your CI environment with PR or MR comments, monitor progress, host private rules (Team and Enterprise tiers), and much more! 
 
-## Upgrading
+## Logging into Semgrep Cloud Platform
 
-We [release new Semgrep versions](https://github.com/returntocorp/semgrep/releases) often! See [upgrading](./upgrading.md) for more details.
+Logging into SCP from your CLI enables you to:
+
+* Send findings from your local scans to SCP for findings triage.
+* Quickly configure local scans to run either rules from your Rule board or a different set of rules and rulesets. 
+* For Team or Enterprise users: scan code using Pro rules from the CLI.
+
+To log in to SCP:
+
+1. Create an account by clicking the link: [Sign in to Semgrep Cloud Platform](https://semgrep.dev/login).
+2. In your command line, enter `semgrep login`.
+3. Click the link provided in your terminal and follow the instructions.
+
+## Updating Semgrep
+
+We [release new Semgrep versions](https://github.com/returntocorp/semgrep/releases) often! See [Updating](./upgrading.md) for more details.
 
 <MoreHelp />
