@@ -108,7 +108,7 @@ To provide realibly completed scans, Semgrep Pro Engine can fall back to the use
 
 If a scan uses more than 5&nbsp;GB of memory during pre-processing, the scan uses Semgrep OSS Engine to ensure lower memory consumption. Similarly, if the Semgrep Pro Engine scan doesn't complete after 3 hours, the Pro Engine results in time out and Semgrep OSS rescans the repository. Typically, this is because the repository is very large.
 
-If 1-2 repositories cause CI scan issues, modify your config file to use `--oss-only`. This overrides the Semgrep CI settings for these repositories, and always runs these scans with Semgrep OSS. 
+If 1-2 repositories cause CI scan issues, modify your config file to use `semgrep ci --oss-only true`. This overrides the Semgrep CI settings for these repositories, and always runs these scans with Semgrep OSS. 
 
 If many reposistories cause scan issues, disable the Semgrep Pro Engine beta toggle in the **[Settings](https://semgrep.dev/orgs/-/settings)** page of your organization, and then contact r2c in the <a href="https://go.semgrep.dev/slack">Semgrep Community Slack</a> so we can help you to fix the issue and create a plan for your organization.
 
