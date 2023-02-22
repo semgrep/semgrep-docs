@@ -1,0 +1,23 @@
+---
+slug: semgrep-pro-data-flow
+append_help_link: true
+description: "This article documents data flow analysis implementation in Semgrep Cloud Platform and helps you to enable and find it on the Findings page."
+hide_title: true
+title: Semgrep Pro Engine taint traces
+---
+
+import MoreHelp from "/src/components/MoreHelp"
+import DisplayTaintedDataIntro from "/src/components/concept/_semgrep-pro-cloud-platform-display-tainted-data.mdx"
+import DisplayTaintedDataProcedure from "/src/components/procedure/_semgrep-pro-cloud-platform-display-tainted-data.mdx"
+
+## Introduction
+
+This article documents data flow analysis implementation of Semgrep Pro Engine in Semgrep Cloud Platform and helps you to enable and find it on the Findings page.
+
+## Viewing the path of tainted data
+
+<DisplayTaintedDataIntro />
+
+<DisplayTaintedDataProcedure />
+
+<MoreHelp />
