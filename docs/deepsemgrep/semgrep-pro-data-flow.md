@@ -2,7 +2,7 @@
 slug: semgrep-pro-data-flow
 append_help_link: true
 description: "This article documents data flow analysis implementation in Semgrep Cloud Platform and helps you to enable and find it on the Findings page."
-hide_title: true
+hide_title: false
 title: Semgrep Pro Engine taint traces
 ---
 
@@ -12,7 +12,7 @@ import DisplayTaintedDataProcedure from "/src/components/procedure/_semgrep-pro-
 
 ## Introduction
 
-This article documents data flow analysis implementation of Semgrep Pro Engine in Semgrep Cloud Platform and helps you to enable and find it on the Findings page.
+This article documents the data flow analysis implementation of Semgrep Pro Engine in the Semgrep Cloud Platform and helps you to enable and find it on the Findings page.
 
 ## Viewing the path of tainted data
 
