@@ -32,7 +32,6 @@ jobs:
           -e APPLICATION_ID -e API_KEY \
           -e CONFIG="$(cat algolia-config.json)" \
           algolia/docsearch-scraper:latest
-
           curl -X PUT \
           -H "X-Algolia-API-Key: ${ALGOLIA_API_KEY}" \
           -H "X-Algolia-Application-Id: ${APPLICATION_ID}" \
