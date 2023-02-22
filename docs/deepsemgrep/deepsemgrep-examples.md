@@ -246,7 +246,7 @@ Try to run Semgrep Pro Engine in the cloned [Semgrep Pro Engine testing reposito
 semgrep --config pro.yaml . --pro
 ```
 
-#### JavaScript an TypeScript
+#### JavaScript and TypeScript
 
 <iframe title="Semgrep example no prints" src="https://semgrep.dev/embed/editor?snippet=0xgB" width="100%" height="432" frameborder="0"></iframe>
 
