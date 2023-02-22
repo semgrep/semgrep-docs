@@ -4,6 +4,7 @@ append_help_link: true
 title: Findings
 description: "The Findings page allows users to view, manage, and triage Findings."
 hide_title: true
+toc_max_heading_level: 5
 tags:
     - Semgrep Cloud Platform
     - Community Tier
@@ -225,16 +226,41 @@ To **fix a finding**:
 
 <RemoveRule />
 
-#### Viewing and adding notes to findings
+#### Viewing details and adding notes to findings
 
 To **view and add notes** to the activity history of a finding:
 
-1. On the [Findings](https://semgrep.dev/orgs/-/findings?tab=open) page, click the heading of the finding card.
-2. View, or add the notes in the **Activity** section. To add a new note, click plus **New note**.
-    ![Semgrep Cloud Platform finding details page](/img/app-finding-details.png)<br />
+1. Log in to Semgrep Cloud Platform, and then click the **[Code](https://semgrep.dev/orgs/-/findings)** in the left panel to display the Findings page.
+1. Select a finding where you want to view details or add notes, and then do one of the following actions:
+    - If the default **Group by Rule** is enabled, click <i class="fa-regular fa-window-restore"></i> **View details** icon on the card of the finding.
+        ![Click View details if Group by Rule is enabled](/img/cloud-platform-findings-group-by-rule-view-details.png)<br />
+    - If **No grouping** view is enabled, click the **header hyperlink** on the card of the finding. In the example on the screenshot below, it is the **tainted-sql-string**.
+        ![Click View details if No grouping is enabled](/img/cloud-platform-findings-no-grouping-view-details.png)<br />
+        You can also view the finding details directly from the findings page by clicking on the comment bubble icon <i class="fa-regular fa-comment"></i> if it appears on the finding card.
+1. View, or add the notes in the **Activity** section. To add a new note, click plus **New note**.
+    ![Semgrep Cloud Platform finding details page](/img/cloud-platform-finding-details.png)<br />
     *Figure 6.* Finding details page.
 
-You can also view the findings activity directly from the findings page by clicking on the comment bubble icon <i class="fa-regular fa-comment"></i> if it appears on the finding card.
+#### Viewing the path of tainted data
+
+Semgrep Cloud Platform can display findings that show interfile analysis capabilities of Semgrep Pro Engine by displaying data flow of tainted data. To display such findings, follow the required steps in [Enabling Semgrep Pro Engine](/deepsemgrep/deepsemgrep-introduction/#enabling-semgrep-pro-engine-in-semgrep-cloud-platform) documentation.
+
+Findings that display tainted data can help you to track the sources, traces, and sinks of the taint as it propagates through different files in the code. For general information about taint analysis, see [Taint tracking](/writing-rules/data-flow/taint-mode/) documentation.
+
+:::info Prerequisite
+- Enabled Semgrep Pro Engine. If Semgrep Engine is not enabled in your organization, follow the steps in [Enabling Semgrep Pro Engine](/deepsemgrep/deepsemgrep-introduction/#enabling-semgrep-pro-engine-in-semgrep-cloud-platform) documentation.
+- Semgrep Pro Engine detected tainted data in your repository.
+:::
+
+To view details of tainted data, follow these steps:
+1. Log in to Semgrep Cloud Platform, and then click the **[Code](https://semgrep.dev/orgs/-/findings)** in the left panel to display the Findings page.
+1. Select a finding where Semgrep Pro Engine detected tainted data, and then do one of the following actions:
+    - If the default **Group by Rule** is enabled, click <i class="fa-regular fa-window-restore"></i> **View details** icon on the card of the finding.
+        ![Click View details if Group by Rule is enabled](/img/cloud-platform-findings-group-by-rule-view-details.png)<br />
+    - If **No grouping** view is enabled, click the **header hyperlink** on the card of the finding. In the example on the screenshot below, it is the **tainted-sql-string**.
+        ![Click View details if No grouping is enabled](/img/cloud-platform-findings-no-grouping-view-details.png)<br />
+1. In the <i class="fa-solid fa-droplet"></i> **Data flow** <i class="fa-regular fa-circle-info"></i> section you can see the source, traces, and sink of the tainted data across multiple files.
+    ![Data flow in Finding details page](/img/cloud-platform-findings-details-data-flow.png)<br />
 
 ### Ignoring findings through comments
 

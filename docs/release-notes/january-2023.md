@@ -40,7 +40,7 @@ toc_max_heading_level: 3
 - The findings detail page has received a facelift. This update is preparing the ground for future updates and features. The following list provides an overview of the implemented improvements:
     - New read-only rule preview component at the bottom of the page to view the rule and test cases.
     - The interface is now standardized with the rest of the Findings page, showing information about the location of the finding under the heading.
-    - New rule information card component that displays information about the rule. This information includes any references and information about the rule severity and confidence. ![Semgrep App finding details page](/img/app-finding-details.png)
+    - New rule information card component that displays information about the rule. This information includes any references and information about the rule severity and confidence. ![Semgrep App finding details page](/img/cloud-platform-finding-details.png)
 - Previously, new users who logged in with GitLab landed on a GitLab Groups page, then enable the GitLab groups they wanted to onboard, and then logout and login, in before landing on the Semgrep App > Dashboard page. Now, new users are immediately redirected to Semgrep App > Dashboard.
   - In order to associate their Semgrep account with their GitLab Groups, users need to use the GitLab “Add Org” workflow, which brings them to the GitLab Groups page. This change also addresses a bug when enabling a GitLab Group that would cause the app to crash.
 
