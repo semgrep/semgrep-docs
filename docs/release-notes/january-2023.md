@@ -71,22 +71,22 @@ as well as `True and X` and `False or X`. For example, `cond and "a" or "b"` is 
 ### Additions
 
 - Cheat sheets have been revisited, added, improved, and rewritten:
-    - Added a new [XML External entity (XXE) prevention for Java](https://semgrep.dev/docs/cheat-sheets/java-xxe/) cheat sheet.
+    - Added a new [XML External entity (XXE) prevention for Java](/cheat-sheets/java-xxe/) cheat sheet.
     - Added new command and code injection cheat sheets:
-        - [Code injection prevention for Java](https://semgrep.dev/docs/cheat-sheets/java-code-injection/).
-        - [Command injection prevention for Java](https://semgrep.dev/docs/cheat-sheets/java-command-injection/).
-        - [Code injection prevention for JavaScript](https://semgrep.dev/docs/cheat-sheets/javascript-code-injection/).
-        - [Command injection prevention for JavaScript](https://semgrep.dev/docs/cheat-sheets/javascript-command-injection/).
-        - [Code injection prevention for Ruby](https://semgrep.dev/docs/cheat-sheets/ruby-code-injection/).
-        - [Command injection prevention for Ruby](https://semgrep.dev/docs/cheat-sheets/ruby-command-injection/).
-        - Many other cheat sheets (such as [Command injection prevention for Go](https://semgrep.dev/docs/cheat-sheets/go-command-injection/)) now have updated examples and were enriched by other improvements.
-- Added a new document on how to set up [notifications for Semgrep Supply Chain](https://semgrep.dev/docs/semgrep-sc/receiving-notifications-from-ssc/) scans.
-- Added a new section [Transform](https://semgrep.dev/docs/writing-rules/experiments/extract-mode/#transform) to the Extract mode documentation.
+        - [Code injection prevention for Java](/cheat-sheets/java-code-injection/).
+        - [Command injection prevention for Java](/cheat-sheets/java-command-injection/).
+        - [Code injection prevention for JavaScript](/cheat-sheets/javascript-code-injection/).
+        - [Command injection prevention for JavaScript](/cheat-sheets/javascript-command-injection/).
+        - [Code injection prevention for Ruby](/cheat-sheets/ruby-code-injection/).
+        - [Command injection prevention for Ruby](/cheat-sheets/ruby-command-injection/).
+        - Many other cheat sheets (such as [Command injection prevention for Go](/cheat-sheets/go-command-injection/)) now have updated examples and were enriched by other improvements.
+- Added a new document on how to set up [notifications for Semgrep Supply Chain](/semgrep-sc/receiving-notifications-from-ssc/) scans.
+- Added a new section [Transform](/writing-rules/experiments/extract-mode/#transform) to the Extract mode documentation.
 
 ### Changes
 
-- Updated Getting started with Semgrep Supply Chain with additional information on scanning [Maven projects](https://semgrep.dev/docs/semgrep-sc/scanning-open-source-dependencies/#apache-maven-java).
-- Updated documentation of Semgrep App [Findings](https://semgrep.dev/docs/semgrep-app/findings/) with fresh screenshots.
-- Updated Supported languages with [additional information on transitivity](https://semgrep.dev/docs/supported-languages/#general-availability).
-- Updated Semgrep App’s [Tagging](https://semgrep.dev/docs/semgrep-app/tags/) documentation.
-- Updated [Getting started with Semgrep CLI](https://semgrep.dev/docs/getting-started/).
+- Updated Getting started with Semgrep Supply Chain with additional information on scanning [Maven projects](/semgrep-sc/scanning-open-source-dependencies/#apache-maven-java).
+- Updated documentation of Semgrep App [Findings](/semgrep-app/findings/) with fresh screenshots.
+- Updated Supported languages with [additional information on transitivity](/supported-languages/#general-availability).
+- Updated Semgrep App’s [Tagging](/semgrep-app/tags/) documentation.
+- Updated [Getting started with Semgrep CLI](/getting-started/).

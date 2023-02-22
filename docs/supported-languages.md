@@ -253,7 +253,7 @@ This table provides information about the beta level of support for languages, s
   </tr></tbody>
 </table>
 
-_*Semgrep Supply Chain requires a Maven-generated dependency tree. See [Setting up SSC scans for Apache Maven](/docs/semgrep-sc/scanning-open-source-dependencies/#apache-maven-java) for instructions to generate a dependency tree._
+_*Semgrep Supply Chain requires a Maven-generated dependency tree. See [Setting up SSC scans for Apache Maven](/semgrep-sc/scanning-open-source-dependencies/#apache-maven-java) for instructions to generate a dependency tree._
 
 ### Maturity levels
 

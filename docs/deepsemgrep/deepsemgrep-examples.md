@@ -21,7 +21,7 @@ Use the following resources as you work through the examples:
 
 ## Taint tracking
 
-Semgrep allows you to search for the flow of any potentially exploitable input into an important sink using taint mode. For more information, see [taint mode](https://semgrep.dev/docs/writing-rules/data-flow/taint-mode/) documentation.
+Semgrep allows you to search for the flow of any potentially exploitable input into an important sink using taint mode. For more information, see [taint mode](/writing-rules/data-flow/taint-mode/) documentation.
 
 In the examples below, Semgrep is searching for dangerous calls using data obtained `get_user_input` call. The rule does this by specifying the source of taint as `get_user_input(...)` and the sink as `dangerous(...);`.
 
@@ -157,7 +157,7 @@ If you are following in the cloned [Semgrep Pro Engine testing repository](https
 
 ### Using class inheritance with typed metavariables
 
-Semgrep Pro Engine uses interfile class inheritance information when matching [typed metavariables](https://semgrep.dev/docs/writing-rules/pattern-syntax/#typed-metavariables). Continuing the example from the previous section, see the following example file, which has defined some exceptions and includes their logging:
+Semgrep Pro Engine uses interfile class inheritance information when matching [typed metavariables](/writing-rules/pattern-syntax/#typed-metavariables). Continuing the example from the previous section, see the following example file, which has defined some exceptions and includes their logging:
 
 <iframe title="Semgrep example no prints" src="https://semgrep.dev/embed/editor?snippet=pbG0" width="100%" height="432" frameborder="0"></iframe>
 
@@ -177,7 +177,7 @@ semgrep --config pro.yaml . --pro
 
 ### Finding dangerous calls
 
-[Constant propagation](https://semgrep.dev/docs/writing-rules/pattern-syntax/#constants) provides a syntax for eliminating false positives in Semgrep rules. Even if a variable is set to a constant before being used in a function call several lines below, Semgrep knows that it must have that value and matches the function call. For example, this rule looks for non-constant values passed to the `dangerous` function:
+[Constant propagation](/writing-rules/pattern-syntax/#constants) provides a syntax for eliminating false positives in Semgrep rules. Even if a variable is set to a constant before being used in a function call several lines below, Semgrep knows that it must have that value and matches the function call. For example, this rule looks for non-constant values passed to the `dangerous` function:
 
 #### Java
 

@@ -215,7 +215,7 @@ var strdata = "hello";
 var numdata = 1;
 ```
 
-For more information, visit [Testing rules](https://semgrep.dev/docs/writing-rules/testing-rules/).
+For more information, visit [Testing rules](/writing-rules/testing-rules/).
 
 ### Rule messages
 

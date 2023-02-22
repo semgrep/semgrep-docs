@@ -137,7 +137,7 @@ semgrep:
     GITLAB_TOKEN: $PAT
 ```
 
-For more config options, see [GitLab CI Sample](https://semgrep.dev/docs/semgrep-ci/sample-ci-configs/#gitlab-ci).
+For more config options, see [GitLab CI Sample](/semgrep-ci/sample-ci-configs/#gitlab-ci).
 
 :::note
 GitLab MR comments are only available to logged-in Semgrep users, as they require a Semgrep API token.
