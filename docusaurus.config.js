@@ -136,7 +136,7 @@ module.exports = {
     },
     algolia: {
       apiKey: 'f53612c29d04a2ff71dce6e3b2f76752',
-      indexName: 'mkt480_docs',
+      indexName: 'docs',
 
       // Optional: see doc section below
       contextualSearch: false,

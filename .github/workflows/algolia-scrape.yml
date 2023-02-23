@@ -39,4 +39,4 @@ jobs:
             "ranking": ["desc(weight.page_rank)", "words", "filters", "typo", "exact", "attribute", "proximity"],
             "customRanking": ["desc(weight.level)", "asc(weight.position)"]
           }' \
-          "https://${APPLICATION_ID}.algolia.net/1/indexes/mkt480_docs/settings?forwardToReplicas=true"
+          "https://${APPLICATION_ID}.algolia.net/1/indexes/docs/settings?forwardToReplicas=true"
