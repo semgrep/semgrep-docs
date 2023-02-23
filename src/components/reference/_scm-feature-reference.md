@@ -1,6 +1,6 @@
 Integrations with source code providers, dependent on CI provider:
 
-| Feature                | GitHub with GitHub Actions | GitLab with GL CI/CD | GitHub or GitLab with other CI providers |
+| Feature                | GitHub with GitHub Actions | GitLab with GL CI/CD | GitHub, GitLab, or BitBucket with other CI providers |
 | -------                | -------------------------- | ------------------   | -----------------------                  |
 | **Diff-aware scanning**    | ✅                         | ✅                  | ✅  (May need additional set up) |
 | **Hyperlinks**             | ✅                         | ✅                  | ✅  (May need additional set up) |
