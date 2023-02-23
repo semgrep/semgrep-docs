@@ -15,8 +15,8 @@ import MoreHelp from "/src/components/MoreHelp"
 import TriageStatuses from "/src/components/reference/_triage-states.mdx"
 import RemoveRule from "/src/components/procedure/_remove-rule.mdx"
 import IgnoreIndividualFindings from "/src/components/procedure/_ignore-individual-findings.mdx"
-import DisplayTaintedDataIntro from "/src/components/concept/_semgrep-pro-cloud-platform-display-tainted-data.mdx"
-import DisplayTaintedDataProcedure from "/src/components/procedure/_semgrep-pro-cloud-platform-display-tainted-data.mdx"
+import DisplayTaintedDataIntro from "/src/components/concept/_cloud-platform-display-tainted-data.mdx"
+import DisplayTaintedDataProcedure from "/src/components/procedure/_cloud-platform-display-tainted-data.mdx"
 
 <ul id="tag__badge-list">
 {
