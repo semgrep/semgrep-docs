@@ -33,7 +33,7 @@ Semgrep can be used to detect dangerous APIs present in code. If integrated into
 
 _Time to write this rule: **5 minutes**_
 
-If you have a legitmate use case for a dangerous API, you can exempt a specific use of the API using a `nosemgrep` comment. The rule below checks for React's `dangerouslySetInnerHTML`, but the code is annotated with a `nosemgrep` comment. Semgrep will not detect this line. This allows Semgrep to continuously check for future uses of `dangerouslySetInnerHTML` while allowing for this specific use.
+If you have a legitimate use case for a dangerous API, you can exempt a specific use of the API using a `nosemgrep` comment. The rule below checks for React's `dangerouslySetInnerHTML`, but the code is annotated with a `nosemgrep` comment. Semgrep will not detect this line. This allows Semgrep to continuously check for future uses of `dangerouslySetInnerHTML` while allowing for this specific use.
 
 <iframe src="https://semgrep.dev/embed/editor?snippet=minusworld:docs-dangerously-set-inner-html-nosem" title="Exempt special cases of dangerous APIs with Semgrep" width="100%" height="432px" frameBorder="0"></iframe>
 
@@ -114,7 +114,7 @@ This rule example detects a function that is deprecated as of Django 4.0.
 
 _Time to write this rule: **5 minutes**_
 
-Some libraries or APIs have safe alternatives, such as [Google's `re2`](https://github.com/google/re2), an implementation of the standard `re` interface that ships with Python that is resistant to regular expression denial-of-service. This rule detects use of `re` and recommends `re2` as a safe alernative with the same interface.
+Some libraries or APIs have safe alternatives, such as [Google's `re2`](https://github.com/google/re2), an implementation of the standard `re` interface that ships with Python that is resistant to regular expression denial-of-service. This rule detects use of `re` and recommends `re2` as a safe alternative with the same interface.
 
 <iframe src="https://semgrep.dev/embed/editor?snippet=minusworld:docs-use-re2" title="Promote secure alternatives with Semgrep" width="100%" height="432px" frameBorder="0"></iframe>
 

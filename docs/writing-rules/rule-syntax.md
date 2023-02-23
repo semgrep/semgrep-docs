@@ -223,7 +223,7 @@ If the metavariable's content is a string, then it is possible to use `metavaria
 
 :::note Examples of `metavariable-pattern`
 - Match JavaScript code inside HTML in the following [Semgrep Playground](https://semgrep.dev/s/z95k) example.
-- Filtr regex matches in the following [Semgrep Playground](https://semgrep.dev/s/pkNk) example.
+- Filter regex matches in the following [Semgrep Playground](https://semgrep.dev/s/pkNk) example.
 :::
 
 ### `metavariable-comparison`
@@ -257,7 +257,7 @@ You can use Semgrep metavariables such as `$MVAR`, which Semgrep evaluates as fo
 
 - If `$MVAR` binds to a literal, then that literal is the value assigned to `$MVAR`.
 - If `$MVAR` binds to a code variable that is a constant, and constant propagation is enabled (as it is by default), then that constant is the value assigned to `$MVAR`.
-- Otherwise the code bound to the `$MVAR` is kept unevvaluated, and its string representation can be obtainer using the `str()` function, as in `str($MVAR)`. For example, if `$MVAR` binds to the code variable `x`, `str($MVAR)` evaluates to the string literal `"x"`.
+- Otherwise the code bound to the `$MVAR` is kept unevaluated, and its string representation can be obtainer using the `str()` function, as in `str($MVAR)`. For example, if `$MVAR` binds to the code variable `x`, `str($MVAR)` evaluates to the string literal `"x"`.
 
 #### Legacy `metavariable-comparison` keys
 
