@@ -33,7 +33,7 @@ jobs:
           -e CONFIG="$(cat algolia-config.json)" \
           algolia/docsearch-scraper:latest
           curl -X PUT \
-          -H "X-Algolia-API-Key: ${ALGOLIA_API_KEY}" \
+          -H "X-Algolia-API-Key: ${API_KEY}" \
           -H "X-Algolia-Application-Id: ${APPLICATION_ID}" \
           --data-binary '{
             "ranking": ["desc(weight.page_rank)", "words", "filters", "typo", "exact", "attribute", "proximity"],
