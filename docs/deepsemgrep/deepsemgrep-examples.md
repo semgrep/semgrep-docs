@@ -9,21 +9,32 @@ toc_max_heading_level: 5
 
 This document provides an overview of Semgrep Pro Engine features through specific examples, such as its use in type inferences, class inheritance, constant propagation, and taint analysis. Several examples provide a comparison between the results of Semgrep Pro Engine and Semgrep OSS Engine.
 
-The following resources can help you as you work through the examples in this document:
+## Tips and tricks for an interactive experience
+
+The following resources can help you to test the code in the sections below. As you work through the examples in this document, try the following:
 
 - Enable the <i class="fa-solid fa-toggle-large-on"></i> **Semgrep Pro Engine beta** toggle within the [Playground](https://semgrep.dev/playground/new).
-    - Rules you use in Semgrep Pro Engine require `interfile: true` key included in the metadata, see the following [example](https://semgrep.dev/s/3NZb).
+    - Rules you use in Semgrep Pro Engine require `interfile: true` key included in the metadata. See the following [example](https://semgrep.dev/s/3NZb).
 - The [Semgrep Pro Engine testing repository](https://github.com/returntocorp/semgrep-pro-tests) 
-    - Clone the repository `git clone https://github.com/returntocorp/semgrep-pro-tests`
+    - Clone the repository:
+        ```sh
+        git clone https://github.com/returntocorp/semgrep-pro-tests
+        ```
     - Follow the instructions in the sections of this document below. Generally:
-        - To run Semgrep Pro Engine with interfile analysis, run `semgrep --pro --config=pro.yaml .`
-        - To run Semgrep Pro Engine with interprocedural analysis, run `semgrep --pro-intrafile --config=pro.yaml .`
+        - To run Semgrep Pro Engine with interfile analysis, run:
+            ```sh
+            semgrep --pro --config=pro.yaml .
+            ```
+        - To run Semgrep Pro Engine with interprocedural analysis, run:
+            ```sh
+            semgrep --pro-intrafile --config=pro.yaml .
+            ```
 
 ## Taint tracking
 
-Semgrep OSS allows you to search for the flow of any potentially exploitable input into an important sink using taint mode. For more information, see [taint mode](/writing-rules/data-flow/taint-mode/) documentation.
+Semgrep OSS allows you to search for the flow of any potentially exploitable input into an important sink using taint mode. For more information, see the [taint mode](/writing-rules/data-flow/taint-mode/) documentation.
 
-In the examples below, see comparison of Semgrep OSS and Semgrep Pro Engine while searching for dangerous calls using data obtained `get_user_input` call. The rule does this by specifying the source of taint as `get_user_input(...)` and the sink as `dangerous(...);`.
+In the examples below, see a comparison of Semgrep OSS and Semgrep Pro Engine while searching for dangerous calls using data obtained `get_user_input` call. The rule does this by specifying the source of taint as `get_user_input(...)` and the sink as `dangerous(...);`.
 
 ### Java
 
@@ -31,7 +42,7 @@ Semgrep matches `dangerous(“Select * from “ + user_input)`, because `user_in
 
 <iframe title="Semgrep example no prints" src="https://semgrep.dev/embed/editor?snippet=J0dQ" width="100%" height="432" frameborder="0"></iframe>
 
-Semgrep Pro Engine matches both dangerous calls, because it does cross function boundaries. In fact, with Semgrep Pro Engine, the taint rule can track calls to `get_user_input` over multiple jumps in multiple files.
+Semgrep Pro Engine matches both dangerous calls because it does cross function boundaries. In fact, with Semgrep Pro Engine, the taint rule can track calls to `get_user_input` over multiple jumps in multiple files.
 
 :::tip Try it out
 Enable the **Semgrep Pro Engine beta** <i class="fa-solid fa-toggle-large-on"></i> toggle in the following link to an [example of dangerous taint](https://semgrep.dev/playground/s/J0dQ). To run Semgrep Pro Engine in the cloned [Semgrep Pro Engine testing repository](https://github.com/returntocorp/semgrep-pro-tests). Go to `docs/taint_tracking/java` and run the following command:
@@ -47,7 +58,7 @@ Here, Semgrep OSS matches `dangerous(“Select * from “ + user_input)`, becaus
 
 <iframe title="Semgrep example no prints" src="https://semgrep.dev/embed/editor?snippet=Po9p" width="100%" height="432" frameborder="0"></iframe>
 
-Semgrep Pro matches both dangerous calls, because it does cross function boundaries. In fact, with Semgrep Pro, the taint rule can track calls to `get_user_input` over multiple jumps in multiple files.
+Semgrep Pro matches both dangerous calls because it does cross function boundaries. In fact, with Semgrep Pro, the taint rule can track calls to `get_user_input` over multiple jumps in multiple files.
 
 :::tip Try it out
 Enable the **Semgrep Pro Engine beta** <i class="fa-solid fa-toggle-large-on"></i> toggle in the following link to an [example of dangerous taint](https://semgrep.dev/s/Po9p). To run Semgrep Pro Engine in the cloned [Semgrep Pro Engine testing repository](https://github.com/returntocorp/semgrep-pro-tests). Go to `docs/taint_tracking/javascript` and run the following command:
@@ -71,7 +82,7 @@ export function readUser() {
 }
 ```
 
-Semgrep is able to follow the dataflow when it is imported in another location:
+Semgrep is able to follow the dataflow when it is imported into another location:
 
 ```js
 import { readUser } from "./es6/es6";
@@ -105,7 +116,7 @@ semgrep --config pro.yaml . --pro
 
 ##### Known limitations
 
-Currently Semgrep Pro Engine does not handle specific cases of CommmonJS where you define a function and assign it to an export later, Semgrep Pro Engine does not track the code below:
+Currently, Semgrep Pro Engine does not handle specific cases of CommmonJS where you define a function and assign it to an export later, Semgrep Pro Engine does not track the code below:
 
 ```js
 function get_user() {
@@ -173,7 +184,7 @@ Semgrep Pro Engine uses interfile class inheritance information when matching [t
 The rule searches for any variable of type `ExampleException` being logged. Semgrep is **not** able to find instances of `BadRequest` being logged, unlike Semgrep Pro Engine. Allowing typed metavariables to access information from the entire program enables users to query any variable for its type and use that information in conjunction with the rest of the code resulting in more accurate findings.
 
 :::note
-For a more realistic example where typed metavariables are used, see the following [rule written by Semgrep community](https://semgrep.dev/playground/s/o9l6) to find code vulnerable to the log4j vulnerability.
+For a more realistic example where typed metavariables are used, see the following [rule written by the Semgrep community](https://semgrep.dev/playground/s/o9l6) to find code vulnerable to the log4j vulnerability.
 :::
 
 :::tip Try it out
