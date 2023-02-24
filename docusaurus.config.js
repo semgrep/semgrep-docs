@@ -113,8 +113,8 @@ module.exports = {
           title: 'About',
           items: [
             {
-              label: 'r2c blog',
-              href: 'https://r2c.dev/blog',
+              label: 'Semgrep blog',
+              href: 'https://semgrep.dev/blog/',
             },
             {
               label: 'About us',
@@ -127,7 +127,7 @@ module.exports = {
           ],
         },
       ],
-      copyright: `Copyright © ${new Date().getFullYear()} r2c. Semgrep®️  is a registered trademark of r2c. This site is built with Docusaurus.`,
+      copyright: `Copyright © ${new Date().getFullYear()} r2c. Semgrep®️  is a registered trademark of r2c. These docs are made with Docusaurus.`,
     },
     prism: {
       theme: lightCodeTheme,
