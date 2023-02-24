@@ -232,7 +232,7 @@ To **fix a finding**:
 
 To **view and add notes** to the activity history of a finding:
 
-1. Log in to Semgrep Cloud Platform, and then click the **[Code](https://semgrep.dev/orgs/-/findings)** in the left panel to display the Findings page.
+1. Log in to Semgrep Cloud Platform, and then click **[Code](https://semgrep.dev/orgs/-/findings)** in the left panel to view your findings.
 1. Select a finding where you want to view details or add notes, and then do one of the following actions:
     - If the default **Group by Rule** is enabled, click <i class="fa-regular fa-window-restore"></i> **View details** icon on the card of the finding.
         ![Click View details if Group by Rule is enabled](/img/cloud-platform-findings-group-by-rule-view-details.png)<br />
