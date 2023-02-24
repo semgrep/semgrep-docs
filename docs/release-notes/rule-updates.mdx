@@ -12,6 +12,68 @@ import MoreHelp from "/src/components/MoreHelp"
 
 Welcome to monthly rule updates. This document includes selected new rules, removed false positives (FP), and other rule updates. These new rules and their updates are made by the Semgrep community and r2c.
 
+## January 2023
+
+### Community rules
+
+#### New rules from Semgrep community and r2c
+
+- Thanks [johnssimon007](https://github.com/johnssimon007)! New rule for empty encryption key in Python: <LinkToRegistryRule ruleId="python.cryptography.security.empty-aes-key.empty-aes-key" />
+- Thanks [johnssimon007](https://github.com/johnssimon007)! New rule for header injection in Python/Flask: <LinkToRegistryRule ruleId="python.flask.security.audit.host-header-injection-python.host-header-injection-python
+" />
+- Additional rule for Deserialization vulnerabilities in Ruby: <LinkToRegistryRule ruleId="ruby.lang.security.bad-deserialization-yaml-env.bad-deserialization-yaml-env" />
+- Ported regex-based rules from Gitleaks
+
+#### Updated Community rules
+
+- Thanks [@ben-elttam](https://github.com/ben-elttam)! FP reduction in Kubernetes rules:
+    - <LinkToRegistryRule ruleId="yaml.kubernetes.security.run-as-non-root.run-as-non-root" />
+    - <LinkToRegistryRule ruleId="yaml.kubernetes.security.run-as-non-root-unsafe-value.run-as-non-root-unsafe-value" />
+- Thanks [@artem-fedorov](https://github.com/artem-fedorov)! OWASP metadata fixed for too many rules to list here!
+- Thanks [ianmuscat](https://github.com/ianmuscat)! FP reduction with additional patterns: <LinkToRegistryRule ruleId="generic.ci.security.use-frozen-lockfile.use-frozen-lockfile" />
+- Thanks [paisleyrob](https://github.com/paisleyrob)! FP reduction with improved patterns:
+    - <LinkToRegistryRule ruleId="c.lang.security.use-after-free.use-after-free"/>
+    - <LinkToRegistryRule ruleId="c.lang.security.insecure-use-printf-fn.insecure-use-printf-fn"/>
+- Thanks [rc-JoshuaZepf](https://github.com/rc-JoshuaZepf)! FP reduction with improved patterns: <LinkToRegistryRule ruleId="terraform.lang.security.ec2-imdsv1-optional.ec2-imdsv1-optional"/>
+- Thanks [nightshiba](https://github.com/nightshiba)! FP reduction with improved patterns: <LinkToRegistryRule ruleId="javascript.express.security.audit.xss.mustache.explicit-unescape.template-explicit-unescape"/>
+- Thanks [Sjord](https://github.com/Sjord)! FP reduction with improved patterns: <LinkToRegistryRule ruleId="php.lang.security.audit.assert-use-audit.assert-use-audit"/>
+- FP reduction with improved pattern for taint mode:
+    - <LinkToRegistryRule ruleId="javascript.express.security.audit.express-ssrf.express-ssrf" />
+    - <LinkToRegistryRule ruleId="java.spring.security.injection.tainted-file-path.tainted-file-path" />
+    - <LinkToRegistryRule ruleId="java.spring.security.injection.tainted-system-command.tainted-system-command" />
+    - <LinkToRegistryRule ruleId="ruby.lang.security.bad-deserialization-yaml.bad-deserialization-yaml" />
+    - <LinkToRegistryRule ruleId="javascript.express.security.audit.xss.direct-response-write.direct-response-write" />
+- FN reduction with improved patterns for taint mode:
+    - <LinkToRegistryRule ruleId="java.spring.security.injection.tainted-file-path.tainted-file-path" />
+    - <LinkToRegistryRule ruleId="java.spring.security.injection.tainted-html-string.tainted-html-string" />
+    - <LinkToRegistryRule ruleId="java.spring.security.injection.tainted-sql-string.tainted-sql-string" />
+    - <LinkToRegistryRule ruleId="java.spring.security.injection.tainted-system-command.tainted-system-command" />
+    - <LinkToRegistryRule ruleId="java.spring.security.injection.tainted-url-host.tainted-url-host" />
+- Deprecated rules:
+    - <LinkToRegistryRule ruleId="java.spring.security.cve.cve-2022-22965.cve-2022-22965" />
+    - <LinkToRegistryRule ruleId="php.lang.security.preg-replace-eval.preg-replace-eval" />
+    - <LinkToRegistryRule ruleId="html.security.missing-noopener.missing-noopener" />
+    - <LinkToRegistryRule ruleId="html.security.missing-noreferrer.missing-noreferrer" />
+
+### Pro rules
+
+#### New and updated Pro rules
+
+- New rules for hardcoded secrets:
+    - Database libraries for Java
+    - Database libraries for Ruby
+- New rules for JavaScript:
+    - Weak symmetric cryptography
+    - RegExp ReDos
+    - XSS
+    - Open Redirect
+- New rules for Java:
+    - SSRF in Java Servlets and Spring Framework
+- FP reduction with improved pattern for taint mode:
+    - Command Injection in Java Servlets and Spring Framework
+    - XSS in Java Spring Framework
+    - XXE in Java
+
 ## December 2022
 
 ### Community tier
