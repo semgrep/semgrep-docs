@@ -21,7 +21,7 @@ Welcome to monthly rule updates. This document includes selected new rules, remo
 - Thanks [johnssimon007](https://github.com/johnssimon007)! New rule for empty encryption key in Python: <LinkToRegistryRule ruleId="python.cryptography.security.empty-aes-key.empty-aes-key" />
 - Thanks [johnssimon007](https://github.com/johnssimon007)! New rule for header injection in Python/Flask: <LinkToRegistryRule ruleId="python.flask.security.audit.host-header-injection-python.host-header-injection-python
 " />
-- Additional rule for Deserialization vulnerabilities in Ruby: <LinkToRegistryRule ruleId="ruby.lang.security.bad-deserialization-yaml-env.bad-deserialization-yaml-env" />
+- Additional rule for deserialization vulnerabilities in Ruby: <LinkToRegistryRule ruleId="ruby.lang.security.bad-deserialization-yaml-env.bad-deserialization-yaml-env" />
 - Ported regex-based rules from Gitleaks
 
 #### Updated Community rules
@@ -29,7 +29,7 @@ Welcome to monthly rule updates. This document includes selected new rules, remo
 - Thanks [@ben-elttam](https://github.com/ben-elttam)! FP reduction in Kubernetes rules:
     - <LinkToRegistryRule ruleId="yaml.kubernetes.security.run-as-non-root.run-as-non-root" />
     - <LinkToRegistryRule ruleId="yaml.kubernetes.security.run-as-non-root-unsafe-value.run-as-non-root-unsafe-value" />
-- Thanks [@artem-fedorov](https://github.com/artem-fedorov)! OWASP metadata fixed for too many rules to list here!
+- Thanks [@artem-fedorov](https://github.com/artem-fedorov)! OWASP metadata fixed for too **many** rules to list here!
 - Thanks [ianmuscat](https://github.com/ianmuscat)! FP reduction with additional patterns: <LinkToRegistryRule ruleId="generic.ci.security.use-frozen-lockfile.use-frozen-lockfile" />
 - Thanks [paisleyrob](https://github.com/paisleyrob)! FP reduction with improved patterns:
     - <LinkToRegistryRule ruleId="c.lang.security.use-after-free.use-after-free"/>
@@ -57,7 +57,9 @@ Welcome to monthly rule updates. This document includes selected new rules, remo
 
 ### Pro rules
 
-#### New and updated Pro rules
+The **Pro rules** are created by r2c and targeted for security and software engineers who need accurate findings. These rules were previously marked as Team tier rules (see the updates below). As of this update, these rules are called the **[Pro rules](/semgrep-code/pro-rules/)** and are available with the [Team or higher tier](https://semgrep.dev/pricing).
+
+#### New Pro rules
 
 - New rules for hardcoded secrets:
     - Database libraries for Java
@@ -69,6 +71,9 @@ Welcome to monthly rule updates. This document includes selected new rules, remo
     - Open Redirect
 - New rules for Java:
     - SSRF in Java Servlets and Spring Framework
+
+#### Updated Pro rules
+
 - FP reduction with improved pattern for taint mode:
     - Command Injection in Java Servlets and Spring Framework
     - XSS in Java Spring Framework
