@@ -12,16 +12,13 @@
       "page_rank": -100
     },
     {
-      "url": "https://semgrep.dev/docs/supported-languages",
-      "tags": ["supported_languages"],
-      "page_rank": 100
-    },
-    {
      "url": "https://semgrep.dev/docs"
     }
   ],
   "sitemap_urls": ["https://semgrep.dev/docs/sitemap.xml"],
-  "stop_urls": [],
+  "stop_urls": [
+    "https://semgrep.dev/docs/tags/*"
+  ],
   "js_render": false,
   "selectors": {
     "default": {
@@ -36,7 +33,7 @@
       "lvl4": "article h4",
       "lvl5": "article h5, article td:first-child",
       "lvl6": "article h6",
-      "text": "article p, article li, article td:last-child, code, div table td, div table th"
+      "text": "article p, article li, article td:last-child, article code, article div table td, article div table th"
     }
   },
   "strip_chars": " .,;:#",
@@ -57,6 +54,20 @@
       "type"
     ]
   },
+  "customRanking": [
+    "desc(weight.level)",
+    "asc(weight.position)"
+  ],
+  "ranking": [
+    "desc(weight.page_rank)",
+    "words",
+    "filters",
+    "typo",
+    "exact",
+    "attribute",
+    "proximity",
+    "custom"
+  ],
   "conversation_id": [
     "833762294"
   ],
