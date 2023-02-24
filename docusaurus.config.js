@@ -127,7 +127,7 @@ module.exports = {
           ],
         },
       ],
-      copyright: `Copyright © ${new Date().getFullYear()} r2c. Semgrep®️  is a registered trademark of r2c. These docs is made with Docusaurus.`,
+      copyright: `Copyright © ${new Date().getFullYear()} r2c. Semgrep®️  is a registered trademark of r2c. These docs are made with Docusaurus.`,
     },
     prism: {
       theme: lightCodeTheme,
