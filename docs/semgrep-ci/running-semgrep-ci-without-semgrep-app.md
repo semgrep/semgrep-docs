@@ -166,7 +166,7 @@ variables:
 
 Write custom rules to enforce your team's coding standards and security practices. Rules can be forked from existing community-written rules.
 
-See [Writing rules](https://semgrep.dev/docs/writing-rules/overview/) to learn how to write custom rules.
+See [Writing rules](/writing-rules/overview/) to learn how to write custom rules.
 
 ### Ignoring files
 

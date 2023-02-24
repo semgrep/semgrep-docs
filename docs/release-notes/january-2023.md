@@ -42,8 +42,8 @@ toc_max_heading_level: 3
 - The findings detail page has received a facelift. This update is preparing the ground for future updates and features. The following list provides an overview of the implemented improvements:
     - New read-only rule preview component at the bottom of the page to view the rule and test cases.
     - The interface is now standardized with the rest of the Findings page, showing information about the location of the finding under the heading.
-    - New rule information card component that displays information about the rule. This information includes any references and information about the rule severity and confidence. ![Semgrep App finding details page](/img/app-finding-details.png)
-- Previously, new users who logged in with GitLab landed on a GitLab Groups page, then enable the GitLab groups they wanted to onboard, and then logout and login, in before landing on the Semgrep App > Dashboard page. Now, new users are immediately redirected to Semgrep App > Dashboard.
+    - New rule information card component that displays information about the rule. This information includes any references and information about the rule severity and confidence. ![Semgrep App finding details page](/img/cloud-platform-finding-details.png)
+- Previously, new users who logged into Semgrep App using GitLab landed on a GitLab Groups page. Users then had to enable the GitLab groups they wanted to onboard, then users had to log out of Semgrep App and then log back in to complete the onboarding process. Now, new users are immediately logged in to Semgrep App.
   - In order to associate their Semgrep account with their GitLab Groups, users need to use the GitLab “Add Org” workflow, which brings them to the GitLab Groups page. This change also addresses a bug when enabling a GitLab Group that would cause the app to crash.
 
 ## Semgrep CLI
@@ -73,22 +73,22 @@ as well as `True and X` and `False or X`. For example, `cond and "a" or "b"` is 
 ### Additions
 
 - Cheat sheets have been revisited, added, improved, and rewritten:
-    - Added a new [XML External entity (XXE) prevention for Java](https://semgrep.dev/docs/cheat-sheets/java-xxe/) cheat sheet.
+    - Added a new [XML External entity (XXE) prevention for Java](/cheat-sheets/java-xxe/) cheat sheet.
     - Added new command and code injection cheat sheets:
-        - [Code injection prevention for Java](https://semgrep.dev/docs/cheat-sheets/java-code-injection/).
-        - [Command injection prevention for Java](https://semgrep.dev/docs/cheat-sheets/java-command-injection/).
-        - [Code injection prevention for JavaScript](https://semgrep.dev/docs/cheat-sheets/javascript-code-injection/).
-        - [Command injection prevention for JavaScript](https://semgrep.dev/docs/cheat-sheets/javascript-command-injection/).
-        - [Code injection prevention for Ruby](https://semgrep.dev/docs/cheat-sheets/ruby-code-injection/).
-        - [Command injection prevention for Ruby](https://semgrep.dev/docs/cheat-sheets/ruby-command-injection/).
-        - Many other cheat sheets (such as [Command injection prevention for Go](https://semgrep.dev/docs/cheat-sheets/go-command-injection/)) now have updated examples and were enriched by other improvements.
-- Added a new document on how to set up [notifications for Semgrep Supply Chain](https://semgrep.dev/docs/semgrep-sc/receiving-notifications-from-ssc/) scans.
-- Added a new section [Transform](https://semgrep.dev/docs/writing-rules/experiments/extract-mode/#transform) to the Extract mode documentation.
+        - [Code injection prevention for Java](/cheat-sheets/java-code-injection/).
+        - [Command injection prevention for Java](/cheat-sheets/java-command-injection/).
+        - [Code injection prevention for JavaScript](/cheat-sheets/javascript-code-injection/).
+        - [Command injection prevention for JavaScript](/cheat-sheets/javascript-command-injection/).
+        - [Code injection prevention for Ruby](/cheat-sheets/ruby-code-injection/).
+        - [Command injection prevention for Ruby](/cheat-sheets/ruby-command-injection/).
+        - Many other cheat sheets (such as [Command injection prevention for Go](/cheat-sheets/go-command-injection/)) now have updated examples and were enriched by other improvements.
+- Added a new document on how to set up [notifications for Semgrep Supply Chain](/semgrep-sc/receiving-notifications-from-ssc/) scans.
+- Added a new section [Transform](/writing-rules/experiments/extract-mode/#transform) to the Extract mode documentation.
 
 ### Changes
 
-- Updated Getting started with Semgrep Supply Chain with additional information on scanning [Maven projects](https://semgrep.dev/docs/semgrep-sc/scanning-open-source-dependencies/#apache-maven-java).
-- Updated documentation of Semgrep App [Findings](https://semgrep.dev/docs/semgrep-app/findings/) with fresh screenshots.
-- Updated Supported languages with [additional information on transitivity](https://semgrep.dev/docs/supported-languages/#general-availability).
-- Updated Semgrep App’s [Tagging](https://semgrep.dev/docs/semgrep-app/tags/) documentation.
-- Updated [Getting started with Semgrep CLI](https://semgrep.dev/docs/getting-started/).
+- Updated Getting started with Semgrep Supply Chain with additional information on scanning [Maven projects](/semgrep-sc/scanning-open-source-dependencies/#apache-maven-java).
+- Updated documentation of Semgrep App [Findings](/semgrep-app/findings/) with fresh screenshots.
+- Updated Supported languages with [additional information on transitivity](/supported-languages/#general-availability).
+- Updated Semgrep App’s [Tagging](/semgrep-app/tags/) documentation.
+- Updated [Getting started with Semgrep CLI](/getting-started/).

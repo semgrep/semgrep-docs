@@ -244,7 +244,8 @@ module.exports = {
           link: {type: 'doc', id: 'deepsemgrep/deepsemgrep-introduction'},
           items: [
             'deepsemgrep/deepsemgrep-introduction',
-            'deepsemgrep/deepsemgrep-examples'
+            'deepsemgrep/deepsemgrep-examples',
+            'deepsemgrep/semgrep-pro-data-flow'
           ]
         },
         'semgrep-code/pro-rules',
