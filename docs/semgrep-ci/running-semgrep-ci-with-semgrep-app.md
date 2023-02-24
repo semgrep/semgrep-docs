@@ -15,6 +15,7 @@ import CiScheduling from "/src/components/reference/_ci-scheduling.mdx"
 import CiIgnoringFiles from "/src/components/reference/_ci-ignoring-files.mdx"
 import DiffAwareScanning from "/src/components/reference/_diff-aware-scanning.mdx"
 import RuleBoard from "/src/components/reference/_rule-board.md"
+import ScmFeatureReference from "/src/components/reference/_scm-feature-reference.md"
 
 <ul id="tag__badge-list">
 {
@@ -47,26 +48,9 @@ The following video walks you through setting Semgrep in your CI through Semgrep
 
 ## Semgrep Cloud Platform feature support
 
-Support for certain features of Semgrep Cloud Platform depend on your CI provider or source code management tool (SCM). The following table breaks down the features and their availability:
+Support for certain features of Semgrep Cloud Platform may depend on your CI provider, source code management tool (SCM), or both. The following table breaks down the features and their availability:
 
-| Feature | GitHub | GitLab | BitBucket | CI provider support |
-| ------- | -------- | ------- | -------- | ---------------- |
-| **Diff-aware scanning** | ✅ Yes | ✅ Yes | ✅ Yes  | ✅ Available (may need additional set up) | 
-| **Hyperlinks** | ✅ Yes | ✅ Yes | ✅ Yes  |  ✅ Available (may need additional set up) |
-| **SCM security dashboard** |  ✅ GitHub Advanced Security Dashboard |  ✅ GitLab Security Dashboard | ❌ No | ❗ Only GitHub Actions and GitLab CI/CD |
-| **PR or MR comments** |  ✅ Yes | ✅ Yes | ❌ No | ✅ CI provider agnostic; feature support is dependent on SCM |
-*Table 1.* List of features and supported SCMs and CI providers.
-
-<dl>
-    <dt>Diff-aware scanning</dt>
-    <dd>Semgrep Cloud Platform can scan only changes in files when running on a pull or merge request (PR or MR). This keeps the scan fast and reduces finding duplication.</dd>
-    <dt>Receiving results (findings) as PR or MR comments</dt>
-    <dd>This feature enables you to receive <a href="/docs/semgrep-app/notifications/#enabling-github-pull-request-comments">PR or MR comments</a> from Semgrep Cloud Platform on the lines of code that generated a finding.</dd>
-    <dt>Hyperlinks to code</dt>
-    <dd>Semgrep Cloud Platform collects findings in a Findings page. In this page, you can click on a finding to return to your SCM (Github, GitLab, or Bitbucket) to view the lines of code in your repository that generated the finding.</dd>
-    <dt>SCM security dashboard</dt>
-    <dd>Send Semgrep findings to your SCM's security dashboard.</dd>
-</dl>
+<ScmFeatureReference />
 
 :::note
 * Your code does not leave your environment and is not sent to Semgrep Cloud Platform servers.

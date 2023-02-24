@@ -24,8 +24,10 @@ toc_max_heading_level: 3
 
 - The **Semgrep App > Vulnerabilities** now lets you filter by whether a vulnerability is from a direct or a transitive dependency. You can find these options under the **Transitivity** filter in the Semgrep App > Vulnerabilities page. All options are selected by default.
 - Lockfile parsers have been rewritten to be able to provide with improved error messages upon parse errors. This affects all supported ecosystems except Rust.
-- Removed support for reading dependencies from `pom.xml` files. Instead, Semgrep Supply Chain reads dependencies from a `maven_dep_tree.txt` file, which can be generated using the following command:
+- Removed support for reading dependencies from `pom.xml` files. Instead, Semgrep Supply Chain reads dependencies from `maven_dep_tree.txt` files, which can be generated using the following command:
     `mvn dependency:tree -DoutputFile=maven_dep_tree.txt`
+    - You must generate a maven_dep_tree.txt for every `pom.xml` in your repository.
+
 
 ## Semgrep App
 
