@@ -74,7 +74,7 @@ The JavaScript and TypeScript ecosystems contain various ways for importing and 
 
 ##### ES6
 
-Semgrep Pro Engine is able to track data through the definition of exports for es6:
+Semgrep Pro Engine can track data through the definition of exports for es6:
 
 ```js
 export function readUser() {
@@ -82,7 +82,7 @@ export function readUser() {
 }
 ```
 
-Semgrep Pro Engine is able to follow the dataflow when it is imported into another location:
+Semgrep Pro Engine can follow the dataflow when it is imported into another location:
 
 ```js
 import { readUser } from "./es6/es6";
@@ -92,7 +92,7 @@ readUser()
 
 ##### CommonJS
 
-Semgrep Pro Engine is able to track data through the definition of exports for CommonJS when the function is defined inline:
+Semgrep Pro Engine can track data through the definition of exports for CommonJS when the function is defined inline:
 
 ```js
 module.exports = function get_user() {
