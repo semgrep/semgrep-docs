@@ -50,18 +50,19 @@ These release notes include upgrades for versions ranging between 1.8.0 and 1.13
 
 - Allow metavariable-pattern clauses that use `language: generic` to potentially match any metavariable binding kind. For example, with the pattern `foo($...ARGS)`, it is now possible to use a `metavariable-pattern` on `$...ARGS` with `language: generic`, and match using generic mode against whatever text `$...ARGS` is bound to. (metavar-pattern-generic)
 
-### Semgrep App → Semgrep Cloud Platform
+## Semgrep App → Semgrep Cloud Platform
 
 - Semgrep App is now Semgrep Cloud Platform!
 - Semgrep Cloud Platform now supports PR comments in BitBucket repositories.
+- 
 
-### Semgrep Supply Chain
+## Semgrep Supply Chain
 
 - Semgrep Supply Chain now displays a summary of vulnerabilities and scan data in **Semgrep Cloud Platform** > **Dashboard** page. This enables users to view a report of findings for both their first-party and third-party code.
 - Java is now a Generally Available language in Semgrep Supply Chain.
 - Various fixes and improvements to performance.
 
-### Documentation
+## Documentation
 
 - Slight improvements to relevancy in Semgrep Docs’s search bar.
 - Updates to **Supported Languages  > Semgrep Supply Chain** and **Semgrep Code > Semgrep Pro Engine**.
