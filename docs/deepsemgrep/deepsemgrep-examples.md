@@ -82,7 +82,7 @@ export function readUser() {
 }
 ```
 
-Semgrep is able to follow the dataflow when it is imported into another location:
+Semgrep Pro Engine is able to follow the dataflow when it is imported into another location:
 
 ```js
 import { readUser } from "./es6/es6";
