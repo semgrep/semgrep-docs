@@ -92,7 +92,7 @@ readUser()
 
 ##### CommonJS
 
-TODO Semgrep is able to track data through the definition of exports for CommonJS when the function is defined inline:
+Semgrep Pro Engine is able to track data through the definition of exports for CommonJS when the function is defined inline:
 
 ```js
 module.exports = function get_user() {
