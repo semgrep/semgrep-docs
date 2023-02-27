@@ -74,7 +74,7 @@ The JavaScript and TypeScript ecosystems contain various ways for importing and 
 
 ##### ES6
 
-TODO Semgrep is able to track data through the definition of exports for es6:
+Semgrep Pro Engine is able to track data through the definition of exports for es6:
 
 ```js
 export function readUser() {
