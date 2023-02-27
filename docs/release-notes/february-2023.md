@@ -48,6 +48,7 @@ These release notes include upgrades for versions ranging between 1.8.0 and 1.13
         from: $X
         to: $F`
     ```
+
 - Allow metavariable-pattern clauses that use `language: generic` to potentially match any metavariable binding kind. For example, with the pattern `foo($...ARGS)`, it is now possible to use a `metavariable-pattern` on `$...ARGS` with `language: generic`, and match using generic mode against whatever text `$...ARGS` is bound to. (metavar-pattern-generic)
 
 ## Semgrep App → Semgrep Cloud Platform
