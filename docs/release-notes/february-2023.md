@@ -31,7 +31,7 @@ These release notes include upgrades for versions ranging between 1.8.0 and 1.13
     - Experimental support for Clojure, Lisp, Scheme, XML.
     - Beta support for Rust.
     - Experimental support for Jsonnet.
-    - Apex experimental support with Semgrep Pro Engine.
+    - Experimental support for Apex with Semgrep Pro Engine.
 
 - taint-mode: Taint propagators can now specify `by-side-effect`, just like sources and sanitizers. However, the default value of `by-side-effect` for propagators is `true` (unlike for sources or sanitizers). When using rule option `taint_assume_safe_functions: true`, this allows to specify functions that must propagate taint, for example:
 
@@ -52,6 +52,8 @@ These release notes include upgrades for versions ranging between 1.8.0 and 1.13
 
 ## Semgrep App → Semgrep Cloud Platform
 
+- Group by rule became the default view on the Findings page (now labeled as **Code** page) of Semgrep Cloud Platform. This view enables you to see which rules detected certain findings. You can always switch to the old no grouping view. For more information, see [Grouping by rule](/semgrep-app/findings/#grouping-by-rule).
+- Taint analysis traces are now displayed on the finding detail page, helping you to track tainted data as they propagate through your code. See [](/semgrep-app/findings/#viewing-the-path-of-tainted-data) to try out this feature.
 - Semgrep App is now Semgrep Cloud Platform!
 
 ## Semgrep Supply Chain
