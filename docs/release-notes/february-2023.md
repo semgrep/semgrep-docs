@@ -13,7 +13,7 @@ toc_max_heading_level: 3
 
 - Semgrep CLI is now officially renamed to **Semgrep OSS Engine**. Note that Semgrep CLI is an interface, not a product. As an interface, you can use the CLI as an interface for several products. For example the OSS, Semgrep Code, Semgrep Supply Chain.
 - Team tier rules are now renamed to Pro Rules. The **Pro rules** are created by r2c and targeted for security and software engineers who need accurate findings. These rules were previously called Team tier rules. As of this update, these rules are officially called the **[Pro rules](/semgrep-code/pro-rules/)** and are available with the [Team or higher tier](https://semgrep.dev/pricing).
-- DeepSemgrep is renamed to **Semgrep Pro Engine**. Semgrep Pro Engine is fully available for [Team or higher tier](https://semgrep.dev/pricing) users. See [Semgrep Pro](/deepsemgrep/deepsemgrep-introduction/) documentation. Some specific flags have been removed:
+- DeepSemgrep has been bundled with other functionalities to offer you **Semgrep Pro Engine**. Semgrep Pro Engine is fully available for [Team or higher tier](https://semgrep.dev/pricing) users. See [Semgrep Pro](/deepsemgrep/deepsemgrep-introduction/) documentation. Some specific flags have been removed:
     - The following already **deprecated** flags have been completely removed and substituted:
         - `-deep` has been removed and substituted by `-pro`
         - `-interfile` has been removed and substituted by `-pro`
