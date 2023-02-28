@@ -211,7 +211,7 @@ This table provides information about fully supported (generally available or GA
    <td>Pipenv</td>
    <td><code>Pipfile.lock</code></td>
    <td style={{"text-align": "center"}}>✔️ Yes</td>
-   <td style={{"text-align": "center"}}>❌ No</td>
+   <td style={{"text-align": "center"}}>✔️ Yes</td>
   </tr>
   <tr>
    <td>Poetry</td>
