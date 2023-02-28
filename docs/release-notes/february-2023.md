@@ -53,7 +53,6 @@ These release notes include upgrades for versions ranging between 1.8.0 and 1.13
 ## Semgrep App → Semgrep Cloud Platform
 
 - Semgrep App is now Semgrep Cloud Platform!
-- Semgrep Cloud Platform now supports PR comments in BitBucket repositories.
 
 ## Semgrep Supply Chain
 
