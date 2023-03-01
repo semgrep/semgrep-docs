@@ -68,7 +68,7 @@ These release notes include upgrades for versions ranging between 1.8.0 and 1.13
 
 ## Semgrep Registry
 
-- When you now click on a hyperlink header with the rule name in [Semgrep Registry](https://semgrep.dev/explore), the link opens a new tab with the rule in either the Semgrep Playground (if you are logged out) or in Semgrep Editor (if you are logged in). This can help you to keep the Registry page open but look at or modify the rule.
+- When you now click on a hyperlink header with the rule name in [Semgrep Registry](https://semgrep.dev/explore), the link opens a new tab with the rule in either the Semgrep Playground (if you are logged out) or in Semgrep Editor (if you are logged in). This means that you can keep open the Semgrep Registry page and easily check and modify rules.
 
 ## Documentation
 
