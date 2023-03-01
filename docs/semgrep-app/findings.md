@@ -136,10 +136,14 @@ Display and filter for findings reported only in specific time. To display findi
 
 ### Grouping by rule
 
-Semgrep Cloud Platform by default groups findings by a specific rule on the Findings page. This view can be disabled.
+Semgrep Cloud Platform by default groups findings by a specific rule on the [Findings](https://semgrep.dev/orgs/-/findings?tab=open) page.
 
 ![Screenshot of the Findings page with findings grouped by rule](/img/app-findings.png)<br />
 *Figure 3.* Screenshot of the Findings page with findings grouped by rule.
+
+:::info
+In the **group by rule** view, the rules that reported the highest number of findings are at the top of the page. This sorting of findings helps you to easily see which rules have the highest efficiency or generate a lot of noise in your code.
+:::
 
 ### Disabling grouping by rule
 
