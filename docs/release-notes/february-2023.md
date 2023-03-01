@@ -15,7 +15,7 @@ toc_max_heading_level: 3
 - Team tier rules are now renamed to Pro Rules. The **Pro rules** are created by r2c and targeted for security and software engineers who need accurate findings. These rules were previously called Team tier rules. As of this update, these rules are officially called the **[Pro rules](/semgrep-code/pro-rules/)** and are available with the [Team or higher tier](https://semgrep.dev/pricing).
 - DeepSemgrep has been bundled with other functionalities to offer you **Semgrep Pro Engine**. Semgrep Pro Engine is fully available for [Team or higher tier](https://semgrep.dev/pricing) users. See the [DeepSemgrep → Semgrep Pro Engine](#deepsemgrep--semgrep-pro-engine) update below for more details.
 
-## Semgrep CLI and CI → Semgrep OSS Engine
+## Semgrep CLI → Semgrep OSS Engine
 
 These release notes include upgrades for versions ranging between 1.8.0 and 1.13.0.
 
