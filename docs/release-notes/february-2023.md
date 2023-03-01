@@ -21,9 +21,8 @@ These release notes include upgrades for versions ranging between 1.8.0 and 1.13
 
 - Semgrep CLI is now Semgrep OSS Engine!
 - Newly added or upgraded [supported languages](/supported-languages/): 
-    - Experimental support for Clojure, Lisp, Scheme, XML.
+    - Experimental support for Clojure, Lisp, Scheme, XML, Jsonnet.
     - Beta support for Rust.
-    - Experimental support for Jsonnet.
 
 - taint-mode: Taint propagators can now specify `by-side-effect`, just like sources and sanitizers. However, the default value of `by-side-effect` for propagators is `true` (unlike for sources or sanitizers). When using rule option `taint_assume_safe_functions: true`, this allows specifying functions that must propagate taint, for example:
 
