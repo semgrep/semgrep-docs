@@ -76,7 +76,7 @@ These release notes include upgrades for versions ranging between 1.8.0 and 1.13
 - Updates to **Supported Languages** > **Semgrep Supply Chain** and **Semgrep Code** > **Semgrep Pro Engine**.
 - Updates to **Semgrep Code** > **Alerts and Notifications** to consolidate all methods to send and receive scan data, such as findings.
 - Updates to **Pricing and Billing** to reflect the differences between Semgrep OSS Engine and Semgrep Code.
-- New documentation for Semgrep Code.
+- Added new documentation category Semgrep Code.
 - Updates to Semgrep Docs’s navbar.
 - Added [Grouping by rule](/semgrep-app/findings/#grouping-by-rule) section.
 - Added [Viewing the path of tainted data](/semgrep-app/findings/#viewing-the-path-of-tainted-data) section and [Semgrep Pro Engine taint traces](/deepsemgrep/semgrep-pro-data-flow/) document.
