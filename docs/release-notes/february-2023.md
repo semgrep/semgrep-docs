@@ -81,7 +81,7 @@ These release notes include upgrades for versions ranging between 1.8.0 and 1.13
 - Updates to Semgrep Docs’s navbar.
 - Added [Grouping by rule](/semgrep-app/findings/#grouping-by-rule) section.
 - Added [Viewing the path of tainted data](/semgrep-app/findings/#viewing-the-path-of-tainted-data) section and [Semgrep Pro Engine taint traces](/deepsemgrep/semgrep-pro-data-flow/) document.
-- Updated [Viewing details and adding notes to findings](/findings/#viewing-details-and-adding-notes-to-findings) section.
+- Updated [Viewing details and adding notes to findings](/semgrep-app/findings/#viewing-details-and-adding-notes-to-findings) section.
 - Updated [Managing projects through tags](/semgrep-app/tags/) document.
-- Iframes with rule examples in [Rule syntax](/writing-rules/rule-syntax/) document have been changed to links to specific rules due to a great number of calls generated from this page. Iframes or code snippets may return back in future updates.
+- Iframes with rule examples in [Rule syntax](/writing-rules/rule-syntax/) document have been changed to links to specific rules due to a great number of calls generated from this page. Iframes or code snippets may return in future updates.
 - Many small updates, fixed broken links, typos, night theme logo on our home page, and overall improvements to make your experience of reading our documentation smoother.
