@@ -20,12 +20,12 @@ toc_max_heading_level: 3
 These release notes include upgrades for versions ranging between 1.8.0 and 1.13.0.
 
 - Semgrep CLI is now Semgrep OSS Engine!
-- Newly added or ugraded [supported languages](/supported-languages/): 
+- Newly added or upgraded [supported languages](/supported-languages/): 
     - Experimental support for Clojure, Lisp, Scheme, XML.
     - Beta support for Rust.
     - Experimental support for Jsonnet.
 
-- taint-mode: Taint propagators can now specify `by-side-effect`, just like sources and sanitizers. However, the default value of `by-side-effect` for propagators is `true` (unlike for sources or sanitizers). When using rule option `taint_assume_safe_functions: true`, this allows to specify functions that must propagate taint, for example:
+- taint-mode: Taint propagators can now specify `by-side-effect`, just like sources and sanitizers. However, the default value of `by-side-effect` for propagators is `true` (unlike for sources or sanitizers). When using rule option `taint_assume_safe_functions: true`, this allows specifying functions that must propagate taint, for example:
 
     Without `by-side-effect: true`, `unsafe_function` itself would be tainted by side-effect, and subsequent invocations of this function, even if the arguments were safe, would be tainted.
 
@@ -63,7 +63,7 @@ These release notes include upgrades for versions ranging between 1.8.0 and 1.13
 
 ## Semgrep Supply Chain
 
-- Semgrep Supply Chain now displays a summary of vulnerabilities and scan data in **Semgrep Cloud Platform** > **Dashboard** page. This enables users to view a report of findings for both their first-party and third-party code.
+- Semgrep Supply Chain now displays a summary of vulnerabilities and scan data in the **Semgrep Cloud Platform** > **Dashboard** page. This enables users to view a report of findings for both their first-party and third-party code.
 - Java is now a Generally Available language in Semgrep Supply Chain.
 - Various fixes and improvements to performance.
 
@@ -79,3 +79,9 @@ These release notes include upgrades for versions ranging between 1.8.0 and 1.13
 - Updates to **Pricing and Billing** to reflect the differences between Semgrep OSS Engine and Semgrep Code.
 - New documentation for Semgrep Code.
 - Updates to Semgrep Docs’s navbar.
+- Added [Grouping by rule](/semgrep-app/findings/#grouping-by-rule) section.
+- Added [Viewing the path of tainted data](/semgrep-app/findings/#viewing-the-path-of-tainted-data) section and [Semgrep Pro Engine taint traces](/deepsemgrep/semgrep-pro-data-flow/) document.
+- Updated [Viewing details and adding notes to findings](/findings/#viewing-details-and-adding-notes-to-findings) section.
+- Updated [Managing projects through tags](/semgrep-app/tags/) document.
+- Iframes with rule examples in [Rule syntax](/writing-rules/rule-syntax/) document have been changed to links to specific rules due to a great number of calls generated from this page. Iframes or code snippets may return back in future updates.
+- Many small updates, fixed broken links, typos, night theme logo on our home page, and overall improvements to make your experience of reading our documentation smoother.
