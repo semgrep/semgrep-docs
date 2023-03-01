@@ -142,7 +142,7 @@ Semgrep Cloud Platform by default groups findings by a specific rule on the [Fin
 *Figure 3.* Screenshot of the Findings page with findings grouped by rule.
 
 :::info
-In this view, the rules that reported the highest number of findings are at the top of the page. This sorting of findings helps you to easily see which rules have the highest efficiency or generate a lot of noise in your code.
+In the **group by rule** view, the rules that reported the highest number of findings are at the top of the page. This sorting of findings helps you to easily see which rules have the highest efficiency or generate a lot of noise in your code.
 :::
 
 ### Disabling grouping by rule
