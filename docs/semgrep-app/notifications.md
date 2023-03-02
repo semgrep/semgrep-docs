@@ -3,6 +3,7 @@ slug: notifications
 append_help_link: true
 title: Alerts and notifications
 hide_title: true
+toc_max_heading_level: 4
 description: "Learn how to receive Slack or email alerts about findings and failures, how to receive merge or pull request comments in your CI/CD pipeline, or how to integrate using webhooks."
 tags:
     - Semgrep Cloud Platform
@@ -81,7 +82,7 @@ The following table describes the purpose for each permission required to use th
   <tr>
    <td><strong><a href="https://api.slack.com/scopes/app_mentions:read">app_mentions:read</a></strong>
    </td>
-   <td>View messages that directly mention <code>@semgrep</code> in conversations that the app is in.
+   <td>View messages that directly mention <code>@Semgrep</code> in conversations that the app is in.
    </td>
    <td>Enables the Semgrep Slack app to respond when users mention it in the chat.
    </td>
@@ -97,7 +98,7 @@ The following table describes the purpose for each permission required to use th
   <tr>
    <td><strong><a href="https://api.slack.com/scopes/chat:write">chat:write</a></strong>
    </td>
-   <td>Send messages as @Semgrep.
+   <td>Send messages as <code>@Semgrep</code>.
    </td>
    <td>Enables the Semgrep Slack app to send findings to channels.
    </td>
@@ -105,7 +106,7 @@ The following table describes the purpose for each permission required to use th
   <tr>
    <td><strong><a href="https://api.slack.com/scopes/chat:write.customize">chat:write.customize</a></strong>
    </td>
-   <td>Send messages as @Semgrep with a customized username and avatar.
+   <td>Send messages as <code>@Semgrep</code> with a customized username and avatar.
    </td>
    <td>Helps users identify Semgrep Slack app messages through the use of an image and username.
    </td>
@@ -313,7 +314,7 @@ In the following screenshot, Semgrep detects the use of a native Python XML libr
 
 ![Screenshot of a sample autofix PR suggestion](/img/notifications-github-suggestions.png)
 
-#### Enabling autofix for your GitLab or GitHub code repository
+#### Enabling autofix for GitHub or GitLab 
 
 Autofix requires PR or MR comments to be enabled for your repository or organization. Follow the steps in [GitHub pull request comments](#github-pull-request-comments) or [GitLab merge request comments](#gitlab-merge-request-comments) to enable this feature.
 
