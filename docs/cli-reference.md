@@ -338,19 +338,20 @@ export HTTPS_PROXY="http://10.10.1.10:1080"
 
 <!-- Source code reference - the exit codes are located in the Semgrep repository - https://github.com/returntocorp/semgrep/blob/develop/cli/src/semgrep/error.py. -->
 
-Semgrep can finish with the following exit codes:
+Semgrep OSS can finish with the following exit codes:
 
 - **0**: Semgrep ran successfully and found no errors (or did find errors, but the `--error` flag is **not** set).
 - **1**: Semgrep ran successfully and found issues in your code (and the `--error` flag is set).
 - **2**: Semgrep failed.
-- **4**: Semgrep encountered an invalid pattern in rule schema.
+- **3**: Invalid syntax of the scanned language. This error occurs only while using the `--strict` flag.
+- **4**: Semgrep encountered an invalid pattern in the rule schema.
 - **5**: Semgrep configuration is not valid YAML.
-- **7**: At least one rule in configuration is invalid.
+- **7**: At least one rule in the configuration is invalid.
 - **8**: Semgrep does not understand specified language.
 - **13**: The API key is invalid.
+- **14**: Semgrep scan failed.
 
 <!-- REMOVED STATUSES (NOT USED ANYMORE)
-- 3: Semgrep failed to parse a file in the specified language.
 - 4: Semgrep encountered an invalid pattern.
 - 6: Rule with `pattern-where-python` found but `--dangerously-allow-arbitrary-code-execution-from-rules` was not set. See `--dangerously-allow-arbitrary-code-execution-from-rules`. (Note: `pattern-where-python` is no longer supported in Semgrep, so this applies only to legacy Semgrep versions).
 - 9: Semgrep exceeded match timeout. See `--timeout`.
