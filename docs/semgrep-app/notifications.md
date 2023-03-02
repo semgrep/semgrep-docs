@@ -59,7 +59,9 @@ To view, add, remove, disable, or enable your saved channels:
 
 ### Slack
 
-<!-- When referring to the Slack integration, let's consistently call it the "Semgrep Slack app" (app in lower case). This is consistent with the terminology used by Slack (they refer to these integrations as apps in their product pages. It also makes sure that the user knows what "app" we're referring to. Prefer "Semgrep Slack app" over "Semgrep Slack integration" or "Slack integration" or any other variant. -->
+<!-- When referring to the Slack integration, let's consistently call it the "Semgrep Slack app" (app in lower case). This is consistent with the terminology used by Slack (they refer to these integrations as apps in their product pages. It also makes sure that the user knows what "app" we're referring to.
+
+Prefer "Semgrep Slack app" over "Semgrep Slack integration" or "Slack integration" or any other variant. -->
 
 <ProcedureIntegrateSlack />
 
@@ -127,9 +129,9 @@ The following table describes the purpose for each permission required to use th
   <tr>
    <td><strong><a href="https://api.slack.com/scopes/emoji:read">emoji:read</a></strong>
    </td>
-   <td>View custom emoji in a workspace
+   <td>View custom emoji in a workspace.
    </td>
-   <td>Allows Semgrep to support a workspace's custom emojis for reactions.
+   <td>Allows Semgrep to support a workspace's custom emojis.
    </td>
   </tr>
   <tr>
@@ -169,23 +171,23 @@ The following table describes the purpose for each permission required to use th
    </td>
    <td>Add steps that people can use in Workflow Builder.
    </td>
-   <td>Enables Semgrep 
+   <td>Enables Semgrep to make use of modals and drop-down boxes when a user sets up notifications.
    </td>
   </tr>
   <tr>
    <td><strong><a href="https://api.slack.com/scopes/groups:read">groups:read</a></strong>
    </td>
-   <td>View basic information about private channels that your slack app has been added to
+   <td>View basic information about private channels that your Slack app has been added to.
    </td>
-   <td>Used for channels_id_changed event listener which allows us to update our notifications config if the channel id gets updated.
+   <td>Semgrep Slack app uses <code>channels_id_changed</code> to update its notifications config if the channel that receives findings is updated. This ensures that you are able to receive findings ever renaming a channel.
    </td>
   </tr>
   <tr>
    <td><strong><a href="https://api.slack.com/scopes/team:read">team:read</a></strong>
    </td>
-   <td>View the name, email domain, and icon for workspaces your slack app is connected to
+   <td>View the name, email domain, and icon for workspaces your slack app is connected to.
    </td>
-   <td>Used for the team_name_changed event listener which allows us to update our config if the team name is updated.
+   <td>Semgrep Slack app uses <code>team_name_changed</code> to update its notifications config if the team name is updated. This ensures that you are able to receive findings notifications even after renaming your team.
    </td>
   </tr>
   <tr>
@@ -199,7 +201,7 @@ The following table describes the purpose for each permission required to use th
 </table>
 
 <!--
-Unused
+Unused and removed for now:
   <tr>
    <td><strong><a href="https://api.slack.com/scopes/users.profile:read">users.profile:read</a></strong>
    </td>
