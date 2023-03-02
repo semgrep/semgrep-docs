@@ -161,9 +161,9 @@ The following table describes the purpose for each permission required to use th
   <tr>
    <td><strong><a href="https://api.slack.com/scopes/users:write">users:write</a></strong>
    </td>
-   <td>Set presence for Semgrep
+   <td>Set presence for Semgrep.
    </td>
-   <td>Used by the Semgrep Slack app to interact with the workspace and allows the users to add it in the relevant channels.
+   <td>Used by the Semgrep Slack app to interact with the workspace and enables users to add the Semgrep Slack app to relevant channels.
    </td>
   </tr>
   <tr>
@@ -171,7 +171,7 @@ The following table describes the purpose for each permission required to use th
    </td>
    <td>Add steps that people can use in Workflow Builder.
    </td>
-   <td>Enables Semgrep to make use of modals and drop-down boxes when a user sets up notifications.
+   <td>Enables Semgrep to make use of modals and drop-down boxes when a user creates or updates their notifications.
    </td>
   </tr>
   <tr>
