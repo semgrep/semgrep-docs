@@ -338,7 +338,7 @@ export HTTPS_PROXY="http://10.10.1.10:1080"
 
 <!-- Source code reference - the exit codes are located in the Semgrep repository - https://github.com/returntocorp/semgrep/blob/develop/cli/src/semgrep/error.py. -->
 
-Semgrep OSS can finish with the following exit codes:
+Semgrep can finish with the following exit codes:
 
 - **0**: Semgrep ran successfully and found no errors (or did find errors, but the `--error` flag is **not** set).
 - **1**: Semgrep ran successfully and found issues in your code (and the `--error` flag is set).
