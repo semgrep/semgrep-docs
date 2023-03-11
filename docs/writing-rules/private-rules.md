@@ -7,21 +7,41 @@ import MoreHelp from "/src/components/MoreHelp"
 
 # Private rules
 
-Users in the [Team and Enterprise tier](https://semgrep.dev/pricing) for Semgrep Code can publish rules to the Semgrep Registry as private rules that are not visible to others outside their organization. The private rules enable you to hide code-sensitive information or legal requirements that prevent you from using a public registry.
+Users of the [Team or Enterprise tier](https://semgrep.dev/pricing) of Semgrep Code can publish rules to the [Semgrep Registry](https://semgrep.dev/explore) as private rules that are not visible to others outside their organization. The private rules enable you to hide code-sensitive information or legal requirements that prevent you from using a public registry.
 
 As we continue to develop and refine this feature, we welcome and appreciate your feedback! Email us at [product@r2c.dev](mailto:product@r2c.dev) or contact us in the [Semgrep Community Slack](https://go.semgrep.dev/slack).
 
-## Getting started
+## Creating private rules
 
-To create private rules, use the [Semgrep CLI](../getting-started.md) to run these commands:
+Create private rules the same way as you create other custom rules. Private rules are stored in Semgrep Registry, but are not visible outside of your organization. Two sections below can help you to create and save your private rules either through Semgrep Cloud Platform or through your command line.
+
+:::info Prerequisite
+[Team or Enterprise tier](https://semgrep.dev/pricing) of Semgrep Code.
+:::
+
+### Creating private rules through Semgrep Cloud Platform
+
+To publish private rules from Semgrep Cloud Platform:
+
+1. Go to [Semgrep Editor](https://semgrep.dev/orgs/-/editor).
+1. Click <i className="fa-solid fa-file-plus-minus inline_svg"></i> **Create New Rule**.
+1. Choose one of the following:
+    - Create a new rule and test code by clicking <i class="fa-solid fa-circle-plus"></i> **plus** icon, select **New rule** and then click <i className="fa-solid fa-floppy-disk inline_svg"></i> **Save**. Note: The test file must contain at least one true positive and one true negative test case to be approved. See the [Tests](#tests) section of this document for more information.
+    - In the <i class="fa-solid fa-server"></i> **Library** panel, select a rule from a category in **Semgrep Registry**. Click <i className="fa-solid fa-code-branch inline_svg"></i> **Fork**, modify the rule or test code, and then click <i className="fa-solid fa-floppy-disk inline_svg"></i> **Save**.
+
+Your private rule has been created. Private rules are stored in the folder with the same name as your Semgrep Cloud Platform organization.
+
+### Creating private rules through command line
+
+To create private rules through the [Semgrep CLI](/getting-started/), :
 
 1. Interactively login to Semgrep:
 
     ```sh
     semgrep login
     ```
-
-2. Run `semgrep publish` followed by the path to your private rules:
+1. Create your rule and test code. For more information, see [Contributing rules](/contributing/contributing-to-semgrep-rules-repository/) documentation.
+1. Publish your rule from the command line with `semgrep publish` command followed by the path to your private rules:
 
     ```sh
     semgrep publish myrules/
@@ -76,15 +96,19 @@ This section provides an example of how to automatically publish your private ru
             SEMGREP_APP_TOKEN: ${{ secrets.SEMGREP_APP_TOKEN }}
     ```
 
+## Deleting private rules
+
+To remove a private rule, follow these steps:
+
+1. In the [Semgrep Editor](https://semgrep.dev/orgs/-/editor), find a private rule to delete under the <i class="fa-solid fa-server"></i> **Library** tab. Private rules are usually stored in the folder with the same name as your Semgrep Cloud Platform organization.
+1. Click the rule you want to delete, and then click the <i class="fa-solid fa-ellipsis-vertical"></i> three vertical dots.
+1. Click <i class="fa-regular fa-trash-can"></i> **Delete**.
+
 ## Appendix
 
 ### Visibility of private rules
 
 Private rules are only visible to logged-in members of your organization.
-
-### Deleting private rules
-
-You cannot delete private rules. To remove a private rule, contact us at [support@r2c.dev](mailto:support@r2c.dev?subject=Remove%20Private%20Rule).
 
 ### Publishing a rule with the same rule ID
 
