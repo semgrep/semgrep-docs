@@ -13,7 +13,7 @@ As we continue to develop and refine this feature, we welcome and appreciate you
 
 ## Creating private rules
 
-Create private rules the same way you create other custom rules. Private rules are stored in Semgrep Registry but are not visible outside of your organization. Two sections below can help you to create and save your private rules either through Semgrep Cloud Platform or through your command line.
+Create private rules the same way you create other custom rules. Private rules are stored in Semgrep Registry but they are not visible outside your organization. The two sections below can help you to create and save your private rules.
 
 :::info Prerequisite
 [Team or Enterprise tier](https://semgrep.dev/pricing) of Semgrep Code.
