@@ -1,6 +1,6 @@
 ---
 slug: semgrep-ci
-description: "Get more information when Semgrep in CI hangs, crashes, times out, or runs too slow."
+description: "Get more information when Semgrep in CI hangs, crashes, times out, or runs too slowly."
 title: Troubleshooting Semgrep in CI
 hide_title: true
 append_help_link: true
