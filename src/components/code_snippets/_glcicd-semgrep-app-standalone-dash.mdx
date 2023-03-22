@@ -19,10 +19,6 @@ semgrep:
 
   # Other optional settings in the `variables` block:
 
-  # Never fail the build due to findings on pushes.
-  # Instead, just collect findings for semgrep.dev/manage/findings
-  #   SEMGREP_AUDIT_ON: push
-
   # Run the "semgrep ci" command on the command line of the docker image and send findings
   # to GitLab SAST.
   script: semgrep ci --gitlab-sast > gl-sast-report.json || true

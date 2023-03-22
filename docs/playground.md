@@ -132,7 +132,7 @@ File a [bug](https://github.com/returntocorp/semgrep/issues/new?title=semgrep.de
 
 [Semgrep Registry](https://semgrep.dev/explore/) is an open-source, community-driven repository of rules. These rules can detect OWASP vulnerabilities, best practice violations, and security issues for a wide variety of languages and frameworks. These rules can be used as a starting point for writing your own custom rules by creating a forked rule. 
 
-[Signing in to Semgrep App](https://semgrep.dev/login?return_path=/playground/) enables you to access the Registry directly from the Playground's Library pane.
+[Signing in to Semgrep Cloud Platform](https://semgrep.dev/login?return_path=/playground/) enables you to access the Registry directly from the Playground's Library pane.
 
 ### Jumpstart rule writing using existing rules
 
@@ -152,7 +152,7 @@ Another method of creating rules is by **forking** or **copying** from existing 
 
 ## Setting code standards by adding a rule to the Rule Board
 
-The [Rule Board](../semgrep-app/rule-board/) displays rules that Semgrep App uses to scan your project's code. Adding a rule to the Rule Board allows you to quickly set a rule as part of every Semgrep scan. A rule on the Rule Board is represented as a card and can be placed on either the Audit Board or the Block board depending on the importance of the rule. Rules can be dragged from one column to another.
+The [Rule Board](../semgrep-app/rule-board/) displays rules that Semgrep Cloud Platform uses to scan your project's code. Adding a rule to the Rule Board allows you to quickly set a rule as part of every Semgrep scan. A rule on the Rule Board is represented as a card and can be placed on either the Audit Board or the Block board depending on the importance of the rule. Rules can be dragged from one column to another.
 
 To add a rule to the Rule Board:
 
@@ -188,15 +188,15 @@ To embed a rule:
 3. Create the **URL reference**. Substitute the identifier in this template: `https://semgrep.dev/embed/editor?snippet=IDENTIFIER`. For example, using the identifier `ievans:print-to-logger` creates `https://semgrep.dev/embed/editor?snippet=ievans:print-to-logger`.
 4. Optional: To test the URL reference, enter the URL in your browser's address bar.
 ![Screenshot of the embedded Playground in its own tab](/img/playground-widget.png "Embedded playground in its own tab")
-5. In the following snippet, replace the `src` placeholder value with the previously-created **URL reference**:
+5. In the following snippet, replace the `src="URL_REFERENCE"` placeholder value with the previously-created **URL reference**:
+    ```html
+    <iframe title="Semgrep example no prints" src="URL_REFERENCE" width="100%" height="432" frameborder="0"></iframe>
+    ```
 
-```html
- <iframe title="Semgrep example no prints" src="URL_REFERENCE" width="100%" height="432" frameborder="0"></iframe>
-```
-Our example's finished result is:
+    The rendered iframe example:
 
-```html
-<iframe title="Semgrep example no prints" src="https://semgrep.dev/embed/editor?snippet=ievans:print-to-logger" width="100%" height="432" frameborder="0"></iframe>
-```
+    ```html
+    <iframe title="Semgrep example no prints" src="https://semgrep.dev/embed/editor?snippet=ievans:print-to-logger" width="100%" height="432" frameborder="0"></iframe>
+    ```
 
 <MoreHelp />

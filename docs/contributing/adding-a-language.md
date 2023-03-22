@@ -11,7 +11,7 @@ technology. While new languages should use tree-sitter,
 semgrep also supports some languages independently if there's a good
 legacy OCaml parser for them. Check for your language in
 [pfff](https://github.com/returntocorp/pfff) and if you see it
-in there, [talk to us](https://semgrep.dev/docs/support/).
+in there, [talk to us](/support/).
 Otherwise, let's get started.
 
 Repositories involved directly:
@@ -26,7 +26,7 @@ There are quite a few GitHub repositories involved in porting a language.
 Here is the file hierarchy of the [semgrep
 repository](https://github.com/returntocorp/semgrep):
 
-``` shell
+```sh
 /semgrep-core/src
 ├── ocaml-tree-sitter-core  # runtime library for tree-sitter parsers
 ├── pfff                    # non-tree-sitter parsers

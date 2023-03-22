@@ -1,6 +1,6 @@
 ---
 slug: configuration-reference
-description: "Configure Semgrep in CI by setting various environment variables. Enable diff-aware scanning, connect to Semgrep App, and more."
+description: "Configure Semgrep in CI by setting various environment variables. Enable diff-aware scanning, connect to Semgrep Cloud Platform, and more."
 tags:
     - Semgrep in CI
     - Community Tier
@@ -35,11 +35,11 @@ These environment variables configure various aspects of your CI job, such as a 
 ### `SEMGREP_APP_TOKEN`
 
 :::info Prerequisites
-* You must have a Semgrep App account to use this environment variable.
-* You must have a Semgrep App token. To generate a token, see [Creating a `SEMGREP_APP_TOKEN`](/docs/semgrep-ci/running-semgrep-ci-with-semgrep-app/#creating-a-semgrep_app_token).
+* You must have a Semgrep Cloud Platform account to use this environment variable.
+* You must have a Semgrep Cloud Platform token. To generate a token, see [Creating a `SEMGREP_APP_TOKEN`](/docs/semgrep-ci/running-semgrep-ci-with-semgrep-app/#creating-a-semgrep_app_token).
 :::
 
-Set `SEMGREP_APP_TOKEN` to send findings to Semgrep App and use rules from the Rule Board. `SEMGREP_APP_TOKEN` is incompatible with `SEMGREP_RULES`.
+Set `SEMGREP_APP_TOKEN` to send findings to Semgrep Cloud Platform and use rules from the Rule Board. `SEMGREP_APP_TOKEN` is incompatible with `SEMGREP_RULES`.
 
 Example:
 
@@ -97,7 +97,7 @@ Example:
 export SEMGREP_GIT_COMMAND_TIMEOUT="180"
 ```
 
-### `SEMGREP RULES`
+### `SEMGREP_RULES`
 
 Set `SEMGREP_RULES` to define rules and rulesets for your scan. Findings are logged within your CI environment. `SEMGREP_RULES` is incompatible with `SEMGREP_APP_TOKEN`.
 
@@ -125,9 +125,9 @@ Example:
 export SEMGREP_TIMEOUT="20"
 ```
 
-## Environment variables for creating hyperlinks in Semgrep App
+## Environment variables for creating hyperlinks in Semgrep Cloud Platform
 
-By default, Semgrep App autodetects values such as the name of your repository, which Semgrep uses to generate hyperlinks (URLs) to the specific repository code that generated the finding. These hyperlinks are in the [Findings](/docs/semgrep-app/findings) page.
+By default, Semgrep Cloud Platform autodetects values such as the name of your repository, which Semgrep uses to generate hyperlinks (URLs) to the specific repository code that generated the finding. These hyperlinks are in the [Findings](/docs/semgrep-app/findings) page.
 
 Set any as needed or all of the following environment variables to troubleshoot and override autodetected CI environment values.
 
@@ -240,7 +240,7 @@ jobs:
 
 ## Environment variable for creating comments in pull or merge requests
 
-The following environment variable enables Semgrep App to create comments within your source code management (SCM) tool when Semgrep scans a pull or merge request. These comments can include code suggestions to fix a finding.
+The following environment variable enables Semgrep Cloud Platform to create comments within your source code management (SCM) tool when Semgrep scans a pull or merge request. These comments can include code suggestions to fix a finding.
 
 <!-- Commented out SEMGREP_JOB_URL for now as it's not being used for any direct functionality 
 ### `SEMGREP_JOB_URL`

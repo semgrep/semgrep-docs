@@ -7,7 +7,7 @@ description: >-
 hide_title: true
 tags:
     - Semgrep Supply Chain 
-    - Semgrep
+    - Semgrep OSS Engine
     - Community Tier
     - Team & Enterprise Tier
 title: Supported languages
@@ -16,6 +16,7 @@ title: Supported languages
 import SupportedLanguagesTable from '/src/components/reference/_supported-languages-table.mdx'
 import SscIntro from "/src/components/concept/_ssc-intro.md"
 import MoreHelp from "/src/components/MoreHelp"
+import DeepSemgrepIntroduction from "/src/components/concept/_deepsemgrep-introduction.mdx"
 
 <ul id="tag__badge-list">
 {
@@ -29,12 +30,13 @@ Object.entries(frontMatter).filter(
 
 This document provides information about supported languages and language maturity definitions for the following products:
 
-* Semgrep
+* Semgrep OSS Engine
 * Semgrep Supply Chain
+* Semgrep Pro Engine
 
-## Semgrep
+## Semgrep OSS Engine
 
-Semgrep is a fast, open source, static analysis engine for finding bugs and enforcing code standards.
+Semgrep OSS Engine offers a fast static analysis solution for finding bugs and enforcing code standards.
 
 ### Language maturity
 
@@ -43,11 +45,12 @@ Semgrep is a fast, open source, static analysis engine for finding bugs and enfo
 ### Maturity definitions
 
 #### Language maturity factors
+
 Language maturity is determined by 3 factors in the Semgrep ecosystem:
 
 <dl>
     <dt>Parse rate</dt>
-    <dd>How well Semgrep can parse code in a given language.</dd>
+    <dd>How well Semgrep OSS Engine can parse code in a given language.</dd>
     <dt>Feature support</dt>
     <dd>What <a href='/writing-rules/pattern-syntax/'>Semgrep features</a> are implemented for a given language.</dd>
     <dt>Ruleset count</dt>
@@ -56,7 +59,7 @@ Language maturity is determined by 3 factors in the Semgrep ecosystem:
 
 #### Levels of maturity
 
-Semgrep defines 3 maturity levels: 
+Semgrep OSS Engine defines 3 maturity levels: 
 
 <dl>
 <dt>Experimental</dt>
@@ -92,7 +95,7 @@ Each of these maturity levels are combined with a threshold of the [language mat
 The following **thresholds** define each maturity level:
 
 <!-- coupling: If you modify the features in the levels below, change also 
-     semgrep-core/tests/Test.ml and its maturity level regression testing code.
+     /semgrep/blob/develop/tests/Test.ml and its maturity level regression testing code.
 -->
 
 * **Experimental**
@@ -138,7 +141,12 @@ The following **thresholds** define each maturity level:
 Visit the cheat sheet generation script and associated semgrep-core test files to learn more about each feature:
 
 * [Generation script](https://github.com/returntocorp/semgrep/blob/develop/scripts/generate_cheatsheet.py)
-* [`semgrep-core` test files](https://github.com/returntocorp/semgrep/tree/develop/semgrep-core/tests)
+* [`semgrep-core` test files](https://github.com/returntocorp/semgrep/tree/develop/tests)
+
+:::info Feature and product maturity levels
+* The detailed specifications given above apply only to language support. Language maturity levels differ from feature and product maturity levels.
+* Semgrep features and products documented as experimental, beta, or GA generally follow the definitions in a [Software release life cycle](https://en.wikipedia.org/wiki/Software_release_life_cycle).
+:::
 
 ### Language parse rates
 
@@ -150,7 +158,6 @@ See [Parse rates by language](https://dashboard.semgrep.dev/).
 
 Semgrep Supply Chain parses **lockfiles** for dependencies, then scans your codebase for reachable findings based on the lockfiles. Some languages, such as Java, have several lockfiles, depending on your repository's package manager. For some languages, such as JavaScript and Python, a manifest file is also parsed.
 
-
 ### General Availability
 
 This table provides information about fully supported (generally available or GA) languages, specific package managers, and their lockfiles in Semgrep Supply Chain:
@@ -160,65 +167,98 @@ This table provides information about fully supported (generally available or GA
     <th>Language</th>
     <th>Supported package managers</th>
     <th>Lockfile</th>
+    <th>Scans transitive dependencies*</th>
+    <th>Identifies transitive dependencies†</th>
+    <th>Rule coverage for CVEs/GHSAs‡</th>
 </tr></thead>
 <tbody><tr>
    <td>Go</td>
    <td>Go modules (<code>go mod</code>)</td>
    <td><code>go.sum</code></td>
+   <td style={{"text-align": "center"}}>✔️ Yes</td>
+   <td style={{"text-align": "center"}}>❌ No</td>
+   <td>May 2022</td>
   </tr>
   <tr>
    <td rowspan="2">JavaScript / TypeScript</td>
    <td>npm (Node.js)</td>
    <td><code>package-lock.json</code></td>
+   <td style={{"text-align": "center"}}>✔️ Yes</td>
+   <td style={{"text-align": "center"}}>✔️ Yes</td>
+   <td rowspan="2">May 2022</td>
   </tr>
   <tr>
    <td>Yarn, Yarn 2, Yarn 3</td>
    <td><code>yarn.lock</code></td>
+   <td style={{"text-align": "center"}}>✔️ Yes</td>
+   <td style={{"text-align": "center"}}>✔️ Yes</td>
   </tr>
   <tr>
-   <td rowspan="3">Python</td>
-   <td rowspan="2">pip</td>
-   <td><code>Pipfile.lock</code> (generated by <code>pipenv</code>)</td>
+   <td rowspan="4">Python</td>
+   <td>pip</td>
+   <td><code>requirements.txt</code>†† (generated by e.g. <code>pip freeze</code>)</td>
+   <td style={{"text-align": "center"}}>✔️ Yes</td>
+   <td style={{"text-align": "center"}}>❌ No</td>
+   <td rowspan="4">May 2022</td>
   </tr>
   <tr>
-   <td><code>requirements.txt</code>*, <code>requirements.in</code> (generated by <code>pip-tools</code>, <code>pipreqs</code>, and so on).</td>
+   <td>pip-tools</td>
+   <td><code>requirements.txt</code></td>
+   <td style={{"text-align": "center"}}>✔️ Yes</td>
+   <td style={{"text-align": "center"}}>✔️ Yes</td>
+  </tr>
+  <tr>
+   <td>Pipenv</td>
+   <td><code>Pipfile.lock</code></td>
+   <td style={{"text-align": "center"}}>✔️ Yes</td>
+   <td style={{"text-align": "center"}}>✔️ Yes</td>
   </tr>
   <tr>
    <td>Poetry</td>
    <td><code>poetry.lock</code></td>
+   <td style={{"text-align": "center"}}>✔️ Yes</td>
+   <td style={{"text-align": "center"}}>✔️ Yes</td>
   </tr>
   <tr>
    <td>Ruby</td>
    <td>RubyGems</td>
    <td><code>Gemfile.lock</code></td>
-  </tr></tbody>
-</table>
-
-_* Semgrep Supply Chain supports `requirements.txt` when it is used as a **lockfile**. This means that `requirements.txt` must be set to exact versions (pinned dependencies) and the file is generated automatically._
-
-### Beta
-
-This table provides information about the beta level of support for languages, specific package managers, and their lockfiles in Semgrep Supply Chain:
-
-<table>
-  <thead><tr>
-   <th>Language</th>
-   <th>Supported package managers</th>
-   <th>Lockfile</th>
-  </tr></thead>
-  <tbody><tr rowspan="2">
+   <td style={{"text-align": "center"}}>✔️ Yes</td>
+   <td style={{"text-align": "center"}}>✔️ Yes</td>
+   <td>May 2022</td>
+  </tr>
+<tr rowspan="2">
    <td rowspan="2">Java</td>
    <td>Gradle</td>
    <td><code>gradle.lockfile</code></td>
+   <td style={{"text-align": "center"}}>✔️ Yes</td>
+   <td style={{"text-align": "center"}}>✔️ Yes</td>
+   <td rowspan="2">May 2022</td>
   </tr>
   <tr>
-   <td>Maven (single-file configurations)</td>
-   <td><code>pom.xml</code>*</td>
+   <td>Maven</td>
+   <td>Maven-generated dependency tree (See <a href="/docs/semgrep-sc/scanning-open-source-dependencies/#apache-maven-java">Setting up SSC scans for Apache Maven</a> for instructions.)</td>
+   <td style={{"text-align": "center"}}>✔️ Yes</td>
+   <td style={{"text-align": "center"}}>✔️ Yes</td>
   </tr></tbody>
 </table>
 
+_*****Semgrep Supply Chain scans transitive dependencies but does **not** perform reachability analysis on them._ <br />
+_**†**Refers to functionality in Semgrep Cloud Platform to indicate through a badge if a package is a transitive or direct dependency. This does not affect reachability analysis for any language._<br />
+_**‡**The month and year that Semgrep Supply Chain has begun writing rules to detect vulnerabilities listed in GHSA and the CVE program._<br />
+_**††**Semgrep Supply Chain supports `requirements.txt` when it is used as a **lockfile**. This means that `requirements.txt` must be set to exact versions (pinned dependencies) and the file must be generated automatically._
 
-_* `pom.xml` is not a lockfile, however Semgrep Supply Chain parses `pom.xml` as the source of truth for dependencies in Maven projects in conjunction with `MANIFEST.mf`._
+
+:::info Transitivity support
+
+For more information on transitivity, see [Transitive dependencies and reachability analysis](/docs/semgrep-sc/semgrep-supply-chain-overview/#transitive-dependencies-and-reachability-analysis).
+:::
+
+### Beta
+
+Semgrep Supply Chain has no languages in Beta status.
+
+<!-- This table provides information about the beta level of support for languages, specific package managers, and their lockfiles in Semgrep Supply Chain -->
 
 ### Maturity levels
 
@@ -228,7 +268,6 @@ Semgrep Supply Chain has two maturity levels:
 * Beta
 
 Their differences are outlined in the following table:
-
 
 <table>
   <tr>
@@ -256,12 +295,28 @@ Their differences are outlined in the following table:
    </td>
   </tr>
   <tr>
-   <td>Semgrep engine <a href='/docs/supported-languages#semgrep'>language support</a>
+   <td>Semgrep OSS Engine <a href='/docs/supported-languages#semgrep-oss-engine'>language support</a>
    </td>
-   <td>Semgrep engine support is GA.
+   <td>Semgrep OSS Engine support is GA.
    </td>
-   <td>Semgrep engine support is at least Beta.
+   <td>Semgrep OSS Engine support is at least Beta.
    </td>
   </tr>
 </table>
+
+## Semgrep Pro Engine
+
+<DeepSemgrepIntroduction />
+
+Semgrep Pro Engine offers support for the following languages:
+
+|  Language   |  Analysis type  | Support level |
+|-------------|-----------------|---------------|
+| Apex        | Interprocedural | Experimental  |
+| Java        |    Interfile    |     Beta      |
+| JavaScript  |    Interfile    |     Beta      |
+| TypeScript  |    Interfile    |     Beta      |
+
+To install and run Semgrep Pro Engine, see [Semgrep Pro Engine overview](/deepsemgrep/deepsemgrep-introduction/).
+
 <MoreHelp />

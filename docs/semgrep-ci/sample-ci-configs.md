@@ -66,35 +66,21 @@ import AzureSemgrepAppSast from "/src/components/code_snippets/_azure-semgrep-ap
 import AzureSemgrepAppSsc from "/src/components/code_snippets/_azure-semgrep-app-ssc.mdx"
 import AzureSemgrepAppStandalone from "/src/components/code_snippets/_azure-semgrep-app-standalone.mdx"
 
+import ScmFeatureReference from "/src/components/reference/_scm-feature-reference.md"
+
 # Sample continuous integration (CI) configurations
 
 This document provides sample configuration snippets to run Semgrep CI on various continuous integration (CI) providers.
 
 ## Feature support
 
-Support for certain features of Semgrep App depend on your CI provider or source code management tool (SCM). The following table breaks down the features and their availability:
+Support for certain features of Semgrep Cloud Platform depend on your CI provider or source code management tool (SCM). The following table breaks down the features and their availability:
 
-| Feature | GitHub | GitLab | BitBucket | CI Provider support |
-| ------- | -------- | ------- | -------- | ---------------- |
-| **Diff-aware scanning** | ✅ Yes | ✅ Yes | ✅ Yes  | ✅ Available (may need additional set up) | 
-| **Hyperlinks** | ✅ Yes | ✅ Yes | ✅ Yes  |  ✅ Available (may need additional set up) |
-| **SCM security dashboard** |  ✅ GitHub Advanced Security Dashboard |  ✅ GitLab SAST Dashboard | ❌ No | ❗ Only GitHub Actions and GitLab CI/CD |
-| **PR or MR comments in Semgrep App** |  ✅ Yes | ✅ Yes | ❌ No | ✅ CI provider agnostic; feature support is dependent on SCM |
+<ScmFeatureReference />
 
-*Table 1.* List of features and supported SCMs and CI providers.
+<!-- The following list is not alphabetized. It is ranked based on popularity. -->
+<!-- Titles for tabs are based on the most recognizable product name; they don't have to be parallel -->
 
-<dl>
-    <dt>Diff-aware scanning</dt>
-    <dd>Semgrep can scan changes in files when running on a pull or merge request (PR or MR). This keeps the scan fast and reduces finding duplication.</dd>
-    <dt>Receiving results (findings) as PR or MR comments</dt>
-    <dd>This feature enables you to receive <a href="/docs/semgrep-app/notifications/#enabling-github-pull-request-comments">PR or MR comments</a> from Semgrep App on the lines of code that generated a finding.</dd>
-    <dt>Hyperlinks to code</dt>
-    <dd>Semgrep App collects findings in a Findings page. In this page, you can click on a finding to view the lines of code in your repository that generated the finding.</dd>
-    <dt>SCM security dashboard</dt>
-    <dd>Send Semgrep findings to your SCM's security dashboard.</dd>
-</dl>
-
-<!-- The list is not alphabetized. It is ranked based on popularity. -->
 ## GitHub Actions
 
 To add a Semgrep configuration file in your GitHub Actions pipeline:
@@ -113,9 +99,9 @@ If you are self-hosting your repository, you must [use a self-hosted runner](htt
 <Tabs
     defaultValue="gha-semgrep"
     values={[
-    {label: 'CI with Semgrep App', value: 'gha-semgrep'},
-    {label: 'Stand-alone CI job', value: 'gha-standalone'},
-    {label: 'CI with Semgrep Supply Chain', value: 'gha-ssc'},
+    {label: 'Semgrep Code', value: 'gha-semgrep'},
+    {label: 'Stand-alone SAST', value: 'gha-standalone'},
+    {label: 'Semgrep Supply Chain', value: 'gha-ssc'},
     ]}
 >
 
@@ -144,8 +130,8 @@ If you are self-hosting your repository, you must [use a self-hosted runner](htt
 <Tabs
     defaultValue="gha-semgrep-dash"
     values={[
-    {label: 'CI with Semgrep App', value: 'gha-semgrep-dash'},
-    {label: 'Stand-alone CI job', value: 'gha-standalone-dash'},
+    {label: 'Semgrep Code', value: 'gha-semgrep-dash'},
+    {label: 'Stand-alone SAST', value: 'gha-standalone-dash'},
     ]}
 >
 
@@ -178,9 +164,9 @@ To add a Semgrep configuration snippet in your GitLab CI/CD pipeline:
 <Tabs
     defaultValue="glcicd-semgrep"
     values={[
-    {label: 'CI with Semgrep App', value: 'glcicd-semgrep'},
-    {label: 'Stand-alone CI job', value: 'glcicd-standalone'},
-    {label: 'CI with Semgrep Supply Chain', value: 'glcicd-ssc'},
+    {label: 'Semgrep Code', value: 'glcicd-semgrep'},
+    {label: 'Stand-alone SAST', value: 'glcicd-standalone'},
+    {label: 'Semgrep Supply Chain', value: 'glcicd-ssc'},
     ]}
 >
 
@@ -207,8 +193,8 @@ To add a Semgrep configuration snippet in your GitLab CI/CD pipeline:
 <Tabs
     defaultValue="glcicd-semgrep-dash"
     values={[
-    {label: 'CI with Semgrep App', value: 'glcicd-semgrep-dash'},
-    {label: 'Stand-alone CI job', value: 'glcicd-standalone-dash'},
+    {label: 'Semgrep Code', value: 'glcicd-semgrep-dash'},
+    {label: 'Stand-alone SAST', value: 'glcicd-standalone-dash'},
     ]}
 >
 
@@ -246,10 +232,10 @@ To add a Semgrep configuration snippet in your Jenkins pipeline:
 <Tabs
     defaultValue="jenkins-semgrep"
     values={[
-    {label: 'CI with Semgrep App', value: 'jenkins-semgrep'},
-    {label: 'Stand-alone CI job', value: 'jenkins-standalone'},
-    {label: 'CI with Semgrep Supply Chain', value: 'jenkins-ssc'},
-    {label: 'CI with Semgrep App via Docker', value: 'jenkins-semgrep-docker'},
+    {label: 'Semgrep Code', value: 'jenkins-semgrep'},
+    {label: 'Stand-alone SAST', value: 'jenkins-standalone'},
+    {label: 'Semgrep Supply Chain', value: 'jenkins-ssc'},
+    {label: 'Semgrep Code (Docker)', value: 'jenkins-semgrep-docker'},
     ]}
 >
 
@@ -297,9 +283,9 @@ These steps can also be performed through BitBucket's UI wizard. This UI wizard 
 <Tabs
     defaultValue="bitbucket-semgrep"
     values={[
-    {label: 'CI with Semgrep App', value: 'bitbucket-semgrep'},
-    {label: 'Stand-alone CI job', value: 'bitbucket-standalone'},
-    {label: 'CI with Semgrep Supply Chain', value: 'bitbucket-ssc'},
+    {label: 'Semgrep Code', value: 'bitbucket-semgrep'},
+    {label: 'Stand-alone SAST', value: 'bitbucket-standalone'},
+    {label: 'Semgrep Supply Chain', value: 'bitbucket-ssc'},
     ]}
 >
 
@@ -342,9 +328,9 @@ These steps can be performed from within Buildkite's interface. From Buildkite's
 <Tabs
     defaultValue="buildkite-semgrep"
     values={[
-    {label: 'CI with Semgrep App', value: 'buildkite-semgrep'},
-    {label: 'Stand-alone CI job', value: 'buildkite-standalone'},
-    {label: 'CI with Semgrep Supply Chain', value: 'buildkite-ssc'},
+    {label: 'Semgrep Code', value: 'buildkite-semgrep'},
+    {label: 'Stand-alone SAST', value: 'buildkite-standalone'},
+    {label: 'Semgrep Supply Chain', value: 'buildkite-ssc'},
     ]}
 >
 
@@ -391,9 +377,9 @@ gets put into the pipeline at runtime.
 <Tabs
     defaultValue="circleci-semgrep"
     values={[
-    {label: 'CI with Semgrep App', value: 'circleci-semgrep'},
-    {label: 'Stand-alone CI job', value: 'circleci-standalone'},
-    {label: 'CI with Semgrep Supply Chain', value: 'circleci-ssc'},
+    {label: 'Semgrep Code', value: 'circleci-semgrep'},
+    {label: 'Stand-alone SAST', value: 'circleci-standalone'},
+    {label: 'Semgrep Supply Chain', value: 'circleci-ssc'},
     ]}
 >
 
@@ -430,9 +416,9 @@ To add Semgrep into Azure Pipelines:
 <Tabs
     defaultValue="azure-semgrep"
     values={[
-    {label: 'CI with Semgrep App', value: 'azure-semgrep'},
-    {label: 'Stand-alone CI job', value: 'azure-standalone'},
-    {label: 'CI with Semgrep Supply Chain', value: 'azure-ssc'},
+    {label: 'Semgrep Code', value: 'azure-semgrep'},
+    {label: 'Stand-alone SAST', value: 'azure-standalone'},
+    {label: 'Semgrep Supply Chain', value: 'azure-ssc'},
     ]}
 >
 

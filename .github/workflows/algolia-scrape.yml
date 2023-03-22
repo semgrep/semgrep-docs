@@ -8,6 +8,7 @@ on:
   push:
     branches:
       - main
+      - sara/mkt-486-dont-index-meta-pages-non-content-in
 
 jobs:
   scrape:
@@ -31,3 +32,11 @@ jobs:
           -e APPLICATION_ID -e API_KEY \
           -e CONFIG="$(cat algolia-config.json)" \
           algolia/docsearch-scraper:latest
+          curl -X PUT \
+          -H "X-Algolia-API-Key: ${API_KEY}" \
+          -H "X-Algolia-Application-Id: ${APPLICATION_ID}" \
+          --data-binary '{
+            "ranking": ["desc(weight.page_rank)", "words", "filters", "typo", "exact", "attribute", "proximity"],
+            "customRanking": ["desc(weight.level)", "asc(weight.position)"]
+          }' \
+          "https://${APPLICATION_ID}.algolia.net/1/indexes/docs/settings?forwardToReplicas=true"

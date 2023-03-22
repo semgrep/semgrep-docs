@@ -14,6 +14,11 @@ module.exports = {
   projectName: 'semgrep', // Usually your repo name.
   trailingSlash: true,
   themeConfig: {
+    docs: {
+      sidebar: {
+        hideable: true,
+      },
+    },
     navbar: {
       logo: {
         alt: 'Semgrep logo',
@@ -61,7 +66,7 @@ module.exports = {
             },
             {
               label: 'Twitter',
-              href: 'https://twitter.com/r2cdev',
+              href: 'https://twitter.com/semgrep',
             },
           ],
         },
@@ -108,8 +113,8 @@ module.exports = {
           title: 'About',
           items: [
             {
-              label: 'r2c blog',
-              href: 'https://r2c.dev/blog',
+              label: 'Semgrep blog',
+              href: 'https://semgrep.dev/blog/',
             },
             {
               label: 'About us',
@@ -117,17 +122,17 @@ module.exports = {
             },
             {
               label: 'Semgrep release updates',
-              href: 'https://us18.campaign-archive.com/home/?u=ee2dc8f77e27d3739cf4df9ef&id=9b175e26fa'
+              href: 'https://twitter.com/semgrepreleases'
             }
           ],
         },
       ],
-      copyright: `Copyright © ${new Date().getFullYear()} r2c. Built with Docusaurus.`,
+      copyright: `Copyright © ${new Date().getFullYear()} r2c. Semgrep®️  is a registered trademark of r2c. These docs are made with Docusaurus.`,
     },
     prism: {
       theme: lightCodeTheme,
       darkTheme: darkCodeTheme,
-      additionalLanguages: ['java'],
+      additionalLanguages: ['java', 'ruby', 'csharp', 'rust'],
     },
     algolia: {
       apiKey: 'f53612c29d04a2ff71dce6e3b2f76752',
@@ -143,6 +148,19 @@ module.exports = {
       searchParameters: {},
       facetFilters: [],
       //... other Algolia params
+      "customRanking": [
+        "desc(weight.page_rank)"
+      ],
+      "ranking": [
+        "desc(weight.page_rank)",
+        "custom",
+        "filters",
+        "typo",
+        "attribute",
+        "words",
+        "exact",
+        "proximity"
+      ]
     },
     image: 'https://semgrep.dev/thumbnail.png',
   },
@@ -173,7 +191,7 @@ module.exports = {
           routeBasePath: '/'
         },
         theme: {
-          customCss: require.resolve('./src/css/custom.css'),
+          customCss: require.resolve('./src/css/custom.scss'),
         },
         gtag: {
           // You can also use your "G-" Measurement ID here.
@@ -191,6 +209,7 @@ module.exports = {
     ],
   ],
   plugins: [
+    'docusaurus-plugin-sass',
     [
       '@docusaurus/plugin-client-redirects',
       {
@@ -236,7 +255,8 @@ module.exports = {
           { from: "/writing-rules/experiments/autofix/", to: "/writing-rules/autofix/" },
           { from: "/writing-rules/experiments/generic-pattern-matching/", to: "/writing-rules/generic-pattern-matching/" },
           { from: "/writing-rules/experiments/metavariable-analysis/", to: "/writing-rules/metavariable-analysis/" },
-          { from: "/deepsemgrep/", to: "/deepsemgrep/deepsemgrep-introduction/" }
+          { from: "/deepsemgrep/", to: "/deepsemgrep/deepsemgrep-introduction/" },
+          { from: "/semgrep-app/integrations", to: "/semgrep-app/notifications/" }
         ]
       }
     ],

@@ -14,16 +14,16 @@ import RequiredRuleFields from "/src/components/reference/_required-rule-fields.
 Publish rules in the open-source Semgrep Registry and share them with the Semgrep community to help others benefit from your rule-writing efforts and contribute to the field of software security. There are two ways in which you can contribute rules to the Semgrep Registry:
 
 <dl>
-    <dt>For users of Semgrep App</dt>
-    <dd>Contribute rules to the Semgrep Registry through Semgrep App. This workflow is recommended. See <a href="#contributing-through-semgrep-app-recommended"> Contributing through Semgrep App (recommended)</a>. This workflow creates the necessary pull request for you and streamlines the whole process.
+    <dt>For users of Semgrep Cloud Platform</dt>
+    <dd>Contribute rules to the Semgrep Registry through Semgrep Cloud Platform. This workflow is recommended. See <a href="#contributing-through-semgrep-app-recommended"> Contributing through Semgrep Cloud Platform (recommended)</a>. This workflow creates the necessary pull request for you and streamlines the whole process.
 </dd>
     <dt>For contributors to the repository through GitHub</dt>
     <dd>Contribute rules to the Semgrep Registry through a pull request. See the <a href="#contributing-through-github"> Contributing through GitHub</a> section for detailed information.</dd>
 </dl>
 
-## Contributing through Semgrep App (recommended)
+## Contributing through Semgrep Cloud Platform (recommended)
 
-To contribute and publish rules to the Semgrep Registry through Semgrep App, follow these steps:
+To contribute and publish rules to the Semgrep Registry through Semgrep Cloud Platform, follow these steps:
 
 1. Go to [Playground](https://semgrep.dev/playground/new).
 2. Click <i className="fa-solid fa-file-plus-minus inline_svg"></i> **Create New Rule**.
@@ -215,7 +215,7 @@ var strdata = "hello";
 var numdata = 1;
 ```
 
-For more information, visit [Testing rules](https://semgrep.dev/docs/writing-rules/testing-rules/).
+For more information, visit [Testing rules](/writing-rules/testing-rules/).
 
 ### Rule messages
 
@@ -239,7 +239,7 @@ When you contribute rules to the Semgrep Registry, our quality checkers (linters
 
 ### Including fields required by security category
 
-Rules in category `security` in the Semgrep Registry require specific metadata fields that ensure consistency across the ecosystem in both Semgrep App and Semgrep CLI. Nest these metadata under the `metadata` field. 
+Rules in category `security` in the Semgrep Registry require specific metadata fields that ensure consistency across the ecosystem in both Semgrep Cloud Platform and Semgrep CLI. Nest these metadata under the `metadata` field. 
 
 If your rule has a `category: security`, the following metadata are required:
 

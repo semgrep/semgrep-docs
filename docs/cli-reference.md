@@ -4,6 +4,7 @@ append_help_link: true
 description: "Reference for the Semgrep command line tool including options and exit code behavior."
 tags:
     - Semgrep CLI
+    - Semgrep Code
     - Community Tier
     - Team & Enterprise Tier
 hide_title: true
@@ -73,7 +74,7 @@ Usage: semgrep scan [OPTIONS] [TARGETS]...
   For more information about Semgrep, go to https://semgrep.dev.
 
   NOTE: By default, Semgrep will report pseudonymous usage metrics to its
-  server if you pull your configuration from the Semgrep registy. To learn
+  server if you pull your configuration from the Semgrep registry. To learn
   more about how and why these metrics are collected, please see
   https://semgrep.dev/docs/metrics. To modify this behavior, see the --metrics
   option below.
@@ -171,12 +172,14 @@ Options:
                                   tests/foo.py as well as a/b/tests/c/foo.py.
                                   Can add multiple times. If present, any
                                   --include directives are ignored.
+    --exclude-rule TEXT           Skip any rule with the given id. Can add
+                                  multiple times.
     --include TEXT                Filter files or directories by path. The
                                   argument is a glob-style pattern such as
                                   'foo.*' that must match the path. This is an
                                   extra filter in addition to other applicable
                                   filters. For example, specifying the
-                                  language with '-l javascript' migh preselect
+                                  language with '-l javascript' might preselect
                                   files 'src/foo.jsx' and 'lib/bar.js'.
                                   Specifying one of '--include=src', '--
                                   include=*.jsx', or '--include=src/foo.*'
@@ -210,7 +213,7 @@ Options:
                                   If true, explicit files will be scanned
                                   using the language specified in --lang. If
                                   --skip-unknown-extensions, these files will
-                                  not be scanned
+                                  not be scanned. Defaults to false.
   Performance and memory options: 
     --enable-version-check / --disable-version-check
                                   Checks Semgrep servers to see if the latest
@@ -218,10 +221,12 @@ Options:
                                   exit time after returning results.
     -j, --jobs INTEGER            Number of subprocesses to use to run checks
                                   in parallel. Defaults to the number of cores
-                                  on the system.
+                                  on the system (1 if using --pro).
     --max-memory INTEGER          Maximum system memory to use running a rule
-                                  on a single file in MB. If set to 0 will not
-                                  have memory limit. Defaults to 0.
+                                  on a single file in MiB. If set to 0 will
+                                  not have memory limit. Defaults to 0 for all
+                                  CLI scans. For CI scans that use the pro
+                                  engine, it defaults to 5000 MiB
     --optimizations [all|none]    Turn on/off optimizations. Default = 'all'.
                                   Use 'none' to turn all optimizations off.
     --timeout INTEGER             Maximum time to spend running a rule on a
@@ -230,6 +235,10 @@ Options:
     --timeout-threshold INTEGER   Maximum number of rules that can timeout on
                                   a file before the file is skipped. If set to
                                   0 will not have limit. Defaults to 3.
+    --interfile-timeout INTEGER   Maximum time to spend on interfile analysis.
+                                  If set to 0 will not have time limit.
+                                  Defaults to 0 s for all CLI scans. For CI
+                                  scans, it defaults to 3 hours.
   Display options: 
     --enable-nosem / --disable-nosem
                                   --enable-nosem enables 'nosem'. Findings
@@ -246,6 +255,9 @@ Options:
                                   Maximum number of lines of code that will be
                                   shown for each match before trimming (set to
                                   0 for unlimited).
+    --dataflow-traces             Explain how non-local values reach the
+                                  location of a finding (only affects text and
+                                  SARIF output).
     -o, --output TEXT             Save search results to a file or post to
                                   URL. Default is to print to stdout.
     --rewrite-rule-ids / --no-rewrite-rule-ids
@@ -270,6 +282,19 @@ Options:
     --junit-xml                   Output results in JUnit XML format.
     --sarif                       Output results in SARIF format.
     --vim                         Output results in vim single-line format.
+  Semgrep Pro Engine options: 
+    --pro-languages               Enable Pro languages (currently just Apex).
+                                  Requires Semgrep Pro Engine, contact
+                                  support@r2c.dev for more information on
+                                  this.
+    --pro-intrafile               Intra-file inter-procedural taint analysis.
+                                  Implies --pro-languages. Requires Semgrep
+                                  Pro Engine, contact support@r2c.dev for more
+                                  information on this.
+    --pro                         Inter-file analysis and Pro languages
+                                  (currently just Apex). Requires Semgrep Pro
+                                  Engine, contact support@r2c.dev for more
+                                  information on this.
 ```
 
 ## Autocomplete
@@ -315,17 +340,18 @@ export HTTPS_PROXY="http://10.10.1.10:1080"
 
 Semgrep can finish with the following exit codes:
 
-- **1**: Semgrep ran successfully and found issues in your code (and the `--error` flag is set).
 - **0**: Semgrep ran successfully and found no errors (or did find errors, but the `--error` flag is **not** set).
+- **1**: Semgrep ran successfully and found issues in your code (and the `--error` flag is set).
 - **2**: Semgrep failed.
-- **4**: Semgrep encountered an invalid pattern in rule schema.
+- **3**: Invalid syntax of the scanned language. This error occurs only while using the `--strict` flag.
+- **4**: Semgrep encountered an invalid pattern in the rule schema.
 - **5**: Semgrep configuration is not valid YAML.
-- **7**: At least one rule in configuration is invalid.
+- **7**: At least one rule in the configuration is invalid.
 - **8**: Semgrep does not understand specified language.
 - **13**: The API key is invalid.
+- **14**: Semgrep scan failed.
 
 <!-- REMOVED STATUSES (NOT USED ANYMORE)
-- 3: Semgrep failed to parse a file in the specified language.
 - 4: Semgrep encountered an invalid pattern.
 - 6: Rule with `pattern-where-python` found but `--dangerously-allow-arbitrary-code-execution-from-rules` was not set. See `--dangerously-allow-arbitrary-code-execution-from-rules`. (Note: `pattern-where-python` is no longer supported in Semgrep, so this applies only to legacy Semgrep versions).
 - 9: Semgrep exceeded match timeout. See `--timeout`.
