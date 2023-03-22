@@ -316,18 +316,13 @@ To install and run Semgrep Pro Engine, see [Semgrep Pro Engine overview](/deepse
 
 ### Known Limitations
 
-<b>Taint Labels</b>
-
-Currently [taint labels](https://semgrep.dev/docs/writing-rules/experiments/taint-labels/) only work for Semgrep OSS and `--pro-intrafile` they do not work across file boundaries. Plans to make this feature work in `--pro` is set for Q1 2023.
-
 <b>CommonJS</b>
 
-Currently Semgrep Pro does not all cases of CommmonJS imports, if you create a function and assign it to an export later Semgrep Pro does not capture this today, read [this page](https://semgrep.dev/docs/deepsemgrep/deepsemgrep-examples/#es6-and-commonjs) for more information.
-
+Currently Semgrep Pro does not handle all cases of CommmonJS imports, if you create a function and assign it to an export later Semgrep Pro does not capture this today, read [this page](https://semgrep.dev/docs/deepsemgrep/deepsemgrep-examples/#es6-and-commonjs) for more information.
 
 <b>Regressions in Semgrep Pro</b>
 
-<!-- IAGO TO ADD -->
+For interfile analysis, Semgrep Pro Engine resolves names differently than Semgrep and this may cause rules with `interfile: true` to produce different results than Semgrep OSS Engine. Some instances could be regarded as regressions, if you encounter them please file a bug report.
 
 
 
