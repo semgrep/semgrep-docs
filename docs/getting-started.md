@@ -74,7 +74,7 @@ Semgrep CLI installation requires Python 3.7 or later.
     </Tabs>
 
 
-2. Confirm installation by running a simple search pattern. For example, run the following command:
+2. Confirm installation by the following command:
     ```sh
     semgrep --version
     ```
