@@ -114,6 +114,8 @@ These data points can serve as a starting point for the following security audit
 - Are there underlying issues in the codebase that result in recurring patterns of insecure code?
 - Are there rules that developers don’t resolve? Semgrep helps identify these, which helps to form insights into possible causes.
 
+<!--
+
 ### Rule performance through Developer Feedback
 
 ![Screenshot of developer feedback](/img/dashboard-devfeedback.png)
@@ -127,6 +129,7 @@ The **Most disliked** metric is taken from the **Developer Feedback** feature. D
 
 ![Screenshot of developer feedback end flow](/img/dashboard-devfeedback2.png)
 
+-->
 ## See also
 
 * [Semgrep Registry](https://semgrep.dev/explore)
