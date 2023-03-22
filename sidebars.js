@@ -69,6 +69,7 @@ module.exports = {
                     'semgrep-ci/configuration-reference',
                     'semgrep-ci/configuring-blocking-and-errors-in-ci',
                     'semgrep-ci/sample-ci-configs',
+                    'troubleshooting/semgrep-ci',
                     'troubleshooting/gitlab-sast'
                 ]
             },
