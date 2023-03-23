@@ -256,7 +256,8 @@ module.exports = {
           { from: "/writing-rules/experiments/generic-pattern-matching/", to: "/writing-rules/generic-pattern-matching/" },
           { from: "/writing-rules/experiments/metavariable-analysis/", to: "/writing-rules/metavariable-analysis/" },
           { from: "/deepsemgrep/", to: "/deepsemgrep/deepsemgrep-introduction/" },
-          { from: "/semgrep-app/integrations", to: "/semgrep-app/notifications/" }
+          { from: "/semgrep-app/integrations", to: "/semgrep-app/notifications/" },
+          { from: "/troubleshooting/gitlab-sast/", to: "/troubleshooting/semgrep-ci/" }
         ]
       }
     ],
