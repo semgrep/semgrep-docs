@@ -81,6 +81,7 @@ Semgrep Code detects the framework and language when scanning a project and only
 ## Disabling rules
 
 <DisableRule />
+
 ## Removing rules or rulesets
 
 <RemoveRule />
