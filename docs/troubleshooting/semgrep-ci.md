@@ -1,7 +1,7 @@
 ---
 slug: semgrep-ci
 description: >-
-  Get more information when Semgrep in CI hangs, crashes, times out, or runs too slowly.
+  Get more information when Semgrep in CI hangs, crashes, times out, or runs too slow.
   Fix issues with GitLab SAST's Semgrep analyzer, such as jobs running slowly,
   not showing results, or returning errors.
 title: Troubleshooting Semgrep in CI
