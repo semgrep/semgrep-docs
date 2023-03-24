@@ -258,11 +258,11 @@ module.exports = {
           { from: "/deepsemgrep/", to: "/semgrep-code/semgrep-pro-intro/" },
           { from: "/semgrep-app/integrations", to: "/semgrep-code/notifications/" },
           { from: "/troubleshooting/gitlab-sast/", to: "/troubleshooting/semgrep-ci/" },
-          { from: "/semgrep-app/demo-project", to: "/semgrep-code/demo-project/" },
-          { from: "/semgrep-app/rule-board", to: "/semgrep-code/rule-board/" },
-          { from: "/semgrep-app/findings", to: "/semgrep-code/findings/" },
-          { from: "/semgrep-app/editor", to: "/semgrep-code/editor/" },
-          { from: "/semgrep-app/notifications", to: "/semgrep-code/notifications/" }
+          { from: "/semgrep-app/demo-project/", to: "/semgrep-code/demo-project/" },
+          { from: "/semgrep-app/rule-board/", to: "/semgrep-code/rule-board/" },
+          { from: "/semgrep-app/findings/", to: "/semgrep-code/findings/" },
+          { from: "/semgrep-app/editor/", to: "/semgrep-code/editor/" },
+          { from: "/semgrep-app/notifications/", to: "/semgrep-code/notifications/" }
         ]
       }
     ],
