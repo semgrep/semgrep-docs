@@ -26,15 +26,14 @@ Publish rules in the open-source Semgrep Registry and share them with the Semgre
 To contribute and publish rules to the Semgrep Registry through Semgrep Cloud Platform, follow these steps:
 
 1. Go to [Playground](https://semgrep.dev/playground/new).
-2. Click <i className="fa-solid fa-file-plus-minus inline_svg"></i> **Create New Rule**.
-3. Choose one of the following:
-    - Create a new rule and test code by clicking <i class="fa-solid fa-circle-plus"></i> **plus** icon, and then click <i className="fa-solid fa-floppy-disk inline_svg"></i> **Save**. Note: The test file must contain at least one true positive and one true negative test case to be approved. See the [Tests](#tests) section of this document for more information.
-    - In the <i class="fa-solid fa-server"></i> **Library** panel, select a rule from a category in **Semgrep Registry**. Click <i className="fa-solid fa-code-branch inline_svg"></i> **Fork**,
-    modify the rule or test code, and then click <i className="fa-solid fa-floppy-disk inline_svg"></i> **Save**.
-4. Click <i className="fa-solid fa-earth-americas inline_svg"></i> **Share**.
-5. Click <i className="fa-solid fa-cloud-arrow-up inline_svg"></i> **Publish to Registry**.
-6. Fill in the required and optional fields.
-7. Click <i className="fa-solid fa-circle-check inline_svg"></i> **Continue**, and then click <i className="fa-solid fa-code-pull-request inline_svg"></i> **Create PR**.
+1. Click <i className="fa-solid fa-file-plus-minus inline_svg"></i> **Create New Rule**.
+1. Choose one of the following:
+    - Create a new rule and test code by clicking <i class="fa-solid fa-circle-plus"></i> **plus** icon, select **New rule** and then click <i className="fa-solid fa-floppy-disk inline_svg"></i> **Save**. Note: The test file must contain at least one true positive and one true negative test case to be approved. See the [Tests](#tests) section of this document for more information.
+    - In the <i class="fa-solid fa-server"></i> **Library** panel, select a rule from a category in **Semgrep Registry**. Click <i className="fa-solid fa-code-branch inline_svg"></i> **Fork**, modify the rule or test code, and then click <i className="fa-solid fa-floppy-disk inline_svg"></i> **Save**.
+1. Click <i className="fa-solid fa-earth-americas inline_svg"></i> **Share**.
+1. Click <i className="fa-solid fa-cloud-arrow-up inline_svg"></i> **Publish to Registry**.
+1. Fill in the required and optional fields.
+1. Click <i className="fa-solid fa-circle-check inline_svg"></i> **Continue**, and then click <i className="fa-solid fa-code-pull-request inline_svg"></i> **Create PR**.
 
 This workflow automatically creates a pull request in the GitHub [Semgrep Registry](https://github.com/returntocorp/semgrep-rules). Find more about the Semgrep Registry by reading the [Rule writing](#rule-writing) and [Tests](#tests) sections.
 
