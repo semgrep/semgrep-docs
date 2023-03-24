@@ -2,7 +2,7 @@
 slug: tags
 append_help_link: true
 description: "Guidelines on how to add or remove tags through Semgrep Cloud Platform and semgrepconfig.yml file."
-title: Managing projects through tags
+title: Tagging projects 
 hide_title: true
 tags:
     - Semgrep Cloud Platform
@@ -20,7 +20,7 @@ Object.entries(frontMatter).filter(
 
 import MoreHelp from "/src/components/MoreHelp"
 
-# Managing projects through tags
+# Tagging projects 
 
 Add tags for specific projects in the Semgrep Cloud Platform through the following methods:
 
