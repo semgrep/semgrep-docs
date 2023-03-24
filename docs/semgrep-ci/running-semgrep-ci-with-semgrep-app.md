@@ -8,6 +8,7 @@ tags:
     - Team & Enterprise Tier
 title: Running Semgrep in CI with Semgrep Cloud Platform
 hide_title: true
+toc_max_heading_level: 4
 ---
 
 import MoreHelp from "/src/components/MoreHelp"
@@ -193,7 +194,7 @@ Other CI providers, such as **Drone CI** and **AppVeyor**, can run Semgrep conti
 1. Create a `SEMGREP_APP_TOKEN` and add it as a credential, secret, or token into your CI provider and CI configuration file.
 2. For GitHub repositories: Grant permissions for [Semgrep Cloud Platform](https://github.com/marketplace/semgrep-dev).
 3. Create a CI job running Semgrep and commit the updated configuration file.
-4. The CI job starts automatically depending on your configuration and CI provider. If the job does not start, run the job by committing code or creating a PR or MR.
+4. The CI job starts automatically depending on your configuration and CI provider. If the job does not start, run the job by committing code or creating a pull request (PR) or merge request (MR).
 5. Semgrep detects the `SEMGREP_APP_TOKEN`, sends it to Semgrep Cloud Platform for verification, and if verified, findings are sent to Semgrep Cloud Platform.
 6. Define additional environment variables to enable other Semgrep Cloud Platform features. This is done last because it is easier to set up and troubleshoot CI jobs after ensuring that the CI job runs correctly.
 
@@ -328,11 +329,33 @@ SEMGREP_PR_ID="44"
 
 ### Receiving PR or MR comments
 
-:::info
-* Semgrep Cloud Platform does not support PR comments within BitBucket repositories.
-:::
-
 To receive PR or MR comments in your repository, follow the steps to enable hyperlinks. Verify that comments are sent by adding rules to your Rule Board's **Comment** column that can match code to generate a finding.
+
+#### Configuring PR comments in Bitbucket
+
+To configure Semgrep PR comments in your Bitbucket PRs, follow the steps described in the subsections below.
+
+##### Creating personal access token
+
+Create a personal access token to authenticate to the Bitbucket API. There are two ways in which you can create personal access token dependining on the Bitbucket plan you use:
+
+- If you use Bitbucket Cloud Premium plan, you can create a workspace access token with read and write permissions to PRs. This saves your time and effort because you don't have to create many different access tokens for every repository in the workspace. TODO ADD SECTION LINK
+- If you are **not** using Bitbucket Cloud Premium plan, you have to create a separate repository access token for each repository where you want to use Semgrep. TODO ADD SECTION LINK
+
+###### Creating a workspace access token
+
+Create a workspace access token in Bitbucket (only available if you have Bitbucket Cloud Premium plan). Follow the instructions in [Create a Workspace Access Token](https://support.atlassian.com/bitbucket-cloud/docs/create-a-workspace-access-token/). Alternatively, follow the steps below to create workspace access token:
+
+1. In Bitbucket workspace, click the cogwheel icon next to your profile icon in the top right.
+1. Click **Workspace settings**.
+1. Click **Access tokens**.
+1. Click **Create Workspace Access Token**.
+1. Create a token name.
+    Note: You may use **Semgrep** as the token name since this is going to be the name of the account that will post the Semgrep comments to your PRs.
+1. Under **Scopes**, give the token **Read** and **Write** permissions to PRs. The **Read** and **Write** permissions in repositories.
+1. Click **Create**.
+
+
 
 ### Setting a custom timeout
 
