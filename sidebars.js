@@ -241,19 +241,19 @@ module.exports = {
           type: 'category',
           label: 'Semgrep Pro Engine',
           collapsible: true,
-          link: {type: 'doc', id: 'deepsemgrep/deepsemgrep-introduction'},
+          link: {type: 'doc', id: 'semgrep-code/semgrep-pro-intro'},
           items: [
-            'deepsemgrep/deepsemgrep-introduction',
-            'deepsemgrep/deepsemgrep-examples',
-            'deepsemgrep/semgrep-pro-data-flow'
+            'semgrep-code/semgrep-pro-intro',
+            'semgrep-code/semgrep-pro-examples',
+            'semgrep-code/semgrep-pro-data-flow'
           ]
         },
         'semgrep-code/pro-rules',
-        'semgrep-app/demo-project',
-        'semgrep-app/rule-board',
-        'semgrep-app/findings',
-        'semgrep-app/editor',
-        'semgrep-app/notifications',
+        'semgrep-code/demo-project',
+        'semgrep-code/rule-board',
+        'semgrep-code/findings',
+        'semgrep-code/editor',
+        'semgrep-code/notifications',
         ]
     },
     {

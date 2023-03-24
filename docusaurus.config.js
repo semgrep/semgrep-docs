@@ -257,7 +257,12 @@ module.exports = {
           { from: "/writing-rules/experiments/metavariable-analysis/", to: "/writing-rules/metavariable-analysis/" },
           { from: "/deepsemgrep/", to: "/deepsemgrep/deepsemgrep-introduction/" },
           { from: "/semgrep-app/integrations", to: "/semgrep-app/notifications/" },
-          { from: "/troubleshooting/gitlab-sast/", to: "/troubleshooting/semgrep-ci/" }
+          { from: "/troubleshooting/gitlab-sast/", to: "/troubleshooting/semgrep-ci/" },
+          { from: "/semgrep-app/demo-project", to: "/semgrep-code/demo-project/" },
+          { from: "/semgrep-app/rule-board", to: "/semgrep-code/rule-board/" },
+          { from: "/semgrep-app/findings", to: "/semgrep-code/findings/" },
+          { from: "/semgrep-app/editor", to: "/semgrep-code/editor/" },
+          { from: "/semgrep-app/notifications", to: "/semgrep-code/notifications/" }
         ]
       }
     ],
