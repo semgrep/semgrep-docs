@@ -74,9 +74,9 @@ Semgrep CLI installation requires Python 3.7 or later.
     </Tabs>
 
 
-2. Confirm installation by running a simple search pattern. For example, run the following command:
+2. Confirm installation by the following command:
     ```sh
-    semgrep --pattern '127.$A.$B.$C' --lang generic /etc/hosts
+    semgrep --version
     ```
 3. Run recommended Semgrep Registry rules:
     <pre class="language-bash"><code>semgrep --config=auto <span className="placeholder">PATH/TO/SRC</span></code></pre>

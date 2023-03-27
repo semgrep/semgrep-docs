@@ -69,7 +69,7 @@ module.exports = {
                     'semgrep-ci/configuration-reference',
                     'semgrep-ci/configuring-blocking-and-errors-in-ci',
                     'semgrep-ci/sample-ci-configs',
-                    'troubleshooting/gitlab-sast'
+                    'troubleshooting/semgrep-ci'
                 ]
             },
         'ignoring-files-folders-code',
@@ -244,7 +244,8 @@ module.exports = {
           link: {type: 'doc', id: 'deepsemgrep/deepsemgrep-introduction'},
           items: [
             'deepsemgrep/deepsemgrep-introduction',
-            'deepsemgrep/deepsemgrep-examples'
+            'deepsemgrep/deepsemgrep-examples',
+            'deepsemgrep/semgrep-pro-data-flow'
           ]
         },
         'semgrep-code/pro-rules',
@@ -327,8 +328,9 @@ module.exports = {
               type: 'category',
               label: '2023',
               collapsible: true,
-              link: {type: 'doc', id: 'release-notes/january-2023'},
+              link: {type: 'doc', id: 'release-notes/february-2023'},
               items: [
+                'release-notes/february-2023',
                 'release-notes/january-2023'
               ]
             },

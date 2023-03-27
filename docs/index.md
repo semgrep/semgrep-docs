@@ -81,4 +81,4 @@ Semgrep is an evolution of [pfff](https://github.com/returntocorp/pfff/), which 
 
 ## Semgrep development philosophy
 
-See the [Semgrep OSS Engine Philosophy](contributing/semgrep-philosophy/) for details about why Semgrep is free, our goals for development, and the designed capabailities and limits of the static analysis engine.
+See the [Semgrep OSS Engine Philosophy](contributing/semgrep-philosophy/) for details about why Semgrep is free, our goals for development, and the designed capabilities and limits of the static analysis engine.

@@ -56,13 +56,11 @@ To create an organization account:
 2. On the sidebar, click **your account name > Add org**.
 3. Complete the steps to finish adding your organization account.
 
-## Controlling access through roles
-
-![Screenshot of role-based access control ](/img/rbac-overview.png)<br />
+## Controlling access through roles 
 
 Access control in Semgrep Cloud Platform determines the resources and features that are available to users based on their role. This **role-based access control (RBAC)** feature is available for organizations on **Team/Enterprise tiers**.
 
-## Setting up RBAC
+![Screenshot of role-based access control](/img/rbac-overview.png)<br />
 
 Semgrep Cloud Platform divides users into two roles:
 
@@ -70,10 +68,8 @@ Semgrep Cloud Platform divides users into two roles:
 * `member`
 
 :::info
-Users in organizations without RBAC enabled are assigned an `admin` role by default.
-:::
-:::info
-Community-tier (Free) users are assigned an `admin` role by default.
+* Users in organizations without RBAC enabled are assigned an `admin` role by default.
+* Community-tier (Free) users are assigned an `admin` role by default.
 :::
 
 The following table displays features available to each role:
@@ -94,6 +90,22 @@ The following table displays features available to each role:
 To enable RBAC, please contact r2c at [support@r2c.dev](mailto:support@r2c.dev).
 
 Upon enabling RBAC for the first time, current members of the organization are `admins`. New members added thereafter are automatically `members`.
+
+### Member-scoped access tokens
+
+Both members and admins can log in through the CLI by entering the following command:
+
+```
+semgrep login
+```
+
+This generates a unique token that is used to identify a member or admin. When logged in, members can run scans on their local machine through the `semgrep ci` command. This sends findings data to Semgrep Cloud Platform.
+
+Only admin users can view member tokens in the **Settings > Tokens** tab. A token's access cannot be escalated to an admin-level token. A user must first obtain the admin role and then create a new token as an admin. See the following section on [Changing a user's role](/semgrep-app/user-management/#changing-a-users-role).
+
+Additionally, only admin users can make changes to the [Rule board](/semgrep-app/rule-board).
+
+![Screenshot of member tokens list](/img/member-tokens-table.png#md-width)<br />
 
 ## Changing a user's role
 

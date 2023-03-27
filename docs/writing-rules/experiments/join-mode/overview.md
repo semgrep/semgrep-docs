@@ -210,7 +210,7 @@ Renaming is necessary for named expressions, e.g., `$...EXPR`.
 
 ### `as`
 
-An optional key for an object in `refs`, `as` will let you specify an alias for the results collected by this rule for use in the `on` conditions. Without the `as` key, the default name for the results collected by this rule is the rule ID of the rule in `rule`. If you use `as`, the results can be references using the alias specifed by `as`.
+An optional key for an object in `refs`, `as` will let you specify an alias for the results collected by this rule for use in the `on` conditions. Without the `as` key, the default name for the results collected by this rule is the rule ID of the rule in `rule`. If you use `as`, the results can be references using the alias specified by `as`.
 
 ### `on`
 
@@ -228,7 +228,7 @@ The `on` key is required in join mode. This is where the join conditions are lis
 
 | Operator | Example | Description |
 | -------- | ------- | ----------- |
-| `==`   |  `secret-env-var.$VALUE == log-statement.$FORMATVAR` | Matches when the contents of boths sides are exactly equal. |
+| `==`   |  `secret-env-var.$VALUE == log-statement.$FORMATVAR` | Matches when the contents of both sides are exactly equal. |
 | `!=`   | `url-allowlist.$URL != get-request.$URL` | Matches when the contents of both sides are not equal. |
 | `<`    | `template-var.path < unsafe-template.$PATH` | Matches when the right-hand side is a substring of the left-hand side.
 | `>`    | `unsafe-template.$PATH > template-var.path` | Matches when the left-hand side is a substring of the right-hand side. |

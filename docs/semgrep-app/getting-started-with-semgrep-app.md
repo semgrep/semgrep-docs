@@ -64,7 +64,7 @@ Semgrep Code, a SAST (Static Application Security Testing) tool, enables you to 
 
 Using Semgrep Code with Semgrep Cloud Platform provides you with the Rule Board, where you can determine which rules Semgrep uses and what action Semgrep undertakes when it generates a finding. The Rule Board can block pull requests (PRs) or merge requests (MRs) from merging until findings are resolved. This behavior helps to prevent vulnerable code from shipping to widely-accessible environments, such as production or staging servers.
 
-Semgrep Cloud Platform enables you to deploy, configure, and manage Semgrep in your continuous integration (CI) environment. Semgrep Cloud Platform supports the upload of findings from CLI scans as well. For more information, see [Getting started with Semgrep OSS Engine](https://semgrep.dev/docs/getting-started/).
+Semgrep Cloud Platform enables you to deploy, configure, and manage Semgrep in your continuous integration (CI) environment. Semgrep Cloud Platform supports the upload of findings from CLI scans as well. For more information, see [Getting started with Semgrep OSS Engine](/getting-started/).
 
 ### Semgrep Cloud Platform with Semgrep Supply Chain
 

@@ -3,6 +3,7 @@ slug: notifications
 append_help_link: true
 title: Alerts and notifications
 hide_title: true
+toc_max_heading_level: 4
 description: "Learn how to receive Slack or email alerts about findings and failures, how to receive merge or pull request comments in your CI/CD pipeline, or how to integrate using webhooks."
 tags:
     - Semgrep Cloud Platform
@@ -59,7 +60,167 @@ To view, add, remove, disable, or enable your saved channels:
 
 ### Slack
 
+<!-- When referring to the Slack integration, let's consistently call it the "Semgrep Slack app" (app in lower case). This is consistent with the terminology used by Slack (they refer to these integrations as apps in their product pages. It also makes sure that the user knows what "app" we're referring to.
+
+Prefer "Semgrep Slack app" over "Semgrep Slack integration" or "Slack integration" or any other variant. -->
+
 <ProcedureIntegrateSlack />
+
+#### Slack permissions 
+
+The following table describes the purpose for each permission required to use the Semgrep Slack app. 
+
+<table>
+  <tr>
+   <td><strong>Permission</strong>
+   </td>
+   <td><strong>Slack description</strong>
+   </td>
+   <td><strong>Purpose</strong>
+   </td>
+  </tr>
+  <tr>
+   <td><strong><a href="https://api.slack.com/scopes/app_mentions:read">app_mentions:read</a></strong>
+   </td>
+   <td>View messages that directly mention <code>@Semgrep</code> in conversations that the app is in.
+   </td>
+   <td>Enables the Semgrep Slack app to respond when users mention it in the chat.
+   </td>
+  </tr>
+  <tr>
+   <td><strong><a href="https://api.slack.com/scopes/channels:read">channels:read</a></strong> 
+   </td>
+   <td>View basic information about public channels in a workspace.
+   </td>
+   <td>Basic channel information such as <code>channel_id</code> is used to ensure that Semgrep findings (results) are sent to the appropriate channel.
+   </td>
+  </tr>
+  <tr>
+   <td><strong><a href="https://api.slack.com/scopes/chat:write">chat:write</a></strong>
+   </td>
+   <td>Send messages as <code>@Semgrep</code>.
+   </td>
+   <td>Enables the Semgrep Slack app to send findings to channels.
+   </td>
+  </tr>
+  <tr>
+   <td><strong><a href="https://api.slack.com/scopes/chat:write.customize">chat:write.customize</a></strong>
+   </td>
+   <td>Send messages as <code>@Semgrep</code> with a customized username and avatar.
+   </td>
+   <td>Helps users identify Semgrep Slack app messages through the use of an image and username.
+   </td>
+  </tr>
+  <tr>
+   <td><strong><a href="https://api.slack.com/scopes/chat:write.public">chat:write.public</a></strong>
+   </td>
+   <td>Send messages to channels <code>@Semgrep</code> isn't a member of.
+   </td>
+   <td>Enables users to invoke Semgrep Slack app features in any public channel using the slash command.
+   </td>
+  </tr>
+  <tr>
+   <td><strong><a href="https://api.slack.com/scopes/commands">commands</a></strong>
+   </td>
+   <td>Add shortcuts or slash commands that people can use.
+   </td>
+   <td>Enables the Semgrep Slack app to register custom slash commands such as <code>/semgrep_subscribe</code> used for notification subscription.
+   </td>
+  </tr>
+  <tr>
+   <td><strong><a href="https://api.slack.com/scopes/emoji:read">emoji:read</a></strong>
+   </td>
+   <td>View custom emoji in a workspace.
+   </td>
+   <td>Allows Semgrep to support a workspace's custom emojis.
+   </td>
+  </tr>
+  <tr>
+   <td><strong><a href="https://api.slack.com/scopes/im:write">im:write</a></strong>
+   </td>
+   <td>Start direct messages with people.
+   </td>
+   <td>Allows users to interact with the Semgrep Slack app and use the slash commands in direct messages.
+   </td>
+  </tr>
+  <tr>
+   <td><strong><a href="https://api.slack.com/scopes/links:write">links:write</a></strong>
+   </td>
+   <td>Show previews of URLs in messages.
+   </td>
+   <td>Enables Semgrep Slack app to include links in messages.
+   </td>
+  </tr>
+  <tr>
+   <td><strong><a href="https://api.slack.com/scopes/users:read">users:read</a></strong>
+   </td>
+   <td>View profile details about people in a workspace.
+   </td>
+   <td>Enables Semgrep Slack app to correctly address users in messages.
+   </td>
+  </tr>
+  <tr>
+   <td><strong><a href="https://api.slack.com/scopes/users:write">users:write</a></strong>
+   </td>
+   <td>Set presence for Semgrep.
+   </td>
+   <td>Used by the Semgrep Slack app to interact with the workspace and enables users to add the Semgrep Slack app to relevant channels.
+   </td>
+  </tr>
+  <tr>
+   <td><strong><a href="https://api.slack.com/scopes/workflow.steps:execute">workflow.steps:execute</a></strong>
+   </td>
+   <td>Add steps that people can use in Workflow Builder.
+   </td>
+   <td>Enables Semgrep to make use of modals and drop-down boxes when a user creates or updates their notifications.
+   </td>
+  </tr>
+  <tr>
+   <td><strong><a href="https://api.slack.com/scopes/groups:read">groups:read</a></strong>
+   </td>
+   <td>View basic information about private channels that your Slack app has been added to.
+   </td>
+   <td>Semgrep Slack app uses <code>channels_id_changed</code> to update its notifications config if the channel that receives findings is updated. This ensures that you are able to receive findings ever renaming a channel.
+   </td>
+  </tr>
+  <tr>
+   <td><strong><a href="https://api.slack.com/scopes/team:read">team:read</a></strong>
+   </td>
+   <td>View the name, email domain, and icon for workspaces your slack app is connected to.
+   </td>
+   <td>Semgrep Slack app uses <code>team_name_changed</code> to update its notifications config if the team name is updated. This ensures that you are able to receive findings notifications even after renaming your team.
+   </td>
+  </tr>
+  <tr>
+   <td><strong><a href="https://api.slack.com/scopes/channels:read">channels:read</a></strong>
+   </td>
+   <td>View basic information about public channels in a workspace.
+   </td>
+   <td>Enables Semgrep Slack app to monitor if channels that receive Semgrep findings have been deleted or archived.
+   </td>
+  </tr>
+</table>
+
+<!--
+Unused and removed for now:
+  <tr>
+   <td><strong><a href="https://api.slack.com/scopes/users.profile:read">users.profile:read</a></strong>
+   </td>
+   <td>View people in a workspace.
+   </td>
+   <td>Will be used to know the status of the users before interacting or sending out notifications.
+   </td>
+  </tr>
+  <tr>
+   <td><strong><a href="https://api.slack.com/scopes/reactions:write">reactions:write</a></strong>
+   </td>
+   <td>Add and edit emoji reactions.
+   </td>
+   <td>Will be used by Semgrep app to add a reaction to the messages that it sends.
+   </td>
+  </tr>
+
+-->
 
 #### Additional resources
 * https://api.slack.com/apps
@@ -137,7 +298,7 @@ semgrep:
     GITLAB_TOKEN: $PAT
 ```
 
-For more config options, see [GitLab CI Sample](https://semgrep.dev/docs/semgrep-ci/sample-ci-configs/#gitlab-ci).
+For more config options, see [GitLab CI Sample](/semgrep-ci/sample-ci-configs/#gitlab-ci).
 
 :::note
 GitLab MR comments are only available to logged-in Semgrep users, as they require a Semgrep API token.
@@ -153,7 +314,7 @@ In the following screenshot, Semgrep detects the use of a native Python XML libr
 
 ![Screenshot of a sample autofix PR suggestion](/img/notifications-github-suggestions.png)
 
-#### Enabling autofix for your GitLab or GitHub code repository
+#### Enabling autofix for GitHub or GitLab 
 
 Autofix requires PR or MR comments to be enabled for your repository or organization. Follow the steps in [GitHub pull request comments](#github-pull-request-comments) or [GitLab merge request comments](#gitlab-merge-request-comments) to enable this feature.
 

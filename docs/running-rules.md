@@ -47,7 +47,7 @@ Explore the Semgrep Registry by following these steps:
 
 ### Running Semgrep Registry continuously
 
-To use Semgrep Registry continuously in your CI/CD pipeline, see the [Semgrep in CI](https://semgrep.dev/docs/semgrep-ci/overview) documentation.
+To use Semgrep Registry continuously in your CI/CD pipeline, see the [Semgrep in CI](/semgrep-ci/overview) documentation.
 
 ## Creating and using local rules
 

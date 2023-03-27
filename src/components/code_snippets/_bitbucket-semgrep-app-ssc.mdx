@@ -10,7 +10,7 @@ pipelines:
           image: returntocorp/semgrep
           script:
             # The following variables are required to set up a scan connected to Semgrep Cloud Platform:
-            - export $SEMGREP_APP_TOKEN
+            - export SEMGREP_APP_TOKEN=$SEMGREP_APP_TOKEN
 
             # Uncomment the following line to scan changed 
             # files in PRs or MRs (diff-aware scanning): 

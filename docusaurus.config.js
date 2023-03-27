@@ -113,8 +113,8 @@ module.exports = {
           title: 'About',
           items: [
             {
-              label: 'r2c blog',
-              href: 'https://r2c.dev/blog',
+              label: 'Semgrep blog',
+              href: 'https://semgrep.dev/blog/',
             },
             {
               label: 'About us',
@@ -127,7 +127,7 @@ module.exports = {
           ],
         },
       ],
-      copyright: `Copyright © ${new Date().getFullYear()} r2c. Semgrep®️  is a registered trademark of r2c. This site is built with Docusaurus.`,
+      copyright: `Copyright © ${new Date().getFullYear()} r2c. Semgrep®️  is a registered trademark of r2c. These docs are made with Docusaurus.`,
     },
     prism: {
       theme: lightCodeTheme,
@@ -148,6 +148,19 @@ module.exports = {
       searchParameters: {},
       facetFilters: [],
       //... other Algolia params
+      "customRanking": [
+        "desc(weight.page_rank)"
+      ],
+      "ranking": [
+        "desc(weight.page_rank)",
+        "custom",
+        "filters",
+        "typo",
+        "attribute",
+        "words",
+        "exact",
+        "proximity"
+      ]
     },
     image: 'https://semgrep.dev/thumbnail.png',
   },
@@ -243,7 +256,8 @@ module.exports = {
           { from: "/writing-rules/experiments/generic-pattern-matching/", to: "/writing-rules/generic-pattern-matching/" },
           { from: "/writing-rules/experiments/metavariable-analysis/", to: "/writing-rules/metavariable-analysis/" },
           { from: "/deepsemgrep/", to: "/deepsemgrep/deepsemgrep-introduction/" },
-          { from: "/semgrep-app/integrations", to: "/semgrep-app/notifications/" }
+          { from: "/semgrep-app/integrations", to: "/semgrep-app/notifications/" },
+          { from: "/troubleshooting/gitlab-sast/", to: "/troubleshooting/semgrep-ci/" }
         ]
       }
     ],
