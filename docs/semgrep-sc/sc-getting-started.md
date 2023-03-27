@@ -55,7 +55,7 @@ Historical coverage rules, also referred to as parity or ecosystem rules, are ru
 
 To turn these rules on:
 
-1. Sign in to your Semgrep App account, and then go to **Projects** page.
+1. Sign in to your Semgrep Cloud Platform account.
 2. Click **[Projects](https://semgrep.dev/orgs/-/projects)**, and then click <i class="fa-solid fa-gear"></i> **gear** icon of the repository on which to run historical coverage rules.
 3. Click <i class="fa-solid fa-toggle-large-on"></i> **Supply Chain historical coverage**. Historical coverage rules are included in your next scan, that occurs based on your CI setup, such as schedules and events configuration (push, pull, and merge requests).
 4. Optional: Some CI providers enable you to start workflows manually. To start a dependency scan immediately, go to your CI provider's interface and manually begin the Semgrep workflow or job.
