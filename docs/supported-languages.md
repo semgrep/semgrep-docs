@@ -314,11 +314,11 @@ Semgrep Pro Engine offers support for the following languages:
 
 To install and run Semgrep Pro Engine, see [Semgrep Pro Engine overview](/deepsemgrep/deepsemgrep-introduction/).
 
-### Known Limitations
+### Known limitations
 
-<b>CommonJS</b>
+#### CommonJS
 
-Currently Semgrep Pro does not handle all cases of CommmonJS imports, if you create a function and assign it to an export later Semgrep Pro does not capture this today, read [this page](https://semgrep.dev/docs/deepsemgrep/deepsemgrep-examples/#es6-and-commonjs) for more information.
+Currently Semgrep Pro does not handle all cases of CommonJS imports. See [Known limitations](/deepsemgrep/deepsemgrep-examples/#known-limitations) in Semgrep Pro Engine documentation.
 
 <b>Regressions in Semgrep Pro</b>
 
