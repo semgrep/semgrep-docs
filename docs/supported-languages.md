@@ -314,15 +314,22 @@ Semgrep Pro Engine offers support for the following languages:
 
 To install and run Semgrep Pro Engine, see [Semgrep Pro Engine overview](/deepsemgrep/deepsemgrep-introduction/).
 
-### Known limitations
+### Known limitations of Semgrep Pro Engine
 
 #### CommonJS
 
-Currently Semgrep Pro does not handle all cases of CommonJS imports. See [Known limitations](/deepsemgrep/deepsemgrep-examples/#known-limitations) in Semgrep Pro Engine documentation.
+Currently Semgrep Pro Engine does not handle specific cases of CommmonJS where you define a function and assign it to an export later, Semgrep Pro Engine does not track the code below:
 
-#### Regressions in Semgrep Pro
+```js
+function get_user() {
+    return get_user_input("example")
+  }
+
+module.exports = get_user
+```
+
+#### Regressions in Semgrep Pro
 
 For interfile analysis, Semgrep Pro Engine resolves names differently than Semgrep and this may cause rules with `interfile: true` to produce different results than Semgrep OSS Engine. Some instances could be regarded as regressions, if you encounter them please file a bug report.
-
 
 <MoreHelp />

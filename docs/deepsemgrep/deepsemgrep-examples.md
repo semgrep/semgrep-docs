@@ -55,9 +55,9 @@ semgrep --config pro.yaml . --pro
 
 #### ES6 and CommonJS
 
-The JavaScript and TypeScript ecosystems contain various ways for importing and exporting code, Semgrep Pro is able to track dataflow through ES6 imports/exports and some CommonJS export paths (See known limitations below). 
+The JavaScript and TypeScript ecosystems contain various ways for importing and exporting code, Semgrep Pro is able to track dataflow through ES6 imports/exports and some CommonJS export paths (See [Known limitations of Semgrep Pro Engine](/supported-languages/#known-limitations-of-semgrep-pro-engine)). 
 
-<b>ES6</b>
+##### ES6
 
 Semgrep is able to track data through the definition of exports for es6:
 
@@ -75,7 +75,7 @@ import { readUser } from "./es6/es6";
 readUser()
 ```
 
-<b>CommonJS</b>
+##### CommonJS
 
 Semgrep is able to track data through the definition of exports for CommonJS when the function is defined inline:
 
@@ -95,18 +95,6 @@ To run Semgrep Pro in the cloned [Semgrep Pro Engine testing repository](https:/
 
 ```sh
 semgrep --config pro.yaml . --pro
-```
-
-<b>Known limitations</b>
-
-Currently Semgrep Pro Engine does not handle specific cases of CommmonJS where you define a function and assign it to an export later, Semgrep Pro Engine does not track the code below:
-
-```js
-function get_user() {
-    return get_user_input("example")
-  }
-
-module.exports = get_user
 ```
 
 ## Type inference and class inheritance
