@@ -36,8 +36,8 @@ module.exports = {
           position: 'left',
           items: [
             {
-              label: 'Semgrep App',
-              to: 'https://semgrep.dev/products/semgrep-app'
+              label: 'Semgrep Code',
+              to: 'https://semgrep.dev/products/semgrep-code/'
             },
             {
               label: 'Semgrep Supply Chain',
