@@ -320,7 +320,7 @@ To install and run Semgrep Pro Engine, see [Semgrep Pro Engine overview](/deepse
 
 Currently Semgrep Pro does not handle all cases of CommonJS imports. See [Known limitations](/deepsemgrep/deepsemgrep-examples/#known-limitations) in Semgrep Pro Engine documentation.
 
-<b>Regressions in Semgrep Pro</b>
+#### Regressions in Semgrep Pro
 
 For interfile analysis, Semgrep Pro Engine resolves names differently than Semgrep and this may cause rules with `interfile: true` to produce different results than Semgrep OSS Engine. Some instances could be regarded as regressions, if you encounter them please file a bug report.
 
