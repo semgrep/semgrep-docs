@@ -421,7 +421,7 @@ pipelines:
 ```
 
 :::note
-Substitute branch names (for example `main`, `$PAT`) and exported tokens according to your workspace or repository settings.
+Substitute branch names and exported tokens (for example `main`, `$PAT`) according to your workspace or repository settings.
 :::
 
 As a result, your Bitbucket repositories are now part of the [Projects](https://semgrep.dev/orgs/-/projects) page.
