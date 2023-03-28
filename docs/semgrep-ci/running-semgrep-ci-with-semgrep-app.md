@@ -350,12 +350,23 @@ Create a workspace access token in Bitbucket (only available if you have Bitbuck
 1. Click **Workspace settings**.
 1. Click **Access tokens**.
 1. Click **Create Workspace Access Token**.
-1. Create a token name.
-    Note: You may use **Semgrep** as the token name since this is going to be the name of the account that will post the Semgrep comments to your PRs.
-1. Under **Scopes**, give the token **Read** and **Write** permissions to PRs. The **Read** and **Write** permissions in repositories.
+1. Create a token name. Note: As Semgrep will comment to your PRs, you may use **Semgrep** as the name for this token.
+1. Under **Scopes**, give the token **Read**, **Write** permissions to PRs, and the **Read**, **Write** permissions in repositories.
 1. Click **Create**.
 
-###### 
+###### Creating a repository access token
+
+Create a repository access token in Bitbucket. Follow the instructions in [Create a repository Access Token](https://support.atlassian.com/bitbucket-cloud/docs/create-a-repository-access-token/). Alternatively, follow the steps below to create repository access token:
+
+1. In Bitbucket, select the repository where you want Semgrep to run in CI.
+1. Click **Repository settings**.
+1. On the sidebar, under **Security**, click **Access tokens**.
+1. Click **Create Repository Access Token**.
+1. Create a token name. Note: As Semgrep will comment to your PRs, you may use **Semgrep** as the name for this token.
+1. Under **Scopes**, give the token **Read**, **Write** permissions to PRs, and the **Read**, **Write** permissions in repositories.
+1. Click **Create**.
+
+##### Adding the access token as an environment variable
 
 ### Setting a custom timeout
 
