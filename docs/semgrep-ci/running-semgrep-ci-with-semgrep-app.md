@@ -331,6 +331,10 @@ SEMGREP_PR_ID="44"
 
 To receive PR or MR comments in your repository, follow the steps to enable hyperlinks. Verify that comments are sent by adding rules to your Rule Board's **Comment** column that can match code to generate a finding.
 
+:::info
+Only rules that are in the **Comment** column of your [Rule board](https://semgrep.dev/orgs/-/board) create the PR comments.
+:::
+
 #### Configuring PR comments in Bitbucket
 
 To configure Semgrep PR comments in your Bitbucket PRs, follow the steps described in the subsections below.
@@ -389,12 +393,12 @@ Create and add a `SEMGREP_APP_TOKEN` to establish the communication betweeen you
 
 1. Create `SEMGREP_APP_TOKEN` by following the [Creating a `SEMGREP_APP_TOKEN`](/semgrep-ci/running-semgrep-ci-with-semgrep-app/#creating-a-semgrep_app_token) documentation. Copy the value of the token created in Semgrep Cloud Platform.
 1. In Bitbucket workspace, click the cogwheel icon next to your profile icon in the top right.
-1. Click **Workspace settings** > **Access tokens**.
+1. Click **Repository settings** > **Access tokens**.
 1. Click **Create Workspace Access Token**.
 1. Create a new workspace variable by entering **SEMGREP_APP_TOKEN** into the **Name** field, and then paste the value of the token in the **Value** field.
 1. Enable the **Secured** option, and then click **Add**.
 
-##### Adding Semgrep to your Bitbucket CI pipeline
+##### Adding Semgrep to your Bitbucket CI pipeline for PR comments
 
 To receive comments on PRs, add the following code to your `bitbucket-pipelines.yml` file:
 
@@ -418,6 +422,13 @@ pipelines:
 
 :::note
 Substitute branch names (for example `main`, `$PAT`) and exported token according of your workspace or repository settings.
+:::
+
+As a result, your Bitbucket repositories are now part of the [Projects](https://semgrep.dev/orgs/-/projects) page.
+
+:::info
+- Test Semgrep PR comments by submitting a test code from a rule in your [Rule board](https://semgrep.dev/orgs/-/board) that are in the **Comment** column.
+- Only rules that are in the **Comment** column of your [Rule board](https://semgrep.dev/orgs/-/board) create the PR comments.
 :::
 
 ### Setting a custom timeout
