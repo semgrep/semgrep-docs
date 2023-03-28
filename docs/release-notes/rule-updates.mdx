@@ -12,6 +12,66 @@ import MoreHelp from "/src/components/MoreHelp"
 
 Welcome to monthly rule updates. This document includes selected new rules, removed or reduced number of false positives (FP) and false negatives (FN). These new rules and their updates are made by the Semgrep community and r2c.
 
+## February 2023
+
+### Community rules
+
+Thanks to [Sjord](https://github.com/Sjord), [@artem-fedorov](https://github.com/artem-fedorov) and [@gabriellesc](https://github.com/gabriellesc) for their contributions! 
+
+#### New rules from Semgrep community and r2c
+
+- Improved coverage for security issues in Terraform: <LinkToRegistryRule ruleId="terraform.aws.security" />
+- Additional rules for weak ciphers in Java: <LinkToRegistryRule ruleId="java.lang.security.audit.crypto" />
+- Additional rules for inline JavaScript and related security issues:
+    -  <LinkToRegistryRule ruleId="html.security.audit.eval-detected.eval-detected" />
+    -  <LinkToRegistryRule ruleId="html.security.audit.inscure-document-method.insecure-document-method" />
+
+#### Updated Community rules
+
+- Added and improved autofix for many rules
+- Improved patterns:
+    -  <LinkToRegistryRule ruleId="java.lang.security.audit.command-injection-formatted-runtime-call.command-injection-formatted-runtime-call" />
+    -  <LinkToRegistryRule ruleId="javascript.express.security.express-insecure-template-usage.express-insecure-template-usage" />
+    -  <LinkToRegistryRule ruleId="java.lang.security.audit.crypto.des-is-deprecated" />
+    -  <LinkToRegistryRule ruleId="java.lang.security.audit.crypto.no-null-cipher" />
+    -  <LinkToRegistryRule ruleId="java.lang.security.audit.crypto.rsa-no-padding" />
+    -  <LinkToRegistryRule ruleId="problem-based-packs.insecure-transport.js-node.disallow-old-tls-versions2.disallow-old-tls-versions2" />
+- Improved accuracy:
+    -  <LinkToRegistryRule ruleId="java.spring.security.injection.tainted-html-string.tainted-html-string" />
+    -  <LinkToRegistryRule ruleId="generic.secrets.gitleaks.generic-api-key.generic-api-key" />
+    -  <LinkToRegistryRule ruleId="contrib.nodejsscan.crypto_node.node_md5" />
+    -  <LinkToRegistryRule ruleId="contrib.nodejsscan.crypto_node.node_sha1" />
+    -  <LinkToRegistryRule ruleId="dockerfile.security.last-user-is-root.last-user-is-root" />
+    -  <LinkToRegistryRule ruleId="generic.dockerfile.security.last-user-is-root.last-user-is-root" />
+    -  <LinkToRegistryRule ruleId="generic.secrets.security.detected-npm-token.detected-npm-token" />
+    -  <LinkToRegistryRule ruleId="php.lang.security.injection.echoed-request.echoed-request" />
+- Improved rule message:
+    -  <LinkToRegistryRule ruleId="java.security.spring.audit.spring-csrf-disabled.spring-csrf-disabled" />
+    -  <LinkToRegistryRule ruleId="contrib.nodejsscan.crypto_node.node_md5" />
+    -  <LinkToRegistryRule ruleId="contrib.nodejsscan.crypto_node.node_sha1" />
+    -  <LinkToRegistryRule ruleId="ruby.rails.security.brakeman.check-unscoped-find.check-unscoped-find" />
+    -  <LinkToRegistryRule ruleId="terraform.aws.security.aws-cloudwatch-log-group-unencrypted.aws-cloudwatch-log-group-unencrypted" />
+    -  <LinkToRegistryRule ruleId="terraform.aws.security.aws-dynamodb-table-unencrypted.aws-dynamodb-table-unencrypted" />
+    -  <LinkToRegistryRule ruleId="terraform.aws.security.aws-lambda-environment-unencrypted.aws-lambda-environment-unencrypted" />
+    -  <LinkToRegistryRule ruleId="terraform.aws.security.aws-secretsmanager-secret-unencrypted.aws-secretsmanager-secret-unencrypted" />
+- Improved metadata:
+    -  <LinkToRegistryRule ruleId="ruby.lang.security.no-eval.ruby-eval" />
+    -  <LinkToRegistryRule ruleId="contrib.nodejsscan.crypto_node.node_md5" />
+    -  <LinkToRegistryRule ruleId="contrib.nodejsscan.crypto_node.node_sha1" />
+    -  <LinkToRegistryRule ruleId="ruby.rails.security.brakeman.check-unscoped-find.check-unscoped-find" />
+
+### Pro rules
+
+#### New Pro rules
+
+- Improved coverage for:
+    - Deserialization issues in Java
+    - Deserialization issues in Python
+    - Weak hash algorithms in JavaScript
+    - NoSQL injection in Java
+    - NoSQL injection in JavaScript
+    - ReDOS in JavaScript
+
 ## January 2023
 
 ### Community rules
