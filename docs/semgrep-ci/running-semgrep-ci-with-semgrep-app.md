@@ -339,8 +339,8 @@ To configure Semgrep PR comments in your Bitbucket PRs, follow the steps describ
 
 Create a personal access token to authenticate to the Bitbucket API. There are two ways in which you can create personal access token dependining on the Bitbucket plan you use:
 
-- If you use Bitbucket Cloud Premium plan, you can create a workspace access token with read and write permissions to PRs. This saves your time and effort because you don't have to create many different access tokens for every repository in the workspace. TODO ADD SECTION LINK
-- If you are **not** using Bitbucket Cloud Premium plan, you have to create a separate repository access token for each repository where you want to use Semgrep. TODO ADD SECTION LINK
+- **Workspace access token**: If you use Bitbucket Cloud Premium plan, you can create a workspace access token. This option saves your time because you can create one access token for all repositories in the workspace. See [Creating a workspace access token](/semgrep-ci/running-semgrep-ci-with-semgrep-app/#creating-a-workspace-access-token).
+- **Repository access token**: If you are **not** using Bitbucket Cloud Premium plan, you have to create a separate repository access token for each repository where you want to use Semgrep. See [Creating a repository access token](/semgrep-ci/running-semgrep-ci-with-semgrep-app/#creating-a-repository-access-token).
 
 ###### Creating a workspace access token
 
@@ -366,7 +366,25 @@ Create a repository access token in Bitbucket. Follow the instructions in [Creat
 1. Under **Scopes**, give the token **Read**, **Write** permissions to PRs, and the **Read**, **Write** permissions in repositories.
 1. Click **Create**.
 
-##### Adding the access token as an environment variable
+##### Adding the personal access token as an environment variable
+
+Add your Semgrep API token as an environment variable to Bitbucket. There are two ways in which you can add personal access token dependining on the Bitbucket plan you use:
+
+- If you use Bitbucket Cloud Premium plan, you can add the token as a workspace environment variable. This saves your time because you can add one access token for all repositories in the workspace. See [TODO](TODO).
+- If you are **not** using Bitbucket Cloud Premium plan, you have to create a separate repository access token for each repository where you want to use Semgrep. See [TODO](TODO).
+
+###### 
+
+
+
+/semgrep-ci/running-semgrep-ci-with-semgrep-app/#creating-a-semgrep_app_token
+
+
+###### 
+
+
+/semgrep-ci/running-semgrep-ci-with-semgrep-app/#creating-a-semgrep_app_token
+
 
 ### Setting a custom timeout
 
