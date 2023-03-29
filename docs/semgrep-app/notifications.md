@@ -277,39 +277,38 @@ Automated comments on GitLab merge requests are displayed as follows:
 
 To enable GitLab merge request comments, follow these steps: 
 
-1. Log into Semgrep's [Settings](https://semgrep.dev/manage/settings) to obtain your deployment ID and an API token.
-1. Create an API token in GitLab by going to [Profile > Access Tokens](https://gitlab.com/-/profile/personal_access_tokens) and adding a token with `api` scope.
+1. In GitLab, create an API token in GitLab by going to [Profile > Access Tokens](https://gitlab.com/-/profile/personal_access_tokens) and adding a token with `api` scope.
 1. Copy the token created in the previous step.
 1. Navigate to **Your repository** >  **Settings** > **CI/CD** > **Variables** and click **Expand**. The URL of the page where you are ends with: `/username/project/-/settings/ci_cd`.
 1. Under **Variables** click **Expand**, and then click **Add variable**.
 1. Enter `PAT` in the **Key** field and paste the token value from the step three.
-1. Select **Mask variable** option, and then **unselect** the **Protect variable** options.
+1. Select **Mask variable** checkbox option, and then clear the **Protect variable** checkbox options.
 1. Update your `.gitlab-ci.yml` file with variable `GITLAB_TOKEN` and value `$PAT`. Refer to the following example:
-    ```yaml
-    semgrep:
-      image: returntocorp/semgrep
-      script:
-        - semgrep ci
-      rules:
-      - if: $CI_MERGE_REQUEST_IID
-    
-      variables:
-        SEMGREP_APP_TOKEN: $SEMGREP_APP_TOKEN
-        GITLAB_TOKEN: $PAT
-    ```
-1. Sign in to the Semgrep Cloud Platform, and then click the [Projects](https://semgrep.dev/orgs/-/projects) page.
+```yaml
+semgrep:
+  image: returntocorp/semgrep
+  script:
+    - semgrep ci
+  rules:
+  - if: $CI_MERGE_REQUEST_IID
+
+  variables:
+    SEMGREP_APP_TOKEN: $SEMGREP_APP_TOKEN
+    GITLAB_TOKEN: $PAT
+```
+1. Sign in to the [Semgrep Cloud Platform](https://semgrep.dev/), and then click the [Projects](https://semgrep.dev/orgs/-/projects) page.
 1. Select **Scan new project**, and then **Run Scan in CI**.
 1. Click **Create new API token**, and then copy the value of the new API token.
 1. In GitLab, add the token to your project by going to **Settings** > **CI/CD**.
 1. Under **Variables** click **Expand**, and then click **Add variable**.
 1. Enter `SEMGREP_APP_TOKEN` in the **Key** field and paste the token value in the **Value** field.
-1. Select **Mask variable** option, and then **unselect** the **Protect variable** options.
+1. Select **Mask variable** checkbox option, and then clear the **Protect variable** checkbox options.
 1. Click **Add variable**.
 
 For more configuration options, see [GitLab CI Sample](/semgrep-ci/sample-ci-configs/#gitlab-ci).
 
 :::note
-GitLab MR comments are only available to logged-in Semgrep users, as they require a Semgrep API token.
+GitLab MR comments are only available to logged-in Semgrep Cloud Platform users.
 :::
 
 ### Bitbucket pull request comments
