@@ -286,14 +286,24 @@ To enable GitLab merge request comments, follow these steps:
 1. Update your `.gitlab-ci.yml` file with variable `GITLAB_TOKEN` and value `$PAT`. Refer to the following example:
 ```yaml
 semgrep:
+  # A Docker image with Semgrep installed.
   image: returntocorp/semgrep
-  script:
-    - semgrep ci
+  # Run the "semgrep ci" command on the command line of the docker image.
+  script: semgrep ci
+
   rules:
+  # Scan changed files in MRs, (diff-aware scanning):
   - if: $CI_MERGE_REQUEST_IID
 
+  # Scan mainline (default) branches and report all findings.
+  - if: $CI_COMMIT_BRANCH == $CI_DEFAULT_BRANCH
+
   variables:
+    # Connect to Semgrep Cloud Platform through your SEMGREP_APP_TOKEN.
+    # Generate a token from Semgrep Cloud Platform > Settings
+    # and add it as a variable in your GitLab CI/CD project settings.
     SEMGREP_APP_TOKEN: $SEMGREP_APP_TOKEN
+    # Receive inline MR comments (requires Semgrep Cloud Platform account)
     GITLAB_TOKEN: $PAT
 ```
 1. Sign in to the [Semgrep Cloud Platform](https://semgrep.dev/), and then click the [Projects](https://semgrep.dev/orgs/-/projects) page.
@@ -393,6 +403,8 @@ pipelines:
             - export BITBUCKET_TOKEN=$PAT
             - semgrep ci
 ```
+
+For more configuration options, see [Bitbucket Pipelines CI Sample](/semgrep-ci/sample-ci-configs/#bitbucket-pipelines).
 
 :::note
 Substitute branch names and exported tokens (for example `main`, `$PAT`) according to your workspace or repository settings.
