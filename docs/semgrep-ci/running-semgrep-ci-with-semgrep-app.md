@@ -370,7 +370,6 @@ Create and add a `SEMGREP_APP_TOKEN` to establish the communication between your
 1. Create `SEMGREP_APP_TOKEN` by following the [Creating a `SEMGREP_APP_TOKEN`](/semgrep-ci/running-semgrep-ci-with-semgrep-app/#creating-a-semgrep_app_token) documentation. Copy the value of the token created in the Semgrep Cloud Platform.
 1. In the Bitbucket workspace, click the cogwheel icon next to your profile icon in the top right.
 1. Click **Workspace settings** > **Workspace variables**.
-1. Click **Create Workspace Access Token**.
 1. Create a new workspace variable by entering **SEMGREP_APP_TOKEN** into the **Name** field, and then paste the value of the token in the **Value** field.
 1. Enable the **Secured** option, and then click **Add**.
 
