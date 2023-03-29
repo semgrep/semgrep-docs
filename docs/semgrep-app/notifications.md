@@ -281,7 +281,7 @@ To enable GitLab merge request comments, follow these steps:
 1. Copy the token created in the previous step.
 1. Navigate to **Your repository** >  **Settings** > **CI/CD** > **Variables** and click **Expand**. The URL of the page where you are ends with: `/username/project/-/settings/ci_cd`.
 1. Under **Variables** click **Expand**, and then click **Add variable**.
-1. Enter `PAT` in the **Key** field and paste the token value from the step three.
+1. Enter `PAT` in the **Key** field and paste the token value from the step two.
 1. Select **Mask variable** checkbox option, and then clear the **Protect variable** checkbox options.
 1. Update your `.gitlab-ci.yml` file with variable `GITLAB_TOKEN` and value `$PAT`. Refer to the following example:
 ```yaml
