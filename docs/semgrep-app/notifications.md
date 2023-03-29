@@ -277,7 +277,7 @@ Automated comments on GitLab merge requests are displayed as follows:
 
 To enable GitLab merge request comments, follow these steps: 
 
-1. In GitLab, create an API token in GitLab by going to [Profile > Access Tokens](https://gitlab.com/-/profile/personal_access_tokens) and adding a token with `api` scope.
+1. Create an API token in GitLab by going to [Profile > Access Tokens](https://gitlab.com/-/profile/personal_access_tokens) and adding a token with `api` scope.
 1. Copy the token created in the previous step.
 1. Navigate to **Your repository** >  **Settings** > **CI/CD** > **Variables** and click **Expand**. The URL of the page where you are ends with: `/username/project/-/settings/ci_cd`.
 1. Under **Variables** click **Expand**, and then click **Add variable**.
