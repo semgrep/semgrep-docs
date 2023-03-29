@@ -282,7 +282,7 @@ To enable GitLab merge request comments, follow these steps:
 1. Navigate to **Your repository** >  **Settings** > **CI/CD** > **Variables** and click **Expand**. The URL of the page where you are ends with: `/username/project/-/settings/ci_cd`.
 1. Under **Variables** click **Expand**, and then click **Add variable**.
 1. Enter `PAT` in the **Key** field and paste the token value from the step two.
-1. Select **Mask variable** checkbox option, and then clear the **Protect variable** checkbox options.
+1. Select **Mask variable** checkbox option, and then clear the **Protect variable** checkbox option.
 1. Update your `.gitlab-ci.yml` file with variable `GITLAB_TOKEN` and value `$PAT`. Refer to the following example:
 ```yaml
 semgrep:
@@ -306,13 +306,16 @@ semgrep:
     # Receive inline MR comments (requires Semgrep Cloud Platform account)
     GITLAB_TOKEN: $PAT
 ```
+
+Also, add the `SEMGREP_APP_TOKEN` to your GitLab repository by following these steps:
+
 1. Sign in to the [Semgrep Cloud Platform](https://semgrep.dev/), and then click the [Projects](https://semgrep.dev/orgs/-/projects) page.
 1. Select **Scan new project**, and then **Run Scan in CI**.
 1. Click **Create new API token**, and then copy the value of the new API token.
 1. In GitLab, add the token to your project by going to **Settings** > **CI/CD**.
 1. Under **Variables** click **Expand**, and then click **Add variable**.
 1. Enter `SEMGREP_APP_TOKEN` in the **Key** field and paste the token value in the **Value** field.
-1. Select **Mask variable** checkbox option, and then clear the **Protect variable** checkbox options.
+1. Select **Mask variable** checkbox option, and then clear the **Protect variable** checkbox option.
 1. Click **Add variable**.
 
 For more configuration options, see [GitLab CI Sample](/semgrep-ci/sample-ci-configs/#gitlab-ci).
