@@ -329,10 +329,10 @@ SEMGREP_PR_ID="44"
 
 ### Receiving PR or MR comments
 
-To receive PR or MR comments in your repository, follow the steps to enable hyperlinks. Verify that comments are sent by adding rules to your Rule Board's **Comment** column that can match code to generate a finding.
+To receive PR or MR comments in your repository, follow the steps to enable hyperlinks. Verify that comments are sent by adding rules to your Rule Board's **Comment** or **Block** columns that can match code to generate a finding.
 
 :::info
-Only rules that are in the **Comment** column of your [Rule board](https://semgrep.dev/orgs/-/board) create the PR comments.
+Only rules in the **Comment** and **Block** columns of your [Rule board](https://semgrep.dev/orgs/-/board) create the PR comments. Rules from the **Block** will also block the PR pipeline. To unblock the pipeline, the detected code needs to be fixed.
 :::
 
 #### Configuring PR comments in Bitbucket
@@ -428,7 +428,7 @@ As a result, your Bitbucket repositories are now part of the [Projects](https://
 
 :::info
 - Test Semgrep PR comments by submitting a test code from a rule in your [Rule board](https://semgrep.dev/orgs/-/board) that is in the **Comment** column.
-- Only rules that are in the **Comment** column of your [Rule board](https://semgrep.dev/orgs/-/board) create the PR comments.
+- Only rules in the **Comment** and **Block** columns of your [Rule board](https://semgrep.dev/orgs/-/board) create the PR comments. Rules from the **Block** will also block the PR pipeline. To unblock the pipeline, the detected code needs to be fixed.
 :::
 
 ### Setting a custom timeout
