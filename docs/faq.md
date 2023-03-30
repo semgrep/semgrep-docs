@@ -40,7 +40,7 @@ If you are a security consultant and you want to use Semgrep OSS Engine with the
 
 If your service delivers code scanning (meaning a service that includes static application security testing (SAST) or software composition analysis (SCA)) and you want to charge for scanning that includes rules in the [semgrep-rules repository](https://github.com/returntocorp/semgrep-rules), you need an explicit license. For more information, please contact partners@r2c.dev.
 
-If you want to use Semgrep Code (including its proprietary interfile analysis engine), Semgrep Supply Chain (SCA), or Semgrep Pro rules as part of your consulting services, you need a license. Please contact us at sales@r2c.dev.
+If you want to use Semgrep Code (including its proprietary interfile analysis, the Pro Engine), Semgrep Supply Chain (SCA), or Semgrep Pro rules as part of your consulting services, you need a license. Please contact us at sales@r2c.dev.
 
 ### Can I ship my own code analysis software that uses Semgrep?
 
