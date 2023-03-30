@@ -259,21 +259,21 @@ module.exports = {
           /* MAR 24 2023 POST LAUNCH REDIRECTS */
 
           // Deepsemgrep
-          { from: "/deepsemgrep/"                      , to: "/semgrep-code/semgrep-pro-intro/" }     ,
-          { from: "/deepsemgrep/deepsemgrep-intro"     , to: "/semgrep-code/semgrep-pro-intro/" }     ,
-          { from: "/deepsemgrep/deepsemgrep-examples"  , to: "/semgrep-code/semgrep-pro-examples/" }  ,
-          { from: "/deepsemgrep/semgrep-pro-data-flow" , to: "/semgrep-code/semgrep-pro-data-flow/" } ,
+          { from: "/deepsemgrep/"                         , to: "/semgrep-code/semgrep-pro-intro/" }     ,
+          { from: "/deepsemgrep/deepsemgrep-introduction" , to: "/semgrep-code/semgrep-pro-intro/" }     ,
+          { from: "/deepsemgrep/deepsemgrep-examples"     , to: "/semgrep-code/semgrep-pro-examples/" }  ,
+          { from: "/deepsemgrep/semgrep-pro-data-flow"    , to: "/semgrep-code/semgrep-pro-data-flow/" } ,
 
           // Troubleshooting
-          { from: "/troubleshooting/gitlab-sast/"      , to: "/troubleshooting/semgrep-ci/" }         ,
+          { from: "/troubleshooting/gitlab-sast/" , to: "/troubleshooting/semgrep-ci/" } ,
 
           // Semgrep Code
-          { from: "/semgrep-app/integrations"   , to: "/semgrep-code/notifications/" } ,
-          { from: "/semgrep-app/demo-project/"  , to: "/semgrep-code/demo-project/" }  ,
-          { from: "/semgrep-app/rule-board/"    , to: "/semgrep-code/rule-board/" }    ,
-          { from: "/semgrep-app/findings/"      , to: "/semgrep-code/findings/" }      ,
-          { from: "/semgrep-app/editor/"        , to: "/semgrep-code/editor/" }        ,
-          { from: "/semgrep-app/notifications/" , to: "/semgrep-code/notifications/" } ,
+          { from: "/semgrep-app/integrations"                        , to: "/semgrep-code/notifications/" }   ,
+          { from: "/semgrep-app/demo-project/"                       , to: "/semgrep-code/demo-project/" }    ,
+          { from: "/semgrep-app/rule-board/"                         , to: "/semgrep-code/rule-board/" }      ,
+          { from: "/semgrep-app/findings/"                           , to: "/semgrep-code/findings/" }        ,
+          { from: "/semgrep-app/editor/"                             , to: "/semgrep-code/editor/" }          ,
+          { from: "/semgrep-app/notifications/"                      , to: "/semgrep-code/notifications/" }   ,
           { from: "/semgrep-code/getting-started-with-semgrep-code/" , to: "/semgrep-code/getting-started/" } ,
 
           //Semgrep Cloud Platform
@@ -287,11 +287,11 @@ module.exports = {
           { from: "/semgrep-app/user-management/"                  , to: "/semgrep-cloud-platform/user-management/" }     ,
 
           //Semgrep Supply Chain
-          { from: "/semgrep-sc/scanning-open-source-dependencies/"    , to: "/semgrep-supply-chain/getting-started/" } ,
-          { from: "/semgrep-sc/sc-glossary/"           , to: "/semgrep-supply-chain/glossary/" }        ,
-          { from: "/semgrep-sc/ignoring-lockfiles-dependencies/"      , to: "/semgrep-supply-chain/ignoring-lockfiles-dependencies/" }   ,
-          { from: "/semgrep-sc/receiving-notifications-from-ssc/"      , to: "/semgrep-supply-chain/notifications/" }   ,
-          { from: "/semgrep-sc/semgrep-supply-chain-overview/"           , to: "/semgrep-supply-chain/overview/" }        ,
+          { from: "/semgrep-sc/scanning-open-source-dependencies/"        , to: "/semgrep-supply-chain/getting-started/" }                 ,
+          { from: "/semgrep-sc/sc-glossary/"                              , to: "/semgrep-supply-chain/glossary/" }                        ,
+          { from: "/semgrep-sc/ignoring-lockfiles-dependencies/"          , to: "/semgrep-supply-chain/ignoring-lockfiles-dependencies/" } ,
+          { from: "/semgrep-sc/receiving-notifications-from-ssc/"         , to: "/semgrep-supply-chain/notifications/" }                   ,
+          { from: "/semgrep-sc/semgrep-supply-chain-overview/"            , to: "/semgrep-supply-chain/overview/" }                        ,
           { from: "/semgrep-sc/triaging-and-remediating-vulnerabilities/" , to: "/semgrep-supply-chain/triage-and-remediation/" }
         ]
       }
