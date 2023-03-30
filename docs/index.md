@@ -23,6 +23,7 @@ search for this code in the future arises.
   <a href="https://semgrep.dev">
     <ThemedImage
       alt="Semgrep themed logo"
+      height="100px"
       sources={{
         light: ('img/semgrep.svg'),
         dark: ('img/semgrep.svg'),
