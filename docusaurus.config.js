@@ -221,7 +221,7 @@ module.exports = {
           { from: "/semgrep-app/managing-policy", to: "/semgrep-code/rule-board/" },
           { from: "/integrations", to: "/semgrep-code/notifications/" },
           { from: "/notifications", to: "/semgrep-code/notifications/" },
-          { from: "/sso", to: "/semgrep-app/sso/" },
+          { from: "/sso", to: "/semgrep-cloud-platform/sso/" },
           { from: "/experiments", to: "/writing-rules/experiments/introduction/" },
           { from: "/upgrade", to: "/upgrading/" },
           { from: "/semgrep-ci", to: "/semgrep-ci/overview/" },
@@ -231,7 +231,7 @@ module.exports = {
           { from: "/ignoring-findings/", to: "/ignoring-files-folders-code/" },
           { from: "/experiments/join-mode/", to: "/writing-rules/experiments/join-mode/overview/" },
           { from: "/providers/", to: "/semgrep-ci/overview/" },
-          { from: "/semgrep-app/role-based-access-control", to: "/semgrep-app/user-management/" },
+          { from: "/semgrep-app/role-based-access-control", to: "/semgrep-cloud-platform/user-management/" },
           { from: "/cli-usage/", to: "/cli-reference/" },
           { from: "/writing-rules/data-flow", to: "/writing-rules/data-flow/data-flow-overview/" },
           { from: "/writing-rules/data-flow/overview/", to: "/writing-rules/data-flow/data-flow-overview/"},
@@ -286,12 +286,12 @@ module.exports = {
           { from: "/semgrep-app/user-management/"                  , to: "/semgrep-cloud-platform/user-management/" }     ,
 
           //Semgrep Supply Chain
-          { from: "/semgrep-sc/sc-getting-started/"    , to: "/semgrep-supply-chain/getting-started/" } ,
+          { from: "/semgrep-sc/scanning-open-source-dependencies/"    , to: "/semgrep-supply-chain/getting-started/" } ,
           { from: "/semgrep-sc/sc-glossary/"           , to: "/semgrep-supply-chain/glossary/" }        ,
-          { from: "/semgrep-sc/sc-ignoring-deps/"      , to: "/semgrep-supply-chain/ignoring-deps/" }   ,
-          { from: "/semgrep-sc/sc-notifications/"      , to: "/semgrep-supply-chain/notifications/" }   ,
-          { from: "/semgrep-sc/sc-overview/"           , to: "/semgrep-supply-chain/overview/" }        ,
-          { from: "/semgrep-sc/sc-triage-remediation/" , to: "/semgrep-supply-chain/triage-remediation/" }
+          { from: "/semgrep-sc/ignoring-lockfiles-dependencies/"      , to: "/semgrep-supply-chain/ignoring-lockfiles-dependencies/" }   ,
+          { from: "/semgrep-sc/receiving-notifications-from-ssc/"      , to: "/semgrep-supply-chain/notifications/" }   ,
+          { from: "/semgrep-sc/semgrep-supply-chain-overview/"           , to: "/semgrep-supply-chain/overview/" }        ,
+          { from: "/semgrep-sc/triaging-and-remediating-vulnerabilities/" , to: "/semgrep-supply-chain/triage-and-remediation/" }
         ]
       }
     ],
