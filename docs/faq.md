@@ -46,7 +46,7 @@ If you want to use Semgrep Code (including its proprietary interfile analysis en
 
 Yes, you can use the Semgrep OSS Engine in your own code analysis software, subject to the terms of the LGPL 2.1 license (among other things, you must open source any modification you make to it). If you are writing your own, original rules for your scanner, there are no further restrictions. But your rules cannot be derived from Semgrep Community Rules or Semrep Pro Rules (see below).
 
-The Semprep Community Rules are licensed under the [Commons Clause](http://semgrep-rules/LICENSE%20at%20develop). You can use the Semgrep community rules as long as you are shipping a free and open-source software (FOSS) product. You have to open source any modifications you have done to the rules.
+The Semprep Community Rules are licensed under the [Commons Clause](https://github.com/returntocorp/semgrep-rules/blob/develop/LICENSE). You can use the Semgrep community rules as long as you are shipping a free and open-source software (FOSS) product. You have to open source any modifications you have done to the rules.
 
 You **cannot** ship the Semgrep Community Rules in a commercial product without an explicit license from Semgrep, Inc. For more information, please contact partners@r2c.dev.
 
