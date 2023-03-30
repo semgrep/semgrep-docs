@@ -24,7 +24,7 @@ import MoreHelp from "/src/components/MoreHelp"
 **SSO (single sign-on)** is a **Team/Enterprise tier feature**. Semgrep Cloud Platform supports [OpenID Connect / OAuth2](#openid-connect--oauth2) and [SAML 2.0](#saml-20).
 
 :::info
-Add users through your Single Sign On provider without any additional steps in Semgrep Cloud Platform after you configure the SSO for your organization. The only required steps to ensure that users are added to Semgrep Cloud Platform are on the side of the SSO provider. There are **no** additional emails with links. When you follow the SSO steps, you are able to add onboard users with one click. 
+Add users through your Single Sign On provider without any additional steps in Semgrep Cloud Platform after you configure the SSO for your organization. The only required steps to ensure that users are added to Semgrep Cloud Platform are on the side of the SSO provider. There are **no** additional emails with links. When you follow the SSO steps, you are able to add users with one click. 
 :::
 
 ## OpenID Connect / OAuth2
@@ -34,7 +34,7 @@ To set up SSO:
 1. In Semgrep Cloud Platform, click **Settings** > **[SSO](https://semgrep.dev/orgs/-/settings/sso)**, and then select **OpenID Connect / Oauth2**.
 2. Copy the `Redirect URL`.
     ![Finding providerId and RedirectURL via the Semgrep Cloud Platform](/img/sso-redirect-url.png "Finding Provider ID and RedirectURI via the Semgrep Cloud Platform")
-3. Generate a `Client ID` and `Client Secret` through your authentication provider and paste them .
+3. Generate a `Client ID` and `Client Secret` through your authentication provider and paste them.
     ![Generating Client ID and Client Secret via the Okta](/img/sso-clientID-clientSecret.png "Generating Client ID and Client Secret through Okta")
 4. From your authentication provider, copy the values for `Base URL/Domain` and `Email Domain` to Semgrep's Configure SSO: OpenID tab. `Base URL/Domain` is `Okta domain` for Okta SSO.
 5. Provide a descriptive `Display Name`.
