@@ -1,5 +1,5 @@
 ---
-slug: getting-started-with-semgrep-app
+slug: semgrep-cloud-platform/getting-started
 append_help_link: true
 title: Semgrep Cloud Platform
 hide_title: true

@@ -220,7 +220,7 @@ module.exports = {
       label: 'Semgrep Cloud Platform (SCP)',
       collapsible: false,
       items: [
-        'semgrep-cloud-platform/getting-started-with-semgrep-app',
+        'semgrep-cloud-platform/getting-started',
         'semgrep-cloud-platform/dashboard',
         'semgrep-cloud-platform/sso',
         'semgrep-cloud-platform/user-management',
