@@ -241,9 +241,9 @@ module.exports = {
           type: 'category',
           label: 'Semgrep Pro Engine',
           collapsible: true,
-          link: {type: 'doc', id: 'semgrep-code/semgrep-pro-intro'},
+          link: {type: 'doc', id: 'semgrep-code/semgrep-pro-engine-intro'},
           items: [
-            'semgrep-code/semgrep-pro-intro',
+            'semgrep-code/semgrep-pro-engine-intro',
             'semgrep-code/semgrep-pro-examples',
             'semgrep-code/semgrep-pro-data-flow'
           ]

@@ -259,8 +259,8 @@ module.exports = {
           /* MAR 24 2023 POST LAUNCH REDIRECTS */
 
           // Deepsemgrep
-          { from: "/deepsemgrep/"                         , to: "/semgrep-code/semgrep-pro-intro/" }     ,
-          { from: "/deepsemgrep/deepsemgrep-introduction" , to: "/semgrep-code/semgrep-pro-intro/" }     ,
+          { from: "/deepsemgrep/"                         , to: "/semgrep-code/semgrep-pro-engine-intro/" }     ,
+          { from: "/deepsemgrep/deepsemgrep-introduction" , to: "/semgrep-code/semgrep-pro-engine-intro/" }     ,
           { from: "/deepsemgrep/deepsemgrep-examples"     , to: "/semgrep-code/semgrep-pro-examples/" }  ,
           { from: "/deepsemgrep/semgrep-pro-data-flow"    , to: "/semgrep-code/semgrep-pro-data-flow/" } ,
 
