@@ -38,7 +38,7 @@ Yes! Semgrep is safe to run on your private code. The [Semgrep Registry license�
 
 If you are a security consultant and you want to use Semgrep OSS Engine with the Semgrep Community Rules as part of your assessments, that’s great and you don’t have to pay. Of course feel free to refer your clients to our [Semgrep](https://semgrep.dev/) product suite.
 
-If your service is about scanning code (meaning a service that is a Static application security testing (SAST) or Software composition analysis (SCA) service) and you want to charge for running the [semgrep-rules](https://github.com/returntocorp/semgrep-rules) repository, you need an explicit license. For more information, please contact partners@r2c.dev.
+If your service delivers code scanning (meaning a service that includes static application security testing (SAST) or software composition analysis (SCA)) and you want to charge for scanning that includes rules in the [semgrep-rules repository](https://github.com/returntocorp/semgrep-rules), you need an explicit license. For more information, please contact partners@r2c.dev.
 
 If you want to use Semgrep Code (including its proprietary interfile analysis engine), Semgrep Supply Chain (SCA), or Semgrep Pro rules as part of your consulting services, you need a license. Please contact us at sales@r2c.dev.
 
@@ -48,7 +48,7 @@ Yes, you can use the Semgrep OSS Engine in your own code analysis software, subj
 
 The Semprep Community Rules are licensed under the [Commons Clause](https://github.com/returntocorp/semgrep-rules/blob/develop/LICENSE). You can use the Semgrep community rules as long as you are shipping a free and open-source software (FOSS) product. You have to open source any modifications you have done to the rules.
 
-You **cannot** ship the Semgrep Community Rules in a commercial product without an explicit license from Semgrep, Inc. For more information, please contact partners@r2c.dev.
+You **cannot** ship the Semgrep Community rules in a commercial product without an explicit license from Semgrep, Inc. For more information, please contact partners@r2c.dev.
 
 The Semgrep Pro Rules are proprietary and cannot be redistributed without explicit license from Semgrep, Inc. For more information, please contact partners@r2c.dev.
 
