@@ -493,4 +493,15 @@ References help provide more context to a developer on what the issue is, and ho
       - https://sequelize.org/docs/v6/core-concepts/raw-queries/#replacements
     ```
 
+## Updating existing rules
+
+To update an existing open-source rule, follow these steps:
+
+1. Find a rule you want to update in the [semgrep-rules](https://github.com/returntocorp/semgrep-rules/) repository.
+2. Submit a PR to the repository with your new update.
+3. Follow the same instructions and recommendations as you can find in the rest of this document (for example security category has specific metadata requirements).
+4. Leave a message in the PR - what have you changed and why? What is the motivation behind your update? TODO - add an example of a nicely written PR.
+
+There can be specific messages in the repository’s pipeline informing you about specific details of your rule. Ensure that your rule fulfills all of the necessities and requirements. However, sometimes the pipeline running in the [semgrep-rules](https://github.com/returntocorp/semgrep-rules/) repository can have specific issues. In such a case, wait for a Semgrep reviewer's help.
+
 <MoreHelp />
