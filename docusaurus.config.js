@@ -274,6 +274,7 @@ module.exports = {
           { from: "/semgrep-app/findings/"      , to: "/semgrep-code/findings/" }      ,
           { from: "/semgrep-app/editor/"        , to: "/semgrep-code/editor/" }        ,
           { from: "/semgrep-app/notifications/" , to: "/semgrep-code/notifications/" } ,
+          { from: "/semgrep-code/getting-started-with-semgrep-code/" , to: "/semgrep-code/getting-started/" } ,
 
           //Semgrep Cloud Platform
           { from: "/semgrep-app/dashboard/"                        , to: "/semgrep-cloud-platform/dashboard/" }           ,
