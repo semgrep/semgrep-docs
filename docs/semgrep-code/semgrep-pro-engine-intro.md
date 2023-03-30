@@ -1,5 +1,5 @@
 ---
-slug: semgrep-pro-intro
+slug: semgrep-pro-engine-intro
 append_help_link: true
 description: "This article introduces Semgrep Pro Engine, guides you through installation and provides some additional information."
 hide_title: true
