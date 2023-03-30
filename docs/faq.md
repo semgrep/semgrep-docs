@@ -38,7 +38,7 @@ Yes! Semgrep is safe to run on your private code. The [Semgrep Registry license�
 
 If you are a security consultant and you want to use Semgrep OSS Engine with the Semgrep Community Rules as part of your assessments, that’s great and you don’t have to pay. Of course feel free to refer your clients to our [Semgrep](https://semgrep.dev/) product suite.
 
-If your service is about scanning code (meaning you are a SAST or SCA-type service) and you want to charge for running the [semgrep-rules](https://github.com/returntocorp/semgrep-rules) repository, you need an explicit license. For more information, please contact partners@r2c.dev.
+If your service is about scanning code (meaning a service that is a Static application security testing (SAST) or Software composition analysis (SCA) service) and you want to charge for running the [semgrep-rules](https://github.com/returntocorp/semgrep-rules) repository, you need an explicit license. For more information, please contact partners@r2c.dev.
 
 If you want to use Semgrep Code (including its proprietary interfile analysis engine), Semgrep Supply Chain (SCA), or Semgrep Pro rules as part of your consulting services, you need a license. Please contact us at sales@r2c.dev.
 
