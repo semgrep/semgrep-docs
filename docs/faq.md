@@ -18,19 +18,39 @@ import TOCInline from "@theme/TOCInline"
 
 ### How are Semgrep and its rules licensed?
 
-The [Semgrep command line tool](https://github.com/returntocorp/semgrep) is open-source, licensed under [LGPL 2.1](https://tldrlegal.com/license/gnu-lesser-general-public-license-v2.1-(lgpl-2.1)) — you can use it at work, on private and proprietary code, no problem!
+#### Semgrep OSS Engine
 
-The [Semgrep Registry](https://semgrep.dev/explore) contains rules from different contributors. Most rules, including all community-contributed rules, are under the [MIT license](https://tldrlegal.com/license/mit-license). Semgrep Registry rules written by r2c are licensed under an [LGPL 2.1 and Common Clause license](https://github.com/returntocorp/semgrep-rules/blob/develop/LICENSE).
+The [Semgrep Engine](https://github.com/returntocorp/semgrep) is open-source, licensed under [LGPL 2.1](https://tldrlegal.com/license/gnu-lesser-general-public-license-v2.1-(lgpl-2.1)) — you can use it at work, on private and proprietary code, no problem!
 
-The source for many r2c-written Registry rules is available at [returntocorp/semgrep-rules](https://github.com/returntocorp/semgrep-rules/). Those rules licensed under the LGPL 2.1 with Common Clause license cannot be resold without r2c’s permission. Since r2c offers a paid, hosted application (Semgrep App), it’s important to have this restriction so other companies, like major cloud providers, cannot resell r2c rules as a competing service.
+Our paid product, [Semgrep Code](https://semgrep.dev/products/semgrep-code), includes the [Pro Engine, a proprietary engine extension enabling advanced analysis](https://semgrep.dev/products/pro-engine).
+
+#### Semgrep Registry
+
+The [Semgrep Registry](https://semgrep.dev/explore) contains rules from different contributors. Semgrep Registry rules written by the Semgrep team are licensed under the [Common Clause](https://github.com/returntocorp/semgrep-rules/blob/develop/LICENSE). The source for these Registry rules is available at [returntocorp/semgrep-rules](https://github.com/returntocorp/semgrep-rules/). Those rules licensed under the Common Clause license cannot be resold without Semgrep, Inc. (“Semgrep”)’s permission. Since Semgrep offers a paid, hosted application, it’s important to have this restriction so other companies, like major cloud providers, cannot resell Semgrep’s rules as a competing service.
+
+[Semgrep Code](https://semgrep.dev/products/semgrep-code)’s Team tier includes Pro rules which are proprietary and only available to paying customers.
 
 ### Is it ok to run Semgrep or the r2c rules on my work projects?
 
-Yes! Semgrep is safe to run on your private code. The [Semgrep Registry license’s](https://github.com/returntocorp/semgrep-rules/blob/develop/LICENSE) commercial restrictions only come into effect if you are _selling_ the rules provided in the Semgrep Registry. If that’s the case, you’ll need to talk with r2c first to get permission.
+Yes! Semgrep is safe to run on your private code. The [Semgrep Registry license’s](https://github.com/returntocorp/semgrep-rules/blob/develop/LICENSE) commercial restrictions only come into effect if you are *selling* a product using rules provided in the Semgrep Registry. If that’s the case, contact **partners@r2c.dev** for a license.
 
-### I’m a security professional and want to use the rules from the [`semgrep-rules` repository](https://github.com/returntocorp/semgrep-rules) with my clients as part of my paid services. Is that ok?
+### I’m a security professional. Do I have to pay for Semgrep?
 
-If you have a typical consulting service and running [`semgrep` repository](https://github.com/returntocorp/semgrep) or [`semgrep-rules` repository](https://github.com/returntocorp/semgrep-rules) is part of your assessments, that’s great and of course feel free to refer your clients to the [Semgrep App](https://semgrep.dev/). But if your entire service is about scanning code and you want to charge for running the `semgrep-rules` repository that r2c and the community created and maintains, you need to discuss this with r2c.
+If you are a security consultant and you want to use Semgrep OSS Engine with the Semgrep Community Rules as part of your assessments, that’s great and you don’t have to pay. Of course feel free to refer your clients to our [Semgrep](https://semgrep.dev/) product suite.
+
+If your service is about scanning code (meaning you are a SAST or SCA-type service) and you want to charge for running the [semgrep-rules](https://github.com/returntocorp/semgrep-rules) repository, you need an explicit license. For more information, please contact partners@r2c.dev.
+
+If you want to use Semgrep Code (including its proprietary interfile analysis engine), Semgrep Supply Chain (SCA), or Semgrep Pro rules as part of your consulting services, you need a license. Please contact us at sales@r2c.dev.
+
+### Can I ship my own code analysis software that uses Semgrep?
+
+Yes, you can use the Semgrep OSS Engine in your own code analysis software, subject to the terms of the LGPL 2.1 license (among other things, you must open source any modification you make to it). If you are writing your own, original rules for your scanner, there are no further restrictions. But your rules cannot be derived from Semgrep Community Rules or Semrep Pro Rules (see below).
+
+The Semprep Community Rules are licensed under the [Commons Clause](http://semgrep-rules/LICENSE%20at%20develop). You can use the Semgrep community rules as long as you are shipping a free and open-source software (FOSS) product. You have to open source any modifications you have done to the rules.
+
+You **cannot** ship the Semgrep Community Rules in a commercial product without an explicit license from Semgrep, Inc. For more information, please contact partners@r2c.dev.
+
+The Semgrep Pro Rules are proprietary and cannot be redistributed without explicit license from Semgrep, Inc. For more information, please contact partners@r2c.dev.
 
 ### Contacting r2c support 
 
