@@ -23,7 +23,7 @@ module.exports = {
         items: [
             'getting-started',
             'semgrep-code/overview',
-            'semgrep-sc/sc-getting-started'
+            'semgrep-supply-chain/getting-started'
         ]
     },
     {
@@ -220,15 +220,15 @@ module.exports = {
       label: 'Semgrep Cloud Platform (SCP)',
       collapsible: false,
       items: [
-        'semgrep-app/getting-started-with-semgrep-app',
-        'semgrep-app/dashboard',
-        'semgrep-app/sso',
-        'semgrep-app/user-management',
-        'semgrep-app/tags',
-        'semgrep-app/semgrep-api',
-        'semgrep-app/scm',
+        'semgrep-cloud-platform/getting-started-with-semgrep-app',
+        'semgrep-cloud-platform/dashboard',
+        'semgrep-cloud-platform/sso',
+        'semgrep-cloud-platform/user-management',
+        'semgrep-cloud-platform/tags',
+        'semgrep-cloud-platform/semgrep-api',
+        'semgrep-cloud-platform/scm',
         'troubleshooting/semgrep-app',
-        'semgrep-app/pricing-and-billing'
+        'semgrep-cloud-platform/pricing-and-billing'
       ]
     },
     {
@@ -261,12 +261,12 @@ module.exports = {
       label: 'Semgrep Supply Chain (SSC)',
       collapsible: false,
       items: [
-        'semgrep-sc/sc-overview',
-        'semgrep-sc/sc-getting-started',
-        'semgrep-sc/sc-triage-remediation',
-        'semgrep-sc/sc-ignoring-deps',
-        'semgrep-sc/sc-notifications',
-        'semgrep-sc/sc-glossary'
+        'semgrep-supply-chain/overview',
+        'semgrep-supply-chain/getting-started',
+        'semgrep-supply-chain/triage-remediation',
+        'semgrep-supply-chain/ignoring-deps',
+        'semgrep-supply-chain/notifications',
+        'semgrep-supply-chain/glossary'
       ]
     },
     {
