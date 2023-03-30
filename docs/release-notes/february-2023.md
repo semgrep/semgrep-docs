@@ -43,7 +43,7 @@ These release notes include upgrades for versions ranging between 1.8.0 and 1.13
 
 ## DeepSemgrep → Semgrep Pro Engine
 
-- DeepSemgrep has been bundled with other functionalities to offer you **Semgrep Pro Engine**! Semgrep Pro Engine is fully available for [Team or higher tier](https://semgrep.dev/pricing) users. See [Semgrep Pro](/semgrep-code/semgrep-pro-intro/) documentation. 
+- DeepSemgrep has been bundled with other functionalities to offer you **Semgrep Pro Engine**! Semgrep Pro Engine is fully available for [Team or higher tier](https://semgrep.dev/pricing) users. See [Semgrep Pro](/semgrep-code/semgrep-pro-engine-intro/) documentation. 
 - Experimental support for Apex language is now available in Semgrep Pro Engine.
 - The following already **deprecated** flags have been completely removed and substituted:
     - `-deep` has been removed and substituted by `-pro`.

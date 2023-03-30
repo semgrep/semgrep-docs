@@ -317,6 +317,6 @@ Semgrep Pro Engine offers support for the following languages:
 | JavaScript  |    Interfile    |     Beta      |
 | TypeScript  |    Interfile    |     Beta      |
 
-To install and run Semgrep Pro Engine, see [Semgrep Pro Engine overview](/semgrep-code/semgrep-pro-intro/).
+To install and run Semgrep Pro Engine, see [Semgrep Pro Engine overview](/semgrep-code/semgrep-pro-engine-intro/).
 
 <MoreHelp />
