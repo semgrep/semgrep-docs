@@ -12,6 +12,12 @@ import SupportedLanguagesTable from '/src/components/reference/_supported-langua
 import MoreHelp from "/src/components/MoreHelp"
 import ThemedImage from '@theme/ThemedImage'
 
+<!---
+Substitute the "dark:" logo path in case a new dark logo is made.
+The whole logic of the code is kept here in case the need to
+search for this code in the future arises.
+-->
+
 <br />
 <p align="center">
   <a href="https://semgrep.dev">
@@ -19,7 +25,7 @@ import ThemedImage from '@theme/ThemedImage'
       alt="Semgrep themed logo"
       sources={{
         light: ('img/semgrep.svg'),
-        dark: ('img/semgrep-dark.svg'),
+        dark: ('img/semgrep.svg'),
       }} />
   </a>
 </p>
