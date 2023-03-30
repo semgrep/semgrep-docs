@@ -1,5 +1,5 @@
 ---
-slug: triaging-and-remediating-vulnerabilities
+slug: triage-and-remediation 
 append_help_link: true
 description: "Perform triage and remediation of dependency vulnerabilities through Semgrep Supply Chain."
 tags:
