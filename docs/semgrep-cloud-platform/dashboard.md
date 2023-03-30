@@ -71,7 +71,7 @@ To change the projects filter:
 
 The **Projects widget** displays open findings, high severities, and PR fix rates per-project. Through this view you can see which projects have the amount number of findings. The columns are arranged in a descending order, from the project with the greatest amount of findings to the least.
 
-To view the project’s findings, click on the project’s name. This takes you to the [Findings page](../findings), where you can filter, sort, and triage findings.
+To view the project’s findings, click on the project’s name. This takes you to the [Findings page](/semgrep-code/findings), where you can filter, sort, and triage findings.
 
 ## Discovering trends in vulnerabilities through OWASP categories
 
@@ -133,7 +133,7 @@ The **Most disliked** metric is taken from the **Developer Feedback** feature. D
 ## See also
 
 * [Semgrep Registry](https://semgrep.dev/explore)
-* [Findings](../findings)
+* [Findings](semgrep-code/findings)
 
 ## Additional references
 
