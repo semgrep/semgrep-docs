@@ -29,7 +29,7 @@ The code is kept here for easy maintenance.
       }} />
   </a>
 </p>
-<h3 align="center">Code analysis at ludicrous speed<br />Find bugs and reachable dependency vulnerabilities<br />Enforce code standards through CI</h3>
+<h3 align="center">Code analysis at ludicrous speed<br />Find bugs and reachable dependency vulnerabilities<br />Enforce code standards on every commit</h3>
 
 Semgrep is a fast, open source, static analysis engine for finding bugs, detecting dependency vulnerabilities, and enforcing code standards. [Get started →](getting-started/)
 
