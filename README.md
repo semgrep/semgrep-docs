@@ -1,5 +1,5 @@
 <p align="center">
-    <a href="https://semgrep.dev"><img src="https://raw.githubusercontent.com/returntocorp/semgrep/develop/semgrep.svg" height="150" alt="Semgrep logo"/></a>
+    <a href="https://semgrep.dev"><img src="static/img/semgrep.svg" height="150" alt="Semgrep logo"/></a>
 </p>
 <h3 align="center">
   Lightweight static analysis for many languages.
@@ -16,7 +16,7 @@ Contributions to the docs are welcome! To start contributing, first please make 
 
 ## Building docs locally
 
-1. Clone the repo.
+1. Clone the repository.
 2. Install: `yarn install`.
 3. There are two options to run the docs locally:
     1. Enter `yarn dev` and then go to `<http://localhost:3000/>`. This option is for contributors and writers.
