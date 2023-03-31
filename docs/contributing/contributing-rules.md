@@ -500,7 +500,7 @@ To update an existing open-source rule, follow these steps:
 1. Find a rule you want to update in the [semgrep-rules](https://github.com/returntocorp/semgrep-rules/) repository.
 2. Submit a PR to the repository with your new update.
 3. Follow the same instructions and recommendations as you can find in the rest of this document. For example the security category has specific metadata requirements.
-4. Leave a message in the PR. Include what have you changed and why. What is the motivation for your update? TODO - add an example of a nicely written PR.
+4. Leave a message in the PR. Explain why are you making changes. What is the motivation for this rule update?
 
 There can be specific messages in the repository’s pipeline informing you about specific details of your rule. Ensure that your rule fulfills all of the necessities and requirements. However, sometimes the pipeline running in the [semgrep-rules](https://github.com/returntocorp/semgrep-rules/) repository can have specific issues. In such a case, wait for a Semgrep reviewer's help.
 
