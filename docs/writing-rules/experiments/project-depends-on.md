@@ -74,7 +74,7 @@ A finding is only considered reachable if the file containing the pattern match 
 | Python     | pypi       | `Pipfile.lock`                   |
 | JavaScript | npm        | `yarn.lock`, `package-lock.json` |
 | Java       | maven      | `pom.xml`                        |
-| Go         | gomod      | `go.sum`                         |
+| Go         | gomod      | `go.mod`                         |
 | Ruby       | gem        | `Gemfile.lock`                   |
 | Rust       | cargo      | `cargo.lock`                     |
 

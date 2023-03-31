@@ -174,9 +174,9 @@ This table provides information about fully supported (generally available or GA
 <tbody><tr>
    <td>Go</td>
    <td>Go modules (<code>go mod</code>)</td>
-   <td><code>go.sum</code></td>
+   <td><code>go.mod</code></td>
    <td style={{"text-align": "center"}}>✔️ Yes</td>
-   <td style={{"text-align": "center"}}>❌ No</td>
+   <td style={{"text-align": "center"}}>✔️ Yes</td>
    <td>May 2022</td>
   </tr>
   <tr>
