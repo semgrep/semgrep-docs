@@ -14,8 +14,7 @@ import ThemedImage from '@theme/ThemedImage'
 
 <!---
 Substitute the "dark:" logo path in case a new dark logo is made.
-The whole logic of the code is kept here in case the need to
-search for this code in the future arises.
+The code is kept here for easy maintenance.
 -->
 
 <br />
