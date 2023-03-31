@@ -12,7 +12,7 @@ import MoreHelp from "/src/components/MoreHelp"
 
 We [release new Semgrep versions](https://github.com/returntocorp/semgrep/releases) often, with many performance and bug improvements. 
 
-Stay up to date by running the latest automatically in CI. Or use the following commands:
+Stay up to date by running the latest version of Semgrep automatically in CI. Or use the following commands:
 
 Using Homebrew:
 ```sh
