@@ -524,7 +524,7 @@ rules:
         - project/static/*.js
 ```
 
-When invoked with `semgrep -f rule.yaml project/`, the above rule runs on files inside `project/`, but no results are returned for:
+When invoked with `semgrep -f rule.yaml project/`, the above rule runs on files inside `project/` directory hieararchy, but no results are returned for:
 
 - any file with a `.jinja2` file extension
 - any file whose name ends in `_test.go`, such as `project/backend/server_test.go`
