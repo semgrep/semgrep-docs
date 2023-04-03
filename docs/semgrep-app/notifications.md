@@ -295,8 +295,6 @@ semgrep:
   # Scan changed files in MRs, (diff-aware scanning):
   - if: $CI_MERGE_REQUEST_IID
 
-  # Scan mainline (default) branches and report all findings.
-  - if: $CI_COMMIT_BRANCH == $CI_DEFAULT_BRANCH
 
   variables:
     # Connect to Semgrep Cloud Platform through your SEMGREP_APP_TOKEN.
