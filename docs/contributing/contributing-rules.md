@@ -493,7 +493,7 @@ References help provide more context to a developer on what the issue is, and ho
       - https://sequelize.org/docs/v6/core-concepts/raw-queries/#replacements
     ```
 
-## Updating existing rules
+## Updating existing rules in Semgrep Registry
 
 To update an existing open-source rule, follow these steps:
 
