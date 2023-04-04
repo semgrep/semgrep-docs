@@ -8,7 +8,7 @@ tags:
     - Team & Enterprise Tier
 title: Running Semgrep in CI with Semgrep Cloud Platform
 hide_title: true
-toc_max_heading_level: 4
+toc_max_heading_level: 3
 ---
 
 import MoreHelp from "/src/components/MoreHelp"
@@ -356,7 +356,9 @@ SEMGREP_TIMEOUT="300"
 
 <CiIgnoringFiles />
 
-## Appendix A: Compatibility of environment variables
+## Appendix
+
+### Compatibility of environment variables
 
 Starting from Semgrep 0.98.0, Semgrep Cloud Platform can fetch values of environment variables for [CI providers listed in Semgrep Cloud Platform](#in-app-providers-such-as-github-actions-gitlab-cicd-jenkins). Therefore, not all CI providers need the same environment variables.
 
@@ -407,7 +409,7 @@ To help troubleshoot the features in this guide, ensure that you have updated yo
 </tbody>
 </table>
 
-## Appendix B: Examples of other CI providers not listed in Semgrep Cloud Platform
+### Examples of other CI providers not listed in Semgrep Cloud Platform
 
 The following CI providers have been tested by the community to run with Semgrep Cloud Platform:
 
