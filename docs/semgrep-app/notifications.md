@@ -324,16 +324,12 @@ GitLab MR comments are only available to logged-in Semgrep Cloud Platform users.
 
 ### Bitbucket pull request comments
 
-To configure Semgrep PR comments in your Bitbucket PRs, follow the steps described in the subsections below.
-
-#### Creating a personal access token
-
-Create a personal access token to authenticate to the Bitbucket API. There are two ways in which you can create personal access tokens depending on the Bitbucket plan you use:
+To configure Semgrep PR comments in your Bitbucket PRs, follow the steps described in the subsections below. There are two ways in which in which you can integrate Semgrep comments to your Bitbucket CI depending on the Bitbucket plan you use:
 
 - **Workspace access token**: If you use the Bitbucket Cloud Premium plan, you can create a workspace access token. This option saves time because you can create one access token for all repositories in the workspace. With one access token, you can bulk-onboard more repositories at once from a whole workspace. See [Creating a workspace access token](/semgrep-app/notifications/#creating-and-adding-a-workspace-access-token). However, you can also use the option of a repository access token, see below for more information to onboard repositories one by one.
 - **Repository access token**: If you do **not** have the Bitbucket Cloud Premium plan, create a separate repository access token for each repository where you want to use Semgrep. This configuration option is also useful if you have the Bitbucket Cloud Premium plan, but prefer to onboard repositories one by one instead of bulk onboarding. See [Creating a repository access token](/semgrep-app/notifications/#creating-and-adding-a-repository-access-token).
 
-##### Creating and adding a workspace access token
+#### Creating and adding a workspace access token
 
 :::info Prerequisite
 Use the procedure described in this section if you use the **Bitbucket Cloud Premium** plan. If you are **not** using the Bitbucket Cloud Premium plan, create a separate repository access token for each repository where you want to use Semgrep. See [Creating a repository access token](/semgrep-ci/running-semgrep-ci-with-semgrep-app/#creating-and-adding-a-repository-access-token).
@@ -361,7 +357,7 @@ Create a workspace access token in Bitbucket (only available if you have a Bitbu
 
 To complete the configuration, follow the [Adding Semgrep to your Bitbucket CI pipeline for PR comments](#adding-semgrep-to-your-bitbucket-ci-pipeline-for-pr-comments) section.
 
-##### Creating and adding a repository access token
+#### Creating and adding a repository access token
 
 :::info
 If you do **not** have the Bitbucket Cloud Premium plan, create a separate repository access token for each repository where you want to use Semgrep. This configuration option is also useful if you have the Bitbucket Cloud Premium plan, but prefer to onboard repositories one by one instead of bulk onboarding.
@@ -394,29 +390,29 @@ To complete the configuration, follow the [Adding Semgrep to your Bitbucket CI p
 To receive comments on PRs, commit the following code to your `bitbucket-pipelines.yml` file:
 
 ```yaml
-  image: atlassian/default-image:latest
+image: atlassian/default-image:latest
 
-  pipelines:
-    branches:
-      main:
-          - step:
-              name: 'Run Semgrep full scan with main branch'
-              image: returntocorp/semgrep
-              script:
-                - export SEMGREP_APP_TOKEN=$SEMGREP_APP_TOKEN
-                - semgrep ci
-    pull-requests:
-      '**':
+pipelines:
+  branches:
+    main:
         - step:
-            name: 'Run Semgrep diff scan with PR branch'
+            name: 'Run Semgrep full scan with main branch'
             image: returntocorp/semgrep
             script:
-              # Set SEMGREP Variables
               - export SEMGREP_APP_TOKEN=$SEMGREP_APP_TOKEN
-              - export SEMGREP_BASELINE_REF="origin/main"
-              - git fetch origin "+refs/heads/*:refs/remotes/origin/*"
-              - export BITBUCKET_TOKEN=$PAT
               - semgrep ci
+  pull-requests:
+    '**':
+      - step:
+          name: 'Run Semgrep diff scan with PR branch'
+          image: returntocorp/semgrep
+          script:
+            # Set SEMGREP Variables
+            - export SEMGREP_APP_TOKEN=$SEMGREP_APP_TOKEN
+            - export SEMGREP_BASELINE_REF="origin/main"
+            - git fetch origin "+refs/heads/*:refs/remotes/origin/*"
+            - export BITBUCKET_TOKEN=$PAT
+            - semgrep ci
 ```
 
 For more configuration options, see [Bitbucket Pipelines CI Sample](/semgrep-ci/sample-ci-configs/#bitbucket-pipelines).
