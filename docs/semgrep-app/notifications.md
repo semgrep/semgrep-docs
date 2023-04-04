@@ -290,7 +290,7 @@ To enable GitLab merge request comments, follow these steps:
 1. Copy the token created in the previous step.
 1. Navigate to **Your repository** >  **Settings** > **CI/CD**. The URL of the page where you are ends with: `/username/project/-/settings/ci_cd`.
 1. Under **Variables** click **Expand**, and then click **Add variable**.
-1. Enter **PAT** in the **Key** field and paste the token value from the step eleven to the **Value** field.
+1. Enter **PAT** (change this placeholder name as necessary) in the **Key** field and paste the token value from the step eleven to the **Value** field.
 1. Select **Mask variable** checkbox option, and then clear the **Protect variable** checkbox option.
 1. Update your `.gitlab-ci.yml` file with variable `GITLAB_TOKEN` and value `$PAT`. Refer to the following example:
 ```yaml
@@ -315,11 +315,12 @@ semgrep:
     # Receive inline MR comments (requires Semgrep Cloud Platform account)
     GITLAB_TOKEN: $PAT
 ```
+Substitute the placeholder <code><span className="placeholder">PAT</span></code> with the name you created for this variable.
 
 For more configuration options, see [GitLab CI Sample](/semgrep-ci/sample-ci-configs/#gitlab-ci).
 
 :::note
-GitLab MR comments are only available to logged-in Semgrep Cloud Platform users.
+- GitLab MR comments are only available to logged-in Semgrep Cloud Platform users.
 :::
 
 ### Bitbucket pull request comments
@@ -352,7 +353,7 @@ Create a workspace access token in Bitbucket (only available if you have a Bitbu
 1. Click **Create**.
 1. Copy the value of the workspace access token, and then click **Close**.
 1. Click **Workspace variables**.
-1. Create a new workspace variable by entering **PAT** into the **Name** field, and then paste the workspace access token in the **Value** field.
+1. Create a new workspace variable by entering **PAT** (change this placeholder name as necessary) to the **Name** field, and then paste the workspace access token in the **Value** field.
 1. Enable the **Secured** option, and then click **Add**.
 
 To complete the configuration, follow the [Adding Semgrep to your Bitbucket CI pipeline for PR comments](#adding-semgrep-to-your-bitbucket-ci-pipeline-for-pr-comments) section.
@@ -380,7 +381,7 @@ Create a repository access token in Bitbucket. Follow the instructions in [Creat
 1. Click **Create**.
 1. Copy the value of the repository access token, and then click **Close**.
 1. Click **Repository variables**.
-1. Create a new repository variable by entering **PAT** into the **Name** field, and then paste the workspace access token in the **Value** field.
+1. Create a new repository variable by entering **PAT** (change this placeholder name as necessary) to the **Name** field, and then paste the workspace access token in the **Value** field.
 1. Enable the **Secured** option, and then click **Add**.
 
 To complete the configuration, follow the [Adding Semgrep to your Bitbucket CI pipeline for PR comments](#adding-semgrep-to-your-bitbucket-ci-pipeline-for-pr-comments) section.
@@ -414,6 +415,7 @@ pipelines:
             - export BITBUCKET_TOKEN=$PAT
             - semgrep ci
 ```
+Substitute the placeholder <code><span className="placeholder">PAT</span></code> with the name you created for this variable.
 
 For more configuration options, see [Bitbucket Pipelines CI Sample](/semgrep-ci/sample-ci-configs/#bitbucket-pipelines).
 
