@@ -47,17 +47,17 @@ These release notes include upgrades for versions ranging between 1.0.0 and 1.2.
 
 ### Additions
 
-- Added a new section to Semgrep App > Single sign-on (SSO) configuration to configure Semgrep with [Azure Active Directory](/semgrep-app/sso/#setting-up-saml-sso-with-azure-active-directory) (Azure AD).
-- Added a new document [Learning Semgrep App with a demo project](/semgrep-app/demo-project/).
-- Added section [Disabling rules](/semgrep-app/rule-board/#disabling-rules).
+- Added a new section to Semgrep App > Single sign-on (SSO) configuration to configure Semgrep with [Azure Active Directory](/semgrep-cloud-platform/sso/#setting-up-saml-sso-with-azure-active-directory) (Azure AD).
+- Added a new document [Learning Semgrep App with a demo project](/semgrep-code/demo-project/).
+- Added section [Disabling rules](/semgrep-code/rule-board/#disabling-rules).
 - Added [Licensing document](/licensing/) which provides an overview of licenses used by different r2c products.
 
 ### Changes
 
-- Updated [Getting started with Semgrep App](/semgrep-app/getting-started-with-semgrep-app/) to clarify how permissions are used by Semgrep, such as what files are read and what features are enabled by certain permissions.
-- Separated referential introductions from [Getting started with Semgrep Supply Chain](/semgrep-sc/scanning-open-source-dependencies/) into a separate document, [Overview of Semgrep Supply Chain](/semgrep-sc/semgrep-supply-chain-overview/).
+- Updated [Getting started with Semgrep App](/semgrep-cloud-platform/getting-started/) to clarify how permissions are used by Semgrep, such as what files are read and what features are enabled by certain permissions.
+- Separated referential introductions from [Getting started with Semgrep Supply Chain](/semgrep-supply-chain/getting-started/) into a separate document, [Overview of Semgrep Supply Chain](/semgrep-supply-chain/overview/).
 - Updated [Installing DeepSemgrep](/semgrep-code/semgrep-pro-engine-intro/#installing-deepsemgrep) section.
-- Updated [Filtering findings](/semgrep-app/findings/#filtering-findings) section with information about new filtering options.
+- Updated [Filtering findings](/semgrep-code/findings/#filtering-findings) section with information about new filtering options.
 - The following documents have been moved out of the Experiments section as they are now considered GA:
     - [Autofix](/writing-rules/autofix/)
     - [Generic pattern matching](/writing-rules/generic-pattern-matching/)

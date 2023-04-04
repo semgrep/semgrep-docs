@@ -24,7 +24,7 @@ Object.entries(frontMatter).filter(
 This guide provides steps and prerequisites to fully enable all features of Semgrep Cloud Platform for **GitHub Enterprise Server** and **GitLab Self Managed** plans. 
 
 :::note
-This document covers the enablement of features for GitHub Enterprise **Server** plans. For users of GitHub Enterprise **Cloud** plans, see [Getting started with Semgrep Cloud Platform](/semgrep-app/getting-started-with-semgrep-app).
+This document covers the enablement of features for GitHub Enterprise **Server** plans. For users of GitHub Enterprise **Cloud** plans, see [Getting started with Semgrep Cloud Platform](/semgrep-cloud-platform/getting-started).
 :::
 
 

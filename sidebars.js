@@ -64,8 +64,8 @@ module.exports = {
                   },
                 items: [
                     'semgrep-ci/overview',
-                    'semgrep-ci/running-semgrep-ci-with-semgrep-app',
-                    'semgrep-ci/running-semgrep-ci-without-semgrep-app',
+                    'semgrep-ci/running-semgrep-ci-with-semgrep-cloud-platform',
+                    'semgrep-ci/running-semgrep-ci-without-semgrep-cloud-platform',
                     'semgrep-ci/configuration-reference',
                     'semgrep-ci/configuring-blocking-and-errors-in-ci',
                     'semgrep-ci/sample-ci-configs',
