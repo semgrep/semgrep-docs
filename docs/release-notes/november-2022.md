@@ -75,7 +75,7 @@ These release notes include upgrades for versions ranging between 0.120.0 and 0.
 
 #### Semgrep App
 
-- The [Managing projects through tags](/semgrep-app/tags/) document explains how to use tags in projects added to Semgrep App.
+- The [Tagging projects](/semgrep-cloud-platform/tags/) document explains how to use tags in projects added to Semgrep App.
 
 #### Semgrep CLI
 
