@@ -332,7 +332,7 @@ To configure Semgrep PR comments in your Bitbucket PRs, follow the steps describ
 
 Create a personal access token to authenticate to the Bitbucket API. There are two ways in which you can create personal access tokens depending on the Bitbucket plan you use:
 
-- **Workspace access token**: If you use the Bitbucket Cloud Premium plan, you can create a workspace access token. This option saves time because you can create one access token for all repositories in the workspace. See [Creating a workspace access token](/semgrep-app/notifications/#creating-and-adding-a-workspace-access-token).
+- **Workspace access token**: If you use the Bitbucket Cloud Premium plan, you can create a workspace access token. This option saves time because you can create one access token for all repositories in the workspace. With one access token, you can bulk-onboard more repositories at once from a whole workspace. See [Creating a workspace access token](/semgrep-app/notifications/#creating-and-adding-a-workspace-access-token). However, you can also use the option of a repository access token, see below for more information to onboard repositories one by one.
 - **Repository access token**: If you are **not** using the Bitbucket Cloud Premium plan, you have to create a separate repository access token for each repository where you want to use Semgrep. See [Creating a repository access token](/semgrep-app/notifications/#creating-and-adding-a-repository-access-token).
 
 ##### Creating and adding a workspace access token
