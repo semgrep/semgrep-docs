@@ -1,5 +1,5 @@
 ---
-slug: deepsemgrep-examples
+slug: semgrep-pro-engine-examples
 append_help_link: true
 description: "This document provides an overview of Semgrep Pro Engine language use cases."
 toc_max_heading_level: 5
