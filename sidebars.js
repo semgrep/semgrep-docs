@@ -22,7 +22,7 @@ module.exports = {
         collapsible: false,
         items: [
             'getting-started',
-            'semgrep-code/overview',
+            'semgrep-code/getting-started',
             'semgrep-supply-chain/getting-started'
         ]
     },
@@ -236,7 +236,7 @@ module.exports = {
       label: 'Semgrep Code',
       collapsible: false,
       items: [
-        'semgrep-code/overview',
+        'semgrep-code/getting-started',
         {
           type: 'category',
           label: 'Semgrep Pro Engine',
@@ -244,8 +244,8 @@ module.exports = {
           link: {type: 'doc', id: 'semgrep-code/semgrep-pro-engine-intro'},
           items: [
             'semgrep-code/semgrep-pro-engine-intro',
-            'semgrep-code/semgrep-pro-examples',
-            'semgrep-code/semgrep-pro-data-flow'
+            'semgrep-code/semgrep-pro-engine-examples',
+            'semgrep-code/semgrep-pro-engine-data-flow'
           ]
         },
         'semgrep-code/pro-rules',
