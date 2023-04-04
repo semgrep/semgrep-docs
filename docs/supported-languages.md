@@ -335,6 +335,6 @@ module.exports = get_user
 
 #### Regressions in Semgrep Pro
 
-For interfile analysis, Semgrep Pro Engine resolves names differently than Semgrep and this may cause rules with `interfile: true` to produce different results than Semgrep OSS Engine. Some instances could be regarded as regressions, if you encounter them please file a bug report.
+For interfile analysis, Semgrep Pro Engine resolves names differently than Semgrep OSS. Consequently, rules with `interfile: true` may produce different results than Semgrep OSS Engine. Some instances could be regarded as regressions, if you encounter them please file a bug report.
 
 <MoreHelp />
