@@ -338,7 +338,8 @@ Create a personal access token to authenticate to the Bitbucket API. There are t
 ##### Creating and adding a workspace access token
 
 :::info Prerequisite
-Use the procedure described in this section if you use the **Bitbucket Cloud Premium** plan. If you are **not** using the Bitbucket Cloud Premium plan, you have to create a separate repository access token for each repository where you want to use Semgrep. See [Creating a repository access token](/semgrep-ci/running-semgrep-ci-with-semgrep-app/#creating-and-adding-a-repository-access-token).
+- Use the procedure described in this section if you use the **Bitbucket Cloud Premium** plan. If you are **not** using the Bitbucket Cloud Premium plan, create a separate repository access token for each repository where you want to use Semgrep. See [Creating a repository access token](/semgrep-ci/running-semgrep-ci-with-semgrep-app/#creating-and-adding-a-repository-access-token).
+- Create a **SEMGREP_APP_TOKEN** - follow the steps descibed in [CI providers listed in Semgrep Cloud Platform](/semgrep-ci/running-semgrep-ci-with-semgrep-app/#ci-providers-listed-in-semgrep-cloud-platform). If your the CI provider you use in Bitbucket is not listed, follow the guidelines described in [Other CI providers (environment variables setup)](/semgrep-ci/running-semgrep-ci-with-semgrep-app/#other-ci-providers-environment-variables-setup).
 :::
 
 Create a workspace access token in Bitbucket (only available if you have a Bitbucket Cloud Premium plan). Follow the instructions in [Create a Workspace Access Token](https://support.atlassian.com/bitbucket-cloud/docs/create-a-workspace-access-token/). Alternatively, follow these steps to create a workspace access token:
@@ -363,6 +364,10 @@ Create and add a `SEMGREP_APP_TOKEN` to establish the communication between your
 1. Enable the **Secured** option, and then click **Add**.
 
 ##### Creating and adding a repository access token
+
+:::note
+If you do **not** have the Bitbucket Cloud Premium plan, create a separate repository access token for each repository where you want to use Semgrep. This configuration option is also useful if you have the Bitbucket Cloud Premium plan, but prefer to onboard repositories one by one instead of bulk onboarding.
+:::
 
 Create a repository access token in Bitbucket. Follow the instructions in [Create a repository Access Token](https://support.atlassian.com/bitbucket-cloud/docs/create-a-repository-access-token/). Alternatively, follow these steps to create a repository access token:
 
@@ -390,21 +395,29 @@ Create and add a `SEMGREP_APP_TOKEN` to establish the communication between your
 To receive comments on PRs, add the following code to your `bitbucket-pipelines.yml` file:
 
 ```yaml
-image: atlassian/default-image:latest
+  image: atlassian/default-image:latest
 
-pipelines:
-  pull-requests:
-    '**':
-      - step:
-          name: 'Run Semgrep scan in PR branch'
-          image: returntocorp/semgrep
-          script:
-            - export SEMGREP_APP_TOKEN=$SEMGREP_APP_TOKEN
-            - export SEMGREP_APP_URL="https://semgrep.dev"
-            - export SEMGREP_BASELINE_REF="origin/main"
-            - git fetch origin "+refs/heads/*:refs/remotes/origin/*"
-            - export BITBUCKET_TOKEN=$PAT
-            - semgrep ci
+  pipelines:
+    branches:
+      main:
+          - step:
+              name: 'Run Semgrep full scan with main branch'
+              image: returntocorp/semgrep
+              script:
+                - export SEMGREP_APP_TOKEN=$SEMGREP_APP_TOKEN
+                - semgrep ci
+    pull-requests:
+      '**':
+        - step:
+            name: 'Run Semgrep diff scan with PR branch'
+            image: returntocorp/semgrep
+            script:
+              # Set SEMGREP Variables
+              - export SEMGREP_APP_TOKEN=$SEMGREP_APP_TOKEN
+              - export SEMGREP_BASELINE_REF="origin/main"
+              - git fetch origin "+refs/heads/*:refs/remotes/origin/*"
+              - export BITBUCKET_TOKEN=$PAT
+              - semgrep ci
 ```
 
 For more configuration options, see [Bitbucket Pipelines CI Sample](/semgrep-ci/sample-ci-configs/#bitbucket-pipelines).
