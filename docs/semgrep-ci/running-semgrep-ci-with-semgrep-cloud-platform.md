@@ -1,5 +1,5 @@
 ---
-slug: running-semgrep-ci-with-semgrep-app
+slug: running-semgrep-ci-with-semgrep-cloud-platform
 append_help_link: true
 description: "Set up your CI pipeline with Semgrep Cloud Platform for centralized rule and findings management."
 tags:
