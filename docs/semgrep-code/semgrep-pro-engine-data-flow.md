@@ -1,5 +1,5 @@
 ---
-slug: semgrep-pro-data-flow
+slug: semgrep-pro-engine-data-flow
 append_help_link: true
 description: "This article documents data flow analysis implementation in Semgrep Cloud Platform and helps you to enable and find it on the Findings page."
 hide_title: false

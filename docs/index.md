@@ -74,8 +74,8 @@ The following table lists environments in which you can run various Semgrep prod
 | Product              | Local CLI | Remote CI |
 | -------------------- | --------- | --------- |
 | Semgrep OSS Engine  |  ✅  [Run locally with Semgrep Engine](getting-started)  |   ✅  Can send findings to [Semgrep Cloud Platform](semgrep-ci/running-semgrep-ci-with-semgrep-app) or run [stand-alone CI jobs](semgrep-ci/running-semgrep-ci-without-semgrep-app) |
-| Semgrep Code         |  ✅  Log in to access [Pro Engine](deepsemgrep/deepsemgrep-introduction) and [Pro rules](semgrep-code/pro-rules) (Team and Enterprise tier) |   ✅  Best used with [Semgrep Cloud Platform](semgrep-app/getting-started-with-semgrep-app) |
-| Semgrep Supply Chain |  ✅  Log in to access [Supply Chain](semgrep-sc/semgrep-supply-chain-overview) rules (Team and Enterprise tier)  |   ✅  Best used with [Semgrep Cloud Platform](semgrep-app/getting-started-with-semgrep-app) |
+| Semgrep Code         |  ✅  Log in to access [Pro Engine](semgrep-code/semgrep-pro-engine-intro) and [Pro rules](semgrep-code/pro-rules) (Team and Enterprise tier) |   ✅  Best used with [Semgrep Cloud Platform](semgrep-app/getting-started-with-semgrep-app) |
+| Semgrep Supply Chain |  ✅  Log in to access [Supply Chain](semgrep-supply-chain/overview) rules (Team and Enterprise tier)  |   ✅  Best used with [Semgrep Cloud Platform](semgrep-app/getting-started-with-semgrep-app) |
 
 :::info 
 Semgrep Cloud Platform is a hosted web application (SaaS) and as such is excluded from the table.

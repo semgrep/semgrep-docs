@@ -114,7 +114,7 @@ Filtering allows you to easily isolate groups of findings for ease in triaging a
 | **Rules**        | Filter by rules or rulesets that are included in your Rule Board. More than one rule can be selected for filtering. |
 | **Rulesets**     | Filter by name of the ruleset where rules that matched the code belong. More than one rule or ruleset can be selected for filtering. |
 
-You can also filter for findings reported from specific time periods. See [Displaying findings reported in a specific time](/semgrep-app/findings/#displaying-findings-reported-in-a-specific-time).
+You can also filter for findings reported from specific time periods. See [Displaying findings reported in a specific time](/semgrep-code/findings/#displaying-findings-reported-in-a-specific-time).
 
 To filter through findings:
 
@@ -279,7 +279,7 @@ To triage a finding in GitHub, follow these steps:
 3. Substitute the colored placeholder <code><span className="placeholder">&lt;reason&gt;</span></code> with any text that can help to understand why the status of a comment is ignored.
 
 :::info
-Ignoring a finding through a comment in GitHub changes the status of the finding to **ignored** in the Semgrep Cloud Platform. See [Findings](/semgrep-app/findings.md) page documentation for more details. The GitHub conversation itself is not automatically resolved by this process.
+Ignoring a finding through a comment in GitHub changes the status of the finding to **ignored** in the Semgrep Cloud Platform. See [Findings](/semgrep-code/findings) page documentation for more details. The GitHub conversation itself is not automatically resolved by this process.
 :::
 
 :::tip
@@ -315,8 +315,8 @@ If a finding is fixed in one branch (such as `main`) but open in another (such a
 
 ## See also
 
-* [Alerts and notifications](/semgrep-app/notifications)
-* [Rule Board](rule-board.md)
+* [Alerts and notifications](/semgrep-code/notifications)
+* [Rule Board](/semgrep-code/rule-board)
 * [Ignoring files, folders, or code](/ignoring-files-folders-code/)
 
 ## Additional references

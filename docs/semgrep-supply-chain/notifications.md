@@ -1,5 +1,5 @@
 ---
-slug: receiving-notifications-from-ssc
+slug: notifications
 append_help_link: true
 description: "Receive notifications about reachable findings from your Semgrep Supply Chain scans."
 tags:

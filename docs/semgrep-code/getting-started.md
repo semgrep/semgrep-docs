@@ -1,5 +1,5 @@
 ---
-slug: /semgrep-code/getting-started-with-semgrep-code 
+slug: getting-started
 append_help_link: true
 description: "Perform a SAST scan with Semgrep Code "
 title: Semgrep Code
@@ -127,8 +127,8 @@ Semgrep Cloud Platform can run scans on many projects with rules set in the Rule
 Over time, users modify the Rule Board with rules specific to their codebase's security or business goals.
 
 :::tip Optional workflows
-* Start using Semgrep Cloud Platform by scanning a demo project that requires only 3 seconds to configure. See [Learning Semgrep Cloud Platform with a demo project](/semgrep-app/demo-project/)
-* Scan a project using Semgrep Pro Engine, an **interprocedural and interfile** analysis engine. This engine is available for Team tier users and above. See [Semgrep Pro Engine overview](deepsemgrep/deepsemgrep-introduction) or contact [sales@r2c.dev](mailto:sales@r2c.dev) for more information.
+* Start using Semgrep Cloud Platform by scanning a demo project that requires only 3 seconds to configure. See [Learning Semgrep Cloud Platform with a demo project](/semgrep-code/demo-project/)
+* Scan a project using Semgrep Pro Engine, an **interprocedural and interfile** analysis engine. This engine is available for Team tier users and above. See [Semgrep Pro Engine overview](semgrep-code/semgrep-pro-engine-intro) or contact [sales@r2c.dev](mailto:sales@r2c.dev) for more information.
 :::
 
 #### Option A: Scanning a local repository through Semgrep CLI
