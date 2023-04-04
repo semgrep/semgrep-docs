@@ -268,10 +268,6 @@ If you are using GitHub Actions to run Semgrep, no extra changes are needed to g
 
 ### GitLab merge request comments
 
-:::info Prerequisite
-- Create `SEMGREP_APP_TOKEN` by following the [Creating a `SEMGREP_APP_TOKEN`](/semgrep-ci/running-semgrep-ci-with-semgrep-app/#creating-a-semgrep_app_token) documentation. Copy the value of the token created in the Semgrep Cloud Platform.
-:::
-
 This section documents how to enable Semgrep Cloud Platform to post comments on merge requests.
 
 Automated comments on GitLab merge requests are displayed as follows:
@@ -348,7 +344,6 @@ Create a personal access token to authenticate to the Bitbucket API. There are t
 
 :::info Prerequisite
 - Use the procedure described in this section if you use the **Bitbucket Cloud Premium** plan. If you are **not** using the Bitbucket Cloud Premium plan, create a separate repository access token for each repository where you want to use Semgrep. See [Creating a repository access token](/semgrep-ci/running-semgrep-ci-with-semgrep-app/#creating-and-adding-a-repository-access-token).
-- Create `SEMGREP_APP_TOKEN` by following the [Creating a `SEMGREP_APP_TOKEN`](/semgrep-ci/running-semgrep-ci-with-semgrep-app/#creating-a-semgrep_app_token) documentation. Copy the value of the token created in the Semgrep Cloud Platform.
 :::
 
 Create a workspace access token in Bitbucket (only available if you have a Bitbucket Cloud Premium plan). Follow the instructions in [Create a Workspace Access Token](https://support.atlassian.com/bitbucket-cloud/docs/create-a-workspace-access-token/). Alternatively, follow these steps to create a workspace access token:
@@ -374,10 +369,6 @@ Create a workspace access token in Bitbucket (only available if you have a Bitbu
 Create and add a `SEMGREP_APP_TOKEN` to establish the communication between your workspace and the Semgrep Cloud Platform by following these steps:
 
 ##### Creating and adding a repository access token
-
-:::info Prerequisite
-- Create `SEMGREP_APP_TOKEN` by following the [Creating a `SEMGREP_APP_TOKEN`](/semgrep-ci/running-semgrep-ci-with-semgrep-app/#creating-a-semgrep_app_token) documentation. Copy the value of the token created in the Semgrep Cloud Platform.
-:::
 
 :::note
 If you do **not** have the Bitbucket Cloud Premium plan, create a separate repository access token for each repository where you want to use Semgrep. This configuration option is also useful if you have the Bitbucket Cloud Premium plan, but prefer to onboard repositories one by one instead of bulk onboarding.
