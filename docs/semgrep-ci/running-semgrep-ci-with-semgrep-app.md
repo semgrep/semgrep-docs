@@ -360,7 +360,7 @@ SEMGREP_TIMEOUT="300"
 
 ### Compatibility of environment variables
 
-Starting from Semgrep 0.98.0, Semgrep Cloud Platform can fetch values of environment variables for [CI providers listed in Semgrep Cloud Platform](#in-app-providers-such-as-github-actions-gitlab-cicd-jenkins). Therefore, not all CI providers need the same environment variables.
+Starting from Semgrep 0.98.0, Semgrep Cloud Platform can fetch values of environment variables for [CI providers listed in Semgrep Cloud Platform](#ci-providers-listed-in-semgrep-cloud-platform). Therefore, not all CI providers need the same environment variables.
 
 To help troubleshoot the features in this guide, ensure that you have updated your Semgrep installation.
 
