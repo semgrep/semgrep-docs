@@ -316,13 +316,6 @@ semgrep:
     GITLAB_TOKEN: $PAT
 ```
 
-Add the `SEMGREP_APP_TOKEN` to your GitLab repository by following these steps:
-
-1. Sign in to the [Semgrep Cloud Platform](https://semgrep.dev/), and then click the [Projects](https://semgrep.dev/orgs/-/projects) page.
-1. Select **Scan new project**, and then **Run Scan in CI**.
-1. Click **Create new API token**, and then copy the value of the new API token.
-
-
 For more configuration options, see [GitLab CI Sample](/semgrep-ci/sample-ci-configs/#gitlab-ci).
 
 :::note
