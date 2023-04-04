@@ -64,7 +64,7 @@ Here are the main components:
 
 Make sure the above is clear in your mind before proceeding further.
 If you have questions, the best way is reach out on the [Semgrep
-Community Slack channel](https://go.semgrep.dev/slack).
+Community Slack channel](https://semgrep.slack.com).
 
 Before upgrading
 --

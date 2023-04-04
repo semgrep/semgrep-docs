@@ -58,7 +58,7 @@ module.exports = {
           items: [
             {
               label: 'Slack',
-              href: 'https://go.semgrep.dev/slack',
+              href: 'https://semgrep.slack.com',
             },
             {
               label: 'GitHub',

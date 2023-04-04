@@ -4,9 +4,9 @@ slug: support
 
 # Support
 
-Help is available for all users through the [Semgrep Community Slack](https://go.semgrep.dev/slack). Semgrep Team customers also receive 8\*5 email/phone/Slack support with committed SLAs.
+Help is available for all users through the [Semgrep Community Slack](https://semgrep.slack.com). Semgrep Team customers also receive 8\*5 email/phone/Slack support with committed SLAs.
 
-Got a question? Want to chat about Semgrep patterns, writing rules, or how to enforce code standards in your organization? Join the [Semgrep Community Slack](https://go.semgrep.dev/slack) to say “hi” or ask questions — there’s a friendly and active community ready to help 🤗.
+Got a question? Want to chat about Semgrep patterns, writing rules, or how to enforce code standards in your organization? Join the [Semgrep Community Slack](https://semgrep.slack.com) to say “hi” or ask questions — there’s a friendly and active community ready to help 🤗.
 
 Other ways to get help:
 

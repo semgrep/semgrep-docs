@@ -110,7 +110,7 @@ You can always run `semgrep` from `cli/`, which will use your latest changes in 
 pipenv install --dev
 ```
 
-Some people have encountered difficulties with the above. If it fails, you can reach out to the [`semgrep` team on Slack](https://go.semgrep.dev/slack).
+Some people have encountered difficulties with the above. If it fails, you can reach out to the [`semgrep` team on Slack](https://semgrep.slack.com).
 
 If you have an M1 Mac, this may install the incorrect executable. You can run this instead
 ```

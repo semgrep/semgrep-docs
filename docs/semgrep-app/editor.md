@@ -117,7 +117,7 @@ The editor will not save, share, or run if the YAML syntax is **unparseable**. T
 
 ![Screenshot of Editor's error message](/img/editor-errorwarn-message.png)
 
-If no schema or spelling errors are detected, check for indentation or newline issues. You can also get rule-writing help through the [Semgrep Community Slack](https://go.semgrep.dev/slack).
+If no schema or spelling errors are detected, check for indentation or newline issues. You can also get rule-writing help through the [Semgrep Community Slack](https://semgrep.slack.com).
 
 ## Evaluating a rule’s performance
 

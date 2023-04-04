@@ -53,7 +53,7 @@ To install and run Semgrep Pro Engine in the CLI, follow these steps:
     See [Semgrep Privacy Policy](/metrics) for details of what is being sent to r2c.
 
 :::note
-Let us know what you think about the results in the <a href="https://go.semgrep.dev/slack">Semgrep Community Slack</a>.
+Let us know what you think about the results in the <a href="https://semgrep.slack.com">Semgrep Community Slack</a>.
 :::
 
 ### Enabling Semgrep Pro Engine in Semgrep Cloud Platform
@@ -112,7 +112,7 @@ If 1-2 repositories cause CI scan issues, modify your config file to use `semgre
 
 If many repositories cause scan issues:
 1. Disable the <i class="fa-solid fa-toggle-large-on"></i> **Semgrep Pro Engine beta** toggle in the **[Settings](https://semgrep.dev/orgs/-/settings)** page of your organization.
-1. Contact r2c in the <a href="https://go.semgrep.dev/slack">Semgrep Community Slack</a> so we can help you to fix the issue and create a plan for your organization.
+1. Contact r2c in the <a href="https://semgrep.slack.com">Semgrep Community Slack</a> so we can help you to fix the issue and create a plan for your organization.
 
 ### Difference between Semgrep Pro Engine and join mode
 
@@ -120,6 +120,6 @@ Semgrep Pro is different from [join mode](/writing-rules/experiments/join-mode/o
 
 ### Future development of Semgrep Pro Engine
 
-We’re excited to hear what’s on your mind. As users explore the limits of Semgrep Pro Engine, we want to know what they’re failing to express. We believe that this deeper analysis helps users find more vulnerabilities, build trust with developers, and enforce code standards quickly. Let us know what you think about the results in the <a href="https://go.semgrep.dev/slack">Semgrep Community Slack</a>.
+We’re excited to hear what’s on your mind. As users explore the limits of Semgrep Pro Engine, we want to know what they’re failing to express. We believe that this deeper analysis helps users find more vulnerabilities, build trust with developers, and enforce code standards quickly. Let us know what you think about the results in the <a href="https://semgrep.slack.com">Semgrep Community Slack</a>.
 
 <MoreHelp />
