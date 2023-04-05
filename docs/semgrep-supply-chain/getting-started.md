@@ -91,7 +91,7 @@ Dependency scans can be triggered by the following, depending on your CI set up:
   </tr>
 </table>
 
-For more information on diff-aware and full scans, see [Diff-aware scanning](/docs/semgrep-ci/running-semgrep-ci-with-semgrep-app/#diff-aware-scanning).
+For more information on diff-aware and full scans, see [Diff-aware scanning](/docs/semgrep-ci/running-semgrep-ci-with-semgrep-cloud-platform/#diff-aware-scanning).
 
 ### Blocking a PR or MR
 

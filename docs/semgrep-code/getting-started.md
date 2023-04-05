@@ -40,8 +40,9 @@ Secure your code quickly and continuously by scanning with Semgrep Code, a fast 
 Semgrep Code is transparent: you can fully configure what rules are run and how the presence of a finding is communicated to different channels. The content of a rule can be customized to improve the true positive rate of a rule or its message to fellow developers.
 
 This document provides steps to get started with Semgrep Code and its Team and Enterprise tier features.
+
 :::note
-To get started with Semgrep Code and its Community (free) tier, see [Getting Started with Semgrep Cloud Platform](/semgrep-app/getting-started-with-semgrep-app).
+To get started with Semgrep Code and its Community (free) tier, see [Getting Started with Semgrep Cloud Platform](/semgrep-cloud-platform/getting-started).
 :::
 
 ## Semgrep Code and Semgrep OSS Engine
@@ -74,7 +75,7 @@ Semgrep Code includes Semgrep Cloud Platform (SCP), a web application that helps
 
 :::tip
 * Scanning with Semgrep Cloud Platform is the recommended method to scan with Semgrep Code.
-* Semgrep Code can be integrated into your custom infrastructure without SCP. See [API](/semgrep-app/semgrep-api) for details.
+* Semgrep Code can be integrated into your custom infrastructure without SCP. See [API](/semgrep-cloud-platform/semgrep-api) for details.
 :::
 
 ### Scanning a repository from GitHub or GitLab
@@ -95,7 +96,7 @@ Semgrep Code includes Semgrep Cloud Platform (SCP), a web application that helps
 
 <PlatformSigninGithub />
 
-See [Permissions in GitHub](/semgrep-app/getting-started-with-semgrep-app/#requested-permissions-for-github-and-gitlab) to learn more about how Semgrep features use requested permissions in GitHub.
+See [Permissions in GitHub](/semgrep-cloud-platform/getting-started/#requested-permissions-for-github-and-gitlab) to learn more about how Semgrep features use requested permissions in GitHub.
 
 </TabItem>
 
@@ -103,7 +104,7 @@ See [Permissions in GitHub](/semgrep-app/getting-started-with-semgrep-app/#reque
 
 <PlatformSigninGitlab />
 
-See [Permissions in GitLab](/semgrep-app/getting-started-with-semgrep-app/#requested-permissions-for-github-and-gitlab) to learn more about how Semgrep features use requested permissions in GitLab.
+See [Permissions in GitLab](/semgrep-cloud-platform/getting-started/#requested-permissions-for-github-and-gitlab) to learn more about how Semgrep features use requested permissions in GitLab.
 
 </TabItem>
 
@@ -305,7 +306,7 @@ To add rules and rulesets to your Rule Board:
 4. Drag a card from the search results to the appropriate column.
 5. Select **Save changes**.
 
-For more information on operations such as filtering and deleting as well as Rule board management, see [Rule board](/semgrep-app/rule-board/).
+For more information on operations such as filtering and deleting as well as Rule board management, see [Rule board](/semgrep-code/rule-board/).
 
 ## Viewing and managing findings
 
@@ -313,9 +314,9 @@ For more information on operations such as filtering and deleting as well as Rul
 
 ![Screenshot of Dashboard](/img/dashboard-view.png "Screenshot of Dashboard")
 
-Both the Dashboard and the Findings page display the results of a scan. These pages are accessible from the left sidebar in Semgrep Cloud Platform. The **[Dashboard](/semgrep-app/dashboard/)** is a report view to assist in evaluating security posture across repositories. It organizes findings into OWASP categories, enabling users to assess habits and trends within their team or organization.
+Both the Dashboard and the Findings page display the results of a scan. These pages are accessible from the left sidebar in Semgrep Cloud Platform. The **[Dashboard](/semgrep-cloud-platform/dashboard/)** is a report view to assist in evaluating security posture across repositories. It organizes findings into OWASP categories, enabling users to assess habits and trends within their team or organization.
 
-The **[Findings](/semgrep-app/findings/#managing-finding-status-bulk-triage)** page enables you to triage findings. Triaging refers to prioritizing a finding based on criteria set by your team or organization. While severity is a factor in triage, your organization may define additional criteria based on coding standards, business, or product goals.
+The **[Findings](/semgrep-code/findings/#managing-finding-status-bulk-triage)** page enables you to triage findings. Triaging refers to prioritizing a finding based on criteria set by your team or organization. While severity is a factor in triage, your organization may define additional criteria based on coding standards, business, or product goals.
 
 To see the rule specifics that triggered the finding, click on the rule entry.
 
@@ -337,7 +338,7 @@ Semgrep Cloud Platform supports various phases of the development cycle through 
 
 ### Tracking findings and receiving notifications
 
-Receive notifications of new findings through email and Slack after every scan. Additionally, Enterprise or Team tier users are able to set up notifications through webhooks. See [Alerts and notifications](/semgrep-app/notifications/) documentation for more information.
+Receive notifications of new findings through email and Slack after every scan. Additionally, Enterprise or Team tier users are able to set up notifications through webhooks. See [Alerts and notifications](/semgrep-code/notifications/) documentation for more information.
 
 ### Writing your own rules
 
@@ -351,12 +352,12 @@ Semgrep provides the following environments to learn, experiment, and write Semg
     <dt><a href="https://semgrep.dev/playground">Playground</a></dt>
     <dd>Learn the nuances of Semgrep operators by creating your own rules and run Semgrep on your own test cases.</dd>
     <dt><a href= "https://semgrep.dev/login?return_path=/orgs/-/editor">Editor</a></dt>
-    <dd>Fork existing security rules to customize them for your own organization or team's use in this advanced editor. Refer to <a href="/semgrep-app/editor/#jumpstart-rule-writing-using-existing-rules">Writing rules using Semgrep Editor</a>.</dd>
+    <dd>Fork existing security rules to customize them for your own organization or team's use in this advanced editor. Refer to <a href="/semgrep-code/editor/#jumpstart-rule-writing-using-existing-rules">Writing rules using Semgrep Editor</a>.</dd>
 </dl>
 
 ### Receiving feedback about a rule
 
-[Developer feedback](/semgrep-app/dashboard/#rule-performance-through-developer-feedback) is a Team/Enterprise tier feature in which developers can submit feedback about a rule or finding. This is used to evaluate a rule's performance:
+[Developer feedback](/semgrep-cloud-platform/dashboard/#rule-performance-through-developer-feedback) is a Team/Enterprise tier feature in which developers can submit feedback about a rule or finding. This is used to evaluate a rule's performance:
 
 * Is the rule's message clear?
 * Does the rule have too many false positives?

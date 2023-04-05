@@ -36,7 +36,7 @@ These environment variables configure various aspects of your CI job, such as a 
 
 :::info Prerequisites
 * You must have a Semgrep Cloud Platform account to use this environment variable.
-* You must have a Semgrep Cloud Platform token. To generate a token, see [Creating a `SEMGREP_APP_TOKEN`](/docs/semgrep-ci/running-semgrep-ci-with-semgrep-app/#creating-a-semgrep_app_token).
+* You must have a Semgrep Cloud Platform token. To generate a token, see [Creating a `SEMGREP_APP_TOKEN`](/docs/semgrep-ci/running-semgrep-ci-with-semgrep-cloud-platform/#creating-a-semgrep_app_token).
 :::
 
 Set `SEMGREP_APP_TOKEN` to send findings to Semgrep Cloud Platform and use rules from the Rule Board. `SEMGREP_APP_TOKEN` is incompatible with `SEMGREP_RULES`.
@@ -53,7 +53,7 @@ Do not set `SEMGREP_RULES` environment variable within the same CI job as `SEMGR
 
 ### `SEMGREP_BASELINE_REF`
 
-Set `SEMGREP_BASELINE_REF` to enable **[diff-aware scanning](/docs/semgrep-ci/running-semgrep-ci-with-semgrep-app/#diff-aware-scanning)** for CI providers that are **not** GitHub Actions or GitLab CI/CD. `SEMGREP_BASELINE_REF` refers to your codebase's default or trunk branch, such as `main` or `master`.
+Set `SEMGREP_BASELINE_REF` to enable **[diff-aware scanning](/docs/semgrep-ci/running-semgrep-ci-with-semgrep-cloud-platform/#diff-aware-scanning)** for CI providers that are **not** GitHub Actions or GitLab CI/CD. `SEMGREP_BASELINE_REF` refers to your codebase's default or trunk branch, such as `main` or `master`.
 
 Example:
 
@@ -127,13 +127,13 @@ export SEMGREP_TIMEOUT="20"
 
 ## Environment variables for creating hyperlinks in Semgrep Cloud Platform
 
-By default, Semgrep Cloud Platform autodetects values such as the name of your repository, which Semgrep uses to generate hyperlinks (URLs) to the specific repository code that generated the finding. These hyperlinks are in the [Findings](/docs/semgrep-app/findings) page.
+By default, Semgrep Cloud Platform autodetects values such as the name of your repository, which Semgrep uses to generate hyperlinks (URLs) to the specific repository code that generated the finding. These hyperlinks are in the [Findings](/docs/semgrep-code/findings) page.
 
 Set any as needed or all of the following environment variables to troubleshoot and override autodetected CI environment values.
 
 ### `SEMGREP_BRANCH`
 
-Set `SEMGREP_BRANCH` to define the branch name for the URL used to generate hyperlinks in the [Findings](/docs/semgrep-app/findings) page. To avoid hardcoding this value, check your CI provider's documentation for available environment variables that can automatically detect the correct values for every CI job. 
+Set `SEMGREP_BRANCH` to define the branch name for the URL used to generate hyperlinks in the [Findings](/docs/semgrep-code/findings) page. To avoid hardcoding this value, check your CI provider's documentation for available environment variables that can automatically detect the correct values for every CI job. 
 
 Examples:
 
@@ -157,7 +157,7 @@ commands:
 
 ### `SEMGREP_COMMIT`
 
-Set `SEMGREP_COMMIT` to define the commit hash for the URL used to generate hyperlinks in the [Findings](/docs/semgrep-app/findings) page. To avoid hardcoding this value, check your CI provider's documentation for available environment variables that can automatically detect the correct values for every CI job. 
+Set `SEMGREP_COMMIT` to define the commit hash for the URL used to generate hyperlinks in the [Findings](/docs/semgrep-code/findings) page. To avoid hardcoding this value, check your CI provider's documentation for available environment variables that can automatically detect the correct values for every CI job. 
 
 Examples:
 
@@ -187,7 +187,7 @@ pipelines:
 
 ### `SEMGREP_REPO_NAME`
 
-Set `SEMGREP_REPO_NAME` to define the repository name for the URL used to generate hyperlinks in the [Findings](/docs/semgrep-app/findings) page. To avoid hardcoding this value, check your CI provider's documentation for available environment variables that can automatically detect the correct values for every CI job. 
+Set `SEMGREP_REPO_NAME` to define the repository name for the URL used to generate hyperlinks in the [Findings](/docs/semgrep-code/findings) page. To avoid hardcoding this value, check your CI provider's documentation for available environment variables that can automatically detect the correct values for every CI job. 
 
 Examples:
 
@@ -214,7 +214,7 @@ jobs:
 
 ### `SEMGREP_REPO_URL`
 
-Set `SEMGREP_REPO_URL` to define the repository URL used to generate hyperlinks in the [Findings](/docs/semgrep-app/findings) page. To avoid hardcoding this value, check your CI provider's documentation for available environment variables that can automatically detect the correct values for every CI job. 
+Set `SEMGREP_REPO_URL` to define the repository URL used to generate hyperlinks in the [Findings](/docs/semgrep-code/findings) page. To avoid hardcoding this value, check your CI provider's documentation for available environment variables that can automatically detect the correct values for every CI job. 
 
 Examples:
 

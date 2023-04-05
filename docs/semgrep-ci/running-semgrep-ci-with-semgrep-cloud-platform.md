@@ -1,5 +1,5 @@
 ---
-slug: running-semgrep-ci-with-semgrep-app
+slug: running-semgrep-ci-with-semgrep-cloud-platform
 append_help_link: true
 description: "Set up your CI pipeline with Semgrep Cloud Platform for centralized rule and findings management."
 tags:
@@ -37,7 +37,7 @@ Run Semgrep in your continous integration (CI) pipeline to scan your repository 
 This guide explains how to connect your repository to Semgrep Cloud Platform to scan continuously.
 
 :::info
-* This guide's configuration and feature support are specific to Semgrep-App-connected CI jobs. Refer to [Running Semgrep in CI without Semgrep Cloud Platform](../running-semgrep-ci-without-semgrep-app) for stand-alone CI jobs.
+* This guide's configuration and feature support are specific to Semgrep-App-connected CI jobs. Refer to [Running Semgrep in CI without Semgrep Cloud Platform](../running-semgrep-ci-without-semgrep-cloud-platform) for stand-alone CI jobs.
 * Semgrep 0.98.0 introduced changes to how certain CI providers fetch environment variables. Refer to the appendix at the end of this document for more information.
 * Semgrep Cloud Platform creates a SAST (Static Application Security Testing) job by default. To run dependency scans exclusively, refer to [Sample CI configurations](semgrep-ci/sample-ci-configs).
 :::

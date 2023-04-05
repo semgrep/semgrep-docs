@@ -63,19 +63,19 @@ To ensure that you have enabled Semgrep Cloud Platform to send PR or MR comments
 </tr>
 <tr>
     <td>GitHub Free, Pro, Team, and Enterprise Cloud</td>
-    <td><a href="/docs/semgrep-app/notifications/#enabling-github-pull-request-comments">Enabling GitHub pull request comments</a></td>
+    <td><a href="/docs/semgrep-code/notifications/#enabling-github-pull-request-comments">Enabling GitHub pull request comments</a></td>
 </tr>
 <tr>
     <td>GitHub Enterprise Server</td>
-    <td><a href="/docs/semgrep-app/scm/">Integrating Semgrep into self-hosted repositories</a></td>
+    <td><a href="/docs/semgrep-cloud-platform/scm/">Integrating Semgrep into self-hosted repositories</a></td>
 </tr>
 <tr>
     <td>GitLab SaaS</td>
-    <td><a href="/docs/semgrep-app/notifications/#enabling-gitlab-merge-request-comments">Enabling GitLab merge request comments</a></td>
+    <td><a href="/docs/semgrep-code/notifications/#enabling-gitlab-merge-request-comments">Enabling GitLab merge request comments</a></td>
 </tr>
 <tr>
     <td>GitLab Self-managed</td>
-    <td><a href="/docs/semgrep-app/scm/">Integrating Semgrep into self-hosted repositories</a></td>
+    <td><a href="/docs/semgrep-cloud-platform/scm/">Integrating Semgrep into self-hosted repositories</a></td>
 </tr>
 </table>
 
