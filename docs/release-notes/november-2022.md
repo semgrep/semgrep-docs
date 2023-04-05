@@ -94,6 +94,6 @@ These release notes include upgrades for versions ranging between 0.120.0 and 0.
 - Release notes that you are now reading have been split into one document for each month the Release notes category now has its own dedicated right sidebar. This change makes it easier to find changes that happened over the span of a month.
 - The [Experiments](/writing-rules/experiments/introduction/) category now falls under **Writing custom rules** section on our left sidenav.
 - Updated [Managing findings in Semgrep App](/semgrep-code/findings/) document, especially [Managing finding status](/semgrep-code/findings/#managing-finding-status) section to inform about the latest triage workflow updates.
-- Updated information about enabling the autofix feature in various occurrences in our docs. For example: [Enabling autofix in Semgrep App](/writing-rules/testing-rules/#enabling-autofix-in-semgrep-app)
-- Updated [Defining ignored files and folders in Semgrep App](/writing-rules/testing-rules/#enabling-autofix-in-semgrep-app) to inform about how you can ignore files from the Findings page of Semgrep App.
+- Updated information about enabling the autofix feature in various occurrences in our docs. For example: [Enabling autofix in Semgrep App](/writing-rules/testing-rules/#enabling-autofix-in-semgrep-code)
+- Updated [Defining ignored files and folders in Semgrep App](/writing-rules/testing-rules/#enabling-autofix-in-semgrep-code) to inform about how you can ignore files from the Findings page of Semgrep App.
 - Many fixed links, typos, and other necessary improvements for great docs experience.
