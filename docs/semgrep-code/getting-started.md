@@ -269,7 +269,7 @@ You can also configure additional configuration options for a specific project. 
 
 <dl>
     <dt>Path ignores</dt>
-    <dd>Specify which directories or files you want to exclude from Semgrep scans. See <a href="/ignoring-files-folders-code/#defining-ignored-files-and-folders-in-semgrep-app">Defining ignored files and folders in Semgrep Cloud Platform</a> for specific details.</dd>
+    <dd>Specify which directories or files you want to exclude from Semgrep scans. See <a href="/ignoring-files-folders-code/#defining-ignored-files-and-folders-in-semgrep-cloud-platform">Defining ignored files and folders in Semgrep Cloud Platform</a> for specific details.</dd>
     <dt>Tags</dt>
 	<dd>Add or remove tags to specific projects. See <a href="/docs/semgrep-cloud-platform/tags/">Tagging projects</a> for more information.</dd>
 </dl>

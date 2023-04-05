@@ -88,7 +88,7 @@ as well as `True and X` and `False or X`. For example, `cond and "a" or "b"` is 
 ### Changes
 
 - Updated Getting started with Semgrep Supply Chain with additional information on scanning [Maven projects](/semgrep-sc/scanning-open-source-dependencies/#apache-maven-java).
-- Updated documentation of Semgrep App [Findings](/semgrep-app/findings/) with fresh screenshots.
+- Updated documentation of Semgrep App [Findings](/semgrep-code/findings/) with fresh screenshots.
 - Updated Supported languages with [additional information on transitivity](/supported-languages/#general-availability).
 - Updated Semgrep App’s [Tagging](/semgrep-cloud-platform/tags/) documentation.
 - Updated [Getting started with Semgrep CLI](/getting-started/).
