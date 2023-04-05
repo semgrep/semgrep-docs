@@ -35,7 +35,7 @@ toc_max_heading_level: 3
 
 - Display findings grouped together by rules that detected them! Group by rule view helps you to identify patterns in your code and to triage findings easily. Findings grouped by rule are sorted by count from high to low. This enables you to know which rules have fired the most. In comparison, regularly grouped findings are sorted by their recency (most recent findings are at the top of the Findings page).
     ![Group by rule option on Findings page](/img/release-notes-group-by-rule.png)
-- Semgrep API now allows you to add or remove tags to a project. See [Managing projects through tags](/semgrep-cloud-platform/tags/) documentation.
+- Semgrep API now allows you to add or remove tags to a project. See [Tagging projects](/semgrep-cloud-platform/tags/) documentation.
 
 ### Changes
 
