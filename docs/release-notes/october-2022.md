@@ -127,5 +127,5 @@ The following references are available for Semgrep Supply Chain:
 - Removing rules from a rule board now removes all associated findings. This change is reflected in the following documents:
     - [Managing findings](/managing-findings/#semgrep-cloud-platform).
     - Section [Triaging findings](/semgrep-code/findings/#triaging-findings) in [Managing findings in Semgrep App](/semgrep-code/findings/).
-    - [Getting started with Semgrep App](/semgrep-cloud-platform/getting-started-with-semgrep-cloud-platform/).
+    - [Getting started with Semgrep App](/semgrep-cloud-platform/getting-started/).
 - Adjustments to the structure of the documentation in our left sidebar. Many iterative changes, improvements, and fixes to improve your docs reading experience.
