@@ -34,10 +34,10 @@ Run Semgrep in your continous integration (CI) pipeline to scan your repository 
 * Ignore false-positive findings from noisy rules.
 * Fork existing rules to create custom rules and add them to Semgrep Cloud Platform for scanning.
 
-This guide explains how to connect your repository to Semgrep Cloud Platform to scan continuously.
+This guide explains how to connect your repository to Semgrep Cloud Platform (SCP) to scan continuously.
 
 :::info
-* This guide's configuration and feature support are specific to Semgrep-App-connected CI jobs. Refer to [Running Semgrep in CI without Semgrep Cloud Platform](../running-semgrep-ci-without-semgrep-cloud-platform) for stand-alone CI jobs.
+* This guide's configuration and feature support are specific to SCP-connected CI jobs. Refer to [Running Semgrep in CI without Semgrep Cloud Platform](../running-semgrep-ci-without-semgrep-cloud-platform) for stand-alone CI jobs.
 * Semgrep 0.98.0 introduced changes to how certain CI providers fetch environment variables. Refer to the appendix at the end of this document for more information.
 * Semgrep Cloud Platform creates a SAST (Static Application Security Testing) job by default. To run dependency scans exclusively, refer to [Sample CI configurations](semgrep-ci/sample-ci-configs).
 :::
@@ -87,7 +87,7 @@ GitHub, GitLab, and BitBucket SCMs are compatible with the above CI providers, b
 
 To set up the CI job and connect with Semgrep Cloud Platform:
 
-1. Sign in to [Semgrep Cloud Platform](https://semgrep.dev/login). See [Signing in to Semgrep Cloud Platform](/semgrep-app/getting-started-with-semgrep-app/#signing-in-to-semgrep-app) for details on requested repository permissions and access.
+1. Sign in to [Semgrep Cloud Platform](https://semgrep.dev/login). See [Signing in to Semgrep Cloud Platform](/semgrep-code/getting-started/#signing-in-to-semgrep-cloud-platform) for details on requested repository permissions and access.
 2. Click **[Projects](https://semgrep.dev/orgs/-/projects)** > **Scan New Project** > **Run Scan in CI**.
 3. Select your provider from the menu.
 4. Optional: Some providers may ask you to select your organization if applicable to your SCM tool.
@@ -96,7 +96,7 @@ To set up the CI job and connect with Semgrep Cloud Platform:
     2. Click **Create new API token**. This is your `SEMGREP_APP_TOKEN` environment variable.
     3. Click **Copy snippet**, then paste and commit the snippet into your configuration file (the filename is indicated in the page).
     4. Click **Check connection**. Semgrep Cloud Platform starts the scan.
-7. After verifying that Semgrep Cloud Platform is able to scan the repository, you can [customize the CI job or Semgrep Cloud Platform configuration](#refining-the-semgrep-app-configuration).
+7. After verifying that Semgrep Cloud Platform is able to scan the repository, you can [customize the CI job or Semgrep Cloud Platform configuration](#configuring-the-semgrep-cloud-platform-ci-job).
 
 #### Sample CI configuration snippets
 

@@ -72,7 +72,7 @@ To enable Semgrep Pro Engine in the Semgrep Cloud Platform, follow these steps:
 1. Optional: If you don't have any projects added to your organization, follow the procedures described in [Scanning a repository from GitHub or GitLab](/semgrep-code/getting-started-with-semgrep-code/#semgrep-code-with-semgrep-cloud-platform) to scan a new project with Semgrep Pro Engine. Ensure that your project's language is supported by Semgrep Pro Engine.
 
 :::info Testing Semgrep Pro Engine
-To test Semgrep Pro Engine on a purposefully vulnerable repository, fork the [juice-shop](https://github.com/juice-shop/juice-shop) repository, and then add it to SCP by following the steps described in  [Adding a repository](/semgrep-app/getting-started-with-semgrep-app/#option-b-adding-a-repository-from-github-or-gitlab).
+To test Semgrep Pro Engine on a purposefully vulnerable repository, fork the [juice-shop](https://github.com/juice-shop/juice-shop) repository, and then add it to SCP by following the steps described in [Adding a repository](/semgrep-code/getting-started/#option-b-adding-a-repository-from-github-or-gitlab).
 :::
 
 ## Additional information
