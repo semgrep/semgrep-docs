@@ -267,6 +267,10 @@ module.exports = {
           // Troubleshooting
           { from: "/troubleshooting/gitlab-sast/" , to: "/troubleshooting/semgrep-ci/" } ,
 
+          // Semgrep CI
+          { from: "/semgrep-ci/running-semgrep-ci-with-semgrep-app/" , to: "/semgrep-ci/running-semgrep-ci-with-semgrep-cloud-platform/" } ,
+          { from: "/semgrep-ci/running-semgrep-ci-without-semgrep-app/" , to: "/semgrep-ci/running-semgrep-ci-with-semgrep-cloud-platform/" } ,
+
           // Semgrep Code
           { from: "/semgrep-app/integrations"                        , to: "/semgrep-code/notifications/" }   ,
           { from: "/semgrep-app/demo-project/"                       , to: "/semgrep-code/demo-project/" }    ,

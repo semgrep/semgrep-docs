@@ -45,7 +45,7 @@ Its rules look like the code you already write; no abstract syntax trees, regex 
 The Semgrep ecosystem includes the following products:
 
 * [Semgrep OSS Engine](getting-started/) - The open-source engine at the heart of everything.
-* [Semgrep Cloud Platform (SCP)](semgrep-app/getting-started-with-semgrep-app) - Deploy, manage, and monitor SAST and SCA at scale using Semgrep, with [free and paid tiers](https://semgrep.dev/pricing). Integrates with continuous integration (CI) providers such as GitHub, GitLab, CircleCI, and more.
+* [Semgrep Cloud Platform (SCP)](semgrep-cloud-platform/getting-started) - Deploy, manage, and monitor SAST and SCA at scale using Semgrep, with [free and paid tiers](https://semgrep.dev/pricing). Integrates with continuous integration (CI) providers such as GitHub, GitLab, CircleCI, and more.
 * [Semgrep Code](https://semgrep.dev/products/semgrep-code) - Scan your code with Semgrep's Pro rules and Semgrep Pro Engine to find OWASP Top 10 vulnerabilities and protect against critical security risks specific to your organization. Semgrep Code provides both Community (free) and Team (paid) tiers.
 * [Semgrep Supply Chain (SSC)](https://semgrep.dev/products/semgrep-supply-chain) - A high-signal dependency scanner that detects reachable vulnerabilities in open source third-party libraries and functions across the software development life cycle (SDLC). Semgrep Supply Chain is available on Team (paid) tiers.
 
@@ -73,9 +73,9 @@ The following table lists environments in which you can run various Semgrep prod
 
 | Product              | Local CLI | Remote CI |
 | -------------------- | --------- | --------- |
-| Semgrep OSS Engine  |  ✅  [Run locally with Semgrep Engine](getting-started)  |   ✅  Can send findings to [Semgrep Cloud Platform](semgrep-ci/running-semgrep-ci-with-semgrep-app) or run [stand-alone CI jobs](semgrep-ci/running-semgrep-ci-without-semgrep-app) |
-| Semgrep Code         |  ✅  Log in to access [Pro Engine](semgrep-code/semgrep-pro-engine-intro) and [Pro rules](semgrep-code/pro-rules) (Team and Enterprise tier) |   ✅  Best used with [Semgrep Cloud Platform](semgrep-app/getting-started-with-semgrep-app) |
-| Semgrep Supply Chain |  ✅  Log in to access [Supply Chain](semgrep-supply-chain/overview) rules (Team and Enterprise tier)  |   ✅  Best used with [Semgrep Cloud Platform](semgrep-app/getting-started-with-semgrep-app) |
+| Semgrep OSS Engine  |  ✅  [Run locally with Semgrep Engine](getting-started)  |   ✅  Can send findings to [Semgrep Cloud Platform](semgrep-ci/running-semgrep-ci-with-semgrep-cloud-platform) or run [stand-alone CI jobs](semgrep-ci/running-semgrep-ci-without-semgrep-cloud-platform) |
+| Semgrep Code         |  ✅  Log in to access [Pro Engine](semgrep-code/semgrep-pro-engine-intro) and [Pro rules](semgrep-code/pro-rules) (Team and Enterprise tier) |   ✅  Best used with [Semgrep Cloud Platform](semgrep-cloud-platform/getting-started) |
+| Semgrep Supply Chain |  ✅  Log in to access [Supply Chain](semgrep-supply-chain/overview) rules (Team and Enterprise tier)  |   ✅  Best used with [Semgrep Cloud Platform](semgrep-cloud-platform/getting-started) |
 
 :::info 
 Semgrep Cloud Platform is a hosted web application (SaaS) and as such is excluded from the table.
