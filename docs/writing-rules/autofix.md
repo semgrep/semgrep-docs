@@ -68,3 +68,9 @@ rules:
 <p align="center">
   <img src="https://web-assets.r2c.dev/inline-autofix-regex.gif" width="100%" alt="Apply Semgrep autofix direclty to a file"/>
 </p>
+
+## Creating autofix rules
+
+The following video shows you how to write autofix rules:
+
+<iframe class="yt_embed" width="100%" height="432px" src="https://www.youtube.com/embed/vVS50Ff5p5c frameborder="0" allowfullscreen></iframe>
