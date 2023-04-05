@@ -119,7 +119,7 @@ in differential scans for performance reasons.
 
 ### Added
 
-- You can now receive Semgrep Supply Chain notifications in your Slack channel. Be notified of **reachable vulnerabilities** as soon as a scan finishes. Install the [Semgrep Slack app](https://returntocorp.slack.com/apps/A03BM27NJ0H-semgrep?tab=more_info), then type `/semgrep_subscribe` to start setting up your Slack notifications.
+- You can now receive Semgrep Supply Chain notifications in your Slack channel. Be notified of **reachable vulnerabilities** as soon as a scan finishes. Sign in to Semgrep Cloud Platform and click Settings > Integrations > Add integration > Slack and follow the instructions to start setting up your Slack notifications.
 
 ### Changed
 
