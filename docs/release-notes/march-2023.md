@@ -62,13 +62,15 @@ This section of release notes include upgrades of Semgrep OSS Engine for version
 - The latest update to`returntocorp/semgrep` Docker images removes the custom entry point that was previously used to invoke Semgrep. As a result, you must now explicitly call `semgrep` when running the image. This change was already made approximately a year ago. In this update, the backward compatibility layer and a deprecation notice have been removed.
     
     Previously, you could scan your code using the `returntocorp/semgrep` image by running the following command:
-    
-    `docker run -v $(pwd):/src returntocorp/semgrep scan ...`
-    
+    ```bash
+    docker run -v $(pwd):/src returntocorp/semgrep scan ...
+    ```
+
     However, this command no longer works. Instead, you must use the following command to achieve the same result:
-    
-    `docker run -v $(pwd):/src returntocorp/semgrep semgrep scan ...`
-    
+    ```bash
+    `docker run -v $(pwd):/src returntocorp/semgrep semgrep scan ...
+    ```
+
     By removing the custom entry point, this update provides greater flexibility and consistency in how Semgrep is invoked within Docker containers.
     
 - taint-mode: Previously, Semgrep OSS Engine taint analysis sometimes flagged sinks that did not propagate taint. For example, the `sink(ok if tainted else ok)` was flagged. To address this, we've made taint analysis more precise. Now, sinks like `sink(...)` where you declare that any argument of a given function is a sink. For example:
@@ -98,9 +100,11 @@ This section of release notes include upgrades of Semgrep OSS Engine for version
 ### Added
 
 - Previously, when installing Semgrep Pro Engine, Semgrep CLI downloaded the most recently released version of Semgrep Pro Engine. As a consequence, this version of Semgrep Pro Engine might not have been the most compatible version with Semgrep OSS Engine. With this update, the most compatible version of Semgrep Pro Engine with Semgrep OSS Engine is downloaded during the installation.
+
     This behavior is only supported for Semgrep version 1.12.1 and later. Previous versions still download the most recently released version, as before.
     
 - taint-mode: Semgrep Pro Engine’s taint analysis capabilities for Java now include support for basic field sensitivity through getters and setters. If you call `obj.setX(tainted)`, Semgrep can now identify that a subsequent call to `obj.getX()` will carry the same taint as `tainted`. Moreover, Semgrep can differentiate between different fields accessed by the getters and setters, such as `obj.getX()` and `obj.getY()`.
+
     It's important to note that Semgrep Pro Engine doesn't examine the definitions of the getter and setter methods, and it doesn't know whether other methods like `obj.clearX()` clear the taint that `obj.setX(tainted)` adds. Nonetheless, this new feature enables Semgrep to detect vulnerabilities more accurately in tainted data flow in Java code.
     
 
@@ -129,8 +133,7 @@ in differential scans for performance reasons.
     - Unreachable — this type of exposure means that the finding has detected a vulnerable dependency but the vulnerable code is not used in your codebase.
     - Undetermined — Reachability analysis has not been performed on this finding, therefore its exposure is undetermined.
 - Historical rules (also known as parity rules) are now enabled by default for new personal and organizational accounts. Existing organizations can reach out to [support@r2c.dev](mailto:support@r2c.dev) to enable parity rules by default.
-- Semgrep Supply Chain scans now understand `maven_dep_tree.txt` files
-that are made of multiple smaller `maven_dep_tree.txt` files concatenated with`cat`. To make use of this functionality, create a script or command using the `cat` command as a step in your CI pipeline.
+- Semgrep Supply Chain scans now understand `maven_dep_tree.txt` files that are made of multiple smaller `maven_dep_tree.txt` files concatenated with`cat`. To make use of this functionality, create a script or command using the `cat` command as a step in your CI pipeline.
 
 ## Documentation
 
