@@ -18,8 +18,8 @@ This section of release notes include upgrades of Semgrep OSS Engine for version
 - Kotlin: Semgrep OSS Engine now supports typed metavariables in Kotlin. For example, to find all instances of a string type, you can now use the following rule pattern:
 `($X : String)`
 - Scala: Semgrep can now parse programs that contain quoted expressions, context parameter clauses that use the `using` function, and soft modifiers like `inline` and `open`.
-- Semgrep can now parse and analyze Scala code that contains matches on types, such as:
-    
+
+    Semgrep can now parse and analyze Scala code that contains matches on types, such as:
     ```scala
     type t = K match {
       case Int => String
