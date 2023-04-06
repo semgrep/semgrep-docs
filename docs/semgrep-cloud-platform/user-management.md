@@ -30,7 +30,7 @@ Semgrep Cloud Platform has two types of accounts:
 <dl>
     <dt>Personal account</dt>
     <dd>Every person who signs into Semgrep Cloud Platform is first signed in to a <strong>personal account</strong>. In a personal account, your findings, projects, private rules, and scans are visible only to you.</dd>
-    <dt>Organization account</dt>
+    <dt>Organization (Org) account </dt>
     <dd>To collaborate with others, create an <strong>organization account</strong>. An organization account in Semgrep Cloud Platform requires an existing organization from GitHub or GitLab. Creating this type of account integrates Semgrep Cloud Platform with your organization. A user can be part of many Semgrep Cloud Platform organization accounts, provided that they are a member of that organization in their SCM (source code management) tool, such as GitHub or GitLab.</dd>
 </dl>
 
@@ -54,7 +54,18 @@ To create an organization account:
 
 1. Sign in to Semgrep Cloud Platform.
 2. On the sidebar, click **your account name > Add org**.
-3. Complete the steps to finish adding your organization account.
+3. Choose either Create an organization or Join an organization.
+4. For **Create an organization**, follow these steps:
+    1. Enter the **Organization Display Name**.
+    2. Click **Create**.
+    3. Click **your account name** > **the new organization** you just created.
+    3. Click **Settings** > **Source code**.
+    4. Click on your Source code manager, for example Connect to GitHub.
+    5. Click an organization to link. You are signed out of Semgrep Cloud Platform automatically as your credentials have change after linking an organization.
+5. For **Join an organization**, select the organization you want to join. You are signed out of Semgrep Cloud Platform automatically as your credentials change after linking an organization.
+6. Sign back into Semgrep Cloud Platform.
+
+You have successfully linked an org in SCP with an organization in your source code management tool.
 
 ## Controlling access through roles 
 
