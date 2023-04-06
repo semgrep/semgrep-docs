@@ -228,7 +228,7 @@ To **fix a finding**:
 
 1. Update, or refactor the code such that the Semgrep rule pattern no longer matches the code.
 
-#### Removing a rulesets
+#### Removing rulesets
 
 <RemoveRuleset />
 
