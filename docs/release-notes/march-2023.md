@@ -68,7 +68,7 @@ This section of release notes include upgrades of Semgrep OSS Engine for version
 
     However, this command no longer works. Instead, you must use the following command to achieve the same result:
     ```bash
-    `docker run -v $(pwd):/src returntocorp/semgrep semgrep scan ...
+    docker run -v $(pwd):/src returntocorp/semgrep semgrep scan ...
     ```
 
     By removing the custom entry point, this update provides greater flexibility and consistency in how Semgrep is invoked within Docker containers.
@@ -117,7 +117,7 @@ in differential scans for performance reasons.
 
 ### Added
 
-- For organizations with role-based access control (RBAC) enabled, members are now able to [log in through the CLI](https://semgrep.dev/docs/semgrep-app/user-management/#member-scoped-access-tokens) and send findings data from their local machine to the Semgrep Cloud Platform.
+- For organizations with role-based access control (RBAC) enabled, members are now able to [log in through the CLI](/semgrep-cloud-platform/user-management/#member-scoped-access-tokens) and send findings data from their local machine to the Semgrep Cloud Platform.
 
 ## Semgrep Supply Chain
 
