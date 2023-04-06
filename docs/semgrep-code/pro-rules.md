@@ -18,7 +18,7 @@ Object.entries(frontMatter).filter(
 </ul>
 
 import MoreHelp from "/src/components/MoreHelp"
-import RemoveRule from "/src/components/procedure/_remove-rule.mdx"
+import RemoveRuleset from "/src/components/procedure/_remove-ruleset.mdx"
 import DisableRule from "/src/components/procedure/_disable-rule.mdx"
 
 # Semgrep Pro rules
@@ -98,13 +98,13 @@ For CLI users: You must be [logged in](/docs/getting-started/#logging-into-semgr
 
 ## Removing or disabling Semgrep Pro rules
 
-### Disabling rules or rulesets
+### Disabling rules
 
 <DisableRule />
 
-### Removing rules or rulesets
+### Removing rulesets
 
-<RemoveRule />
+<RemoveRuleset />
 
 ## Losing access to Semgrep Pro rules
 
