@@ -282,8 +282,7 @@ Automated comments on GitLab merge requests are displayed as follows:
 
 To enable GitLab merge request comments, follow these steps: 
 
-1. Sign in to [Semgrep Cloud Platform](https://semgrep.dev/login). See [Signing in to Semgrep Cloud Platform](/semgrep-code/getting-started/#signing-in-to-semgrep-cloud-platform) for details on requested repository permissions and access.
-1. Click **[Projects](https://semgrep.dev/orgs/-/projects)** > **Scan New Project** > **Run Scan in CI**.
+1. In Semgrep Cloud Platform, click **[Projects](https://semgrep.dev/orgs/-/projects)** > **Scan New Project** > **Run Scan in CI**.
 1. Select GitLab CI/CD from the menu.
 1. Click **Create new API token**, and then copy the value of the new API token.
 1. In GitLab, add the token to your project by going to **Settings** > **CI/CD**.
@@ -295,7 +294,7 @@ To enable GitLab merge request comments, follow these steps:
 1. Copy the token created in the previous step.
 1. Navigate to **Your repository** >  **Settings** > **CI/CD**. The URL of the page where you are ends with: `/username/project/-/settings/ci_cd`.
 1. Under **Variables** click **Expand**, and then click **Add variable**.
-1. Enter **PAT** (change this placeholder name as necessary) in the **Key** field and paste the token value from the step eleven to the **Value** field.
+1. Enter **PAT** (change this placeholder name as necessary) in the **Key** field and paste the token value copied in step ten to the **Value** field.
 1. Select **Mask variable** checkbox option, and then clear the **Protect variable** checkbox option.
 1. Update your `.gitlab-ci.yml` file with variable `GITLAB_TOKEN` and value `$PAT`. Refer to the following example:
 ```yaml
@@ -339,8 +338,7 @@ Use the procedure described in this section if you use the **Bitbucket Cloud Pre
 
 Create a workspace access token in Bitbucket (only available if you have a Bitbucket Cloud Premium plan). Follow the instructions in [Create a Workspace Access Token](https://support.atlassian.com/bitbucket-cloud/docs/create-a-workspace-access-token/). Alternatively, follow these steps to create a workspace access token:
 
-1. Sign in to [Semgrep Cloud Platform](https://semgrep.dev/login). See [Signing in to Semgrep Cloud Platform](/semgrep-code/getting-started/#signing-in-to-semgrep-cloud-platform) for details on requested repository permissions and access.
-1. Click **[Projects](https://semgrep.dev/orgs/-/projects)** > **Scan New Project** > **Run Scan in CI**.
+1. In Semgrep Cloud Platform, click **[Projects](https://semgrep.dev/orgs/-/projects)** > **Scan New Project** > **Run Scan in CI**.
 1. Select Bitbucket from the menu.
 1. Click **Create new API token**, and then copy the value of the new API token.
 1. In the Bitbucket workspace, click the cogwheel icon next to your profile icon in the top right.
@@ -367,8 +365,7 @@ This section helps you to configure PR comments if you do **not** have the Bitbu
 
 Create a repository access token in Bitbucket. Follow the instructions in [Create a repository Access Token](https://support.atlassian.com/bitbucket-cloud/docs/create-a-repository-access-token/). Alternatively, follow these steps to create a repository access token:
 
-1. Sign in to [Semgrep Cloud Platform](https://semgrep.dev/login). See [Signing in to Semgrep Cloud Platform](/semgrep-code/getting-started/#signing-in-to-semgrep-cloud-platform) for details on requested repository permissions and access.
-1. Click **[Projects](https://semgrep.dev/orgs/-/projects)** > **Scan New Project** > **Run Scan in CI**.
+1. In Semgrep Cloud Platform, click **[Projects](https://semgrep.dev/orgs/-/projects)** > **Scan New Project** > **Run Scan in CI**.
 1. Select Bitbucket from the menu.
 1. Click **Create new API token**, and then copy the value of the new API token.
 1. In Bitbucket, select the repository where you want Semgrep to run in CI.
