@@ -1,7 +1,7 @@
 ---
 slug: cli-reference
 append_help_link: true
-description: "Reference for the Semgrep command line tool including options and exit code behavior."
+description: "Reference for the Semgrep command-line interface including options and exit code behavior."
 tags:
     - Semgrep CLI
     - Semgrep Code
@@ -23,11 +23,17 @@ Object.entries(frontMatter).filter(
 
 # CLI reference
 
-The following usage documentation is for the [Semgrep command line tool](https://github.com/returntocorp/semgrep).
+This documentation provides the `--help` option outputs for `semgrep --help` and `semgrep scan --help` for the [Semgrep command-line interface (CLI)](https://github.com/returntocorp/semgrep), as well as Semgrep exit codes overview.
 
 ## Semgrep commands
 
-See `semgrep --help` for a list of available commands.
+For a list of available commands, run the following command:
+
+```bash
+semgrep --help
+```
+
+Command output:
 
 ```
 Usage: semgrep [OPTIONS] COMMAND [ARGS]...
@@ -42,18 +48,25 @@ Options:
   -h, --help  Show this message and exit.
 
 Commands:
-  ci            The recommended way to run semgrep in CI
-  login         Obtain and save credentials for semgrep.dev
-  logout        Remove locally stored credentials to semgrep.dev
-  lsp           [EXPERIMENTAL] Start the Semgrep LSP server.
-  publish       Upload rule to semgrep.dev
-  scan          Run semgrep rules on files
-  shouldafound  Report a false negative in this project.
+  ci                   The recommended way to run semgrep in CI
+  install-semgrep-pro  Install the Semgrep Pro Engine
+  login                Obtain and save credentials for semgrep.dev
+  logout               Remove locally stored credentials to semgrep.dev
+  lsp                  [EXPERIMENTAL] Start the Semgrep LSP server
+  publish              Upload rule to semgrep.dev
+  scan                 Run semgrep rules on files
+  shouldafound         Report a false negative in this project.
 ```
 
-## `semgrep scan` options
+## Semgrep scan command options
 
-See `semgrep scan --help` for command line options available for scans.
+To list all available `semgrep scan` options, run the following command:
+
+```bash
+semgrep scan --help
+```
+
+Command output:
 
 ```
 Usage: semgrep scan [OPTIONS] [TARGETS]...
@@ -179,18 +192,18 @@ Options:
                                   'foo.*' that must match the path. This is an
                                   extra filter in addition to other applicable
                                   filters. For example, specifying the
-                                  language with '-l javascript' might preselect
-                                  files 'src/foo.jsx' and 'lib/bar.js'.
-                                  Specifying one of '--include=src', '--
-                                  include=*.jsx', or '--include=src/foo.*'
-                                  will restrict the selection to the single
-                                  file 'src/foo.jsx'. A choice of multiple '--
-                                  include' patterns can be specified. For
-                                  example, '--include=foo.* --include=bar.*'
-                                  will select both 'src/foo.jsx' and
-                                  'lib/bar.js'. Glob-style patterns follow the
-                                  syntax supported by python, which is
-                                  documented at
+                                  language with '-l javascript' might
+                                  preselect files 'src/foo.jsx' and
+                                  'lib/bar.js'. Specifying one of '--
+                                  include=src', '--include=*.jsx', or '--
+                                  include=src/foo.*' will restrict the
+                                  selection to the single file 'src/foo.jsx'.
+                                  A choice of multiple '--include' patterns
+                                  can be specified. For example, '--
+                                  include=foo.* --include=bar.*' will select
+                                  both 'src/foo.jsx' and 'lib/bar.js'. Glob-
+                                  style patterns follow the syntax supported
+                                  by python, which is documented at
                                   https://docs.python.org/3/library/glob.html
     --max-target-bytes BYTES      Maximum size for a file to be scanned by
                                   Semgrep, e.g '1.5MB'. Any input program
@@ -275,6 +288,7 @@ Options:
                                   debugging information.
   Output formats: [mutually_exclusive]
                                   Uses ASCII output if no format specified.
+    --text                        Output results in Emacs single-line format.
     --emacs                       Output results in Emacs single-line format.
     --json                        Output results in Semgrep's JSON format.
     --gitlab-sast                 Output results in GitLab SAST format.
@@ -283,18 +297,20 @@ Options:
     --sarif                       Output results in SARIF format.
     --vim                         Output results in vim single-line format.
   Semgrep Pro Engine options: 
-    --pro-languages               Enable Pro languages (currently just Apex).
-                                  Requires Semgrep Pro Engine, contact
-                                  support@r2c.dev for more information on
-                                  this.
-    --pro-intrafile               Intra-file inter-procedural taint analysis.
-                                  Implies --pro-languages. Requires Semgrep
-                                  Pro Engine, contact support@r2c.dev for more
-                                  information on this.
     --pro                         Inter-file analysis and Pro languages
                                   (currently just Apex). Requires Semgrep Pro
                                   Engine, contact support@r2c.dev for more
                                   information on this.
+    --pro-intrafile               Intra-file inter-procedural taint analysis.
+                                  Implies --pro-languages. Requires Semgrep
+                                  Pro Engine, contact support@r2c.dev for more
+                                  information on this.
+    --pro-languages               Enable Pro languages (currently just Apex).
+                                  Requires Semgrep Pro Engine, contact
+                                  support@r2c.dev for more information on
+                                  this.
+    --oss-only                    Run using only OSS features, even if the
+                                  Semgrep Pro toggle is on.
 ```
 
 ## Autocomplete
@@ -332,7 +348,6 @@ For example:
 export HTTP_PROXY="http://10.10.1.10:3128" <br />
 export HTTPS_PROXY="http://10.10.1.10:1080"
 </pre>
-
 
 ## Exit codes
 

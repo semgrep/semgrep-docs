@@ -33,27 +33,7 @@ Without user customization, Semgrep refers to the following to define ignored fi
 In the absence of a user-generated `.semgrepignore`, Semgrep refers to [its repository's default template](https://github.com/returntocorp/semgrep/blob/develop/cli/src/semgrep/templates/.semgrepignore):
 
 ```
-# Common large paths
-node_modules/
-build/
-dist/
-vendor/
-.env/
-.venv/
-.tox/
-*.min.js
-.npm/
-
-# Common test paths
-test/
-tests/
-*_test.go
-
-# Semgrep rules folder
-.semgrep
-
-# Semgrep-action log folder
-.semgrep_logs/
+DEFAULT_SEMGREPIGNORE_TEXT
 
 ```
 
@@ -198,7 +178,7 @@ Previous annotations for ignoring code inline, such as `nosem`, are deprecated.
 
 ## Disabling rules on Semgrep Cloud Platform
 
-Semgrep Cloud Platform users can disable rules and rulesets through the Rule Board. See [Removing rules or rulesets](/semgrep-code/rule-board/#removing-rules-or-rulesets).
+Semgrep Cloud Platform users can disable rules and remove rulesets through the Rule Board. See [Disabling rules](/semgrep-code/rule-board/#disabling-rules) and [Removing rulesets](/semgrep-code/rule-board/#removing-rulesets).
 
 ## Known issues
 

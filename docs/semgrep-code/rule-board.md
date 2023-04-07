@@ -12,7 +12,7 @@ tags:
 ---
 
 import MoreHelp from "/src/components/MoreHelp"
-import RemoveRule from "/src/components/procedure/_remove-rule.mdx"
+import RemoveRuleset from "/src/components/procedure/_remove-ruleset.mdx"
 import DisableRule from "/src/components/procedure/_disable-rule.mdx"
 
 <ul id="tag__badge-list">
@@ -82,9 +82,9 @@ Semgrep Code detects the framework and language when scanning a project and only
 
 <DisableRule />
 
-## Removing rules or rulesets
+## Removing rulesets
 
-<RemoveRule />
+<RemoveRuleset />
 
 ## Configuring notifications
 

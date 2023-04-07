@@ -26,7 +26,7 @@ To publish private rules through the Semgrep Cloud Platform:
 1. Go to [Semgrep Editor](https://semgrep.dev/orgs/-/editor).
 1. Click <i className="fa-solid fa-file-plus-minus inline_svg"></i> **Create New Rule**.
 1. Choose one of the following:
-    - Create a new rule and test code by clicking <i class="fa-solid fa-circle-plus"></i> **plus** icon, select **New rule**, and then click <i className="fa-solid fa-floppy-disk inline_svg"></i> **Save**. Note: The test file must contain at least one true positive and one true negative test case to be approved. See the [Tests](#tests) section of this document for more information.
+    - Create a new rule and test code by clicking <i class="fa-solid fa-circle-plus"></i> **plus** icon, select **New rule**, and then click <i className="fa-solid fa-floppy-disk inline_svg"></i> **Save**.
     - In the <i class="fa-solid fa-server"></i> **Library** panel, select a rule from a category in **Semgrep Registry**. Click <i className="fa-solid fa-code-branch inline_svg"></i> **Fork**, modify the rule or test code, and then click <i className="fa-solid fa-floppy-disk inline_svg"></i> **Save**.
 
 Your private rule has been created. Private rules are stored in the folder with the same name as your Semgrep Cloud Platform organization.
