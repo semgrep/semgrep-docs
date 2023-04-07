@@ -77,30 +77,13 @@ To test Semgrep Pro Engine on a purposefully vulnerable repository, fork the [ju
 
 ## Additional information
 
-### Experimental support for interprocedural analysis
+### Types of analysis within Semgrep Pro Engine  
 
-Interprocedural analysis keeps the fast scan times of Semgrep OSS while also finding new vulnerabilities that cross functions. It's designed to improve results shown in pull or merge requests (PRs or MRs) and help security engineers build trust with developers.
+**Interfile analysis** gathers context across multiple files to help security engineers deeply understand their organization's security issues. It reduces noise, and detects new vulnerabilites that OSS isn't able to find. Interfile analysis runs on nightly scans. These scans may take longer to complete and can use more memory than OSS Engine scans. Interfile analysis is available for Java and Javascript/Typescript.
 
-To run Semgrep Pro Engine interprocedural analysis in the CLI:
+**Interprocedural analysis** keeps the fast scan times of Semgrep OSS while also finding new vulnerabilities that cross functions within a single file.
+It improves results in pull or merge requests (PRs or MRs) and helps security engineers build trust with developers. Interprocedural analysis available for [all GA langauges](supported-languages/#semgrep-oss-engine). 
 
-1. Follow steps 1-3 in [Installing Semgrep Pro Engine in CLI](#installing-semgrep-pro-engine-in-cli).
-1. Run the following command:
-    ```bash
-    semgrep --pro-intrafile --config "p/default" --time --metrics on
-    ```
-
-### Events that trigger a Semgrep Pro Engine scan
-
-Semgrep Pro Engine only runs on full scans. **It does not run on pull or merge requests (PRs or MRs)**.
-
-### Performance differences between Semgrep Pro Engine and Semgrep OSS Engine
-
-The following performance differences may arise:
-
-* Semgrep Pro Engine has a longer scan time.
-* Semgrep Pro Engine uses more memory.
-* Semgrep Pro Engine can reduce the finding count when it detects and removes false positives.
-* Semgrep Pro Engine can introduce new findings.
 
 ### Semgrep Pro Engine CI scan issues
 
@@ -116,7 +99,7 @@ If many repositories cause scan issues:
 
 ### Difference between Semgrep Pro Engine and join mode
 
-Semgrep Pro is different from [join mode](/writing-rules/experiments/join-mode/overview/), which also allows you to perform interfile analyses by letting you join on the metavariable matches in separate rules.
+Semgrep Pro Engine is different from [join mode](/writing-rules/experiments/join-mode/overview/), which also allows you to perform interfile analyses by letting you join on the metavariable matches in separate rules.
 
 ### Future development of Semgrep Pro Engine
 
