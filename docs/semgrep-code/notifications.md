@@ -387,7 +387,7 @@ To complete the configuration, follow the [Adding Semgrep to your Bitbucket CI p
 #### Bitbucket CI pipelines YAML file for PR comments
 
 :::info Prerequisite
-You have finished the steps in either [Creating a workspace access token](/semgrep-code/notifications/#creating-and-adding-a-workspace-access-token) (if you have **Bitbucket Cloud Premium** plan), or [Creating a repository access token](/semgrep-code/notifications/#creating-and-adding-a-repository-access-token).
+Finish the steps in either [Creating a workspace access token](/semgrep-code/notifications/#creating-and-adding-a-workspace-access-token) (if you have **Bitbucket Cloud Premium** plan), or [Creating a repository access token](/semgrep-code/notifications/#creating-and-adding-a-repository-access-token) before commiting the file below.
 :::
 
 Commit the following code to your `bitbucket-pipelines.yml` file:
