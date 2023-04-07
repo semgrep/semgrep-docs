@@ -17,7 +17,7 @@ For example:
 `metavariable-comparison`
 -------------------------
 
-Using constant propagation, the [`metavariable-comparison`](../../rule-syntax/#metavariable-comparison) operator will work with any constant variable, instead of just literals.
+Using constant propagation, the [`metavariable-comparison`](/writing-rules/rule-syntax/#metavariable-comparison) operator will work with any constant variable, instead of just literals.
 
 For example:
 
@@ -36,6 +36,6 @@ The only exceptions (for now) are method calls whose returning value is being ig
 Disabling constant propagation
 ------------------------------
 
-It is possible to disable constant propagation in a per-rule basis via rule [`options:`](../rule-syntax.md#options) by setting `constant_propagation: false`.
+It is possible to disable constant propagation in a per-rule basis via rule [`options:`](/writing-rules/rule-syntax/#options) by setting `constant_propagation: false`.
 
 <iframe src="https://semgrep.dev/embed/editor?snippet=jwvn" border="0" frameBorder="0" width="100%" height="432"></iframe>
