@@ -269,6 +269,10 @@ If you are using GitHub Actions to run Semgrep, no extra changes are needed to g
 
 ### GitLab merge request comments
 
+:::info Prerequisite
+- GitLab MR comments are only available to logged-in Semgrep Cloud Platform users.
+:::
+
 This section documents how to enable Semgrep Cloud Platform to post comments on merge requests.
 
 Automated comments on GitLab merge requests are displayed as follows:
@@ -319,10 +323,6 @@ semgrep:
 Substitute the placeholder <code><span className="placeholder">PAT</span></code> with the name you created for this variable.
 
 For more configuration options, see [GitLab CI Sample](/semgrep-ci/sample-ci-configs/#gitlab-ci).
-
-:::note
-- GitLab MR comments are only available to logged-in Semgrep Cloud Platform users.
-:::
 
 ### Bitbucket pull request comments
 
