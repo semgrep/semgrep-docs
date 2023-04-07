@@ -326,9 +326,9 @@ For more configuration options, see [GitLab CI Sample](/semgrep-ci/sample-ci-con
 
 ### Bitbucket pull request comments
 
-To configure Semgrep PR comments in your Bitbucket PRs, follow the steps described in the subsections below. There are two ways in which in which you can integrate Semgrep comments to your Bitbucket CI depending on the Bitbucket plan you use:
+To configure Semgrep PR comments in your Bitbucket PRs, follow the steps described in the subsections below. There are two ways in which you can integrate Semgrep comments to your Bitbucket CI depending on the Bitbucket plan you use:
 
-- **Workspace access token**: If you use the Bitbucket Cloud Premium plan, you can create a workspace access token. This option saves time because you can create one access token for all repositories in the workspace. With one access token, you can bulk-onboard more repositories at once from a whole workspace. See [Creating a workspace access token](/semgrep-code/notifications/#creating-and-adding-a-workspace-access-token). However, you can also use the option of a repository access token, see below for more information to onboard repositories one by one.
+- **Workspace access token**: If you use the Bitbucket Cloud Premium plan, you can create a workspace access token. This option saves time because you can create one access token for all repositories in the workspace. With one workspace access token, you can bulk-onboard more repositories at once from a whole workspace. See [Creating a workspace access token](/semgrep-code/notifications/#creating-and-adding-a-workspace-access-token). However, you can also use the option of a repository access token to onboard repositories one by one.
 - **Repository access token**: If you do **not** have the Bitbucket Cloud Premium plan, create a separate repository access token for each repository where you want to use Semgrep. This configuration option is also useful if you have the Bitbucket Cloud Premium plan, but prefer to onboard repositories one by one instead of bulk onboarding. See [Creating a repository access token](/semgrep-code/notifications/#creating-and-adding-a-repository-access-token).
 
 #### Creating and adding a workspace access token
@@ -357,7 +357,7 @@ Create a workspace access token in Bitbucket (only available if you have a Bitbu
 1. Create a new workspace variable by entering **PAT** (change this placeholder name as necessary) to the **Name** field, and then paste the workspace access token in the **Value** field.
 1. Enable the **Secured** option, and then click **Add**.
 
-To complete the configuration, follow the [Adding Semgrep to your Bitbucket CI pipeline for PR comments](#adding-semgrep-to-your-bitbucket-ci-pipeline-for-pr-comments) section.
+To complete the configuration, follow the [Adding Semgrep to your Bitbucket CI pipeline for PR comments](#bitbucket-ci-pipelines-yaml-file-for-pr-comments) section.
 
 #### Creating and adding a repository access token
 
@@ -385,9 +385,9 @@ Create a repository access token in Bitbucket. Follow the instructions in [Creat
 1. Create a new repository variable by entering **PAT** (change this placeholder name as necessary) to the **Name** field, and then paste the workspace access token in the **Value** field.
 1. Enable the **Secured** option, and then click **Add**.
 
-To complete the configuration, follow the [Adding Semgrep to your Bitbucket CI pipeline for PR comments](#adding-semgrep-to-your-bitbucket-ci-pipeline-for-pr-comments) section.
+To complete the configuration, follow the [Adding Semgrep to your Bitbucket CI pipeline for PR comments](/semgrep-code/notifications/#bitbucket-ci-pipelines-yaml-file-for-pr-comments) section.
 
-#### Bitbucket CI pipeline for PR comments
+#### Bitbucket CI pipelines YAML file for PR comments
 
 :::info Prerequisite
 You have finished the steps in either [Creating a workspace access token](/semgrep-code/notifications/#creating-and-adding-a-workspace-access-token) (if you have **Bitbucket Cloud Premium** plan), or [Creating a repository access token](/semgrep-code/notifications/#creating-and-adding-a-repository-access-token).
