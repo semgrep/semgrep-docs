@@ -88,7 +88,9 @@ This section of release notes include upgrades of Semgrep OSS Engine for version
 
 - The `-gitlab-sast` and `-gitlab-secrets` output formats have been upgraded. The output is now valid with the GitLab v15 schema, while staying valid with the GitLab v14 schema as well. Code findings now include the confidence of the rule.
 
-# Semgrep Code
+## Semgrep Code
+
+### Added
 
 - **Semgrep Pro Engine beta** toggle is enabled by default in the [Semgrep Editor](https://semgrep.dev/orgs/-/editor/) and [Semgrep Playground](https://semgrep.dev/playground). Rules can still run with the Semgrep OSS Engine if `interfile: true` is not specified in the rule.
 - Findings from Pro rules or Semgrep Pro Engine are now labeled with a gem icon to let you know where the finding has come from.
