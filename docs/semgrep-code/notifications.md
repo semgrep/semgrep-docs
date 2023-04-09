@@ -325,6 +325,10 @@ For more configuration options, see [GitLab CI Sample](/semgrep-ci/sample-ci-con
 
 ### Bitbucket pull request comments
 
+:::info Prerequisite
+- Bitbucket PR comments are only available to logged-in Semgrep Cloud Platform users.
+:::
+
 To configure Semgrep PR comments in your Bitbucket PRs, follow the steps described in the subsections below. There are two ways in which you can integrate Semgrep comments to your Bitbucket CI depending on the Bitbucket plan you use:
 
 - **Workspace access token**: If you use the Bitbucket Cloud Premium plan, you can create a workspace access token. This option saves time because you can create one access token for all repositories in the workspace. With one workspace access token, you can bulk-onboard more repositories at once from a whole workspace. See [Creating a workspace access token](/semgrep-code/notifications/#creating-and-adding-a-workspace-access-token). However, you can also use the option of a repository access token to onboard repositories one by one.
