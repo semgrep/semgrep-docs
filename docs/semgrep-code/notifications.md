@@ -423,7 +423,7 @@ pipelines:
 ```
 Substitute the placeholder <code><span className="placeholder">PAT</span></code> with the name you created for this variable.
 
-For more configuration options, see [Bitbucket Pipelines CI Sample](/semgrep-ci/sample-ci-configs/#bitbucket-pipelines).
+For more configuration options, see [Bitbucket Pipelines CI Sample](/semgrep-ci/sample-ci-configs/#bitbucket-pipelines). Examples of more CI pipelines that you can use in Bitbucket CMS can be found in [Sample continuous integration (CI) configurations](https://semgrep.dev/docs/semgrep-ci/sample-ci-configs/).
 
 :::note
 - Substitute branch names and exported tokens (for example `main`, `$PAT`) according to your workspace or repository settings.
