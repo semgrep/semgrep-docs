@@ -77,7 +77,7 @@ To test Semgrep Pro Engine on a purposefully vulnerable repository, fork the [ju
 
 ## Additional information
 
-### Types of analysis within Semgrep Pro Engine  
+### Types of Semgrep Pro Engine analysis  
 
 **Interfile analysis** gathers context across multiple files to help security engineers deeply understand their organization's security issues. It reduces noise, and detects new vulnerabilites that OSS isn't able to find. Interfile analysis runs on nightly scans. These scans may take longer to complete and can use more memory than OSS Engine scans. Interfile analysis is available for Java and Javascript/Typescript.
 
