@@ -90,12 +90,14 @@ To set up or subscribe to notifications for findings in your Slack workspace, pe
 
 1. In your Slack workspace, find or create a channel for Semgrep notifications.
 2. In the selected Slack channel, enter the following slash command: `/semgrep_subscribe`.
-3. **Optional**: Enter the name of a specific project after `/semgrep_subscribe` to receive findings for that specific project only, for example, `/semgrep_subscribe purposely-vulnerable-go-repo`.
+3. **Optional**: Enter the name of a specific project after `/semgrep_subscribe` to receive findings for that specific project only, for example, `/semgrep_subscribe acme-corp/vulnerable-repo`. The project must be entered in the following format:
+    <pre className="newline-snippet"><code>/semgrep_subscribe <span className="placeholder">ACCOUNT_NAME/REPOSITORY_NAME</span></code></pre>
 4. Choose an organization in the list under **Select target organization**. The dialog box expands with additional options.
     ![Semgrep Slack app dialog box for subscribing to notifications](/img/semgrep-slack-subscribe.png "Semgrep Slack app dialog box for subscribing to notifications")
-4. **Optional**: For Semgrep users that receive both Semgrep Code findings and Semgrep Supply Chain vulnerabilities, you can select **target scan types** to subscribe to either Semgrep Code, Semgrep Supply Chain, or both.
-5. **Optional:** Select any number of policies to receive findings for under the **Selected Policies** field. Note that selecting all policies, including the Monitor policy, can potentially result in a noisy message.
-6. Click **Subscribe**.
+5. **Optional**: Set up additional filters:
+    1. For Semgrep users that receive both Semgrep Code findings and Semgrep Supply Chain vulnerabilities, you can select **target scan types** to subscribe to either Semgrep Code, Semgrep Supply Chain, or both.
+    6. Select any number of policies to receive findings for under the **Selected Policies** field. Note that selecting all policies, including the Monitor policy, can potentially result in a noisy message.
+6. Click **Subscribe**. If you did not specify a project after `/semgrep_subscribe`, the channel is subscribed to findings from all your repositories in Semgrep Cloud Platform.
 7. **Optional**: To set up Slack notifications for additional workspaces, repeat steps 1 to 6. The Semgrep Slack integration is set up on a per-workspace basis.
 
 You have successfully set up notifications for Semgrep findings. The Semgrep Slack app reports new findings after every scan. It does not report findings that were previously discovered.
