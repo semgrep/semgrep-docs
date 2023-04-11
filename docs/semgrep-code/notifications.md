@@ -80,7 +80,7 @@ You must be a Slack **Workspace Owner** to set up the Semgrep Slack app.
 
 To install the Semgrep Slack app, follow these steps:
 
-1. Sign in to your [Semgrep Cloud Platform](semgrep.dev/login) account, and then go to **Settings** > **[Integrations](https://semgrep.dev/orgs/-/settings/integrations)**.
+1. Sign in to your [Semgrep Cloud Platform](https://semgrep.dev/login) account, and then go to **Settings** > **[Integrations](https://semgrep.dev/orgs/-/settings/integrations)**.
 2. On the **[Integrations](https://semgrep.dev/orgs/-/settings/integrations)** page, click **Add Integration** (or **Setup First Integration** if this is your first integration), and then select **Slack**.
 3. Click **Allow**.
 
@@ -91,12 +91,13 @@ To set up or subscribe to notifications for findings in your Slack workspace, pe
 1. In your Slack workspace, find or create a channel for Semgrep notifications.
 2. In the selected Slack channel, enter the following slash command: `/semgrep_subscribe`.
 3. **Optional**: Enter the name of a specific project after `/semgrep_subscribe` to receive findings for that specific project only, for example, `/semgrep_subscribe acme-corp/vulnerable-repo`. The project must be entered in the following format:
-    <pre className="newline-snippet"><code>/semgrep_subscribe <span className="placeholder">ACCOUNT_NAME/REPOSITORY_NAME</span></code></pre>
+    <br />
+    <code>/semgrep_subscribe <span className="placeholder">ACCOUNT_NAME/REPOSITORY_NAME</span></code>
 4. Choose an organization in the list under **Select target organization**. The dialog box expands with additional options.
     ![Semgrep Slack app dialog box for subscribing to notifications](/img/semgrep-slack-subscribe.png "Semgrep Slack app dialog box for subscribing to notifications")
-5. **Optional**: Set up additional filters:
+5. **Optional**: Set up additional filters.
     1. For Semgrep users that receive both Semgrep Code findings and Semgrep Supply Chain vulnerabilities, you can select **target scan types** to subscribe to either Semgrep Code, Semgrep Supply Chain, or both.
-    6. Select any number of policies to receive findings for under the **Selected Policies** field. Note that selecting all policies, including the Monitor policy, can potentially result in a noisy message.
+    2. Select any number of policies to receive findings for under the **Selected Policies** field. By default, you are subscribed to all policies, including the Monitor policy. This can potentially result in a noisy message.
 6. Click **Subscribe**. If you did not specify a project after `/semgrep_subscribe`, the channel is subscribed to findings from all your repositories in Semgrep Cloud Platform.
 7. **Optional**: To set up Slack notifications for additional workspaces, repeat steps 1 to 6. The Semgrep Slack integration is set up on a per-workspace basis.
 
@@ -125,12 +126,20 @@ To remove or unsubscribe to notifications:
 
 You have unsubscribed from Semgrep finding notifications for that particular channel.
 
-#### Making changes to your Slack notification settings
+#### Making changes to your Slack notifications
 
-You can customize your notification settings at any time through the **Semgrep App Home** in your Slack workplace. To view the Semgrep App Home:
+You can customize your notification settings at any time through the **Semgrep App Home** in your Slack workplace.
+
+To view the Semgrep App Home:
 
 1. In your Slack workspace,  click **+ Add apps**, which can be found in the sidebar under the **Apps** header.
 2. Click **Semgrep**. The Semgrep app appears as a button on the sidebar.
+
+To change the settings:
+
+1. In your Slack workspace, click **Semgrep** under **Apps** in the Slack sidebar. This displays the **Semgrep App Home**.
+2. Click the **three-dot menu** of the channel to update.
+3. Click **Manage filters**.
 
 #### Uninstalling the Semgrep Slack App from your Slack workspace
 
@@ -145,6 +154,40 @@ To uninstall the Semgrep Slack App entirely from your Slack workspace, perform t
 3. Click **Remove integration** > **Remove**.
 
 #### Troubleshooting
+
+#### Not receiving any findings
+
+The following list describes possible ways to troubleshoot findings not appearing in your Slack workspace:
+
+* Check that you have successfully set up your notifications.
+* Check that your most recent scan has findings to send.
+* Check your filters.
+
+##### Check notifications
+
+To check that your notifications are set up, receive a test message from Semgrep:
+
+1. In your Slack workspace, click **Semgrep** under **Apps** in the Slack sidebar.
+2. Click the **three-dot menu** > **Send Test Notification**.
+
+##### Check your filters
+
+If you have set up any filter, such as filtering for a specific policy or project, all conditions of that filter must be present for the notificatin to be sent. Review your filters by following the steps in [Making changes to your Slack notifications](#making-changes-to-your-slack-notifications).
+
+
+#### Permissions not up-to-date
+
+You may receive a message from Semgrep Slack app stating that your token does not have up-to-date permissions. Clicking the link provided in the message to update the permissions typically resolves this issue.
+
+However, if after updating the token, you still receive the same message, perform the following steps to revoke then refresh your access token:
+
+1. In your Slack workspace, click **Semgrep** under **Apps** in the Slack sidebar.
+2. Click Uninstall. This revokes your token.
+3. Go to Semgrep Cloud Platform > Settings > Integrations.
+4. Find the Slack entry for the workspace you revoked in step 2 and click **Refresh Token**.
+5. Follow the steps in the authentication flow to complete the token refresh.
+
+You have refreshed your access token and updated your permissions.
 
 #### Receiving `dispatch_failed` error
 
