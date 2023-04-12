@@ -82,7 +82,7 @@ This section applies to the following providers:
 ![Screenshot of Projects page CI provider modal list](/img/semgrep-app-new-project-providers.png "Screenshot of Projects page CI provider modal list")
 
 :::note
-GitHub, GitLab, and BitBucket SCMs are compatible with the above CI providers, but steps and feature enablement may vary for **on-premise, self-hosted, or virtual private cloud (VPC) deployments**, such as GitHub Enterprise Server.
+GitHub, GitLab, and BitBucket SCMs are compatible with the above mentioned CI providers, but steps and feature enablement may vary for **on-premise, self-hosted, or virtual private cloud (VPC) deployments**, such as GitHub Enterprise Server.
 :::
 
 To set up the CI job and connect with Semgrep Cloud Platform:
