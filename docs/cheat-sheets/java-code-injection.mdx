@@ -5,18 +5,15 @@ description: "Prevent potential code injection in Java."
 
 import LinkToRegistryRule from "/src/components/LinkToRegistryRule"
 import CodeInjectionIntro from "/src/components/concept/_code-injection-intro.mdx"
+import RecommendedRuleSet from "/src/components/code_snippets/_cheat-sheets-recommended-rule-set.mdx"
 
 # Code injection prevention for Java
 
 <CodeInjectionIntro />
 
-#### Check your project for these conditions:
+### Check your project using Semgrep
 
-```bash
-semgrep scan --config="r/java.lang.security.audit.unsafe-reflection.unsafe-reflection"
-```
-
----
+<RecommendedRuleSet />
 
 ## 1. Unsafe Reflection
 

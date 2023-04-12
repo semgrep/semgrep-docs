@@ -5,6 +5,7 @@ description: "XSS prevention cheat sheet for Ruby on Rails."
 
 import LinkToRegistryRule from "/src/components/LinkToRegistryRule"
 import XssInjectionIntro from "/src/components/concept/_xss-injection-intro.mdx"
+import RecommendedRuleSet from "/src/components/code_snippets/_cheat-sheets-recommended-rule-set.mdx"
 
 # XSS prevention for Ruby on Rails
 
@@ -14,15 +15,9 @@ import XssInjectionIntro from "/src/components/concept/_xss-injection-intro.mdx"
 
 In general, always let Rails render ERB template files rather than constructing them in code. If HTML escaping is needed, use `html_safe()` in Ruby code and review each individual usage carefully. Once reviewed, mark the line with `# nosem`. Beware of putting data in dangerous locations in templates. And as always, run a security checker continuously on your code.
 
-#### Check your project for these conditions
+### Check your project using Semgrep
 
-```bash
-semgrep scan --config p/minusworld.ruby-on-rails-xss
-```
-
-[PDF of this cheat sheet](https://web-assets.r2c.dev/security-cheat-sheets/xss/r2c-security-cheat-sheet-xss-prevention-for-ruby-on-rails.pdf)
-
----
+<RecommendedRuleSet />
 
 ## 1. Unescaped variable enters template engine in Ruby code
 
