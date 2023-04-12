@@ -159,8 +159,8 @@ To uninstall the Semgrep Slack App entirely from your Slack workspace, perform t
 
 The following list describes possible ways to troubleshoot findings not appearing in your Slack workspace:
 
-* Check that you have successfully set up your notifications.
-* Check that your most recent scan has findings to send.
+* Check if you have successfully set up your notifications.
+* Check if your most recent scan has findings to send.
 * Check your filters.
 
 ##### Check notifications
