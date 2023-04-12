@@ -126,7 +126,7 @@ To remove or unsubscribe to notifications:
 
 You have unsubscribed from Semgrep finding notifications for that particular channel.
 
-#### Making changes to your Slack notifications
+#### Changing Slack notifications settings
 
 You can customize your notification settings at any time through the **Semgrep App Home** in your Slack workplace.
 
