@@ -193,8 +193,8 @@ You have refreshed your access token and updated your permissions.
 
 There are many possible causes for this error. Possible fixes include:
 
-* Re-entering your last command or operation after a few minutes.
-* Uninstalling then reinstalling your Semgrep Slack integration.
+* Re-enter your last command or operation after a few minutes.
+* Uninstall, and then reinstall your Semgrep Slack integration.
 
 #### Fixing `operation_timeout` error
 
