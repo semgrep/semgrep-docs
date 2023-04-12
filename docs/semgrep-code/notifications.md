@@ -405,7 +405,7 @@ If you are using GitHub Actions to run Semgrep, no extra changes are needed to g
 
 :::info Prerequisites
 - GitLab MR comments are only available to logged-in Semgrep Cloud Platform users.
-- The **SEMGREP_APP_TOKEN** added among your CI/CD variables in GitLab. See the [Creating a SEMGREP_APP_TOKEN](/semgrep-ci/running-semgrep-ci-with-semgrep-cloud-platform/#creating-a-semgrep_app_token) and [GitLab CI/CD variables](https://docs.gitlab.com/ee/ci/variables/) in GitLab documentation.
+- The **SEMGREP_APP_TOKEN** added among your CI/CD variables in GitLab. See the [CI providers listed in Semgrep Cloud Platform](/semgrep-ci/running-semgrep-ci-with-semgrep-cloud-platform/#ci-providers-listed-in-semgrep-cloud-platform) section and [GitLab CI/CD variables](https://docs.gitlab.com/ee/ci/variables/) in GitLab documentation.
 :::
 
 This section documents how to enable Semgrep Cloud Platform to post comments on merge requests.
