@@ -149,7 +149,7 @@ This removes **all** Semgrep notifications in **all** channels in your Slack wor
 
 To uninstall the Semgrep Slack App entirely from your Slack workspace, perform the following steps:
 
-1. Sign in to your [Semgrep Cloud Platform](semgrep.dev/login) account, and then go to **Settings** > **[Integrations](https://semgrep.dev/orgs/-/settings/integrations)**.
+1. In [Semgrep Cloud Platform](https://semgrep.dev/login), go to **Settings** > **[Integrations](https://semgrep.dev/orgs/-/settings/integrations)**.
 2. On the **[Integrations](https://semgrep.dev/orgs/-/settings/integrations)** page, find the Slack integration you want to remove.
 3. Click **Remove integration** > **Remove**.
 
