@@ -75,7 +75,7 @@ This step connects a source code manager, such as GitHub, to your Semgrep organi
 
 You have successfully connected an org in Semgrep Cloud Platform with an organization in your source code management tool.
 
-### Joining an Semgrep organization
+### Joining a Semgrep organization
 
 If a Semgrep organization has been connected to GitHub or GitLab, members of the org in GitHub or GitLab can join the Semgrep organization. To join a Semgrep org account, perform the following steps:
 
