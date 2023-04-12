@@ -8,7 +8,6 @@ tags:
     - Team & Enterprise Tier
 title: Running Semgrep in CI with Semgrep Cloud Platform
 hide_title: true
-toc_max_heading_level: 3
 ---
 
 import MoreHelp from "/src/components/MoreHelp"
