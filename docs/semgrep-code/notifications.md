@@ -451,8 +451,7 @@ Substitute the placeholder <code><span className="placeholder">PAT</span></code>
 For more configuration options, see [GitLab CI Sample](/semgrep-ci/sample-ci-configs/#gitlab-ci).
 
 :::info
-- Test Semgrep MR comments by submitting a test code from a rule in your [Rule board](https://semgrep.dev/orgs/-/board) that is in the **Comment** column.
-- Only rules in the **Comment** and **Block** columns of your [Rule board](https://semgrep.dev/orgs/-/board) create the MR comments. Rules from the **Block** will also block the MR pipeline. To unblock the pipeline, the detected code needs to be fixed.
+Only rules in the **Comment** and **Block** columns of your [Rule board](https://semgrep.dev/orgs/-/board) create the MR comments. Rules from the **Block** will also block the MR pipeline. To unblock the pipeline, the detected code needs to be fixed.
 :::
 
 ### Bitbucket pull request comments
