@@ -90,16 +90,16 @@ To set up or subscribe to notifications for findings in your Slack workspace, pe
 
 1. In your Slack workspace, find or create a channel for Semgrep notifications.
 2. In the selected Slack channel, enter the following slash command: `/semgrep_subscribe`.
-3. **Optional**: Enter the name of a specific project after `/semgrep_subscribe` to receive findings for that specific project only, for example, `/semgrep_subscribe acme-corp/vulnerable-repo`. The project must be entered in the following format:
+3. Optional: Enter the name of a specific project after `/semgrep_subscribe` to receive findings for that specific project only, for example, `/semgrep_subscribe acme-corp/vulnerable-repo`. The project must be entered in the following format:
     <br />
     <code>/semgrep_subscribe <span className="placeholder">ACCOUNT_NAME/REPOSITORY_NAME</span></code>
 4. Choose an organization in the list under **Select target organization**. The dialog box expands with additional options.
     ![Semgrep Slack app dialog box for subscribing to notifications](/img/semgrep-slack-subscribe.png "Semgrep Slack app dialog box for subscribing to notifications")
-5. **Optional**: Set up additional filters.
+5. Optional: Set up additional filters.
     1. For Semgrep users that receive both Semgrep Code findings and Semgrep Supply Chain vulnerabilities, you can select **target scan types** to subscribe to either Semgrep Code, Semgrep Supply Chain, or both.
     2. Select any number of policies to receive findings for under the **Selected Policies** field. By default, you are subscribed to all policies, including the Monitor policy. This can potentially result in a noisy message.
 6. Click **Subscribe**. If you did not specify a project after `/semgrep_subscribe`, the channel is subscribed to findings from all your repositories in Semgrep Cloud Platform.
-7. **Optional**: To set up Slack notifications for additional workspaces, repeat steps 1 to 6. The Semgrep Slack integration is set up on a per-workspace basis.
+7. Optional: To set up Slack notifications for additional workspaces, repeat steps 1 to 6. The Semgrep Slack integration is set up on a per-workspace basis.
 
 You have successfully set up notifications for Semgrep findings. The Semgrep Slack app reports new findings after every scan but does not report findings that were previously discovered.
 
@@ -126,7 +126,7 @@ To remove or unsubscribe to notifications:
 
 You have unsubscribed from Semgrep finding notifications for that particular channel.
 
-#### Changing Slack notifications settings
+#### Changing Slack notification settings
 
 You can customize your notification settings at any time through the **Semgrep App Home** in your Slack workplace.
 
@@ -172,14 +172,14 @@ To check that your notifications are set up, receive a test message from Semgrep
 
 ##### Check your filters
 
-If you have set up any filter, such as filtering for a specific policy or project, all conditions of that filter must be present for the notificatin to be sent. Review your filters by following the steps in [Making changes to your Slack notifications](#making-changes-to-your-slack-notifications).
+If you have set up any filter, such as filtering for a specific policy or project, all conditions of that filter must be present for the notificatin to be sent. Review your filters by following the steps in [Changing Slack notification settings](#changing-slack-notification-settings).
 
 
 #### Permissions not up-to-date
 
 You may receive a message from Semgrep Slack app stating that your token does not have up-to-date permissions. Clicking the link provided in the message to update the permissions typically resolves this issue.
 
-However, if after updating the token, you still receive the same message, perform the following steps to revoke then refresh your access token:
+However, if after updating the token, you still receive the same message, perform the following steps to revoke and refresh your access token:
 
 1. In your Slack workspace, click **Semgrep** under **Apps** in the Slack sidebar.
 2. Click Uninstall. This revokes your token.
@@ -191,7 +191,7 @@ You have refreshed your access token and updated your permissions.
 
 #### Fixing `dispatch_failed` error
 
-There are many possible causes for this error. Possible fixes include:
+There are many possible causes for this error. Try the following fixes:
 
 * Re-enter your last command or operation after a few minutes.
 * Uninstall, and then reinstall your Semgrep Slack integration.
