@@ -189,7 +189,7 @@ However, if after updating the token, you still receive the same message, perfor
 
 You have refreshed your access token and updated your permissions.
 
-#### Receiving `dispatch_failed` error
+#### Fixing `dispatch_failed` error
 
 There are many possible causes for this error. Possible fixes include:
 
