@@ -62,7 +62,7 @@ Support for certain features of Semgrep Cloud Platform may depend on your CI pro
 ![Steps to run Semgrep in CI without Semgrep Cloud Platform](/img/semgrep-ci-overview-app.png "Steps to integrate Semgrep in CI with Semgrep Cloud Platform")
 *Figure 1.* Steps to run Semgrep in CI with Semgrep Cloud Platform.
 
-The next sections provide guidance for specific CI provider.
+The next sections provide guidance for specific CI providers.
 
 ### CI providers listed in Semgrep Cloud Platform
 
