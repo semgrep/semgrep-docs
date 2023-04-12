@@ -31,23 +31,23 @@ Object.entries(frontMatter).filter(
 
 # Getting started with Semgrep Supply Chain
 
-Semgrep Supply Chain detects recently discovered [security vulnerabilities](https://nvd.nist.gov/vuln/full-listing) in your codebase's open source dependencies, prioritizing findings through [reachability](/semgrep-sc/sc-glossary#reachability) analysis. 
+Semgrep Supply Chain detects recently discovered [security vulnerabilities](https://nvd.nist.gov/vuln/full-listing) in your codebase's open source dependencies, prioritizing findings through [reachability](/semgrep-supply-chain/glossary#reachability) analysis. 
 
 This document walks you through the process of setting up open-source dependency scanning with Semgrep Supply Chain.
 
-To learn more about how Semgrep Supply Chain performs reachability analysis, see [Overview of Semgrep Supply Chain](/semgrep-sc/semgrep-supply-chain-overview).
+To learn more about how Semgrep Supply Chain performs reachability analysis, see [Overview of Semgrep Supply Chain](/semgrep-supply-chain/overview).
 
 :::info
-Semgrep Supply Chain **supports monorepositories (monorepos)** by treating each subdirectory as its own repository. Findings are grouped under these repositories based on the [lockfile](/semgrep-sc/sc-glossary/#lockfile) or manifest file present in the subdirectory.
+Semgrep Supply Chain **supports monorepositories (monorepos)** by treating each subdirectory as its own repository. Findings are grouped under these repositories based on the [lockfile](/semgrep-supply-chain/glossary/#lockfile) or manifest file present in the subdirectory.
 :::
 
 ## Scanning with Semgrep Supply Chain through Semgrep Cloud Platform
 
 <AdmonitionSscLicense />
 
-Semgrep Supply Chain is **automatically enabled** for all repositories that you have onboarded or added to Semgrep Cloud Platform for scanning. If you have not onboarded any repositories for scanning, follow the steps in [Adding a repository](/semgrep-code/getting-started-with-semgrep-code/#adding-or-onboarding-a-new-project-repository) to add a repository for scanning.
+Semgrep Supply Chain is **automatically enabled** for all repositories that you have onboarded or added to Semgrep Cloud Platform for scanning. If you have not onboarded any repositories for scanning, follow the steps in [Adding a repository](/semgrep-code/getting-started/#adding-or-onboarding-a-new-project-repository) to add a repository for scanning.
 
-When the scan finishes, Semgrep Cloud Platform displays an overview of findings in the **Supply Chain** page for further triage and remediation. See [Triaging and remediating dependency findings](/semgrep-sc/triaging-and-remediating-vulnerabilities).
+When the scan finishes, Semgrep Cloud Platform displays an overview of findings in the **Supply Chain** page for further triage and remediation. See [Triaging and remediating dependency findings](/semgrep-supply-chain/triage-and-remediation).
 
 ### Running rules with historical coverage (parity or ecosystem rules)
 
@@ -109,7 +109,7 @@ Semgrep Supply Chain frequently releases new rules. By default, Semgrep Supply C
 
 ## Ignoring dependency findings through `semgrepignore`
 
-See [Ignoring dependency findings](/docs/semgrep-sc/ignoring-lockfiles-dependencies).
+See [Ignoring dependency findings](/docs/semgrep-supply-chain/ignoring-lockfiles-dependencies).
 
 ## Triaging and remediating dependency findings
 
@@ -121,7 +121,7 @@ Semgrep Supply Chain enables developers to perform triage and remediation throug
 * Attach a PR or MR, or Jira ticket to the finding.
 * Upgrade the dependency that generated the finding to a safe version. A safe version is any newer version of the dependency that does not contain the vulnerability. This resolves the finding.
 
-For more information, see [Triaging and remediating findings](/docs/semgrep-sc/triaging-and-remediating-vulnerabilities).
+For more information, see [Triaging and remediating findings](/docs/semgrep-supply-chain/triage-and-remediation).
 
 ## Appendix: Setting up SSC scans for specific project management tools
 
