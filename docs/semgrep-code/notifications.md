@@ -80,7 +80,7 @@ You must be a Slack **Workspace Owner** to set up the Semgrep Slack app.
 
 To install the Semgrep Slack app, follow these steps:
 
-1. Sign in to your [Semgrep Cloud Platform](https://semgrep.dev/login) account, and then go to **Settings** > **[Integrations](https://semgrep.dev/orgs/-/settings/integrations)**.
+1. In [Semgrep Cloud Platform](https://semgrep.dev/login), go to **Settings** > **[Integrations](https://semgrep.dev/orgs/-/settings/integrations)**.
 2. On the **[Integrations](https://semgrep.dev/orgs/-/settings/integrations)** page, click **Add Integration** (or **Setup First Integration** if this is your first integration), and then select **Slack**.
 3. Click **Allow**.
 
