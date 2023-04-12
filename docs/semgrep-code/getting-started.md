@@ -62,7 +62,7 @@ The following table shows differences between Semgrep Code and Semgrep OSS Engin
 | Alerts & notifications | Receive alerts to catch issues before they reach live servers. | ❌ | ✔️  |
 | Findings management    | Filter and sort findings in bulk. | ❌ | ✔️  |
 | API and webhooks       | Query and receive scan data for your custom infrastructure. |❌ | ✔️  |
-_*These features require a Team-tier license or above*._
+_*These features require a Team-tier license or above._
 
 ## Semgrep Code with Semgrep Cloud Platform
 
