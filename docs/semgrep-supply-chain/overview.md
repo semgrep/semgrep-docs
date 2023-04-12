@@ -113,7 +113,7 @@ Refer to [Supported languages](/docs/supported-languages#semgrep-supply-chain) t
 
 ## Transitive dependencies and reachability analysis
 
-See [SSC glossary > Transitivity](/docs/semgrep-sc/sc-glossary/#transitive-or-indirect-dependency) for a definition of a transitive dependency.
+See [SSC glossary > Transitivity](/docs/semgrep-supply-chain/glossary/#transitive-or-indirect-dependency) for a definition of a transitive dependency.
 
 * Semgrep Supply Chain does **not** perform reachability analysis for transitive dependencies. This means we do not scan the source code of your dependencies to determine if their dependencies may produce a reachable finding in the code.
 * Semgrep Supply Chain supports scanning for transitive or indirect dependencies for all of its [supported languages](/docs/supported-languages#semgrep-supply-chain). Findings are collected and displayed in **Semgrep Cloud Platform** > **Supply Chain**.
@@ -121,7 +121,7 @@ See [SSC glossary > Transitivity](/docs/semgrep-sc/sc-glossary/#transitive-or-in
 
 ## Next steps: Scanning your codebase
 
-To scan your codebase, follow the instructions in [Scanning open source dependencies](/semgrep-sc/scanning-open-source-dependencies).
+To scan your codebase, follow the instructions in [Scanning open source dependencies](/semgrep-supply-chain/getting-started).
 
 ## Additional references
 
