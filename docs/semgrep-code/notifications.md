@@ -540,8 +540,7 @@ The updated `bitbucket-pipelines.yml` YAML file must be also included in the bra
 As a result, your Bitbucket repositories are now part of the [Projects](https://semgrep.dev/orgs/-/projects) page. You may now receive comments on PRs from Semgrep Cloud Platform. For more configuration options, see [Bitbucket Pipelines CI Sample](/semgrep-ci/sample-ci-configs/#bitbucket-pipelines). Examples of more CI pipelines that you can use in Bitbucket CMS can be found in [Sample continuous integration (CI) configurations](https://semgrep.dev/docs/semgrep-ci/sample-ci-configs/).
 
 :::info
-- Test Semgrep PR comments by submitting a test code from a rule in your [Rule board](https://semgrep.dev/orgs/-/board) that is in the **Comment** column.
-- Only rules in the **Comment** and **Block** columns of your [Rule board](https://semgrep.dev/orgs/-/board) create the PR comments. Rules from the **Block** will also block the PR pipeline. To unblock the pipeline, the detected code needs to be fixed.
+Only rules in the **Comment** and **Block** columns of your [Rule board](https://semgrep.dev/orgs/-/board) create the PR comments. Rules from the **Block** will also block the PR pipeline. To unblock the pipeline, the detected code needs to be fixed.
 :::
 
 ### Semgrep Autofix
