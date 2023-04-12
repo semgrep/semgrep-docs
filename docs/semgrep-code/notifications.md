@@ -196,7 +196,7 @@ There are many possible causes for this error. Possible fixes include:
 * Re-entering your last command or operation after a few minutes.
 * Uninstalling then reinstalling your Semgrep Slack integration.
 
-#### Receiving `operation_timeout` error
+#### Fixing `operation_timeout` error
 
 This error occasionally appears due to connection or service issues. To fix this issue, retry your last command or operation after a few minutes.
 
