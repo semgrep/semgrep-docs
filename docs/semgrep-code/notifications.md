@@ -327,7 +327,7 @@ For more configuration options, see [GitLab CI Sample](/semgrep-ci/sample-ci-con
 ### Bitbucket pull request comments
 
 :::info Prerequisite
-- Bitbucket PR comments are only available to logged-in Semgrep Cloud Platform users.
+Bitbucket PR comments are only available to logged-in Semgrep Cloud Platform users.
 :::
 
 There are two ways in which you can integrate Semgrep comments into your Bitbucket CI depending on the Bitbucket plan you use:
@@ -337,7 +337,7 @@ There are two ways in which you can integrate Semgrep comments into your Bitbuck
 
 #### Creating and adding a workspace access token
 
-:::info Prerequisite
+:::info Prerequisites
 - Configured pipeline in Bitbucket CMS.
 - Use the procedure described in this section if you use the **Bitbucket Cloud Premium** plan. If you are **not** using the Bitbucket Cloud Premium plan, create a separate repository access token for each repository where you want to use Semgrep, for more information, see [Creating a repository access token](/semgrep-code/notifications/#creating-and-adding-a-repository-access-token).
 - Created **SEMGREP_APP_TOKEN** added as a **workspace** variable in Bitbucket. See the [Creating a SEMGREP_APP_TOKEN](/semgrep-ci/running-semgrep-ci-with-semgrep-cloud-platform/#creating-a-semgrep_app_token) section and [Workspace variables](https://support.atlassian.com/bitbucket-cloud/docs/variables-and-secrets/#Workspace-variables) in Bitbucket documentation.
@@ -352,7 +352,7 @@ To complete the configuration, follow the [Adding Semgrep to your Bitbucket CI p
 
 #### Creating and adding a repository access token
 
-:::info Prerequisite
+:::info Prerequisites
 - Configured pipeline in Bitbucket CMS.
 - Created **SEMGREP_APP_TOKEN** added it as a **repository** variable in Bitbucket. See the [Creating a SEMGREP_APP_TOKEN](/semgrep-ci/running-semgrep-ci-with-semgrep-cloud-platform/#creating-a-semgrep_app_token) section and [Repository variables](https://support.atlassian.com/bitbucket-cloud/docs/variables-and-secrets/#Repository-variables) in Bitbucket documentation.
 :::
