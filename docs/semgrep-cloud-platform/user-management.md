@@ -165,8 +165,8 @@ The following table displays token scopes and their permissions:
 
 | Token scope | Send findings from a remote repository | Send findings from a local repository |  Send PR or MR comments | Connect to Semgrep API |
 | ----------- | ------- | --- | --| -- |
-| Agent (CI)  |   ✔️  Yes    |  ✔️ Yes  | ✔️  Yes, for some SCM products | ✔️  Yes  |
-| Web API     |  ❌ No    |  ❌ No | ✔️  Yes | ✔️ Yes  |
+| Agent (CI)  |   ✔️  Yes    |  ✔️ Yes  | ✔️  Yes [SME to confirm] | ✔️  Yes  |
+| Web API     |  ❌ No    |  ❌ No | ✔️  Yes [SME to confirm] | ✔️ Yes  |
 | Member      |    ❌ No   |  ✔️ Yes  | ❌ No |❌ No |
 
 The following table displays typical uses for token scopes:
