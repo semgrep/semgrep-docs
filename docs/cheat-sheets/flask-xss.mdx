@@ -5,6 +5,7 @@ description: "Flask XSS prevention cheat sheet."
 
 import LinkToRegistryRule from "/src/components/LinkToRegistryRule"
 import XssInjectionIntro from "/src/components/concept/_xss-injection-intro.mdx"
+import RecommendedRuleSet from "/src/components/code_snippets/_cheat-sheets-recommended-rule-set.mdx"
 
 # XSS prevention for Flask
 
@@ -18,11 +19,9 @@ templates. And as always, run a security checker continuously on your code.
 
 Semgrep ruleset for this cheatsheet: [https://semgrep.dev/p/minusworld.flask-xss](https://semgrep.dev/p/minusworld.flask-xss)
 
-#### Check your project for these conditions:
+### Check your project using Semgrep
 
-```bash
-semgrep scan --config p/minusworld.flask-xss
-```
+<RecommendedRuleSet />
 
 [PDF of this cheat sheet](https://web-assets.r2c.dev/security-cheat-sheets/xss/r2c-security-cheat-sheet-xss-prevention-for-flask.pdf)
 

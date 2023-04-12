@@ -5,16 +5,15 @@ description: "JavaScript code injection prevention cheat sheet."
 
 import LinkToRegistryRule from "/src/components/LinkToRegistryRule"
 import CodeInjectionIntro from "/src/components/concept/_code-injection-intro.mdx"
+import RecommendedRuleSet from "/src/components/code_snippets/_cheat-sheets-recommended-rule-set.mdx"
 
 # Code injection prevention for JavaScript
 
 <CodeInjectionIntro />
 
-#### Check your project for these conditions:
+### Check your project using Semgrep
 
-```bash
-semgrep scan --config="r/javascript.lang.security.audit.vm-injection.vm-runincontext-context-injection" --config="r/javascript.lang.security.detect-eval-with-expression.detect-eval-with-expression"
-```
+<RecommendedRuleSet />
 
 ---
 

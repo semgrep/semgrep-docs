@@ -5,18 +5,15 @@ description: "Command injection prevention cheat sheet for Python."
 
 import LinkToRegistryRule from "/src/components/LinkToRegistryRule"
 import CommandInjectionIntro from "/src/components/concept/_command-injection-intro.mdx"
+import RecommendedRuleSet from "/src/components/code_snippets/_cheat-sheets-recommended-rule-set.mdx"
 
 # Command injection prevention for Python
 
 <CommandInjectionIntro />
 
-#### Check your project for these conditions:
+### Check your project using Semgrep
 
-```bash
-semgrep scan --config p/python-command-injection
-```
-
----
+<RecommendedRuleSet />
 
 ## 1. Running an OS command
 
