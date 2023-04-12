@@ -405,7 +405,7 @@ If you are using GitHub Actions to run Semgrep, no extra changes are needed to g
 
 :::info Prerequisites
 - GitLab MR comments are only available to logged-in Semgrep Cloud Platform users.
-- The **SEMGREP_APP_TOKEN** added among your CI/CD variables in GitLab. See the [CI providers listed in Semgrep Cloud Platform](/semgrep-ci/running-semgrep-ci-with-semgrep-cloud-platform/#ci-providers-listed-in-semgrep-cloud-platform) section and [GitLab CI/CD variables](https://docs.gitlab.com/ee/ci/variables/) in GitLab documentation.
+- Established connection between GitLab and Semgrep Cloud Platform. The **SEMGREP_APP_TOKEN** added among your CI/CD variables in GitLab. See the [CI providers listed in Semgrep Cloud Platform](/semgrep-ci/running-semgrep-ci-with-semgrep-cloud-platform/#ci-providers-listed-in-semgrep-cloud-platform) section and [GitLab CI/CD variables](https://docs.gitlab.com/ee/ci/variables/) in GitLab documentation.
 :::
 
 This section documents how to enable Semgrep Cloud Platform to post comments on merge requests.
@@ -471,7 +471,7 @@ There are two ways in which you can integrate Semgrep comments into your Bitbuck
 :::info Prerequisites
 - Configured pipeline in Bitbucket CMS.
 - **Bitbucket Cloud Premium** plan. If you are **not** using the Bitbucket Cloud Premium plan, create a separate repository access token for each repository where you want to use Semgrep, for more information, see [Creating a repository access token](/semgrep-code/notifications/#creating-and-adding-a-repository-access-token).
-- The **SEMGREP_APP_TOKEN** added as a **workspace** variable in Bitbucket. See the [CI providers listed in Semgrep Cloud Platform](/semgrep-ci/running-semgrep-ci-with-semgrep-cloud-platform/#ci-providers-listed-in-semgrep-cloud-platform) section and [Workspace variables](https://support.atlassian.com/bitbucket-cloud/docs/variables-and-secrets/#Workspace-variables) in Bitbucket documentation.
+- Established connection between Bitbucket and Semgrep Cloud Platform. The **SEMGREP_APP_TOKEN** added as a **workspace** variable in Bitbucket. See the [CI providers listed in Semgrep Cloud Platform](/semgrep-ci/running-semgrep-ci-with-semgrep-cloud-platform/#ci-providers-listed-in-semgrep-cloud-platform) section and [Workspace variables](https://support.atlassian.com/bitbucket-cloud/docs/variables-and-secrets/#Workspace-variables) in Bitbucket documentation.
 :::
 
 Create a workspace access token in Bitbucket (only available if you have a Bitbucket Cloud Premium plan). Fulfill these general steps to create a workspace access token:
@@ -485,7 +485,7 @@ To complete the configuration, follow the [Adding Semgrep to your Bitbucket CI p
 
 :::info Prerequisites
 - Configured pipeline in Bitbucket CMS.
-- The **SEMGREP_APP_TOKEN** added as a **repository** variable in Bitbucket. See the [Creating a SEMGREP_APP_TOKEN](/semgrep-ci/running-semgrep-ci-with-semgrep-cloud-platform/#creating-a-semgrep_app_token) section and [Repository variables](https://support.atlassian.com/bitbucket-cloud/docs/variables-and-secrets/#Repository-variables) in Bitbucket documentation.
+- Established connection between Bitbucket and Semgrep Cloud Platform. The **SEMGREP_APP_TOKEN** added as a **repository** variable in Bitbucket. See the [Creating a SEMGREP_APP_TOKEN](/semgrep-ci/running-semgrep-ci-with-semgrep-cloud-platform/#creating-a-semgrep_app_token) section and [Repository variables](https://support.atlassian.com/bitbucket-cloud/docs/variables-and-secrets/#Repository-variables) in Bitbucket documentation.
 :::
 
 :::note
