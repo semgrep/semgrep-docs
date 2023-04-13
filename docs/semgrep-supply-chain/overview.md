@@ -36,11 +36,13 @@ Semgrep Supply Chain parses lockfiles for a list of dependencies, then scans you
 * A pattern for vulnerable code, such as passing in unsanitized data.
 * The severity of the vulnerability.
 
-Semgrep Supply Chain generates a **finding **when it detects a match. If the dependency's version is within the range and finds the matching code within your codebase, the finding is **reachable**.
+Semgrep Supply Chain generates a **finding** when it detects a match. If the dependency's version is within the range and finds the matching code within your codebase, the finding is **reachable**.
 
 A finding is **unreachable** if the dependency contains a known vulnerability, but the vulnerable matching code is not used in your codebase.
 
 In Semgrep Cloud Platform, specific findings of a dependency and code match are called **usages**. Usages are grouped by their **vulnerability**. Vulnerabilities in Semgrep Supply Chain typically have a CVE number corresponding to the record in the [CVE Program](https://www.cve.org/About/Overview).
+
+Semgrep Cloud Platform also includes a list of **Advisories** for reference. Advisories include all vulnerabilities covered by Semgrep Supply Chain, regardless of whether the related dependency is used in scanned code.
 
 The following diagram displays the relationship between a Supply Chain rule, the lockfile, and the codebase being scanned:
 
