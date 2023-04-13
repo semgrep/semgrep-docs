@@ -27,8 +27,8 @@ Object.entries(frontMatter).filter(
 
 <AdmonitionSscLicense />
 
-![Semgrep Supply chain overview page](/img/sc-overview.png)
-_Figure 1_. Semgrep Supply Chain overview page.
+![Semgrep Supply chain Vulnerabilities page](/img/sc-vulns.png)
+_Figure 1_. Semgrep Supply Chain Vulnerabilities page.
 
 Semgrep Supply Chain parses lockfiles for a list of dependencies, then scans your codebase using **rules **written with Semgrep's pattern syntax. Supply Chain rules specify the following:
 
@@ -102,9 +102,9 @@ The following table displays differences between Semgrep and Semgrep Supply Chai
   <tr>
    <td>Notification channels
    </td>
-   <td>Jira, Slack, Email, Webhooks
+   <td>Slack, Email, Webhooks
    </td>
-   <td>Slack and email
+   <td>Slack
    </td>
   </tr></tbody>
 </table>
