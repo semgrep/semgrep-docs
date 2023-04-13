@@ -65,7 +65,7 @@ The following table displays what features are available for manual (without Sem
 | Scan mainline (trunk) and non-mainline branches | ✔️ | ✔️ |
 | Trigger scans when a Pull request (PR) or merge request (MR) is created | ✔️ | ✔️ |
 | Prevent vulnerable code from merging into mainline branches | ✔️ | ✔️ |
-| Generate CI configuration files for [many providers](/docs/semgrep-ci/running-semgrep-ci-with-semgrep-cloud-platform/) | ✔️ | ❌ |
+| Generate CI configuration files for [many providers](/semgrep-ci/running-semgrep-ci-with-semgrep-cloud-platform/#ci-providers-listed-in-semgrep-cloud-platform) | ✔️ | ❌ |
 | Receive PR or MR review comments in GitHub or GitLab | ✔️ | ❌ |
 | Manage false positives in bulk through triage | ✔️ | ❌ |
 | Receive notifications in Slack and email | ✔️ | ❌ |
