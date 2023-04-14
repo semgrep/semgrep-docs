@@ -25,7 +25,7 @@ Object.entries(frontMatter).filter(
 Use this reference to configure Semgrep's behavior in CI environments by setting environment variables. You can set these variables within a CI configuration file or your CI provider's interface. Refer to your CI provider's documentation for the correct syntax. Examples are written for a Bash environment unless otherwise stated.  
 
 :::tip
-You can also set many of these environment variables within your local development environment for testing or experimental purposes. Set these variables in your command line then run `semgrep ci` to test these environment variables locally.
+You can also set many of these environment variables within your local development environment for testing or experimental purposes. Set these variables in your command line then run `semgrep ci --config p/default` to test these environment variables locally.
 :::
 
 ## Environment variables for configuring scan behavior

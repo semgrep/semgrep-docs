@@ -31,7 +31,7 @@ import PlatformSigninGitlab from "/src/components/procedure/_platform-signin-git
 
 # Getting started with Semgrep Code
 
-Secure your code quickly and continuously by scanning with Semgrep Code, a fast and lightweight SAST (Static Analysis Security Testing) engine that leverages Semgrep OSS.
+Secure your code quickly and continuously by scanning with Semgrep Code, a fast and lightweight SAST (Static Application Security Testing) engine that leverages Semgrep OSS.
 
 <SemgrepScan />
 
@@ -39,30 +39,8 @@ Secure your code quickly and continuously by scanning with Semgrep Code, a fast 
 
 Semgrep Code is transparent: you can fully configure what rules are run and how the presence of a finding is communicated to different channels. The content of a rule can be customized to improve the true positive rate of a rule or its message to fellow developers.
 
-This document provides steps to get started with Semgrep Code and its Team and Enterprise tier features.
+This document provides steps to get started with Semgrep Code for all tiers except where indicated.
 
-:::note
-To get started with Semgrep Code and its Community (free) tier, see [Getting Started with Semgrep Cloud Platform](/semgrep-cloud-platform/getting-started).
-:::
-
-## Semgrep Code and Semgrep OSS Engine
-
-The following table shows differences between Semgrep Code and Semgrep OSS Engine:
-
-| Feature                | Description | Semgrep OSS Engine | Semgrep Code |
-| -------                | ---   | -----------------  | ------------ |
-| Semgrep CLI            | Run local scans. | ✔️  | ✔️  |
-| Semgrep CI             | Run scans on remote repositories. | ✔️  | ✔️  | 
-| Custom rules           | Write your own rules tailored to your organization's needs. | ✔️  | ✔️  |
-| Community rules        | Make use of community-contributed rules. | ✔️  | ✔️  |
-| Semgrep Cloud Platform | Manage findings, rules, and alerts in a centralized location. | ❌ | ✔️  |
-| Semgrep Pro Engine     | Run Semgrep with interprocedural and interfile analysis. | ❌ | ✔️ * |
-| Semgrep Pro rules      | Rules leveraging Semgrep Pro Engine to detect hardcoded secrets, XXE injections, deserialization issues, and more. | ❌ | ✔️ * |
-| Findings retention     | Keep track of when a finding is created and resolved. | ❌ | ✔️  |
-| Alerts & notifications | Receive alerts to catch issues before they reach live servers. | ❌ | ✔️  |
-| Findings management    | Filter and sort findings in bulk. | ❌ | ✔️  |
-| API and webhooks       | Query and receive scan data for your custom infrastructure. |❌ | ✔️  |
-_*These features require a Team-tier license or above*._
 
 ## Semgrep Code with Semgrep Cloud Platform
 
@@ -112,7 +90,7 @@ See [Permissions in GitLab](/semgrep-cloud-platform/getting-started/#requested-p
 
 ## Performing a scan
 
-Scanning is Semgrep's primary operation. When you first sign into Semgrep Cloud Platform, it uses a default SAST (Static Application Security Testing) ruleset selected to enforce best practices for a repository's framework and programming language. You can customize future scans to address your organization's specific practices.
+Scanning is Semgrep's primary operation. When you first sign into Semgrep Cloud Platform, it uses a default SAST ruleset selected to enforce best practices for a repository's framework and programming language. You can customize future scans to address your organization's specific practices.
 
 Semgrep Cloud Platform enables users to choose what findings prevent a pull or merge request (PR or MR) from merging into the repository. Setting these blocking and non-blocking rules is achieved through the Rule Board.
 
@@ -328,6 +306,25 @@ Include code suggestions that resolve findings in both GitHub and GitLab through
 
 <EnableAutofix />
 
+## Semgrep Code and Semgrep OSS Engine
+
+The following table shows differences between Semgrep Code and Semgrep OSS Engine:
+
+| Feature                | Description | Semgrep OSS Engine | Semgrep Code |
+| -------                | ---   | -----------------  | ------------ |
+| Semgrep CLI            | Run local scans. | ✔️  | ✔️  |
+| Semgrep CI             | Run scans on remote repositories. | ✔️  | ✔️  | 
+| Custom rules           | Write your own rules tailored to your organization's needs. | ✔️  | ✔️  |
+| Community rules        | Make use of community-contributed rules. | ✔️  | ✔️  |
+| Semgrep Cloud Platform | Manage findings, rules, and alerts in a centralized location. | ❌ | ✔️  |
+| Semgrep Pro Engine     | Run Semgrep with interprocedural and interfile analysis. | ❌ | ✔️ * |
+| Semgrep Pro rules      | Rules leveraging Semgrep Pro Engine to detect hardcoded secrets, XXE injections, deserialization issues, and more. | ❌ | ✔️ * |
+| Findings retention     | Keep track of when a finding is created and resolved. | ❌ | ✔️  |
+| Alerts & notifications | Receive alerts to catch issues before they reach live servers. | ❌ | ✔️  |
+| Findings management    | Filter and sort findings in bulk. | ❌ | ✔️  |
+| API and webhooks       | Query and receive scan data for your custom infrastructure. |❌ | ✔️  |
+_*These features require a Team-tier license or above*._
+
 ## Going further with Semgrep Cloud Platform
 
 Semgrep Cloud Platform supports various phases of the development cycle through the following features:
@@ -354,15 +351,6 @@ Semgrep provides the following environments to learn, experiment, and write Semg
     <dt><a href= "https://semgrep.dev/login?return_path=/orgs/-/editor">Editor</a></dt>
     <dd>Fork existing security rules to customize them for your own organization or team's use in this advanced editor. Refer to <a href="/semgrep-code/editor/#jumpstart-rule-writing-using-existing-rules">Writing rules using Semgrep Editor</a>.</dd>
 </dl>
-
-### Receiving feedback about a rule
-
-[Developer feedback](/semgrep-cloud-platform/dashboard/#rule-performance-through-developer-feedback) is a Team/Enterprise tier feature in which developers can submit feedback about a rule or finding. This is used to evaluate a rule's performance:
-
-* Is the rule's message clear?
-* Does the rule have too many false positives?
-* Should the rule be ignored for a certain file or block of code?
-* Are there additional improvements to the rule, such as possible autofix values?
 
 ### Getting support
 
