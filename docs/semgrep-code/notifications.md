@@ -358,7 +358,6 @@ Unused and removed for now:
 -->
 
 #### Additional resources
-
 * https://api.slack.com/apps
 * https://api.slack.com/messaging/webhooks#enable_webhooks
 
