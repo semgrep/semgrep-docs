@@ -57,7 +57,7 @@ Open3.pipeline("zcat #{user_input}”, "nroff -man", "colcrt")
 
 - Do not pass user input to `Open3` methods.
 - Always try to use internal Ruby API (if it exists) instead of running an OS command. In other words, use internal language features instead of invoking commands that can be exploited.
-- Don’t pass user-controlled input or use an allowlist for inputs.
+- Don't pass user-controlled input or use an allowlist for inputs.
 - Do not include command arguments in a command string, use parameterization instead. For example:<br />
     Use:
     ```ruby
@@ -95,12 +95,11 @@ open(user_input)
 
 #### Mitigation
 
-- Do not provide raw user input to `open` methods.
+- Do not provide raw user input to `open()` methods.
 - Always try to use internal Ruby API (if it exists) instead of running an OS command. In other words, use internal language features instead of invoking commands that can be exploited.
 - Don’t pass user-controlled input or use an allowlist for inputs.
 - Define a list of allowed arguments.
 - Strip everything except alphanumeric characters from an input provided for the command string and arguments.
-
 
 #### Semgrep rule
 
@@ -126,7 +125,7 @@ system("ls #{user_input}")
 
 - [`system()` documentation](https://apidock.com/ruby/Kernel/system)
 
-#### Mitigation TODO:
+#### Mitigation:
 
 - Do not provide raw user input to `open` methods.
 - Always try to use internal Ruby API (if it exists) instead of running an OS command. In other words, use internal language features instead of invoking commands that can be exploited.
@@ -159,7 +158,7 @@ exec("ls #{user_input}")
 
 - [`exec()` documentation](https://apidock.com/ruby/Kernel/exec)
 
-#### Mitigation TODO:
+#### Mitigation
 
 - Do not provide raw user input to `open` methods.
 - Always try to use internal Ruby API (if it exists) instead of running an OS command. In other words, use internal language features instead of invoking commands that can be exploited.
@@ -205,14 +204,13 @@ user_input = ' && cat /etc/passwd' # Value supplied by user
 
 - [Kernel documentation](https://ruby-doc.org/3.2.1/Kernel.html)
 
-#### Mitigation TODO:
+#### Mitigation
 
-- Do not provide raw user input to `open` methods.
+- Do not provide raw user input to `%x` methods.
 - Always try to use internal Ruby API (if it exists) instead of running an OS command. In other words, use internal language features instead of invoking commands that can be exploited.
-- Don’t pass user-controlled input or use an allowlist for inputs.
+- Don't pass user-controlled input or use an allowlist for inputs.
 - Define a list of allowed arguments.
 - Strip everything except alphanumeric characters from an input provided for the command string and arguments.
-
 
 #### Semgrep rule
 
