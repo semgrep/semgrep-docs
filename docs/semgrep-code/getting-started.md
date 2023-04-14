@@ -48,15 +48,15 @@ Semgrep Code includes Semgrep Cloud Platform (SCP), a web application that helps
 * Sorting, filtering, triaging, and remediating security issues.
 * Enforcing coding standards through the creation of custom rules.
 * Preventing insecure code from reaching production or staging servers by blocking pull or merge requests, based on how you configure your rules.
-* Notifying security teams of findings (results) as well as communicating with other developers by leaving pull or merge request comments in GitHub or GitLab.
+* Notifying security teams of findings (results) as well as communicating with other developers by leaving pull or merge request comments in GitHub, GitLab, or BitBucket.
 
 :::tip SUGGESTED WORKFLOWS
-* You can use SCP to scan remote repositories (GitHub, GitLab, and BitBucket) and consolidate the findings.
+* You can use SCP to scan remote repositories (GitHub, GitLab, or BitBucket) and consolidate the findings.
 * You can also use Semgrep Cloud Platform to consolidate findings from a Semgrep CLI scan performed on a **local** machine.
 * Semgrep Code can be integrated into your custom infrastructure without SCP. See [API](/semgrep-cloud-platform/semgrep-api) for details.
 :::
 
-### Scanning a repository from GitHub or GitLab
+### Scanning a repository
 
 #### Signing in to Semgrep Cloud Platform
 

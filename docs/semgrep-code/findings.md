@@ -41,7 +41,7 @@ A finding can be categorized in two ways:
     - Business or logic bugs
     - Matches based on your own custom rules (such as organization-specific authentication logic)
 
-    Semgrep rules provide a metadata schema to identify common categories such as the above. Semgrep findings include a `message` field that describes the security issue or bug found in matching code. Additionally, findings can provide a `fix` field that fixes the issue by creating a suggestion within your source code management (SCM) tool, such as GitHub or GitLab.
+    Semgrep rules provide a metadata schema to identify common categories such as the above. Semgrep findings include a `message` field that describes the security issue or bug found in matching code. Additionally, findings can provide a `fix` field that fixes the issue by creating a suggestion within your source code management (SCM) tool, such as GitHub, GitLab, and BitBucket.
 2. **Finding categorization based on the validity of the match**:
     <dl>
         <dt>True positive</dt>
