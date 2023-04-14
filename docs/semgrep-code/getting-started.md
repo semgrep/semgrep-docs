@@ -37,10 +37,9 @@ Secure your code quickly and continuously by scanning with Semgrep Code, a fast 
 
 <!-- TODO Add no code ever leaves your computer admonition. -->
 
-Semgrep Code is transparent: you can fully configure what rules are run and how the presence of a finding is communicated to different channels. The content of a rule can be customized to improve the true positive rate of a rule or its message to fellow developers.
+Semgrep Code is transparent: you can fully configure what rules are run and inspect the Semgrep syntax to understand how the finding was detected. The content of a rule can be customized to improve the true positive rate of a rule or its message to fellow developers.
 
 This document provides steps to get started with Semgrep Code for all tiers except where indicated.
-
 
 ## Semgrep Code with Semgrep Cloud Platform
 
@@ -51,8 +50,9 @@ Semgrep Code includes Semgrep Cloud Platform (SCP), a web application that helps
 * Preventing insecure code from reaching production or staging servers by blocking pull or merge requests, based on how you configure your rules.
 * Notifying security teams of findings (results) as well as communicating with other developers by leaving pull or merge request comments in GitHub or GitLab.
 
-:::tip
-* Scanning with Semgrep Cloud Platform is the recommended method to scan with Semgrep Code.
+:::tip SUGGESTED WORKFLOWS
+* You can use SCP to scan remote repositories (GitHub, GitLab, and BitBucket) and consolidate the findings.
+* You can also use Semgrep Cloud Platform to consolidate findings from a Semgrep CLI scan performed on a **local** machine.
 * Semgrep Code can be integrated into your custom infrastructure without SCP. See [API](/semgrep-cloud-platform/semgrep-api) for details.
 :::
 
@@ -98,7 +98,7 @@ Semgrep Cloud Platform enables users to choose what findings prevent a pull or m
 
 A **project** is a repository from either:
 
-* Your GitHub or GitLab account that you add to Semgrep Cloud Platform for scanning. Projects from GitHub or GitLab are integrated through Semgrep Cloud Platform.
+* Your GitHub, GitLab, or BitBucket account that you add to Semgrep Cloud Platform for scanning.
 * A local Git repository in your machine. Projects from your local machine are integrated through Semgrep CLI.
 
 Semgrep Cloud Platform can run scans on many projects with rules set in the Rule Board. First-time Semgrep Cloud Platform users scan projects with pre-selected rules chosen based on the repository's language and framework. To view these pre-selected rules, see the [Registry default ruleset](https://semgrep.dev/p/default).
@@ -209,7 +209,7 @@ $> export SEMGREP_COMMIT=fa4e36b9369e5b039bh2220b5h9R61a38b077f29
 
 *Figure 3.* Partial screenshot of findings page with hyperlinks.
 
-#### Option B: Adding a repository from GitHub or GitLab
+#### Option B: Adding a repository from GitHub, GitLab, or BitBucket
 
 <PlatformAddRepo />
 
