@@ -5,6 +5,7 @@ description: "XSS prevention cheat sheet for Go 'net/http'."
 
 import LinkToRegistryRule from "/src/components/LinkToRegistryRule"
 import XssInjectionIntro from "/src/components/concept/_xss-injection-intro.mdx"
+import RecommendedRuleSet from "/src/components/code_snippets/_cheat-sheets-recommended-rule-set.mdx"
 
 # XSS prevention for Go net/http
 
@@ -14,13 +15,9 @@ import XssInjectionIntro from "/src/components/concept/_xss-injection-intro.mdx"
 
 The Go template engine in `html/template` does automatic and contextual autoescaping, which mitigates many common XSS mistakes. Some aspects of the engine are confusingly named; therefore, proper use of the library should be enforced using code scanners. You may also consider using a stricter alternative, such as `safehtml`.
 
-#### Check your project for these conditions:
+### Check your project using Semgrep
 
-```bash
-semgrep scan --config p/xss
-```
-
----
+<RecommendedRuleSet />
 
 ## 1. Server code: Unescaped content
 

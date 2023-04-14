@@ -1,5 +1,5 @@
 ---
-slug: deepsemgrep-introduction
+slug: semgrep-pro-engine-intro
 append_help_link: true
 description: "This article introduces Semgrep Pro Engine, guides you through installation and provides some additional information."
 hide_title: true
@@ -59,7 +59,7 @@ Let us know what you think about the results in the <a href="https://go.semgrep.
 ### Enabling Semgrep Pro Engine in Semgrep Cloud Platform
 
 :::info Prerequisite
-- An existing Semgrep Cloud Platform account. See [Signing in to SCP](/semgrep-code/getting-started-with-semgrep-code/#semgrep-code-with-semgrep-cloud-platform).
+- An existing Semgrep Cloud Platform account. See [Signing in to SCP](/semgrep-code/getting-started/#semgrep-code-with-semgrep-cloud-platform).
 - [Team](https://semgrep.dev/pricing) tier or higher of Semgrep Code. If you want to try Semgrep Pro Engine, get in touch with us through our [contact page](https://semgrep.dev/contact-us).
 :::
 
@@ -69,38 +69,27 @@ To enable Semgrep Pro Engine in the Semgrep Cloud Platform, follow these steps:
 1. Select **[Settings](https://semgrep.dev/orgs/-/settings)**.
 1. Enable the <i class="fa-solid fa-toggle-large-on"></i> **Semgrep Pro Engine beta** toggle.
 1. Ensure that you have the **default ruleset** added in your **[Rule Board](https://semgrep.dev/orgs/-/board)**. In the Rule Board, the **default ruleset** is in the **Monitor column**. If this ruleset is **not** added, go to [https://semgrep.dev/p/default](https://semgrep.dev/p/default), and then click **Add to Rule Board**.
-1. Optional: If you don't have any projects added to your organization, follow the procedures described in [Scanning a repository from GitHub or GitLab](/semgrep-code/getting-started-with-semgrep-code/#semgrep-code-with-semgrep-cloud-platform) to scan a new project with Semgrep Pro Engine. Ensure that your project's language is supported by Semgrep Pro Engine.
+1. Optional: If you don't have any projects added to your organization, follow the procedures described in [Scanning a repository from GitHub or GitLab](/semgrep-code/getting-started/#semgrep-code-with-semgrep-cloud-platform) to scan a new project with Semgrep Pro Engine. Ensure that your project's language is supported by Semgrep Pro Engine.
 
 :::info Testing Semgrep Pro Engine
-To test Semgrep Pro Engine on a purposefully vulnerable repository, fork the [juice-shop](https://github.com/juice-shop/juice-shop) repository, and then add it to SCP by following the steps described in  [Adding a repository](/semgrep-app/getting-started-with-semgrep-app/#option-b-adding-a-repository-from-github-or-gitlab).
+To test Semgrep Pro Engine on a purposefully vulnerable repository, fork the [juice-shop](https://github.com/juice-shop/juice-shop) repository, and then add it to SCP by following the steps described in [Adding a repository](/semgrep-code/getting-started/#option-b-adding-a-repository-from-github-or-gitlab).
 :::
+
+### Creating interfile analysis rules
+
+Interfile analysis rules you use in Semgrep Pro Engine require the `interfile: true` key to be included in the rule metadata. See the following [example](https://semgrep.dev/s/3NZb). This key signals Semgrep Pro Engine to use the rule for interfile analysis.
 
 ## Additional information
 
-### Experimental support for interprocedural analysis
+### Types of Semgrep Pro Engine analysis  
 
-Interprocedural analysis keeps the fast scan times of Semgrep OSS while also finding new vulnerabilities that cross functions. It's designed to improve results shown in pull or merge requests (PRs or MRs) and help security engineers build trust with developers.
+<dl>
+    <dt>Interfile analysis</dt>
+    <dd>The interfile analysis gathers context across multiple files to help security engineers deeply understand their organization's security issues. Semgrep Pro Engine reduces noise and detects new vulnerabilities that Semgrep OSS Engine can't find. Interfile analysis runs on nightly scans. These scans may take longer to complete and can use more memory than Semgrep OSS Engine scans. See the available languages for interfile analysis in <a href="/docs/supported-languages/#semgrep-pro-engine">Semgrep Pro Engine supported languages</a>.</dd>
+    <dt>Interprocedural analysis</dt>
+    <dd>Interprocedural analysis keeps the fast scan times of Semgrep OSS Engine while also finding new vulnerabilities that cross functions within a single file. Interprocedural analysis improves results in pull requests (PRs) or merge requests (MRs) through CI scans. The interprocedural analysis is available for all languages listed as GA on the <a href="/docs/supported-languages/">Supported languages</a> page</dd>
+</dl>
 
-To run Semgrep Pro Engine interprocedural analysis in the CLI:
-
-1. Follow steps 1-3 in [Installing Semgrep Pro Engine in CLI](#installing-semgrep-pro-engine-in-cli).
-1. Run the following command:
-    ```bash
-    semgrep --pro-intrafile --config "p/default" --time --metrics on
-    ```
-
-### Events that trigger a Semgrep Pro Engine scan
-
-Semgrep Pro Engine only runs on full scans. **It does not run on pull or merge requests (PRs or MRs)**.
-
-### Performance differences between Semgrep Pro Engine and Semgrep OSS Engine
-
-The following performance differences may arise:
-
-* Semgrep Pro Engine has a longer scan time.
-* Semgrep Pro Engine uses more memory.
-* Semgrep Pro Engine can reduce the finding count when it detects and removes false positives.
-* Semgrep Pro Engine can introduce new findings.
 
 ### Semgrep Pro Engine CI scan issues
 
@@ -116,7 +105,7 @@ If many repositories cause scan issues:
 
 ### Difference between Semgrep Pro Engine and join mode
 
-Semgrep Pro is different from [join mode](/writing-rules/experiments/join-mode/overview/), which also allows you to perform interfile analyses by letting you join on the metavariable matches in separate rules.
+Semgrep Pro Engine is different from [join mode](/writing-rules/experiments/join-mode/overview/), which also allows you to perform interfile analyses by letting you join on the metavariable matches in separate rules.
 
 ### Future development of Semgrep Pro Engine
 

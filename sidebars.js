@@ -22,8 +22,8 @@ module.exports = {
         collapsible: false,
         items: [
             'getting-started',
-            'semgrep-code/overview',
-            'semgrep-sc/sc-getting-started'
+            'semgrep-code/getting-started',
+            'semgrep-supply-chain/getting-started'
         ]
     },
     {
@@ -64,8 +64,8 @@ module.exports = {
                   },
                 items: [
                     'semgrep-ci/overview',
-                    'semgrep-ci/running-semgrep-ci-with-semgrep-app',
-                    'semgrep-ci/running-semgrep-ci-without-semgrep-app',
+                    'semgrep-ci/running-semgrep-ci-with-semgrep-cloud-platform',
+                    'semgrep-ci/running-semgrep-ci-without-semgrep-cloud-platform',
                     'semgrep-ci/configuration-reference',
                     'semgrep-ci/configuring-blocking-and-errors-in-ci',
                     'semgrep-ci/sample-ci-configs',
@@ -220,15 +220,15 @@ module.exports = {
       label: 'Semgrep Cloud Platform (SCP)',
       collapsible: false,
       items: [
-        'semgrep-app/getting-started-with-semgrep-app',
-        'semgrep-app/dashboard',
-        'semgrep-app/sso',
-        'semgrep-app/user-management',
-        'semgrep-app/tags',
-        'semgrep-app/semgrep-api',
-        'semgrep-app/scm',
+        'semgrep-cloud-platform/getting-started',
+        'semgrep-cloud-platform/dashboard',
+        'semgrep-cloud-platform/sso',
+        'semgrep-cloud-platform/user-management',
+        'semgrep-cloud-platform/tags',
+        'semgrep-cloud-platform/semgrep-api',
+        'semgrep-cloud-platform/scm',
         'troubleshooting/semgrep-app',
-        'semgrep-app/pricing-and-billing'
+        'semgrep-cloud-platform/pricing-and-billing'
       ]
     },
     {
@@ -236,24 +236,24 @@ module.exports = {
       label: 'Semgrep Code',
       collapsible: false,
       items: [
-        'semgrep-code/overview',
+        'semgrep-code/getting-started',
         {
           type: 'category',
           label: 'Semgrep Pro Engine',
           collapsible: true,
-          link: {type: 'doc', id: 'deepsemgrep/deepsemgrep-introduction'},
+          link: {type: 'doc', id: 'semgrep-code/semgrep-pro-engine-intro'},
           items: [
-            'deepsemgrep/deepsemgrep-introduction',
-            'deepsemgrep/deepsemgrep-examples',
-            'deepsemgrep/semgrep-pro-data-flow'
+            'semgrep-code/semgrep-pro-engine-intro',
+            'semgrep-code/semgrep-pro-engine-examples',
+            'semgrep-code/semgrep-pro-engine-data-flow'
           ]
         },
         'semgrep-code/pro-rules',
-        'semgrep-app/demo-project',
-        'semgrep-app/rule-board',
-        'semgrep-app/findings',
-        'semgrep-app/editor',
-        'semgrep-app/notifications',
+        'semgrep-code/demo-project',
+        'semgrep-code/rule-board',
+        'semgrep-code/findings',
+        'semgrep-code/editor',
+        'semgrep-code/notifications',
         ]
     },
     {
@@ -261,12 +261,12 @@ module.exports = {
       label: 'Semgrep Supply Chain (SSC)',
       collapsible: false,
       items: [
-        'semgrep-sc/sc-overview',
-        'semgrep-sc/sc-getting-started',
-        'semgrep-sc/sc-triage-remediation',
-        'semgrep-sc/sc-ignoring-deps',
-        'semgrep-sc/sc-notifications',
-        'semgrep-sc/sc-glossary'
+        'semgrep-supply-chain/overview',
+        'semgrep-supply-chain/getting-started',
+        'semgrep-supply-chain/triage-remediation',
+        'semgrep-supply-chain/ignoring-deps',
+        'semgrep-supply-chain/notifications',
+        'semgrep-supply-chain/glossary'
       ]
     },
     {
@@ -328,8 +328,9 @@ module.exports = {
               type: 'category',
               label: '2023',
               collapsible: true,
-              link: {type: 'doc', id: 'release-notes/february-2023'},
+              link: {type: 'doc', id: 'release-notes/march-2023'},
               items: [
+                'release-notes/march-2023',
                 'release-notes/february-2023',
                 'release-notes/january-2023'
               ]

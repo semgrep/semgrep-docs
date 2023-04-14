@@ -34,6 +34,7 @@ In the absence of a user-generated `.semgrepignore`, Semgrep refers to [its repo
 
 ```
 DEFAULT_SEMGREPIGNORE_TEXT
+
 ```
 
 :::caution
@@ -66,7 +67,7 @@ Semgrep provides several methods to customize ignore behavior. Refer to the foll
 |:---- |:------ |
 | To scan all files within Semgrep's scope each time you run Semgrep (only files within `.git` are ignored). | Create an empty `.semgrepignore` file in your repository root directory or in your project's working directory. An empty `.semgrepignore` will make Semgrep scan paths in `.gitignore`. |
 | To ignore files and folders in `.gitignore`. | Add `:include .gitignore` to your `.semgrepignore` file. |
-| To ignore custom files and folders each time you run a scan. | Add these files to your `.semgrepignore` file or [define them through Semgrep Cloud Platform](#defining-files-and-folders-in-semgrep-app).|
+| To ignore custom files and folders each time you run a scan. | Add these files to your `.semgrepignore` file or [define them through Semgrep Cloud Platform](#defining-files-and-folders-in-semgrep-cloud-platform).|
 | To ignore specific code blocks each time you run a scan. | Create a comment with the word `nosemgrep`. |
 | To ignore files or folders for a particular scan. | Run Semgrep with the flag `--exclude` followed by the pattern or file to be excluded. See [CLI reference](../cli-reference/).
 | To include files or folders for a particular scan. | Run Semgrep with the flag `--include` followed by the  pattern or file to be included. See CLI reference. When including a pattern from a `.gitignore` or `.semgrepignore` file, `--include` does not override either, still resulting in the file's exclusion. |
@@ -177,7 +178,7 @@ Previous annotations for ignoring code inline, such as `nosem`, are deprecated.
 
 ## Disabling rules on Semgrep Cloud Platform
 
-Semgrep Cloud Platform users can disable rules and rulesets through the Rule Board. See [Removing rules or rulesets](../semgrep-app/rule-board/#removing-rules-or-rulesets).
+Semgrep Cloud Platform users can disable rules and remove rulesets through the Rule Board. See [Disabling rules](/semgrep-code/rule-board/#disabling-rules) and [Removing rulesets](/semgrep-code/rule-board/#removing-rulesets).
 
 ## Known issues
 

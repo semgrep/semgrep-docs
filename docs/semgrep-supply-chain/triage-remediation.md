@@ -1,5 +1,5 @@
 ---
-slug: triaging-and-remediating-vulnerabilities
+slug: triage-and-remediation 
 append_help_link: true
 description: "Perform triage and remediation of dependency vulnerabilities through Semgrep Supply Chain."
 tags:
@@ -48,7 +48,7 @@ _Figure 1_. Semgrep Supply Chain Vulnerabilities page.
 ## Assessing and triaging dependency findings and usages
 
 :::info Prerequisite
-At least one repository that scans for dependencies through Semgrep Supply Chain. See [Scanning open source dependencies](/semgrep-sc/scanning-open-source-dependencies).
+At least one repository that scans for dependencies through Semgrep Supply Chain. See [Getting started with Semgrep Supply Chain](/semgrep-supply-chain/getting-started).
 :::
 
 To view the latest findings of Semgrep Supply Chain:
@@ -113,7 +113,7 @@ The following **filters** are provided:
   <tbody><tr>
    <td>Exposure
    </td>
-   <td>Filters are based on the <a href="/docs/semgrep-sc/sc-glossary">reachability</a> of a vulnerability. The <strong>Reachable</strong> filter is selected by default.
+   <td>Filters are based on the <a href="/docs/semgrep-supply-chain/glossary">reachability</a> of a vulnerability. The <strong>Reachable</strong> filter is selected by default.
    </td>
   </tr>
   <tr>

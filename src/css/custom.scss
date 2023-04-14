@@ -139,7 +139,8 @@ h1,
 h2,
 h3,
 h4,
-h5 {
+h5,
+h6 {
   font-weight: 600;
 }
 
@@ -156,11 +157,15 @@ h3 {
 }
 
 h4 {
-    font-size: 21px;
+    font-size: 22px;
 }
 
 h5 {
-    font-size: 18px;
+    font-size: 19px;
+}
+
+h6 {
+  font-size: 17px;
 }
 
 dt {

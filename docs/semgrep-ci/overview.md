@@ -65,13 +65,13 @@ The following table displays what features are available for manual (without Sem
 | Scan mainline (trunk) and non-mainline branches | ✔️ | ✔️ |
 | Trigger scans when a Pull request (PR) or merge request (MR) is created | ✔️ | ✔️ |
 | Prevent vulnerable code from merging into mainline branches | ✔️ | ✔️ |
-| Generate CI configuration files for [many providers](/docs/semgrep-ci/running-semgrep-ci-with-semgrep-app/#ci-providers-listed-within-semgrep-app-such-as-github-actions-gitlab-cicd-jenkins) | ✔️ | ❌ |
+| Generate CI configuration files for [many providers](/semgrep-ci/running-semgrep-ci-with-semgrep-cloud-platform/#ci-providers-listed-in-semgrep-cloud-platform) | ✔️ | ❌ |
 | Receive PR or MR review comments in GitHub or GitLab | ✔️ | ❌ |
 | Manage false positives in bulk through triage | ✔️ | ❌ |
 | Receive notifications in Slack and email | ✔️ | ❌ |
 | Pricing | Free for up to 20 developers* | Free |
 
-*For teams larger than 20 developers, see the [Team or Enterprise tiers](/docs/semgrep-app/pricing-and-billing).
+*For teams larger than 20 developers, see the [Team or Enterprise tiers](/docs/semgrep-cloud-platform/pricing-and-billing).
 
 ## Setting up a CI job with Semgrep Cloud Platform
 
@@ -99,14 +99,14 @@ In addition to the features mentioned previously, Semgrep Cloud Platform has the
     <dt>Diff-aware scanning</dt>
     <dd>Semgrep Cloud Platform can scan only changes in files when running on a pull or merge request (PR or MR). This keeps the scan fast, tracks when a finding is fixed, and reduces the number of duplicated findings.</dd>
     <dt>Receiving results (findings) as PR or MR comments</dt>
-    <dd>This feature enables you to receive <a href="/docs/semgrep-app/notifications/#enabling-github-pull-request-comments">PR or MR comments</a> from Semgrep Cloud Platform on the lines of code that generated a finding.</dd>
+    <dd>This feature enables you to receive <a href="/docs/semgrep-code/notifications/#enabling-github-pull-request-comments">PR or MR comments</a> from Semgrep Cloud Platform on the lines of code that generated a finding.</dd>
     <dt>Hyperlinks to code</dt>
     <dd>Semgrep Cloud Platform collects findings in a Findings page. In this page, you can click on a finding to return to your GitHub or GitLab repository to view the lines of code in your repository that generated the finding.</dd>
     <dt>GitHub or GitLab security dashboard</dt>
     <dd>Send Semgrep findings to GitHub or GitLab's security dashboard.</dd>
 </dl>
 
-For more information on the features supported by CI providers and source code providers such as GitHub or GitLab, see [Semgrep Cloud Platform feature support](/docs/semgrep-ci/running-semgrep-ci-with-semgrep-app/#semgrep-app-feature-support).
+For more information on the features supported by CI providers and source code providers such as GitHub or GitLab, see [Semgrep Cloud Platform feature support](/docs/semgrep-ci/running-semgrep-ci-with-semgrep-cloud-platform/#semgrep-cloud-platform-feature-support).
 
 ### General steps to run Semgrep in CI with Semgrep Cloud Platform
 
@@ -136,7 +136,7 @@ The following steps outline the general procedure to automate Semgrep in many CI
 
 #### Default behaviors of scans set up through Semgrep Cloud Platform
 
-* Findings do not block a PR or MR. The presence of findings can be customized to block a PR or MR through the [Rule Board](/docs/semgrep-app/rule-board).
+* Findings do not block a PR or MR. The presence of findings can be customized to block a PR or MR through the [Rule Board](/docs/semgrep-code/rule-board).
 * The CI job does not fail when detecting findings, but can still fail due to other errors. See [Semgrep exit codes](/docs/cli-reference/#exit-codes).
 * Scan output is presented in Semgrep Cloud Platform's Findings page, enabling users to click a link for the file and line in the code that generated the finding.
 
@@ -170,8 +170,8 @@ After you have chosen a method, refer to the following documents for specific st
 
 | Document | User goal |
 | :------- | :-------  |
-| [Running Semgrep in CI with Semgrep Cloud Platform](../running-semgrep-ci-with-semgrep-app) | Set up CI with Semgrep Cloud Platform to manage findings, receive PR or MR comments in your repository, and manage scanning for many repositories |
-| [Running Semgrep in CI without Semgrep Cloud Platform](../running-semgrep-ci-without-semgrep-app) | Integrate Semgrep into a repository by committing a job configuration file. |
+| [Running Semgrep in CI with Semgrep Cloud Platform](../running-semgrep-ci-with-semgrep-cloud-platform) | Set up CI with Semgrep Cloud Platform to manage findings, receive PR or MR comments in your repository, and manage scanning for many repositories |
+| [Running Semgrep in CI without Semgrep Cloud Platform](../running-semgrep-ci-without-semgrep-cloud-platform) | Integrate Semgrep into a repository by committing a job configuration file. |
 | [Sample CI configurations](../sample-ci-configs) | Refer to this document for different configuration files of Semgrep Cloud Platform, arranged by CI provider. |
 
 <MoreHelp />

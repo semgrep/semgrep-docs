@@ -1,5 +1,5 @@
 ---
-slug: getting-started-with-semgrep-app
+slug: getting-started
 append_help_link: true
 title: Semgrep Cloud Platform
 hide_title: true
@@ -179,7 +179,7 @@ Semgrep requires the following permissions (scopes) to enable the authentication
 
 ### Starting a SAST scan with Semgrep Code
 
-To start a SAST scan on your codebase, see [Getting started with Semgrep Code](/semgrep-code/getting-started-with-semgrep-code). Semgrep Code provides a free Community tier for up to 20 collaborators.
+To start a SAST scan on your codebase, see [Getting started with Semgrep Code](/semgrep-code/getting-started). Semgrep Code provides a free Community tier for up to 20 collaborators.
 
 ### Starting an SCA scan with Semgrep Supply Chain
 

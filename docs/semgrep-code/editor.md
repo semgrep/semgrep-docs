@@ -25,7 +25,7 @@ import MoreHelp from "/src/components/MoreHelp"
 
 ![Screenshot of the Editor's splash screen](/img/editor-splashscreen.png)
 
-**Semgrep Editor** is an advanced tool for **rule writing**. Write rules on a YAML editor, verify their performance through tests, and add them to your organization’s [Rule Board](/semgrep-app/rule-board/) to enforce code standards and increase code security.
+**Semgrep Editor** is an advanced tool for **rule writing**. Write rules on a YAML editor, verify their performance through tests, and add them to your organization’s [Rule Board](/semgrep-code/rule-board/) to enforce code standards and increase code security.
 
 To quickly learn Semgrep patterns and syntax, explore the Editor’s library of rules from the **public [Rule Registry](https://semgrep.dev/explore)**. Rules from the Registry can detect OWASP vulnerabilities, best practice violations, and security issues for a wide variety of languages and frameworks. Semgrep Editor enables you to **adapt these rules** for your own organization’s use by [forking](#jumpstart-rule-writing-using-existing-rules) them.
 

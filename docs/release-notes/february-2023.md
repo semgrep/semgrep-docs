@@ -11,7 +11,7 @@ toc_max_heading_level: 3
 
 ## Important update
 
-- Semgrep CLI is now officially renamed to **Semgrep open-source (OSS) Engine**. As of now, this documentation uses the term Semgrep CLI for Semgrep command-line interface (CLI) which you can utilize for several products, such as Semgrep OSS, Semgrep Code, and Semgrep Supply Chain.
+- Semgrep CLI is now officially renamed to **Semgrep open-source (OSS) Engine**. As of this update, this documentation uses the term Semgrep CLI for Semgrep command-line interface (CLI) which you can utilize for several products, such as Semgrep OSS, Semgrep Code, and Semgrep Supply Chain.
 - Team tier rules are now renamed to Pro Rules. **Pro rules** are created by r2c for security and software engineers who need accurate findings. These rules were previously called Team tier rules. As of this update, these rules are officially called the **[Pro rules](/semgrep-code/pro-rules/)** and are available with the [Team or higher tier](https://semgrep.dev/pricing).
 - DeepSemgrep has been bundled with other functionalities to offer you **Semgrep Pro Engine**. Semgrep Pro Engine is fully available for [Team or higher tier](https://semgrep.dev/pricing) users. See the [DeepSemgrep → Semgrep Pro Engine](#deepsemgrep--semgrep-pro-engine) update below for more details.
 
@@ -43,7 +43,7 @@ These release notes include upgrades for versions ranging between 1.8.0 and 1.13
 
 ## DeepSemgrep → Semgrep Pro Engine
 
-- DeepSemgrep has been bundled with other functionalities to offer you **Semgrep Pro Engine**! Semgrep Pro Engine is fully available for [Team or higher tier](https://semgrep.dev/pricing) users. See [Semgrep Pro](/deepsemgrep/deepsemgrep-introduction/) documentation. 
+- DeepSemgrep has been bundled with other functionalities to offer you **Semgrep Pro Engine**! Semgrep Pro Engine is fully available for [Team or higher tier](https://semgrep.dev/pricing) users. See [Semgrep Pro](/semgrep-code/semgrep-pro-engine-intro/) documentation. 
 - Experimental support for Apex language is now available in Semgrep Pro Engine.
 - The following already **deprecated** flags have been completely removed and substituted:
     - `-deep` has been removed and substituted by `-pro`.
@@ -55,9 +55,9 @@ These release notes include upgrades for versions ranging between 1.8.0 and 1.13
 ## Semgrep App → Semgrep Cloud Platform
 
 - Semgrep App is now Semgrep Cloud Platform!
-- Group by rule became the default view on the Findings page (now labeled as **Code** page) of Semgrep Cloud Platform. This view enables you to see which rules detected certain findings. You can always switch to the old no grouping view. For more information, see [Grouping by rule](/semgrep-app/findings/#grouping-by-rule).
+- Group by rule became the default view on the Findings page (now labeled as **Code** page) of Semgrep Cloud Platform. This view enables you to see which rules detected certain findings. You can always switch to the old no grouping view. For more information, see [Grouping by rule](/semgrep-code/findings/#grouping-by-rule).
     ![Screenshot of the Findings page with findings grouped by rule](/img/app-findings.png)<br />
-- Taint analysis traces are now displayed on the finding detail page, helping you to track tainted data as they propagate through your code. See [Viewing the path of tainted data](/semgrep-app/findings/#viewing-the-path-of-tainted-data) to try out this feature.
+- Taint analysis traces are now displayed on the finding detail page, helping you to track tainted data as they propagate through your code. See [Viewing the path of tainted data](/semgrep-code/findings/#viewing-the-path-of-tainted-data) to try out this feature.
     ![Data flow in Finding details page](/img/cloud-platform-findings-details-data-flow.png)<br />
 
 ## Semgrep Supply Chain
@@ -78,9 +78,9 @@ These release notes include upgrades for versions ranging between 1.8.0 and 1.13
 - Updates to **Pricing and Billing** to reflect the differences between Semgrep OSS Engine and Semgrep Code.
 - Added new documentation category Semgrep Code.
 - Updates to Semgrep Docs’s navbar.
-- Added [Grouping by rule](/semgrep-app/findings/#grouping-by-rule) section.
-- Added [Viewing the path of tainted data](/semgrep-app/findings/#viewing-the-path-of-tainted-data) section and [Semgrep Pro Engine taint traces](/deepsemgrep/semgrep-pro-data-flow/) document.
-- Updated [Viewing details and adding notes to findings](/semgrep-app/findings/#viewing-details-and-adding-notes-to-findings) section.
-- Updated [Managing projects through tags](/semgrep-app/tags/) document.
+- Added [Grouping by rule](/semgrep-code/findings/#grouping-by-rule) section.
+- Added [Viewing the path of tainted data](/semgrep-code/findings/#viewing-the-path-of-tainted-data) section and [Semgrep Pro Engine taint traces](/semgrep-code/semgrep-pro-engine-data-flow/) document.
+- Updated [Viewing details and adding notes to findings](/semgrep-code/findings/#viewing-details-and-adding-notes-to-findings) section.
+- Updated [Tagging projects](/semgrep-cloud-platform/tags/) document.
 - Iframes with rule examples in [Rule syntax](/writing-rules/rule-syntax/) document have been changed to links to specific rules due to a great number of calls generated from this page. Iframes or code snippets may return in future updates.
 - Many small updates, fixed broken links, typos, night theme logo on our home page, and overall improvements to make your experience of reading our documentation smoother.

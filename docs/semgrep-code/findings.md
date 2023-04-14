@@ -13,7 +13,7 @@ tags:
 
 import MoreHelp from "/src/components/MoreHelp"
 import TriageStatuses from "/src/components/reference/_triage-states.mdx"
-import RemoveRule from "/src/components/procedure/_remove-rule.mdx"
+import RemoveRuleset from "/src/components/procedure/_remove-ruleset.mdx"
 import IgnoreIndividualFindings from "/src/components/procedure/_ignore-individual-findings.mdx"
 import DisplayTaintedDataIntro from "/src/components/concept/_cloud-platform-display-tainted-data.mdx"
 import DisplayTaintedDataProcedure from "/src/components/procedure/_cloud-platform-display-tainted-data.mdx"
@@ -64,7 +64,7 @@ After a finding is generated, developers can:
 - **Fix the issue detected by the finding.** This is Semgrep's primary goal. In this case, the rule produces a **true positive** finding (such as a security issue) as intended and developers must change or address the code such that the rule no longer matches it.
 - **View the Semgrep rule and the matching code.** For developers aiming to understand their team's security posture, Semgrep provides a top-level report view through the Dashboard and a list view of findings in the Findings page that can be filtered by repository, rule, branch, or triage action.
 - **Triage the finding.** If the finding is not useful or important, deprioritize it through triage. Triage actions include ignoring and reopening. Triaging a finding to ignore it is one method to handle **false positives** without changing the rule or code. To triage a finding, see [Managing finding status](#managing-finding-status)
-- **Remove the rule or code that generated the finding.** There are cases where Semgrep scans a file not meant for scanning or when a rule is irrelevant. You can remove the rule from the Rule board or add the file to the ignore list. To remove a rule, see [Removing rules or rulesets](/semgrep-app/rule-board/#removing-rules-or-rulesets).
+- **Remove the rule or code that generated the finding.** There are cases where Semgrep scans a file not meant for scanning or when a rule is irrelevant. You can disable the rule from the Rule board or add the file to the ignore list. To disable a rule, see [Disabling rules](/semgrep-code/rule-board/#disabling-rules).
 <!-- - **Create a Jira ticket from the finding (for Enterprise/Team Tier users.)** For findings that require more extensive refactoring, users can create a ticket in Jira through Semgrep Cloud Platform to track its resolution. -->
 
 :::tip
@@ -114,7 +114,7 @@ Filtering allows you to easily isolate groups of findings for ease in triaging a
 | **Rules**        | Filter by rules or rulesets that are included in your Rule Board. More than one rule can be selected for filtering. |
 | **Rulesets**     | Filter by name of the ruleset where rules that matched the code belong. More than one rule or ruleset can be selected for filtering. |
 
-You can also filter for findings reported from specific time periods. See [Displaying findings reported in a specific time](/semgrep-app/findings/#displaying-findings-reported-in-a-specific-time).
+You can also filter for findings reported from specific time periods. See [Displaying findings reported in a specific time](/semgrep-code/findings/#displaying-findings-reported-in-a-specific-time).
 
 To filter through findings:
 
@@ -228,9 +228,9 @@ To **fix a finding**:
 
 1. Update, or refactor the code such that the Semgrep rule pattern no longer matches the code.
 
-#### Removing a rule
+#### Removing rulesets
 
-<RemoveRule />
+<RemoveRuleset />
 
 #### Viewing details and adding notes to findings
 
@@ -279,7 +279,7 @@ To triage a finding in GitHub, follow these steps:
 3. Substitute the colored placeholder <code><span className="placeholder">&lt;reason&gt;</span></code> with any text that can help to understand why the status of a comment is ignored.
 
 :::info
-Ignoring a finding through a comment in GitHub changes the status of the finding to **ignored** in the Semgrep Cloud Platform. See [Findings](/semgrep-app/findings.md) page documentation for more details. The GitHub conversation itself is not automatically resolved by this process.
+Ignoring a finding through a comment in GitHub changes the status of the finding to **ignored** in the Semgrep Cloud Platform. See [Findings](/semgrep-code/findings) page documentation for more details. The GitHub conversation itself is not automatically resolved by this process.
 :::
 
 :::tip
@@ -315,8 +315,8 @@ If a finding is fixed in one branch (such as `main`) but open in another (such a
 
 ## See also
 
-* [Alerts and notifications](/semgrep-app/notifications)
-* [Rule Board](rule-board.md)
+* [Alerts and notifications](/semgrep-code/notifications)
+* [Rule Board](/semgrep-code/rule-board)
 * [Ignoring files, folders, or code](/ignoring-files-folders-code/)
 
 ## Additional references
