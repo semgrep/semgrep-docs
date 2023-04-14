@@ -26,7 +26,7 @@ Our paid product, [Semgrep Code](https://semgrep.dev/products/semgrep-code), inc
 
 #### Semgrep Registry
 
-The [Semgrep Registry](https://semgrep.dev/explore) contains rules from different contributors. Semgrep Registry rules written by the Semgrep team are licensed under the [Common Clause](https://github.com/returntocorp/semgrep-rules/blob/develop/LICENSE). The source for these Registry rules is available at [returntocorp/semgrep-rules](https://github.com/returntocorp/semgrep-rules/). Those rules licensed under the Common Clause license cannot be resold without Semgrep, Inc. (“Semgrep”)’s permission. Since Semgrep offers a paid, hosted application, it’s important to have this restriction so other companies, like major cloud providers, cannot resell Semgrep’s rules as a competing service.
+The [Semgrep Registry](https://semgrep.dev/explore) contains rules from different contributors. Semgrep Registry rules written by the Semgrep team are licensed under the [Commons Clause](https://github.com/returntocorp/semgrep-rules/blob/develop/LICENSE). The source for these Registry rules is available at [returntocorp/semgrep-rules](https://github.com/returntocorp/semgrep-rules/). Those rules licensed under the Commons Clause license cannot be resold without Semgrep, Inc. (“Semgrep”)’s permission. Since Semgrep offers a paid, hosted application, it’s important to have this restriction so other companies, like major cloud providers, cannot resell Semgrep’s rules as a competing service.
 
 [Semgrep Code](https://semgrep.dev/products/semgrep-code)’s Team tier includes Pro rules which are proprietary and only available to paying customers.
 
