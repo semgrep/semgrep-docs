@@ -75,6 +75,10 @@ To enable Semgrep Pro Engine in the Semgrep Cloud Platform, follow these steps:
 To test Semgrep Pro Engine on a purposefully vulnerable repository, fork the [juice-shop](https://github.com/juice-shop/juice-shop) repository, and then add it to SCP by following the steps described in [Adding a repository](/semgrep-code/getting-started/#option-b-adding-a-repository-from-github-or-gitlab).
 :::
 
+### Creating interfile analysis rules
+
+Interfile analysis rules you use in Semgrep Pro Engine require the `interfile: true` key to be included in the rule metadata. See the following [example](https://semgrep.dev/s/3NZb). This key signals Semgrep Pro Engine to use the rule for interfile analysis.
+
 ## Additional information
 
 ### Types of Semgrep Pro Engine analysis  
