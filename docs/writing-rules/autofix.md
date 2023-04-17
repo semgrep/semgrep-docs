@@ -24,6 +24,12 @@ rules:
   severity: WARNING
 ```
 
+### Creating autofix rules
+
+See creation of an autofix rule in Transforming code with Semgrep autofixes video:
+
+<iframe class="yt_embed" width="100%" height="432px" src="https://www.youtube.com/embed/8jfjWixmtvo" frameborder="0" allowfullscreen></iframe>
+
 ## Autofix with regular expression replacement
 
 A variant on the `fix` key is `fix-regex`, which applies regular expression replacements (think `sed`) to matches found by Semgrep.
@@ -68,9 +74,3 @@ rules:
 <p align="center">
   <img src="https://web-assets.r2c.dev/inline-autofix-regex.gif" width="100%" alt="Apply Semgrep autofix direclty to a file"/>
 </p>
-
-## Creating autofix rules
-
-See creation of an autofix rule in Transforming code with Semgrep autofixes video:
-
-<iframe class="yt_embed" width="100%" height="432px" src="https://www.youtube.com/embed/8jfjWixmtvo" frameborder="0" allowfullscreen></iframe>
