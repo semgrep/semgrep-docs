@@ -71,6 +71,6 @@ rules:
 
 ## Creating autofix rules
 
-The following video shows you how to write autofix rules:
+See creation of an autofix rule in Transforming code with Semgrep autofixes video:
 
-<iframe class="yt_embed" width="100%" height="432px" src="https://www.youtube.com/embed/vVS50Ff5p5c" frameborder="0" allowfullscreen></iframe>
+<iframe class="yt_embed" width="100%" height="432px" src="https://www.youtube.com/embed/8jfjWixmtvo" frameborder="0" allowfullscreen></iframe>
