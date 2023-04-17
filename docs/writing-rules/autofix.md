@@ -24,7 +24,7 @@ rules:
   severity: WARNING
 ```
 
-### Creating autofix rules
+## Creating autofix rules
 
 See creation of an autofix rule in Transforming code with Semgrep autofixes video:
 
