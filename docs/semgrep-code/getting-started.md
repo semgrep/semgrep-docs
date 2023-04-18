@@ -35,8 +35,6 @@ Secure your code quickly and continuously by scanning with Semgrep Code, a fast 
 
 <SemgrepScan />
 
-<!-- TODO Add no code ever leaves your computer admonition. -->
-
 Semgrep Code is transparent: you can fully configure what rules are run and inspect the Semgrep syntax to understand how the finding was detected. The content of a rule can be customized to improve the true positive rate of a rule or its message to fellow developers.
 
 This document provides steps to get started with Semgrep Code for all tiers except where indicated.
@@ -87,6 +85,10 @@ See [Permissions in GitLab](/semgrep-cloud-platform/getting-started/#requested-p
 </TabItem>
 
 </Tabs>
+
+:::tip
+To use Semgrep with your team, [create an organization account](/semgrep-cloud-platform/user-management/). An organization account enables users to share rules and perform triage or remediation as a team.
+:::
 
 ## Performing a scan
 
