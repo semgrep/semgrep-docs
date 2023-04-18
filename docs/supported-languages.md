@@ -308,14 +308,15 @@ Their differences are outlined in the following table:
 
 <DeepSemgrepIntroduction />
 
-Semgrep Pro Engine offers support for the following languages:
+Semgrep Pro Engine's cross file analysis offers support for the following languages:
 
-|  Language   |  Analysis type  | Support level |
-|-------------|-----------------|---------------|
-| Apex        | Interprocedural | Experimental  |
-| Java        |    Interfile    |     Beta      |
-| JavaScript  |    Interfile    |     Beta      |
-| TypeScript  |    Interfile    |     Beta      |
+|                                 Language                                  |  Analysis type  | Support level |
+|---------------------------------------------------------------------------|-----------------|---------------|
+| All languages listed in [Semgrep OSS Engine](#semgrep-oss-engine) section | Interprocedural |       GA      |
+|                                    Apex                                   | Interprocedural |  Experimental |
+|                                    Java                                   |    Interfile    |     Beta      |
+|                                 JavaScript                                |    Interfile    |     Beta      |
+|                                 TypeScript                                |    Interfile    |     Beta      |
 
 To install and run Semgrep Pro Engine, see [Semgrep Pro Engine overview](/semgrep-code/semgrep-pro-engine-intro/).
 
