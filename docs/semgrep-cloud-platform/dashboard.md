@@ -25,6 +25,9 @@ Object.entries(frontMatter).filter(
 
 ![Screenshot of dashboard view](/img/dashboard-view.png)
 
+TODO - find good placement for this screenshot:
+![Screenshot of dashboard with Semgrep Supply Chain](/img/dashboard-with-supply-chain.png)
+
 The Findings Dashboard is an overview of your organization’s security posture from data aggregated within Semgrep Cloud Platform. With these metrics you can:
 
 * View recurring security issues, consequently taking action on them.
