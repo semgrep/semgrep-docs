@@ -183,7 +183,7 @@ To start a SAST scan on your codebase, see [Getting started with Semgrep Code](/
 
 ### Starting an SCA scan with Semgrep Supply Chain
 
-To start an SCA scan for your third-party dependencies, contact [sales@r2c.dev](mailto:sales@r2c.dev).
+To start an SCA scan for your third-party dependencies, contact [sales@semgrep.com](mailto:sales@semgrep.com).
 
 ## Additional resources
 

@@ -40,7 +40,7 @@ To set up SSO:
 5. Provide a descriptive `Display Name`.
     ![Providing the Base URL/Domain, Display Name, and Email Domain](/img/sso-providing-BaseURL-DisplayName-EmailDomain.png "Providing the Base URL/Domain, Display Name, and Email Domain")
 
-In case you encounter issues during the setup process, please reach out to [support@r2c.dev](mailto:support@r2c.dev) for assistance.
+In case you encounter issues during the setup process, please reach out to [support@semgrep.com](mailto:support@semgrep.com) for assistance.
 
 ## SAML 2.0
 
@@ -61,7 +61,7 @@ To set up SSO:
 6. Provide a descriptive `Display Name`.
     ![Providing the Base URL/Domain, Display Name, and Email Domain](/img/sso-providing-BaseURL-DisplayName-EmailDomain.png "Providing the Base URL/Domain, Display Name, and Email Domain")
 
-If you encounter issues during the setup process, reach out to [support@r2c.dev](mailto:support@r2c.dev) for assistance.
+If you encounter issues during the setup process, reach out to [support@semgrep.com](mailto:support@semgrep.com) for assistance.
 
 ### Setting up SAML SSO with Azure Active Directory
 

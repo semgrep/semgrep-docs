@@ -134,7 +134,7 @@ in differential scans for performance reasons.
     - Reachable — this type of exposure means that the finding has detected a vulnerable dependency **and** the vulnerable code is used in your codebase. Additionally, the **inclusion** of certain severely vulnerable packages such as `log4j` is also categorized as a reachable exposure even without the vulnerable code’s usage within your codebase.
     - Unreachable — this type of exposure means that the finding has detected a vulnerable dependency but the vulnerable code is not used in your codebase.
     - Undetermined — Reachability analysis has not been performed on this finding, therefore its exposure is undetermined.
-- Historical rules (also known as parity rules) are now enabled by default for new personal and organizational accounts. Existing organizations can reach out to [support@r2c.dev](mailto:support@r2c.dev) to enable parity rules by default.
+- Historical rules (also known as parity rules) are now enabled by default for new personal and organizational accounts. Existing organizations can reach out to [support@semgrep.com](mailto:support@semgrep.com) to enable parity rules by default.
 - Semgrep Supply Chain scans now understand `maven_dep_tree.txt` files that are made of multiple smaller `maven_dep_tree.txt` files concatenated with`cat`. To make use of this functionality, create a script or command using the `cat` command as a step in your CI pipeline.
 
 ## Documentation
