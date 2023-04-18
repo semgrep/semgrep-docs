@@ -312,7 +312,7 @@ Semgrep Pro Engine supports the following languages:
 
 |                                    Language                                      |  Analysis type  | Support level |
 |----------------------------------------------------------------------------------|-----------------|---------------|
-|  All languages listed in [Semgrep OSS Engine](#semgrep-oss-engine) in GA support | Interprocedural |       GA      |
+|  All GA supported languages listed in [Semgrep OSS Engine](#semgrep-oss-engine)  | Interprocedural |       GA      |
 |                                         Apex                                     | Interprocedural |  Experimental |
 |                                         Java                                     |    Interfile    |     Beta      |
 |                                      JavaScript                                  |    Interfile    |     Beta      |
