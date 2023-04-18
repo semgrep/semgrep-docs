@@ -308,7 +308,7 @@ Their differences are outlined in the following table:
 
 <DeepSemgrepIntroduction />
 
-Semgrep Pro Engine's cross file analysis offers support for the following languages:
+Semgrep Pro Engine supports the following languages:
 
 |                                 Language                                  |  Analysis type  | Support level |
 |---------------------------------------------------------------------------|-----------------|---------------|
