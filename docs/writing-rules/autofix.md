@@ -26,7 +26,7 @@ rules:
 
 ## Creating autofix rules
 
-See creation of an autofix rule in Transforming code with Semgrep autofixes video:
+See how to create an autofix rule in **Transforming code with Semgrep autofixes** video:
 
 <iframe class="yt_embed" width="100%" height="432px" src="https://www.youtube.com/embed/8jfjWixmtvo" frameborder="0" allowfullscreen></iframe>
 
