@@ -310,13 +310,13 @@ Their differences are outlined in the following table:
 
 Semgrep Pro Engine supports the following languages:
 
-|                                 Language                                  |  Analysis type  | Support level |
-|---------------------------------------------------------------------------|-----------------|---------------|
-| All languages listed in [Semgrep OSS Engine](#semgrep-oss-engine) section | Interprocedural |       GA      |
-|                                    Apex                                   | Interprocedural |  Experimental |
-|                                    Java                                   |    Interfile    |     Beta      |
-|                                 JavaScript                                |    Interfile    |     Beta      |
-|                                 TypeScript                                |    Interfile    |     Beta      |
+|                                    Language                                      |  Analysis type  | Support level |
+|----------------------------------------------------------------------------------|-----------------|---------------|
+|  All languages listed in [Semgrep OSS Engine](#semgrep-oss-engine) in GA support | Interprocedural |       GA      |
+|                                         Apex                                     | Interprocedural |  Experimental |
+|                                         Java                                     |    Interfile    |     Beta      |
+|                                      JavaScript                                  |    Interfile    |     Beta      |
+|                                      TypeScript                                  |    Interfile    |     Beta      |
 
 To install and run Semgrep Pro Engine, see [Semgrep Pro Engine overview](/semgrep-code/semgrep-pro-engine-intro/).
 
