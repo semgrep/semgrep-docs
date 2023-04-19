@@ -31,10 +31,8 @@ Semgrep Cloud Platform has two types of accounts:
     <dt>Personal account</dt>
     <dd>Every person who signs into Semgrep Cloud Platform is first signed in to a <strong>personal account</strong>. In a personal account, your findings, projects, private rules, and scans are visible only to you.</dd>
     <dt>Organization (Org) account</dt>
-    <dd>To collaborate with others, create an <strong>organization account</strong>. An organization account in Semgrep Cloud Platform requires an existing organization from GitHub or GitLab. Creating this type of account integrates Semgrep Cloud Platform with your organization. A user can be part of many Semgrep Cloud Platform organization accounts, provided that they are a member of that organization in their SCM (source code management) tool, such as GitHub or GitLab.</dd>
+    <dd>To collaborate with others, create an <strong>organization account</strong>. An organization account in Semgrep Cloud Platform requires an existing organization from GitHub or GitLab. Creating this type of account integrates Semgrep Cloud Platform with your organization. A user can be part of many Semgrep Cloud Platform organization accounts, provided that they are a member of that organization in their SCM (source code management) tool, such as GitHub or GitLab. Semgrep Cloud Platform can also detect the organization's repositories available for scanning.</dd>
 </dl>
-
-Users from the same organization can sign in to Semgrep Cloud Platform with their SCM's credentials and are automatically added to the organization account. Semgrep Cloud Platform can also detect the organization's repositories available for scanning.
 
 In organization accounts, collaborators can collectively manage Semgrep Cloud Platform. By default, users can:
 
@@ -51,6 +49,10 @@ Semgrep Cloud Platform can restrict features based on user roles. See [Controlli
 By setting up an organization account, teams can collaborate on rule writing and the management of repositories. Teams with organization accounts can enforce organization-wide standards and secure their repositories at scale. Perform the steps outlined in the following subsections to set up an organization account.
 
 ### Creating a Semgrep organization account
+
+:::note
+- Semgrep supports the creation of organization accounts from GitHub or GitLab only.
+:::
 
 To create an organization account:
 
