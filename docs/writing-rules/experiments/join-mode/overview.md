@@ -196,7 +196,7 @@ Short for references, `refs` is a list of external rules that make up your code 
 
 ### `rule`
 
-This points to an external rule location to use in this join rule. Currently, join mode requires external rules. Additionally, even though Semgrep rule files can typically contain multiple rules under the `rules` key, join mode **will only use the first rule in the file**.
+This points to an external rule location to use in this join rule. Even though Semgrep rule files can typically contain multiple rules under the `rules` key, join mode **will only use the first rule in the provided file**.
 
 Anything that works with `semgrep --config <here>` will work as the value for `rule`.
 
@@ -210,7 +210,7 @@ Renaming is necessary for named expressions, e.g., `$...EXPR`.
 
 ### `as`
 
-An optional key for an object in `refs`, `as` will let you specify an alias for the results collected by this rule for use in the `on` conditions. Without the `as` key, the default name for the results collected by this rule is the rule ID of the rule in `rule`. If you use `as`, the results can be references using the alias specified by `as`.
+An optional key for an object in `refs`, `as` will let you specify an alias for the results collected by this rule for use in the `on` conditions. Without the `as` key, the default name for the results collected by this rule is the rule ID of the rule in `rule`. If you use `as`, the results can be referenced using the alias specified by `as`.
 
 ### `on`
 
@@ -237,7 +237,9 @@ The `on` key is required in join mode. This is where the join conditions are lis
 
 Join mode **is not taint mode**! While it can look on the surface like join mode is "connecting" things together, it is actually just creating sets for each Semgrep rule and returning all the results that meet the conditions. This means some false positives will occur if unrelated metavariable contents happen to have the same value.
 
-Right now, external rules are required for join mode. (This is why the rules are called `refs` - they are references to other locations.) To use join mode, you must define your individual Semgrep rules in independent locations. This can be anything that works with `semgrep --config <here>`, such as a file, a URL, or a Semgrep registry pointer like `r/java.lang.security.some.rule.id`. 
+To use join mode with `refs`, you must define your individual Semgrep rules in independent locations. This can be anything that works with `semgrep --config <here>`, such as a file, a URL, or a Semgrep registry pointer like `r/java.lang.security.some.rule.id`. 
+
+Join mode does not work in the Semgrep playground, as it is an experimental feature.
 
 Currently, join mode will only report the code location of the **last finding that matches the conditions**. Join mode will parse the conditions from top-to-bottom, left-to-right. This means that findings from the "bottom-right" condition will be the reported code location.
 
