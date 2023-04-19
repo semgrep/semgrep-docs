@@ -333,7 +333,7 @@ Semgrep Cloud Platform supports various phases of the development cycle through 
 
 * Alerts and notifications keep teams informed without having to leave their working environments, such as Slack or email.
 * Forking Registry rules to easily write custom rules, enabling teams to enforce their own standards.
-* Developer feedback enables teams to collaborate and improve on scan quality.
+* User management and collaboration features for security teams to work as a team in for rule-writing, triage, and remediation.
 
 ### Tracking findings and receiving notifications
 
@@ -353,6 +353,10 @@ Semgrep provides the following environments to learn, experiment, and write Semg
     <dt><a href= "https://semgrep.dev/login?return_path=/orgs/-/editor">Editor</a></dt>
     <dd>Fork existing security rules to customize them for your own organization or team's use in this advanced editor. Refer to <a href="/semgrep-code/editor/#jumpstart-rule-writing-using-existing-rules">Writing rules using Semgrep Editor</a>.</dd>
 </dl>
+
+### User management
+
+You can onboard (add) your entire organization's users and repositories by creating an organization account. Additionally, Semgrep Cloud Platform provides role-based access control (RBAC) for Team or Enterprise tiers. See [User management, accounts, and roles](/semgrep-cloud-platform/user-management) to learn more.
 
 ### Getting support
 
