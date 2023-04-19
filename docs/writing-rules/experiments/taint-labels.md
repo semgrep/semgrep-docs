@@ -46,6 +46,12 @@ In the example below, let's say that `user_input` is dangerous but only when it 
 
 <iframe src="https://semgrep.dev/embed/editor?snippet=PwKY" border="0" frameBorder="0" width="100%" height="432"></iframe>
 
+## Creating taint label rules
+
+See the following video where taint labels are used to detect XXE vulnerabilities:
+
+<iframe class="yt_embed" width="100%" height="432px" src="https://www.youtube.com/embed/lAbJdzMUR4k" frameborder="0" allowfullscreen></iframe>
+
 <!--
 TODO: For some reason the embedded editor doesn't like the rule, even though the Playground can run it.
 

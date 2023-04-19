@@ -4,15 +4,19 @@ toc_max_heading_level: 4
 description: "XML External entity prevention cheat sheet for Java. "
 ---
 
-import RecommendedRuleSet from "/src/components/code_snippets/_cheat-sheets-recommended-rule-set.mdx"
-
 # XML External entity prevention for Java
 
 This article documents two attacks related to XML external entities: XML exponential entity expansion and XML external entity injection. In Java, applications are secure from exponential entity expansion by default. Consequently, no security measures are necessary. When exponential entity expansion occurs the JDK throws an exception, but if this exception is not caught and handled, an attack can still cause a denial-of-service attack (DoS). In contrast, there are various countermeasures to protect a Java XML parser from XML external entity injection, but not all are effective. This cheat sheet also provides test results, availability, and the effect of different security measures on several Java classes that process XML documents in section [3. Overview of the effect of security measures for each class](#3-overview-of-the-effect-of-security-measures-for-each-class).
 
-### Check your project using Semgrep
+## Check your project using Semgrep
 
-<RecommendedRuleSet />
+You may use [Pro rules](/semgrep-code/pro-rules/) to check your project for XXE vulnerabilities.
+
+### Catching XXE bugs in Java with Semgrep taint labels
+
+See the process behind creating a Semgrep rule that detects XXE vulnerabilities. You can create and improve your own rules using [Semgrep Playground](https://semgrep.dev/playground) as you may see in the following video:
+
+<iframe class="yt_embed" width="100%" height="432px" src="https://www.youtube.com/embed/lAbJdzMUR4k" frameborder="0" allowfullscreen></iframe>
 
 ## Mitigation summary
 

@@ -9,7 +9,7 @@ import MoreHelp from "/src/components/MoreHelp"
 
 Users of the [Team or Enterprise tier](https://semgrep.dev/pricing) of Semgrep Code can publish rules to the [Semgrep Registry](https://semgrep.dev/explore) as private rules that are not visible to others outside their organization. The private rules enable you to hide code-sensitive information or legal requirements that prevent you from using a public registry.
 
-As we continue to develop and refine this feature, we welcome and appreciate your feedback! Email us at [product@r2c.dev](mailto:product@r2c.dev) or contact us in the [Semgrep Community Slack](https://go.semgrep.dev/slack).
+As we continue to develop and refine this feature, we welcome and appreciate your feedback! Email us at [product@semgrep.com](mailto:product@semgrep.com) or contact us in the [Semgrep Community Slack](https://go.semgrep.dev/slack).
 
 ## Creating private rules
 
