@@ -14,7 +14,7 @@ This document provides an overview of Semgrep Pro Engine features through specif
 The following resources can help you to test the code in the sections below. As you work through the examples in this document, try the following:
 
 - Enable the <i class="fa-solid fa-toggle-large-on"></i> **Semgrep Pro Engine beta** toggle within the [Playground](https://semgrep.dev/playground/new).
-    - Rules you use in Semgrep Pro Engine require `interfile: true` key included in the metadata. See the following [example](https://semgrep.dev/s/3NZb).
+    - Rules you use in Semgrep Pro Engine require `interfile: true` key included in the `metadata` key. See the following [example](https://semgrep.dev/s/3NZb).
 - The [Semgrep Pro Engine testing repository](https://github.com/returntocorp/semgrep-pro-tests) 
     - Clone the repository:
         ```sh
@@ -40,7 +40,7 @@ In the examples below, see a comparison of Semgrep OSS and Semgrep Pro Engine wh
 
 Semgrep matches `dangerous(“Select * from “ + user_input)`, because `user_input` is obtained by calling `get_user_input`. However, it does not match the similar call using `still_user_input`, because its analysis does not cross function boundaries to know that `still_user_input` is a wrapper function for `user_input`.
 
-<iframe title="Semgrep example no prints" src="https://semgrep.dev/embed/editor?snippet=J0dQ" width="100%" height="432" frameborder="0"></iframe>
+<iframe title="Semgrep example no prints" src="https://semgrep.dev/embed/editor?snippet=xOlj" width="100%" height="432" frameborder="0"></iframe>
 
 Semgrep Pro Engine matches both dangerous calls because it does cross function boundaries. In fact, with Semgrep Pro Engine, the taint rule can track calls to `get_user_input` over multiple jumps in multiple files.
 
@@ -56,7 +56,7 @@ semgrep --config pro.yaml . --pro
 
 Here, Semgrep OSS matches `dangerous(“Select * from “ + user_input)`, because `user_input` is obtained by calling `get_user_input`. However, Semgrep OSS does not match the similar call using `still_user_input`, because its analysis does not cross function boundaries to know that `still_user_input` is a wrapper function for `user_input`.
 
-<iframe title="Semgrep example no prints" src="https://semgrep.dev/embed/editor?snippet=Po9p" width="100%" height="432" frameborder="0"></iframe>
+<iframe title="Semgrep example no prints" src="https://semgrep.dev/embed/editor?snippet=kO41" width="100%" height="432" frameborder="0"></iframe>
 
 Semgrep Pro matches both dangerous calls because it does cross function boundaries. In fact, with Semgrep Pro, the taint rule can track calls to `get_user_input` over multiple jumps in multiple files.
 
@@ -120,7 +120,7 @@ semgrep --config pro.yaml . --pro
 
 This section compares the possible findings of a scan across multiple files using Semgrep OSS and Semgrep Pro. The file `app.java` includes two check functions that throw exceptions. This example looks for methods that throw a particular exception, `ExampleException`.
 
-<iframe title="Semgrep example no prints"src="https://semgrep.dev/embed/editor?snippet=X424" width="100%" height="432" frameborder="0"></iframe>
+<iframe title="Semgrep example no prints"src="https://semgrep.dev/embed/editor?snippet=yOYk" width="100%" height="432" frameborder="0"></iframe>
 
 When using this rule, Semgrep OSS matches code that throws `ExampleException` but not `BadRequest`. Check other files in the `docs/class_inheritance` directory. In the context of all files, you can find that this match does **not** capture the whole picture. The `BadRequest` extends `ExampleException`:
 
@@ -167,7 +167,7 @@ If you are following in the cloned [Semgrep Pro Engine testing repository](https
 
 Semgrep Pro Engine uses interfile class inheritance information when matching [typed metavariables](/writing-rules/pattern-syntax/#typed-metavariables). Continuing the example from the previous section, see the following example file, which has defined some exceptions and includes their logging:
 
-<iframe title="Semgrep example no prints" src="https://semgrep.dev/embed/editor?snippet=pbG0" width="100%" height="432" frameborder="0"></iframe>
+<iframe title="Semgrep example no prints" src="https://semgrep.dev/embed/editor?snippet=14bk" width="100%" height="432" frameborder="0"></iframe>
 
 The rule searches for any variable of type `ExampleException` being logged. Semgrep is **not** able to find instances of `BadRequest` being logged, unlike Semgrep Pro Engine. Allowing typed metavariables to access information from the entire program enables users to query any variable for its type and use that information in conjunction with the rest of the code resulting in more accurate findings.
 
@@ -191,7 +191,7 @@ semgrep --config pro.yaml . --pro
 
 #### Java
 
-<iframe title="Semgrep example no prints" src="https://semgrep.dev/embed/editor?snippet=YPKo" width="100%" height="432" frameborder="0"></iframe>
+<iframe title="Semgrep example no prints" src="https://semgrep.dev/embed/editor?snippet=XK9N" width="100%" height="432" frameborder="0"></iframe>
 
 Semgrep OSS matches the first and second calls as it cannot find a constant value for either `user_input` or `EMPLOYEE_TABLE_NAME`.
 
@@ -220,7 +220,7 @@ semgrep --config pro.yaml . --pro
 
 #### JavaScript and TypeScript
 
-<iframe title="Semgrep example no prints" src="https://semgrep.dev/embed/editor?snippet=BJ2x" width="100%" height="432" frameborder="0"></iframe>
+<iframe title="Semgrep example no prints" src="https://semgrep.dev/embed/editor?snippet=odGx" width="100%" height="432" frameborder="0"></iframe>
 
 Semgrep matches the first and second calls because Semgrep cannot find a constant value for either `user_input` or `EMPLOYEE_TABLE_NAME`.
 
@@ -249,7 +249,7 @@ In the previous example, we only cared whether the string was constant or not, s
 
 #### Java
 
-<iframe title="Semgrep example no prints" src="https://semgrep.dev/embed/editor?snippet=qb6e" width="100%" height="432" frameborder="0"></iframe>
+<iframe title="Semgrep example no prints" src="https://semgrep.dev/embed/editor?snippet=YqyD" width="100%" height="432" frameborder="0"></iframe>
 
 With Semgrep Pro Engine, this rule matches the last three calls to `dangerous`, since these calls are selected from the `Employees` table, though each one obtains the table name differently:
 
@@ -263,7 +263,7 @@ semgrep --config pro.yaml . --pro
 
 #### JavaScript and TypeScript
 
-<iframe title="Semgrep example no prints" src="https://semgrep.dev/embed/editor?snippet=0xgB" width="100%" height="432" frameborder="0"></iframe>
+<iframe title="Semgrep example no prints" src="https://semgrep.dev/embed/editor?snippet=pORk" width="100%" height="432" frameborder="0"></iframe>
 
 With Semgrep Pro Engine, this rule matches the last three calls to `dangerous`, since these calls are selected from the `Employees` table, though each one obtains the table name differently:
 

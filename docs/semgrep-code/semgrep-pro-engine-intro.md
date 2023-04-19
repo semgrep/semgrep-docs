@@ -77,7 +77,21 @@ To test Semgrep Pro Engine on a purposefully vulnerable repository, fork the [ju
 
 ### Creating interfile analysis rules
 
-Interfile analysis rules you use in Semgrep Pro Engine require the `interfile: true` key to be included in the rule metadata. See the following [example](https://semgrep.dev/s/3NZb). This key signals Semgrep Pro Engine to use the rule for interfile analysis.
+Interfile analysis rules you use in Semgrep Pro Engine require the `interfile: true` key to be included under the rule `metadata` key. See the following [example](https://semgrep.dev/s/3NZb). This key signals Semgrep Pro Engine to use the rule for interfile analysis.
+
+Example of `interfile: true` key:
+```yaml
+rules:
+  - id: dangerous-call-to-employees-pro-engine-example
+    metadata:
+      interfile: true
+    patterns:
+      - pattern: dangerous("Employees")
+    message: Call of dangerous on employees table
+    languages:
+      - js
+    severity: WARNING
+```
 
 ## Additional information
 
