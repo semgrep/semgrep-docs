@@ -636,7 +636,7 @@ Semgrep Cloud Platform can send a POST request containing information about the 
     "commit": "e22f08e8e871bde8c100b3a4a6f8e9387d651223",
     "commit_committer_email": "",
     "commit_timestamp": "",
-    "commit_author_email": "support@r2c.dev",
+    "commit_author_email": "support@semgrep.com",
     "commit_author_name": "Semgrep User",
     "commit_author_username": "semgrepuser",
     "commit_author_image_url": "https://avatars.githubusercontent.com/u/29760937?s=200&v=4",

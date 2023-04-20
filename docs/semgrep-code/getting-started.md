@@ -31,38 +31,13 @@ import PlatformSigninGitlab from "/src/components/procedure/_platform-signin-git
 
 # Getting started with Semgrep Code
 
-Secure your code quickly and continuously by scanning with Semgrep Code, a fast and lightweight SAST (Static Analysis Security Testing) engine that leverages Semgrep OSS.
+Secure your code quickly and continuously by scanning with Semgrep Code, a fast and lightweight SAST (Static Application Security Testing) engine that leverages Semgrep OSS.
 
 <SemgrepScan />
 
-<!-- TODO Add no code ever leaves your computer admonition. -->
+Semgrep Code is transparent: you can fully configure what rules are run and inspect the Semgrep syntax to understand how the finding was detected. The content of a rule can be customized to improve the true positive rate of a rule or its message to fellow developers.
 
-Semgrep Code is transparent: you can fully configure what rules are run and how the presence of a finding is communicated to different channels. The content of a rule can be customized to improve the true positive rate of a rule or its message to fellow developers.
-
-This document provides steps to get started with Semgrep Code and its Team and Enterprise tier features.
-
-:::note
-To get started with Semgrep Code and its Community (free) tier, see [Getting Started with Semgrep Cloud Platform](/semgrep-cloud-platform/getting-started).
-:::
-
-## Semgrep Code and Semgrep OSS Engine
-
-The following table shows differences between Semgrep Code and Semgrep OSS Engine:
-
-| Feature                | Description | Semgrep OSS Engine | Semgrep Code |
-| -------                | ---   | -----------------  | ------------ |
-| Semgrep CLI            | Run local scans. | ✔️  | ✔️  |
-| Semgrep CI             | Run scans on remote repositories. | ✔️  | ✔️  | 
-| Custom rules           | Write your own rules tailored to your organization's needs. | ✔️  | ✔️  |
-| Community rules        | Make use of community-contributed rules. | ✔️  | ✔️  |
-| Semgrep Cloud Platform | Manage findings, rules, and alerts in a centralized location. | ❌ | ✔️  |
-| Semgrep Pro Engine     | Run Semgrep with interprocedural and interfile analysis. | ❌ | ✔️ * |
-| Semgrep Pro rules      | Rules leveraging Semgrep Pro Engine to detect hardcoded secrets, XXE injections, deserialization issues, and more. | ❌ | ✔️ * |
-| Findings retention     | Keep track of when a finding is created and resolved. | ❌ | ✔️  |
-| Alerts & notifications | Receive alerts to catch issues before they reach live servers. | ❌ | ✔️  |
-| Findings management    | Filter and sort findings in bulk. | ❌ | ✔️  |
-| API and webhooks       | Query and receive scan data for your custom infrastructure. |❌ | ✔️  |
-_*These features require a Team-tier license or above*._
+This document provides steps to get started with Semgrep Code for all tiers except where indicated.
 
 ## Semgrep Code with Semgrep Cloud Platform
 
@@ -71,14 +46,15 @@ Semgrep Code includes Semgrep Cloud Platform (SCP), a web application that helps
 * Sorting, filtering, triaging, and remediating security issues.
 * Enforcing coding standards through the creation of custom rules.
 * Preventing insecure code from reaching production or staging servers by blocking pull or merge requests, based on how you configure your rules.
-* Notifying security teams of findings (results) as well as communicating with other developers by leaving pull or merge request comments in GitHub or GitLab.
+* Notifying security teams of findings (results) as well as communicating with other developers by leaving pull or merge request comments in GitHub, GitLab, or BitBucket.
 
-:::tip
-* Scanning with Semgrep Cloud Platform is the recommended method to scan with Semgrep Code.
+:::tip SUGGESTED WORKFLOWS
+* You can use SCP to scan remote repositories (GitHub, GitLab, or BitBucket) and consolidate the findings.
+* You can also use Semgrep Cloud Platform to consolidate findings from a Semgrep CLI scan performed on a **local** machine.
 * Semgrep Code can be integrated into your custom infrastructure without SCP. See [API](/semgrep-cloud-platform/semgrep-api) for details.
 :::
 
-### Scanning a repository from GitHub or GitLab
+### Scanning a repository
 
 #### Signing in to Semgrep Cloud Platform
 
@@ -110,9 +86,13 @@ See [Permissions in GitLab](/semgrep-cloud-platform/getting-started/#requested-p
 
 </Tabs>
 
+:::tip
+To use Semgrep with your team, [create an organization account](/semgrep-cloud-platform/user-management/). An organization account enables users to share rules and perform triage or remediation as a team.
+:::
+
 ## Performing a scan
 
-Scanning is Semgrep's primary operation. When you first sign into Semgrep Cloud Platform, it uses a default SAST (Static Application Security Testing) ruleset selected to enforce best practices for a repository's framework and programming language. You can customize future scans to address your organization's specific practices.
+Scanning is Semgrep's primary operation. When you first sign into Semgrep Cloud Platform, it uses a default SAST ruleset selected to enforce best practices for a repository's framework and programming language. You can customize future scans to address your organization's specific practices.
 
 Semgrep Cloud Platform enables users to choose what findings prevent a pull or merge request (PR or MR) from merging into the repository. Setting these blocking and non-blocking rules is achieved through the Rule Board.
 
@@ -120,7 +100,7 @@ Semgrep Cloud Platform enables users to choose what findings prevent a pull or m
 
 A **project** is a repository from either:
 
-* Your GitHub or GitLab account that you add to Semgrep Cloud Platform for scanning. Projects from GitHub or GitLab are integrated through Semgrep Cloud Platform.
+* Your GitHub, GitLab, or BitBucket account that you add to Semgrep Cloud Platform for scanning.
 * A local Git repository in your machine. Projects from your local machine are integrated through Semgrep CLI.
 
 Semgrep Cloud Platform can run scans on many projects with rules set in the Rule Board. First-time Semgrep Cloud Platform users scan projects with pre-selected rules chosen based on the repository's language and framework. To view these pre-selected rules, see the [Registry default ruleset](https://semgrep.dev/p/default).
@@ -129,7 +109,7 @@ Over time, users modify the Rule Board with rules specific to their codebase's s
 
 :::tip Optional workflows
 * Start using Semgrep Cloud Platform by scanning a demo project that requires only 3 seconds to configure. See [Learning Semgrep Cloud Platform with a demo project](/semgrep-code/demo-project/)
-* Scan a project using Semgrep Pro Engine, an **interprocedural and interfile** analysis engine. This engine is available for Team tier users and above. See [Semgrep Pro Engine overview](semgrep-code/semgrep-pro-engine-intro) or contact [sales@r2c.dev](mailto:sales@r2c.dev) for more information.
+* Scan a project using Semgrep Pro Engine, an **interprocedural and interfile** analysis engine. This engine is available for Team tier users and above. See [Semgrep Pro Engine overview](semgrep-code/semgrep-pro-engine-intro) or contact [sales@semgrep.com](mailto:sales@semgrep.com) for more information.
 :::
 
 #### Option A: Scanning a local repository through Semgrep CLI
@@ -231,7 +211,7 @@ $> export SEMGREP_COMMIT=fa4e36b9369e5b039bh2220b5h9R61a38b077f29
 
 *Figure 3.* Partial screenshot of findings page with hyperlinks.
 
-#### Option B: Adding a repository from GitHub or GitLab
+#### Option B: Adding a repository from GitHub, GitLab, or BitBucket
 
 <PlatformAddRepo />
 
@@ -328,13 +308,32 @@ Include code suggestions that resolve findings in both GitHub and GitLab through
 
 <EnableAutofix />
 
+## Semgrep Code and Semgrep OSS Engine
+
+The following table shows differences between Semgrep Code and Semgrep OSS Engine:
+
+| Feature                | Description | Semgrep OSS Engine | Semgrep Code |
+| -------                | ---   | -----------------  | ------------ |
+| Semgrep CLI            | Run local scans. | ✔️  | ✔️  |
+| Semgrep CI             | Run scans on remote repositories. | ✔️  | ✔️  | 
+| Custom rules           | Write your own rules tailored to your organization's needs. | ✔️  | ✔️  |
+| Community rules        | Make use of community-contributed rules. | ✔️  | ✔️  |
+| Semgrep Cloud Platform | Manage findings, rules, and alerts in a centralized location. | ❌ | ✔️  |
+| Semgrep Pro Engine     | Run Semgrep with interprocedural and interfile analysis. | ❌ | ✔️ * |
+| Semgrep Pro rules      | Rules leveraging Semgrep Pro Engine to detect hardcoded secrets, XXE injections, deserialization issues, and more. | ❌ | ✔️ * |
+| Findings retention     | Keep track of when a finding is created and resolved. | ❌ | ✔️  |
+| Alerts & notifications | Receive alerts to catch issues before they reach live servers. | ❌ | ✔️  |
+| Findings management    | Filter and sort findings in bulk. | ❌ | ✔️  |
+| API and webhooks       | Query and receive scan data for your custom infrastructure. |❌ | ✔️  |
+_*These features require a Team-tier license or above*._
+
 ## Going further with Semgrep Cloud Platform
 
 Semgrep Cloud Platform supports various phases of the development cycle through the following features:
 
 * Alerts and notifications keep teams informed without having to leave their working environments, such as Slack or email.
 * Forking Registry rules to easily write custom rules, enabling teams to enforce their own standards.
-* Developer feedback enables teams to collaborate and improve on scan quality.
+* User management and collaboration features for security teams to work as a team in for rule-writing, triage, and remediation.
 
 ### Tracking findings and receiving notifications
 
@@ -355,14 +354,9 @@ Semgrep provides the following environments to learn, experiment, and write Semg
     <dd>Fork existing security rules to customize them for your own organization or team's use in this advanced editor. Refer to <a href="/semgrep-code/editor/#jumpstart-rule-writing-using-existing-rules">Writing rules using Semgrep Editor</a>.</dd>
 </dl>
 
-### Receiving feedback about a rule
+### User management
 
-[Developer feedback](/semgrep-cloud-platform/dashboard/#rule-performance-through-developer-feedback) is a Team/Enterprise tier feature in which developers can submit feedback about a rule or finding. This is used to evaluate a rule's performance:
-
-* Is the rule's message clear?
-* Does the rule have too many false positives?
-* Should the rule be ignored for a certain file or block of code?
-* Are there additional improvements to the rule, such as possible autofix values?
+You can onboard (add) your entire organization's users and repositories by creating an organization account. Additionally, Semgrep Cloud Platform provides role-based access control (RBAC) for Team or Enterprise tiers. See [User management, accounts, and roles](/semgrep-cloud-platform/user-management) to learn more.
 
 ### Getting support
 
