@@ -10,7 +10,7 @@ Join mode runs several Semgrep rules at once and only returns results if certain
 
 Think of join mode like this: distinct Semgrep rules are used to gather information about a code base. Then, the conditions you define are used to select specific results from these rules, and the selected results are reported by Semgrep. You can join results on metavariable contents or on the result's file path.
 
-You can also use proprietary Semgrep Pro Engine that enables you to cross boundaries with its interfile analysis capabilities. For more information, see [Semgrep Pro Engine overview](/semgrep-code/semgrep-pro-engine-intro/).
+You can also use proprietary Semgrep Pro Engine that enables you to cross file boundaries during code analysis with its interfile analysis capabilities. For more information, see [Semgrep Pro Engine overview](/semgrep-code/semgrep-pro-engine-intro/).
 
 ## Example
 
