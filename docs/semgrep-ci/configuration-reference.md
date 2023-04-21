@@ -5,7 +5,7 @@ tags:
     - Semgrep in CI
     - Community Tier
     - Team & Enterprise Tier
-title: CI configuration reference
+title: CI environment variables 
 hide_title: true
 ---
 
@@ -20,7 +20,7 @@ Object.entries(frontMatter).filter(
 }
 </ul>
 
-# Continuous Integration (CI) configuration reference
+# Continuous Integration (CI) environment variables
 
 Use this reference to configure Semgrep's behavior in CI environments by setting environment variables. You can set these variables within a CI configuration file or your CI provider's interface. Refer to your CI provider's documentation for the correct syntax. Examples are written for a Bash environment unless otherwise stated.  
 
@@ -273,6 +273,19 @@ steps:
   - env:
     SEMGREP_PR_ID: $(System.PullRequest.PullRequestNumber)
     ...
+```
+
+## Environment variable for creating comments in BitBucket pull requests
+
+
+### `BITBUCKET_TOKEN`
+
+Set `BITBUCKET_TOKEN` to enable Semgrep to leave PR or MR comments in BitBucket Cloud. The value of this environment variable must be a Personal Access Token (PAT) generated from BitBucket Cloud. See [BitBucket PR comments](semgrep-cloud-platform/bitbucket-pr-comments) for instructions.
+
+Example:
+
+```yaml
+-export BITBUCKET_TOKEN=$PAT
 ```
 
 

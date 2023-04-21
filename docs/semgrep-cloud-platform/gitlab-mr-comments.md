@@ -1,7 +1,7 @@
 ---
 slug: gitlab-mr-comments 
 append_help_link: true
-title: Alerts and notifications
+title: GitLab MR comments
 hide_title: true
 toc_max_heading_level: 4
 description: "Enable merge request (MR) comments in your GitLab repositories to display Semgrep findings to developers."
@@ -26,7 +26,7 @@ Object.entries(frontMatter).filter(
 
 :::info Prerequisites
 * Pull request (PR) comments can only be enabled through Semgrep Cloud Platform (SCP). [Create an account](/semgrep-code/getting-started/#signing-in-to-semgrep-cloud-platform) to set up Slack notifications.
-* To receive alerts and notifications, you must [add or onboard the project](/semgrep-code/getting-started/#option-b-adding-a-repository-from-github-gitlab-or-bitbucket) (repository) to Semgrep Cloud Platform for scanning.
+* To receive alerts and notifications, you must [add or onboard a project](/semgrep-code/getting-started/#option-b-adding-a-repository-from-github-gitlab-or-bitbucket) (repository) to Semgrep Cloud Platform for scanning.
 :::
 
 This section documents how to enable Semgrep Cloud Platform to post comments on merge requests.
@@ -34,7 +34,7 @@ This section documents how to enable Semgrep Cloud Platform to post comments on 
 Automated comments on GitLab merge requests are displayed as follows:
 
 ![Semgrep GitLab MR comment](/img/gitlab-mr-comment.png)
-*Figure 4.* An inline GitLab merge request comment.
+*Figure 1.* An inline GitLab merge request comment.
 
 To enable GitLab merge request comments, follow these steps:
 
@@ -72,7 +72,7 @@ Substitute the placeholder <code><span className="placeholder">PAT</span></code>
 For more configuration options, see [GitLab CI Sample](/semgrep-ci/sample-ci-configs/#gitlab-ci).
 
 :::info
-Only rules in the **Comment** and **Block** columns of your [Rule board](https://semgrep.dev/orgs/-/board) create the MR comments.
+Only rules in the **Comment** and **Block** columns of your [Rule board](https://semgrep.dev/orgs/-/board) create MR comments.
 :::
 
 <MoreHelp />

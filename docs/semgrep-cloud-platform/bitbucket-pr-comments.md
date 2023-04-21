@@ -23,12 +23,12 @@ Object.entries(frontMatter).filter(
 }
 </ul>
 
-### Enabling BitBucket pull request comments
+# Enabling BitBucket pull request comments
 
 :::info Prerequisites
 * You must have a a BitBucket Cloud Free, Standard, or Premium plan. BitBucket Data Center is not supported. 
 * BitBucket PR comments can only be enabled through Semgrep Cloud Platform (SCP). [Create an account](/semgrep-code/getting-started/#signing-in-to-semgrep-cloud-platform) to set up Slack notifications.
-* To receive alerts and notifications, you must [add or onboard the project](/semgrep-code/getting-started/#option-b-adding-a-repository-from-github-gitlab-or-bitbucket) (repository) to Semgrep Cloud Platform for scanning.
+* To receive alerts and notifications, you must [add or onboard a project](/semgrep-code/getting-started/#option-b-adding-a-repository-from-github-gitlab-or-bitbucket) (repository) to Semgrep Cloud Platform for scanning.
 :::
 
 There are two ways in which you can integrate Semgrep comments into Bitbucket Cloud depending on the Bitbucket plan you use:
@@ -46,9 +46,9 @@ There are two ways in which you can integrate Semgrep comments into Bitbucket Cl
 
 <TabItem value="workspace-token">
 
-#### Creating and adding a workspace access token
+## Creating and adding a workspace access token
 
-:::info Prerequisites
+:::info Prerequisite
 - **BitBucket Cloud Premium** plan. If you do not have a BitBucket Cloud Premium plan, create a repository access token.
 :::
 
@@ -63,7 +63,7 @@ To complete the configuration, follow the [Enabling PR comments in BitBucket Clo
 
 <TabItem value="repository-token">
 
-#### Creating and adding a repository access token
+## Creating and adding a repository access token
 
 :::note
 This section helps you to configure PR comments if you do **not** have a Bitbucket Cloud Premium plan. You can create a separate repository access token for each repository where you want to use Semgrep. This configuration option is also useful if you have the Bitbucket Cloud Premium plan, but prefer to onboard repositories one by one instead of bulk onboarding.
@@ -80,7 +80,7 @@ To complete the configuration, follow the [Adding Semgrep to your Bitbucket CI p
 
 </Tabs>
 
-#### Enabling PR comments in BitBucket Cloud
+## Enabling PR comments in BitBucket Cloud
 
 :::info Prerequisite
 * You must have a BitBucket Cloud [workspace access token](/semgrep-code/notifications/#creating-and-adding-a-workspace-access-token) or a [repository access token](/semgrep-code/notifications/#creating-and-adding-a-repository-access-token).
@@ -92,8 +92,9 @@ To enable PR comments, define the `BITBUCKET_TOKEN` environment variable in your
 - export BITBUCKET_TOKEN=$PAT
 ```
 
-Refer to the following samples to define `BITBUCKET_TOKEN`:
+Refer to the following configuration snippet as a sample `bitbucket-pipelines.yml` with the `BITBUCKET_TOKEN` defined:
 
+<!--
 <Tabs
     defaultValue="jenkins"
     values={[
@@ -129,6 +130,7 @@ pipeline {
 
 <TabItem value='pipelines'>
 
+-->
 ```yaml
 image: atlassian/default-image:latest
 
@@ -154,11 +156,12 @@ pipelines:
             - export BITBUCKET_TOKEN=$PAT
             - semgrep ci
 ```
-Substitute the placeholder <code><span className="placeholder">$PAT</span></code> according to your workspace or repository settings.
 
+<!--
 </TabItem>
 
 </Tabs>
+-->
 
 After defining the `BITBUCKET_TOKEN`, you have successfully set up PR comments in BitBucket Cloud.
 
