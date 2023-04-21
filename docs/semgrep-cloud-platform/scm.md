@@ -57,7 +57,7 @@ Integrate Semgrep into these custom source code management (SCM) tools by follow
 
 </div>
 
-3. Select your source code provider.
+3. Select your source code manager.
 4. For **GitHub Enterprise Server**, follow these steps:
 
     1. Create a PAT by following the steps outlined in this [guide to creating a PAT](https://docs.github.com/en/enterprise-server@3.1/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token). Ensure that the PAT is **[created with the required scopes](../scm/#table-of-required-scopes-for-pats)**.

@@ -69,7 +69,7 @@ To enable Semgrep Pro Engine in the Semgrep Cloud Platform, follow these steps:
 1. Select **[Settings](https://semgrep.dev/orgs/-/settings)**.
 1. Enable the <i class="fa-solid fa-toggle-large-on"></i> **Semgrep Pro Engine beta** toggle.
 1. Ensure that you have the **default ruleset** added in your **[Rule Board](https://semgrep.dev/orgs/-/board)**. In the Rule Board, the **default ruleset** is in the **Monitor column**. If this ruleset is **not** added, go to [https://semgrep.dev/p/default](https://semgrep.dev/p/default), and then click **Add to Rule Board**.
-1. Optional: If you don't have any projects added to your organization, follow the procedures described in [Scanning a repository from GitHub or GitLab](/semgrep-code/getting-started/#semgrep-code-with-semgrep-cloud-platform) to scan a new project with Semgrep Pro Engine. Ensure that your project's language is supported by Semgrep Pro Engine.
+1. Optional: If you don't have any projects added to your organization, follow the procedures described in [Scanning a repository](/semgrep-code/getting-started/#semgrep-code-with-semgrep-cloud-platform) to scan a new project with Semgrep Pro Engine. Ensure that your project's language is supported by Semgrep Pro Engine.
 
 :::info Testing Semgrep Pro Engine
 To test Semgrep Pro Engine on a purposefully vulnerable repository, fork the [juice-shop](https://github.com/juice-shop/juice-shop) repository, and then add it to SCP by following the steps described in [Adding a repository](/semgrep-code/getting-started/#option-b-adding-a-repository-from-github-or-gitlab).
@@ -77,7 +77,21 @@ To test Semgrep Pro Engine on a purposefully vulnerable repository, fork the [ju
 
 ### Creating interfile analysis rules
 
-Interfile analysis rules you use in Semgrep Pro Engine require the `interfile: true` key to be included in the rule metadata. See the following [example](https://semgrep.dev/s/3NZb). This key signals Semgrep Pro Engine to use the rule for interfile analysis.
+Interfile analysis rules you use in Semgrep Pro Engine require the `interfile: true` key included under the rule `metadata` key. See the following [example](https://semgrep.dev/s/3NZb). This key signals Semgrep Pro Engine to use the rule for interfile analysis.
+
+Example of `interfile: true` key:
+```yaml
+rules:
+  - id: dangerous-call-to-employees-pro-engine-example
+    metadata:
+      interfile: true
+    patterns:
+      - pattern: dangerous("Employees")
+    message: Call of dangerous on employees table
+    languages:
+      - js
+    severity: WARNING
+```
 
 ## Additional information
 
