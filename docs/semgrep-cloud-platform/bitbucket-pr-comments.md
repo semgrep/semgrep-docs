@@ -92,9 +92,9 @@ To enable PR comments, define the `BITBUCKET_TOKEN` environment variable in your
 - export BITBUCKET_TOKEN=$PAT
 ```
 
-Refer to the following configuration snippet as a sample `bitbucket-pipelines.yml` with the `BITBUCKET_TOKEN` defined:
+The following snippet is a sample with `BITBUCKET_TOKEN` defined in a `bitbucket-pipelines.yml` file:
 
-<!--
+<!-- 
 <Tabs
     defaultValue="jenkins"
     values={[
@@ -137,24 +137,15 @@ image: atlassian/default-image:latest
 pipelines:
   branches:
     main:
-        - step:
-            name: 'Run Semgrep full scan with main branch'
-            image: returntocorp/semgrep
-            script:
-              - export SEMGREP_APP_TOKEN=$SEMGREP_APP_TOKEN
-              - semgrep ci
+      # ...
   pull-requests:
     '**':
       - step:
           name: 'Run Semgrep diff scan with PR branch'
           image: returntocorp/semgrep
           script:
-            # Set SEMGREP Variables
-            - export SEMGREP_APP_TOKEN=$SEMGREP_APP_TOKEN
-            - export SEMGREP_BASELINE_REF="origin/main"
-            - git fetch origin "+refs/heads/*:refs/remotes/origin/*"
+            # ...
             - export BITBUCKET_TOKEN=$PAT
-            - semgrep ci
 ```
 
 <!--
