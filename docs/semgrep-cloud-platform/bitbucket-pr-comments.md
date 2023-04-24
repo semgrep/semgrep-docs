@@ -160,3 +160,4 @@ After defining the `BITBUCKET_TOKEN`, you have successfully set up PR comments i
 Only rules in the **Comment** and **Block** columns of your [Rule board](https://semgrep.dev/orgs/-/board) create PR comments.
 :::
 
+<MoreHelp />

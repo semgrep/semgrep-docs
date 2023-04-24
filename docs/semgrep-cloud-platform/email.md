@@ -3,7 +3,7 @@ slug: email-notifications
 append_help_link: true
 title: Email 
 hide_title: true
-description: "Receive Semgrep findings via email"
+description: "Receive Semgrep findings via email."
 tags:
     - Semgrep Cloud Platform
     - Community Tier
@@ -45,3 +45,4 @@ To set up email integration:
 On each scan that has at least one finding, you will receive **one email** from Semgrep with a summary of all of the findings from that scan.
 :::
 
+<MoreHelp />

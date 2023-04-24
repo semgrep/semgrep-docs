@@ -31,12 +31,12 @@ Semgrep Cloud Platform can send notifications through the following channels:
 
 | Tool                               | Tier availability |
 | ----                               | ----------------  |
-| Slack                              | Community (Free)  |
-| Email                              | Community (Free)  |
-| GitHub pull request (PR) comments  | Community (Free)  |
-| GitLab merge request (MR) comments | Community (Free)  |
-| Bitbucket PR comments              | Community (Free)  |
-| Webhooks                           | Team/Enterprise   |
+| [GitHub pull request (PR) comments](/semgrep-cloud-platform/github-pr-comments)  | Community (Free)  |
+| [GitLab merge request (MR) comments](/semgrep-cloud-platform/gitlab-mr-comments) | Community (Free)  |
+| [Bitbucket PR comments](/semgrep-cloud-platform/bitbucket-pr-comments)              | Community (Free)  |
+| [Slack](/semgrep-cloud-platform/slack-notifications)                              | Community (Free)  |
+| [Email](/semgrep-cloud-platform/email-notifications)                              | Community (Free)  |
+| [Webhooks](/semgrep-cloud-platform/webhooks)                           | Team/Enterprise   |
 
 
 :::info

@@ -3,7 +3,7 @@ slug: slack-notifications
 append_help_link: true
 title: Slack
 hide_title: true
-description: ""
+description: "Receive Semgrep findings in your Slack workspaces."
 tags:
     - Semgrep Cloud Platform
     - Community Tier
