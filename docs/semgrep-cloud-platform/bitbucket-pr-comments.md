@@ -3,7 +3,7 @@ slug: bitbucket-pr-comments
 append_help_link: true
 title: BitBucket PR comments 
 hide_title: true
-description: "Enable PR comments in your BitBucket repositories to display Semgrep findings to developers."
+description: "Enable PR comments in your Bitbucket repositories to display Semgrep findings to developers."
 tags:
     - Semgrep Cloud Platform
     - Community Tier
