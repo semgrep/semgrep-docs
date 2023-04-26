@@ -285,7 +285,7 @@ Set `BITBUCKET_TOKEN` to enable Semgrep to leave PR or MR comments in Bitbucket 
 Example:
 
 ```yaml
--export BITBUCKET_TOKEN=$PAT
+- export BITBUCKET_TOKEN=$PAT
 ```
 
 
