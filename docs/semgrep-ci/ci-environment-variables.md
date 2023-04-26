@@ -1,11 +1,11 @@
 ---
-slug: configuration-reference
+slug: ci-environment-variables
 description: "Configure Semgrep in CI by setting various environment variables. Enable diff-aware scanning, connect to Semgrep Cloud Platform, and more."
 tags:
     - Semgrep in CI
     - Community Tier
     - Team & Enterprise Tier
-title: CI configuration reference
+title: CI environment variables 
 hide_title: true
 ---
 
@@ -20,7 +20,7 @@ Object.entries(frontMatter).filter(
 }
 </ul>
 
-# Continuous Integration (CI) configuration reference
+# Continuous Integration (CI) environment variables
 
 Use this reference to configure Semgrep's behavior in CI environments by setting environment variables. You can set these variables within a CI configuration file or your CI provider's interface. Refer to your CI provider's documentation for the correct syntax. Examples are written for a Bash environment unless otherwise stated.  
 
@@ -168,7 +168,7 @@ Within a Bash environment:
 export SEMGREP_COMMIT="juice-shop-1"
 ```
 
-Within a BitBucket Pipelines configuration file:
+Within a Bitbucket Pipelines configuration file:
 
 ```yaml
 image: atlassian/default-image:latest
@@ -179,7 +179,7 @@ pipelines:
       - step:
         name: 'Run Semgrep scan with current branch'
         script:
-          # Use a BitBucket Pipelines environment variable.
+          # Use a Bitbucket Pipelines environment variable.
           # It automatically sets the current commit the job is scanning.
           - export SEMGREP_COMMIT=$BITBUCKET_COMMIT 
           ...
@@ -273,6 +273,19 @@ steps:
   - env:
     SEMGREP_PR_ID: $(System.PullRequest.PullRequestNumber)
     ...
+```
+
+## Environment variable for creating comments in BitBucket pull requests
+
+
+### `BITBUCKET_TOKEN`
+
+Set `BITBUCKET_TOKEN` to enable Semgrep to leave PR or MR comments in Bitbucket Cloud. The value of this environment variable must be a Personal Access Token (PAT) generated from Bitbucket Cloud. See [Bitbucket PR comments](/semgrep-cloud-platform/bitbucket-pr-comments) for instructions.
+
+Example:
+
+```yaml
+- export BITBUCKET_TOKEN=$PAT
 ```
 
 
