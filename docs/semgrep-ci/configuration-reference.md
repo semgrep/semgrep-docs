@@ -168,7 +168,7 @@ Within a Bash environment:
 export SEMGREP_COMMIT="juice-shop-1"
 ```
 
-Within a BitBucket Pipelines configuration file:
+Within a Bitbucket Pipelines configuration file:
 
 ```yaml
 image: atlassian/default-image:latest
@@ -179,7 +179,7 @@ pipelines:
       - step:
         name: 'Run Semgrep scan with current branch'
         script:
-          # Use a BitBucket Pipelines environment variable.
+          # Use a Bitbucket Pipelines environment variable.
           # It automatically sets the current commit the job is scanning.
           - export SEMGREP_COMMIT=$BITBUCKET_COMMIT 
           ...
@@ -280,7 +280,7 @@ steps:
 
 ### `BITBUCKET_TOKEN`
 
-Set `BITBUCKET_TOKEN` to enable Semgrep to leave PR or MR comments in Bitbucket Cloud. The value of this environment variable must be a Personal Access Token (PAT) generated from Bitbucket Cloud. See [Bitbucket PR comments](semgrep-cloud-platform/bitbucket-pr-comments) for instructions.
+Set `BITBUCKET_TOKEN` to enable Semgrep to leave PR or MR comments in Bitbucket Cloud. The value of this environment variable must be a Personal Access Token (PAT) generated from Bitbucket Cloud. See [Bitbucket PR comments](/semgrep-cloud-platform/bitbucket-pr-comments) for instructions.
 
 Example:
 

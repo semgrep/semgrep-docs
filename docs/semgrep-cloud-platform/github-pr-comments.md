@@ -52,6 +52,8 @@ Only rules in the **Comment** and **Block** columns of your [Rule board](https:/
 
 ## Enabling autofix in GitHub repositories
 
+[Autofix](/writing-rules/autofix) is a Semgrep feature in which rules contain suggested fixes to resolve findings.
+
 <EnableAutofix />
 
 <MoreHelp />
