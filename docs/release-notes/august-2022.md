@@ -36,7 +36,7 @@ These release notes include upgrades for versions ranging between 0.108.0 and 0.
   ```
   As this caused confusion when running the CLI, this message is now displayed for development and debugging purposes only. Note that metrics are still successfully uploaded, but the success status is not sent in time for the current timeout set.
 
-- `semgrep ci` now defaults to fail open on internal errors and always exits with exit code 0, which is equivalent to passing `--suppress-errors`. To disable this behavior, you can pass `--no-suppress-errors`, surfacing all exit codes to the CI provider. See [Configuring blocking findings and errors](/semgrep-ci/ci-configuration-reference.md/#configuring-blocking-findings-and-errors) for more information.
+- `semgrep ci` now defaults to fail open on internal errors and always exits with exit code 0, which is equivalent to passing `--suppress-errors`. To disable this behavior, you can pass `--no-suppress-errors`, surfacing all exit codes to the CI provider. See [Configuring blocking findings and errors](/semgrep-ci/ci-environment-variables/#configuring-blocking-findings-and-errors) for more information.
 
 #### Additional information
 
