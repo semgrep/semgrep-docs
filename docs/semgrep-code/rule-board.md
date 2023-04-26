@@ -93,6 +93,6 @@ Semgrep Code detects the framework and language when scanning a project and only
 1. Click the <i class="fa-solid fa-gear"></i> **gear** icon of the column to add a notification.
 2. Click **Manage Integrations** link.
 
-For more information, follow guidelines for specific notification channel in [Notifications](../notifications) documentation.
+For more information, follow guidelines for specific notification channel in [Notifications](semgrep-cloud-platform/notifications) documentation.
 
 <MoreHelp />
