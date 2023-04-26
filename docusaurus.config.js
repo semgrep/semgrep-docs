@@ -219,8 +219,8 @@ module.exports = {
           { from: "/semgrep-ci/managing-policy", to: "/semgrep-code/rule-board/" },
           { from: "/managing-policy", to: "/semgrep-code/rule-board/" },
           { from: "/semgrep-app/managing-policy", to: "/semgrep-code/rule-board/" },
-          { from: "/integrations", to: "/semgrep-code/notifications/" },
-          { from: "/notifications", to: "/semgrep-code/notifications/" },
+          { from: "/integrations", to: "/semgrep-cloud-platform/notifications/" },
+          { from: "/notifications", to: "/semgrep-cloud-platform/notifications/" },
           { from: "/sso", to: "/semgrep-cloud-platform/sso/" },
           { from: "/experiments", to: "/writing-rules/experiments/introduction/" },
           { from: "/upgrade", to: "/upgrading/" },
@@ -272,12 +272,12 @@ module.exports = {
           { from: "/semgrep-ci/running-semgrep-ci-without-semgrep-app/" , to: "/semgrep-ci/running-semgrep-ci-with-semgrep-cloud-platform/" } ,
 
           // Semgrep Code
-          { from: "/semgrep-app/integrations"                        , to: "/semgrep-code/notifications/" }   ,
+          { from: "/semgrep-app/integrations"                        , to: "/semgrep-cloud-platform/notifications/" }   ,
           { from: "/semgrep-app/demo-project/"                       , to: "/semgrep-code/demo-project/" }    ,
           { from: "/semgrep-app/rule-board/"                         , to: "/semgrep-code/rule-board/" }      ,
           { from: "/semgrep-app/findings/"                           , to: "/semgrep-code/findings/" }        ,
           { from: "/semgrep-app/editor/"                             , to: "/semgrep-code/editor/" }          ,
-          { from: "/semgrep-app/notifications/"                      , to: "/semgrep-code/notifications/" }   ,
+          { from: "/semgrep-app/notifications/"                      , to: "/semgrep-cloud-platform/notifications/" }   ,
           { from: "/semgrep-code/getting-started-with-semgrep-code/" , to: "/semgrep-code/getting-started/" } ,
 
           //Semgrep Cloud Platform
