@@ -136,8 +136,7 @@ To check that your notifications are set up, receive a test message from Semgrep
 
 ##### Check your filters
 
-If you have set up any filter, such as filtering for a specific policy or project, all conditions of that filter must be present for the notificatin to be sent. Review your filters by following the steps in [Changing Slack notification settings](#changing-slack-notification-settings).
-
+If you have set up any filter, such as filtering for a specific policy or project, all conditions of that filter must be present for the notification to be sent. Review your filters by following the steps in [Changing Slack notification settings](#changing-slack-notification-settings).
 
 #### Permissions not up-to-date
 
@@ -278,7 +277,7 @@ The following table describes the purpose for each permission required to use th
    </td>
    <td>View basic information about private channels that your Slack app has been added to.
    </td>
-   <td>Semgrep Slack app uses <code>channels_id_changed</code> to update its notifications config if the channel that receives findings is updated. This ensures that you are able to receive findings ever renaming a channel.
+   <td>Semgrep Slack app uses <code>channels_id_changed</code> to update its notifications configuration if the channel that receives findings is updated. This ensures that you are able to receive findings ever renaming a channel.
    </td>
   </tr>
   <tr>
@@ -286,7 +285,7 @@ The following table describes the purpose for each permission required to use th
    </td>
    <td>View the name, email domain, and icon for workspaces your slack app is connected to.
    </td>
-   <td>Semgrep Slack app uses <code>team_name_changed</code> to update its notifications config if the team name is updated. This ensures that you are able to receive findings notifications even after renaming your team.
+   <td>Semgrep Slack app uses <code>team_name_changed</code> to update its notifications configuration if the team name is updated. This ensures that you are able to receive findings notifications even after renaming your team.
    </td>
   </tr>
   <tr>
