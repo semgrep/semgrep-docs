@@ -12,7 +12,7 @@ tags:
 ---
 
 import MoreHelp from "/src/components/MoreHelp"
-
+import EnableAutofix from "/src/components/procedure/_enable-autofix.mdx"
 
 <ul id="tag__badge-list">
 {
@@ -74,5 +74,9 @@ For more configuration options, see [GitLab CI Sample](/semgrep-ci/sample-ci-con
 :::info
 Only rules in the **Comment** and **Block** columns of your [Rule board](https://semgrep.dev/orgs/-/board) create MR comments.
 :::
+
+## Enabling autofix in GitLab repositories
+
+<EnableAutofix />
 
 <MoreHelp />

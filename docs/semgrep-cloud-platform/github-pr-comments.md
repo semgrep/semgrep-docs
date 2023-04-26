@@ -11,6 +11,7 @@ tags:
 ---
 
 import MoreHelp from "/src/components/MoreHelp"
+import EnableAutofix from "/src/components/procedure/_enable-autofix.mdx"
 
 <ul id="tag__badge-list">
 {
@@ -48,5 +49,9 @@ If you are using GitHub Actions to run Semgrep, no extra changes are needed to g
 :::info
 Only rules in the **Comment** and **Block** columns of your [Rule board](https://semgrep.dev/orgs/-/board) create PR comments.
 :::
+
+## Enabling autofix in GitHub repositories
+
+<EnableAutofix />
 
 <MoreHelp />
