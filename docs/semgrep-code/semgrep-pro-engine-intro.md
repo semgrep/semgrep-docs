@@ -38,7 +38,7 @@ To install and run Semgrep Pro Engine in the CLI, follow these steps:
     semgrep login
     ```
 1. Follow the link that Semgrep CLI printed in the command line.
-1. To install Semgrep Pro Engine, use the following command:
+1. Use the following command to install Semgrep Pro Engine and update to the latest version.  
     ```sh
     semgrep install-semgrep-pro
     ```
