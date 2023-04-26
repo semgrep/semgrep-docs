@@ -88,7 +88,7 @@ Semgrep Code detects the framework and language when scanning a project and only
 
 ## Configuring notifications
 
-[Notifications](../notifications) enable you to keep track of Semgrep scans within your preferred environment, such as email or Slack. They are configured for each column.
+[Notifications](/semgrep-cloud-platform/notifications) enable you to keep track of Semgrep scans within your preferred environment, such as email or Slack. They are configured for each column.
 
 1. Click the <i class="fa-solid fa-gear"></i> **gear** icon of the column to add a notification.
 2. Click **Manage Integrations** link.
