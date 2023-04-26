@@ -27,7 +27,7 @@ Object.entries(frontMatter).filter(
 * To receive alerts and notifications, you must [add or onboard the project](/semgrep-code/getting-started/#option-b-adding-a-repository-from-github-gitlab-or-bitbucket) (repository) to Semgrep Cloud Platform for scanning.
 :::
 
-Receive Semgrep findings via email.
+Receive Semgrep findings through email.
 
 To set up email integration:
 

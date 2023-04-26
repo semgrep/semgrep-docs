@@ -41,8 +41,8 @@ Automated comments on GitHub pull requests are displayed as follows:
 
 If you are using GitHub Actions to run Semgrep, no extra changes are needed to get PR comments. If you are using another CI provider, in addition to the environment variables you set after following [sample CI configurations](/semgrep-ci/sample-ci-configs/) you need to ensure that the following environment variables are correctly defined:
 
-- `SEMGREP_PR_ID` is set to the PR number of the pull request on Github (for example, `2901`)
-- `SEMGREP_REPO_NAME` is set to the repo name (for example, `returntocorp/semgrep`)
+- `SEMGREP_PR_ID` is set to the PR number of the pull request on GitHub (for example, `2901`)
+- `SEMGREP_REPO_NAME` is set to the repository name (for example, `returntocorp/semgrep`)
 - `SEMGREP_REPO_URL` is set to the repository URL where your project is viewable online (for example, `https://github.com/returntocorp/semgrep`)
 
 :::info

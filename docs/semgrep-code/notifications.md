@@ -38,7 +38,6 @@ Semgrep Cloud Platform can send notifications through the following channels:
 | [Email](/semgrep-cloud-platform/email-notifications)                              | Community (Free)  |
 | [Webhooks](/semgrep-cloud-platform/webhooks)                           | Team/Enterprise   |
 
-
 :::info
 * Alerts and notifications can only be enabled through Semgrep Cloud Platform (SCP). [Create an account](/semgrep-code/getting-started/#signing-in-to-semgrep-cloud-platform) to set up Slack notifications.
 * To receive alerts and notifications, you must [add or onboard the project](/semgrep-code/getting-started/#option-b-adding-a-repository-from-github-gitlab-or-bitbucket) (repository) to Semgrep Cloud Platform for scanning.
