@@ -26,7 +26,7 @@ Object.entries(frontMatter).filter(
 # Enabling Bitbucket pull request comments
 
 :::info Prerequisites
-* You must have a a Bitbucket Cloud Free, Standard, or Premium plan. Bitbucket Data Center is not supported. 
+* You must have a Bitbucket Cloud Free, Standard, or Premium plan. Bitbucket Data Center is not supported. 
 * Bitbucket PR comments can only be enabled through Semgrep Cloud Platform (SCP). [Create an account](/semgrep-code/getting-started/#signing-in-to-semgrep-cloud-platform) to set up Slack notifications.
 * To receive alerts and notifications, you must [add or onboard a project](/semgrep-code/getting-started/#option-b-adding-a-repository-from-github-gitlab-or-bitbucket) (repository) to Semgrep Cloud Platform for scanning.
 :::
@@ -86,7 +86,7 @@ To complete the configuration, follow the [Adding Semgrep to your Bitbucket CI p
 * You must have a Bitbucket Cloud [workspace access token](/semgrep-code/notifications/#creating-and-adding-a-workspace-access-token) or a [repository access token](/semgrep-code/notifications/#creating-and-adding-a-repository-access-token).
 :::
 
-To enable PR comments, define the `BITBUCKET_TOKEN` environment variable in your CI config file. Its syntax and placement in your CI config file depends on your CI provider. For example, in Bitbucket Pipelines, its syntax is the following:
+To enable PR comments, define the `BITBUCKET_TOKEN` environment variable in your CI configuration file. Its syntax and placement in your CI configuration file depends on your CI provider. For example, in Bitbucket Pipelines, its syntax is the following:
 
 ```
 - export BITBUCKET_TOKEN=$PAT
