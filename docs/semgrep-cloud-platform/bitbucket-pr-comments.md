@@ -1,7 +1,7 @@
 ---
 slug: bitbucket-pr-comments 
 append_help_link: true
-title: BitBucket PR comments 
+title: Bitbucket PR comments 
 hide_title: true
 description: "Enable PR comments in your Bitbucket repositories to display Semgrep findings to developers."
 tags:
@@ -23,11 +23,11 @@ Object.entries(frontMatter).filter(
 }
 </ul>
 
-# Enabling BitBucket pull request comments
+# Enabling Bitbucket pull request comments
 
 :::info Prerequisites
-* You must have a a BitBucket Cloud Free, Standard, or Premium plan. BitBucket Data Center is not supported. 
-* BitBucket PR comments can only be enabled through Semgrep Cloud Platform (SCP). [Create an account](/semgrep-code/getting-started/#signing-in-to-semgrep-cloud-platform) to set up Slack notifications.
+* You must have a a Bitbucket Cloud Free, Standard, or Premium plan. Bitbucket Data Center is not supported. 
+* Bitbucket PR comments can only be enabled through Semgrep Cloud Platform (SCP). [Create an account](/semgrep-code/getting-started/#signing-in-to-semgrep-cloud-platform) to set up Slack notifications.
 * To receive alerts and notifications, you must [add or onboard a project](/semgrep-code/getting-started/#option-b-adding-a-repository-from-github-gitlab-or-bitbucket) (repository) to Semgrep Cloud Platform for scanning.
 :::
 
@@ -49,7 +49,7 @@ There are two ways in which you can integrate Semgrep comments into Bitbucket Cl
 ## Creating and adding a workspace access token
 
 :::info Prerequisite
-- **BitBucket Cloud Premium** plan. If you do not have a BitBucket Cloud Premium plan, create a repository access token.
+- **Bitbucket Cloud Premium** plan. If you do not have a Bitbucket Cloud Premium plan, create a repository access token.
 :::
 
 Create a workspace access token in Bitbucket (only available if you have a Bitbucket Cloud Premium plan). Fulfill these general steps to create a workspace access token:
@@ -57,7 +57,7 @@ Create a workspace access token in Bitbucket (only available if you have a Bitbu
 1. Create a workspace access token in Bitbucket with **Read** and **Write** permissions for pull requests. Follow the instructions in [Create a workspace Access Token](https://support.atlassian.com/bitbucket-cloud/docs/create-a-workspace-access-token/) in Bitbucket documentation.
 1. Add the workspace access token as a workspace variable with the **Secured** option.
 
-To complete the configuration, follow the [Enabling PR comments in BitBucket Cloud](#enabling-pr-comments-in-bitbucket-cloud) section.
+To complete the configuration, follow the [Enabling PR comments in Bitbucket Cloud](#enabling-pr-comments-in-bitbucket-cloud) section.
 
 </TabItem>
 
@@ -80,13 +80,13 @@ To complete the configuration, follow the [Adding Semgrep to your Bitbucket CI p
 
 </Tabs>
 
-## Enabling PR comments in BitBucket Cloud
+## Enabling PR comments in Bitbucket Cloud
 
 :::info Prerequisite
-* You must have a BitBucket Cloud [workspace access token](/semgrep-code/notifications/#creating-and-adding-a-workspace-access-token) or a [repository access token](/semgrep-code/notifications/#creating-and-adding-a-repository-access-token).
+* You must have a Bitbucket Cloud [workspace access token](/semgrep-code/notifications/#creating-and-adding-a-workspace-access-token) or a [repository access token](/semgrep-code/notifications/#creating-and-adding-a-repository-access-token).
 :::
 
-To enable PR comments, define the `BITBUCKET_TOKEN` environment variable in your CI config file. Its syntax and placement in your CI config file depends on your CI provider. For example, in BitBucket Pipelines, its syntax is the following:
+To enable PR comments, define the `BITBUCKET_TOKEN` environment variable in your CI config file. Its syntax and placement in your CI config file depends on your CI provider. For example, in Bitbucket Pipelines, its syntax is the following:
 
 ```
 - export BITBUCKET_TOKEN=$PAT
@@ -99,7 +99,7 @@ The following snippet is a sample with `BITBUCKET_TOKEN` defined in a `bitbucket
     defaultValue="jenkins"
     values={[
     {label: 'Sample Jenkins snippet', value: 'jenkins'},
-    {label: 'Sample BitBucket Pipelines snippet', value: 'pipelines'},
+    {label: 'Sample Bitbucket Pipelines snippet', value: 'pipelines'},
     ]}
 >
 
@@ -111,7 +111,7 @@ pipeline {
     environment {
 
       SEMGREP_APP_TOKEN = credentials('SEMGREP_APP_TOKEN')
-      // Define BITBUCKET_TOKEN to receive PR comments for BitBucket Cloud
+      // Define BITBUCKET_TOKEN to receive PR comments for Bitbucket Cloud
       BITBUCKET_TOKEN = credentials('BITBUCKET_PAT')
 
       // ... Other configuration variables
@@ -154,7 +154,7 @@ pipelines:
 </Tabs>
 -->
 
-After defining the `BITBUCKET_TOKEN`, you have successfully set up PR comments in BitBucket Cloud.
+After defining the `BITBUCKET_TOKEN`, you have successfully set up PR comments in Bitbucket Cloud.
 
 :::info
 Only rules in the **Comment** and **Block** columns of your [Rule board](https://semgrep.dev/orgs/-/board) create PR comments.
