@@ -67,7 +67,7 @@ module.exports = {
                     'semgrep-ci/overview',
                     'semgrep-ci/running-semgrep-ci-with-semgrep-cloud-platform',
                     'semgrep-ci/running-semgrep-ci-without-semgrep-cloud-platform',
-                    'semgrep-ci/configuration-reference',
+                    'semgrep-ci/ci-environment-variables',
                     'semgrep-ci/configuring-blocking-and-errors-in-ci',
                     'semgrep-ci/sample-ci-configs',
                     'troubleshooting/semgrep-ci'
@@ -234,7 +234,7 @@ module.exports = {
           type: 'category',
           label: 'Notifications',
           collapsible: true,
-          link: {type: 'doc', id: 'semgrep-code/notifications'},
+          link: {type: 'doc', id: 'semgrep-cloud-platform/notifications'},
           items: [
             'semgrep-cloud-platform/github-pr-comments',
             'semgrep-cloud-platform/gitlab-mr-comments',
