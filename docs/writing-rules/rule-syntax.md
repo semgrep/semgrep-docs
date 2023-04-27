@@ -508,7 +508,8 @@ Provide a category for users of the rule. For example: `best-practice`, `correct
 
 ### Excluding a rule in paths
 
-To ignore a specific rule on specific files, set the `paths:` key with one or more filters.
+To ignore a specific rule on specific files, set the `paths:` key with one or more filters. Paths are relative to the root directory of the scanned project.
+
 
 Example:
 
