@@ -239,7 +239,7 @@ Join mode **is not taint mode**! While it can look on the surface like join mode
 
 To use join mode with `refs`, you must define your individual Semgrep rules in independent locations. This can be anything that works with `semgrep --config <here>`, such as a file, a URL, or a Semgrep registry pointer like `r/java.lang.security.some.rule.id`. 
 
-Join mode does not work in the Semgrep playground, as it is an experimental feature.
+Join mode does not work in the Semgrep Playground or Semgrep Editor, as it is an experimental feature.
 
 Currently, join mode will only report the code location of the **last finding that matches the conditions**. Join mode will parse the conditions from top-to-bottom, left-to-right. This means that findings from the "bottom-right" condition will be the reported code location.
 
