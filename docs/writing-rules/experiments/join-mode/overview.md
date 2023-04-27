@@ -107,10 +107,10 @@ We can translate these roughly into the following condition statements.
 - 'unescaped-extensions.$PATH > template-vars.path'
 ```
 
-Combining the three code pattern Semgrep rules and the three conditions gives us the join rule at the top of this section. This rule will match the code shown here.
+Combining the three code pattern Semgrep rules and the three conditions gives us the join rule at the top of this section. This rule matches the code shown here.
 
 
-![Screenshot of code the join rule will match](/img/join-mode-example.png)
+![Screenshot of code the join rule matches](/img/join-mode-example.png)
 
 
 ```bash
@@ -129,7 +129,7 @@ severity:error rule:flask-likely-xss: Detected a XSS vulnerability: '$VAR' is re
 
 For convenience, when writing a join mode rule, you can use the `renames` and `as` keys. 
 
-The `renames` key will let you rename metavariables from one rule to something else in your conditions. **This is necessary for named expressions, e.g., `$...EXPR`.**
+The `renames` key lets you rename metavariables from one rule to something else in your conditions. **This is necessary for named expressions, e.g., `$...EXPR`.**
 
 The `as` key behaves similarly to `AS` clauses in SQL. This lets you rename the result set for use in the conditions. If the `as` key is not specified, the result set uses the **rule ID**.
 
@@ -141,7 +141,7 @@ The `join` key is required when in join mode. This is just a top-level key that 
 
 #### Inline rule example
 
-The following rule attempts to detect cross-site scripting in Flask application by checking whether a template variable is rendered unsafely through Python code.
+The following rule attempts to detect cross-site scripting in a Flask application by checking whether a template variable is rendered unsafely through Python code.
 
 ```yaml
 rules:
@@ -196,13 +196,13 @@ Short for references, `refs` is a list of external rules that make up your code 
 
 ### `rule`
 
-This points to an external rule location to use in this join rule. Even though Semgrep rule files can typically contain multiple rules under the `rules` key, join mode **will only use the first rule in the provided file**.
+Used with `refs`, `rule` points to an external rule location to use in this join rule. Even though Semgrep rule files can typically contain multiple rules under the `rules` key, join mode **only uses the first rule in the provided file**.
 
-Anything that works with `semgrep --config <here>` will work as the value for `rule`.
+Anything that works with `semgrep --config <here>` also works as the value for `rule`.
 
 ### `renames`
 
-An optional key for an object in `refs`, `renames` will rename the metavariables from the associated `rule`. The value of `renames` is a list of objects whose keys are `from` and `to`. The `from` key specifies the metavariable to rename, and the `to` key specifies the new name of the metavariable.
+An optional key for an object in `refs`, `renames` renames the metavariables from the associated `rule`. The value of `renames` is a list of objects whose keys are `from` and `to`. The `from` key specifies the metavariable to rename, and the `to` key specifies the new name of the metavariable.
 
 :::warning
 Renaming is necessary for named expressions, e.g., `$...EXPR`.
@@ -210,7 +210,7 @@ Renaming is necessary for named expressions, e.g., `$...EXPR`.
 
 ### `as`
 
-An optional key for an object in `refs`, `as` will let you specify an alias for the results collected by this rule for use in the `on` conditions. Without the `as` key, the default name for the results collected by this rule is the rule ID of the rule in `rule`. If you use `as`, the results can be referenced using the alias specified by `as`.
+An optional key for an object in `refs`, `as` lets you specify an alias for the results collected by this rule for use in the `on` conditions. Without the `as` key, the default name for the results collected by this rule is the rule ID of the rule in `rule`. If you use `as`, the results can be referenced using the alias specified by `as`.
 
 ### `on`
 
@@ -222,7 +222,7 @@ The `on` key is required in join mode. This is where the join conditions are lis
 
 `result_set` is the name of the result set produced by one of the `refs`. See the `as` key for more information.
 
-`property` is either a metavariable, such as `$VAR`, or the keyword `path`, which will return the path of the finding.
+`property` is either a metavariable, such as `$VAR`, or the keyword `path`, which returns the path of the finding.
 
 `operator` is one of the following.
 
@@ -241,7 +241,7 @@ To use join mode with `refs`, you must define your individual Semgrep rules in i
 
 Join mode does not work in the Semgrep Playground or Semgrep Editor, as it is an experimental feature.
 
-Currently, join mode will only report the code location of the **last finding that matches the conditions**. Join mode will parse the conditions from top-to-bottom, left-to-right. This means that findings from the "bottom-right" condition will be the reported code location.
+Currently, join mode only reports the code location of the **last finding that matches the conditions**. Join mode parses the conditions from top-to-bottom, left-to-right. This means that findings from the "bottom-right" condition become the reported code location.
 
 ## More ideas
 
