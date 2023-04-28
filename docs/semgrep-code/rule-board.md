@@ -29,7 +29,7 @@ The Rule Board is a visual representation of the rules that Semgrep Code uses fo
 
 Rules and rulesets are displayed as **cards** in Semgrep Cloud Platform. Group cards by dragging and dropping cards into the columns. Columns represent the actions undertaken in response to findings from that rule or ruleset.
 
-The columns and their corresonding actions are:
+The columns and their corresponding actions are:
 
 <dl>
     <dt>Monitor</dt>

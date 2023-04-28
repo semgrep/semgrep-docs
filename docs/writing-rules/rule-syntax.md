@@ -257,7 +257,7 @@ You can use Semgrep metavariables such as `$MVAR`, which Semgrep evaluates as fo
 
 - If `$MVAR` binds to a literal, then that literal is the value assigned to `$MVAR`.
 - If `$MVAR` binds to a code variable that is a constant, and constant propagation is enabled (as it is by default), then that constant is the value assigned to `$MVAR`.
-- Otherwise the code bound to the `$MVAR` is kept unevaluated, and its string representation can be obtainer using the `str()` function, as in `str($MVAR)`. For example, if `$MVAR` binds to the code variable `x`, `str($MVAR)` evaluates to the string literal `"x"`.
+- Otherwise the code bound to the `$MVAR` is kept unevaluated, and its string representation can be obtained using the `str()` function, as in `str($MVAR)`. For example, if `$MVAR` binds to the code variable `x`, `str($MVAR)` evaluates to the string literal `"x"`.
 
 #### Legacy `metavariable-comparison` keys
 
