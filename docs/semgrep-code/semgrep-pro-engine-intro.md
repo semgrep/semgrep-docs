@@ -113,7 +113,7 @@ To update Semgrep Pro Engine to the latest version, follow these steps:
 
     </Tabs>
 
-1. Log in to Semgrep CLI:
+1. Log in to Semgrep Cloud Platform:
     ```sh
     semgrep login
     ```
