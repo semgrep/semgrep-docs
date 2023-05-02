@@ -107,7 +107,7 @@ We can translate these roughly into the following condition statements.
 - 'unescaped-extensions.$PATH > template-vars.path'
 ```
 
-Combining the three code pattern Semgrep rules and the three conditions gives us the join rule at the top of this section. This rule matches the code shown here.
+Combining the three code pattern Semgrep rules and the three conditions gives us the join rule at the top of this section. This rule matches the code displayed below.
 
 
 ![Screenshot of code the join rule matches](/img/join-mode-example.png)
