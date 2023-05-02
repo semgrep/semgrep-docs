@@ -9,6 +9,8 @@ title: Semgrep Pro Engine overview
 import MoreHelp from "/src/components/MoreHelp"
 import DeepSemgrepIntroduction from "/src/components/concept/_deepsemgrep-introduction.mdx"
 import AddDemoProject from "/src/components/procedure/_add-demo-project.mdx"
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
 # Semgrep Pro Engine overview
 
@@ -38,7 +40,7 @@ To install and run Semgrep Pro Engine in the CLI, follow these steps:
     semgrep login
     ```
 1. Follow the link that Semgrep CLI printed in the command line.
-1. Use the following command to install Semgrep Pro Engine and update to the latest version.  
+1. To install Semgrep Pro Engine use the following command:
     ```sh
     semgrep install-semgrep-pro
     ```
@@ -54,6 +56,74 @@ To install and run Semgrep Pro Engine in the CLI, follow these steps:
 
 :::note
 Let us know what you think about the results in the <a href="https://go.semgrep.dev/slack">Semgrep Community Slack</a>.
+:::
+
+### Updating Semgrep Pro Engine in CLI
+
+To update Semgrep Pro Engine to the latest version, follow these steps:
+
+1. Update Semgrep OSS engine with the following command:
+    <Tabs
+        defaultValue="macOS"
+        values={[
+        {label: 'macOS', value: 'macOS'},
+        {label: 'Linux', value: 'Linux'},
+        {label: 'Windows Subsystem for Linux (WSL)', value: 'Windows Subsystem for Linux (WSL)'},
+        {label: 'Docker', value: 'Docker'},
+        ]}
+    >
+
+    <TabItem value='macOS'>
+
+    ```bash
+    brew upgrade semgrep
+    ```
+
+    Alternatively:
+
+    ```bash
+    python3 -m pip install --upgrade semgrep
+    ```
+
+    </TabItem>
+
+    <TabItem value='Linux'>
+
+    ```bash
+    python3 -m pip install --upgrade semgrep
+    ```
+
+    </TabItem>
+
+    <TabItem value='Windows Subsystem for Linux (WSL)'>
+
+    ```bash
+    python3 -m pip install --upgrade semgrep
+    ```
+
+    </TabItem>
+
+    <TabItem value='Docker'>
+
+    ```bash
+    docker pull returntocorp/semgrep:latest
+    ```
+
+    </TabItem>
+
+    </Tabs>
+
+1. Log in to Semgrep Cloud Platform:
+    ```sh
+    semgrep login
+    ```
+1. Update the Semgrep Pro Engine:
+    ```sh
+    semgrep install-semgrep-pro
+    ```
+
+:::info
+The command to update Semgrep Pro Engine itself is the same as the command to install Semgrep Pro Engine.
 :::
 
 ### Enabling Semgrep Pro Engine in Semgrep Cloud Platform
