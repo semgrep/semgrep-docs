@@ -173,7 +173,7 @@ In addition to the fields mentioned above, rules submitted to Semgrep Registry h
 </table>
 
 :::info
-If you use catagory <code>security</code>, include additional metadata. See <a href="#including-fields-required-by-security-category"> Including fields required by security category</a>.
+If you use category <code>security</code>, include additional metadata. See <a href="#including-fields-required-by-security-category"> Including fields required by security category</a>.
 :::
 
 ### Understanding rule namespacing

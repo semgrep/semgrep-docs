@@ -27,7 +27,7 @@ Object.entries(frontMatter).filter(
 
 # Running Semgrep in continuous integration (CI) with Semgrep Cloud Platform
 
-Run Semgrep in your continous integration (CI) pipeline to scan your repository for code vulnerabilities and other issues. Connect your CI pipeline with Semgrep Cloud Platform to:
+Run Semgrep in your continuous integration (CI) pipeline to scan your repository for code vulnerabilities and other issues. Connect your CI pipeline with Semgrep Cloud Platform to:
 
 * Block pull or merge requests (PRs or MRs) based on the rule that generated the finding.
 * Scan many repositories and manage their findings in bulk.
