@@ -27,3 +27,24 @@ If we tried to match the pattern `pandas.DataFrame(...).index.set_value(...)` ag
 Symbolic propagation is a generalization of [constant propagation](/writing-rules/data-flow/constant-propagation/) that addresses this limitation. It enables Semgrep to perform matching modulo variable assignments. Thus, Semgrep is then able to match both `test1` and `test2` with the same simple pattern. This feature needs to be enabled explicitly via rule `options:` by setting `symbolic_propagation: true`.
 
 <iframe src="https://semgrep.dev/embed/editor?snippet=JeBP" border="0" frameBorder="0" width="100%" height="432"></iframe>
+
+## Limitations
+
+Currently, symbolic propagation does not cross branching boundaries, such as `if` clauses or loops. This helps avoid difficulties with managing the parse graph for the code. Consider the following Python code, adapted from the example shown above:
+
+```python
+import pandas
+
+def test1():
+    # ruleid: test
+    pandas.DataFrame(x).index.set_value(a, b, c)
+
+def test2():
+    if (x < 5):
+        df = pandas.DataFrame(x)
+    ix = df.index
+    # ruleid: test
+    ix.set_value(a, b, c)
+```
+
+In this case, even if `symbolic_propagation: true` is used, Semgrep does not match `test2`, because the assignment of `df` to `pandas.DataFrame(x)` is within a conditional, and is not propagated to the final two lines.
