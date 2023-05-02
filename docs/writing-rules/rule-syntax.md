@@ -159,8 +159,9 @@ Include more `focus-metavariable` keys with different metavariables under the `p
 ```yaml
     patterns:
       - pattern: foo($X, ..., $Y)
-      - focus-metavariable: $X
-      - focus-metavariable: $Y
+      - focus-metavariable:
+        - $X
+        - $Y
 ```
 
 :::note Example
