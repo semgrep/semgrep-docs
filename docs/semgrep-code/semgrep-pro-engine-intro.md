@@ -189,7 +189,7 @@ If many repositories cause scan issues:
 
 ### Difference between Semgrep Pro Engine and join mode
 
-Semgrep Pro Engine is different from [join mode](/writing-rules/experiments/join-mode/overview/), which also allows you to perform interfile analyses by letting you join on the metavariable matches in separate rules.
+Semgrep Pro Engine is different from [join mode](/writing-rules/experiments/join-mode/overview/), which also allows you to perform interfile analyses by letting you join on the metavariable matches in separate rules. Join mode is an experimental feature which is not developed or actively maintained. You may encounter many issues while using join mode.
 
 ### Future development of Semgrep Pro Engine
 
