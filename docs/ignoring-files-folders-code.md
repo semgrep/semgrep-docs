@@ -12,9 +12,11 @@ import IgnoreIndividualFindings from "/src/components/procedure/_ignore-individu
 
 Exclude specific files, folders or parts of code from results of Semgrep scans in your repository or working directory. Semgrep does not generate findings for the ignored items.
 
-This is separate from [ignoring a **finding**](../managing-findings), which is a triage operation after a Semgrep scan has found a match.
-
 All Semgrep environments (CLI, CI, and App) adhere to user-defined or Semgrep-defined ignore patterns.
+
+:::info
+Ignoring files or folders is different from ignoring a **finding**, which is a triage operation after a Semgrep scan has found and reported a match. See [Finding status](/managing-findings/#finding-status) for more information about ignored findings. Ignored files, and folders are skipped, ignored findings were reported, and then manually ignored by users.
+:::
 
 ## Reference summary
 
