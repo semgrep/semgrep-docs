@@ -276,7 +276,7 @@ Try it out: `sc -f tests/python/dots_stmts.sgrep tests/python/dots_stmts.py -lan
 
 The entry point to `semgrep-core` is `Main.ml`, in `semgrep-core/src/cli/`. This is where you add command-line arguments. It calls functions depending on the mode in which `semgrep-core` was invoked (`-config` for a yaml file, `-f` for a single pattern, etc.)
 
-When invoked by `semgrep`, `semgrep-core` is called by default wih `-config`. This corresponds to the function `semgrep_with_rules_file`, which in turn calls `semgrep_with_rules`. These functions will parse and then match the rule and targets.
+When invoked by `semgrep`, `semgrep-core` is called by default with `-config`. This corresponds to the function `semgrep_with_rules_file`, which in turn calls `semgrep_with_rules`. These functions will parse and then match the rule and targets.
 
 ### Parsing
 
