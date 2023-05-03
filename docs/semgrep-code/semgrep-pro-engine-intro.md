@@ -35,7 +35,7 @@ This section guides you through the Semgrep Pro Engine installation and helps yo
 
 To install and run Semgrep Pro Engine in the CLI, follow these steps:
 
-1. Log in to Semgrep CLI with the following command:
+1. Log in to Semgrep Cloud Platform with the following command:
     ```sh
     semgrep login
     ```
