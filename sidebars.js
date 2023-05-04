@@ -343,8 +343,9 @@ module.exports = {
               type: 'category',
               label: '2023',
               collapsible: true,
-              link: {type: 'doc', id: 'release-notes/march-2023'},
+              link: {type: 'doc', id: 'release-notes/april-2023'},
               items: [
+                'release-notes/april-2023',
                 'release-notes/march-2023',
                 'release-notes/february-2023',
                 'release-notes/january-2023'
