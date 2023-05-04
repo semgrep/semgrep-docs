@@ -33,7 +33,7 @@ This section of release notes includes upgrades of Semgrep OSS Engine for versio
         case bar => "bar"
         ```
         
-    - Semgrep now provides improved parsing functionality for arguments with `using` and splatted arguments. With this update, Semgrep can now correctly parse Scala code with constructs such as:
+    - Semgrep now provides improved parsing functionality for arguments with `using` keyword and splatted arguments. With this update, Semgrep can now correctly parse Scala code with constructs such as:
         
         ```scala
         foo(using bar)
