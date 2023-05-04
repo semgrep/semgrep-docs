@@ -56,7 +56,7 @@ Dependency search provides the following filters:
 </dl>
 
 ![Screenshot of dependency search with query](/img/SSC-DepSearch-Query.png)
-*Figure 2.* Dependency search screen with sample search query.
+*Figure 2.* Dependency search page with sample search query.
 
 ## Data provided by dependency search
 
