@@ -25,14 +25,14 @@ Semgrep Supply Chain's dependency search feature allows you to query for any dep
 
 For newly discovered vulnerabilities, which may not yet have a formal CVE or Supply Chain rule, you can use dependency search to discover if you use the vulnerable dependency across all your repositories. You can also use dependency search to see all the versions of a dependency, which can be useful for standardization purposes.
 
-[TODO]
-*Figure 1.* Default dependency search screen.
+![Screenshot of default dependency search page](/img/SSC-DepSearch.png)
+*Figure 1.* Default dependency search page.
 
 ## Using dependency search
 
 :::info Prerequisites
-* You can only use dependency search through Semgrep Cloud Platform. Create an account to use dependency search.
-* At least **one** completed Semgrep Supply Chain scan of all the repositories you want to search through.
+* You can only use dependency search through Semgrep Cloud Platform. [Sign up or sign in to Semgrep Cloud Platform](https://semgrep.dev/login).
+* You need at least **one** completed Semgrep Supply Chain scan of all the repositories you want to search through.
 :::
 
 To search through your dependencies: 
@@ -51,7 +51,7 @@ Dependency search provides the following filters:
 <dd>Refers to the language of the dependency</dd>
 </dl>
 
-[TODO]
+![Screenshot of dependency search with query](/img/SSC-DepSearch-Query.png)
 *Figure 2.* Dependency search screen with sample search query.
 
 ## Data provided by dependency search
@@ -77,7 +77,7 @@ This section describes possible issues and how to resolve them.
 
 To ensure that your dependencies appear, check the following:
 
-* Ensure that Semgrep Supply Chain can parse your lockfile. Refer to Supported languages for a list of supported languages and lockfiles.
+* Ensure that Semgrep Supply Chain can parse your lockfile. Refer to [Supported languages](/supported-languages) for a list of supported languages and lockfiles.
 * Make sure you've scanned the repository at least once.
 * If you are using filters, ensure that your filters and search syntax is correct.
 
