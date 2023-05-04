@@ -123,7 +123,7 @@ instead of just the rule's UUID.
 ### Additions
 
 - You can now add repositories from Azure Repos into the Semgrep Cloud Platform.
-- BitBucket PR comments are now available for Bitbucket Cloud users. See the [Enabling Bitbucket pull request comments](/semgrep-cloud-platform/bitbucket-pr-comments) to enable PR comments in your repositories.
+- Bitbucket PR comments are now available for Bitbucket Cloud users. See the [Enabling Bitbucket pull request comments](/semgrep-cloud-platform/bitbucket-pr-comments) to enable PR comments in your repositories.
 - Check the new documentation sections [Semgrep add-on reconciliation of licenses](https://semgrep.dev/docs/semgrep-cloud-platform/pricing-and-billing/#semgrep-add-on-reconciliation-of-licenses) and [Example of license reconciliation](https://semgrep.dev/docs/semgrep-cloud-platform/pricing-and-billing/#example-of-license-reconciliation) that inform you about what happens if your organization exceeds the number of purchased licenses.
 
 ### Changes
