@@ -15,8 +15,8 @@ This section of release notes includes upgrades of Semgrep OSS Engine for versio
 
 ### Added
 
-- Java support: With this update, private static variables that are defined just once in a static block are now considered as `final` by constant-propagation, even if they are not explicitly declared as such.
-- Metavariable comparison: With this update, you can now use the exponentiation operator `**` in your expressions when comparing metavariables.
+- Java support: With this update, private static variables that are defined just once in a static block are now considered as `final` by [Constant propagation](/writing-rules/data-flow/constant-propagation/), even if they are not explicitly declared.
+- Metavariable comparison: You can now use the exponentiation operator `**` in your expressions when comparing metavariables.
 - Kotlin language support: With this update, Semgrep evaluates class fields with the correct types and can detect these fields accurately with typed metavariables. For example, a class such as the following:
     ```kotlin
     class Foo {
@@ -69,13 +69,13 @@ This section of release notes includes upgrades of Semgrep OSS Engine for versio
 
 - Improvements to Slack notifications for Semgrep Code scans. See [Semgrep Cloud Platform](#semgrep-cloud-platform).
 - Many Semgrep Pro rules now have rewritten messages. These new rule messages help you to better understand the detected vulnerabilities and enable you to mitigate them with ease. Updates cover all rules associated with the following Common Weakness Enumerations (CWE):
-    - CWE-22 (Path Traversal)
-    - CWE-78 (Command Injection)
-    - CWE-89 (SQLi)
-    - CWE-94 (Code Injection)
-    - CWE-287 (Improper Authentication)
-    - CWE-798 (Hardcoded Secrets)
-    - CWE-918 (SSRF)
+    - CWE-22 - Path traversal
+    - CWE-78 - Command injection
+    - CWE-89 - SQL Injection
+    - CWE-94 - Code injection
+    - CWE-287 - Improper authentication
+    - CWE-798 - Hardcoded secrets
+    - CWE-918 - Server-Side Request Forgery (SSRF)
 
 ## Semgrep Pro Engine
 
@@ -97,7 +97,6 @@ This section of release notes includes upgrades of Semgrep OSS Engine for versio
     ```
     
     Semgrep can track and report that the field `x` of `o` has been tainted.
-    
 
 ### Changed
 
