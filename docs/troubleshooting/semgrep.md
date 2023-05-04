@@ -81,7 +81,7 @@ The first section is `profiling_times`. This contains wall time durations of var
 
 The remaining fields report engine performance. Together, `rule_parse_info` and `targets` should capture all the time spent running `semgrep-core`.
 
-`rule_parse_info` is straightfoward. It records the time spent parsing each rule.
+`rule_parse_info` is straightforward. It records the time spent parsing each rule.
 
 `targets` poses more difficulty. Since files are run in parallel, the amount of time spent parsing (`parse_times`) and matching (`match_times`) will inevitably be meaningless compared against `total_time` or `core_time`. Therefore, the total run time (`run_times`) of each target for each rule is taken within the parallel run. This helps contextualize the time spent parsing and matching each target. The sum of the run times thus can (and usually should) be longer than the total time.
 
