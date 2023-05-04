@@ -144,7 +144,7 @@ This section of release notes includes upgrades of Semgrep OSS Engine for versio
 ### Changed
 
 - [Notification documentation](/semgrep-cloud-platform/notifications/) has been separated into guides for each notification channel, such as Slack or webhooks.
-- Fixed embedded examples in (Semgrep Pro Engine examples)[/semgrep-code/semgrep-pro-engine-examples/] document.
+- Fixed embedded examples in [Semgrep Pro Engine examples](/semgrep-code/semgrep-pro-engine-examples/) document.
 - Our [Cheat sheets](/category/cheat-sheets/) now suggest the default ruleset instead of specific rules for you to scan your code.
 - Updated [CLI reference](/cli-reference/).
 - Clarified sections [Disabling rules](/semgrep-code/rule-board/#disabling-rules) and [Removing rulesets](/semgrep-code/rule-board/#removing-rulesets).
