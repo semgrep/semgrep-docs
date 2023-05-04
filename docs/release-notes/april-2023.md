@@ -69,13 +69,13 @@ This section of release notes includes upgrades of Semgrep OSS Engine for versio
 
 - Improvements to Slack notifications for Semgrep Code scans. See [Semgrep Cloud Platform](#semgrep-cloud-platform).
 - Many Semgrep Pro rules now have rewritten messages. These new rule messages help you to better understand the detected vulnerabilities and enable you to mitigate them with ease. Updates cover all rules associated with the following Common Weakness Enumerations (CWE):
-    - CWE-918 (SSRF)
+    - CWE-22 (Path Traversal)
+    - CWE-78 (Command Injection)
+    - CWE-89 (SQLi)
     - CWE-94 (Code Injection)
     - CWE-287 (Improper Authentication)
     - CWE-798 (Hardcoded Secrets)
-    - CWE-89 (SQLi)
-    - CWE-22 (Path Traversal)
-    - CWE-78 (Command Injection)
+    - CWE-918 (SSRF)
 
 ## Semgrep Pro Engine
 
@@ -115,8 +115,7 @@ This section of release notes includes upgrades of Semgrep OSS Engine for versio
 - Improvements to Slack notifications for Semgrep Supply Chain scans. See [Semgrep Cloud Platform](#semgrep-cloud-platform).
 - Semgrep Supply now parses `go.mod` for a list of dependencies.
 - Semgrep Supply Chain no longer parses `go.sum` for a list of dependencies.
-- The title of Supply Chain findings in the CLI now consists of the package name and CVE,
-instead of just the rule's UUID.
+- The title of Supply Chain findings in the CLI now consists of the package name and CVE, instead of just the rule's UUID.
 
 ## Semgrep Cloud Platform
 
