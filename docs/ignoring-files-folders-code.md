@@ -15,7 +15,9 @@ Exclude specific files, folders or parts of code from results of Semgrep scans i
 All Semgrep environments (CLI, CI, and App) adhere to user-defined or Semgrep-defined ignore patterns.
 
 :::info
-Ignoring files or folders is different from ignoring a **finding**, which is a triage operation after a Semgrep scan has found and reported a match. To triage findings as "ignored", see [Ignoring findings](semgrep-code/findings/#ignoring-findings). This document focuses on ignoring files and folders, which means these are skipped by Semgrep and **not** scanned.
+Ignoring files or folders differs from ignoring a **finding**.
+- **Ignoring findings**: When Semgrep finds a match in scanned code and reports it as a finding, you can ignore the finding in Semgrep Code. Semgrep Code still keeps a record of ignored findings for you to review. See [Ignoring findings](semgrep-code/findings/#ignoring-findings) section.
+- **Ignoring files or folders**: When you define files or folders that Semgrep must ignore, these files are skipped by Semgrep and **not** scanned. Consequently, there is no code that can be matched and reported as a finding in skipped files. Defining files or folders that Semgrep skips is the focus of this document.
 :::
 
 ## Reference summary
