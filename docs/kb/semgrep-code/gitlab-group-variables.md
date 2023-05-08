@@ -1,7 +1,8 @@
 ---
 tags:
   - Gitlab
-  - Semgrep in CI
+  - Semgrep Code
+description: This may be occurring because SEMGREP_APP_TOKEN is set as a group variable.
 ---
 
 # My GitLab pipeline says that the token is invalid, but it is valid
