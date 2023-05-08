@@ -1,11 +1,12 @@
 ---
 tags:
-  - rules
+  - Semgrep OSS Engine
+  - Semgrep Rules
 ---
 
-# My rule with `pattern-not` doesn't work: using pattern-not-inside
+# My rule with `pattern-not` doesn't work: using `pattern-not-inside`
 
-One common issue when writing custom rules is that an attempt to exclude some cases using `pattern-not` is unsuccessful. Often, the solution is to switch from `pattern-not` to `pattern-not-inside`.
+One common issue when writing custom rules is to try to exclude some cases using `pattern-not`, without success. This is especially common if a pattern is not acceptable by itself, but is acceptable as long as some other pattern is also present. In this type of situation, the solution is usually to switch from `pattern-not` to `pattern-not-inside`.
 
 ## What does "inside" mean?
 
@@ -15,10 +16,9 @@ Another way to express this is that `pattern-not` assumes that the matches are t
 
 ## Example
 
-For example, the `find-unverified-transactions` [custom rule example](https://semgrep.dev/docs/writing-rules/rule-ideas/#systematize-project-specific-coding-patterns) uses `pattern` and `pattern-not`, and matches the target code successfully:
+The `find-unverified-transactions` [custom rule example](https://semgrep.dev/docs/writing-rules/rule-ideas/#systematize-project-specific-coding-patterns) is a good example: `make_transaction($T)` is only acceptable if `verify_transaction($T)` is also present. The example uses `pattern` and `pattern-not`, and matches the target code successfully:
 
 <iframe src="https://semgrep.dev/embed/editor?snippet=Nr3z" title="pattern-not rule for unverified transactions" width="100%" height="432px" frameBorder="0"></iframe>
-
 
 However, this rule has some redundancy. Both pattern clauses contain:
 
@@ -48,17 +48,11 @@ rules:
           ...
           make_transaction($T);
           ...       
-    message: >
-      In $METHOD, there's a call to make_transaction() without first calling
-      verify_transaction() on the Transaction object.
-    severity: WARNING
-    languages:
-      - java
 ```
 
 is not successful - [try it out](https://semgrep.dev/playground/s/KZOd?editorMode=advanced) if you like!
 
-With our knowledge about how `pattern-not` operates, we can see that this is because the matches are not the same size. The `pattern-not` is larger, but at the same level. With that, we can determine that the last clause should be `pattern-not-inside`:
+With the knowledge above about how `pattern-not` operates, we can see that this is because the matches are not the same size. The `pattern-not` is larger, but at the same level. This matches the criteria for switching to `pattern-not-inside`:
 
 ```yml
 - pattern-not-inside: |
