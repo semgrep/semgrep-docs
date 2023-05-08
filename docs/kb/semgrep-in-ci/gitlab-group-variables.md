@@ -8,7 +8,7 @@ tags:
 
 If you've checked your GitLab variable setup for `SEMGREP_APP_TOKEN` and are sure that the value is valid, this may be occurring because the variable is set as a group variable, and your configuration is explicitly referencing `SEMGREP_APP_TOKEN` in the `variables` section.
 
-There is a known issue with GitLab where group variables are accessible to projects, but are not resolved by GitLab's runners.
+There is a [known issue with GitLab](https://gitlab.com/gitlab-org/gitlab/-/issues/199741) where group variables are accessible to projects, but are not resolved by GitLab's runners.
 
 The [default configuration](https://semgrep.dev/docs/semgrep-ci/sample-ci-configs/#gitlab-cicd) for GitLab CI/CD includes this setting, and recommends setting the variable as a project/repo variable, which will be successful. 
 
