@@ -18,12 +18,15 @@ import translations from '@theme/SearchTranslations';
 let DocSearchModal = null;
 function Hit({hit, children}) {
   const values = Object.values(hit.hierarchy);
+  const filtered = values.filter((str) => str !== null)
   return (
     <Link to={hit.url}>
-  <ul>
-   { values.map((value) => (<li>{value}</li>)) } </ul>
-    {children}
-  </Link>);
+      <ul>
+        { filtered.map((value) => (<li class='Hit-Hierarchy'>{value}</li>)) }
+      </ul>
+      {children}
+    </Link>
+  );
 }
 function ResultsFooter({state, onClose}) {
   const createSearchLink = useSearchLinkCreator();
