@@ -5,10 +5,12 @@ on:
     inputs:
       parameter:
         description: Run from dispatch
+    branches:
+      - sara/swizzles/update-and-searchbar
   push:
     branches:
       - main
-      - sara/mkt-486-dont-index-meta-pages-non-content-in
+      - sara/swizzles/update-and-searchbar
 
 jobs:
   scrape:
