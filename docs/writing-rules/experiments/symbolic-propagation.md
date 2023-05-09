@@ -28,9 +28,9 @@ Symbolic propagation is a generalization of [constant propagation](/writing-rule
 
 <iframe src="https://semgrep.dev/embed/editor?snippet=JeBP" border="0" frameBorder="0" width="100%" height="432"></iframe>
 
-## Limitations
+## Limitations of symbolic propagation
 
-Currently, symbolic propagation does not cross branching boundaries, such as `if` clauses or loops. This helps avoid difficulties with managing the parse graph for the code. Consider the following Python code, adapted from the example shown above:
+Currently, symbolic propagation does not cross branching boundaries, such as `if` clauses or loops. Consider the following Python code, adapted from the example shown above:
 
 ```python
 import pandas
@@ -40,11 +40,12 @@ def test1():
     pandas.DataFrame(x).index.set_value(a, b, c)
 
 def test2():
+    df = pandas.DataFrame(x)
     if (x < 5):
-        df = pandas.DataFrame(x)
+        pass
     ix = df.index
     # ruleid: test
     ix.set_value(a, b, c)
 ```
 
-In this case, even if `symbolic_propagation: true` is used, Semgrep does not match `test2`, because the assignment of `df` to `pandas.DataFrame(x)` is within a conditional, and is not propagated to the final two lines.
+In this case, even if `symbolic_propagation: true` is used, Semgrep does not match `test2`, because the assignment of `df` to `pandas.DataFrame(x)` is not propagated over the conditional to the final two lines.
