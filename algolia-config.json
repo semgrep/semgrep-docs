@@ -53,6 +53,12 @@
       "url",
       "url_without_anchor",
       "type"
+    ],
+    "synonyms": [
+      [
+        "taint mode",
+        "taint tracking"
+      ]
     ]
   },
   "customRanking": [
