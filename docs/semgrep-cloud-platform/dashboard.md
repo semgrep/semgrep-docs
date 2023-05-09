@@ -35,9 +35,9 @@ You can access the Dashboard by [logging into Semgrep Cloud Platform](https://se
 
 ## Assessing security readiness at a glance
 
-![Screenshot of dashboard header](/img/dashboard-header.png)
+![Screenshot of dashboard Code widget](/img/dashboard-code.png)
 
-The **Header widget** displays high-level security analytics across your entire organization. This includes:
+The **Code widget** displays high-level security analytics across your entire organization. This includes:
 <dl>
 	<dt>Open findings</dt>
 	<dd>The number of open findings over the <b>given time period</b> next to the calendar icon. The badge number indicates whether this number has gone up or down compared to the previous timeframe. The number badge compares the most recent number of open findings against the previous timeframe.</dd>
@@ -102,11 +102,24 @@ The **Most disliked** metric is taken from the **Developer Feedback** feature. D
 
 -->
 
-## Dashboard with Semgrep Supply Chain
+## Using Dashboard with Semgrep Supply Chain
 
+:::info Prerequisite
+To display Semgrep Supply Chain findings in Semgrep Dashboard enable Semgrep Supply Chain. See the [Getting started with Semgrep Supply Chain](/semgrep-supply-chain/getting-started/) article for more information.
+:::
 
+Semgrep Dashboard can display vulnerable dependency findings of Semgrep Supply Chain.
 
 ![Screenshot of dashboard with Semgrep Supply Chain](/img/dashboard-with-supply-chain.png)
+
+Semgrep Supply Chain dashboard consists of three widgets:
+- Supply Chain header
+- Most vulnerabilities
+- New advisories
+
+TODO test - add more repositories and try to filter by projects
+
+![Screenshot of three Semgrep Supply Chain widgets in Semgrep dashboard](/img/dashboard-supply-chain.png)
 
 
 
