@@ -1,6 +1,6 @@
 ---
 slug: semgrep
-description: "Get more information when Semgrep hangs, crashes, times out, or runs too slow."
+description: "Get more information when Semgrep hangs, crashes, times out, or runs very slowly."
 title: Troubleshooting
 hide_title: true
 append_help_link: true
@@ -14,7 +14,7 @@ import MoreHelp from "/src/components/MoreHelp"
 
 This can happen when Semgrep crashes, usually as a result of memory exhaustion. `-11` and `-9` are the POSIX signals raised to cause the crash. Try increasing your stack limit, as suggested (`ulimit -s [limit]`). If you are working in a container where you can set the memory you are working with, you can also try increasing this limit. Alternatively, you can add `--max-memory [limit]` to your Semgrep run, which will stop a rule/file scan if it reaches the limit.
 
-Additionally, you can run Semgrep in single-threaded mode with `--jobs 1`.
+Additionally, you can run Semgrep in single-threaded mode with `--jobs 1`. This reduces the amount of memory used compared to running multiple jobs.
 
 When reporting these errors, please include the rule it failed on, the total size of the files (or the files themselves if possible!), the maximum memory used by Semgrep (an estimate from `top` is fine), and your system specifications.
 
@@ -24,17 +24,23 @@ We record Semgrep runtimes for each file and rule. This information is displayed
 
 ### I just want Semgrep to run faster
 
-Just run Semgrep with `--time` and not `--json`. This will output a list of the rules and files that took the longest. Oftentimes, users find that those files shouldn't have been scanned in the first place.
+Just run Semgrep with `--time` and not `--json`. This will output a list of the rules and files that took the longest. Often, you will find that those files shouldn't have been scanned in the first place.
 
-The first step to improving Semgrep's speed is limiting its run to only the files you care about. You can do this by adding a `.semgrepignore` file. See [how to ignore files & directories in Semgrep CI](/semgrep-ci/overview.md#ignoring-files-directories).
+The first step to improving Semgrep's speed is limiting its run to only the files you care about. You can do this by adding a `.semgrepignore` file. See [how to ignore files & directories in Semgrep CI](/ignoring-files-folders-code/).
 
-If you're still slow, you may want to examine the slowest rules. You may find that some of them don't apply to your codebase and can be skipped.
+If Semgrep is still running slowly, examine the output and identify the slowest rules. You may find that some of them don't apply to your codebase and can be skipped.
 
 ### I am a contributor who wants to improve Semgrep's engine
 
 #### Interpreting the result object
 
-For full timing information, run Semgrep with `--time` and `--json`. In addition, you will want to `time` the entire command to get the true wall time. Here is an example result object.
+For full timing information, run Semgrep with `--time` and `--json`. In addition, you will want to `time` the entire command to get the true wall time. The full command would look sometthing like:
+
+```sh
+time semgrep scan --config=auto PATH/TO/SRC --time --json
+```
+
+Here is an example result object.
 
 ```JSON
 {
