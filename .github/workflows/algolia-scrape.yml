@@ -24,6 +24,7 @@ jobs:
       # when scraping the site, inject secrets as environment variables
       # then pass their values into the Docker container using "-e" syntax
       # and inject config.json contents as another variable
+            # "ranking": ["desc(weight.page_rank)", "words", "custom"],
 
       - name: scrape the site and send to Algolia 🧽
         env:
@@ -38,7 +39,6 @@ jobs:
           -H "X-Algolia-API-Key: ${API_KEY}" \
           -H "X-Algolia-Application-Id: ${APPLICATION_ID}" \
           --data-binary '{
-            "ranking": ["desc(weight.page_rank)", "words", "custom"],
             "customRanking": ["desc(weight.level)", "asc(weight.position)"]
           }' \
           "https://${APPLICATION_ID}.algolia.net/1/indexes/docs/settings?forwardToReplicas=true"
