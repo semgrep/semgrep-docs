@@ -1,7 +1,7 @@
 ---
 slug: semgrep-pro-engine-intro
 append_help_link: true
-description: "This article introduces Semgrep Pro Engine, guides you through installation and provides some additional information."
+description: "This article introduces Semgrep Pro Engine, guides you through installation, and provides some additional information."
 hide_title: true
 title: Semgrep Pro Engine overview
 ---
@@ -39,7 +39,7 @@ To install and run Semgrep Pro Engine in the CLI, follow these steps:
     ```sh
     semgrep login
     ```
-1. Follow the link that Semgrep CLI printed in the command line.
+1. Follow the link that Semgrep CLI printed on the command line.
 1. To install Semgrep Pro Engine use the following command:
     ```sh
     semgrep install-semgrep-pro
@@ -48,11 +48,11 @@ To install and run Semgrep Pro Engine in the CLI, follow these steps:
     ```bash
     semgrep --pro --config "p/default" 
     ```
-1. Optional: We appreciate your help gathering data as we improve Semgrep Pro Engine! If you are fine with sending r2c usage metrics, run the following command:
+1. Optional: If you prefer not to send usage metrics to Semgrep, run the following command:
     ```bash
-    semgrep --pro --config "p/default" --time --metrics on
+    semgrep --pro --config "p/default" --metrics off
     ```
-    See [Semgrep Privacy Policy](/metrics) for details of what is being sent to r2c.
+    See [Semgrep Privacy Policy](/metrics) for details of what is being sent to Semgrep.
 
 :::note
 Let us know what you think about the results in the <a href="https://go.semgrep.dev/slack">Semgrep Community Slack</a>.
@@ -123,7 +123,7 @@ To update Semgrep Pro Engine to the latest version, follow these steps:
     ```
 
 :::info
-The command to update Semgrep Pro Engine itself is the same as the command to install Semgrep Pro Engine.
+The command to update Semgrep Pro Engine is the same as the command to install Semgrep Pro Engine.
 :::
 
 ### Enabling Semgrep Pro Engine in Semgrep Cloud Platform
@@ -138,11 +138,11 @@ To enable Semgrep Pro Engine in the Semgrep Cloud Platform, follow these steps:
 1. Sign in to [Semgrep Cloud Platform](https://semgrep.dev/login).
 1. Select **[Settings](https://semgrep.dev/orgs/-/settings)**.
 1. Enable the <i class="fa-solid fa-toggle-large-on"></i> **Semgrep Pro Engine beta** toggle.
-1. Ensure that you have the **default ruleset** added in your **[Rule Board](https://semgrep.dev/orgs/-/board)**. In the Rule Board, the **default ruleset** is in the **Monitor column**. If this ruleset is **not** added, go to [https://semgrep.dev/p/default](https://semgrep.dev/p/default), and then click **Add to Rule Board**.
+1. Ensure that you have the **default ruleset** added in your **[Rule Board](https://semgrep.dev/orgs/-/board)**. In the Rule Board, the **default ruleset** is recommended for the **Monitor column**. If this ruleset is **not** added, go to [https://semgrep.dev/p/default](https://semgrep.dev/p/default), and then click **Add to Rule Board**.
 1. Optional: If you don't have any projects added to your organization, follow the procedures described in [Scanning a repository](/semgrep-code/getting-started/#semgrep-code-with-semgrep-cloud-platform) to scan a new project with Semgrep Pro Engine. Ensure that your project's language is supported by Semgrep Pro Engine.
 
 :::info Testing Semgrep Pro Engine
-To test Semgrep Pro Engine on a purposefully vulnerable repository, fork the [juice-shop](https://github.com/juice-shop/juice-shop) repository, and then add it to SCP by following the steps described in [Adding a repository](/semgrep-code/getting-started/#option-b-adding-a-repository-from-github-or-gitlab).
+To test Semgrep Pro Engine on a purposefully vulnerable repository, fork the [juice-shop](https://github.com/juice-shop/juice-shop) repository, and then add it to SCP by following the steps described in [Adding a repository](/semgrep-code/getting-started/#adding-or-onboarding-a-new-project-repository).
 :::
 
 ### Creating interfile analysis rules
@@ -179,20 +179,20 @@ rules:
 
 To provide reliably completed scans, Semgrep Pro Engine can fall back to the use of Semgrep OSS Engine. This ensures that in the vast majority of cases, scans run successfully.
 
-If a scan uses more than 5&nbsp;GB of memory during pre-processing, the scan uses Semgrep OSS Engine to ensure lower memory consumption. Similarly, if the Semgrep Pro Engine scan doesn't complete after 3 hours, the Pro Engine results in time out and Semgrep OSS rescans the repository. Typically, this is because the repository is very large.
+If a scan uses more than 5&nbsp;GB of memory during pre-processing, the scan uses Semgrep OSS Engine to ensure lower memory consumption. Similarly, if the Semgrep Pro Engine scan doesn't complete after 3 hours, the Pro Engine times out and Semgrep OSS rescans the repository. Typically, this is because the repository is very large.
 
 If 1-2 repositories cause CI scan issues, modify your config file to use `semgrep ci --oss-only`. This overrides the Semgrep CI settings for these repositories, and always runs these scans with Semgrep OSS. 
 
 If many repositories cause scan issues:
 1. Disable the <i class="fa-solid fa-toggle-large-on"></i> **Semgrep Pro Engine beta** toggle in the **[Settings](https://semgrep.dev/orgs/-/settings)** page of your organization.
-1. Contact r2c in the <a href="https://go.semgrep.dev/slack">Semgrep Community Slack</a> so we can help you to fix the issue and create a plan for your organization.
+1. Contact Semgrep in the <a href="https://go.semgrep.dev/slack">Semgrep Community Slack</a> so we can help you to fix the issue and create a plan for your organization.
 
 ### Difference between Semgrep Pro Engine and join mode
 
-Semgrep Pro Engine is different from [join mode](/writing-rules/experiments/join-mode/overview/), which also allows you to perform interfile analyses by letting you join on the metavariable matches in separate rules. Join mode is an experimental feature which is not developed or actively maintained. You may encounter many issues while using join mode.
+Semgrep Pro Engine is different from [join mode](/writing-rules/experiments/join-mode/overview/), which also allows you to perform interfile analyses by letting you join on the metavariable matches in separate rules. Join mode is an experimental feature which is not actively developed or maintained. You may encounter many issues while using join mode.
 
 ### Future development of Semgrep Pro Engine
 
-We’re excited to hear what’s on your mind. As users explore the limits of Semgrep Pro Engine, we want to know what they’re failing to express. We believe that this deeper analysis helps users find more vulnerabilities, build trust with developers, and enforce code standards quickly. Let us know what you think about the results in the <a href="https://go.semgrep.dev/slack">Semgrep Community Slack</a>.
+We’re excited to hear what’s on your mind. As you explore Semgrep Pro Engine, we want to know what you'd like to be able to capture with Pro Engine. We believe that this deeper analysis helps users find more vulnerabilities, build trust with developers, and enforce code standards quickly. Let us know what you think about the results in the <a href="https://go.semgrep.dev/slack">Semgrep Community Slack</a>.
 
 <MoreHelp />
