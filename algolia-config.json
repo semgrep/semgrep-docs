@@ -65,20 +65,6 @@
       ]
     ]
   },
-  "customRanking": [
-    "desc(weight.level)",
-    "asc(weight.position)"
-  ],
-  "ranking": [
-    "desc(weight.page_rank)",
-    "words",
-    "custom",
-    "exact",
-    "attribute",
-    "filters",
-    "proximity",
-    "typo"
-  ],
   "conversation_id": [
     "833762294"
   ],
