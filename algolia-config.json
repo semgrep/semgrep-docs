@@ -62,6 +62,22 @@
       [
         "roles",
         "RBAC"
+      ],
+      [
+        "pull request comments",
+        "PR comments"
+      ],
+      [
+        "merge request comments",
+        "MR comments"
+      ],
+      [
+        "Semgrep Cloud Platform",
+        "SCP"
+      ],
+      [
+        "Semgrep Supply Chain",
+        "SSC"
       ]
     ]
   },
