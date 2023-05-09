@@ -1,6 +1,7 @@
 :root {
   --docsearch-primary-color: var(--ifm-color-primary);
   --docsearch-text-color: var(--ifm-font-color-base);
+  --docsearch-modal-width: 750px;
 }
 
 .DocSearch-Button {

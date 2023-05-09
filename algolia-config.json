@@ -58,6 +58,10 @@
       [
         "taint mode",
         "taint tracking"
+      ],
+      [
+        "roles",
+        "RBAC"
       ]
     ]
   },
