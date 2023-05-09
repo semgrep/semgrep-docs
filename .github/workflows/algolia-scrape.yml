@@ -38,7 +38,7 @@ jobs:
           -H "X-Algolia-API-Key: ${API_KEY}" \
           -H "X-Algolia-Application-Id: ${APPLICATION_ID}" \
           --data-binary '{
-            "ranking": ["desc(weight.page_rank)", "words", "custom"],
-            "customRanking": ["desc(weight.level)", "asc(weight.position)", "exact", "attribute", "filters", "proximity", "typo"]
+            "ranking": ["desc(weight.page_rank)", "words", "attribute", "custom", "exact"],
+            "customRanking": ["desc(weight.level)", "asc(weight.position)"]
           }' \
           "https://${APPLICATION_ID}.algolia.net/1/indexes/docs/settings?forwardToReplicas=true"
