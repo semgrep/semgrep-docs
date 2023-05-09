@@ -17,13 +17,14 @@ import {createPortal} from 'react-dom';
 import translations from '@theme/SearchTranslations';
 let DocSearchModal = null;
 function Hit({hit, children}) {
-  const values = Object.values(hit.hierarchy);
-  const filtered = values.filter((str) => str !== null)
+  // const values = Object.values(hit.hierarchy);
+  // const filtered = values.filter((str) => str !== null)
+      /* Readd to <Link> if additional context is necessary
+      <ul> 
+        { filtered.map((value) => (<li class='Hit-Hierarchy'>{value}</li>)) }
+      </ul> */
   return (
     <Link to={hit.url}>
-      <ul>
-        { filtered.map((value) => (<li class='Hit-Hierarchy'>{value}</li>)) }
-      </ul>
       {children}
     </Link>
   );

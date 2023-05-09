@@ -17,7 +17,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Wait for 8 minutes
-        run: sleep 480s
+        run: sleep 10s
         shell: bash
       - name: check out code 🛎
         uses: actions/checkout@v2
