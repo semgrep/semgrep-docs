@@ -12,6 +12,12 @@ This article documents two attacks related to XML external entities: XML exponen
 
 You may use [Pro rules](/semgrep-code/pro-rules/) to check your project for XXE vulnerabilities.
 
+### Catching XXE bugs in Java with Semgrep taint labels
+
+See the process behind creating a Semgrep rule that detects XXE vulnerabilities. You can create and improve your own rules using [Semgrep Playground](https://semgrep.dev/playground) as you may see in the following video:
+
+<iframe class="yt_embed" width="100%" height="432px" src="https://www.youtube.com/embed/lAbJdzMUR4k" frameborder="0" allowfullscreen></iframe>
+
 ## Mitigation summary
 
 It is not easy to summarize Java XML security. The XML standard allows multiple ways to include external content, including but not limited to external Document Type Definitions (DTD), external Entity References to external data, general entity references, and external parameter references. There are also several ways to include external content in XML Schemas and stylesheets.

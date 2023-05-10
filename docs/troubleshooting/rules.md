@@ -39,7 +39,7 @@ The same way Python's parser cannot parse partial statements or expressions, Sem
 
 The Semgrep pattern `if $X < 5` is invalid, and needs to be changed to a complete statement with a wildcard: `if $X < 5: ...`
 
-While the most common reason for pattern parse errors is the aboe, other things to check would be:
+While the most common reason for pattern parse errors is the above, other things to check would be:
 
 - Make sure the correct language is selected
 - If your pattern uses a metavariable, make sure it's all uppercase and does not start with a number. Valid metavariable names include `$X`, `$NAME`, and `$_VAR_2`. Invalid metavariable names include `$name`, `$1stvar` and `$VAR-WITH-DASHES`.

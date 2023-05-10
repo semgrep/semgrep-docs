@@ -24,7 +24,7 @@ A reviewer writes a Semgrep rule and adds it to an organization-wide policy.
 
 _Time to write this rule: **5 minutes**_
 
-Semgrep can be used to detect dangerous APIs present in code. If integrated into CI/CD pipelines, Semgrep can be used to block merges or flag for review when someone adds these dangerous APIs. For example, a rule that detects React's `dangerouslySetInnerHTML` looks like this.
+Semgrep can detect dangerous APIs in code. If integrated into CI/CD pipelines, you can use Semgrep to block merges or flag for review when someone adds such dangerous APIs to the code. For example, a rule that detects React's `dangerouslySetInnerHTML` looks like this.
 
 <iframe src="https://semgrep.dev/embed/editor?snippet=minusworld:docs-dangerously-set-inner-html" title="Ban dangerous APIs with Semgrep" width="100%" height="432px" frameBorder="0"></iframe>
 
@@ -52,7 +52,7 @@ This rule detects when a user of the ExpressJS framework passes user data into t
 
 _Time to write this rule: **5 minutes**_
 
-Semgrep can be used to flag specific uses of APIs too, not just the presence of them. We jokingly call these the "security off" buttons and make extensive use of Semgrep to detect them.
+Use Semgrep to flag specific uses of APIs too, not just their presence in code. We jokingly call these the "security off" buttons and make extensive use of Semgrep to detect them.
 
 This rule detects when HTML autoescaping is explicitly disabled for a Django template.
 
@@ -85,7 +85,7 @@ If a project has a "correct" way of doing authentication, Semgrep can be used to
 
 _Time to write this rule: **10 minutes**_
 
-Semgrep can be used to automate institutional knowledge. This has several benefits, including teaching new members about coding patterns in an automatic way and keeping a project up-to-date with coding patterns. If you keep coding guidelines in a document, converting these into Semgrep rules is a great way to free developers from having to remember all the guidelines.
+Automate institutional knowledge using Semgrep. This has several benefits, including teaching new members about coding patterns in an automatic way and keeping a project up-to-date with coding patterns. If you keep coding guidelines in a document, converting these into Semgrep rules is a great way to free developers from having to remember all the guidelines.
 
 In this example, a legacy API requires calling `verify_transaction(t)` before calling `make_transaction(t)`. The Semgrep rule below detects when these methods are not called correctly.
 
@@ -114,7 +114,7 @@ This rule example detects a function that is deprecated as of Django 4.0.
 
 _Time to write this rule: **5 minutes**_
 
-Some libraries or APIs have safe alternatives, such as [Google's `re2`](https://github.com/google/re2), an implementation of the standard `re` interface that ships with Python that is resistant to regular expression denial-of-service. This rule detects use of `re` and recommends `re2` as a safe alternative with the same interface.
+Some libraries or APIs have safe alternatives, such as [Google's `re2`](https://github.com/google/re2), an implementation of the standard `re` interface that ships with Python that is resistant to regular expression denial-of-service. This rule detects the use of `re` and recommends `re2` as a safe alternative with the same interface.
 
 <iframe src="https://semgrep.dev/embed/editor?snippet=minusworld:docs-use-re2" title="Promote secure alternatives with Semgrep" width="100%" height="432px" frameBorder="0"></iframe>
 

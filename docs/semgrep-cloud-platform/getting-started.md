@@ -33,7 +33,7 @@ Object.entries(frontMatter).filter(
 
 # Getting started with Semgrep Cloud Platform
 
-Semgrep Cloud Platform (SCP) enables you to run scans on multiple repositories by integrating with your GitHub or GitLab SaaS account.
+Semgrep Cloud Platform (SCP) enables you to run scans continuously on multiple repositories by integrating with your GitHub, GitLab, or BitBucket SaaS repositories.
 
 <SemgrepScan />
 
@@ -50,9 +50,7 @@ For Docker users: Use the [**latest** tag](https://hub.docker.com/r/returntocorp
 Semgrep Cloud Platform supports code scanning from:
 
 * Local command-line interfaces (CLI).
-* GitHub and GitLab, through continuous integration (CI).
-
-This guide walks you through scanning code in both types of environments.
+* GitHub, GitLab, and BitBucket through continuous integration (CI).
 
 ![Diagram of Semgrep Cloud Platform flow](/img/semgrep-app-diagram.png "Diagram of Semgrep Cloud Platform flow")
 
@@ -60,7 +58,7 @@ This guide walks you through scanning code in both types of environments.
 
 ### Semgrep Cloud Platform with Semgrep Code
 
-Semgrep Code, a SAST (Static Application Security Testing) tool, enables you to scan your first-party code through the use of rules. Many rules are available from [Semgrep Registry](https://semgrep.dev/explore), an open-source, community-driven repository of rules. You can also write your own rules to customize Semgrep for your team's specific practices, or publish rules for the community. You can use Semgrep Code from your CLI or with Semgrep Cloud Platform.
+Semgrep Code, a SAST tool, enables you to scan your first-party code through the use of rules. Many rules are available from [Semgrep Registry](https://semgrep.dev/explore), an open-source, community-driven repository of rules. You can also write your own rules to customize Semgrep for your team's specific practices, or publish rules for the community. You can use Semgrep Code from your CLI or with Semgrep Cloud Platform.
 
 Using Semgrep Code with Semgrep Cloud Platform provides you with the Rule Board, where you can determine which rules Semgrep uses and what action Semgrep undertakes when it generates a finding. The Rule Board can block pull requests (PRs) or merge requests (MRs) from merging until findings are resolved. This behavior helps to prevent vulnerable code from shipping to widely-accessible environments, such as production or staging servers.
 
@@ -183,7 +181,7 @@ To start a SAST scan on your codebase, see [Getting started with Semgrep Code](/
 
 ### Starting an SCA scan with Semgrep Supply Chain
 
-To start an SCA scan for your third-party dependencies, contact [sales@r2c.dev](mailto:sales@r2c.dev).
+To start an SCA scan for your third-party dependencies, contact [sales@semgrep.com](mailto:sales@semgrep.com).
 
 ## Additional resources
 

@@ -14,8 +14,8 @@ jobs:
   scrape:
     runs-on: ubuntu-latest
     steps:
-      - name: Wait for 4 minutes
-        run: sleep 240s
+      - name: Wait for 8 minutes
+        run: sleep 480s
         shell: bash
       - name: check out code 🛎
         uses: actions/checkout@v2

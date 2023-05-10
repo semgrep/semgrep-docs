@@ -118,7 +118,7 @@ module.exports = {
             },
             {
               label: 'About us',
-              href: 'https://r2c.dev/team'
+              href: 'https://semgrep.dev/about'
             },
             {
               label: 'Semgrep release updates',
@@ -127,12 +127,12 @@ module.exports = {
           ],
         },
       ],
-      copyright: `Copyright © ${new Date().getFullYear()} r2c. Semgrep®️  is a registered trademark of r2c. These docs are made with Docusaurus.`,
+      copyright: `Copyright © ${new Date().getFullYear()} Semgrep, Inc. Semgrep®️  is a registered trademark of Semgrep, Inc. These docs are made with Docusaurus.`,
     },
     prism: {
       theme: lightCodeTheme,
       darkTheme: darkCodeTheme,
-      additionalLanguages: ['java', 'ruby', 'php', 'csharp', 'rust', 'scala'],
+      additionalLanguages: ['java', 'ruby', 'php', 'csharp', 'rust', 'scala', 'kotlin'],
     },
     algolia: {
       apiKey: 'f53612c29d04a2ff71dce6e3b2f76752',
@@ -219,8 +219,8 @@ module.exports = {
           { from: "/semgrep-ci/managing-policy", to: "/semgrep-code/rule-board/" },
           { from: "/managing-policy", to: "/semgrep-code/rule-board/" },
           { from: "/semgrep-app/managing-policy", to: "/semgrep-code/rule-board/" },
-          { from: "/integrations", to: "/semgrep-code/notifications/" },
-          { from: "/notifications", to: "/semgrep-code/notifications/" },
+          { from: "/integrations", to: "/semgrep-cloud-platform/notifications/" },
+          { from: "/notifications", to: "/semgrep-cloud-platform/notifications/" },
           { from: "/sso", to: "/semgrep-cloud-platform/sso/" },
           { from: "/experiments", to: "/writing-rules/experiments/introduction/" },
           { from: "/upgrade", to: "/upgrading/" },
@@ -272,12 +272,12 @@ module.exports = {
           { from: "/semgrep-ci/running-semgrep-ci-without-semgrep-app/" , to: "/semgrep-ci/running-semgrep-ci-with-semgrep-cloud-platform/" } ,
 
           // Semgrep Code
-          { from: "/semgrep-app/integrations"                        , to: "/semgrep-code/notifications/" }   ,
+          { from: "/semgrep-app/integrations"                        , to: "/semgrep-cloud-platform/notifications/" }   ,
           { from: "/semgrep-app/demo-project/"                       , to: "/semgrep-code/demo-project/" }    ,
           { from: "/semgrep-app/rule-board/"                         , to: "/semgrep-code/rule-board/" }      ,
           { from: "/semgrep-app/findings/"                           , to: "/semgrep-code/findings/" }        ,
           { from: "/semgrep-app/editor/"                             , to: "/semgrep-code/editor/" }          ,
-          { from: "/semgrep-app/notifications/"                      , to: "/semgrep-code/notifications/" }   ,
+          { from: "/semgrep-app/notifications/"                      , to: "/semgrep-cloud-platform/notifications/" }   ,
           { from: "/semgrep-code/getting-started-with-semgrep-code/" , to: "/semgrep-code/getting-started/" } ,
 
           //Semgrep Cloud Platform
@@ -296,7 +296,11 @@ module.exports = {
           { from: "/semgrep-sc/ignoring-lockfiles-dependencies/"          , to: "/semgrep-supply-chain/ignoring-lockfiles-dependencies/" } ,
           { from: "/semgrep-sc/receiving-notifications-from-ssc/"         , to: "/semgrep-supply-chain/notifications/" }                   ,
           { from: "/semgrep-sc/semgrep-supply-chain-overview/"            , to: "/semgrep-supply-chain/overview/" }                        ,
-          { from: "/semgrep-sc/triaging-and-remediating-vulnerabilities/" , to: "/semgrep-supply-chain/triage-and-remediation/" }
+          { from: "/semgrep-sc/triaging-and-remediating-vulnerabilities/" , to: "/semgrep-supply-chain/triage-and-remediation/" },
+
+          /* APR 27 2023  */
+          { from: "/semgrep-code/notifications/"            , to: "/semgrep-cloud-platform/notifications/" }  ,
+          { from: "/semgrep-ci/configuration-reference" , to: "/semgrep-ci/ci-environment-variables/" }
         ]
       }
     ],

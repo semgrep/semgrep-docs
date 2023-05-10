@@ -57,7 +57,7 @@ Integrate Semgrep into these custom source code management (SCM) tools by follow
 
 </div>
 
-3. Select your source code provider.
+3. Select your source code manager.
 4. For **GitHub Enterprise Server**, follow these steps:
 
     1. Create a PAT by following the steps outlined in this [guide to creating a PAT](https://docs.github.com/en/enterprise-server@3.1/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token). Ensure that the PAT is **[created with the required scopes](../scm/#table-of-required-scopes-for-pats)**.
@@ -87,7 +87,7 @@ To enable this feature within self-hosted SCMs behind firewalls or VPNs (Virtual
  2. Test that you are able to receive findings by manually triggering a scan through your CI provider.
 
 :::tip
-Receiving PR or MR comments may require additional steps depending on the custom configuration of your VPN or SCM (for example, if you use a static IP without a hostname). Reach out to Semgrep support through the [Semgrep Community Slack](https://go.semgrep.dev/slack) or send an email to [support@r2c.dev](mailto:support@r2c.dev) for any concerns.
+Receiving PR or MR comments may require additional steps depending on the custom configuration of your VPN or SCM (for example, if you use a static IP without a hostname). Reach out to Semgrep support through the [Semgrep Community Slack](https://go.semgrep.dev/slack) or send an email to [support@semgrep.com](mailto:support@semgrep.com) for any concerns.
 :::
 
 ## Additional references
