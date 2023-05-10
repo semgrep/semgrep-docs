@@ -17,7 +17,7 @@ import RecommendedRuleSet from "/src/components/code_snippets/_cheat-sheets-reco
 
 ## 1. Running an OS command
 
-### 1.A. running OS commands with exec.Command()
+### 1.A. Running OS commands with exec.Command()
 
 The `Command` and `CommandContext` execute commands provided as arguments. If unverified user data can reach its call site, this may end up in a command injection vulnerability. Both `Command` and `CommandContext` have built-in protections that do not let command arguments cause trouble. But ensure that the command itself is not controlled by the user, also do not use `sh`, because internal protection does not work in this case.
 
@@ -156,7 +156,7 @@ Do not let the user input in `exec.Cmd` struct. Alternatively:
 
 <LinkToRegistryRule ruleId="go.lang.security.audit.dangerous-exec-cmd.dangerous-exec-cmd" />
 
-### 1.C. writing to a command's StdinPipe
+### 1.C. Writing to a command's StdinPipe
 
 Command's `StdinPipe` returns a pipe that is connected to the command's standard input when it starts. A command injection vulnerability happens if unverified user data reaches `StdinPipe`. A malicious actor can inject a malicious script to execute arbitrary code.
 
@@ -200,7 +200,7 @@ Do not let the user input in command's `StdinPipe`. Alternatively:
 
 <LinkToRegistryRule ruleId="go.lang.security.audit.dangerous-command-write.dangerous-command-write" />
 
-### 1.D. running OS commands with syscall.Exec()
+### 1.D. Running OS commands with syscall.Exec()
 
 `Exec`or `ForkExec` invokes the execve(2) system call. If unverified user data can reach its call site, this is a command injection vulnerability. Make sure that the command is not controlled by the user, also do not run `sh` with any possibility of user input involved in command arguments.
 
