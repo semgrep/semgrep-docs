@@ -196,16 +196,9 @@ Process.wait pid
 
 <LinkToRegistryRule ruleId="ruby.lang.security.dangerous-exec.dangerous-exec" />
 
-### 1.E. Using backticks (``) or %x to execute OS commands
+### 1.E. Using backticks (``) or %x[command] to execute OS commands
 
-copy-paste from docs:
-
-Returns the $stdout output from running command in a subshell; sets global variable $? to the process status.
-This method has potential security vulnerabilities if called with untrusted input; see Command Injection.
-
-`command` (backtick method) (also called by the expression %x[command])
-TODO: https://ruby-doc.org/3.2.1/Kernel.html
-TODO: https://ruby-doc.org/3.2.1/command_injection_rdoc.html
+Backticks ``` `` ``` or `%x[command]` methods execute a system command and return its output. Both methods accept string interpolation. As for other methods mentioned in this cheat sheet, when this method is used with user input, it can lead to command injection vulnerability.
 
 Example:
 
@@ -225,9 +218,21 @@ user_input = ' && cat /etc/passwd' # Value supplied by user
 %x{ls #{user_input}}
 ```
 
+The `ls -l` in Ruby is equivivalent to the following:
+
+- `` %x`ls -l` ``
+- `` %x;ls -l; ``
+- `` %x(ls -l) ``
+- `` %x"ls -l" ``
+- `` %x{ls -l} ``
+- `` %x:ls -l: ``
+- `` %x'ls -l' ``
+- `` %x[ls -l] ``
+
 #### References
 
-- [Kernel documentation](https://ruby-doc.org/3.2.1/Kernel.html)
+- Ruby [Kernel](https://ruby-doc.org/3.2.1/Kernel.html) documentation.
+- Ruby [command injection](https://ruby-doc.org/3.2.1/command_injection_rdoc.html) documentation.
 
 #### Mitigation
 
