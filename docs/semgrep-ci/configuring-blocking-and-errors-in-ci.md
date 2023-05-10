@@ -63,7 +63,7 @@ To find more details about some of these configuration options, see the followin
 - `semgrep ci --no-suppress-errors` - Semgrep in CI **fails** on blocking findings, CI **fails** on internal errors. If you use this flag, all exit codes, including internal errors, surface to the CI provider.
 - `semgrep ci || true` - Semgrep in CI **passes** on blocking findings, CI **passes** on internal errors.
 
-## Examples of blocking findings and errors configuration
+## Examples of blocking findings and errors configuration [TODO]
 
 <BlockFindingsErrorsConfigs />
 
