@@ -123,7 +123,7 @@ Filters mentioned in previous sections [Filtering findings by time](#filtering-f
 
 <!--
 
-NOTE: The following sections are no longer functional in Semgrep Dashboard. Section "Discovering trends in vulnerabilities through OWASP categories" can be reused as it offers a good description of many OWASP categories (maybe in Cheat sheets).
+Technical Writer NOTE: The following sections are no longer functional in Semgrep Dashboard. Section "Discovering trends in vulnerabilities through OWASP categories" can be reused as it offers a good description of many OWASP categories (maybe in Cheat sheets).
 
 ## Discovering trends in vulnerabilities through OWASP categories
 
