@@ -191,8 +191,8 @@ If many repositories cause scan issues:
 
 Semgrep Pro Engine is different from [join mode](/writing-rules/experiments/join-mode/overview/), which also allows you to perform interfile analyses by letting you join on the metavariable matches in separate rules. Join mode is an experimental feature which is not actively developed or maintained. You may encounter many issues while using join mode.
 
-### Future development of Semgrep Pro Engine
+### Feedback for Semgrep Pro Engine
 
-We’re excited to hear what’s on your mind. As you explore Semgrep Pro Engine, we want to know what you'd like to be able to capture with Pro Engine. We believe that this deeper analysis helps users find more vulnerabilities, build trust with developers, and enforce code standards quickly. Let us know what you think about the results in the <a href="https://go.semgrep.dev/slack">Semgrep Community Slack</a>.
+The team at Semgrep is excited to hear what’s on your mind. As you explore Semgrep Pro Engine, we want to know what you'd like to be able to capture with Pro Engine. We believe that this deeper analysis helps users find more vulnerabilities, build trust with developers, and enforce code standards quickly. Let us know what you think about the results in the <a href="https://go.semgrep.dev/slack">Semgrep Community Slack</a>.
 
 <MoreHelp />
