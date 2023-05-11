@@ -360,6 +360,6 @@ You can onboard (add) your entire organization's users and repositories by creat
 
 ### Getting support
 
-Refer to [Troubleshooting Semgrep Cloud Platform](/docs/troubleshooting/semgrep-app/) for common installation issues. Help is also available for all users through the [r2c Community Slack](https://r2c.dev/slack).
+Refer to [Troubleshooting Semgrep Cloud Platform](/docs/troubleshooting/semgrep-app/) for common installation issues. Help is also available for all users through the [Semgrep Community Slack](https://semgrep.slack.com).
 
 <MoreHelp />

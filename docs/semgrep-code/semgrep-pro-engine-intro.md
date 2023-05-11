@@ -48,11 +48,11 @@ To install and run Semgrep Pro Engine in the CLI, follow these steps:
     ```bash
     semgrep --pro --config "p/default" 
     ```
-1. Optional: We appreciate your help gathering data as we improve Semgrep Pro Engine! If you are fine with sending r2c usage metrics, run the following command:
+1. Optional: We appreciate your help gathering data as we improve Semgrep Pro Engine! If you are fine with sending Semgrep usage metrics, run the following command:
     ```bash
     semgrep --pro --config "p/default" --time --metrics on
     ```
-    See [Semgrep Privacy Policy](/metrics) for details of what is being sent to r2c.
+    See [Semgrep Privacy Policy](/metrics) for details of what is being sent to Semgrep.
 
 :::note
 Let us know what you think about the results in the <a href="https://go.semgrep.dev/slack">Semgrep Community Slack</a>.
@@ -185,7 +185,7 @@ If 1-2 repositories cause CI scan issues, modify your config file to use `semgre
 
 If many repositories cause scan issues:
 1. Disable the <i class="fa-solid fa-toggle-large-on"></i> **Semgrep Pro Engine beta** toggle in the **[Settings](https://semgrep.dev/orgs/-/settings)** page of your organization.
-1. Contact r2c in the <a href="https://go.semgrep.dev/slack">Semgrep Community Slack</a> so we can help you to fix the issue and create a plan for your organization.
+1. Contact the Semgrep team in the <a href="https://go.semgrep.dev/slack">Semgrep Community Slack</a> so we can help you to fix the issue and create a plan for your organization.
 
 ### Difference between Semgrep Pro Engine and join mode
 

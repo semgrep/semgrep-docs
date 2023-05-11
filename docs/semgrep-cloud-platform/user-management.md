@@ -119,7 +119,7 @@ The following table displays features available to each role:
 | Playground            | yes       | yes       |                                                                                    |
 | Docs                  | yes       | yes       |                                                                                    |
 
-To enable RBAC, please contact r2c at [support@semgrep.com](mailto:support@semgrep.com).
+To enable RBAC, please contact the Semgrep team: [support@semgrep.com](mailto:support@semgrep.com).
 
 Upon enabling RBAC for the first time, current members of the organization are `admins`. New members added thereafter are automatically `members`.
 

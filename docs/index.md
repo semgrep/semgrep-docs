@@ -54,7 +54,7 @@ Support and be supported by the Semgrep community through:
 * [Semgrep Playground](https://semgrep.dev/editor) - An online interactive tool for writing and sharing rules.
 * [Semgrep Registry](https://semgrep.dev/explore) - 2,000+ community-driven rules covering security, correctness, and dependency vulnerabilities.
 
-Semgrep is developed and commercially supported by [r2c, a software security company](https://r2c.dev).
+Semgrep is developed and commercially supported by [Semgrep Inc., a software security company](https://r2c.dev).
 
 <p align="center">
   <a href="/docs/getting-started">Get started →</a>

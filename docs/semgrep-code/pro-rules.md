@@ -23,7 +23,7 @@ import DisableRule from "/src/components/procedure/_disable-rule.mdx"
 
 # Semgrep Pro rules
 
-This article provides an overview of rules provided exclusively by r2c called Semgrep Pro rules. These high-confidence, professionally maintained rules are a proprietary addition to Semgrep Registry. They are available in the [Team tier](https://semgrep.dev/pricing) or higher.
+This article provides an overview of rules provided exclusively by Semgrep Inc. called Semgrep Pro rules. These high-confidence, professionally maintained rules are a proprietary addition to Semgrep Registry. They are available in the [Team tier](https://semgrep.dev/pricing) or higher.
 
 <!-- 
 Claudio's portions
@@ -32,10 +32,10 @@ Claudio's portions
 ## Kinds of rules in the Semgrep Registry
 
 The Semgrep Registry includes the following kinds of rules:
-* **Community rules** - reviewed by r2c, these rules consist of contributions from Semgrep’s community. Community rules encompass a wide array of rules, including many that are made for security auditors.
+* **Community rules** - reviewed by the Semgrep team, these rules consist of contributions from Semgrep’s community. Community rules encompass a wide array of rules, including many that are made for security auditors.
 * **Third-party rules** - created directly by external contributors such as Trail of Bits, GitLab and many more.
 * **Private rules** - rules that can be authored and published by your own organization and for use only by your organization.
-* **Pro rules** - proprietary rules created by r2c targeted for security and software engineers who need accurate findings. These rules provide increased coverage for many programming languages and use the latest Semgrep features.
+* **Pro rules** - proprietary rules created by the Semgrep team targeted for security and software engineers who need accurate findings. These rules provide increased coverage for many programming languages and use the latest Semgrep features.
 
 ## Introduction
 
@@ -47,10 +47,10 @@ Semgrep Pro rules provide improved coverage for many languages, including Java, 
 
 After using Semgrep Pro rules, you will see improved findings across many languages on specific classes of vulnerabilities (such as hard-coded secrets, injection vulnerabilities, deserialization, XXE, and many others) as well as increased support for frameworks and technologies (such as Express, Spring, Java Servlets, Laravel, Go net/http, React, Next.js, Angular).
 
-r2c’s Security Research team plans to keep improving coverage by adding support for more languages and popular frameworks, as well as reducing potential false positives by monitoring rules’ performance.
+Semgrep's Security Research team plans to keep improving coverage by adding support for more languages and popular frameworks, as well as reducing potential false positives by monitoring rules’ performance.
 
 :::info 
-See the [Rule updates](/release-notes/rule-updates/) for an overview of updates and improvements released by r2c for Semgrep’s rules, including Semgrep Pro rules.
+See the [Rule updates](/release-notes/rule-updates/) for an overview of updates and improvements released by Semgrep Inc. for Semgrep’s rules, including Semgrep Pro rules.
 :::
 
 ## Using Semgrep Pro rules
