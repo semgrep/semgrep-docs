@@ -11,14 +11,13 @@ import MoreHelp from "/src/components/MoreHelp"
 
 Several third-party tools include Semgrep extensions.
 
-
-### Editor
+## Editor
 
 - IntelliJ IDEA: [`semgrep-idea-plugin`](https://github.com/jtmelton/semgrep-idea-plugin)
-- Microsoft Visual Studio Code: [`semgrep-vscode`](https://marketplace.visualstudio.com/items?itemName=semgrep.semgrep)
+- Visual Studio Code: [`semgrep-vscode`](https://marketplace.visualstudio.com/items?itemName=semgrep.semgrep)
 - Vim: [`semgrep.vim`](https://github.com/returntocorp/semgrep.vim)
 
-### Pre-commit
+## Pre-commit
 
 The [pre-commit framework](https://pre-commit.com/) can run `semgrep` at commit-time. [Install `pre-commit`](https://pre-commit.com/#install) and add the following to `.pre-commit-config.yaml`
 
@@ -32,11 +31,11 @@ repos:
       args: ['--config', '<SEMGREP_RULESET_URL>', '--error', '--skip-unknown-extensions']
 ```
 
-### Version management
+## Version management
 
 - asdf: [ASDF Semgrep](https://github.com/brentjanderson/asdf-semgrep)
 
-### Semgrep as an engine
+## Semgrep as an engine
 
 Many other tools have functionality powered by Semgrep.
 Add yours [with a pull request](https://github.com/returntocorp/semgrep-docs)!
