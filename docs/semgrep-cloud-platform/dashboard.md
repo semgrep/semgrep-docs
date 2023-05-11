@@ -25,7 +25,7 @@ Object.entries(frontMatter).filter(
 
 ![Screenshot of dashboard view](/img/dashboard-view.png)
 
-The Dashboard is an overview of your organization’s security posture from data aggregated within the Semgrep Cloud Platform. With these metrics you can:
+The Semgrep Cloud Platform Dashboard is an overview of your organization’s security posture from data aggregated within the Semgrep Cloud Platform. With these metrics you can:
 
 * View recurring security issues, consequently taking action on them.
 * Improve communication between developer teams and security teams.
