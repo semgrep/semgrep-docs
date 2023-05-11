@@ -104,10 +104,6 @@ Semgrep scans stop when the usage limit is exceeded. You can resume scanning thr
 * By purchasing additional licenses
 * By waiting for the next billing cycle
 
-### What happens when the combined limit (usage limit + purchased licenses) is exceeded?
-
-For organizations with monthly credit card billing, the additional licenses will be automatically charged. For organizations with annual contracts, scans will continue uninterrupted, and usage will be discussed during quarterly true-up conversations. True-ups account for any contributors added or removed during the contract term.
-
 ### What if the first scan exceeds the contributor usage limit?
 
 Semgrep will complete the first scan and a one-time 30-day free trial will automatically start. After the trial concludes, if scans are run on private repositories that exceed the usage limit, scans will not run until additional licenses are purchased.
