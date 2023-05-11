@@ -43,7 +43,7 @@ To search through your dependencies:
 
 1. Sign in to [Semgrep Cloud Platform](https://semgrep.dev/login).
 2. Click **Supply Chain** > **Dependencies**.
-3. Type the name of the dependency you are searching for. Dependency search supports ranges of versions by applying the `>` or `<` operator following the @ operator. For example, `body-parser@<1.18.0` finds all versions of `body-parser greater than 1.18.0`.
+3. Type the name of the dependency you are searching for. 
 4. Optional: Apply filters as necessary for your search.
 
 :::tip
