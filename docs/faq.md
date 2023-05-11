@@ -20,9 +20,12 @@ import TOCInline from "@theme/TOCInline"
 
 #### Semgrep OSS Engine
 
-The [Semgrep Engine](https://github.com/returntocorp/semgrep) is open-source, licensed under [LGPL 2.1](https://tldrlegal.com/license/gnu-lesser-general-public-license-v2.1-(lgpl-2.1)) — you can use it at work, on private and proprietary code, no problem!
+The [Semgrep Engine](https://github.com/returntocorp/semgrep) is open-source, licensed under [LGPL 2.1](https://tldrlegal.com/license/gnu-lesser-general-public-license-v2.1-(lgpl-2.1)) - you can use it at work, on private and proprietary code, no problem!
 
-Our paid product, [Semgrep Code](https://semgrep.dev/products/semgrep-code), includes the [Pro Engine, a proprietary engine extension enabling advanced analysis](https://semgrep.dev/products/pro-engine).
+The Semgrep team provides two paid products:
+
+* [Semgrep Code](https://semgrep.dev/products/semgrep-code), which includes the [Pro Engine, a proprietary engine extension enabling advanced analysis](https://semgrep.dev/products/pro-engine).
+* Semgrep Supply Chain, which performs dependency scanning.
 
 #### Semgrep Registry
 
@@ -67,15 +70,78 @@ Embed a special version of Semgrep Playground with an `iframe`. The source is `h
 <iframe title="Semgrep example no prints" src="https://semgrep.dev/embed/editor?snippet=ievans:print-to-logger" width="100%" height="432" frameborder="0"></iframe>
 ```
 
+## Usage limits
+
+This section describes usage limits
+
+### What is changing about Semgrep tiers?
+
+We are sunsetting the Community tier and offering our Team tier for free to all users, subject to a usage limit of 10 contributors scanning on private repositories. A contributor is someone who has contributed code to a private repository being scanned by Semgrep.
+
+You can now access the Team tier features of Semgrep Supply Chain, Semgrep Code, and Semgrep Cloud Platform features such as SSO. Our highest level of support will still be available through the Enterprise tier. This updated Enterprise tier includes such features as single-tenancy and a secure network tunnel, ideal for organizations with increased infrastructure, reporting, and other custom requirements.
+
+If the number of contributors has exceeded the usage limit, you will need to purchase licensing for the 11th contributor onward. 
+
+### What is the usage limit?
+
+The usage limit is 10 contributors. A contributor is someone who has made at least one commit to a scanned private repository within the last 30 days.
+
+### How are contributors calculated?
+
+Contributors are calculated using `git log` over the past 30 days.
+
+### What happens when the usage limit is exceeded?
+
+Semgrep scans stop when the usage limit is exceeded. You can resume scanning through the following:
+
+* A one-time 30-day free trial (automatically triggered when the usage limit is exceeded for the first time)
+* By purchasing additional licenses
+* By waiting for the next billing cycle
+
+### What happens when the combined limit (usage limit + purchased licenses) is exceeded?
+
+For organizations with monthly credit card billing, the additional licenses will be automatically charged. For organizations with annual contracts, scans will continue uninterrupted, and usage will be discussed during quarterly true-up conversations. True-ups account for any contributors added or removed during the contract term.
+
+### What if the first scan exceeds the contributor usage limit?
+
+Semgrep will complete the first scan and a one-time 30-day free trial will automatically start. After the trial concludes, if scans are run on private repositories that exceed the usage limit, scans will not run until additional licenses are purchased.
+
+### How is the cost calculated for the Team tier?
+
+The 11th contributor and onwards are charged. A 20-member engineering team would pay $7,200 per year for both products at the discounted bundled rate.
+
+For example:
+
+| Product  | List price | Months | Quantity | Subtotal | Discount | Total price |
+| -------  | ------ | ------- | ----- | ------ | ---- | ----- |
+| Semgrep Supply Chain (bundle)  | $30 | 12 | 20 | $7,200 | 10 licenses ($3,600) | $3600 |
+| Code (bundle)  | $30 | 12 | 20 | $7,200 | 10 licenses ($3,600) | $3600 |
+| Total (bundle) |    | | | | | $7200 |
+
+### Can a single product be purchased?
+Yes, you can buy a single product. Products can also be disabled from the Settings page.
+
+### Can I purchase a different number of licenses per product?
+
+If you are purchasing licenses for both products, you can't purchase a different number of licenses per product because the products are bundled together. Both Semgrep Supply Chain and Semgrep Code will run on every scan unless disabled (for all projects) from the settings page.
+
+### Do public projects have the same contribution limits?
+
+No, public projects have no limits on contributors.
+
+### Is the command `semgrep scan` subject to the usage limit?
+
+Yes, but only if the scan is by a logged-in/authenticated user. Semgrep computes contributor counts for any logged-in scan command (for example, `semgrep ci`, `semgrep scan`, etc.) when the Pro Engine, Supply Chain, or Pro rules are used.
+
 ## Comparisons
 
 ### How is Semgrep different from $OTHER\_TOOL or $GENERIC\_[SAST](https://en.wikipedia.org/wiki/Static_application_security_testing)?
 
-Semgrep is an open-source tool with a simple syntax for writing rules: if you can write code, you can write a Semgrep rule — no program analysis Ph.D. required!
+Semgrep is an open-source tool with a simple syntax for writing rules: if you can write code, you can write a Semgrep rule — no program analysis Ph. D. required!
 
 To our knowledge, the only other tool with the explicit goal of allowing custom rules is GitHub’s proprietary tool, CodeQL. CodeQL has a domain-specific language that is extremely powerful but is designed for those with significant program analysis expertise, whereas Semgrep is designed for the security engineer or developer who wants to automate code review. Our goal is to make writing a Semgrep rule as easy as copying the code you want to find—and letting the Semgrep engine make the rule and autofix high-quality enough to run in CI or your text editor or IDE.
 
-Our hosted offering, [Semgrep App](https://semgrep.dev/manage), has a generous free tier (even for private repositories!). It offers a hosted CI integration with a quick setup so you can start running Semgrep right away. Semgrep's diff-awareness lets you scan new code and doesn’t force you to fix all the existing issues when you first start. For users running inside organizations with many repositories, the hosted offering also offers a policy and notification system that makes it easy to tune Semgrep so that it only reports issues or suggests fixes that get applied. Our goal is a 99% fix rate for what Semgrep reports.
+Our hosted offering, [Semgrep Cloud Platform](https://semgrep.dev/manage), has a generous free tier (even for private repositories!). It offers a hosted CI integration with a quick setup so you can start running Semgrep right away. Semgrep's diff-awareness lets you scan new code and doesn’t force you to fix all the existing issues when you first start. For users running inside organizations with many repositories, the hosted offering also offers a policy and notification system that makes it easy to tune Semgrep so that it only reports issues or suggests fixes that get applied. Our goal is a 99% fix rate for what Semgrep reports.
 
 ### Besides open-source and ease of writing new rules, what else is different about Semgrep?
 
@@ -95,7 +161,7 @@ It’s easy to write a new Semgrep rule and have it only apply _going forward_. 
 
 **4. Portable: If you write a Semgrep rule, it runs anywhere**
 
-Many other tools require a buildable environment or can only be run in a VM. Semgrep runs “on the metal” and has minimal dependencies around a statically linked core; our parsers are declaratively-generated C libraries (we contribute to and use [tree-sitter](https://tree-sitter.github.io/)).
+Many other tools require a buildable environment or can only be run in a VM. Semgrep runs “on the metal” and has minimal dependencies around a statically linked core; our parsers are declaratively generated C libraries (we contribute to and use [tree-sitter](https://tree-sitter.github.io/)).
 
 And many more: see [the Semgrep philosophy](../contributing/semgrep-philosophy/) for further reading.
 
@@ -164,7 +230,7 @@ For more information and a detailed description of each data field, refer to [th
 
 ### What network requests are made?
 
-Semgrep CI makes network requests in accordance with the data storage mentioned above.
+Semgrep CI makes network requests in accordance with the data storage previously mentioned.
 
 [Semgrep](https://github.com/returntocorp/semgrep) makes the following network requests:
 
@@ -186,6 +252,6 @@ A policy is a simple collection of rules and a definition of what to do with rul
 
 ### Do you have a visualization UI?
 
-Dashboarding is available for Semgrep Team users. Semgrep also supports posting results through webhooks to any JSON endpoint, so you can easily integrate it with your favorite visualization tool.
+Semgrep Team users can create custom dashboards and visualizations. Semgrep also supports posting results through webhooks to any JSON endpoint, so you can easily integrate it with your favorite visualization tool.
 
 <MoreHelp />
