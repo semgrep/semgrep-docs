@@ -87,6 +87,37 @@ These data points can serve as a starting point for the following security audit
 
 <!--
 
+NOTE: The following sections are no longer functional in Semgrep Dashboard. Section "Discovering trends in vulnerabilities through OWASP categories" can be reused as it offers a good description of many OWASP categories (maybe in Cheat sheets).
+
+## Discovering trends in vulnerabilities through OWASP categories
+
+![Screenshot of dashboard categories](/img/dashboard-categories.png)
+
+Trends in insecure code can emerge after multiple Semgrep scans over time. By identifying these patterns, security teams are better informed about specific areas for improvement. Semgrep enables security teams to see the breakdown of vulnerabilities detected through the **Categories widget**, which includes:
+
+<dl>
+	<dt>Code injection</dt>
+	<dd>Refers to poor handling of untrusted data (data from user inputs, integrations, and the like) that leads to malicious actors injecting their own code into the application. Semgrep Registry provides <a href="https://semgrep.dev/p/sql-injection">a ruleset guarding against SQL injection</a> for a variety of languages.</dd>
+	<dt>Cookie flag</dt>
+	<dd>Indicates issues with session management, specifically the misuse or underuse of cookie attributes such as <code>secure</code>, <code>HttpOnly</code>, <code>SameSite</code>, to prevent cookie theft and other cookie-related attacks. The Semgrep rule <a href="https://semgrep.dev/playground?registry=go.gorilla.security.audit.session-cookie-missing-httponly.session-cookie-missing-httponly">"Session Cookie Missing HttpOnly"</a> is an example written for Go language.</dd>
+	<dt>Cross-site request forgery (CSRF)</dt>
+	<dd>This category tracks patterns in code that may result in CSRF attacks. CSRF attacks occur when an attacker induces users to perform unintentional actions. These issues can be detected based on a codebase’s framework, such as Django. In the rule, <a href="https://semgrep.dev/playground?registry=python.django.security.audit.csrf-exempt.no-csrf-exempt">"No CSRF Exempt"</a>, Semgrep detects when a Django route does not have a CSRF token, the lack of which could lead to an attack.</dd>
+	<dt>Active debug code</dt>
+	<dd>A type of vulnerability stemming from debug code such as <code>alert</code> that may unintentionally telegraph sensitive application behavior or secrets. The Semgrep rule <a href="https://semgrep.dev/playground?registry=javascript.lang.best-practice.leftover_debugging.javascript-alert">"Leftover debugging"</a> is a JavaScript example.</dd>
+	<dt>Cryptography</dt>
+	<dd>Refers to the use of weak hashing algorithms and the like, such as the use of MD5 in tokens or secrets. This <a href="https://semgrep.dev/playground?registry=python.cryptography.security.insecure-cipher-algorithms.insecure-cipher-algorithm-blowfish">Blowfish detection rule for Python</a> provides a guardrail against easily decipherable ciphers.</dd>
+	<dt>Deserialization</dt>
+	<dd>Insecure deserialization occurs when an attacker is able to insert their own code, typically their own objects, as a website or app deserializes from flatter formats such as JSON. The rule <a href="https://semgrep.dev/playground?registry=python.flask.security.insecure-deserialization.insecure-deserialization">"Insecure deserialization"</a> for Flask detects the use of insecure libraries and advises the developer to use something more secure.</dd>
+	<dt>Path traversal</dt>
+	<dd>Path traversal occurs when malicious actors attempt to access files and directories outside of the web root folder. This is also known as directory traversal. In this <a href="https://semgrep.dev/playground?registry=java.jax-rs.security.jax-rs-path-traversal.jax-rs-path-traversal">Java example</a>, Semgrep detects potential path traversals through the insertion of <code>../</code>.</dd>
+	<dt>Regex</dt>
+	<dd>Various issues with regex patterns fall under this category. This includes overly permissive regex, custom regex patterns for common use-cases (which can be refactored as validated patterns from authorities such as OWASP), and <a href="https://semgrep.dev/playground?registry=javascript.lang.security.audit.detect-non-literal-regexp.detect-non-literal-regexp">patterns that may result in ReDoS</a>.</dd>
+	<dt>Open redirect</dt>
+	<dd>Open redirects happen when user input is incorporated into a redirection target. Malicious actors can then construct a lengthy URL pointing away from the expected domain, though it appears authentic in the beginning of the URL string. This exploit is used in phishing by sending a user an email with a link that appears genuine but steers them away from the trusted domain. In this <a href="https://semgrep.dev/playground?registry=python.flask.security.open-redirect.open-redirect">Flask example</a>, data directly from the request is passed to the redirect function, which could be exploited.</dd>
+	<dt>Command injection</dt>
+	<dd>Command injection occurs when an attacker uses some type of input to run <strong>system commands</strong> on the host operating system. This is also known as shell injection. In <a href="https://semgrep.dev/playground?registry=go.lang.security.audit.dangerous-syscall-exec.dangerous-syscall-exec">"Audit dangerous syscall"</a>, written for Go programming language, a finding is detected for non-static input to <code>syscall</code>, which if reached by user data, makes it vulnerable to exploitation.</dd>
+</dl>
+
 ### Rule performance through Developer Feedback
 
 ![Screenshot of developer feedback](/img/dashboard-devfeedback.png)
