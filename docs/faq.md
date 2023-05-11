@@ -33,7 +33,7 @@ The [Semgrep Registry](https://semgrep.dev/explore) contains rules from differen
 
 [Semgrep Code](https://semgrep.dev/products/semgrep-code)’s Team tier includes Pro rules which are proprietary and only available to paying customers.
 
-### Is it ok to run Semgrep or the r2c rules on my work projects?
+### Is it ok to run Semgrep or the Semgrep rules on my work projects?
 
 Yes! Semgrep is safe to run on your private code. The [Semgrep Registry license’s](https://github.com/returntocorp/semgrep-rules/blob/develop/LICENSE) commercial restrictions only come into effect if you are *selling* a product using rules provided in the Semgrep Registry. If that’s the case, contact **partners@semgrep.com** for a license.
 
@@ -55,9 +55,9 @@ You **cannot** ship the Semgrep Community rules in a commercial product without 
 
 The Semgrep Pro Rules are proprietary and cannot be redistributed without explicit license from Semgrep, Inc. For more information, please contact partners@semgrep.com.
 
-### Contacting r2c support 
+### Contacting Semgrep support 
 
-All users can contact r2c support. Regardless if you are free tier or paid tier user, reach our support through the [r2c Community Slack](https://r2c.dev/slack). Semgrep Team tier customers receive 8\*5 email/phone/Slack support with committed SLAs. See [Support](../support/) for more details.
+All users can contact Semgrep support. Regardless if you are free tier or paid tier user, reach our support through the [Semgrep Community Slack](https://semgrep.slack.com/). Semgrep Team tier customers receive 8\*5 email/phone/Slack support with committed SLAs. See [Support](../support/) for more details.
 
 ### Embedding the Playground in my website or blog post
 
@@ -179,7 +179,7 @@ Semgrep’s [registry](https://semgrep.dev/explore) includes rulesets inspired b
 
 Some popular linter tools may use tools like Semgrep as an internal engine, and we encourage this! For instance, the popular scanner _NodeJSScan_ was re-written to use Semgrep as the core.
 
-Lastly, while many linters are extensible, you need to learn specific abstract syntax tree (AST) based patterns for writing custom rules. Semgrep works across languages and you learn its syntax once; you don't have to mess with MemberExpressions, node visitors, and all that. Before Semgrep, many of us on the maintainer team were writing AST-based rules as well: [one of us wrote an article comparing writing linter rules to Semgrep expressions](https://r2c.dev/blog/2020/why-i-moved-to-semgrep-for-all-my-code-analysis/).
+Lastly, while many linters are extensible, you need to learn specific abstract syntax tree (AST) based patterns for writing custom rules. Semgrep works across languages and you learn its syntax once; you don't have to mess with MemberExpressions, node visitors, and all that. Before Semgrep, many of us on the maintainer team were writing AST-based rules as well: [one of us wrote an article comparing writing linter rules to Semgrep expressions](https://semgrep.dev/blog/2020/why-i-moved-to-semgrep-for-all-my-code-analysis/).
 
 ### Comparing Semgrep to CodeQL
 
@@ -213,13 +213,13 @@ See [the Semgrep development philosophy](../contributing/semgrep-philosophy/) fo
 
 ### Where do you store data?
 
-r2c uses Amazon Web Services (US region) for storing customer data.
+Semgrep uses Amazon Web Services (US region) for storing customer data.
 
 ### How is data secured, including data-at-rest and data-in-transit?
 
 All customer data is located in AWS (US region). Amazon RDS encrypted database instances use industry-standard AES-256 encryption and TLS 1.2 or higher is used for all data-in-transit.
 
-### Is private source code shared with r2c?
+### Is private source code shared with Semgrep?
 
 No. Semgrep CI runs fully in your CI pipeline and your source-code never leaves your environment. Only meta-data related to Semgrep runs (see below) are sent to Semgrep's service.
 
