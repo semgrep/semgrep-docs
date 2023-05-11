@@ -75,7 +75,9 @@ Embed a special version of Semgrep Playground with an `iframe`. The source is `h
 This section describes usage limits.
 
 :::caution important dates
-* The following changes will take into effect on May 23, 2023.
+* The Semgrep Community tier will be replaced with Team tier on May 23, 2023.
+* All users with any number of contributors are able to access Semgrep Supply Chain, Semgrep Pro Rules, and other paid offerings for free as of this update (May 15, 2023).
+* A grace period for all users with any number of contributors is ongoing from now until July 31, 2023.
 :::
 
 ### What is changing about Semgrep tiers?
