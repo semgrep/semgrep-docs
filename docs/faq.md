@@ -72,7 +72,11 @@ Embed a special version of Semgrep Playground with an `iframe`. The source is `h
 
 ## Usage limits
 
-This section describes usage limits
+This section describes usage limits.
+
+:::caution important dates
+* The following changes will take into effect on May 23, 2023.
+:::
 
 ### What is changing about Semgrep tiers?
 
@@ -131,7 +135,7 @@ No, public projects have no limits on contributors.
 
 ### Is the command `semgrep scan` subject to the usage limit?
 
-Yes, but only if the scan is by a logged-in/authenticated user. Semgrep computes contributor counts for any logged-in scan command (for example, `semgrep ci`, `semgrep scan`, etc.) when the Pro Engine, Supply Chain, or Pro rules are used.
+Yes, but only if the scan is by a logged-in/authenticated contributor or user. Semgrep computes contributor counts for any logged-in scan command (for example, `semgrep ci`, `semgrep scan`, etc.) when the Pro Engine, Supply Chain, or Pro rules are used.
 
 ## Comparisons
 
