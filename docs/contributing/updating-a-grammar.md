@@ -14,7 +14,7 @@ Summary (ocaml-tree-sitter)
 In ocaml-tree-sitter:
 1. Update submodule tree-sitter-X.
 2. From `lang/`, run `./test-lang X`.
-3. From `lang/`, ask an Semgrep team developer to run `./release X`.
+3. From `lang/`, ask a Semgrep team developer to run `./release X`.
 
 In semgrep:
 1. In the semgrep repo, update submodule semgrep-X.
