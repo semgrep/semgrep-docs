@@ -30,7 +30,7 @@ The [Semgrep Registry](https://semgrep.dev/explore) contains rules from differen
 
 [Semgrep Code](https://semgrep.dev/products/semgrep-code)’s Team tier includes Pro rules which are proprietary and only available to paying customers.
 
-### Is it ok to run Semgrep or the Semgrep, Inc rules on my work projects?
+### Is it ok to run Semgrep or Semgrep, Inc rules on my work projects?
 
 Yes! Semgrep is safe to run on your private code. The [Semgrep Registry license’s](https://github.com/returntocorp/semgrep-rules/blob/develop/LICENSE) commercial restrictions only come into effect if you are *selling* a product using rules provided in the Semgrep Registry. If that’s the case, contact **partners@semgrep.com** for a license.
 
