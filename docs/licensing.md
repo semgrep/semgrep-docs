@@ -7,7 +7,7 @@ description: >-
 
 # Licensing
 
-This document provides an overview of the licenses of important products created by Semgrep. See the list of the products and their licenses below:
+This document provides an overview of the licenses of important products created by Semgrep, Inc. See the list of the products and their licenses below:
 
 <dl>
   <dt>Semgrep OSS Engine</dt>
