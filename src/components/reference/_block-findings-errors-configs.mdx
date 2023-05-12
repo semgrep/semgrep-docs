@@ -1,36 +1,17 @@
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
+import GhaSemgrepAppSast from "/src/components/code_snippets/_gha-semgrep-app-sast.mdx"
+
 The following code displays Semgrep in the CI configuration file for GitHub Actions (GHA) with the default setup (`run: semgrep ci`):
- 
-```yaml
-name: Semgrep
-on:
-  pull_request: {}
-  push:
-    branches:
-      - main
-      - master
-    paths:
-      - .github/workflows/semgrep.yml
-  schedule:
-    - cron: '0 0 * * 0'
-  workflow_dispatch: {}
-jobs:
-  semgrep:
-    name: Scan
-    runs-on: ubuntu-20.04
-    env:
-      SEMGREP_APP_TOKEN: ${{ secrets.SEMGREP_APP_TOKEN }}
-    container:
-      image: returntocorp/semgrep
-    steps:
-      - uses: actions/checkout@v3
-      - name: Scan and suppress internal errors
-        run: semgrep ci
-```
- 
-The default configuration displayed above lets Semgrep in CI **fail** on blocking findings but **pass** on internal errors. If Semgrep encounters an internal error, it sends an anonymous crash report to a crash-reporting server and exits with exit code `0`. Consequently, Semgrep in CI does not report other statuses than `0` or `1` by default (`0` reports success, `1` reports blocking findings). Optional: Define this configuration explicitly using the `--suppress-errors` flag. The resulting code is the following:
+
+
+<GhaSemgrepAppSast />
+
+
+The default configuration displayed above lets Semgrep in CI **fail** on blocking findings but **pass** on internal errors. If Semgrep encounters an internal error, it sends an anonymous crash report to a crash-reporting server and exits with exit code `0`. Consequently, Semgrep in CI does not report other statuses than `0` or `1` by default (`0` reports success, `1` reports blocking findings).
+
+Optional: Define this configuration explicitly using the `--suppress-errors` flag. The resulting code is the following:
  
 ```yaml
 steps:
