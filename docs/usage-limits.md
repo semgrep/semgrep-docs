@@ -51,7 +51,7 @@ The 11th contributor and onwards are charged. For example, an engineering team w
 
 ### Can a single product be purchased?
 
-Yes, you can buy a single product. Products can also be disabled from the Settings page.
+Yes, you can buy a single product. Products can also be disabled from the [Settings page](https://semgrep.dev/orgs/-/settings).
 
 ### Can I purchase a different number of licenses per product?
 
