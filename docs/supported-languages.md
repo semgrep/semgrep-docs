@@ -287,7 +287,7 @@ Their differences are outlined in the following table:
    </td>
   </tr>
   <tr>
-   <td>Semgrep Inc. rule-writing support
+   <td>Semgrep, Inc. rule-writing support
    </td>
    <td>Quickly release new rules for all critical and high vulnerabilities based on the latest <a href="https://nvd.nist.gov/vuln">security advisories</a>.
    </td>

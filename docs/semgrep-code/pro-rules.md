@@ -23,7 +23,7 @@ import DisableRule from "/src/components/procedure/_disable-rule.mdx"
 
 # Semgrep Pro rules
 
-This article provides an overview of rules provided exclusively by Semgrep Inc. called Semgrep Pro rules. These high-confidence, professionally maintained rules are a proprietary addition to Semgrep Registry. They are available in the [Team tier](https://semgrep.dev/pricing) or higher.
+This article provides an overview of rules provided exclusively by Semgrep, Inc. called Semgrep Pro rules. These high-confidence, professionally maintained rules are a proprietary addition to Semgrep Registry. They are available in the [Team tier](https://semgrep.dev/pricing) or higher.
 
 <!-- 
 Claudio's portions
@@ -50,7 +50,7 @@ After using Semgrep Pro rules, you will see improved findings across many langua
 Semgrep's Security Research team plans to keep improving coverage by adding support for more languages and popular frameworks, as well as reducing potential false positives by monitoring rules’ performance.
 
 :::info 
-See the [Rule updates](/release-notes/rule-updates/) for an overview of updates and improvements released by Semgrep Inc. for Semgrep’s rules, including Semgrep Pro rules.
+See the [Rule updates](/release-notes/rule-updates/) for an overview of updates and improvements released by Semgrep, Inc. for Semgrep’s rules, including Semgrep Pro rules.
 :::
 
 ## Using Semgrep Pro rules

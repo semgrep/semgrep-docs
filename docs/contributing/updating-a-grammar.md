@@ -148,7 +148,7 @@ We can now consider publishing the code to semgrep-X.
 Publishing
 --
 
-_Please [ask someone at Semgrep Inc. to run this step](https://github.com/returntocorp/ocaml-tree-sitter-semgrep/blob/main/doc/release.md)._
+_Please [ask someone at Semgrep, Inc. to run this step](https://github.com/returntocorp/ocaml-tree-sitter-semgrep/blob/main/doc/release.md)._
 
 From the `lang` folder of ocaml-tree-sitter, we'll perform the
 release. This step redoes some of the work that was done earlier and
