@@ -165,7 +165,7 @@ exec("ls #{user_input}")
 
 ### 1.D. spawn() function
 
-The `spawn()` executes OS commands. This might potentially lead to command injection vulnerability when used with user input. The malicious actor can potentially run OS commands to exploit the system.
+The `spawn()` function executes OS commands. This might potentially lead to command injection vulnerability when used with user input. The malicious actor can potentially run OS commands to exploit the system.
 
 Example:
 
@@ -195,9 +195,20 @@ Process.wait pid
 
 <LinkToRegistryRule ruleId="ruby.lang.security.dangerous-exec.dangerous-exec" />
 
-### 1.E. Using backticks (``) or %x[command]
+### 1.E. Backticks (``) or %x[command] methods
 
-Backticks ``` `` ``` or `%x[command]` methods execute a system command and return its output. Both methods accept string interpolation. As for other methods mentioned in this cheat sheet, when this method is used with user input, it can lead to command injection vulnerability.
+Backticks ``` `` ``` or `%x[command]` methods enable to execute system commands and return their outputs. Both methods accept string interpolation. As for other methods mentioned in this cheat sheet, when this method is used with user input, it can lead to command injection vulnerability.
+
+Ruby interprets the text inside of backticks as an OS command. For example, ``` `ls -l` ``` interpreted by Ruby prints the contents of current working directory. In addition, if the `%x` is used with various delimiters, it is also interpreted as an OS command. The ``` `ls -l` ``` in Ruby is equivivalent to the following:
+
+- `` %x`ls -l` ``
+- `` %x;ls -l; ``
+- `` %x(ls -l) ``
+- `` %x"ls -l" ``
+- `` %x{ls -l} ``
+- `` %x:ls -l: ``
+- `` %x'ls -l' ``
+- `` %x[ls -l] ``
 
 Example:
 
@@ -214,17 +225,6 @@ user_input = ' && cat /etc/passwd' # Value supplied by user
 
 %x{ls #{user_input}}
 ```
-
-The `ls -l` in Ruby is equivivalent to the following:
-
-- `` %x`ls -l` ``
-- `` %x;ls -l; ``
-- `` %x(ls -l) ``
-- `` %x"ls -l" ``
-- `` %x{ls -l} ``
-- `` %x:ls -l: ``
-- `` %x'ls -l' ``
-- `` %x[ls -l] ``
 
 #### References
 
@@ -244,7 +244,7 @@ The `ls -l` in Ruby is equivivalent to the following:
 
 ### 1.F. Process.spawn and Process.exec methods
 
-`spawn` and `exec`
+The `spawn` and `exec` methods execute a system command and return its output. Both methods accept string interpolation. As for other methods mentioned in this cheat sheet, when this method is used with user input, it can lead to command injection vulnerability.
 
 https://ruby-doc.org/3.2.1/Process.html
 
@@ -272,7 +272,7 @@ Process.exec("ls #{user_input}")
 
 #### References
 
-- [Process documentation](https://ruby-doc.org/3.2.1/Process.html)
+- [Process](https://ruby-doc.org/3.2.1/Process.html) documentation.
 
 #### Mitigation
 
@@ -302,7 +302,7 @@ stdout,stdin,pid = PTY.spawn("ls #{user_input}")
 
 #### References
 
-- [PTY](https://ruby-doc.org/3.2.1/exts/pty/PTY.html) documentation
+- [PTY](https://ruby-doc.org/3.2.1/exts/pty/PTY.html) library documentation.
 
 #### Mitigation
 
