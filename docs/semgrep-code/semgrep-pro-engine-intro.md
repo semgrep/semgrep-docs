@@ -185,7 +185,7 @@ If 1-2 repositories cause CI scan issues, modify your config file to use `semgre
 
 If many repositories cause scan issues:
 1. Disable the <i class="fa-solid fa-toggle-large-on"></i> **Semgrep Pro Engine beta** toggle in the **[Settings](https://semgrep.dev/orgs/-/settings)** page of your organization.
-1. Contact Semgrep in the <a href="https://go.semgrep.dev/slack">Semgrep Community Slack</a> so we can help you to fix the issue and create a plan for your organization.
+1. Contact the Semgrep team in the <a href="https://go.semgrep.dev/slack">Semgrep Community Slack</a> so we can help you to fix the issue and create a plan for your organization.
 
 ### Difference between Semgrep Pro Engine and join mode
 
