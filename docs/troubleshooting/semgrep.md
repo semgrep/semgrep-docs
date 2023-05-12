@@ -34,9 +34,9 @@ If Semgrep is still running slowly, examine the output and identify the slowest 
 
 #### Interpreting the result object
 
-For full timing information, run Semgrep with `--time` and `--json`. In addition, you will want to `time` the entire command to get the true wall time. The full command would look sometthing like:
+For full timing information, run Semgrep with `--time` and `--json`. In addition, you will want to `time` the entire command to get the true wall time. The `--json` argument produces a large amount of output, so redirecting the output to a file with `-o` is recommended. The full command would look sometthing like:
 
-<pre class="language-bash"><code>time semgrep --config=auto <span className="placeholder">PATH/TO/SRC</span></code></pre>
+<pre class="language-bash"><code>time semgrep --config=auto --time --json -o result.json <span className="placeholder">PATH/TO/SRC</span></code></pre>
 Substitute the optional placeholder <code><span className="placeholder">PATH/TO/SRC</span></code> with the path to your source code.
 
 Here is an example result object.
