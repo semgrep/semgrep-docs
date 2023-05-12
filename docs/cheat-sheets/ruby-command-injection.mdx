@@ -17,7 +17,7 @@ import RecommendedRuleSet from "/src/components/code_snippets/_cheat-sheets-reco
 
 ## 1. Running OS commands
 
-### 1.A. Running code with Open3 module
+### 1.A. Open3 module
 
 `Open3` grants access to running processes when running another program. For more information, see [Ruby documentation](https://docs.ruby-lang.org/en/2.0.0/Open3.html). Such methods as `capture2`, `capture2e`, `capture3`, `popen2`, `popen2e`, `popen3`, `pipeline`, `pipeline_r`, `pipeline_rw`, `pipeline_start` and `pipeline_w` are intended for running commands provided as a string. Letting user supplied data in a command that is passed as an argument to one of these methods, can create an opportunity for a command injection vulnerability.
 
@@ -73,7 +73,7 @@ Open3.pipeline("zcat #{user_input}", "nroff -man", "colcrt")
 
 <LinkToRegistryRule ruleId="ruby.lang.security.dangerous-open3-pipeline.dangerous-open3-pipeline" />
 
-### 1.B. Using open() to run subprocesses
+### 1.B. open() function
 
 The `open(...)` creates an input/output (I/O) object connected to a stream, file, or subprocess. If the first argument starts with a pipe character (`|`), it creates a subprocess. An opportunity for command injection vulnerability is created when the subprocess includes user input in a command argument to `open()` function.
 
@@ -103,9 +103,9 @@ open(user_input)
 
 <LinkToRegistryRule ruleId="ruby.lang.security.dangerous-open.dangerous-open" />
 
-### 1.C. Using system() to execute OS commands
+### 1.C. system() function
 
-TODO (Improve the text) The `system()` executes OS commands in a subshell. This might potentially lead to command injection vulnerability when used with user input.
+The `system()` executes OS commands in a subshell. This might potentially lead to command injection vulnerability when used with user input. The malicious actor can potentially run OS commands to exploit the system.
 
 Example:
 
@@ -133,9 +133,9 @@ system("ls #{user_input}")
 
 <LinkToRegistryRule ruleId="ruby.lang.security.dangerous-exec.dangerous-exec" />
 
-### 1.D. exec() to execute OS commands
+### 1.D. exec() function
 
-TODO The `exec()` executes OS commands. This might potentially lead to command injection vulnerability when used with user input.
+The `exec()` executes OS commands. This might potentially lead to command injection vulnerability when used with user input. The malicious actor can potentially run OS commands to exploit the system.
 
 Example:
 
@@ -163,10 +163,9 @@ exec("ls #{user_input}")
 
 <LinkToRegistryRule ruleId="ruby.lang.security.dangerous-exec.dangerous-exec" />
 
-### 1.D. Using spawn() to execute OS commands
+### 1.D. spawn() function
 
-The `spawn()` executes OS commands
-TODO: https://apidock.com/ruby/v2_5_5/Kernel/spawn
+The `spawn()` executes OS commands. This might potentially lead to command injection vulnerability when used with user input. The malicious actor can potentially run OS commands to exploit the system.
 
 Example:
 
@@ -196,7 +195,7 @@ Process.wait pid
 
 <LinkToRegistryRule ruleId="ruby.lang.security.dangerous-exec.dangerous-exec" />
 
-### 1.E. Using backticks (``) or %x[command] to execute OS commands
+### 1.E. Using backticks (``) or %x[command]
 
 Backticks ``` `` ``` or `%x[command]` methods execute a system command and return its output. Both methods accept string interpolation. As for other methods mentioned in this cheat sheet, when this method is used with user input, it can lead to command injection vulnerability.
 
@@ -206,8 +205,7 @@ Example:
 # safe
 `ls -lah /tmp`
 
-# from: https://stackoverflow.com/questions/6338908/ruby-difference-between-exec-system-and-x-or-backticks
-# 🤯🤯🤯
+# from: TODO remove https://stackoverflow.com/questions/6338908/ruby-difference-between-exec-system-and-x-or-backticks
 %x[ ls -lah /tmp ]
 %x{ ls -lah /tmp }
 
@@ -245,9 +243,9 @@ The `ls -l` in Ruby is equivivalent to the following:
 
 <LinkToRegistryRule ruleId="ruby.lang.security.dangerous-subshell.dangerous-subshell" />
 
-### 1.F. Using Process to execute OS commands
+### 1.F. Process.spawn and Process.exec methods
 
-TODO: `spawn` and `exec`
+`spawn` and `exec`
 
 https://ruby-doc.org/3.2.1/Process.html
 
@@ -288,11 +286,9 @@ Process.exec("ls #{user_input}")
 
 <LinkToRegistryRule ruleId="ruby.lang.security.dangerous-subshell.dangerous-subshell" />
 
-### 1.F. Using PTY to execute OS commands
+### 1.F. PTY.spawn method
 
-TODO: `spawn`
-
-https://ruby-doc.org/3.2.1/exts/pty/PTY.html
+The `PTY.spawn` method executes OS commands in a new terminal. This might potentially lead to command injection vulnerability when used with user input. The malicious actor can potentially run OS commands to exploit the system.
 
 Example:
 
@@ -307,7 +303,7 @@ stdout,stdin,pid = PTY.spawn("ls #{user_input}")
 
 #### References
 
-- [Process documentation](https://ruby-doc.org/3.2.1/Process.html)
+- [PTY](https://ruby-doc.org/3.2.1/exts/pty/PTY.html) documentation
 
 #### Mitigation
 
