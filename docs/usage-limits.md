@@ -47,7 +47,7 @@ Semgrep will complete the first scan and a one-time 30-day free trial will autom
 
 ### How is the cost calculated for the Team tier?
 
-The 11th contributor and onwards are charged. An engineering team with 20 contributing developers will only pay for 10 licenses.
+The 11th contributor and onwards are charged. For example, an engineering team with 20 contributing developers will only pay for 10 licenses.
 
 ### Can a single product be purchased?
 
