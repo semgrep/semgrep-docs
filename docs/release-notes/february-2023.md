@@ -12,7 +12,7 @@ toc_max_heading_level: 3
 ## Important update
 
 - Semgrep CLI is now officially renamed to **Semgrep open-source (OSS) Engine**. As of this update, this documentation uses the term Semgrep CLI for Semgrep command-line interface (CLI) which you can utilize for several products, such as Semgrep OSS, Semgrep Code, and Semgrep Supply Chain.
-- Team tier rules are now renamed to Pro Rules. **Pro rules** are created by r2c for security and software engineers who need accurate findings. These rules were previously called Team tier rules. As of this update, these rules are officially called the **[Pro rules](/semgrep-code/pro-rules/)** and are available with the [Team or higher tier](https://semgrep.dev/pricing).
+- Team tier rules are now renamed to Pro Rules. **Pro rules** are created by Semgrep Inc for security and software engineers who need accurate findings. These rules were previously called Team tier rules. As of this update, these rules are officially called the **[Pro rules](/semgrep-code/pro-rules/)** and are available with the [Team or higher tier](https://semgrep.dev/pricing).
 - DeepSemgrep has been bundled with other functionalities to offer you **Semgrep Pro Engine**. Semgrep Pro Engine is fully available for [Team or higher tier](https://semgrep.dev/pricing) users. See the [DeepSemgrep → Semgrep Pro Engine](#deepsemgrep--semgrep-pro-engine) update below for more details.
 
 ## Semgrep CLI → Semgrep OSS Engine

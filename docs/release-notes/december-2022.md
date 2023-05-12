@@ -50,7 +50,7 @@ These release notes include upgrades for versions ranging between 1.0.0 and 1.2.
 - Added a new section to Semgrep App > Single sign-on (SSO) configuration to configure Semgrep with [Azure Active Directory](/semgrep-cloud-platform/sso/#setting-up-saml-sso-with-azure-active-directory) (Azure AD).
 - Added a new document [Learning Semgrep App with a demo project](/semgrep-code/demo-project/).
 - Added section [Disabling rules](/semgrep-code/rule-board/#disabling-rules).
-- Added [Licensing document](/licensing/) which provides an overview of licenses used by different r2c products.
+- Added [Licensing document](/licensing/) which provides an overview of licenses used by different Semgrep Inc products.
 
 ### Changes
 
