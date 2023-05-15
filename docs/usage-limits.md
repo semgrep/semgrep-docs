@@ -15,15 +15,18 @@ This section describes usage limits.
 
 :::caution important dates
 * The Semgrep Community tier will be replaced with Team tier on May 23, 2023.
+* The new usage limits come into effect on July 31, 2023.
 :::
 
 ### What is changing about Semgrep tiers?
 
 The Community tier will sunset on May 23. Semgrep, Inc now offers the Team tier for free to all users up to the usage limit of 10 contributors scanning on private repositories. A contributor is defined as someone who contributed code to a private repository scanned by Semgrep.
 
-You can now access the Team tier features of Semgrep Supply Chain, Semgrep Code, and Semgrep Cloud Platform features such as SSO. Our highest level of support will still be available through the Enterprise tier.
+You can now access the Team tier features of Semgrep Supply Chain, Semgrep Code, and Semgrep Cloud Platform features such as SSO.
 
 If the number of contributors exceeds the usage limit, you must purchase licensing for the 11th contributor onward.
+
+The Enterprise tier remains unaffected.
 
 ### What is the usage limit?
 
@@ -40,6 +43,10 @@ Semgrep scans stop when the usage limit is exceeded. You can resume scanning thr
 * A one-time 30-day free trial that starts automatically when the usage limit is exceeded for the first time.
 * By purchasing additional licenses.
 * By waiting for the next billing cycle.
+
+### When will usage limits be enforced?
+
+Usage limits will be enforced on July 31, 2023.
 
 ### What if the first Semgrep scan exceeds the contributor usage limit?
 
