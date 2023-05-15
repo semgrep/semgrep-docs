@@ -28,7 +28,7 @@
         "global": true,
         "default_value": "Semgrep documentation"
       },
-      "lvl1": "header h1",
+      "lvl1": "article h1",
       "lvl2": "article h2",
       "lvl3": "article h3",
       "lvl4": "article h4",
@@ -53,22 +53,34 @@
       "url",
       "url_without_anchor",
       "type"
+    ],
+    "synonyms": [
+      [
+        "taint mode",
+        "taint tracking"
+      ],
+      [
+        "roles",
+        "RBAC"
+      ],
+      [
+        "pull request comments",
+        "PR comments"
+      ],
+      [
+        "merge request comments",
+        "MR comments"
+      ],
+      [
+        "Semgrep Cloud Platform",
+        "SCP"
+      ],
+      [
+        "Semgrep Supply Chain",
+        "SSC"
+      ]
     ]
   },
-  "customRanking": [
-    "desc(weight.level)",
-    "asc(weight.position)"
-  ],
-  "ranking": [
-    "desc(weight.page_rank)",
-    "words",
-    "filters",
-    "typo",
-    "exact",
-    "attribute",
-    "proximity",
-    "custom"
-  ],
   "conversation_id": [
     "833762294"
   ],
