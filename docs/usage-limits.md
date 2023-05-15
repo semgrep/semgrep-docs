@@ -23,7 +23,7 @@ The Community tier will sunset on May 23. Semgrep, Inc now offers the Team tier 
 
 You can now access the Team tier features of Semgrep Supply Chain, Semgrep Code, and Semgrep Cloud Platform features such as SSO. Our highest level of support will still be available through the Enterprise tier.
 
-If the number of contributors has exceeded the usage limit, you will need to purchase licensing for the 11th contributor onward. 
+If the number of contributors exceeds the usage limit, you must purchase licensing for the 11th contributor onward.
 
 ### What is the usage limit?
 
