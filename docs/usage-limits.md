@@ -15,6 +15,7 @@ This section describes usage limits.
 
 :::caution important dates
 * The Semgrep Community tier will be replaced with Team tier on May 23, 2023.
+* The new usage limits come into effect on July 31, 2023.
 :::
 
 ### What is changing about Semgrep tiers?
@@ -42,6 +43,10 @@ Semgrep scans stop when the usage limit is exceeded. You can resume scanning thr
 * A one-time 30-day free trial that starts automatically when the usage limit is exceeded for the first time.
 * By purchasing additional licenses.
 * By waiting for the next billing cycle.
+
+### When will usage limits be enforced?
+
+Usage limits will be enforced on July 31, 2023.
 
 ### What if the first Semgrep scan exceeds the contributor usage limit?
 
