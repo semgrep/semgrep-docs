@@ -37,9 +37,9 @@ Contributors are calculated using `git log` over the past 30 days.
 
 Semgrep scans stop when the usage limit is exceeded. You can resume scanning through the following:
 
-* A one-time 30-day free trial (automatically triggered when the usage limit is exceeded for the first time)
-* By purchasing additional licenses
-* By waiting for the next billing cycle
+* A one-time 30-day free trial that starts automatically when the usage limit is exceeded for the first time.
+* By purchasing additional licenses.
+* By waiting for the next billing cycle.
 
 ### What if the first Semgrep scan exceeds the contributor usage limit?
 
