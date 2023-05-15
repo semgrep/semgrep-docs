@@ -6,18 +6,17 @@ on:
       parameter:
         description: Run from dispatch
     branches:
-      - sara/swizzles/update-and-searchbar
+      - main
   push:
     branches:
       - main
-      - sara/swizzles/update-and-searchbar
 
 jobs:
   scrape:
     runs-on: ubuntu-latest
     steps:
       - name: Wait for 8 minutes
-        run: sleep 10s
+        run: sleep 480s
         shell: bash
       - name: check out code 🛎
         uses: actions/checkout@v2
