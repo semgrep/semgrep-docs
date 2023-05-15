@@ -112,14 +112,14 @@ The following table displays features available to each role:
 | Projects              | no        | yes       | Only `admin` can manage projects.                                                  |
 | Rule Board (Policies) | no        | yes       | Only `admin` can manage policies and rules.                                        |
 | Findings              | yes       | yes       | Both `admin` and `member` roles can sort, filter, comment on, and triage findings. |
-| Editor                | yes       | yes       | `member` roles are able to write and modify rules within an organization.          |
+| Editor                | yes       | yes       | `member` access is read-only within their organization. Users with a `member` role can use their personal account to write a rule.  |
 | Settings              | no        | yes       |                                                                                    |
 | Community             | yes       | yes       |                                                                                    |
 | Registry              | yes       | yes       |                                                                                    |
 | Playground            | yes       | yes       |                                                                                    |
 | Docs                  | yes       | yes       |                                                                                    |
 
-To enable RBAC, please contact r2c at [support@semgrep.com](mailto:support@semgrep.com).
+To enable RBAC, please contact the Semgrep team: [support@semgrep.com](mailto:support@semgrep.com).
 
 Upon enabling RBAC for the first time, current members of the organization are `admins`. New members added thereafter are automatically `members`.
 

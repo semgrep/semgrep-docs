@@ -91,7 +91,7 @@ Receiving PR or MR comments may require additional steps depending on the custom
 :::
 
 ## Additional references
-* [Semgrep's May 2022 updates: DeepSemgrep, New Playground, and Self Managed GitHub and GitLab support](https://r2c.dev/blog/2022/semgreps-may-2022-updates/)
+* [Semgrep's May 2022 updates: DeepSemgrep, New Playground, and Self Managed GitHub and GitLab support](https://semgrep.dev/blog/2022/semgreps-may-2022-updates/)
 
 
 <MoreHelp />

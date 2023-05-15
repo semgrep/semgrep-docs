@@ -140,7 +140,7 @@ module.exports = {
                 type: 'generated-index',
                 title: 'Cheat sheets',
                 description:
-                  "This category provides r2c cheat sheets that help you to prevent specific vulnerabilities.",
+                  "This category provides Semgrep cheat sheets that help you to prevent specific vulnerabilities.",
                 keywords: ['cheat sheet']
               },
             items: [
@@ -151,7 +151,7 @@ module.exports = {
                         type: 'generated-index',
                         title: 'Code injection',
                         description:
-                          "Code injection prevention cheat sheets by r2c.",
+                          "Semgrep code injection prevention cheat sheets.",
                         keywords: ['code injection']
                       },
                     items: [
@@ -168,7 +168,7 @@ module.exports = {
                         type: 'generated-index',
                         title: 'Command injection',
                         description:
-                          "Command injection prevention cheat sheets by r2c.",
+                          "Semgrep command injection prevention cheat sheets.",
                         keywords: ['command injection']
                       },
                     items: [
@@ -186,7 +186,7 @@ module.exports = {
                         type: 'generated-index',
                         title: 'XSS',
                         description:
-                            "XSS prevention cheat sheets by r2c.",
+                            "Semgrep XSS prevention cheat sheets.",
                         keywords: ['XSS']
                         },
                     items: [
@@ -205,7 +205,7 @@ module.exports = {
                         type: 'generated-index',
                         title: 'XXE',
                         description:
-                            "XXE prevention cheat sheets by r2c.",
+                            "Semgrep XXE prevention cheat sheets.",
                         keywords: ['XXE']
                         },
                     items: [
@@ -280,6 +280,7 @@ module.exports = {
         'semgrep-supply-chain/triage-remediation',
         'semgrep-supply-chain/ignoring-deps',
         'semgrep-supply-chain/notifications',
+        'semgrep-supply-chain/dependency-search',
         'semgrep-supply-chain/glossary'
       ]
     },
@@ -317,6 +318,7 @@ module.exports = {
             'security',
             'licensing',
             'faq',
+            'usage-limits',
             'contributing/philosophy',
             {
               type: 'doc',

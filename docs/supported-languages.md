@@ -16,7 +16,7 @@ title: Supported languages
 import SupportedLanguagesTable from '/src/components/reference/_supported-languages-table.mdx'
 import SscIntro from "/src/components/concept/_ssc-intro.md"
 import MoreHelp from "/src/components/MoreHelp"
-import DeepSemgrepIntroduction from "/src/components/concept/_deepsemgrep-introduction.mdx"
+import DeepSemgrepIntroduction from "/src/components/concept/_semgrep-pro-engine-introduction.mdx"
 
 <ul id="tag__badge-list">
 {
@@ -287,7 +287,7 @@ Their differences are outlined in the following table:
    </td>
   </tr>
   <tr>
-   <td>r2c rule-writing support
+   <td>Semgrep, Inc. rule-writing support
    </td>
    <td>Quickly release new rules for all critical and high vulnerabilities based on the latest <a href="https://nvd.nist.gov/vuln">security advisories</a>.
    </td>
