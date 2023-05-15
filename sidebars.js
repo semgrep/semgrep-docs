@@ -318,6 +318,7 @@ module.exports = {
             'security',
             'licensing',
             'faq',
+            'usage-limits',
             'contributing/philosophy',
             {
               type: 'doc',

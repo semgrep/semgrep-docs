@@ -20,9 +20,12 @@ import TOCInline from "@theme/TOCInline"
 
 #### Semgrep OSS Engine
 
-The [Semgrep Engine](https://github.com/returntocorp/semgrep) is open-source, licensed under [LGPL 2.1](https://tldrlegal.com/license/gnu-lesser-general-public-license-v2.1-(lgpl-2.1)) — you can use it at work, on private and proprietary code, no problem!
+The [Semgrep Engine](https://github.com/returntocorp/semgrep) is open-source, licensed under [LGPL 2.1](https://tldrlegal.com/license/gnu-lesser-general-public-license-v2.1-(lgpl-2.1)) - you can use it at work, on private and proprietary code, no problem!
 
-Our paid product, [Semgrep Code](https://semgrep.dev/products/semgrep-code), includes the [Pro Engine, a proprietary engine extension enabling advanced analysis](https://semgrep.dev/products/pro-engine).
+The Semgrep team provides two paid products:
+
+* [Semgrep Code](https://semgrep.dev/products/semgrep-code), which includes the [Pro Engine, a proprietary engine extension enabling advanced analysis](https://semgrep.dev/products/pro-engine).
+* Semgrep Supply Chain, which performs dependency scanning.
 
 #### Semgrep Registry
 
@@ -71,11 +74,11 @@ Embed a special version of Semgrep Playground with an `iframe`. The source is `h
 
 ### How is Semgrep different from $OTHER\_TOOL or $GENERIC\_[SAST](https://en.wikipedia.org/wiki/Static_application_security_testing)?
 
-Semgrep is an open-source tool with a simple syntax for writing rules: if you can write code, you can write a Semgrep rule — no program analysis Ph.D. required!
+Semgrep is an open-source tool with a simple syntax for writing rules: if you can write code, you can write a Semgrep rule — no program analysis Ph. D. required!
 
 To our knowledge, the only other tool with the explicit goal of allowing custom rules is GitHub’s proprietary tool, CodeQL. CodeQL has a domain-specific language that is extremely powerful but is designed for those with significant program analysis expertise, whereas Semgrep is designed for the security engineer or developer who wants to automate code review. Our goal is to make writing a Semgrep rule as easy as copying the code you want to find—and letting the Semgrep engine make the rule and autofix high-quality enough to run in CI or your text editor or IDE.
 
-Our hosted offering, [Semgrep App](https://semgrep.dev/manage), has a generous free tier (even for private repositories!). It offers a hosted CI integration with a quick setup so you can start running Semgrep right away. Semgrep's diff-awareness lets you scan new code and doesn’t force you to fix all the existing issues when you first start. For users running inside organizations with many repositories, the hosted offering also offers a policy and notification system that makes it easy to tune Semgrep so that it only reports issues or suggests fixes that get applied. Our goal is a 99% fix rate for what Semgrep reports.
+Our hosted offering, [Semgrep Cloud Platform](https://semgrep.dev/manage), has a generous free tier (even for private repositories!). It offers a hosted CI integration with a quick setup so you can start running Semgrep right away. Semgrep's diff-awareness lets you scan new code and doesn’t force you to fix all the existing issues when you first start. For users running inside organizations with many repositories, the hosted offering also offers a policy and notification system that makes it easy to tune Semgrep so that it only reports issues or suggests fixes that get applied. Our goal is a 99% fix rate for what Semgrep reports.
 
 ### Besides open-source and ease of writing new rules, what else is different about Semgrep?
 
@@ -95,7 +98,7 @@ It’s easy to write a new Semgrep rule and have it only apply _going forward_. 
 
 **4. Portable: If you write a Semgrep rule, it runs anywhere**
 
-Many other tools require a buildable environment or can only be run in a VM. Semgrep runs “on the metal” and has minimal dependencies around a statically linked core; our parsers are declaratively-generated C libraries (we contribute to and use [tree-sitter](https://tree-sitter.github.io/)).
+Many other tools require a buildable environment or can only be run in a VM. Semgrep runs “on the metal” and has minimal dependencies around a statically linked core; our parsers are declaratively generated C libraries (we contribute to and use [tree-sitter](https://tree-sitter.github.io/)).
 
 And many more: see [the Semgrep philosophy](../contributing/semgrep-philosophy/) for further reading.
 
@@ -107,7 +110,7 @@ Semgrep’s [registry](https://semgrep.dev/explore) includes rulesets inspired b
 
 Some popular linter tools may use tools like Semgrep as an internal engine, and we encourage this! For instance, the popular scanner _NodeJSScan_ was re-written to use Semgrep as the core.
 
-Lastly, while many linters are extensible, you need to learn specific abstract syntax tree (AST) based patterns for writing custom rules. Semgrep works across languages and you learn its syntax once; you don't have to mess with MemberExpressions, node visitors, and all that. Before Semgrep, many of us on the maintainer team were writing AST-based rules as well: [one of us wrote an article comparing writing linter rules to Semgrep expressions](https://r2c.dev/blog/2020/why-i-moved-to-semgrep-for-all-my-code-analysis/).
+Lastly, while many linters are extensible, you need to learn specific abstract syntax tree (AST) based patterns for writing custom rules. Semgrep works across languages and you learn its syntax once; you don't have to mess with MemberExpressions, node visitors, and all that. Before Semgrep, many of us on the maintainer team were writing AST-based rules as well: [one of us wrote an article comparing writing linter rules to Semgrep expressions](https://semgrep.dev/blog/2020/why-i-moved-to-semgrep-for-all-my-code-analysis/).
 
 ### Comparing Semgrep to CodeQL
 
@@ -164,7 +167,7 @@ For more information and a detailed description of each data field, refer to [th
 
 ### What network requests are made?
 
-Semgrep CI makes network requests in accordance with the data storage mentioned above.
+Semgrep CI makes network requests in accordance with the data storage previously mentioned.
 
 [Semgrep](https://github.com/returntocorp/semgrep) makes the following network requests:
 
@@ -186,6 +189,6 @@ A policy is a simple collection of rules and a definition of what to do with rul
 
 ### Do you have a visualization UI?
 
-Dashboarding is available for Semgrep Team users. Semgrep also supports posting results through webhooks to any JSON endpoint, so you can easily integrate it with your favorite visualization tool.
+Semgrep Team users can create custom dashboards and visualizations. Semgrep also supports posting results through webhooks to any JSON endpoint, so you can easily integrate it with your favorite visualization tool.
 
 <MoreHelp />
