@@ -16,8 +16,7 @@ title: Supported languages
 import SupportedLanguagesTable from '/src/components/reference/_supported-languages-table.mdx'
 import SscIntro from "/src/components/concept/_ssc-intro.md"
 import MoreHelp from "/src/components/MoreHelp"
-<!-- import DeepSemgrepIntroduction from "/src/components/concept/_deepsemgrep-introduction.mdx" -->
-import DeepSemgrepIntroduction from "/src/components/concept/_deepsemgrep-introduction.jsx"
+import DeepSemgrepIntroduction from "/src/components/concept/_deepsemgrep-introduction.mdx"
 
 <ul id="tag__badge-list">
 {
@@ -307,7 +306,7 @@ Their differences are outlined in the following table:
 
 ## Semgrep Pro Engine
 
-<DeepSemgrepIntroduction shlyapa="hello1234" />
+<DeepSemgrepIntroduction extended={true} />
 
 Semgrep Pro Engine supports the following languages:
 
