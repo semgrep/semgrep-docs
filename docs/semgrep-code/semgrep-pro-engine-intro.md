@@ -7,7 +7,7 @@ title: Semgrep Pro Engine overview
 ---
 
 import MoreHelp from "/src/components/MoreHelp"
-import DeepSemgrepIntroduction from "/src/components/concept/_semgrep-pro-engine-introduction.mdx"
+import SemgrepProEngineIntroduction from "/src/components/concept/_semgrep-pro-engine-introduction.mdx"
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
@@ -15,7 +15,7 @@ import TabItem from '@theme/TabItem';
 
 ## Introduction
 
-<DeepSemgrepIntroduction />
+<SemgrepProEngineIntroduction extended={true}/>
 
 ## Semgrep Pro engine language support
 
