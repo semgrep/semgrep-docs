@@ -321,6 +321,6 @@ If a finding is fixed in one branch (such as `main`) but open in another (such a
 
 ## Additional references
 
-* [Writing Semgrep rules: a methodology](https://r2c.dev/blog/2020/writing-semgrep-rules-a-methodology/)
+* [Writing Semgrep rules: a methodology](https://semgrep.dev/blog/2020/writing-semgrep-rules-a-methodology/)
 
 <MoreHelp />
