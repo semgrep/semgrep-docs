@@ -1,3 +1,10 @@
+---
+tags:
+  - Github
+  - Required workflows
+description: Setting up GitHub required workflows for Semgrep scans.
+---
+
 # GitHub Required workflows and Semgrep
 
 ## Motivation
