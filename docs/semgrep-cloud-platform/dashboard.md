@@ -87,9 +87,6 @@ These data points can serve as a starting point for the following security audit
 
 ## Using Dashboard with Semgrep Supply Chain
 
-:::info Prerequisite
-To display Semgrep Supply Chain findings in Semgrep Dashboard enable Semgrep Supply Chain. See the [Getting started with Semgrep Supply Chain](/semgrep-supply-chain/getting-started/) article for more information.
-:::
 
 Semgrep Dashboard can display vulnerable dependency findings of Semgrep Supply Chain.
 
