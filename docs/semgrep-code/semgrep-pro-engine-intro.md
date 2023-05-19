@@ -173,8 +173,18 @@ rules:
     <dd>Interprocedural analysis keeps the fast scan times of Semgrep OSS Engine while also finding new vulnerabilities that cross functions within a single file. Interprocedural analysis improves results in pull requests (PRs) or merge requests (MRs) through CI scans. The interprocedural analysis is available for all languages listed as GA on the <a href="/docs/supported-languages/">Supported languages</a> page</dd>
 </dl>
 
+### Semgrep Pro Engine CI scans
 
-### Semgrep Pro Engine CI scan issues
+TODO rename everywhere - interfile to cross-file analysis, intrafile to single-file analysis, interprocedural to cross-function analysis.
+
+By default, when you use Semgrep Pro Engine in CI:
+
+- PR and MR scans use interprocedural analysis, limited to single files. This is a fast scan, that crosses the boundaries of single function.
+- Full scans, also called scheduled cron job or nightly scans use interfile and interprocedural analysis. It finds complex vulnerabilities that cross the boundaries of single files and functions, providing security teams with deeper analysis.
+
+To enable both cross file and cross function analysis in your CI scans, enable the Pro Engine toggle in Settings page. TODO add screenshot
+
+#### Semgrep Pro Engine CI scan issues
 
 To provide reliably completed scans, Semgrep Pro Engine can fall back to the use of Semgrep OSS Engine. This ensures that in the vast majority of cases, scans run successfully.
 
