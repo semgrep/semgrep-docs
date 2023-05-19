@@ -49,7 +49,7 @@ The **Code** widget displays high-level security analytics across your entire or
 
 ## Filtering findings by time
 
-The Dashboard displays data from scans for the **last 1 month** by default. This time range can be set to a broader or narrower value. By broadening the time range, security teams are able to see total numbers and statistics across an entire time period. Narrow time ranges can give insights into the most recent vulnerabilities creeping into the project.
+The Dashboard displays data from scans for the **All time** by default. This time range can be set to a narrower value. By broadening the time range, security teams are able to see total numbers and statistics across an entire time period. Narrow time ranges can give insights into the most recent vulnerabilities creeping into the project.
 
 To change the time range of scan data over time:
 
