@@ -65,7 +65,7 @@ To change the projects filter:
 1. Click the <i class="fa-solid fa-sliders"></i> **All projects** button.
 2. Select the project(s) from the drop-down box. The Dashboard, including all widgets, reloads to reflect data from the selected project(s).
 
-## Summarizing a projects security posture
+## Summarizing the security posture of a project
 
 ![Screenshot of dashboard projects](/img/dashboard-most-findings.png)
 
