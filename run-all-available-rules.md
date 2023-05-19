@@ -14,7 +14,7 @@ If you would like to run all rules that are available within the [Semgrep Regist
 semgrep --config=r/all
 ```
 
-This command will pull out all available public, private, and pro tiered rules if you have access to them. Below is an example output:
+This command will pull out all available public, org private, and pro tiered rules if you have access to them. Below is an example output:
 
 ```
 ┌─────────────┐
@@ -34,6 +34,7 @@ This command will pull out all available public, private, and pro tiered rules i
                                                                                                                         
   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 100% 0:02:31   
 ```
+The above example output is when you are running `--config=r/all` while logged in via `semgrep ci`. If you are not logged in you will just use the public rules within `r/all`.
 
 However there is one error that you should be wary about which is the following:
 
