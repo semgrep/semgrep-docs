@@ -5,7 +5,7 @@ title: Pricing and billing
 description: "Learn about pricing, tiers, and feature support for the following Semgrep Products: Semgrep OSS, Semgrep Code, and Semgrep Supply Chain."
 tags:
   - Semgrep Cloud Platform
-  - OSS Tier
+  - Semgrep OSS
   - Team & Enterprise Tier
 hide_title: true
 ---
@@ -22,19 +22,18 @@ Object.entries(frontMatter).filter(
 
 # Pricing and billing
 
-
-Semgrep's various functionalities are available through several tiers:
+Semgrep's various functionalities are available through several offerings:
 
 <dl>
-<dt>OSS tier</dt>
+<dt>Semgrep OSS</dt>
 <dd>The OSS (open source software) tier includes Semgrep OSS Engine, a fast static analysis command line tool for finding bugs and and enforcing code standards. It is licensed under LGPL 2.1. </dd>
-<dt>Team tier</dt>
+<dt>Semgrep Team tier</dt>
 <dd>The Team tier includes Semgrep Code and Semgrep Supply Chain (SSC), which enables users to scan both first-party and third-party open source dependencies. It also includes Semgrep Cloud Platform, a web app enabling users to manage users, organizations, repositories, and scans.</dd>
 <dt>Enterprise tier</dt>
-<dd>This tier offers custom features and the highest levels of support in addition to all of the features in the Team tier.</dd>
+<dd>The Enterprise tier offers custom features and the highest levels of support in addition to all of the features in the Team tier.</dd>
 </dl>
 
-Semgrep is CI provider-agnostic for all tiers. All Semgrep tiers can scan the following repository providers or SCMs (source code managers):
+Semgrep is CI provider-agnostic for all tiers. All Semgrep offerings can scan the following repository providers or SCMs (source code managers):
 
 * GitHub
 * GitLab
@@ -42,32 +41,109 @@ Semgrep is CI provider-agnostic for all tiers. All Semgrep tiers can scan the fo
 * Azure Repos
 
 :::caution Important dates
-* **For Semgrep Team tier users:** Usage limits will be enforced after July 31, 2023. 
+* **For Semgrep Team tier users:** Usage limits will be enforced after [Q3] 2023. 
 :::
 
 ## Semgrep OSS and Team tier
 
-The following tables provide an overview of features and their availability based on tier.
+Semgrep Team tier includes the following products:
+* Semgrep Code
+* Semgrep Supply Chain
+* Semgrep Cloud Platform
 
-Notes:
+The following tables provide an overview of Semgrep features and comparison between Semgrep OSS and Semgrep Team tier. 
 
-* **Custom rules** are rules that you can create and save through either the [Playground](https://semgrep.dev/playground) or the Editor. The Playground and the [Editor](/semgrep-code/editor) are online tools where you can write your rule patterns and test them on sample code. You must be signed in to use the Editor.
-* Developers can create fixes to their rules through an `autofix` key. For example, when banning outdated libraries, setting an autofix value with the correct library replaces the banned library.
-* Semgrep Cloud Platform provides this functionality with **Autofix through PR/MR comments**. These comments appear as suggestions that developers can commit with a single click.
-* **Custom rule messages** can be applied to public and private rules.
-* **Semgrep Pro Engine** enables interfile tracking within a codebase, keeping track of class and function definitions beyond a single file.
-* **Developer feedback** is a means for developers to communicate to security or rule-writing teams about a rule's precision. Discover what rules result in false positives and refine them through this feature.
-* **Custom language support** is available for Enterprise tier users.
+### 🔎 Core features 
+
+The following tables describe Semgrep's essential scanning and findings management capabilities.
+
+#### SAST scanning
+| Feature | Semgrep OSS | Semgrep Team tier |
+| -------  | ------ | ----------- |
+| Intraprocedural and intrafile scanning | ✔️   | ✔️  |
+| Interprocedural and interfile scanning | ✔️ | ✔️   |
+| Taint analysis - Intrafile | ❌ |  ✔️   |
+| Taint analysis - Interfile | ❌ |  ✔️   |
+
+#### SCA scanning
+| Feature | Semgrep OSS | Semgrep Team tier |
+| -------  | ------ | ----------- |
+| Reachability analysis | ❌ | ✔️  |
+| License scanning | ❌ | ✔️  |
+| Dependency search | ❌ | ✔️  |
+
+#### Scan management
+| Feature  | Semgrep OSS | Semgrep Team tier |
+| -------  | ----------  | ----------------- |
+| Centralized findings management (triage, remediation, fine-tuning noisy rules) | ❌ | ✔️  |
+
+### 💬 Notifications and reports
+
+The following table displays various notification channels and reporting features.
+
+| Feature  | Semgrep OSS | Semgrep Team tier |
+| -------  | ----------  | ----------------- |
+| Slack | ❌ | ✔️  |
+| Email | ❌ | ✔️  |
+| Webhooks |  ❌ | ✔️  |
+| API | ❌ | ✔️  |
+
+### 🧰 Scan customization features
+
+| Feature  | Semgrep OSS | Semgrep Team tier |
+| -------  | ----------  | ----------------- |
+| Custom rules | ✔️  | ✔️  |
+| Private rules | ✔️  | ✔️  |
+| Custom rule messages |  ✔️  | ✔️  |
+| Community rule registry |  ✔️  | ✔️  |
+| Proprietary rule registry | ❌ | ✔️  |
+| Policy-based workflows | ❌ | ✔️  |
+| Rule-writing environment | ✔️ Playground | ✔️ Playground and Editor |
+| Findings retention | ❌ | ✔️ 5 years |
+| Findings dashboard | ❌ | ✔️ |
+
+### 🤖 Developer tools
+
+| Feature  | Semgrep OSS | Semgrep Team tier |
+| -------  | ----------  | ----------------- |
+| VSCode extension | ✔️  | ✔️  | 
+| Autofix | ✔️  | ✔️  |
+| Autofix in PR/MR comments | ❌ | ✔️ |
+| Autofix AI | ❌ | ✔️  |
+| `pre-commit` | ✔️  | ✔️   |
 
 
-Notes:
+### 🔐 Authentication features
 
-* There is no limit to the number of integrations or notification channels. You can make more than one integration of any type.
-* **Automatic CI/CD integration** means that repositories added to Semgrep are scanned as part of the code repository's CI pipeline when a pull request is made.
-* **Webhook integration** uses a generic webhook to send JSON messages. These messages are triggered when a policy is changed, a new scan runs, or a new finding has emerged.
-* **Jira integration** allows organizations to directly create Jira tickets from a finding.
+| Feature  | Semgrep OSS | Semgrep Team tier |
+| -------  | ----------  | ----------------- |
+| GitHub SSO | ❌ | ✔️  |
+| GitLab SSO | ❌ | ✔️  | 
+| SAML SSO | ❌ | ✔️  |
+| OpenID / OAuth2 | ❌ | ✔️  |
 
-### Support and troubleshooting
+### 🏢 User and organization management
+
+| Feature  | Semgrep OSS | Semgrep Team tier |
+| -------  | ----------  | ----------------- |
+| Role-based access control (RBAC) | ❌ | ✔️  |
+| Personal accounts |  ❌ | ✔️  |
+| Organization accounts |  ❌ | ✔️  |
+
+### 🛠️ CI provider automation
+
+| Feature  | Semgrep OSS | Semgrep Team tier |
+| -------  | ----------  | ----------------- |
+| GitHub Actions |
+| GitLab CI/CD |
+| Jenkins |
+| Bitbucket Pipelines |
+| CircleCI |
+| Azure Pipelines |
+| Other CI providers |
+
+
+### 💻 Support
 
 | Feature                                 | Semgrep OSS     | Semgrep Code Community | Semgrep Code Team     |
 | ------- | --------- | ------- | -------- |
