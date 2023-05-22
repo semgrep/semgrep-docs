@@ -308,38 +308,6 @@ The above rule looks for files that are opened but never closed, possibly leadin
 
 The `$F` metavariable ensures that the same variable name is used in the `open` and `close` calls. The ellipsis operator allows for any arguments to be passed to `open` and any sequence of code statements in-between the `open` and `close` calls. The rule ignores how `open` is called or what happens up to a `close` call &mdash; it only needs to make sure `close` is called.
 
-### `pattern-where-python`
-
-:::danger
-This feature was deprecated in Semgrep v0.61.0.
-:::
-
-The `pattern-where-python` is the most flexible operator. It allows for writing custom Python logic to filter findings. This is useful when none of the other operators provide the functionality needed to create a rule.
-
-:::danger
-Use caution with this operator. It allows for arbitrary Python code execution.
-
-As a defensive measure, the `--dangerously-allow-arbitrary-code-execution-from-rules` flag must be passed to use rules containing `pattern-where-python`.
-:::
-
-Example:
-
-```yaml
-rules:
-  - id: use-decimalfield-for-money
-    patterns:
-      - pattern: $FIELD = django.db.models.FloatField(...)
-      - pattern-inside: |
-          class $CLASS(...):
-              ...
-      - pattern-where-python: "'price' in vars['$FIELD'] or 'salary' in vars['$FIELD']"
-    message: "use DecimalField for currency fields to avoid float-rounding errors"
-    languages: [python]
-    severity: ERROR
-```
-
-The above rule looks for use of Django’s [`FloatField`](https://docs.djangoproject.com/en/3.0/ref/models/fields/#django.db.models.FloatField) model when storing currency information. `FloatField` can lead to rounding errors and should be avoided in favor of [`DecimalField`](https://docs.djangoproject.com/en/3.0/ref/models/fields/#django.db.models.DecimalField) when dealing with currency. Here the `pattern-where-python` operator allows us to utilize the Python `in` statement to filter findings that look like currency.
-
 ## Metavariable matching
 
 Metavariable matching operates differently for logical AND (`patterns`) and logical OR (`pattern-either`) parent operators. Behavior is consistent across all child operators: `pattern`, `pattern-not`, `pattern-regex`, `pattern-inside`, `pattern-not-inside`.
