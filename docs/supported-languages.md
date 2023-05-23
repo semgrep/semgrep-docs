@@ -326,7 +326,7 @@ Semgrep Pro Engine supports the following programming languages:
 
 The analysis types that Semgrep Pro Engine offers compared to Semgrep OSS Engine are the following:
 
-| Semgrep OSS Engin                             | Semgrep Pro Engine                             |
+| Semgrep OSS Engine                            | Semgrep Pro Engine                             |
 |-----------------------------------------------|------------------------------------------------|
 | Intrafile (limited to single-file analysis)   | Interfile (cross-file analysis)                |
 | Intraprocedural (limited to single-function analysis) | Interprocedural (cross-function analysis) |
