@@ -99,7 +99,7 @@ Semgrep Supply Chain dashboard consists of three widgets:
 	<dt>Most vulnerabilities</dt>
 	<dd>The number of dependency vulnerabilities over the given time period next to the calendar icon.</dd>
 	<dt>New advisories</dt>
-	<dd>Announcements of new vulnerabilities associated with dependencies in your projects.</dd>
+	<dd>Announcements of new vulnerabilities.</dd>
 </dl>
 
 :::tip
