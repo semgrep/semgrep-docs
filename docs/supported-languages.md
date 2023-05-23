@@ -308,16 +308,32 @@ Their differences are outlined in the following table:
 
 <DeepSemgrepIntroduction />
 
-Semgrep Pro Engine supports the following languages:
+Semgrep Pro Engine supports the following programming languages:
 
-|                                       Language                                   |  Support level  |  Analysis type  |
-|----------------------------------------------------------------------------------|-----------------|-----------------|
-|                                         Java                                     |       Beta      |     Interfile   |
-|                               JavaScript or TypeScript                           |       Beta      |     Interfile   |
+| Language       | Support level | Analysis type |
+|----------------|---------------|---------------|
+| Java           | Beta          | Interfile     |
+| JavaScript or TypeScript | Beta | Interfile    |
 | GA supported languages of [Semgrep OSS Engine](#semgrep-oss-engine) have added interprocedural analysis support with Semgrep Pro Engine! | GA | Interprocedural |
-|                                         Apex                                     |   Experimental  | Interprocedural |
+| Apex           | Experimental  | Interprocedural |
+
+:::note
+- Interfile analysis by default also includes interprocedural analysis. Java, JavaScript, and TypeScript all havae both interfile and interprocedural analysis support.
+- Apex programming language has interprocedural analysis support in Semgrep Pro Engine, but it is not supported by Semgrep OSS Engine.
+:::
 
 To install and run Semgrep Pro Engine, see [Semgrep Pro Engine overview](/semgrep-code/semgrep-pro-engine-intro/).
+
+The analysis types that Semgrep Pro Engine offers compared to Semgrep OSS Engine are the following:
+
+| Semgrep OSS Engin                             | Semgrep Pro Engine                             |
+|-----------------------------------------------|------------------------------------------------|
+| Intrafile (limited to single-file analysis)   | Interfile (cross-file analysis)                |
+| Intraprocedural (limited to single-function analysis) | Interprocedural (cross-function analysis) |
+
+:::note
+All languages that have GA support level in Semgrep OSS Engine gain interprocedural analysis support with Semgrep Pro Engine. 
+:::
 
 ### Known limitations of Semgrep Pro Engine
 
