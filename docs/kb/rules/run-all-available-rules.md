@@ -18,7 +18,7 @@ This command runs the following rules from the Semgrep Registry:
 
 * All public or community-written rules
 * Your organization's private rules, if you are logged in 
-* Semgrep Pro rules, if you have access to them.
+* Semgrep Pro rules, if you have access to them
 
 Refer to the following snippet for a sample output of `config=r/all` while logged in through `semgrep ci`:
 
