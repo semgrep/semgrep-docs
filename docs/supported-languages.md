@@ -322,7 +322,7 @@ Semgrep Pro Engine supports the following programming languages:
 :::info
 - Interfile analysis by default also includes interprocedural analysis. Java, JavaScript, and TypeScript all have both interfile and interprocedural analysis support.
 - All languages that have GA support level in Semgrep OSS Engine gain interprocedural analysis support with Semgrep Pro Engine. 
-- Apex programming language has interprocedural analysis support in Semgrep Pro Engine, but it is not supported by Semgrep OSS Engine.
+- Semgrep Pro Engine offers interprocedural analysis support for Apex programming language. Semgrep OSS Engine does **not** support Apex.
 :::
 
 The analysis types that Semgrep Pro Engine offers compared to Semgrep OSS Engine are the following:
