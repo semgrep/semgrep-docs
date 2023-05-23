@@ -6,7 +6,7 @@ tags:
   - Semgrep Code
 ---
 
-# Run all available rules on a repository
+# Running all available rules on a repository
 
 To run all rules that are available within the [Semgrep Registry](https://semgrep.dev/explore) without using the Rule board, enter the following command:
 
