@@ -179,7 +179,7 @@ TODO rename everywhere - interfile to cross-file analysis, intrafile to single-f
 
 By default, when you use Semgrep Pro Engine in CI:
 
-- PR and MR scans use interprocedural analysis, limited to single files. This is a fast scan, that crosses the boundaries of single function.
+- PR and MR scans use interprocedural analysis, limited to single files. This is a fast scan, that crosses the boundaries of single function across a whole file.
 - Full scans, also called scheduled cron job or nightly scans use interfile and interprocedural analysis. It finds complex vulnerabilities that cross the boundaries of single files and functions, providing security teams with deeper analysis.
 
 To enable both cross file and cross function analysis in your CI scans, enable the Pro Engine toggle in Settings page. TODO add screenshot
