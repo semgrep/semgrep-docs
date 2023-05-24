@@ -15,8 +15,8 @@ import MoreHelp from "/src/components/MoreHelp"
 import TriageStatuses from "/src/components/reference/_triage-states.mdx"
 import RemoveRuleset from "/src/components/procedure/_remove-ruleset.mdx"
 import IgnoreIndividualFindings from "/src/components/procedure/_ignore-individual-findings.mdx"
-import DisplayTaintedDataIntro from "/src/components/concept/_cloud-platform-display-tainted-data.mdx"
-import DisplayTaintedDataProcedure from "/src/components/procedure/_cloud-platform-display-tainted-data.mdx"
+import DisplayTaintedDataIntro from "/src/components/concept/_semgrep-code-display-tainted-data.mdx"
+import DisplayTaintedDataProcedure from "/src/components/procedure/_semgrep-code-display-tainted-data.mdx"
 
 <ul id="tag__badge-list">
 {
@@ -250,6 +250,8 @@ To **view and add notes** to the activity history of a finding:
 #### Viewing the path of tainted data
 
 <DisplayTaintedDataIntro />
+
+##### Path of tainted data in Semgrep Code
 
 <DisplayTaintedDataProcedure />
 

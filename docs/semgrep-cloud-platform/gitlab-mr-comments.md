@@ -34,7 +34,7 @@ This section documents how to enable Semgrep Cloud Platform to post comments on 
 Automated comments on GitLab merge requests are displayed as follows:
 
 ![Semgrep GitLab MR comment](/img/gitlab-mr-comment.png)
-*Figure 1.* An inline GitLab merge request comment.
+**Figure** An inline GitLab merge request comment.
 
 To enable GitLab merge request comments, follow these steps:
 

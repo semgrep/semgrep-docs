@@ -7,8 +7,8 @@ title: Semgrep Pro Engine taint traces
 ---
 
 import MoreHelp from "/src/components/MoreHelp"
-import DisplayTaintedDataIntro from "/src/components/concept/_cloud-platform-display-tainted-data.mdx"
-import DisplayTaintedDataProcedure from "/src/components/procedure/_cloud-platform-display-tainted-data.mdx"
+import DisplayTaintedDataIntro from "/src/components/concept/_semgrep-code-display-tainted-data.mdx"
+import DisplayTaintedDataProcedure from "/src/components/procedure/_semgrep-code-display-tainted-data.mdx"
 
 ## Introduction
 
