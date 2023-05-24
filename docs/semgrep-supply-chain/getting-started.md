@@ -49,16 +49,7 @@ Semgrep Supply Chain is **automatically enabled** for all repositories that you 
 
 When the scan finishes, Semgrep Cloud Platform displays an overview of findings in the **Supply Chain** page for further triage and remediation. See [Triaging and remediating dependency findings](/semgrep-supply-chain/triage-and-remediation).
 
-### Running rules with historical coverage (parity or ecosystem rules)
-
-Historical coverage rules, also referred to as parity or ecosystem rules, are rules that do not perform reachability analysis. These rules only check a package's version against versions with known vulnerabilities. These rules produce vulnerabilities similar to Dependabot's results, but have a higher false positive rate.
-
-To turn these rules on:
-
-1. Sign in to your Semgrep Cloud Platform account.
-2. Click **[Projects](https://semgrep.dev/orgs/-/projects)**, and then click <i class="fa-solid fa-gear"></i> **gear** icon of the repository on which to run historical coverage rules.
-3. Click <i class="fa-solid fa-toggle-large-on"></i> **Supply Chain historical coverage**. Historical coverage rules are included in your next scan, that occurs based on your CI setup, such as schedules and events configuration (push, pull, and merge requests).
-4. Optional: Some CI providers enable you to start workflows manually. To start a dependency scan immediately, go to your CI provider's interface and manually begin the Semgrep workflow or job.
+<!-- Historical coverage rules, also referred to as parity or ecosystem rules, are rules that do not perform reachability analysis. These rules only check a package's version against versions with known vulnerabilities. These rules produce vulnerabilities similar to Dependabot's results, but have a higher false positive rate. -->
 
 ### Events that trigger a Supply Chain dependency scan
 
