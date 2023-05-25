@@ -197,7 +197,7 @@ Process.wait pid
 
 ### 1.E. Backticks (``) or %x[command] methods
 
-Backticks ``` `` ``` or `%x[command]` methods enable to execute system commands and return their outputs. Both methods accept string interpolation. As for other methods mentioned in this cheat sheet, when this method is used with user input, it can lead to command injection vulnerability.
+Backticks ``` `` ``` or `%x[command]` methods allow Ruby developers to execute system commands and return their outputs. Both methods accept string interpolation. As for other methods mentioned in this cheat sheet, when this method is used with user input, it can lead to a command injection vulnerability.
 
 Ruby interprets the text inside of backticks as an OS command. For example, ``` `ls -l` ``` interpreted by Ruby prints the contents of current working directory. In addition, if the `%x` is used with various delimiters, it is also interpreted as an OS command. The ``` `ls -l` ``` in Ruby is equivivalent to the following:
 
