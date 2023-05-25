@@ -12,11 +12,13 @@ import DisplayTaintedDataProcedure from "/src/components/procedure/_semgrep-code
 
 ## Introduction
 
-This article documents dataflow analysis of Semgrep Pro Engine and interfile analysis in the Cloud Platform. This document helps you to enable these features and provides an overview of the benefits compared to the analysis of Semgrep OSS.
+This article documents dataflow analysis of Semgrep Pro Engine and interfile analysis in the Semgrep Code. This document helps you to enable these features and provides an overview of the benefits compared to the analysis of Semgrep OSS.
 
 ## Viewing the path of tainted data
 
 <DisplayTaintedDataIntro />
+
+### Displaying tainted data in Semgrep Code
 
 <DisplayTaintedDataProcedure />
 
