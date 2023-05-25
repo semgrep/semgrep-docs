@@ -7,8 +7,7 @@ title: Semgrep Pro Engine overview
 ---
 
 import MoreHelp from "/src/components/MoreHelp"
-import DeepSemgrepIntroduction from "/src/components/concept/_deepsemgrep-introduction.mdx"
-import AddDemoProject from "/src/components/procedure/_add-demo-project.mdx"
+import DeepSemgrepIntroduction from "/src/components/concept/_semgrep-pro-engine-introduction.mdx"
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
@@ -138,11 +137,11 @@ To enable Semgrep Pro Engine in the Semgrep Cloud Platform, follow these steps:
 1. Sign in to [Semgrep Cloud Platform](https://semgrep.dev/login).
 1. Select **[Settings](https://semgrep.dev/orgs/-/settings)**.
 1. Enable the <i class="fa-solid fa-toggle-large-on"></i> **Semgrep Pro Engine beta** toggle.
-1. Ensure that you have the **default ruleset** added in your **[Rule Board](https://semgrep.dev/orgs/-/board)**. If this ruleset is **not** added, go to [https://semgrep.dev/p/default](https://semgrep.dev/p/default), and then click **Add to Rule Board**. For best results, this ruleset should be placed in the Monitor column.
+1. Ensure that you have the **default ruleset** added in your **[Rule Board](https://semgrep.dev/orgs/-/board)**. If this ruleset is **not** added, go to [https://semgrep.dev/p/default](https://semgrep.dev/p/default), and then click **Add to Rule Board**. For best results, place this ruleset in the Monitor column.
 1. Optional: If you don't have any projects added to your organization, follow the procedures described in [Scanning a repository](/semgrep-code/getting-started/#semgrep-code-with-semgrep-cloud-platform) to scan a new project with Semgrep Pro Engine. Ensure that your project's language is supported by Semgrep Pro Engine.
 
 :::info Testing Semgrep Pro Engine
-To test Semgrep Pro Engine on a purposefully vulnerable repository, fork the [juice-shop](https://github.com/juice-shop/juice-shop) repository, and then add it to SCP by following the steps described in [Adding a repository](/semgrep-code/getting-started/#adding-or-onboarding-a-new-project-repository).
+To test Semgrep Pro Engine on a purposefully vulnerable repository, fork the [juice-shop](https://github.com/juice-shop/juice-shop) repository, and then add it to SCP by following the steps described in section [Adding or onboarding a new project (repository)](/semgrep-code/getting-started/#adding-or-onboarding-a-new-project-repository).
 :::
 
 ### Creating interfile analysis rules
@@ -185,7 +184,7 @@ If 1-2 repositories cause CI scan issues, modify your config file to use `semgre
 
 If many repositories cause scan issues:
 1. Disable the <i class="fa-solid fa-toggle-large-on"></i> **Semgrep Pro Engine beta** toggle in the **[Settings](https://semgrep.dev/orgs/-/settings)** page of your organization.
-1. Contact Semgrep in the <a href="https://go.semgrep.dev/slack">Semgrep Community Slack</a> so we can help you to fix the issue and create a plan for your organization.
+1. Contact the Semgrep team in the <a href="https://go.semgrep.dev/slack">Semgrep Community Slack</a> so we can help you to fix the issue and create a plan for your organization.
 
 ### Difference between Semgrep Pro Engine and join mode
 
@@ -193,6 +192,6 @@ Semgrep Pro Engine is different from [join mode](/writing-rules/experiments/join
 
 ### Feedback for Semgrep Pro Engine
 
-The team at Semgrep is excited to hear what’s on your mind. As you explore Semgrep Pro Engine, we want to know what you'd like to be able to capture with Pro Engine. We believe that this deeper analysis helps users find more vulnerabilities, build trust with developers, and enforce code standards quickly. Let us know what you think about the results in the <a href="https://go.semgrep.dev/slack">Semgrep Community Slack</a>.
+The team at Semgrep is excited to hear what’s on your mind. As you explore Semgrep Pro Engine, we want to know what you'd like to be able to capture with it. We believe that this deeper analysis helps users find more vulnerabilities, build trust with developers, and enforce code standards quickly. Let us know what you think about the results in the <a href="https://go.semgrep.dev/slack">Semgrep Community Slack</a>.
 
 <MoreHelp />

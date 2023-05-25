@@ -41,7 +41,7 @@ You can also publish rules as private rules outside of Semgrep Registry. These r
 
 ## Contributing through GitHub
 
-Fork our repository and make a pull request. Sign our Contributor License Agreement (CLA) on GitHub before r2c can accept your contributions. Make a pull request to the [Semgrep Registry](https://github.com/returntocorp/semgrep-rules) with two files:
+Fork our repository and make a pull request. Sign our Contributor License Agreement (CLA) on GitHub before Semgrep, Inc. can accept your contributions. Make a pull request to the [Semgrep Registry](https://github.com/returntocorp/semgrep-rules) with two files:
 1. The semgrep pattern (as YAML file).
 2. The test file (with the file extension of the language or framework). The test file must contain at least one true positive and one true negative test case to be approved. See the [Tests](#tests) section of this document for more information.
 
@@ -235,7 +235,7 @@ For an example of a good rule message, see: [this rule for Django's mark_safe](h
 
 ### Rule quality checker
 
-When you contribute rules to the Semgrep Registry, our quality checkers (linters) evaluate if the rule conforms to r2c standards. The `semgrep-rule-lints` job runs linters on a new rule to check for mistakes, performance problems, and best practices for submitting to the Semgrep Registry. To improve your rule writing, use Semgrep itself to [scan semgrep-rules](https://r2c.dev/blog/2021/how-we-made-semgrep-rules-run-on-semgrep-rules/).
+When you contribute rules to the Semgrep Registry, our quality checkers (linters) evaluate if the rule conforms to Semgrep, Inc. standards. The `semgrep-rule-lints` job runs linters on a new rule to check for mistakes, performance problems, and best practices for submitting to the Semgrep Registry. To improve your rule writing, use Semgrep itself to [scan semgrep-rules](https://semgrep.dev/blog/2021/how-we-made-semgrep-rules-run-on-semgrep-rules/).
 
 ### Including fields required by security category
 

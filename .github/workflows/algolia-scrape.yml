@@ -5,10 +5,11 @@ on:
     inputs:
       parameter:
         description: Run from dispatch
+    branches:
+      - main
   push:
     branches:
       - main
-      - sara/mkt-486-dont-index-meta-pages-non-content-in
 
 jobs:
   scrape:
@@ -19,9 +20,11 @@ jobs:
         shell: bash
       - name: check out code 🛎
         uses: actions/checkout@v2
-      # when scraping the site, inject secrets as environment variables
-      # then pass their values into the Docker container using "-e" syntax
-      # and inject config.json contents as another variable
+        # when scraping the site, inject secrets as environment variables
+        # then pass their values into the Docker container using "-e" syntax
+        # and inject config.json contents as another variable
+
+        # prefer this file (algolia-scrap.yml) over algolia-config.json for ranking
 
       - name: scrape the site and send to Algolia 🧽
         env:
@@ -36,7 +39,6 @@ jobs:
           -H "X-Algolia-API-Key: ${API_KEY}" \
           -H "X-Algolia-Application-Id: ${APPLICATION_ID}" \
           --data-binary '{
-            "ranking": ["desc(weight.page_rank)", "words", "filters", "typo", "exact", "attribute", "proximity"],
-            "customRanking": ["desc(weight.level)", "asc(weight.position)"]
+            "ranking": ["desc(weight.page_rank)", "desc(weight.level)", "asc(weight.position)", "words", "exact", "attribute", "proximity", "typo"]
           }' \
           "https://${APPLICATION_ID}.algolia.net/1/indexes/docs/settings?forwardToReplicas=true"

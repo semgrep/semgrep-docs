@@ -69,7 +69,7 @@ This step connects a source code manager, such as GitHub, to your Semgrep organi
 
 1. Sign in to Semgrep Cloud Platform.
 2. On the sidebar, click **your account name** > **the organization account** you created.
-3. Click **Settings** > **Source code**.
+3. Click **Settings** > **SCM**.
 4. Click on your Source code manager, for example, **Connect to GitHub**.
 5. Click an organization to link. You are signed out of Semgrep Cloud Platform automatically as your credentials have changed after linking an organization.
 6. Sign back in to Semgrep Cloud Platform.
@@ -119,7 +119,7 @@ The following table displays features available to each role:
 | Playground            | yes       | yes       |                                                                                    |
 | Docs                  | yes       | yes       |                                                                                    |
 
-To enable RBAC, please contact r2c at [support@semgrep.com](mailto:support@semgrep.com).
+To enable RBAC, please contact the Semgrep team: [support@semgrep.com](mailto:support@semgrep.com).
 
 Upon enabling RBAC for the first time, current members of the organization are `admins`. New members added thereafter are automatically `members`.
 

@@ -54,7 +54,7 @@ Support and be supported by the Semgrep community through:
 * [Semgrep Playground](https://semgrep.dev/editor) - An online interactive tool for writing and sharing rules.
 * [Semgrep Registry](https://semgrep.dev/explore) - 2,000+ community-driven rules covering security, correctness, and dependency vulnerabilities.
 
-Semgrep is developed and commercially supported by [r2c, a software security company](https://r2c.dev).
+Semgrep is developed and commercially supported by [Semgrep, Inc](https://r2c.dev) a software security company.
 
 <p align="center">
   <a href="/docs/getting-started">Get started →</a>
@@ -64,7 +64,7 @@ Semgrep is developed and commercially supported by [r2c, a software security com
 
 <SupportedLanguagesTable />
 
-To determine experimental, beta, or general availability (GA) status, r2c scans a wide corpus of projects and measure the parse rate of each language. For more details see [the breakdown of all supported languages](supported-languages/).
+To determine experimental, beta, or general availability (GA) status, Semgrep scans a wide corpus of projects and measure the parse rate of each language. For more details see [the breakdown of all supported languages](supported-languages/).
 
 ## Environments
 
@@ -83,7 +83,7 @@ Semgrep Cloud Platform is a hosted web application (SaaS) and as such is exclude
 
 ## History
 
-Semgrep is an evolution of [pfff](https://github.com/returntocorp/pfff/), which began at [Facebook](https://github.com/facebookarchive/pfff) in 2009, which itself was an evolution of the Linux refactoring tool [Coccinelle](https://en.wikipedia.org/wiki/Coccinelle_(software)). [r2c](https://r2c.dev/team) revitalized the project after its original author, [Yoann Padioleau](https://github.com/aryx), joined the company.
+Semgrep is an evolution of [pfff](https://github.com/returntocorp/pfff/), which began at [Facebook](https://github.com/facebookarchive/pfff) in 2009, which itself was an evolution of the Linux refactoring tool [Coccinelle](https://en.wikipedia.org/wiki/Coccinelle_(software)). [Semgrep, Inc](https://r2c.dev/team) revitalized the project after its original author, [Yoann Padioleau](https://github.com/aryx), joined the company.
 
 ## Semgrep development philosophy
 
