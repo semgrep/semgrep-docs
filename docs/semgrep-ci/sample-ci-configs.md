@@ -439,6 +439,8 @@ The following configuration creates a CI job that runs an SCA scan using Semgrep
 </TabItem>
 </Tabs>
 
+> Note: It is necessary to create a context ('dev' in the snippet) to declare the SEMGREP_APP_TOKEN environment variable. "Organization Settings" -> "Contexts" -> "Create Context" -> "Add Environment Variable". 
+
 ## Azure Pipelines
 
 To add Semgrep into Azure Pipelines:
