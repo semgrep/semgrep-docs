@@ -75,7 +75,7 @@ Open3.pipeline("zcat #{user_input}", "nroff -man", "colcrt")
 
 ### 1.B. open() function
 
-The `open(...)` creates an input/output (I/O) object connected to a stream, file, or subprocess. If the first argument starts with a pipe character (`|`), it creates a subprocess. An opportunity for command injection vulnerability is created when the subprocess includes user input in a command argument to `open()` function.
+The `open(...)` creates an input/output (I/O) object connected to a stream, file, or subprocess. If the first argument starts with a pipe character (`|`), it creates a subprocess. An opportunity for a command injection vulnerability is created when the subprocess includes user input in a command argument to `open()` function.
 
 Example:
 
