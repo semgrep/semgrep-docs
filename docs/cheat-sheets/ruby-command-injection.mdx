@@ -244,7 +244,7 @@ user_input = ' && cat /etc/passwd' # Value supplied by user
 
 ### 1.F. Process.spawn and Process.exec methods
 
-The `spawn` and `exec` methods execute a system command and return its output. Both methods accept string interpolation. As for other methods mentioned in this cheat sheet, when this method is used with user input, it can lead to command injection vulnerability.
+The `spawn` and `exec` methods execute a system command and return its output. Both methods accept string interpolation. Similarly to other methods mentioned in this cheat sheet, when either of these methods is used with user input, it can lead to command injection vulnerability.
 
 https://ruby-doc.org/3.2.1/Process.html
 
@@ -287,7 +287,7 @@ Process.exec("ls #{user_input}")
 
 ### 1.F. PTY.spawn method
 
-The `PTY.spawn` method executes OS commands in a new terminal. This might potentially lead to command injection vulnerability when used with user input. The malicious actor can potentially run OS commands to exploit the system.
+The `PTY.spawn` method executes OS commands in a new terminal. This might potentially lead to a command injection vulnerability when used with user input. A malicious actor can potentially run OS commands to exploit the system.
 
 Example:
 
