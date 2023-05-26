@@ -94,7 +94,7 @@ open(user_input)
 
 #### Mitigation
 
-- Do not provide raw user input to `open()` methods.
+- Do not provide raw user input to `open()` function.
 - Always try to use internal Ruby API (if it exists) instead of running an OS command. Use internal language features instead of invoking commands that can be exploited.
 - If the use of user input is unavoidable, create an allowlist for inputs, such as allowed command arguments.
 - Strip everything except alphanumeric characters from an input provided for the command string and arguments.
@@ -124,7 +124,7 @@ system("ls #{user_input}")
 
 #### Mitigation
 
-- Do not provide raw user input to `open` methods.
+- Do not provide raw user input to `system()` function.
 - Always try to use internal Ruby API (if it exists) instead of running an OS command. Use internal language features instead of invoking commands that can be exploited.
 - If the use of user input is unavoidable, create an allowlist for inputs, such as allowed arguments.
 - Strip everything except alphanumeric characters from an input provided for the command string and arguments.
@@ -154,7 +154,7 @@ exec("ls #{user_input}")
 
 #### Mitigation
 
-- Do not provide raw user input to `open` methods.
+- Do not provide raw user input to `exec()` function.
 - Always try to use internal Ruby API (if it exists) instead of running an OS command. Use internal language features instead of invoking commands that can be exploited.
 - If the use of user input is unavoidable, create an allowlist for inputs, such as allowed arguments.
 - Strip everything except alphanumeric characters from an input provided for the command string and arguments.
@@ -186,7 +186,7 @@ Process.wait pid
 
 #### Mitigation
 
-- Do not provide raw user input to `open` methods.
+- Do not provide raw user input to `spawn()` function.
 - Always try to use internal Ruby API (if it exists) instead of running an OS command. Use internal language features instead of invoking commands that can be exploited.
 - If the use of user input is unavoidable, create an allowlist for inputs, such as allowed arguments.
 - Strip everything except alphanumeric characters from an input provided for the command string and arguments.
@@ -233,7 +233,7 @@ user_input = ' && cat /etc/passwd' # Value supplied by user
 
 #### Mitigation
 
-- Do not provide raw user input to `%x` methods.
+- Do not provide raw user input to ``` `` ``` or `%x` methods.
 - Always try to use internal Ruby API (if it exists) instead of running an OS command. Use internal language features instead of invoking commands that can be exploited.
 - If the use of user input is unavoidable, create an allowlist for inputs, such as allowed arguments.
 - Strip everything except alphanumeric characters from an input provided for the command string and arguments.
@@ -276,7 +276,7 @@ Process.exec("ls #{user_input}")
 
 #### Mitigation
 
-- Do not provide raw user input to `%x` methods.
+- Do not provide raw user input to `Process.spawn` and `Process.exec` methods.
 - Always try to use internal Ruby API (if it exists) instead of running an OS command. Use internal language features instead of invoking commands that can be exploited.
 - If the use of user input is unavoidable, create an allowlist for inputs, such as allowed arguments.
 - Strip everything except alphanumeric characters from an input provided for the command string and arguments.
@@ -306,7 +306,7 @@ stdout,stdin,pid = PTY.spawn("ls #{user_input}")
 
 #### Mitigation
 
-- Do not provide raw user input to `%x` methods.
+- Do not provide raw user input to `PTY.spawn` methods.
 - Always try to use internal Ruby API (if it exists) instead of running an OS command. Use internal language features instead of invoking commands that can be exploited.
 - If the use of user input is unavoidable, create an allowlist for inputs, such as allowed arguments.
 - Strip everything except alphanumeric characters from an input provided for the command string and arguments.
