@@ -84,7 +84,7 @@ Only rules in the **Comment** and **Block** columns of your [Rule board](https:/
 
 ## Dataflow traces in MR comments
 
-TODO ![Screenshot of a GitLab MR comment with dataflow traces](/img/dataflow-traces-pr-comments.png#bordered)
+![Screenshot of a GitLab MR comment with dataflow traces](/img/dataflow-traces-mr-comments.png#bordered)
 **Figure** An inline GitLab pull request comment with dataflow traces.
 
 <DisplayTaintedDataIntro />
