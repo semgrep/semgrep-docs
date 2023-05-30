@@ -6,15 +6,21 @@ tags:
   - Semgrep Code
 ---
 
-# How to run all available rules on a repository.
+# Running all available rules on a repository
 
-If you would like to run all rules that are available within the [Semgrep Registry](https://semgrep.dev/explore) and are not willing to add all available rules/rulesets to the Rule Board or add a variety of `--config` entries, what you can do is run the following command:
+To run all rules that are available within the [Semgrep Registry](https://semgrep.dev/explore) without using the Rule board, enter the following command:
 
 ```
 semgrep --config=r/all
 ```
 
-This command will pull out all available public, org private, and pro tiered rules if you have access to them. Below is an example output:
+This command runs the following rules from the Semgrep Registry:
+
+* All public or community-written rules
+* Your organization's private rules, if you are logged in 
+* Semgrep Pro rules, if you have access to them
+
+Refer to the following snippet for a sample output of `config=r/all` while logged in through `semgrep ci`:
 
 ```
 ┌─────────────┐
@@ -34,19 +40,24 @@ This command will pull out all available public, org private, and pro tiered rul
                                                                                                                         
   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 100% 0:02:31   
 ```
-The above example output is when you are running `--config=r/all` while logged in via `semgrep ci`. If you are not logged in you will just use the public rules within `r/all`.
 
-However there is one error that you should be wary about which is the following:
+If you are not logged in, `config=r/all` runs public rules only.
+
+## Troubleshooting invalid configuration file
+
+The following error may occur:
 
 ```
 [ERROR] invalid configuration file found (1 configs were invalid)
 ```
 
-This error may come up when running `r/all` if there is a current error within any of your custom/private rules.
+This error appears if there is a syntax or other error within any of your custom rules.
 
-To get around this you can use the following two commands as a workaround:
+Enter the following commands as a workaround:
 
 ```
 semgrep --config r/all . -d
 semgrep --config ~/.semgrep/semgrep_rules.json .
 ```
+
+The first command creates a cache of rules and creates a `semgrep_rules.json`. The second command then runs the rules.
