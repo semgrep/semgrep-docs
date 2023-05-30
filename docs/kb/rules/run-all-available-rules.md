@@ -53,9 +53,11 @@ The following error may occur:
 
 This error appears if there is a syntax or other error within any of your custom rules.
 
-Enter the following two commands as a workaround:
+Enter the following commands as a workaround:
 
 ```
 semgrep --config r/all . -d
 semgrep --config ~/.semgrep/semgrep_rules.json .
 ```
+
+The first command creates a cache of rules and creates a `semgrep_rules.json`. The second command then runs the rules.
