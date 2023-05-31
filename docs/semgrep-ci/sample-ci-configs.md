@@ -387,20 +387,16 @@ The following configuration creates a CI job that runs an SCA scan using Semgrep
 
 To add Semgrep into your CircleCI pipeline:
 
-1. Create or edit your `config.yml` configuration file in the repository you want to scan.
-2. Copy the relevant code snippet provided in [Sample CircleCI configuration snippet](#sample-circleci-configuration-snippet).
-3. Commit the updated `config.yml` configuration file into the `/.circleci` folder in the target repository.
-4. The Semgrep job starts automatically upon detecting the `config.yml` update.
-5. Optional: Create a separate CI job for diff-aware scanning, which scans only changed files in PRs or MRs, by repeating steps 1-3 and uncommenting the `SEMGREP_BASELINE_REF` definition provided in the code snippet.
-
-<!-- 
-
-Note: CircleCI snippet does NOT set the SEMGREP_APP_TOKEN in the config file.
-From CSE: 
-It gets set from in the UI in the repository settings and automatically 
-gets put into the pipeline at runtime.
-
--->
+1. Create a [context](https://circleci.com/docs/contexts/):
+    1. In CircleCI web app, click **Organization Settings** > **Contexts**. 
+    2. Click **Create Context**.
+    3. Enter `dev` as the name for the context.
+    4. Click **Add Environment Variable** and enter your `SEMGREP_APP_TOKEN`.
+2. Create or edit your `config.yml` configuration file in the repository you want to scan.
+3. Copy the relevant code snippet provided in [Sample CircleCI configuration snippet](#sample-circleci-configuration-snippet).
+4. Commit the updated `config.yml` configuration file into the `/.circleci` folder in the target repository.
+5. The Semgrep job starts automatically upon detecting the `config.yml` update.
+6. Optional: Create a separate CI job for diff-aware scanning, which scans only changed files in PRs or MRs, by repeating steps 1-3 and uncommenting the `SEMGREP_BASELINE_REF` definition provided in the code snippet.
 
 ### Sample CircleCI configuration snippet
 
@@ -437,9 +433,7 @@ The following configuration creates a CI job that runs an SCA scan using Semgrep
 <CircleCiSemgrepAppSsc /> 
 
 </TabItem>
-</Tabs>
-
-> Note: It is necessary to create a context ('dev' in the snippet) to declare the SEMGREP_APP_TOKEN environment variable. "Organization Settings" -> "Contexts" -> "Create Context" -> "Add Environment Variable". 
+</Tabs> 
 
 ## Azure Pipelines
 
