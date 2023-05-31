@@ -72,7 +72,7 @@ In your Slack workspace, create separate channels for either policies, repositor
 :::
 
 ![Message from Semgrep Slack app consolidating findings after a scan](/img/slack-findings-message.png#bordered "Message from Semgrep Slack app consolidating findings after a scan")
-_Figure 1_. A sample Slack message with Semgrep findings.
+**Figure** A sample Slack message with Semgrep findings.
 
 #### Removing notifications for findings in Slack
 

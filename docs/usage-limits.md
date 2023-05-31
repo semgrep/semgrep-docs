@@ -14,7 +14,7 @@ import MoreHelp from "/src/components/MoreHelp"
 This section describes usage limits.
 
 :::caution important dates
-* The Semgrep Community tier will be replaced with Team tier on May 23, 2023.
+* The Semgrep Community tier will be replaced with Team tier on June 6, 2023.
 * The new usage limits come into effect on July 31, 2023.
 :::
 
