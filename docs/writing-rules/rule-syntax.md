@@ -22,7 +22,7 @@ This document describes Semgrep’s YAML rule syntax.
 
 <RequiredRuleFields />
 
-#### Language extensions and language key values
+#### Language extensions and languages key values
 
 <LanguageExtensionsTags />
 
