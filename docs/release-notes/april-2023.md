@@ -138,7 +138,7 @@ This section of release notes includes upgrades of Semgrep OSS Engine for versio
 
 - New section [Semgrep add-on reconciliation of licenses](https://semgrep.dev/docs/semgrep-cloud-platform/pricing-and-billing/#semgrep-add-on-reconciliation-of-licenses) and [Example of license reconciliation](https://semgrep.dev/docs/semgrep-cloud-platform/pricing-and-billing/#example-of-license-reconciliation).
 - New section [Updating existing open-source rules in Semgrep Registry](/contributing/contributing-to-semgrep-rules-repository/#updating-existing-open-source-rules-in-semgrep-registry).
-- Added section [Creating interfile analysis rules](/semgrep-code/semgrep-pro-engine-intro/#creating-interfile-analysis-rules) and [Types of Semgrep Pro Engine analysis](/semgrep-code/semgrep-pro-engine-intro/#types-of-semgrep-pro-engine-analysis).
+- Added section [Creating cross-file analysis rules](/semgrep-code/semgrep-pro-engine-intro/#creating-cross-file-analysis-rules) and [Types of Semgrep Pro Engine analysis](/semgrep-code/semgrep-pro-engine-intro/#types-of-semgrep-pro-engine-analysis).
 - Added [Appendix: Token scopes](/semgrep-cloud-platform/user-management/#appendix-token-scopes).
 
 ### Changed
