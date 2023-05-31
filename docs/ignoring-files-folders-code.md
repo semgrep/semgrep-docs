@@ -6,7 +6,7 @@ description: "This documents various methods to skip or ignore files, folders, o
 ---
 
 import MoreHelp from "/src/components/MoreHelp"
-import IgnoreIndividualFindings from "/src/components/procedure/_ignore-individual-findings.mdx"
+import IgnoreIndividualFindingNoGrouping from "/src/components/procedure/_ignore-individual-finding-no-grouping.mdx"
 
 # Ignoring files, folders, or parts of code
 
@@ -106,9 +106,9 @@ To define files and folders in Semgrep Cloud Platform:
 
 Including files and folders through this method is **additive**. When Semgrep Cloud Platform makes a scan, it looks for a `.semgrepignore` within the repository. If no `.semgrepignore` file is found, Semgrep temporarily creates one and adds items from Semgrep Cloud Platform's Path Ignores. Adding items to the **Path Ignores** box does not override default Semgrep ignore patterns.
 
-You can also add files to `.semgrepignore` while triaging your findings by issuing the following steps:
+You can also add files to `.semgrepignore` while triaging individual findings in **No grouping** view on the Findings page:
 
-<IgnoreIndividualFindings />
+<IgnoreIndividualFindingNoGrouping />
 
 :::note
 Add files to `.semgrepignore` in the fifth step of the procedure described above. 

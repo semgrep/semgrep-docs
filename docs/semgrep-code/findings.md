@@ -14,7 +14,7 @@ tags:
 import MoreHelp from "/src/components/MoreHelp"
 import TriageStatuses from "/src/components/reference/_triage-states.mdx"
 import RemoveRuleset from "/src/components/procedure/_remove-ruleset.mdx"
-import IgnoreIndividualFindings from "/src/components/procedure/_ignore-individual-findings.mdx"
+import IgnoreIndividualFindingNoGrouping from "/src/components/procedure/_ignore-individual-finding-no-grouping.mdx"
 import DisplayTaintedDataIntro from "/src/components/concept/_semgrep-code-display-tainted-data.mdx"
 import DisplayTaintedDataProcedure from "/src/components/procedure/_semgrep-code-display-tainted-data.mdx"
 
@@ -176,9 +176,18 @@ To manage, change, open or ignore findings, follow the the triage processes desc
 
 #### Ignoring findings
 
-##### Ignoring multiple findings
+##### Ignoring findings in Group by Rule view
 
-To **ignore multiple findings**, follow these steps:
+To **ignore findings** in **Group by Rule** view, follow these steps:
+
+1. On the [Findings](https://semgrep.dev/orgs/-/findings?tab=open) page, click the **Status** filter, and then select **Open** status to see all open findings.
+1. 
+
+TODO
+
+##### Ignoring findings in No grouping view
+
+To **ignore multiple findings** in **No grouping** view, follow these steps:
 
 1. On the [Findings](https://semgrep.dev/orgs/-/findings?tab=open) page, click the **Status** filter, and then select **Open** status to see all open findings.
 1. Perform one of these steps:
@@ -189,21 +198,26 @@ To **ignore multiple findings**, follow these steps:
 1. Select **Ignored** from the dropdown menu.
 1. Click **Save**.
 
-##### Ignoring individual findings
+##### Ignoring individual findings in No grouping view
 
-To **ignore individual findings**, follow these steps:
+To **ignore individual finding** in **No grouping** view, follow these steps:
 
-<IgnoreIndividualFindings />
-
-:::note
-If you ignore all findings in **Just this file**, **This directory**, or **Parent directory** in the fifth step of the procedure above, these files or directories are added to `.semgrepignore` file. For more information, see [Ignoring files, folders, or parts of code](/ignoring-files-folders-code/).
-:::
+<IgnoreIndividualFindingNoGrouping />
 
 #### Reopening findings
 
-##### Reopening multiple findings
+##### Reopening findings in Group by Rule view
 
-To **open findings**, follow these steps:
+To **reopen findings** in **Group by Rule** view, follow these steps:
+
+1. On the [Findings](https://semgrep.dev/orgs/-/findings?tab=open) page, click the **Status** filter, and then select **Ignored** or **Fixed** status to see all ignored or fixed findings.
+1. 
+
+TODO 
+
+##### Reopening multiple findings in No grouping view
+
+To **open findings** in **No grouping** view, follow these steps:
 
 1. On the [Findings](https://semgrep.dev/orgs/-/findings?tab=open) page, click the **Status** filter, and then select **Ignored** or **Fixed** status to see all ignored or fixed findings.
 1. Perform one of these steps:
@@ -213,7 +227,7 @@ To **open findings**, follow these steps:
 1. In the **Triage state** dropdown menu, select **Reopened**.
 1. Click **Save**.
 
-##### Reopening individual findings
+##### Reopening individual findings in No grouping view
 
 To **open individual findings**, follow these steps:
 
