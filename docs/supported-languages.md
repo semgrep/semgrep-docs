@@ -310,17 +310,20 @@ Their differences are outlined in the following table:
 
 Semgrep Pro Engine supports the following languages:
 
-|                                       Language                                   |  Support level  |  Analysis type  |
-|----------------------------------------------------------------------------------|-----------------|-----------------|
-|  All GA supported languages listed in [Semgrep OSS Engine](#semgrep-oss-engine)  |        GA       | Cross-function |
-|                                         Apex                                     |   Experimental  | Cross-function |
-|                                          Go                                      |       Beta      |     Cross-file   |
-|                                         Java                                     |       Beta      |     Cross-file   |
-|                                      JavaScript                                  |       Beta      |     Cross-file   |
-|                                        Kotlin                                    |   Experimental  |     Cross-file   |
-|                                      TypeScript                                  |       Beta      |     Cross-file   |
+|                                       Language                                   |  Support level  |  Analysis type   |
+|----------------------------------------------------------------------------------|-----------------|------------------|
+| All GA supported languages listed in [Semgrep OSS Engine](#semgrep-oss-engine)   | GA              | Cross-function   |
+| Apex                                                                             | Experimental    | Cross-function   |
+| Go                                                                               | Beta            | Cross-file       |
+| Java                                                                             | Beta            | Cross-file       |
+| JavaScript                                                                       | Beta            | Cross-file       |
+| Kotlin                                                                           | Experimental    | Cross-file       |
+| TypeScript                                                                       | Beta            | Cross-file       |
 
-To install and run Semgrep Pro Engine, see [Semgrep Pro Engine overview](/semgrep-code/semgrep-pro-engine-intro/).
+:::info
+- To install and run Semgrep Pro Engine, see [Semgrep Pro Engine overview](/semgrep-code/semgrep-pro-engine-intro/) for more information.
+- All languages that have cross-file analysis support by default also provide cross-function analysis.
+:::
 
 ### Known limitations of Semgrep Pro Engine
 
