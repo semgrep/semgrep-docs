@@ -40,8 +40,6 @@ All Semgrep offerings can scan the following repository providers or SCMs (sourc
 * Bitbucket
 * Azure Repos
 
-All Semgrep offerings can be integrated into any CI.
-
 :::caution Important dates
 * **For Semgrep Team tier users:** Usage limits will be enforced after July 31, 2023. 
 :::
@@ -50,41 +48,44 @@ All Semgrep offerings can be integrated into any CI.
 
 The following tables provide an overview of Semgrep features and comparison between Semgrep OSS and Semgrep Team tier. 
 
-### 🔎 Core features
+### 🔎 Core scanning features
 
 The following tables describe Semgrep's essential scanning and findings management capabilities.
 
+#### SAST (Static Application Security Testing)
 | Feature | Semgrep OSS | Semgrep Team tier |
 | -------  | ------ | ----------- |
 | Single-file (intrafile) analysis  | ✔️   | ✔️  |
-| Cross-file (interfile) analysis  | ✔️ | ✔️   |
-| Taint analysis  | ❌ |  ✔️   |
-| Taint analysis  | ❌ |  ✔️   |
+| Cross-file (interfile) analysis  |  ❌  | ✔️   |
+| Single-file taint (dataflow) analysis  | ✔️  |  ✔️   |
+| Cross-file taint (dataflow) analysis  | ❌ |  ✔️   |
 
-#### SCA scanning
+#### SCA (Software composition analysis)
 | Feature | Semgrep OSS | Semgrep Team tier |
 | -------  | ------ | ----------- |
-| Reachability analysis | ❌ | ✔️  |
+| Reachability analysis for direct dependencies | ❌ | ✔️  |
 | License scanning | ❌ | ✔️  |
 | Dependency search | ❌ | ✔️  |
 
-#### Scan management
-| Feature  | Semgrep OSS | Semgrep Team tier |
-| -------  | ----------  | ----------------- |
-| Centralized findings management (triage, remediation, fine-tuning noisy rules) | ❌ | ✔️  |
-
-### 💬 Notifications and reports
+### 💬 Scan management and monitoring
 
 The following table displays various notification channels and reporting features.
 
 | Feature  | Semgrep OSS | Semgrep Team tier |
 | -------  | ----------  | ----------------- |
-| Slack | ❌ | ✔️  |
-| Email | ❌ | ✔️  |
-| Webhooks |  ❌ | ✔️  |
-| API | ❌ | ✔️  |
+| Centralized management of scan results (triage, remediation, fine-tuning noisy rules) | ❌ | ✔️  |
+| Notifications and reports (Slack, email, webhooks, and API) | ❌ | ✔️  |
+| Send scan results to GitLab SAST and GitHub Advanced Security | ❌ | ✔️  |
+| Findings dashboard | ❌ | ✔️  |
+| Findings retention | ❌ | 5 years |
 
 ### 🧰 Scan customization features
+
+The following table displays customization features and tools that enhance Semgrep's core scanning capabilities. These features can increase true-positive rate and provide deeper insights into remediation.
+
+| Feature  | Semgrep OSS | Semgrep Team tier |
+| -------  | ----------  | ----------------- |
+
 
 | Feature  | Semgrep OSS | Semgrep Team tier |
 | -------  | ----------  | ----------------- |
@@ -95,8 +96,6 @@ The following table displays various notification channels and reporting feature
 | Proprietary rule registry | ❌ | ✔️  |
 | Policy-based workflows | ❌ | ✔️  |
 | Rule-writing environment | ✔️ Playground | ✔️ Playground and Editor |
-| Findings retention | ❌ | ✔️ 5 years |
-| Findings dashboard | ❌ | ✔️ |
 
 ### 🤖 Developer tools
 
