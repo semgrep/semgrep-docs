@@ -26,44 +26,40 @@ Semgrep's various functionalities are available through several offerings:
 
 <dl>
 <dt>Semgrep OSS</dt>
-<dd>The OSS (open source software) tier includes Semgrep OSS Engine, a fast static analysis command line tool for finding bugs and and enforcing code standards. It is licensed under LGPL 2.1. </dd>
+<dd>The OSS (open source software) offering includes Semgrep OSS Engine, a fast static analysis command line tool for finding bugs and and enforcing code standards. It is licensed under LGPL 2.1. </dd>
 <dt>Semgrep Team tier</dt>
 <dd>The Team tier includes Semgrep Code and Semgrep Supply Chain (SSC), which enables users to scan both first-party and third-party open source dependencies. It also includes Semgrep Cloud Platform, a web app enabling users to manage users, organizations, repositories, and scans.</dd>
-<dt>Enterprise tier</dt>
+<dt>Semgrep Enterprise tier</dt>
 <dd>The Enterprise tier offers custom features and the highest levels of support in addition to all of the features in the Team tier.</dd>
 </dl>
 
-Semgrep is CI provider-agnostic for all tiers. All Semgrep offerings can scan the following repository providers or SCMs (source code managers):
+All Semgrep offerings can scan the following repository providers or SCMs (source code managers):
 
 * GitHub
 * GitLab
 * Bitbucket
 * Azure Repos
 
+All Semgrep offerings can be integrated into any CI.
+
 :::caution Important dates
-* **For Semgrep Team tier users:** Usage limits will be enforced after [Q3] 2023. 
+* **For Semgrep Team tier users:** Usage limits will be enforced after July 31, 2023. 
 :::
 
-## Semgrep OSS and Team tier
-
-Semgrep Team tier includes the following products:
-* Semgrep Code
-* Semgrep Supply Chain
-* Semgrep Cloud Platform
+## Semgrep OSS Engine and Team offerings
 
 The following tables provide an overview of Semgrep features and comparison between Semgrep OSS and Semgrep Team tier. 
 
-### 🔎 Core features 
+### 🔎 Core features
 
 The following tables describe Semgrep's essential scanning and findings management capabilities.
 
-#### SAST scanning
 | Feature | Semgrep OSS | Semgrep Team tier |
 | -------  | ------ | ----------- |
-| Intraprocedural and intrafile scanning | ✔️   | ✔️  |
-| Interprocedural and interfile scanning | ✔️ | ✔️   |
-| Taint analysis - Intrafile | ❌ |  ✔️   |
-| Taint analysis - Interfile | ❌ |  ✔️   |
+| Single-file (intrafile) analysis  | ✔️   | ✔️  |
+| Cross-file (interfile) analysis  | ✔️ | ✔️   |
+| Taint analysis  | ❌ |  ✔️   |
+| Taint analysis  | ❌ |  ✔️   |
 
 #### SCA scanning
 | Feature | Semgrep OSS | Semgrep Team tier |

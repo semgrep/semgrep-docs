@@ -31,14 +31,14 @@ Add users through your Single Sign On provider without any additional steps in S
 
 To set up SSO:
 
-1. In Semgrep Cloud Platform, click **Settings** > **[SSO](https://semgrep.dev/orgs/-/settings/sso)**, and then select **OpenID Connect / Oauth2**.
+1. In Semgrep Cloud Platform, click **Settings** > **Access** > **[SSO](https://semgrep.dev/orgs/-/settings/access/sso)**, and then select **Add OpenID SSO**.
 2. Copy the `Redirect URL`.
     ![Finding providerId and RedirectURL via the Semgrep Cloud Platform](/img/sso-redirect-url.png "Finding Provider ID and RedirectURI via the Semgrep Cloud Platform")
 3. Generate a `Client ID` and `Client Secret` through your authentication provider and paste them.
     ![Generating Client ID and Client Secret via the Okta](/img/sso-clientID-clientSecret.png "Generating Client ID and Client Secret through Okta")
 4. From your authentication provider, copy the values for `Base URL/Domain` and `Email Domain` to Semgrep's Configure SSO: OpenID tab. `Base URL/Domain` is `Okta domain` for Okta SSO.
 5. Provide a descriptive `Display Name`.
-    ![Providing the Base URL/Domain, Display Name, and Email Domain](/img/sso-providing-BaseURL-DisplayName-EmailDomain.png "Providing the Base URL/Domain, Display Name, and Email Domain")
+    ![Providing the Base URL/Domain, Display Name, and Email Domain](/img/sso-display-name.png "Providing the Base URL/Domain, Display Name, and Email Domain")
 
 In case you encounter issues during the setup process, please reach out to [support@semgrep.com](mailto:support@semgrep.com) for assistance.
 
@@ -50,16 +50,16 @@ To set up SSO:
 
 1. From your **authentication provider**, create the **SAML app**.
     ![Creating SAML app through Okta](/img/saml-creating-app.png "Creating SAML app through Okta")
-2. From the **App Dashboard**, click on **Settings > Configure SSO: SAML**.
-3. Copy the `Provider ID`, the `Single sign on URL`, and `Audience URI`. Paste the values as needed in your authentication provider.
-    ![Finding Provider ID, Single sign on URL, and Audience URI via the Semgrep Cloud Platform](/img/saml-finding-providerId-SsoURL-and-AudienceURI.png "Finding Provider ID, Single sign on URL, and Audience URI via the Semgrep Cloud Platform")
+2. From the **App Dashboard**, click on **Settings** > **Access** > **[SSO](https://semgrep.dev/orgs/-/settings/access/sso)**
+3. Copy the `Single sign on URL`, and `Audience URI`. Paste the values as needed in your authentication provider. The Provider ID value will be your organization's slug in **Settings** > **Deployment**,
+    ![Finding Single sign on URL, and Audience URI via the Semgrep Cloud Platform](/img/saml-copy-urls.png "Finding Single sign on URL, and Audience URI via the Semgrep Cloud Platform")
 4. From your authentication provider, add in two attribute statements `name` and `email`.
     ![Filling in attribute statements in Okta](/img/saml-attribute-statements.png "Filling in attribute statements through Okta")
 5. From your authentication provider, copy your `IdP SSO URL`, `IdP Issuer ID`, and `X509 Certificate` to Semgrep's Configure SSO: SAML tab.
     ![Finding IdP SSO URL, IdP Issuer ID, and X509 Certificate through Okta](/img/saml-copy-IdPSSO-IdPID-and-X509.png "Finding IdP SSO URL, IdP Issuer ID, and X509 Certificate through Okta")
     ![Filling in Idp SSO URL, Idp Issuer ID, and X509 Certificate on Semgrep](/img/saml-filling-IdpSSO-IdpID-X509.png "Filling in Idp SSO URL, Idp Issuer ID, and X509 Certificate on Semgrep")
 6. Provide a descriptive `Display Name`.
-    ![Providing the Base URL/Domain, Display Name, and Email Domain](/img/sso-providing-BaseURL-DisplayName-EmailDomain.png "Providing the Base URL/Domain, Display Name, and Email Domain")
+    ![Providing the Base URL/Domain, Display Name, and Email Domain](/img/sso-display-name.png "Providing the Base URL/Domain, Display Name, and Email Domain")
 
 If you encounter issues during the setup process, reach out to [support@semgrep.com](mailto:support@semgrep.com) for assistance.
 
@@ -104,7 +104,7 @@ You have now created a custom Enterprise App for Semgrep to integrate into Azure
 1. From your new Enterprise App's page, Click **Single-sign on** > **SAML** tile. This takes you to the **Set up Single Sign-On with SAML** page.
 ![Screenshot of your Enterprise App's page](/img/azure-select-sso.png#bordered)
 2. Under the **Basic SAML Configuration** form, click **Edit** to enter values for **Entity ID** and **Reply URL**. These values are retrieved from Semgrep Cloud Platform by performing the following steps:
-    1. Go to Semgrep Cloud Platform [Settings](https://semgrep.dev/orgs/-/settings/sso) page, and then click **SAML2** under **SSO Method** to display the SAML2 form.
+    1. Go to Semgrep Cloud Platform [Settings](https://semgrep.dev/orgs/-/settings/access/sso) page, and then click **Add SAML2 SSO** to display the SAML2 form.
     2. Copy the **Audience URL** value from Semgrep Cloud Platform, then in **Basic SAML Configuration**, under **Identifier (Entity ID)** click the **Add identifier** and paste in the URL.
     3. Copy the **SSO URL** value from Semgrep Cloud Platform, then in **Basic SAML Configuration**, under **Reply URL (Assertion Consumer Service URL)** click the **Add reply URL** and paste in the URL.
 3. In the **Basic SAML Configuration** form, click **Save**.
