@@ -66,6 +66,9 @@ Within the **Vulnerabilities** tab, you can determine reachable, true positives 
 * **Ignore the vulnerabilities. **Vulnerabilities that are **ignored** are false positives, acceptable risks, or deprioritized findings due to some factor, such as time.
 * **Remediate or resolve the vulnerability.** These vulnerabilities are true positives that are prioritized due to factors such as reachability and severity.
 
+
+### Assessment actions
+
 To assess your findings, Semgrep Supply Chain provides the following methods:
 
 <table>
@@ -98,6 +101,8 @@ To assess your findings, Semgrep Supply Chain provides the following methods:
    </td>
   </tr></tbody>
 </table>
+
+### Filters
 
 The following **filters** are provided:
 
@@ -133,6 +138,38 @@ The following **filters** are provided:
   </tbody>
 </table>
 
+#### Exposure filters
+
+The following **exposure filters** are provided:
+
+
+<table>
+  <thead><tr>
+   <th>Exposure filter</th>
+   <th>Description</th>
+  </tr></thead>
+  <tbody><tr>
+   <td>Reachable
+   </td>
+   <td>Semgrep detected that this finding uses the vulnerable piece of code of the dependency and vulnerable version of the dependency. Additionally, some vulnerabilities are are considered reachable because it can be exploited regardless of its usage in your codebase.
+   </td>
+  </tr>
+  <tr>
+   <td>Unreachable
+   </td>
+   <td>Semgrep determined that there is no usage of the vulnerability from the dependency into your codebase.
+   </td>
+  </tr>
+  <tr>
+   <td>Undetermined
+   </td>
+   <td>Semgrep does not scan for the reachability of this vulnerability.
+   </td>
+  </tr></tbody>
+</table>
+
+#### Status filters
+
 The following **status filters** are provided:
 
 <table>
@@ -164,6 +201,8 @@ The following **status filters** are provided:
    </td>
   </tr></tbody>
 </table>
+
+
 
 ## Remediating true positives
 
