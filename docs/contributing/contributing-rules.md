@@ -174,7 +174,7 @@ In addition to the fields mentioned above, rules submitted to Semgrep Registry h
 
 :::info
 - If you use category <code>security</code>, include additional metadata. See <a href="#including-fields-required-by-security-category"> Including fields required by security category</a>.
-- Semgrep Pro Engine rules that leverage interfile analysis also require `interfile: true` under `metadata` key in YAML rules. For more information, see [Creating interfile analysis rules](/semgrep-code/semgrep-pro-engine-intro/#creating-interfile-analysis-rules).
+- Semgrep Pro Engine rules that leverage cross-file analysis also require `interfile: true` under `metadata` key in YAML rules. For more information, see [Creating cross-file analysis rules](/semgrep-code/semgrep-pro-engine-intro/#creating-interfile-analysis-rules).
 :::
 
 ### Understanding rule namespacing

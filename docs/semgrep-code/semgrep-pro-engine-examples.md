@@ -21,11 +21,11 @@ The following resources can help you to test the code in the sections below. As 
         git clone https://github.com/returntocorp/semgrep-pro-tests
         ```
     - Follow the instructions in the sections of this document below. Generally:
-        - To run Semgrep Pro Engine with interfile analysis, run:
+        - To run Semgrep Pro Engine with cross-file analysis, run the following command:
             ```sh
             semgrep --pro --config=pro.yaml .
             ```
-        - To run Semgrep Pro Engine with interprocedural analysis, run:
+        - To run Semgrep Pro Engine with cross-function analysis, run the following command:
             ```sh
             semgrep --pro-intrafile --config=pro.yaml .
             ```
@@ -165,7 +165,7 @@ If you are following in the cloned [Semgrep Pro Engine testing repository](https
 
 ### Using class inheritance with typed metavariables
 
-Semgrep Pro Engine uses interfile class inheritance information when matching [typed metavariables](/writing-rules/pattern-syntax/#typed-metavariables). Continuing the example from the previous section, see the following example file, which has defined some exceptions and includes their logging:
+Semgrep Pro Engine uses cross-file class inheritance information when matching [typed metavariables](/writing-rules/pattern-syntax/#typed-metavariables). Continuing the example from the previous section, see the following example file, which has defined some exceptions and includes their logging:
 
 <iframe title="Semgrep example no prints" src="https://semgrep.dev/embed/editor?snippet=14bk" width="100%" height="432" frameborder="0"></iframe>
 

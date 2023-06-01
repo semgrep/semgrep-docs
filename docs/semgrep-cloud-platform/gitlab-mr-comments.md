@@ -95,7 +95,7 @@ To enable dataflow traces feature in your CI pipeline, fulfill the following pre
 
 :::info Prerequisites
 - Enable GitLab merge request Semgrep comments. For more details, see [Enabling GitLab merge request comments](#enabling-gitlab-merge-request-comments) section.
-- To see meaningful results of dataflow traces in MR comments, use Semgrep Pro Engine while scanning your repositories to see interfile results (results that show the path of data across multiple files). For more information, see [Semgrep Pro Engine overview](/semgrep-code/semgrep-pro-engine-intro/).
+- To see meaningful results of dataflow traces in MR comments, use Semgrep Pro Engine while scanning your repositories to see cross-file results (results that show the path of data across multiple files). For more information, see [Semgrep Pro Engine overview](/semgrep-code/semgrep-pro-engine-intro/).
 - Not all Semgrep rules or rulesets make use of taint tracking. Ensure that you have a ruleset, such as the **default ruleset** added in your **[Rule Board](https://semgrep.dev/orgs/-/board)**. If this ruleset is not added, go to [https://semgrep.dev/p/default](https://semgrep.dev/p/default), and then click **Add to Rule Board**. You can add rules that use taint tracking from [Semgrep Registry](https://semgrep.dev/explore).
 :::
 

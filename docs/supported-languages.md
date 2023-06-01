@@ -312,13 +312,13 @@ Semgrep Pro Engine supports the following languages:
 
 |                                       Language                                   |  Support level  |  Analysis type  |
 |----------------------------------------------------------------------------------|-----------------|-----------------|
-|  All GA supported languages listed in [Semgrep OSS Engine](#semgrep-oss-engine)  |        GA       | Interprocedural |
-|                                         Apex                                     |   Experimental  | Interprocedural |
-|                                          Go                                      |       Beta      |     Interfile   |
-|                                         Java                                     |       Beta      |     Interfile   |
-|                                      JavaScript                                  |       Beta      |     Interfile   |
-|                                        Kotlin                                    |   Experimental  |     Interfile   |
-|                                      TypeScript                                  |       Beta      |     Interfile   |
+|  All GA supported languages listed in [Semgrep OSS Engine](#semgrep-oss-engine)  |        GA       | Cross-function |
+|                                         Apex                                     |   Experimental  | Cross-function |
+|                                          Go                                      |       Beta      |     Cross-file   |
+|                                         Java                                     |       Beta      |     Cross-file   |
+|                                      JavaScript                                  |       Beta      |     Cross-file   |
+|                                        Kotlin                                    |   Experimental  |     Cross-file   |
+|                                      TypeScript                                  |       Beta      |     Cross-file   |
 
 To install and run Semgrep Pro Engine, see [Semgrep Pro Engine overview](/semgrep-code/semgrep-pro-engine-intro/).
 

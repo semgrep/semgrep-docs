@@ -47,7 +47,7 @@ These release notes include upgrades for versions ranging between 1.8.0 and 1.13
 - Experimental support for Apex language is now available in Semgrep Pro Engine.
 - The following already **deprecated** flags have been completely removed and substituted:
     - `-deep` has been removed and substituted by `-pro`.
-    - `-interfile` has been removed and substituted by `-pro`.
+    - `-cross-file` has been removed and substituted by `-pro`.
     - `-interproc` has been removed and substituted by `-pro-intrafile`.
 - Removed already **deprecated** command:
 `install-deep-semgrep` has been removed and substituted by `install-semgrep-pro`.

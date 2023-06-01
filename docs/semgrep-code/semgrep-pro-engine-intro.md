@@ -144,9 +144,9 @@ To enable Semgrep Pro Engine in the Semgrep Cloud Platform, follow these steps:
 To test Semgrep Pro Engine on a purposefully vulnerable repository, fork the [juice-shop](https://github.com/juice-shop/juice-shop) repository, and then add it to SCP by following the steps described in section [Adding or onboarding a new project (repository)](/semgrep-code/getting-started/#adding-or-onboarding-a-new-project-repository).
 :::
 
-### Creating interfile analysis rules
+### Creating cross-file analysis rules
 
-Interfile analysis rules you use in Semgrep Pro Engine require the `interfile: true` key included under the rule `metadata` key. See the following [example](https://semgrep.dev/s/3NZb). This key signals Semgrep Pro Engine to use the rule for interfile analysis.
+Cross-file analysis rules you use in Semgrep Pro Engine require the `interfile: true` key included under the rule `metadata` key. See the following [example](https://semgrep.dev/s/3NZb). This key signals Semgrep Pro Engine to use the rule for cross-file analysis.
 
 Example of `interfile: true` key:
 ```yaml
@@ -167,10 +167,10 @@ rules:
 ### Types of Semgrep Pro Engine analysis  
 
 <dl>
-    <dt>Interfile analysis</dt>
-    <dd>The interfile analysis gathers context across multiple files to help security engineers deeply understand their organization's security issues. Semgrep Pro Engine reduces noise and detects new vulnerabilities that Semgrep OSS Engine can't find. Interfile analysis runs on nightly scans. These scans may take longer to complete and can use more memory than Semgrep OSS Engine scans. See the available languages for interfile analysis in <a href="/docs/supported-languages/#semgrep-pro-engine">Semgrep Pro Engine supported languages</a>.</dd>
-    <dt>Interprocedural analysis</dt>
-    <dd>Interprocedural analysis keeps the fast scan times of Semgrep OSS Engine while also finding new vulnerabilities that cross functions within a single file. Interprocedural analysis improves results in pull requests (PRs) or merge requests (MRs) through CI scans. The interprocedural analysis is available for all languages listed as GA on the <a href="/docs/supported-languages/">Supported languages</a> page</dd>
+    <dt>Cross-file analysis</dt>
+    <dd>The cross-file analysis gathers context across multiple files to help security engineers deeply understand their organization's security issues. This type of analysis is also called interfile analysis. Semgrep Pro Engine reduces noise and detects new vulnerabilities that Semgrep OSS Engine can't find. Cross-file analysis runs on nightly scans. These scans may take longer to complete and can use more memory than Semgrep OSS Engine scans. See the available languages for cross-file analysis in <a href="/docs/supported-languages/#semgrep-pro-engine">Semgrep Pro Engine supported languages</a>.</dd>
+    <dt>Cross-function analysis</dt>
+    <dd>Cross-function analysis keeps the fast scan times of Semgrep OSS Engine while also finding new vulnerabilities that cross functions within a single file. This type of analysis is also called interprocedural analysis. Cross-function analysis improves results in pull requests (PRs) or merge requests (MRs) through CI scans. The cross-function analysis is available for all languages listed as GA on the <a href="/docs/supported-languages/">Supported languages</a> page</dd>
 </dl>
 
 ### Semgrep Pro Engine CI scans
@@ -194,7 +194,7 @@ If many repositories cause scan issues:
 
 ### Difference between Semgrep Pro Engine and join mode
 
-Semgrep Pro Engine is different from [join mode](/writing-rules/experiments/join-mode/overview/), which also allows you to perform interfile analyses by letting you join on the metavariable matches in separate rules. Join mode is an experimental feature which is not actively developed or maintained. You may encounter many issues while using join mode.
+Semgrep Pro Engine is different from [join mode](/writing-rules/experiments/join-mode/overview/), which also allows you to perform cross-file analyses by letting you join on the metavariable matches in separate rules. Join mode is an experimental feature which is not actively developed or maintained. You may encounter many issues while using join mode.
 
 ### Feedback for Semgrep Pro Engine
 
