@@ -5,34 +5,52 @@ or by default) uncomment the following two lines and closing tag below the table
 <!-- <details> -->
 <!-- <summary>Expand table of extensions and tags</summary> -->
 
-| Language   | Extensions             | Tags                                 |
-|:-----------|:-----------------------|:-------------------------------------|
-| Bash       | `.sh`                  | `bash`                               |
-| C          | `.c`                   | `c`                                  |
-| C++        | `.cpp`, `.h`           | `cpp`                                |
-| C#         | `.cs`                  | `csharp`, `cs`, `C#`                 |
-| Generic    |                        | `generic`                            |
-| Go         | `.go`                  | `go`, `golang`                       |
-| Hack       | `.h`, `.hack`          | `hack`                               |
-| HTML       | `.htm`, `.html`        | `html`                               |
-| Java       | `.java`                | `java`                               |
-| JavaScript | `.js`, `.jsx`          | `js`, `jsx`, `javascript`            |
-| JSON       | `.json`                | `json`, `JSON`, `Json`               |
-| JSX        | `.js`, `.jsx`          | `js`, `jsx`, `javascript`            |
-| Kotlin     |  `.kt`, `.kts`, `.ktm` | `kotlin`                             |
-| Lua        | `.lua`                 | `lua`                                |
-| OCaml      | `.ml`, `.mli`          | `ocaml`, `ml`                        |
-| PHP        | `.php`                 | `php`                                |
-| Python     | `.py`, `.pyi`          | `python`, `python2`, `python3`, `py` |
-| R          | `.r`, `.rda`, `rds`    | `r`                                  |
-| Ruby       | `.rb`                  | `ruby`, `rb`                         |
-| Rust       | `.rs`                  | `rust`, `Rust`, `rs`                 |
-| Scala      | `.scala`, `.sc`        | `scala`                              |
-| Solidity   | `.sol`                 | `solidity`                           |
-| Terraform  | `.tf`                  | `hcl`                                |
-| TypeScript | `.ts`, `.tsx`          | `ts`, `tsx`, `typescript`            |
-| TSX        | `.ts`, `.tsx`          | `ts`, `tsx`, `typescript`            |
-| YAML       | `.yaml`                | `yaml`                               |
+The following table includes languages supported by Semgrep, accepted file extensions for test files that accompany rules, and valid values that Semgrep rules require in the `languages` key.
+
+| Language                            | Extensions                           | `languages` key values                |
+|:------------------------------------|:-------------------------------------|:--------------------------------------|
+| Apex (only in Semgrep Pro Engine)   | `.cls`                               | `apex`                                | 
+| Bash                                | `.bash`, `.sh`                       | `bash`, `sh`                          |
+| C                                   | `.c`                                 | `c`                                   |
+| Clojure                             | `.clj`, `.cljs`, `.cljc`, `.edn`     | `clojure`                             |
+| C++                                 | `.cc`, `.cpp`                        | `cpp`, `c++`                          |
+| C#                                  | `.cs`                                | `csharp`, `c#`                        |
+| Dart                                | `.dart`                              | `dart`                                |
+| Dockerfile                          | `.dockerfile`, `.Dockerfile`         | `dockerfile`, `docker`                |
+| Elixir                              | `.ex`, `.exs`                        | `ex`, `elixir`                        |
+| Generic                             |                                      | `generic`                             |
+| Go                                  | `.go`                                | `go`, `golang`                        |
+| HTML                                | `.htm`, `.html`                      | `html`                                |
+| Java                                | `.java`                              | `java`                                |
+| JavaScript                          | `.js`, `.jsx`                        | `js`, `javascript`                    |
+| JSON                                | `.json`, `.ipynb`                    | `json`                                |
+| Jsonnet                             | `.jsonnet`, `.libsonnet`             | `jsonnet`                             |
+| JSX                                 | `.js`, `.jsx`                        | `js`, `javascript`                    |
+| Julia                               | `.jl`                                | `julia`                               |
+| Kotlin                              |  `.kt`, `.kts`, `.ktm`               | `kt`, `kotlin`                        |
+| Lisp                                | `.lisp`, `.cl`, `.el`                | `lisp`                                |
+| Lua                                 | `.lua`                               | `lua`                                 |
+| OCaml                               | `.ml`, `.mli`                        | `ocaml`                               |
+| PHP                                 | `.php`, `.tpl`                       | `php`                                 |
+| Python                              | `.py`, `.pyi`                        | `python`, `python2`, `python3`, `py`  |
+| R                                   | `.r`, `.R`                           | `r`                                   |
+| Ruby                                | `.rb`                                | `ruby`                                |
+| Rust                                | `.rs`                                | `rust`                                |
+| Scala                               | `.scala`                             | `scala`                               |
+| Scheme                              | `.scm`, `.ss`                        | `scheme`                              |
+| Solidity                            | `.sol`                               | `solidity`, `sol`                     |
+| Swift                               | `.swift`                             | `swift`                               |
+| Terraform                           | `.tf`, `.hcl`                        | `tf`, `hcl`, `terraform`              |
+| TypeScript                          | `.ts`, `.tsx`                        | `ts`, `typescript`                    |
+| TSX                                 | `.ts`, `.tsx`                        | `ts`, `typescript`                    |
+| YAML                                | `.yml`, `.yaml`                      | `yaml`                                |
+| XML                                 |  `.xml`                              | `xml`                                 |
+
+:::info
+To see the maturity level of each supported language, see the following sections in [Supported languages](/supported-languages/) document:
+- [Semgrep OSS Engine](/supported-languages/#semgrep-oss-engine)
+- [Semgrep Pro Engine](/supported-languages/#semgrep-pro-engine)
+:::
 
 <!-- </details> -->
 
