@@ -51,15 +51,14 @@ The following tables provide an overview of Semgrep features and comparison betw
 ### 🔎 Core scanning features
 
 The following tables describe Semgrep's essential scanning and findings management capabilities.
-
 #### SAST (Static Application Security Testing)
 
 | Feature | Semgrep OSS | Semgrep Team tier |
 | -------  | ------ | ----------- |
-| Single-file (intrafile) analysis  | ✔️   | ✔️  |
-| Cross-file (interfile) analysis  |  ❌  | ✔️   |
-| Single-file taint (dataflow) analysis  | ✔️  |  ✔️   |
-| Cross-file taint (dataflow) analysis  | ❌ |  ✔️   |
+| Intrafile (single-file) analysis  | ✔️   | ✔️  |
+| Interfile (across multiple files or cross-file) analysis  |  ❌  | ✔️   |
+| [Single-file taint](/writing-rules/data-flow/data-flow-overview/) (dataflow) analysis  | ✔️  |  ✔️   |
+| [Cross-file taint](/semgrep-code/semgrep-pro-engine-intro/) (dataflow) analysis  | ❌ |  ✔️   |
 
 #### SCA (Software composition analysis)
 
@@ -67,7 +66,7 @@ The following tables describe Semgrep's essential scanning and findings manageme
 | -------  | ------ | ----------- |
 | Reachability analysis for direct dependencies | ❌ | ✔️  |
 | License scanning | ❌ | ✔️  |
-| Dependency search | ❌ | ✔️  |
+| [Dependency search](semgrep-supply-chain/dependency-search) | ❌ | ✔️  |
 
 ### 💬 Scan management and monitoring
 
@@ -75,10 +74,10 @@ The following table displays various notification channels and reporting feature
 
 | Feature  | Semgrep OSS | Semgrep Team tier |
 | -------  | ----------  | ----------------- |
-| Centralized management of scan results (triage, remediation, fine-tuning noisy rules) | ❌ | ✔️  |
-| Notifications and reports (Slack, email, webhooks, and API) | ❌ | ✔️  |
+| [Centralized management of scan results (triage, remediation, fine-tuning noisy rules)](semgrep-cloud-platform/rule-board) | ❌ | ✔️  |
+| [Notifications and reports (Slack, email, webhooks, and API)](/semgrep-cloud-platform/notifications/) | ❌ | ✔️  |
 | Send scan results to GitLab SAST and GitHub Advanced Security | ❌ | ✔️  |
-| Findings dashboard | ❌ | ✔️  |
+| [Findings dashboard](/semgrep-cloud-platform/dashboard/) | ❌ | ✔️  |
 | Findings retention | ❌ | 5 years |
 
 ### 🧰 Scan customization features
@@ -89,9 +88,9 @@ The following table displays customization features and tools that enhance Semgr
 | -------  | ----------  | ----------------- |
 | Write your own rules | ✔️  | ✔️  |
 | Private rules* | n/a | ✔️  |
-| Community-contributed rule registry | ✔️  | ✔️  |
+| [Community-contributed rule registry](https://semgrep.dev/r) | ✔️  | ✔️  |
 | Proprietary rule registry |❌ | ✔️  |
-| Policy-based workflows† |❌ | ✔️  |
+| [Policy-based workflows†](/semgrep-code/rule-board/) |❌ | ✔️  |
 | Rule-writing environment | ✔️  [Playground](https://semgrep.dev/playground) | ✔️ Playground and Editor for logged-in users |
 *Private rules refer to rules that are guaranteed a private access scope in the cloud. This scope of access does not apply to Semgrep OSS, as it is purely CLI-based.<br />
 † Policy-based workflows provide security teams a means to block merges, leave PR/MR comments, or silently monitor for potential issues based on the presence of a finding. 
@@ -113,9 +112,9 @@ The following table lists tools to enable developers to resolve their own code.
 
 | Feature  | Semgrep OSS | Semgrep Team tier |
 | -------  | ----------  | ----------------- |
-| Role-based access control (RBAC) | ❌ | ✔️  |
-| Personal and organizational accounts |  ❌ | ✔️  |
-| SSO, OpenID, or OAuth2 authentication |  ❌ | ✔️  |
+| [Role-based access control (RBAC)](/semgrep-cloud-platform/user-management/#controlling-access-through-roles) | ❌ | ✔️  |
+| [Personal and organizational accounts](/semgrep-cloud-platform/user-management/) |  ❌ | ✔️  |
+| [SSO, OpenID, or OAuth2 authentication](/semgrep-cloud-platform/sso/) |  ❌ | ✔️  |
 
 ## Determining your plan needs
 
