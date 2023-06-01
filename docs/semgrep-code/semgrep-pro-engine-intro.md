@@ -177,7 +177,7 @@ rules:
 
 By default, when you use Semgrep Pro Engine in CI:
 
-- PR and MR scans (TODO CHECK WHERE THIS IS DESCRIBED IN CI DOCS AND LINK scans triggered by opening a new PR or MR, or when a new changes are introduced in the PR and MR) use cross-function analysis, limited to single files. This is a fast scan, that crosses the boundaries of single function across a whole file.
+- PR and MR scans (triggered by opening a new PR or MR, or when a new changes are introduced to a PR or MR) use cross-function analysis, limited to single files. This is a fast scan, that crosses the boundaries of single function across a whole file.
 - Full scans, also called scheduled cron job or nightly scans use cross-file and cross-function analysis. This type of scan finds complex vulnerabilities that cross the boundaries of single files and functions, providing security teams with deeper analysis.
 
 #### Semgrep Pro Engine CI scan issues
