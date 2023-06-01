@@ -53,7 +53,7 @@ Open3.pipeline("zcat #{user_input}", "nroff -man", "colcrt")
 #### Mitigation
 
 - Do not pass user input to `Open3` methods.
-- Always try to use internal Ruby API (if it exists) instead of running an OS command. Use internal language features instead of invoking commands that can be exploited.
+- Always try to use the internal Ruby API (if it exists) instead of running an OS command. Use internal language features instead of invoking commands that can be exploited.
 - Don't pass user-controlled input or use an allowlist for inputs.
 - Do not include command arguments in a command string, use parameterization instead. For example:<br />
 
@@ -75,7 +75,7 @@ Open3.pipeline("zcat #{user_input}", "nroff -man", "colcrt")
 
 ### 1.B. open() function
 
-The `open(...)` creates an input/output (I/O) object connected to a stream, file, or subprocess. If the first argument starts with a pipe character (`|`), it creates a subprocess. An opportunity for a command injection vulnerability is created when the subprocess includes user input in a command argument to `open()` function.
+The `open(...)` function creates an input/output (I/O) object connected to a stream, file, or subprocess. If the first argument starts with a pipe character (`|`), it creates a subprocess. An opportunity for a command injection vulnerability is created when the subprocess includes user input in a command argument to `open()` function.
 
 Example:
 
@@ -94,8 +94,8 @@ open(user_input)
 
 #### Mitigation
 
-- Do not provide raw user input to `open()` function.
-- Always try to use internal Ruby API (if it exists) instead of running an OS command. Use internal language features instead of invoking commands that can be exploited.
+- Do not provide raw user input to the `open()` function.
+- Always try to use the internal Ruby API (if it exists) instead of running an OS command. Use internal language features instead of invoking commands that can be exploited.
 - If the use of user input is unavoidable, create an allowlist for inputs, such as allowed command arguments.
 - Strip everything except alphanumeric characters from an input provided for the command string and arguments.
 
@@ -105,7 +105,7 @@ open(user_input)
 
 ### 1.C. system() function
 
-The `system()` executes OS commands in a subshell. This might potentially lead to a command injection vulnerability when used with user input. A malicious actor can potentially run OS commands to exploit the system.
+The `system()` function executes OS commands in a subshell. This might potentially lead to a command injection vulnerability when used with user input. A malicious actor can potentially run OS commands to exploit the system.
 
 Example:
 
@@ -124,8 +124,8 @@ system("ls #{user_input}")
 
 #### Mitigation
 
-- Do not provide raw user input to `system()` function.
-- Always try to use internal Ruby API (if it exists) instead of running an OS command. Use internal language features instead of invoking commands that can be exploited.
+- Do not provide raw user input to the `system()` function.
+- Always try to use the internal Ruby API (if it exists) instead of running an OS command. Use internal language features instead of invoking commands that can be exploited.
 - If the use of user input is unavoidable, create an allowlist for inputs, such as allowed arguments.
 - Strip everything except alphanumeric characters from an input provided for the command string and arguments.
 
@@ -135,7 +135,7 @@ system("ls #{user_input}")
 
 ### 1.D. exec() function
 
-The `exec()` executes OS commands. This might potentially lead to a command injection vulnerability when used with user input. A malicious actor can potentially run OS commands to exploit the system.
+The `exec()` function executes OS commands. This might potentially lead to a command injection vulnerability when used with user input. A malicious actor can potentially run OS commands to exploit the system.
 
 Example:
 
@@ -154,8 +154,8 @@ exec("ls #{user_input}")
 
 #### Mitigation
 
-- Do not provide raw user input to `exec()` function.
-- Always try to use internal Ruby API (if it exists) instead of running an OS command. Use internal language features instead of invoking commands that can be exploited.
+- Do not provide raw user input to the `exec()` function.
+- Always try to use the internal Ruby API (if it exists) instead of running an OS command. Use internal language features instead of invoking commands that can be exploited.
 - If the use of user input is unavoidable, create an allowlist for inputs, such as allowed arguments.
 - Strip everything except alphanumeric characters from an input provided for the command string and arguments.
 
@@ -186,8 +186,8 @@ Process.wait pid
 
 #### Mitigation
 
-- Do not provide raw user input to `spawn()` function.
-- Always try to use internal Ruby API (if it exists) instead of running an OS command. Use internal language features instead of invoking commands that can be exploited.
+- Do not provide raw user input to the `spawn()` function.
+- Always try to use the internal Ruby API (if it exists) instead of running an OS command. Use internal language features instead of invoking commands that can be exploited.
 - If the use of user input is unavoidable, create an allowlist for inputs, such as allowed arguments.
 - Strip everything except alphanumeric characters from an input provided for the command string and arguments.
 
@@ -234,7 +234,7 @@ user_input = ' && cat /etc/passwd' # Value supplied by user
 #### Mitigation
 
 - Do not provide raw user input to ``` `` ``` or `%x` methods.
-- Always try to use internal Ruby API (if it exists) instead of running an OS command. Use internal language features instead of invoking commands that can be exploited.
+- Always try to use the internal Ruby API (if it exists) instead of running an OS command. Use internal language features instead of invoking commands that can be exploited.
 - If the use of user input is unavoidable, create an allowlist for inputs, such as allowed arguments.
 - Strip everything except alphanumeric characters from an input provided for the command string and arguments.
 
@@ -307,7 +307,7 @@ stdout,stdin,pid = PTY.spawn("ls #{user_input}")
 #### Mitigation
 
 - Do not provide raw user input to `PTY.spawn` methods.
-- Always try to use internal Ruby API (if it exists) instead of running an OS command. Use internal language features instead of invoking commands that can be exploited.
+- Always try to use the internal Ruby API (if it exists) instead of running an OS command. Use internal language features instead of invoking commands that can be exploited.
 - If the use of user input is unavoidable, create an allowlist for inputs, such as allowed arguments.
 - Strip everything except alphanumeric characters from an input provided for the command string and arguments.
 
