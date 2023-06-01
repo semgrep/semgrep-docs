@@ -53,6 +53,7 @@ The following tables provide an overview of Semgrep features and comparison betw
 The following tables describe Semgrep's essential scanning and findings management capabilities.
 
 #### SAST (Static Application Security Testing)
+
 | Feature | Semgrep OSS | Semgrep Team tier |
 | -------  | ------ | ----------- |
 | Single-file (intrafile) analysis  | ✔️   | ✔️  |
@@ -61,6 +62,7 @@ The following tables describe Semgrep's essential scanning and findings manageme
 | Cross-file taint (dataflow) analysis  | ❌ |  ✔️   |
 
 #### SCA (Software composition analysis)
+
 | Feature | Semgrep OSS | Semgrep Team tier |
 | -------  | ------ | ----------- |
 | Reachability analysis for direct dependencies | ❌ | ✔️  |
@@ -85,73 +87,35 @@ The following table displays customization features and tools that enhance Semgr
 
 | Feature  | Semgrep OSS | Semgrep Team tier |
 | -------  | ----------  | ----------------- |
+| Write your own rules | ✔️  | ✔️  |
+| Private rules* | n/a | ✔️  |
+| Community-contributed rule registry | ✔️  | ✔️  |
+| Proprietary rule registry |❌ | ✔️  |
+| Policy-based workflows† |❌ | ✔️  |
+| Rule-writing environment | ✔️  [Playground](https://semgrep.dev/playground) | ✔️ Playground and Editor for logged-in users |
+*Private rules refer to rules that are guaranteed a private access scope in the cloud. This scope of access does not apply to Semgrep OSS, as it is purely CLI-based.<br />
+† Policy-based workflows provide security teams a means to block merges, leave PR/MR comments, or silently monitor for potential issues based on the presence of a finding. 
 
+### 🤖 Developer experience
 
-| Feature  | Semgrep OSS | Semgrep Team tier |
-| -------  | ----------  | ----------------- |
-| Custom rules | ✔️  | ✔️  |
-| Private rules | ✔️  | ✔️  |
-| Custom rule messages |  ✔️  | ✔️  |
-| Community rule registry |  ✔️  | ✔️  |
-| Proprietary rule registry | ❌ | ✔️  |
-| Policy-based workflows | ❌ | ✔️  |
-| Rule-writing environment | ✔️ Playground | ✔️ Playground and Editor |
-
-### 🤖 Developer tools
-
-| Feature  | Semgrep OSS | Semgrep Team tier |
-| -------  | ----------  | ----------------- |
-| VSCode extension | ✔️  | ✔️  | 
-| Autofix | ✔️  | ✔️  |
-| Autofix in PR/MR comments | ❌ | ✔️ |
-| Autofix AI | ❌ | ✔️  |
-| `pre-commit` | ✔️  | ✔️   |
-
-
-### 🔐 Authentication features
+The following table lists tools to enable developers to resolve their own code.
 
 | Feature  | Semgrep OSS | Semgrep Team tier |
 | -------  | ----------  | ----------------- |
-| GitHub SSO | ❌ | ✔️  |
-| GitLab SSO | ❌ | ✔️  | 
-| SAML SSO | ❌ | ✔️  |
-| OpenID / OAuth2 | ❌ | ✔️  |
+| VSCode extension | ✔️  | ✔️  |
+| Autofix  | ✔️  | ✔️  |
+| Autofix in PR/MR comments |❌ | ✔️  |
+| Autofix AI |❌ |✔️  |
+| `pre-commit`‡ | ✔️  | ✔️  |
+‡`pre-commit` requires some manual set-up.
 
 ### 🏢 User and organization management
 
 | Feature  | Semgrep OSS | Semgrep Team tier |
 | -------  | ----------  | ----------------- |
 | Role-based access control (RBAC) | ❌ | ✔️  |
-| Personal accounts |  ❌ | ✔️  |
-| Organization accounts |  ❌ | ✔️  |
-
-### 🛠️ CI provider automation
-
-| Feature  | Semgrep OSS | Semgrep Team tier |
-| -------  | ----------  | ----------------- |
-| GitHub Actions |
-| GitLab CI/CD |
-| Jenkins |
-| Bitbucket Pipelines |
-| CircleCI |
-| Azure Pipelines |
-| Other CI providers |
-
-
-### 💻 Support
-
-| Feature                                 | Semgrep OSS     | Semgrep Code Community | Semgrep Code Team     |
-| ------- | --------- | ------- | -------- |
-| **Slack support**                       | Community Slack | Community Slack        | Private Slack channel |
-| **Semgrep support portal**              | n/a             | ❌ no                  | ✔️ yes                |
-| **Customer success manager**            | n/a             | ❌ no                  | ❌ no                 |
-| **Dedicated and customized onboarding** | n/a             | ❌ no                  | ❌ no                 |
-
-Notes:
-
-* Email, phone, and chat support is available 8 hours a day, 5 days a week.
-* Request support and track the status of your tickets through the [Semgrep Support Portal](https://support.semgrep.dev/hc/en-us) at any time.
-* **Dedicated customer success manager** and **custom onboarding** are available for Enterprise tier users.
+| Personal and organizational accounts |  ❌ | ✔️  |
+| SSO, OpenID, or OAuth2 authentication |  ❌ | ✔️  |
 
 ## Determining your plan needs
 
