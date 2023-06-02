@@ -59,11 +59,12 @@ pipeline {
 }
 `````
 
-Rolling out Semgrep in your organization, you have replicated this pipeline to the hundreds of projects you have in your company. After that, your manager asks you to generate json reports after every semgrep scan to dump results in DefectDojo. It means adding some flags:
+When rolling out Semgrep in your organization, you need to replicate this pipeline to the hundreds of projects you have in your company. 
+After some days, you got it, but then your manager asks you to generate json reports after every semgrep scan to dump results in DefectDojo. It means adding some flags to the semgrep command:
 `````
 semgrep ci --json --output output.json
 `````
-To the hundreds of repositories you have! It will take you time!
+But it must do in all the repositories you have! It will take you time!
 
 ## Creating a shared library
 Jenkins shared library comes to the rescue. Basically, you encapsulate the semgrep commands in a common library.
@@ -112,7 +113,7 @@ pipeline {
   }
 }
 `````
-Note that line 1 must have the name of the shared library, and the function invoked (semgrepFullScan) must have the name of the groovy file created before semgrepFullScan.groovy
+Note that line 1 must have the name of the shared library, and the function invoked (semgrepFullScan) must have the name of the groovy file created before -> semgrepFullScan.groovy
 
 ## Conclusions
-Using Jenkins Shared Library can simplify your pipelines and avoid code duplications along with all your projects. And if you need to change the snippet, for example, adding some flags, it will take some seconds because the change is only in one single and centralised place.
+Using Jenkins Shared Library can simplify your pipelines and avoid code duplications along with all your projects. And if you need to change the snippet, for example, adding some flags, it will take you some seconds because the change is only in one single and centralised place.
