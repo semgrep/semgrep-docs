@@ -11,7 +11,7 @@ This README gives an overview of the repository. For further information on buil
 
 ## File structure
 
-Semgrep consists of a Python wrapper (`semgrep-cli`) around an OCaml engine (`semgrep-core`) which performs the core parsing/matching work. Within `semgrep-core`, there are two sources of parsers, [`pfff`](https://github.com/returntocorp/pfff), linked as a submodule, and `tree-sitter-lang`, built using [tree-sitter](https://github.com/tree-sitter/tree-sitter). Additionally, `semgrep-core` contains a subengine, `spacegrep`, for generic matching.
+Semgrep consists of a Python wrapper (`semgrep-cli`) around an OCaml engine (`semgrep-core`) which performs the core parsing/matching work. Within `semgrep-core`, there are two sources of parsers, `pfff` and `tree-sitter-lang` using [tree-sitter](https://github.com/tree-sitter/tree-sitter). Additionally, `semgrep-core` contains a subengine, `spacegrep`, for generic matching.
 
 You may also be interested in `perf`, which contains our code for running repositories against specific rulesets.
 
@@ -23,17 +23,21 @@ There are many other files, but the below diagram broadly displays the file stru
 │   └── src/
 │       └── semgrep/
 │ 
-├── semgrep-core/  (OCaml engine for matching)
-│   └── src/
-│       │── pfff/ [submodule](https://github.com/returntocorp/pfff)
-│       │── tree-sitter-lang/
-│       └── spacegrep/  (Generic matching)
-│           └── src/
-│ 
+├── src/  (semgrep-core)
+│   │── analyzing/  (Dataflow analysis)
+│   │── core_cli/  (Entrypoint for semgrep-core)
+│   └── matching/  (Matching engine)
+│
+├── languages/  (Language parsers)
+│
+├── libs/  (Library components)
+│   │── ast_generic/  (Generic AST)
+│   └── spacegrep/  (Generic matching)
+│
 └── perf/  (Performance benchmarking)
 ```
 
-Most of Semgrep's logic is in `cli/src` and `semgrep-core/src`. 
+Most of Semgrep's logic is in `cli/src` and `src`.
 
 ## Code relationship
 
