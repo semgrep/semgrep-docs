@@ -64,7 +64,7 @@ After some days, you got it, but then your manager asks you to generate json rep
 `````
 semgrep ci --json --output output.json
 `````
-But it must do in all the repositories you have! It will take you time!
+But it must be done in all the repositories you have! It will take you time!
 
 ## Creating a shared library
 Jenkins shared library comes to the rescue. Basically, you encapsulate the semgrep commands in a common library.
