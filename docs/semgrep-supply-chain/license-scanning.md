@@ -25,7 +25,7 @@ To view a package's license:
 1. [Sign in to Semgrep Cloud Platform](https://semgrep.dev/login).
 2. Click **[Supply Chain](https://semgrep.dev/orgs/-/supply-chain)** > **Dependencies**. By default licenses are listed in the row of their respective package.
 3. If you don't see any licenses:
-    1. Click the Supply Chain **Settings** on the top menu. These settings are specific to Semgrep Supply Chain.
+    1. Click the Supply Chain **Settings** on the header menu. These settings are specific to Semgrep Supply Chain.
     2. Click **Dependency search** if it is not already enabled.
     3. Click **Show licenses** if it is not already enabled.
 [TODO] add toggle icons
@@ -34,12 +34,17 @@ To view a package's license:
 :::tip
 For GitHub Actions users, Semgrep Supply Chain blocks PRs (pull requests) or MRs (merge requests) by failing the CI job. Ensure that the PR is fully blocked by enforcing [branch protections](https://docs.github.com/en/repositories/configuring-branches-and-merges-in-your-repository/managing-protected-branches).
 :::
+
 To block licenses, follow these steps:
 
 2. From Semgrep Supply Chain, click Settings on the top menu. click **Notify and restrict** if it is not already enabled.
 [TODO]add toggle icons
 
 The following licenses are identified by Semgrep Supply Chain:
+
+Copyleft licenses
+Permissive licenses
+Uncategorized licenses
 
 
 ## Exempting packages
