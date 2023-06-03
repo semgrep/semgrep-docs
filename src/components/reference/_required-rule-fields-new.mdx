@@ -1,0 +1,9 @@
+All required fields must be present at the top-level of a rule, immediately under the `rules` key.
+
+|     Field     |   Type   | Description |
+| :------------ | :------- | :---------- |
+| `id`          | `string` | Unique, descriptive identifier, for example: `no-unused-variable`        |
+| `message`     | `string` | Message that includes why Semgrep matched this pattern and how to remediate it. See also [Rule messages](/contributing/contributing-to-semgrep-rules-repository/#rule-messages). |
+| `severity`    | `string` | One of: `INFO`, `WARNING`, or `ERROR` |
+| `languages`   | `array`  | See [language extensions and tags](/writing-rules/rule-syntax/#language-extensions-and-tags) |
+| [`match`](#match)_\*_     | `pattern` | Find code matching this pattern |
