@@ -11,7 +11,6 @@ tags:
 
 # License scanning
 
-
 Semgrep Supply Chain's **license scanning** feature enables you to explicitly allow or disallow (block) a package's use in your repository based on its license. For example, your company policy may disallow the use of packages with the Creative Commons Attribution-NonCommercial (CC-BY-NC) license.
 
 ![Screenshot of Semgrep Supply Chain Dependencies tab with licenses listed](/img/sc-license-scanning.png)
@@ -30,12 +29,14 @@ To view a package's license:
 2. Click **[Supply Chain](https://semgrep.dev/orgs/-/supply-chain)** > **Dependencies**. By default licenses are listed in the row of their respective package.
 3. If you don't see any licenses:
     1. Click the Supply Chain **Settings** on the header menu. These settings are specific to Semgrep Supply Chain.
-    [TODO] add screenshot as there is no way to distinguish from settings on left side
+    ![Screenshot of Semgrep Supply Chain Settings tab](/img/sc-settings.png) *Figure 2*. Screenshot of Semgrep Supply Chain Settings tab.
     2. Click <i class="fa-solid fa-toggle-large-on"></i> **Dependency search** if it is not already enabled.
     3. Click <i class="fa-solid fa-toggle-large-on"></i> **Show licenses** if it is not already enabled.
 4. Optional: Search for a specific license by entering its name in the search box.
 
 ## Blocking, commenting, or allowing licenses 
+
+This section provides guides on blocking or allowing packages in CI pipelines based on the license of a package.
 
 ### Types of license permissions
 
@@ -43,11 +44,11 @@ Licenses in Semgrep are assigned the following types of permissions:
 
 <dl>
 <dt>Allow</dt>
-<dd>Packages with licenses assigned this type of permission are allowed into the codebase.</dd>
+<dd>Packages with licenses assigned this type of permission are allowed for use in the codebase.</dd>
 <dt>Comment</dt>
-<dd>Packages with licenses assigned this type of permission are allowed into the codebase. A comment is added to the PR or MR.</dd>
+<dd>Packages with licenses assigned this type of permission are allowed for use in the codebase and the PR author receives a comment.</dd>
 <dt>Block</dt>
-<dd>Packages with licenses assigned this type of permission are not allowed into the codebase. A comment is added to the PR or MR explaining why the license is blocked.</dd>
+<dd>Packages with licenses assigned this type of permission are not allowed into the codebase. A comment is added to the PR or MR.</dd>
 </dl>
 
 To change the permissions of packages based on the license:
@@ -82,6 +83,8 @@ The following license categories and licenses are identified by Semgrep Supply C
 
 #### Permissive licenses
 
+[TODO - Be consistent with text provided in SCP]
+
 * MIT
 * Apache-2.0
 * BSD-3
@@ -106,8 +109,7 @@ To exempt a package:
 1. From the Supply Chain page, click **Dependencies**.
 2. Search for the package you want to exempt.
 3. Click the package's <i class="fa-solid fa-list-check"></i> **Allow** or <i class="fa-solid fa-trash-xmark"></i> **Block** icon to exempt it. Upon clicking on the icon, its permission changes. The icon always reflects its current, actual permission.
-[TODO]add screenshot
 
 Exempted packages appear in the Supply Chain > **Settings** tab.
 
-[TODO]make link from dependency search
+<MoreHelp />
