@@ -53,7 +53,7 @@ Licenses in Semgrep are assigned the following types of permissions:
 
 To change the permissions of packages based on the license:
 
-1. From the Supply Chain pack, click **Settings** on the header menu. 
+1. From the Supply Chain page, click **Settings** on the header menu. 
 2. Click <i class="fa-solid fa-toggle-large-on"></i> **Notifications and restrictions** if it is not already enabled.
 3. Browse the available licenses. 
 4. Click the permission (Allow, Comment, or Block) you want to set the license to.
