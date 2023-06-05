@@ -4,7 +4,7 @@ All required fields must be present at the top-level of a rule, immediately unde
 | :------------ | :------- | :---------- |
 | `id`          | `string` | Unique, descriptive identifier, for example: `no-unused-variable`        |
 | `message`     | `string` | Message that includes why Semgrep matched this pattern and how to remediate it. See also [Rule messages](/contributing/contributing-to-semgrep-rules-repository/#rule-messages). |
-| `severity`    | `string` | One of the following values: `INFO` (low severity), `WARNING` (medium severity), or `ERROR` (high severity). The `severity` key specifies how critical are the issues that a rule potentially detects. Note: Semgrep Supply Chain differs, as its rules use CVE assignments for severity. |
+| `severity`    | `string` | One of the following values: `INFO` (Low severity), `WARNING` (Medium severity), or `ERROR` (High severity). The `severity` key specifies how critical are the issues that a rule potentially detects. Note: Semgrep Supply Chain differs, as its rules use CVE assignments for severity. For more information, see [Filters](/semgrep-supply-chain/triage-and-remediation/#filters) section in Semgrep Supply Chain documentation. |
 | `languages`   | `array`  | See [language extensions and tags](/writing-rules/rule-syntax/#language-extensions-and-tags) |
 | [`pattern`](#pattern)_\*_     | `string` | Find code matching this expression |
 | [`patterns`](#patterns)_\*_   | `array`  | Logical AND of multiple patterns |
