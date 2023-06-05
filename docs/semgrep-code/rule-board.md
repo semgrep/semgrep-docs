@@ -26,7 +26,7 @@ Object.entries(frontMatter).filter(
 # Rule board
 
 :::tip
-🎉 There is a new version of Rule board called **Policies**. 🎉 To access the Policies page, go to [Rule board](https://semgrep.dev/orgs/-/board), and then click **Try new version**. For more information, see [Policies](/semgrep-code/policies/) documentation.
+🎉 There is a new version of Rule board called **Policies**. 🎉 To access the Policies page, go to [Rule board](https://semgrep.dev/orgs/-/board), and then click **Try new version**. You can always go back to the old Rule board by clicking **Back to old version** button. For more information, see [Policies](/semgrep-code/policies/) documentation.
 
 The new Policies page:
 - Autosaves any changes you make on the page.
