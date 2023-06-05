@@ -25,6 +25,10 @@ Object.entries(frontMatter).filter(
 
 # Rule board
 
+:::tip
+🎉 There is a new version of Rule board called **Policies**. 🎉 To access the Policies page, go to [Rule board](https://semgrep.dev/orgs/-/board), and then click **Try new version**. For more information, see [Policies](/semgrep-code/policies/) documentation.
+:::
+
 The Rule Board is a visual representation of the rules that Semgrep Code uses for scanning. Rules can be organized in rulesets. Rulesets are rules related through a programming language, OWASP category, or framework.
 
 Rules and rulesets are displayed as **cards** in Semgrep Cloud Platform. Group cards by dragging and dropping cards into the columns. Columns represent the actions undertaken in response to findings from that rule or ruleset.
