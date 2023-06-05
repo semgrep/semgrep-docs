@@ -41,19 +41,21 @@ All Semgrep offerings can scan the following repository providers or SCMs (sourc
 * Azure Repos
 
 :::caution Important dates
-* **For Semgrep Team tier users:** Usage limits will be enforced after July 31, 2023. 
+* The Semgrep Community tier will be replaced with Team tier on June 6, 2023.
+* **For Semgrep Team tier users:** Usage limits will be enforced after July 31, 2023. See the [Usage limits FAQ](/usage-limits) for more information.
 :::
 
-## Semgrep OSS Engine and Team offerings
+## Semgrep OSS Engine and Team tier offerings
 
 The following tables provide an overview of Semgrep features and comparison between Semgrep OSS and Semgrep Team tier. 
 
 ### 🔎 Core scanning features
 
 The following tables describe Semgrep's essential scanning and findings management capabilities.
+
 #### SAST (Static Application Security Testing)
 
-| Feature | Semgrep OSS | Semgrep Team tier |
+| Feature | Semgrep OSS | Semgrep Code Team tier |
 | -------  | ------ | ----------- |
 | Intrafile (single-file) analysis  | ✔️   | ✔️  |
 | Interfile (across multiple files or cross-file) analysis  |  ❌  | ✔️   |
@@ -62,7 +64,7 @@ The following tables describe Semgrep's essential scanning and findings manageme
 
 #### SCA (Software composition analysis)
 
-| Feature | Semgrep OSS | Semgrep Team tier |
+| Feature | Semgrep OSS | Semgrep Supply Chain Team tier |
 | -------  | ------ | ----------- |
 | Reachability analysis for direct dependencies | ❌ | ✔️  |
 | License scanning | ❌ | ✔️  |
@@ -101,7 +103,7 @@ The following table lists tools to enable developers to resolve their own code.
 
 | Feature  | Semgrep OSS | Semgrep Team tier |
 | -------  | ----------  | ----------------- |
-| VSCode extension | ✔️  | ✔️  |
+| VS Code extension | ✔️  | ✔️  |
 | Autofix  | ✔️  | ✔️  |
 | Autofix in PR/MR comments |❌ | ✔️  |
 | Autofix AI |❌ |✔️  |
@@ -118,13 +120,17 @@ The following table lists tools to enable developers to resolve their own code.
 
 ## Determining your plan needs
 
-### Number of developers
+### Number of contributors
 
-Within your team or organization, assess the number of members that make commits. That determines the number of **licenses** needed for the plan purchase.
+Within your team or organization, assess the number of **contributors**. Contributors are members of your organization that make commits. That determines the number of **licenses** needed for the plan purchase.
 
-For example, if a project has 4 unique developers who create commits during the billing period while Semgrep is scanning their repositories, only 4 licenses are required even if the organization has a total of 10 members. If these unique developers commit to many projects within the same organization, they are counted once, so no additional cost is charged.
+For example, if a project has 4 unique contributors who create commits during the billing period while Semgrep is scanning their repositories, only 4 licenses are required even if the organization has a total of 10 members. If these unique contributors commit to many projects within the same organization, they are counted once, so no additional cost is charged.
 
-All members of the organization, regardless of developer (license) status, have access to paid features for the chosen tier. This means that project managers and other non-programming roles can still view the Semgrep Cloud Platform dashboard.
+:::info Usage limits
+Semgrep Team tier is free for the first 10 contributors. You only need to buy licenses for contributors over 10.
+:::
+
+All members of the organization, regardless of contributor (license) status, have access to paid features for the chosen tier. This means that project managers and other non-programming roles can still view the Semgrep Cloud Platform dashboard.
 
 ### Semgrep add-on reconciliation of licenses
 
