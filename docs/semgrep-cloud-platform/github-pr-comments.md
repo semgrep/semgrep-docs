@@ -6,7 +6,6 @@ hide_title: true
 description: "Enable pull request (PR) comments in your GitHub repositories to display Semgrep findings to developers."
 tags:
     - Semgrep Cloud Platform
-    - Community Tier
     - Team & Enterprise Tier
 ---
 

@@ -8,7 +8,6 @@ hide_title: true
 tags:
     - Semgrep Supply Chain 
     - Semgrep OSS Engine
-    - Community Tier
     - Team & Enterprise Tier
 title: Supported languages
 ---

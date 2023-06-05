@@ -6,7 +6,6 @@ hide_title: true
 description: "Enable PR comments in your Bitbucket repositories to display Semgrep findings to developers."
 tags:
     - Semgrep Cloud Platform
-    - Community Tier
     - Team & Enterprise Tier
 ---
 

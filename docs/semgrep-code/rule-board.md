@@ -6,7 +6,6 @@ hide_title: true
 description: "The Rule Board is a visual representation of the rules that Semgrep Cloud Platform uses to scan code. Rules are cards, and are grouped into columns representing the actions undertaken (whether to block, comment, or silently monitor) when a finding surfaces."
 tags:
     - Semgrep Cloud Platform
-    - Community Tier
     - Team & Enterprise Tier
     - Semgrep Code
 ---
