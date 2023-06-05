@@ -214,8 +214,8 @@ $> export SEMGREP_COMMIT=fa4e36b9369e5b039bh2220b5h9R61a38b077f29
 
 <PlatformAddRepo />
 
-:::tip Try Semgrep Autoscan for GitHub.com (Beta)
-Autoscan enables you to quickly onboard or add many repositories without configuring a CI job. Autoscan is available for users of GitHub Free or Team tiers. Contact [sales@semgrep.com](sales@semgrep.com) to try it out.
+:::tip Try Semgrep Zero Config Scanning (Beta)
+Semgrep Zero Config Scanning enables you to quickly onboard or add many repositories without configuring a CI job. This feature is available for users of GitHub Free or Team tiers. Contact [sales@semgrep.com](sales@semgrep.com) to try it out.
 :::
 
 ##### Detecting GitHub repositories
