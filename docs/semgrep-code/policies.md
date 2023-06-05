@@ -60,7 +60,9 @@ The Policies page consists of a header and two main panes:
             These filters are explained further below as they correspond to the Rule pane columns also.
         </dd>
     <dt>Rule pane</dt>
-        <dd>The right pane displays a number of rules with the <b>Matching Rules</b> title. This pane visualizes the rules that are used in your Semgrep Cloud Platform organization and allows you to edit their assigned modes (Monitor, Comment, Block, and Disabled). You can make these edits either one by one or through bulk editing of many rules. You can also use the <b>Search for rule names or ids</b> The individual columns are explained separately below in the <a href="#rule-pane-in-detail">Rule pane in detail</a> section.</dd>
+        <dd>
+            The right pane displays a number of rules with the <b>Matching Rules</b> title. This pane visualizes the rules that are used in your Semgrep Cloud Platform organization and allows you to edit their assigned modes (Monitor, Comment, Block, and Disabled). You can make these edits either one by one or through bulk editing of many rules. You can also use the <b>Search for rule names or ids</b> The individual columns are explained separately below in the <a href="#rule-pane-in-detail">Rule pane in detail</a> section.
+        </dd>
 </dl>
 
 ### Rule pane in detail
