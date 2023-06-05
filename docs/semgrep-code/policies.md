@@ -11,8 +11,6 @@ tags:
 ---
 
 import MoreHelp from "/src/components/MoreHelp"
-import RemoveRuleset from "/src/components/procedure/_remove-ruleset.mdx"
-import DisableRule from "/src/components/procedure/_disable-rule.mdx"
 
 <ul id="tag__badge-list">
 {
