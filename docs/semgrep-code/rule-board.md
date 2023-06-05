@@ -26,12 +26,12 @@ Object.entries(frontMatter).filter(
 # Rule board
 
 :::tip
-🎉 There is a new version of Rule board called **Policies**. 🎉 To access the Policies page, go to [Rule board](https://semgrep.dev/orgs/-/board), and then click **Try new version**. You can always go back to the old Rule board by clicking **Back to old version** button. For more information, see [Policies](/semgrep-code/policies/) documentation.
+🎉 There is a new version of the Rule board called **Policies**. 🎉 To access the Policies page, go to [Rule board](https://semgrep.dev/orgs/-/board), and then click **Try new version**. You can always go back to the old Rule board by clicking the **Back to old version** button. For more information, see [Policies](/semgrep-code/policies/) documentation.
 
 The new Policies page:
 - Autosaves any changes you make on the page.
 - Provides you with filtering options for the rule metadata.
-- Enables bulk editing of rules for the Monitor, Comment, Block and bulk disabling of rules.
+- Enables bulk editing of rules for the Monitor, Comment, Block, and bulk disabling of rules.
 :::
 
 The Rule Board is a visual representation of the rules that Semgrep Code uses for scanning. Rules can be organized in rulesets. Rulesets are rules related through a programming language, OWASP category, or framework.
