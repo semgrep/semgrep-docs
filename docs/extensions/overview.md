@@ -1,5 +1,5 @@
 ---
-slug: extensions
+slug: overview
 append_help_link: true
 description: >-
   Learn how to use Semgrep in an editor, in pre-commit, and in other tools.
@@ -24,7 +24,7 @@ The [pre-commit framework](https://pre-commit.com/) can run `semgrep` at commit-
 ```yaml
 repos:
 - repo: https://github.com/returntocorp/semgrep
-  rev: 'SEMGREP_VERSION_LATEST'
+  rev: 'v1.24.1'
   hooks:
     - id: semgrep
       # See semgrep.dev/rulesets to select a ruleset and copy its URL

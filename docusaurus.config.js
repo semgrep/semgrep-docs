@@ -300,7 +300,8 @@ module.exports = {
 
           /* APR 27 2023  */
           { from: "/semgrep-code/notifications/"            , to: "/semgrep-cloud-platform/notifications/" }  ,
-          { from: "/semgrep-ci/configuration-reference" , to: "/semgrep-ci/ci-environment-variables/" }
+          { from: "/semgrep-ci/configuration-reference" , to: "/semgrep-ci/ci-environment-variables/" }       ,
+          { from: "/extensions/" , to: "/extensions/overview/" }
         ]
       }
     ],

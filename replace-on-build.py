@@ -21,7 +21,7 @@ RELEASE_NAME = json.loads(subprocess.run(["curl","https://api.github.com/repos/r
 replacements = [
     {"file":"docs/cli-reference.md", "find":"DEFAULT_SEMGREPIGNORE_TEXT", "replace":DEFAULT_SEMGREPIGNORE},
     {"file":"docs/ignoring-files-folders-code.md", "find":"DEFAULT_SEMGREPIGNORE_TEXT", "replace":DEFAULT_SEMGREPIGNORE},
-    {"file":"docs/extensions.md", "find":"SEMGREP_VERSION_LATEST", "replace":RELEASE_NAME},
+    {"file":"docs/extensions/overview.md", "find":"SEMGREP_VERSION_LATEST", "replace":RELEASE_NAME},
 ]
 
 for args in replacements:
