@@ -7,7 +7,6 @@ toc_max_heading_level: 4
 description: "Learn how to receive Slack or email alerts about findings and failures, how to receive merge or pull request comments in your CI/CD pipeline, or how to integrate using webhooks."
 tags:
     - Semgrep Cloud Platform
-    - Community Tier
     - Team & Enterprise Tier
 ---
 
@@ -31,12 +30,12 @@ Semgrep Cloud Platform can send notifications through the following channels:
 
 | Tool                               | Tier availability |
 | ----                               | ----------------  |
-| [GitHub pull request (PR) comments](/semgrep-cloud-platform/github-pr-comments)  | Community (Free)  |
-| [GitLab merge request (MR) comments](/semgrep-cloud-platform/gitlab-mr-comments) | Community (Free)  |
-| [Bitbucket PR comments](/semgrep-cloud-platform/bitbucket-pr-comments)              | Community (Free)  |
-| [Slack](/semgrep-cloud-platform/slack-notifications)                              | Community (Free)  |
-| [Email](/semgrep-cloud-platform/email-notifications)                              | Community (Free)  |
-| [Webhooks](/semgrep-cloud-platform/webhooks)                           | Team/Enterprise   |
+| [GitHub pull request (PR) comments](/semgrep-cloud-platform/github-pr-comments)  | Team & Enterprise  |
+| [GitLab merge request (MR) comments](/semgrep-cloud-platform/gitlab-mr-comments) | Team & Enterprise  |
+| [Bitbucket PR comments](/semgrep-cloud-platform/bitbucket-pr-comments)           | Team & Enterprise  |
+| [Slack](/semgrep-cloud-platform/slack-notifications)                             | Team & Enterprise  |
+| [Email](/semgrep-cloud-platform/email-notifications)                             | Team & Enterprise  |
+| [Webhooks](/semgrep-cloud-platform/webhooks)                           | Team & Enterprise   |
 
 :::info
 * Alerts and notifications can only be enabled through Semgrep Cloud Platform (SCP). [Sign up or sign in to Semgrep Cloud Platform](https://semgrep.dev/login).

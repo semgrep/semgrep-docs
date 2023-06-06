@@ -7,7 +7,6 @@ hide_title: true
 toc_max_heading_level: 5
 tags:
     - Semgrep Cloud Platform
-    - Community Tier
     - Team & Enterprise Tier
 ---
 
@@ -79,7 +78,6 @@ The Semgrep Cloud Platform Findings page displays findings across all projects c
 
 | Retention period | Tier availability |
 | ---------------  | ----------------- |
-| 30-day findings retention | Community (Free) |
 |     5 years retention      | Team/Enterprise  |
 
 ## Viewing data on the Findings page

@@ -5,7 +5,6 @@ description: "Reference for the Semgrep command-line interface including options
 tags:
     - Semgrep CLI
     - Semgrep Code
-    - Community Tier
     - Team & Enterprise Tier
 hide_title: true
 title: CLI reference

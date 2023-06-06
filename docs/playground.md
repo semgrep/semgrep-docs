@@ -8,6 +8,7 @@ hide_title: true
 ---
 
 import MoreHelp from "/src/components/MoreHelp"
+import EnableTurboMode from "/src/components/procedure/_enable-turbo-mode.md"
 
 # Creating and managing rules with Semgrep Playground
 
@@ -86,6 +87,9 @@ To **create a rule** in simple mode:
 5. Optional: Click on the **plus** button to add fields for additional operators. Select the pattern operator and enter the pattern.
 6. Optional: Click on **Rule metadata** tab on the **Sample code** pane to enter additional metadata fields.
 7. Click **Run** or press <kbd>Ctrl</kbd>+<kbd>Enter</kbd> (<kbd>⌘</kbd>+<kbd>Enter</kbd> on Mac).
+
+
+<EnableTurboMode />
 
 ### Writing complex rules using advanced mode
 

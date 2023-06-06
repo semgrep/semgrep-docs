@@ -6,7 +6,6 @@ hide_title: true
 description: "Get started with Semgrep Cloud Platform to scan for security vulnerabilities on both local and remote repositories hosted on GitHub and GitLab."
 tags:
     - Semgrep Cloud Platform
-    - Community Tier
     - Team & Enterprise Tier
 ---
 
@@ -177,7 +176,7 @@ Semgrep requires the following permissions (scopes) to enable the authentication
 
 ### Starting a SAST scan with Semgrep Code
 
-To start a SAST scan on your codebase, see [Getting started with Semgrep Code](/semgrep-code/getting-started). Semgrep Code provides a free Community tier for up to 20 collaborators.
+To start a SAST scan on your codebase, see [Getting started with Semgrep Code](/semgrep-code/getting-started). Semgrep Code's Team tier is free for up to 10 developers.
 
 ### Starting an SCA scan with Semgrep Supply Chain
 
