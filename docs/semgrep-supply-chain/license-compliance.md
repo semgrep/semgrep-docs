@@ -49,7 +49,7 @@ Licenses in Semgrep are assigned the following policies:
 <dt>Comment</dt>
 <dd>Packages with licenses assigned this type of permission are allowed for use in the codebase. A comment is added to the PR or MR. This permission can be useful when you want to remind or warn developers to use certain licenses for internal use only.</dd>
 <dt>Block</dt>
-<dd>Packages with licenses assigned this type of permission are <strong>not</strong> allowed into the codebase. A comment is added to the PR or MR.</dd>
+<dd>Packages with licenses assigned this type of permission are <strong>not</strong> allowed into the codebase. A comment is added to the PR or MR that introduces the package into the codebase.</dd>
 </dl>
 
 :::tip
