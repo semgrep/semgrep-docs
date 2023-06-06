@@ -57,7 +57,7 @@ The Semgrep Pro Rules are proprietary and cannot be redistributed without explic
 
 ### Contacting Semgrep, Inc support 
 
-All users can contact Semgrep, Inc support. Regardless if you are a free tier or paid tier user, reach our support through the [Semgrep, Inc Community Slack](https://r2c.dev/slack). Paying Semgrep Team tier customers receive 8\*5 email/phone/Slack support with committed SLAs. See [Support](../support/) for more details.
+All users can contact Semgrep, Inc support. Regardless if you are a free tier or paid tier user, reach our support through the [Semgrep, Inc Community Slack](https://go.semgrep.dev/slack). Paying Semgrep Team tier customers receive 8\*5 email/phone/Slack support with committed SLAs. See [Support](../support/) for more details.
 
 ### Embedding the Playground in my website or blog post
 
