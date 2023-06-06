@@ -104,7 +104,7 @@ To set up Jira integration:
     - Find existing API tokens in the [API Tokens](https://id.atlassian.com/manage-profile/security/api-tokens) page.
 9. Click **Save.**
 
-<!--- Commented out as this feature is no longer available TODO add and edit this section when Jira integration is back.
+<!--- Commented out as this feature is no longer available.
 
 To create a Jira ticket in Semgrep Cloud Platform:
 
