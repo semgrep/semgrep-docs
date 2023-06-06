@@ -51,7 +51,9 @@ To change the permissions of packages based on the license:
 
 1. From the Supply Chain page, click **Settings** on the header menu. 
 2. Click <i class="fa-solid fa-toggle-large-on"></i> **Notifications and restrictions** if it is not already enabled.
-3. Browse the available licenses. 
+3. Browse the available licenses within the **License configuration** section. 
+![Screenshot of license configuration section](/img/sc-license-configuration.png#bordered)
+*Figure 3.* Screenshot of Supply Chain > Settings > License configuration section.
 4. Click the permission (Allow, Comment, or Block) you want to set the license to.
 5. Optional: Block entire categories of licenses by clicking on the **Set all to** drop-down box next to the license category.
 
@@ -108,7 +110,7 @@ To exempt a package:
 
 1. From the Supply Chain page, click **Dependencies**.
 2. Search for the package you want to exempt.
-3. Click the package's <i class="fa-solid fa-list-check"></i> **Allow** or <i class="fa-solid fa-trash-xmark"></i> **Block** icon to exempt it. Upon clicking on the icon, its permission changes. The icon always reflects its current, actual permission.
+3. Click the package's <i class="fa-solid fa-list-check"></i> icon to exempt it. Upon clicking on the icon, its permission changes.
 
 Exempted packages appear in the Supply Chain > **Settings** tab.
 
