@@ -60,7 +60,7 @@ The Policies page consists of a header and two main panes:
         </dd>
     <dt>Rule pane</dt>
         <dd>
-            The right pane displays a number of rules with the <b>Matching Rules</b> title. This pane visualizes the rules that are used in your Semgrep Cloud Platform organization and allows you to edit their assigned modes (Monitor, Comment, Block, and Disabled). You can make these edits either one by one or through bulk editing of many rules. You can also use the <b>Search for rule names.</b> The individual columns are explained separately below in the <a href="#rule-pane-in-detail">Rule pane in detail</a> section.
+            The right pane displays a number of rules with the <b>Matching Rules</b> title. This pane visualizes the rules that are used in your Semgrep Cloud Platform organization and allows you to edit their assigned modes (Monitor, Comment, Block, and Disabled). You can make these edits either one by one or through bulk editing of many rules. You can also use the <b>Search for rule names or ids</b>. The individual columns are explained separately below in the <a href="#rule-pane-in-detail">Rule pane in detail</a> section.
         </dd>
 </dl>
 
@@ -69,7 +69,7 @@ The Policies page consists of a header and two main panes:
 This section explains columns in the rule pane of the Policies page in detail:
 
 - **Rule name**: Name of the rule that Semgrep Code uses for scanning.
-- **Severity**: The higher the severity, the more critical the issues are that a rule detects. The Policies page displays the **high**, **medium**, and **low** severities.
+- **Severity**: The higher the severity, the more critical are the issues that a rule detects. The Policies page displays the **high**, **medium**, and **low** severities.
 - **Confidence**: Indicates confidence of the rule to detect true positives. There are rules with **high**, **medium**, and **low** confidence.
 - **Source**: Indicates whether the rule is a **Pro**, **Community rule**, or a **Custom rule** .
     - **Pro**: Authored by Semgrep with cross-file (interfile), and cross-function (interprocedural) analysis capabilities providing you with enhanced scan accuracy. For more information, see [Pro rules](/semgrep-code/pro-rules/) documentation.
@@ -78,9 +78,9 @@ This section explains columns in the rule pane of the Policies page in detail:
 - **Ruleset**: Rules are also organized in rulesets. Rulesets are groups of rules related through a programming language, OWASP category, or framework.
 - **Mode**: Specifies what happens when a rule detects a finding (sometimes called matching - when a rule matches a code). The mode indicates how the findings for each rule are reported to you and your developers. There are the three following modes:
     - **Monitor**: Display findings only on the [Findings](https://semgrep.dev/orgs/-/findings?tab=open) page of Semgrep Code.
-    - **Comment**: Display findings on the [Findings](https://semgrep.dev/orgs/-/findings?tab=open) page of Semgrep Code and create comments in merge requests or pull requests.
-    - **Block**: Display findings on the [Findings](https://semgrep.dev/orgs/-/findings?tab=open) page of Semgrep Code, create comments in merge requests and pull requests, and fail the build to block merging where the finding was detected.
-    - **Disabled**: Disabled rules will no longer scan your code or detect findings. This is helpful if rules are too noisy and detect many false positives that you otherwise need to manually ignore.
+    - **Comment**: Display findings on the [Findings](https://semgrep.dev/orgs/-/findings?tab=open) page of Semgrep Code and create comments in merge requests (MR) or pull requests (PR).
+    - **Block**: Display findings on the [Findings](https://semgrep.dev/orgs/-/findings?tab=open) page of Semgrep Code, create comments in MR and PR, and fail the build to block merging where the finding was detected.
+    - **Disabled**: Disabled rules do not scan your code or detect findings. This is helpful if rules are too noisy and detect many false positives that you otherwise need to ignore manually.
 
 :::tip
 To change assigned modes, select either the top **Matching Rules** checkbox to select all rules, or select individual checkboxes next to a rule, and then click **(<span className="placeholder">Number</span>) Edit** or click individual rules in the **Mode** column.
