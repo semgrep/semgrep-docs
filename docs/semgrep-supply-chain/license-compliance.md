@@ -104,7 +104,7 @@ Software using a package with a permissive license have minimal restrictions on 
 * CC_BY-4.0
 * WTFPL
 * MS-PL
-* Unlicense
+* Unlicensed
 
 #### Uncategorized licenses
 
