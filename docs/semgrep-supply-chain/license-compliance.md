@@ -23,8 +23,9 @@ Semgrep Supply Chain's **license compliance** feature enables you to explicitly 
     * [Enable dependency search](/semgrep-supply-chain/dependency-search/#using-dependency-search). 
 :::
 
-:::caution Feature support
-License compliance, including license detection, is not available for **Ruby**.
+:::caution Feature maturity and support
+* License compliance is currently in **Beta**.
+* License compliance, including license detection, is not available for **Ruby**.
 :::
 
 ## Viewing licenses
@@ -38,9 +39,9 @@ To view a package's license:
 
 This section provides guides on blocking or allowing packages in CI pipelines based on the license of a package.
 
-### Types of license permissions
+### Types of license policies 
 
-Licenses in Semgrep are assigned the following types of permissions:
+Licenses in Semgrep are assigned the following policies:
 
 <dl>
 <dt>Allow</dt>
@@ -48,10 +49,14 @@ Licenses in Semgrep are assigned the following types of permissions:
 <dt>Comment</dt>
 <dd>Packages with licenses assigned this type of permission are allowed for use in the codebase. A comment is added to the PR or MR. This permission can be useful when you want to remind or warn developers to use certain licenses for internal use only.</dd>
 <dt>Block</dt>
-<dd>Packages with licenses assigned this type of permission are **not** allowed into the codebase. A comment is added to the PR or MR.</dd>
+<dd>Packages with licenses assigned this type of permission are <strong>not</strong> allowed into the codebase. A comment is added to the PR or MR.</dd>
 </dl>
 
-To change the permissions of packages based on the license:
+:::tip
+By default, all licenses are set to **Allow**. You must configure your policies to block or leave comments on licenses.
+:::
+
+To change the policies of packages based on the license:
 
 1. From the Supply Chain page, click **Settings** on the header menu. 
 2. Browse the available licenses within the **License configuration** section. 
