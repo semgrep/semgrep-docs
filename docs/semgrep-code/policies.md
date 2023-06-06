@@ -6,6 +6,7 @@ hide_title: true
 description: "The Policies page is a visual representation of the rules that Semgrep Code uses to scan code."
 tags:
     - Semgrep Cloud Platform
+    - Team & Enterprise Tier
     - Semgrep Code
 ---
 
