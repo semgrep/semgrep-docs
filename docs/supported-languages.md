@@ -8,7 +8,6 @@ hide_title: true
 tags:
     - Semgrep Supply Chain 
     - Semgrep OSS Engine
-    - Community Tier
     - Team & Enterprise Tier
 title: Supported languages
 ---
@@ -310,14 +309,20 @@ Their differences are outlined in the following table:
 
 Semgrep Pro Engine supports the following languages:
 
-|                                    Language                                      |  Support level  |  Analysis type  |
-|----------------------------------------------------------------------------------|-----------------|-----------------|
-|  All GA supported languages listed in [Semgrep OSS Engine](#semgrep-oss-engine)  |        GA       | Interprocedural |
-|                                         Java                                     |       Beta      |     Interfile   |
-|                               JavaScript or TypeScript                           |       Beta      |     Interfile   |
-|                                         Apex                                     |   Experimental  | Interprocedural |
+|                                       Language                                   |  Support level  |  Analysis type   |
+|----------------------------------------------------------------------------------|-----------------|------------------|
+| All GA supported languages listed in [Semgrep OSS Engine](#semgrep-oss-engine)   | GA              | Interprocedural  |
+| Apex                                                                             | Experimental    | Interprocedural  |
+| Go                                                                               | Beta            | Interfile        |
+| Java                                                                             | Beta            | Interfile        |
+| JavaScript                                                                       | Beta            | Interfile        |
+| Kotlin                                                                           | Experimental    | Interfile        |
+| TypeScript                                                                       | Beta            | Interfile        |
 
-To install and run Semgrep Pro Engine, see [Semgrep Pro Engine overview](/semgrep-code/semgrep-pro-engine-intro/).
+:::info
+- To install and run Semgrep Pro Engine, see [Semgrep Pro Engine overview](/semgrep-code/semgrep-pro-engine-intro/) for more information.
+- All languages that have interfile analysis support by default also provide interprocedural analysis by default. However, languages that provide only interprocedural analysis do not provide interfile analysis.
+:::
 
 ### Known limitations of Semgrep Pro Engine
 

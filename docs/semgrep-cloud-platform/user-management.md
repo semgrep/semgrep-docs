@@ -6,7 +6,6 @@ hide_title: true
 description: "Learn about roles, user management, and how to implement role-based access control in Semgrep Cloud Platform."
 tags:
     - Semgrep Cloud Platform
-    - Community Tier
     - Team & Enterprise Tier
 ---
 
@@ -101,7 +100,6 @@ Semgrep Cloud Platform divides users into two roles:
 
 :::info
 * Users in organizations without RBAC enabled are assigned an `admin` role by default.
-* Community-tier (Free) users are assigned an `admin` role by default.
 :::
 
 The following table displays features available to each role:
@@ -114,7 +112,6 @@ The following table displays features available to each role:
 | Findings              | yes       | yes       | Both `admin` and `member` roles can sort, filter, comment on, and triage findings. |
 | Editor                | yes       | yes       | `member` access is read-only within their organization. Users with a `member` role can use their personal account to write a rule.  |
 | Settings              | no        | yes       |                                                                                    |
-| Community             | yes       | yes       |                                                                                    |
 | Registry              | yes       | yes       |                                                                                    |
 | Playground            | yes       | yes       |                                                                                    |
 | Docs                  | yes       | yes       |                                                                                    |

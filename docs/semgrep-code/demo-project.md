@@ -5,7 +5,6 @@ title: Learning Semgrep Code
 hide_title: true
 tags:
     - Semgrep Cloud Platform
-    - Community Tier
     - Team & Enterprise Tier
 description: "Try Semgrep Code workflows, triage findings and work with rules and rulesets without any setup necessary. See what Semgrep detects in OWASP Juice Shop."
 ---
