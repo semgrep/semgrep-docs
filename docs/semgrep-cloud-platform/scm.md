@@ -49,7 +49,7 @@ Semgrep Cloud Platform requires PATs with assigned scopes. These scopes grant ne
 Integrate Semgrep into these custom source code management (SCM) tools by following the steps below:
 
 1. Sign in to [Semgrep Cloud Platform](https://semgrep.dev/login).
-2. Click **Settings** > **Source code**.
+2. Click **Settings** > **SCM**.
 
 <div class = "bordered">
 

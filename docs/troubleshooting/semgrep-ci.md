@@ -9,7 +9,6 @@ hide_title: true
 append_help_link: true
 tags:
     - Semgrep in CI
-    - Community Tier
     - Team & Enterprise Tier
 ---
 

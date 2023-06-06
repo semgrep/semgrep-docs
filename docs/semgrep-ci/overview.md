@@ -4,7 +4,6 @@ append_help_link: true
 description: "Run Semgrep in CI environments. Learn about different features of CI jobs connected to Semgrep Cloud Platform and stand-alone Semgrep jobs."
 tags:
     - Semgrep in CI
-    - Community Tier
     - Team & Enterprise Tier
 title: Semgrep in CI 
 hide_title: true
@@ -99,7 +98,7 @@ In addition to the features mentioned previously, Semgrep Cloud Platform has the
     <dt>Diff-aware scanning</dt>
     <dd>Semgrep Cloud Platform can scan only changes in files when running on a pull or merge request (PR or MR). This keeps the scan fast, tracks when a finding is fixed, and reduces the number of duplicated findings.</dd>
     <dt>Receiving results (findings) as PR or MR comments</dt>
-    <dd>This feature enables you to receive <a href="/docs/semgrep-code/notifications/#enabling-github-pull-request-comments">PR or MR comments</a> from Semgrep Cloud Platform on the lines of code that generated a finding.</dd>
+    <dd>This feature enables you to receive <a href="/docs/semgrep-cloud-platform/github-pr-comments">PR or MR comments</a> from Semgrep Cloud Platform on the lines of code that generated a finding.</dd>
     <dt>Hyperlinks to code</dt>
     <dd>Semgrep Cloud Platform collects findings in a Findings page. In this page, you can click on a finding to return to your GitHub, GitLab, or BitBucket repository to view the lines of code in your repository that generated the finding.</dd>
     <dt>GitHub or GitLab security dashboard</dt>

@@ -7,7 +7,6 @@ hide_title: true
 tags:
     - Semgrep Code
     - Team & Enterprise Tier
-    - Community Tier
 ---
 
 <ul id="tag__badge-list">
