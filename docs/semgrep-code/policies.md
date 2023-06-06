@@ -41,7 +41,7 @@ The Policies page consists of a header and two main panes:
         <dd>
             The top header consists of:
             <ul>
-                <li><i class="fa-solid fa-gear"></i> <b>Rule Modes</b> button where you can specify integrations for the rule modes. Modes are actions that rules perform when they detect a finding. The modes that you can edit are Monitor, Comment, Block. When you click Rule Modes button and click <b>Edit</b> button of a mode, you can add integrations such as <a href="/semgrep-cloud-platform/email-notifications/">Email</a>, <a href="/semgrep-cloud-platform/slack-notifications/">Slack</a>, and <a href="/semgrep-cloud-platform/webhooks/">Webhook</a> for each of the modes. </li>
+                <li><i class="fa-solid fa-gear"></i> <b>Rule Modes</b> button where you can specify integrations for the rule modes. Modes are actions that rules perform when they detect a finding. The modes that you can edit are Monitor, Comment, Block. When you click Rule Modes button, and the click <b>Edit</b> button of a mode, you can add integrations such as <a href="/semgrep-cloud-platform/email-notifications/">Email</a>, <a href="/semgrep-cloud-platform/slack-notifications/">Slack</a>, and <a href="/semgrep-cloud-platform/webhooks/">Webhook</a> for each of the modes. As a result, you are notified through these integrations when a rule with assigned mode detects a finding.</li>
                 <li><b>Add rules</b> button that takes you to the <a href="https://semgrep.dev/explore">Semgrep Registry</a> where you can add rules to the Policies page and assign their initial modes.</li>
             </ul>
         </dd>
