@@ -59,11 +59,11 @@ Root cause of this error would be a `\n` within the secret value or a possible m
 
 To fix on Github, go to either your organization's/repository's `Secrets and variables` section within the settings and update the value of the `SEMGREP_APP_TOKEN` to ensure it does not have an extraneous `\n`.
 
-![Secrets and variables section in Settings](../static/img/github-secrets.png)
-![Updating Github Secret](../static/img/github-update-value.png)
+![Secrets and variables section in Settings](/static/img/kb/github-secrets.png)
+![Updating Github Secret](/static/img/kb/github-update-value.png)
 
 ## Example fix on Gitlab
 
 To fix on Github go to your repository's `CI/CD` Settings and update the `SEMGREP_APP_TOKEN` variable directly to remove the extraneous `\n`.
 
-![Updating Gitlab Variable](../static/img/gitlab-update-value.png)
+![Updating Gitlab Variable](/static/img/kb/gitlab-update-value.png)
