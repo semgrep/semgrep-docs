@@ -226,6 +226,7 @@ module.exports = {
                 },
             ],
         },
+        'pricing-and-billing'
       ]
     },
     {
@@ -241,7 +242,6 @@ module.exports = {
         'semgrep-cloud-platform/semgrep-api',
         'semgrep-cloud-platform/scm',
         'troubleshooting/semgrep-app',
-        'semgrep-cloud-platform/pricing-and-billing',
         {
           type: 'category',
           label: 'Notifications',
