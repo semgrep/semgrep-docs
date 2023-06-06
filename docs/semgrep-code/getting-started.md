@@ -107,8 +107,8 @@ Semgrep Cloud Platform can run scans on many projects with rules set in the Rule
 
 Over time, users modify the Rule Board with rules specific to their codebase's security or business goals.
 
-:::tip Try Semgrep Zero Config Scanning (Beta)
-Semgrep Zero Config Scanning enables you to quickly onboard or add many repositories without configuring a CI job. This feature is available for users of GitHub Free or Team tiers. Contact [sales@semgrep.com](sales@semgrep.com) to try it out.
+:::tip Try Semgrep Zero-config Scanning (Beta)
+Semgrep Zero-config Scanning enables you to quickly onboard or add many repositories without configuring a CI job. This feature is available for users of GitHub Free or Team tiers. Contact [sales@semgrep.com](sales@semgrep.com) to try it out.
 :::
 
 #### Option A: Scanning a local repository through Semgrep CLI
