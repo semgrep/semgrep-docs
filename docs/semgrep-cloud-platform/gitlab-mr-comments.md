@@ -7,7 +7,6 @@ toc_max_heading_level: 4
 description: "Enable merge request (MR) comments in your GitLab repositories to display Semgrep findings to developers."
 tags:
     - Semgrep Cloud Platform
-    - Community Tier
     - Team & Enterprise Tier
 ---
 
