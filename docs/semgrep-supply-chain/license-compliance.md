@@ -42,9 +42,9 @@ Licenses in Semgrep are assigned the following types of permissions:
 <dt>Allow</dt>
 <dd>Packages with licenses assigned this type of permission are allowed for use in the codebase.</dd>
 <dt>Comment</dt>
-<dd>Packages with licenses assigned this type of permission are allowed for use in the codebase and the PR author receives a comment.</dd>
+<dd>Packages with licenses assigned this type of permission are allowed for use in the codebase. A comment is added to the PR or MR. This permission can be useful when you want to remind or warn developers to use certain licenses for internal use only.</dd>
 <dt>Block</dt>
-<dd>Packages with licenses assigned this type of permission are not allowed into the codebase. A comment is added to the PR or MR.</dd>
+<dd>Packages with licenses assigned this type of permission are **not** allowed into the codebase. A comment is added to the PR or MR.</dd>
 </dl>
 
 To change the permissions of packages based on the license:
@@ -57,7 +57,7 @@ To change the permissions of packages based on the license:
 
 ### License categories
 
-The following license categories and licenses are identified by Semgrep Supply Chain:
+This section describes license categories and licenses identified by Semgrep Supply Chain.
 
 #### Weak copyleft licenses
 
@@ -102,7 +102,7 @@ Uncategorized licenses are any licenses not included in the previous categories.
 
 ## Exempting packages
 
-You can exempt packages from their license's permission. For example, you can **allow** specific packages even if their license is set to **Block** and the other way around. This feature is useful for internal packages that are not accessed by users or external APIs.
+You can create exemptions to **Allow** specific packages. This feature is useful for internal packages that are not accessed by users or external APIs.
 
 To exempt a package:
 
