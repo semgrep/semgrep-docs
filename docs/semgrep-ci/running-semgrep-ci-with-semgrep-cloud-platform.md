@@ -4,7 +4,6 @@ append_help_link: true
 description: "Set up your CI pipeline with Semgrep Cloud Platform for centralized rule and findings management."
 tags:
     - Semgrep in CI
-    - Community Tier
     - Team & Enterprise Tier
 title: Running Semgrep in CI with Semgrep Cloud Platform
 hide_title: true

@@ -4,7 +4,6 @@ append_help_link: true
 description: "Run Semgrep in CI environments. Learn about different features of CI jobs connected to Semgrep Cloud Platform and stand-alone Semgrep jobs."
 tags:
     - Semgrep in CI
-    - Community Tier
     - Team & Enterprise Tier
 title: Semgrep in CI 
 hide_title: true
