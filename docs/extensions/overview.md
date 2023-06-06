@@ -14,7 +14,7 @@ Several third-party tools include Semgrep extensions.
 ## Editor
 
 - IntelliJ IDEA: [`semgrep-idea-plugin`](https://github.com/jtmelton/semgrep-idea-plugin)
-- Visual Studio Code: [`semgrep-vscode`](https://marketplace.visualstudio.com/items?itemName=semgrep.semgrep)
+- Microsoft Visual Studio Code: [`semgrep-vscode`](https://marketplace.visualstudio.com/items?itemName=semgrep.semgrep)
 - Vim: [`semgrep.vim`](https://github.com/returntocorp/semgrep.vim)
 
 ## Pre-commit
