@@ -1,5 +1,5 @@
 ---
-slug: license-scanning
+slug: license-compliance
 append_help_link: true
 title: License scanning 
 hide_title: true
@@ -9,9 +9,9 @@ tags:
   - Semgrep Supply Chain
 ---
 
-# License scanning
+# License compliance 
 
-Semgrep Supply Chain's **license scanning** feature enables you to explicitly allow or disallow (block) a package's use in your repository based on its license. For example, your company policy may disallow the use of packages with the Creative Commons Attribution-NonCommercial (CC-BY-NC) license.
+Semgrep Supply Chain's **license compliance** feature enables you to explicitly allow or disallow (block) a package's use in your repository based on its license. For example, your company policy may disallow the use of packages with the Creative Commons Attribution-NonCommercial (CC-BY-NC) license.
 
 ![Screenshot of Semgrep Supply Chain Dependencies tab with licenses listed](/img/sc-license-scanning.png)
 *Figure 1*. Screenshot of Semgrep Supply Chain Dependencies tab with licenses listed.
@@ -65,6 +65,8 @@ The following license categories and licenses are identified by Semgrep Supply C
 
 #### Weak copyleft licenses
 
+Software using a package with a weak copyleft license may have to maintain the same license as the package in specific cases. To clarify when this applies, consult your legal department. Developers typically choose these packages based on individual cases, so it's suggested to monitor their usage to ensure license compliance.
+
 * LGPL-3.0
 * LGPL-2.1
 * MPL-2.0
@@ -73,6 +75,8 @@ The following license categories and licenses are identified by Semgrep Supply C
 * EUPL-3.0
 
 #### Copyleft licenses
+
+Software using a package with a copyleft license must maintain the same license as the package. To prevent license complications, developers often avoid packages using these licenses.
 
 * GPL-3.0
 * GPL-2.0
@@ -83,7 +87,7 @@ The following license categories and licenses are identified by Semgrep Supply C
 
 #### Permissive licenses
 
-[TODO - Be consistent with text provided in SCP]
+Software using a package with a permissive license have minimal restrictions on how the software can be used or modified. This makes permissive licenses popular among developers for their flexibility and ease of use without legal concerns.
 
 * MIT
 * Apache-2.0
