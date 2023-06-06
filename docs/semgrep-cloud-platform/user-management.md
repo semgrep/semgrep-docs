@@ -68,7 +68,7 @@ This step connects a source code manager, such as GitHub, to your Semgrep organi
 
 1. Sign in to Semgrep Cloud Platform.
 2. On the sidebar, click **your account name** > **the organization account** you created.
-3. Click **Settings** > **SCM**.
+3. Click **Settings** > **Source Code Managers**.
 4. Click on your Source code manager, for example, **Connect to GitHub**.
 5. Click an organization to link. You are signed out of Semgrep Cloud Platform automatically as your credentials have changed after linking an organization.
 6. Sign back in to Semgrep Cloud Platform.
