@@ -23,6 +23,10 @@ Semgrep Supply Chain's **license compliance** feature enables you to explicitly 
     * [Enable dependency search](/semgrep-supply-chain/dependency-search/#using-dependency-search). 
 :::
 
+:::caution Feature support
+License compliance, including license detection, is not available for **Ruby**.
+:::
+
 ## Viewing licenses
 
 To view a package's license:
@@ -50,12 +54,11 @@ Licenses in Semgrep are assigned the following types of permissions:
 To change the permissions of packages based on the license:
 
 1. From the Supply Chain page, click **Settings** on the header menu. 
-2. Click <i class="fa-solid fa-toggle-large-on"></i> **Notifications and restrictions** if it is not already enabled.
-3. Browse the available licenses within the **License configuration** section. 
+2. Browse the available licenses within the **License configuration** section. 
 ![Screenshot of license configuration section](/img/sc-license-configuration.png#bordered)
 *Figure 3.* Screenshot of Supply Chain > Settings > License configuration section.
-4. Click the permission (Allow, Comment, or Block) you want to set the license to.
-5. Optional: Block entire categories of licenses by clicking on the **Set all to** drop-down box next to the license category.
+3. Click the permission (Allow, Comment, or Block) you want to set the license to.
+4. Optional: Block entire categories of licenses by clicking on the **Set all to** drop-down box next to the license category.
 
 ### License categories
 
@@ -100,7 +103,11 @@ Software using a package with a permissive license have minimal restrictions on 
 
 #### Uncategorized licenses
 
-Uncategorized licenses are any licenses not included in the previous categories.
+Uncategorized licenses are licenses that are not yet categorized by Semgrep Supply Chain, or are not included in the previous categories.
+
+:::caution
+Uncategorized licenses may include copyleft or permissive licenses. Consult your legal department before using licenses in this category.
+:::
 
 ## Exempting packages
 
