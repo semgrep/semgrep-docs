@@ -69,7 +69,7 @@ The Policies page consists of a header and two main panes:
 This section explains columns in the rule pane of the Policies page in detail:
 
 - **Rule name**: Name of the rule that Semgrep Code uses for scanning.
-- **Severity**: The higher the severity, the more critical are the issues that a rule detects. The Policies page displays the **high**, **medium**, and **low** severities.
+- **Severity**: The higher the severity, the more critical the issues are that a rule detects. The Policies page displays the **high**, **medium**, and **low** severities.
 - **Confidence**: Indicates confidence of the rule to detect true positives. There are rules with **high**, **medium**, and **low** confidence.
 - **Source**: Indicates whether the rule is a **Pro**, **Community rule**, or a **Custom rule** .
     - **Pro**: Authored by Semgrep with cross-file (interfile), and cross-function (interprocedural) analysis capabilities providing you with enhanced scan accuracy. For more information, see [Pro rules](/semgrep-code/pro-rules/) documentation.
