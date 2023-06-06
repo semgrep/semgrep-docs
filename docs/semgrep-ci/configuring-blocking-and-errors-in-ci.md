@@ -4,7 +4,6 @@ append_help_link: true
 description: "Configure how Semgrep in CI pipelines handles errors and blocks findings."
 tags:
     - Semgrep in CI
-    - Community Tier
     - Team & Enterprise Tier
 title: Configuring blocking findings and errors in CI 
 hide_title: true

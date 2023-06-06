@@ -5,7 +5,6 @@ title: Running Semgrep in CI without Semgrep Cloud Platform
 description: "Set up Semgrep in CI without connecting to Semgrep Cloud Platform."
 tags:
     - Semgrep in CI
-    - Community Tier
     - Team & Enterprise Tier
 hide_title: true
 ---

@@ -5,10 +5,12 @@ title: Editor
 hide_title: true
 tags:
     - Semgrep Cloud Platform
-    - Community Tier
     - Team & Enterprise Tier
 description: "Semgrep Editor is a powerful tool within Semgrep Cloud Platform to write rules and quickly apply these rules across an organization to enforce coding standards across an organization."
 ---
+
+import MoreHelp from "/src/components/MoreHelp"
+import EnableTurboMode from "/src/components/procedure/_enable-turbo-mode.md"
 
 <ul id="tag__badge-list">
 {
@@ -17,8 +19,6 @@ Object.entries(frontMatter).filter(
     (value) => <li class='tag__badge-item'>{value}</li> )
 }
 </ul>
-
-import MoreHelp from "/src/components/MoreHelp"
 
 
 # Writing rules using Semgrep Editor
@@ -88,6 +88,8 @@ To create a rule, click **Create rule** on the splash page or the **(+) sign** n
 - `severity`
 
 Refer to [Rule syntax](/writing-rules/rule-syntax/) for all possible fields and values to create a rule.
+
+<EnableTurboMode />
 
 ### Jumpstart rule writing using existing rules
 

@@ -57,7 +57,7 @@ The Semgrep Pro Rules are proprietary and cannot be redistributed without explic
 
 ### Contacting Semgrep, Inc support 
 
-All users can contact Semgrep, Inc support. Regardless if you are free tier or paid tier user, reach our support through the [Semgrep, Inc Community Slack](https://r2c.dev/slack). Semgrep Team tier customers receive 8\*5 email/phone/Slack support with committed SLAs. See [Support](../support/) for more details.
+All users can contact Semgrep, Inc support. Regardless if you are a free tier or paid tier user, reach our support through the [Semgrep, Inc Community Slack](https://go.semgrep.dev/slack). Paying Semgrep Team tier customers receive 8\*5 email/phone/Slack support with committed SLAs. See [Support](../support/) for more details.
 
 ### Embedding the Playground in my website or blog post
 
@@ -78,7 +78,7 @@ Semgrep is an open-source tool with a simple syntax for writing rules: if you ca
 
 To our knowledge, the only other tool with the explicit goal of allowing custom rules is GitHub’s proprietary tool, CodeQL. CodeQL has a domain-specific language that is extremely powerful but is designed for those with significant program analysis expertise, whereas Semgrep is designed for the security engineer or developer who wants to automate code review. Our goal is to make writing a Semgrep rule as easy as copying the code you want to find—and letting the Semgrep engine make the rule and autofix high-quality enough to run in CI or your text editor or IDE.
 
-Our hosted offering, [Semgrep Cloud Platform](https://semgrep.dev/manage), has a generous free tier (even for private repositories!). It offers a hosted CI integration with a quick setup so you can start running Semgrep right away. Semgrep's diff-awareness lets you scan new code and doesn’t force you to fix all the existing issues when you first start. For users running inside organizations with many repositories, the hosted offering also offers a policy and notification system that makes it easy to tune Semgrep so that it only reports issues or suggests fixes that get applied. Our goal is a 99% fix rate for what Semgrep reports.
+Our hosted offering, [Semgrep Cloud Platform](https://semgrep.dev/manage) provides a Team tier that is free for up to 10 developers on private repositories. It offers a hosted CI integration with a quick setup so you can start running Semgrep right away. Semgrep's diff-awareness lets you scan new code and doesn’t force you to fix all the existing issues when you first start. For users running inside organizations with many repositories, the hosted offering also offers a policy and notification system that makes it easy to tune Semgrep so that it only reports issues or suggests fixes that get applied. Our goal is a 99% fix rate for what Semgrep reports.
 
 ### Besides open-source and ease of writing new rules, what else is different about Semgrep?
 
