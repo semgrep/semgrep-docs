@@ -53,7 +53,7 @@ Traceback (most recent call last):
 ValueError: Invalid header value b'Bearer *******************************************************' 
 ```
 
-Root cause of this error would be a `\n` within the secret value from the copy/pasting of your `SEMGREP_APP_TOKEN`.
+Root cause of this error would be a `\n` within the secret value or a possible misconfiguration from the copy/pasting of your `SEMGREP_APP_TOKEN`.
 
 ## Example fix on Github
 
