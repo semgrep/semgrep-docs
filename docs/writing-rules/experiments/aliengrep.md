@@ -27,7 +27,7 @@ rules:
   pattern: "hello"
 ```
 
-::: note
+:::note
  We're considering requiring a dedicated field `analyzer: aliengrep` instead of `options.generic_engine: aliengrep`.
 :::
 
