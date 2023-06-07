@@ -282,6 +282,7 @@ module.exports = {
         'semgrep-supply-chain/ignoring-deps',
         'semgrep-supply-chain/notifications',
         'semgrep-supply-chain/dependency-search',
+        'semgrep-supply-chain/license-compliance',
         'semgrep-supply-chain/glossary'
       ]
     },
