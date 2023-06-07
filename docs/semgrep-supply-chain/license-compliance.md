@@ -70,7 +70,7 @@ To change the policies of packages based on the license:
 
 This section describes license categories and licenses identified by Semgrep Supply Chain.
 
-#### Weak copyleft licenses
+#### Popular weak-copyleft licenses
 
 Software using a package with a weak copyleft license may have to maintain the same license as the package in specific cases. To clarify when this applies, consult your legal department. Developers typically choose these packages based on individual cases, so it's suggested to monitor their usage to ensure license compliance.
 
@@ -81,7 +81,7 @@ Software using a package with a weak copyleft license may have to maintain the s
 * OSL-3.0
 * EUPL-3.0
 
-#### Copyleft licenses
+#### Popular copyleft licenses
 
 Software using a package with a copyleft license must maintain the same license as the package. To prevent license complications, developers often avoid packages using these licenses.
 
@@ -92,7 +92,7 @@ Software using a package with a copyleft license must maintain the same license 
 * CC-BY-SA-4.0
 * APSL
 
-#### Permissive licenses
+#### Popular Permissive licenses
 
 Software using a package with a permissive license have minimal restrictions on how the software can be used or modified. This makes permissive licenses popular among developers for their flexibility and ease of use without legal concerns.
 
@@ -107,12 +107,12 @@ Software using a package with a permissive license have minimal restrictions on 
 * MS-PL
 * Unlicensed
 
-#### Uncategorized licenses
+#### Other licenses
 
-Uncategorized licenses are licenses that are not yet categorized by Semgrep Supply Chain, or are not included in the previous categories.
+**Other** licenses include licenses that are not yet categorized by Semgrep Supply Chain, or are not  included in the previous categories. These licenses include all other standard Software Package Data Exchange (SPDX) licenses.
 
 :::caution
-Uncategorized licenses may include copyleft or permissive licenses. Consult your legal department before using licenses in this category.
+The **Other** license category may include copyleft or permissive licenses. Consult your legal department before using licenses in this category.
 :::
 
 ## Exempting packages
