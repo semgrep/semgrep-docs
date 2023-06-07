@@ -64,13 +64,11 @@ In Semgrep rule syntax, an ellipsis is a specific pattern written as three dots 
 
 Ellipses at the beginning or at the end of a pattern are anchored. For example, ellipses must match the beginning or the end of the target input, respectively. For example, `...` alone matches the whole input and `a ...` matches the whole input starting from the first occurrence of the word `a`.
 
-### Capturing ellipsis (metavariable-ellipsis)
+### Metavariable ellipsis (capturing ellipsis)
 
-[TODO: use the same term as elsewhere to refer to this syntax]
+A metavariable ellipsis `$...X` matches the same contents as an ordinary ellipsis `...` but additionally captures the contents and assigns it to the metavariable `X`.
 
-A capturing ellipsis `$...X` matches the same contents as an ordinary ellipsis `...` but additionally captures the contents and assigns it to the metavariable `X`.
-
-Repeating a capturing ellipsis such as in `$...A, $...A` requires the same exact contents to be matched, including the same whitespace. This is an unfortunate limitation of the implementation. For example, `$...A, $...A` matches `1 2, 1 2` and `1   2, 1   2` but unfortunately, it doesn't match `1 2, 1   2`.
+Repeating a metavariable ellipsis such as in `$...A, $...A` requires the same exact contents to be matched, including the same whitespace. This is an unfortunate limitation of the implementation. For example, `$...A, $...A` matches `1 2, 1 2` and `1   2, 1   2` but unfortunately, it doesn't match `1 2, 1   2`.
 
 ### Single-line mode
 
