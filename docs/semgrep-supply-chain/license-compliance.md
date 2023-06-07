@@ -92,7 +92,7 @@ Software using a package with a copyleft license must maintain the same license 
 * CC-BY-SA-4.0
 * APSL
 
-#### Popular Permissive licenses
+#### Popular permissive licenses
 
 Software using a package with a permissive license have minimal restrictions on how the software can be used or modified. This makes permissive licenses popular among developers for their flexibility and ease of use without legal concerns.
 
