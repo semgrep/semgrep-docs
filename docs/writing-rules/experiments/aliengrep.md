@@ -43,7 +43,7 @@ Lexical elements in target input are:
 
 ### Metavariables
 
-A metavariable captures a single word in the target input. By default, the set of word characters is `[A-Za-z_0-9]`. The pattern `$THING` matches a whole word such as `hello` or `world` if the input is `hello, world.`.
+A metavariable captures a single word in the target input. By default, the set of word characters is `[A-Za-z_0-9]`. The pattern `$THING` matches a whole word such as `hello` or `world` if the target input is `hello, world.`.
 
 ```yaml
 rules:
@@ -62,7 +62,7 @@ Repeating a metavariable (back-reference) requires a match of the same sequence 
 
 In Semgrep rules, ellipsis is a pattern written `...`. Ellipsis matches a sequence of any lexical elements. Matching ellipses is lazy or shortest-match-first. For example the pattern `a ... b` matches `a x b` rather than `a x b b` if the target input is `a x b b c`.
 
-Ellipses at the beginning or at the end of a pattern are anchored. For example, ellipses must match the beginning or the end of input, respectively. For example, `...` alone matches the whole input and `a ...` matches the whole input starting from the first occurrence of the word `a`.
+Ellipses at the beginning or at the end of a pattern are anchored. For example, ellipses must match the beginning or the end of the target input, respectively. For example, `...` alone matches the whole input and `a ...` matches the whole input starting from the first occurrence of the word `a`.
 
 ### Capturing ellipsis (metavariable-ellipsis)
 
@@ -88,7 +88,7 @@ rules:
   pattern: "password: ..."
 ```
 
-Now instead of matching everything until the end of the input file, the pattern `password: ...` will stop the match at the end of the line. In single-line mode, a regular ellipsis `...` or its named variant `$...X` cannot span multiple lines.
+Now instead of matching everything until the end of the target input file, the pattern `password: ...` will stop the match at the end of the line. In single-line mode, a regular ellipsis `...` or its named variant `$...X` cannot span multiple lines.
 
 Another feature of the single-line mode is that newlines in rule patterns must match literally. For example, the following YAML rule contains a two-line pattern:
 
@@ -111,7 +111,7 @@ x a
 b x
 ```
 
-The pattern does not match if there is another number of newlines between `a` and `b`. The single-line mode does not match the following input:
+The pattern does not match if there is another number of newlines between `a` and `b`. The single-line mode does not match the following target input:
 
 ```
 x a b x
@@ -147,8 +147,7 @@ rules:
   pattern: "data = $DATA;"
 ```
 
-The example above allows matching Base64-encoded data such as in the
-following input:
+The example above allows to match Base64-encoded data such as in the following target input:
 
 ```
 data = bGlnaHQgd29yaw==;
@@ -159,12 +158,7 @@ set.
 
 ### Custom brackets
 
-The aliengrep engine performs brace matching as expected in English
-text. The default brace pairs are parentheses (`()`), square brackets
-(`[]`), and curly braces (`{}`). In single-line mode, ASCII single
-quotes and double quotes are also treated like brace pairs by default.
-The following rule demonstrates the addition of `<>` as an extra pair
-of braces by specifying `options.generic_extra_braces`:
+The Aliengrep engine performs brace matching as expected in English text. The default brace pairs are parentheses (`()`), square brackets (`[]`), and curly braces (`{}`). In single-line mode, ASCII single quotes and double quotes are also treated like brace pairs by default. The following rule demonstrates the addition of `<>` as an extra pair of braces by specifying `options.generic_extra_braces`:
 
 ```yaml
 rules:
@@ -178,15 +172,14 @@ rules:
   pattern: "x ... x"
 ```
 
-This will match the `x <x> x` in the following target:
+This pattern matches the `x <x> x` in the following target input:
 ```
 a x <x> x a
 ```
 
 Without declaring `<>` as braces, the rule would match only `x <x`.
 
-The set of brace pairs can be completely replaced by using the field
-`options.generic_braces` as follows:
+The set of brace pairs can be completely replaced by using the field `options.generic_braces` as follows:
 
 ```yaml
 rules:
@@ -203,9 +196,7 @@ rules:
 ### Caseless matching
 
 Some languages are case-insensitive according to Unicode rules (UTF-8
-encoding).
-To deal with this, aliengrep offers an option for case-insensitive matching
-`options.generic_caseless: true`.
+encoding). To deal with this, aliengrep offers an option for case-insensitive matching `options.generic_caseless: true`.
 
 ```yaml
 rules:
@@ -220,15 +211,10 @@ rules:
   pattern: "Content-Type: $...CT"
 ```
 
-This rule will match on `Content-Type: text/html` but also on
-`content-type: text/html` or `CONTENT-TyPe: text/HTML` among all the
-possible variants.
+This rule matches `Content-Type: text/html` but also `content-type: text/html` or `CONTENT-TyPe: text/HTML` among all the possible variants.
 
 :::caution
-Back-referencing a metavariable requires an exact repeat of the text
-captured by the metavariable, even in caseless mode.
-For example, `$X $X` will match `ab ab` and `AB AB` but
-not `ab AB`.
+Back-referencing a metavariable requires an exact repeat of the text captured by the metavariable, even in caseless mode. For example, `$X $X` will match `ab ab` and `AB AB` but not `ab AB`.
 :::
 
 <MoreHelp />
