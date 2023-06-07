@@ -97,6 +97,9 @@ module.exports = {
                     label: 'Experiments 🧪',
                     link: {type: 'doc', id: 'writing-rules/experiments/introduction'},
                     items: [
+                      'writing-rules/experiments/aliengrep',
+                      'writing-rules/experiments/display-propagated-metavariable',
+                      'writing-rules/experiments/extract-mode',
                       { type: 'category',
                           label: 'Join mode',
                           link: {type: 'doc', id: 'writing-rules/experiments/join-mode/overview'},
@@ -109,12 +112,10 @@ module.exports = {
                               'writing-rules/experiments/join-mode/recursive-joins'
                           ]
                       },
-                      'writing-rules/experiments/extract-mode',
+                      'writing-rules/experiments/multiple-focus-metavariables',
                       'writing-rules/experiments/project-depends-on',
                       'writing-rules/experiments/symbolic-propagation',
                       'writing-rules/experiments/taint-labels',
-                      'writing-rules/experiments/multiple-focus-metavariables',
-                      'writing-rules/experiments/display-propagated-metavariable',
                       'writing-rules/experiments/deprecated-experiments'
                     ]
                   },
