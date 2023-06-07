@@ -10,11 +10,11 @@ hide_title: true
 This is an experimental matching mode for Semgrep OSS Engine. Many of the features described in this document are subject to change. Your feedback is important and helps us to make desirable adjustments.
 :::
 
-Aliengrep is an alternative to the [generic pattern-matching engine](/writing-rules/generic-pattern-matching/) for analyzing files written in any language. The pattern syntax resembles the usual Semgrep pattern syntax. This documents provides a reference of the features supported by Aliengrep.
+Aliengrep is an alternative to the [generic pattern-matching engine](/writing-rules/generic-pattern-matching/) for analyzing files written in any language. The pattern syntax resembles the usual Semgrep pattern syntax. This document provides a reference to the syntactic features that Aliengrep supports.
 
 ## Minimal example
 
-Specify that a rule uses Aliengrep engine by setting `options.generic_engine: aliengrep` [TODO: use a dedicated field `analyzer: aliengrep`?]. See the Semgrep rule example below:
+Specify that a rule uses the Aliengrep engine by setting `options.generic_engine: aliengrep` [TODO: use a dedicated field `analyzer: aliengrep`?]. See the Semgrep rule example below:
 
 ```yaml
 rules:
@@ -33,7 +33,7 @@ The following sections provide descriptions and examples of operators that Alien
 
 ### Whitespace
 
-Whitespace between lexical elements is ignored. By default, whitespace includes spaces, tabs, and newlines. The single-line mode restricts whitespace to only spaces and tabs (see [Single-line mode](#single-line-mode) section below).
+The whitespace between lexical elements is ignored. By default, whitespace includes spaces, tabs, and newlines. The single-line mode restricts whitespace to only spaces and tabs (see [Single-line mode](#single-line-mode) section below).
 
 Lexical elements in target input are:
 
@@ -60,7 +60,7 @@ Repeating a metavariable (back-reference) requires a match of the same sequence 
 
 ### Ellipsis (`...`)
 
-In Semgrep rules, ellipsis is a pattern written `...`. Ellipsis matches a sequence of any lexical elements. Matching ellipses is lazy or shortest-match-first. For example the pattern `a ... b` matches `a x b` rather than `a x b b` if the target input is `a x b b c`.
+In Semgrep rule syntax, an ellipsis is a specific pattern written as `...`. Ellipsis matches a sequence of any lexical elements. Matching ellipses is lazy or shortest-match-first. For example, the pattern `a ... b` matches `a x b` rather than `a x b b` if the target input is `a x b b c`.
 
 Ellipses at the beginning or at the end of a pattern are anchored. For example, ellipses must match the beginning or the end of the target input, respectively. For example, `...` alone matches the whole input and `a ...` matches the whole input starting from the first occurrence of the word `a`.
 
@@ -70,7 +70,7 @@ Ellipses at the beginning or at the end of a pattern are anchored. For example, 
 
 A capturing ellipsis `$...X` matches the same contents as an ordinary ellipsis `...` but additionally captures the contents and assigns it to the metavariable `X`.
 
-Repeating a capturing ellipsis such as in `$...A, $...A` requires the same exact contents to be matched, including the same whitespace. This is an unfortunate limitation of the implementation. For example, `$...A, $...A` matches `1 2, 1 2` and `1   2, 1   2` but unfortunately it doesn't match `1 2, 1   2`.
+Repeating a capturing ellipsis such as in `$...A, $...A` requires the same exact contents to be matched, including the same whitespace. This is an unfortunate limitation of the implementation. For example, `$...A, $...A` matches `1 2, 1 2` and `1   2, 1   2` but unfortunately, it doesn't match `1 2, 1   2`.
 
 ### Single-line mode
 
@@ -104,7 +104,7 @@ rules:
   pattern: "a\nb"
 ```
 
-The pattern `"a\nb"` in YAML rule file matches the following code:
+The pattern `"a\nb"` in the YAML rule file matches the following code:
 
 ```
 x a
@@ -120,7 +120,7 @@ x a b x
 It does however match in the default multiline mode of Aliengrep.
 
 :::caution
-YAML syntax makes it easy to introduce significant newline characters in patterns without realizing it. In doubt and for better clarity, use the quoted string syntax `"a\nb"` like we did above. This ensures no trailing newline is added accidentally when using the single-line mode.
+YAML syntax makes it easy to introduce significant newline characters in patterns without realizing it. In doubt and for better clarity, use the quoted string syntax `"a\nb"` as we did above. This ensures no trailing newline is added accidentally when using the single-line mode.
 :::
 
 ### Long ellipsis (`....`)
@@ -133,7 +133,7 @@ In multiline mode, a regular ellipsis has the same behavior as a long ellipsis.
 
 ### Additional word characters captured my metavariables
 
-In the generic modes, a metavariable captures a word. The default pattern followed by a word is `[A-Za-z_0-9]+` (a sequence of one of more alphanumeric characters or underscores). The set of characters that comprise a word can be configured as an option in the Semgrep rule as follows:
+In the generic modes, a metavariable captures a word. The default pattern followed by a word is `[A-Za-z_0-9]+` (a sequence of one or more alphanumeric characters or underscores). The set of characters that comprise a word can be configured as an option in the Semgrep rule as follows:
 
 ```yaml
 rules:
@@ -147,7 +147,7 @@ rules:
   pattern: "data = $DATA;"
 ```
 
-The example above allows to match Base64-encoded data such as in the following target input:
+The example above allows matching Base64-encoded data such as in the following target input:
 
 ```
 data = bGlnaHQgd29yaw==;
@@ -196,7 +196,7 @@ rules:
 ### Caseless matching
 
 Some languages are case-insensitive according to Unicode rules (UTF-8
-encoding). To deal with this, aliengrep offers an option for case-insensitive matching `options.generic_caseless: true`.
+encoding). To deal with this, Aliengrep offers an option for case-insensitive matching `options.generic_caseless: true`.
 
 ```yaml
 rules:
