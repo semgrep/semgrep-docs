@@ -303,7 +303,8 @@ module.exports = {
           { from: "/semgrep-ci/configuration-reference" , to: "/semgrep-ci/ci-environment-variables/" },
 
           /* MAY 12 2023  */
-          { from: "/semgrep-cloud-platform/pricing-and-billing/"            , to: "/semgrep-cloud-platform/notifications/" }
+          { from: "/semgrep-cloud-platform/pricing-and-billing/"            , to: "/semgrep-cloud-platform/notifications/" },
+          { from: "/extensions/"                                            , to: "/extensions/overview/" }
         ]
       }
     ],

@@ -74,7 +74,19 @@ module.exports = {
                 ]
             },
         'ignoring-files-folders-code',
-        'extensions',
+            {
+              type: 'category',
+              label: 'Extensions',
+              collapsible: true,
+              link: {
+                type: 'doc', 
+                id: 'extensions/overview'
+              },
+              items: [
+                'extensions/overview',
+                'extensions/semgrep-vs-code'
+              ]
+            },
         {
             type: 'category',
             label: 'Writing custom rules',
