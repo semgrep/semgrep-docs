@@ -195,8 +195,7 @@ rules:
 
 ### Caseless matching
 
-Some languages are case-insensitive according to Unicode rules (UTF-8
-encoding). To deal with this, Aliengrep offers an option for case-insensitive matching `options.generic_caseless: true`.
+Some languages are case-insensitive according to Unicode rules (UTF-8 encoding). To deal with this, Aliengrep offers an option for case-insensitive matching `options.generic_caseless: true`.
 
 ```yaml
 rules:
