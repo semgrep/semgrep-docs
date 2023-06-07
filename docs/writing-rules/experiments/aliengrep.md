@@ -14,7 +14,7 @@ Aliengrep is an alternative to the [generic pattern-matching engine](/writing-ru
 
 ## Minimal example
 
-Specify that a rule uses the Aliengrep engine by setting `options.generic_engine: aliengrep` [TODO: use a dedicated field `analyzer: aliengrep`?]. See the Semgrep rule example below:
+Specify that a rule uses the Aliengrep engine by setting `options.generic_engine: aliengrep`. See the Semgrep rule example below:
 
 ```yaml
 rules:
@@ -26,6 +26,10 @@ rules:
   message: "found the word 'hello'"
   pattern: "hello"
 ```
+
+::: note
+ We're considering requiring a dedicated field `analyzer: aliengrep` instead of `options.generic_engine: aliengrep`.
+:::
 
 ## Pattern syntax
 
@@ -123,11 +127,13 @@ YAML syntax makes it easy to introduce significant newline characters in pattern
 
 ### Long ellipsis (`....`)
 
-[TODO: ideas for a better syntax?]
-
 A long ellipsis `....` and its capturing variant `$....X` matches a sequence of any lexical elements even in single-line mode. It's useful for skipping any number of lines in single-line mode.
 
 In multiline mode, a regular ellipsis has the same behavior as a long ellipsis.
+
+:::note
+We wonder if the visual difference between `...` and `....` is too subtle. Let us know if you have ideas for a better syntax than four dots `....`.
+:::
 
 ### Additional word characters captured my metavariables
 
