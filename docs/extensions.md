@@ -28,7 +28,19 @@ repos:
   rev: 'SEMGREP_VERSION_LATEST'
   hooks:
     - id: semgrep
-      # See semgrep.dev/rulesets to select a ruleset and copy its URL
+      # See https://semgrep.dev/explore to select a ruleset and copy its URL
+      args: ['--config', '<SEMGREP_RULESET_URL>', '--error', '--skip-unknown-extensions']
+```
+
+The pre-commit can also run Semgrep rules in CI, using the following configuration:
+
+```yaml
+repos:
+- repo: https://github.com/returntocorp/semgrep
+  rev: 'SEMGREP_VERSION_LATEST'
+  hooks:
+    - id:  semgrep-ci
+      # See https://semgrep.dev/explore to select a ruleset and copy its URL
       args: ['--config', '<SEMGREP_RULESET_URL>', '--error', '--skip-unknown-extensions']
 ```
 
