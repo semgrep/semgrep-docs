@@ -32,7 +32,7 @@ repos:
       args: ['--config', '<SEMGREP_RULESET_URL>', '--error', '--skip-unknown-extensions']
 ```
 
-The pre-commit can also run custom rules and rulesets from Semgrep Cloud, similar to running `semgrep ci` using the following configuration:
+The pre-commit can also run custom rules and rulesets from Semgrep Code, similar to running `semgrep ci` using the following configuration:
 
 ```yaml
 repos:
