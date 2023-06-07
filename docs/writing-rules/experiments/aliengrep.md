@@ -60,7 +60,7 @@ Repeating a metavariable (back-reference) requires a match of the same sequence 
 
 ### Ellipsis (`...`)
 
-In Semgrep rule syntax, an ellipsis is a specific pattern written as `...`. Ellipsis matches a sequence of any lexical elements. Matching ellipses is lazy or shortest-match-first. For example, the pattern `a ... b` matches `a x b` rather than `a x b b` if the target input is `a x b b c`.
+In Semgrep rule syntax, an ellipsis is a specific pattern written as three dots `...`. Ellipsis matches a sequence of any lexical elements. Matching ellipses is lazy or shortest-match-first. For example, the pattern `a ... b` matches `a x b` rather than `a x b b` if the target input is `a x b b c`.
 
 Ellipses at the beginning or at the end of a pattern are anchored. For example, ellipses must match the beginning or the end of the target input, respectively. For example, `...` alone matches the whole input and `a ...` matches the whole input starting from the first occurrence of the word `a`.
 
