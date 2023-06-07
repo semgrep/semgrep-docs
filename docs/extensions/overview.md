@@ -13,7 +13,7 @@ Several third-party tools include Semgrep extensions.
 
 ## Editor
 
-### Official Extensions
+### Official extensions
 
 - Microsoft Visual Studio Code: [`semgrep-vscode`](https://marketplace.visualstudio.com/items?itemName=semgrep.semgrep)
 - Emacs: [`lsp-mode`](https://github.com/emacs-lsp/lsp-mode)
