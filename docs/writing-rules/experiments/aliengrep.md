@@ -6,6 +6,8 @@ title: Aliengrep
 hide_title: true
 ---
 
+# Aliengrep
+
 :::caution
 This is an experimental matching mode for Semgrep OSS Engine. Many of the features described in this document are subject to change. Your feedback is important and helps us to make desirable adjustments.
 :::
@@ -28,7 +30,7 @@ rules:
 ```
 
 :::note
- We're considering requiring a dedicated field `analyzer: aliengrep` instead of `options.generic_engine: aliengrep`.
+We are considering a dedicated field `analyzer: aliengrep` instead of `options.generic_engine: aliengrep`.
 :::
 
 ## Pattern syntax
@@ -127,9 +129,9 @@ YAML syntax makes it easy to introduce significant newline characters in pattern
 
 ### Long ellipsis (`....`)
 
-A long ellipsis `....` and its capturing variant `$....X` matches a sequence of any lexical elements even in single-line mode. It's useful for skipping any number of lines in single-line mode.
+A long ellipsis is written as four dots `....` and its capturing variant `$....X` matches a sequence of any lexical elements even in single-line mode. It's useful for skipping any number of lines in single-line mode.
 
-In multiline mode, a regular ellipsis has the same behavior as a long ellipsis.
+In multiline mode, a regular ellipsis (three dots ...) has the same behavior as a long ellipsis (four dots ....).
 
 :::note
 We wonder if the visual difference between `...` and `....` is too subtle. Let us know if you have ideas for a better syntax than four dots `....`.
