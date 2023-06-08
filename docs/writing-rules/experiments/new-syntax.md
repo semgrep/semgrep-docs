@@ -4,15 +4,9 @@ slug: new-rule-syntax
 description: "This document describes Semgrep’s YAML rule syntax including required and optional fields. Just getting started with Semgrep rule writing? Check out the Semgrep Tutorial at https://semgrep.dev/learn"
 ---
 
-import MoreHelp from "/src/components/MoreHelp"
-import LanguageExtensionsTags from '/src/components/reference/_language-extensions-tags.mdx'
-import RequiredRuleFieldsNew from "/src/components/reference/_required-rule-fields-new.mdx"
+# New rule syntax
 
-# Rule syntax
-
-:::tip
-Getting started with rule writing? Try the [Semgrep Tutorial](https://semgrep.dev/learn) 🎓
-:::
+Tip: Getting started with rule writing? Try the [Semgrep Tutorial](https://semgrep.dev/learn) 🎓
 
 This document describes Semgrep’s new YAML rule syntax.
 
@@ -20,11 +14,65 @@ This document describes Semgrep’s new YAML rule syntax.
 
 ### Required
 
-<RequiredRuleFieldsNew />
+All required fields must be present at the top-level of a rule, immediately under the `rules` key.
+
+|     Field     |   Type   | Description |
+| :------------ | :------- | :---------- |
+| `id`          | `string` | Unique, descriptive identifier, for example: `no-unused-variable`        |
+| `message`     | `string` | Message that includes why Semgrep matched this pattern and how to remediate it. See also [Rule messages](/contributing/contributing-to-semgrep-rules-repository/#rule-messages). |
+| `severity`    | `string` | One of: `INFO`, `WARNING`, or `ERROR` |
+| `languages`   | `array`  | See [language extensions and tags](/writing-rules/rule-syntax/#language-extensions-and-tags) |
+| [`match`](#match)_\*_     | `pattern` | Find code matching this pattern |
 
 #### Language extensions and tags
 
-<LanguageExtensionsTags />
+The following table includes languages supported by Semgrep, accepted file extensions for test files that accompany rules, and valid values that Semgrep rules require in the `languages` key.
+
+| Language                            | Extensions                           | `languages` key values                |
+|:------------------------------------|:-------------------------------------|:--------------------------------------|
+| Apex (only in Semgrep Pro Engine)   | `.cls`                               | `apex`                                | 
+| Bash                                | `.bash`, `.sh`                       | `bash`, `sh`                          |
+| C                                   | `.c`                                 | `c`                                   |
+| Cairo                               | `.cairo`                             | `cairo`                               |
+| Clojure                             | `.clj`, `.cljs`, `.cljc`, `.edn`     | `clojure`                             |
+| C++                                 | `.cc`, `.cpp`                        | `cpp`, `c++`                          |
+| C#                                  | `.cs`                                | `csharp`, `c#`                        |
+| Dart                                | `.dart`                              | `dart`                                |
+| Dockerfile                          | `.dockerfile`, `.Dockerfile`         | `dockerfile`, `docker`                |
+| Elixir                              | `.ex`, `.exs`                        | `ex`, `elixir`                        |
+| Generic                             |                                      | `generic`                             |
+| Go                                  | `.go`                                | `go`, `golang`                        |
+| HTML                                | `.htm`, `.html`                      | `html`                                |
+| Java                                | `.java`                              | `java`                                |
+| JavaScript                          | `.js`, `.jsx`                        | `js`, `javascript`                    |
+| JSON                                | `.json`, `.ipynb`                    | `json`                                |
+| Jsonnet                             | `.jsonnet`, `.libsonnet`             | `jsonnet`                             |
+| JSX                                 | `.js`, `.jsx`                        | `js`, `javascript`                    |
+| Julia                               | `.jl`                                | `julia`                               |
+| Kotlin                              |  `.kt`, `.kts`, `.ktm`               | `kt`, `kotlin`                        |
+| Lisp                                | `.lisp`, `.cl`, `.el`                | `lisp`                                |
+| Lua                                 | `.lua`                               | `lua`                                 |
+| OCaml                               | `.ml`, `.mli`                        | `ocaml`                               |
+| PHP                                 | `.php`, `.tpl`                       | `php`                                 |
+| Python                              | `.py`, `.pyi`                        | `python`, `python2`, `python3`, `py`  |
+| R                                   | `.r`, `.R`                           | `r`                                   |
+| Ruby                                | `.rb`                                | `ruby`                                |
+| Rust                                | `.rs`                                | `rust`                                |
+| Scala                               | `.scala`                             | `scala`                               |
+| Scheme                              | `.scm`, `.ss`                        | `scheme`                              |
+| Solidity                            | `.sol`                               | `solidity`, `sol`                     |
+| Swift                               | `.swift`                             | `swift`                               |
+| Terraform                           | `.tf`, `.hcl`                        | `tf`, `hcl`, `terraform`              |
+| TypeScript                          | `.ts`, `.tsx`                        | `ts`, `typescript`                    |
+| TSX                                 | `.ts`, `.tsx`                        | `ts`, `typescript`                    |
+| YAML                                | `.yml`, `.yaml`                      | `yaml`                                |
+| XML                                 |  `.xml`                              | `xml`                                 |
+
+:::info
+To see the maturity level of each supported language, see the following sections in [Supported languages](/supported-languages/) document:
+- [Semgrep OSS Engine](/supported-languages/#semgrep-oss-engine)
+- [Semgrep Pro Engine](/supported-languages/#semgrep-pro-engine)
+:::
 
 ### Optional
 
@@ -651,4 +699,4 @@ The above rule makes use of many patterns. It uses `any`, `all`, `pattern`, and 
 The [full configuration-file format](https://github.com/returntocorp/semgrep-interfaces/blob/main/rule_schema_v1.yaml) is defined as
 a [jsonschema](http://json-schema.org/specification.html) object.
 
-<MoreHelp />
+Find what you needed in this doc? Join the <a href="https://go.semgrep.dev/slack">Semgrep Community Slack group</a> to ask the maintainers and the community if you need help.

@@ -115,7 +115,8 @@ module.exports = {
                       'writing-rules/experiments/taint-labels',
                       'writing-rules/experiments/multiple-focus-metavariables',
                       'writing-rules/experiments/display-propagated-metavariable',
-                      'writing-rules/experiments/deprecated-experiments'
+                      'writing-rules/experiments/deprecated-experiments',
+                      'writing-rules/experiments/new-syntax'
                     ]
                   },
                 'playground',
