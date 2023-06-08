@@ -163,6 +163,14 @@ module.exports = {
       ]
     },
     image: 'https://semgrep.dev/thumbnail.png',
+    announcementBar: {
+      id: 'office-hours',
+      content:
+        'Group Office Hours | Meet community members and get support from our technical Customer Success Engineers.  <a target="_blank" rel="noopener noreferrer" href="https://get.semgrep.dev/Weekly-Group-Office-Hours.html">Book now</a>!',
+      backgroundColor: '#00A67D',
+      textColor: '#ffffff',
+      isCloseable: false,
+    },
   },
   scripts: [
     {
