@@ -129,7 +129,7 @@ YAML syntax makes it easy to introduce significant newline characters in pattern
 
 ### Long ellipsis (`....`)
 
-A long ellipsis is written as four dots `....` and its capturing variant `$....X` matches a sequence of any lexical elements even in single-line mode. It's useful for skipping any number of lines in single-line mode.
+A long ellipsis (written as four dots, `....`) and its capturing variant `$....X` matches a sequence of any lexical elements even in single-line mode. It's useful for skipping any number of lines in single-line mode.
 
 In multiline mode, a regular ellipsis (three dots `...`) has the same behavior as a long ellipsis (four dots `....`).
 
