@@ -8,7 +8,7 @@ tags:
 
 # Troubleshooting `ValueError: Invalid header value`
 
-When trying to scan, you may run into the following error:
+When scanning with Semgrep, you may run into the following error:
 
 ```Invalid header value b'Bearer *******************************************************'
 Traceback (most recent call last):
