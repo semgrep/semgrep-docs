@@ -167,7 +167,7 @@ module.exports = {
       id: 'office-hours',
       content:
         'Group Office Hours | Meet community members and get support from our technical Customer Success Engineers.  <a target="_blank" rel="noopener noreferrer" href="https://get.semgrep.dev/Weekly-Group-Office-Hours.html">Book now</a>!',
-      backgroundColor: '#ffc0cb',
+      backgroundColor: '#00A67D',
       textColor: '#ffffff',
       isCloseable: false,
     },
