@@ -57,7 +57,10 @@ Root cause of this error would be a `\n` within the secret value or a possible m
 
 ## Example fix on GitHub
 
-To fix on Github, go to either your organization's/repository's `Secrets and variables` section within the settings and update the value of the `SEMGREP_APP_TOKEN` to ensure it does not have an extraneous `\n`.
+To fix on Github:
+
+1. Go to either your organization's or repository's **Settings** > **Secrets and variables** 
+2. Update the value of the `SEMGREP_APP_TOKEN` to ensure it does not have an extraneous `\n`.
 
 ![Secrets and variables section in Settings](/static/img/kb/github-secrets.png)
 ![Updating Github Secret](/static/img/kb/github-update-value.png)
