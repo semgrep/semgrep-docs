@@ -9,7 +9,7 @@ hide_title: true
 # Aliengrep
 
 :::caution
-This is an experimental matching mode for Semgrep OSS Engine. Many of the features described in this document are subject to change. Your feedback is important and helps us to make desirable adjustments.
+This is an experimental matching mode for Semgrep OSS Engine. Many of the features described in this document are subject to change. Your feedback is important and helps us, the Semgrep team, to make desirable adjustments. You can file an issue in our [Semgrep OSS Engine GitHub repository](https://github.com/returntocorp/semgrep/issues) or ask us anything in <a href="https://go.semgrep.dev/slack">Semgrep Community Slack group</a>.
 :::
 
 Aliengrep is an alternative to the [generic pattern-matching engine](/writing-rules/generic-pattern-matching/) for analyzing files written in any language. The pattern syntax resembles the usual Semgrep pattern syntax. This document provides a reference to the syntactic features that Aliengrep supports.
