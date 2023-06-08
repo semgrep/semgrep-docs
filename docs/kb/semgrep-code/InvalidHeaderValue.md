@@ -1,5 +1,5 @@
 ---
-description: What is this Ivalid header value error
+description: Troubleshoot "invalid header value" errors in GitHub and Gitlab
 tags:
   - Scanning
   - Semgrep Code
