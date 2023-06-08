@@ -64,6 +64,8 @@ To fix on Github, go to either your organization's/repository's `Secrets and var
 
 ## Example fix on GitLab
 
-To fix on Github go to your repository's `CI/CD` Settings and update the `SEMGREP_APP_TOKEN` variable directly to remove the extraneous `\n`.
+To fix on GitLab:
+1. Go to your repository's `CI/CD` Settings.
+2. Update the `SEMGREP_APP_TOKEN` variable directly to ensure it does not have an extraneous `\n`.
 
 ![Updating Gitlab Variable](/static/img/kb/gitlab-update-value.png)
