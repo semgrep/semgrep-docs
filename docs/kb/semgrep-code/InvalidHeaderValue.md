@@ -62,7 +62,7 @@ To fix on Github, go to either your organization's/repository's `Secrets and var
 ![Secrets and variables section in Settings](/static/img/kb/github-secrets.png)
 ![Updating Github Secret](/static/img/kb/github-update-value.png)
 
-## Example fix on Gitlab
+## Example fix on GitLab
 
 To fix on Github go to your repository's `CI/CD` Settings and update the `SEMGREP_APP_TOKEN` variable directly to remove the extraneous `\n`.
 
