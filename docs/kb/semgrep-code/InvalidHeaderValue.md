@@ -55,7 +55,7 @@ ValueError: Invalid header value b'Bearer **************************************
 
 Root cause of this error would be a `\n` within the secret value or a possible misconfiguration from the copy/pasting of your `SEMGREP_APP_TOKEN`.
 
-## Example fix on Github
+## Example fix on GitHub
 
 To fix on Github, go to either your organization's/repository's `Secrets and variables` section within the settings and update the value of the `SEMGREP_APP_TOKEN` to ensure it does not have an extraneous `\n`.
 
