@@ -16,6 +16,7 @@ import SupportedLanguagesTable from '/src/components/reference/_supported-langua
 import SscIntro from "/src/components/concept/_ssc-intro.md"
 import MoreHelp from "/src/components/MoreHelp"
 import DeepSemgrepIntroduction from "/src/components/concept/_semgrep-pro-engine-introduction.mdx"
+import AdmonitionSotCves from "/src/components/reference/_admonition-sot-cves.md"
 
 <ul id="tag__badge-list">
 {
@@ -247,9 +248,7 @@ _**†**Refers to functionality in Semgrep Cloud Platform to indicate through a 
 _**‡**The month and year that Semgrep Supply Chain has begun writing rules to detect vulnerabilities listed in GHSA._<br />
 _**††**Semgrep Supply Chain supports `requirements.txt` when it is used as a **lockfile**. This means that `requirements.txt` must be set to exact versions (pinned dependencies) and the file must be generated automatically._
 
-:::info
-Semgrep uses GitHub Security Advisory as the source of truth for advisories.
-:::
+<AdmonitionSotCves />
 
 :::info Transitivity support
 For more information on transitivity, see [Transitive dependencies and reachability analysis](/docs/semgrep-supply-chain/overview/#transitive-dependencies-and-reachability-analysis).
