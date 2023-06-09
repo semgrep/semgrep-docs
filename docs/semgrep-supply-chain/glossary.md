@@ -87,4 +87,4 @@ An unreachable finding means that the dependency's version contains a known vuln
 
 ## Vulnerability
 
-A vulnerability is an unintentional flaw in a dependency that can be exploited. Vulnerabilities are assigned a CVE by the [MITRE corporation](https://cve.mitre.org/). Semgrep Supply Chain uses GitHub Security Advisory in categorizing the severity of a vulnerability.
+A vulnerability is an unintentional flaw in a dependency that can be exploited. Vulnerabilities are assigned a CVE by the [MITRE corporation](https://cve.mitre.org/). Semgrep Supply Chain uses GitHub Security Advisory (GHSA) in categorizing the severity of a vulnerability.
