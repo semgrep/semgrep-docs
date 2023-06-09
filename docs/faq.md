@@ -189,6 +189,6 @@ A policy is a simple collection of rules and a definition of what to do with rul
 
 ### Do you have a visualization UI?
 
-Semgrep Team users can create custom dashboards and visualizations. Semgrep also supports posting results through webhooks to any JSON endpoint, so you can easily integrate it with your favorite visualization tool.
+Semgrep Team users can create custom dashboards and visualizations. Semgrep also supports posting results through [webhooks](https://semgrep.dev/docs/semgrep-cloud-platform/webhooks) to any JSON endpoint, so you can easily integrate it with your favorite visualization tool.
 
 <MoreHelp />
