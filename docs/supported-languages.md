@@ -99,7 +99,7 @@ The following **thresholds** define each maturity level:
 -->
 
 * **Experimental**
-    * Parse rate: 90%+
+    * Parse rate from 90%+.
     * Rules: 0+
     * Features:
         * `concrete_syntax`
@@ -112,7 +112,7 @@ The following **thresholds** define each maturity level:
         * `metavar_call`
         * `metavar_equality_var`
 * **Beta**
-    * Parse rate: 99%+
+    * Parse rate from 99% to 95%.
     * Rules: 5+
     * Features:
         * All items in Experimental
@@ -124,7 +124,7 @@ The following **thresholds** define each maturity level:
         * `metavar_import`
         * `metavar_stmt`
 * **Generally Available (GA)**
-    * Parse rate: 99.9%+
+    * Parse rate from 99.9% to 99%.
     * Rules: 10+
     * Features:
         * All items in Beta
