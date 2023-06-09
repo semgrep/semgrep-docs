@@ -16,6 +16,7 @@ import SupportedLanguagesTable from '/src/components/reference/_supported-langua
 import SscIntro from "/src/components/concept/_ssc-intro.md"
 import MoreHelp from "/src/components/MoreHelp"
 import DeepSemgrepIntroduction from "/src/components/concept/_semgrep-pro-engine-introduction.mdx"
+import AdmonitionSotCves from "/src/components/reference/_admonition-sot-cves.md"
 
 <ul id="tag__badge-list">
 {
@@ -168,7 +169,7 @@ This table provides information about fully supported (generally available or GA
     <th>Lockfile</th>
     <th>Scans transitive dependencies*</th>
     <th>Identifies transitive dependencies†</th>
-    <th>Rule coverage for CVEs/GHSAs‡</th>
+    <th>Rule coverage for GHSA CVEs‡</th>
 </tr></thead>
 <tbody><tr>
    <td>Go</td>
@@ -244,12 +245,12 @@ This table provides information about fully supported (generally available or GA
 
 _*****Semgrep Supply Chain scans transitive dependencies but does **not** perform reachability analysis on them._ <br />
 _**†**Refers to functionality in Semgrep Cloud Platform to indicate through a badge if a package is a transitive or direct dependency. This does not affect reachability analysis for any language._<br />
-_**‡**The month and year that Semgrep Supply Chain has begun writing rules to detect vulnerabilities listed in GHSA and the CVE program._<br />
+_**‡**The month and year that Semgrep Supply Chain has begun writing rules to detect vulnerabilities listed in GHSA._<br />
 _**††**Semgrep Supply Chain supports `requirements.txt` when it is used as a **lockfile**. This means that `requirements.txt` must be set to exact versions (pinned dependencies) and the file must be generated automatically._
 
+<AdmonitionSotCves />
 
 :::info Transitivity support
-
 For more information on transitivity, see [Transitive dependencies and reachability analysis](/docs/semgrep-supply-chain/overview/#transitive-dependencies-and-reachability-analysis).
 :::
 
