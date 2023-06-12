@@ -16,13 +16,13 @@ The Semgrep OSS Engine is the foundation of Semgrep. Detect bugs, style violatio
 
 ## Installing and running Semgrep locally
 
-Install and run [Semgrep CLI](https://github.com/returntocorp/semgrep/) to scan your code locally using Semgrep OSS Engine. Semgrep CLI runs offline on uncompiled code. **No code leaves your computer**.
+Install and run [Semgrep OSS Engine](https://github.com/returntocorp/semgrep/) (CLI) to scan your code locally. Semgrep OSS Engine runs offline on uncompiled code. **No code leaves your computer**.
 
-:::info Prerequisite
-Semgrep CLI installation requires Python 3.7 or later.
+:::info Prerequisites
+- Semgrep OSS Engine requires Python 3.7 or later.
 :::
 
-1. Install Semgrep CLI. Use one of the following options depending on your system and preference:
+1. To install Semgrep OSS Engine, use one of the following options:
     <Tabs
         defaultValue="macOS"
         values={[
@@ -83,7 +83,8 @@ Semgrep CLI installation requires Python 3.7 or later.
     Substitute the optional placeholder <code><span className="placeholder">PATH/TO/SRC</span></code> with the path to your source code.
 
 :::note
-By default, when Semgrep Registry is used, Semgrep collects [usage metrics](./metrics.md).
+- By default, when Semgrep Registry is used, Semgrep collects [usage metrics](./metrics.md).
+- If you install Semgrep through Homebrew, ensure you added Homebrew to your PATH. See [My Mac .apps don’t find Homebrew utilities!](https://docs.brew.sh/FAQ#my-mac-apps-dont-find-homebrew-utilities) in Homebrew documentation.
 :::
 
 ### Next steps
