@@ -106,7 +106,7 @@ To define files and folders in Semgrep Cloud Platform:
 
 Including files and folders through this method is **additive**. When Semgrep Cloud Platform makes a scan, it looks for a `.semgrepignore` within the repository. If no `.semgrepignore` file is found, Semgrep temporarily creates one and adds items from Semgrep Cloud Platform's Path Ignores. Adding items to the **Path Ignores** box does not override default Semgrep ignore patterns.
 
-You can also add files to `.semgrepignore` while triaging individual findings in **No grouping** view on the Findings page:
+You can also add files to `.semgrepignore` while triaging individual findings in the **No grouping** view on the Findings page:
 
 <IgnoreIndividualFindingNoGrouping />
 
