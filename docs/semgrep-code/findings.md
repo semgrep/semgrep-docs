@@ -219,7 +219,7 @@ To **reopen findings** in the **Group by Rule** view, follow these steps:
 
 ##### Reopening multiple findings in the No grouping view
 
-To **open findings** in the **No grouping** view, follow these steps:
+To **reopen findings** in the **No grouping** view, follow these steps:
 
 1. On the [Findings](https://semgrep.dev/orgs/-/findings?tab=open) page, click the **Status** filter, and then select the **Ignored** or **Fixed** status to see all ignored or fixed findings.
 1. Perform one of these steps:
@@ -231,7 +231,7 @@ To **open findings** in the **No grouping** view, follow these steps:
 
 ##### Reopening individual findings in the No grouping view
 
-To **open individual findings**, follow these steps:
+To **reopen individual findings** in the No grouping view, follow these steps:
 
 1. On the [Findings](https://semgrep.dev/orgs/-/findings?tab=open) page, click the **Status** filter, and then select **Ignored** or **Fixed** status to see all ignored or fixed findings.
 1. Next to a finding you want to ignore, click the **Reopen** <i class="fa-regular fa-chevron-down"></i>.
