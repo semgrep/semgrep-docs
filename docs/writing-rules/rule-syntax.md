@@ -14,7 +14,7 @@ import RequiredRuleFields from "/src/components/reference/_required-rule-fields.
 Getting started with rule writing? Try the [Semgrep Tutorial](https://semgrep.dev/learn) 🎓
 :::
 
-This document describes Semgrep YAML rule syntax.
+This document describes the YAML rule syntax of Semgrep.
 
 ## Schema
 
