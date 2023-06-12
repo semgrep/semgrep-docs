@@ -30,7 +30,7 @@ For non-urgent inquiries, or when you need to provide detailed information about
 
 ## Community support
 
-Join our Slack community to chat with the Semgrep maintainers and support engineers! All users are welcome to ask for help in the community Slack group. Semgrep OSS users can file a file bug report for bugs they are running into here.
+[Join the Slack community](https://go.semgrep.dev/slack) to chat with the Semgrep maintainers and support engineers! All users are welcome to ask for help in the community Slack group. Semgrep OSS users can file a file bug report for bugs they are running into here.
 
 ## Status page
 
