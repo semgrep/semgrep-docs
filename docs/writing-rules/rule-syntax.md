@@ -466,7 +466,7 @@ rules:
       discovered-by: Ikwa L'equale
 ```
 
-The metadata are also displayed in Semgrep output if you’re running it with `--json`.
+The metadata are also displayed in the output of Semgrep if you’re running it with `--json`.
 Rules with `category: security` have additional metadata requirements. See [Including fields required by security category](/contributing/contributing-to-semgrep-rules-repository/#including-fields-required-by-security-category) for more information.
 
 ## `category`
