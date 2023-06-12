@@ -84,7 +84,7 @@ Install and run [Semgrep OSS Engine](https://github.com/returntocorp/semgrep/) t
 
 :::note
 - By default, when Semgrep Registry is used, Semgrep collects [usage metrics](./metrics.md).
-- If you install Semgrep through Homebrew, ensure you added Homebrew to your PATH. See [My Mac .apps don’t find Homebrew utilities!](https://docs.brew.sh/FAQ#my-mac-apps-dont-find-homebrew-utilities) in Homebrew documentation.
+- If you install Semgrep through Homebrew, ensure that you have added Homebrew to your PATH. See [My Mac .apps don’t find Homebrew utilities!](https://docs.brew.sh/FAQ#my-mac-apps-dont-find-homebrew-utilities) in Homebrew documentation.
 :::
 
 ### Next steps
