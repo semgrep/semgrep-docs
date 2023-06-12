@@ -118,7 +118,7 @@ make core-test
 Finally, to update the `semgrep-core` binary used by `semgrep`, run
 
 ```
-make install
+make core-install
 ```
 
 ### Testing `semgrep-core`
