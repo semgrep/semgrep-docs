@@ -18,7 +18,7 @@ The Semgrep OSS Engine is the foundation of Semgrep. Detect bugs, style violatio
 
 Install and run [Semgrep OSS Engine](https://github.com/returntocorp/semgrep/) (CLI) to scan your code locally. Semgrep OSS Engine runs offline on uncompiled code. **No code leaves your computer**.
 
-:::info Prerequisites
+:::info Prerequisite
 - Semgrep OSS Engine requires Python 3.7 or later.
 :::
 
