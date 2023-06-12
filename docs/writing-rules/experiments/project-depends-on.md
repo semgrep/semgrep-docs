@@ -47,7 +47,7 @@ Here is an example `r2c-internal-project-depends-on` rule that searches for a kn
 ```yaml
 rules:
 - id: vulnerable-awscli-apr-2017
-  severity: WARN
+  severity: WARNING
   pattern-either:
   - pattern: boto3.resource('s3', ...)
   - pattern: boto3.client('s3', ...)
