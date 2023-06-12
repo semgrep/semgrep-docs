@@ -182,7 +182,7 @@ To **ignore findings** in **Group by Rule** view, follow these steps:
 1. Perform one of these steps:
     - To select more findings from the same rule, click **Triage** button on the card of the finding.
     - To select individual findingss reported by a rule, fill in the checkboxes of the finding, and then click **Triage** button on the card of the finding.
-1. Optional: Write a reason why is this finding ignored.
+1. Optional: Write a why is the finding ignored.
 1. Click **Ignore**.
 
 ##### Ignoring findings in No grouping view
@@ -214,7 +214,7 @@ To **reopen findings** in **Group by Rule** view, follow these steps:
 1. Perform one of these steps:
     - To select more findings from the same rule, click **Triage** button on the card of the finding.
     - To select individual findingss reported by a rule, fill in the checkboxes of the finding, and then click **Triage** button on the card of the finding.
-1. Optional: Write a reason why is this finding reopened.
+1. Optional: Write why is the finding reopened.
 1. Click **Reopen**.
 
 ##### Reopening multiple findings in No grouping view
