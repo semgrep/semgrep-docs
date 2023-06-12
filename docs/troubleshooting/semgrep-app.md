@@ -5,7 +5,6 @@ title: Troubleshooting
 hide_title: true
 tags:
     - Semgrep Cloud Platform
-    - Community Tier
     - Team & Enterprise Tier
 
 ---

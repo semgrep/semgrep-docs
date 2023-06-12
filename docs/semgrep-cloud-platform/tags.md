@@ -6,7 +6,6 @@ title: Tagging projects
 hide_title: true
 tags:
     - Semgrep Cloud Platform
-    - Community Tier
     - Team & Enterprise Tier
 ---
 

@@ -6,7 +6,6 @@ hide_title: true
 description: "Receive Semgrep findings via email."
 tags:
     - Semgrep Cloud Platform
-    - Community Tier
     - Team & Enterprise Tier
 ---
 

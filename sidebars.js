@@ -74,7 +74,19 @@ module.exports = {
                 ]
             },
         'ignoring-files-folders-code',
-        'extensions',
+            {
+              type: 'category',
+              label: 'Extensions',
+              collapsible: true,
+              link: {
+                type: 'doc', 
+                id: 'extensions/overview'
+              },
+              items: [
+                'extensions/overview',
+                'extensions/semgrep-vs-code'
+              ]
+            },
         {
             type: 'category',
             label: 'Writing custom rules',
@@ -97,6 +109,9 @@ module.exports = {
                     label: 'Experiments 🧪',
                     link: {type: 'doc', id: 'writing-rules/experiments/introduction'},
                     items: [
+                      'writing-rules/experiments/aliengrep',
+                      'writing-rules/experiments/display-propagated-metavariable',
+                      'writing-rules/experiments/extract-mode',
                       { type: 'category',
                           label: 'Join mode',
                           link: {type: 'doc', id: 'writing-rules/experiments/join-mode/overview'},
@@ -109,12 +124,10 @@ module.exports = {
                               'writing-rules/experiments/join-mode/recursive-joins'
                           ]
                       },
-                      'writing-rules/experiments/extract-mode',
+                      'writing-rules/experiments/multiple-focus-metavariables',
                       'writing-rules/experiments/project-depends-on',
                       'writing-rules/experiments/symbolic-propagation',
                       'writing-rules/experiments/taint-labels',
-                      'writing-rules/experiments/multiple-focus-metavariables',
-                      'writing-rules/experiments/display-propagated-metavariable',
                       'writing-rules/experiments/deprecated-experiments'
                     ]
                   },
@@ -214,6 +227,7 @@ module.exports = {
                 },
             ],
         },
+        'pricing-and-billing'
       ]
     },
     {
@@ -229,7 +243,6 @@ module.exports = {
         'semgrep-cloud-platform/semgrep-api',
         'semgrep-cloud-platform/scm',
         'troubleshooting/semgrep-app',
-        'semgrep-cloud-platform/pricing-and-billing',
         {
           type: 'category',
           label: 'Notifications',
@@ -265,6 +278,7 @@ module.exports = {
         },
         'semgrep-code/pro-rules',
         'semgrep-code/demo-project',
+        'semgrep-code/policies',
         'semgrep-code/rule-board',
         'semgrep-code/findings',
         'semgrep-code/editor',
@@ -281,6 +295,7 @@ module.exports = {
         'semgrep-supply-chain/ignoring-deps',
         'semgrep-supply-chain/notifications',
         'semgrep-supply-chain/dependency-search',
+        'semgrep-supply-chain/license-compliance',
         'semgrep-supply-chain/glossary'
       ]
     },
@@ -344,8 +359,9 @@ module.exports = {
               type: 'category',
               label: '2023',
               collapsible: true,
-              link: {type: 'doc', id: 'release-notes/april-2023'},
+              link: {type: 'doc', id: 'release-notes/may-2023'},
               items: [
+                'release-notes/may-2023',
                 'release-notes/april-2023',
                 'release-notes/march-2023',
                 'release-notes/february-2023',

@@ -106,8 +106,8 @@ This section of release notes includes upgrades of Semgrep OSS Engine for versio
 
 ### Additions
 
-- Semgrep Supply Chain Dependency search is now in beta. Dependency search displays all your direct and transitive dependencies on the **Supply Chain** > **Dependencies** page. You can search for any dependency in all of your repositories in the Semgrep Cloud Platform, provided that their language is supported by Semgrep Supply Chain. To enable this feature, reach out to [andy@semgrep.com](mailto:andy@semgrep.com) to be added to the beta.
-- Semgrep Supply Chain now supports package-lock.json version 3.
+- Semgrep Supply Chain Dependency search is now in beta. Dependency search displays all your direct and transitive dependencies on the **Supply Chain** > **Dependencies** page. You can search for any dependency in all of your repositories in the Semgrep Cloud Platform, provided that their language is supported by Semgrep Supply Chain.
+- Semgrep Supply Chain now supports `package-lock.json` version 3.
 
 ### Changes
 
@@ -122,7 +122,7 @@ This section of release notes includes upgrades of Semgrep OSS Engine for versio
 
 - You can now add repositories from Azure Repos into the Semgrep Cloud Platform.
 - Bitbucket PR comments are now available for Bitbucket Cloud users. See the [Enabling Bitbucket pull request comments](/semgrep-cloud-platform/bitbucket-pr-comments) to enable PR comments in your repositories.
-- Check the new documentation sections [Semgrep add-on reconciliation of licenses](https://semgrep.dev/docs/semgrep-cloud-platform/pricing-and-billing/#semgrep-add-on-reconciliation-of-licenses) and [Example of license reconciliation](https://semgrep.dev/docs/semgrep-cloud-platform/pricing-and-billing/#example-of-license-reconciliation) that inform you about what happens if your organization exceeds the number of purchased licenses.
+- Check the new documentation sections [Semgrep add-on reconciliation of licenses](/pricing-and-billing/#semgrep-add-on-reconciliation-of-licenses) and [Example of license reconciliation](https://semgrep.dev/docs/semgrep-cloud-platform/pricing-and-billing/#example-of-license-reconciliation) that inform you about what happens if your organization exceeds the number of purchased licenses.
 
 ### Changes
 
