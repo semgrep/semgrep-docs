@@ -36,4 +36,4 @@ For non-urgent inquiries, or when you need to provide detailed information about
 
 ## Status page
 
-The [Semgrep status page](https://status.semgrep.dev/) enables users to subscribe to notifications whenever an incident is created, updated, or resolved. Check our status page to see any current or past service incidents or to review historical uptime.
+The [Semgrep status page](https://status.semgrep.dev/) enables users to subscribe to notifications whenever an incident is created, updated, or resolved. Check the status page to see any current or past service incidents or to review historical uptime.
