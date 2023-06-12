@@ -206,7 +206,7 @@ To **ignore individual finding** in the **No grouping** view, follow these steps
 
 #### Reopening findings
 
-##### Reopening findings in Group by Rule view
+##### Reopening findings in the Group by Rule view
 
 To **reopen findings** in the **Group by Rule** view, follow these steps:
 
