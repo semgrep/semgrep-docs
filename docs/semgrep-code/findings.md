@@ -179,9 +179,11 @@ To manage, change, open or ignore findings, follow the the triage processes desc
 To **ignore findings** in **Group by Rule** view, follow these steps:
 
 1. On the [Findings](https://semgrep.dev/orgs/-/findings?tab=open) page, click the **Status** filter, and then select **Open** status to see all open findings.
-1. 
-
-TODO
+1. Perform one of these steps:
+    - To select more findings from the same rule, click **Triage** button on the card of the finding.
+    - To select individual findingss reported by a rule, fill in the checkboxes of the finding, and then click **Triage** button on the card of the finding.
+1. Optional: Write a reason why is this finding ignored.
+1. Click **Ignore**.
 
 ##### Ignoring findings in No grouping view
 
@@ -209,9 +211,11 @@ To **ignore individual finding** in **No grouping** view, follow these steps:
 To **reopen findings** in **Group by Rule** view, follow these steps:
 
 1. On the [Findings](https://semgrep.dev/orgs/-/findings?tab=open) page, click the **Status** filter, and then select **Ignored** or **Fixed** status to see all ignored or fixed findings.
-1. 
-
-TODO 
+1. Perform one of these steps:
+    - To select more findings from the same rule, click **Triage** button on the card of the finding.
+    - To select individual findingss reported by a rule, fill in the checkboxes of the finding, and then click **Triage** button on the card of the finding.
+1. Optional: Write a reason why is this finding reopened.
+1. Click **Reopen**.
 
 ##### Reopening multiple findings in No grouping view
 
