@@ -32,7 +32,7 @@ This document describes Semgrep YAML rule syntax.
 | :--------- | :------- | :---------------------------------- |
 | [`options`](#options)   | `object` | Options object to enable/disable certain matching features |
 | [`fix`](#fix)           | `object` | Simple search-and-replace autofix functionality  |
-| [`metadata`](#metadata) | `object` | User-provided data; attach data to rules without affecting Semgrep behavior |
+| [`metadata`](#metadata) | `object` | Arbitrary user-provided data; attach data to rules without affecting Semgrep behavior |
 | [`paths`](#paths)       | `object` | Paths to include or exclude when running this rule |
 
 The below optional fields must reside underneath a `patterns` or `pattern-either` field.
