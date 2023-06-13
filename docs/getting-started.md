@@ -16,7 +16,7 @@ The Semgrep OSS Engine is the foundation of Semgrep. With it, you can detect bug
 
 ## Installing and running Semgrep locally
 
-Install and run [Semgrep command-line interface](https://github.com/returntocorp/semgrep/) (CLI) to scan your code locally. Semgrep OSS Engine runs offline on uncompiled code. **No code leaves your computer**.
+Install and run the [Semgrep command-line interface](https://github.com/returntocorp/semgrep/) (CLI) to scan your code locally. Semgrep OSS Engine runs offline on uncompiled code. **No code leaves your computer**.
 
 :::info Prerequisite
 Semgrep CLI requires Python 3.7 or later.
