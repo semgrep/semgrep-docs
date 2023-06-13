@@ -144,12 +144,12 @@ Check out [Semgrep Cloud Platform](https://semgrep.dev/manage) (SCP) to integrat
 
 ## Logging into Semgrep Cloud Platform
 
-:::tip Benefits of Semgrep Cloud Platform
+:::tip Benefits of logging in to Semgrep Cloud Platform
 Logging into Semgrep Cloud Platform (SCP) in your Semgrep CLI interface enables you to:
 
-* Send findings from your local scans to SCP for findings triage.
-* Quickly configure local scans to run either rules from your Rule board or a different set of rules and rulesets. 
-* For Team or Enterprise users: scan code using Pro rules from the CLI.
+- Send findings from your local scans to SCP for findings triage.
+- Quickly configure local scans to run either rules from your Rule board or a different set of rules and rulesets. 
+- For Team or Enterprise users: scan code using Pro rules from the CLI.
 :::
 
 To log in to SCP:
