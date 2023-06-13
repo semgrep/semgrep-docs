@@ -99,7 +99,7 @@ Semgrep Cloud Platform divides users into two roles:
 * `member`
 
 :::info
-* Users in organizations without RBAC enabled are assigned an `admin` role by default.
+* Users are assigned a role based on your [organization's default role](#setting-a-default-role).
 :::
 
 The following table displays features available to each role:
@@ -154,6 +154,18 @@ To **change a user's role**:
 :::info
 You cannot change your own role.
 :::
+
+## Setting a default role
+
+Organizations start with a default role of `admin`
+
+To change this:
+
+1. On Semgrep Cloud Platform's sidebar, click Settings.
+2. Along the topbar, click Access.
+3. On the left sidebar, click Defaults.
+
+![Screenshot of default user role](/img/default-user-role.png#md-width)<br />
 
 ## Appendix: Token scopes
 
