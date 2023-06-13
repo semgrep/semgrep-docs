@@ -1,5 +1,5 @@
 ---
-description: Use this reference to check why you may not be receiving comments on PRs/MRs.
+description: Use this reference to check why you may not be receiving Semgrep comments on PRs/MRs.
 tags:
   - Semgrep CI
   - PR Comments
