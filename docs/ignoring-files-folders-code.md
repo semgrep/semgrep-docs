@@ -37,28 +37,7 @@ Without user customization, Semgrep refers to the following to define ignored fi
 In the absence of a user-generated `.semgrepignore`, Semgrep refers to [its repository's default template](https://github.com/returntocorp/semgrep/blob/develop/cli/src/semgrep/templates/.semgrepignore):
 
 ```
-# Common large paths
-node_modules/
-build/
-dist/
-vendor/
-.env/
-.venv/
-.tox/
-*.min.js
-.npm/
-
-# Common test paths
-test/
-tests/
-*_test.go
-
-# Semgrep rules folder
-.semgrep
-
-# Semgrep-action log folder
-.semgrep_logs/
-
+DEFAULT_SEMGREPIGNORE_TEXT
 
 ```
 
