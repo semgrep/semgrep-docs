@@ -24,8 +24,6 @@ Object.entries(frontMatter).filter(
 
 This document provides the outputs of the `semgrep --help`, and `semgrep scan --help` commands of the [Semgrep command-line interface (CLI)](https://github.com/returntocorp/semgrep). In addition, this page also gives an overview of the Semgrep CLI exit codes.
 
-[Semgrep command-line interface (CLI)](https://github.com/returntocorp/semgrep) commands, 
-
 ## Semgrep commands
 
 For a list of available commands, run the following command:
