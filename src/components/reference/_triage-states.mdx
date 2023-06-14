@@ -9,3 +9,7 @@ Findings can also be **removed**. A removed finding does not count towards the f
 * The rule isn't enabled on the repository anymore.
 * The file path where the finding appeared is no longer found (it was deleted, renamed, added to a `.semgrepignore`, added to a `.gitignore` or added to the list of ignored paths in Semgrep Cloud Platform).
 * For GitHub organization accounts: the PR or MR where the finding was detected has been closed without merging.
+
+:::info Findings triaged across refs
+Findings triaged (ignored, reopened, resolved) in a specific branch, PR, or MR are also triaged in all other branches, PRs, and MRs of a specific repository. In addition, if you filter for any other [Git references](https://git-scm.com/book/en/v2/Git-Internals-Git-References) (refs) on the [Findings](https://semgrep.dev/orgs/-/findings?tab=open) page, and then triage a finding, it is also automatically triaged in all other branches, PRs, MRs, and refs.
+:::
