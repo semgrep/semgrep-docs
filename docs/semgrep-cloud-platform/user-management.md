@@ -155,7 +155,7 @@ You cannot change your own role.
 
 Organizations start with a default role of `admin`
 
-To change this:
+To change this, perform the following steps:
 
 1. On Semgrep Cloud Platform's sidebar, click Settings.
 2. On the topbar, click Access.
