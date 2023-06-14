@@ -300,15 +300,15 @@ Options:
   Semgrep Pro Engine options: 
     --pro                         Inter-file analysis and Pro languages
                                   (currently just Apex). Requires Semgrep Pro
-                                  Engine, contact support@r2c.dev for more
+                                  Engine, contact support@semgrep.com for more
                                   information on this.
     --pro-intrafile               Intra-file inter-procedural taint analysis.
                                   Implies --pro-languages. Requires Semgrep
-                                  Pro Engine, contact support@r2c.dev for more
+                                  Pro Engine, contact support@semgrep.com for more
                                   information on this.
     --pro-languages               Enable Pro languages (currently just Apex).
                                   Requires Semgrep Pro Engine, contact
-                                  support@r2c.dev for more information on
+                                  support@semgrep.com for more information on
                                   this.
     --oss-only                    Run using only OSS features, even if the
                                   Semgrep Pro toggle is on.
