@@ -1,5 +1,5 @@
 ---
-description: Use this reference to check why you may not be receiving Semgrep comments on PRs/MRs.
+description: Use this reference to check why you may not be receiving Semgrep comments on PRs or MRs.
 tags:
   - Semgrep CI
   - PR comments
@@ -43,15 +43,20 @@ For MR comments on GitLab and PR comments on Bitbucket, ensure that you have per
 * You have added the token as a variable in your project or workspace configuration.
 * You have added the token value to your CI configuration.
 
+#### GitLab
+
 The GitLab token should have `api` scope and be added to the project's CI/CD settings. See [Enabling GitLab merge request comments](/docs/semgrep-cloud-platform/gitlab-mr-comments/) for details.
+
+#### BitBucket
 
 The Bitbucket token should be a repository access token (or workspace access token, for Bitbucket Cloud Premium only). See [Enabling Bitbucket pull request comments](/docs/semgrep-cloud-platform/bitbucket-pr-comments/) for details.
 
 ## Have you placed the rule in Comment or Block?
 
 In order to receive comments, the rule must be placed in a policy that can generate comments:
+
 * Comment
-* Block.
+* Block
 
 If the rule is in a Monitor policy, it does not generate comments.
 
