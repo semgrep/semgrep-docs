@@ -158,7 +158,7 @@ Organizations start with a default role of `admin`
 To change this, perform the following steps:
 
 1. On Semgrep Cloud Platform's sidebar, click Settings.
-2. On the topbar, click Access.
+2. Click **Access > Defaults**.
 3. On the left sidebar, click Defaults.
 
 ![Screenshot of default user role](/img/default-user-role.png#md-width)<br />
