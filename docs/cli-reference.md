@@ -22,7 +22,9 @@ Object.entries(frontMatter).filter(
 
 # CLI reference
 
-This documentation provides the `--help` option outputs for `semgrep --help` and `semgrep scan --help` for the [Semgrep command-line interface (CLI)](https://github.com/returntocorp/semgrep), as well as Semgrep exit codes overview.
+This document provides the outputs of the `semgrep --help`, and `semgrep scan --help` commands of the [Semgrep command-line interface (CLI)](https://github.com/returntocorp/semgrep). In addition, this page also gives an overview of the Semgrep CLI exit codes.
+
+[Semgrep command-line interface (CLI)](https://github.com/returntocorp/semgrep) commands, 
 
 ## Semgrep commands
 
@@ -298,15 +300,15 @@ Options:
   Semgrep Pro Engine options: 
     --pro                         Inter-file analysis and Pro languages
                                   (currently just Apex). Requires Semgrep Pro
-                                  Engine, contact support@semgrep.com for more
+                                  Engine, contact support@r2c.dev for more
                                   information on this.
     --pro-intrafile               Intra-file inter-procedural taint analysis.
                                   Implies --pro-languages. Requires Semgrep
-                                  Pro Engine, contact support@semgrep.com for more
+                                  Pro Engine, contact support@r2c.dev for more
                                   information on this.
     --pro-languages               Enable Pro languages (currently just Apex).
                                   Requires Semgrep Pro Engine, contact
-                                  support@semgrep.com for more information on
+                                  support@r2c.dev for more information on
                                   this.
     --oss-only                    Run using only OSS features, even if the
                                   Semgrep Pro toggle is on.
