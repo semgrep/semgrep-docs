@@ -62,8 +62,8 @@ To fix on Github:
 1. Go to either your organization's or repository's **Settings** > **Secrets and variables** 
 2. Update the value of the `SEMGREP_APP_TOKEN` to ensure it does not have an extraneous `\n`.
 
-![Secrets and variables section in Settings](/static/img/kb/github-secrets.png)
-![Updating Github Secret](/static/img/kb/github-update-value.png)
+![Secrets and variables section in Settings](/img/kb/github-secrets.png)
+![Updating Github Secret](/img/kb/github-update-value.png)
 
 ## Example fix on GitLab
 
@@ -71,4 +71,4 @@ To fix on GitLab:
 1. Go to your repository's `CI/CD` Settings.
 2. Update the `SEMGREP_APP_TOKEN` variable directly to ensure it does not have an extraneous `\n`.
 
-![Updating Gitlab Variable](/static/img/kb/gitlab-update-value.png)
+![Updating Gitlab Variable](/img/kb/gitlab-update-value.png)
