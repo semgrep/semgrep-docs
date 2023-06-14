@@ -89,7 +89,13 @@ You have successfully joined an org in Semgrep Cloud Platform.
 
 ## Controlling access through roles 
 
-Access control in Semgrep Cloud Platform determines the resources and features that are available to users based on their role. This **role-based access control (RBAC)** feature is available for organizations on **Team/Enterprise tiers**.
+Access control in Semgrep Cloud Platform determines the resources and features that are available to users based on their role. This **role-based access control (RBAC)** feature is available for organizations on **Team or Enterprise tiers**.
+
+:::caution Changes to RBAC default roles
+Previously, new users in organizations with RBAC enabled were assigned a `member` role. Starting **June 14, 2023**, the default role is set through the **Defaults** configuration and defaults to `admin`.
+
+Change your default role assignment for new users by following the steps in [Setting a default role](#setting-a-default-role).
+:::
 
 ![Screenshot of role-based access control](/img/rbac-overview.png)<br />
 
