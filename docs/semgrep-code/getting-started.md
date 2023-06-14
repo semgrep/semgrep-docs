@@ -321,7 +321,7 @@ The following table shows differences between Semgrep Code and Semgrep OSS Engin
 | Custom rules           | Write your own rules tailored to your organization's needs. | ✔️  | ✔️  |
 | Community rules        | Make use of community-contributed rules. | ✔️  | ✔️  |
 | Semgrep Cloud Platform | Manage findings, rules, and alerts in a centralized location. | ❌ | ✔️  |
-| Semgrep Pro Engine     | Run Semgrep with interprocedural and interfile analysis. | ❌ | ✔️ * |
+| Semgrep Pro Engine     | Run Semgrep with cross-function (interprocedural) and cross-file (interfile) analysis. | ❌ | ✔️ * |
 | Semgrep Pro rules      | Rules leveraging Semgrep Pro Engine to detect hardcoded secrets, XXE injections, deserialization issues, and more. | ❌ | ✔️ * |
 | Findings retention     | Keep track of when a finding is created and resolved. | ❌ | ✔️  |
 | Alerts & notifications | Receive alerts to catch issues before they reach live servers. | ❌ | ✔️  |

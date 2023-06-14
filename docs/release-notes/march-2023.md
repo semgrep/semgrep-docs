@@ -112,8 +112,7 @@ This section of release notes include upgrades of Semgrep OSS Engine for version
 
 ### Changed
 
-- CI scans that use Semgrep Pro Engine now run intrafile and interprocedural taint analysis by default in differential scans (such as PR or MR scans). Note that interfile analysis is not run
-in differential scans for performance reasons.
+- CI scans that use Semgrep Pro Engine now run intrafile and interprocedural taint analysis by default in differential scans (such as PR or MR scans). Note that cross-file (interfile) analysis is not run in differential scans for performance reasons.
 
 ## Semgrep Cloud Platform
 
