@@ -1,11 +1,11 @@
 ---
 append_help_link: true
 slug: rule-syntax
-description: "This document describes Semgrep’s YAML rule syntax including required and optional fields. Just getting started with Semgrep rule writing? Check out the Semgrep Tutorial at https://semgrep.dev/learn"
+description: "This document describes the YAML rule syntax of Semgrep including required and optional fields. Just getting started with Semgrep rule writing? Check out the Semgrep Tutorial at https://semgrep.dev/learn"
 ---
 
 import MoreHelp from "/src/components/MoreHelp"
-import LanguageExtensionsTags from '/src/components/reference/_language-extensions-tags.mdx'
+import LanguageExtensionsLanguagesKeyValues from '/src/components/reference/_language-extensions-languages-key-values.mdx'
 import RequiredRuleFields from "/src/components/reference/_required-rule-fields.mdx"
 
 # Rule syntax
@@ -14,7 +14,7 @@ import RequiredRuleFields from "/src/components/reference/_required-rule-fields.
 Getting started with rule writing? Try the [Semgrep Tutorial](https://semgrep.dev/learn) 🎓
 :::
 
-This document describes Semgrep’s YAML rule syntax.
+This document describes the YAML rule syntax of Semgrep.
 
 ## Schema
 
@@ -24,7 +24,7 @@ This document describes Semgrep’s YAML rule syntax.
 
 #### Language extensions and languages key values
 
-<LanguageExtensionsTags />
+<LanguageExtensionsLanguagesKeyValues />
 
 ### Optional
 
@@ -32,7 +32,7 @@ This document describes Semgrep’s YAML rule syntax.
 | :--------- | :------- | :---------------------------------- |
 | [`options`](#options)   | `object` | Options object to enable/disable certain matching features |
 | [`fix`](#fix)           | `object` | Simple search-and-replace autofix functionality  |
-| [`metadata`](#metadata) | `object` | Arbitrary user-provided data; attach data to rules without affecting Semgrep’s behavior |
+| [`metadata`](#metadata) | `object` | Arbitrary user-provided data; attach data to rules without affecting Semgrep behavior |
 | [`paths`](#paths)       | `object` | Paths to include or exclude when running this rule |
 
 The below optional fields must reside underneath a `patterns` or `pattern-either` field.
@@ -428,7 +428,7 @@ Enable, disable, or modify the following matching features:
 | `vardef_assign`        | `true`  | Assignment patterns (for example `$X = $E`) match variable declarations (for example `var x = 1;`). |
 | `xml_attrs_implicit_ellipsis` | `true` | Any XML/JSX/HTML element patterns have implicit ellipsis for attributes (for example: `<div />` matches `<div foo="1">`. |
 
-The full list of available options can be consulted in the [Semgrep matching engine configuration](https://github.com/returntocorp/semgrep/blob/develop/interfaces/Config_semgrep.atd) module. Note that options not included in the table above are considered experimental, and they may change or be removed without notice.
+The full list of available options can be consulted in the [Semgrep matching engine configuration](https://github.com/returntocorp/semgrep/blob/develop/interfaces/Rule_options.atd) module. Note that options not included in the table above are considered experimental, and they may change or be removed without notice.
 
 ## `fix`
 
@@ -466,7 +466,7 @@ rules:
       discovered-by: Ikwa L'equale
 ```
 
-The metadata are also displayed in Semgrep’s output if you’re running it with `--json`.
+The metadata are also displayed in the output of Semgrep if you’re running it with `--json`.
 Rules with `category: security` have additional metadata requirements. See [Including fields required by security category](/contributing/contributing-to-semgrep-rules-repository/#including-fields-required-by-security-category) for more information.
 
 ## `category`

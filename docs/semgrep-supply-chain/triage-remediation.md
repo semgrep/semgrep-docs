@@ -11,6 +11,7 @@ hide_title: true
 
 import MoreHelp from "/src/components/MoreHelp"
 import AdmonitionSscLicense from "/src/components/reference/_admonition-ssc-license.md"
+import AdmonitionSotCves from "/src/components/reference/_admonition-sot-cves.md"
 
 <ul id="tag__badge-list">
 {
@@ -230,5 +231,7 @@ To ignore a vulnerability:
 ### Viewing the latest advisories
 
 The **Advisories** tab displays the newest CVEs that Semgrep Supply Chain can detect. Click the individual entry to see the code pattern that the Advisory detects. 
+
+<AdmonitionSotCves />
 
 <MoreHelp />

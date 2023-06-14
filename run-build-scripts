@@ -2,3 +2,4 @@
 
 python3 replace-on-build.py
 bash copy-metrics-md
+bash copy-vs-code-readme-md

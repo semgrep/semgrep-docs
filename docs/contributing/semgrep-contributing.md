@@ -112,11 +112,6 @@ pipenv install --dev
 
 Some people have encountered difficulties with the above. If it fails, you can reach out to the [`semgrep` team on Slack](https://go.semgrep.dev/slack).
 
-If you have an M1 Mac, this may install the incorrect executable. You can run this instead
-```
-brew install semgrep
-```
-
 Now you can run `semgrep --help` from anywhere.
 
 If you have installed `semgrep-core` from source, there are convenient targets in the root Makefile that let you update all binaries. After you pull, simply run

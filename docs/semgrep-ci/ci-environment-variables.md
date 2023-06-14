@@ -3,7 +3,6 @@ slug: ci-environment-variables
 description: "Configure Semgrep in CI by setting various environment variables. Enable diff-aware scanning, connect to Semgrep Cloud Platform, and more."
 tags:
     - Semgrep in CI
-    - Community Tier
     - Team & Enterprise Tier
 title: CI environment variables 
 hide_title: true

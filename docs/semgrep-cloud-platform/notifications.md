@@ -7,7 +7,6 @@ toc_max_heading_level: 4
 description: "Learn how to receive Slack or email alerts about findings and failures, how to receive merge or pull request comments in your CI/CD pipeline, or how to integrate using webhooks."
 tags:
     - Semgrep Cloud Platform
-    - Community Tier
     - Team & Enterprise Tier
 ---
 
@@ -31,12 +30,12 @@ Semgrep Cloud Platform can send notifications through the following channels:
 
 | Tool                               | Tier availability |
 | ----                               | ----------------  |
-| [GitHub pull request (PR) comments](/semgrep-cloud-platform/github-pr-comments)  | Community (Free)  |
-| [GitLab merge request (MR) comments](/semgrep-cloud-platform/gitlab-mr-comments) | Community (Free)  |
-| [Bitbucket PR comments](/semgrep-cloud-platform/bitbucket-pr-comments)              | Community (Free)  |
-| [Slack](/semgrep-cloud-platform/slack-notifications)                              | Community (Free)  |
-| [Email](/semgrep-cloud-platform/email-notifications)                              | Community (Free)  |
-| [Webhooks](/semgrep-cloud-platform/webhooks)                           | Team/Enterprise   |
+| [GitHub pull request (PR) comments](/semgrep-cloud-platform/github-pr-comments)  | Team & Enterprise  |
+| [GitLab merge request (MR) comments](/semgrep-cloud-platform/gitlab-mr-comments) | Team & Enterprise  |
+| [Bitbucket PR comments](/semgrep-cloud-platform/bitbucket-pr-comments)           | Team & Enterprise  |
+| [Slack](/semgrep-cloud-platform/slack-notifications)                             | Team & Enterprise  |
+| [Email](/semgrep-cloud-platform/email-notifications)                             | Team & Enterprise  |
+| [Webhooks](/semgrep-cloud-platform/webhooks)                           | Team & Enterprise   |
 
 :::info
 * Alerts and notifications can only be enabled through Semgrep Cloud Platform (SCP). [Sign up or sign in to Semgrep Cloud Platform](https://semgrep.dev/login).
@@ -103,16 +102,6 @@ To set up Jira integration:
     - Generate the API token by following instructions in the **Create an API token** section in the following documentation: [Manage API Tokens](https://support.atlassian.com/atlassian-account/docs/manage-api-tokens-for-your-atlassian-account).
     - Find existing API tokens in the [API Tokens](https://id.atlassian.com/manage-profile/security/api-tokens) page.
 9. Click **Save.**
-
-<!--- Commented out as this feature is no longer available TODO add and edit this section when Jira integration is back.
-
-To create a Jira ticket in Semgrep Cloud Platform:
-
-1. In **Findings**, click on the **three-dot icon** of the entry to create a Jira ticket for the finding.
-![Creating a Jira ticket from the Findings page](/img/jira-findings-page.png)<br />
-2. Select **Create issue with `[YOUR_INTEGRATION_NAME]`**.
-![Output of Jira integration](/img/jira-template.png)
---->
 
 ## Notification and alert de-duplication
 
