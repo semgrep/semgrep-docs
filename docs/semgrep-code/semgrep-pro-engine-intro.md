@@ -15,7 +15,7 @@ import TabItem from '@theme/TabItem';
 
 ## Introduction
 
-<SemgrepProEngineIntroduction extended={true}/>
+<SemgrepProEngineIntroduction extended/>
 
 ## Semgrep Pro engine language support
 
