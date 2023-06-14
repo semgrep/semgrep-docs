@@ -2,17 +2,27 @@
 description: Use this reference to check why you may not be receiving Semgrep comments on PRs/MRs.
 tags:
   - Semgrep CI
-  - PR Comments
-  - Rule Board
+  - PR comments
+  - Rule management
 ---
 
-# Why am I not receiving PR/MR comments?
+# Why am I not receiving PR or MR comments?
 
 If you have configured Semgrep in CI and Semgrep Cloud Platform to create comments when a rule generates a finding in a PR or MR, but you are not seeing those comments, check the following possibilities.
 
-## Are comments supported on your SCM?
+## Are comments supported in your source code manager (SCM)?
 
-PR/MR Comments are currently supported for GitHub, GitLab, and Bitbucket. If you are using another SCM, comments are not yet supported. Bitbucket Data Center is also not supported yet.
+PR or MR comments are currently supported for:
+
+* All GitHub plans
+* All GitLab plans
+* Bitbucket Cloud
+
+PR or MR comments are not supported for:
+
+* Bitbucket Data Center
+* Azure Repos
+* Any other SCM or repository provider
 
 If you are using a self-hosted version of GitHub (GitHub Enterprise) or GitLab (GitLab Self-Managed), see [Integrating Semgrep Cloud Platform with self-hosted enterprise repositories](/docs/semgrep-cloud-platform/scm/) for more details on configuration.
 
@@ -20,15 +30,18 @@ If you are using a self-hosted version of GitHub (GitHub Enterprise) or GitLab (
 
 ### GitHub
 
-GitHub relies on the Semgrep GitHub app to make comments on code. To receive comments on a project, you must [onboard](/docs/semgrep-code/getting-started/#option-b-adding-a-repository-from-github-gitlab-or-bitbucket) the project to Semgrep Cloud Platform, or ensure that your GitHub app is configured with permissions for all repositories. See [Enabling GitHub pull request comments](/docs/semgrep-cloud-platform/github-pr-comments/) for details.
+GitHub relies on the Semgrep GitHub app to make comments on code. To receive comments on a project, ensure that you have performed the following steps:
+
+* You have [onboarded](/docs/semgrep-code/getting-started/#option-b-adding-a-repository-from-github-gitlab-or-bitbucket) the project to Semgrep Cloud Platform.
+* You have configured your GitHub app with permissions for all repositories that are scanned by Semgrep Cloud Platform. See [Enabling GitHub pull request comments](/docs/semgrep-cloud-platform/github-pr-comments/) for details.
 
 ### GitLab and Bitbucket
 
-For MR comments on GitLab and PR comments on Bitbucket, you must:
+For MR comments on GitLab and PR comments on Bitbucket, ensure that you have performed the following steps:
 
-* configure a token with appropriate permissions to comment on MRs or PRs
-* add the token as a variable in your project or workspace configuration
-* add the token value to your CI configuration
+* You have configured a token with appropriate permissions to comment on MRs or PRs.
+* You have added the token as a variable in your project or workspace configuration.
+* You have added the token value to your CI configuration.
 
 The GitLab token should have `api` scope and be added to the project's CI/CD settings. See [Enabling GitLab merge request comments](/docs/semgrep-cloud-platform/gitlab-mr-comments/) for details.
 
@@ -36,11 +49,15 @@ The Bitbucket token should be a repository access token (or workspace access tok
 
 ## Have you placed the rule in Comment or Block?
 
-In order to receive comments, the rule must be placed in a policy that will generate comments: Comment or Block. If the rule is in a Monitor policy, it will not generate comments.
+In order to receive comments, the rule must be placed in a policy that can generate comments:
+* Comment
+* Block.
+
+If the rule is in a Monitor policy, it does not generate comments.
 
 ## Is this the first time this finding has been identified?
 
-PR/MR comments are generated when a finding is new. If a finding is [not new](/docs/semgrep-code/findings/#deduplicating-findings) (if it was seen in a previous Semgrep [scan](/docs/semgrep-code/getting-started/#performing-a-scan)) then a comment will not be generated.
+PR or MR comments are generated when a finding is new. If a finding is was seen in a previous scan, it is [not new](/docs/semgrep-code/findings/#deduplicating-findings) and a comment is not generated.
 
 This prevents repeated comments on findings that have already notified developers.
 
