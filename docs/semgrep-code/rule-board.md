@@ -27,9 +27,9 @@ Object.entries(frontMatter).filter(
 :::tip
 🎉 There is a new version of the Rule board called **Policies** that is now the default representation for rule management. 🎉 
 
-If you've previously opted out of Policies, to access it again, go to [Rule board](https://semgrep.dev/orgs/-/board), and then click **Try new version**.
-
 You can go back to the Rule board by clicking the **Back to old version** button. For more information, see [Policies](/semgrep-code/policies/) documentation.
+
+If you've previously opted out of Policies, to access it again, go to [Rule board](https://semgrep.dev/orgs/-/board), and then click **Try new version**.
 
 The new Policies page:
 - Autosaves any changes you make on the page.
