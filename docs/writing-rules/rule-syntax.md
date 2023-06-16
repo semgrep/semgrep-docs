@@ -251,6 +251,8 @@ The `comparison` key accepts Python expression using:
 - Comparison operators `==`, `!=`, `<`, `<=`, `>`, and `>=`.
 - Function `int()` to convert strings into integers.
 - Function `str()` to convert numbers into strings.
+- Function `today()` that gets today's date as a float representing epoch time.
+- Function `strptime()` that converts strings in the format `"yyyy-mm-dd"` to a float representing the date in epoch time.
 - Lists, together with the `in`, and `not in` infix operators.
 - Function `re.match()` to match a regular expression (without the optional `flags` argument).
 
