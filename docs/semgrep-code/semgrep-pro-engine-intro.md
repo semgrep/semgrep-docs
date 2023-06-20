@@ -19,7 +19,7 @@ import TabItem from '@theme/TabItem';
 
 ## Semgrep Pro engine language support
 
-Refer to [Supported languages](/supported-languages/#semgrep-pro-engine) to see languages supported by Semgrep Pro Engine. Semgrep Cloud Platform users can also check language support on the [Settings page](https://semgrep.dev/orgs/-/settings).
+Refer to [Supported languages](/supported-languages/#semgrep-pro-engine) to see languages supported by Semgrep Pro Engine.
 
 ## Using and running Semgrep Pro Engine
 
