@@ -81,7 +81,7 @@ This section of release notes includes upgrades of Semgrep OSS Engine for versio
 
 ### Added
 
-- Taint analysis: Semgrep Pro Engine now supports simple cases of interprocedural taint labels.
+- Taint analysis: Semgrep Pro Engine now supports simple cases of cross-function (interprocedural) taint labels.
 - Java language support: With this update, Semgrep Pro Engine can track the propagation of taint from the arguments of a method to the called object. For example:
     
     ```java
