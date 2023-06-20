@@ -12,17 +12,17 @@ import TabItem from '@theme/TabItem';
 
 # Getting started with Semgrep OSS Engine
 
-The Semgrep OSS Engine is the foundation of Semgrep. Detect bugs, style violations, security issues, and more by scanning your code locally using [community-contributed rules](https://semgrep.dev/explore) as well as your own custom rules.
+The Semgrep OSS Engine is the foundation of Semgrep. With it, you can detect bugs, style violations, security issues, and more by scanning your code locally using [community-contributed rules](https://semgrep.dev/explore) as well as your own custom rules.
 
 ## Installing and running Semgrep locally
 
-Install and run [Semgrep CLI](https://github.com/returntocorp/semgrep/) to scan your code locally using Semgrep OSS Engine. Semgrep CLI runs offline on uncompiled code. **No code leaves your computer**.
+Install and run the [Semgrep command-line interface](https://github.com/returntocorp/semgrep/) (CLI) to scan your code locally. Semgrep OSS Engine runs offline on uncompiled code. **No code leaves your computer**.
 
 :::info Prerequisite
-Semgrep CLI installation requires Python 3.7 or later.
+Semgrep CLI requires Python 3.7 or later.
 :::
 
-1. Install Semgrep CLI. Use one of the following options depending on your system and preference:
+1. To install Semgrep OSS Engine, use one of the following options:
     <Tabs
         defaultValue="macOS"
         values={[
@@ -83,7 +83,8 @@ Semgrep CLI installation requires Python 3.7 or later.
     Substitute the optional placeholder <code><span className="placeholder">PATH/TO/SRC</span></code> with the path to your source code.
 
 :::note
-By default, when Semgrep Registry is used, Semgrep collects [usage metrics](./metrics.md).
+- By default, when Semgrep Registry is used, Semgrep collects [usage metrics](./metrics.md).
+- If you install Semgrep through Homebrew, ensure that you have added Homebrew to your PATH. See [My Mac .apps don’t find Homebrew utilities!](https://docs.brew.sh/FAQ#my-mac-apps-dont-find-homebrew-utilities) in Homebrew documentation.
 :::
 
 ### Next steps
@@ -137,22 +138,27 @@ semgrep --config=auto
 
 ## Run Semgrep continuously
 
-Semgrep is at its best when used to continuously scan code. Check out [Semgrep in CI](semgrep-ci/overview.md/) to learn how to get results where you already work: GitHub, GitLab, Slack, Jira, and more. To get results even earlier in the development process, such as in a Git pre-commit hook or VS Code, check the available [Semgrep extensions](./extensions.md).
+Semgrep is at its best when used to continuously scan code. Check out [Semgrep in CI](semgrep-ci/overview.md/) to learn how to get results where you already work: GitHub, GitLab, Slack, Jira, and more. To get results even earlier in the development process, such as in a Git pre-commit hook or VS Code, check the available [Semgrep extensions](/extensions/overview/).
 
 Check out [Semgrep Cloud Platform](https://semgrep.dev/manage) (SCP) to integrate Semgrep scans into your CI environment with PR or MR comments, monitor progress, host private rules (Team and Enterprise tiers), and much more! 
 
 ## Logging into Semgrep Cloud Platform
 
-Logging into SCP from your CLI enables you to:
+:::tip Benefits of logging in to Semgrep Cloud Platform
+Logging into Semgrep Cloud Platform (SCP) in your Semgrep CLI interface enables you to:
 
-* Send findings from your local scans to SCP for findings triage.
-* Quickly configure local scans to run either rules from your Rule board or a different set of rules and rulesets. 
-* For Team or Enterprise users: scan code using Pro rules from the CLI.
+- Send findings from your local scans to SCP for findings triage.
+- Quickly configure local scans to run either rules from your Rule board or a different set of rules and rulesets. 
+- For Team or Enterprise users: scan code using Pro rules from the CLI.
+:::
 
 To log in to SCP:
 
 1. Create an account by clicking the link: [Sign in to Semgrep Cloud Platform](https://semgrep.dev/login).
-2. In your command line, enter `semgrep login`.
+2. In your command line, enter the following command:
+    ```sh
+    semgrep login
+    ```
 3. Click the link provided in your terminal and follow the instructions.
 
 ## Updating Semgrep

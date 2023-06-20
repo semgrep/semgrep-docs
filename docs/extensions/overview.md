@@ -1,5 +1,5 @@
 ---
-slug: extensions
+slug: overview
 append_help_link: true
 description: >-
   Learn how to use Semgrep in an editor, in pre-commit, and in other tools.
@@ -11,14 +11,19 @@ import MoreHelp from "/src/components/MoreHelp"
 
 Several third-party tools include Semgrep extensions.
 
+## Editor
 
-### Editor
+### Official extensions
+
+- Microsoft Visual Studio Code: [`semgrep-vscode`](https://marketplace.visualstudio.com/items?itemName=semgrep.semgrep)
+- Emacs: [`lsp-mode`](https://github.com/emacs-lsp/lsp-mode)
+
+### Community-contributed extensions
 
 - IntelliJ IDEA: [`semgrep-idea-plugin`](https://github.com/jtmelton/semgrep-idea-plugin)
-- Microsoft Visual Studio Code: [`semgrep-vscode`](https://marketplace.visualstudio.com/items?itemName=semgrep.semgrep)
 - Vim: [`semgrep.vim`](https://github.com/returntocorp/semgrep.vim)
 
-### Pre-commit
+## Pre-commit
 
 The [pre-commit framework](https://pre-commit.com/) can run `semgrep` at commit-time. [Install `pre-commit`](https://pre-commit.com/#install) and add the following to `.pre-commit-config.yaml`
 
@@ -28,15 +33,27 @@ repos:
   rev: 'SEMGREP_VERSION_LATEST'
   hooks:
     - id: semgrep
-      # See semgrep.dev/rulesets to select a ruleset and copy its URL
+      # See https://semgrep.dev/explore to select a ruleset and copy its URL
       args: ['--config', '<SEMGREP_RULESET_URL>', '--error', '--skip-unknown-extensions']
 ```
 
-### Version management
+The pre-commit can also run custom rules and rulesets from Semgrep Code, similar to running `semgrep ci` using the following configuration:
+
+```yaml
+repos:
+- repo: https://github.com/returntocorp/semgrep
+  rev: 'SEMGREP_VERSION_LATEST'
+  hooks:
+    - id:  semgrep-ci
+      # See https://semgrep.dev/explore to select a ruleset and copy its URL
+      args: ['--config', '<SEMGREP_RULESET_URL>', '--error', '--skip-unknown-extensions']
+```
+
+## Version management
 
 - asdf: [ASDF Semgrep](https://github.com/brentjanderson/asdf-semgrep)
 
-### Semgrep as an engine
+## Semgrep as an engine
 
 Many other tools have functionality powered by Semgrep.
 Add yours [with a pull request](https://github.com/returntocorp/semgrep-docs)!

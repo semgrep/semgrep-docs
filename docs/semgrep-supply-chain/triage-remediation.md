@@ -11,6 +11,7 @@ hide_title: true
 
 import MoreHelp from "/src/components/MoreHelp"
 import AdmonitionSscLicense from "/src/components/reference/_admonition-ssc-license.md"
+import AdmonitionSotCves from "/src/components/reference/_admonition-sot-cves.md"
 
 <ul id="tag__badge-list">
 {
@@ -22,13 +23,9 @@ Object.entries(frontMatter).filter(
 
 # Triaging and remediating dependency findings
 
-<AdmonitionSscLicense />
-
 Perform triage and remediation on your open source dependencies through the **Supply chain** page. This page displays relevant scan data through three tabs:
 
 <dl>
-<dt>Overview</dt>
-    <dd>This tab displays the most recently discovered reachable vulnerabilities, advisories, and charts presenting historical data of vulnerabilities discovered in all repositories for which Semgrep Supply Chain is enabled. The badge is your total count of <strong>reachable vulnerabilities</strong>.</dd>
 <dt>Vulnerabilities</dt>
     <dd>This tab enables you to:
     <ul>
@@ -40,6 +37,8 @@ Perform triage and remediation on your open source dependencies through the **Su
 </dd>
 <dt>Advisories</dt>
 <dd>This tab displays the latest <strong>Common Vulnerabilities and Exposures (CVEs)</strong> that are covered by Semgrep Supply Chain rules. Use this tab to see the CVEs that Semgrep Supply Chain can detect.</dd>
+<dt>Dependencies</dt>
+<dd>This tab displays information about all of your dependencies across all onboarded repositories.</dd>
 </dl>
 
 ![Semgrep Supply Chain Vulnerabilities page](/img/sc-vulnerabilities.png)
@@ -51,11 +50,9 @@ _Figure 1_. Semgrep Supply Chain Vulnerabilities page.
 At least one repository that scans for dependencies through Semgrep Supply Chain. See [Getting started with Semgrep Supply Chain](/semgrep-supply-chain/getting-started).
 :::
 
-To view the latest findings of Semgrep Supply Chain:
+To view the latest findings of Semgrep Supply Chain, click Supply Chain.
 
-1. The latest findings are visible in **Supply Chain > Overview**. Clicking **Vulnerabilities** displays all findings for triage.
-
-Findings are grouped by **vulnerability**. A specific finding in the code is called a **usage**. Usages are grouped under their respective vulnerabilities. Vulnerability entries are sorted as cards from newest to oldest then by severity from critical to low.
+Findings are displayed under their respective repositories. Findings are grouped by **vulnerability**. A specific finding in the code is called a **usage**. Vulnerability entries are sorted as cards from newest to oldest then by severity from critical to low.
 
 <div class="bordered">
 
@@ -65,10 +62,13 @@ Findings are grouped by **vulnerability**. A specific finding in the code is cal
 
 _Figure 2_. A single vulnerability entry in Semgrep Supply Chain.
 
-Semgrep Supply Chain assists in your organization's threat assessment and triage through this page. Within the **Vulnerabilities** tab, you can determine reachable, true positives and the necessary effort to fix or resolve findings. After assessment, Semgrep Supply Chain assists users to decide between two triage actions:
+Within the **Vulnerabilities** tab, you can determine reachable, true positives and the necessary effort to fix or resolve findings. After assessment, Semgrep Supply Chain assists users to decide between two triage actions:
 
 * **Ignore the vulnerabilities. **Vulnerabilities that are **ignored** are false positives, acceptable risks, or deprioritized findings due to some factor, such as time.
-* **Remediate or resolve the vulnerability.** These vulnerabilities are true positives that are prioritized due to factors such as reachability and severity. Possible remediation solutions include updating the dependency or removing the dependency and refactoring the code.
+* **Remediate or resolve the vulnerability.** These vulnerabilities are true positives that are prioritized due to factors such as reachability and severity.
+
+
+### Assessment actions
 
 To assess your findings, Semgrep Supply Chain provides the following methods:
 
@@ -102,6 +102,8 @@ To assess your findings, Semgrep Supply Chain provides the following methods:
    </td>
   </tr></tbody>
 </table>
+
+### Filters
 
 The following **filters** are provided:
 
@@ -137,6 +139,38 @@ The following **filters** are provided:
   </tbody>
 </table>
 
+#### Exposure filters
+
+The following **exposure filters** are provided:
+
+
+<table>
+  <thead><tr>
+   <th>Exposure filter</th>
+   <th>Description</th>
+  </tr></thead>
+  <tbody><tr>
+   <td>Reachable
+   </td>
+   <td>Semgrep detected that this finding uses the vulnerable piece of code of the dependency and vulnerable version of the dependency. Additionally, some vulnerabilities are are considered reachable because it can be exploited regardless of its usage in your codebase.
+   </td>
+  </tr>
+  <tr>
+   <td>Unreachable
+   </td>
+   <td>Semgrep determined that there is no usage of the vulnerability from the dependency into your codebase.
+   </td>
+  </tr>
+  <tr>
+   <td>Undetermined
+   </td>
+   <td>Semgrep does not scan for the reachability of this vulnerability.
+   </td>
+  </tr></tbody>
+</table>
+
+#### Status filters
+
 The following **status filters** are provided:
 
 <table>
@@ -148,12 +182,6 @@ The following **status filters** are provided:
    <td>New
    </td>
    <td>Vulnerabilities that have not undertaken triage or remediation action.
-   </td>
-  </tr>
-  <tr>
-   <td>In progress 
-   </td>
-   <td>Vulnerabilities with an attached Jira issue tracker or pull or merge request link.
    </td>
   </tr>
   <tr>
@@ -175,6 +203,8 @@ The following **status filters** are provided:
   </tr></tbody>
 </table>
 
+
+
 ## Remediating true positives
 
 Remediate (or resolve) true positives in Semgrep Supply Chain through the following methods:
@@ -190,15 +220,6 @@ Semgrep Supply Chain provides a snippet you can copy to update the dependency. C
 
 Another method to remediate vulnerabilities is to remove the dependency entirely and refactor code. Upon merging any dependency removals, Semgrep Supply Chain scans the PR or MR, detects the changes in your lockfile, and updates the status to **Fixed**.
 
-### Tracking the remediation process
-
-Semgrep Supply Chain enables you to track the progress of your remediation by providing fields for the following:
-
-* **Jira issue tracker**. This is the **card icon** seen in the vulnerability's entry.
-* **Pull or merge request (PR or MR) link**. This is the **merge icon** seen in the vulnerability's entry.
-
-Copy the PR or MR link or Jira issue link to the corresponding field. This changes the vulnerability's status to **In progress**.
-
 ## Ignoring vulnerabilities
 
 To ignore a vulnerability:
@@ -207,22 +228,10 @@ To ignore a vulnerability:
 2. Click on the vulnerability's **Ignore **button. A drop-down menu appears.
 3. Click the reason for ignoring. 
 
-## Additional data points
-
-### Viewing historical scan data
-
-The **Overview** tab displays two charts to assist you in understanding historical scan data:
-
-<dl>
-<dt>Inbox size over time</dt>
-<dd>This is the number of <strong>reachable vulnerabilities</strong> across all repositories that run Semgrep Supply Chain scans. The Y-axis goes down as triage actions are undertaken.</dd>
-<dt>New findings over time</dt>
-<dd>This is the number of <strong>reachable and unreachable vulnerabilities</strong> over time across all repositories that run Semgrep Supply Chain scans. The chart generates a new bar every time a scan runs.</dd>
-</dl>
-
-
 ### Viewing the latest advisories
 
 The **Advisories** tab displays the newest CVEs that Semgrep Supply Chain can detect. Click the individual entry to see the code pattern that the Advisory detects. 
+
+<AdmonitionSotCves />
 
 <MoreHelp />

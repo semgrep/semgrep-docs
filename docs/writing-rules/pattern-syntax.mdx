@@ -358,7 +358,7 @@ You can also use `/$X/` and `:$X` to respectively match
 any regular expressions or atoms (in languages that support
 those constructs, e.g., Ruby).
 
-### Typed Metavariables
+### Typed metavariables
 
 #### Syntax
 
@@ -460,7 +460,7 @@ func main() {
 For Go, Semgrep currently does not recognize the type of all variables that are declared on the same line. That is, the following will not take both `a` and `b` as `int`s: `var a, b = 1, 2`
 :::
 
-#### Using Typed Metavariables
+#### Using typed metavariables
 
 Type inference applies to the entire file! One common way to use typed metavariables is to check for a function called on a specific type of object. For example, let's say you're looking for calls to a potentially unsafe logger in a class like this:
 
@@ -491,7 +491,7 @@ See the rule [here](https://semgrep.dev/s/emjin:logger_search)
 Since matching happens within a single file, this is only guaranteed to work for local variables and arguments. Additionally, Semgrep currently understands types on a shallow level. For example, if you have `int[] A`, it will not recognize `A[0]` as an integer. If you have a class with fields, you will not be able to use typechecking on field accesses, and it will not recognize the class’s field as the expected type. Literal types are understood to a limited extent. Expanded type support is under active development.
 :::
 
-### Ellipsis Metavariables
+### Ellipsis metavariables
 
 You can combine ellipses and metavariables to match a sequence
 of arguments and store the matched sequence in a metavariable.

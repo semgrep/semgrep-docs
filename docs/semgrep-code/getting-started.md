@@ -7,7 +7,6 @@ hide_title: true
 tags:
     - Semgrep Code
     - Team & Enterprise Tier
-    - Community Tier
 ---
 
 <ul id="tag__badge-list">
@@ -107,9 +106,8 @@ Semgrep Cloud Platform can run scans on many projects with rules set in the Rule
 
 Over time, users modify the Rule Board with rules specific to their codebase's security or business goals.
 
-:::tip Optional workflows
-* Start using Semgrep Cloud Platform by scanning a demo project that requires only 3 seconds to configure. See [Learning Semgrep Cloud Platform with a demo project](/semgrep-code/demo-project/)
-* Scan a project using Semgrep Pro Engine, an **interprocedural and interfile** analysis engine. This engine is available for Team tier users and above. See [Semgrep Pro Engine overview](semgrep-code/semgrep-pro-engine-intro) or contact [sales@semgrep.com](mailto:sales@semgrep.com) for more information.
+:::tip Try Semgrep Zero-config Scanning (Beta)
+Semgrep Zero-config Scanning enables you to quickly onboard or add many repositories without configuring a CI job. This feature is available for users of GitHub Free or Team tiers. Contact [sales@semgrep.com](sales@semgrep.com) to try it out.
 :::
 
 #### Option A: Scanning a local repository through Semgrep CLI
@@ -214,6 +212,10 @@ $> export SEMGREP_COMMIT=fa4e36b9369e5b039bh2220b5h9R61a38b077f29
 #### Option B: Adding a repository from GitHub, GitLab, or BitBucket
 
 <PlatformAddRepo />
+
+:::tip Optional workflow
+Start using Semgrep Cloud Platform by scanning a demo project that requires only 3 seconds to configure. See [Learning Semgrep Cloud Platform with a demo project](/semgrep-code/demo-project/).
+:::
 
 ##### Detecting GitHub repositories
 

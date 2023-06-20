@@ -163,6 +163,14 @@ module.exports = {
       ]
     },
     image: 'https://semgrep.dev/thumbnail.png',
+    announcementBar: {
+      id: 'office-hours',
+      content:
+        'Group Office Hours | Meet community members and get support from our technical Customer Success Engineers.  <a target="_blank" rel="noopener noreferrer" href="https://get.semgrep.dev/Weekly-Group-Office-Hours.html">Book now</a>!',
+      backgroundColor: '#00A67D',
+      textColor: '#ffffff',
+      isCloseable: false,
+    },
   },
   scripts: [
     {
@@ -283,7 +291,7 @@ module.exports = {
           //Semgrep Cloud Platform
           { from: "/semgrep-app/dashboard/"                        , to: "/semgrep-cloud-platform/dashboard/" }           ,
           { from: "/semgrep-app/getting-started-with-semgrep-app/" , to: "/semgrep-cloud-platform/getting-started/" }     ,
-          { from: "/semgrep-app/pricing-and-billing/"              , to: "/semgrep-cloud-platform/pricing-and-billing/" } ,
+          { from: "/semgrep-app/pricing-and-billing/"              , to: "/pricing-and-billing/" } ,
           { from: "/semgrep-app/scm/"                              , to: "/semgrep-cloud-platform/scm/" }                 ,
           { from: "/semgrep-app/semgrep-api/"                      , to: "/semgrep-cloud-platform/semgrep-api/" }         ,
           { from: "/semgrep-app/sso/"                              , to: "/semgrep-cloud-platform/sso/" }                 ,
@@ -300,7 +308,11 @@ module.exports = {
 
           /* APR 27 2023  */
           { from: "/semgrep-code/notifications/"            , to: "/semgrep-cloud-platform/notifications/" }  ,
-          { from: "/semgrep-ci/configuration-reference" , to: "/semgrep-ci/ci-environment-variables/" }
+          { from: "/semgrep-ci/configuration-reference" , to: "/semgrep-ci/ci-environment-variables/" },
+
+          /* MAY 12 2023  */
+          { from: "/semgrep-cloud-platform/pricing-and-billing/"            , to: "/semgrep-cloud-platform/notifications/" },
+          { from: "/extensions/"                                            , to: "/extensions/overview/" }
         ]
       }
     ],
