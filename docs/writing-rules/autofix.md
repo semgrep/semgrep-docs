@@ -74,3 +74,29 @@ rules:
 <p align="center">
   <img src="https://web-assets.r2c.dev/inline-autofix-regex.gif" width="100%" alt="Apply Semgrep autofix direclty to a file"/>
 </p>
+
+## Removing a code detected by a rule
+
+Remove a code that an autofix rule detected by adding a `fix` key with `""` an empty string.
+
+For example:
+
+```yaml
+rules:
+  - id: pyramid-cookies
+    patterns:
+      - pattern: |
+          AuthTktCookieHelper(..., httponly=$BOOL, ...)
+      - metavariable-pattern:
+          metavariable: $BOOL
+          pattern: |
+            False
+      - focus-metavariable: $BOOL
+    message: Semgrep found a match
+    languages:
+      - python
+    severity: WARNING
+    fix: ""
+```
+
+When autofix is applied, this rule removes the detected code.
