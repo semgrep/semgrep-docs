@@ -1,5 +1,5 @@
 ---
-slug: editor 
+slug: editor
 append_help_link: true
 title: Editor
 hide_title: true
@@ -105,7 +105,7 @@ Another method of creating rules is by **forking/copying** from existing rules f
 6. Click **Run** to validate your rule.
 7. Click **Save** to save your rule. The following rule displays the end result.
 
-<iframe title="Prevent use of MD2" src="https://semgrep.dev/embed/editor?snippet=s-santillan:use-of-md2" width="100%" height="432px" frameBorder="0"></iframe>
+<iframe title="Prevent use of MD2" src="https://semgrep.dev/embed/editor?snippet=KxU5pW" width="100%" height="432px" frameBorder="0"></iframe>
 
 ### Debugging syntax issues
 
