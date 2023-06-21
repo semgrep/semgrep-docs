@@ -6,7 +6,7 @@ description: "This document provides information about experimental syntax addit
 
 # Displaying propagated value of metavariables
 
-This document provides information about experimental syntax supplement to [Displaying matched metavariables in rule messages](/writing-rules/pattern-syntax/#displaying-matched-metavariables-in-rule-messages). Semgrep enables you to display values of matched metavariables in rule messages. However, in some cases, the matched value of the metavariable is not the real value you were looking for. 
+This document provides information about experimental syntax supplement to [Displaying matched metavariables in rule messages](/writing-rules/pattern-syntax/#displaying-matched-metavariables-in-rule-messages). Semgrep enables you to display values of matched metavariables in rule messages. However, in some cases, the matched value of the metavariable is not the real value you were looking for.
 
 See the following rule message and part of a Semgrep rule (formula):
 
@@ -45,4 +45,4 @@ Regular Semgrep syntax for displaying matched metavariables in rule messages is 
 
 Run the following example in Semgrep Playground to see the message (click **Open in Editor**, and then **Run**, unroll the **1 Match** to see the message):
 
-<iframe title="Metavariable value in message example" src="https://semgrep.dev/embed/editor?snippet=returntocorp:value-in-message-example" width="100%" height="432" frameborder="0"></iframe>
+<iframe title="Metavariable value in message example" src="https://semgrep.dev/embed/editor?snippet=3qU28g" width="100%" height="432" frameborder="0"></iframe>

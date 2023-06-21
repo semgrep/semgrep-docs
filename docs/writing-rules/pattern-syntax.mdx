@@ -124,7 +124,7 @@ The YAML `|` operator allows for [multiline strings](https://yaml-multiline.info
 :::
 
 The ellipsis operator can match the function name.
-Match any function definition: 
+Match any function definition:
 Regular functions, methods, and also anonymous functions (such as lambdas).
 To match named or anonymous functions use an ellipsis `...` in place of the name of the function.
 For example, in JavaScript the pattern `function ...($X) { ... }` matches
@@ -470,7 +470,7 @@ class Test {
 
     public static void run_test(String input, int num) {
         logger.log("Running a test with " + input);
-        
+
         test(input, Math.log(num));
     }
 }
@@ -484,7 +484,7 @@ If you searched for `$X.log(...)`, you would also match `Math.log(num)`. Instead
 
 which will only give you the call to `logger`.
 
-See the rule [here](https://semgrep.dev/s/emjin:logger_search)
+See the rule [here](https://semgrep.dev/r/ReUyBA/emjin.logger_search)
 
 
 :::caution
@@ -530,7 +530,7 @@ Setting a password on user
 
 Run the following example in Semgrep Playground to see the message (click **Open in Editor**, and then **Run**, unroll the **1 Match** to see the message):
 
-<iframe title="Metavariable value in message example" src="https://semgrep.dev/embed/editor?snippet=returntocorp:metavariable-message-example" width="100%" height="432" frameborder="0"></iframe>
+<iframe title="Metavariable value in message example" src="https://semgrep.dev/embed/editor?snippet=KxU84Y" width="100%" height="432" frameborder="0"></iframe>
 
 :::info
 If you're using Semgrep's advanced dataflow features, see documentation of experimental feature [Displaying propagated value of metavariable](/writing-rules/experiments/display-propagated-metavariable).

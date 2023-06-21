@@ -59,7 +59,7 @@ The below optional fields must reside underneath a `patterns` field.
 The `pattern` operator looks for code matching its expression. This can be basic expressions like `$X == $X` or unwanted function calls like `hashlib.md5(...)`.
 
 :::note Example
-Try this pattern in the [Semgrep Playground](https://semgrep.dev/s/gJo5). 
+Try this pattern in the [Semgrep Playground](https://semgrep.dev/s/gJo5).
 :::
 
 ### `patterns`
@@ -187,7 +187,7 @@ Try this pattern in the [Semgrep Playground](https://semgrep.dev/s/ved8).
 :::
 
 :::info
-Include quotes in your regular expression when using `metavariable-regex` to search string literals. See [this snippet](https://semgrep.dev/s/mschwager:include-quotes) for more details. [String matching](pattern-syntax.mdx#string-matching) functionality can also be used to search string literals.
+Include quotes in your regular expression when using `metavariable-regex` to search string literals. See [this snippet](https://semgrep.dev/r/eqU83x/mschwager.include-quotes) for more details. [String matching](pattern-syntax.mdx#string-matching) functionality can also be used to search string literals.
 :::
 
 ### `metavariable-pattern`

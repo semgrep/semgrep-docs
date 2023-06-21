@@ -13,7 +13,7 @@ This document provides an overview of Semgrep Pro Engine features through specif
 
 The following resources can help you to test the code in the sections below. As you work through the examples in this document, try the following:
 
-- Enable the <i class="fa-solid fa-toggle-large-on"></i> **Semgrep Pro Engine beta** toggle within the [Playground](https://semgrep.dev/playground/new).
+- Ensure that the <i class="fa-solid fa-toggle-large-on"></i> **Pro Engine beta** toggle is enabled on the [Playground](https://semgrep.dev/playground/new) page.
     - Rules you use in Semgrep Pro Engine require `interfile: true` key included in the `metadata` key. See the following [example](https://semgrep.dev/s/3NZb).
 - The [Semgrep Pro Engine testing repository](https://github.com/returntocorp/semgrep-pro-tests) 
     - Clone the repository:
@@ -45,7 +45,7 @@ Semgrep matches `dangerous(“Select * from “ + user_input)`, because `user_in
 Semgrep Pro Engine matches both dangerous calls because it does cross function boundaries. In fact, with Semgrep Pro Engine, the taint rule can track calls to `get_user_input` over multiple jumps in multiple files.
 
 :::tip Try it out
-Enable the **Semgrep Pro Engine beta** <i class="fa-solid fa-toggle-large-on"></i> toggle in the following link to an [example of dangerous taint](https://semgrep.dev/playground/s/J0dQ). To run Semgrep Pro Engine in the cloned [Semgrep Pro Engine testing repository](https://github.com/returntocorp/semgrep-pro-tests). Go to `docs/taint_tracking/java` and run the following command:
+Ensure that the **Pro Engine beta** <i class="fa-solid fa-toggle-large-on"></i> toggle is enabled in the following link to an [example of dangerous taint](https://semgrep.dev/playground/s/J0dQ) rule. To run Semgrep Pro Engine in the cloned [Semgrep Pro Engine testing repository](https://github.com/returntocorp/semgrep-pro-tests). Go to `docs/taint_tracking/java` and run the following command:
 
 ```sh
 semgrep --config pro.yaml . --pro
