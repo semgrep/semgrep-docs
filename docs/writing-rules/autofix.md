@@ -99,4 +99,4 @@ rules:
     fix: ""
 ```
 
-When autofix is applied, this rule removes the detected code.
+When an autofix is applied, this rule removes the detected code.
