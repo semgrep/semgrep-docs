@@ -92,7 +92,7 @@ This section of release notes include upgrades of Semgrep OSS Engine for version
 
 ### Added
 
-- **Semgrep Pro Engine beta** toggle is enabled by default in the [Semgrep Editor](https://semgrep.dev/orgs/-/editor/) and [Semgrep Playground](https://semgrep.dev/playground). Rules can still run with the Semgrep OSS Engine if `interfile: true` is not specified in the rule.
+- **Pro Engine beta** toggle is enabled by default in the [Semgrep Editor](https://semgrep.dev/orgs/-/editor/) and [Semgrep Playground](https://semgrep.dev/playground). Rules can still run with the Semgrep OSS Engine if `interfile: true` is not specified in the rule.
 - Findings from Pro rules or Semgrep Pro Engine are now labeled with a gem icon to let you know where the finding has come from.
     ![semgrep-code-findings-pro-rule-gem.png](/img/release-notes-semgrep-code-findings-pro-rule-gem.png)
     
