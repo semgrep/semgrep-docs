@@ -22,65 +22,102 @@ Install and run the [Semgrep command-line interface](https://github.com/returnto
 Semgrep CLI requires Python 3.7 or later.
 :::
 
-1. To install Semgrep OSS Engine, use one of the following options:
-    <Tabs
-        defaultValue="macOS"
-        values={[
-        {label: 'macOS', value: 'macOS'},
-        {label: 'Linux', value: 'Linux'},
-        {label: 'Windows Subsystem for Linux (WSL)', value: 'Windows Subsystem for Linux (WSL)'},
-        {label: 'Docker', value: 'Docker'},
-        ]}
-    >
+To install and run Semgrep OSS Engine, use one of the following options:
 
-    <TabItem value='macOS'>
+<Tabs
+    defaultValue="macOS"
+    values={[
+    {label: 'macOS', value: 'macOS'},
+    {label: 'Linux', value: 'Linux'},
+    {label: 'Windows Subsystem for Linux (WSL)', value: 'Windows Subsystem for Linux (WSL)'},
+    {label: 'Docker', value: 'Docker'},
+    ]}
+>
 
-    ```bash
-    brew install semgrep
-    ```
+  <TabItem value='macOS'>
 
-    Alternatively:
+  1. Install:
+      ```bash
+      brew install semgrep
+      ```
 
-    ```bash
-    python3 -m pip install semgrep
-    ```
+      Alternatively:
 
-    </TabItem>
+      ```bash
+      python3 -m pip install semgrep
+      ```
 
-    <TabItem value='Linux'>
+  2. Confirm installation by the following command:
+      ```sh
+      semgrep --version
+      ```
+  3. Run recommended Semgrep Registry rules:
+      <pre class="language-bash"><code>semgrep --config=auto <span className="placeholder">PATH/TO/SRC</span></code></pre>
+      Substitute the optional placeholder <code><span className="placeholder">PATH/TO/SRC</span></code> with the path to your source code.
 
-    ```bash
-    python3 -m pip install semgrep
-    ```
 
-    </TabItem>
+  </TabItem>
 
-    <TabItem value='Windows Subsystem for Linux (WSL)'>
+  <TabItem value='Linux'>
 
-    ```bash
-    python3 -m pip install semgrep
-    ```
+  1. Install:
+      ```bash
+      python3 -m pip install semgrep
+      ```
+  
+  2. Confirm installation by the following command:
+      ```sh
+      semgrep --version
+      ```
+  3. Run recommended Semgrep Registry rules:
+      <pre class="language-bash"><code>semgrep --config=auto <span className="placeholder">PATH/TO/SRC</span></code></pre>
+      Substitute the optional placeholder <code><span className="placeholder">PATH/TO/SRC</span></code> with the path to your source code.
 
-    </TabItem>
 
-    <TabItem value='Docker'>
+  </TabItem>
 
+  <TabItem value='Windows Subsystem for Linux (WSL)'>
+
+  1. Install:
+      ```bash
+      python3 -m pip install semgrep
+      ```
+
+  2. Confirm installation by the following command:
+      ```sh
+      semgrep --version
+      ```
+
+  3. Run recommended Semgrep Registry rules:
+      <pre class="language-bash"><code>semgrep --config=auto <span className="placeholder">PATH/TO/SRC</span></code></pre>
+      Substitute the optional placeholder <code><span className="placeholder">PATH/TO/SRC</span></code> with the path to your source code.
+
+
+  </TabItem>
+
+  <TabItem value='Docker'>
+
+  1. Pull latest image locally:
+     ```sh
+     docker pull returntocorp/semgrep
+     ```
+   
+  2. Confirm version by the following command:
+      ```sh
+      docker run --rm returntocorp/semgrep semgrep --version
+      ```
+
+  3. Run recommended Semgrep Registry rules:
     ```bash
     docker run --rm -v "${PWD}:/src" returntocorp/semgrep semgrep --config=auto
     ```
 
-    </TabItem>
-
-    </Tabs>
+    The provided `-v` option mounts the current directory into the container to be scanned. Change directories locally or provide a specific local directory in the command to scan a different directory.
 
 
-2. Confirm installation by the following command:
-    ```sh
-    semgrep --version
-    ```
-3. Run recommended Semgrep Registry rules:
-    <pre class="language-bash"><code>semgrep --config=auto <span className="placeholder">PATH/TO/SRC</span></code></pre>
-    Substitute the optional placeholder <code><span className="placeholder">PATH/TO/SRC</span></code> with the path to your source code.
+  </TabItem>
+
+</Tabs>
 
 :::note
 - By default, when Semgrep Registry is used, Semgrep collects [usage metrics](./metrics.md).
