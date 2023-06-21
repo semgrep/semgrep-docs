@@ -81,6 +81,6 @@ jobs:
 
 ## Conclusion
 
-Using templates in Azure pipelines is a good practice to simplify pipelines code and improve readability and maintainability.
+Using templates in Azure pipelines is a good practice to simplify your Pipelines configuration file and improve readability and maintainability.
 > Adding these templates and the semgrep pipeline itself to all the repositories in an organization is something that we can definitively automate to speed up the onboarding process. 
    
