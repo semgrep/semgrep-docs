@@ -1,6 +1,6 @@
 ---
 tags:
-  - Azure
+  - Azure Pipelines
   - Templates
 description: Using templates in Azure pipelines with Semgrep commands.
 ---
