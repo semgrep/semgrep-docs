@@ -34,7 +34,7 @@ To install and run Semgrep OSS Engine, use one of the following options:
     ]}
 >
 
-  <TabItem value='macOS'>
+<TabItem value='macOS'>
 
   1. Install:
       ```bash
@@ -56,27 +56,9 @@ To install and run Semgrep OSS Engine, use one of the following options:
       Substitute the optional placeholder <code><span className="placeholder">PATH/TO/SRC</span></code> with the path to your source code.
 
 
-  </TabItem>
+</TabItem>
 
-  <TabItem value='Linux'>
-
-  1. Install:
-      ```bash
-      python3 -m pip install semgrep
-      ```
-  
-  2. Confirm installation by the following command:
-      ```sh
-      semgrep --version
-      ```
-  3. Run recommended Semgrep Registry rules:
-      <pre class="language-bash"><code>semgrep --config=auto <span className="placeholder">PATH/TO/SRC</span></code></pre>
-      Substitute the optional placeholder <code><span className="placeholder">PATH/TO/SRC</span></code> with the path to your source code.
-
-
-  </TabItem>
-
-  <TabItem value='Windows Subsystem for Linux (WSL)'>
+<TabItem value='Linux'>
 
   1. Install:
       ```bash
@@ -93,9 +75,28 @@ To install and run Semgrep OSS Engine, use one of the following options:
       Substitute the optional placeholder <code><span className="placeholder">PATH/TO/SRC</span></code> with the path to your source code.
 
 
-  </TabItem>
+</TabItem>
 
-  <TabItem value='Docker'>
+<TabItem value='Windows Subsystem for Linux (WSL)'>
+
+  1. Install:
+      ```bash
+      python3 -m pip install semgrep
+      ```
+
+  2. Confirm installation by the following command:
+      ```sh
+      semgrep --version
+      ```
+
+  3. Run recommended Semgrep Registry rules:
+      <pre class="language-bash"><code>semgrep --config=auto <span className="placeholder">PATH/TO/SRC</span></code></pre>
+      Substitute the optional placeholder <code><span className="placeholder">PATH/TO/SRC</span></code> with the path to your source code.
+
+
+</TabItem>
+
+<TabItem value='Docker'>
 
   1. Pull latest image locally:
      ```sh
@@ -115,7 +116,7 @@ To install and run Semgrep OSS Engine, use one of the following options:
     The provided `-v` option mounts the current directory into the container to be scanned. Change directories locally or provide a specific local directory in the command to scan a different directory.
 
 
-  </TabItem>
+</TabItem>
 
 </Tabs>
 
