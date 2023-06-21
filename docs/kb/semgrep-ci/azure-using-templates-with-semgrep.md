@@ -19,7 +19,7 @@ To add Semgrep commands in a YAML template file:
  1. Create a `templates` folder in the repository you want to run Semgrep in.
  2. Commit the following two templates: 
 
-Example for Semgrep full scan in a template yaml file:
+    Example for Semgrep full scan in a template yaml file:
     1. Template for Semgrep full scans:
     ```yaml
 steps:
