@@ -13,7 +13,11 @@ The primary goal of Azure templates is to extract some functionalities defined i
 
 ## Defining Semgrep code snippets in a template file
 
-Adding semgrep commands in a yaml template is a simple task. In the example, we will create two templates, one for Semgrep full scan and one for Semgrep pull request scans.
+
+To add Semgrep commands in a YAML template file:
+
+ 1. Create a `templates` folder in the repository you want to run Semgrep in.
+ 2. Commit the following two templates: 
 
 Example for Semgrep full scan in a template yaml file:
 ``````
