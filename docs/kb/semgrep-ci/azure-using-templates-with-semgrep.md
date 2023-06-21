@@ -8,7 +8,7 @@ description: Running Semgrep commands in Azure Pipelines templates.
 
 ## Motivation
 
-Complex code can take more work to maintain and modify. So, encapsulating some functionalities in functions, methods, or external files is a good programming practice.
+Complex code can take more work to maintain and modify. It is a good programming practice to encapsulate some functionalities in external files. By referencing these external files, you are able to reuse a particular functionality.
 That is the primary goal of Azure templates: extract some functionalities (snippets) defined in a big yaml file to an external file (template). With that, we are improving pipelines' readability and maintainability.
 
 ## Defining Semgrep snippets in a template file
