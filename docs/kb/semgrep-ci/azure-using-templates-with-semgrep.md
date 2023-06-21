@@ -2,7 +2,7 @@
 tags:
   - Azure Pipelines
   - Templates
-description: Using templates in Azure pipelines with Semgrep commands.
+description: Running Semgrep commands in Azure Pipelines templates.
 ---
 # Using templates in Azure pipelines with Semgrep
 
