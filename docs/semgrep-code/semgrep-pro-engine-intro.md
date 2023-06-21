@@ -189,7 +189,7 @@ If a scan uses more than 5&nbsp;GB of memory during pre-processing, the scan use
 If 1-2 repositories cause CI scan issues, modify your config file to use `semgrep ci --oss-only`. This overrides the Semgrep CI settings for these repositories, and always runs these scans with Semgrep OSS. 
 
 If many repositories cause scan issues:
-1. Disable the <i class="fa-solid fa-toggle-large-on"></i> **Pro Engine** toggle in the **[Settings](https://semgrep.dev/orgs/-/settings)** page of your organization.
+1. Disable the <i class="fa-solid fa-toggle-large-on"></i> **Pro Engine beta** toggle in the **[Settings](https://semgrep.dev/orgs/-/settings)** page of your organization.
 1. Contact the Semgrep team in the <a href="https://go.semgrep.dev/slack">Semgrep Community Slack</a> so we can help you to fix the issue and create a plan for your organization.
 
 ### Difference between Semgrep Pro Engine and join mode
