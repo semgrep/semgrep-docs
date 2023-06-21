@@ -5,7 +5,7 @@ tags:
   - Semgrep CLI
 ---
 
-# Semgrep in CI vs CLI: align your scan results and understand differences
+# Semgrep in CI vs CLI: align your SAST scan results and understand differences
 
 When configuring Semgrep, it can be helpful to run it both using the command-line interface (CLI) and in continuous integration (CI) in order to review findings behavior.
 
