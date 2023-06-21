@@ -104,7 +104,7 @@ With respect to Semgrep operators and features:
 * metavariable support is limited to capturing a single “word”, which is a token of the form [A-Za-z0-9_]+. They can’t capture sequences of tokens such as hello, world (in this case there are 3 tokens: `hello`, `,`, and `world`).
 * the ellipsis operator is supported and spans at most 10 lines
 * pattern operators like either/not/inside are supported
-* inline regular expressions for strings (`"=~/word.*/"`) is not supported
+* inline regular expressions for strings (`"=~/word.*/"`) are not supported
 
 ## Troubleshooting
 
@@ -225,7 +225,7 @@ To match an arbitrary sequence of items and capture their value in the example:
     ```
 
     This option forces the ellipsis operator to match patterns within a single line.
-    Example of the [resulting rule](https://semgrep.dev/playground/r/L1UkAg/returntocorp.password-in-config-file):
+    Example of the [resulting rule](https://semgrep.dev/playground/s/KPzn):
 
     ```yaml
     id: password-in-config-file

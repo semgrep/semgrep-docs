@@ -45,4 +45,4 @@ Regular Semgrep syntax for displaying matched metavariables in rule messages is 
 
 Run the following example in Semgrep Playground to see the message (click **Open in Editor**, and then **Run**, unroll the **1 Match** to see the message):
 
-<iframe title="Metavariable value in message example" src="https://semgrep.dev/embed/editor?snippet=3qU28g" width="100%" height="432" frameborder="0"></iframe>
+<iframe title="Metavariable value in message example" src="https://semgrep.dev/embed/editor?snippet=Dr0G" width="100%" height="432" frameborder="0"></iframe>
