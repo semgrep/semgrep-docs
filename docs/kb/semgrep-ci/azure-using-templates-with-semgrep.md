@@ -11,7 +11,7 @@ description: Running Semgrep commands in Azure Pipelines templates.
 Complex code can take more work to maintain and modify. It is a good programming practice to encapsulate some functionalities in external files. By referencing these external files, you are able to reuse a particular functionality.
 The primary goal of Azure templates is to extract some functionalities defined in a big yaml file and place these into an external file (the [template](https://learn.microsoft.com/en-us/azure/devops/pipelines/process/templates?view=azure-devops)). This improves a pipeline's readability and maintainability.
 
-## Defining Semgrep snippets in a template file
+## Defining Semgrep code snippets in a template file
 
 Adding semgrep commands in a yaml template is a simple task. In the example, we will create two templates, one for Semgrep full scan and one for Semgrep pull request scans.
 
