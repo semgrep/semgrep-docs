@@ -44,4 +44,4 @@ Now, if a developer commits a change or makes a pull request (or otherwise in an
     
 ## Drawbacks
 
-1. Reusable workflows don’t avoid the creation of file `.github/workflows/semgrep.yml` for each repo. You need to create it to insert the call to the reusable workflow.
+1. Reusable workflows don’t avoid the creation of a `.github/workflows/semgrep.yml` file for each repo. You still need to create one to then insert a call to the reusable workflow.
