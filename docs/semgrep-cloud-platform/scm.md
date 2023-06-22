@@ -83,7 +83,14 @@ PR or MR comments are comments or suggestions made by Semgrep Cloud Platform in 
 
 To enable this feature within self-hosted SCMs behind firewalls or VPNs (Virtual Private Networks), follow these steps:
 
- 1. Add the IP address `52.34.175.113` to your VPN's allowlist. This IP address is **static and outbound**.
+ 1. Add the following IP addresses to your VPN's allowlist. These IP addresses are **static and outbound**:
+     ```
+    52.34.175.113
+    35.166.231.235
+    52.35.248.246
+    52.34.137.110
+    44.225.64.41
+    ```
  2. Test that you are able to receive findings by manually triggering a scan through your CI provider.
 
 :::tip
