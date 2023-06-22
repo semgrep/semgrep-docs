@@ -29,7 +29,7 @@ But some changes need to be made in the `on:` statement (basically, the conditio
 
 ![image info](/img/kb/reusable-workflows-image-3.png)
 
-> Note: Secrets can be inherited and passed to the reusable workflow.
+> Note: Secrets can be inherited from the reusable workflow and passed to the caller workflow.
 
 ## Running a scan
 
