@@ -23,7 +23,7 @@ An organization can have hundreds or thousands of repositories. Reusable workflo
 
 ![image info](/img/kb/reusable-workflows-image-2.png)
 
-3. In each repository, you can call to the reusable workflow as shown in the next example:
+3. Then, in each repository, you can call the reusable workflow as shown here:
 
 ![image info](/img/kb/reusable-workflows-image-3.png)
 
