@@ -40,7 +40,7 @@ Now, if a developer commits a change or makes a pull request (or otherwise in an
 ## Benefits
 
 1. As GitHub [says](https://docs.github.com/en/actions/using-workflows/reusing-workflows#overview): “Reusing workflows avoids duplication. This makes workflows easier to maintain and allows you to create new workflows more quickly by building on the work of others, just as you do with actions”.
-2. It works very well for push, pull requests and schedule events.
+2. A reusable workflow can be triggered by several types of events, such as a push, pull_request, or schedule. In contrast, a required workflow can only be triggered by pull_request events.
     
 ## Drawbacks
 
