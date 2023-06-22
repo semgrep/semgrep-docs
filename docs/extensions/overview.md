@@ -45,8 +45,7 @@ repos:
   rev: 'SEMGREP_VERSION_LATEST'
   hooks:
     - id:  semgrep-ci
-      # See https://semgrep.dev/explore to select a ruleset and copy its URL
-      args: ['--config', '<SEMGREP_RULESET_URL>', '--error', '--skip-unknown-extensions']
+      args: []
 ```
 
 ## Version management
