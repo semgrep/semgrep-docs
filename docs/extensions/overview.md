@@ -45,7 +45,6 @@ repos:
   rev: 'SEMGREP_VERSION_LATEST'
   hooks:
     - id:  semgrep-ci
-      args: []
 ```
 
 ## Version management
