@@ -9,7 +9,7 @@ description: Setting up GitHub reusable workflows for Semgrep scans.
 
 ## Motivation
 
-An organization can have hundreds or thousands of repositories. Reusable workflow comes to simplify the file: `.github/workflows/semgrep.yml` for each repository in your organization because you can call a workflow (such as semgrep scans) from there, which avoids code duplication and gives one centralized configuration.
+An organization can have hundreds or thousands of repositories. Reusable workflows can simplify the `.github/workflows/semgrep.yml` file in each of your repositories by allowing you to define the workflow once and then referencing it more simply in other workflows, which avoids code duplication and gives one centralized configuration.
 
 ## Setting up a reusable workflow
 
