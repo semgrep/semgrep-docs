@@ -77,26 +77,17 @@ rules:
 
 ## Removing a code detected by a rule
 
-Remove a code that an autofix rule detected by adding a `fix` key with `""` an empty string.
+Improve your code quality, by cleaning up stale code automatically. Remove a code that an autofix rule detected by adding the `fix` key with `""` an empty string.
 
 For example:
 
 ```yaml
-rules:
-  - id: pyramid-cookies
-    patterns:
-      - pattern: |
-          AuthTktCookieHelper(..., httponly=$BOOL, ...)
-      - metavariable-pattern:
-          metavariable: $BOOL
-          pattern: |
-            False
-      - focus-metavariable: $BOOL
-    message: Semgrep found a match
-    languages:
-      - python
-    severity: WARNING
-    fix: ""
+ - id: python-typing
+   pattern: from typing import $X
+   fix: ""
+   languages: [ python ]
+   message: found one
+   severity: ERROR
 ```
 
 When an autofix is applied, this rule removes the detected code.
