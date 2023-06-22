@@ -17,7 +17,7 @@ An organization can have hundreds or thousands of repositories. Reusable workflo
 
 ![image info](/img/kb/reusable-workflows-image-1.png)
 
-> Note: semgrep.yml file must be in the folder `.github/workflows/`
+> Note: the semgrep.yml file must be in the `.github/workflows/` folder
 
 2. The content of the file can be copied from Semgrep [documentation](https://semgrep.dev/docs/semgrep-ci/sample-ci-configs/#sample-github-actions-configuration-file)
 
