@@ -49,7 +49,7 @@ Semgrep can run without internet access so developers can write code from airpla
 Rules shouldn’t have the capability to run arbitrary code on your system, only to act as a function that produces a deterministic output message.
 
 1. **Single-file analysis**<br/>
-To stay fast and limit complexity, we draw a line at crossing file boundaries during analysis. We lose the ability to detect certain complex interprocedural issues, but that’s an explicit tradeoff we make.<br/><br/>
+To stay fast and limit complexity, we draw a line at crossing file boundaries during analysis. We lose the ability to detect certain complex cross-function (interprocedural) issues, but that’s an explicit tradeoff we make.<br/><br/>
 Our goal is to catch what a senior engineer would catch in code review: Semgrep isn’t designed to find a crazy issue that’s 300 calls from start to finish and evaded the team for 20 years. Instead, it’s designed for enforcing best-practices and automating the code review tasks that an excellent senior engineer would be capable of. For a discussion of why expressive creativity is better than a powerful engine, [see this excellent blog post by Devdatta Akhawe](https://devd.me/log/posts/static-analysis/).<br/><br/>
 As a corollary: if you design your codebase so that code in a file is safe today, it's still safe after a colleague makes a change twenty function calls away in another file.
 

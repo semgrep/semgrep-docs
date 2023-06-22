@@ -293,19 +293,18 @@ Their differences are outlined in the following table:
 
 Semgrep Pro Engine supports the following languages:
 
-|                                       Language                                   |  Support level  |  Analysis type   |
-|----------------------------------------------------------------------------------|-----------------|------------------|
-| All GA supported languages listed in [Semgrep OSS Engine](#semgrep-oss-engine)   | Beta            | Interprocedural  |
-| Apex                                                                             | Experimental    | Interprocedural  |
-| Go                                                                               | Beta            | Interfile        |
-| Java                                                                             | Beta            | Interfile        |
-| JavaScript                                                                       | Beta            | Interfile        |
-| Kotlin                                                                           | Experimental    | Interfile        |
-| TypeScript                                                                       | Beta            | Interfile        |
+| Language                                                                         | Support level | Analysis type |
+|----------------------------------------------------------------------------------|---------------|------------------|
+| All GA supported languages listed in [Semgrep OSS Engine](#semgrep-oss-engine)   | Beta          | Cross-function (interprocedural) |
+| Apex                                                                             | Experimental  | Cross-function (interprocedural) |
+| Go                                                                               | Beta          | Cross-file (interfile) and cross-function (interprocedural) |
+| Java                                                                             | Beta          | Cross-file (interfile) and cross-function (interprocedural) |
+| JavaScript                                                                       | Beta          | Cross-file (interfile) and cross-function (interprocedural) |
+| Kotlin                                                                           | Experimental  | Cross-file (interfile) and cross-function (interprocedural) |
+| TypeScript                                                                       | Beta          | Cross-file (interfile) and cross-function (interprocedural) |
 
 :::info
-- To install and run Semgrep Pro Engine, see [Semgrep Pro Engine overview](/semgrep-code/semgrep-pro-engine-intro/) for more information.
-- All languages that have interfile analysis support by default also provide interprocedural analysis by default. However, languages that provide only interprocedural analysis do not provide interfile analysis.
+To install and run Semgrep Pro Engine, see [Semgrep Pro Engine overview](/semgrep-code/semgrep-pro-engine-intro/) for more information.
 :::
 
 ### Known limitations of Semgrep Pro Engine
@@ -324,6 +323,6 @@ module.exports = get_user
 
 #### Regressions in Semgrep Pro
 
-For interfile analysis, Semgrep Pro Engine resolves names differently than Semgrep OSS. Consequently, rules with `interfile: true` may produce different results than Semgrep OSS Engine. Some instances could be regarded as regressions, if you encounter them please file a bug report. When you need to report a bug in Semgrep Pro Engine, go through [support@semgrep.com](mailto:support@semgrep.com). You can also contact us through [Semgrep Community Slack group](https://go.semgrep.dev/slack).
+For cross-file (interfile) analysis, Semgrep Pro Engine resolves names differently than Semgrep OSS. Consequently, rules with `interfile: true` may produce different results than Semgrep OSS Engine. Some instances could be regarded as regressions, if you encounter them please file a bug report. When you need to report a bug in Semgrep Pro Engine, go through [support@semgrep.com](mailto:support@semgrep.com). You can also contact us through [Semgrep Community Slack group](https://go.semgrep.dev/slack).
 
 <MoreHelp />

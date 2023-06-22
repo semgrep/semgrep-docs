@@ -81,7 +81,7 @@ This section of release notes includes upgrades of Semgrep OSS Engine for versio
 
 ### Added
 
-- Taint analysis: Semgrep Pro Engine now supports simple cases of interprocedural taint labels.
+- Taint analysis: Semgrep Pro Engine now supports simple cases of cross-function (interprocedural) taint labels.
 - Java language support: With this update, Semgrep Pro Engine can track the propagation of taint from the arguments of a method to the called object. For example:
     
     ```java
@@ -138,7 +138,7 @@ This section of release notes includes upgrades of Semgrep OSS Engine for versio
 
 - New section [Semgrep add-on reconciliation of licenses](https://semgrep.dev/docs/semgrep-cloud-platform/pricing-and-billing/#semgrep-add-on-reconciliation-of-licenses) and [Example of license reconciliation](https://semgrep.dev/docs/semgrep-cloud-platform/pricing-and-billing/#example-of-license-reconciliation).
 - New section [Updating existing open-source rules in Semgrep Registry](/contributing/contributing-to-semgrep-rules-repository/#updating-existing-open-source-rules-in-semgrep-registry).
-- Added section [Creating interfile analysis rules](/semgrep-code/semgrep-pro-engine-intro/#creating-interfile-analysis-rules) and [Types of Semgrep Pro Engine analysis](/semgrep-code/semgrep-pro-engine-intro/#types-of-semgrep-pro-engine-analysis).
+- Added section [Creating rules that analyze across files](/semgrep-code/semgrep-pro-engine-intro/#creating-rules-that-analyze-across-files) and [Types of Semgrep Pro Engine analysis](/semgrep-code/semgrep-pro-engine-intro/#types-of-semgrep-pro-engine-analysis).
 - Added [Appendix: Token scopes](/semgrep-cloud-platform/user-management/#appendix-token-scopes).
 
 ### Changed

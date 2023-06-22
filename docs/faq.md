@@ -43,7 +43,7 @@ If you are a security consultant and you want to use Semgrep OSS Engine with the
 
 If your service delivers code scanning (meaning a service that includes static application security testing (SAST) or software composition analysis (SCA)) and you want to charge for scanning that includes rules in the [semgrep-rules repository](https://github.com/returntocorp/semgrep-rules), you need an explicit license. For more information, please contact partners@semgrep.com.
 
-If you want to use Semgrep Code (including its proprietary interfile analysis, the Pro Engine), Semgrep Supply Chain (SCA), or Semgrep Pro rules as part of your consulting services, you need a license. Please contact us at sales@semgrep.com.
+If you want to use Semgrep Code, including its proprietary cross-file (interfile) analysis, the Pro Engine, Semgrep Supply Chain (SCA), or Semgrep Pro rules as part of your consulting services, you need a license. Please contact us at sales@semgrep.com.
 
 ### Can I ship my own code analysis software that uses Semgrep?
 
@@ -64,7 +64,7 @@ All users can contact Semgrep, Inc support. Regardless if you are a free tier or
 Embed a special version of Semgrep Playground with an `iframe`. The source is `https://semgrep.dev/embed/editor?snippet=<snippet-id>` where the `snippet-id` is either the short identifier generated when you share a Playground link (this usually looks like `DzKv`) or the named identifier from a saved rule (this usually looks like `username:rule-name`).
 
 ```html
-<iframe title="Semgrep example no prints" src="https://semgrep.dev/embed/editor?snippet=3qUzQD" width="100%" height="432" frameborder="0"></iframe>
+<iframe title="Semgrep example no prints" src="https://semgrep.dev/embed/editor?snippet=KPzL" width="100%" height="432" frameborder="0"></iframe>
 ```
 
 ## Comparisons
@@ -87,7 +87,7 @@ If you are shipping code daily a code analysis tool that takes a week to run is 
 
 Semgrep automatically handles the nuance of “there’s more than one way to do it”: you write your query and all equivalent variations of that code are automatically matched.
 
-As Semgrep evolves, queries similar to `foo("password")` become smarter. In the original version of Semgrep, this query would only match the code `foo("password")`. But a few months after release Semgrep would match `const x = "password"; foo(x)`. Today Semgrep can [do even more with intraprocedural dataflow](https://semgrep.dev/s/AbUGbp) analysis, and we’re working on adding more of these semantic features with every release.
+As Semgrep evolves, queries similar to `foo("password")` become smarter. In the original version of Semgrep, this query would only match the code `foo("password")`. But a few months after release Semgrep would match `const x = "password"; foo(x)`. Today Semgrep can [do even more with intraprocedural dataflow](https://semgrep.dev/s/50zj) analysis, and we’re working on adding more of these semantic features with every release.
 
 **3. Integrated: Semgrep understands git and other version-control systems**
 
@@ -130,7 +130,7 @@ Both Semgrep and SonarQube use static analysis to find bugs, but there are a few
 - Extending Semgrep with custom rules is simple since Semgrep rules look like the source code you’re writing. Writing custom rules with SonarQube is [restricted to a handful of languages](https://docs.sonarqube.org/latest/extend/adding-coding-rules/) and requires familiarity with Java and abstract syntax trees (ASTs).
 - Semgrep is LGPL-2.1, SonarQube offers an open-source version but it is missing features. For example, 12 of the supported languages are not available in the open-source offering, and more powerful dataflow features are only available in the paid versions.
 - Semgrep supports user-defined autofixes; SonarQube does not.
-- Semgrep focuses on speed and ease-of-use, making analysis possible at up to 20K-100K loc/sec per rule. SonarQube authors [report approximately 0.4K loc/sec for rulesets in production](https://web.archive.org/web/20210127020636/https://community.sonarsource.com/t/performance-guide-for-large-project-analysis/148/2).
+- Semgrep focuses on speed and ease-of-use, making analysis possible at up to 20K-100K loc/sec per rule. SonarQube authors [report approximately 0.4K loc/sec for rulesets in production](https://web.archive.org/web/20221109203440/https://community.sonarsource.com/t/performance-guide-for-large-project-analysis/148/2).
 - Semgrep CI supports scanning only changed files (differential analysis), SonarQube does not
 - Both have publicly available rules
 - Semgrep has an online, hosted free plan; both have a hosted paid plan

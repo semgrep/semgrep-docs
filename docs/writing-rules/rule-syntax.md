@@ -187,7 +187,7 @@ Try this pattern in the [Semgrep Playground](https://semgrep.dev/s/ved8).
 :::
 
 :::info
-Include quotes in your regular expression when using `metavariable-regex` to search string literals. See [this snippet](https://semgrep.dev/r/eqU83x/mschwager.include-quotes) for more details. [String matching](pattern-syntax.mdx#string-matching) functionality can also be used to search string literals.
+Include quotes in your regular expression when using `metavariable-regex` to search string literals. For more details, see [include-quotes](https://semgrep.dev/playground/s/EbDB) code snippet. [String matching](pattern-syntax.mdx#string-matching) functionality can also be used to search string literals.
 :::
 
 ### `metavariable-pattern`
