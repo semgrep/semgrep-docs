@@ -13,8 +13,6 @@ An organization can have hundreds or thousands of repositories. Reusable workflo
 
 ## Setting up a reusable workflow
 
-We can follow the next steps:
-
 1. Create a new repository with the reusable workflow:
 
 ![image info](/img/kb/reusable-workflows-image-1.png)
