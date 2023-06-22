@@ -39,6 +39,19 @@
   },
   "strip_chars": " .,;:#",
   "custom_settings": {
+    "indexLanguages" : [
+      "en"
+    ],
+    "queryLanguages" : [
+      "en"
+    ],
+    "disableTypoToleranceOnWords" : [
+      "severity",
+      "security",
+      "git",
+      "coverage",
+      "leverage"
+    ],
     "separatorsToIndex": "_",
     "attributesForFaceting": [
       "language",
