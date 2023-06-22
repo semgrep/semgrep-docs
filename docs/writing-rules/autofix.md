@@ -77,7 +77,7 @@ rules:
 
 ## Removing a code detected by a rule
 
-Improve your code quality, by cleaning up stale code automatically. Remove a code that an autofix rule detected by adding the `fix` key with `""` an empty string.
+Improve your code quality by cleaning up stale code automatically. Remove code that an autofix rule detected by adding the `fix` key with `""`, an empty string.
 
 For example:
 
