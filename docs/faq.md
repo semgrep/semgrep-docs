@@ -55,7 +55,7 @@ You **cannot** ship the Semgrep Community rules in a commercial product without 
 
 The Semgrep Pro Rules are proprietary and cannot be redistributed without explicit license from Semgrep, Inc. For more information, please contact partners@semgrep.com.
 
-### Contacting Semgrep, Inc support 
+### Contacting Semgrep, Inc support
 
 All users can contact Semgrep, Inc support. Regardless if you are a free tier or paid tier user, reach our support through the [Semgrep, Inc Community Slack](https://go.semgrep.dev/slack). Paying Semgrep Team tier customers receive 8\*5 email/phone/Slack support with committed SLAs. See [Support](../support/) for more details.
 
@@ -64,10 +64,7 @@ All users can contact Semgrep, Inc support. Regardless if you are a free tier or
 Embed a special version of Semgrep Playground with an `iframe`. The source is `https://semgrep.dev/embed/editor?snippet=<snippet-id>` where the `snippet-id` is either the short identifier generated when you share a Playground link (this usually looks like `DzKv`) or the named identifier from a saved rule (this usually looks like `username:rule-name`).
 
 ```html
-<iframe title="Semgrep example no prints" src="https://semgrep.dev/embed/editor?snippet=DzKv" width="100%" height="432" frameborder="0"></iframe>
-
-
-<iframe title="Semgrep example no prints" src="https://semgrep.dev/embed/editor?snippet=ievans:print-to-logger" width="100%" height="432" frameborder="0"></iframe>
+<iframe title="Semgrep example no prints" src="https://semgrep.dev/embed/editor?snippet=KPzL" width="100%" height="432" frameborder="0"></iframe>
 ```
 
 ## Comparisons
@@ -90,7 +87,7 @@ If you are shipping code daily a code analysis tool that takes a week to run is 
 
 Semgrep automatically handles the nuance of “there’s more than one way to do it”: you write your query and all equivalent variations of that code are automatically matched.
 
-As Semgrep evolves, queries similar to `foo("password")` become smarter. In the original version of Semgrep, this query would only match the code `foo("password")`. But a few months after release Semgrep would match `const x = "password"; foo(x)`. Today Semgrep can [do even more with intraprocedural dataflow](https://semgrep.dev/s/ievans:c-dataflow) analysis, and we’re working on adding more of these semantic features with every release.
+As Semgrep evolves, queries similar to `foo("password")` become smarter. In the original version of Semgrep, this query would only match the code `foo("password")`. But a few months after release Semgrep would match `const x = "password"; foo(x)`. Today Semgrep can [do even more with intraprocedural dataflow](https://semgrep.dev/s/50zj) analysis, and we’re working on adding more of these semantic features with every release.
 
 **3. Integrated: Semgrep understands git and other version-control systems**
 

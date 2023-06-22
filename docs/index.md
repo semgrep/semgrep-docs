@@ -31,16 +31,14 @@ The code is kept here for easy maintenance.
 </p>
 <h3 align="center">Code scanning at ludicrous speed.<br />Find bugs and reachable dependency vulnerabilities in code.<br />Enforce your code standards on every commit.</h3>
 
-Semgrep is a fast, open source, static analysis engine for finding bugs, detecting dependency vulnerabilities, and enforcing code standards. [Get started →](getting-started/)
+Semgrep is a fast, open-source, static analysis engine for finding bugs, detecting dependency vulnerabilities, and enforcing code standards. [Get started →](getting-started/)
 
-Semgrep analyzes code locally on your computer or in your build environment: **code is never uploaded**. 
+Semgrep analyzes code locally on your computer or in your build environment: **code is never uploaded**.
 
-Its rules look like the code you already write; no abstract syntax trees, regex wrestling, or painful DSLs. Here's a quick rule for finding Python `print()` statements. Run it by clicking the [▸] button:
+Its rules look like the code you already write; no abstract syntax trees, regex wrestling, or painful DSLs. Here's a rule for finding Python `print()` statements. Run it by clicking the [▸] button:
 
-<iframe title="Semgrep example no prints" src="https://semgrep.dev/embed/editor?snippet=ievans:print-to-logger" width="100%" height="432px" frameBorder="0"></iframe>
+<iframe title="Semgrep example no prints" src="https://semgrep.dev/embed/editor?snippet=KPzL" width="100%" height="432px" frameBorder="0"></iframe>
 <br />
-
-<!-- <EditorWidget snippetId={"ievans:print-to-logger2"} /> -->
 
 The Semgrep ecosystem includes the following products:
 
@@ -77,7 +75,7 @@ The following table lists environments in which you can run various Semgrep prod
 | Semgrep Code         |  ✅  Log in to access [Pro Engine](semgrep-code/semgrep-pro-engine-intro) and [Pro rules](semgrep-code/pro-rules) (Team and Enterprise tier) |   ✅  Best used with [Semgrep Cloud Platform](semgrep-cloud-platform/getting-started) |
 | Semgrep Supply Chain |  ✅  Log in to access [Supply Chain](semgrep-supply-chain/overview) rules (Team and Enterprise tier)  |   ✅  Best used with [Semgrep Cloud Platform](semgrep-cloud-platform/getting-started) |
 
-:::info 
+:::info
 Semgrep Cloud Platform is a hosted web application (SaaS) and as such is excluded from the table.
 :::
 
