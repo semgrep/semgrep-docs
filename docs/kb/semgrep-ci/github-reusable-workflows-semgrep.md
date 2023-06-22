@@ -33,7 +33,7 @@ But some changes need to be made in the `on:` statement (basically, the conditio
 
 ## Running a scan
 
-Now if a developer commits a change and provokes a push or pull request (or a scheduled event is triggered), then the reusable workflow will be called, in this case, the semgrep workflow:
+Now, if a developer commits a change or makes a pull request (or otherwise in any way triggers the caller workflow), then the reusable Semgrep workflow will be called:
 
 ![image info](/img/kb/reusable-workflows-image-4.png)
 
