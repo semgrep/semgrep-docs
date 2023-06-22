@@ -5,7 +5,7 @@ tags:
 description: Setting up GitHub required workflows for Semgrep scans.
 ---
 
-# GitHub Required workflows and Semgrep
+# GitHub required workflows and Semgrep
 
 ## Motivation
 An organization can have hundreds or thousands of repositories. Setting up Semgrep (basically adding the `.github/workflows/semgrep.yml` file) in all repositories can be a time-consuming task. 
