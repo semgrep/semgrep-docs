@@ -5,7 +5,7 @@ tags:
 description: Setting up GitHub reusable workflows for Semgrep scans.
 ---
 
-# GitHub Reusable workflows and Semgrep
+# GitHub reusable workflows and Semgrep
 
 ## Motivation
 
