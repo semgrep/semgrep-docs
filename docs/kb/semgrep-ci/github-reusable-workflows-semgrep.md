@@ -19,9 +19,7 @@ An organization can have hundreds or thousands of repositories. Reusable workflo
 
 > Note: the semgrep.yml file must be in the `.github/workflows/` folder
 
-2. The content of the file can be copied from Semgrep [documentation](https://semgrep.dev/docs/semgrep-ci/sample-ci-configs/#sample-github-actions-configuration-file)
-
-But some changes need to be made in the `on:` statement (basically, the conditions to trigger the job must be in the caller, not here). So we can define the file as follow:
+2. The content of the file can be copied from the Semgrep [documentation](https://semgrep.dev/docs/semgrep-ci/sample-ci-configs/#sample-github-actions-configuration-file) but some changes need to be made in the `on:` statement. Basically, the condition to trigger the job must be in the caller, not here. So we can create the file as follows:
 
 ![image info](/img/kb/reusable-workflows-image-2.png)
 
