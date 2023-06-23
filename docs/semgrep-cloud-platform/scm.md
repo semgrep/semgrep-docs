@@ -83,8 +83,27 @@ PR or MR comments are comments or suggestions made by Semgrep Cloud Platform in 
 
 To enable this feature within self-hosted SCMs behind firewalls or VPNs (Virtual Private Networks), follow these steps:
 
- 1. Add the IP address `52.34.175.113` to your VPN's allowlist. This IP address is **static and outbound**.
- 2. Test that you are able to receive findings by manually triggering a scan through your CI provider.
+1. Add the following IP addresses to your VPN's **ingress** allowlist.
+     ```bash
+    # This IP address is outbound:
+    52.34.175.113
+
+    # These IP addresses are inbound and outbound:
+    35.166.231.235
+    52.35.248.246
+    52.34.137.110
+    44.225.64.41
+    ```
+2. Optional: If you use an **egress allowlist**, add the following IP addresses to the egress allowlist to enable your CI workers to fetch the scan rules, upload findings, and so on.<br />
+    ```bash
+    # These IP addresses are inbound and outbound:
+    35.166.231.235
+    52.35.248.246
+    52.34.137.110
+    44.225.64.41
+    ```
+
+3. Test that you are able to receive findings by manually triggering a scan through your CI provider.
 
 :::tip
 Receiving PR or MR comments may require additional steps depending on the custom configuration of your VPN or SCM (for example, if you use a static IP without a hostname). Reach out to Semgrep support through the [Semgrep Community Slack](https://go.semgrep.dev/slack) or send an email to [support@semgrep.com](mailto:support@semgrep.com) for any concerns.
