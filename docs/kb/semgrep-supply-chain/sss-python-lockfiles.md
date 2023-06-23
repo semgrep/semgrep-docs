@@ -10,7 +10,7 @@ tags:
   - Poetry.lock
 ---
 
-# Introduction
+# Generating Python lock files for Semgrep Supply Chain scans
 
 Python has different mechanisms to get all packages used in a project. The most known file is requirements.txt, a "simple" txt file where you define all the packages and the versions your project needs. 
 But there are more ways to get a complete insight into Python dependencies, such as generating a Pipfile.lock file or use the Poetry tool.
