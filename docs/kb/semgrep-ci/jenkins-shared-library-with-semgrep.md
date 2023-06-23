@@ -8,56 +8,10 @@ description: Setting up Jenkins shared library with Semgrep scans
 # Jenkins shared library with Semgrep scans
 
 ## Motivation
-A good practice when programming is to avoid duplicate code. The main issue with code duplication is not the duplication itself, but when you need to modify a piece of this duplicated code, you need to do it two, three or n-times as many repetitions as you have. And even worse, when the duplicated fragment has a bug or a vulnerability, you need to fix it in all the occurrences.
-Luckily, there is an easy solution for this: encapsulate code in only one place: a method, a function, or a library; it doesn’t matter; the key concept here is removing duplications and replacing them with a simple call.
-
-When defining a Jenkins pipeline, you add the logic to build/test your software; for example, test your software with Semgrep to identify security bugs.
-In this article, we will define a [Jenkins Shared Library](https://www.jenkins.io/doc/book/pipeline/shared-libraries/) with the Semgrep snippet so we can call this library in all the projects we have in our organisation.
+A good practice when programming is to avoid duplicate code. This applies even when defining your build pipelines. To prevent duplicate code when defining Semgrep tests with Jenkins, create a [Jenkins Shared Library](https://www.jenkins.io/doc/book/pipeline/shared-libraries/) with the Semgrep snippet. Then, call this library in all the projects you have in your organization.
 
 ## Creating a Jenkins pipeline to call Semgrep
-If you follow [Semgrep documentation](https://semgrep.dev/docs/semgrep-ci/sample-ci-configs/#sample-jenkins-configuration-snippet), you can create a simple Jenkins pipeline like this:
-
-`````
-pipeline {
-  agent any
-    environment {
-      // The following variable is required for a Semgrep Cloud Platform-connected scan:
-      SEMGREP_APP_TOKEN = credentials('SEMGREP_APP_TOKEN')
-
-      // Uncomment the following line to scan changed 
-      // files in PRs or MRs (diff-aware scanning): 
-      // SEMGREP_BASELINE_REF = "main"
-
-      // Troubleshooting:
-
-      // Uncomment the following lines if Semgrep Cloud Platform > Findings Page does not create links
-      // to the code that generated a finding or if you are not receiving PR or MR comments.
-      // SEMGREP_JOB_URL = "${BUILD_URL}"
-      // SEMGREP_COMMIT = "${GIT_COMMIT}"
-      // SEMGREP_BRANCH = "${GIT_BRANCH}"
-      // SEMGREP_REPO_NAME = env.GIT_URL.replaceFirst(/^https:\/\/github.com\/(.*).git$/, '$1')
-      // SEMGREP_REPO_URL = env.GIT_URL.replaceFirst(/^(.*).git$/,'$1')
-      // SEMGREP_PR_ID = "${env.CHANGE_ID}"
-    }
-    stages {
-      stage('Semgrep-Scan') {
-        steps {
-            sh '''docker pull returntocorp/semgrep && \
-            docker run \
-            -e SEMGREP_APP_TOKEN=$SEMGREP_APP_TOKEN \
-            -e SEMGREP_REPO_URL=$SEMGREP_REPO_URL \
-            -e SEMGREP_BRANCH=$SEMGREP_BRANCH \
-            -e SEMGREP_REPO_NAME=$SEMGREP_REPO_NAME \
-            -e SEMGREP_BRANCH=$SEMGREP_BRANCH \
-            -e SEMGREP_COMMIT=$SEMGREP_COMMIT \
-            -e SEMGREP_PR_ID=$SEMGREP_PR_ID \
-            -v "$(pwd):$(pwd)" --workdir $(pwd) \
-            returntocorp/semgrep semgrep ci '''
-      }
-    }
-  }
-}
-`````
+If you follow [Semgrep documentation](https://semgrep.dev/docs/semgrep-ci/sample-ci-configs/#sample-jenkins-configuration-snippet), you can create a simple Jenkins pipeline to run Semgrep scans.
 
 When rolling out Semgrep in your organization, you need to replicate this pipeline to the hundreds of projects you have in your company. 
 After some days, you got it, but then your manager asks you to generate json reports after every semgrep scan to dump results in DefectDojo. It means adding some flags to the semgrep command:
