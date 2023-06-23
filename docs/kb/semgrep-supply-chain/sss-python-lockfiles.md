@@ -26,7 +26,7 @@ You can use these three ways (requirements.txt, Pipfile.lock, Poetry) to get a s
 The file requirements.txt is the most common file to declare all the package dependencies.
 The easy way to generate this file is having a requirements.in file with the direct Python packages (not transitive packages), and then using pip-tools to generate the requirements.txt file:
 
-````
+```bash
 pip3 install pip-tools   
 pip-compile -o requirements.txt
 `````
