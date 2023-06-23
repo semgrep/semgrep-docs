@@ -19,7 +19,6 @@ Semgrep Supply Chain can use any of the following methods to correctly parse you
 * `requirements.txt`
 * `Pipfile.lock`
 * Poetry
-But there are more ways to get a complete insight into Python dependencies, such as generating a Pipfile.lock file or use the Poetry tool.
 You can use these three ways (requirements.txt, Pipfile.lock, Poetry) to get a successful semgrep supply-chain scan.
 
 ## Generating requirements.txt from requirements.in
