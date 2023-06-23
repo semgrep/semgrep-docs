@@ -1,5 +1,5 @@
 ---
-description: Generation of Python lock files to run SSC scans successfully.
+description: Generate various Python lock files to run Semgrep Supply Chain scans successfully.
 tags:
   - Semgrep Supply Chain
   - Python
