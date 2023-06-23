@@ -4,7 +4,6 @@ append_help_link: true
 description: "Set up your CI pipeline with Semgrep Cloud Platform for centralized rule and findings management."
 tags:
     - Semgrep in CI
-    - Community Tier
     - Team & Enterprise Tier
 title: Running Semgrep in CI with Semgrep Cloud Platform
 hide_title: true
@@ -27,7 +26,7 @@ Object.entries(frontMatter).filter(
 
 # Running Semgrep in continuous integration (CI) with Semgrep Cloud Platform
 
-Run Semgrep in your continous integration (CI) pipeline to scan your repository for code vulnerabilities and other issues. Connect your CI pipeline with Semgrep Cloud Platform to:
+Run Semgrep in your continuous integration (CI) pipeline to scan your repository for code vulnerabilities and other issues. Connect your CI pipeline with Semgrep Cloud Platform to:
 
 * Block pull or merge requests (PRs or MRs) based on the rule that generated the finding.
 * Scan many repositories and manage their findings in bulk.
@@ -329,7 +328,7 @@ SEMGREP_PR_ID="44"
 
 ### Receiving PR or MR comments
 
-To receive PR or MR comments in your repository, follow the steps to enable hyperlinks. Verify that comments are sent by adding rules to your Rule Board's **Comment** or **Block** columns that can match code to generate a finding. To configure PR or MR comments, review [Alerts and notifications](/semgrep-code/notifications/) documentation.
+To receive PR or MR comments in your repository, follow the steps to enable hyperlinks. Verify that comments are sent by adding rules to your Rule Board's **Comment** or **Block** columns that can match code to generate a finding. To configure PR or MR comments, review [Alerts and notifications](/semgrep-cloud-platform/notifications/) documentation.
 
 :::info
 Only rules in the **Comment** and **Block** columns of your [Rule board](https://semgrep.dev/orgs/-/board) create the PR or MR comments. Rules from the **Block** column also block the PR or MR pipeline. To unblock the pipeline, the detected code needs to be fixed.

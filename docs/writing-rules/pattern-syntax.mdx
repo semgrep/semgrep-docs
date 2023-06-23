@@ -124,7 +124,7 @@ The YAML `|` operator allows for [multiline strings](https://yaml-multiline.info
 :::
 
 The ellipsis operator can match the function name.
-Match any function definition: 
+Match any function definition:
 Regular functions, methods, and also anonymous functions (such as lambdas).
 To match named or anonymous functions use an ellipsis `...` in place of the name of the function.
 For example, in JavaScript the pattern `function ...($X) { ... }` matches
@@ -358,7 +358,7 @@ You can also use `/$X/` and `:$X` to respectively match
 any regular expressions or atoms (in languages that support
 those constructs, e.g., Ruby).
 
-### Typed Metavariables
+### Typed metavariables
 
 #### Syntax
 
@@ -460,7 +460,7 @@ func main() {
 For Go, Semgrep currently does not recognize the type of all variables that are declared on the same line. That is, the following will not take both `a` and `b` as `int`s: `var a, b = 1, 2`
 :::
 
-#### Using Typed Metavariables
+#### Using typed metavariables
 
 Type inference applies to the entire file! One common way to use typed metavariables is to check for a function called on a specific type of object. For example, let's say you're looking for calls to a potentially unsafe logger in a class like this:
 
@@ -470,28 +470,19 @@ class Test {
 
     public static void run_test(String input, int num) {
         logger.log("Running a test with " + input);
-        
+
         test(input, Math.log(num));
     }
 }
 ```
 
-If you searched for `$X.log(...)`, you would also match `Math.log(num)`. Instead, you can search for
-
-```
-(Logger $X).log(...)
-```
-
-which will only give you the call to `logger`.
-
-See the rule [here](https://semgrep.dev/s/emjin:logger_search)
-
+If you searched for `$X.log(...)`, you can also match `Math.log(num)`. Instead, you can search for `(Logger $X).log(...)` which gives you the call to `logger`. See the rule [logger_search](https://semgrep.dev/playground/s/lgAo).
 
 :::caution
 Since matching happens within a single file, this is only guaranteed to work for local variables and arguments. Additionally, Semgrep currently understands types on a shallow level. For example, if you have `int[] A`, it will not recognize `A[0]` as an integer. If you have a class with fields, you will not be able to use typechecking on field accesses, and it will not recognize the class’s field as the expected type. Literal types are understood to a limited extent. Expanded type support is under active development.
 :::
 
-### Ellipsis Metavariables
+### Ellipsis metavariables
 
 You can combine ellipses and metavariables to match a sequence
 of arguments and store the matched sequence in a metavariable.
@@ -530,7 +521,7 @@ Setting a password on user
 
 Run the following example in Semgrep Playground to see the message (click **Open in Editor**, and then **Run**, unroll the **1 Match** to see the message):
 
-<iframe title="Metavariable value in message example" src="https://semgrep.dev/embed/editor?snippet=returntocorp:metavariable-message-example" width="100%" height="432" frameborder="0"></iframe>
+<iframe title="Metavariable value in message example" src="https://semgrep.dev/embed/editor?snippet=6KpK" width="100%" height="432" frameborder="0"></iframe>
 
 :::info
 If you're using Semgrep's advanced dataflow features, see documentation of experimental feature [Displaying propagated value of metavariable](/writing-rules/experiments/display-propagated-metavariable).

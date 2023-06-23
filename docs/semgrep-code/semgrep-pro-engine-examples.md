@@ -13,19 +13,19 @@ This document provides an overview of Semgrep Pro Engine features through specif
 
 The following resources can help you to test the code in the sections below. As you work through the examples in this document, try the following:
 
-- Enable the <i class="fa-solid fa-toggle-large-on"></i> **Semgrep Pro Engine beta** toggle within the [Playground](https://semgrep.dev/playground/new).
+- Ensure that the <i class="fa-solid fa-toggle-large-on"></i> **Pro Engine beta** toggle is enabled on the [Playground](https://semgrep.dev/playground/new) page.
     - Rules you use in Semgrep Pro Engine require `interfile: true` key included in the `metadata` key. See the following [example](https://semgrep.dev/s/3NZb).
 - The [Semgrep Pro Engine testing repository](https://github.com/returntocorp/semgrep-pro-tests) 
     - Clone the repository:
         ```sh
         git clone https://github.com/returntocorp/semgrep-pro-tests
         ```
-    - Follow the instructions in the sections of this document below. Generally:
-        - To run Semgrep Pro Engine with interfile analysis, run:
+    - Follow the instructions in the sections of this document. Generally:
+        - To run Semgrep Pro Engine with cross-file (interfile) analysis, run:
             ```sh
             semgrep --pro --config=pro.yaml .
             ```
-        - To run Semgrep Pro Engine with interprocedural analysis, run:
+        - To run Semgrep Pro Engine with cross-function (interprocedural) analysis, run:
             ```sh
             semgrep --pro-intrafile --config=pro.yaml .
             ```
@@ -45,7 +45,7 @@ Semgrep matches `dangerous(“Select * from “ + user_input)`, because `user_in
 Semgrep Pro Engine matches both dangerous calls because it does cross function boundaries. In fact, with Semgrep Pro Engine, the taint rule can track calls to `get_user_input` over multiple jumps in multiple files.
 
 :::tip Try it out
-Enable the **Semgrep Pro Engine beta** <i class="fa-solid fa-toggle-large-on"></i> toggle in the following link to an [example of dangerous taint](https://semgrep.dev/playground/s/J0dQ). To run Semgrep Pro Engine in the cloned [Semgrep Pro Engine testing repository](https://github.com/returntocorp/semgrep-pro-tests). Go to `docs/taint_tracking/java` and run the following command:
+Ensure that the **Pro Engine beta** <i class="fa-solid fa-toggle-large-on"></i> toggle is enabled in the following link to an [example of dangerous taint](https://semgrep.dev/playground/s/J0dQ) rule. To run Semgrep Pro Engine in the cloned [Semgrep Pro Engine testing repository](https://github.com/returntocorp/semgrep-pro-tests). Go to `docs/taint_tracking/java` and run the following command:
 
 ```sh
 semgrep --config pro.yaml . --pro
@@ -165,7 +165,7 @@ If you are following in the cloned [Semgrep Pro Engine testing repository](https
 
 ### Using class inheritance with typed metavariables
 
-Semgrep Pro Engine uses interfile class inheritance information when matching [typed metavariables](/writing-rules/pattern-syntax/#typed-metavariables). Continuing the example from the previous section, see the following example file, which has defined some exceptions and includes their logging:
+Semgrep Pro Engine uses cross-file (interfile) class inheritance information when matching [typed metavariables](/writing-rules/pattern-syntax/#typed-metavariables). Continuing the example from the previous section, see the following example file, which has defined some exceptions and includes their logging:
 
 <iframe title="Semgrep example no prints" src="https://semgrep.dev/embed/editor?snippet=14bk" width="100%" height="432" frameborder="0"></iframe>
 

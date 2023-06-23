@@ -6,7 +6,6 @@ hide_title: true
 description: "The Rule Board is a visual representation of the rules that Semgrep Cloud Platform uses to scan code. Rules are cards, and are grouped into columns representing the actions undertaken (whether to block, comment, or silently monitor) when a finding surfaces."
 tags:
     - Semgrep Cloud Platform
-    - Community Tier
     - Team & Enterprise Tier
     - Semgrep Code
 ---
@@ -25,11 +24,24 @@ Object.entries(frontMatter).filter(
 
 # Rule board
 
+:::tip
+🎉 There is a new version of the Rule board called **Policies** that is now the default representation for rule management. 🎉 
+
+You can go back to the Rule board by clicking the **Back to old version** button. For more information, see [Policies](/semgrep-code/policies/) documentation.
+
+If you've previously opted out of Policies, to access it again, go to [Rule board](https://semgrep.dev/orgs/-/board), and then click **Try new version**.
+
+The new Policies page:
+- Autosaves any changes you make on the page.
+- Provides you with filtering options for the rule metadata.
+- Enables bulk editing of rules for the Monitor, Comment, Block, and bulk disabling of rules.
+:::
+
 The Rule Board is a visual representation of the rules that Semgrep Code uses for scanning. Rules can be organized in rulesets. Rulesets are rules related through a programming language, OWASP category, or framework.
 
 Rules and rulesets are displayed as **cards** in Semgrep Cloud Platform. Group cards by dragging and dropping cards into the columns. Columns represent the actions undertaken in response to findings from that rule or ruleset.
 
-The columns and their corresonding actions are:
+The columns and their corresponding actions are:
 
 <dl>
     <dt>Monitor</dt>

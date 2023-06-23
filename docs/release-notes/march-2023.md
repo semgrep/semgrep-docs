@@ -92,7 +92,7 @@ This section of release notes include upgrades of Semgrep OSS Engine for version
 
 ### Added
 
-- **Semgrep Pro Engine beta** toggle is enabled by default in the [Semgrep Editor](https://semgrep.dev/orgs/-/editor/) and [Semgrep Playground](https://semgrep.dev/playground). Rules can still run with the Semgrep OSS Engine if `interfile: true` is not specified in the rule.
+- **Pro Engine beta** toggle is enabled by default in the [Semgrep Editor](https://semgrep.dev/orgs/-/editor/) and [Semgrep Playground](https://semgrep.dev/playground). Rules can still run with the Semgrep OSS Engine if `interfile: true` is not specified in the rule.
 - Findings from Pro rules or Semgrep Pro Engine are now labeled with a gem icon to let you know where the finding has come from.
     ![semgrep-code-findings-pro-rule-gem.png](/img/release-notes-semgrep-code-findings-pro-rule-gem.png)
     
@@ -112,8 +112,7 @@ This section of release notes include upgrades of Semgrep OSS Engine for version
 
 ### Changed
 
-- CI scans that use Semgrep Pro Engine now run intrafile and interprocedural taint analysis by default in differential scans (such as PR or MR scans). Note that interfile analysis is not run
-in differential scans for performance reasons.
+- CI scans that use Semgrep Pro Engine now run intrafile and cross-function (interprocedural) taint analysis by default in differential scans (such as PR or MR scans). Note that cross-file (interfile) analysis is not run in differential scans for performance reasons.
 
 ## Semgrep Cloud Platform
 

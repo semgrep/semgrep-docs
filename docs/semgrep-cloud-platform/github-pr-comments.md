@@ -6,12 +6,12 @@ hide_title: true
 description: "Enable pull request (PR) comments in your GitHub repositories to display Semgrep findings to developers."
 tags:
     - Semgrep Cloud Platform
-    - Community Tier
     - Team & Enterprise Tier
 ---
 
 import MoreHelp from "/src/components/MoreHelp"
 import EnableAutofix from "/src/components/procedure/_enable-autofix.mdx"
+import DisplayTaintedDataIntro from "/src/components/concept/_semgrep-code-display-tainted-data.mdx"
 
 <ul id="tag__badge-list">
 {
@@ -24,7 +24,7 @@ Object.entries(frontMatter).filter(
 # Enabling GitHub pull request comments
 
 :::info Prerequisites
-* Pull request (PR) comments can only be enabled through Semgrep Cloud Platform (SCP). [Create an account](/semgrep-code/getting-started/#signing-in-to-semgrep-cloud-platform) to set up Slack notifications.
+* Pull request (PR) comments can only be enabled through Semgrep Cloud Platform (SCP). [Create an account](/semgrep-code/getting-started/#signing-in-to-semgrep-cloud-platform) to set up PR comments.
 * To receive alerts and notifications, you must [add or onboard a project](/semgrep-code/getting-started/#option-b-adding-a-repository-from-github-gitlab-or-bitbucket) (repository) to Semgrep Cloud Platform for scanning.
 :::
 
@@ -36,7 +36,7 @@ Pull request comments are created when:
 Automated comments on GitHub pull requests are displayed as follows:
 
 ![Screenshot of a GitHub PR comment](/img/semgrep-pull-request.png#bordered)
-*Figure 3.* An inline GitHub pull request comment.
+**Figure** An inline GitHub pull request comment.
 
 [Semgrep Cloud Platform](https://semgrep.dev/manage) uses the permissions requested by [the Semgrep GitHub App](https://github.com/marketplace/semgrep-dev) to leave PR comments. You can verify that you have granted these permissions by visiting either `https://github.com/organizations/<your_org_name>/settings/installations` or `https://github.com/organizations/<your_org_name>/<your_repo_name>/settings/installations`.
 
@@ -55,5 +55,22 @@ Only rules in the **Comment** and **Block** columns of your [Rule board](https:/
 [Autofix](/writing-rules/autofix) is a Semgrep feature in which rules contain suggested fixes to resolve findings.
 
 <EnableAutofix />
+
+## Dataflow traces in PR comments
+
+![Screenshot of a GitHub PR comment with dataflow traces](/img/dataflow-traces-pr-comments.png#bordered)
+**Figure** An inline GitHub pull request comment with dataflow traces.
+
+<DisplayTaintedDataIntro />
+
+### Viewing the path of tainted data in PR comments
+
+To enable dataflow traces feature in your CI pipeline, fulfill the following prerequisites:
+
+:::info Prerequisites
+- Enable GitHub pull request Semgrep comments.
+- To obtain meaningful results of dataflow traces in PR comments, use Semgrep Pro Engine while scanning your repositories to display cross-file (interfile) findings. To enable Semgrep Pro Engine, see [Semgrep Pro Engine overview](/semgrep-code/semgrep-pro-engine-intro/).
+- Not all Semgrep rules or rulesets make use of taint tracking. Ensure that you have a ruleset, such as the **default ruleset** added in your **[Rule Board](https://semgrep.dev/orgs/-/board)**. If this ruleset is not added, go to [https://semgrep.dev/p/default](https://semgrep.dev/p/default), and then click **Add to Rule Board**. You can add rules that use taint tracking from [Semgrep Registry](https://semgrep.dev/explore).
+:::
 
 <MoreHelp />

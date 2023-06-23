@@ -7,12 +7,12 @@ toc_max_heading_level: 4
 description: "Enable merge request (MR) comments in your GitLab repositories to display Semgrep findings to developers."
 tags:
     - Semgrep Cloud Platform
-    - Community Tier
     - Team & Enterprise Tier
 ---
 
 import MoreHelp from "/src/components/MoreHelp"
 import EnableAutofix from "/src/components/procedure/_enable-autofix.mdx"
+import DisplayTaintedDataIntro from "/src/components/concept/_semgrep-code-display-tainted-data.mdx"
 
 <ul id="tag__badge-list">
 {
@@ -34,7 +34,7 @@ This section documents how to enable Semgrep Cloud Platform to post comments on 
 Automated comments on GitLab merge requests are displayed as follows:
 
 ![Semgrep GitLab MR comment](/img/gitlab-mr-comment.png)
-*Figure 1.* An inline GitLab merge request comment.
+**Figure** An inline GitLab merge request comment.
 
 To enable GitLab merge request comments, follow these steps:
 
@@ -80,5 +80,22 @@ Only rules in the **Comment** and **Block** columns of your [Rule board](https:/
 [Autofix](/writing-rules/autofix) is a Semgrep feature in which rules contain suggested fixes to resolve findings.
 
 <EnableAutofix />
+
+## Dataflow traces in MR comments
+
+![Screenshot of a GitLab MR comment with dataflow traces](/img/dataflow-traces-mr-comments.png#bordered)
+**Figure** An inline GitLab pull request comment with dataflow traces.
+
+<DisplayTaintedDataIntro />
+
+### Viewing the path of tainted data in MR comments
+
+To enable dataflow traces feature in your CI pipeline, fulfill the following prerequisites:
+
+:::info Prerequisites
+- Enable GitLab merge request Semgrep comments. For more details, see [Enabling GitLab merge request comments](#enabling-gitlab-merge-request-comments) section.
+- To obtain meaningful results of dataflow traces in MR comments, use Semgrep Pro Engine while scanning your repositories to display cross-file (interfile) findings. To enable Semgrep Pro Engine, see [Semgrep Pro Engine overview](/semgrep-code/semgrep-pro-engine-intro/).
+- Not all Semgrep rules or rulesets make use of taint tracking. Ensure that you have a ruleset, such as the **default ruleset** added in your **[Rule Board](https://semgrep.dev/orgs/-/board)**. If this ruleset is not added, go to [https://semgrep.dev/p/default](https://semgrep.dev/p/default), and then click **Add to Rule Board**. You can add rules that use taint tracking from [Semgrep Registry](https://semgrep.dev/explore).
+:::
 
 <MoreHelp />

@@ -173,7 +173,19 @@ module.exports = {
                 ]
             },
         'ignoring-files-folders-code',
-        'extensions',
+            {
+              type: 'category',
+              label: 'Extensions',
+              collapsible: true,
+              link: {
+                type: 'doc', 
+                id: 'extensions/overview'
+              },
+              items: [
+                'extensions/overview',
+                'extensions/semgrep-vs-code'
+              ]
+            },
         {
             type: 'category',
             label: 'Writing custom rules',
@@ -196,6 +208,9 @@ module.exports = {
                     label: 'Experiments 🧪',
                     link: {type: 'doc', id: 'writing-rules/experiments/introduction'},
                     items: [
+                      'writing-rules/experiments/aliengrep',
+                      'writing-rules/experiments/display-propagated-metavariable',
+                      'writing-rules/experiments/extract-mode',
                       { type: 'category',
                           label: 'Join mode',
                           link: {type: 'doc', id: 'writing-rules/experiments/join-mode/overview'},
@@ -208,12 +223,10 @@ module.exports = {
                               'writing-rules/experiments/join-mode/recursive-joins'
                           ]
                       },
-                      'writing-rules/experiments/extract-mode',
+                      'writing-rules/experiments/multiple-focus-metavariables',
                       'writing-rules/experiments/project-depends-on',
                       'writing-rules/experiments/symbolic-propagation',
                       'writing-rules/experiments/taint-labels',
-                      'writing-rules/experiments/multiple-focus-metavariables',
-                      'writing-rules/experiments/display-propagated-metavariable',
                       'writing-rules/experiments/deprecated-experiments'
                     ]
                   },
@@ -239,7 +252,7 @@ module.exports = {
                 type: 'generated-index',
                 title: 'Cheat sheets',
                 description:
-                  "This category provides r2c cheat sheets that help you to prevent specific vulnerabilities.",
+                  "This category provides Semgrep cheat sheets that help you to prevent specific vulnerabilities.",
                 keywords: ['cheat sheet']
               },
             items: [
@@ -250,7 +263,7 @@ module.exports = {
                         type: 'generated-index',
                         title: 'Code injection',
                         description:
-                          "Code injection prevention cheat sheets by r2c.",
+                          "Semgrep code injection prevention cheat sheets.",
                         keywords: ['code injection']
                       },
                     items: [
@@ -267,7 +280,7 @@ module.exports = {
                         type: 'generated-index',
                         title: 'Command injection',
                         description:
-                          "Command injection prevention cheat sheets by r2c.",
+                          "Semgrep command injection prevention cheat sheets.",
                         keywords: ['command injection']
                       },
                     items: [
@@ -285,7 +298,7 @@ module.exports = {
                         type: 'generated-index',
                         title: 'XSS',
                         description:
-                            "XSS prevention cheat sheets by r2c.",
+                            "Semgrep XSS prevention cheat sheets.",
                         keywords: ['XSS']
                         },
                     items: [
@@ -304,7 +317,7 @@ module.exports = {
                         type: 'generated-index',
                         title: 'XXE',
                         description:
-                            "XXE prevention cheat sheets by r2c.",
+                            "Semgrep XXE prevention cheat sheets.",
                         keywords: ['XXE']
                         },
                     items: [
@@ -313,6 +326,7 @@ module.exports = {
                 },
             ],
         },
+        'pricing-and-billing'
       ]
     },
     {
@@ -328,7 +342,6 @@ module.exports = {
         'semgrep-cloud-platform/semgrep-api',
         'semgrep-cloud-platform/scm',
         'troubleshooting/semgrep-app',
-        'semgrep-cloud-platform/pricing-and-billing',
         {
           type: 'category',
           label: 'Notifications',
@@ -364,6 +377,7 @@ module.exports = {
         },
         'semgrep-code/pro-rules',
         'semgrep-code/demo-project',
+        'semgrep-code/policies',
         'semgrep-code/rule-board',
         'semgrep-code/findings',
         'semgrep-code/editor',
@@ -379,6 +393,8 @@ module.exports = {
         'semgrep-supply-chain/triage-remediation',
         'semgrep-supply-chain/ignoring-deps',
         'semgrep-supply-chain/notifications',
+        'semgrep-supply-chain/dependency-search',
+        'semgrep-supply-chain/license-compliance',
         'semgrep-supply-chain/glossary'
       ]
     },
@@ -416,6 +432,7 @@ module.exports = {
             'security',
             'licensing',
             'faq',
+            'usage-limits',
             'contributing/philosophy',
             {
               type: 'doc',
@@ -441,8 +458,10 @@ module.exports = {
               type: 'category',
               label: '2023',
               collapsible: true,
-              link: {type: 'doc', id: 'release-notes/march-2023'},
+              link: {type: 'doc', id: 'release-notes/may-2023'},
               items: [
+                'release-notes/may-2023',
+                'release-notes/april-2023',
                 'release-notes/march-2023',
                 'release-notes/february-2023',
                 'release-notes/january-2023'

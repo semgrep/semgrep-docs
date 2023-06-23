@@ -6,15 +6,19 @@ description: "This documents various methods to skip or ignore files, folders, o
 ---
 
 import MoreHelp from "/src/components/MoreHelp"
-import IgnoreIndividualFindings from "/src/components/procedure/_ignore-individual-findings.mdx"
+import IgnoreIndividualFindingNoGrouping from "/src/components/procedure/_ignore-individual-finding-no-grouping.mdx"
 
 # Ignoring files, folders, or parts of code
 
 Exclude specific files, folders or parts of code from results of Semgrep scans in your repository or working directory. Semgrep does not generate findings for the ignored items.
 
-This is separate from [ignoring a **finding**](../managing-findings), which is a triage operation after a Semgrep scan has found a match.
-
 All Semgrep environments (CLI, CI, and App) adhere to user-defined or Semgrep-defined ignore patterns.
+
+:::info
+Ignoring files or folders differs from ignoring a **finding**.
+- **Ignoring findings**: When Semgrep finds a match in scanned code and reports it as a finding, you can ignore the finding in Semgrep Code. Semgrep Code still keeps a record of ignored findings for you to review. See [Ignoring findings](/semgrep-code/findings/#ignoring-findings) section.
+- **Ignoring files or folders**: When you define files or folders that Semgrep must ignore, these files are skipped by Semgrep and **not** scanned. Consequently, there is no code that can be matched and reported as a finding in skipped files. Defining files or folders that Semgrep skips is the focus of this document.
+:::
 
 ## Reference summary
 
@@ -102,9 +106,9 @@ To define files and folders in Semgrep Cloud Platform:
 
 Including files and folders through this method is **additive**. When Semgrep Cloud Platform makes a scan, it looks for a `.semgrepignore` within the repository. If no `.semgrepignore` file is found, Semgrep temporarily creates one and adds items from Semgrep Cloud Platform's Path Ignores. Adding items to the **Path Ignores** box does not override default Semgrep ignore patterns.
 
-You can also add files to `.semgrepignore` while triaging your findings by issuing the following steps:
+You can also add files to `.semgrepignore` while triaging individual findings in the **No grouping** view on the Findings page:
 
-<IgnoreIndividualFindings />
+<IgnoreIndividualFindingNoGrouping />
 
 :::note
 Add files to `.semgrepignore` in the fifth step of the procedure described above. 

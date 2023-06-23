@@ -7,7 +7,6 @@ hide_title: true
 tags:
     - Semgrep Code
     - Team & Enterprise Tier
-    - Community Tier
 ---
 
 <ul id="tag__badge-list">
@@ -107,9 +106,8 @@ Semgrep Cloud Platform can run scans on many projects with rules set in the Rule
 
 Over time, users modify the Rule Board with rules specific to their codebase's security or business goals.
 
-:::tip Optional workflows
-* Start using Semgrep Cloud Platform by scanning a demo project that requires only 3 seconds to configure. See [Learning Semgrep Cloud Platform with a demo project](/semgrep-code/demo-project/)
-* Scan a project using Semgrep Pro Engine, an **interprocedural and interfile** analysis engine. This engine is available for Team tier users and above. See [Semgrep Pro Engine overview](semgrep-code/semgrep-pro-engine-intro) or contact [sales@semgrep.com](mailto:sales@semgrep.com) for more information.
+:::tip Try Semgrep Zero-config Scanning (Beta)
+Semgrep Zero-config Scanning enables you to quickly onboard or add many repositories without configuring a CI job. This feature is available for users of GitHub Free or Team tiers. Contact [sales@semgrep.com](mailto:sales@semgrep.com) to try it out.
 :::
 
 #### Option A: Scanning a local repository through Semgrep CLI
@@ -215,6 +213,10 @@ $> export SEMGREP_COMMIT=fa4e36b9369e5b039bh2220b5h9R61a38b077f29
 
 <PlatformAddRepo />
 
+:::tip Optional workflow
+Start using Semgrep Cloud Platform by scanning a demo project that requires only 3 seconds to configure. See [Learning Semgrep Cloud Platform with a demo project](/semgrep-code/demo-project/).
+:::
+
 ##### Detecting GitHub repositories
 
 To ensure that your GitHub repository is **detected** by Semgrep Cloud Platform:
@@ -319,7 +321,7 @@ The following table shows differences between Semgrep Code and Semgrep OSS Engin
 | Custom rules           | Write your own rules tailored to your organization's needs. | ✔️  | ✔️  |
 | Community rules        | Make use of community-contributed rules. | ✔️  | ✔️  |
 | Semgrep Cloud Platform | Manage findings, rules, and alerts in a centralized location. | ❌ | ✔️  |
-| Semgrep Pro Engine     | Run Semgrep with interprocedural and interfile analysis. | ❌ | ✔️ * |
+| Semgrep Pro Engine     | Run Semgrep with cross-function (interprocedural) and cross-file (interfile) analysis. | ❌ | ✔️ * |
 | Semgrep Pro rules      | Rules leveraging Semgrep Pro Engine to detect hardcoded secrets, XXE injections, deserialization issues, and more. | ❌ | ✔️ * |
 | Findings retention     | Keep track of when a finding is created and resolved. | ❌ | ✔️  |
 | Alerts & notifications | Receive alerts to catch issues before they reach live servers. | ❌ | ✔️  |
@@ -360,6 +362,6 @@ You can onboard (add) your entire organization's users and repositories by creat
 
 ### Getting support
 
-Refer to [Troubleshooting Semgrep Cloud Platform](/docs/troubleshooting/semgrep-app/) for common installation issues. Help is also available for all users through the [r2c Community Slack](https://r2c.dev/slack).
+Refer to [Troubleshooting Semgrep Cloud Platform](/docs/troubleshooting/semgrep-app/) for common installation issues. Help is also available for all users through the [Semgrep Community Slack](https://go.semgrep.dev/slack).
 
 <MoreHelp />
