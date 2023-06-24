@@ -9,7 +9,7 @@ tags:
 
 First, check that your repository meets the basic requirements for Semgrep Supply Chain:
 
-# Is the language and ecosystem supported?
+### Is the language and ecosystem supported?
 
 Check the [Supported Languages table](/docs/supported-languages/#general-availability) for support for your language and ecosystem, as well as any ecosystem-specific requirements.
 
