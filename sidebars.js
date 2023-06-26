@@ -240,7 +240,7 @@ module.exports = {
         'semgrep-cloud-platform/sso',
         'semgrep-cloud-platform/user-management',
         'semgrep-cloud-platform/tags',
-        'semgrep-cloud-platform/semgrep-assistant',
+        'semgrep-cloud-platform/semgrep-assistant-code',
         'semgrep-cloud-platform/semgrep-api',
         'semgrep-cloud-platform/scm',
         'troubleshooting/semgrep-app',
