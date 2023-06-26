@@ -9,9 +9,9 @@ tags:
 
 When scanning with Semgrep in CI, there are two types of scans you can perform: full scans and [**diff-aware scans**](/docs/semgrep-ci/running-semgrep-ci-with-semgrep-cloud-platform/#diff-aware-scanning).
 
-For full scans, the same rule and code will produce a finding for every branch it is found on. If you are performing full scans on all branches, [the same finding will appear for each branch](/docs/semgrep-code/findings/#deduplicating-findings).
+For full scans, the same rule and code produces a finding for every branch it is found on. If you are performing full scans on all branches, [the same finding appears for each branch](/docs/semgrep-code/findings/#deduplicating-findings).
 
-To prevent duplication, we recommend performing full scans only on the main branch of your repository, and performing diff-aware scans on PRs/MRs or other branches. Diff-aware scans compare findings on the current Git ref to findings on the base branch, allowing deduplication of findings not introduced in the PR/MR or branch.
+To prevent duplication, Semgrep recommends performing full scans only on the main branch of your repository, and performing diff-aware scans on PRs/MRs or other branches. Diff-aware scans compare findings on the current Git ref to findings on the base branch, allowing deduplication of findings not introduced in the PR/MR or branch.
 
 For more on setting up diff-aware scanning, see:
 
