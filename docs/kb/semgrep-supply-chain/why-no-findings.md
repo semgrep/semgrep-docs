@@ -19,7 +19,7 @@ Lockfiles can be present in the root of the repository, or in subdirectories, fo
 
 ### Does the lockfile contain dependencies with pinned versions?
 
-If your dependency file is a [manifest file](/docs/semgrep-supply-chain/glossary/#manifest-file) and contains unpinned versions, Semgrep Supply Chain will not be able to report vulnerabilityes the dependencies that are not pinned. An unpinned dependency may already be installed at a safe version for a particular Advisory.
+If your dependency file is a [manifest file](/docs/semgrep-supply-chain/glossary/#manifest-file) and contains unpinned versions, Semgrep Supply Chain will not be able to report vulnerabilities for the dependencies that are not pinned. An unpinned dependency may already be installed at a safe version for a particular [Advisory](https://semgrep.dev/docs/semgrep-supply-chain/glossary/#advisory).
 
 Pinned dependencies can be analyzed even if the file contains other unpinned dependencies. Manifest files can also be helpful to determine whether a dependency is [transitive](/docs/semgrep-supply-chain/glossary/#transitive-or-indirect-dependency).
 
@@ -50,7 +50,7 @@ If code is modified, but the lockfile is not, Supply Chain will not analyze the 
 Currently, Semgrep Supply Chain only displays findings on one of the following branches in Semgrep Cloud Platform:
 
 * The repository's default branch, if that information is available. This information is typically available for CI scans performed through GitHub Actions.
-* One of a set of standard default branch names, including `develop`, `main`, `master`, and `trunk`.
+* One of a set of standard default branch names, including `develop` (or `development`), `main`, `master`, and `trunk`.
 
 If a scan runs on a different branch, findings will not appear in Semgrep Cloud Platform. This prevents vulnerability findings from persisting incorrectly after they have been resolved on the repository's primary branch.
 
@@ -59,3 +59,6 @@ If a scan runs on a different branch, findings will not appear in Semgrep Cloud 
 If the project uses Java and Apache Maven with `pom.xml`, see [Setting up SSC scans for specific project management tools:
 Apache Maven (Java)](/docs/semgrep-supply-chain/getting-started/#apache-maven-java).
 
+## If you're still having trouble
+
+If you've addressed these issues but are still not seeing vulnerability findings, or if you need assistance setting up Semgrep Supply Chain for your project(s), such as handling lockfile naming or addressing parsing issues, please [reach out for help](docs/support/).
