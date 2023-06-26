@@ -82,8 +82,7 @@ Semgrep Assistant is now enabled and appears in future PRs. To further customize
 
 * [Suggesting autofix code snippets to resolve the finding](#suggesting-autofix-code-snippets-to-resolve-the-finding)
 
-
-:::tip Not receiving PR comments?
+:::caution Not receiving PR comments?
 Semgrep Assistant messages only appear in your PR comments for rules that are set to Comment or Block mode in the Rule Management page. Ensure the following:
 
 * Ensure that you have set rules to Comment or Block mode.
@@ -98,9 +97,7 @@ The following are recommendations users can receive from Semgrep Assistant.
 
 ### Analyzing if a finding is a true or false positive
 
-Semgrep Assistant can analyze if your finding is a true or false positive. The accuracy of its recommendations is roughly 60% and varies based on the language and framework you are using.
-
-[Screenshot of assistant in github]
+Semgrep Assistant can analyze if your finding is a true or false positive. The accuracy of its recommendations is roughly 60% and varies based on the language and framework you are using. This is its default use-case.
 
 ### Suggesting autofix code snippets to resolve the finding
 
