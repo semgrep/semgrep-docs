@@ -14,7 +14,8 @@ import MoreHelp from "/src/components/MoreHelp"
 
 Receive GPT-4-powered security recommendations designed to reduce the time spent when reviewing Semgrep Code findings. Semgrep Assistant can leave comments in pull requests (PRs) and Slack notifications. These comments provide recommendations for triage and code remediation, such as assessing if a finding is a true or false positive.
 
-[screenshot]
+![Screenshot of Semgrep Assistant message in GitHub](/img/semgrep-assistant-github.png)
+*Figure 1*. Semgrep Assistant detecting a false positive.
 
 This document provides an overview of the following:
 
@@ -68,21 +69,27 @@ Semgrep gets API permissions to access code on your pre-selected GitHub reposito
 3. Approve the Semgrep Assistant terms of service.
 4. Sign in to [Semgrep Cloud Platform](https://semgrep.dev/login).
 5. Click **Settings > Deployment**.
-6. Click **Auto-triage with Semgrep Assistant** <i class="fa-solid fa-toggle-large-on"></i>.
+6. In the **Code** section, Click **Auto-triage with Semgrep Assistant** <i class="fa-solid fa-toggle-large-on"></i>.
+    ![Screenshot of Semgrep Assistant toggle location](/img/semgrep-assistant-enable.png)
+    *Figure 2*. Screenshot of Semgrep Assistant toggle location.
 6. Check <i class="fa-solid fa-square-check"></i> **PR/MR Comments** to receive comments.
 7. Check <i class="fa-solid fa-square-check"></i> **Slack notifications** to receive Slack notifications.
 
-Semgrep Assistant is now enabled and appears in future PRs. To further customize Semgrep Assistant, see 
+![Screenshot of Semgrep Assistant in a Slack notification](/img/semgrep-assistant-slack.png)
+*Figure 3*. Screenshot of Semgrep Assistant in a Slack notification.
 
-[Screenshot of Assistant in Slack]
+Semgrep Assistant is now enabled and appears in future PRs. To further customize Semgrep Assistant, see:
+
+* [Suggesting autofix code snippets to resolve the finding](#suggesting-autofix-code-snippets-to-resolve-the-finding)
+
 
 :::tip Not receiving PR comments?
 Semgrep Assistant messages only appear in your PR comments for rules that are set to Comment or Block mode in the Rule Management page. Ensure the following:
 
 * Ensure that you have set rules to Comment or Block mode.
-[screenshot]
-* Ensure that you have selected PR/MR comments in Semgrep Cloud Platform > Settings > Deployment.
-[screenshot]
+    ![Screenshot of Policies modes](/img/semgrep-assistant-comment.png)
+    *Figure 4*.Screenshot of **Policies** modes. 
+* Ensure that you have selected PR/MR comments in **Semgrep Cloud Platform > Settings > Deployment** in the **Code** section.
 :::
 
 ## Types of recommendations from Semgrep Assistant
@@ -103,11 +110,14 @@ To enable autofix by Semgrep Assistant, perform the following steps:
 
 1. While logged-in to Semgrep Cloud Platform, click **Settings > Deployment**.
 2. In the Code section, click Autofix <i class="fa-solid fa-toggle-large-on"></i> if it is not yet enabled.
-3. Click <i class="fa-solid fa-square-check"></i> Also include Assistant-written autofixes
+3. Click <i class="fa-solid fa-square-check"></i> **Also include Assistant-written autofixes**.
 4. Optional: Select the **confidence level** on the drop-down box. The value determines at what level of quality autofix code appears as suggestions. A lower confidence level means that Semgrep Assistant displays the autofix suggestion even when the code quality may be incorrect.
 
 :::tip
 A low confidence level is recommended as even incorrect suggestions may be useful starting points.
 :::
+
+![ Screenshot of Semgrep Assistant generating a potential fix](/img/semgrep-assistant-autofix.png)
+*Figure 5*. Screenshot of Semgrep Assistant generating a potential fix.
 
 <MoreHelp />
