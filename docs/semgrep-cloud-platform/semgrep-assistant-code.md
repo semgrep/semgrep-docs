@@ -24,7 +24,7 @@ This document provides an overview of the following:
 * How to receive notifications or comments from Semgrep Assistant
 
 :::info Feature maturity 
-* This feature is in **private beta**. If you’d like to join the waitlist, visit [Semgrep Assistant Beta Request](https://get.semgrep.dev/Assistant-Beta-Request.html).
+* This feature is in **private beta**. If you’d like to join the wait list, visit [Semgrep Assistant Beta Request](https://get.semgrep.dev/Assistant-Beta-Request.html).
 * You or your developers may encounter rough edges. This includes inaccurate recommendations or broken text. Please leave feedback on the PR comments from Semgrep Assistant to help the Semgrep team improve Semgrep Assistant.
 ::: 
 
@@ -63,7 +63,7 @@ Semgrep gets API permissions to access code on your pre-selected GitHub reposito
     * Ensure that you have set rules to **Comment** or **Block** mode in [Policies](/semgrep-code/policies).
 :::
 
-1. Sign up for the Semgrep Assistant waitlist by clicking the following link and filling out the form: [Semgrep Assistant Beta Request](https://get.semgrep.dev/Assistant-Beta-Request.html).
+1. Sign up for the Semgrep Assistant wait list by clicking the following link and filling out the form: [Semgrep Assistant Beta Request](https://get.semgrep.dev/Assistant-Beta-Request.html).
 2. Semgrep Inc. will send an email to grant you access and the provide the terms of service agreement for Semgrep Assistant.
 3. Approve the Semgrep Assistant terms of service.
 4. Sign in to [Semgrep Cloud Platform](https://semgrep.dev/login).
