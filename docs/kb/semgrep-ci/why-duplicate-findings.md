@@ -5,7 +5,7 @@ tags:
   - Semgrep Cloud Platform
 ---
 
-# Why am I seeing duplicate findings after running Semgrep in continuous integration (CI)?
+# Why are duplicate findings appearing after running Semgrep in continuous integration (CI)?
 
 When scanning with Semgrep in CI, there are two types of scans you can perform: full scans and [**diff-aware scans**](/docs/semgrep-ci/running-semgrep-ci-with-semgrep-cloud-platform/#diff-aware-scanning).
 
