@@ -29,8 +29,8 @@ rules:
 Try this pattern in the [Semgrep Playground](https://semgrep.dev/playground/s/vop8). 
 :::
 
-The regex pattern `(?s)(.*)` uses the `s` flag to put the match in "single-line" mode, so that the dot character matches a newline. This allows `(.*)` to match multiple lines, and therefore match an entire file.
+The regular expression pattern `(?s)(.*)` uses the `s` flag to put the match in "single-line" mode, so that the dot character matches a newline. This allows `(.*)` to match multiple lines, and therefore match an entire file.
 
-If the file contains `YOUR PATTERN TO BLOCK`, then the match is negated and the file does not appear as a finding. If the file does not contain `YOUR PATTERN TO BLOCK`, the file will be flagged as a finding. The finding will span the whole file, starting at line 1.
+If the file contains `YOUR PATTERN TO BLOCK`, then the match is negated and the file does not appear as a finding. If the file does not contain `YOUR PATTERN TO BLOCK`, the file is flagged as a finding. With this rule, the finding spans the whole file, starting at line 1.
 
 
