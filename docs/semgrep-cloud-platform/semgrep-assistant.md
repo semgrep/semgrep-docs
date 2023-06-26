@@ -52,5 +52,34 @@ Semgrep gets API permissions to access code on your pre-selected GitHub reposito
 * Semgrep Inc is a paying customer of OpenAI and has a Data Protection Agreement signed with them (provided upon request by contacting [email]). The code snippets we upload will be persisted by OpenAI temporarily, per their data usage policies at [Open AI API data Usage Policies](https://openai.com/policies/api-data-usage-policies) 
 * For more details, see the [Semgrep Assistant FAQ](https://get.semgrep.dev/assistant).
 
+## Enabling Semgrep Assistant
+
+:::info Prerequisites
+* Semgrep Assistant can only be enabled through Semgrep Cloud Platform (SCP). Create an account to set up Semgrep Assistant.
+* To receive PR comments and Slack notifications, ensure that you have accomplished the following:
+* You have added or onboarded a project (repository) to Semgrep Cloud Platform for scanning.
+* Rule management is configured with rules in the Comment column.
+:::
+
+Sign up for the Semgrep Assistant waitlist by clicking the following link and filling out the form: [Semgrep Assistant Beta Request](https://get.semgrep.dev/Assistant-Beta-Request.html).
+Semgrep Inc. will send an email to grant you access and the terms of service for Semgrep Assistant.
+Approvethe Semgrep Assistant terms of service.
+Sign into [Semgrep Cloud Platform](https://semgrep.dev/login).
+Click Settings > Deployment >Auto-triage with Semgrep Assistant <i class="fa-solid fa-toggle-large-on"></i> toggle.
+Check ☑️ PR/MR Comments to receive comments.
+Check ☑️ Slack notifications to receive Slack notifications.
+
+Semgrep Assistant is now enabled and will appear in future PRs.
+
+[Screenshot of Assistant in Slack]
+
+:::tip Not receiving PR comments?
+
+Semgrep Assistant messages only appear in your PR comments for rules that are set to Comment or Block mode in the Rule Management page. Ensure the following:
+
+* Ensure that you have set rules to Comment or Block mode.
+
+
+
 
 <MoreHelp />
