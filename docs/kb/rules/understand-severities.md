@@ -5,7 +5,7 @@ tags:
   - Semgrep Registry
 ---
 
-# How does Semgrep assign severities to rules?
+# How does Semgrep assign severity levels to rules?
 
 ## Semgrep Code
 
