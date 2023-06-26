@@ -1,12 +1,12 @@
 ---
-description: How do I match the absence of something in a file?
+description: You can approximate this behavior by matching an entire file, but excluding the desired content from the match.
 tags:
   - Rules
   - Semgrep Registry
   - Semgrep Code
 ---
 
-# How do I match the absence of something in a file?
+# Match the absence of something in a file
 
 Currently, Semgrep does not have a clear way to match the absence of a pattern, rather than the presence of one. However, you can approximate this behavior by matching an entire file with `pattern-regex`, and excluding a file that contains the desired content with `pattern-not-regex` or other negative patterns.
 
