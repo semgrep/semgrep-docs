@@ -12,7 +12,7 @@ tags:
 
 # Generating Python lockfiles for Semgrep Supply Chain scans
 
-To correctly scan all dependencies in a project, Semgrep Supply Chain requires a Python lockfile. This article describes  methods to generate the following Python lockfiles:
+To correctly scan all dependencies in a project, Semgrep Supply Chain requires a Python lockfile. This article describes methods to generate the following Python lockfiles:
 
 * `requirements.txt`
 * `Pipfile.lock`
@@ -256,7 +256,7 @@ The beginning of the file can look like this:
         },
 ```
 
-## Poetry
+## Generating `Poetry.lock`
 
 [Poetry](https://python-poetry.org/) is a tool for dependency management and packaging in Python.
 
