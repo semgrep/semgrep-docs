@@ -130,12 +130,13 @@ pip3 install .
 pip freeze --all > tee requirements.txt
 ```
 
-## Generating requirements.txt and scanning with Semgrep
+### Example CI configuration to generate `requirements.txt` and scan with Semgrep
 
-So, now we can integrate this generation step before calling to semgrep supply-chain scan.
-In the following example (a GitHub Action workflow), there are two jobs:
-* First Job: Generation of requirements.txt file and upload it as an artifact
-* Second Job: Download this artifact and scan it with Semgrep
+The following GitHub Action workflow provides an example on how to generate `requirements.txt` based on the preceding methods.
+
+In the following example there are two jobs:
+* `my_first_job`: Generating `requirements.txt` and uploading it as an artifact
+* `my_second_job`: Download the artifact and scan it with Semgrep
 
 ```
 on:
@@ -184,7 +185,6 @@ jobs:
 
 ## Generating `Pipfile.lock`
 
-Another exciting way to get a lock file is to use Pipfile.
 The first step must be to declare a Pipfile with your direct dependencies:
 
 It can look like this:
