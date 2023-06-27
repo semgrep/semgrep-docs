@@ -30,127 +30,47 @@ Object.entries(frontMatter).filter(
 
 This document provides information about supported languages and language maturity definitions for the following products:
 
-* Semgrep OSS Engine
+* Semgrep Code
 * Semgrep Supply Chain
-* Semgrep Pro Engine
 
-## Semgrep OSS Engine
+## Semgrep Code 
 
-Semgrep OSS Engine offers a fast static analysis solution for finding bugs and enforcing code standards.
+Secure your code quickly and continuously by scanning with Semgrep Code, a fast and lightweight SAST (Static Application Security Testing) product that leverages Semgrep OSS Engine and Semgrep Pro Engine. Semgrep Code helps you quickly find and fix vulnerabiliies in your code base. 
+
 
 ### Language maturity
+Semgrep Code supports over 30 lanuages, and counting! 🚀 
 
 <SupportedLanguagesTable />
 
-### Maturity definitions
+### Maturity levels
 
 #### Language maturity factors
 
-Language maturity is determined by 3 factors in the Semgrep ecosystem:
+Semgrep OSS Engine has three maturity levels: 
+* Generally Available (GA) 
+* Beta
+* Experimental 
 
-<dl>
-    <dt>Parse rate</dt>
-    <dd>How well Semgrep OSS Engine can parse code in a given language.</dd>
-    <dt>Feature support</dt>
-    <dd>What <a href='/writing-rules/pattern-syntax/'>Semgrep features</a> are implemented for a given language.</dd>
-    <dt>Ruleset count</dt>
-    <dd>Number of <a href='https://semgrep.dev/explore/'>Semgrep rule groupings</a> in Semgrep Registry.</dd>
-</dl>
+Their differences are outlined in the following table:
 
-#### Levels of maturity
+| Feature  | GA | Beta | Experimental
+|----------|---------------|------------------| ----- |
+| Parse Rate  | 99%+ | 95%+ | 90%+ | 
+| Number of rules  | 10+ | 5+ | 0+ | 
+| Semgrep syntax | Regexp, equivalence, deep expression operators, types and typing. All features supported in Beta. | Complete metavariable support, metavariable equality. All features supported in Experimental. | Syntax, ellipsis operaor, basic metavariable functionality.|
 
-Semgrep OSS Engine defines 3 maturity levels: 
+### More Information
+Visit the cheat sheet generation script and associated semgrep-core test files to learn more about each feature:
+* [Generation script](https://github.com/returntocorp/semgrep/blob/develop/scripts/generate_cheatsheet.py)
+* [`semgrep-core` test files](https://github.com/returntocorp/semgrep/tree/develop/tests)
 
-<dl>
-<dt>Experimental</dt>
-<dd>Experimental languages support the following:
-<ul>
-    <li>Syntax</li>
-    <li>Ellipsis operator</li>
-    <li>Basic metavariable functionality</li>
-</ul>
-</dd>
-<dt>Beta</dt>
-<dd>Beta languages support the following:
-<ul>
-    <li>All features supported in Experimental</li>
-    <li>Complete metavariable support</li>
-    <li>Metavariable equality</li>
-</ul>
-</dd>
-<dt>Generally available</dt>
-<dd>Generally available languages support all advanced features such as the following:
-<ul>
-<li>All features supported in Beta</li>
-<li>Regexp</li>
-<li>Equivalence</li>
-<li>Deep expression operator</li>
-<li>Types and typing</li>
-</ul>
-</dd>
-</dl>
-
-Each of these maturity levels are combined with a threshold of the [language maturity factors](#language-maturity-factors). When a language meets the maturity threshold for each of the factors, it’s moved into that maturity level.
-
-The following **thresholds** define each maturity level:
+Visit our public dashboard to see the parse rates for each language
+* See [Parse rates by language](https://dashboard.semgrep.dev/).
 
 <!-- coupling: If you modify the features in the levels below, change also 
      /semgrep/blob/develop/tests/Test.ml and its maturity level regression testing code.
 -->
-
-* **Experimental**
-    * Parse rate from 90%+.
-    * Rules: 0+
-    * Features:
-        * `concrete_syntax`
-        * `deep_exprstmt`
-        * `dots_args`
-        * `dots_nested_stmts`
-        * `dots_stmts`
-        * `dots_string`
-        * `metavar_arg`
-        * `metavar_call`
-        * `metavar_equality_var`
-* **Beta**
-    * Parse rate from 95% to 99%.
-    * Rules: 5+
-    * Features:
-        * All items in Experimental
-        * `metavar_class_def`
-        * `metavar_func_def`
-        * `metavar_cond`
-        * `metavar_equality_expr`
-        * `metavar_equality_stmt`
-        * `metavar_import`
-        * `metavar_stmt`
-* **Generally Available (GA)**
-    * Parse rate from 99% to 99.9%.
-    * Rules: 10+
-    * Features:
-        * All items in Beta
-        * `deep_expr_operator`
-        * `dots_method_chaining`
-        * `equivalence_constant_propagation`
-        * `equivalence_naming_import` (language dependent)
-        * `metavar_anno` (language dependent)
-        * `metavar_key_value`
-        * `metavar_typed` (language dependent)
-        * `metavar_ellipsis_args`
-        * `regexp_string`
-
-Visit the cheat sheet generation script and associated semgrep-core test files to learn more about each feature:
-
-* [Generation script](https://github.com/returntocorp/semgrep/blob/develop/scripts/generate_cheatsheet.py)
-* [`semgrep-core` test files](https://github.com/returntocorp/semgrep/tree/develop/tests)
-
-:::info Feature and product maturity levels
-* The detailed specifications given above apply only to language support. Language maturity levels differ from feature and product maturity levels.
-* Semgrep features and products documented as experimental, beta, or GA generally follow the definitions in a [Software release life cycle](https://en.wikipedia.org/wiki/Software_release_life_cycle).
-:::
-
-### Language parse rates
-
-See [Parse rates by language](https://dashboard.semgrep.dev/).
 
 ## Semgrep Supply Chain
 
@@ -287,24 +207,9 @@ Their differences are outlined in the following table:
   </tr>
 </table>
 
-## Semgrep Pro Engine
-
-<SemgrepProEngineIntroduction />
-
-Semgrep Pro Engine supports the following languages:
-
-| Language                                                                         | Support level | Analysis type |
-|----------------------------------------------------------------------------------|---------------|------------------|
-| All GA supported languages listed in [Semgrep OSS Engine](#semgrep-oss-engine)   | Beta          | Cross-function (interprocedural) |
-| Apex                                                                             | Experimental  | Cross-function (interprocedural) |
-| Go                                                                               | Beta          | Cross-file (interfile) and cross-function (interprocedural) |
-| Java                                                                             | Beta          | Cross-file (interfile) and cross-function (interprocedural) |
-| JavaScript                                                                       | Beta          | Cross-file (interfile) and cross-function (interprocedural) |
-| Kotlin                                                                           | Experimental  | Cross-file (interfile) and cross-function (interprocedural) |
-| TypeScript                                                                       | Beta          | Cross-file (interfile) and cross-function (interprocedural) |
-
-:::info
-To install and run Semgrep Pro Engine, see [Semgrep Pro Engine overview](/semgrep-code/semgrep-pro-engine-intro/) for more information.
+:::info Feature and product maturity levels
+* The detailed specifications given above apply only to language support. Language maturity levels differ from feature and product maturity levels.
+* Semgrep features and products documented as experimental, beta, or GA generally follow the definitions in a [Software release life cycle](https://en.wikipedia.org/wiki/Software_release_life_cycle).
 :::
 
 ### Known limitations of Semgrep Pro Engine
