@@ -65,7 +65,7 @@ pipeline {
   }
 }
 `````
-Note that line 1 must have the name of the shared library, and the function invoked (semgrepFullScan) must have the name of the groovy file created before -> semgrepFullScan.groovy
+Line 1 must have the name of the shared library, and the function invoked (`semgrepFullScan`) must match the name of the groovy file created before (`semgrepFullScan.groovy`).
 
 ## Conclusions
 Using Jenkins Shared Library can simplify your pipelines and avoid code duplications along with all your projects. And if you need to change the snippet, for example, adding some flags, it will take you some seconds because the change is only in one single and centralised place.
