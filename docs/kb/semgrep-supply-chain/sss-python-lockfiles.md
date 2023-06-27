@@ -4,7 +4,7 @@ tags:
   - Semgrep Supply Chain
   - Python
   - Knowledge Base
-  - Lock files
+  - Lockfiles
   - requirements.txt
   - Pipfile.lock
   - Poetry.lock
@@ -12,13 +12,13 @@ tags:
 
 # Generating Python lockfiles for Semgrep Supply Chain scans
 
-To correctly scan all dependencies in a project, Semgrep Supply Chain requires a Python lockfile. This article describes different methods to generate Python lockfiles that Semgrep Supply Chain can parse.
-
-The following can be used to correctly parse your dependencies and detect vulnerabilities:
+To correctly scan all dependencies in a project, Semgrep Supply Chain requires a Python lockfile. This article describes the following methods to generate Python lockfiles:
 
 * `requirements.txt`
 * `Pipfile.lock`
 * Poetry 
+
+You can use any of these three ways to get a successful Semgrep Supply Chain scan.
 
 ## Generating `requirements.txt`
 
@@ -29,11 +29,13 @@ This section describes various methods to generate `requirements.txt`.
 :::info Prerequisites
 
 * A `requirements.in` file with direct Python packages. Do not include transitive packages in `requirements.in`.
-* `pip-tools` must be installed in your machine. See the [pip-tools GitHub repository] for installation instructions.
+* `pip-tools` must be installed in your machine. See the [pip-tools GitHub repository](https://github.com/jazzband/pip-tools) for installation instructions.
 
 :::
 
-* To generate a `requirements.txt` file from `requirements.in`, enter the following command in the root of your project directory:
+
+To generate a `requirements.txt` file from `requirements.in`, enter the following command in the root of your project directory:
+
 ```bash
 pip-compile -o requirements.txt
 ```
@@ -42,7 +44,7 @@ You have successfully generated a `requirements.txt` file with direct and transi
 
 #### Example of `requirements.txt` generated from `requirements.in`
 
-In the example [project](https://github.com/sebastianrevuelta/binder-examples/), the `requirements.in` file contains the following direct dependencies: 
+Given the following example project [Binder examples](https://github.com/sebastianrevuelta/binder-examples/), the `requirements.in` file contains the following direct dependencies: 
 
 ```
 numpy
@@ -53,7 +55,7 @@ pandas
 
 Executing the command `pip-compile -o requirements.txt`, generates the following `requirements.txt`:
 
-<!-- collapse into <summary> -->
+<details><summary>Example <code>requirements.txt</code></summary>
 
 ```
 #
@@ -108,26 +110,25 @@ tzdata==2023.3
     # via pandas
 ```
 
-This file has all direct and transitive dependencies the example project and can be used by Semgrep as an entry point for the Supply Chain scan.
+This file has all direct and transitive dependencies of the example project and can be used by Semgrep as an entry point for the Supply Chain scan.
 
-## Using `pip freeze` to generate `requirements.txt`
+</details>
+
+### Using `pip freeze` to generate `requirements.txt`
 
 :::info Prerequisites
 
 * The `pip freeze` utility uses dependencies from packages already installed in your current environment to generate `requirements.txt`. You must be in an isolated or [virtual environment](https://docs.python.org/3/library/venv.html).
 * An existing `setup.py` file.
-`
-So the command:
-```
-pip freeze
-```
-must be executed in an isolated environment or a [virtual environment].
-If you have a setup.py file and execute the following commands in an isolated environment:
-`````
+
+:::
+
+To generate `requirements.txt` through `pip freeze`, enter the following commands:
+
+```bash
 pip3 install .
 pip freeze --all > tee requirements.txt
-`````
-Then you will have a requirements.txt with all the packages (direct/transitive) your project needs.
+```
 
 ## Generating requirements.txt and scanning with Semgrep
 
@@ -136,7 +137,7 @@ In the following example (a GitHub Action workflow), there are two jobs:
 * First Job: Generation of requirements.txt file and upload it as an artifact
 * Second Job: Download this artifact and scan it with Semgrep
 
-``````
+```
 on:
   pull_request: {}
   workflow_dispatch: {}
