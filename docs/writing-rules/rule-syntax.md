@@ -112,7 +112,7 @@ Note that you may bind a section of a regular expression to a metavariable, by u
 this case, the name of the capturing group must be a valid metavariable name.
 
 :::note Example
-Try this pattern in the [Semgrep Playground](https://semgrep.dev/playground/s/p8OL).
+Try this pattern in the [Semgrep Playground](https://semgrep.dev/s/p8OL).
 :::
 
 ### `pattern-not-regex`
