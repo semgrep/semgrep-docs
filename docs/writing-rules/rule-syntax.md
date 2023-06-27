@@ -108,10 +108,11 @@ PCRE supports only a [limited number of Unicode character properties](https://ww
 Single (`'`) and double (`"`) quotes [behave differently](https://docs.octoprint.org/en/master/configuration/yaml.html#scalars) in YAML syntax. Single quotes are typically preferred when using backslashes (`\`) with `pattern-regex`.
 :::
 
-Note that if the regex uses groups, the metavariables such as `$1`, `$2`, `$3` (and following), are bound to the content of the captured group.
+Note that you may bind a section of a regular expression to a metavariable, by using [named capturing groups](https://www.regular-expressions.info/named.html). In 
+this case, the name of the capturing group must be a valid metavariable name.
 
 :::note Example
-Try this pattern in the [Semgrep Playground](https://semgrep.dev/s/8RkB).
+Try this pattern in the [Semgrep Playground](https://semgrep.dev/playground/s/p8OL).
 :::
 
 ### `pattern-not-regex`
