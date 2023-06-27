@@ -24,7 +24,7 @@ But it must be done in all the repositories you have! It will take you time!
 Jenkins shared library comes to the rescue. Basically, you encapsulate the semgrep commands in a common library.
 The steps are:
 
-1. Create a new repo with a groovy file in the vars folder. For example, vars/semgrepFullScan.groovy. Add the Semgrep snippet to that file:
+1. Create a new repo with a Groovy file in the `vars/` folder. For example, `vars/semgrepFullScan.groovy`. Add the Semgrep snippet to that file:
 
 `````
 def call() {
