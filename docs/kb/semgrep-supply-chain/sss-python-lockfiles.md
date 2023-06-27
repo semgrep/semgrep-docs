@@ -12,13 +12,13 @@ tags:
 
 # Generating Python lockfiles for Semgrep Supply Chain scans
 
-To correctly scan all dependencies in a project, Semgrep Supply Chain requires a Python lockfile. This article describes the following methods to generate Python lockfiles:
+To correctly scan all dependencies in a project, Semgrep Supply Chain requires a Python lockfile. This article describes  methods to generate the following Python lockfiles:
 
 * `requirements.txt`
 * `Pipfile.lock`
-* Poetry 
+* `Poetry .lock`
 
-You can use any of these three ways to get a successful Semgrep Supply Chain scan.
+You can use any of these three lockfiles to get a successful Semgrep Supply Chain scan.
 
 ## Generating `requirements.txt`
 
@@ -185,9 +185,12 @@ jobs:
 
 ## Generating `Pipfile.lock`
 
-The first step must be to declare a Pipfile with your direct dependencies:
+:::info Prerequisite
+An existing `Pipfile`. Depending on your development environment, a Pipfile may already be automatically generated for you.
+:::
 
-It can look like this:
+### Example of `Pipfile`
+
 `````
 [[source]]
 url = "https://pypi.org/simple"
@@ -211,16 +214,20 @@ defusedxml = "==0.7.1"
 python_version = "3.9"
 `````
 
-Once done, you can generate a Pipfile.lock file with the following commands:
-`````
+### Generating a `Pipfile.lock`
+
+Generate a `Pipfile.lock` with the following commands:
+
+```
 pip install pipenv --user
 pipenv lock
-`````
+```
 
-The newly generated Pipfile.lock is a json file with all Python dependencies (direct/transitive) and their sha256 code.
+The newly generated Pipfile.lock is a JSON file with all Python dependencies (direct and transitive) and their sha256 code.
+
 The beginning of the file can look like this:
 
-`````
+```
 {
     "_meta": {
         "hash": {
@@ -247,13 +254,17 @@ The beginning of the file can look like this:
             "markers": "python_version >= '3.7'",
             "version": "==23.1.0"
         },
-`````
+```
 
 ## Poetry
 
 [Poetry](https://python-poetry.org/) is a tool for dependency management and packaging in Python.
-The key file here is one called: pyproject.toml, in that file, you can describe your dependencies.
-It can look like this:
+
+:::info Prerequisite
+A `pyproject.toml` file.
+:::
+
+### Example `pyproject.toml`
 
 ```
 [build-system]
@@ -278,36 +289,44 @@ flake8 = "^3.9.2"
 [build-system]
 requires = ["poetry-core>=1.0.0"]
 build-backend = "poetry.core.masonry.api"
-````````
+```
 
-Then to generate a valid input for semgrep supply chain, you can execute the following:
-```````
+### Generating a `Poetry.lock`
+
+Generate a `Poetry.lock` with the following command:
+
+```bash
 poetry lock
-```````
-this command generates a Poetry.lock file with all dependencies (direct/transitive) the project uses.
+```
 
-## What happens if I have some lock files but want to use only one in Semgrep Supply Chain scans?
+The generated `Poetry.lock` contains all transitive and direct dependencies that the project uses.
 
-There may already be a lock file in the repo (example Pipfile.lock), but I want to generate a new one (example requirements.txt) to be sure it has the latest dependencies.
-In Semgrep, you can use the flag --include to specify only one entry point:
+## Selecting a single lockfile among many for Semgrep Supply Chain scans
 
-``````
+While there may already be a lockfile in the repository, such as a `Pipfile.lock`, you may want to generate a new one, for example `requirements.txt`, to be sure it has the latest dependencies.
+
+In Semgrep, you can use the flag `--include` to specify only one lockfile:
+
+```
 semgrep --supply-chain --include=requirements.txt
-```````
+```
 
-Or there is already a requirements.txt file in the repo, but you want to generate a fresh and updated version.
-You can do it, but when running a semgrep scan, you will then see the following error:
-```````
+Alternatively, your repository may have a lockfile of the same name (`requirements.txt`), but you want to generate a fresh and updated version.
+
+Running the previous command results in the following error:
+
+```
 [ERROR] Found pending changes in tracked files. Baseline scans runs require a clean git state.
-````````
-Because the error is due to some git conflicts between requirements.txt that is already in the repo and the one the job generates each time.
+```
 
-A solution to that can be to generate the requirements.txt file in a specific folder (SSC, for example), so you can use only this file in the semgrep scan:
+This error is due to git conflicts between `requirements.txt` that is already in the repository and the one the job generates each time.
 
-``````
+A solution to that can be to generate the `requirements.txt` file in a specific folder ("ssc", for example), so you can specify this file in theSsemgrep scan:
+
+```
 semgrep --supply-chain --include=ssc/requirements.txt
-```````
+```
 
 ## Conclusions
 
-There are several ways to get lock files with Python dependencies. Depending on your preferences, you can select one or another. The thing to keep in mind is to be sure it is generated before the semgrep scan and with the proper environment (we don't want a scan with all Python dependencies of your system, only the one used by your project)
+There are several ways to get lock files with Python dependencies. Depending on your preferences, you can select one or another. Keep in mind that the lockfile should be generated before the Semgrep scan and with the proper environment. This ensures that you are scanning only the dependencies of your project and to prevent scanning all the Python dependencies in your system.
