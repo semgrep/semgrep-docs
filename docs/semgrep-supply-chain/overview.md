@@ -27,8 +27,8 @@ Object.entries(frontMatter).filter(
 
 <AdmonitionSscLicense />
 
-![Semgrep Supply chain overview page](/img/sc-overview.png)
-_Figure 1_. Semgrep Supply Chain overview page.
+![Semgrep Supply chain Vulnerabilities page](/img/sc-vulns.png)
+_Figure 1_. Semgrep Supply Chain Vulnerabilities page.
 
 Semgrep Supply Chain parses lockfiles for a list of dependencies, then scans your codebase using **rules **written with Semgrep's pattern syntax. Supply Chain rules specify the following:
 
@@ -36,11 +36,13 @@ Semgrep Supply Chain parses lockfiles for a list of dependencies, then scans you
 * A pattern for vulnerable code, such as passing in unsanitized data.
 * The severity of the vulnerability.
 
-Semgrep Supply Chain generates a **finding **when it detects a match. If the dependency's version is within the range and finds the matching code within your codebase, the finding is **reachable**.
+Semgrep Supply Chain generates a **finding** when it detects a match. If the dependency's version is within the range and finds the matching code within your codebase, the finding is **reachable**.
 
 A finding is **unreachable** if the dependency contains a known vulnerability, but the vulnerable matching code is not used in your codebase.
 
 In Semgrep Cloud Platform, specific findings of a dependency and code match are called **usages**. Usages are grouped by their **vulnerability**. Vulnerabilities in Semgrep Supply Chain typically have a CVE number corresponding to the record in the [CVE Program](https://www.cve.org/About/Overview).
+
+Semgrep Cloud Platform also includes a list of **Advisories** for reference. Advisories include all vulnerabilities covered by Semgrep Supply Chain, regardless of whether the related dependency is used in scanned code.
 
 The following diagram displays the relationship between a Supply Chain rule, the lockfile, and the codebase being scanned:
 
@@ -100,9 +102,9 @@ The following table displays differences between Semgrep and Semgrep Supply Chai
   <tr>
    <td>Notification channels
    </td>
-   <td>Jira, Slack, Email, Webhooks
+   <td>Slack, Email, Webhooks
    </td>
-   <td>Slack and email
+   <td>Slack
    </td>
   </tr></tbody>
 </table>
@@ -113,7 +115,7 @@ Refer to [Supported languages](/docs/supported-languages#semgrep-supply-chain) t
 
 ## Transitive dependencies and reachability analysis
 
-See [SSC glossary > Transitivity](/docs/semgrep-sc/sc-glossary/#transitive-or-indirect-dependency) for a definition of a transitive dependency.
+See [SSC glossary > Transitivity](/docs/semgrep-supply-chain/glossary/#transitive-or-indirect-dependency) for a definition of a transitive dependency.
 
 * Semgrep Supply Chain does **not** perform reachability analysis for transitive dependencies. This means we do not scan the source code of your dependencies to determine if their dependencies may produce a reachable finding in the code.
 * Semgrep Supply Chain supports scanning for transitive or indirect dependencies for all of its [supported languages](/docs/supported-languages#semgrep-supply-chain). Findings are collected and displayed in **Semgrep Cloud Platform** > **Supply Chain**.
@@ -121,7 +123,7 @@ See [SSC glossary > Transitivity](/docs/semgrep-sc/sc-glossary/#transitive-or-in
 
 ## Next steps: Scanning your codebase
 
-To scan your codebase, follow the instructions in [Scanning open source dependencies](/semgrep-sc/scanning-open-source-dependencies).
+To scan your codebase, follow the instructions in [Scanning open source dependencies](/semgrep-supply-chain/getting-started).
 
 ## Additional references
 

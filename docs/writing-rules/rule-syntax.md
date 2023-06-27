@@ -1,11 +1,11 @@
 ---
 append_help_link: true
 slug: rule-syntax
-description: "This document describes Semgrep’s YAML rule syntax including required and optional fields. Just getting started with Semgrep rule writing? Check out the Semgrep Tutorial at https://semgrep.dev/learn"
+description: "This document describes the YAML rule syntax of Semgrep including required and optional fields. Just getting started with Semgrep rule writing? Check out the Semgrep Tutorial at https://semgrep.dev/learn"
 ---
 
 import MoreHelp from "/src/components/MoreHelp"
-import LanguageExtensionsTags from '/src/components/reference/_language-extensions-tags.mdx'
+import LanguageExtensionsLanguagesKeyValues from '/src/components/reference/_language-extensions-languages-key-values.mdx'
 import RequiredRuleFields from "/src/components/reference/_required-rule-fields.mdx"
 
 # Rule syntax
@@ -14,7 +14,7 @@ import RequiredRuleFields from "/src/components/reference/_required-rule-fields.
 Getting started with rule writing? Try the [Semgrep Tutorial](https://semgrep.dev/learn) 🎓
 :::
 
-This document describes Semgrep’s YAML rule syntax.
+This document describes the YAML rule syntax of Semgrep.
 
 ## Schema
 
@@ -22,9 +22,9 @@ This document describes Semgrep’s YAML rule syntax.
 
 <RequiredRuleFields />
 
-#### Language extensions and tags
+#### Language extensions and languages key values
 
-<LanguageExtensionsTags />
+<LanguageExtensionsLanguagesKeyValues />
 
 ### Optional
 
@@ -32,7 +32,7 @@ This document describes Semgrep’s YAML rule syntax.
 | :--------- | :------- | :---------------------------------- |
 | [`options`](#options)   | `object` | Options object to enable/disable certain matching features |
 | [`fix`](#fix)           | `object` | Simple search-and-replace autofix functionality  |
-| [`metadata`](#metadata) | `object` | Arbitrary user-provided data; attach data to rules without affecting Semgrep’s behavior |
+| [`metadata`](#metadata) | `object` | Arbitrary user-provided data; attach data to rules without affecting Semgrep behavior |
 | [`paths`](#paths)       | `object` | Paths to include or exclude when running this rule |
 
 The below optional fields must reside underneath a `patterns` or `pattern-either` field.
@@ -148,8 +148,9 @@ Include more `focus-metavariable` keys with different metavariables under the `p
 ```yaml
     patterns:
       - pattern: foo($X, ..., $Y)
-      - focus-metavariable: $X
-      - focus-metavariable: $Y
+      - focus-metavariable:
+        - $X
+        - $Y
 ```
 
 <iframe src="https://semgrep.dev/embed/editor?snippet=AqJw" border="0" frameBorder="0" width="100%" height="432"></iframe>
@@ -169,7 +170,7 @@ Regex matching is **unanchored**. For anchored matching, use `\A` for start-of-s
 <iframe src="https://semgrep.dev/embed/editor?snippet=ved8"  border="0" frameBorder="0" width="100%" height="432"></iframe>
 
 :::info
-Include quotes in your regular expression when using `metavariable-regex` to search string literals. See [this snippet](https://semgrep.dev/s/mschwager:include-quotes) for more details. [String matching](pattern-syntax.mdx#string-matching) functionality can also be used to search string literals.
+Include quotes in your regular expression when using `metavariable-regex` to search string literals. For more details, see [include-quotes](https://semgrep.dev/playground/s/EbDB) code snippet. [String matching](pattern-syntax.mdx#string-matching) functionality can also be used to search string literals.
 :::
 
 ### `metavariable-pattern`
@@ -232,6 +233,8 @@ The `comparison` key accepts Python expression using:
 - Comparison operators `==`, `!=`, `<`, `<=`, `>`, and `>=`.
 - Function `int()` to convert strings into integers.
 - Function `str()` to convert numbers into strings.
+- Function `today()` that gets today's date as a float representing epoch time.
+- Function `strptime()` that converts strings in the format `"yyyy-mm-dd"` to a float representing the date in epoch time.
 - Lists, together with the `in`, and `not in` infix operators.
 - Function `re.match()` to match a regular expression (without the optional `flags` argument).
 
@@ -239,7 +242,7 @@ You can use Semgrep metavariables such as `$MVAR`, which Semgrep evaluates as fo
 
 - If `$MVAR` binds to a literal, then that literal is the value assigned to `$MVAR`.
 - If `$MVAR` binds to a code variable that is a constant, and constant propagation is enabled (as it is by default), then that constant is the value assigned to `$MVAR`.
-- Otherwise the code bound to the `$MVAR` is kept unevaluated, and its string representation can be obtainer using the `str()` function, as in `str($MVAR)`. For example, if `$MVAR` binds to the code variable `x`, `str($MVAR)` evaluates to the string literal `"x"`.
+- Otherwise the code bound to the `$MVAR` is kept unevaluated, and its string representation can be obtained using the `str()` function, as in `str($MVAR)`. For example, if `$MVAR` binds to the code variable `x`, `str($MVAR)` evaluates to the string literal `"x"`.
 
 #### Legacy `metavariable-comparison` keys
 
@@ -280,38 +283,6 @@ The `pattern-not-inside` operator keeps matched findings that do not reside with
 The above rule looks for files that are opened but never closed, possibly leading to resource exhaustion. It looks for the `open(...)` pattern _and not_ a following `close()` pattern.
 
 The `$F` metavariable ensures that the same variable name is used in the `open` and `close` calls. The ellipsis operator allows for any arguments to be passed to `open` and any sequence of code statements in-between the `open` and `close` calls. The rule ignores how `open` is called or what happens up to a `close` call &mdash; it only needs to make sure `close` is called.
-
-### `pattern-where-python`
-
-:::danger
-This feature was deprecated in Semgrep v0.61.0.
-:::
-
-The `pattern-where-python` is the most flexible operator. It allows for writing custom Python logic to filter findings. This is useful when none of the other operators provide the functionality needed to create a rule.
-
-:::danger
-Use caution with this operator. It allows for arbitrary Python code execution.
-
-As a defensive measure, the `--dangerously-allow-arbitrary-code-execution-from-rules` flag must be passed to use rules containing `pattern-where-python`.
-:::
-
-Example:
-
-```yaml
-rules:
-  - id: use-decimalfield-for-money
-    patterns:
-      - pattern: $FIELD = django.db.models.FloatField(...)
-      - pattern-inside: |
-          class $CLASS(...):
-              ...
-      - pattern-where-python: "'price' in vars['$FIELD'] or 'salary' in vars['$FIELD']"
-    message: "use DecimalField for currency fields to avoid float-rounding errors"
-    languages: [python]
-    severity: ERROR
-```
-
-The above rule looks for use of Django’s [`FloatField`](https://docs.djangoproject.com/en/3.0/ref/models/fields/#django.db.models.FloatField) model when storing currency information. `FloatField` can lead to rounding errors and should be avoided in favor of [`DecimalField`](https://docs.djangoproject.com/en/3.0/ref/models/fields/#django.db.models.DecimalField) when dealing with currency. Here the `pattern-where-python` operator allows us to utilize the Python `in` statement to filter findings that look like currency.
 
 ## Metavariable matching
 
@@ -433,7 +404,7 @@ Enable, disable, or modify the following matching features:
 | `vardef_assign`        | `true`  | Assignment patterns (for example `$X = $E`) match variable declarations (for example `var x = 1;`). |
 | `xml_attrs_implicit_ellipsis` | `true` | Any XML/JSX/HTML element patterns have implicit ellipsis for attributes (for example: `<div />` matches `<div foo="1">`. |
 
-The full list of available options can be consulted [here](https://github.com/returntocorp/semgrep/blob/develop/interfaces/Config_semgrep.atd). Note that options not included in the table above are considered experimental, and they may change or be removed without notice.
+The full list of available options can be consulted in the [Semgrep matching engine configuration](https://github.com/returntocorp/semgrep/blob/develop/interfaces/Rule_options.atd) module. Note that options not included in the table above are considered experimental, and they may change or be removed without notice.
 
 ## `fix`
 
@@ -471,7 +442,7 @@ rules:
       discovered-by: Ikwa L'equale
 ```
 
-The metadata are also displayed in Semgrep’s output if you’re running it with `--json`.
+The metadata are also displayed in the output of Semgrep if you’re running it with `--json`.
 Rules with `category: security` have additional metadata requirements. See [Including fields required by security category](/contributing/contributing-to-semgrep-rules-repository/#including-fields-required-by-security-category) for more information.
 
 ## `category`
@@ -482,7 +453,8 @@ Provide a category for users of the rule. For example: `best-practice`, `correct
 
 ### Excluding a rule in paths
 
-To ignore a specific rule on specific files, set the `paths:` key with one or more filters.
+To ignore a specific rule on specific files, set the `paths:` key with one or more filters. Paths are relative to the root directory of the scanned project.
+
 
 Example:
 

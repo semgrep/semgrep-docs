@@ -1,11 +1,15 @@
 | Status | Description |
 | -----------  | ------------ |
 | **Open** | Findings are open by default. A finding is open if it was present the last time Semgrep scanned the code and it has not been ignored. An open finding represents a match between the code and a rule that is enabled in the repository. Open findings require action, such as rewriting the code to eliminate the detected vulnerability. |
-| **Ignored** | Findings that are ignored are present in the code, but have been labeled as unimportant. Ignore findings that are false positives or deprioritized issues. Mark findings as ignored through Semgrep Cloud Platform (see [Managing finding status](/semgrep-app/findings/#managing-finding-status-bulk-triage)) or by adding a code comment (see [nosemgrep comments](/ignoring-files-folders-code/#reference-summary)). |
+| **Ignored** | Findings that are ignored are present in the code, but have been labeled as unimportant. Ignore findings that are false positives or deprioritized issues. Mark findings as ignored through Semgrep Cloud Platform (see [Managing finding status](/semgrep-code/findings/#managing-finding-status) or by adding a code comment (see [nosemgrep comments](/ignoring-files-folders-code/#reference-summary). |
 | **Fixed** | <p>Fixed findings were detected in a previous scan, but are no longer detected in the most recent scan of that same branch. </p> <p> To change the state of a finding to **fixed**: <ol type="a"><li>Fix the code so the rule does not match it.</li><li>Edit the Semgrep rule so it no longer matches the code.</li></ol></p> |
+
+:::info Findings triaged across refs
+Findings triaged (ignored, reopened) in a specific branch, PR, or MR are also triaged in all other branches, PRs, and MRs of a specific repository. In addition, if you filter for any other [Git references](https://git-scm.com/book/en/v2/Git-Internals-Git-References) (refs) on the [Findings](https://semgrep.dev/orgs/-/findings?tab=open) page, and then triage a finding, it is also automatically triaged in all other branches, PRs, MRs, and refs.
+:::
 
 Findings can also be **removed**. A removed finding does not count towards the fix rate or the number of findings. The removed finding also does not appear in the Semgrep Cloud Platform. A finding is removed if it is not found in the most recent scan of the branch where it was detected due to any of the following conditions:
 
 * The rule isn't enabled on the repository anymore.
 * The file path where the finding appeared is no longer found (it was deleted, renamed, added to a `.semgrepignore`, added to a `.gitignore` or added to the list of ignored paths in Semgrep Cloud Platform).
-* The PR or MR where the finding was detected has been closed without merging.
+* For GitHub organization accounts: the PR or MR where the finding was detected has been closed without merging.

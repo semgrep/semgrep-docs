@@ -8,6 +8,16 @@ description: "XML External entity prevention cheat sheet for Java. "
 
 This article documents two attacks related to XML external entities: XML exponential entity expansion and XML external entity injection. In Java, applications are secure from exponential entity expansion by default. Consequently, no security measures are necessary. When exponential entity expansion occurs the JDK throws an exception, but if this exception is not caught and handled, an attack can still cause a denial-of-service attack (DoS). In contrast, there are various countermeasures to protect a Java XML parser from XML external entity injection, but not all are effective. This cheat sheet also provides test results, availability, and the effect of different security measures on several Java classes that process XML documents in section [3. Overview of the effect of security measures for each class](#3-overview-of-the-effect-of-security-measures-for-each-class).
 
+## Check your project using Semgrep
+
+You may use [Pro rules](/semgrep-code/pro-rules/) to check your project for XXE vulnerabilities.
+
+### Catching XXE bugs in Java with Semgrep taint labels
+
+See the process behind creating a Semgrep rule that detects XXE vulnerabilities. You can create and improve your own rules using [Semgrep Playground](https://semgrep.dev/playground) as you may see in the following video:
+
+<iframe class="yt_embed" width="100%" height="432px" src="https://www.youtube.com/embed/lAbJdzMUR4k" frameborder="0" allowfullscreen></iframe>
+
 ## Mitigation summary
 
 It is not easy to summarize Java XML security. The XML standard allows multiple ways to include external content, including but not limited to external Document Type Definitions (DTD), external Entity References to external data, general entity references, and external parameter references. There are also several ways to include external content in XML Schemas and stylesheets.
@@ -46,7 +56,7 @@ The following infographic provides an overview of Java XXE security features:
 ## 1. Exponential entity expansion
 
 Exponential entity expansion occurs when several layers of nested entities reference several other entities.
-See an example of such a payload, called also an XML bomb, in [r2c's research project on GitHub](https://github.com/returntocorp/java-xxe-research/blob/main/payloads-new/xml-attacks/xml-bomb.xml).
+See an example of such a payload, called also an XML bomb, in [Semgrep's research project on GitHub](https://github.com/returntocorp/java-xxe-research/blob/main/payloads-new/xml-attacks/xml-bomb.xml).
 
 When a document that contains an XML bomb is parsed, the parser expands each of the nested references. Consequently, this expansion becomes exponential leading to excessive use of resources and denial-of-service attacks (DoS).
 In Java, the JDK throws an exception when such excessive use of resources is detected. 
@@ -77,11 +87,11 @@ XML external entity injection occurs when the system identifier to some of the e
 
 There are many potential ways in which external resources can be referenced in XML documents, XML Schemas, and XSLT stylesheets. External content can be loaded through an External Document Type Definition (DTD), an External Entity Reference to external data, a General Entity reference, or an External Parameter Entity reference. Additional XML code can also be included through `XInclude`, or references to XML Schema components using the `schemaLocation` attribute of `import` or `include` elements. In stylesheets, multiple sheets can be combined using the `xsl:include` element, the `?xml-stylesheet` processing instruction, or the `document()` function.
 
-For examples of each of these ways of including external resources, see the [Java API for XML Processing (JAXP) Security Guide](https://docs.oracle.com/en/java/javase/13/security/java-api-xml-processing-jaxp-security-guide.html) in Oracle documentation. In addition, you can review r2c's [research project on GitHub](https://github.com/returntocorp/java-xxe-research/tree/main/payloads-new).
+For examples of each of these ways of including external resources, see the [Java API for XML Processing (JAXP) Security Guide](https://docs.oracle.com/en/java/javase/13/security/java-api-xml-processing-jaxp-security-guide.html) in Oracle documentation. In addition, you can review Semgrep's [research project on GitHub](https://github.com/returntocorp/java-xxe-research/tree/main/payloads-new).
 
 ### 2.B Security measures
 
-There are several security measures, but not all of them are available for each class. See an overview of which measures are available for which class in section [3. Overview of the effect of security measures for each class](#3-overview-of-the-effect-of-security-measures-for-each-class) with r2c research results.
+There are several security measures, but not all of them are available for each class. See an overview of which measures are available for which class in section [3. Overview of the effect of security measures for each class](#3-overview-of-the-effect-of-security-measures-for-each-class) with Semgrep research results.
 
 #### Feature for Secure Processing (FSP)
 

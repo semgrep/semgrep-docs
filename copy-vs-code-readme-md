@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+
+cat docs/extensions/semgrep-vs-code-helmet.md <(curl 'https://raw.githubusercontent.com/returntocorp/semgrep-vscode/master/README.md') > docs/extensions/semgrep-vs-code.md

@@ -88,7 +88,7 @@ These release notes include upgrades for versions ranging between 0.120.0 and 0.
   - [Running Semgrep in continuous integration (CI) with Semgrep App](/semgrep-ci/running-semgrep-ci-with-semgrep-cloud-platform/)
   - [Running Semgrep in continuous integration (CI) without Semgrep App](/semgrep-ci/running-semgrep-ci-without-semgrep-cloud-platform/)
   - [Sample continuous integration (CI) configurations](/semgrep-ci/sample-ci-configs/)
-- Updated [Pricing and billing](/semgrep-cloud-platform/pricing-and-billing/) page. [Semgrep Supply Chain supported languages](/supported-languages/#semgrep-supply-chain) are now part of Pricing and billing document.
+- Updated [Pricing and billing](/pricing-and-billing/) page. [Semgrep Supply Chain supported languages](/supported-languages/#semgrep-supply-chain) are now part of Pricing and billing document.
 - The `SEMGREP_TIMEOUT ` information has been updated. See [`SEMGREP_TIMEOUT`](/semgrep-ci/configuration-reference/#semgrep_timeout) documentation for more details.
 - Collapsible items in the documentation sidebar now take you to overview pages for a given category or lead to introductory pages. Overview pages also provide an updated description for displayed cards that represent individual documents. For example: [Semgrep command-line interface (CLI)](/category/semgrep-cli/), [Semgrep in continuous integration (CI)](/category/semgrep-in-ci/), [Data-flow analysis engine overview](/writing-rules/data-flow/data-flow-overview/)
 - Release notes that you are now reading have been split into one document for each month the Release notes category now has its own dedicated right sidebar. This change makes it easier to find changes that happened over the span of a month.

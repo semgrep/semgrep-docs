@@ -7,16 +7,18 @@ title: Semgrep Pro Engine taint traces
 ---
 
 import MoreHelp from "/src/components/MoreHelp"
-import DisplayTaintedDataIntro from "/src/components/concept/_cloud-platform-display-tainted-data.mdx"
-import DisplayTaintedDataProcedure from "/src/components/procedure/_cloud-platform-display-tainted-data.mdx"
+import DisplayTaintedDataIntro from "/src/components/concept/_semgrep-code-display-tainted-data.mdx"
+import DisplayTaintedDataProcedure from "/src/components/procedure/_semgrep-code-display-tainted-data.mdx"
 
 ## Introduction
 
-This article documents dataflow analysis of Semgrep Pro Engine and interfile analysis in the Cloud Platform. This document helps you to enable these features and provides an overview of the benefits compared to the analysis of Semgrep OSS.
+This article documents dataflow analysis of Semgrep Pro Engine and cross-file (interfile) analysis in the Semgrep Code. This document helps you to enable these features and provides an overview of the benefits compared to the analysis of Semgrep OSS.
 
 ## Viewing the path of tainted data
 
 <DisplayTaintedDataIntro />
+
+### Displaying tainted data in Semgrep Code
 
 <DisplayTaintedDataProcedure />
 

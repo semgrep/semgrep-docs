@@ -39,13 +39,13 @@ make dev-setup
 Next, to install `semgrep-core`, run
 
 ```
-make build-core
+make core
 ```
 
 Finally, test the installation with 
 
 ```
-semgrep-core -help
+bin/semgrep-core -help
 ```
 
 At this point, you have the `semgrep-core` binary, so if you would like to finish the Semgrep installation, go to the [Python-side instructions](semgrep-contributing.md).
@@ -93,9 +93,9 @@ make config
 
 ### Developing `semgrep-core`
 
-If you are developing `semgrep-core`, enter the `semgrep/semgrep-core/` directory. The `Makefile` for `semgrep-core`-specific targets is at `semgrep/semgrep-core/`; the code is primarily in `src/`.
+If you are developing `semgrep-core`, Use `Makefile` in the repository root for `core` and `core-test` targets; the code is primarily in `src/`.
 
-The following assumes you are in `semgrep/semgrep-core/`.
+The following assumes you are in the repository root.
 
 After you pull or make a change, compile using
 
@@ -103,28 +103,28 @@ After you pull or make a change, compile using
 make
 ```
 
-This will build an executable for `semgrep-core` in `semgrep/semgrep-core/_build/default/src/cli/Main.exe` (we suggest aliasing this to `sc`). Try it out by running
+This will build an executable for `semgrep-core` in `_build/default/src/main/Main.exe` (we suggest aliasing this to `sc`). Try it out by running
 
 ```
-_build/default/src/cli/Main.exe -help
+_build/default/src/main/Main.exe -help
 ```
 
 When you are done, test your changes with 
 
 ```
-make test
+make core-test
 ```
 
 Finally, to update the `semgrep-core` binary used by `semgrep`, run
 
 ```
-make install
+make core-install
 ```
 
 ### Testing `semgrep-core`
 
-`make test` in the `semgrep-core` directory will run tests that check code is correctly parsed
-and patterns perform as expected. To add a test in an appropriate language subdirectory, `semgrep-core/tests/LANGUAGE`, create a target file (expected file extension given language) and a .sgrep file with a pattern. The testing suite will check that all places with a comment with `ERROR` were matches found by the .sgrep file. See existing tests for more clarity.
+`make test` in the repository root directory will run tests that check code is correctly parsed
+and patterns perform as expected. To add a test in an appropriate language subdirectory, `tests/patterns/[LANG]`, create a target file (expected file extension given language) and a .sgrep file with a pattern. The testing suite will check that all places with a comment with `ERROR` were matches found by the .sgrep file. See existing tests for more clarity.
 
 ### Development environment
 
@@ -230,13 +230,13 @@ Semgrep.match_sts_sts                    :      0.559 sec     185064 count
 
 We have two sets of benchmarks, one on a suite of real repos against real rulesets (real benchmarks), another that highlights specific slow (rule, file) pairs (micro benchmarks).
 
-To run the micro benchmarks, go to `semgrep-core/perf`, and run `./run-perf-suite`.
+To run the micro benchmarks, go to `perf/perf-matching/`, and run `./run-perf-suite`.
 
 To run the real benchmarks, go to `perf`, and run `./run-benchmarks`. See the perf [readme](https://github.com/returntocorp/semgrep/blob/develop/perf/README.md) for more details on how these are set up.
 
 There are a number of flags (`./run-benchmarks --help` to see them) which may be helpful if you are using the benchmarks for local development. For example, `./run-benchmarks --plot_benchmarks` will output a graph of the benchmark results at the end.
 
-If you are concerned about performance, the recommended way to test is to hide your change behind a flag and add that flag to run-benchmarks. Add a flag in `semgrep-core/src/core/Flag_semgrep.ml`. These are ref cells, so you can check whether the flag is enabled or not via `!Flag_semgrep.your_flag`. In `semgrep-core/src/cli/Main.ml`, go to options, and add a flag that sets the appropriate `Flag_semgrep`. Then, in `perf/run-benchmarks`, go to the `SemgrepVariants` list, and add your variant.
+If you are concerned about performance, the recommended way to test is to hide your change behind a flag and add that flag to run-benchmarks. Add a flag in `src/configuring/Flag_semgrep.ml`. These are ref cells, so you can check whether the flag is enabled or not via `!Flag_semgrep.your_flag`. In `src/core_cli/Core_CLI.ml`, go to options, and add a flag that sets the appropriate `Flag_semgrep`. Then, in `perf/run-benchmarks`, go to the `SemgrepVariants` list, and add your variant.
 
 You can also test the impact of your change by running `./run_benchmarks --std_only` in `perf`, which will only run the default version of semgrep.
 
@@ -246,15 +246,14 @@ In these next sections we will give an overview of `semgrep-core` and then some 
 
 ## Cheatsheet
 
-The following assume you are in `semgrep/semgrep-core/`.
+The following assume you are in the root of the repository.
 
 Compilation:
 
 * To compile: `make`
 * To run the test suite: `make test`
 * To install the `semgrep-core` binary: `make install`
-* The `semgrep-core` executable produced by `make`: `_build/default/src/cli/Main.exe` (alias `sc`)
-* The `pfff` executable produced by `make`: `_build/default/src/pfff/cli/Main.exe` (alias `pf`)
+* The `semgrep-core` executable produced by `make`: `_build/default/src/main/Main.exe` (alias `sc`)
 
 Running (examples in Python):
 
@@ -274,15 +273,15 @@ Try it out: `sc -f tests/python/dots_stmts.sgrep tests/python/dots_stmts.py -lan
 
 ### Entry point
 
-The entry point to `semgrep-core` is `Main.ml`, in `semgrep-core/src/cli/`. This is where you add command-line arguments. It calls functions depending on the mode in which `semgrep-core` was invoked (`-config` for a yaml file, `-f` for a single pattern, etc.)
+The entry point to `semgrep-core` is `Core_CLI.ml`, in `src/core_cli/`. This is where you add command-line arguments. It calls functions depending on the mode in which `semgrep-core` was invoked (`-config` for a yaml file, `-f` for a single pattern, etc.)
 
-When invoked by `semgrep`, `semgrep-core` is called by default wih `-config`. This corresponds to the function `semgrep_with_rules_file`, which in turn calls `semgrep_with_rules`. These functions will parse and then match the rule and targets.
+When invoked by `semgrep`, `semgrep-core` is called by default with `-config`. This corresponds to the function `semgrep_with_rules_file`, which in turn calls `semgrep_with_rules`. These functions will parse and then match the rule and targets.
 
 ### Parsing
 
 `semgrep-core` uses external modules to parse code into augmented language-specific abstract syntax trees (ASTs). Though we call these ASTs, they additionally contain token information such as parentheses that are traditionally only present in concrete syntax trees (CSTs) so that we can output results in the correct range.
 
-When `semgrep-core` receives a rule or a target, it will first need to parse it. The functions that do this are located in `semgrep-core/src/parsing/`. 
+When `semgrep-core` receives a rule or a target, it will first need to parse it. The functions that do this are located in `src/parsing/`.
 
 * If it reads a rule, it will go through `Parse_rule.ml`, which uses `Parse_pattern.ml` to parse the code-like portions of the rule
 * If it reads a target, it will go through `Parse_target.ml`
@@ -291,13 +290,13 @@ Depending on the language, `Parse_pattern.ml` and `Parse_target.ml` will invoke 
 
 ### Converting to the generic AST
 
-`semgrep-core` does not match based on the Java AST. It has a generic AST, defined in `AST_generic.ml` (in `semgrep-core/src/core/ast`), which all language-specific ASTs are converted to.
+`semgrep-core` does not match based on the Java AST. It has a generic AST, defined in `AST_generic.ml` (in `libs/ast_generic/`), which all language-specific ASTs are converted to.
 
-The functions for this conversion are in either `semgrep-core/src/parsing/pfff/` or `semgrep-core/src/parsing/tree-sitter/`. They are named with the appropriate language in a consistent convention.
+The functions for this conversion are in either `languages/[LANG]/generic/`. They are named with the appropriate language in a consistent convention.
 
 ### Matching
 
-The matching functions are contained in `semgrep-core/src/engine/` (e.g. `Match_rules.ml`, `Match_patterns.ml`) and `semgrep-core/src/matching/` (e.g. `Generic_vs_generic.ml`). There are several possible matchers to invoke
+The matching functions are contained in `src/engine/` (e.g. `Match_rules.ml`, `Match_patterns.ml`) and `src/matching/` (e.g. `Generic_vs_generic.ml`). There are several possible matchers to invoke
 
 * spacegrep (for generic mode)
 * regexp (to match by regexp instead of semgrep patterns)

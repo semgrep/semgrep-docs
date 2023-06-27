@@ -5,6 +5,7 @@ description: "Django XSS mitigation cheat sheet."
 
 import LinkToRegistryRule from "/src/components/LinkToRegistryRule"
 import XssInjectionIntro from "/src/components/concept/_xss-injection-intro.mdx"
+import RecommendedRuleSet from "/src/components/code_snippets/_cheat-sheets-recommended-rule-set.mdx"
 
 # XSS prevention for Django
 
@@ -16,15 +17,10 @@ In general, always use the template engine provided by Django using `render()`. 
 
 Semgrep ruleset for this cheatsheet: [https://semgrep.dev/p/minusworld.django-xss](https://semgrep.dev/p/minusworld.django-xss)
 
-#### Check your project for these conditions:
+### Check your project using Semgrep
 
-```bash
-semgrep scan --config p/minusworld.django-xss
-```
+<RecommendedRuleSet />
 
-[PDF of this cheat sheet](https://web-assets.r2c.dev/security-cheat-sheets/xss/r2c-security-cheat-sheet-xss-prevention-for-django.pdf)
-
----
 ## 1. Server code: Marking "safe" content, which does not escape HTML
 
 ### 1.A. Using **mark_safe()**
@@ -167,7 +163,7 @@ return HttpResponse("Hello, " + name)
 #### References:
 
 - [Django Book - Security: XSS](https://django-book.readthedocs.io/en/latest/chapter20.html#cross-site-scripting-xss)
-- [Example of XSS via `HttpResponseBadRequest`](https://r2c.dev/blog/2020/be-careful-what-you-request-for-django-method/)
+- [Example of XSS via `HttpResponseBadRequest`](https://semgrep.dev/blog/2020/be-careful-what-you-request-for-django-method/)
 - [HttpResponse subclasses](https://docs.djangoproject.com/en/3.1/ref/request-response/#httpresponse-subclasses)
 
 

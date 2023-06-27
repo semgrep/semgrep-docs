@@ -5,6 +5,7 @@ description: "Flask XSS prevention cheat sheet."
 
 import LinkToRegistryRule from "/src/components/LinkToRegistryRule"
 import XssInjectionIntro from "/src/components/concept/_xss-injection-intro.mdx"
+import RecommendedRuleSet from "/src/components/code_snippets/_cheat-sheets-recommended-rule-set.mdx"
 
 # XSS prevention for Flask
 
@@ -18,15 +19,9 @@ templates. And as always, run a security checker continuously on your code.
 
 Semgrep ruleset for this cheatsheet: [https://semgrep.dev/p/minusworld.flask-xss](https://semgrep.dev/p/minusworld.flask-xss)
 
-#### Check your project for these conditions:
+### Check your project using Semgrep
 
-```bash
-semgrep scan --config p/minusworld.flask-xss
-```
-
-[PDF of this cheat sheet](https://web-assets.r2c.dev/security-cheat-sheets/xss/r2c-security-cheat-sheet-xss-prevention-for-flask.pdf)
-
----
+<RecommendedRuleSet />
 
 ## 1. Server code: Unescaped variable enters template engine in Python code
 
@@ -69,7 +64,7 @@ render_template("unsafe.jinja2")
 
 - [Flask documentation - Escaping behavior](https://flask.palletsprojects.com/en/1.1.x/templating/#jinja-setup)
 - [Bento check - Unescaped Template Extension](https://bento.dev/checks/flask/unescaped-file-extension/)
-- [Unescaped template extensions in Flask](https://r2c.dev/blog/2020/bento-check-unescaped-template-extensions-in-flask/)
+- [Unescaped template extensions in Flask](https://semgrep.dev/blog/2020/bento-check-unescaped-template-extensions-in-flask/)
 
 #### Mitigation
 

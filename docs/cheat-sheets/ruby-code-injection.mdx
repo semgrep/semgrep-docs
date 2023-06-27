@@ -5,18 +5,15 @@ description: "Code injection prevention cheat sheet for Ruby."
 
 import LinkToRegistryRule from "/src/components/LinkToRegistryRule"
 import CodeInjectionIntro from "/src/components/concept/_code-injection-intro.mdx"
+import RecommendedRuleSet from "/src/components/code_snippets/_cheat-sheets-recommended-rule-set.mdx"
 
 # Code injection prevention for Ruby
 
 <CodeInjectionIntro />
 
-#### Check your project for these conditions:
+### Check your project using Semgrep
 
-```bash
-semgrep scan --config p/ruby-command-injection
-```
-
----
+<RecommendedRuleSet />
 
 ## 1. Evaluating code
 

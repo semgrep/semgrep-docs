@@ -6,7 +6,6 @@ hide_title: true
 description: "Learn about roles, user management, and how to implement role-based access control in Semgrep Cloud Platform."
 tags:
     - Semgrep Cloud Platform
-    - Community Tier
     - Team & Enterprise Tier
 ---
 
@@ -20,7 +19,6 @@ Object.entries(frontMatter).filter(
 
 import MoreHelp from "/src/components/MoreHelp"
 
-
 # User management, accounts, and roles 
 
 Accounts enable you to manage access to Semgrep resources, such as scans and findings, with varying levels of collaboration and visibility.
@@ -30,11 +28,9 @@ Semgrep Cloud Platform has two types of accounts:
 <dl>
     <dt>Personal account</dt>
     <dd>Every person who signs into Semgrep Cloud Platform is first signed in to a <strong>personal account</strong>. In a personal account, your findings, projects, private rules, and scans are visible only to you.</dd>
-    <dt>Organization account</dt>
-    <dd>To collaborate with others, create an <strong>organization account</strong>. An organization account in Semgrep Cloud Platform requires an existing organization from GitHub or GitLab. Creating this type of account integrates Semgrep Cloud Platform with your organization. A user can be part of many Semgrep Cloud Platform organization accounts, provided that they are a member of that organization in their SCM (source code management) tool, such as GitHub or GitLab.</dd>
+    <dt>Organization (Org) account</dt>
+    <dd>To collaborate with others, create an <strong>organization account</strong>. An organization account in Semgrep Cloud Platform requires an existing organization from GitHub or GitLab. Creating this type of account integrates Semgrep Cloud Platform with your organization. A user can be part of many Semgrep Cloud Platform organization accounts, provided that they are a member of that organization in their SCM (source code management) tool, such as GitHub or GitLab. Semgrep Cloud Platform can also detect the organization's repositories available for scanning.</dd>
 </dl>
-
-Users from the same organization can sign in to Semgrep Cloud Platform with their SCM's credentials and are automatically added to the organization account. Semgrep Cloud Platform can also detect the organization's repositories available for scanning.
 
 In organization accounts, collaborators can collectively manage Semgrep Cloud Platform. By default, users can:
 
@@ -46,19 +42,60 @@ In organization accounts, collaborators can collectively manage Semgrep Cloud Pl
 
 Semgrep Cloud Platform can restrict features based on user roles. See [Controlling access through roles](#controlling-access-through-roles).
 
-By creating an organization account, teams can collaborate on rule writing and the management of repositories. Teams with organization accounts can enforce organization-wide standards and secure their repositories at scale.
+## Setting up a Semgrep organization account
 
-## Creating an organization account
+By setting up an organization account, teams can collaborate on rule writing and the management of repositories. Teams with organization accounts can enforce organization-wide standards and secure their repositories at scale. Perform the steps outlined in the following subsections to set up an organization account.
+
+### Creating a Semgrep organization account
+
+:::note
+- Semgrep supports the creation of organization accounts from GitHub or GitLab only.
+:::
 
 To create an organization account:
 
 1. Sign in to Semgrep Cloud Platform.
 2. On the sidebar, click **your account name > Add org**.
-3. Complete the steps to finish adding your organization account.
+3. Choose **Create an organization**.
+4. Enter the **Organization Display Name**. Typically the organization display name matches the name of the organization in your SCM, but this is not required.
+5. Click **Create**.
+
+You have successfully connected an organization account.
+
+### Connecting a Semgrep organization account to your SCM
+
+This step connects a source code manager, such as GitHub, to your Semgrep organization account. Linking a source code manager allows the Semgrep org's membership to be managed by GitHub or GitLab. After connecting your Semgrep org to GitHub or GitLab, members from GitHub or GitLab are able to join the Semgrep organization you created previously.
+
+1. Sign in to Semgrep Cloud Platform.
+2. On the sidebar, click **your account name** > **the organization account** you created.
+3. Click **Settings** > **Source Code Managers**.
+4. Click on your Source code manager, for example, **Connect to GitHub**.
+5. Click an organization to link. You are signed out of Semgrep Cloud Platform automatically as your credentials have changed after linking an organization.
+6. Sign back in to Semgrep Cloud Platform.
+
+You have successfully connected an org in Semgrep Cloud Platform with an organization in your source code management tool.
+
+### Joining a Semgrep organization
+
+If a Semgrep organization has been connected to GitHub or GitLab, members of the org in GitHub or GitLab can join the Semgrep organization. To join a Semgrep org account, perform the following steps:
+
+1. Sign in to Semgrep Cloud Platform.
+2. On the sidebar, click **your account name > Add org**.
+3. Choose **Join an organization**. A list of possible orgs to join appears.
+4. Click the organization you want to join. You are signed out of Semgrep Cloud Platform automatically as your credentials change after linking an organization.
+6. Sign back in to Semgrep Cloud Platform.
+
+You have successfully joined an org in Semgrep Cloud Platform.
 
 ## Controlling access through roles 
 
-Access control in Semgrep Cloud Platform determines the resources and features that are available to users based on their role. This **role-based access control (RBAC)** feature is available for organizations on **Team/Enterprise tiers**.
+Access control in Semgrep Cloud Platform determines the resources and features that are available to users based on their role.
+
+:::caution Changes to RBAC default roles
+Previously, new users in organizations with RBAC enabled were assigned a `member` role. Starting **June 14, 2023**, the default role is set through the **Defaults** configuration.
+
+Change your default role assignment for new users by following the steps in [Setting a default role](#setting-a-default-role).
+:::
 
 ![Screenshot of role-based access control](/img/rbac-overview.png)<br />
 
@@ -68,8 +105,7 @@ Semgrep Cloud Platform divides users into two roles:
 * `member`
 
 :::info
-* Users in organizations without RBAC enabled are assigned an `admin` role by default.
-* Community-tier (Free) users are assigned an `admin` role by default.
+* Users are assigned a role based on your [organization's default role](#setting-a-default-role). New organizations are created with a default role of `admin`.
 :::
 
 The following table displays features available to each role:
@@ -80,16 +116,11 @@ The following table displays features available to each role:
 | Projects              | no        | yes       | Only `admin` can manage projects.                                                  |
 | Rule Board (Policies) | no        | yes       | Only `admin` can manage policies and rules.                                        |
 | Findings              | yes       | yes       | Both `admin` and `member` roles can sort, filter, comment on, and triage findings. |
-| Editor                | yes       | yes       | `member` roles are able to write and modify rules within an organization.          |
+| Editor                | yes       | yes       | `member` access is read-only within their organization. Users with a `member` role can use their personal account to write a rule.  |
 | Settings              | no        | yes       |                                                                                    |
-| Community             | yes       | yes       |                                                                                    |
 | Registry              | yes       | yes       |                                                                                    |
 | Playground            | yes       | yes       |                                                                                    |
 | Docs                  | yes       | yes       |                                                                                    |
-
-To enable RBAC, please contact r2c at [support@r2c.dev](mailto:support@r2c.dev).
-
-Upon enabling RBAC for the first time, current members of the organization are `admins`. New members added thereafter are automatically `members`.
 
 ### Member-scoped access tokens
 
@@ -99,7 +130,7 @@ Both members and admins can log in through the CLI by entering the following com
 semgrep login
 ```
 
-This generates a unique token that is used to identify a member or admin. When logged in, members can run scans on their local machine through the `semgrep ci` command. This sends findings data to Semgrep Cloud Platform.
+This generates a unique token that is used to identify a member or admin. When logged in, members can run scans on their local machine through the `semgrep ci` command and publish a rule. This sends findings data to Semgrep Cloud Platform.
 
 Only admin users can view member tokens in the **Settings > Tokens** tab. A token's access cannot be escalated to an admin-level token. A user must first obtain the admin role and then create a new token as an admin. See the following section on [Changing a user's role](/semgrep-cloud-platform/user-management/#changing-a-users-role).
 
@@ -126,5 +157,35 @@ To **change a user's role**:
 You cannot change your own role.
 :::
 
+## Setting a default role
+
+Organizations start with a default role of `admin`
+
+To change this, perform the following steps:
+
+1. On Semgrep Cloud Platform's sidebar, click Settings.
+2. Click **Access > Defaults**.
+
+![Screenshot of default user role](/img/default-user-role.png#md-width)<br />
+
+## Appendix: Token scopes
+
+Token scopes enable you to limit or grant permissions as necessary. Tokens can also be generated with appropriate scopes by Semgrep Cloud Platform when onboarding (adding) a repository. 
+
+The following table displays token scopes and their permissions:
+
+| Token scope | Send findings from a remote repository | Send findings from a local repository |  Send PR or MR comments | Connect to Semgrep API |
+| ----------- | ------- | --- | --| -- |
+| Agent (CI)  |   ✔️  Yes    |  ✔️ Yes  | ✔️  Yes | ❌ No |
+| Web API     |  ❌ No    |  ❌ No | ✔️  Yes  | ✔️ Yes  |
+| Member      |    ❌ No   |  ✔️ Yes  | ❌ No |❌ No |
+
+The following table displays typical uses for token scopes:
+
+| Token scope |Typical uses |
+| ----------- | ----------- |
+| Agent (CI)  | Generated by Semgrep Cloud Platform when onboarding (adding) a repository to Semgrep Cloud Platform. For non-GitHub-Actions users, you may have to copy and paste the token value into your CI provider's interface. |
+| Web API     | Used to access Semgrep's API. | 
+| Member      | Autogenerated by Semgrep CLI when a member is logging in through Semgrep CLI. Use this scope to scan your code locally using your organization's private rule and rulesets. The permissions of these tokens cannot be escalated. |
 
 <MoreHelp />

@@ -1,12 +1,13 @@
 ---
 slug: express-xss
-description: "Express mitigation cheat sheet by r2c."
+description: "ExpressJS mitigation cheat sheet by Semgrep."
 ---
 
 import LinkToRegistryRule from "/src/components/LinkToRegistryRule"
 import XssInjectionIntro from "/src/components/concept/_xss-injection-intro.mdx"
+import RecommendedRuleSet from "/src/components/code_snippets/_cheat-sheets-recommended-rule-set.mdx"
 
-# XSS prevention for Express
+# XSS prevention for ExpressJS
 
 <XssInjectionIntro />
 
@@ -14,13 +15,9 @@ import XssInjectionIntro from "/src/components/concept/_xss-injection-intro.mdx"
 
 In general, always use a template engine and `res.render()` to render HTML content. Some common template engines include Pug, Mustache, and EJS. If you need HTML escaping, escape the content. Try to do so in JavaScript code if possible. Review each individual case carefully. Once reviewed, exempt the finding with `# nosemgrep`. Beware of putting data in dangerous locations such as in `script` tags. And as always, run a security checker on your code.
 
-#### Check your project for these conditions:
+### Check your project using Semgrep
 
-```bash
-semgrep scan --config p/xss
-```
-
----
+<RecommendedRuleSet />
 
 ## 1. Server code: Bypassing the template engine
 

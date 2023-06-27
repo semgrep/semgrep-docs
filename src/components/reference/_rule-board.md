@@ -28,4 +28,4 @@ To add rules and rulesets to your Rule Board:
 4. Drag a card from the search results to the appropriate column.
 5. Select **Save changes**.
 
-For more information on operations such as filtering and deleting as well as Rule board management, see [Rule board](/docs/semgrep-app/rule-board).
+For more information on operations such as filtering and deleting as well as Rule board management, see [Rule board](/docs/semgrep-code/rule-board).

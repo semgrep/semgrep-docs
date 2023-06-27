@@ -2,7 +2,7 @@
 Not all Semgrep rules or rulesets make use of taint tracking. Ensure that you have a ruleset, such as the **default ruleset** added in your **[Rule Board](https://semgrep.dev/orgs/-/board)**. If this ruleset is not added, go to [https://semgrep.dev/p/default](https://semgrep.dev/p/default), and then click **Add to Rule Board**. You can add rules that use taint tracking from [Semgrep Registry](https://semgrep.dev/explore).
 :::
 
-To view details of tainted data, follow these steps:
+To view a detailed path of tainted data with dataflow traces, follow these steps:
 
 1. Log in to Semgrep Cloud Platform, and then click the **[Code](https://semgrep.dev/orgs/-/findings)** in the left panel to view your findings.
 1. Select a finding where Semgrep Code detected tainted data, and then do one of the following actions:
@@ -13,6 +13,6 @@ To view details of tainted data, follow these steps:
 1. In the <i class="fa-solid fa-droplet"></i> **Data flow** <i class="fa-regular fa-circle-info"></i> section you can see the source, traces, and sink of the tainted data. The example below displays the path of tainted data across multiple files as Semgrep Pro Engine was enabled.
     ![Data flow in Finding details page](/img/cloud-platform-findings-details-data-flow.png)<br />
 
-:::note Get interfile findings
-- Get interfile findings in your organization. Follow the steps in [Enabling Semgrep Pro Engine](/semgrep-code/semgrep-pro-engine-intro/#enabling-semgrep-pro-engine-in-semgrep-cloud-platform) documentation. See [Semgrep Pro Engine overview](/semgrep-code/semgrep-pro-engine-intro/) for general information about Semgrep Pro Engine.
+:::note Get cross-file findings
+- Get cross-file (interfile) findings in your organization. Follow the steps in [Enabling Semgrep Pro Engine](/semgrep-code/semgrep-pro-engine-intro/#enabling-semgrep-pro-engine-in-semgrep-cloud-platform) documentation. See [Semgrep Pro Engine overview](/semgrep-code/semgrep-pro-engine-intro/) for general information about Semgrep Pro Engine.
 :::

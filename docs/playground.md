@@ -8,6 +8,7 @@ hide_title: true
 ---
 
 import MoreHelp from "/src/components/MoreHelp"
+import EnableTurboMode from "/src/components/procedure/_enable-turbo-mode.md"
 
 # Creating and managing rules with Semgrep Playground
 
@@ -87,6 +88,9 @@ To **create a rule** in simple mode:
 6. Optional: Click on **Rule metadata** tab on the **Sample code** pane to enter additional metadata fields.
 7. Click **Run** or press <kbd>Ctrl</kbd>+<kbd>Enter</kbd> (<kbd>⌘</kbd>+<kbd>Enter</kbd> on Mac).
 
+
+<EnableTurboMode />
+
 ### Writing complex rules using advanced mode
 
 Advanced mode is a YAML editor for writing a rule **using any valid key from the Semgrep [schema](../writing-rules/rule-syntax/)**. Advanced mode provides default values for the required keys for a Semgrep rule definition and expects the user to modify and add keys to finish the rule.
@@ -95,7 +99,7 @@ To create a rule in advanced mode:
 
 1. Ensure that you are in the **Advanced mode**.
 ![Screenshot of the advanced view](/img/pleditor-advanced.png "Playground advanced mode")
-2. Enter the keys and values needed to finish your rule. 
+2. Enter the keys and values needed to finish your rule.
 3. Click **Run** or press <kbd>Ctrl</kbd>+<kbd>Enter</kbd> (<kbd>⌘</kbd>+<kbd>Enter</kbd> on Mac).
 
 ## Running and testing a rule for precision
@@ -130,7 +134,7 @@ File a [bug](https://github.com/returntocorp/semgrep/issues/new?title=semgrep.de
 
 ## Exploring rules through Semgrep Registry
 
-[Semgrep Registry](https://semgrep.dev/explore/) is an open-source, community-driven repository of rules. These rules can detect OWASP vulnerabilities, best practice violations, and security issues for a wide variety of languages and frameworks. These rules can be used as a starting point for writing your own custom rules by creating a forked rule. 
+[Semgrep Registry](https://semgrep.dev/explore/) is an open-source, community-driven repository of rules. These rules can detect OWASP vulnerabilities, best practice violations, and security issues for a wide variety of languages and frameworks. These rules can be used as a starting point for writing your own custom rules by creating a forked rule.
 
 [Signing in to Semgrep Cloud Platform](https://semgrep.dev/login?return_path=/playground/) enables you to access the Registry directly from the Playground's Library pane.
 
@@ -148,7 +152,7 @@ Another method of creating rules is by **forking** or **copying** from existing 
 6. Click **Run** to validate your rule.
 7. Click **Save** to save your rule. The following rule displays the end result.
 
-<iframe title="Prevent use of MD2" src="https://semgrep.dev/embed/editor?snippet=s-santillan:use-of-md2" width="100%" height="432px" frameBorder="0"></iframe>
+<iframe title="Prevent use of MD2" src="https://semgrep.dev/embed/editor?snippet=RDxN" width="100%" height="432px" frameBorder="0"></iframe>
 
 ## Setting code standards by adding a rule to the Rule Board
 

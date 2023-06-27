@@ -5,6 +5,7 @@ description: "XSS prevention for Java + JavaServer Pages (JSP)."
 
 import LinkToRegistryRule from "/src/components/LinkToRegistryRule"
 import XssInjectionIntro from "/src/components/concept/_xss-injection-intro.mdx"
+import RecommendedRuleSet from "/src/components/code_snippets/_cheat-sheets-recommended-rule-set.mdx"
 
 # XSS prevention for Java + JSP
 
@@ -19,15 +20,9 @@ If you are developing a REST API, consider using JAX-RS instead of writing direc
 
 Semgrep ruleset for this cheatsheet: [p/minusworld.java-httpservlet-jsp-xss](https://semgrep.dev/p/minusworld.java-httpservlet-jsp-xss)
 
-#### Check your project for these conditions:
+### Check your project using Semgrep
 
-```bash
-semgrep scan --config p/minusworld.java-httpservlet-jsp-xss
-```
-
-[PDF of this cheat sheet](https://web-assets.r2c.dev/security-cheat-sheets/xss/r2c-security-cheat-sheet-xss-prevention-for-java-jsp.pdf)
-
----
+<RecommendedRuleSet />
 
 ## 1. Server code: writing a response directly
 

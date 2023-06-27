@@ -1,14 +1,16 @@
 ---
-slug: editor 
+slug: editor
 append_help_link: true
 title: Editor
 hide_title: true
 tags:
     - Semgrep Cloud Platform
-    - Community Tier
     - Team & Enterprise Tier
 description: "Semgrep Editor is a powerful tool within Semgrep Cloud Platform to write rules and quickly apply these rules across an organization to enforce coding standards across an organization."
 ---
+
+import MoreHelp from "/src/components/MoreHelp"
+import EnableTurboMode from "/src/components/procedure/_enable-turbo-mode.md"
 
 <ul id="tag__badge-list">
 {
@@ -17,8 +19,6 @@ Object.entries(frontMatter).filter(
     (value) => <li class='tag__badge-item'>{value}</li> )
 }
 </ul>
-
-import MoreHelp from "/src/components/MoreHelp"
 
 
 # Writing rules using Semgrep Editor
@@ -89,6 +89,8 @@ To create a rule, click **Create rule** on the splash page or the **(+) sign** n
 
 Refer to [Rule syntax](/writing-rules/rule-syntax/) for all possible fields and values to create a rule.
 
+<EnableTurboMode />
+
 ### Jumpstart rule writing using existing rules
 
 Another method of creating rules is by **forking/copying** from existing rules found in Semgrep Registry. For example, Semgrep’s Java `crypto` ruleset prohibits the use of weak hashing algorithms `SHA-1` and `MD5`. An organization may want to further limit the use of other hash functions as part of their standards or security compliance. The next steps illustrate forking through copying an existing `use-of-sha1` rule and changing the rule to forbid MD2 hashes.
@@ -103,7 +105,7 @@ Another method of creating rules is by **forking/copying** from existing rules f
 6. Click **Run** to validate your rule.
 7. Click **Save** to save your rule. The following rule displays the end result.
 
-<iframe title="Prevent use of MD2" src="https://semgrep.dev/embed/editor?snippet=s-santillan:use-of-md2" width="100%" height="432px" frameBorder="0"></iframe>
+<iframe title="Prevent use of MD2" src="https://semgrep.dev/embed/editor?snippet=RDxN" width="100%" height="432px" frameBorder="0"></iframe>
 
 ### Debugging syntax issues
 

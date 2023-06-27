@@ -55,7 +55,7 @@ See also [Reachability](#reachability).
 
 Reachability refers to whether or not a vulnerable piece of code from a dependency is used in the codebase itself. In Semgrep Supply Chain, both a dependency's vulnerable version and code pattern must match for a vulnerability to be considered reachable.
 
-See [Semgrep Supply Chain Overview documentation](/semgrep-sc/semgrep-supply-chain-overview) to learn how Semgrep leverages its code-scanning and rule syntax capabilities to provide high-signal rules that determine a finding's reachability. This assists security engineers in remediation and triage processes.
+See [Overview of Semgrep Supply Chain](/semgrep-supply-chain/overview) to learn how Semgrep leverages its code-scanning and rule syntax capabilities to provide high-signal rules that determine a finding's reachability. This assists security engineers in remediation and triage processes.
 
 
 
@@ -87,4 +87,4 @@ An unreachable finding means that the dependency's version contains a known vuln
 
 ## Vulnerability
 
-A vulnerability is an unintentional flaw in a dependency that can be exploited. Vulnerabilities are assigned a CVE by the [MITRE corporation](https://cve.mitre.org/). Semgrep Supply Chain uses GitHub Security Advisory in categorizing the severity of a vulnerability.
+A vulnerability is an unintentional flaw in a dependency that can be exploited. Vulnerabilities are assigned a CVE by the [MITRE corporation](https://cve.mitre.org/). Semgrep Supply Chain uses GitHub Security Advisory (GHSA) in categorizing the severity of a vulnerability.

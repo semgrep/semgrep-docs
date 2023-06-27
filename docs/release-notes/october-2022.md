@@ -11,7 +11,7 @@ toc_max_heading_level: 3
 
 ## Semgrep Supply Chain
 
-r2c now offers a new product: Semgrep Supply Chain. Semgrep Supply Chain is a high-signal dependency scanner that detects reachable vulnerabilities in open source, third-party libraries in your code. Learn more about [Semgrep Supply Chain](https://semgrep.dev/products/semgrep-supply-chain).
+Semgrep, Inc now offers a new product: Semgrep Supply Chain. Semgrep Supply Chain is a high-signal dependency scanner that detects reachable vulnerabilities in open source, third-party libraries in your code. Learn more about [Semgrep Supply Chain](https://semgrep.dev/products/semgrep-supply-chain).
 
 ## Semgrep App
 
@@ -100,13 +100,13 @@ These release notes include upgrades for versions ranging between 0.116.0 and 0.
 #### Semgrep Supply Chain
 
 The following guides are now available for Semgrep Supply Chain:
-- [Scanning open source dependencies](/semgrep-sc/scanning-open-source-dependencies/) - Walks the user through setting up Semgrep Supply Chain scans and how Semgrep performs reachability analysis.
-- [Triaging and remediating dependency findings](/semgrep-sc/triaging-and-remediating-vulnerabilities/) - Provides workflows for triaging dependency findings.
-- [Ignoring lockfiles and dependencies](/semgrep-sc/ignoring-lockfiles-dependencies/) - Provides commands to fine-tune what files should not be scanned.
+- [Scanning open source dependencies](/semgrep-supply-chain/getting-started/) - Walks the user through setting up Semgrep Supply Chain scans and how Semgrep performs reachability analysis.
+- [Triaging and remediating dependency findings](/semgrep-supply-chain/triage-and-remediation/) - Provides workflows for triaging dependency findings.
+- [Ignoring lockfiles and dependencies](/semgrep-supply-chain/ignoring-lockfiles-dependencies/) - Provides commands to fine-tune what files should not be scanned.
 
 The following references are available for Semgrep Supply Chain:
 - [Supported languages](/docs/supported-languages#semgrep-supply-chain) - All languages supported by Semgrep Supply Chain and their maturity levels.
-- [Glossary](/semgrep-sc/sc-glossary/) - A list of terms related to software composition analysis and how Semgrep Supply Chain relates to those terms
+- [Glossary](/semgrep-supply-chain/glossary/) - A list of terms related to software composition analysis and how Semgrep Supply Chain relates to those terms
 
 #### Semgrep App
 
