@@ -15,7 +15,9 @@ Check the [Supported Languages table](/docs/supported-languages/#general-availab
 
 ###  Is the supported lockfile present in an appropriate location with the expected name?
 
-Lockfiles can be present in the root of the repository, or in subdirectories, for monorepos. Only the lockfile names indicated in the [Supported Languages table](/docs/supported-languages/#general-availability) are recognized by Semgrep Supply Chain.
+Semgrep Supply Chain searches the parent directories of any files for a language and ecosystem for the nearest relevant lockfile. This typically means that monorepos are recognized by the presence of the lockfiles in subdirectories.
+
+Only the lockfile names indicated in the [Supported Languages table](/docs/supported-languages/#general-availability) are recognized by Semgrep Supply Chain.
 
 ### Does the lockfile contain dependencies with pinned versions?
 
