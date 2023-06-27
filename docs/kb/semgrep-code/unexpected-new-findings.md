@@ -16,7 +16,7 @@ For these rulesets, you can check each rule's history to see recent changes:
 1. Open the rule in the Editor.
 2. Click the GitHub icon shown next to the rule ID to access the commit history.
 
-![GitHub icon to view rule history in the Semgrep Editor](/img/kb/github-icon/editor.png)
+![GitHub icon to view rule history in the Semgrep Editor](/img/kb/github-icon-editor.png)
 
 There are some Registry rulsets that have an alternative curator - these do not show "by Semgrep". For these rules:
 
