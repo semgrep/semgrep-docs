@@ -15,13 +15,13 @@ Check the [Supported Languages table](/docs/supported-languages/#general-availab
 
 ###  Is the supported lockfile present in an appropriate location with the expected name?
 
-Semgrep Supply Chain searches the parent directories of any files for a language and ecosystem for the nearest relevant lockfile. This typically means that monorepos are recognized by the presence of the lockfiles in subdirectories.
+Semgrep Supply Chain searches the parent directories of any files for a language for the nearest relevant lockfile. This typically means that monolithic repositories (monorepos) are recognized by the presence of the lockfiles in subdirectories.
 
-Only the lockfile names indicated in the [Supported Languages table](/docs/supported-languages/#general-availability) are recognized by Semgrep Supply Chain.
+Semgrep Supply Chain only recognizes the lockfile names indicated in the [Supported Languages table](/docs/supported-languages/#general-availability).
 
-### Does the lockfile contain dependencies with pinned versions?
+### Does the lockfile contain dependencies with exact versions?
 
-If your dependency file is a [manifest file](/docs/semgrep-supply-chain/glossary/#manifest-file) and contains unpinned versions, Semgrep Supply Chain does not report vulnerabilities for the dependencies that are not pinned. An unpinned dependency may already be installed at a safe version for a particular [Advisory](https://semgrep.dev/docs/semgrep-supply-chain/glossary/#advisory).
+If your dependency file is a [manifest file](/docs/semgrep-supply-chain/glossary/#manifest-file) and does not specify exact (pinned) versions for all dependencies, Semgrep Supply Chain does not report vulnerabilities for the dependencies that are not pinned. An unpinned dependency may already be installed at a safe version for a particular [Advisory](https://semgrep.dev/docs/semgrep-supply-chain/glossary/#advisory).
 
 Pinned dependencies can be analyzed even if the file contains other unpinned dependencies. Manifest files can also be helpful to determine whether a dependency is [transitive](/docs/semgrep-supply-chain/glossary/#transitive-or-indirect-dependency).
 
@@ -52,7 +52,11 @@ If code is modified, but the lockfile is not, Supply Chain does not analyze the 
 Currently, Semgrep Supply Chain only displays findings on one of the following branches in Semgrep Cloud Platform:
 
 * The repository's default branch, if that information is available. This information is typically available for CI scans performed through GitHub Actions.
-* One of a set of standard default branch names, including `develop` (or `development`), `main`, `master`, and `trunk`.
+* One of a set of standard default branch names, such as:
+  * `develop` (or `development`)
+  * `main`
+  * `master`
+  * `trunk`
 
 If a scan runs on a different branch, findings do not show in Semgrep Cloud Platform. This prevents vulnerability findings from persisting incorrectly after they have been resolved on the repository's primary branch.
 
