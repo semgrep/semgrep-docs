@@ -219,7 +219,7 @@ pip install pipenv --user
 pipenv lock
 ```
 
-The newly generated Pipfile.lock is a JSON file with all Python dependencies (direct and transitive) and their sha256 code.
+The newly generated `Pipfile.lock` is a JSON file with all Python dependencies (direct and transitive) and their sha256 code.
 
 The beginning of the file can look like this:
 
@@ -317,7 +317,7 @@ Running the previous command results in the following error:
 
 This error is due to git conflicts between `requirements.txt` that is already in the repository and the one the job generates each time.
 
-A solution to that can be to generate the `requirements.txt` file in a specific folder ("ssc", for example), so you can specify this file in theSsemgrep scan:
+A solution to that can be to generate the `requirements.txt` file in a specific folder so you can specify this file in the Semgrep scan:
 
 ```
 semgrep --supply-chain --include=ssc/requirements.txt
@@ -325,4 +325,4 @@ semgrep --supply-chain --include=ssc/requirements.txt
 
 ## Conclusions
 
-There are several ways to get lock files with Python dependencies. Depending on your preferences, you can select one or another. Keep in mind that the lockfile should be generated before the Semgrep scan and with the proper environment. This ensures that you are scanning only the dependencies of your project and to prevent scanning all the Python dependencies in your system.
+There are several ways to get lockfiles with Python dependencies. Depending on your preferences, you can select one or another. Keep in mind that the lockfile should be generated before the Semgrep scan and with the proper environment. This ensures that you are scanning only the dependencies of your project and to prevent scanning all the Python dependencies in your system.
