@@ -24,7 +24,7 @@ You can use any of these three lockfiles to get a successful Semgrep Supply Chai
 
 This section describes various methods to generate `requirements.txt`.
 
-### Using `requirements.in` to generate `requirements.txt`
+### Using `requirements.in`
 
 :::info Prerequisites
 
@@ -110,7 +110,7 @@ tzdata==2023.3
 
 This file has all direct and transitive dependencies of the example project and can be used by Semgrep as an entry point for the Supply Chain scan.
 
-### Using `pip freeze` to generate `requirements.txt`
+### Using `pip freeze`
 
 :::info Prerequisites
 
@@ -126,9 +126,9 @@ pip3 install .
 pip freeze --all > tee requirements.txt
 ```
 
-### Example CI configuration to generate `requirements.txt` and scan with Semgrep
+### Example CI configuration
 
-The following GitHub Action workflow provides an example on how to generate `requirements.txt` based on the preceding methods.
+The following GitHub Action workflow provides an example on how to generate `requirements.txt` in a CI environment based on the preceding methods.
 
 In the following example there are two jobs:
 * `my_first_job`: Generating `requirements.txt` and uploading it as an artifact
@@ -297,7 +297,7 @@ poetry lock
 
 The generated `Poetry.lock` contains all transitive and direct dependencies that the project uses.
 
-## Selecting a single lockfile among many for Semgrep Supply Chain scans
+## Selecting a single lockfile among many
 
 While there may already be a lockfile in the repository, such as a `Pipfile.lock`, you may want to generate a new one, for example `requirements.txt`, to be sure it has the latest dependencies.
 
