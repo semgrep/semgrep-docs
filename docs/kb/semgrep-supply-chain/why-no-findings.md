@@ -60,6 +60,14 @@ Currently, Semgrep Supply Chain only displays findings on one of the following b
 
 If a scan runs on a different branch, findings do not show in Semgrep Cloud Platform. This prevents vulnerability findings from persisting incorrectly after they have been resolved on the repository's primary branch.
 
+### Are all findings in the scan unreachable vulnerabilities?
+
+By default, Semgrep Cloud Platform shows only [reachable](/docs/semgrep-supply-chain/glossary/#reachability) vulnerabilities in the UI. 
+
+To see all vulnerabilities, select all boxes under the "Exposure" filter.
+
+![Exposure filter with all boxes selected](/img/kb/ssc-vuln-filter.png)
+
 ## Additional references
 
 If the project uses Java and Apache Maven with `pom.xml`, see [Setting up SSC scans for specific project management tools:
