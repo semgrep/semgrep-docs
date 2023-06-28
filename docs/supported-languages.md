@@ -65,7 +65,7 @@ Visit the cheat sheet generation script and associated semgrep-core test files t
 * [Generation script](https://github.com/returntocorp/semgrep/blob/develop/scripts/generate_cheatsheet.py)
 * [`semgrep-core` test files](https://github.com/returntocorp/semgrep/tree/develop/tests)
 
-Visit our public dashboard to see the parse rates for each language
+Visit the Semgrep public language dashboard to see the parse rates for each language
 * See [Parse rates by language](https://dashboard.semgrep.dev/).
 
 <!-- coupling: If you modify the features in the levels below, change also 
