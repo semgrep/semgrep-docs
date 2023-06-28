@@ -63,4 +63,4 @@ Apache Maven (Java)](/docs/semgrep-supply-chain/getting-started/#apache-maven-ja
 
 ## If you're still having trouble
 
-If you've addressed these issues but are still not seeing vulnerability findings, or if you need assistance setting up Semgrep Supply Chain for your projects, such as handling lockfile naming or addressing parsing issues, please [reach out for help](docs/support/).
+If you've addressed these issues but are still not seeing vulnerability findings, or if you need assistance setting up Semgrep Supply Chain for your projects, such as handling lockfile naming or addressing parsing issues, [reach out for help](docs/support/).
