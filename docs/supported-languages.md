@@ -39,7 +39,7 @@ Secure your code quickly and continuously by scanning with Semgrep Code, a fast 
 
 
 ### Language maturity
-Semgrep Code supports over 30 lanuages, and counting! 🚀 
+Semgrep Code supports over 30 languages and counting! 🚀 
 
 <SupportedLanguagesTable />
 
