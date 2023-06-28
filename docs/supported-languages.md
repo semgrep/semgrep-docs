@@ -48,7 +48,7 @@ Semgrep Code supports over 30 languages and counting! 🚀
 #### Language maturity factors
 
 Semgrep OSS Engine has three maturity levels. Semgrep Code has the same maturity level as Semgrep OSS Engine for any supported language. The maturity levels are the following:
-* Generally Available (GA) 
+* Generally available (GA) 
 * Beta
 * Experimental 
 
