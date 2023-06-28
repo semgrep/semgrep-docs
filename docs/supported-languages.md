@@ -208,7 +208,7 @@ Their differences are outlined in the following table:
 </table>
 
 :::info Feature and product maturity levels
-* The detailed specifications given above apply only to language support. Language maturity levels differ from feature and product maturity levels.
+* The detailed specifications previously provided apply only to language support. Language maturity levels differ from feature and product maturity levels.
 * Semgrep features and products documented as experimental, beta, or GA generally follow the definitions in a [Software release life cycle](https://en.wikipedia.org/wiki/Software_release_life_cycle).
 :::
 
