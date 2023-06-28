@@ -58,7 +58,7 @@ Their differences are outlined in the following table:
 |----------|---------------|------------------| ----- |
 | Parse Rate  | 99%+ | 95%+ | 90%+ | 
 | Number of rules  | 10+ | 5+ | 0+ | 
-| Semgrep syntax | Regexp, equivalence, deep expression operators, types and typing. All features supported in Beta. | Complete metavariable support, metavariable equality. All features supported in Experimental. | Syntax, ellipsis operaor, basic metavariable functionality.|
+| Semgrep syntax | Regexp, equivalence, deep expression operators, types and typing. All features supported in Beta. | Complete metavariable support, metavariable equality. All features supported in Experimental. | Syntax, ellipsis operator, basic metavariable functionality.|
 
 ### More Information
 Visit the cheat sheet generation script and associated semgrep-core test files to learn more about each feature:
