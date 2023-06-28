@@ -318,9 +318,7 @@ To **create a ticket**:
 
 ## Deduplicating findings
 
-Semgrep Cloud Platform scans are performed on both mainline (trunk) and non-mainline branches. Semgrep Cloud Platform generates findings on a per-branch basis. Duplicate findings arise due to scans occurring on the same code in different branches.
-
-There are two types of scans:
+Semgrep Cloud Platform scans are performed on both mainline (trunk) and non-mainline branches. The scope of the scan can differ depending on if Semgrep Cloud Platform is called on a mainline or non-mainline branch.
 
 <dl>
     <dt>Full scan</dt>
@@ -328,6 +326,8 @@ There are two types of scans:
     <dt>Diff-aware scan</dt>
     <dd>Diff-aware scans are performed on non-mainline branches, such as in pull requests and merge requests. Diff scans traverse the repository's files based on the commit where the branch diverged from the mainline branch (or diverged from the last commit that was fully scanned?)</dd>
 </dl>
+
+Regardless of the scope of a scan, SCP correlates findings across branches based on their unique fingerprint, deduplicating findings and making it simpler to triage. 
 
 If a finding is fixed in one branch (such as `main`) but open in another (such as `production`), and the code fixes are present in both branches, initiate a scan through your CI job or SCM tool on the branch(es) with open findings to have Semgrep mark the findings as fixed.
 
