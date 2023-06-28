@@ -35,7 +35,7 @@ This document provides information about supported languages and language maturi
 
 ## Semgrep Code 
 
-Secure your code quickly and continuously by scanning with Semgrep Code, a fast and lightweight SAST (Static Application Security Testing) product that leverages Semgrep OSS Engine and Semgrep Pro Engine. Semgrep Code helps you quickly find and fix vulnerabiliies in your code base. 
+Secure your code quickly and continuously by scanning with Semgrep Code, a fast and lightweight SAST (Static Application Security Testing) product that leverages Semgrep OSS Engine and Semgrep Pro Engine. Semgrep Code helps you quickly find and fix vulnerabilities in your code base. 
 
 
 ### Language maturity
