@@ -18,5 +18,5 @@ To add a repository from GitHub, GitLab, or BitBucket, follow these steps:
 You have now added a repository to Semgrep Cloud Platform. A scan begins automatically after adding a new repository.
 
 :::caution
-For GitHub users: If you are unable to add repositories, check your [branch protection](https://docs.github.com/en/repositories/configuring-branches-and-merges-in-your-repository/managing-protected-branches/about-protected-branches) settings.
+For GitHub users: If you encounter issues with adding repositories, such as being unable to commit the Semgrep workflow file, `semgrep.yml`,check your [branch protection](https://docs.github.com/en/repositories/configuring-branches-and-merges-in-your-repository/managing-protected-branches/about-protected-branches) settings.
 :::
