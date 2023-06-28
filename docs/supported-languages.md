@@ -60,7 +60,7 @@ Their differences are outlined in the following table:
 | Number of rules  | 10+ | 5+ | 0+ | 
 | Semgrep syntax | Regexp, equivalence, deep expression operators, types and typing. All features supported in Beta. | Complete metavariable support, metavariable equality. All features supported in Experimental. | Syntax, ellipsis operator, basic metavariable functionality.|
 
-### More Information
+### More information
 Visit the cheat sheet generation script and associated semgrep-core test files to learn more about each feature:
 * [Generation script](https://github.com/returntocorp/semgrep/blob/develop/scripts/generate_cheatsheet.py)
 * [`semgrep-core` test files](https://github.com/returntocorp/semgrep/tree/develop/tests)
