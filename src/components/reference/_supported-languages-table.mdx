@@ -1,43 +1,29 @@
-Semgrep supports 30+ languages.
-
 <div id="language-support-table">
 
-| GA ✅      | Beta 🐛                      | Experimental 🚧            |
+| Language 🌐 | Semgrep OSS Engine 🐛   | Semgrep Pro Engine (cross-file) 🏎️ 
 |:---------- |:----------------------------|:---------------------------|
-| C#         | Rust                        | Bash                       |
-| Go         |                             | C                          |
-| Java       |                             | C++                        |
-| JavaScript |                             | Cairo                      |
-| JSON       |                             | Clojure                    |
-| JSX        |                             | Dart                       |
-| Kotlin     |                             | Dockerfile                 |
-| PHP        |                             | Elixir                     |
-| Python     |                             | HTML                       |
-| Ruby       |                             | Jsonnet                    |
-| Scala      |                             | Julia                      |
-| Terraform  |                             | Lisp                       | 
-| TypeScript |                             | Lua                        | 
-|            |                             | OCaml                      |
-|            |                             | R                          |
-|            |                             | Scheme                     |
-|            |                             | Solidity                   |
-|            |                             | Swift                      |
-|            |                             | YAML                       |
-|            |                             | XML                        |
-|            |                             | Generic (ERB, Jinja, etc.) |
+| Go         | GA | Beta | ✅ |                         
+| Java       | GA | Beta | ✅ |      
+| Kotlin     | GA | Beta | ✅ |                
+| JavaScript | GA | Beta | ✅ | 
+| TypeScript | GA | Beta | ✅ |  
+| C#         | GA | -- | ✅ |                  
+| JSON       | GA | -- | ✅ |                    
+| JSX        | GA | -- | ✅ |                       
+| PHP        | GA | -- | ✅ |                   
+| Python     | GA | -- | ✅ |                        
+| Scala      | GA | -- | ✅ |                       
+| Terraform  | GA | -- | ✅ |      
+| Rust       | Beta | -- | ✅ |                 
+
+All generally available (GA) Semgrep OSS languages also have support for Semgrep Pro Engine's cross-functional analysis. 
+
+Semgrep OSS Engine also has experimental language support for the following languages:
+* Bash, C, C++, Cairo, Clojure, Dart, Dockerfile, Elixir, HTML, Jsonnet, Julia, Lisp, Lua, Ocaml, R, Scheme, Solidity, Swift, YAML, XML, Generic (ERB, Jinja, etc.).
+
+If you'd like to request a language not shown here, please [create an issue on the Semgrep GitHub repo](https://github.com/returntocorp/semgrep/issues). 
 
 </div>
-
-- **Experimental**: experimental support with many known bugs.
-    - Looking for dedicated users to help us improve these languages.
-    - Expect limited support responses, as these languages will be lowest priority.
-    - Semgrep Playground and Semgrep Editor support may be limited for these languages. 
-- **Beta**: supported language with known bugs.
-    - Looking for beta users to report bugs and rapidly iterate with our team.
-    - Expect best-effort support responses when there are no higher priority requests being handled.
-- **GA**: production-level support with few known bugs.
-    - Looking for bug reports and feedback from users.
-    - Expect timely and thorough support responses, generally within 24 hours.
 
 <!--  For readability, please keep each column in alphabetical order. -->
 <!-- coupling: Should match what is in semgrep-core/tests/Test.ml Maturity level testing. -->

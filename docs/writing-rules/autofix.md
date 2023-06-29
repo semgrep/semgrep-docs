@@ -74,3 +74,20 @@ rules:
 <p align="center">
   <img src="https://web-assets.r2c.dev/inline-autofix-regex.gif" width="100%" alt="Apply Semgrep autofix direclty to a file"/>
 </p>
+
+## Removing a code detected by a rule
+
+Improve your code quality by cleaning up stale code automatically. Remove code that an autofix rule detected by adding the `fix` key with `""`, an empty string.
+
+For example:
+
+```yaml
+ - id: python-typing
+   pattern: from typing import $X
+   fix: ""
+   languages: [ python ]
+   message: found one
+   severity: ERROR
+```
+
+When an autofix is applied, this rule removes the detected code.
