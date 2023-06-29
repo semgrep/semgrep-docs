@@ -281,6 +281,7 @@ module.exports = {
         'semgrep-code/policies',
         'semgrep-code/rule-board',
         'semgrep-code/findings',
+        'semgrep-code/semgrep-assistant-code',
         'semgrep-code/editor',
         ]
     },
