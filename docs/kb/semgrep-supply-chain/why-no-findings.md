@@ -33,13 +33,24 @@ Next, ensure that the scan was successful and sent results to the expected locat
 
 If the scan did not complete, or failed when trying to send results, the dependency information will not be available.
 
-Review the logs from the scan and determine whether it was successful, or ran into an issue. Common issues include:
+Review the logs from the scan and determine whether it was successful, or ran into an issue.
 
-* The lockfile could not be parsed successfully. The CI output should point to the line where the error occurred.
-  - If the lockfile contains any special or additional details, such as environmental markers, variables, or hashes specific to your organization, those may affect parse results.
-* Data was sent to a different Semgrep organization than expected.
-  - Check other organizations you belong to in Semgrep Cloud Platform to see if the results appear there.
-  - If you are running `semgrep ci` locally, use `semgrep logout` and `semgrep login`, and ensure you log in to the desired Semgrep Cloud Platform organization.
+#### Lockfile parsing failure
+
+The lockfile may not have been parsed successfully. The CI output should point to the line where the error occurred. Here is an example from a failed attempt to parse a `Pipfile.lock` (Python):
+
+```
+Error Returned: Failed to parse **app/Pipfile** at **40:1** - expected one of ['([^\\s=]+)\\s*=\\s*', 'EOF', '\\n+'] 40 | [requires]
+```
+
+If the lockfile contains any special or additional details, such as environmental markers, variables, or hashes specific to your organization, those may affect parse results. [Reach out for help](#if-youre-still-having-trouble) if you run into this!
+
+#### Data sent to a different organization
+
+If the scan did run successfully, the scan data may have been sent to a different Semgrep organization than expected.
+
+* Check other organizations you belong to in Semgrep Cloud Platform to see if the results appear there.
+* If you are running `semgrep ci` locally, use `semgrep logout` and `semgrep login`, and ensure you log in to the desired Semgrep Cloud Platform organization.
 
 ### If the scan was a diff-aware (PR/MR) scan, was the lockfile modified? 
 
