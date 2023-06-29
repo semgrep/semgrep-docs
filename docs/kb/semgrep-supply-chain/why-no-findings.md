@@ -40,7 +40,7 @@ Review the logs from the scan and determine whether it was successful, or ran in
 The lockfile may not have been parsed successfully. The CI output should point to the line where the error occurred. Here is an example from a failed attempt to parse a `Pipfile.lock` (Python):
 
 ```
-Error Returned: Failed to parse **app/Pipfile** at **40:1** - expected one of ['([^\\s=]+)\\s*=\\s*', 'EOF', '\\n+'] 40 | [requires]
+Error Returned: Failed to parse app/Pipfile** at 40:1 - expected one of ['([^\\s=]+)\\s*=\\s*', 'EOF', '\\n+'] 40 | [requires]
 ```
 
 If the lockfile contains any special or additional details, such as environmental markers, variables, or hashes specific to your organization, those may affect parse results. [Reach out for help](#if-youre-still-having-trouble) if you run into this!
