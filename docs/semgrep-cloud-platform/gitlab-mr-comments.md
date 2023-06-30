@@ -27,6 +27,7 @@ Object.entries(frontMatter).filter(
 :::info Prerequisites
 * Pull request (PR) comments can only be enabled through Semgrep Cloud Platform (SCP). [Create an account](/semgrep-code/getting-started/#signing-in-to-semgrep-cloud-platform) to set up Slack notifications.
 * To receive alerts and notifications, you must [add or onboard a project](/semgrep-code/getting-started/#option-b-adding-a-repository-from-github-gitlab-or-bitbucket) (repository) to Semgrep Cloud Platform for scanning.
+* Ensure you are running a [supported version of Semgrep](/semgrep-cloud-platform/getting-started/) with Semgrep Cloud Platform. Semgrep versions prior to 1.13.0 used a different approach to posting MR comments that is no longer supported.
 :::
 
 This section documents how to enable Semgrep Cloud Platform to post comments on merge requests.
