@@ -15,7 +15,7 @@ The primary goal of Azure templates is to extract some functionalities defined i
 * Create template files to run various Semgrep commands.
 * Include or call templates in your Azure Pipeline.
 
-You can then reuse the template files in as many Pipelines as you need.
+You can then reuse the template files in as many pipelines as you need.
 
 ## Defining Semgrep code snippets in a template file
 
