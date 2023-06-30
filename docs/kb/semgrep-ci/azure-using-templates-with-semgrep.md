@@ -12,8 +12,8 @@ Complex CI configs can take a lot of work to maintain and modify. It can therefo
 
 The primary goal of Azure templates is to extract some functionalities defined in large YAML config files and place them into their own separate [templates](https://learn.microsoft.com/en-us/azure/devops/pipelines/process/templates?view=azure-devops). This improves a pipeline's readability and maintainability. This guide explains how to:
 
-* Creating template files which run Semgrep commands.
-* Including or calling templates into your Azure Pipeline.
+* Create template files to run various Semgrep commands.
+* Include or call templates in your Azure Pipeline.
 
 You can then reuse the template files in as many Pipelines as you need.
 
