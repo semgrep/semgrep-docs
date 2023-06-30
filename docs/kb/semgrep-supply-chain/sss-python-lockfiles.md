@@ -132,7 +132,7 @@ In the following example there are two jobs:
 * `my_first_job`: Generating `requirements.txt` and uploading it as an artifact
 * `my_second_job`: Downloading the artifact and scanning it with Semgrep
 
-```
+```yaml
 on:
   pull_request: {}
   workflow_dispatch: {}
