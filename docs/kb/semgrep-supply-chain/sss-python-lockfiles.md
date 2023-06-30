@@ -22,8 +22,6 @@ You can use any of these three lockfiles to get a successful Semgrep Supply Chai
 
 ## Generating `requirements.txt`
 
-This section describes various methods to generate `requirements.txt`.
-
 ### Using `requirements.in`
 
 :::info Prerequisites
