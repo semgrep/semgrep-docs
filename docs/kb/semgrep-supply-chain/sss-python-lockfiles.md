@@ -323,4 +323,4 @@ semgrep --supply-chain --include=ssc/requirements.txt
 
 ## Conclusions
 
-There are several ways to get lockfiles with Python dependencies. Depending on your preferences, you can select one or another. Keep in mind that the lockfile should be generated before the Semgrep scan and with the proper environment. This ensures that you are scanning only the dependencies of your project and to prevent scanning all the Python dependencies in your system.
+There are several ways to generate lockfiles for Python dependencies. Depending on your preferences, you can select one or another. Keep in mind that the lockfile should be generated before the Semgrep scan and within the proper environment. This ensures that you are scanning only the dependencies of your project and not all the Python dependencies of your system.
