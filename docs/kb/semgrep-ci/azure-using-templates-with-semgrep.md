@@ -35,7 +35,7 @@ To add Semgrep commands in a YAML template file:
 	    semgrep ci
 	```
  
-	Example for Semgrep pull request scan in a template yaml file:
+	Example YAML template file for a Semgrep pull request scan:
 
 	```yaml
 	steps:
