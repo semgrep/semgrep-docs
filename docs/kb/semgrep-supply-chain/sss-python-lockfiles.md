@@ -106,7 +106,7 @@ tzdata==2023.3
     # via pandas
 ```
 
-This file has all direct and transitive dependencies of the example project and can be used by Semgrep as an entry point for the Supply Chain scan.
+This file has all direct and transitive dependencies of the example project and can be used by Semgrep as an entry point for the supply chain scan.
 
 ### Using `pip freeze`
 
