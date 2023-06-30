@@ -221,7 +221,7 @@ The newly generated `Pipfile.lock` is a JSON file with all Python dependencies (
 
 The beginning of the file may look something like this:
 
-```
+```json
 {
     "_meta": {
         "hash": {
