@@ -9,7 +9,7 @@ tags:
 
 ## Semgrep Code
 
-Semgrep Code rules have one of three severity levels: ERROR (High), WARNING (Medium), or INFO (Low). The severity indicates how critical the issues are that a rule potentially detects.
+Semgrep Code rules have one of three severity levels: `ERROR` (High), `WARNING` (Medium), or `INFO` (Low). The severity indicates how critical the issues are that a rule potentially detects.
 
 The severity of a given rule is assigned by the rule author. For custom and third-party rules, the rule author's assignment is the source of truth.
 
