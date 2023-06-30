@@ -297,7 +297,7 @@ The generated `Poetry.lock` file contains all transitive and direct dependencies
 
 ## Selecting a single lockfile among many
 
-While there may already be a lockfile in the repository, such as a `Pipfile.lock`, you may want to generate a new one, for example `requirements.txt`, to be sure it has the latest dependencies.
+While there may already be a lockfile in the repository, such as a `Pipfile.lock`, you may want to generate a new one, for example a `requirements.txt`, to be sure it has the latest dependencies.
 
 In Semgrep, you can use the flag `--include` to specify only one lockfile:
 
