@@ -53,7 +53,9 @@ To add Semgrep commands in a YAML template file:
 	    SEMGREP_BASELINE_REF: 'origin/master'
 	```
  
-	Note that you must use two separate templates for full scans and [diff-aware scans](/semgrep-ci/running-semgrep-ci-without-semgrep-cloud-platform/#diff-aware-scanning). This is because there are different environment variables used depending on the type of scan such as `SEMGREP_PR_ID` and `SEMGREP_BASELINE_REF` in the template for diff-aware scans.
+	:::note
+	You must define two separate templates for full scans and [diff-aware scans](/semgrep-ci/running-semgrep-ci-without-semgrep-cloud-platform/#diff-aware-scanning). This is because there are different environment variables used depending on the type of scan such as `SEMGREP_PR_ID` and `SEMGREP_BASELINE_REF` in the template for diff-aware scans.
+	:::
 
 ## Including templates in an Azure Pipeline
 
