@@ -313,7 +313,7 @@ However, generating a new `requirements.txt` file and running the previous comma
 [ERROR] Found pending changes in tracked files. Baseline scans runs require a clean git state.
 ```
 
-This error is due to git conflicts between `requirements.txt` that is already in the repository and the one the job generates each time.
+This is due to git conflicts between the previously committed `requirements.txt` file and the newly generated `requirements.txt` file.
 
 A solution to that can be to generate the `requirements.txt` file in a specific folder so you can specify this file in the Semgrep scan:
 
