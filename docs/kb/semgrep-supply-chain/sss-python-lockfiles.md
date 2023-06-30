@@ -126,7 +126,7 @@ pip freeze --all > tee requirements.txt
 
 ### Example CI configuration
 
-The following GitHub Action workflow provides an example on how to generate `requirements.txt` in a CI environment based on the preceding methods.
+The following GitHub Actions workflow provides an example on how to generate `requirements.txt` in a CI environment based on the preceding methods.
 
 In the following example there are two jobs:
 * `my_first_job`: Generating `requirements.txt` and uploading it as an artifact
