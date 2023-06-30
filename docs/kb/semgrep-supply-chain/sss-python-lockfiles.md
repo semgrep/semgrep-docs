@@ -16,7 +16,7 @@ To correctly scan all dependencies in a project, Semgrep Supply Chain requires a
 
 * `requirements.txt`
 * `Pipfile.lock`
-* `Poetry .lock`
+* `Poetry.lock`
 
 You can use any of these three lockfiles to get a successful Semgrep Supply Chain scan.
 
