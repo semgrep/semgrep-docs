@@ -307,7 +307,7 @@ semgrep --supply-chain --include=requirements.txt
 
 Alternatively, your repository may already have a `requirements.txt` file, but you want to generate a fresh and updated version.
 
-Running the previous command results in the following error:
+However, generating a new `requirements.txt` file and running the previous command may result in the following error:
 
 ```
 [ERROR] Found pending changes in tracked files. Baseline scans runs require a clean git state.
