@@ -1,3 +1,11 @@
+---
+description: Collect logs from GitHub actions to troubleshoot Semgrep CI scans.
+tags:
+  - GitHub
+  - Semgrep in CI
+---
+
+
 # Collecting Semgrep GitHub Actions logs from Github
 
 1. On Github.com, or in your GitHub instance, navigate to the main page of the repository that Semgrep scanned.
