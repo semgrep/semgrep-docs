@@ -2,6 +2,7 @@
 tags:
   - Semgrep OSS Engine
   - Semgrep Rules
+description: One common issue when writing custom rules is to try to exclude some cases using `pattern-not`, without success.
 ---
 
 # My rule with `pattern-not` doesn't work: using `pattern-not-inside`
