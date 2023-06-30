@@ -38,7 +38,7 @@ To generate a `requirements.txt` file from `requirements.in`, enter the followin
 pip-compile -o requirements.txt
 ```
 
-You have successfully generated a `requirements.txt` file with direct and transitive dependencies that Semgrep Supply Chain parse for scanning.
+Now, you have successfully generated a `requirements.txt` file with direct and transitive dependencies that Semgrep Supply Chain can scan.
 
 #### Example of `requirements.txt` generated from `requirements.in`
 
