@@ -293,7 +293,7 @@ Generate a `Poetry.lock` file with the following command:
 poetry lock
 ```
 
-The generated `Poetry.lock` contains all transitive and direct dependencies that the project uses.
+The generated `Poetry.lock` file contains all transitive and direct dependencies that the project uses.
 
 ## Selecting a single lockfile among many
 
