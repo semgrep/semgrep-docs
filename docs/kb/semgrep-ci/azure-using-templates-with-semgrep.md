@@ -84,6 +84,5 @@ You can even define your templates in a centralized repo and [reference them in 
 :::
 ## Conclusion
 
-Using templates in Azure pipelines is a good practice to simplify your Pipelines configuration file and improve readability and maintainability.
-> Adding these templates and the semgrep pipeline itself to all the repositories in an organization is something that we can definitively automate to speed up the onboarding process. 
+Using templates in Azure Pipelines is a good practice to simplify pipeline configuration files, improving both readability and maintainability. Pipeline templates can also speed up the Semgrep onboarding process for repositories by allowing you to reuse the same template in each repository.
    
