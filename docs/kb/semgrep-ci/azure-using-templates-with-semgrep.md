@@ -80,7 +80,9 @@ jobs:
   steps:
   - template: templates/pr_scan_semgrep.yml
 ``````
-
+:::tip
+You can even define your templates in a centralized repo and [reference them in other repos](https://learn.microsoft.com/en-us/azure/devops/pipelines/process/templates?view=azure-devops#use-other-repositories).
+:::
 ## Conclusion
 
 Using templates in Azure pipelines is a good practice to simplify your Pipelines configuration file and improve readability and maintainability.
