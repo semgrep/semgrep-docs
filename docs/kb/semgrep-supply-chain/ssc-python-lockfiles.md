@@ -3,7 +3,6 @@ description: Generate various Python lock files to run Semgrep Supply Chain scan
 tags:
   - Semgrep Supply Chain
   - Python
-  - Knowledge Base
   - Lockfiles
   - requirements.txt
   - Pipfile.lock
