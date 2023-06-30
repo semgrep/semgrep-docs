@@ -219,7 +219,7 @@ pipenv lock
 
 The newly generated `Pipfile.lock` is a JSON file with all Python dependencies (direct and transitive) and their sha256 code.
 
-The beginning of the file can look like this:
+The beginning of the file may look something like this:
 
 ```
 {
