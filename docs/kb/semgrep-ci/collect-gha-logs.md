@@ -1,5 +1,5 @@
 ---
-description: Collect logs from GitHub actions to troubleshoot Semgrep CI scans.
+description: Collect logs from GitHub Actions to troubleshoot Semgrep CI scans.
 tags:
   - GitHub
   - Semgrep in CI
