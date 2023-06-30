@@ -16,44 +16,44 @@ This guide explains the following procedures:
 * Including or calling templates into your Azure Pipeline.
 
 You can then reuse the template files in as many Pipelines as you need.
-## Defining Semgrep code snippets in a template file
 
+## Defining Semgrep code snippets in a template file
 
 To add Semgrep commands in a YAML template file:
 
  1. Create a `templates` folder in the repository you want to run Semgrep in.
  2. Commit the following two templates: 
+	
+	Example for Semgrep full scan in a template yaml file:
 
-    Example for Semgrep full scan in a template yaml file:
-    1. Template for Semgrep full scans:
-    ```yaml
-steps:
-- script: |
-    echo "Semgrep full scan"
-    python -m pip install --upgrade pip
-    pip install semgrep
-    semgrep ci
-``````
+	```yaml
+	steps:
+	- script: |
+	    echo "Semgrep full scan"
+	    python -m pip install --upgrade pip
+	    pip install semgrep
+	    semgrep ci
+	```
+ 
+	Example for Semgrep pull request scan in a template yaml file:
 
-Example for Semgrep pull request scan in a template yaml file:
-``````
-steps:
-- checkout: self
-  clean: true
-  fetchDepth: 10000
-- script: |
-    echo "Pull Request Scan from branch: $(Build.SourceBranchName)"
-    git fetch origin master:origin/master
-    python -m pip install --upgrade pip
-    pip install semgrep
-    semgrep ci
-  env:
-    SEMGREP_PR_ID: $(System.PullRequest.PullRequestNumber)
-    SEMGREP_BASELINE_REF: 'origin/master'
-``````
-
-Note that you must use two separate templates for full scans and [diff-aware scans](/semgrep-ci/running-semgrep-ci-without-semgrep-cloud-platform/#diff-aware-scanning). This is because there are different environment variables used depending on the type of scan such as SEMGREP_PR_ID and SEMGREP_BASELINE_REF in the template for diff-aware scans.
-
+	```yaml
+	steps:
+	- checkout: self
+	  clean: true
+	  fetchDepth: 10000
+	- script: |
+	    echo "Pull Request Scan from branch: $(Build.SourceBranchName)"
+	    git fetch origin master:origin/master
+	    python -m pip install --upgrade pip
+	    pip install semgrep
+	    semgrep ci
+	  env:
+	    SEMGREP_PR_ID: $(System.PullRequest.PullRequestNumber)
+	    SEMGREP_BASELINE_REF: 'origin/master'
+	```
+ 
+	Note that you must use two separate templates for full scans and [diff-aware scans](/semgrep-ci/running-semgrep-ci-without-semgrep-cloud-platform/#diff-aware-scanning). This is because there are different environment variables used depending on the type of scan such as `SEMGREP_PR_ID` and `SEMGREP_BASELINE_REF` in the template for diff-aware scans.
 
 ## Including templates in an Azure Pipeline
 
