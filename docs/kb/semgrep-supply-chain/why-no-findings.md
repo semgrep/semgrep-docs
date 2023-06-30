@@ -23,7 +23,7 @@ Semgrep Supply Chain only recognizes the lockfile names indicated in the [Suppor
 
 ### Does the lockfile contain dependencies with exact versions?
 
-If your dependency file is a [manifest file](/docs/semgrep-supply-chain/glossary/#manifest-file) and does not specify exact (pinned) versions for all dependencies, Semgrep Supply Chain does not report vulnerabilities for the dependencies that are not pinned. An unpinned dependency may already be installed at a safe version for a particular [Advisory](https://semgrep.dev/docs/semgrep-supply-chain/glossary/#advisory).
+If your dependency file is a [manifest file](/docs/semgrep-supply-chain/glossary/#manifest-file) and does not specify exact (pinned) versions for all dependencies, Semgrep Supply Chain does not report vulnerabilities for the dependencies that are not pinned. This is because an unpinned dependency may already be installed at a safe version for a particular [Advisory](https://semgrep.dev/docs/semgrep-supply-chain/glossary/#advisory), and not require upgrade.
 
 Pinned dependencies can be analyzed even if the file contains other unpinned dependencies. Manifest files can also be helpful to determine whether a dependency is [transitive](/docs/semgrep-supply-chain/glossary/#transitive-or-indirect-dependency).
 
