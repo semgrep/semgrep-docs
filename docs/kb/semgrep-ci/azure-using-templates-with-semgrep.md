@@ -59,8 +59,7 @@ To add Semgrep commands in a YAML template file:
 
 ## Referencing templates in an Azure Pipeline
 
-Now we can add these templates in the repo, for example, in a folder called templates.
-Then the Semgrep pipeline can look like this:
+Now with your templates defined,  you can reference them in other Azure Pipelines like this:
 
 ``````
 pool:
