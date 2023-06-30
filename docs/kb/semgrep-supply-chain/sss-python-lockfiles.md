@@ -315,7 +315,7 @@ However, generating a new `requirements.txt` file and running the previous comma
 
 This is due to git conflicts between the previously committed `requirements.txt` file and the newly generated `requirements.txt` file.
 
-A solution to that can be to generate the `requirements.txt` file in a specific folder so you can specify this file in the Semgrep scan:
+A solution to this issue can be to generate the new `requirements.txt` file in a different folder and then specifically include it in the Semgrep scan:
 
 ```
 semgrep --supply-chain --include=ssc/requirements.txt
