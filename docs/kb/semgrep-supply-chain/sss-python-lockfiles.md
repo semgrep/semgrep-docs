@@ -305,7 +305,7 @@ In Semgrep, you can use the flag `--include` to specify only one lockfile:
 semgrep --supply-chain --include=requirements.txt
 ```
 
-Alternatively, your repository may have a lockfile of the same name (`requirements.txt`), but you want to generate a fresh and updated version.
+Alternatively, your repository may already have a `requirements.txt` file, but you want to generate a fresh and updated version.
 
 Running the previous command results in the following error:
 
