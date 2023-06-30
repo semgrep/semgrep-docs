@@ -11,13 +11,15 @@ First, verify that your repository meets the basic requirements for Semgrep Supp
 
 ### Are the language and ecosystem supported?
 
-Check the [Supported Languages table](/docs/supported-languages/#general-availability) for support for the project's language and ecosystem, as well as any ecosystem-specific requirements.
+Check the [Supported Languages table](/docs/supported-languages/#general-availability) to verify support for the project's language and ecosystem, as well as any ecosystem-specific requirements.
 
 ###  Is the supported lockfile present in an appropriate location with the expected name?
 
-Semgrep Supply Chain searches the parent directories of any files for a language for the nearest relevant lockfile. This typically means that monolithic repositories (monorepos) are recognized by the presence of the lockfiles in subdirectories.
+Semgrep Supply Chain searches the parent directories of any code files for the nearest relevant lockfile. Monolithic repositories (monorepos) will have their findings grouped based on the lockfiles present in subdirectories.
 
 Semgrep Supply Chain only recognizes the lockfile names indicated in the [Supported Languages table](/docs/supported-languages/#general-availability).
+
+[Reach out for help](#if-youre-still-having-trouble) if you run into trouble with lockfile location or naming.
 
 ### Does the lockfile contain dependencies with exact versions?
 
