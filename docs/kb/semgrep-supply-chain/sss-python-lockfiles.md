@@ -287,7 +287,7 @@ build-backend = "poetry.core.masonry.api"
 
 ### Generating a `Poetry.lock`
 
-Generate a `Poetry.lock` with the following command:
+Generate a `Poetry.lock` file with the following command:
 
 ```bash
 poetry lock
