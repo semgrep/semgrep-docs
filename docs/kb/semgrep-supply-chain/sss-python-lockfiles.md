@@ -130,7 +130,7 @@ The following GitHub Actions workflow provides an example on how to generate `re
 
 In the following example there are two jobs:
 * `my_first_job`: Generating `requirements.txt` and uploading it as an artifact
-* `my_second_job`: Download the artifact and scan it with Semgrep
+* `my_second_job`: Downloading the artifact and scanning it with Semgrep
 
 ```
 on:
