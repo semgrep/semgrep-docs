@@ -48,6 +48,7 @@ The below optional fields must reside underneath a `patterns` field.
 | [`metavariable-regex`](#metavariable-regex)         | `map` | Search metavariables for [Python `re`](https://docs.python.org/3/library/re.html#re.match) compatible expressions; regex matching is **unanchored** |
 | [`metavariable-pattern`](#metavariable-pattern)     | `map` | Matches metavariables with a pattern formula  |
 | [`metavariable-comparison`](#metavariable-comparison) | `map` | Compare metavariables against basic [Python expressions](https://docs.python.org/3/reference/expressions.html#comparisons) |
+| [`metavariable-type`](#metavariable-type) | `map` | Matches metavariables with their types |
 | [`pattern-not`](#pattern-not) | `string` | Logical NOT - remove findings matching this expression |
 | [`pattern-not-inside`](#pattern-not-inside)     | `string` | Keep findings that do not lie inside this pattern |
 | [`pattern-not-regex`](#pattern-not-regex)   | `string` | Filter results using a [PCRE](https://www.pcre.org/original/doc/html/pcrepattern.html)-compatible pattern in multiline mode |
@@ -76,7 +77,7 @@ Note that the order in which the child patterns are declared in a `patterns` ope
 
 1. Semgrep evaluates all _positive_ patterns, that is [`pattern-inside`](#pattern-inside)s, [`pattern`](#pattern)s, [`pattern-regex`](#pattern-regex)es, and [`pattern-either`](#pattern-either)s. Each range matched by each one of these patterns is intersected with the ranges matched by the other operators. The result is a set of _positive_ ranges. The positive ranges carry _metavariable bindings_. For example, in one range `$X` can be bound to the function call `foo()`, and in another range `$X` can be bound to the expression `a + b`.
 2. Semgrep evaluates all _negative_ patterns, that is [`pattern-not-inside`](#pattern-not-inside)s, [`pattern-not`](#pattern-not)s, and [`pattern-not-regex`](#pattern-not-regex)es. This gives a set of _negative ranges_ which are used to filter the positive ranges. This results in a strict subset of the positive ranges computed in the previous step.
-3. Semgrep evaluates all _conditionals_, that is [`metavariable-regex`](#metavariable-regex)es, [`metavariable-pattern`](#metavariable-pattern)s, and [`metavariable-comparison`](#metavariable-comparison)s. These conditional operators can only examine the metavariables bound in the positive ranges in step 1, that passed through the filter of negative patterns in step 2. Note that metavariables bound by negative patterns are _not_ available here.
+3. Semgrep evaluates all _conditionals_, that is [`metavariable-regex`](#metavariable-regex)es, [`metavariable-pattern`](#metavariable-pattern)s, [`metavariable-comparison`](#metavariable-comparison)s and [`metavariable-type`](#metavariable-type)s. These conditional operators can only examine the metavariables bound in the positive ranges in step 1, that passed through the filter of negative patterns in step 2. Note that metavariables bound by negative patterns are _not_ available here.
 4. Semgrep applies all [`focus-metavariable`](#focus-metavariable)s, by computing the intersection of each positive range with the range of the metavariable on which we want to focus. Again, the only metavariables available to focus on are those bound by positive patterns.
 
 <!-- TODO: Add example to illustrate all of the above -->
@@ -282,6 +283,10 @@ Try this pattern in the [Semgrep Playground](https://semgrep.dev/s/AlqB).
 :::
 
 This removes quotes (`'`, `"`, and `` ` ``) from both ends of the metavariable content. As a result, Semgrep detects `"2147483648"`, but it does **not** detect `"2147483646"`. This is useful when you expect strings to contain integer or float data.
+
+### `metavariable-type`
+
+The `metavariable-type` operator is used to compare metavariables against their types. It utilizes the `type` key to specify the string representation of the type expression in the target language. For example, you can use `String` for Java's String type and `string` for Go's string type. Optionally, `language` key can be used to manually indicate the target language of the type expression.
 
 ### `pattern-not`
 
