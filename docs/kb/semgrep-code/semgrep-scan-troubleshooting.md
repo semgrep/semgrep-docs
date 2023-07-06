@@ -40,7 +40,7 @@ If this is successful, your stored local token was invalid. Use `semgrep login` 
 
 ## Scan failures with analysis errors
 
-Analysis or parsing errors usually only affect a particular rule, file(s), or language. If your scan encounters an analysis issue, using verbose logging can provide you with helpful error details, such as `metavariable-pattern failed because we lack range info for $X, please file a bug report`. 
+Analysis or parsing errors usually only affect a particular rule, file, or language. If your scan encounters an analysis issue, using verbose logging can provide you with helpful error details, such as `metavariable-pattern failed because we lack range info for $X, please file a bug report`. 
 
 If the error you receive is not that specific, try one of these options:
 
