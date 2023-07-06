@@ -7,7 +7,7 @@ description: Troubleshoot common issues with Semgrep scans.
 
 # A Semgrep scan is having a problem - what next?
 
-If you're running into trouble with your Semgrep scans, try the following steps:
+If a Semgrep scan is failing or running slowly, try the following steps to investigate:
 
 1. [Update Semgrep](/docs/upgrading/) to the latest version, if you are not currently running the latest version. Some errors result from an older version of Semgrep being used with newer rules. See .
 2. Re-run the scan with either the `-v`/`--verbose` or `--debug` (extremely verbose) flags. These options provide more information about what is failing.
