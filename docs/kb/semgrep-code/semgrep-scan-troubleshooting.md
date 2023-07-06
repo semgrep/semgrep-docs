@@ -1,3 +1,10 @@
+---
+tags:
+  - Semgrep Supply Chain
+  - Semgrep Code
+description: Troubleshoot common issues with Semgrep scans.
+---
+
 # A Semgrep scan is having a problem - what next?
 
 If you're running into trouble with your Semgrep scans, try the following steps:
