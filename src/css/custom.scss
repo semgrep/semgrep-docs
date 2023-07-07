@@ -313,6 +313,11 @@ a.navbar__item.navbar__link:hover {
     padding-bottom: 1rem;
 }
 
+/* max width for VS Code embedded video */
+article video {
+  max-width: 100%;
+}
+
 /* badge */
 
 #tag__badge-list {
