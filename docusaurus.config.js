@@ -19,6 +19,9 @@ module.exports = {
         hideable: true,
       },
     },
+    markprompt: {
+      projectKey: 'jbhF5LligltdKaJucMjDcWcRodaVpzqE',
+    },
     navbar: {
       logo: {
         alt: 'Semgrep logo',
