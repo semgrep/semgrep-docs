@@ -286,7 +286,7 @@ This removes quotes (`'`, `"`, and `` ` ``) from both ends of the metavariable c
 
 ### `metavariable-type`
 
-The `metavariable-type` operator is used to compare metavariables against their types. It utilizes the `type` key to specify the string representation of the type expression in the target language. For example, you can use `String` for Java's String type and `string` for Go's string type. Optionally, `language` key can be used to manually indicate the target language of the type expression.
+The `metavariable-type` operator is used to compare metavariables against their types. It utilizes the `type` key to specify the string representation of the type expression in the target language. For example, you can use `String` for Java's String type and `string` for Go's string type. Optionally, the `language` key can be used to manually indicate the target language of the type expression.
 
 ### `pattern-not`
 
