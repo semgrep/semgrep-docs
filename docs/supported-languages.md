@@ -211,9 +211,9 @@ Their differences are outlined in the following table:
 * Semgrep features and products documented as experimental, beta, or GA generally follow the definitions in a [Software release life cycle](https://en.wikipedia.org/wiki/Software_release_life_cycle).
 :::
 
-### Known limitations of Semgrep Pro Engine
+## Known limitations of Semgrep Pro Engine
 
-#### CommonJS
+### CommonJS
 
 Currently Semgrep Pro Engine does not handle specific cases of CommmonJS where you define a function and assign it to an export later, Semgrep Pro Engine does not track the code below:
 
@@ -225,8 +225,8 @@ function get_user() {
 module.exports = get_user
 ```
 
-#### Regressions in Semgrep Pro
+### Regressions in Semgrep Pro
 
-For cross-file (interfile) analysis, Semgrep Pro Engine resolves names differently than Semgrep OSS. Consequently, rules with `interfile: true` may produce different results than Semgrep OSS Engine. Some instances could be regarded as regressions, if you encounter them please file a bug report. When you need to report a bug in Semgrep Pro Engine, go through [support@semgrep.com](mailto:support@semgrep.com). You can also contact us through [Semgrep Community Slack group](https://go.semgrep.dev/slack).
+For cross-file (interfile) analysis, Semgrep Pro Engine resolves names differently than Semgrep OSS. Consequently, rules with `interfile: true` may produce different results than Semgrep OSS Engine. Some instances could be regarded as regressions; if you encounter them, please file a bug report. When you need to report a bug in Semgrep Pro Engine, go through [support@semgrep.com](mailto:support@semgrep.com). You can also contact us through [Semgrep Community Slack group](https://go.semgrep.dev/slack).
 
 <MoreHelp />
