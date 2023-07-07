@@ -30,7 +30,7 @@
     "react-dom": "^17.0.1",
     "react-loadable": "*",
     "sass": "^1.57.1",
-    "typescript": ">= 2.7",
+    "typescript": "^5.1.6",
     "url-loader": "^4.1.1",
     "webpack": "^5.76.0"
   },
@@ -45,5 +45,9 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "@docusaurus/module-type-aliases": "^2.4.1",
+    "@tsconfig/docusaurus": "^2.0.0"
   }
 }
