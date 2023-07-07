@@ -50,6 +50,7 @@ module.exports = {
         },
         { to: 'https://semgrep.dev/pricing', label: 'Pricing', position: 'left', target: '_self' },
         { to: 'https://semgrep.dev/docs/', label: 'Docs', position: 'left', target: '_self' },
+        {to: 'kb', label: 'Knowledge base', position: 'left'},
         { to: 'https://semgrep.dev/orgs/-/', label: 'Login', position: 'right', target: '_self' },
       ],
     },

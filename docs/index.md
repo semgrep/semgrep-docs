@@ -2,6 +2,7 @@
 slug: /
 hide_title: true
 id: Docs home
+displayed_sidebar: tutorialSidebar
 description: >-
   Read the documentation and get started with Semgrep.
   A fast, open-source, static analysis engine

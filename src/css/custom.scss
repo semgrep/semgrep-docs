@@ -355,3 +355,14 @@ button[class*="collapseSidebarButton"]:hover, div[class*="expandButton"]:hover {
 svg[class*="collapseSidebarButtonIcon"], svg[class*="expandButtonIcon"] {
   filter: invert(45%) sepia(51%) saturate(1411%) hue-rotate(127deg) brightness(96%) contrast(101%); /* --ifm-color-primary-dark */
 }
+
+
+/******************************************************************************
+ *                                                                            *
+ * Knowledge Base (KB)                                                         *
+ *                                                                            *
+ *****************************************************************************/
+
+article > a[class*="cardContainer_"][class~="card"] {
+  min-height: 200px;
+}
