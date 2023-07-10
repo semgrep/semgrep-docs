@@ -45,6 +45,13 @@ module.exports = {
             },
           ]
         },
+        'cli-usage',
+        'ignoring-files-folders-code',
+        'extensions',
+        'licensing',
+        'integrating',
+        'faq',
+        'metrics',
         {
           type: 'category',
           label: 'Semgrep Supply Chain (SSC)',
