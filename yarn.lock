@@ -2374,10 +2374,10 @@
   resolved "https://registry.yarnpkg.com/@markprompt/core/-/core-0.6.4.tgz#82900a7d45b37f0144aa6f6bd7cc245e4cd20c92"
   integrity sha512-hDEwURrpXahCTUSuaD5vMotYFc+/qDrSzra0TjvEzGDib6echOmDW5OETqnadTGaHEhkOwRXfd6F97Pknp3M8w==
 
-"@markprompt/css@^0.5.1":
-  version "0.5.1"
-  resolved "https://registry.yarnpkg.com/@markprompt/css/-/css-0.5.1.tgz#756d3da62eab37696a2ecba706ee0dd6f8a42993"
-  integrity sha512-qMQ+qH0AxKUTJPwfcC2w+IVFGNRubnJLRQ9+GB1W6wRsM86eT7uX5rVDWTq553InWqe7lQmsXrn+3rJXYl3e+A==
+"@markprompt/css@^0.7.0":
+  version "0.7.0"
+  resolved "https://registry.yarnpkg.com/@markprompt/css/-/css-0.7.0.tgz#42a4d3f3819e87a5a791e83c1ef40f9ef0099185"
+  integrity sha512-9JarDyNwywZkAW8AF2sfbXXWOgNIFG4obGvDXgDkV/khwgXGdRebrmytAO55n8BsHccHudut6r0oMSH3HWo8eg==
 
 "@markprompt/react@0.11.3":
   version "0.11.3"
