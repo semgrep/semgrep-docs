@@ -47,6 +47,7 @@ module.exports = {
         'ignoring-files-folders-code',
         'extensions',
         'licensing',
+        'integrating',
         'faq',
         'metrics',
         {
