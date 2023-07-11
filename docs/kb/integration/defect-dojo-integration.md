@@ -14,7 +14,7 @@ Integrating Semgrep with DefectDojo means dumping findings detected by Semgrep i
 There are several steps to follow:
 
 1. In DefectDojo:
-    * Create your product (a product is DefectDojo's concept for a project).
+    1 Create your **product**. A [product](https://defectdojo-dev.readthedocs.io/en/latest/features.html#products) is DefectDojo's term for a project.
     2. In that DefectDojo product, create an **engagement** called `semgrep`. An engagement is a channel to import results.
 2. Run a semgrep scan with flags `--json --output report.json` to generate a JSON report.
 
