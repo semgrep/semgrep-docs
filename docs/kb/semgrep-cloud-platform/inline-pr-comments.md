@@ -12,7 +12,7 @@ When Semgrep comments on PR or MR findings, the comments are usually posted on t
 
 ## Avoiding excessive inline comments
 
-For rules with several findings in the same PR or MR, inline comments for every individual finding occupy a significant amount of space without adding much additional information. Therefore, if the same finding occurs three or more times in a PR or MR, the related comment is posted as a summary (overall) comment.
+For rules with several findings in the same PR or MR, inline comments for every individual finding occupy a significant amount of space without providing much additional information. Therefore, if the same finding occurs five or more times in a PR or MR, the related comment is posted as a summary (overall) comment.
 
 ## Available lines in the displayed diff
 
