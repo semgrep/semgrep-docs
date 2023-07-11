@@ -8,7 +8,6 @@ description: >-
 # Semgrep integration guide for partners
 
 
-### Introduction
 
 We're excited that you're integrating Semgrep into your tooling! Our goal with Semgrep is to bring world-class security tools to developers based on our conviction that software will run the most exciting parts of the future. It's not something that we can do alone; we want to build a community around sharing programmatic knowledge about how to build secure software.
 
