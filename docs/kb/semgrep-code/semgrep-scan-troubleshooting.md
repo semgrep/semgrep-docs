@@ -11,7 +11,7 @@ If a Semgrep scan is failing or running slowly, try the following steps to inves
 
 1. [Update Semgrep](/docs/upgrading/) to the latest version, if you are not currently running the latest version. Some errors result from an older version of Semgrep being used with newer rules.
 2. Re-run the scan with either the `-v`/`--verbose` or `--debug` (extremely verbose) flags. These options provide more information about what is failing.
-3. Running Semgrep Pro Engine in the scan? Remove any options starting with `--pro`, or run Semgrep with `--oss-only`. This allows isolation of any issues related to Semgrep Pro Engine, and often speeds up a scan or reduces memory usage.
+3. If you are running Semgrep Pro Engine in the scan, remove any options starting with `--pro`, or run Semgrep with `--oss-only`. This allows isolation of any issues related to Semgrep Pro Engine, and often speeds up a scan or reduces memory usage.
 
 :::info
 Semgrep verbose or debug logs can be quite lengthy. To prevent flooding your terminal and preserve the logs for analysis, you can redirect all output to a file with `semgrep [OPTIONS] [TARGETS]... > semgrep.log 2>&1`.
