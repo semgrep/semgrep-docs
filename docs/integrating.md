@@ -12,7 +12,7 @@ description: >-
 We're excited that you're integrating Semgrep into your tooling! Our goal with Semgrep is to bring world-class security tools to developers based on our conviction that software will run the most exciting parts of the future. It's not something that we can do alone; we want to build a community around sharing programmatic knowledge about how to build secure software.
 
 
-### Requirements for Integrators
+## Requirements for integrators
 
 * Do not resell rules from the registry, unless you acquire an explicit license from Semgrep, Inc. Semgrep rules are [released under the Commons Clause License](https://github.com/returntocorp/semgrep-rules/blob/develop/LICENSE), which prohibits redistribution in a commercial product.
 * State that you are using Semgrep; refer to Semgrep as capital S with the trademark: Semgrep™
