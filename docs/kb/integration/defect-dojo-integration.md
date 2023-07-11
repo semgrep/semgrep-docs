@@ -15,7 +15,7 @@ There are several steps to follow:
 
 1. In DefectDojo:
     * Create your product (a product is DefectDojo's concept for a project).
-    * For that DefectDojo product, create an engagement called `semgrep` (an engagement is like a channel to import results)
+    2. In that DefectDojo product, create an **engagement** called `semgrep`. An engagement is a channel to import results.
 * Run a semgrep scan with flags `--json --output report.json` to generate a JSON report.
 
 Now, there are all the necessary elements to start playing with [DefectDojo API](https://documentation.defectdojo.com/integrations/api-v2-docs/)
