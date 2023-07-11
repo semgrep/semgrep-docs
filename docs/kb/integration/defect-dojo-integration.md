@@ -101,7 +101,7 @@ import-semgrep-to-defectdojo:
 ```
 
 ### Adding checksum validation
-To verify the job downloads the correct Python script, it is essential, from a security point of view, to check the integrity with a checksum such as SHA 256 code. It avoids the execution of tampered 
+To verify that the job downloads the correct Python script securely, check the integrity with a checksum such as SHA 256 code. It prevents tampered scripts from executing.
 scripts.
 
 ```
