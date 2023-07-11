@@ -18,7 +18,8 @@ If you are not logged in, `--config=r/all` runs public rules from the Semgrep Re
 
 If you are logged in, this command also runs:
 
-* Your organization's private rules, if any
+* Your organization's private rules that have been published to the Registry
+  - Unlisted private rules do not run with `--config=r/all`.
 * Semgrep Pro rules, if you have access to them
 
 Refer to the following snippet for a sample output of `config=r/all` while logged in through `semgrep ci`:
@@ -61,4 +62,4 @@ semgrep --config r/all . -d
 semgrep --config ~/.semgrep/semgrep_rules.json .
 ```
 
-The first command creates a cache of rules in `semgrep_rules.json` within the `.semgrep` directory in your home folder. The second command runs a Semgrep scan using the local rule cache.
+The first command creates a cache of rules in `semgrep_rules.json` within the `.semgrep` directory in your home folder which omits the invalid rule. The second command runs a Semgrep scan using the local rule cache.
