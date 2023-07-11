@@ -28,8 +28,12 @@ To publish private rules through the Semgrep Cloud Platform:
 1. Choose one of the following:
     - Create a new rule and test code by clicking <i class="fa-solid fa-circle-plus"></i> **plus** icon, select **New rule**, and then click <i className="fa-solid fa-floppy-disk inline_svg"></i> **Save**.
     - In the <i class="fa-solid fa-server"></i> **Library** panel, select a rule from a category in **Semgrep Registry**. Click <i className="fa-solid fa-code-branch inline_svg"></i> **Fork**, modify the rule or test code, and then click <i className="fa-solid fa-floppy-disk inline_svg"></i> **Save**.
+1. Click <i className="fa-solid fa-earth-americas inline_svg"></i> **Share**.
+1. Click <i className="fa-solid fa-lock inline_svg"></i> **Private**.
 
-Your private rule has been created. Private rules are stored in the folder with the same name as your Semgrep Cloud Platform organization.
+Your private rule has been created and added to the Registry, visible only to logged in users of your organization. Its private status is reflected by the **Share** button displaying a <i className="fa-solid fa-lock inline_svg"></i> icon.
+
+Private rules are stored in the folder with the same name as your Semgrep Cloud Platform organization.
 
 ### Creating private rules through the command line
 
