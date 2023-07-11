@@ -22,4 +22,4 @@ We're excited that you're integrating Semgrep into your tooling! Our goal with S
 * Enable metrics (`--metrics=on`) by default, which lets the Semgrep team prioritize languages and technologies to improve speed and accuracy.
 * Contribute new public rules back to the [semgrep-rules repository](https://github.com/returntocorp/semgrep-rules). This helps us avoid community fragmentation and will automatically pull your rule into the searchable registry on semgrep.dev; plus Semgrep will maintain it for you!
 
-For more information about licensing, please refer to [this section](licensing.md) in our documentation. If you have additional questions, you can email us at [partners@semgrep.com](mailto:partners@semgrep.com). 
+For more information, please refer to [the section on licensing](licensing.md) in our documentation. If you have additional questions, email us at [partners@semgrep.com](mailto:partners@semgrep.com). 
