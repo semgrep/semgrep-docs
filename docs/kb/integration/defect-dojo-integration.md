@@ -20,7 +20,7 @@ There are several steps to follow:
 
 Now, there are all the necessary elements to start playing with [DefectDojo API](https://documentation.defectdojo.com/integrations/api-v2-docs/).
 
-### DefectDojo API Example 
+### DefectDojo API example 
 
 To run API DefectDojo operations (GET, POST, DELETE, etc..), an API token is necessary. To get it, follow [API guide](https://documentation.defectdojo.com/integrations/api-v2-docs/).
 
