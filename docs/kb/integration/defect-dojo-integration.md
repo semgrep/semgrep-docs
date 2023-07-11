@@ -111,5 +111,5 @@ Where:
 * `IMPORT_SEMGREP_TO_DEFECTDOJO_SHA_CHECKSUM` is the result of executing `shasum -a 256 -U import_semgrep_to_defect_dojo.py`
 
 ## Conclusions
-Dump Semgrep security results to [DefectDojo](https://www.defectdojo.com/) can speed up vulnerability management operations in an organization. Integrating scans and imports in the same CI pipeline should 
+Dumping Semgrep scan results to [DefectDojo](https://www.defectdojo.com/) can speed up vulnerability management operations in an organization. Integrating scans and imports in the same CI pipeline should be a high priority for DevSecOps programs.
 be a high priority for DevSecOps programs.
