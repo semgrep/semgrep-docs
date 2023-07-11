@@ -433,6 +433,7 @@ module.exports = {
             'security',
             'licensing',
             'faq',
+            'integrating',
             'usage-limits',
             'contributing/philosophy',
             {
