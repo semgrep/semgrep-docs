@@ -15,15 +15,13 @@ However, when testing or managing upgrades, it can be helpful to run different v
 If you use Semgrep with Semgrep Cloud Platform, [only the latest 10 minor versions are supported](/docs/semgrep-cloud-platform/getting-started/).
 :::
 
-Installation with brew does not support multiple versions of Semgrep, but you can use either pip or Docker to install different versions.
+Installation with Homebrew does not support multiple versions of Semgrep, but you can use either Pip or Docker to install different versions. In the following examples, <code><span className="placeholder">x.y.z</span></code> is a placeholder for a version string.
 
 ## Running different versions using pip
 
-With `pip`, you can install a specific Semgrep version using pip's version syntax:
+With Pip, you can install a specific Semgrep version using pip's version syntax.
 
-```
-python3 -m pip install semgrep==x.y.z
-```
+<pre class="language-bash"><code>python3 -m pip install semgrep==<span className="placeholder">x.y.z</span></code></pre>
 
 Confirm installation by the following command:
 
@@ -39,19 +37,15 @@ To run a version other than `latest` using Docker, use the tag for the version w
 
 To pull:
 
-```
-docker pull returntocorp/semgrep:x.y.z
-```
+<pre class="language-bash"><code>docker pull returntocorp/semgrep:<span className="placeholder">x.y.z</span></code></pre>
 
-Example for a local run:
+Example for a local run, mounting the desired source directory (`/PATH/TO/SRC`) for scanning:
 
-```
-docker run --rm -v "${PWD}:/src" returntocorp/semgrep:x.y.z semgrep --config=auto
-```
+<pre class="language-bash"><code>docker run --rm -v "<span className="placeholder">/PATH/TO/SRC</span>:/src" returntocorp/semgrep:<span className="placeholder">x.y.z</span> semgrep --config=auto</code></pre>
 
 Example for a GitHub Actions CI configuration:
 
-```
+```yaml
 jobs:
   semgrep:
     name: semgrep/ci 
