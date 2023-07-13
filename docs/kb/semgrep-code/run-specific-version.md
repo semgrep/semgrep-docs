@@ -19,7 +19,7 @@ Installation with Homebrew does not support multiple versions of Semgrep, but yo
 
 ## Running different versions using pip
 
-With Pip, you can install a specific Semgrep version using pip's version syntax.
+You can install a specific Semgrep version using pip's version syntax.
 
 <pre class="language-bash"><code>python3 -m pip install semgrep==<span className="placeholder">x.y.z</span></code></pre>
 
