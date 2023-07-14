@@ -60,7 +60,7 @@ def uploadToDefectDojo(is_new_import, token, url, product_name, engagement_name,
     print(r.text)
 ```
 
-The full version of this Python script can be found in this [repository](https://github.com/r2c-CSE/semgrep-utilities/blob/main/integrations/defectdojo/import_semgrep_to_defect_dojo.py).
+The full version of this Python script can be found in the [Semgrep Utilities repository](https://github.com/r2c-CSE/semgrep-utilities/blob/main/integrations/defectdojo/import_semgrep_to_defect_dojo.py).
 It is ready to execute.
 
 ### Running the script
