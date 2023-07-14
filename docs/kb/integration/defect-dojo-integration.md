@@ -26,7 +26,7 @@ To run API DefectDojo operations such as GET, POST, and DELETE, an API token is 
 
 * Once got it in your system, declare the environment variable `DEFECT_DOJO_API_TOKEN`
 ```
-export DEFECT_DOJO_API_TOKEN=xxxxxx
+export DEFECT_DOJO_API_TOKEN=[YOUR_DEFECT_DOJO_TOKEN]
 ```
 Exploring the DefectDojo API, the endpoint is: `/api/v2/import-scan/` for the first import and `/api/v2/reimport-scan` for the following imports.
 
