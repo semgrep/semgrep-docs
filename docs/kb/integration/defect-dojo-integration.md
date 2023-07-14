@@ -34,7 +34,7 @@ These endpoints receive some parameters. The following must be specified:
 * `file`: The Semgrep scan findings report or export in JSON format
 * `scan_type`: A descriptive name for the scan type. In this example, we use "Semgrep JSON Report" for Semgrep importation.
 * Product Name (project name)
-* Engagement Name (a good practice is to name `semgrep`)
+* `engagement_name`: Depending on your use case, the [`engagement_name`](https://defectdojo-dev.readthedocs.io/en/latest/about.html#engagements) can describe a moment in time that the test is taking place in, or it can be used as a simple description about the import. In this case, you can name it `semgrep`.
 
 So a Python function using this endpoint can look like this:
 
