@@ -75,7 +75,7 @@ Where:
 * `ENGAGEMENT_NAME` is the DefectDojo engagement name for that product.
 * `REPORT_FILE` is the Semgrep report path
 
-## Integrate Semgrep and DefectDojo in a pipeline
+## Integrating Semgrep and DefectDojo in a CI pipeline
 
 To prevent tampering at any point of delivery, it is crucial to integrate security scans and dump results to DefectDojo in the **same pipeline or CI job**.
 An example of GitLab job importing results to DefectDojo taking as input a Semgrep report looks like this:
