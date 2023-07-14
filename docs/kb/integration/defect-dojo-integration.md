@@ -30,7 +30,7 @@ export DEFECT_DOJO_API_TOKEN=[YOUR_DEFECT_DOJO_TOKEN]
 ```
 Exploring the DefectDojo API, the endpoint is: `/api/v2/import-scan/` for the first import and `/api/v2/reimport-scan` for the following imports.
 
-These endpoints receive some parameters. Mandatory are:
+These endpoints receive some parameters. The following must be specified:
 * Semgrep report (JSON format)
 * Scan type: `Semgrep JSON Report` for Semgrep importation.
 * Product Name (project name)
