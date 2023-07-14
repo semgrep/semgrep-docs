@@ -23,7 +23,7 @@ You can install a specific Semgrep version using pip's version syntax.
 
 <pre class="language-bash"><code>python3 -m pip install semgrep==<span className="placeholder">x.y.z</span></code></pre>
 
-Confirm installation by the following command:
+Confirm installation by running the following command:
 
 ```
 semgrep --version
