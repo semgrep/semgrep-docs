@@ -67,6 +67,7 @@ Semgrep gets API permissions to access code on your pre-selected GitHub reposito
 1. Sign in to [Semgrep Cloud Platform](https://semgrep.dev/login).
 2. Click **[Settings](https://semgrep.dev/orgs/-/settings/)**. 
 3. In the **Products** section, on the **Assistant** entry, click **Set up**.
+![Screenshot of Semgrep Assistant setup button](/img/semgrep-assistant-setup.png#md-width)
 4. Approve the Semgrep Assistant terms of service.
 5. Provide the GitHub namespace to install Semgrep Assistant to. This is usually your account or organization name.
 6. You are redirected to a Semgrep Assistant installation page. The steps are as follows:
@@ -75,12 +76,11 @@ Semgrep gets API permissions to access code on your pre-selected GitHub reposito
     3. You are redirected back to Semgrep Cloud Platform. Click **Install**.
 7. In the **Code** section, Click **Auto-triage with Semgrep Assistant** <i class="fa-solid fa-toggle-large-on"></i>.
     ![Screenshot of Semgrep Assistant toggle location](/img/semgrep-assistant-enable.png)
-    *Figure 2*. Screenshot of Semgrep Assistant toggle location.
 8. Check <i class="fa-solid fa-square-check"></i> **PR/MR Comments** to receive comments.
 9. Check <i class="fa-solid fa-square-check"></i> **Slack notifications** to receive Slack notifications.
 
 ![Screenshot of Semgrep Assistant in a Slack notification](/img/semgrep-assistant-slack.png)
-*Figure 3*. Screenshot of Semgrep Assistant in a Slack notification.
+*Figure 2*. Screenshot of Semgrep Assistant in a Slack notification.
 
 Semgrep Assistant is now enabled and appears in future PRs. To further customize Semgrep Assistant, see:
 
@@ -91,7 +91,6 @@ Semgrep Assistant messages only appear in your PR comments for rules that are se
 
 * Ensure that you have set rules to Comment or Block mode.
     ![Screenshot of Policies modes](/img/semgrep-assistant-comment.png)
-    *Figure 4*.Screenshot of **Policies** modes. 
 * Ensure that you have selected PR/MR comments in **Semgrep Cloud Platform > Settings > Deployment** in the **Code** section.
 :::
 
@@ -119,6 +118,6 @@ A low confidence level is recommended as even incorrect suggestions may be usefu
 :::
 
 ![ Screenshot of Semgrep Assistant generating a potential fix](/img/semgrep-assistant-autofix.png)
-*Figure 5*. Screenshot of Semgrep Assistant generating a potential fix.
+*Figure 3*. Screenshot of Semgrep Assistant generating a potential fix.
 
 <MoreHelp />
