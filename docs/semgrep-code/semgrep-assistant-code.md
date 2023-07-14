@@ -25,7 +25,7 @@ This document provides an overview of the following:
 * How to receive notifications or comments from Semgrep Assistant
 
 :::info Feature maturity 
-* This feature is in **private beta**. If you’d like to join the wait list, visit [Semgrep Assistant Beta Request](https://get.semgrep.dev/Assistant-Beta-Request.html).
+* This feature is in **public beta**.
 * You or your developers may encounter rough edges. This includes inaccurate recommendations or broken text. Please leave feedback on the PR comments from Semgrep Assistant to help the Semgrep team improve Semgrep Assistant.
 ::: 
 
@@ -64,16 +64,20 @@ Semgrep gets API permissions to access code on your pre-selected GitHub reposito
     * Ensure that you have set rules to **Comment** or **Block** mode in [Policies](/semgrep-code/policies).
 :::
 
-1. Sign up for the Semgrep Assistant wait list by clicking the following link and filling out the form: [Semgrep Assistant Beta Request](https://get.semgrep.dev/Assistant-Beta-Request.html).
-2. Semgrep Inc. will send an email to grant you access and the provide the terms of service agreement for Semgrep Assistant.
-3. Approve the Semgrep Assistant terms of service.
-4. Sign in to [Semgrep Cloud Platform](https://semgrep.dev/login).
-5. Click **Settings > Deployment**.
-6. In the **Code** section, Click **Auto-triage with Semgrep Assistant** <i class="fa-solid fa-toggle-large-on"></i>.
+1. Sign in to [Semgrep Cloud Platform](https://semgrep.dev/login).
+2. Click **[Settings](https://semgrep.dev/orgs/-/settings/)**. 
+3. In the **Products** section, on the **Assistant** entry, click **Set up**.
+4. Approve the Semgrep Assistant terms of service.
+5. Provide the GitHub namespace to install Semgrep Assistant to. This is usually your account or organization name.
+6. You are redirected to a Semgrep Assistant installation page. The steps are as follows:
+    1. You must create a private `semgrep-app` in GitHub if you do not have one already. Click **Create app** under step 3 to do this.
+    2. You are redirected to GitHub. Follow the instructions to create a private `semgrep-app`.
+    3. You are redirected back to Semgrep Cloud Platform. Click **Install**.
+7. In the **Code** section, Click **Auto-triage with Semgrep Assistant** <i class="fa-solid fa-toggle-large-on"></i>.
     ![Screenshot of Semgrep Assistant toggle location](/img/semgrep-assistant-enable.png)
     *Figure 2*. Screenshot of Semgrep Assistant toggle location.
-6. Check <i class="fa-solid fa-square-check"></i> **PR/MR Comments** to receive comments.
-7. Check <i class="fa-solid fa-square-check"></i> **Slack notifications** to receive Slack notifications.
+8. Check <i class="fa-solid fa-square-check"></i> **PR/MR Comments** to receive comments.
+9. Check <i class="fa-solid fa-square-check"></i> **Slack notifications** to receive Slack notifications.
 
 ![Screenshot of Semgrep Assistant in a Slack notification](/img/semgrep-assistant-slack.png)
 *Figure 3*. Screenshot of Semgrep Assistant in a Slack notification.
