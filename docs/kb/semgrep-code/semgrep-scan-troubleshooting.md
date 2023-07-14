@@ -50,7 +50,7 @@ If the error you receive is not that specific, try one of these options:
 
 1. Use `--exclude-rule` to exclude a rule from the scan. This allows isolating the problem to the particular rule.
 2. Use `--exclude` to exclude a file or files from the scan. You can use wildcards in file exclusions to exclude files matching particular patterns.
-3. Use `--lang` to limit the scan to a particular language, to determine if the issue is connected to rules or files for a given language.
+3. Use `--include` with a pattern specifying an extension for a particular language, to limit the scan to primarily files in that language.
 
 Once you have isolated the issue:
 
