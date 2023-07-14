@@ -32,7 +32,7 @@ Exploring the DefectDojo API, the endpoint is: `/api/v2/import-scan/` for the fi
 
 These endpoints receive some parameters. The following must be specified:
 * `file`: The Semgrep scan findings report or export in JSON format
-* Scan type: `Semgrep JSON Report` for Semgrep importation.
+* `scan_type`: A descriptive name for the scan type. In this example, we use "Semgrep JSON Report" for Semgrep importation.
 * Product Name (project name)
 * Engagement Name (a good practice is to name `semgrep`)
 
