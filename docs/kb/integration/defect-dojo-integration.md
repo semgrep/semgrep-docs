@@ -14,7 +14,7 @@ Integrating Semgrep with DefectDojo means dumping findings detected by Semgrep i
 There are several steps to follow:
 
 1. In DefectDojo:
-    1 Create your **product**. A [product](https://defectdojo-dev.readthedocs.io/en/latest/features.html#products) is DefectDojo's term for a project.
+    1 Create your [**product**](https://defectdojo-dev.readthedocs.io/en/latest/features.html#products).
     2. In that DefectDojo product, create an **engagement** called `semgrep`. An engagement is a channel to import results.
 2. Run a semgrep scan with flags `--json --output report.json` to generate a JSON report.
 
@@ -24,7 +24,7 @@ Now, there are all the necessary elements to start playing with [DefectDojo API]
 
 To run API DefectDojo operations such as GET, POST, and DELETE, an API token is necessary. To get it, follow [API guide](https://documentation.defectdojo.com/integrations/api-v2-docs/).
 
-* Once got it in your system, declare the environment variable `DEFECT_DOJO_API_TOKEN`
+* Once got it, in your system, usually in your CI environment, declare the environment variable `DEFECT_DOJO_API_TOKEN`
 ```
 export DEFECT_DOJO_API_TOKEN=[YOUR_DEFECT_DOJO_TOKEN]
 ```
@@ -101,7 +101,7 @@ import-semgrep-to-defectdojo:
 ```
 
 ### Adding checksum validation
-To verify that the job downloads the correct Python script securely, check the integrity with a checksum such as SHA 256 code. It prevents tampered scripts from executing.
+During CI job and to verify that the job downloads the correct Python script securely, check the integrity with a checksum such as SHA 256 code. It prevents tampered scripts from executing.
 
 ```
     - echo $IMPORT_SEMGREP_TO_DEFECTDOJO_SHA_CHECKSUM > sha-import-dd.tmp
