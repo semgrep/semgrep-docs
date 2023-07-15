@@ -57,9 +57,8 @@ To find available [integrations for Semgrep Cloud Platform](https://semgrep.dev/
 
 To view, add, remove, disable, or enable your saved channels:
 
-1. In the **Settings** > **[Integrations](https://semgrep.dev/orgs/-/settings/integrations)** page, explore the options available for specific integration.
-2. In the **[Rule board](https://semgrep.dev/orgs/-/board)**, click the <i class="fa-solid fa-gear"></i> **gear** icon to enable or disable an integration.
-    ![Screenshot of Semgrep's Rule board integration modal](/img/rule-board-integrations.png)
+1. In the **Settings** > **[Integrations](https://semgrep.dev/orgs/-/settings/integrations)** page, explore the options available for specific integrations.
+2. In the **[Policies](https://semgrep.dev/orgs/-/policies)** page, click **Rule modes**.
 
 ### Semgrep Autofix
 
