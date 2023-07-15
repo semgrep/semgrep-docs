@@ -59,7 +59,7 @@ Semgrep Cloud Platform supports code scanning from:
 
 Semgrep Code, a SAST tool, enables you to scan your first-party code through the use of rules. Many rules are available from [Semgrep Registry](https://semgrep.dev/explore), an open-source, community-driven repository of rules. You can also write your own rules to customize Semgrep for your team's specific practices, or publish rules for the community. You can use Semgrep Code from your CLI or with Semgrep Cloud Platform.
 
-Using Semgrep Code with Semgrep Cloud Platform provides you with the Rule Board, where you can determine which rules Semgrep uses and what action Semgrep undertakes when it generates a finding. The Rule Board can block pull requests (PRs) or merge requests (MRs) from merging until findings are resolved. This behavior helps to prevent vulnerable code from shipping to widely-accessible environments, such as production or staging servers.
+Using Semgrep Code with Semgrep Cloud Platform provides you with [Policies](/semgrep-code/policies), where you can determine which rules Semgrep uses and what action Semgrep undertakes when it generates a finding from that rule. Policies can block pull requests (PRs) or merge requests (MRs) from merging until findings are resolved. This behavior helps to prevent vulnerable code from shipping to widely-accessible environments, such as production or staging servers.
 
 Semgrep Cloud Platform enables you to deploy, configure, and manage Semgrep in your continuous integration (CI) environment. Semgrep Cloud Platform supports the upload of findings from CLI scans as well. For more information, see [Getting started with Semgrep OSS Engine](/getting-started/).
 
