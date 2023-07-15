@@ -74,7 +74,7 @@ Semgrep gets API permissions to access code on your pre-selected GitHub reposito
     1. You must create a private `semgrep-app` in GitHub if you do not have one already. Click **Create app** under step 3 to do this.
     2. You are redirected to GitHub. Follow the instructions to create a private `semgrep-app`.
     3. You are redirected back to Semgrep Cloud Platform. Click **Install**.
-7. In the **Code** section, Click **Auto-triage with Semgrep Assistant** <i class="fa-solid fa-toggle-large-on"></i>.
+7. You are redirected to the **Settings** page. In the **Code** section, Click **Auto-triage with Semgrep Assistant** <i class="fa-solid fa-toggle-large-on"></i>.
     ![Screenshot of Semgrep Assistant toggle location](/img/semgrep-assistant-enable.png)
 8. Check <i class="fa-solid fa-square-check"></i> **PR/MR Comments** to receive comments.
 9. Check <i class="fa-solid fa-square-check"></i> **Slack notifications** to receive Slack notifications.
