@@ -70,7 +70,7 @@ Semgrep gets API permissions to access code on your pre-selected GitHub reposito
 ![Screenshot of Semgrep Assistant setup button](/img/semgrep-assistant-setup.png#md-width)
 4. Approve the Semgrep Assistant terms of service.
 5. Provide the GitHub namespace to install Semgrep Assistant to. This is usually your account or organization name.
-6. You are redirected to a Semgrep Assistant installation page. The steps are as follows:
+6. You are redirected to the Semgrep Assistant installation page. The steps are as follows:
     1. You must create a private `semgrep-app` in GitHub if you do not have one already. Click **Create app** under step 3 to do this.
     2. You are redirected to GitHub. Follow the instructions to create a private `semgrep-app`.
     3. You are redirected back to Semgrep Cloud Platform. Click **Install**.
