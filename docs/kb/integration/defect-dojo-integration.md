@@ -101,7 +101,7 @@ import-semgrep-to-defectdojo:
 ```
 
 ### Adding checksum validation
-During CI job and to verify that the job downloads the correct Python script securely, check the integrity with a checksum such as SHA 256 code. It prevents tampered scripts from executing.
+During the CI job and to verify that the job downloads the correct Python script securely, check the integrity with a checksum such as SHA 256 code. It prevents tampered scripts from executing.
 
 ```
     - echo $IMPORT_SEMGREP_TO_DEFECTDOJO_SHA_CHECKSUM > sha-import-dd.tmp
