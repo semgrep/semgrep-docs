@@ -1,7 +1,7 @@
 ---
 tags:
   - DefectDojo
-  - Integration
+  - Integrations
 description: How to connect Semgrep and DefectDojo
 ---
 
