@@ -92,7 +92,7 @@ This table provides information about fully supported (generally available or GA
 <tbody><tr>
    <td>Go</td>
    <td>Go modules (<code>go mod</code>)</td>
-   <td><code>go.mod</code></td>
+   <td><code>go.mod†</code></td>
    <td style={{"text-align": "center"}}>✔️ Yes</td>
    <td rowspan="10">Since May 2022</td>
   </tr>
@@ -148,6 +148,7 @@ This table provides information about fully supported (generally available or GA
 </table>
 
 _*****Semgrep Supply Chain scans transitive dependencies but does **not** perform reachability analysis on them._ <br />
+_**†**Semgrep Supply Chain only supports reading the `require` sections of a `go.mod` file. All other sections are ignored. So `exclude` sections will not be respected._
 _**††**Semgrep Supply Chain supports `requirements.txt` when it is used as a **lockfile**. This means that `requirements.txt` must be set to exact versions (pinned dependencies) and the file must be generated automatically._
 
 <AdmonitionSotCves />
