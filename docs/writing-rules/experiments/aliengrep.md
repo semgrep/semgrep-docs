@@ -137,7 +137,7 @@ In multiline mode, a regular ellipsis (three dots `...`) has the same behavior a
 We wonder if the visual difference between `...` and `....` is too subtle. Let us know if you have ideas for a better syntax than four dots `....`.
 :::
 
-### Additional word characters captured my metavariables
+### Additional word characters captured by metavariables
 
 In the generic modes, a metavariable captures a word. The default pattern followed by a word is `[A-Za-z_0-9]+` (a sequence of one or more alphanumeric characters or underscores). The set of characters that comprise a word can be configured as an option in the Semgrep rule as follows:
 
