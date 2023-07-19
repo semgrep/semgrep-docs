@@ -28,11 +28,11 @@ Memory usage is a common issue with scans, especially in memory-constrained envi
 
 ## Slow scans
 
-The first step to improving Semgrep's speed is limiting its run to only the files you care about. You can do this by adding a `.semgrepignore` file. See [how to ignore files & directories in Semgrep CI](/ignoring-files-folders-code/).
+The first step to improving Semgrep's speed is limiting its run to only the files you care about. Most commonly, it's limited using a `.semgrepignore` file. See [Ignoring files, folders, or parts of code](/ignoring-files-folders-code/).
 
 After addressing files to ignore:
 
-* If you suspect the presence of a large file slowing Semgrep's analysis, decrease the maximum size of files scanned with `--max-target-bytes BYTES`. The default is 1000000 bytes (~1 MB).
+* If you suspect the presence of a large file slowing Semgrep's analysis, decrease the maximum size of files scanned with `--max-target-bytes BYTES`.
 * Run Semgrep with the `--time` flag. This outputs a list of the rules and files that took the longest.
   * Identify the slowest files from the list. You may find that you can add some of those files to your ignore list as well.
   * Identify the slowest rules from the list. You may find that some of them don't apply to your codebase and can be skipped.
@@ -58,13 +58,13 @@ If the error you receive is not that specific, try one of these options:
 
 1. Use `--exclude-rule` to exclude a rule from the scan. This allows isolating the problem to the particular rule.
 2. Use `--exclude` to exclude a file or files from the scan. You can use wildcards in file exclusions to exclude files matching particular patterns.
-3. Use `--include` with a pattern specifying an extension for a particular language, to limit the scan to primarily files in that language.
+3. Use `--include` with a pattern specifying a path or an extension for a particular language, to limit the scan to that path, or to files in that language.
 
 ## Reporting crashes or analysis errors
 
 Once you have isolated the issue:
 
-1. Identify the rule, file and lines (if available) where Semgrep encountered the error.
+1. Identify the rule, file, and lines (if available) where Semgrep encountered the error.
 2. Determine whether you can share a minimal example of the code or rule that is causing the issue.
   * If the issue occurs with Semgrep Pro Engine, or the code is internal or sensitive and cannot be sufficiently redacted, [reach out for help](/docs/support), and include what you've determined so far.
   * Otherwise, share the issue details and related code with Semgrep via https://github.com/returntocorp/semgrep/issues.
