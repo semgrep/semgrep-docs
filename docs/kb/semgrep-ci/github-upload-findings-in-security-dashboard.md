@@ -5,7 +5,7 @@ tags:
   - GitHub
 ---
 
-# Uploading-findings-to-GitHub Advanced Security Dashboard
+# Uploading findings to GitHub Advanced Security Dashboard
 
 ## Why aren't findings populating in the GitHub Advanced Security Dashboard after running Semgrep in CI?
 
