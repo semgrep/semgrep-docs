@@ -23,7 +23,7 @@ Permissions typically default to more restrictive scopes, therefore, your workfl
 
 `org/repo -> Settings -> Actions -> General -> Workflow permissions`
 
-<img width="809" alt="github-default-workflow-permissions" src="https://github.com/returntocorp/semgrep-docs/assets/72594885/f3c79c6d-23e1-45ea-9ab0-a63b406897fc">
+![image info](/img/kb/github-default-workflow-permissions.png)
 
 Bear in mind that changing the repo’s default workflow permissions changes the permissions for all workflows in your repo. So, for more granular permissions, utilize the `permissions` key either at the workflow or job level in the `semgrep.yml` workflow file. Learn more about the `permissions` key [here](https://docs.github.com/en/actions/using-jobs/assigning-permissions-to-jobs#setting-the-github_token-permissions-for-all-jobs-in-a-workflow), and check out our example of workflow level permissions below. Note that it only requires `security-events` write permissions to be successful.
 
