@@ -17,7 +17,7 @@ Follow these steps to prep DefectDojo and generate Semgrep findings in the prope
 	b. In that DefectDojo product, create an **engagement** called `semgrep`. An engagement is a channel to import results.
 2. Run a semgrep scan with flags `--json --output report.json` to generate a JSON report.
 
-Now, there are all the necessary elements to start playing with [DefectDojo API](https://documentation.defectdojo.com/integrations/api-v2-docs/).
+Now, you are ready to use the [DefectDojo API](https://documentation.defectdojo.com/integrations/api-v2-docs/).
 
 ### DefectDojo API example 
 
