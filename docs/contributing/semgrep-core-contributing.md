@@ -161,40 +161,34 @@ Substitute the optional placeholder <code><span className="placeholder">PATH/TO/
 Here is an example result object.
 
 ```JSON
-{
-  "errors": [],
-  "results": [],
   "time": {
+    "max_memory_bytes": 48693248,
     "profiling_times": {
-      "config_time": 0.10301780700683594,
-      "core_time": 0.0883018970489502,
-      "ignores_time": 2.7894973754882812e-05,
-      "total_time": 0.1915416717529297
+      "config_time": 0.0624239444732666,
+      "core_time": 0.11341428756713867,
+      "ignores_time": 0.00017690658569335938,
+      "total_time": 0.17628788948059082
     },
-    "rule_parse_info": [
-      0.0011630058288574219
-    ],
     "rules": [
       {
-        "id": "Users.emma.workspace.testing.error_configs.use-sys-exit"
+        "id": "test-rule"
       }
     ],
+    "rules_parse_time": 0.0013418197631835938,
     "targets": [
       {
         "match_times": [
-          0
+          5.9604644775390625e-06
         ],
-        "num_bytes": 444,
+        "num_bytes": 340,
         "parse_times": [
-          0
+          0.0071868896484375
         ],
-        "path": "/Users/emma/workspace/testing/situations_test/no_token_location.py",
-        "run_times": [
-          0.0006248950958251953
-        ]
+        "path": "test_functions.java",
+        "run_time": 0.011521100997924805
       }
     ],
-    "total_bytes": 444
+    "total_bytes": 340
   }
 }
 ```
@@ -208,13 +202,13 @@ The first section is `profiling_times`. This contains wall time durations of var
 
 The `total_time` field represents the sum of these steps.
 
-The remaining fields report engine performance. Together, `rule_parse_info` and `targets` should capture all the time spent running `semgrep-core`.
+The remaining fields report engine performance. Together, `rule_parse_time` and `targets` should capture all the time spent running `semgrep-core`.
 
-`rule_parse_info` is straightforward. It records the time spent parsing each rule.
+`rule_parse_time` is straightforward. It records the time spent parsing the rules file.
 
-`targets` poses more difficulty. Since files are run in parallel, the amount of time spent parsing (`parse_times`) and matching (`match_times`) will inevitably be meaningless compared against `total_time` or `core_time`. Therefore, the total run time (`run_times`) of each target for each rule is taken within the parallel run. This helps contextualize the time spent parsing and matching each target. The sum of the run times thus can (and usually should) be longer than the total time.
+`targets` poses more difficulty. Since files are run in parallel, the amount of time spent parsing (`parse_times`) and matching (`match_times`) will inevitably be meaningless compared against `total_time` or `core_time`. Therefore, the total run time (`run_time`) of each target for each rule is taken within the parallel run. This helps contextualize the time spent parsing and matching each target. The sum of the run times thus can (and usually should) be longer than the total time.
 
-The lists `rule_parse_info`, `match_times`, `parse_times`, and `run_times` are all in the same order as `rules`. That is, the parse time of rule `rules[0]` is `rule_parse_info[0]`.
+The lists `match_times` and `parse_times` are in the same order as `rules`. That is, the match time of rule `rules[0]` is `match_times[0]`.
 
 Note that `parse_times` is given for each rule, but a file should only be parsed once (the first number). Afterwards, the parse time represents the time spent retrieving the file's AST from the cache.
 
