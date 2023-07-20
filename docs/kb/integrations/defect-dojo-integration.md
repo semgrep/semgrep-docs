@@ -22,7 +22,7 @@ Now, there are all the necessary elements to start playing with [DefectDojo API]
 
 ### DefectDojo API example 
 
-To run API DefectDojo operations such as GET, POST, and DELETE, an API token is necessary. To get it, follow [API guide](https://documentation.defectdojo.com/integrations/api-v2-docs/).
+To run API DefectDojo operations such as GET, POST, and DELETE, an API token is necessary. To get it, follow the [API guide](https://documentation.defectdojo.com/integrations/api-v2-docs/).
 
 * Once got it, in your system, usually in your CI environment, declare the environment variable `DEFECT_DOJO_API_TOKEN`
 ```
