@@ -19,7 +19,9 @@ Third-party code scanning findings can only populate in the Advanced Security Da
 
 Your workflow permissions will be set to read-only (default) unless they've previously been changed.
 
-`org/repo -> Settings -> Actions -> General -> Workflow permissions`
+To change permissions:
+1. Navigate to your organization or repository in GitHub.
+2. Click **Settings > Actions > General > Workflow permissions**.
 
 ![image info](/img/kb/github-default-workflow-permissions.png)
 
