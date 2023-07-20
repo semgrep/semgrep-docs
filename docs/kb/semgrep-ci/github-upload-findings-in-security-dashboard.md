@@ -17,7 +17,7 @@ Third-party code scanning findings can only populate in the Advanced Security Da
 
 **2. The default workflow permissions in your repo are set to read only**
 
-Permissions typically default to more restrictive scopes, therefore, your workflow permissions will be set to read only unless changed manually.
+Your workflow permissions will be set to read-only (default) unless they've previously been changed.
 
 `org/repo -> Settings -> Actions -> General -> Workflow permissions`
 
