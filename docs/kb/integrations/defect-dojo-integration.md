@@ -76,7 +76,7 @@ Where:
 
 ## Integrating Semgrep and DefectDojo in a CI pipeline
 
-To prevent tampering at any point of delivery, it is crucial to integrate security scans and dump results to DefectDojo in the **same pipeline or CI job**.
+To prevent tampering of findings at any point of delivery, it is crucial to integrate importing of scan results to DefectDojo in the **same pipeline or CI job** as the scan itself.
 The following is an example of a GitLab job importing Semgrep findings to DefectDojo:
 
 ```
