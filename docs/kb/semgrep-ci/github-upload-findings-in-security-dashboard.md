@@ -25,7 +25,9 @@ Your workflow permissions will be set to read-only (default) unless they've prev
 
 Bear in mind that changing the repo’s default workflow permissions changes the permissions for all workflows in your repo. So, for more granular permissions, utilize the `permissions` key either at the workflow or job level in the `semgrep.yml` workflow file. Learn more about the `permissions` key [here](https://docs.github.com/en/actions/using-jobs/assigning-permissions-to-jobs#setting-the-github_token-permissions-for-all-jobs-in-a-workflow), and check out our example of workflow level permissions below. Note that it only requires `security-events` write permissions to be successful.
 
-## Example configuration of job to upload findings to Advanced Security Dashboard with permissions key
+### Example job configuration with `permissions` key
+
+This job only requires `write` permissions for `security-events`.
 
 ```
 # Name of this GitHub Actions workflow.
