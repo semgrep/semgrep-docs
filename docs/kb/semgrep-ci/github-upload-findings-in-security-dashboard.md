@@ -11,7 +11,7 @@ When scanning with Semgrep in CI, findings automatically populate in Semgrep Clo
 
 Once you run the alternate job, the job may fail and return a "resource not accessible by integration" error which has two possible causes:
 
-**1. Your repo is private**
+## Your repository is private
 
 Third-party code scanning findings can only populate in the Advanced Security Dashboard if the repo is public/open source. Otherwise, the job will not have sufficient permissions to write to the dashboard regardless of any permissions set at the workflow or job level.
 
