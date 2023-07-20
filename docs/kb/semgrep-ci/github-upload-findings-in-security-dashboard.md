@@ -5,7 +5,7 @@ tags:
   - GitHub
 ---
 
-## Why aren't findings populating in the GitHub Advanced Security Dashboard after running Semgrep in CI?
+# Why aren't findings populating in the GitHub Advanced Security Dashboard after running Semgrep in CI?
 
 When scanning with Semgrep in CI, findings automatically populate in Semgrep Cloud Platform. To show findings in the GitHub Advanced Security Dashboard, you must first run an alternate job that uploads findings in the form of a `SARIF` file to the dashboard. See  [Sample GitHub Actions configuration file](https://semgrep.dev/docs/semgrep-ci/sample-ci-configs/#sample-github-actions-configuration-file) for an example.
 
