@@ -13,9 +13,9 @@ If you run the alternate job and it fails with a "resource not accessible by int
 
 ## Your repository is private
 
-Third-party code scanning findings can only populate in the Advanced Security Dashboard if the repo is public/open source. Otherwise, the job will not have sufficient permissions to write to the dashboard regardless of any permissions set at the workflow or job level.
+Third-party code scanning findings can only populate in the Advanced Security Dashboard if the repository is public. Otherwise, the job will not have sufficient permissions to write to the dashboard regardless of any permissions set at the workflow or job level.
 
-## The default workflow permissions in your repo are set to read-only
+## The default workflow permissions in your  are set to read-only
 
 Your workflow permissions will be set to read-only (default) unless they've previously been changed.
 
@@ -24,6 +24,7 @@ To change permissions:
 2. Click **Settings > Actions > General > Workflow permissions**.
 
 ![image info](/img/kb/github-default-workflow-permissions.png)
+Target permissions
 
 :::info 
 Changing the repository's default workflow permissions changes the permissions for all workflows in that repository. For more granular permissions, set the `permissions` key at the workflow or job level in the `semgrep.yml` workflow file. Learn more about the `permissions` key at [Assigning permissions to jobs](https://docs.github.com/en/actions/using-jobs/assigning-permissions-to-jobs#setting-the-github_token-permissions-for-all-jobs-in-a-workflow), or review the example workflow-level permissions below.
