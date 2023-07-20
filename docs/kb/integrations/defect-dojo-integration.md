@@ -10,8 +10,7 @@ description: How to connect Semgrep and DefectDojo
 [DefectDojo](https://www.defectdojo.com/) is a well-known vulnerability management tool. It allows you to gather security issues from tools like Semgrep and more. By integrating Semgrep findings into DefectDojo, security teams can gather security issues from multiple tools into one place and more effectively monitor their security posture.
 
 ## Integration
-Integrating Semgrep with DefectDojo means dumping findings detected by Semgrep into DefectDojo.
-There are several steps to follow:
+Follow these steps to prep DefectDojo and generate Semgrep findings in the proper format:
 
 1. In DefectDojo:
     1 Create your [**product**](https://defectdojo-dev.readthedocs.io/en/latest/features.html#products).
