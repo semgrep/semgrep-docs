@@ -150,7 +150,9 @@ code .
 
 #### Interpreting the result object
 
-For full timing information, run Semgrep with `--time` and `--json`. In addition, you will want to `time` the entire command to get the true wall time. The `--json` argument produces a large amount of output, so redirecting the output to a file with `-o` is recommended. The full command would look sometthing like:
+For full timing information, run Semgrep with `--time` and `--json` flags. In addition, you can add `time` at the beginning of the command to get the true wall time. The `--json` argument produces a large amount of output, so redirecting the output to a file with `-o` is recommended. 
+
+See the following example for the full command:
 
 <pre class="language-bash"><code>time semgrep --config=auto --time --json -o result.json <span className="placeholder">PATH/TO/SRC</span></code></pre>
 
@@ -199,7 +201,12 @@ Here is an example result object.
 
 All the information about timing is contained under `time`.
 
-The first section is `profiling_times`. This contains wall time durations of various steps we consider interesting: getting the rule config files (`config_time`), running the main engine (`core_time`), and processing the ignores (`ignores_time`). The `total_time` field represents the sum of these steps.
+The first section is `profiling_times`. This contains wall time durations of various relevant steps:
+* Getting the rule config files (`config_time`)
+* Running the main engine (`core_time`)
+* Processing the ignores (`ignores_time`) 
+
+The `total_time` field represents the sum of these steps.
 
 The remaining fields report engine performance. Together, `rule_parse_info` and `targets` should capture all the time spent running `semgrep-core`.
 
@@ -217,7 +224,7 @@ When a time is not measured, by default it has the value -1. It is common to a h
 
 #### Tips for exploring Semgrep results
 
-There are several scripts already written to analyze and summarize these timing data. Find them in [`scripts/processing-output`](https://github.com/returntocorp/semgrep/tree/develop/scripts/processing-output). If you have a timing file, you will probably want to run
+There are several scripts already written to analyze and summarize these timing data. Find them in [`scripts/processing-output`](https://github.com/returntocorp/semgrep/tree/develop/scripts/processing-output). If you have a timing file, you can run
 
 ```bash
 python read_timing.py [your_timing_file]

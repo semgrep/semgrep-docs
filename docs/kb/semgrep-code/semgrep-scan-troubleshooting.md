@@ -71,7 +71,7 @@ Once you have isolated the issue:
 
 If you are encountering memory usage issues, please include in your report:
 
-* the total size of the files
-* the number of files being scanned
-* the maximum memory used by Semgrep (an estimate from `top` is fine)
-* the system specifications
+* The total size of the files
+* The number of files being scanned
+* The maximum memory used by Semgrep (an estimate from `top` is fine)
+* The system specifications
