@@ -72,7 +72,7 @@ Substitute the placeholder <code><span className="placeholder">PAT</span></code>
 For more configuration options, see [GitLab CI Sample](/semgrep-ci/sample-ci-configs/#gitlab-ci).
 
 :::info
-Only rules in the **Comment** and **Block** columns of your [Rule board](https://semgrep.dev/orgs/-/board) create MR comments.
+Only rules in the **Comment** and **Block** columns of your [Policies](https://semgrep.dev/orgs/-/board) create MR comments.
 :::
 
 ## Enabling autofix in GitLab repositories
@@ -90,12 +90,12 @@ Only rules in the **Comment** and **Block** columns of your [Rule board](https:/
 
 ### Viewing the path of tainted data in MR comments
 
-To enable dataflow traces feature in your CI pipeline, fulfill the following prerequisites:
+To enable dataflow traces in your CI pipeline, fulfill the following prerequisites:
 
 :::info Prerequisites
 - Enable GitLab merge request Semgrep comments. For more details, see [Enabling GitLab merge request comments](#enabling-gitlab-merge-request-comments) section.
 - To obtain meaningful results of dataflow traces in MR comments, use Semgrep Pro Engine while scanning your repositories to display cross-file (interfile) findings. To enable Semgrep Pro Engine, see [Semgrep Pro Engine overview](/semgrep-code/semgrep-pro-engine-intro/).
-- Not all Semgrep rules or rulesets make use of taint tracking. Ensure that you have a ruleset, such as the **default ruleset** added in your **[Rule Board](https://semgrep.dev/orgs/-/board)**. If this ruleset is not added, go to [https://semgrep.dev/p/default](https://semgrep.dev/p/default), and then click **Add to Rule Board**. You can add rules that use taint tracking from [Semgrep Registry](https://semgrep.dev/explore).
+- Not all Semgrep rules or rulesets make use of taint tracking. Ensure that you have a ruleset, such as the **default ruleset** added in your **[Policies](https://semgrep.dev/orgs/-/policies)**. If this ruleset is not added, go to [https://semgrep.dev/p/default](https://semgrep.dev/p/default), and then click **Add to Policy**. You can add rules that use taint tracking from [Semgrep Registry](https://semgrep.dev/explore).
 :::
 
 <MoreHelp />
