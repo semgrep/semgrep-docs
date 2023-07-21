@@ -161,6 +161,9 @@ Substitute the optional placeholder <code><span className="placeholder">PATH/TO/
 Here is an example result object.
 
 ```JSON
+      { "results": [], 
+        "paths": {},
+        "errors": [],
   "time": {
     "max_memory_bytes": 48693248,
     "profiling_times": {
