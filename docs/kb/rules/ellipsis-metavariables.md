@@ -15,11 +15,11 @@ Using ellipsis (`...`) to match a sequence of items is one of the most common co
 
 Most commonly, ellipsis metavariables like `$...ARGS` are used for purposes like matching multiple arguments to a function, [while capturing the values for later re-use](/docs/writing-rules/pattern-syntax/#ellipsis-metavariables).
 
-However, they can also be used to match multiple word tokens. This is especially handy in [Generic pattern matching mode](/docs/writing-rules/generic-pattern-matching/), where a token is defined as a sequence of characters in the set `[A-z0-9_]`. 
+However, they can also be used to match multiple word tokens. This is especially handy in [Generic pattern matching mode](/docs/writing-rules/generic-pattern-matching/), where a token is defined as a sequence of characters in the set `[A-z0-9_]`, which is not a fit for all languages.
 
 ## Capturing multiple tokens with ellipsis metavariables
 
-In `generic` mode, `ABC_DEF` is one token, and a metavariable such as `$VAR` captures the entire sequence. However, `ABC-DEF` is two tokens, and a metavariable such as `$VAR` does not capture the entire sequence. 
+In `generic` mode, `ABC_DEF` is one token, and a metavariable such as `$VAR` captures the entire sequence. However, `ABC-DEF` is two tokens, and a metavariable such as `$VAR` does not capture the entire sequence.
 
 If the language you're working with allows other characters in tokens, using ellipsis metavariables can prevent problems with matching too little of the pattern.
 
@@ -33,7 +33,7 @@ If you remove the ellipsis in the `$...ID` variable, the second example no longe
 
 Semgrep's generic matching mode is [somewhat limited](/docs/writing-rules/generic-pattern-matching/#caveats-and-limitations-of-generic-mode). To address some of the limitations, the team is experimenting with a new mode called [Aliengrep](/docs/writing-rules/experiments/aliengrep/). 
 
-With Aliengrep, you can [configure what characters are allowed as part of a word token](/docs/writing-rules/experiments/aliengrep/#additional-word-characters-captured-by-metavariables) as well as have [even more fun with ellipses](/docs/writing-rules/experiments/aliengrep/#ellipsis-). 
+With Aliengrep, you can [configure what characters are allowed as part of a word token](/docs/writing-rules/experiments/aliengrep/#additional-word-characters-captured-by-metavariables) as well as [have even more fun with ellipses](/docs/writing-rules/experiments/aliengrep/#ellipsis-).
 
 Give it a try and share your thoughts!
 
