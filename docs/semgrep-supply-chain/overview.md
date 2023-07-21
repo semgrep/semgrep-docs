@@ -40,7 +40,7 @@ Semgrep Supply Chain generates a **finding** when it detects a match. If the dep
 
 A finding is **unreachable** if the dependency contains a known vulnerability, but the vulnerable matching code is not used in your codebase.
 
-A finding is **undetermined** if Semgrep detects a match for the dependency in the vulnerable version range, but does not scan for the reachability of this vulnerability. This is most common with older or lower severity vulnerabilities.
+A finding is **undetermined** if Semgrep detects a match for the dependency in the vulnerable version range, but does not have a reachability rule for this vulnerability. This is most common with older or lower severity vulnerabilities.
 
 In Semgrep Cloud Platform, specific findings of a dependency and code match are called **usages**. Usages are grouped by their **vulnerability**. Vulnerabilities in Semgrep Supply Chain typically have a CVE number corresponding to the record in the [CVE Program](https://www.cve.org/About/Overview).
 
