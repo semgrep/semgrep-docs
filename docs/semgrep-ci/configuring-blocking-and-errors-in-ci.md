@@ -30,8 +30,8 @@ Semgrep blocks the pull requests (PRs) or merge requests (MRs) in its default co
 
 Blocking findings can be defined as:
 
-- Findings defined in [Rule Board](https://semgrep.dev/orgs/-/board) of Semgrep Cloud Platform. Avoid blocking findings by removing rules from the **Block** column of the [Rule Board](https://semgrep.dev/orgs/-/board).
-- If you do **not** use Semgrep Cloud Platform with Semgrep in CI (stand-alone setup), blocking findings encompass all Semgrep findings. Any finding in this setup blocks your PRs or MRs.
+- Findings defined in the [Policies page](https://semgrep.dev/orgs/-/board) of Semgrep Cloud Platform. Avoid blocking findings by removing rules from the **Block** rule mode of the [Policies page](https://semgrep.dev/orgs/-/board).
+- If you do **not** use Semgrep Cloud Platform with Semgrep in CI (that is, you are using a **stand-alone setup**), blocking findings encompass all Semgrep findings. Any finding in this setup blocks your PRs or MRs.
 
 By default, Semgrep does not block your pipeline when it encounters an internal error. Semgrep suppresses all errors and does not surface them to the CI provider. In case of an internal error, Semgrep sends an anonymous crash report to a crash-reporting server and does not block your CI pipeline. To change the default configuration, see the sections below.
 
