@@ -1,7 +1,7 @@
 ---
 slug: metavariable-type
 append_help_link: true
-description: "With this rule, Semgrep matches captured metavariables with specific types"
+description: "With this experimental field, Semgrep matches captured metavariables with specific types"
 ---
 
 # Matching captured metavariables with specific types
