@@ -172,13 +172,13 @@ module.exports = {
                     'troubleshooting/semgrep-ci'
                 ]
             },
-        'ignoring-files-folders-code',
+        'ignoring-files-folders',
             {
               type: 'category',
               label: 'Extensions',
               collapsible: true,
               link: {
-                type: 'doc', 
+                type: 'doc',
                 id: 'extensions/overview'
               },
               items: [

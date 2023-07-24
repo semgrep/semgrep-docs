@@ -1,22 +1,22 @@
 ---
-slug: ignoring-files-folders-code 
+slug: ignoring-files-folders
 append_help_link: true
-title: Ignoring files, folders, or code
-description: "This documents various methods to skip or ignore files, folders, or code that are not relevant to a Semgrep scan."
+title: Ignoring files and folders
+description: "This documents various methods to skip or ignore files or folders that are not relevant to a Semgrep scan."
 ---
 
 import MoreHelp from "/src/components/MoreHelp"
 import IgnoreIndividualFindingNoGrouping from "/src/components/procedure/_ignore-individual-finding-no-grouping.mdx"
 
-# Ignoring files, folders, or parts of code
+# Ignoring files and folders
 
-Exclude specific files, folders or parts of code from results of Semgrep scans in your repository or working directory. Semgrep does not generate findings for the ignored items.
+Exclude specific files and folders from results of Semgrep scans in your repository or working directory. Semgrep does not generate findings for the ignored items.
 
 All Semgrep environments (CLI, CI, and App) adhere to user-defined or Semgrep-defined ignore patterns.
 
 :::info
 Ignoring files or folders differs from ignoring a **finding**.
-- **Ignoring findings**: When Semgrep finds a match in scanned code and reports it as a finding, you can ignore the finding in Semgrep Code. Semgrep Code still keeps a record of ignored findings for you to review. See [Ignoring findings](/semgrep-code/findings/#ignoring-findings) section.
+- **Ignoring findings**: When Semgrep finds a match in scanned code and reports it as a finding, you can ignore the finding in Semgrep Code. Semgrep Code still keeps a record of ignored findings for you to review. See the [Ignoring findings](/semgrep-code/findings/#ignoring-findings) section.
 - **Ignoring files or folders**: When you define files or folders that Semgrep must ignore, these files are skipped by Semgrep and **not** scanned. Consequently, there is no code that can be matched and reported as a finding in skipped files. Defining files or folders that Semgrep skips is the focus of this document.
 :::
 
