@@ -47,8 +47,8 @@ Semgrep Code includes Semgrep Cloud Platform (SCP), a web application that helps
 * Preventing insecure code from reaching production or staging servers by blocking pull or merge requests, based on how you configure your rules.
 * Notifying security teams of findings (results) as well as communicating with other developers by leaving pull or merge request comments in GitHub, GitLab, or BitBucket.
 
-:::tip SUGGESTED WORKFLOWS
-* You can use SCP to scan remote repositories (GitHub, GitLab, or BitBucket) and consolidate the findings.
+:::tip Suggested workflows 
+* You can use Semgrep Cloud Platform to scan remote repositories (GitHub, GitLab, or BitBucket) and consolidate the findings.
 * You can also use Semgrep Cloud Platform to consolidate findings from a Semgrep CLI scan performed on a **local** machine.
 * Semgrep Code can be integrated into your custom infrastructure without SCP. See [API](/semgrep-cloud-platform/semgrep-api) for details.
 :::
@@ -93,7 +93,7 @@ To use Semgrep with your team, [create an organization account](/semgrep-cloud-p
 
 Scanning is Semgrep's primary operation. When you first sign into Semgrep Cloud Platform, it uses a default SAST ruleset selected to enforce best practices for a repository's framework and programming language. You can customize future scans to address your organization's specific practices.
 
-Semgrep Cloud Platform enables users to choose what findings prevent a pull or merge request (PR or MR) from merging into the repository. Setting these blocking and non-blocking rules is achieved through the Rule Board.
+Semgrep Cloud Platform enables users to choose what findings prevent a pull or merge request (PR or MR) from merging into the repository. Setting these blocking and non-blocking rules is achieved through the [Policies page](/semgrep-code/policies).
 
 ### Adding or onboarding a new project (repository)
 
@@ -102,9 +102,9 @@ A **project** is a repository from either:
 * Your GitHub, GitLab, or BitBucket account that you add to Semgrep Cloud Platform for scanning.
 * A local Git repository in your machine. Projects from your local machine are integrated through Semgrep CLI.
 
-Semgrep Cloud Platform can run scans on many projects with rules set in the Rule Board. First-time Semgrep Cloud Platform users scan projects with pre-selected rules chosen based on the repository's language and framework. To view these pre-selected rules, see the [Registry default ruleset](https://semgrep.dev/p/default).
+Semgrep Cloud Platform can run scans on many projects with rules set in the Policies page. First-time Semgrep Cloud Platform users scan projects with pre-selected rules chosen based on the repository's language and framework. To view these pre-selected rules, see the [Registry default ruleset](https://semgrep.dev/p/default).
 
-Over time, users modify the Rule Board with rules specific to their codebase's security or business goals.
+Over time, users modify the Policies page with rules specific to their codebase's security or business goals.
 
 :::tip Try Semgrep Zero-config Scanning (Beta)
 Semgrep Zero-config Scanning enables you to quickly onboard or add many repositories without configuring a CI job. This feature is available for users of GitHub Free or Team tiers. Contact [sales@semgrep.com](mailto:sales@semgrep.com) to try it out.
@@ -258,37 +258,38 @@ You can also configure additional configuration options for a specific project. 
 
 ### Adding rules and rulesets to scan with
 
-Semgrep Cloud Platform's Rule Board displays all rules and rulesets that are used to scan repositories. These rules are scanned based on the repository's programming language and framework as well as additional Semgrep parameters, such as ignored files.
+Semgrep Cloud Platform's Policies displays all rules and rulesets that are used to scan repositories. These rules are scanned based on the repository's programming language and framework as well as additional Semgrep parameters, such as ignored files.
 
-For example, given five repositories each with different programming languages, the Rule Board only scans using rules and rulesets for that repository's language that are in the Rule Board.
+For example, given five repositories each with different programming languages, Semgrep only scans using rules and rulesets for that repository's language that are in the Policies page.
 
-Semgrep's speed is not affected by having multiple rules for different languages in the Rule Board.
+Semgrep's speed is not affected by having multiple rules for different languages in the Policies page.
 
 You may select rules and rulesets from your own rules, your organization's rules, or rules from the Registry.
 
-![Screenshot of Rule board](/img/rule-board.png "Screenshot of Rule board")
+![Policies page](/img/policies.png "Policies page")
 
-The Rule Board is composed of three columns:
+The Policies page uses three **rule modes** to determine what action to undertake when a finding is generated by a rule:
 
 
 <dl>
     <dt>Monitor</dt>
-    <dd>Rules here show findings only on Semgrep Cloud Platform.</dd>
+    <dd>Rules set to Monitor mode show findings only on Semgrep Cloud Platform, without notifying developers.</dd>
     <dt>Comment</dt>
-    <dd>Rules here show findings to developers through PRs or MRs.</dd>
+    <dd>Rules set to Comment mode show findings to developers through PR or MR comments.</dd>
     <dt>Block</dt>
-    <dd>Rules here show block merges and commits, in addition to showing findings in Semgrep Cloud Platform and PRs or MRs.</dd>
+    <dd>Rules set to Block block merges and commits, in addition to showing findings in Semgrep Cloud Platform and PRs or MRs.</dd>
 </dl>    
 
-To add rules and rulesets to your Rule Board:
+To add rules and rulesets to your Policies:
 
-1. Click **Rule Board** on the left sidebar.
-2. Click Add Rules. A right-side drawer appears.
-3. Type in a search term relevant to your codebase's framework or programming language.
-4. Drag a card from the search results to the appropriate column.
-5. Select **Save changes**.
+1. Click **Policies** on the left sidebar.
+2. Click **Add Rules**. You are taken to Semgrep Registry.
+3. Enter a search term in the Registry search bar or browse to find rulepacks and rules.
+4. When you have found a rule to add, click on the rule's card.
+5. Click **Add to Policy**.
+6. Select what rule mode to set the rule to.
 
-For more information on operations such as filtering and deleting as well as Rule board management, see [Rule board](/semgrep-code/rule-board/).
+For more information on operations such as filtering and deleting as well as Policy management, see [Policies](/semgrep-code/policies/).
 
 ## Viewing and managing findings
 
