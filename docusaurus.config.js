@@ -240,7 +240,7 @@ module.exports = {
           { from: "/sample-ci-configs", to: "/semgrep-ci/sample-ci-configs/" },
           { from: "/status/", to: "/supported-languages/" },
           { from: "/language-support/", to: "/supported-languages/" },
-          { from: "/ignoring-findings/", to: "/ignoring-files-folders-code/" },
+          { from: "/ignoring-findings/", to: "/ignoring-files-folders/" },
           { from: "/experiments/join-mode/", to: "/writing-rules/experiments/join-mode/overview/" },
           { from: "/providers/", to: "/semgrep-ci/overview/" },
           { from: "/semgrep-app/role-based-access-control", to: "/semgrep-cloud-platform/user-management/" },
