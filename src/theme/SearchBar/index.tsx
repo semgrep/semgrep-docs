@@ -22,7 +22,7 @@ export default function SearchBarWrapper(props: Props): JSX.Element {
           transformReferenceId: (referenceId) => {
             // Sample code that transforms a reference path to a link.
             // Remove file extension
-            const href = referenceId.replace(/\.[^.]+$/, '');
+            const href = "/" + referenceId.replace(/\.[^.]+$/, '');
             // Use last part of path for label
             const text = href.split('/').slice(-1)[0];
             return { text, href };
