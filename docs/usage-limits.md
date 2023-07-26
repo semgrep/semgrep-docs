@@ -20,7 +20,7 @@ This section describes usage limits.
 
 ### What is changing about Semgrep tiers?
 
-The Community tier was sunsetted on June 6. Semgrep, Inc now offers the Team tier for free to all users up to the usage limit of 10 contributors scanning on private repositories. A contributor is defined as someone who contributed code to a private repository scanned by Semgrep.
+The Community tier was sunsetted on June 6, 2023. Semgrep, Inc now offers the Team tier for free to all users up to the usage limit of 10 contributors scanning on private repositories. A contributor is defined as someone who contributed code to a private repository scanned by Semgrep.
 
 You can now access the Team tier features of Semgrep Supply Chain, Semgrep Code, and Semgrep Cloud Platform features such as SSO.
 
