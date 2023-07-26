@@ -19,11 +19,11 @@ Installation with Homebrew does not support multiple versions of Semgrep, but yo
 
 ## Running different versions using pip
 
-You can install a specific Semgrep version using pip's version syntax.
+Install a specific Semgrep version using pip's version syntax:
 
 <pre class="language-bash"><code>python3 -m pip install semgrep==<span className="placeholder">x.y.z</span></code></pre>
 
-Confirm installation by running the following command:
+Confirm installation:
 
 ```
 semgrep --version
@@ -39,11 +39,11 @@ To pull:
 
 <pre class="language-bash"><code>docker pull returntocorp/semgrep:<span className="placeholder">x.y.z</span></code></pre>
 
-Example for a local run, mounting the desired source directory (`/PATH/TO/SRC`) for scanning:
+To run locally, mounting the desired source directory (`/PATH/TO/SRC`) for scanning:
 
 <pre class="language-bash"><code>docker run --rm -v "<span className="placeholder">/PATH/TO/SRC</span>:/src" returntocorp/semgrep:<span className="placeholder">x.y.z</span> semgrep --config=auto</code></pre>
 
-Example for a GitHub Actions CI configuration:
+To run in GitHub Actions CI:
 
 ```yaml
 jobs:

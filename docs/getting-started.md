@@ -47,7 +47,7 @@ To install and run Semgrep OSS Engine, use one of the following options:
       python3 -m pip install semgrep
       ```
 
-  2. Confirm installation by the following command:
+  2. Confirm installation:
       ```sh
       semgrep --version
       ```
@@ -65,7 +65,7 @@ To install and run Semgrep OSS Engine, use one of the following options:
       python3 -m pip install semgrep
       ```
 
-  2. Confirm installation by the following command:
+  2. Confirm installation:
       ```sh
       semgrep --version
       ```
@@ -84,7 +84,7 @@ To install and run Semgrep OSS Engine, use one of the following options:
       python3 -m pip install semgrep
       ```
 
-  2. Confirm installation by the following command:
+  2. Confirm installation:
       ```sh
       semgrep --version
       ```
@@ -103,7 +103,7 @@ To install and run Semgrep OSS Engine, use one of the following options:
      docker pull returntocorp/semgrep
      ```
    
-  2. Confirm version by the following command:
+  2. Confirm version:
       ```sh
       docker run --rm returntocorp/semgrep semgrep --version
       ```
