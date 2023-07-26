@@ -14,7 +14,7 @@ import MoreHelp from "/src/components/MoreHelp"
 This section describes usage limits.
 
 :::caution important dates
-* The Semgrep Community tier has been sunsetted. All Community tier account have been moved to the Team tier.
+* The Semgrep Community tier has been sunsetted. All Community Tier accounts have been moved to the Team tier.
 * The new usage limits come into effect starting on July 31, 2023.
 :::
 
