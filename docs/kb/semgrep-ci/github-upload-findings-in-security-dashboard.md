@@ -15,9 +15,9 @@ If you run the alternate job and it fails with a "resource not accessible by int
 
 Third-party code scanning findings can only populate in the Advanced Security Dashboard if the repository is public. Otherwise, the job will not have sufficient permissions to write to the dashboard regardless of any permissions set at the workflow or job level.
 
-## The default workflow permissions in your  are set to read-only
+## The workflow permissions in your repository's Actions settings are set to read-only
 
-Your workflow permissions will be set to read-only (default) unless they've previously been changed.
+Your workflow permissions will be set to `read-only` (default) unless they've previously been changed. The job requires `write` permissions to be successful.
 
 To change permissions:
 1. Navigate to your organization or repository in GitHub.
