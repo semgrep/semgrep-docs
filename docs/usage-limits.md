@@ -30,7 +30,7 @@ The Enterprise tier remains unaffected.
 
 ### What is the usage limit?
 
-The usage limit is 10 contributors. A contributor is someone who has made at least one commit to a Semgrep scanned private repository within the last 30 days.
+The usage limit is 10 contributors. A contributor is someone who has made at least one commit to a Semgrep-scanned private repository within the last 30 days.
 
 ### How are contributors calculated?
 
