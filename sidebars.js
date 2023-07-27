@@ -349,6 +349,7 @@ module.exports = {
           collapsible: true,
           link: {type: 'doc', id: 'semgrep-cloud-platform/notifications'},
           items: [
+            'semgrep-cloud-platform/jira',
             'semgrep-cloud-platform/github-pr-comments',
             'semgrep-cloud-platform/gitlab-mr-comments',
             'semgrep-cloud-platform/bitbucket-pr-comments',
