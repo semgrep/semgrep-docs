@@ -56,7 +56,7 @@ Use the drop-downs to select the default project and ticket type. These settings
 ### Code
 
 :::note
-Creating tickets for many findings at once may take some time. Tickets that take longers than 10 seconds to create will be shown in the UI once the page is refreshed.
+Creating tickets for many findings at once may take some time. Tickets that take longer than 10 seconds to create will be shown in the UI once the page is refreshed.
 :::
 
 To create tickets for one or more Code findings, use the triage button from the Code findings page or from an individual finding's details page. Findings can be individually selected, or you can create tickets for all findings for a given rule. 
