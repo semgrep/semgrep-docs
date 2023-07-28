@@ -72,7 +72,7 @@ Once a ticket has been created, a link will be present on the right side of the 
 ### Supply Chain
 
 :::caution Limitations
-Tickets can only be created for Supply Chain findings with reachable usages. They cannot be created for **Always reachable** or **Unreachable" findings**.
+Tickets can only be created for Supply Chain findings with reachable usages. They cannot be created for **Always reachable** or **Unreachable** findings.
 :::
 
 The Supply Chain triage flow will create tickets for all instances of a given vulnerability. Instances can not be selected individually. 
