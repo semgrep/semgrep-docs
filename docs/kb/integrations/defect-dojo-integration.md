@@ -13,8 +13,8 @@ description: How to connect Semgrep and DefectDojo
 Follow these steps to prep DefectDojo and generate Semgrep findings in the proper format:
 
 1. In DefectDojo:
-	a. Create your [**product**](https://defectdojo-dev.readthedocs.io/en/latest/features.html#products).
-	b. In that DefectDojo product, create an **engagement** called `semgrep`. An engagement is a channel to import results.
+    - Create your [**product**](https://defectdojo-dev.readthedocs.io/en/latest/features.html#products).
+    - In that DefectDojo product, create an **engagement** called `semgrep`. An engagement is a channel to import results.
 2. Run a semgrep scan with flags `--json --output report.json` to generate a JSON report.
 
 Now, you are ready to use the [DefectDojo API](https://documentation.defectdojo.com/integrations/api-v2-docs/).
