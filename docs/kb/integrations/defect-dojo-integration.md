@@ -37,7 +37,7 @@ These endpoints can receive some parameters, the following of which must be spec
 
 Here is an example snippet of a Python function using this endpoint:
 
-```
+```python
 def uploadToDefectDojo(is_new_import, token, url, product_name, engagement_name, filename):
     multipart_form_data = {
         'file': (filename, open(filename, 'rb')),
@@ -59,13 +59,12 @@ def uploadToDefectDojo(is_new_import, token, url, product_name, engagement_name,
     print(r.text)
 ```
 
-The full version of this Python script can be found in the [Semgrep Utilities repository](https://github.com/r2c-CSE/semgrep-utilities/blob/main/integrations/defectdojo/import_semgrep_to_defect_dojo.py).
-It is ready to execute.
+The full version of this Python script can be found [here](https://github.com/r2c-CSE/semgrep-utilities/blob/main/integrations/defectdojo/import_semgrep_to_defect_dojo.py). Feel free to use this in your own environment after reviewing the script to make sure it works for you.
 
 ### Running the script
 
-To run the script:
-```
+To continue with the above example and run the script, execute the following command:
+```bash
 python3 integrations/defectdojo/import_semgrep_to_defect_dojo.py --host DOJO_URL --product PRODUCT_NAME --engagement ENGAGEMENT_NAME --report REPORT_FILE 
 ```
 Where:
