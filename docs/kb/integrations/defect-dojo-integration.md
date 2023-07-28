@@ -27,7 +27,7 @@ Once you have a token, store it as an environment variable named `DEFECT_DOJO_AP
 ```bash
 export DEFECT_DOJO_API_TOKEN=[YOUR_DEFECT_DOJO_TOKEN]
 ```
-Exploring the DefectDojo API, the endpoint is: `/api/v2/import-scan/` for the first import and `/api/v2/reimport-scan` for the following imports.
+When exploring the DefectDojo API, you will notice the `/api/v2/import-scan/` endpoint is used for the first import and the `/api/v2/reimport-scan` endpoint is used for following imports.
 
 These endpoints receive some parameters. The following must be specified:
 * `file`: The Semgrep scan findings report or export in JSON format
