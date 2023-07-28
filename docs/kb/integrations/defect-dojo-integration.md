@@ -87,6 +87,9 @@ import-semgrep-to-defectdojo:
     - echo "Importing Semgrep scan to DefectDojo"
     - pip3 install requests
     - curl -O https://raw.githubusercontent.com/r2c-CSE/semgrep-utilities/main/integrations/defectdojo/import_semgrep_to_defect_dojo.py
+    # Adding checksum validation
+    - echo $IMPORT_SEMGREP_TO_DEFECTDOJO_SHA_CHECKSUM > sha-import-dd.tmp
+    - shasum -a 256 -U -c sha-import-dd.tmp
     - python3 import_semgrep_to_defect_dojo.py --host $DEFECTDOJO_URL --product $PRODUCT --engagement semgrep --report report.json || true
   rules:
     # Scan changed files in MRs, (diff-aware scanning):
@@ -99,15 +102,9 @@ import-semgrep-to-defectdojo:
     DEFECT_DOJO_API_TOKEN: $DEFECT_DOJO_API_TOKEN
 ```
 
-### Adding checksum validation
-During the CI job and to verify that the job downloads the correct Python script securely, check the integrity with a checksum such as SHA 256 code. It prevents tampered scripts from executing.
-
-```
-    - echo $IMPORT_SEMGREP_TO_DEFECTDOJO_SHA_CHECKSUM > sha-import-dd.tmp
-    - shasum -a 256 -U -c sha-import-dd.tmp
-```
-Where:
-* `IMPORT_SEMGREP_TO_DEFECTDOJO_SHA_CHECKSUM` is the result of executing `shasum -a 256 -U import_semgrep_to_defect_dojo.py`
+:::tip
+As a good security practice, this pipeline includes checksum validation for the import script, to ensure that the script has not been tampered with.
+:::
 
 ## Conclusions
-Dumping Semgrep scan results to [DefectDojo](https://www.defectdojo.com/) can speed up vulnerability management operations in an organization. Integrating scans and imports in the same CI pipeline should be a high priority for DevSecOps programs.
+If you use multiple vulnerability tools, including Semgrep, importing results to [DefectDojo](https://www.defectdojo.com/) can be helpful in managing data across all of these tools.
