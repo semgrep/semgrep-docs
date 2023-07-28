@@ -86,6 +86,6 @@ The Supply Chain triage flow will create tickets for all instances of a given vu
 On the **[Integrations](https://semgrep.dev/orgs/-/settings/integrations)** page, find Jira, click **Edit Configuration** and the **Delete**
 
 * This **does not** delete any tickets created by Semgrep.
-* This **will remove** the link between Jira tickets and Semgrep findings, even if the integration is re-added in the future
+* This **removes** the link between Jira tickets and Semgrep findings, even if the integration is re-added in the future.
 
 <MoreHelp />
