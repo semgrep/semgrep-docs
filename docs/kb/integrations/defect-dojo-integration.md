@@ -29,13 +29,13 @@ export DEFECT_DOJO_API_TOKEN=[YOUR_DEFECT_DOJO_TOKEN]
 ```
 When exploring the DefectDojo API, you will notice the `/api/v2/import-scan/` endpoint is used for the first import and the `/api/v2/reimport-scan` endpoint is used for following imports.
 
-These endpoints receive some parameters. The following must be specified:
+These endpoints can receive some parameters, the following of which must be specified:
 * `file`: The Semgrep scan findings report or export in JSON format
 * `scan_type`: A descriptive name for the scan type. In this example, we use "Semgrep JSON Report" for Semgrep importation.
 * `product_name`: The name of the product in DefectDojo to send the Semgrep findings report to.
 * `engagement_name`: Depending on your use case, the [`engagement_name`](https://defectdojo-dev.readthedocs.io/en/latest/about.html#engagements) can describe a moment in time that the test is taking place in, or it can be used as a simple description about the import. In this case, you can name it `semgrep`.
 
-So a Python function using this endpoint can look like this:
+Here is an example snippet of a Python function using this endpoint:
 
 ```
 def uploadToDefectDojo(is_new_import, token, url, product_name, engagement_name, filename):
