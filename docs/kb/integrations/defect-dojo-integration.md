@@ -23,7 +23,7 @@ Now, you are ready to use the [DefectDojo API](https://documentation.defectdojo.
 
 To run API DefectDojo operations such as GET, POST, and DELETE, an API token is necessary. To get it, follow the [API guide](https://documentation.defectdojo.com/integrations/api-v2-docs/).
 
-* Once got it, in your system, usually in your CI environment, declare the environment variable `DEFECT_DOJO_API_TOKEN`
+Once you have a token, store it as an environment variable named `DEFECT_DOJO_API_TOKEN`:
 ```bash
 export DEFECT_DOJO_API_TOKEN=[YOUR_DEFECT_DOJO_TOKEN]
 ```
