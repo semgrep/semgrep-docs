@@ -19,12 +19,14 @@ Object.entries(frontMatter).filter(
 }
 </ul>
 
-# Creating Jira Tickets
+# Creating Jira tickets
 
 <!-- It's Jira, not JIRA :) -->
 
-:::tip Try our Jira integration (Beta)
-Existing customers can try our Jira integration for free by contacting their account manager.
+:::tip Try our Jira integration (beta)
+* Existing customers can try our Jira integration for free. To enable this feature:
+    1. Fill out the following form: [Request access to the Semgrep Jira integration private beta](https://get.semgrep.dev/Jira-private-beta.html).
+    2. Contact your Technical Account Manager or your Account Executive and let them know you'd like to try Jira integration out.
 :::
 
 The Semgrep Jira integration allows you to create Jira tickets based on your Semgrep Code or Supply Chain findings.
@@ -32,6 +34,7 @@ The Semgrep Jira integration allows you to create Jira tickets based on your Sem
 ## Enabling your Jira integration
 
 :::info Prerequisites
+* You must have a **Jira Cloud** plan. Jira Data Center (self-managed, or on-prem) is not supported. 
 * Your Jira user must be able to create a Jira API key with admin level privileges.
 * Jira can only be enabled through Semgrep Cloud Platform (SCP). [Create an account](/semgrep-code/getting-started/#signing-in-to-semgrep-cloud-platform) to set up your Jira integration.
 * To create tickets, you must [add or onboard the project](/semgrep-code/getting-started/#option-b-adding-a-repository-from-github-gitlab-or-bitbucket) (repository) to Semgrep Cloud Platform for scanning.
