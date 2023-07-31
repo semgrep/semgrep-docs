@@ -122,6 +122,7 @@ See [SSC glossary > Transitivity](/docs/semgrep-supply-chain/glossary/#transitiv
 * Semgrep Supply Chain does **not** perform reachability analysis for transitive dependencies. This means we do not scan the source code of your dependencies to determine if their dependencies may produce a reachable finding in the code.
 * Semgrep Supply Chain supports scanning for transitive or indirect dependencies for all of its [supported languages](/docs/supported-languages#semgrep-supply-chain). Findings are collected and displayed in **Semgrep Cloud Platform** > **Supply Chain**.
 * In most cases, Semgrep Supply Chain generates **reachable findings** for **direct dependencies**. However, there are certain dependencies that are vulnerable simply through their inclusion in a codebase. Semgrep Supply Chain generates reachable findings for these types of dependencies even if they are transitive dependencies.
+  - Semgrep Supply Chain shows transitive dependencies that are not vulnerable through inclusion as **unreachable**.
 
 ## Next steps: Scanning your codebase
 
