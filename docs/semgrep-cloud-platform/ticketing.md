@@ -26,7 +26,7 @@ Object.entries(frontMatter).filter(
 
 Send tickets to third-party ticketing systems through Semgrep Cloud Platform. 
 
-Semgrep Cloud Platform can send notifications through the following channels:
+Semgrep Cloud Platform can create tickets in the following systems:
 
 | Tool                               | Tier availability |
 | ----                               | ----------------  |

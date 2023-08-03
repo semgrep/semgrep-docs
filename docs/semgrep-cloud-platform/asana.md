@@ -41,13 +41,13 @@ To integrate Asana, follow these steps:
 
 1. In [Semgrep Cloud Platform](https://semgrep.dev/login), go to **Settings** > **[Integrations](https://semgrep.dev/orgs/-/settings/integrations)**.
 2. On the **[Integrations](https://semgrep.dev/orgs/-/settings/integrations)** page, click **Add Integration** (or **Setup First Integration** if this is your first integration), and then select **Ticketing > Asana**.
-3. Follow the on-screen instructions to add your Asana API key.
+3. Follow the on-screen instructions to integrate Asana.
 
-## Configuring your default project and ticket type
+## Configuring your default project
 
-Use the drop-downs to select the default project and ticket type. These settings can be changed later from the integrations page.
+Use the drop-down to select the default project. These settings can be changed later from the integrations page.
 
-![Asana configuration modal](/img/asana-configure-defaults.png) 
+![Asana configuration modal](/img/asana-configure-defaults.png)
 
 **Figure** A sample Asana integration
 

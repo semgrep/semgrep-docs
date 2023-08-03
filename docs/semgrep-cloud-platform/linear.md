@@ -19,40 +19,37 @@ Object.entries(frontMatter).filter(
 }
 </ul>
 
-# Creating Jira tickets
+# Creating Linear tickets
 
-<!-- It's Jira, not JIRA :) -->
-
-:::tip Try our Jira integration (beta)
-* Existing customers can try our Jira integration for free. To enable this feature:
-    1. Fill out the following form: [Request access to the Semgrep Jira integration private beta](https://get.semgrep.dev/Jira-private-beta.html).
-    2. Contact your Technical Account Manager or your Account Executive and let them know you'd like to try Jira integration out.
+:::tip Try our Linear integration (beta)
+* Existing customers can try our Linear integration for free. To enable this feature:
+    1. Fill out the following form: [Request access to the Semgrep Linear integration private beta](https://get.semgrep.dev/Jira-private-beta.html).
+    2. Contact your Technical Account Manager or your Account Executive and let them know you'd like to try the Linear integration out.
 :::
 
-The Semgrep Jira integration allows you to create Jira tickets based on your Semgrep Code or Supply Chain findings.
+The Semgrep Linear integration allows you to create Linear tickets based on your Semgrep Code or Supply Chain findings.
 
-## Enabling your Jira integration
+## Enabling your Linear integration
 
 :::info Prerequisites
-* You must have a **Jira Cloud** plan. Jira Data Center (self-managed, or on-prem) is not supported. 
-* Your Jira user must be able to create a Jira API key with admin level privileges.
-* Jira can only be enabled through Semgrep Cloud Platform (SCP). [Create an account](/semgrep-code/getting-started/#signing-in-to-semgrep-cloud-platform) to set up your Jira integration.
+* Your Linear user must be able to approve an OAuth integration with admin level privileges.
+* Linear can only be enabled through Semgrep Cloud Platform (SCP). [Create an account](/semgrep-code/getting-started/#signing-in-to-semgrep-cloud-platform) to set up your Linear integration.
 * To create tickets, you must [add or onboard the project](/semgrep-code/getting-started/#option-b-adding-a-repository-from-github-gitlab-or-bitbucket) (repository) to Semgrep Cloud Platform for scanning.
 :::
 
-To integrate Jira, follow these steps:
+To integrate Linear, follow these steps:
 
 1. In [Semgrep Cloud Platform](https://semgrep.dev/login), go to **Settings** > **[Integrations](https://semgrep.dev/orgs/-/settings/integrations)**.
-2. On the **[Integrations](https://semgrep.dev/orgs/-/settings/integrations)** page, click **Add Integration** (or **Setup First Integration** if this is your first integration), and then select **Jira**.
-3. Follow the on-screen instructions to add your Jira API key.
+2. On the **[Integrations](https://semgrep.dev/orgs/-/settings/integrations)** page, click **Add Integration** (or **Setup First Integration** if this is your first integration), and then select **Ticketing > Linear**.
+3. Follow the on-screen instructions to integrate Linear.
 
-## Configuring your default project and ticket type
+## Configuring your default project and team
 
-Use the drop-downs to select the default project and ticket type. These settings can be changed later from the integrations page.
+Use the drop-downs to select the default project and team. These settings can be changed later from the integrations page.
 
-![Jira configuration modal](/img/jira-configure-defaults.png) 
+![Linear configuration modal](/img/linear-configure-defaults.png)
 
-**Figure** A sample Jira integration
+**Figure** A sample Linear integration
 
 ## Creating tickets
 
@@ -66,10 +63,10 @@ To create tickets for one or more Code findings, use the triage button from the 
 
 Once a ticket has been created, a link will be present on the right side of the findings page and along the top of an individual finding's details page.
 
-![Create Jira ticket - Code](/img/jira-code-findings.png)
+![Create Linear ticket - Code](/img/linear-code-findings.png)
 **Figure** Code triage flow
 
-![Jira ticket created - Code](/img/jira-code-ticketed.png)
+![Linear ticket created - Code](/img/linear-code-ticketed.png)
 **Figure** Code ticket created
 
 ### Supply Chain
@@ -80,17 +77,17 @@ Tickets can only be created for Supply Chain findings with reachable usages. The
 
 The Supply Chain triage flow will create tickets for all instances of a given vulnerability. Instances can not be selected individually. 
 
-![Create Jira ticket - Supply Chain](/img/jira-ssc-findings.png)
+![Create Linear ticket - Supply Chain](/img/linear-ssc-findings.png)
 **Figure** Supply Chain triage flow
 
-![Jira ticket created - Supply Chain](/img/jira-ssc-ticketed.png)
+![Linear ticket created - Supply Chain](/img/linear-ssc-ticketed.png)
 **Figure** Supply Chain ticket created
 
-## Removing your Jira integration
+## Removing your Linear integration
 
-On the **[Integrations](https://semgrep.dev/orgs/-/settings/integrations)** page, find Jira, click **Edit Configuration** and the **Delete**
+On the **[Integrations](https://semgrep.dev/orgs/-/settings/integrations)** page, find Linear, click **Edit Configuration** and the **Delete**
 
 * This **does not** delete any tickets created by Semgrep.
-* This **removes** the link between Jira tickets and Semgrep findings, even if the integration is re-added in the future.
+* This **removes** the link between Linear tickets and Semgrep findings, even if the integration is re-added in the future.
 
 <MoreHelp />
