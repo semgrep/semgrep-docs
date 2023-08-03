@@ -1,9 +1,9 @@
 ---
-slug: jira 
+slug: linear 
 append_help_link: true
-title: Jira
+title: Linear
 hide_title: true
-description: "Send Semgrep findings to your Jira project."
+description: "Send Semgrep findings to your Linear project."
 tags:
     - Semgrep Cloud Platform
     - Team & Enterprise Tier
@@ -26,7 +26,7 @@ Object.entries(frontMatter).filter(
 :::tip Try our Jira integration (beta)
 * Existing customers can try our Jira integration for free. To enable this feature:
     1. Fill out the following form: [Request access to the Semgrep Jira integration private beta](https://get.semgrep.dev/Jira-private-beta.html).
-    2. Contact your Technical Account Manager or your Account Executive and let them know you'd like to try the Jira integration out.
+    2. Contact your Technical Account Manager or your Account Executive and let them know you'd like to try Jira integration out.
 :::
 
 The Semgrep Jira integration allows you to create Jira tickets based on your Semgrep Code or Supply Chain findings.
@@ -43,7 +43,7 @@ The Semgrep Jira integration allows you to create Jira tickets based on your Sem
 To integrate Jira, follow these steps:
 
 1. In [Semgrep Cloud Platform](https://semgrep.dev/login), go to **Settings** > **[Integrations](https://semgrep.dev/orgs/-/settings/integrations)**.
-2. On the **[Integrations](https://semgrep.dev/orgs/-/settings/integrations)** page, click **Add Integration** (or **Setup First Integration** if this is your first integration), and then select **Ticketing > Jira**.
+2. On the **[Integrations](https://semgrep.dev/orgs/-/settings/integrations)** page, click **Add Integration** (or **Setup First Integration** if this is your first integration), and then select **Jira**.
 3. Follow the on-screen instructions to add your Jira API key.
 
 ## Configuring your default project and ticket type

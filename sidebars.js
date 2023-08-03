@@ -364,13 +364,23 @@ module.exports = {
           collapsible: true,
           link: {type: 'doc', id: 'semgrep-cloud-platform/notifications'},
           items: [
-            'semgrep-cloud-platform/jira',
             'semgrep-cloud-platform/github-pr-comments',
             'semgrep-cloud-platform/gitlab-mr-comments',
             'semgrep-cloud-platform/bitbucket-pr-comments',
             'semgrep-cloud-platform/slack',
             'semgrep-cloud-platform/email',
             'semgrep-cloud-platform/webhooks'
+          ]
+        },
+        {
+          type: 'category',
+          label: 'Ticketing',
+          collapsible: true,
+          link: {type: 'doc', id: 'semgrep-cloud-platform/ticketing'},
+          items: [
+            'semgrep-cloud-platform/asana',
+            'semgrep-cloud-platform/jira',
+            'semgrep-cloud-platform/linear'
           ]
         },
       ]
