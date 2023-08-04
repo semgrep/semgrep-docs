@@ -25,7 +25,7 @@ Object.entries(frontMatter).filter(
 
 :::tip Try our Jira integration (beta)
 * Existing customers can try our Jira integration for free. To enable this feature:
-    1. Fill out the following form: [Request access to the Semgrep Jira integration private beta](https://get.semgrep.dev/Jira-private-beta.html).
+    1. Fill out the following form: [Request access to the Semgrep Jira integration private beta](https://get.semgrep.dev/Jira-asana-linear-private-beta.html).
     2. Contact your Technical Account Manager or your Account Executive and let them know you'd like to try the Jira integration out.
 :::
 

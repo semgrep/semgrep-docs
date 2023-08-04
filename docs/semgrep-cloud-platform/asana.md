@@ -23,7 +23,7 @@ Object.entries(frontMatter).filter(
 
 :::tip Try our Asana integration (beta)
 * Existing customers can try our Asana integration for free. To enable this feature:
-    1. Fill out the following form: [Request access to the Semgrep Asana integration private beta](https://get.semgrep.dev/Jira-private-beta.html).
+    1. Fill out the following form: [Request access to the Semgrep Asana integration private beta](https://get.semgrep.dev/Jira-asana-linear-private-beta.html).
     2. Contact your Technical Account Manager or your Account Executive and let them know you'd like to try the Asana integration out.
 :::
 
