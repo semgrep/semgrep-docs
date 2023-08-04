@@ -2,6 +2,7 @@
 slug: /
 hide_title: true
 id: Docs home
+displayed_sidebar: tutorialSidebar
 description: >-
   Read the documentation and get started with Semgrep.
   A fast, open-source, static analysis engine
@@ -60,9 +61,14 @@ Semgrep is developed and commercially supported by [Semgrep, Inc](https://r2c.de
 
 ## Language support
 
-<SupportedLanguagesTable />
+### Semgrep Code
 
-To determine experimental, beta, or general availability (GA) status, Semgrep scans a wide corpus of projects and measure the parse rate of each language. For more details see [the breakdown of all supported languages](supported-languages/).
+Semgrep Code supports over 30 languages and counting! 🚀 Visit [Semgrep Code's supported languages](/docs/supported-languages#semgrep-code) to see all the languages supported.
+
+### Semgrep Supply Chain
+
+Semgrep Supply Chain supports Go, Javascript/Typescript, Python, Ruby, and Java. 🛡️ Visit [Semgrep Supply Chain's supported languages](/docs/supported-languages#semgrep-supply-chain) to see all the package managers and lockfiles supported. 
+
 
 ## Environments
 

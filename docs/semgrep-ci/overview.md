@@ -68,9 +68,9 @@ The following table displays what features are available for manual (without Sem
 | Receive PR or MR review comments in GitHub, GitLab, or BitBucket | ✔️ | ❌ |
 | Manage false positives in bulk through triage | ✔️ | ❌ |
 | Receive notifications in Slack and email | ✔️ | ❌ |
-| Pricing | Free for up to 20 developers* | Free |
+| Pricing | Free for up to 10 developers* | Free |
 
-*For teams larger than 20 developers, see the [Team or Enterprise tiers](/docs/pricing-and-billing).
+*For teams larger than 10 developers, see the paid [Team or Enterprise tiers](/docs/pricing-and-billing).
 
 ## Setting up a CI job with Semgrep Cloud Platform
 
