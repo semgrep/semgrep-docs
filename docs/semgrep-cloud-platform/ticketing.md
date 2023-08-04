@@ -22,7 +22,7 @@ Object.entries(frontMatter).filter(
 }
 </ul>
 
-# Ticketing Integrations
+# Ticketing integrations
 
 Send tickets to third-party ticketing systems through Semgrep Cloud Platform. 
 

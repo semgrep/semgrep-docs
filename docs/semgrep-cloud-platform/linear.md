@@ -45,7 +45,7 @@ To integrate Linear, follow these steps:
 
 ## Configuring your default project and team
 
-Use the drop-downs to select the default project and team. These settings can be changed later from the integrations page.
+Use the drop-down lists to select the default project and team. These settings can be changed later from the integrations page.
 
 ![Linear configuration modal](/img/linear-configure-defaults.png)
 
@@ -75,7 +75,7 @@ Once a ticket has been created, a link will be present on the right side of the 
 Tickets can only be created for Supply Chain findings with reachable usages. They cannot be created for **Always reachable** or **Unreachable** findings.
 :::
 
-The Supply Chain triage flow will create tickets for all instances of a given vulnerability. Instances can not be selected individually. 
+The Supply Chain triage flow creates tickets for all usages of a given vulnerability. Usages can not be selected individually. 
 
 ![Create Linear ticket - Supply Chain](/img/linear-ssc-findings.png)
 **Figure** Supply Chain triage flow

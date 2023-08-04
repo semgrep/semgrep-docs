@@ -45,7 +45,7 @@ To integrate Asana, follow these steps:
 
 ## Configuring your default project
 
-Use the drop-down to select the default project. These settings can be changed later from the integrations page.
+Use the drop-down list to select the default project. These settings can be changed later from the integrations page.
 
 ![Asana configuration modal](/img/asana-configure-defaults.png)
 
@@ -75,7 +75,7 @@ Once a ticket has been created, a link will be present on the right side of the 
 Tickets can only be created for Supply Chain findings with reachable usages. They cannot be created for **Always reachable** or **Unreachable** findings.
 :::
 
-The Supply Chain triage flow will create tickets for all instances of a given vulnerability. Instances can not be selected individually. 
+The Supply Chain triage flow creates tickets for all usages of a given vulnerability. Usages can not be selected individually. 
 
 ![Create Asana ticket - Supply Chain](/img/asana-ssc-findings.png)
 **Figure** Supply Chain triage flow
