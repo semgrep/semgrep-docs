@@ -319,10 +319,7 @@ module.exports = {
           { from: "/extensions/"                                            , to: "/extensions/overview/" },
 
           /* JULY 14 2023  */
-          { from: "/semgrep-code/rule-board/"                                            , to: "/semgrep-code/policies/" },
-
-          /* JULY 25 2023  */
-          { from: "/ignoring-files-folders-code/"                                            , to: "/ignoring-files-folders/" }
+          { from: "/semgrep-code/rule-board/"                                            , to: "/semgrep-code/policies/" }
         ]
       }
     ],
