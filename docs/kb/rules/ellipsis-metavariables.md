@@ -31,7 +31,7 @@ If you remove the ellipsis in the `$...ID` variable, the second example no longe
 
 ## Alternative: try the Aliengrep experiment
 
-Semgrep's generic matching mode is [somewhat limited](/docs/writing-rules/generic-pattern-matching/#caveats-and-limitations-of-generic-mode). To address some of the limitations, the team is experimenting with a new mode called [Aliengrep](/docs/writing-rules/experiments/aliengrep/). 
+Semgrep's generic matching mode contains [caveats and limitations](/docs/writing-rules/generic-pattern-matching/#caveats-and-limitations-of-generic-mode). To address some of the limitations, the team is experimenting with a new mode called [Aliengrep](/docs/writing-rules/experiments/aliengrep/). 
 
 With Aliengrep, you can [configure what characters are allowed as part of a word token](/docs/writing-rules/experiments/aliengrep/#additional-word-characters-captured-by-metavariables) as well as [have even more fun with ellipses](/docs/writing-rules/experiments/aliengrep/#ellipsis-).
 
