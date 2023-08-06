@@ -9,19 +9,19 @@ import MoreHelp from "/src/components/MoreHelp"
 
 # Matching multiple tokens with ellipsis metavariables
 
-## What are ellipsis metavariables?
+## Introduction to ellipsis metavariables
 
-Using ellipsis (`...`) to match a sequence of items is one of the most common constructs in Semgrep rules, and ellipses can even be used with metavariables ($VAR) to increase matching scope!
+Using ellipsis (`...`) to match a sequence of tokens (for example, items in an array) is one of the most common constructs in Semgrep rules, and ellipses can even be used with metavariables ($VAR) to increase matching scope!
 
 Most commonly, ellipsis metavariables like `$...ARGS` are used for purposes like matching multiple arguments to a function, [while capturing the values for later re-use](/docs/writing-rules/pattern-syntax/#ellipsis-metavariables).
 
-However, they can also be used to match multiple word tokens. This is especially handy in [Generic pattern matching mode](/docs/writing-rules/generic-pattern-matching/), where a token is defined as a sequence of characters in the set `[A-z0-9_]`, which is not a fit for all languages.
+However, they can also be used to match multiple word tokens. This is especially handy in [Generic pattern matching mode](/docs/writing-rules/generic-pattern-matching/), where a token is defined as a sequence of characters in the set `[A-z0-9_]`. Not all languages you might match with Generic mode share the same definition of word tokens. If you're matching patterns in one of these languages, your metavariables might not match as much of a word token as you expect.
 
 ## Capturing multiple tokens with ellipsis metavariables
 
 In `generic` mode, `ABC_DEF` is one token, and a metavariable such as `$VAR` captures the entire sequence. However, `ABC-DEF` is two tokens, and a metavariable such as `$VAR` does not capture the entire sequence.
 
-If the language you're working with allows other characters in tokens, using ellipsis metavariables can prevent problems with matching too little of the pattern.
+If the language you're working with allows other characters in tokens, using ellipsis metavariables can prevent problems with metavariables matching too little of the pattern.
 
 To match `ABC-DEF` in `generic` mode, use an ellipsis metavariable, like `$...VAR`. Here is an example rule:
 
