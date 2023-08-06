@@ -21,6 +21,16 @@ module.exports = {
     },
     markprompt: {
       projectKey: 'jbhF5LligltdKaJucMjDcWcRodaVpzqE',
+      trigger: { floating: false },
+      search: {
+        enabled: true,
+        provider: {
+          name: 'algolia',
+          apiKey: '${{ secrets.ALGOLIA_API_KEY }}',
+          appId: '${{ secrets.ALGOLIA_APPLICATION_ID }}',
+          indexName: 'docs',
+        },
+      },
     },
     navbar: {
       logo: {
