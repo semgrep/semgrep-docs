@@ -2452,12 +2452,7 @@
   resolved "https://registry.npmjs.org/@leichtgewicht/ip-codec/-/ip-codec-2.0.3.tgz"
   integrity sha512-nkalE/f1RvRGChwBnEIoBfSEYOXnCRdleKuv6+lePbMDrMZXeDQnqak5XDOeBgrPPyPfAdcCu/B5z+v3VhplGg==
 
-"@markprompt/core@0.6.4", "@markprompt/core@^0.6.4":
-  version "0.6.4"
-  resolved "https://registry.yarnpkg.com/@markprompt/core/-/core-0.6.4.tgz#82900a7d45b37f0144aa6f6bd7cc245e4cd20c92"
-  integrity sha512-hDEwURrpXahCTUSuaD5vMotYFc+/qDrSzra0TjvEzGDib6echOmDW5OETqnadTGaHEhkOwRXfd6F97Pknp3M8w==
-
-"@markprompt/core@^0.11.0":
+"@markprompt/core@0.11.0", "@markprompt/core@^0.11.0":
   version "0.11.0"
   resolved "https://registry.yarnpkg.com/@markprompt/core/-/core-0.11.0.tgz#4ee4992f8dd6a8e0ee712f749211b382dfca1538"
   integrity sha512-g804TeLz8qc9M71U5rx/zG/SOJ7POq7gjVG+6iaqCuf5ID9QQ6C/ef9w+Lr+Hn52NU2MOT7TUG9+NnOQIHdBGw==
@@ -2484,24 +2479,6 @@
     "@markprompt/css" "^0.12.0"
     "@markprompt/react" "0.19.0"
 
-"@markprompt/react@0.11.3":
-  version "0.11.3"
-  resolved "https://registry.yarnpkg.com/@markprompt/react/-/react-0.11.3.tgz#76ac5f372e2077ddb81139dfbe32b8c2c119fa53"
-  integrity sha512-f3nHVsW+rRjkwCSLsU+B2fT10M5uWiF5HQPHNMPESi/I+8NORthGRtmePRhXuX7rBwvavIt70Avi+hCEAN4C3A==
-  dependencies:
-    "@markprompt/core" "^0.6.4"
-    "@radix-ui/react-accessible-icon" "^1.0.3"
-    "@radix-ui/react-dialog" "^1.0.4"
-    "@radix-ui/react-visually-hidden" "^1.0.3"
-    "@react-spring/web" "^9.7.2"
-    clsx "^1.2.1"
-    emittery "^1.0.1"
-    github-slugger "^2.0.0"
-    p-debounce "^4.0.0"
-    react-markdown "^8.0.7"
-    react-merge-refs "^2.0.2"
-    remark-gfm "^3.0.1"
-
 "@markprompt/react@0.19.0":
   version "0.19.0"
   resolved "https://registry.yarnpkg.com/@markprompt/react/-/react-0.19.0.tgz#f636a98f20f02fc82ebf4f823e0ad7f83ac937cd"
@@ -2519,13 +2496,13 @@
     react-merge-refs "^2.0.2"
     remark-gfm "^3.0.1"
 
-"@markprompt/web@^0.9.3":
-  version "0.9.3"
-  resolved "https://registry.yarnpkg.com/@markprompt/web/-/web-0.9.3.tgz#c23ce0fbf10be02f29f6dab994ec1f5076e23d29"
-  integrity sha512-y5xReQzmekoNUQPaJkjBNfk4W60lJMWH+T5wyJ2Yskgrf89iKVhzPOaKaO13uz1+gE+QCu1LZhZ4Q6TS0Lh+Bg==
+"@markprompt/web@^0.15.0":
+  version "0.15.0"
+  resolved "https://registry.yarnpkg.com/@markprompt/web/-/web-0.15.0.tgz#5067c5ddfffd7bef28ff6d0a76cd1f78bab72f53"
+  integrity sha512-j5gk+huRXnyxWIsBc6ODTuIHo9ocFRwDzcfFMQFm915hHvam7T9+3K3V61aXRqasLdf1st8eP17CBc+ch+Qirg==
   dependencies:
-    "@markprompt/core" "0.6.4"
-    "@markprompt/react" "0.11.3"
+    "@markprompt/core" "0.11.0"
+    "@markprompt/react" "0.19.0"
 
 "@mdx-js/mdx@^1.6.22":
   version "1.6.22"
@@ -2775,7 +2752,7 @@
   resolved "https://registry.yarnpkg.com/@react-spring/types/-/types-9.7.3.tgz#ea78fd447cbc2612c1f5d55852e3c331e8172a0b"
   integrity sha512-Kpx/fQ/ZFX31OtlqVEFfgaD1ACzul4NksrvIgYfIFq9JpDHFwQkMVZ10tbo0FU/grje4rcL4EIrjekl3kYwgWw==
 
-"@react-spring/web@^9.7.2", "@react-spring/web@^9.7.3":
+"@react-spring/web@^9.7.3":
   version "9.7.3"
   resolved "https://registry.yarnpkg.com/@react-spring/web/-/web-9.7.3.tgz#d9f4e17fec259f1d65495a19502ada4f5b57fa3d"
   integrity sha512-BXt6BpS9aJL/QdVqEIX9YoUy8CE6TJrU0mNCqSoxdXlIeNcEBWOfIyE6B14ENNsyQKS3wOWkiJfco0tCr/9tUg==
@@ -5303,11 +5280,6 @@ github-slugger@^1.4.0:
   version "1.4.0"
   resolved "https://registry.npmjs.org/github-slugger/-/github-slugger-1.4.0.tgz"
   integrity sha512-w0dzqw/nt51xMVmlaV1+JRzN+oCa1KfcgGEWhxUG16wbdA+Xnt/yoFO8Z8x/V82ZcZ0wy6ln9QDup5avbhiDhQ==
-
-github-slugger@^2.0.0:
-  version "2.0.0"
-  resolved "https://registry.yarnpkg.com/github-slugger/-/github-slugger-2.0.0.tgz#52cf2f9279a21eb6c59dd385b410f0c0adda8f1a"
-  integrity sha512-IaOQ9puYtjrkq7Y0Ygl9KDZnrf/aiUJYUpVf89y8kyaxbRG7Y1SrX/jaumrv81vc61+kiMempujsM3Yw7w5qcw==
 
 glob-parent@^5.1.2, glob-parent@~5.1.2:
   version "5.1.2"
