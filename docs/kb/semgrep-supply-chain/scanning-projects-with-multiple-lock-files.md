@@ -9,9 +9,9 @@ description: Scanning projects with multiple lock files: a Maven example
 
 Your project may have many modules, each with a dependency descriptor file; for example, `pom.xml` if Maven is used as a build dependency tool.
 This [project](https://github.com/r2c-CSE/legend-engine) complies with the above description.
-In this case, Semgrep will run a successful supply chain scan of all the lock files, one per module, if they are correctly generated.
+If you correctly generate all lock files, one per module, Semgrep can perform a successful Supply Chain scan for all dependencies in the project.
 
-## Generating lock files as the previous step
+## Generating lock files before scanning
 In the case of using Maven, the command to use is:
 ```
 mvn dependency:tree -DoutputFile=maven_dep_tree.txt
@@ -63,12 +63,13 @@ jobs:
           name: mavendeptree 
       - run: semgrep ci 
 ```
+
 As can be seen, in the case of using GitHub Actions as a CI platform, using artifacts to share files between jobs is required.
 
 ## Sharing multiple lock files as artifacts
 As the project can have multiple dependency descriptor files (`pom.xml` in the case of Maven), there will be multiple lock files (`maven_dep_tree.txt`).
-These lock files must be shared as artifacts between jobs, and the efficient way to do it are through a zip file that can gather all lock files and then, in the next job, unzip the lock files and run Semgrep as usual.
-A GitHub Actions pipeline can look like this:
+These lock files must be shared as artifacts between jobs, and the efficient way to do it is through a zip file that gathers all lock files and, in the next job, unzips the lock files and runs Semgrep as usual.
+Here is a GitHub Actions workflow example:
 ```
 on: 
   workflow_dispatch: 
@@ -78,8 +79,6 @@ on:
     - master
     paths:
     - .github/workflows/semgrep.yml
-  schedule:
-  - cron: 00 5 1 * *
 name: Semgrep
 jobs:
   buildmavenDepTree: 
@@ -122,4 +121,4 @@ jobs:
 
 ## Conclusions
 In the case of using GitHub Actions and if your project has multiple Maven lock files, uploading all of them as a zip file and downloading them in the next step can help to get a successful semgrep supply chain scan. 
-
+This concept (shared lock files as zip files between jobs) can be extrapolated to other build dependencies systems such as Gradle or other platforms such as GitLab, Bitbucket, Jenkins, etc...
