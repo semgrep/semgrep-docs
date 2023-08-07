@@ -408,6 +408,14 @@ module.exports = {
       items: [
         'semgrep-supply-chain/overview',
         'semgrep-supply-chain/getting-started',
+        {
+          type: 'category',
+          label: 'Infrastructure-specific configuration',
+          collapsible: true,
+          link: {type: 'doc', id: 'semgrep-supply-chain/setup-infrastructure'},
+          items: [
+          ]
+        },
         'semgrep-supply-chain/triage-remediation',
         'semgrep-supply-chain/ignoring-deps',
         'semgrep-supply-chain/notifications',
