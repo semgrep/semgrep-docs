@@ -2,13 +2,13 @@
 tags:
   - GitHub Actions
   - Lock files
-description: Scanning projects with multiple lock files in GitHub Actions
+description: Scanning projects with multiple lock files: a Maven example
 ---
 
-# Scanning projects with multiple lock files in GitHub Actions
+# Scanning Apache Maven projects with multiple lockfiles
 
 Your project may have many modules, each with a dependency descriptor file; for example, `pom.xml` if Maven is used as a build dependency tool.
-This [project](https://github.com/finos/legend-engine) complies with the above description.
+This [project](https://github.com/r2c-CSE/legend-engine) complies with the above description.
 In this case, Semgrep will run a successful supply chain scan of all the lock files, one per module, if they are correctly generated.
 
 ## Generating lock files as the previous step
@@ -17,38 +17,55 @@ In the case of using Maven, the command to use is:
 mvn dependency:tree -DoutputFile=maven_dep_tree.txt
 ```
 
-And this step must be executed before calling Semgrep. So, a typical Jenkins pipeline can look like this:
+And this step must be executed before calling Semgrep. So, a typical GitHub Actions workflow can look like this:
 ```
-pipeline {
-  agent any
-    environment {
-      SEMGREP_APP_TOKEN = credentials('SEMGREP_APP_TOKEN')
-      SEMGREP_BRANCH="${GIT_BRANCH}"
-    }
-    stages {
-      stage ('Generate-LockFile') {
-        steps {
-            withMaven(maven: 'maven') {
-              sh "mvn dependency:tree -DoutputFile=maven_dep_tree.txt"
-            }
-        }
-      }
-      stage('Semgrep-Scan') {
-        steps {
-                script {
-                    if (env.GIT_BRANCH == 'master') {
-                      sh 'pip3 install semgrep'
-                      sh 'semgrep ci'
-                    }  
-                }
-        }
-      }
-    }
-}
+on: 
+  workflow_dispatch: 
+  pull_request: {}
+  push:
+    branches:
+    - main
+    paths:
+    - .github/workflows/semgrep.yml
+name: Semgrep
+jobs:
+  buildmavenDepTree: 
+      runs-on: ubuntu-latest
+      steps:
+      - uses: actions/checkout@v3
+      - name: Set up JDK 17
+        uses: actions/setup-java@v3
+        with:
+          java-version: '17'
+          distribution: 'temurin'
+      - name: Build with Maven
+        run: mvn --batch-mode --update-snapshots package
+      - name: Build Dependency Tree
+        run: mvn dependency:tree -DoutputFile=maven_dep_tree.txt
+      - name: Upload Dependency Tree Artifact     
+        uses: actions/upload-artifact@v3
+        with:
+          name: mavendeptree
+          path: maven_dep_tree.txt
+  semgrep:
+    needs: buildmavenDepTree
+    name: Scan
+    runs-on: ubuntu-20.04
+    env:
+      SEMGREP_APP_TOKEN: ${{ secrets.SEMGREP_APP_TOKEN }}
+    container:
+      image: returntocorp/semgrep
+    steps:
+      - uses: actions/checkout@v3
+      - name: Download artifact from previous job
+        uses: actions/download-artifact@v3
+        with:
+          name: mavendeptree 
+      - run: semgrep ci 
 ```
-In the case of using GitHub Actions as a CI platform, then using artifacts to share files between jobs is required.
+As can be seen, in the case of using GitHub Actions as a CI platform, using artifacts to share files between jobs is required.
 
-## Sharing lock files as artifacts
+## Sharing multiple lock files as artifacts
 As the project can have multiple dependency descriptor files (`pom.xml` in the case of Maven), there will be multiple lock files (`maven_dep_tree.txt`).
 These lock files must be shared as artifacts between jobs, and the efficient way to do it are through a zip file that can gather all lock files and then, in the next job, unzip the lock files and run Semgrep as usual.
 A GitHub Actions pipeline can look like this:
@@ -104,5 +121,5 @@ jobs:
 ```
 
 ## Conclusions
-In the case of using GitHub Actions and if your project has multiple lock files, uploading all of them as a zip file and downloading them in the next step can help to get a successful semgrep supply chain scan.
+In the case of using GitHub Actions and if your project has multiple Maven lock files, uploading all of them as a zip file and downloading them in the next step can help to get a successful semgrep supply chain scan. 
 
