@@ -50,7 +50,7 @@ If you are using GitHub Actions as a CI platform, using artifacts to share files
 
 ## Sharing lock files as artifacts
 As the project can have multiple dependency descriptor files (`pom.xml` in the case of Maven), there will be multiple lock files (`maven_dep_tree.txt`).
-These lock files must be shared as artifacts between jobs, and the efficient way to do it are through a zip file that can gather all lock files and then, in the next job, unzip the lock files and run Semgrep as usual.
+These lock files must be shared as artifacts between jobs, and the efficient way to do it is through a zip file that gathers all lock files and, in the next job, unzips the lock files and runs Semgrep as usual.
 Here is a GitHub Actions workflow example:
 ```
 on: 
