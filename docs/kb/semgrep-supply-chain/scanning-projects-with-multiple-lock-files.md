@@ -46,7 +46,7 @@ pipeline {
     }
 }
 ```
-In the case of using GitHub Actions as a CI platform, then using artifacts to share files between jobs is required.
+If you are using GitHub Actions as a CI platform, using artifacts to share files between jobs is required.
 
 ## Sharing lock files as artifacts
 As the project can have multiple dependency descriptor files (`pom.xml` in the case of Maven), there will be multiple lock files (`maven_dep_tree.txt`).
