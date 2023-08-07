@@ -11,7 +11,7 @@ Your project may have many modules, each with a dependency descriptor file; for 
 This [project](https://github.com/finos/legend-engine) complies with the above description.
 If you correctly generate all lock files, one per module, Semgrep can perform a successful Supply Chain scan for all dependencies in the project.
 
-## Generating lock files as the previous step
+## Generating lock files before scanning
 In the case of using Maven, the command to use is:
 ```
 mvn dependency:tree -DoutputFile=maven_dep_tree.txt
