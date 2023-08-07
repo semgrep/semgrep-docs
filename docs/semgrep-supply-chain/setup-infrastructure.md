@@ -29,6 +29,6 @@ The documents in this section describe how to set up Semgrep Supply Chain for sp
 | ----------                  | ------- | ------    |
 | Jenkins UI using **[git plugin](https://plugins.jenkins.io/git/)** | Findings are not being sent to Semgrep Cloud Platform.  | Set the correct branch name by following the steps in [TODO]          |
 
-| Package manager | Issue | Reference |
+| Package manager | Issue | Solution |
 | ----------     | ------- | ------    |
-| Maven |   | 
+| Maven | Semgrep Supply Chain requires a dependency tree to detect packages. | Generate a dependency tree using `mvn` by following the steps in [Setting up Semgrep Supply Chain with Apache Maven](/semgrep-supply-chain/setup-maven).  |

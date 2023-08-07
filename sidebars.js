@@ -414,6 +414,7 @@ module.exports = {
           collapsible: true,
           link: {type: 'doc', id: 'semgrep-supply-chain/setup-infrastructure'},
           items: [
+          'semgrep-supply-chain/setup-maven',
           ]
         },
         'semgrep-supply-chain/triage-remediation',
