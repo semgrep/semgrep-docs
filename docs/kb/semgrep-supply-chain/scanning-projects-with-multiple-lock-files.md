@@ -17,7 +17,7 @@ In the case of using Maven, the command to use is:
 mvn dependency:tree -DoutputFile=maven_dep_tree.txt
 ```
 
-And this step must be executed before calling Semgrep. So, a typical Jenkins pipeline can look like this:
+This step must be executed before scanning with Semgrep. Here is an example of a Jenkins pipeline executing this step:
 ```
 pipeline {
   agent any
