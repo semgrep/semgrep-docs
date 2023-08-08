@@ -34,7 +34,7 @@ The usage limit is 10 contributors. A contributor is someone who has made at lea
 
 ### How are contributors calculated?
 
-Contributors are calculated using `git log` over the past month.
+Contributors are calculated using `git log` over the past 30 days. **Bots** and similar automations are excluded from this count.
 
 ### What happens when the usage limit is exceeded?
 
