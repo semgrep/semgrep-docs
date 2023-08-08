@@ -57,6 +57,7 @@ metavariable-pattern failed because we lack range info for $X, please file a bug
 If the error you receive is not that specific, try one of these options:
 
 1. Use `--exclude-rule` to exclude a rule from the scan. This allows isolating the problem to the particular rule.
+  * If you are running Semgrep in CI with Semgrep Cloud Platform, and don't need to run the rule, you can also [disable the rule](/docs/semgrep-code/policies/#disabling-rules).
 2. Use `--exclude` to exclude a file or files from the scan. You can use wildcards in file exclusions to exclude files matching particular patterns.
 3. Use `--include` with a pattern specifying a path or an extension for a particular language, to limit the scan to that path, or to files in that language.
 
