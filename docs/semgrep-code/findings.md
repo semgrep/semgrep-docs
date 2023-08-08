@@ -40,7 +40,7 @@ A finding can be categorized in two ways:
     - Business or logic bugs
     - Matches based on your own custom rules (such as organization-specific authentication logic)
 
-    Semgrep rules provide a metadata schema to identify common categories such as the above. Semgrep findings include a `message` field that describes the security issue or bug found in matching code. Additionally, findings can provide a `fix` field that fixes the issue by creating a suggestion within your source code management (SCM) tool, such as GitHub, GitLab, and BitBucket.
+    Semgrep rules provide a metadata schema to identify these common categories. Semgrep findings include a `message` field that describes the security issue or bug found in matching code. Additionally, findings can provide a `fix` field that fixes the issue by creating a suggestion within your source code management (SCM) tool, such as GitHub, GitLab, and Bitbucket.
 2. **Finding categorization based on the validity of the match**:
     <dl>
         <dt>True positive</dt>
@@ -174,7 +174,7 @@ The triage statuses are as follows:
 
 ### Managing finding status
 
-To manage, change, open or ignore findings, follow the the triage processes described below.
+To manage, change, open, or ignore findings, follow the triage processes described below.
 ![Screenshot of Semgrep Cloud Platform triage menu](/img/app-findings-triage.png)<br />
 *Figure 5* Findings page triage menu.
 
@@ -187,7 +187,7 @@ To **ignore findings** in the **Group by Rule** view, follow these steps:
 1. On the [Findings](https://semgrep.dev/orgs/-/findings?tab=open) page, click the **Status** filter, and then select **Open** status to see all open findings.
 1. Perform one of these steps:
     - To select more findings from the same rule, click the **Triage** button on the card of the finding.
-    - To select individual findingss reported by a rule, fill in the checkboxes of the finding, and then click the **Triage** button on the card of the finding.
+    - To select individual findings reported by a rule, fill in the checkboxes of the finding, and then click the **Triage** button on the card of the finding.
 1. Optional: Write a reason to describe why the finding was ignored.
 1. Click **Ignore**.
 
@@ -282,7 +282,7 @@ To **view and add notes** to the activity history of a finding:
 Triage your Semgrep Cloud Platform findings displayed as comments in GitHub PRs by replying with another comment.
 
 :::info Prerequisites
-- A **private** GitHub.com repository. This feature is not enabled for public GitHub.com repositories or Github Enterprise public and private repositories.
+- A **private** GitHub.com repository. This feature is not enabled for public GitHub.com repositories or GitHub Enterprise public and private repositories.
 - GitHub Semgrep Cloud Platform installed in the repository that is also added as a project in Semgrep Cloud Platform. For more information, see [Getting started with Semgrep in continuous integration (CI)](/semgrep-ci/overview/).
 :::
 
@@ -307,7 +307,7 @@ Ignoring a finding through a comment in GitHub changes the status of the finding
 :::
 
 :::tip
-You can also reopen a finding that was previously ignored. To do so, in step 2. of the procedure above, use `/semgrep open`. For `/semgrep open` the reason field is optional.
+You can also reopen a finding that was previously ignored. To do so, in step 2. of the preceding procedure, use `/semgrep open`. For `/semgrep open` the reason field is optional.
 :::
 
 <!--
@@ -324,9 +324,7 @@ To **create a ticket**:
 
 ## Deduplicating findings
 
-Semgrep Cloud Platform scans are performed on both mainline (trunk) and non-mainline branches. Semgrep Cloud Platform generates findings on a per-branch basis. Duplicate findings arise due to scans occurring on the same code in different branches.
-
-There are two types of scans:
+Semgrep Cloud Platform scans are performed on both mainline (trunk) and non-mainline branches. The scope of the scan can differ depending on if Semgrep Cloud Platform is called on a mainline or non-mainline branch.
 
 <dl>
     <dt>Full scan</dt>
@@ -335,7 +333,17 @@ There are two types of scans:
     <dd>Diff-aware scans are performed on non-mainline branches, such as in pull requests and merge requests. Diff scans traverse the repository's files based on the commit where the branch diverged from the mainline branch (or diverged from the last commit that was fully scanned?)</dd>
 </dl>
 
+### Deduplicating findings in Semgrep Cloud Platform
+
+Regardless of the scope of a scan, SCP correlates findings across branches based on their unique fingerprint, automatically deduplicating findings and making it simpler to triage. 
+
 If a finding is fixed in one branch (such as `main`) but open in another (such as `production`), and the code fixes are present in both branches, initiate a scan through your CI job or SCM tool on the branch(es) with open findings to have Semgrep mark the findings as fixed.
+
+### Deduplicating findings in Semgrep API
+
+Semgrep API does not automatically deduplicate findings. If you are using Semgrep API to receive or pull findings data, set the `dedup` flag to `true` to deduplicate findings across refs or branches. Refer to [List all findings](https://semgrep.dev/api/v1/docs/#tag/Finding/operation/semgrep_app.saas.handlers.issue.openapi_list_recent_issues) in the Semgrep API docs for more information.
+
+
 
 ## See also
 
