@@ -316,10 +316,7 @@ module.exports = {
 
           /* MAY 12 2023  */
           { from: "/semgrep-cloud-platform/pricing-and-billing/"            , to: "/semgrep-cloud-platform/notifications/" },
-          { from: "/extensions/"                                            , to: "/extensions/overview/" },
-
-          /* JULY 14 2023  */
-          { from: "/semgrep-code/rule-board/"                                            , to: "/semgrep-code/policies/" }
+          { from: "/extensions/"                                            , to: "/extensions/overview/" }
         ]
       }
     ],
