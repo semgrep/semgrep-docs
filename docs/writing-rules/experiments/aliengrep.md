@@ -70,11 +70,11 @@ In Semgrep rule syntax, an ellipsis is a specific pattern written as three dots 
 
 Ellipses at the beginning or at the end of a pattern are anchored. For example, ellipses must match the beginning or the end of the target input, respectively. For example, `...` alone matches the whole input and `a ...` matches the whole input starting from the first occurrence of the word `a`.
 
-### Metavariable ellipsis (capturing ellipsis)
+### Ellipsis metavariable (capturing ellipsis)
 
-A metavariable ellipsis `$...X` matches the same contents as an ordinary ellipsis `...` but additionally captures the contents and assigns it to the metavariable `X`.
+An ellipsis metavariable `$...X` matches the same contents as an ordinary ellipsis `...` but additionally captures the contents and assigns them to the metavariable `X`.
 
-Repeating a metavariable ellipsis such as in `$...A, $...A` requires the same exact contents to be matched, including the same whitespace. This is an unfortunate limitation of the implementation. For example, `$...A, $...A` matches `1 2, 1 2` and `1   2, 1   2` but unfortunately, it doesn't match `1 2, 1   2`.
+Repeating a metavariable ellipsis such as in `$...A, $...A` requires the same contents to be matched by each repetition, including the same whitespace. This is an unfortunate limitation of the implementation. For example, `$...A, $...A` matches `1 2, 1 2` and `1   2, 1   2` but it doesn't match `1 2, 1   2`.
 
 ### Single-line mode
 
@@ -92,7 +92,7 @@ rules:
   pattern: "password: ..."
 ```
 
-Now instead of matching everything until the end of the target input file, the pattern `password: ...` will stop the match at the end of the line. In single-line mode, a regular ellipsis `...` or its named variant `$...X` cannot span multiple lines.
+Now instead of matching everything until the end of the target input file, the pattern `password: ...` stops the match at the end of the line. In single-line mode, a regular ellipsis `...` or its named variant `$...X` cannot span multiple lines.
 
 Another feature of the single-line mode is that newlines in rule patterns must match literally. For example, the following YAML rule contains a two-line pattern:
 
@@ -124,7 +124,7 @@ x a b x
 It does however match in the default multiline mode of Aliengrep.
 
 :::caution
-YAML syntax makes it easy to introduce significant newline characters in patterns without realizing it. In doubt and for better clarity, use the quoted string syntax `"a\nb"` as we did above. This ensures no trailing newline is added accidentally when using the single-line mode.
+YAML syntax makes it easy to introduce significant newline characters in patterns without realizing it. When in doubt and for better clarity, use the quoted string syntax `"a\nb"` as we did in the preceding example. This ensures no trailing newline is added accidentally when using the single-line mode.
 :::
 
 ### Long ellipsis (`....`)
@@ -137,7 +137,7 @@ In multiline mode, a regular ellipsis (three dots `...`) has the same behavior a
 We wonder if the visual difference between `...` and `....` is too subtle. Let us know if you have ideas for a better syntax than four dots `....`.
 :::
 
-### Additional word characters captured my metavariables
+### Additional word characters captured by metavariables
 
 In the generic modes, a metavariable captures a word. The default pattern followed by a word is `[A-Za-z_0-9]+` (a sequence of one or more alphanumeric characters or underscores). The set of characters that comprise a word can be configured as an option in the Semgrep rule as follows:
 
@@ -153,7 +153,7 @@ rules:
   pattern: "data = $DATA;"
 ```
 
-The example above allows matching Base64-encoded data such as in the following target input:
+The preceding example allows matching Base64-encoded data such as in the following target input:
 
 ```
 data = bGlnaHQgd29yaw==;
@@ -199,7 +199,7 @@ rules:
   pattern: "x ... x"
 ```
 
-### Caseless matching
+### Case-insensitive matching
 
 Some languages are case-insensitive according to Unicode rules (UTF-8 encoding). To deal with this, Aliengrep offers an option for case-insensitive matching `options.generic_caseless: true`.
 
@@ -219,7 +219,7 @@ rules:
 This rule matches `Content-Type: text/html` but also `content-type: text/html` or `CONTENT-TyPe: text/HTML` among all the possible variants.
 
 :::caution
-Back-referencing a metavariable requires an exact repeat of the text captured by the metavariable, even in caseless mode. For example, `$X $X` will match `ab ab` and `AB AB` but not `ab AB`.
+Back-referencing a metavariable requires an exact repeat of the text captured by the metavariable, even in caseless mode. For example, `$X $X` matches `ab ab` and `AB AB` but not `ab AB`.
 :::
 
 <MoreHelp />

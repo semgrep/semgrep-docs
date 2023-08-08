@@ -27,7 +27,7 @@ Object.entries(frontMatter).filter(
 
 # Managing findings in Semgrep Cloud Platform
 
-Finding page enables you to easily manage **findings**. **Findings** are the core results of Semgrep analysis. The findings are generated when a Semgrep rule matches a piece of code.
+The Findings page enables you to easily manage findings. **Findings** are the core results of Semgrep analysis. Findings are generated when a Semgrep rule matches a piece of code.
 
 ![Semgrep Cloud Platform Findings page](/img/app-findings-overview.png)<br />
 *Figure 1.* Screenshot of findings page.
@@ -74,7 +74,7 @@ After a finding is generated, developers can:
 
 ### Understanding retention periods
 
-The Semgrep Cloud Platform Findings page displays findings across all projects connected to Semgrep Cloud Platform. It is updated after every scan. Scans are initiated through your CI/CD pipeline, such as GitHub actions. The retention period of these findings varies based on your organization’s tier:
+The retention period of these findings are as follows:
 
 | Retention period | Tier availability |
 | ---------------  | ----------------- |
@@ -111,6 +111,12 @@ Filtering allows you to easily isolate groups of findings for ease in triaging a
 | **Branches**     | Filter by findings in different Git branches. |
 | **Rules**        | Filter by rules or rulesets that are included in your Rule Board. More than one rule can be selected for filtering. |
 | **Rulesets**     | Filter by name of the ruleset where rules that matched the code belong. More than one rule or ruleset can be selected for filtering. |
+
+:::tip
+Findings categorized under **Security** can be easily identified by its badge. This badge is unique to Security findings for ease of triage.
+![Screenshot of security badge](/img/findings-security-badge.png)
+:::
+
 
 You can also filter for findings reported from specific time periods. See [Displaying findings reported in a specific time](/semgrep-code/findings/#displaying-findings-reported-in-a-specific-time).
 

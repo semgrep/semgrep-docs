@@ -22,12 +22,6 @@ Object.entries(frontMatter).filter(
 
 # Policies
 
-:::tip
-The Policies page is a new version of the [Rule board](https://semgrep.dev/orgs/-/board) that is now the default representation for rule management.
-
-You can go back to the old Rule board by clicking the **Back to old version** button.
-:::
-
 The Policies page displays a visual representation of the rules that Semgrep Code uses for scanning. Rules can be categorized into various groups. The Policies page uses the following categorization criteria:
 
 ## Policies page structure

@@ -19,6 +19,9 @@ module.exports = {
         hideable: true,
       },
     },
+    markprompt: {
+      projectKey: 'jbhF5LligltdKaJucMjDcWcRodaVpzqE',
+    },
     navbar: {
       logo: {
         alt: 'Semgrep logo',
@@ -47,6 +50,7 @@ module.exports = {
         },
         { to: 'https://semgrep.dev/pricing', label: 'Pricing', position: 'left', target: '_self' },
         { to: 'https://semgrep.dev/docs/', label: 'Docs', position: 'left', target: '_self' },
+        {to: 'kb', label: 'Knowledge base', position: 'left'},
         { to: 'https://semgrep.dev/orgs/-/', label: 'Login', position: 'right', target: '_self' },
       ],
     },
@@ -163,14 +167,14 @@ module.exports = {
       ]
     },
     image: 'https://semgrep.dev/thumbnail.png',
-    announcementBar: {
-      id: 'office-hours',
-      content:
-        'Group Office Hours | Meet community members and get support from our technical Customer Success Engineers.  <a target="_blank" rel="noopener noreferrer" href="https://get.semgrep.dev/Weekly-Group-Office-Hours.html">Book now</a>!',
-      backgroundColor: '#00A67D',
-      textColor: '#ffffff',
-      isCloseable: false,
-    },
+    //announcementBar: {
+    //  id: 'office-hours',
+    //  content:
+    //    'Group Office Hours | Meet community members and get support from our technical Customer Success Engineers.  <a target="_blank" rel="noopener noreferrer" href="https://get.semgrep.dev/Weekly-Group-Office-Hours.html">Book now</a>!',
+    //  backgroundColor: '#00A67D',
+    //  textColor: '#ffffff',
+    //  isCloseable: false,
+    //},
   },
   scripts: [
     {
