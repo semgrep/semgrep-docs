@@ -104,17 +104,17 @@ Semgrep Cloud Platform divides users into two roles:
 
 The following table displays features available to each role:
 
-| Feature    | `member`  | `admin`   | Additional notes                                                                                                                   |
-| ---------  | --------- | --------- | ---------                                                                                                                          |
-| Dashboard  | yes       | yes       |                                                                                                                                    |
-| Projects   | no        | yes       | Only `admin` can manage projects.                                                                                                  |
-| Policies   | no        | yes       | Only `admin` can manage policies and rules.                                                                                        |
-| Findings   | yes       | yes       | Both `admin` and `member` roles can sort, filter, comment on, and triage findings.                                                 |
-| Editor     | yes       | yes       | `member` access is read-only within their organization. Users with a `member` role can use their personal account to write a rule. |
-| Settings   | no        | yes       |                                                                                                                                    |
-| Registry   | yes       | yes       |                                                                                                                                    |
-| Playground | yes       | yes       |                                                                                                                                    |
-| Docs       | yes       | yes       |                                                                                                                                    |
+| Feature               | `member`  | `admin`   | Additional notes                                                                   |
+| ---------             | --------- | --------- | ---------                                                                          |
+| Dashboard             | yes       | yes       |                                                                                    |
+| Projects              | no        | yes       | Only `admin` can manage projects.                                                  |
+| Rule Board (Policies) | no        | yes       | Only `admin` can manage policies and rules.                                        |
+| Findings              | yes       | yes       | Both `admin` and `member` roles can sort, filter, comment on, and triage findings. |
+| Editor                | yes       | yes       | `member` access is read-only within their organization. Users with a `member` role can use their personal account to write a rule.  |
+| Settings              | no        | yes       |                                                                                    |
+| Registry              | yes       | yes       |                                                                                    |
+| Playground            | yes       | yes       |                                                                                    |
+| Docs                  | yes       | yes       |                                                                                    |
 
 ### Member-scoped access tokens
 
@@ -128,7 +128,7 @@ This generates a unique token that is used to identify a member or admin. When l
 
 Only admin users can view member tokens in the **Settings > Tokens** tab. A token's access cannot be escalated to an admin-level token. A user must first obtain the admin role and then create a new token as an admin. See the following section on [Changing a user's role](/semgrep-cloud-platform/user-management/#changing-a-users-role).
 
-Additionally, only admin users can make changes to the [Policies](/semgrep-code/policies).
+Additionally, only admin users can make changes to the [Rule board](/semgrep-code/rule-board).
 
 ![Screenshot of member tokens list](/img/member-tokens-table.png#md-width)<br />
 
