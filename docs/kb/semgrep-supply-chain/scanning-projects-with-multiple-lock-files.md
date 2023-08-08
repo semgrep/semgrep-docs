@@ -7,7 +7,7 @@ description: Scanning projects with multiple lock files: a Maven example
 
 # Scanning Apache Maven projects with multiple lockfiles
 
-Your project may have many modules, each with a dependency descriptor file; for example, `pom.xml` if Maven is used as a build dependency tool.
+Your project may have many modules, each with a manifest file; for example, `pom.xml` if Maven is used as a build dependency tool.
 This [project](https://github.com/r2c-CSE/legend-engine) complies with the above description.
 If you correctly generate all lock files, one per module, Semgrep can perform a successful Supply Chain scan for all dependencies in the project.
 
