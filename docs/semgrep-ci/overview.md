@@ -135,7 +135,7 @@ The following steps outline the general procedure to automate Semgrep in many CI
 
 #### Default behaviors of scans set up through Semgrep Cloud Platform
 
-* Findings do not block a PR or MR. The presence of findings can be customized to block a PR or MR through [Policies](/semgrep-code/policies).
+* Findings do not block a PR or MR. The presence of findings can be customized to block a PR or MR through the [Rule Board](/docs/semgrep-code/rule-board).
 * The CI job does not fail when detecting findings, but can still fail due to other errors. See [Semgrep exit codes](/docs/cli-reference/#exit-codes).
 * Scan output is presented in Semgrep Cloud Platform's Findings page, enabling users to click a link for the file and line in the code that generated the finding.
 
