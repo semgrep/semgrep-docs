@@ -2,7 +2,7 @@
 tags:
   - GitHub Actions
   - Lock files
-description: Scanning projects with multiple lock files: a Maven example
+description: Scanning projects with multiple lock files. A Maven example.
 ---
 
 # Scanning Apache Maven projects with multiple lockfiles
