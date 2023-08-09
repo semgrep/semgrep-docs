@@ -8,7 +8,7 @@ description: "This documents various methods to skip or ignore files or folders 
 import MoreHelp from "/src/components/MoreHelp"
 import IgnoreIndividualFindingNoGrouping from "/src/components/procedure/_ignore-individual-finding-no-grouping.mdx"
 
-# Ignoring files, folders, and parts of code
+# Ignoring files, folders, or parts of code
 
 This document describes two types of ignore operations:
 
