@@ -137,7 +137,7 @@ To enable Semgrep Pro Engine in the Semgrep Cloud Platform, follow these steps:
 1. Sign in to [Semgrep Cloud Platform](https://semgrep.dev/login).
 1. Select **[Settings](https://semgrep.dev/orgs/-/settings)**.
 1. Ensure that the <i class="fa-solid fa-toggle-large-on"></i> **Pro Engine beta** toggle is enabled.
-1. Ensure that you have the **default ruleset** added in your **[Rule Board](https://semgrep.dev/orgs/-/board)**. If this ruleset is **not** added, go to [https://semgrep.dev/p/default](https://semgrep.dev/p/default), and then click **Add to Rule Board**. For best results, place this ruleset in the Monitor column.
+1. Ensure that you have the **default ruleset** added in your **[Policies page](https://semgrep.dev/orgs/-/board)**. If this ruleset is **not** added, go to [https://semgrep.dev/p/default](https://semgrep.dev/p/default), and then click **Add to Policy**. For best results, set this ruleset to the **Monitor** rule mode.
 1. Optional: If you don't have any projects added to your organization, follow the procedures described in [Scanning a repository](/semgrep-code/getting-started/#semgrep-code-with-semgrep-cloud-platform) to scan a new project with Semgrep Pro Engine. Ensure that your project's language is supported by Semgrep Pro Engine.
 
 :::info Testing Semgrep Pro Engine

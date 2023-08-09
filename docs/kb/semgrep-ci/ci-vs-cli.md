@@ -42,10 +42,6 @@ semgrep --config "p/default"
 
 would give similar results to `semgrep ci`.
 
-:::info
-If you are still using the Rule board, see [Rule board](/docs/semgrep-code/rule-board/) to configure your rules.
-:::
-
 ## Pro analysis
 
 When using `semgrep ci` with Semgrep Cloud Platform, the Semgrep scan reflects the Pro Engine options configured in Semgrep Cloud Platform at https://semgrep.dev/orgs/-/settings. If Pro Engine is enabled, and the scanned code includes [supported Pro languages](/docs/supported-languages/#semgrep-pro-engine), then interfile and interprocedural analysis will be performed.

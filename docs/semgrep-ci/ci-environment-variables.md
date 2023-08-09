@@ -19,7 +19,7 @@ Object.entries(frontMatter).filter(
 }
 </ul>
 
-# Continuous Integration (CI) environment variables
+# Continuous integration (CI) environment variables
 
 Use this reference to configure Semgrep's behavior in CI environments by setting environment variables. You can set these variables within a CI configuration file or your CI provider's interface. Refer to your CI provider's documentation for the correct syntax. Examples are written for a Bash environment unless otherwise stated.  
 
@@ -38,7 +38,7 @@ These environment variables configure various aspects of your CI job, such as a 
 * You must have a Semgrep Cloud Platform token. To generate a token, see [Creating a `SEMGREP_APP_TOKEN`](/docs/semgrep-ci/running-semgrep-ci-with-semgrep-cloud-platform/#creating-a-semgrep_app_token).
 :::
 
-Set `SEMGREP_APP_TOKEN` to send findings to Semgrep Cloud Platform and use rules from the Rule Board. `SEMGREP_APP_TOKEN` is incompatible with `SEMGREP_RULES`.
+Set `SEMGREP_APP_TOKEN` to send findings to Semgrep Cloud Platform and use rules from the Policies page. `SEMGREP_APP_TOKEN` is incompatible with `SEMGREP_RULES`.
 
 Example:
 

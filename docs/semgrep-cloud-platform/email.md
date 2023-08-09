@@ -19,7 +19,7 @@ Object.entries(frontMatter).filter(
 }
 </ul>
 
-# Receiving Email notifications
+# Receiving email notifications
 
 :::info Prerequisites
 * Email notifications can only be enabled through Semgrep Cloud Platform (SCP). [Create an account](/semgrep-code/getting-started/#signing-in-to-semgrep-cloud-platform) to set up Slack notifications.
@@ -28,15 +28,19 @@ Object.entries(frontMatter).filter(
 
 Receive Semgrep findings through email.
 
-To set up email integration:
+Perform these steps in Semgrep Cloud Platform to create an email integration and receive notifications:
 
-1. In **Integrations,** click **Add Integration.**
-2. Click on **Email**.
-3. Enter a **Name** for the integration.
-4. Enter the **Email address** that will receive Semgrep findings.
-5. Click **Save.**
-6. Turn notifications on by going to the **Rule board**, clicking on the <i class="fa-solid fa-gear"></i> **gear** icon, and then click the <i class="fa-solid fa-toggle-large-on"></i> **toggle** next to the name of the integration.
-
+1. Create an email integration:
+    1. On the navigation menu, click **<i class="fa-solid fa-gear"></i> Settings > Integrations > Add Integration.**
+    2. Click on **Email**.
+    3. Enter a **Name** for the integration.
+    4. Enter the **Email address** to receive Semgrep findings.
+    5. Click **Save.**
+2. Turn notifications on:
+    1. Click **Rules > Policies > <i class="fa-solid fa-gear"></i> Rule Modes**.
+    2. Click the **Edit** button of the Rule Mode for which you want to receive email notifications. For example, if you want to be notified of all blocking findings through email, click the **Edit** button of the **Block** mode.
+    3. Repeat the previous step for all Rule Modes that you want to receive notifications for.
+   
 ![Screenshot of Semgrep Cloud Platform email with findings](/img/integrations-email-findings.png#bordered)
 **Figure** Sample of an email sent from Semgrep with findings.
 
