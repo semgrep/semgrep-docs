@@ -228,9 +228,9 @@ module.exports = {
         redirects: [
           { from: "/writing-rules/pattern-logic", to: "/writing-rules/rule-syntax/" },
           { from: "/writing-rules/index", to: "/writing-rules/overview/" },
-          { from: "/semgrep-ci/managing-policy", to: "/semgrep-code/rule-board/" },
-          { from: "/managing-policy", to: "/semgrep-code/rule-board/" },
-          { from: "/semgrep-app/managing-policy", to: "/semgrep-code/rule-board/" },
+          { from: "/semgrep-ci/managing-policy", to: "/semgrep-code/policies/" },
+          { from: "/managing-policy", to: "/semgrep-code/policies/" },
+          { from: "/semgrep-app/managing-policy", to: "/semgrep-code/policies/" },
           { from: "/integrations", to: "/semgrep-cloud-platform/notifications/" },
           { from: "/notifications", to: "/semgrep-cloud-platform/notifications/" },
           { from: "/sso", to: "/semgrep-cloud-platform/sso/" },
@@ -286,7 +286,7 @@ module.exports = {
           // Semgrep Code
           { from: "/semgrep-app/integrations"                        , to: "/semgrep-cloud-platform/notifications/" }   ,
           { from: "/semgrep-app/demo-project/"                       , to: "/semgrep-code/demo-project/" }    ,
-          { from: "/semgrep-app/rule-board/"                         , to: "/semgrep-code/rule-board/" }      ,
+          { from: "/semgrep-app/rule-board/"                         , to: "/semgrep-code/policies/" }      ,
           { from: "/semgrep-app/findings/"                           , to: "/semgrep-code/findings/" }        ,
           { from: "/semgrep-app/editor/"                             , to: "/semgrep-code/editor/" }          ,
           { from: "/semgrep-app/notifications/"                      , to: "/semgrep-cloud-platform/notifications/" }   ,

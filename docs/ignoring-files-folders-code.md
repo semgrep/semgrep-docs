@@ -1,5 +1,5 @@
 ---
-slug: ignoring-files-folders
+slug: ignoring-files-folders-code
 append_help_link: true
 title: Ignoring files, folders, and code
 description: "This documents various methods to skip or ignore files or folders that are not relevant to a Semgrep scan."
