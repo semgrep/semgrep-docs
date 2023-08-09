@@ -193,7 +193,7 @@ module.exports = {
               label: 'Extensions',
               collapsible: true,
               link: {
-                type: 'doc', 
+                type: 'doc',
                 id: 'extensions/overview'
               },
               items: [
@@ -395,7 +395,6 @@ module.exports = {
         'semgrep-code/pro-rules',
         'semgrep-code/demo-project',
         'semgrep-code/policies',
-        'semgrep-code/rule-board',
         'semgrep-code/findings',
         'semgrep-code/semgrep-assistant-code',
         'semgrep-code/editor',

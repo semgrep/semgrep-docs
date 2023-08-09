@@ -63,7 +63,7 @@ After a finding is generated, developers can:
 - **Fix the issue detected by the finding.** This is Semgrep's primary goal. In this case, the rule produces a **true positive** finding (such as a security issue) as intended and developers must change or address the code such that the rule no longer matches it.
 - **View the Semgrep rule and the matching code.** For developers aiming to understand their team's security posture, Semgrep provides a top-level report view through the Dashboard and a list view of findings in the Findings page that can be filtered by repository, rule, branch, or triage action.
 - **Triage the finding.** If the finding is not useful or important, deprioritize it through triage. Triage actions include ignoring and reopening. Triaging a finding to ignore it is one method to handle **false positives** without changing the rule or code. To triage a finding, see [Managing finding status](#managing-finding-status)
-- **Remove the rule or code that generated the finding.** There are cases where Semgrep scans a file not meant for scanning or when a rule is irrelevant. You can disable the rule from the Rule board or add the file to the ignore list. To disable a rule, see [Disabling rules](/semgrep-code/rule-board/#disabling-rules).
+- **Remove the rule or code that generated the finding.** There are cases where Semgrep scans a file not meant for scanning or when a rule is irrelevant. You can disable the rule from the Policies page or add the file to the ignore list. To disable a rule, see [Disabling rules](/semgrep-code/policies/#disabling-rules).
 <!-- - **Create a Jira ticket from the finding (for Enterprise/Team Tier users.)** For findings that require more extensive refactoring, users can create a ticket in Jira through Semgrep Cloud Platform to track its resolution. -->
 
 :::tip
@@ -92,7 +92,7 @@ The retention period of these findings are as follows:
 The Findings page consists of:
 
 - **Findings filter panel**: Panel which lets you filter for different findings.
-- **Findings information**: Gives you details about findings. Each finding in the list includes rule name, Rule Board action column description, link to findings detail page, rule message, repository name, link to Git branch name, link to the reported file, and reported line of code.
+- **Findings information**: Gives you details about findings. Each finding in the list includes rule name, Policies action column description, link to findings detail page, rule message, repository name, link to Git branch name, link to the reported file, and reported line of code.
     ![Findings information panel](/img/app-findings.png)<br />
     *Figure 2.* Findings information panel.
 
@@ -105,11 +105,11 @@ Filtering allows you to easily isolate groups of findings for ease in triaging a
 | **Projects**     | Filter by repositories connected to Semgrep Cloud Platform. |
 | **Status**       | Filter for different findings triage states. Refer to the [following table](#triaging-findings) to understand triage states. |
 | **Severities**    | Filter by the severity of a finding. Possible values: <ul><li>Low</li><li>Medium</li><li>High</li></ul> |
-| **Actions**     | Filter by monitoring, commenting, or blocking rules in your Rule Board. |
+| **Actions**     | Filter by monitoring, commenting, or blocking rules in your Policies. |
 | **Confidences** | Filter by indication of the rule to detect true positives. The higher the confidence the more true positives the rule may detect.  |
 | **Categories**  |  Filter by various rule categories, such as security, or best practice rules. More than one category can be selected for filtering. |
 | **Branches**     | Filter by findings in different Git branches. |
-| **Rules**        | Filter by rules or rulesets that are included in your Rule Board. More than one rule can be selected for filtering. |
+| **Rules**        | Filter by rules or rulesets that are included in your Policies page. More than one rule can be selected for filtering. |
 | **Rulesets**     | Filter by name of the ruleset where rules that matched the code belong. More than one rule or ruleset can be selected for filtering. |
 
 :::tip
@@ -348,7 +348,7 @@ Semgrep API does not automatically deduplicate findings. If you are using Semgre
 ## See also
 
 * [Alerts and notifications](/semgrep-code/notifications)
-* [Rule Board](/semgrep-code/rule-board)
+* [Policies](/semgrep-code/policies)
 * [Ignoring files, folders, or code](/ignoring-files-folders-code/)
 
 ## Additional references
