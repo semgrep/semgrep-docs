@@ -28,11 +28,9 @@ Send tickets to third-party ticketing systems through Semgrep Cloud Platform.
 
 Semgrep Cloud Platform can create tickets in the following systems:
 
-| Tool                               | Tier availability |
-| ----                               | ----------------  |
-| [Asana](/semgrep-cloud-platform/asana)  | Team & Enterprise  |
-| [Jira](/semgrep-cloud-platform/jira) | Team & Enterprise  |
-| [Linear](/semgrep-cloud-platform/linear)           | Team & Enterprise  |
+* [Asana](/semgrep-cloud-platform/asana)
+* [Jira](/semgrep-cloud-platform/jira)
+* [Linear](/semgrep-cloud-platform/linear)
 
 :::info
 * Ticketing integrations can only be enabled through Semgrep Cloud Platform (SCP). [Sign up or sign in to Semgrep Cloud Platform](https://semgrep.dev/login).
