@@ -31,21 +31,24 @@ Object.entries(frontMatter).filter(
 
 # Getting started with Semgrep Supply Chain
 
-Semgrep Supply Chain detects recently discovered [security vulnerabilities](https://nvd.nist.gov/vuln/full-listing) in your codebase's open source dependencies, prioritizing findings through [reachability](/semgrep-supply-chain/glossary#reachability) analysis. 
-
-This document walks you through the process of setting up open-source dependency scanning with Semgrep Supply Chain.
+Semgrep Supply Chain (SSC) detects recently discovered [security vulnerabilities](https://nvd.nist.gov/vuln/full-listing) in your codebase's open source dependencies, prioritizing findings through [reachability](/semgrep-supply-chain/glossary#reachability) analysis. 
 
 To learn more about how Semgrep Supply Chain performs reachability analysis, see [Overview of Semgrep Supply Chain](/semgrep-supply-chain/overview).
 
-:::info
-Semgrep Supply Chain **supports monorepositories (monorepos)** by treating each subdirectory as its own repository. Findings are grouped under these repositories based on the [lockfile](/semgrep-supply-chain/glossary/#lockfile) or manifest file present in the subdirectory.
-:::
 
 ## Scanning with Semgrep Supply Chain through Semgrep Cloud Platform
 
 Semgrep Supply Chain is **automatically enabled** for all repositories that you have onboarded or added to Semgrep Cloud Platform for scanning. If you have not onboarded any repositories for scanning, follow the steps in [Adding a repository](/semgrep-code/getting-started/#adding-or-onboarding-a-new-project-repository) to add a repository for scanning.
 
 When the scan finishes, Semgrep Cloud Platform displays an overview of findings in the **Supply Chain** page for further triage and remediation. See [Triaging and remediating dependency findings](/semgrep-supply-chain/triage-and-remediation).
+
+:::info
+Semgrep Supply Chain **supports monorepositories (monorepos)** by treating each subdirectory as its own repository. Findings are grouped under these repositories based on the [lockfile](/semgrep-supply-chain/glossary/#lockfile) or manifest file present in the subdirectory.
+:::
+
+:::caution Semgrep Supply Chain findings not appearing in Semgrep Cloud Platform
+Certain package management software or CI providers may require additional set up. See [Setting up SSC for your infrastructure](/semgrep-supply-chain/setup-infrastructure) for more information.
+:::
 
 <!-- Historical coverage rules, also referred to as parity or ecosystem rules, are rules that do not perform reachability analysis. These rules only check a package's version against versions with known vulnerabilities. These rules produce vulnerabilities similar to Dependabot's results, but have a higher false positive rate. -->
 

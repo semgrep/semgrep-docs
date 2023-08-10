@@ -19,15 +19,15 @@ Object.entries(frontMatter).filter(
 }
 </ul>
 
-# Setting up Semgrep Supply Chain for your infrastrucutre
+# Setting up Semgrep Supply Chain for your infrastructure
 
 Scanning third-party code with Semgrep Supply Chain may require additional steps, such as generating a lock file that it can parse in continuous integration (CI).
 
-The documents in this section describe how to set up Semgrep Supply Chain for specific lock files or CI providers, to ensure that your Semgrep Supply Chain deployment functions as intended.
+The documents in this category describe how to set up Semgrep Supply Chain for specific lock files or CI providers, to ensure that your Semgrep Supply Chain deployment functions as intended.
 
 | CI provider                 | Issue   | Solution |
 | ----------                  | ------- | ------    |
-| Jenkins UI using **[git plugin](https://plugins.jenkins.io/git/)** | Findings are not being sent to Semgrep Cloud Platform.  | Set the correct branch name by following the steps in [TODO]          |
+| Jenkins UI using **[git plugin](https://plugins.jenkins.io/git/)** | Findings are not being sent to Semgrep Cloud Platform.  | Set the correct branch name by following the steps in Setting up Semgrep Supply Chain with Jenkins UI          |
 
 | Package manager | Issue | Solution |
 | ----------     | ------- | ------    |
