@@ -124,7 +124,7 @@ See [SSC glossary > Transitivity](/docs/semgrep-supply-chain/glossary/#transitiv
 * In most cases, Semgrep Supply Chain generates **reachable findings** for **direct dependencies**. However, there are certain dependencies that are vulnerable simply through their inclusion in a codebase. Semgrep Supply Chain generates reachable findings for these types of dependencies even if they are transitive dependencies.
 
 :::info
-In some ecosystems, it's possible to use a transitive dependency in your code as if it were a direct dependency. This is very uncommon, but Semgrep does scan for these usages with reachability rules if they are available, and will mark transitive dependencies as "unreachable" if they are not directly used.
+In some package ecosystems, it's possible to use a transitive dependency in your code as if it were a direct dependency. This is very uncommon, but Semgrep does scan for these usages with reachability rules if they are available, and will mark transitive dependencies as "unreachable" if they are not directly used.
 :::
 
 ## Next steps: Scanning your codebase
