@@ -9,6 +9,16 @@ tags:
   - Team & Enterprise Tier
 ---
 
+import MoreHelp from "/src/components/MoreHelp"
+
+<ul id="tag__badge-list">
+{
+Object.entries(frontMatter).filter(
+    frontmatter => frontmatter[0] === 'tags')[0].pop().map(
+    (value) => <li class='tag__badge-item'>{value}</li> )
+}
+</ul>
+
 # Setting up Semgrep Supply Chain with Jenkins UI
 
 When running a CI job, the Jenkins UI Git plugin creates a detached `HEAD` ref. This causes Semgrep Supply Chain (SSC) to mistakenly send a repository's branch name as `HEAD` to Semgrep Cloud Platform (SCP), instead of using the actual branch name. As a result, Jenkins may not be sending Supply Chain findings to your SCP account. This document explains how to set up Jenkins to fix this behavior for users of the **Jenkins UI Git plugin**. 
@@ -47,3 +57,5 @@ To set up SSC with Jenkins UI, perform the following steps:
 1. Optional: Click **Build Now** to test that your job can now send findings to Semgrep Cloud Platform.
 
 You have successfully set up your Jenkins UI job to send findings to Semgrep Cloud Platform.
+
+<MoreHelp />

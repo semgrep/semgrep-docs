@@ -27,7 +27,7 @@ The documents in this category describe how to set up Semgrep Supply Chain for s
 
 | CI provider                 | Issue   | Solution |
 | ----------                  | ------- | ------    |
-| Jenkins UI using **[git plugin](https://plugins.jenkins.io/git/)** | Findings are not being sent to Semgrep Cloud Platform.  | Set the correct branch name by following the steps in Setting up Semgrep Supply Chain with Jenkins UI          |
+| Jenkins UI using **[git plugin](https://plugins.jenkins.io/git/)** | Findings are not being sent to Semgrep Cloud Platform.  | Set the correct branch name by following the steps in [Setting up Semgrep Supply Chain with Jenkins UI](/docs/semgrep-supply-chain/setup-jenkins)          |
 
 | Package manager | Issue | Solution |
 | ----------     | ------- | ------    |

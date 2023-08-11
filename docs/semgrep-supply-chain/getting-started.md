@@ -11,9 +11,6 @@ hide_title: true
 
 import MoreHelp from "/src/components/MoreHelp"
 
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
-
 import PlatformSigninIntro from "/src/components/concept/_platform-signin-intro.md"
 import PlatformSigninGithub from "/src/components/procedure/_platform-signin-github.md"
 import PlatformSigninGitlab from "/src/components/procedure/_platform-signin-gitlab.md"
