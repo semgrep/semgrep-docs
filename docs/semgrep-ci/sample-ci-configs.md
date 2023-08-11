@@ -268,6 +268,10 @@ The following configuration creates a CI job that runs a SAST scan using Semgrep
 
 <TabItem value='jenkins-ssc'>
 
+:::info
+Users of Jenkins UI with the Git plugin must also set up their branch information. See [Setting up Semgrep Supply Chain with Jenkins UI](/semgrep-supply-chain/setup-jenkins-ui) for more information.
+:::
+
 The following configuration creates a CI job that runs an SCA scan using Semgrep Supply Chain.
 
 <JenkinsSemgrepAppSsc />
