@@ -1,51 +1,12 @@
 ---
-description: Use this reference to run Semgrep on Windows systems.
+description: Use this reference to run Visual Studio Code on Windows systems with the Semgrep extension.
 tags:
   - Windows
   - Visual Studio Code
   - WSL
-  - Docker
 ---
 
-# Running Semgrep on Windows
-
-If you look at [Semgrep documentation](https://semgrep.dev/docs/getting-started/#installing-and-running-semgrep-locally) there are two alternatives to execute Semgrep on Windows.
-The first one is to install WSL: Windows Subsystem for Linux and the second one will be a Docker execution.
-> **Note:** Install Semgrep as Python package is not an alternative at the time this article is being written (August 2023).
-
-# Windows Subsystem for Linux (WSL) option
-[Install WSL](https://learn.microsoft.com/en-us/windows/wsl/install) in your Windows allows you to install Semgrep as a Python package. 
-Then, you can invoke Semgrep from Windows or from WSL depending on your needs.
-
-From WSL scanning a Windows folder:
-```
-semgrep scan --config=auto "/mnt/c/YOUR_PROJECT_PATH"
-```
-Where `/mnt/c/YOUR_PROJECT_PATH` is the Windows path to the project being scanned.
-
-From Windows using a Semgrep instance installed on WSL and scanning a Windows project:
-```
-cd YOUR_PROJECT_PATH
-wsl /home/USER/.local/bin/semgrep scan --config=auto .
-```
-
-Where `/home/USER/.local/bin/semgrep` is the path to Semgrep executable in your WSL system.
-
-# Docker option
-Once you install [Docker for Windows](https://docs.docker.com/desktop/install/windows-install/) you can invoke Semgrep with the next docker command:
-
-```
-docker run --rm -v "%cd%:/src" returntocorp/semgrep semgrep --config=auto
-```
-
-Where `%cd%` is the current directory. Equivalent to ${PWD} in Linux systems.
-
-If you need to pass some environment variables such as SEMGREP_APP_TOKEN you can use flag -e or --env as described in the [docker documentation](https://docs.docker.com/engine/reference/commandline/run/):
-```
-docker run --rm -v "%cd%:/src" -e SEMGREP_APP_TOKEN=YOUR_SEMGREP_TOKEN returntocorp/semgrep semgrep ci
-```
-
-# What happens with Visual Studio Code
+# Visual Studio Code and Semgrep on Windows
 Semgrep has developed an [extension](https://semgrep.dev/docs/extensions/semgrep-vs-code/) to be used in Visual Studio Code. 
 The good news is that it can be used in a Visual Studio Code installed on Windows.
 The steps to install and use it are as follow:
