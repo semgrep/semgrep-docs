@@ -23,6 +23,8 @@ You can scan with Semgrep now, clicking on the Semgrep icon in the right down co
 
 ![image info](/img/kb/vscode-windows.png)
 
-> **Note:** To write this article a Windows 10 was used to test.
+:::info
+This setup has been tested on Windows 10 with VS Code <X> and Semgrep <Y>. If you're having trouble with installation on other versions, [reach out to us](/docs/support). 
+:::
 
 > **Note:** As the date to write this article (August 2023) install Semgrep as a Python package is not supported, please, check in the [Semgrep documentation](https://semgrep.dev/docs/getting-started/#installing-and-running-semgrep-locally) if it is already supported.
