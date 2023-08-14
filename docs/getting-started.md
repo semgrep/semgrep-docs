@@ -79,7 +79,7 @@ To install and run Semgrep OSS Engine, use one of the following options:
 
 <TabItem value='Windows Subsystem for Linux (WSL)'>
 
-:::info Prerequisites
+:::info Prerequisite
 You must have Windows Subsystem for Linux installed. To install WSL, refer to Microsoft's documentation on [Installing Linux on Windows with WSL](https://learn.microsoft.com/en-us/windows/wsl/install).
 :::
 
