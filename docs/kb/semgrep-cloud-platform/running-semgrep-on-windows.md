@@ -19,7 +19,7 @@ Follow these steps to set up WSL, Semgrep, and the VS Code extension:
 6. Install Semgrep extension for Visual Studio Code. Check [how to install an extension.](https://code.visualstudio.com/docs/editor/extension-marketplace#_install-an-extension)
 7. Open the project from the Windows Command line with commands as `code /mnt/c/PATH_TO_TO_YOUT_PROJECT`
 
-You can scan with Semgrep now, clicking on the Semgrep icon in the right down corner!
+Click the Semgrep icon to scan your project.
 
 ![image info](/img/kb/vscode-windows.png)
 
