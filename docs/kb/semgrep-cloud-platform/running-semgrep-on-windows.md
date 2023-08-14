@@ -9,7 +9,7 @@ tags:
 # Visual Studio Code and Semgrep on Windows
 Semgrep has developed an [extension](https://semgrep.dev/docs/extensions/semgrep-vs-code/) to be used in Visual Studio Code. 
 The extension can be used in Visual Studio Code installed on Windows, but you'll need to install WSL and add Semgrep to it.
-The steps to install and use it are as follow:
+Follow these steps to set up WSL, Semgrep, and the VS Code extension:
 
 1. Install WSL. 
 2. Install [Semgrep on WSL as Python package.](https://semgrep.dev/docs/getting-started/#installing-and-running-semgrep-locally)
