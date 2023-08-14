@@ -23,26 +23,41 @@ Object.entries(frontMatter).filter(
 # Enabling webhooks
 
 :::info Prerequisites
-* A Team or Enterprise account.
 * Webhooks can only be enabled through Semgrep Cloud Platform (SCP). [Create an account](/semgrep-code/getting-started/#signing-in-to-semgrep-cloud-platform) to set up webhooks.
 * To receive alerts and notifications, you must [add or onboard a project](/semgrep-code/getting-started/#option-b-adding-a-repository-from-github-gitlab-or-bitbucket) (repository) to Semgrep Cloud Platform for scanning.
 :::
 
-Webhooks are a feature available in Semgrep's Team tier and above.
+Webhooks are a generic method for Semgrep Cloud Platform to post JSON-formatted findings after each scan to your URL endpoint.
 
-Webhooks are a generic method for Semgrep to post JSON-formatted findings after each scan to your URL endpoint. To set up a webhook:
+SCP sends two types of JSON objects:
 
-1. Go to **Settings** > **[Integrations](https://semgrep.dev/orgs/-/settings/integrations)**, and then click **Add Integration**.
-2. Click **Webhook**.
-3. Enter a **Name** for the integration.
-4. Enter the **Webhook URL**.
-5. To ensure that Semgrep can post to your URL, click **Test**. 
-![Successful webhook integration test](/img/webhook-successful-test.png)<br />
-6. Click **Save.**
-7. Turn notifications on by going to the **Rule board**, clicking on the <i class="fa-solid fa-gear"></i> **gear** icon, then click the <i class="fa-solid fa-toggle-large-on"></i> **toggle** next to the name of the integration.
-To receive webhook notifications on pull requests and code pushes, visit [Dashboard > Integrations](https://semgrep.dev/manage/integrations) and select 'Add integration' or 'Setup First Integration,' and then choose 'Webhook'. Enter a target URL, give the notification channel a name of your choosing, and then click 'Save'.
+<dl>
+<dt><code>semgrep_scan</code> JSON object</dt>
+<dd> A <code>semgrep_scan</code> object contains information about the CI job and other scan parameters, such as ignored files. SCP sends a single <code>semgrep_scan</code> object <strong>every time a scan is run</strong>. This includes diff-aware scans, full scans, and scans that have no findings.</dd>
+<dt><code>semgrep_finding</code> JSON object</dt>
+<dd>A <code>semgrep_finding</code> object is a single record of a new finding. SCP sends new <code>semgrep_finding</code> objects based on how you have configured your notifications in Policies. See <a href="#setting-up-webhooks">Setting up webhooks</a> to learn more.</dd>
+</dl>
 
-#### Findings
+## Setting up webhooks
+
+Perform these steps in Semgrep Cloud Platform to set up webhooks:
+
+1. Create a webhook integration:
+    1. On the navigation menu, click **<i class="fa-solid fa-gear"></i> Settings > Integrations > Add Integration.**
+    2. Click **Webhook**.
+    3. In the **Name** field, enter a name for the integration.
+    4. In the **Webhook URL** field, enter the target webhook URL for the integration.
+    5. Optional: To ensure that Semgrep can post to your URL, click **Test**. The following screenshot displays the result of a successful webhook integration.
+    ![Successful webhook integration test](/img/webhook-successful-test.png)
+    6. Click **Save.**
+2. Turn notifications on:
+    1. Click **Rules > Policies > <i class="fa-solid fa-gear"></i> Rule Modes**.
+    2. Click the **Edit** button of the Rule Mode for which you want to receive webhook notifications. For example, if you want to be notified of all blocking findings through webhooks, click the **Edit** button of the **Block** mode.
+    3. Repeat the previous step for all Rule Modes that you want to receive notifications for.
+
+## Findings
+
+The following is an example of a `semgrep_finding` object:
 
 ```json
 [
@@ -84,9 +99,9 @@ To receive webhook notifications on pull requests and code pushes, visit [Dashbo
 ]
 ```
 
-#### Scans
+## Scans
 
-Semgrep Cloud Platform can send a POST request containing information about the scan.
+The following is an example of a `semgrep_scan` object:
 
 ```json
 {

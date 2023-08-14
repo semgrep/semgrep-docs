@@ -90,7 +90,7 @@ All of these columns correspond to the filters in the filter pane.
 To add rules, follow these steps:
 
 1. On the [Policies](https://semgrep.dev/orgs/-/board) page, click **Add Rules**.
-1. You are redirected to the [Semgrep Registry](https://semgrep.dev/explore) page. Explore the page, open cards of individual rules, and then click **Add to Rule Board**.
+1. You are redirected to the [Semgrep Registry](https://semgrep.dev/explore) page. Explore the page, open cards of individual rules, and then click **Add to Policy.
 1. Specify the behavior of the rule that you are adding. Select either: 
     - **Monitor**: Display findings only on the [Findings](https://semgrep.dev/orgs/-/findings?tab=open) page of Semgrep Code.
     - **Comment**: Display findings on the [Findings](https://semgrep.dev/orgs/-/findings?tab=open) page of Semgrep Code and create comments in MRs or PRs.

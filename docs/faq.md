@@ -176,11 +176,11 @@ Semgrep CI makes network requests in accordance with the data storage previously
 
 ### How do I configure Semgrep for different projects?
 
-Semgrep App provides centralized policy management. See the [Rule Board](/semgrep-code/rule-board/) for more details.
+Semgrep App provides centralized policy management. See the [Policies documentation](/semgrep-code/policies/) for more details.
 
 ### What is a policy?
 
-A policy is a simple collection of rules and a definition of what to do with rule results: fail the Semgrep CI run and/or send non-blocking notifications to third-party services like Slack. Please see the [Rule Board](/semgrep-code/rule-board/) for more details.
+A policy is a simple collection of rules and a definition of what to do with rule results: fail the Semgrep CI run and/or send non-blocking notifications to third-party services like Slack. Please see the [Policies documentation](/semgrep-code/policies/) for more details.
 
 ## Monitoring
 

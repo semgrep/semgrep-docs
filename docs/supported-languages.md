@@ -97,7 +97,7 @@ This table provides information about fully supported (generally available or GA
    <td rowspan="10">Since May 2022</td>
   </tr>
   <tr>
-   <td rowspan="2">JavaScript / TypeScript</td>
+   <td rowspan="3">JavaScript / TypeScript</td>
    <td>npm (Node.js)</td>
    <td><code>package-lock.json</code></td>
    <td style={{"text-align": "center"}}>✔️ Yes</td>
@@ -105,6 +105,11 @@ This table provides information about fully supported (generally available or GA
   <tr>
    <td>Yarn, Yarn 2, Yarn 3</td>
    <td><code>yarn.lock</code></td>
+   <td style={{"text-align": "center"}}>✔️ Yes</td>
+  </tr>
+  <tr>
+   <td>pnpm</td>
+   <td><code>pnpm-lock.yaml</code></td>
    <td style={{"text-align": "center"}}>✔️ Yes</td>
   </tr>
   <tr>

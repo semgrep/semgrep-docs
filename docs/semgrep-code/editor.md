@@ -25,7 +25,7 @@ Object.entries(frontMatter).filter(
 
 ![Screenshot of the Editor's splash screen](/img/editor-splashscreen.png)
 
-**Semgrep Editor** is an advanced tool for **rule writing**. Write rules on a YAML editor, verify their performance through tests, and add them to your organization’s [Rule Board](/semgrep-code/rule-board/) to enforce code standards and increase code security.
+**Semgrep Editor** is an advanced tool for **rule writing**. Write rules on a YAML editor, verify their performance through tests, and add them to your organization’s [Policies page](/semgrep-code/policies/) to enforce code standards and increase code security.
 
 To quickly learn Semgrep patterns and syntax, explore the Editor’s library of rules from the **public [Rule Registry](https://semgrep.dev/explore)**. Rules from the Registry can detect OWASP vulnerabilities, best practice violations, and security issues for a wide variety of languages and frameworks. Semgrep Editor enables you to **adapt these rules** for your own organization’s use by [forking](#jumpstart-rule-writing-using-existing-rules) them.
 
@@ -34,7 +34,7 @@ The Editor is free to use on all tiers, but saving a rule for **private use** is
 ## Accessing Semgrep Editor
 
 1. Sign in to your [Semgrep Cloud Platform account](https://semgrep.dev/login).
-2. Click **Editor** from the **App sidebar**. The **splash page** and **library pane** appear.
+2. Click **Rules > Editor**.
 3. Do any of the following steps:
     1. To create a new rule, click on the <i class="fa-solid fa-circle-plus"></i> **(+) plus sign** or <i class="fa-solid fa-file-plus"></i> **Create new rule** button.
     2. To open any rule you’ve recently edited, select it from the **Recent** list.
@@ -61,7 +61,7 @@ The editor is composed of three panes and a top menu.
     <dt>Sample code window</dt>
     <dd>Enter your rule’s test code in this pane and click the <strong>Run button</strong> to verify that the rule runs as intended. A <strong>matches panel</strong> appears after Semgrep is run to display matches and tests.</dd>
     <dt>Top menu</dt>
-    <dd>Save, share, and add your rule to the Rule Board through this menu.</dd>
+    <dd>Save, share, and add your rule to the Policies page through this menu.</dd>
 </dl>
 
 To **resize the panes**, position your mouse over the borders and click-drag to the desired width. The library pane can be completely hidden to give more space for the editing panes.
@@ -156,17 +156,18 @@ A rule can be saved as a **private rule**, which is visible only to members with
 
 ## Deleting a rule
 
-To delete a rule, right click on its entry in the Library pane and select **Delete rule**. Deleting a rule is permanent. If the rule was previously added to the Rule Board, it is removed upon deletion.
+To delete a rule, right click on its entry in the Library pane and select **Delete rule**. Deleting a rule is permanent. If the rule was previously added to the Policies page, it is removed upon deletion.
 
-## Setting code standards with the Rule Board
+## Setting code standards with the Policies page 
 
-Adding a rule to the Rule Board applies the rule across all projects scanned by Semgrep Cloud Platform. The rule can be added to either the **Audit** or **Blocker** columns. Rules in the Blocker column will prevent PRs from being merged until the finding is resolved.
+Adding a rule to the Policies page applies the rule across all projects scanned by Semgrep Cloud Platform.
 
-To add a rule to the Rule Board:
+To add a rule to the Policies page:
 
-1. Click **Add to Rule Board**.
-2. Select which column (Audit or Blocker) to add the rule to, depending on the rule’s relevance.
-3. The rule appears on your Rule Board, under the corresponding column.
+1. Click **Add to Policy**.
+2. Select which rule mode (Monitor, Comment, or Block) to set the rule to, depending on the rule’s relevance.
+
+The rule appears in your Policy page with the mode it is set to.
 
 ## Contributing to the open-source Semgrep Registry
 
