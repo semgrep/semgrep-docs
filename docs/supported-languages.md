@@ -94,7 +94,7 @@ This table provides information about fully supported (generally available or GA
    <td>Go modules (<code>go mod</code>)</td>
    <td><code>go.mod</code></td>
    <td style={{"text-align": "center"}}>✔️ Yes</td>
-   <td rowspan="10">Since May 2022</td>
+   <td rowspan="11">Since May 2022</td>
   </tr>
   <tr>
    <td rowspan="3">JavaScript / TypeScript</td>

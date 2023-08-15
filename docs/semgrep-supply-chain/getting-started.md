@@ -19,7 +19,6 @@ import PlatformSigninGithub from "/src/components/procedure/_platform-signin-git
 import PlatformSigninGitlab from "/src/components/procedure/_platform-signin-gitlab.md"
 import CiScheduling from "/src/components/reference/_ci-scheduling.mdx"
 import DetectGhRepos from "/src/components/procedure/_detect-gh-repos.md"
-import AdmonitionSscLicense from "/src/components/reference/_admonition-ssc-license.md"
 
 <ul id="tag__badge-list">
 {

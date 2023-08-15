@@ -11,7 +11,6 @@ hide_title: true
 
 import MoreHelp from "/src/components/MoreHelp"
 import SscIntro from "/src/components/concept/_ssc-intro.md"
-import AdmonitionSscLicense from "/src/components/reference/_admonition-ssc-license.md"
 
 <ul id="tag__badge-list">
 {
@@ -24,8 +23,6 @@ Object.entries(frontMatter).filter(
 # Overview of Semgrep Supply Chain
 
 <SscIntro />
-
-<AdmonitionSscLicense />
 
 ![Semgrep Supply chain Vulnerabilities page](/img/sc-vulns.png)
 _Figure 1_. Semgrep Supply Chain Vulnerabilities page.
