@@ -11,6 +11,7 @@ hide_title: true
 
 import MoreHelp from "/src/components/MoreHelp"
 import SscIntro from "/src/components/concept/_ssc-intro.md"
+import AdmonitionSotCves from "/src/components/reference/_admonition-sot-cves.md"
 
 <ul id="tag__badge-list">
 {
@@ -42,6 +43,8 @@ A finding is **undetermined** if Semgrep detects a match for the dependency in t
 In Semgrep Cloud Platform, specific findings of a dependency and code match are called **usages**. Usages are grouped by their **vulnerability**. Vulnerabilities in Semgrep Supply Chain typically have a CVE number corresponding to the record in the [CVE Program](https://www.cve.org/About/Overview).
 
 Semgrep Cloud Platform also includes a list of **Advisories** for reference. Advisories include all vulnerabilities covered by Semgrep Supply Chain, regardless of whether the related dependency is used in scanned code.
+
+<AdmonitionSotCves />
 
 The following diagram displays the relationship between a Supply Chain rule, the lockfile, and the codebase being scanned:
 
