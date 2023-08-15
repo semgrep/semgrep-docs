@@ -255,6 +255,7 @@ The `comparison` key accepts Python expression using:
 - Function `today()` that gets today's date as a float representing epoch time.
 - Function `strptime()` that converts strings in the format `"yyyy-mm-dd"` to a float representing the date in epoch time.
 - Lists, together with the `in`, and `not in` infix operators.
+- Strings, together with the `in` and `not in` infix operators, for substring containment.
 - Function `re.match()` to match a regular expression (without the optional `flags` argument).
 
 You can use Semgrep metavariables such as `$MVAR`, which Semgrep evaluates as follows:
