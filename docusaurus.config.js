@@ -13,12 +13,8 @@ module.exports = {
   organizationName: 'returntocorp', // Usually your GitHub org/user name.
   projectName: 'semgrep', // Usually your repo name.
   trailingSlash: true,
+  themes: ['@markprompt/docusaurus-theme-search'],
   themeConfig: {
-    docs: {
-      sidebar: {
-        hideable: true,
-      },
-    },
     markprompt: {
       projectKey: 'jbhF5LligltdKaJucMjDcWcRodaVpzqE',
       trigger: { floating: false },
@@ -26,10 +22,15 @@ module.exports = {
         enabled: true,
         provider: {
           name: 'algolia',
-          apiKey: '${{ secrets.ALGOLIA_API_KEY }}',
-          appId: '${{ secrets.ALGOLIA_APPLICATION_ID }}',
+          apiKey: 'f53612c29d04a2ff71dce6e3b2f76752',
+          appId: 'RGEY1AKPUC',
           indexName: 'docs',
         },
+      },
+    },
+    docs: {
+      sidebar: {
+        hideable: true,
       },
     },
     navbar: {
@@ -148,34 +149,34 @@ module.exports = {
       darkTheme: darkCodeTheme,
       additionalLanguages: ['java', 'ruby', 'php', 'csharp', 'rust', 'scala', 'kotlin'],
     },
-    algolia: {
-      apiKey: 'f53612c29d04a2ff71dce6e3b2f76752',
-      indexName: 'docs',
+    //algolia: {
+    //  apiKey: 'f53612c29d04a2ff71dce6e3b2f76752',
+    //  indexName: 'docs',
 
-      // Optional: see doc section below
-      contextualSearch: false,
+    //  // Optional: see doc section below
+    //  contextualSearch: false,
 
-      // Optional: see doc section below
-      appId: 'RGEY1AKPUC',
+    //  // Optional: see doc section below
+    //  appId: 'RGEY1AKPUC',
 
-      // Optional: Algolia search parameters
-      searchParameters: {},
-      facetFilters: [],
-      //... other Algolia params
-      "customRanking": [
-        "desc(weight.page_rank)"
-      ],
-      "ranking": [
-        "desc(weight.page_rank)",
-        "custom",
-        "filters",
-        "typo",
-        "attribute",
-        "words",
-        "exact",
-        "proximity"
-      ]
-    },
+    //  // Optional: Algolia search parameters
+    //  searchParameters: {},
+    //  facetFilters: [],
+    //  //... other Algolia params
+    //  "customRanking": [
+    //    "desc(weight.page_rank)"
+    //  ],
+    //  "ranking": [
+    //    "desc(weight.page_rank)",
+    //    "custom",
+    //    "filters",
+    //    "typo",
+    //    "attribute",
+    //    "words",
+    //    "exact",
+    //    "proximity"
+    //  ]
+    //},
     image: 'https://semgrep.dev/thumbnail.png',
     //announcementBar: {
     //  id: 'office-hours',
