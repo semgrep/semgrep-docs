@@ -3,7 +3,7 @@ slug: license-compliance
 append_help_link: true
 title: License compliance
 hide_title: true
-description: "Semgrep Supply Chain can detect and list a package's license. Prevent or exempt certain packages from being used based on its license."
+description: "Semgrep Supply Chain can detect and list a package's license. Prevent or exempt certain packages from being used based on their licenses."
 tags:
   - Team & Enterprise tier
   - Semgrep Supply Chain
@@ -34,7 +34,7 @@ Semgrep Supply Chain's **license compliance** feature enables you to explicitly 
 To view a package's license:
 
 1. [Sign in to Semgrep Cloud Platform](https://semgrep.dev/login).
-2. Click **[Supply Chain](https://semgrep.dev/orgs/-/supply-chain)** > **Dependencies**. By default licenses are listed in the row of their respective package.
+2. Click **[Supply Chain](https://semgrep.dev/orgs/-/supply-chain)** > **Dependencies**. Detected licenses are listed in the row for a given package.
 
 ## Blocking, commenting, or allowing licenses 
 
@@ -115,6 +115,12 @@ Software using a package with a permissive license have minimal restrictions on 
 The **Other** license category may include copyleft or permissive licenses. Consult your legal department before using licenses in this category.
 :::
 
+#### Multiple licenses
+
+Some packages allow multiple licenses. Semgrep treats packages with multiple licenses as if all licenses apply, and behaves according to the strictest policy. For example, if a package allows use under either an MIT license or a GPL-3.0 license, and the GPL-3.0 license is Blocked, a PR that adds the package is blocked.
+
+Add an [exemption for the package](#exempting-packages) if subsequent review indicates the dependency is safe for use under one of the detected licenses.
+
 ## Exempting packages
 
 You can create exemptions to **Allow** specific packages. This feature is useful for internal packages that are not accessed by users or external APIs.
@@ -126,5 +132,7 @@ To exempt a package:
 3. Click the package's <i class="fa-solid fa-list-check"></i> icon to exempt it. Upon clicking on the icon, its permission changes.
 
 Exempted packages appear in the Supply Chain > **Settings** tab.
+
+Package exemptions are currently version-specific. Each version used must be exempted individually.
 
 <MoreHelp />
