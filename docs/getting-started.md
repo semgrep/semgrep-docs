@@ -118,7 +118,7 @@ You must have Windows Subsystem for Linux installed. To install WSL, refer to Mi
         docker run --rm -v "${PWD}:/src" returntocorp/semgrep semgrep --config=auto
         ```
         The provided `-v` option mounts the current directory into the container to be scanned. Change directories locally or provide a specific local directory in the command to scan a different directory.
-      2. On **WSL**, in the directory to scan:
+      2. On **Windows**, in the directory to scan:
         ```bash
         docker run --rm -v "%cd%:/src" returntocorp/semgrep semgrep --config=auto
         ```
