@@ -21,7 +21,7 @@ jobs:
       - checkout
       - run:
           name: "Semgrep scan"
-          command: semgrep ci --supply-chain
+          command: semgrep ci
 workflows:
   main:
     jobs:
