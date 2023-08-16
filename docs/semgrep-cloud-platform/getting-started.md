@@ -32,7 +32,7 @@ Object.entries(frontMatter).filter(
 
 # Getting started with Semgrep Cloud Platform
 
-Semgrep Cloud Platform (SCP) enables you to run scans continuously on multiple repositories by integrating with your GitHub, GitLab, or BitBucket SaaS repositories.
+Semgrep Cloud Platform (SCP) enables you and your team to run SAST and SCA scans continuously on multiple repositories by integrating with your GitHub, GitLab, or BitBucket SaaS repositories.
 
 <SemgrepScan />
 
@@ -41,6 +41,7 @@ Semgrep Cloud Platform can scan the following targets:
 <ScanTargets />
 
 :::info
+todo move this admonition into sending cli scans to semgrep cloud platform
 Many improvements to the Semgrep Cloud Platform experience only work with up-to-date Semgrep CLI versions. For this reason, Semgrep Cloud Platform only supports the 10 most recent minor versions of Semgrep CLI. For example, if the latest release was 0.114.0, all versions greater than 0.104.0 are supported while earlier versions, such as 0.103.0 can be deprecated or can result in failures.
 
 For Docker users: Use the [**latest** tag](https://hub.docker.com/r/returntocorp/semgrep/tags?page=1&name=latest) to ensure you are up-to-date.
@@ -53,21 +54,6 @@ Semgrep Cloud Platform supports code scanning from:
 
 ![Diagram of Semgrep Cloud Platform flow](/img/semgrep-app-diagram.png "Diagram of Semgrep Cloud Platform flow")
 
-## Benefits of using Semgrep Cloud Platform
-
-### Semgrep Cloud Platform with Semgrep Code
-
-Semgrep Code, a SAST tool, enables you to scan your first-party code through the use of rules. Many rules are available from [Semgrep Registry](https://semgrep.dev/explore), an open-source, community-driven repository of rules. You can also write your own rules to customize Semgrep for your team's specific practices, or publish rules for the community. You can use Semgrep Code from your CLI or with Semgrep Cloud Platform.
-
-Using Semgrep Code with Semgrep Cloud Platform provides you with [Policies](/semgrep-code/policies), where you can determine which rules Semgrep uses and what action Semgrep undertakes when it generates a finding from that rule. Policies can block pull requests (PRs) or merge requests (MRs) from merging until findings are resolved. This behavior helps to prevent vulnerable code from shipping to widely-accessible environments, such as production or staging servers.
-
-Semgrep Cloud Platform enables you to deploy, configure, and manage Semgrep in your continuous integration (CI) environment. Semgrep Cloud Platform supports the upload of findings from CLI scans as well. For more information, see [Getting started with Semgrep OSS Engine](/getting-started/).
-
-### Semgrep Cloud Platform with Semgrep Supply Chain
-
-Semgrep Supply Chain, an SCA (Software Composition Analysis) tool, enables you to scan third-party code (also known as dependency scanning), detecting vulnerabilities through the use of reachability analysis. Semgrep's security research team regularly writes rules for emerging vulnerabilities. You can use Semgrep Supply Chain from your CLI or with Semgrep Cloud Platform.
-
-Using Semgrep Supply Chain with Semgrep Cloud Platform provides users with the Vulnerabilities page, wherein users can easily view, triage, and remediate vulnerabilities. Users are also kept up-to-date with the most recent rules through the Advisory page.
 
 <AdmonitionSscLicense />
 
@@ -174,13 +160,7 @@ Semgrep requires the following permissions (scopes) to enable the authentication
 
 ## Next steps
 
-### Starting a SAST scan with Semgrep Code
-
-To start a SAST scan on your codebase, see [Getting started with Semgrep Code](/semgrep-code/getting-started). Semgrep Code's Team tier is free for up to 10 developers.
-
-### Starting an SCA scan with Semgrep Supply Chain
-
-To start an SCA scan for your third-party dependencies, contact [sales@semgrep.com](mailto:sales@semgrep.com).
+[TODO]
 
 ## Additional resources
 
