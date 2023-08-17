@@ -173,11 +173,11 @@ Semgrep requires the following permissions (scopes) to enable the authentication
 
 ### Starting a SAST scan with Semgrep Code
 
-To start a SAST scan on your codebase, see [Getting started with Semgrep Code](/semgrep-code/getting-started). Semgrep Code's Team tier is free for up to 10 developers.
+To start a SAST scan on your codebase, see [Getting started with Semgrep Code](/semgrep-code/getting-started). Semgrep Code is free for up to 10 developers.
 
 ### Starting an SCA scan with Semgrep Supply Chain
 
-To start an SCA scan for your third-party dependencies, contact [sales@semgrep.com](mailto:sales@semgrep.com).
+To start an SCA scan for your third-party dependencies, see [Getting started with Semgrep Supply Chain](/semgrep-supply-chain/getting-started). Semgrep Supply Chain is free for up to 10 developers.
 
 ## Additional resources
 
