@@ -32,28 +32,22 @@ Object.entries(frontMatter).filter(
 
 # Getting started with Semgrep Cloud Platform
 
-Semgrep Cloud Platform (SCP) enables you and your team to run SAST and SCA scans continuously on multiple repositories by integrating with your GitHub, GitLab, or BitBucket SaaS repositories.
+Semgrep Cloud Platform (SCP) enables you and your team to run SAST (Static Application Security Testing) and SCA (Software Composition Analysis) scans continuously on multiple repositories by integrating with your GitHub, GitLab, or BitBucket SaaS repositories.
 
-<SemgrepScan />
+Semgrep Cloud Platform can receive findings from the following sources:
 
-Semgrep Cloud Platform can scan the following targets: 
+* Local command-line interfaces (CLI). [TODO] add a section for this
+* GitHub, GitLab, BitBucket, and Azure Repos through continuous integration (CI).
 
-<ScanTargets />
+This document describes the following: 
 
-:::info
-todo move this admonition into sending cli scans to semgrep cloud platform
-Many improvements to the Semgrep Cloud Platform experience only work with up-to-date Semgrep CLI versions. For this reason, Semgrep Cloud Platform only supports the 10 most recent minor versions of Semgrep CLI. For example, if the latest release was 0.114.0, all versions greater than 0.104.0 are supported while earlier versions, such as 0.103.0 can be deprecated or can result in failures.
+- Signing in to Semgrep Cloud Platform.
+- Steps for admins configuring SCP for team or individual use through organization (org) accounts.
+- Steps for team members to join an org in SCP.
+- Scanning from different sources and sending findings to SCP.
 
-For Docker users: Use the [**latest** tag](https://hub.docker.com/r/returntocorp/semgrep/tags?page=1&name=latest) to ensure you are up-to-date.
-:::
-
-Semgrep Cloud Platform supports code scanning from:
-
-* Local command-line interfaces (CLI).
-* GitHub, GitLab, and BitBucket through continuous integration (CI).
-
-![Diagram of Semgrep Cloud Platform flow](/img/semgrep-app-diagram.png "Diagram of Semgrep Cloud Platform flow")
-
+<!-- [TODO] find another place for this
+![Diagram of Semgrep Cloud Platform flow](/img/semgrep-app-diagram.png "Diagram of Semgrep Cloud Platform flow") -->
 
 <AdmonitionSscLicense />
 
@@ -82,6 +76,39 @@ Semgrep Cloud Platform supports code scanning from:
 </TabItem>
 
 </Tabs>
+
+If you are an **administrator** setting up Semgrep for your team, see Adding an organization.
+
+If you are a **team member joining an existing organization**, see Joining an organization.
+
+If you are a **personal user**, or simply want to run scans, see Running scans.
+
+## Adding an organization
+
+## Joining an organization
+
+:::info Prerequisites
+- Your admin or inviter should have an existing organization (org) in Semgrep that is connected to the org in either GitHub or GitLab.
+- You must be a member of the GitHub or GitLab org that is connected to Semgrep.
+:::
+
+For users that have been invited to join an organization or team, perform the following steps to be added to the org:
+
+1. Sign in to Semgrep Cloud Platform. A **Welcome to Semgrep** dialog box appears.
+2. Check that the organization under the **Join an organization** button is the correct org to join. If there is more than 1 org, select the org to join.
+3. Click **Join an organization**.
+
+### Running scans
+
+## Sending scan results from Semgrep CLI to Semgrep Cloud Platform
+
+:::info
+Many improvements to the Semgrep Cloud Platform experience only work with up-to-date Semgrep CLI versions. For this reason, Semgrep Cloud Platform only supports the 10 most recent minor versions of Semgrep CLI. For example, if the latest release was 0.114.0, all versions greater than 0.104.0 are supported while earlier versions, such as 0.103.0 can be deprecated or can result in failures.
+
+For Docker users: Use the [**latest** tag](https://hub.docker.com/r/returntocorp/semgrep/tags?page=1&name=latest) to ensure you are up-to-date.
+:::
+
+## Appendices
 
 ### Requested permissions for GitHub and GitLab
 
@@ -158,11 +185,6 @@ Semgrep requires the following permissions (scopes) to enable the authentication
 </TabItem>
 </Tabs>
 
-## Next steps
-
-[TODO]
-
-## Additional resources
 
 ### Semgrep Cloud Platform session details
 
