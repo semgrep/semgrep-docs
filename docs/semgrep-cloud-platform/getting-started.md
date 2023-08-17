@@ -19,7 +19,6 @@ import PlatformSigninGithub from "/src/components/procedure/_platform-signin-git
 import PlatformSigninGitlab from "/src/components/procedure/_platform-signin-gitlab.md"
 import ScanTargets from "/src/components/reference/_scan-targets.mdx"
 import SscIntro from "/src/components/concept/_ssc-intro.md"
-import AdmonitionSscLicense from "/src/components/reference/_admonition-ssc-license.md"
 import SemgrepScan from "/src/components/concept/_semgrep-scan.mdx"
 
 <ul id="tag__badge-list">
@@ -68,8 +67,6 @@ Semgrep Cloud Platform enables you to deploy, configure, and manage Semgrep in y
 Semgrep Supply Chain, an SCA (Software Composition Analysis) tool, enables you to scan third-party code (also known as dependency scanning), detecting vulnerabilities through the use of reachability analysis. Semgrep's security research team regularly writes rules for emerging vulnerabilities. You can use Semgrep Supply Chain from your CLI or with Semgrep Cloud Platform.
 
 Using Semgrep Supply Chain with Semgrep Cloud Platform provides users with the Vulnerabilities page, wherein users can easily view, triage, and remediate vulnerabilities. Users are also kept up-to-date with the most recent rules through the Advisory page.
-
-<AdmonitionSscLicense />
 
 ## Signing in to Semgrep Cloud Platform
 
