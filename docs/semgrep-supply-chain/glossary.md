@@ -29,6 +29,12 @@ A lockfile describes a dependency tree to ensure that deployments and organizati
 
 Semgrep Supply Chain uses lockfiles as part of its reachability analysis by determining the exact version of a dependency that a codebase is using.
 
+## Lockfile-only rules
+
+Lockfile-only rules are rules that do not perform reachability analysis. These rules only check a package's version against versions with known vulnerabilities. These rules produce vulnerabilities similar to GitHub Dependabot's results, but have a higher false positive rate.
+
+Compare its opposite: [Reachability-rules](#reachability-rules).
+
 ## Manifest file
 
 A manifest file describes the dependencies used in your codebase. In a manifest file, a dependency may indicate a range of versions. A package manager reads the manifest file when installing dependencies into a specific implementation of your codebase, then generates a lockfile specifying the exact version of the dependency installed and any transitive dependencies.
@@ -57,7 +63,11 @@ Reachability refers to whether or not a vulnerable piece of code from a dependen
 
 See [Overview of Semgrep Supply Chain](/semgrep-supply-chain/overview) to learn how Semgrep leverages its code-scanning and rule syntax capabilities to provide high-signal rules that determine a finding's reachability. This assists security engineers in remediation and triage processes.
 
+## Reachability rules
 
+A type of Semgrep Supply Chain rule that performs reachability analysis. A reachability rule can determine if the vulnerable piece of code from a dependency is used in the codebase itself.
+
+Compare its opposite: [Lockfile-only rules](#lockfile-only-rules).
 
 ## Software bill of materials (SBOM)
 

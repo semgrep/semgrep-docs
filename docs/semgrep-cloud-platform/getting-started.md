@@ -19,7 +19,6 @@ import PlatformSigninGithub from "/src/components/procedure/_platform-signin-git
 import PlatformSigninGitlab from "/src/components/procedure/_platform-signin-gitlab.md"
 import ScanTargets from "/src/components/reference/_scan-targets.mdx"
 import SscIntro from "/src/components/concept/_ssc-intro.md"
-import AdmonitionSscLicense from "/src/components/reference/_admonition-ssc-license.md"
 import SemgrepScan from "/src/components/concept/_semgrep-scan.mdx"
 
 <ul id="tag__badge-list">
@@ -48,8 +47,6 @@ This document describes the following:
 
 <!-- [TODO] find another place for this
 ![Diagram of Semgrep Cloud Platform flow](/img/semgrep-app-diagram.png "Diagram of Semgrep Cloud Platform flow") -->
-
-<AdmonitionSscLicense />
 
 ## Signing in to Semgrep Cloud Platform
 
@@ -185,6 +182,18 @@ Semgrep requires the following permissions (scopes) to enable the authentication
 </TabItem>
 </Tabs>
 
+
+## Next steps
+
+### Starting a SAST scan with Semgrep Code
+
+To start a SAST scan on your codebase, see [Getting started with Semgrep Code](/semgrep-code/getting-started). Semgrep Code is free for up to 10 developers.
+
+### Starting an SCA scan with Semgrep Supply Chain
+
+To start an SCA scan for your third-party dependencies, see [Getting started with Semgrep Supply Chain](/semgrep-supply-chain/getting-started). Semgrep Supply Chain is free for up to 10 developers.
+
+## Additional resources
 
 ### Semgrep Cloud Platform session details
 
