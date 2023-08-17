@@ -23,13 +23,14 @@ import MoreHelp from "/src/components/MoreHelp"
 
 Add tags for specific projects in the Semgrep Cloud Platform through the following methods:
 
+* Set tags through the Semgrep Cloud Platform > Project page.
+* Set tags using the Semgrep Cloud Platform API (for Team and Enterprise Tier users).
 * Set tags in your repository's `.semgrepconfig.yml` file.
-* Set tags through Semgrep Cloud Platform > Project page or Semgrep Cloud Platform API (for Team and Enterprise Tier users).
 
-:::tip Best practices
-*  Choose either Semgrep Cloud Platform (and API) or `.semgrepconfig.yml` to manage tags. **Do not use a mix of the two.**
-* Semgrep Cloud Platform and its API **never** overwrite your `.semgrepconfig.yml` file. If you choose to use `.semgrepconfig.yml` to manage your tags, use it **exclusively**. Do not use Semgrep Cloud Platform or the API to manage any tags. Any changes to your tags through Semgrep Cloud Platform will be overwritten after a CI scan due to values present in `.semgrepconfig.yml`.
-* Semgrep always prioritizes values in `.semgrepconfig.yml` as the source of truth.
+:::caution Setting tags
+* Keep in mind, when setting tags via the `.semgrepconfig.yml` file or Semgrep Cloud Platform API, that these actions **overwrite** any tags previously set.
+* For example, if you set tags via API and subsequently run a CI scan, then the previous tags set by the API will be overwritten by any tag definitions in the `.semgrepconfig.yml` file of the repo.
+* For this reason, we recommend exclusively choosing either the API or `.semgrepconfig.yml` file to manage and set tags. **Do not use a mix of the two.**
 :::
 
 ## Set tags through Semgrep Cloud Platform and Semgrep Cloud Platform API
