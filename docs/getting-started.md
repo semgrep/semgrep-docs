@@ -79,7 +79,11 @@ To install and run Semgrep OSS Engine, use one of the following options:
 
 <TabItem value='Windows Subsystem for Linux (WSL)'>
 
-  1. Install:
+:::info Prerequisite
+You must have Windows Subsystem for Linux installed. To install WSL, refer to Microsoft's documentation on [Installing Linux on Windows with WSL](https://learn.microsoft.com/en-us/windows/wsl/install).
+:::
+
+  1. Within your WSL interface, install Semgrep:
       ```bash
       python3 -m pip install semgrep
       ```
@@ -109,12 +113,15 @@ To install and run Semgrep OSS Engine, use one of the following options:
       ```
 
   3. Run recommended Semgrep Registry rules:
-    ```bash
-    docker run --rm -v "${PWD}:/src" returntocorp/semgrep semgrep --config=auto
-    ```
-
-    The provided `-v` option mounts the current directory into the container to be scanned. Change directories locally or provide a specific local directory in the command to scan a different directory.
-
+      1. On **macOS or Linux**, in the directory to scan:
+        ```bash
+        docker run --rm -v "${PWD}:/src" returntocorp/semgrep semgrep --config=auto
+        ```
+        The provided `-v` option mounts the current directory into the container to be scanned. Change directories locally or provide a specific local directory in the command to scan a different directory.
+      2. On **Windows**, in the directory to scan:
+        ```bash
+        docker run --rm -v "%cd%:/src" returntocorp/semgrep semgrep --config=auto
+        ```
 
 </TabItem>
 
