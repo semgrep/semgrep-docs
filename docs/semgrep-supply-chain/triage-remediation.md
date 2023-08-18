@@ -29,7 +29,7 @@ Perform triage and remediation on your open source dependencies through the **Su
     <dd>This tab enables you to:
     <ul>
         <li>View reachable vulnerabilities in your repositories through links to specific lines of code.</li>
-        <li>Filter vulnerabilities by severity, reachability, status, transitivity, and other attributes, .</li>
+        <li>Filter vulnerabilities by severity, reachability, status, transitivity, and other attributes.</li>
         <li>Understand how to remediate vulnerabilities by providing versions to upgrade to.</li>
         <li>Track the process of resolving vulnerabilities by adding links to Jira issues and pull requests.</li>
     </ul>
