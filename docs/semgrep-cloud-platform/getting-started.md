@@ -31,7 +31,7 @@ Object.entries(frontMatter).filter(
 
 # Getting started with Semgrep Cloud Platform
 
-Semgrep Cloud Platform (SCP) enables you and your team to run SAST (Static Application Security Testing) and SCA (Software Composition Analysis) scans continuously on multiple repositories by integrating with your GitHub, GitLab, or BitBucket SaaS repositories.
+Semgrep Cloud Platform (SCP) enables you and your team to run SAST (Static Application Security Testing) and SCA (Software Composition Analysis) scans continuously on multiple repositories.
 
 Semgrep Cloud Platform can receive findings from the following sources:
 
@@ -40,10 +40,11 @@ Semgrep Cloud Platform can receive findings from the following sources:
 
 This document describes the following: 
 
-- Signing in to Semgrep Cloud Platform.
-- Steps for admins configuring SCP for team or individual use through organization (org) accounts.
-- Steps for team members to join an org in SCP.
-- Scanning from different sources and sending findings to SCP.
+- For **team or individual users**: 
+    - Signing in to Semgrep Cloud Platform.
+    - Scanning from different sources and sending findings to SCP.
+- **For administrators (admins), such as Security Engineers**: Steps to configure organization (org) accounts in SCP for teams.
+- **For team members:** Steps for team members to join an org in SCP.
 
 <!-- [TODO] find another place for this
 ![Diagram of Semgrep Cloud Platform flow](/img/semgrep-app-diagram.png "Diagram of Semgrep Cloud Platform flow") -->
@@ -82,6 +83,19 @@ If you are a **personal user**, or simply want to run scans, see Running scans.
 
 ## Adding an organization
 
+This process creates an **organization account**, which your team members in GitHub or GitLab can join. Organization accounts share custom rules that are written by fellow team members, as well as records of findings and scans. 
+
+1. Sign in to Semgrep Cloud Platform. A dialog box appears.
+2. Click **Create an organization**.
+![DESCRIPTION](/img/create-an-org.png#md-width)
+3. Enter your **Organization display name**. This name typically corresponds to the name of your GitHub or GitLab org.
+4. Click **Create**.
+5. Your organization is created and you are prompted to start a scan. Instead of starting a scan, click **<i class="fa-solid fa-gear"></i> Settings** in the navigation menu.
+6. Click **Source code managers**.
+7. Select the source code manager that contains the org to connect to Semgrep Cloud Platform.
+![DESCRIPTION](/img/source-code-manager.png#md-width)
+8. Follow the steps to connect your source code manager. You can review permissions needed by Semgrep in [Requested permissions for GitHub and GitLab](#requested-permissions-for-github-and-gitlab).
+
 ## Joining an organization
 
 :::info Prerequisites
@@ -89,14 +103,22 @@ If you are a **personal user**, or simply want to run scans, see Running scans.
 - You must be a member of the GitHub or GitLab org that is connected to Semgrep.
 :::
 
-For users that have been invited to join an organization or team, perform the following steps to be added to the org:
+For **members to join an organization or team**, perform the following steps to be added to the org:
 
 1. Sign in to Semgrep Cloud Platform. A **Welcome to Semgrep** dialog box appears.
 2. Check that the organization under the **Join an organization** button is the correct org to join. If there is more than 1 org, select the org to join.
+![DESCRIPTION](/img/join-an-org.png#md-width)
 3. Click **Join an organization**.
 
 ### Running scans
 
+#### Starting a SAST scan with Semgrep Code
+
+To start a SAST scan on your codebase, see [Getting started with Semgrep Code](/semgrep-code/getting-started). Semgrep Code is free for up to 10 developers.
+
+#### Starting an SCA scan with Semgrep Supply Chain
+
+To start an SCA scan for your third-party dependencies, see [Getting started with Semgrep Supply Chain](/semgrep-supply-chain/getting-started). Semgrep Supply Chain is free for up to 10 developers.
 ## Sending scan results from Semgrep CLI to Semgrep Cloud Platform
 
 :::info
@@ -181,19 +203,6 @@ Semgrep requires the following permissions (scopes) to enable the authentication
 
 </TabItem>
 </Tabs>
-
-
-## Next steps
-
-### Starting a SAST scan with Semgrep Code
-
-To start a SAST scan on your codebase, see [Getting started with Semgrep Code](/semgrep-code/getting-started). Semgrep Code is free for up to 10 developers.
-
-### Starting an SCA scan with Semgrep Supply Chain
-
-To start an SCA scan for your third-party dependencies, see [Getting started with Semgrep Supply Chain](/semgrep-supply-chain/getting-started). Semgrep Supply Chain is free for up to 10 developers.
-
-## Additional resources
 
 ### Semgrep Cloud Platform session details
 
