@@ -7,13 +7,10 @@ hide_title: true
 ---
 
 import MoreHelp from "/src/components/MoreHelp"
-import IntroShouldafound from "/src/components/concept/_shouldafound.mdx"
-import ProcedureShouldafound from "/src/components/procedure/_shouldafound.mdx"
 
-# Reporting false negatives with `shouldafound`
+# Reporting false negatives
 
-<IntroShouldafound />
-
-<ProcedureShouldafound />
+Just submit an issue on the semgrep issue tracker here: https://github.com/returntocorp/semgrep/issues
+It's usually better to include a playground link with a rule and some test code illustrating the false negative.
 
 <MoreHelp />
