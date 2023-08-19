@@ -103,23 +103,35 @@ This process creates an **organization account**, which your team members in Git
 - You must be a member of the GitHub or GitLab org that is connected to Semgrep.
 :::
 
-For **members to join an organization or team**, perform the following steps to be added to the org:
+For **members to join an organization**, perform the following steps to be added to the org:
 
 1. Sign in to Semgrep Cloud Platform. A **Welcome to Semgrep** dialog box appears.
 2. Check that the organization under the **Join an organization** button is the correct org to join. If there is more than 1 org, select the org to join.
 ![DESCRIPTION](/img/join-an-org.png#md-width)
 3. Click **Join an organization**.
 
-### Running scans
-
-#### Starting a SAST scan with Semgrep Code
+## Starting a SAST and SCA scan on a remote repository
 
 To start a SAST scan on your codebase, see [Getting started with Semgrep Code](/semgrep-code/getting-started). Semgrep Code is free for up to 10 developers.
 
-#### Starting an SCA scan with Semgrep Supply Chain
-
 To start an SCA scan for your third-party dependencies, see [Getting started with Semgrep Supply Chain](/semgrep-supply-chain/getting-started). Semgrep Supply Chain is free for up to 10 developers.
-## Sending scan results from Semgrep CLI to Semgrep Cloud Platform
+
+## Starting a local repository scan and sending findings to SCP
+
+You can send scan results from a local repository to Semgrep Cloud Platform. The local repository is a separate **Project** from its remote counterpart so the findings records do not overwrite each other and are kept separate.
+
+To send findings from a local repository, perform the following steps in your command-line interface:
+
+1. Login to Semgrep:
+```
+semgrep login
+```
+2. Click the login URL provided. Your are taken to your web browser to complete the login process.
+3. Follow any additional steps.
+4. After logging in, start a scan in your CLI:
+```
+semgrep ci
+```
 
 :::info
 Many improvements to the Semgrep Cloud Platform experience only work with up-to-date Semgrep CLI versions. For this reason, Semgrep Cloud Platform only supports the 10 most recent minor versions of Semgrep CLI. For example, if the latest release was 0.114.0, all versions greater than 0.104.0 are supported while earlier versions, such as 0.103.0 can be deprecated or can result in failures.
