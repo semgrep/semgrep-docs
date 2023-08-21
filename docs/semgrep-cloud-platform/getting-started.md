@@ -76,11 +76,11 @@ This document describes the following:
 
 </Tabs>
 
-If you are an **administrator** setting up Semgrep for your team, see Adding an organization.
+If you are an **administrator** setting up Semgrep for your team, see [Adding an organization](#adding-an-organization).
 
-If you are a **team member joining an existing organization**, see Joining an organization.
+If you are a **team member joining an existing organization**, see [Joining an organization](#joining-an-organization).
 
-If you are a **personal user**, or simply want to run scans, see Running scans.
+If you are a **personal user**, or simply want to run scans, see [Running scans](#running-scans).
 
 ## Adding an organization
 
@@ -111,14 +111,15 @@ For **members to join an organization**, perform the following steps to be added
 ![DESCRIPTION](/img/join-an-org.png#md-width)
 3. Click **Join an organization**.
 
-## Starting a SAST and SCA scan on a remote repository
+## Running scans
+
+### Starting a SAST and SCA scan on a remote repository
 
 <PlatformAddRepo />
 
-### Detecting GitHub repositories
+#### Detecting GitHub repositories
 
 <PlatformDetectGhRepos />
-
 
 :::tip Product-specific information
 * To learn more about SAST scans on your codebase, see [Getting started with Semgrep Code](/semgrep-code/getting-started).
@@ -126,7 +127,7 @@ For **members to join an organization**, perform the following steps to be added
 * Both products are **free for up to 10 contributors**. See [Usage limits](/usage-limits) to learn more about contributors and usage limits.
 :::
 
-## Starting a local repository scan and sending findings to SCP
+### Starting a local repository scan and sending findings to SCP
 
 You can send scan results from a local repository to Semgrep Cloud Platform. The local repository is a separate **Project** from its remote counterpart so the findings records do not overwrite each other and are kept separate.
 
