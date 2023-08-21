@@ -105,7 +105,7 @@ This process creates an **organization account**, which your team members in Git
 - You must be a member of the GitHub or GitLab org that is connected to Semgrep.
 :::
 
-For **members to join an organization**, perform the following steps to be added to the org:
+For **members**, perform the following steps to join the org:
 
 1. Sign in to Semgrep Cloud Platform. A **Welcome to Semgrep** dialog box appears.
 2. Check that the organization under the **Join an organization** button is the correct org to join. If there is more than 1 org, select the org to join.
