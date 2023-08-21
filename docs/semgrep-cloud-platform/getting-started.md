@@ -134,7 +134,8 @@ You can send scan results from a local repository to Semgrep Cloud Platform. The
 
 To send findings from a local repository, perform the following steps in your command-line interface:
 
-1. Login to Semgrep:
+1. Log in to Semgrep:
+
 ```
 semgrep login
 ```
