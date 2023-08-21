@@ -37,8 +37,8 @@ Semgrep Cloud Platform (SCP) enables you and your team to run SAST (Static Appli
 
 Semgrep Cloud Platform can receive findings from the following sources:
 
-* Local command-line interfaces (CLI). [TODO] add a section for this
-* GitHub, GitLab, BitBucket, and Azure Repos through continuous integration (CI).
+* [Local command-line interfaces (CLI)](#starting-a-local-repository-scan-and-sending-findings-to-scp).
+* GitHub, GitLab, BitBucket, and Azure Repos through [continuous integration (CI)](#starting-a-sast-and-sca-scan-on-a-remote-repository).
 
 This document describes the following: 
 
@@ -48,8 +48,7 @@ This document describes the following:
 - **For administrators (admins), such as Security Engineers**: Steps to configure organization (org) accounts in SCP for teams.
 - **For team members:** Steps for team members to join an org in SCP.
 
-<!-- [TODO] find another place for this
-![Diagram of Semgrep Cloud Platform flow](/img/semgrep-app-diagram.png "Diagram of Semgrep Cloud Platform flow") -->
+<!-- ![Diagram of Semgrep Cloud Platform flow](/img/semgrep-app-diagram.png "Diagram of Semgrep Cloud Platform flow") -->
 
 ## Signing in to Semgrep Cloud Platform
 
