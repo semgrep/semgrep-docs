@@ -20,6 +20,8 @@ import PlatformSigninGitlab from "/src/components/procedure/_platform-signin-git
 import ScanTargets from "/src/components/reference/_scan-targets.mdx"
 import SscIntro from "/src/components/concept/_ssc-intro.md"
 import SemgrepScan from "/src/components/concept/_semgrep-scan.mdx"
+import PlatformAddRepo from "/src/components/procedure/_platform-add-repo.md"
+import PlatformDetectGhRepos from "/src/components/procedure/_platform-detect-ghrepos.md"
 
 <ul id="tag__badge-list">
 {
@@ -112,9 +114,18 @@ For **members to join an organization**, perform the following steps to be added
 
 ## Starting a SAST and SCA scan on a remote repository
 
-To start a SAST scan on your codebase, see [Getting started with Semgrep Code](/semgrep-code/getting-started). Semgrep Code is free for up to 10 developers.
+<PlatformAddRepo />
 
-To start an SCA scan for your third-party dependencies, see [Getting started with Semgrep Supply Chain](/semgrep-supply-chain/getting-started). Semgrep Supply Chain is free for up to 10 developers.
+### Detecting GitHub repositories
+
+<PlatformDetectGhRepos />
+
+
+:::tip Product-specific information
+* To learn more about SAST scans on your codebase, see [Getting started with Semgrep Code](/semgrep-code/getting-started).
+* To learn more about SCA scans for your third-party dependencies, see [Getting started with Semgrep Supply Chain](/semgrep-supply-chain/getting-started).
+* Both products are **free for up to 10 contributors**. See [Usage limits](/usage-limits) to learn more about contributors and usage limits.
+:::
 
 ## Starting a local repository scan and sending findings to SCP
 
