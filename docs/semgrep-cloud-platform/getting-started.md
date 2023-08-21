@@ -100,7 +100,8 @@ This process creates an **organization account**, which your team members in Git
 ## Joining an organization
 
 :::info Prerequisites
-- Your admin or inviter should have an existing organization (org) in Semgrep that is connected to the org in either GitHub or GitLab.
+- Your admin or inviter should have an existing organization (org) in Semgrep that is connected to an org in either GitHub or GitLab.
+
 - You must be a member of the GitHub or GitLab org that is connected to Semgrep.
 :::
 
