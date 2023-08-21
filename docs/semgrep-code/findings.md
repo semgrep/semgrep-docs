@@ -50,7 +50,7 @@ A finding can be categorized in two ways:
         <dt>False negative</dt>
         <dd>A false negative is a finding that should have been found by a rule, but was not. This can happen for two reasons:
         <ul>
-            <li>A flaw in the rule's logic. See <a href="/docs/reporting-false-negatives"><code>semgrep shouldafound</code></a>.</li>
+            <li>A flaw in the rule's logic. See <a href="/docs/reporting-false-negatives">Reporting false negatives</a>.</li>
             <li>A bug within Semgrep itself. See the list of <a href="https://github.com/returntocorp/semgrep/issues">Semgrep issues</a> to file a bug report.</li>
         </ul>
         </dd>
