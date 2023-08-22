@@ -96,18 +96,18 @@ This process creates an **organization account**, which your team members in Git
 7. Select the source code manager that contains the org to connect to Semgrep Cloud Platform.
 ![DESCRIPTION](/img/source-code-manager.png#md-width)
 8. Follow the steps to connect your source code manager. You can review permissions needed by Semgrep in [Requested permissions for GitHub and GitLab](#requested-permissions-for-github-and-gitlab).
+9. Optional: Refer to the instructions in [SSO configuration](/semgrep-cloud-platform/sso/) to set up SSO for your organization.
 
 ## Joining an organization
 
 :::info Prerequisites
 - Your admin or inviter should have an existing organization (org) in Semgrep that is connected to an org in either GitHub or GitLab.
-
 - You must be a member of the GitHub or GitLab org that is connected to Semgrep.
 :::
 
 For **members**, perform the following steps to join the org:
 
-1. Sign in to Semgrep Cloud Platform. A **Welcome to Semgrep** dialog box appears.
+1. Sign in to Semgrep Cloud Platform. If your administrator has configured SSO, click **Use SSO**. A **Welcome to Semgrep** dialog box appears.
 2. Check that the organization under the **Join an organization** button is the correct org to join. If there is more than 1 org, select the org to join.
 ![DESCRIPTION](/img/join-an-org.png#md-width)
 3. Click **Join an organization**.
