@@ -152,10 +152,16 @@ semgrep ci
 
 #### Projects separation between local and remote repositories
 
-The Project slug for a remote repository always takes the form `account-name/repository-name`. The Project slug for a local repository always takes the form `repository-name`. Refer to the following screenshot for an example of both remote and local Projects in a single personal account.
+The Project slug for a **remote repository** always takes the form `account-name/repository-name`.
+
+The Project slug for a **local repository** always takes the form `repository-name`.
+
+Refer to the following image for an example of both remote and local Projects in a single personal account.
+
+![Projects view with local and remote counterparts of the same repository.](/img/projects-remote-local-slugs.png)
 
 * **For personal accounts:** A local repository scan **never** overwrites findings records of its remote counterpart. They are two separate Projects. Personal accounts only have one team member or user: you.
-* For **organization accounts**: A local repository scan never overwrites findings records of its remote counterpart, but if two members both send local repository findings, their records can overwrite each other's findings. This is because org accounts can have more than one team member, but all local scans are sent to the same Project slug.
+* **For organization accounts**: A local repository scan never overwrites findings records of its remote counterpart, but if two members both send local repository findings, their records can overwrite each other's findings. This is because org accounts can have more than one team member, but all local scans are sent to the same Project slug.
 
 :::info
 Many improvements to the Semgrep Cloud Platform experience only work with up-to-date Semgrep CLI versions. For this reason, Semgrep Cloud Platform only supports the 10 most recent minor versions of Semgrep CLI. For example, if the latest release was 0.114.0, all versions greater than 0.104.0 are supported, while earlier versions, such as 0.103.0, can be deprecated or can result in failures.
