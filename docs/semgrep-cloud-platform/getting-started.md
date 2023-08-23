@@ -150,7 +150,7 @@ semgrep login
 semgrep ci
 ```
 
-#### Projects separation between local and remote repositories
+#### Project separation between local and remote repositories
 
 The Project slug for a **remote repository** always takes the form `account-name/repository-name`.
 
