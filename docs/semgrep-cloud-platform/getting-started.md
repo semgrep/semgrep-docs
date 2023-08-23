@@ -38,7 +38,7 @@ Semgrep Cloud Platform (SCP) enables you and your team to run SAST (Static Appli
 Semgrep Cloud Platform can receive findings from the following sources:
 
 * [Local command-line interfaces (CLI)](#starting-a-local-repository-scan-and-sending-findings-to-scp).
-* GitHub, GitLab, BitBucket, and Azure Repos through [continuous integration (CI)](#starting-a-sast-and-sca-scan-on-a-remote-repository).
+* GitHub, GitLab, Bitbucket, and Azure Repos through [continuous integration (CI)](#starting-a-sast-and-sca-scan-on-a-remote-repository).
 
 This document describes the following: 
 
@@ -101,7 +101,7 @@ This process creates an **organization account**, which your team members in Git
 ## Joining an organization
 
 :::info Prerequisites
-- Your admin or inviter should have an existing organization (org) in Semgrep that is connected to an org in either GitHub or GitLab.
+- Your admin or person inviting you to Semgrep Cloud Platform should have an existing organization (org) in SCP that is connected to an org in either GitHub or GitLab.
 - You must be a member of the GitHub or GitLab org that is connected to Semgrep.
 :::
 
@@ -130,12 +130,16 @@ For **members**, perform the following steps to join the org:
 
 ### Starting a local repository scan and sending findings to SCP
 
-You can send scan results from a local repository to Semgrep Cloud Platform. The local repository is a separate **Project** from its remote counterpart so the findings records do not overwrite each other and are kept separate.
+You can send scan results from a local repository to Semgrep Cloud Platform. The local repository is a separate **Project** from its remote counterpart.
 
-To send findings from a local repository, perform the following steps in your command-line interface:
+:::caution
+For team members of an organization, it is **not** recommended to send local repository scan results to the organization account. When logging in to Semgrep from the CLI through `semgrep login`, ensure that you are signed in SCP as your **personal account**. See [Projects separation between local and remote repositories](#projects-separation-between-local-and-remote-repositories).
+:::
 
-1. Log in to Semgrep:
+To send findings from a local repository, perform the following steps:
 
+1. Ensure that you are signed into Semgrep Cloud Platform in the account you want to send findings to. It is recommended to send local repository findings to your **personal** account.
+2. Log in to Semgrep:
 ```
 semgrep login
 ```
@@ -146,11 +150,17 @@ semgrep login
 semgrep ci
 ```
 
+#### Projects separation between local and remote repositories
+
+The Project slug for a remote repository always takes the form `account-name/repository-name`. The Project slug for a local repository always takes the form `repository-name`. Refer to the following screenshot for an example of both remote and local Projects in a single personal account.
+
+* **For personal accounts:** A local repository scan **never** overwrites findings records of its remote counterpart. They are two separate Projects. Personal accounts only have one team member or user: you.
+* For **organization accounts**: A local repository scan never overwrites findings records of its remote counterpart, but if two members both send local repository findings, their records can overwrite each other's findings. This is because org accounts can have more than one team member, but all local scans are sent to the same Project slug.
+
 :::info
 Many improvements to the Semgrep Cloud Platform experience only work with up-to-date Semgrep CLI versions. For this reason, Semgrep Cloud Platform only supports the 10 most recent minor versions of Semgrep CLI. For example, if the latest release was 0.114.0, all versions greater than 0.104.0 are supported, while earlier versions, such as 0.103.0, can be deprecated or can result in failures.
 
-
-For Docker users: Use the [**latest** tag](https://hub.docker.com/r/returntocorp/semgrep/tags?page=1&name=latest) to ensure you are up-to-date.
+For Docker users: use the [**latest** tag](https://hub.docker.com/r/returntocorp/semgrep/tags?page=1&name=latest) to ensure you are up-to-date.
 :::
 
 ## Appendices
@@ -182,7 +192,7 @@ Semgrep Cloud Platform requests the following standard permissions set by GitHub
     <dt>Verify your GitHub identity</dt>
     <dd>Enables Semgrep Cloud Platform to read your GitHub profile data, such as your username.</dd>
     <dt>Know which resources you can access</dt>
-    <dd>Semgrep does not use or access any resources when first logging in. However, you can choose to share resources at a later point in order to add repositories into Semgrep Cloud Platform.</dd>
+    <dd>Semgrep does not use or access any resources when first logging in. However, you can choose to share resources at a later point to add repositories into Semgrep Cloud Platform.</dd>
     <dt>Act on your behalf</dt>
     <dd>Enables Semgrep Cloud Platform to perform certain tasks <strong>only on resources that you choose to share with Semgrep Cloud Platform</strong>. Semgrep Cloud Platform never uses this permission and never performs any actions on your behalf, even after you have installed <code>semgrep-app</code>. See <a href ="https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/authorizing-github-apps">When does a GitHub App act on your behalf?</a> in GitHub documentation.</dd>
 </dl>
@@ -205,11 +215,11 @@ The GitHub integration app is called [`semgrep-app`](https://github.com/apps/sem
     <dt>Reading and writing security events</dt>
     <dd>Enables integration with GitHub Advanced Security (for example, to show Semgrep results).</dd>
     <dt>Reading and writing secrets</dt>
-    <dd>Enables automatically adding of the Semgrep Cloud Platform Token to your repository secrets when onboarding projects. Note: We cannot read the values of your existing or future secrets (only the names).</dd>
+    <dd>Enables automatically adding of the Semgrep Cloud Platform Token to your repository secrets when onboarding projects. Note: Semgrep cannot read the values of your existing or future secrets (only the names).</dd>
     <dt>Reading and writing 2 files</dt>
     <dd>Enables Semgrep Cloud Platform to configure itself to run in CI by writing to <code>.github/workflows/semgrep.yml</code> and <code>.semgrepignore</code> files.</dd>
     <dt>Reading and writing workflows</dt>
-    <dd>Enables Semgrep Cloud Platform to configure itself to run in CI by writing to <code>.github/workflows/semgrep.yml</code>. GitHub allows writing to files within <code>.github/workflows/</code> directory only if this permission is granted along with "Writing a single file".</dd>
+    <dd>Enables Semgrep Cloud Platform to configure itself to run in CI by writing to <code>.github/workflows/semgrep.yml</code>. GitHub allows writing to files within <code>.github/workflows/</code> directory only if this permission is granted along with "Writing a single file."</dd>
     <dt>Reading and writing pull requests</dt>
     <dd>Write permissions allow Semgrep Cloud Platform to leave pull request comments about findings. Read permissions allow Semgrep Cloud Platform to automatically remove findings when the pull request that introduced them is closed without merging.</dd>
 </dl>
