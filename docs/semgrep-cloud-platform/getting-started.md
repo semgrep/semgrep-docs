@@ -160,7 +160,7 @@ Refer to the following image for an example of both remote and local Projects in
 
 ![Projects view with local and remote counterparts of the same repository.](/img/projects-remote-local-slugs.png)
 
-* **For personal accounts:** A local repository scan **never** overwrites findings records of its remote counterpart. They are two separate Projects. Personal accounts only have one team member or user: you.
+* **For personal accounts:** A local repository scan does not overwrite the findings records of its remote counterpart. They are two separate Projects. Personal accounts only have one team member or user: you.
 * **For organization accounts**: A local repository scan never overwrites findings records of its remote counterpart, but if two members both send local repository findings, their records can overwrite each other's findings. This is because org accounts can have more than one team member, but all local scans are sent to the same Project slug.
 
 :::info
