@@ -88,13 +88,13 @@ This process creates an **organization account**, which your team members in Git
 
 1. Sign in to Semgrep Cloud Platform. A dialog box appears.
 2. Click **Create an organization**.
-![DESCRIPTION](/img/create-an-org.png#md-width)
+![Create an organization dialog box](/img/create-an-org.png#md-width)
 3. Enter your **Organization display name**. This name typically corresponds to the name of your GitHub or GitLab org.
 4. Click **Create**.
 5. Your organization is created and you are prompted to start a scan. Instead of starting a scan, click **<i class="fa-solid fa-gear"></i> Settings** in the navigation menu.
 6. Click **Source code managers**.
 7. Select the source code manager that contains the org to connect to Semgrep Cloud Platform.
-![DESCRIPTION](/img/source-code-manager.png#md-width)
+![Source code manager tab](/img/source-code-manager.png#md-width)
 8. Follow the steps to connect your source code manager. You can review permissions needed by Semgrep in [Requested permissions for GitHub and GitLab](#requested-permissions-for-github-and-gitlab).
 9. Optional: Refer to the instructions in [SSO configuration](/semgrep-cloud-platform/sso/) to set up SSO for your organization.
 
@@ -109,7 +109,7 @@ For **members**, perform the following steps to join the org:
 
 1. Sign in to Semgrep Cloud Platform. If your administrator has configured SSO, click **Use SSO**. A **Welcome to Semgrep** dialog box appears.
 2. Check that the organization under the **Join an organization** button is the correct org to join. If there is more than 1 org, select the org to join.
-![DESCRIPTION](/img/join-an-org.png#md-width)
+![Join an org dialog box](/img/join-an-org.png#md-width)
 3. Click **Join an organization**.
 
 ## Running scans
@@ -133,7 +133,7 @@ For **members**, perform the following steps to join the org:
 You can send scan results from a local repository to Semgrep Cloud Platform. The local repository is a separate **Project** from its remote counterpart.
 
 :::caution
-For team members of an organization, it is **not** recommended to send local repository scan results to the organization account. When logging in to Semgrep from the CLI through `semgrep login`, ensure that you are signed in SCP as your **personal account**. See [Projects separation between local and remote repositories](#projects-separation-between-local-and-remote-repositories).
+For team members of an organization, it is **not** recommended to send local repository scan results to the organization account. When logging in to Semgrep from the CLI through `semgrep login`, ensure that you are signed in SCP as your **personal account**. See [Project separation between local and remote repositories](#project-separation-between-local-and-remote-repositories).
 :::
 
 To send findings from a local repository, perform the following steps:
@@ -143,7 +143,7 @@ To send findings from a local repository, perform the following steps:
 ```
 semgrep login
 ```
-2. Click the login URL provided. Your are taken to your web browser to complete the login process.
+2. Click the login URL provided, or copy and paste it into your browser's address bar. Your are taken to your web browser to complete the login process.
 3. Follow any additional steps.
 4. After logging in, start a scan in your CLI:
 ```
@@ -152,16 +152,16 @@ semgrep ci
 
 #### Project separation between local and remote repositories
 
-The Project slug for a **remote repository** always takes the form `account-name/repository-name`.
+The Project slug for a **remote repository** takes the form `account-name/repository-name`.
 
-The Project slug for a **local repository** always takes the form `repository-name`.
+The Project slug for a **local repository** takes the form `repository-name`.
 
 Refer to the following image for an example of both remote and local Projects in a single personal account.
 
 ![Projects view with local and remote counterparts of the same repository.](/img/projects-remote-local-slugs.png)
 
 * **For personal accounts:** A local repository scan does not overwrite the findings records of its remote counterpart. They are two separate Projects. Personal accounts only have one team member or user: you.
-* **For organization accounts**: A local repository scan never overwrites findings records of its remote counterpart, but if two members both send local repository findings, their records can overwrite each other's findings. This is because org accounts can have more than one team member, but all local scans are sent to the same Project slug.
+* **For organization accounts**: A local repository scan does **not** overwrite findings records of its remote counterpart. For locally scanned Projects or repositories, if two members both send local repository findings, one set of findings may overwrite other unintentionally. This is because org accounts can have more than one team member, but all local scans are sent to the same Project slug.
 
 :::info
 Many improvements to the Semgrep Cloud Platform experience only work with up-to-date Semgrep CLI versions. For this reason, Semgrep Cloud Platform only supports the 10 most recent minor versions of Semgrep CLI. For example, if the latest release was 0.114.0, all versions greater than 0.104.0 are supported, while earlier versions, such as 0.103.0, can be deprecated or can result in failures.
