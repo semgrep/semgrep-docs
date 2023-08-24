@@ -76,7 +76,7 @@ This document describes the following:
 
 </Tabs>
 
-If you are an **administrator** setting up Semgrep for your team, see [Adding an organization](#adding-an-organization). You can also help onboard or add team members to your organization by 
+If you are an **administrator** setting up Semgrep for your team, see [Adding an organization](#adding-an-organization).
 
 
 If you are a **team member joining an existing organization**, see [Joining an organization](#joining-an-organization).
