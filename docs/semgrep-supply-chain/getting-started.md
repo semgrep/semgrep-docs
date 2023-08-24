@@ -16,7 +16,6 @@ import PlatformSigninGithub from "/src/components/procedure/_platform-signin-git
 import PlatformSigninGitlab from "/src/components/procedure/_platform-signin-gitlab.md"
 import CiScheduling from "/src/components/reference/_ci-scheduling.mdx"
 import DetectGhRepos from "/src/components/procedure/_detect-gh-repos.md"
-import AdmonitionSscLicense from "/src/components/reference/_admonition-ssc-license.md"
 
 <ul id="tag__badge-list">
 {
@@ -47,7 +46,11 @@ Semgrep Supply Chain **supports monorepositories (monorepos)** by treating each 
 Certain package management software or CI providers may require additional set up. See [Setting up SSC for your infrastructure](/semgrep-supply-chain/setup-infrastructure) for more information.
 :::
 
-<!-- Historical coverage rules, also referred to as parity or ecosystem rules, are rules that do not perform reachability analysis. These rules only check a package's version against versions with known vulnerabilities. These rules produce vulnerabilities similar to Dependabot's results, but have a higher false positive rate. -->
+### Future rule updates to existing or current rules
+
+* Semgrep rules may be updated as a vulnerability is analyzed.
+* When a rule is updated, findings from the updated rule are considered **new findings**, even if the old version of the rule also generated a finding.
+* You still receive notifications of the new finding through any channel that you have configured, such as Slack.
 
 ### Events that trigger a Supply Chain dependency scan
 
