@@ -227,7 +227,7 @@ To ignore a vulnerability:
 2. Click on the vulnerability's **Ignore **button. A drop-down menu appears.
 3. Click the reason for ignoring. 
 
-### Viewing Semgrep Supply Chain's total CVE coverage
+## Viewing Semgrep Supply Chain's total CVE coverage
 
 The **Advisories** tab displays all the CVEs that Semgrep Supply Chain can detect. Click the individual entry to see the code pattern that the Advisory detects. The Advisories tab displays both lockfile-only and reachability rules.
 
