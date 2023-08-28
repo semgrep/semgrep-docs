@@ -2,7 +2,7 @@
 slug: getting-started
 append_help_link: true
 description: "Install Semgrep, run Semgrep locally, and learn about the benefits of running Semgrep in CI (continuous integration)."
-title: Semgrep OSS Engine
+title: Semgrep
 hide_title: true
 ---
 
@@ -10,16 +10,27 @@ import MoreHelp from "/src/components/MoreHelp"
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-# Getting started with Semgrep OSS Engine
+# Getting started with Semgrep
 
-The Semgrep OSS Engine is the foundation of Semgrep. With it, you can detect bugs, style violations, security issues, and more by scanning your code locally using [community-contributed rules](https://semgrep.dev/explore) as well as your own custom rules.
+Detect bugs, style violations, security issues, and more by scanning your code locally using [community-contributed rules](https://semgrep.dev/explore) as well as your own custom rules.
+
+The following guide walks you through:
+* Installing Semgrep in your computer locally.
+* Running a SAST (Static application security testing) and SCA (Software composition analysis) scan.
+* Sending results to [Semgrep Cloud Platform](/semgrep-cloud-platform/getting-started) for triage and analysis.
+
+:::info
+* **Code is never uploaded.** Only **findings** are sent to Semgrep Cloud Platform. 
+:::
 
 ## Installing and running Semgrep locally
 
+<!-- Commenting out for the interim
 Install and run the [Semgrep command-line interface](https://github.com/returntocorp/semgrep/) (CLI) to scan your code locally. Semgrep OSS Engine runs offline on uncompiled code. **No code leaves your computer**.
+-->
 
 :::info Prerequisite
-Semgrep CLI requires Python 3.7 or later.
+The Semgrep command-line tool requires Python 3.7 or later.
 :::
 
 To install and run Semgrep OSS Engine, use one of the following options:
@@ -51,10 +62,10 @@ To install and run Semgrep OSS Engine, use one of the following options:
       ```sh
       semgrep --version
       ```
-  3. Run recommended Semgrep Registry rules:
-      <pre class="language-bash"><code>semgrep --config=auto <span className="placeholder">PATH/TO/SRC</span></code></pre>
-      Substitute the optional placeholder <code><span className="placeholder">PATH/TO/SRC</span></code> with the path to your source code.
-
+  3. Log in to Semgrep Cloud Platform and run a scan using recommended rules:
+      ```sh
+      semgrep login && semgrep ci
+      ```
 
 </TabItem>
 
@@ -69,11 +80,10 @@ To install and run Semgrep OSS Engine, use one of the following options:
       ```sh
       semgrep --version
       ```
-
-  3. Run recommended Semgrep Registry rules:
-      <pre class="language-bash"><code>semgrep --config=auto <span className="placeholder">PATH/TO/SRC</span></code></pre>
-      Substitute the optional placeholder <code><span className="placeholder">PATH/TO/SRC</span></code> with the path to your source code.
-
+  3. Log in to Semgrep Cloud Platform and run a scan using recommended rules:
+      ```sh
+      semgrep login && semgrep ci
+      ```
 
 </TabItem>
 
@@ -94,9 +104,10 @@ You must have Windows Subsystem for Linux installed. To install WSL, refer to Mi
       ```
 
   3. Run recommended Semgrep Registry rules:
-      <pre class="language-bash"><code>semgrep --config=auto <span className="placeholder">PATH/TO/SRC</span></code></pre>
-      Substitute the optional placeholder <code><span className="placeholder">PATH/TO/SRC</span></code> with the path to your source code.
-
+  3. Log in to Semgrep Cloud Platform and run a scan using recommended rules:
+      ```sh
+      semgrep login && semgrep ci
+      ```
 
 </TabItem>
 
@@ -115,17 +126,21 @@ You must have Windows Subsystem for Linux installed. To install WSL, refer to Mi
   3. Run recommended Semgrep Registry rules:
       1. On **macOS or Linux**, in the directory to scan:
         ```bash
-        docker run --rm -v "${PWD}:/src" returntocorp/semgrep semgrep --config=auto
+        docker run --rm -v "${PWD}:/src" returntocorp/semgrep semgrep login && semgrep ci
         ```
         The provided `-v` option mounts the current directory into the container to be scanned. Change directories locally or provide a specific local directory in the command to scan a different directory.
       2. On **Windows**, in the directory to scan:
         ```bash
-        docker run --rm -v "%cd%:/src" returntocorp/semgrep semgrep --config=auto
+        docker run --rm -v "%cd%:/src" returntocorp/semgrep semgrep login && semgrep ci
         ```
 
 </TabItem>
 
 </Tabs>
+
+:::tip 
+* You can also run `semgrep scan --config=auto` for offline-only scans. You cannot view dependency licenses nor search for dependencies in offline-only, CLI scans.
+:::
 
 :::note
 - By default, when Semgrep Registry is used, Semgrep collects [usage metrics](./metrics.md).
