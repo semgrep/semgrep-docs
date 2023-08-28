@@ -123,6 +123,14 @@ Both Semgrep and CodeQL use static analysis to find bugs, but there are a few di
 
 See [the Semgrep development philosophy](../contributing/semgrep-philosophy/) for more about what makes Semgrep different.
 
+### Comparing Semgrep to Snyk
+
+For SCA, reachability analysis is critical to cut down the noise and reduce false positives. Semgrep offers reachability analysis for Java, JavaScript, Python, Go, and Ruby, whereas Snyk only offers reachability for Java.
+
+For SAST, both Semgrep and Snyk offer good solutions out of the box, however writing custom rules is far easier and more scalable with Semgrep (so that you accomodate issues specific to your codebase that no vendor could out-of-box) and Semgrep supports 30+ languages whereas Snyk supports 14.
+
+Semgrep and Snyk both have their opinionated approaches to SAST and the ideal solution depends on what you want to achieve.[Here](https://semgrep.dev/blog/2020/why-i-moved-to-semgrep-for-all-my-code-analysis/](https://appsec.guide/docs/static-analysis/semgrep/) is an unbiased, third-party take on the differences between Semgrep and Snyk.
+
 ### Comparing Semgrep to SonarQube
 
 Both Semgrep and SonarQube use static analysis to find bugs, but there are a few differences:
