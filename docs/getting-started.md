@@ -12,15 +12,15 @@ import TabItem from '@theme/TabItem';
 
 # Getting started with Semgrep
 
-Detect bugs, style violations, security issues, and more by scanning your code locally using [community-contributed rules](https://semgrep.dev/explore) as well as your own custom rules.
+Detect security issues, vulnerable dependencies, and more by scanning your code with Semgrep. Semgrep performs both SAST (Static application security testing) and SCA (Software composition analysis) scans.
 
 The following guide walks you through:
 * Installing Semgrep in your computer locally.
-* Running a SAST (Static application security testing) and SCA (Software composition analysis) scan.
+* Running a single scan for both SAST and SCA scan.
 * Sending results to [Semgrep Cloud Platform](/semgrep-cloud-platform/getting-started) for triage and analysis.
 
 :::info
-* **Code is never uploaded.** Only **findings** are sent to Semgrep Cloud Platform. 
+* **Code is not uploaded.** Only **findings** are sent to Semgrep Cloud Platform. 
 :::
 
 ## Installing and running Semgrep locally
@@ -33,7 +33,7 @@ Install and run the [Semgrep command-line interface](https://github.com/returnto
 The Semgrep command-line tool requires Python 3.7 or later.
 :::
 
-To install and run Semgrep OSS Engine, use one of the following options:
+To install and run Semgrep, use one of the following options:
 
 <Tabs
     defaultValue="macOS"
@@ -139,7 +139,7 @@ You must have Windows Subsystem for Linux installed. To install WSL, refer to Mi
 </Tabs>
 
 :::tip 
-* You can also run `semgrep scan --config=auto` for offline-only scans. You cannot view dependency licenses nor search for dependencies in offline-only, CLI scans.
+* You can also run `semgrep scan --config=auto` for **offline-only SAST scans**. No SCA scan is performed with this command. 
 :::
 
 :::note
@@ -201,25 +201,6 @@ semgrep --config=auto
 Semgrep is at its best when used to continuously scan code. Check out [Semgrep in CI](semgrep-ci/overview.md/) to learn how to get results where you already work: GitHub, GitLab, Slack, Jira, and more. To get results even earlier in the development process, such as in a Git pre-commit hook or VS Code, check the available [Semgrep extensions](/extensions/overview/).
 
 Check out [Semgrep Cloud Platform](https://semgrep.dev/manage) (SCP) to integrate Semgrep scans into your CI environment with PR or MR comments, monitor progress, host private rules (Team and Enterprise tiers), and much more! 
-
-## Logging into Semgrep Cloud Platform
-
-:::tip Benefits of logging in to Semgrep Cloud Platform
-Logging into Semgrep Cloud Platform (SCP) in your Semgrep CLI interface enables you to:
-
-- Send findings from your local scans to SCP for findings triage.
-- Quickly configure local scans to run either rules from your [Policies](/semgrep-code/policies) or a different set of rules and rulesets. 
-- Scan code using Pro rules from the CLI.
-:::
-
-To log in to SCP:
-
-1. Create an account by clicking the link: [Sign in to Semgrep Cloud Platform](https://semgrep.dev/login).
-2. In your command line, enter the following command:
-    ```sh
-    semgrep login
-    ```
-3. Click the link provided in your terminal and follow the instructions.
 
 ## Updating Semgrep
 
