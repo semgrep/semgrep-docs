@@ -25,33 +25,21 @@ Refer to [Supported languages](/supported-languages/#semgrep-pro-engine) to see 
 
 This section guides you through the Semgrep Pro Engine installation and helps you to scan your projects both in CLI and with the Semgrep Cloud Platform (SCP).
 
-### Installing Semgrep Pro Engine in CLI
+### Running Semgrep Pro Engine in CLI
 
 :::info Prerequisite
-- Local installation of Semgrep CLI. See [Getting started with Semgrep OSS Engine](/getting-started) to install Semgrep CLI.
-- [Team](https://semgrep.dev/pricing) tier or higher of Semgrep Code. If you want to try Semgrep Pro Engine, get in touch with us through our [contact page](https://semgrep.dev/contact-us).
+- Local installation of Semgrep CLI. See [Getting started with Semgrep](/getting-started) to install Semgrep CLI.
 :::
 
-To install and run Semgrep Pro Engine in the CLI, follow these steps:
+It is **recommended** to run Semgrep Pro Engine with Semgrep Cloud Platform (SCP). This enables you to view and triage your findings from a centralized location. Code is not uploaded.
 
-1. Log in to Semgrep Cloud Platform with the following command:
-    ```sh
-    semgrep login
-    ```
-1. Follow the link that Semgrep CLI printed on the command line.
-1. To install Semgrep Pro Engine use the following command:
-    ```sh
-    semgrep install-semgrep-pro
-    ```
-1. Optional: To test Semgrep Pro Engine, use the following command in the root directory of the codebase to scan:
-    ```bash
-    semgrep --pro --config "p/default" 
-    ```
-1. Optional: If you prefer not to send usage metrics to Semgrep, run the following command:
-    ```bash
-    semgrep --pro --config "p/default" --metrics off
-    ```
-    See [Semgrep Privacy Policy](/metrics) for details of what is being sent to Semgrep.
+1. [Sign up or sign in to Semgrep Cloud Platform](https://semgrep.dev/login).
+2. Click **<i class="fa-solid fa-gear"></i> Settings > Pro Engine**.
+![DESCRIPTION](/img/pro-engine-toggle.png#md-width)
+3. In your CLI, log in to your Semgrep Cloud Platform account and run a scan:
+```sh
+semgrep login && semgrep ci
+```
 
 :::note
 Let us know what you think about the results in the <a href="https://go.semgrep.dev/slack">Semgrep Community Slack</a>.
