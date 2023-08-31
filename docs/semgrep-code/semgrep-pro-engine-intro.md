@@ -33,12 +33,13 @@ This section guides you through the Semgrep Pro Engine installation and helps yo
 
 It is **recommended** to run Semgrep Pro Engine with Semgrep Cloud Platform (SCP). This enables you to view and triage your findings from a centralized location. Code is not uploaded.
 
-Run Semgrep Pro Engine and log in to SCP:
+1. [Sign up or sign in to Semgrep Cloud Platform](https://semgrep.dev/login).
+2. Click **<i class="fa-solid fa-gear"></i> Settings > Pro Engine**.
+![DESCRIPTION](/img/pro-engine-toggle.png#md-width)
+3. In your CLI, log in to your Semgrep Cloud Platform account and run a scan:
 ```sh
 semgrep login && semgrep ci
 ```
-
-Alternatively, you can also run `semgrep scan`
 
 :::note
 Let us know what you think about the results in the <a href="https://go.semgrep.dev/slack">Semgrep Community Slack</a>.

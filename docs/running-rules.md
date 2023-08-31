@@ -28,13 +28,15 @@ You can run all rules on your code locally or continuously in your Source Code M
 
 ## Running Semgrep Registry rules locally
 
-You can scan your current working directory with pre-selected Semgrep Registry rules with the following command:
-```
-semgrep scan --config=auto 
-```
-Similarly you can scan a git environment and send the resulting findings (no code is uploaded) to Semgrep Cloud Platform:
+You can scan your git environment with pre-selected Semgrep Registry rules, then send the resulting findings (no code is uploaded) to Semgrep Cloud Platform. This is the **recommended method to run Semgrep**, as a record of your findings is created and can be tracked and triaged from detection to fixed or ignore states.
+
+Log in to Semgrep Cloud Platform and run a scan:
 ```
 semgrep login && semgrep ci
+```
+Similarly you can run a SAST scan offline running pre-selected Semgrep Registry rules:
+```
+semgrep scan --config=auto 
 ```
 
 :::info
