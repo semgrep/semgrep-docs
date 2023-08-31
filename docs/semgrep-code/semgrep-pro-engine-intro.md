@@ -134,13 +134,13 @@ To test Semgrep Pro Engine on a purposefully vulnerable repository, fork the [ju
 
 ### Creating rules that analyze across files
 
-Cross-file analysis (also called interfile analysis) rules you use in Semgrep Pro Engine require the `interfile: true` key included under the rule `metadata` key. See the following [example](https://semgrep.dev/s/3NZb). This key signals Semgrep Pro Engine to use the rule for cross-file analysis.
+Cross-file analysis (also called interfile analysis) rules you use in Semgrep Pro Engine require the `interfile: true` key included under the rule `options` key. See the following [example](https://semgrep.dev/playground/s/lkPE). This key signals Semgrep Pro Engine to use the rule for cross-file analysis.
 
 Example of `interfile: true` key:
 ```yaml
 rules:
   - id: dangerous-call-to-employees-pro-engine-example
-    metadata:
+    options:
       interfile: true
     patterns:
       - pattern: dangerous("Employees")
