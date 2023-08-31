@@ -31,10 +31,14 @@ This section guides you through the Semgrep Pro Engine installation and helps yo
 - Local installation of Semgrep CLI. See [Getting started with Semgrep](/getting-started) to install Semgrep CLI.
 :::
 
-To run Semgrep Pro Engine in the CLI: 
-    ```sh
-    semgrep login && semgrep ci
-    ```
+It is **recommended** to run Semgrep Pro Engine with Semgrep Cloud Platform (SCP). This enables you to view and triage your findings from a centralized location. Code is not uploaded.
+
+Run Semgrep Pro Engine and log in to SCP:
+```sh
+semgrep login && semgrep ci
+```
+
+Alternatively, you can also run `semgrep scan`
 
 :::note
 Let us know what you think about the results in the <a href="https://go.semgrep.dev/slack">Semgrep Community Slack</a>.
