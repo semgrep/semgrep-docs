@@ -319,7 +319,10 @@ module.exports = {
           { from: "/extensions/"                                            , to: "/extensions/overview/" },
 
           /* JULY 14 2023  */
-          { from: "/semgrep-code/rule-board/"                                            , to: "/semgrep-code/policies/" }
+          { from: "/semgrep-code/rule-board/"                                            , to: "/semgrep-code/policies/" },
+
+          /* AUG 31 2023  */
+          { from: "/kb/semgrep-cloud-platform/running-semgrep-on-windows/" , to: "/kb/integrations/semgrep-vs-code-windows/" }
         ]
       }
     ],
