@@ -1,4 +1,4 @@
-# Thanks for improving Semgrep Docs 😀
+<!-- Thanks for improving Semgrep Docs 😀 -->
 
 ### Please ensure
 
