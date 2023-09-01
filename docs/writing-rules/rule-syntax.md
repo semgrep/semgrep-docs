@@ -33,6 +33,8 @@ This document describes the YAML rule syntax of Semgrep.
 | [`options`](#options)   | `object` | Options object to enable/disable certain matching features |
 | [`fix`](#fix)           | `object` | Simple search-and-replace autofix functionality  |
 | [`metadata`](#metadata) | `object` | Arbitrary user-provided data; attach data to rules without affecting Semgrep behavior |
+| [`min-version`](#min-version-and-max-version) | `string` | Minimum Semgrep version compatible with this rule |
+| [`max-version`](#min-version-and-max-version) | `string` | Maximum Semgrep version compatible with this rule |
 | [`paths`](#paths)       | `object` | Paths to include or exclude when running this rule |
 
 The below optional fields must reside underneath a `patterns` or `pattern-either` field.
@@ -472,6 +474,29 @@ rules:
 
 The metadata are also displayed in the output of Semgrep if you’re running it with `--json`.
 Rules with `category: security` have additional metadata requirements. See [Including fields required by security category](/contributing/contributing-to-semgrep-rules-repository/#including-fields-required-by-security-category) for more information.
+
+## `min-version` and `max-version`
+
+Each rule supports optional fields `min-version` and `max-version` specifying
+minimum and maximum Semgrep versions. If the Semgrep
+version being used doesn't satisfy these constraints,
+the rule is skipped without causing a fatal error.
+
+Example rule from the future:
+
+```yaml
+rules:
+  - id: deprecated-shiftifly-operator
+    min-version: 23.54.0
+    pattern: "print >>?! $STR"
+    languages: [python]
+    message: "deprecated use of operator '>>?!'"
+    severity: ERROR
+```
+
+This feature is available since Semgrep 1.38.0. It is intended primarily
+for publishing rules that rely on newly-released features without causing
+errors in older Semgrep installations.
 
 ## `category`
 
