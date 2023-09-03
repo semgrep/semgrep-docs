@@ -498,6 +498,7 @@ module.exports = {
               collapsible: true,
               link: {type: 'doc', id: 'release-notes/may-2023'},
               items: [
+                'release-notes/august-2023',
                 'release-notes/july-2023',
                 'release-notes/june-2023',
                 'release-notes/may-2023',
