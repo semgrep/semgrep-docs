@@ -482,21 +482,41 @@ minimum and maximum Semgrep versions. If the Semgrep
 version being used doesn't satisfy these constraints,
 the rule is skipped without causing a fatal error.
 
-Example rule from the future:
+Example rule:
 
 ```yaml
 rules:
-  - id: deprecated-shiftifly-operator
-    min-version: 23.54.0
-    pattern: "print >>?! $STR"
-    languages: [python]
-    message: "deprecated use of operator '>>?!'"
-    severity: ERROR
+  - id: bad-goflags
+    # earlier semgrep versions can't parse the pattern
+    min-version: 1.31.0
+    pattern: |
+      ENV ... GOFLAGS='-tags=dynamic -buildvcs=false' ...
+    languages: [dockerfile]
+    message: "We should not use these flags"
+    severity: WARNING
 ```
 
-This feature is available since Semgrep 1.38.0. It is intended primarily
-for publishing rules that rely on newly-released features without causing
-errors in older Semgrep installations.
+Another use case is when a newer version of a rule works better than
+before but relies on a new feature. In this case, we could use
+`min-version` and `max-version` to ensure that either the older or the
+newer rule is used but not both. The rules would look like this:
+
+```yaml
+rules:
+  - id: something-wrong-v1
+    max-version: 1.72.999
+    ...
+  - id: something-wrong-v2
+    min-version: 1.73.0
+    # 10x faster than v1!
+    ...
+```
+
+The `min-version`/`max-version` feature is available since Semgrep
+1.38.0. It is intended primarily for publishing rules that rely on
+newly-released features without causing errors in older Semgrep
+installations.
+
 
 ## `category`
 
