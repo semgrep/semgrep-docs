@@ -31,7 +31,7 @@ This section of release notes includes upgrades of Semgrep OSS Engine for versio
 ### Fixed
 
 - Fixed `--text` and `--output` flags which broke in 1.38.0. If you are using version 1.38.0, update Semgrep to receive these fixes.
-- Fixed issues to Semgrep docker image in version 1.38.3. tk to confirm
+- Version 1.38.0 introduced some regressions with the Semgrep docker image. This is fixed in version 1.38.3.
 - Converted all '@r2c.dev' email addresses to '@semgrep.com'. Several error messages displayed outdated email addresses. With this fix, you can now see the correct email to reach out to the Semgrep Support team at [support@semgrep.com](mailto:support@semgrep.com). ([#8446](https://github.com/returntocorp/semgrep/pull/8446))
 - Fixed CLI output to display matches from different rules with the same message. Now you are able to see the rule ID granularly even if two rules have the same rule message. ([#8557](https://github.com/returntocorp/semgrep/pull/8557))
 - Semgrep PyPI package can now be installed on **aarch64 libmusl** platforms such as Alpine. (gh-8565)
@@ -151,3 +151,7 @@ end
 ### Fixed
 
 - GitHub: Fixed a bug in which you can receive duplicate PR comments if they had installed more than one instance of `semgrep-app`.
+
+## Documentation and knowledge base updates
+
+tk (to add)
