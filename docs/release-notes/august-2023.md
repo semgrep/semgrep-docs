@@ -92,7 +92,7 @@ end
 
 ### Changed
 
-- Running the `semgrep`  command now displays the help message. Previously, the `semgrep` command ran a SAST scan.
+- Running the `semgrep`  command with no subcommand now displays the help message. Previously, the `semgrep` command ran a SAST scan by default.
 
 ### Removed
 
