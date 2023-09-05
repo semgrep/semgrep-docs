@@ -150,7 +150,7 @@ end
 
 ### Fixed
 
-- GitHub: Fixed a bug in which you can receive duplicate PR comments if they had installed more than one instance of `semgrep-app`.
+- GitHub: Fixed a bug in which you could receive duplicate PR comments if you had installed more than one instance of `semgrep-app`.
 
 ## Documentation and knowledge base updates
 
