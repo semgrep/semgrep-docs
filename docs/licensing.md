@@ -21,7 +21,7 @@ This document provides an overview of the licenses of important products created
     <a href="https://semgrep.dev/explore">Semgrep Registry</a> is a collection of rules and rulesets:
     <ul>
     <li>Rules in the <a href="https://github.com/returntocorp/semgrep-rules">semgrep-rules</a> repository are licensed LGPL 2.1 under Commons Clause v1.0. Review the <a href="https://github.com/returntocorp/semgrep-rules/blob/develop/LICENSE#L10">semgrep-rules license</a>.</li>
-    <li>Rules from third-party repositories in the <a href="https://semgrep.dev/explore">Semgrep Registry</a> inherit the licenses of their source repositories. These licenses are displayed within the rule definition in the editor. For example: <a href="https://semgrep.dev/p/trailofbits">Rules written by Trail of Bits</a> security experts licensed under CC-BY-NC-SA-4.0.</li>
+    <li>Rules from third-party repositories in the <a href="https://semgrep.dev/explore">Semgrep Registry</a> inherit the licenses of their source repositories. These licenses are displayed within the rule definition in the editor. For example: <a href="https://semgrep.dev/p/trailofbits">Rules written by Trail of Bits</a> security experts licensed under AGPL-3.0 license.</li>
     <li>Premium rules are proprietary.</li>
     </ul>
     </dd>
