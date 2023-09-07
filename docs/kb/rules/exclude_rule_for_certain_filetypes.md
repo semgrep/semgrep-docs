@@ -42,7 +42,6 @@ One could ignore the file entirely, placing it in the .semgrepignore listing, bu
 ## Achieving a happy medium
 
 
-How can we achieve a happy medium of selectively precluding this filetype from the artifactory rule, but still scan .svg files against all other rules?
 
 We can safely assume .svg files do not intentional contain artifactory passwords, so we are safe to preclude this rule from scanning against this filetype and the following procedure demonstrates how to:
 
