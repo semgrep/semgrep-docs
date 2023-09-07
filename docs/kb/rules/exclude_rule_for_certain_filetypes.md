@@ -26,7 +26,7 @@ _AP2xxxxxxxxxx_
 ...
 ```
 
-We can quickly see how the match in bold above will flag the artifactory rule as a false positive.  
+Because `.svg` files are made up of thousands of characters, the match (in bold) in the `.svg` snippet creates a false positive finding due to the artifactory rule. It is a false positive because no passwords are leaked by the `.svg` file.
 
 
 ## Choosing the appropriate ignoring solution
