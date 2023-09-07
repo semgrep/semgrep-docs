@@ -34,7 +34,7 @@ We can quickly see how the match in bold above will flag the artifactory rule as
 
 Semgrep offers many different ways of muting false positives: 
 
-One could employ the nosemgrep directive but this would require having to keep track of each new file for this target .svg file type and editing it accordingly, creating a layer of maintenance with this muting notation. 
+* **Adding `nosemgrep` as a comment on the first line of code in the file.** This would require having to keep track of each new file for this target `.svg` file type and editing each file accordingly, creating a layer of maintenance.
 
 One could ignore the file entirely, placing it in the .semgrepignore listing, but then that would preclude this type of file from scanning against not only the artifactory rule, but all rules.  
 
