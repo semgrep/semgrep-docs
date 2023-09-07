@@ -29,7 +29,7 @@ _AP2xxxxxxxxxx_
 We can quickly see how the match in bold above will flag the artifactory rule as a false positive.  
 
 
-## Choosing the appropriate muting solution
+## Choosing the appropriate ignoring solution
 
 
 Semgrep offers many different ways of muting false positives: 
