@@ -6,7 +6,7 @@ Certain filetypes can generate numerous false positives and hold up your triage 
 
 ## Background
 
-Let's use a real-life case scenario in scanning .svg files as a platform for articulating this solution.   These files mostly comprised a string of thousands of characters:
+This article uses a real-life case scenario in scanning `.svg` files as a platform to explain this solution. `svg` files mostly comprise a string of thousands of characters:
 
 ```
 <image id="image0" width="2896" height="998" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAC1AAA**AP**mCAYAAABQS58cAAABR2lDQ1BJQ0MgUHJvZmlsZQAAKJFjYGASSSwoyGFhYGDIzSspCnJ3UoiIjFJgf8LAzsDIwM1gwqCRmFxc4BgQ4ANUwgCjUcG3a0C1QHBZF2SW3AzZBT+7Sn68UphgqTU7fyemehTAlZJanAyk/wBxWnJBUQkDA2MKkK1cXlIAYncA2SJFQEcB2XNA7HQIewOInQRhHwGrCQlyBrJvANkCyRmJQDMYXwDZOklI4ulIbKi9IMDj4urjoxBqZG5oEUjAuaSDktSKEhDtnF9QWZSZnlGi4AgMpVQFz7xkPR0FIwMjAwYGUJhDVH8OAoclo9g+hFj+EgYGi28MDMwTEWJJUxgYtrcxMEjcQ…..
