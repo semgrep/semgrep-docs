@@ -35,7 +35,6 @@ Because `.svg` files are made up of thousands of characters, the match (in bold)
 Semgrep offers many different ways of ignoring false positives: 
 
 * **Adding `nosemgrep` as a comment on the first line of code in the file.** This would require having to keep track of each new file for this target `.svg` file type and editing each file accordingly, creating a layer of maintenance.
-
 * **Ignore the file entirely, by adding it to a .semgrepignore file.** but that would exclude the file from being scanned with all rules, not just the artifactory rule.
 
 
