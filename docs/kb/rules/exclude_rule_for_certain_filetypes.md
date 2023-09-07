@@ -43,7 +43,7 @@ One could ignore the file entirely, placing it in the .semgrepignore listing, bu
 
 
 
-We can safely assume .svg files do not intentional contain artifactory passwords, so we are safe to preclude this rule from scanning against this filetype and the following procedure demonstrates how to:
+You can safely assume `.svg` files do not intentionally contain artifactory passwords, so you can exclude scanning against this file type. The following procedure demonstrates how to:
 
 * Create a customized version of the rule that is generating the false positives that excludes the target file type:  
 
