@@ -32,7 +32,7 @@ Because `.svg` files are made up of thousands of characters, the match (in bold)
 ## Choosing the appropriate ignoring solution
 
 
-Semgrep offers many different ways of muting false positives: 
+Semgrep offers many different ways of ignoring false positives: 
 
 * **Adding `nosemgrep` as a comment on the first line of code in the file.** This would require having to keep track of each new file for this target `.svg` file type and editing each file accordingly, creating a layer of maintenance.
 
