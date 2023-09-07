@@ -1,6 +1,8 @@
 # How to exclude certain file types for a particular rule
 
-The nature of a certain filetype can generate numerouse false positives and hold up your triage process.  How do you achieve a selective middle ground: continue including the file type to scan against other rules and, at the same time, deflective copious amounts of time triaging false positives?  
+Certain filetypes can generate numerous false positives and hold up your triage process. This document helps you achieve a selective middle ground:
+* Continue to include the file type to scan with other rules
+* Reduce copious amounts of time triaging false positives
 
 ## Background
 
