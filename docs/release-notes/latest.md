@@ -1,7 +1,7 @@
 ---
 slug: latest
 append_help_link: true
-title: August 2023
+title: Latest release notes
 hide_title: true
 description: Release notes include the changes, fixes, and additions in specific versions of Semgrep.
 ---
@@ -31,10 +31,10 @@ This section of release notes includes upgrades of Semgrep OSS Engine for versio
 ### Fixed
 
 - Fixed `--text` and `--output` flags which broke in 1.38.0. If you are using version 1.38.0, update Semgrep to receive these fixes.
-- Converted all '@r2c.dev' email addresses to '@semgrep.com'. Several error messages displayed outdated email addresses. With this fix, you can now see the correct email to reach out to the Semgrep Support team at [support@semgrep.com](mailto:support@semgrep.com). ([#8446](https://github.com/returntocorp/semgrep/pull/8446))
+- Converted all '@r2c.dev' email addresses to '@semgrep.com'. Several error messages displayed outdated email addresses. With this fix, you can now see in the CLI the correct email to reach out to the Semgrep Support team, which is [support@semgrep.com](mailto:support@semgrep.com). ([#8446](https://github.com/returntocorp/semgrep/pull/8446))
 - Fixed CLI output to display matches from different rules with the same message. Now you are able to see the rule ID granularly even if two rules have the same rule message. ([#8557](https://github.com/returntocorp/semgrep/pull/8557))
 - Semgrep PyPI package can now be installed on **aarch64 libmusl** platforms such as Alpine. (gh-8565)
-- Improved the `--max-memory` help description to make it clearer. Its previous message, "Defaults to 0 for all CLI scans" implies a different default for non-CLI scans, where in practicality the default is 0 for all scans except when using Pro Engine in CI scans, where the default is 5000. In this context, a CI scan is any scan using the `semgrep ci` command, whether in a local environment or a CI provider, and Pro Engine must be enabled for the org whose repositories you are scanning..
+- Improved the `--max-memory` help description to make it clearer. Its previous message, "Defaults to 0 for all CLI scans", did not convey that the default is 0 for all scans except when using Semgrep Pro Engine in CI scans. The default is 5000MiB for Semgrep Pro Engine CI scans. In this context, a CI scan is any scan using the `semgrep ci` command, whether in a local environment or a CI/CD pipeline, and Pro Engine must be enabled for the org whose repositories you are scanning.
 - Fixed a regression introduced three years ago in 0.9.0, when optimizing the evaluation of the ellipsis operator `...` to be faster. The ellipsis only matched deeply, such as inside an if block, if it did not match anything non-deeply, thus causing that this pattern:
   ```
   foo()
@@ -73,7 +73,7 @@ map($Y) do $X
   ...
 end
 ```
-- **Java:** Fixed naming bug affecting Java and other OO languages that allowed a method parameter to shadow a class attribute. For example, in:
+- **Java:** Fixed a naming bug affecting Java and other object-oriented (OO) languages that allowed a method parameter to shadow a class attribute. For example, in:
   ```
   class Test {
   
@@ -95,7 +95,7 @@ end
 ### Removed
 
 - `python -m semgrep` has been removed. Instead, invoke Semgrep directly by entering `semgrep` in the CLI.
-- Semgrep no longer looks for a `.semgrep.yml` config file or `.semgrep/` in the current directory, which previously caused conflicts when invoking `semgrep` from your home directory. This is because the home directory can contain a `.semgrep/settings.yml` file that is not a Semgrep rule. ([#4457](https://github.com/returntocorp/semgrep/issues/4457))
+- Semgrep no longer looks for a `.semgrep.yml` config file or `.semgrep/` in the current directory, which previously caused conflicts when invoking `semgrep` from your home directory. This is because the home directory can contain a `.semgrep/settings.yml` file that is not a Semgrep rule, despite Semgrep expecting a rule file. ([#4457](https://github.com/returntocorp/semgrep/issues/4457))
   - The preferred method to run rules is to explicitly pass rules through the `--config` option. For example, to run a `.semgrep.yml` file containing rules, you must enter `semgrep --config .semgrep.yml`.
 - If you previously wrapped Semgrep Python code by calling `semgrep_main.main`, you must replace the previous call with `run_scan.run_scan`. Note that these Python calls will be removed in the future.
 - `--enable-metrics` and `--disable-metrics` have been removed. Instead, use any of the following:
@@ -115,9 +115,9 @@ end
 
 ### Added
 
-- The `semgrep ci` command now displays enabled products when scans are command now created or when the scan config is generated from Semgrep Cloud Platform. Additionally, if no products are enabled then a friendly error is raised and the scan is stopped. You must enable a product to start a scan.
-- You can now remove your SSO configuration. Previously, you had to reach out to [support@semgrep.com](mailto:support@semgrep.com) to remove SSO configurations.
-- **Projects page:** Added a **Sync projects** button which enables you to synchronize your Semgrep projects with your SCM. This means you are able to see the current status of your scans across all your projects that you have onboarded to Semgrep Cloud Platform.
+- The `semgrep ci` command now displays enabled products when scans are command now created or when the scan config is generated from Semgrep Cloud Platform. Additionally, if no products are enabled then a friendly error is raised and the scan is stopped. You must enable a product in Semgrep **Cloud Platform > Settings** to start a scan.
+- You can now remove your SSO configuration. Previously, you had to reach out to [support@semgrep.com](mailto:support@semgrep.com) to remove SSO configurations. To remove your SSO configurations, go to **[Settings > Access > SSO](https://semgrep.dev/orgs/-/settings/)**.
+- **Projects page:** Added a **Sync projects** button which enables you to synchronize your Semgrep projects with your SCM. This enables you to onboard projects faster to the Semgrep Cloud Platform and ensure all your repositories are represented and available for scanning.
 
 ## Semgrep Code
 

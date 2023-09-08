@@ -12,7 +12,7 @@ description: >-
 ## Semgrep OSS Engine
 
 :::caution
-Semgrep version 1.38.0 removed some functionality that may break your Semgrep workflows. See [Semgrep OSS > Removed](#removed) for more information.
+Semgrep version 1.38.0 removed some features that may break your Semgrep workflows. See [Semgrep OSS > Removed](#removed) for more information.
 :::
 
 This section of release notes includes upgrades of Semgrep OSS Engine for versions between **1.35.0** and **1.38.3**.
@@ -21,7 +21,7 @@ This section of release notes includes upgrades of Semgrep OSS Engine for versio
 
 - The CLI now returns the commit timestamp when running `semgrep ci`.
 - Added optional `min-version` and `max-version` fields for a Semgrep rule, specifying a range of compatible Semgrep versions.
-    - If a rule is incompatible with the version of Semgrep being used, it is reported in the JSON output at the newly-added `info` level, which doesn't cause an exit failure. ([#8496](https://github.com/returntocorp/semgrep/pull/8496/))
+    - If a rule is incompatible with the version of Semgrep being used, it is reported in the JSON output at the newly added `info` level, which doesn't cause an exit failure. ([#8496](https://github.com/returntocorp/semgrep/pull/8496/))
 - The `semgrep scan` command is now more resilient to failures when fetching a configuration file (config) from Semgrep servers.
     - If it can't fetch a config from Semgrep servers it will use backup infrastructure to fetch the most recent successful config for that customers environment. ([#8459](https://github.com/returntocorp/semgrep/pull/8459/))
 - `metavariable-comparison`: You can now use `in` and `not in` for strings in the same sense as in Python, for substring checking. ([#2979](https://github.com/returntocorp/semgrep/pull/8406))
@@ -35,7 +35,7 @@ This section of release notes includes upgrades of Semgrep OSS Engine for versio
 - Converted all '@r2c.dev' email addresses to '@semgrep.com'. Several error messages displayed outdated email addresses. With this fix, you can now see in the CLI the correct email to reach out to the Semgrep Support team, which is [support@semgrep.com](mailto:support@semgrep.com). ([#8446](https://github.com/returntocorp/semgrep/pull/8446))
 - Fixed CLI output to display matches from different rules with the same message. Now you are able to see the rule ID granularly even if two rules have the same rule message. ([#8557](https://github.com/returntocorp/semgrep/pull/8557))
 - Semgrep PyPI package can now be installed on **aarch64 libmusl** platforms such as Alpine. (gh-8565)
-- Improved the `--max-memory` help description to make it clearer. Its previous message, "Defaults to 0 for all CLI scans", did not convey that the default is 0 for all scans except when using Semgrep Pro Engine in CI scans. The default is 5000MiB for Semgrep Pro Engine CI scans. In this context, a CI scan is any scan using the `semgrep ci` command, whether in a local environment or a CI/CD pipeline, and Pro Engine must be enabled for the org whose repositories you are scanning.
+- Improved the `--max-memory` help description to make it clearer. Its previous message, "Defaults to 0 for all CLI scans," did not convey that the default is 0 for all scans except when using Semgrep Pro Engine in CI scans. The default is 5000MiB for Semgrep Pro Engine CI scans. In this context, a CI scan is any scan using the `semgrep ci` command, whether in a local environment or a CI/CD pipeline, and Pro Engine must be enabled for the org whose repositories you are scanning.
 - Fixed a regression introduced three years ago in 0.9.0, when optimizing the evaluation of the ellipsis operator `...` to be faster. The ellipsis only matched deeply, such as inside an if block, if it did not match anything non-deeply, thus causing that this pattern:
   ```
   foo()
@@ -117,8 +117,8 @@ end
 ### Added
 
 - The `semgrep ci` command now displays enabled products when scans are command now created or when the scan config is generated from Semgrep Cloud Platform. Additionally, if no products are enabled then a friendly error is raised and the scan is stopped. You must enable a product in Semgrep **Cloud Platform > Settings** to start a scan.
-- You can now remove your SSO configuration. Previously, you had to reach out to [support@semgrep.com](mailto:support@semgrep.com) to remove SSO configurations.
-- **Projects page:** Added a **Sync projects** button which enables you to synchronize your Semgrep projects with your SCM. This means you are able to see the current status of your scans across all your projects that you have onboarded to Semgrep Cloud Platform.
+- You can now remove your SSO configuration. Previously, you had to reach out to [support@semgrep.com](mailto:support@semgrep.com) to remove SSO configurations. To remove your SSO configurations, go to **[Settings > Access > SSO](https://semgrep.dev/orgs/-/settings/)**.
+- **Projects page:** Added a **Sync projects** button which enables you to synchronize your Semgrep projects with your SCM. This enables you to onboard projects faster to the Semgrep Cloud Platform and ensure all your repositories are represented and available for scanning.
 
 ## Semgrep Code
 
@@ -143,7 +143,7 @@ end
 
 ### Removed
 
-- Removed the ability to turn off scanning with lockfile-only rules. Moving foward, lockfile-only rules are included in all full scans.
+- Removed the ability to turn off scanning with lockfile-only rules. Moving forward, lockfile-only rules are included in all full scans.
 
 ## Semgrep Assistant (beta)
 
