@@ -146,6 +146,89 @@ code .
 
 ## Testing performance
 
+### Exploring results from a slow run of Semgrep
+
+#### Interpreting the result object
+
+For full timing information, run Semgrep with `--time` and `--json` flags. In addition, you can add `time` at the beginning of the command to get the true wall time. The `--json` argument produces a large amount of output, so redirecting the output to a file with `-o` is recommended. 
+
+See the following example for the full command:
+
+<pre class="language-bash"><code>time semgrep --config=auto --time --json -o result.json <span className="placeholder">PATH/TO/SRC</span></code></pre>
+
+Substitute the optional placeholder <code><span className="placeholder">PATH/TO/SRC</span></code> with the path to your source code.
+
+Here is an example result object.
+
+```JSON
+      { "results": [], 
+        "paths": {},
+        "errors": [],
+  "time": {
+    "max_memory_bytes": 48693248,
+    "profiling_times": {
+      "config_time": 0.0624239444732666,
+      "core_time": 0.11341428756713867,
+      "ignores_time": 0.00017690658569335938,
+      "total_time": 0.17628788948059082
+    },
+    "rules": [
+      {
+        "id": "test-rule"
+      }
+    ],
+    "rules_parse_time": 0.0013418197631835938,
+    "targets": [
+      {
+        "match_times": [
+          5.9604644775390625e-06
+        ],
+        "num_bytes": 340,
+        "parse_times": [
+          0.0071868896484375
+        ],
+        "path": "test_functions.java",
+        "run_time": 0.011521100997924805
+      }
+    ],
+    "total_bytes": 340
+  }
+}
+```
+
+All the information about timing is contained under `time`.
+
+The first section is `profiling_times`. This contains wall time durations of various relevant steps:
+* Getting the rule config files (`config_time`)
+* Running the main engine (`core_time`)
+* Processing the ignores (`ignores_time`) 
+
+The `total_time` field represents the sum of these steps.
+
+The remaining fields report engine performance. Together, `rule_parse_time` and `targets` should capture all the time spent running `semgrep-core`.
+
+`rule_parse_time` is straightforward. It records the time spent parsing the rules file.
+
+`targets` poses more difficulty. Since files are run in parallel, the amount of time spent parsing (`parse_times`) and matching (`match_times`) will inevitably be meaningless compared against `total_time` or `core_time`. Therefore, the total run time (`run_time`) of each target for each rule is taken within the parallel run. This helps contextualize the time spent parsing and matching each target. The sum of the run times thus can (and usually should) be longer than the total time.
+
+The lists `match_times` and `parse_times` are in the same order as `rules`. That is, the match time of rule `rules[0]` is `match_times[0]`.
+
+Note that `parse_times` is given for each rule, but a file should only be parsed once (the first number). Afterwards, the parse time represents the time spent retrieving the file's AST from the cache.
+
+#### Negative values in the metrics
+
+When a time is not measured, by default it has the value -1. It is common to a have a normal runtime, but -1 for the parse time or match time; this indicates an error in parsing.
+
+#### Tips for exploring Semgrep results
+
+There are several scripts already written to analyze and summarize these timing data. Find them in [`scripts/processing-output`](https://github.com/returntocorp/semgrep/tree/develop/scripts/processing-output). If you have a timing file, you can run
+
+```bash
+python read_timing.py [your_timing_file]
+```
+
+You may need to adjust the line `result_times = results` based on whether you have a timing file or the full results (in which case this should be `result_times = results["time"]`)
+
 ### Profiling code
 
 You can pass the -profile command-line argument to semgrep-core to get

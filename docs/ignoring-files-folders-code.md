@@ -1,8 +1,8 @@
 ---
-slug: ignoring-files-folders-code 
+slug: ignoring-files-folders-code
 append_help_link: true
-title: Ignoring files, folders, or code
-description: "This documents various methods to skip or ignore files, folders, or code that are not relevant to a Semgrep scan."
+title: Ignoring files, folders, and code
+description: "This documents various methods to skip or ignore files or folders that are not relevant to a Semgrep scan."
 ---
 
 import MoreHelp from "/src/components/MoreHelp"
@@ -10,21 +10,18 @@ import IgnoreIndividualFindingNoGrouping from "/src/components/procedure/_ignore
 
 # Ignoring files, folders, or parts of code
 
-Exclude specific files, folders or parts of code from results of Semgrep scans in your repository or working directory. Semgrep does not generate findings for the ignored items.
+This document describes two types of ignore operations:
 
-All Semgrep environments (CLI, CI, and App) adhere to user-defined or Semgrep-defined ignore patterns.
+* **Ignoring as exclusion.** Exclude or skip specific **files and folders** from the scope of Semgrep scans in your repository or working directory. Ignoring in this context means that Semgrep does not generate findings for the ignored files and folders.
+* **Ignoring as triage action**. Ignore specific parts of code that would have generated a finding. Ignoring in this context means that Semgrep generates a finding record and automatically triages it as **Ignored**, a triage state.
 
-:::info
-Ignoring files or folders differs from ignoring a **finding**.
-- **Ignoring findings**: When Semgrep finds a match in scanned code and reports it as a finding, you can ignore the finding in Semgrep Code. Semgrep Code still keeps a record of ignored findings for you to review. See [Ignoring findings](/semgrep-code/findings/#ignoring-findings) section.
-- **Ignoring files or folders**: When you define files or folders that Semgrep must ignore, these files are skipped by Semgrep and **not** scanned. Consequently, there is no code that can be matched and reported as a finding in skipped files. Defining files or folders that Semgrep skips is the focus of this document.
-:::
+All Semgrep environments (CLI, CI, and Semgrep Cloud Platform) adhere to user-defined or Semgrep-defined ignore patterns.
 
 ## Reference summary
 
 | Method  | Usage    | Examples |
 |:--------|:---------|:---------|
-| To ignore blocks of code: `nosemgrep` | Create a comment, followed by a space (` `), followed by `nosemgrep` at the first line or preceding line of the pattern match. | ` // nosemgrep` &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; `// nosemgrep: rule-id` <br /> `# nosemgrep` |
+| To ignore blocks of code: `nosemgrep` | Create a comment, followed by a space (` `), followed by `nosemgrep` at the first line or preceding line of the pattern match. This generates a finding that is automatically ignored. | ` // nosemgrep` &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; `// nosemgrep: rule-id` <br /> `# nosemgrep` |
 | To ignore files and folders: `.semgrepignore` | Create a `.semgrepignore` file in your **repository's root directory** or your **project's working directory** and add patterns for files and folders there. Patterns follow `.gitignore` syntax with some caveats. See [Defining files and folders in `.semgrepignore`](#defining-files-and-folders-in-semgrepignore). | [`.semgrepignore` sample file](https://raw.githubusercontent.com/returntocorp/semgrep/develop/cli/src/semgrep/templates/.semgrepignore) |
 
 ## Understanding Semgrep defaults
@@ -117,6 +114,10 @@ Add files to `.semgrepignore` in the fifth step of the procedure described above
 ## Ignoring code through nosemgrep
 
 To ignore blocks of code, define an **inline comment**, followed by a **space** (` `), followed by the word `nosemgrep` at either the **first line** or **the line preceding** the potential match. Semgrep ignores all rule pattern matches. This functionality works across all supported languages.
+
+:::caution
+Ignoring code through this method still generates a finding. The finding is automatically set to the **Ignored** triage state.
+:::
 
 `nosemgrep` in Python:
 

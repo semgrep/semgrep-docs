@@ -7,4 +7,4 @@ To sign in to Semgrep with a GitHub account:
 6. Click **Accept** to accept Semgrep's Terms of Service.
 7. Optional: Fill out the survey and click Complete or click Skip to omit this step.
 
-You are now signed in to Semgrep Cloud Platform with a personal account.
+You are now signed in to Semgrep Cloud Platform.

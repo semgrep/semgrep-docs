@@ -46,7 +46,7 @@ The Semgrep ecosystem includes the following products:
 * [Semgrep OSS Engine](getting-started/) - The open-source engine at the heart of everything.
 * [Semgrep Cloud Platform (SCP)](semgrep-cloud-platform/getting-started) - Deploy, manage, and monitor SAST and SCA at scale using Semgrep, with [free and paid tiers](https://semgrep.dev/pricing). Integrates with continuous integration (CI) providers such as GitHub, GitLab, CircleCI, and more.
 * [Semgrep Code](https://semgrep.dev/products/semgrep-code) - Scan your code with Semgrep's Pro rules and Semgrep Pro Engine to find OWASP Top 10 vulnerabilities and protect against critical security risks specific to your organization. Semgrep Code is free for up to 10 developers through its Team tier.
-* [Semgrep Supply Chain (SSC)](https://semgrep.dev/products/semgrep-supply-chain) - A high-signal dependency scanner that detects reachable vulnerabilities in open source third-party libraries and functions across the software development life cycle (SDLC). Semgrep Supply Chain is available on Team (paid) tiers.
+* [Semgrep Supply Chain (SSC)](https://semgrep.dev/products/semgrep-supply-chain) - A high-signal dependency scanner that detects reachable vulnerabilities in open source third-party libraries and functions across the software development life cycle (SDLC). Semgrep Supply Chain is free for up to 10 developers through its Team tier.
 
 Support and be supported by the Semgrep community through:
 
@@ -61,9 +61,14 @@ Semgrep is developed and commercially supported by [Semgrep, Inc](https://r2c.de
 
 ## Language support
 
-<SupportedLanguagesTable />
+### Semgrep Code
 
-To determine experimental, beta, or general availability (GA) status, Semgrep scans a wide corpus of projects and measure the parse rate of each language. For more details see [the breakdown of all supported languages](supported-languages/).
+Semgrep Code supports over 30 languages and counting! 🚀 Visit [Semgrep Code's supported languages](/docs/supported-languages#semgrep-code) to see all the languages supported.
+
+### Semgrep Supply Chain
+
+Semgrep Supply Chain supports Go, Javascript/Typescript, Python, Ruby, and Java. 🛡️ Visit [Semgrep Supply Chain's supported languages](/docs/supported-languages#semgrep-supply-chain) to see all the package managers and lockfiles supported. 
+
 
 ## Environments
 

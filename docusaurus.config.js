@@ -19,6 +19,9 @@ module.exports = {
         hideable: true,
       },
     },
+    markprompt: {
+      projectKey: 'jbhF5LligltdKaJucMjDcWcRodaVpzqE',
+    },
     navbar: {
       logo: {
         alt: 'Semgrep logo',
@@ -164,14 +167,14 @@ module.exports = {
       ]
     },
     image: 'https://semgrep.dev/thumbnail.png',
-    announcementBar: {
-      id: 'office-hours',
-      content:
-        'Group Office Hours | Meet community members and get support from our technical Customer Success Engineers.  <a target="_blank" rel="noopener noreferrer" href="https://get.semgrep.dev/Weekly-Group-Office-Hours.html">Book now</a>!',
-      backgroundColor: '#00A67D',
-      textColor: '#ffffff',
-      isCloseable: false,
-    },
+    //announcementBar: {
+    //  id: 'office-hours',
+    //  content:
+    //    'Group Office Hours | Meet community members and get support from our technical Customer Success Engineers.  <a target="_blank" rel="noopener noreferrer" href="https://get.semgrep.dev/Weekly-Group-Office-Hours.html">Book now</a>!',
+    //  backgroundColor: '#00A67D',
+    //  textColor: '#ffffff',
+    //  isCloseable: false,
+    //},
   },
   scripts: [
     {
@@ -225,9 +228,9 @@ module.exports = {
         redirects: [
           { from: "/writing-rules/pattern-logic", to: "/writing-rules/rule-syntax/" },
           { from: "/writing-rules/index", to: "/writing-rules/overview/" },
-          { from: "/semgrep-ci/managing-policy", to: "/semgrep-code/rule-board/" },
-          { from: "/managing-policy", to: "/semgrep-code/rule-board/" },
-          { from: "/semgrep-app/managing-policy", to: "/semgrep-code/rule-board/" },
+          { from: "/semgrep-ci/managing-policy", to: "/semgrep-code/policies/" },
+          { from: "/managing-policy", to: "/semgrep-code/policies/" },
+          { from: "/semgrep-app/managing-policy", to: "/semgrep-code/policies/" },
           { from: "/integrations", to: "/semgrep-cloud-platform/notifications/" },
           { from: "/notifications", to: "/semgrep-cloud-platform/notifications/" },
           { from: "/sso", to: "/semgrep-cloud-platform/sso/" },
@@ -283,7 +286,7 @@ module.exports = {
           // Semgrep Code
           { from: "/semgrep-app/integrations"                        , to: "/semgrep-cloud-platform/notifications/" }   ,
           { from: "/semgrep-app/demo-project/"                       , to: "/semgrep-code/demo-project/" }    ,
-          { from: "/semgrep-app/rule-board/"                         , to: "/semgrep-code/rule-board/" }      ,
+          { from: "/semgrep-app/rule-board/"                         , to: "/semgrep-code/policies/" }      ,
           { from: "/semgrep-app/findings/"                           , to: "/semgrep-code/findings/" }        ,
           { from: "/semgrep-app/editor/"                             , to: "/semgrep-code/editor/" }          ,
           { from: "/semgrep-app/notifications/"                      , to: "/semgrep-cloud-platform/notifications/" }   ,
@@ -313,7 +316,13 @@ module.exports = {
 
           /* MAY 12 2023  */
           { from: "/semgrep-cloud-platform/pricing-and-billing/"            , to: "/semgrep-cloud-platform/notifications/" },
-          { from: "/extensions/"                                            , to: "/extensions/overview/" }
+          { from: "/extensions/"                                            , to: "/extensions/overview/" },
+
+          /* JULY 14 2023  */
+          { from: "/semgrep-code/rule-board/"                                            , to: "/semgrep-code/policies/" },
+
+          /* AUG 31 2023  */
+          { from: "/kb/semgrep-cloud-platform/running-semgrep-on-windows/" , to: "/kb/integrations/semgrep-vs-code-windows/" }
         ]
       }
     ],

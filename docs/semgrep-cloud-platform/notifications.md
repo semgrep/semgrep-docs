@@ -57,9 +57,10 @@ To find available [integrations for Semgrep Cloud Platform](https://semgrep.dev/
 
 To view, add, remove, disable, or enable your saved channels:
 
-1. In the **Settings** > **[Integrations](https://semgrep.dev/orgs/-/settings/integrations)** page, explore the options available for specific integration.
-2. In the **[Rule board](https://semgrep.dev/orgs/-/board)**, click the <i class="fa-solid fa-gear"></i> **gear** icon to enable or disable an integration.
-    ![Screenshot of Semgrep's Rule board integration modal](/img/rule-board-integrations.png)
+1. In the **Settings** > **[Integrations](https://semgrep.dev/orgs/-/settings/integrations)** page, explore the options available for specific integrations.
+2. In the **[Policies](https://semgrep.dev/orgs/-/board)** page, click **Rule modes**. A menu appears.
+3. Click the **Edit** button of the mode for which mode you want to change notifications.
+4. Make any changes to the notification settings for the mode you selected.
 
 ### Semgrep Autofix
 
@@ -115,16 +116,5 @@ Semgrep Cloud Platform also keeps track of notifications that have already been 
 so consecutive scans of the same changes in the same pull request
 won't send duplicate notifications.
 
-<!--- Deprecated
-### Amazon S3
-
-1. In **Integrations,** click **Add Integration**.
-2. Click **AWS S3**.
-3. Enter the AWS 3 **Channel name**. This is where Semgrep will post findings.
-4. Optional: Select the **Inventory** check box to receive notifications about Code Asset Inventory findings.
-5. To ensure that Semgrep can post to your channel, click **Test**.
-6. Click **Save.**
-7. Turn notifications on by going to the **Rule board**, clicking on the <i class="fa-solid fa-gear"></i> **gear** icon, then click the <i class="fa-solid fa-toggle-large-on"></i> **toggle** next to the name of the integration.
---->
 
 <MoreHelp />

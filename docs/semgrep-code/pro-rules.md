@@ -57,11 +57,11 @@ See the [Rule updates](/release-notes/rule-updates/) for an overview of updates 
 
 You can use Semgrep Pro rules in both Semgrep Cloud Platform (SCP) and your own CLI or CI environment (without SCP). 
 
-* To use Pro Rules with Semgrep Cloud Platform, add them to your Rule Board. The rules are then included in your next scan.
+* To use Pro Rules with Semgrep Cloud Platform, add them to your Policies page. The rules are then included in your next scan.
 * To use Pro Rules in your own CI or CLI environment, add the rules or rulesets through the `--config` flag.
 
 :::info
-Rules that don't apply to your target repository's language or framework are skipped automatically even if they are in your Rule board. For example, if your repository contains JavaScript code and you have added Go rules, the Go rules are unused. Unused rules do not add to scan time.
+Rules that don't apply to your target repository's language or framework are skipped automatically even if they are in your Policies page. For example, if your repository contains JavaScript code and you have added Go rules, the Go rules are unused. Unused rules do not add to scan time.
 :::
 
 ### Adding Semgrep Pro rules in CLI or CI
@@ -83,8 +83,8 @@ For CLI users: You must be [logged in](/docs/getting-started/#logging-into-semgr
 3. Click on **Visibility > Pro rules**.
 4. Optional: Apply additional filters by entering search terms in the search box or selecting filters from drop-down boxes. 
 5. To add a specific rule or ruleset:
-    1. Click on the card for the **rule or ruleset > Add to Rule board**.
-    2. Select a Rule Board column to add the rules to. It is recommended to start with the Monitor column to silently gather findings and audit the rule's performance.
+    1. Click on the card for the **rule or ruleset > Add to Policy**.
+    2. Select a Policy rule mode to add the rules to. It is recommended to start with the Monitor mode to silently gather findings and audit the rule's performance.
 
 ### Filtering behavior
 
@@ -92,12 +92,13 @@ For CLI users: You must be [logged in](/docs/getting-started/#logging-into-semgr
 * Adding filters of the same type use OR logic. This means that search terms can match any of the filters for that type. For example, selecting Java and Python (both languages) shows rules with either language.
 * A gem icon (💎) denotes Semgrep Pro rules.
 
-<!-- Future feature: Add Semgrep Pro rules through your Rule Board -->
+<!-- Future feature: Add Semgrep Pro rules through your Policy -->
 
 <!-- Future feature: Receiving updates on Semgrep Pro rules -->
 
 ## Removing or disabling Semgrep Pro rules
 
+Removing a 
 ### Disabling rules
 
 <DisableRule />

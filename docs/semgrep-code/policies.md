@@ -22,12 +22,6 @@ Object.entries(frontMatter).filter(
 
 # Policies
 
-:::tip
-The Policies page is a new version of the [Rule board](https://semgrep.dev/orgs/-/board) that is now the default representation for rule management.
-
-You can go back to the old Rule board by clicking the **Back to old version** button.
-:::
-
 The Policies page displays a visual representation of the rules that Semgrep Code uses for scanning. Rules can be categorized into various groups. The Policies page uses the following categorization criteria:
 
 ## Policies page structure
@@ -96,7 +90,7 @@ All of these columns correspond to the filters in the filter pane.
 To add rules, follow these steps:
 
 1. On the [Policies](https://semgrep.dev/orgs/-/board) page, click **Add Rules**.
-1. You are redirected to the [Semgrep Registry](https://semgrep.dev/explore) page. Explore the page, open cards of individual rules, and then click **Add to Rule Board**.
+1. You are redirected to the [Semgrep Registry](https://semgrep.dev/explore) page. Explore the page, open cards of individual rules, and then click **Add to Policy.
 1. Specify the behavior of the rule that you are adding. Select either: 
     - **Monitor**: Display findings only on the [Findings](https://semgrep.dev/orgs/-/findings?tab=open) page of Semgrep Code.
     - **Comment**: Display findings on the [Findings](https://semgrep.dev/orgs/-/findings?tab=open) page of Semgrep Code and create comments in MRs or PRs.

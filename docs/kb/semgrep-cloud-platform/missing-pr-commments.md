@@ -68,5 +68,5 @@ This prevents repeated comments on findings that have already notified developer
 
 ## If you're still having trouble
 
-If you've addressed these issues but are still not seeing comments, please [reach out for help](docs/support/), and provide information on what you've tried so far.
+If you've addressed these issues but are still not seeing comments, please [reach out for help](/docs/support/), and provide information on what you've tried so far.
 

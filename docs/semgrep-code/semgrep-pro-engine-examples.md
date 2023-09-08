@@ -14,7 +14,7 @@ This document provides an overview of Semgrep Pro Engine features through specif
 The following resources can help you to test the code in the sections below. As you work through the examples in this document, try the following:
 
 - Ensure that the <i class="fa-solid fa-toggle-large-on"></i> **Pro Engine beta** toggle is enabled on the [Playground](https://semgrep.dev/playground/new) page.
-    - Rules you use in Semgrep Pro Engine require `interfile: true` key included in the `metadata` key. See the following [example](https://semgrep.dev/s/3NZb).
+    - Rules you use in Semgrep Pro Engine require `interfile: true` key included in the `options` key. See the following [example](https://semgrep.dev/playground/s/lkPE).
 - The [Semgrep Pro Engine testing repository](https://github.com/returntocorp/semgrep-pro-tests) 
     - Clone the repository:
         ```sh

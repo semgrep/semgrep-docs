@@ -40,7 +40,7 @@ A finding can be categorized in two ways:
     - Business or logic bugs
     - Matches based on your own custom rules (such as organization-specific authentication logic)
 
-    Semgrep rules provide a metadata schema to identify common categories such as the above. Semgrep findings include a `message` field that describes the security issue or bug found in matching code. Additionally, findings can provide a `fix` field that fixes the issue by creating a suggestion within your source code management (SCM) tool, such as GitHub, GitLab, and BitBucket.
+    Semgrep rules provide a metadata schema to identify these common categories. Semgrep findings include a `message` field that describes the security issue or bug found in matching code. Additionally, findings can provide a `fix` field that fixes the issue by creating a suggestion within your source code management (SCM) tool, such as GitHub, GitLab, and Bitbucket.
 2. **Finding categorization based on the validity of the match**:
     <dl>
         <dt>True positive</dt>
@@ -50,7 +50,7 @@ A finding can be categorized in two ways:
         <dt>False negative</dt>
         <dd>A false negative is a finding that should have been found by a rule, but was not. This can happen for two reasons:
         <ul>
-            <li>A flaw in the rule's logic. See <a href="/docs/reporting-false-negatives"><code>semgrep shouldafound</code></a>.</li>
+            <li>A flaw in the rule's logic. See <a href="/docs/reporting-false-negatives">Reporting false negatives</a>.</li>
             <li>A bug within Semgrep itself. See the list of <a href="https://github.com/returntocorp/semgrep/issues">Semgrep issues</a> to file a bug report.</li>
         </ul>
         </dd>
@@ -63,7 +63,7 @@ After a finding is generated, developers can:
 - **Fix the issue detected by the finding.** This is Semgrep's primary goal. In this case, the rule produces a **true positive** finding (such as a security issue) as intended and developers must change or address the code such that the rule no longer matches it.
 - **View the Semgrep rule and the matching code.** For developers aiming to understand their team's security posture, Semgrep provides a top-level report view through the Dashboard and a list view of findings in the Findings page that can be filtered by repository, rule, branch, or triage action.
 - **Triage the finding.** If the finding is not useful or important, deprioritize it through triage. Triage actions include ignoring and reopening. Triaging a finding to ignore it is one method to handle **false positives** without changing the rule or code. To triage a finding, see [Managing finding status](#managing-finding-status)
-- **Remove the rule or code that generated the finding.** There are cases where Semgrep scans a file not meant for scanning or when a rule is irrelevant. You can disable the rule from the Rule board or add the file to the ignore list. To disable a rule, see [Disabling rules](/semgrep-code/rule-board/#disabling-rules).
+- **Remove the rule or code that generated the finding.** There are cases where Semgrep scans a file not meant for scanning or when a rule is irrelevant. You can disable the rule from the Policies page or add the file to the ignore list. To disable a rule, see [Disabling rules](/semgrep-code/policies/#disabling-rules).
 <!-- - **Create a Jira ticket from the finding (for Enterprise/Team Tier users.)** For findings that require more extensive refactoring, users can create a ticket in Jira through Semgrep Cloud Platform to track its resolution. -->
 
 :::tip
@@ -92,7 +92,7 @@ The retention period of these findings are as follows:
 The Findings page consists of:
 
 - **Findings filter panel**: Panel which lets you filter for different findings.
-- **Findings information**: Gives you details about findings. Each finding in the list includes rule name, Rule Board action column description, link to findings detail page, rule message, repository name, link to Git branch name, link to the reported file, and reported line of code.
+- **Findings information**: Gives you details about findings. Each finding in the list includes rule name, Policies action column description, link to findings detail page, rule message, repository name, link to Git branch name, link to the reported file, and reported line of code.
     ![Findings information panel](/img/app-findings.png)<br />
     *Figure 2.* Findings information panel.
 
@@ -105,11 +105,11 @@ Filtering allows you to easily isolate groups of findings for ease in triaging a
 | **Projects**     | Filter by repositories connected to Semgrep Cloud Platform. |
 | **Status**       | Filter for different findings triage states. Refer to the [following table](#triaging-findings) to understand triage states. |
 | **Severities**    | Filter by the severity of a finding. Possible values: <ul><li>Low</li><li>Medium</li><li>High</li></ul> |
-| **Actions**     | Filter by monitoring, commenting, or blocking rules in your Rule Board. |
+| **Actions**     | Filter by monitoring, commenting, or blocking rules in your Policies. |
 | **Confidences** | Filter by indication of the rule to detect true positives. The higher the confidence the more true positives the rule may detect.  |
 | **Categories**  |  Filter by various rule categories, such as security, or best practice rules. More than one category can be selected for filtering. |
 | **Branches**     | Filter by findings in different Git branches. |
-| **Rules**        | Filter by rules or rulesets that are included in your Rule Board. More than one rule can be selected for filtering. |
+| **Rules**        | Filter by rules or rulesets that are included in your Policies page. More than one rule can be selected for filtering. |
 | **Rulesets**     | Filter by name of the ruleset where rules that matched the code belong. More than one rule or ruleset can be selected for filtering. |
 
 :::tip
@@ -174,7 +174,7 @@ The triage statuses are as follows:
 
 ### Managing finding status
 
-To manage, change, open or ignore findings, follow the the triage processes described below.
+To manage, change, open, or ignore findings, follow the triage processes described below.
 ![Screenshot of Semgrep Cloud Platform triage menu](/img/app-findings-triage.png)<br />
 *Figure 5* Findings page triage menu.
 
@@ -187,7 +187,7 @@ To **ignore findings** in the **Group by Rule** view, follow these steps:
 1. On the [Findings](https://semgrep.dev/orgs/-/findings?tab=open) page, click the **Status** filter, and then select **Open** status to see all open findings.
 1. Perform one of these steps:
     - To select more findings from the same rule, click the **Triage** button on the card of the finding.
-    - To select individual findingss reported by a rule, fill in the checkboxes of the finding, and then click the **Triage** button on the card of the finding.
+    - To select individual findings reported by a rule, fill in the checkboxes of the finding, and then click the **Triage** button on the card of the finding.
 1. Optional: Write a reason to describe why the finding was ignored.
 1. Click **Ignore**.
 
@@ -282,7 +282,7 @@ To **view and add notes** to the activity history of a finding:
 Triage your Semgrep Cloud Platform findings displayed as comments in GitHub PRs by replying with another comment.
 
 :::info Prerequisites
-- A **private** GitHub.com repository. This feature is not enabled for public GitHub.com repositories or Github Enterprise public and private repositories.
+- A **private** GitHub.com repository. This feature is not enabled for public GitHub.com repositories or GitHub Enterprise public and private repositories.
 - GitHub Semgrep Cloud Platform installed in the repository that is also added as a project in Semgrep Cloud Platform. For more information, see [Getting started with Semgrep in continuous integration (CI)](/semgrep-ci/overview/).
 :::
 
@@ -307,7 +307,7 @@ Ignoring a finding through a comment in GitHub changes the status of the finding
 :::
 
 :::tip
-You can also reopen a finding that was previously ignored. To do so, in step 2. of the procedure above, use `/semgrep open`. For `/semgrep open` the reason field is optional.
+You can also reopen a finding that was previously ignored. To do so, in step 2. of the preceding procedure, use `/semgrep open`. For `/semgrep open` the reason field is optional.
 :::
 
 <!--
@@ -324,9 +324,7 @@ To **create a ticket**:
 
 ## Deduplicating findings
 
-Semgrep Cloud Platform scans are performed on both mainline (trunk) and non-mainline branches. Semgrep Cloud Platform generates findings on a per-branch basis. Duplicate findings arise due to scans occurring on the same code in different branches.
-
-There are two types of scans:
+Semgrep Cloud Platform scans are performed on both mainline (trunk) and non-mainline branches. The scope of the scan can differ depending on if Semgrep Cloud Platform is called on a mainline or non-mainline branch.
 
 <dl>
     <dt>Full scan</dt>
@@ -335,12 +333,22 @@ There are two types of scans:
     <dd>Diff-aware scans are performed on non-mainline branches, such as in pull requests and merge requests. Diff scans traverse the repository's files based on the commit where the branch diverged from the mainline branch (or diverged from the last commit that was fully scanned?)</dd>
 </dl>
 
+### Deduplicating findings in Semgrep Cloud Platform
+
+Regardless of the scope of a scan, SCP correlates findings across branches based on their unique fingerprint, automatically deduplicating findings and making it simpler to triage. 
+
 If a finding is fixed in one branch (such as `main`) but open in another (such as `production`), and the code fixes are present in both branches, initiate a scan through your CI job or SCM tool on the branch(es) with open findings to have Semgrep mark the findings as fixed.
+
+### Deduplicating findings in Semgrep API
+
+Semgrep API does not automatically deduplicate findings. If you are using Semgrep API to receive or pull findings data, set the `dedup` flag to `true` to deduplicate findings across refs or branches. Refer to [List all findings](https://semgrep.dev/api/v1/docs/#tag/Finding/operation/semgrep_app.saas.handlers.issue.openapi_list_recent_issues) in the Semgrep API docs for more information.
+
+
 
 ## See also
 
 * [Alerts and notifications](/semgrep-code/notifications)
-* [Rule Board](/semgrep-code/rule-board)
+* [Policies](/semgrep-code/policies)
 * [Ignoring files, folders, or code](/ignoring-files-folders-code/)
 
 ## Additional references
