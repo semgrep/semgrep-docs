@@ -117,7 +117,7 @@ end
 ### Added
 
 - The `semgrep ci` command now displays enabled products when scans are command now created or when the scan config is generated from Semgrep Cloud Platform. Additionally, if no products are enabled then a friendly error is raised and the scan is stopped. You must enable a product in Semgrep **Cloud Platform > Settings** to start a scan.
-- You can now remove your SSO configuration. Previously, you had to reach out to [support@semgrep.com](mailto:support@semgrep.com) to remove SSO configurations. To remove your SSO configurations, go to **[Settings > Access > SSO](https://semgrep.dev/orgs/-/settings/)**.
+- You can now remove your SSO configuration. Previously, you had to reach out to [support@semgrep.com](mailto:support@semgrep.com) to remove an SSO configuration. To remove your SSO configuration, go to **[Settings > Access > SSO](https://semgrep.dev/orgs/-/settings/)**.
 - **Projects page:** Added a **Sync projects** button which enables you to synchronize your Semgrep projects with your SCM. This enables you to onboard projects faster to the Semgrep Cloud Platform and ensure all your repositories are represented and available for scanning.
 
 ## Semgrep Code
