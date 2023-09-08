@@ -145,11 +145,13 @@ end
 
 - Removed the ability to turn off scanning with lockfile-only rules. Moving foward, lockfile-only rules are included in all full scans.
 
-## Semgrep Assistant
+## Semgrep Assistant (beta)
 
 ### Fixed
 
-- GitHub: Fixed a bug in which you could receive duplicate PR comments if you had installed more than one instance of `semgrep-app`.
+- **GitHub:** Fixed a bug in which you could receive duplicate PR comments if you had installed more than one instance of `semgrep-app`.
+- **Slack notifications:** Previously, clicking the **Agree** button in a Slack Assistant message does not triage the original issue created. Now, if Semgrep Assistant suggests that a finding is safe to ignore, clicking Agree also triages the finding to Ignored.
+- Various bugfixes and improvements.
 
 ## Documentation and knowledge base updates
 
