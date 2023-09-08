@@ -125,11 +125,11 @@ See [the Semgrep development philosophy](../contributing/semgrep-philosophy/) fo
 
 ### Comparing Semgrep to Snyk
 
-For SCA, reachability analysis is critical to cut down the noise and reduce false positives. Semgrep offers reachability analysis for Java, JavaScript, Python, Go, and Ruby, whereas Snyk only offers reachability for Java.
+For SCA, reachability analysis is critical to cut down noise and reduce false positives. Semgrep offers reachability analysis for [several languages, such as Java, JavaScript, and Ruby](supported-languages/#semgrep-supply-chain) whereas Snyk only offers reachability for Java.
 
-For SAST, both Semgrep and Snyk offer good solutions out of the box, however writing custom rules is far easier and more scalable with Semgrep (so that you accomodate issues specific to your codebase that no vendor could out-of-box) and Semgrep supports 30+ languages whereas Snyk supports 14.
+For SAST, both Semgrep and Snyk offer good solutions out of the box, however writing custom rules is easier and more scalable with Semgrep, enabling you to accomodate issues specific to your codebase that no vendor could out-of-box. Semgrep supports 30+ languages whereas Snyk supports 14.
 
-Semgrep and Snyk both have their opinionated approaches to SAST and the ideal solution depends on what you want to achieve. [Here](https://appsec.guide/docs/static-analysis/semgrep/) is an unbiased, third-party take on the differences between Semgrep and Snyk.
+Semgrep and Snyk both have their opinionated approaches to SAST and the ideal solution depends on what you want to achieve. The [Trail of Bits Testing Handbook](https://appsec.guide/docs/static-analysis/semgrep/) is an unbiased, third-party article on the differences between Semgrep and Snyk.
 
 ### Comparing Semgrep to SonarQube
 
