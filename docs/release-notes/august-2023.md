@@ -12,8 +12,9 @@ description: >-
 ## Semgrep OSS Engine
 
 :::caution
-Semgrep version 1.38.0 introduces several removals that may break your Semgrep workflows. See [Semgrep OSS > Removed](#removed) for more information.
+Semgrep version 1.38.0 removed some functionality that may break your Semgrep workflows. See [Semgrep OSS > Removed](#removed) for more information.
 :::
+
 This section of release notes includes upgrades of Semgrep OSS Engine for versions between **1.35.0** and **1.38.3**.
 
 ### Added
@@ -31,11 +32,10 @@ This section of release notes includes upgrades of Semgrep OSS Engine for versio
 ### Fixed
 
 - Fixed `--text` and `--output` flags which broke in 1.38.0. If you are using version 1.38.0, update Semgrep to receive these fixes.
-- Version 1.38.0 introduced some regressions with the Semgrep docker image. This is fixed in version 1.38.3.
 - Converted all '@r2c.dev' email addresses to '@semgrep.com'. Several error messages displayed outdated email addresses. With this fix, you can now see the correct email to reach out to the Semgrep Support team at [support@semgrep.com](mailto:support@semgrep.com). ([#8446](https://github.com/returntocorp/semgrep/pull/8446))
 - Fixed CLI output to display matches from different rules with the same message. Now you are able to see the rule ID granularly even if two rules have the same rule message. ([#8557](https://github.com/returntocorp/semgrep/pull/8557))
 - Semgrep PyPI package can now be installed on **aarch64 libmusl** platforms such as Alpine. (gh-8565)
-- Improved the `--max-memory` help description to make it clearer. Its previous message, "Defaults to 0 for all CLI scans" implies a different default for non-CLI scans, where in practicality the default is 0 for all scans except when using Pro Engine, where the default is 5000.
+- Improved the `--max-memory` help description to make it clearer. Its previous message, "Defaults to 0 for all CLI scans" implies a different default for non-CLI scans, where in practicality the default is 0 for all scans except when using Pro Engine in CI scans, where the default is 5000. In this context, a CI scan is any scan using the `semgrep ci` command, whether in a local environment or a CI provider, and Pro Engine must be enabled for the org whose repositories you are scanning..
 - Fixed a regression introduced three years ago in 0.9.0, when optimizing the evaluation of the ellipsis operator `...` to be faster. The ellipsis only matched deeply, such as inside an if block, if it did not match anything non-deeply, thus causing that this pattern:
   ```
   foo()
@@ -74,7 +74,6 @@ map($Y) do $X
   ...
 end
 ```
-
 - **Java:** Fixed naming bug affecting Java and other OO languages that allowed a method parameter to shadow a class attribute. For example, in:
   ```
   class Test {
