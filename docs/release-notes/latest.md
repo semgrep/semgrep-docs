@@ -34,7 +34,9 @@ This section of release notes includes upgrades of Semgrep OSS Engine for versio
 - Converted all '@r2c.dev' email addresses to '@semgrep.com'. Several error messages displayed outdated email addresses. With this fix, you can now see in the CLI the correct email to reach out to the Semgrep Support team, which is [support@semgrep.com](mailto:support@semgrep.com). ([#8446](https://github.com/returntocorp/semgrep/pull/8446))
 - Fixed CLI output to display matches from different rules with the same message. Now you are able to see the rule ID granularly even if two rules have the same rule message. ([#8557](https://github.com/returntocorp/semgrep/pull/8557))
 - Semgrep PyPI package can now be installed on **aarch64 libmusl** platforms such as Alpine. (gh-8565)
-- Improved the `--max-memory` help description to make it clearer. Its previous message, "Defaults to 0 for all CLI scans," did not convey that the default is 0 for all scans except when using Semgrep Pro Engine in CI scans. The default is 5000MiB for Semgrep Pro Engine CI scans. In this context, a CI scan is any scan using the `semgrep ci` command, whether in a local environment or a CI/CD pipeline, and Pro Engine must be enabled for the org whose repositories you are scanning.
+- Improved the `--max-memory` help description to make it clearer. Its previous message, "Defaults to 0 for all CLI scans," did not convey that the default is 0 for all scans except when using Semgrep Pro Engine in CI scans. The default is 5000MiB for Semgrep Pro Engine CI scans, defined as: 
+    - Any scan using the `semgrep ci --pro` command, whether in a local environment or a CI/CD pipeline.
+    - Any scan using the `semgrep ci` command with Pro Engine enabled in Semgrep Cloud Platform for the org whose repositories you are scanning.
 - Fixed a regression introduced three years ago in 0.9.0, when optimizing the evaluation of the ellipsis operator `...` to be faster. The ellipsis only matched deeply, such as inside an if block, if it did not match anything non-deeply, thus causing that this pattern:
   ```
   foo()
@@ -115,8 +117,8 @@ end
 
 ### Added
 
-- The `semgrep ci` command now displays enabled products when scans are command now created or when the scan config is generated from Semgrep Cloud Platform. Additionally, if no products are enabled then a friendly error is raised and the scan is stopped. You must enable a product in Semgrep **Cloud Platform > Settings** to start a scan.
-- You can now remove your SSO configuration. Previously, you had to reach out to [support@semgrep.com](mailto:support@semgrep.com) to remove SSO configurations. To remove your SSO configurations, go to **[Settings > Access > SSO](https://semgrep.dev/orgs/-/settings/)**.
+- The `semgrep ci` command now displays enabled products when the scan config is generated from Semgrep Cloud Platform. Additionally, if no products are enabled then a friendly error is raised and the scan is stopped. You must enable a product in Semgrep **Cloud Platform > Settings** to start a scan.
+- You can now remove your SSO configuration. Previously, you had to reach out to [support@semgrep.com](mailto:support@semgrep.com) to remove an SSO configuration. To remove your SSO configuration, go to **[Settings > Access > SSO](https://semgrep.dev/orgs/-/settings/)**.
 - **Projects page:** Added a **Sync projects** button which enables you to synchronize your Semgrep projects with your SCM. This enables you to onboard projects faster to the Semgrep Cloud Platform and ensure all your repositories are represented and available for scanning.
 
 ## Semgrep Code
@@ -149,7 +151,7 @@ end
 ### Fixed
 
 - **GitHub:** Fixed a bug in which you could receive duplicate PR comments if you had installed more than one instance of `semgrep-app`.
-- **Slack notifications:** Previously, clicking the **Agree** button in a Slack Assistant message does not triage the original issue created. Now, if Semgrep Assistant suggests that a finding is safe to ignore, clicking Agree also triages the finding to Ignored.
+- **Slack notifications:** Previously, clicking the **Agree** button in a Slack Assistant message did not triage the original issue created. Now, if Semgrep Assistant suggests that a finding is safe to ignore, clicking Agree also triages the finding to Ignored.
 - Various bugfixes and improvements.
 
 ## Documentation and knowledge base updates
