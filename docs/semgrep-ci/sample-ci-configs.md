@@ -27,43 +27,34 @@ Read /src/components/code_snippets/readme to understand modular code snippet imp
 
 <!-- GHA -->
 import GhaSemgrepAppSast from "/src/components/code_snippets/_gha-semgrep-app-sast.mdx"
-import GhaSemgrepAppStandalone from "/src/components/code_snippets/_gha-semgrep-app-standalone.mdx"
 import GhaSemgrepAppSastDash from "/src/components/code_snippets/_gha-semgrep-app-sast-dash.mdx"
-import GhaSemgrepAppStandaloneDash from "/src/components/code_snippets/_gha-semgrep-app-standalone-dash.mdx"
 import GhaSemgrepAppSsc from "/src/components/code_snippets/_gha-semgrep-app-ssc.mdx"
 
 <!-- GLCICD -->
 import GlcicdSemgrepAppSast from "/src/components/code_snippets/_glcicd-semgrep-app-sast.mdx"
-import GlcicdSemgrepAppStandalone from "/src/components/code_snippets/_glcicd-semgrep-app-standalone.mdx"
 import GlcicdSemgrepAppSastDash from "/src/components/code_snippets/_glcicd-semgrep-app-sast-dash.mdx"
-import GlcicdSemgrepAppStandaloneDash from "/src/components/code_snippets/_glcicd-semgrep-app-standalone-dash.mdx"
 import GlcicdSemgrepAppSsc from "/src/components/code_snippets/_glcicd-semgrep-app-ssc.mdx"
 
 <!-- Jenkins -->
 import JenkinsSemgrepAppSast from "/src/components/code_snippets/_jenkins-semgrep-app-sast.mdx"
 import JenkinsSemgrepAppSsc from "/src/components/code_snippets/_jenkins-semgrep-app-ssc.mdx"
-import JenkinsSemgrepAppStandalone from "/src/components/code_snippets/_jenkins-semgrep-app-standalone.mdx"
 import JenkinsSemgrepAppSastDocker from "/src/components/code_snippets/_jenkins-semgrep-app-sast-docker.mdx"
 
 <!--BitBucket Pipelines -->
 import BitbucketSemgrepAppSast from "/src/components/code_snippets/_bitbucket-semgrep-app-sast.mdx"
 import BitbucketSemgrepAppSsc from "/src/components/code_snippets/_bitbucket-semgrep-app-ssc.mdx"
-import BitbucketSemgrepAppStandalone from "/src/components/code_snippets/_bitbucket-semgrep-app-standalone.mdx"
 
 <!-- Buildkite -->
 import BuildkiteSemgrepAppSast from "/src/components/code_snippets/_buildkite-semgrep-app-sast.mdx"
 import BuildkiteSemgrepAppSsc from "/src/components/code_snippets/_buildkite-semgrep-app-ssc.mdx"
-import BuildkiteSemgrepAppStandalone from "/src/components/code_snippets/_buildkite-semgrep-app-standalone.mdx"
 
 <!-- CircleCI -->
 import CircleCiSemgrepAppSast from "/src/components/code_snippets/_circleci-semgrep-app-sast.mdx"
 import CircleCiSemgrepAppSsc from "/src/components/code_snippets/_circleci-semgrep-app-ssc.mdx"
-import CircleCiSemgrepAppStandalone from "/src/components/code_snippets/_circleci-semgrep-app-standalone.mdx"
 
 <!-- Azure Pipelines -->
 import AzureSemgrepAppSast from "/src/components/code_snippets/_azure-semgrep-app-sast.mdx"
 import AzureSemgrepAppSsc from "/src/components/code_snippets/_azure-semgrep-app-ssc.mdx"
-import AzureSemgrepAppStandalone from "/src/components/code_snippets/_azure-semgrep-app-standalone.mdx"
 
 import ScmFeatureReference from "/src/components/reference/_scm-feature-reference.md"
 
@@ -99,7 +90,6 @@ If you are self-hosting your repository, you must [use a self-hosted runner](htt
     defaultValue="gha-semgrep"
     values={[
     {label: 'Default', value: 'gha-semgrep'},
-    {label: 'Stand-alone SAST', value: 'gha-standalone'},
     {label: 'Semgrep Supply Chain', value: 'gha-ssc'},
     ]}
 >
@@ -109,14 +99,6 @@ If you are self-hosting your repository, you must [use a self-hosted runner](htt
 The following configuration creates a CI job that runs a SAST and SCA scan using both Semgrep Code and Semgrep Supply Chain.
 
 <GhaSemgrepAppSast />
-
-</TabItem>
-
-<TabItem value='gha-standalone'>
-
-The following configuration creates a CI job that runs a SAST scan using Semgrep Code.
-
-<GhaSemgrepAppStandalone />
 
 </TabItem>
 
@@ -132,26 +114,7 @@ The following configuration creates a CI job that runs an SCA scan using Semgrep
 
 <details><summary>Alternate job that uploads findings to GitHub Advanced Security Dashboard</summary>
 
-<Tabs
-    defaultValue="gha-semgrep-dash"
-    values={[
-    {label: 'Default', value: 'gha-semgrep-dash'},
-    {label: 'Stand-alone SAST', value: 'gha-standalone-dash'},
-    ]}
->
-
-<TabItem value='gha-semgrep-dash'>
-
 <GhaSemgrepAppSastDash />
-
-</TabItem>
-
-<TabItem value='gha-standalone-dash'>
-
-<GhaSemgrepAppStandaloneDash />
-
-</TabItem>
-</Tabs>
 
 </details>
 
@@ -170,7 +133,6 @@ To add a Semgrep configuration snippet in your GitLab CI/CD pipeline:
     defaultValue="glcicd-semgrep"
     values={[
     {label: 'Default', value: 'glcicd-semgrep'},
-    {label: 'Stand-alone SAST', value: 'glcicd-standalone'},
     {label: 'Semgrep Supply Chain', value: 'glcicd-ssc'},
     ]}
 >
@@ -183,13 +145,6 @@ The following configuration creates a CI job that runs a SAST and SCA scan using
 
 </TabItem>
 
-<TabItem value='glcicd-standalone'>
-
-The following configuration creates a CI job that runs a SAST scan using Semgrep Code.
-
-<GlcicdSemgrepAppStandalone />
-
-</TabItem>
 <TabItem value='glcicd-ssc'>
 
 The following configuration creates a CI job that runs an SCA scan using Semgrep Supply Chain.
@@ -201,26 +156,7 @@ The following configuration creates a CI job that runs an SCA scan using Semgrep
 
 <details><summary>Alternate job that uploads findings to GitLab SAST Dashboard</summary>
 
-<Tabs
-    defaultValue="glcicd-semgrep-dash"
-    values={[
-    {label: 'Default', value: 'glcicd-semgrep-dash'},
-    {label: 'Stand-alone SAST', value: 'glcicd-standalone-dash'},
-    ]}
->
-
-<TabItem value='glcicd-semgrep-dash'>
-
 <GlcicdSemgrepAppSastDash />
-
-</TabItem>
-
-<TabItem value='glcicd-standalone-dash'>
-
-<GlcicdSemgrepAppStandaloneDash />
-
-</TabItem>
-</Tabs>
 
 </details>
 
@@ -244,7 +180,6 @@ To add a Semgrep configuration snippet in your Jenkins pipeline:
     defaultValue="jenkins-semgrep"
     values={[
     {label: 'Default', value: 'jenkins-semgrep'},
-    {label: 'Stand-alone SAST', value: 'jenkins-standalone'},
     {label: 'Semgrep Supply Chain', value: 'jenkins-ssc'},
     {label: 'Default (Docker)', value: 'jenkins-semgrep-docker'},
     ]}
@@ -255,14 +190,6 @@ To add a Semgrep configuration snippet in your Jenkins pipeline:
 The following configuration creates a CI job that runs a SAST and SCA scan using both Semgrep Code and Semgrep Supply Chain.
 
 <JenkinsSemgrepAppSast />
-
-</TabItem>
-
-<TabItem value='jenkins-standalone'>
-
-The following configuration creates a CI job that runs a SAST scan using Semgrep Code.
-
-<JenkinsSemgrepAppStandalone />
 
 </TabItem>
 
@@ -305,7 +232,6 @@ These steps can also be performed through BitBucket's UI wizard. This UI wizard 
     defaultValue="bitbucket-semgrep"
     values={[
     {label: 'Default', value: 'bitbucket-semgrep'},
-    {label: 'Stand-alone SAST', value: 'bitbucket-standalone'},
     {label: 'Semgrep Supply Chain', value: 'bitbucket-ssc'},
     ]}
 >
@@ -315,14 +241,6 @@ These steps can also be performed through BitBucket's UI wizard. This UI wizard 
 The following configuration creates a CI job that runs a SAST and SCA scan using both Semgrep Code and Semgrep Supply Chain.
 
 <BitbucketSemgrepAppSast />
-
-</TabItem>
-
-<TabItem value='bitbucket-standalone'>
-
-The following configuration creates a CI job that runs a SAST scan using Semgrep Code.
-
-<BitbucketSemgrepAppStandalone />
 
 </TabItem>
 
@@ -356,7 +274,6 @@ These steps can be performed from within Buildkite's interface. From Buildkite's
     defaultValue="buildkite-semgrep"
     values={[
     {label: 'Default', value: 'buildkite-semgrep'},
-    {label: 'Stand-alone SAST', value: 'buildkite-standalone'},
     {label: 'Semgrep Supply Chain', value: 'buildkite-ssc'},
     ]}
 >
@@ -366,14 +283,6 @@ These steps can be performed from within Buildkite's interface. From Buildkite's
 The following configuration creates a CI job that runs a SAST and SCA scan using both Semgrep Code and Semgrep Supply Chain.
 
 <BuildkiteSemgrepAppSast />
-
-</TabItem>
-
-<TabItem value='buildkite-standalone'>
-
-The following configuration creates a CI job that runs a SAST scan using Semgrep Code.
-
-<BuildkiteSemgrepAppStandalone />
 
 </TabItem>
 
@@ -407,7 +316,6 @@ To add Semgrep into your CircleCI pipeline:
     defaultValue="circleci-semgrep"
     values={[
     {label: 'Default', value: 'circleci-semgrep'},
-    {label: 'Stand-alone SAST', value: 'circleci-standalone'},
     {label: 'Semgrep Supply Chain', value: 'circleci-ssc'},
     ]}
 >
@@ -418,14 +326,6 @@ To add Semgrep into your CircleCI pipeline:
 The following configuration creates a CI job that runs a SAST and SCA scan using both Semgrep Code and Semgrep Supply Chain.
 
 <CircleCiSemgrepAppSast /> 
-
-</TabItem>
-
-<TabItem value='circleci-standalone'>
-
-The following configuration creates a CI job that runs a SAST scan using Semgrep Code.
-
-<CircleCiSemgrepAppStandalone /> 
 
 </TabItem>
 
@@ -455,7 +355,6 @@ To add Semgrep into Azure Pipelines:
     defaultValue="azure-semgrep"
     values={[
     {label: 'Default', value: 'azure-semgrep'},
-    {label: 'Stand-alone SAST', value: 'azure-standalone'},
     {label: 'Semgrep Supply Chain', value: 'azure-ssc'},
     ]}
 >
@@ -465,14 +364,6 @@ To add Semgrep into Azure Pipelines:
 The following configuration creates a CI job that runs a SAST and SCA scan using both Semgrep Code and Semgrep Supply Chain.
 
 <AzureSemgrepAppSast /> 
-
-</TabItem>
-
-<TabItem value='azure-standalone'>
-
-The following configuration creates a CI job that runs a SAST scan using Semgrep Code.
-
-<AzureSemgrepAppStandalone /> 
 
 </TabItem>
 
