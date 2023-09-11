@@ -11,22 +11,22 @@ description: Release notes include the changes, fixes, and additions in specific
 ## Semgrep OSS Engine
 
 :::caution
-Semgrep version 1.38.0 removed some features that may break your Semgrep workflows. See [Semgrep OSS > Removed](#removed) for more information.
+Semgrep version 1.38.0 removed some features. This change may break your Semgrep workflows. See [Semgrep OSS > Removed](#removed) for more information.
 :::
 
 This section of release notes includes upgrades of Semgrep OSS Engine for versions between **1.35.0** and **1.38.3**.
 
 ### Added
 
-- The CLI now returns the commit timestamp when running `semgrep ci`.
 - Added optional `min-version` and `max-version` fields for a Semgrep rule, specifying a range of compatible Semgrep versions.
     - If a rule is incompatible with the version of Semgrep being used, it is reported in the JSON output at the newly added `info` level, which doesn't cause an exit failure. ([#8496](https://github.com/returntocorp/semgrep/pull/8496/))
 - The `semgrep scan` command is now more resilient to failures when fetching a configuration file (config) from Semgrep servers.
     - If it can't fetch a config from Semgrep servers it will use backup infrastructure to fetch the most recent successful config for that customers environment. ([#8459](https://github.com/returntocorp/semgrep/pull/8459/))
 - `metavariable-comparison`: You can now use `in` and `not in` for strings in the same sense as in Python, for substring checking. ([#2979](https://github.com/returntocorp/semgrep/pull/8406))
-- **Julia:** Added the deep expression operator. Now you can write patterns such as `foo(<... 42 ...>)` to find instances of calls to `foo` that contain `42` somewhere inside of it. ([#8540](https://github.com/returntocorp/semgrep/pull/8540))
+- The CLI now collects the commit timestamp when running `semgrep ci`.
 - Added support for languages with case insensitive identifiers and generalized PHP to use these case insensitive identifiers.
   - For example, in PHP the pattern `MyClass()` now matches calls with different capitalizations such as `myclass()` and `Myclass()`. ([#8356](https://github.com/returntocorp/semgrep/pull/8356))
+- **Julia:** Added the deep expression operator. Now you can write patterns such as `foo(<... 42 ...>)` to find instances of calls to `foo` that contain `42` somewhere inside of it. ([#8540](https://github.com/returntocorp/semgrep/pull/8540))
 
 ### Fixed
 
