@@ -185,6 +185,10 @@ To add a Semgrep configuration snippet in your Jenkins pipeline:
     ]}
 >
 
+:::info
+For SCA scans (Semgrep Supply Chain): users of Jenkins UI with the Git plugin must also set up their branch information. See [Setting up Semgrep Supply Chain with Jenkins UI](/semgrep-supply-chain/setup-jenkins-ui) for more information.
+:::
+
 <TabItem value='jenkins-semgrep'>
 
 The following configuration creates a CI job that runs a SAST and SCA scan using both Semgrep Code and Semgrep Supply Chain.
@@ -194,10 +198,6 @@ The following configuration creates a CI job that runs a SAST and SCA scan using
 </TabItem>
 
 <TabItem value='jenkins-ssc'>
-
-:::info
-Users of Jenkins UI with the Git plugin must also set up their branch information. See [Setting up Semgrep Supply Chain with Jenkins UI](/semgrep-supply-chain/setup-jenkins-ui) for more information.
-:::
 
 The following configuration creates a CI job that runs an SCA scan using Semgrep Supply Chain.
 
