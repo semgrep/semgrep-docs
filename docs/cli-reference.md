@@ -54,7 +54,6 @@ Commands:
   lsp                  [EXPERIMENTAL] Start the Semgrep LSP server
   publish              Upload rule to semgrep.dev
   scan                 Run semgrep rules on files
-  shouldafound         Report a false negative in this project.
 ```
 
 ## Semgrep scan command options

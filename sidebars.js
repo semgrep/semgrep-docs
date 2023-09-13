@@ -417,6 +417,16 @@ module.exports = {
       items: [
         'semgrep-supply-chain/overview',
         'semgrep-supply-chain/getting-started',
+        {
+          type: 'category',
+          label: 'Infrastructure-specific configuration',
+          collapsible: true,
+          link: {type: 'doc', id: 'semgrep-supply-chain/setup-infrastructure'},
+          items: [
+          'semgrep-supply-chain/setup-maven',
+          'semgrep-supply-chain/setup-jenkins-ui',
+          ]
+        },
         'semgrep-supply-chain/triage-remediation',
         'semgrep-supply-chain/ignoring-deps',
         'semgrep-supply-chain/notifications',
@@ -482,12 +492,14 @@ module.exports = {
         label: 'Release notes',
         link: {type: 'doc', id: 'release-notes/introduction'},
         items: [
+            'release-notes/latest',
             {
               type: 'category',
               label: '2023',
               collapsible: true,
               link: {type: 'doc', id: 'release-notes/may-2023'},
               items: [
+                'release-notes/august-2023',
                 'release-notes/july-2023',
                 'release-notes/june-2023',
                 'release-notes/may-2023',

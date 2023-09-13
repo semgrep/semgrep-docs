@@ -33,6 +33,8 @@ This document describes the YAML rule syntax of Semgrep.
 | [`options`](#options)   | `object` | Options object to enable/disable certain matching features |
 | [`fix`](#fix)           | `object` | Simple search-and-replace autofix functionality  |
 | [`metadata`](#metadata) | `object` | Arbitrary user-provided data; attach data to rules without affecting Semgrep behavior |
+| [`min-version`](#min-version-and-max-version) | `string` | Minimum Semgrep version compatible with this rule |
+| [`max-version`](#min-version-and-max-version) | `string` | Maximum Semgrep version compatible with this rule |
 | [`paths`](#paths)       | `object` | Paths to include or exclude when running this rule |
 
 The below optional fields must reside underneath a `patterns` or `pattern-either` field.
@@ -255,6 +257,7 @@ The `comparison` key accepts Python expression using:
 - Function `today()` that gets today's date as a float representing epoch time.
 - Function `strptime()` that converts strings in the format `"yyyy-mm-dd"` to a float representing the date in epoch time.
 - Lists, together with the `in`, and `not in` infix operators.
+- Strings, together with the `in` and `not in` infix operators, for substring containment.
 - Function `re.match()` to match a regular expression (without the optional `flags` argument).
 
 You can use Semgrep metavariables such as `$MVAR`, which Semgrep evaluates as follows:
@@ -471,6 +474,49 @@ rules:
 
 The metadata are also displayed in the output of Semgrep if you’re running it with `--json`.
 Rules with `category: security` have additional metadata requirements. See [Including fields required by security category](/contributing/contributing-to-semgrep-rules-repository/#including-fields-required-by-security-category) for more information.
+
+## `min-version` and `max-version`
+
+Each rule supports optional fields `min-version` and `max-version` specifying
+minimum and maximum Semgrep versions. If the Semgrep
+version being used doesn't satisfy these constraints,
+the rule is skipped without causing a fatal error.
+
+Example rule:
+
+```yaml
+rules:
+  - id: bad-goflags
+    # earlier semgrep versions can't parse the pattern
+    min-version: 1.31.0
+    pattern: |
+      ENV ... GOFLAGS='-tags=dynamic -buildvcs=false' ...
+    languages: [dockerfile]
+    message: "We should not use these flags"
+    severity: WARNING
+```
+
+Another use case is when a newer version of a rule works better than
+before but relies on a new feature. In this case, we could use
+`min-version` and `max-version` to ensure that either the older or the
+newer rule is used but not both. The rules would look like this:
+
+```yaml
+rules:
+  - id: something-wrong-v1
+    max-version: 1.72.999
+    ...
+  - id: something-wrong-v2
+    min-version: 1.73.0
+    # 10x faster than v1!
+    ...
+```
+
+The `min-version`/`max-version` feature is available since Semgrep
+1.38.0. It is intended primarily for publishing rules that rely on
+newly-released features without causing errors in older Semgrep
+installations.
+
 
 ## `category`
 
