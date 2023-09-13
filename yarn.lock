@@ -9,21 +9,6 @@
   dependencies:
     "@algolia/autocomplete-shared" "1.7.1"
 
-"@algolia/autocomplete-core@1.9.3":
-  version "1.9.3"
-  resolved "https://registry.yarnpkg.com/@algolia/autocomplete-core/-/autocomplete-core-1.9.3.tgz#1d56482a768c33aae0868c8533049e02e8961be7"
-  integrity sha512-009HdfugtGCdC4JdXUbVJClA0q0zh24yyePn+KUGk3rP7j8FEe/m5Yo/z65gn6nP/cM39PxpzqKrL7A6fP6PPw==
-  dependencies:
-    "@algolia/autocomplete-plugin-algolia-insights" "1.9.3"
-    "@algolia/autocomplete-shared" "1.9.3"
-
-"@algolia/autocomplete-plugin-algolia-insights@1.9.3":
-  version "1.9.3"
-  resolved "https://registry.yarnpkg.com/@algolia/autocomplete-plugin-algolia-insights/-/autocomplete-plugin-algolia-insights-1.9.3.tgz#9b7f8641052c8ead6d66c1623d444cbe19dde587"
-  integrity sha512-a/yTUkcO/Vyy+JffmAnTWbr4/90cLzw+CC3bRbhnULr/EM0fGNvM13oQQ14f2moLMcVDyAx/leczLlAOovhSZg==
-  dependencies:
-    "@algolia/autocomplete-shared" "1.9.3"
-
 "@algolia/autocomplete-preset-algolia@1.7.1":
   version "1.7.1"
   resolved "https://registry.npmjs.org/@algolia/autocomplete-preset-algolia/-/autocomplete-preset-algolia-1.7.1.tgz"
@@ -31,22 +16,10 @@
   dependencies:
     "@algolia/autocomplete-shared" "1.7.1"
 
-"@algolia/autocomplete-preset-algolia@1.9.3":
-  version "1.9.3"
-  resolved "https://registry.yarnpkg.com/@algolia/autocomplete-preset-algolia/-/autocomplete-preset-algolia-1.9.3.tgz#64cca4a4304cfcad2cf730e83067e0c1b2f485da"
-  integrity sha512-d4qlt6YmrLMYy95n5TB52wtNDr6EgAIPH81dvvvW8UmuWRgxEtY0NJiPwl/h95JtG2vmRM804M0DSwMCNZlzRA==
-  dependencies:
-    "@algolia/autocomplete-shared" "1.9.3"
-
 "@algolia/autocomplete-shared@1.7.1":
   version "1.7.1"
   resolved "https://registry.npmjs.org/@algolia/autocomplete-shared/-/autocomplete-shared-1.7.1.tgz"
   integrity sha512-eTmGVqY3GeyBTT8IWiB2K5EuURAqhnumfktAEoHxfDY2o7vg2rSnO16ZtIG0fMgt3py28Vwgq42/bVEuaQV7pg==
-
-"@algolia/autocomplete-shared@1.9.3":
-  version "1.9.3"
-  resolved "https://registry.yarnpkg.com/@algolia/autocomplete-shared/-/autocomplete-shared-1.9.3.tgz#2e22e830d36f0a9cf2c0ccd3c7f6d59435b77dfa"
-  integrity sha512-Wnm9E4Ye6Rl6sTTqjoymD+l8DjSTHsHboVRYrKgEt8Q7UHm9nYbqhN/i0fhUYA3OAEH7WA8x3jfpnmJm3rKvaQ==
 
 "@algolia/cache-browser-local-storage@4.14.2":
   version "4.14.2"
@@ -1923,11 +1896,6 @@
   resolved "https://registry.npmjs.org/@docsearch/css/-/css-3.2.1.tgz"
   integrity sha512-gaP6TxxwQC+K8D6TRx5WULUWKrcbzECOPA2KCVMuI+6C7dNiGUk5yXXzVhc5sld79XKYLnO9DRTI4mjXDYkh+g==
 
-"@docsearch/css@3.5.1":
-  version "3.5.1"
-  resolved "https://registry.yarnpkg.com/@docsearch/css/-/css-3.5.1.tgz#4adf9884735bbfea621c3716e80ea97baa419b73"
-  integrity sha512-2Pu9HDg/uP/IT10rbQ+4OrTQuxIWdKVUEdcw9/w7kZJv9NeHS6skJx1xuRiFyoGKwAzcHXnLp7csE99sj+O1YA==
-
 "@docsearch/react@^3.1.1":
   version "3.2.1"
   resolved "https://registry.npmjs.org/@docsearch/react/-/react-3.2.1.tgz"
@@ -1936,16 +1904,6 @@
     "@algolia/autocomplete-core" "1.7.1"
     "@algolia/autocomplete-preset-algolia" "1.7.1"
     "@docsearch/css" "3.2.1"
-    algoliasearch "^4.0.0"
-
-"@docsearch/react@^3.5.1":
-  version "3.5.1"
-  resolved "https://registry.yarnpkg.com/@docsearch/react/-/react-3.5.1.tgz#35f4a75f948211d8bb6830d2147c575f96a85274"
-  integrity sha512-t5mEODdLzZq4PTFAm/dvqcvZFdPDMdfPE5rJS5SC8OUq9mPzxEy6b+9THIqNM9P0ocCb4UC5jqBrxKclnuIbzQ==
-  dependencies:
-    "@algolia/autocomplete-core" "1.9.3"
-    "@algolia/autocomplete-preset-algolia" "1.9.3"
-    "@docsearch/css" "3.5.1"
     algoliasearch "^4.0.0"
 
 "@docusaurus/core@2.4.1", "@docusaurus/core@^2.4.1":
@@ -2452,38 +2410,38 @@
   resolved "https://registry.npmjs.org/@leichtgewicht/ip-codec/-/ip-codec-2.0.3.tgz"
   integrity sha512-nkalE/f1RvRGChwBnEIoBfSEYOXnCRdleKuv6+lePbMDrMZXeDQnqak5XDOeBgrPPyPfAdcCu/B5z+v3VhplGg==
 
-"@markprompt/core@^0.11.0":
-  version "0.11.0"
-  resolved "https://registry.yarnpkg.com/@markprompt/core/-/core-0.11.0.tgz#4ee4992f8dd6a8e0ee712f749211b382dfca1538"
-  integrity sha512-g804TeLz8qc9M71U5rx/zG/SOJ7POq7gjVG+6iaqCuf5ID9QQ6C/ef9w+Lr+Hn52NU2MOT7TUG9+NnOQIHdBGw==
+"@markprompt/core@^0.15.0":
+  version "0.15.0"
+  resolved "https://registry.yarnpkg.com/@markprompt/core/-/core-0.15.0.tgz#f2d8ced6c6ba0f9a3c3ff0e8e46c3f7d03aa123f"
+  integrity sha512-ce9qWBsySt50QwPQpdP/+gbSaPIxh4knixVpfj4pEhFSR9EAI/ddpaEkYv1SkBlLvgeX9mZDhEKQ8+J/B2LdXQ==
   dependencies:
     "@algolia/client-search" "^4.19.1"
-    "@docsearch/react" "^3.5.1"
+    defaults "^2.0.2"
+    type-fest "^4.3.1"
 
-"@markprompt/css@^0.12.0":
-  version "0.12.0"
-  resolved "https://registry.yarnpkg.com/@markprompt/css/-/css-0.12.0.tgz#3b3beff7d7f853337523393addeece170389b699"
-  integrity sha512-o8r+BqeCbblnBEhb3Yp3632V2ywAg9znPeGvXGizmGeLuwMaMPDAKc63aN2kxeSc91pRWTRIBIx9BIZpfV4kDg==
+"@markprompt/css@^0.15.0":
+  version "0.15.0"
+  resolved "https://registry.yarnpkg.com/@markprompt/css/-/css-0.15.0.tgz#3856752abff35c9364cacfbfbf40c80823a38d28"
+  integrity sha512-5/+INn+8sdtouh1kSi24Ht7DyaTiSkmNQE1wKKtIcGzZNDDY2X8IfMOQSZxaytky+09pi/H6ACnmBnajCB+znw==
 
-"@markprompt/docusaurus-theme-search@^0.9.0":
-  version "0.9.0"
-  resolved "https://registry.yarnpkg.com/@markprompt/docusaurus-theme-search/-/docusaurus-theme-search-0.9.0.tgz#6f6364fc7e94efa7e87abc66145840c43ea45312"
-  integrity sha512-O3dGhEUIejW85WfAuAgLqGKkRPkT7G+oszNiHo7p0hcS9+dkrCDKFdJveEhHFJ/AqU4wryffUX8ERs+QDZQzTQ==
+"@markprompt/docusaurus-theme-search@^0.12.1":
+  version "0.12.1"
+  resolved "https://registry.yarnpkg.com/@markprompt/docusaurus-theme-search/-/docusaurus-theme-search-0.12.1.tgz#0139ac8b9ca0e1767f53aa924e60552a30d39c8f"
+  integrity sha512-yah/03a7JDmo6lmonqBEQiWnEju97V/3QijMDFJwjmbdDKC3Qlui/byVT0K55bspz1uA6VDuvomXbxeVbHmudA==
   dependencies:
     "@docusaurus/types" "^2.4.1"
-    "@markprompt/css" "^0.12.0"
-    "@markprompt/react" "0.19.0"
+    "@markprompt/css" "^0.15.0"
+    "@markprompt/react" "0.23.0"
 
-"@markprompt/react@0.19.0":
-  version "0.19.0"
-  resolved "https://registry.yarnpkg.com/@markprompt/react/-/react-0.19.0.tgz#f636a98f20f02fc82ebf4f823e0ad7f83ac937cd"
-  integrity sha512-vfhwnK3iT95a/lrI6B0lIkxS8g6YqI+P/v1z+CMyJYMMXuNTss1lQk1ku2So2hiOTEvtwga6vBarI96DygYuWQ==
+"@markprompt/react@0.23.0":
+  version "0.23.0"
+  resolved "https://registry.yarnpkg.com/@markprompt/react/-/react-0.23.0.tgz#f6a8eb33d86b39f2bece9c4606e413d23c7ddf11"
+  integrity sha512-pH3YtU0mkUeVgfJ9i+vuPGUaN17HOo/UibiyXqHTecQrxLMadfLZeHPa5YI0WjnRHuizF29vXE756dKeGaKPBA==
   dependencies:
-    "@markprompt/core" "^0.11.0"
+    "@markprompt/core" "^0.15.0"
     "@radix-ui/react-accessible-icon" "^1.0.3"
     "@radix-ui/react-dialog" "^1.0.4"
     "@radix-ui/react-visually-hidden" "^1.0.3"
-    "@react-spring/web" "^9.7.3"
     clsx "^2.0.0"
     emittery "^1.0.1"
     p-debounce "^4.0.0"
@@ -2709,45 +2667,6 @@
   dependencies:
     "@babel/runtime" "^7.13.10"
     "@radix-ui/react-primitive" "1.0.3"
-
-"@react-spring/animated@~9.7.3":
-  version "9.7.3"
-  resolved "https://registry.yarnpkg.com/@react-spring/animated/-/animated-9.7.3.tgz#4211b1a6d48da0ff474a125e93c0f460ff816e0f"
-  integrity sha512-5CWeNJt9pNgyvuSzQH+uy2pvTg8Y4/OisoscZIR8/ZNLIOI+CatFBhGZpDGTF/OzdNFsAoGk3wiUYTwoJ0YIvw==
-  dependencies:
-    "@react-spring/shared" "~9.7.3"
-    "@react-spring/types" "~9.7.3"
-
-"@react-spring/core@~9.7.3":
-  version "9.7.3"
-  resolved "https://registry.yarnpkg.com/@react-spring/core/-/core-9.7.3.tgz#60056bcb397f2c4f371c6c9a5f882db77ae90095"
-  integrity sha512-IqFdPVf3ZOC1Cx7+M0cXf4odNLxDC+n7IN3MDcVCTIOSBfqEcBebSv+vlY5AhM0zw05PDbjKrNmBpzv/AqpjnQ==
-  dependencies:
-    "@react-spring/animated" "~9.7.3"
-    "@react-spring/shared" "~9.7.3"
-    "@react-spring/types" "~9.7.3"
-
-"@react-spring/shared@~9.7.3":
-  version "9.7.3"
-  resolved "https://registry.yarnpkg.com/@react-spring/shared/-/shared-9.7.3.tgz#4cf29797847c689912aec4e62e34c99a4d5d9e53"
-  integrity sha512-NEopD+9S5xYyQ0pGtioacLhL2luflh6HACSSDUZOwLHoxA5eku1UPuqcJqjwSD6luKjjLfiLOspxo43FUHKKSA==
-  dependencies:
-    "@react-spring/types" "~9.7.3"
-
-"@react-spring/types@~9.7.3":
-  version "9.7.3"
-  resolved "https://registry.yarnpkg.com/@react-spring/types/-/types-9.7.3.tgz#ea78fd447cbc2612c1f5d55852e3c331e8172a0b"
-  integrity sha512-Kpx/fQ/ZFX31OtlqVEFfgaD1ACzul4NksrvIgYfIFq9JpDHFwQkMVZ10tbo0FU/grje4rcL4EIrjekl3kYwgWw==
-
-"@react-spring/web@^9.7.3":
-  version "9.7.3"
-  resolved "https://registry.yarnpkg.com/@react-spring/web/-/web-9.7.3.tgz#d9f4e17fec259f1d65495a19502ada4f5b57fa3d"
-  integrity sha512-BXt6BpS9aJL/QdVqEIX9YoUy8CE6TJrU0mNCqSoxdXlIeNcEBWOfIyE6B14ENNsyQKS3wOWkiJfco0tCr/9tUg==
-  dependencies:
-    "@react-spring/animated" "~9.7.3"
-    "@react-spring/core" "~9.7.3"
-    "@react-spring/shared" "~9.7.3"
-    "@react-spring/types" "~9.7.3"
 
 "@sideway/address@^4.1.3":
   version "4.1.4"
@@ -4483,6 +4402,11 @@ default-gateway@^6.0.3:
   integrity sha512-fwSOJsbbNzZ/CUFpqFBqYfYNLj1NbMPm8MMCIzHjC83iSJRBEGmDUxU+WP661BaBQImeC2yHwXtz+P/O9o+XEg==
   dependencies:
     execa "^5.0.0"
+
+defaults@^2.0.2:
+  version "2.0.2"
+  resolved "https://registry.yarnpkg.com/defaults/-/defaults-2.0.2.tgz#63dccc0d0b8a093f3ac91c1a5da7c249d38d5af5"
+  integrity sha512-cuIw0PImdp76AOfgkjbW4VhQODRmNNcKR73vdCH5cLd/ifj7aamfoXvYgfGkEAjNJZ3ozMIy9Gu2LutUkGEPbA==
 
 defer-to-connect@^1.0.1:
   version "1.1.3"
@@ -9077,6 +9001,11 @@ type-fest@^2.5.0:
   version "2.12.2"
   resolved "https://registry.npmjs.org/type-fest/-/type-fest-2.12.2.tgz"
   integrity sha512-qt6ylCGpLjZ7AaODxbpyBZSs9fCI9SkL3Z9q2oxMBQhs/uyY+VD8jHA8ULCGmWQJlBgqvO3EJeAngOHD8zQCrQ==
+
+type-fest@^4.3.1:
+  version "4.3.1"
+  resolved "https://registry.yarnpkg.com/type-fest/-/type-fest-4.3.1.tgz#5cb58cdab5120f7ab0b40cfdc35073fb9adb651d"
+  integrity sha512-pphNW/msgOUSkJbH58x8sqpq8uQj6b0ZKGxEsLKMUnGorRcDjrUaLS+39+/ub41JNTwrrMyJcUB8+YZs3mbwqw==
 
 type-is@~1.6.18:
   version "1.6.18"
