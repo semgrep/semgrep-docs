@@ -93,7 +93,7 @@ Semgrep Supply Chain parses **lockfiles** for dependencies, then scans your code
    <td><code>go.mod</code></td>
    <td style={{"text-align": "center"}}>✔️ Yes</td>
    <td style={{"text-align": "center"}}>GA</td>
-   <td rowspan="12">Since May 2022</td>
+   <td rowspan="14">Since May 2022</td>
   </tr>
   <tr>
    <td rowspan="3">JavaScript / TypeScript</td>
@@ -163,6 +163,20 @@ Semgrep Supply Chain parses **lockfiles** for dependencies, then scans your code
    <td>Rust</td>
    <td>Cargo</td>
    <td><code>cargo.lock</code></td>
+   <td style={{"text-align": "center"}}>✔️ Yes</td>
+   <td style={{"text-align": "center"}}>Lockfile-only</td>
+</tr>
+<tr>
+   <td>PHP</td>
+   <td>Composer</td>
+   <td><code>composer.lock</code></td>
+   <td style={{"text-align": "center"}}>✔️ Yes</td>
+   <td style={{"text-align": "center"}}>Lockfile-only</td>
+</tr>
+<tr>
+   <td>C#</td>
+   <td>NuGet</td>
+   <td><code>packages.lock.json</code></td>
    <td style={{"text-align": "center"}}>✔️ Yes</td>
    <td style={{"text-align": "center"}}>Lockfile-only</td>
 </tr>
