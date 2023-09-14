@@ -44,7 +44,7 @@
   --markprompt-mutedForeground: #737373;
   --markprompt-border: #e5e5e5;
   --markprompt-input: #fff;
-  --markprompt-primary: #77dec0 !important; /* Highlight on search term */
+  --markprompt-primary: var(--ifm-color-primary) !important; /* Highlight on search term */
   --markprompt-primaryForeground: #fff;
   --markprompt-primaryMuted: #DFF7F0 !important; /* Pill in list item */
   --markprompt-secondary: #fafafa;
@@ -63,9 +63,38 @@
   --markprompt-ring-offset-shadow: 0 0 #0000;
 }
 
-.MarkpromptSearchResults a {
-  text-decoration: none !important;
+.MarkpromptSearchResult[aria-selected="true"] a {
+  background-color: var(--ifm-color-primary-lightest);
+  border: 1px solid var(--ifm-color-primary-lighter);
+
+  .MarkpromptMatch, 
+  .MarkpromptSearchResultSubtitle {
+    border-color: var(--ifm-color-primary-lighter);
+    color: var(--ifm-color-primary-darker);
+  }
+
+  .MarkpromptSearchResultIconWrapperBordered,
+  .MarkpromptSearchResultIcon {
+    color: var(--ifm-color-primary-dark);
+    border-color: var(--ifm-color-primary-lighter);
+  }
 }
+
+.MarkpromptSearchResultHeading {
+  font-weight: 500;
+  background-color: transparent;
+  padding: 0;
+  margin: 0;
+  border:none;
+}
+
+.MarkpromptSearchResults a,
+.MarkpromptSearchResultSubtitle {
+  text-decoration: none !important;
+  color: #444; // placeholder; replace with theme color if there's a similar one
+  font-weight: 600;
+}
+
 /******************************************************************************
  *                                                                            *
  * THEME AND COLORS                                                           *
