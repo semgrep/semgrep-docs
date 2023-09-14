@@ -89,7 +89,7 @@
 }
 
 .MarkpromptSearchResults a,
-.MarkpromptSearchResultSubtitle {
+.MarkpromptSearchResult[aria-selected="true"] a .MarkpromptSearchResultSubtitle {
   text-decoration: none !important;
   color: #444; // placeholder; replace with theme color if there's a similar one
   font-weight: 600;
