@@ -492,12 +492,14 @@ module.exports = {
         label: 'Release notes',
         link: {type: 'doc', id: 'release-notes/introduction'},
         items: [
+            'release-notes/latest',
             {
               type: 'category',
               label: '2023',
               collapsible: true,
               link: {type: 'doc', id: 'release-notes/may-2023'},
               items: [
+                'release-notes/august-2023',
                 'release-notes/july-2023',
                 'release-notes/june-2023',
                 'release-notes/may-2023',
