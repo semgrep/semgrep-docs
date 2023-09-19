@@ -17,7 +17,7 @@ import TabItem from '@theme/TabItem';
 Receive GPT-4-powered security recommendations designed to reduce the time spent when reviewing Semgrep Code findings. Semgrep Assistant can leave comments in pull requests (PRs) and Slack notifications. These comments provide recommendations for triage and code remediation, such as assessing if a finding is a true or false positive.
 
 ![Screenshot of Semgrep Assistant message in GitHub](/img/semgrep-assistant-github.png)
-*Figure 1*. Semgrep Assistant detecting a false positive.
+*Figure*. Semgrep Assistant detecting a false positive.
 
 This document provides an overview of the following:
 
@@ -94,9 +94,10 @@ Semgrep gets API permissions to access code on your pre-selected GitHub reposito
     3. You are redirected back to Semgrep Cloud Platform. Click **Install**.
 7. You are redirected to the **Settings** page. In the **Code** section, Click **Auto-triage with Semgrep Assistant** <i class="fa-solid fa-toggle-large-on"></i>.
     ![Screenshot of Semgrep Assistant toggle location](/img/semgrep-assistant-enable.png)
-8. Check <i class="fa-solid fa-square-check"></i> **PR/MR Comments** to receive comments.
-9. Check <i class="fa-solid fa-square-check"></i> **Slack notifications** to receive Slack notifications.
+8. Click <i class="fa-solid fa-square-check"></i> **PR/MR Comments** to receive comments.
+9. Click <i class="fa-solid fa-square-check"></i> **Slack notifications** to receive Slack notifications.
 
+Semgrep Assistant is now enabled and appears in future PRs. 
 </TabItem>
 
 <TabItem value='gitlab'>
@@ -107,34 +108,31 @@ Semgrep gets API permissions to access code on your pre-selected GitHub reposito
 * You have successfully set up your GitLab repository to receive MR comments from Semgrep.
     * To set up MR comments, perform the steps in [GitLab MR comments documentation](/semgrep-cloud-platform/gitlab-mr-comments). 
 * You have set rules to **Comment** or **Block** mode in your [<i class="fas fa-external-link fa-sm"></i> Policies page](https://semgrep.dev/orgs/-/policies).
-
 :::
 
-1. Sign in to [Semgrep Cloud Platform](https://semgrep.dev/login).
+1. Sign in to [Semgrep Cloud Platform <i class="fas fa-external-link fa-xs"></i>](https://semgrep.dev/login) using your GitLab account.
 2. Click **[<i class="fa-solid fa-gear"></i> Settings](https://semgrep.dev/orgs/-/settings/)**. 
-3. In the **Products** section, on the **Assistant** entry, click **Set up**.
-![Screenshot of Semgrep Assistant setup button](/img/semgrep-assistant-setup.png#md-width)
-4. Approve the Semgrep Assistant terms of service.
-5. Provide the GitHub namespace to install Semgrep Assistant to. This is usually your account or organization name.
-6. You are redirected to the Semgrep Assistant installation page. The steps are as follows:
-    1. You must create a private `semgrep-app` in GitHub if you do not have one already. Click **Create app** under step 3 to do this.
-    2. You are redirected to GitHub. Follow the instructions to create a private `semgrep-app`.
-    3. You are redirected back to Semgrep Cloud Platform. Click **Install**.
-7. You are redirected to the **Settings** page. In the **Code** section, Click **Auto-triage with Semgrep Assistant** <i class="fa-solid fa-toggle-large-on"></i>.
+3. In the **Products** section, on the **Assistant** entry, click the **toggle <i class="fa-solid fa-toggle-large-on"></i>**.
+![Screenshot of Semgrep Assistant setup button](/img/semgrep-assistant-gl-setup.png#md-width)
+4. Click **Accept & enable Assistant** to accept the Semgrep Assistant terms of service.
+5. In the **Code** section, Click **Auto-triage with Semgrep Assistant** <i class="fa-solid fa-toggle-large-on"></i>.
     ![Screenshot of Semgrep Assistant toggle location](/img/semgrep-assistant-enable.png)
-8. Check <i class="fa-solid fa-square-check"></i> **PR/MR Comments** to receive comments.
-9. Check <i class="fa-solid fa-square-check"></i> **Slack notifications** to receive Slack notifications.
+8. Click <i class="fa-solid fa-square-check"></i> **PR/MR Comments** to receive comments.
+9. Click <i class="fa-solid fa-square-check"></i> **Slack notifications** to receive Slack notifications.
+
+You have successfully enabled Semgrep Assistant for cloud-hosted GitLab plans.
+![MR comment from Semgrep Assistant in GitLab](/img/assistant-gl-comment.png#md-width)
+*Figure*. MR comment from Semgrep Assistant in GitLab.
 
 </TabItem>
 </Tabs>
 
 ![Screenshot of Semgrep Assistant in a Slack notification](/img/semgrep-assistant-slack.png)
-*Figure 2*. Screenshot of Semgrep Assistant in a Slack notification.
+*Figure*. Semgrep Assistant in a Slack notification.
 
-Semgrep Assistant is now enabled and appears in future PRs. To further customize Semgrep Assistant, see:
+To further customize Semgrep Assistant, see:
 
 * [Suggesting autofix code snippets to resolve the finding](#suggesting-autofix-code-snippets-to-resolve-the-finding)
-
 
 :::caution Not receiving PR comments?
 Semgrep Assistant messages only appear in your PR comments for rules that are set to Comment or Block mode in the Rule Management page. Ensure the following:
@@ -168,6 +166,6 @@ A low confidence level is recommended as even incorrect suggestions may be usefu
 :::
 
 ![ Screenshot of Semgrep Assistant generating a potential fix](/img/semgrep-assistant-autofix.png)
-*Figure 3*. Screenshot of Semgrep Assistant generating a potential fix.
+*Figure*. Semgrep Assistant generating a potential fix.
 
 <MoreHelp />
