@@ -1,0 +1,34 @@
+# Name of this GitHub Actions workflow.
+name: Update help command
+
+on:
+  # Scan on-demand through GitHub Actions interface:
+  workflow_dispatch: {}
+
+jobs:
+  update-output:
+    name: Update `--help` and `--help scan` command output 
+    runs-on: ubuntu-latest
+
+    container:
+      # A Docker image with Semgrep installed. Do not change this.
+      image: returntocorp/semgrep:latest
+
+    steps:
+      # Fetch project source with GitHub Actions Checkout.
+      - uses: actions/checkout@v4
+      # Run the "semgrep ci" command on the command line of the docker image.
+      - run: |
+          semgrep --help | tee src/components/reference/_cli-help-output.md
+          sed -i '1i```' src/components/reference/_cli-help-output.md
+          echo '```' >> src/components/reference/_cli-help-output.md
+      - run: |
+          semgrep scan --help | tee src/components/reference/_cli-help-scan-output.md
+          sed -i '1i```' src/components/reference/_cli-help-scan-output.md
+          echo '```' >> src/components/reference/_cli-help-scan-output.md
+      - run: |
+          git config user.name github-actions
+          git config user.email github-actions@github.com
+          git add .
+          git commit -m "Updated help command output based on latest Semgrep release"
+          git push
