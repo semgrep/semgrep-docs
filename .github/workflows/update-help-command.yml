@@ -1,0 +1,33 @@
+# Name of this GitHub Actions workflow.
+name: Update help command
+
+on:
+  repository_dispatch:
+    types: [new_release]
+
+jobs:
+  update-output:
+    name: Update `--help` and `--help scan` command output 
+    runs-on: ubuntu-latest
+
+    steps:
+      # Fetch project source with GitHub Actions Checkout.
+      - uses: actions/checkout@v4
+      - name: Run `semgrep --help` and update reference file with output
+        run: |
+          docker run --rm returntocorp/semgrep:latest semgrep --help | tee src/components/reference/_cli-help-output.md
+          sed -i '1i```' src/components/reference/_cli-help-output.md
+          echo '```' >> src/components/reference/_cli-help-output.md
+      - name: Run `semgrep scan --help` and update reference file with output
+        run: |
+          docker run --rm returntocorp/semgrep:latest semgrep scan --help | tee src/components/reference/_cli-help-scan-output.md
+          sed -i '1i```' src/components/reference/_cli-help-scan-output.md
+          echo '```' >> src/components/reference/_cli-help-scan-output.md
+      - name: Commit changed reference files to repo
+        run: |
+          git config user.name github-actions
+          git config user.email github-actions@github.com
+          git add .
+          git diff-index --quiet HEAD || \
+          git commit -m "Updated help command output based on latest Semgrep release"
+          git push
