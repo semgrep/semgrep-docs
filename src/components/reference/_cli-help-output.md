@@ -1,0 +1,21 @@
+```
+Usage: semgrep [OPTIONS] COMMAND [ARGS]...
+
+  To get started quickly, run `semgrep scan --config auto`
+
+  Run `semgrep SUBCOMMAND --help` for more information on each subcommand
+
+  If no subcommand is passed, will run `scan` subcommand by default
+
+Options:
+  -h, --help  Show this message and exit.
+
+Commands:
+  ci                   The recommended way to run semgrep in CI
+  install-semgrep-pro  Install the Semgrep Pro Engine
+  login                Obtain and save credentials for semgrep.dev
+  logout               Remove locally stored credentials to semgrep.dev
+  lsp                  [EXPERIMENTAL] Start the Semgrep LSP server
+  publish              Upload rule to semgrep.dev
+  scan                 Run semgrep rules on files
+```
