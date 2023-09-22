@@ -44,9 +44,21 @@ Semgrep Code supports over 30 languages and counting! 🚀
 
 ### Maturity levels
 
-#### Language maturity factors
+#### Language maturity factors (Pro Engine)
+Semgrep Pro Engine has two maturity levels:
+* Generally available (GA) 
+* Beta
 
-Semgrep OSS Engine has three maturity levels. Semgrep Code has the same maturity level as Semgrep OSS Engine for any supported language. The maturity levels are the following:
+
+**Generally Available**: Receives highest quality support from the Semgrep team. Reported issues are resolved promptly and timelines for fixes are communicated to customers within 2 weeks.
+
+**Beta**: Supported by the Semgrep team. Reported issues are tracked and prioritized to be fixed after GA languages.
+
+
+
+#### Language maturity factors (OSS Engine)
+
+Semgrep OSS Engine has three maturity levels:
 * Generally available (GA) 
 * Beta
 * Experimental 
