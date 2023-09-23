@@ -30,10 +30,69 @@
   --ifm-footer-link-hover-color: #00c292;
   --ifm-menu-link-sublist-icon-filter: invert(16%) sepia(98%) saturate(3800%)
     hue-rotate(154deg) brightness(30%) contrast(88%);
-  
+
   --ifm-code-font-size: 95%;
   --ifm-font-family-monospace: "JetBrains Mono", "Menlo", "Courier New", monospace;
   --ifm-navbar-height: 78px;
+
+  /**************************************************************************
+   * MARKPROMPT                                                             *
+   *************************************************************************/
+  --markprompt-background: #fff;
+  --markprompt-foreground: #171717;
+  --markprompt-muted: #fafafa;
+  --markprompt-mutedForeground: #737373;
+  --markprompt-border: #e5e5e5;
+  --markprompt-input: #fff;
+  --markprompt-primary: var(--ifm-color-primary) !important; /* Highlight on search term */
+  --markprompt-primaryForeground: #fff;
+  --markprompt-primaryMuted: #DFF7F0 !important; /* Pill in list item */
+  --markprompt-secondary: #fafafa;
+  --markprompt-secondaryForeground: #171717;
+  --markprompt-primaryHighlight: #ec4899;
+  --markprompt-secondaryHighlight: #a855f7;
+  --markprompt-overlay: #00000010;
+  --markprompt-ring: #0ea5e9;
+  --markprompt-radius: 8px;
+  --markprompt-text-size: 0.875rem;
+  --markprompt-text-size-xs: 0.75rem;
+  --markprompt-button-icon-size: 1rem;
+  --markprompt-icon-stroke-width: 2px;
+  --markprompt-shadow: 0 1px 2px 0 #0000000d;
+  --markprompt-ring-shadow: 0 0 #0000;
+  --markprompt-ring-offset-shadow: 0 0 #0000;
+}
+
+.MarkpromptSearchResult[aria-selected="true"] a {
+  background-color: var(--ifm-color-primary-lightest);
+  border: 1px solid var(--ifm-color-primary-lighter);
+
+  .MarkpromptMatch,
+  .MarkpromptSearchResultSubtitle {
+    border-color: var(--ifm-color-primary-lighter);
+    color: var(--ifm-color-primary-darker);
+  }
+
+  .MarkpromptSearchResultIconWrapperBordered,
+  .MarkpromptSearchResultIcon {
+    color: var(--ifm-color-primary-dark);
+    border-color: var(--ifm-color-primary-lighter);
+  }
+}
+
+.MarkpromptSearchResultHeading {
+  font-weight: 500;
+  background-color: transparent;
+  padding: 0;
+  margin: 0;
+  border:none;
+}
+
+.MarkpromptSearchResults a,
+.MarkpromptSearchResult[aria-selected="true"] a .MarkpromptSearchResultSubtitle {
+  text-decoration: none !important;
+  color: #444; // placeholder; replace with theme color if there's a similar one
+  font-weight: 600;
 }
 
 /******************************************************************************
@@ -81,7 +140,60 @@ html[data-theme="dark"] {
   --ifm-menu-color-background-hover: var(--ifm-color-primary-darkest);
   --ifm-menu-color-background-active: var(--ifm-color-primary-darkest);
   --docsearch-highlight-color: var(--ifm-color-primary-darker);
+
+  /**************************************************************************
+   * MARKPROMPT                                                             *
+   *************************************************************************/
+  --markprompt-background: #050505;
+  --markprompt-foreground: #d4d4d4;
+  --markprompt-muted: #171717;
+  --markprompt-mutedForeground: #737373;
+  --markprompt-border: #262626;
+  --markprompt-input: #fff;
+  --markprompt-primary: #008456 !important;
+  --markprompt-primaryForeground: #fff;
+  --markprompt-primaryMuted: #8285f4;
+  --markprompt-secondary: #0e0e0e;
+  --markprompt-secondaryForeground: #fff;
+  --markprompt-primaryHighlight: #ec4899;
+  --markprompt-secondaryHighlight: #a855f7;
+  --markprompt-overlay: #00000040;
+  --markprompt-ring: #fff;
+
+
+  .MarkpromptSearchResult[aria-selected="true"] a {
+    background-color: var(--ifm-color-primary-darkest);
+    border: 1px solid var(--ifm-color-primary-darker);
+
+    .MarkpromptMatch,
+    .MarkpromptSearchResultSubtitle {
+      border-color: var(--ifm-color-primary-darker);
+      color: var(--ifm-color-primary-lighter);
+    }
+
+    .MarkpromptSearchResultIconWrapperBordered,
+    .MarkpromptSearchResultIcon {
+      color: var(--ifm-color-primary-light);
+      border-color: var(--ifm-color-primary-darker);
+    }
+  }
+
+  .MarkpromptSearchResultHeading {
+    font-weight: 500;
+    background-color: transparent;
+    padding: 0;
+    margin: 0;
+    border:none;
 }
+
+  .MarkpromptSearchResults a,
+  .MarkpromptSearchResult[aria-selected="true"] a .MarkpromptSearchResultSubtitle {
+    text-decoration: none !important;
+    color: #444; // placeholder; replace with theme color if there's a similar one
+    font-weight: 600;
+  }
+}
+
 
 /* begin customized styles for Semgrep docs */
 /* color vars are overwritten above */
