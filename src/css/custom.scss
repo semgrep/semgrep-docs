@@ -67,7 +67,7 @@
   background-color: var(--ifm-color-primary-lightest);
   border: 1px solid var(--ifm-color-primary-lighter);
 
-  .MarkpromptMatch, 
+  .MarkpromptMatch,
   .MarkpromptSearchResultSubtitle {
     border-color: var(--ifm-color-primary-lighter);
     color: var(--ifm-color-primary-darker);
@@ -159,7 +159,41 @@ html[data-theme="dark"] {
   --markprompt-secondaryHighlight: #a855f7;
   --markprompt-overlay: #00000040;
   --markprompt-ring: #fff;
+
+
+  .MarkpromptSearchResult[aria-selected="true"] a {
+    background-color: var(--ifm-color-primary-darkest);
+    border: 1px solid var(--ifm-color-primary-darker);
+
+    .MarkpromptMatch,
+    .MarkpromptSearchResultSubtitle {
+      border-color: var(--ifm-color-primary-darker);
+      color: var(--ifm-color-primary-lighter);
+    }
+
+    .MarkpromptSearchResultIconWrapperBordered,
+    .MarkpromptSearchResultIcon {
+      color: var(--ifm-color-primary-light);
+      border-color: var(--ifm-color-primary-darker);
+    }
+  }
+
+  .MarkpromptSearchResultHeading {
+    font-weight: 500;
+    background-color: transparent;
+    padding: 0;
+    margin: 0;
+    border:none;
 }
+
+  .MarkpromptSearchResults a,
+  .MarkpromptSearchResult[aria-selected="true"] a .MarkpromptSearchResultSubtitle {
+    text-decoration: none !important;
+    color: #444; // placeholder; replace with theme color if there's a similar one
+    font-weight: 600;
+  }
+}
+
 
 /* begin customized styles for Semgrep docs */
 /* color vars are overwritten above */
