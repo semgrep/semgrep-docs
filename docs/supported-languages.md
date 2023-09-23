@@ -160,6 +160,12 @@ Semgrep Supply Chain parses **lockfiles** for dependencies, then scans your code
    <td style={{"text-align": "center"}}>GA</td>
   </tr>
 <tr>
+   <td>C#</td>
+   <td>NuGet</td>
+   <td><code>packages.lock.json</code></td>
+   <td style={{"text-align": "center"}}>Beta</td>
+</tr>
+<tr>
    <td>Rust</td>
    <td>Cargo</td>
    <td><code>cargo.lock</code></td>
@@ -169,12 +175,6 @@ Semgrep Supply Chain parses **lockfiles** for dependencies, then scans your code
    <td>PHP</td>
    <td>Composer</td>
    <td><code>composer.lock</code></td>
-   <td style={{"text-align": "center"}}>Lockfile-only</td>
-</tr>
-<tr>
-   <td>C#</td>
-   <td>NuGet</td>
-   <td><code>packages.lock.json</code></td>
    <td style={{"text-align": "center"}}>Lockfile-only</td>
 </tr>
   </tbody>
