@@ -4,7 +4,6 @@ This code snippet uses Jenkins declarative syntax.
 pipeline {
   agent any
     environment {
-      SEMGREP_RULES = "p/default" 
       SEMGREP_BRANCH = "${GIT_BRANCH}"
 
       // Uncomment the following line to scan changed 
@@ -15,7 +14,7 @@ pipeline {
       stage('Semgrep-Scan') {
         steps {
           sh 'pip3 install semgrep'
-          sh 'semgrep ci'
+          sh 'semgrep ci --code'
       }
     }
   }
