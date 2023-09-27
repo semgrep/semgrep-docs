@@ -71,7 +71,6 @@ Add yours [with a pull request](https://github.com/returntocorp/semgrep-docs)!
 - [libsast](https://github.com/ajinabraham/libsast)
 - [mobsfscan](https://github.com/MobSF/mobsfscan)
 - [nodejsscan](https://github.com/ajinabraham/nodejsscan)
-- [SALUS](https://github.com/coinbase/salus/blob/master/docs/scanners/semgrep.md)
 - [ScanMyCode CE (Community Edition)](https://github.com/marcinguy/scanmycode-ce) 
 - [SecObserve](https://github.com/MaibornWolff/SecObserve)
 
