@@ -18,6 +18,7 @@ Your contributions can help in various places:
 | Contribute rules to the Semgrep Registry. | Add new rules through Semgrep Cloud Platform or GitHub. See [Contributing rules](/contributing/contributing-to-semgrep-rules-repository/). |
 | Update the documentation you are reading right now! | Create a PR or an issue in the [Documentation repository](https://github.com/returntocorp/semgrep-docs). |
 | File an issue for our Semgrep Visual Studio Code extension or help us to improve it. |See the [semgrep-vscode](https://github.com/returntocorp/semgrep-vscode) repository. |
+| File an issue for our Semgrep IntelliJ Plugin help us to improve it. |See the [semgrep-intellij](https://github.com/returntocorp/semgrep-intellij) repository. |
 | Help others in the community. | Check [Semgrep Community Slack](https://go.semgrep.dev/slack). |
 
 For any contribution to Semgrep code (bug fix or fixed issue, feature), read more about development workflow and testing in the [contribution guidelines](contributing-code.md). For a high-level view of Semgrep’s design principles, see the [Semgrep OSS Engine philosophy](../contributing/philosophy.md).
