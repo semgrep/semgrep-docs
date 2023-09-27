@@ -3,7 +3,7 @@ slug: setup-jenkins-ui
 append_help_link: true
 title: Jenkins UI
 hide_title: true
-description: todo
+description: Configure Jenkins to send the correct branch name to Semgrep Cloud Platform.
 tags:
   - Semgrep Supply Chain
   - Team & Enterprise Tier
@@ -21,7 +21,7 @@ Object.entries(frontMatter).filter(
 
 # Setting up Semgrep Supply Chain with Jenkins UI
 
-When running a CI job, the Jenkins UI Git plugin creates a detached `HEAD` ref. This causes Semgrep Supply Chain (SSC) to mistakenly send a repository's branch name as `HEAD` to Semgrep Cloud Platform (SCP), instead of using the actual branch name. As a result, Jenkins may not be sending Supply Chain findings to your SCP account. This document explains how to set up Jenkins to fix this behavior for users of the **Jenkins UI Git plugin**. 
+When running a CI job, the Jenkins UI Git plugin creates a detached `HEAD` ref by default. This causes Semgrep Supply Chain (SSC) to send a repository's branch name as `HEAD` to Semgrep Cloud Platform (SCP), instead of using the actual branch name. As a result, the Supply Chain findings may not display by default. This document explains how to set up Jenkins to fix this behavior for users of the **Jenkins UI Git plugin**.
 
 :::info Prerequisites
 To receive Semgrep Supply Chain findings, you must [add or onboard a project](/semgrep-code/getting-started/#option-b-adding-a-repository-from-github-gitlab-or-bitbucket) (repository) to Semgrep Cloud Platform for scanning.
@@ -29,7 +29,7 @@ To receive Semgrep Supply Chain findings, you must [add or onboard a project](/s
 
 ## Verifying that there are findings to send to SCP
 
-These steps are optional but it is recommended to perform the following procedure to verify that there are findings that Semgrep Cloud Platform is not receiving from your Jenkins UI.
+These steps are optional, but it is recommended to perform the following procedure to verify that there are findings that Semgrep Cloud Platform is not displaying from your Jenkins job.
 
 1. Sign into Jenkins.
 2. Select the project that runs Semgrep Supply Chain scans.
