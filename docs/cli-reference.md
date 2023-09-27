@@ -50,20 +50,6 @@ Command output:
 
 <CLIHelpScanOutput />
 
-## Autocomplete
-
-The Semgrep command line tool supports autocomplete on all command options, and on configuration rulesets. When typing any option or option parameter, press <kbd>Tab ↹</kbd> twice to use. If you type a registry ruleset name (`semgrep --config p/`'), Semgrep autocompletes any matching options that are publicly available in the registry. For example: `semgrep --config p/` lists all publicly available rulesets, and `semgrep --config p/java<tab><tab>` lists all available rulesets that start with "java". Note: ruleset autocomplete requires internet connection, and it does not autocomplete private rulesets or individual rules.
-
-To enable add the corresponding line to the correct profile given by the table below, corresponding to your shell configuration:
-
-| Shell | File                                      | Add Line                                           |
-| :---- | :---------------------------------------- | :------------------------------------------------- |
-| Bash  | ` ~/.bashrc`                              | `eval "$(_SEMGREP_COMPLETE=bash_source semgrep)"`  |
-| ZSH   | `~/.zshrc`                                | `eval "$(_SEMGREP_COMPLETE=zsh_source semgrep)"`   |
-| Fish  | `~/.config/fish/completions/foo-bar.fish` | `eval (env _SEMGREP_COMPLETE=fish_source semgrep)` |
-
-After modifying your shell configuration, you must start a new shell for the changes to take effect.
-
 ## Ignoring Files
 
 The Semgrep command line tool supports a `.semgrepignore` file that follows `.gitignore` syntax and is used to skip files and directories during scanning. This is commonly used to avoid vendored and test related code. For a complete example, see the [.semgrepignore file on Semgrep’s source code](https://github.com/returntocorp/semgrep/blob/develop/.semgrepignore).
