@@ -78,8 +78,8 @@ export HTTPS_PROXY="http://10.10.1.10:1080"
 
 Semgrep can finish with the following exit codes:
 
-- **0**: Semgrep ran successfully and found no errors (or did find errors, but the `--error` flag is **not** set).
-- **1**: Semgrep ran successfully and found issues in your code (and the `--error` flag is set).
+- **0**: Semgrep ran successfully and found no errors (or did find errors, but the `--error` flag is **not** being used).
+- **1**: Semgrep ran successfully and found issues in your code (while using the `--error` flag).
 - **2**: Semgrep failed.
 - **3**: Invalid syntax of the scanned language. This error occurs only while using the `--strict` flag.
 - **4**: Semgrep encountered an invalid pattern in the rule schema.
