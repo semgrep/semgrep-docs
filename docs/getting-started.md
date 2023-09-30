@@ -66,8 +66,9 @@ To install and run Semgrep, use one of the following options:
       ```sh
       semgrep login
       ```
-  4. A modal appears after logging in to SCP. Create an account, known as an **organization** in Semgrep Cloud Platform. Note that you can further set up organizations to integrate with GitHub accounts (both personal and org account types) or GitLab accounts.
-  5. After creating an account in the previous step, you can return to the CLI and run the following command.
+      This command automatically opens a new tab or browser window, or click the link in the CLI to complete the step.
+  4. A modal appears after logging in to SCP. Click **Create an organization**. Note that you can further integrate organizations (orgs) with GitLab accounts and GitHub accounts, including personal and org accounts, after you complete this procedure.
+  5. After creating an organization in the previous step, return to the CLI and run a scan:
       ```sh
      semgrep ci
       ```
@@ -89,8 +90,9 @@ To install and run Semgrep, use one of the following options:
       ```sh
       semgrep login
       ```
-  4. A modal appears after logging in to SCP. Create an account, known as an **organization** in Semgrep Cloud Platform. Note that you can set up organizations to integrate with GitHub accounts (both personal and org account types) or GitLab accounts after completing this procedure.
-  5. After creating an account in the previous step, you can return to the CLI and run the following command.
+      This command automatically opens a new tab or browser window, or click the link in the CLI to complete the step.
+  4. A modal appears after logging in to SCP. Click **Create an organization**. Note that you can further integrate organizations (orgs) with GitLab accounts and GitHub accounts, including personal and org accounts, after you complete this procedure.
+  5. After creating an organization in the previous step, return to the CLI and run a scan: 
       ```sh
      semgrep ci
       ```
@@ -111,13 +113,13 @@ You must have Windows Subsystem for Linux installed. To install WSL, refer to Mi
       ```sh
       semgrep --version
       ```
-
   3. Log in to Semgrep Cloud Platform (SCP):
       ```sh
       semgrep login
       ```
-  4. A modal appears after logging in to SCP. Create an account, known as an **organization** in Semgrep Cloud Platform. Note that you can set up organizations to integrate with GitHub accounts (both personal and org account types) or GitLab accounts after completing this procedure.
-  5. After creating an account in the previous step, you can return to the CLI and run the following command to start a scan using recommended Semgrep rules: 
+      This command automatically opens a new tab or browser window, or click the link in the CLI to complete the step.
+  4. A modal appears after logging in to SCP. Click **Create an organization**. Note that you can further integrate organizations (orgs) with GitLab accounts and GitHub accounts, including personal and org accounts, after you complete this procedure.
+  5. After creating an organization in the previous step, return to the CLI and run a scan:
       ```sh
      semgrep ci
       ```
@@ -139,8 +141,9 @@ You must have Windows Subsystem for Linux installed. To install WSL, refer to Mi
          ```sh
         docker run --rm -v "${PWD}:/src" returntocorp/semgrep semgrep login
          ```
+      This command automatically opens a new tab or browser window, or click the link in the CLI to complete the step.
        The provided `-v` option mounts the current directory into the container to be scanned. Change directories locally or provide a specific local directory in the command to scan a different directory.
-    2. A modal appears after logging in to SCP. Create an account, known as an **organization** in Semgrep Cloud Platform. Note that you can set up organizations to integrate with GitHub accounts (both personal and org account types) or GitLab accounts after completing this procedure.
+    2. A modal appears after logging in to SCP. Click **Create an organization**. Note that you can further integrate organizations (orgs) with GitLab accounts and GitHub accounts, including personal and org accounts, after you complete this procedure.
     3. After creating an account in the previous step, you can return to the CLI and run the following command to start a scan using recommended Semgrep rules: 
         ```sh
        docker run --rm -v "${PWD}:/src" returntocorp/semgrep semgrep ci
@@ -150,8 +153,11 @@ You must have Windows Subsystem for Linux installed. To install WSL, refer to Mi
        ```bash
        docker run --rm -v "%cd%:/src" returntocorp/semgrep semgrep login
        ```
-    2. A modal appears after logging in to SCP. Create an account, known as an **organization** in Semgrep Cloud Platform. Note that you can set up organizations to integrate with GitHub accounts (both personal and org account types) or GitLab accounts after completing this procedure.
-    3. After creating an account in the previous step, you can return to the CLI and run the following command to start a scan using recommended Semgrep rules: 
+    2. A modal appears after logging in to SCP. Note that you can further integrate organizations (orgs) with GitLab accounts and GitHub accounts, including personal and org accounts, after you complete this procedure.
+    3. After creating an account in the previous step, you can return to the CLI and run a scan: 
+       ```bash
+       docker run --rm -v "%cd%:/src" returntocorp/semgrep semgrep ci
+       ```
 
 </TabItem>
 
