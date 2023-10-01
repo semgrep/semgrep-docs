@@ -62,11 +62,11 @@ To install and run Semgrep, use one of the following options:
       ```sh
       semgrep --version
       ```
-  3. Log in to Semgrep Cloud Platform (SCP):
+  3. Sign up or log in to Semgrep Cloud Platform (SCP):
       ```sh
       semgrep login
       ```
-      This command automatically opens a new tab or browser window, or click the link in the CLI to complete the step.
+      This command automatically opens a new tab or browser window. You can also click the link in the CLI to complete the step.
   4. A modal appears after logging in to SCP. Click **Create an organization**. Note that you can further integrate organizations (orgs) with GitLab accounts and GitHub accounts, including personal and org accounts, after you complete this procedure.
   5. After creating an organization in the previous step, return to the CLI and run a scan:
       ```sh
@@ -86,11 +86,11 @@ To install and run Semgrep, use one of the following options:
       ```sh
       semgrep --version
       ```
-  3. Log in to Semgrep Cloud Platform (SCP):
+  3. Sign up or log in to Semgrep Cloud Platform (SCP):
       ```sh
       semgrep login
       ```
-      This command automatically opens a new tab or browser window, or click the link in the CLI to complete the step.
+      This command automatically opens a new tab or browser window. You can also click the link in the CLI to complete the step.
   4. A modal appears after logging in to SCP. Click **Create an organization**. Note that you can further integrate organizations (orgs) with GitLab accounts and GitHub accounts, including personal and org accounts, after you complete this procedure.
   5. After creating an organization in the previous step, return to the CLI and run a scan: 
       ```sh
@@ -113,11 +113,11 @@ You must have Windows Subsystem for Linux installed. To install WSL, refer to Mi
       ```sh
       semgrep --version
       ```
-  3. Log in to Semgrep Cloud Platform (SCP):
+  3. Sign up or log in to Semgrep Cloud Platform (SCP):
       ```sh
       semgrep login
       ```
-      This command automatically opens a new tab or browser window, or click the link in the CLI to complete the step.
+      This command automatically opens a new tab or browser window. You can also click the link in the CLI to complete the step.
   4. A modal appears after logging in to SCP. Click **Create an organization**. Note that you can further integrate organizations (orgs) with GitLab accounts and GitHub accounts, including personal and org accounts, after you complete this procedure.
   5. After creating an organization in the previous step, return to the CLI and run a scan:
       ```sh
@@ -137,11 +137,11 @@ You must have Windows Subsystem for Linux installed. To install WSL, refer to Mi
       docker run --rm returntocorp/semgrep semgrep --version
       ```
   3. For **macOS or Linux** Docker users, perform the following steps:
-     1. On **macOS or Linux**, log in to Semgrep Cloud Platform (SCP):
+     1. Sign up or log in to Semgrep Cloud Platform (SCP):
          ```sh
         docker run --rm -v "${PWD}:/src" returntocorp/semgrep semgrep login
          ```
-      This command automatically opens a new tab or browser window, or click the link in the CLI to complete the step.
+      This command automatically opens a new tab or browser window. You can also click the link in the CLI to complete the step.
        The provided `-v` option mounts the current directory into the container to be scanned. Change directories locally or provide a specific local directory in the command to scan a different directory.
     2. A modal appears after logging in to SCP. Click **Create an organization**. Note that you can further integrate organizations (orgs) with GitLab accounts and GitHub accounts, including personal and org accounts, after you complete this procedure.
     3. After creating an account in the previous step, you can return to the CLI and run the following command to start a scan using recommended Semgrep rules: 
@@ -149,7 +149,7 @@ You must have Windows Subsystem for Linux installed. To install WSL, refer to Mi
        docker run --rm -v "${PWD}:/src" returntocorp/semgrep semgrep ci
       ```
   4. For **Windows** Docker users, perform the following steps: 
-     1. log in to Semgrep Cloud Platform (SCP):
+     1. Sign up or log in to Semgrep Cloud Platform (SCP):
        ```bash
        docker run --rm -v "%cd%:/src" returntocorp/semgrep semgrep login
        ```
