@@ -43,6 +43,12 @@ To resolve this issue, increase the clone depth to a larger value. A value such 
 
 For GitLab CI, see [Limit the number of changes fetched during clone](https://docs.gitlab.com/ee/ci/pipelines/settings.html#limit-the-number-of-changes-fetched-during-clone) for instructions on configuring this value.
 
+### GitHub Actions clone behavior
+
+Semgrep has built-in behavior in GitHub Actions to fetch additional commits if the initial clone does not provide sufficient information, so GitHub Actions rarely encounter failures of the `git merge-base` command. 
+
+However, if Semgrep is showing findings in GitHub pull requests that were not introduced by the pull request, you can set the variable [`SEMGREP_GHA_MIN_FETCH_DEPTH`](https://semgrep.dev/docs/semgrep-ci/ci-environment-variables/#semgrep_gha_min_fetch_depth) to a higher value to improve the accuracy of the merge-base calculation. This value is the starting value used for fetching additional commits. The default is 0.
+
 ## Commit or branch not included in the checkout
 
 As with clone depth, which refs are checked out can vary depending on the CI environment and configuration. If the branch or ref to scan or the related baseline ref is not cloned or not checked out, the command that failed is typically:
