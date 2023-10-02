@@ -142,7 +142,6 @@ You must have Windows Subsystem for Linux installed. To install WSL, refer to Mi
         docker run --rm returntocorp/semgrep semgrep login
          ```
       This command automatically opens a new tab or browser window. You can also click the link in the CLI to complete the step.
-       The provided `-v` option mounts the current directory into the container to be scanned. Change directories locally or provide a specific local directory in the command to scan a different directory.
      2. A modal appears after logging in to SCP. Click **Create an organization**. Note that you can further integrate organizations (orgs) with GitLab accounts and GitHub accounts, including personal and org accounts, after you complete this procedure.
      3. After creating an org in the previous step, return to the CLI and run the following command to start a scan using recommended Semgrep rules: 
          ```sh
