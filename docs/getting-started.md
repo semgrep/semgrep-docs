@@ -139,7 +139,7 @@ You must have Windows Subsystem for Linux installed. To install WSL, refer to Mi
   3. For **macOS or Linux** Docker users, perform the following steps:
      1. Sign up or log in to Semgrep Cloud Platform (SCP):
          ```sh
-        docker run --rm -v "${PWD}:/src" returntocorp/semgrep semgrep login
+        docker run --rm returntocorp/semgrep semgrep login
          ```
       This command automatically opens a new tab or browser window. You can also click the link in the CLI to complete the step.
        The provided `-v` option mounts the current directory into the container to be scanned. Change directories locally or provide a specific local directory in the command to scan a different directory.
