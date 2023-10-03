@@ -1,34 +1,41 @@
 ```yaml
 version: 2.1
+workflows:
+  semgrep:
+    jobs:
+      - semgrep-full-scan:
+          filters:
+            branches:
+              only: main
+          context:
+            - semgrep
+      - semgrep-diff-scan:
+          filters:
+            branches:
+              ignore: main
+          context:
+            - semgrep
 jobs:
-  semgrep-scan:
-    parameters: 
-      default_branch:
-        type: string
-        default: main
-    environment:
-      SEMGREP_REPO_URL: << pipeline.project.git_url >>
-      SEMGREP_BRANCH: << pipeline.git.branch >>
+  semgrep-full-scan:
     docker:
       - image: returntocorp/semgrep
     steps:
       - checkout
       - run:
-          name: export baseline ref if PR
-          command: |
-            if [[ -n "$CIRCLE_PULL_REQUEST" ]]; then
-              echo "This is a PR scan"
-              echo 'export SEMGREP_BASELINE_REF="<< parameters.default_branch>>"' >> "$BASH_ENV"
-            else
-              echo "This is not a PR scan"
-            fi
-      - run:
-          name: "Semgrep scan"
+          name: "Semgrep full scan"
           command: semgrep ci --supply-chain
-workflows:
-  Semgrep:
-    jobs:
-      - semgrep-scan:
-          context:
-            - semgrep
+  semgrep-diff-scan:
+    parameters:
+      default_branch:
+        type: string
+        default: main
+    docker:
+      - image: returntocorp/semgrep
+    steps:
+      - checkout
+      - run: 
+          name: Semgrep diff scan
+          environment: 
+            SEMGREP_BASELINE_REF: << parameters.default_branch >>
+          command: semgrep ci --supply-chain
 ```

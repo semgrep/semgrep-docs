@@ -308,7 +308,7 @@ To add Semgrep into your CircleCI pipeline:
 3. Copy the relevant code snippet provided in [Sample CircleCI configuration snippet](#sample-circleci-configuration-snippet).
 4. Commit the updated `config.yml` configuration file into the `/.circleci` folder in the target repository.
 5. The Semgrep job starts automatically upon detecting the `config.yml` update.
-6. This configuration is ready for full scanning or diff-aware scanning, which scans only changed files in PRs or MRs. 
+6. This configuration is ready for full scanning and diff-aware scanning, which scans only changed files in PRs or MRs. 
 
 CircleCI by default will build all the commits for the project. If you want to build only branches that have associated a pull request open, you can enable the option "Only build pull requests" in **Project Settings** > **Advanced**.
 
