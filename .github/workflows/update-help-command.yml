@@ -9,6 +9,9 @@ jobs:
   update-output:
     name: Update `--help` and `--help scan` command output 
     runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      pull-requests: write
 
     steps:
       # Fetch project source with GitHub Actions Checkout.
