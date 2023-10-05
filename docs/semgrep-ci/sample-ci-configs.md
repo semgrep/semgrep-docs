@@ -40,7 +40,7 @@ import JenkinsSemgrepAppSast from "/src/components/code_snippets/_jenkins-semgre
 import JenkinsSemgrepAppSsc from "/src/components/code_snippets/_jenkins-semgrep-app-ssc.mdx"
 import JenkinsSemgrepAppSastDocker from "/src/components/code_snippets/_jenkins-semgrep-app-sast-docker.mdx"
 
-<!--BitBucket Pipelines -->
+<!--Bitbucket Pipelines -->
 import BitbucketSemgrepAppSast from "/src/components/code_snippets/_bitbucket-semgrep-app-sast.mdx"
 import BitbucketSemgrepAppSsc from "/src/components/code_snippets/_bitbucket-semgrep-app-ssc.mdx"
 
@@ -214,19 +214,19 @@ The following configuration creates a CI job that runs an SCA scan using Semgrep
 
 ## Bitbucket Pipelines
 
-To add a Semgrep configuration snippet into BitBucket Pipelines:
+To add a Semgrep configuration snippet into Bitbucket Pipelines:
 
 1. Create or edit your `bitbucket-pipelines.yml` file in the repository you want to scan.
-2. Copy the relevant code snippet provided in [Sample BitBucket Pipelines configuration snippet](#sample-bitbucket-pipelines-configuration-snippet), and then paste it to your `bitbucket-pipelines.yml`.
+2. Copy the relevant code snippet provided in [Sample Bitbucket Pipelines configuration snippet](#sample-bitbucket-pipelines-configuration-snippet), and then paste it to your `bitbucket-pipelines.yml`.
 3. Commit the updated `bitbucket-pipelines.yml` configuration file.
-4. The Semgrep job starts automatically upon detecting the committed `bitbucket-pipelines.yml` file. You can also view the job through BitBucket's interface, by clicking **your repository > Pipelines**. 
+4. The Semgrep job starts automatically upon detecting the committed `bitbucket-pipelines.yml` file. You can also view the job through Bitbucket's interface, by clicking **your repository > Pipelines**.
 5. Optional: Create a separate CI job for diff-aware scanning, which scans only changed files in PRs or MRs, by repeating steps 1-3 and uncommenting the `SEMGREP_BASELINE_REF` definition provided within the code snippet.
 
 :::note
-These steps can also be performed through BitBucket's UI wizard. This UI wizard can be accessed through **BitBucket > your repository > Pipelines > Create your first pipeline**.
+These steps can also be performed through Bitbucket's UI wizard. This UI wizard can be accessed through **Bitbucket > your repository > Pipelines > Create your first pipeline**.
 :::
 
-### Sample BitBucket Pipelines configuration snippet
+### Sample Bitbucket Pipelines configuration snippet
 
 <Tabs
     defaultValue="bitbucket-semgrep"
@@ -306,14 +306,16 @@ To add Semgrep into your CircleCI pipeline:
     4. Click **Add Environment Variable** and enter your `SEMGREP_APP_TOKEN`.
 2. Create or edit your `config.yml` configuration file in the repository you want to scan.
 3. Copy the relevant code snippet provided in [Sample CircleCI configuration snippet](#sample-circleci-configuration-snippet).
+4. If your default branch is not `main`, change the occurrences of `main` to the name of your default branch.
 4. Commit the updated `config.yml` configuration file into the `/.circleci` folder in the target repository.
 5. The Semgrep job starts automatically upon detecting the `config.yml` update.
-6. This configuration is ready for full scanning and diff-aware scanning, which scans only changed files in PRs or MRs. You do not need to make additional jobs after this.
 
-CircleCI by default runs the Semgrep job on all the commits for the project. If you want the job to scan only branches that have an associated a pull request open, you can enable the option "Only build pull requests" in **Project Settings** > **Advanced**.
+The sample configuration provides jobs for both full scanning and [diff-aware scanning](/docs/semgrep-ci/running-semgrep-ci-with-semgrep-cloud-platform/#diff-aware-scanning), which scans only changed files in PRs or MRs. You do not need to create any other jobs.
+
+CircleCI runs the Semgrep job on all the commits for the project by default. If you want the job to scan only branches that have an associated a pull request open, you can enable the option "Only build pull requests" in **Project Settings** > **Advanced**.
 
 :::note
-For the default branch and tags, CircleCI always performs the Semgrep CI job on all commits.
+For the default branch and tags, CircleCI always runs the Semgrep CI job on all commits.
 :::
 
 ### Sample CircleCI configuration snippet
@@ -353,7 +355,7 @@ To add Semgrep into Azure Pipelines:
 3. Save the code snippet.
 4. Set [environment variables](https://learn.microsoft.com/en-us/azure/devops/pipelines/process/variables?view=azure-devops&tabs=yaml%2Cbatch#secret-variables).
 5. Group the environment variables as a [variable group](https://learn.microsoft.com/en-us/azure/devops/pipelines/library/variable-groups?view=azure-devops&tabs=classic).
-6. Optional: Create a separate CI job for diff-aware scanning, which scans only changed files in PRs or MRs, by repeating steps 1-4 and and adding `SEMGREP_BASELINE_REF` as an environment variable. 
+6. Optional: Create a separate CI job for diff-aware scanning, which scans only changed files in PRs or MRs, by repeating steps 1-4 and adding `SEMGREP_BASELINE_REF` as an environment variable. 
 
 ### Sample Azure Pipelines configuration snippet
 
