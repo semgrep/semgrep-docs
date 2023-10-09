@@ -12,7 +12,7 @@ description: Release notes include the changes, fixes, and additions in specific
 * Moving forward, these release notes cover the following products:
     * Semgrep Cloud Platform
     * Semgrep Code
-    * Semrep Supply Chain
+    * Semgrep Supply Chain
     * Semgrep Assistant (beta)
     * Semgrep documentation and knowledgebase
 * Refer to **Semgrep OSS** release notes in [<i class="fas fa-external-link fa-xs"></i> Semgrep GitHub > Releases](https://github.com/returntocorp/semgrep/releases/) as the source of truth for OSS releases.
