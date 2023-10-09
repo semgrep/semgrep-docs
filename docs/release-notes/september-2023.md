@@ -61,7 +61,7 @@ tags:
 
 ### Changed
 
-- **Findings page:** By default, the findings page now displays findings from **default branches**. You can customize this filter by selecting a value from the **Branch** drop-down menu.
+- **Findings page:** By default, the findings page now displays findings from **default (trunk or main) branches**. You can customize this filter by selecting a value from the **Branch** drop-down menu.
 
 ### Fixed
 
