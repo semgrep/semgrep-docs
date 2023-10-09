@@ -55,6 +55,10 @@ description: Release notes include the changes, fixes, and additions in specific
 
 ## 💻 Semgrep Code
 
+### Changed
+
+- **Findings page:** By default, the findings page now displays findings from **default branches**. You can customize this filter by selecting a value from the **Branch** drop-down menu.
+
 ### Fixed
 
 - Various UX/UI bugfixes in the Findings page. 
