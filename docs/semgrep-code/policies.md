@@ -22,7 +22,21 @@ Object.entries(frontMatter).filter(
 
 # Policies
 
-The Policies page displays a visual representation of the rules that Semgrep Code uses for scanning. Rules can be categorized into various groups. The Policies page uses the following categorization criteria:
+The Policies page displays a visual representation of the rules that Semgrep Code uses for scanning. By default, the same rules will run on all repositories. This is sufficient for most users and simpler for most teams to reason about.
+
+## Multiple policies
+
+:::info
+Multiple policies is only available through an opt-in private beta. If you would like to use multiple policies, please reach out to customer support for assistance.
+:::
+
+For customers with multiple policies, the default Global Policy will run on all repositories. You cannot "unsubscribe" a project from the Global Policy.
+
+You can create a policy "Example Policy" with some additional rules and add it to one or more projects. During a scan, these projects will run all of the rules from "Global Policy" as well as all the rules from "Example Policy".
+
+If a rule is in multiple policies, the rule will be deduplicated and Semgrep will prioritize: <b>block > comment > monitor</b>. 
+
+For example, if a rule is configured as "comment" in one policy and "monitor" in another policy and both policies are applied to a project, then the rule will be in "comment" mode for that project.
 
 ## Policies page structure
 
