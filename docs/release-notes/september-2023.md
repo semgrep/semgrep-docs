@@ -25,7 +25,7 @@ tags:
 ## Private beta sign-ups
 
 * **Semgrep Secrets** is a code scanner that detects exposed API keys, passwords, and other credentials. Sign up for the private beta by filling out the [<i class="fas fa-external-link fa-xs"></i> Semgrep Secrets Beta](https://get.semgrep.dev/secrets-beta-request.html) form.
-* **Semgrep Supply Chain SBOM Private beta** 
+* **Semgrep Supply Chain SBOM (software bill of materials)** enables you to export a list of dependencies in the CycloneDX 1.4 XML/JSON format. Sign up for the private beta by filling out the [<i class="fas fa-external-link fa-xs"></i> SSC SBOM Export](https://get.semgrep.dev/SBOM-Export-private-beta.htm) form.
 
 ## 🔧 Semgrep OSS Engine
 
@@ -77,7 +77,7 @@ tags:
 - **GitLab:** Semgrep Assistant now supports GitLab cloud hosted and self-managed repositories.
 - **Findings page**: Semgrep Assistant verdicts now appear in the Findings page if Assistant recommends that the finding should be **Ignored**. <!-- #10438 -->
 ![Sample finding entry with Semgrep Assistant verdict](/img/sept-2023-assistant-findings.png)
-- [TODO]It would be helpful to the user to have a link to the PR comment with the autofix since the PR comment allows for directly committing the autofix. (https://github.com/returntocorp/semgrep-app/pull/10516)
+- **Finding Details page:** For findings with autofixes, the finding's detail page includes a link to the PR comment with the autofix since the PR comment allows for directly committing the autofix. <!-- #10516 -->
 
 ### Fixed
 
