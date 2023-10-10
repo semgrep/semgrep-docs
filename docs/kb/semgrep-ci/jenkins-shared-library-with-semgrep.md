@@ -13,9 +13,9 @@ A good practice when programming is to avoid duplicate code. This applies even w
 
 ## Creating a Jenkins pipeline to call Semgrep
 
-By following the same [Semgrep Jenkins CI configuration](https://semgrep.dev/docs/semgrep-ci/sample-ci-configs/#sample-jenkins-configuration-snippet), you can create a simple Jenkins pipeline to run Semgrep scans.
+By following the [Semgrep Jenkins CI configuration](https://semgrep.dev/docs/semgrep-ci/sample-ci-configs/#sample-jenkins-configuration-snippet), you can create a simple Jenkins pipeline to run Semgrep scans.
 
-When rolling out Semgrep in your organization, you need to replicate this pipeline to the many projects you have in your organization. If the Semgrep configuration later requires updates, each pipeline would have to be updated individually, which is time-consuming. Using a shared library prevents this issue.
+When rolling out Semgrep more widely in your organization, you need to replicate this pipeline to the many projects you have in your organization. If the Semgrep configuration later requires updates, each pipeline would have to be updated individually, which is time-consuming. Using a shared library prevents this issue.
 
 ## Creating a shared library
 
@@ -72,4 +72,4 @@ Line 1 must have the name of the shared library, and the function invoked (`semg
 
 ## Conclusions
 
-Using Jenkins Shared Library can simplify your pipelines and avoid code duplication across all your projects, saving you time if you need to add flags to the Semgrep command or otherwise update it.
+Using a Jenkins Shared Library can simplify your pipelines and avoid code duplication across all your projects, saving you time if you need to add flags to the Semgrep command or otherwise update it.

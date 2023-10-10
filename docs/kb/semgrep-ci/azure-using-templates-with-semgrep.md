@@ -10,7 +10,9 @@ description: Running Semgrep commands in Azure Pipelines templates.
 
 Complex CI configurations can take a lot of work to maintain and modify. Creating external configurations that encapsulate a chunk of configuration logic and referencing them keeps configurations concise and consistent.
 
-Azure templates extract configuration logic that was previously defined in large YAML configuration files and places each chunk into its own [template](https://learn.microsoft.com/en-us/azure/devops/pipelines/process/templates?view=azure-devops). This improves a pipeline's readability and maintainability. This guide explains how to:
+Azure templates extract configuration logic that was previously defined in large YAML configuration files and place it into its own [template](https://learn.microsoft.com/en-us/azure/devops/pipelines/process/templates?view=azure-devops) referenced in the main YAML file. This improves a pipeline's readability and maintainability. 
+
+This guide explains how to:
 
 * Create template files to run various Semgrep commands.
 * Include or call templates in your Azure Pipeline.
@@ -54,7 +56,7 @@ To add Semgrep commands in a YAML template file:
 	```
  
 :::note
-You must define separate templates for full scans and [diff-aware scans](/semgrep-ci/running-semgrep-ci-without-semgrep-cloud-platform/#diff-aware-scanning). This is because there are different environment variables used depending on the type of scan such as `SEMGREP_PR_ID` and `SEMGREP_BASELINE_REF` in the template for diff-aware scans.
+You must define separate templates for full scans and [diff-aware scans](/semgrep-ci/running-semgrep-ci-without-semgrep-cloud-platform/#diff-aware-scanning). This is because there are different environment variables used in the template for diff-aware scans, such as `SEMGREP_PR_ID` and `SEMGREP_BASELINE_REF`.
 :::
 
 ## Referencing templates in an Azure Pipeline
@@ -87,4 +89,3 @@ You can even define your templates in a centralized repository and [reference th
 ## Conclusion
 
 Using templates in Azure Pipelines is a good practice to simplify pipeline configuration files, improving both readability and maintainability. Pipeline templates can also speed up the Semgrep onboarding process for repositories by allowing you to reuse the same template in each repository.
-   
