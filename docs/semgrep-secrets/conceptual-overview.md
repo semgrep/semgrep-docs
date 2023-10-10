@@ -57,7 +57,7 @@ See the following Semgrep rule and JavaScript test code for an example.
 After scanning for secrets, Semgrep uses a **post-processor** function called a **validator** to validate if a secret is **valid** or **invalid**.
 
 1. The post-processor detects the service, such as Slack or AWS, that the secret is used for.
-2. If the post-processor does not support the service that the secret is used for, Semgrep notes that there is **No validator** for the secret.
+2. If the post-processor does not support the service that the secret is used for, or the secret is a **honeypot token**, Semgrep notes that there is **No validator** for the secret.
 3. If the validator can detect the service, Semgrep performs an API call. The following outcomes can occur:
 	1. If the API call returns an HTTP response of 200 or similar, then the finding is **valid**.
 	2. If the API call returns an HTTP response of 403 or similar, then the finding is **invalid**.
