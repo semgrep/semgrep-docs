@@ -436,6 +436,15 @@ module.exports = {
       ]
     },
     {
+      type: 'category',
+      label: 'Semgrep Secrets',
+      collapsible: false,
+      items: [
+        'semgrep-secrets/conceptual-overview',
+        'semgrep-secrets/getting-started'
+      ]
+    },
+    {
         type: 'category',
         label: 'Contributing',
         collapsible: false,
