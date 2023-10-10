@@ -6,7 +6,10 @@ hide_title: true
 description: tk
 tags:
   - Semgrep Secrets
+toc_max_heading_level: 2
 ---
+
+import MoreHelp from "/src/components/MoreHelp"
 
 # Getting started with Semgrep Secrets
 
@@ -108,7 +111,6 @@ Findings from local scans are differentiated from their remote counterparts thro
 
 This section describes how to set up PR or MR comments from Semgrep. 
 
-
 :::info
 After enabling this feature, only **valid** (active) secrets-related findings leave a PR or MR comment.
 :::
@@ -127,7 +129,7 @@ Perform the following steps to receive Secrets findings as comments in GitLab MR
 1. Follow the steps in [<i class="fa-regular fa-file-lines"></i> GitLab MR comments](/semgrep-cloud-platform/gitlab-mr-comments/).
 2. Inform [<i class="fa-regular fa-envelope"></i> support@semgrep.com](mailto:support@semgrep.com) that you want to enable this feature.
 
-## Receiving other notifications and alerts
+### Receiving other notifications and alerts
 
 You can receive findings notifications through the following channels:
 
@@ -159,7 +161,6 @@ Find and perform bulk operations through filtering. Perform all filter operation
 | View findings of a specific severity | Under **Severity**, select a value. |
 
 ![Secrets page and relevant triaging elements.](/img/secrets-triage.png#bordered)
-
 **_Figure._** Secrets page and relevant triaging elements: (a) All available filters; (b) Bulk selection toggle; (c) Bulk triage button.
 
 Triage findings in bulk by performing the following steps:
@@ -170,82 +171,70 @@ Triage findings in bulk by performing the following steps:
 4. Click **Triage**, then your selected triage state, typically **Ignore**.
 5. Optional: Repeat this procedure to triage all open findings.
 
-### Complete Secrets page filter reference
+## Further customization 
+
+* Create tickets in Jira, Linear, or Asana for secrets-related findings. See [<i class="fa-regular fa-file-lines"></i> Ticketing](semgrep-cloud-platform/ticketing/).
+* See [<i class="fas fa-external-link fa-xs"></i> Secrets API documentation](https://semgrep.dev/api/v1/docs/#tag/SecretsService).
+
+## Appendix: Semgrep Secrets filters
 
 This section describes what filters are available to quickly sort through findings and perform operations on filtered findings.
 
-#### Triage Status
+### Triage status
 
-Severity
-Refers to the impact of a leaked secret that has been detected.
+| Status | Description |
+| -----------  | ------------ |
+| **Open** | Findings are open by default. A finding is open if it was present the last time Semgrep scanned the code and it has not been ignored. An open finding represents a match between the code and a rule that is enabled in the repository. Open findings require action, such as rewriting the code to eliminate the detected vulnerability. |
+| **Ignored** | Findings that are ignored are present in the code, but have been labeled as unimportant. Ignore findings that are false positives or deprioritized issues. |
+| **Fixed** | Fixed findings were detected in a previous scan, but are no longer detected in the most recent scan of that same branch. |
 
-High
-[Wait for reviewer feedback]
-Medium
-[Wait for reviewer feedback]
-Low
-[Wait for reviewer feedback]
+### Severity
 
-#### Validation
+Severity is assigned based on how sensitive or crucial the exposed web service is. Possible values include:
+
+* High
+* Medium
+* Low
+
+### Validation
+
 Refers to whether or not a secret is active and can be used to grant resources or authentication, or if a secret is inactive.
 
-Confirmed valid
-Semgrep Secrets has made an API call using the secret and it returned successfully and granted authentication or similar.
-
-Confirmed invalid
-Semgrep Secrets has made an API call using the Secret and it returned successfully but did not grant resources or authentication.
-
-Validation error
-A validation error, such as a timeout, has occurred. [what can the user do in this case  - run the validator function on their own? re-run the scan?]
-
-No validator
-Semgrep does not perform any validation on this finding. You must manually review the finding.
+| Validation | Description |
+| -----------  | ------------ |
+| Confirmed valid | Semgrep made an API call using the secret and it returned an HTTP response of 200 or similar and granted authentication. |
+| Confirmed invalid | Semgrep made an API call using the secret and it returned an HTTP response of 403 or similar. |
+| Validation error | Semgrep made an API call but it returned and HTTP response of 400 or similar; a server error, such as a timeout, occurred. The Semgrep Team recommends manually reviewing the finding. |
+| No validator | Semgrep does not perform any validation on this finding. You must manually review the finding. |
 
 :::tip
-Honeypot tokens are categorized under No validator.
+**Honeypot tokens** are categorized under **No validator**.
 :::
 
-#### Repository visibility
+### Repository visibility
+
 Refers to whether or not the repository is a public repository or private. This is detected through your source code manager.
 
-:::tip
+:::info
 Semgrep supports visibility detection only for GItHub repositories of any plan.
 :::
 
-Public
-Repository access doesn't require authentication; at a minimum, it can be viewed by anyone.
+| Repository visibility | Description | 
+| -----------  | ------------ |
+| Public | Repository access doesn't require authentication; at a minimum, it can be viewed by anyone. |
+| Private | Repository access requires authentication. |
+| Unknown | Semgrep Secrets is unable to detect your repository visibility. This is typically assigned to: <ul><li>Scans from local developer machines.</li><li>Scans from any non-GitHub source code manager, such as GitLab.</li></ul> |
 
-Private
-Repository access requires authentication. 
+### Type
 
-Unknown
-Semgrep Secrets is unable to detect your repository visibility. This is typically assigned to:
-* Scans from local developer machines.
-* Scans from any non-GitHub source code manager, such as GitLab.
+Refers to the type of secret, such as **Private key**, or web service that makes use of the secret, such as Sendgrid or Stripe.
 
-#### Type
-<!-- Is there a specific file where I can view all the types? -->
+### Project
 
-Private Key
-	(Wait for more information from reviewer)
-Google Cloud
-
-Connection URI
-
-Unknown
-
-#### Project
 A repository that's been onboarded to Semgrep for scanning.
 
-#### Branch
+### Branch
+
 A branch of any Project.
 
-## Creating tickets in Jira, Linear, or Asana for secrets-related findings
-
-[This hasn't been pushed to staging yet (Oct 5)]
-## Semgrep Secrets API
-
-See [↗️Secrets API documentation](https://semgrep.dev/api/v1/docs/#tag/SecretsService). This API is able to expose a findings validation status.
-
-
-
+<MoreHelp />

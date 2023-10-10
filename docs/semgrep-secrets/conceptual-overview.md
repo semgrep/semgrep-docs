@@ -8,6 +8,8 @@ tags:
   - Semgrep Secrets
 ---
 
+import MoreHelp from "/src/components/MoreHelp"
+
 # Conceptual overview of Semgrep Secrets
 
 **Semgrep Secrets** is a code scanner that detects exposed API keys, passwords, and other credentials. These exposed secrets can be used by malicious actors to leak data or gain access to sensitive systems. Semgrep Secrets enables the user to know the following: 
@@ -101,8 +103,10 @@ The Semgrep Registry includes SAST rules that can detect secrets to a certain ex
 
 ## Next steps
 
-See Getting started with Semgrep Secrets to:
+See [<i class="fa-regular fa-file-lines"></i> Getting started with Semgrep Secrets](/semgrep-secrets/getting-started) to:
 * Enable secrets scanning for your repositories
 * Learn how to triage secrets-related findings
 * Receive notifications and post tickets
 
+
+<MoreHelp />
