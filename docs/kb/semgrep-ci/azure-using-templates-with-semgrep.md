@@ -43,11 +43,11 @@ To add Semgrep commands in a YAML template file:
 	     clean: true
 	     fetchDepth: 10000
 	   - script: |
-	     echo "Pull Request Scan from branch: $(Build.SourceBranchName)"
-	     git fetch origin master:origin/master
-	     python -m pip install --upgrade pip
-	     pip install semgrep
-	     semgrep ci
+	       echo "Pull Request Scan from branch: $(Build.SourceBranchName)"
+	       git fetch origin master:origin/master
+	       python -m pip install --upgrade pip
+	       pip install semgrep
+	       semgrep ci
 	     env:
 	      SEMGREP_PR_ID: $(System.PullRequest.PullRequestNumber)
 	      SEMGREP_BASELINE_REF: 'origin/master'

@@ -9,7 +9,7 @@ description: Setting up GitHub reusable workflows for Semgrep scans.
 
 ## Motivation
 
-An organization can have hundreds or thousands of repositories. Reusable workflows can simplify the `.github/workflows/semgrep.yml` file in each of your repositories by allowing you to define the workflow once and then reference it more simply in other workflows. This [prevents duplication](https://docs.github.com/en/actions/using-workflows/reusing-workflows#overview) and provides a single centralized Semgrep configuration.
+An organization can have hundreds or thousands of repositories. Reusable workflows can simplify the `.github/workflows/semgrep.yml` file in each of your repositories by allowing you to define the workflow once and then reference it in other workflows. This [prevents duplication](https://docs.github.com/en/actions/using-workflows/reusing-workflows#overview) and provides a single centralized Semgrep configuration.
 
 Reusable workflows can be triggered by several types of events, such as a push, pull request, or schedule. Required workflows or checks for branch protection rulesets can only be triggered by pull request events.
 
@@ -25,7 +25,7 @@ Reusable workflows can be triggered by several types of events, such as a push, 
 
 ![image info](/img/kb/reusable-workflows-image-2.png)
 
-3. Then, in each repository, create or update the `semgrep.yml` to call the reusable workflow by modifying the `jobs:` key to use the reusable workflow. The easiest way to configure the Semgrep Cloud platform secret is to add it in the re-usable workflow and provide `secrets: inherit` in the calling workflow.
+3. Then, in each repository, create or update the `semgrep.yml` to call the reusable workflow by modifying the `jobs:` key to use the reusable workflow. The easiest way to configure the `SEMGREP_APP_TOKEN` secret is to add it in the re-usable workflow and provide `secrets: inherit` in the calling workflow, as shown in the following example.
 
 ![image info](/img/kb/reusable-workflows-image-3.png)
 

@@ -79,7 +79,7 @@ ConstraintValidatorContext context) {
 
 ### Changing Pro analysis options
 
-You can change whether you are using the `--pro` or `--pro-intrafile` option depending on the exact flow you're testing, as described in the preceding section. Analysis of two tainted data flows.
+You can change whether you are using the `--pro` or `--pro-intrafile` option depending on the exact flow you're testing, as described in the preceding section, [Analysis of two tainted data flows](#analysis-of-two-tainted-data-flows).
 
 ### Altering the paths
 

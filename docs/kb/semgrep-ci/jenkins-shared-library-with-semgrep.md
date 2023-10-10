@@ -15,7 +15,7 @@ A good practice when programming is to avoid duplicate code. This applies even w
 
 By following the same [Semgrep Jenkins CI configuration](https://semgrep.dev/docs/semgrep-ci/sample-ci-configs/#sample-jenkins-configuration-snippet), you can create a simple Jenkins pipeline to run Semgrep scans.
 
-When rolling out Semgrep in your organization, you need to replicate this pipeline to the many projects you have in your organization. If the pipeline later requires updates, each pipeline would have to be updated individually, which is time-consuming. Using a shared library prevents this issue.
+When rolling out Semgrep in your organization, you need to replicate this pipeline to the many projects you have in your organization. If the Semgrep configuration later requires updates, each pipeline would have to be updated individually, which is time-consuming. Using a shared library prevents this issue.
 
 ## Creating a shared library
 
@@ -40,13 +40,13 @@ def call() {
 These steps are for the Jenkins UI.
 
 1. Go to the Dashboard.
-2. Click **Manage Jenkins**.
+2. Click **<i class="fa-solid fa-gear"></i> Manage Jenkins**.
 3. Under **System Configuration**, click **System**.
 4. In the **Global Pipeline Libraries** section, define the library, including the name, version, and Git URL.
 
 ## Using the shared library in the Jenkins pipeline
 
-Once you have defined the shared library, you can use it in your pipelines. If you named the library "semgrep" in the Global Pipeline Libraries, calling it looks like:
+Once you have defined the shared library, you can use it in your pipelines. If you named the library "semgrep" in the Jenkins UI, calling it looks like:
 
 ```
 @Library('semgrep') _
@@ -68,7 +68,7 @@ pipeline {
 }
 ```
 
-Line 1 must have the name of the shared library, and the function invoked (`semgrepFullScan`) must match the name of the groovy file created before (`semgrepFullScan.groovy`).
+Line 1 must have the name of the shared library, and the function invoked (`semgrepFullScan`) must match the name of the Groovy file created before (`semgrepFullScan.groovy`).
 
 ## Conclusions
 

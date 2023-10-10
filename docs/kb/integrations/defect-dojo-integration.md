@@ -13,15 +13,15 @@ description: How to connect Semgrep and DefectDojo
 Follow these steps to prepare DefectDojo and generate Semgrep findings in the proper format:
 
 1. In DefectDojo:
-    - Create your [**product**](https://defectdojo-dev.readthedocs.io/en/latest/features.html#products).
-    - In that DefectDojo product, create an **engagement** called `semgrep`. An engagement is a channel to import results.
+    - Create your [**product**](https://defectdojo.github.io/django-DefectDojo/usage/models/#products).
+    - In that DefectDojo product, create an [engagement](https://defectdojo.github.io/django-DefectDojo/usage/models/#engagement) called `semgrep`. This is a CI/CD engagement type.
 2. Run a semgrep scan with flags `--json --output report.json` to generate a JSON report.
 
-Now, you are ready to use the [DefectDojo API](https://documentation.defectdojo.com/integrations/api-v2-docs/).
+Now, you are ready to use the [DefectDojo API](https://defectdojo.github.io/django-DefectDojo/integrations/api-v2-docs/).
 
 ### DefectDojo API example 
 
-To run API DefectDojo operations such as GET, POST, and DELETE, an API token is necessary. To get it, follow the [API guide](https://documentation.defectdojo.com/integrations/api-v2-docs/).
+To run API DefectDojo operations such as GET, POST, and DELETE, an API token is necessary. To get it, follow the [API guide](https://defectdojo.github.io/django-DefectDojo/integrations/api-v2-docs/).
 
 Once you have a token, store it as an environment variable named `DEFECT_DOJO_API_TOKEN`:
 ```bash
@@ -35,7 +35,7 @@ These endpoints take the following parameters:
 * `file`: The Semgrep scan findings report or export in JSON format.
 * `scan_type`: A descriptive name for the scan type. In this example, the scan type is "Semgrep JSON Report`".
 * `product_name`: The name of the product in DefectDojo to send the Semgrep findings report to.
-* `engagement_name`: Depending on your use case, the `engagement_name` can describe a moment in time that the test is taking place, or it can be used as a simple description about the import. In this case, you can name it `semgrep`.
+* `engagement_name`: The name of the engagement you created the preceding "Integration" section. In this example, `semgrep`.
 
 Here is an example snippet of a Python function using this endpoint:
 
@@ -74,7 +74,7 @@ Where:
 * `DOJO_URL` is the URL where DefectDojo is.
 * `PRODUCT_NAME` is the DefectDojo product name.
 * `ENGAGEMENT_NAME` is the DefectDojo engagement name for that product.
-* `REPORT_FILE` is the Semgrep report path
+* `REPORT_FILE` is the Semgrep report path.
 
 ## Integrating Semgrep and DefectDojo in a CI pipeline
 

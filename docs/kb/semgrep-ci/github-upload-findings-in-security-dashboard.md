@@ -34,7 +34,7 @@ Changing the repository's default workflow permissions changes the permissions f
 
 This job only requires `write` permissions for `security-events`.
 
-````yml
+```yml
 name: Semgrep
 
 on:
