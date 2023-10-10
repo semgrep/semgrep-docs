@@ -7,17 +7,17 @@ tags:
 
 # Why aren't findings populating in the GitHub Advanced Security Dashboard after running Semgrep in CI?
 
-When scanning with Semgrep in CI, findings automatically populate in Semgrep Cloud Platform. To show findings in the GitHub Advanced Security Dashboard, you must first run an alternate job that uploads findings in the form of a `SARIF` file to the dashboard. See  [Sample GitHub Actions configuration file](https://semgrep.dev/docs/semgrep-ci/sample-ci-configs/#sample-github-actions-configuration-file) for an example.
+When scanning with Semgrep in CI, findings automatically populate in Semgrep Cloud Platform. To show findings in the GitHub Advanced Security Dashboard, run an alternate job that uploads findings to the dashboard in the form of a `SARIF` file. See  [Sample GitHub Actions configuration file](https://semgrep.dev/docs/semgrep-ci/sample-ci-configs/#sample-github-actions-configuration-file) for an example.
 
 If you run the alternate job and it fails with a "resource not accessible by integration" error, there are two possible causes.
 
 ## Your repository is private
 
-Third-party code scanning findings can only populate in the Advanced Security Dashboard if the repository is public. Otherwise, the job will not have sufficient permissions to write to the dashboard regardless of any permissions set at the workflow or job level.
+Third-party code scanning findings can only populate in the Advanced Security Dashboard if the repository is public. Otherwise, the job does not have sufficient permissions to write to the dashboard regardless of any permissions set at the workflow or job level.
 
 ## The workflow permissions in your repository's Actions settings are set to read-only
 
-Your workflow permissions will be set to `read-only` (default) unless they've previously been changed. The job requires `write` permissions to be successful.
+Workflow permissions are set to `read-only` (default) unless they've previously been changed. The job requires `write` permissions to be successful.
 
 To change permissions:
 1. Navigate to your organization or repository in GitHub.
@@ -34,7 +34,7 @@ Changing the repository's default workflow permissions changes the permissions f
 
 This job only requires `write` permissions for `security-events`.
 
-```
+````yml
 name: Semgrep
 
 on:

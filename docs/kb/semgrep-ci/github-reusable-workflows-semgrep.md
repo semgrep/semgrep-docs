@@ -9,37 +9,32 @@ description: Setting up GitHub reusable workflows for Semgrep scans.
 
 ## Motivation
 
-An organization can have hundreds or thousands of repositories. Reusable workflows can simplify the `.github/workflows/semgrep.yml` file in each of your repositories by allowing you to define the workflow once and then referencing it more simply in other workflows, which avoids code duplication and gives one centralized configuration.
+An organization can have hundreds or thousands of repositories. Reusable workflows can simplify the `.github/workflows/semgrep.yml` file in each of your repositories by allowing you to define the workflow once and then reference it more simply in other workflows. This [prevents duplication](https://docs.github.com/en/actions/using-workflows/reusing-workflows#overview) and provides a single centralized Semgrep configuration.
+
+Reusable workflows can be triggered by several types of events, such as a push, pull request, or schedule. Required workflows or checks for branch protection rulesets can only be triggered by pull request events.
 
 ## Setting up a reusable workflow
 
-1. Create a new repository with the reusable workflow:
+1. Create a new repository and add the `.github/workflows/semgrep.yml` file.
 
 ![image info](/img/kb/reusable-workflows-image-1.png)
 
-> Note: the semgrep.yml file must be in the `.github/workflows/` folder
+2. Add the desired job configuration under `jobs:`. This can be the [recommended snippet](https://semgrep.dev/docs/semgrep-ci/sample-ci-configs/#sample-github-actions-configuration-file) or your current job configuration.
 
-2. The content of the file can be copied from the Semgrep [documentation](https://semgrep.dev/docs/semgrep-ci/sample-ci-configs/#sample-github-actions-configuration-file) but some changes need to be made in the `on:` statement. Basically, the condition to trigger the job must be in the caller, not here. So we can create the file as follows:
+3. Under the `on:` key, add `workflow_call`. This defines the condition to trigger the job described in the re-usable workflow: it's triggered by being called in other repositories.
 
 ![image info](/img/kb/reusable-workflows-image-2.png)
 
-3. Then, in each repository, you can call the reusable workflow as shown here:
+3. Then, in each repository, create or update the `semgrep.yml` to call the reusable workflow by modifying the `jobs:` key to use the reusable workflow. The easiest way to configure the Semgrep Cloud platform secret is to add it in the re-usable workflow and provide `secrets: inherit` in the calling workflow.
 
 ![image info](/img/kb/reusable-workflows-image-3.png)
 
-> Note: Secrets can be inherited from the reusable workflow and passed to the caller workflow.
-
 ## Running a scan
 
-Now, if a developer commits a change or makes a pull request (or otherwise in any way triggers the caller workflow), then the reusable Semgrep workflow will be called:
+Now, when a developer commits a change or makes a pull request (or otherwise in any way triggers the caller workflow), the reusable Semgrep workflow is called:
 
 ![image info](/img/kb/reusable-workflows-image-4.png)
 
-## Benefits
+## Limitations
 
-1. As GitHub [says](https://docs.github.com/en/actions/using-workflows/reusing-workflows#overview): “Reusing workflows avoids duplication. This makes workflows easier to maintain and allows you to create new workflows more quickly by building on the work of others, just as you do with actions”.
-2. A reusable workflow can be triggered by several types of events, such as a push, pull_request, or schedule. In contrast, a required workflow can only be triggered by pull_request events.
-    
-## Drawbacks
-
-1. Reusable workflows don’t avoid the creation of a `.github/workflows/semgrep.yml` file for each repo. You still need to create one to then insert a call to the reusable workflow.
+Reusable workflows don’t avoid the creation of a `.github/workflows/semgrep.yml` file for each repository. You still need to create one to call the reusable workflow.

@@ -1,12 +1,12 @@
 # Why isn’t Semgrep reporting all my tainted data flows?  
 
-One of the reasons behind lower than expected tainted data flows could be the principle of reporting on shortest paths only.
+One of the reasons behind seeing fewer than expected tainted data flows could be the principle of reporting on shortest paths only.
 
-By default, Semgrep reports a tainted source-sink permutation only once and the permutation which traverses the shortest path. Any path traversals that demonstrate the same source-sink permutation longer than the shortest path are excluded from reporting. 
+By default, Semgrep reports a tainted source-sink permutation only once and reports the data flow that traverses the shortest path. Any longer paths with the same source-sink permutation longer are not shown.
 
 ## Analysis of two tainted data flows
 
-Let's take a look at these two examples: 
+Take a look at these two examples: 
 
 Call stack 1:
 
@@ -24,44 +24,29 @@ File 1 function4(sourceA)
              >> function1(sourceA/sinkB)
 ```
 
-Even though the  path traversal is 4 in call stack 2 and even in the same file/translational unit, Semgrep reports a dataflow taint only against call stack 1, which has a shorter path and is the same sourceA/sinkB taint.  
+### Interfile analysis
 
-No configuration can expose the the 4 --> 1 traversal. Instead, it's a case of achieving cardinality here, placing the same type of taint in the same bucket regardless of path traversal. This affords much more efficient and intelligible findings triage: you are inspecting only unique findings. This is especially useful for languages with polymorphic classes that can add noise for a singleton taint.  
+If both data flows are identified in the same scan, and the scan has interfile analysis enabled (`--pro`, or Pro Engine enabled in the Cloud Platform) only Call stack 1 is reported as a finding. It has a shorter path, and has the same sourceA -> sinkB taint.  
 
-### Some assumptions
+This speeds up triage by ensuring you are only reviewing unique findings. It's especially useful for languages with polymorphic classes that can add noise for a singleton taint.  
 
-* Interfile analysis is used: the `--pro` flag is specified for either the`semgrep scan` or `semgprep ci` command.
-* If only intrafile or interprocedural analysis is performed (`--pro-intrafile`), Semgrep would have reported the taint against call stack 2.
+### Intrafile analysis
 
-Be mindful of the scope you are specifying for the scan, from the `semgrep scan --help` or `semgrep ci --help` pages:
-
-```
-Semgrep Pro Engine options: 
-    --pro                         Inter-file analysis and Pro languages (currently just
-                                  Apex). Requires Semgrep Pro Engine, contact
-                                  support@semgrep.com for more information on this.
-    --pro-intrafile               Intra-file inter-procedural taint analysis. Implies
-                                  --pro-languages. Requires Semgrep Pro Engine, contact
-                                  support@semgrep.com. for more information on this.
-```
+If only intrafile / interprocedural analysis is performed (`--pro-intrafile`), Semgrep only reports a finding for call stack 2. Call stack 1 would not be identified, because it crosses file boundaries.
 
 ## Best practices for testing tainted data flows
 
-In the early phases of your Semgrep rollout, the Semgrep team recommends to test against all your test cases for interfile coverage in taint mode, that the Semgrep engine can indeed track a source to a sink transcending across files and functions.  To completely exhaust the scope, start with the shortest path and then change the implementation such that the source is no longer in the scope of the shortest path and repeat this until you have achieved the longest, targeted path traversal. This is assuming you are also specifying to `--pro` to cover the greatest atomicity across files.  
+If you want to understand in greater detail how Semgrep is detecting tainted data flows, you can use existing or constructed test cases to review the different paths. 
 
 ### Dry runs
 
-You can also view a dataflow graphic representation in the UI for a taint finding, though we recommend running dry-run scans first, so that you can experiment without uploading results:
+To avoid sending test data to Semgrep Cloud Platform and potentially confounding existing findings, use `semgrep scan` or `semgrep ci --dry-run`. 
 
-```semgrep scan --pro --dataflow-traces --config=.  .....```
-
-Run locally through the CLI like this, any reported findings in the run will not be uploaded into the Semgrep App; historical tracking is turned off. Following this process, you are achieving safe testing and not confounding any ad hoc information of tracked findings.
-
-Once you have established that Semgrep correctly and comprehensively covers all your taint mode use cases across translation units, you can then turn off the flag: `--dataflow-traces` and reintroduce your original code. 
+When testing locally, adding `--dataflow-traces` allows you to see the taint traces as you would in the Semgrep Cloud Platform UI.
 
 #### Sample taint data-flow reporting
 
-With the `--dataflow-traces` turned on, you can review the taint's dataflow via the CLI scan session's findings. The following is an example that traverses across multiple files, demonstrating interfile functionality:
+The following is an example that shows dataflow traces traversing multiple files, demonstrating interfile taint tracking:
 
 ```
 test2.java
@@ -90,5 +75,13 @@ ConstraintValidatorContext context) {
        5┆ public boolean buildTemplate(ConstraintValidatorContext context, List<String> templateList) {
       then reaches:
        8┆ context.buildConstraintViolationWithTemplate(template).addConstraintViolation();
-
 ```
+
+### Changing Pro analysis options
+
+You can change whether you are using the `--pro` or `--pro-intrafile` option depending on the exact flow you're testing, as described in the preceding section. Analysis of two tainted data flows.
+
+### Altering the paths
+
+To ensure you see all the flow options, start by testing the shortest path and then change the code so that the shortest path is no longer tainted. Repeat this until you have achieved the longest taint flow path you want to test. 
+
