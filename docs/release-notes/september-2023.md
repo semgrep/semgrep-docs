@@ -18,7 +18,7 @@ tags:
     * Semgrep Code
     * Semrep Supply Chain
     * Semgrep Assistant (beta)
-    * Semgrep documentation and knowledgebase
+    * Semgrep documentation and knowledge base
 * Refer to **Semgrep OSS** release notes in [<i class="fas fa-external-link fa-xs"></i> Semgrep GitHub > Releases](https://github.com/returntocorp/semgrep/releases/) as the source of truth for OSS releases.
 :::
 
@@ -86,3 +86,24 @@ tags:
 
 - **GitLab:** Fixed a bug in which comments were not appearing on GitLab.com cloud-hosted repositories.
 
+## 📝 Documentation and knowledge base
+
+### Added
+
+* New knowledge base articles:
+    * [<i class="fa-regular fa-file-lines"></i> Failed to run a git command during pull or merge request scans](/kb/semgrep-ci/git-command-errors/)
+    * [<i class="fa-regular fa-file-lines"></i> How to exclude certain file types for a particular rule](kb/rules/exclude_rule_for_certain_filetypes/)
+    * [<i class="fa-regular fa-file-lines"></i> Why isn’t Semgrep reporting all my tainted data flows?](kb/semgrep-code/finding_all_taints/ )
+    * [<i class="fa-regular fa-file-lines"></i> How to scan multiple or nested lock files](kb/semgrep-supply-chain/scanning_multiple_lockfiles/)
+* [<i class="fa-regular fa-file-lines"></i> Semgrep Assistant](/semgrep-code/semgrep-assistant-code/#enabling-semgrep-assistant): Added a guide to setting up Assistant on GitLab MRs.
+* [<i class="fa-regular fa-file-lines"></i> Supported languages](/supported-languages/#language-maturity-factors-pro-engine): Added a section on Semgrep Pro Engine language maturity factors. These are the criteria that determine if a language is generally available (GA) or beta.
+
+### Changed
+
+* Clarifications on various Semgrep Supply Chain behaviors.
+* [<i class="fa-regular fa-file-lines"></i> Sample CI configurations](semgrep-ci/sample-ci-configs/):  Updated various CI configurations for standalone SAST scans
+* A clarification has been added on [Semgrep exit codes in conjunction with the `error` flag](docs/cli-reference/#exit-codes). Thank you to [Bernardo de Araujo](https://github.com/bernardoamc) for this contribution.
+
+### Removed
+
+* Semgrep CLI autocomplete documentation has been removed.
