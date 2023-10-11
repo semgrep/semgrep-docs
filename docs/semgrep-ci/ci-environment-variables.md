@@ -186,7 +186,7 @@ pipelines:
 
 ### `SEMGREP_REPO_NAME`
 
-Set `SEMGREP_REPO_NAME` to define the repository name for the URL used to generate hyperlinks in the [Findings](/docs/semgrep-code/findings) page. To avoid hardcoding this value, check your CI provider's documentation for available environment variables that can automatically detect the correct values for every CI job. 
+Set `SEMGREP_REPO_NAME` to define the repository name used to construct URLs for calls to your source code manager's external API to publish review comments on pull requests or merge requests. To avoid hardcoding this value, check your CI provider's documentation for available environment variables that can automatically detect the correct values for every CI job. 
 
 Examples:
 
