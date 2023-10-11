@@ -11,21 +11,14 @@ semgrep:
   - if: $CI_COMMIT_BRANCH == $CI_DEFAULT_BRANCH
 
   variables:
-    # Add the rules that Semgrep uses by setting the SEMGREP_RULES environment variable.
-    SEMGREP_RULES: p/default # See more at semgrep.dev/explore.
-
     # Upload findings to GitLab SAST Dashboard:
     SEMGREP_GITLAB_JSON: "1"
 
   # Other optional settings in the `variables` block:
 
-  # Never fail the build due to findings on pushes.
-  # Instead, just collect findings for semgrep.dev/manage/findings
-  #   SEMGREP_AUDIT_ON: push
-
   # Run the "semgrep ci" command on the command line of the docker image and send findings
   # to GitLab SAST.
-  script: semgrep ci --gitlab-sast > gl-sast-report.json || true
+  script: semgrep ci --code --gitlab-sast > gl-sast-report.json || true
   artifacts:
     reports:
       sast: gl-sast-report.json

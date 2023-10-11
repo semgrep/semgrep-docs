@@ -8,4 +8,4 @@ description: >-
 
 # Introduction
 
-Welcome to Semgrep release notes. This documentation gives an overview of the changes, additions, and selected fixes. The latest release notes include Semgrep CLI, Semgrep in CI, Semgrep Supply Chain, and Semgrep App updates for all versions released during the month.
+Welcome to Semgrep release notes. This documentation gives an overview of the changes, additions, and selected fixes. The latest release notes include Semgrep OSS Engine, Semgrep Supply Chain, and Semgrep Cloud Platform updates for all versions released during the month.

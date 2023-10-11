@@ -1,12 +1,15 @@
 ---
 slug: flask-xss
+description: "Flask XSS prevention cheat sheet."
 ---
 
 import LinkToRegistryRule from "/src/components/LinkToRegistryRule"
+import XssInjectionIntro from "/src/components/concept/_xss-injection-intro.mdx"
+import RecommendedRuleSet from "/src/components/code_snippets/_cheat-sheets-recommended-rule-set.mdx"
 
 # XSS prevention for Flask
 
-This is a cross-site scripting (XSS) prevention cheat sheet by r2c. It contains code patterns of potential XSS in an application. Instead of scrutinizing code for exploitable vulnerabilities, the recommendations in this cheat sheet pave a safe road for developers that mitigates the possibility of XSS in your code. By following these recommendations, you can be reasonably sure your code is free of XSS.
+<XssInjectionIntro />
 
 ## Mitigation summary
 
@@ -16,15 +19,9 @@ templates. And as always, run a security checker continuously on your code.
 
 Semgrep ruleset for this cheatsheet: [https://semgrep.dev/p/minusworld.flask-xss](https://semgrep.dev/p/minusworld.flask-xss)
 
-#### Check your project for these conditions:
+### Check your project using Semgrep
 
-```bash
-semgrep --config p/minusworld.flask-xss
-```
-
-[PDF of this cheat sheet](https://web-assets.r2c.dev/security-cheat-sheets/xss/r2c-security-cheat-sheet-xss-prevention-for-flask.pdf)
-
----
+<RecommendedRuleSet />
 
 ## 1. Server code: Unescaped variable enters template engine in Python code
 
@@ -38,7 +35,7 @@ Example:
 render_template_string("<div>%s</div>" % request.args.get("name"))
 ```
 
-#### References:
+#### References
 
 - [Exploring SSTI in Flask/Jinja2](https://blog.nvisium.com/p263)
 - [Flask & Jinja2 SSTI Cheatsheet](https://pequalsnp-team.github.io/cheatsheet/flask-jinja2-ssti)
@@ -63,11 +60,11 @@ Example:
 render_template("unsafe.jinja2")
 ```
 
-#### References:
+#### References
 
 - [Flask documentation - Escaping behavior](https://flask.palletsprojects.com/en/1.1.x/templating/#jinja-setup)
 - [Bento check - Unescaped Template Extension](https://bento.dev/checks/flask/unescaped-file-extension/)
-- [Unescaped template extensions in Flask](https://r2c.dev/blog/2020/bento-check-unescaped-template-extensions-in-flask/)
+- [Unescaped template extensions in Flask](https://semgrep.dev/blog/2020/bento-check-unescaped-template-extensions-in-flask/)
 
 #### Mitigation
 
@@ -89,7 +86,7 @@ Example:
 flask.Markup(html_content)
 ```
 
-#### References:
+#### References
 
 - [Flask autoescaping documentation](https://flask.palletsprojects.com/en/1.1.x/templating/#controlling-autoescaping)
 
@@ -116,7 +113,7 @@ def index(msg):
   return "Hello! " + msg
 ```
 
-#### References:
+#### References
 
 - [Reflected server-side cross-site scripting](https://lgtm.com/rules/1506064236628/)
 
@@ -139,7 +136,7 @@ with open('template', 'r') as fin:
   jinja2.Template(fin.read()).render()
 ```
 
-#### References:
+#### References
 
 - [Bandit Check - Jinja2 Autoescape False](https://bandit.readthedocs.io/en/latest/plugins/b701_jinja2_autoescape_false.html)
 
@@ -165,7 +162,7 @@ Example:
 {{ name | safe }}
 ```
 
-#### References:
+#### References
 
 - [Flask autoescaping documentation](https://flask.palletsprojects.com/en/1.1.x/templating/#controlling-autoescaping)
 
@@ -187,7 +184,7 @@ Example:
 {% autoescape false %}
 ```
 
-#### References:
+#### References
 
 - [Flask autoescaping documentation](https://flask.palletsprojects.com/en/1.1.x/templating/#controlling-autoescaping)
 
@@ -213,7 +210,7 @@ Example:
 <div class={{ classes }}></div>
 ```
 
-#### References:
+#### References
 
 - [Flask cross-site scripting considerations](https://flask.palletsprojects.com/en/1.1.x/security/#cross-site-scripting-xss)
 
@@ -235,7 +232,7 @@ Example:
 <a href="{{ link }}"></a>
 ```
 
-#### References:
+#### References
 
 - [Flask cross-site scripting considerations](https://flask.palletsprojects.com/en/1.1.x/security/#cross-site-scripting-xss)
 
@@ -251,7 +248,7 @@ Flag template variables in `href` attributes. Alternatively, use `url_for` to ge
 
 Template variables placed directly into JavaScript or similar are now directly in a code execution context. Normal HTML escaping will not prevent the possibility of code injection because code can be written without HTML characters. This creates the potential for XSS vulnerabilities, or worse.
 
-#### References:
+#### References
 
 - [Template engines: Why default encoders are not enough](https://www.veracode.com/blog/secure-development/nodejs-template-engines-why-default-encoders-are-not-enough)
 - [`tojson` documentation](https://flask.palletsprojects.com/en/1.1.x/templating/#standard-filters)

@@ -16,21 +16,23 @@
   },
   "dependencies": {
     "@algolia/client-search": "^4.9.1",
-    "@docusaurus/core": "^2.2.0",
-    "@docusaurus/plugin-client-redirects": "^2.2.0",
-    "@docusaurus/preset-classic": "^2.2.0",
-    "@docusaurus/theme-search-algolia": "^2.1.0",
+    "@docusaurus/core": "^2.4.1",
+    "@docusaurus/plugin-client-redirects": "^2.4.1",
+    "@docusaurus/preset-classic": "^2.4.1",
+    "@markprompt/docusaurus-theme-search": "^0.12.1",
     "@mdx-js/react": "^1.6.21",
     "@svgr/webpack": "^5.5.0",
     "clsx": "^1.1.1",
+    "docusaurus-plugin-sass": "^0.2.3",
     "file-loader": "^6.2.0",
     "prism-react-renderer": "^1.2.1",
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
     "react-loadable": "*",
-    "typescript": ">= 2.7",
+    "sass": "^1.57.1",
+    "typescript": "^5.1.6",
     "url-loader": "^4.1.1",
-    "webpack": "^5.72.0"
+    "webpack": "^5.76.0"
   },
   "browserslist": {
     "production": [
@@ -43,5 +45,9 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "@docusaurus/module-type-aliases": "^2.4.1",
+    "@tsconfig/docusaurus": "^2.0.0"
   }
 }

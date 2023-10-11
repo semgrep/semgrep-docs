@@ -1,41 +1,36 @@
-Slack integration allows Semgrep to send findings and notifications to a channel on your Slack workspace.
-To enable and integrate Slack notifications, follow these steps:
+The Semgrep Slack app allows Semgrep Cloud Platform to send findings and notifications to a channel on your Slack workspace.
 
-1. Sign in to your Semgrep App account, and then go to **Settings** > **[Integrations](https://semgrep.dev/orgs/-/settings/integrations)**.
+:::info Prerequisite
+You must be a Slack workspace owner to set up the Semgrep Slack app. 
+:::
+
+To install the Semgrep Slack app, follow these steps:
+
+1. Sign in to your Semgrep Cloud Platform account, and then go to **Settings** > **[Integrations](https://semgrep.dev/orgs/-/settings/integrations)**.
 1. On the [Integrations](https://semgrep.dev/orgs/-/settings/integrations) page, click **Add Integration** (or **Setup First Integration** if this is your first integration), and then select **Slack**.
 1. Click **Allow**.
-1. Open your **Slack workspace** and click <i class="fa-regular fa-plus"></i> **Browse apps** button.<br />
-    Note: For more information about Slack apps, see [Slack documentation](https://slack.com/help/articles/360001537467-Guide-to-apps-in-Slack).
-1. In Slack apps window, search for **Semgrep**, and then click on the underlined **<u>Semgrep</u>** link.
 1. In your **Slack workspace**, find or create a specific channel for Semgrep notifications.
-1. In the selected **Slack channel**, use the following slash command:
+1. In the selected **Slack channel**, enter the following slash command:
     ```
     /semgrep_subscribe
     ```
 1. Choose an organization in the list under **Select target organization**, and then click **Subscribe**.
-1. Go to Semgrep [Integrations](https://semgrep.dev/orgs/-/settings/integrations) page and find your Slack integration menu.
+1. Go to the Semgrep [Integrations](https://semgrep.dev/orgs/-/settings/integrations) page and find your Slack integration menu.
 1. Click **List of channels receiving Semgrep notifications**, and then click **Test**.
     ![Slack integration menu with the **test** button](/img/integrate-slack-test.png)
 
-To see more **Slash commands** for Semgrep integration, go to your Slack app homepage, and then click **Features** to see available **Slash commands**. The available options are the following:
-
-* List all the organization slugs authorized to use the Semgrep Slack app on the current workspace.
-    ```
-    /semgrep_orgs
-    ```
-
-* Lists all the channel configs currently subscribed to the Semgrep notifications.
-    ```
-    /semgrep_show_configs
-    ```
+To see more **Slash commands**, go to your Slack app homepage, and then click **Features** to see available **Slash commands**. The available options are the following:
 
 * Subscribe to findings with Semgrep:
     ```
     /semgrep_subscribe
     ```
+* Unsubscribe to findings with Semgrep:
+    ```
+    /semgrep_unsubscribe
+    ```
 
-A sample Slack message with Semgrep findings:
-![Screenshot of a Slack notification describing the details of a finding](/img/slack-notification.png)
-<br />
+![Screenshot of a Slack notification describing the details of a finding](/img/slack-notification.png#bordered)
+*Figure 1.* A sample Slack message with Semgrep findings.
 
-<!-- This module is imported in integrations.md and notifications.md.  -->
+<!-- This module is imported into notifications.md.  -->

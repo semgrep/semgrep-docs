@@ -1,25 +1,23 @@
 ---
 slug: go-xss
+description: "XSS prevention cheat sheet for Go 'net/http'."
 ---
 
 import LinkToRegistryRule from "/src/components/LinkToRegistryRule"
+import XssInjectionIntro from "/src/components/concept/_xss-injection-intro.mdx"
+import RecommendedRuleSet from "/src/components/code_snippets/_cheat-sheets-recommended-rule-set.mdx"
 
-# XSS prevention for Go 'net/http'
+# XSS prevention for Go net/http
 
-This is a cross-site scripting (XSS) prevention cheat sheet by r2c. It contains code patterns of potential XSS in an application. Instead of scrutinizing code
-for exploitable vulnerabilities, the recommendations in this cheat sheet pave a safe road for developers that mitigates the possibility of XSS in your code. By  following these recommendations, you can be reasonably sure your code is free of XSS.
+<XssInjectionIntro />
 
 ## Mitigation summary
 
 The Go template engine in `html/template` does automatic and contextual autoescaping, which mitigates many common XSS mistakes. Some aspects of the engine are confusingly named; therefore, proper use of the library should be enforced using code scanners. You may also consider using a stricter alternative, such as `safehtml`.
 
-#### Check your project for these conditions:
+### Check your project using Semgrep
 
-```bash
-semgrep --config p/xss
-```
-
----
+<RecommendedRuleSet />
 
 ## 1. Server code: Unescaped content
 
@@ -33,11 +31,11 @@ Example:
 import "text/template"
 ```
 
-#### References:
+#### References
 
 - [Common Go security mistakes](https://www.veracode.com/blog/secure-development/use-golang-these-mistakes-could-compromise-your-apps-security)
 
-#### Mitigation:
+#### Mitigation
 
 Ban `text/template`. Alternatively, use `html/template`, or a stricter alternative such as `safehtml`.
 
@@ -55,7 +53,7 @@ Example:
 content := template.HTML("<div>" + user.name + "</div>")
 ```
 
-#### References:
+#### References
 
 - [`template.HTML` documentation](https://golang.org/pkg/html/template/#HTML)
 
@@ -77,11 +75,11 @@ Example:
 content := template.HTMLAttr("class=" + user.role)
 ```
 
-#### References:
+#### References
 - [`template.HTMLAttr` documentation](https://golang.org/pkg/html/template/#HTMLAttr)
 
 
-#### Mitigation:
+#### Mitigation
 
 Ban `template.HTMLAttr`. Alternatively, prefer `template.HTML`, only if necessary.
 
@@ -99,11 +97,11 @@ Example:
 content := template.CSS("body { color: black; }")
 ```
 
-#### References:
+#### References
 
 - [`template.CSS` documentation](https://golang.org/pkg/html/template/#CSS)
 
-#### Mitigation:
+#### Mitigation
 
 Ban `template.CSS`. Alternatively, if necessary, review each case carefully and exempt with `# nosemgrep`.
 
@@ -111,9 +109,9 @@ Ban `template.CSS`. Alternatively, if necessary, review each case carefully and 
 
 <LinkToRegistryRule ruleId="go.template.security.insecure-types.go-insecure-templates" />
 
-### 1.E. Escaped types: `template.JS`
+### 1.E. Escaped types: template.JS
 
-`template.JS` is a special type which instructs the template engine not to escape the content in JavaScript contexts, such as between `script` tags.
+The `template.JS` is a special type which instructs the template engine not to escape the content in JavaScript contexts, such as between `script` tags.
 
 Example:
 
@@ -121,7 +119,7 @@ Example:
 content := template.JS("var name = " + user.name)
 ```
 
-#### References:
+#### References
 
 - [`template.JS` documentation](https://golang.org/pkg/html/template/#JS)
 - [Example demonstrating unsafe usage](https://goplay.space/#th5GWEwMck2)
@@ -135,9 +133,9 @@ Ban `template.JS`. Alternatively, place JavaScript code in files separate from H
 
 <LinkToRegistryRule ruleId="go.template.security.insecure-types.go-insecure-templates" />
 
-### 1.F. Escaped types: `template.JSStr`
+### 1.F. Escaped types: template.JSStr
 
-`template.JSStr` is a special type which instructs the template engine not to escape the content when in JavaScript contexts and in a string.
+The `template.JSStr` is a special type which instructs the template engine not to escape the content when in JavaScript contexts and in a string.
 
 Example:
 
@@ -145,7 +143,7 @@ Example:
 content := template.JSStr("Error by: " + user.name)
 ```
 
-#### References:
+#### References
 
 - [`template.JSStr` documentation](https://golang.org/pkg/html/template/#JSStr)
 
@@ -167,7 +165,7 @@ Example:
 content := template.Srcset("https://" + user.stylepageurl)
 ```
 
-#### References:
+#### References
 
 - [`template.Srcset` documentation](https://golang.org/pkg/html/template/#Srcset)
 
@@ -179,9 +177,9 @@ Ban `template.Srcset`. Alternatively, prefer `template.HTML`, only if necessary.
 
 <LinkToRegistryRule ruleId="go.template.security.insecure-types.go-insecure-templates" />
 
-### 1.H. Escaped types: `template.URL`
+### 1.H. Escaped types: template.URL
 
-`template.URL` is a special type which instructs the template engine not to escape the content.
+The `template.URL` is a special type which instructs the template engine not to escape the content.
 
 Example:
 
@@ -189,7 +187,7 @@ Example:
 content := template.URL("https://" + user.stylepageurl)
 ```
 
-#### References:
+#### References
 
 - [`template.URL` documentation](https://golang.org/pkg/html/template/#URL)
 
@@ -205,7 +203,7 @@ Ban `template.URL`. Alternatively, if necessary, review each case carefully and 
 
 ## 2. Server code: Bypassing the template engine
 
-### 2.A. Writing directly to the response object: `fmt.Fprintf()`
+### 2.A. Writing directly to the response object: fmt.Fprintf()
 
 Writing directly to the response object bypasses the template engine which means content will not be autoescaped. This could introduce a XSS vulnerability.
 
@@ -215,7 +213,7 @@ Example:
 fmt.Fprintf(w, "<div>" + user.name + "</div>")
 ```
 
-#### References:
+#### References
 
 - [Go Security - XSS](https://blogtitle.github.io/robn-go-security-pearls-cross-site-scripting-xss/)
 
@@ -237,7 +235,7 @@ Example:
 io.WriteString(w, "<div>" + user.name + "</div>")
 ```
 
-#### References:
+#### References
 
 - [Go Security - XSS](https://blogtitle.github.io/robn-go-security-pearls-cross-site-scripting-xss/)
 - [`io.WriteString` documentation](https://golang.org/pkg/io/#WriteString)
@@ -250,7 +248,7 @@ Ban using `io.WriteString` with the HTTP response writer. Alternatively, use `ht
 
 <LinkToRegistryRule ruleId="go.lang.security.audit.xss.no-io-writestring-to-responsewriter.no-io-writestring-to-responsewriter" />
 
-### 2.C. Writing directly to the response object: `w.Write()` method
+### 2.C. Writing directly to the response object: w.Write() method
 
 Writing directly to the response object bypasses the template engine which means content will not be autoescaped. This could introduce a XSS vulnerability.
 
@@ -260,7 +258,7 @@ Example:
 writer.Write([]byte("<div>" + user.name + "</div>"))
 ```
 
-#### References:
+#### References
 
 - [Go Security - XSS](https://blogtitle.github.io/robn-go-security-pearls-cross-site-scripting-xss/)
 - [Sample vulnerable app](https://gist.github.com/minusworld/62d30f299072bc6c0979778f4c00242f)

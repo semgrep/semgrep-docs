@@ -203,7 +203,7 @@ For example, if we replace `secure_eval` with `safe_eval`, we can see that lines
 
 ## Validating rules
 
-At r2c, we believe in checking the code we write, and that includes rules.
+At Semgrep, Inc., we believe in checking the code we write, and that includes rules.
 
 You can run `semgrep --validate --config [filename]` to check the configuration. This command runs a combination of Semgrep rules and OCaml checks against your rules to search for issues such as duplicate patterns and missing fields. All rules submitted to the Semgrep Registry are validated.
 
@@ -211,7 +211,7 @@ The semgrep rules are pulled from `p/semgrep-rule-lints`.
 
 This feature is still experimental and under active development. Your feedback is welcomed!
 
-## Enabling autofix in Semgrep App
+## Enabling autofix in Semgrep Code
 
 <EnableAutofix />
 

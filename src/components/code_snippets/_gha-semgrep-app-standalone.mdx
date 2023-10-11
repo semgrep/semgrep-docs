@@ -5,6 +5,8 @@ name: Semgrep
 on:
   # Scan changed files in PRs (diff-aware scanning):
   pull_request: {}
+  # Scan on-demand through GitHub Actions interface:
+  workflow_dispatch: {}
   # Scan mainline branches and report all findings: 
   push:
     branches: ["master", "main"]
@@ -16,7 +18,7 @@ on:
 jobs:
   semgrep:
     # User-definable name of this GitHub Actions job:
-    name: Scan
+    name: semgrep/ci
     # If you are self-hosting, change the following `runs-on` value: 
     runs-on: ubuntu-latest
 
@@ -31,8 +33,5 @@ jobs:
       # Fetch project source with GitHub Actions Checkout.
       - uses: actions/checkout@v3
       # Run the "semgrep ci" command on the command line of the docker image.
-      - run: semgrep ci
-        env:
-           # Add the rules that Semgrep uses by setting the SEMGREP_RULES environment variable. 
-           SEMGREP_RULES: p/default # more at semgrep.dev/explore
+      - run: semgrep ci --code
 ```

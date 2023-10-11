@@ -25,8 +25,8 @@ toc_max_heading_level: 3
 
 ### Additions
 
-- When you triage a finding, Semgrep App now displays a form that asks whether the finding was a **False positive**, **Acceptable risk**, or you had **No time to fix**. For more information, see [Managing finding status](/semgrep-app/findings/#managing-finding-status). ![Screenshot of Semgrep App triage menu](/img/app-findings-triage.png)
-- When ignoring an individual finding, you can now ignore similar future findings by selecting one of the following options: **Just this file**, **This directory**, or **Parent directory**. These options specify which files and directories Semgrep App ignores. In addition, you can now remove a rule when you triage a single finding without having to go to the Rule board. To ignore a rule while triaging a finding, enable the **Remove this rule from Rule board** when triaging an individual finding. See [Ignoring individual findings](/semgrep-app/findings/#ignoring-individual-findings).
+- When you triage a finding, Semgrep App now displays a form that asks whether the finding was a **False positive**, **Acceptable risk**, or you had **No time to fix**. For more information, see [Managing finding status](/semgrep-code/findings/#managing-finding-status). ![Screenshot of Semgrep App triage menu](/img/app-findings-triage.png)
+- When ignoring an individual finding, you can now ignore similar future findings by selecting one of the following options: **Just this file**, **This directory**, or **Parent directory**. These options specify which files and directories Semgrep App ignores. In addition, you can now remove a rule when you triage a single finding without having to go to the Rule board. To ignore a rule while triaging a finding, enable the **Remove this rule from Rule board** when triaging an individual finding. See [Ignoring individual findings](/semgrep-code/findings/#ignoring-individual-findings).
 
 ### Changes
 
@@ -75,7 +75,7 @@ These release notes include upgrades for versions ranging between 0.120.0 and 0.
 
 #### Semgrep App
 
-- The [Managing projects through tags](/semgrep-app/tags/) document explains how to use tags in projects added to Semgrep App.
+- The [Tagging projects](/semgrep-cloud-platform/tags/) document explains how to use tags in projects added to Semgrep App.
 
 #### Semgrep CLI
 
@@ -85,15 +85,15 @@ These release notes include upgrades for versions ranging between 0.120.0 and 0.
 ### Changes
 
 - The following CI documents have been updated to reflect the latest environment variable:
-  - [Running Semgrep in continuous integration (CI) with Semgrep App](/semgrep-ci/running-semgrep-ci-with-semgrep-app/)
-  - [Running Semgrep in continuous integration (CI) without Semgrep App](/semgrep-ci/running-semgrep-ci-without-semgrep-app/)
+  - [Running Semgrep in continuous integration (CI) with Semgrep App](/semgrep-ci/running-semgrep-ci-with-semgrep-cloud-platform/)
+  - [Running Semgrep in continuous integration (CI) without Semgrep App](/semgrep-ci/running-semgrep-ci-without-semgrep-cloud-platform/)
   - [Sample continuous integration (CI) configurations](/semgrep-ci/sample-ci-configs/)
-- Updated [Pricing and billing](/semgrep-app/pricing-and-billing/) page. [Semgrep Supply Chain supported languages](/supported-languages/#semgrep-supply-chain) are now part of Pricing and billing document.
+- Updated [Pricing and billing](/pricing-and-billing/) page. [Semgrep Supply Chain supported languages](/supported-languages/#semgrep-supply-chain) are now part of Pricing and billing document.
 - The `SEMGREP_TIMEOUT ` information has been updated. See [`SEMGREP_TIMEOUT`](/semgrep-ci/configuration-reference/#semgrep_timeout) documentation for more details.
-- Collapsible items in the documentation sidebar now take you to overview pages for a given category or lead to introductory pages. Overview pages also provide an updated description for displayed cards that represent individual documents. For example: [Continuous integration (CI)](https://semgrep.dev/docs/category/continuous-integration-ci/), [Command-line interface (CLI)](https://semgrep.dev/docs/category/command-line-interface-cli/), [Data-flow analysis engine overview](https://semgrep.dev/docs/writing-rules/data-flow/data-flow-overview/)
+- Collapsible items in the documentation sidebar now take you to overview pages for a given category or lead to introductory pages. Overview pages also provide an updated description for displayed cards that represent individual documents. For example: [Semgrep command-line interface (CLI)](/category/semgrep-cli/), [Semgrep in continuous integration (CI)](/category/semgrep-in-ci/), [Data-flow analysis engine overview](/writing-rules/data-flow/data-flow-overview/)
 - Release notes that you are now reading have been split into one document for each month the Release notes category now has its own dedicated right sidebar. This change makes it easier to find changes that happened over the span of a month.
 - The [Experiments](/writing-rules/experiments/introduction/) category now falls under **Writing custom rules** section on our left sidenav.
-- Updated [Managing findings in Semgrep App](/semgrep-app/findings/) document, especially [Managing finding status](/semgrep-app/findings/#managing-finding-status) section to inform about the latest triage workflow updates.
-- Updated information about enabling the autofix feature in various occurrences in our docs. For example: [Enabling autofix in Semgrep App](/writing-rules/testing-rules/#enabling-autofix-in-semgrep-app)
-- Updated [Defining ignored files and folders in Semgrep App](/writing-rules/testing-rules/#enabling-autofix-in-semgrep-app) to inform about how you can ignore files from the Findings page of Semgrep App.
+- Updated [Managing findings in Semgrep App](/semgrep-code/findings/) document, especially [Managing finding status](/semgrep-code/findings/#managing-finding-status) section to inform about the latest triage workflow updates.
+- Updated information about enabling the autofix feature in various occurrences in our docs. For example: [Enabling autofix in Semgrep App](/writing-rules/testing-rules/#enabling-autofix-in-semgrep-code)
+- Updated [Defining ignored files and folders in Semgrep App](/writing-rules/testing-rules/#enabling-autofix-in-semgrep-code) to inform about how you can ignore files from the Findings page of Semgrep App.
 - Many fixed links, typos, and other necessary improvements for great docs experience.

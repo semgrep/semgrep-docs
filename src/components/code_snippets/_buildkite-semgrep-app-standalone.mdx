@@ -1,13 +1,10 @@
 ```yaml
 - label: ":semgrep: Semgrep"
   commands:
-    # Define rules to scan with by setting the SEMGREP_RULES environment variable. 
-    - export SEMGREP_RULES="p/default"
-
     # To scan changed files in PRs or MRs (diff-aware scanning):
     # - export SEMGREP_BASELINE_REF=${BUILDKITE_BRANCH}
 
-    - semgrep ci 
+    - semgrep ci --code
   
   plugins:
     - docker#v3.7.0:

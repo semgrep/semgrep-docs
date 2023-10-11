@@ -1,26 +1,23 @@
 ---
 slug: rails-xss
+description: "XSS prevention cheat sheet for Ruby on Rails."
 ---
 
 import LinkToRegistryRule from "/src/components/LinkToRegistryRule"
+import XssInjectionIntro from "/src/components/concept/_xss-injection-intro.mdx"
+import RecommendedRuleSet from "/src/components/code_snippets/_cheat-sheets-recommended-rule-set.mdx"
 
 # XSS prevention for Ruby on Rails
 
-This is a cross-site scripting (XSS) prevention cheat sheet by r2c. It contains code patterns of potential XSS in an application. Instead of scrutinizing code for exploitable vulnerabilities, the recommendations in this cheat sheet pave a safe road for developers that mitigates the possibility of XSS in your code. By  following these recommendations, you can be reasonably sure your code is free of XSS.
+<XssInjectionIntro />
 
 ## Mitigation summary
 
 In general, always let Rails render ERB template files rather than constructing them in code. If HTML escaping is needed, use `html_safe()` in Ruby code and review each individual usage carefully. Once reviewed, mark the line with `# nosem`. Beware of putting data in dangerous locations in templates. And as always, run a security checker continuously on your code.
 
-#### Check your project for these conditions:
+### Check your project using Semgrep
 
-```bash
-semgrep --config p/minusworld.ruby-on-rails-xss
-```
-
-[PDF of this cheat sheet](https://web-assets.r2c.dev/security-cheat-sheets/xss/r2c-security-cheat-sheet-xss-prevention-for-ruby-on-rails.pdf)
-
----
+<RecommendedRuleSet />
 
 ## 1. Unescaped variable enters template engine in Ruby code
 
@@ -35,7 +32,7 @@ html = "<div>#{name}</div>".html_safe
 ```
 
 
-#### References:
+#### References
 
 - [Brakeman scanner - Cross-site scripting](https://github.com/presidentbeef/brakeman/blob/main/docs/warning_types/cross_site_scripting/index.markdown)
 - [Preventing XSS in Ruby on Rails](https://www.netsparker.com/blog/web-security/preventing-xss-ruby-on-rails-web-applications/)
@@ -60,7 +57,7 @@ Example:
 content_tag :p, "Hello, #{name}"
 ```
 
-#### References:
+#### References
 - [Brakeman scanner - Content tag](https://brakemanscanner.org/docs/warning_types/content_tag/)
 
 #### Mitigation
@@ -82,7 +79,7 @@ Example:
 raw @user.name
 ```
 
-#### References:
+#### References
 
 - [`raw()` documentation](https://api.rubyonrails.org/classes/ActionView/Helpers/OutputSafetyHelper.html#method-i-raw)
 - [Preventing XSS in Ruby on Rails](https://www.netsparker.com/blog/web-security/preventing-xss-ruby-on-rails-web-applications/)
@@ -106,7 +103,7 @@ Example:
 config.active_support.escape_html_entities_in_json = false
 ```
 
-#### References:
+#### References
 
 - [`escape_html_entities_in_json` documentation](https://rubydoc.info/docs/rails/ActiveSupport/JSON/Encoding.escape_html_entities_in_json=)
 - [Brakeman scanner - Cross-site scripting (JSON)](https://brakemanscanner.org/docs/warning_types/cross_site_scripting_to_json/)
@@ -136,7 +133,7 @@ Example:
 ERB.new("<div>#{@user.name}</div>").result
 ```
 
-#### References:
+#### References
 
 - [Brakeman scanner - Template injection](https://github.com/presidentbeef/brakeman/blob/main/docs/warning_types/template_injection/index.markdown)
 - [Ruby ERB template injection](https://www.trustedsec.com/blog/rubyerb-template-injection/)
@@ -150,7 +147,7 @@ Ban template creation in code. Alternatively, Use ERB template files.
 
 <LinkToRegistryRule ruleId="ruby.rails.security.audit.xss.manual-template-creation.manual-template-creation" />
 
-### 2.B. Rendering an inline template with **render inline:**
+### 2.B. Rendering an inline template with **render inline**
 
 `render inline:` is the same as creating a template manually and is therefore susceptible to the same vulnerabilities as manually creating an ERB template. This can result in a SSTI or XSS vulnerability.
 
@@ -160,7 +157,7 @@ Example:
 render inline: "<div>#{@user.name}</div>"
 ```
 
-#### References:
+#### References
 
 - [Zen Rails Security Checklist](https://github.com/brunofacca/zen-rails-security-checklist#output-escaping--sanitization)
 - [Inline renders - even worse than XSS!](https://brakemanpro.com/2017/09/08/cross-site-scripting-in-rails#inline-renders---even-worse-than-xss)
@@ -184,7 +181,7 @@ Example:
 render text: "<div>#{@user.name}</div>"
 ```
 
-#### References:
+#### References
 
 - [Inline renders - even worse than XSS!](https://brakemanpro.com/2017/09/08/cross-site-scripting-in-rails#inline-renders---even-worse-than-xss)
 
@@ -211,7 +208,7 @@ Example:
 <%= name.html_safe %>
 ```
 
-#### References:
+#### References
 
 - [Brakeman scanner - Cross-site scripting](https://github.com/presidentbeef/brakeman/blob/main/docs/warning_types/cross_site_scripting/index.markdown)
 - [Preventing XSS in Ruby on Rails](https://www.netsparker.com/blog/web-security/preventing-xss-ruby-on-rails-web-applications/)
@@ -237,7 +234,7 @@ Example:
 <%= content_tag :p, "Hello, #{name}" %>
 ```
 
-#### References:
+#### References
 
 - [Brakeman scanner - Content tag](https://brakemanscanner.org/docs/warning_types/content_tag/)
 
@@ -259,7 +256,7 @@ Example:
 <%= raw @user.name =>
 ```
 
-#### References:
+#### References
 
 - [`raw()` documentation](https://api.rubyonrails.org/classes/ActionView/Helpers/OutputSafetyHelper.html#method-i-raw)
 - [Preventing XSS in Ruby on Rails](https://www.netsparker.com/blog/web-security/preventing-xss-ruby-on-rails-web-applications/)
@@ -283,7 +280,7 @@ Example:
 <%== @user.name %>
 ```
 
-#### References:
+#### References
 
 - [Alias for `html_safe()`](https://medium.com/sumone-technical-blog/a-pretty-way-to-unescape-html-in-a-ruby-on-rails-application-efc22b850027)
 - [Raw vs. html_safe](https://stackoverflow.com/questions/4251284/raw-vs-html-safe-vs-h-to-unescape-html#:~:text===)
@@ -317,7 +314,6 @@ Example:
 
 #### Mitigation
 
-
 Flag unquoted HTML attributes ERB expressions. Alternatively, Always use quotes around HTML attributes.
 
 #### Semgrep rule
@@ -334,7 +330,7 @@ Example:
 <a href="<%= link %>"></a>
 ```
 
-#### References:
+#### References
 
 - [Flask cross-site scripting considerations - variable in `href`](https://flask.palletsprojects.com/en/1.1.x/security/#cross-site-scripting-xss)
 
@@ -357,7 +353,7 @@ Example:
 <%= link_to "Here", @link %>
 ```
 
-#### References:
+#### References
 
 - [OWASP Cheatsheet - Ruby on Rails XSS](https://cheatsheetseries.owasp.org/cheatsheets/Ruby_on_Rails_Cheat_Sheet.html#cross-site-scripting-xss)
 - [Brakeman scanner - link_to](https://github.com/presidentbeef/brakeman/blob/main/docs/warning_types/link_to_href/index.markdown)
@@ -381,7 +377,7 @@ Example:
 <script>var name = <%= name %>;</script>
 ```
 
-#### References:
+#### References
 
 - [Template engines: Why default encoders are not enough](https://www.veracode.com/blog/secure-development/nodejs-template-engines-why-default-encoders-are-not-enough)
 - [Protecting against XSS in Rails - JavaScript contexts](https://blog.ircmaxell.com/2018/06/protecting-rails-xss.html)

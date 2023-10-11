@@ -6,9 +6,13 @@ description: "Join mode runs several Semgrep rules at once and only returns resu
 
 # Join mode overview
 
-Join mode runs several Semgrep rules at once and only returns results if certain conditions on the results are met. Semgrep is brilliant for finding code patterns with an easy syntax, but its search is typically limited to single files. Join mode is an experimental mode that lets you cross file boundaries, allowing you to write rules for whole code bases instead of individual files. As the name implies, this was inspired by join clauses in SQL queries.
+Join mode runs several Semgrep rules at once and only returns results if certain conditions on the results are met. Semgrep OSS Engine is brilliant for finding code patterns with an easy syntax, but its search is typically limited to single files. Join mode is an experimental mode that lets you cross file boundaries, allowing you to write rules for whole code bases instead of individual files. As the name implies, this was inspired by join clauses in SQL queries.
 
 Think of join mode like this: distinct Semgrep rules are used to gather information about a code base. Then, the conditions you define are used to select specific results from these rules, and the selected results are reported by Semgrep. You can join results on metavariable contents or on the result's file path.
+
+:::info
+You can also use the proprietary Semgrep Pro Engine that enables you to cross file boundaries during code analysis with its cross-file (interfile) analysis capabilities. For more information, see [Semgrep Pro Engine overview](/semgrep-code/semgrep-pro-engine-intro/).
+:::
 
 ## Example
 
@@ -107,10 +111,10 @@ We can translate these roughly into the following condition statements.
 - 'unescaped-extensions.$PATH > template-vars.path'
 ```
 
-Combining the three code pattern Semgrep rules and the three conditions gives us the join rule at the top of this section. This rule will match the code shown here.
+Combining the three code pattern Semgrep rules and the three conditions gives us the join rule at the top of this section. This rule matches the code displayed below.
 
 
-![Screenshot of code the join rule will match](/img/join-mode-example.png)
+![Screenshot of code the join rule matches](/img/join-mode-example.png)
 
 
 ```bash
@@ -129,7 +133,7 @@ severity:error rule:flask-likely-xss: Detected a XSS vulnerability: '$VAR' is re
 
 For convenience, when writing a join mode rule, you can use the `renames` and `as` keys. 
 
-The `renames` key will let you rename metavariables from one rule to something else in your conditions. **This is necessary for named expressions, e.g., `$...EXPR`.**
+The `renames` key lets you rename metavariables from one rule to something else in your conditions. **This is necessary for named expressions, e.g., `$...EXPR`.**
 
 The `as` key behaves similarly to `AS` clauses in SQL. This lets you rename the result set for use in the conditions. If the `as` key is not specified, the result set uses the **rule ID**.
 
@@ -141,7 +145,7 @@ The `join` key is required when in join mode. This is just a top-level key that 
 
 #### Inline rule example
 
-The following rule attempts to detect cross-site scripting in Flask application by checking whether a template variable is rendered unsafely through Python code.
+The following rule attempts to detect cross-site scripting in a Flask application by checking whether a template variable is rendered unsafely through Python code.
 
 ```yaml
 rules:
@@ -196,13 +200,13 @@ Short for references, `refs` is a list of external rules that make up your code 
 
 ### `rule`
 
-This points to an external rule location to use in this join rule. Currently, join mode requires external rules. Additionally, even though Semgrep rule files can typically contain multiple rules under the `rules` key, join mode **will only use the first rule in the file**.
+Used with `refs`, `rule` points to an external rule location to use in this join rule. Even though Semgrep rule files can typically contain multiple rules under the `rules` key, join mode **only uses the first rule in the provided file**.
 
-Anything that works with `semgrep --config <here>` will work as the value for `rule`.
+Anything that works with `semgrep --config <here>` also works as the value for `rule`.
 
 ### `renames`
 
-An optional key for an object in `refs`, `renames` will rename the metavariables from the associated `rule`. The value of `renames` is a list of objects whose keys are `from` and `to`. The `from` key specifies the metavariable to rename, and the `to` key specifies the new name of the metavariable.
+An optional key for an object in `refs`, `renames` renames the metavariables from the associated `rule`. The value of `renames` is a list of objects whose keys are `from` and `to`. The `from` key specifies the metavariable to rename, and the `to` key specifies the new name of the metavariable.
 
 :::warning
 Renaming is necessary for named expressions, e.g., `$...EXPR`.
@@ -210,7 +214,7 @@ Renaming is necessary for named expressions, e.g., `$...EXPR`.
 
 ### `as`
 
-An optional key for an object in `refs`, `as` will let you specify an alias for the results collected by this rule for use in the `on` conditions. Without the `as` key, the default name for the results collected by this rule is the rule ID of the rule in `rule`. If you use `as`, the results can be references using the alias specifed by `as`.
+An optional key for an object in `refs`, `as` lets you specify an alias for the results collected by this rule for use in the `on` conditions. Without the `as` key, the default name for the results collected by this rule is the rule ID of the rule in `rule`. If you use `as`, the results can be referenced using the alias specified by `as`.
 
 ### `on`
 
@@ -222,13 +226,13 @@ The `on` key is required in join mode. This is where the join conditions are lis
 
 `result_set` is the name of the result set produced by one of the `refs`. See the `as` key for more information.
 
-`property` is either a metavariable, such as `$VAR`, or the keyword `path`, which will return the path of the finding.
+`property` is either a metavariable, such as `$VAR`, or the keyword `path`, which returns the path of the finding.
 
 `operator` is one of the following.
 
 | Operator | Example | Description |
 | -------- | ------- | ----------- |
-| `==`   |  `secret-env-var.$VALUE == log-statement.$FORMATVAR` | Matches when the contents of boths sides are exactly equal. |
+| `==`   |  `secret-env-var.$VALUE == log-statement.$FORMATVAR` | Matches when the contents of both sides are exactly equal. |
 | `!=`   | `url-allowlist.$URL != get-request.$URL` | Matches when the contents of both sides are not equal. |
 | `<`    | `template-var.path < unsafe-template.$PATH` | Matches when the right-hand side is a substring of the left-hand side.
 | `>`    | `unsafe-template.$PATH > template-var.path` | Matches when the left-hand side is a substring of the right-hand side. |
@@ -237,9 +241,11 @@ The `on` key is required in join mode. This is where the join conditions are lis
 
 Join mode **is not taint mode**! While it can look on the surface like join mode is "connecting" things together, it is actually just creating sets for each Semgrep rule and returning all the results that meet the conditions. This means some false positives will occur if unrelated metavariable contents happen to have the same value.
 
-Right now, external rules are required for join mode. (This is why the rules are called `refs` - they are references to other locations.) To use join mode, you must define your individual Semgrep rules in independent locations. This can be anything that works with `semgrep --config <here>`, such as a file, a URL, or a Semgrep registry pointer like `r/java.lang.security.some.rule.id`. 
+To use join mode with `refs`, you must define your individual Semgrep rules in independent locations. This can be anything that works with `semgrep --config <here>`, such as a file, a URL, or a Semgrep registry pointer like `r/java.lang.security.some.rule.id`. 
 
-Currently, join mode will only report the code location of the **last finding that matches the conditions**. Join mode will parse the conditions from top-to-bottom, left-to-right. This means that findings from the "bottom-right" condition will be the reported code location.
+Join mode does not work in the Semgrep Playground or Semgrep Editor, as it is an experimental feature.
+
+Currently, join mode only reports the code location of the **last finding that matches the conditions**. Join mode parses the conditions from top-to-bottom, left-to-right. This means that findings from the "bottom-right" condition become the reported code location.
 
 ## More ideas
 

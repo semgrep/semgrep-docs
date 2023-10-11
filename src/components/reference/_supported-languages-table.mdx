@@ -1,35 +1,47 @@
-Semgrep supports 20+ languages.
-
 <div id="language-support-table">
 
-| GA ✅      | Beta 🐛                     | Experimental 🚧            |
-|:---------- |:---------------------------|:---------------------------|
-| C#         | Kotlin                     | Bash                       |
-| Go         |                            | C                          |
-| Java       |                            | C++                        |
-| JavaScript |                            | Dockerfile                 |
-| JSON       |                            | Elixir                     |
-| JSX        |                            | HTML                       |
-| PHP        |                            | Lua                        |
-| Python     |                            | OCaml                      |
-| Ruby       |                            | R                          |
-| Scala      |                            | Rust                       |
-| Terraform  |                            | Solidity                   |
-| TSX        |                            | Swift                      |
-| TypeScript |                            | YAML                       |
-|            |                            | Generic (ERB, Jinja, etc.) |
+| Language | Semgrep OSS Engine | Semgrep Pro Engine (cross-function) | Semgrep Pro Engine (cross-file)
+|:---------- |:----------------------------|:---------------------------|:---------------------------|
+| Go         | GA | GA | GA |                         
+| Java       | GA | GA | GA |                   
+| JavaScript | GA | GA | GA | 
+| TypeScript | GA | GA | GA |
+| Kotlin     | GA | GA | Beta |   
+| C#         | GA | GA | -- |
+| Ruby       | GA | GA | -- |                      
+| JSX        | GA | GA | -- |                       
+| PHP        | GA | GA | -- |                   
+| Python     | GA | GA | -- |                        
+| Scala      | GA | GA | -- |     
+| JSON       | GA | -- | -- |                    
+| Terraform  | GA | -- | -- |      
+| Apex       | _Pro Engine Only_   | Beta | -- |
+| Rust       | GA | Experimental | -- |
+| Generic    | GA | -- | -- |  
+| Swift      | Beta | -- | -- |     
+| Bash       | Experimental | -- | -- |  
+| C          | Experimental | -- | -- |     
+| C++        | Experimental | -- | -- |  
+| Cairo      | Experimental | -- | -- | 
+| Clojure    | Experimental | -- | -- |  
+| Dart       | Experimental | -- | -- |   
+| Dockerfile | Experimental | -- | -- |   
+| Elixir     | Experimental | -- | -- |   
+| HTML       | Experimental | -- | -- |      
+| Jsonnet    | Experimental | -- | -- | 
+| Julia      | Experimental | -- | -- |   
+| Lisp       | Experimental | -- | -- |   
+| Lua        | Experimental | -- | -- |   
+| Ocaml      | Experimental | -- | -- |   
+| R          | Experimental | -- | -- |   
+| Scheme     | Experimental | -- | -- |   
+| Solidity   | Experimental | -- | -- |   
+| YAML       | Experimental | -- | -- |  
+| XML        | Experimental | -- | -- |  
+
+If you'd like to request a language not shown here, please [create an issue on the Semgrep GitHub repo](https://github.com/returntocorp/semgrep/issues). 
 
 </div>
-
-- **Experimental**: experimental support with many known bugs.
-    - Looking for dedicated users to help us improve these languages.
-    - Expect limited support responses, as these languages will be lowest priority.
-- **Beta**: supported language with known bugs.
-    - Looking for beta users to report bugs and rapidly iterate with our team.
-    - Expect best-effort support responses when there are no higher priority requests being handled.
-- **GA**: production-level support with few known bugs.
-    - Looking for bug reports and feedback from users.
-    - Expect timely and thorough support responses, generally within 24 hours.
 
 <!--  For readability, please keep each column in alphabetical order. -->
 <!-- coupling: Should match what is in semgrep-core/tests/Test.ml Maturity level testing. -->

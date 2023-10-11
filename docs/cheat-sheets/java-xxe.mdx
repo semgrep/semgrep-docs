@@ -1,11 +1,22 @@
 ---
 slug: java-xxe
 toc_max_heading_level: 4
+description: "XML External entity prevention cheat sheet for Java. "
 ---
 
 # XML External entity prevention for Java
 
 This article documents two attacks related to XML external entities: XML exponential entity expansion and XML external entity injection. In Java, applications are secure from exponential entity expansion by default. Consequently, no security measures are necessary. When exponential entity expansion occurs the JDK throws an exception, but if this exception is not caught and handled, an attack can still cause a denial-of-service attack (DoS). In contrast, there are various countermeasures to protect a Java XML parser from XML external entity injection, but not all are effective. This cheat sheet also provides test results, availability, and the effect of different security measures on several Java classes that process XML documents in section [3. Overview of the effect of security measures for each class](#3-overview-of-the-effect-of-security-measures-for-each-class).
+
+## Check your project using Semgrep
+
+You may use [Pro rules](/semgrep-code/pro-rules/) to check your project for XXE vulnerabilities.
+
+### Catching XXE bugs in Java with Semgrep taint labels
+
+See the process behind creating a Semgrep rule that detects XXE vulnerabilities. You can create and improve your own rules using [Semgrep Playground](https://semgrep.dev/playground) as you may see in the following video:
+
+<iframe class="yt_embed" width="100%" height="432px" src="https://www.youtube.com/embed/lAbJdzMUR4k" frameborder="0" allowfullscreen></iframe>
 
 ## Mitigation summary
 
@@ -45,7 +56,7 @@ The following infographic provides an overview of Java XXE security features:
 ## 1. Exponential entity expansion
 
 Exponential entity expansion occurs when several layers of nested entities reference several other entities.
-See an example of such a payload, called also an XML bomb, in [r2c's research project on GitHub](https://github.com/returntocorp/java-xxe-research/blob/main/payloads-new/xml-attacks/xml-bomb.xml).
+See an example of such a payload, called also an XML bomb, in [Semgrep's research project on GitHub](https://github.com/returntocorp/java-xxe-research/blob/main/payloads-new/xml-attacks/xml-bomb.xml).
 
 When a document that contains an XML bomb is parsed, the parser expands each of the nested references. Consequently, this expansion becomes exponential leading to excessive use of resources and denial-of-service attacks (DoS).
 In Java, the JDK throws an exception when such excessive use of resources is detected. 
@@ -76,11 +87,11 @@ XML external entity injection occurs when the system identifier to some of the e
 
 There are many potential ways in which external resources can be referenced in XML documents, XML Schemas, and XSLT stylesheets. External content can be loaded through an External Document Type Definition (DTD), an External Entity Reference to external data, a General Entity reference, or an External Parameter Entity reference. Additional XML code can also be included through `XInclude`, or references to XML Schema components using the `schemaLocation` attribute of `import` or `include` elements. In stylesheets, multiple sheets can be combined using the `xsl:include` element, the `?xml-stylesheet` processing instruction, or the `document()` function.
 
-For examples of each of these ways of including external resources, see the [Java API for XML Processing (JAXP) Security Guide](https://docs.oracle.com/en/java/javase/13/security/java-api-xml-processing-jaxp-security-guide.html) in Oracle documentation. In addition, you can review r2c's [research project on GitHub](https://github.com/returntocorp/java-xxe-research/tree/main/payloads-new).
+For examples of each of these ways of including external resources, see the [Java API for XML Processing (JAXP) Security Guide](https://docs.oracle.com/en/java/javase/13/security/java-api-xml-processing-jaxp-security-guide.html) in Oracle documentation. In addition, you can review Semgrep's [research project on GitHub](https://github.com/returntocorp/java-xxe-research/tree/main/payloads-new).
 
 ### 2.B Security measures
 
-There are several security measures, but not all of them are available for each class. See an overview of which measures are available for which class in section [3. Overview of the effect of security measures for each class](#3-overview-of-the-effect-of-security-measures-for-each-class) with r2c research results.
+There are several security measures, but not all of them are available for each class. See an overview of which measures are available for which class in section [3. Overview of the effect of security measures for each class](#3-overview-of-the-effect-of-security-measures-for-each-class) with Semgrep research results.
 
 #### Feature for Secure Processing (FSP)
 
@@ -629,7 +640,7 @@ N/A - Not available
 
 ### 3.C SAXParserFactory
 
-[`javax.xml.parsers.SAXParserFactory`](https://docs.oracle.com/javase/7/docs/api/javax/xml/parsers/SAXParserFactory.html) can process all 10 attack payloads. In its default configuration, it is vulnerable to 4 of the attack payloads.
+[`javax.xml.parsers.SAXParserFactory`](https://docs.oracle.com/en/java/javase/19/docs/api/java.xml/javax/xml/parsers/SAXParserFactory.html) can process all 10 attack payloads. In its default configuration, it is vulnerable to 4 of the attack payloads.
 
 <font size="2">
 <table>
@@ -903,7 +914,7 @@ N/A - Not available
 
 ### 3.D SAXParser
 
-[`javax.xml.parsers.SAXParser`](https://docs.oracle.com/javase/7/docs/api/javax/xml/parsers/SAXParser.html) can process all 10 payloads. In its default configuration, it is vulnerable to 4 attack payloads.
+[`javax.xml.parsers.SAXParser`](https://docs.oracle.com/en/java/javase/19/docs/api/java.xml/javax/xml/parsers/SAXParser.html) can process all 10 payloads. In its default configuration, it is vulnerable to 4 attack payloads.
 
 <font size="2">
 <table>
@@ -1016,7 +1027,7 @@ N/A - Not available
 
 ### 3.E SAXReader
 
-[`org.dom4j.io.SAXReader`](https://dom4j.github.io/javadoc/2.0.1/org/dom4j/io/SAXReader.html) can process all 10 payloads. In its default configuration, it is vulnerable to 4 of the attack payloads.
+[`org.dom4j.io.SAXReader`](https://dom4j.github.io/javadoc/2.1.3/org/dom4j/io/SAXReader.html) can process all 10 payloads. In its default configuration, it is vulnerable to 4 of the attack payloads.
 
 <font size="2">
 <table>
@@ -1306,7 +1317,7 @@ N/A - Not available
 
 ### 3.F TransformerFactory & SAXTransformerFactory
 
-[`javax.xml.transform.TransformerFactory`](https://docs.oracle.com/javase/7/docs/api/javax/xml/transform/TransformerFactory.html) and [`javax.xml.transform.sax.SAXTransformerFactory`](https://docs.oracle.com/javase/7/docs/api/javax/xml/transform/sax/SAXTransformerFactory.html) 
+[`javax.xml.transform.TransformerFactory`](https://docs.oracle.com/en/java/javase/19/docs/api/java.xml/javax/xml/transform/TransformerFactory.html) and [`javax.xml.transform.sax.SAXTransformerFactory`](https://docs.oracle.com/en/java/javase/19/docs/api/java.xml/javax/xml/transform/sax/SAXTransformerFactory.html) 
 are not able to process XML Schema Definition (XSD) payloads. Out of the 7 payloads they can process, the default configurations parses 6 payloads insecurely.
 
 <font size="2">
@@ -1396,7 +1407,7 @@ are not able to process XML Schema Definition (XSD) payloads. Out of the 7 paylo
 
 ### 3.G SchemaFactory 
 
-[`javax.xml.validation.SchemaFactory`](https://docs.oracle.com/javase/7/docs/api/javax/xml/validation/SchemaFactory.html) is unable to process XML Stylesheet Language (XSL) documents.
+[`javax.xml.validation.SchemaFactory`](https://docs.oracle.com/en/java/javase/19/docs/api/java.xml/javax/xml/validation/SchemaFactory.html) is unable to process XML Stylesheet Language (XSL) documents.
 Out of the 6 payloads it can process, the default configuration is vulnerable to 5.
 
 <font size="2">
@@ -1491,7 +1502,7 @@ Out of the 6 payloads it can process, the default configuration is vulnerable to
 
 ### 3.H Validator 
 
-[`javax.xml.validation.Validator`](https://docs.oracle.com/javase/7/docs/api/javax/xml/validation/Validator.html) can only process XML documents, not XSL or XSD. 
+[`javax.xml.validation.Validator`](https://docs.oracle.com/en/java/javase/19/docs/api/java.xml/javax/xml/validation/Validator.html) can only process XML documents, not XSL or XSD. 
 Out of the 3 attack payloads it can process, the default configuration is vulnerable to 2.
 
 <font size="2">
@@ -1581,7 +1592,7 @@ Out of the 3 attack payloads it can process, the default configuration is vulner
 
 ### 3.I XMLReader
 
-[`org.xml.sax.XMLReader`](https://docs.oracle.com/javase/7/docs/api/org/xml/sax/XMLReader.html) can process all 10 payloads.
+[`org.xml.sax.XMLReader`](https://docs.oracle.com/en/java/javase/19/docs/api/java.xml/org/xml/sax/XMLReader.html) can process all 10 payloads.
 The default configuration is vulnerable to 4 of the attack payloads.
 
 <font size="2">

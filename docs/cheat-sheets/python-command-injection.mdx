@@ -1,30 +1,25 @@
 ---
 slug: python-command-injection
+description: "Command injection prevention cheat sheet for Python."
 ---
 
 import LinkToRegistryRule from "/src/components/LinkToRegistryRule"
+import CommandInjectionIntro from "/src/components/concept/_command-injection-intro.mdx"
+import RecommendedRuleSet from "/src/components/code_snippets/_cheat-sheets-recommended-rule-set.mdx"
 
 # Command injection prevention for Python
 
-This is a command/code injection prevention cheat sheet by r2c. It contains code patterns of potential ways to run an OS command or arbitrary code in an application. Instead of scrutinizing code for exploitable vulnerabilities, the recommendations in this cheat sheet pave a safe road for developers that mitigates the possibility of command/code injection in your code. By following these recommendations, you can be reasonably sure your code is free of command/code injection.
+<CommandInjectionIntro />
 
-## Mitigation summary
+### Check your project using Semgrep
 
-In general, try not to let dynamic content into APIs intended for code / OS command execution. If this is not an option then perform proper input validation and contextually escape user data.
-
-#### Check your project for these conditions:
-
-```bash
-semgrep --config p/python-command-injection
-```
-
----
+<RecommendedRuleSet />
 
 ## 1. Running an OS command
 
-### 1.A. Using **subprocess** module
+### 1.A. Using the subprocess module
 
-The `subprocess` module allows you to start new processes, connect to their input/output/error pipes, and obtain their return codes. Methods such as `Popen`, `run`, `call`, `check_call`, `check_output` are intended for running commands provided as an argument ('args'). Allowing user input in a command that is passed as an argument to one of these methods can create an opportunity for a command Injection vulnerability.
+The `subprocess` module allows you to start new processes, connect to their input/output/error pipes, and obtain their return codes. Methods such as `Popen`, `run`, `call`, `check_call`, `check_output` are intended for running commands provided as an argument. Allowing user input in a command that is passed as an argument to one of these methods can create an opportunity for a command injection vulnerability.
 
 Example:
 
@@ -48,7 +43,7 @@ subprocess.Popen(['ls', '-l', user_input])
 subprocess.check_output('ls -l dir/')
 ```
 
-#### References:
+#### References
 
 - [**subprocess** module documentation](https://docs.python.org/3/library/subprocess.html)
 - [**shlex.split** documentation](https://docs.python.org/3/library/shlex.html#shlex.split)
@@ -58,21 +53,30 @@ subprocess.check_output('ls -l dir/')
 
 #### Mitigation
 
-Do not let user input into `subprocess` methods. Alternatively,
+Do not let a user input into `subprocess` methods. Alternatively:
 
-- Always try to use an internal Python API (if it exists) instead of running an OS command.
-- Don’t pass user-controlled input.
+- Always try to use internal Python API (if it exists) instead of running an OS command. In other words, use internal language features instead of invoking commands that can be exploited.
+- Don't pass user-controlled input.
 - If it is not possible, use an array with a sequence of program arguments instead of a single string.
 - Use `shlex.split` to correctly parse a command string into an array and `shlex.quote` to correctly sanitize input as a command-line parameter.
-- Avoid running `sh` as a command with arguments. If it is not possible, strip everything except alphanumeric characters from an input provided for the command string and arguments.
+- Do not include command arguments in a command string, use parameterization instead. For example:<br />
+    Use:
+    ```python
+    subprocess.run(["/path/to/myCommand", "myArg1", input_value])
+    ```
+    Instead of:
+    ```python
+    subprocess.run(["bash", "-c", "myCommand myArg1 " + input_value])
+    ```
+- If it is not possible, strip everything except alphanumeric characters from an input provided for the command string and arguments.
 
 #### Semgrep rule
 
 <LinkToRegistryRule ruleId="python.lang.security.audit.dangerous-subprocess-use" />
 
-### 1.B. **shell=True**
+### 1.B. shell=True
 
-Functions from `subprocess` module have the `shell` argument for specifying if the command should be executed through the shell.
+Functions from the `subprocess` module have the `shell` argument for specifying if the command should be executed through the shell.
 Using `shell=True` is dangerous because it propagates current shell settings and variables.
 This means that variables, glob patterns, and other special shell features in the command string are processed before the command is run,
 making it much easier for a malicious actor to execute commands. The `subprocess` module allows you to start new processes, connect to their input/output/error pipes, and obtain their return codes. Methods such as `Popen`, `run`, `call`, `check_call`, `check_output` are intended for running commands provided as an argument ('args'). Allowing user input in a command that is passed as an argument to one of these methods can create an opportunity for a command injection vulnerability.
@@ -87,7 +91,7 @@ subprocess.call('echo $HOME', shell=True)
 subprocess.call('echo $HOME', shell=False)
 ```
 
-#### References:
+#### References
 
 - [StackOverflow thread about **shell=True**](https://stackoverflow.com/questions/3172470/actual-meaning-of-shell-true-in-subprocess)
 - [Explanation of **shell** argument from documentation](https://docs.python.org/3/library/subprocess.html#frequently-used-arguments)
@@ -100,7 +104,7 @@ Avoid using `shell=True`. Alternatively, use `shell=False` instead.
 
 <LinkToRegistryRule ruleId="python.lang.security.audit.subprocess-shell-true" />
 
-### 1.C. Using **os** module to execute commands
+### 1.C. Using os module to execute commands
 
 The `os` module provides a portable way of using operating system dependent functionality. Methods such as `system`, `popen` and deprecated `popen2`, `popen3` and `popen4` are intended for running commands provided as a string. Letting user supplied data into a command that is passed as an argument to one of these methods can create an opportunity for a command injection vulnerability.
 
@@ -118,24 +122,24 @@ user_input = "foo && cat /etc/passwd" # value supplied by user
 os.popen("ls -l " + user_input)
 ```
 
-#### References:
+#### References
 
 - [**os** module documentation](https://docs.python.org/3/library/os.html)
 
 #### Mitigation
 
-Do not let user input into `os` methods. Alternatively,
+Do not let a user input into `os` methods. Alternatively:
 
 - Always try to use an internal Python API (if it exists) instead of running an OS command.
 - Consider using `subprocess` functions with array of program arguments.
 - Don’t pass user-controlled input.
-- If it is not possible, then don’t let running arbitrary commands. Use an allow list for inputs.
+- If it is not possible, then don’t let running arbitrary commands. Use an allowlist for inputs.
 
 #### Semgrep rule
 
 <LinkToRegistryRule ruleId="python.lang.security.audit.dangerous-system-call" />
 
-### 1.D. Using **os** module to spawn a process
+### 1.D. Using os module to spawn a process
 
 The `os` module allows executing the program path in a new process. Variations of spawn method including `spawnl`, `spawnle`, `spawnlp`, `spawnlpe`, `spawnv`, `spawnve`, `spawnvp`, `spawnvpe`, `posix_spawn` and `posix_spawnp` are intended for spawning a process with a program passed as a string argument. Allowing spawning of arbitrary programs or running shell processes with arbitrary arguments may result in a command injection vulnerability.
 
@@ -153,24 +157,33 @@ user_input = "cat /etc/passwd" # value supplied by user
 os.spawnve(os.P_WAIT, "/bin/bash", ["-c", user_input], os.environ)
 ```
 
-#### References:
+#### References
 
 - [**os** module documentation](https://docs.python.org/3/library/os.html)
 
 #### Mitigation
 
-Do not let user input into `spawn` methods. Alternatively,
+Do not let a user input into `spawn` methods. Alternatively:
 
 - Always try to use an internal Python API (if it exists) instead of running an OS command.
 - Don’t pass user-controlled input.
 - Use `shlex.split` to correctly parse a command string into an array and `shlex.quote` to correctly sanitize input as a command-line parameter.
-- Avoid running `sh` as a command with arguments. If it’s not possible to avoid, strip everything except alphanumeric characters from an input provided for the command string and arguments.
+- Do not include command arguments in a command string, use parameterization instead. For example:<br />
+    Use:
+    ```python
+    os.spawnve(os.P_WAIT, "/path/to/myCommand", ["myArg1", input_value], os.environ)
+    ```
+    Instead of:
+    ```python
+    os.spawnve(os.P_WAIT, "/bin/bash", ["-c", "myCommand myArg1 " + input_value], os.environ)
+    ```
+- If it’s not possible to avoid, strip everything except alphanumeric characters from an input provided for the command string and arguments.
 
 #### Semgrep rule
 
 <LinkToRegistryRule ruleId="python.lang.security.audit.dangerous-spawn-process.dangerous-spawn-process" />
 
-### 1.E. Replacing current process with **exec**
+### 1.E. Replacing current process with exec
 
 Execution methods of the `os` module are intended to execute a new program, replacing the current process. The available methods are `execl`, `execle`, `execlp`, `execlpe`, `execv`, `execve`, `execvp`, and `execvpe`. Allowing running of arbitrary programs or running shell processes with arbitrary arguments may result in a command injection vulnerability.
 
@@ -188,18 +201,27 @@ user_input = "cat /etc/passwd" # value supplied by user
 os.execve("/bin/bash", ["/bin/bash", "-c", user_input], os.environ)
 ```
 
-#### References:
+#### References
 
 - [**os** module documentation](https://docs.python.org/3/library/os.html)
 
 #### Mitigation
 
-Do not let user input into `exec` methods. Alternatively,
+Do not let a user input into `exec` methods. Alternatively:
 
 - Always try to use internal an Python API (if it exists) instead of running an OS command.
-- Don’t pass user-controlled input.
+- Don't pass user-controlled input.
 - Use `shlex.split` to correctly parse a command string into an array and `shlex.quote` to correctly sanitize input as a command-line parameter.
-- Avoid running `sh` as a command with arguments. If it’s not possible to avoid, strip everything except alphanumeric characters from an input provided for the command string and arguments.
+- Do not include command arguments in a command string, use parameterization instead. For example:<br />
+    Use:
+    ```python
+    os.execve("/path/to/myCommand", ["myCommand", "myArg1", input_value], os.environ)
+    ```
+    Instead of:
+    ```python
+    os.execve("/bin/bash", ["/bin/bash", "-c", "myCommand myArg1 " + input_value], os.environ)
+    ```
+- If it's not possible to avoid, strip everything except alphanumeric characters from an input provided for the command string and arguments.
 
 #### Semgrep rule
 
@@ -228,7 +250,7 @@ drwxrwxr-x.  2 user   user   4096 Oct 28 17:04 DIR3
 os.system("/bin/rm *")
 ```
 
-#### References:
+#### References
 
 - [Article about Unix wildcard poisoning tricks](https://www.exploit-db.com/exploits/33930)
 
@@ -242,9 +264,7 @@ Avoid wildcards in Unix shell commands.
 
 ### 1.G. Running shell commands asynchronously
 
-`asyncio.subprocess` is an async/await API to create and manage subprocesses.
-Such methods as `create_subprocess_shell` and Event Loop's `subprocess_shell` are intended for running shell commands provided as an argument 'cmd'.
-Allowing user input into a command that is passed as an argument to one of these methods can create an opportunity for a command injection vulnerability.
+The `asyncio.subprocess` is an async or await API to create and manage subprocesses. Such methods as `create_subprocess_shell` and Event Loop's `subprocess_shell` are intended for running shell commands provided as an argument 'cmd'. Allowing user input into a command that is passed as an argument to one of these methods can create an opportunity for a command injection vulnerability.
 
 Example:
 
@@ -262,19 +282,19 @@ user_input = "cat /etc/passwd" # value supplied by user
 asyncio.subprocess.create_subprocess_shell(user_input)
 ```
 
-#### References:
+#### References
 
 - [**asyncio subprocess** documentation](https://docs.python.org/3/library/asyncio-subprocess.html)
 - [**Event Loop subprocess_shell** documentation](https://docs.python.org/3/library/asyncio-eventloop.html#asyncio.loop.subprocess_shell)
 
 #### Mitigation
 
-Do not let user input into `asyncio subprocess` methods. Alternatively,
+Do not let a user input into `asyncio.subprocess` methods. Alternatively:
 
 - Always try to use an internal Python API (if it exists) instead of running an OS command.
-- Consider using asyncio.subprocess functions with array of program arguments (e.g. `create_subprocess_exec`).
-- Don’t pass user-controlled input.
-- If it’s not possible, then don’t let running arbitrary commands. Use an allow list for inputs.
+- Consider using `asyncio.subprocess` functions with array of program arguments (for example: `create_subprocess_exec`).
+- Don't pass user-controlled input.
+- If it's not possible, then don't let running arbitrary commands. Use an allowlist for inputs.
 
 #### Semgrep rule
 
@@ -282,9 +302,7 @@ Do not let user input into `asyncio subprocess` methods. Alternatively,
 
 ### 1.H. Creating subprocesses asynchronously
 
-`asyncio.subprocess` also allows the creation of subprocesses asynchronously.
-Such methods as `create_subprocess_exec` and Event Loop's `subprocess_exec` are intended for creating a subprocess from one or more string arguments specified by args.
-Allowing user input into a command that is passed as an argument to one of these methods can create an opportunity for a command injection vulnerability.
+The `asyncio.subprocess` also allows asynchronous creation of subprocesses. Such methods as `create_subprocess_exec` and Event Loop's `subprocess_exec` are intended for creating a subprocess from one or more string arguments specified by args. Allowing user input into a command that is passed as an argument to one of these methods can create an opportunity for a command injection vulnerability.
 
 Example:
 
@@ -306,342 +324,29 @@ loop = asyncio.new_event_loop()
 loop.subprocess_exec(asyncio.SubprocessProtocol, ['ls', '-l', user_input])
 ```
 
-#### References:
+#### References
 
-- [**asyncio subprocess** documentation](https://docs.python.org/3/library/asyncio-subprocess.html)
+- [asyncio subprocess documentation](https://docs.python.org/3/library/asyncio-subprocess.html)
 
 #### Mitigation
 
-Do not let user input into `asyncio subprocess` methods. Alternatively,
+Do not let a user input into `asyncio subprocess` methods. Alternatively:
 
 - Always try to use an internal Python API (if it exists) instead of running an OS command.
-- Don’t pass user-controlled input.
+- Don't pass user-controlled input.
 - Use `shlex.split` to correctly parse a command string into an array and `shlex.quote` to correctly sanitize input as a command-line parameter.
-- Avoid running `sh` as a command with arguments. If it’s not possible to avoid, strip everything except alphanumeric characters from an input provided for the command string and arguments.
+- Do not include command arguments in a command string, use parameterization instead. For example:<br />
+    Use:
+    ```python
+    asyncio.subprocess.create_subprocess_exec("/path/to/myCommand", ["myCommand", "myArg1", input_value])
+    ```
+    Instead of:
+    ```python
+    asyncio.subprocess.create_subprocess_exec("bash", ["bash", "-c", "myCommand myArg1 " + input_value])
+    ```
+- If it's not possible to avoid, strip everything except alphanumeric characters from an input provided for the command string and arguments.
 
 #### Semgrep rule
 
 <LinkToRegistryRule ruleId="python.lang.security.audit.dangerous-asyncio-exec.dangerous-asyncio-exec" /><br/>
 <LinkToRegistryRule ruleId="python.lang.security.audit.dangerous-asyncio-create-exec.dangerous-asyncio-create-exec" />
-
-## 2. Executing/evaluating code
-
-### 2.A. Executing code with **exec**
-
-`exec()` function supports dynamic execution of Python code.
-`exec()` can be dangerous if used to execute dynamic content.
-If this content can be input from outside the program, this may be a code injection vulnerability.
-
-Example:
-
-```python
-# Value supplied by user
-user_input = "');import requests;requests.get('localhost:3000');print('"
-
-# Vulnerable
-exec("foobar('{}')".format(user_input))
-```
-
-#### References:
-
-- [**exec** documentation](https://docs.python.org/3/library/functions.html#exec)
-
-#### Mitigation
-
-Do not use `exec()` for non literal values. Alternatively,
-
-- Ensure executed content is not definable by external sources.
-- If it’s not possible, strip everything except alphanumeric characters from an input provided for the command string and arguments.
-- Don’t try to make `exec` safe with tricks like `{'__builtins__':{}}`
-
-#### Semgrep rule
-
-<LinkToRegistryRule ruleId="python.lang.security.audit.exec-detected.exec-detected" />
-
-### 2.B. Evaluating code with **eval**
-
-`eval()` function evaluates string value as a Python expression.
-`eval()` can be dangerous if used to evaluate dynamic content.
-If this content can be input from outside the program, this may be a code injection vulnerability.
-
-Example:
-
-```python
-# Value supplied by user
-user_input = "__import__('code').InteractiveInterpreter().runsource('import requests;requests.get(\'localhost:3000\')')"
-
-# Vulnerable
-eval(user_input)
-```
-
-#### References:
-
-- [**eval()** documentation](https://docs.python.org/3/library/functions.html#eval)
-
-#### Mitigation
-
-Do not use `eval()`. Alternatively,
-
-- Ensure evaluated content is not definable by external sources.
-- If it’s not possible, strip everything except alphanumeric characters from an input provided for the command string and arguments.
-- Don’t try to make `eval` safe with tricks like `{'__builtins__':{}}`
-
-#### Semgrep rule
-
-<LinkToRegistryRule ruleId="python.lang.security.audit.eval-detected.eval-detected" />
-
-### 2.C. Accepting logging configuration with **logging.config.listen()**
-
-`logging.config.listen()` starts up a socket server on the specified port, and listens for new configurations.
-Because portions of the logging configuration are passed through `eval()`, use of this function may open its users to a security risk.
-While the function only binds to a socket on localhost, and so does not accept connections from remote machines, there are scenarios where untrusted code could be run under the account of the process which calls `listen()`.
-
-Example:
-
-```python
-# Server example: starting up a socket server on 9999 port, and listening for new configurations.
-import logging
-import logging.config
-
-logging.config.fileConfig('logging.conf')
-t = logging.config.listen(9999)
-t.start()
-
-
-# Client example: sending configuration from `data_to_send` variable to localhost:9999
-import socket, sys, struct
-
-# Config example: print("pwned") will be evaluated and "pwned" will be printed to the console
-data_to_send = """
-[loggers]
-keys=root
-
-[handlers]
-keys=hand01
-
-[formatters]
-keys=form01
-
-[logger_root]
-level=NOTSET
-handlers=hand01
-
-[handler_hand01]
-class=StreamHandler
-level=NOTSET
-formatter=form01
-args=(print("pwned"),)
-
-[formatter_form01]
-format=F1 %(asctime)s %(levelname)s %(message)s
-datefmt=
-class=logging.Formatter
-"""
-
-s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-s.connect(('localhost', 9999))
-s.send(struct.pack('>L', len(data_to_send)))
-s.send(data_to_send)
-s.close()
-```
-
-#### References:
-
-- [**logging.config.listen()** documentation](https://docs.python.org/3/library/logging.config.html#logging.config.listen)
-
-#### Mitigation
-
-Verify what is sent across the socket. Alternatively,
-
-- To avoid the risk, use the verify argument to `logging.config.listen()` to prevent unrecognized configurations from being applied. This could be done by encrypting and/or signing what is sent across the socket, such that the verify callable can perform signature verification and/or decryption.
-
-#### Semgrep rule
-
-<LinkToRegistryRule ruleId="python.lang.security.audit.logging.listeneval.listen-eval" />
-
-### 2.D. Running code in interactive interpreter
-
-The code module provides facilities to implement read-eval-print loops in Python.
-Two classes: `InteractiveInterpreter` and `InteractiveConsole` are used for that.
-Both have methods that can execute Python code: `InteractiveInterpreter.runcode` executes a code object and `InteractiveConsole.push` interprets a string as Python code.
-This is dangerous if external data can reach these function calls because it allows a malicious actor to run arbitrary Python code.
-
-Example:
-
-```python
-import code
-
-# Value supplied by user
-user_input = "print('pwned')"
-console = code.InteractiveConsole()
-# Vulnerable
-console.push(user_input)
-
-# Value supplied by user
-user_input = "print('pwned')"
-interpreter = code.InteractiveInterpreter()
-# Vulnerable
-interpreter.runcode(code.compile_command(user_input))
-```
-
-#### References:
-
-- [**code** module documentation](https://docs.python.org/3/library/code.html)
-
-#### Mitigation
-
-Do not let user input in `InteractiveInterpreter`/`InteractiveConsole` methods. Alternatively,
-
-- Ensure evaluated content is not definable by external sources.
-- If it’s not possible, strip everything except alphanumeric characters from an input provided for the command string and arguments.
-
-#### Semgrep rule
-
-<LinkToRegistryRule ruleId="python.lang.security.audit.dangerous-code-run.dangerous-interactive-code-run" />
-
-### 2.E. Using **subinterpreter** to run code
-
-`_xxsubinterpreters.run_string` is an internal Python function that interprets the string as Python code.
-If unverified user data can reach `run_string`, this is a command injection vulnerability.
-A malicious actor can inject a malicious string to execute arbitrary Python code.
-
-Example:
-
-```python
-import _xxsubinterpreters
-
-# Value supplied by user
-user_input = "print('pwned')"
-
-# Vulnerable
-_xxsubinterpreters.run_string(_xxsubinterpreters.create(), user_input)
-```
-
-#### References:
-
-- [**subinterpreters** documentation](https://pythondev.readthedocs.io/subinterpreters.html)
-
-#### Mitigation
-
-Do not let user input in `_xxsubinterpreters` methods. Alternatively,
-
-- Ensure evaluated content is not definable by external sources.
-- If it’s not possible, strip everything except alphanumeric characters from an input provided for the command string and arguments.
-
-#### Semgrep rule
-
-<LinkToRegistryRule ruleId="python.lang.security.audit.dangerous-subinterpreters-run-string.dangerous-subinterpreters-run-string" />
-
-### 2.F. Running **subinterpreter** from regression tests package
-
-`run_in_subinterp` is a function from regression tests package for Python that runs code in subinterpreter.
-This is dangerous if external data can reach this function call because it allows a malicious actor to run arbitrary Python code.
-
-Example:
-
-```python
-import _testcapi
-
-# Value supplied by user
-user_input = "print('pwned')"
-
-# Vulnerable
-_testcapi.run_in_subinterp(user_input)
-
-
-from test import support
-
-# Value supplied by user
-user_input = "print('pwned')"
-
-# Vulnerable
-support.run_in_subinterp(user_input)
-```
-
-#### References:
-
-- [**test** module documentation](https://docs.python.org/3/library/test.html)
-
-#### Mitigation
-
-Do not let user input in `run_in_subinterp` function. Alternatively,
-
-- Ensure evaluated content is not definable by external sources.
-- If it’s not possible, strip everything except alphanumeric characters from an input provided for the command string and arguments.
-
-#### Semgrep rule
-
-<LinkToRegistryRule ruleId="python.lang.security.audit.dangerous-testcapi-run-in-subinterp" />
-
-## 3. Abusing built-in functions
-
-### 3.A. Accessing dictionary with current global/local symbol table
-
-`globals()` and `locals()` return a dictionary representing the current global/local symbol table. Using non-static data to retrieve values from this table is extremely dangerous because it may allow an attacker to execute arbitrary code on the system. 
-
-Example:
-
-```python
-# Name of the arbitrary function supplied by user
-user_input = "Name of the function" 
-
-# Vulnerable call of arbitrary function
-function = locals().get(user_input)
-function()
-
-# Name of the arbitrary function supplied by user
-user_input = "Name of the function"
-
-# Vulnerable call of arbitrary function
-function = test1.__globals__[user_input]
-function()
-```
-
-#### References:
-
-- [Vulnerable code example](https://github.com/mpirnat/lets-be-bad-guys/blob/d92768fb3ade32956abd53bd6bb06e19d634a084/badguys/vulnerable/views.py#L181-L186)
-- [**locals()** documentation](https://docs.python.org/3/library/functions.html#locals)
-- [**globals()** documentation](https://docs.python.org/3/library/functions.html#globals)
-
-#### Mitigation
-
-Do not access global/local symbol tables. Refactor your code not to use `globals()` and `locals()`.
-
-#### Semgrep rule
-
-<LinkToRegistryRule ruleId="python.lang.security.dangerous-globals-use.dangerous-globals-use" />
-
-### 3.B. Dynamically updating and accessing code annotations
-
-Annotations passed to `typing.get_type_hints()` are evaluated in `globals` and `locals` namespaces.
-Make sure that no arbitrary value can be written as the annotation and passed to the `typing.get_type_hints` function.
-
-Example:
-
-```python
-from typing import get_type_hints
-
-class C:
-    member: int = 0
-
-def smth():
-    # Changing annotation for `member` property of class C
-    C.__annotations__["member"] = "print('pwn')"
-
-    # Annotations are evaluated and `print('pwn')` code gets executed
-    get_type_hints(C)
-```
-
-#### References:
-
-- [**typing.get_type_hints** documentation](https://docs.python.org/3/library/typing.html#typing.get_type_hints)
-
-#### Mitigation
-
-Do not programmatically rewrite code annotations. Alternatively,
-
-- Ensure that annotations are not definable by external sources.
-
-#### Semgrep rule
-
-<LinkToRegistryRule ruleId="python.lang.security.audit.dangerous-annotations-usage" />

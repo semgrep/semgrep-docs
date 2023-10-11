@@ -12,9 +12,9 @@ import MoreHelp from "/src/components/MoreHelp"
 
 Rules are instructions based on which Semgrep detects patterns in code. When Semgrep reports a code using mentioned rules, the detected code is called a finding. The process of scanning and detecting a piece of code is sometimes called matching, as Semgrep matches the code using rules to report a finding.
 
-Semgrep findings can help you to find issues of security, performance, correctness, and enforce best practices. You can define custom rules through Semgrep's rule syntax or rely on rules created by the community or r2c. Rules are stored in [Semgrep Registry](https://semgrep.dev/explore) which enables you to scan code without the need to write anything custom. Semgrep Registry is stored in an [open-source repository](https://github.com/returntocorp/semgrep-rules).
+Semgrep findings can help you to find issues of security, performance, correctness, and enforce best practices. You can define custom rules through Semgrep's rule syntax or rely on rules created by the community or Semgrep, Inc. Rules are stored in [Semgrep Registry](https://semgrep.dev/explore) which enables you to scan code without the need to write anything custom. Semgrep Registry is stored in an [open-source repository](https://github.com/returntocorp/semgrep-rules).
 
-Rules can be organized in rulesets. Rulesets are rules related through a programming language, OWASP category, or framework. The rulesets are curated by r2c and updated as new rules are added to the [Semgrep Registry](https://semgrep.dev/explore). Therefore, you do not have to check the registry to pull individual rules.
+Rules can be organized in rulesets. Rulesets are rules related through a programming language, OWASP category, or framework. The rulesets are curated by the team at Semgrep and updated as new rules are added to the [Semgrep Registry](https://semgrep.dev/explore). Therefore, you do not have to check the registry to pull individual rules.
 
 The list below covers different kinds of Semgrep rules:
 
@@ -28,9 +28,16 @@ You can run all rules on your code locally or continuously in your Source Code M
 
 ## Running Semgrep Registry rules locally
 
-You can test Semgrep Registry rules with the following command:
-<pre class="language-bash"><code>semgrep --config=auto <span className="placeholder">PATH/TO/SRC</span></code></pre>
-Substitute the optional placeholder <code><span className="placeholder">PATH/TO/SRC</span></code> with the path to your source code.
+You can scan your git environment with pre-selected Semgrep Registry rules, then send the resulting findings (no code is uploaded) to Semgrep Cloud Platform. This is the **recommended method to run Semgrep**, as a record of your findings is created and can be tracked and triaged from detection to fixed or ignore states.
+
+Log in to Semgrep Cloud Platform and run a scan:
+```
+semgrep login && semgrep ci
+```
+Similarly you can run a SAST scan offline running pre-selected Semgrep Registry rules:
+```
+semgrep scan --config=auto 
+```
 
 :::info
 By default, when Semgrep Registry is used, Semgrep collects [usage metrics](./metrics.md).
@@ -41,13 +48,13 @@ Explore the Semgrep Registry by following these steps:
 1. See the [Semgrep Registry](https://semgrep.dev/explore), click a ruleset, and then choose a rule.
 2. On the page of the rule, click **Run Locally**.
 3. Copy the code for local install, and then add the path to the source code you want to check in your terminal:
-    <pre class="language-bash"><code>semgrep --config="<span className="placeholder">RULESET-ID</span>" <span className="placeholder">PATH/TO/SRC</span></code></pre>
+    <pre class="language-bash"><code>semgrep scan --config="<span className="placeholder">RULESET-ID</span>" <span className="placeholder">PATH/TO/SRC</span></code></pre>
 4. Optional: Run registry rules simultaneously with local rules:
-   <pre class="language-bash"><code>semgrep --config="<span className="placeholder">RULESET-ID</span>" --config=<span className="placeholder">PATH/TO/MYRULE.YAML PATH/TO/SRC</span></code></pre>
+   <pre class="language-bash"><code>semgrep scan --config="<span className="placeholder">RULESET-ID</span>" --config=<span className="placeholder">PATH/TO/MYRULE.YAML PATH/TO/SRC</span></code></pre>
 
 ### Running Semgrep Registry continuously
 
-To use Semgrep Registry continuously in your CI/CD pipeline, see the [Semgrep in CI](https://semgrep.dev/docs/semgrep-ci/overview) documentation.
+To use Semgrep Registry continuously in your CI/CD pipeline, see the [Semgrep in CI](/semgrep-ci/overview) documentation.
 
 ## Creating and using local rules
 
@@ -89,7 +96,7 @@ To create a local YAML file where you define your own rules and run them with Se
       severity: ERROR
     ```
 3. Run the following command to run local YAML rule files:
-    <pre class="language-bash"><code>semgrep --config <span className="placeholder">PATH/TO/MYRULE.YAML</span></code></pre>
+    <pre class="language-bash"><code>semgrep scan --config <span className="placeholder">PATH/TO/MYRULE.YAML</span></code></pre>
 
 For more information, see [Getting started](../writing-rules/overview/).
 
@@ -97,7 +104,7 @@ For more information, see [Getting started](../writing-rules/overview/).
 
 To run multiple rules simultaneously, use `--config` before every YAML URL, or Semgrep registry entry name. This option let's you include your local rules as well as Semgrep Registry rules. See the following code example (substitute the colored values as necessary):
 
-<pre class="language-bash"><code>semgrep --config <span className="placeholder">p/python</span> --config <span className="placeholder">PATH/TO/MYRULE.YAML</span></code></pre>
+<pre class="language-bash"><code>semgrep scan --config <span className="placeholder">p/python</span> --config <span className="placeholder">PATH/TO/MYRULE.YAML</span></code></pre>
 
 ## Findings
 

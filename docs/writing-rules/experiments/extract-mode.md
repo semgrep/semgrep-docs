@@ -13,7 +13,7 @@ import MoreHelp from "/src/components/MoreHelp"
 Extract mode enables you to run existing rules on subsections of files where the rule language is different than the language of the file. For example, running a JavaScript rule on code contained inside of script tags in an HTML document.
 
 :::info
-The extract mode feature is still in a very experimental stage and may not work as intended. r2c is planning to improve this feature in the future. Reach out for help and suggestions on the <a href="https://go.semgrep.dev/slack">Semgrep Community Slack</a>.
+The extract mode feature is still in a very experimental stage and may not work as intended. The Semgrep team is planning to improve this feature in the future. Reach out for help and suggestions on the <a href="https://go.semgrep.dev/slack">Semgrep Community Slack</a>.
 :::
 
 ## Example of extract mode
@@ -91,8 +91,9 @@ Extract mode rules **also require** two additional fields:
   - `extract`
   - `dest-language`
 
-Extract mode has one **optional** field:
+Extract mode has two **optional** fields:
   - `reduce`
+  - `json`
 
 The fields specific to extract mode are further explained in the sections below.
 
@@ -103,6 +104,18 @@ The `extract` key is required in extract mode. The value must be a metavariable 
 ### `dest-language`
 
 The `dest-language` key is required in extract mode. The value must be a [language tag](/writing-rules/rule-syntax/#language-extensions-and-tags).
+
+### `transform`
+
+The `transform` is an optional key in the extract mode. The value of this key specifies whether the extracted content is parsed as raw source code or as a JSON array.
+
+The value of `transform` key must be one of the following:
+<dl>
+    <dt><code>no_transform</code></dt>
+    <dd><p>Extract the matched content as raw source code. This is the <b>default</b> value.</p></dd>
+    <dt><code>concat_json_string_array</code></dt>
+    <dd><p>Extract the matched content as a JSON array. Each element of the array correspond to a line the resulting source code. This value is useful in extracting code from JSON formats such as Jupyter Notebooks.</p></dd>
+</dl>
 
 ### `reduce`
 
@@ -119,7 +132,7 @@ The value of `reduce` key must be one of the following:
 
 ## Limitations of extract mode
 
-Currently, extract mode does not support additional processing for the extracted text, such as unescaping strings, which might be useful for some applications like Jupyter Notebooks.
+Although extract mode supports JSON array decoding with the `json` key, it does not support other additional processing for the extracted text, such as unescaping strings.
 
 While extract mode can help to enable rules which try and track taint across a language boundary within a file, taint rules cannot have a source and sink split across the original file and extracted text.
 

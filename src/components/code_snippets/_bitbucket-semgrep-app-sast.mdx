@@ -9,8 +9,8 @@ pipelines:
           deployment: dev # https://support.atlassian.com/bitbucket-cloud/docs/set-up-and-monitor-deployments/
           image: returntocorp/semgrep
           script:
-            # The following variables are required to set up a Semgrep App-connected scan:
-            - export $SEMGREP_APP_TOKEN
+            # The following variables are required to set up a scan connected to Semgrep Cloud Platform:
+            - export SEMGREP_APP_TOKEN=$SEMGREP_APP_TOKEN
 
             # Uncomment the following line to scan changed 
             # files in PRs or MRs (diff-aware scanning): 
@@ -19,7 +19,7 @@ pipelines:
 
             # Troubleshooting:
 
-            # Uncomment the following lines if Semgrep App > Findings Page does not create links
+            # Uncomment the following lines if Semgrep Cloud Platform > Findings Page does not create links
             # to the code that generated a finding or if you are not receiving PR or MR comments.
             # - export SEMGREP_JOB_URL="${SEMGREP_REPO_URL}/addon/pipelines/home#!/results/${BITBUCKET_PIPELINE_UUID}"
             # - export SEMGREP_COMMIT=$BITBUCKET_COMMIT

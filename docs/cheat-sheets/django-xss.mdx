@@ -1,12 +1,15 @@
 ---
 slug: django-xss
+description: "Django XSS mitigation cheat sheet."
 ---
 
 import LinkToRegistryRule from "/src/components/LinkToRegistryRule"
+import XssInjectionIntro from "/src/components/concept/_xss-injection-intro.mdx"
+import RecommendedRuleSet from "/src/components/code_snippets/_cheat-sheets-recommended-rule-set.mdx"
 
 # XSS prevention for Django
 
-This is a cross-site scripting (XSS) prevention cheat sheet by r2c. It contains code patterns of potential XSS in an application. Instead of scrutinizing code for exploitable vulnerabilities, the recommendations in this cheat sheet pave a safe road for developers that mitigates the possibility of XSS in your code. By following these recommendations, you can be reasonably sure your code is free of XSS.
+<XssInjectionIntro />
 
 ## Mitigation summary
 
@@ -14,15 +17,10 @@ In general, always use the template engine provided by Django using `render()`. 
 
 Semgrep ruleset for this cheatsheet: [https://semgrep.dev/p/minusworld.django-xss](https://semgrep.dev/p/minusworld.django-xss)
 
-#### Check your project for these conditions:
+### Check your project using Semgrep
 
-```bash
-semgrep --config p/minusworld.django-xss
-```
+<RecommendedRuleSet />
 
-[PDF of this cheat sheet](https://web-assets.r2c.dev/security-cheat-sheets/xss/r2c-security-cheat-sheet-xss-prevention-for-django.pdf)
-
----
 ## 1. Server code: Marking "safe" content, which does not escape HTML
 
 ### 1.A. Using **mark_safe()**
@@ -124,7 +122,7 @@ Ban `__html__` in classes. Alternatively, prefer `mark_safe()` if necessary.
 
 ### 1.E. Using **html_safe()**
 
-The `html_safe()` decorator adds the `__html__` magic method to the supplied class. The added `__html__` magic method will return the exact string representation of the class (e.g., `str(self)`). Because objects with the `__html__` method are not escaped, this could create a XSS vulnerability.
+The `html_safe()` decorator adds the `__html__` magic method to the supplied class. The added `__html__` magic method returns the exact string representation of the class (for example `str(self)`). Because objects with the `__html__` method are not escaped, this could create a XSS vulnerability.
 
 Example:
 
@@ -165,7 +163,7 @@ return HttpResponse("Hello, " + name)
 #### References:
 
 - [Django Book - Security: XSS](https://django-book.readthedocs.io/en/latest/chapter20.html#cross-site-scripting-xss)
-- [Example of XSS via `HttpResponseBadRequest`](https://r2c.dev/blog/2020/be-careful-what-you-request-for-django-method/)
+- [Example of XSS via `HttpResponseBadRequest`](https://semgrep.dev/blog/2020/be-careful-what-you-request-for-django-method/)
 - [HttpResponse subclasses](https://docs.djangoproject.com/en/3.1/ref/request-response/#httpresponse-subclasses)
 
 

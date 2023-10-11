@@ -4,7 +4,7 @@ This code snippet uses Jenkins declarative syntax.
 pipeline {
   agent any
     environment {
-      // The following variable is required for a Semgrep App-connected scan:
+      // The following variable is required for a Semgrep Cloud Platform-connected scan:
       SEMGREP_APP_TOKEN = credentials('SEMGREP_APP_TOKEN')
 
       // Uncomment the following line to scan changed 
@@ -13,7 +13,7 @@ pipeline {
 
       // Troubleshooting:
 
-      // Uncomment the following lines if Semgrep App > Findings Page does not create links
+      // Uncomment the following lines if Semgrep Cloud Platform > Findings Page does not create links
       // to the code that generated a finding or if you are not receiving PR or MR comments.
       // SEMGREP_JOB_URL = "${BUILD_URL}"
       // SEMGREP_COMMIT = "${GIT_COMMIT}"
@@ -29,7 +29,6 @@ pipeline {
             docker run \
             -e SEMGREP_APP_TOKEN=$SEMGREP_APP_TOKEN \
             -e SEMGREP_REPO_URL=$SEMGREP_REPO_URL \
-            -e SEMGREP_BRANCH=$SEMGREP_BRANCH \
             -e SEMGREP_REPO_NAME=$SEMGREP_REPO_NAME \
             -e SEMGREP_BRANCH=$SEMGREP_BRANCH \
             -e SEMGREP_COMMIT=$SEMGREP_COMMIT \

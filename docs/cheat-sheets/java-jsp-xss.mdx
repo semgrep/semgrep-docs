@@ -1,13 +1,15 @@
 ---
 slug: java-jsp-xss
+description: "XSS prevention for Java + JavaServer Pages (JSP)."
 ---
 
 import LinkToRegistryRule from "/src/components/LinkToRegistryRule"
+import XssInjectionIntro from "/src/components/concept/_xss-injection-intro.mdx"
+import RecommendedRuleSet from "/src/components/code_snippets/_cheat-sheets-recommended-rule-set.mdx"
 
 # XSS prevention for Java + JSP
 
-This is a cross-site scripting (XSS) prevention cheat sheet by r2c. It contains code patterns of potential XSS in an application. Instead of scrutinizing code for exploitable vulnerabilities, the recommendations in this cheat sheet pave a safe road for developers that mitigates the possibility of XSS in your code. By 
-following these recommendations, you can be reasonably sure your code is free of XSS.
+<XssInjectionIntro />
 
 ## Mitigation Summary
 
@@ -18,15 +20,9 @@ If you are developing a REST API, consider using JAX-RS instead of writing direc
 
 Semgrep ruleset for this cheatsheet: [p/minusworld.java-httpservlet-jsp-xss](https://semgrep.dev/p/minusworld.java-httpservlet-jsp-xss)
 
-#### Check your project for these conditions:
+### Check your project using Semgrep
 
-```bash
-semgrep --config p/minusworld.java-httpservlet-jsp-xss
-```
-
-[PDF of this cheat sheet](https://web-assets.r2c.dev/security-cheat-sheets/xss/r2c-security-cheat-sheet-xss-prevention-for-java-jsp.pdf)
-
----
+<RecommendedRuleSet />
 
 ## 1. Server code: writing a response directly
 
@@ -60,7 +56,7 @@ String template = "<p>Hello, " + name + "!</p>";
 response.getOutputStream().write(template.getBytes());
 ```
 
-#### References:
+#### References
 
 - [Request forwarding to render JSP pages](https://www.baeldung.com/jsp#forwarding)
 
@@ -85,7 +81,7 @@ Example:
 <div>${userObj.name}</div>
 ```
 
-#### References:
+#### References
 
 - [XSS prevention in JSP application](https://stackoverflow.com/questions/2658922/xss-prevention-in-jsp-servlet-web-application)
 - [JSP cross-site scripting ELResolver](https://pukkaone.github.io/2011/01/03/jsp-cross-site-scripting-elresolver.html)
@@ -109,7 +105,7 @@ Example:
 <div>${userObj.name}</div>
 ```
 
-#### References:
+#### References
 
 - [XSS prevention in JSP application](https://stackoverflow.com/questions/2658922/xss-prevention-in-jsp-servlet-web-application)
 - [JSP cross-site scripting ELResolver](https://pukkaone.github.io/2011/01/03/jsp-cross-site-scripting-elresolver.html)
@@ -136,7 +132,7 @@ Example:
 <div class=${classes}></div>
 ```
 
-#### References:
+#### References
 
 - [Flask cross-site scripting considerations - unquoted variable in HTML attribute](https://flask.palletsprojects.com/en/1.1.x/security/#cross-site-scripting-xss)
 
@@ -155,7 +151,7 @@ Example:
 <a href="${link}"></a>
 ```
 
-#### References:
+#### References
 
 - [Flask cross-site scripting considerations - variable in `href`](https://flask.palletsprojects.com/en/1.1.x/security/#cross-site-scripting-xss)
 
@@ -167,7 +163,7 @@ Flag template variables in `href` attributes.
 
 Template variables placed directly into JavaScript or similar are now directly in a code execution context. Normal HTML escaping will not prevent the possibility of code injection because code can be written without HTML characters. This creates the potential for XSS vulnerabilities, or worse.
 
-#### References:
+#### References
 
 - [Template engines: Why default encoders are not enough](https://www.veracode.com/blog/secure-development/nodejs-template-engines-why-default-encoders-are-not-enough)
 - [Safely including data for JavaScript in a Django template](https://adamj.eu/tech/2020/02/18/safely-including-data-for-javascript-in-a-django-template/)

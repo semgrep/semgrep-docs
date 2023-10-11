@@ -11,7 +11,7 @@ technology. While new languages should use tree-sitter,
 semgrep also supports some languages independently if there's a good
 legacy OCaml parser for them. Check for your language in
 [pfff](https://github.com/returntocorp/pfff) and if you see it
-in there, [talk to us](https://semgrep.dev/docs/support/).
+in there, [talk to us](/support/).
 Otherwise, let's get started.
 
 Repositories involved directly:
@@ -26,7 +26,7 @@ There are quite a few GitHub repositories involved in porting a language.
 Here is the file hierarchy of the [semgrep
 repository](https://github.com/returntocorp/semgrep):
 
-``` shell
+```sh
 /semgrep-core/src
 ├── ocaml-tree-sitter-core  # runtime library for tree-sitter parsers
 ├── pfff                    # non-tree-sitter parsers
@@ -37,7 +37,7 @@ repository](https://github.com/returntocorp/semgrep):
 ```
 
 When done with the work in [ocaml-tree-sitter-semgrep](https://github.com/returntocorp/ocaml-tree-sitter-semgrep), you'll need a new repo semgrep-X to host the generated parser code.
-Ask someone at r2c to create one for you. For this, they should use
+Ask someone from the Semgrep team to create one for you. For this, they should use
 the template
 [semgrep-lang-template](https://github.com/returntocorp/semgrep-lang-template)
 when creating the repo.
@@ -244,7 +244,7 @@ branch, do the following:
 2. In `ocaml-tree-sitter/lang/Makefile`, add language under
    'SUPPORTED_LANGUAGES' and 'STAT_LANGUAGES'.
 3. In `ocaml-tree-sitter/lang` directory, run `./release X --dry-run`.
-   If this looks good, please [ask someone at r2c](https://github.com/returntocorp/ocaml-tree-sitter-semgrep/blob/main/doc/release.md) to
+   If this looks good, please [ask someone from the Semgrep team](https://github.com/returntocorp/ocaml-tree-sitter-semgrep/blob/main/doc/release.md) to
    publish the code using `./release X`.
 
 ### Troubleshooting

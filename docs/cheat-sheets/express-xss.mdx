@@ -1,24 +1,23 @@
 ---
 slug: express-xss
+description: "ExpressJS mitigation cheat sheet by Semgrep."
 ---
 
 import LinkToRegistryRule from "/src/components/LinkToRegistryRule"
+import XssInjectionIntro from "/src/components/concept/_xss-injection-intro.mdx"
+import RecommendedRuleSet from "/src/components/code_snippets/_cheat-sheets-recommended-rule-set.mdx"
 
-# XSS prevention for Express
+# XSS prevention for ExpressJS
 
-This is a cross-site scripting (XSS) prevention cheat sheet by r2c. It contains code patterns of potential XSS in an application. Instead of scrutinizing code for exploitable vulnerabilities, the recommendations in this cheat sheet pave a safe road for developers that mitigates the possibility of XSS in your code. By  following these recommendations, you can be reasonably sure your code is free of XSS.
+<XssInjectionIntro />
 
 ## Mitigation summary
 
 In general, always use a template engine and `res.render()` to render HTML content. Some common template engines include Pug, Mustache, and EJS. If you need HTML escaping, escape the content. Try to do so in JavaScript code if possible. Review each individual case carefully. Once reviewed, exempt the finding with `# nosemgrep`. Beware of putting data in dangerous locations such as in `script` tags. And as always, run a security checker on your code.
 
-#### Check your project for these conditions:
+### Check your project using Semgrep
 
-```bash
-semgrep --config p/xss
-```
-
----
+<RecommendedRuleSet />
 
 ## 1. Server code: Bypassing the template engine
 
@@ -34,7 +33,7 @@ Example:
 res.send("<div>" + user.name + "</div>")
 ```
 
-#### References:
+#### References
 
 - [Sanitizers required when sending data via `res.send()`](https://stackoverflow.com/questions/36765667/xssexpressjs-prevent-run-script-form-post-request)
 - [`res.send()` documentation](https://expressjs.com/en/api.html#res.send)
@@ -58,7 +57,7 @@ Example:
 res.write("<div>" + user.name + "</div>")
 ```
 
-#### References:
+#### References
 
 - [Sanitizers required when sending data via `res.send()`](https://stackoverflow.com/questions/36765667/xssexpressjs-prevent-run-script-form-post-request)
 - [`response.write()` documentation](https://nodejs.org/api/http.html#http_response_write_chunk_encoding_callback)
@@ -83,7 +82,7 @@ Example:
 Mustache.escape = function(text) {return text;};
 ```
 
-#### References:
+#### References
 
 - [Disable HTML escaping globally in Mustache template](https://github.com/janl/mustache.js#variables)
 
@@ -111,7 +110,7 @@ Example:
 {{{ user_name }}}
 ```
 
-#### References:
+#### References
 
 - [Rendering unescaped HTML in Mustache](https://github.com/janl/mustache.js#variables)
 
@@ -133,7 +132,7 @@ Example:
 {{ &user_name }}
 ```
 
-#### References:
+#### References
 
 - [Rendering unescaped HTML in Mustache](https://github.com/janl/mustache.js#variables)
 
@@ -155,7 +154,7 @@ Example:
 a(href!=url) Documentation
 ```
 
-#### References:
+#### References
 
 - [Pug unescaped attributes documentation](https://pugjs.org/language/attributes.html#unescaped-attributes)
 
@@ -177,7 +176,7 @@ Example:
 p Joel: !{riskyBusiness}
 ```
 
-#### References:
+#### References
 
 - [String Interpolation, Unescaped](https://pugjs.org/language/interpolation.html#string-interpolation-unescaped)
 
@@ -202,7 +201,7 @@ Example:
 div#foo(data-bar='foo')&attributes({'data-foo': 'bar'})
 ```
 
-#### References:
+#### References
 
 - [&attributes documentation](https://pugjs.org/language/attributes.html#attributes)
 
@@ -223,7 +222,7 @@ Example:
 <div><%- user.name %></div>
 ```
 
-#### References:
+#### References
 - [Will EJS save me from XSS?](http://www.managerjs.com/blog/2015/05/will-ejs-escape-save-me-from-xss-sorta/)
 
 #### Mitigation
@@ -247,7 +246,7 @@ Eexample:
 <div class={{ classes }}></div>
 ```
 
-#### References:
+#### References
 
 - [Flask cross-site scripting considerations - unquoted variable in HTML attribute (relevant to all templates)](https://flask.palletsprojects.com/en/1.1.x/security/#cross-site-scripting-xss)
 
@@ -264,7 +263,7 @@ Example:
 <div class=<%= classes %>></div>
 ```
 
-#### References:
+#### References
 
 - [Flask cross-site scripting considerations - unquoted variable in HTML attribute (relevant to all templates)](https://flask.palletsprojects.com/en/1.1.x/security/#cross-site-scripting-xss)
 
@@ -282,7 +281,7 @@ Example:
 <a href="{{ url }}">
 ```
 
-#### References:
+#### References
 
 - [Flask cross-site scripting considerations - variable in `href` (relevant to all templates)](https://flask.palletsprojects.com/en/1.1.x/security/#cross-site-scripting-xss)
 
@@ -305,7 +304,7 @@ Example:
 a(href=link)="hello"
 ```
 
-#### References:
+#### References
 
 - [Flask cross-site scripting considerations - variable in `href` (relevant to all templates)](https://flask.palletsprojects.com/en/1.1.x/security/#cross-site-scripting-xss)
 
@@ -327,7 +326,7 @@ Example:
 <a href="<%= link %>"></a>
 ```
 
-#### References:
+#### References
 
 - [Flask cross-site scripting considerations - variable in `href` (relevant to all templates)](https://flask.palletsprojects.com/en/1.1.x/security/#cross-site-scripting-xss)
 
@@ -349,7 +348,7 @@ Example:
 <script>var name = {{ name }};</script>
 ```
 
-#### References:
+#### References
 - [Template engines: Why default encoders are not enough](https://www.veracode.com/blog/secure-development/nodejs-template-engines-why-default-encoders-are-not-enough)
 - [Protecting against XSS in Rails - JavaScript contexts. (Relevant to all template engines.)](https://blog.ircmaxell.com/2018/06/protecting-rails-xss.html)
 
@@ -371,7 +370,7 @@ Example:
 script(type="text/javascript")="a += " + a
 ```
 
-#### References:
+#### References
 
 - [Template engines: Why default encoders are not enough](https://www.veracode.com/blog/secure-development/nodejs-template-engines-why-default-encoders-are-not-enough)
 - [Protecting against XSS in Rails - JavaScript contexts. (Relevant to all template engines.)](https://blog.ircmaxell.com/2018/06/protecting-rails-xss.html)
@@ -394,7 +393,7 @@ Example:
 <script>var name = <%= name %>;</script>
 ```
 
-#### References:
+#### References
 
 - [Template engines: Why default encoders are not enough](https://www.veracode.com/blog/secure-development/nodejs-template-engines-why-default-encoders-are-not-enough)
 - [Protecting against XSS in Rails - JavaScript contexts. (Relevant to all template engines.)](https://blog.ircmaxell.com/2018/06/protecting-rails-xss.html)

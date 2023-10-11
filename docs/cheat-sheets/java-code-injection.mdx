@@ -1,0 +1,42 @@
+---
+slug: java-code-injection
+description: "Prevent potential code injection in Java."
+---
+
+import LinkToRegistryRule from "/src/components/LinkToRegistryRule"
+import CodeInjectionIntro from "/src/components/concept/_code-injection-intro.mdx"
+import RecommendedRuleSet from "/src/components/code_snippets/_cheat-sheets-recommended-rule-set.mdx"
+
+# Code injection prevention for Java
+
+<CodeInjectionIntro />
+
+### Check your project using Semgrep
+
+<RecommendedRuleSet />
+
+## 1. Unsafe Reflection
+
+### 1.A. Using unsafe reflection with user input in Class.forName
+
+The `Class.forName` function returns the `Class` object for the class or interface with the name as a string. If an attacker supplies values that the application then uses to determine which class to instantiate or which method to invoke, the attacker can instantiate classes that the application developers did not intend. This can lead to unexpected behavior. For example, broken authentication that results in access to private data, or otherwise allow the attacker to obtain control of application behavior causing the application to behave in an unexpected manner.
+
+Example:
+
+```java
+String userInput = "org.pwned.package"; // value supplied by user input
+Class<?> loadClass = Class.forName(userInput + ".AttackerThread");
+```
+
+#### References
+
+- [`Class.forName` documentation](https://docs.oracle.com/javase/8/docs/api/java/lang/Class.html#forName-java.lang.String-)
+
+#### Mitigation
+
+- Try to avoid non-literal values in the first argument of `Class.forName()` such as `Class.forName(userInput + ".AttackerThread")`.
+- If it is not possible, use an allowlist for inputs.
+
+#### Semgrep rule
+
+<LinkToRegistryRule ruleId="java.lang.security.audit.unsafe-reflection.unsafe-reflection" />

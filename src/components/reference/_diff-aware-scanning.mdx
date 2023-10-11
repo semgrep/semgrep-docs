@@ -1,6 +1,6 @@
 :::info
 * Diff-aware scanning is automatically configured for GitHub Actions and GitLab CI/CD when the user runs Semgrep on PR or MR events. Do **not** set `SEMGREP_BASELINE_REF` for GitHub Actions or GitLab CI/DD.
-* For other CI providers, Semgrep App provides a full scan configuration by default. You can set up both diff-aware scanning and full scans through either of the following:
+* For other CI providers, Semgrep Cloud Platform provides a full scan configuration by default. You can set up both diff-aware scanning and full scans through either of the following:
     * Create separate jobs for diff-aware scans and full scans.
     * If your CI provider supports conditional statements, use an if/then statement that detects the presence of `SEMGREP_BASELINE_REF`. 
 :::
@@ -9,7 +9,7 @@ Semgrep scans can be classified by scope. The scope of a scan refers to what lin
 
 <dl>
     <dt>Full scan</dt>
-    <dd><p>A full scan runs on your entire codebase and reports every finding in the codebase. It is recommended to perform a full scan of your <code>main</code> branch at a regular cadence, such as every night or every week. This ensures that Semgrep App has a full list of all findings in your code base, regardless of when they were introduced. To run a full scan, run <code>semgrep ci</code> without setting the <code>SEMGREP_BASELINE_REF</code> environment variable.</p></dd>
+    <dd><p>A full scan runs on your entire codebase and reports every finding in the codebase. It is recommended to perform a full scan of your <code>main</code> branch at a regular cadence, such as every night or every week. This ensures that Semgrep Cloud Platform has a full list of all findings in your code base, regardless of when they were introduced. To run a full scan, run <code>semgrep ci</code> without setting the <code>SEMGREP_BASELINE_REF</code> environment variable.</p></dd>
     <dt>Diff-aware scan</dt>
     <dd><p>A diff-aware scan runs on your code before and after some "baseline" and only reports findings that are newly introduced in the commits after that baseline.</p>
     <p>For example, imagine a hypothetical repository with 10 commits. You set commit number 8 as the baseline. Consequently, Semgrep only returns scan results introduced by changes in commits 9 and 10. This is how <code>semgrep ci</code> can run in pull requests and merge requests, since it reports only the findings that are created by those code changes. To run a diff-aware scan, use <code>SEMGREP_BASELINE_REF=<span class="placeholder">REF</span> semgrep ci</code> where <span class="placeholder">REF</span> can be a commit hash, branch name, or other Git reference.</p></dd>
@@ -20,8 +20,8 @@ Semgrep scans can be classified by scope. The scope of a scan refers to what lin
 
 
 :::caution
-* Do **not** perform diff-aware scans on your `main` branch. Semgrep App keeps track of which findings have been fixed on a given branch. If you configure diff-aware scans on your main branch, and compare the last commit to the penultimate commit, Semgrep wrongly considers all findings from before the penultimate commit to be fixed.
-* Do **not** perform full scans on non-mainline or non-trunk branches. Performing full scans on every branch slows down your CI jobs, displays findings that developers did not introduce, and results in many duplicated findings in Semgrep App, resulting in a poorer experience.
+* Do **not** perform diff-aware scans on your `main` branch. Semgrep Cloud Platform keeps track of which findings have been fixed on a given branch. If you configure diff-aware scans on your main branch, and compare the last commit to the penultimate commit, Semgrep wrongly considers all findings from before the penultimate commit to be fixed.
+* Do **not** perform full scans on non-mainline or non-trunk branches. Performing full scans on every branch slows down your CI jobs, displays findings that developers did not introduce, and results in many duplicated findings in Semgrep Cloud Platform, resulting in a poorer experience.
 :::
  
 ### Examples of `SEMGREP_BASELINE_REF`

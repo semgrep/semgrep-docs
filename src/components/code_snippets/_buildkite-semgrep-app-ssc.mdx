@@ -8,7 +8,7 @@
     
     # Troubleshooting:
 
-    # Uncomment the following lines if Semgrep App > Findings Page does not create links
+    # Uncomment the following lines if Semgrep Cloud Platform > Findings Page does not create links
     # to the code that generated a finding or if you are not receiving PR or MR comments.
     # - export SEMGREP_COMMIT=${BUILDKITE_COMMIT}
     # - export SEMGREP_PR_ID=${BUILDKITE_PULL_REQUEST}
@@ -23,6 +23,6 @@
     - docker#v3.7.0:
         image: returntocorp/semgrep
         environment:
-          # The following variable is required for a Semgrep App-connected scan:
+          # The following variable is required to set up a scan connected to Semgrep Cloud Platform:
           - "SEMGREP_APP_TOKEN"
 ```

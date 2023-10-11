@@ -14,27 +14,26 @@ import RequiredRuleFields from "/src/components/reference/_required-rule-fields.
 Publish rules in the open-source Semgrep Registry and share them with the Semgrep community to help others benefit from your rule-writing efforts and contribute to the field of software security. There are two ways in which you can contribute rules to the Semgrep Registry:
 
 <dl>
-    <dt>For users of Semgrep App</dt>
-    <dd>Contribute rules to the Semgrep Registry through Semgrep App. This workflow is recommended. See <a href="#contributing-through-semgrep-app-recommended"> Contributing through Semgrep App (recommended)</a>. This workflow creates the necessary pull request for you and streamlines the whole process.
+    <dt>For users of Semgrep Cloud Platform</dt>
+    <dd>Contribute rules to the Semgrep Registry through Semgrep Cloud Platform. This workflow is recommended. See <a href="#contributing-through-semgrep-cloud-platform-recommended"> Contributing through Semgrep Cloud Platform (recommended)</a>. This workflow creates the necessary pull request for you and streamlines the whole process.
 </dd>
     <dt>For contributors to the repository through GitHub</dt>
     <dd>Contribute rules to the Semgrep Registry through a pull request. See the <a href="#contributing-through-github"> Contributing through GitHub</a> section for detailed information.</dd>
 </dl>
 
-## Contributing through Semgrep App (recommended)
+## Contributing through Semgrep Cloud Platform (recommended)
 
-To contribute and publish rules to the Semgrep Registry through Semgrep App, follow these steps:
+To contribute and publish rules to the Semgrep Registry through Semgrep Cloud Platform, follow these steps:
 
 1. Go to [Playground](https://semgrep.dev/playground/new).
-2. Click <i className="fa-solid fa-file-plus-minus inline_svg"></i> **Create New Rule**.
-3. Choose one of the following:
-    - Create a new rule and test code by clicking <i class="fa-solid fa-circle-plus"></i> **plus** icon, and then click <i className="fa-solid fa-floppy-disk inline_svg"></i> **Save**. Note: The test file must contain at least one true positive and one true negative test case to be approved. See the [Tests](#tests) section of this document for more information.
-    - In the <i class="fa-solid fa-server"></i> **Library** panel, select a rule from a category in **Semgrep Registry**. Click <i className="fa-solid fa-code-branch inline_svg"></i> **Fork**,
-    modify the rule or test code, and then click <i className="fa-solid fa-floppy-disk inline_svg"></i> **Save**.
-4. Click <i className="fa-solid fa-earth-americas inline_svg"></i> **Share**.
-5. Click <i className="fa-solid fa-cloud-arrow-up inline_svg"></i> **Publish to Registry**.
-6. Fill in the required and optional fields.
-7. Click <i className="fa-solid fa-circle-check inline_svg"></i> **Continue**, and then click <i className="fa-solid fa-code-pull-request inline_svg"></i> **Create PR**.
+1. Click <i className="fa-solid fa-file-plus-minus inline_svg"></i> **Create New Rule**.
+1. Choose one of the following:
+    - Create a new rule and test code by clicking <i class="fa-solid fa-circle-plus"></i> **plus** icon, select **New rule** and then click <i className="fa-solid fa-floppy-disk inline_svg"></i> **Save**. Note: The test file must contain at least one true positive and one true negative test case to be approved. See the [Tests](#tests) section of this document for more information.
+    - In the <i class="fa-solid fa-server"></i> **Library** panel, select a rule from a category in **Semgrep Registry**. Click <i className="fa-solid fa-code-branch inline_svg"></i> **Fork**, modify the rule or test code, and then click <i className="fa-solid fa-floppy-disk inline_svg"></i> **Save**.
+1. Click <i className="fa-solid fa-earth-americas inline_svg"></i> **Share**.
+1. Click <i className="fa-solid fa-cloud-arrow-up inline_svg"></i> **Publish to Registry**.
+1. Fill in the required and optional fields.
+1. Click <i className="fa-solid fa-circle-check inline_svg"></i> **Continue**, and then click <i className="fa-solid fa-code-pull-request inline_svg"></i> **Create PR**.
 
 This workflow automatically creates a pull request in the GitHub [Semgrep Registry](https://github.com/returntocorp/semgrep-rules). Find more about the Semgrep Registry by reading the [Rule writing](#rule-writing) and [Tests](#tests) sections.
 
@@ -42,7 +41,7 @@ You can also publish rules as private rules outside of Semgrep Registry. These r
 
 ## Contributing through GitHub
 
-Fork our repository and make a pull request. Sign our Contributor License Agreement (CLA) on GitHub before r2c can accept your contributions. Make a pull request to the [Semgrep Registry](https://github.com/returntocorp/semgrep-rules) with two files:
+Fork our repository and make a pull request. Sign our Contributor License Agreement (CLA) on GitHub before Semgrep, Inc. can accept your contributions. Make a pull request to the [Semgrep Registry](https://github.com/returntocorp/semgrep-rules) with two files:
 1. The semgrep pattern (as YAML file).
 2. The test file (with the file extension of the language or framework). The test file must contain at least one true positive and one true negative test case to be approved. See the [Tests](#tests) section of this document for more information.
 
@@ -174,7 +173,8 @@ In addition to the fields mentioned above, rules submitted to Semgrep Registry h
 </table>
 
 :::info
-If you use catagory <code>security</code>, include additional metadata. See <a href="#including-fields-required-by-security-category"> Including fields required by security category</a>.
+- If you use category <code>security</code>, include additional metadata. See <a href="#including-fields-required-by-security-category"> Including fields required by security category</a>.
+- Semgrep Pro Engine rules that leverage cross-file (interfile) analysis also require `interfile: true` under `metadata` key in YAML rules. For more information, see [Creating rules that analyze across files](/semgrep-code/semgrep-pro-engine-intro/#creating-rules-that-analyze-across-files).
 :::
 
 ### Understanding rule namespacing
@@ -215,7 +215,7 @@ var strdata = "hello";
 var numdata = 1;
 ```
 
-For more information, visit [Testing rules](https://semgrep.dev/docs/writing-rules/testing-rules/).
+For more information, visit [Testing rules](/writing-rules/testing-rules/).
 
 ### Rule messages
 
@@ -235,11 +235,11 @@ For an example of a good rule message, see: [this rule for Django's mark_safe](h
 
 ### Rule quality checker
 
-When you contribute rules to the Semgrep Registry, our quality checkers (linters) evaluate if the rule conforms to r2c standards. The `semgrep-rule-lints` job runs linters on a new rule to check for mistakes, performance problems, and best practices for submitting to the Semgrep Registry. To improve your rule writing, use Semgrep itself to [scan semgrep-rules](https://r2c.dev/blog/2021/how-we-made-semgrep-rules-run-on-semgrep-rules/).
+When you contribute rules to the Semgrep Registry, our quality checkers (linters) evaluate if the rule conforms to Semgrep, Inc. standards. The `semgrep-rule-lints` job runs linters on a new rule to check for mistakes, performance problems, and best practices for submitting to the Semgrep Registry. To improve your rule writing, use Semgrep itself to [scan semgrep-rules](https://semgrep.dev/blog/2021/how-we-made-semgrep-rules-run-on-semgrep-rules/).
 
 ### Including fields required by security category
 
-Rules in category `security` in the Semgrep Registry require specific metadata fields that ensure consistency across the ecosystem in both Semgrep App and Semgrep CLI. Nest these metadata under the `metadata` field. 
+Rules in category `security` in the Semgrep Registry require specific metadata fields that ensure consistency across the ecosystem in both Semgrep Cloud Platform and Semgrep CLI. Nest these metadata under the `metadata` field. 
 
 If your rule has a `category: security`, the following metadata are required:
 
@@ -493,5 +493,18 @@ References help provide more context to a developer on what the issue is, and ho
     references:
       - https://sequelize.org/docs/v6/core-concepts/raw-queries/#replacements
     ```
+
+## Updating existing open-source rules in Semgrep Registry
+
+To update an existing open-source rule, follow these steps:
+
+1. Find a rule you want to update in the [semgrep-rules](https://github.com/returntocorp/semgrep-rules/) repository.
+2. Submit a PR to the repository with your new update.
+3. Follow the same instructions and recommendations as you can find in the rest of this document. For example the security category has specific metadata requirements.
+4. Leave a message in the PR. Explain why are you making changes. What is the motivation for this update?
+
+See a [PR example](https://github.com/returntocorp/semgrep-rules/pull/2730).
+
+There can be specific messages in the repository’s pipeline informing you about specific details of your rule. Ensure that your rule fulfills all of the necessities and requirements. However, sometimes the pipeline running in the [semgrep-rules](https://github.com/returntocorp/semgrep-rules/) repository can have specific issues. In such a case, wait for a Semgrep reviewer's help.
 
 <MoreHelp />

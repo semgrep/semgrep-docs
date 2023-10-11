@@ -47,6 +47,7 @@ Here is an example `r2c-internal-project-depends-on` rule that searches for a kn
 ```yaml
 rules:
 - id: vulnerable-awscli-apr-2017
+  severity: WARNING
   pattern-either:
   - pattern: boto3.resource('s3', ...)
   - pattern: boto3.client('s3', ...)
@@ -74,7 +75,7 @@ A finding is only considered reachable if the file containing the pattern match 
 | Python     | pypi       | `Pipfile.lock`                   |
 | JavaScript | npm        | `yarn.lock`, `package-lock.json` |
 | Java       | maven      | `pom.xml`                        |
-| Go         | gomod      | `go.sum`                         |
+| Go         | gomod      | `go.mod`                         |
 | Ruby       | gem        | `Gemfile.lock`                   |
 | Rust       | cargo      | `cargo.lock`                     |
 

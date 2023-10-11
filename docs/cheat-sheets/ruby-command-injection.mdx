@@ -1,0 +1,316 @@
+---
+slug: ruby-command-injection
+description: "Command injection prevention cheat sheet for Ruby."
+---
+
+import LinkToRegistryRule from "/src/components/LinkToRegistryRule"
+import CommandInjectionIntro from "/src/components/concept/_command-injection-intro.mdx"
+import RecommendedRuleSet from "/src/components/code_snippets/_cheat-sheets-recommended-rule-set.mdx"
+
+# Command injection prevention for Ruby
+
+<CommandInjectionIntro />
+
+### Check your project using Semgrep
+
+<RecommendedRuleSet />
+
+## 1. Running OS commands
+
+### 1.A. Open3 module
+
+`Open3` grants access to running processes when running another program. For more information, see [Ruby documentation](https://docs.ruby-lang.org/en/2.0.0/Open3.html). Such methods as `capture2`, `capture2e`, `capture3`, `popen2`, `popen2e`, `popen3`, `pipeline`, `pipeline_r`, `pipeline_rw`, `pipeline_start` and `pipeline_w` are intended for running commands provided as a string. Letting user supplied data in a command that is passed as an argument to one of these methods, can create an opportunity for a command injection vulnerability.
+
+Examples:
+
+```ruby
+require 'open3'
+
+# safe
+Open3.popen3("ls -la")
+
+# vulnerable
+user_input = "  && cat /etc/passwd" # Value supplied by user
+Open3.popen3("ls #{user_input}")
+```
+
+```ruby
+require 'open3'
+
+# safe
+fname = "/usr/share/man/man1/ls.1.gz"
+Open3.pipeline(["zcat", fname], "nroff -man", "colcrt")
+
+# vulnerable
+user_input = "  && cat /etc/passwd" # Value supplied by user
+Open3.pipeline("zcat #{user_input}", "nroff -man", "colcrt")
+```
+
+#### References
+
+- [`Open3`](https://docs.ruby-lang.org/en/2.0.0/Open3.html) documentation.
+
+#### Mitigation
+
+- Do not pass user input to `Open3` methods.
+- Always try to use the internal Ruby API (if it exists) instead of running an OS command. Use internal language features instead of invoking commands that can be exploited.
+- Don't pass user-controlled input or use an allowlist for inputs.
+- Do not include command arguments in a command string, use parameterization instead. For example:<br />
+
+    Instead of the following code:
+    ```ruby
+    Open3.pipeline(["bash", "-c", "myCommand myArg1 " + input_value])
+    ```
+
+    Use:
+    ```ruby
+    Open3.pipeline(["/path/to/myCommand", "myArg1", input_value])
+    ```
+- Define a list of allowed arguments.
+- Avoid non-literal values for the command string. Strip everything except alphanumeric characters from an input provided for the command string and arguments.
+
+#### Semgrep rule
+
+<LinkToRegistryRule ruleId="ruby.lang.security.dangerous-open3-pipeline.dangerous-open3-pipeline" />
+
+### 1.B. open() function
+
+The `open(...)` function creates an input/output (I/O) object connected to a stream, file, or subprocess. If the first argument starts with a pipe character (`|`), it creates a subprocess. An opportunity for a command injection vulnerability is created when the subprocess includes user input in a command argument to `open()` function.
+
+Example:
+
+```ruby
+# safe
+open("my_file.txt")
+
+# vulnerable
+user_input = “|cat /etc/passwd” # Value supplied by user
+open(user_input)
+```
+
+#### References
+
+- [open](https://apidock.com/ruby/Kernel/open) documentation.
+
+#### Mitigation
+
+- Do not provide raw user input to the `open()` function.
+- Always try to use the internal Ruby API (if it exists) instead of running an OS command. Use internal language features instead of invoking commands that can be exploited.
+- If the use of user input is unavoidable, create an allowlist for inputs, such as allowed command arguments.
+- Strip everything except alphanumeric characters from an input provided for the command string and arguments.
+
+#### Semgrep rule
+
+<LinkToRegistryRule ruleId="ruby.lang.security.dangerous-open.dangerous-open" />
+
+### 1.C. system() function
+
+The `system()` function executes OS commands in a subshell. This might potentially lead to a command injection vulnerability when used with user input. A malicious actor can potentially run OS commands to exploit the system.
+
+Example:
+
+```ruby
+# safe
+system("ls -lah /tmp")
+
+# vulnerable
+user_input = ' && cat /etc/passwd' # Value supplied by user
+system("ls #{user_input}")
+```
+
+#### References
+
+- [`system()` documentation](https://apidock.com/ruby/Kernel/system)
+
+#### Mitigation
+
+- Do not provide raw user input to the `system()` function.
+- Always try to use the internal Ruby API (if it exists) instead of running an OS command. Use internal language features instead of invoking commands that can be exploited.
+- If the use of user input is unavoidable, create an allowlist for inputs, such as allowed arguments.
+- Strip everything except alphanumeric characters from an input provided for the command string and arguments.
+
+#### Semgrep rule
+
+<LinkToRegistryRule ruleId="ruby.lang.security.dangerous-exec.dangerous-exec" />
+
+### 1.D. exec() function
+
+The `exec()` function executes OS commands. This might potentially lead to a command injection vulnerability when used with user input. A malicious actor can potentially run OS commands to exploit the system.
+
+Example:
+
+```ruby
+# safe
+exec("ls -lah /tmp")
+
+# vulnerable
+user_input = ' && cat /etc/passwd' # Value supplied by user
+exec("ls #{user_input}")
+```
+
+#### References
+
+- [`exec()` documentation](https://apidock.com/ruby/Kernel/exec)
+
+#### Mitigation
+
+- Do not provide raw user input to the `exec()` function.
+- Always try to use the internal Ruby API (if it exists) instead of running an OS command. Use internal language features instead of invoking commands that can be exploited.
+- If the use of user input is unavoidable, create an allowlist for inputs, such as allowed arguments.
+- Strip everything except alphanumeric characters from an input provided for the command string and arguments.
+
+#### Semgrep rule
+
+<LinkToRegistryRule ruleId="ruby.lang.security.dangerous-exec.dangerous-exec" />
+
+### 1.D. spawn() function
+
+The `spawn()` function executes OS commands. This might potentially lead to a command injection vulnerability when used with user input. A malicious actor can potentially run OS commands to exploit the system.
+
+Example:
+
+```ruby
+# safe
+pid = spawn("ls -lah /tmp")
+Process.wait pid
+
+# vulnerable
+user_input = ' && cat /etc/passwd' # Value supplied by user
+pid = spawn("ls #{user_input}")
+Process.wait pid
+```
+
+#### References
+
+- [`spawn()` documentation](https://apidock.com/ruby/Kernel/spawn)
+
+#### Mitigation
+
+- Do not provide raw user input to the `spawn()` function.
+- Always try to use the internal Ruby API (if it exists) instead of running an OS command. Use internal language features instead of invoking commands that can be exploited.
+- If the use of user input is unavoidable, create an allowlist for inputs, such as allowed arguments.
+- Strip everything except alphanumeric characters from an input provided for the command string and arguments.
+
+#### Semgrep rule
+
+<LinkToRegistryRule ruleId="ruby.lang.security.dangerous-exec.dangerous-exec" />
+
+### 1.E. Backticks (``) or %x[command] methods
+
+Backticks ``` `` ``` or `%x[command]` methods allow Ruby developers to execute system commands and return their outputs. Both methods accept string interpolation. As for other methods mentioned in this cheat sheet, when this method is used with user input, it can lead to a command injection vulnerability.
+
+Ruby interprets the text inside of backticks as an OS command. For example, ``` `ls -l` ``` interpreted by Ruby prints the contents of current working directory. In addition, if the `%x` is used with various delimiters, it is also interpreted as an OS command. The ``` `ls -l` ``` in Ruby is equivivalent to the following:
+
+- `` %x`ls -l` ``
+- `` %x;ls -l; ``
+- `` %x(ls -l) ``
+- `` %x"ls -l" ``
+- `` %x{ls -l} ``
+- `` %x:ls -l: ``
+- `` %x'ls -l' ``
+- `` %x[ls -l] ``
+
+Example:
+
+```ruby
+# safe
+`ls -lah /tmp`
+
+%x[ ls -lah /tmp ]
+%x{ ls -lah /tmp }
+
+# vulnerable
+user_input = ' && cat /etc/passwd' # Value supplied by user
+`ls #{user_input}`
+
+%x{ls #{user_input}}
+```
+
+#### References
+
+- Ruby [Kernel](https://ruby-doc.org/3.2.1/Kernel.html) documentation.
+- Ruby [command injection](https://ruby-doc.org/3.2.1/command_injection_rdoc.html) documentation.
+
+#### Mitigation
+
+- Do not provide raw user input to ``` `` ``` or `%x` methods.
+- Always try to use the internal Ruby API (if it exists) instead of running an OS command. Use internal language features instead of invoking commands that can be exploited.
+- If the use of user input is unavoidable, create an allowlist for inputs, such as allowed arguments.
+- Strip everything except alphanumeric characters from an input provided for the command string and arguments.
+
+#### Semgrep rule
+
+<LinkToRegistryRule ruleId="ruby.lang.security.dangerous-subshell.dangerous-subshell" />
+
+### 1.F. Process.spawn and Process.exec methods
+
+The `spawn` and `exec` methods execute a system command and return its output. Both methods accept string interpolation. Similarly to other methods mentioned in this cheat sheet, when either of these methods is used with user input, it can lead to command injection vulnerability.
+
+https://ruby-doc.org/3.2.1/Process.html
+
+Example:
+
+```ruby
+# safe
+Process.spawn("ls -alh")
+Process.spawn("ls", "-alh")
+Process.spawn(["ls", "-alh"])
+
+# vulnerable
+user_input = ' && cat /etc/passwd' # Value supplied by user
+Process.spawn("ls #{user_input}")
+
+# safe
+Process.exec("ls -alh")
+Process.exec("ls", "-alh")
+Process.exec(["ls", "-alh"])
+
+# vulnerable
+user_input = ' && cat /etc/passwd' # Value supplied by user
+Process.exec("ls #{user_input}")
+```
+
+#### References
+
+- [Process](https://ruby-doc.org/3.2.1/Process.html) documentation.
+
+#### Mitigation
+
+- Do not provide raw user input to `Process.spawn` and `Process.exec` methods.
+- Always try to use internal Ruby API (if it exists) instead of running an OS command. Use internal language features instead of invoking commands that can be exploited.
+- If the use of user input is unavoidable, create an allowlist for inputs, such as allowed arguments.
+- Strip everything except alphanumeric characters from an input provided for the command string and arguments.
+
+#### Semgrep rule
+
+<LinkToRegistryRule ruleId="ruby.lang.security.dangerous-exec.dangerous-exec" />
+
+### 1.F. PTY.spawn method
+
+The `PTY.spawn` method executes OS commands in a new terminal. This might potentially lead to a command injection vulnerability when used with user input. A malicious actor can potentially run OS commands to exploit the system.
+
+Example:
+
+```ruby
+# safe
+stdout,stdin,pid = PTY.spawn("ls -lah")
+
+# vulnerable
+user_input = ' && cat /etc/passwd' # Value supplied by user
+stdout,stdin,pid = PTY.spawn("ls #{user_input}")
+```
+
+#### References
+
+- [PTY](https://ruby-doc.org/3.2.1/exts/pty/PTY.html) library documentation.
+
+#### Mitigation
+
+- Do not provide raw user input to `PTY.spawn` methods.
+- Always try to use the internal Ruby API (if it exists) instead of running an OS command. Use internal language features instead of invoking commands that can be exploited.
+- If the use of user input is unavoidable, create an allowlist for inputs, such as allowed arguments.
+- Strip everything except alphanumeric characters from an input provided for the command string and arguments.
+
+#### Semgrep rule
+
+<LinkToRegistryRule ruleId="ruby.lang.security.dangerous-exec.dangerous-exec" />

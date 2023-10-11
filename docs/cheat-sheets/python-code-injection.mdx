@@ -1,0 +1,326 @@
+---
+slug: python-code-injection
+description: "Code injection prevention cheat sheet for Python."
+---
+
+import LinkToRegistryRule from "/src/components/LinkToRegistryRule"
+import CodeInjectionIntro from "/src/components/concept/_code-injection-intro.mdx"
+import RecommendedRuleSet from "/src/components/code_snippets/_cheat-sheets-recommended-rule-set.mdx"
+
+# Code injection prevention for Python
+
+<CodeInjectionIntro />
+
+### Check your project using Semgrep
+
+<RecommendedRuleSet />
+
+## 1. Executing or evaluating code
+
+### 1.A. Executing code with exec
+
+The `exec()` function supports the dynamic execution of Python code. The `exec()` function can be dangerous if it is used to execute dynamic content (non-literal content). If this dynamic content has an input controllable by a user, it can cause a code injection vulnerability.
+
+Example:
+
+```python
+# Value supplied by user
+user_input = "');import requests;requests.get('localhost:3000');print('"
+
+# Vulnerable
+exec("foobar('{}')".format(user_input))
+```
+
+#### References
+
+- [exec documentation](https://docs.python.org/3/library/functions.html#exec)
+
+#### Mitigation
+
+Do not use `exec()` for non-literal values. Alternatively:
+
+- Ensure executed content is not controllable by external sources.
+- If it's not possible, strip everything except alphanumeric characters from the input.
+- Don't try to make `exec` safe with tricks such as `{'__builtins__':{}}`.
+
+#### Semgrep rule
+
+<LinkToRegistryRule ruleId="python.lang.security.audit.exec-detected.exec-detected" />
+
+### 1.B. Evaluating code with eval
+
+The `eval()` function supports the dynamic execution of Python code. The `eval()` can be dangerous if it is used to execute dynamic content (non-literal content). If this dynamic content has an input controllable by a user, it can cause a code injection vulnerability.
+
+Example:
+
+```python
+# Value supplied by user
+user_input = "__import__('code').InteractiveInterpreter().runsource('import requests;requests.get(\'localhost:3000\')')"
+
+# Vulnerable
+eval(user_input)
+```
+
+#### References
+
+- [**eval()** documentation](https://docs.python.org/3/library/functions.html#eval)
+
+#### Mitigation
+
+Do not use `eval()`. Alternatively:
+
+- If you need to use `eval()` with non-literal values, ensure that executed content is not controllable by external sources.
+- If it's not possible, strip everything except alphanumeric characters from the input.
+- Don't try to make `eval` safe with tricks such as `{'__builtins__':{}}`.
+
+#### Semgrep rule
+
+<LinkToRegistryRule ruleId="python.lang.security.audit.eval-detected.eval-detected" />
+
+### 1.C. Accepting logging configuration with logging.config.listen()
+
+The `logging.config.listen()` function starts a socket server on the specified port, and listens for new configurations.
+As the `logging.config.listen()` configuration is passed through `eval()`, the use of this function can lead to a security risk.
+While the function only binds to a socket on localhost, and so does not accept connections from remote machines, there are scenarios where untrusted code can potentially run under the account of the process which calls `listen()`.
+
+Example:
+
+```python
+# Server example: starting up a socket server on 9999 port, and listening for new configurations.
+import logging
+import logging.config
+
+logging.config.fileConfig('logging.conf')
+t = logging.config.listen(9999)
+t.start()
+
+
+# Client example: sending configuration from `data_to_send` variable to localhost:9999
+import socket, sys, struct
+
+# Config example: print("pwned") is evaluated and "pwned" is printed to the console
+data_to_send = """
+[loggers]
+keys=root
+
+[handlers]
+keys=hand01
+
+[formatters]
+keys=form01
+
+[logger_root]
+level=NOTSET
+handlers=hand01
+
+[handler_hand01]
+class=StreamHandler
+level=NOTSET
+formatter=form01
+args=(print("pwned"),)
+
+[formatter_form01]
+format=F1 %(asctime)s %(levelname)s %(message)s
+datefmt=
+class=logging.Formatter
+"""
+
+s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+s.connect(('localhost', 9999))
+s.send(struct.pack('>L', len(data_to_send)))
+s.send(data_to_send)
+s.close()
+```
+
+#### References
+
+- [`logging.config.listen()` documentation](https://docs.python.org/3/library/logging.config.html#logging.config.listen)
+
+#### Mitigation
+
+- Verify what is sent across the socket.
+- Alternatively: To avoid the risk, verify the argument to `logging.config.listen()` to prevent applying unrecognized configurations. This can be done by encrypting or signing what is sent across the socket, such that the verify callable can perform signature verification or decryption.
+
+#### Semgrep rule
+
+<LinkToRegistryRule ruleId="python.lang.security.audit.logging.listeneval.listen-eval" />
+
+### 1.D. Running code in an interactive interpreter
+
+The `code` module provides read-eval-print loops in Python. Two classes are included to provide interactive prompts, the `InteractiveInterpreter` and the `InteractiveConsole`. Both methods can execute Python code: `InteractiveInterpreter.runcode` executes a code object and `InteractiveConsole.push` interprets a string as Python code. This is dangerous if external data reaches these function calls as it allows a malicious actor to run arbitrary Python code.
+
+Example:
+
+```python
+import code
+
+# Value supplied by user
+user_input = "print('pwned')"
+console = code.InteractiveConsole()
+# Vulnerable
+console.push(user_input)
+
+# Value supplied by user
+user_input = "print('pwned')"
+interpreter = code.InteractiveInterpreter()
+# Vulnerable
+interpreter.runcode(code.compile_command(user_input))
+```
+
+#### References
+
+- [`code` module documentation](https://docs.python.org/3/library/code.html)
+
+#### Mitigation
+
+Do not let the user input in `InteractiveInterpreter` or `InteractiveConsole` methods. Alternatively:
+
+- Ensure that content that Python interprets is not controllable by external sources.
+- If it's not possible, strip everything except alphanumeric characters from the input.
+
+#### Semgrep rule
+
+<LinkToRegistryRule ruleId="python.lang.security.audit.dangerous-code-run.dangerous-interactive-code-run" />
+
+### 1.E. Using subinterpreter to run code
+
+The `_xxsubinterpreters.run_string` is an internal Python function that interprets the string as Python code. This causes a code injection vulnerability when unverified user data reaches `run_string`. A malicious actor can inject a malicious string to execute arbitrary Python code.
+
+Example:
+
+```python
+import _xxsubinterpreters
+
+# Value supplied by user
+user_input = "print('pwned')"
+
+# Vulnerable
+_xxsubinterpreters.run_string(_xxsubinterpreters.create(), user_input)
+```
+
+#### References
+
+- [**subinterpreters** documentation](https://pythondev.readthedocs.io/subinterpreters.html)
+
+#### Mitigation
+
+Do not let a user input in `_xxsubinterpreters` methods. Alternatively:
+
+- Ensure that content that Python interprets is not controllable by external sources.
+- If it’s not possible, strip everything except alphanumeric characters from the input.
+
+#### Semgrep rule
+
+<LinkToRegistryRule ruleId="python.lang.security.audit.dangerous-subinterpreters-run-string.dangerous-subinterpreters-run-string" />
+
+### 1.F. Running subinterpreter from regression tests package
+
+The `run_in_subinterp` is a function from a Python regression tests package (`test`) that runs code in a subinterpreter. This is dangerous if external data reaches the `run_in_subinterp` function call because it allows a malicious actor to run arbitrary Python code.
+
+Example:
+
+```python
+import _testcapi
+
+# Value supplied by user
+user_input = "print('pwned')"
+
+# Vulnerable
+_testcapi.run_in_subinterp(user_input)
+
+
+from test import support
+
+# Value supplied by user
+user_input = "print('pwned')"
+
+# Vulnerable
+support.run_in_subinterp(user_input)
+```
+
+#### References
+
+- [**test** module documentation](https://docs.python.org/3/library/test.html)
+
+#### Mitigation
+
+Do not let a user input in `run_in_subinterp` function. Alternatively:
+
+- Ensure that content that Python interprets is not controllable by external sources.
+- If it's not possible, strip everything except alphanumeric characters from the input.
+
+#### Semgrep rule
+
+<LinkToRegistryRule ruleId="python.lang.security.audit.dangerous-testcapi-run-in-subinterp" />
+
+## 2. Abusing built-in functions
+
+### 2.A. Accessing dictionary with current global or local symbol table
+
+The `globals()` and `locals()` return a dictionary representing the current global or local symbol table. Using non-static data to retrieve values from this table is extremely dangerous because it can allow an attacker to execute arbitrary code on the system. 
+
+Example:
+
+```python
+# Name of the arbitrary function supplied by user
+user_input = "Name of the function" 
+
+# Vulnerable call of arbitrary function
+function = locals().get(user_input)
+function()
+
+# Name of the arbitrary function supplied by user
+user_input = "Name of the function"
+
+# Vulnerable call of arbitrary function
+function = test1.__globals__[user_input]
+function()
+```
+
+#### References
+
+- [Vulnerable code example](https://github.com/mpirnat/lets-be-bad-guys/blob/d92768fb3ade32956abd53bd6bb06e19d634a084/badguys/vulnerable/views.py#L181-L186)
+- [**locals()** documentation](https://docs.python.org/3/library/functions.html#locals)
+- [**globals()** documentation](https://docs.python.org/3/library/functions.html#globals)
+
+#### Mitigation
+
+Do not access global or local symbol tables. Refactor your code not to use `globals()` and `locals()`.
+
+#### Semgrep rule
+
+<LinkToRegistryRule ruleId="python.lang.security.dangerous-globals-use.dangerous-globals-use" />
+
+### 2.B. Dynamically updating and accessing code annotations
+
+Annotations passed to the `typing.get_type_hints()` function are evaluated in `globals` and `locals` namespaces. Ensure that no arbitrary value can be written as the annotation and passed to the `typing.get_type_hints` function.
+
+Example:
+
+```python
+from typing import get_type_hints
+
+class C:
+    member: int = 0
+
+def smth():
+    # Changing annotation for `member` property of class C
+    C.__annotations__["member"] = "print('pwn')"
+
+    # Annotations are evaluated and `print('pwn')` code gets executed
+    get_type_hints(C)
+```
+
+#### References
+
+- [**typing.get_type_hints** documentation](https://docs.python.org/3/library/typing.html#typing.get_type_hints)
+
+#### Mitigation
+
+Do not programmatically rewrite code annotations. Alternatively:
+
+- Ensure that annotations are not controllable by external sources.
+
+#### Semgrep rule
+
+<LinkToRegistryRule ruleId="python.lang.security.audit.dangerous-annotations-usage" />

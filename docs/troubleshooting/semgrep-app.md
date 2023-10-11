@@ -1,11 +1,10 @@
 ---
 slug: semgrep-app
-description: "Not seeing what you expect in Semgrep App? Follow these troubleshooting steps or find out how to get one-on-one help."
-title: Troubleshooting Semgrep App
+description: "Not seeing what you expect in Semgrep Cloud Platform? Follow these troubleshooting steps or find out how to get one-on-one help."
+title: Troubleshooting
 hide_title: true
 tags:
-    - Semgrep App
-    - Community Tier
+    - Semgrep Cloud Platform
     - Team & Enterprise Tier
 
 ---
@@ -21,11 +20,11 @@ Object.entries(frontMatter).filter(
 </ul>
 
 
-# Troubleshooting Semgrep App
+# Troubleshooting Semgrep Cloud Platform
 
 ## If a project reports the last scan 'never started'
 
-This status means that your CI job never authenticated to Semgrep App.
+This status means that your CI job never authenticated to Semgrep Cloud Platform.
 
 Check your CI provider (such as GitHub Actions) for the latest Semgrep job execution.
 
@@ -40,7 +39,7 @@ The issue is likely with the CI configuration.
 
 Check the log output for any hints about what the issue is.
 
-- If the logs mention a missing token or an authentication failure, you can get a new token from the [Settings page of Semgrep App](https://semgrep.dev/manage/settings), and set it as `SEMGREP_APP_TOKEN` in your CI provider's secret management UI.
+- If the logs mention a missing token or an authentication failure, you can get a new token from the [Settings page of Semgrep Cloud Platform](https://semgrep.dev/manage/settings), and set it as `SEMGREP_APP_TOKEN` in your CI provider's secret management UI.
 - Alternatively, if this is the first scan after adding a new GitHub repository, and the repository is a fork, check your Actions tab to see if workflows are enabled:
 
 ![Screenshot of GitHub's Actions tab with workflows disabled](/img/github-workflows-disabled.png)<br />

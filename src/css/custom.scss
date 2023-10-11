@@ -1,0 +1,485 @@
+/* stylelint-disable docusaurus/copyright-header */
+/**
+ * Any CSS included here will be global. The classic template
+ * bundles Infima by default. Infima is a CSS framework designed to
+ * work well for content-centric websites.
+ */
+
+/* You can override the default Infima variables here. */
+
+
+:root {
+  --ifm-color-primary: #00A67D; /*use for category headers */
+  --ifm-color-primary-dark: #00b581;
+  --ifm-color-primary-darker: #00a674;
+  --ifm-color-primary-darkest: #00674D;
+  --ifm-color-primary-light: #2acfa6;
+  --ifm-color-primary-lighter: #77dec0;
+  --ifm-color-primary-lightest: #DFF7F0;
+
+  --ifm-breadcrumb-border-radius: 0.25rem;
+  --ifm-breadcrumb-item-background-active: rgb(0 168 126 / 4%);
+
+  --ifm-menu-color-active: #00c292;
+  --ifm-link-color: #1b73c6;
+  --ifm-pagination-nav-color-hover: var(--ifm-color-emphasis-500);
+  --ifm-menu-color: var(--ifm-color-emphasis-700);
+  --ifm-menu-color-active: var(--ifm-color-primary-darkest);
+  --ifm-menu-color-background-hover: var(--ifm-color-primary-lightest);
+  --ifm-menu-color-background-active: var(--ifm-color-primary-lightest);
+  --ifm-footer-link-hover-color: #00c292;
+  --ifm-menu-link-sublist-icon-filter: invert(16%) sepia(98%) saturate(3800%)
+    hue-rotate(154deg) brightness(30%) contrast(88%);
+
+  --ifm-code-font-size: 95%;
+  --ifm-font-family-monospace: "JetBrains Mono", "Menlo", "Courier New", monospace;
+  --ifm-navbar-height: 78px;
+
+  /**************************************************************************
+   * MARKPROMPT                                                             *
+   *************************************************************************/
+  --markprompt-background: #fff;
+  --markprompt-foreground: #171717;
+  --markprompt-muted: #fafafa;
+  --markprompt-mutedForeground: #737373;
+  --markprompt-border: #e5e5e5;
+  --markprompt-input: #fff;
+  --markprompt-primary: var(--ifm-color-primary) !important; /* Highlight on search term */
+  --markprompt-primaryForeground: #fff;
+  --markprompt-primaryMuted: #DFF7F0 !important; /* Pill in list item */
+  --markprompt-secondary: #fafafa;
+  --markprompt-secondaryForeground: #171717;
+  --markprompt-primaryHighlight: #ec4899;
+  --markprompt-secondaryHighlight: #a855f7;
+  --markprompt-overlay: #00000010;
+  --markprompt-ring: #0ea5e9;
+  --markprompt-radius: 8px;
+  --markprompt-text-size: 0.875rem;
+  --markprompt-text-size-xs: 0.75rem;
+  --markprompt-button-icon-size: 1rem;
+  --markprompt-icon-stroke-width: 2px;
+  --markprompt-shadow: 0 1px 2px 0 #0000000d;
+  --markprompt-ring-shadow: 0 0 #0000;
+  --markprompt-ring-offset-shadow: 0 0 #0000;
+}
+
+.MarkpromptSearchResult[aria-selected="true"] a {
+  background-color: var(--ifm-color-primary-lightest);
+  border: 1px solid var(--ifm-color-primary-lighter);
+
+  .MarkpromptMatch,
+  .MarkpromptSearchResultSubtitle {
+    border-color: var(--ifm-color-primary-lighter);
+    color: var(--ifm-color-primary-darker);
+  }
+
+  .MarkpromptSearchResultIconWrapperBordered,
+  .MarkpromptSearchResultIcon {
+    color: var(--ifm-color-primary-dark);
+    border-color: var(--ifm-color-primary-lighter);
+  }
+}
+
+.MarkpromptSearchResultHeading {
+  font-weight: 500;
+  background-color: transparent;
+  padding: 0;
+  margin: 0;
+  border:none;
+}
+
+.MarkpromptSearchResults a,
+.MarkpromptSearchResult[aria-selected="true"] a .MarkpromptSearchResultSubtitle {
+  text-decoration: none !important;
+  color: #444; // placeholder; replace with theme color if there's a similar one
+  font-weight: 600;
+}
+
+/******************************************************************************
+ *                                                                            *
+ * THEME AND COLORS                                                           *
+ *                                                                            *
+ *****************************************************************************/
+
+ @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=JetBrains+Mono:wght@400;700&display=swap');
+
+ .theme-doc-markdown a:visited {
+  color: #7d1cb2;
+}
+
+html[data-theme="dark"] .theme-doc-markdown a:visited {
+  color: #c783ec;
+}
+
+ .docusaurus-highlight-code-line {
+  background-color: rgba(0, 0, 0, 0.1);
+  display: block;
+  margin: 0 calc(-1 * var(--ifm-pre-padding));
+  padding: 0 var(--ifm-pre-padding);
+}
+
+html[data-theme="dark"] .docusaurus-highlight-code-line {
+  background-color: #000000;
+}
+
+html[data-theme="dark"] {
+
+  --ifm-color-primary: #00c292;
+  --ifm-color-primary-dark: #00b581;
+  --ifm-color-primary-darker: #00a674;
+  --ifm-color-primary-darkest: #008456;
+  --ifm-color-primary-light: #2acfa6;
+  --ifm-color-primary-lighter: #77dec0;
+  --ifm-color-primary-lightest: #DFF7F0;
+  --ifm-link-color: #80baf0;
+
+  --ifm-breadcrumb-border-radius: 0.25rem;
+  --ifm-breadcrumb-item-background-active: rgba(0, 168, 126, 0.30);
+
+  --ifm-menu-color-active: var(--ifm-primary-lighest);
+  --ifm-menu-color-background-hover: var(--ifm-color-primary-darkest);
+  --ifm-menu-color-background-active: var(--ifm-color-primary-darkest);
+  --docsearch-highlight-color: var(--ifm-color-primary-darker);
+
+  /**************************************************************************
+   * MARKPROMPT                                                             *
+   *************************************************************************/
+  --markprompt-background: #050505;
+  --markprompt-foreground: #d4d4d4;
+  --markprompt-muted: #171717;
+  --markprompt-mutedForeground: #737373;
+  --markprompt-border: #262626;
+  --markprompt-input: #fff;
+  --markprompt-primary: #008456 !important;
+  --markprompt-primaryForeground: #fff;
+  --markprompt-primaryMuted: #8285f4;
+  --markprompt-secondary: #0e0e0e;
+  --markprompt-secondaryForeground: #fff;
+  --markprompt-primaryHighlight: #ec4899;
+  --markprompt-secondaryHighlight: #a855f7;
+  --markprompt-overlay: #00000040;
+  --markprompt-ring: #fff;
+
+
+  .MarkpromptSearchResult[aria-selected="true"] a {
+    background-color: var(--ifm-color-primary-darkest);
+    border: 1px solid var(--ifm-color-primary-darker);
+
+    .MarkpromptMatch,
+    .MarkpromptSearchResultSubtitle {
+      border-color: var(--ifm-color-primary-darker);
+      color: var(--ifm-color-primary-lighter);
+    }
+
+    .MarkpromptSearchResultIconWrapperBordered,
+    .MarkpromptSearchResultIcon {
+      color: var(--ifm-color-primary-light);
+      border-color: var(--ifm-color-primary-darker);
+    }
+  }
+
+  .MarkpromptSearchResultHeading {
+    font-weight: 500;
+    background-color: transparent;
+    padding: 0;
+    margin: 0;
+    border:none;
+}
+
+  .MarkpromptSearchResults a,
+  .MarkpromptSearchResult[aria-selected="true"] a .MarkpromptSearchResultSubtitle {
+    text-decoration: none !important;
+    color: #444; // placeholder; replace with theme color if there's a similar one
+    font-weight: 600;
+  }
+}
+
+
+/* begin customized styles for Semgrep docs */
+/* color vars are overwritten above */
+
+/******************************************************************************
+ *                                                                            *
+ * SIDEBAR                                                                    *
+ *                                                                            *
+ *****************************************************************************/
+
+ .menu {
+  padding: 0.5rem !important;
+ }
+
+.menu__list-item-collapsible > a:not([href]) {
+    color: var(--ifm-color-primary);
+    vertical-align: bottom;
+    font-size: 0.7rem;
+    font-weight: 600;
+    letter-spacing: 0.04rem;
+    text-transform: uppercase;
+    padding-bottom: 0rem;
+    padding-top: 1.6rem;
+}
+
+.menu__list-item:not(:first-child) {
+    margin-top: 0rem;
+}
+
+.theme-doc-sidebar-item-category-level-1 > .menu__list-item-collapsible:hover {
+  background: unset;
+  color: var(--ifm-color-primary);
+}
+
+.menu__link {
+    line-height: 1.15;
+}
+
+.menu__list-item {
+    font-size: 0.9rem;
+}
+
+/* globals */
+
+* {
+  font-variant-ligatures: none;
+}
+html {
+  font-family: "Inter", sans-serif !important;
+  font-weight: 400;
+  word-break: keep-all;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-weight: 600;
+}
+
+h1 {
+    font-size: 42px;
+}
+
+h2 {
+    font-size: 36px;
+}
+
+h3 {
+    font-size: 28px;
+}
+
+h4 {
+    font-size: 22px;
+}
+
+h5 {
+    font-size: 19px;
+}
+
+h6 {
+  font-size: 17px;
+}
+
+dt {
+    font-weight:700;
+}
+
+dd > ul {
+    margin: unset;
+}
+dd {
+    margin-bottom: 0.3rem;
+}
+
+dl {
+    margin-bottom: var(--ifm-leading);
+}
+
+.bordered {
+    border: 2px solid black;
+}
+
+/*better way to add a border, respects markdown indent */
+img[src*="bordered"] {
+    border: 2px solid black;
+    margin-right: auto;
+    display: block;
+}
+
+img[src*="md-width"] {
+    width: 75%;
+    margin-right: auto;
+    margin-left: auto;
+    display: block;
+    border: 2px solid black;
+}
+
+.placeholder {
+    color: #E3116C;
+    font-style: italic;
+}
+
+.inline_svg {
+    height: 14px;
+    width: 15px;
+    fill: currentColor;
+}
+
+/* navbar */
+
+/* announcement banner */
+.announcementBar_node_modules-\@docusaurus-theme-classic-lib-next-theme-AnnouncementBar-styles-module {
+  position: sticky;
+}
+
+/* rest of navbar */
+
+.navbar.navbar--fixed-top {
+  padding: 0;
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+
+.navbar__inner {
+  position: sticky;
+  left: 5px;
+  top: 30px;
+  padding: 0 20px;
+}
+
+@media (min-width: 997px) {
+  .navbar__inner {
+    align-items: center;
+    flex-wrap: inherit;
+  }
+}
+
+.navbar__items {
+  height: 78px;
+}
+
+.navbar__brand {
+  margin-right: 1rem;
+}
+
+a.navbar__item.navbar__link {
+  font-weight: 500;
+  padding: 5px 16px;
+  border: none;
+  border-radius: 3px;
+  cursor: pointer;
+  font-size: 1rem;
+  justify-content: center;
+  text-align: left;
+  vertical-align: middle;
+  min-height: 30px;
+  min-width: 30px;
+}
+
+a.navbar__item.navbar__link:hover {
+  transition: none;
+  color: inherit;
+  text-decoration: none;
+  background-color: rgba(167, 182, 194, 0.3);
+}
+
+.navbar__logo {
+  height: 25px;
+}
+
+.navbar__item.dropdown.dropdown--hoverable > .navbar__link:after {
+  content: url("data:image/svg+xml;base64,PHN2ZyBmaWxsPSJub25lIiBoZWlnaHQ9IjgiIHZpZXdCb3g9IjAgMCAxMiA4IiB3aWR0aD0iMTIiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PHBhdGggZD0ibTEgMS41IDUgNSA1LTUiIHN0cm9rZT0iIzY2NzA4NSIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBzdHJva2UtbGluZWpvaW49InJvdW5kIiBzdHJva2Utd2lkdGg9IjEuNjciLz48L3N2Zz4=");
+  border: none;
+  transform: translateY(-10%);
+  margin-left: 0.5em;
+}
+
+/* sidenav */
+
+.menu__link {
+  transition-timing-function: linear;
+  transition-duration: 3ms;
+}
+
+/* TOC for mobile */
+.tocCollapsibleContent_node_modules-\@docusaurus-theme-classic-lib-next-theme-TOCCollapsible-index-module,
+.table-of-contents > ul {
+  border-top: 1px solid var(--ifm-color-primary-lighter);
+}
+
+/* footer */
+
+.footer--dark {
+  background: #00243E;
+}
+
+.footer__title {
+  color: rgb(198, 200, 204);
+}
+
+/* not following conventions Todo rename to yt__embed */
+.yt_embed {
+    padding-bottom: 1rem;
+}
+
+/* max width for VS Code embedded video */
+article video {
+  max-width: 100%;
+}
+
+/* badge */
+
+#tag__badge-list {
+  display: flex;
+  flex-direction: row;
+  padding-left: 0rem;
+  padding-top: 0.8rem;
+  margin-bottom: 0.4rem
+}
+.tag__badge-item {
+  list-style: none !important;
+  borderRadius: 8px;
+  color: var(--ifm-color-primary);
+  padding-right: 1rem;
+  align-self: center;
+  margin-top: 0 !important;
+  text-transform: uppercase;
+  font-weight: 600;
+  font-size: 0.8rem;
+}
+
+.tag__badge-item:not(:last-child):after {
+  content: "|";
+  margin-left: 1rem;
+}
+
+
+/* customized generated index cards */
+
+h2[class*="cardTitle_"][class~="text--truncate"], p[class*="cardDescription_"][class~="text--truncate"] {
+  white-space: normal;
+}
+
+/* left sidebar collapse */
+
+button[class*="collapseSidebarButton"]:hover, div[class*="expandButton"]:hover {
+  background-color: #DFF7F0;
+}
+
+svg[class*="collapseSidebarButtonIcon"], svg[class*="expandButtonIcon"] {
+  filter: invert(45%) sepia(51%) saturate(1411%) hue-rotate(127deg) brightness(96%) contrast(101%); /* --ifm-color-primary-dark */
+}
+
+
+/******************************************************************************
+ *                                                                            *
+ * Knowledge Base (KB)                                                         *
+ *                                                                            *
+ *****************************************************************************/
+
+article > a[class*="cardContainer_"][class~="card"] {
+  min-height: 200px;
+}

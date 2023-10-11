@@ -1,0 +1,105 @@
+---
+slug: java-command-injection
+description: "Mitigate command injection in Java."
+---
+
+import LinkToRegistryRule from "/src/components/LinkToRegistryRule"
+import CommandInjectionIntro from "/src/components/concept/_command-injection-intro.mdx"
+import RecommendedRuleSet from "/src/components/code_snippets/_cheat-sheets-recommended-rule-set.mdx"
+
+# Command injection prevention for Java
+
+<CommandInjectionIntro />
+
+### Check your project using Semgrep
+
+<RecommendedRuleSet />
+
+## 1. Running an OS command
+
+### 1.A. Running OS commands with Runtime.getRuntime().exec()
+
+The `exec` call executes the specified string command in a separate process. This is dangerous if a command string is controlled by user input and could result in command injection.
+
+Example:
+
+```java
+ // exec example
+Runtime.getRuntime().exec("ls -la")
+
+// Vunerable
+String input = "&& cat /etc/passwd"; // value supplied by user input
+Runtime r = Runtime.getRuntime();
+r.exec("some_tool -t param1 param2 " + input);
+
+// Vunerable
+String input = "cat /etc/passwd"; // value supplied by user input
+Runtime.getRuntime().exec("bash", "-c", input);
+```
+
+#### References
+
+- [`exec` documentation](https://docs.oracle.com/javase/7/docs/api/java/lang/Runtime.html#exec(java.lang.String))
+
+#### Mitigation
+
+- Always try to use internal Java API (if it exists) instead of running an OS command. In other words, use internal language features instead of invoking commands that can be exploited.
+- Do not include command arguments in a command string, use parameterization instead. For example:<br />
+    Use:
+    ```java
+    Runtime.getRuntime().exec("/path/to/myCommand", "myArg1", inputValue)
+    ```
+    Instead of:
+    ```java
+    Runtime.getRuntime().exec("bash", "-c", "myCommand myArg1 " + inputValue)
+    ```
+- If it is not possible, then strip the input of everything except alphanumeric characters provided for the command string and arguments.
+- Do **not** use direct user input, even if it is sanitized.
+- If it is not possible to avoid direct user input, do not allow running arbitrary commands. Use an allowlist for inputs.
+- Strip `!@#$;&*~"'{}][-+%^` characters from user input that is incorporated in the command string which is later executed.
+
+#### Semgrep rule
+
+<LinkToRegistryRule ruleId="java.lang.security.audit.command-injection-formatted-runtime-call.command-injection-formatted-runtime-call" />
+
+### 1.B. Running OS processes with ProcessBuilder
+
+The `ProcessBuilder` class is used to create operating system processes. If the command string is controlled by user input it can result in command injection. 
+Example:
+
+```java
+ // ProcessBuilder example
+Process builder = new ProcessBuilder("ls", "-la").start();
+
+// Vunerable
+String input = "cat /etc/passwd"; // value supplied by user input
+ProcessBuilder builder = new ProcessBuilder();
+builder.command("bash", "-c", "some_tool -t param1 param2 " + input)
+
+// Vulnerable
+String input = "cat /etc/passwd"; // value supplied by user input
+ProcessBuilder builder = new ProcessBuilder();
+builder.command(input);
+```
+
+#### References
+
+[`ProcessBuilder` documentation](https://docs.oracle.com/javase/7/docs/api/java/lang/ProcessBuilder.html)
+
+#### Mitigation
+
+- Try to avoid non-literal values in the command string.
+- If it is not possible to prevent non-literal values in the command string, then do not allow running arbitrary commands. Use an allowlist for inputs.
+- Do not include command arguments in a command string, use parameterization instead. For example:<br />
+    Use:
+    ```java
+    new ProcessBuilder("/path/to/myCommand", "myArg1", inputValue);
+    ```
+    Instead of:
+    ```java
+    new ProcessBuilder("bash", "-c", "myCommand myArg1 " + inputValue);
+    ```
+
+#### Semgrep rule
+
+<LinkToRegistryRule ruleId="java.lang.security.audit.command-injection-process-builder.command-injection-process-builder" />

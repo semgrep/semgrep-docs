@@ -1,5 +1,5 @@
 <p align="center">
-    <a href="https://semgrep.dev"><img src="https://raw.githubusercontent.com/returntocorp/semgrep/develop/semgrep.svg" height="150" alt="Semgrep logo"/></a>
+    <a href="https://semgrep.dev"><img src="static/img/semgrep.svg" height="130" alt="Semgrep logo"/></a>
 </p>
 <h3 align="center">
   Lightweight static analysis for many languages.
@@ -16,11 +16,15 @@ Contributions to the docs are welcome! To start contributing, first please make 
 
 ## Building docs locally
 
-1. Clone the repo.
+1. Clone the repository.
 2. Install: `yarn install`.
-3. There are two options to run the docs locally:
+3. On a clean git state, enter `yarn build`.
+4. Enter `git checkout .` The previous command `yarn build` overwrites some placeholders with exact values and these should not be committed. In most cases, there is no need to run `yarn build` after this initial set up process.
+5. There are two options to run the docs locally:
     1. Enter `yarn dev` and then go to `<http://localhost:3000/>`. This option is for contributors and writers.
     2. Enter `yarn start` and then go to: `<http://localhost:3000/>`. This option is for displaying an accurate preview of the live documentation. It runs a script that replaces certain identifiers with code or file templates. These replacements ensure that certain code or file templates are up-to-date.
+
+Congratulations. You have set up your local repository for development.
 
 ## Preview production build
 

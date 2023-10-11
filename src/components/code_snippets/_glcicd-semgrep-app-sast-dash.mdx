@@ -11,8 +11,8 @@ semgrep:
   - if: $CI_COMMIT_BRANCH == $CI_DEFAULT_BRANCH
 
   variables:
-    # Connect to Semgrep App through your SEMGREP_APP_TOKEN.
-    # Generate a token from Semgrep App > Settings
+    # Connect to Semgrep Cloud Platform through your SEMGREP_APP_TOKEN.
+    # Generate a token from Semgrep Cloud Platform > Settings
     # and add it as a variable in your GitLab CI/CD project settings.
     SEMGREP_APP_TOKEN: $SEMGREP_APP_TOKEN
 
@@ -21,13 +21,9 @@ semgrep:
 
   # Other optional settings in the `variables` block:
 
-  # Never fail the build due to findings on pushes.
-  # Instead, just collect findings for semgrep.dev/manage/findings
-  #   SEMGREP_AUDIT_ON: push
-
-  # Receive inline MR comments (requires Semgrep App account)
+  # Receive inline MR comments (requires Semgrep Cloud Platform account)
   # Setup instructions: 
-  # https://semgrep.dev/docs/semgrep-app/notifications/#enabling-gitlab-merge-request-comments
+  # https://semgrep.dev/docs/semgrep-code/notifications/#gitlab-merge-request-comments
   #   GITLAB_TOKEN: $PAT
 
   # Run the "semgrep ci" command on the command line of the docker image and send findings

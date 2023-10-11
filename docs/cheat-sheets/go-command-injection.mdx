@@ -1,30 +1,25 @@
 ---
 slug: go-command-injection
+description: "Prevent command injection in Go."
 ---
 
 import LinkToRegistryRule from "/src/components/LinkToRegistryRule"
+import CommandInjectionIntro from "/src/components/concept/_command-injection-intro.mdx"
+import RecommendedRuleSet from "/src/components/code_snippets/_cheat-sheets-recommended-rule-set.mdx"
 
 # Command injection prevention for Go
 
-This is a command injection prevention cheat sheet by r2c. It contains code patterns of potential ways to run an OS commands or code in an application. Instead of scrutinizing code for exploitable vulnerabilities, the recommendations in this cheat sheet pave a safe road for developers that mitigates the possibility of Command injection in your code. By following these recommendations, you can be reasonably sure your code is free of command injection.
+<CommandInjectionIntro />
 
-## Mitigation summary
+### Check your project using Semgrep
 
-In general, try not to let dynamic content in APIs intended for OS command execution. If this is not an option then perform proper input validation and contextually escape user data. 
-
-#### Check your project for these conditions:
-
-```bash
-semgrep --config p/go-command-injection
-```
-
----
+<RecommendedRuleSet />
 
 ## 1. Running an OS command
 
-### 1.A. running OS commands with **exec.Command()**
+### 1.A. Running OS commands with exec.Command()
 
-`Command` and `CommandContext` return the Cmd struct to execute the named program with the given arguments. If unverified user data can reach its call site, this may end up in a command injection vulnerability. Both `Command` and `CommandContext` have built-in protections that will not let command arguments cause trouble. But make sure that the command itself is not controlled by the user, also do not use `sh`, because internal protection will not work in this case.
+The `Command` and `CommandContext` execute commands provided as arguments. If unverified user data can reach its call site, this may end up in a command injection vulnerability. Both `Command` and `CommandContext` have built-in protections that do not let command arguments cause trouble. But ensure that the command itself is not controlled by the user, also do not use `sh`, because internal protection does not work in this case.
 
 Example:
 
@@ -37,43 +32,53 @@ func main() {
   // Command example
   cmd := exec.Command("echo", "hello")
 
-  // CommandContext is like Command but includes a context.
+  // CommandContext example
   err := exec.CommandContext(ctx, "sleep", "5").Run()
 
   // Not vulnerable
   cmd := exec.Command("echo", "1; cat /etc/passwd")
 
   // Vunerable
-  out, _ = exec.Command("sh", "-c", "echo 1 | cat /etc/passwd").Output()
+  userInput :=  "echo 1 | cat /etc/passwd" // value supplied by user input
+  out, _ = exec.Command("sh", "-c", userInput).Output()
 
   // Vulnerable
-  userInput1 = "cat" // value supplied by user input
-  userInput2 = "/etc/passwd" // value supplied by user input
+  userInput1 := "cat" // value supplied by user input
+  userInput2 := "/etc/passwd" // value supplied by user input
   out, _ = exec.Command(userInput1, userInput2)
 }
 ```
 
-#### References:
+#### References
 
 - [`Command` documentation](https://golang.org/pkg/os/exec/#Command)
 - [`CommandContext` documentation](https://golang.org/pkg/os/exec/#CommandContext)
 
 #### Mitigation
 
-Do not let user input in `exec.Command` and `exec.CommandContext` functions. Alternatively,
+Do not let the user input in `exec.Command` and `exec.CommandContext` functions. Alternatively:
 
-- Always try to use internal Go API (if it exists) instead of running an OS command.
+- Always try to use internal Go API (if it exists) instead of running an OS command. In other words, use internal language features instead of invoking commands that can be exploited.
+- Do not include command arguments in a command string, use parameterization instead. For example:<br />
+    Use:
+    ```go
+    exec.Command("/path/to/myCommand", "myArg1", inputValue)
+    ```
+    Instead of:
+    ```go
+    exec.Command("bash", "-c", "myCommand myArg1 " + inputValue)
+    ```
+- If it is not possible, then strip everything except alphanumeric characters from an input provided for the command string and arguments.
 - Try to avoid non-literal values for the command string.
-- If it is not possible, then do not let running arbitrary commands, use a white list for inputs.
-- Avoid running `sh` as a command with arguments, if it is not possible - strip everything except alphanumeric characters from an input provided for the command string and arguments.
+- If it is not possible, then do not let running arbitrary commands, use an allowlist for inputs.
 
 #### Semgrep rule
 
 <LinkToRegistryRule ruleId="go.lang.security.audit.dangerous-exec-command.dangerous-exec-command" />
 
-### 1.B. Creating **exec.Cmd** struct
+### 1.B. Creating exec.Cmd struct
 
-`Cmd` represents an external command being prepared or run. If unverified user data can reach its call site, this may end up in a command injection vulnerability. Make sure that the command path and first argument are not controlled by the user, also do not use `sh`, because internal protection will not work in this case.
+The `Cmd` represents an external command that is prepared or run. If unverified user data reaches its call site it can result in a command injection vulnerability. Make sure that the command path and first argument are not controlled by the user, also do not use `sh`, because internal protection does not work in such a case.
 
 Example:
 
@@ -87,37 +92,73 @@ import (
 
 func main() {
   cmd := &exec.Cmd {
-  // Path is the path of the command to run.
-  Path: "echo",
-  // Args holds command line arguments, including the command as Args[0].
-  Args: []string{ "echo", "hello" },
-  Stdout: os.Stdout,
-  Stderr: os.Stdout,
+    // Path is the path of the command to run.
+    Path: "/bin/echo",
+    // Args holds command line arguments, including the command itself as Args[0].
+    Args: []string{ "echo", "hello world" },
+    Stdout: os.Stdout,
+    Stderr: os.Stdout,
   }
   cmd.Start();
+  cmd.Wait();
+
+  // Args can be also ommited and {Path} will be used by default
+  cmd := &exec.Cmd {
+    Path: "/bin/echo"
+  }
+
+  // Vulnerable
+  userInput := "/pwn/exploit" // value supplied by user input
+  cmd := &exec.Cmd {
+    Path: userInput
+  }
+
+  // Vulnerable
+  userInput1 := "/bin/bash" // value supplied by user input
+  userInput2 := []string{ "bash", "exploit.sh" } // value supplied by user input
+  cmd := &exec.Cmd {
+    Path: userInput1,
+    Args: userInput2
+  }
+
 }
 ```
 
-#### References:
+#### References
 
 - [`Cmd` struct documentation](https://golang.org/pkg/os/exec/#Cmd)
 
 #### Mitigation
 
-- Do not let user input in `exec.Cmd` struct. Alternatively,
+Do not let the user input in `exec.Cmd` struct. Alternatively:
+
 - Always try to use internal Go API (if it exists) instead of running an OS command.
 - Try to avoid non-literal values for the command string.
-- If it is not possible, then do not let running arbitrary commands, use a white list for inputs.
-- Avoid running `sh` as a command with arguments, if it is not possible - strip everything except alphanumeric characters from an input provided for the command string and arguments.
-
+- If it is not possible, then do not let running arbitrary commands, use an allowlist for inputs.
+- Do not include command arguments in a command string, use parameterization instead. For example:<br />
+    Use:
+    ```go
+    cmd := &exec.Cmd {
+      Path: "/path/to/myCommand",
+      Args: []string{ "myCommand", "myArg1", inputValue },
+    }
+    ```
+    Instead of:
+    ```go
+    cmd := &exec.Cmd {
+      Path: "/bin/bash",
+      Args: []string{ "bash", "-c", "myCommand myArg1 " + inputValue },
+    }
+    ```
+- If it is not possible - strip everything except alphanumeric characters from an input provided for the command string and arguments.
 
 #### Semgrep rule
 
 <LinkToRegistryRule ruleId="go.lang.security.audit.dangerous-exec-cmd.dangerous-exec-cmd" />
 
-### 1.C. writing to a command's **StdinPipe**
+### 1.C. Writing to a command's StdinPipe
 
-Command's `StdinPipe` returns a pipe that will be connected to the command's standard input when it starts. If unverified user data can reach `StdinPipe`, this is a command injection vulnerability. A malicious actor can inject a malicious script to execute arbitrary code.
+Command's `StdinPipe` returns a pipe that is connected to the command's standard input when it starts. A command injection vulnerability happens if unverified user data reaches `StdinPipe`. A malicious actor can inject a malicious script to execute arbitrary code.
 
 Example:
 
@@ -142,13 +183,13 @@ func main() {
 }
 ```
 
-#### References:
+#### References
 
 - [`Cmd.StdinPipe` documentation](https://golang.org/pkg/os/exec/#Cmd.StdinPipe)
 
 #### Mitigation
 
-Do not let user input in command's `StdinPipe`. Alternatively,
+Do not let the user input in command's `StdinPipe`. Alternatively:
 
 - Always try to use internal Go API (if it exists) instead of running an OS command.
 - Do not use it to run the `bash` command and to avoid non-literal values for the command string.
@@ -159,10 +200,9 @@ Do not let user input in command's `StdinPipe`. Alternatively,
 
 <LinkToRegistryRule ruleId="go.lang.security.audit.dangerous-command-write.dangerous-command-write" />
 
-### 1.D. running OS commands with **syscall.Exec()**
+### 1.D. Running OS commands with syscall.Exec()
 
-
-`Exec`/`ForkExec` invokes the execve(2) system call. If unverified user data can reach it's call site, this is a command injection vulnerability. Make sure that the command is not controlled by the user, also do not run `sh` with any possibility of user input involved in command arguments.
+`Exec`or `ForkExec` invokes the execve(2) system call. If unverified user data can reach its call site, this is a command injection vulnerability. Make sure that the command is not controlled by the user, also do not run `sh` with any possibility of user input involved in command arguments.
 
 Example:
 
@@ -179,7 +219,7 @@ syscall.Exec(binary, args, env)
 syscall.ForkExec(binary, args, env)
 
 func vulnerableCode(userInput string) {
-  // Do not let `path` be defined by user input
+  //  Vulnerable: Do not let `path` be defined by user input
   path, _ := exec.LookPath(userInput)
   args := []string{"ls", "-a", "-l", "-h"}
   env := os.Environ()
@@ -187,19 +227,28 @@ func vulnerableCode(userInput string) {
 }
 ```
 
-#### References:
+#### References
 
 - [`Exec` documentation](https://golang.org/pkg/syscall/#Exec)
 - [`ForkExec` documentation](https://golang.org/pkg/syscall/#ForkExec)
 
 #### Mitigation
 
-Do not let user input in `syscall.Exec` and `syscall.ForkExec` functions. Alternatively,
+Do not let the user input in `syscall.Exec` and `syscall.ForkExec` functions. Alternatively:
 
 - Always try to use internal Go API (if it exists) instead of running an OS command.
 - Try to avoid non-literal values for the command string.
-- If it is not possible, then do not let running arbitrary commands, use a white list for inputs.
-- Avoid running `sh` as a command with arguments, if it is not possible - strip everything except alphanumeric characters from an input provided for the command string and arguments.
+- If it is not possible, then do not let running arbitrary commands, use an allowlist for inputs.
+- Do not include command arguments in a command string, use parameterization instead. For example:<br />
+    Use:
+    ```go
+    syscall.Exec("/path/to/myCommand", []string{"myCommand", "myArg1", inputValue}, env)
+    ```
+    Instead of:
+    ```go
+    syscall.Exec("/bin/bash", []string{"bash", "-c", "myCommand myArg1 " + inputValue}, env)
+    ```
+- If it is not possible - strip everything except alphanumeric characters from an input provided for the command string and arguments.
 
 #### Semgrep rule
 

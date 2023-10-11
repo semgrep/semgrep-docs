@@ -1,0 +1,90 @@
+---
+slug: ruby-code-injection
+description: "Code injection prevention cheat sheet for Ruby."
+---
+
+import LinkToRegistryRule from "/src/components/LinkToRegistryRule"
+import CodeInjectionIntro from "/src/components/concept/_code-injection-intro.mdx"
+import RecommendedRuleSet from "/src/components/code_snippets/_cheat-sheets-recommended-rule-set.mdx"
+
+# Code injection prevention for Ruby
+
+<CodeInjectionIntro />
+
+### Check your project using Semgrep
+
+<RecommendedRuleSet />
+
+## 1. Evaluating code
+
+### 1.A. Evaluating code with `eval`
+
+Evaluating code can be dangerous if dynamic content is used as input. If this input originates from outside of the program it can lead to a code injection vulnerability.
+
+Examples:
+
+```ruby
+# safe
+str = "hello"
+eval "str + ' Fred'"
+
+# vulnerable
+str = "hello"
+user_input = "system('cat /etc/passwd')" # Value supplied by user
+eval "str + #{user_input}"
+```
+
+```ruby
+class Thing
+end
+
+# safe
+Thing.module_eval(%q{def hello() "Hello there!" end})
+
+# vulnerable
+user_input = "system('cat /etc/passwd')" # Value supplied by user
+Thing.module_eval(%q{def hello() "#{user_input}" end})
+```
+
+#### References
+
+- [eval() documentation](https://www.rubydoc.info/stdlib/core/Kernel:eval)
+
+#### Mitigation
+
+- Don't use `eval()`, `class_eval()`, `module_eval()`, or `instance_eval()` if possible.
+- If you need to use `eval()`, `class_eval()`, `module_eval()`, or `instance_eval()` with non-literal values, ensure that executed content is not controllable by external sources.
+- If it's not possible, strip everything except alphanumeric characters from the input.
+
+#### Semgrep rule
+
+<LinkToRegistryRule ruleId="ruby.lang.security.no-eval.ruby-eval" />
+
+### 1.B. Evaluating code with RubyVM::InstructionSequence
+
+The `InstructionSequence` class represents compiled instructions for the Ruby Virtual Machine. See details in [RubyVM::InstructionSequence documentation](https://ruby-doc.org/core-2.6/RubyVM/InstructionSequence.html). The `RubyVM` class itself is **not** intended for regular users. As the `RubyVM` class enables compiling code it may insecurely interpret user input. Providing user input to this class or its methods can result in a code injection vulnerability.
+
+Example:
+
+```ruby
+# safe
+RubyVM::InstructionSequence.compile("a = 1 + 2")
+
+# vulnerable
+user_input = "system('cat /etc/passwd')" # Value supplied by user
+RubyVM::InstructionSequence.compile("a = 1 + #{user_input}")
+```
+
+#### References
+
+- [RubyVM documentation](https://ruby-doc.org/core-2.7.0/RubyVM.html)
+- [RubyVM::InstructionSequence documentation](https://ruby-doc.org/core-2.6/RubyVM/InstructionSequence.html)
+
+#### Mitigation
+
+- Don't use `RubyVM`, or `RubyVM::InstructionSequence` if possible.
+- If you need to use `RubyVM` or `RubyVM::InstructionSequence` with non-literal values or user input, ensure that inputs are from trusted sources.
+
+#### Semgrep rule
+
+<LinkToRegistryRule ruleId="ruby.lang.security.no-eval.ruby-eval" />

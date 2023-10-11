@@ -1,0 +1,96 @@
+---
+slug: javascript-command-injection
+description: "JavaScript code injection prevention cheat sheet."
+---
+
+import LinkToRegistryRule from "/src/components/LinkToRegistryRule"
+import CommandInjectionIntro from "/src/components/concept/_command-injection-intro.mdx"
+import RecommendedRuleSet from "/src/components/code_snippets/_cheat-sheets-recommended-rule-set.mdx"
+
+# Command injection prevention for JavaScript
+
+<CommandInjectionIntro />
+
+### Check your project using Semgrep
+
+<RecommendedRuleSet />
+
+## 1. Running an OS command
+
+### 1.A. Spawning a shell with exec function
+
+The `exec()` function executes shell commands. It spawns a shell and then executes the command within the spawned shell, buffering any generated output. Never pass unsanitized user input to this function. Any input containing shell metacharacters can be used to trigger the execution of arbitrary commands.
+
+Example:
+
+```javascript
+const {exec} = require('child_process')
+
+const userInput = "$(dangerous command)" // Value supplied by user input
+
+// Vunerable
+exec(`cat *.js ${userInput}`, (error, stdout, stderr) => {
+  console.log(stdout)
+})
+```
+
+#### References
+
+- [`child_process` module documentation](https://nodejs.org/dist/latest-v14.x/docs/api/child_process.html)
+
+#### Mitigation
+
+- Always try to use internal JavaScript APIs (if they exist) instead of running an OS command. In other words, use internal language features instead of invoking commands that can be manipulated by a malicious actor.
+- Don’t pass user-controlled input or use an allowlist for inputs.
+- If it is not possible, use an array with a sequence of program arguments instead of a single string.
+- Avoid non-literal values for the command string. Strip everything except alphanumeric characters from an input provided for the command string and arguments.
+
+#### Semgrep rule
+
+<LinkToRegistryRule ruleId="javascript.lang.security.detect-child-process.detect-child-process" />
+
+### 1.B. Spawning a process with spawn function
+
+The `spawn()` and `spawnSync()` functions spawn a new process using the command with a list of arguments. This allows spawning any programs or running shell processes with arbitrary arguments, which can result in a command injection vulnerability.
+
+Example:
+
+```javascript
+const {spawn} = require('child_process')
+
+// Not vulnerable
+const userInput = '' // value supplied by user input
+spawn('cat', ['*.js', userInput])
+
+// Vulnerable
+const userInput = 'pwn-command' // value supplied by user input
+spawn(userInput, ['-a', '-b'])
+
+// Vulnerable
+const userInput = 'echo 1 | cat /etc/passwd' // value supplied by user input
+spawn("sh", ["-c", userInput])
+```
+
+#### References
+
+[`child_process` module documentation](https://docs.oracle.com/javase/7/docs/api/java/lang/ProcessBuilder.html)
+
+#### Mitigation
+
+- Always try to use internal JavaScript APIs (if they exist) instead of running an OS command. In other words, use internal language features instead of invoking commands that can be manipulated by a malicious actor.
+- Don’t pass user-controlled input or use an allowlist for inputs.
+- Do not include command arguments in a command string, use parameterization instead. For example:<br />
+    Use:
+    ```javascript
+    spawn("/path/to/myCommand", ["myArg1", inputValue])
+    ```
+    Instead of:
+    ```javascript
+    spawn("bash", ["-c", "myCommand myArg1 " + inputValue])
+    ```
+- Define a list of allowed arguments.
+- Avoid non-literal values for the command string. Strip everything except alphanumeric characters from an input provided for the command string and arguments.
+
+#### Semgrep rule
+
+<LinkToRegistryRule ruleId="javascript.lang.security.detect-child-process.detect-child-process" />

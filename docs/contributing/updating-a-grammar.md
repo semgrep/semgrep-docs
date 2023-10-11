@@ -14,7 +14,7 @@ Summary (ocaml-tree-sitter)
 In ocaml-tree-sitter:
 1. Update submodule tree-sitter-X.
 2. From `lang/`, run `./test-lang X`.
-3. From `lang/`, ask an r2c developer to run `./release X`.
+3. From `lang/`, ask a Semgrep team developer to run `./release X`.
 
 In semgrep:
 1. In the semgrep repo, update submodule semgrep-X.
@@ -115,8 +115,11 @@ cd lang
   ./test-lang X
 ```
 
-⚠️ Check the generated code for the presence of `Blank` nodes. Those
+:::caution
+Check the generated code for the presence of `Blank` nodes. Those
 correspond to [missing tokens](https://github.com/tree-sitter/tree-sitter/issues/1151).
+:::
+
 Check with:
 ```
 grep Blank lang/X/ocaml-src/lib/CST.ml
@@ -145,7 +148,7 @@ We can now consider publishing the code to semgrep-X.
 Publishing
 --
 
-_Please [ask someone at r2c to run this step](https://github.com/returntocorp/ocaml-tree-sitter-semgrep/blob/main/doc/release.md)._
+_Please [ask someone at Semgrep, Inc. to run this step](https://github.com/returntocorp/ocaml-tree-sitter-semgrep/blob/main/doc/release.md)._
 
 From the `lang` folder of ocaml-tree-sitter, we'll perform the
 release. This step redoes some of the work that was done earlier and

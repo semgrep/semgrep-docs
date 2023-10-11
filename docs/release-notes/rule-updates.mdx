@@ -10,13 +10,139 @@ import MoreHelp from "/src/components/MoreHelp"
 
 # Rule updates
 
-Welcome to monthly rule updates. This document includes selected new rules, removed false positives (FP), and other rule updates. These new rules and their updates are made by the Semgrep community and r2c.
+Welcome to monthly rule updates. This document includes selected new rules, removed or reduced number of false positives (FP) and false negatives (FN). These new rules and their updates are made by the Semgrep community and Semgrep, Inc.
+
+## February 2023
+
+### Community rules
+
+Thanks to [Sjord](https://github.com/Sjord), [@artem-fedorov](https://github.com/artem-fedorov) and [@gabriellesc](https://github.com/gabriellesc) for their contributions! 
+
+#### New rules from Semgrep community and Semgrep, Inc
+
+- Improved coverage for security issues in Terraform: <LinkToRegistryRule ruleId="terraform.aws.security" />
+- Additional rules for weak ciphers in Java: <LinkToRegistryRule ruleId="java.lang.security.audit.crypto" />
+- Additional rules for inline JavaScript and related security issues:
+    -  <LinkToRegistryRule ruleId="html.security.audit.eval-detected.eval-detected" />
+    -  <LinkToRegistryRule ruleId="html.security.audit.inscure-document-method.insecure-document-method" />
+
+#### Updated Community rules
+
+- Added and improved autofix for many rules
+- Improved patterns:
+    -  <LinkToRegistryRule ruleId="java.lang.security.audit.command-injection-formatted-runtime-call.command-injection-formatted-runtime-call" />
+    -  <LinkToRegistryRule ruleId="javascript.express.security.express-insecure-template-usage.express-insecure-template-usage" />
+    -  <LinkToRegistryRule ruleId="java.lang.security.audit.crypto.des-is-deprecated" />
+    -  <LinkToRegistryRule ruleId="java.lang.security.audit.crypto.no-null-cipher" />
+    -  <LinkToRegistryRule ruleId="java.lang.security.audit.crypto.rsa-no-padding" />
+    -  <LinkToRegistryRule ruleId="problem-based-packs.insecure-transport.js-node.disallow-old-tls-versions2.disallow-old-tls-versions2" />
+- Improved accuracy:
+    -  <LinkToRegistryRule ruleId="java.spring.security.injection.tainted-html-string.tainted-html-string" />
+    -  <LinkToRegistryRule ruleId="generic.secrets.gitleaks.generic-api-key.generic-api-key" />
+    -  <LinkToRegistryRule ruleId="contrib.nodejsscan.crypto_node.node_md5" />
+    -  <LinkToRegistryRule ruleId="contrib.nodejsscan.crypto_node.node_sha1" />
+    -  <LinkToRegistryRule ruleId="dockerfile.security.last-user-is-root.last-user-is-root" />
+    -  <LinkToRegistryRule ruleId="generic.dockerfile.security.last-user-is-root.last-user-is-root" />
+    -  <LinkToRegistryRule ruleId="generic.secrets.security.detected-npm-token.detected-npm-token" />
+    -  <LinkToRegistryRule ruleId="php.lang.security.injection.echoed-request.echoed-request" />
+- Improved rule message:
+    -  <LinkToRegistryRule ruleId="java.security.spring.audit.spring-csrf-disabled.spring-csrf-disabled" />
+    -  <LinkToRegistryRule ruleId="contrib.nodejsscan.crypto_node.node_md5" />
+    -  <LinkToRegistryRule ruleId="contrib.nodejsscan.crypto_node.node_sha1" />
+    -  <LinkToRegistryRule ruleId="ruby.rails.security.brakeman.check-unscoped-find.check-unscoped-find" />
+    -  <LinkToRegistryRule ruleId="terraform.aws.security.aws-cloudwatch-log-group-unencrypted.aws-cloudwatch-log-group-unencrypted" />
+    -  <LinkToRegistryRule ruleId="terraform.aws.security.aws-dynamodb-table-unencrypted.aws-dynamodb-table-unencrypted" />
+    -  <LinkToRegistryRule ruleId="terraform.aws.security.aws-lambda-environment-unencrypted.aws-lambda-environment-unencrypted" />
+    -  <LinkToRegistryRule ruleId="terraform.aws.security.aws-secretsmanager-secret-unencrypted.aws-secretsmanager-secret-unencrypted" />
+- Improved metadata:
+    -  <LinkToRegistryRule ruleId="ruby.lang.security.no-eval.ruby-eval" />
+    -  <LinkToRegistryRule ruleId="contrib.nodejsscan.crypto_node.node_md5" />
+    -  <LinkToRegistryRule ruleId="contrib.nodejsscan.crypto_node.node_sha1" />
+    -  <LinkToRegistryRule ruleId="ruby.rails.security.brakeman.check-unscoped-find.check-unscoped-find" />
+
+### Pro rules
+
+#### New Pro rules
+
+- Improved coverage for:
+    - Deserialization issues in Java
+    - Deserialization issues in Python
+    - Weak hash algorithms in JavaScript
+    - NoSQL injection in Java
+    - NoSQL injection in JavaScript
+    - ReDOS in JavaScript
+
+## January 2023
+
+### Community rules
+
+#### New rules from Semgrep community and Semgrep, Inc
+
+- Thanks [johnssimon007](https://github.com/johnssimon007)! New rule for empty encryption key in Python: <LinkToRegistryRule ruleId="python.cryptography.security.empty-aes-key.empty-aes-key" />
+- Thanks [johnssimon007](https://github.com/johnssimon007)! New rule for header injection in Python/Flask: <LinkToRegistryRule ruleId="python.flask.security.audit.host-header-injection-python" />
+- Additional rule for deserialization vulnerabilities in Ruby: <LinkToRegistryRule ruleId="ruby.lang.security.bad-deserialization-env.bad-deserialization-env" />
+- Ported regex-based rules from Gitleaks
+
+#### Updated Community rules
+
+- Thanks [@ben-elttam](https://github.com/ben-elttam)! FP reduction in Kubernetes rules:
+    - <LinkToRegistryRule ruleId="yaml.kubernetes.security.run-as-non-root.run-as-non-root" />
+    - <LinkToRegistryRule ruleId="yaml.kubernetes.security.run-as-non-root-unsafe-value.run-as-non-root-unsafe-value" />
+- Thanks [@artem-fedorov](https://github.com/artem-fedorov)! OWASP metadata fixed for too **many** rules to list here!
+- Thanks [ianmuscat](https://github.com/ianmuscat)! FP reduction with additional patterns: <LinkToRegistryRule ruleId="generic.ci.security.use-frozen-lockfile.use-frozen-lockfile" />
+- Thanks [paisleyrob](https://github.com/paisleyrob)! FP reduction with improved patterns:
+    - <LinkToRegistryRule ruleId="c.lang.security.use-after-free.use-after-free"/>
+    - <LinkToRegistryRule ruleId="c.lang.security.insecure-use-printf-fn.insecure-use-printf-fn"/>
+- Thanks [rc-JoshuaZepf](https://github.com/rc-JoshuaZepf)! FP reduction with improved patterns: <LinkToRegistryRule ruleId="terraform.lang.security.ec2-imdsv1-optional.ec2-imdsv1-optional"/>
+- Thanks [nightshiba](https://github.com/nightshiba)! FP reduction with improved patterns: <LinkToRegistryRule ruleId="javascript.express.security.audit.xss.mustache.explicit-unescape.template-explicit-unescape"/>
+- Thanks [Sjord](https://github.com/Sjord)! FP reduction with improved patterns: <LinkToRegistryRule ruleId="php.lang.security.audit.assert-use-audit.assert-use-audit"/>
+- FP reduction with improved pattern for taint mode:
+    - <LinkToRegistryRule ruleId="javascript.express.security.audit.express-ssrf.express-ssrf" />
+    - <LinkToRegistryRule ruleId="java.spring.security.injection.tainted-file-path.tainted-file-path" />
+    - <LinkToRegistryRule ruleId="java.spring.security.injection.tainted-system-command.tainted-system-command" />
+    - <LinkToRegistryRule ruleId="ruby.lang.security.bad-deserialization-yaml.bad-deserialization-yaml" />
+    - <LinkToRegistryRule ruleId="javascript.express.security.audit.xss.direct-response-write.direct-response-write" />
+- FN reduction with improved patterns for taint mode:
+    - <LinkToRegistryRule ruleId="java.spring.security.injection.tainted-file-path.tainted-file-path" />
+    - <LinkToRegistryRule ruleId="java.spring.security.injection.tainted-html-string.tainted-html-string" />
+    - <LinkToRegistryRule ruleId="java.spring.security.injection.tainted-sql-string.tainted-sql-string" />
+    - <LinkToRegistryRule ruleId="java.spring.security.injection.tainted-system-command.tainted-system-command" />
+    - <LinkToRegistryRule ruleId="java.spring.security.injection.tainted-url-host.tainted-url-host" />
+- Deprecated rules:
+    - <LinkToRegistryRule ruleId="java.spring.security.cve.cve-2022-22965.cve-2022-22965" />
+    - <LinkToRegistryRule ruleId="php.lang.security.preg-replace-eval.preg-replace-eval" />
+    - <LinkToRegistryRule ruleId="html.security.missing-noopener.missing-noopener" />
+    - <LinkToRegistryRule ruleId="html.security.missing-noreferrer.missing-noreferrer" />
+
+### Pro rules
+
+The **Pro rules** are created by Semgrep, Inc and targeted for security and software engineers who need accurate findings. These rules were previously marked as Team tier rules (see the updates below). As of this update, these rules are called the **[Pro rules](/semgrep-code/pro-rules/)** and are available with the [Team or higher tier](https://semgrep.dev/pricing).
+
+#### New Pro rules
+
+- New rules for hardcoded secrets:
+    - Database libraries for Java
+    - Database libraries for Ruby
+- New rules for JavaScript:
+    - Weak symmetric cryptography
+    - RegExp ReDos
+    - XSS
+    - Open Redirect
+- New rules for Java:
+    - SSRF in Java Servlets and Spring Framework
+
+#### Updated Pro rules
+
+- FP reduction with improved pattern for taint mode:
+    - Command Injection in Java Servlets and Spring Framework
+    - XSS in Java Spring Framework
+    - XXE in Java
 
 ## December 2022
 
 ### Community tier
 
-#### New rules from Semgrep community and r2c
+#### New rules from Semgrep community and Semgrep, Inc
 
 - Thanks [@aabashkin](https://github.com/aabashkin)! Added rule for MongoDB NoSQL Injection: <LinkToRegistryRule ruleId="java.mongodb.security.injection.audit.mongodb-nosqli" />
 - Thanks [@rc-mattschwager](https://gihub.com/rc-mattschwager)! Added Rust security rules:
@@ -73,7 +199,7 @@ New rules for hardcoded secrets:
 
 ### Community tier
 
-#### New rules from Semgrep community and r2c
+#### New rules from Semgrep community and Semgrep, Inc
 
 - Thanks [@Sjord](https://github.com/Sjord)! Added rule for links to plaintext URLs: <LinkToRegistryRule ruleId="html.security.plaintext-http-link.plaintext-http-link" />
 
@@ -129,7 +255,7 @@ New rules for hardcoded secrets:
 
 ### Community tier
 
-#### New rules from Semgrep community and r2c
+#### New rules from Semgrep community and Semgrep, Inc
 
 - Thanks [@mtausig](https://github.com/mtausig)! <LinkToRegistryRule ruleId="csharp.dotnet.security.use_weak_rsa_encryption_padding" />
 - Thanks [@Sjord](https://github.com/sjord)! <LinkToRegistryRule ruleId="php.lang.security.redirect-to-request-uri" />
@@ -174,7 +300,7 @@ New rules for Go net/http package covering the following vulnerability classes:
 
 ### Community tier
 
-#### New rules from Semgrep community and r2c
+#### New rules from Semgrep community and Semgrep, Inc
 
 - 100+ new Terraform rules for GCP! Thanks @mertcoskuner!
 - Python crypto operations with HMAC. Thanks @luisfontes19!
@@ -193,7 +319,7 @@ New rules for Go net/http package covering the following vulnerability classes:
 
 ##### New metadata keys
 
-r2c is adding new metadata fields to better communicate the intent and importance of findings that a rule generates. The following list provides details about new metadata fields:
+Semgrep, Inc is adding new metadata fields to better communicate the intent and importance of findings that a rule generates. The following list provides details about new metadata fields:
 - **Likelihood**: How likely is the impact highlighted by this finding to occur? Examples:
     - Web application user input: HIGH
     - OS environment: MEDIUM
@@ -266,7 +392,7 @@ These rules no longer produce findings:
 
 ### Community tier
 
-#### New rules from Semgrep community and r2c
+#### New rules from Semgrep community and Semgrep, Inc
 
 - <LinkToRegistryRule ruleId="csharp.lang.security.ad.jwt-tokenvalidationparameters-no-expiry-validation.jwt-tokenvalidationparameters-no-expiry-validation" />
 - Thanks @securecodeninja! <LinkToRegistryRule ruleId="jwt-securitytoken-no-expiration.jwt-securitytoken-no-expiration" />
@@ -374,7 +500,7 @@ Added more sinks for the following rules:
 
 ## July 2022
 
-### New rules from Segmrep community and r2c
+### New rules from Segmrep community and Semgrep, Inc
 
 New rules from Semgrep community:
 - Thanks to @securecodeninja!
