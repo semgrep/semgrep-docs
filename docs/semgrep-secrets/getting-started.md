@@ -3,7 +3,7 @@ slug: /semgrep-secrets/getting-started
 append_help_link: true
 title: Getting started with Semgrep Secrets
 hide_title: true
-description: tk
+description: Set up secrets scanning in Semgrep to find and rotate valid leaked secrets.
 tags:
   - Semgrep Secrets
 toc_max_heading_level: 2
