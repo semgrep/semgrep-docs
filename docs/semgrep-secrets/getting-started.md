@@ -118,8 +118,11 @@ This section describes how to set up PR or MR comments from Semgrep.
 :::info
 After enabling this feature, only **valid** (active) secrets-related findings leave a PR or MR comment.
 :::
+
+![Semgrep Secrets finding in a PR comment](/img/secrets-pr-comment.png#bordered)
+**_Figure._** Semgrep Secrets finding in a PR comment.
+
 ### Findings in GitHub pull requests
-<!-- For support folks: this is currently gated for the beta, and there's no UI toggle for it yet. (As of Oct 5, 2023; see resolved comments in GDoc.) -->
 
 Perform the following steps to receive Secrets findings as comments in GitHub PRs:
 
