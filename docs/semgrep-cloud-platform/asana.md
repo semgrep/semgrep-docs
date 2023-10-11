@@ -21,10 +21,10 @@ Object.entries(frontMatter).filter(
 
 # Creating Asana tickets
 
-:::tip Try our Asana integration (beta)
-* Existing customers can try our Asana integration for free. To enable this feature:
-    1. Fill out the following form: [Request access to the Semgrep Asana integration private beta](https://get.semgrep.dev/Jira-asana-linear-private-beta.html).
-    2. Contact your Technical Account Manager or your Account Executive and let them know you'd like to try the Asana integration out.
+:::tip Try the Asana integration (beta)
+Existing customers can try the Asana integration for free. To enable this feature:
+1. Fill out the following form: [Request access to the Semgrep Asana integration private beta](https://get.semgrep.dev/Jira-asana-linear-private-beta.html).
+2. Contact your Technical Account Manager or your Account Executive and let them know you'd like to try the Asana integration out.
 :::
 
 The Semgrep Asana integration allows you to create Asana tickets based on your Semgrep Code or Supply Chain findings.
