@@ -14,11 +14,11 @@ import MoreHelp from "/src/components/MoreHelp"
 
 **Semgrep Secrets** is a code scanner that detects exposed API keys, passwords, and other credentials. These exposed secrets can be used by malicious actors to leak data or gain access to sensitive systems. Semgrep Secrets enables the user to know the following: 
 
-* What secrets have leaked
-* If these secrets are **valid** (actively being used) or **invalid** (inactive and not in use)
-* (For GitHub repositories) If these secrets are in public or private repositories
+* What secrets have leaked.
+* The validation status of the secret, such as if it is confirmed valid. **Valid** secrets are secrets that are tested against a web service and confirmed to successfully grant resources or authentication. 
+* (For GitHub repositories) If these secrets are in public or private repositories.
 
-Save time and effort by prioritizing validated leaked secrets. Prevent future secrets from leaking into production environments through comments in PRs or MRs.
+Save time and effort by prioritizing valid leaked secrets. Prevent future secrets from leaking into production environments by blocking pull requests (PRs) or merge requests (MRs).
 
 This document explains how Semgrep Secrets works and its approach to detecting secrets.
 
@@ -54,14 +54,14 @@ See the following Semgrep rule and JavaScript test code for an example.
 * **Line 17:** Semgrep and regex-based scanners can detect **line 14**, in which `secret` is passed.
 * **Line 26:** Semgrep correctly skips `conf.secret` in **line 21**. Regex-based scanners simply looking for matches of the string `secret` generate a false positive.
 
-After scanning for secrets, Semgrep uses a **post-processor** function called a **validator** to validate if a secret is **valid** or **invalid**.
+After scanning for secrets, Semgrep uses a **post-processor** function called a **validator** to validate a secret.
 
 1. The post-processor detects the service, such as Slack or AWS, that the secret is used for.
 2. If the post-processor does not support the service that the secret is used for, or the secret is a **honeypot token**, Semgrep notes that there is **No validator** for the secret.
 3. If the validator can detect the service, Semgrep performs an API call. The following outcomes can occur:
-	1. If the API call returns an HTTP response of 200 or similar, then the finding is **valid**.
-	2. If the API call returns an HTTP response of 403 or similar, then the finding is **invalid**.
-	3. If the API call returns an HTTP response of 500 or similar, or some other error occurred, then Semgrep notes that a **Validation error** has occurred.
+	1. If the API call returns an HTTP response of 200 or similar, then the finding's validation state is **confirmed valid**.
+	2. If the API call returns an HTTP response of 403 or similar, then the finding's validation state is **confirmed invalid**.
+	3. If the API call returns an HTTP response of 500 or similar, or some other error occurred, then Semgrep notes that a **validation error** has occurred.
 
 All findings, whether they are validated, with validation errors, invalid, or valid, appear in Semgrep Cloud Platform.
 
@@ -70,7 +70,6 @@ By performing this post-processor check, you are able to prioritize (triage) the
 <!--
 :::note
 For a list of all supported services that Semgrep can detect, see Semgrep post-processor list.
-(We will add this in some other time.)
 :::
 -->
 
