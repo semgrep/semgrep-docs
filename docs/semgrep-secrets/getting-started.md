@@ -17,6 +17,9 @@ Detect and triage leaked secrets and credentials by scanning with Semgrep Secret
 
 Save time by prioritizing which secrets to rotate based on whether they are valid (active and in-use) or not.
 
+![Semgrep Secrets page](/img/secrets-page.png)
+**_Figure._** Semgrep Secrets page. <br />
+
 This document guides you through the following:
 
 * Enabling Semgrep Secrets
@@ -29,6 +32,7 @@ To learn about how Semgrep Secrets detects secrets, see [<i class="fa-regular fa
 * This feature is in public beta.
 * You or your developers may encounter rough edges. For issues, reach out to [<i class="fa-regular fa-envelope"></i> support@semgrep.com](mailto:support@semgrep.com).
 :::
+
 
 :::tip Sign-up
 To gain access to this feature, fill out the [<i class="fas fa-external-link fa-xs"></i> Semgrep Secrets Beta](https://get.semgrep.dev/secrets-beta-request.html) form.
