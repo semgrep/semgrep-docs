@@ -13,8 +13,8 @@ description: How to connect Semgrep and DefectDojo
 Follow these steps to prepare DefectDojo and generate Semgrep findings in the proper format:
 
 1. In DefectDojo:
-    - Create your [**product**](https://defectdojo.github.io/django-DefectDojo/usage/models/#products).
-    - In that DefectDojo product, create an [engagement](https://defectdojo.github.io/django-DefectDojo/usage/models/#engagement) called `semgrep`. This is a CI/CD engagement type.
+    1. Create your [**product**](https://defectdojo.github.io/django-DefectDojo/usage/models/#products).
+    2. In that DefectDojo product, create an [engagement](https://defectdojo.github.io/django-DefectDojo/usage/models/#engagement) called `semgrep`. This is a CI/CD engagement type.
 2. Run a semgrep scan with flags `--json --output report.json` to generate a JSON report.
 
 Now, you are ready to use the [DefectDojo API](https://defectdojo.github.io/django-DefectDojo/integrations/api-v2-docs/).
