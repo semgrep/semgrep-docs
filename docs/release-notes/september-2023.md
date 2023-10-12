@@ -44,7 +44,6 @@ tags:
 	- **Deployment creation**. The Semgrep team has made improvements to Semgrep account creation and connecting your source code manager, such as GitHub or GitLab. 
 	- **Onboarding checklist.** This helps you troubleshoot and resolve any issues early on in your journey.
 	- **Tour of features**. Make the most of your Semgrep experience by learning what features are available to you.
-- **GitHub Enterprise:** Triage-by-PR is now enabled for public repositories. For this specific configuration, you may need to contact support@semgrep.com to enable this feature. <!-- #10143 -->
 - Logging into Semgrep Cloud Platform through the CLI associates your CLI user ID to your Semgrep Cloud Platform account. See the [<i class="fas fa-external-link fa-xs"></i> Anonymous User ID](https://github.com/returntocorp/semgrep/blob/develop/PRIVACY.md#anonymous-user-id) section for more details.
 
 ### Changed
@@ -102,7 +101,7 @@ tags:
 
 * Integrated **Ask** (GPT-powered chat) and **Search** functions into one modal.
 * Clarifications on various Semgrep Supply Chain behaviors.
-* [<i class="fa-regular fa-file-lines"></i> Sample CI configurations](semgrep-ci/sample-ci-configs/):  Updated various CI configurations for standalone SAST scans
+* [<i class="fa-regular fa-file-lines"></i> Sample CI configurations](semgrep-ci/sample-ci-configs/):  Updated various CI configurations for standalone SAST scans.
 * A clarification has been added on [Semgrep exit codes in conjunction with the `error` flag](docs/cli-reference/#exit-codes). Thank you to [Bernardo de Araujo](https://github.com/bernardoamc) for this contribution.
 
 ### Removed
