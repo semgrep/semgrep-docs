@@ -8,9 +8,7 @@ description: Running Semgrep commands in Azure Pipelines templates.
 
 ## Motivation
 
-Complex CI configurations can take a lot of work to maintain and modify. Creating external configurations that encapsulate a chunk of configuration logic and referencing them keeps configurations concise and consistent.
-
-Azure templates extract configuration logic that was previously defined in large YAML configuration files and place it into its own [template](https://learn.microsoft.com/en-us/azure/devops/pipelines/process/templates?view=azure-devops) referenced in the main YAML file. This improves a pipeline's readability and maintainability. 
+Complex CI configurations housed in large YAML files take a lot of work to maintain and modify. Azure [templates](https://learn.microsoft.com/en-us/azure/devops/pipelines/process/templates?view=azure-devops) extract chunks of logic from larger configurations and encapsulate them in external template files. The template can then be referenced in multiple configurations, keeping pipelines more readable and maintainable.
 
 This guide explains how to:
 
