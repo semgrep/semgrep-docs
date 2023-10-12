@@ -37,4 +37,4 @@ Now, when a developer commits a change or makes a pull request (or otherwise in 
 
 ## Limitations
 
-Reusable workflows don’t allow you to avoid the creation of a `.github/workflows/semgrep.yml` file for each repository. You still need to create one to call the reusable workflow.
+You still need to create a `.github/workflows/semgrep.yml` file for each repository to call the reusable workflow.
