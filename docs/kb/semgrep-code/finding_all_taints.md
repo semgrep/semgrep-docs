@@ -2,7 +2,7 @@
 
 One of the reasons behind seeing fewer than expected tainted data flows could be the principle of reporting on shortest paths only.
 
-By default, Semgrep reports a tainted source-sink permutation only once and reports the data flow that traverses the shortest path. Any longer paths with the same source-sink permutation longer are not shown.
+By default, Semgrep reports a tainted source-sink permutation only once and reports the data flow that traverses the shortest path. Any longer paths with the same source-sink combination are not shown.
 
 ## Analysis of two tainted data flows
 
@@ -26,7 +26,7 @@ File 1 function4(sourceA)
 
 ### Interfile analysis
 
-If both data flows are identified in the same scan, and the scan has interfile analysis enabled (`--pro`, or Pro Engine enabled in the Cloud Platform) only Call stack 1 is reported as a finding. It has a shorter path, and has the same sourceA -> sinkB taint.  
+If both tainted data flows are identified in the same scan, and the scan has interfile analysis enabled (`--pro`, or Pro Engine enabled in the Cloud Platform), only Call stack 1 is reported as a finding. It has a shorter path, and has the same sourceA -> sinkB taint.
 
 This speeds up triage by ensuring you are only reviewing unique findings. It's especially useful for languages with polymorphic classes that can add noise for a singleton taint.  
 
@@ -36,7 +36,7 @@ If only intrafile / interprocedural analysis is performed (`--pro-intrafile`), S
 
 ## Best practices for testing tainted data flows
 
-If you want to understand in greater detail how Semgrep is detecting tainted data flows, you can use existing or constructed test cases to review the different paths. 
+If you want to understand in greater detail how Semgrep is detecting tainted data flows, you can use existing code or constructed test cases to review the different paths.
 
 ### Dry runs
 
