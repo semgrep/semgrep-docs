@@ -21,10 +21,10 @@ Object.entries(frontMatter).filter(
 
 # Creating Linear tickets
 
-:::tip Try our Linear integration (beta)
-* Existing customers can try our Linear integration for free. To enable this feature:
-    1. Fill out the following form: [Request access to the Semgrep Linear integration private beta](https://get.semgrep.dev/Jira-asana-linear-private-beta.html).
-    2. Contact your Technical Account Manager or your Account Executive and let them know you'd like to try the Linear integration out.
+:::tip Try the Linear integration (private beta)
+Existing customers can try the Linear integration for free. To enable this feature:
+1. Fill out the following form: [Request access to the Semgrep Linear integration private beta](https://get.semgrep.dev/Jira-asana-linear-private-beta.html).
+2. Contact your Technical Account Manager or your Account Executive and let them know you'd like to try the Linear integration out.
 :::
 
 The Semgrep Linear integration allows you to create Linear tickets based on your Semgrep Code or Supply Chain findings.

@@ -22,13 +22,37 @@ Object.entries(frontMatter).filter(
 
 # Policies
 
-The Policies page displays a visual representation of the rules that Semgrep Code uses for scanning. Rules can be categorized into various groups. The Policies page uses the following categorization criteria:
+The Policies page displays a visual representation of the rules that Semgrep Code uses for scanning. By default, the same rules will run on all repositories. This is sufficient for most users and simpler for most teams to reason about.
+
+## Multiple policies
+
+:::tip Try the multiple policies feature (private beta)
+Existing customers can try the **multiple policies** feature for free. To enable this feature, contact your Technical Account Manager, Account Executive, or email [<i class="fa-regular fa-envelope"></i> support@semgrep.com](mailto:support@semgrep.com) and let them know you'd like to try multiple policies out.
+:::
+
+The multiple policies feature enables users to customize the rules that run on specific repositories. 
+
+Users create different policies that repositories can **subscribe** to.
+
+This feature makes use of a **Global Policy** that runs on **all** repositories. Repositories cannot unsubscribe from it.
+
+You can create a policy, for example **Custom Coding Standards Policy** with some additional rules and add it to one or more repositories. During a scan, these repositories run all of the rules from the **Global Policy** as well as all the rules from **Custom Coding Standards Policy**.
+
+### Resolving workflow actions in multiple policies
+
+If a rule is in multiple policies, then the rule is deduplicated and Semgrep prioritizes the workflow action based on the rule's mode where precedence is as follows: 
+
+1. Block
+2. Comment
+3. Monitor
+
+For example, if an instance of `Rule A` is set to **Block**, then the scan blocks PRs for any findings from that rule, even if the same `Rule A` is set to **Monitor** in another policy applied to that repository.
 
 ## Policies page structure
 
 ![Screenshot of the default state of the Policies page](/img/policies.png)
 
-The Policies page consists of a header and two main panes:
+The Policies page consists of a header and three main panes:
 
 <dl>
     <dt>Policies header</dt>

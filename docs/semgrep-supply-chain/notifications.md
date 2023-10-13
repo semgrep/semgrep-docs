@@ -28,7 +28,7 @@ Developers can be notified of vulnerabilities in their GitHub or GitLab environm
 ![Semgrep Supply Chain PR comment](/img/ssc-pr-comment.png#bordered)
 _Figure 1_. Screenshot of a PR comment from SSC in a GitHub repository.
 
-Semgrep Supply Chain can send pull request (PR) or merge request (MR) comments to notify developers in their GitHub or GitLab environment of **third-party reachable vulnerabilities** detected by a Semgrep Supply Chain scan. The following information is provided:
+Semgrep Supply Chain can post GitHub pull request (PR) or GitLab merge request (MR) comments to notify developers of **third-party [reachable](/docs/semgrep-supply-chain/glossary/#reachability) vulnerabilities**. The following information is provided:
 
 <dl>
 <dt>Risk</dt>
