@@ -36,7 +36,7 @@ If only intrafile / interprocedural analysis is performed (`--pro-intrafile`), S
 
 ## Best practices for testing tainted data flows
 
-If you want to understand in greater detail how Semgrep is detecting tainted data flows, you can use existing code or constructed test cases to review the different paths.
+To understand in greater detail how Semgrep detects tainted data flows, you can use your own test cases to review different paths.
 
 ### Dry runs
 
