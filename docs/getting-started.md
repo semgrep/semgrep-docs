@@ -148,6 +148,7 @@ You must have Windows Subsystem for Linux installed. To install WSL, refer to Mi
         ```sh
         docker run -e SEMGREP_APP_TOKEN=YOUR_TOKEN --rm -v "${PWD}:/src" returntocorp/semgrep semgrep ci
         ```
+        The provided `-v` option mounts the current directory into the container to be scanned. Change directories locally or provide a specific local directory in the command to scan a different directory.
   4. For **Windows** Docker users, perform the following steps: 
      1. Sign up or log in to Semgrep Cloud Platform (SCP):
        ```bash
@@ -157,8 +158,9 @@ You must have Windows Subsystem for Linux installed. To install WSL, refer to Mi
      3. After creating an org in the previous step, return to the CLI and copy the token displayed in the CLI.
      4. Run the following command to start a scan using recommended Semgrep rules, substituting YOUR_TOKEN with the value you copied in the previous step: 
         ```bash
-       docker run -e SEMGREP_APP_TOKEN=<YOUR_TOKEN> --rm -v "%cd%:/src" returntocorp/semgrep semgrep ci
+        docker run -e SEMGREP_APP_TOKEN=<YOUR_TOKEN> --rm -v "%cd%:/src" returntocorp/semgrep semgrep ci
         ```
+        The provided `-v` option mounts the current directory into the container to be scanned. Change directories locally or provide a specific local directory in the command to scan a different directory.
 
 </TabItem>
 
