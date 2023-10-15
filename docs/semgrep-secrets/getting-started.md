@@ -111,7 +111,7 @@ semgrep ci
 
 Findings from local scans are differentiated from their remote counterparts through their slugs. Remote repositories are identified as <span className="placeholder">  ACCOUNT_NAME/REPOSITORY_NAME</span>, while local repositories are identified as <span className="placeholder">REPOSITORY_NAME</span>.
 
-## Receiving findings in GitHub or GitLab through PR or MR comments
+## Receiving findings in GitHub through PR comments
 
 This section describes how to set up PR or MR comments from Semgrep. 
 
