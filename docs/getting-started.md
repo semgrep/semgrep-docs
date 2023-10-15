@@ -151,7 +151,7 @@ You must have Windows Subsystem for Linux installed. To install WSL, refer to Mi
   4. For **Windows** Docker users, perform the following steps: 
      1. Sign up or log in to Semgrep Cloud Platform (SCP):
        ```bash
-       docker run -it --platform linux/amd64 -v "%cd%:/src" returntocorp/semgrep semgrep login
+       docker run -it returntocorp/semgrep semgrep login
        ```
      2. A modal appears after logging in to SCP. Click **Create an organization**. Note that you can further integrate organizations (orgs) with GitLab accounts and GitHub accounts, including personal and org accounts, after you complete this procedure.
      3. After creating an org in the previous step, return to the CLI and copy the token displayed in the CLI.
