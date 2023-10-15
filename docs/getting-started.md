@@ -144,7 +144,7 @@ You must have Windows Subsystem for Linux installed. To install WSL, refer to Mi
       This command automatically opens a new tab or browser window. You can also click the link in the CLI to complete the step.
      2. A modal appears after logging in to SCP. Click **Create an organization**. Note that you can further integrate organizations (orgs) with GitLab accounts and GitHub accounts, including personal and org accounts, after you complete this procedure.
      3. After creating an org in the previous step, return to the CLI and copy the token displayed in the CLI.
-     4. Run the following command to start a scan using recommended Semgrep rules, substituting YOUR_TOKEN with the value you copied in the previous step: 
+     4. Run the following command to start a scan using recommended Semgrep rules, substituting <code><span class="placeholder">YOUR_TOKEN</span></code> with the value you copied in the previous step: 
         ```sh
         docker run -e SEMGREP_APP_TOKEN=YOUR_TOKEN --rm -v "${PWD}:/src" returntocorp/semgrep semgrep ci
         ```
@@ -156,9 +156,9 @@ You must have Windows Subsystem for Linux installed. To install WSL, refer to Mi
        ```
      2. A modal appears after logging in to SCP. Click **Create an organization**. Note that you can further integrate organizations (orgs) with GitLab accounts and GitHub accounts, including personal and org accounts, after you complete this procedure.
      3. After creating an org in the previous step, return to the CLI and copy the token displayed in the CLI.
-     4. Run the following command to start a scan using recommended Semgrep rules, substituting YOUR_TOKEN with the value you copied in the previous step: 
+     4. Run the following command to start a scan using recommended Semgrep rules, substituting <code><span class="placeholder">YOUR_TOKEN</span></code> with the value you copied in the previous step: 
         ```bash
-        docker run -e SEMGREP_APP_TOKEN=<YOUR_TOKEN> --rm -v "%cd%:/src" returntocorp/semgrep semgrep ci
+        docker run -e SEMGREP_APP_TOKEN=YOUR_TOKEN --rm -v "%cd%:/src" returntocorp/semgrep semgrep ci
         ```
         The provided `-v` option mounts the current directory into the container to be scanned. Change directories locally or provide a specific local directory in the command to scan a different directory.
 
