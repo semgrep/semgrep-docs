@@ -146,7 +146,7 @@ You must have Windows Subsystem for Linux installed. To install WSL, refer to Mi
      3. After creating an org in the previous step, return to the CLI and copy the token displayed in the CLI.
      4. Run the following command to start a scan using recommended Semgrep rules, substituting YOUR_TOKEN with the value you copied in the previous step: 
         ```sh
-        docker run -e SEMGREP_APP_TOKEN=YOUR_TOKEN --platform linux/amd64 --rm -v "${PWD}:/src" returntocorp/semgrep semgrep ci
+        docker run -e SEMGREP_APP_TOKEN=YOUR_TOKEN --rm -v "${PWD}:/src" returntocorp/semgrep semgrep ci
         ```
   4. For **Windows** Docker users, perform the following steps: 
      1. Sign up or log in to Semgrep Cloud Platform (SCP):
