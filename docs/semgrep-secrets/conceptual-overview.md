@@ -57,7 +57,7 @@ See the following Semgrep rule and JavaScript test code for an example.
 After scanning for secrets, Semgrep uses a **post-processor** function called a **validator** to validate a secret.
 
 1. The post-processor detects the service, such as Slack or AWS, that the secret is used for.
-2. If the post-processor does not support the service that the secret is used for, or the secret is a **honeypot token**, Semgrep notes that there is **No validator** for the secret.
+2. If the post-processor does not support the service that the secret is used for, Semgrep notes that there is **No validator** for the secret.
 3. If the validator can detect the service, Semgrep performs an API call. The following outcomes can occur:
 	1. If the API call returns an HTTP response of 200 or similar, then the finding's validation state is **confirmed valid**.
 	2. If the API call returns an HTTP response of 403 or similar, then the finding's validation state is **confirmed invalid**.
@@ -96,9 +96,10 @@ txtCfmPassword
 The Semgrep Registry includes SAST rules that can detect secrets to a certain extent. You can run these rules in Semgrep Code (Semgrep's SAST analyzer), or even write your own custom secret-detecting SAST rules, but with the following differences:
 
 * Semgrep Code does not run a validator function or perform entropy analysis against these rules, resulting in less accurate results.
-* Semgrep Code rules don't detect honeypot tokens, resulting in less accurate results.
-* Because the results are less accurate, these rules are not suitable as a criteria to block a PR or MR.
+    * Because the results are less accurate, these rules are not suitable as a criteria to block a PR or MR.
 * The UI for Semgrep Code is tailored to SAST triage, and does not include filtering functions for valid or invalid tokens.
+* Existing Semgrep Pro rules that detect secrets are transitioning from Semgrep Code to Semgrep Secrets. By transitioning these rules, improvements, such as validator functions, can be added to the rules when they are run in Semgrep Secrets.
+* You can write your own custom validator functions and run them in Semgrep Secrets for your own custom services or use cases.
 
 ## Next steps
 

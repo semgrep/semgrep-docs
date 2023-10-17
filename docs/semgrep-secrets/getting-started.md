@@ -42,13 +42,12 @@ To gain access to this feature, fill out the [<i class="fas fa-external-link fa-
 
 This section lists the source code managers (SCMs) that Semgrep Secrets supports.
 
-| Source code manager                                     | Semgrep Secrets | PR or MR comments for valid secrets findings |
-| -------------------                                     | --------------- | ----------------------------------------------   |
-| GitHub - Free and Team                                  | ✔️               | ✔️                                                |
-| GitHub - Enterprise Cloud                               | ✔️               | ✔️                                                |
-| GitHub - Enterprise Server                              | ✔️               | ?                                                |
-| GitLab.com (hosted plans) - Free, Premium, and Ultimate | ✔️               | ✔️                                                |
-| GitLab - Self-Managed plans                             | ✔️               | ?                                                |
+| Source code manager        | Semgrep Secrets | PR or MR comments for valid secrets findings   |
+| -------------------        | --------------- | ---------------------------------------------- |
+| GitHub - Free and Team     | ✔️               | ✔️                                              |
+| GitHub - Enterprise Cloud  | ✔️               | ✔️                                              |
+| GitHub - Enterprise Server | ❌ (Coming soon)| ❌                                             |
+| GitLab (any plan)          | ❌ (Coming soon)| ❌                                             |
 
 ## Enabling Semgrep Secrets
 
@@ -57,10 +56,11 @@ This section lists the source code managers (SCMs) that Semgrep Secrets supports
 * You have added or onboarded at least one repository to Semgrep Cloud Platform for scanning. See Starting a SAST and SCA scan on a remote repository.
 :::
 
-1. [<i class="fas fa-external-link fa-xs"></i> Sign in to Semgrep Cloud Platform](https://semgrep.dev/login).
-2. Click **<i class="fa-solid fa-gear"></i> Settings**.
-3. In the Products section, click the **<i class="fa-solid fa-toggle-large-on"></i> Secrets** toggle.
-4. Optional: After enabling Semgrep Secrets, you can trigger a full scan manually through your CI provider or wait for your scheduled Semgrep full scan, typically daily.
+1. Contact the Semgrep Team by filling out the [<i class="fas fa-external-link fa-xs"></i> Semgrep Secrets Beta](https://get.semgrep.dev/secrets-beta-request.html) form.
+1. When you have received confirmation that Semgrep Secrets has been activated for your account, [<i class="fas fa-external-link fa-xs"></i> sign in to Semgrep Cloud Platform](https://semgrep.dev/login).
+1. Click **<i class="fa-solid fa-gear"></i> Settings**.
+1. In the Products section, click the **<i class="fa-solid fa-toggle-large-on"></i> Secrets** toggle.
+1. Optional: After enabling Semgrep Secrets, you can trigger a full scan manually through your CI provider or wait for your scheduled Semgrep full scan, typically daily.
 
 ## Scanning environments
 
@@ -135,14 +135,6 @@ Perform the following steps to receive Secrets findings as comments in GitLab MR
 
 1. Follow the steps in [<i class="fa-regular fa-file-lines"></i> GitLab MR comments](/semgrep-cloud-platform/gitlab-mr-comments/).
 2. Inform [<i class="fa-regular fa-envelope"></i> support@semgrep.com](mailto:support@semgrep.com) that you want to enable this feature.
-
-### Receiving other notifications and alerts
-
-You can receive findings notifications through the following channels:
-
-* [<i class="fa-regular fa-file-lines"></i> Slack](/semgrep-cloud-platform/slack-notifications)
-* [<i class="fa-regular fa-file-lines"></i> Email](/semgrep-cloud-platform/email-notifications)
-* [<i class="fa-regular fa-file-lines"></i> Webhooks](/semgrep-cloud-platform/webhooks)
 
 ## Triaging secrets in Semgrep Cloud Platform
 
