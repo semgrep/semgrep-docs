@@ -61,9 +61,9 @@ After scanning for secrets, Semgrep uses a **post-processor** function called a 
 1. The post-processor detects the service, such as Slack or AWS, that the secret is used for.
 2. If the post-processor does not support the service that the secret is used for, Semgrep notes that there is **No validator** for the secret.
 3. If the validator can detect the service, Semgrep performs an API call. The following outcomes can occur:
-	1. If the API call returns an HTTP response of 200 or similar, then the finding's validation state is **confirmed valid**.
-	2. If the API call returns an HTTP response of 403 or similar, then the finding's validation state is **confirmed invalid**.
-	3. If the API call returns an HTTP response of 500 or similar, or some other error occurred, then Semgrep notes that a **validation error** has occurred.
+	1. **Confirmed valid:** Semgrep made an HTTP request using the secret and it returned an HTTP status code of 200 or similar **and** some indication of valid access. For example, a service can include a `"message": "ok"`.
+    2. **Confirmed invalid:** Semgrep made an HTTP request using the secret and it returned an HTTP status code of 401 or similar.
+    3. **Validation error:** Semgrep made an HTTP request using the secret, but the either the network request could not be made, a timeout occurred, or the HTTP status code returned a different HTTP status code. In this case, the Semgrep Team recommends manually reviewing the finding.
 
 All findings, whether they are validated, with validation errors, invalid, or valid, appear in Semgrep Cloud Platform.
 
