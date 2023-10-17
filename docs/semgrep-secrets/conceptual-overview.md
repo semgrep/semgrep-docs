@@ -54,7 +54,9 @@ See the following Semgrep rule and JavaScript test code for an example.
 * **Line 17:** Semgrep and regex-based scanners can detect **line 14**, in which `secret` is passed.
 * **Line 26:** Semgrep correctly skips `conf.secret` in **line 21**. Regex-based scanners simply looking for matches of the string `secret` generate a false positive.
 
-After scanning for secrets, Semgrep uses a **post-processor** function called a **validator** to validate a secret.
+## Validation
+
+After scanning for secrets, Semgrep uses a **post-processor** function called a **validator** to determine if a secret is actively being used, or some other state.
 
 1. The post-processor detects the service, such as Slack or AWS, that the secret is used for.
 2. If the post-processor does not support the service that the secret is used for, Semgrep notes that there is **No validator** for the secret.
@@ -100,6 +102,138 @@ The Semgrep Registry includes SAST rules that can detect secrets to a certain ex
 * The UI for Semgrep Code is tailored to SAST triage, and does not include filtering functions for valid or invalid tokens.
 * Existing Semgrep Pro rules that detect secrets are transitioning from Semgrep Code to Semgrep Secrets. By transitioning these rules, improvements, such as validator functions, can be added to the rules when they are run in Semgrep Secrets.
 * You can write your own custom validator functions and run them in Semgrep Secrets for your own custom services or use cases.
+
+### Semgrep Secrets rule sample and structure
+
+The following example detects a leaked GitHub PAT:
+
+```yaml
+rules:
+- id: github_pat
+  message: >-
+    To revoke the token, visit the `Active tokens` page in the organization settings screen: `https://github.com/organizations/<ORGRANIZATION>/settings/personal-access-tokens/active`.
+    From here, select the token, and revoke it using the drop down field and selecting `"Revoke"`.
+  severity: ERROR
+  metadata:
+    likelihood: LOW
+    impact: HIGH
+    confidence: HIGH
+    category: security
+    subcategory:
+    - vuln
+    cwe:
+    - 'CWE-798: Use of Hard-coded Credentials'
+    cwe2020-top25: true
+    cwe2021-top25: true
+    cwe2022-top25: true
+    owasp:
+    - A07:2021 - Identification and Authentication Failures
+    references:
+    - https://owasp.org/Top10/A07_2021-Identification_and_Authentication_Failures
+    secret_type: GitHub
+    technology:
+    - secrets
+  languages:
+  - regex
+  patterns:
+  - pattern-regex: (?<REGEX>\b((ghp|gho|ghu|ghs|ghr|github_pat)_[a-zA-Z0-9_]{36,255})\b)
+  - focus-metavariable: $REGEX
+  - metavariable-analysis:
+      analyzer: entropy
+      metavariable: $REGEX
+  - pattern-not-regex:
+      (?i:a{5,}|b{5,}|c{5,}|d{5,}|e{5,}|f{5,}|g{5,}|h{5,}|i{5,}|j{5,}|k{5,}|l{5,}|m{5,}|n{5,}|o{5,}|p{5,}|q{5,}|r{5,}|s{5,}|t{5,}|u{5,}|v{5,}|w{5,}|x{5,}|y{5,}|z{5,}|0{5,}|abcde|abc123|abcd123|abcde123|abcdef123|example|sample|12345|cafecafe|deadbeef|deadb33f|asdfasdf|00112233|000111222|000011112222|aabbccdd|aaabbbccc|aaaabbbbcccc|00112233|000111222|000011112222|aabbccdd|aaabbbccc|aaaabbbbcccc|your[a-z_-]{0,}(?:cred|key|pass|pat|token))
+  validators:
+  - http:
+      request:
+        headers:
+          Authorization: Bearer $REGEX
+          Host: api.github.com
+          User-Agent: Semgrep
+        method: GET
+        url: https://api.github.com/user
+      response:
+        - match:
+          - status-code: '200'
+          result:
+            validity: valid
+        - match:
+          - status-code: '404'
+          result:
+            validity: invalid
+```
+
+The following sections describe new and existing keys in the context of a Secrets rule.
+
+#### Subkeys under the `metadata` key
+
+These subkeys provide context to both you and other end-users, as well as to Semgrep.
+
+```yaml
+  ...
+  metadata:
+    ...
+    secret_type: GitHub
+    technology:
+    - secrets
+  ...
+```
+| Key | Description |
+| -------  | ------ |
+| `secret_type`  | Defines the name of the service or the type of Secret. When writing a custom validator, set this value to a descriptive name to help identify it when triaging secrets. Examples of secret types include "Slack", "Asana", and other common service names. |
+| `technology` | Identifies the rule as a Secrets rule. This key is **mandatory** for the rule to run correctly. |
+   
+#### Subkeys under the `patterns` key
+
+These subkeys identify the token to analyze in a given match.
+
+```yaml
+  ...
+  patterns:
+  ...
+  - focus-metavariable: $REGEX
+  - metavariable-analysis:
+      analyzer: entropy
+      metavariable: $REGEX
+  ..
+```
+
+| Key | Description |
+| -------  | ------ |
+| `focus_metavariable`  | This key enables the rule to define a variable upon which Semgrep can perform further analysis, such as entropy analysis. |
+| `metavariable_analysis`  | Under `metavariable_analysis`, you can define additional keys: `analyzer` and `metavariable`, which specifies the kind of analysis Semgrep performs and on what variable.  |
+
+#### Subkeys under the `validators` and `http` keys
+
+The validators key uses the `http` key, which defines the validator function. In particular, the `http` key defines how the rule forms a request object and what response is expected for valid and invalid states. Although there are some rules that do not use a `validators` key, most Secrets rules make use of it. 
+
+```yaml
+  ...
+  validators:
+  - http:
+      request:
+        headers:
+          Authorization: Bearer $REGEX
+          Host: api.github.com
+          User-Agent: Semgrep
+        method: GET
+        url: https://api.github.com/user
+      response:
+        - match:
+          - status-code: '200'
+          result:
+            validity: valid
+        - match:
+          - status-code: '404'
+          result:
+            validity: invalid
+```
+
+| Key | Description |
+| -------  | ------ |
+| `request`  | This key and its subkeys describe the request object and the URL to send the request object to. |
+| `response`  | This key and its subkeys describe the expected responses. Depending on the response, such as a 200 or a 404, the rule determines the **validation status**.  |
+
 
 ## Next steps
 
