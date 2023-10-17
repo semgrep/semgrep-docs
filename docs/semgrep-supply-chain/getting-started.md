@@ -38,8 +38,11 @@ Semgrep Supply Chain is **automatically enabled** for all repositories that you 
 
 When the scan finishes, Semgrep Cloud Platform displays an overview of findings in the **Supply Chain** page for further triage and remediation. See [Triaging and remediating dependency findings](/semgrep-supply-chain/triage-and-remediation).
 
+### Warning on Project Directory Structure
+Semgrep Supply Chain assumes your repository contains a [lockfile](/semgrep-supply-chain/glossary/#lockfile). It also assumes that all code files using the dependencies in this lockfile are nested in the same directory as the lockfile, potentially within deeper directories. For example, if your lockfile is in `my-project/running/lockfile.json`, Semgrep Supply Chain assumes that all code files using the dependencies in `my-project/running/lockfile.json` are nested in `my-project/running/` or deeper directories. If you have code files in `my-project/biking`, Semgrep Supply Chain will not associate them to the dependencies in `my-project/running/lockfile.json`. If there is another lockfile in `my-project/running`, like `my-project/running/uphill/lockfile.json`, then this will override the original `my-project/running/lockfile.json` for all code files in `my-project/running/uphill/` or deeper directories.
+
 :::info
-Semgrep Supply Chain **supports monorepositories (monorepos)** by treating each subdirectory as its own repository. Findings are grouped under these repositories based on the [lockfile](/semgrep-supply-chain/glossary/#lockfile) or manifest file present in the subdirectory.
+This means Semgrep Supply Chain **supports monorepositories (monorepos)**. Findings are grouped under their shared [lockfile](/semgrep-supply-chain/glossary/#lockfile).
 :::
 
 :::caution Semgrep Supply Chain findings not appearing in Semgrep Cloud Platform
