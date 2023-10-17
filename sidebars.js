@@ -506,8 +506,9 @@ module.exports = {
               type: 'category',
               label: '2023',
               collapsible: true,
-              link: {type: 'doc', id: 'release-notes/may-2023'},
+              link: {type: 'doc', id: 'release-notes/latest'},
               items: [
+                'release-notes/september-2023',
                 'release-notes/august-2023',
                 'release-notes/july-2023',
                 'release-notes/june-2023',

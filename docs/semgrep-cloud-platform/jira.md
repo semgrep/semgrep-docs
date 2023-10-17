@@ -23,10 +23,10 @@ Object.entries(frontMatter).filter(
 
 <!-- It's Jira, not JIRA :) -->
 
-:::tip Try our Jira integration (beta)
-* Existing customers can try our Jira integration for free. To enable this feature:
-    1. Fill out the following form: [Request access to the Semgrep Jira integration private beta](https://get.semgrep.dev/Jira-asana-linear-private-beta.html).
-    2. Contact your Technical Account Manager or your Account Executive and let them know you'd like to try the Jira integration out.
+:::tip Try the Jira integration (private beta)
+Existing customers can try the Jira integration for free. To enable this feature:
+1. Fill out the following form: [Request access to the Semgrep Jira integration private beta](https://get.semgrep.dev/Jira-asana-linear-private-beta.html).
+2. Contact your Technical Account Manager or your Account Executive and let them know you'd like to try the Jira integration out.
 :::
 
 The Semgrep Jira integration allows you to create Jira tickets based on your Semgrep Code or Supply Chain findings.

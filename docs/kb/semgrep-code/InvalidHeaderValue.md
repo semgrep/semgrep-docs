@@ -53,22 +53,23 @@ Traceback (most recent call last):
 ValueError: Invalid header value b'Bearer *******************************************************' 
 ```
 
-Root cause of this error would be a `\n` within the secret value or a possible misconfiguration from the copy/pasting of your `SEMGREP_APP_TOKEN`.
+When you see this error, it indicates that there is an extra newline (`\n`) within the secret value (or another similar issue) from copying and pasting your `SEMGREP_APP_TOKEN`.
 
 ## Example fix on GitHub
 
-To fix on Github:
+To fix on GitHub:
 
 1. Go to either your organization's or repository's **Settings** > **Secrets and variables** 
-2. Update the value of the `SEMGREP_APP_TOKEN` to ensure it does not have an extraneous `\n`.
+2. Update the value of the `SEMGREP_APP_TOKEN` to ensure it does not have an extraneous newline (`\n`).
 
 ![Secrets and variables section in Settings](/img/kb/github-secrets.png)
-![Updating Github Secret](/img/kb/github-update-value.png)
+![Updating GitHub Secret](/img/kb/github-update-value.png)
 
 ## Example fix on GitLab
 
 To fix on GitLab:
-1. Go to your repository's `CI/CD` Settings.
-2. Update the `SEMGREP_APP_TOKEN` variable directly to ensure it does not have an extraneous `\n`.
+
+1. Go to your repository's **CI/CD** Settings.
+2. Update the `SEMGREP_APP_TOKEN` variable directly to ensure it does not have an extraneous newline (`\n`).
 
 ![Updating Gitlab Variable](/img/kb/gitlab-update-value.png)

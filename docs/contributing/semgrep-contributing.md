@@ -95,9 +95,7 @@ pipenv run semgrep --help
 To try a simple analysis, you can run:
 
 ```
-echo 'if 1 == 1: pass' | python -m semgrep --lang python --pattern '$X == $X' -
-/tmp/...
-1:if 1 == 1: pass
+echo 'if 1 == 1: pass' | semgrep --lang python --pattern '$X == $X' -
 ```
 
 Congratulations, you have Semgrep running locally!

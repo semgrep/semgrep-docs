@@ -11,7 +11,7 @@ One common issue when writing custom rules is to try to exclude some cases using
 
 ## What does "inside" mean?
 
-Intuitively, "inside" means "wholly within an outer container". But in Semgrep, one pattern being "inside" another can also mean that it is at the same level, but includes less code. 
+Intuitively, "inside" means "wholly within an outer container." But in Semgrep, one pattern being "inside" another can also mean that it is at the same level, but includes less code. 
 
 Another way to express this is that `pattern-not` assumes that the matches are the same "size" and produces undesirable results if that’s not the case.
 
@@ -53,7 +53,7 @@ rules:
 
 is not successful - [try it out](https://semgrep.dev/playground/s/KZOd?editorMode=advanced) if you like!
 
-With the knowledge above about how `pattern-not` operates, we can see that this is because the matches are not the same size. The `pattern-not` is larger, but at the same level. This matches the criteria for switching to `pattern-not-inside`:
+With an understanding of how `pattern-not` operates, we can see that this is because the matches are not the same size. The `pattern-not` is larger, but at the same level. This matches the criteria for switching to `pattern-not-inside`:
 
 ```yml
 - pattern-not-inside: |
@@ -66,6 +66,6 @@ With the knowledge above about how `pattern-not` operates, we can see that this 
 
 With that change, the rule successfully matches the example code.
 
-For more on `pattern-not-inside`, check out this video from our team:
+For more on `pattern-not-inside`, watch this video from our team:
 
 <iframe class="yt_embed" width="100%" height="432px" src="https://www.youtube.com/embed/g_Yrp9_ZK2c" frameborder="0" allowfullscreen></iframe>

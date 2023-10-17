@@ -25,7 +25,7 @@ Semgrep Supply Chain's **license compliance** feature enables you to explicitly 
 
 :::caution Feature maturity and support
 * License compliance is currently in **Beta**.
-* License compliance, including license detection, is not available for **Ruby**.
+* In general, licenses are detected based on the **package manager**. Refer to [Supported languages](/supported-languages/#semgrep-supply-chain) to see supported package managers.
 * The creation of pull request (PR) comments through the Comment policy is only available for GitHub Free and Pro plans.
 :::
 

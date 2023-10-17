@@ -34,7 +34,8 @@ This section guides you through the Semgrep Pro Engine installation and helps yo
 It is **recommended** to run Semgrep Pro Engine with Semgrep Cloud Platform (SCP). This enables you to view and triage your findings from a centralized location. Code is not uploaded.
 
 1. [Sign up or sign in to Semgrep Cloud Platform](https://semgrep.dev/login).
-2. Click **<i class="fa-solid fa-gear"></i> Settings > Pro Engine**.
+2. For first-time users, click **Create an organization**. Note that you can further integrate organizations (orgs) with GitLab accounts and GitHub accounts, including personal and org accounts, after you complete this procedure.
+3. Click **<i class="fa-solid fa-gear"></i> Settings > Pro Engine**.
 ![DESCRIPTION](/img/pro-engine-toggle.png#md-width)
 3. In your CLI, log in to your Semgrep Cloud Platform account and run a scan:
 ```sh
