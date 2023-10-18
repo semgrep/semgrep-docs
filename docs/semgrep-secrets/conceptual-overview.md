@@ -64,7 +64,7 @@ After scanning for secrets, Semgrep uses a **post-processor** function called a 
 
 :::info
 * All validations, such as API calls, are done **locally**.
-* No tokens are ever to Semgrep servers.
+* No tokens are sent to Semgrep servers.
 :::
 
 1. The post-processor detects the service, such as Slack or AWS, that the secret is used for.
