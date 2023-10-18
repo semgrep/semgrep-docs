@@ -213,12 +213,12 @@ These subkeys identify the token to analyze in a given match.
 | `metavariable_analysis`  | Under `metavariable_analysis`, you can define additional keys: `analyzer` and `metavariable`, which specifies the kind of analysis Semgrep performs and on what variable.  |
 
 :::tip
-For more information, see Semgrep rule definition for [<i class="fa-regular fa-file-lines"></i> Focus metavariable](/writing-rules/rule-syntax/#focus-metavariable).
+For more information, see the Semgrep rule definition for [<i class="fa-regular fa-file-lines"></i> Focus metavariable](/writing-rules/rule-syntax/#focus-metavariable).
 :::
 
 #### Subkeys under the `validators` and `http` keys
 
-The validators key uses a list of keys to define the validator function. In particular, the `http` key defines how the rule forms a request object and what response is expected for valid and invalid states. Although there are some rules that do not use a `validators` key, most Secrets rules make use of it. 
+The `validators` key uses a list of keys to define the validator function. In particular, the `http` key defines how the rule forms a request object and what response is expected for valid and invalid states. Although there are some rules that do not use a `validators` key, most Secrets rules make use of it. 
 
 ```yaml
   ...
