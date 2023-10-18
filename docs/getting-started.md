@@ -185,6 +185,7 @@ By completing this guide, you are now familiar with a simple use of Semgrep. Her
 - See [Running rules](./running-rules.md) to try out and understand more about Semgrep rules.
 - See [CLI Reference](./cli-reference.md) for command line options and exit codes.
 - Explore the Semgrep [Rules Registry](https://semgrep.dev/explore) to add rules to your project or [writing a rule](./writing-rules/overview.md).
+- Read the [Trail of Bits Automated Testing Handbook](https://appsec.guide/) to learn about configuring and optimizing security tools, including Semgrep.
 
 ## Testing Semgrep on vulnerable repositories
 
