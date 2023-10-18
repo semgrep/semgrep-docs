@@ -18,7 +18,7 @@ import MoreHelp from "/src/components/MoreHelp"
 * The validation status of the secret, such as if it is confirmed valid. **Valid** secrets are secrets that are tested against a web service and confirmed to successfully grant resources or authentication. 
 * (For GitHub repositories) If these secrets are in public or private repositories.
 
-Save time and effort by prioritizing valid leaked secrets. Prevent future secrets from leaking into production environments by blocking pull requests (PRs) or merge requests (MRs).
+Save time and effort by prioritizing valid leaked secrets. Inform developers of valid, active secrets in their GitHub PRs by posting PR comments. 
 
 This document explains how Semgrep Secrets works and its approach to detecting secrets.
 
@@ -26,7 +26,11 @@ This document explains how Semgrep Secrets works and its approach to detecting s
 For a guide to setting up Semgrep Secrets, see [<i class="fa-regular fa-file-lines"></i> Getting started with Semgrep Secrets](/semgrep-secrets/getting-started).
 :::
 
-To ensure that findings are high-signal and easy for users to prioritize, a secrets scan performs the following:
+:::tip
+Secrets scanning is **language-agnostic**. This means Semgrep Secrets can scan any language for secrets.
+:::
+
+To ensure that findings are high-signal, comprehensive, and easy for users to prioritize, a secrets scan performs the following:
 
 * Semantic analysis
 * Validation
@@ -54,7 +58,7 @@ See the following Semgrep rule and JavaScript test code for an example.
 * **Line 17:** Semgrep and regex-based scanners can detect **line 14**, in which `secret` is passed.
 * **Line 26:** Semgrep correctly skips `conf.secret` in **line 21**. Regex-based scanners simply looking for matches of the string `secret` generate a false positive.
 
-## Validation
+## Validating secrets 
 
 After scanning for secrets, Semgrep uses a **post-processor** function called a **validator** to determine if a secret is actively being used, or some other state.
 

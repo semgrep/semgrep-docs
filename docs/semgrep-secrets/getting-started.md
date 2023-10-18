@@ -33,7 +33,6 @@ To learn about how Semgrep Secrets detects secrets, see [<i class="fa-regular fa
 * You or your developers may encounter rough edges. For issues, reach out to [<i class="fa-regular fa-envelope"></i> support@semgrep.com](mailto:support@semgrep.com).
 :::
 
-
 :::tip Sign-up
 To gain access to this feature, fill out the [<i class="fas fa-external-link fa-xs"></i> Semgrep Secrets Beta](https://get.semgrep.dev/secrets-beta-request.html) form.
 :::
