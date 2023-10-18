@@ -129,8 +129,6 @@ For SCA, reachability analysis is critical to cut down noise and reduce false po
 
 For SAST, both Semgrep and Snyk offer good solutions out of the box, however writing custom rules is easier and more scalable with Semgrep, enabling you to accomodate issues specific to your codebase that no vendor could out-of-box. Semgrep supports 30+ languages whereas Snyk supports 14.
 
-Semgrep and Snyk both have their opinionated approaches to SAST and the ideal solution depends on what you want to achieve. The [Trail of Bits Testing Handbook](https://appsec.guide/docs/static-analysis/semgrep/) is an unbiased, third-party article on the differences between Semgrep and Snyk.
-
 ### Comparing Semgrep to SonarQube
 
 Both Semgrep and SonarQube use static analysis to find bugs, but there are a few differences:
