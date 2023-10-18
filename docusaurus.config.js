@@ -336,7 +336,7 @@ module.exports = {
           { from: "/kb/semgrep-cloud-platform/running-semgrep-on-windows/" , to: "/kb/integrations/semgrep-vs-code-windows/" },
 
           /* OCT 18 2023  */
-          { from: "/kb/semgrep-ci/github-required-workflows-semgrep/" , to: "/kb/integrations/github-repository-rulesets-semgrep/" }
+          { from: "/kb/semgrep-ci/github-required-workflows-semgrep/" , to: "/kb/semgrep-ci/github-repository-rulesets-semgrep/" }
         ]
       }
     ],
