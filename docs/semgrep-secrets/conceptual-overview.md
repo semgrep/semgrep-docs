@@ -180,7 +180,7 @@ These subkeys provide context to both you and other end-users, as well as to Sem
 ```
 | Key | Description |
 | -------  | ------ |
-| `secret_type`  | Defines the name of the service or the type of Secret. When writing a custom validator, set this value to a descriptive name to help identify it when triaging secrets. Examples of secret types include "Slack", "Asana", and other common service names. |
+| `secret_type`  | Defines the name of the service or the type of Secret. When writing a custom validator, set this value to a descriptive name to help identify it when triaging secrets. Examples of secret types include "Slack," "Asana," and other common service names. |
 | `technology` | Set this to `secrets` to identify the rule as a Secrets rule. |
    
 #### Subkeys under the `patterns` key
