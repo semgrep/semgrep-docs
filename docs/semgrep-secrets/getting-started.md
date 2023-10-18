@@ -97,7 +97,6 @@ If you do not receive any secrets findings in your scans after enabling Semgrep 
 
 You can scan for secrets from your local development machine by using the Semgrep CLI tool. 
 
-
 1. Ensure you are logged in to Semgrep:
 ```
 semgrep login
@@ -205,10 +204,6 @@ Refers to whether or not a secret is active and can be used to grant resources o
 | Confirmed invalid | Semgrep made an API call using the secret and it returned an HTTP response of 403 or similar. |
 | Validation error | Semgrep made an API call but it returned and HTTP response of 400 or similar; a server error, such as a timeout, occurred. The Semgrep Team recommends manually reviewing the finding. |
 | No validator | Semgrep does not perform any validation on this finding. You must manually review the finding. |
-
-:::tip
-**Honeypot tokens** are categorized under **No validator**.
-:::
 
 ### Repository visibility
 
