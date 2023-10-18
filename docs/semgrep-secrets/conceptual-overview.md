@@ -181,7 +181,7 @@ These subkeys provide context to both you and other end-users, as well as to Sem
 | Key | Description |
 | -------  | ------ |
 | `secret_type`  | Defines the name of the service or the type of Secret. When writing a custom validator, set this value to a descriptive name to help identify it when triaging secrets. Examples of secret types include "Slack", "Asana", and other common service names. |
-| `technology` | Identifies the rule as a Secrets rule. This key is **mandatory** for the rule to run correctly. |
+| `technology` | Set this to `secrets` to identify the rule as a Secrets rule. |
    
 #### Subkeys under the `patterns` key
 
@@ -200,12 +200,16 @@ These subkeys identify the token to analyze in a given match.
 
 | Key | Description |
 | -------  | ------ |
-| `focus_metavariable`  | This key enables the rule to define a variable upon which Semgrep can perform further analysis, such as entropy analysis. |
+| `focus_metavariable`  | This key enables the rule to define a metavariable upon which Semgrep can perform further analysis, such as entropy analysis. |
 | `metavariable_analysis`  | Under `metavariable_analysis`, you can define additional keys: `analyzer` and `metavariable`, which specifies the kind of analysis Semgrep performs and on what variable.  |
+
+:::tip
+For more information, see Semgrep rule definition for [<i class="fa-regular fa-file-lines"></i> Focus metavariable](/writing-rules/rule-syntax/#focus-metavariable).
+:::
 
 #### Subkeys under the `validators` and `http` keys
 
-The validators key uses the `http` key, which defines the validator function. In particular, the `http` key defines how the rule forms a request object and what response is expected for valid and invalid states. Although there are some rules that do not use a `validators` key, most Secrets rules make use of it. 
+The validators key uses a list of keys to define the validator function. In particular, the `http` key defines how the rule forms a request object and what response is expected for valid and invalid states. Although there are some rules that do not use a `validators` key, most Secrets rules make use of it. 
 
 ```yaml
   ...
@@ -232,7 +236,7 @@ The validators key uses the `http` key, which defines the validator function. In
 | Key | Description |
 | -------  | ------ |
 | `request`  | This key and its subkeys describe the request object and the URL to send the request object to. |
-| `response`  | This key and its subkeys describe the expected responses. Depending on the response, such as a 200 or a 404, the rule determines the **validation status**.  |
+| `response`  | This key and its subkeys determine **validation status**. Semgrep identifies a validation status through HTTP status code **and** other key-value pairs. For example, a rule may require both a 200 status code **and** a `"message": "ok"` in the response body for the matching secret to be considered **Confirmed valid**. |
 
 
 ## Next steps
