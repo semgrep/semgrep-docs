@@ -41,12 +41,11 @@ To gain access to this feature, fill out the [<i class="fas fa-external-link fa-
 
 This section lists the source code managers (SCMs) that Semgrep Secrets supports.
 
-| Source code manager        | Semgrep Secrets | PR or MR comments for valid secrets findings   |
-| -------------------        | --------------- | ---------------------------------------------- |
-| GitHub - Free and Team     | ✔️               | ✔️                                              |
-| GitHub - Enterprise Cloud  | ✔️               | ✔️                                              |
-| GitHub - Enterprise Server | ❌ (Coming soon)| ❌                                             |
-| GitLab (any plan)          | ❌ (Coming soon)| ❌                                             |
+| Source code manager | Semgrep Secrets | PR or MR comments for valid secrets findings   |
+| ------------------- | --------------- | ---------------------------------------------- |
+| GitHub              | ✔️               | ✔️                                              |
+| GitLab              | ✔️               | ❌                                             |
+| BitBucket           | ✔️               | ❌                                             |
 
 ## Enabling Semgrep Secrets
 
@@ -127,13 +126,13 @@ Perform the following steps to receive Secrets findings as comments in GitHub PR
 1. Follow the steps in [<i class="fa-regular fa-file-lines"></i> GitHub PR comments](/semgrep-cloud-platform/github-pr-comments/).
 2. Inform [<i class="fa-regular fa-envelope"></i> support@semgrep.com](mailto:support@semgrep.com) that you want to enable this feature.
 
-### Findings in GitLab merge requests
+<!--### Findings in GitLab merge requests
 
 Perform the following steps to receive Secrets findings as comments in GitLab MRs:
 
 1. Follow the steps in [<i class="fa-regular fa-file-lines"></i> GitLab MR comments](/semgrep-cloud-platform/gitlab-mr-comments/).
 2. Inform [<i class="fa-regular fa-envelope"></i> support@semgrep.com](mailto:support@semgrep.com) that you want to enable this feature.
-
+-->
 ## Triaging secrets in Semgrep Cloud Platform
 
 Triage secrets-related findings in the Secrets page. By default, all findings are displayed. A common triage workflow includes the following tasks:
