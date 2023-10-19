@@ -54,8 +54,6 @@ Semgrep Pro Engine has two maturity levels:
 
 **Beta**: Supported by the Semgrep team. Reported issues are tracked and prioritized to be fixed after GA languages.
 
-
-
 #### Language maturity factors (OSS Engine)
 
 Semgrep OSS Engine has three maturity levels:
@@ -171,7 +169,7 @@ Semgrep Supply Chain parses **lockfiles** for dependencies, then scans your code
    <td>C#</td>
    <td>NuGet</td>
    <td><code>packages.lock.json</code></td>
-   <td style={{"text-align": "center"}}>Beta</td>
+   <td style={{"text-align": "center"}}>GA</td>
    <td>✔️</td>
 </tr>
 <tr>
