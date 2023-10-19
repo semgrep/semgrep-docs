@@ -12,7 +12,7 @@ import MoreHelp from "/src/components/MoreHelp"
 
 # Conceptual overview of Semgrep Secrets
 
-**Semgrep Secrets** is a code scanner that detects exposed API keys, passwords, and other credentials. These exposed secrets can be used by malicious actors to leak data or gain access to sensitive systems. Semgrep Secrets enables the user to know the following: 
+**Semgrep Secrets** scans code to detect exposed API keys, passwords, and other credentials. These exposed secrets can be used by malicious actors to leak data or gain access to sensitive systems. Semgrep Secrets enables the user to know the following: 
 
 * What secrets have leaked.
 * The validation status of the secret, such as if it is confirmed valid. **Valid** secrets are secrets that are tested against a web service and confirmed to successfully grant resources or authentication. 
