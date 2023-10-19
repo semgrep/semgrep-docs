@@ -208,7 +208,7 @@ Refers to whether or not a secret is active and can be used to grant resources o
 Refers to whether or not the repository is a public repository or private. This is detected through your source code manager.
 
 :::info
-Semgrep supports visibility detection only for GItHub repositories of any plan.
+Semgrep supports visibility detection only for GitHub repositories of any plan.
 :::
 
 | Repository visibility | Description | 
