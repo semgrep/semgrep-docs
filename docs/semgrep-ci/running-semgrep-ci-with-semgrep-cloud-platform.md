@@ -335,7 +335,7 @@ Test that comments are sent by adding rules to your Policy's **Comment** or **Bl
 To configure PR or MR comments, review [Alerts and notifications](/semgrep-cloud-platform/notifications/) documentation.
 
 :::info
-Only rules in the **Comment** and **Block** modes of your [Policies](https://semgrep.dev/orgs/-/board) create the PR or MR comments. Rules from the **Block** column also block the PR or MR pipeline. To unblock the pipeline, the detected code needs to be fixed.
+Only rules in the **Comment** and **Block** modes of your [Policies](https://semgrep.dev/orgs/-/policies) create the PR or MR comments. Rules from the **Block** column also block the PR or MR pipeline. To unblock the pipeline, the detected code needs to be fixed.
 :::
 
 ### Setting a custom timeout
