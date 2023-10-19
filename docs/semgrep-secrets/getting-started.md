@@ -54,7 +54,7 @@ This section lists the source code managers (SCMs) that Semgrep Secrets supports
 * You have added or onboarded at least one repository to Semgrep Cloud Platform for scanning. See Starting a SAST and SCA scan on a remote repository.
 :::
 
-1. Contact the Semgrep Team by filling out the [<i class="fas fa-external-link fa-xs"></i> Semgrep Secrets Beta](https://get.semgrep.dev/secrets-beta-request.html) form.
+1. Contact the Semgrep team by filling out the [<i class="fas fa-external-link fa-xs"></i> Semgrep Secrets Beta](https://get.semgrep.dev/secrets-beta-request.html) form.
 1. When you have received confirmation that Semgrep Secrets has been activated for your account, [<i class="fas fa-external-link fa-xs"></i> sign in to Semgrep Cloud Platform](https://semgrep.dev/login).
 1. Click **<i class="fa-solid fa-gear"></i> Settings**.
 1. In the Products section, click the **<i class="fa-solid fa-toggle-large-on"></i> Secrets** toggle.
