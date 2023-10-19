@@ -14,11 +14,11 @@ import MoreHelp from "/src/components/MoreHelp"
 
 **Semgrep Secrets** scans code to detect exposed API keys, passwords, and other credentials. These exposed secrets can be used by malicious actors to leak data or gain access to sensitive systems. Semgrep Secrets enables the user to know the following: 
 
-* What secrets have leaked.
-* The validation status of the secret, such as if it is confirmed valid. **Valid** secrets are secrets that are tested against a web service and confirmed to successfully grant resources or authentication. 
-* (For GitHub repositories) If these secrets are in public or private repositories.
+* What secrets have been committed to your repository.
+* The validation status of the secret, such as if it is confirmed valid. **Valid** secrets are secrets that are tested against a web service and confirmed to successfully grant resources or authentication. They are actively in use. 
+* For GitHub repositories: If these secrets are in public or private repositories.
 
-Save time and effort by prioritizing valid leaked secrets. Inform developers of valid, active secrets in their GitHub PRs by posting PR comments. 
+Save time and effort by prioritizing valid leaked secrets. Inform developers of valid secrets in their GitHub PRs by posting PR comments. 
 
 This document explains how Semgrep Secrets works and its approach to detecting secrets.
 
