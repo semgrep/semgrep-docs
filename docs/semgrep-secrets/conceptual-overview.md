@@ -44,7 +44,7 @@ Semantic analysis refers to Semgrep's ability to understand how data is used wit
 
 Semgrep Secrets uses several mechanisms to perform semantic analysis. In particular, it uses **data-flow analysis**, which means that it is able to track data, such as variables, and the flow of that data across files and functions in your codebase. Semgrep Secrets is able to detect if a variable is renamed, unsanitized or sanitized, reassigned, or used in a function in such a way that a secret is exposed.
 
-See the following Semgrep rule and JavaScript test code for an example.
+See the following rule and JavaScript test code for an example.
 
 <iframe title="AWS hardcoded access key" src="https://semgrep.dev/embed/editor?snippet=EPj5" width="100%" height="432px" frameBorder="0"></iframe>
 <br />
