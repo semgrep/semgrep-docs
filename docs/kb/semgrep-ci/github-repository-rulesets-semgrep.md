@@ -2,12 +2,12 @@
 tags:
   - GitHub
   - Repository rulesets
-description: Setting up GitHub required workflows for Semgrep scans.
+description: Set up GitHub required workflows to efficiently implement Semgrep scans across many repositories.
 ---
 
 # Using GitHub repository rulesets to implement Semgrep
 
-If your GitHub organization has hundreds or thousands of repositories, setting up Semgrep by adding the `.github/workflows/semgrep.yml` file to all repositories can be a time-consuming task. You can instead use [repository rulesets](https://docs.github.com/en/enterprise-cloud@latest/repositories/configuring-branches-and-merges-in-your-repository/managing-rulesets/creating-rulesets-for-a-repository#introduction) to add Semgrep as a workflow that is [required to pass before merging](https://docs.github.com/en/enterprise-cloud@latest/repositories/configuring-branches-and-merges-in-your-repository/managing-rulesets/available-rules-for-rulesets#require-workflows-to-pass-before-merging). 
+Use [GitHub repository rulesets](https://docs.github.com/en/enterprise-cloud@latest/repositories/configuring-branches-and-merges-in-your-repository/managing-rulesets/creating-rulesets-for-a-repository#introduction) to quickly implement Semgrep scans across hundreds or thousands of repositories in your GitHub organization. Repository rulesets enable you to add a Semgrep scan to many repositories as a workflow that is [required to pass before merging](https://docs.github.com/en/enterprise-cloud@latest/repositories/configuring-branches-and-merges-in-your-repository/managing-rulesets/available-rules-for-rulesets#require-workflows-to-pass-before-merging).
 
 This allows you to set up a centralized repository with a single Semgrep workflow file that can be applied to as many repositories as desired. Formerly, this feature was called [required workflows](https://github.blog/changelog/2023-08-02-github-actions-required-workflows-will-move-to-repository-rules/).
 
