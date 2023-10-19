@@ -3,7 +3,7 @@ slug: /semgrep-secrets/conceptual-overview
 append_help_link: true
 title: Conceptual overview
 hide_title: true
-description: Learn how Semgrep detects leaked secrets and helps you prioritize what keys to rotate.
+description: Learn how Semgrep Secrets detects leaked secrets and helps you prioritize what keys to rotate.
 tags:
   - Semgrep Secrets
 ---
