@@ -245,7 +245,7 @@ The `validators` key uses a list of keys to define the validator function. In pa
 | Key | Description |
 | -------  | ------ |
 | `request`  | This key and its subkeys describe the request object and the URL to send the request object to. |
-| `response`  | This key and its subkeys determine **validation status**. Semgrep identifies a validation status through HTTP status code **and** other key-value pairs. For example, a rule may require both a 200 status code **and** a `"message": "ok"` in the response body for the matching secret to be considered **Confirmed valid**. |
+| `response`  | This key and its subkeys determine **validation status**. Semgrep Secrets identifies a validation status through HTTP status code **and** other key-value pairs. For example, a rule may require both a 200 status code **and** a `"message": "ok"` in the response body for the matching secret to be considered **Confirmed valid**. |
 
 
 ## Next steps
