@@ -30,7 +30,7 @@ For a guide to setting up Semgrep Secrets, see [<i class="fa-regular fa-file-lin
 Secrets scanning is **language-agnostic**. This means Semgrep Secrets can scan any language for secrets.
 :::
 
-To ensure that findings are high-signal, comprehensive, and easy for users to prioritize, a secrets scan performs the following:
+To ensure that findings are high-signal, comprehensive, and easy for users to prioritize, a Secrets scan performs the following:
 
 * Semantic analysis
 * Validation
