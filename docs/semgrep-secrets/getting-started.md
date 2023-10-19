@@ -30,7 +30,7 @@ To learn about how Semgrep Secrets detects secrets, see [<i class="fa-regular fa
 
 :::info Feature maturity
 * This feature is in public beta.
-* You or your developers may encounter rough edges. For issues, reach out to [<i class="fa-regular fa-envelope"></i> support@semgrep.com](mailto:support@semgrep.com).
+* You or your developers may encounter bugs. For issues, reach out to [<i class="fa-regular fa-envelope"></i> support@semgrep.com](mailto:support@semgrep.com).
 :::
 
 :::tip Sign-up
