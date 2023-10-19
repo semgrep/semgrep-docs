@@ -42,7 +42,7 @@ The following sections explain how each analysis works.
 
 Semantic analysis refers to Semgrep's ability to understand how data is used within your code. This differentiates Semgrep from regex-based detectors that simply define a pattern to match to a piece of code.
 
-Semgrep uses several mechanisms to perform semantic analysis. In particular, Semgrep uses **data-flow analysis**, which means that it is able to track data, such as variables, and the flow of that data across files and functions in your codebase. Semgrep is able to detect if a variable is renamed, unsanitized or sanitized, reassigned, or used in a function in such a way that a secret is exposed.
+Semgrep Secrets uses several mechanisms to perform semantic analysis. In particular, it uses **data-flow analysis**, which means that it is able to track data, such as variables, and the flow of that data across files and functions in your codebase. Semgrep Secrets is able to detect if a variable is renamed, unsanitized or sanitized, reassigned, or used in a function in such a way that a secret is exposed.
 
 See the following Semgrep rule and JavaScript test code for an example.
 
