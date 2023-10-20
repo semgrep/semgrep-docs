@@ -11,8 +11,8 @@ The following explains how to build `semgrep-core` so you can make and test chan
 ```bash
 brew install opam
 opam init
-opam switch create 4.14.0 ocaml-base-compiler.4.14.0
-opam switch 4.14.0
+opam switch create 5.0.0 ocaml-base-compiler.5.0.0
+opam switch 5.0.0
 eval $(opam env)
 ```
 
