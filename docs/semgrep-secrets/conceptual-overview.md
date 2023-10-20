@@ -86,7 +86,7 @@ For a list of all supported services that Semgrep can detect, see Semgrep post-p
 
 ## Fine-tuning findings through entropy analysis
 
-In secret scanning, entropy is the measure of a **string's randomness**. It is used to measure how likely a string is random. If a string is highly entropic, it is highly random, and therefore likelier to be a secret. By performing entropy analysis, Semgrep Secrets is able to reduce false positives.
+In secret scanning, entropy is the measure of a **string's randomness**. It is used to measure how likely a string is random. If a string is highly entropic, it is highly random. For certain types of secrets, such as API keys, randomness indicates that a string could be a secret. By performing entropy analysis, Semgrep Secrets is able to detect true positives.
 
 Examples of high-entropy (random) strings:
 
