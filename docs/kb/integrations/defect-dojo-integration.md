@@ -14,7 +14,7 @@ Follow these steps to prepare DefectDojo and generate Semgrep findings in the pr
 
 1. In DefectDojo:
     1. Create your [**product**](https://defectdojo.github.io/django-DefectDojo/usage/models/#products).
-    2. In that DefectDojo product, create an [engagement](https://defectdojo.github.io/django-DefectDojo/usage/models/#engagement) called `semgrep`. This is a CI/CD engagement type.
+    2. In that DefectDojo product, create an engagement (it is a description of the import you will run), called `semgrep`. This is a CI/CD engagement type.
 2. Run a semgrep scan with flags `--json --output report.json` to generate a JSON report.
 
 Now, you are ready to use the [DefectDojo API](https://defectdojo.github.io/django-DefectDojo/integrations/api-v2-docs/).
@@ -36,6 +36,10 @@ These endpoints take the following parameters:
 * `scan_type`: A descriptive name for the scan type. In this example, the scan type is "Semgrep JSON Report`".
 * `product_name`: The name of the product in DefectDojo to send the Semgrep findings report to.
 * `engagement_name`: The name of the engagement you created the preceding "Integration" section. In this example, `semgrep`.
+
+:::info
+The DefectDojo API allows to use ID instead of names for the parameters, such as product_id or engangement_id. In the example we will follow the "By name" approach.
+:::
 
 Here is an example snippet of a Python function using this endpoint:
 
@@ -108,6 +112,20 @@ import-semgrep-to-defectdojo:
 :::tip
 As a good security practice, this pipeline includes checksum validation for the import script, to ensure that the script has not been tampered with.
 :::
+
+There are some environment variables defined in the `gitlab-ci.yml` file, such as:
+* `DEFECTDOJO_URL`
+* `PRODUCT`
+* `IMPORT_SEMGREP_TO_DEFECTDOJO_SHA_CHECKSUM`
+
+They must be defined in the GitLab pipeline. Settings->CI/CD->Variables:
+![image info](/img/kb/integration-defectdojo-gitlab-variables.png)
+
+In the example, the values are:
+* `DEFECTDOJO_URL` = http://localhost:8080/ (Local Defect Dojo deployment)
+* `PRODUCT` = chess-game
+* `IMPORT_SEMGREP_TO_DEFECTDOJO_SHA_CHECKSUM` = c41aed4055adeee415b795cc17a069b144fb51bc31f6c4925be3b82d0b54de33 Uimport_semgrep_to_defect_dojo.py
+
 
 ## Conclusions
 
