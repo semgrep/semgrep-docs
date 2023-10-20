@@ -5,44 +5,56 @@ tags:
 description: Set up GitHub required workflows to efficiently implement Semgrep scans across many repositories.
 ---
 
-# Using GitHub repository rulesets to implement Semgrep
+# Use GitHub repository rulesets to implement Semgrep
 
-Use [GitHub repository rulesets](https://docs.github.com/en/enterprise-cloud@latest/repositories/configuring-branches-and-merges-in-your-repository/managing-rulesets/creating-rulesets-for-a-repository#introduction) to quickly implement Semgrep scans across hundreds or thousands of repositories in your GitHub organization. Repository rulesets enable you to add a Semgrep scan to many repositories as a workflow that is [required to pass before merging](https://docs.github.com/en/enterprise-cloud@latest/repositories/configuring-branches-and-merges-in-your-repository/managing-rulesets/available-rules-for-rulesets#require-workflows-to-pass-before-merging).
+Use [GitHub repository rulesets](https://docs.github.com/en/enterprise-cloud@latest/repositories/configuring-branches-and-merges-in-your-repository/managing-rulesets/creating-rulesets-for-a-repository#introduction) to quickly implement Semgrep scans across hundreds or thousands of repositories in your GitHub organization. 
 
-This allows you to set up a centralized repository with a single Semgrep workflow file that can be applied to as many repositories as desired. Formerly, this feature was called [required workflows](https://github.blog/changelog/2023-08-02-github-actions-required-workflows-will-move-to-repository-rules/).
+Repository rulesets allow you to add a Semgrep scan as a workflow that is [required to pass before merging](https://docs.github.com/en/enterprise-cloud@latest/repositories/configuring-branches-and-merges-in-your-repository/managing-rulesets/available-rules-for-rulesets#require-workflows-to-pass-before-merging). Formerly, this feature was called [required workflows](https://github.blog/changelog/2023-08-02-github-actions-required-workflows-will-move-to-repository-rules/).
 
-## Setting up the central Semgrep scan workflow
+Repository rulesets use a centralized workflow file to execute the Semgrep scan action, meaning you can scan as many repositories as desired by creating a single file.
 
-To use the Semgrep workflow in other repositories, you can either create a new repository with the Semgrep workflow file, or add it to an existing repository where you store common workflows. 
+## Set up the central Semgrep scan workflow
 
-When a workflow is required to pass before merging, the workflow file needs to be in a repository that matches the widest visibility of the repositories you want to run it in. For example, if you want to run Semgrep on public, internal, and private repositories, the repository containing the workflow file must be public.
+To use the Semgrep workflow in other repositories, you can create a new repository with the Semgrep workflow file, or add it to an existing repository where you store common workflows. This example describes creating the workflow in a new repository called `semgrep-workflow`.
 
-After creating or identifying the repository, add the Semgrep workflow file at your desired path. In this example, it's placed in the standard location for a GitHub workflow: `.github/workflows/semgrep.yml`:
+1. Create a new repository following the [GitHub documentation](https://docs.github.com/en/get-started/quickstart/create-a-repo). 
+  1. Name the repository `semgrep-workflow`.
+  2. Choose the repository visibility that matches the widest visibility of the repositories you want to run the workflow in. For example, if you want to run Semgrep on public, internal, and private repositories, the repository containing the workflow file must be public.
+2. Add the Semgrep workflow file to the repository at `.github/workflows/semgrep.yml`. You can use the [sample configuration](/docs/semgrep-ci/sample-ci-configs/#sample-github-actions-configuration-file) provided in the documentation, or a [custom configuration](/docs/semgrep-ci/running-semgrep-ci-with-semgrep-cloud-platform/#configuring-the-semgrep-cloud-platform-ci-job).
 
 ![Semgrep repository with workflow file](/img/kb/semgrep-workflow-repo.png)
 
-This repository is internal, so it could only be used to store workflows to run on internal and private repositories.
+The example repository is internal, so it can only be used to store workflows that run on internal and private repositories.
 
-You can use the [sample configuration](/docs/semgrep-ci/sample-ci-configs/#sample-github-actions-configuration-file) provided in the documentation, or a custom configuration, if you've already developed one.
+## Configure repository workflow access
 
-## Configuring repository workflow access
+The repository containing the Semgrep workflow must allow access to workflows from other repositories in the organization. 
 
-If you haven't previously used the repository containing the Semgrep workflow to implement repository rulesets, you may need to provide access to the workflow for other repositories in the organization.
+To configure access:
 
 1. In the repository containing the Semgrep workflow, click **Settings > Actions > General**.
-2. In the **Access** section, select one of the **Accessible from** options to make the repository accessible to your organization or more broadly.
+2. In the **Access** section, select one of the **Accessible from** options to make the repository workflows accessible to your organization.
 
 ![Repository workflow access](/img/kb/semgrep-workflow-actions-access.png)
 
-## Configuring an organization secret
+## Configure an organization secret
 
-To run a scan using `semgrep ci`, Semgrep requires a valid app token. By default, the token is referenced in GitHub Actions configurations as `${{ secrets.SEMGREP_APP_TOKEN }}`. When the workflow file is committed to a single repository, the secret is also typically added to the repository secrets for Actions.
+To run a scan using `semgrep ci`, Semgrep requires a valid token. When configuring Semgrep as a required workflow for multiple repositories, set up the token as an organization secret.
 
-To make the secret available to all repositories that use this workflow, create the secret as an [organization secret](https://docs.github.com/en/enterprise-cloud@latest/actions/security-guides/using-secrets-in-github-actions#creating-secrets-for-an-organization).
+:::info
+If you use a custom `semgrep.yml` configuration, ensure you refer to the secret as `${{ secrets.SEMGREP_APP_TOKEN }}` in your configuration. For the required workflow, this refers to the organization secret.
+:::
 
-If you prefer to not to add the secret as an organization secret, you should separately determine how to make the value available to the workflow when it runs on the target repositories.
+1. Click **Create new token** on **Settings > [Tokens](https://semgrep.dev/orgs/-/settings/tokens)** in the Semgrep Cloud Platform.
+2. Ensure the **Agent (CI)** scope is checked for the token.
+3. Copy the token value for use on GitHub, and click **Save**.
+4. Create an organization secret, following the [GitHub documentation](https://docs.github.com/en/enterprise-cloud@latest/actions/security-guides/using-secrets-in-github-actions#creating-secrets-for-an-organization).
+  1. Name the secret `SEMGREP_APP_TOKEN`.
+  2. Paste the value you copied from the Semgrep Cloud Platform.
+  3. Select a value for **Repository access** that matches the repositories you intend to scan with the workflow.
+  4. Click **Add secret**.
 
-## Creating the organization ruleset
+## Create an organization ruleset
 
 To create the ruleset:
 
@@ -60,16 +72,22 @@ To create the ruleset:
     ![Require workflows to pass before merging](/img/kb/semgrep-workflow-require-pass.png)
 11. Click **Create** to create the ruleset.
 
-You can refer to GitHub's [Creating rulesets for repositories in your organization](https://docs.github.com/en/enterprise-cloud@latest/organizations/managing-organization-settings/creating-rulesets-for-repositories-in-your-organization) for more general guidance on creating a ruleset for your organization.
+Refer to GitHub's [Creating rulesets for repositories in your organization](https://docs.github.com/en/enterprise-cloud@latest/organizations/managing-organization-settings/creating-rulesets-for-repositories-in-your-organization) for more general guidance on creating a ruleset for your organization.
 
 ## Verify by creating a pull request
 
-After setup, hen you create a pull request in a repository where this ruleset applies, the Semgrep workflow runs for the PR even if there is no `.github/workflows/semgrep.yml` file in that repository.
+After completing the preceding steps, create a pull request in an affected repository to verify the workflow runs as expected.
+
+1. Identify a repository targeted by the organization ruleset you created in the previous section.
+2. Create a pull request in that repository, following the [GitHub documentation](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/creating-a-pull-request).
+3. After creating the pull request, review the checks and ensure the Semgrep workflow ran as expected.
 
 The required workflow allows merge if the scan is successful, or blocks the pull request if the scan has blocking findings.
 
-![Example PR with successful required workflow](/img/kb/semgrep-workflow-pr-example.png)
+![Example pull request with successful required workflow](/img/kb/semgrep-workflow-pr-example.png)
 
 ## Limitations
 
-Workflows required by repository rulesets are only triggered by `pull_request` or `merge_group` events. When triggered for a pull request, Semgrep runs a [diff-aware scan] and only scans changed files. Therefore, to run a full scan for your organization's repositories (scan all files), you would need to choose a different approach, such as [reusable workflows](/docs/kb/semgrep-ci/github-reusable-workflows-semgrep).
+Workflows required by repository rulesets are only triggered by `pull_request` or `merge_group` events. When triggered for a pull request, Semgrep runs a [diff-aware scan](/docs/semgrep-ci/running-semgrep-ci-with-semgrep-cloud-platform/#diff-aware-scanning), which only scans changed files. 
+
+To run full scans (scan all files) for your organization's repositories as well, you would need to supplement this setup with another approach, such as [reusable workflows](/docs/kb/semgrep-ci/github-reusable-workflows-semgrep).
