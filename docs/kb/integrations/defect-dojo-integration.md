@@ -122,10 +122,12 @@ They must be defined in the GitLab pipeline. Settings->CI/CD->Variables:
 ![image info](/img/kb/integration-defectdojo-gitlab-variables.png)
 
 In the example, the values are:
-* `DEFECTDOJO_URL` = http://localhost:8080/ (Local Defect Dojo deployment)
+* `DEFECTDOJO_URL` = http://localhost:8080/ (Local DefectDojo deployment)
 * `PRODUCT` = chess-game
 * `IMPORT_SEMGREP_TO_DEFECTDOJO_SHA_CHECKSUM` = c41aed4055adeee415b795cc17a069b144fb51bc31f6c4925be3b82d0b54de33 Uimport_semgrep_to_defect_dojo.py
 
+Here an example of DefectDojo screenshot, after a pipeline execution:
+![image info](/img/kb/integration-defectdojo-example.png)
 
 ## Conclusions
 
