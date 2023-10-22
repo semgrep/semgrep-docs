@@ -27,7 +27,7 @@ For a guide to setting up Semgrep Secrets, see [<i class="fa-regular fa-file-lin
 :::
 
 :::tip
-Secrets scanning is **language-agnostic**. This means Semgrep Secrets can scan any language for secrets.
+Semgrep Secrets can scan **any language** for secrets.
 :::
 
 To ensure that findings are high-signal, comprehensive, and easy for users to prioritize, a Secrets scan performs the following:
@@ -42,7 +42,7 @@ The following sections explain how each analysis works.
 
 Semantic analysis refers to Semgrep's ability to understand how data is used within your code. This differentiates Semgrep from regex-based detectors that simply define a pattern to match to a piece of code.
 
-Semgrep Secrets uses several mechanisms to perform semantic analysis. In particular, it uses **data-flow analysis**, which means that it is able to track data, such as variables, and the flow of that data across files and functions in your codebase. Semgrep Secrets is able to detect if a variable is renamed, unsanitized or sanitized, reassigned, or used in a function in such a way that a secret is exposed.
+Semgrep Secrets uses several mechanisms to perform semantic analysis. In particular, it uses [<i class="fa-regular fa-file-lines"></i> data-flow analysis](/writing-rules/data-flow/data-flow-overview/) and [<i class="fa-regular fa-file-lines"></i> constant propagation](/writing-rules/data-flow/constant-propagation/) which means that it is able to track data, such as variables, and the flow of that data across files and functions in your codebase. Semgrep Secrets is able to detect if a variable is renamed, unsanitized or sanitized, reassigned, or used in a function in such a way that a secret is exposed.
 
 See the following rule and JavaScript test code for an example.
 
@@ -106,7 +106,7 @@ txtCfmPassword
 
 The Semgrep Registry includes SAST rules that can detect secrets to a certain extent. You can run these rules in Semgrep Code (Semgrep's SAST analyzer), or even write your own custom secret-detecting SAST rules, but with the following differences:
 
-* Semgrep Code does not run a validator function or perform entropy analysis against these rules, resulting in less accurate results.
+* Semgrep Code does not run a validator function against these rules, resulting in less accurate results.
     * Because the results are less accurate, these rules are not suitable as a criteria to block a PR or MR.
 * The UI for Semgrep Code is tailored to SAST triage, and does not include filtering functions for valid or invalid tokens.
 * Existing Semgrep Pro rules that detect secrets are transitioning from Semgrep Code to Semgrep Secrets. By transitioning these rules, improvements, such as validator functions, can be added to the rules when they are run in Semgrep Secrets.
