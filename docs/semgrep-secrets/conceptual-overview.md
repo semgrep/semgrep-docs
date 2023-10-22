@@ -27,7 +27,7 @@ For a guide to setting up Semgrep Secrets, see [<i class="fa-regular fa-file-lin
 :::
 
 :::tip
-Semgrep Secrets can scan **any language** for secrets.
+Semgrep Secrets can scan **any programming language** for secrets.
 :::
 
 To ensure that findings are high-signal, comprehensive, and easy for users to prioritize, a Secrets scan performs the following:
@@ -40,27 +40,31 @@ The following sections explain how each analysis works.
 
 ## Detecting secrets through semantic analysis
 
-Semantic analysis refers to Semgrep's ability to understand how data is used within your code. This differentiates Semgrep from regex-based detectors that simply define a pattern to match to a piece of code.
+Semantic analysis refers to Semgrep Secrets' ability to understand how data is used within your code. This differentiates Semgrep Secrets from regex-based detectors that simply define a pattern to match to a piece of code.
 
-Semgrep Secrets uses several mechanisms to perform semantic analysis. In particular, it uses [<i class="fa-regular fa-file-lines"></i> data-flow analysis](/writing-rules/data-flow/data-flow-overview/) and [<i class="fa-regular fa-file-lines"></i> constant propagation](/writing-rules/data-flow/constant-propagation/) which means that it is able to track data, such as variables, and the flow of that data across files and functions in your codebase. Semgrep Secrets is able to detect if a variable is renamed, unsanitized or sanitized, reassigned, or used in a function in such a way that a secret is exposed.
+In particular, Semgrep Secrets uses several mechanisms to perform semantic analysis. It uses [<i class="fa-regular fa-file-lines"></i> data-flow analysis](/writing-rules/data-flow/data-flow-overview/) and [<i class="fa-regular fa-file-lines"></i> constant propagation](/writing-rules/data-flow/constant-propagation/) which means that it is able to track data, such as variables, and the flow of that data across files and functions in your codebase.
+
+Performing semantic analysis is encapsulated in [<i class="fa-regular fa-file-lines"></i> rules](/running-rules/). By running these rules, Semgrep Secrets is able to detect if a variable is renamed, unsanitized or sanitized, reassigned, or used in a function in such a way that a secret is exposed.
 
 See the following rule and JavaScript test code for an example.
 
 <iframe title="AWS hardcoded access key" src="https://semgrep.dev/embed/editor?snippet=EPj5" width="100%" height="432px" frameBorder="0"></iframe>
 <br />
 
- The Semgrep rule detects hardcoded AWS secret access keys. The test code defines an access key in the variable `secret`. Click **<i class="fa-solid fa-play"></i> Run** to see the true positives.
+ The rule detects hardcoded AWS secret access keys. The test code defines an access key in the variable `secret`. Click **<i class="fa-solid fa-play"></i> Run** to see the true positives.
 
-* **Line 2:** Semgrep and regex-based scanners can detect both the variable name `secret` and its value (token) in line 2.
+ Some differences between Semgrep Secrets and regex-based scanners include:
+
+* **Line 2:** Both can detect the variable name `secret` and its value (token) in line 2.
 	* A regex-based scanner may generate a noisy finding from line 2 even though `secret` has not been passed to any function.
-	* Semgrep doesn't generate a finding because the token hasn't been passed as a `secretAccessKey` or similar.
-* **Line 7:** Semgrep and regex-based scanners are able to detect **line 6**, in which the plain-text secret is passed to the `AWS.config.update` function.
-* **Line 17:** Semgrep and regex-based scanners can detect **line 14**, in which `secret` is passed.
-* **Line 26:** Semgrep correctly skips `conf.secret` in **line 21**. Regex-based scanners simply looking for matches of the string `secret` generate a false positive.
+	* Semgrep Secrets doesn't generate a finding because the token hasn't been passed as a `secretAccessKey` or similar.
+* **Line 7:** Both can detect **line 6**, in which the plain-text secret is passed to the `AWS.config.update` function.
+* **Line 17:** Both can detect **line 14**, in which `secret` is passed.
+* **Line 26:** Semgrep Secrets correctly skips `conf.secret` in **line 21**. Regex-based scanners simply looking for matches of the string `secret` generate a false positive.
 
 ## Validating secrets 
 
-After scanning for secrets, Semgrep uses a **post-processor** function called a **validator** to determine if a secret is actively being used, or some other state.
+After scanning, Semgrep Secrets uses a **post-processor** function called a **validator** to determine if a secret is actively being used, or some other state.
 
 :::info
 * All validations, such as API calls, are done **locally**.
@@ -213,7 +217,7 @@ These subkeys identify the token to analyze in a given match.
 | `metavariable_analysis`  | Under `metavariable_analysis`, you can define additional keys: `analyzer` and `metavariable`, which specifies the kind of analysis Semgrep performs and on what variable.  |
 
 :::tip
-For more information, see the Semgrep rule definition for [<i class="fa-regular fa-file-lines"></i> Focus metavariable](/writing-rules/rule-syntax/#focus-metavariable).
+For more information, see the rule syntax for [<i class="fa-regular fa-file-lines"></i> Focus metavariable](/writing-rules/rule-syntax/#focus-metavariable).
 :::
 
 #### Subkeys under the `validators` and `http` keys
