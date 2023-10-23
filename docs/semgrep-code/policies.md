@@ -24,30 +24,6 @@ Object.entries(frontMatter).filter(
 
 The Policies page displays a visual representation of the rules that Semgrep Code uses for scanning. By default, the same rules will run on all repositories. This is sufficient for most users and simpler for most teams to reason about.
 
-## Multiple policies
-
-:::tip Try the multiple policies feature (private beta)
-Existing customers can try the **multiple policies** feature for free. To enable this feature, contact your Technical Account Manager, Account Executive, or email [<i class="fa-regular fa-envelope"></i> support@semgrep.com](mailto:support@semgrep.com) and let them know you'd like to try multiple policies out.
-:::
-
-The multiple policies feature enables users to customize the rules that run on specific repositories. 
-
-Users create different policies that repositories can **subscribe** to.
-
-This feature makes use of a **Global Policy** that runs on **all** repositories. Repositories cannot unsubscribe from it.
-
-You can create a policy, for example **Custom Coding Standards Policy** with some additional rules and add it to one or more repositories. During a scan, these repositories run all of the rules from the **Global Policy** as well as all the rules from **Custom Coding Standards Policy**.
-
-### Resolving workflow actions in multiple policies
-
-If a rule is in multiple policies, then the rule is deduplicated and Semgrep prioritizes the workflow action based on the rule's mode where precedence is as follows: 
-
-1. Block
-2. Comment
-3. Monitor
-
-For example, if an instance of `Rule A` is set to **Block**, then the scan blocks PRs for any findings from that rule, even if the same `Rule A` is set to **Monitor** in another policy applied to that repository.
-
 ## Policies page structure
 
 ![Screenshot of the default state of the Policies page](/img/policies.png)
@@ -114,11 +90,15 @@ All of these columns correspond to the filters in the filter pane.
 To add rules, follow these steps:
 
 1. On the [Policies](https://semgrep.dev/orgs/-/policies) page, click **Add Rules**.
-1. You are redirected to the [Semgrep Registry](https://semgrep.dev/explore) page. Explore the page, open cards of individual rules, and then click **Add to Policy.
+1. You are redirected to the [Semgrep Registry](https://semgrep.dev/explore) page. Explore the page, open cards of individual rules, and then click **Add to Policy**.
 1. Specify the behavior of the rule that you are adding. Select either: 
     - **Monitor**: Display findings only on the [Findings](https://semgrep.dev/orgs/-/findings?tab=open) page of Semgrep Code.
     - **Comment**: Display findings on the [Findings](https://semgrep.dev/orgs/-/findings?tab=open) page of Semgrep Code and create comments in MRs or PRs.
     - **Block**: Display findings on the [Findings](https://semgrep.dev/orgs/-/findings?tab=open) page of Semgrep Code, create comments in MRs or PRs, and block PRs or MRs where the finding was detected.
+
+### Adding custom rules
+
+To add custom rules from the Semgrep Editor, see [Editor: Setting code standards with the Policies page](docs/semgrep-code/editor/#setting-code-standards-with-the-policies-page).
 
 ## Disabling rules
 
@@ -130,5 +110,30 @@ To disable a rule, follow these steps:
 1. Click **(<span className="placeholder">Number</span>) Edit**, and then click **Disabled**.
 
 You can also select individual rules under the **Mode** column and disable them one by one.
+
+## Multiple policies
+
+:::info Multiple policies feature (private beta)
+If you have the **multiple policies** feature, you can customize the rules that run on specific repositories. Currently, this beta is not accepting new participants.
+:::
+
+The multiple policies feature enables users to customize the rules that run on specific repositories. 
+
+Users create different policies that repositories can **subscribe** to.
+
+This feature makes use of a **Global Policy** that runs on **all** repositories. Repositories cannot unsubscribe from it.
+
+You can create a policy, such **Custom Coding Standards Policy**, with some additional rules, and add it to one or more repositories. During a scan, these repositories run all of the rules from the **Global Policy** as well as all the rules from **Custom Coding Standards Policy**.
+
+### Resolving workflow actions in multiple policies
+
+If a rule is in multiple policies, then the rule is deduplicated and Semgrep prioritizes the workflow action based on the rule's mode where precedence is as follows: 
+
+1. Block
+2. Comment
+3. Monitor
+
+For example, if an instance of `Rule A` is set to **Block**, then the scan blocks PRs for any findings from that rule, even if the same `Rule A` is set to **Monitor** in another policy applied to that repository.
+
 
 <MoreHelp />

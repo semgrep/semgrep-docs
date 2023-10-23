@@ -11,6 +11,7 @@ description: "Semgrep Editor is a powerful tool within Semgrep Cloud Platform to
 
 import MoreHelp from "/src/components/MoreHelp"
 import EnableTurboMode from "/src/components/procedure/_enable-turbo-mode.md"
+import DeleteCustomRule from "/src/components/procedure/_delete-custom-rule.mdx"
 
 <ul id="tag__badge-list">
 {
@@ -143,7 +144,7 @@ For additional annotations designed to test false positives and false negatives,
 ## Renaming and saving a rule
 
 - To rename a rule, enter the new name in the YAML editor’s `id` field.
-- To save a rule, enter **Ctrl+S** or click the **Save** button.
+- To save a rule, enter <kbd>Ctrl</kbd>+<kbd>S</kbd> (<kbd>⌘</kbd>+<kbd>S</kbd> on Mac) or click the **Save** button.
 
 ## Sharing a rule and setting a rule’s visibility
 
@@ -151,12 +152,12 @@ Upon saving, a rule’s visibility is **unlisted** by default. This rule can be 
 
 A rule can be saved as a **private rule**, which is visible only to members within an organization. You can still share a private rule, but only members of the organization can see it. Private rules are a **Team/Enterprise tier feature**.
 
-- To set a rule’s visibility to private, click **Share > Private > Save change**.
+- To set a rule’s visibility to private, click **Share > Private > Confirm**.
 - To share a private or unlisted rule, click **Share** and copy the **URL link**.
 
 ## Deleting a rule
 
-To delete a rule, right click on its entry in the Library pane and select **Delete rule**. Deleting a rule is permanent. If the rule was previously added to the Policies page, it is removed upon deletion.
+<DeleteCustomRule />
 
 ## Setting code standards with the Policies page 
 
@@ -165,11 +166,15 @@ Adding a rule to the Policies page applies the rule across all projects scanned 
 To add a rule to the Policies page:
 
 1. Click **Add to Policy**.
-2. Select which rule mode (Monitor, Comment, or Block) to set the rule to, depending on the rule’s relevance.
+2. Select which [rule mode](docs/semgrep-code/policies/#rule-pane-in-detail) (Monitor, Comment, or Block) to set the rule to, depending on the rule’s relevance.
 
 The rule appears in your Policy page with the mode it is set to.
 
 ## Contributing to the open-source Semgrep Registry
+
+:::info
+For general contributing guidelines, see [Contributing rules](/contributing/contributing-to-semgrep-rules-repository/).
+:::
 
 To have your rule accepted faster, include the following:
 
@@ -183,9 +188,5 @@ To **create a PR** from the Semgrep Editor:
 1. (Optional) Click <i className="fa-solid fa-cloud-arrow-up inline_svg"></i> **Publish to Registry**.
 1. Fill in the required and optional fields.
 1. Click <i className="fa-solid fa-circle-check inline_svg"></i> **Continue**, and then click <i className="fa-solid fa-code-pull-request inline_svg"></i> **Create PR**.
-
-:::info
-For general contributing guidelines, see [Contributing rules](/contributing/contributing-to-semgrep-rules-repository/).
-:::
 
 <MoreHelp />
