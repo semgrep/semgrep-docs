@@ -73,7 +73,7 @@ After scanning, Semgrep Secrets uses a **post-processor** function called a **va
 
 1. The post-processor detects the service, such as Slack or AWS, that the secret is used for.
 2. If the post-processor does not support the service that the secret is used for, Semgrep notes that there is **No validator** for the secret.
-3. If the validator can detect the service, Semgrep performs an API call. The following outcomes can occur:
+3. If the validator can detect the service, Semgrep Secrets performs an API call. The following outcomes can occur:
 	1. **Confirmed valid:** Semgrep made an HTTP request using the secret and it returned an HTTP status code of 200 or similar **and** some indication of valid access. For example, a service can include a `"message": "ok"`.
     2. **Confirmed invalid:** Semgrep made an HTTP request using the secret and it returned an HTTP status code of 401 or similar.
     3. **Validation error:** Semgrep made an HTTP request using the secret, but the either the network request could not be made, a timeout occurred, or the HTTP status code returned a different HTTP status code. In this case, the Semgrep Team recommends manually reviewing the finding.
