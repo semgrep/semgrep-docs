@@ -126,7 +126,7 @@ In the example, the values are:
 * `PRODUCT` = chess-game
 * `IMPORT_SEMGREP_TO_DEFECTDOJO_SHA_CHECKSUM` = c41aed4055adeee415b795cc17a069b144fb51bc31f6c4925be3b82d0b54de33 Uimport_semgrep_to_defect_dojo.py
 
-Here an example of DefectDojo screenshot, after a pipeline execution:
+Example DefectDojo screenshot, after a pipeline execution:
 ![image info](/img/kb/integration-defectdojo-example.png)
 
 ## Conclusions
