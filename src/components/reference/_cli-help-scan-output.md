@@ -36,7 +36,7 @@ OPTIONS
            Note that this mode is experimental and not guaranteed to function
            properly. 
 
-       --allow-untrusted-postprocessors
+       --allow-untrusted-validators
            Run postprocessors from untrusted sources.
 
        --ast-caching
