@@ -110,15 +110,33 @@ You can also select individual rules under the **Mode** column and disable them 
 
 ## Policies filter reference
 
-This section explains columns in the rule pane of the Policies page in detail:
+This section defines the Policies page filters:
+
+| Filter | Description | Examples or possible values |
+| -------  | ------ | ------ |
+| Modes  | Specifies what workflow action Semgrep performs when a rule detects a finding. An additional filter, **Disabled**, is provided for rules that you have turned off and are no longer included for scanning.  | See [Rule modes](#blocking-a-pr-or-mr-through-rule-modes) documentation.  |
+| Category  | Specifies what workflow action Semgrep performs when a rule detects a finding. An additional filter, **Disabled**, is provided for rules that you have turned off and are no longer included for scanning.  | See [Rule modes](#blocking-a-pr-or-mr-through-rule-modes) documentation.  |
+| Severities  | The higher the severity, the more critical the issues are that a rule detects.      |  <ul><li>High</li><li>Medium</li><li>Low</li></ul>      |
+| Confidence  | Indicates confidence of the rule to detect true positives.      |  <ul><li>High</li><li>Medium</li><li>Low</li></ul>      |
+| Source  | Indicates the origin of a rule.       | <ul><li><strong>Pro:</strong> Authored by Semgrep with cross-file (interfile) and cross-function (interprocedural) analysis capabilities, providing you with enhanced scan accuracy. For more information, see <a href="/semgrep-code/pro-rules/"><i class="fa-regular fa-file-lines"></i> Pro rules.</a></li><li><strong>Community:</strong> Authored by Semgrep, Inc or external contributors such as Trail of Bits.</li><li><strong>Custom:</strong> Rules created within your Semgrep organization. For more information, see <a href="/writing-rules/private-rules/"><i class="fa-regular fa-file-lines"></i> Private rules</a>.</li></ul>.      |
+| Ruleset  | Rules are also organized in rulesets. Rulesets are groups of rules related through a programming language, OWASP category, or framework.       | <ul><li><a href="https://semgrep.dev/p/xss"><i class="fas fa-external-link fa-xs"></i> XSS ruleset</a></li><li><a href="https://semgrep.dev/p/react"><i class="fas fa-external-link fa-xs"></i> React ruleset</a></li></ul>       |
+| Language| Specifies what workflow action Semgrep performs when a rule detects a finding. An additional filter, **Disabled**, is provided for rules that you have turned off and are no longer included for scanning.  | See [Rule modes](#blocking-a-pr-or-mr-through-rule-modes) documentation.  |
+| Minimum count of findings| Specifies what workflow action Semgrep performs when a rule detects a finding. An additional filter, **Disabled**, is provided for rules that you have turned off and are no longer included for scanning.  | See [Rule modes](#blocking-a-pr-or-mr-through-rule-modes) documentation.  |
+
+## Rule entry reference
+
+This section defines the columns of the rule entries in the Policies page:
 
 | Filter | Description | Examples or possible values |
 | -------  | ------ | ------ |
 | Rule name  | Name of the rule that Semgrep Code uses for scanning.       | [<i class="fas fa-external-link fa-xs"></i> `docs-print-to-logger`](https://semgrep.dev/playground/s/KPzL)       |
+| Labels  | Metadata describing the rule. This includes the rule's language, category (good security practices, coding standards), and more.       |         |
+| Open findings  | The higher the severity, the more critical the issues are that a rule detects.      |  <ul><li>High</li><li>Medium</li><li>Low</li></ul>      |
+| Fix rate  | The higher the severity, the more critical the issues are that a rule detects.      |  <ul><li>High</li><li>Medium</li><li>Low</li></ul>      |
 | Severity  | The higher the severity, the more critical the issues are that a rule detects.      |  <ul><li>High</li><li>Medium</li><li>Low</li></ul>      |
 | Confidence  | Indicates confidence of the rule to detect true positives.      |  <ul><li>High</li><li>Medium</li><li>Low</li></ul>      |
 | Source  | Indicates the origin of a rule.       | <ul><li><strong>Pro:</strong> Authored by Semgrep with cross-file (interfile) and cross-function (interprocedural) analysis capabilities, providing you with enhanced scan accuracy. For more information, see <a href="/semgrep-code/pro-rules/"><i class="fa-regular fa-file-lines"></i> Pro rules.</a></li><li><strong>Community:</strong> Authored by Semgrep, Inc or external contributors such as Trail of Bits.</li><li><strong>Custom:</strong> Rules created within your Semgrep organization. For more information, see <a href="/writing-rules/private-rules/"><i class="fa-regular fa-file-lines"></i> Private rules</a>.</li></ul>.      |
-| Ruleset  | Rules are also organized in rulesets. Rulesets are groups of rules related through a programming language, OWASP category, or framework.       | <ul><li><a href="https://semgrep.dev/p/comment"><i class="fas fa-external-link fa-xs"></i> Comment ruleset</a></li><li><a href="https://semgrep.dev/p/react"><i class="fas fa-external-link fa-xs"></i> React ruleset</a></li></ul>       |
+| Ruleset  | Rules are also organized in rulesets. Rulesets are groups of rules related through a programming language, OWASP category, or framework.       | <ul><li><a href="https://semgrep.dev/p/xss"><i class="fas fa-external-link fa-xs"></i> XSS ruleset</a></li><li><a href="https://semgrep.dev/p/react"><i class="fas fa-external-link fa-xs"></i> React ruleset</a></li></ul>       |
 | Mode  | Specifies what workflow action Semgrep performs when a rule detects a finding. An additional filter, **Disabled**, is provided for rules that you have turned off and are no longer included for scanning.  | See [Rule modes](#blocking-a-pr-or-mr-through-rule-modes) documentation.  |
 
 :::tip
