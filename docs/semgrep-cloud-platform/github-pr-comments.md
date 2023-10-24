@@ -40,7 +40,11 @@ Automated comments on GitHub pull requests are displayed as follows:
 
 [Semgrep Cloud Platform](https://semgrep.dev/manage) uses the permissions requested by [the Semgrep GitHub App](https://github.com/marketplace/semgrep-dev) to leave PR comments. You can verify that you have granted these permissions by visiting either `https://github.com/organizations/<your_org_name>/settings/installations` or `https://github.com/organizations/<your_org_name>/<your_repo_name>/settings/installations`.
 
-If you are using GitHub Actions to run Semgrep, no extra changes are needed to get PR comments. If you are using another CI provider, in addition to the environment variables you set after following [sample CI configurations](/semgrep-ci/sample-ci-configs/) you need to ensure that the following environment variables are correctly defined:
+If you are using **GitHub Actions** to run Semgrep, no extra changes are needed to get PR comments.
+
+If you are using a **self-hosted GitHub plan**, such as **GitHub Enterprise Server**, see [Receiving PR or MR comments in your VPN or on-premise SCM](/semgrep-cloud-platform/scm/#receiving-pr-or-mr-comments-in-your-vpn-or-on-premise-scm) for steps to enable PR comments.
+
+If you are using **another CI provider**, in addition to the environment variables you set after following [sample CI configurations](/semgrep-ci/sample-ci-configs/) you must ensure that the following environment variables are correctly defined:
 
 - `SEMGREP_PR_ID` is set to the PR number of the pull request on GitHub (for example, `2901`)
 - `SEMGREP_REPO_NAME` is set to the repository name (for example, `returntocorp/semgrep`)

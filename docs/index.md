@@ -44,9 +44,17 @@ Its rules look like the code you already write; no abstract syntax trees, regex 
 The Semgrep ecosystem includes the following products:
 
 * [Semgrep OSS Engine](getting-started/) - The open-source engine at the heart of everything.
-* [Semgrep Cloud Platform (SCP)](semgrep-cloud-platform/getting-started) - Deploy, manage, and monitor SAST and SCA at scale using Semgrep, with [free and paid tiers](https://semgrep.dev/pricing). Integrates with continuous integration (CI) providers such as GitHub, GitLab, CircleCI, and more.
-* [Semgrep Code](https://semgrep.dev/products/semgrep-code) - Scan your code with Semgrep's Pro rules and Semgrep Pro Engine to find OWASP Top 10 vulnerabilities and protect against critical security risks specific to your organization. Semgrep Code is free for up to 10 developers through its Team tier.
-* [Semgrep Supply Chain (SSC)](https://semgrep.dev/products/semgrep-supply-chain) - A high-signal dependency scanner that detects reachable vulnerabilities in open source third-party libraries and functions across the software development life cycle (SDLC). Semgrep Supply Chain is free for up to 10 developers through its Team tier.
+* [Semgrep Cloud Platform (SCP)](semgrep-cloud-platform/getting-started) - Deploy, manage, and monitor SAST, SCA, and leaked secrets at scale using Semgrep Integrates with continuous integration (CI) providers such as GitHub, GitLab, CircleCI, and more.
+* [Semgrep Code](https://semgrep.dev/products/semgrep-code) - Scan your code with Semgrep's Pro rules and Semgrep Pro Engine to find OWASP Top 10 vulnerabilities and protect against critical security risks specific to your organization.
+* [Semgrep Supply Chain (SSC)](https://semgrep.dev/products/semgrep-supply-chain) - A high-signal dependency scanner that detects reachable vulnerabilities in open source third-party libraries and functions across the software development life cycle (SDLC).
+* [Semgrep Secrets](https://semgrep.dev/products/semgrep-secrets) - A secrets scanner that detects valid secrets in your codebase through semantic analysis, entropy analysis, and validation. 
+
+:::tip
+The following products are **free** for up to 10 contributors:
+* Semgrep Cloud Platform
+* Semgrep Code
+* Semgrep Secrets
+:::
 
 Support and be supported by the Semgrep community through:
 
@@ -68,7 +76,6 @@ Semgrep Code supports over 30 languages and counting! 🚀 Visit [Semgrep Code's
 ### Semgrep Supply Chain
 
 Semgrep Supply Chain supports Go, Javascript/Typescript, Python, Ruby, and Java. 🛡️ Visit [Semgrep Supply Chain's supported languages](/docs/supported-languages#semgrep-supply-chain) to see all the package managers and lockfiles supported. 
-
 
 ## Environments
 
