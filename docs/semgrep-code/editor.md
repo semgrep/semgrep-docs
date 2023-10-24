@@ -166,7 +166,7 @@ Adding a rule to the Policies page applies the rule across all projects scanned 
 To add a rule to the Policies page:
 
 1. Click **Add to Policy**.
-2. Select which [rule mode](docs/semgrep-code/policies/#rule-pane-in-detail) (Monitor, Comment, or Block) to set the rule to, depending on the rule’s relevance.
+2. Select which [rule mode](/semgrep-code/policies/#blocking-a-pr-or-mr-through-rule-modes) (Monitor, Comment, or Block) to set the rule to, depending on the rule’s relevance.
 
 The rule appears in your Policy page with the mode it is set to.
 
