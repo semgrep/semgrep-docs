@@ -38,7 +38,7 @@ These endpoints take the following parameters:
 * `engagement_name`: The name of the engagement you created the preceding "Integration" section. In this example, `semgrep`.
 
 :::info
-The DefectDojo API allows to use ID instead of names for the parameters, such as product_id or engangement_id. In the example we will follow the "By name" approach.
+The DefectDojo API allows identifying the parameters either by name or by ID. This example follows the **By name** approach.
 :::
 
 Here is an example snippet of a Python function using this endpoint:
