@@ -17,7 +17,7 @@ Follow these steps to prepare DefectDojo and generate Semgrep findings in the pr
     2. In that DefectDojo product, create an [engagement](https://defectdojo.github.io/django-DefectDojo/usage/models/#engagement), called `semgrep`. This is a CI/CD engagement type and the name designates the CI/CD tool used.
 2. Run a semgrep scan with flags `--json --output report.json` to generate a JSON report.
 
-Now, you are ready to use the [DefectDojo API](https://defectdojo.github.io/django-DefectDojo/integrations/api-v2-docs/).
+Now, you are ready to use the [DefectDojo API](https://demo.defectdojo.org/api/v2/oa3/swagger-ui/).
 
 ### DefectDojo API example 
 
@@ -125,6 +125,17 @@ In the example, the values are:
 * `DEFECTDOJO_URL` = http://localhost:8080/ (Local DefectDojo deployment)
 * `PRODUCT` = chess-game
 * `IMPORT_SEMGREP_TO_DEFECTDOJO_SHA_CHECKSUM` = c41aed4055adeee415b795cc17a069b144fb51bc31f6c4925be3b82d0b54de33 Uimport_semgrep_to_defect_dojo.py
+
+The content for this last variable was generated with the following command:
+`shasum -a 256 -U import_semgrep_to_defect_dojo.py`
+it will generate an unique key taking as input the content of the script and it will be used to verify the integrity. 
+
+In the pipeline, the integrity of the script is verified with the following commands:
+```
+echo $IMPORT_SEMGREP_TO_DEFECTDOJO_SHA_CHECKSUM > sha-import-dd.tmp
+shasum -a 256 -U -c sha-import-dd.tmp
+```
+If the script has not been tampered, the pipeline will continue normal execution, otherwise it will stop and return an error.
 
 Example DefectDojo screenshot, after a pipeline execution:
 ![image info](/img/kb/integration-defectdojo-example.png)
