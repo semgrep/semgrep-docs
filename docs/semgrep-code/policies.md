@@ -22,7 +22,7 @@ Object.entries(frontMatter).filter(
 
 # Policies
 
-Increase the breadth and depth of your scan coverage or remove noise from scans through the Policies page. Block or permit pull requests (PRs) or merge requests (MRs) from merging based on the rule that detected the finding.
+Increase the breadth and depth of your scan coverage or remove noise from scans through the Policies page. Block or allow merges for pull requests (PRs) or merge requests (MRs) based on the rule that detected the finding.
 
 The Policies page displays a visual representation of the rules that Semgrep Code uses for scanning. By default, the same rules in Policies are applied to all repositories.
 
