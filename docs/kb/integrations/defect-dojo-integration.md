@@ -135,7 +135,7 @@ In the pipeline, the integrity of the script is verified with the following comm
 echo $IMPORT_SEMGREP_TO_DEFECTDOJO_SHA_CHECKSUM > sha-import-dd.tmp
 shasum -a 256 -U -c sha-import-dd.tmp
 ```
-If the script has not been tampered, the pipeline will continue normal execution, otherwise it will stop and return an error.
+If the script has not changed since the checksum was generated, the pipeline will continue normal execution. Otherwise it will stop and return an error.
 
 Example DefectDojo screenshot, after a pipeline execution:
 ![image info](/img/kb/integration-defectdojo-example.png)
