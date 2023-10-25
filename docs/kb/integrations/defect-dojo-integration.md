@@ -128,7 +128,7 @@ In the example, the values are:
 
 The content for this last variable was generated with the following command:
 `shasum -a 256 -U import_semgrep_to_defect_dojo.py`
-it will generate an unique key taking as input the content of the script and it will be used to verify the integrity. 
+This command generates a unique checksum, taking as input the content of the script, and it will be used to verify that the script has not changed. 
 
 In the pipeline, the integrity of the script is verified with the following commands:
 ```
