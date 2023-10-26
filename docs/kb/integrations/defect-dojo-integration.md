@@ -14,10 +14,10 @@ Follow these steps to prepare DefectDojo and generate Semgrep findings in the pr
 
 1. In DefectDojo:
     1. Create your [**product**](https://defectdojo.github.io/django-DefectDojo/usage/models/#products).
-    2. In that DefectDojo product, create an [engagement](https://defectdojo.github.io/django-DefectDojo/usage/models/#engagement) called `semgrep`. This is a CI/CD engagement type.
+    2. In that DefectDojo product, create an [engagement](https://defectdojo.github.io/django-DefectDojo/usage/models/#engagement), called `semgrep`. This is a CI/CD engagement type and the name designates the CI/CD tool used.
 2. Run a semgrep scan with flags `--json --output report.json` to generate a JSON report.
 
-Now, you are ready to use the [DefectDojo API](https://defectdojo.github.io/django-DefectDojo/integrations/api-v2-docs/).
+Now, you are ready to use the [DefectDojo API](https://demo.defectdojo.org/api/v2/oa3/swagger-ui/).
 
 ### DefectDojo API example 
 
@@ -36,6 +36,10 @@ These endpoints take the following parameters:
 * `scan_type`: A descriptive name for the scan type. In this example, the scan type is "Semgrep JSON Report`".
 * `product_name`: The name of the product in DefectDojo to send the Semgrep findings report to.
 * `engagement_name`: The name of the engagement you created the preceding "Integration" section. In this example, `semgrep`.
+
+:::info
+The DefectDojo API allows identifying the parameters either by name or by ID. This example follows the **By name** approach.
+:::
 
 Here is an example snippet of a Python function using this endpoint:
 
@@ -108,6 +112,33 @@ import-semgrep-to-defectdojo:
 :::tip
 As a good security practice, this pipeline includes checksum validation for the import script, to ensure that the script has not been tampered with.
 :::
+
+There are some environment variables defined in the `gitlab-ci.yml` file, such as:
+* `DEFECTDOJO_URL`
+* `PRODUCT`
+* `IMPORT_SEMGREP_TO_DEFECTDOJO_SHA_CHECKSUM`
+
+They must be defined in the GitLab pipeline. Settings->CI/CD->Variables:
+![image info](/img/kb/integration-defectdojo-gitlab-variables.png)
+
+In the example, the values are:
+* `DEFECTDOJO_URL` = http://localhost:8080/ (Local DefectDojo deployment)
+* `PRODUCT` = chess-game
+* `IMPORT_SEMGREP_TO_DEFECTDOJO_SHA_CHECKSUM` = c41aed4055adeee415b795cc17a069b144fb51bc31f6c4925be3b82d0b54de33 Uimport_semgrep_to_defect_dojo.py
+
+The content for this last variable was generated with the following command:
+`shasum -a 256 -U import_semgrep_to_defect_dojo.py`
+This command generates a unique checksum, taking as input the content of the script, and it will be used to verify that the script has not changed. 
+
+In the pipeline, the integrity of the script is verified with the following commands:
+```
+echo $IMPORT_SEMGREP_TO_DEFECTDOJO_SHA_CHECKSUM > sha-import-dd.tmp
+shasum -a 256 -U -c sha-import-dd.tmp
+```
+If the script has not changed since the checksum was generated, the pipeline will continue normal execution. Otherwise it will stop and return an error.
+
+Example DefectDojo screenshot, after a pipeline execution:
+![image info](/img/kb/integration-defectdojo-example.png)
 
 ## Conclusions
 
