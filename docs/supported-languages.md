@@ -161,7 +161,7 @@ Semgrep Supply Chain parses **lockfiles** for dependencies, then scans your code
   </tr>
   <tr>
    <td>Maven</td>
-   <td>Maven-generated dependency tree (See <a href="/docs/semgrep-supply-chain/getting-started/#apache-maven-java">Setting up SSC scans for Apache Maven</a> for instructions.)</td>
+   <td>Maven-generated dependency tree (See <a href="/docs/semgrep-supply-chain/setup-maven/">Setting up SSC scans for Apache Maven</a> for instructions.)</td>
    <td style={{"text-align": "center"}}>GA</td>
    <td>✔️</td>
   </tr>
