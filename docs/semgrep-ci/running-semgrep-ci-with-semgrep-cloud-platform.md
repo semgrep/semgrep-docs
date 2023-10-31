@@ -142,7 +142,7 @@ jobs:
 
     steps:
       - uses: actions/checkout@v3
-      - run: semgrep scan --sarif --output=semgrep.sarif --config=policy
+      - run: semgrep scan --sarif --config=policy > semgrep.sarif
         env:
           SEMGREP_APP_TOKEN: ${{ secrets.SEMGREP_APP_TOKEN }}
       - name: Upload SARIF file for GitHub Advanced Security Dashboard
