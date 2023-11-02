@@ -36,7 +36,7 @@ OPTIONS
            Note that this mode is experimental and not guaranteed to function
            properly. 
 
-       --allow-untrusted-postprocessors
+       --allow-untrusted-validators
            Run postprocessors from untrusted sources.
 
        --ast-caching
@@ -233,6 +233,9 @@ OPTIONS
 
        --no-rewrite-rule-ids
            negates --rewrite-rule-ids
+
+       --no-secrets-validation
+           Disables secrets validation
 
        --no-strict
            negates --strict
