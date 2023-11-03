@@ -30,7 +30,7 @@ The **general steps** to enable Semgrep Supply Chain to correctly parse Maven pr
 :::caution
 * Ensure that Maven is installed in the build environment that is used to generate the dependency trees.
 * Ensure that you generate dependency trees before running Semgrep.
-* This approach works for full scans. It does not work for [diff-aware scans](/docs/semgrep-ci/running-semgrep-ci-with-semgrep-cloud-platform/#diff-aware-scanning) unless the generated file is also tracked by git.
+* This approach works for full scans. It does not work for [diff-aware scans](/docs/semgrep-ci/running-semgrep-ci-with-semgrep-cloud-platform/#diff-aware-scanning) because the generated file is not tracked by git.
 :::
 
 You can perform the general steps in a local environment for testing. The following screenshot displays the commands running in a local environment:
