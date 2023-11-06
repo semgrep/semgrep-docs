@@ -60,7 +60,7 @@ jobs:
 
     steps:
       - uses: actions/checkout@v3
-      - run: semgrep ci --sarif --output=semgrep.sarif
+      - run: semgrep ci --sarif > semgrep.sarif
         env:
           SEMGREP_APP_TOKEN: ${{ secrets.SEMGREP_APP_TOKEN }}
 
