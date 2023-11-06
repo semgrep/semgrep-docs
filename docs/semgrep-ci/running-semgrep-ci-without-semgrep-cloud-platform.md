@@ -177,9 +177,9 @@ To save or export findings, pass file format options and send the formatted find
 
 For example, to save to a JSON file:
 
-`semgrep ci --json --output findings.json`
+`semgrep ci --json > findings.json`
 
-You can also use output redirection (`>`):
+You can also use the SARIF format:
 
 `semgrep ci --sarif > findings.sarif`
 

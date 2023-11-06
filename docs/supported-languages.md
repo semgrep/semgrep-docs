@@ -68,6 +68,8 @@ Their differences are outlined in the following table:
 | Parse Rate  | 99%+ | 95%+ | 90%+ | 
 | Number of rules  | 10+ | 5+ | 0+ | 
 | Semgrep syntax | Regexp, equivalence, deep expression operators, types and typing. All features supported in Beta. | Complete metavariable support, metavariable equality. All features supported in Experimental. | Syntax, ellipsis operator, basic metavariable functionality.|
+| Support | Highest quality support by the Semgrep team. Reported issues are resolved promptly. | Supported by the Semgrep team. Reported issues are fixed after GA languages. | There are limitations to this language's functionality. Reported issues are tracked and prioritized with best effort.|
+
 
 ### More information
 Visit the cheat sheet generation script and associated semgrep-core test files to learn more about each feature:
@@ -161,7 +163,7 @@ Semgrep Supply Chain parses **lockfiles** for dependencies, then scans your code
   </tr>
   <tr>
    <td>Maven</td>
-   <td>Maven-generated dependency tree (See <a href="/docs/semgrep-supply-chain/getting-started/#apache-maven-java">Setting up SSC scans for Apache Maven</a> for instructions.)</td>
+   <td>Maven-generated dependency tree (See <a href="/docs/semgrep-supply-chain/setup-maven/">Setting up SSC scans for Apache Maven</a> for instructions.)</td>
    <td style={{"text-align": "center"}}>GA</td>
    <td>✔️</td>
   </tr>
