@@ -38,6 +38,7 @@ todo add image <!--settings-scm-remove -->
 	- Finding detail page
 	- Projects page
 - Fixed an issue where the **Delete user** functionality did not work for some Semgrep orgs. <!-- (#10756) -->
+- Corrected SARIF output by adding back a missing dict item.
 
 ### Changed
 
@@ -47,16 +48,41 @@ todo add image <!--settings-scm-remove -->
 
 ### Fixed
 
-- Speed and stability improvements.
-
+- Speed and stability improvements across the product. Semgrep Code pages, such as Findings and Policies, now load faster.
 
 ## ⛓️ Semgrep Supply Chain
 
-## 🤖 Semgrep Assistant (beta)
+### Added
+
+- Added a new, public [<i class="fas fa-external-link fa-xs"></i> Semgrep Supply Chain API](https://semgrep.dev/api/v1/docs/#tag/SupplyChainService) where you can filter and query third-party vulnerability findings by a variety of parameters, such as:
+    - Severity
+    - Repository
+    - Exposure
+- **C# reachability** is now **GA (generally available)**. Semgrep Supply Chain has added reachability rule support for all C# CVEs from May 2022 onward.
+- **SBOM export:** Add vulnerabilities enriched with reachability analysis to export SBOMs. <!-- (#10879 ) -->
+- Dependency license scanning:
+    - Added support for NuGet (C#) license detection. <!-- (10777) -->
+    - Added support for RubyGems (Ruby) license detection.
+- **Advisories:** Added a tooltip displaying the date when a CVE Numbering Authority (CNA) created the security advisory. [<i class="fas fa-external-link fa-xs"></i> CVE Numbering Authorities](https://nvd.nist.gov/general/cve-process) include the MITRE Corporation. These dates are not assigned by Semgrep, Inc. <!-- (10743) -->
+<!-- todo add image -->
+
+### Fixed
+
+* **SBOM (software bill of materials) export:** Fixed an issue where SBOM export failed when encountering dependencies with empty names.
+* **Vulnerabilities page:** Fixed an issue where triage states did not update until a page refresh. Triage states now update as the user performs a triage action. <!-- (10887) -->
+
+### Changed
+
+- **SBOM export:** The name of the exported SBOM file now follows the following format: `sbom-<org_name>-<repo_name>-<MM-DD-YY_H-m-s>--<serial_number>.<xml|json>` <!-- (10850) -->
 
 ## 🔐 Semgrep Secrets (beta)
 
 ### Added
+* Semgrep Secrets is now in **public beta**.
+
+### Fixed
+
+- Fixed links to branches in GitLab self-hosted repositories. <!-- (#10897) -->
 
 ## 📝 Documentation and knowledge base
 
@@ -69,6 +95,7 @@ todo add image <!--settings-scm-remove -->
 ### Changed
 
 - The Policies documentation has been improved.
+
 ### Fixes
 
 * Various improvements to knowledge base articles.
