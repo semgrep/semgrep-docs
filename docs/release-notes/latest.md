@@ -22,7 +22,7 @@ tags:
 ## 🌐 Semgrep Cloud Platform
 
 ### Added
-- Added a button to **Remove** source code manager (SCM) apps. This is helpful when you may have a malconfigured SCM app, such as GitHub's `semgrep-app`, and want to reinstall it. <!--(10688)--> To remove an SCM, click **<i class="fa-solid fa-gear"></i> Settings > Source code managers**.
+- Added a button to **Remove** source code manager (SCM) apps. This is helpful when you have a misconfigured SCM app, such as GitHub's `semgrep-app`, and want to reinstall it. <!--(10688)--> To remove an SCM, click **<i class="fa-solid fa-gear"></i> Settings > Source code managers**.
 ![Remove your source code manager](/img/settings-scm-remove.png)
 - Added Semgrep Assistant to the new onboarding flow. <!--(10716) -->
 - **OpenAPI:** Renamed instances of r2c to Semgrep. <!--(10685) -->
