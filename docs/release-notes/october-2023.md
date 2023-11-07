@@ -97,7 +97,7 @@ tags:
 * Added Semgrep Secrets documentation:
 	* [<i class="fa-regular fa-file-lines"></i> Conceptual overview of Semgrep Secrets](/semgrep-secrets/conceptual-overview)
 	* [<i class="fa-regular fa-file-lines"></i> Getting started with Semgrep Secrets](/semgrep-secrets/getting-started)
-* Added Required rulesets
+* Added [<i class="fa-regular fa-file-lines"></i> Repository rulesets](/kb/semgrep-ci/github-repository-rulesets-semgrep/) knowledgebase article. This article explains how to scale Semgrep across many GitHub repositories.
 
 ### Changed
 
