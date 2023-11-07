@@ -157,17 +157,10 @@ rules:
 
 <dl>
     <dt>Cross-file</dt>
-    <dd>The cross-file analysis (also called interfile analysis) gathers context across multiple files to help security engineers deeply understand their organization's security issues. Semgrep Pro Engine reduces noise and detects new vulnerabilities that Semgrep OSS Engine can't find. Cross-file analysis runs on nightly scans. These scans may take longer to complete and can use more memory than Semgrep OSS Engine scans. See the available languages for cross-file (interfile) analysis in <a href="/docs/supported-languages/#semgrep-pro-engine">Semgrep Pro Engine supported languages</a>.</dd>
+    <dd>The cross-file analysis (interfile analysis) looks across multiple files to help security engineers find more of their organization's security issues. Semgrep Pro Engine reduces noise and detects new OWASP Top 10 vulnerabilities that Semgrep OSS Engine can't find. By default, cross-file analysis runs on PRs and nightly scans. These scans may take longer to complete and can use more memory than Semgrep OSS Engine scans. See the available languages for cross-file (interfile) analysis in <a href="/docs/supported-languages/#semgrep-pro-engine">Semgrep Pro Engine supported languages</a>.</dd>
     <dt>Cross-function</dt>
-    <dd>The cross-function analysis (also called interprocedural analysis) keeps the fast scan times of Semgrep OSS Engine while also finding new vulnerabilities that cross functions within a single file. Cross-function (interprocedural) analysis improves results in pull requests (PRs) or merge requests (MRs) through CI scans. The interprocedural analysis is available for all languages listed as GA on the <a href="/docs/supported-languages/">Supported languages</a> page</dd>
+    <dd>The cross-function analysis (interprocedural analysis) finds new vulnerabilities that cross-function within a single file, and are available for all languages as listed on <a href="/docs/supported-languages/">Supported languages</a> page</dd>
 </dl>
-
-### Semgrep Pro Engine CI scans
-
-By default, when you use Semgrep Pro Engine in CI:
-
-- PR and MR scans (triggered by opening a new PR or MR, or when a new changes are introduced to a PR or MR) use cross-function (interprocedural) analysis, limited to single files. This is a fast scan, that crosses the boundaries of individual functions in each file.
-- Full scans, also called scheduled cron job or nightly scans use cross-file (interfile) and cross-function (interprocedural) analysis. This type of scan finds complex vulnerabilities that cross the boundaries of single files and functions, providing security teams with deeper analysis. This type of scan also requires more time. 
 
 #### Semgrep Pro Engine CI scan issues
 
