@@ -159,7 +159,7 @@ Semgrep Supply Chain parses **lockfiles** for dependencies, then scans your code
    <td>Gradle</td>
    <td><code>gradle.lockfile</code></td>
    <td style={{"text-align": "center"}}>GA</td>
-   <td>❌</td>
+   <td>✔️</td>
   </tr>
   <tr>
    <td>Maven</td>
