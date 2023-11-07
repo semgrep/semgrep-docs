@@ -105,5 +105,5 @@ tags:
 
 ### Fixes
 
-* Various improvements to knowledgebase articles.
+* Various improvements to knowledge base articles.
 
