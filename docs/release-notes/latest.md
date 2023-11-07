@@ -26,7 +26,6 @@ tags:
 ![Remove your source code manager](/img/settings-scm-remove.png)
 - Added Semgrep Assistant to the new onboarding flow. <!--(10716) -->
 - **OpenAPI:** Renamed instances of r2c to Semgrep. <!--(10685) -->
-- **Projects page:** Added a new column to display a Semgrep Secrets counter. This counter counts all secrets regardless of validation state. <!--(10588)-->
 - **CLI login:** New users are now directed to create a Semgrep org when they are logging in for the first time to Semgrep Cloud Platform from the CLI. <!-- (10596) -->
 
 ### Fixed
@@ -37,7 +36,6 @@ tags:
 	- Finding detail page
 	- Projects page
 - Fixed an issue where the **Delete user** functionality did not work for some Semgrep orgs. <!-- (#10756) -->
-- Corrected SARIF output by adding back a missing dict item.
 
 ### Changed
 
@@ -84,7 +82,9 @@ tags:
 ## 🔐 Semgrep Secrets (beta)
 
 ### Added
-* Semgrep Secrets is now in **public beta**.
+
+- Semgrep Secrets is now in **public beta**.
+- **Projects page:** Added a new column to display a Semgrep Secrets counter. This counter counts all secrets regardless of validation state. <!--(10588)-->
 
 ### Fixed
 
@@ -106,3 +106,4 @@ tags:
 ### Fixes
 
 * Various improvements to knowledgebase articles.
+
