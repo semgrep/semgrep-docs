@@ -24,7 +24,7 @@ tags:
 
 ### Added
 - Added a button to **Remove** source code manager (SCM) apps. This is helpful when you may have a malconfigured SCM app, such as GitHub's `semgrep-app`, and want to reinstall it. <!--(10688)--> To remove an SCM, click **<i class="fa-solid fa-gear"></i> Settings > Source code managers**.
-todo add image <!--settings-scm-remove -->
+![Remove your source code manager](/img/settings-scm-remove.png)
 - Added Semgrep Assistant to the new onboarding flow. <!--(10716) -->
 - **OpenAPI:** Renamed instances of r2c to Semgrep. <!--(10685) -->
 - **Projects page:** Added a new column to display a Semgrep Secrets counter. This counter counts all secrets regardless of validation state. <!--(10588)-->
@@ -64,7 +64,7 @@ todo add image <!--settings-scm-remove -->
     - Added support for NuGet (C#) license detection. <!-- (10777) -->
     - Added support for RubyGems (Ruby) license detection.
 - **Advisories:** Added a tooltip displaying the date when a CVE Numbering Authority (CNA) created the security advisory. [<i class="fas fa-external-link fa-xs"></i> CVE Numbering Authorities](https://nvd.nist.gov/general/cve-process) include the MITRE Corporation. These dates are not assigned by Semgrep, Inc. <!-- (10743) -->
-<!-- todo add image -->
+![Tooltip of advisory creation date](/img/advisories-date-created.png#bordered)
 
 ### Fixed
 
