@@ -23,8 +23,8 @@ tags:
 ## 🌐 Semgrep Cloud Platform
 
 ### Added
-- Added a button to **Remove** source code manager (SCM) apps. This is helpful when you may have a malconfigured SCM app, such as GitHub's `semgrep-app`, and want to reinstall it. <!--(10688)--> To remove an SCM, click **<i class="fa-solid fa-gear"></i> Settings > Source code managers**.
-![Remove your source code manager](/img/settings-scm-remove.png)
+- Added a button to **Remove** source code manager (SCM) apps. This is helpful when you have a misconfigured SCM app, such as GitHub's `semgrep-app`, and want to reinstall it. <!--(10688)--> To remove an SCM, click **<i class="fa-solid fa-gear"></i> Settings > Source code managers**.
+    ![Remove your source code manager](/img/settings-scm-remove.png)
 - Added Semgrep Assistant to the new onboarding flow. <!--(10716) -->
 - **OpenAPI:** Renamed instances of r2c to Semgrep. <!--(10685) -->
 - **CLI login:** New users are now directed to create a Semgrep org when they are logging in for the first time to Semgrep Cloud Platform from the CLI. <!-- (10596) -->
@@ -94,17 +94,17 @@ tags:
 ## 📝 Documentation and knowledge base
 
 ### Added
-* Added Semgrep Secrets documentation:
-	* [<i class="fa-regular fa-file-lines"></i> Conceptual overview of Semgrep Secrets](/semgrep-secrets/conceptual-overview)
-	* [<i class="fa-regular fa-file-lines"></i> Getting started with Semgrep Secrets](/semgrep-secrets/getting-started)
-* Added [<i class="fa-regular fa-file-lines"></i> Repository rulesets](/kb/semgrep-ci/github-repository-rulesets-semgrep/) knowledgebase article. This article explains how to scale Semgrep across many GitHub repositories.
-- Created automated job to sync the help output of the Semgrep CLI tool with CLI reference 
+- Added Semgrep Secrets documentation:
+	- [<i class="fa-regular fa-file-lines"></i> Conceptual overview of Semgrep Secrets](/semgrep-secrets/conceptual-overview)
+	- [<i class="fa-regular fa-file-lines"></i> Getting started with Semgrep Secrets](/semgrep-secrets/getting-started)
+- Added [<i class="fa-regular fa-file-lines"></i> Repository rulesets](/kb/semgrep-ci/github-repository-rulesets-semgrep/) knowledge base article. This article explains how to scale Semgrep across many GitHub repositories.
+- Created automated job to sync the help output of the Semgrep CLI tool with [<i class="fa-regular fa-file-lines"></i> CLI reference](/cli-reference).
 
 ### Changed
 
-- The Policies documentation has been improved.
+- The [<i class="fa-regular fa-file-lines"></i> Policies](/semgrep-code/policies) documentation has been improved.
 
 ### Fixes
 
-* Various improvements to knowledgebase articles.
+* Various improvements to knowledge base articles.
 
