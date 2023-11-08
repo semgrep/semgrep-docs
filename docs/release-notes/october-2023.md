@@ -48,7 +48,7 @@ tags:
 
 - Speed and stability improvements across the product. Semgrep Code pages, such as Findings and Policies, now load faster.
 - **Semgrep Assistant:** Component tags are now visible for all Assistant users.
-    - **Component tags** use GPT-4 to categorize your code based on its function, such as:
+    - **Component tags** use GPT-4 to categorize a finding based on its function, such as:
         - Payments
         - User authentication
         - Infrastructure
