@@ -85,9 +85,6 @@ To enable this feature within self-hosted SCMs behind firewalls or VPNs (Virtual
 
 1. Add the following IP addresses to your VPN's **ingress** allowlist.
      ```bash
-    # This IP address is outbound:
-    52.34.175.113
-
     # These IP addresses are inbound and outbound:
     35.166.231.235
     52.35.248.246
