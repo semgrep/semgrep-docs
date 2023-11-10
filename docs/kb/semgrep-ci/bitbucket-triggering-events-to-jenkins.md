@@ -19,7 +19,6 @@ It allows you to trigger builds on Bitbucket's push and pull requests events.
 * Jenkins and Bitbucket must be visible to each other.
 :::
 
-:::note
 Read the plugin documentation to review it is compatible with your Jenkins instance.
 :::
 
