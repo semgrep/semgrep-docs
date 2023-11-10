@@ -23,7 +23,7 @@ It allows you to trigger builds on Bitbucket's push and pull requests events.
 The steps to set up the webhook are the following:
 
 1. From your Bitbucket repository click on **Repository Settings > Webhooks > Add webhook**
-![image info](/img/kb/ci-bitbucket-defining-webhook.png)
+![A Bitbucket repository's Webhooks page](/img/kb/ci-bitbucket-defining-webhook.png)
 * Put a name to the webhook.
 * Specify the URL. It must be `https://<YOUR_JENKINS_SERVER>/bitbucket-hook/`
 * Select Triggers for “Push” and “Pull requests Created and Updated”.
