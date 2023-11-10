@@ -19,7 +19,6 @@ It allows you to trigger builds on Bitbucket's push and pull requests events.
 * Jenkins and Bitbucket must be visible to each other.
 :::
 
-:::
 
 The steps to setup the webhook are the following:
 
