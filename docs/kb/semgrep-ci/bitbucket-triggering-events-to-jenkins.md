@@ -33,6 +33,6 @@ The steps to setup the webhook are the following:
 * Put a name to the webhook.
 * Specify the URL. It must be `https://<YOUR_JENKINS_SERVER>/bitbucket-hook/`
 * Select Triggers for “Push” and “Pull requests Created and Updated”.
-![image info](/img/kb/ci-bitbucket-select-triggers.png)
+![Webhook set up page](/img/kb/ci-bitbucket-select-triggers.png)
 
 Now the webhook is set on the Bitbucket side. You can use it from your Jenkins instance.
