@@ -7,7 +7,6 @@ description: How to trigger events from the Bitbucket server to a Jenkins instan
 ---
 # Triggering events from Bitbucket to Jenkins
 
-## Motivation
 
 A common scenario for many organizations is having:
 * Bitbucket (Cloud or Server) as Source Code Management system to manage source code repositories.
