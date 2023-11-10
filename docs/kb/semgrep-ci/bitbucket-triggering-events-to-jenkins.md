@@ -16,7 +16,8 @@ It allows you to trigger builds on Bitbucket's push and pull requests events.
 
 :::info Prerequisites
 * You must install the [<i class="fas fa-external-link fa-xs"></i> Bitbucket Push and Pull Request](https://plugins.jenkins.io/bitbucket-push-and-pull-request/) plugin on your the Jenkins server. This method requires that your Jenkins instance is compatible with this plugin.
-* Having network visibility between the two platforms.
+* Jenkins and Bitbucket must be visible to each other.
+:::
 
 :::note
 Read the plugin documentation to review it is compatible with your Jenkins instance.
