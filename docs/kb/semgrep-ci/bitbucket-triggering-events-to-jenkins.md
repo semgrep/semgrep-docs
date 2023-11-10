@@ -20,7 +20,7 @@ It allows you to trigger builds on Bitbucket's push and pull requests events.
 :::
 
 
-The steps to setup the webhook are the following:
+The steps to set up the webhook are the following:
 
 * For a specific Bitbucket repository click on **Repository Settings**->**Webhooks**->**Add Webhook**
 ![image info](/img/kb/ci-bitbucket-defining-webhook.png)
