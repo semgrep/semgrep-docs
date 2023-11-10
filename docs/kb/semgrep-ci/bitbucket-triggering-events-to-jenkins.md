@@ -12,7 +12,7 @@ This guide walks you through connecting your Bitbucket source code manager (SCM)
 
 ## Defining a Bitbucket webhook 
 One way to connect Bitbucket (Cloud or Server) to a Jenkins instance is defining a Bitbucket webhook.
-It will allow us to trigger builds on Bitbucket's push and pull requests events.
+It allows you to trigger builds on Bitbucket's push and pull requests events.
 
 There are two requirements to comply:
 * Installing the plugin ["Bitbucket Push and Pull Request"](https://plugins.jenkins.io/bitbucket-push-and-pull-request/) on the Jenkins server.
