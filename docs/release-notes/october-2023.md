@@ -29,6 +29,10 @@ tags:
 - **OpenAPI:** Renamed instances of r2c to Semgrep. <!--(10685) -->
 - **CLI login:** New users are now directed to create a Semgrep org when they are logging in for the first time to Semgrep Cloud Platform from the CLI. <!-- (10596) -->
 
+### Changed
+
+- Updated the default CircleCI YAML snippet to include full and diff scans. <!-- (#10678) -->
+
 ### Fixed
 
 - Fixed UI issues in the new onboarding flow.
@@ -38,17 +42,13 @@ tags:
 	- Projects page
 - Fixed an issue where the **Delete user** functionality did not work for some Semgrep orgs. <!-- (#10756) -->
 
-### Changed
-
-- Updated the default CircleCI YAML snippet to include full and diff scans. <!-- (#10678) -->
-
 ## 💻 Semgrep Code
 
 ### Fixed
 
 - Speed and stability improvements across the product. Semgrep Code pages, such as Findings and Policies, now load faster.
 - **Semgrep Assistant:** Component tags are now visible for all Assistant users.
-    - **Component tags** use GPT-4 to categorize your code based on its function, such as:
+    - **Component tags** use GPT-4 to categorize a finding based on its function, such as:
         - Payments
         - User authentication
         - Infrastructure
@@ -71,14 +71,14 @@ tags:
 - **Advisories:** Added a tooltip displaying the date when a CVE Numbering Authority (CNA) created the security advisory. [<i class="fas fa-external-link fa-xs"></i> CVE Numbering Authorities](https://nvd.nist.gov/general/cve-process) include the MITRE Corporation. These dates are not assigned by Semgrep, Inc. <!-- (10743) -->
 ![Tooltip of advisory creation date](/img/advisories-date-created.png#bordered)
 
-### Fixed
-
-* **SBOM (software bill of materials) export:** Fixed an issue where SBOM export failed when encountering dependencies with empty names.
-* **Vulnerabilities page:** Fixed an issue where triage states did not update until a page refresh. Triage states now update as the user performs a triage action. <!-- (10887) -->
-
 ### Changed
 
-- **SBOM export:** The name of the exported SBOM file now follows the following format: `sbom-<org_name>-<repo_name>-<MM-DD-YY_H-m-s>--<serial_number>.<xml|json>` <!-- (10850) -->
+- **SBOM (software bill of materials) export:** The name of the exported SBOM file now follows the following format: `sbom-<org_name>-<repo_name>-<MM-DD-YY_H-m-s>--<serial_number>.<xml|json>` <!-- (10850) -->
+
+### Fixed
+
+* **SBOM export:** Fixed an issue where SBOM export failed when encountering dependencies with empty names.
+* **Vulnerabilities page:** Fixed an issue where triage states did not update until a page refresh. Triage states now update as the user performs a triage action. <!-- (10887) -->
 
 ## 🔐 Semgrep Secrets (beta)
 
@@ -104,7 +104,7 @@ tags:
 
 - The [<i class="fa-regular fa-file-lines"></i> Policies](/semgrep-code/policies) documentation has been improved.
 
-### Fixes
+### Fixed
 
 * Various improvements to knowledge base articles.
 
