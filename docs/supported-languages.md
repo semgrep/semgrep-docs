@@ -45,10 +45,10 @@ Semgrep Code supports over 30 languages and counting! 🚀
 ### Maturity levels
 
 #### Language maturity factors (Pro Engine)
+
 Semgrep Pro Engine has two maturity levels:
 * Generally available (GA) 
 * Beta
-
 
 **Generally Available**: Receives highest quality support from the Semgrep team. Reported issues are resolved promptly and timelines for fixes are communicated to customers within 2 weeks.
 
