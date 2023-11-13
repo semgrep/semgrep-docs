@@ -423,6 +423,7 @@ module.exports = {
         'semgrep-supply-chain/notifications',
         'semgrep-supply-chain/dependency-search',
         'semgrep-supply-chain/license-compliance',
+        'semgrep-supply-chain/sbom',
         'semgrep-supply-chain/glossary'
       ]
     },
