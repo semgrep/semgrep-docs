@@ -24,7 +24,7 @@ import MoreHelp from "/src/components/MoreHelp"
 Semgrep Cloud Platform supports SSO through [OpenID Connect / OAuth2](#openid-connect--oauth2) and [SAML 2.0](#saml-20).
 
 :::warning
-If you are planning to connect your Semgrep organization to GitHub organization, follow the steps at [Creating a Semgrep organization account](/docs/semgrep-cloud-platform/user-management/#creating-a-semgrep-organization-account) first to connect to GitHub. You can add SSO later.
+If you are planning to connect your Semgrep organization to your GitHub organization, follow the steps at [Creating a Semgrep organization account](/docs/semgrep-cloud-platform/user-management/#creating-a-semgrep-organization-account) first to connect to GitHub. Then, add SSO.
 
 :::info
 Add users through your Single Sign On provider without any additional steps in Semgrep Cloud Platform after you configure the SSO for your organization. The only required steps to ensure that users are added to Semgrep Cloud Platform are on the side of the SSO provider. There are **no** additional emails with links. When you follow the SSO steps, you are able to add users with one click. 
