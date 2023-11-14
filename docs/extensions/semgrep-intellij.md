@@ -41,6 +41,8 @@ $ docker run --rm -v "${PWD}:/src" returntocorp/semgrep semgrep
    ```
 4. See Semgrep findings: Hold the pointer over the code that has the red underline.
 
+_Semgrep's IntelliJ extensions are in beta. Please join the [Semgrep community Slack workspace](http://go.semgrep.dev/slack) and let us know if you encounter any issues._
+
 ## Supported Jet Brains products
 
 Semgrep's IDE extension is available in many Jet Brains products: 
