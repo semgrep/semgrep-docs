@@ -28,7 +28,7 @@ Semgrep Supply Chain supports the following:
 
 1. In Semgrep Cloud Platform, click **Supply Chain > Dependencies**. 
 2. Click the **Download <i class="fa-solid fa-download"></i>** icon next to the repository you want an SBOM for.
-3. Click the format you want the SBOM to be in. After clicking, Do not refresh or leave the page.
+3. Click the format you want the SBOM to be in. After clicking, do not refresh or leave the page until the SBOM has been generated.
 3. Once SCP has generated the SBOM, click the link provided on the toaster notification to download it.
     ![Download link in toaster notification](/img/download-sbom.png#bordered)
 
