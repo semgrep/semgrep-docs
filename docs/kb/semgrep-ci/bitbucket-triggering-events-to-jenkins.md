@@ -16,9 +16,7 @@ It allows you to trigger builds on Bitbucket's push and pull requests events.
 
 :::info Prerequisites
 * You must install the [<i class="fas fa-external-link fa-xs"></i> Bitbucket Push and Pull Request](https://plugins.jenkins.io/bitbucket-push-and-pull-request/) plugin on your the Jenkins server. This method requires that your Jenkins instance is compatible with this plugin.
-* Jenkins and Bitbucket must be visible to each other. It means Bitbucket will invoke Jenkins after a push or pull request event and Jenkins will send the result/comments to Bitbucket.
 :::
-
 
 The steps to set up the webhook are the following:
 
