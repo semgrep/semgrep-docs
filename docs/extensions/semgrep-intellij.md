@@ -71,7 +71,7 @@ IntelliJ extension does not support:
 
 Run Semgrep extension commands through the IntelliJ Command Palette. You can access the Command Palette by pressing <kbd>Ctrl+⇧Shift+A</kbd> (Windows) or <kbd>⌘Command+⇧Shift+A</kbd> (macOS) on your keyboard. 
 
-- `Sign in with Semgrep`: Sign up or log in to the Semgrep Cloud Platform (this command opens a new window in your browser). When you sign up, you can automatically scan with Semgrep [Code](https://semgrep.dev/products/semgrep-code/), [Supply Chain](https://semgrep.dev/products/semgrep-supply-chain/), and [Secrets](https://semgrep.dev/products/semgrep-secrets/). Alternatively, you can log in through your command-line interface by running `semgrep login`.
+- `Sign in with Semgrep`: Sign up or log in to the Semgrep Cloud Platform (this command opens a new window in your browser). Alternatively, you can log in through your command-line interface by running `semgrep login`.
 - `Sign out of Semgrep`: Log out of Semgrep Cloud Platform. If you are logged out, you lose access to Semgrep Supply Chain and Semgrep Secrets. Alternatively, you can sign out through your command-line interface by running `semgrep logout`.
 - `Scan workspace with Semgrep`: Scan files that have been changed since the last commit in your current workspace.
 - `Scan workspace with Semgrep (Including Unmodified Files)`: Scan all files in the current workspace.
