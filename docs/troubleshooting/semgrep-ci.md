@@ -22,36 +22,67 @@ Object.entries(frontMatter).filter(
 }
 </ul>
 
-# Troubleshooting Semgrep in CI
+# Troubleshooting Semgrep issues in CI
+
+todo
+Troubleshooting issues in Semgrep, not issues about running Semgrep
 
 If you're seeing results reported on files that have not changed since the last scan, frequent time outs, or other issues related to running Semgrep in CI, see instructions in the sections below.
 
-## GitHub
+## Troubleshooting GitHub 
 
-The first piece of information that the team at Semgrep uses are the GitHub Actions logs. You can send them to Semgrep by clicking the settings button next to **search logs** and then **download log archive**.
+The first piece of information that the team at Semgrep uses are the **GitHub Actions logs**. 
 
-If this does not have the information you need, save the logs that Semgrep CI produces. On each run, Semgrep CI creates a `.semgrep_logs` folder with the following information:
+To retrieve a log, perform the following steps:
+
+1. In the GitHub repository you are troubleshooting, click **Actions**.
+2. In the Actions page, click the most recent Semgrep workflow run that displays the issue you want to fix. The workflow name is typically **Semgrep**.
+    :::tip
+    To quickly browse through workflow runs, you  can also click **Semgrep** under Actions in the navigation bar to view only Semgrep runs.
+    :::
+3. Click the job, typically **semgrep/ci**.
+4. You are taken to the specific job page. Click the gear icon **<i class="fa-solid fa-gear"></i> > Download log archive**. 
+![Retrieve a GitHub Actions log.](/img/retrieve-gh-log.png)
+
+You have successfully downloaded a GitHub Actions log.
+
+If this does not have the information you need, retrieve the logs that Semgrep CI produces. On each run, Semgrep CI creates a `.semgrep_logs` folder with the following information:
 
 - The debug logs
 - The output collected from Semgrep (including the timing data described below).
 - If a run used a Semgrep configuration, the flat list of rules run is listed.
 
-To collect these logs, you need to upload them as an artifact. Modify your workflow to match the following:
+To collect these logs, you need to upload them as an artifact. Modify your GitHub Actions workflow file based on the following:
 
-```yaml
-semgrep:
-    name: semgrep with managed policy
+```
+name: Semgrep
+on:
+  workflow_dispatch: {}
+  pull_request: {}
+  push:
+    branches:
+      - main
+      - master
+    paths:
+      - .github/workflows/semgrep.yml
+  schedule:
+    # random HH:MM to avoid a load spike on GitHub Actions at 00:00
+    - cron: '57 2 * * *'
+jobs:
+  semgrep:
+    name: semgrep/ci
     runs-on: ubuntu-20.04
     env:
       SEMGREP_APP_TOKEN: ${{ secrets.SEMGREP_APP_TOKEN }}
     container:
       image: returntocorp/semgrep
+    if: (github.actor != 'dependabot[bot]')
     steps:
       - uses: actions/checkout@v3
-      - run: semgrep ci
+      - run: semgrep ci &> semgrep.log
       - name: package-logs
         if: always()
-        run: tar czf logs.tgz ~/.semgrep/last.log
+        run: tar czf logs.tgz semgrep.log
       - name: upload-logs
         if: always()
         uses: actions/upload-artifact@v3
@@ -60,10 +91,6 @@ semgrep:
           path: logs.tgz
           retention-days: 1
 ```
-
-## Retrieving Semgrep CI logs
-
-When you run `semgrep ci --config p/ci` logs are saved in `~/.semgrep/last.log`.
 
 ## Reproducing the run locally
 
