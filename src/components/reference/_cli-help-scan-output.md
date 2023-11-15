@@ -163,7 +163,7 @@ OPTIONS
            have time limit. Defaults to 0 s for all CLI scans. For CI scans,
            it defaults to 3 hours.
 
-       -j VAL, --jobs=VAL (absent=3)
+       -j VAL, --jobs=VAL (absent=4)
            Number of subprocesses to use to run checks in parallel. Defaults
            to the number of cores detected on the system (1 if using --pro). 
 
@@ -337,9 +337,9 @@ OPTIONS
            Include a timing summary with the results. If output format is
            json, provides times for each pair (rule, target). 
 
-       --timeout=VAL (absent=2.)
+       --timeout=VAL (absent=5.)
            Maximum time to spend running a rule on a single file in seconds.
-           If set to 0 will not have time limit. Defaults to 2.0 s. 
+           If set to 0 will not have time limit. Defaults to 5.0 s. 
 
        --timeout-threshold=VAL (absent=3)
            Maximum number of rules that can time out on a file before the
