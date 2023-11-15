@@ -19,16 +19,13 @@ $ brew install semgrep
 
 # For Ubuntu/WSL/Linux/macOS
 $ python3 -m pip install semgrep
-
-# To try Semgrep without installation run via Docker
-$ docker run --rm -v "${PWD}:/src" returntocorp/semgrep semgrep
 ```
 :::
 
 ## Quick start
 
 1. Install the Semgrep extension:
-   -  Visit [Semgrep's page on the Jet Brains Marketplace](https://plugins.jetbrains.com/plugin/22622-semgrep).
+   -  Visit [Semgrep's page on the JetBrains Marketplace](https://plugins.jetbrains.com/plugin/22622-semgrep).
    -  In IntelliJ: **Settings/Preferences > Plugins > Marketplace > Search for `semgrep-intellij` > Install**. You may need to restart IntelliJ for the Semgrep extension to be installed.
 
 2. Sign in: Press <kbd>Ctrl+⇧Shift+A</kbd> (Windows) or <kbd>⌘Command+⇧Shift+A</kbd> (macOS) and sign in to Semgrep Cloud Platform by selecting the following command:
@@ -85,17 +82,13 @@ You can also click the Semgrep icon in the IntelliJ toolbar to quickly access al
 
 ## Features
 
-### Scan with Semgrep Code, Supply Chain, and Secrets 
-
-Sign in to get access to Semgrep Code, Supply Chain, and Secrets. Scan your code and package dependencies for known issues, software vulnerabilities, and detected secrets. Get inline results and problem highlighting.
-
 ### Automatic scanning
 
 When you open a file, Semgrep scans it right away.
 
 ### Rule Quick Links
 
-Want to go to the definition of a rule? Hover over a match and click the link!
+Hover over a match and click the link.
 
 ## Support
 
