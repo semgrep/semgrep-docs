@@ -197,7 +197,8 @@ module.exports = {
                 id: 'extensions/overview'
               },
               items: [
-                'extensions/semgrep-vs-code'
+                'extensions/semgrep-vs-code',
+                'extensions/semgrep-intellij'
               ]
             },
         {
