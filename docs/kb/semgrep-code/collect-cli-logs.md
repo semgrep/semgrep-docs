@@ -7,7 +7,7 @@ description: How to collect logs when running Semgrep on the command line.
 
 # How to collect logs when running Semgrep in CLI
 
-When troubleshooting Semgrep scans on the command line (CLI), collecting and sharing logs can be extremely helpful. By default, Semgrep prints findings from a scan to `stdout`, and other messages, including scan details and progress, to `stderr`. For troubleshooting, it's most often useful to provide both.
+When troubleshooting Semgrep scans on the command line interface (CLI), collecting and sharing logs can be extremely helpful. By default, Semgrep prints findings from a scan to `stdout`, and other messages, including scan details and progress, to `stderr`. For troubleshooting, it's best to provide both.
 
 To collect all relevant logs for a scan, follow these instructions. All log output options apply to both `semgrep scan` and `semgrep ci`. All examples use `semgrep ci` for simplicity, and name the output file as `semgrep.log`.
 
@@ -23,20 +23,20 @@ semgrep ci &> semgrep.log
 
 Sometimes it's helpful to separate findings from other scan logs. Using the following commands separates the two and allows for independent review of findings and scan behavior.
 
-Capture only findings in a file, print other logs to the terminal:
+Write only findings to a file, print other logs to the terminal:
 
 ```
 semgrep ci > semgrep.log
 ```
 
-Capture findings and other logs independently, each within files:
+Separate findings and logs by writing findings to `findings.txt` and logs to `semgrep.log` through either of the following commands:
 
 ```
 semgrep ci -o findings.txt 2> semgrep.log
 semgrep ci > findings.txt 2> semgrep.log
 ```
 
-Capture other logs in a file, print findings to the terminal:
+Write logs to a file, print findings to the terminal:
 
 ```
 semgrep ci 2> semgrep.log
