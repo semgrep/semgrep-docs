@@ -7,7 +7,7 @@ import MoreHelp from "/src/components/MoreHelp"
 
 # Semgrep IntelliJ extension
 
-[Semgrep](https://semgrep.dev/) accelerates your security journey by swiftly scanning code and package dependencies for known issues, software vulnerabilities, and detected secrets with unparalleled efficiency. By default, the Semgrep IntelliJ extension scans code whenever you change or open files.
+[Semgrep](https://semgrep.dev/) swiftly scans code and package dependencies for known issues, software vulnerabilities, and detected secrets. Run Semgrep in your developer environment with the IntelliJ extension to catch code issues as you type. By default, the Semgrep IntelliJ extension scans code whenever you change or open files.
 
 :::info Prerequisites
 
