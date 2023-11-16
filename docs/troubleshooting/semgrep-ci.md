@@ -24,21 +24,25 @@ Object.entries(frontMatter).filter(
 
 # Troubleshooting Semgrep issues in CI
 
-todo - Troubleshooting issues in Semgrep, not issues about running Semgrep in CI (they are different.)
+This document outlines troubleshooting steps for issues related to **Semgrep scans** in a CI environment. Refer to the following sections you're seeing results reported on files that have not changed since the last scan, frequent time outs, or other issues.
 
-If you're seeing results reported on files that have not changed since the last scan, frequent time outs, or other issues related to running Semgrep in CI, see instructions in the sections below.
+For issues on **deployment or CI configuration**, such as adding repositories, see the knowledge base articles in [Semgrep in CI](/kb/semgrep-ci/).
 
-## Reproducing the run locally
+## Reproducing the issue locally
 
-To aid in debugging, perform the following steps to reproduce some parts of your Semgrep CI job locally to aid in debugging. through the following steps:
+To aid in debugging, you can perform the following steps to reproduce some parts of your Semgrep CI job locally:
 
-1. Go to the [API token page](https://semgrep.dev/orgs/-/settings/tokens) and create a new API token.
-2. Run the following command, and then paste in your API key when prompted:
+1. Run the following command in your terminal:
     ```
     semgrep login
     ```
-3. Run the following code: <pre class="language-bash"><code>SEMGREP_REPO_NAME=<span className="placeholder">your-organization</span>/<span className="placeholder">repository-name</span> semgrep ci</code></pre>
-For example, `SEMGREP_REPO_NAME=returntocorp/semgrep semgrep ci` would be used for the GitHub repository `returntocorp/semgrep`. As a result, Semgrep fetches the rules configured on all Semgrep Cloud Platform policies for this repository and run a local Semgrep scan using those rules.
+1. After logging in, return to the CLI and run the following code: <pre class="language-bash"><code>SEMGREP_REPO_NAME=<span className="placeholder">your-organization</span>/<span className="placeholder">repository-name</span> semgrep ci</code></pre>
+    For example, given a GitHub repository is `vulncorp/juice-shop`, the full command would be:
+    ```
+    SEMGREP_REPO_NAME=returntocorp/semgrep semgrep ci
+    ```
+    By setting `SEMGREP_REPO_NAME`, Semgrep fetches rules and any other configurations specific to your CI environment. You can reproduce Semgrep's behavior locally, enabling you to inspect the logs and behavior through your terminal rather than in your CI provider's interface.
+    
 
 ## Troubleshooting GitHub 
 
@@ -46,16 +50,18 @@ The first piece of information that the team at Semgrep uses are the **GitHub Ac
 
 To retrieve a log, perform the following steps:
 
-1. In the GitHub repository you are troubleshooting, click **Actions**.
-2. In the Actions page, click the most recent Semgrep workflow run that displays the issue you want to fix. The workflow name is typically **Semgrep**.
+1. Navigate to the main page of the GitHub repository you are troubleshooting or scanning.
+1. Click the **Actions** tab. 
+     ![actions-tab](https://docs.github.com/assets/cb-45938/images/help/repository/actions-tab.png)  
+1. In the Actions page, click the Semgrep workflow run that you want to retrieve logs for. The name depends on your configuration. By default, it is named **Semgrep**.
     :::tip
-    To quickly browse through workflow runs, you  can also click **Semgrep** under Actions in the navigation bar to view only Semgrep runs.
+    Your repository may have different workflow runs, such as linters. To quickly browse through workflow runs, you  can also click **Semgrep** under Actions in the navigation bar to view only Semgrep runs.
     :::
-3. Click the job, typically **semgrep/ci**.
-4. You are taken to the specific job page. Click the gear icon **<i class="fa-solid fa-gear"></i> > Download log archive**. 
-![Retrieve a GitHub Actions log.](/img/retrieve-gh-log.png)
+1. Click the job name, typically **semgrep/ci**.
+1. You are taken to the specific job page. Click the gear icon **<i class="fa-solid fa-gear"></i> > Download log archive**. 
+    ![Retrieve a GitHub Actions log.](/img/retrieve-gh-log.png)
 
-You have successfully downloaded a GitHub Actions log.
+You have successfully downloaded a GitHub Actions log. You can 
 
 If this does not have the information you need, retrieve the log that the job produces. To collect the log,  modify your GitHub Actions workflow file based on the following:
 
