@@ -348,6 +348,10 @@ The following configuration creates a CI job that runs an SCA scan using Semgrep
 
 ## Azure Pipelines
 
+:::info
+Scanning a project with the `semgrep ci` command requires the project to be version-controlled by Git. If you have Azure Repos that are version-controlled with [Team Foundations Version Control](https://learn.microsoft.com/en-us/azure/devops/repos/tfvc/what-is-tfvc?view=azure-devops), they would have to be migrated to Git to be scanned with `semgrep ci` and report results to the Semgrep Cloud Platform.
+:::
+
 To add Semgrep into Azure Pipelines:
 
 1. Access the YAML pipeline editor within Azure Pipelines by following the [YAML pipeline editor](https://learn.microsoft.com/en-us/azure/devops/pipelines/get-started/yaml-pipeline-editor?view=azure-devops#edit-a-yaml-pipeline) guide.
