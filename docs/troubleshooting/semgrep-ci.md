@@ -13,6 +13,7 @@ tags:
 ---
 
 import MoreHelp from "/src/components/MoreHelp"
+import RetrieveGhaLogs from "/src/components/procedure/_retrieve-gha-logs.mdx"
 
 <ul id="tag__badge-list">
 {
@@ -26,11 +27,11 @@ Object.entries(frontMatter).filter(
 
 This document outlines troubleshooting steps for issues related to **Semgrep scans** in a CI environment. Refer to the following sections you're seeing results reported on files that have not changed since the last scan, frequent time outs, or other issues.
 
-For issues on **deployment or CI configuration**, such as adding repositories, see the knowledge base articles in [Semgrep in CI](/kb/semgrep-ci/).
+For issues on **deployment or CI configuration**, such as adding repositories, see the knowledge base articles in [<i class="fa-regular fa-file-lines"></i> Semgrep in CI](/kb/semgrep-ci/).
 
 ## Reproducing the issue locally
 
-To aid in debugging, you can perform the following steps to reproduce some parts of your Semgrep CI job locally:
+To aid in debugging, you can reproduce some aspects of your Semgrep CI job locally. This enables you to inspect the logs and behavior through your terminal rather than in your CI provider's interface. Perform the following steps:
 
 1. Run the following command in your terminal:
     ```
@@ -39,33 +40,19 @@ To aid in debugging, you can perform the following steps to reproduce some parts
 1. After logging in, return to the CLI and run the following code: <pre class="language-bash"><code>SEMGREP_REPO_NAME=<span className="placeholder">your-organization</span>/<span className="placeholder">repository-name</span> semgrep ci</code></pre>
     For example, given a GitHub repository is `vulncorp/juice-shop`, the full command would be:
     ```
-    SEMGREP_REPO_NAME=returntocorp/semgrep semgrep ci
+    SEMGREP_REPO_NAME=vulncorp/juice-shop semgrep ci
     ```
-    By setting `SEMGREP_REPO_NAME`, Semgrep fetches rules and any other configurations specific to your CI environment. You can reproduce Semgrep's behavior locally, enabling you to inspect the logs and behavior through your terminal rather than in your CI provider's interface.
-    
+    By setting `SEMGREP_REPO_NAME`, Semgrep fetches rules and any other configurations specific to your CI environment, enabling you to reproduce your environment locally.
 
 ## Troubleshooting GitHub 
 
 The first piece of information that the team at Semgrep uses are the **GitHub Actions logs**. 
 
-To retrieve a log, perform the following steps:
+<RetrieveGhaLogs />
 
-1. Navigate to the main page of the GitHub repository you are troubleshooting or scanning.
-1. Click the **Actions** tab. 
-     ![actions-tab](https://docs.github.com/assets/cb-45938/images/help/repository/actions-tab.png)  
-1. In the Actions page, click the Semgrep workflow run that you want to retrieve logs for. The name depends on your configuration. By default, it is named **Semgrep**.
-    :::tip
-    Your repository may have different workflow runs, such as linters. To quickly browse through workflow runs, you  can also click **Semgrep** under Actions in the navigation bar to view only Semgrep runs.
-    :::
-1. Click the job name, typically **semgrep/ci**.
-1. You are taken to the specific job page. Click the gear icon **<i class="fa-solid fa-gear"></i> > Download log archive**. 
-    ![Retrieve a GitHub Actions log.](/img/retrieve-gh-log.png)
+If this does not have the information you need, retrieve the log that the scan produces. To collect the log, modify your GitHub Actions workflow file based on the following:
 
-You have successfully downloaded a GitHub Actions log. You can 
-
-If this does not have the information you need, retrieve the log that the job produces. To collect the log,  modify your GitHub Actions workflow file based on the following:
-
-```
+```yaml
 name: Semgrep
 on:
   workflow_dispatch: {}
@@ -106,6 +93,8 @@ jobs:
           path: logs.tgz
           retention-days: 1
 ```
+
+This workflow produces a ``logs.tgz` that includes scan configuration information and the scan results (findings).
 
 
 ## Troubleshooting GitLab SAST
