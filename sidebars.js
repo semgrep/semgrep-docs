@@ -197,7 +197,8 @@ module.exports = {
                 id: 'extensions/overview'
               },
               items: [
-                'extensions/semgrep-vs-code'
+                'extensions/semgrep-vs-code',
+                'extensions/semgrep-intellij'
               ]
             },
         {
@@ -423,6 +424,7 @@ module.exports = {
         'semgrep-supply-chain/notifications',
         'semgrep-supply-chain/dependency-search',
         'semgrep-supply-chain/license-compliance',
+        'semgrep-supply-chain/sbom',
         'semgrep-supply-chain/glossary'
       ]
     },
@@ -502,6 +504,7 @@ module.exports = {
                     title: '2023 Release notes'
                 },
               items: [
+                'release-notes/october-2023',
                 'release-notes/september-2023',
                 'release-notes/august-2023',
                 'release-notes/july-2023',
