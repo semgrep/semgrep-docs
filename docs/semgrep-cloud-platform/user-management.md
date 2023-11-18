@@ -69,7 +69,7 @@ This step connects your Semgrep organization account to a source code manager, s
 You can only connect your Semgrep organization to the source code manager that you originally logged in with. For example, if you logged in to Semgrep Cloud Platform with GitHub, you do not see the **Connect to GitLab** option. If your organization uses both GitHub and GitLab to manage source code, log in with the source code manager that you would prefer to use to manage Semgrep org membership. You can still scan repositories from other sources.
 
 :::info Connecting to GitHub
-If you are connecting to GitHub, Semgrep prompts you to install the Semgrep GitHub app for your organization. If you do not have permission to install apps on your GitHub organization, you won't be able to complete the connection. Identify a GitHub organization admin or owner who has permissions to install or approve the app before proceeding.
+When connecting to GitHub, Semgrep prompts you to install the Semgrep GitHub app for your organization. If you don't have permission to install apps on your GitHub organization, you won't be able to complete the connection. Identify a GitHub organization admin or owner who has permissions to install or approve the app before proceeding.
 :::
 
 1. Sign in to Semgrep Cloud Platform.
