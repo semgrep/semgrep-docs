@@ -39,7 +39,7 @@ $ python3 -m pip install semgrep
 4. See Semgrep findings: Hold the pointer over the code that has the red underline.
 
 :::info Feature maturity
-Semgrep's IntelliJ extensions are in **public beta**. Please join the [Semgrep community Slack workspace](http://go.semgrep.dev/slack) and let the Semgrep team know if you encounter any issues.
+Semgrep's IntelliJ extensions are in **public beta**. Currently, the IntelliJ extension only supports Semgrep OSS - it doesn't support Semgrep Supply Chain, Secrets, Pro rules, or Pro Engine. Please join the [Semgrep community Slack workspace](http://go.semgrep.dev/slack) and let the Semgrep team know if you encounter any issues.
 :::
 
 ## Supported Jet Brains products
