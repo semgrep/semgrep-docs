@@ -145,7 +145,7 @@ You can review the search patterns in the [rules directory of the `semgrep-sast`
 
 ### `semgrep-sast` crashes, fails, or is otherwise broken
 
-Semgrep prinst an error message to explain what went wrong upon crashes, and often also what to do to fix it.
+Semgrep prints an error message to explain what went wrong upon crashes, and often also what to do to fix it.
 
 The output of Semgrep is hidden by default, but [GitLab provides a way](https://docs.gitlab.com/ee/user/application_security/sast/#sast-debug-logging) to see it by setting an environment variable:
 
