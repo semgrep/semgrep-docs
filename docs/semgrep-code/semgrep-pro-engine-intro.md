@@ -46,7 +46,7 @@ semgrep login && semgrep ci
 Let us know what you think about the results in the <a href="https://go.semgrep.dev/slack">Semgrep Community Slack</a>.
 :::
 
-### Updating Semgrep Pro Engine in CLI
+#### Updating Semgrep Pro Engine in CLI
 
 To update Semgrep Pro Engine to the latest version, follow these steps:
 
@@ -110,11 +110,7 @@ To update Semgrep Pro Engine to the latest version, follow these steps:
     semgrep install-semgrep-pro
     ```
 
-:::info
-The command to update Semgrep Pro Engine is the same as the command to install Semgrep Pro Engine.
-:::
-
-### Enabling Semgrep Pro Engine in Semgrep Cloud Platform
+### Running Semgrep Pro Engine in Semgrep Cloud Platform
 
 :::info Prerequisite
 - An existing Semgrep Cloud Platform account. See [Signing in to SCP](/semgrep-code/getting-started/#semgrep-code-with-semgrep-cloud-platform).
@@ -133,23 +129,27 @@ To enable Semgrep Pro Engine in the Semgrep Cloud Platform, follow these steps:
 To test Semgrep Pro Engine on a purposefully vulnerable repository, fork the [juice-shop](https://github.com/juice-shop/juice-shop) repository, and then add it to SCP by following the steps described in section [Adding or onboarding a new project (repository)](/semgrep-code/getting-started/#adding-or-onboarding-a-new-project-repository).
 :::
 
-### Creating rules that analyze across files
+### Creating rules that analyze across files and functions 
 
-Cross-file analysis rules you use in Semgrep Pro Engine require the `interfile: true` key included under the rule `options` key. See the following [example](https://semgrep.dev/playground/s/lkPE). This key signals Semgrep Pro Engine to use the rule for cross-file analysis.
+To create rules that analyze across files and functions, add `interfile: true` under the `options` key when defining a rule. This key signals to Semgrep Pro Engine to use the rule for both cross-function and cross-file analysis.
 
-Example of `interfile: true` key:
+The following example shows how to define the `interfile` key (see the **Rule** pane) and the resulting cross-function analysis in the **Test code** pane.
+
+<iframe title="Interfile key example" src="https://semgrep.dev/embed/editor?snippet=lRZ5" width="100%" height="432px" frameBorder="0"></iframe>
+<br />
+
+Click **<i class="fa-solid fa-play"></i> Run** to see the true positive in lines 27-30.
+
+The Pro Engine performed cross-function analysis as the `userInput()` source was called in `main()` while the `exec()` sink was called in the `DockerCompose` class.
+
+Interact with the rule widget to compare Semgrep OSS and Semgrep Pro Engine. In the **Rule** pane, you can remove the lines:
+
 ```yaml
-rules:
-  - id: dangerous-call-to-employees-pro-engine-example
-    options:
-      interfile: true
-    patterns:
-      - pattern: dangerous("Employees")
-    message: Call of dangerous on employees table
-    languages:
-      - js
-    severity: WARNING
+options:
+  interfile: true
 ```
+
+This results in a failure to detect the true positive, because Semgrep did not perform cross-function analysis.
 
 ## Additional information
 
