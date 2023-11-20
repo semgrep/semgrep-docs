@@ -23,7 +23,7 @@ Refer to [Supported languages](/supported-languages/#semgrep-pro-engine) to see 
 
 ## Using and running Semgrep Pro Engine
 
-This section guides you through the Semgrep Pro Engine installation and helps you to scan your projects both in CLI and with the Semgrep Cloud Platform (SCP).
+This section guides you through the Pro Engine installation and helps you to scan your projects both in CLI and with Semgrep Cloud Platform (SCP).
 
 ### Running Semgrep Pro Engine in CLI
 
@@ -124,7 +124,7 @@ The command to update Semgrep Pro Engine is the same as the command to install S
 To enable Semgrep Pro Engine in the Semgrep Cloud Platform, follow these steps:
 
 1. Sign in to [Semgrep Cloud Platform](https://semgrep.dev/login).
-1. Select **[Settings](https://semgrep.dev/orgs/-/settings)**.
+1. Click **[Settings](https://semgrep.dev/orgs/-/settings)**.
 1. Ensure that the <i class="fa-solid fa-toggle-large-on"></i> **Pro Engine beta** toggle is enabled.
 1. Ensure that you have the **default ruleset** added in your **[Policies page](https://semgrep.dev/orgs/-/policies)**. If this ruleset is **not** added, go to [https://semgrep.dev/p/default](https://semgrep.dev/p/default), and then click **Add to Policy**. For best results, set this ruleset to the **Monitor** rule mode.
 1. Optional: If you don't have any projects added to your organization, follow the procedures described in [Scanning a repository](/semgrep-code/getting-started/#semgrep-code-with-semgrep-cloud-platform) to scan a new project with Semgrep Pro Engine. Ensure that your project's language is supported by Semgrep Pro Engine.
@@ -135,7 +135,7 @@ To test Semgrep Pro Engine on a purposefully vulnerable repository, fork the [ju
 
 ### Creating rules that analyze across files
 
-Cross-file analysis (also called interfile analysis) rules you use in Semgrep Pro Engine require the `interfile: true` key included under the rule `options` key. See the following [example](https://semgrep.dev/playground/s/lkPE). This key signals Semgrep Pro Engine to use the rule for cross-file analysis.
+Cross-file analysis rules you use in Semgrep Pro Engine require the `interfile: true` key included under the rule `options` key. See the following [example](https://semgrep.dev/playground/s/lkPE). This key signals Semgrep Pro Engine to use the rule for cross-file analysis.
 
 Example of `interfile: true` key:
 ```yaml
@@ -156,8 +156,8 @@ rules:
 ### Types of Semgrep Pro Engine analysis
 
 <dl>
-    <dt>Cross-file</dt>
-    <dd>The cross-file analysis (interfile analysis) looks across multiple files to help security engineers find more of their organization's security issues. Semgrep Pro Engine reduces noise and detects new OWASP Top 10 vulnerabilities that Semgrep OSS Engine can't find. By default, cross-file analysis runs on PRs and nightly scans. These scans may take longer to complete and can use more memory than Semgrep OSS Engine scans. See the available languages for cross-file (interfile) analysis in <a href="/docs/supported-languages/#semgrep-pro-engine">Semgrep Pro Engine supported languages</a>.</dd>
+    <dt>Cross-file (interfile) analysis</dt>
+    <dd>Cross-file analysis looks across multiple files to help security engineers find more of their organization's security issues. Semgrep Pro Engine reduces noise and detects new OWASP Top 10 vulnerabilities that Semgrep OSS Engine can't find. By default, cross-file analysis runs on PRs and nightly scans. These scans may take longer to complete and can use more memory than Semgrep OSS Engine scans. See the available languages for cross-file (interfile) analysis in <a href="/docs/supported-languages/#semgrep-pro-engine">Semgrep Pro Engine supported languages</a>.</dd>
     <dt>Cross-function</dt>
     <dd>The cross-function analysis (interprocedural analysis) finds new vulnerabilities that cross-function within a single file, and are available for all languages as listed on <a href="/docs/supported-languages/">Supported languages</a> page</dd>
 </dl>
