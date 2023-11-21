@@ -142,6 +142,42 @@ Semgrep Assistant messages only appear in your PR comments for rules that are se
 * Ensure that you have selected PR/MR comments in **Semgrep Cloud Platform > Settings > Deployment** in the **Code** section.
 :::
 
+## What Permissions Does Semgrep Assistant Need? 
+Assistant extends normal Semgrep functionality by providing contextually aware AI-generated suggestions. In order to build that context, we require extra permissions in GitHub and GitLab.
+
+
+<Tabs
+    defaultValue="github"
+    values={[
+    {label: 'GitHub', value: 'github'},
+    {label: 'GitLab', value: 'gitlab'},
+    ]}
+>
+
+<TabItem value='github'>
+
+Semgrep Assistant requires [read access to your code in GitHub](https://docs.github.com/en/rest/overview/permissions-required-for-github-apps?apiVersion=2022-11-28). This is done through installation of a private Semgrep GitHub app that you install during Assistant setup. This private Semgrep GitHub app:
+
+* Is fully under your control so you can revoke access or specific permissions at any time by visiting Settings > Applications in GitHub.
+* Only accesses source code repositories on a file-by-file basis; we do not need or request org-level access to your codebase.
+* Can be configured to limit its scope to specific repositories (that is, you do not need to give read access to all repositories in your GitHub organization). 
+
+</TabItem>
+
+<TabItem value='gitlab'>
+
+Semgrep Assistant requires the API scope to run in GitLab or self-managed GitLab. This can be specified at either the [project access token level](https://docs.gitlab.com/ee/user/project/settings/project_access_tokens.html) or [personal access token level](https://docs.gitlab.com/ee/user/profile/personal_access_tokens.html). 
+
+* You can revoke [project level access tokens](https://docs.gitlab.com/ee/user/project/settings/project_access_tokens.html#revoke-a-project-access-token) or [personal access tokens](https://docs.gitlab.com/ee/user/profile/personal_access_tokens.html#revoke-a-personal-access-token) at any time. 
+* Semgrep Assistant only accesses source code repositories on a file-by-file basis; we do not need or request org-level access to your codebase.
+* The token can be configured to limit its scope to specific projects or individuals (that is, you do not need to give read access to all repositories in your GitLab organization).
+
+</TabItem>
+</Tabs>
+
+In addition, Semgrep Assistant requires the same permissions that Semgrep needs to integrate with GitHub or GitLab such as permissions that allow us to do things like run CI jobs and post comments to PRs. You can read about the [requested permissions for GitHub and GitLab here](/semgrep-cloud-platform/getting-started/#requested-permissions-for-github-and-gitlab). 
+
+
 ## Types of recommendations from Semgrep Assistant
 
 The following are recommendations users can receive from Semgrep Assistant.
