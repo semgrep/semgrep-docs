@@ -19,7 +19,7 @@ import TabItem from '@theme/TabItem';
 <br />
 
 :::info Language support
-Refer to [Supported languages](/supported-languages/#semgrep-pro-engine) to see languages supported by Semgrep Pro Engine.
+Refer to [<i class="fa-regular fa-file-lines"></i> Supported languages](/supported-languages/#semgrep-pro-engine) to see languages supported by Semgrep Pro Engine.
 :::
 
 ## Using and running Semgrep Pro Engine
@@ -29,31 +29,31 @@ This section guides you through the Pro Engine installation and helps you to sca
 ### Running Semgrep Pro Engine in Semgrep Cloud Platform
 
 :::info Prerequisite
-- An existing Semgrep Cloud Platform account. See [Signing in to SCP](/semgrep-code/getting-started/#semgrep-code-with-semgrep-cloud-platform).
+- An existing Semgrep Cloud Platform account. See [<i class="fa-regular fa-file-lines"></i> Signing in to SCP](/semgrep-code/getting-started/#semgrep-code-with-semgrep-cloud-platform).
 :::
 
 This is the preferred method to run Semgrep Pro Engine. It enables you to view and triage your findings from a centralized location. Code is not uploaded.
 
 To run Semgrep Pro Engine in the Semgrep Cloud Platform, follow these steps:
 
-1. Sign in to [Semgrep Cloud Platform](https://semgrep.dev/login).
+1. Sign in to [<i class="fas fa-external-link fa-xs"></i> Semgrep Cloud Platform](https://semgrep.dev/login).
 1. Click **[Settings](https://semgrep.dev/orgs/-/settings)**.
 1. Ensure that the <i class="fa-solid fa-toggle-large-on"></i> **Pro Engine beta** toggle is enabled.
-1. Ensure that you have the **default ruleset** added in your **[Policies page](https://semgrep.dev/orgs/-/policies)**. If this ruleset is **not** added, go to [https://semgrep.dev/p/default](https://semgrep.dev/p/default), and then click **Add to Policy**. For best results, set this ruleset to the **Monitor** rule mode.
+1. Ensure that you have the **default ruleset** added in your **[Policies page](https://semgrep.dev/orgs/-/policies)**. If this ruleset is **not** added, go to [<i class="fas fa-external-link fa-xs"></i> Semgrep Registry - Default ruleset page](https://semgrep.dev/p/default), then click **Add to Policy**. For best results, set this ruleset to the **Monitor** rule mode.
 1. Perform either of the following:
-    1. **If you don't have any repositories for scanning in Cloud Platform:** Follow the procedures in [Scanning a repository](/semgrep-code/getting-started/#semgrep-code-with-semgrep-cloud-platform) to scan a new repository with Semgrep Pro Engine. Ensure that your project's language is supported by Semgrep Pro Engine.
-    1. **If you have existing repositories in Semgrep Cloud Platform:** Trigger a full scan from your CI provider. Full scans now include Semgrep Pro Engine.
+    1. **If you don't have any repositories for scanning in Cloud Platform:** Follow the procedures in [<i class="fa-regular fa-file-lines"></i> Scanning a repository](/semgrep-code/getting-started/#semgrep-code-with-semgrep-cloud-platform) to scan a new repository with Semgrep Pro Engine. Ensure that your project's language is supported by Semgrep Pro Engine.
+    1. **If you have existing repositories in Semgrep Cloud Platform:** Full scans now include Semgrep Pro Engine. You can trigger a full scan through your CI provider.
 
 Pro Engine now runs on all full scans.
 
 :::tip Testing Semgrep Pro Engine
-To test Semgrep Pro Engine on a purposefully vulnerable repository, fork the [juice-shop](https://github.com/juice-shop/juice-shop) repository, and then add it to SCP by following the steps described in section [Adding or onboarding a new project (repository)](/semgrep-code/getting-started/#adding-or-onboarding-a-new-project-repository).
+To test Semgrep Pro Engine on a purposefully vulnerable repository, fork the [<i class="fas fa-external-link fa-xs"></i> juice-shop](https://github.com/juice-shop/juice-shop) repository, and then add it to SCP by following the steps described in section [<i class="fa-regular fa-file-lines"></i> Adding or onboarding a new project (repository)](/semgrep-code/getting-started/#adding-or-onboarding-a-new-project-repository).
 :::
 
 ### Running Semgrep Pro Engine in CLI
 
 :::info Prerequisite
-- Local installation of Semgrep CLI. See [Getting started with Semgrep](/getting-started) to install Semgrep CLI.
+- Local installation of Semgrep CLI. See [<i class="fa-regular fa-file-lines"></i> Getting started with Semgrep](/getting-started) to install Semgrep CLI.
 :::
 
 To run Pro Engine in the CLI, perform the following steps.
@@ -67,10 +67,6 @@ To run Pro Engine in the CLI, perform the following steps.
 ```sh
 semgrep login && semgrep ci
 ```
-
-:::note
-Let us know what you think about the results in the <a href="https://go.semgrep.dev/slack">Semgrep Community Slack</a>.
-:::
 
 #### Updating Semgrep Pro Engine in CLI
 
@@ -168,12 +164,12 @@ This results in a failure to detect the true positive, because Semgrep did not p
 <dl>
     <dt>Cross-file (interfile) analysis</dt>
     <dd><ul><li>Cross-file analysis finds patterns spanning multiple files to help security engineers deeply understand their organization's security issues. This analysis reduces noise and detects issues that Semgrep OSS Engine can't find.</li>
-    <li>Cross-file analysis runs on full scans. These scans may take longer to complete and can use more memory than Semgrep OSS Engine scans. See the available languages for cross-file analysis in <a href="/docs/supported-languages/#semgrep-pro-engine">Semgrep Pro Engine supported languages</a>.</li>
+    <li>Cross-file analysis runs on full scans. These scans may take longer to complete and can use more memory than Semgrep OSS Engine scans. See the available languages for cross-file analysis in <a href="/docs/supported-languages/#semgrep-pro-engine"><i class="fa-regular fa-file-lines"></i> Supported languages</a>.</li>
     <li>In Semgrep Pro Engine, cross-file analysis includes cross-function analysis as well.</li></ul></dd>
     <dt>Cross-function (interprocedural) analysis</dt>
     <dd><ul><li>Cross-function analysis finds patterns within a single file spanning code blocks and functions.</li>
     <li>See an example of cross-function analysis in <a href="#pro-engine-cross-function-example"> Pro Engine cross-function example</a>.</li>
-    <li>See the available languages for cross-function analysis in <a href="/docs/supported-languages/#semgrep-pro-engine">Semgrep Pro Engine supported languages</a>.</li></ul>
+    <li>See the available languages for cross-function analysis in <a href="/docs/supported-languages/#semgrep-pro-engine"><i class="fa-regular fa-file-lines"></i> Supported languages</a>.</li></ul>
     </dd>
 </dl>
 
