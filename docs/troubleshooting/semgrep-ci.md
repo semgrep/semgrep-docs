@@ -42,7 +42,10 @@ To aid in debugging, you can reproduce some aspects of your Semgrep CI job local
     ```
     SEMGREP_REPO_NAME=vulncorp/juice-shop semgrep ci
     ```
-    By setting `SEMGREP_REPO_NAME`, Semgrep fetches rules and any other configurations specific to your CI environment, enabling you to reproduce your environment locally.
+    When running `semgrep ci`, Semgrep fetches rules and any other configurations specific to your CI environment. Setting `SEMGREP_REPO_NAME` is optional, but ensures that:
+    
+     * Results will be sent to the same project in Semgrep Cloud Platform 
+     * Any project-specific configurations, such as file ignores, are also respected.
 
 ## Troubleshooting GitHub 
 
