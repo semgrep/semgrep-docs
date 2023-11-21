@@ -38,14 +38,13 @@ To aid in debugging, you can reproduce some aspects of your Semgrep CI job local
     semgrep login
     ```
 1. After logging in, return to the CLI and run the following code: <pre class="language-bash"><code>SEMGREP_REPO_NAME=<span className="placeholder">your-organization</span>/<span className="placeholder">repository-name</span> semgrep ci</code></pre>
-    For example, given a GitHub repository is `vulncorp/juice-shop`, the full command would be:
-    ```
-    SEMGREP_REPO_NAME=vulncorp/juice-shop semgrep ci
-    ```
-    When running `semgrep ci`, Semgrep fetches rules and any other configurations specific to your CI environment. Setting `SEMGREP_REPO_NAME` is optional, but ensures that:
-    
-     * Results will be sent to the same project in Semgrep Cloud Platform 
-     * Any project-specific configurations, such as file ignores, are also respected.
+  For example, given a GitHub repository is `vulncorp/juice-shop`, the full command would be:
+  ```
+  SEMGREP_REPO_NAME=vulncorp/juice-shop semgrep ci
+  ```
+  When running `semgrep ci`, Semgrep fetches rules and any other configurations specific to your CI environment. Setting `SEMGREP_REPO_NAME` is optional, but ensures that: <br />
+    - Results are sent to the same project (repository) in Semgrep Cloud Platform.
+    - Any project-specific configurations, such as file ignores, are also respected.
 
 ## Troubleshooting GitHub 
 
@@ -53,8 +52,7 @@ The first piece of information that the team at Semgrep uses are the **GitHub Ac
 
 <RetrieveGhaLogs />
 
-If this does not have the information you need, retrieve the log that the scan produces. To collect the log, modify your GitHub Actions workflow file based on the following:
-
+<!-- Commenting out this but keeping it in the docs because of the package-logs and semgrep ci --verbose steps
 ```yaml
 name: Semgrep
 on:
@@ -96,9 +94,7 @@ jobs:
           path: logs.tgz
           retention-days: 1
 ```
-
-This workflow produces a ``logs.tgz` that includes scan configuration information and the scan results (findings).
-
+-->
 
 ## Troubleshooting GitLab SAST
 
