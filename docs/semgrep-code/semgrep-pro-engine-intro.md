@@ -34,7 +34,8 @@ This section guides you through the Semgrep Pro Engine installation and helps yo
 It is **recommended** to run Semgrep Pro Engine with Semgrep Cloud Platform (SCP). This enables you to view and triage your findings from a centralized location. Code is not uploaded.
 
 1. [Sign up or sign in to Semgrep Cloud Platform](https://semgrep.dev/login).
-2. Click **<i class="fa-solid fa-gear"></i> Settings > Pro Engine**.
+2. For first-time users, click **Create an organization**. Note that you can further integrate organizations (orgs) with GitLab accounts and GitHub accounts, including personal and org accounts, after you complete this procedure.
+3. Click **<i class="fa-solid fa-gear"></i> Settings > Pro Engine**.
 ![DESCRIPTION](/img/pro-engine-toggle.png#md-width)
 3. In your CLI, log in to your Semgrep Cloud Platform account and run a scan:
 ```sh
@@ -125,7 +126,7 @@ To enable Semgrep Pro Engine in the Semgrep Cloud Platform, follow these steps:
 1. Sign in to [Semgrep Cloud Platform](https://semgrep.dev/login).
 1. Select **[Settings](https://semgrep.dev/orgs/-/settings)**.
 1. Ensure that the <i class="fa-solid fa-toggle-large-on"></i> **Pro Engine beta** toggle is enabled.
-1. Ensure that you have the **default ruleset** added in your **[Policies page](https://semgrep.dev/orgs/-/board)**. If this ruleset is **not** added, go to [https://semgrep.dev/p/default](https://semgrep.dev/p/default), and then click **Add to Policy**. For best results, set this ruleset to the **Monitor** rule mode.
+1. Ensure that you have the **default ruleset** added in your **[Policies page](https://semgrep.dev/orgs/-/policies)**. If this ruleset is **not** added, go to [https://semgrep.dev/p/default](https://semgrep.dev/p/default), and then click **Add to Policy**. For best results, set this ruleset to the **Monitor** rule mode.
 1. Optional: If you don't have any projects added to your organization, follow the procedures described in [Scanning a repository](/semgrep-code/getting-started/#semgrep-code-with-semgrep-cloud-platform) to scan a new project with Semgrep Pro Engine. Ensure that your project's language is supported by Semgrep Pro Engine.
 
 :::info Testing Semgrep Pro Engine

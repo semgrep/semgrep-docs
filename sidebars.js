@@ -197,8 +197,8 @@ module.exports = {
                 id: 'extensions/overview'
               },
               items: [
-                'extensions/overview',
-                'extensions/semgrep-vs-code'
+                'extensions/semgrep-vs-code',
+                'extensions/semgrep-intellij'
               ]
             },
         {
@@ -207,7 +207,6 @@ module.exports = {
             collapsible: true,
             link: {type: 'doc', id: 'writing-rules/overview'},
             items: [
-                'writing-rules/overview',
                 'writing-rules/pattern-examples',
                 'writing-rules/pattern-syntax',
                 'writing-rules/rule-ideas',
@@ -230,11 +229,6 @@ module.exports = {
                           label: 'Join mode',
                           link: {type: 'doc', id: 'writing-rules/experiments/join-mode/overview'},
                           items: [
-                              {
-                                  type: 'doc',
-                                  label: 'Overview',
-                                  id: 'writing-rules/experiments/join-mode/overview'
-                              },
                               'writing-rules/experiments/join-mode/recursive-joins'
                           ]
                       },
@@ -255,7 +249,6 @@ module.exports = {
             label: 'Data-flow analysis',
             link: {type: 'doc', id: 'writing-rules/data-flow/data-flow-overview'},
             items: [
-                'writing-rules/data-flow/data-flow-overview',
                 'writing-rules/data-flow/constant-propagation',
                 'writing-rules/data-flow/taint-mode',
                 'writing-rules/data-flow/status'
@@ -397,7 +390,6 @@ module.exports = {
           collapsible: true,
           link: {type: 'doc', id: 'semgrep-code/semgrep-pro-engine-intro'},
           items: [
-            'semgrep-code/semgrep-pro-engine-intro',
             'semgrep-code/semgrep-pro-engine-examples',
             'semgrep-code/semgrep-pro-engine-data-flow'
           ]
@@ -432,7 +424,17 @@ module.exports = {
         'semgrep-supply-chain/notifications',
         'semgrep-supply-chain/dependency-search',
         'semgrep-supply-chain/license-compliance',
+        'semgrep-supply-chain/sbom',
         'semgrep-supply-chain/glossary'
+      ]
+    },
+    {
+      type: 'category',
+      label: 'Semgrep Secrets',
+      collapsible: false,
+      items: [
+        'semgrep-secrets/conceptual-overview',
+        'semgrep-secrets/getting-started'
       ]
     },
     {
@@ -497,8 +499,12 @@ module.exports = {
               type: 'category',
               label: '2023',
               collapsible: true,
-              link: {type: 'doc', id: 'release-notes/latest'},
+                link: {
+                    type: 'generated-index',
+                    title: '2023 Release notes'
+                },
               items: [
+                'release-notes/october-2023',
                 'release-notes/september-2023',
                 'release-notes/august-2023',
                 'release-notes/july-2023',
@@ -514,7 +520,10 @@ module.exports = {
               type: 'category',
               label: '2022',
               collapsible: true,
-              link: {type: 'doc', id: 'release-notes/december-2022'},
+                link: {
+                    type: 'generated-index',
+                    title: '2022 Release notes'
+                },
               items: [
                 'release-notes/december-2022',
                 'release-notes/november-2022',
@@ -534,7 +543,10 @@ module.exports = {
                 type: 'category',
                 label: '2021',
                 collapsible: true,
-                link: {type: 'doc', id: 'release-notes/december-2021'},
+                link: {
+                    type: 'generated-index',
+                    title: '2021 Release notes'
+                },
                 items: [
                   'release-notes/december-2021',
                   'release-notes/november-2021',

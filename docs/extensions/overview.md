@@ -11,15 +11,13 @@ import MoreHelp from "/src/components/MoreHelp"
 
 Several third-party tools include Semgrep extensions.
 
-## Editor
-
-### Official extensions
+### Official IDE extensions
 
 - Microsoft Visual Studio Code: [`semgrep-vscode`](https://marketplace.visualstudio.com/items?itemName=semgrep.semgrep)
 - IntelliJ Ultimate Idea (and most other IntelliJ products) [`semgrep-intellij`](https://plugins.jetbrains.com/plugin/22622-semgrep)
 - Emacs: [`lsp-mode`](https://github.com/emacs-lsp/lsp-mode)
 
-### Community-contributed extensions
+### Community-contributed IDE extensions
 
 - Vim: [`semgrep.vim`](https://github.com/returntocorp/semgrep.vim)
 
@@ -31,7 +29,7 @@ one can wrap `semgrep lsp` to start the Semgrep Language Server, which will comm
 great way to integrate Semgrep into a project, as it can perform incremental scans, and caches various computations to hugely increase performance. 
 Please let us know on our community Slack linked below if you do, we'd be more than happy to help in anyway.
 
-## Pre-commit
+### Pre-commit
 
 The [pre-commit framework](https://pre-commit.com/) can run `semgrep` at commit-time. [Install `pre-commit`](https://pre-commit.com/#install) and add the following to `.pre-commit-config.yaml`
 
@@ -55,11 +53,11 @@ repos:
     - id:  semgrep-ci
 ```
 
-## Version management
+### Version management
 
 - asdf: [ASDF Semgrep](https://github.com/brentjanderson/asdf-semgrep)
 
-## Semgrep as an engine
+### Semgrep as an engine
 
 Many other tools have functionality powered by Semgrep.
 Add yours [with a pull request](https://github.com/returntocorp/semgrep-docs)!

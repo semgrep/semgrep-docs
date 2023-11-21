@@ -142,7 +142,7 @@ jobs:
 
     steps:
       - uses: actions/checkout@v3
-      - run: semgrep scan --sarif --output=semgrep.sarif --config=policy
+      - run: semgrep scan --sarif --config=policy > semgrep.sarif
         env:
           SEMGREP_APP_TOKEN: ${{ secrets.SEMGREP_APP_TOKEN }}
       - name: Upload SARIF file for GitHub Advanced Security Dashboard
@@ -335,7 +335,7 @@ Test that comments are sent by adding rules to your Policy's **Comment** or **Bl
 To configure PR or MR comments, review [Alerts and notifications](/semgrep-cloud-platform/notifications/) documentation.
 
 :::info
-Only rules in the **Comment** and **Block** modes of your [Policies](https://semgrep.dev/orgs/-/board) create the PR or MR comments. Rules from the **Block** column also block the PR or MR pipeline. To unblock the pipeline, the detected code needs to be fixed.
+Only rules in the **Comment** and **Block** modes of your [Policies](https://semgrep.dev/orgs/-/policies) create the PR or MR comments. Rules from the **Block** column also block the PR or MR pipeline. To unblock the pipeline, the detected code needs to be fixed.
 :::
 
 ### Setting a custom timeout

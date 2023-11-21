@@ -156,7 +156,7 @@ pipelines:
 After defining the `BITBUCKET_TOKEN`, you have successfully set up PR comments in Bitbucket Cloud.
 
 :::info
-Only rules set to the **Comment** and **Block** rule modes in the [Policies page](https://semgrep.dev/orgs/-/board) create PR comments.
+Only rules set to the **Comment** and **Block** rule modes in the [Policies page](https://semgrep.dev/orgs/-/policies) create PR comments.
 :::
 
 <MoreHelp />

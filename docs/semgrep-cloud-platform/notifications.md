@@ -58,7 +58,7 @@ To find available [integrations for Semgrep Cloud Platform](https://semgrep.dev/
 To view, add, remove, disable, or enable your saved channels:
 
 1. In the **Settings** > **[Integrations](https://semgrep.dev/orgs/-/settings/integrations)** page, explore the options available for specific integrations.
-2. In the **[Policies](https://semgrep.dev/orgs/-/board)** page, click **Rule modes**. A menu appears.
+2. In the **[Policies](https://semgrep.dev/orgs/-/policies)** page, click **Rule modes**. A menu appears.
 3. Click the **Edit** button of the mode for which mode you want to change notifications.
 4. Make any changes to the notification settings for the mode you selected.
 
