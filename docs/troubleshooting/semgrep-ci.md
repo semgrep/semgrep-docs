@@ -25,7 +25,7 @@ Object.entries(frontMatter).filter(
 
 # Troubleshooting Semgrep issues in CI
 
-This document outlines troubleshooting steps for issues related to **Semgrep scans** in a CI environment. Refer to the following sections you're seeing results reported on files that have not changed since the last scan, frequent time outs, or other issues.
+This document outlines troubleshooting steps for issues related to **Semgrep scans** in a CI environment. Refer to the following sections if you're seeing results reported on files that have not changed since the last scan, frequent timeouts, or other issues.
 
 For issues on **deployment or CI configuration**, such as adding repositories, see the knowledge base articles in [<i class="fa-regular fa-file-lines"></i> Semgrep in CI](/kb/semgrep-ci/).
 
