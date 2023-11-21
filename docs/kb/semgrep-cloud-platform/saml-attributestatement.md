@@ -10,7 +10,7 @@ tags:
 
 When setting up your SAML SSO (single sign-on) in Semgrep Cloud Platform, you may encounter the following configuration error: `There is no AttributeStatement on the Response`. This error can be seen after trying to configure SSO in Semgrep.
 
-![SAML AttributeStatement error](/img/kb/attribute-statement.png)
+![SAML AttributeStatement error](/img/attribute-statement.png)
 
 This issue is caused by an **attribute** within your service provider (SP) that does not have a value ascribed to it. When configuring SSO, the payload you send back to your SP, such as Okta or OneLogin, contains this attribute and hence, the SP raises this error.
 
