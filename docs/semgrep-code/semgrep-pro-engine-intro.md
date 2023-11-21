@@ -47,7 +47,7 @@ To run Semgrep Pro Engine in the Semgrep Cloud Platform, follow these steps:
 Pro Engine now runs on all full scans.
 
 :::tip Testing Semgrep Pro Engine
-To test Semgrep Pro Engine on a purposefully vulnerable repository, fork the [<i class="fas fa-external-link fa-xs"></i> juice-shop](https://github.com/juice-shop/juice-shop) repository, and then add it to SCP by following the steps described in section [<i class="fa-regular fa-file-lines"></i> Adding or onboarding a new project (repository)](/semgrep-code/getting-started/#adding-or-onboarding-a-new-project-repository).
+To test Semgrep Pro Engine on a purposefully vulnerable repository, fork the [<i class="fas fa-external-link fa-xs"></i> juice-shop](https://github.com/juice-shop/juice-shop) repository, and then add it to SCP by following the steps described in [<i class="fa-regular fa-file-lines"></i> Adding or onboarding a new project (repository)](/semgrep-code/getting-started/#adding-or-onboarding-a-new-project-repository).
 :::
 
 ### Running Semgrep Pro Engine in CLI
