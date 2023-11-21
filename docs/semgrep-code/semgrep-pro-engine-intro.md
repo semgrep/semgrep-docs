@@ -44,7 +44,7 @@ To run Semgrep Pro Engine in the Semgrep Cloud Platform, follow these steps:
     1. **If you don't have any repositories for scanning in Cloud Platform:** Follow the procedures in [<i class="fa-regular fa-file-lines"></i> Scanning a repository](/semgrep-code/getting-started/#semgrep-code-with-semgrep-cloud-platform) to scan a new repository with Semgrep Pro Engine. Ensure that your project's language is supported by Semgrep Pro Engine.
     1. **If you have existing repositories in Semgrep Cloud Platform:** Full scans now include Semgrep Pro Engine. You can trigger a full scan through your CI provider.
 
-Pro Engine now runs on all full scans.
+Pro Engine now runs on all full scans. Note that it does **not** support scanning on diff-aware (pull or merge request) scans. 
 
 :::tip Testing Semgrep Pro Engine
 To test Semgrep Pro Engine on a purposefully vulnerable repository, fork the [<i class="fas fa-external-link fa-xs"></i> juice-shop](https://github.com/juice-shop/juice-shop) repository, and then add it to SCP by following the steps described in [<i class="fa-regular fa-file-lines"></i> Adding or onboarding a new project (repository)](/semgrep-code/getting-started/#adding-or-onboarding-a-new-project-repository).
