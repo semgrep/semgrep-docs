@@ -56,6 +56,10 @@ module.exports = {
             {
               label: 'Semgrep Supply Chain',
               to: 'https://semgrep.dev/products/semgrep-supply-chain'
+            },
+            {
+              label: 'Semgrep Secrets',
+              to: 'https://semgrep.dev/products/semgrep-secrets'
             }
           ]
         },
