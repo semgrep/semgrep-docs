@@ -58,7 +58,7 @@ Semgrep gets API permissions to access code on your pre-selected GitHub or GitLa
 
 * Semgrep Inc. logs and stores the GPT prompts and responses for the sake of performance evaluation, which include source code snippets.
 * Semgrep Inc. sends relevant lines of code to OpenAI's API, where currently, the "relevant lines of code" means lines that are part of the Semgrep finding, plus 10 lines of context on each side. Semgrep Inc. is likely to expand this, potentially to the entire file, as we learn how to pass more useful context.
-* Semgrep Inc stores and retains these code snippets for up to 6 months. Semgrep Inc. will update you with at least a 30-day notice, if we make any changes to the retention policy.
+* Semgrep Inc stores and retains these code snippets for up to 6 months. Semgrep Inc. will update you with at least a 30-day notice if we make any changes to the retention policy.
 * Semgrep Inc is a paying customer of OpenAI and has a Data Protection Agreement signed with them (provided upon request by contacting [support@semgrep.com](mailto:support@semgrep.com). The code snippets we upload will be persisted by OpenAI temporarily, following their data usage policies at [Open AI API data Usage Policies](https://openai.com/policies/api-data-usage-policies).
 * For more details, see the [Semgrep Assistant FAQ](https://get.semgrep.dev/assistant).
 
