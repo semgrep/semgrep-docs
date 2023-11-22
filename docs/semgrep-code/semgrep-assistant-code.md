@@ -64,7 +64,7 @@ Semgrep gets API permissions to access code on your pre-selected GitHub or GitLa
 
 ## Required GitHub or GitLab repository permissions
 
-Semgrep Assistant requires the same permissions that Semgrep needs to integrate with GitHub or GitLab such as permissions that allow Semgrep to run CI jobs and post comments to PRs or MRs. See [<i class="fa-regular fa-file-lines"></i> Requested permissions for GitHub and GitLab](/semgrep-cloud-platform/getting-started/#requested-permissions-for-github-and-gitlab) for a list of permissions.
+Semgrep Assistant requires the same permissions that Semgrep needs to integrate with GitHub or GitLab, such as permissions that allow Semgrep to run CI jobs and post comments to PRs or MRs. See [<i class="fa-regular fa-file-lines"></i> Requested permissions for GitHub and GitLab](/semgrep-cloud-platform/getting-started/#requested-permissions-for-github-and-gitlab) for a list of permissions.
 
 Assistant extends normal Semgrep functionality by providing contextually aware AI-generated suggestions. In order to build that context, it requires extra permissions in GitHub and GitLab.
 
