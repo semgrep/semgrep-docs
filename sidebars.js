@@ -124,7 +124,7 @@ module.exports = {
     },
   ],
 
-  tutorialSidebar: [
+  productSidebar: [
     'Docs home',
     {
       type: 'link',
