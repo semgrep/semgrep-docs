@@ -1,7 +1,7 @@
 ---
 slug: scm 
 append_help_link: true
-title: Adding self-hosted repositories 
+title: Configuring GHES and GLSM
 description: "Integrate Semgrep into self-hosted and custom SCM tools such as GitHub Enterprise and GitLab Self Hosted."
 hide_title: true
 tags:

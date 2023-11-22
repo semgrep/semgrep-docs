@@ -16,7 +16,7 @@ module.exports = {
   // Note that paths are not slugs
   topLevelSidebar: [
     'Docs home',
-    { type: 'ref', id: 'release-notes/introduction', label: 'Scanning with Semgrep'},
+    { type: 'ref', id: 'getting-started', label: 'Scanning with Semgrep'},
     { type: 'ref', id: 'release-notes/introduction', label: 'Rule-writing'},
     {
       type: 'link',
@@ -35,17 +35,87 @@ module.exports = {
         label: 'Getting started',
         collapsible: false,
         items: [
-            'getting-started',
-            'semgrep-code/getting-started',
-            'semgrep-supply-chain/getting-started'
+            'quickstart',
+            'supported-languages'
+            //'getting-started',
         ]
     },
     {
       type: 'category',
-      label: 'Semgrep',
+      label: 'Deployment and onboarding',
       collapsible: false,
       items: [
-        'supported-languages',
+        {
+            type: 'category',
+            collapsible: true,
+            label: 'Small teams and individuals',
+            items: [
+                'semgrep-cloud-platform/creating-an-account',
+                'semgrep-cloud-platform/getting-started'
+            ]
+        },
+        {
+            type: 'category',
+            collapsible: true,
+            label: 'Large or enterprise teams',
+            items: [
+                'semgrep-cloud-platform/creating-an-account',
+                'semgrep-cloud-platform/sso',
+                'semgrep-cloud-platform/user-management',
+                'semgrep-cloud-platform/scm',
+                'semgrep-cloud-platform/getting-started'
+            ]
+        },
+        {
+          type: 'category',
+          label: 'Notifications',
+          collapsible: true,
+          link: {type: 'doc', id: 'semgrep-cloud-platform/notifications'},
+          items: [
+            'semgrep-cloud-platform/github-pr-comments',
+            'semgrep-cloud-platform/gitlab-mr-comments',
+            'semgrep-cloud-platform/bitbucket-pr-comments',
+            'semgrep-cloud-platform/slack',
+            'semgrep-cloud-platform/email',
+            'semgrep-cloud-platform/webhooks'
+          ]
+        },
+        {
+          type: 'category',
+          label: 'Ticketing',
+          collapsible: true,
+          link: {type: 'doc', id: 'semgrep-cloud-platform/ticketing'},
+          items: [
+            'semgrep-cloud-platform/asana',
+            'semgrep-cloud-platform/jira',
+            'semgrep-cloud-platform/linear'
+          ]
+        },
+        {
+          type: 'category',
+          label: 'Reports and management',
+          collapsible: true,
+          link: {type: 'doc', id: 'semgrep-cloud-platform/ticketing'},
+          items: [
+            'semgrep-cloud-platform/asana',
+            'semgrep-cloud-platform/jira',
+            'semgrep-cloud-platform/linear'
+          ]
+        },
+        {
+          type: 'category',
+          label: 'IDE extensions',
+          collapsible: true,
+          link: {
+            type: 'doc',
+            id: 'extensions/overview'
+          },
+          items: [
+            'extensions/semgrep-vs-code',
+            'extensions/semgrep-intellij'
+          ]
+        },
+            /*
             {
                 type: 'category',
                 label: 'Semgrep CLI',
@@ -62,7 +132,6 @@ module.exports = {
                     'managing-findings',
                     'upgrading',
                     'reporting-false-negatives',
-                    'cli-reference',
                     'troubleshooting/semgrep'
                 ]
             },
@@ -87,19 +156,6 @@ module.exports = {
                 ]
             },
         'ignoring-files-folders-code',
-            {
-              type: 'category',
-              label: 'Extensions',
-              collapsible: true,
-              link: {
-                type: 'doc',
-                id: 'extensions/overview'
-              },
-              items: [
-                'extensions/semgrep-vs-code',
-                'extensions/semgrep-intellij'
-              ]
-            },
         {
             type: 'category',
             label: 'Writing custom rules',
@@ -234,54 +290,60 @@ module.exports = {
                 },
             ],
         },
+        */
         'pricing-and-billing'
       ]
     },
     {
       type: 'category',
-      label: 'Semgrep Cloud Platform (SCP)',
+      label: 'Scanning with Semgrep',
       collapsible: false,
       items: [
+        {
+            type: 'category',
+            collapsible: true,
+            label: 'SAST',
+            items: [
+                'semgrep-cloud-platform/getting-started'
+            ]
+        },
+        {
+            type: 'category',
+            collapsible: true,
+            label: 'SCA',
+            items: [
+                'semgrep-cloud-platform/getting-started'
+            ]
+        },
+        {
+            type: 'category',
+            collapsible: true,
+            label: 'Secrets',
+            items: [
+                'semgrep-cloud-platform/getting-started'
+            ]
+        },
+        /*
         'semgrep-cloud-platform/getting-started',
         'semgrep-cloud-platform/dashboard',
-        'semgrep-cloud-platform/sso',
-        'semgrep-cloud-platform/user-management',
         'semgrep-cloud-platform/tags',
         'semgrep-cloud-platform/semgrep-api',
-        'semgrep-cloud-platform/scm',
-        'troubleshooting/semgrep-app',
-        {
-          type: 'category',
-          label: 'Notifications',
-          collapsible: true,
-          link: {type: 'doc', id: 'semgrep-cloud-platform/notifications'},
-          items: [
-            'semgrep-cloud-platform/github-pr-comments',
-            'semgrep-cloud-platform/gitlab-mr-comments',
-            'semgrep-cloud-platform/bitbucket-pr-comments',
-            'semgrep-cloud-platform/slack',
-            'semgrep-cloud-platform/email',
-            'semgrep-cloud-platform/webhooks'
-          ]
-        },
-        {
-          type: 'category',
-          label: 'Ticketing',
-          collapsible: true,
-          link: {type: 'doc', id: 'semgrep-cloud-platform/ticketing'},
-          items: [
-            'semgrep-cloud-platform/asana',
-            'semgrep-cloud-platform/jira',
-            'semgrep-cloud-platform/linear'
-          ]
-        },
+        'troubleshooting/semgrep-app', */
       ]
     },
     {
       type: 'category',
-      label: 'Semgrep Code',
+      label: 'Scanning with Semgrep OSS',
       collapsible: false,
       items: [
+        {
+            type: 'category',
+            collapsible: true,
+            label: 'SAST',
+            items: [
+                'semgrep-cloud-platform/getting-started'
+            ]
+        } /*
         'semgrep-code/getting-started',
         {
           type: 'category',
@@ -299,6 +361,18 @@ module.exports = {
         'semgrep-code/findings',
         'semgrep-code/semgrep-assistant-code',
         'semgrep-code/editor',
+        'semgrep-ci/configuring-blocking-and-errors-in-ci', */
+        ]
+    },
+    {
+      type: 'category',
+      label: 'References',
+      collapsible: false,
+      items: [
+        'cli-reference',
+        'semgrep-ci/ci-environment-variables',
+        'semgrep-ci/sample-ci-configs',
+        'semgrep-supply-chain/glossary'
         ]
     },
     {
@@ -323,8 +397,7 @@ module.exports = {
         'semgrep-supply-chain/notifications',
         'semgrep-supply-chain/dependency-search',
         'semgrep-supply-chain/license-compliance',
-        'semgrep-supply-chain/sbom',
-        'semgrep-supply-chain/glossary'
+        'semgrep-supply-chain/sbom'
       ]
     },
     {

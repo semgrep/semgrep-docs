@@ -2,7 +2,7 @@
 slug: sso
 append_help_link: true
 description: "SSO configuration instructions."
-title: SSO configuration
+title: SSO authentication 
 hide_title: true
 tags:
     - Semgrep Cloud Platform

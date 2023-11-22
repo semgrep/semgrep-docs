@@ -2,7 +2,8 @@
 slug: getting-started
 append_help_link: true
 description: "Install Semgrep, run Semgrep locally, and learn about the benefits of running Semgrep in CI (continuous integration)."
-title: Semgrep
+displayed_sidebar: scanSidebar
+title: Quickstart 
 hide_title: true
 ---
 
