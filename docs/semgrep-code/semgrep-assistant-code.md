@@ -37,9 +37,7 @@ This document provides an overview of the following:
 
 * This feature is available to users of the following source code managers (SCMs):
     * GitHub Cloud
-    * GitLab Free
-    * GitLab Premium
-    * GitLab Ultimate
+    * All GitLab plans, both SaaS and self-managed
 * Semgrep Assistant does not support GitHub Enterprise Server (self-hosted).
 
 ### Semgrep products
