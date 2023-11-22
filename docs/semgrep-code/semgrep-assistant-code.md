@@ -78,7 +78,7 @@ Assistant extends normal Semgrep functionality by providing contextually aware A
 
 <TabItem value='github'>
 
-Semgrep Assistant requires [read access to your code in GitHub](https://docs.github.com/en/rest/overview/permissions-required-for-github-apps?apiVersion=2022-11-28). This is done through installation of a private Semgrep GitHub app that you install during Assistant setup. This private Semgrep GitHub app:
+Semgrep Assistant requires [read access to your code in GitHub](https://docs.github.com/en/rest/overview/permissions-required-for-github-apps?apiVersion=2022-11-28). This is done through a private Semgrep GitHub app that you install during Assistant setup. This private Semgrep GitHub app:
 
 * Is fully under your control so you can revoke access or specific permissions at any time by visiting **Settings > Applications** in GitHub.
 * Only accesses source code repositories on a file-by-file basis; it does not need or request org-level access to your codebase.
