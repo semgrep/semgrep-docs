@@ -92,7 +92,7 @@ Semgrep Assistant requires the **API scope** to run in GitLab or self-managed Gi
 
 * You can revoke [project level access tokens](https://docs.gitlab.com/ee/user/project/settings/project_access_tokens.html#revoke-a-project-access-token) or [personal access tokens](https://docs.gitlab.com/ee/user/profile/personal_access_tokens.html#revoke-a-personal-access-token) at any time. 
 * Semgrep Assistant only accesses source code repositories (projects) on a file-by-file basis; it does not need or request org-level access to your codebase.
-* The token can be configured to limit its scope to specific projects or individuals. You do not need to give read access to all projects in your GitLab organization).
+* The token can be configured to limit its scope to specific projects or individuals. You do not need to give read access to all projects in your GitLab organization.
 
 </TabItem>
 </Tabs>
