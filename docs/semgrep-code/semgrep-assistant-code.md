@@ -37,9 +37,7 @@ This document provides an overview of the following:
 
 * This feature is available to users of the following source code managers (SCMs):
     * GitHub Cloud
-    * GitLab Free
-    * GitLab Premium
-    * GitLab Ultimate
+    * All GitLab plans, both SaaS and self-managed
 * Semgrep Assistant does not support GitHub Enterprise Server (self-hosted).
 
 ### Semgrep products
@@ -54,13 +52,48 @@ Semgrep Assistant supports all the same languages as Semgrep Code. See [Supporte
 
 ## Privacy and legal considerations
 
-Semgrep gets API permissions to access code on your pre-selected GitHub repositories.
+Semgrep gets API permissions to access code on your pre-selected GitHub or GitLab repositories.
 
 * Semgrep Inc. logs and stores the GPT prompts and responses for the sake of performance evaluation, which include source code snippets.
-* Semgrep Inc. sends relevant lines of code to OpenAI's API, where currently, the "relevant lines of code" means lines that are part of the Semgrep finding, plus 10 lines of context on each side. Semgrep Inc. is likely to expand this, potentially to the entire file as we learn how to pass more useful context.
-* Semgrep Inc stores and retains these code snippets for up to 6 months. Semgrep Inc. will update you with at least a 30-day notice, if we make any changes to the retention policy.
-* Semgrep Inc is a paying customer of OpenAI and has a Data Protection Agreement signed with them (provided upon request by contacting [support@semgrep.com](mailto:support@semgrep.com). The code snippets we upload will be persisted by OpenAI temporarily, following their data usage policies at [Open AI API data Usage Policies](https://openai.com/policies/api-data-usage-policies).
+* Semgrep Inc. sends relevant lines of code to OpenAI's API, where currently, the "relevant lines of code" means lines that are part of the Semgrep finding, plus 10 lines of context on each side. Semgrep Inc. is likely to expand this, potentially to the entire file, as we learn how to pass more useful context.
+* Semgrep Inc stores and retains these code snippets for up to 6 months. Semgrep Inc. will update you with at least a 30-day notice if we make any changes to the retention policy.
+* Semgrep Inc is a paying customer of OpenAI and has a Data Protection Agreement signed with them (provided upon request by [contacting support](/docs/support). The code snippets we upload will be persisted by OpenAI temporarily, following their data usage policies at [Open AI API data Usage Policies](https://openai.com/policies/api-data-usage-policies).
 * For more details, see the [Semgrep Assistant FAQ](https://get.semgrep.dev/assistant).
+
+## Required GitHub or GitLab repository permissions
+
+Semgrep Assistant requires the same permissions that Semgrep needs to integrate with GitHub or GitLab, such as permissions that allow Semgrep to run CI jobs and post comments to PRs or MRs. See [<i class="fa-regular fa-file-lines"></i> Requested permissions for GitHub and GitLab](/semgrep-cloud-platform/getting-started/#requested-permissions-for-github-and-gitlab) for a list of permissions.
+
+Assistant extends normal Semgrep functionality by providing contextually aware AI-generated suggestions. In order to build that context, it requires extra permissions in GitHub and GitLab.
+
+<Tabs
+    defaultValue="github"
+    values={[
+    {label: 'GitHub', value: 'github'},
+    {label: 'GitLab', value: 'gitlab'},
+    ]}
+>
+
+<TabItem value='github'>
+
+Semgrep Assistant requires [read access to your code in GitHub](https://docs.github.com/en/rest/overview/permissions-required-for-github-apps?apiVersion=2022-11-28). This is done through a private Semgrep GitHub app that you install during Assistant setup. This private Semgrep GitHub app:
+
+* Is fully under your control so you can revoke access or specific permissions at any time by visiting **Settings > Applications** in GitHub.
+* Only accesses source code repositories on a file-by-file basis; it does not need or request org-level access to your codebase.
+* Can be configured to limit its scope to specific repositories. You do not need to give read access to all repositories in your GitHub organization. 
+
+</TabItem>
+
+<TabItem value='gitlab'>
+
+Semgrep Assistant requires the **API scope** to run in both GitLab SaaS and GitLab self-managed instances. This can be specified at either the [project access token level](https://docs.gitlab.com/ee/user/project/settings/project_access_tokens.html) or [personal access token level](https://docs.gitlab.com/ee/user/profile/personal_access_tokens.html). 
+
+* You can revoke [project access tokens](https://docs.gitlab.com/ee/user/project/settings/project_access_tokens.html#revoke-a-project-access-token) or [personal access tokens](https://docs.gitlab.com/ee/user/profile/personal_access_tokens.html#revoke-a-personal-access-token) at any time. 
+* Semgrep Assistant only accesses source code repositories (projects) on a file-by-file basis; it does not need or request org-level access to your codebase.
+* The token can be configured to limit its scope to specific projects or individuals. You do not need to give read access to all projects in your GitLab organization.
+
+</TabItem>
+</Tabs>
 
 ## Enabling Semgrep Assistant
 
@@ -141,6 +174,7 @@ Semgrep Assistant messages only appear in your PR comments for rules that are se
     ![Screenshot of Policies modes](/img/semgrep-assistant-comment.png)
 * Ensure that you have selected PR/MR comments in **Semgrep Cloud Platform > Settings > Deployment** in the **Code** section.
 :::
+
 
 ## Types of recommendations from Semgrep Assistant
 
