@@ -17,19 +17,20 @@ module.exports = {
   topLevelSidebar: [
     'Docs home',
     { type: 'ref', id: 'getting-started', label: 'Scanning with Semgrep'},
-    { type: 'ref', id: 'release-notes/introduction', label: 'Rule-writing'},
+    { type: 'ref', id: 'writing-rules/overview', label: 'Rule-writing'},
     {
       type: 'link',
       label: 'Knowledge base',
       href: '/kb/',
     },
-    { type: 'ref', id: 'release-notes/introduction', label: 'OWASP cheat sheets'},
-    { type: 'ref', id: 'release-notes/introduction', label: 'Contributing to Semgrep'},
-    { type: 'ref', id: 'release-notes/introduction', label: 'About Semgrep'},
+    { type: 'ref', id: 'cheat-sheets/overview', label: 'OWASP cheat sheets'},
+    { type: 'ref', id: 'contributing/contributing', label: 'Contributing to Semgrep'},
+    { type: 'ref', id: 'faq', label: 'About Semgrep'},
     { type: 'ref', id: 'release-notes/introduction', label: 'Release notes'},
     { type: 'ref', id: 'release-notes/introduction', label: 'API'},
   ],
   scanSidebar: [
+    'Docs home',
     {
         type: 'category',
         label: 'Getting started',
@@ -174,139 +175,6 @@ module.exports = {
                     'troubleshooting/semgrep-ci'
                 ]
             },
-        {
-            type: 'category',
-            label: 'Writing custom rules',
-            collapsible: true,
-            link: {type: 'doc', id: 'writing-rules/overview'},
-            items: [
-                'writing-rules/pattern-examples',
-                'writing-rules/pattern-syntax',
-                'writing-rules/rule-ideas',
-                'writing-rules/rule-syntax',
-                'writing-rules/testing-rules',
-                'writing-rules/private-rules',
-                'writing-rules/autofix',
-                'writing-rules/generic-pattern-matching',
-                'writing-rules/metavariable-analysis',
-                'troubleshooting/rules',
-                {
-                    type: 'category',
-                    label: 'Experiments 🧪',
-                    link: {type: 'doc', id: 'writing-rules/experiments/introduction'},
-                    items: [
-                      'writing-rules/experiments/aliengrep',
-                      'writing-rules/experiments/display-propagated-metavariable',
-                      'writing-rules/experiments/extract-mode',
-                      { type: 'category',
-                          label: 'Join mode',
-                          link: {type: 'doc', id: 'writing-rules/experiments/join-mode/overview'},
-                          items: [
-                              'writing-rules/experiments/join-mode/recursive-joins'
-                          ]
-                      },
-                      'writing-rules/experiments/multiple-focus-metavariables',
-                      'writing-rules/experiments/project-depends-on',
-                      'writing-rules/experiments/symbolic-propagation',
-                      'writing-rules/experiments/taint-labels',
-                      'writing-rules/experiments/metavariable-type',
-                      'writing-rules/experiments/deprecated-experiments'
-                    ]
-                  },
-                'trophy-case'
-            ]
-        },
-        {
-            type: 'category',
-            label: 'Data-flow analysis',
-            link: {type: 'doc', id: 'writing-rules/data-flow/data-flow-overview'},
-            items: [
-                'writing-rules/data-flow/constant-propagation',
-                'writing-rules/data-flow/taint-mode',
-                'writing-rules/data-flow/status'
-            ]
-        },
-        {
-            type: 'category',
-            label: 'Cheat sheets',
-            link: {
-                type: 'generated-index',
-                title: 'Cheat sheets',
-                description:
-                  "This category provides Semgrep cheat sheets that help you to prevent specific vulnerabilities.",
-                keywords: ['cheat sheet']
-              },
-            items: [
-                {
-                    type: 'category',
-                    label: 'Code injection',
-                    link: {
-                        type: 'generated-index',
-                        title: 'Code injection',
-                        description:
-                          "Semgrep code injection prevention cheat sheets.",
-                        keywords: ['code injection']
-                      },
-                    items: [
-                        'cheat-sheets/java-code-injection',
-                        'cheat-sheets/javascript-code-injection',
-                        'cheat-sheets/python-code-injection',
-                        'cheat-sheets/ruby-code-injection'
-                    ]
-                },
-                {
-                    type: 'category',
-                    label: 'Command injection',
-                    link: {
-                        type: 'generated-index',
-                        title: 'Command injection',
-                        description:
-                          "Semgrep command injection prevention cheat sheets.",
-                        keywords: ['command injection']
-                      },
-                    items: [
-                            'cheat-sheets/go-command-injection',
-                            'cheat-sheets/java-command-injection',
-                            'cheat-sheets/javascript-command-injection',
-                            'cheat-sheets/python-command-injection',
-                            'cheat-sheets/ruby-command-injection'
-                        ]
-                },
-                {
-                    type: 'category',
-                    label: 'XSS',
-                    link: {
-                        type: 'generated-index',
-                        title: 'XSS',
-                        description:
-                            "Semgrep XSS prevention cheat sheets.",
-                        keywords: ['XSS']
-                        },
-                    items: [
-                        'cheat-sheets/django-xss',
-                        'cheat-sheets/express-xss',
-                        'cheat-sheets/flask-xss',
-                        'cheat-sheets/go-xss',
-                        'cheat-sheets/java-jsp-xss',
-                        'cheat-sheets/rails-xss'
-                    ]
-                },
-                {
-                    type: 'category',
-                    label: 'XXE',
-                    link: {
-                        type: 'generated-index',
-                        title: 'XXE',
-                        description:
-                            "Semgrep XXE prevention cheat sheets.",
-                        keywords: ['XXE']
-                        },
-                    items: [
-                        'cheat-sheets/java-xxe',
-                    ]
-                },
-            ],
-        },
         */
       ]
     },
@@ -396,8 +264,149 @@ module.exports = {
         'semgrep-supply-chain/glossary'
         ]
     }
-    ],
+  ],
+  rulewritingSidebar: [
+        'Docs home',
+        {
+            type: 'category',
+            label: 'Writing custom rules',
+            collapsible: true,
+            link: {type: 'doc', id: 'writing-rules/overview'},
+            items: [
+                'writing-rules/pattern-examples',
+                'writing-rules/pattern-syntax',
+                'writing-rules/rule-ideas',
+                'writing-rules/rule-syntax',
+                'writing-rules/testing-rules',
+                'writing-rules/private-rules',
+                'writing-rules/autofix',
+                'writing-rules/generic-pattern-matching',
+                'writing-rules/metavariable-analysis',
+                'troubleshooting/rules',
+                {
+                    type: 'category',
+                    label: 'Experiments 🧪',
+                    link: {type: 'doc', id: 'writing-rules/experiments/introduction'},
+                    items: [
+                      'writing-rules/experiments/aliengrep',
+                      'writing-rules/experiments/display-propagated-metavariable',
+                      'writing-rules/experiments/extract-mode',
+                      { type: 'category',
+                          label: 'Join mode',
+                          link: {type: 'doc', id: 'writing-rules/experiments/join-mode/overview'},
+                          items: [
+                              'writing-rules/experiments/join-mode/recursive-joins'
+                          ]
+                      },
+                      'writing-rules/experiments/multiple-focus-metavariables',
+                      'writing-rules/experiments/project-depends-on',
+                      'writing-rules/experiments/symbolic-propagation',
+                      'writing-rules/experiments/taint-labels',
+                      'writing-rules/experiments/metavariable-type',
+                      'writing-rules/experiments/deprecated-experiments'
+                    ]
+                  },
+            ]
+        },
+        {
+            type: 'category',
+            label: 'Data-flow analysis',
+            link: {type: 'doc', id: 'writing-rules/data-flow/data-flow-overview'},
+            items: [
+                'writing-rules/data-flow/constant-propagation',
+                'writing-rules/data-flow/taint-mode',
+                'writing-rules/data-flow/status'
+            ]
+        },
+  ],
+  cheatsheetSidebar: [
+        'cheat-sheets/overview',
+        'Docs home',
+        {
+            type: 'category',
+            label: 'Cheat sheets',
+            link: {
+                type: 'generated-index',
+                title: 'Cheat sheets',
+                description:
+                  "This category provides Semgrep cheat sheets that help you to prevent specific vulnerabilities.",
+                keywords: ['cheat sheet']
+              },
+            items: [
+                {
+                    type: 'category',
+                    label: 'Code injection',
+                    link: {
+                        type: 'generated-index',
+                        title: 'Code injection',
+                        description:
+                          "Semgrep code injection prevention cheat sheets.",
+                        keywords: ['code injection']
+                      },
+                    items: [
+                        'cheat-sheets/java-code-injection',
+                        'cheat-sheets/javascript-code-injection',
+                        'cheat-sheets/python-code-injection',
+                        'cheat-sheets/ruby-code-injection'
+                    ]
+                },
+                {
+                    type: 'category',
+                    label: 'Command injection',
+                    link: {
+                        type: 'generated-index',
+                        title: 'Command injection',
+                        description:
+                          "Semgrep command injection prevention cheat sheets.",
+                        keywords: ['command injection']
+                      },
+                    items: [
+                            'cheat-sheets/go-command-injection',
+                            'cheat-sheets/java-command-injection',
+                            'cheat-sheets/javascript-command-injection',
+                            'cheat-sheets/python-command-injection',
+                            'cheat-sheets/ruby-command-injection'
+                        ]
+                },
+                {
+                    type: 'category',
+                    label: 'XSS',
+                    link: {
+                        type: 'generated-index',
+                        title: 'XSS',
+                        description:
+                            "Semgrep XSS prevention cheat sheets.",
+                        keywords: ['XSS']
+                        },
+                    items: [
+                        'cheat-sheets/django-xss',
+                        'cheat-sheets/express-xss',
+                        'cheat-sheets/flask-xss',
+                        'cheat-sheets/go-xss',
+                        'cheat-sheets/java-jsp-xss',
+                        'cheat-sheets/rails-xss'
+                    ]
+                },
+                {
+                    type: 'category',
+                    label: 'XXE',
+                    link: {
+                        type: 'generated-index',
+                        title: 'XXE',
+                        description:
+                            "Semgrep XXE prevention cheat sheets.",
+                        keywords: ['XXE']
+                        },
+                    items: [
+                        'cheat-sheets/java-xxe',
+                    ]
+                },
+            ],
+        },
+],
+
   contributingSidebar: [
+    'Docs home',
     {
         type: 'category',
         label: 'Contributing',
@@ -420,15 +429,17 @@ module.exports = {
             'contributing/updating-a-grammar',
             'contributing/troubleshooting',
         ]
-    },
+    }
+  ],
+  aboutSidebar: [
+    'Docs home',
     {
         type: 'category',
         label: 'About Semgrep',
         collapsible: false,
         items: [
+            'trophy-case',
             'support',
-            {type: 'ref', id: 'release-notes/introduction', label: 'Release notes'},
-            'release-notes/rule-updates',
             'security',
             'licensing',
             'faq',
