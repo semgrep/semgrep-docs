@@ -1,8 +1,8 @@
 ---
 slug: getting-started
 append_help_link: true
-description: "Perform a SAST scan with Semgrep Code "
-title: Semgrep Code
+description: "Perform a SAST scan with Semgrep Code"
+title: About Semgrep Code
 hide_title: true
 tags:
     - Semgrep Code

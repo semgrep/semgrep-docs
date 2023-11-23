@@ -5,7 +5,7 @@ description: "Receive notifications about reachable findings from your Semgrep S
 tags:
     - Semgrep Supply Chain
     - Team & Enterprise Tier
-title: Alerts and notifications 
+title: Alerts and notifications (deprecate me)
 hide_title: true
 ---
 

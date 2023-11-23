@@ -1,7 +1,7 @@
 ---
 slug: policies
 append_help_link: true
-title: Policies
+title: Setting rules through Policies
 hide_title: true
 description: "The Policies page is a visual representation of the rules that Semgrep Code uses to scan code."
 tags:

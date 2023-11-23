@@ -5,7 +5,7 @@ description: "Learn how Semgrep leverages its engine to scan open source depende
 tags:
     - Semgrep Supply Chain
     - Team & Enterprise Tier
-title: Conceptual overview 
+title: About Semgrep Supply Chain 
 hide_title: true
 ---
 

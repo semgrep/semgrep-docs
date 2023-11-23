@@ -1,7 +1,7 @@
 ---
 slug: findings
 append_help_link: true
-title: Findings
+title: Triage and remediation
 description: "The Findings page allows users to view, manage, and triage Findings."
 hide_title: true
 toc_max_heading_level: 5

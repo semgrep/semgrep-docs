@@ -1,7 +1,7 @@
 ---
 slug: running-semgrep-ci-without-semgrep-cloud-platform
 append_help_link: true
-title: Running Semgrep in CI without Semgrep Cloud Platform 
+title: Running Semgrep OSS in CI 
 description: "Set up Semgrep in CI without connecting to Semgrep Cloud Platform."
 tags:
     - Semgrep in CI

@@ -42,15 +42,25 @@ module.exports = {
     },
     {
       type: 'category',
-      label: 'Deployment and onboarding',
+      label: 'Running and deploying scans',
       collapsible: false,
       items: [
         {
             type: 'category',
             collapsible: true,
-            label: 'Small teams and individuals',
+            label: 'Small teams or individuals',
             items: [
                 'semgrep-cloud-platform/creating-an-account',
+                {
+                    type: 'category',
+                    label: 'Configuring SCA scans',
+                    collapsible: true,
+                    link: {type: 'doc', id: 'semgrep-supply-chain/setup-infrastructure'},
+                    items: [
+                        'semgrep-supply-chain/setup-maven',
+                        'semgrep-supply-chain/setup-jenkins-ui'
+                    ]
+                },
                 'semgrep-cloud-platform/getting-started'
             ]
         },
@@ -63,7 +73,18 @@ module.exports = {
                 'semgrep-cloud-platform/sso',
                 'semgrep-cloud-platform/user-management',
                 'semgrep-cloud-platform/scm',
-                'semgrep-cloud-platform/getting-started'
+                {
+                    type: 'category',
+                    label: 'Configuring SCA scans',
+                    collapsible: true,
+                    link: {type: 'doc', id: 'semgrep-supply-chain/setup-infrastructure'},
+                    items: [
+                        'semgrep-supply-chain/setup-maven',
+                        'semgrep-supply-chain/setup-jenkins-ui'
+                    ]
+                },
+                'semgrep-cloud-platform/getting-started',
+                'semgrep-cloud-platform/tags'
             ]
         },
         {
@@ -93,13 +114,12 @@ module.exports = {
         },
         {
           type: 'category',
-          label: 'Reports and management',
+          label: 'Reports',
           collapsible: true,
           link: {type: 'doc', id: 'semgrep-cloud-platform/ticketing'},
           items: [
-            'semgrep-cloud-platform/asana',
-            'semgrep-cloud-platform/jira',
-            'semgrep-cloud-platform/linear'
+            'semgrep-cloud-platform/dashboard',
+            'semgrep-supply-chain/sbom'
           ]
         },
         {
@@ -148,14 +168,12 @@ module.exports = {
                 items: [
                     'semgrep-ci/overview',
                     'semgrep-ci/running-semgrep-ci-with-semgrep-cloud-platform',
-                    'semgrep-ci/running-semgrep-ci-without-semgrep-cloud-platform',
                     'semgrep-ci/ci-environment-variables',
                     'semgrep-ci/configuring-blocking-and-errors-in-ci',
                     'semgrep-ci/sample-ci-configs',
                     'troubleshooting/semgrep-ci'
                 ]
             },
-        'ignoring-files-folders-code',
         {
             type: 'category',
             label: 'Writing custom rules',
@@ -195,7 +213,6 @@ module.exports = {
                       'writing-rules/experiments/deprecated-experiments'
                     ]
                   },
-                'playground',
                 'trophy-case'
             ]
         },
@@ -291,12 +308,11 @@ module.exports = {
             ],
         },
         */
-        'pricing-and-billing'
       ]
     },
     {
       type: 'category',
-      label: 'Scanning with Semgrep',
+      label: 'Scanning and triage',
       collapsible: false,
       items: [
         {
@@ -304,7 +320,16 @@ module.exports = {
             collapsible: true,
             label: 'SAST',
             items: [
-                'semgrep-cloud-platform/getting-started'
+                //'running-rules',
+                'semgrep-code/getting-started',
+                'semgrep-code/semgrep-pro-engine-intro',
+                'semgrep-code/policies',
+                'ignoring-files-folders-code',
+                'semgrep-code/findings',
+                'semgrep-code/semgrep-assistant-code',
+                'semgrep-ci/configuring-blocking-and-errors-in-ci',
+                'semgrep-code/editor',
+                'running-rules'
             ]
         },
         {
@@ -312,7 +337,13 @@ module.exports = {
             collapsible: true,
             label: 'SCA',
             items: [
-                'semgrep-cloud-platform/getting-started'
+                'semgrep-supply-chain/overview',
+                'semgrep-supply-chain/getting-started',
+                'semgrep-supply-chain/triage-remediation',
+                'semgrep-supply-chain/ignoring-deps',
+                'semgrep-supply-chain/notifications',
+                'semgrep-supply-chain/dependency-search',
+                'semgrep-supply-chain/license-compliance'
             ]
         },
         {
@@ -320,13 +351,12 @@ module.exports = {
             collapsible: true,
             label: 'Secrets',
             items: [
-                'semgrep-cloud-platform/getting-started'
+                'semgrep-secrets/conceptual-overview',
+                'semgrep-secrets/getting-started'
             ]
         },
         /*
         'semgrep-cloud-platform/getting-started',
-        'semgrep-cloud-platform/dashboard',
-        'semgrep-cloud-platform/tags',
         'semgrep-cloud-platform/semgrep-api',
         'troubleshooting/semgrep-app', */
       ]
@@ -341,27 +371,18 @@ module.exports = {
             collapsible: true,
             label: 'SAST',
             items: [
-                'semgrep-cloud-platform/getting-started'
+                'running-rules',
+                'semgrep-ci/running-semgrep-ci-without-semgrep-cloud-platform',
+                'playground'
             ]
         } /*
         'semgrep-code/getting-started',
-        {
-          type: 'category',
-          label: 'Semgrep Pro Engine',
-          collapsible: true,
-          link: {type: 'doc', id: 'semgrep-code/semgrep-pro-engine-intro'},
-          items: [
-            'semgrep-code/semgrep-pro-engine-examples',
-            'semgrep-code/semgrep-pro-engine-data-flow'
-          ]
-        },
-        'semgrep-code/pro-rules',
         'semgrep-code/demo-project',
-        'semgrep-code/policies',
-        'semgrep-code/findings',
-        'semgrep-code/semgrep-assistant-code',
-        'semgrep-code/editor',
-        'semgrep-ci/configuring-blocking-and-errors-in-ci', */
+                  items: [
+                'semgrep-code/pro-rules',
+                    'semgrep-code/semgrep-pro-engine-examples',
+                    'semgrep-code/semgrep-pro-engine-data-flow'
+                  ] */
         ]
     },
     {
@@ -374,41 +395,9 @@ module.exports = {
         'semgrep-ci/sample-ci-configs',
         'semgrep-supply-chain/glossary'
         ]
-    },
-    {
-      type: 'category',
-      label: 'Semgrep Supply Chain (SSC)',
-      collapsible: false,
-      items: [
-        'semgrep-supply-chain/overview',
-        'semgrep-supply-chain/getting-started',
-        {
-          type: 'category',
-          label: 'Infrastructure-specific configuration',
-          collapsible: true,
-          link: {type: 'doc', id: 'semgrep-supply-chain/setup-infrastructure'},
-          items: [
-          'semgrep-supply-chain/setup-maven',
-          'semgrep-supply-chain/setup-jenkins-ui',
-          ]
-        },
-        'semgrep-supply-chain/triage-remediation',
-        'semgrep-supply-chain/ignoring-deps',
-        'semgrep-supply-chain/notifications',
-        'semgrep-supply-chain/dependency-search',
-        'semgrep-supply-chain/license-compliance',
-        'semgrep-supply-chain/sbom'
-      ]
-    },
-    {
-      type: 'category',
-      label: 'Semgrep Secrets',
-      collapsible: false,
-      items: [
-        'semgrep-secrets/conceptual-overview',
-        'semgrep-secrets/getting-started'
-      ]
-    },
+    }
+    ],
+  contributingSidebar: [
     {
         type: 'category',
         label: 'Contributing',
@@ -445,6 +434,7 @@ module.exports = {
             'faq',
             'integrating',
             'usage-limits',
+        'pricing-and-billing',
             'contributing/philosophy',
             {
               type: 'doc',

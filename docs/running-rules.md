@@ -2,7 +2,7 @@
 slug: running-rules
 append_help_link: true
 description: "Learn about Semgrep rules, how to add your custom rules and rules from Semgrep Registry, a community-contributed repository of rules to help enforce security."
-title: Running rules
+title: Scanning local codebases  
 hide_title: true
 ---
 
