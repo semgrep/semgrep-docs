@@ -347,7 +347,7 @@ Semgrep API does not automatically deduplicate findings. If you are using Semgre
 
 ## See also
 
-* [Alerts and notifications](/semgrep-code/notifications)
+* [Alerts and notifications](/semgrep-cloud-platform/notifications)
 * [Policies](/semgrep-code/policies)
 * [Ignoring files, folders, or code](/ignoring-files-folders-code/)
 
