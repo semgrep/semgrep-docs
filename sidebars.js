@@ -156,7 +156,6 @@ module.exports = {
                     keywords: ['CLI']
                   },
                 items: [
-                    'getting-started',
                     'running-rules',
                     'managing-findings',
                     'upgrading',
