@@ -1,1 +1,4 @@
-Detect recently discovered [security vulnerabilities](https://nvd.nist.gov/vuln/full-listing) in your codebase's open-source dependencies using Semgrep Supply Chain. Leverage Semgrep's code-scanning capabilities to run high-signal rules that determine a vulnerability's [reachability](/semgrep-supply-chain/glossary/#reachability). Semgrep Supply Chain evaluates dependencies based on their version and use in your codebase.
+Supply Chain allows you to detect [security
+vulnerabilities](https://nvd.nist.gov/general/news/change-timeline) in your
+project's open-source dependencies and determine if they are
+[reachable](/semgrep-supply-chain/glossary/#reachability).

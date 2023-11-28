@@ -136,9 +136,8 @@ module.exports = {
         label: 'Getting started',
         collapsible: false,
         items: [
-            'getting-started',
-            'semgrep-code/getting-started',
-            'semgrep-supply-chain/getting-started'
+            'supported-languages',
+            'getting-started/quickstart'
         ]
     },
     {
@@ -146,7 +145,6 @@ module.exports = {
       label: 'Semgrep',
       collapsible: false,
       items: [
-        'supported-languages',
             {
                 type: 'category',
                 label: 'Semgrep CLI',
@@ -343,6 +341,7 @@ module.exports = {
       label: 'Semgrep Cloud Platform (SCP)',
       collapsible: false,
       items: [
+        'semgrep-cloud-platform/overview',
         'semgrep-cloud-platform/getting-started',
         'semgrep-cloud-platform/dashboard',
         'semgrep-cloud-platform/sso',
@@ -383,6 +382,7 @@ module.exports = {
       label: 'Semgrep Code',
       collapsible: false,
       items: [
+        'semgrep-code/overview',
         'semgrep-code/getting-started',
         {
           type: 'category',

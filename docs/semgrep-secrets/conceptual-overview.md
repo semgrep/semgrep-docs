@@ -1,131 +1,108 @@
 ---
-slug: /semgrep-secrets/conceptual-overview
+slug: overview
 append_help_link: true
-title: Conceptual overview
-hide_title: true
-description: Learn how Semgrep Secrets detects leaked secrets and helps you prioritize what keys to rotate.
+title: Overview
+hide_title: false
+description: "Learn about detecting and fixing |
+    secrets that are leaked in your code."
 tags:
-  - Semgrep Secrets
+  - Secrets
 ---
 
 import MoreHelp from "/src/components/MoreHelp"
 
-# Conceptual overview of Semgrep Secrets
+Semgrep Secrets scans your code to look for exposed credentials such as API keys, access tokens, and passwords that, in the possession of a malicious actor, could compromise your data and systems.
 
-**Semgrep Secrets** scans code to detect exposed API keys, passwords, and other credentials. These exposed secrets can be used by malicious actors to leak data or gain access to sensitive systems. Semgrep Secrets enables the user to know the following: 
+Secrets provides you with information on: 
 
-* What secrets have been committed to your repository.
-* The validation status of the secret, such as if it is confirmed valid. **Valid** secrets are secrets that are tested against a web service and confirmed to successfully grant resources or authentication. They are actively in use. 
-* For GitHub repositories: If these secrets are in public or private repositories.
+* The secrets that have been committed to your repositories (for GitHub users, Semgrep can determine if secrets have been leaked in public and private repos);
+* The validation status of the secret (i.e., whether the credential is valid and can be used to access a resource);
 
-Save time and effort by prioritizing valid leaked secrets. Inform developers of valid secrets in their GitHub PRs by posting PR comments. 
+You can view all Secrets findings in the Cloud Platform.
 
-This document explains how Semgrep Secrets works and its approach to detecting secrets.
+## Language support
 
-:::info
-For a guide to setting up Semgrep Secrets, see [<i class="fa-regular fa-file-lines"></i> Getting started with Semgrep Secrets](/semgrep-secrets/getting-started).
-:::
+Semgrep is capable of scanning apps written in any programming language for secrets.
 
-:::tip
-Semgrep Secrets can scan **any programming language** for secrets.
-:::
+## How secrets works
 
-To ensure that findings are high-signal, comprehensive, and easy for users to prioritize, a Secrets scan performs the following:
+Semgrep relies on the following analysis to ensure that the findings it presents to you are comprehensive, helpful, and information-rich:
 
 * Semantic analysis
-* Validation
 * Entropy analysis
+* Validation
 
-The following sections explain how each analysis works.
+### Detect leaked credentials with semantic analysis
 
-## Detecting secrets through semantic analysis
+With semantic analysis, Semgrep understands how your data is used in your code. The primary mechanism used by Semgrep to perform semantic analysis is data flow analysis, specifically constant propagation, which allows Semgrep to track data as it flows through your code, including the value of a variable at a given point in your program.
 
-Semantic analysis refers to Semgrep Secrets' ability to understand how data is used within your code. This differentiates Semgrep Secrets from regex-based detectors that simply define a pattern to match to a piece of code.
+[<i class="fa-regular fa-file-lines"></i> Rules](/running-rules/) encapsulates how Semgrep performs semantic analysis. With rules, Secrets determines if your variable is renamed, unsanitized, reassigned, or used in a function in a way that exposes your secret.
 
-In particular, Semgrep Secrets uses several mechanisms to perform semantic analysis. It uses [<i class="fa-regular fa-file-lines"></i> data-flow analysis](/writing-rules/data-flow/data-flow-overview/) and [<i class="fa-regular fa-file-lines"></i> constant propagation](/writing-rules/data-flow/constant-propagation/) which means that it is able to track data, such as variables, and the flow of that data across files and functions in your codebase.
+#### Example: detect a hardcoded AWS secret access key 
 
-Performing semantic analysis is encapsulated in [<i class="fa-regular fa-file-lines"></i> rules](/running-rules/). By running these rules, Semgrep Secrets is able to detect if a variable is renamed, unsanitized or sanitized, reassigned, or used in a function in such a way that a secret is exposed.
+The following rule detects hard-coded secret access keys, and the subsequent section of JavaScript code contains a credential leak. This example walks you through Semgrep's logic in identifying this security issue.
 
-See the following rule and JavaScript test code for an example.
+Click **<i class="fa-solid fa-play"></i> Run** to see the true positives identified by Semgrep.
 
 <iframe title="AWS hardcoded access key" src="https://semgrep.dev/embed/editor?snippet=EPj5" width="100%" height="432px" frameBorder="0"></iframe>
 <br />
 
- The rule detects hardcoded AWS secret access keys. The test code defines an access key in the variable `secret`. Click **<i class="fa-solid fa-play"></i> Run** to see the true positives.
+Note that:
 
- Some differences between Semgrep Secrets and regex-based scanners include:
+* In **Line 2**, Semgrep has detected the variable name `secret` and its token value; however, it doesn't generate a finding because the token hasn't been passed as a `secretAccessKey` (or similar).
+* In **Line 7**, Semgrep detects that the plaintext secret is passed to the `AWS.config.update` function.
+* In **Line 17**, Semgrep detects that the value of `secret` is passed to `secretAccessKey`.
+* Semgrep ignores `conf.secret` in **Line 21**, avoiding generating a false positive.
 
-* **Line 2:** Both can detect the variable name `secret` and its value (token) in line 2.
-	* A regex-based scanner may generate a noisy finding from line 2 even though `secret` has not been passed to any function.
-	* Semgrep Secrets doesn't generate a finding because the token hasn't been passed as a `secretAccessKey` or similar.
-* **Line 7:** Both can detect **line 6**, in which the plain-text secret is passed to the `AWS.config.update` function.
-* **Line 17:** Both can detect **line 14**, in which `secret` is passed.
-* **Line 26:** Semgrep Secrets correctly skips `conf.secret` in **line 21**. Regex-based scanners simply looking for matches of the string `secret` generate a false positive.
+### Fine-tune findings with entropy analysis
 
-## Validating secrets 
+Entropy is a measure of a string's randomness -- high entropy strings are more likely to be random. A string's randomness can indicate that the value is a credential of some type, e.g., API keys. Semgrep can better identify whether a string is a secret with entropy analysis.
 
-After scanning, Semgrep Secrets uses a **post-processor** function called a **validator** to determine if a secret is actively being used, or some other state.
-
-:::info
-* All validations, such as API calls, are done **locally**.
-* No tokens are sent to Semgrep servers.
-:::
-
-1. The post-processor detects the service, such as Slack or AWS, that the secret is used for.
-2. If the post-processor does not support the service that the secret is used for, Semgrep notes that there is **No validator** for the secret.
-3. If the validator can detect the service, Semgrep Secrets performs an API call. The following outcomes can occur:
-	1. **Confirmed valid:** Semgrep made an HTTP request using the secret and it returned an HTTP status code of 200 or similar **and** some indication of valid access. For example, a service can include a `"message": "ok"`.
-    2. **Confirmed invalid:** Semgrep made an HTTP request using the secret and it returned an HTTP status code of 401 or similar.
-    3. **Validation error:** Semgrep made an HTTP request using the secret, but the either the network request could not be made, a timeout occurred, or the HTTP status code returned a different HTTP status code. In this case, the Semgrep Team recommends manually reviewing the finding.
-
-All findings, whether they are validated, with validation errors, invalid, or valid, appear in Semgrep Cloud Platform.
-
-By performing this post-processor check, you are able to prioritize (triage) the most high priority, active findings.
-
-<!--
-:::note
-For a list of all supported services that Semgrep can detect, see Semgrep post-processor list.
-:::
--->
-
-## Fine-tuning findings through entropy analysis
-
-In secret scanning, entropy is the measure of a **string's randomness**. It is used to measure how likely a string is random. If a string is highly entropic, it is highly random. For certain types of secrets, such as API keys, randomness indicates that a string could be a secret. By performing entropy analysis, Semgrep Secrets is able to detect true positives.
-
-Examples of high-entropy (random) strings:
-
-```
+```text
+# examples of high-entropy (random) strings
 VERZVs+/nd56Z+/Qxy1mzEqqBwUS1l9D4YbqmPoO
 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
-```
 
-Examples of low-entropy strings:
-
-```
-XXXXXX
+# examples of low-entropy strings
+XXXXX
 txtCfmPassword
 ```
 
-## Differences between Semgrep Secrets and Semgrep Registry rules
+### Validate secrets
 
-The Semgrep Registry includes SAST rules that can detect secrets to a certain extent. You can run these rules in Semgrep Code (Semgrep's SAST analyzer), or even write your own custom secret-detecting SAST rules, but with the following differences:
+After identifying a secret, Semgrep uses a **post-processor** function called a **validator** to determine if a secret is actively being used.
 
-* Semgrep Code does not run a validator function against these rules, resulting in less accurate results.
-    * Because the results are less accurate, these rules are not suitable as a criteria to block a PR or MR.
-* The UI for Semgrep Code is tailored to SAST triage, and does not include filtering functions for valid or invalid tokens.
-* Existing Semgrep Pro rules that detect secrets are transitioning from Semgrep Code to Semgrep Secrets. By transitioning these rules, improvements, such as validator functions, can be added to the rules when they are run in Semgrep Secrets.
-* You can write your own custom validator functions and run them in Semgrep Secrets for your own custom services or use cases.
+:::info
+All validations, e.g., API calls, are done **locally**. No tokens are sent to Semgrep servers.
+:::
 
-### Semgrep Secrets rule sample and structure
+1. The validator detects the service for which the credential is valid (e.g., Slack, AWS).
+2. If the validator doesn't support the service for which the key is valid, Semgrep notes that there is **No validator** for the secret.
+3. If the validator supports the service for which the key is valid, Semgrep performs an API call. The following outcomes are possible:
+   1. **Confirmed valid**: Semgrep made an HTTP request with the secret, and the resource returned an HTTP status code of 2xx **and** some indication of valid access (e.g., the message body includes `"message": "ok"`).
+   2. **Confirmed invalid**: Semgrep made an HTTP request with the secret, and the resource returned an HTTP status code of 4xx.
+   3. **Validation error**: Semgrep made an HTTP request using the secret, but the network request could not be made, a timeout occurred, or the HTTP status code was neither 2xx nor 4xx. If this happens, we recommend manually reviewing the finding.
 
-The following example detects a leaked GitHub PAT:
+When triaging findings, we recommend prioritizing high-priority findings where the secrets have been **confirmed valid** since they pose the most significant security threat.
+
+## Secrets vs Registry rules
+
+Semgrep Registry contains rules for use with Code, Semgrep's SAST tool, that can detect the presence of secrets in your code. There are some differences between Secrets and secrets-related rules for SAST, however:
+
+* Code doesn't run validators against the findings it identifies, meaning the results are less information-rich (we don't recommend using Code's findings as a reason to block a pull/merge request for this reason)
+* Secrets is capable of running custom validator functions that you write to support your custom use cases
+* The Cloud Platform, which is currently tailored to display Code results for triage, does not include filtering functions for valid/invalid tokens
+
+In time, we plan to move the existing rules in the Registry over to Secrets; this allows us to implement improvements, such as validator functions.
+
+## Example: Secrets sample and structure
+
+The following example is a Secrets rule that detects a leaked GitHub personal access token (PAT):
 
 ```yaml
 rules:
 - id: github_pat
-  message: >-
-    To revoke the token, visit the `Active tokens` page in the organization settings screen: `https://github.com/organizations/<ORGRANIZATION>/settings/personal-access-tokens/active`.
-    From here, select the token, and revoke it using the drop down field and selecting `"Revoke"`.
+  message: 'To revoke the token, visit the Active tokens page in the organization settings screen: https://github.com/organizations/<ORGRANIZATION>/settings/personal-access-tokens/active. Select the token, expand the drop-down menu, and select Revoke.'
   severity: ERROR
   metadata:
     likelihood: LOW
@@ -176,88 +153,77 @@ rules:
             validity: invalid
 ```
 
-The following sections describe new and existing keys in the context of a Secrets rule.
+### The `metadata` key
 
-#### Subkeys under the `metadata` key
-
-These subkeys provide context to both you and other end-users, as well as to Semgrep.
+The keys nested under `metadata` provide context to end-users and Semgrep.
 
 ```yaml
+metadata:
   ...
-  metadata:
-    ...
-    secret_type: GitHub
-    technology:
-    - secrets
-  ...
+  secret_type: GitHub
+  technology:
+  - secrets
 ```
-| Key | Description |
-| -------  | ------ |
-| `secret_type`  | Defines the name of the service or the type of secret. When writing a custom validator, set this value to a descriptive name to help identify it when triaging secrets. Examples of secret types include "Slack," "Asana," and other common service names. |
-| `technology` | Set this to `secrets` to identify the rule as a Secrets rule. |
-   
-#### Subkeys under the `patterns` key
 
-These subkeys identify the token to analyze in a given match.
+| **Key** | **Description** |
+| -------  | ------ |
+| `secret_type`  | The name of the service or the type of secret (e.g., `slack`, `asana`). When writing a custom validator, set this value to a descriptive name to help identify it when triaging secrets. |
+| `technology` | Set to `secrets` to identify the rule as a Secrets rule. |
+
+### The `patterns` key
+
+The nested keys under `patterns` provide context to end-users and Semgrep.
 
 ```yaml
-  ...
-  patterns:
-  ...
-  - focus-metavariable: $REGEX
-  - metavariable-analysis:
-      analyzer: entropy
-      metavariable: $REGEX
-  ..
+patterns:
+...
+- focus-metavariable: $REGEX
+- metavariable-analysis:
+    analyzer: entropy
+    metavariable: $REGEX
 ```
 
-| Key | Description |
+| **Key** | **Description** |
 | -------  | ------ |
-| `focus_metavariable`  | This key enables the rule to define a metavariable upon which Semgrep can perform further analysis, such as entropy analysis. |
-| `metavariable_analysis`  | Under `metavariable_analysis`, you can define additional keys: `analyzer` and `metavariable`, which specifies the kind of analysis Semgrep performs and on what variable.  |
+| `focus_metavariable`  | Allows the rule to define a metavariable on which Semgrep can perform further analysis, such as entropy analysis. See the [<i class="fa-regular fa-file-lines"></i> rule syntax](/writing-rules/rule-syntax/#focus-metavariable) for more information about the focus metavariable. |
+| `metavariable_analysis`  | Allows you to define additional keys (`analyzer` and `metavariable`) that specify the kind of analysis Semgrep performs and the variable on which that analysis should be performed. |
 
-:::tip
-For more information, see the rule syntax for [<i class="fa-regular fa-file-lines"></i> Focus metavariable](/writing-rules/rule-syntax/#focus-metavariable).
-:::
+### The `validators` and `http` keys
 
-#### Subkeys under the `validators` and `http` keys
-
-The `validators` key uses a list of keys to define the validator function. In particular, the `http` key defines how the rule forms a request object and what response is expected for valid and invalid states. Although there are some rules that do not use a `validators` key, most Secrets rules make use of it. 
+The keys nested under `validators` define the validator functions. For example, the `http` key defines how the rule forms a request object and what responses it can expect for valid and invalid states.
 
 ```yaml
-  ...
-  validators:
-  - http:
-      request:
-        headers:
-          Authorization: Bearer $REGEX
-          Host: api.github.com
-          User-Agent: Semgrep
-        method: GET
-        url: https://api.github.com/user
-      response:
-        - match:
-          - status-code: '200'
-          result:
-            validity: valid
-        - match:
-          - status-code: '404'
-          result:
-            validity: invalid
+validators:
+- http:
+    request:
+      headers:
+        Authorization: Bearer $REGEX
+        Host: api.github.com
+        User-Agent: Semgrep
+      method: GET
+      url: https://api.github.com/user
+    response:
+      - match:
+        - status-code: '200'
+        result:
+          validity: valid
+      - match:
+        - status-code: '404'
+        result:
+          validity: invalid
 ```
 
-| Key | Description |
+| **Key** | **Description** |
 | -------  | ------ |
-| `request`  | This key and its subkeys describe the request object and the URL to send the request object to. |
-| `response`  | This key and its subkeys determine **validation status**. Semgrep Secrets identifies a validation status through HTTP status code **and** other key-value pairs. For example, a rule may require both a 200 status code **and** a `"message": "ok"` in the response body for the matching secret to be considered **Confirmed valid**. |
-
+| `request` | Describes the request object and the URL to which it should be sent. |
+| `response` | Determines **validation status**. Secrets determines the validation status via the HTTP status code **and** other key-value pairs (e.g., an HTTP 200 status code **and** `"message": "ok"` in the response body would result in the secret flagged as **Confirmed valid**). |
 
 ## Next steps
 
 See [<i class="fa-regular fa-file-lines"></i> Getting started with Semgrep Secrets](/semgrep-secrets/getting-started) to:
-* Enable secrets scanning for your repositories
-* Learn how to triage secrets-related findings
-* Receive notifications and post tickets
 
+* Enable Secrets for your repositories
+* Learn how to triage your findings
+* Receive notifications and post tickets with your findings
 
 <MoreHelp />
