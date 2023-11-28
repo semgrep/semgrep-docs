@@ -91,4 +91,4 @@ as well as `True and X` and `False or X`. For example, `cond and "a" or "b"` is 
 - Updated documentation of Semgrep App [Findings](/semgrep-code/findings/) with fresh screenshots.
 - Updated Supported languages with [additional information on transitivity](/supported-languages/#general-availability).
 - Updated Semgrep App’s [Tagging](/semgrep-cloud-platform/tags/) documentation.
-- Updated [Getting started with Semgrep CLI](/getting-started/).
+- Updated [Getting started with Semgrep CLI](/getting-started/quickstart/).

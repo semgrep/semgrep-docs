@@ -36,7 +36,7 @@ Private rules are stored in the folder with the same name as your Semgrep Cloud 
 
 ### Creating private rules through the command line
 
-To create private rules through the [Semgrep CLI](/getting-started/), :
+To create private rules through the [Semgrep CLI](/getting-started/quickstart/), :
 
 1. Interactively login to Semgrep:
 
