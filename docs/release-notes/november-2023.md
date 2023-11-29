@@ -43,36 +43,56 @@ If no issues are detected after a few days, the Semgrep team then promotes the `
 ### Added
 
 - Semgrep now records the languages that invoked the Pro Engine. This enables the Semgrep team to measure the performance impact and error rates of new Pro Engine languages. **For scans that don't send metrics, there is no change.** See [<i class="fas fa-external-link fa-xs"></i> Semgrep Privacy Policy](https://github.com/semgrep/semgrep/blob/develop/PRIVACY.md) for more information.
-
+- Added a link to the SSO documentation to help users set up SSO. <!-- 11485 -->
+- **CLI tool:** Added `--config code` and `--config secrets` flags to the `semgrep scan` command. When using these flags, the environment variable SEMGREP_REPO_NAME must be set. For example,
+    ```
+    $ SEMGREP_REPO_NAME=test_repo semgrep --config secrets
+    ```
 
 ### Changed
 
 - Elixir language support now requires the Pro Engine. To scan Elixir codebases, enable the Pro Engine. <!-- 9308 -->
 - The Semgrep CLI tool now correctly counts the rules that are run on a codebase. Previously, Semgrep counted the total rules in the user's Policies or rulesets, including rules that did **not** have valid targets, and therefore did not actually run. <!-- 9130  -->
-- **Semgrep Editor:** Rules created in the editor are private by default. This means only members of  your organization are able to view rules you have created. <!-- 11267 -->
+- Updated instances of **returntocorp** to **Semgrep**. <!-- gh 112877 -->
+- **Semgrep Editor:** Rules created in the editor are private by default. This means only members of  your organization are able to view rules you have created. To create a private rule visible only to you (an individual) ensure that you create the rule in your **individual account**. <!-- 11267 -->
+- `semgrep scan --config <product>` now uses the same endpoint as the `semgrep ci` to fetch the scan configuration. <!-- todo effect of this change -->
+- Improved error pages.
+
 
 ### Fixed
 
 - **API:** Fixed an issue where the severities filter did not return the correct value. <!-- gh-11307 -->
-
+- **CLI tool:**
+    - The `--severity=[VALUE]` option, which can be added to a `semgrep scan` command, has been fixed. <!-- gh-9062 -->
+    - The `--sarif` flag no longer crashes when Semgrep itself encounters errors.
+- Semgrep now refuses to run incompatible versions of the Pro Engine, rather than crashing with a confusing error message. <!-- (gh-8873) -->
+- Fixed an issue where the CI provider icons disappeared from the **Scan new project in CI** window. The icons now appear. <!-- 11228 -->
+- Implemented minor fixes for the new onboarding flow. <!-- 11209, 11207 -->
 
 ## 💻 Semgrep Code
 
 ### Added
 
-- **Findings detail page:** For users that have granted Semgrep code access, you are now able to view **in-app code snippets** in Semgrep Cloud Platform.
+- **Findings details page:** For users that have granted Semgrep code access, you are now able to view **in-app code snippets** in Semgrep Cloud Platform.
 
 <!-- todo add a screenshot -->
 
 ### Changed
 
+- **Scanning timeout:** The timeout per-rule and per-file has increased from 2 seconds to 5 seconds.
 
 ### Fixed
 
+- **Findings page:** Fixed an issue where filtering by repositories wasn't working. <!-- (11414) -->
 
 ## ⛓️ Semgrep Supply Chain
 
-## 🤖 Semgrep Assistant (beta)
+### Fixed
+
+-  **Slack messages:**
+    - Improved readability of Semgrep Supply Chain messages by adding newlines between sections. <!-- (11396) -->
+    -  Fixed links that were not working. <!-- (11210) -->
+- Fixed out of bounds list access error in `Cargo.lock` parser. <!-- (sc-1072) -->
 
 ## 🔐 Semgrep Secrets (beta)
 
@@ -94,13 +114,8 @@ If no issues are detected after a few days, the Semgrep team then promotes the `
 ### Fixed
 
 - Fixed an issue where the Secrets page could freeze due to too many findings. <!-- (11254) -->
-- Fixed a bug where enabling the secret beta causes the default scan mode to be  
-    set to OSS, even when the Pro flag is turned on in the web UI. (ea-248)
-
-Secrets: metadata overrides specified in validators were incorrectly applied on
-top of one another (on a per-rule basis), so that only the last was applied.
-Each update is now correctly applied independently to each finding based on the
-rule's validators. (scrt-231)
+- Fixed a bug where enabling the Secrets beta causes the default scan mode to be set to OSS Engine, even when the Pro flag is turned on in the web UI. <!-- (ea-248) -->
+- Metadata overrides specified in validators were incorrectly applied on top of one another (on a per-rule basis), so that only the last was applied. Each update is now correctly applied independently to each finding based on the rule's validators. <!-- (scrt-231) -->
 
 ## 📝 Documentation and knowledge base
 
