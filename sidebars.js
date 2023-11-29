@@ -383,6 +383,7 @@ module.exports = {
       label: 'Semgrep Code',
       collapsible: false,
       items: [
+        'semgrep-code/overview',
         'semgrep-code/getting-started',
         {
           type: 'category',

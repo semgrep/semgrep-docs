@@ -23,5 +23,7 @@ In addition to the default rules (available in the [Registry](https://semgrep.de
 
 Semgrep displays findings identified by Code in the Cloud Platform.
 
-## Rules
+## OSS vs. Pro Engine
+
+By default, Code is powered by Semgrep's OSS engine. It is capable of analyzing interactions within a single function (this process is known as intraprocedural analysis), and its smaller scope of analysis makes it faster and easier to integrate into developer workflows. However, if you would like cross-file analysis and cross-function analysis (also known as interfile analysis and interprocedural analysis, respectively), please consider the [Pro engine](/semgrep-code/semgrep-pro-engine-intro/).
 
