@@ -31,7 +31,8 @@ import PlatformDetectGhRepos from "/src/components/procedure/_platform-detect-gh
 
 # Getting started with Semgrep Code
 
-Secure your code quickly and continuously by scanning with Semgrep Code, a fast and lightweight SAST (Static Application Security Testing) engine that leverages Semgrep OSS.
+Code is a static application security testing (SAST) tool that scans your project (which is the repo that contains the app you want inspected) for security vulnerabilities. You can scan your project by integrating Code into your CI/CD pipeline, or you can
+scan can scan projects available locally on your machine.
 
 <SemgrepScan />
 
@@ -147,10 +148,8 @@ Scans from local repositories do not access their corresponding remote repositor
 
 Local repository scans require additional configuration to **create hyperlinks to their corresponding remote repositories**. Set up environment variables within your command line to configure cross-linking between local and remote repositories within Semgrep Cloud Platform.
 
-![Screenshot of sample environment variables on a Linux shell](/img/app-ci-setenvvar.png "Screenshot of sample environment variables on a Linux shell")
-*Figure 2.* Sample environment variables set up on a Linux shell.
-
-To set up environment variables:
+To configure cross-linking between local and remote repositories, you must set up
+environment variables via the CLI:
 
 1. Ensure that your current working directory is the root of the repository to create links for. 
 2. Set up the `SEMGREP_REPO_URL`:
@@ -184,9 +183,20 @@ To set up environment variables:
     export SEMGREP_COMMIT=<span className="placeholder">COMMIT_HASH</span>
     </code></pre>
 
-Sample values:
+When done, you'll see the links populate correctly in the Cloud Platform.
 
-```
+![Screenshot of findings page snippet with hyperlinks](/img/findings-with-hyperlinks.png "Screenshot of findings page snippet with hyperlinks")
+*Figure 3.* Partial screenshot of findings page with hyperlinks.
+
+#### Sample values
+
+The following is an example of the variables you'd need to create, along with sample values:
+
+![Screenshot of sample environment variables on a Linux shell](/img/app-ci-setenvvar.png "Screenshot of sample environment variables on
+a Linux shell") *Figure 2.* Sample environment variables set up on a Linux
+shell.
+
+```console
 # Set the repository URL
 $> export SEMGREP_REPO_URL=https://github.com/corporation/s_juiceshop
 
@@ -206,11 +216,7 @@ commit fa4e36b9369e5b039bh2220b5h9R61a38b077f29 (HEAD -> s_juiceshop, origin/mas
 $> export SEMGREP_COMMIT=fa4e36b9369e5b039bh2220b5h9R61a38b077f29
  ```
 
-![Screenshot of findings page snippet with hyperlinks](/img/findings-with-hyperlinks.png "Screenshot of findings page snippet with hyperlinks")
-
-*Figure 3.* Partial screenshot of findings page with hyperlinks.
-
-#### Option B: Adding a repository from GitHub, GitLab, or BitBucket
+## View and manage findings
 
 <PlatformAddRepo />
 
@@ -350,12 +356,5 @@ Semgrep provides the following environments to learn, experiment, and write Semg
     <dd>Fork existing security rules to customize them for your own organization or team's use in this advanced editor. Refer to <a href="/semgrep-code/editor/#jumpstart-rule-writing-using-existing-rules">Writing rules using Semgrep Editor</a>.</dd>
 </dl>
 
-### User management
-
-You can onboard (add) your entire organization's users and repositories by creating an organization account. Additionally, Semgrep Cloud Platform provides role-based access control (RBAC) for Team or Enterprise tiers. See [User management, accounts, and roles](/semgrep-cloud-platform/user-management) to learn more.
-
-### Getting support
-
-Refer to [Troubleshooting Semgrep Cloud Platform](/docs/troubleshooting/semgrep-app/) for common installation issues. Help is also available for all users through the [Semgrep Community Slack](https://go.semgrep.dev/slack).
 
 <MoreHelp />
