@@ -137,7 +137,6 @@ module.exports = {
         collapsible: false,
         items: [
             'getting-started',
-            'semgrep-code/getting-started',
             'semgrep-supply-chain/getting-started'
         ]
     },

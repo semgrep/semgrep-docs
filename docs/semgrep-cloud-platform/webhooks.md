@@ -23,8 +23,8 @@ Object.entries(frontMatter).filter(
 # Enabling webhooks
 
 :::info Prerequisites
-* Webhooks can only be enabled through Semgrep Cloud Platform (SCP). [Create an account](/semgrep-code/getting-started/#signing-in-to-semgrep-cloud-platform) to set up webhooks.
-* To receive alerts and notifications, you must [add or onboard a project](/semgrep-code/getting-started/#option-b-adding-a-repository-from-github-gitlab-or-bitbucket) (repository) to Semgrep Cloud Platform for scanning.
+* Webhooks can only be enabled through Semgrep Cloud Platform (SCP). [Create an account](/semgrep-code/getting-started/) to set up webhooks.
+* To receive alerts and notifications, you must [add or onboard a project](/semgrep-code/getting-started/) (repository) to Semgrep Cloud Platform for scanning.
 :::
 
 Webhooks are a generic method for Semgrep Cloud Platform to post JSON-formatted findings after each scan to your URL endpoint.
