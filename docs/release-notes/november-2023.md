@@ -37,6 +37,8 @@ If no issues are detected after a few days, the Semgrep team then promotes the `
   - [<i class="fas fa-external-link fa-xs"></i> 1.48.0](https://github.com/returntocorp/semgrep/releases/tag/v1.48.0)
   - [<i class="fas fa-external-link fa-xs"></i> 1.49.0](https://github.com/returntocorp/semgrep/releases/tag/v1.49.0)
   - [<i class="fas fa-external-link fa-xs"></i> 1.50.0](https://github.com/returntocorp/semgrep/releases/tag/v1.50.0)
+  - [<i class="fas fa-external-link fa-xs"></i> 1.51.0](https://github.com/returntocorp/semgrep/releases/tag/v1.51.0)
+
 
 ## 🌐 Semgrep Cloud Platform
 
@@ -98,7 +100,7 @@ If no issues are detected after a few days, the Semgrep team then promotes the `
 
 ### Added
 
-- Added an optional `--no-secrets-validation` flag to skip secrets validation. To run a secrets scan with no validation, enter `semgrep ci --secrets --no-secrets-validation`.
+- Added an optional `--no-secrets-validation` flag to skip secrets validation. To run a Secrets scan with no validation, use the command `semgrep ci --secrets --no-secrets-validation`.
 - **Secrets and Secrets details page:** Added a **<i class="fa-solid fa-ticket"></i> ticket icon** to quickly inform users if a ticket has been created for the finding.
 
 ### Changed
