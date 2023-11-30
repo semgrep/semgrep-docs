@@ -21,12 +21,6 @@ You can use Semgrep Code to scan local repositories or integrate it into your CI
 
 In addition to the default rules (available in the [Registry](https://semgrep.dev/r)), you can write custom rules to determine how Semgrep scans your code. Whether you use Semgrep's default rules or write custom rules, knowing *which* rules Semgrep ran against your code helps you understand how Code detected security issues.
 
-## OSS vs. Pro Engine
-
-By default, Code is powered by Semgrep's OSS engine. It can analyze interactions within a single function (this process is known as intraprocedural analysis), and its smaller scope of analysis makes it faster and easier to integrate into developer workflows.
-
-However, if you would like cross-file analysis and cross-function analysis (also known as interfile analysis and interprocedural analysis, respectively), please consider using the [Pro engine](/semgrep-code/semgrep-pro-engine-intro/).
-
 ## Findings
 
 Semgrep displays findings identified by Code in the Cloud Platform, where you can manage everything in one place. The Cloud Platform allows you to:
@@ -35,6 +29,12 @@ Semgrep displays findings identified by Code in the Cloud Platform, where you ca
 * Send alerts and notifications or create tickets to track findings identified by Code;
 * Customize the way Semgrep scans your projects;
 * Manage your users and facilitate team collaboration in remediating security issues.
+
+## OSS vs. Pro Engine
+
+By default, Code is powered by Semgrep's OSS engine. It can analyze interactions within a single function (this process is known as intraprocedural analysis), and its smaller scope of analysis makes it faster and easier to integrate into developer workflows.
+
+However, if you would like cross-file analysis and cross-function analysis (also known as interfile analysis and interprocedural analysis, respectively), please consider using the [Pro engine](/semgrep-code/semgrep-pro-engine-intro/).
 
 ## Next steps
 
