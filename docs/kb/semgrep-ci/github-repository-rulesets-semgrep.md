@@ -28,11 +28,11 @@ The example repository is internal, so it can only be used to store workflows th
 
 ### Recommended configuration with merge queues
 
-If you use [merge queues](https://docs.github.com/en/repositories/configuring-branches-and-merges-in-your-repository/configuring-pull-request-merges/managing-a-merge-queue) for any repositories that will be scanned with this workflow, your config must include `merge_group` as a trigger in the `on:` block. Otherwise, [the workflow will not be able to run in the merge queue](https://docs.github.com/en/repositories/configuring-branches-and-merges-in-your-repository/configuring-pull-request-merges/managing-a-merge-queue#triggering-merge-group-checks-with-github-actions), and can block the queue.
+If you use [merge queues](https://docs.github.com/en/repositories/configuring-branches-and-merges-in-your-repository/configuring-pull-request-merges/managing-a-merge-queue) for repositories that will be scanned with this workflow, your config must include `merge_group` as a trigger in the `on:` block. Otherwise, [the workflow cannot run in the merge queue](https://docs.github.com/en/repositories/configuring-branches-and-merges-in-your-repository/configuring-pull-request-merges/managing-a-merge-queue#triggering-merge-group-checks-with-github-actions) and can block the queue.
 
 Unlike for `pull_request` event types, Semgrep does not have any automatic configuration to run diff scans on `merge_group` events, so additional configuration would be required to run diff scans in this environment. The most straightforward solution is to configure the workflow to be skipped during the merge group check, since the primary goal of a Semgrep diff scan is to inform the developer **before** merge whether they are introducing security issues.
 
-With the recommended alterations, and removal of event types that do not occur with repository rulesets, the [sample configuration](/docs/semgrep-ci/sample-ci-configs/#sample-github-actions-configuration-file) would look like this:
+With the recommended alterations and removal of event types that do not occur with repository rulesets, the [sample configuration](/docs/semgrep-ci/sample-ci-configs/#sample-github-actions-configuration-file) would look like this:
 
 ```yaml
 name: Semgrep
