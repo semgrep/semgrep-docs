@@ -35,7 +35,7 @@ To contribute and publish rules to the Semgrep Registry through Semgrep Cloud Pl
 1. Fill in the required and optional fields.
 1. Click <i className="fa-solid fa-circle-check inline_svg"></i> **Continue**, and then click <i className="fa-solid fa-code-pull-request inline_svg"></i> **Create PR**.
 
-This workflow automatically creates a pull request in the GitHub [Semgrep Registry](https://github.com/returntocorp/semgrep-rules). Find more about the Semgrep Registry by reading the [Rule writing](#rule-writing) and [Tests](#tests) sections.
+This workflow automatically creates a pull request in the GitHub [Semgrep Registry](https://github.com/returntocorp/semgrep-rules). Find more about the Semgrep Registry by reading the [Rule writing](#writing-a-rule-for-semgrep-registry) and [Tests](#tests) sections.
 
 You can also publish rules as private rules outside of Semgrep Registry. These rules are not included in the Semgrep Registry, but they are accessible to your Semgrep organisation. See the [Private rules](/writing-rules/private-rules/) documentation for more information.
 
@@ -47,7 +47,7 @@ Fork our repository and make a pull request. Sign our Contributor License Agreem
 
 Pull requests require the approval of at least one maintainer and successfully passed [CI jobs](https://github.com/returntocorp/semgrep-rules/actions).
 
-Find more about the Semgrep Registry by reading the [Rule writing](#rule-writing) and [Tests](#tests) sections.
+Find more about the Semgrep Registry by reading the [Rule writing](#writing-a-rule-for-semgrep-registry) and [Tests](#tests) sections.
 
 ## Writing a rule for Semgrep Registry
 
