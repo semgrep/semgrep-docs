@@ -30,7 +30,7 @@ import PlatformDetectGhRepos from "/src/components/procedure/_platform-detect-gh
 
 # Scan your codebase
 
-Code is a static application security testing (SAST) tool that scans your project (which is the repo that contains the app you want inspected) for security vulnerabilities. You can scan your project by integrating Code into your CI/CD pipeline, or you can scan projects available locally on your machine.
+Code is a static application security testing (SAST) tool that scans your project (the repo containing the app you want inspected) for security vulnerabilities. You can scan your project by integrating Code into your CI/CD pipeline or scan projects available locally on your machine.
 
 ## Use the Cloud Platform to automate continuous scanning of your code
 
@@ -73,24 +73,16 @@ do so:
 
 ### Link local scans to their remote repositories 
 
-Because the results from local repos aren't automatically linked to the
-remote repos, the Cloud Platform doesn't create and show links to specific lines
-of code on the **Findings** page. 
-
-![Screenshot of findings page snippet with no hyperlinks](/img/findings-no-hyperlinks.png "Screenshot of findings page snippet
-with no hyperlinks") *Figure 1.* Partial screenshot of findings page with no
-hyperlinks.
-
-To configure cross-linking between local and remote repositories, you must set up
+When scanning local repos, the links shown on Cloud Platform's **Findings** page may not get generated correctly -- they may be missing, or they may not link to the correct file. To fix this and configure cross-linking between local and remote repositories, you must set up
 environment variables via the CLI:
 
 1. Navigate to the root of your repo.
 
 2. Create the `SEMGREP_REPO_URL` variable, setting it to the URL you'd use to access your online repo:
     
-        <pre><code>
-        export SEMGREP_REPO_URL=<span className="placeholder">URL_ADDRESS</span>
-        </code></pre>
+    <pre><code>
+    export SEMGREP_REPO_URL=<span className="placeholder">URL_ADDRESS</span>
+    </code></pre>
 
 3. Create the `SEMGREP_BRANCH` variable:
 
@@ -126,10 +118,10 @@ environment variables via the CLI:
     export SEMGREP_COMMIT=<span className="placeholder">COMMIT_HASH</span>
     </code></pre>
 
-When done, you'll see the links populate correctly in the Cloud Platform.
+When done, rescan your application; the links populate correctly in the Cloud Platform.
 
 ![Screenshot of findings page snippet with hyperlinks](/img/findings-with-hyperlinks.png "Screenshot of findings page snippet with hyperlinks")
-*Figure 3.* Partial screenshot of findings page with hyperlinks.
+*Figure 3.* Screenshot of findings page with hyperlinks.
 
 #### Sample values
 
@@ -151,7 +143,7 @@ export SEMGREP_BRANCH=s_update
 
 # Retrieve the commit hash
 git log -n 1
-commit fa4e36b9369e5b039bh2220b5h9R61a38b077f29 (HEAD -> s_juiceshop, origin/master, origin/HEAD, master)
+commit fa4e36b9369e5b039bh2220b5h9R61a38b077f29 (HEAD -> s_juiceshop, origin/main, origin/HEAD, master)
 
 # Set the commit hash
 export SEMGREP_COMMIT=fa4e36b9369e5b039bh2220b5h9R61a38b077f29
