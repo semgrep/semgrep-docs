@@ -1,9 +1,9 @@
 ---
 slug: quickstart
 append_help_link: true
-title: Scan your first project with Semgrep
+title: Quickstart
 hide_title: false
-description: Learn how to set up Semgrep and scan your first project
+description: Learn how to set up Semgrep and scan your first repository.
 tags:
   - quickstart
 ---
@@ -15,14 +15,14 @@ import TabItem from '@theme/TabItem';
 Learn how to set up Semgrep, scan your first project for security issues, and view your findings.
 
 :::info prerequisites
-You must have Python 3.7 or later installed on the machine where the Semgrep CI is running.
+You must have Python 3.8 or later installed on the machine where the Semgrep CI is running.
 :::
 
 1. Navigate to [Semgrep](https://semgrep.dev/login), and sign up by clicking on **Sign in with GitHub** or **Sign in with GitLab**. Follow the on-screen prompts to grant Semgrep the needed permissions and proceed.
 
 2. Provide the **Organization display name** you'd like to use, then click **Create new organization**.
 
-3. Launch your CLI, and follow the instructions on the **Scan a project on your machine** page. For your convenience, we've reproduced that information here and added instructions for Windows users.
+3. Launch your CLI, and follow the instructions on the [**Scan a project on your machine**](https://semgrep.dev/onboarding/scan) page. For your convenience, the same information is presented below, along with instructions for Windows users.
 
     <Tabs
         defaultValue="macOS"
