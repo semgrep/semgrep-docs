@@ -57,9 +57,8 @@ If no issues are detected after a few days, the Semgrep team then promotes the `
 - The Semgrep CLI tool now correctly counts the rules run on a codebase. Previously, Semgrep counted the total rules in the user's Policies or rulesets, including rules that did **not** have valid targets and therefore, did not actually run. <!-- 9130  -->
 - Updated instances of **returntocorp** to **Semgrep**. <!-- gh 112877 -->
 - **Semgrep Editor:** Rules created in the editor are private by default. This means only members of your organization can view rules you have created. To create a private rule visible only to you (an individual), ensure that you create the rule in your **individual account**. <!-- 11267 -->
-- <code>semgrep scan --config <em><b>PRODUCT_NAME</b></em></code> now uses the same endpoint as <code>semgrep ci</code> to fetch the scan configuration. You must be logged in when using these commands.
-    - You can continue running `semgrep scan` without logging in by providing configuration such as `--config auto`.
 - Improved error pages.
+- <code>semgrep scan --config <em><b>PRODUCT_NAME</b></em></code> now uses the same endpoint as <code>semgrep ci</code> to fetch the scan configuration. You must be logged in when using these commands. You can continue running `semgrep scan` without logging in by providing configuration such as <code>--config auto</code>.
 
 
 ### Fixed
