@@ -30,7 +30,7 @@ Install and run the [Semgrep command-line interface](https://github.com/returnto
 -->
 
 :::info Prerequisite
-The Semgrep command-line tool requires Python 3.7 or later.
+The Semgrep command-line tool requires Python 3.8 or later.
 :::
 
 To install and run Semgrep, use one of the following options:
