@@ -30,9 +30,9 @@ import PlatformDetectGhRepos from "/src/components/procedure/_platform-detect-gh
 
 # Scan your codebase
 
-Code is a static application security testing (SAST) tool that scans your project (the repo containing the app you want inspected) for security vulnerabilities. You can scan your project by integrating Code into your CI/CD pipeline or scan projects available locally on your machine.
+Semgrep Code is a static application security testing (SAST) tool that scans your repository for security vulnerabilities. You can scan your repository by integrating Code into your CI/CD pipeline, or you can scan repositories available locally on your machine.
 
-## Use the Cloud Platform to automate continuous scanning of your code
+## Use the Semgrep Cloud Platform (SCP) to automate the continuous scanning of your code
 
 <PlatformAddRepo />
 
@@ -46,14 +46,14 @@ for details.
 
 <PlatformDetectGhRepos />
 
-## Scan a project on your local machine
+## Scan a repository on your local machine
 
-You can perform a one-time scan of your project locally using the Semgrep CI. To
+You can perform a one-time scan of your repository locally using the Semgrep CI. To
 do so:
 
-1. Log in to the Cloud Platform.
+1. Log in to Semgrep Cloud Platform.
 
-2. Navigate to Projects > Scan new project.
+2. Navigate to **Projects** > **Scan new project**.
 
 3. Select **Locally**, and follow the instructions displayed on the **Run a scan
    locally** screen. For your convenience, we've reproduced that information
@@ -67,13 +67,13 @@ do so:
     semgrep ci
     ```
 
-4. Once the scan is finished, return to Cloud Platform and click **View
+4. Once the scan is finished, return to Semgrep Cloud Platform and click **View
    findings** to see your results. Alternatively, you can go directly to your
    [findings](https://semgrep.dev/orgs/-/findings) page.
 
 ### Link local scans to their remote repositories 
 
-When scanning local repos, the links shown on Cloud Platform's **Findings** page may not get generated correctly -- they may be missing, or they may not link to the correct file. To fix this and configure cross-linking between local and remote repositories, you must set up
+When scanning local repositories, the links shown on Semgrep Cloud Platform's **Findings** page may not get generated correctly -- they may be missing, or they may not link to the correct file. To fix this and configure cross-linking between local and remote repositories, you must set up
 environment variables via the CLI:
 
 1. Navigate to the root of your repo.
@@ -118,7 +118,7 @@ environment variables via the CLI:
     export SEMGREP_COMMIT=<span className="placeholder">COMMIT_HASH</span>
     </code></pre>
 
-When done, rescan your application; the links populate correctly in the Cloud Platform.
+When done, rescan your repository; the links populate correctly in Semgrep Cloud Platform.
 
 ![Screenshot of findings page snippet with hyperlinks](/img/findings-with-hyperlinks.png "Screenshot of findings page snippet with hyperlinks")
 *Figure 3.* Screenshot of findings page with hyperlinks.
@@ -151,7 +151,7 @@ export SEMGREP_COMMIT=fa4e36b9369e5b039bh2220b5h9R61a38b077f29
 
 ## View and manage findings
 
-After your scan is complete, you can view your findings in the Cloud Platform.
+After your scan is complete, you can view your findings in Semgrep Cloud Platform.
 
 ![Screenshot of Dashboard](/img/dashboard-view.png "Screenshot of Dashboard")
 
@@ -168,6 +168,6 @@ to prioritize findings based on criteria like severity level, coding standards, 
 
 * Send [alerts and notifications](/semgrep-code/notifications/), create tickets in project management systems, or leverage webhooks to receive information about your findings.
 * Enable [autofix](/writing-rules/autofix) so that Semgrep can push code suggestions to GitHub or GitLab to help your developers resolve findings.
-* Customize how Semgrep scans your code by [default rules set](https://semgrep.dev/p/default) or [writing your own rules](/semgrep-code/editor/#jumpstart-rule-writing-using-existing-rules).
+* Customize how Semgrep Code scans your repository by modifying the [default rules set](https://semgrep.dev/p/default) or [writing your own rules](/semgrep-code/editor/#jumpstart-rule-writing-using-existing-rules).
 
 <MoreHelp />
