@@ -184,7 +184,7 @@ You must have Python 3.8 or later installed on the machine where the Semgrep CLI
 
     </Tabs>
 
-4. Once you've scanned your first application, return to Semgrep Cloud Platform (SCP), and click **View findings** to see the security vulnerabilities in your project. Alternatively, you can view your results in SCP's **Dashboard** page. For detailed information, click **Code** to access your SAST findings or **Supply Chain** to access your SCA findings.
+4. Once you've scanned your first application, return to Semgrep Cloud Platform, and click **View findings** to see the security vulnerabilities in your project. Alternatively, you can view your results in SCP's **Dashboard** page. For detailed information, click **Code** to access your SAST findings or **Supply Chain** to access your SCA findings.
 
     :::info
     **Code is not uploaded.** Only **findings** are sent to Semgrep Cloud Platform. 
