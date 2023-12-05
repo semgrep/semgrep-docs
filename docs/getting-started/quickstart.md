@@ -15,10 +15,10 @@ import TabItem from '@theme/TabItem';
 Learn how to set up Semgrep, scan your first project for security issues, and view your findings.
 
 :::info prerequisites
-You must have Python 3.8 or later installed on the machine where the Semgrep CI is running.
+You must have Python 3.8 or later installed on the machine where the Semgrep CLI is running.
 :::
 
-1. Navigate to [Semgrep](https://semgrep.dev/login), and sign up by clicking on **Sign in with GitHub** or **Sign in with GitLab**. Follow the on-screen prompts to grant Semgrep the needed permissions and proceed.
+1. Navigate to [Semgrep Cloud Platform (SCP)](https://semgrep.dev/login), and sign up by clicking on **Sign in with GitHub** or **Sign in with GitLab**. Follow the on-screen prompts to [grant Semgrep the needed permissions](/semgrep-cloud-platform/getting-started/#requested-permissions-for-github-and-gitlab) and proceed.
 
 2. Provide the **Organization display name** you'd like to use, then click **Create new organization**.
 
@@ -49,7 +49,7 @@ You must have Python 3.8 or later installed on the machine where the Semgrep CI 
         semgrep --version
         ```
 
-    2. Log in to your Semgrep account (running this command will launch a browser window, but you can also use the link that's returned in the CLI to proceed):
+    2. Log in to your Semgrep account. Running this command launches a browser window, but you can also use the link that's returned in the CLI to proceed:
 
         ```console
         semgrep login
@@ -57,7 +57,7 @@ You must have Python 3.8 or later installed on the machine where the Semgrep CI 
 
     3. In the **Semgrep CLI login**, click **Activate** to proceed.
 
-    4. Return to the CLI, navigate to the root of your repo, and run your first scan:
+    4. Return to the CLI, navigate to the root of your repository, and run your first scan:
 
         ```console
         semgrep ci
@@ -77,7 +77,7 @@ You must have Python 3.8 or later installed on the machine where the Semgrep CI 
         semgrep --version
         ```
 
-    2. Log in to your Semgrep account (running this command will launch a browser window, but you can also use the link that's returned in the CLI to proceed):
+    2. Log in to your Semgrep account. Running this command launches a browser window, but you can also use the link that's returned in the CLI to proceed:
 
         ```console
         semgrep login
@@ -85,7 +85,7 @@ You must have Python 3.8 or later installed on the machine where the Semgrep CI 
 
     3. In the **Semgrep CLI login**, click **Activate** to proceed.
 
-    4. Return to the CLI, navigate to the root of your repo, and run your first scan:
+    4. Return to the CLI, navigate to the root of your repository, and run your first scan:
 
         ```console
         semgrep ci
@@ -109,7 +109,7 @@ You must have Python 3.8 or later installed on the machine where the Semgrep CI 
         semgrep --version
         ```
 
-    2. Log in to your Semgrep account (running this command will launch a browser window, but you can also use the link that's returned in the CLI to proceed):
+    2. Log in to your Semgrep account. Running this command launches a browser window, but you can also use the link that's returned in the CLI to proceed:
 
         ```console
         semgrep login
@@ -117,7 +117,7 @@ You must have Python 3.8 or later installed on the machine where the Semgrep CI 
     
     3. In the **Semgrep CLI login**, click **Activate** to proceed.
     
-    4. Return to the WSL interface, navigate to the root of your repo, and run your first scan:
+    4. Return to the WSL interface, navigate to the root of your repository, and run your first scan:
 
         ```console
         semgrep ci
@@ -128,7 +128,7 @@ You must have Python 3.8 or later installed on the machine where the Semgrep CI 
     <TabItem value='Docker'>
 
     :::info Prerequisites
-    Ensure that you have the [Docker installed](https://docs.docker.com/desktop/) before proceeding.
+    Ensure that you have [Docker installed](https://docs.docker.com/desktop/) before proceeding.
     :::
 
     1. Pull the latest image and confirm the version:
@@ -150,13 +150,13 @@ You must have Python 3.8 or later installed on the machine where the Semgrep CI 
 
         2. In the **Semgrep CLI login**, click **Activate** to proceed. Return to the CLI and copy the login token that's shown.
 
-        3. Navigate into the root of your repo, and run your first scan (be sure to substitute <code><span class="placeholder">YOUR_TOKEN</span></code> with the login token value you copied in the previous step): 
+        3. Navigate into the root of your repository, and run your first scan. Be sure to substitute <code><span class="placeholder">YOUR_TOKEN</span></code> with the login token value you copied in the previous step: 
 
             ```console
             docker run -e SEMGREP_APP_TOKEN=YOUR_TOKEN --rm -v "${PWD}:/src" returntocorp/semgrep semgrep ci
             ```
 
-            The provided `-v` option mounts the current directory into the container to be scanned. Navigate into a different repo or provide a specific local directory in the command to scan a different project.
+            The provided `-v` option mounts the current directory into the container to be scanned. Navigate into a different repository or provide a specific local directory in the command to scan a different project.
     
     3. For users running Docker on **Windows**:
 
@@ -168,18 +168,18 @@ You must have Python 3.8 or later installed on the machine where the Semgrep CI 
 
         2. In the **Semgrep CLI login**, click **Activate** to proceed. Return to the CLI, and copy the login token that's shown.
 
-        3. Navigate into the root of your repo, and run your first scan (be sure to substitute <code><span class="placeholder">YOUR_TOKEN</span></code> with the login token value you copied in the previous step): 
+        3. Navigate into the root of your repository, and run your first scan. Be sure to substitute <code><span class="placeholder">YOUR_TOKEN</span></code> with the login token value you copied in the previous step: 
 
             ```console
             docker run -e SEMGREP_APP_TOKEN=YOUR_TOKEN --rm -v "%cd%:/src" returntocorp/semgrep semgrep ci
             ```
 
-            The provided `-v` option mounts the current directory into the container to be scanned. Navigate into a different repo or provide a specific local directory in the command to scan a different project.
+            The provided `-v` option mounts the current directory into the container to be scanned. Navigate into a different repository or provide a specific local directory in the command to scan a different project.
 
     </TabItem>
 
     </Tabs>
 
-4. Once you've scanned your first application, return to the Cloud Platform, and click **View findings** to see the security vulnerabilities in your project. Alternatively, you can view your results in the Cloud Platform's **Dashboard** page. For detailed information, click **Code** to access your SAST findings or **Supply Chain** to access your SCA findings.
+4. Once you've scanned your first application, return to Semgrep Cloud Platform (SCP), and click **View findings** to see the security vulnerabilities in your project. Alternatively, you can view your results in SCP's **Dashboard** page. For detailed information, click **Code** to access your SAST findings or **Supply Chain** to access your SCA findings.
 
 <MoreHelp />
