@@ -501,6 +501,7 @@ module.exports = {
                     title: '2023 Release notes'
                 },
               items: [
+                'release-notes/november-2023',
                 'release-notes/october-2023',
                 'release-notes/september-2023',
                 'release-notes/august-2023',

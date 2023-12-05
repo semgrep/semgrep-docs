@@ -26,6 +26,41 @@ To use the Semgrep workflow in other repositories, you can create a new reposito
 
 The example repository is internal, so it can only be used to store workflows that run on internal and private repositories.
 
+### Recommended configuration with merge queues
+
+If you use [merge queues](https://docs.github.com/en/repositories/configuring-branches-and-merges-in-your-repository/configuring-pull-request-merges/managing-a-merge-queue) for repositories that will be scanned with this workflow, your config must include `merge_group` as a trigger in the `on:` block. Otherwise, [the workflow cannot run in the merge queue](https://docs.github.com/en/repositories/configuring-branches-and-merges-in-your-repository/configuring-pull-request-merges/managing-a-merge-queue#triggering-merge-group-checks-with-github-actions) and can block the queue.
+
+Unlike for `pull_request` event types, Semgrep does not have any automatic configuration to run diff scans on `merge_group` events, so additional configuration is needed to run diff scans in this environment. The most straightforward solution is to configure the workflow to be skipped during the merge group check, since the primary goal of a Semgrep diff scan is to inform the developer **before** merging if they are introducing security issues.
+
+With the recommended alterations and removal of event types that do not occur with repository rulesets, the [sample configuration](/docs/semgrep-ci/sample-ci-configs/#sample-github-actions-configuration-file) would look like this:
+
+```yaml
+name: Semgrep
+
+on:
+  pull_request: {}
+  workflow_dispatch: {}
+  merge_group:
+    types: [checks_requested]
+
+jobs:
+  semgrep:
+    name: semgrep/ci
+    runs-on: ubuntu-latest
+
+    container:
+      image: returntocorp/semgrep
+
+    # Skip any PR created by dependabot and any check triggered by merge group
+    if: (github.actor != 'dependabot[bot]') && (github.event != 'merge_group')
+
+    steps:
+      - uses: actions/checkout@v3
+      - run: semgrep ci
+        env:
+          SEMGREP_APP_TOKEN: ${{ secrets.SEMGREP_APP_TOKEN }}
+```
+
 ## Configure repository workflow access
 
 The repository containing the Semgrep workflow must allow access to workflows from other repositories in the organization. 
