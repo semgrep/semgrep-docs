@@ -67,7 +67,7 @@ do so:
     semgrep ci
     ```
 
-4. Once the scan is finished, return to Semgrep Cloud Platform and click **View
+4. Once the scan completes, return to Semgrep Cloud Platform and click **View
    findings** to see your results. Alternatively, you can go directly to your
    [findings](https://semgrep.dev/orgs/-/findings) page.
 
@@ -151,7 +151,7 @@ export SEMGREP_COMMIT=fa4e36b9369e5b039bh2220b5h9R61a38b077f29
 
 ## View and manage findings
 
-After your scan is complete, you can view your findings in Semgrep Cloud Platform.
+After your scan completes, you can view your findings in Semgrep Cloud Platform.
 
 ![Screenshot of Dashboard](/img/dashboard-view.png "Screenshot of Dashboard")
 
