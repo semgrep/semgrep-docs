@@ -50,7 +50,7 @@ You must have Python 3.8 or later installed on the machine where the Semgrep CLI
         ```
 
         :::note
-        **Homebrew users:** Ensure that you've [added Homebrew to your PATH](https://docs.brew.sh/FAQ#my-mac-apps-dont-find-homebrew-utilities).
+        **Homebrew users:** ensure that you've [added Homebrew to your PATH](https://docs.brew.sh/FAQ#my-mac-apps-dont-find-homebrew-utilities).
         :::
 
     2. Log in to your Semgrep account. Running this command launches a browser window, but you can also use the link that's returned in the CLI to proceed:
@@ -65,6 +65,10 @@ You must have Python 3.8 or later installed on the machine where the Semgrep CLI
 
         ```console
         semgrep ci
+
+        # Alternatively, run an offline-only SAST scans; no SCA scan is performed
+        # with this command
+        semgrep scan --config=auto
         ```
 
     </TabItem>
@@ -93,6 +97,10 @@ You must have Python 3.8 or later installed on the machine where the Semgrep CLI
 
         ```console
         semgrep ci
+
+        # Alternatively, run an offline-only SAST scans; no SCA scan is performed
+        # with this command
+        semgrep scan --config=auto
         ```
 
     </TabItem>
@@ -125,6 +133,10 @@ You must have Python 3.8 or later installed on the machine where the Semgrep CLI
 
         ```console
         semgrep ci
+
+        # Alternatively, run an offline-only SAST scans; no SCA scan is performed
+        # with this command
+        semgrep scan --config=auto
         ```
 
     </TabItem>
@@ -158,6 +170,10 @@ You must have Python 3.8 or later installed on the machine where the Semgrep CLI
 
             ```console
             docker run -e SEMGREP_APP_TOKEN=YOUR_TOKEN --rm -v "${PWD}:/src" returntocorp/semgrep semgrep ci
+
+            # Alternatively, run an offline-only SAST scans; no SCA scan is performed
+            # with this command
+            docker run -e SEMGREP_APP_TOKEN=YOUR_TOKEN --rm -v "${PWD}:/src" returntocorp/semgrep semgrep scan --config=auto
             ```
 
             The provided `-v` option mounts the current directory into the container to be scanned. Navigate into a different repository or provide a specific local directory in the command to scan a different project.
@@ -176,6 +192,10 @@ You must have Python 3.8 or later installed on the machine where the Semgrep CLI
 
             ```console
             docker run -e SEMGREP_APP_TOKEN=YOUR_TOKEN --rm -v "%cd%:/src" returntocorp/semgrep semgrep ci
+            
+            # Alternatively, run an offline-only SAST scans; no SCA scan is performed
+            # with this command
+            docker run -e SEMGREP_APP_TOKEN=YOUR_TOKEN --rm -v "%cd%:/src" returntocorp/semgrep semgrep scan --config=auto
             ```
 
             The provided `-v` option mounts the current directory into the container to be scanned. Navigate into a different repository or provide a specific local directory in the command to scan a different project.
