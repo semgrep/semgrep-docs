@@ -5,8 +5,8 @@ description: "Scan your codebase's open source dependencies with Semgrep Supply 
 tags:
     - Semgrep Supply Chain
     - Team & Enterprise Tier
-title: Semgrep Supply Chain
-hide_title: true
+title: Scan your dependencies
+hide_title: false
 ---
 
 import MoreHelp from "/src/components/MoreHelp"
@@ -25,36 +25,23 @@ Object.entries(frontMatter).filter(
 }
 </ul>
 
-# Getting started with Semgrep Supply Chain
+Semgrep Supply Chain (SSC) is a software composition analysis (SCA) tool that detects [security vulnerabilities](https://nvd.nist.gov/vuln/full-listing) introduced by your codebase's open source dependencies. Semgrep Supply Chain also flags vulnerabilities as [reachable](/semgrep-supply-chain/glossary#reachability) or not to help you triage your findings. 
 
-Semgrep Supply Chain (SSC) detects recently discovered [security vulnerabilities](https://nvd.nist.gov/vuln/full-listing) in your codebase's open source dependencies, prioritizing findings through [reachability](/semgrep-supply-chain/glossary#reachability) analysis. 
+## Your first scan
 
-To learn more about how Semgrep Supply Chain performs reachability analysis, see [Overview of Semgrep Supply Chain](/semgrep-supply-chain/overview).
-
-
-## Scanning with Semgrep Supply Chain through Semgrep Cloud Platform
-
-Semgrep Supply Chain is **automatically enabled** for all repositories that you have onboarded or added to Semgrep Cloud Platform for scanning. If you have not onboarded any repositories for scanning, follow the steps in [Adding a repository](/semgrep-code/getting-started/#adding-or-onboarding-a-new-project-repository) to add a repository for scanning.
-
-When the scan finishes, Semgrep Cloud Platform displays an overview of findings in the **Supply Chain** page for further triage and remediation. See [Triaging and remediating dependency findings](/semgrep-supply-chain/triage-and-remediation).
-
-:::info
-Semgrep Supply Chain **supports monorepositories (monorepos)** by treating each subdirectory as its own repository. Findings are grouped under these repositories based on the [lockfile](/semgrep-supply-chain/glossary/#lockfile) or manifest file present in the subdirectory.
-:::
+Semgrep Supply Chain is automatically enabled for all [repositories that you scan with Semgrep Code](/semgrep-code/getting-started). At the completion of every scan, you can view your results by [logging in to your Semgrep account](https://semgrep.dev/login) and navigating to [**Supply Chain**](https://semgrep.dev/orgs/-/supply-chain).
 
 :::caution Semgrep Supply Chain findings not appearing in Semgrep Cloud Platform
-Certain package management software or CI providers may require additional set up. See [Setting up SSC for your infrastructure](/semgrep-supply-chain/setup-infrastructure) for more information.
+Certain package management software or CI providers may require additional set up (e.g., generating a lockfile that Semgrep Supply Chain is capable of parsing). See [Setting up SSC for your infrastructure](/semgrep-supply-chain/setup-infrastructure) for more information.
 :::
 
-### Future rule updates to existing or current rules
+### Scan your monorepo's dependencies
 
-* Semgrep rules may be updated as a vulnerability is analyzed.
-* When a rule is updated, findings from the updated rule are considered **new findings**, even if the old version of the rule also generated a finding.
-* You still receive notifications of the new finding through any channel that you have configured, such as Slack.
+Semgrep Supply Chain the scanning of monorepos; it treates each of the monorepo's subdirectories as its own repository. Findings are then grouped by these repositories based on the [lockfile](/semgrep-supply-chain/glossary/#lockfile) or manifest file present in the monorepo.
 
-### Events that trigger a Supply Chain dependency scan
+## Event-triggered Semgrep Supply Chain scans
 
-Dependency scans can be triggered by the following, depending on your CI set up:
+Depending on how your CI/CD system is configured, you can trigger a Semgrep Supply Chain scan whenever one of the following events occurs:
 
 <table>
   <tr>
@@ -68,7 +55,7 @@ Dependency scans can be triggered by the following, depending on your CI set up:
   <tr>
    <td>Pull or merge request
    </td>
-   <td>diff-aware scan
+   <td><a href="/semgrep-ci/running-semgrep-ci-with-semgrep-cloud-platform/#diff-aware-scanning">Diff-aware scan</a>
    </td>
    <td>All dependency rules
    </td>
@@ -76,47 +63,41 @@ Dependency scans can be triggered by the following, depending on your CI set up:
   <tr>
    <td>Push or scheduled event, such as a cron job
    </td>
-   <td>full scan
+   <td>Full scan
    </td>
    <td>All dependency rules
    </td>
   </tr>
 </table>
 
-For more information on diff-aware and full scans, see [Diff-aware scanning](/docs/semgrep-ci/running-semgrep-ci-with-semgrep-cloud-platform/#diff-aware-scanning).
+## Schedule scans
 
-### Blocking a PR or MR
-
-Both reachable and unreachable findings of Semgrep Supply Chain do **not** block a pull request or merge request.
-
-:::info
-Semgrep versions v0.122.0 and below previously blocked reachable findings.
-:::
-
-### Setting a daily scan schedule
-
-Semgrep Supply Chain frequently releases new rules. By default, Semgrep Supply Chain scans your codebase once a day. Change your time or frequency through the following references:
+Semgrep Supply Chain frequently receives rule updates. To take advantage of these updates and increase the frequence with which Semgrep Supply Chain scans your codebase (by default, Semgrep Supply Chain scans your code once per day). See the following table for assistance in modifying your scan schedules:
 
 <CiScheduling />
 
-## Ignoring dependency findings through `semgrepignore`
+If a rule is updated, findings generated against the updated rule are considered **new findings**, even if the previous version of the rule generated a finding. Furthermore, because the finding is new, you'll receive notifications through the channels you've set up (e.g., Slack, email).
 
-See [Ignoring dependency findings](/docs/semgrep-supply-chain/ignoring-lockfiles-dependencies).
+## Work with findings
 
-## Triaging and remediating dependency findings
+Semgrep Supply Chain enables developers to triage and remediate findings through Semgrep Cloud Platform's **[Vulnerabilities](https://semgrep.dev/orgs/-/supply-chain/vulnerabilities)** page. More specifically, the Vulnerabilities page allows you to:
 
-Semgrep Supply Chain enables developers to perform triage and remediation through the **[Vulnerabilities](https://semgrep.dev/orgs/-/supply-chain/vulnerabilities)** page. On this page you can perform the following actions:
-
-* View specific **reachable** vulnerable lines of code in your codebase. This helps to evaluate the threat.
-* View specific lines of code where your dependency is being declared.
-* Triage a dependency finding.
-* Attach a PR or MR, or Jira ticket to the finding.
+* View the specific lines of code where the dependency is declared and the vulnerable lines of code for a reachable finding to evaluate the threat;
+* Triage a finding;
+* Attach a pull request, merge request, or Jira ticket to the finding;
 * Upgrade the dependency that generated the finding to a safe version. A safe version is any newer version of the dependency that does not contain the vulnerability. This resolves the finding.
 
 For more information, see [Triaging and remediating findings](/docs/semgrep-supply-chain/triage-and-remediation).
 
-## Setting up SSC scans for specific project management or pipeline tools
+### Block a pull/merge request
 
-Scanning third-party code with Semgrep Supply Chain may require additional steps, such as generating a lock file that it can parse in continuous integration (CI). Refer to [Setting up Semgrep Supply Chain for your infrastructure](/semgrep-supply-chain/setup-infrastructure).
+Though Semgrep Supply Chain v0.122.0 and earlier blocked pull/merge requests if it discovered reachable findings in the code, it no longer does this.
+
+## Next steps
+
+To customize the way Semgrep Supply Chain scans your code for open source dependencies, see:
+
+* [Ignore lockfiles and dependencies](/semgrep-supply-chain/ignoring-lockfiles-dependencies) on how to flag specific findings as ones Semgrep should ignore using `semgrepignore`
+* [Triage and remediate dependency findings](/semgrep-supply-chain/triage-and-remediation) for information on what to do once Semgrep Supply Chain has identified security vulnerabilities in you code
 
 <MoreHelp />
