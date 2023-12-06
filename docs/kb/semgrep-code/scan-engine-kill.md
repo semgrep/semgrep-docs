@@ -33,7 +33,6 @@ Given the following log or similar:
           contact us.
 
            Error: semgrep-core exited with unexpected output
-
 ```
 
 ## Determining the size of your monorepository 
@@ -89,7 +88,7 @@ Interfile analysis still applies in the smaller scope assuming the modules are d
 
 You can perform modular scans on a daily basis and then perform one big monolithic scan every two weeks or so to keep close tabs and cap any false negative interfile or inter-component outliers that can get introduced with code change as a way of truing up your dependency graph for the monolithic build. This helps deflect costs as you are scanning the majority on smaller runners/k8s.  
 
-However, you still need to address that monolithic build - whether you scan it biweekly or daily - and the following sections apply to tackling that monolith whether you adopt the modular paradigm of scanning or not. 
+However, you still need to scan the whole monolithic build, whether you scan it biweekly or daily, and the following sections apply to tackling that monolith whether you adopt the modular paradigm of scanning or not. 
 
 ## Serializing types of scans
 
@@ -110,31 +109,29 @@ $ semgrep ci --secrets
 
 As a result, less memory is used in total at any point in time.
 
-## Required Memory
+## Increasing RAM 
 
-If you have determined that the tweaking recommendations above are not sufficient for such a large code base, you now need to establish the hardware sufficient to be able to handle such a large code base.  First and foremost, you want to establish how much memory is required to scan.  Determining the minimal, total amount of memory required is key, not just to avoid killed scans but running scans that use swap memory.   You never want your scans to get snagged into using swap in any static analysis tool - not just Semgrep but all other vulnerability scanners.  Running a scan utilizing swap memory will seriously decrement the scan performance as swap memory is memory on disk and scanning programs such as Semgrep are disk I/O intensive and swapping in and out with a swap file will bear significant overhead and will peg performance severely.  
+Lastly, you can also tackle a large scan by increasing the RAM.
 
-- In the nascent phases of your monorepo rollout, start with a relatively larger runner or k8 that has lots of memory.
+### Establish RAM baseline and avoid swap memory
 
-- Perform the scan with a -j 1 configuration; no parallelization of subprocesses.  
+First, establish how much memory is required to scan. Determining the total amount of memory required is key, not just to avoid killed scans but running scans that use swap memory. Avoid swap memory when scanning with any static analysis tool. Semgrep and other SAST tools are disk I/O intensive and swapping in and out with a swap file reduces performance severely.
 
+- In the early phases of your scan deployment, start with a relatively larger runner or Kubernetes pod that has lots of memory.
+- Perform the scan with a `-j 1` configuration; no parallelization of subprocesses.  
 - Enable a swap monitor for the entire duration of the scan to ensure an accurate assessment of RAM used, for example, running a script that samples the memory frequently: 
-
 ```
 $ free -m 
 ```
-
-to see both your ram and your swap space usage in Linux. 
-
-
-* Then perhaps add 10% more RAM to your final memory tally to account for churn, increase in code, etc.  This is something you will need to guage.  
-
+to see both your RAM and your swap space usage in Linux. 
+- Then perhaps add 10% more RAM to your final memory tally to account for churn, increase in code, and so on.  This is something you must gauge.
 
 ## Parallelization
 
-Once you have determined the RAM sufficient to scan your large code base, you can now introduce parallezation to speed up the subproccesses that can be parallelized, for larger k8's and runners charge on a time basis, so it now becomes a study of feasiblity to achieve the optimal configuration.  
+Once you have determined the RAM sufficient to scan your large codebase, you can now introduce parallelization to speed up the subproccesses that can be parallelized. Larger Kubernetes pod and runners charge on a time basis, so it now becomes a study of feasiblity to achieve the optimal configuration.  
 
-You may want to start with a large k8 pod but still only run with one job with -j 1 set so that you can determine what the total memory is required for this kind of job.  Then, you can pare this memory usage somewhat - and I will be reserved in stating that you never get true parallelism, that is, if you specify -j 2 only half the memory is required as there is overhead in scheduling the parallelism - all the whilst still monitoring for any swap usage.  
-If that goes well, you can experiment with a -j 4 configuration and double down on decreasing the scan time in nearly half, etc.  Since kpods are charging per/minute, it will serve you well to determine the optimal configuration in bumping up the number of parallel jobs to speed up the scan.  Thus, a balancing act between achieving full scan coverage and keeping your overhead costs down as much as possible.  
+You can start with a large Kubernetes pod but still only run with one job with `-j 1` set so that you can determine what the total memory is required for this kind of job. Then, you can pare this memory usage somewhat, such as by specifying `-j 2`, all the whilst still monitoring for any swap usage.
 
-We would expect to see more total RAM than -j 1 but not exactly half per thread.  Codebases are highly variant and we can't peg x number of lines/MB, that sort of benchmarking.  But there is overhead in parallelization, so you would not get a true halving of RAM required going from 1 to 2 jobs.  In fact, the total RAM required will likely be more for a -j 2 job than a -j 1 job, but you should see a decrease in total time.  This is why the empirical testing is important, to find where the right balance is in total time spent vs cost.
+If that succeeds, you can experiment with a `-j 4` configuration and continue decreasing the scan time in nearly half and so on.  Since Kubernetes pods are charging per-minute, it serves you well to determine the optimal configuration in bumping up the number of parallel jobs to speed up the scan.  Thus, there is a balancing act between achieving full scan coverage and keeping your overhead costs down as much as possible.  
+
+You can expect to see more total RAM than `-j 1` but not exactly half per thread. Codebases are highly variant; it's difficult to benchmark `N number of lines per MB`. But there is overhead in parallelization, so you would not get a true halving of RAM required going from 1 to 2 jobs. In fact, the total RAM required is likely to be greater for a `-j 2` job than a `-j 1` job, but you should see a decrease in total time.  This is why the empirical testing is important, to find where the right balance is in total time spent versus cost.
