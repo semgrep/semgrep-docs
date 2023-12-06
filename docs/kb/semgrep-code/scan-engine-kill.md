@@ -53,8 +53,7 @@ However, Semgrep does not place limitations on the number of files scanned and s
 1. View your CI logs. This step depends on your CI provider.
 2. Search for the section "Scan Status".
 
-The following is an example of a large monorepository:
-
+A monorepository's components can look like this:
 
 ```console
 ┌─────────────┐
@@ -91,7 +90,7 @@ Now you have a good idea of the size of your monorepository. After establishing 
 
 Based on the composition provided by the logs, you may be able to determine if your repository is modular. If so, you can try scanning the components separately.
 
-Interfile analysis still applies in the smaller scope assuming the modules are disparate. 
+[<i class="fa-regular fa-file-lines"></i> Interfile analysis](/docs/semgrep-code/semgrep-pro-engine-intro/#types-of-semgrep-pro-engine-analysis) still applies in the smaller scope assuming the modules are disparate. 
 
 ### Scanning schedule
 
@@ -104,16 +103,15 @@ However, you still need to scan the whole monolithic build, whether you scan it 
 With Semgrep 1.42.0 and later, Secret rulesets are now included in the default scan configuration.  Instead of scanning Code, Supply Chain and Secret rulesets concurrently, you can circumnavigate resource limits by running different types of scans in a serial fashion.  Rather than issuing one monolithic command, for example:
 
 ```console
- $ semgrep ci
+ semgrep ci
 ```
  
 You can instead run:
  
  ```
-$ semgrep ci --code --pro
-$ semgrep ci --supply-chain --oss-only
-$ semgrep ci --secrets
- 
+semgrep ci --code --pro
+semgrep ci --supply-chain --oss-only
+semgrep ci --secrets
  ```
 
 As a result, less memory is used in total at any point in time.
@@ -127,7 +125,7 @@ Lastly, you can also tackle a large scan by increasing the RAM.
 First, establish how much memory is required to scan. Determining the total amount of memory required is key, not just to avoid killed scans but to run scans that use swap memory. Avoid swap memory when scanning with any static analysis tool. Semgrep and other SAST tools are disk I/O intensive and swapping in and out with a swap file reduces performance severely.
 
 - In the early phases of your scan deployment, start with a relatively larger runner or Kubernetes pod that has lots of memory.
-- Perform the scan with a `-j 1` configuration; no parallelization of subprocesses.  
+- Perform the scan with the `-j 1` option. This sets the number of jobs to 1 (no parallelization of subprocesses).
 - Enable a swap monitor for the entire duration of the scan to ensure an accurate assessment of RAM used, for example, running a script that samples the memory frequently: 
 ```
 $ free -m 
