@@ -55,7 +55,7 @@ If the directory contains test cases for the rules, Semgrep uploads them as well
 You can also change the visibility of the rules. For instance, to publish the rules as unlisted (which does not require authentication but will not be displayed in the public registry):
 
 ```sh
-semgrep publish --visiblity=unlisted myrules/
+semgrep publish --visibility=unlisted myrules/
 ```
 
 For more details, run `semgrep publish --help`.
