@@ -136,9 +136,8 @@ module.exports = {
         label: 'Getting started',
         collapsible: false,
         items: [
-            'getting-started',
-            'semgrep-code/getting-started',
-            'semgrep-supply-chain/getting-started'
+            'getting-started/quickstart',
+            'supported-languages'
         ]
     },
     {
@@ -146,7 +145,6 @@ module.exports = {
       label: 'Semgrep',
       collapsible: false,
       items: [
-        'supported-languages',
             {
                 type: 'category',
                 label: 'Semgrep CLI',
@@ -158,7 +156,6 @@ module.exports = {
                     keywords: ['CLI']
                   },
                 items: [
-                    'getting-started',
                     'running-rules',
                     'managing-findings',
                     'upgrading',

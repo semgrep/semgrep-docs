@@ -53,7 +53,7 @@ To test Semgrep Pro Engine on a purposefully vulnerable repository, fork the [<i
 ### Running Semgrep Pro Engine in CLI
 
 :::info Prerequisite
-- Local installation of Semgrep CLI. See [<i class="fa-regular fa-file-lines"></i> Getting started with Semgrep](/getting-started) to install Semgrep CLI.
+- Local installation of Semgrep CLI. See [<i class="fa-regular fa-file-lines"></i> Getting started with Semgrep](/getting-started/quickstart/) to install Semgrep CLI.
 :::
 
 To run Pro Engine in the CLI, perform the following steps.
