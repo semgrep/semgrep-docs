@@ -1,3 +1,12 @@
+---
+append_help_link: true
+title: Troubleshoot monorepository scan failures
+hide_title: true
+description: Troubleshoot scan failures on monorepositories by studying logs, compartmentalizing scans, increasing RAM, and running jobs in parallel.
+tags:
+  - Semgrep Code
+---
+
 # Troubleshooting "You are seeing this because the engine was killed" on monorepositories
 
 Scans can fail to complete on large monorepositories. This article describes possible solutions, such as
