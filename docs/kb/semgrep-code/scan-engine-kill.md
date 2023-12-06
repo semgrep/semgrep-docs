@@ -9,7 +9,7 @@ tags:
 
 # Troubleshooting "You are seeing this because the engine was killed" on monorepositories
 
-Scans can fail to complete on large monorepositories. This article describes possible solutions, such as
+Scans can fail to complete on large monorepositories. This article describes possible solutions, such as:
 
 - Scanning the components of the monorepository separately.
 - Serializing the type of scan performed.
