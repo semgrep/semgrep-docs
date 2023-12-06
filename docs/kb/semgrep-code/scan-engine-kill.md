@@ -13,7 +13,7 @@ Scans can fail to complete on large monorepositories. This article describes pos
 
 - Scanning the components of the monorepository separately.
 - Serializing the type of scan performed.
-- In CI jobs, increasing the RAM of the job runner.
+- Increasing the RAM of the job runner for CI jobs
 
 Given the following log or similar:
 
