@@ -136,8 +136,8 @@ module.exports = {
         label: 'Getting started',
         collapsible: false,
         items: [
-            'getting-started',
-            'semgrep-code/getting-started',
+            'getting-started/quickstart',
+            'supported-languages'
         ]
     },
     {
@@ -145,7 +145,6 @@ module.exports = {
       label: 'Semgrep',
       collapsible: false,
       items: [
-        'supported-languages',
             {
                 type: 'category',
                 label: 'Semgrep CLI',
@@ -157,7 +156,6 @@ module.exports = {
                     keywords: ['CLI']
                   },
                 items: [
-                    'getting-started',
                     'running-rules',
                     'managing-findings',
                     'upgrading',
@@ -503,6 +501,7 @@ module.exports = {
                     title: '2023 Release notes'
                 },
               items: [
+                'release-notes/november-2023',
                 'release-notes/october-2023',
                 'release-notes/september-2023',
                 'release-notes/august-2023',
