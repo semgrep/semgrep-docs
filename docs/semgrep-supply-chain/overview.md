@@ -117,10 +117,10 @@ scan with Semgrep Code](/semgrep-code/getting-started).
 * After every scan, you can view your findings by [logging in to Semgrep Cloud
   Platform (SCP)](https://semgrep.dev/login) and navigating to [**Supply
   Chain**](https://semgrep.dev/orgs/-/supply-chain).
-* The SCP has features to support the [triage and
-  remediation](/semgrep-supply-chain/triage-remediation) of your findings.
 * To support your security and business goals, you can [customize how Semgrep
   Supply Chain scans your dependencies](/semgrep-supply-chain/getting-started).
+* The SCP has features to support the [triage and
+  remediation](/semgrep-supply-chain/triage-remediation) of your findings.
 
 ### Further reading
 
