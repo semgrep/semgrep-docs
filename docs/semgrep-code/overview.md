@@ -33,7 +33,7 @@ Semgrep Cloud Platform (SCP) displays Semgrep Code's findings. Additionally, SCP
 
 ## OSS vs. Pro Engine
 
-By default, Semgrep Code is powered by Semgrep's OSS engine. It can analyze interactions within a single function (this process is known as intraprocedural analysis), and its smaller scope of analysis makes it faster and easier to integrate into developer workflows.
+By default, Semgrep Code is powered by Semgrep's OSS engine. It can analyze interactions within a single function, a process known as intraprocedural analysis, and its smaller scope of analysis makes it faster and easier to integrate into developer workflows.
 
 For cross-file and cross-function analysis (interfile and interprocedural analysis, respectively), you can enable [Semgrep's Pro Engine](/semgrep-code/semgrep-pro-engine-intro/). These scans produce fewer false positives and more true positives, but take longer to complete.
 
