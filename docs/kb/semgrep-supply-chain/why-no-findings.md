@@ -88,7 +88,7 @@ To see all vulnerabilities, select all boxes under the "Exposure" filter.
 ## Additional references
 
 If the project uses Java and Apache Maven with `pom.xml`, see [Setting up SSC scans for specific project management tools:
-Apache Maven (Java)](/docs/semgrep-supply-chain/getting-started/#apache-maven-java).
+Apache Maven (Java)](/semgrep-supply-chain/setup-maven/).
 
 ## If you're still having trouble
 
