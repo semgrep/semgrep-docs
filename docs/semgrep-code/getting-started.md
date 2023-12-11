@@ -27,20 +27,17 @@ import PlatformAddRepo from "/src/components/procedure/_platform-add-repo.md"
 import PlatformSigninGithub from "/src/components/procedure/_platform-signin-github.md"
 import PlatformSigninGitlab from "/src/components/procedure/_platform-signin-gitlab.md"
 import PlatformDetectGhRepos from "/src/components/procedure/_platform-detect-ghrepos.md"
+import Quickstart from "/src/components/procedure/_quickstart.md"
 
 # Scan your codebase
 
 Semgrep Code is a static application security testing (SAST) tool that scans your repository for security vulnerabilities. You can scan your repository by integrating Code into your CI/CD pipeline, or you can scan repositories available locally on your machine.
 
+<Quickstart />
+
 ## Use the Semgrep Cloud Platform (SCP) to automate the continuous scanning of your code
 
 <PlatformAddRepo />
-
-:::tip Scan a demo application
-You can start using Semgrep by scanning a demo project that requires only minor
-configuration. See [Learning Semgrep Cloud Platform with a demo project](/semgrep-code/demo-project/)
-for details.
-:::
 
 ### Detect GitHub repositories
 
