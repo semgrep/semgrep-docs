@@ -116,7 +116,7 @@ Semgrep Zero-config Scanning enables you to quickly onboard or add many reposito
 Scanning a project from the CLI is a standalone action. This means that you manually triggered the scan. Scans from CLI are not continuous nor scheduled, unlike scans run in a CI job.
 
 :::info Prerequisites
-- Semgrep CLI must be installed. See [Getting started with Semgrep OSS Engine](/getting-started).
+- Semgrep CLI must be installed. See [Getting started with Semgrep OSS Engine](/getting-started/quickstart/).
 - Ensure that you are running a recent version of Semgrep CLI. Semgrep Cloud Platform supports the 10 most recent minor versions of Semgrep CLI.
 :::
 
