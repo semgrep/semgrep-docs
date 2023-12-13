@@ -13,6 +13,7 @@ tags:
 import MoreHelp from "/src/components/MoreHelp"
 import EnableAutofix from "/src/components/procedure/_enable-autofix.mdx"
 import DisplayTaintedDataIntro from "/src/components/concept/_semgrep-code-display-tainted-data.mdx"
+import CommentTriggers from "/src/components/reference/_comment-triggers.mdx"
 
 <ul id="tag__badge-list">
 {
@@ -22,29 +23,48 @@ Object.entries(frontMatter).filter(
 }
 </ul>
 
-# Enabling GitLab merge request comments
+# Set up GitLab merge request comments
 
-:::info Prerequisites
-* Pull request (PR) comments can only be enabled through Semgrep Cloud Platform (SCP). [Create an account](/semgrep-code/getting-started/#signing-in-to-semgrep-cloud-platform) to set up Slack notifications.
-* To receive alerts and notifications, you must [add or onboard a project](/semgrep-code/getting-started/#option-b-adding-a-repository-from-github-gitlab-or-bitbucket) (repository) to Semgrep Cloud Platform for scanning.
+Semgrep can create **merge request (MR) comments** in your GitLab repository. These comments inform your developers of **findings**, such as security issues, in their PRs. Semgrep can also provide remediation tips or code fixes that your developers can click to **commit** into their code directly.
+
+:::note Prerequisites
+- Merge request (MR) comments can only be set up through Semgrep Cloud Platform (SCP). [<i class="fas fa-external-link fa-xs"></i> Create an account](/semgrep-code/getting-started/#signing-in-to-semgrep-cloud-platform) to set up PR comments.
+- You must connect your GitHub organization (org) to Semgrep. <!-- todo check the steps -->
+- You must add or onboard a Project (repository) to SCP and it must complete at least one full scan successfully.
 :::
 
-This section documents how to enable Semgrep Cloud Platform to post comments on merge requests.
+## Conditions for PR comment creation
+
+MR comments appear for the following types of scans and under certain conditions:
+
+<CommentTriggers />
 
 Automated comments on GitLab merge requests are displayed as follows:
 
 ![Semgrep GitLab MR comment](/img/gitlab-mr-comment.png)
 **Figure** An inline GitLab merge request comment.
 
-To enable GitLab merge request comments, follow these steps:
+## Confirm account connection and access
 
-1. In GitLab, go to [Profile > Access Tokens](https://gitlab.com/-/profile/personal_access_tokens), and then add a token with `api` scope.
+### Confirm your Semgrep account's connection to GitLab
+
+MR comments are enabled by default for users who have connected their GitLab organization (org) to Semgrep Cloud Platform. Confirm that you have the correct connection and access:
+
+1. In your SCP account, click **Settings > Source code managers**.
+2. Check that an entry for your GitLab org exists and is correct.
+
+### Create a personal access token (PAT)
+
+Creating a PAT grants the API scope to Semgrep, which lets it post comments.
+
+1. In GitLab, go to [<i class="fas fa-external-link fa-xs"></i> Profile > Access Tokens](https://gitlab.com/-/profile/personal_access_tokens), and then add a token with `api` scope.
 1. Copy the token created in the previous step.
 1. Navigate to **Your repository** >  **Settings** > **CI/CD**. The URL of the page where you are ends with: `/username/project/-/settings/ci_cd`.
 1. Under **Variables** click **Expand**, and then click **Add variable**.
 1. Enter **PAT** (change this placeholder name as necessary) in the **Key** field and paste the token value copied in step two to the **Value** field.
 1. Select the **Mask variable** checkbox option, and then clear the **Protect variable** checkbox option.
 1. Update your `.gitlab-ci.yml` file with variable `GITLAB_TOKEN` and value `$PAT`. Refer to the following example:
+
 ```yaml
 semgrep:
   # A Docker image with Semgrep installed.
@@ -67,13 +87,10 @@ semgrep:
     # Receive inline MR comments (requires Semgrep Cloud Platform account)
     GITLAB_TOKEN: $PAT
 ```
+
 Substitute the placeholder <code><span className="placeholder">PAT</span></code> with the name you created for this variable.
 
 For more configuration options, see [GitLab CI Sample](/semgrep-ci/sample-ci-configs/#gitlab-ci).
-
-:::info
-Only rules in the **Comment** and **Block** columns of your [Policies](https://semgrep.dev/orgs/-/policies) create MR comments.
-:::
 
 ## Enabling autofix in GitLab repositories
 
