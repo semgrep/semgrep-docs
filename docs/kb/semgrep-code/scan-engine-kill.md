@@ -1,17 +1,17 @@
 ---
 append_help_link: true
-title: Troubleshoot monorepository scan failures
+title: Troubleshoot monorepo scan failures
 hide_title: true
-description: Troubleshoot scan failures on monorepositories by studying logs, compartmentalizing scans, increasing RAM, and running jobs in parallel.
+description: Troubleshoot scan failures on monorepos by studying logs, compartmentalizing scans, increasing RAM, and running jobs in parallel.
 tags:
   - Semgrep Code
 ---
 
-# Troubleshooting "You are seeing this because the engine was killed" on monorepositories
+# Troubleshooting "You are seeing this because the engine was killed" on monorepos
 
-Scans can fail to complete on large monorepositories. This article describes possible solutions, such as:
+Scans can fail to complete on large monorepos. This article describes possible solutions, such as:
 
-- Scanning the components of the monorepository separately.
+- Scanning the components of the monorepos separately.
 - Serializing the type of scan performed.
 - Increasing the RAM of the job runner for CI jobs
 
@@ -44,16 +44,16 @@ Given the following log or similar:
            Error: semgrep-core exited with unexpected output
 ```
 
-## Determining the size of your monorepository 
+## Determining the size of your monorepo
 
 By default, Semgrep places resource limitations on the size of file scanned and memory allocated.
 
-However, Semgrep does not place limitations on the number of files scanned and scanning a large monorepository can involve thousands of lines of code. Thus, the first course of action is to determine exactly how many files are getting scanned:
+However, Semgrep does not place limitations on the number of files scanned and scanning a large monorepo can involve thousands of lines of code. Thus, the first course of action is to determine exactly how many files are getting scanned:
 
 1. View your CI logs. This step depends on your CI provider.
 2. Search for the section "Scan Status".
 
-A monorepository's components can look like this:
+A monorepo's components can look like this:
 
 ```console
 ┌─────────────┐
@@ -84,7 +84,7 @@ A monorepository's components can look like this:
   kotlin           47        1
 ```
 
-Now you have a good idea of the size of your monorepository. After establishing the size and breakdown of programming languages and files, you can decide what adjustments to take for a scan to succeed.
+Now you have a good idea of the size of your monorepo. After establishing the size and breakdown of programming languages and files, you can decide what adjustments to take for a scan to succeed.
 
 ## Scanning components separately 
 
