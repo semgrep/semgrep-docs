@@ -13,6 +13,7 @@ import MoreHelp from "/src/components/MoreHelp"
 import EnableAutofix from "/src/components/procedure/_enable-autofix.mdx"
 import DisplayTaintedDataIntro from "/src/components/concept/_semgrep-code-display-tainted-data.mdx"
 import CommentTriggers from "/src/components/reference/_comment-triggers.mdx"
+import TroubleshootingPrLinks from "/src/components/reference/_troubleshooting-pr-links.mdx"
 
 <ul id="tag__badge-list">
 {
@@ -130,13 +131,8 @@ To enable dataflow traces feature in your CI pipeline, fulfill the following pre
 :::
 
 
-## Troubleshooting
+## Additional references 
 
-- Ensure that you have followed all the necessary steps in this guide.
-- For **Semgrep Code** scans:
-    - Ensure that the findings are from rules in your Comment or Block columns.
-- For **Semgrep Supply Chain** users:
-    - Refer to the [trigger conditions](#conditions-for-pr-comment-creation) and ensure that the finding is in a **new line of code in the PR**.
+<TroubleshootingPrLinks />
 
-:::
 <MoreHelp />
