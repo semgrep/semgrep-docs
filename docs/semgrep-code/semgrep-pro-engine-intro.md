@@ -108,6 +108,9 @@ To update Semgrep Pro Engine to the latest version, follow these steps:
     <TabItem value='Windows Subsystem for Linux (WSL)'>
 
     ```bash
+    # ensure that you have Python 3.8 or later installed
+    # on WSL before proceeding
+    
     python3 -m pip install --upgrade semgrep
     ```
 
