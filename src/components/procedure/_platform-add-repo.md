@@ -1,10 +1,8 @@
 Adding a repository from GitHub, GitLab, or BitBucket enables Semgrep Cloud Platform to perform many of its core features, such as the ability to record, triage, and manage findings.
 
-:::note
-Ensure that:
-
-* You have [connected your Semgrep organization to your source code manager](/semgrep-cloud-platform/user-management/#connecting-a-semgrep-organization-account-to-your-scm).
-* Your user account for the CI/CD system has sufficient permissions to edit the pipeline and create environmental variables
+:::info Prerequisites
+* **For GitHub or GitLab SaaS users:** A GitHub or GitLab SaaS repository associated with your account.
+* **For BitBucket SaaS users:** A BitBucket repository and sufficient permissions to edit a BitBucket Pipeline and add repository variables.
 :::
 
 To add a repository from GitHub, GitLab, or BitBucket:
