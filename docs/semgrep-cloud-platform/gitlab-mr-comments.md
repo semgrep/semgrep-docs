@@ -27,9 +27,11 @@ Object.entries(frontMatter).filter(
 
 Semgrep can create **merge request (MR) comments** in your GitLab repository. These comments inform your developers of **findings**, such as security issues, in their PRs. Semgrep can also provide remediation tips or code fixes that your developers can click to **commit** into their code directly.
 
-:::note Prerequisites
+:::info Prerequisites
 - Merge request (MR) comments can only be set up through Semgrep Cloud Platform (SCP). [<i class="fas fa-external-link fa-xs"></i> Create an account](/semgrep-code/getting-started/#signing-in-to-semgrep-cloud-platform) to set up PR comments.
-- You must connect your GitHub organization (org) to Semgrep. <!-- todo check the steps -->
+- You must connect your GitLab organization (org) to Semgrep. 
+    - For GitLab Cloud users, this is done automatically after signing in.
+    - For GitLab self-managed users, go to [<i class="fas fa-external-link fa-xs"></i> Settings](https://semgrep.dev/orgs/-/settings) and click **Add GitLab Self-Managed**.
 - You must add or onboard a Project (repository) to SCP and it must complete at least one full scan successfully.
 :::
 
@@ -41,7 +43,7 @@ MR comments appear for the following types of scans and under certain conditions
 
 Automated comments on GitLab merge requests are displayed as follows:
 
-![Semgrep GitLab MR comment](/img/gitlab-mr-comment.png)
+![Semgrep GitLab MR comment](/img/gitlab-mr-comment.png#md-width)
 **Figure** An inline GitLab merge request comment.
 
 ## Confirm account connection and access

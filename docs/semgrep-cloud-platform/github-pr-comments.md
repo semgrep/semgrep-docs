@@ -28,7 +28,7 @@ Object.entries(frontMatter).filter(
 
 Semgrep can create **pull request (PR) comments** in your GitHub repository. These comments inform your developers of **findings**, such as security issues, in their PRs. Semgrep can also provide remediation tips or code fixes that your developers can click to **commit** into their code directly.
 
-:::note Prerequisites
+:::info Prerequisites
 - Pull request (PR) comments can only be set up through Semgrep Cloud Platform (SCP). [<i class="fas fa-external-link fa-xs"></i> Create an account](/semgrep-code/getting-started/#signing-in-to-semgrep-cloud-platform) to set up PR comments.
 - You must connect your GitHub organization (org) to Semgrep.
     - For **GitHub Cloud**: See [<i class="fa-regular fa-file-lines"></i> Adding an organization](/semgrep-cloud-platform/getting-started/#adding-an-organization).
