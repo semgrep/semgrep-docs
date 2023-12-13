@@ -13,7 +13,7 @@ Scans can fail to complete on large monorepos. This article describes possible s
 
 - Scanning the components of the monorepos separately.
 - Serializing the type of scan performed.
-- Increasing the RAM of the job runner for CI jobs
+- Increasing the RAM of the job runner for CI jobs.
 
 Given the following log or similar:
 
@@ -51,7 +51,7 @@ By default, Semgrep places resource limitations on the size of file scanned and 
 However, Semgrep does not place limitations on the number of files scanned and scanning a large monorepo can involve thousands of lines of code. Thus, the first course of action is to determine exactly how many files are getting scanned:
 
 1. View your CI logs. This step depends on your CI provider.
-2. Search for the section "Scan Status".
+2. Search for the section **Scan Status**.
 
 A monorepo's components can look like this:
 
@@ -94,7 +94,7 @@ Based on the composition provided by the logs, you may be able to determine if y
 
 ### Scanning schedule
 
-You can perform modular scans on a daily basis and then perform one big monolithic scan every two weeks or so to keep close tabs and cap any false negative interfile or inter-component outliers that can get introduced with code change as a way of truing up your dependency graph for the monolithic build. This helps deflect costs as you are scanning the majority on smaller runners/k8s.  
+You can perform modular scans on a daily basis and then perform one big monolithic scan every two weeks or so to keep close tabs and cap any false negative interfile or inter-component outliers that can get introduced with code change as a way of truing up your dependency graph for the monolithic build. This helps deflect costs as you are scanning the majority on smaller runners or Kubernetes clusters.  
 
 However, you still need to scan the whole monolithic build, whether you scan it biweekly or daily, and the following sections apply to tackling that monolith whether you adopt the modular paradigm of scanning or not. 
 
