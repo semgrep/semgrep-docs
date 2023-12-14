@@ -38,7 +38,7 @@ Semgrep can create **pull request (PR) comments** in your GitHub repository. The
 :::
 ## Conditions for PR comment creation
 
-PR comments appear for the following types of scans and under certain conditions:
+PR comments appear for the following types of scans under these conditions:
 
 <CommentTriggers />
 
