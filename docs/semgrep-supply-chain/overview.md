@@ -100,7 +100,7 @@ third-party or open source components to assist you with your auditing procedure
 
 Semgrep Supply Chain's dependency search feature allows you to query for
 dependencies in your codebase; it can detect direct and transitive dependencies
-in any repository you've scanned with. The results list the dependency, along
+in any repository on which you have run a full scan. The results list the dependency, along
 with 
 
 ## License compliance
@@ -111,8 +111,7 @@ organization's requirements.
 
 ## Next steps
 
-Semgrep Supply Chain is automatically enabled for all [repositories that you
-scan with Semgrep Code](/semgrep-code/getting-started).
+Semgrep Supply Chain automatically scans [repositories that you add to Semgrep Cloug Platform](/semgrep-cloud-platform/getting-started/#starting-a-sast-and-sca-scan-on-a-remote-repository).
 
 * After every scan, you can view your findings by [logging in to Semgrep Cloud
   Platform (SCP)](https://semgrep.dev/login) and navigating to [**Supply
