@@ -33,7 +33,7 @@ Object.entries(frontMatter).filter(
 
 # Getting started with Semgrep Cloud Platform
 
-Semgrep Cloud Platform (SCP) enables you and your team to run SAST (Static Application Security Testing) and SCA (Software Composition Analysis) scans continuously on multiple repositories.
+Semgrep Cloud Platform (SCP) is used to manage and orchestra Semgrep Code, Semgrep Supply Chain, and Semgrep Secrets.
 
 Semgrep Cloud Platform can receive findings from the following sources:
 
