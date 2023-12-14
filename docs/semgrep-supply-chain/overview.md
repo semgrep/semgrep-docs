@@ -30,7 +30,8 @@ _Figure 1_. Semgrep Supply Chain Vulnerabilities page.
 
 Semgrep Supply Chain detects [security
 vulnerabilities](https://nvd.nist.gov/vuln/full-listing) in your codebase
-introduced by open-source dependencies, using high-signal rules to determine the
+introduced by open-source dependencies using high-signal rules, which are
+instructions Semgrep uses detect patterns in code, to determine the
 vulnerability's [reachability](/semgrep-supply-chain/glossary/#reachability).
 
 To do this, Semgrep Supply Chain parses **lockfiles** for a list of dependencies,

@@ -82,10 +82,12 @@ Semgrep Supply Chain supports the scanning of monorepos. It treates each of the 
 
 Though Semgrep Supply Chain v0.122.0 and earlier automatically blocked pull/merge requests if it discovered reachable findings in the code, it no longer does this. You can, however, configure your version control system to prevent merging if Semgrep Supply Chain identifies reachable findings.
 
-## Next steps
+## Set up SSC in your CI/CD system
 
-* Learn how to [set up Semgrep Supply Chain in your CI/CD System](/semgrep-supply-chain/setup-infrastructure).
+You can [set up Semgrep Supply Chain in your CI/CD System](/semgrep-supply-chain/setup-infrastructure) to automate scanning of your third-party code.
 
-* See [Ignore lockfiles and dependencies](/semgrep-supply-chain/ignoring-lockfiles-dependencies) for information on how to flag specific findings to be ignored by Semgrep Supply Chain using `semgrepignore`
+:::info
+See [Ignore lockfiles and dependencies](/semgrep-supply-chain/ignoring-lockfiles-dependencies) for information on how to flag specific findings to be ignored by Semgrep Supply Chain using `semgrepignore`
+:::
 
 <MoreHelp />
