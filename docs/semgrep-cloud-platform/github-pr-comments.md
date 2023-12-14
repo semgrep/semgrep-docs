@@ -124,7 +124,7 @@ You have successfully configured PR comments for Semgrep Code. If you are using 
 To enable dataflow traces feature in your CI pipeline, fulfill the following prerequisites:
 
 :::info Prerequisites
-- Enable GitHub pull request Semgrep comments, as described on this page.
+- Set up GitHub pull request Semgrep comments, as described on this page.
 - To obtain meaningful results of dataflow traces in PR comments, use Semgrep Pro Engine while scanning your repositories to display cross-file (interfile) findings. To enable Semgrep Pro Engine, see [Semgrep Pro Engine overview](/semgrep-code/semgrep-pro-engine-intro/).
 - Not all Semgrep rules or rulesets make use of taint tracking. Ensure that you have a ruleset that does, such as the **default ruleset**, added in your **[Policies](https://semgrep.dev/orgs/-/policies)**. To add this ruleset, navigate to [https://semgrep.dev/p/default](https://semgrep.dev/p/default), and then click **Add to Policies**.
 - You can add additional rules that use taint tracking from [Semgrep Registry](https://semgrep.dev/explore).
