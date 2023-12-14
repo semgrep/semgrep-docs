@@ -78,9 +78,9 @@ Depending on how your CI/CD system is configured, you can trigger a Semgrep Supp
 Semgrep Supply Chain supports the scanning of monorepos. It treates each of the monorepo's subdirectories as an individual repository. Findings are then grouped by the repositories based on the [lockfile](/semgrep-supply-chain/glossary/#lockfile) or manifest file present in the monorepo.
 
 
-## Block pull/merge requests
+## Block pull or merge requests
 
-Though Semgrep Supply Chain v0.122.0 and earlier automatically blocked pull/merge requests if it discovered reachable findings in the code, it no longer does this. You can, however, configure your version control system to prevent merging if Semgrep Supply Chain identifies reachable findings.
+Though Semgrep Supply Chain **v0.122.0** and earlier automatically blocked pull/merge requests if it discovered reachable findings in the code, it no longer does this. You can, however, configure your version control system to prevent merging if Semgrep Supply Chain identifies reachable findings.
 
 ## Next steps
 
