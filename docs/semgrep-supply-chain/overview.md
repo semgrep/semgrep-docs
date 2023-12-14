@@ -33,13 +33,13 @@ vulnerabilities](https://nvd.nist.gov/vuln/full-listing) in your codebase
 introduced by open-source dependencies, using high-signal rules to determine the
 vulnerability's [reachability](/semgrep-supply-chain/glossary/#reachability).
 
-To do this, Semgrep Supply Chain parses lockfiles for a list of dependencies,
-then scans your codebase using [rules](/running-rules/) that specify the
+To do this, Semgrep Supply Chain parses **lockfiles** for a list of dependencies,
+then scans your codebase using rules that specify the
 following information:
 
-* The dependency versions that contain a vulnerability;
-* The pattern for the vulnerable code that Semgrep compares against your code;
-* The severity of the vulnerability.
+* The dependency versions that contain a vulnerability
+* The pattern for the vulnerable code that Semgrep compares against your code
+* The severity of the vulnerability
 
 The following diagram shows the relationship between a Semgrep Supply Chain
 rule, the codebase scanned, and its lockfile:
@@ -94,7 +94,7 @@ directly.
 
 Semgrep Supply Chain can [generate a software bill of materials
 (SBOM)](/semgrep-supply-chain/sbom), a complete inventory of your
-third-party/open source components to assist you with your auditing procedures.
+third-party or open source components to assist you with your auditing procedures.
 
 ## Dependency search
 
@@ -106,7 +106,7 @@ with
 ## License compliance
 
 The [license compliance](/semgrep-supply-chain/license-compliance) feature
-ensures that you're only open source packages whose licensing meets your
+ensures that you're only using open source packages whose licensing meets your
 organization's requirements.
 
 ## Next steps
