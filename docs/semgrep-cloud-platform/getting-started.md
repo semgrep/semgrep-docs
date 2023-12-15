@@ -35,7 +35,7 @@ Object.entries(frontMatter).filter(
 
 Semgrep Cloud Platform (SCP) is used to manage and orchestra Semgrep Code, Semgrep Supply Chain, and Semgrep Secrets.
 
-## Signing in to Semgrep Cloud Platform
+## Signing into Semgrep Cloud Platform
 
 <PlatformSigninIntro />
 
@@ -63,7 +63,7 @@ Semgrep Cloud Platform (SCP) is used to manage and orchestra Semgrep Code, Semgr
 
 ## Organizations
 
-Organization accounts in Semgrep allow users to share custom rules and view the scans of their colleagues. If you are the Semgrep administrator, you must create an organization before your colleagues can join. If you're an individual contributor, you can either join an existing organization or create your own.
+Organization accounts in Semgrep allow users to share custom rules and view the scans of their colleagues. If you are the Semgrep administrator, you must create an organization before your colleagues can join. If you're an individual contributor, you can join an existing organization or create your own.
 
 ### Add an organization
 
@@ -76,7 +76,7 @@ If you are an administrator setting up Semgrep for your team, or you are a new S
 4. Semgrep redirects you to the **Scan a project on your machine** page; click **Skip setup** at the bottom to go directly to **Dashboard**.
 5. Go to **Settings** > **Source Code Managers**.
    ![Source code manager tab](/img/source-code-manager.png#md-width)
-6. Select the source code manager containing the org you'd like to connect to Semgrep Cloud Platform; follow the on-screen prompts to proceed. You can review permissions needed by Semgrep in [Requested permissions for GitHub and GitLab](#requested-permissions-for-github-and-gitlab).
+6. Select the source code manager containing the org you want to connect to Semgrep Cloud Platform; follow the on-screen prompts to proceed. You can review permissions needed by Semgrep in [Requested permissions for GitHub and GitLab](#requested-permissions-for-github-and-gitlab).
 7. *Optional:* [Configure SSO](/semgrep-cloud-platform/sso/) for your organization.
 
 ### Join an organization
@@ -105,7 +105,7 @@ Semgrep Cloud Platform displays findings after you've scanned your repository by
 You can send scan results from a local repository to Semgrep Cloud Platform. The local repository is a separate **Project** from its remote counterpart.
 
 :::caution
-**If you have a personal Semgrep account *and* an account associated with an organization:** when logging into Semgrep via the CLI using `semgrep login`, ensure that you sign into SCP using your personal account. This prevents Semgrep from sending your local respository scan results to the organization account. See [Project separation between local and remote repositories](#project-separation-between-local-and-remote-repositories).
+**If you have a personal Semgrep account *and* an account associated with an organization:** when logging into Semgrep via the CLI using `semgrep login`, ensure that you sign into SCP using your personal account. This prevents Semgrep from sending your local repository scan results to the organization account. See [Project separation between local and remote repositories](#project-separation-between-local-and-remote-repositories).
 :::
 
 To scan a local repository and send findings to SCP:
@@ -115,7 +115,7 @@ To scan a local repository and send findings to SCP:
     semgrep login
     ```
 2. Follow the on-screen prompts.
-3. Navigate to the root of your repository, and start a scan by running:
+3. Navigate to the root of your repository and start a scan by running:
     ```console
     semgrep ci
     ```
@@ -131,14 +131,14 @@ Docker users: use the [**latest** tag](https://hub.docker.com/r/returntocorp/sem
 Semgrep uses different naming conventions for project slugs depending on whether the repository scanned is local or remote:
 
 * Local repository: `repository-name`
-* Remote repoistory: `account-name/repository-name`.
+* Remote repository: `account-name/repository-name`.
 
 The following image shows how SCP shows remote and local projects to a user.
 
 ![Projects view with local and remote counterparts of the same repository.](/img/projects-remote-local-slugs.png)
 
 * **For personal accounts:** A local repository scan does not overwrite the findings records of its remote counterpart. They are two separate Semgrep Projects. Personal accounts only have one user: you.
-* **For organization accounts**: A local repository scan does **not** overwrite findings records of its remote counterpart. However, if two or more members send local repository findings to SCP, one set of findings may overwrite other sets of findings. This is because organization accounts can have multiple team members, and the CLI sends all local scan findings to the same project slug.
+* **For organization accounts**: A local repository scan does **not** overwrite findings records of its remote counterpart. However, if two or more members send local repository findings to SCP, one set of findings may overwrite others. This is because organization accounts can have multiple team members, and the CLI sends all local scan findings to the same project slug.
 
 ## Requested permissions for GitHub and GitLab
 
@@ -157,9 +157,9 @@ Semgrep requests the following permissions to your GitHub account when you:
 * Sign in for the first time
 * Add your repositories to Semgrep Cloud Platform
 
-### Permissions for sign in
+### Permissions for sign-in
 
-Semgrep Cloud Platform requests the standard permissions set by GitHub when you first sign in, though it does not use all of the permissions. The follow list explains how SCP uses the permissions you grant when you sign in for the first time:
+Semgrep Cloud Platform requests the standard permissions set by GitHub when you first sign in, though it does not use all the permissions. The following list explains how SCP uses the permissions you grant when you sign in for the first time:
 
 <dl>
     <dt>Verify your GitHub identity</dt>
@@ -170,9 +170,9 @@ Semgrep Cloud Platform requests the standard permissions set by GitHub when you 
     <dd>Enables SCP to perform tasks <strong>only on resources that you choose to share with SCP</strong>. SCP never uses this permission to perform actions on your behalf, even if you have <code>semgrep-app</code> installed. See <a href ="https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/authorizing-github-apps">When does a GitHub App act on your behalf?</a> for more information.</dd>
 </dl>
 
-### Permissions to add your repositories into Semgrep Cloud Platform
+### Permissions to add repositories to Semgrep Cloud Platform
 
-With [`semgrep-app`](https://github.com/apps/semgrep-app), you can integrate Semgrep into the GitHub repositories you select. The app requires the following permissions:
+With [`semgrep-app`](https://github.com/apps/semgrep-app), you can integrate Semgrep into your GitHub repositories. The app requires the following permissions:
 
 <dl>
     <dt>Reading metadata of the repositories you select</dt>
@@ -213,11 +213,10 @@ Semgrep requires the following permissions (scopes) to enable the authentication
 </TabItem>
 </Tabs>
 
-### Semgrep Cloud Platform session details
+## Session details
 
-- The time before you need to reauthenticate to Semgrep Cloud Platform is 7 days.
-- A Semgrep Cloud Platform session token is valid for 7 days.
-- This session timeout is not configurable.
-- Semgrep Cloud Platform does not use cookies; instead it uses `localStorage` to store access tokens. The data in `localStorage` expires every 7 days. 
+- A Semgrep Cloud Platform session token is valid for seven days, so you must reauthenticate every seven days.
+- The session timeout value is not configurable.
+- Semgrep Cloud Platform does not use cookies; it uses `localStorage` to store access tokens. The data in `localStorage` expires every seven days. 
 
 <MoreHelp />
