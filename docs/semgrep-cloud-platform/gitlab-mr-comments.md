@@ -34,7 +34,7 @@ Semgrep can create **merge request (MR) comments** in your GitLab repository. Th
 - You must connect your GitLab organization (org) to Semgrep. 
     - For GitLab Cloud users, this is done automatically after signing in.
     - For GitLab self-managed users, go to [<i class="fas fa-external-link fa-xs"></i> Settings](https://semgrep.dev/orgs/-/settings) and click **Add GitLab Self-Managed**.
-- You must add or onboard a Semgrep project (repository) to SCP and it must complete at least one full scan successfully.
+- You must add or onboard a Semgrep project (repository) to SCP and it must complete at least one full scan on your default branch successfully.
 :::
 
 ## Conditions for PR comment creation

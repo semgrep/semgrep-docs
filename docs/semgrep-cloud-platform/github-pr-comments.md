@@ -35,7 +35,7 @@ Semgrep can create **pull request (PR) comments** in your GitHub repository. The
 - You must connect your GitHub organization (org) to Semgrep.
     - For **GitHub Cloud**: See [<i class="fa-regular fa-file-lines"></i> Adding an organization](/semgrep-cloud-platform/getting-started/#adding-an-organization).
     - For **GitHub Enterprise Server**: [<i class="fa-regular fa-file-lines"></i> Integrate Semgrep with GitHub Enterprise](/semgrep-cloud-platform/scm/#integrating-semgrep-cloud-platform-with-github-enterprise-or-gitlab-self-managed) and if you have a VPN or firewall, [set up your allowlists](/semgrep-cloud-platform/scm/#receiving-pr-or-mr-comments-in-your-vpn-or-on-premise-scm).
-- You must add or onboard a Semgrep project (repository) to SCP and it must complete at least one full scan successfully.
+- You must add or onboard a Semgrep project (repository) to SCP and it must complete at least one full scan on your default branch successfully.
 :::
 ## Conditions for PR comment creation
 
