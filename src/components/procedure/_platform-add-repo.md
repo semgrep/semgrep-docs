@@ -9,7 +9,7 @@ To add a repository from GitHub, GitLab, or BitBucket, follow these steps:
 
 1. Ensure you are signed in to Semgrep Cloud Platform.
 2. Click **[Projects](https://semgrep.dev/orgs/-/projects)** on the left sidebar.
-3. Optional: For **GitHub Actions**. If you do not see the repository you want to add, adjust [GitHub Application's Repository Access](https://github.com/settings/installations) configuration. See [Detecting GitHub repositories](#detecting-github-repositories) for more information.
+3. Optional: For **GitHub Actions**. If you do not see the repository you want to add, adjust [GitHub Application's Repository Access](https://github.com/settings/installations) configuration. See [Detect GitHub repositories](#detect-github-repositories) for more information.
 4. Click **Scan new project**, and then click **Run scan in CI**.
 5. Select which CI provider for Semgrep to integrate with.
 6. Follow the instructions displayed on Semgrep Cloud Platform page for your particular CI provider.
