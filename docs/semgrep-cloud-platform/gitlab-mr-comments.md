@@ -39,7 +39,7 @@ Semgrep can create **merge request (MR) comments** in your GitLab repository. Th
 
 ## Conditions for PR comment creation
 
-MR comments appear for the following types of scans and under certain conditions:
+MR comments appear for the following types of scans under these conditions:
 
 <CommentTriggers />
 
