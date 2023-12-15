@@ -123,6 +123,66 @@ The following table lists tools to enable developers to resolve their own code.
 | [Personal and organizational accounts](/semgrep-cloud-platform/user-management/) |  ❌ | ✔️  |
 | [SSO, OpenID, or OAuth2 authentication](/semgrep-cloud-platform/sso/) |  ❌ | ✔️  |
 
+## Differences between Semgrep Code and Semgrep Supply Chain
+
+The following table displays differences between Semgrep Code and Semgrep Supply Chain.
+
+<table>
+<thead><tr>
+   <th>Feature</th>
+   <th>Semgrep Code</th>
+   <th>Semgrep Supply Chain</th>
+</tr></thead>
+<tbody><tr>
+   <td>Type of tool</td>
+   <td>Static application security testing (SAST)</td>
+   <td>Software composition analysis (SCA)</td>
+  </tr>
+  <tr>
+   <td>Scan target
+   </td>
+   <td>First-party code (your codebase or repository)
+   </td>
+   <td>Open source dependencies 
+   </td>
+  </tr>
+  <tr>
+   <td>Triage workflow
+   </td>
+   <td>Findings can be categorized as:
+<ul>
+<li>Ignored (to triage false positives)</li>
+<li>Closed (resolved) by refactoring code</li>
+<li>Removed</li>
+</ul>
+   </td>
+   <td>Findings can be categorized as:
+<ul>
+<li>New</li>
+<li>In progress</li>
+<li>Fixed</li>
+<li>Ignored</li>
+</ul>
+   </td>
+  </tr>
+  <tr>
+   <td>Remediation workflow
+   </td>
+   <td>Code refactoring
+   </td>
+   <td>Upgrading or removing the dependency, code refactoring
+   </td>
+  </tr>
+  <tr>
+   <td>Notification channels
+   </td>
+   <td>Slack, Email, Webhooks
+   </td>
+   <td>Slack
+   </td>
+  </tr></tbody>
+</table>
+
 ## Determining your plan needs
 
 ### Number of contributors

@@ -102,7 +102,7 @@ third-party or open source components to assist you with your auditing procedure
 Semgrep Supply Chain's dependency search feature allows you to query for
 dependencies in your codebase; it can detect direct and transitive dependencies
 in any repository on which you have run a full scan. The results list the dependency, along
-with 
+with all of the repositories that use the dependency.
 
 ## License compliance
 
