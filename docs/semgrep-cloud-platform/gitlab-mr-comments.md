@@ -15,6 +15,7 @@ import EnableAutofix from "/src/components/procedure/_enable-autofix.mdx"
 import DisplayTaintedDataIntro from "/src/components/concept/_semgrep-code-display-tainted-data.mdx"
 import CommentTriggers from "/src/components/reference/_comment-triggers.mdx"
 import TroubleshootingPrLinks from "/src/components/reference/_troubleshooting-pr-links.mdx"
+import PrCommentsInSast from "/src/components/procedure/_pr-comments-in-sast.mdx"
 
 <ul id="tag__badge-list">
 {
@@ -94,6 +95,8 @@ semgrep:
 Substitute the placeholder <code><span className="placeholder">PAT</span></code> with the name you created for this variable.
 
 For more configuration options, see [GitLab CI Sample](/semgrep-ci/sample-ci-configs/#gitlab-ci).
+
+<PrCommentsInSast name="GitLab" />
 
 ## Enabling autofix in GitLab repositories
 

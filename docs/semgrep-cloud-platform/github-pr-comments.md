@@ -14,6 +14,7 @@ import EnableAutofix from "/src/components/procedure/_enable-autofix.mdx"
 import DisplayTaintedDataIntro from "/src/components/concept/_semgrep-code-display-tainted-data.mdx"
 import CommentTriggers from "/src/components/reference/_comment-triggers.mdx"
 import TroubleshootingPrLinks from "/src/components/reference/_troubleshooting-pr-links.mdx"
+import PrCommentsInSast from "/src/components/procedure/_pr-comments-in-sast.mdx"
 
 <ul id="tag__badge-list">
 {
@@ -81,30 +82,9 @@ After performing all the steps in Configure PR comments, define the following en
 
 These values do not have to be fixed or hardcoded. They can be variables passed to the job. For more information, see [<i class="fa-regular fa-file-lines"></i> Sample CI configurations](/semgrep-ci/sample-ci-configs).
 
+<PrCommentsInSast name="GitHub" />
 
-## Configure PR comments for Semgrep Code
-
-In addition to setting up the connection between Semgrep and GitHub, you must assign rules to Comment or Block mode. This customization enables you to:
-
-- Manage the **amount of PR comments** your developers receive.
-- Ensure that only rules that meet your criteria, such as high severity or high confidence rules, produce comments visible to developers, reducing noise.
-
-:::tip
-Rules in **Block mode** prevent the PR from being merged without triage or remediation.
-:::
-
-### Set rules to Comment or Block mode
-
-The following instructions let you customize what findings or security issues your developers see as comments in their PRs:
-
-1. In your SCP account, click **Rules > Policies**. You are taken to the **Policies** page. Under **Modes ⚙**, you can quickly see if you have existing rules in either Comment or Block mode.
-1. Optional: Use the filters to quickly find rules to set to Comment or Block.
-1. Click the **<i class="fa-solid fa-square-check"></i> checkbox** of the rules you want to set. You can use <kbd>Ctrl + Click</kbd> to select rules in bulk.
-1. Click **Change modes**.
-2. Click either **Block** or **Comment**.
-
-You have successfully configured PR comments for Semgrep Code. If you are using **GitHub Actions** to run Semgrep, no extra changes are needed to receive PR comments.
-
+If you are using **GitHub Actions** to run Semgrep, no extra changes are needed to receive PR comments.
 
 ### Enable autofix in GitHub repositories
 
