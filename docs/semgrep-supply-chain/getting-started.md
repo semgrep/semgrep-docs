@@ -27,6 +27,10 @@ Object.entries(frontMatter).filter(
 
 This article walks you through the Semgrep Supply Chain configuration and customization options available.
 
+:::info Apache Maven
+- To run a Semgrep Supply Chain scan, you must generate a [dependency tree for Apache Maven](/semgrep-supply-chain/setup-maven).
+:::
+
 ## Scan frequency
 
 By default, Semgrep Supply Chain scans your code once per day. However, you can change this so Semgrep Supply Chain scans your code at a different frequency or when a specific event occurs.
@@ -37,7 +41,7 @@ Semgrep Supply Chain frequently receives rule updates. To take advantage of thes
 
 <CiScheduling />
 
-:::info Rules updates
+:::note Rules updates
 
 If a rule is updated, findings generated against the updated rule are considered **new findings**, even if the previous version of the rule generated a finding. Furthermore, because the finding is new, you'll receive notifications through the channels you've set up (e.g., Slack, email).
 :::
@@ -77,17 +81,12 @@ Depending on how your CI/CD system is configured, you can trigger a Semgrep Supp
 
 Semgrep Supply Chain supports the scanning of monorepos. It treates each of the monorepo's subdirectories as an individual repository. Findings are then grouped by the repositories based on the [lockfile](/semgrep-supply-chain/glossary/#lockfile) or manifest file present in the monorepo.
 
-
 ## Block pull or merge requests
 
 Though Semgrep Supply Chain **v0.122.0** and earlier automatically blocked pull/merge requests if it discovered reachable findings in the code, it no longer does this. You can, however, configure your version control system to prevent merging if Semgrep Supply Chain identifies reachable findings.
 
-## Set up SSC in your CI/CD system
+## Ignore lockfiles and dependencies
 
-You can [set up Semgrep Supply Chain in your CI/CD System](/semgrep-supply-chain/setup-infrastructure) to automate scanning of your third-party code.
-
-:::info
-See [Ignore lockfiles and dependencies](/semgrep-supply-chain/ignoring-lockfiles-dependencies) for information on how to flag specific findings to be ignored by Semgrep Supply Chain using `semgrepignore`
-:::
+See [Ignore lockfiles and dependencies](/semgrep-supply-chain/ignoring-lockfiles-dependencies) for information on how to flag specific findings to be ignored by Semgrep Supply Chain using `semgrepignore`.
 
 <MoreHelp />
