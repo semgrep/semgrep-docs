@@ -63,35 +63,37 @@ Creating a PAT grants the API scope to Semgrep, which lets it post comments.
 
 1. In GitLab, go to [<i class="fas fa-external-link fa-xs"></i> Profile > Access Tokens](https://gitlab.com/-/profile/personal_access_tokens), and then add a token with `api` scope.
 1. Copy the token created in the previous step.
-1. Navigate to **Your repository** >  **Settings** > **CI/CD**. The URL of the page where you are ends with: `/username/project/-/settings/ci_cd`.
-1. Under **Variables** click **Expand**, and then click **Add variable**.
-1. Enter **PAT** (change this placeholder name as necessary) in the **Key** field and paste the token value copied in step two to the **Value** field.
-1. Select the **Mask variable** checkbox option, and then clear the **Protect variable** checkbox option.
-1. For GitLab CI/CD users: Update your `.gitlab-ci.yml` file with variable `GITLAB_TOKEN` and value `$PAT`. Refer to the following sample, substituting the placeholder <code><span className="placeholder">PAT</span></code> with the name you created for this variable.
-
-  ```yaml
-  semgrep:
-    # A Docker image with Semgrep installed.
-    image: returntocorp/semgrep
-    # Run the "semgrep ci" command on the command line of the docker image.
-    script: semgrep ci
-  
-    rules:
-    # Scan changed files in MRs, (diff-aware scanning):
-    - if: $CI_MERGE_REQUEST_IID
-  
-    # Scan mainline (default) branches and report all findings.
-    - if: $CI_COMMIT_BRANCH == $CI_DEFAULT_BRANCH
-  
-    variables:
-      # Connect to Semgrep Cloud Platform through your SEMGREP_APP_TOKEN.
-      # Generate a token from Semgrep Cloud Platform > Settings
-      # and add it as a variable in your GitLab CI/CD project settings.
-      SEMGREP_APP_TOKEN: $SEMGREP_APP_TOKEN
-      # Receive inline MR comments (requires Semgrep Cloud Platform account)
-      GITLAB_TOKEN: $PAT
-  ```
-1. For **other CI providers**: define the `GITLAB_TOKEN` variable in your CI provider's interface.
+1. For GitLab CI/CD users:
+    1. Navigate to **Your repository** >  **Settings** > **CI/CD**. The URL of the page where you are ends with: `/username/project/-/settings/ci_cd`.
+    1. Under **Variables** click **Expand**, and then click **Add variable**.
+    1. Enter **PAT** (change this placeholder name as necessary) in the **Key** field and paste the token value copied in step two to the **Value** field.
+    1. Select the **Mask variable** checkbox option, and then clear the **Protect variable** checkbox option.
+    1. Update your `.gitlab-ci.yml` file with variable `GITLAB_TOKEN` and value `$PAT`. Refer to the following sample, substituting the placeholder <code><span className="placeholder">PAT</span></code> with the name you created for this variable.
+    ```yaml
+    semgrep:
+      # A Docker image with Semgrep installed.
+      image: returntocorp/semgrep
+      # Run the "semgrep ci" command on the command line of the docker image.
+      script: semgrep ci
+    
+      rules:
+      # Scan changed files in MRs, (diff-aware scanning):
+      - if: $CI_MERGE_REQUEST_IID
+    
+      # Scan mainline (default) branches and report all findings.
+      - if: $CI_COMMIT_BRANCH == $CI_DEFAULT_BRANCH
+    
+      variables:
+        # Connect to Semgrep Cloud Platform through your SEMGREP_APP_TOKEN.
+        # Generate a token from Semgrep Cloud Platform > Settings
+        # and add it as a variable in your GitLab CI/CD project settings.
+        SEMGREP_APP_TOKEN: $SEMGREP_APP_TOKEN
+        # Receive inline MR comments (requires Semgrep Cloud Platform account)
+        GITLAB_TOKEN: $PAT
+    ```
+1. For **other CI providers**:
+    1. In your CI provider's interface, define the value of the PAT as a secret. Refer to your CI provider's documentation for steps to do this.
+    2. Define the environment variable `GITLAB_TOKEN` and assign the PAT to it.
 
 For more configuration options, see [GitLab CI Sample](/semgrep-ci/sample-ci-configs/#gitlab-ci).
 
