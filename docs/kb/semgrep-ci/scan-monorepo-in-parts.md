@@ -9,7 +9,7 @@ tags:
 
 # Scanning a monorepo in parts
 
-Monorepos, by definition, contain a large amount of code. The code is also often divided into to different components or modules, despite all existing in the same repository.
+Monorepos very often contain a large amount of code. The code is usually divided into to different components or modules, even though it's all stored in the same repository.
 
 As such, it can be helpful to scan a monorepo in parts for multiple reasons:
 
