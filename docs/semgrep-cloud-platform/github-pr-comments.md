@@ -35,7 +35,7 @@ Semgrep can create **pull request (PR) comments** in your GitHub repository. The
 - You must connect your GitHub organization (org) to Semgrep.
     - For **GitHub Cloud**: See [<i class="fa-regular fa-file-lines"></i> Adding an organization](/semgrep-cloud-platform/getting-started/#adding-an-organization).
     - For **GitHub Enterprise Server**: [<i class="fa-regular fa-file-lines"></i> Integrate Semgrep with GitHub Enterprise](/semgrep-cloud-platform/scm/#integrating-semgrep-cloud-platform-with-github-enterprise-or-gitlab-self-managed) and if you have a VPN or firewall, [set up your allowlists](/semgrep-cloud-platform/scm/#receiving-pr-or-mr-comments-in-your-vpn-or-on-premise-scm).
-- You must add or onboard a Project (repository) to SCP and it must complete at least one full scan successfully.
+- You must add or onboard a Semgrep project (repository) to SCP and it must complete at least one full scan successfully.
 :::
 ## Conditions for PR comment creation
 
@@ -64,7 +64,7 @@ Ensure that Semgrep's GitHub app (`semgrep-app`) has sufficient permissions to p
 1. Navigate to your `semgrep-app` settings:
 	1. For personal accounts, navigate to the following URL `https://github.com/settings/installations`.
 	2. For organization accounts, navigate to the following URL, substituting YOUR_ORG_NAME with the name of your account: `https://github.com/organizations/YOUR_ORG_NAME/settings/installations`.
-2. On the `semgrep-app` row, click Configure.
+2. On the `semgrep-app` row, click **Configure**.
 3. Check that you have granted the following permission: `Read and write access to actions, pull requests, secrets, security events, and workflows`.
 4. Under **Repository access**, check that you have included the repositories that you added to Semgrep Cloud Platform.
 
