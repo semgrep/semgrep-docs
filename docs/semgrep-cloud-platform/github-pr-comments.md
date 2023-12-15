@@ -15,6 +15,7 @@ import DisplayTaintedDataIntro from "/src/components/concept/_semgrep-code-displ
 import CommentTriggers from "/src/components/reference/_comment-triggers.mdx"
 import TroubleshootingPrLinks from "/src/components/reference/_troubleshooting-pr-links.mdx"
 import PrCommentsInSast from "/src/components/procedure/_pr-comments-in-sast.mdx"
+import DefineConnectionVariables from "/src/components/reference/_define-connection-variables.mdx"
 
 <ul id="tag__badge-list">
 {
@@ -70,17 +71,7 @@ Ensure that Semgrep's GitHub app (`semgrep-app`) has sufficient permissions to p
 
 For GitHub Actions users, no further steps need to be undertaken. Continue setting up Semgrep Code PR comments by [setting rules to Comment or Block mode](#set-rules-to-comment-or-block-mode).
 
-### Define environment variables needed to connect Semgrep to other CI providers
-
-For CI providers aside from GitHub Actions, additional environment variables must be set.
-
-After performing all the steps in Configure PR comments, define the following environment variables:
-
-- `SEMGREP_PR_ID` is set to the PR number of the pull request on GitHub (for example, `2901`)
-- `SEMGREP_REPO_NAME` is set to the repository name (for example, `returntocorp/semgrep`)
-- `SEMGREP_REPO_URL` is set to the repository URL where your project is viewable online (for example, `https://github.com/semgrep/semgrep`)
-
-These values do not have to be fixed or hardcoded. They can be variables passed to the job. For more information, see [<i class="fa-regular fa-file-lines"></i> Sample CI configurations](/semgrep-ci/sample-ci-configs).
+<DefineConnectionVariables name="GitHub Actions" />
 
 <PrCommentsInSast name="GitHub" />
 

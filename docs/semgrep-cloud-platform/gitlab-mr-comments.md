@@ -16,6 +16,7 @@ import DisplayTaintedDataIntro from "/src/components/concept/_semgrep-code-displ
 import CommentTriggers from "/src/components/reference/_comment-triggers.mdx"
 import TroubleshootingPrLinks from "/src/components/reference/_troubleshooting-pr-links.mdx"
 import PrCommentsInSast from "/src/components/procedure/_pr-comments-in-sast.mdx"
+import DefineConnectionVariables from "/src/components/reference/_define-connection-variables.mdx"
 
 <ul id="tag__badge-list">
 {
@@ -96,6 +97,8 @@ Creating a PAT grants the API scope to Semgrep, which lets it post comments.
     2. Define the environment variable `GITLAB_TOKEN` and assign the PAT to it.
 
 For more configuration options, see [GitLab CI Sample](/semgrep-ci/sample-ci-configs/#gitlab-ci).
+
+<DefineConnectionVariables name="GitLab CI/CD" />
 
 <PrCommentsInSast name="GitLab" />
 
