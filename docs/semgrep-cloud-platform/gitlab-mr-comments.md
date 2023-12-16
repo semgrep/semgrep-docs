@@ -31,18 +31,18 @@ Object.entries(frontMatter).filter(
 Semgrep can create **merge request (MR) comments** in your GitLab repository. These comments inform your developers of **findings**, such as security issues, in their PRs. Semgrep can also provide remediation tips or code fixes that your developers can click to **commit** into their code directly.
 
 :::info Prerequisites
-- Merge request (MR) comments can only be set up through Semgrep Cloud Platform (SCP). [<i class="fas fa-external-link fa-xs"></i> Create an account](/semgrep-code/getting-started/#signing-in-to-semgrep-cloud-platform) to set up PR comments.
+- Merge request (MR) comments can only be set up through Semgrep Cloud Platform (SCP). [<i class="fas fa-external-link fa-xs"></i> Create an account](/semgrep-code/getting-started/#signing-in-to-semgrep-cloud-platform) to set up MR comments.
 - You must connect your GitLab organization (org) to Semgrep. 
     - For GitLab Cloud users, this is done automatically after signing in.
     - For GitLab self-managed users, go to [<i class="fas fa-external-link fa-xs"></i> Settings](https://semgrep.dev/orgs/-/settings) and click **Add GitLab Self-Managed**.
 - You must add or onboard a Semgrep project (repository) to SCP and it must complete at least one full scan on your default branch successfully.
 :::
 
-## Conditions for PR comment creation
+## Conditions for MR comment creation
 
 MR comments appear for the following types of scans under these conditions:
 
-<CommentTriggers />
+<CommentTriggers comment_type="PR"/>
 
 Automated comments on GitLab merge requests are displayed as follows:
 
@@ -98,9 +98,9 @@ Creating a PAT grants the API scope to Semgrep, which lets it post comments.
 
 For more configuration options, see [GitLab CI Sample](/semgrep-ci/sample-ci-configs/#gitlab-ci).
 
-<DefineConnectionVariables name="GitLab CI/CD" />
+<DefineConnectionVariables name="GitLab CI/CD" comment_type="MR"/>
 
-<PrCommentsInSast name="GitLab" />
+<PrCommentsInSast name="GitLab" comment_type="MR" />
 
 ## Enabling autofix in GitLab repositories
 

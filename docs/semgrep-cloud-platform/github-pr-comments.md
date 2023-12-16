@@ -71,9 +71,9 @@ Ensure that Semgrep's GitHub app (`semgrep-app`) has sufficient permissions to p
 
 For GitHub Actions users, no further steps need to be undertaken. Continue setting up Semgrep Code PR comments by [setting rules to Comment or Block mode](#set-rules-to-comment-or-block-mode).
 
-<DefineConnectionVariables name="GitHub Actions" />
+<DefineConnectionVariables name="GitHub Actions" comment_type="PR"/>
 
-<PrCommentsInSast name="GitHub" />
+<PrCommentsInSast name="GitHub" comment_type="PR" />
 
 If you are using **GitHub Actions** to run Semgrep, no extra changes are needed to receive PR comments.
 
