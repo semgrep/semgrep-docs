@@ -6,6 +6,8 @@ tags:
   - Semgrep Code
 ---
 
+# How to fix pattern parse errors when running rules
+
 When using a targeted language's reserved words in rules, you may see the following error:
 
 ```console
