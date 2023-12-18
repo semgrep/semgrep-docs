@@ -10,14 +10,15 @@ tags:
 hide_title: true
 ---
 
-import MoreHelp from "/src/components/MoreHelp"
+import MoreHelp from "/src/components/MoreHelp";
 
 <ul id="tag__badge-list">
-{
-Object.entries(frontMatter).filter(
-    frontmatter => frontmatter[0] === 'tags')[0].pop().map(
-    (value) => <li class='tag__badge-item'>{value}</li> )
-}
+  {Object.entries(frontMatter)
+    .filter((frontmatter) => frontmatter[0] === "tags")[0]
+    .pop()
+    .map((value) => (
+      <li class="tag__badge-item">{value}</li>
+    ))}
 </ul>
 
 # Pricing and billing
@@ -25,33 +26,55 @@ Object.entries(frontMatter).filter(
 Semgrep's various functionalities are available through several offerings:
 
 <dl>
-<dt>Semgrep OSS</dt>
-<dd>The OSS (open source software) offering includes Semgrep OSS Engine, a fast static analysis command line tool for finding bugs and and enforcing code standards. It is licensed under LGPL 2.1. </dd>
-<dt>Semgrep Team tier</dt>
-<dd>Team tier includes:
-    <ul><li>Semgrep Code and Semgrep Supply Chain (SSC), which enable users to scan both first-party and third-party open source dependencies.</li>
-    <li>Semgrep Cloud Platform, a web app enabling users to manage users, organizations, repositories, and scans.</li>
-    <li>Cross-function (intrafile) and cross-file (interfile) analysis through <a href="/semgrep-code/semgrep-pro-engine-intro/">Semgrep Pro Engine</a>.</li></ul></dd>
-<dt>Semgrep Enterprise tier</dt>
-<dd>The Enterprise tier offers custom features and the highest levels of support in addition to all of the features in the Team tier.</dd>
+  <dt>Semgrep OSS</dt>
+  <dd>
+    The OSS (open source software) offering includes Semgrep OSS Engine, a fast
+    code analysis command line tool for finding bugs and enforcing code
+    standards. It is licensed under LGPL 2.1.{" "}
+  </dd>
+  <dt>Semgrep Team tiers (available as separate products)</dt>
+  <ul>
+    <li>
+      Semgrep Code Team tier enables scanning and securing first-party code
+      (SAST), including cross-function (intrafile) and cross-file (interfile)
+      analysis through{" "}
+      <a href="/semgrep-code/semgrep-pro-engine-intro/">Semgrep Pro Engine</a>.
+    </li>
+    <li>
+      Semgrep Supply Chain Team tier enables scanning and securing the use of
+      open source dependencies (SCA).
+    </li>
+    <li>Semgrep Secrets Team tier enables users to detect and fix secrets.</li>
+  </ul>
+    <dd>
+      All of the above products include Semgrep Cloud Platform, a web app that
+      enables users to manage users, organizations, repositories, security
+      policies, and scans.
+    </dd>
+  <dt>Semgrep Enterprise tier</dt>
+  <dd>
+    The Enterprise tier offers custom features and the highest levels of support
+    in addition to all of the features in the Team tier.
+  </dd>
 </dl>
 
 All Semgrep offerings can scan the following repository providers or SCMs (source code managers):
 
-* GitHub
-* GitLab
-* Bitbucket
-* Azure Repos
+- GitHub
+- GitLab
+- Bitbucket
+- Azure Repos
 
 :::caution Usage limits
-* Semgrep Team tier is free for **10 monthly contributors**.
-* A contributor is someone who has made at least one commit to a Semgrep-scanned private repository within the last month.
-* See the [Usage limits FAQ](/usage-limits) for more information.
+
+- Semgrep Team tier is free for **10 monthly contributors**.
+- A contributor is someone who has made at least one commit to a Semgrep-scanned private repository within the last month.
+- See the [Usage limits FAQ](/usage-limits) for more information.
 :::
 
 ## Semgrep OSS Engine and Team tier offerings
 
-The following tables provide an overview of Semgrep features and comparison between Semgrep OSS and Semgrep Team tier. 
+The following tables provide an overview of Semgrep features and comparison between Semgrep OSS and Semgrep Team tier.
 
 ### 🔎 Core scanning features
 
@@ -59,128 +82,126 @@ The following tables describe Semgrep's essential scanning and findings manageme
 
 #### SAST (Static Application Security Testing)
 
-| Feature | Semgrep OSS | Semgrep Code Team tier |
-| -------  | ------ | ----------- |
-| Intrafile (single-file) analysis  | ✔️   | ✔️  |
-| Cross-file (across multiple files or interfile) analysis  |  ❌  | ✔️   |
-| [Single-file taint](/writing-rules/data-flow/data-flow-overview/) (dataflow) analysis  | ✔️  |  ✔️   |
-| [Cross-file taint](/semgrep-code/semgrep-pro-engine-intro/) (dataflow) analysis  | ❌ |  ✔️   |
+| Feature                                                                               | Semgrep OSS | Semgrep Code Team tier |
+| ------------------------------------------------------------------------------------- | ----------- | ---------------------- |
+| Intrafile (single-file) analysis                                                      | ✔️          | ✔️                     |
+| Cross-file (across multiple files or interfile) analysis                              | ❌          | ✔️                     |
+| [Single-file taint](/writing-rules/data-flow/data-flow-overview/) (dataflow) analysis | ✔️          | ✔️                     |
+| [Cross-file taint](/semgrep-code/semgrep-pro-engine-intro/) (dataflow) analysis       | ❌          | ✔️                     |
 
 #### SCA (Software composition analysis)
 
-| Feature | Semgrep OSS | Semgrep Supply Chain Team tier |
-| -------  | ------ | ----------- |
-| Reachability analysis for direct dependencies | ❌ | ✔️  |
-| [License compliance](/semgrep-supply-chain/license-compliance/) | ❌ | ✔️  |
-| [Dependency search](/semgrep-supply-chain/dependency-search) | ❌ | ✔️  |
-| SBOM export | ❌ | ✔️  |
+| Feature                                                         | Semgrep OSS | Semgrep Supply Chain Team tier |
+| --------------------------------------------------------------- | ----------- | ------------------------------ |
+| Reachability analysis for direct dependencies                   | ❌          | ✔️                             |
+| [License compliance](/semgrep-supply-chain/license-compliance/) | ❌          | ✔️                             |
+| [Dependency search](/semgrep-supply-chain/dependency-search)    | ❌          | ✔️                             |
+| SBOM export                                                     | ❌          | ✔️                             |
 
 ### 💬 Scan management and monitoring
 
 The following table displays various notification channels and reporting features.
 
-| Feature  | Semgrep OSS | Semgrep Team tier |
-| -------  | ----------  | ----------------- |
-| [Centralized management of scan results (triage, remediation, fine-tuning noisy rules)](/semgrep-code/policies) | ❌ | ✔️  |
-| [Notifications and reports (Slack, email, webhooks, and API)](/semgrep-cloud-platform/notifications/) | ❌ | ✔️  |
-| Send scan results to GitLab SAST and GitHub Advanced Security | ❌ | ✔️  |
-| [Findings dashboard](/semgrep-cloud-platform/dashboard/) | ❌ | ✔️  |
-| Findings retention | ❌ | 5 years |
+| Feature                                                                                                         | Semgrep OSS | Semgrep Team tier |
+| --------------------------------------------------------------------------------------------------------------- | ----------- | ----------------- |
+| [Centralized management of scan results (triage, remediation, fine-tuning noisy rules)](/semgrep-code/policies) | ❌          | ✔️                |
+| [Notifications and reports (Slack, email, webhooks, and API)](/semgrep-cloud-platform/notifications/)           | ❌          | ✔️                |
+| Send scan results to GitLab SAST and GitHub Advanced Security                                                   | ❌          | ✔️                |
+| [Findings dashboard](/semgrep-cloud-platform/dashboard/)                                                        | ❌          | ✔️                |
+| Findings retention                                                                                              | ❌          | 5 years           |
 
 ### 🧰 Scan customization features
 
 The following table displays customization features and tools that enhance Semgrep's core scanning capabilities. These features can increase true-positive rate and provide deeper insights into remediation.
 
-| Feature  | Semgrep OSS | Semgrep Team tier |
-| -------  | ----------  | ----------------- |
-| Write your own rules | ✔️  | ✔️  |
-| Private rules* | n/a | ✔️  |
-| [Community-contributed rule registry](https://semgrep.dev/r) | ✔️  | ✔️  |
-| Proprietary rule registry |❌ | ✔️  |
-| [Policy-based workflows†](/semgrep-code/policies/) |❌ | ✔️  |
-| Rule-writing environment | ✔️  [Playground](https://semgrep.dev/playground) | ✔️ Playground and Editor for logged-in users |
-*Private rules refer to rules that are guaranteed a private access scope in the cloud. This scope of access does not apply to Semgrep OSS, as it is purely CLI-based.<br />
-† Policy-based workflows provide security teams a means to block merges, leave PR/MR comments, or silently monitor for potential issues based on the presence of a finding. 
+| Feature                                                      | Semgrep OSS                                     | Semgrep Team tier                            |
+| ------------------------------------------------------------ | ----------------------------------------------- | -------------------------------------------- |
+| Write your own rules                                         | ✔️                                              | ✔️                                           |
+| Private rules\*                                              | n/a                                             | ✔️                                           |
+| [Community-contributed rule registry](https://semgrep.dev/r) | ✔️                                              | ✔️                                           |
+| Proprietary rule registry                                    | ❌                                              | ✔️                                           |
+| [Policy-based workflows†](/semgrep-code/policies/)           | ❌                                              | ✔️                                           |
+| Rule-writing environment                                     | ✔️ [Playground](https://semgrep.dev/playground) | ✔️ Playground and Editor for logged-in users |
+
+\*Private rules refer to rules that are guaranteed a private access scope in the cloud. This scope of access does not apply to Semgrep OSS, as it is purely CLI-based.<br />
+† Policy-based workflows provide security teams a means to block merges, leave PR/MR comments, or silently monitor for potential issues based on the presence of a finding.
 
 ### 🤖 Developer experience
 
 The following table lists tools to enable developers to resolve their own code.
 
-| Feature  | Semgrep OSS | Semgrep Team tier |
-| -------  | ----------  | ----------------- |
-| VS Code extension | ✔️  | ✔️  |
-| Autofix  | ✔️  | ✔️  |
-| Autofix in PR/MR comments |❌ | ✔️  |
-| Autofix AI |❌ |✔️  |
-| `pre-commit`‡ | ✔️  | ✔️  |
+| Feature                   | Semgrep OSS | Semgrep Team tier |
+| ------------------------- | ----------- | ----------------- |
+| VS Code extension         | ✔️          | ✔️                |
+| Autofix                   | ✔️          | ✔️                |
+| Autofix in PR/MR comments | ❌          | ✔️                |
+| Autofix AI                | ❌          | ✔️                |
+| `pre-commit`‡             | ✔️          | ✔️                |
+
 ‡`pre-commit` requires some manual set-up.
 
 ### 🏢 User and organization management
 
-| Feature  | Semgrep OSS | Semgrep Team tier |
-| -------  | ----------  | ----------------- |
-| [Role-based access control (RBAC)](/semgrep-cloud-platform/user-management/#controlling-access-through-roles) | ❌ | ✔️  |
-| [Personal and organizational accounts](/semgrep-cloud-platform/user-management/) |  ❌ | ✔️  |
-| [SSO, OpenID, or OAuth2 authentication](/semgrep-cloud-platform/sso/) |  ❌ | ✔️  |
+| Feature                                                                                                       | Semgrep OSS | Semgrep Team tier |
+| ------------------------------------------------------------------------------------------------------------- | ----------- | ----------------- |
+| [Role-based access control (RBAC)](/semgrep-cloud-platform/user-management/#controlling-access-through-roles) | ❌          | ✔️                |
+| [Personal and organizational accounts](/semgrep-cloud-platform/user-management/)                              | ❌          | ✔️                |
+| [SSO, OpenID, or OAuth2 authentication](/semgrep-cloud-platform/sso/)                                         | ❌          | ✔️                |
 
 ## Differences between Semgrep Code and Semgrep Supply Chain
 
 The following table displays differences between Semgrep Code and Semgrep Supply Chain.
 
 <table>
-<thead><tr>
-   <th>Feature</th>
-   <th>Semgrep Code</th>
-   <th>Semgrep Supply Chain</th>
-</tr></thead>
-<tbody><tr>
-   <td>Type of tool</td>
-   <td>Static application security testing (SAST)</td>
-   <td>Software composition analysis (SCA)</td>
-  </tr>
-  <tr>
-   <td>Scan target
-   </td>
-   <td>First-party code (your codebase or repository)
-   </td>
-   <td>Open source dependencies 
-   </td>
-  </tr>
-  <tr>
-   <td>Triage workflow
-   </td>
-   <td>Findings can be categorized as:
-<ul>
-<li>Ignored (to triage false positives)</li>
-<li>Closed (resolved) by refactoring code</li>
-<li>Removed</li>
-</ul>
-   </td>
-   <td>Findings can be categorized as:
-<ul>
-<li>New</li>
-<li>In progress</li>
-<li>Fixed</li>
-<li>Ignored</li>
-</ul>
-   </td>
-  </tr>
-  <tr>
-   <td>Remediation workflow
-   </td>
-   <td>Code refactoring
-   </td>
-   <td>Upgrading or removing the dependency, code refactoring
-   </td>
-  </tr>
-  <tr>
-   <td>Notification channels
-   </td>
-   <td>Slack, Email, Webhooks
-   </td>
-   <td>Slack
-   </td>
-  </tr></tbody>
+  <thead>
+    <tr>
+      <th>Feature</th>
+      <th>Semgrep Code</th>
+      <th>Semgrep Supply Chain</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Type of tool</td>
+      <td>Static application security testing (SAST)</td>
+      <td>Software composition analysis (SCA)</td>
+    </tr>
+    <tr>
+      <td>Scan target</td>
+      <td>First-party code (your codebase or repository)</td>
+      <td>Open source dependencies</td>
+    </tr>
+    <tr>
+      <td>Triage workflow</td>
+      <td>
+        Findings can be categorized as:
+        <ul>
+          <li>Ignored (to triage false positives)</li>
+          <li>Closed (resolved) by refactoring code</li>
+          <li>Removed</li>
+        </ul>
+      </td>
+      <td>
+        Findings can be categorized as:
+        <ul>
+          <li>New</li>
+          <li>In progress</li>
+          <li>Fixed</li>
+          <li>Ignored</li>
+        </ul>
+      </td>
+    </tr>
+    <tr>
+      <td>Remediation workflow</td>
+      <td>Code refactoring</td>
+      <td>Upgrading or removing the dependency, code refactoring</td>
+    </tr>
+    <tr>
+      <td>Notification channels</td>
+      <td>Slack, Email, Webhooks</td>
+      <td>Slack</td>
+    </tr>
+  </tbody>
 </table>
 
 ## Determining your plan needs
@@ -209,9 +230,9 @@ On January 21st, you purchased annual licenses for 50 developers of Semgrep Supp
 
 Contract adjustment:
 
-* Since the organization’s use exceeded the amount of purchased licenses on February 28th, the future date of March 21st is selected to align with the remaining months in the contract. There are 10 months remaining in the contract.
-* The additional amount charged, the add-on cost, is $8,000 ($40 per developer per month x 10 months x 20 users).
-* Resulting add-on cost: **$8,000**
+- Since the organization’s use exceeded the amount of purchased licenses on February 28th, the future date of March 21st is selected to align with the remaining months in the contract. There are 10 months remaining in the contract.
+- The additional amount charged, the add-on cost, is $8,000 ($40 per developer per month x 10 months x 20 users).
+- Resulting add-on cost: **$8,000**
 
 ## Upgrading your plan
 
@@ -220,7 +241,6 @@ To upgrade to the Semgrep Code **Team tier** through a **credit card**:
 1. In the Settings page, select the Payment tab.
 2. Select the number of developers to purchase licenses for.
 3. Fill in your payment details.
-
 
 ![Screenshot of payment menu](/img/billing-and-pricing-payment.png)<br />
 
@@ -242,20 +262,21 @@ Pay through the following methods:
   <dt>Pay using your credit card.</dt>
   <dd>The payment will be processed through Stripe.</dd>
   <dt>Pay through a purchase order or invoice.</dt>
-<dd>Send an email to <a href='mailto:billing@semgrep.com'>billing@semgrep.com</a> to get in touch with our sales team.</dd>
+  <dd>
+    Send an email to{" "}
+    <a href="mailto:billing@semgrep.com">billing@semgrep.com</a> to get in touch
+    with our sales team.
+  </dd>
 </dl>
-
 
 ## See also
 
-* [Supported languages](/supported-languages/)
-* [List of vulnerabilities found and fixed with Semgrep](/trophy-case/)
-* [Frequently asked questions](/faq/)
-
+- [Supported languages](/supported-languages/)
+- [List of vulnerabilities found and fixed with Semgrep](/trophy-case/)
+- [Frequently asked questions](/faq/)
 
 ## Additional resources
 
-* [Slack on scaling static analysis with Semgrep](https://semgrep.dev/blog/2021/slack-presents-semgrep-at-def-con-appsec-village/) 
-
+- [Slack on scaling static analysis with Semgrep](https://semgrep.dev/blog/2021/slack-presents-semgrep-at-def-con-appsec-village/)
 
 <MoreHelp />
