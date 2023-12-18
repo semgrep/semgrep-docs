@@ -24,7 +24,7 @@ Object.entries(frontMatter).filter(
 When running a CI job, the Jenkins UI Git plugin creates a detached `HEAD` ref by default. This causes Semgrep Supply Chain (SSC) to send a repository's branch name as `HEAD` to Semgrep Cloud Platform (SCP), instead of using the actual branch name. As a result, the Supply Chain findings may not display by default. This document explains how to set up Jenkins to fix this behavior for users of the **Jenkins UI Git plugin**.
 
 :::info Prerequisites
-To receive Semgrep Supply Chain findings, you must [add or onboard a project](/semgrep-code/getting-started/#option-b-adding-a-repository-from-github-gitlab-or-bitbucket) (repository) to Semgrep Cloud Platform for scanning.
+To receive Semgrep Supply Chain findings, you must [add or onboard a project](/semgrep-code/getting-started/) (repository) to Semgrep Cloud Platform for scanning.
 :::
 
 ## Verifying that there are findings to send to SCP

@@ -85,7 +85,7 @@ GitHub, GitLab, and BitBucket SCMs are compatible with the above mentioned CI pr
 
 To set up the CI job and connect with Semgrep Cloud Platform:
 
-1. Sign in to [Semgrep Cloud Platform](https://semgrep.dev/login). See [Signing in to Semgrep Cloud Platform](/semgrep-code/getting-started/#signing-in-to-semgrep-cloud-platform) for details on requested repository permissions and access.
+1. Sign in to [Semgrep Cloud Platform](https://semgrep.dev/login). See [Signing in to Semgrep Cloud Platform](/semgrep-code/getting-started/) for details on requested repository permissions and access.
 2. Click **[Projects](https://semgrep.dev/orgs/-/projects)** > **Scan New Project** > **Run Scan in CI**.
 3. Select your CI provider from the menu.
 4. Optional: Some providers can ask you to select your organization if applicable to your SCM tool.

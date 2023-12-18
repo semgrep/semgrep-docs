@@ -22,7 +22,7 @@ Semgrep Supply Chain supports the following:
 ## Generating and downloading an SBOM for a single project
 
 :::info Prerequisites
-- **SBOM generation** can be performed only through Semgrep Cloud Platform (SCP). [Create an account](/semgrep-code/getting-started/#signing-in-to-semgrep-cloud-platform) to use this feature.
+- **SBOM generation** can be performed only through Semgrep Cloud Platform (SCP). [Create an account](/semgrep-code/getting-started/) to use this feature.
 - You need at least 1 successful Supply Chain scan on the **trunk branch** of each repository you want to generate an SBOM for. To add a repository to Semgrep for scanning, see [<i class="fa-regular fa-file-lines"></i> Running scans](/semgrep-cloud-platform/getting-started/#running-scans).
 :::
 

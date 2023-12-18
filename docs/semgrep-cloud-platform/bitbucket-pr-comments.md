@@ -29,8 +29,8 @@ Semgrep can create **pull request (PR) comments** in your Bitbucket repository. 
 
 :::info Prerequisites
 * You must have a Bitbucket Cloud Free, Standard, or Premium plan. Bitbucket Data Center is not supported. 
-* Bitbucket PR comments can only be enabled through Semgrep Cloud Platform (SCP). [Create an account](/semgrep-code/getting-started/#signing-in-to-semgrep-cloud-platform) to set up Slack notifications.
-* To receive alerts and notifications, you must [add or onboard a project](/semgrep-code/getting-started/#option-b-adding-a-repository-from-github-gitlab-or-bitbucket) (repository) to Semgrep Cloud Platform for scanning.
+* Bitbucket PR comments can only be enabled through Semgrep Cloud Platform (SCP). [Create an account](/semgrep-code/getting-started/) to set up Slack notifications.
+* To receive alerts and notifications, you must [add or onboard a project](/semgrep-code/getting-started/) (repository) to Semgrep Cloud Platform for scanning.
 :::
 
 
