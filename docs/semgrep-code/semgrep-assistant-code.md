@@ -202,4 +202,15 @@ A low confidence level is recommended as even incorrect suggestions may be usefu
 ![ Screenshot of Semgrep Assistant generating a potential fix](/img/semgrep-assistant-autofix.png)
 *Figure*. Semgrep Assistant generating a potential fix.
 
+### Providing feedback to Semgrep Assistant
+
+If Semgrep Assistant suggests that a finding is a false positive, you will be prompted to leave feedback. 
+
+* In Slack notifications, **Agree** and **Disagree** buttons appear under the Assistant recommendation message, as shown in "Semgrep Assistant in a Slack notification".
+* In the Semgrep Cloud Platform UI, the Assistant recommendation appears under **Activity** for a finding, along with the buttons **Agree and ignore** or **Disagree**.
+
+You can also leave feedback on any Assistant comment in GitHub pull requests with `/semgrep assistant agree|disagree`.
+
+There is no separate feedback mechanism for Assistant-written autofixes.
+
 <MoreHelp />
