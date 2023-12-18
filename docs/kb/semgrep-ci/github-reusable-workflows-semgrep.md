@@ -2,12 +2,10 @@
 tags:
   - Github
   - Reusable workflows
-description: Setting up GitHub reusable workflows for Semgrep scans.
+description: Learn how to set up reusable GitHub workflows for Semgrep scans.
 ---
 
-# GitHub reusable workflows and Semgrep
-
-## Motivation
+# Set up reusable GitHub workflows for Semgrep scans
 
 An organization may have hundreds or thousands of repositories. Reusable workflows simplify the `.github/workflows/semgrep.yml` file in each of the repositories by allowing you to define the workflow once and then reuse it in other workflows. This [prevents duplication](https://docs.github.com/en/actions/using-workflows/reusing-workflows#overview) and provides a single centralized Semgrep configuration.
 
