@@ -28,7 +28,7 @@ Object.entries(frontMatter).filter(
 
 # Set up GitLab merge request comments
 
-Semgrep can create **merge request (MR) comments** in your GitLab repository. These comments inform your developers of **findings**, such as security issues, in their PRs. Semgrep can also provide remediation tips or code fixes that your developers can click to **commit** into their code directly.
+Semgrep can create **merge request (MR) comments** in your GitLab repository. These comments inform your developers of **findings**, such as security issues, in their MRs. Semgrep can also provide remediation tips or code fixes that your developers can click to **commit** into their code directly.
 
 :::info Prerequisites
 - Merge request (MR) comments can only be set up through Semgrep Cloud Platform (SCP). [<i class="fas fa-external-link fa-xs"></i> Create an account](/semgrep-code/getting-started/#signing-in-to-semgrep-cloud-platform) to set up MR comments.
