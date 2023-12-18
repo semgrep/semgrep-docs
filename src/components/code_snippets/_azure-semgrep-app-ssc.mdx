@@ -1,20 +1,25 @@
 ```yaml
-# trigger:
-#  - master
-
-pool:
-  vmImage: ubuntu-latest
 variables:
-- group: Semgrep Cloud Platform token group
+- group: Semgrep_Variables
 
-steps: 
-
+steps:
+- checkout: self
+  clean: true
+  fetchDepth: 20
+  persistCredentials: true
 - script: |
     python -m pip install --upgrade pip
     pip install semgrep
-    semgrep ci --supply-chain
-  env: 
-    SEMGREP_PR_ID: $(System.PullRequest.PullRequestNumber)
+    if [ $(Build.SourceBranchName) = "master" ]; then
+        echo "Semgrep full scan"
+        semgrep ci --supply-chain
+    elif [ $(System.PullRequest.PullRequestId) -ge 0 ]; then
+        echo "Semgrep diff scan"
+        export SEMGREP_PR_ID=$(System.PullRequest.PullRequestId)
+        export SEMGREP_BASELINE_REF='origin/master'
+        git fetch origin master:origin/master
+        semgrep ci --supply-chain
+    fi
 ```
 
 ### Setting environment variables in Azure Pipelines

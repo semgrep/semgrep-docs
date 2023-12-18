@@ -32,7 +32,7 @@ The code is kept here for easy maintenance.
 </p>
 <h3 align="center">Code scanning at ludicrous speed.<br />Find bugs and reachable dependency vulnerabilities in code.<br />Enforce your code standards on every commit.</h3>
 
-Semgrep is a fast, open-source, static analysis engine for finding bugs, detecting dependency vulnerabilities, and enforcing code standards. [Get started →](getting-started/)
+Semgrep is a fast, open-source, static analysis engine for finding bugs, detecting dependency vulnerabilities, and enforcing code standards. [Get started →](/getting-started/quickstart)
 
 Semgrep analyzes code locally on your computer or in your build environment: **code is never uploaded**.
 
@@ -43,11 +43,13 @@ Its rules look like the code you already write; no abstract syntax trees, regex 
 
 The Semgrep ecosystem includes the following products:
 
-* [Semgrep OSS Engine](getting-started/) - The open-source engine at the heart of everything.
-* [Semgrep Cloud Platform (SCP)](semgrep-cloud-platform/getting-started) - Deploy, manage, and monitor SAST, SCA, and leaked secrets at scale using Semgrep Integrates with continuous integration (CI) providers such as GitHub, GitLab, CircleCI, and more.
-* [Semgrep Code](https://semgrep.dev/products/semgrep-code) - Scan your code with Semgrep's Pro rules and Semgrep Pro Engine to find OWASP Top 10 vulnerabilities and protect against critical security risks specific to your organization.
-* [Semgrep Supply Chain (SSC)](https://semgrep.dev/products/semgrep-supply-chain) - A high-signal dependency scanner that detects reachable vulnerabilities in open source third-party libraries and functions across the software development life cycle (SDLC).
-* [Semgrep Secrets](https://semgrep.dev/products/semgrep-secrets) - A secrets scanner that detects valid secrets in your codebase through semantic analysis, entropy analysis, and validation. 
+- [Semgrep OSS Engine](/getting-started/quickstart) - The open-source engine at the heart of everything.
+- [Semgrep Cloud Platform (SCP)](/semgrep-cloud-platform/getting-started) - Deploy, manage, and monitor SAST, SCA, and leaked secrets at scale using Semgrep Integrates with continuous integration (CI) providers such as GitHub, GitLab, CircleCI, and more.
+- [Semgrep Code](https://semgrep.dev/products/semgrep-code) - Scan your code with Semgrep's Pro rules and Semgrep Pro Engine to find OWASP Top 10 vulnerabilities and protect against critical security risks specific to your organization.
+    - [Semgrep Pro rules](/semgrep-code/pro-rules) - High-confidence rules written by Semgrep Security Research team for a variety of languages
+    - [Semgrep Pro Engine](/semgrep-code/semgrep-pro-engine-intro) - Advanced engine that performs interfile and interprocedural analysis
+- [Semgrep Supply Chain (SSC)](https://semgrep.dev/products/semgrep-supply-chain) - A high-signal dependency scanner that detects reachable vulnerabilities in open source third-party libraries and functions across the software development life cycle (SDLC).
+- [Semgrep Secrets](https://semgrep.dev/products/semgrep-secrets) - A secrets scanner that detects valid secrets in your codebase through semantic analysis, entropy analysis, and validation. 
 
 :::tip
 The following products are **free** for up to 10 contributors:
@@ -64,7 +66,7 @@ Support and be supported by the Semgrep community through:
 Semgrep is developed and commercially supported by [Semgrep, Inc](https://r2c.dev) a software security company.
 
 <p align="center">
-  <a href="/docs/getting-started">Get started →</a>
+  <a href="/docs/getting-started/quickstart">Get started →</a>
 </p>
 
 ## Language support
@@ -84,7 +86,7 @@ The following table lists environments in which you can run various Semgrep prod
 
 | Product              | Local CLI | Remote CI |
 | -------------------- | --------- | --------- |
-| Semgrep OSS Engine  |  ✅  [Run locally with Semgrep Engine](getting-started)  |   ✅  Can send findings to [Semgrep Cloud Platform](semgrep-ci/running-semgrep-ci-with-semgrep-cloud-platform) or run [stand-alone CI jobs](semgrep-ci/running-semgrep-ci-without-semgrep-cloud-platform) |
+| Semgrep OSS Engine  |  ✅  [Run locally with Semgrep Engine](/getting-started/quickstart)  |   ✅  Can send findings to [Semgrep Cloud Platform](semgrep-ci/running-semgrep-ci-with-semgrep-cloud-platform) or run [stand-alone CI jobs](semgrep-ci/running-semgrep-ci-without-semgrep-cloud-platform) |
 | Semgrep Code         |  ✅  Log in to access [Pro Engine](semgrep-code/semgrep-pro-engine-intro) and [Pro rules](semgrep-code/pro-rules) (Team and Enterprise tier) |   ✅  Best used with [Semgrep Cloud Platform](semgrep-cloud-platform/getting-started) |
 | Semgrep Supply Chain |  ✅  Log in to access [Supply Chain](semgrep-supply-chain/overview) rules (Team and Enterprise tier)  |   ✅  Best used with [Semgrep Cloud Platform](semgrep-cloud-platform/getting-started) |
 
