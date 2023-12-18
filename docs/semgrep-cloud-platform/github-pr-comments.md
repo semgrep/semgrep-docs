@@ -69,13 +69,13 @@ Ensure that Semgrep's GitHub app (`semgrep-app`) has sufficient permissions to p
 3. Check that you have granted the following permission: `Read and write access to actions, pull requests, secrets, security events, and workflows`.
 4. Under **Repository access**, check that you have included the repositories that you added to Semgrep Cloud Platform.
 
-For GitHub Actions users, no further steps need to be undertaken. Continue setting up Semgrep Code PR comments by [setting rules to Comment or Block mode](#set-rules-to-comment-or-block-mode).
+For GitHub Actions users, no further steps need to be taken. Continue setting up Semgrep Code PR comments by [setting rules to Comment or Block mode](#set-rules-to-comment-or-block-mode).
 
 <DefineConnectionVariables name="GitHub Actions" comment_type="PR"/>
 
 <PrCommentsInSast name="GitHub" comment_type="PR" />
 
-If you are using **GitHub Actions** to run Semgrep, no extra changes are needed to receive PR comments.
+If you are using **GitHub Actions** to run Semgrep, no additional changes are needed to receive PR comments.
 
 ### Enable autofix in GitHub repositories
 
@@ -96,7 +96,7 @@ To enable dataflow traces feature in your CI pipeline, fulfill the following pre
 
 :::info Prerequisites
 - Set up Semgrep to post GitHub PR comments, as described on this page.
-- To obtain meaningful results of dataflow traces in PR comments, use Semgrep Pro Engine while scanning your repositories to display cross-file (interfile) findings. To enable Semgrep Pro Engine, see [Semgrep Pro Engine overview](/semgrep-code/semgrep-pro-engine-intro/).
+- To obtain meaningful results for dataflow traces in PR comments, use Semgrep Pro Engine while scanning your repositories to display cross-file (interfile) findings. To enable Semgrep Pro Engine, see [Semgrep Pro Engine overview](/semgrep-code/semgrep-pro-engine-intro/).
 - Not all Semgrep rules or rulesets make use of taint tracking. Ensure that you have a ruleset that does, such as the **default ruleset**, added in your **[Policies](https://semgrep.dev/orgs/-/policies)**. To add this ruleset, navigate to [https://semgrep.dev/p/default](https://semgrep.dev/p/default), and then click **Add to Policies**.
 - You can add additional rules that use taint tracking from [Semgrep Registry](https://semgrep.dev/explore).
 :::
