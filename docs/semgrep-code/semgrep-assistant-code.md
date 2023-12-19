@@ -57,14 +57,14 @@ Semgrep gets API permissions to access code on your pre-selected GitHub or GitLa
 * Semgrep Inc. logs and stores the GPT prompts and responses for the sake of performance evaluation, which include source code snippets.
 * Semgrep Inc. sends relevant lines of code to OpenAI's API, where currently, the "relevant lines of code" means lines that are part of the Semgrep finding, plus 10 lines of context on each side. Semgrep Inc. is likely to expand this, potentially to the entire file, as we learn how to pass more useful context.
 * Semgrep Inc stores and retains these code snippets for up to 6 months. Semgrep Inc. will update you with at least a 30-day notice if we make any changes to the retention policy.
-* Semgrep Inc is a paying customer of OpenAI and has a Data Protection Agreement signed with them (provided upon request by [contacting support](/docs/support). The code snippets we upload will be persisted by OpenAI temporarily, following their data usage policies at [Open AI API data Usage Policies](https://openai.com/policies/api-data-usage-policies).
+* Semgrep Inc is a paying customer of OpenAI and has a Data Protection Agreement signed with them (provided upon request by [contacting support](/docs/support). The code snippets we upload are be persisted by OpenAI temporarily, following their data usage policies at [Open AI API data Usage Policies](https://openai.com/policies/api-data-usage-policies).
 * For more details, see the [Semgrep Assistant FAQ](https://get.semgrep.dev/assistant).
 
 ## Required GitHub or GitLab repository permissions
 
 Semgrep Assistant requires the same permissions that Semgrep needs to integrate with GitHub or GitLab, such as permissions that allow Semgrep to run CI jobs and post comments to PRs or MRs. See [<i class="fa-regular fa-file-lines"></i> Requested permissions for GitHub and GitLab](/semgrep-cloud-platform/getting-started/#requested-permissions-for-github-and-gitlab) for a list of permissions.
 
-Assistant extends normal Semgrep functionality by providing contextually aware AI-generated suggestions. In order to build that context, it requires extra permissions in GitHub and GitLab.
+Assistant extends normal Semgrep capabilities by providing contextually aware AI-generated suggestions. In order to build that context, it requires extra permissions in GitHub and GitLab.
 
 <Tabs
     defaultValue="github"
@@ -111,7 +111,7 @@ Semgrep Assistant requires the **API scope** to run in both GitLab SaaS and GitL
 * Semgrep Assistant can only be enabled through Semgrep Cloud Platform (SCP). [Create an account](https://semgrep.dev/login) to set up Semgrep Assistant.
 * You have added or onboarded at least one project (repository) to Semgrep Cloud Platform for scanning. See [Starting a SAST and SCA scan on a remote repository](/semgrep-cloud-platform/getting-started/#starting-a-sast-and-sca-scan-on-a-remote-repository).
 * You have connected your SCM to ensure that you can receive PR comments from Semgrep. 
-    * To connect your SCM, navigate to the the **[<i class="fa-solid fa-gear"></i> Settings page](https://semgrep.dev/orgs/-/settings/)**, click **Source code managers > Connect to GitHub**.
+    * To connect your SCM, navigate to the **[<i class="fa-solid fa-gear"></i> Settings page](https://semgrep.dev/orgs/-/settings/)**, click **Source code managers > Connect to GitHub**.
 * You have set rules to **Comment** or **Block** mode in your [<i class="fas fa-external-link fa-sm"></i> Policies page](https://semgrep.dev/orgs/-/policies).
 :::
 
@@ -204,12 +204,12 @@ A low confidence level is recommended as even incorrect suggestions may be usefu
 
 ### Providing feedback to Semgrep Assistant
 
-If Semgrep Assistant suggests that a finding is a false positive, you will be prompted to leave feedback. Your feedback helps Semgrep refine the Assistant feature and is very much appreciated.
+If Semgrep Assistant suggests that a finding is a false positive, you are prompted to leave feedback. Your feedback helps Semgrep refine the Assistant feature and is very much appreciated.
 
-* In Slack notifications, **Agree** and **Disagree** buttons appear under the Assistant recommendation message:
+* In Slack notifications, **Agree** and **Disagree** buttons appear under the Assistant recommendation message.
   ![Semgrep Assistant in a Slack notification](/img/semgrep-assistant-slack.png)
-* In Semgrep Cloud Platform, the Assistant recommendation appears under **Activity** for a finding, along with the **Agree and ignore** or **Disagree** buttons
-* In GitHub pull requests, you will be prompted to leave feedback using `/semgrep assistant agree|disagree`.
+* In Semgrep Cloud Platform, the Assistant recommendation appears under **Activity** for a finding, along with **Agree and ignore** or **Disagree** buttons.
+* In GitHub pull requests, you are prompted to leave feedback using `/semgrep assistant agree|disagree`.
 
 If Semgrep Assistant suggests that a finding is a true positive and supplies an autofix suggestion, there is no automated mechanism to leave feedback on this outcome. Feel free to contact the Semgrep team using one of the methods below to let us know your thoughts!
 
