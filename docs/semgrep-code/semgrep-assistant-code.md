@@ -204,9 +204,9 @@ A low confidence level is recommended as even incorrect suggestions may be usefu
 
 ### Providing feedback to Semgrep Assistant
 
-If Semgrep Assistant suggests that a finding is a false positive, you will be prompted to leave feedback. Your feedback helps Semgrep refine the assistant feature and is very much appreciated.
+If Semgrep Assistant suggests that a finding is a false positive, you will be prompted to leave feedback. Your feedback helps Semgrep refine the Assistant feature and is very much appreciated.
 
-* In Slack notifications, **Agree** and **Disagree** buttons appear under the Assistant recommendation message, as shown in "Semgrep Assistant in a Slack notification".
+* In Slack notifications, **Agree** and **Disagree** buttons appear under the Assistant recommendation message, as shown in [Semgrep Assistant in a Slack notification](/img/semgrep-assistant-slack.png).
 * In the Semgrep Cloud Platform UI, the Assistant recommendation appears under **Activity** for a finding, along with the buttons **Agree and ignore** or **Disagree**.
 * In GitHub pull requests, you will be prompted to leave feedback with `/semgrep assistant agree|disagree`.
 
