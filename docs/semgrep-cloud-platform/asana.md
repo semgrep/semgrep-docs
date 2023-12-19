@@ -33,7 +33,7 @@ The Semgrep Asana integration allows you to create Asana tickets based on your S
 
 :::info Prerequisites
 * Your Asana user must be able to approve an OAuth integration with admin level privileges.
-* Asana can only be enabled through Semgrep Cloud Platform (SCP). [Create an account](/semgrep-code/getting-started/#signing-in-to-semgrep-cloud-platform) to set up your Asana integration.
+* Asana can only be enabled through Semgrep Cloud Platform (SCP). [Create an account](/semgrep-code/getting-started/) to set up your Asana integration.
 * To create tickets, you must [add or onboard the project](/semgrep-code/getting-started/#option-b-adding-a-repository-from-github-gitlab-or-bitbucket) (repository) to Semgrep Cloud Platform for scanning.
 :::
 

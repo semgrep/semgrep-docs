@@ -12,6 +12,10 @@ tags:
 import MoreHelp from "/src/components/MoreHelp"
 import EnableAutofix from "/src/components/procedure/_enable-autofix.mdx"
 import DisplayTaintedDataIntro from "/src/components/concept/_semgrep-code-display-tainted-data.mdx"
+import CommentTriggers from "/src/components/reference/_comment-triggers.mdx"
+import TroubleshootingPrLinks from "/src/components/reference/_troubleshooting-pr-links.mdx"
+import PrCommentsInSast from "/src/components/procedure/_pr-comments-in-sast.mdx"
+import DefineConnectionVariables from "/src/components/reference/_define-connection-variables.mdx"
 
 <ul id="tag__badge-list">
 {
@@ -21,60 +25,85 @@ Object.entries(frontMatter).filter(
 }
 </ul>
 
-# Enabling GitHub pull request comments
+# Set up GitHub pull request comments
+
+<!--  The entire process of setting up the GH comment is more than just "enabling it", ie. turning it on. Users have to set up the rules. So I changed the verb. -->
+
+Semgrep can create **pull request (PR) comments** in your GitHub repository. These comments inform your developers of **findings**, such as security issues, in their PRs. Semgrep can also provide remediation tips or code fixes that your developers can click to **commit** into their code directly.
 
 :::info Prerequisites
-* Pull request (PR) comments can only be enabled through Semgrep Cloud Platform (SCP). [Create an account](/semgrep-code/getting-started/#signing-in-to-semgrep-cloud-platform) to set up PR comments.
-* To receive alerts and notifications, you must [add or onboard a project](/semgrep-code/getting-started/#option-b-adding-a-repository-from-github-gitlab-or-bitbucket) (repository) to Semgrep Cloud Platform for scanning.
+- Pull request (PR) comments can only be set up through Semgrep Cloud Platform (SCP). [<i class="fas fa-external-link fa-xs"></i> Create an account](/semgrep-code/getting-started/#signing-in-to-semgrep-cloud-platform) to set up PR comments.
+- You must connect your GitHub organization (org) to Semgrep.
+    - For **GitHub Cloud**: See [<i class="fa-regular fa-file-lines"></i> Adding an organization](/semgrep-cloud-platform/getting-started/#adding-an-organization).
+    - For **GitHub Enterprise Server**: [<i class="fa-regular fa-file-lines"></i> Integrate Semgrep with GitHub Enterprise](/semgrep-cloud-platform/scm/#integrating-semgrep-cloud-platform-with-github-enterprise-or-gitlab-self-managed) and if you have a VPN or firewall, [set up your allowlists](/semgrep-cloud-platform/scm/#receiving-pr-or-mr-comments-in-your-vpn-or-on-premise-scm).
+- You must add or onboard a Semgrep project (repository) to SCP and it must complete at least one full scan on your default branch successfully.
 :::
+## Conditions for PR comment creation
 
-Pull request comments are created when:
+PR comments appear for the following types of scans under these conditions:
 
-1. Semgrep finds a result in CI.
-2. The Semgrep GitHub App has permissions to post inline PR comments.
+<CommentTriggers />
 
 Automated comments on GitHub pull requests are displayed as follows:
 
 ![Screenshot of a GitHub PR comment](/img/semgrep-pull-request.png#bordered)
 **Figure** An inline GitHub pull request comment.
 
-[Semgrep Cloud Platform](https://semgrep.dev/manage) uses the permissions requested by [the Semgrep GitHub App](https://github.com/marketplace/semgrep-dev) to leave PR comments. You can verify that you have granted these permissions by visiting either `https://github.com/organizations/<your_org_name>/settings/installations` or `https://github.com/organizations/<your_org_name>/<your_repo_name>/settings/installations`.
+## Confirm account connection and access
 
-If you are using **GitHub Actions** to run Semgrep, no extra changes are needed to get PR comments.
+### Confirm your Semgrep account's connection to GitHub
 
-If you are using a **self-hosted GitHub plan**, such as **GitHub Enterprise Server**, see [Receiving PR or MR comments in your VPN or on-premise SCM](/semgrep-cloud-platform/scm/#receiving-pr-or-mr-comments-in-your-vpn-or-on-premise-scm) for steps to enable PR comments.
+Confirm that you have the correct connection and access:
 
-If you are using **another CI provider**, in addition to the environment variables you set after following [sample CI configurations](/semgrep-ci/sample-ci-configs/) you must ensure that the following environment variables are correctly defined:
+1. In your SCP account, click **Settings > Source code managers**.
+2. Check that an entry for your GitHub org exists and is correct.
 
-- `SEMGREP_PR_ID` is set to the PR number of the pull request on GitHub (for example, `2901`)
-- `SEMGREP_REPO_NAME` is set to the repository name (for example, `returntocorp/semgrep`)
-- `SEMGREP_REPO_URL` is set to the repository URL where your project is viewable online (for example, `https://github.com/returntocorp/semgrep`)
+### Confirm repository access
 
-:::info
-Only rules in the **Comment** and **Block** columns of your [Policies](https://semgrep.dev/orgs/-/policies) create PR comments.
-:::
+Ensure that Semgrep's GitHub app (`semgrep-app`) has sufficient permissions to post PR comments:
 
-## Enabling autofix in GitHub repositories
+1. Navigate to your `semgrep-app` settings:
+	1. For personal accounts, navigate to the following URL `https://github.com/settings/installations`.
+	2. For organization accounts, navigate to the following URL, substituting YOUR_ORG_NAME with the name of your account: `https://github.com/organizations/YOUR_ORG_NAME/settings/installations`.
+2. On the `semgrep-app` row, click **Configure**.
+3. Check that you have granted the following permission: `Read and write access to actions, pull requests, secrets, security events, and workflows`.
+4. Under **Repository access**, check that you have included the repositories that you added to Semgrep Cloud Platform.
+
+For GitHub Actions users, no further steps need to be undertaken. Continue setting up Semgrep Code PR comments by [setting rules to Comment or Block mode](#set-rules-to-comment-or-block-mode).
+
+<DefineConnectionVariables name="GitHub Actions" comment_type="PR"/>
+
+<PrCommentsInSast name="GitHub" comment_type="PR" />
+
+If you are using **GitHub Actions** to run Semgrep, no extra changes are needed to receive PR comments.
+
+### Enable autofix in GitHub repositories
 
 [Autofix](/writing-rules/autofix) is a Semgrep feature in which rules contain suggested fixes to resolve findings.
 
 <EnableAutofix />
 
-## Dataflow traces in PR comments
+### Dataflow traces in PR comments
 
 ![Screenshot of a GitHub PR comment with dataflow traces](/img/dataflow-traces-pr-comments.png#bordered)
 **Figure** An inline GitHub pull request comment with dataflow traces.
 
 <DisplayTaintedDataIntro />
 
-### Viewing the path of tainted data in PR comments
+#### View the path of tainted data in PR comments
 
 To enable dataflow traces feature in your CI pipeline, fulfill the following prerequisites:
 
 :::info Prerequisites
-- Enable GitHub pull request Semgrep comments, as described on this page.
+- Set up Semgrep to post GitHub PR comments, as described on this page.
 - To obtain meaningful results of dataflow traces in PR comments, use Semgrep Pro Engine while scanning your repositories to display cross-file (interfile) findings. To enable Semgrep Pro Engine, see [Semgrep Pro Engine overview](/semgrep-code/semgrep-pro-engine-intro/).
-- Not all Semgrep rules or rulesets make use of taint tracking. Ensure that you have a ruleset that does, such as the **default ruleset**, added in your **[Policies](https://semgrep.dev/orgs/-/policies)**. If this ruleset is not added, go to [https://semgrep.dev/p/default](https://semgrep.dev/p/default), and then click **Add to Policies**. You can add rules that use taint tracking from [Semgrep Registry](https://semgrep.dev/explore).
+- Not all Semgrep rules or rulesets make use of taint tracking. Ensure that you have a ruleset that does, such as the **default ruleset**, added in your **[Policies](https://semgrep.dev/orgs/-/policies)**. To add this ruleset, navigate to [https://semgrep.dev/p/default](https://semgrep.dev/p/default), and then click **Add to Policies**.
+- You can add additional rules that use taint tracking from [Semgrep Registry](https://semgrep.dev/explore).
 :::
+
+
+## Additional references 
+
+<TroubleshootingPrLinks />
 
 <MoreHelp />

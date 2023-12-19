@@ -36,7 +36,7 @@ Private rules are stored in the folder with the same name as your Semgrep Cloud 
 
 ### Creating private rules through the command line
 
-To create private rules through the [Semgrep CLI](/getting-started/), :
+To create private rules through the [Semgrep CLI](/getting-started/quickstart/), :
 
 1. Interactively login to Semgrep:
 
@@ -55,7 +55,7 @@ If the directory contains test cases for the rules, Semgrep uploads them as well
 You can also change the visibility of the rules. For instance, to publish the rules as unlisted (which does not require authentication but will not be displayed in the public registry):
 
 ```sh
-semgrep publish --visiblity=unlisted myrules/
+semgrep publish --visibility=unlisted myrules/
 ```
 
 For more details, run `semgrep publish --help`.

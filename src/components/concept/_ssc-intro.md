@@ -1,1 +1,5 @@
-Detect recently discovered [security vulnerabilities](https://nvd.nist.gov/vuln/full-listing) in your codebase's open-source dependencies using Semgrep Supply Chain. Leverage Semgrep's code-scanning capabilities to run high-signal rules that determine a vulnerability's [reachability](/semgrep-supply-chain/glossary/#reachability). Semgrep Supply Chain evaluates dependencies based on their version and use in your codebase.
+Semgrep Supply Chain is a software composition analysis (SCA) tool that detects security vulnerabilities in your codebase introduced by open source dependencies. It can also:
+
+* Generate a software bill of materials (SBOM) that provides a complete inventory of your open source components
+* Query for information about your dependencies
+* Support the enforcement of your business' open source package licensing requirements

@@ -16,7 +16,7 @@ module.exports = {
   // Note that paths are not slugs
   topLevelSidebar: [
     'Docs home',
-    { type: 'ref', id: 'getting-started', label: 'Scanning with Semgrep'},
+    { type: 'ref', id: 'getting-started/quickstart', label: 'Scanning with Semgrep'},
     { type: 'ref', id: 'writing-rules/overview', label: 'Rule-writing'},
     {
       type: 'link',
@@ -36,7 +36,7 @@ module.exports = {
         label: 'Getting started',
         collapsible: false,
         items: [
-            'quickstart',
+            'getting-started/quickstart',
             'supported-languages'
             //'getting-started',
         ]
@@ -585,6 +585,7 @@ module.exports = {
                     title: '2023 Release notes'
                 },
               items: [
+                'release-notes/november-2023',
                 'release-notes/october-2023',
                 'release-notes/september-2023',
                 'release-notes/august-2023',

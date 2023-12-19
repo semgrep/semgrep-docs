@@ -32,7 +32,7 @@ You can scan your git environment with pre-selected Semgrep Registry rules, then
 
 :::info Prerequisites
 * An existing Semgrep Cloud Platform account
-* An up-to-date [Semgrep CLI installation](/getting-started/#installing-and-running-semgrep-locally).
+* An up-to-date [Semgrep CLI installation](/getting-started/quickstart/).
 :::
 
 Log in to Semgrep Cloud Platform and run a scan:
