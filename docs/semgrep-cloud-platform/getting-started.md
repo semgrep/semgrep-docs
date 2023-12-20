@@ -169,11 +169,13 @@ Refer to the following image for an example of both remote and local Projects in
 * **For personal accounts:** A local repository scan does not overwrite the findings records of its remote counterpart. They are two separate Projects. Personal accounts only have one team member or user: you.
 * **For organization accounts**: A local repository scan does **not** overwrite findings records of its remote counterpart. For locally scanned Projects or repositories, if two members both send local repository findings, one set of findings may overwrite other unintentionally. This is because org accounts can have more than one team member, but all local scans are sent to the same Project slug.
 
-:::info
-Many improvements to the Semgrep Cloud Platform experience only work with up-to-date Semgrep CLI versions. For this reason, Semgrep Cloud Platform only supports the 10 most recent minor versions of Semgrep CLI. For example, if the latest release was 0.114.0, all versions greater than 0.104.0 are supported, while earlier versions, such as 0.103.0, can be deprecated or can result in failures.
+## Semgrep versions
 
-For Docker users: use the [**latest** tag](https://hub.docker.com/r/returntocorp/semgrep/tags?page=1&name=latest) to ensure you are up-to-date.
-:::
+Many improvements to the Semgrep Cloud Platform experience only work with up-to-date Semgrep CLI versions. As such, Semgrep Cloud Platform only supports the 10 most recent minor versions of Semgrep CLI. For example, if the latest release was 0.114.0, all versions greater than 0.104.0 are supported, while earlier versions, such as 0.103.0, can be deprecated or can result in failures.
+
+See [Updating Semgrep](/upgrading/) for information on how to upgrade.
+
+Docker users: use [the **latest** tag](https://hub.docker.com/r/returntocorp/semgrep/tags?page=1&name=latest) to ensure you are up-to-date.
 
 ## Appendices
 
