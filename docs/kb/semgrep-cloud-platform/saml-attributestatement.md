@@ -1,30 +1,30 @@
 ---
-description: Solve an AttributeStatement issue encountered when setting up Semgrep with SSO.
+description: Fix a SAML configuration error when an AttributeStatement is missing.
 tags:
   - Semgrep Cloud Platform 
   - SSO
   - Troubleshooting
 ---
 
+import MoreHelp from "/src/components/MoreHelp"
+
 # SAML configuration error: There is no AttributeStatement on the Response
 
-When setting up your SAML SSO (single sign-on) in Semgrep Cloud Platform, you may encounter the following configuration error: `There is no AttributeStatement on the Response`. This error can be seen after trying to configure SSO in Semgrep.
+When configuring SAML single sign-on (SSO) in Semgrep Cloud Platform, you may encounter the following error: `There is no AttributeStatement on the Response`
 
-![SAML AttributeStatement error](/img/attribute-statement.png)
+![SAML AttributeStatement error](/img/attribute-statement.png#md-width)
 
-This issue is caused by an **attribute** within your service provider (SP) that does not have a value ascribed to it. When configuring SSO, the payload you send back to your SP, such as Okta or OneLogin, contains this attribute and hence, the SP raises this error.
+This error occurs when [an attribute within the SAML response does not contain a value](https://support.okta.com/help/s/article/SAML-attribute-statement-with-no-value-configured-not-properly-closed-in-assertion?language=en_US), resulting in a SAML assertion that does not correctly close the attribute statement. The attribute statement causes an SSO error when the service provider (SP), such as Okta or OneLogin, receives the SAML response.
 
-## If you don't know the SAML attribute that is causing the error
+## Find the SAML attribute that is causing the error
 
-If you don't know what attribute the payload is failing on, you can investigate the payload to determine the attribute. Refer to [How to view a SAML response in your browser](https://support.okta.com/help/s/article/How-to-View-a-SAML-Response-in-Your-Browser-for-Troubleshooting?language=en_US) for debugging steps.
+1. If you do not know the attribute that is causing the error, you can [identify it by investigating the payload](https://support.okta.com/help/s/article/How-to-View-a-SAML-Response-in-Your-Browser-for-Troubleshooting?language=en_US). 
 
-After finding out what attribute is causing the error, proceed to the following section.
+2. Once you have identified the attribute in question, there are two ways for you to fix the issue. The best option depends on what information your SP expects to receive:
 
-## If you know the SAML attribute that is causing the error
+   - If your SP anticipates a value for the specific SAML attribute statement, you must add the value within your SAML settings.
+   - If your SP does *not* expect the attribute statement to be included in your SAML settings, you can remove the attribute statement.
 
-There are two possible solutions for this problem, depending on the expectations of your service provider (SP):
+  Regardless of which option you choose, you can update SAML attribute statements with your SP; check with your SP for instructions on how to do so.
 
-- If your service provider anticipates a value for the specific SAML Attribute statement, you must include a value within the SAML settings. [Where do we include this value? From the service provider?]
-- Conversely, if the service provider does not expect that specific Attribute statement to be transmitted, remove the Attribute statement from the SAML settings. [Now I assume this is from Semgrep's side?]
-
-For additional tips, you can refer to the following documentation: [SAML attribute statement with no value]( https://support.okta.com/help/s/article/SAML-attribute-statement-with-no-value-configured-not-properly-closed-in-assertion?language=en_US).
+<MoreHelp />
