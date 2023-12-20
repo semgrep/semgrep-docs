@@ -28,7 +28,7 @@ To split up your monorepo, first decide *how* you want to logically split up the
 
 Then splitting its scans into four separate scans, one for each module, would provide a logical separation for findings.
 
-To actually achieve this, you would use the `--include` flag ([see CLI reference](/docs/cli-reference/)) to only scan files in each module's code path:
+After choosing a logical split, use the `--include` flag ([see CLI reference](/docs/cli-reference/)) with the relevant path to only scan files in that module's code path:
 
     semgrep ci --include=/src/moduleA/*
 
