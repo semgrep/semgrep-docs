@@ -1,10 +1,12 @@
 ---
 append_help_link: true
-title: Learn how to scan a large monorepo.
+title: Scan a large monorepo
 description: Learn how to scan a large monorepo.
 tags:
   - Semgrep Code
 ---
+
+import MoreHelp from "/src/components/MoreHelp"
 
 # How to scan a large monorepo
 
@@ -97,13 +99,13 @@ In the `ci.log` file, search for the section `Scan Status`, which includes the f
 
 Once you have information about how many files in the monorepo Semgrep scans, you can decide how to proceed.
 
-## Breaking the monorepo down into smaller pieces and scanning each piece individually
+## Break the monorepo down into smaller pieces and scan each piece individually
 
 If your repo is fairly modular, you might consider scanning the components separately. Interfile analysis will still apply in the smaller scope, assuming the modules are disparate. 
   
 Furthermore, you can consider performing modular scans daily and larger monolithic scans every few weeks to keep tabs on and cap any false negative interfile/inter-component outliers that can get introduced with code change. This helps deflect costs as you are scanning the majority on smaller runners.
 
-## Serializing rulesets
+## Serialize rulesets
 
 Beginning with Semgrep 1.42.0, Secrets rulesets are included in the default scan configuration. That said, you do not need to scan using Semgrep Code, Supply Chain, and Secret rulesets concurrently -- you may find that you can get around resource limits by serializing scans and running each ruleset by itself. For example, you may opt against running
   
@@ -131,12 +133,14 @@ When determining the amount of memory required during a scan:
 
 * Start with a larger runner or cluster with a large memory allocation.
 * Perform the scan with a `-j 1` configuration, or no parallelization or subprocesses.
-* Enable a swap monitor during the scan to ensure an accurate assessment of the memory used.
+* Enable a swap monitor during the scan to ensure an accurate assessment of the memory used. For example, Linux users can use `free -m` command to get information about current memory usage at regular intervals. 
 
-Once you have determined the memory allocation required, add about 10% more to account for churn, increases in the amount of code scanned, and so on.
+Once you have determined the memory allocation required, add about 10% more to account for churn, increases in the amount of code scanned, and so on. However, note that the this number will vary based on your usage.
 
 ## Parallelization
 
-Once you have allocated sufficient memory to your scan, you can introduce parallelization to speed up the subprocesses that can be parallelized. You must experiment to find the optimal configuration for your system. For example, you may test your scan with a `-j 2` configuration. Then, if that goes well, move to a `-j 4` configuration to continue improving the scan time.
+Once you have allocated sufficient memory to your scan, you can introduce parallelization to speed up the subprocesses that can be parallelized. You must experiment to find the optimal configuration for your system. For example, begin your testing with a `-j 2` configuration. Then, if that goes well, move to a `-j 4` configuration to continue improving the scan time.
 
-Parallelization does introduce some overhead, so you should not expect precisely 50 percent less RAM used when moving from one job to two jobs. You may even find that you need more memory for a `-j 2` job than a `-j 1` job, though your scan times will be faster.
+Parallelization introduces some overhead, so you should not expect precisely 50 percent less RAM used when moving from one job to two jobs. You may even find that you need more total memory for a `-j 2` job than a `-j 1` job, though your scan times will be faster.
+
+<MoreHelp />

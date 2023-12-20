@@ -1,11 +1,14 @@
 ---
+description: Learn how to fix invalid token errors in GitLab pipelines.
 tags:
   - GitLab
   - Semgrep Code
-description: Learn how to fix invalid token errors in GitLab pipelines.
+append_help_link: true
 ---
 
-# How to fix invalid token errors in GitLab pipelines when the token is valid
+import MoreHelp from "/src/components/MoreHelp"
+
+# Fix invalid token errors in GitLab pipelines when the token is valid
 
 If you've checked the value of your `SEMGREP_APP_TOKEN` and have confirmed that it is valid, you may see invalid token errors if both of the following are true:
 
@@ -27,3 +30,5 @@ semgrep:
 ```
 
 Without the explicit reference failing to resolve, GitLab's runners identify and use the correct value.
+
+<MoreHelp />

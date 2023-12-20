@@ -4,9 +4,12 @@ tags:
   - Rules
   - Semgrep Registry
   - Semgrep Code
+append_help_link: true
 ---
 
-# How to fix pattern parse errors when running rules
+import MoreHelp from "/src/components/MoreHelp"
+
+# Fix pattern parse errors when running rules
 
 When using a targeted language's reserved words in rules, you may see the following error:
 
@@ -65,3 +68,5 @@ with
     metavariable: $FUNC
     regex: ^(post|put|delete|patch)$
 ```
+
+<MoreHelp />

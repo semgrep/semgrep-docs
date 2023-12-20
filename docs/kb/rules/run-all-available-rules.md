@@ -4,7 +4,10 @@ tags:
   - Rules
   - Semgrep Registry
   - Semgrep Code
+append_help_link: true
 ---
+
+import MoreHelp from "/src/components/MoreHelp"
 
 # Run all available rules on a repository
 
@@ -42,3 +45,5 @@ semgrep --config ~/.semgrep/semgrep_rules.json .
 ```
 
 The first command creates a cache of rules in `semgrep_rules.json` within the `.semgrep` directory in your home folder that omits the invalid rule. The second command runs a Semgrep scan using the local rule cache.
+
+<MoreHelp />

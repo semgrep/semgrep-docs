@@ -3,7 +3,10 @@ description: Learn how to fix issues with `pattern-not` when excluding cases in 
 tags:
   - Semgrep OSS Engine
   - Semgrep Rules
+append_help_link: true
 ---
+
+import MoreHelp from "/src/components/MoreHelp"
 
 # Rules with `pattern-not` do not exclude select cases
 
@@ -78,3 +81,5 @@ The rule successfully matches the example code.
 See this video for more information about the difference between `pattern-not` and  `pattern-not-inside`.
 
 <iframe class="yt_embed" width="100%" height="432px" src="https://www.youtube.com/embed/g_Yrp9_ZK2c" frameborder="0" allowfullscreen></iframe>
+
+<MoreHelp />

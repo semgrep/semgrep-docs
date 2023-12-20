@@ -4,7 +4,10 @@ tags:
   - Reusable workflows
   - Semgrep CI
 description: Learn how to set up reusable GitHub workflows for Semgrep scans.
+append_help_link: true
 ---
+
+import MoreHelp from "/src/components/MoreHelp"
 
 # Set up reusable GitHub workflows for Semgrep scans
 
@@ -30,3 +33,5 @@ Reusable workflows can be triggered by events such as opening a pull request or 
 Once you've configured the workflows for your repositories, the reusable workflow is called whenever a developer opens a pull request or commits a change.
 
 ![image info](/img/kb/reusable-workflows-image-4.png)
+
+<MoreHelp />

@@ -4,7 +4,10 @@ tags:
   - Scanning
   - Semgrep Code
   - Secrets
+append_help_link: true
 ---
+
+import MoreHelp from "/src/components/MoreHelp"
 
 # Troubleshooting `ValueError: Invalid header value` errors
 
@@ -72,3 +75,5 @@ To fix on GitLab:
 1. Go to your repository's **CI/CD** settings
 2. Update the `SEMGREP_APP_TOKEN` variable directly to ensure it does not have an extraneous newline (`\n`) and is not malformed
    ![Updating Gitlab Variable](/img/kb/gitlab-update-value.png)
+
+<MoreHelp />

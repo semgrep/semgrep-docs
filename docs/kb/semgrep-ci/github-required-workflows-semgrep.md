@@ -3,7 +3,10 @@ description: Learn how to set up required GitHub workflows for Semgrep scans.
 tags:
   - Github
   - Required workflows
+append_help_link: true
 ---
+
+import MoreHelp from "/src/components/MoreHelp"
 
 # Set up required GitHub workflows for Semgrep scans
  
@@ -28,3 +31,5 @@ When you create a pull request for a repository, GitHub will run the Semgrep sca
 * Because pull request events trigger required workflows, Semgrep runs a diff scan, not a full scan, on the current branch. To run a full scan to get a complete picture of the project, you can either:
     * Create workflows that are [manually triggered with the `workflow_dispatch` event](https://github.blog/changelog/2020-07-06-github-actions-manual-triggers-with-workflow_dispatch/)
     * Create custom scripts that clone the repository, then run Semgrep
+
+<MoreHelp />
