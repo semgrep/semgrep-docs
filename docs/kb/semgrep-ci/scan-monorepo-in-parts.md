@@ -38,6 +38,10 @@ Now that you've successfully configured your monorepo to be scanned in parts, yo
 
 Typically, findings from a single repository are associated to a single project in SCP. However you can change this by manually setting the `SEMGREP_REPO_NAME` environment variable ([see CI environment variables reference](/docs/semgrep-ci/ci-environment-variables/#semgrep_repo_name)).
 
+:::info
+Changing the `SEMGREP_REPO_NAME` value in a scan so that it does not match the repo's actual `<org>/<repo name>` structure on the SCM may cause issues with code hyperlinks in Semgrep Cloud Platform. This is a necessary tradeoff when splitting up a repo into multiple projects.
+:::
+
 For example, if your monorepo is located at `https://github.com/sina/monorepo` the `SEMGREP_REPO_NAME` would typically be set to `sina/monorepo`. So to split it up into the four modules we referenced above, for each CI run of a module we need to manually set it like so before running Semgrep:
 
     export SEMGREP_REPO_NAME="sina/monorepo/moduleA"
@@ -47,7 +51,3 @@ And then running Semgrep as demonstrated above:
     semgrep ci --include=/src/moduleA/*
 
 Now, the findings from this CI run will show up in their own project in SCP named `sina/monorepo/moduleA`. This is not only necessary when splitting up a monorepo but also helpful in terms of organizing findings into separate projects so that devs and security engineers can have a clearer understanding of which findings pertain to the module that they are actually responsible for.
-
-:::info
-Due to how we determine hyperlinks for findings in SCP, changing the `SEMGREP_REPO_NAME` to anything other than the actual `<org>/<repo name>` format may adversely affect and break hyperlinks. This is a tradeoff of splitting up one single repo into multiple projects.
-:::
