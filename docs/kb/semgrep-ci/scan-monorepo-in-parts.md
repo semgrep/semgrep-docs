@@ -17,7 +17,7 @@ As such, it can be helpful to scan a monorepo in parts for multiple reasons:
 
 ## How to configure Semgrep in CI to split up a monorepo
 
-Typically when scanning any repo with Semgrep in CI, the base command is `semgrep ci`. Of course, you need to have an auth token set and perhaps other environment variables configured depending on what SCM and CI provider you are using, but this article will assume you are already familiar with those settings.
+When scanning a repo with Semgrep in CI, the base command is `semgrep ci`. To understand this default setup for your source code manager (SCM) and CI provider, see [Getting started with Semgrep in continuous integration (CI)](/docs/semgrep-ci/overview/).
 
 To split up your monorepo, you need to first decide *how* you want to logically split up the code. For example, if your monorepo has four main modules and their paths are:
 
