@@ -2,9 +2,8 @@
 description: How to scan a monorepo in parts for better CI performance and clearer findings organization
 tags:
   - monorepo
-  - optimization
   - performance
-  - ci
+  - Semgrep in CI
 ---
 
 # Scanning a monorepo in parts
