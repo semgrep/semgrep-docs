@@ -94,7 +94,7 @@ This process creates an **organization account**, which your team members in Git
 4. Click **Create**.
 5. Your organization is created and you are prompted to start a scan. Instead of starting a scan, click **<i class="fa-solid fa-gear"></i> Settings** in the navigation menu.
 6. Click **Source code managers**.
-7. Select the source code manager that contains the org to connect to Semgrep Cloud Platform.
+7. Select the source code manager that contains the org to connect to Semgrep Cloud Platform. For GitHub Enterprise Cloud, select **Connect to GitHub**.
 ![Source code manager tab](/img/source-code-manager.png#md-width)
 8. Follow the steps to connect your source code manager. You can review permissions needed by Semgrep in [Requested permissions for GitHub and GitLab](#requested-permissions-for-github-and-gitlab).
 9. Optional: Refer to the instructions in [SSO configuration](/semgrep-cloud-platform/sso/) to set up SSO for your organization.
