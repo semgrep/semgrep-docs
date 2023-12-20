@@ -33,7 +33,7 @@ module.exports = {
     'Docs home',
     {
         type: 'category',
-        label: 'Getting started',
+        label: 'Get started',
         collapsible: false,
         items: [
             'getting-started/quickstart',
@@ -43,7 +43,7 @@ module.exports = {
     },
     {
       type: 'category',
-      label: 'Running and deploying scans',
+      label: 'Set up and deploy scans',
       collapsible: false,
       items: [
         {
@@ -180,7 +180,7 @@ module.exports = {
     },
     {
       type: 'category',
-      label: 'Scanning and triage',
+      label: 'Scan and triage',
       collapsible: false,
       items: [
         {
@@ -231,7 +231,7 @@ module.exports = {
     },
     {
       type: 'category',
-      label: 'Scanning with Semgrep OSS',
+      label: 'Scan with Semgrep OSS',
       collapsible: false,
       items: [
         {
