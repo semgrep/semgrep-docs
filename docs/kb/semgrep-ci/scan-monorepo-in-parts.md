@@ -8,18 +8,20 @@ tags:
 
 # Scanning a monorepo in parts
 
-Monorepos very often contain a large amount of code. The code is usually divided into to different components or modules, even though it's all stored in the same repository.
+With default CI configurations, monorepos will be scanned as a single project in Semgrep. However, monorepos very often contain a large amount of code and the code is usually divided into to different components or modules.
 
 As such, it can be helpful to scan a monorepo in parts for multiple reasons:
 
-1. Improving scan performance in CI and reducing CI run times
-2. Logically splitting up the monorepo into multiple components to help with managing findings
+* To improve scan performance in CI and reduce CI run times
+* To logically split the monorepo to simplify managing findings
 
 ## How to configure Semgrep in CI to split up a monorepo
 
 When scanning a repo with Semgrep in CI, the base command is `semgrep ci`. To understand this default setup for your source code manager (SCM) and CI provider, see [Getting started with Semgrep in continuous integration (CI)](/docs/semgrep-ci/overview/).
 
-To split up your monorepo, first decide *how* you want to logically split up the code. For example, if the monorepo has four main modules and their paths are:
+To split up your monorepo, you will need to make 2 changes. First, using the `--include` flag to determine *how* you want to logically split up the code. Second, updating the `SEMGREP_REPO_NAME` environment variable to assign findings to separate projects in Semgrep Cloud Platform (SCP). 
+
+For example, if the monorepo has four main modules and their paths are:
 
     /src/moduleA
     /src/moduleB
@@ -32,22 +34,28 @@ After choosing a logical split, use the `--include` flag ([see CLI reference](/d
 
     semgrep ci --include=/src/moduleA/*
 
-Now, Semgrep is only scanning files under that path and the entire CI run will take less time, since less code is being scanned. Of course, you will now have to run multiple CI runs for the remaining three modules to get full monorepo coverage, but you have more flexibility on how and when you perform those runs.
+Now, Semgrep is only scanning files under that path and the entire CI run will take less time, since less code is being scanned.
 
-Now that you've successfully configured your monorepo to be scanned in parts, you also have to configure the findings from each part or module to show up as their own project in Semgrep Cloud Platform (SCP).
+For the other modules, the commands look similar. For module B:
 
-Typically, findings from a single repository are associated to a single project in SCP. However you can change this by manually setting the `SEMGREP_REPO_NAME` environment variable ([see CI environment variables reference](/docs/semgrep-ci/ci-environment-variables/#semgrep_repo_name)).
+    semgrep ci --include=/src/moduleB/*
+
+You will then have the flexibility to trigger each one on appropriate events or frequencies.
+
+Now that you've successfully configured your monorepo to be scanned in parts, you also have to configure the findings from each part or module to show up as their own project in SCP.
+
+To ensure findings from the module are assigned to their own project in SCP, you will need to explicitly set the `SEMGREP_REPO_NAME` environment variable ([see CI environment variables reference](/docs/semgrep-ci/ci-environment-variables/#semgrep_repo_name)).
 
 :::info
 Changing the `SEMGREP_REPO_NAME` value in a scan so that it does not match the repo's actual `<org>/<repo name>` structure on the SCM may cause issues with code hyperlinks in Semgrep Cloud Platform. This is a necessary tradeoff when splitting up a repo into multiple projects.
 :::
 
-For example, if your monorepo is located at `https://github.com/sina/monorepo` the `SEMGREP_REPO_NAME` would typically be set to `sina/monorepo`. So to split it up into the four modules we referenced above, for each CI run of a module we need to manually set it like so before running Semgrep:
+For example, if your monorepo is located at `https://github.com/semgrep/monorepo` the `SEMGREP_REPO_NAME` would typically be set to `semgrep/monorepo`. So to split it up into the four modules we referenced above, for each CI run of a module we need to manually set it like so before running Semgrep:
 
-    export SEMGREP_REPO_NAME="sina/monorepo/moduleA"
+    export SEMGREP_REPO_NAME="semgrep/monorepo/moduleA"
 
 And then running Semgrep as demonstrated above:
 
     semgrep ci --include=/src/moduleA/*
 
-Now, the findings from this CI run will show up in their own project in SCP named `sina/monorepo/moduleA`. This is not only necessary when splitting up a monorepo but also helpful in terms of organizing findings into separate projects so that devs and security engineers can have a clearer understanding of which findings pertain to the module that they are actually responsible for.
+Now, the findings from this CI run will show up in their own project in SCP named `semgrep/monorepo/moduleA`. This is not only necessary when splitting up a monorepo but also helpful in terms of organizing findings into separate projects so that devs and security engineers can have a clearer understanding of which findings pertain to the module that they are actually responsible for.
