@@ -58,4 +58,4 @@ And then running Semgrep as demonstrated above:
 
     semgrep ci --include=/src/moduleA/*
 
-Now, the findings from this CI run will show up in their own project in SCP named `semgrep/monorepo/moduleA`. This is not only necessary when splitting up a monorepo but also helpful in terms of organizing findings into separate projects so that devs and security engineers can have a clearer understanding of which findings pertain to the module that they are actually responsible for.
+Now, the findings from this CI run will show up in their own project in SCP named `semgrep/monorepo/moduleA`. This is not only necessary to ensure findings have a consistent status, but also helpful so that developers and security engineers can have a clearer understanding of which findings pertain to the module that they are responsible for.
