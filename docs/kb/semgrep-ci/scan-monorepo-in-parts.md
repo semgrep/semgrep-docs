@@ -34,7 +34,7 @@ After choosing a logical split, use the `--include` flag ([see CLI reference](/d
 
     semgrep ci --include=/src/moduleA/*
 
-Now, Semgrep is only scanning files under that path and the entire CI run will take less time, since less code is being scanned.
+Now, Semgrep is only scanning files under that path and the CI run will take less time, since less code is being scanned.
 
 For the other modules, the commands look similar. For module B:
 
