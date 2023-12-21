@@ -47,7 +47,7 @@ Now that you've successfully configured your monorepo to be scanned in parts, yo
 To ensure findings from the module are assigned to their own project in SCP, you will need to explicitly set the `SEMGREP_REPO_NAME` environment variable ([see CI environment variables reference](/docs/semgrep-ci/ci-environment-variables/#semgrep_repo_name)).
 
 :::info
-Changing the `SEMGREP_REPO_NAME` value in a scan so that it does not match the repo's actual `<org>/<repo name>` structure on the SCM may cause issues with code hyperlinks in Semgrep Cloud Platform. This is a necessary tradeoff when splitting up a repo into multiple projects.
+Changing the `SEMGREP_REPO_NAME` value in a scan so that it does not match the repo's `<org>/<repo name>` structure on the SCM may cause issues with code hyperlinks in Semgrep Cloud Platform. This is a necessary tradeoff when splitting up a repo into multiple projects.
 :::
 
 For example, if your monorepo is located at `https://github.com/semgrep/monorepo` the `SEMGREP_REPO_NAME` would typically be set to `semgrep/monorepo`. So to split it up into the four modules we referenced above, for each CI run of a module we need to manually set it like so before running Semgrep:
