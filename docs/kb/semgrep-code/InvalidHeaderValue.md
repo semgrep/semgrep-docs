@@ -1,16 +1,20 @@
 ---
-description: Troubleshoot "invalid header value" errors in GitHub and Gitlab
+description: Learn how to troubleshoot "invalid header value" errors in GitHub and Gitlab
 tags:
   - Scanning
   - Semgrep Code
   - Secrets
+append_help_link: true
 ---
 
-# Troubleshooting `ValueError: Invalid header value`
+import MoreHelp from "/src/components/MoreHelp"
+
+# Troubleshooting `ValueError: Invalid header value` errors
 
 When scanning with Semgrep, you may run into the following error:
 
-```Invalid header value b'Bearer *******************************************************'
+```console
+Invalid header value b'Bearer *******************************************************'
 Traceback (most recent call last):
   File "/usr/local/lib/python3.11/site-packages/semgrep/commands/wrapper.py", line 35, in wrapper
     func(*args, **kwargs)
@@ -53,23 +57,23 @@ Traceback (most recent call last):
 ValueError: Invalid header value b'Bearer *******************************************************' 
 ```
 
-When you see this error, it indicates that there is an extra newline (`\n`) within the secret value (or another similar issue) from copying and pasting your `SEMGREP_APP_TOKEN`.
+This error indicates that there is an extra newline (`\n`) within the secret value or the secret value is misconfigured from copying and pasting your `SEMGREP_APP_TOKEN`.
 
-## Example fix on GitHub
+## Fix a secret on GitHub
 
 To fix on GitHub:
 
-1. Go to either your organization's or repository's **Settings** > **Secrets and variables** 
-2. Update the value of the `SEMGREP_APP_TOKEN` to ensure it does not have an extraneous newline (`\n`).
+1. At either the organization or repository level, go to **Settings** > **Secrets and variables**
+   ![Secrets and variables section in Settings](/img/kb/github-secrets.png)
+2. Update the value of the `SEMGREP_APP_TOKEN` to ensure it does not have an extraneous newline (`\n`) and is not malformed
+   ![Updating GitHub Secret](/img/kb/github-update-value.png)
 
-![Secrets and variables section in Settings](/img/kb/github-secrets.png)
-![Updating GitHub Secret](/img/kb/github-update-value.png)
-
-## Example fix on GitLab
+## Fix a secret on GitLab
 
 To fix on GitLab:
 
-1. Go to your repository's **CI/CD** Settings.
-2. Update the `SEMGREP_APP_TOKEN` variable directly to ensure it does not have an extraneous newline (`\n`).
+1. Go to your repository's **CI/CD** settings
+2. Update the `SEMGREP_APP_TOKEN` variable directly to ensure it does not have an extraneous newline (`\n`) and is not malformed
+   ![Updating Gitlab Variable](/img/kb/gitlab-update-value.png)
 
-![Updating Gitlab Variable](/img/kb/gitlab-update-value.png)
+<MoreHelp />
