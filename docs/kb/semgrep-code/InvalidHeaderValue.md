@@ -74,6 +74,6 @@ To fix on GitLab:
 
 1. Go to your repository's **CI/CD** settings
 2. Update the `SEMGREP_APP_TOKEN` value to ensure it does not have an extraneous newline (`\n`) and is not malformed
-   ![Updating Gitlab Variable](/img/kb/gitlab-update-value.png)
+   ![Updating GitLab Variable](/img/kb/gitlab-update-value.png)
 
 <MoreHelp />

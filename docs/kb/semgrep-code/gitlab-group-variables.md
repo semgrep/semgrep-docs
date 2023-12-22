@@ -17,7 +17,7 @@ If you've checked the value of your `SEMGREP_APP_TOKEN` and have confirmed that 
 
 There is a [known issue](https://gitlab.com/gitlab-org/gitlab/-/issues/199741) where group variables are accessible to projects but are not resolved by GitLab's runners.
 
-Semgrep's [default configuration](https://semgrep.dev/docs/semgrep-ci/sample-ci-configs/#gitlab-cicd) recommends setting the variable as a project or repo variable. Project variables are properly resolved by GitLab's runners.
+Semgrep's [default configuration](https://semgrep.dev/docs/semgrep-ci/sample-ci-configs/#gitlab-cicd) recommends setting the variable as a project or repository variable. Project variables are properly resolved by GitLab's runners.
 
 If you prefer to use a group variable, remove the explicit reference to `SEMGREP_APP_TOKEN` from your `.gitlab-ci.yml` file. For example, the default configuration would look like this after the change:
 
