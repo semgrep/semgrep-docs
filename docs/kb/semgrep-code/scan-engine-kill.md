@@ -11,7 +11,7 @@ tags:
 
 Scans can fail to complete on large monorepos. This article describes possible solutions, such as:
 
-- Scanning the components of the monorepos separately.
+- [Scanning the components of a monorepo separately](https://semgrep.dev/docs/kb/semgrep-ci/scan-monorepo-in-parts/).
 - Serializing the type of scan performed.
 - Increasing the RAM of the job runner for CI jobs.
 
@@ -48,12 +48,12 @@ Given the following log or similar:
 
 By default, Semgrep places resource limitations on the size of file scanned and memory allocated.
 
-However, Semgrep does not place limitations on the number of files scanned and scanning a large monorepo can involve thousands of lines of code. Thus, the first course of action is to determine exactly how many files are getting scanned:
+However, Semgrep does not place limitations on the number of files scanned and scanning a large monorepo can involve thousands of files. Thus, the first course of action is to determine exactly how many files are getting scanned:
 
-1. View your CI logs. This step depends on your CI provider.
-2. Search for the section **Scan Status**.
+1. View the Semgrep scan output in your CI logs. This step depends on your CI provider.
+2. In the CI logs, search for the section **Scan Status**.
 
-A monorepo's components can look like this:
+A sample Semgrep scan ouptut can look like this:
 
 ```console
 ┌─────────────┐
@@ -84,23 +84,17 @@ A monorepo's components can look like this:
   kotlin           47        1
 ```
 
-Now you have a good idea of the size of your monorepo. After establishing the size and breakdown of programming languages and files, you can decide what adjustments to take for a scan to succeed.
+Now you have a good idea of the size of your monorepo. After establishing the size and breakdown of your files by programming language, you can decide what adjustments to take for a scan to succeed.
 
 ## Scanning components separately 
 
-Based on the composition provided by the logs, you may be able to determine if your repository is modular. If so, you can try scanning the components separately.
+Based on the composition provided by the logs, you may be able to determine if your repository is modular. If so, you can try [scanning the components separately](https://semgrep.dev/docs/kb/semgrep-ci/scan-monorepo-in-parts/).
 
 [<i class="fa-regular fa-file-lines"></i> Interfile analysis](/docs/semgrep-code/semgrep-pro-engine-intro/#types-of-semgrep-pro-engine-analysis) still applies in the smaller scope assuming the modules are disparate. 
 
-### Scanning schedule
-
-You can perform modular scans on a daily basis and then perform one big monolithic scan every two weeks or so to keep close tabs and cap any false negative interfile or inter-component outliers that can get introduced with code change as a way of truing up your dependency graph for the monolithic build. This helps deflect costs as you are scanning the majority on smaller runners or Kubernetes clusters.  
-
-However, you still need to scan the whole monolithic build, whether you scan it biweekly or daily, and the following sections apply to tackling that monolith whether you adopt the modular paradigm of scanning or not. 
-
 ## Serializing types of scans
 
-With Semgrep 1.42.0 and later, Secret rulesets are now included in the default scan configuration.  Instead of scanning Code, Supply Chain and Secret rulesets concurrently, you can circumnavigate resource limits by running different types of scans in a serial fashion.  Rather than issuing one monolithic command, for example:
+Instead of running Semgrep products concurrently, you can circumnavigate exhausting resource limits by scanning Code, Supply Chain, and Secrets in a serial fashion.  Rather than issuing one monolithic command, for example:
 
 ```console
  semgrep ci
@@ -109,8 +103,8 @@ With Semgrep 1.42.0 and later, Secret rulesets are now included in the default s
 You can instead run:
  
  ```
-semgrep ci --code --pro
-semgrep ci --supply-chain --oss-only
+semgrep ci --code
+semgrep ci --supply-chain
 semgrep ci --secrets
  ```
 
@@ -122,10 +116,10 @@ Lastly, you can also tackle a large scan by increasing the RAM.
 
 ### Establish RAM baseline and avoid swap memory
 
-First, establish how much memory is required to scan. Determining the total amount of memory required is key, not just to avoid killed scans but to run scans that use swap memory. Avoid swap memory when scanning with any static analysis tool. Semgrep and other SAST tools are disk I/O intensive and swapping in and out with a swap file reduces performance severely.
+First, establish how much memory is required to scan. Determining the total amount of memory required is key, not just to avoid killed scans but also to avoid running scans that use swap memory. Semgrep and other SAST tools are disk I/O intensive and swapping in and out with a swap file reduces performance severely.
 
 - In the early phases of your scan deployment, start with a relatively larger runner or Kubernetes pod that has lots of memory.
-- Perform the scan with the `-j 1` option. This sets the number of jobs to 1 (no parallelization of subprocesses).
+- Perform the scan with the `-j 1` option ([see CLI reference](/docs/cli-reference/)). This sets the number of jobs to 1 (no parallelization of subprocesses).
 - Enable a swap monitor for the entire duration of the scan to ensure an accurate assessment of RAM used, for example, running a script that samples the memory frequently: 
 ```
 $ free -m 
@@ -135,10 +129,14 @@ to see both your RAM and your swap space usage in Linux.
 
 ## Parallelization
 
-Once you have determined the RAM sufficient to scan your large codebase, you can now introduce parallelization to speed up the subproccesses that can be parallelized. Larger Kubernetes pod and runners charge on a time basis, so it now becomes a study of feasiblity to achieve the optimal configuration.  
+Once you have determined the RAM sufficient to scan your large codebase, you can now introduce parallelization to speed up the scan.
 
-You can start with a large Kubernetes pod but still only run with one job with `-j 1` set so that you can determine what the total memory is required for this kind of job. Then, you can pare this memory usage somewhat, such as by specifying `-j 2`, all the whilst still monitoring for any swap usage.
+Per the previous section, you have determined the total memory required for a `-j 1` configuration. Now, you can begin testing different parallelization configurations, such as specifying `-j 2`, all the whilst still monitoring for any swap usage.
 
-If that succeeds, you can experiment with a `-j 4` configuration and continue decreasing the scan time in nearly half and so on.  Since Kubernetes pods are charging per-minute, it serves you well to determine the optimal configuration in bumping up the number of parallel jobs to speed up the scan.  Thus, there is a balancing act between achieving full scan coverage and keeping your overhead costs down as much as possible.  
+If that succeeds, you can experiment with a `-j 4` configuration and continue monitoring scan time for improvements.  Keeping resource costs in mind, it serves well to determine the optimal configuration in bumping up the number of parallel jobs to speed up the scan. Thus, there is a balancing act between achieving faster scans and keeping your overhead costs down as much as possible. 
 
-You can expect to see more total RAM than `-j 1` but not exactly half per thread. Codebases are highly variant; it's difficult to benchmark `N number of lines per MB`. But there is overhead in parallelization, so you would not get a true halving of RAM required going from 1 to 2 jobs. In fact, the total RAM required is likely to be greater for a `-j 2` job than a `-j 1` job, but you should see a decrease in total time.  This is why the empirical testing is important, to find where the right balance is in total time spent versus cost.
+Furthermore, there is overhead in parallelization: the total RAM required for a `-j 2` scan is greater than a `-j 1` scan for the same codebase, but you should see a decrease in total scan time.
+
+## Scanning schedule
+
+We recommend performing modular scans on a daily basis along with one comprehensive monolithic scan every two weeks or so to address code introduced outside the scope of the modular scans. This helps true-up your dependency graph for the monolithic build and optimizes scan feasibility.
