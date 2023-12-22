@@ -1,5 +1,5 @@
 ---
-description: Learn how to troubleshoot "invalid header value" errors in GitHub and Gitlab
+description: Troubleshoot "invalid header value" errors in GitHub and Gitlab
 tags:
   - Scanning
   - Semgrep Code
@@ -9,7 +9,7 @@ append_help_link: true
 
 import MoreHelp from "/src/components/MoreHelp"
 
-# Troubleshooting `ValueError: Invalid header value` errors
+# Troubleshoot `ValueError: Invalid header value` error
 
 When scanning with Semgrep, you may run into the following error:
 
@@ -57,7 +57,7 @@ Traceback (most recent call last):
 ValueError: Invalid header value b'Bearer *******************************************************' 
 ```
 
-This error indicates that there is an extra newline (`\n`) within the secret value or the secret value is misconfigured from copying and pasting your `SEMGREP_APP_TOKEN`.
+This error indicates that there is a problem in the pasted `SEMGREP_APP_TOKEN` value, most often an extra newline (`\n`).
 
 ## Fix a secret on GitHub
 
@@ -73,7 +73,7 @@ To fix on GitHub:
 To fix on GitLab:
 
 1. Go to your repository's **CI/CD** settings
-2. Update the `SEMGREP_APP_TOKEN` variable directly to ensure it does not have an extraneous newline (`\n`) and is not malformed
+2. Update the `SEMGREP_APP_TOKEN` value to ensure it does not have an extraneous newline (`\n`) and is not malformed
    ![Updating Gitlab Variable](/img/kb/gitlab-update-value.png)
 
 <MoreHelp />
