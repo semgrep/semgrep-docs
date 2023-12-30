@@ -476,10 +476,31 @@ svg[class*="collapseSidebarButtonIcon"], svg[class*="expandButtonIcon"] {
 
 /******************************************************************************
  *                                                                            *
- * Knowledge Base (KB)                                                         *
+ * Knowledge Base (KB)                                                        *
  *                                                                            *
  *****************************************************************************/
 
 article > a[class*="cardContainer_"][class~="card"] {
   min-height: 200px;
 }
+
+/******************************************************************************
+ *                                                                            *
+ * Icons                                                                      *
+ *                                                                            *
+ *****************************************************************************/
+
+.home-top-level {
+  display: flex;
+  align-items: center;
+}
+
+.home-top-level a:before {
+  content: "🏠";
+  display: inline;
+  padding-right: 8px;
+
+}
+/*
+.home-top-level:first-child:before{
+}*/
