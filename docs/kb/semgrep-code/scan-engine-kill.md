@@ -1,11 +1,11 @@
 ---
-append_help_link: true
 title: Troubleshoot monorepo scan failures
-hide_title: true
 description: Troubleshoot scan failures on monorepos by studying logs, compartmentalizing scans, increasing RAM, and running jobs in parallel.
 tags:
   - Semgrep Code
 ---
+
+import MoreHelp from "/src/components/MoreHelp"
 
 # Troubleshooting "You are seeing this because the engine was killed" on monorepos
 
@@ -142,3 +142,5 @@ Furthermore, there is overhead in parallelization: the total RAM required for a 
 ## Scanning schedule
 
 We recommend performing modular scans on a daily basis along with one comprehensive monolithic scan every two weeks or so to address code introduced outside the scope of the modular scans. This helps true-up your dependency graph for the monolithic build and optimizes scan feasibility.
+
+<MoreHelp/>
