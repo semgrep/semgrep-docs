@@ -118,7 +118,7 @@ Lastly, you can also tackle a large scan by increasing the RAM.
 
 ### Establish RAM baseline and avoid swap memory
 
-First, establish how much memory is required to scan. Determining the total amount of memory required is key, not just to avoid killed scans but also to avoid running scans that use swap memory. Semgrep and other SAST tools are disk I/O intensive and swapping in and out with a swap file reduces performance severely.
+First, establish how much memory is required to scan. Determining the total amount of memory required not only helps avoid killed scans but also helps prevent use of swap memory. Semgrep and other SAST tools make heavy use of disk I/O, and swapping in and out with a swap file significantly reduces performance.
 
 - In the early phases of your scan deployment, start with a relatively larger runner or Kubernetes pod that has lots of memory.
 - Perform the scan with the `-j 1` option ([see CLI reference](/docs/cli-reference/)). This sets the number of jobs to 1 (no parallelization of subprocesses).
