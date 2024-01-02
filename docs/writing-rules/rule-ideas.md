@@ -88,7 +88,7 @@ Automate institutional knowledge using Semgrep. This has several benefits, inclu
 
 In this example, a legacy API requires calling `verify_transaction(t)` before calling `make_transaction(t)`. The Semgrep rule below detects when these methods are not called correctly.
 
-<iframe src="https://semgrep.dev/embed/editor?snippet=Nr3z" title="Systematize project-specific coding patterns with Semgrep" width="100%" height="432px" frameBorder="0"></iframe>
+<iframe src="https://semgrep.dev/embed/editor?snippet=Dbxjq" title="Systematize project-specific coding patterns with Semgrep" width="100%" height="432px" frameBorder="0"></iframe>
 
 
 ### Extract information with metavariables
