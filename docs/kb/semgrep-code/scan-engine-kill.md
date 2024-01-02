@@ -86,7 +86,7 @@ A sample Semgrep scan ouptut can look like this:
   kotlin           47        1
 ```
 
-Now you have a good idea of the size of your monorepo. After establishing the size and breakdown of your files by programming language, you can decide what adjustments to take for a scan to succeed.
+Now you have a good idea of the size of your monorepo. After establishing the size and breakdown of your files by programming language, you can decide what adjustments to make for a scan to succeed.
 
 ## Scanning components separately 
 
