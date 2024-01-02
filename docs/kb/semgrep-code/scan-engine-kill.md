@@ -96,7 +96,7 @@ Based on the composition provided by the logs, you may be able to determine if y
 
 ## Serializing types of scans
 
-Instead of running Semgrep products concurrently, you can circumnavigate exhausting resource limits by scanning Code, Supply Chain, and Secrets in a serial fashion.  Rather than issuing one monolithic command, for example:
+Instead of a single scan that includes all active Semgrep products, avoid exhausting resource limits by scanning Code, Supply Chain, and Secrets in a serial fashion.  Rather than using the single command:
 
 ```console
  semgrep ci
