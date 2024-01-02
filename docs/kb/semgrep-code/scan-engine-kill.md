@@ -137,7 +137,7 @@ In the previous section, you determined the total memory required for a configur
 
 To increase parallelization, first try the scan with `-j 2` for two jobs. For two jobs, memory usage will typically be just less than twice the amount required for one job, and that trend continues as the number of jobs increases.
 
-If that succeeds, you can experiment with a `-j 4` configuration and continue monitoring scan time for improvements.  Keeping resource costs in mind, it serves well to determine the optimal configuration in bumping up the number of parallel jobs to speed up the scan. Thus, there is a balancing act between achieving faster scans and keeping your overhead costs down as much as possible. 
+If that succeeds, you can experiment with increasing `-j` and continue monitoring scan time for improvements. Finding the optimal balance depends on both resources used and scan time, since both can impact cost and efficiency.
 
 Furthermore, there is overhead in parallelization: the total RAM required for a `-j 2` scan is greater than a `-j 1` scan for the same codebase, but you should see a decrease in total scan time.
 
