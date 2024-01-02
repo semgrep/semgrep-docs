@@ -60,7 +60,7 @@ Semgrep gets API permissions to access code on your pre-selected GitHub or GitLa
 * Semgrep, Inc. is a paying customer of OpenAI and has a Data Protection Agreement signed with them (provided upon request by [contacting support](/docs/support). The code snippets we upload are be persisted by OpenAI temporarily, following their data usage policies at [Open AI API data Usage Policies](https://openai.com/policies/api-data-usage-policies).
 * Semgrep takes the following steps to protect data that is processed by AI since Assistant requires the sharing of code snippets with a third party:
   * Semgrep shares code snippets with OpenAI without identifying the customer or repository name.
-  * Semgrep only shares the code necessary to enlist the help of GPT in automating the resolution of each specific alert. 
+  * Semgrep only shares the code necessary to enlist the help of GPT in automating the resolution of each specific alert.
   * Semgrep only accesses source code repositories on a file-by-file basis; it does not need or request org-level access to your codebase.
 * When using Semgrep Assistant, source code **does** leave your repository; Semgrep submits part of the file with a finding to OpenAI for processing by a GPT model. OpenAI is not allowed to use the submitted code for training their models.
 * Regarding your data privacy, none of your personal information is shared with OpenAI as a part of the Semgrep Assistant feature.
