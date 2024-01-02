@@ -131,7 +131,7 @@ to see both your RAM and your swap space usage in Linux.
 
 ## Parallelization
 
-Once you have determined the RAM sufficient to scan your large codebase, you can now introduce parallelization to speed up the scan.
+Once you have determined the RAM required to scan your large codebase, you can introduce parallelization to speed up the scan.
 
 Per the previous section, you have determined the total memory required for a `-j 1` configuration. Now, you can begin testing different parallelization configurations, such as specifying `-j 2`, all the whilst still monitoring for any swap usage.
 
