@@ -133,7 +133,9 @@ to see both your RAM and your swap space usage in Linux.
 
 Once you have determined the RAM required to scan your large codebase, you can introduce parallelization to speed up the scan.
 
-Per the previous section, you have determined the total memory required for a `-j 1` configuration. Now, you can begin testing different parallelization configurations, such as specifying `-j 2`, all the whilst still monitoring for any swap usage.
+In the previous section, you determined the total memory required for a configuration with no parallelization. Now, you can begin testing different parallelization configurations to improve scan speed, while still monitoring for any swap usage.
+
+To increase parallelization, first try the scan with `-j 2` for two jobs. For two jobs, memory usage will typically be just less than twice the amount required for one job, and that trend continues as the number of jobs increases.
 
 If that succeeds, you can experiment with a `-j 4` configuration and continue monitoring scan time for improvements.  Keeping resource costs in mind, it serves well to determine the optimal configuration in bumping up the number of parallel jobs to speed up the scan. Thus, there is a balancing act between achieving faster scans and keeping your overhead costs down as much as possible. 
 
