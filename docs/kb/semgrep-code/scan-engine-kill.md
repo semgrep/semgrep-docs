@@ -48,7 +48,9 @@ Given the following log or similar:
 
 By default, Semgrep places resource limitations on the size of file scanned and memory allocated.
 
-However, Semgrep does not place limitations on the number of files scanned and scanning a large monorepo can involve thousands of files. Thus, the first course of action is to determine exactly how many files are getting scanned:
+However, Semgrep does not place limitations on the number of files scanned and scanning a large monorepo can involve thousands of files. 
+
+To determine how many files are getting scanned:
 
 1. View the Semgrep scan output in your CI logs. This step depends on your CI provider.
 2. In the CI logs, search for the section **Scan Status**.
