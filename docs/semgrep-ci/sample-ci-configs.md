@@ -112,6 +112,20 @@ The following configuration creates a CI job that runs an SCA scan using Semgrep
 
 </Tabs>
 
+:::caution
+If you define both `branches` or `branches-ignore` *and* `paths` or `paths-ignore`, the workflow only runs when both filters are satisfied.
+
+For example, if your configuration file includes the following definition, the workflow runs only if there are changes to the `development` branch and `.github/workflows/semgrep.yml` :
+
+```yaml
+push:
+  branches:
+    - development
+  paths:
+    - .github/workflows/semgrep.yml
+```
+:::
+
 <details><summary>Alternate job that uploads findings to GitHub Advanced Security Dashboard</summary>
 
 <GhaSemgrepAppSastDash />
