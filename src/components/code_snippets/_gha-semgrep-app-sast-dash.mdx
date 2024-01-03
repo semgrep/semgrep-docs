@@ -9,6 +9,9 @@ on:
   workflow_dispatch: {}
   # Scan mainline branches and report all findings:
   push:
+    # If you define both branches/branches-ignore and
+    # paths/paths-ignore, the workflow only runs when
+    # both filters are satisfied
     branches: ["master", "main"]
   # Schedule the CI job (this method uses cron syntax):
   schedule:
