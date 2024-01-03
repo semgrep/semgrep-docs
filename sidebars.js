@@ -16,24 +16,25 @@ module.exports = {
   // Note that paths are not slugs
   topLevelSidebar: [
     { type: 'doc', label: 'Docs home', id: 'Docs home', className: 'home-top-level' },
-    { type: 'ref', id: 'getting-started/quickstart', label: 'Scanning with Semgrep'},
-    { type: 'ref', id: 'writing-rules/overview', label: 'Rule-writing'},
+    { type: 'ref', id: 'getting-started/quickstart', label: 'Scan with Semgrep Pro', className: 'top-category-separator'},
+    { type: 'ref', id: 'writing-rules/overview', label: 'Write rules'},
+    { type: 'ref', id: 'contributing/contributing', label: 'Semgrep OSS'},
     {
       type: 'link',
       label: 'Knowledge base',
       href: '/kb/',
+      className: 'top-category-separator'
     },
     { type: 'ref', id: 'cheat-sheets/overview', label: 'OWASP cheat sheets'},
-    { type: 'ref', id: 'contributing/contributing', label: 'Contributing to Semgrep'},
-    { type: 'ref', id: 'faq', label: 'About Semgrep'},
     { type: 'ref', id: 'release-notes/introduction', label: 'Release notes'},
     { type: 'ref', id: 'release-notes/introduction', label: 'API'},
+    { type: 'ref', id: 'faq', label: 'About Semgrep' },
   ],
   scanSidebar: [
-    'Docs home',
+    { type: 'doc', label: 'Docs home', id: 'Docs home', className: 'home-top-level' },
     {
         type: 'category',
-        label: 'Getting started',
+        label: 'Get started',
         collapsible: false,
         items: [
             'getting-started/quickstart',
@@ -43,13 +44,13 @@ module.exports = {
     },
     {
       type: 'category',
-      label: 'Running and deploying scans',
+      label: 'Set up and deploy scans',
       collapsible: false,
       items: [
         {
             type: 'category',
             collapsible: true,
-            label: 'Small teams or individuals',
+            label: 'Individuals and small teams',
             items: [
                 'semgrep-cloud-platform/creating-an-account',
                 {
@@ -68,7 +69,7 @@ module.exports = {
         {
             type: 'category',
             collapsible: true,
-            label: 'Large or enterprise teams',
+            label: 'Large and enterprise teams',
             items: [
                 'semgrep-cloud-platform/creating-an-account',
                 'semgrep-cloud-platform/sso',
@@ -180,7 +181,7 @@ module.exports = {
     },
     {
       type: 'category',
-      label: 'Scanning and triage',
+      label: 'Scan and triage',
       collapsible: false,
       items: [
         {
