@@ -9,9 +9,9 @@ Semgrep scans can be classified by scope. The scope of a scan refers to what lin
 
 <dl>
     <dt>Full scan</dt>
-    <dd><p>A full scan runs on your entire codebase and reports every finding in the codebase. It is recommended to perform a full scan of your <code>main</code> branch at a regular cadence, such as every night or every week. This ensures that Semgrep Cloud Platform has a full list of all findings in your code base, regardless of when they were introduced. To run a full scan, run <code>semgrep ci</code> without setting the <code>SEMGREP_BASELINE_REF</code> environment variable.</p></dd>
+    <dd><p>A full scan runs on your entire codebase and reports every finding in the codebase. It is recommended to perform a full scan of your <code>main</code> branch at a regular cadence, such as every night or every week. This ensures that Semgrep Cloud Platform has a full list of all findings in your code base, regardless of when they were introduced. To run a full scan, run <code>semgrep ci</code> without setting the <code>SEMGREP_BASELINE_REF</code> environment variable. Full scans are triggered at a scheduled time, when the `semgrep.yml` file is edited, or manually by a user.</p></dd>
     <dt>Diff-aware scan</dt>
-    <dd><p>A diff-aware scan runs on your code before and after some "baseline" and only reports findings that are newly introduced in the commits after that baseline.</p>
+    <dd><p>A diff-aware scan runs on your code before and after some "baseline" and only reports findings that are newly introduced in the commits after that baseline. Diff-aware scans are triggered upon creation of a new pull request or merge request.</p>
     <p>For example, imagine a hypothetical repository with 10 commits. You set commit number 8 as the baseline. Consequently, Semgrep only returns scan results introduced by changes in commits 9 and 10. This is how <code>semgrep ci</code> can run in pull requests and merge requests, since it reports only the findings that are created by those code changes. To run a diff-aware scan, use <code>SEMGREP_BASELINE_REF=<span class="placeholder">REF</span> semgrep ci</code> where <span class="placeholder">REF</span> can be a commit hash, branch name, or other Git reference.</p></dd>
 </dl>
 
