@@ -66,7 +66,7 @@ scanning is `test`, use `semgrep scan test` to avoid confusion with the new
 * **CLI tool**: Updated CLI error message to clarify that users should log in
   before running either:
   * `semgrep ci`
-  * `semgrep scan` then `semgrep scan --config`
+  * `semgrep scan --config`
   
 ## 💻 Code
 
