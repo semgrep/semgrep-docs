@@ -51,12 +51,12 @@ validation.
 
 ### Fixed
 
-* Fixed issue where webhooks stopped working.
-* Fixed issue so that clicking **Start Tour** now restarts the Getting Started
+* Fixed an issue where webhooks stopped working.
+* Fixed an issue so that clicking **Start Tour** now restarts the Getting Started
   tutorial.
-* Fixed issue where the **Members** page doesn't display a user's new role until
+* Fixed an issue where the **Members** page doesn't display a user's new role until
   the page reloads. <!--OS-1233-->
-* Fixed issue where users switching organizations would result in a 404.
+* Fixed an issue where users switching organizations would result in a 404.
   <!--OS-136-->
 * Fixed the **Connect to** button under **Settings** > **Source Code Managers**
   so that it displays correctly based on whether the user can connect to a
@@ -71,21 +71,21 @@ validation.
 
 ### Fixed
 
-* Fixed issue where Semgrep Code findings marked as **fixed** can be triaged via
+* Fixed an issue where Semgrep Code findings marked as **fixed** can be triaged via
   the rule group. If the rule is fixed, the triage status cannot be changed back
   to **ignored**.
   <!--FIND-1453-->
-* Fixed issue where the rule information card and the rule preview are missing
+* Fixed an issue where the rule information card and the rule preview are missing
   for older findings; all findings now display this information.
   <!--FIND-1433-->
-* Fixed issue where the finding's severity displayed doesn't match the rule's
+* Fixed an issue where the finding's severity displayed doesn't match the rule's
   severity once the rule has been updated. <!--FIND-1397-->
 
 ## ⛓️ Semgrep Supply Chain
 
 ### Changed
 
-* Fixed issue where empty tables in `pyproject.toml` files would fail to parse.
+* Fixed an issue where empty tables in `pyproject.toml` files would fail to parse.
 
 ## 🤖 Assistant (beta)
 
@@ -108,7 +108,7 @@ details pages.
 
 ### Fixed
 
-* Fixed issue where the **Ignore** button doesn't work when triaging Secrets.
+* Fixed an issue where the **Ignore** button doesn't work when triaging Secrets.
   <!--SCRT-283-->
 
 ## 📝 Documentation and knowledge base
