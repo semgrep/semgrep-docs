@@ -30,10 +30,10 @@ tags:
 ### Added
 
 * Semgrep IDE integrations now cache information about the current repository so
-  that it does not traverse the entire repository on every scan to determine if
+  that it doesn't traverse the entire repository on every scan to determine if
   the files are valid targets for scanning; this improves scan times.
 * Users can now ignore findings locally in Semgrep IDE Extensions. These changes
-  persist between restarts, though they are not reported back to Semgrep and do
+  persist between restarts, though they're not reported back to Semgrep and do
   not affect the remote repository or other users.
 * The metrics collected now include more granular information to help
 differentiate scans using different engine capabilities, such as intraprocedural
@@ -73,7 +73,7 @@ scanning is `test`, use `semgrep scan test` to avoid confusion with the new
 ### Fixed
 
 * Fixed an issue where Semgrep Code findings marked as **fixed** can be triaged through
-  the rule group. Once a finding is fixed, its triage status cannot be changed back
+  the rule group. Once a finding is fixed, its triage status can't be changed back
   to **ignored**.
   <!--FIND-1453-->
 * Fixed an issue where the rule information card and the rule preview are missing
@@ -93,10 +93,10 @@ scanning is `test`, use `semgrep scan test` to avoid confusion with the new
 ### Added
 
 * Added the **Analyze** button to Semgrep Cloud Platform's **Code** page, which
-triggers all Assistant functions, including autofix, autotriage, and component
-tagging, on selected findings. After Assistant performs these functions, users
+triggers all Assistant functions on selected findings, including autofix, autotriage, and component
+tagging. After Assistant performs these functions, users
 can see their results if they filter for findings based on **Recommendation** or
-by **Component**. Additionally, users that choose **No Grouping** instead of
+by **Component**. Additionally, users who choose **No Grouping** instead of
 **Group by Rule** see false positive and true positive recommendations when
 viewing their finding details pages. 
 
