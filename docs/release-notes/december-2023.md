@@ -81,8 +81,6 @@ validation.
 * Fixed issue where the finding's severity displayed doesn't match the rule's
   severity once the rule has been updated. <!--FIND-1397-->
 
-## ⛓️ Supply Chain
-
 ## 🤖 Assistant (beta)
 
 ### Added
