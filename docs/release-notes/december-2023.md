@@ -39,7 +39,7 @@ differentiate scans using different engine capabilities, such as intraprocedural
 scans without secrets validation versus intraprocedural scans *with* secrets
 validation.
 * **CLI tool**: Added new `semgrep test` subcommand, which is an alias for
-`semgrep scan --test`. **Note**: When running Semgrep on a test directory, use
+`semgrep scan --test`. **Note**: If the **name** of the directory you are scanning is `test`, use `semgrep scan test` to avoid confusion with the new `semgrep test` subcommand.
 `semgrep scan test` to avoid confusion with the new `semgrep test` subcommand.
 
 ### Changed
@@ -71,8 +71,8 @@ validation.
 
 ### Fixed
 
-* Fixed issue where Semgrep Code findings marked as **fixed** can be triaged via
-  the rule group. If the rule is fixed, the triage status cannot be changed back
+* Fixed issue where Semgrep Code findings marked as **fixed** can be triaged through
+  the rule group. Once a finding is fixed, its triage status cannot be changed back
   to **ignored**.
   <!--FIND-1453-->
 * Fixed issue where the rule information card and the rule preview are missing
