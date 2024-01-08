@@ -10,7 +10,7 @@ tags:
   - Release notes
 ---
 
-# December 2023 release notes
+# Semgrep release notes for December 2023
 
 ## 🔧 OSS Engine
 
@@ -29,9 +29,9 @@ tags:
 
 ### Added
 
-* Semgrep IDE integrations now cache information about the repository so that it
-  does not traverse the entire repository on every scan to determine if the
-  files are valid targets for scanning; this improves scan times.
+* Semgrep IDE integrations now cache information about the current repository so
+  that it does not traverse the entire repository on every scan to determine if
+  the files are valid targets for scanning; this improves scan times.
 * Users can now ignore findings locally in Semgrep IDE Extensions. These changes
   persist between restarts, though they are not reported back to Semgrep and do
   not affect the remote repository or other users.
@@ -40,8 +40,9 @@ differentiate scans using different engine capabilities, such as intraprocedural
 scans without secrets validation versus intraprocedural scans *with* secrets
 validation.
 * **CLI tool**: Added new `semgrep test` subcommand, which is an alias for
-`semgrep scan --test`. **Note**: When running Semgrep on a test directory, use
-`semgrep scan test` to avoid confusion with the new `semgrep test` subcommand.
+`semgrep scan --test`. **Note**: If the **name** of the directory you are
+scanning is `test`, use `semgrep scan test` to avoid confusion with the new
+`semgrep test` subcommand.
 
 ### Changed
 
@@ -71,8 +72,8 @@ validation.
 
 ### Fixed
 
-* Fixed an issue where Semgrep Code findings marked as **fixed** can be triaged via
-  the rule group. If the rule is fixed, the triage status cannot be changed back
+* Fixed an issue where Semgrep Code findings marked as **fixed** can be triaged through
+  the rule group. Once a finding is fixed, its triage status cannot be changed back
   to **ignored**.
   <!--FIND-1453-->
 * Fixed an issue where the rule information card and the rule preview are missing
@@ -91,20 +92,22 @@ validation.
 
 ### Added
 
-* Added the **Analyze** button, which triggers all Assistant functions,
-including autofix, autotriage, and component tagging, on selected findings.
-After Assistant performs these functions, users can see their results if they
-filter for findings based on **Recommendation** or by **Component**.
-Additionally, users that choose **No Grouping** instead of **Group by Rule** see
-false positive and true positive recommendations when viewing their finding
-details pages. 
+* Added the **Analyze** button to Semgrep Cloud Platform's **Code** page, which
+triggers all Assistant functions, including autofix, autotriage, and component
+tagging, on selected findings. After Assistant performs these functions, users
+can see their results if they filter for findings based on **Recommendation** or
+by **Component**. Additionally, users that choose **No Grouping** instead of
+**Group by Rule** see false positive and true positive recommendations when
+viewing their finding details pages. 
 
 ## 🔐 Secrets (beta)
 
 ### Added
 
-* Added support for custom validator rules. Note that custom validator rules are
-  private and can't be shared to Semgrep Registry.
+* Added support for custom validator rules, which can be written using Semgrep's
+  Rules Editor and run using `semgrep ci --allow-untrusted-validators`. Note
+  that custom validator rules are private and can't be shared to Semgrep
+  Registry.
 
 ### Fixed
 
@@ -138,5 +141,3 @@ details pages.
 ### Fixed
 
 * Minor corrections and updates to various articles.
-
-
