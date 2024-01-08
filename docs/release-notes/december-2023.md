@@ -10,7 +10,7 @@ tags:
   - Release notes
 ---
 
-# December 2023 release notes
+# Semgrep release notes for December 2023
 
 ## 🔧 OSS Engine
 
@@ -29,10 +29,10 @@ tags:
 
 ### Added
 
-* Semgrep IDE integrations now cache information about the repository so that it
+* Semgrep IDE integrations now cache information about the current repository so that it
   does not traverse the entire repository on every scan to determine if the
   files are valid targets for scanning; this improves scan times.
-* Users can now ignore findings locally in Semgrep IDE Extensions. These changes
+* Users can now ignore findings locally in Semgrep IDE extensions. These changes
   persist between restarts.
 * The metrics collected now include more granular information to help
 differentiate scans using different engine capabilities, such as intraprocedural
