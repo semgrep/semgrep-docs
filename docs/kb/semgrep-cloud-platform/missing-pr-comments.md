@@ -6,7 +6,7 @@ tags:
   - Rule management
 ---
 
-# Why am I not receiving PR or MR comments?
+# Why is my repository not receiving PR or MR comments?
 
 If you have configured Semgrep in CI and Semgrep Cloud Platform to create comments when a rule generates a finding in a PR or MR, but you are not seeing those comments, review the following possibilities.
 
@@ -60,7 +60,7 @@ The Bitbucket token should be a repository access token (or workspace access tok
 
 ## Have you placed the rule in Comment or Block?
 
-In order to receive comments, the rule must be placed in a policy that can generate comments:
+In order to receive comments, the rule must be placed in a [policy](/docs/semgrep-code/policies/) that can generate comments:
 
 * Comment
 * Block
