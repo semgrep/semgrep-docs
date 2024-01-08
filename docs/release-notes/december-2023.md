@@ -33,7 +33,8 @@ tags:
   does not traverse the entire repository on every scan to determine if the
   files are valid targets for scanning; this improves scan times.
 * Users can now ignore findings locally in Semgrep IDE Extensions. These changes
-  persist between restarts.
+  persist between restarts, though they are not reported back to Semgrep and do
+  not affect the remote repository or other users.
 * The metrics collected now include more granular information to help
 differentiate scans using different engine capabilities, such as intraprocedural
 scans without secrets validation versus intraprocedural scans *with* secrets
@@ -44,7 +45,6 @@ validation.
 
 ### Changed
 
-* Fixed issue where empty tables in `pyproject.toml` files would fail to parse.
 * **OCaml**: Switched to a tree-sitter-based parser instead of the Menhir
   parser.
 * **Rust**: Updated the parser used for Rust.
@@ -80,6 +80,12 @@ validation.
   <!--FIND-1433-->
 * Fixed issue where the finding's severity displayed doesn't match the rule's
   severity once the rule has been updated. <!--FIND-1397-->
+
+## ⛓️ Semgrep Supply Chain
+
+### Changed
+
+* Fixed issue where empty tables in `pyproject.toml` files would fail to parse.
 
 ## 🤖 Assistant (beta)
 
