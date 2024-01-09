@@ -32,9 +32,11 @@ tags:
 * Semgrep IDE integrations now cache information about the current repository so
   that it doesn't traverse the entire repository on every scan to determine if
   the files are valid targets for scanning; this improves scan times.
-* Users can now ignore findings locally in Semgrep IDE Extensions. These changes
-  persist between restarts, though they're not reported back to Semgrep and do
-  not affect the remote repository or other users.
+* Users can now ignore findings locally in Semgrep IDE Extensions. The changes
+persist between restarts, though they're not reported back to Semgrep Cloud
+Platform and don't affect the remote repository or other users. Note that these findings
+are still detected when Semgrep scans your code, typically when opening a pull
+request or merge request.
 * The metrics collected now include more granular information to help
 differentiate scans using different engine capabilities, such as intraprocedural
 scans without secrets validation versus intraprocedural scans *with* secrets
