@@ -72,7 +72,7 @@ module.exports = {
             collapsible: true,
             label: 'Large and enterprise teams',
             items: [
-                'semgrep-cloud-platform/creating-an-account',
+                'deployment/create-an-account',
                 'semgrep-cloud-platform/sso',
                 'semgrep-cloud-platform/user-management',
                 'semgrep-cloud-platform/scm',
