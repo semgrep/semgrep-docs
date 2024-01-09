@@ -50,7 +50,8 @@ module.exports = {
         {
             type: 'category',
             collapsible: true,
-            label: 'Individuals and small teams',
+            label: 'Core deployment',
+            link: {type: 'doc', id: 'deployment/core-deployment'},
             items: [
                 'semgrep-cloud-platform/creating-an-account',
                 {
