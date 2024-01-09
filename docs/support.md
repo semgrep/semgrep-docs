@@ -35,7 +35,7 @@ directly from Slack.
 
 #### Web
 
-Customers who log into the Semgrep cloud platform portal can open a support case
+Customers who log into Semgrep Cloud Platform can open a support case
 from the [Help section](https://semgrep.dev/orgs/-/support). 
 
 #### Email
@@ -44,15 +44,15 @@ For non-urgent inquiries, or when you need to provide detailed information about
 your issue, you can email the Support team at
 [support@semgrep.com](mailto:support@semgrep.com).
 
-Users interested in seeing a demo or proof of concept can also send inquiries
-via email.
-
 ## Support for all Semgrep users (community support)
 
 [Join the Slack community](https://go.semgrep.dev/slack) to chat with the
 Semgrep maintainers and support engineers. All users, including OSS Engine users
 and Pro Engine users without a subscription plan, are welcome to ask for help in
 the community Slack group.
+
+Users interested in seeing a demo or proof of concept can also send inquiries
+through [email](mailto:support@semgrep.com).
 
 ## Semgrep OSS support
 
