@@ -9,10 +9,10 @@ tags:
 
 Before starting the deployment set-up, use this checklist to ensure that:
 
-- You and organization agree on the **scope** of the deployment
-- You have **access** to the resources needed to carry out the deployment
+- You and organization agree on the **scope** of the deployment.
+- You have **access** to the resources needed to carry out the deployment.
 
-## Permissions and resource access 
+## Permissions and  access 
 
 Ensure that you and your deployment team have sufficient permissions to:
 
@@ -35,8 +35,8 @@ Determine the following:
 Determine the following:
 
 - When you want to run a scan:
-    - On a recurring schedule, such as daily or weekly.
-    - On certain events, such as a push or merge event.
+    - On a recurring schedule, such as daily or weekly. It is recommended to run Semgrep daily.
+    - On certain events, such as a pull or merge request.
 - On what branches you want to run a scan:
     - Feature branches
     - Main or trunk branches
