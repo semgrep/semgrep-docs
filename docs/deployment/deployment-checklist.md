@@ -38,5 +38,5 @@ Determine the following:
     - On a recurring schedule, such as daily or weekly. It is recommended to run Semgrep daily.
     - On certain events, such as a pull or merge request.
 - On what branches you want to run a scan:
-    - Feature branches
-    - Main or trunk branches
+    - Feature branches.
+    - Main or trunk branches.
