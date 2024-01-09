@@ -105,7 +105,7 @@ Semgrep Supply Chain parses **lockfiles** for dependencies, then scans your code
    <td><code>packages.lock.json</code></td>
    <td style={{"text-align": "center"}}>GA</td>
    <td>✔️</td>
-   <td rowspan="17">Since May 2022</td>
+   <td rowspan="12">Since May 2022</td>
 </tr>
 <tr>
    <td>Go</td>
@@ -138,13 +138,13 @@ Semgrep Supply Chain parses **lockfiles** for dependencies, then scans your code
    <td>Yarn, Yarn 2, Yarn 3</td>
    <td><code>yarn.lock</code></td>
    <td style={{"text-align": "center"}}>GA</td>
-   <td>❌</td>
+   <td>--</td>
   </tr>
   <tr>
    <td>pnpm</td>
    <td><code>pnpm-lock.yaml</code></td>
    <td style={{"text-align": "center"}}>GA</td>
-   <td>❌</td>
+   <td>--</td>
   </tr>
   <tr>
    <td rowspan="4">Python</td>
@@ -181,34 +181,35 @@ Semgrep Supply Chain parses **lockfiles** for dependencies, then scans your code
    <td><code>cargo.lock</code></td>
    <td style={{"text-align": "center"}}>Lockfile-only</td>
    <td>✔️</td>
+   <td rowspan="5">Not applicable due to reachability support level</td>
 </tr>
 <tr>
    <td>Dart</td>
    <td>Pub</td>
    <td><code>pubspec.lock</code></td>
    <td style={{"text-align": "center"}}>Lockfile-only</td>
-   <td>❌</td>
+   <td>--</td>
 </tr>
 <tr>
    <td>Kotlin</td>
    <td>Maven</td>
    <td>Maven-generated dependency tree (See <a href="/docs/semgrep-supply-chain/setup-maven/">Setting up SSC scans for Apache Maven</a> for instructions.)</td>
    <td style={{"text-align": "center"}}>Lockfile-only</td>
-   <td>❌</td>
+   <td>--</td>
 </tr>
 <tr>
    <td>PHP</td>
    <td>Composer</td>
    <td><code>composer.lock</code></td>
    <td style={{"text-align": "center"}}>Lockfile-only</td>
-   <td>❌</td>
+   <td>--</td>
 </tr>
 <tr>
    <td>Scala</td>
    <td>Maven</td>
    <td>Maven-generated dependency tree (See <a href="/docs/semgrep-supply-chain/setup-maven/">Setting up SSC scans for Apache Maven</a> for instructions.)</td>
    <td style={{"text-align": "center"}}>Lockfile-only</td>
-   <td>❌</td>
+   <td>--</td>
 </tr>
   </tbody>
 </table>
