@@ -123,5 +123,5 @@ You can integrate Semgrep further into your security workflows after some initia
 
 ### Next steps
 
-Click **Create an account** to begin setting up your core deployment.
+Click **Next** to begin setting up your core deployment.
 

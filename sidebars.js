@@ -53,6 +53,7 @@ module.exports = {
             label: 'Core deployment',
             link: {type: 'doc', id: 'deployment/core-deployment'},
             items: [
+                'deployment/deployment-checklist',
                 'deployment/create-an-account',
                 {
                     type: 'category',
