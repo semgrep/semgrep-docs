@@ -53,7 +53,7 @@ module.exports = {
             label: 'Core deployment',
             link: {type: 'doc', id: 'deployment/core-deployment'},
             items: [
-                'semgrep-cloud-platform/creating-an-account',
+                'deployment/create-an-account',
                 {
                     type: 'category',
                     label: 'Configuring SCA scans',
