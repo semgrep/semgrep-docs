@@ -25,10 +25,13 @@ Ensure that you and your deployment team have sufficient permissions to:
 
 ## Resources
 
+Ensure that you have met all the [<i class="fa-regular fa-file-lines"></i> Prerequisites](/getting-started/prerequisites) for Semgrep.
+
 Determine the following:
 
 - What roles or departments will use Semgrep.
 - The number of repositories you will scan with Semgrep.
+
 
 ## Processes
 
@@ -40,3 +43,7 @@ Determine the following:
 - On what branches you want to run a scan:
     - Feature branches.
     - Main or trunk branches.
+
+## Roles
+
+- Establish the administrators (admins) that own the Semgrep deployment.
