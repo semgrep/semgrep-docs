@@ -17,7 +17,7 @@ import TabItem from '@theme/TabItem';
 
 # Create a Semgrep account
 
-You can create a Semgrep account by signing in to Semgrep Cloud Platform (SCP) through GitHub or GitLab. After this **initial** sign-in, you can:
+You can create a Semgrep user account by signing in to Semgrep Cloud Platform (SCP) through GitHub or GitLab. After this **initial** sign-in, you can:
 
 * Add the rest of your organization (org) to Semgrep through SSO. 
 * Configure Semgrep to scan in other SCMs, such as Bitbucket.
@@ -36,6 +36,8 @@ Semgrep Cloud Platform (SCP) is used to manage all Semgrep Pro products. With SC
 - Set up alerts and notifications, including Slack alerts, emails, and pull request or merge request comments pushed to your source code manager
 
 ## Signing in to Semgrep Cloud Platform
+
+The following steps walk you through creating a **user account** and your first **organization**:
 
 <Tabs
     defaultValue="signin-github"

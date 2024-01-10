@@ -55,6 +55,7 @@ module.exports = {
             items: [
                 'deployment/deployment-checklist',
                 'deployment/create-an-account',
+                'deployment/set-up-orgs',
                 {
                     type: 'category',
                     label: 'Configuring SCA scans',
