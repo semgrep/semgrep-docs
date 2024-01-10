@@ -48,7 +48,7 @@ your issue, you can email the Support team at
 
 [Join the Slack community](https://go.semgrep.dev/slack) to chat with the
 Semgrep maintainers and support engineers. All users, including OSS Engine users
-and Pro Engine users without a subscription plan, are welcome to ask for help in
+and Pro Engine users without a paid subscription plan, are welcome to ask for help in
 the community Slack group.
 
 Users interested in seeing a demo or proof of concept can also send inquiries
