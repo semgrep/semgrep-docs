@@ -314,6 +314,12 @@ img[src*="md-width"] {
     border: 2px solid black;
 }
 
+img[src*="sm-width-noborder"] {
+    width: 60%;
+    margin-right: auto;
+    margin-left: auto;
+    display: block;
+}
 .placeholder {
     color: #E3116C;
     font-style: italic;
