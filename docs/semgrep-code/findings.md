@@ -25,7 +25,7 @@ Object.entries(frontMatter).filter(
 }
 </ul>
 
-# Managing findings in Semgrep Cloud Platform
+# Manage findings in Semgrep Cloud Platform
 
 The Findings page enables you to easily manage findings. **Findings** are the core results of Semgrep analysis. Findings are generated when a Semgrep rule matches a piece of code.
 
@@ -100,17 +100,19 @@ The Findings page consists of:
 
 Filtering allows you to easily isolate groups of findings for ease in triaging and identifying related groups of issues. The following criteria are available for filtering:
 
-| Filter      | Description  |
-| ----------  | ------------ |
-| **Projects**     | Filter by repositories connected to Semgrep Cloud Platform. |
-| **Status**       | Filter for different findings triage states. Refer to the [following table](#triaging-findings) to understand triage states. |
-| **Severities**    | Filter by the severity of a finding. Possible values: <ul><li>Low</li><li>Medium</li><li>High</li></ul> |
-| **Actions**     | Filter by monitoring, commenting, or blocking rules in your Policies. |
-| **Confidences** | Filter by indication of the rule to detect true positives. The higher the confidence the more true positives the rule may detect.  |
-| **Categories**  |  Filter by various rule categories, such as security, or best practice rules. More than one category can be selected for filtering. |
-| **Branches**     | Filter by findings in different Git branches. |
-| **Rules**        | Filter by rules or rulesets that are included in your Policies page. More than one rule can be selected for filtering. |
-| **Rulesets**     | Filter by name of the ruleset where rules that matched the code belong. More than one rule or ruleset can be selected for filtering. |
+| Filter                 | Description  |
+| ---------------------  | ------------ |
+| **Projects**           | Filter by repositories connected to Semgrep Cloud Platform. |
+| **Status**             | Filter for different findings triage states. Refer to the [following table](#triaging-findings) to understand triage states. |
+| **Category**           |  Filter by various rule categories, such as security, or best practice rules. More than one category can be selected for filtering. |
+| **Severity**           | Filter by the severity of a finding. Possible values: <ul><li>Low</li><li>Medium</li><li>High</li></ul> |
+| **Component**          | Filter by Assistant component tags, which use GPT-4 to categorize a finding based on its function, such as payments, user authentication, and infrastructure. |
+| **Confidence**         | Filter by indication of the rule to detect true positives. The higher the confidence the more true positives the rule may detect.  |
+| **Recommendation**     | Filter by recommendation offered by Assistant auto-triage feature. Possible values: <ul><li>Fix</li><li>Ignore</li></ul> |
+| **Action**             | Filter by monitoring, commenting, or blocking rules in your Policies. |
+| **Rule**               | Filter by rules or rulesets that are included in your Policies page. More than one rule can be selected for filtering. |
+| **Ruleset**            | Filter by name of the ruleset where rules that matched the code belong. More than one rule or ruleset can be selected for filtering. |
+| **Branch**             | Filter by findings in different Git branches. |
 
 :::tip
 Findings categorized under **Security** can be easily identified by its badge. This badge is unique to Security findings for ease of triage.
@@ -123,7 +125,7 @@ You can also filter for findings reported from specific time periods. See [Displ
 To filter through findings:
 
 1. Click the filter criteria. The page then refreshes to reflect the additional criteria.
-1. Optional: To further refine your filter, select additional filters.
+2. Optional: To further refine your filter, select additional filters.
 
 #### Displaying findings reported in a specific time
 
@@ -219,7 +221,7 @@ To **reopen findings** in the **Group by Rule** view, follow these steps:
 1. On the [Findings](https://semgrep.dev/orgs/-/findings?tab=open) page, click the **Status** filter, and then select the **Ignored** or **Fixed** status to see all ignored or fixed findings.
 1. Perform one of these steps:
     - To select more findings from the same rule, click the **Triage** button on the card of the finding.
-    - To select individual findingss reported by a rule, fill in the checkboxes of the finding, and then click the **Triage** button on the card of the finding.
+    - To select individual findings reported by a rule, fill in the checkboxes of the finding, and then click the **Triage** button on the card of the finding.
 1. Optional: Write a reason to describe why the finding was ignored.
 1. Click **Reopen**.
 
@@ -260,12 +262,11 @@ To **view and add notes** to the activity history of a finding:
 
 1. Log in to Semgrep Cloud Platform, and then click **[Code](https://semgrep.dev/orgs/-/findings)** in the left panel to view your findings.
 1. Select a finding where you want to view details or add notes, and then do one of the following actions:
-    - If the default **Group by Rule** is enabled, click <i class="fa-regular fa-window-restore"></i> **View details** icon on the card of the finding.
+    - If the default **Group by Rule** is enabled, click <i class="fa-regular fa-window-restore"></i> **Details** icon on the card of the finding.
         ![Click View details if Group by Rule is enabled](/img/cloud-platform-findings-group-by-rule-view-details.png)<br />
-    - If **No grouping** view is enabled, click the **header hyperlink** on the card of the finding. In the example on the screenshot below, it is the **tainted-sql-string**.
+    - If **No grouping** view is enabled, click the **header hyperlink** on the card of the finding. In the example on the screenshot below, it is the **detected-generic-api-key**.
         ![Click View details if No grouping is enabled](/img/cloud-platform-findings-no-grouping-view-details.png)<br />
-        You can also view the finding details directly from the findings page by clicking on the comment bubble icon <i class="fa-regular fa-comment"></i> if it appears on the finding card.
-1. View, or add the notes in the **Activity** section. To add a new note, click plus **New note**.
+2. View, or add the notes in the **Activity** section. To add a new note, click plus **New note**.
     ![Semgrep Cloud Platform finding details page](/img/cloud-platform-finding-details.png)<br />
     *Figure 6.* Finding details page.
 
