@@ -8,7 +8,7 @@ tags:
   - Semgrep Cloud Platform
 ---
 
-Semgrep can be set up to manage teams and scan many repositories of any size.
+Semgrep can be set up to manage teams and scan repositories of any size.
 
 **Deployment** refers to the process of integrating Semgrep into your developer and infrastructure workflows. Completing the deployment process provides you with the Semgrep features that meet your security program's needs.
 
@@ -104,7 +104,7 @@ These steps are typically sufficient for **individuals and small teams**.
 
 ![Core deployment steps](/img/core-deployment.png#sm-width-noborder)
 
-To deploy to **large teams or enterprise users**, you may need to perform additional steps:
+To deploy Semgrep for **large teams or enterprise users**, you may need to perform additional steps:
 
 - Setting up SSO.
 - Role management.
@@ -113,7 +113,7 @@ To deploy to **large teams or enterprise users**, you may need to perform additi
 
 These steps are covered in the section Enterprise and large teams.
 
-Team size isn't necessarily indicative of deployment needs. Features for large teams can be deployed to smaller teams, too, and are available on the Semgrep Team Tier.
+Team size isn't necessarily indicative of deployment needs. Features for large teams can be deployed for smaller teams, too, and are available on the Semgrep Team Tier.
 
 #### Additional deployment features
 
