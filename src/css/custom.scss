@@ -315,6 +315,13 @@ img[src*="md-width"] {
     border: 2px solid black;
 }
 
+img[src*="md-noborder"] {
+    width: 75%;
+    margin-right: auto;
+    margin-left: auto;
+    display: block;
+}
+
 img[src*="sm-width-noborder"] {
     width: 60%;
     margin-right: auto;

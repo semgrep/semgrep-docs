@@ -63,11 +63,13 @@ The following steps walk you through creating a **user account** and your first 
 
 ## Set up organizations
 
-Organizations (orgs) in Semgrep enable users to share access to, and management of, Semgrep resources such as findings and reports. Semgrep organizations can be **connected** to equivalent GitHub, GitLab, and SSO organizations, which enables users from those organizations to easily join your Semgrep deployment by signing in to Semgrep Cloud Platform with their existing credentials.
+Organizations (orgs) in Semgrep enable users to share access to, and management of, Semgrep resources such as findings and reports.
+
+Semgrep organizations can be **connected** to equivalent GitHub, GitLab, and SSO organizations, which enables users from those organizations to easily join your Semgrep deployment through their existing credentials.
 
 ### For GitHub and GitLab users
-- GitHub and GitLab users have the option to use their SCM for both user and repository management. Refer to tk link
-- If you also have an SSO provider, you can opt to use SSO to manage user authentication as well. Refer to tk link
+- GitHub and GitLab users can choose to use their SCM for both user and repository management. Refer to tk link
+- Alternatively, if you also have an SSO provider, you can opt to use SSO to manage user authentication instead.Refer to tk link
 
 ### For Bitbucket and Azure Repos users
 
@@ -79,7 +81,7 @@ Organizations (orgs) in Semgrep enable users to share access to, and management 
 
 Users can have more than one organization, and an organization can consist of one or many user accounts. Users must belong to at least one organization when they first sign in to Semgrep. 
 
-Organizations can be as small as a single user or department, or encompass whole companies. 
+Organizations can be as small as a single user in a department, or encompass whole companies. 
 
 By default, orgs do not manage any authentication or repositories. You add resources and users to an org by connecting to an SCM or SSO, or setting up a Semgrep scan.
 
@@ -87,17 +89,70 @@ Once you have connected to your SSO or SCM, any team member from your GitHub, Gi
 
 ### Create a new org
 
-If you have multiple organizations in GitHub or GitLab, you can create additional orgs in Semgrep to manage them:
+You can create multiple orgs to group related resources together:
 
 1. In Semgrep Cloud Platform, click the drop-down box with your organization name.
 2. Click **Add org**.
 3. Click **Create an organization**.
 4. In the popup, provide an **Organization display name**.
 
-### Example organization setup
+### Organization setup examples tk
+
+#### Single-user organization in GitLab
+
+- In this example, a single GitLab user, `john-doe`, has a Semgrep org account with the same name.
+- He has set up his CI workflow to scan `repo-A` and `repo-B` in his GitLab account. The CI job sends scan results (findings) to Semgrep Cloud Platform.
+
+![DESCRIPTION](/img/personal-org.png#md-noborder)
+
+
+#### Company with org departments in GitHub
+
+In this example, a `parent-company` has multiple `subsidiaries`:
+
+- Each `subsidiary` is its own GitHub organization. 
+- The security team is responsible for all `subsidiaries` in `parent-company-.
+- The ParentCompany enforces SSO for all of its Subsidiaries.
+- Here, membership and repository scanning are separately managed by two different services.
+
+The Semgrep deployment could look like this:
+
+- Each GitHub org has a corresponding Semgrep org.
+- The security team has configured SSO for each Semgrep org.
+    - This means that `team-member-P` can sign into `subsidiary-1-org`. The resources they are able to view or change can be constrained through roles.
+
+![DESCRIPTION](/img/multiple-orgs.png)
+
 
 
 ### Join an existing org
 
-This section is for team members who have been  
+This section is for team members who have been invited to join a Semgrep organization.
 
+<Tabs
+    defaultValue="gh-gl"
+    values={[
+    {label: 'GitHub or GitLab', value: 'gh-gl'},
+    {label: 'SSO', value: 'sso'},
+    ]}
+>
+
+<TabItem value='gh-gl'>
+
+To join an existing org in GitHub or GitLab:
+
+1. Sign in to [<i class="fas fa-external-link fa-xs"></i> Semgrep Cloud Platform](https://semgrep.dev/login) with the account credentials specified by your admin.
+1. Follow the on-screen prompts to [grant Semgrep the needed permissions](/semgrep-cloud-platform/getting-started/#requested-permissions-for-github-and-gitlab) and proceed.
+1. Click **Join an existing organization**.
+
+</TabItem>
+
+<TabItem value='sso'>
+
+To join an existing org through your SSO provider:
+
+1. Sign in to [<i class="fas fa-external-link fa-xs"></i> Semgrep Cloud Platform](https://semgrep.dev/login) with the account credentials specified by your admin.
+
+</TabItem>
+
+</Tabs>
