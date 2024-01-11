@@ -1,6 +1,6 @@
 ---
 slug: connect-scm 
-title: Set up organizations
+title: Connect a source code manager
 hide_title: true
 description: tk
 tags:
@@ -8,4 +8,7 @@ tags:
   - Team & Enterprise Tier
   - Deployment
 ---
+
+# Connect a source code manager
+
 

@@ -67,16 +67,6 @@ Organizations (orgs) in Semgrep enable users to share access to, and management 
 
 Semgrep organizations can be **connected** to equivalent GitHub, GitLab, and SSO organizations, which enables users from those organizations to easily join your Semgrep deployment through their existing credentials.
 
-### For GitHub and GitLab users
-- GitHub and GitLab users can choose to use their SCM for both user and repository management. Refer to tk link
-- Alternatively, if you also have an SSO provider, you can opt to use SSO to manage user authentication instead.Refer to tk link
-
-### For Bitbucket and Azure Repos users
-
-- To quickly add members to your Semgrep organization, connect to **SSO**. tk link
-- If you don't use SSO, you can still scan your Bitbucket and Azure Repos repositories without connecting to any SCM. If you  the previous step,tk , you can skip the rest of this guide.
-    - This means you are not able to share resources or manage findings with other security engineers or fellow team members.
-
 ### How Semgrep organizations work
 
 Users can have more than one organization, and an organization can consist of one or many user accounts. Users must belong to at least one organization when they first sign in to Semgrep. 
@@ -87,20 +77,32 @@ By default, orgs do not manage any authentication or repositories. You add resou
 
 Once you have connected to your SSO or SCM, any team member from your GitHub, Gitlab, or SSO organization can sign in to Semgrep. This includes developers not part of your security team. To control which resources they are able to see or what policies they can change, configure their **role** through user access control features. [tk link]
 
-### Create a new org
+### Create additional orgs
 
-You can create multiple orgs to group related resources together:
+After you create your first org, you can create multiple orgs to group related resources together:
 
 1. In Semgrep Cloud Platform, click the drop-down box with your organization name, located at the sidebar.
 2. Click **Add org**.
 3. Click **Create an organization**.
 4. In the popup, provide an **Organization display name**.
 
-### Delete an existing org
+### Next steps for GitHub and GitLab users
+- GitHub and GitLab users can choose to use their SCM for both user and repository management. Refer to tk link
+- Alternatively, if you also have an SSO provider, you can opt to use SSO to manage user authentication instead.Refer to tk link
 
-Reach out to [<i class="fa-regular fa-envelope"></i> support@semgrep.com](mailto:support@semgrep.com) to delete an organization.
+### Next steps for Bitbucket and Azure Repos users
+
+- To quickly add members to your Semgrep organization, connect to **SSO**. tk link
+- If you don't use SSO, you can still scan your Bitbucket and Azure Repos repositories without connecting to any SCM. If you  the previous step,tk , you can skip the rest of this guide.
+    - This means you are not able to share resources or manage findings with other security engineers or fellow team members.
+
  
-## Organization setup examples tk
+## Appendix: Organization setup examples
+
+:::note 
+These sections are helpful, but are not necessary to set up a deployment. 
+:::
+The following examples illustrate what a completed organizational set-up can look like.
 
 ### Single-user organization in GitLab
 
@@ -155,6 +157,9 @@ To join an existing org through your SSO provider:
 1. Sign in to [<i class="fas fa-external-link fa-xs"></i> Semgrep Cloud Platform](https://semgrep.dev/login) with the account credentials specified by your admin.
 2. You are automatically signed in to all organizations that your admin has set up for you.
 
+## Delete an existing org
+
+Reach out to [<i class="fa-regular fa-envelope"></i> support@semgrep.com](mailto:support@semgrep.com) to delete an organization.
 
 </TabItem>
 
