@@ -8,7 +8,7 @@ tags:
   - Semgrep Cloud Platform
 ---
 
-Semgrep can be set up to manage teams and scan many repositories of any size.
+Semgrep can be set up to manage teams and scan repositories of any size.
 
 **Deployment** refers to the process of integrating Semgrep into your developer and infrastructure workflows. Completing the deployment process provides you with the Semgrep features that meet your security program's needs.
 
