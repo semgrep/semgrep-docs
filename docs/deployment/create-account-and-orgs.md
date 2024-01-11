@@ -91,41 +91,42 @@ Once you have connected to your SSO or SCM, any team member from your GitHub, Gi
 
 You can create multiple orgs to group related resources together:
 
-1. In Semgrep Cloud Platform, click the drop-down box with your organization name.
+1. In Semgrep Cloud Platform, click the drop-down box with your organization name, located at the sidebar.
 2. Click **Add org**.
 3. Click **Create an organization**.
 4. In the popup, provide an **Organization display name**.
 
-### Organization setup examples tk
+### Delete an existing org
 
-#### Single-user organization in GitLab
+Reach out to [<i class="fa-regular fa-envelope"></i> support@semgrep.com](mailto:support@semgrep.com) to delete an organization.
+ 
+## Organization setup examples tk
+
+### Single-user organization in GitLab
 
 - In this example, a single GitLab user, `john-doe`, has a Semgrep org account with the same name.
 - He has set up his CI workflow to scan `repo-A` and `repo-B` in his GitLab account. The CI job sends scan results (findings) to Semgrep Cloud Platform.
 
 ![DESCRIPTION](/img/personal-org.png#md-noborder)
 
-
-#### Company with org departments in GitHub
+### Company with org departments in GitHub
 
 In this example, a `parent-company` has multiple `subsidiaries`:
 
 - Each `subsidiary` is its own GitHub organization. 
-- The security team is responsible for all `subsidiaries` in `parent-company-.
-- The ParentCompany enforces SSO for all of its Subsidiaries.
+- The security team is responsible for all `subsidiaries` in `parent-company`. The security team is a part of all `subsidiaries`.
+- The `parent-company` enforces SSO for all of its `subsidiaries`.
 - Here, membership and repository scanning are separately managed by two different services.
 
 The Semgrep deployment could look like this:
 
 - Each GitHub org has a corresponding Semgrep org.
 - The security team has configured SSO for each Semgrep org.
-    - This means that `team-member-P` can sign into `subsidiary-1-org`. The resources they are able to view or change can be constrained through roles.
+    - This means that `team-member-P` can also access `subsidiary-1-org`. The resources they are able to view or change can be constrained through **roles**.
 
 ![DESCRIPTION](/img/multiple-orgs.png)
 
-
-
-### Join an existing org
+## Join an existing org
 
 This section is for team members who have been invited to join a Semgrep organization.
 
@@ -152,6 +153,8 @@ To join an existing org in GitHub or GitLab:
 To join an existing org through your SSO provider:
 
 1. Sign in to [<i class="fas fa-external-link fa-xs"></i> Semgrep Cloud Platform](https://semgrep.dev/login) with the account credentials specified by your admin.
+2. You are automatically signed in to all organizations that your admin has set up for you.
+
 
 </TabItem>
 
