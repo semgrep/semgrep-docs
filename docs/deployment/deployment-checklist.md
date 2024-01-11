@@ -7,7 +7,7 @@ tags:
   - Deployment
 ---
 
-Before starting the deployment set-up, use this checklist to ensure that:
+Before starting the deployment setup, use this checklist to ensure that:
 
 - You have **access** to the resources needed to carry out the deployment.
 - You and your organization agree on the **scope** of the deployment.
