@@ -104,7 +104,7 @@ These steps are typically sufficient for **individuals and small teams**.
 
 ![Core deployment steps](/img/core-deployment.png#sm-width-noborder)
 
-To deploy to **large teams or enterprise users**, you may need to perform additional steps:
+To deploy Semgrep for **large teams or enterprise users**, you may need to perform additional steps:
 
 - Setting up SSO.
 - Role management.
