@@ -54,8 +54,8 @@ module.exports = {
             link: {type: 'doc', id: 'deployment/core-deployment'},
             items: [
                 'deployment/deployment-checklist',
-                'deployment/create-an-account',
-                'deployment/set-up-orgs',
+                'deployment/create-account-and-orgs',
+                'deployment/connect-scm',
                 {
                     type: 'category',
                     label: 'Configuring SCA scans',
@@ -74,7 +74,7 @@ module.exports = {
             collapsible: true,
             label: 'Large and enterprise teams',
             items: [
-                'deployment/create-an-account',
+                'deployment/create-account-and-orgs',
                 'semgrep-cloud-platform/sso',
                 'semgrep-cloud-platform/user-management',
                 'semgrep-cloud-platform/scm',
