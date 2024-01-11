@@ -323,6 +323,29 @@ To **create a ticket**:
 3. Click **Create issue with Jira**.
 -->
 
+## Use Assistant to analyze findings (beta)
+
+If you have [enabled Assistant](/semgrep-code/semgrep-assistant-code/#enabling-semgrep-assistant),
+you can use the **Analyze** button at the top-right to trigger all Assistant
+functions, including autofix, autotriage, and component tagging. After Assistant
+performs these functions, you can see your results using the **Recommendation**
+or **Component** filters.
+
+To analyze your findings with Assistant:
+
+1. On the [Findings](https://semgrep.dev/orgs/-/findings?tab=open) page, select
+   the findings that you want Assistant to analyze.
+2. Click **Analyze**.
+3. In the confirmation window that appears, confirm that you would like to
+   analyze your findings with Assistant.
+
+The amount of time required to analyze your findings varies, but SCP
+displays a notification that provides an estimated wait time.
+
+When viewing your findings, you can see false positive and true positive
+recommendations when viewing the finding details pages if you choose **No
+Grouping** instead of **Group by Rule**.
+
 ## Deduplicating findings
 
 Semgrep Cloud Platform scans are performed on both mainline (trunk) and non-mainline branches. The scope of the scan can differ depending on if Semgrep Cloud Platform is called on a mainline or non-mainline branch.
