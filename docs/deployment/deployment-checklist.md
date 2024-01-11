@@ -37,7 +37,7 @@ Determine the following:
 
 Determine the following:
 
-- When you want to run a scan:
+- When you want to run a scan; common options include:
     - On a recurring schedule, such as daily or weekly. It is recommended to run Semgrep daily.
     - On certain events, such as a pull or merge request.
 - On what branches you want to run a scan:
