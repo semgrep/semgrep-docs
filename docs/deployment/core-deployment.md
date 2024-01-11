@@ -113,7 +113,7 @@ To deploy Semgrep for **large teams or enterprise users**, you may need to perfo
 
 These steps are covered in the section Enterprise and large teams.
 
-Team size isn't necessarily indicative of deployment needs. Features for large teams can be deployed to smaller teams, too, and are available on the Semgrep Team Tier.
+Team size isn't necessarily indicative of deployment needs. Features for large teams can be deployed for smaller teams, too, and are available on the Semgrep Team Tier.
 
 #### Additional deployment features
 
