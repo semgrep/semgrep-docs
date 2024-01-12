@@ -7,7 +7,7 @@ tags:
 
 # Match comments with Semgrep
 
-When Semgrep rules target a language or languages, they do not match comments in the targeted code files. Comments are not part of the semantic and syntactic structure of the document, so they are ignored.
+When Semgrep rules target specific languages, they do not match comments in the targeted code files. Comments are not part of the semantic and syntactic structure of the document, so they are ignored.
 
 However, it's sometimes useful to match comments. For example, comments can control the behavior of other linters, such as type checkers. You might also have certain formatting standards for comments, such as requiring that a `TODO` comment contains a ticket capturing the required work.
 
