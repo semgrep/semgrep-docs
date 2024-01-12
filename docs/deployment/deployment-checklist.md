@@ -19,9 +19,10 @@ Ensure that you and your deployment team have sufficient permissions to:
 - Add or make changes to CI jobs.
 - Create access tokens in your source code manager.
 - Commit files to all repositories you want Semgrep to scan.
-- (Optional) View SSO configurations.
-- (Optional) Set up channels in your chosen notification method (Slack, email, or webhooks).
-- (For self-hosted repositories) Edit your firewall or VPN configuration's allowlist.
+- For GitHub: Install GitHub apps.
+- For self-hosted repositories Edit your firewall or VPN configuration's allowlist.
+- For SSO: View SSO configurations.
+- For notifications: Set up channels in your chosen notification method (Slack, email, or webhooks).
 
 ## Resources
 
