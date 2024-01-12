@@ -95,20 +95,18 @@ Semgrep supports many different technology stacks. Refer to the following table 
 At the minimum, your deployment of Semgrep consists of the following steps:
 
 1. Creating a Semgrep account. Each user of Semgrep has one account.
-2. Setting up organizations (orgs). Each Semgrep account can have many orgs. Creating an org enables you to invite other users to join your org and manage repositories of that org for scanning.
-3. Connecting your Semgrep orgs to the orgs in your source code manager (SCM). For GitHub and GitLab users, this enables you to automate certain onboarding tasks.
-4. Adding Semgrep into your CI workflows. This step ensures that your Semgrep deployment is up and running and that you receive **findings** of security issues in Semgrep Cloud Platform.
-5. Enabling Semgrep to post PR or MR comments.
-
-These steps are typically sufficient for **individuals and small teams**.
+1. Setting up organizations (orgs). Each Semgrep account can have many orgs. Orgs are logical groupings of related repositories and users.
+1. Setting up membership:
+    a. For GitHub or GitLab users, you can connect your Semgrep org to the orgs in your source code manager (SCM). This means that any member of an org in your SCM can sign in to your Semgrep deployment.
+    b. You can also use SSO to manage user authentication.
+1. Adding Semgrep into your CI workflows. This step ensures that your Semgrep deployment is up and running and that you receive **findings** of security issues in Semgrep Cloud Platform.
+1. Enabling Semgrep to post PR or MR comments.
 
 ![Core deployment steps](/img/core-deployment.png#sm-width-noborder)
 
-To deploy Semgrep for **large teams or enterprise users**, you may need to perform additional steps:
+To manage a large volume of users and repositories, you may need to perform additional steps:
 
-- Setting up SSO.
 - Role management.
-- Configuring a self-hosted SCM, such as GitLab Self-Managed.
 - Tagging projects.
 
 These steps are covered in the section Enterprise and large teams.

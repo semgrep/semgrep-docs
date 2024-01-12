@@ -56,27 +56,6 @@ module.exports = {
                 'deployment/deployment-checklist',
                 'deployment/create-account-and-orgs',
                 'deployment/connect-scm',
-                {
-                    type: 'category',
-                    label: 'Configuring SCA scans',
-                    collapsible: true,
-                    link: {type: 'doc', id: 'semgrep-supply-chain/setup-infrastructure'},
-                    items: [
-                        'semgrep-supply-chain/setup-maven',
-                        'semgrep-supply-chain/setup-jenkins-ui'
-                    ]
-                },
-                'semgrep-cloud-platform/getting-started'
-            ]
-        },
-        {
-            type: 'category',
-            collapsible: true,
-            label: 'Large and enterprise teams',
-            items: [
-                'deployment/create-account-and-orgs',
-                'semgrep-cloud-platform/sso',
-                'semgrep-cloud-platform/user-management',
                 'semgrep-cloud-platform/scm',
                 {
                     type: 'category',
@@ -89,6 +68,15 @@ module.exports = {
                     ]
                 },
                 'semgrep-cloud-platform/getting-started',
+                'semgrep-cloud-platform/sso'
+            ]
+        },
+        {
+            type: 'category',
+            collapsible: true,
+            label: 'Large and enterprise teams',
+            items: [
+                'semgrep-cloud-platform/user-management',
                 'semgrep-cloud-platform/tags'
             ]
         },
