@@ -56,7 +56,9 @@ module.exports = {
                 'deployment/deployment-checklist',
                 'deployment/create-account-and-orgs',
                 'deployment/connect-scm',
-                'semgrep-cloud-platform/scm',
+                /* 'semgrep-cloud-platform/scm', superseded by connect-scm */
+                'semgrep-cloud-platform/sso',
+                'semgrep-cloud-platform/getting-started',
                 {
                     type: 'category',
                     label: 'Configuring SCA scans',
@@ -67,8 +69,6 @@ module.exports = {
                         'semgrep-supply-chain/setup-jenkins-ui'
                     ]
                 },
-                'semgrep-cloud-platform/getting-started',
-                'semgrep-cloud-platform/sso'
             ]
         },
         {
@@ -221,7 +221,7 @@ module.exports = {
         'troubleshooting/semgrep-app', */
       ]
     },
-    {
+    /* {
       type: 'category',
       label: 'Scanning with Semgrep OSS',
       collapsible: false,
@@ -242,9 +242,9 @@ module.exports = {
                 'semgrep-code/pro-rules',
                     'semgrep-code/semgrep-pro-engine-examples',
                     'semgrep-code/semgrep-pro-engine-data-flow'
-                  ] */
+                  ]
         ]
-    },
+    }, */
     {
       type: 'category',
       label: 'References',

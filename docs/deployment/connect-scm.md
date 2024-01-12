@@ -15,11 +15,13 @@ Linking a source code manager (SCM) allows the Semgrep org's membership to be ma
 
 You can only connect your Semgrep organization to the source code manager that you originally logged in with. If your organization uses both GitHub and GitLab to manage source code, log in with the source code manager that you would prefer to use to manage Semgrep org membership. You can still scan repositories from other sources.
 
-**For self-hosted SCMs**: perform the steps in tk-link
+The process to connect a source code manager depends on whether your SCM tool is cloud-hosted by the service provider, hosted on-premise, or hosted as a single-tenant by the service provider.
 
-:::note Connecting to GitHub
-Ensure you have sufficient permissions to install GitHub apps. Identify a GitHub organization admin or owner who has permissions to install or approve the app before proceeding.
+:::note Review necessary permissions 
+Refer to the [<i class="fa-regular fa-file-lines"></i> Pre-deployment checklist](/deployment/deployment-checklist) to ensure you have permissions necessary to perform these steps.
 :::
+
+## Connect to cloud-hosted orgs
 
 To connect your SCM:
 
@@ -33,4 +35,47 @@ To connect your SCM:
 7. Sign back in to Semgrep Cloud Platform.
 
 You have successfully connected an org in Semgrep Cloud Platform with an organization in your source code management tool.
+
+## Connect to on-premise GitHub or GitLab orgs
+
+### Applicable plans
+
+| GitHub | GitLab |
+| ------ | ------ |
+| GitHub Enterprise Server       | GitLab Ultimate        |
+tk list the gitlab plans by name and add "Self Managed" since "self-management" is a separate 'feature' regardless of plan
+
+### Table of required scopes for PATs
+
+Semgrep Cloud Platform requires PATs with assigned scopes. These scopes grant necessary permissions to the PAT and vary depending on the user's plan.
+
+| GitHub Enterprise Server          | GitLab Self-Managed        |
+|:---------------------------|:---------------------------|
+| <ul><li>`public_repo`</li> <li>`repo:status`</li> <li>`user:email`</li> <li>`write:discussion`</li></ul> | `api` |
+
+### Make the connection
+
+Integrate Semgrep into these custom source code management (SCM) tools by following the steps below:
+
+1. Sign in to [Semgrep Cloud Platform](https://semgrep.dev/login).
+2. Click **Settings** > **Source Code Managers**.
+![Source code manager tab](/img/source-code-manager.png#md-width)
+3. Select your source code manager.
+4. For **GitHub Enterprise Server**, follow these steps:
+    1. Create a PAT by following the steps outlined in this [guide to creating a PAT](https://docs.github.com/en/enterprise-server@3.1/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token). Ensure that the PAT is **[created with the required scopes](../scm/#table-of-required-scopes-for-pats)**.
+    2. Enter the personal access token generated into the **Access token** field.
+    3. Enter your GHE Server base URL into the **URL** field.
+    4. Ensure that your SCM integration successfully detects repositories by setting up a CI job for any repository you want to scan:
+        1. Commit a `semgrep.yml` configuration file into the `.github/workflows` folder. Refer to [Sample CI configurations](/docs/semgrep-ci/sample-ci-configs#github-actions) for a template you can copy and customize. 
+        2. The CI job starts automatically to establish a connection with Semgrep Cloud Platform. Upon establishing a connection, your repository appears in **Semgrep Cloud Platform > [Projects](https://semgrep.dev/orgs/-/projects)** page.
+       3. Repeat all steps under step (iv) to add more repositories into Semgrep Cloud Platform.
+5. For **GitLab Self Managed**, follow these steps:
+    1. Create a PAT by following the steps outlined in this [guide to creating a PAT](https://docs.gitlab.com/ee/user/profile/personal_access_tokens.html). Ensure that the PAT is **[created with the required scopes](../scm/#table-of-required-scopes-for-pats)**.
+    2. Enter the personal access token generated into the **Access token** field.
+    3. Enter your GLSM base URL into the **URL** field.
+    4. Ensure that your SCM integration successfully detects repositories by setting up a CI job for any repository you want to scan:
+        1. Create or edit your `.gitlab-ci.yml` configuration file to add Semgrep as part of your GitLab CI/CD pipeline. Refer to [Sample CI configurations](/docs/semgrep-ci/sample-ci-configs#gitlab-cicd) for a template you can copy and customize.
+        2. Commit the updated `.gitlab-ci.yml` file.
+        3. The CI job starts automatically to establish a connection with Semgrep Cloud Platform. Alternatively, if it does not start automatically, start the job from the GitLab CI/CD interface. Upon establishing a connection, your repository appears in **Semgrep Cloud Platform > [Projects](https://semgrep.dev/orgs/-/projects)** page.
+       4. Repeat all steps under step (iv) to add more repositories into Semgrep Cloud Platform.
 

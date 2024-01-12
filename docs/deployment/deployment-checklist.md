@@ -17,10 +17,14 @@ Before starting the deployment setup, use this checklist to ensure that:
 Ensure that you and your deployment team have sufficient permissions to:
 
 - Add or make changes to CI jobs.
-- Create access tokens in your source code manager.
+- Create access tokens, such as CI/CD secrets, in your source code manager.
 - Commit files to all repositories you want Semgrep to scan.
 - For GitHub: Install GitHub apps.
-- For self-hosted repositories Edit your firewall or VPN configuration's allowlist.
+- For self-hosted repositories:
+    - Edit your firewall or VPN configuration's allowlist.
+    - Add CI/CD secrets into your SCM.
+        - [<i class="fas fa-external-link fa-xs"></i> GitHub guide](https://docs.github.com/en/actions/security-guides/encrypted-secrets)
+        - [<i class="fas fa-external-link fa-xs"></i> GitLab guide](https://docs.gitlab.com/ee/ci/secrets/)
 - For SSO: View SSO configurations.
 - For notifications: Set up channels in your chosen notification method (Slack, email, or webhooks).
 
