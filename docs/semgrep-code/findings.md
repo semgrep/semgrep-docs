@@ -336,7 +336,7 @@ To analyze your findings with Assistant:
 1. On the [Findings](https://semgrep.dev/orgs/-/findings?tab=open) page, select
    the findings that you want Assistant to analyze.
 2. Click **Analyze**.
-3. In the confirmation window that appears, confirm that you would like to
+3. In the confirmation window that appears, confirm that you want to
    analyze your findings with Assistant.
 
 The amount of time required to analyze your findings varies, but SCP
