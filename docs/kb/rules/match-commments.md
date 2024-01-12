@@ -15,7 +15,7 @@ To match comments with Semgrep, use the `generic` language target to invoke [gen
 
 ## Example rule
 
-Suppose that your organization requires all `TODO` comments to have an associated Jira ticket. This rule finds TODO lines with no `atlassian.net` content. It would identify any lines not containing a Jira Cloud ticket link.
+Suppose that your organization requires all `TODO` comments to have an associated Jira ticket. This rule finds TODO lines with no `atlassian.net` content and identifies any lines not containing a Jira Cloud ticket link.
 
 ```yaml
 rules:
@@ -37,7 +37,7 @@ rules:
 Try this pattern in the [Semgrep Playground](https://semgrep.dev/playground/s/lBDRL). 
 :::
 
-This rule also includes the `generic_ellipsis_max_span` option, which [limits the ellipsis to matching on the same line](/docs/writing-rules/generic-pattern-matching/#handling-line-based-input), and prevents it from over-matching in this generic context.
+This rule also includes the `generic_ellipsis_max_span` option, which [limits the ellipsis to matching on the same line](/docs/writing-rules/generic-pattern-matching/#handling-line-based-input) and prevents it from over-matching in this generic context.
 
 ## Limiting the match to certain file types
 
