@@ -14,7 +14,7 @@ Semgrep can be set up to manage teams and scan repositories of any size.
 
 Deployment includes:
 
-- Running Semgrep scanners as part of your CI. These scanners can be any combination of SAST, SCA, or Secrets, depending on your plan.
+- Running Semgrep scanners as part of your CI. These scanners can be any combination of SAST (Static Application Security Testing), SCA (Software Composition Analysis), or Secrets, depending on your plan.
 - Managing team members' access and authentication.
 - Ensuring that Semgrep has sufficient access to your self-hosted source code manager (SCM), such as GitLab Self-Managed.
 

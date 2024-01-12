@@ -97,26 +97,30 @@ After you create your first org, you can create multiple orgs to group related r
     - This means you are not able to share resources or manage findings with other security engineers or fellow team members.
 
  
-## Appendix: Organization setup examples
+## Appendices
+
+### Organization setup examples
 
 :::note 
 These sections are helpful, but are not necessary to set up a deployment. 
 :::
+
 The following examples illustrate what a completed organizational set-up can look like.
 
-### Single-user organization in GitLab
+#### Single-user organization in GitLab
 
 - In this example, a single GitLab user, `john-doe`, has a Semgrep org account with the same name.
 - He has set up his CI workflow to scan `repo-A` and `repo-B` in his GitLab account. The CI job sends scan results (findings) to Semgrep Cloud Platform.
 
-![DESCRIPTION](/img/personal-org.png#md-noborder)
+![A simple example of a single-user, single-org setup.](/img/personal-org.png#md-noborder)
+**Figure.** A simple example of a single-user, single-org setup.
 
-### Company with org departments in GitHub
+#### Enterprise org with SSO and multiple orgs in GitHub
 
-In this example, a `parent-company` has multiple `subsidiaries`:
+In this example, a `parent-company` has multiple `subsidiaries`, and wants to use SSO for user authentication:
 
 - Each `subsidiary` is its own GitHub organization. 
-- The security team is responsible for all `subsidiaries` in `parent-company`. The security team is a part of all `subsidiaries`.
+- The security team is responsible for all `subsidiaries` in `parent-company`. Thus, the security team is a part of all `subsidiaries`.
 - The `parent-company` enforces SSO for all of its `subsidiaries`.
 - Here, membership and repository scanning are separately managed by two different services.
 
@@ -126,9 +130,10 @@ The Semgrep deployment could look like this:
 - The security team has configured SSO for each Semgrep org.
     - This means that `team-member-P` can also access `subsidiary-1-org`. The resources they are able to view or change can be constrained through **roles**.
 
-![DESCRIPTION](/img/multiple-orgs.png)
+![A complex organization setup using SSO and multiple GitHub orgs.](/img/multiple-orgs.png)
+**Figure**. A complex organization setup using SSO and multiple GitHub orgs.
 
-## Join an existing org
+### Join an existing org
 
 This section is for team members who have been invited to join a Semgrep organization.
 
@@ -157,7 +162,7 @@ To join an existing org through your SSO provider:
 1. Sign in to [<i class="fas fa-external-link fa-xs"></i> Semgrep Cloud Platform](https://semgrep.dev/login) with the account credentials specified by your admin.
 2. You are automatically signed in to all organizations that your admin has set up for you.
 
-## Delete an existing org
+### Delete an existing org
 
 Reach out to [<i class="fa-regular fa-envelope"></i> support@semgrep.com](mailto:support@semgrep.com) to delete an organization.
 
