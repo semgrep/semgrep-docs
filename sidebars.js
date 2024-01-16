@@ -18,7 +18,7 @@ module.exports = {
     { type: 'doc', label: 'Docs home', id: 'Docs home', className: 'home-top-level' },
     { type: 'ref', id: 'getting-started/quickstart', label: 'Scan with Semgrep Pro', className: 'top-category-separator'},
     { type: 'ref', id: 'writing-rules/overview', label: 'Write rules'},
-    { type: 'ref', id: 'contributing/contributing', label: 'Semgrep OSS'},
+    { type: 'ref', id: 'contributing/contributing', label: 'Scan with Semgrep OSS'},
     {
       type: 'link',
       label: 'Knowledge base',
@@ -178,7 +178,7 @@ module.exports = {
         {
             type: 'category',
             collapsible: true,
-            label: 'SAST',
+            label: 'SAST (Code)',
             items: [
                 //'running-rules',
                 'semgrep-code/getting-started',
@@ -195,7 +195,7 @@ module.exports = {
         {
             type: 'category',
             collapsible: true,
-            label: 'SCA',
+            label: 'SCA (Supply Chain)',
             items: [
                 'semgrep-supply-chain/overview',
                 'semgrep-supply-chain/getting-started',
