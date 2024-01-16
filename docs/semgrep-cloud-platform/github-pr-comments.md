@@ -69,11 +69,11 @@ Ensure that Semgrep's GitHub app (`semgrep-app`) has sufficient permissions to p
 3. Check that you have granted the following permission: `Read and write access to actions, pull requests, secrets, security events, and workflows`.
 4. Under **Repository access**, check that you have included the repositories that you added to Semgrep Cloud Platform. Review the following examples:
 
-![Semgrep GitHub app permissions: all repos](/img/gh-app-permissions-all.png#bordered)
-**Figure** Permissions for all repos.
+![Semgrep GitHub app permissions: all repositories](/img/gh-app-permissions-all.png#bordered)
+**Figure** Permissions for all repositories.
 
-![Semgrep GitHub app permissions - select repos](/img/gh-app-permissions-select.png#bordered)
-**Figure** Permissions for select repos. Ensure the repos you have onboarded to Semgrep Cloud Platform are selected.
+![Semgrep GitHub app permissions - select repositories](/img/gh-app-permissions-select.png#bordered)
+**Figure** Permissions for select repos. Ensure the repositories you have onboarded to Semgrep Cloud Platform are selected.
 
 
 For GitHub Actions users, no further steps need to be undertaken. Continue setting up Semgrep Code PR comments by [setting rules to Comment or Block mode](#set-rules-to-comment-or-block-mode).
