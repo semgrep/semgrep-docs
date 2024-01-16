@@ -48,6 +48,10 @@ This document describes the following:
 - **For administrators (admins), such as Security Engineers**: Steps to configure organization (org) accounts in SCP for teams.
 - **For team members:** Steps for team members to join an org in SCP.
 
+:::tip
+Check out [How to introduce Semgrep to your organization](https://blog.trailofbits.com/2024/01/12/how-to-introduce-semgrep-to-your-organization/) from Trail of Bits for tips on how to evaluate and deploy Semgrep for your org.
+:::
+
 <!-- ![Diagram of Semgrep Cloud Platform flow](/img/semgrep-app-diagram.png "Diagram of Semgrep Cloud Platform flow") -->
 
 ## Signing in to Semgrep Cloud Platform

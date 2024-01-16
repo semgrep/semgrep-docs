@@ -43,4 +43,8 @@ For cross-file and cross-function analysis (interfile and interprocedural analys
 
 [Scan your codebase](/semgrep-code/getting-started): Learn how to scan your project by integrating Semgrep Code into your CI/CD pipeline or how to scan repositories available locally on your machine.
 
+## Further reading
+
+- Read the [Trail of Bits Automated Testing Handbook](https://appsec.guide/) to learn about configuring and optimizing security tools, including Semgrep.
+
 <MoreHelp />

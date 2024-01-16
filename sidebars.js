@@ -577,6 +577,7 @@ module.exports = {
                     title: '2023 Release notes'
                 },
               items: [
+                'release-notes/december-2023',
                 'release-notes/november-2023',
                 'release-notes/october-2023',
                 'release-notes/september-2023',
