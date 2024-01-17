@@ -1,4 +1,4 @@
-# Successfully generating PR comments for secrets findings when using custom secrets rules
+# Successfully generate PR comments for secrets findings when using custom secrets rules
 
 You Semgrep deployment must meet the required conditions before it can generate
 PR comments from findings raised by custom secrets rules. These conditions
