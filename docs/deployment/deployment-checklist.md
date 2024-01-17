@@ -32,7 +32,7 @@ Ensure that you and your deployment team have sufficient permissions to:
 
 Ensure that you have met all the [<i class="fa-regular fa-file-lines"></i> Prerequisites](/getting-started/prerequisites) for Semgrep.
 
-Determine the following:
+Ensure that you and your deployment team agree on:
 
 - What roles or departments will use Semgrep.
 - The number of repositories you will scan with Semgrep.
