@@ -94,13 +94,13 @@ Semgrep supports many different technology stacks. Refer to the following table 
 
 At the minimum, your deployment of Semgrep consists of the following steps:
 
-1. Creating a Semgrep account. Each user of Semgrep has one account.
-1. Setting up organizations (orgs). Each Semgrep account can have many orgs. Orgs are logical groupings of related repositories and users.
-1. Setting up membership:
-    a. For GitHub or GitLab users, you can connect your Semgrep org to the orgs in your source code manager (SCM). This means that any member of an org in your SCM can sign in to your Semgrep deployment.
-    b. You can also use SSO to manage user authentication.
-1. Adding Semgrep into your CI workflows. This step ensures that your Semgrep deployment is up and running and that you receive **findings** of security issues in Semgrep Cloud Platform.
-1. Enabling Semgrep to post PR or MR comments.
+1. **Creating a Semgrep account**. Each user of Semgrep has one account.
+1. **Setting up organizations (orgs)**. Each Semgrep account can have many orgs. Orgs are logical groupings of related repositories and users.
+1. **Setting up membership**:
+    - For GitHub or GitLab users, you can connect your Semgrep org to the orgs in your source code manager (SCM). This means that any member of an org in your SCM can sign in to your Semgrep deployment.
+    - You can also use SSO to manage user authentication.
+1. **Adding Semgrep into your CI workflows**. This step ensures that your Semgrep deployment is up and running and that you receive **findings** of security issues in Semgrep Cloud Platform.
+1. **Enabling Semgrep to post PR or MR comments**.
 
 ![Core deployment steps](/img/core-deployment.png#sm-width-noborder)
 

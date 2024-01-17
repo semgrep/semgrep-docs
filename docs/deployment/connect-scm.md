@@ -11,7 +11,10 @@ tags:
 
 # Connect a source code manager
 
-Linking a source code manager (SCM) allows the Semgrep org's membership to be managed by GitHub or GitLab, among other benefits. After connecting your Semgrep org to GitHub or GitLab, members from GitHub or GitLab are able to join the Semgrep organization you created and connected.
+Linking a source code manager (SCM) provides the following benefits:
+
+- Allows the Semgrep org membership to be managed by GitHub or GitLab.
+- Provides Semgrep access to post PR or MR comments.
 
 You can only connect your Semgrep organization to the source code manager that you originally logged in with. If your organization uses both GitHub and GitLab to manage source code, log in with the source code manager that you would prefer to use to manage Semgrep org membership. You can still scan repositories from other sources.
 
@@ -79,3 +82,7 @@ Integrate Semgrep into these custom source code management (SCM) tools by follow
         3. The CI job starts automatically to establish a connection with Semgrep Cloud Platform. Alternatively, if it does not start automatically, start the job from the GitLab CI/CD interface. Upon establishing a connection, your repository appears in **Semgrep Cloud Platform > [Projects](https://semgrep.dev/orgs/-/projects)** page.
        4. Repeat all steps under step (iv) to add more repositories into Semgrep Cloud Platform.
 
+## Next steps
+
+- If you want to set up SSO to manage your users, see [<i class="fa-regular fa-file-lines"></i> SSO authentication](/deployment/sso).
+- Otherwise, you are ready to start your first remote scan.

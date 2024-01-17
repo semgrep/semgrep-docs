@@ -57,7 +57,7 @@ module.exports = {
                 'deployment/create-account-and-orgs',
                 'deployment/connect-scm',
                 /* 'semgrep-cloud-platform/scm', superseded by connect-scm */
-                'semgrep-cloud-platform/sso',
+                'deployment/sso',
                 'semgrep-cloud-platform/getting-started',
                 {
                     type: 'category',
@@ -76,7 +76,7 @@ module.exports = {
             collapsible: true,
             label: 'Large and enterprise teams',
             items: [
-                'semgrep-cloud-platform/user-management',
+                'deployment/user-management',
                 'semgrep-cloud-platform/tags'
             ]
         },
