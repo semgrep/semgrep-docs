@@ -17,13 +17,13 @@ module.exports = {
   topLevelSidebar: [
     { type: 'doc', label: 'Docs home', id: 'Docs home', className: 'home-top-level' },
     { type: 'ref', id: 'getting-started/quickstart', label: 'Scan with Semgrep Pro', className: 'top-category-separator'},
-    { type: 'ref', id: 'writing-rules/overview', label: 'Write rules'},
     { type: 'ref', id: 'contributing/contributing', label: 'Scan with Semgrep OSS'},
+    { type: 'ref', id: 'writing-rules/overview', label: 'Write rules'},
+    { type: 'doc', id: 'choose-oss-pro', label: 'Semgrep Pro versus Semgrep OSS', className: 'top-category-separator' },
     {
       type: 'link',
       label: 'Knowledge base',
       href: '/kb/',
-      className: 'top-category-separator'
     },
     { type: 'ref', id: 'cheat-sheets/overview', label: 'OWASP cheat sheets'},
     { type: 'ref', id: 'release-notes/introduction', label: 'Release notes'},
