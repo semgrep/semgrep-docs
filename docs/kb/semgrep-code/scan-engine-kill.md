@@ -92,17 +92,19 @@ Now you have a good idea of the size of your monorepo. After establishing the si
 
 Based on the composition provided by the logs, you may be able to determine if your repository is modular. If so, you can try [scanning the components separately](https://semgrep.dev/docs/kb/semgrep-ci/scan-monorepo-in-parts/).
 
-[<i class="fa-regular fa-file-lines"></i> Interfile analysis](/docs/semgrep-code/semgrep-pro-engine-intro/#types-of-semgrep-pro-engine-analysis) still applies in the smaller scope assuming the modules are disparate. 
+:::note
+Semgrep Code still performs [<i class="fa-regular fa-file-lines"></i> interfile analysis](/docs/semgrep-code/semgrep-pro-engine-intro/#types-of-semgrep-pro-engine-analysis) on each module. If the modules are functionally separate, running separate scans shouldn't result in a reduction in findings.
+:::
 
 ## Serializing types of scans
 
-Instead of a single scan that includes all active Semgrep products, avoid exhausting resource limits by scanning Code, Supply Chain, and Secrets in a serial fashion.  Rather than using the single command:
+Avoid exhausting resource limits by running Semgrep Code, Supply Chain, and Secrets serially instead of simultaneously. That is, instead of:
 
 ```console
  semgrep ci
 ```
  
-You can instead run:
+You can run:
  
  ```
 semgrep ci --code
@@ -137,12 +139,13 @@ In the previous section, you determined the total memory required for a configur
 
 To increase parallelization, first try the scan with `-j 2` for two jobs. For two jobs, memory usage will typically be just less than twice the amount required for one job, and that trend continues as the number of jobs increases.
 
-If that succeeds, you can experiment with increasing `-j` and continue monitoring scan time for improvements. Finding the optimal balance depends on both resources used and scan time, since both can impact cost and efficiency.
-
 Furthermore, there is overhead in parallelization: the total RAM required for a `-j 2` scan is greater than a `-j 1` scan for the same codebase, but you should see a decrease in total scan time.
 
 ## Scanning schedule
 
-We recommend performing modular scans on a daily basis along with one comprehensive monolithic scan every two weeks or so to address code introduced outside the scope of the modular scans. This helps true-up your dependency graph for the monolithic build and optimizes scan feasibility.
+A modular scan means to scan a top-level folder whose code files don't interact with code files in other folders at the same level. Semgrep recommend the following:
+
+* Perform a modular full scan daily by using the following command: `semgrep ci --include=/src/moduleA/*`
+* Perform a full scan on the entire monorepo every two weeks. This full scan ensures that any dependency scans are up-to-date.
 
 <MoreHelp/>
