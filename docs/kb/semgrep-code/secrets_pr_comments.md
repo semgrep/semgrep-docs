@@ -1,51 +1,62 @@
-# Checklist to successfully PR comments for secrets findings with your custom secrets rules
- 
-A number of conditions need to be met to successfully generate PR comments from findings raised by custom secrets rules and differ depending on whether you are scanning secrets rules as generic Code secrets rules or under the Secrets product and this article outlines both. 
+# Successfully generating PR comments for secrets findings when using custom secrets rules
 
+You Semgrep deployment must meet the required conditions before it can generate
+PR comments from findings raised by custom secrets rules. These conditions
+differ based on whether you're using Semgrep Code's secrets rules or Semgrep
+Secrets.
 
-## Conditions specific to generating a PR comment as a generic secret Code finding
+## For users of Semgrep Code
 
+1. Set your [policy mode to
+   **Comment**](/semgrep-code/policies/#blocking-a-pr-or-mr-through-rule-modes).
 
-Ensure your rule does not have the following entry: 
+2. Ensure that your rule *doesn't* include the following line:
 
-```
-product: secrets
-```
+    ```console
+    product: secrets
+    ```
 
-Scanned with this directive, the rule will default to producing a Code finding and subsequently produce a Code PR comment, assuming the policy mode is set correctly to Comment mode (which is the other requirement here for a Code PR comment).
+    If your rule includes this directive, Semgrep defaults to producing a
+    Semgrep Code finding and a Semgrep Code PR comment.
 
+## For users of Semgrep Secrets
 
-## Conditions specific to generating a PR comment as a Secrets product finding
+> At this time, Semgrep Secrets supports only the use of GitHub.
 
+1. Set your [policy mode to
+   **Comment**](/semgrep-code/policies/#blocking-a-pr-or-mr-through-rule-modes).
 
-If you want to scan a secrets rule as a Secret product finding and subsequently generate  a Secrets product PR comment, the following will need to be in place:
+2. Ensure that your rule includes the following line:
 
-Ensure your rule does indeed have the following entry:
+    ```console
+    product: secrets
+    ```
 
-```
-product: secrets
-```
+3. Ensure that you have the following two feature flags enabled for your Semgrep
+   account:
 
-The Secrets policy mode will need to be set correctly to Commend mode.  
+    * Secrets
+    * Secrets PR comments
 
-You will need have two Secrets feature flags enabled:  one for the Secrets product and one specific for Secrets PR comments.  This can be confirmed with your Semgrep sales representative.  
+    Reach out to your Semgrep representative if you need either of these flags
+    enabled for your account.
 
+## Caveat
 
-## Caveat applicable to both generic and Secrets rules 
+Only [findings that are **Confirmed
+Valid**](/semgrep-secrets/getting-started/#validation) generate PR comments.
+When writing custom secrets rules, ensure that you implement a validator so that
+Semgrep can determine if an identified secret is valid or not.
 
-Only Confirmed Valid findings generate PR comments and of those.  You will need to implement a validator for any custom secrets rule.  
+## Testing secrets PR comments
 
+Semgrep recommends the following testing steps to ensure that your Semgrep
+deployment is configured correctly to push PR comments when it identifies
+secrets:
 
-## Testing
+1. Generate a GitHub token with *no* permissions. The token *must* be valid.
+2. Add the token to a file in your repository and commit the changes.
+3. Scan the repository and check that Semgrep generated a finding and pushed a
+   PR comment.
 
-Only token validation produces a PR comment and you must use a valid token to test this.
-
-Semgrep suggesgts the following baseline test:
-
-1. Generate a Github token with no permissions.
-2. Commit token.
-3. Scan and check that there is a finding and a PR comment should, too, be generated.
-4. Delete the token immediately thereafter.
-
-
-The only way to test PR comments: you must use a valid token.
+Delete the token when you've completed your test.
