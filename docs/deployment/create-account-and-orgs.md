@@ -3,7 +3,7 @@ slug: create-account-and-orgs
 append_help_link: true
 title: Create an account
 hide_title: true
-description: tk
+description: Create a Semgrep account and organization to prepare your deployment for the addition of repositories and team members.
 tags:
   - Semgrep Cloud Platform
   - Team & Enterprise Tier
@@ -20,7 +20,7 @@ import TabItem from '@theme/TabItem';
 You can create a Semgrep user account by signing in to Semgrep Cloud Platform (SCP) through GitHub or GitLab. After this **initial sign-in**, you can:
 
 * Add the rest of your organization (org) members to Semgrep. 
-* Configure Semgrep to scan in other SCMs, such as Bitbucket.
+* Configure Semgrep to scan in other source code managers, such as Bitbucket.
 
 :::tip Using SSO for your initial sign-in 
 Alternatively, reach out to [<i class="fa-regular fa-envelope"></i> sales@semgrep.com](mailto:sales@semgrep.com) to set up SSO. This removes the need to sign in through a GitHub or GitLab account if you don't have one.
@@ -28,7 +28,7 @@ Alternatively, reach out to [<i class="fa-regular fa-envelope"></i> sales@semgre
 
 ## Semgrep Cloud Platform
 
-Semgrep Cloud Platform (SCP) is used to manage all Semgrep Pro products. With SCP, you can:
+Semgrep Cloud Platform is used to manage all Semgrep Pro products. With SCP, you can:
 
 - View and manage your Semgrep findings.
 - Customize how Semgrep scans your code.
@@ -80,6 +80,10 @@ Semgrep organizations can be **connected** to equivalent GitHub, GitLab, and SSO
 
 ## Appendices 
 
+:::note 
+These sections are helpful, but are not necessary to set up a deployment.
+:::
+
 ### How Semgrep organizations work
 
 Users can have more than one organization, and an organization can consist of one or many user accounts. Users must belong to at least one organization when they first sign in to Semgrep. 
@@ -101,9 +105,6 @@ After you create your first org, you can create multiple orgs to group related r
 
 ### Organization setup examples
 
-:::note 
-These sections are helpful, but are not necessary to set up a deployment. 
-:::
 
 The following examples illustrate what a completed organizational set-up can look like.
 

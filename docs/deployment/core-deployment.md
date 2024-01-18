@@ -83,7 +83,7 @@ Semgrep supports many different technology stacks. Refer to the following table 
         </tr>
         <tr>
             <td>API</td>
-            <td>Check that Semgrep's API meets your needs. See <a href=""><i class="fas fa-external-link fa-xs" /> API docs</a> </td>
+            <td>Check that Semgrep's API meets your needs. See <a href=""><i class="fas fa-external-link fa-xs" /> API docs</a>.</td>
         </tr>
     </tbody>
 </table>
