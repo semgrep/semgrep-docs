@@ -14,7 +14,9 @@ tags:
 Linking a source code manager (SCM) provides the following benefits:
 
 - Allows the Semgrep org membership to be managed by GitHub or GitLab.
-- GitHub: Provides Semgrep access to post PR or MR comments.
+- For GitHub users:
+    - Provides Semgrep access to post PR or MR comments.
+    - For GitHub Actions users: Enables you to add a Semgrep CI job to repositories in bulk.
 
 You can only connect your Semgrep organization to the source code manager that you originally logged in with. If your organization uses both GitHub and GitLab to manage source code, log in with the source code manager that you would prefer to use to manage Semgrep org membership. You can still scan repositories from other sources.
 

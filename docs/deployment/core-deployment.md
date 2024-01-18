@@ -19,7 +19,8 @@ Deployment includes:
 - Ensuring that Semgrep has sufficient access to your self-hosted source code manager (SCM), such as GitLab Self-Managed.
 
 :::tip Are these guides for you?
-These guides outline procedures for the deployment of Semgrep as part of a security program. To try out Semgrep, refer to the [<i class="fa-regular fa-file-lines"></i> Quickstart](/getting-started/quickstart) document.
+- These guides outline procedures for the deployment of Semgrep as part of a security program. To try out Semgrep, refer to the [<i class="fa-regular fa-file-lines"></i> Quickstart](/getting-started/quickstart) document.
+- Individual users can also use these guides to deploy Semgrep as part of their personal security.
 :::
 
 Many deployment features are set up through **Semgrep Cloud Platform**.
@@ -88,9 +89,8 @@ Semgrep supports many different technology stacks. Refer to the following table 
     </tbody>
 </table>
 
-### Deployment process
 
-#### Core deployment steps
+## Core deployment process
 
 At the minimum, your deployment of Semgrep consists of the following steps:
 
@@ -113,7 +113,7 @@ These steps are covered in the section Enterprise and large teams.
 
 Team size isn't necessarily indicative of deployment needs. Features for large teams can be deployed for smaller teams, too, and are available on the Semgrep Team Tier.
 
-#### Additional deployment features
+## Additional deployment features
 
 You can integrate Semgrep further into your security workflows after some initial testing of your core deployment. Once everything works smoothly, you can:
 
@@ -121,7 +121,7 @@ You can integrate Semgrep further into your security workflows after some initia
 - Encourage developers to set up Semgrep as a linter in their IDE.
 - Integrate Semgrep with project management software (Private beta).
 
-### Next steps
+## Next steps
 
 Click **Next** to begin setting up your core deployment.
 
