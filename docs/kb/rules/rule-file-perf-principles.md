@@ -13,7 +13,7 @@ import MoreHelp from "/src/components/MoreHelp"
 ## Rules
 
 The amount of time required for rules to run scales better than linearly when
-adding interfile rules, which are those with `interfile: true` in the options.
+adding interfile rules, which are those with `interfile: true` in the `options` key.
 That is, doubling the number of interfile rules increases the runtime, but not
 by double. However, some rules run faster than others, and adding a slow rule
 when all the rest are fast can cause a significant slowdown.
@@ -21,7 +21,7 @@ when all the rest are fast can cause a significant slowdown.
 Rules are slower if the sub-patterns, such as `pattern: <... $X ...>`, result in
 a greater number of matches. When writing rules, pay special attention to the
 problems raised by sub-pattern matches. The most important factor for runtime is
-the time spent adding to various lists/sets.
+the time spent adding to various lists or sets.
 
 You can benchmark your rules by adding the `--time` flag to your `semgrep scan`
 command. When you use this flag, your results return with a timing summary; if
