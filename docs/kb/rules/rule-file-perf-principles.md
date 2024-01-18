@@ -32,7 +32,8 @@ your output format is JSON, you'll see times for each rule-target pair.
 Generally, the time required to scan files scales linearly with the number of
 files scanned, but file size is still important. Overall, the time taken is
 **time for setup work + time for matching**. For setup work, files aren’t
-analyzed alone but in groups of mutually dependent files (SCCs).
+analyzed alone but in groups of mutually dependent files called strongly
+connected components (SCCs).
 
 The time for setup work is **number of SCCs * time for each SCC**, where the
 time for each SCC grows, in the worst case, exponentially up to certain limits
