@@ -108,7 +108,41 @@ To enable dataflow traces feature in your CI pipeline, fulfill the following pre
 - You can add additional rules that use taint tracking from [Semgrep Registry](https://semgrep.dev/explore).
 :::
 
+<!-- tk to add this back in
 
+## Receiving PR or MR comments in your VPN or on-premise SCM
+
+PR or MR comments are comments or suggestions made by Semgrep Cloud Platform in your GitHub or GitLab repository. These comments provide a description of the issue detected by Semgrep and may offer possible solutions. These comments are a means for security teams (or any team responsible for creating standards) to help their fellow developers write safe and standards-compliant code.
+
+To enable this feature within self-hosted SCMs behind firewalls or VPNs (Virtual Private Networks), follow these steps:
+
+1. Add the following IP addresses to your VPN's **ingress** allowlist.
+     ```bash
+    # These IP addresses are inbound and outbound:
+    35.166.231.235
+    52.35.248.246
+    52.34.137.110
+    44.225.64.41
+    ```
+2. Optional: If you use an **egress allowlist**, add the following IP addresses to the egress allowlist to enable your CI workers to fetch the scan rules, upload findings, and so on.<br />
+    ```bash
+    # These IP addresses are inbound and outbound:
+    35.166.231.235
+    52.35.248.246
+    52.34.137.110
+    44.225.64.41
+    ```
+
+3. Test that you are able to receive findings by manually triggering a scan through your CI provider.
+
+:::tip
+Receiving PR or MR comments may require additional steps depending on the custom configuration of your VPN or SCM (for example, if you use a static IP without a hostname). Reach out to Semgrep support through the [Semgrep Community Slack](https://go.semgrep.dev/slack) or send an email to [support@semgrep.com](mailto:support@semgrep.com) for any concerns.
+:::
+
+## Additional references
+* [Semgrep's May 2022 updates: DeepSemgrep, New Playground, and Self Managed GitHub and GitLab support](https://semgrep.dev/blog/2022/semgreps-may-2022-updates/)
+
+-->
 ## Additional references 
 
 <TroubleshootingPrLinks />

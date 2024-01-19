@@ -1,7 +1,7 @@
 ---
 slug: getting-started
 append_help_link: true
-title: Semgrep Cloud Platform
+title: Scanning repositories
 hide_title: true
 description: "Get started with Semgrep Cloud Platform to scan for security vulnerabilities on both local and remote repositories hosted on GitHub and GitLab."
 tags:

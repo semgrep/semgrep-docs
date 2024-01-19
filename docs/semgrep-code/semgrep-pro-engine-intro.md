@@ -3,7 +3,7 @@ slug: semgrep-pro-engine-intro
 append_help_link: true
 description: "This article introduces Semgrep Pro Engine, guides you through installation, and provides some additional information."
 hide_title: true
-title: Semgrep Pro Engine overview
+title: Enabling interfile analysis with Pro Engine 
 ---
 
 import MoreHelp from "/src/components/MoreHelp"

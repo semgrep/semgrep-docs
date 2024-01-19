@@ -4,6 +4,7 @@ append_help_link: true
 title: Quickstart
 hide_title: false
 description: Learn how to set up Semgrep and scan your first repository.
+displayed_sidebar: scanSidebar
 tags:
   - quickstart
 ---

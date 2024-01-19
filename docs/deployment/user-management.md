@@ -1,7 +1,7 @@
 ---
 slug: user-management 
 append_help_link: true
-title: Users, accounts, and roles 
+title: Setting up roles 
 hide_title: true
 description: "Learn about roles, user management, and how to implement role-based access control in Semgrep Cloud Platform."
 tags:

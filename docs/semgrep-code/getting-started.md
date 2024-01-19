@@ -1,7 +1,7 @@
 ---
 slug: getting-started
 append_help_link: true
-description: "Perform a SAST scan with Semgrep Code "
+description: "Perform a SAST scan with Semgrep Code"
 title: Scan your codebase
 hide_title: true
 tags:

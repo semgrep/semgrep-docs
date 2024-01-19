@@ -2,6 +2,7 @@
 slug: faq
 append_help_link: true
 hide_table_of_contents: true
+displayed_sidebar: aboutSidebar
 description: >-
   Frequently asked questions about Semgrep, comparisons to similar tools,
   rule licensing, technical support, and more.
