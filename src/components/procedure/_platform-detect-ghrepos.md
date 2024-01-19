@@ -1,4 +1,4 @@
-To ensure that your GitHub repository is **detected** by Semgrep Cloud Platform:
+If you aren't seeing your GitHub repos in the Cloud Platform, complete the following steps to ensure that your GitHub repository is **detected** by Semgrep Cloud Platform:
 
 1. Log into GitHub.
 2. Perform one of the following steps:

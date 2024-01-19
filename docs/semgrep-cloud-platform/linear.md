@@ -33,8 +33,8 @@ The Semgrep Linear integration allows you to create Linear tickets based on your
 
 :::info Prerequisites
 * Your Linear user must be able to approve an OAuth integration with admin level privileges.
-* Linear can only be enabled through Semgrep Cloud Platform (SCP). [Create an account](/semgrep-code/getting-started/#signing-in-to-semgrep-cloud-platform) to set up your Linear integration.
-* To create tickets, you must [add or onboard the project](/semgrep-code/getting-started/#option-b-adding-a-repository-from-github-gitlab-or-bitbucket) (repository) to Semgrep Cloud Platform for scanning.
+* Linear can only be enabled through Semgrep Cloud Platform (SCP). [Create an account](/semgrep-code/getting-started/) to set up your Linear integration.
+* To create tickets, you must [add or onboard the project](/semgrep-code/getting-started/) (repository) to Semgrep Cloud Platform for scanning.
 :::
 
 To integrate Linear, follow these steps:

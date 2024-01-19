@@ -85,7 +85,7 @@ GitHub, GitLab, and BitBucket SCMs are compatible with the above mentioned CI pr
 
 To set up the CI job and connect with Semgrep Cloud Platform:
 
-1. Sign in to [Semgrep Cloud Platform](https://semgrep.dev/login). See [Signing in to Semgrep Cloud Platform](/semgrep-code/getting-started/#signing-in-to-semgrep-cloud-platform) for details on requested repository permissions and access.
+1. Sign in to [Semgrep Cloud Platform](https://semgrep.dev/login). See [Signing in to Semgrep Cloud Platform](/semgrep-code/getting-started/) for details on requested repository permissions and access.
 2. Click **[Projects](https://semgrep.dev/orgs/-/projects)** > **Scan New Project** > **Run Scan in CI**.
 3. Select your CI provider from the menu.
 4. Optional: Some providers can ask you to select your organization if applicable to your SCM tool.
@@ -142,7 +142,7 @@ jobs:
 
     steps:
       - uses: actions/checkout@v3
-      - run: semgrep scan --sarif --output=semgrep.sarif --config=policy
+      - run: semgrep scan --sarif --config=policy > semgrep.sarif
         env:
           SEMGREP_APP_TOKEN: ${{ secrets.SEMGREP_APP_TOKEN }}
       - name: Upload SARIF file for GitHub Advanced Security Dashboard
@@ -335,7 +335,7 @@ Test that comments are sent by adding rules to your Policy's **Comment** or **Bl
 To configure PR or MR comments, review [Alerts and notifications](/semgrep-cloud-platform/notifications/) documentation.
 
 :::info
-Only rules in the **Comment** and **Block** modes of your [Policies](https://semgrep.dev/orgs/-/board) create the PR or MR comments. Rules from the **Block** column also block the PR or MR pipeline. To unblock the pipeline, the detected code needs to be fixed.
+Only rules in the **Comment** and **Block** modes of your [Policies](https://semgrep.dev/orgs/-/policies) create the PR or MR comments. Rules from the **Block** column also block the PR or MR pipeline. To unblock the pipeline, the detected code needs to be fixed.
 :::
 
 ### Setting a custom timeout

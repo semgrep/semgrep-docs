@@ -56,6 +56,10 @@ module.exports = {
             {
               label: 'Semgrep Supply Chain',
               to: 'https://semgrep.dev/products/semgrep-supply-chain'
+            },
+            {
+              label: 'Semgrep Secrets',
+              to: 'https://semgrep.dev/products/semgrep-secrets'
             }
           ]
         },
@@ -333,7 +337,14 @@ module.exports = {
           { from: "/semgrep-code/rule-board/"                                            , to: "/semgrep-code/policies/" },
 
           /* AUG 31 2023  */
-          { from: "/kb/semgrep-cloud-platform/running-semgrep-on-windows/" , to: "/kb/integrations/semgrep-vs-code-windows/" }
+          { from: "/kb/semgrep-cloud-platform/running-semgrep-on-windows/" , to: "/kb/integrations/semgrep-vs-code-windows/" },
+
+          /* OCT 18 2023  */
+          { from: "/kb/semgrep-ci/github-required-workflows-semgrep/" , to: "/kb/semgrep-ci/github-repository-rulesets-semgrep/" },
+
+          /* NOV 23 2023  */
+          { from: "/getting-started/" , to: "/getting-started/quickstart/" }
+
         ]
       }
     ],

@@ -39,7 +39,7 @@ Semgrep Cloud Platform can send notifications through the following channels:
 
 :::info
 * Alerts and notifications can only be enabled through Semgrep Cloud Platform (SCP). [Sign up or sign in to Semgrep Cloud Platform](https://semgrep.dev/login).
-* To receive alerts and notifications, you must [add or onboard the project](/semgrep-code/getting-started/#option-b-adding-a-repository-from-github-gitlab-or-bitbucket) (repository) to Semgrep Cloud Platform for scanning.
+* To receive alerts and notifications, you must [add or onboard the project](/semgrep-code/getting-started/) (repository) to Semgrep Cloud Platform for scanning.
 :::
 
 ## Finding available alert and notification channels
@@ -58,7 +58,7 @@ To find available [integrations for Semgrep Cloud Platform](https://semgrep.dev/
 To view, add, remove, disable, or enable your saved channels:
 
 1. In the **Settings** > **[Integrations](https://semgrep.dev/orgs/-/settings/integrations)** page, explore the options available for specific integrations.
-2. In the **[Policies](https://semgrep.dev/orgs/-/board)** page, click **Rule modes**. A menu appears.
+2. In the **[Policies](https://semgrep.dev/orgs/-/policies)** page, click **Rule modes**. A menu appears.
 3. Click the **Edit** button of the mode for which mode you want to change notifications.
 4. Make any changes to the notification settings for the mode you selected.
 

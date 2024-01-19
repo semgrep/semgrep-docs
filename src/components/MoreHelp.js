@@ -4,7 +4,7 @@ const MoreHelp = () => {
   return (
     <div>
       <hr />
-      <p>Find what you needed in this doc? Join the <a href="https://go.semgrep.dev/slack">Semgrep Community Slack group</a> to ask the maintainers and the community if you need help, or <a href="/docs/support/">check out other ways to get help</a>.</p>
+      <p>Not finding what you need in this doc? Ask questions in our <a href="https://go.semgrep.dev/slack">Community Slack group</a>, or see <a href="/docs/support/">Support</a> for other ways to get help.</p>
     </div>
   );
 }

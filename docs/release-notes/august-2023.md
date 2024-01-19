@@ -161,7 +161,7 @@ end
 
 - Added a section on Semgrep Code's [deduplication behavior in the API](/semgrep-code/findings/#deduplicating-findings-in-semgrep-api) and expanded on deduplication behavior in Semgrep Cloud Platform.
 - A new section has been added to guide you through [infrastructure-specific configuration when setting up Semgrep Cloud Platform](/semgrep-supply-chain/setup-infrastructure/) for the first time. 
-- Added section on how a future [change in a Semgrep Supply Chain rule affects scan behavior](/semgrep-supply-chain/getting-started/#future-rule-updates-to-existing-or-current-rules).
+- Added section on how a future [change in a Semgrep Supply Chain rule affects scan behavior](/semgrep-supply-chain/getting-started/#schedule-scans).
 - Added a section describing how SSC's License compliance feature handles [packages with multiple licenses](/semgrep-supply-chain/license-compliance/#multiple-licenses).
 - Added the following knowledge base articles:
   - [Running Semgrep in Visual Studio Code on Windows](/kb/integrations/semgrep-vs-code-windows/)

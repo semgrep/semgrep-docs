@@ -112,6 +112,20 @@ The following configuration creates a CI job that runs an SCA scan using Semgrep
 
 </Tabs>
 
+:::caution
+If you define both `branches` or `branches-ignore` *and* `paths` or `paths-ignore`, the workflow only runs when both filters are satisfied.
+
+For example, if your configuration file includes the following definition, the workflow runs only if there are changes to the `development` branch and `.github/workflows/semgrep.yml` :
+
+```yaml
+push:
+  branches:
+    - development
+  paths:
+    - .github/workflows/semgrep.yml
+```
+:::
+
 <details><summary>Alternate job that uploads findings to GitHub Advanced Security Dashboard</summary>
 
 <GhaSemgrepAppSastDash />
@@ -347,6 +361,10 @@ The following configuration creates a CI job that runs an SCA scan using Semgrep
 </Tabs> 
 
 ## Azure Pipelines
+
+:::info
+Scanning a project with the `semgrep ci` command requires the project to be version-controlled by Git. If you have Azure Repos that are version-controlled with [Team Foundations Version Control](https://learn.microsoft.com/en-us/azure/devops/repos/tfvc/what-is-tfvc?view=azure-devops), they must be migrated to Git to be scanned with `semgrep ci` and have results reported to the Semgrep Cloud Platform.
+:::
 
 To add Semgrep into Azure Pipelines:
 

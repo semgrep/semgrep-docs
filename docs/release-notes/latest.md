@@ -9,100 +9,136 @@ tags:
   - Release notes
 ---
 
-# September 2023 release notes
+# Semgrep release notes for December 2023
 
-:::info
-* Moving forward, these release notes cover the following products:
-    * Semgrep Cloud Platform
-    * Semgrep Code
-    * Semrep Supply Chain
-    * Semgrep Assistant (beta)
-    * Semgrep documentation and knowledge base
-* Refer to **Semgrep OSS** release notes in [<i class="fas fa-external-link fa-xs"></i> Semgrep GitHub > Releases](https://github.com/returntocorp/semgrep/releases/) as the source of truth for OSS releases.
-:::
+## 🔧 OSS Engine
 
-## Private beta sign-ups
+* The following versions of the OSS Engine were released in December 2023:
 
-* **Semgrep Secrets** is a code scanner that detects exposed API keys, passwords, and other credentials. Sign up for the private beta by filling out the [<i class="fas fa-external-link fa-xs"></i> Semgrep Secrets Beta](https://get.semgrep.dev/secrets-beta-request.html) form.
-* **Semgrep Supply Chain SBOM (software bill of materials)** enables you to export a list of dependencies in the CycloneDX 1.4 XML/JSON format. Sign up for the private beta by filling out the [<i class="fas fa-external-link fa-xs"></i> SSC SBOM Export](https://get.semgrep.dev/SBOM-Export-private-beta.htm) form.
+  * [<i class="fas fa-external-link fa-xs"></i>
+    1.52.0](https://github.com/returntocorp/semgrep/releases/tag/v1.52.0)
+  * [<i class="fas fa-external-link fa-xs"></i>
+    1.53.0](https://github.com/returntocorp/semgrep/releases/tag/v1.53.0)
+  * [<i class="fas fa-external-link fa-xs"></i>
+    1.54.0](https://github.com/returntocorp/semgrep/releases/tag/v1.54.0)
+  * [<i class="fas fa-external-link fa-xs"></i>
+    1.54.1](https://github.com/returntocorp/semgrep/releases/tag/v1.54.1)
 
-## 🔧 Semgrep OSS Engine
-
-* The following versions of Semgrep OSS Engine were released in September 2023:
-  * [<i class="fas fa-external-link fa-xs"></i> 1.38.0](https://github.com/returntocorp/semgrep/releases/tag/v1.38.0)
-  * [<i class="fas fa-external-link fa-xs"></i> 1.39.0](https://github.com/returntocorp/semgrep/releases/tag/v1.39.0)
-  * [<i class="fas fa-external-link fa-xs"></i> 1.40.0](https://github.com/returntocorp/semgrep/releases/tag/v1.40.0)
-  * [<i class="fas fa-external-link fa-xs"></i> 1.41.0](https://github.com/returntocorp/semgrep/releases/tag/v1.41.0)
-  * [<i class="fas fa-external-link fa-xs"></i> 1.42.0](https://github.com/returntocorp/semgrep/releases/tag/v1.42.0)
-
-## 🌐 Semgrep Cloud Platform
+## 🌐 Cloud Platform
 
 ### Added
 
-- UX: Added a new **onboarding** flow. This onboarding flow streamlines the following steps to ensure that users are able to quickly add repositories for scanning with Semgrep: <!-- #10473 -->
-	- **Deployment creation**. The Semgrep team has made improvements to Semgrep account creation and connecting your source code manager, such as GitHub or GitLab. 
-	- **Onboarding checklist.** This helps you troubleshoot and resolve any issues early on in your journey.
-	- **Tour of features**. Make the most of your Semgrep experience by learning what features are available to you.
-- Logging into Semgrep Cloud Platform through the CLI associates your CLI user ID to your Semgrep Cloud Platform account. See the [<i class="fas fa-external-link fa-xs"></i> Anonymous User ID](https://github.com/returntocorp/semgrep/blob/develop/PRIVACY.md#anonymous-user-id) section for more details.
+* Semgrep IDE integrations now cache information about the current repository so
+  that it doesn't traverse the entire repository on every scan to determine if
+  the files are valid targets for scanning; this improves scan times.
+* Users can now ignore findings locally in Semgrep IDE extensions. The changes
+persist between restarts, though they're not reported back to Semgrep Cloud
+Platform and don't affect the remote repository or other users. Note that these findings
+are still detected when Semgrep scans your code, typically when opening a pull
+request or merge request.
+* The metrics collected now include more granular information to help
+differentiate scans using different engine capabilities, such as intraprocedural
+scans without secrets validation versus intraprocedural scans *with* secrets
+validation.
+* **CLI tool**: Added new `semgrep test` subcommand, which is an alias for
+`semgrep scan --test`. **Note**: If the **name** of the directory you are
+scanning is `test`, use `semgrep scan test` to avoid confusion with the new
+`semgrep test` subcommand.
 
 ### Changed
 
-- **SCM configuration:** Improved the **Delete message** when deleting SCMs, so that you are aware of the implications of removing an SCM. Many major Semgrep features rely on a connection with your source code manager, so take care when deleting SCMs.
+* **OCaml**: Switched to a tree-sitter-based parser instead of the Menhir
+  parser.
+* **Rust**: Updated the parser used for Rust.
 
 ### Fixed
 
-- **GitLab:** Fixed the GitLab CI sample configuration file to help users onboard GitLab repositories more clearly. In particular, the configuration file now includes the `GITLAB_TOKEN` environment variable, which was previously only in the docs.
-- Fixed a timeout issue when syncing large numbers (15,000+) of GitHub repositories in Semgrep Cloud Platform.
-- Fixed performance issues when synchronizing Semgrep Cloud Platform Projects with their corresponding GitHub repositories <!-- 10156 -->
-
-## 💻 Semgrep Code
-
-### Changed
-
-- **Findings page:** By default, the findings page now displays findings from **default (trunk or main) branches**. You can customize this filter by selecting a value from the **Branch** drop-down menu.
+* Fixed an issue where webhooks stopped working.
+* Fixed an issue so that clicking **Start Tour** now restarts the Getting Started
+  tutorial.
+* Fixed an issue where the **Members** page doesn't display a user's new role until
+  the page reloads. <!--OS-1233-->
+* Fixed an issue where users switching organizations would result in a 404.
+  <!--OS-136-->
+* Fixed the **Connect to** button under **Settings** > **Source Code Managers**
+  so that it displays correctly based on whether the user can connect to a
+  source code manager. <!-- https://github.com/semgrep/semgrep-app/pull/11812
+  -->
+* **CLI tool**: Updated CLI error message to clarify that users should log in
+  before running either:
+  * `semgrep ci`
+  * `semgrep scan --config`
+  
+## 💻 Code
 
 ### Fixed
 
-- Various UX/UI bugfixes in the Findings page. 
+* Fixed an issue where Semgrep Code findings marked as **fixed** can be triaged through
+  the rule group. Once a finding is fixed, its triage status can't be changed back
+  to **ignored**.
+  <!--FIND-1453-->
+* Fixed an issue where the rule information card and the rule preview are missing
+  for older findings; all findings now display this information.
+  <!--FIND-1433-->
+* Fixed an issue where the finding's severity displayed doesn't match the rule's
+  severity once the rule has been updated. <!--FIND-1397-->
 
 ## ⛓️ Semgrep Supply Chain
 
+### Changed
+
+* Fixed an issue where empty tables in `pyproject.toml` files would fail to parse.
+
+## 🤖 Assistant (beta)
+
 ### Added
 
-- **Filtering:** Allow users to select more than one branch at a time.
+* Added the **Analyze** button to Semgrep Cloud Platform's **Code** page, which
+triggers all Assistant functions on selected findings, including autofix, autotriage, and component
+tagging. After Assistant performs these functions, users
+can see their results if they filter for findings based on **Recommendation** or
+by **Component**. Additionally, users who choose **No Grouping** instead of
+**Group by Rule** see false positive and true positive recommendations when
+viewing their finding details pages. 
 
-## 🤖 Semgrep Assistant (beta)
+## 🔐 Secrets (beta)
 
 ### Added
 
-- **GitLab:** Semgrep Assistant now supports GitLab cloud hosted and self-managed repositories.
-- **Findings page**: Semgrep Assistant verdicts now appear in the Findings page if Assistant recommends that the finding should be **Ignored**. <!-- #10438 -->
-![Sample finding entry with Semgrep Assistant verdict](/img/sept-2023-assistant-findings.png)
-- **Finding Details page:** For findings with autofixes, the finding's detail page includes a link to the PR comment with the autofix since the PR comment allows for directly committing the autofix. <!-- #10516 -->
+* Added support for custom validator rules, which can be written using Semgrep's
+  Rules Editor and run using `semgrep ci --allow-untrusted-validators`. Note
+  that custom validator rules are private and can't be shared to Semgrep
+  Registry.
 
 ### Fixed
 
-- **GitLab:** Fixed a bug in which comments were not appearing on GitLab.com cloud-hosted repositories.
+* Fixed an issue where the **Ignore** button doesn't work when triaging Secrets.
+  <!--SCRT-283-->
 
 ## 📝 Documentation and knowledge base
 
 ### Added
 
+* Added [Quickstart](/docs/getting-started/quickstart/).
+* Added [Privacy and legal considerations](/docs/semgrep-code/semgrep-assistant-code#privacy-and-legal-considerations) information for Semgrep Assistant.
 * New knowledge base articles:
-    * [<i class="fa-regular fa-file-lines"></i> Failed to run a git command during pull or merge request scans](/kb/semgrep-ci/git-command-errors/)
-    * [<i class="fa-regular fa-file-lines"></i> How to exclude certain file types for a particular rule](kb/rules/exclude_rule_for_certain_filetypes/)
-    * [<i class="fa-regular fa-file-lines"></i> Why isn’t Semgrep reporting all my tainted data flows?](kb/semgrep-code/finding_all_taints/ )
-    * [<i class="fa-regular fa-file-lines"></i> How to scan multiple or nested lock files](kb/semgrep-supply-chain/scanning_multiple_lockfiles/)
-* [<i class="fa-regular fa-file-lines"></i> Semgrep Assistant](/semgrep-code/semgrep-assistant-code/#enabling-semgrep-assistant): Added a guide to setting up Assistant on GitLab MRs.
-* [<i class="fa-regular fa-file-lines"></i> Supported languages](/supported-languages/#language-maturity-factors-pro-engine): Added a section on Semgrep Pro Engine language maturity factors. These are the criteria that determine if a language is generally available (GA) or beta.
+  * [Fix pattern parse errors when running rules](/docs/kb/rules/pattern-parse-error)
+  * [How to scan a large monorepo](/docs/kb/semgrep-code/scanning-large-monorepo)
+  * [Scanning a monorepo in parts](/kb/semgrep-ci/scan-monorepo-in-parts)
+  * [SSO Error: Signature validation failed. SAML Response rejected](/docs/kb/semgrep-cloud-platform/saml-bad-signature)
+  * [Troubleshooting "You are seeing this because the engine was killed" on monorepos](/docs/kb/semgrep-code/scan-engine-kill)
 
 ### Changed
 
-* Integrated **Ask** (GPT-powered chat) and **Search** functions into one modal.
-* Clarifications on various Semgrep Supply Chain behaviors.
-* [<i class="fa-regular fa-file-lines"></i> Sample CI configurations](semgrep-ci/sample-ci-configs/):  Updated various CI configurations for standalone SAST scans.
-* A clarification has been added on [Semgrep exit codes in conjunction with the `error` flag](docs/cli-reference/#exit-codes). Thank you to [Bernardo de Araujo](https://github.com/bernardoamc) for this contribution.
+* Updated overview articles for [Semgrep Code](/semgrep-code/overview/) and
+  [Semgrep Supply Chain](/docs/semgrep-supply-chain/overview/).
+* Updated documentation on setting up pull request or merge request comments for
+  [GitHub](/docs/semgrep-cloud-platform/github-pr-comments/),
+  [GitLab](/docs/semgrep-cloud-platform/gitlab-mr-comments/), and
+  [Bitbucket](/docs/semgrep-cloud-platform/bitbucket-pr-comments/) users.
+* General improvements to API docs, including clarification of usage
+  instructions for Supply Chain and Secrets endpoints.
 
-### Removed
+### Fixed
 
-* Semgrep CLI autocomplete documentation has been removed.
+* Minor corrections and updates to various articles.
