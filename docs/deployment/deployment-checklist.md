@@ -12,7 +12,7 @@ Before starting the deployment setup, use this checklist to ensure that:
 - You have **access** to the resources needed to carry out the deployment.
 - You and your organization agree on the **scope** of the deployment.
 
-## Permissions and  access 
+## Permissions and access 
 
 Ensure that you and your deployment team have sufficient permissions to:
 
@@ -27,6 +27,10 @@ Ensure that you and your deployment team have sufficient permissions to:
         - [<i class="fas fa-external-link fa-xs"></i> GitLab guide](https://docs.gitlab.com/ee/ci/secrets/)
 - For SSO: View SSO configurations.
 - For notifications: Set up channels in your chosen notification method (Slack, email, or webhooks).
+
+tk to edit in
+For GitHub or GitLab SaaS users: A GitHub or GitLab SaaS repository associated with your account.
+For BitBucket SaaS users: A BitBucket repository and sufficient permissions to edit a BitBucket Pipeline and add repository variables.
 
 ## Resources
 

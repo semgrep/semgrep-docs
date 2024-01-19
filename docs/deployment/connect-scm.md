@@ -11,7 +11,11 @@ tags:
 
 # Connect a source code manager
 
-Linking a source code manager (SCM) provides the following benefits:
+:::note Your deployment journey
+- You have [<i class="fa-regular fa-file-lines"></i> created a Semgrep account and organization](/deployment/create-account-and-orgs). 
+:::
+
+Linking a source code manager provides the following benefits:
 
 - Allows the Semgrep org membership to be managed by GitHub or GitLab.
 - For GitHub users:

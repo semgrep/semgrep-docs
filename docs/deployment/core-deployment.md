@@ -18,6 +18,8 @@ Deployment includes:
 - Managing team members' access and authentication.
 - Ensuring that Semgrep has sufficient access to your self-hosted source code manager (SCM), such as GitLab Self-Managed.
 
+Semgrep does not require code access to complete the core deployment process. Your code is not sent anywhere. 
+
 :::tip Are these guides for you?
 - These guides outline procedures for the deployment of Semgrep as part of a security program. To try out Semgrep, refer to the [<i class="fa-regular fa-file-lines"></i> Quickstart](/getting-started/quickstart) document.
 - Individual users can also use these guides to deploy Semgrep as part of their personal security.
@@ -104,8 +106,8 @@ At the minimum, your deployment of Semgrep consists of the following steps:
 
 ![Core deployment steps](/img/core-deployment.png#sm-width-noborder)
 
-To manage a large volume of users and repositories, you may need to perform additional steps:
 
+To manage a large volume of users and repositories, you may need to perform additional steps:
 - Role management.
 - Tagging projects.
 

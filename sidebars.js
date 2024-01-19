@@ -58,6 +58,7 @@ module.exports = {
                 'deployment/connect-scm',
                 /* 'semgrep-cloud-platform/scm', superseded by connect-scm */
                 'deployment/sso',
+                'deployment/add-semgrep-to-cicd',
                 'semgrep-cloud-platform/getting-started',
                 {
                     type: 'category',
