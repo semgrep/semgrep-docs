@@ -138,4 +138,5 @@ Semgrep requires the following permissions (scopes) to enable the authentication
 </TabItem>
 </Tabs>
 
+Bitbucket - repository variables
 
