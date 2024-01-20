@@ -11,55 +11,36 @@ tags:
 
 # Semgrep Pro versus Semgrep OSS
 
-You can use both Semgrep Pro and Semgrep OSS Engine to scan your code. Semgrep uses (explain rules and scanner) This document outlines  key differences between the two product lines.
+You can use Semgrep Pro or Semgrep OSS to scan your code for security issues, bugs, and compliance to coding standards. Semgrep uses both an engine and rules to scan your code.
+
+**Rules**, which are written in YAML, describe how Semgrep generates a **finding**, such as a security issue. A rule encapsulates the pattern-matching logic and is meant to be readable and customizable.
+
+The **engine** runs an analysis using the rules you have configured it to run. Semgrep provides both a proprietary Pro engine, and an OSS engine. 
+
+This document outlines key differences between the Semgrep OSS and Pro product lines.
 
 The terms used in this document are defined as follows:
 
 <dl>
 <dt>Semgrep OSS</dt>
-<dd>Refers to Semgrep offerings with an open-source license, primarily the Semgrep OSS Engine, a fast and customizable static application security testing (SAST) scanner. To run Semgrep completely on OSS, use rules in the <a href=" https://semgrep.dev/r/"><i class="fas fa-external-link fa-xs"></i> Semgrep Registry</a> with an open source license, or write your own custom rules.</dd>
+<dd>Refers to Semgrep offerings with an open-source license, primarily the Semgrep OSS Engine, a fast and customizable static application security testing (SAST) scanner. To run Semgrep completely on OSS, use the OSS Engine and rules in the <a href=" https://semgrep.dev/r/"><i class="fas fa-external-link fa-xs"></i> Semgrep Registry</a> with <strong>open source licenses</strong>, or write your own custom rules.</dd>
 <dt>Semgrep Pro</dt>
-<dd>Refers to proprietary product offerings from Semgrep, Inc. These include:<ul>
-<li>Semgrep Code - a SAST scanner that uses cross-file (interfile) analysis for improved results. Semgrep Code includes premium rules, known as Pro rules, that </li>
-<li>Semgrep Supply Chain - a software composition analysis (SCA) </li>
-<li>Semgrep Secrets (beta)</li>
-<li>Semgrep Cloud Platform</li>
-</ul>
+<dd>Refers to proprietary product offerings from Semgrep, Inc. These include:<dl>
+<dt>Semgrep Code</dt><dd>A SAST scanner that uses cross-file (interfile) analysis for improved results over Semgrep OSS. Semgrep Code includes premium rules, known as Pro rules, that use the cross-file analysis to reduce false positives.</dd>
+<dt>Semgrep Supply Chain</dt><dd>A high-signal dependency scanner that detects reachable vulnerabilities in open source third-party libraries and functions across the software development life cycle (SDLC).</dd>
+<dt>Semgrep Secrets (beta)</dt><dd>A a secrets scanner that, in addition to detecting secrets, validates these leaked secrets on a variety of services to help you prioritize active secrets.</dd>
+<dt>Semgrep Cloud Platform</dt><dd>A a web application for the deployment, management, and monitoring of findings from Semgrep's SAST, SCA, and secrets scanners. It integrates with continuous integration (CI) providers such as GitHub Actions, GitLab CI/CD, CircleCI, and more.</dd>
+</dl>
 </dd>
 </dl>
 
-
-## 🧾 Licenses and tiers
-
-<table>
-    <thead>
-        <tr>
-            <th>Product line</th>
-            <th>License</th>
-            <th>Tiers</th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr>
-            <td>Semgrep Pro</td>
-            <td>Proprietary</td>
-            <td><ul><li>Semgrep Team</li>
-            <li>Semgrep Enterprise</li></ul></td>
-        </tr>
-        <tr>
-            <td>Semgrep OSS Engine</td>
-            <td>GNU LGPL 2.1</td>
-            <td>--</td>
-        </tr>
-        <tr>
-            <td>Publicly-contributed rules</td>
-            <td>Various; dependent on author</td>
-            <td>--</td>
-        </tr>
-    </tbody>
-</table>
-
-See [<i class="fa-regular fa-file-lines"></i> Licensing](/licensing/#semgrep-registry-license) for more details.
+:::tip
+The following products are **free** for up to 10 contributors:
+* Semgrep Cloud Platform
+* Semgrep Code
+* Semgrep Supply Chain
+* Semgrep Secrets
+:::
 
 ## 🔎 Core scanning features
 
@@ -108,7 +89,7 @@ The following table displays customization features and tools that enhance Semgr
 | [Policy-based workflows†](/semgrep-code/policies/)           | --                                              | ✔️                                           |
 | Rule-writing environment                                     | ✔️ [Playground](https://semgrep.dev/playground) | ✔️ Playground and Editor for logged-in users |
 
-\*Private rules refer to rules that are guaranteed a private access scope in the cloud. This scope of access does not apply to Semgrep OSS, as it is purely CLI-based.<br />
+\*Private rules refer to rules that are guaranteed a private access scope in the cloud. This scope of access does not apply to Semgrep OSS, as Semgrep OSS is purely CLI-based.<br />
 † Policy-based workflows provide security teams a means to block merges, leave PR/MR comments, or silently monitor for potential issues based on the presence of a finding.
 
 ### 🤖 Developer experience
@@ -118,6 +99,7 @@ The following table lists tools to enable developers to resolve their own code.
 | Feature                   | Semgrep OSS | Semgrep Pro |
 | ------------------------- | ----------- | ----------------- |
 | VS Code extension         | ✔️          | ✔️                |
+| IntelliJ extension        | ✔️          | ✔️                |
 | Autofix                   | ✔️          | ✔️                |
 | Autofix in PR/MR comments | --          | ✔️                |
 | Autofix AI                | --          | ✔️                |
@@ -132,6 +114,40 @@ The following table lists tools to enable developers to resolve their own code.
 | [Role-based access control (RBAC)](/semgrep-cloud-platform/user-management/#controlling-access-through-roles) | --          | ✔️                |
 | [Personal and organizational accounts](/semgrep-cloud-platform/user-management/)                              | --          | ✔️                |
 | [SSO, OpenID, or OAuth2 authentication](/semgrep-cloud-platform/sso/)                                         | --          | ✔️                |
+
+## 🧾 Licenses and tiers
+
+<table>
+    <thead>
+        <tr>
+            <th>Product line</th>
+            <th>License</th>
+            <th>Tiers</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>Semgrep Pro</td>
+            <td>Proprietary</td>
+            <td><ul><li>Semgrep Team</li>
+            <li>Semgrep Enterprise</li></ul></td>
+        </tr>
+        <tr>
+            <td>Semgrep OSS Engine</td>
+            <td>GNU LGPL 2.1</td>
+            <td>--</td>
+        </tr>
+        <tr>
+            <td>Publicly-contributed rules</td>
+            <td>Various; dependent on author</td>
+            <td>--</td>
+        </tr>
+    </tbody>
+</table>
+
+See [<i class="fa-regular fa-file-lines"></i> Licensing](/licensing/#semgrep-registry-license) for more details.
+
+<!-- don't have a good place to put this for now.
 
 ## Differences between Semgrep Code and Semgrep Supply Chain
 
@@ -187,4 +203,5 @@ The following table displays differences between Semgrep Code and Semgrep Supply
       <td>Slack</td>
     </tr>
   </tbody>
-</table>
+</table> -->
+

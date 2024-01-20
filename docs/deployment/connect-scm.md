@@ -2,7 +2,7 @@
 slug: connect-scm 
 title: Connect a source code manager
 hide_title: true
-description: tk
+description: Connect a GitHub or GitLab organization to manage user authentication.
 tags:
   - Semgrep Cloud Platform
   - Team & Enterprise Tier
@@ -11,7 +11,16 @@ tags:
 
 # Connect a source code manager
 
-Linking a source code manager (SCM) allows the Semgrep org's membership to be managed by GitHub or GitLab, among other benefits. After connecting your Semgrep org to GitHub or GitLab, members from GitHub or GitLab are able to join the Semgrep organization you created and connected.
+:::note Your deployment journey
+- You have [<i class="fa-regular fa-file-lines"></i> created a Semgrep account and organization](/deployment/create-account-and-orgs). 
+:::
+
+Linking a source code manager provides the following benefits:
+
+- Allows the Semgrep org membership to be managed by GitHub or GitLab.
+- For GitHub users:
+    - Provides Semgrep access to post PR or MR comments.
+    - For GitHub Actions users: Enables you to add a Semgrep CI job to repositories in bulk.
 
 You can only connect your Semgrep organization to the source code manager that you originally logged in with. If your organization uses both GitHub and GitLab to manage source code, log in with the source code manager that you would prefer to use to manage Semgrep org membership. You can still scan repositories from other sources.
 
@@ -42,8 +51,7 @@ You have successfully connected an org in Semgrep Cloud Platform with an organiz
 
 | GitHub | GitLab |
 | ------ | ------ |
-| GitHub Enterprise Server       | GitLab Ultimate        |
-tk list the gitlab plans by name and add "Self Managed" since "self-management" is a separate 'feature' regardless of plan
+| GitHub Enterprise Server       | Any GitLab Self Managed plan        |
 
 ### Table of required scopes for PATs
 
@@ -68,7 +76,6 @@ Integrate Semgrep into these custom source code management (SCM) tools by follow
     4. Ensure that your SCM integration successfully detects repositories by setting up a CI job for any repository you want to scan:
         1. Commit a `semgrep.yml` configuration file into the `.github/workflows` folder. Refer to [Sample CI configurations](/docs/semgrep-ci/sample-ci-configs#github-actions) for a template you can copy and customize. 
         2. The CI job starts automatically to establish a connection with Semgrep Cloud Platform. Upon establishing a connection, your repository appears in **Semgrep Cloud Platform > [Projects](https://semgrep.dev/orgs/-/projects)** page.
-       3. Repeat all steps under step (iv) to add more repositories into Semgrep Cloud Platform.
 5. For **GitLab Self Managed**, follow these steps:
     1. Create a PAT by following the steps outlined in this [guide to creating a PAT](https://docs.gitlab.com/ee/user/profile/personal_access_tokens.html). Ensure that the PAT is **[created with the required scopes](../scm/#table-of-required-scopes-for-pats)**.
     2. Enter the personal access token generated into the **Access token** field.
@@ -77,5 +84,8 @@ Integrate Semgrep into these custom source code management (SCM) tools by follow
         1. Create or edit your `.gitlab-ci.yml` configuration file to add Semgrep as part of your GitLab CI/CD pipeline. Refer to [Sample CI configurations](/docs/semgrep-ci/sample-ci-configs#gitlab-cicd) for a template you can copy and customize.
         2. Commit the updated `.gitlab-ci.yml` file.
         3. The CI job starts automatically to establish a connection with Semgrep Cloud Platform. Alternatively, if it does not start automatically, start the job from the GitLab CI/CD interface. Upon establishing a connection, your repository appears in **Semgrep Cloud Platform > [Projects](https://semgrep.dev/orgs/-/projects)** page.
-       4. Repeat all steps under step (iv) to add more repositories into Semgrep Cloud Platform.
 
+## Next steps
+
+- Optional: If you want to set up SSO to manage your users, see [<i class="fa-regular fa-file-lines"></i> SSO authentication](/deployment/sso).
+- You are ready to start your first remote scan.

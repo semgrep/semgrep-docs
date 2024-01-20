@@ -19,7 +19,7 @@ Before starting the deployment setup, use this checklist to ensure that:
 - You are aware of **permissions** that Semgrep needs to provide certain functions.
 - You have **access** to the resources needed to carry out the deployment.
 
-## Access 
+## Permissions and access 
 
 Ensure that you and your deployment team have sufficient permissions to:
 
@@ -35,11 +35,15 @@ Ensure that you and your deployment team have sufficient permissions to:
 - For SSO: View and edit SSO configurations.
 - For notifications: Set up channels in your chosen notification method (Slack, email, or webhooks).
 
+tk to edit in
+For GitHub or GitLab SaaS users: A GitHub or GitLab SaaS repository associated with your account.
+For BitBucket SaaS users: A BitBucket repository and sufficient permissions to edit a BitBucket Pipeline and add repository variables.
+
 ## Resources
 
 Ensure that you have met all the [<i class="fa-regular fa-file-lines"></i> Prerequisites](/getting-started/prerequisites) for Semgrep.
 
-Determine the following:
+Ensure that you and your deployment team agree on:
 
 - What roles or departments will use Semgrep.
 - The number of repositories you will scan with Semgrep.

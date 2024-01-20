@@ -18,8 +18,11 @@ Deployment includes:
 - Managing team members' access and authentication.
 - Ensuring that Semgrep has sufficient access to your self-hosted source code manager (SCM), such as GitLab Self-Managed.
 
+Semgrep does not require code access to complete the core deployment process. Your code is not sent anywhere. 
+
 :::tip Are these guides for you?
-These guides outline procedures for the deployment of Semgrep as part of a security program. To try out Semgrep, refer to the [<i class="fa-regular fa-file-lines"></i> Quickstart](/getting-started/quickstart) document.
+- These guides outline procedures for the deployment of Semgrep as part of a security program. To try out Semgrep, refer to the [<i class="fa-regular fa-file-lines"></i> Quickstart](/getting-started/quickstart) document.
+- Individual users can also use these guides to deploy Semgrep as part of their personal security.
 :::
 
 Many deployment features are set up through **Semgrep Cloud Platform**.
@@ -83,29 +86,28 @@ Semgrep supports many different technology stacks. Refer to the following table 
         </tr>
         <tr>
             <td>API</td>
-            <td>Check that Semgrep's API meets your needs. See <a href=""><i class="fas fa-external-link fa-xs" /> API docs</a> </td>
+            <td>Check that Semgrep's API meets your needs. See <a href=""><i class="fas fa-external-link fa-xs" /> API docs</a>.</td>
         </tr>
     </tbody>
 </table>
 
-### Deployment process
 
-#### Core deployment steps
+## Core deployment process
 
 At the minimum, your deployment of Semgrep consists of the following steps:
 
-1. Creating a Semgrep account. Each user of Semgrep has one account.
-1. Setting up organizations (orgs). Each Semgrep account can have many orgs. Orgs are logical groupings of related repositories and users.
-1. Setting up membership:
-    a. For GitHub or GitLab users, you can connect your Semgrep org to the orgs in your source code manager (SCM). This means that any member of an org in your SCM can sign in to your Semgrep deployment.
-    b. You can also use SSO to manage user authentication.
-1. Adding Semgrep into your CI workflows. This step ensures that your Semgrep deployment is up and running and that you receive **findings** of security issues in Semgrep Cloud Platform.
-1. Enabling Semgrep to post PR or MR comments.
+1. **Creating a Semgrep account**. Each user of Semgrep has one account.
+1. **Setting up organizations (orgs)**. Each Semgrep account can have many orgs. Orgs are logical groupings of related repositories and users.
+1. **Setting up membership**:
+    - For GitHub or GitLab users, you can connect your Semgrep org to the orgs in your source code manager (SCM). This means that any member of an org in your SCM can sign in to your Semgrep deployment.
+    - You can also use SSO to manage user authentication.
+1. **Adding Semgrep into your CI workflows**. This step ensures that your Semgrep deployment is up and running and that you receive **findings** of security issues in Semgrep Cloud Platform.
+1. **Enabling Semgrep to post PR or MR comments**.
 
 ![Core deployment steps](/img/core-deployment.png#sm-width-noborder)
 
-To manage a large volume of users and repositories, you may need to perform additional steps:
 
+To manage a large volume of users and repositories, you may need to perform additional steps:
 - Role management.
 - Tagging projects.
 
@@ -113,7 +115,7 @@ These steps are covered in the section Enterprise and large teams.
 
 Team size isn't necessarily indicative of deployment needs. Features for large teams can be deployed for smaller teams, too, and are available on the Semgrep Team Tier.
 
-#### Additional deployment features
+## Additional deployment features
 
 You can integrate Semgrep further into your security workflows after some initial testing of your core deployment. Once everything works smoothly, you can:
 
@@ -121,7 +123,7 @@ You can integrate Semgrep further into your security workflows after some initia
 - Encourage developers to set up Semgrep as a linter in their IDE.
 - Integrate Semgrep with project management software (Private beta).
 
-### Next steps
+## Next steps
 
 Click **Next** to begin setting up your core deployment.
 
