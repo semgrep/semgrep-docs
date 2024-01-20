@@ -10,8 +10,10 @@ tags:
 import MoreHelp from "/src/components/MoreHelp"
 import PlatformAddRepo from "/src/components/procedure/_platform-add-repo.md"
 import PlatformDetectGhRepos from "/src/components/procedure/_platform-detect-ghrepos.md"
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-# Add Semgrep to CI/CD
+# Add Semgrep to CI
 
 :::note Your deployment journey
 - You have [<i class="fa-regular fa-file-lines"></i> created a Semgrep account and organization](/deployment/create-account-and-orgs). 
@@ -31,15 +33,77 @@ This guide walks you through creating a Semgrep job in the following CI provider
 - Buildkite
 - Azure Pipelines
 
-If your provider is not on this list, you can still integrate Semgrep into your CI by following the steps in [<i class="fa-regular fa-file-lines"></i> ] Add Semgrep to other CI providers tk link.
+If your provider is not on this list, you can still integrate Semgrep into your CI workflows by following the steps in [<i class="fa-regular fa-file-lines"></i> ] Add Semgrep to other CI providers tk link.
 
-## Add a Semgrep job through Semgrep Cloud Platform
+## Projects
+
+Adding a Semgrep job to your CI provider also adds the repository's records, including findings, as a **project** in Semgrep Cloud Platform. Each Project can be individually configured to send notifications or tickets. 
+
+## Add Semgrep to CI through Semgrep Cloud Platform
+
+<Tabs
+    defaultValue="gha"
+    values={[
+    {label: 'GitHub Actions', value: 'gha'},
+    {label: 'Other in-app providers', value: 'other'},
+    ]}
+>
+
+<TabItem value='gha'>
+
+To add a CI job to GitHub Actions:
+
+1. Ensure you are signed in to Semgrep Cloud Platform.
+1. Click **[Projects](https://semgrep.dev/orgs/-/projects)** on the left sidebar.
+1. Click **Scan new project > CI/CD**.
+1. Click **GitHub Actions**.
+1. A list of repositories appears. Select all the repositories you want to add a Semgrep job to.
+1. If you do not see the repository you want to add, adjust [<i class="fas fa-external-link fa-xs"></i> GitHub Application's Repository Access](https://github.com/settings/installations) configuration. See [Detecting GitHub repositories](#detecting-github-repositories) for more information.
+1. Click **Add CI job**. You are taken to the Add CI job page.
+1. Optional: Click **Review CI config** to see Semgrep's default YAML configuration file. 
+1. Click **Commit file**.
+
+You have now added a Semgrep job to your CI provider. A scan begins automatically after adding a new repository. Its findings are sent to Semgrep Cloud Platform for triage and remediation.
+
+### Detecting GitHub repositories
+
+<PlatformDetectGhRepos />
+
+</TabItem>
+
+<TabItem value="other">
 
 <PlatformAddRepo />
 
-#### Detecting GitHub repositories
+</TabItem>
+</Tabs>
 
-<PlatformDetectGhRepos />
+## Sample CI configuration snippets
+
+## Configuring your CI job
+
+### Diff-aware scanning
+
+Diff-aware scanning definition tk
+
+#### Automatically enabled
+
+
+- GitHub Actions
+- GitLab CI/CD
+- Bitbucket
+- CircleCI
+- Buildkite
+
+#### Requires set up
+
+- Azure Pipelines
+- Jenkins
+
+### Setting a scan schedule
+
+### Setting a custom timeout
+
 
 
 ## Next steps
@@ -48,7 +112,7 @@ Set up PR comments
 
 <!-- After setting up PR comments:
 
-1. Configure SCA scans
+1. (If applicable) Configure SCA scans
 -> Core deployment is done at this point
 
 2. Enterprise stuff
