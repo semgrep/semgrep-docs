@@ -27,7 +27,7 @@ You can only connect your Semgrep organization to the source code manager that y
 The process to connect a source code manager depends on whether your SCM tool is cloud-hosted by the service provider, hosted on-premise, or hosted as a single-tenant by the service provider.
 
 :::note Review necessary permissions 
-Refer to the [<i class="fa-regular fa-file-lines"></i> Pre-deployment checklist](/deployment/deployment-checklist) to ensure you have permissions necessary to perform these steps.
+Refer to the [<i class="fa-regular fa-file-lines"></i> Pre-deployment checklist](/deployment/checklist/) to ensure you have permissions necessary to perform these steps.
 :::
 
 ## Connect to cloud-hosted orgs
