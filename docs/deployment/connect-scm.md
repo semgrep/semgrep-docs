@@ -55,7 +55,7 @@ You have successfully connected an org in Semgrep Cloud Platform with an organiz
 
 ### Table of required scopes for PATs
 
-Semgrep Cloud Platform requires PATs with assigned scopes. These scopes grant necessary permissions to the PAT and vary depending on the user's plan.
+Semgrep Cloud Platform requires personal access tokens (PATs) with assigned scopes. These scopes grant necessary permissions to the PAT and vary depending on the user's plan.
 
 | GitHub Enterprise Server          | GitLab Self-Managed        |
 |:---------------------------|:---------------------------|
