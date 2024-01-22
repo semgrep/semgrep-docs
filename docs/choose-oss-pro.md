@@ -46,7 +46,7 @@ The following products are **free** for up to 10 contributors:
 
 The following tables describe Semgrep's essential scanning and findings management capabilities.
 
-### SAST (Static Application Security Testing)
+### SAST (Static application security testing)
 
 | Feature                                                                               | Semgrep OSS | Semgrep Pro |
 | ------------------------------------------------------------------------------------- | ----------- | ---------------------- |
