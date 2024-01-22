@@ -57,7 +57,7 @@ Semgrep gets API permissions to access code on your pre-selected GitHub or GitLa
 * Semgrep Assistant logs and stores the GPT prompts and responses for the sake of performance evaluation, which include source code snippets.
 * Semgrep Assistant sends relevant lines of code to OpenAI's API, where currently, the "relevant lines of code" means lines that are part of the Semgrep finding, plus 10 lines of context on each side. Semgrep, Inc. is likely to expand this, potentially to the entire file, as we learn how to pass more useful context.
 * Semgrep stores and retains these code snippets for up to 6 months. Semgrep, Inc. will update you with at least a 30-day notice if we make any changes to the retention policy.
-* Semgrep, Inc. is a paying customer of OpenAI and has a Data Protection Agreement signed with them (provided upon request by [contacting support](/docs/support). The code snippets we upload are be persisted by OpenAI temporarily, following their data usage policies at [Open AI API data Usage Policies](https://openai.com/policies/api-data-usage-policies).
+* Semgrep, Inc. is a paying customer of OpenAI and has a Data Protection Agreement signed with them (provided upon request by [contacting support](/docs/support). The code snippets we upload are persisted by OpenAI temporarily, following their data usage policies at [Open AI API data Usage Policies](https://openai.com/policies/api-data-usage-policies).
 * Semgrep, Inc. takes the following steps to protect data that is processed by AI since Assistant requires the sharing of code snippets with a third party:
   * Semgrep shares code snippets with OpenAI without identifying the customer or repository name.
   * Semgrep only shares the code necessary to enlist the help of GPT in automating the resolution of each specific alert.
@@ -105,7 +105,7 @@ Semgrep Assistant requires the **API scope** to run in both GitLab SaaS and GitL
 </TabItem>
 </Tabs>
 
-## Enabling Semgrep Assistant
+## Enable Semgrep Assistant
 
 <Tabs
     defaultValue="github"
@@ -175,7 +175,7 @@ You have successfully enabled Semgrep Assistant for cloud-hosted GitLab plans.
 
 To further customize Semgrep Assistant, see:
 
-* [Suggesting autofix code snippets to resolve the finding](#suggesting-autofix-code-snippets-to-resolve-the-finding)
+* [Suggesting autofix code snippets to resolve the finding](#suggest-autofix-code-snippets-to-resolve-the-finding)
 
 :::caution Not receiving PR comments?
 Semgrep Assistant messages only appear in your PR comments for rules that are set to Comment or Block mode in the Rule Management page. Ensure the following:
@@ -190,29 +190,36 @@ Semgrep Assistant messages only appear in your PR comments for rules that are se
 
 The following are recommendations users can receive from Semgrep Assistant.
 
-### Analyzing if a finding is a true or false positive
+### Analyze if a finding is a true or false positive
 
-Semgrep Assistant can analyze if your finding is a true or false positive. The accuracy of its recommendations is roughly 60% and varies based on the language and framework you are using. This is its default use-case.
+Semgrep Assistant can analyze if your finding is a true or false positive. The accuracy of its recommendations is roughly 60% and varies based on the language and framework you are using. This is its default use case.
 
-### Suggesting autofix code snippets to resolve the finding
+### Suggest autofix code snippets to resolve the finding
 
 Semgrep Assistant can suggest [autofix](/writing-rules/autofix/) code snippets for Semgrep rules which do not have human-written autofix suggestions.
 
 To enable autofix by Semgrep Assistant, perform the following steps:
 
-1. While logged-in to Semgrep Cloud Platform, click **Settings > Deployment**.
+1. While logged in to Semgrep Cloud Platform, click **Settings > Deployment**.
 2. In the Code section, click Autofix <i class="fa-solid fa-toggle-large-on"></i> if it is not yet enabled.
 3. Click <i class="fa-solid fa-square-check"></i> **Also include Assistant-written autofixes**.
-4. Optional: Select the **confidence level** on the drop-down box. The value determines at what level of quality autofix code appears as suggestions. A lower confidence level means that Semgrep Assistant displays the autofix suggestion even when the code quality may be incorrect.
+4. Optional: Select the **confidence level** on the drop-down box. The value determines the level of quality at which the autofix code appears as a suggestion. A lower confidence level means that Semgrep Assistant displays the autofix suggestion even when the code quality may be incorrect.
 
 :::tip
-A low confidence level is recommended as even incorrect suggestions may be useful starting points.
+A low confidence level is recommended, as even incorrect suggestions may be useful starting points.
 :::
 
 ![ Screenshot of Semgrep Assistant generating a potential fix](/img/semgrep-assistant-autofix.png)
 *Figure*. Semgrep Assistant generating a potential fix.
 
-### Providing feedback to Semgrep Assistant
+## View Assistant recommendations
+
+You can [view all of Semgrep Assistant's
+recommendations](/semgrep-code/findings/#filtering-findings) by going to Semgrep
+Cloud Platform's **Findings** page and filtering by **Recommendation** or
+**Component**.
+
+## Provide feedback to Semgrep Assistant
 
 If Semgrep Assistant suggests that a finding is a false positive, you are prompted to leave feedback. Your feedback helps Semgrep refine the Assistant feature and is very much appreciated.
 
