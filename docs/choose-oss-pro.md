@@ -139,7 +139,7 @@ The following table lists tools to enable developers to resolve their own code.
         </tr>
         <tr>
             <td>Publicly-contributed rules</td>
-            <td>Various; dependent on author</td>
+            <td>Dependent on author</td>
             <td>--</td>
         </tr>
     </tbody>
