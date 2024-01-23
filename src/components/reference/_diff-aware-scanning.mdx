@@ -1,11 +1,4 @@
-:::info
-* Diff-aware scanning is automatically configured for GitHub Actions and GitLab CI/CD when the user runs Semgrep on PR or MR events. Do **not** set `SEMGREP_BASELINE_REF` for GitHub Actions or GitLab CI/DD.
-* For other CI providers, Semgrep Cloud Platform provides a full scan configuration by default. You can set up both diff-aware scanning and full scans through either of the following:
-    * Create separate jobs for diff-aware scans and full scans.
-    * If your CI provider supports conditional statements, use an if/then statement that detects the presence of `SEMGREP_BASELINE_REF`. 
-:::
-
-Semgrep scans can be classified by scope. The scope of a scan refers to what lines of code are scanned in a codebase. When classifying scans by scope, there are two types of scans:
+Semgrep scans can be classified by **scope**. The scope of a scan refers to what lines of code are scanned in a codebase. When classifying scans by scope, there are two types of scans:
 
 <dl>
     <dt>Full scan</dt>
@@ -15,19 +8,19 @@ Semgrep scans can be classified by scope. The scope of a scan refers to what lin
     <p>For example, imagine a hypothetical repository with 10 commits. You set commit number 8 as the baseline. Consequently, Semgrep only returns scan results introduced by changes in commits 9 and 10. This is how <code>semgrep ci</code> can run in pull requests and merge requests, since it reports only the findings that are created by those code changes. To run a diff-aware scan, use <code>SEMGREP_BASELINE_REF=<span class="placeholder">REF</span> semgrep ci</code> where <span class="placeholder">REF</span> can be a commit hash, branch name, or other Git reference.</p></dd>
 </dl>
 
+<!--
 ![Flow chart of Semgrep code scanning behavior based on environment variable](/img/diagram-semgrep_baseline_ref.png "Flow chart of Semgrep code scanning behavior based on environment variable")
-
-
 
 :::caution
 * Do **not** perform diff-aware scans on your `main` branch. Semgrep Cloud Platform keeps track of which findings have been fixed on a given branch. If you configure diff-aware scans on your main branch, and compare the last commit to the penultimate commit, Semgrep wrongly considers all findings from before the penultimate commit to be fixed.
 * Do **not** perform full scans on non-mainline or non-trunk branches. Performing full scans on every branch slows down your CI jobs, displays findings that developers did not introduce, and results in many duplicated findings in Semgrep Cloud Platform, resulting in a poorer experience.
 :::
- 
-### Examples of `SEMGREP_BASELINE_REF`
+ -->
+
+<!-- ### Examples of `SEMGREP_BASELINE_REF`
 
 To only report findings newly added since branching off from your `main` branch, set the following:
 <pre class="language-bash"><code>SEMGREP_BASELINE_REF=main</code></pre>
 
 To only report findings newly added after a specific commit, set the following:
-<pre class="language-bash"><code>SEMGREP_BASELINE_REF=<span className="placeholder">INSERT_GIT_COMMIT_HASH</span></code></pre>
+<pre class="language-bash"><code>SEMGREP_BASELINE_REF=<span className="placeholder">INSERT_GIT_COMMIT_HASH</span></code></pre> -->

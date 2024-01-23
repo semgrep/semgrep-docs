@@ -39,7 +39,6 @@ module.exports = {
         items: [
             'getting-started/quickstart',
             'supported-languages'
-            //'getting-started',
         ]
     },
     {
@@ -58,8 +57,16 @@ module.exports = {
                 'deployment/connect-scm',
                 /* 'semgrep-cloud-platform/scm', superseded by connect-scm */
                 'deployment/sso',
-                'deployment/add-semgrep-to-cicd',
-                'semgrep-cloud-platform/getting-started',
+                {
+                    type: 'category',
+                    collapsible: true,
+                    label: 'Add Semgrep to CI',
+                    link: {type: 'doc', id: 'deployment/add-semgrep-to-cicd'},
+                    items: [
+                        'deployment/add-semgrep-other-cicd',
+                        'deployment/configure-ci-jobs'
+                    ]
+                },
                 {
                     type: 'category',
                     label: 'Configuring SCA scans',
@@ -127,6 +134,16 @@ module.exports = {
           items: [
             'extensions/semgrep-vs-code',
             'extensions/semgrep-intellij'
+          ]
+        },
+        {
+          type: 'category',
+          label: 'Other scan environments',
+          collapsible: true,
+          link: {type: 'doc', id: 'semgrep-cloud-platform/notifications'},
+          items: [
+            'deployment/local-to-app-scans',
+            'deployment/cli-scans'
           ]
         },
             /*

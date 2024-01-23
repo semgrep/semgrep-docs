@@ -2,14 +2,18 @@
 slug: add-semgrep-to-cicd
 title: Add Semgrep to CI/CD
 hide_title: true
-description: tk
+description: "Set up your CI pipeline with Semgrep Cloud Platform for centralized rule and findings management."
 tags:
   - Deployment
 ---
 
 import MoreHelp from "/src/components/MoreHelp"
+
 import PlatformAddRepo from "/src/components/procedure/_platform-add-repo.md"
 import PlatformDetectGhRepos from "/src/components/procedure/_platform-detect-ghrepos.md"
+import DiffAwareScanning from "/src/components/reference/_diff-aware-scanning.mdx"
+import CiScheduling from "/src/components/reference/_ci-scheduling.mdx"
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
@@ -23,7 +27,7 @@ import TabItem from '@theme/TabItem';
 
 Semgrep is integrated into CI environments by creating a **job** (also known as an **action** for some CI providers) that is run by the CI provider. After a scan, findings are sent to Semgrep Cloud Platform for triage and remediation. 
 
-This guide walks you through creating a Semgrep job in the following CI providers:
+This guide walks you through creating a Semgrep job in the following **in-app CI providers**:
 
 - GitHub Actions
 - GitLab CI/CD
@@ -38,6 +42,9 @@ If your provider is not on this list, you can still integrate Semgrep into your 
 ## Projects
 
 Adding a Semgrep job to your CI provider also adds the repository's records, including findings, as a **project** in Semgrep Cloud Platform. Each Project can be individually configured to send notifications or tickets. 
+
+![Semgrep Cloud Platform Projects page](/img/projects-page.png)
+**Figure.** Semgrep Cloud Platform Projects page. This displays all the repositories you have successfully added a Semgrep job to.
 
 ## Add Semgrep to CI through Semgrep Cloud Platform
 
@@ -78,33 +85,25 @@ You have now added a Semgrep job to your CI provider. A scan begins automaticall
 </TabItem>
 </Tabs>
 
-## Sample CI configuration snippets
+:::tip
+You can edit your configuration files to send findings to **GitHub Advanced Security Dashboard (GHAS)** and **GitLab SAST Dashboard**. Refer to the following samples:
+- [GitHub Advanced Security Dashboard](/semgrep-ci/sample-ci-configs/#github-actions)
+- [GitLab SAST Dashboard](/semgrep-ci/sample-ci-configs/#gitlab-cicd)
+:::
 
-## Configuring your CI job
+### Sample CI configuration snippets
 
-### Diff-aware scanning
+Refer to the following table for links to sample CI configuration snippets:
 
-Diff-aware scanning definition tk
-
-#### Automatically enabled
-
-
-- GitHub Actions
-- GitLab CI/CD
-- Bitbucket
-- CircleCI
-- Buildkite
-
-#### Requires set up
-
-- Azure Pipelines
-- Jenkins
-
-### Setting a scan schedule
-
-### Setting a custom timeout
-
-
+| In-app CI provider   | Sample CI configuration snippet |
+| :------------------- | :-----------------------------  |
+| GitHub Actions       |  [`semgrep.yml`](/semgrep-ci/sample-ci-configs/#github-actions) |
+| GitLab CI/CD         | [`.gitlab-ci.yml`](/semgrep-ci/sample-ci-configs/#gitlab-cicd) |
+| Jenkins              | [`Jenkinsfile`](/semgrep-ci/sample-ci-configs/#jenkins) |
+| Bitbucket Pipelines  | [`bitbucket-pipelines.yml`](/semgrep-ci/sample-ci-configs/#bitbucket-pipelines) |
+| CircleCI             | [`config.yml`](/semgrep-ci/sample-ci-configs/#circleci) |
+| Buildkite            | [`pipelines.yml`](/semgrep-ci/sample-ci-configs/#buildkite) |
+| Azure Pipelines      | [`azure-pipelines.yml`](/semgrep-ci/sample-ci-configs/#azure-pipelines) |
 
 ## Next steps
 

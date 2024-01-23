@@ -19,6 +19,10 @@ Before starting the deployment setup, use this checklist to ensure that:
 - You are aware of **permissions** that Semgrep needs to provide certain functions.
 - You have **access** to the resources needed to carry out the deployment.
 
+:::tip
+Check out [How to introduce Semgrep to your organization](https://blog.trailofbits.com/2024/01/12/how-to-introduce-semgrep-to-your-organization/) from Trail of Bits for tips on how to evaluate and deploy Semgrep for your org.
+:::
+
 ## Permissions and access 
 
 Ensure that you and your deployment team have sufficient permissions to:
@@ -140,3 +144,10 @@ Semgrep requires the following permissions (scopes) to enable the authentication
 
 Bitbucket - repository variables
 
+## Semgrep versions
+
+Many improvements to the Semgrep Cloud Platform experience only work with up-to-date Semgrep CLI versions. As such, Semgrep Cloud Platform only supports the 10 most recent minor versions of Semgrep CLI. For example, if the latest release was 0.114.0, all versions greater than 0.104.0 are supported, while earlier versions, such as 0.103.0, can be deprecated or can result in failures.
+
+See [Updating Semgrep](/upgrading/) for information on how to upgrade.
+
+Docker users: use [the **latest** tag](https://hub.docker.com/r/returntocorp/semgrep/tags?page=1&name=latest) to ensure you are up-to-date.

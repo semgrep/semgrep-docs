@@ -91,7 +91,6 @@ Semgrep supports many different technology stacks. Refer to the following table 
     </tbody>
 </table>
 
-
 ## Core deployment process
 
 At the minimum, your deployment of Semgrep consists of the following steps:
