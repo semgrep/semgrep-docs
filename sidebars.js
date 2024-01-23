@@ -61,17 +61,17 @@ module.exports = {
                     type: 'category',
                     collapsible: true,
                     label: 'Add Semgrep to CI',
-                    link: {type: 'doc', id: 'deployment/add-semgrep-to-cicd'},
+                    link: {type: 'doc', id: 'deployment/add-semgrep-to-ci'},
                     items: [
-                        'deployment/add-semgrep-other-cicd',
-                        'deployment/configure-ci-jobs'
+                        'deployment/add-semgrep-other-ci',
+                        'deployment/customize-ci-jobs'
                     ]
                 },
                 {
                   type: 'category',
                   label: 'PR or MR comments',
                   collapsible: true,
-                  link: {type: 'doc', id: 'semgrep-cloud-platform/notifications'},
+                  link: {type: 'generated-index'},
                   items: [
                     'semgrep-cloud-platform/github-pr-comments',
                     'semgrep-cloud-platform/gitlab-mr-comments',

@@ -7,6 +7,8 @@ tags:
   - Deployment
 ---
 
+import NextStepsComments from "/src/components/concept/_next-steps-comments.mdx"
+
 # Add Semgrep to other CI providers
 
 :::note Your deployment journey
@@ -141,5 +143,4 @@ To verify that your Semgrep CI job is connected to Semgrep Cloud Platform:
 
 ## Next steps
 
-- Set up PR or MR comments.
-- Optional: Learn about customizing your scans: tk link. These customizations can be done any time.
+<NextStepsComments />

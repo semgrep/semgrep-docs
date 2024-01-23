@@ -1,24 +1,25 @@
 ---
 slug: configure-ci-jobs 
-title: Configure CI jobs 
+title: Customize CI jobs 
 hide_title: true
 description: tk
 tags:
-  - tk
+  - Deployment
 ---
 
 import DiffAwareScanning from "/src/components/reference/_diff-aware-scanning.mdx"
 import CiScheduling from "/src/components/reference/_ci-scheduling.mdx"
 
-# Configure your CI job
+# Customize your CI job
 
 :::note Your deployment journey
 - You have [<i class="fa-regular fa-file-lines"></i> created a Semgrep account and organization](/deployment/create-account-and-orgs). 
 - For GitHub and GitLab users: You have [<i class="fa-regular fa-file-lines"></i> connected your source code manager](/deployment/connect-scm).
 - Optionally, you have [<i class="fa-regular fa-file-lines"></i> set up SSO](/deployment/sso).
-- You have successfully added a Semgrep job to your CI workflow.
+- You have successfully added a [<i class="fa-regular fa-file-lines"></i> Semgrep job to your CI workflow](/deployment/add-semgrep-to-ci).
 :::
-Configure a job's parameters to achieve the following goals: 
+
+Customize a job's parameters to achieve the following goals: 
 
 * **Run Semgrep on a schedule**. Run full scans on mainline branches at the least intrusive time on developer teams.
 * **Run Semgrep with custom rules**. Apply rules specific to your organization's business goals and coding conventions.

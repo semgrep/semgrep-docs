@@ -1,5 +1,5 @@
 ---
-slug: add-semgrep-to-cicd
+slug: add-semgrep-to-ci
 title: Add Semgrep to CI/CD
 hide_title: true
 description: "Set up your CI pipeline with Semgrep Cloud Platform for centralized rule and findings management."
@@ -11,8 +11,7 @@ import MoreHelp from "/src/components/MoreHelp"
 
 import PlatformAddRepo from "/src/components/procedure/_platform-add-repo.md"
 import PlatformDetectGhRepos from "/src/components/procedure/_platform-detect-ghrepos.md"
-import DiffAwareScanning from "/src/components/reference/_diff-aware-scanning.mdx"
-import CiScheduling from "/src/components/reference/_ci-scheduling.mdx"
+import NextStepsComments from "/src/components/concept/_next-steps-comments.mdx"
 
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -37,7 +36,7 @@ This guide walks you through creating a Semgrep job in the following **in-app CI
 - Buildkite
 - Azure Pipelines
 
-If your provider is not on this list, you can still integrate Semgrep into your CI workflows by following the steps in [<i class="fa-regular fa-file-lines"></i> ] Add Semgrep to other CI providers tk link.
+If your provider is not on this list, you can still integrate Semgrep into your CI workflows by following the steps in [<i class="fa-regular fa-file-lines"></i> Add Semgrep to other CI providers](/deployment/add-semgrep-to-other-ci-providers).
 
 ## Projects
 
@@ -107,7 +106,7 @@ Refer to the following table for links to sample CI configuration snippets:
 
 ## Next steps
 
-Set up PR comments
+<NextStepsComments />
 
 <!-- After setting up PR comments:
 
@@ -121,11 +120,6 @@ Set up PR comments
 
 <!--  Outline of other docs
 
-1. This doc - steps through Semgrep Cloud Platform, including: 
-    - intro to diff-aware scanning,
-    - adding timeout
-    - setting a schedule
-    (For all CI providers listed in the app)
 2. GitHub actions branch protection
 3. Other CI providers (environment variables set up) -->
 
