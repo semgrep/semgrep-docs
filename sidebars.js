@@ -447,7 +447,10 @@ module.exports = {
       collapsible: false,
       items: [
         'semgrep-secrets/conceptual-overview',
-        'semgrep-secrets/getting-started'
+        'semgrep-secrets/getting-started',
+        'semgrep-secrets/customization',
+        'semgrep-secrets/rules',
+        'semgrep-secrets/validators'
       ]
     },
     {
