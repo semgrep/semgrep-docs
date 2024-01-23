@@ -68,6 +68,17 @@ module.exports = {
                     ]
                 },
                 {
+                  type: 'category',
+                  label: 'PR or MR comments',
+                  collapsible: true,
+                  link: {type: 'doc', id: 'semgrep-cloud-platform/notifications'},
+                  items: [
+                    'semgrep-cloud-platform/github-pr-comments',
+                    'semgrep-cloud-platform/gitlab-mr-comments',
+                    'semgrep-cloud-platform/bitbucket-pr-comments',
+                    ]
+                },
+                {
                     type: 'category',
                     label: 'Configuring SCA scans',
                     collapsible: true,
@@ -76,7 +87,7 @@ module.exports = {
                         'semgrep-supply-chain/setup-maven',
                         'semgrep-supply-chain/setup-jenkins-ui'
                     ]
-                },
+                }
             ]
         },
         {
@@ -94,9 +105,6 @@ module.exports = {
           collapsible: true,
           link: {type: 'doc', id: 'semgrep-cloud-platform/notifications'},
           items: [
-            'semgrep-cloud-platform/github-pr-comments',
-            'semgrep-cloud-platform/gitlab-mr-comments',
-            'semgrep-cloud-platform/bitbucket-pr-comments',
             'semgrep-cloud-platform/slack',
             'semgrep-cloud-platform/email',
             'semgrep-cloud-platform/webhooks'
@@ -140,7 +148,7 @@ module.exports = {
           type: 'category',
           label: 'Other scan environments',
           collapsible: true,
-          link: {type: 'doc', id: 'semgrep-cloud-platform/notifications'},
+          link: {type: 'generated-index'},
           items: [
             'deployment/local-to-app-scans',
             'deployment/cli-scans'
