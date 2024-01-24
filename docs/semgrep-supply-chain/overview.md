@@ -51,7 +51,7 @@ _Figure 2_. Relationship between a Supply Chain rule, lockfile, CVE record, and 
 ### Types of Semgrep Supply Chain findings
 
 Semgrep Supply Chains generates a **finding** any time it determines that your
-codebase leverages a package containing a vulnerability. In addition, Semgrep
+codebase uses or imports a package containing a vulnerability. In addition, Semgrep
 Supply Chain offers two levels of support for reachability analysis, [depending
 on your language](/supported-languages/#maturity-levels-1):
 
@@ -67,7 +67,7 @@ your critical/high-severity findings as either reachable or unreachable.
   vulnerabilities discovered before May 2022 or vulnerabilities with lower
   severity levels.
 
-* **lockfile-only languages**: For **[lockfile-only](/semgrep-supply-chain/glossary/#lockfile-only-rules)** languages, Semgrep Supply Chain's performance is comparable to that of [GitHub's Dependabot](https://github.com/dependabot). Semgrep Supply Chain generates these findings by checking the dependency's version listed in your lockfile or manifest against a list of versions with known vulnerabilities, but it does not run reachability analysis. Because Semgrep Supply Chain doesn't run reachability analysis, it can't determine whether the vulnerability is reachable. Such vulnerabilities are, therefore, flagged as undetermined.
+* **lockfile-only languages**: For **[lockfile-only](/semgrep-supply-chain/glossary/#lockfile-only-rules)** languages, Semgrep Supply Chain's performance is comparable to that of [GitHub's Dependabot](https://github.com/dependabot). Semgrep Supply Chain generates these findings by checking the dependency's version listed in your lockfile or manifest against a list of versions with known vulnerabilities, but it does not run reachability analysis. Because Semgrep Supply Chain doesn't run reachability analysis, it can't determine whether the vulnerability is reachable. Such vulnerabilities are, therefore, flagged as **undetermined**.
 
 Specific dependency and code match findings are called **usages**. SCP groups
 all usages together by vulnerability. For each vulnerability, SCP also displays
