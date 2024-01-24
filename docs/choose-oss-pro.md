@@ -23,7 +23,7 @@ The terms used in this document are defined as follows:
 
 <dl>
 <dt>Semgrep OSS</dt>
-<dd>Refers to Semgrep offerings with an open-source license, primarily the Semgrep OSS Engine, a fast and customizable static application security testing (SAST) scanner. To run Semgrep completely on OSS, use the OSS Engine and rules in the <a href=" https://semgrep.dev/r/"><i class="fas fa-external-link fa-xs"></i> Semgrep Registry</a> with <strong>open source licenses</strong>, or write your own custom rules.</dd>
+<dd>Refers to Semgrep offerings with an open-source license, primarily the Semgrep OSS Engine, a fast and customizable static application security testing (SAST) scanner. To run Semgrep completely on OSS, use the OSS Engine and rules in the <a href="https://semgrep.dev/r/"><i class="fas fa-external-link fa-xs"></i> Semgrep Registry</a> with <strong>open source licenses</strong>, or write your own custom rules.</dd>
 <dt>Semgrep Pro</dt>
 <dd>Refers to proprietary product offerings from Semgrep, Inc. These include:<dl>
 <dt>Semgrep Code</dt><dd>A SAST scanner that uses cross-file (interfile) analysis for improved results over Semgrep OSS. Semgrep Code includes premium rules, known as Pro rules, that use the cross-file analysis to reduce false positives.</dd>
