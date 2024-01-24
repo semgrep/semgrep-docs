@@ -192,7 +192,7 @@ The following are recommendations users can receive from Semgrep Assistant.
 
 ### Analyze if a finding is a true or false positive
 
-Semgrep Assistant can analyze if your finding is a true or false positive. The accuracy of its recommendations is roughly 60% and varies based on the language and framework you are using. This is its default use case. This feature is active in both PR/MR comments and Slack notifications.
+Semgrep Assistant can analyze if your finding is a true or false positive. The accuracy of its recommendations is roughly 60% and varies based on the language and framework you are using. This is its default use case. This feature is active in both PR and MR comments and Slack notifications.
 
 ### Suggest autofix code snippets to resolve the finding
 
