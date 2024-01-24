@@ -1,5 +1,5 @@
 ---
-slug: choose-oss-pro
+slug: semgrep-pro-vs-oss
 append_help_link: true
 title: Choose between Semgrep Pro and Semgrep OSS
 hide_title: true
@@ -23,7 +23,7 @@ The terms used in this document are defined as follows:
 
 <dl>
 <dt>Semgrep OSS</dt>
-<dd>Refers to Semgrep offerings with an open-source license, primarily the Semgrep OSS Engine, a fast and customizable static application security testing (SAST) scanner. To run Semgrep completely on OSS, use the OSS Engine and rules in the <a href=" https://semgrep.dev/r/"><i class="fas fa-external-link fa-xs"></i> Semgrep Registry</a> with <strong>open source licenses</strong>, or write your own custom rules.</dd>
+<dd>Refers to Semgrep offerings with an open-source license, primarily the Semgrep OSS Engine, a fast and customizable static application security testing (SAST) scanner. To run Semgrep completely on OSS, use the OSS Engine and rules in the <a href="https://semgrep.dev/r/"><i class="fas fa-external-link fa-xs"></i> Semgrep Registry</a> with <strong>open source licenses</strong>, or write your own custom rules.</dd>
 <dt>Semgrep Pro</dt>
 <dd>Refers to proprietary product offerings from Semgrep, Inc. These include:<dl>
 <dt>Semgrep Code</dt><dd>A SAST scanner that uses cross-file (interfile) analysis for improved results over Semgrep OSS. Semgrep Code includes premium rules, known as Pro rules, that use the cross-file analysis to reduce false positives.</dd>
@@ -35,11 +35,7 @@ The terms used in this document are defined as follows:
 </dl>
 
 :::tip
-The following products are **free** for up to 10 contributors:
-* Semgrep Cloud Platform
-* Semgrep Code
-* Semgrep Supply Chain
-* Semgrep Secrets
+All Semgrep Pro products are free for up to 10 contributors.
 :::
 
 ## 🔎 Core scanning features
@@ -122,7 +118,7 @@ The following table lists tools to enable developers to resolve their own code.
         <tr>
             <th>Product line</th>
             <th>License</th>
-            <th>Tiers</th>
+            <th>Subscription tiers</th>
         </tr>
     </thead>
     <tbody>

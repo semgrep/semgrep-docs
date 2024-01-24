@@ -1,24 +1,21 @@
 ---
-slug: configure-ci-jobs 
-title: Configure CI jobs 
+slug: customize-ci-jobs 
+title: Customize CI jobs 
 hide_title: true
 description: tk
 tags:
-  - tk
+  - Deployment
 ---
 
 import DiffAwareScanning from "/src/components/reference/_diff-aware-scanning.mdx"
 import CiScheduling from "/src/components/reference/_ci-scheduling.mdx"
+import DeploymentJourney from "/src/components/concept/_deployment-journey.mdx"
 
-# Configure your CI job
+# Customize your CI job
 
-:::note Your deployment journey
-- You have [<i class="fa-regular fa-file-lines"></i> created a Semgrep account and organization](/deployment/create-account-and-orgs). 
-- For GitHub and GitLab users: You have [<i class="fa-regular fa-file-lines"></i> connected your source code manager](/deployment/connect-scm).
-- Optionally, you have [<i class="fa-regular fa-file-lines"></i> set up SSO](/deployment/sso).
-- You have successfully added a Semgrep job to your CI workflow.
-:::
-Configure a job's parameters to achieve the following goals: 
+<DeploymentJourney />
+
+Customize a job's parameters to achieve the following goals: 
 
 * **Run Semgrep on a schedule**. Run full scans on mainline branches at the least intrusive time on developer teams.
 * **Run Semgrep with custom rules**. Apply rules specific to your organization's business goals and coding conventions.
@@ -40,7 +37,7 @@ This section only applies to the following CI providers:
 
 To configure a diff-aware scan:
 
-1. Create a separate CI job following the steps in [Add Semgrep to CI through Semgrep Cloud Platform](#add-semgrep-to-ci-through-semgrep-cloud-platform).
+1. Create a separate CI job following the steps in [Add Semgrep to CI through Semgrep Cloud Platform](/deployment/add-semgrep-to-ci/#add-semgrep-to-ci-through-semgrep-cloud-platform).
 1. Set the `SEMGREP_BASELINE_REF` variable in your CI configuration file. The value of this environment variable is typically your trunk branch, such as `main` or `master`.
 
 ## Set a scan schedule

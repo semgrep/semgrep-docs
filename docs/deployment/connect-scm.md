@@ -12,7 +12,8 @@ tags:
 # Connect a source code manager
 
 :::note Your deployment journey
-- You have [<i class="fa-regular fa-file-lines"></i> created a Semgrep account and organization](/deployment/create-account-and-orgs). 
+- You have gained the necessary [resource access and permissions](/deployment/checklist) required for deployment.
+- You have [created a Semgrep account and organization](/deployment/create-account-and-orgs). 
 :::
 
 Linking a source code manager provides the following benefits:
@@ -25,10 +26,6 @@ Linking a source code manager provides the following benefits:
 You can only connect your Semgrep organization to the source code manager that you originally logged in with. If your organization uses both GitHub and GitLab to manage source code, log in with the source code manager that you would prefer to use to manage Semgrep org membership. You can still scan repositories from other sources.
 
 The process to connect a source code manager depends on whether your SCM tool is cloud-hosted by the service provider, hosted on-premise, or hosted as a single-tenant by the service provider.
-
-:::note Review necessary permissions 
-Refer to the [<i class="fa-regular fa-file-lines"></i> Pre-deployment checklist](/deployment/checklist/) to ensure you have permissions necessary to perform these steps.
-:::
 
 ## Connect to cloud-hosted orgs
 

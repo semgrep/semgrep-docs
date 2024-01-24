@@ -23,8 +23,9 @@ import MoreHelp from "/src/components/MoreHelp"
 
 
 :::note Your deployment journey
-- You have [<i class="fa-regular fa-file-lines"></i> created a Semgrep account and organization](/deployment/create-account-and-orgs). 
-- For GitHub and GitLab users: You have [<i class="fa-regular fa-file-lines"></i> connected your source code manager](/deployment/connect-scm).
+- You have gained the necessary [resource access and permissions](/deployment/checklist) required for deployment.
+- You have [created a Semgrep account and organization](/deployment/create-account-and-orgs). 
+- For GitHub and GitLab users: You have [connected your source code manager](/deployment/connect-scm).
 :::
 
 The only required steps to ensure that users are added to Semgrep Cloud Platform are on the side of the SSO provider. After setting up SSO, users are able to sign in to your Semgrep organizations by entering their SSO credentials.
