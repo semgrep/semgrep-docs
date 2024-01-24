@@ -4,7 +4,7 @@
 - Ensure that only rules that meet your criteria, such as high severity or high confidence rules, produce comments visible to developers, reducing noise.
 
 :::tip
-<span>Rules in <strong>Block mode</strong> prevent the {props.comment_type} from being merged without triage or remediation.</span>
+<span>Rules in <strong>Block mode</strong> fail the CI job that runs on the {props.comment_type}. Depending on your workflow, this may prevent your {props.comment_type} from merging.</span>
 :::
 
 ### Set rules to Comment or Block mode

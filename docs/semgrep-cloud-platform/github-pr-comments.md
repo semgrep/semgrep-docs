@@ -47,7 +47,7 @@ PR comments appear for the following types of scans under these conditions:
 
 <CommentTriggers />
 
-## Confirm account connection and access
+## Steps to set up PR comments 
 
 ### Confirm your Semgrep account's connection to GitHub
 
@@ -71,8 +71,7 @@ Ensure that Semgrep's GitHub app (`semgrep-app`) has sufficient permissions to p
 **Figure** Permissions for all repositories.
 
 ![Semgrep GitHub app permissions - select repositories](/img/gh-app-permissions-select.png#bordered)
-**Figure** Permissions for select repos. Ensure the repositories you have onboarded to Semgrep Cloud Platform are selected.
-
+**Figure** Permissions for select repositories. Ensure the repositories you have onboarded to Semgrep Cloud Platform are selected.
 
 For GitHub Actions users, no further steps need to be undertaken. Continue setting up Semgrep Code PR comments by [setting rules to Comment or Block mode](#set-rules-to-comment-or-block-mode).
 
@@ -80,13 +79,13 @@ For GitHub Actions users, no further steps need to be undertaken. Continue setti
 
 <DefineConnectionVariables name="GitHub Actions" comment_type="PR"/>
 
-## Configure comments for Semgrep Code
+### Configure comments for Semgrep Code
 
 <PrCommentsInSast name="GitHub" comment_type="PR" />
 
 If you are using **GitHub Actions** to run Semgrep, no extra changes are needed to receive PR comments.
 
-## Receive PR or MR comments in your VPN or on-premise SCM
+### Receiv comments in your VPN or on-premise SCM
 
 <ReceiveCommentsScm />
 

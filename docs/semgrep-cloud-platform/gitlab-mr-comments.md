@@ -45,7 +45,7 @@ MR comments appear for the following types of scans under these conditions:
 
 <CommentTriggers comment_type="MR"/>
 
-## Confirm account connection and access
+## Steps to set up MR comments 
 
 ### Confirm your Semgrep account's connection to GitLab
 
@@ -98,9 +98,17 @@ For more configuration options, see [GitLab CI Sample](/semgrep-ci/sample-ci-con
 
 <DefineConnectionVariables name="GitLab CI/CD" comment_type="MR"/>
 
-## Configure comments for Semgrep Code
+### Configure comments for Semgrep Code
 
 <PrCommentsInSast name="GitLab" comment_type="MR" />
+
+### Receive comments in your VPN or on-premise SCM
+
+<ReceiveCommentsScm />
+
+You've set up MR comments! Enable optional features provided in the following sections, or see [Next steps](#next-steps).
+
+## Optional features
 
 ## Enabling autofix in GitLab repositories
 
