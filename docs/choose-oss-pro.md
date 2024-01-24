@@ -122,7 +122,7 @@ The following table lists tools to enable developers to resolve their own code.
         <tr>
             <th>Product line</th>
             <th>License</th>
-            <th>Tiers</th>
+            <th>Subscription tiers</th>
         </tr>
     </thead>
     <tbody>
