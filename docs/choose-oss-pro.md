@@ -1,5 +1,5 @@
 ---
-slug: choose-oss-pro
+slug: semgrep-pro-vs-oss
 append_help_link: true
 title: Choose between Semgrep Pro and Semgrep OSS
 hide_title: true
@@ -35,11 +35,7 @@ The terms used in this document are defined as follows:
 </dl>
 
 :::tip
-The following products are **free** for up to 10 contributors:
-* Semgrep Cloud Platform
-* Semgrep Code
-* Semgrep Supply Chain
-* Semgrep Secrets
+All Semgrep Pro products are free for up to 10 contributors.
 :::
 
 ## 🔎 Core scanning features

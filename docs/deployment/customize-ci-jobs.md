@@ -1,5 +1,5 @@
 ---
-slug: configure-ci-jobs 
+slug: customize-ci-jobs 
 title: Customize CI jobs 
 hide_title: true
 description: tk

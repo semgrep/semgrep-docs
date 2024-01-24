@@ -19,7 +19,7 @@ module.exports = {
     { type: 'ref', id: 'getting-started/quickstart', label: 'Scan with Semgrep Pro', className: 'top-category-separator'},
     { type: 'ref', id: 'contributing/contributing', label: 'Scan with Semgrep OSS'},
     { type: 'ref', id: 'writing-rules/overview', label: 'Write rules'},
-    { type: 'doc', id: 'choose-oss-pro', label: 'Semgrep Pro versus Semgrep OSS', className: 'top-category-separator' },
+    { type: 'doc', id: 'semgrep-pro-vs-oss', label: 'Semgrep Pro versus Semgrep OSS', className: 'top-category-separator' },
     {
       type: 'link',
       label: 'Knowledge base',
