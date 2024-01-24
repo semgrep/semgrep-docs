@@ -17,6 +17,7 @@ import CommentTriggers from "/src/components/reference/_comment-triggers.mdx"
 import TroubleshootingPrLinks from "/src/components/reference/_troubleshooting-pr-links.mdx"
 import PrCommentsInSast from "/src/components/procedure/_pr-comments-in-sast.mdx"
 import DefineConnectionVariables from "/src/components/reference/_define-connection-variables.mdx"
+import DeploymentJourney from "/src/components/concept/_deployment-journey.mdx"
 
 <ul id="tag__badge-list">
 {
@@ -28,21 +29,10 @@ Object.entries(frontMatter).filter(
 
 # Set up GitLab merge request comments
 
-Semgrep can create **merge request (MR) comments** in your GitLab repository. These comments inform your developers of **findings**, such as security issues, in their MRs. Semgrep can also provide remediation tips or code fixes that your developers can click to **commit** into their code directly.
+<DeploymentJourney />
 
-:::info Prerequisites
-- Merge request (MR) comments can only be set up through Semgrep Cloud Platform (SCP). [<i class="fas fa-external-link fa-xs"></i> Create an account](/semgrep-code/getting-started/#signing-in-to-semgrep-cloud-platform) to set up MR comments.
-- You must connect your GitLab organization (org) to Semgrep. 
-    - For GitLab Cloud users, this is done automatically after signing in.
-    - For GitLab self-managed users, go to [<i class="fas fa-external-link fa-xs"></i> Settings](https://semgrep.dev/orgs/-/settings) and click **Add GitLab Self-Managed**.
-- You must add or onboard a Semgrep project (repository) to SCP and it must complete at least one full scan on your default branch successfully.
-:::
+Semgrep can create **merge request (MR) comments** in your GitLab repository. These comments provide a description of the issue detected by Semgrep and may offer possible solutions. These comments are a means for security teams, or any team responsible for creating standards to help their fellow developers write safe and standards-compliant code.
 
-## Conditions for MR comment creation
-
-MR comments appear for the following types of scans under these conditions:
-
-<CommentTriggers comment_type="PR"/>
 
 Automated comments on GitLab merge requests are displayed as follows:
 
@@ -124,6 +114,12 @@ To enable dataflow traces in your CI pipeline, fulfill the following prerequisit
 - To obtain meaningful results of dataflow traces in MR comments, use Semgrep Pro Engine while scanning your repositories to display cross-file (interfile) findings. To enable Semgrep Pro Engine, see [Semgrep Pro Engine overview](/semgrep-code/semgrep-pro-engine-intro/).
 - Not all Semgrep rules or rulesets make use of taint tracking. Ensure that you have a ruleset, such as the **default ruleset** added in your **[Policies](https://semgrep.dev/orgs/-/policies)**. If this ruleset is not added, go to [https://semgrep.dev/p/default](https://semgrep.dev/p/default), and then click **Add to Policy**. You can add rules that use taint tracking from [Semgrep Registry](https://semgrep.dev/explore).
 :::
+
+## Conditions for MR comment creation
+
+MR comments appear for the following types of scans under these conditions:
+
+<CommentTriggers comment_type="MR"/>
 
 ## Additional references 
 

@@ -12,9 +12,9 @@ import NextStepsComments from "/src/components/concept/_next-steps-comments.mdx"
 # Add Semgrep to other CI providers
 
 :::note Your deployment journey
-- You have [<i class="fa-regular fa-file-lines"></i> created a Semgrep account and organization](/deployment/create-account-and-orgs). 
-- For GitHub and GitLab users: You have [<i class="fa-regular fa-file-lines"></i> connected your source code manager](/deployment/connect-scm).
-- Optionally, you have [<i class="fa-regular fa-file-lines"></i> set up SSO](/deployment/sso).
+- You have [created a Semgrep account and organization](/deployment/create-account-and-orgs). 
+- For GitHub and GitLab users: You have [connected your source code manager](/deployment/connect-scm).
+- Optionally, you have [set up SSO](/deployment/sso).
 :::
 
 This guide walks you through creating a Semgrep job for CI providers that are **not** listed in Semgrep Cloud Platform (SCP). Skip this guide if you have already configured a CI job.

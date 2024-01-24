@@ -12,7 +12,7 @@ tags:
 # Connect a source code manager
 
 :::note Your deployment journey
-- You have [<i class="fa-regular fa-file-lines"></i> created a Semgrep account and organization](/deployment/create-account-and-orgs). 
+- You have [created a Semgrep account and organization](/deployment/create-account-and-orgs). 
 :::
 
 Linking a source code manager provides the following benefits:

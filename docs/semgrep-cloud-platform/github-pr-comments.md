@@ -11,11 +11,13 @@ tags:
 
 import MoreHelp from "/src/components/MoreHelp"
 import EnableAutofix from "/src/components/procedure/_enable-autofix.mdx"
+import DeploymentJourney from "/src/components/concept/_deployment-journey.mdx"
 import DisplayTaintedDataIntro from "/src/components/concept/_semgrep-code-display-tainted-data.mdx"
 import CommentTriggers from "/src/components/reference/_comment-triggers.mdx"
 import TroubleshootingPrLinks from "/src/components/reference/_troubleshooting-pr-links.mdx"
 import PrCommentsInSast from "/src/components/procedure/_pr-comments-in-sast.mdx"
 import DefineConnectionVariables from "/src/components/reference/_define-connection-variables.mdx"
+
 
 <ul id="tag__badge-list">
 {
@@ -29,20 +31,9 @@ Object.entries(frontMatter).filter(
 
 <!--  The entire process of setting up the GH comment is more than just "enabling it", ie. turning it on. Users have to set up the rules. So I changed the verb. -->
 
-Semgrep can create **pull request (PR) comments** in your GitHub repository. These comments inform your developers of **findings**, such as security issues, in their PRs. Semgrep can also provide remediation tips or code fixes that your developers can click to **commit** into their code directly.
+<DeploymentJourney />
 
-:::info Prerequisites
-- Pull request (PR) comments can only be set up through Semgrep Cloud Platform (SCP). [<i class="fas fa-external-link fa-xs"></i> Create an account](/semgrep-code/getting-started/#signing-in-to-semgrep-cloud-platform) to set up PR comments.
-- You must connect your GitHub organization (org) to Semgrep.
-    - For **GitHub Cloud**: See [<i class="fa-regular fa-file-lines"></i> Adding an organization](/semgrep-cloud-platform/getting-started/#adding-an-organization).
-    - For **GitHub Enterprise Server**: [<i class="fa-regular fa-file-lines"></i> Integrate Semgrep with GitHub Enterprise](/semgrep-cloud-platform/scm/#integrating-semgrep-cloud-platform-with-github-enterprise-or-gitlab-self-managed) and if you have a VPN or firewall, [set up your allowlists](/semgrep-cloud-platform/scm/#receiving-pr-or-mr-comments-in-your-vpn-or-on-premise-scm).
-- You must add or onboard a Semgrep project (repository) to SCP. Semgrep recommends that a project first complete at least one full scan on your default branch successfully.
-:::
-## Conditions for PR comment creation
-
-PR comments appear for the following types of scans under these conditions:
-
-<CommentTriggers />
+Semgrep can create **pull request (PR) comments** in your GitHub repository. These comments provide a description of the issue detected by Semgrep and may offer possible solutions. These comments are a means for security teams, or any team responsible for creating standards to help their fellow developers write safe and standards-compliant code.
 
 Automated comments on GitHub pull requests are displayed as follows:
 
@@ -112,8 +103,7 @@ To enable dataflow traces feature in your CI pipeline, fulfill the following pre
 
 ## Receiving PR or MR comments in your VPN or on-premise SCM
 
-PR or MR comments are comments or suggestions made by Semgrep Cloud Platform in your GitHub or GitLab repository. These comments provide a description of the issue detected by Semgrep and may offer possible solutions. These comments are a means for security teams (or any team responsible for creating standards) to help their fellow developers write safe and standards-compliant code.
-
+PR or MR comments are comments or suggestions made by Semgrep Cloud Platform in your GitHub or GitLab repository. 
 To enable this feature within self-hosted SCMs behind firewalls or VPNs (Virtual Private Networks), follow these steps:
 
 1. Add the following IP addresses to your VPN's **ingress** allowlist.
@@ -143,6 +133,13 @@ Receiving PR or MR comments may require additional steps depending on the custom
 * [Semgrep's May 2022 updates: DeepSemgrep, New Playground, and Self Managed GitHub and GitLab support](https://semgrep.dev/blog/2022/semgreps-may-2022-updates/)
 
 -->
+
+## Conditions for PR comment creation
+
+PR comments appear for the following types of scans under these conditions:
+
+<CommentTriggers />
+
 ## Additional references 
 
 <TroubleshootingPrLinks />

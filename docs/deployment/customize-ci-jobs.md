@@ -9,15 +9,11 @@ tags:
 
 import DiffAwareScanning from "/src/components/reference/_diff-aware-scanning.mdx"
 import CiScheduling from "/src/components/reference/_ci-scheduling.mdx"
+import DeploymentJourney from "/src/components/concept/_deployment-journey.mdx"
 
 # Customize your CI job
 
-:::note Your deployment journey
-- You have [<i class="fa-regular fa-file-lines"></i> created a Semgrep account and organization](/deployment/create-account-and-orgs). 
-- For GitHub and GitLab users: You have [<i class="fa-regular fa-file-lines"></i> connected your source code manager](/deployment/connect-scm).
-- Optionally, you have [<i class="fa-regular fa-file-lines"></i> set up SSO](/deployment/sso).
-- You have successfully added a [<i class="fa-regular fa-file-lines"></i> Semgrep job to your CI workflow](/deployment/add-semgrep-to-ci).
-:::
+<DeploymentJourney />
 
 Customize a job's parameters to achieve the following goals: 
 
