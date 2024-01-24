@@ -18,6 +18,7 @@ import TroubleshootingPrLinks from "/src/components/reference/_troubleshooting-p
 import PrCommentsInSast from "/src/components/procedure/_pr-comments-in-sast.mdx"
 import DefineConnectionVariables from "/src/components/reference/_define-connection-variables.mdx"
 import ReceiveCommentsScm from "/src/components/procedure/_receive-comments-scm.mdx"
+import NextAfterComments from "/src/components/procedure/_next-after-comments.mdx"
 
 
 <ul id="tag__badge-list">
@@ -85,7 +86,7 @@ For GitHub Actions users, no further steps need to be undertaken. Continue setti
 
 If you are using **GitHub Actions** to run Semgrep, no extra changes are needed to receive PR comments.
 
-### Receiv comments in your VPN or on-premise SCM
+### Receive comments in your VPN or on-premise SCM
 
 <ReceiveCommentsScm />
 
@@ -119,11 +120,7 @@ To enable dataflow traces feature in your CI pipeline, fulfill the following pre
 
 ## Next steps
 
-You've finished setting up a core deployment of Semgrep 🎉.
-
-- Explore recommended tasks after deployment in [<i class="fa-regular fa-file-lines"></i> Post-deployment steps]. 
-- Manage repositories and users at scale through Enterprise guides.
-- For Semgrep Supply Chain users: if your scans aren't generating findings, you may need [additional configuration].
+<NextAfterComments />
 
 ## Additional references 
 
