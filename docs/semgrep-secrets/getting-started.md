@@ -32,6 +32,20 @@ encounter bugs. If so, please reach out to [<i class="fa-regular
 fa-envelope"></i> support@semgrep.com](mailto:support@semgrep.com).
 :::
 
+## Supported languages
+
+Semgrep Secrets can scan **any programming language** for secrets.
+
+## Supported developer environments and features
+
+This section lists the source code managers (SCMs) that Semgrep Secrets supports.
+
+| Source code manager | Semgrep Secrets | PR or MR comments for valid secrets findings   |
+| ------------------- | --------------- | ---------------------------------------------- |
+| GitHub              | ✔️               | ✔️                                              |
+| GitLab              | ✔️               | ❌                                             |
+| BitBucket           | ✔️               | ❌                                             |
+
 ## Enable Semgrep Secrets
 
 Before proceeding, ensure that you have [added or onboarded at least one
