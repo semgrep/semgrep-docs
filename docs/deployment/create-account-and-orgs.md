@@ -168,6 +168,7 @@ To join an existing org through your SSO provider:
 </TabItem>
 
 </Tabs>
+
 ### Delete an existing org
 
 Reach out to [<i class="fa-regular fa-envelope"></i> support@semgrep.com](mailto:support@semgrep.com) to delete an organization.
