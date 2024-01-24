@@ -86,20 +86,28 @@ For GitHub Actions users, no further steps need to be undertaken. Continue setti
 
 If you are using **GitHub Actions** to run Semgrep, no extra changes are needed to receive PR comments.
 
-## Enable autofix in GitHub repositories
+## Receive PR or MR comments in your VPN or on-premise SCM
+
+<ReceiveCommentsScm />
+
+You've set up PR comments! Enable optional features provided in the following sections, or see [Next steps](#next-steps).
+
+## Optional features
+
+### Enable autofix in GitHub repositories
 
 [Autofix](/writing-rules/autofix) is a Semgrep feature in which rules contain suggested fixes to resolve findings.
 
 <EnableAutofix />
 
-## Dataflow traces in PR comments
+### Dataflow traces in PR comments
 
 ![Screenshot of a GitHub PR comment with dataflow traces](/img/dataflow-traces-pr-comments.png#bordered)
 **Figure** An inline GitHub pull request comment with dataflow traces.
 
 <DisplayTaintedDataIntro />
 
-### View the path of tainted data in PR comments
+#### View the path of tainted data in PR comments
 
 To enable dataflow traces feature in your CI pipeline, fulfill the following prerequisites:
 
@@ -110,9 +118,13 @@ To enable dataflow traces feature in your CI pipeline, fulfill the following pre
 - You can add additional rules that use taint tracking from [Semgrep Registry](https://semgrep.dev/explore).
 :::
 
-## Receive PR or MR comments in your VPN or on-premise SCM
+## Next steps
 
-<ReceiveCommentsScm />
+You've finished setting up a core deployment of Semgrep 🎉.
+
+- Explore recommended tasks after deployment in [<i class="fa-regular fa-file-lines"></i> Post-deployment steps]. 
+- Manage repositories and users at scale through Enterprise guides.
+- For Semgrep Supply Chain users: if your scans aren't generating findings, you may need [additional configuration].
 
 ## Additional references 
 
