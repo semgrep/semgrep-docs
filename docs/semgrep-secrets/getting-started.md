@@ -13,32 +13,25 @@ import MoreHelp from "/src/components/MoreHelp"
 
 # Getting started with Semgrep Secrets
 
-Semgrep Secrets allows you to detect and triage leaked secrets and credentials
-and save time by prioritizing which secrets to rotate based on whether they are
-valid (active and in-use) or not.
-
-This document guides you through the following:
-
-* Enabling Semgrep Secrets
-* Scanning your repositories for secrets
-* Viewing and triaging your findings
-
-![Semgrep Secrets page](/img/secrets-page.png)
-**_Figure._** Semgrep Secrets page. <br />
-
 :::info Feature maturity
-Semgrep Secrets is in **public beta**. When using Semgrep Secrets, you may
-encounter bugs. If so, please reach out to [<i class="fa-regular
+Semgrep Secrets is currently in **public beta**. If you encounter any issues, please reach out to [<i class="fa-regular
 fa-envelope"></i> support@semgrep.com](mailto:support@semgrep.com).
 :::
 
-## Supported languages
+Semgrep Secrets allows you to detect and triage leaked secrets and credentials
+and save time by prioritizing which secrets to rotate based on whether they're active and in use.
 
-Semgrep Secrets can scan **any programming language** for secrets.
+![Semgrep Secrets page](/img/secrets-page.png#md-width)
 
-## Supported developer environments and features
+This document guides you through:
 
-This section lists the source code managers (SCMs) that Semgrep Secrets supports.
+1. Enabling Semgrep Secrets
+2. Viewing your results and triaging your findings
+3. Setting up PR comments and notifications
+
+## Language and environment support
+
+Semgrep Secrets can scan repositories using **any programming language** and supports the use of the following source code managers (SCMs): 
 
 | Source code manager | Semgrep Secrets | PR or MR comments for valid secrets findings   |
 | ------------------- | --------------- | ---------------------------------------------- |
@@ -46,103 +39,43 @@ This section lists the source code managers (SCMs) that Semgrep Secrets supports
 | GitLab              | ✔️               | ❌                                             |
 | BitBucket           | ✔️               | ❌                                             |
 
-## Enable Semgrep Secrets
+## Prerequisites
 
-Before proceeding, ensure that you have [added or onboarded at least one
+Before proceeding, ensure that you have:
+
+* An [up-to-date installation of the Semgrep CLI](/getting-started/quickstart/). Semgrep Secrets does not work on older versions of Semgrep.
+* A Semgrep Cloud Platform account with an organization already set up
+* [Added or onboarded at least one
 repository to Semgrep Cloud Platform for
 scanning](/semgrep-cloud-platform/getting-started/#starting-a-sast-and-sca-scan-on-a-remote-repository).
 
+## Enable Semgrep Secrets
 
 1. Log into [<i class="fas fa-external-link fa-xs"></i> Semgrep Cloud Platform](https://semgrep.dev/login).
 2. Click **<i class="fa-solid fa-gear"></i> Settings**.
-3. In the Products section, click the **<i class="fa-solid fa-toggle-large-on"></i> Secrets** toggle.
-4. Optional: After enabling Semgrep Secrets, you can trigger a full scan manually through your CI provider or wait for your scheduled Semgrep full scan, typically daily.
+3. On the **Deployment** tab, click the **<i class="fa-solid fa-toggle-large-on"></i> Secrets** toggle to enable.
 
-## Scanning environments
+Once you've enabled Secrets for your organization, all Semgrep scans include secret scanning. There are no additional steps to take.
 
-A scan can be triggered in the following environments:
+## Scan your repository
 
-* You can start a scan **manually** from your CI provider if your CI provider supports running CI jobs on-demand. Refer to your CI provider's documentation for details.
-* You can start a scan **from your CLI**. It is recommended to run CLI scans on non-mainline branches, such as feature branches.
-* When you **open a PR or MR**, Semgrep automatically scans the branch.
+After you've enabled Semgrep Secrets, you can:
 
-### Scanning for secrets through a CI job
+* Manually trigger a full scan of your repository through your CI provider
+* Start a scan from the CLI (Semgrep recommends that you run CLI scans only on feature branches, not main branches)
+* Wait for your scheduled Semgrep full scan
+* Open a pull request or merge request and wait for Semgrep to scan the branch automatically
 
-After following the steps in [Enabling Semgrep Secrets](#enabling-semgrep-secrets), all Semgrep scans in your CI jobs include secret scanning. There are no additional steps to take.
+## View your results
 
-After each scan, your findings are displayed in **Semgrep Cloud Platform > Secrets**.
+After each scan, your findings are displayed in Semgrep Cloud Platform's **Secrets** page.
 
-:::caution Troubleshooting
-If you do not receive any secrets findings in your scans after enabling Semgrep Secrets, check the following:
-
-* Check the job's log in your CI provider.
-    * Search for the following line or similar to ensure that a secrets scan was included as part of the scan: `Enabled products: Semgrep Code, Semgrep Supply Chain, Semgrep Secrets`
-    * If the log does not include the line, your CI job may be running an out-of-date Semgrep version or the wrong semgrep command. Ensure that your Docker image or custom runner is up-to-date, and ensure that you are running `semgrep ci`.
-* Feel free to contact [<i class="fa-regular fa-envelope"></i> support@semgrep.com](mailto:support@semgrep.com) for additional assistance.
-* If a secrets scan ran successfully, it is unlikely but possible that there are no findings.
-:::
-
-### Scanning for secrets in your local development machine (CLI)
-
-:::info Prerequisites
-* An up-to-date installation of the Semgrep CLI tool. Semgrep Secrets does not work on older versions of Semgrep. See [<i class="fa-regular fa-file-lines"></i> Getting started](https://semgrep.dev/docs/getting-started/#installing-and-running-semgrep-locally).
-* An existing Semgrep Cloud Platform account.
-* An existing Semgrep organization.
-* Semgrep Secrets must be enabled in Semgrep Cloud Platform.
-:::
-
-You can scan for secrets from your local development machine by using the Semgrep CLI tool. 
-
-1. Ensure you are logged in to Semgrep:
-```
-semgrep login
-```
-2. Run a scan:
-```
-semgrep ci
-```
-3. Once the scan has completed, you can view that repository's findings in Semgrep Cloud Platform by logging in then clicking **Projects**, then the number of Secrets findings under <span className="placeholder">REPOSITORY_NAME</span>. <br />
-![The number of Secrets findings can be seen in the Projects page.](/img/secrets-projects.png#md-width)
-
+:::note Local scans
 Findings from local scans are differentiated from their remote counterparts through their slugs. Remote repositories are identified as <span className="placeholder">  ACCOUNT_NAME/REPOSITORY_NAME</span>, while local repositories are identified as <span className="placeholder">REPOSITORY_NAME</span>.
+:::
 
-## Triaging secrets in Semgrep Cloud Platform
-
-Triage secrets-related findings in the Secrets page. By default, all findings are displayed. A common triage workflow includes the following tasks:
-
-1. Filtering for a particular characteristic of a finding, such as its **Validation status**, its **Repository or Branch**, or its **Type**.
-2. Analyzing if the findings are true or false positives.
-3. Applying a **triage state** to the filtered findings based on the analysis in step 2.
-    1. Setting a finding as **Ignored** means that no action is undertaken and the finding is closed. Subsequent scans won't include this finding.
-    1. Setting or retaining a finding as **Open** means that the finding is a true positive and needs to be fixed or resolved.
-        1. Optional: You can create a ticket for **Linear, Jira, or Asana** to assign a developer to fix **Open** findings.
-4. When commits are added to the PR or MR, Semgrep re-scans the PR or MR and detects if a finding is fixed. The finding is resolved automatically upon scanning. Users do not need to set a finding as **Fixed** manually.
-
-### Common filtering use cases
-
-Find and perform bulk operations through filtering. Perform all filter operations in the **Secrets** page.
-
-| Task | Steps |
-| ---- | ----- |
-| Viewing valid findings | Under **Validation**, click **⚠️Confirmed valid**. |
-| View findings in a specific project or branch |1. Under **Projects**, select a repository from the drop-down menu. <br /> 2. Under **Branches**, select a branch from the drop-down menu. |
-| View findings of a specific type of secret, such as **personal token** or **password**. | Under **Type**, select a type of secret.
-| View findings of a specific severity | Under **Severity**, select a value. |
-
-![Secrets page and relevant triaging elements.](/img/secrets-triage.png#bordered)
-**_Figure._** Secrets page and relevant triaging elements: (a) All available filters; (b) Bulk selection toggle; (c) Bulk triage button.
-
-Triage findings in bulk by performing the following steps:
-
-1. Begin by ensuring that you display all **Open** findings.
-2. Apply filters with as much specificity as possible. You may have to perform bulk triage several times. By starting with the most specific cases, and closing the findings from those specific cases, you are able to narrow down findings as you work from specific to broad filter criteria.
-3. Click the bulk select check box.
-4. Click **Triage**, then your selected triage state, typically **Ignore**.
-5. Optional: Repeat this procedure to triage all open findings.
-
-## Appendix: Semgrep Secrets filters
-
-This section describes what filters are available to quickly sort through findings and perform operations on filtered findings.
+Semgrep Cloud Platform offers a variety of filters to help you narrow down the list of findings. The following sections describe
+what filters are available to you.
 
 ### Triage status
 
@@ -196,5 +129,80 @@ A repository that's been onboarded to Semgrep for scanning.
 ### Branch
 
 A branch of any Project.
+
+## Triage secrets in Semgrep Cloud Platform
+
+You can triage secrets-related findings on the **Secrets** page. By default, all findings are displayed. A common triage workflow includes the following tasks:
+
+1. Filtering for a particular characteristic of a finding, such as its **Validation status**, **Repository or Branch**, or **Type**.
+2. Analyzing if the findings are true or false positives.
+3. Applying a **triage state** to the filtered findings based on the analysis in step 2.
+    1. Setting a finding as **Ignored** means that no action is undertaken and the finding is closed. Subsequent scans won't include this finding.
+    2. Setting or retaining a finding as **Open** means that the finding is a true positive and needs to be fixed or resolved.
+        1. Optional: You can create a ticket for **Linear, Jira, or Asana** to assign a developer to fix **Open** findings.
+
+When commits are added to the PR or MR, Semgrep re-scans the PR or MR and detects if a finding is fixed. The finding is resolved automatically upon scanning. Users do not need to set a finding as **Fixed** manually.
+
+### Common filtering use cases
+
+You can find and perform bulk operations through filtering; all filter operations are available to you on the **Secrets** page.
+
+| Task | Steps |
+| ---- | ----- |
+| Viewing valid findings | Under **Validation**, click **⚠️Confirmed valid**. |
+| View findings in a specific project or branch |1. Under **Projects**, select a repository from the drop-down menu. <br /> 2. Under **Branches**, select a branch from the drop-down menu. |
+| View findings of a specific type of secret, such as **personal token** or **password**. | Under **Type**, select a type of secret.
+| View findings of a specific severity | Under **Severity**, select a value. |
+
+![Secrets page and relevant triaging elements.](/img/secrets-triage.png#bordered)
+**_Figure._** Secrets page and relevant triaging elements: (a) All available filters; (b) Bulk selection toggle; (c) Bulk triage button.
+
+You can triage findings in bulk by performing the following steps:
+
+1. Begin by ensuring that you display all **Open** findings.
+2. Apply filters with as much specificity as possible. You may have to perform bulk triage several times. By starting with the most specific cases, and closing the findings from those specific cases, you are able to narrow down findings as you work from specific to broad filter criteria.
+3. Click the bulk select check box.
+4. Click **Triage**, then your selected triage state, typically **Ignore**.
+5. Optional: Repeat this procedure to triage all open findings.
+
+## Receiving findings in GitHub through PR comments
+
+In addition to viewing your results in Semgrep Cloud Platform, you can set up PR or MR comments from Semgrep, which allows you to view findings-related information directly in your pull requests and merge requests.
+
+![Semgrep Secrets finding in a PR comment](/img/secrets-pr-comment.png#bordered)
+**_Figure._** Semgrep Secrets finding in a PR comment.
+
+:::info
+Only **valid** (active) secrets-related findings result in a PR or MR comment.
+:::
+
+### Findings in GitHub pull requests
+
+Perform the following steps to receive Secrets findings as comments in GitHub PRs:
+
+1. Set your [policy mode to **Comment**](/semgrep-code/policies/#blocking-a-pr-or-mr-through-rule-modes).
+2. Ensure that your rules include the following line:
+    ```console
+    product: secrets
+    ```
+3. Reach out to [<i class="fa-regular fa-envelope"></i> support@semgrep.com](mailto:support@semgrep.com) to ensure that you have the following two feature flags enabled for your account:
+    * Secrets
+    * Secrets PR comments
+
+<!--### Findings in GitLab merge requests
+
+Perform the following steps to receive Secrets findings as comments in GitLab MRs:
+
+1. Follow the steps in [<i class="fa-regular fa-file-lines"></i> GitLab MR comments](/semgrep-cloud-platform/gitlab-mr-comments/).
+2. Inform [<i class="fa-regular fa-envelope"></i> support@semgrep.com](mailto:support@semgrep.com) that you want to enable this feature.
+-->
+
+## Create tickets
+
+You can create tickets in Jira, Linear, or Asana for secrets-related findings. See [<i class="fa-regular fa-file-lines"></i> Ticketing](semgrep-cloud-platform/ticketing/).
+
+## API
+
+View the [<i class="fas fa-external-link fa-xs"></i> Secrets API documentation](https://semgrep.dev/api/v1/docs/#tag/SecretsService).
 
 <MoreHelp />
