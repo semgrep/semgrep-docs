@@ -17,7 +17,9 @@ import TabItem from '@theme/TabItem';
 
 # Create a Semgrep account and set up organizations
 
-You can create a Semgrep user account by signing in to Semgrep Cloud Platform (SCP) through GitHub or GitLab. After this **initial sign-in**, you can:
+:::note Your deployment journey
+- You have gained the necessary [resource access and permissions](/deployment/checklist) required for deployment.
+:::
 
 * Add the rest of your organization (org) members to Semgrep. 
 * Configure Semgrep to scan in other source code managers, such as Bitbucket.

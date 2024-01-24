@@ -23,6 +23,7 @@ import MoreHelp from "/src/components/MoreHelp"
 
 
 :::note Your deployment journey
+- You have gained the necessary [resource access and permissions](/deployment/checklist) required for deployment.
 - You have [created a Semgrep account and organization](/deployment/create-account-and-orgs). 
 - For GitHub and GitLab users: You have [connected your source code manager](/deployment/connect-scm).
 :::
