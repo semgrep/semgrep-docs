@@ -17,6 +17,7 @@ import CommentTriggers from "/src/components/reference/_comment-triggers.mdx"
 import TroubleshootingPrLinks from "/src/components/reference/_troubleshooting-pr-links.mdx"
 import PrCommentsInSast from "/src/components/procedure/_pr-comments-in-sast.mdx"
 import DefineConnectionVariables from "/src/components/reference/_define-connection-variables.mdx"
+import ReceiveCommentsScm from "/src/components/procedure/_receive-comments-scm.mdx"
 
 
 <ul id="tag__badge-list">
@@ -39,6 +40,12 @@ Automated comments on GitHub pull requests are displayed as follows:
 
 ![Screenshot of a GitHub PR comment](/img/semgrep-pull-request.png#bordered)
 **Figure** An inline GitHub pull request comment.
+
+## Conditions for PR comment creation
+
+PR comments appear for the following types of scans under these conditions:
+
+<CommentTriggers />
 
 ## Confirm account connection and access
 
@@ -69,26 +76,30 @@ Ensure that Semgrep's GitHub app (`semgrep-app`) has sufficient permissions to p
 
 For GitHub Actions users, no further steps need to be undertaken. Continue setting up Semgrep Code PR comments by [setting rules to Comment or Block mode](#set-rules-to-comment-or-block-mode).
 
+### Define environment variables needed for other CI providers
+
 <DefineConnectionVariables name="GitHub Actions" comment_type="PR"/>
+
+## Configure comments for Semgrep Code
 
 <PrCommentsInSast name="GitHub" comment_type="PR" />
 
 If you are using **GitHub Actions** to run Semgrep, no extra changes are needed to receive PR comments.
 
-### Enable autofix in GitHub repositories
+## Enable autofix in GitHub repositories
 
 [Autofix](/writing-rules/autofix) is a Semgrep feature in which rules contain suggested fixes to resolve findings.
 
 <EnableAutofix />
 
-### Dataflow traces in PR comments
+## Dataflow traces in PR comments
 
 ![Screenshot of a GitHub PR comment with dataflow traces](/img/dataflow-traces-pr-comments.png#bordered)
 **Figure** An inline GitHub pull request comment with dataflow traces.
 
 <DisplayTaintedDataIntro />
 
-#### View the path of tainted data in PR comments
+### View the path of tainted data in PR comments
 
 To enable dataflow traces feature in your CI pipeline, fulfill the following prerequisites:
 
@@ -99,46 +110,9 @@ To enable dataflow traces feature in your CI pipeline, fulfill the following pre
 - You can add additional rules that use taint tracking from [Semgrep Registry](https://semgrep.dev/explore).
 :::
 
-<!-- tk to add this back in
+## Receive PR or MR comments in your VPN or on-premise SCM
 
-## Receiving PR or MR comments in your VPN or on-premise SCM
-
-PR or MR comments are comments or suggestions made by Semgrep Cloud Platform in your GitHub or GitLab repository. 
-To enable this feature within self-hosted SCMs behind firewalls or VPNs (Virtual Private Networks), follow these steps:
-
-1. Add the following IP addresses to your VPN's **ingress** allowlist.
-     ```bash
-    # These IP addresses are inbound and outbound:
-    35.166.231.235
-    52.35.248.246
-    52.34.137.110
-    44.225.64.41
-    ```
-2. Optional: If you use an **egress allowlist**, add the following IP addresses to the egress allowlist to enable your CI workers to fetch the scan rules, upload findings, and so on.<br />
-    ```bash
-    # These IP addresses are inbound and outbound:
-    35.166.231.235
-    52.35.248.246
-    52.34.137.110
-    44.225.64.41
-    ```
-
-3. Test that you are able to receive findings by manually triggering a scan through your CI provider.
-
-:::tip
-Receiving PR or MR comments may require additional steps depending on the custom configuration of your VPN or SCM (for example, if you use a static IP without a hostname). Reach out to Semgrep support through the [Semgrep Community Slack](https://go.semgrep.dev/slack) or send an email to [support@semgrep.com](mailto:support@semgrep.com) for any concerns.
-:::
-
-## Additional references
-* [Semgrep's May 2022 updates: DeepSemgrep, New Playground, and Self Managed GitHub and GitLab support](https://semgrep.dev/blog/2022/semgreps-may-2022-updates/)
-
--->
-
-## Conditions for PR comment creation
-
-PR comments appear for the following types of scans under these conditions:
-
-<CommentTriggers />
+<ReceiveCommentsScm />
 
 ## Additional references 
 

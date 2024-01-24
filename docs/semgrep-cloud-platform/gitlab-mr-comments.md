@@ -18,6 +18,7 @@ import TroubleshootingPrLinks from "/src/components/reference/_troubleshooting-p
 import PrCommentsInSast from "/src/components/procedure/_pr-comments-in-sast.mdx"
 import DefineConnectionVariables from "/src/components/reference/_define-connection-variables.mdx"
 import DeploymentJourney from "/src/components/concept/_deployment-journey.mdx"
+import ReceiveCommentsScm from "/src/components/procedure/_receive-comments-scm.mdx"
 
 <ul id="tag__badge-list">
 {
@@ -33,11 +34,16 @@ Object.entries(frontMatter).filter(
 
 Semgrep can create **merge request (MR) comments** in your GitLab repository. These comments provide a description of the issue detected by Semgrep and may offer possible solutions. These comments are a means for security teams, or any team responsible for creating standards to help their fellow developers write safe and standards-compliant code.
 
-
 Automated comments on GitLab merge requests are displayed as follows:
 
 ![Semgrep GitLab MR comment](/img/gitlab-mr-comment.png#md-width)
 **Figure** An inline GitLab merge request comment.
+
+## Conditions for MR comment creation
+
+MR comments appear for the following types of scans under these conditions:
+
+<CommentTriggers comment_type="MR"/>
 
 ## Confirm account connection and access
 
@@ -88,7 +94,11 @@ Creating a PAT grants the API scope to Semgrep, which lets it post comments.
 
 For more configuration options, see [GitLab CI Sample](/semgrep-ci/sample-ci-configs/#gitlab-ci).
 
+### Define environment variables needed for other CI providers
+
 <DefineConnectionVariables name="GitLab CI/CD" comment_type="MR"/>
+
+## Configure comments for Semgrep Code
 
 <PrCommentsInSast name="GitLab" comment_type="MR" />
 
@@ -115,11 +125,9 @@ To enable dataflow traces in your CI pipeline, fulfill the following prerequisit
 - Not all Semgrep rules or rulesets make use of taint tracking. Ensure that you have a ruleset, such as the **default ruleset** added in your **[Policies](https://semgrep.dev/orgs/-/policies)**. If this ruleset is not added, go to [https://semgrep.dev/p/default](https://semgrep.dev/p/default), and then click **Add to Policy**. You can add rules that use taint tracking from [Semgrep Registry](https://semgrep.dev/explore).
 :::
 
-## Conditions for MR comment creation
+## Receive PR or MR comments in your VPN or on-premise SCM
 
-MR comments appear for the following types of scans under these conditions:
-
-<CommentTriggers comment_type="MR"/>
+<ReceiveCommentsScm />
 
 ## Additional references 
 
