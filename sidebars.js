@@ -38,6 +38,7 @@ module.exports = {
         collapsible: false,
         items: [
             'getting-started/quickstart',
+            'prerequisites',
             'supported-languages'
         ]
     },
