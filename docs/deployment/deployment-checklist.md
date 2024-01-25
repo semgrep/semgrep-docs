@@ -6,13 +6,6 @@ description: tk
 tags:
   - Deployment
 ---
-<!--
-Q: Why do we have a deployment checklist that is separate from prerequisites?
-
-A: Because there are org and code access needs unique to rolling out Semgrep
-A: WRT information in 2 places, they are updated in 1 file and cascaded, so it should be ok
-
--->
 Before starting the deployment setup, use this checklist to ensure that:
 
 - You and your organization agree on the **scope** of the deployment.
@@ -22,6 +15,8 @@ Before starting the deployment setup, use this checklist to ensure that:
 :::tip
 Check out [How to introduce Semgrep to your organization](https://blog.trailofbits.com/2024/01/12/how-to-introduce-semgrep-to-your-organization/) from Trail of Bits for tips on how to evaluate and deploy Semgrep for your org.
 :::
+
+Ensure that you have met all the [<i class="fa-regular fa-file-lines"></i> Prerequisites](/getting-started/prerequisites) for Semgrep.
 
 ## Permissions and access 
 
@@ -40,12 +35,11 @@ Ensure that you and your deployment team have sufficient permissions to:
 - For notifications: Set up channels in your chosen notification method (Slack, email, or webhooks).
 
 tk to edit in
-For GitHub or GitLab SaaS users: A GitHub or GitLab SaaS repository associated with your account.
+For GitHub or GitLab users: A GitHub or GitLab SaaS repository associated with your account.
 For BitBucket SaaS users: A BitBucket repository and sufficient permissions to edit a BitBucket Pipeline and add repository variables.
 
-## Resources
+## Scope 
 
-Ensure that you have met all the [<i class="fa-regular fa-file-lines"></i> Prerequisites](/getting-started/prerequisites) for Semgrep.
 
 Ensure that you and your deployment team agree on:
 
@@ -151,3 +145,6 @@ Many improvements to the Semgrep Cloud Platform experience only work with up-to-
 See [Updating Semgrep](/upgrading/) for information on how to upgrade.
 
 Docker users: use [the **latest** tag](https://hub.docker.com/r/returntocorp/semgrep/tags?page=1&name=latest) to ensure you are up-to-date.
+
+Required access tokens
+
