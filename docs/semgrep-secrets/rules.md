@@ -15,40 +15,12 @@ The following example detects a leaked GitHub PAT:
 
 ```yaml
 rules:
-- id: github_pat
+- id: github_example
   message: >-
-    To revoke the token, visit the `Active tokens` page in the organization settings screen: `https://github.com/organizations/<ORGRANIZATION>/settings/personal-access-tokens/active`.
-    From here, select the token, and revoke it using the drop down field and selecting `"Revoke"`.
-  severity: ERROR
-  metadata:
-    likelihood: LOW
-    impact: HIGH
-    confidence: HIGH
-    category: security
-    subcategory:
-    - vuln
-    cwe:
-    - 'CWE-798: Use of Hard-coded Credentials'
-    cwe2020-top25: true
-    cwe2021-top25: true
-    cwe2022-top25: true
-    owasp:
-    - A07:2021 - Identification and Authentication Failures
-    references:
-    - https://owasp.org/Top10/A07_2021-Identification_and_Authentication_Failures
-    secret_type: GitHub
-    technology:
-    - secrets
+    This is an example rule, that performs validation against github.com
+  severity: WARNING 
   languages:
   - regex
-  patterns:
-  - pattern-regex: (?<REGEX>\b((ghp|gho|ghu|ghs|ghr|github_pat)_[a-zA-Z0-9_]{36,255})\b)
-  - focus-metavariable: $REGEX
-  - metavariable-analysis:
-      analyzer: entropy
-      metavariable: $REGEX
-  - pattern-not-regex:
-      (?i:a{5,}|b{5,}|c{5,}|d{5,}|e{5,}|f{5,}|g{5,}|h{5,}|i{5,}|j{5,}|k{5,}|l{5,}|m{5,}|n{5,}|o{5,}|p{5,}|q{5,}|r{5,}|s{5,}|t{5,}|u{5,}|v{5,}|w{5,}|x{5,}|y{5,}|z{5,}|0{5,}|abcde|abc123|abcd123|abcde123|abcdef123|example|sample|12345|cafecafe|deadbeef|deadb33f|asdfasdf|00112233|000111222|000011112222|aabbccdd|aaabbbccc|aaaabbbbcccc|00112233|000111222|000011112222|aabbccdd|aaabbbccc|aaaabbbbcccc|your[a-z_-]{0,}(?:cred|key|pass|pat|token))
   validators:
   - http:
       request:
@@ -59,14 +31,21 @@ rules:
         method: GET
         url: https://api.github.com/user
       response:
-        - match:
-          - status-code: '200'
-          result:
-            validity: valid
-        - match:
-          - status-code: '404'
-          result:
-            validity: invalid
+      - match:
+        - status-code: 200
+        result:
+          validity: valid
+      - match:
+        - status-code: 401
+        result:
+          validity: invalid 
+  patterns:
+  - patterns:
+    - pattern-regex: (?<REGEX>\b((ghp|gho|ghu|ghs|ghr|github_pat)_[a-zA-Z0-9_]{36,255})\b)
+    - focus-metavariable: $REGEX
+    - metavariable-analysis:
+        analyzer: entropy
+        metavariable: $REGEX
 ```
 
 The following sections describe new and existing keys in the context of a Secrets rule.
