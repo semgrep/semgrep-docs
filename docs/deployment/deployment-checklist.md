@@ -1,5 +1,5 @@
 ---
-slug: checklist
+s;lug: checklist
 append_help_link: true
 title: Pre-deployment checklist
 description: tk
@@ -7,7 +7,8 @@ tags:
   - Deployment
 ---
 
-
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
 Before starting the deployment setup, use this checklist to ensure that:
 
@@ -15,12 +16,11 @@ Before starting the deployment setup, use this checklist to ensure that:
 - You are aware of **permissions** that Semgrep needs to provide certain functions.
 - You have **access** to the resources needed to carry out the deployment.
 
-:::tip
-Check out [How to introduce Semgrep to your organization](https://blog.trailofbits.com/2024/01/12/how-to-introduce-semgrep-to-your-organization/) from Trail of Bits for tips on how to evaluate and deploy Semgrep for your org.
+:::info
+Ensure that your infrastructure meets all the [<i class="fa-regular fa-file-lines"></i> Prerequisites](/getting-started/prerequisites) to run Semgrep.
 :::
 
 
-Ensure that your deployment meets all the [<i class="fa-regular fa-file-lines"></i> Prerequisites](/getting-started/prerequisites) for Semgrep.
 
 ## Stakeholders and deployment team
 
@@ -30,9 +30,9 @@ Here are some teams or departments that may be responsible for parts of your Sem
 
 | Department | Tasks related to deployment  |
 | -------  | ------ |
-| Infrastructure         | SSO, CI/CD, and SCM configuration        |
-| Engineering | Repository ownership, displaying findings to developers in PRs or MRs |
-| IT | Firewall or VPN configuration (for self-hosted repositories) |
+| Infrastructure         | SSO, CI/CD, and source code manager (SCM) configuration.        |
+| Engineering | Repository ownership, displaying findings to developers in PRs or MRs. |
+| IT | To scan self-hosted repositories: firewall or VPN configuration. |
 
 ## Scope 
 
@@ -60,26 +60,42 @@ Semgrep provides two roles: `admin` and `member`. At the minimum: Establish the 
 | Decide on `admin` users. |      |
 | Establish `user` headcount and ensure they have a means of authentication. | |
 
-## Permissions and access 
+## Required permissions and access 
 
 The following checklist breaks down permissions required by Semgrep features.
 
-### Semgrep in CI
-
 | Feature | Permission required | Granted |
 | -------  | -------  | ------ |
-| Enables Semgrep to run continuously in your CI workflow. | Add or make changes to CI jobs. This includes **committing configuration files** for each repository you want to scan.         |        |
- |   | Define environment variables and storing secrets.         |        |
+| Run Semgrep continuously in your CI workflows. | Add or make changes to CI jobs. This includes **committing configuration files** for each repository you want to scan.         |        |
+|   | Define environment variables and storing secrets.         |        |
+| Manage user authentication with SSO.  | tk         |        |
+| Receive Slack notifications.  | Be a **Slack workspace owner**. | tk |
+| Send pull or merge requests to your SCM.  | Edit firewall or VPN's allowlist. |  |
 
-### Source code managers
+### SCM-specific required permissions
+
+<Tabs
+    defaultValue="gh"
+    values={[
+    {label: 'GitHub', value: 'gh'},
+    {label: 'GitLab', value: 'gl'},
+    {label: 'Bitbucket', value: 'bb'},
+    ]}
+>
+
+<TabItem value='gh'>
 
 #### GitHub
 
 | Feature | Permission required | Granted |
 | --- | -------   -------  | ------ |
-| Create CI jobs for repositories in bulk | Install GitHub apps.         |        |
+| Create CI jobs for repositories in bulk and detect GitHub repos automatically. | Install GitHub apps.         |        |
 | Pull request (PR) comments. |  For GitHub Enterprise Server: Add a personal access token (PAT) with [assigned scopes](/deployment/connect-scm/#connect-to-on-premise-github-or-gitlab-orgs).          |        |
 | GPT-assisted triage and recommendations. | Code access. |  |
+
+</TabItem>
+
+<TabItem value='gl'>
 
 #### GitLab
 
@@ -89,29 +105,19 @@ The following checklist breaks down permissions required by Semgrep features.
 | GPT-assisted triage and recommendations. | Create personal or project-level access tokens. |  |
 | GPT-assisted triage and recommendations. | Code access. |  |
 
+</TabItem>
+
+<TabItem value='bb'>
+
 #### Bitbucket 
 
 | Feature  | Permission | Granted |
 | -------  | -------  | ------ |
 | Pull request (PR) comments.  | Able to create **repository variables**. | 
 
-### VPN
+</TabItem>
 
-This section is for self-hosted repositories.
-
-| Feature  | Permission | Granted |
-| -------  | -------  | ------ |
-| Send pull or merge requests to your SCM.  | Edit firewall or VPN's allowlist. | 
-
-### SSO
-
-- For SSO: View and edit SSO configurations.
-
-### Notifications
-
-| Feature  | Permission | Granted |
-| -------  | -------  | ------ |
-| Receive Slack notifications.  | tk | 
+</Tabs>
 
 ## Appendices
 
@@ -201,3 +207,6 @@ Docker users: use [the **latest** tag](https://hub.docker.com/r/returntocorp/sem
 
 Required access tokens
 
+## Additional resources 
+
+Check out [<i class="fas fa-external-link fa-xs"></i> How to introduce Semgrep to your organization](https://blog.trailofbits.com/2024/01/12/how-to-introduce-semgrep-to-your-organization/) from Trail of Bits for tips on how to evaluate and deploy Semgrep for your org.
