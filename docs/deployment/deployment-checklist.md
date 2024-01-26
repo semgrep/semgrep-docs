@@ -81,8 +81,6 @@ The following checklist breaks down permissions required by Semgrep features.
 | Pull request (PR) comments. |  For GitHub Enterprise Server: Add a personal access token (PAT) with [assigned scopes](/deployment/connect-scm/#connect-to-on-premise-github-or-gitlab-orgs).          |        |
 | GPT-assisted triage and recommendations. | Code access. |  |
 
-[<i class="fas fa-external-link fa-xs"></i> GitHub guide](https://docs.github.com/en/actions/security-guides/encrypted-secrets)
-
 #### GitLab
 
 | Feature | Permission required | Granted |
@@ -90,8 +88,6 @@ The following checklist breaks down permissions required by Semgrep features.
 | Merge request (MR) comments. | Create personal access tokens. |  |
 | GPT-assisted triage and recommendations. | Create personal or project-level access tokens. |  |
 | GPT-assisted triage and recommendations. | Code access. |  |
-
-[<i class="fas fa-external-link fa-xs"></i> GitLab guide](https://docs.gitlab.com/ee/ci/secrets/)
 
 #### Bitbucket 
 
@@ -113,7 +109,9 @@ This section is for self-hosted repositories.
 
 ### Notifications
 
-- For notifications: Set up channels in your chosen notification method (Slack, email, or webhooks).
+| Feature  | Permission | Granted |
+| -------  | -------  | ------ |
+| Receive Slack notifications.  | tk | 
 
 ## Appendices
 
