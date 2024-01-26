@@ -6,6 +6,9 @@ description: tk
 tags:
   - Deployment
 ---
+
+
+
 Before starting the deployment setup, use this checklist to ensure that:
 
 - You and your organization agree on the **scope** of the deployment.
@@ -16,53 +19,105 @@ Before starting the deployment setup, use this checklist to ensure that:
 Check out [How to introduce Semgrep to your organization](https://blog.trailofbits.com/2024/01/12/how-to-introduce-semgrep-to-your-organization/) from Trail of Bits for tips on how to evaluate and deploy Semgrep for your org.
 :::
 
-Ensure that you have met all the [<i class="fa-regular fa-file-lines"></i> Prerequisites](/getting-started/prerequisites) for Semgrep.
 
-## Permissions and access 
+Ensure that your deployment meets all the [<i class="fa-regular fa-file-lines"></i> Prerequisites](/getting-started/prerequisites) for Semgrep.
 
-Ensure that you and your deployment team have sufficient permissions to:
+## Stakeholders and deployment team
 
-- Add or make changes to CI jobs.
-- Create access tokens, such as CI/CD secrets, in your source code manager.
-- Commit files to all repositories you want Semgrep to scan.
-- For GitHub: Install GitHub apps.
-- For self-hosted repositories:
-    - Edit your firewall or VPN configuration's allowlist.
-    - Add CI/CD secrets into your SCM.
-        - [<i class="fas fa-external-link fa-xs"></i> GitHub guide](https://docs.github.com/en/actions/security-guides/encrypted-secrets)
-        - [<i class="fas fa-external-link fa-xs"></i> GitLab guide](https://docs.gitlab.com/ee/ci/secrets/)
-- For SSO: View and edit SSO configurations.
-- For notifications: Set up channels in your chosen notification method (Slack, email, or webhooks).
+Semgrep integrates deeply and early in the development process. For medium-to-large teams, typically of more than 10 developers, coordinating before the deployment with other departments is crucial to a speedy roll-out.
 
-tk to edit in
-For GitHub or GitLab users: A GitHub or GitLab SaaS repository associated with your account.
-For BitBucket SaaS users: A BitBucket repository and sufficient permissions to edit a BitBucket Pipeline and add repository variables.
+Here are some teams or departments that may be responsible for parts of your Semgrep deployment:
+
+| Department | Tasks related to deployment  |
+| -------  | ------ |
+| Infrastructure         | SSO, CI/CD, and SCM configuration        |
+| Engineering | Repository ownership, displaying findings to developers in PRs or MRs |
+| IT | Firewall or VPN configuration (for self-hosted repositories) |
 
 ## Scope 
 
+Scope refers to the breadth of deployment integration within your organization. The more users and repositories you onboard to Semgrep, the more crucial training becomes for **security champions** within your organization.
 
-Ensure that you and your deployment team agree on:
+| Ensure that all stakeholders agree on: | Done |
+| -------  | ------ |
+| Which users and departments will use Semgrep. |  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;    |
+| Which repositories you will scan with Semgrep. | |
+| How frequently you run Semgrep scans, such as daily or weekly, and at what time. This may affect other processes, such as PR approvals. | |
+| A timeframe for deployment. You may divide this into phases. | |
 
-- What roles or departments will use Semgrep.
-- The number of repositories you will scan with Semgrep.
+**Deployment times** vary greatly depending on your processes and size.
 
-
-## Processes
-
-Determine the following:
-
-- When you want to run a scan; common options include:
-    - On a recurring schedule, such as daily or weekly. It is recommended to run Semgrep daily.
-    - On certain events, such as a pull or merge request.
-- On what branches you want to run a scan:
-    - Feature branches.
-    - Main or trunk branches.
+:::tip On scheduling scans
+Monorepos may take longer to finish scanning. Semgrep provides several options, including piecemeal scanning of the monorepo. See [<i class="fa-regular fa-file-lines"></i> Scan a large monorepo](/kb/semgrep-code/scanning-large-monorepo/) for more information.
+:::
 
 ## Roles
 
-- Establish the administrators (admins) that own the Semgrep deployment.
+Semgrep provides two roles: `admin` and `member`. At the minimum: Establish the administrators (`admins`) that own the Semgrep deployment. For single-user deployments, you are the sole `admin` of your deployment.
 
-## Permissions
+| Task | Done |
+| -------  | ------ |
+| Decide on `admin` users. |      |
+| Establish `user` headcount and ensure they have a means of authentication. | |
+
+## Permissions and access 
+
+The following checklist breaks down permissions required by Semgrep features.
+
+### Semgrep in CI
+
+| Feature | Permission required | Granted |
+| -------  | -------  | ------ |
+| Enables Semgrep to run continuously in your CI workflow. | Add or make changes to CI jobs. This includes **committing configuration files** for each repository you want to scan.         |        |
+ |   | Define environment variables and storing secrets.         |        |
+
+### Source code managers
+
+#### GitHub
+
+| Feature | Permission required | Granted |
+| --- | -------   -------  | ------ |
+| Create CI jobs for repositories in bulk | Install GitHub apps.         |        |
+| Pull request (PR) comments. |  For GitHub Enterprise Server: Add a personal access token (PAT) with [assigned scopes](/deployment/connect-scm/#connect-to-on-premise-github-or-gitlab-orgs).          |        |
+| GPT-assisted triage and recommendations. | Code access. |  |
+
+[<i class="fas fa-external-link fa-xs"></i> GitHub guide](https://docs.github.com/en/actions/security-guides/encrypted-secrets)
+
+#### GitLab
+
+| Feature | Permission required | Granted |
+| ------- |   -------  | ------ |
+| Merge request (MR) comments. | Create personal access tokens. |  |
+| GPT-assisted triage and recommendations. | Create personal or project-level access tokens. |  |
+| GPT-assisted triage and recommendations. | Code access. |  |
+
+[<i class="fas fa-external-link fa-xs"></i> GitLab guide](https://docs.gitlab.com/ee/ci/secrets/)
+
+#### Bitbucket 
+
+| Feature  | Permission | Granted |
+| -------  | -------  | ------ |
+| Pull request (PR) comments.  | Able to create **repository variables**. | 
+
+### VPN
+
+This section is for self-hosted repositories.
+
+| Feature  | Permission | Granted |
+| -------  | -------  | ------ |
+| Send pull or merge requests to your SCM.  | Edit firewall or VPN's allowlist. | 
+
+### SSO
+
+- For SSO: View and edit SSO configurations.
+
+### Notifications
+
+- For notifications: Set up channels in your chosen notification method (Slack, email, or webhooks).
+
+## Appendices
+
+### Permissions
 
 <Tabs
     defaultValue="permissions-github"
