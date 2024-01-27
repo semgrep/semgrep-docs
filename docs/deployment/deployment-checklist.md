@@ -1,5 +1,5 @@
 ---
-s;lug: checklist
+slug: checklist
 append_help_link: true
 title: Pre-deployment checklist
 description: tk
@@ -20,8 +20,6 @@ Before starting the deployment setup, use this checklist to ensure that:
 Ensure that your infrastructure meets all the [<i class="fa-regular fa-file-lines"></i> Prerequisites](/getting-started/prerequisites) to run Semgrep.
 :::
 
-
-
 ## Stakeholders and deployment team
 
 Semgrep integrates deeply and early in the development process. For medium-to-large teams, typically of more than 10 developers, coordinating before the deployment with other departments is crucial to a speedy roll-out.
@@ -38,9 +36,9 @@ Here are some teams or departments that may be responsible for parts of your Sem
 
 Scope refers to the breadth of deployment integration within your organization. The more users and repositories you onboard to Semgrep, the more crucial training becomes for **security champions** within your organization.
 
-| Ensure that all stakeholders agree on: | Done |
+| Ensure that all stakeholders agree on: | Done    |
 | -------  | ------ |
-| Which users and departments will use Semgrep. |  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;    |
+| Which users and departments will use Semgrep. |      |
 | Which repositories you will scan with Semgrep. | |
 | How frequently you run Semgrep scans, such as daily or weekly, and at what time. This may affect other processes, such as PR approvals. | |
 | A timeframe for deployment. You may divide this into phases. | |
@@ -64,13 +62,42 @@ Semgrep provides two roles: `admin` and `member`. At the minimum: Establish the 
 
 The following checklist breaks down permissions required by Semgrep features.
 
-| Feature | Permission required | Granted |
-| -------  | -------  | ------ |
-| Run Semgrep continuously in your CI workflows. | Add or make changes to CI jobs. This includes **committing configuration files** for each repository you want to scan.         |        |
-|   | Define environment variables and storing secrets.         |        |
-| Manage user authentication with SSO.  | tk         |        |
-| Receive Slack notifications.  | Be a **Slack workspace owner**. | tk |
-| Send pull or merge requests to your SCM.  | Edit firewall or VPN's allowlist. |  |
+<table>
+<thead>
+<tr>
+<th>Feature</th>
+<th>Permission required</th>
+<th>Granted</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td rowspan="2">Run Semgrep continuously in your CI workflows.</td>
+<td>Add or make changes to CI jobs. This includes committing configuration files for each</td>
+<td></td>
+</tr>
+<tr>
+<td>Define environment variables and storing secrets.</td>
+<td></td>
+</tr>
+<tr>
+<td>Manage user authentication with SSO.</td>
+<td>View and edit SSO configurations.</td>
+<td></td>
+</tr>
+<tr>
+<td>Receive Slack notifications.</td>
+<td>Be a <strong>Slack workspace owner</strong>, or coordinate with the team responsible.</td>
+<td></td>
+</tr>
+<tr>
+<td>Send pull or merge requests to your SCM.</td>
+<td>Edit firewall or VPN allowlist.</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+
 
 ### SCM-specific required permissions
 
@@ -88,7 +115,7 @@ The following checklist breaks down permissions required by Semgrep features.
 #### GitHub
 
 | Feature | Permission required | Granted |
-| --- | -------   -------  | ------ |
+| --- | -------  | ------ |
 | Create CI jobs for repositories in bulk and detect GitHub repos automatically. | Install GitHub apps.         |        |
 | Pull request (PR) comments. |  For GitHub Enterprise Server: Add a personal access token (PAT) with [assigned scopes](/deployment/connect-scm/#connect-to-on-premise-github-or-gitlab-orgs).          |        |
 | GPT-assisted triage and recommendations. | Code access. |  |
@@ -99,11 +126,32 @@ The following checklist breaks down permissions required by Semgrep features.
 
 #### GitLab
 
-| Feature | Permission required | Granted |
-| ------- |   -------  | ------ |
-| Merge request (MR) comments. | Create personal access tokens. |  |
-| GPT-assisted triage and recommendations. | Create personal or project-level access tokens. |  |
-| GPT-assisted triage and recommendations. | Code access. |  |
+<table>
+<thead>
+<tr>
+<th>Feature</th>
+<th>Permission required</th>
+<th>Granted</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Merge request (MR) comments.</td>
+<td>Create personal access tokens.</td>
+<td></td>
+</tr>
+<tr>
+<td rowspan="2">GPT-assisted triage and recommendations.</td>
+<td>Create personal or project-level access tokens.</td>
+<td></td>
+</tr>
+<tr>
+<td>Code access.</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+
 
 </TabItem>
 
@@ -195,17 +243,13 @@ Semgrep requires the following permissions (scopes) to enable the authentication
 </TabItem>
 </Tabs>
 
-Bitbucket - repository variables
-
-## Semgrep versions
+### Semgrep versions
 
 Many improvements to the Semgrep Cloud Platform experience only work with up-to-date Semgrep CLI versions. As such, Semgrep Cloud Platform only supports the 10 most recent minor versions of Semgrep CLI. For example, if the latest release was 0.114.0, all versions greater than 0.104.0 are supported, while earlier versions, such as 0.103.0, can be deprecated or can result in failures.
 
-See [Updating Semgrep](/upgrading/) for information on how to upgrade.
+To update Semgrep, see [Updating Semgrep](/upgrading/).
 
 Docker users: use [the **latest** tag](https://hub.docker.com/r/returntocorp/semgrep/tags?page=1&name=latest) to ensure you are up-to-date.
-
-Required access tokens
 
 ## Additional resources 
 
