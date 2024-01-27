@@ -22,7 +22,7 @@ Ensure that your infrastructure meets all the [<i class="fa-regular fa-file-line
 
 ## Stakeholders and deployment team
 
-Semgrep integrates deeply and early in the development process. For medium-to-large teams, typically of more than 10 developers, coordinating before the deployment with other departments is crucial to a speedy roll-out.
+Semgrep integrates deeply and early in the development process. For medium-to-large teams, typically of more than 10 developers, coordinating with other departments before starting the deployment is crucial to an efficient roll-out.
 
 Here are some teams or departments that may be responsible for parts of your Semgrep deployment:
 
@@ -250,7 +250,14 @@ Many improvements to the Semgrep Cloud Platform experience only work with up-to-
 To update Semgrep, see [Updating Semgrep](/upgrading/).
 
 Docker users: use [the **latest** tag](https://hub.docker.com/r/returntocorp/semgrep/tags?page=1&name=latest) to ensure you are up-to-date.
+ 
+### Semgrep Cloud Platform session details
 
+- The time before you need to reauthenticate to Semgrep Cloud Platform is 7 days.
+- A Semgrep Cloud Platform session token is valid for 7 days.
+- This session timeout is not configurable.
+- Semgrep Cloud Platform does not use cookies; instead it uses `localStorage` to store access tokens. The data in `localStorage` expires every 7 days. 
+	
 ## Additional resources 
 
 Check out [<i class="fas fa-external-link fa-xs"></i> How to introduce Semgrep to your organization](https://blog.trailofbits.com/2024/01/12/how-to-introduce-semgrep-to-your-organization/) from Trail of Bits for tips on how to evaluate and deploy Semgrep for your org.
