@@ -19,6 +19,7 @@ import PrCommentsInSast from "/src/components/procedure/_pr-comments-in-sast.mdx
 import DefineConnectionVariables from "/src/components/reference/_define-connection-variables.mdx"
 import DeploymentJourney from "/src/components/concept/_deployment-journey.mdx"
 import ReceiveCommentsScm from "/src/components/procedure/_receive-comments-scm.mdx"
+import NextAfterComments from "/src/components/procedure/_next-after-comments.mdx"
 
 <ul id="tag__badge-list">
 {
@@ -110,20 +111,20 @@ You've set up MR comments! Enable optional features provided in the following se
 
 ## Optional features
 
-## Enabling autofix in GitLab repositories
+### Enable autofix in GitLab repositories
 
 [Autofix](/writing-rules/autofix) is a Semgrep feature in which rules contain suggested fixes to resolve findings.
 
 <EnableAutofix />
 
-## Dataflow traces in MR comments
+### Dataflow traces in MR comments
 
 ![Screenshot of a GitLab MR comment with dataflow traces](/img/dataflow-traces-mr-comments.png#bordered)
 **Figure** An inline GitLab pull request comment with dataflow traces.
 
 <DisplayTaintedDataIntro />
 
-### View the path of tainted data in MR comments
+#### View the path of tainted data in MR comments
 
 To enable dataflow traces in your CI pipeline, fulfill the following prerequisites:
 
@@ -133,9 +134,9 @@ To enable dataflow traces in your CI pipeline, fulfill the following prerequisit
 - Not all Semgrep rules or rulesets make use of taint tracking. Ensure that you have a ruleset, such as the **default ruleset** added in your **[Policies](https://semgrep.dev/orgs/-/policies)**. If this ruleset is not added, go to [https://semgrep.dev/p/default](https://semgrep.dev/p/default), and then click **Add to Policy**. You can add rules that use taint tracking from [Semgrep Registry](https://semgrep.dev/explore).
 :::
 
-## Receive PR or MR comments in your VPN or on-premise SCM
+## Next steps
 
-<ReceiveCommentsScm />
+<NextAfterComments />
 
 ## Additional references 
 

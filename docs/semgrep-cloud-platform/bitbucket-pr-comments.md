@@ -15,6 +15,7 @@ import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 import TroubleshootingPrLinks from "/src/components/reference/_troubleshooting-pr-links.mdx"
 import DeploymentJourney from "/src/components/concept/_deployment-journey.mdx"
+import NextAfterComments from "/src/components/procedure/_next-after-comments.mdx"
 
 <ul id="tag__badge-list">
 {
@@ -175,6 +176,9 @@ After defining the `BITBUCKET_TOKEN`, you have successfully set up PR comments i
 Only rules set to the **Comment** and **Block** rule modes in the [Policies page](https://semgrep.dev/orgs/-/policies) create PR comments.
 :::
 
+## Next steps
+
+<NextAfterComments />
 
 ## Additional references 
 

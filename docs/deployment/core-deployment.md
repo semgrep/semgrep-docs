@@ -76,6 +76,10 @@ Semgrep supports many different technology stacks. Refer to the following table 
             <td>Semgrep fully supports many popular CI providers.</td>
         </tr>
         <tr>
+            <td>GPT-assisted triage and remediation</td>
+            <td>Semgrep can give GPT-assisted recommendations on whether a finding is a true or false positive as well as suggest code fixes for true positive findings.</td>
+        </tr>
+        <tr>
             <td>PR or MR comments</td>
             <td>Semgrep can post PR or MR comments in the following SCMs:
             <ul><li>GitHub</li><li>GitLab</li><li>Bitbucket</li></ul></td>
@@ -118,6 +122,7 @@ Team size isn't necessarily indicative of deployment needs. Features for large t
 
 You can integrate Semgrep further into your security workflows after some initial testing of your core deployment. Once everything works smoothly, you can:
 
+- Enable GPT-assisted triage and code fix recommendations. This requires code access.
 - Set up notification channels.
 - Encourage developers to set up Semgrep as a linter in their IDE.
 - Integrate Semgrep with project management software (Private beta).
