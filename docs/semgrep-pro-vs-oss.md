@@ -47,8 +47,8 @@ The following tables describe Semgrep's essential scanning and findings manageme
 | Feature                                                                               | Semgrep OSS | Semgrep Pro |
 | ------------------------------------------------------------------------------------- | ----------- | ---------------------- |
 | Intrafile (single-file) analysis                                                      | ✔️          | ✔️                     |
-| Cross-file (across multiple files or interfile) analysis                              | --          | ✔️                     |
 | [Single-file taint](/writing-rules/data-flow/data-flow-overview/) (dataflow) analysis | ✔️          | ✔️                     |
+| Cross-file (across multiple files or interfile) analysis                              | --          | ✔️                     |
 | [Cross-file taint](/semgrep-code/semgrep-pro-engine-intro/) (dataflow) analysis       | --          | ✔️                     |
 
 ### SCA (Software composition analysis)
@@ -79,11 +79,11 @@ The following table displays customization features and tools that enhance Semgr
 | Feature                                                      | Semgrep OSS                                     | Semgrep Pro                            |
 | ------------------------------------------------------------ | ----------------------------------------------- | -------------------------------------------- |
 | Write your own rules                                         | ✔️                                              | ✔️                                           |
-| Private rules\*                                              | n/a                                             | ✔️                                           |
 | [Community-contributed rule registry](https://semgrep.dev/r) | ✔️                                              | ✔️                                           |
+| Rule-writing environment                                     | ✔️ [Playground](https://semgrep.dev/playground) | ✔️ Playground and Editor for logged-in users |
+| Private rules\*                                              | n/a                                             | ✔️                                           |
 | Proprietary rule registry                                    | --                                              | ✔️                                           |
 | [Policy-based workflows†](/semgrep-code/policies/)           | --                                              | ✔️                                           |
-| Rule-writing environment                                     | ✔️ [Playground](https://semgrep.dev/playground) | ✔️ Playground and Editor for logged-in users |
 
 \*Private rules refer to rules that are guaranteed a private access scope in the cloud. This scope of access does not apply to Semgrep OSS, as Semgrep OSS is purely CLI-based.<br />
 † Policy-based workflows provide security teams a means to block merges, leave PR/MR comments, or silently monitor for potential issues based on the presence of a finding.
@@ -96,10 +96,10 @@ The following table lists tools to enable developers to resolve their own code.
 | ------------------------- | ----------- | ----------------- |
 | VS Code extension         | ✔️          | ✔️                |
 | IntelliJ extension        | ✔️          | ✔️                |
+| `pre-commit`‡             | ✔️          | ✔️                |
 | Autofix                   | ✔️          | ✔️                |
 | Autofix in PR/MR comments | --          | ✔️                |
 | Autofix AI                | --          | ✔️                |
-| `pre-commit`‡             | ✔️          | ✔️                |
 
 ‡`pre-commit` requires some manual set-up.
 
