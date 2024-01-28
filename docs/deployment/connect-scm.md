@@ -32,13 +32,23 @@ The process to connect a source code manager depends on whether your SCM tool is
 To connect your SCM:
 
 1. Sign in to Semgrep Cloud Platform.
-2. On the sidebar, click **the organization account** you want to make a connection for.
-3. Click **Settings** > **Source Code Managers**.
-4. Click on your source code manager, for example, **Connect to GitHub**.
+1. On the sidebar, click **the organization account** you want to make a connection for.
+1. Click **Settings** > **Source Code Managers**.
 ![Source code manager tab](/img/source-code-manager.png#md-width)
-5. Follow the prompts in the Cloud Platform and select an organization or group to link.
-6. After a successful link, you are signed out of Semgrep Cloud Platform automatically, as your credentials have changed after linking an organization.
-7. Sign back in to Semgrep Cloud Platform.
+1. For GitHub users, click **Connect to GitHub**. You are taken to the connection page. Enter the following information:
+    1. Click the **Install on** drop-down box and select the account type you are connecting to, either a GitHub **personal account** or **organization account**.
+    1. Under **Organization name**, enter the name of the GitHub account to link to. The name must be an exact match.
+    1. Choose to **<i class="fa-regular fa-circle-dot"></i> Leave PR comments and get Assistant recommendations** or **<i class="fa-regular fa-circle-dot"></i> Leave PR comments**. 
+    1. Optional: Click Review permissions to view the permissions granted to Semgrep.
+    1. Click **Create GitHub App**.
+    1. Click **Install**. 
+1. After a successful link, you are signed out of Semgrep Cloud Platform automatically, as your credentials have changed after linking an organization.
+1. Sign back in to Semgrep Cloud Platform.
+
+:::tip
+- Getting Assistant recommendations grants Semgrep **code access**.
+- **Leave PR comments** refers to Semgrep's capability to post findings to developers in PRs.
+:::
 
 You have successfully connected an org in Semgrep Cloud Platform with an organization in your source code management tool.
 
