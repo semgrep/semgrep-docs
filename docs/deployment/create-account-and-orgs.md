@@ -22,7 +22,7 @@ import TabItem from '@theme/TabItem';
 :::
 
 * Add the rest of your organization (org) members to Semgrep. 
-* Configure Semgrep to scan in other source code managers, such as Bitbucket.
+* Configure Semgrep to scan repositories in other source code managers, such as Bitbucket.
 
 :::tip Using SSO for your initial sign-in 
 Alternatively, reach out to [<i class="fa-regular fa-envelope"></i> sales@semgrep.com](mailto:sales@semgrep.com) to set up SSO. This removes the need to sign in through a GitHub or GitLab account if you don't have one.
