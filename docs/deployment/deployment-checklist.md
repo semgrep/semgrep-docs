@@ -17,7 +17,7 @@ Before starting the deployment setup, use this checklist to ensure that:
 - You have **access** to the resources needed to carry out the deployment.
 
 :::info
-Ensure that your infrastructure meets all the [<i class="fa-regular fa-file-lines"></i> Prerequisites](/getting-started/prerequisites) to run Semgrep.
+Ensure that your infrastructure meets all the [<i class="fa-regular fa-file-lines"></i> Prerequisites](/prerequisites) to run Semgrep.
 :::
 
 ## Stakeholders and deployment team
