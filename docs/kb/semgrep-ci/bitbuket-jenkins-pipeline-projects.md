@@ -17,16 +17,16 @@ Steps:
 1. From the **Jenkins Dashboard** click on create a **New Item**, type a project name and select the **Pipeline** option.
 ![image info](/img/kb/bitbucket-jenkins-new.png)
 
-2. In the **General section** -> Mark the check: **“Build with BitBucket Push and Pull Request Plugin”** and define the triggers for Push and Pull request Created and Updated.
+2. In the **General section** -> Mark the check: **“Build with Bitbucket Push and Pull Request Plugin”** and define the triggers for Push and Pull request Created and Updated.
 ![image info](/img/kb/bitbucket-jenkins-events.png)
 
 :::note
-Depends on your BitBucket instance it can be "Bitbucket Cloud Pull Request" or "Bitbucket Server Pull Request".
+Depends on your Bitbucket instance it can be "Bitbucket Cloud Pull Request" or "Bitbucket Server Pull Request".
 :::
 
 3. In the **Pipeline Section**:
-* Specify the BitBucket repository URL
-* Sepecify the main branch (master in the example)
+* Specify the Bitbucket repository URL
+* Specify the main branch (master in the example)
 * Specify the Script path to Jenkinsfile
 
 ![image info](/img/kb/bitbucket-jenkins-pipeline-section-1.png)
@@ -86,7 +86,7 @@ The variable SEMGREP_BASELINE_REF must be set to the main branch, in the example
 ![image info](/img/kb/bitbucket-jenkins-pullrequest-2.png)
 
 :::note
-The pull request can be marked as falied if there are blocking findings, as in the example.
+The pull request can be marked as failed if there are blocking findings, as in the example.
 :::
 
 2. Merge the change to master. It will run a Semgrep full scan in Jenkins.
