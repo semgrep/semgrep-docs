@@ -90,7 +90,7 @@ The following table displays customization features and tools that enhance Semgr
 
 ### 🤖 Developer experience
 
-The following table lists tools to enable developers to resolve their own code.
+The following table lists tools to enable developers to resolve findings in their own code.
 
 | Feature                   | Semgrep OSS | Semgrep Pro |
 | ------------------------- | ----------- | ----------------- |
