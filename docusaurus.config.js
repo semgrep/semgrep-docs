@@ -343,7 +343,7 @@ module.exports = {
           { from: "/kb/semgrep-ci/github-required-workflows-semgrep/" , to: "/kb/semgrep-ci/github-repository-rulesets-semgrep/" },
 
           /* NOV 23 2023  */
-          { from: "/getting-started/" , to: "/getting-started/quickstart/" }
+          { from: "/getting-started/" , to: "/getting-started/quickstart/" },
 
           /* JAN 30 2024  */
           { from: "/usage-limits/" , to: "/usage-and-billing/" }
