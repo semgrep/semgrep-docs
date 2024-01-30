@@ -1,7 +1,7 @@
 ---
 slug: semgrep-pro-vs-oss
 append_help_link: true
-title: Choose between Semgrep Pro and Semgrep OSS
+title: Semgrep Pro versus Semgrep OSS
 hide_title: true
 description: tk
 tags:
