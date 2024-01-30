@@ -486,7 +486,6 @@ module.exports = {
             'licensing',
             'faq',
             'integrating',
-            'usage-limits',
             'contributing/philosophy',
             {
               type: 'doc',
