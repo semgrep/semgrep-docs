@@ -33,21 +33,9 @@ If the number of contributors exceeds the usage limit, you must purchase licensi
 
 The Enterprise tier remains unaffected.
 
-### What is the usage limit?
-
-The usage limit is 10 contributors. A contributor is someone who has made at least one commit to a Semgrep-scanned private repository within the last 30 days.
-
-### How are contributors calculated?
-
-Contributors are calculated using `git log` over the past 30 days. **Bots** and similar automations are excluded from this count.
 
 ### What happens when the usage limit is exceeded?
 
-Semgrep scans stop when the usage limit is exceeded. You can resume scanning through the following:
-
-* A one-time 30-day free trial that starts automatically when the usage limit is exceeded for the first time.
-* By purchasing additional licenses.
-* By waiting for the next billing cycle.
 
 ### When will usage limits be enforced?
 
@@ -55,23 +43,10 @@ Usage limits have been enforced since July 31, 2023.
 
 ### What if the first Semgrep scan exceeds the contributor usage limit?
 
-Semgrep will complete the first scan and a one-time 30-day free trial will automatically start. After the trial concludes, if scans are run on private repositories that exceed the usage limit, scans will not run until additional licenses are purchased.
 
 ### How is the cost calculated for the Team tier?
 
-The 11th contributor and onwards are charged. For example, an engineering team with 20 contributing developers will only pay for 10 licenses.
-
-### Can a single product be purchased?
-
-Yes, you can buy a single product. Products can also be disabled from the [Settings page](https://semgrep.dev/orgs/-/settings).
-
-### Can I purchase a different number of licenses per product?
-
-No. For example, you cannot purchase 4 licenses of Semgrep Supply Chain and 9 licenses of Semgrep Code. You must purchase an equal number of licenses for both products.
-
-### Do public projects have the same contribution limits?
-
-No, public projects have no limits on contributors.
+The 11th contributor and onwards are charged. 
 
 ### Is the command `semgrep scan` subject to the usage limit?
 
