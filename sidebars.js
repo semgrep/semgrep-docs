@@ -348,7 +348,7 @@ module.exports = {
             ],
         },
         'semgrep-pro-vs-oss',
-        'pricing-and-billing'
+        'usage-and-billing'
       ]
     },
     {
