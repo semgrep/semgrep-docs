@@ -345,6 +345,9 @@ module.exports = {
           /* NOV 23 2023  */
           { from: "/getting-started/" , to: "/getting-started/quickstart/" }
 
+          /* JAN 30 2024  */
+          { from: "/usage-limits/" , to: "/usage-and-billing/" }
+
         ]
       }
     ],

@@ -135,7 +135,7 @@ For **members**, perform the following steps to join the org:
 :::tip Product-specific information
 * To learn more about SAST scans on your codebase, see [Getting started with Semgrep Code](/semgrep-code/getting-started).
 * To learn more about SCA scans for your third-party dependencies, see [Getting started with Semgrep Supply Chain](/semgrep-supply-chain/getting-started).
-* Both products are **free for up to 10 contributors**. See [Usage limits](/usage-limits) to learn more about contributors and usage limits.
+* Both products are **free for up to 10 contributors**. See [Usage and billing](/usage-and-billing) to learn more about contributors and usage limits.
 :::
 
 ### Starting a local repository scan and sending findings to SCP
