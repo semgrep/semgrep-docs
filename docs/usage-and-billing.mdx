@@ -44,7 +44,7 @@ A **contributor** is someone who has made at least **one** commit to a Semgrep-s
 
 Any type of Semgrep Pro scan counts towards the contributor total. This includes:
 
-- Scanning with any Semgrep Pro product (Code, Supply Chain, and so on.)
+- Scanning with any Semgrep Pro product (Code, Supply Chain, and so on).
 - Full scans on a repository or partial scans on a pull or merge request.
 
 ### Usage computation
@@ -64,7 +64,7 @@ Semgrep scans stop when the usage limit is exceeded. You can resume scanning thr
 * By purchasing additional licenses.
 * By waiting for the next billing cycle.
 
-If the very first scan exceeds the usage limit, Semgrep still completes the first scan and a one-time 30-day free trial automatically starts. After the trial concludes, if scans are run on private repositories that exceed the usage limit, scans will not run until additional licenses are purchased.
+If the first scan exceeds the usage limit, Semgrep still completes the first scan and a one-time 30-day free trial automatically starts. After the trial concludes, if scans are attempted on private repositories that exceed the usage limit, scans will not run until additional licenses are purchased.
 
 ### Usage limit on public projects
 
@@ -72,13 +72,13 @@ Public projects have no limits on contributors.
 
 ### Semgrep CLI commands subject to usage limits
 
-The `semgrep scan` command is subject to the usage limit only if the scan is by a logged-in or authenticated contributor. Semgrep computes contributor counts for any logged-in scan command (for example, `semgrep ci`, `semgrep scan`, and so on) when the Pro Engine, Supply Chain, or Pro rules are used.
+The `semgrep scan` command is subject to the usage limit only if the scan is by a logged-in contributor. Semgrep computes contributor counts for any logged-in scan command (for example, `semgrep ci`, `semgrep scan`, and so on) when the Pro Engine, Supply Chain, or Pro rules are used.
 
 ## Determine your plan needs
 
 Within your team or organization, assess the number of **contributors**. Contributors are members of your organization that make commits. That determines the number of **licenses** needed for the plan purchase.
 
-For example, if a project has 4 unique contributors who create commits during the billing period while Semgrep is scanning their repositories, only 4 licenses are required even if the organization has a total of 10 members. If these unique contributors commit to many projects within the same organization, they are counted once, so no additional cost is charged.
+For example, if a project has 4 unique contributors who create commits during the billing period while Semgrep is scanning their repositories, only 4 licenses are required even if the organization has a total of 10 members. Contributors are counted only once even if they commit to many projects within the same organization, so no additional licenses are required.
 
 :::info
 You only need to buy licenses for contributors over 10. The 11th contributor and onwards are charged. For example, an engineering team with 20 contributing developers will only pay for 10 licenses.
@@ -88,7 +88,7 @@ All members of the organization, regardless of contributor (license) status, hav
 
 ### Single-product purchases
 
-Yes, you can buy a single product. Products can also be disabled from the [Settings page](https://semgrep.dev/orgs/-/settings).
+You can choose to purchase a single product. Products can also be disabled from the [Settings page](https://semgrep.dev/orgs/-/settings).
 
 ### Number of licenses per product
 
