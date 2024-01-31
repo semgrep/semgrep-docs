@@ -70,7 +70,7 @@ To add a CI job to GitHub Actions:
 1. Optional: Click **Review CI config** to see Semgrep's default YAML configuration file. 
 1. Click **Commit file**.
 
-You have now added a Semgrep job to your CI provider. A scan begins automatically after adding a new repository. Its findings are sent to Semgrep Cloud Platform for triage and remediation.
+You have now added a Semgrep job to GitHub Actions. A scan begins automatically after adding a new repository. Its findings are sent to Semgrep Cloud Platform for triage and remediation.
 
 ### Detecting GitHub repositories
 
