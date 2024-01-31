@@ -3,7 +3,7 @@ slug: semgrep-pro-vs-oss
 append_help_link: true
 title: Semgrep Pro versus Semgrep OSS
 hide_title: true
-description: tk
+description: "Learn about the features and differences of Semgrep OSS and Semgrep Pro."
 tags:
   - Semgrep OSS
   - Semgrep Team & Enterprise Tier
@@ -26,7 +26,7 @@ The terms used in this document are defined as follows:
 <dd>Refers to Semgrep offerings with an open-source license, primarily the Semgrep OSS Engine, a fast and customizable static application security testing (SAST) scanner. To run Semgrep completely on OSS, use the OSS Engine and rules in the <a href="https://semgrep.dev/r/"><i class="fas fa-external-link fa-xs"></i> Semgrep Registry</a> with <strong>open source licenses</strong>, or write your own custom rules.</dd>
 <dt>Semgrep Pro</dt>
 <dd>Refers to proprietary product offerings from Semgrep, Inc. These include:<dl>
-<dt>Semgrep Code</dt><dd>A SAST scanner that uses cross-file (interfile) analysis for improved results over Semgrep OSS. Semgrep Code includes premium rules, known as Pro rules, that use the cross-file analysis to reduce false positives.</dd>
+<dt>Semgrep Code</dt><dd>A SAST scanner that uses cross-file (interfile) and cross-function (interprocedural) analysis for improved results over Semgrep OSS. Semgrep Code includes premium rules, known as Pro rules, that use the cross-file analysis to reduce false positives.</dd>
 <dt>Semgrep Supply Chain</dt><dd>A high-signal dependency scanner that detects reachable vulnerabilities in open source third-party libraries and functions across the software development life cycle (SDLC).</dd>
 <dt>Semgrep Secrets (beta)</dt><dd>A a secrets scanner that, in addition to detecting secrets, validates these leaked secrets on a variety of services to help you prioritize active secrets.</dd>
 <dt>Semgrep Cloud Platform</dt><dd>A a web application for the deployment, management, and monitoring of findings from Semgrep's SAST, SCA, and secrets scanners. It integrates with continuous integration (CI) providers such as GitHub Actions, GitLab CI/CD, CircleCI, and more.</dd>
@@ -46,10 +46,11 @@ The following tables describe Semgrep's essential scanning and findings manageme
 
 | Feature                                                                               | Semgrep OSS | Semgrep Pro |
 | ------------------------------------------------------------------------------------- | ----------- | ---------------------- |
-| Intrafile (single-file) analysis                                                      | ✔️          | ✔️                     |
-| [Single-file taint](/writing-rules/data-flow/data-flow-overview/) (dataflow) analysis | ✔️          | ✔️                     |
-| Cross-file (across multiple files or interfile) analysis                              | --          | ✔️                     |
-| [Cross-file taint](/semgrep-code/semgrep-pro-engine-intro/) (dataflow) analysis       | --          | ✔️                     |
+| Single-file analysis                                                      | ✔️          | ✔️                     |
+| Single-function analysis  | ✔️          | ✔️         |
+| Cross-file (across multiple files or **interfile**) analysis        | --          | ✔️                     |
+| Cross-function (across multiple functions or **interprocedural**) analysis     | -- | ✔️                         | --          | ✔️     |
+| [Dataflow analysis (taint)](/semgrep-code/semgrep-pro-engine-intro/)       | --          | ✔️                     |
 
 ### SCA (Software composition analysis)
 
