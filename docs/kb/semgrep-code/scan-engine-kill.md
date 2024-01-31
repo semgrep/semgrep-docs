@@ -141,11 +141,4 @@ To increase parallelization, first try the scan with `-j 2` for two jobs. For tw
 
 Furthermore, there is overhead in parallelization: the total RAM required for a `-j 2` scan is greater than a `-j 1` scan for the same codebase, but you should see a decrease in total scan time.
 
-## Scanning schedule
-
-A modular scan means to scan a top-level folder whose code files don't interact with code files in other folders at the same level. Semgrep recommend the following:
-
-* Perform a modular full scan daily by using the following command: `semgrep ci --include=/src/moduleA/*`
-* Perform a full scan on the entire monorepo every two weeks. This full scan ensures that any dependency scans are up-to-date.
-
 <MoreHelp/>
