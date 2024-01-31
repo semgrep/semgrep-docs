@@ -81,7 +81,7 @@ The following table displays customization features and tools that enhance Semgr
 | Write your own rules                                         | ✔️                                              | ✔️                                           |
 | [Community-contributed rule registry](https://semgrep.dev/r) | ✔️                                              | ✔️                                           |
 | Rule-writing environment                                     | ✔️ [Playground](https://semgrep.dev/playground) | ✔️ Playground and Editor for logged-in users |
-| Private rules\*                                              | n/a                                             | ✔️                                           |
+| Private rules\*                                              | --                                             | ✔️                                           |
 | Proprietary rule registry                                    | --                                              | ✔️                                           |
 | [Policy-based workflows†](/semgrep-code/policies/)           | --                                              | ✔️                                           |
 
@@ -92,14 +92,14 @@ The following table displays customization features and tools that enhance Semgr
 
 The following table lists tools to enable developers to resolve findings in their own code.
 
-| Feature                   | Semgrep OSS | Semgrep Pro |
+| Feature                   | Semgrep OSS | Semgrep Pro       |
 | ------------------------- | ----------- | ----------------- |
-| VS Code extension         | ✔️          | ✔️                |
-| IntelliJ extension        | ✔️          | ✔️                |
-| `pre-commit`‡             | ✔️          | ✔️                |
-| Autofix                   | ✔️          | ✔️                |
-| Autofix in PR/MR comments | --          | ✔️                |
-| Autofix AI                | --          | ✔️                |
+| VS Code extension         | ✔️           | ✔️                 |
+| IntelliJ extension        | ✔️           | ✔️                 |
+| `pre-commit`‡             | ✔️           | ✔️                 |
+| Autofix                   | ✔️           | ✔️                 |
+| Autofix in PR/MR comments | --          | ✔️                 |
+| GPT-assisted autofix      | --          | ✔️                 |
 
 ‡`pre-commit` requires some manual set-up.
 
