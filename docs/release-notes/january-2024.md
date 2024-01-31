@@ -103,14 +103,6 @@ tags:
 
 ### Fixed
 
-## 🔐 Secrets (beta)
-
-### Added
-
-### Changed
-
-### Fixed
-
 ## 📝 Documentation and knowledge base
 
 ### Added
