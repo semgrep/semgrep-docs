@@ -347,7 +347,8 @@ module.exports = {
                 },
             ],
         },
-        'pricing-and-billing'
+        'semgrep-pro-vs-oss',
+        'usage-and-billing'
       ]
     },
     {
@@ -485,7 +486,6 @@ module.exports = {
             'licensing',
             'faq',
             'integrating',
-            'usage-limits',
             'contributing/philosophy',
             {
               type: 'doc',
