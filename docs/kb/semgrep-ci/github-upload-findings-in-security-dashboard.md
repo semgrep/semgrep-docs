@@ -13,7 +13,7 @@ If you run the alternate job and it fails with a "resource not accessible by int
 
 ## The workflow or job does not have sufficient permissions
 
-Semgrep findings in a private repository can only populate in the GitHub Advanced Security Dashboard if the correct permissions are set using the `permissions` key. See an example below.
+Semgrep findings in a private repository can only populate in the GitHub Advanced Security Dashboard if the correct permissions are set using the `permissions` key. See the following example.
 
 ## The workflow permissions in your repository's Actions settings are set to read-only
 
