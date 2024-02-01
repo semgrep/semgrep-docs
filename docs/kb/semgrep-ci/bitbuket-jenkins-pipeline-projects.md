@@ -13,29 +13,19 @@ Follow [this guide](https://semgrep.dev/docs/kb/semgrep-ci/bitbucket-triggering-
 
 ## Creating a Jenkins pipeline project
 
-Steps:
-1. From the **Jenkins Dashboard** click on create a **New Item**, type a project name and select the **Pipeline** option.
-![image info](/img/kb/bitbucket-jenkins-new.png)
-
-2. In the **General section** -> Mark the check: **“Build with Bitbucket Push and Pull Request Plugin”** and define the triggers for Push and Pull request Created and Updated.
-![image info](/img/kb/bitbucket-jenkins-events.png)
-
-:::note
-Depends on your Bitbucket instance it can be "Bitbucket Cloud Pull Request" or "Bitbucket Server Pull Request".
-:::
-
-3. In the **Pipeline Section**:
-* Specify the Bitbucket repository URL
-* Specify the main branch (master in the example)
-* Specify the Script path to Jenkinsfile
-
-![image info](/img/kb/bitbucket-jenkins-pipeline-section-1.png)
-![image info](/img/kb/bitbucket-jenkins-pipeline-section-2.png)
-
-4. Create the **Jenkinsfile** in the Bitbucket repository:
-
-It must define the logic to run Semgrep diff scans if it is a pull request or Semgrep full scans if it is a push to the main branch. It can look like this:
-
+1. From the **Jenkins Dashboard** click on create a **New Item**.
+1. Type a project name and select the **Pipeline** option.
+![Filled-out item name and Pipeline option](/img/kb/bitbucket-jenkins-new.png)
+1. In the **General section**, click the **<i class="fa-solid fa-square-check"></i> Build with Bitbucket Push and Pull Request Plugin**. Alternatively, the plugin can also be called **Bitbucket Cloud Pull Request** or **Bitbucket Server Pull Request**.
+1. In **Triggers > Select an Action** select **Created** and **Updated**.
+![Build triggers for the pipeline project](/img/kb/bitbucket-jenkins-events.png)
+1. In the **Pipeline Section**:
+    1. In **Repository URL**, enter the Bitbucket repository URL.
+    1. In **Branch Specifier**, enter your main or trunk branch (`master` in the screenshot).
+    1. In **Script Path**, enter the path to your 'Jenkinsfile'.
+    ![Pipeline section > Repository URL and Branch Specifier examples.](/img/kb/bitbucket-jenkins-pipeline-section-1.png)
+    ![Pipeline section > Script Path example](/img/kb/bitbucket-jenkins-pipeline-section-2.png)
+1. Create the **Jenkinsfile** in the Bitbucket repository. It must define the logic to run Semgrep diff scans if it is a pull request or Semgrep full scans if it is a push to the main branch. It can look like this:
 ```
 pipeline {
       agent any
@@ -71,12 +61,10 @@ pipeline {
       }
 }
 ```
-:::note
-It is required to define the SEMGREP_APP_TOKEN as a credential in Jenkins.
-:::
 
 :::note
-The variable SEMGREP_BASELINE_REF must be set to the main branch, in the example: “origin/master”.
+- Ensure that you have defined a `SEMGREP_APP_TOKEN` as a credential in Jenkins.
+- The variable SEMGREP_BASELINE_REF must be set to the main branch, in the example: `origin/master`.
 :::
 
 ## Testing the new Jenkins pipeline project
