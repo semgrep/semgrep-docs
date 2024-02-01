@@ -25,9 +25,9 @@ import TabItem from '@theme/TabItem';
 - Optionally, you have [set up SSO](/deployment/sso).
 :::
 
-Semgrep is integrated into CI environments by creating a **job** (also known as an **action** for some CI providers) that is run by the CI provider. After a scan, findings are sent to Semgrep Cloud Platform for triage and remediation. 
+Semgrep is integrated into CI environments by creating a **job** that is run by the CI provider. After a scan, findings are sent to Semgrep Cloud Platform (SCP) for triage and remediation. 
 
-This guide walks you through creating a Semgrep job in the following **in-app CI providers**:
+This guide walks you through creating a Semgrep job in the following **CI providers**:
 
 - GitHub Actions
 - GitLab CI/CD
@@ -37,7 +37,11 @@ This guide walks you through creating a Semgrep job in the following **in-app CI
 - Buildkite
 - Azure Pipelines
 
-If your provider is not on this list, you can still integrate Semgrep into your CI workflows by following the steps in [<i class="fa-regular fa-file-lines"></i> Add Semgrep to other CI providers](/deployment/add-semgrep-to-other-ci-providers).
+These CI providers are explicitly supported in Semgrep Cloud Platform:
+
+![CI providers explicitly supported in SCP.](/img/in-app-providers.png#bordered)
+
+If your provider is **not** on this list, you can still integrate Semgrep into your CI workflows by following the steps in [<i class="fa-regular fa-file-lines"></i> Add Semgrep to other CI providers](/deployment/add-semgrep-to-other-ci-providers).
 
 ## Projects
 

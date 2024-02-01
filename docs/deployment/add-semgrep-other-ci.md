@@ -9,7 +9,7 @@ tags:
 
 import NextStepsComments from "/src/components/concept/_next-steps-comments.mdx"
 
-# Add Semgrep to other CI providers
+# Add Semgrep manually to CI providers
 
 :::note Your deployment journey
 - You have gained the necessary [resource access and permissions](/deployment/checklist) required for deployment.
@@ -18,9 +18,11 @@ import NextStepsComments from "/src/components/concept/_next-steps-comments.mdx"
 - Optionally, you have [set up SSO](/deployment/sso).
 :::
 
-This guide walks you through creating a Semgrep job for CI providers that are **not** listed in Semgrep Cloud Platform (SCP). Skip this guide if you have already configured a CI job.
+This guide walks you through creating a Semgrep job for CI providers for which Semgrep Cloud Platform has no explicit guidance. See [<i class="fa-regular fa-file-lines"></i> Add Semgrep to CI](/deployment/add-semgrep-to-ci/) for CI providers such as GitHub Actions and Jenkins.
 
-This method is known to work with the following CI providers:
+Skip this guide if you have already configured a CI job.
+
+This guide is known to work with the following CI providers:
 
 * AppVeyor
 * Bamboo
@@ -35,13 +37,13 @@ This method is known to work with the following CI providers:
 
 ## General steps
 
-The general steps are:
+The following steps provide an overview of the process. View the succeeding sections for detailed instructions.
 
 1. Create a `SEMGREP_APP_TOKEN`.
-1. Add this token as a credential, secret, or token into your CI provider and CI configuration file.
+1. Add this token as a credential, secret, or token into your CI provider.
 1. For GitHub repositories: Grant permissions for [Semgrep Cloud Platform](https://github.com/marketplace/semgrep-dev).
-1. Create a CI job running Semgrep and commit the updated configuration file.
-1. The CI job starts automatically depending on your configuration and CI provider. If the job does not start, run the job by committing code or creating a pull request (PR) or merge request (MR).
+1. Create a CI job running Semgrep; this step is typically achieved by committing a CI configuration file. The syntax of the configuration file depends on your CI provider..
+1. The CI job can automatically start to run depending on your configuration. If the job does not start, run the job through the CI provider's interface or by committing code.
 1. Semgrep detects the `SEMGREP_APP_TOKEN`, sends it to Semgrep Cloud Platform for verification, and if verified, findings are sent to Semgrep Cloud Platform.
 1. Define additional environment variables to enable other Semgrep Cloud Platform features. This is done last because it is easier to set up and troubleshoot CI jobs after ensuring that the CI job runs correctly.
 
@@ -51,12 +53,11 @@ The next sections go over these steps in detail.
 
 To create a `SEMGREP_APP_TOKEN`, follow these steps:
 
-1. Sign in to [Semgrep Cloud Platform](https://semgrep.dev/login).
-2. Click **[Settings](https://semgrep.dev/orgs/-/settings/tokens)** > **Tokens**.
+1. Sign in to [<i class="fas fa-external-link fa-xs"></i> Semgrep Cloud Platform](https://semgrep.dev/login).
+2. Click **[<i class="fa-solid fa-gear"></i> Settings](https://semgrep.dev/orgs/-/settings/tokens)** > **Tokens**.
 3. Click **Create new token**.
 4. Copy the name and value, then click **Update**.
 5. Store the token value into your CI provider. Tokens can also be referred to as `secrets`, `credentials`, or `secure variables`. The steps to do this vary depending on your CI provider.
-6. Add the `SEMGREP_APP_TOKEN` environment variable into your Semgrep CI job. Refer to your CI provider's documentation for the correct syntax. You can also see the examples in [Create a CI job](#creating-a-ci-job-running-semgrep).
 
 ### GitHub repositories: Grant permissions for SCP
 
