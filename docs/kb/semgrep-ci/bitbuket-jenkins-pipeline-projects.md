@@ -67,17 +67,13 @@ pipeline {
 - The variable SEMGREP_BASELINE_REF must be set to the main branch, in the example: `origin/master`.
 :::
 
-## Testing the new Jenkins pipeline project
+## Test the new Jenkins pipeline project
 
-1. Commit a change in the repository and create a pull request. It will automatically run a Semgrep diff scan in Jenkins:
-![image info](/img/kb/bitbucket-jenkins-pullrequest-1.png)
-![image info](/img/kb/bitbucket-jenkins-pullrequest-2.png)
-
-:::note
-The pull request can be marked as failed if there are blocking findings, as in the example.
-:::
-
-2. Merge the change to master. It will run a Semgrep full scan in Jenkins.
+1. Commit a change in the repository and create a pull request. It automatically runs a Semgrep diff scan in Jenkins:
+![Status view of a failed job run.](/img/kb/bitbucket-jenkins-pullrequest-1.png)
+![Console or log view of a job.](/img/kb/bitbucket-jenkins-pullrequest-2.png)
+    Note that the pull request can be marked as **failed** if there are blocking findings, as in the example.
+1. Merge the change to master. It will run a Semgrep full scan in Jenkins.
 
 
 
