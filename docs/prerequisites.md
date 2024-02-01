@@ -10,7 +10,7 @@ tags:
 
 # Prerequisites
 
-This document details the required software or services to run various Semgrep products.
+This document details the required software or services to run Semgrep products.
 
 ## Overall
 
