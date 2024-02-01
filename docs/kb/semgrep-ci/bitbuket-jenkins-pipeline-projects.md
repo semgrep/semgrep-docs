@@ -3,7 +3,7 @@ tags:
   - Bitbucket
   - Jenkins
   - Pipeline projects
-description: Setting up pipeline Jenkins projects for Bitbucket repositories
+description: Set up pipeline Jenkins projects for Bitbucket repositories.
 ---
 
 # Setting up pipeline Jenkins projects for Bitbucket repositories
