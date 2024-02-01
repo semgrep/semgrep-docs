@@ -18,11 +18,13 @@ import NextStepsComments from "/src/components/concept/_next-steps-comments.mdx"
 - Optionally, you have [set up SSO](/deployment/sso).
 :::
 
-This guide walks you through creating a Semgrep job for CI providers for which Semgrep Cloud Platform has no explicit guidance. See [<i class="fa-regular fa-file-lines"></i> Add Semgrep to CI](/deployment/add-semgrep-to-ci/) for CI providers such as GitHub Actions and Jenkins.
+This guide walks you through creating a Semgrep job for CI providers for which Semgrep Cloud Platform (SCP) has no explicit guidance. Without explicit guidance, you must manually make a CI configuration file yourself.
+
+Check [<i class="fa-regular fa-file-lines"></i> Add Semgrep to CI](/deployment/add-semgrep-to-ci/) first to ensure that this guide applies to your CI provider.
 
 Skip this guide if you have already configured a CI job.
 
-This guide is known to work with the following CI providers:
+The steps provided here are known to work with the following CI providers:
 
 * AppVeyor
 * Bamboo
