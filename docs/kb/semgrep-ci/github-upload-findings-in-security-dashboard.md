@@ -11,15 +11,11 @@ When scanning with Semgrep in CI, findings automatically populate in Semgrep Clo
 
 If you run the alternate job and it fails with a "resource not accessible by integration" error, there are two possible causes.
 
-## The workflow or job does not have sufficient permissions
+## Your repository's default workflow permissions are set to read-only
 
-Semgrep findings in a private repository can only populate in the GitHub Advanced Security Dashboard if the correct permissions are set using the `permissions` key. See the following example.
+Repository-level workflow permissions are set to `read-only` (default) unless they've previously been changed. Use of the `permissions` key within the workflow file does not override this setting.
 
-## The workflow permissions in your repository's Actions settings are set to read-only
-
-Workflow permissions are set to `read-only` (default) unless they've previously been changed. The job requires `write` permissions to be successful.
-
-To change permissions:
+To update this setting:
 1. Navigate to your organization or repository in GitHub.
 2. Click **Settings > Actions > General > Workflow permissions**.
 
@@ -30,6 +26,10 @@ Target permissions
 Changing the repository's default workflow permissions changes the permissions for all workflows in that repository. For more granular permissions, set the `permissions` key at the workflow or job level in the `semgrep.yml` workflow file. Learn more about the `permissions` key at [Assigning permissions to jobs](https://docs.github.com/en/actions/using-jobs/assigning-permissions-to-jobs#setting-the-github_token-permissions-for-all-jobs-in-a-workflow), or review the example workflow-level permissions below.
 :::
 
+## The workflow or job does not have the correct permissions in a private repository
+
+In order for Semgrep findings in a private repository to appear on the GitHub Advanced Security Dashboard, you must ensure that the appropriate permissions are configured at the workflow level using the permissions key. See the following example.
+
 ### Example job configuration with `permissions` key
 
 This job only requires `write` permissions for `security-events`.
@@ -39,23 +39,17 @@ This job only requires `write` permissions for `security-events`.
 name: Semgrep
 
 on:
-  # Scan changed files in PRs (diff-aware scanning):
   pull_request: {}
-  # Scan on-demand through GitHub Actions interface:
   workflow_dispatch: {}
-  # Scan mainline branches and report all findings:
   push:
     branches: ["master", "main"]
-  # Schedule the CI job (this method uses cron syntax):
   schedule:
     - cron: '20 17 * * *' # Sets Semgrep to scan every day at 17:20 UTC.
     # It is recommended to change the schedule to a random time.
 
 jobs:
   semgrep:
-    # User definable name of this GitHub Actions job.
     name: semgrep/ci 
-    # If you are self-hosting, change the following `runs-on` value: 
     runs-on: ubuntu-latest
 
     container:
