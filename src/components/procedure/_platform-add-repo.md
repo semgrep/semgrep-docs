@@ -12,4 +12,4 @@ To add a Semgrep job to your CI provider:
     1. Commit the configuration file to your repository.
     1. Return to Semgrep Cloud Platform and click **Check connection**.
 
-You have now added a Semgrep job to your CI provider. A scan begins automatically after adding a new repository. Its findings are sent to Semgrep Cloud Platform for triage and remediation.
+You have now added a Semgrep job to your CI provider; this starts your first full Semgrep scan. Its findings are sent to Semgrep Cloud Platform for triage and remediation.

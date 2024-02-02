@@ -43,8 +43,7 @@ The following steps provide an overview of the process. View the succeeding sect
 
 1. Create a `SEMGREP_APP_TOKEN`.
 1. Add this token as a credential, secret, or token into your CI provider.
-1. For GitHub repositories: Grant permissions for [Semgrep Cloud Platform](https://github.com/marketplace/semgrep-dev).
-1. Create a CI job running Semgrep; this step is typically achieved by committing a CI configuration file. The syntax of the configuration file depends on your CI provider..
+1. Create a CI job that runs Semgrep; this step is typically achieved by committing a CI configuration file. The syntax of the configuration file depends on your CI provider..
 1. The CI job can automatically start to run depending on your configuration. If the job does not start, run the job through the CI provider's interface or by committing code.
 1. Semgrep detects the `SEMGREP_APP_TOKEN`, sends it to Semgrep Cloud Platform for verification, and if verified, findings are sent to Semgrep Cloud Platform.
 1. Define additional environment variables to enable other Semgrep Cloud Platform features. This is done last because it is easier to troubleshoot modifications to jobs after ensuring that the base CI job runs correctly.
@@ -60,20 +59,6 @@ To create a `SEMGREP_APP_TOKEN`, follow these steps:
 3. Click **Create new token**.
 4. Copy the name and value, then click **Save**.
 5. Store the token value into your CI provider. Tokens can also be referred to as `secrets`, `credentials`, or `secure variables`. The steps to do this vary depending on your CI provider.
-
-### GitHub repositories: Grant permissions for SCP
-
-:::tip
-Perform these steps before committing your CI job configuration to ensure that Semgrep Cloud Platform has the necessary permissions to scan your code.
-:::
-
-Follow these steps for GitHub permissions access:
-
-1. Go to the [Semgrep application](https://github.com/marketplace/semgrep-dev) within GitHub Marketplace.
-2. Click on **Install it for free**. Follow the instructions to begin the installation.
-2. Once `semgrep-app` is installed, select what repositories `semgrep-app` can access. Select **All repositories** or **Only select repositories**.
-![Screenshot of GitHub authorization page for Semgrep App](/img/semgrep-ci-github-access-repos.png "Screenshot of GitHub authorization page for Semgrep App")
-4. Click **Install & Authorize** to finalize your installation.
 
 ### Create a Semgrep CI job
 
