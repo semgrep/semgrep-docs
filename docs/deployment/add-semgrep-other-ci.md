@@ -47,7 +47,7 @@ The following steps provide an overview of the process. View the succeeding sect
 1. Create a CI job running Semgrep; this step is typically achieved by committing a CI configuration file. The syntax of the configuration file depends on your CI provider..
 1. The CI job can automatically start to run depending on your configuration. If the job does not start, run the job through the CI provider's interface or by committing code.
 1. Semgrep detects the `SEMGREP_APP_TOKEN`, sends it to Semgrep Cloud Platform for verification, and if verified, findings are sent to Semgrep Cloud Platform.
-1. Define additional environment variables to enable other Semgrep Cloud Platform features. This is done last because it is easier to set up and troubleshoot CI jobs after ensuring that the CI job runs correctly.
+1. Define additional environment variables to enable other Semgrep Cloud Platform features. This is done last because it is easier to troubleshoot modifications to jobs after ensuring that the base CI job runs correctly.
 
 The next sections go over these steps in detail.
 
