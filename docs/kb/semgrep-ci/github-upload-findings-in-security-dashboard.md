@@ -72,7 +72,9 @@ jobs:
       contents: read
     steps:
       - uses: actions/checkout@v3
-      - run: semgrep scan --sarif > semgrep.sarif
+      - run: semgrep ci --sarif > semgrep.sarif
+        env:
+          SEMGREP_APP_TOKEN: ${{ secrets.SEMGREP_APP_TOKEN }}
       - name: Upload SARIF file for GitHub Advanced Security Dashboard
         uses: github/codeql-action/upload-sarif@v2
         with:
