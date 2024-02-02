@@ -112,7 +112,7 @@ Refer to the following table for links to sample CI configuration snippets:
 
 ## Next steps
 
-<NextStepsComments />
+<NextStepsComments opening_phrase="For Jenkins users, set up a separate CI job for diff-aware scans for"/>
 
 <!-- After setting up PR comments:
 

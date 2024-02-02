@@ -132,4 +132,4 @@ To verify that your Semgrep CI job is connected to Semgrep Cloud Platform:
 
 ## Next steps
 
-<NextStepsComments />
+<NextStepsComments opening_phrase="Set up diff-aware scanning for"/>
