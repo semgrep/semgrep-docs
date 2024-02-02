@@ -21,14 +21,19 @@ import DeploymentJourney from "/src/components/concept/_deployment-journey.mdx"
 - You have successfully added a [Semgrep job](/deployment/add-semgrep-to-ci) to your CI workflow.
 :::
 
-Customize a job's parameters to achieve the following goals:
+Customize your CI job to achieve the following goals:
 
 * **Run Semgrep on a schedule**. Run full scans on main or trunk branches at the least intrusive time on developer teams.
+* **Run Semgrep when an event triggers**. Run Semgrep when a pull or merge request (PR or MR) is created. 
+- **Set a timeout to increase or decrease Semgrep's overall runtime.** If scans are taking too long, or rules aren't running, customize your per-rule timeout.
+
+<!--
 * **Run Semgrep with custom rules**. Apply rules specific to your organization's business goals and coding conventions.
-* **Run Semgrep when an event triggers**. Run Semgrep when a pull or merge request (PR or MR) is created. These event triggers or event hooks are dependent on your CI provider.
+-->
+<!--
 * **Run Semgrep on relevant files and blocks of code**. Configure Semgrep to ignore files and folders such as test files, configuration files, and files from other vendors.
-<!-- * **Configure a Semgrep CI job to pass even when any finding is detected**. By default, stand-alone configurations fail when any finding is detected. You can also configure Semgrep to pass CI jobs when findings are reported. -->
-* **Output, export, or save findings to a file**. Semgrep can save to a number of file formats, including SARIF and JSON.
+ * **Configure a Semgrep CI job to pass even when any finding is detected**. By default, stand-alone configurations fail when any finding is detected. You can also configure Semgrep to pass CI jobs when findings are reported. 
+* **Output, export, or save findings to a file**. Semgrep can save to a number of file formats, including SARIF and JSON.-->
 
 ## Set up diff-aware scans
 
@@ -52,7 +57,7 @@ To configure a diff-aware scan:
 
 ## Set a custom timeout
 
-By default, Semgrep spends **5 seconds** to run **per rule**. To **set a custom timeout** for the Semgrep job, set the `SEMGREP_TIMEOUT` environment variable in seconds. Lowering this value speeds up your scans, but with the possibility of skipping some rules. For example:
+By default, Semgrep spends **5 seconds** to run **per rule**. To **set a custom timeout** for the Semgrep job, set the `SEMGREP_TIMEOUT` environment variable in seconds. Decreasing this value speeds up your scans, but with the possibility of skipping some rules. Alternatively, increasing this value ensures that your most complex rules finish running. For example:
 
 ```sh
 SEMGREP_TIMEOUT="3" # Sets the per-rule timeout to 3 seconds.
