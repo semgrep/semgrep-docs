@@ -27,6 +27,8 @@ import TabItem from '@theme/TabItem';
 
 Semgrep is integrated into CI environments by creating a **job** that is run by the CI provider. After a scan, findings are sent to Semgrep Cloud Platform (SCP) for triage and remediation. 
 
+## Guided setup for CI providers in SCP
+
 This guide walks you through creating a Semgrep job in the following CI providers, which are explicitly supported in SCP:
 
 - GitHub Actions

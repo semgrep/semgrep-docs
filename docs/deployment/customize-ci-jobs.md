@@ -13,7 +13,13 @@ import DeploymentJourney from "/src/components/concept/_deployment-journey.mdx"
 
 # Customize your CI job
 
-<DeploymentJourney />
+:::note Your deployment journey
+- You have gained the necessary [resource access and permissions](/deployment/checklist) required for deployment.
+- You have [created a Semgrep account and organization](/deployment/create-account-and-orgs). 
+- For GitHub and GitLab users: You have [connected your source code manager](/deployment/connect-scm).
+- Optionally, you have [set up SSO](/deployment/sso).
+- You have successfully added a [Semgrep job](/deployment/add-semgrep-to-ci) to your CI workflow.
+:::
 
 Customize a job's parameters to achieve the following goals:
 
@@ -27,10 +33,10 @@ Customize a job's parameters to achieve the following goals:
 ## Set up diff-aware scans
 
 :::info
-This section only applies to the following CI providers:
+Follow the steps in this section only for the following CI providers:
 
 - Jenkins
-- CI providers not explicitly supported in Semgrep Cloud Platform
+- CI providers without guidance from Semgrep Cloud Platform
 :::
 
 <DiffAwareScanning />
