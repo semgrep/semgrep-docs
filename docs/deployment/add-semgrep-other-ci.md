@@ -58,7 +58,7 @@ To create a `SEMGREP_APP_TOKEN`, follow these steps:
 1. Sign in to [<i class="fas fa-external-link fa-xs"></i> Semgrep Cloud Platform](https://semgrep.dev/login).
 2. Click **[<i class="fa-solid fa-gear"></i> Settings](https://semgrep.dev/orgs/-/settings/tokens)** > **Tokens**.
 3. Click **Create new token**.
-4. Copy the name and value, then click **Update**.
+4. Copy the name and value, then click **Save**.
 5. Store the token value into your CI provider. Tokens can also be referred to as `secrets`, `credentials`, or `secure variables`. The steps to do this vary depending on your CI provider.
 
 ### GitHub repositories: Grant permissions for SCP
