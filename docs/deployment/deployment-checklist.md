@@ -30,18 +30,18 @@ Here are some teams or departments that may be responsible for parts of your Sem
 | -------  | ------ |
 | Infrastructure         | SSO, CI/CD, and source code manager (SCM) configuration.        |
 | Engineering | Repository ownership, displaying findings to developers in PRs or MRs. |
-| IT | To scan self-hosted repositories: firewall or VPN configuration. |
+| IT | Firewall or VPN configuration. |
 
-## Scope 
+## Scope
 
 Scope refers to the breadth of deployment integration within your organization. The more users and repositories you onboard to Semgrep, the more crucial training becomes for **security champions** within your organization.
 
-| Ensure that all stakeholders agree on: | Done    |
-| -------  | ------ |
-| Which users and departments will use Semgrep. |      |
-| Which repositories you will scan with Semgrep. | |
-| How frequently you run Semgrep scans, such as daily or weekly, and at what time. This may affect other processes, such as PR approvals. | |
-| A timeframe for deployment. You may divide this into phases. | |
+Ensure that all stakeholders agree on:
+
+- Which users and departments will use Semgrep.
+- Which repositories you will scan with Semgrep.
+- How frequently you run Semgrep scans, such as daily or weekly, and at what time. This may affect other processes, such as PR approvals.
+-  A timeframe for deployment. You may divide this into phases.
 
 **Deployment times** vary greatly depending on your processes and size.
 
@@ -51,14 +51,19 @@ Monorepos may take longer to finish scanning. Semgrep provides several options, 
 
 ## Roles
 
-Semgrep provides two roles: `admin` and `member`. At the minimum: Establish the administrators (`admins`) that own the Semgrep deployment. For single-user deployments, you are the sole `admin` of your deployment.
+Semgrep provides two roles: `admin` and `member`.
 
-| Task | Done |
-| -------  | ------ |
-| Decide on `admin` users. |      |
-| Establish `user` headcount and ensure they have a means of authentication. | |
+For **single-user deployments**, you are the sole `admin` of your deployment.
 
-## Required permissions and access 
+For **multi-user deployments**, determine the following:
+
+- The administrators (`admins`) that own the Semgrep deployment.
+- For `members`, ensure that they have a sign-in method:
+    - SSO
+    - GitHub Cloud
+    - GitLab Cloud
+
+## Required permissions and access
 
 The following checklist breaks down permissions required by Semgrep features.
 
@@ -67,33 +72,27 @@ The following checklist breaks down permissions required by Semgrep features.
 <tr>
 <th>Feature</th>
 <th>Permission required</th>
-<th>Granted</th>
 </tr>
 </thead>
 <tbody>
 <tr>
 <td rowspan="2">Run Semgrep continuously in your CI workflows.</td>
 <td>Add or make changes to CI jobs. This includes committing configuration files for each</td>
-<td></td>
 </tr>
 <tr>
 <td>Define environment variables and storing secrets.</td>
-<td></td>
 </tr>
 <tr>
 <td>Manage user authentication with SSO.</td>
 <td>View and edit SSO configurations.</td>
-<td></td>
 </tr>
 <tr>
 <td>Receive Slack notifications.</td>
 <td>Be a <strong>Slack workspace owner</strong>, or coordinate with the team responsible.</td>
-<td></td>
 </tr>
 <tr>
 <td>Send pull or merge requests to your SCM.</td>
 <td>Edit firewall or VPN allowlist.</td>
-<td></td>
 </tr>
 </tbody>
 </table>
@@ -114,11 +113,11 @@ The following checklist breaks down permissions required by Semgrep features.
 
 #### GitHub
 
-| Feature | Permission required | Granted |
-| --- | -------  | ------ |
-| Create CI jobs for repositories in bulk and detect GitHub repos automatically. | Install GitHub apps.         |        |
-| Pull request (PR) comments. |  For GitHub Enterprise Server: Add a personal access token (PAT) with [assigned scopes](/deployment/connect-scm/#connect-to-on-premise-github-or-gitlab-orgs).          |        |
-| GPT-assisted triage and recommendations. | Code access. |  |
+| Feature | Permission required |
+| --- | -------  | 
+| Create CI jobs for repositories in bulk and detect GitHub repos automatically. | Install GitHub apps.         |
+| Pull request (PR) comments. |  For GitHub Enterprise Server: Add a personal access token (PAT) with [assigned scopes](/deployment/connect-scm/#connect-to-on-premise-github-or-gitlab-orgs).          |
+| GPT-assisted triage and recommendations. | Code access. |
 
 </TabItem>
 
@@ -131,23 +130,19 @@ The following checklist breaks down permissions required by Semgrep features.
 <tr>
 <th>Feature</th>
 <th>Permission required</th>
-<th>Granted</th>
 </tr>
 </thead>
 <tbody>
 <tr>
 <td>Merge request (MR) comments.</td>
 <td>Create personal access tokens.</td>
-<td></td>
 </tr>
 <tr>
 <td rowspan="2">GPT-assisted triage and recommendations.</td>
 <td>Create personal or project-level access tokens.</td>
-<td></td>
 </tr>
 <tr>
 <td>Code access.</td>
-<td></td>
 </tr>
 </tbody>
 </table>
@@ -159,8 +154,8 @@ The following checklist breaks down permissions required by Semgrep features.
 
 #### Bitbucket 
 
-| Feature  | Permission | Granted |
-| -------  | -------  | ------ |
+| Feature  | Permission |
+| -------  | -------  | 
 | Pull request (PR) comments.  | Able to create **repository variables**. | 
 
 </TabItem>
