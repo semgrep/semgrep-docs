@@ -126,6 +126,8 @@ push:
 ```
 :::
 
+#### Upload findings to GitHub Advanced Security Dashboard
+
 <details><summary>Alternate job that uploads findings to GitHub Advanced Security Dashboard</summary>
 
 <GhaSemgrepAppSastDash />
@@ -168,7 +170,9 @@ The following configuration creates a CI job that runs an SCA scan using Semgrep
 </TabItem>
 </Tabs>
 
-<details><summary>Alternate job that uploads findings to GitLab SAST Dashboard</summary>
+#### Upload findings to GitLab Security Dashboard
+
+<details><summary>Alternate job that uploads findings to GitLab Security Dashboard</summary>
 
 <GlcicdSemgrepAppSastDash />
 

@@ -55,7 +55,7 @@ Adding a Semgrep job to your CI provider also adds the repository's records, inc
     defaultValue="gha"
     values={[
     {label: 'GitHub Actions', value: 'gha'},
-    {label: 'Other in-app providers', value: 'other'},
+    {label: 'SCP-supported CI providers', value: 'other'},
     ]}
 >
 
@@ -90,8 +90,8 @@ You have now added a Semgrep job to GitHub Actions. A scan begins automatically 
 
 :::tip
 You can edit your configuration files to send findings to **GitHub Advanced Security Dashboard (GHAS)** and **GitLab SAST Dashboard**. Refer to the following samples:
-- [GitHub Advanced Security Dashboard](/semgrep-ci/sample-ci-configs/#github-actions)
-- [GitLab SAST Dashboard](/semgrep-ci/sample-ci-configs/#gitlab-cicd)
+- [GitHub Advanced Security Dashboard](/semgrep-ci/sample-ci-configs/#upload-findings-to-github-advanced-security-dashboard)
+- [GitLab SAST Dashboard](/semgrep-ci/sample-ci-configs/#upload-findings-to-gitlab-security-dashboard)
 :::
 
 ### Sample CI configuration snippets

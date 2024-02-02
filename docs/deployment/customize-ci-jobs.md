@@ -15,11 +15,11 @@ import DeploymentJourney from "/src/components/concept/_deployment-journey.mdx"
 
 <DeploymentJourney />
 
-Customize a job's parameters to achieve the following goals: 
+Customize a job's parameters to achieve the following goals:
 
 * **Run Semgrep on a schedule**. Run full scans on mainline branches at the least intrusive time on developer teams.
 * **Run Semgrep with custom rules**. Apply rules specific to your organization's business goals and coding conventions.
-* **Run Semgrep when an event triggers**. Run Semgrep when a pull or merge request (PR or MR) is created. These event triggers or event hooks are dependent on your CI provider. 
+* **Run Semgrep when an event triggers**. Run Semgrep when a pull or merge request (PR or MR) is created. These event triggers or event hooks are dependent on your CI provider.
 * **Run Semgrep on relevant files and blocks of code**. Configure Semgrep to ignore files and folders such as test files, configuration files, and files from other vendors.
 <!-- * **Configure a Semgrep CI job to pass even when any finding is detected**. By default, stand-alone configurations fail when any finding is detected. You can also configure Semgrep to pass CI jobs when findings are reported. -->
 * **Output, export, or save findings to a file**. Semgrep can save to a number of file formats, including SARIF and JSON.
@@ -28,9 +28,9 @@ Customize a job's parameters to achieve the following goals:
 
 :::info
 This section only applies to the following CI providers:
-- Azure Pipelines
+
 - Jenkins
-- CI providers not listed in Semgrep Cloud Platform
+- CI providers not explicitly supported in Semgrep Cloud Platform
 :::
 
 <DiffAwareScanning />
@@ -46,9 +46,12 @@ To configure a diff-aware scan:
 
 ## Set a custom timeout
 
-By default, Semgrep times out after 30 minutes. To **set a custom timeout** for the Semgrep job, set the `SEMGREP_TIMEOUT` environment variable in seconds. For example:
+By default, Semgrep spends **5 seconds** to run **per rule**. To **set a custom timeout** for the Semgrep job, set the `SEMGREP_TIMEOUT` environment variable in seconds. Lowering this value speeds up your scans, but with the possibility of skipping some rules. For example:
 
 ```sh
-SEMGREP_TIMEOUT="300"
+SEMGREP_TIMEOUT="3"
 ```
 
+:::caution
+Setting this variable to 0 to **removes** the time limit, meaning that rules can take any amount of time to run.
+:::
