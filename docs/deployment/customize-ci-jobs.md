@@ -49,9 +49,9 @@ To configure a diff-aware scan:
 By default, Semgrep spends **5 seconds** to run **per rule**. To **set a custom timeout** for the Semgrep job, set the `SEMGREP_TIMEOUT` environment variable in seconds. Lowering this value speeds up your scans, but with the possibility of skipping some rules. For example:
 
 ```sh
-SEMGREP_TIMEOUT="3"
+SEMGREP_TIMEOUT="3" # Sets the per-rule timeout to 3 seconds.
 ```
 
 :::caution
-Setting this variable to 0 to **removes** the time limit, meaning that rules can take any amount of time to run.
+Setting this variable to **0** removes the time limit, meaning that rules can take any amount of time to run.
 :::
