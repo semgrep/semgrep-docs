@@ -68,7 +68,7 @@ The Policies page consists of a header and three main panes:
 
 Semgrep enables you to set a **workflow action** based on the presence of a finding. Workflow actions include:
 
-* Failing a CI job. Semgrep returns exit code `1`, and you can use this result to set up additional checks to enforce a block a PR or MR.
+* Failing a CI job. Semgrep returns exit code `1`, and you can use this result to set up additional checks to enforce a block on a PR or MR.
 * Leaving a PR or MR comment.
 * Notifying select channels, such as private Slack channels or webhooks.
 
