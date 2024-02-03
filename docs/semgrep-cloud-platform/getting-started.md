@@ -48,6 +48,10 @@ This document describes the following:
 - **For administrators (admins), such as Security Engineers**: Steps to configure organization (org) accounts in SCP for teams.
 - **For team members:** Steps for team members to join an org in SCP.
 
+:::tip
+Check out [How to introduce Semgrep to your organization](https://blog.trailofbits.com/2024/01/12/how-to-introduce-semgrep-to-your-organization/) from Trail of Bits for tips on how to evaluate and deploy Semgrep for your org.
+:::
+
 <!-- ![Diagram of Semgrep Cloud Platform flow](/img/semgrep-app-diagram.png "Diagram of Semgrep Cloud Platform flow") -->
 
 ## Signing in to Semgrep Cloud Platform
@@ -94,7 +98,7 @@ This process creates an **organization account**, which your team members in Git
 4. Click **Create**.
 5. Your organization is created and you are prompted to start a scan. Instead of starting a scan, click **<i class="fa-solid fa-gear"></i> Settings** in the navigation menu.
 6. Click **Source code managers**.
-7. Select the source code manager that contains the org to connect to Semgrep Cloud Platform.
+7. Select the source code manager that contains the org to connect to Semgrep Cloud Platform. For GitHub Enterprise Cloud, select **Connect to GitHub**.
 ![Source code manager tab](/img/source-code-manager.png#md-width)
 8. Follow the steps to connect your source code manager. You can review permissions needed by Semgrep in [Requested permissions for GitHub and GitLab](#requested-permissions-for-github-and-gitlab).
 9. Optional: Refer to the instructions in [SSO configuration](/semgrep-cloud-platform/sso/) to set up SSO for your organization.
@@ -169,11 +173,13 @@ Refer to the following image for an example of both remote and local Projects in
 * **For personal accounts:** A local repository scan does not overwrite the findings records of its remote counterpart. They are two separate Projects. Personal accounts only have one team member or user: you.
 * **For organization accounts**: A local repository scan does **not** overwrite findings records of its remote counterpart. For locally scanned Projects or repositories, if two members both send local repository findings, one set of findings may overwrite other unintentionally. This is because org accounts can have more than one team member, but all local scans are sent to the same Project slug.
 
-:::info
-Many improvements to the Semgrep Cloud Platform experience only work with up-to-date Semgrep CLI versions. For this reason, Semgrep Cloud Platform only supports the 10 most recent minor versions of Semgrep CLI. For example, if the latest release was 0.114.0, all versions greater than 0.104.0 are supported, while earlier versions, such as 0.103.0, can be deprecated or can result in failures.
+## Semgrep versions
 
-For Docker users: use the [**latest** tag](https://hub.docker.com/r/returntocorp/semgrep/tags?page=1&name=latest) to ensure you are up-to-date.
-:::
+Many improvements to the Semgrep Cloud Platform experience only work with up-to-date Semgrep CLI versions. As such, Semgrep Cloud Platform only supports the 10 most recent minor versions of Semgrep CLI. For example, if the latest release was 0.114.0, all versions greater than 0.104.0 are supported, while earlier versions, such as 0.103.0, can be deprecated or can result in failures.
+
+See [Updating Semgrep](/upgrading/) for information on how to upgrade.
+
+Docker users: use [the **latest** tag](https://hub.docker.com/r/returntocorp/semgrep/tags?page=1&name=latest) to ensure you are up-to-date.
 
 ## Appendices
 

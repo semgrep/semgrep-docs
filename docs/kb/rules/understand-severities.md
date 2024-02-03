@@ -17,4 +17,4 @@ As a best practice, severity for Semgrep Registry rules in the `security` catego
 
 ## Semgrep Supply Chain 
 
-Semgrep Supply Chain rules have one of four severity levels: Critical, High, Medium or Low. The score assigned to the CVE using the [Common Vulnerability Scoring System (CVSS) score])(https://nvd.nist.gov/vuln-metrics/cvss), or the severity value set by the GitHub Advisory Database, determines the severity in Semgrep Supply Chain. For example, if a vulnerability is given a CVSS score of 9.0 or higher it is assigned Critical.
+Semgrep Supply Chain rules have one of four severity levels: Critical, High, Medium or Low. The score assigned to the CVE using the [Common Vulnerability Scoring System (CVSS) score](https://nvd.nist.gov/vuln-metrics/cvss), or the severity value set by the GitHub Advisory Database, determines the severity in Semgrep Supply Chain. For example, if a vulnerability is given a CVSS score of 9.0 or higher it is assigned Critical.

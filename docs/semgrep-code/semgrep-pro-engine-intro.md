@@ -13,40 +13,62 @@ import TabItem from '@theme/TabItem';
 
 # Semgrep Pro Engine overview
 
-## Introduction
-
 <SemgrepProEngineIntroduction extended/>
 
-## Semgrep Pro engine language support
+<br />
+<br />
 
-Refer to [Supported languages](/supported-languages/#semgrep-pro-engine) to see languages supported by Semgrep Pro Engine.
+:::info Language support
+Refer to [<i class="fa-regular fa-file-lines"></i> Supported languages](/supported-languages/#semgrep-pro-engine) to see languages supported by Semgrep Pro Engine.
+:::
 
 ## Using and running Semgrep Pro Engine
 
-This section guides you through the Semgrep Pro Engine installation and helps you to scan your projects both in CLI and with the Semgrep Cloud Platform (SCP).
+This section guides you through the Pro Engine installation and helps you to scan your projects both in CLI and with Semgrep Cloud Platform (SCP).
+
+### Running Semgrep Pro Engine in Semgrep Cloud Platform
+
+:::info Prerequisite
+- An existing Semgrep Cloud Platform account. See [<i class="fa-regular fa-file-lines"></i> Signing in to SCP](/semgrep-code/getting-started/).
+:::
+
+This is the preferred method to run Semgrep Pro Engine. It enables you to view and triage your findings from a centralized location. Code is not uploaded.
+
+To run Semgrep Pro Engine in the Semgrep Cloud Platform, follow these steps:
+
+1. Sign in to [<i class="fas fa-external-link fa-xs"></i> Semgrep Cloud Platform](https://semgrep.dev/login).
+1. Click **[Settings](https://semgrep.dev/orgs/-/settings)**.
+1. Ensure that the <i class="fa-solid fa-toggle-large-on"></i> **Pro Engine beta** toggle is enabled.
+1. Ensure that you have the **default ruleset** added in your **[Policies page](https://semgrep.dev/orgs/-/policies)**. If this ruleset is **not** added, go to [<i class="fas fa-external-link fa-xs"></i> Semgrep Registry - Default ruleset page](https://semgrep.dev/p/default), then click **Add to Policy**. For best results, set this ruleset to the **Monitor** rule mode.
+1. Perform either of the following:
+    1. **If you don't have any repositories for scanning in Cloud Platform:** Follow the procedures in [<i class="fa-regular fa-file-lines"></i> Scanning a repository](/semgrep-code/getting-started/) to scan a new repository with Semgrep Pro Engine. Ensure that your project's language is supported by Semgrep Pro Engine.
+    1. **If you have existing repositories in Semgrep Cloud Platform:** Full scans now include Semgrep Pro Engine. You can trigger a full scan through your CI provider.
+
+Pro Engine now runs on all full scans. Note that it does **not** support scanning on diff-aware (pull or merge request) scans. 
+
+:::tip Testing Semgrep Pro Engine
+To test Semgrep Pro Engine on a purposefully vulnerable repository, fork the [<i class="fas fa-external-link fa-xs"></i> juice-shop](https://github.com/juice-shop/juice-shop) repository, and then add it to SCP by following the steps described in [<i class="fa-regular fa-file-lines"></i> Adding or onboarding a new project (repository)](/semgrep-code/getting-started/).
+:::
 
 ### Running Semgrep Pro Engine in CLI
 
 :::info Prerequisite
-- Local installation of Semgrep CLI. See [Getting started with Semgrep](/getting-started) to install Semgrep CLI.
+- Local installation of Semgrep CLI. See [<i class="fa-regular fa-file-lines"></i> Getting started with Semgrep](/getting-started/quickstart/) to install Semgrep CLI.
 :::
 
-It is **recommended** to run Semgrep Pro Engine with Semgrep Cloud Platform (SCP). This enables you to view and triage your findings from a centralized location. Code is not uploaded.
+To run Pro Engine in the CLI, perform the following steps.
 
 1. [Sign up or sign in to Semgrep Cloud Platform](https://semgrep.dev/login).
-2. For first-time users, click **Create an organization**. Note that you can further integrate organizations (orgs) with GitLab accounts and GitHub accounts, including personal and org accounts, after you complete this procedure.
-3. Click **<i class="fa-solid fa-gear"></i> Settings > Pro Engine**.
+1. For first-time users, click **Create an organization**. Note that you can further integrate organizations (orgs) with GitLab accounts and GitHub accounts, including personal and org accounts, after you complete this procedure.
+1. Click **<i class="fa-solid fa-gear"></i> Settings > Pro Engine**.
 ![DESCRIPTION](/img/pro-engine-toggle.png#md-width)
-3. In your CLI, log in to your Semgrep Cloud Platform account and run a scan:
+1. Ensure that you are in the **root directory** of the repository you want to scan.
+1. In your CLI, log in to your Semgrep Cloud Platform account and run a scan:
 ```sh
 semgrep login && semgrep ci
 ```
 
-:::note
-Let us know what you think about the results in the <a href="https://go.semgrep.dev/slack">Semgrep Community Slack</a>.
-:::
-
-### Updating Semgrep Pro Engine in CLI
+#### Updating Semgrep Pro Engine in CLI
 
 To update Semgrep Pro Engine to the latest version, follow these steps:
 
@@ -86,6 +108,9 @@ To update Semgrep Pro Engine to the latest version, follow these steps:
     <TabItem value='Windows Subsystem for Linux (WSL)'>
 
     ```bash
+    # ensure that you have Python 3.8 or later installed
+    # on WSL before proceeding
+    
     python3 -m pip install --upgrade semgrep
     ```
 
@@ -110,70 +135,52 @@ To update Semgrep Pro Engine to the latest version, follow these steps:
     semgrep install-semgrep-pro
     ```
 
-:::info
-The command to update Semgrep Pro Engine is the same as the command to install Semgrep Pro Engine.
-:::
 
-### Enabling Semgrep Pro Engine in Semgrep Cloud Platform
+### Creating rules that analyze across files and functions 
 
-:::info Prerequisite
-- An existing Semgrep Cloud Platform account. See [Signing in to SCP](/semgrep-code/getting-started/#semgrep-code-with-semgrep-cloud-platform).
-- [Team](https://semgrep.dev/pricing) tier or higher of Semgrep Code. If you want to try Semgrep Pro Engine, get in touch with us through our [contact page](https://semgrep.dev/contact-us).
-:::
+To create rules that analyze across files and functions, add `interfile: true` under the `options` key when defining a rule. This key signals to Semgrep Pro Engine to use the rule for both cross-function and cross-file analysis.
 
-To enable Semgrep Pro Engine in the Semgrep Cloud Platform, follow these steps:
+#### Pro Engine cross-function example
 
-1. Sign in to [Semgrep Cloud Platform](https://semgrep.dev/login).
-1. Select **[Settings](https://semgrep.dev/orgs/-/settings)**.
-1. Ensure that the <i class="fa-solid fa-toggle-large-on"></i> **Pro Engine beta** toggle is enabled.
-1. Ensure that you have the **default ruleset** added in your **[Policies page](https://semgrep.dev/orgs/-/board)**. If this ruleset is **not** added, go to [https://semgrep.dev/p/default](https://semgrep.dev/p/default), and then click **Add to Policy**. For best results, set this ruleset to the **Monitor** rule mode.
-1. Optional: If you don't have any projects added to your organization, follow the procedures described in [Scanning a repository](/semgrep-code/getting-started/#semgrep-code-with-semgrep-cloud-platform) to scan a new project with Semgrep Pro Engine. Ensure that your project's language is supported by Semgrep Pro Engine.
+The following example shows how to define the `interfile` key (see the **Rule** pane) and the resulting cross-function analysis in the **Test code** pane.
 
-:::info Testing Semgrep Pro Engine
-To test Semgrep Pro Engine on a purposefully vulnerable repository, fork the [juice-shop](https://github.com/juice-shop/juice-shop) repository, and then add it to SCP by following the steps described in section [Adding or onboarding a new project (repository)](/semgrep-code/getting-started/#adding-or-onboarding-a-new-project-repository).
-:::
+<iframe title="Interfile key example" src="https://semgrep.dev/embed/editor?snippet=lRZ5" width="100%" height="432px" frameBorder="0"></iframe>
+<br />
 
-### Creating rules that analyze across files
+Click **<i class="fa-solid fa-play"></i> Run** to see the true positive in lines 27-30.
 
-Cross-file analysis (also called interfile analysis) rules you use in Semgrep Pro Engine require the `interfile: true` key included under the rule `options` key. See the following [example](https://semgrep.dev/playground/s/lkPE). This key signals Semgrep Pro Engine to use the rule for cross-file analysis.
+The Pro Engine performed cross-function analysis as the `userInput()` source was called in `main()` while the `exec()` sink was called in the `DockerCompose` class.
 
-Example of `interfile: true` key:
+Interact with the rule widget to compare Semgrep OSS and Semgrep Pro Engine. In the **Rule** pane, you can remove the lines:
+
 ```yaml
-rules:
-  - id: dangerous-call-to-employees-pro-engine-example
-    options:
-      interfile: true
-    patterns:
-      - pattern: dangerous("Employees")
-    message: Call of dangerous on employees table
-    languages:
-      - js
-    severity: WARNING
+options:
+  interfile: true
 ```
+
+This results in a failure to detect the true positive, because Semgrep did not perform cross-function analysis.
 
 ## Additional information
 
 ### Types of Semgrep Pro Engine analysis
 
 <dl>
-    <dt>Cross-file</dt>
-    <dd>The cross-file analysis (also called interfile analysis) gathers context across multiple files to help security engineers deeply understand their organization's security issues. Semgrep Pro Engine reduces noise and detects new vulnerabilities that Semgrep OSS Engine can't find. Cross-file analysis runs on nightly scans. These scans may take longer to complete and can use more memory than Semgrep OSS Engine scans. See the available languages for cross-file (interfile) analysis in <a href="/docs/supported-languages/#semgrep-pro-engine">Semgrep Pro Engine supported languages</a>.</dd>
-    <dt>Cross-function</dt>
-    <dd>The cross-function analysis (also called interprocedural analysis) keeps the fast scan times of Semgrep OSS Engine while also finding new vulnerabilities that cross functions within a single file. Cross-function (interprocedural) analysis improves results in pull requests (PRs) or merge requests (MRs) through CI scans. The interprocedural analysis is available for all languages listed as GA on the <a href="/docs/supported-languages/">Supported languages</a> page</dd>
+    <dt>Cross-file (interfile) analysis</dt>
+    <dd><ul><li>Cross-file analysis finds patterns spanning multiple files to help security engineers deeply understand their organization's security issues. This analysis reduces noise and detects issues that Semgrep OSS Engine can't find.</li>
+    <li>Cross-file analysis runs on full scans. These scans may take longer to complete and can use more memory than Semgrep OSS Engine scans. See the available languages for cross-file analysis in <a href="/docs/supported-languages/#semgrep-pro-engine"><i class="fa-regular fa-file-lines"></i> Supported languages</a>.</li>
+    <li>In Semgrep Pro Engine, cross-file analysis includes cross-function analysis as well.</li></ul></dd>
+    <dt>Cross-function (interprocedural) analysis</dt>
+    <dd><ul><li>Cross-function analysis finds patterns within a single file spanning code blocks and functions.</li>
+    <li>See an example of cross-function analysis in <a href="#pro-engine-cross-function-example"> Pro Engine cross-function example</a>.</li>
+    <li>See the available languages for cross-function analysis in <a href="/docs/supported-languages/#semgrep-pro-engine"><i class="fa-regular fa-file-lines"></i> Supported languages</a>.</li></ul>
+    </dd>
 </dl>
-
-### Semgrep Pro Engine CI scans
-
-By default, when you use Semgrep Pro Engine in CI:
-
-- PR and MR scans (triggered by opening a new PR or MR, or when a new changes are introduced to a PR or MR) use cross-function (interprocedural) analysis, limited to single files. This is a fast scan, that crosses the boundaries of individual functions in each file.
-- Full scans, also called scheduled cron job or nightly scans use cross-file (interfile) and cross-function (interprocedural) analysis. This type of scan finds complex vulnerabilities that cross the boundaries of single files and functions, providing security teams with deeper analysis. This type of scan also requires more time. 
 
 #### Semgrep Pro Engine CI scan issues
 
-To provide reliably completed scans, Semgrep Pro Engine can fall back to the use of Semgrep OSS Engine. This ensures that in the vast majority of cases, scans run successfully.
+To provide reliably completed scans, Semgrep Pro Engine can **fall back** to the use of Semgrep OSS Engine. This ensures that in the vast majority of cases, scans run successfully.
 
-If a scan uses more than 5&nbsp;GB of memory during pre-processing, the scan uses Semgrep OSS Engine to ensure lower memory consumption. Similarly, if the Semgrep Pro Engine scan doesn't complete after 3 hours, the Pro Engine times out and Semgrep OSS rescans the repository. Typically, this is because the repository is very large.
+If a scan uses more than 5&nbsp;GB of memory during pre-processing, the scan uses Semgrep OSS Engine to ensure lower memory consumption. Similarly, if the Pro Engine scan doesn't complete after 3 hours, the Pro Engine times out and Semgrep OSS rescans the repository. Typically, this is because the repository is very large.
 
 If 1-2 repositories cause CI scan issues, modify your config file to use `semgrep ci --oss-only`. This overrides the Semgrep CI settings for these repositories, and always runs these scans with Semgrep OSS. 
 
@@ -183,7 +190,7 @@ If many repositories cause scan issues:
 
 ### Difference between Semgrep Pro Engine and join mode
 
-Semgrep Pro Engine is different from [join mode](/writing-rules/experiments/join-mode/overview/), which also allows you to perform cross-file (interfile) analyses by letting you join on the metavariable matches in separate rules. Join mode is an experimental feature which is not actively developed or maintained. You may encounter many issues while using join mode.
+Semgrep Pro Engine is different from [join mode](/writing-rules/experiments/join-mode/overview/), which also allows you to perform cross-file analyses by letting you join on the metavariable matches in separate rules. Join mode is an experimental feature which is not actively developed or maintained. You may encounter many issues while using join mode.
 
 ### Feedback for Semgrep Pro Engine
 

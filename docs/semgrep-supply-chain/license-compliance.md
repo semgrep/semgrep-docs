@@ -9,7 +9,7 @@ tags:
   - Semgrep Supply Chain
 ---
 
-# License compliance 
+# License compliance
 
 Semgrep Supply Chain's **license compliance** feature enables you to explicitly allow or disallow (block) a package's use in your repository based on its license. For example, your company policy may disallow the use of packages with the Creative Commons Attribution-NonCommercial (CC-BY-NC) license.
 
@@ -17,10 +17,10 @@ Semgrep Supply Chain's **license compliance** feature enables you to explicitly 
 *Figure 1*. Screenshot of Semgrep Supply Chain Dependencies tab with licenses listed.
 
 :::info Prerequisites
-* License scanning can accessed through Semgrep Cloud Platform (SCP). [Create an account](/semgrep-code/getting-started/#signing-in-to-semgrep-cloud-platform) to view and manage license workflows.
+* License scanning can accessed through Semgrep Cloud Platform (SCP). [Create an account](/semgrep-code/getting-started/) to view and manage license workflows.
 * To detect licenses, you must:
-    * [Add or onboard a project](/semgrep-code/getting-started/#option-b-adding-a-repository-from-github-gitlab-or-bitbucket) (repository) to Semgrep Cloud Platform for scanning.
-    * [Enable dependency search](/semgrep-supply-chain/dependency-search/#using-dependency-search). 
+    * [Add or onboard a project](/semgrep-code/getting-started/) (repository) to Semgrep Cloud Platform for scanning.
+    * [Enable dependency search](/semgrep-supply-chain/dependency-search/#using-dependency-search).
 :::
 
 :::caution Feature maturity and support
@@ -36,11 +36,11 @@ To view a package's license:
 1. [Sign in to Semgrep Cloud Platform](https://semgrep.dev/login).
 2. Click **[Supply Chain](https://semgrep.dev/orgs/-/supply-chain)** > **Dependencies**. Detected licenses are listed in the row for a given package.
 
-## Blocking, commenting, or allowing licenses 
+## Blocking, commenting, or allowing licenses
 
 This section provides guides on blocking or allowing packages in CI pipelines based on the license of a package.
 
-### Types of license policies 
+### Types of license policies
 
 Licenses in Semgrep are assigned the following policies:
 
@@ -59,8 +59,8 @@ By default, all licenses are set to **Allow**. You must configure your policies 
 
 To change the policies of packages based on the license:
 
-1. From the Supply Chain page, click **Settings** on the header menu. 
-2. Browse the available licenses within the **License configuration** section. 
+1. From the Supply Chain page, click **Settings** on the header menu.
+2. Browse the available licenses within the **License configuration** section.
 ![Screenshot of license configuration section](/img/sc-license-configuration.png#bordered)
 *Figure 3.* Screenshot of Supply Chain > Settings > License configuration section.
 3. Click the permission (Allow, Comment, or Block) you want to set the license to.
@@ -79,7 +79,7 @@ Software using a package with a weak copyleft license may have to maintain the s
 * MPL-2.0
 * EPL-2.0
 * OSL-3.0
-* EUPL-3.0
+* EUPL-1.2
 
 #### Popular copyleft licenses
 

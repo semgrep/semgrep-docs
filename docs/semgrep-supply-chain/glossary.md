@@ -73,7 +73,7 @@ Compare its opposite: [Lockfile-only rules](#lockfile-only-rules).
 
 Software Bill of Materials (also known as 'Cyber Bill of Materials', CBOM) is an artifact produced by many software composition analysis tools. It enumerates the various components of a software artifact such as dependencies, licenses, and security statuses. SBOMs are typically generated for compliance purposes. Regularly, a security engineer or related role signs-off on the SBOM, meaning that they accept the security and legal risk of the associated artifact.
 
-Semgrep Supply Chain does **not** generate SBOMs.
+Semgrep Supply Chain can export a CycloneDX 1.4 XML/JSON-formatted SBOM.
 
 ## Threat
 

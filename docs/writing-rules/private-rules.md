@@ -4,12 +4,11 @@ description: "Users of the Team and Enterprise tier for Semgrep Code can publish
 ---
 
 import MoreHelp from "/src/components/MoreHelp"
+import DeleteCustomRule from "/src/components/procedure/_delete-custom-rule.mdx"
 
 # Private rules
 
-Users of the [Team or Enterprise tier](https://semgrep.dev/pricing) of Semgrep Code can publish rules to the [Semgrep Registry](https://semgrep.dev/explore) as private rules that are not visible to others outside their organization. The private rules enable you to hide code-sensitive information or legal requirements that prevent you from using a public registry.
-
-As we continue to develop and refine this feature, we welcome and appreciate your feedback! Email us at [product@semgrep.com](mailto:product@semgrep.com) or contact us in the [Semgrep Community Slack](https://go.semgrep.dev/slack).
+Users of the [Team or Enterprise tier](https://semgrep.dev/pricing) of Semgrep Code can publish rules to the [Semgrep Registry](https://semgrep.dev/explore) as private rules that are not visible to others outside their organization. Maintaining the rules' privacy allows you the benefits of using the Semgrep Registry while keeping sensitive code or information internal.
 
 ## Creating private rules
 
@@ -37,7 +36,7 @@ Private rules are stored in the folder with the same name as your Semgrep Cloud 
 
 ### Creating private rules through the command line
 
-To create private rules through the [Semgrep CLI](/getting-started/), :
+To create private rules through the [Semgrep CLI](/getting-started/quickstart/), :
 
 1. Interactively login to Semgrep:
 
@@ -56,7 +55,7 @@ If the directory contains test cases for the rules, Semgrep uploads them as well
 You can also change the visibility of the rules. For instance, to publish the rules as unlisted (which does not require authentication but will not be displayed in the public registry):
 
 ```sh
-semgrep publish --visiblity=unlisted myrules/
+semgrep publish --visibility=unlisted myrules/
 ```
 
 For more details, run `semgrep publish --help`.
@@ -102,11 +101,7 @@ This section provides an example of how to automatically publish your private ru
 
 ## Deleting private rules
 
-To remove a private rule, follow these steps:
-
-1. In the [Semgrep Editor](https://semgrep.dev/orgs/-/editor), find a private rule to delete under the <i class="fa-solid fa-server"></i> **Library** tab. Private rules are usually stored in the folder with the same name as your Semgrep Cloud Platform organization.
-1. Click the rule you want to delete, and then click the <i class="fa-solid fa-ellipsis-vertical"></i> three vertical dots.
-1. Click <i class="fa-regular fa-trash-can"></i> **Delete**.
+<DeleteCustomRule />
 
 ## Appendix
 
