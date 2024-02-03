@@ -22,7 +22,7 @@ Ensure that your infrastructure meets all the [<i class="fa-regular fa-file-line
 
 ## Stakeholders and deployment team
 
-Semgrep integrates deeply and early in the development process. For medium-to-large teams, typically of more than 10 developers, coordinating with other departments before starting the deployment is crucial to an efficient roll-out.
+Semgrep integrates deeply and early in the development process. For medium-to-large teams, typically with more than 10 developers, coordinating with other departments before starting the deployment is crucial to an efficient roll-out.
 
 Here are some teams or departments that may be responsible for parts of your Semgrep deployment:
 
