@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 ---
 slug: getting-started
 append_help_link: true

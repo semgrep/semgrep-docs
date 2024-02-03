@@ -463,8 +463,7 @@ module.exports = {
             'licensing',
             'faq',
             'integrating',
-            'usage-limits',
-        'pricing-and-billing',
+            'usage-and-billing',
             'contributing/philosophy',
             {
               type: 'doc',

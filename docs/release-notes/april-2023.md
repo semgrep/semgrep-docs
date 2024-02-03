@@ -122,7 +122,6 @@ This section of release notes includes upgrades of Semgrep OSS Engine for versio
 
 - You can now add repositories from Azure Repos into the Semgrep Cloud Platform.
 - Bitbucket PR comments are now available for Bitbucket Cloud users. See the [Enabling Bitbucket pull request comments](/semgrep-cloud-platform/bitbucket-pr-comments) to enable PR comments in your repositories.
-- Check the new documentation sections [Semgrep add-on reconciliation of licenses](/pricing-and-billing/#semgrep-add-on-reconciliation-of-licenses) and [Example of license reconciliation](https://semgrep.dev/docs/semgrep-cloud-platform/pricing-and-billing/#example-of-license-reconciliation) that inform you about what happens if your organization exceeds the number of purchased licenses.
 
 ### Changes
 
@@ -136,7 +135,7 @@ This section of release notes includes upgrades of Semgrep OSS Engine for versio
 
 ### Added
 
-- New section [Semgrep add-on reconciliation of licenses](https://semgrep.dev/docs/semgrep-cloud-platform/pricing-and-billing/#semgrep-add-on-reconciliation-of-licenses) and [Example of license reconciliation](https://semgrep.dev/docs/semgrep-cloud-platform/pricing-and-billing/#example-of-license-reconciliation).
+- New section [Semgrep add-on reconciliation of licenses](/usage-and-billing/#semgrep-add-on-reconciliation-of-licenses) and [Example of license reconciliation](/usage-and-billing/#example-of-license-reconciliation).
 - New section [Updating existing open-source rules in Semgrep Registry](/contributing/contributing-to-semgrep-rules-repository/#updating-existing-open-source-rules-in-semgrep-registry).
 - Added section [Creating rules that analyze across files](/semgrep-code/semgrep-pro-engine-intro/#creating-rules-that-analyze-across-files) and [Types of Semgrep Pro Engine analysis](/semgrep-code/semgrep-pro-engine-intro/#types-of-semgrep-pro-engine-analysis).
 - Added [Appendix: Token scopes](/semgrep-cloud-platform/user-management/#appendix-token-scopes).
