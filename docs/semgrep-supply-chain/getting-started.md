@@ -43,7 +43,7 @@ In the following example, Semgrep Supply Chain assumes that all code files using
 │   ├───lockfile.json
 │   ├───bar.js
 │   └───/uphill
-          ├───lockfile.json        
+│       ├───lockfile.json        
 │       └────foo.js
 ├───/biking
 ```
