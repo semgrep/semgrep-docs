@@ -26,7 +26,7 @@ tags:
 ### Added
 
 * Semgrep's Visual Studio Code extension now runs natively on Windows machines.
-* Added ability to test the connection to their source code manager by going to
+* Added ability for organizations to test connections to source code managers by going to
   **Settings** > **Source Code Managers**.
 * Added ability to manually create custom dependency exceptions under **Supply
   Chain** > **Settings**. This helps prevent blocking a pull request or merge
@@ -35,12 +35,12 @@ tags:
   exception means that the exclusion won't fail when upgrading to
   `bitwarden/cli@2023.9.1`.
 * Projects are removed from SCP when the corresponding GitHub repository is
-  archived.
+  archived on GitHub.
 * **CLI tool**: 
   * Added color-coded severity icons, such as `❯❯❱`, to the CLI
   output for findings of known severity.
-  * Metrics sent from the CLI to Semgrep now include a breakdown of
-  the number of findings per product.
+  * Metrics sent from the CLI to Semgrep now include a breakdown of the number
+  of findings per product. This helps the Semgrep team understand users better.
   * Rules stored under a hidden directory, such as
   `dir/.hidden/myrule.yml`, are now processed when scanning with the `--config`
   flag.
@@ -55,8 +55,8 @@ tags:
   * Set the **Remove app** button to only show up for registered GitHub apps.
 * Improved the page load times for the **Settings** > **Source Code Managers**
   page, especially for organizations with many source code managers connected.
-* The **Findings** page now displays issues present on multiple branches,
-  regardless of which branch is used as a filter. 
+* Redesigned the **Findings** page to display issues present on multiple branches,
+  regardless of which branch is used as a filter.
 * Temporarily removed support for writing rules using Jsonnet.
 
 ### Fixed
