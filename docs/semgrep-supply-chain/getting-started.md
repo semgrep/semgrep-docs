@@ -31,6 +31,25 @@ This article walks you through the Semgrep Supply Chain configuration and custom
 - To run a Semgrep Supply Chain scan, you must generate a [dependency tree for Apache Maven](/semgrep-supply-chain/setup-maven).
 :::
 
+## Project directory structure
+
+Semgrep Supply Chain requires a [lockfile](/semgrep-supply-chain/glossary/#lockfile). Code files that use the dependencies in the lockfile must be nested in the same directory as the lockfile. Semgrep Supply Chain can correctly parse code files in sub folders as well.
+
+In the following example, Semgrep Supply Chain assumes that all code files using the dependencies in `my-project/running/lockfile.json` are nested in `my-project/running/` or deeper directories.
+
+```
+/my-project
+├───/running
+│   ├───lockfile.json
+│   ├───bar.js
+│   └───/uphill
+│       ├───lockfile.json        
+│       └────foo.js
+├───/biking
+```
+
+If you have code files in `my-project/biking`, Semgrep Supply Chain does not associate them to the dependencies in `my-project/running/lockfile.json`. If there is another lockfile in `my-project/running`, such as `my-project/running/uphill/lockfile.json`, then this overrides the original `my-project/running/lockfile.json` for all code files in `my-project/running/uphill/` or deeper directories.
+
 ## Scan frequency
 
 By default, Semgrep Supply Chain scans your code once per day. However, you can change this so Semgrep Supply Chain scans your code at a different frequency or when a specific event occurs.
