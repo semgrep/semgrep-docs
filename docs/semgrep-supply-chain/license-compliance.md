@@ -164,6 +164,8 @@ To set a custom dependency exception:
    3. Provide the **Version** information for the package. The major, minor, and
       patch version information is required; pre-release and build metadata are
       optional.
-4. Click **Add** to save and add the exception.
+   4. Click **Add** to save and add the exception.
+
+![Semgrep Cloud Platform's Add custom exception window](/img/custom-dependency-exception.png#md-width)
 
 <MoreHelp />
