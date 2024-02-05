@@ -148,8 +148,8 @@ To set a custom dependency exception:
 1. Log into Semgrep Cloud Platform and navigate to **Supply Chain** > <i class="fa-solid fa-gear"></i> **Settings**.
 2. Under **Custom Dependency Exceptions**, click **Add custom exception**.
 3. In the **Add custom dependency exception** window that appears:
-   1. Select the **Ecosystem** where this dependency applies
-   2. Provide the **Package name**, e.g., `bitwarden/cli`
+   1. Select the **Ecosystem** where this dependency applies.
+   2. Provide the **Package name**, for example, `bitwarden/cli`.
    3. Provide the **Version** information for the package. The major, minor, and patch version information is required; pre-release and build metadata are optional.
 4. Click **Add** to save and add the exception.
 
