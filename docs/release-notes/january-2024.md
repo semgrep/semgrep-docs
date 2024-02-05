@@ -26,7 +26,7 @@ tags:
 ### Added
 
 * Semgrep's Visual Studio Code extension now runs natively on Windows machines.
-* Added ability for organizations to test connections to source code managers by going to
+* Added ability for organizations to test connections to GitHub and GitLab by going to
   **Settings** > **Source Code Managers**.
 * Added ability to manually create custom dependency exceptions under **Supply
   Chain** > **Settings**. This helps prevent blocking a pull request or merge
