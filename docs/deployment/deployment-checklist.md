@@ -77,7 +77,7 @@ The following checklist breaks down permissions required by Semgrep features.
 <tbody>
 <tr>
 <td rowspan="2">Run Semgrep continuously in your CI workflows.</td>
-<td>Add or make changes to CI jobs. This includes committing configuration files for each</td>
+<td>Add or make changes to CI jobs. This includes committing configuration files for each repository.</td>
 </tr>
 <tr>
 <td>Define environment variables and storing secrets.</td>
