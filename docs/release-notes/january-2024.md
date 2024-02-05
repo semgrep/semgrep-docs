@@ -47,8 +47,7 @@ tags:
 
 ### Changed
 
-* Improved the speed with which Semgrep Cloud Platform's **Dashboard** and
-  **Findings** pages load.
+- Improved loading times for **Dashboard** and **Findings** pages.
 * Renamed the **Upgrade** page to **Usage & billing**.
 * Redesigned the **Settings** > **Source Code Managers** page; changes include:
   * Renamed the **Remove SCM config** button to **Disconnect**.
@@ -77,7 +76,7 @@ tags:
     in the `TMPDIR` environment variable for the Semgrep cache.
   * Fixed an issue where Semgrep would error on reading a
     `nosemgrep` comment with multiple rule IDs.
-  * Fixed a bug where Gemfile.lock files with multiple `GEM`
+  * Fixed a bug where `Gemfile.lock` files with multiple `GEM`
     sections weren't parsed correctly.
 
 ## 💻 Code
