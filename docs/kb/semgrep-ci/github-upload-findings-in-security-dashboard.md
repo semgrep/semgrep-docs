@@ -23,7 +23,7 @@ To update this setting:
 Target permissions
 
 :::info 
-Changing the repository's default workflow permissions changes the permissions for all workflows in that repository. For more granular permissions, set the `permissions` key at the workflow or job level in the `semgrep.yml` workflow file. Learn more about the `permissions` key at [Assigning permissions to jobs](https://docs.github.com/en/actions/using-jobs/assigning-permissions-to-jobs#setting-the-github_token-permissions-for-all-jobs-in-a-workflow), or review the example workflow-level permissions below.
+Changing the repository's default workflow permissions changes the permissions for all workflows in that repository. Use of the `permissions` key will not override this setting, so updating it is a required step. Learn more about the `permissions` key at [Assigning permissions to jobs](https://docs.github.com/en/actions/using-jobs/assigning-permissions-to-jobs#setting-the-github_token-permissions-for-all-jobs-in-a-workflow), or review the example workflow-level permissions below.
 :::
 
 ## The workflow or job does not have the correct permissions in a private repository
