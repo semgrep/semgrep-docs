@@ -121,19 +121,22 @@ Some packages allow multiple licenses. Semgrep treats packages with multiple lic
 
 Add an [exemption for the package](#exempting-packages) if subsequent review indicates the dependency is safe for use under one of the detected licenses.
 
-## Exempting packages
+## Exempting dependencies
 
-You can create exemptions to **Allow** specific packages. This feature is useful for internal packages that are not accessed by users or external APIs.
+You can create exemptions to **Allow** specific dependencies. This feature is
+useful for internal dependencies not accessed by users or external APIs.
 
 To exempt a package:
 
 1. From the Supply Chain page, click **Dependencies**.
-2. Search for the package you want to exempt.
-3. Click the package's <i class="fa-solid fa-list-check"></i> icon to exempt it. Upon clicking on the icon, its permission changes.
+2. Search for the dependencies you want to exempt.
+3. Click the dependencies's <i class="fa-solid fa-list-check"></i> icon to
+   exempt it. Upon clicking on the icon, its permission changes.
 
-Exempted packages appear in the Supply Chain > **Settings** tab.
+Exempted dependencies appear in the Supply Chain > **Settings** tab.
 
-Package exemptions are currently version-specific. Each version used must be exempted individually.
+Dependency exemptions are currently version-specific. Each version used must be
+exempted individually.
 
 ### Custom dependency exceptions
 
@@ -146,7 +149,7 @@ upgrading to `bitwarden/cli@2023.9.1`.
 To set a custom dependency exception:
 
 1. Log into Semgrep Cloud Platform and navigate to **Supply Chain** > <i class="fa-solid fa-gear"></i> **Settings**.
-2. Under **Custom Dependency Exceptions**, click **Add custom exception**.
+2. In **Custom Dependency Exceptions**, click **Add custom exception**.
 3. In the **Add custom dependency exception** window that appears:
    1. Select the **Ecosystem** where this dependency applies
    2. Provide the **Package name**, e.g., `bitwarden/cli`
