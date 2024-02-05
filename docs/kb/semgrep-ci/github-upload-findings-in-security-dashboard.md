@@ -11,7 +11,7 @@ When scanning with Semgrep in CI, findings automatically populate in Semgrep Clo
 
 If you run the alternate job and it fails with a "resource not accessible by integration" error, there are two possible causes.
 
-## Your repository's default workflow permissions are set to read-only
+## Your repository's workflow permissions are set to read-only
 
 Repository-level workflow permissions are set to `read-only` (default) unless they've previously been changed. Use of the `permissions` key within the workflow file does not override this setting.
 
@@ -45,7 +45,6 @@ on:
     branches: ["master", "main"]
   schedule:
     - cron: '20 17 * * *' # Sets Semgrep to scan every day at 17:20 UTC.
-    # It is recommended to change the schedule to a random time.
 
 jobs:
   semgrep:
@@ -56,7 +55,6 @@ jobs:
       # A Docker image with Semgrep installed. Do not change this.
       image: returntocorp/semgrep
 
-    # Skip any PR created by dependabot to avoid permission issues:
     if: (github.actor != 'dependabot[bot]')
     permissions:
       # required for all workflows
