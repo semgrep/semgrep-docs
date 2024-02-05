@@ -124,7 +124,7 @@ You can integrate Semgrep further into your security workflows after some initia
 
 - Enable GPT-assisted triage and code fix recommendations. This requires code access.
 - Set up notification channels.
-- Encourage developers to set up Semgrep as a linter in their IDE.
+- Encourage developers to set up Semgrep in their IDE.
 - Integrate Semgrep with project management software (Private beta).
 
 ## Next steps
