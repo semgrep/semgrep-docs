@@ -121,39 +121,49 @@ Some packages allow multiple licenses. Semgrep treats packages with multiple lic
 
 Add an [exemption for the package](#exempting-packages) if subsequent review indicates the dependency is safe for use under one of the detected licenses.
 
-## Exempting dependencies
+## Exempt dependencies
 
-You can create exemptions to **Allow** specific dependencies. This feature is
+You can create exemptions to **allow** specific dependencies. This feature is
 useful for internal dependencies not accessed by users or external APIs.
 
 To exempt a package:
 
-1. From the Supply Chain page, click **Dependencies**.
+1. Log into Semgrep Cloud Platform and navigate to **Supply Chain** >
+   **Dependencies**.
 2. Search for the dependencies you want to exempt.
-3. Click the dependencies's <i class="fa-solid fa-list-check"></i> icon to
-   exempt it. Upon clicking on the icon, its permission changes.
+3. Click the dependency's <i class="fa-solid fa-list-check"></i> icon to exempt
+   it. Upon clicking on the icon, its permission changes.
 
-Exempted dependencies appear in the Supply Chain > **Settings** tab.
+Exempted dependencies appear in the **Supply Chain** > **Settings** tab.
 
 Dependency exemptions are currently version-specific. Each version used must be
 exempted individually.
 
-### Custom dependency exceptions
+### Create custom dependency exceptions
 
-Custom dependency exceptions allow you to prevent Semgrep from blocking a pull
-request or merge request due to licensing issues. For example, if
-`bitwarden/cli@2023.9.0`, which has a GPL-3.0 license, is on the allowlist,
-setting a custom dependency exception means that the exclusion won't fail when
-upgrading to `bitwarden/cli@2023.9.1`.
+Custom dependency exceptions allow you to manually allowlist a dependency to
+prevent Semgrep from blocking a pull request or merge request due to licensing
+issues.
+
+For example, if `bitwarden/cli@2023.9.0`, which has a GPL-3.0 license, is on the
+allowlist, you must add an additional exception when upgrading to
+`bitwarden/cli@2023.9.1`. However, the dependency to which you're upgrading
+isn't yet listed in **Dependencies**; they appear only *after* you've scanned
+your project. Because the dependency isn't listed, you must manually create the
+exception. This ensures that the exclusion won't fail when you upgrade to
+`bitwarden/cli@2023.9.1` and scan your project again with Semgrep Supply Chain.
 
 To set a custom dependency exception:
 
-1. Log into Semgrep Cloud Platform and navigate to **Supply Chain** > <i class="fa-solid fa-gear"></i> **Settings**.
+1. Log into Semgrep Cloud Platform and navigate to **Supply Chain** > <i
+   class="fa-solid fa-gear"></i> **Settings**.
 2. In **Custom Dependency Exceptions**, click **Add custom exception**.
 3. In the **Add custom dependency exception** window that appears:
    1. Select the **Ecosystem** where this dependency applies.
    2. Provide the **Package name**, for example, `bitwarden/cli`.
-   3. Provide the **Version** information for the package. The major, minor, and patch version information is required; pre-release and build metadata are optional.
+   3. Provide the **Version** information for the package. The major, minor, and
+      patch version information is required; pre-release and build metadata are
+      optional.
 4. Click **Add** to save and add the exception.
 
 <MoreHelp />
