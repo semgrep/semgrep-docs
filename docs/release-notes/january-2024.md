@@ -47,7 +47,7 @@ tags:
 
 ### Changed
 
-- Improved loading times for **Dashboard** and **Findings** pages.
+* Improved loading times for **Dashboard** and **Findings** pages.
 * Renamed the **Upgrade** page to **Usage & billing**.
 * Redesigned the **Settings** > **Source Code Managers** page; changes include:
   * Renamed the **Remove SCM config** button to **Disconnect**.
