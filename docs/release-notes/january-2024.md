@@ -28,12 +28,6 @@ tags:
 * Semgrep's Visual Studio Code extension now runs natively on Windows machines.
 * Added ability for organizations to test connections to source code managers by going to
   **Settings** > **Source Code Managers**.
-* Added ability to manually create custom dependency exceptions under **Supply
-  Chain** > **Settings**. This helps prevent blocking a pull request or merge
-  request due to licensing issues. For example, if `bitwarden/cli@2023.9.0`,
-  which has a GPL-3.0 license, is on the allowlist, setting a custom dependency
-  exception means that the exclusion won't fail when upgrading to
-  `bitwarden/cli@2023.9.1`.
 * Projects are removed from SCP when the corresponding GitHub repository is
   archived on GitHub.
 * **CLI tool**: 
@@ -47,16 +41,14 @@ tags:
 
 ### Changed
 
-- Improved loading times for **Dashboard** and **Findings** pages.
 * Renamed the **Upgrade** page to **Usage & billing**.
 * Redesigned the **Settings** > **Source Code Managers** page; changes include:
   * Renamed the **Remove SCM config** button to **Disconnect**.
   * Set the **Remove app** button to only show up for registered GitHub apps.
 * Improved the page load times for the **Settings** > **Source Code Managers**
   page, especially for organizations with many source code managers connected.
-* Redesigned the **Findings** page to display issues present on multiple branches,
-  regardless of which branch is used as a filter.
 * Temporarily removed support for writing rules using Jsonnet.
+* Updated de-duplication logic for users with multiple source code managers. <!-- 12409, 12418 -->
 
 ### Fixed
 
@@ -76,36 +68,69 @@ tags:
     in the `TMPDIR` environment variable for the Semgrep cache.
   * Fixed an issue where Semgrep would error on reading a
     `nosemgrep` comment with multiple rule IDs.
-  * Fixed a bug where `Gemfile.lock` files with multiple `GEM`
-    sections weren't parsed correctly.
 
 ## 💻 Code
 
 ### Added
 
+- **Swift**: Now supports typed metavariables, such as `($X : ty)`.
+- **Java**: You can now use metavariable ellipses properly in function arguments, as statements, and as expressions. <!-- (gh-9260)-->For instance, you may write the pattern:
+    ```
+    public $F($...ARGS) { ... }
+    ``` 
+- **C++ with Semgrep Pro Engine**: Improve translation of delete expressions to the dataflow so that
+recently added at-exit sinks work on them. Previously, delete expression at "exit" positions were not being properly recognized as such. <!-- (pa-3339) -->
+
 ### Changed
+
+- Improved loading times for **Dashboard** and **Findings** pages.
+- Redesigned the **Findings** page to display issues present on multiple branches,
+  regardless of which branch is used as a filter.
 
 ### Fixed
 
+- **Editor**: Fixed a bug where the editor could crash due to rules having more than one metadata subcategory.
+- Fixed a bug in which **open** findings were counted differently between the **Code** and **Dashboard** pages in Semgrep Cloud Platform. The counts now match.  <!-- 12319 -->
+- **Findings** page:
+    - Fixed a bug in which leaving a note automatically triaged a finding. Now, the state of the finding does not change when a user leaves a note. <!-- 12051 -->
+    - Fixed a bug in which **fixed** findings were triagable despite their already fixed state through the rule group checkbox. Now these findings are not triagable. <!-- 11919 -->
+
+
 ## ⛓️ Supply Chain
+
+### Added
+
+* Added ability to manually create custom dependency exceptions under **Supply
+  Chain** > **Settings**. This helps prevent blocking a pull request or merge
+  request due to licensing issues. For example, if `bitwarden/cli@2023.9.0`,
+  which has a GPL-3.0 license, is on the allowlist, setting a custom dependency
+  exception means that the exclusion won't fail when upgrading to
+  `bitwarden/cli@2023.9.1`.
+
+### Changed 
+
+- **Vulnerabilities page**: Improved filtering performance. <!-- 12162 -->
+- Software bill of materials (SBOM) generation is now generally available (GA). <!-- 11956 -->
+- The **Dependencies** tab is now GA.
 
 ### Fixed
 
 * Fixed an issue where Semgrep couldn't parse a Pipfile correctly if it had a
   `[dev-packages]` section.
+* Fixed a bug where `Gemfile.lock` files with multiple `GEM` sections weren't parsed correctly.
 
-## 🤖 Assistant (beta)
-
-### Added
-
-### Changed
+## Secrets (beta)
 
 ### Fixed
+
+- Fixed a bug with custom secrets rules in which rule visibility could be set to `unlisted`. Now, To protect the privacy of secrets rules, users cannot set Secrets rules to any other visibility except for **private**. <!-- 12039, 12040, 12025 -->
 
 ## 📝 Documentation and knowledge base
 
 ### Added
 
 ### Changed
+
+- Updated API docs to use the term `teams`. The use of the term `groups` is deprecated.
 
 ### Fixed
