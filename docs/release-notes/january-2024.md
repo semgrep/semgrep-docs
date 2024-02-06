@@ -52,15 +52,8 @@ tags:
 
 ### Fixed
 
-* Fixed an issue where the number of **Open** findings displayed in the
-  navigation bar next to the **Code** link differed from the number displayed in
-  the **Open** status filter.
-* Fixed an issue where leaving a note on a finding also triaged the issue; users
-  can now leave notes without changing the finding's triage state.
 * Fixed an issue where paid subscribers couldn't submit support cases through
   the **Help** page.
-* Fixed an issue where hovering over the Assistant's **Analyze** button caused
-  the window to jitter.
 * **CLI tool**: 
   * Fixed an issue where multi-line comments in Dockerfiles weren't
   parsed correctly.
@@ -94,7 +87,7 @@ recently added at-exit sinks work on them. Previously, delete expression at "exi
 - **Findings** page:
     - Fixed a bug in which leaving a note automatically triaged a finding. Now, the state of the finding does not change when a user leaves a note. <!-- 12051 -->
     - Fixed a bug in which **fixed** findings were triagable despite their already fixed state through the rule group checkbox. Now these findings are not triagable. <!-- 11919 -->
-
+    - Fixed an issue where hovering over the Assistant's **Analyze** button caused the window to jitter.
 
 ## ⛓️ Supply Chain
 
@@ -129,17 +122,17 @@ recently added at-exit sinks work on them. Previously, delete expression at "exi
 
 ### Added
 
-- Added an additional section on privacy and legal information about Semgrep Assistant. <!-- 1308 -->
+- Added [legal information](/semgrep-code/semgrep-assistant-code/#privacy-and-legal-considerations) about Semgrep Assistant. <!-- 1308 -->
 - Added documentation about Semgrep Assistant's Component and Recommendation filters. <!-- 1324 -->
 - Knowledge base articles:
-    - 
+    - Troubleshoot why [SAML stops working](/kb/semgrep-cloud-platform/saml-stops-working/) <!-- 1330 -->
+    - [Troubleshooting "You are seeing this because the engine was killed" on monorepos]() <!-- 1310 -->
+- Add guidance on running Semgrep Supply Chain scans [in the CLI](). <!-- 1334 -->
 
 ### Changed
 
 - Updated API docs to use the term `teams`. The use of the term `groups` is deprecated.
-- Updated the Semgrep Supply Chain languages table to clarify that **lockfile-only** languages do not have reachable rules.
+- Updated the Semgrep Supply Chain [languages table](/supported-languages/#semgrep-supply-chain) to clarify that **lockfile-only** languages do not have reachable rules.
 - Updated documentation on event triggers for diff-aware and full scans. <!-- 1316 -->
-- Updated Licensing documentation for Semgrep Supply Chain and Semgrep Secrets.
-
-### Fixed
-
+- Updated [Licensing](/licensing) documentation for Semgrep Supply Chain and Semgrep Secrets.
+- Updated the [Findings]() documentation page.
