@@ -28,7 +28,7 @@ Changing the repository's default workflow permissions changes the permissions f
 
 ## The workflow or job does not have the correct permissions in a private repository
 
-In order for Semgrep findings in a private repository to appear on the GitHub Advanced Security Dashboard, you must ensure that the appropriate permissions are configured at the workflow level using the permissions key. See the following example.
+In order for Semgrep findings in a private repository to appear on the GitHub Advanced Security Dashboard, you must ensure that the appropriate permissions are configured at the workflow level using the `permissions` key. See the following example.
 
 ### Example job configuration with `permissions` key
 
