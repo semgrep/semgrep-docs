@@ -129,8 +129,17 @@ recently added at-exit sinks work on them. Previously, delete expression at "exi
 
 ### Added
 
+- Added an additional section on privacy and legal information about Semgrep Assistant. <!-- 1308 -->
+- Added documentation about Semgrep Assistant's Component and Recommendation filters. <!-- 1324 -->
+- Knowledge base articles:
+    - 
+
 ### Changed
 
 - Updated API docs to use the term `teams`. The use of the term `groups` is deprecated.
+- Updated the Semgrep Supply Chain languages table to clarify that **lockfile-only** languages do not have reachable rules.
+- Updated documentation on event triggers for diff-aware and full scans. <!-- 1316 -->
+- Updated Licensing documentation for Semgrep Supply Chain and Semgrep Secrets.
 
 ### Fixed
+
