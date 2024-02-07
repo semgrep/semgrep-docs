@@ -115,7 +115,7 @@ recently added at-exit sinks work on them. Previously, delete expression at "exi
 
 ### Fixed
 
-- Fixed a bug with custom secrets rules in which rule visibility could be set to `unlisted`. Now, To protect the privacy of secrets rules, users cannot set Secrets rules to any other visibility except for **private**. <!-- 12039, 12040, 12025 -->
+- Fixed a bug with custom secrets rules in which rule visibility could be set to `unlisted`. Now, to protect the privacy of secrets rules, users cannot set Secrets rules to any other visibility except for **private**. <!-- 12039, 12040, 12025 -->
 
 ## 📝 Documentation and knowledge base
 
