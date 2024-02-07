@@ -126,8 +126,8 @@ recently added at-exit sinks work on them. Previously, delete expression at "exi
 - Added documentation about Semgrep Assistant's Component and Recommendation filters. <!-- 1324 -->
 - Knowledge base articles:
     - Troubleshoot why [SAML stops working](/kb/semgrep-cloud-platform/saml-stops-working/) <!-- 1330 -->
-    - [Troubleshooting "You are seeing this because the engine was killed" on monorepos]() <!-- 1310 -->
-- Add guidance on running Semgrep Supply Chain scans [in the CLI](). <!-- 1334 -->
+    - [Troubleshooting "You are seeing this because the engine was killed" on monorepos](/kb/semgrep-code/scan-engine-kill/) <!-- 1310 -->
+- Added guidance on running Semgrep Supply Chain scans [in the CLI](/semgrep-supply-chain/getting-started/#run-a-scan-using-the-cli ). <!-- 1334 -->
 
 ### Changed
 
@@ -135,4 +135,4 @@ recently added at-exit sinks work on them. Previously, delete expression at "exi
 - Updated the Semgrep Supply Chain [languages table](/supported-languages/#semgrep-supply-chain) to clarify that **lockfile-only** languages do not have reachable rules.
 - Updated documentation on event triggers for diff-aware and full scans. <!-- 1316 -->
 - Updated [Licensing](/licensing) documentation for Semgrep Supply Chain and Semgrep Secrets.
-- Updated the [Findings]() documentation page.
+- Updated the [Findings](/docs/semgrep-code/findings/) documentation page.
