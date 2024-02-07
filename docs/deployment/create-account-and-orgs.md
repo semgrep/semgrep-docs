@@ -131,7 +131,7 @@ The Semgrep deployment could look like this:
 
 - Each GitHub org has a corresponding Semgrep org.
 - The security team has configured SSO for each Semgrep org.
-    - This means that `team-member-P` can also access `subsidiary-1-org`. The resources they are able to view or change can be constrained through **roles**.
+    - This means that `team-member-R` can also access `subsidiary-1-org`. The resources they are able to view or change can be constrained through **roles**.
 
 ![A complex organization setup using SSO and multiple GitHub orgs.](/img/multiple-orgs.png)
 **Figure**. A complex organization setup using SSO and multiple GitHub orgs.
