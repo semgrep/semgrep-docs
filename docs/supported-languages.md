@@ -98,13 +98,34 @@ Semgrep Supply Chain parses **lockfiles** for dependencies, then scans your code
     <th>License detection support</th>
     <th>Time period of reachability rule coverage for CVEs/GHSAs</th>
 </tr></thead>
-<tbody><tr>
+<tbody>
+<tr>
+   <td>C#</td>
+   <td>NuGet</td>
+   <td><code>packages.lock.json</code></td>
+   <td style={{"text-align": "center"}}>GA</td>
+   <td>✔️</td>
+   <td rowspan="12">Since May 2022</td>
+</tr>
+<tr>
    <td>Go</td>
    <td>Go modules (<code>go mod</code>)</td>
    <td><code>go.mod</code></td>
    <td style={{"text-align": "center"}}>GA</td>
    <td>✔️</td>
-   <td rowspan="14">Since May 2022</td>
+  </tr>
+<tr rowspan="2">
+   <td rowspan="2">Java</td>
+   <td>Gradle</td>
+   <td><code>gradle.lockfile</code></td>
+   <td style={{"text-align": "center"}}>GA</td>
+   <td>✔️</td>
+  </tr>
+  <tr>
+   <td>Maven</td>
+   <td>Maven-generated dependency tree (See <a href="/docs/semgrep-supply-chain/setup-maven/">Setting up SSC scans for Apache Maven</a> for instructions.)</td>
+   <td style={{"text-align": "center"}}>GA</td>
+   <td>✔️</td>
   </tr>
   <tr>
    <td rowspan="3">JavaScript or TypeScript</td>
@@ -117,13 +138,13 @@ Semgrep Supply Chain parses **lockfiles** for dependencies, then scans your code
    <td>Yarn, Yarn 2, Yarn 3</td>
    <td><code>yarn.lock</code></td>
    <td style={{"text-align": "center"}}>GA</td>
-   <td>❌</td>
+   <td>--</td>
   </tr>
   <tr>
    <td>pnpm</td>
    <td><code>pnpm-lock.yaml</code></td>
    <td style={{"text-align": "center"}}>GA</td>
-   <td>❌</td>
+   <td>--</td>
   </tr>
   <tr>
    <td rowspan="4">Python</td>
@@ -154,39 +175,41 @@ Semgrep Supply Chain parses **lockfiles** for dependencies, then scans your code
    <td style={{"text-align": "center"}}>GA</td>
    <td>✔️</td>
   </tr>
-<tr rowspan="2">
-   <td rowspan="2">Java</td>
-   <td>Gradle</td>
-   <td><code>gradle.lockfile</code></td>
-   <td style={{"text-align": "center"}}>GA</td>
-   <td>✔️</td>
-  </tr>
   <tr>
-   <td>Maven</td>
-   <td>Maven-generated dependency tree (See <a href="/docs/semgrep-supply-chain/setup-maven/">Setting up SSC scans for Apache Maven</a> for instructions.)</td>
-   <td style={{"text-align": "center"}}>GA</td>
-   <td>✔️</td>
-  </tr>
-<tr>
-   <td>C#</td>
-   <td>NuGet</td>
-   <td><code>packages.lock.json</code></td>
-   <td style={{"text-align": "center"}}>GA</td>
-   <td>✔️</td>
-</tr>
-<tr>
    <td>Rust</td>
    <td>Cargo</td>
    <td><code>cargo.lock</code></td>
    <td style={{"text-align": "center"}}>Lockfile-only</td>
    <td>✔️</td>
+   <td rowspan="5">Not applicable due to reachability support level</td>
+</tr>
+<tr>
+   <td>Dart</td>
+   <td>Pub</td>
+   <td><code>pubspec.lock</code></td>
+   <td style={{"text-align": "center"}}>Lockfile-only</td>
+   <td>--</td>
+</tr>
+<tr>
+   <td>Kotlin</td>
+   <td>Maven</td>
+   <td>Maven-generated dependency tree (See <a href="/docs/semgrep-supply-chain/setup-maven/">Setting up SSC scans for Apache Maven</a> for instructions.)</td>
+   <td style={{"text-align": "center"}}>Lockfile-only</td>
+   <td>--</td>
 </tr>
 <tr>
    <td>PHP</td>
    <td>Composer</td>
    <td><code>composer.lock</code></td>
    <td style={{"text-align": "center"}}>Lockfile-only</td>
-   <td>❌</td>
+   <td>--</td>
+</tr>
+<tr>
+   <td>Scala</td>
+   <td>Maven</td>
+   <td>Maven-generated dependency tree (See <a href="/docs/semgrep-supply-chain/setup-maven/">Setting up SSC scans for Apache Maven</a> for instructions.)</td>
+   <td style={{"text-align": "center"}}>Lockfile-only</td>
+   <td>--</td>
 </tr>
   </tbody>
 </table>

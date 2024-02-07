@@ -77,6 +77,22 @@ Depending on how your CI/CD system is configured, you can trigger a Semgrep Supp
   </tr>
 </table>
 
+## Run a scan using the CLI
+
+You can run a stand-alone Semgrep Supply Chain scan via the CLI using:
+
+```console
+semgrep ci --supply-chain
+```
+
+Semgrep prints a list of findings directly to the CLI, including the finding's reachability determination, severity level, a brief description, and suggested remediation.
+
+Additionally, you can view your results in Semgrep Cloud Platform (SCP). SCP displays all of the information displayed in the CLI, but it also offers you the ability to:
+
+* See additional finding details, such as whether the finding is always reachable or if it's reachable if certain conditions are met, and its transitivity status
+* Use the [dependency search](/semgrep-supply-chain/dependency-search) feature
+* Use the [license compliance](/semgrep-supply-chain/license-compliance) feature
+
 ## Scan a monorepo's dependencies
 
 Semgrep Supply Chain supports the scanning of monorepos. It treates each of the monorepo's subdirectories as an individual repository. Findings are then grouped by the repositories based on the [lockfile](/semgrep-supply-chain/glossary/#lockfile) or manifest file present in the monorepo.

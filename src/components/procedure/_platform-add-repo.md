@@ -1,17 +1,15 @@
-Adding a repository from GitHub, GitLab, or BitBucket enables Semgrep Cloud Platform to perform many of its core features, such as the ability to record, triage, and manage findings.
-
-:::info Prerequisites
-* **For GitHub or GitLab SaaS users:** A GitHub or GitLab SaaS repository associated with your account.
-* **For BitBucket SaaS users:** A BitBucket repository and sufficient permissions to edit a BitBucket Pipeline and add repository variables.
-:::
-
-To add a repository from GitHub, GitLab, or BitBucket:
+To add a Semgrep job to your CI provider:
 
 1. Ensure you are signed in to Semgrep Cloud Platform.
-2. Click **[Projects](https://semgrep.dev/orgs/-/projects)** on the left sidebar.
-3. For **GitHub Actions** users only: if you do not see the repository you want to add, adjust [GitHub Application's Repository Access](https://github.com/settings/installations) configuration. See [Detecting GitHub repositories](#detecting-github-repositories) for more information.
-4. Click **Scan new project**, and then click **Run scan in CI**.
-5. Select which CI provider for Semgrep to integrate with.
-6. Follow the instructions displayed on Semgrep Cloud Platform page for your particular CI provider.
+1. Click **[Projects](https://semgrep.dev/orgs/-/projects)** on the left sidebar.
+1. Click **Scan new project > CI/CD**.
+1. Click the name of the CI provider you use. You are taken to the **Add job** page.
+1. Follow the steps provided on the page. The process varies depending on your CI provider, but generally includes the following steps:
+    1. Click **Create new token** to create a `SEMGREP_APP_TOKEN`, which is used to when sending results to Semgrep Cloud Platform.
+    1. Copy and paste the `SEMGREP_APP_TOKEN` and its value. Store it as an environment variable or secret in your CI provider. 
+    1. Optional: Click **Review CI config** to see Semgrep's default YAML configuration file for your CI provider.
+    1. Click **Copy snippet** and paste it into your CI provider's configuration file (the filename is typically indicated in the page). Depending on your CI provider, you may have to create a custom configuration file or use an existing one.
+    1. Commit the configuration file to your repository.
+    1. Return to Semgrep Cloud Platform and click **Check connection**.
 
-You have now added a repository to Semgrep Cloud Platform. A scan begins automatically after adding a new repository.
+You have now added a Semgrep job to your CI provider; this starts your first full Semgrep scan. Its findings are sent to Semgrep Cloud Platform for triage and remediation.

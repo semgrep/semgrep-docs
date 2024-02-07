@@ -54,17 +54,27 @@ Semgrep Assistant supports all the same languages as Semgrep Code. See [Supporte
 
 Semgrep gets API permissions to access code on your pre-selected GitHub or GitLab repositories.
 
-* Semgrep Inc. logs and stores the GPT prompts and responses for the sake of performance evaluation, which include source code snippets.
-* Semgrep Inc. sends relevant lines of code to OpenAI's API, where currently, the "relevant lines of code" means lines that are part of the Semgrep finding, plus 10 lines of context on each side. Semgrep Inc. is likely to expand this, potentially to the entire file, as we learn how to pass more useful context.
-* Semgrep Inc stores and retains these code snippets for up to 6 months. Semgrep Inc. will update you with at least a 30-day notice if we make any changes to the retention policy.
-* Semgrep Inc is a paying customer of OpenAI and has a Data Protection Agreement signed with them (provided upon request by [contacting support](/docs/support). The code snippets we upload will be persisted by OpenAI temporarily, following their data usage policies at [Open AI API data Usage Policies](https://openai.com/policies/api-data-usage-policies).
-* For more details, see the [Semgrep Assistant FAQ](https://get.semgrep.dev/assistant).
+* Semgrep Assistant logs and stores the GPT prompts and responses for the sake of performance evaluation, which include source code snippets.
+* Semgrep Assistant sends relevant lines of code to OpenAI's API, where currently, the "relevant lines of code" means lines that are part of the Semgrep finding, plus 10 lines of context on each side. Semgrep, Inc. is likely to expand this, potentially to the entire file, as we learn how to pass more useful context.
+* Semgrep stores and retains these code snippets for up to 6 months. Semgrep, Inc. will update you with at least a 30-day notice if we make any changes to the retention policy.
+* Semgrep, Inc. is a paying customer of OpenAI and has a Data Protection Agreement signed with them (provided upon request by [contacting support](/docs/support). The code snippets we upload are persisted by OpenAI temporarily, following their data usage policies at [Open AI API data Usage Policies](https://openai.com/policies/api-data-usage-policies).
+* Semgrep, Inc. takes the following steps to protect data that is processed by AI since Assistant requires the sharing of code snippets with a third party:
+  * Semgrep shares code snippets with OpenAI without identifying the customer or repository name.
+  * Semgrep only shares the code necessary to enlist the help of GPT in automating the resolution of each specific alert.
+  * Semgrep only accesses source code repositories on a file-by-file basis; it does not need or request org-level access to your codebase.
+* When using Semgrep Assistant, source code **does** leave your repository; Assistant submits part of the file with a finding to OpenAI for processing by a GPT model. OpenAI is not allowed to use the submitted code for training their models.
+* Regarding your data privacy, none of your personal information is shared with OpenAI as a part of the Semgrep Assistant feature.
+* Semgrep, Inc. and OpenAI do not obtain any rights to your source code. Your source code remains yours, and Semgrep or OpenAI accesses it to the limited extent necessary to provide the Semgrep Assistant service. Once the results are returned to you, Semgrep Assistant deletes the shared snippets. OpenAI retains copies of the content sent to them for a maximum of 30 days to monitor for abuse, as indicated in their API Data Usage Policies.
+* Because Semgrep Assistant accesses OpenAI’s services through the API, OpenAI does not use any of the code provided to them to improve their services (see Section 3(c) of their Terms of Use).
+* To a limited extent, using Semgrep Assistant changes the terms of your agreement with Semgrep, Inc. Specifically, sharing code snippets with Semgrep Assistant as part of this feature expands the scope of the data to which you grant Semgrep, Inc. a limited license to provide services to you (see Section 5.1 of our Subscriber Agreement).
+
+For more details, see the [Semgrep Assistant FAQ](https://get.semgrep.dev/assistant).
 
 ## Required GitHub or GitLab repository permissions
 
 Semgrep Assistant requires the same permissions that Semgrep needs to integrate with GitHub or GitLab, such as permissions that allow Semgrep to run CI jobs and post comments to PRs or MRs. See [<i class="fa-regular fa-file-lines"></i> Requested permissions for GitHub and GitLab](/semgrep-cloud-platform/getting-started/#requested-permissions-for-github-and-gitlab) for a list of permissions.
 
-Assistant extends normal Semgrep functionality by providing contextually aware AI-generated suggestions. In order to build that context, it requires extra permissions in GitHub and GitLab.
+Assistant extends normal Semgrep capabilities by providing contextually aware AI-generated suggestions. In order to build that context, it requires extra permissions in GitHub and GitLab.
 
 <Tabs
     defaultValue="github"
@@ -95,7 +105,7 @@ Semgrep Assistant requires the **API scope** to run in both GitLab SaaS and GitL
 </TabItem>
 </Tabs>
 
-## Enabling Semgrep Assistant
+## Enable Semgrep Assistant
 
 <Tabs
     defaultValue="github"
@@ -111,7 +121,7 @@ Semgrep Assistant requires the **API scope** to run in both GitLab SaaS and GitL
 * Semgrep Assistant can only be enabled through Semgrep Cloud Platform (SCP). [Create an account](https://semgrep.dev/login) to set up Semgrep Assistant.
 * You have added or onboarded at least one project (repository) to Semgrep Cloud Platform for scanning. See [Starting a SAST and SCA scan on a remote repository](/semgrep-cloud-platform/getting-started/#starting-a-sast-and-sca-scan-on-a-remote-repository).
 * You have connected your SCM to ensure that you can receive PR comments from Semgrep. 
-    * To connect your SCM, navigate to the the **[<i class="fa-solid fa-gear"></i> Settings page](https://semgrep.dev/orgs/-/settings/)**, click **Source code managers > Connect to GitHub**.
+    * To connect your SCM, navigate to the **[<i class="fa-solid fa-gear"></i> Settings page](https://semgrep.dev/orgs/-/settings/)**, click **Source code managers > Connect to GitHub**.
 * You have set rules to **Comment** or **Block** mode in your [<i class="fas fa-external-link fa-sm"></i> Policies page](https://semgrep.dev/orgs/-/policies).
 :::
 
@@ -165,7 +175,7 @@ You have successfully enabled Semgrep Assistant for cloud-hosted GitLab plans.
 
 To further customize Semgrep Assistant, see:
 
-* [Suggesting autofix code snippets to resolve the finding](#suggesting-autofix-code-snippets-to-resolve-the-finding)
+* [Suggesting autofix code snippets to resolve the finding](#suggest-autofix-code-snippets-to-resolve-the-finding)
 
 :::caution Not receiving PR comments?
 Semgrep Assistant messages only appear in your PR comments for rules that are set to Comment or Block mode in the Rule Management page. Ensure the following:
@@ -180,26 +190,43 @@ Semgrep Assistant messages only appear in your PR comments for rules that are se
 
 The following are recommendations users can receive from Semgrep Assistant.
 
-### Analyzing if a finding is a true or false positive
+### Analyze if a finding is a true or false positive
 
-Semgrep Assistant can analyze if your finding is a true or false positive. The accuracy of its recommendations is roughly 60% and varies based on the language and framework you are using. This is its default use-case.
+Semgrep Assistant can analyze if your finding is a true or false positive. The accuracy of its recommendations is roughly 60% and varies based on the language and framework you are using. This is its default use case. This feature is active in both PR and MR comments and Slack notifications.
 
-### Suggesting autofix code snippets to resolve the finding
+### Suggest autofix code snippets to resolve the finding
 
-Semgrep Assistant can suggest [autofix](/writing-rules/autofix/) code snippets for Semgrep rules which do not have human-written autofix suggestions.
+Semgrep Assistant can suggest [autofix](/writing-rules/autofix/) code snippets for Semgrep rules which do not have human-written autofix suggestions. This feature is only active in PR and MR comments.
 
 To enable autofix by Semgrep Assistant, perform the following steps:
 
-1. While logged-in to Semgrep Cloud Platform, click **Settings > Deployment**.
+1. While logged in to Semgrep Cloud Platform, click **Settings > Deployment**.
 2. In the Code section, click Autofix <i class="fa-solid fa-toggle-large-on"></i> if it is not yet enabled.
 3. Click <i class="fa-solid fa-square-check"></i> **Also include Assistant-written autofixes**.
-4. Optional: Select the **confidence level** on the drop-down box. The value determines at what level of quality autofix code appears as suggestions. A lower confidence level means that Semgrep Assistant displays the autofix suggestion even when the code quality may be incorrect.
+4. Optional: Select the **confidence level** on the drop-down box. The value determines the level of quality at which the autofix code appears as a suggestion. A lower confidence level means that Semgrep Assistant displays the autofix suggestion even when the code quality may be incorrect.
 
 :::tip
-A low confidence level is recommended as even incorrect suggestions may be useful starting points.
+A low confidence level is recommended, as even incorrect suggestions may be useful starting points.
 :::
 
 ![ Screenshot of Semgrep Assistant generating a potential fix](/img/semgrep-assistant-autofix.png)
 *Figure*. Semgrep Assistant generating a potential fix.
+
+## View Assistant recommendations
+
+You can [view all of Semgrep Assistant's
+recommendations](/semgrep-code/findings/#filtering-findings) by going to Semgrep
+Cloud Platform's **Findings** page and filtering by **Recommendation** or
+**Component**.
+
+## Provide feedback to Semgrep Assistant
+
+If Semgrep Assistant suggests that a finding is a false positive, you are prompted to leave feedback. Your feedback helps Semgrep refine the Assistant feature and is very much appreciated.
+
+* In Slack notifications, **Agree** and **Disagree** buttons appear under the Assistant recommendation message.
+* In Semgrep Cloud Platform, the Assistant recommendation appears under **Activity** for a finding, along with **Agree and ignore** or **Disagree** buttons.
+* In GitHub pull requests, you are prompted to leave feedback using `/semgrep assistant agree|disagree`.
+
+If Semgrep Assistant suggests that a finding is a true positive and supplies an autofix suggestion, there is no automated mechanism to leave feedback on this outcome. Feel free to contact the Semgrep team using one of the methods below to let us know your thoughts!
 
 <MoreHelp />
