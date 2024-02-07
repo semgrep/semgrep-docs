@@ -127,7 +127,7 @@ Do not set `SEMGREP_APP_TOKEN` environment variable within the same CI job as `S
 
 ### `SEMGREP_TIMEOUT`
 
-Set `SEMGREP_TIMEOUT` to define a custom timeout. The value must be in seconds. The default value is 5 seconds. This timeout refers to the maximum amount of time Semgrep spends scanning a single file. By default, it attempts to scan each file with this timeout three times; you can control this using `--timeout-threshold`.
+Set `SEMGREP_TIMEOUT` to define a custom timeout. The value must be in seconds. The default value is 5 seconds. This timeout refers to the maximum amount of time Semgrep spends running a single rule on a single file. By default, it attempts to scan each rule/file combination with this timeout three times; you can control this using `--timeout-threshold`.
 
 Example:
 
