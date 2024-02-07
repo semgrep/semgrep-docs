@@ -112,7 +112,7 @@ recently added at-exit sinks work on them. Previously, delete expression at "exi
   `[dev-packages]` section.
 * Fixed a bug where `Gemfile.lock` files with multiple `GEM` sections weren't parsed correctly.
 
-## Secrets (beta)
+## 🔐 Secrets (beta)
 
 ### Fixed
 
