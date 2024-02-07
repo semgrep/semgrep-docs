@@ -24,30 +24,28 @@ See [Prerequisites](/prerequisites/) to ensure that your machine meets Semgrep's
 
 <Install />
 
-## Log into your Semgrep account
-
-<Login />
-
 ## Scan your project
+
+# Semgrep OSS
 
 Navigate to the root of your repository, and run your first scan. The specific command you use depends on how you want to view the results.
 
 To view the results in the CLI:
 
 ```console
-semgrep ci
+semgrep scan
 ```
 
 To export the results to a SARIF file:
 
 ```console
-semgrep ci --sarif --output=semgrep.sarif
+semgrep scan --sarif --output=semgrep.sarif
 ```
 
 To export the results to a JSON file:
 
 ```console
-semgrep ci --json --output=semgrep.json
+semgrep scan --json --output=semgrep.json
 ```
 
 ### Scan your project with a specific ruleset
@@ -76,14 +74,6 @@ You can include as many configuration flags as necessary.
 semgrep scan --config rules.yaml --config more_rules.yaml
 ```
 
-### Scan without sending results to Semgrep
-
-To scan your project **without** sending data to Semgrep, use:
-
-```console
-semgrep ci --dry-run
-```
-
 ## Set log levels
 
 Semgrep provides three levels of logging:
@@ -100,7 +90,7 @@ To set the logging level for a scan, include the flag when scanning your project
 
 ```console
 # run a scan and get debug logs
-semgrep ci --debug
+semgrep scan --debug
 ```
 
 ## Log out
