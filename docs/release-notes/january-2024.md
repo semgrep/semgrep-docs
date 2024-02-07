@@ -28,13 +28,13 @@ tags:
 * Semgrep's Visual Studio Code extension now runs natively on Windows machines.
 * Added ability for organizations to test connections to GitHub and GitLab by going to
   **Settings** > **Source Code Managers**.
-* Projects are removed from SCP when the corresponding GitHub repository is
-  archived on GitHub.
+* Projects are now moved from the **Scanning** to **Not scanning** tab when the
+  corresponding GitHub repository is archived.
 * **CLI tool**: 
   * Added color-coded severity icons, such as `❯❯❱`, to the CLI
   output for findings of known severity.
-  * Metrics sent from the CLI to Semgrep now include a breakdown of the number
-  of findings per product. This helps the Semgrep team understand users better.
+  * Metrics sent from the CLI and collected by Semgrep now include a breakdown of the number
+  of findings per product.
   * Rules stored under a hidden directory, such as
   `dir/.hidden/myrule.yml`, are now processed when scanning with the `--config`
   flag.
@@ -47,7 +47,6 @@ tags:
   * Set the **Remove app** button to only show up for registered GitHub apps.
 * Improved the page load times for the **Settings** > **Source Code Managers**
   page, especially for organizations with many source code managers connected.
-* Temporarily removed support for writing rules using Jsonnet.
 * Updated de-duplication logic for users with multiple source code managers. <!-- 12409, 12418 -->
 
 ### Fixed
