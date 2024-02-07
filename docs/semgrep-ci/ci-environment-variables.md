@@ -127,7 +127,7 @@ Do not set `SEMGREP_APP_TOKEN` environment variable within the same CI job as `S
 
 ### `SEMGREP_TIMEOUT`
 
-Set `SEMGREP_TIMEOUT` to define a custom timeout. The value must be in seconds. The default value is 30 seconds. This timeout refers to the maximum amount of time Semgrep spends scanning a single file. By default, it attempts to scan each file with this timeout three times; you can control this using `--timeout-threshold`.
+Set `SEMGREP_TIMEOUT` to define a custom timeout. The value must be in seconds. The default value is 5 seconds. This timeout refers to the maximum amount of time Semgrep spends scanning a single file. By default, it attempts to scan each file with this timeout three times; you can control this using `--timeout-threshold`.
 
 Example:
 
@@ -143,7 +143,12 @@ Set any as needed or all of the following environment variables to troubleshoot 
 
 ### `SEMGREP_BRANCH`
 
-Set `SEMGREP_BRANCH` to define the branch name for the URL used to generate hyperlinks in the [Findings](/docs/semgrep-code/findings) page. To avoid hardcoding this value, check your CI provider's documentation for available environment variables that can automatically detect the correct values for every CI job. 
+Set `SEMGREP_BRANCH` to define the branch name for the scan, if the branch name is not auto-detected or you want to override it. The branch name is used in the following ways:
+
+* To track findings in the same branch over time
+* To show in which branches a finding was identified (inclukding links to the branch in the [Findings](/docs/semgrep-code/findings) page)
+
+To avoid hardcoding this value, check your CI provider's documentation for available environment variables that can automatically detect the correct values for every CI job. 
 
 Examples:
 
@@ -175,7 +180,7 @@ Within a Bash environment:
 
 ```bash
 # This is a hardcoded value and must be changed to scan other branches.
-export SEMGREP_COMMIT="juice-shop-1"
+export SEMGREP_COMMIT="e0802db56318803b09e1023955d4f4767fc934ed"
 ```
 
 Within a Bitbucket Pipelines configuration file:
