@@ -146,7 +146,7 @@ Set any as needed or all of the following environment variables to troubleshoot 
 Set `SEMGREP_BRANCH` to define the branch name for the scan, if the branch name is not auto-detected or you want to override it. The branch name is used in the following ways:
 
 * To track findings in the same branch over time
-* To show in which branches a finding was identified (inclukding links to the branch in the [Findings](/docs/semgrep-code/findings) page)
+* To show in which branches a finding was identified (including links to the branch in the [Findings](/docs/semgrep-code/findings) page)
 
 To avoid hardcoding this value, check your CI provider's documentation for available environment variables that can automatically detect the correct values for every CI job. 
 
