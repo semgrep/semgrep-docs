@@ -42,6 +42,7 @@ To add Semgrep commands in a YAML template file:
 	   - checkout: self
 	     clean: true
 	     fetchDepth: 10000
+		 persistCredentials: true
 	   - script: |
 	       echo "Pull Request Scan from branch: $(Build.SourceBranchName)"
 	       git fetch origin master:origin/master
