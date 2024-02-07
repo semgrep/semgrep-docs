@@ -130,7 +130,7 @@ recently added at-exit sinks work on them. Previously, delete expression at "exi
 
 ### Changed
 
-- Updated API docs to use the term `teams`. The use of the term `groups` is deprecated.
+<!-- - Updated API docs to use the term `teams`. The use of the term `groups` is deprecated. -->
 - Updated the Semgrep Supply Chain [languages table](/supported-languages/#semgrep-supply-chain) to clarify that **lockfile-only** languages do not have reachable rules.
 - Updated documentation on event triggers for diff-aware and full scans. <!-- 1316 -->
 - Updated [Licensing](/licensing) documentation for Semgrep Supply Chain and Semgrep Secrets.
