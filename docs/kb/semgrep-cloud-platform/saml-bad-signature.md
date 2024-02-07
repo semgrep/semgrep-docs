@@ -1,10 +1,8 @@
-# SSO Error: Signature validation failed.  SAML Response rejected.
+# SSO Error: Signature validation failed. SAML Response rejected.
 
-When setting up single-sign on (SSO), you may encounter the following error:
+When setting up single-sign on (SSO), you may encounter the following error: `Signature validation failed. SAML Response rejected`
 
-```
-Signature validation failed. SAML Response rejected
-```
+![SAML signature validation error](/img/signature-validation.png#md-width)
 
 To fix this, inspect the signature of the certificate you uploaded to Semgrep Cloud Platform:
 

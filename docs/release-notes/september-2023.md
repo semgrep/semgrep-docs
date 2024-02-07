@@ -40,7 +40,7 @@ tags:
 
 ### Added
 
-- UX: Added a new **onboarding** flow. This onboarding flow streamlines the following steps to ensure that users are able to quickly add repositories for scanning with Semgrep: <!-- #10473 -->
+- UX: Added a new **onboarding** flow. This onboarding flow streamlines the following steps to ensure that users are able to quickly set up Semgrep scans: <!-- #10473 -->
 	- **Deployment creation**. The Semgrep team has made improvements to Semgrep account creation and connecting your source code manager, such as GitHub or GitLab. 
 	- **Onboarding checklist.** This helps you troubleshoot and resolve any issues early on in your journey.
 	- **Tour of features**. Make the most of your Semgrep experience by learning what features are available to you.
@@ -49,6 +49,7 @@ tags:
 ### Changed
 
 - **SCM configuration:** Improved the **Delete message** when deleting SCMs, so that you are aware of the implications of removing an SCM. Many major Semgrep features rely on a connection with your source code manager, so take care when deleting SCMs.
+- **GitHub:** Semgrep no longer automatically associates a new user's Semgrep organization with their personal GitHub account. New users can still connect their Semgrep organization with their personal account.
 
 ### Fixed
 
