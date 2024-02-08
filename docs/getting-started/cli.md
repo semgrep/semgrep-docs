@@ -10,15 +10,19 @@ tags:
 
 import MoreHelp from "/src/components/MoreHelp";
 import Install from "/src/components/procedure/_install-cli.mdx";
-import Login from "/src/components/procedure/login-activate.mdx";
+import Login from "/src/components/procedure/_login-activate.mdx";
 
 # CLI-only workflow
 
-Learn how to set up Semgrep, scan your first project for security issues, and view your findings in the CLI.
+Learn how to set up Semgrep, scan your first project for security issues using Semgrep's Pro Engine, and view your findings in the CLI.
 
 ## Prerequisites
 
-See [Prerequisites](/prerequisites/) to ensure that your machine meets Semgrep's requirements.
+Before proceeding:
+
+* See [Prerequisites](/prerequisites/) to ensure that your machine meets Semgrep's requirements.
+* Ensure that you have and are logged into your [Semgrep Account](https://semgrep.dev/login).
+* Ensure that you've enabled the **Pro Engine** <i class="fa-solid fa-toggle-large-on"></i> toggle on Semgrep Cloud Platform's [Settings](https://semgrep.dev/orgs/-/settings) page.
 
 ## Set up Semgrep
 
@@ -27,6 +31,8 @@ See [Prerequisites](/prerequisites/) to ensure that your machine meets Semgrep's
 ## Log into your Semgrep account
 
 <Login />
+
+You must login to your Semgrep account before proceeding. Otherwise, you can't use `semgrep ci`.
 
 ## Scan your project
 
@@ -84,6 +90,29 @@ To scan your project **without** sending data to Semgrep, use:
 semgrep ci --dry-run
 ```
 
+### Scan using Semgrep's OSS engine
+
+To scan your project with Semgrep's OSS Engine, even though you have the Pro Engine enabled in Semgrep Cloud Platform:
+
+```console
+semgrep ci --oss-only
+```
+
+## Scan using selected Semgrep Products
+
+When you run `semgrep ci`, you're scanning your project with Semgrep Code, Semgrep Supply Chain, and Semgrep Secrets. To scan your project with just one product, run:
+
+```console
+# scan with Semgrep Code
+semgrep ci --code
+
+# scan with Semgrep Supply Chain
+semgrep ci --supply chain
+
+# scan with Semgrep Secrets
+semgrep ci --secrets
+```
+
 ## Set log levels
 
 Semgrep provides three levels of logging:
@@ -102,6 +131,10 @@ To set the logging level for a scan, include the flag when scanning your project
 # run a scan and get debug logs
 semgrep ci --debug
 ```
+
+## Exit codes
+
+The CLI commands `semgrep ci` and `semgrep scan` finish with exit code `0` as long as the scan completes, regardless of whether there were findings. To finish with exit code `1` when there are findings, pass in the `--error` flag.
 
 ## Log out
 

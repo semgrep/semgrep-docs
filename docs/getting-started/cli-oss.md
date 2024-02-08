@@ -10,7 +10,7 @@ tags:
 
 import MoreHelp from "/src/components/MoreHelp";
 import Install from "/src/components/procedure/_install-cli.mdx";
-import Login from "/src/components/procedure/login-activate.mdx";
+import Login from "/src/components/procedure/_login-activate.mdx";
 
 # CLI-only workflow
 
