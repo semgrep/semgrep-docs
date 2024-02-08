@@ -170,6 +170,8 @@ commands:
   ...
 ```
 
+Semgrep Cloud Platform will normalize the branch prefix `refs/heads/` for findings, so the branch value `refs/heads/develop` will be treated the same way as `develop`.
+
 ### `SEMGREP_COMMIT`
 
 Set `SEMGREP_COMMIT` to define the commit hash for the URL used to generate hyperlinks in the [Findings](/docs/semgrep-code/findings) page. To avoid hardcoding this value, check your CI provider's documentation for available environment variables that can automatically detect the correct values for every CI job. 
