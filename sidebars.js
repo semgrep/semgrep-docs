@@ -39,7 +39,17 @@ module.exports = {
         items: [
             'getting-started/quickstart',
             'prerequisites',
-            'supported-languages'
+            'supported-languages',
+        {
+          type: 'category',
+          label: 'Local and CLI scans',
+          collapsible: true,
+          link: {type: 'generated-index'},
+          items: [
+            'deployment/local-to-app-scans',
+            'deployment/cli-scans'
+          ]
+        },
         ]
     },
     {
@@ -65,7 +75,17 @@ module.exports = {
                     link: {type: 'doc', id: 'deployment/add-semgrep-to-ci'},
                     items: [
                         'deployment/add-semgrep-other-ci',
-                        'deployment/customize-ci-jobs'
+                        'deployment/customize-ci-jobs',
+                        {
+                            type: 'category',
+                            label: 'Configuring SCA scans',
+                            collapsible: true,
+                            link: {type: 'doc', id: 'semgrep-supply-chain/setup-infrastructure'},
+                            items: [
+                                'semgrep-supply-chain/setup-maven',
+                                'semgrep-supply-chain/setup-jenkins-ui'
+                            ]
+                        }
                     ]
                 },
                 {
@@ -77,16 +97,6 @@ module.exports = {
                     'semgrep-cloud-platform/github-pr-comments',
                     'semgrep-cloud-platform/gitlab-mr-comments',
                     'semgrep-cloud-platform/bitbucket-pr-comments',
-                    ]
-                },
-                {
-                    type: 'category',
-                    label: 'Configuring SCA scans',
-                    collapsible: true,
-                    link: {type: 'doc', id: 'semgrep-supply-chain/setup-infrastructure'},
-                    items: [
-                        'semgrep-supply-chain/setup-maven',
-                        'semgrep-supply-chain/setup-jenkins-ui'
                     ]
                 }
             ]
@@ -143,16 +153,6 @@ module.exports = {
           items: [
             'extensions/semgrep-vs-code',
             'extensions/semgrep-intellij'
-          ]
-        },
-        {
-          type: 'category',
-          label: 'Other scan environments',
-          collapsible: true,
-          link: {type: 'generated-index'},
-          items: [
-            'deployment/local-to-app-scans',
-            'deployment/cli-scans'
           ]
         },
             /*

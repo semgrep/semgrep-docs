@@ -35,7 +35,7 @@ Deployment does **not** include:
 
 For these features, refer to the **Scan and Triage** section in the navigation bar.
 
-### Semgrep deployment features available to you
+### Semgrep deployment features
 
 Semgrep supports many different technology stacks. Refer to the following table to evaluate which deployment features of Semgrep you can use based on your technologies.
 
@@ -109,7 +109,6 @@ At the minimum, your deployment of Semgrep consists of the following steps:
 
 ![Core deployment steps](/img/core-deployment.png#sm-width-noborder)
 
-
 To manage a large volume of users and repositories, you may need to perform additional steps:
 - Role management.
 - Tagging projects.
@@ -117,6 +116,12 @@ To manage a large volume of users and repositories, you may need to perform addi
 These steps are covered in the section Enterprise and large teams.
 
 Team size isn't necessarily indicative of deployment needs. Features for large teams can be deployed for smaller teams as well, and are available on the Semgrep Team Tier.
+
+## Deploy Semgrep in phases
+
+It is recommended to finish the core deployment of Semgrep to a few repositories or departments in your organization first before attempting to deploy to the majority.
+
+This **initial phase** prepares you to deploy Semgrep to the rest of the organization. Organizational infrastructure can vary greatly and the initial deployment can help you identify and address issues so that they do not recur in a wider deployment.
 
 ## Additional deployment features
 
