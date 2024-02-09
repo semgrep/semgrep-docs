@@ -14,7 +14,7 @@ import Login from "/src/components/procedure/_login-activate.mdx";
 
 # CLI-only workflow
 
-Learn how to set up Semgrep, scan your first project for security issues using Semgrep's Pro Engine, and view your findings in the CLI.
+Learn how to set up Semgrep, scan your project for security issues using Semgrep's Pro Engine, and view your findings in the CLI.
 
 ## Prerequisites
 
@@ -32,7 +32,7 @@ Before proceeding:
 
 <Login />
 
-You must login to your Semgrep account before proceeding. Otherwise, you can't use `semgrep ci`.
+You must log in to your Semgrep account before proceeding. Otherwise, you can't use `semgrep ci`.
 
 ## Scan your project
 
@@ -90,6 +90,8 @@ To scan your project **without** sending data to Semgrep, use:
 semgrep ci --dry-run
 ```
 
+This can be helpful to verify the results of a specific ruleset or to see how your findings change based on the rulesets you choose for your scans.
+
 ### Scan using Semgrep's OSS engine
 
 To scan your project with Semgrep's OSS Engine, even though you have the Pro Engine enabled in Semgrep Cloud Platform:
@@ -98,7 +100,11 @@ To scan your project with Semgrep's OSS Engine, even though you have the Pro Eng
 semgrep ci --oss-only
 ```
 
-## Scan using selected Semgrep Products
+:::info
+See [Semgrep Pro versus Semgrep OSS](/semgrep-pro-vs-oss) for information on the differences between Semgrep Pro and OSS Engines.
+:::
+
+## Scan using specific Semgrep Products
 
 When you run `semgrep ci`, you're scanning your project with Semgrep Code, Semgrep Supply Chain, and Semgrep Secrets. To scan your project with just one product, run:
 
@@ -111,6 +117,15 @@ semgrep ci --supply chain
 
 # scan with Semgrep Secrets
 semgrep ci --secrets
+```
+
+## Extend timeout thresholds
+
+Depending on the file sizes in your project, you may need to increase the timeout threshold so that Semgrep doesn't time out before the scan completes. You can control this value using the `--timeout-threshold` flag, which refers to the maximum amount of time Semgrep spends scanning a single file. The default value is 30 seconds. Semgrep attempts to scan each file with this timeout value three times.
+
+```console
+# increase timeout to 45 seconds
+semgrep ci --timeout-threshold 45
 ```
 
 ## Set log levels
