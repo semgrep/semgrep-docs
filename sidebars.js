@@ -98,7 +98,8 @@ module.exports = {
                     'semgrep-cloud-platform/gitlab-mr-comments',
                     'semgrep-cloud-platform/bitbucket-pr-comments',
                     ]
-                }
+                },
+                'deployment/beyond-core-deployment'
             ]
         },
         {
