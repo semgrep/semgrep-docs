@@ -1,6 +1,6 @@
 ---
 slug: cli
-title: CLI-only workflow 
+title: CLI-only workflow (Pro)
 hide_title: true
 description: Learn how to set up Semgrep, scan your first project for security issues, and view your findings in the CLI.
 tags:
@@ -12,7 +12,7 @@ import MoreHelp from "/src/components/MoreHelp";
 import Install from "/src/components/procedure/_install-cli.mdx";
 import Login from "/src/components/procedure/_login-activate.mdx";
 
-# CLI-only workflow
+# CLI-only workflow with Semgrep's Pro Engine
 
 Learn how to set up Semgrep, scan your project for security issues using Semgrep's Pro Engine, and view your findings in the CLI.
 

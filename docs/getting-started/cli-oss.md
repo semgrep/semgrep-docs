@@ -1,6 +1,6 @@
 ---
 slug: cli
-title: CLI-only workflow 
+title: CLI-only workflow (OSS)
 hide_title: true
 description: Learn how to set up Semgrep, scan your first project for security issues, and view your findings in the CLI.
 tags:
@@ -12,7 +12,7 @@ import MoreHelp from "/src/components/MoreHelp";
 import Install from "/src/components/procedure/_install-cli.mdx";
 import Login from "/src/components/procedure/_login-activate.mdx";
 
-# CLI-only workflow
+# CLI-only workflow with Semgrep's OSS Engine
 
 Learn how to set up Semgrep, scan your first project for security issues, and view your findings in the CLI.
 
@@ -91,14 +91,6 @@ To set the logging level for a scan, include the flag when scanning your project
 ```console
 # run a scan and get debug logs
 semgrep scan --debug
-```
-
-## Log out
-
-To log out of your Semgrep account:
-
-```console
-semgrep logout
 ```
 
 <MoreHelp />
