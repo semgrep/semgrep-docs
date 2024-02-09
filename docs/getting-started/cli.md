@@ -132,7 +132,7 @@ See [Semgrep Pro versus Semgrep OSS](/semgrep-pro-vs-oss) for information on the
 
 ## Scan using specific Semgrep Products
 
-When you run `semgrep ci`, you're scanning your project with Semgrep Code, Semgrep Supply Chain, and Semgrep Secrets. To scan your project with just one product, run:
+When you run `semgrep ci`, you scan your project with Semgrep Code, Semgrep Supply Chain, and Semgrep Secrets. To scan your project with just one product, run:
 
 ```console
 # scan with Semgrep Code
