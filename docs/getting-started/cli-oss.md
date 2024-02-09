@@ -53,7 +53,7 @@ semgrep scan --json --output=semgrep.json
 You can scan your project using `--config auto` to automatically obtain rules tailored to your project:
 
 ```console
-semgrep scan --config auto .
+semgrep scan --config auto
 ```
 
 :::info

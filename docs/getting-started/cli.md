@@ -61,7 +61,7 @@ semgrep ci --json --output=semgrep.json
 You can scan your project using `--config auto` to automatically obtain rules tailored to your project:
 
 ```console
-semgrep scan --config auto .
+semgrep scan --config auto
 ```
 
 :::info
@@ -113,7 +113,7 @@ When you run `semgrep ci`, you're scanning your project with Semgrep Code, Semgr
 semgrep ci --code
 
 # scan with Semgrep Supply Chain
-semgrep ci --supply chain
+semgrep ci --supply-chain
 
 # scan with Semgrep Secrets
 semgrep ci --secrets
