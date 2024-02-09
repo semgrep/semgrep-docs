@@ -16,6 +16,10 @@ import Login from "/src/components/procedure/_login-activate.mdx";
 
 Learn how to set up Semgrep, scan your project for security issues using Semgrep's Pro Engine, and view your findings in the CLI.
 
+:::info
+For scans in your local development environment, `semgrep scan` is the preferred method to scan with Semgrep, especially for writing and testing custom rules.
+:::
+
 ## Prerequisites
 
 Before proceeding:
@@ -44,6 +48,12 @@ To view the results in the CLI:
 semgrep ci
 ```
 
+To export the results to a plain text file:
+
+```console
+semgrep ci --text --output=semgrep.txt
+```
+
 To export the results to a SARIF file:
 
 ```console
@@ -65,7 +75,7 @@ semgrep scan --config auto
 ```
 
 :::info
-When using `--config auto`, Semgrep uses your project URL to log into the Semgrep registry.
+Semgrep collects pseudonymous metrics when you use rules from the Registry.
 :::
 
 To scan your project with a specific ruleset, either one that you write or one that you obtain from the [Semgrep Registry](https://semgrep.dev/explore), you can do so using the `--config` flag:
@@ -80,6 +90,22 @@ You can include as many configuration flags as necessary.
 ```console
 # Scan with rules defined in two separate config files
 semgrep scan --config rules.yaml --config more_rules.yaml
+```
+
+#### Test custom rules
+
+Semgrep includes functionality to [test the custom rules that you write](/writing-rules/testing-rules/):
+
+```console
+semgrep scan --test
+```
+
+#### Publish custom rules
+
+To share your rules by adding them to the Semgrep Registry:
+
+```console
+semgrep publish <path/to/rules>
 ```
 
 ### Scan without sending results to Semgrep
@@ -127,6 +153,16 @@ Depending on the file sizes in your project, you may need to increase the timeou
 # increase timeout to 45 seconds
 semgrep ci --timeout-threshold 45
 ```
+
+## Improve performance for large codebases
+
+You can set the number of subprocesses Semgrep uses to run checks in parallel:
+
+```console
+semgrep scan -j NUMBER_OF_SUBPROCESSES
+```
+
+By default, Semgrep defaults to the number of cores detected on the system on which Semgrep is running, but `-j = 1` if you're passing in `--pro`. For additional information, see [Parallelization](/kb/semgrep-code/scan-engine-kill)
 
 ## Set log levels
 
