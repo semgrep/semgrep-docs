@@ -28,7 +28,7 @@ See [Prerequisites](/prerequisites/) to ensure that your machine meets Semgrep's
 
 # Semgrep OSS
 
-Navigate to the root of your repository, and run your first scan. The specific command you use depends on how you want to view the results.
+Navigate to the root of your codebase, and run your first scan. The specific command you use depends on how you want to view the results.
 
 To view the results in the CLI:
 
@@ -50,7 +50,7 @@ semgrep scan --json --output=semgrep.json
 
 ### Scan your project with a specific ruleset
 
-You can scan your project using `--config auto` to automatically obtain rules tailored to your project:
+You can scan your project using `--config auto` to run Semgrep with rules that apply to your to your codebase:
 
 ```console
 semgrep scan --config auto .
