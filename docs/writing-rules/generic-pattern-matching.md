@@ -11,7 +11,7 @@ description: "Semgrep can match generic patterns in languages that it doesn’t 
 
 ## Introduction
 
-Semgrep can match generic patterns in languages that it does **not** yet support. Use generic pattern matching for languages that do not have a parser, configuration files, or other structured data such as XML. Generic pattern matching can also be useful in files with mixed content even if the languages are supported, such as HTML with embedded JavaScript or PHP code. In those cases you can also consider [Extract mode (experimental)](/docs/writing-rules/experiments/extract-mode/), but generic patterns may be simpler and still effective.
+Semgrep can match generic patterns in languages that it does **not** yet support. Use generic pattern matching for languages that do not have a parser, configuration files, or other structured data such as XML. Generic pattern matching can also be useful in files containing multiple languages even if the languages are otherwise supported, such as HTML with embedded JavaScript or PHP code. In those cases you can also consider [Extract mode (experimental)](/docs/writing-rules/experiments/extract-mode/), but generic patterns may be simpler and still effective.
 
 As an example of generic matching, consider this rule:
 ```yaml
