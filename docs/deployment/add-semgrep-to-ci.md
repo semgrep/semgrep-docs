@@ -27,6 +27,12 @@ import TabItem from '@theme/TabItem';
 
 Semgrep is integrated into CI environments by creating a **job** that is run by the CI provider. After a scan, findings are sent to Semgrep Cloud Platform (SCP) for triage and remediation. 
 
+By integrating Semgrep into your CI environment, your development cycle benefits from the automated scanning of repositories at various events, such as:
+
+- Push events
+- Pull or merge requests (PRs or MRs)
+- User-initiated events (such as GitHub Action's `workflow_dispatch`)
+
 ## Guided setup for CI providers in SCP
 
 This guide walks you through creating a Semgrep job in the following CI providers, which are explicitly supported in SCP:
@@ -54,10 +60,10 @@ Adding a Semgrep job to your CI provider also adds the repository's records, inc
 ## Add Semgrep to CI through Semgrep Cloud Platform
 
 <Tabs
-    defaultValue="gha"
+    defaultValue="other"
     values={[
-    {label: 'GitHub Actions', value: 'gha'},
     {label: 'SCP-supported CI providers', value: 'other'},
+    {label: 'GitHub Actions', value: 'gha'},
     ]}
 >
 
@@ -110,9 +116,16 @@ Refer to the following table for links to sample CI configuration snippets:
 | Buildkite            | [`pipelines.yml`](/semgrep-ci/sample-ci-configs/#buildkite) |
 | Azure Pipelines      | [`azure-pipelines.yml`](/semgrep-ci/sample-ci-configs/#azure-pipelines) |
 
+### Data collected by Semgrep Cloud Platform
+
+When running in CI, Semgrep runs fully in the CI build environment. Unless you have explicitly granted code access to Semgrep, your code is not sent anywhere.
+
+- Semgrep Cloud Platform collects [findings data)(TK new link), which includes the line number of the code match, but not the code. It is hashed using a one-way hashing function.
+- Findings data is used to generate line-specific hyperlinks to your source code management system and support other Semgrep functions.
+
 ## Next steps
 
-<NextStepsComments opening_phrase="For Jenkins users, set up a separate CI job for diff-aware scans for"/>
+<NextStepsComments opening_phrase="For Jenkins users: Set up a separate CI job for diff-aware scans for"/>
 
 <!-- After setting up PR comments:
 

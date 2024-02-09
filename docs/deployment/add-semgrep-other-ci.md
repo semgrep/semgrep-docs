@@ -130,6 +130,60 @@ To verify that your Semgrep CI job is connected to Semgrep Cloud Platform:
 1. Go to your Semgrep Cloud Platform [Projects page](https://semgrep.dev/orgs/-/projects).
 2. Verify that your repository is listed on the Projects page and that Semgrep Cloud Platform is running a scan.
 
+### Troubleshoot your CI job
+
+Semgrep attempts to automatically detect certain CI values, such as your repository's name and URL. These values are used to provide context to findings in Semgrep Cloud Platform and hyperlinks to the code that generated the finding. 
+
+Refer to the following table for common issues and the corresponding environment variables you can set to fix them:
+
+<table>
+<thead>
+    <tr>
+        <th>Issue</th>
+        <th>Environment variable to set</th>
+        <th>Affected CI providers</th>
+    </tr>
+</thead>
+<tbody>
+    <tr>
+        <td>Can't establish a connection to Semgrep Cloud Platform.</td>
+        <td><code>SEMGREP_APP_TOKEN</code></td>
+        <td>Must be set for all CI providers.</td>
+    </tr>
+    <tr>
+        <td>Semgrep doesn't scan your PRs or MRs.</td>
+        <td><code>SEMGREP_BASELINE_REF</code></td>
+        <td>Required for CI providers <strong>except</strong> GitHub Actions or GitLab CI/CD.</td>
+    </tr>
+        <td rowspan="6">Can't click hyperlinks to your repository from Semgrep Cloud Platform, nor can Semgrep Cloud Platform create PR or MR comments.</td>
+        <td><code>SEMGREP_REPO_NAME</code></td>
+        <td rowspan="5">Set these environment variables as needed to troubleshoot broken links for any CI provider <strong>except</strong> GitHub Actions and GitLab CI/CD.</td>
+    <tr>
+        <td><code>SEMGREP_REPO_URL</code></td>
+    </tr>
+    <tr>
+        <td><code>SEMGREP_BRANCH</code></td>
+    </tr>
+    <tr>
+        <td><code>SEMGREP_JOB_URL</code></td>
+    </tr>
+    <tr>
+        <td><code>SEMGREP_COMMIT</code></td>
+    </tr>
+    <tr>
+        <td><code>SEMGREP_PR_ID</code></td>
+        <td>Required to enable hyperlinks for <strong>Azure Pipelines</strong>.</td>
+    </tr>
+</tbody>
+</table>
+
+## Data collected by Semgrep Cloud Platform
+
+When running in CI, Semgrep runs fully in the CI build environment. Unless you have explicitly granted code access to Semgrep, your code is not sent anywhere.
+
+- Semgrep Cloud Platform collects [findings data)(TK new link), which includes the line number of the code match, but not the code. It is hashed using a one-way hashing function.
+- Findings data is used to generate line-specific hyperlinks to your source code management system and support other Semgrep functions.
+
 ## Next steps
 
 <NextStepsComments opening_phrase="Set up diff-aware scanning for"/>
