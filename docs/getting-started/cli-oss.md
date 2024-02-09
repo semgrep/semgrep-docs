@@ -50,7 +50,7 @@ semgrep scan --json --output=semgrep.json
 
 ### Scan your project with a specific ruleset
 
-You can scan your project using `--config auto` to run Semgrep with rules that apply to your to your codebase:
+You can scan your project using `--config auto` to run Semgrep with rules that apply to your codebase:
 
 ```console
 semgrep scan --config auto
