@@ -8,13 +8,13 @@ tags:
   - Semgrep Cloud Platform
 ---
 
-Semgrep can be set up to manage teams and scan repositories of any size.
+Semgrep can be set up to scan repositories of any size.
 
 **Deployment** refers to the process of integrating Semgrep into your developer and infrastructure workflows. Completing the deployment process provides you with the Semgrep features that meet your security program's needs.
 
 Deployment includes:
 
-- Running Semgrep scanners as part of your CI. These scanners can be any combination of SAST (Static Application Security Testing), SCA (Software Composition Analysis), or Secrets, depending on your plan.
+- Running Semgrep scanners as part of your CI. These scans can be any combination of SAST (Static Application Security Testing), SCA (Software Composition Analysis), or Secrets, depending on your plan.
 - Managing team members' access and authentication.
 - Ensuring that Semgrep has sufficient access to your self-hosted source code manager (SCM), such as GitLab Self-Managed.
 
@@ -125,7 +125,7 @@ You can integrate Semgrep further into your security workflows after some initia
 - Enable GPT-assisted triage and code fix recommendations. This requires code access.
 - Set up notification channels.
 - Encourage developers to set up Semgrep in their IDE.
-- Integrate Semgrep with project management software (Private beta).
+<!-- - Integrate Semgrep with Jira, Linear, and Asana (Private beta). -->
 
 ## Next steps
 

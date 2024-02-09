@@ -22,7 +22,7 @@ Ensure that your infrastructure meets all the [<i class="fa-regular fa-file-line
 
 ## Stakeholders and deployment team
 
-Semgrep integrates deeply and early in the development process. For medium-to-large teams, typically with more than 10 developers, coordinating with other departments before starting the deployment is crucial to an efficient roll-out.
+For medium-to-large teams, typically with more than 10 developers, coordinating with other departments before starting the deployment is crucial to an efficient roll-out. A complete deployment ensures that your licenses are fully used.
 
 Here are some teams or departments that may be responsible for parts of your Semgrep deployment:
 
@@ -46,7 +46,7 @@ Ensure that all stakeholders agree on:
 **Deployment times** vary greatly depending on your processes and size.
 
 :::tip On scheduling scans
-Monorepos may take longer to finish scanning. Semgrep provides several options, including piecemeal scanning of the monorepo. See [<i class="fa-regular fa-file-lines"></i> Scan a large monorepo](/kb/semgrep-code/scanning-large-monorepo/) for more information.
+Monorepos may take longer to finish scanning. Semgrep provides several options, including piecemeal scanning of the monorepo. See [<i class="fa-regular fa-file-lines"></i> Scanning a monorepo in parts](/kb/semgrep-ci/scan-monorepo-in-parts/) for more information.
 :::
 
 ## Roles
@@ -77,22 +77,22 @@ The following checklist breaks down permissions required by Semgrep features.
 <tbody>
 <tr>
 <td rowspan="2">Run Semgrep continuously in your CI workflows.</td>
-<td>Add or make changes to CI jobs. This includes committing configuration files for each repository.</td>
+<td>Adding or making changes to CI jobs. This includes committing configuration files for each repository.</td>
 </tr>
 <tr>
-<td>Define environment variables and storing secrets.</td>
+<td>Defining environment variables and storing secrets.</td>
 </tr>
 <tr>
 <td>Manage user authentication with SSO.</td>
-<td>View and edit SSO configurations.</td>
+<td>Viewing and editing of SSO configurations.</td>
 </tr>
 <tr>
 <td>Receive Slack notifications.</td>
-<td>Be a <strong>Slack workspace owner</strong>, or coordinate with the team responsible.</td>
+<td>Being a <strong>Slack workspace owner</strong>; alternatively, coordinate with the team responsible.</td>
 </tr>
 <tr>
 <td>Send pull or merge requests to your SCM.</td>
-<td>Edit firewall or VPN allowlist.</td>
+<td>Editing firewall or VPN allowlist for self-hosted repositories.</td>
 </tr>
 </tbody>
 </table>
@@ -115,8 +115,8 @@ The following checklist breaks down permissions required by Semgrep features.
 
 | Feature | Permission required |
 | --- | -------  | 
-| Create CI jobs for repositories in bulk and detect GitHub repos automatically. | Install GitHub apps.         |
-| Pull request (PR) comments. |  For GitHub Enterprise Server: Add a personal access token (PAT) with [assigned scopes](/deployment/connect-scm/#connect-to-on-premise-github-or-gitlab-orgs).          |
+| Create CI jobs for repositories in bulk and detect GitHub repos automatically. | Installing GitHub apps.         |
+| Pull request (PR) comments. |  For GitHub Enterprise Server: Adding a personal access token (PAT) with [assigned scopes](/deployment/connect-scm/#connect-to-on-premise-github-or-gitlab-orgs).          |
 | GPT-assisted triage and recommendations. | Code access. |
 
 </TabItem>
@@ -240,7 +240,7 @@ Semgrep requires the following permissions (scopes) to enable the authentication
 
 ### Semgrep versions
 
-Many improvements to the Semgrep Cloud Platform experience only work with up-to-date Semgrep CLI versions. As such, Semgrep Cloud Platform only supports the 10 most recent minor versions of Semgrep CLI. For example, if the latest release was 0.114.0, all versions greater than 0.104.0 are supported, while earlier versions, such as 0.103.0, can be deprecated or can result in failures.
+Many improvements to the Semgrep Cloud Platform experience only work with up-to-date Semgrep CLI versions. As such, Semgrep Cloud Platform only supports the 10 most recent minor versions of Semgrep CLI. For example, if the latest release was 0.160.0, all versions greater than 0.150.0 are supported, while earlier versions, such as 0.159.0, can be deprecated or can result in failures.
 
 To update Semgrep, see [Updating Semgrep](/upgrading/).
 
