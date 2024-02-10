@@ -142,7 +142,7 @@ To manage a large volume of users and repositories, you may need to perform addi
 - Role management.
 - Tagging projects.
 
-These steps are covered in the section Enterprise and large teams.
+These steps are covered in the section Deployment at scale.
 
 Team size isn't necessarily indicative of deployment needs. Features for large teams can be deployed for smaller teams as well, and are available on the Semgrep Team Tier.
 

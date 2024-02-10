@@ -105,7 +105,7 @@ module.exports = {
         {
             type: 'category',
             collapsible: true,
-            label: 'Enterprise deployment',
+            label: 'Deployment at scale',
             items: [
                 'deployment/user-management',
                 'semgrep-cloud-platform/tags'
