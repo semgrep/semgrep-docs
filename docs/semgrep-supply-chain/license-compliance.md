@@ -23,8 +23,7 @@ Semgrep Supply Chain's **license compliance** feature enables you to explicitly 
     * [Enable dependency search](/semgrep-supply-chain/dependency-search/#using-dependency-search).
 :::
 
-:::caution Feature maturity and support
-* License compliance is currently in **Beta**.
+:::caution Feature support
 * In general, licenses are detected based on the **package manager**. Refer to [Supported languages](/supported-languages/#semgrep-supply-chain) to see supported package managers.
 * The creation of pull request (PR) comments through the Comment policy is only available for GitHub Free and Pro plans.
 :::
