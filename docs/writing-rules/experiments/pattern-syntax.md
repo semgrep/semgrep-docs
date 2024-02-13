@@ -21,13 +21,11 @@ These patterns are **experimental** and subject to change.
 You can't mix and match existing pattern syntax with the experimental syntax.
 :::
 
-## Pattern matching
+## <i class="fa-solid fa-exclamation"></i> `pattern`
 
-### <i class="fa-solid fa-exclamation"></i> `pattern`
+The `pattern` operator looks for code matching its expression in the existing syntax. However, `pattern` is no longer required when using the experimental syntax. For example, you can use `...` wherever `pattern: "...``` appears. For example, you can omit `pattern` and write the following:
 
-The `pattern` operator looks for code matching its expression in the existing syntax. However, `pattern` is no longer required when using the experimental syntax. For example, you can use `...` wherever `pattern: "..."` appears. For example, you can omit `pattern` and write the following:
-
-"`code
+```yaml
 any:
   - "badthing1"
   - "badthing2"
@@ -36,7 +34,7 @@ any:
 
 or, for multi-line patterns
 
-"`code
+```yaml
 any:
   - |
       manylines(
@@ -50,14 +48,14 @@ You don't need double quotes for a single-line pattern when omitting the `patter
 
 As an example, the following YAML parses:
 
-"`code
+```yaml
 any:
   - "def foo(): ..."
 ```
 
 This, however, causes problems since `:` is also used to denote a YAML dictionary:
 
-"`code
+```yaml
 any:
   - def foo(): ...
 ```
@@ -66,7 +64,7 @@ any:
 
 Replaces [pattern-either](/writing-rules/rule-syntax/#pattern-either). Matches any of the patterns specified.
 
-"`code
+```yaml
 any:
   - <pat1>
   - <pat2> 
@@ -78,7 +76,7 @@ any:
 
 Replaces [patterns](/writing-rules/rule-syntax/#patterns). Matches all of the patterns specified.
 
-"`code
+```yaml
 all:
   - <pat1>
   - <pat2> 
@@ -90,7 +88,7 @@ all:
 
 Replaces [pattern-inside](/writing-rules/rule-syntax/#pattern-inside). Match any of the sub-patterns inside of the primary pattern.
 
-"`code
+```yaml
 inside: 
   any: 
     - <pat1> 
@@ -99,7 +97,7 @@ inside:
 
 Alternatively:
 
-"`code
+```yaml
 any:
   - inside: <pat1>
   - inside: <pat2>
@@ -109,7 +107,7 @@ any:
 
 Replaces [pattern-not](/writing-rules/rule-syntax/#pattern-not). Accepts any pattern and does **not** match on those patterns.
 
-"`code
+```yaml
 not:
   any:
     - <pat1>
@@ -118,7 +116,7 @@ not:
 
 Alternatively:
 
-"`code
+```yaml
 all:
   - not: <pat1>
   - not: <pat2>
@@ -128,7 +126,7 @@ all:
 
 Replaces [pattern-regex](/writing-rules/rule-syntax/#pattern-regex) Matches based on the regex provided.
 
-"`code
+```yaml
 regex: "(.*)"
 ```
 
@@ -140,7 +138,7 @@ exceptions, and more.
 
 Metavariables begin with a `$` and can only contain uppercase characters, `_`, or digits. Names like `$x` or `$some_value` are invalid. Examples of valid metavariables include `$X`, `$WIDGET`, or `$USERS_2`.
 
-### <i class="fa-solid fa-exclamation"></i> Changes to metavariable usage
+### <i class="fa-solid fa-exclamation"></i> `where`
 
 Unlike Semgrep's existing pattern syntax, the following no longer occur under `pattern` or `all`: `metavariable-pattern`, `metavariable-regex`, `metavariable-comparison`, `metavariable-analysis`, and `focus-metavariable`. These must occur within a `where` clause.
 
@@ -148,7 +146,7 @@ A `where` clause is a companion to a pattern. It indicates that Semgrep should m
 
 As an example, take a look at the following example:
 
-"`code
+```yaml
 all:
   - inside: |
       def $FUNC(...):
@@ -165,7 +163,7 @@ Because the `where` clause is on the same indentation level as `all`, Semgrep un
 
 Replaces [metavariable-regex](/writing-rules/rule-syntax/#metavariable-regex), [metavariable-pattern](/writing-rules/rule-syntax/#metavariable-pattern), and [metavariable-analysis](/writing-rules/metavariable-analysis/). This operator looks inside the metavariable for a match.
 
-"`code
+```yaml
 ...
 where:
   - metavariable: $A
@@ -181,7 +179,7 @@ where:
 
 Replaces [metavariable-comparison](/writing-rules/rule-syntax/#metavariable-comparison). Compares metavariables against a basic [Python comparison](https://docs.python.org/3/reference/expressions.html#comparisons) expression. 
 
-"`code
+```yaml
 ...
 where:
   - comparison: $A == $B
@@ -191,7 +189,7 @@ where:
 
 Replaces [focus-metavariable](/writing-rules/rule-syntax/#focus-metavariable). Puts focus on the code region matched by a single metavariable or a list of metavariables.
 
-"`code
+```yaml
 ...
 where:
   - focus: $A
@@ -201,7 +199,7 @@ where:
 
 New syntax search mode rules must be nested underneath a top-level `match` key. For example:
 
-"`code
+```yaml
 rules:
   - id: find-bad-stuff
     severity: ERROR
@@ -224,7 +222,7 @@ rules:
 
 The new syntax supports taint mode, and such roles no longer require `mode: taint` in the rule. Instead, everything must be nested under a top-level `taint` key.
 
-"`code
+```yaml
 rules:
   - id: find-bad-stuff
     severity: ERROR
