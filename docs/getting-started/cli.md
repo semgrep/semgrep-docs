@@ -17,9 +17,9 @@ import Login from "/src/components/procedure/_login-activate.mdx";
 Learn how to set up Semgrep, scan your project for security issues using Semgrep's Pro Engine, and view your findings in the CLI.
 
 :::info
-Semgrep provides two commands to scan with in your CLI:
+Semgrep provides two commands that you can choose from when you start a scan from the CLI:
 
-- `semgrep scan` - This is the recommended command for scanning local codebases, as well as writing and testing custom rules.
+- `semgrep scan` - This is the recommended command for scanning local codebases and writing and testing custom rules.
 - `semgrep ci` - This is the recommended command if you are scanning repositories with Semgrep as part of an organization with custom rules and policies. `semgrep ci` fetches your organization's scan configurations from Semgrep Cloud Platform.
 :::
 
@@ -29,7 +29,7 @@ Before proceeding:
 
 * See [Prerequisites](/prerequisites/) to ensure that your machine meets Semgrep's requirements.
 * For scans using `semgrep ci`:
-    * Ensure that you have and are logged into your [Semgrep Account](https://semgrep.dev/login).
+    * Ensure that you have and are logged in to your [Semgrep Account](https://semgrep.dev/login).
     * Ensure that you've enabled the **Pro Engine** <i class="fa-solid fa-toggle-large-on"></i> toggle on Semgrep Cloud Platform's [Settings](https://semgrep.dev/orgs/-/settings) page.
 
 ## Set up Semgrep
@@ -79,7 +79,7 @@ semgrep scan --config auto --pro
 ```
 
 :::info
-Semgrep collects pseudonymous metrics when you use rules from the Registry.
+Semgrep collects pseudonymous metrics when you use rules from the Registry. You can turn this off with `--metrics=off`.
 :::
 
 To scan your project with a specific ruleset, either one that you write or one that you obtain from the [Semgrep Registry](https://semgrep.dev/explore), you can do so using the `--config` flag:
@@ -136,7 +136,7 @@ See [Semgrep Pro versus Semgrep OSS](/semgrep-pro-vs-oss) for information on the
 
 ## Scan using specific Semgrep Products
 
-When you run `semgrep ci`, you scan your project with any product that is enabled in the Cloud Platform. To scan your project with just one product, run:
+When you run `semgrep ci`, you scan your project with any product that is enabled in Semgrep Cloud Platform. To scan your project with just one product, run:
 
 ```console
 # scan with Semgrep Code
@@ -166,7 +166,7 @@ You can set the number of subprocesses Semgrep uses to run checks in parallel:
 semgrep scan -j NUMBER_OF_SUBPROCESSES
 ```
 
-By default, Semgrep defaults to the number of cores detected on the system on which Semgrep is running, but `-j = 1` if you're passing in `--pro`. For additional information, see [Parallelization](/kb/semgrep-code/scan-engine-kill)
+By default, the number of jobs Semgrep uses is equivalent to the number of cores detected on the system, but `-j = 1` if you're passing in `--pro`. For additional information, see [Parallelization](/kb/semgrep-code/scan-engine-kill).
 
 ## Set log levels
 

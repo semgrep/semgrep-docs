@@ -96,7 +96,7 @@ You can set the number of subprocesses Semgrep uses to run checks in parallel:
 semgrep scan -j NUMBER_OF_SUBPROCESSES
 ```
 
-By default, Semgrep uses a number of jobs equivalent to the number of cores detected on the system. For additional information, see [Parallelization](/kb/semgrep-code/scan-engine-kill)
+By default, the number of jobs Semgrep uses is equivalent to the number of cores detected on the system.
 
 ## Set log levels
 
