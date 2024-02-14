@@ -1,6 +1,6 @@
 ---
 slug: cli
-title: CLI-only workflow (OSS)
+title: Local CLI scans
 hide_title: true
 description: Learn how to set up Semgrep, scan your first project for security issues, and view your findings in the CLI.
 tags:
@@ -63,7 +63,7 @@ semgrep scan --config auto
 ```
 
 :::info
-Semgrep collects pseudonymous metrics when you use rules from the Registry.
+Semgrep collects pseudonymous metrics when you use rules from the Registry. You can turn this off with `--metrics=off`.
 :::
 
 To scan your project with a specific ruleset, either one that you write or one that you obtain from the [Semgrep Registry](https://semgrep.dev/explore), you can do so using the `--config` flag:
@@ -96,7 +96,7 @@ You can set the number of subprocesses Semgrep uses to run checks in parallel:
 semgrep scan -j NUMBER_OF_SUBPROCESSES
 ```
 
-By default, Semgrep defaults to the number of cores detected on the system on which Semgrep is running. For additional information, see [Parallelization](/kb/semgrep-code/scan-engine-kill)
+By default, Semgrep uses a number of jobs equivalent to the number of cores detected on the system. For additional information, see [Parallelization](/kb/semgrep-code/scan-engine-kill)
 
 ## Set log levels
 

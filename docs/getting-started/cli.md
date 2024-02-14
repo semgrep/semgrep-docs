@@ -1,6 +1,6 @@
 ---
 slug: cli
-title: CLI-only workflow (Pro)
+title: Local CLI scans
 hide_title: true
 description: Learn how to set up Semgrep, scan your first project for security issues, and view your findings in the CLI.
 tags:
@@ -12,12 +12,15 @@ import MoreHelp from "/src/components/MoreHelp";
 import Install from "/src/components/procedure/_install-cli.mdx";
 import Login from "/src/components/procedure/_login-activate.mdx";
 
-# CLI-only workflow with Semgrep's Pro Engine
+# Local scans with Semgrep Pro Engine
 
 Learn how to set up Semgrep, scan your project for security issues using Semgrep's Pro Engine, and view your findings in the CLI.
 
 :::info
-For scans in your local development environment, `semgrep scan` is the preferred method to scan with Semgrep, especially for writing and testing custom rules.
+Semgrep provides two commands to scan with in your CLI:
+
+- `semgrep scan` - This is the recommended command for scanning local codebases, as well as writing and testing custom rules.
+- `semgrep ci` - This is the recommended command if you are scanning repositories with Semgrep as part of an organization with custom rules and policies. `semgrep ci` fetches your organization's scan configurations from Semgrep Cloud Platform.
 :::
 
 ## Prerequisites
@@ -25,14 +28,15 @@ For scans in your local development environment, `semgrep scan` is the preferred
 Before proceeding:
 
 * See [Prerequisites](/prerequisites/) to ensure that your machine meets Semgrep's requirements.
-* Ensure that you have and are logged into your [Semgrep Account](https://semgrep.dev/login).
-* Ensure that you've enabled the **Pro Engine** <i class="fa-solid fa-toggle-large-on"></i> toggle on Semgrep Cloud Platform's [Settings](https://semgrep.dev/orgs/-/settings) page.
+* For scans using `semgrep ci`:
+    * Ensure that you have and are logged into your [Semgrep Account](https://semgrep.dev/login).
+    * Ensure that you've enabled the **Pro Engine** <i class="fa-solid fa-toggle-large-on"></i> toggle on Semgrep Cloud Platform's [Settings](https://semgrep.dev/orgs/-/settings) page.
 
 ## Set up Semgrep
 
 <Install />
 
-## Log into your Semgrep account
+## Log in to your Semgrep account
 
 <Login />
 
@@ -71,7 +75,7 @@ semgrep ci --json --output=semgrep.json
 You can scan your project using `--config auto` to automatically obtain rules tailored to your project:
 
 ```console
-semgrep scan --config auto
+semgrep scan --config auto --pro
 ```
 
 :::info
@@ -110,7 +114,7 @@ semgrep publish <path/to/rules>
 
 ### Scan without sending results to Semgrep
 
-To scan your project **without** sending data to Semgrep, use:
+To scan your project using the configuration you've set up in Semgrep Cloud Platform **without** sending scan results to Semgrep, use:
 
 ```console
 semgrep ci --dry-run
@@ -132,7 +136,7 @@ See [Semgrep Pro versus Semgrep OSS](/semgrep-pro-vs-oss) for information on the
 
 ## Scan using specific Semgrep Products
 
-When you run `semgrep ci`, you scan your project with Semgrep Code, Semgrep Supply Chain, and Semgrep Secrets. To scan your project with just one product, run:
+When you run `semgrep ci`, you scan your project with any product that is enabled in the Cloud Platform. To scan your project with just one product, run:
 
 ```console
 # scan with Semgrep Code
@@ -151,7 +155,7 @@ Depending on the file sizes in your project, you may need to increase the timeou
 
 ```console
 # increase timeout to 45 seconds
-semgrep ci --timeout-threshold 45
+semgrep ci --timeout 30
 ```
 
 ## Improve performance for large codebases
