@@ -16,9 +16,8 @@ Patterns are the expressions Semgrep uses to match code when it scans for vulner
 There is often a one-to-one translation from the existing syntax to the experimental syntax. These changes are marked with <i class= "fa-solid fa-diamond"></i>. However, some changes are quite different. These changes are marked with <i class="fa-solid fa-exclamation"></i>
 
 :::warning
-These patterns are **experimental** and subject to change.
-
-You can't mix and match existing pattern syntax with the experimental syntax.
+* These patterns are **experimental** and subject to change.
+* You can't mix and match existing pattern syntax with the experimental syntax.
 :::
 
 ## <i class="fa-solid fa-exclamation"></i> `pattern`
@@ -142,7 +141,7 @@ Metavariables begin with a `$` and can only contain uppercase characters, `_`, o
 
 Unlike Semgrep's existing pattern syntax, the following no longer occur under `pattern` or `all`: `metavariable-pattern`, `metavariable-regex`, `metavariable-comparison`, `metavariable-analysis`, and `focus-metavariable`. These must occur within a `where` clause.
 
-A `where` clause is a companion to a pattern. It indicates that Semgrep should match based on the pattern if all the conditions hold.
+A `where` clause is a companion to a pattern. It indicates that Semgrep should match based on the pattern if all the conditions are true.
 
 As an example, take a look at the following example:
 
