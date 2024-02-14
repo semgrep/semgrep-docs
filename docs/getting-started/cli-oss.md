@@ -117,4 +117,8 @@ To set the logging level for a scan, include the flag when scanning your project
 semgrep scan --debug
 ```
 
+## Exit codes
+
+The command `semgrep scan` finishes with exit code `0` as long as the scan completes, regardless of whether there were findings. To finish with exit code `1` when there are findings, pass in the `--error` flag.
+
 <MoreHelp />

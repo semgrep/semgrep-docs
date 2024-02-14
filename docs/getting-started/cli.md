@@ -151,11 +151,11 @@ semgrep ci --secrets
 
 ## Extend timeout thresholds
 
-Depending on the file sizes in your project, you may need to increase the timeout threshold so that Semgrep doesn't time out before the scan completes. You can control this value using the `--timeout` flag, which refers to the maximum amount of time Semgrep spends scanning a single file. The default value is 5 seconds. Semgrep attempts to scan each file with this timeout value three times.
+Depending on the file sizes in your project, you may need to increase the timeout threshold so that Semgrep doesn't time out before the scan completes. You can control this value using the `--timeout` flag, which refers to the maximum amount of time Semgrep spends scanning a single file. The default value is 5 seconds. Semgrep attempts to scan each file with this timeout value three times, but you can change this using the `--timeout-threshold` flag:
 
 ```console
-# increase timeout to 45 seconds
-semgrep ci --timeout 30
+# increase timeout to 45 seconds, try only 2 times
+semgrep ci --timeout 30 --timeout-threshold 2
 ```
 
 ## Improve performance for large codebases
@@ -189,7 +189,11 @@ semgrep ci --debug
 
 ## Exit codes
 
-The CLI commands `semgrep ci` and `semgrep scan` finish with exit code `0` as long as the scan completes, regardless of whether there were findings. To finish with exit code `1` when there are findings, pass in the `--error` flag.
+The CLI commands `semgrep ci` and `semgrep scan` finish with exit code `0` as long as the scan completes, regardless of whether there were findings. To finish with exit code `1` when there are findings:
+
+* [Configure blocking rules](/semgrep-code/policies/#blocking-a-pr-or-mr-through-rule-modes)
+* Pass in the `--error` flag when running `semgrep scan`.
+* Pass in the `--no-suppress-errors` flag when running `semgrep ci`.
 
 ## Log out
 
