@@ -139,9 +139,17 @@ Metavariables begin with a `$` and can only contain uppercase characters, `_`, o
 
 ### <i class="fa-solid fa-exclamation"></i> `where`
 
-Unlike Semgrep's existing pattern syntax, the following no longer occur under `pattern` or `all`: `metavariable-pattern`, `metavariable-regex`, `metavariable-comparison`, `metavariable-analysis`, and `focus-metavariable`. These must occur within a `where` clause.
+Unlike Semgrep's existing pattern syntax, the following operators no longer occur under `pattern` or `all`:
 
-A `where` clause is a companion to a pattern. It indicates that Semgrep should match based on the pattern if all the conditions are true.
+- `metavariable-pattern`
+- `metavariable-regex`
+- `metavariable-comparison`
+- `metavariable-analysis`
+- `focus-metavariable`
+
+These operators must occur within a `where` clause.
+
+A `where` clause is required in a pattern where you're using metavariable operators. It indicates that Semgrep should match based on the pattern if all the conditions are true.
 
 As an example, take a look at the following example:
 
@@ -160,7 +168,13 @@ Because the `where` clause is on the same indentation level as `all`, Semgrep un
 
 ### <i class="fa-solid fa-diamond"></i> `metavariable`
 
-Replaces [metavariable-regex](/writing-rules/rule-syntax/#metavariable-regex), [metavariable-pattern](/writing-rules/rule-syntax/#metavariable-pattern), and [metavariable-analysis](/writing-rules/metavariable-analysis/). This operator looks inside the metavariable for a match.
+Replaces:
+
+- [metavariable-regex](/writing-rules/rule-syntax/#metavariable-regex)
+- [metavariable-pattern](/writing-rules/rule-syntax/#metavariable-pattern)
+- [metavariable-analysis](/writing-rules/metavariable-analysis/)
+
+This operator looks inside the metavariable for a match.
 
 ```yaml
 ...
