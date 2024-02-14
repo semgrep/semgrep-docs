@@ -12,7 +12,7 @@ import MoreHelp from "/src/components/MoreHelp";
 import Install from "/src/components/procedure/_install-cli.mdx";
 import Login from "/src/components/procedure/_login-activate.mdx";
 
-# CLI-only workflow with Semgrep's OSS Engine
+# Local scans with Semgrep OSS Engine
 
 Learn how to set up Semgrep, scan your first project for security issues, and view your findings in the CLI.
 
