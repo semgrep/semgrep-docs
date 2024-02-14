@@ -26,8 +26,6 @@ See [Prerequisites](/prerequisites/) to ensure that your machine meets Semgrep's
 
 ## Scan your project
 
-# Semgrep OSS
-
 Navigate to the root of your codebase, and run your first scan. The specific command you use depends on how you want to view the results.
 
 To view the results in the CLI:
@@ -39,7 +37,7 @@ semgrep scan
 To export the results to a plain text file:
 
 ```console
-semgrep ci --text --output=semgrep.txt
+semgrep scan --text --output=semgrep.txt
 ```
 
 To export the results to a SARIF file:
