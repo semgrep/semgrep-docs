@@ -151,7 +151,7 @@ semgrep ci --secrets
 
 ## Extend timeout thresholds
 
-Depending on the file sizes in your project, you may need to increase the timeout threshold so that Semgrep doesn't time out before the scan completes. You can control this value using the `--timeout-threshold` flag, which refers to the maximum amount of time Semgrep spends scanning a single file. The default value is 30 seconds. Semgrep attempts to scan each file with this timeout value three times.
+Depending on the file sizes in your project, you may need to increase the timeout threshold so that Semgrep doesn't time out before the scan completes. You can control this value using the `--timeout` flag, which refers to the maximum amount of time Semgrep spends scanning a single file. The default value is 5 seconds. Semgrep attempts to scan each file with this timeout value three times.
 
 ```console
 # increase timeout to 45 seconds
