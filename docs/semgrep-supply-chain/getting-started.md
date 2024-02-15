@@ -118,7 +118,7 @@ Semgrep Supply Chain supports the scanning of monorepos. As outlined in [Project
 
 ## Block pull or merge requests
 
-Semgrep Supply Chain with Semgrep versions **v0.122.0** and earlier automatically blocked pull/merge requests if it discovered reachable findings in the code, but more recent versions of Semgrep do not do this. You can, however, configure Semgrep Supply Chain to block on pull request scans that detect reachable findings with high or critical severity.
+Semgrep Supply Chain versions **v0.122.0** and earlier automatically blocked pull/merge requests if it discovered reachable findings in the code, but later versions do not do this. You can, however, configure Semgrep Supply Chain to block on pull request scans that detect reachable findings with high or critical severity.
 
 1. Log in to Semgrep Cloud Platform.
 2. Click **Supply Chain** > **Settings** on the header menu.
