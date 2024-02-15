@@ -107,16 +107,16 @@ After you create your first org, you can create multiple orgs to group related r
 
 ### Organization setup examples
 
-
 The following examples illustrate what a completed organizational set-up can look like.
 
 #### Single-user organization in GitLab
 
 - In this example, a single GitLab user, `john-doe`, has a Semgrep org account with the same name.
 - He has set up his CI workflow to scan `repo-A` and `repo-B` in his GitLab account. The CI job sends scan results (findings) to Semgrep Cloud Platform.
+- This is similar to a **personal account** in GitHub or GitLab.
 
 ![A simple example of a single-user, single-org setup.](/img/personal-org.png#md-noborder)
-**Figure.** A simple example of a single-user, single-org setup.
+**Figure.** A simple example of a single-user, single-org setup (a personal account).
 
 #### Enterprise org with SSO and multiple orgs in GitHub
 

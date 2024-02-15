@@ -1,21 +1,21 @@
 ---
 slug: local-to-app-scans
-title: Local to app scans
+title: Upload local scan findings
 hide_title: true
-description: tk
+description: 
 tags:
   - tk
 ---
 
 # Scan local repositories and upload findings 
 
-You can send scan results from a local repository to Semgrep Cloud Platform. The local repository is a separate **Project** from its remote counterpart.
+You can send findings (scan results) from a local repository to Semgrep Cloud Platform. The local repository is a separate **Project** from its remote counterpart. This is useful for testing rules and policies.
 
-:::caution
-For team members of an organization, it is **not** recommended to send local repository scan results to the organization account. When logging in to Semgrep from the CLI through `semgrep login`, ensure that you are signed in SCP as your **personal account**. See [Project separation between local and remote repositories](#project-separation-between-local-and-remote-repositories).
-:::
+## Best practices
 
-To send findings from a local repository, perform the following steps:
+You can keep your local scans private and separate from your team by creating a Semgrep organization with only a single user, similar to a personal account in your source code manager. This separation ensures that your findings data does not affect organizational records and trends.
+
+## Send findings from local repository scan to SCP`:w
 
 1. Ensure that you are signed into Semgrep Cloud Platform in the account you want to send findings to. It is recommended to send local repository findings to your **personal** account.
 2. Log in to Semgrep:
