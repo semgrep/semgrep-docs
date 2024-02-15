@@ -9,7 +9,7 @@ tags:
 
 # Beyond core deployment
 
-Now that you've finished your Semgrep core deployment, you can either customize Semgrep's scan behavior or continue to enable additional deployment features. The following sections list common post-deployment tasks.
+Now that you've finished your Semgrep core deployment, you can either customize Semgrep's scan behavior or continue to enable additional deployment features. The following sections list common tasks after you've finished your core deployment.
 
 ## Customize Semgrep scans or triage workflow
 
