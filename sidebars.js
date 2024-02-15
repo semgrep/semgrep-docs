@@ -39,7 +39,9 @@ module.exports = {
         items: [
             'getting-started/quickstart',
             'prerequisites',
-            'supported-languages'
+            'supported-languages',
+            'getting-started/cli',
+            'getting-started/cli-oss'
         ]
     },
     {
