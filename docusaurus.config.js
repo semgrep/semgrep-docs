@@ -10,7 +10,7 @@ module.exports = {
   onBrokenLinks: 'warn',
   onBrokenMarkdownLinks: 'warn',
   favicon: 'img/favicon.ico',
-  organizationName: 'returntocorp', // Usually your GitHub org/user name.
+  organizationName: 'semgrep', // Usually your GitHub org/user name.
   projectName: 'semgrep', // Usually your repo name.
   trailingSlash: true,
   themes: ['@markprompt/docusaurus-theme-search'],

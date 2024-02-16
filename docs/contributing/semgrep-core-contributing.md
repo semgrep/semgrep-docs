@@ -437,7 +437,7 @@ Here's the breakdown by language as of February 2021:
 
 #### Parsing With `pfff`
 
-[`pfff`](https://github.com/returntocorp/pfff) is an OCaml project that we plug into `semgrep-core` as a git submodule. It uses menhir to generate parsers from a defined grammar.
+[`pfff`](https://github.com/semgrep/pfff) is an OCaml project that we plug into `semgrep-core` as a git submodule. It uses menhir to generate parsers from a defined grammar.
 
 Consider a Python pattern (or target). To parse it into a generic AST form, we transform the code as follows:
 
@@ -525,7 +525,7 @@ Unfortunately, it will also produce `Parser_python.ml` and `Parser_python.mli`, 
 
 Once you have made your desired pattern or target parse, you need to make sure it doesn't break anything else. In `semgrep-core/`, run `make test`. If at the end it says `Ok`, you can commit your fix!
 
-First, if you have any changes in `pfff`, go into the `semgrep-core/src/pfff/` directory, checkout `develop`, pull, and then make a pull request as usual with your changes. This will make a PR to [`pfff`](https://github.com/returntocorp/pfff).
+First, if you have any changes in `pfff`, go into the `semgrep-core/src/pfff/` directory, checkout `develop`, pull, and then make a pull request as usual with your changes. This will make a PR to [`pfff`](https://github.com/semgrep/pfff).
 
 When you change files in `pfff`, `semgrep-core` will realize that `pfff` is different (though not which file within `pfff`). If you go back up to `semgrep-core/` and run `git status`, you will see `modified: src/pfff (modified content)`. To pin your latest `pfff` changes to `semgrep-core`, add `src/pfff`.
 
@@ -603,7 +603,7 @@ There are some cases where we have chosen to implement a new parser in `pfff`, b
 
 Tree-sitter parsers exist as individual public projects. They are
 shared with other users of tree-sitter outside of semgrep. Our
-[ocaml-tree-sitter](https://github.com/returntocorp/ocaml-tree-sitter)
+[ocaml-tree-sitter](https://github.com/semgrep/ocaml-tree-sitter-semgrep)
 project adds the necessary extensions for supporting semgrep patterns
 (ellipsis `...` and such). It also contains the machinery for turning
 a tree-sitter grammar into a usable, typed concrete syntax tree (CST).
