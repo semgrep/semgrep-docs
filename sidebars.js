@@ -40,16 +40,16 @@ module.exports = {
             'getting-started/quickstart',
             'prerequisites',
             'supported-languages',
-        {
-          type: 'category',
-          label: 'Local and CLI scans',
-          collapsible: true,
-          link: {type: 'generated-index'},
-          items: [
-            'deployment/local-to-app-scans',
-            'deployment/cli-scans'
-          ]
-        },
+            {
+              type: 'category',
+              label: 'Local and CLI scans',
+              collapsible: true,
+              link: {type: 'generated-index'},
+              items: [
+                'deployment/local-to-app-scans',
+                'deployment/cli-scans'
+              ]
+            },
         ]
     },
     {
