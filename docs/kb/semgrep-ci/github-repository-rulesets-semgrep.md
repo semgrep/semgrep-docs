@@ -49,7 +49,7 @@ jobs:
     runs-on: ubuntu-latest
 
     container:
-      image: returntocorp/semgrep
+      image: semgrep/semgrep
 
     # Skip any PR created by dependabot and any check triggered by merge group
     if: (github.actor != 'dependabot[bot]') && (github.event != 'merge_group')

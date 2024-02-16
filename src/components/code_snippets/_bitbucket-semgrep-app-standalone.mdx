@@ -7,7 +7,7 @@ pipelines:
       - step:
           name: 'Run Semgrep scan with current branch'
           deployment: dev
-          image: returntocorp/semgrep
+          image: semgrep/semgrep
           script:
             # Uncomment the following line to scan changed 
             # files in PRs or MRs (diff-aware scanning): 

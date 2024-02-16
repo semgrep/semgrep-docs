@@ -119,7 +119,7 @@ To update Semgrep Pro Engine to the latest version, follow these steps:
     <TabItem value='Docker'>
 
     ```bash
-    docker pull returntocorp/semgrep:latest
+    docker pull semgrep/semgrep:latest
     ```
 
     </TabItem>

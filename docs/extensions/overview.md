@@ -19,7 +19,7 @@ Several third-party tools include Semgrep extensions.
 
 ### Community-contributed IDE extensions
 
-- Vim: [`semgrep.vim`](https://github.com/returntocorp/semgrep.vim)
+- Vim: [`semgrep.vim`](https://github.com/semgrep/semgrep.vim)
 
 ### The LSP Command
 
@@ -35,7 +35,7 @@ The [pre-commit framework](https://pre-commit.com/) can run `semgrep` at commit-
 
 ```yaml
 repos:
-- repo: https://github.com/returntocorp/semgrep
+- repo: https://github.com/semgrep/semgrep
   rev: 'SEMGREP_VERSION_LATEST'
   hooks:
     - id: semgrep
@@ -47,7 +47,7 @@ The pre-commit can also run custom rules and rulesets from Semgrep Code, similar
 
 ```yaml
 repos:
-- repo: https://github.com/returntocorp/semgrep
+- repo: https://github.com/semgrep/semgrep
   rev: 'SEMGREP_VERSION_LATEST'
   hooks:
     - id:  semgrep-ci
@@ -60,7 +60,7 @@ repos:
 ### Semgrep as an engine
 
 Many other tools have functionality powered by Semgrep.
-Add yours [with a pull request](https://github.com/returntocorp/semgrep-docs)!
+Add yours [with a pull request](https://github.com/semgrep/semgrep-docs)!
 
 - [DefectDojo](https://github.com/DefectDojo/django-DefectDojo/pull/2781)
 - [Dracon](https://github.com/thought-machine/dracon)

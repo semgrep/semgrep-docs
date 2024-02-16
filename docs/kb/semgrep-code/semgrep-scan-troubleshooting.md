@@ -68,7 +68,7 @@ Once you have isolated the issue:
 1. Identify the rule, file, and lines (if available) where Semgrep encountered the error.
 2. Determine whether you can share a minimal example of the code or rule that is causing the issue.
   * If the issue occurs with Semgrep Pro Engine, or the code is internal or sensitive and cannot be sufficiently redacted, [reach out for help](/docs/support), and include what you've determined so far.
-  * Otherwise, share the issue details and related code with Semgrep via https://github.com/returntocorp/semgrep/issues.
+  * Otherwise, share the issue details and related code with Semgrep via https://github.com/semgrep/semgrep/issues.
 
 If you are encountering memory usage issues, please include in your report:
 

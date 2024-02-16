@@ -138,10 +138,10 @@ You must have Python 3.8 or later installed on the machine where the Semgrep CLI
     1. Pull the latest image and confirm the version:
 
         ```console
-        docker pull returntocorp/semgrep
+        docker pull semgrep/semgrep
 
         # confirm version
-        docker run --rm returntocorp/semgrep semgrep --version
+        docker run --rm semgrep/semgrep semgrep --version
         ```
 
     2. For users running Docker on **macOS or Linux** Docker:
@@ -149,7 +149,7 @@ You must have Python 3.8 or later installed on the machine where the Semgrep CLI
         1. Log in to your Semgrep account (running this command will launch a browser window, but you can also use the link that's returned in the CLI to proceed):
 
             ```console
-            docker run -it returntocorp/semgrep semgrep login
+            docker run -it semgrep/semgrep semgrep login
             ```
 
         2. In the **Semgrep CLI login**, click **Activate** to proceed. Return to the CLI and copy the login token that's shown.
@@ -157,7 +157,7 @@ You must have Python 3.8 or later installed on the machine where the Semgrep CLI
         3. Navigate into the root of your repository, and run your first scan. Be sure to substitute <code><span class="placeholder">YOUR_TOKEN</span></code> with the login token value you copied in the previous step: 
 
             ```console
-            docker run -e SEMGREP_APP_TOKEN=YOUR_TOKEN --rm -v "${PWD}:/src" returntocorp/semgrep semgrep ci
+            docker run -e SEMGREP_APP_TOKEN=YOUR_TOKEN --rm -v "${PWD}:/src" semgrep/semgrep semgrep ci
             ```
 
             The provided `-v` option mounts the current directory into the container to be scanned. Navigate into a different repository or provide a specific local directory in the command to scan a different project.
@@ -167,7 +167,7 @@ You must have Python 3.8 or later installed on the machine where the Semgrep CLI
         1. Log in to your Semgrep account (running this command will launch a browser window, but you can also use the link that's returned in the CLI to proceed):
 
             ```console
-            docker run -it returntocorp/semgrep semgrep login
+            docker run -it semgrep/semgrep semgrep login
             ```
 
         2. In the **Semgrep CLI login**, click **Activate** to proceed. Return to the CLI, and copy the login token that's shown.
@@ -175,7 +175,7 @@ You must have Python 3.8 or later installed on the machine where the Semgrep CLI
         3. Navigate into the root of your repository, and run your first scan. Be sure to substitute <code><span class="placeholder">YOUR_TOKEN</span></code> with the login token value you copied in the previous step: 
 
             ```console
-            docker run -e SEMGREP_APP_TOKEN=YOUR_TOKEN --rm -v "%cd%:/src" returntocorp/semgrep semgrep ci
+            docker run -e SEMGREP_APP_TOKEN=YOUR_TOKEN --rm -v "%cd%:/src" semgrep/semgrep semgrep ci
             ```
 
             The provided `-v` option mounts the current directory into the container to be scanned. Navigate into a different repository or provide a specific local directory in the command to scan a different project.

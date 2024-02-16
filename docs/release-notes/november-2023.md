@@ -27,17 +27,17 @@ tags:
 Beginning with version 1.46.0, Semgrep is first released to:
 - `pypy`
 - `brew`
-- `returntocorp/semgrep:canary` (Docker)
+- `semgrep/semgrep:canary` (Docker)
 
 If no issues are detected after a few days, the Semgrep team then promotes the `:canary` Docker tag to `:latest`.
 :::
 
 - The following versions of Semgrep OSS Engine were released in November 2023:
-  - [<i class="fas fa-external-link fa-xs"></i> 1.47.0](https://github.com/returntocorp/semgrep/releases/tag/v1.47.0)
-  - [<i class="fas fa-external-link fa-xs"></i> 1.48.0](https://github.com/returntocorp/semgrep/releases/tag/v1.48.0)
-  - [<i class="fas fa-external-link fa-xs"></i> 1.49.0](https://github.com/returntocorp/semgrep/releases/tag/v1.49.0)
-  - [<i class="fas fa-external-link fa-xs"></i> 1.50.0](https://github.com/returntocorp/semgrep/releases/tag/v1.50.0)
-  - [<i class="fas fa-external-link fa-xs"></i> 1.51.0](https://github.com/returntocorp/semgrep/releases/tag/v1.51.0)
+  - [<i class="fas fa-external-link fa-xs"></i> 1.47.0](https://github.com/semgrep/semgrep/releases/tag/v1.47.0)
+  - [<i class="fas fa-external-link fa-xs"></i> 1.48.0](https://github.com/semgrep/semgrep/releases/tag/v1.48.0)
+  - [<i class="fas fa-external-link fa-xs"></i> 1.49.0](https://github.com/semgrep/semgrep/releases/tag/v1.49.0)
+  - [<i class="fas fa-external-link fa-xs"></i> 1.50.0](https://github.com/semgrep/semgrep/releases/tag/v1.50.0)
+  - [<i class="fas fa-external-link fa-xs"></i> 1.51.0](https://github.com/semgrep/semgrep/releases/tag/v1.51.0)
 
 
 ## 🌐 Semgrep Cloud Platform

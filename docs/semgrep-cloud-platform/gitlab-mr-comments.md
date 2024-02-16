@@ -73,7 +73,7 @@ Creating a PAT grants the API scope to Semgrep, which lets it post comments.
     ```yaml
     semgrep:
       # A Docker image with Semgrep installed.
-      image: returntocorp/semgrep
+      image: semgrep/semgrep
       # Run the "semgrep ci" command on the command line of the docker image.
       script: semgrep ci
     

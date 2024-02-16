@@ -15,7 +15,7 @@ in there, [talk to us](/support/).
 Otherwise, let's get started.
 
 Repositories involved directly:
-* [semgrep](https://github.com/returntocorp/semgrep): the semgrep command line program;
+* [semgrep](https://github.com/semgrep/semgrep): the semgrep command line program;
 * [ocaml-tree-sitter-semgrep](https://github.com/returntocorp/ocaml-tree-sitter-semgrep): language-specific setup, generates C/OCaml parsers for semgrep;
 * new repo semgrep-_X_ for the new language _X_: C/OCaml parser generated from ocaml-tree-sitter-semgrep by an admin.
 
@@ -24,7 +24,7 @@ Submodules overview (semgrep repo)
 
 There are quite a few GitHub repositories involved in porting a language.
 Here is the file hierarchy of the [semgrep
-repository](https://github.com/returntocorp/semgrep):
+repository](https://github.com/semgrep/semgrep):
 
 ```sh
 /semgrep-core/src
@@ -39,7 +39,7 @@ repository](https://github.com/returntocorp/semgrep):
 When done with the work in [ocaml-tree-sitter-semgrep](https://github.com/returntocorp/ocaml-tree-sitter-semgrep), you'll need a new repo semgrep-X to host the generated parser code.
 Ask someone from the Semgrep team to create one for you. For this, they should use
 the template
-[semgrep-lang-template](https://github.com/returntocorp/semgrep-lang-template)
+[semgrep-lang-template](https://github.com/semgrep/semgrep-lang-template)
 when creating the repo.
 
 The instructions for adding a language start in [ocaml-tree-sitter-semgrep](https://github.com/returntocorp/ocaml-tree-sitter-semgrep) (as indicated below). Be careful that you are always in the correct repo!
@@ -141,7 +141,7 @@ semgrep-grammars/src/semgrep-ruby/grammar.js
 
 The files listed in `fyi.list` end up in a `fyi` folder in
 tree-sitter-lang. For example,
-[see `ruby/fyi`](https://github.com/returntocorp/semgrep-ruby/tree/main).
+[see `ruby/fyi`](https://github.com/semgrep/semgrep-ruby/tree/main).
 
 Extending the original grammar with semgrep syntax
 --

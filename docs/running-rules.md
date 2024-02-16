@@ -12,7 +12,7 @@ import MoreHelp from "/src/components/MoreHelp"
 
 Rules are instructions based on which Semgrep detects patterns in code. When Semgrep reports a code using mentioned rules, the detected code is called a finding. The process of scanning and detecting a piece of code is sometimes called matching, as Semgrep matches the code using rules to report a finding.
 
-Semgrep findings can help you to find issues of security, performance, correctness, and enforce best practices. You can define custom rules through Semgrep's rule syntax or rely on rules created by the community or Semgrep, Inc. Rules are stored in [Semgrep Registry](https://semgrep.dev/explore) which enables you to scan code without the need to write anything custom. Semgrep Registry is stored in an [open-source repository](https://github.com/returntocorp/semgrep-rules).
+Semgrep findings can help you to find issues of security, performance, correctness, and enforce best practices. You can define custom rules through Semgrep's rule syntax or rely on rules created by the community or Semgrep, Inc. Rules are stored in [Semgrep Registry](https://semgrep.dev/explore) which enables you to scan code without the need to write anything custom. Semgrep Registry is stored in an [open-source repository](https://github.com/semgrep/semgrep-rules).
 
 Rules can be organized in rulesets. Rulesets are rules related through a programming language, OWASP category, or framework. The rulesets are curated by the team at Semgrep and updated as new rules are added to the [Semgrep Registry](https://semgrep.dev/explore). Therefore, you do not have to check the registry to pull individual rules.
 
@@ -120,7 +120,7 @@ To run multiple rules simultaneously, use `--config` before every YAML URL, or S
 
 ## Next steps
 
-Find out how to contribute to [Semgrep Registry](https://github.com/returntocorp/semgrep-rules) by reading [Contributing rules](/contributing/contributing-to-semgrep-rules-repository/) guide.
+Find out how to contribute to [Semgrep Registry](https://github.com/semgrep/semgrep-rules) by reading [Contributing rules](/contributing/contributing-to-semgrep-rules-repository/) guide.
 
 ## Number of Semgrep Registry rules
 

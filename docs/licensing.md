@@ -11,7 +11,7 @@ This document provides an overview of the licenses of important products created
 
 <dl>
   <dt>Semgrep OSS Engine</dt>
-    <dd>Semgrep OSS Engine is an open source project licensed under <a href="https://github.com/returntocorp/semgrep/blob/develop/LICENSE">LGPL 2.1</a>. The proprietary extension of Semgrep OSS Engine is Semgrep Code, see also <a href="https://semgrep.dev/terms">Terms of Service</a>.</dd>
+    <dd>Semgrep OSS Engine is an open source project licensed under <a href="https://github.com/semgrep/semgrep/blob/develop/LICENSE">LGPL 2.1</a>. The proprietary extension of Semgrep OSS Engine is Semgrep Code, see also <a href="https://semgrep.dev/terms">Terms of Service</a>.</dd>
   <dt>Semgrep Code, Semgrep Cloud Platform, Semgrep Pro Engine, and Semgrep Pro rules</dt>
     <dd>Proprietary. See <a href="https://semgrep.dev/terms">Terms of Service</a>.</dd> 
   <dt>Semgrep Secrets</dt>
@@ -22,7 +22,7 @@ This document provides an overview of the licenses of important products created
     <dd>
     <a href="https://semgrep.dev/explore">Semgrep Registry</a> is a collection of rules and rulesets:
     <ul>
-    <li>Rules in the <a href="https://github.com/returntocorp/semgrep-rules">semgrep-rules</a> repository are licensed LGPL 2.1 under Commons Clause v1.0. Review the <a href="https://github.com/returntocorp/semgrep-rules/blob/develop/LICENSE#L10">semgrep-rules license</a>.</li>
+    <li>Rules in the <a href="https://github.com/semgrep/semgrep-rules">semgrep-rules</a> repository are licensed LGPL 2.1 under Commons Clause v1.0. Review the <a href="https://github.com/semgrep/semgrep-rules/blob/develop/LICENSE#L10">semgrep-rules license</a>.</li>
     <li>Rules from third-party repositories in the <a href="https://semgrep.dev/explore">Semgrep Registry</a> inherit the licenses of their source repositories. These licenses are displayed within the rule definition in the editor. For example: <a href="https://semgrep.dev/p/trailofbits">Rules written by Trail of Bits</a> security experts licensed under AGPL-3.0 license.</li>
     <li>Premium rules are proprietary.</li>
     </ul>

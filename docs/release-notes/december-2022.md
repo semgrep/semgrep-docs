@@ -41,7 +41,7 @@ These release notes include upgrades for versions ranging between 1.0.0 and 1.2.
 
 ### Changes
 
-- Semgrep CLI does not print a summary of blocking rules unless it is invoked with `semgrep ci` subcommand. (Issue [#6651](https://github.com/returntocorp/semgrep/pull/6651))
+- Semgrep CLI does not print a summary of blocking rules unless it is invoked with `semgrep ci` subcommand. (Issue [#6651](https://github.com/semgrep/semgrep/pull/6651))
 
 ## Documentation updates
 

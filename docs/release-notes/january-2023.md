@@ -55,11 +55,11 @@ These release notes include upgrades for versions ranging between 1.3.0 and 1.6.
 - Semgrep now provides experimental support for XML, Clojure, Lisp, Scheme, Dart, and Jsonnet languages.
 - Rust language support is now improved from Experimental to Beta!
 - Python: Constant propagation now recognizes the idiom `cond and X or Y`,
-as well as `True and X` and `False or X`. For example, `cond and "a" or "b"` is identified as constant string. (Issue [#6079](https://github.com/returntocorp/semgrep/issues/6079))
+as well as `True and X` and `False or X`. For example, `cond and "a" or "b"` is identified as constant string. (Issue [#6079](https://github.com/semgrep/semgrep/issues/6079))
 
 ### Changes
 
-- Tests: Allow `-test` to process entire file trees rather than single files. See more information about the `semgrep --test` in the [Testing rules](/writing-rules/testing-rules.md) documentation. (Issue [#5487](https://github.com/returntocorp/semgrep/issues/5487))
+- Tests: Allow `-test` to process entire file trees rather than single files. See more information about the `semgrep --test` in the [Testing rules](/writing-rules/testing-rules.md) documentation. (Issue [#5487](https://github.com/semgrep/semgrep/issues/5487))
 - metavariable-pattern: For performance reasons the [generic mode](/writing-rules/generic-pattern-matching/) ignores target files that are machine-generated. However, this change prevented the use of the `metavariable-pattern` operator on the text that seemed or was machine-generated, such as an RSA key contained in a file. This issue has been fixed. Now, when the analysis is requested within a `metavariable-pattern` operator, the generic mode always matches any text even if it seems to be machine-generated.
 
 ## Semgrep Registry

@@ -46,14 +46,14 @@ pipeline {
                 -e SEMGREP_PR_ID=${BITBUCKET_PULL_REQUEST_ID} \
                 -e SEMGREP_BASELINE_REF=$SEMGREP_BASELINE_REF \
                 -v "$(pwd):$(pwd)" --workdir $(pwd) \
-                 returntocorp/semgrep semgrep ci'''
+                 semgrep/semgrep semgrep ci'''
               }
               else {
                  echo "Semgrep full scan"
                  sh '''docker run \
                    -e SEMGREP_APP_TOKEN=$SEMGREP_APP_TOKEN \
                    -v "$(pwd):$(pwd)" --workdir $(pwd) \
-                   returntocorp/semgrep semgrep ci'''
+                   semgrep/semgrep semgrep ci'''
                }
              }
            }

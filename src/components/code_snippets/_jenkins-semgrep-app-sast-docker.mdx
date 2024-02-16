@@ -25,7 +25,7 @@ pipeline {
     stages {
       stage('Semgrep-Scan') {
         steps {
-            sh '''docker pull returntocorp/semgrep && \
+            sh '''docker pull semgrep/semgrep && \
             docker run \
             -e SEMGREP_APP_TOKEN=$SEMGREP_APP_TOKEN \
             -e SEMGREP_REPO_URL=$SEMGREP_REPO_URL \
@@ -34,7 +34,7 @@ pipeline {
             -e SEMGREP_COMMIT=$SEMGREP_COMMIT \
             -e SEMGREP_PR_ID=$SEMGREP_PR_ID \
             -v "$(pwd):$(pwd)" --workdir $(pwd) \
-            returntocorp/semgrep semgrep ci '''
+            semgrep/semgrep semgrep ci '''
       }
     }
   }
