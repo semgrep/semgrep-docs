@@ -53,7 +53,7 @@ jobs:
 
     container:
       # A Docker image with Semgrep installed. Do not change this.
-      image: returntocorp/semgrep
+      image: semgrep/semgrep
 
     if: (github.actor != 'dependabot[bot]')
     permissions:

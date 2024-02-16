@@ -37,11 +37,11 @@ To run a version other than `latest` using Docker, use the tag for the version w
 
 To pull:
 
-<pre class="language-bash"><code>docker pull returntocorp/semgrep:<span className="placeholder">x.y.z</span></code></pre>
+<pre class="language-bash"><code>docker pull semgrep/semgrep:<span className="placeholder">x.y.z</span></code></pre>
 
 To run locally, mounting the desired source directory (`/PATH/TO/SRC`) for scanning:
 
-<pre class="language-bash"><code>docker run --rm -v "<span className="placeholder">/PATH/TO/SRC</span>:/src" returntocorp/semgrep:<span className="placeholder">x.y.z</span> semgrep --config=auto</code></pre>
+<pre class="language-bash"><code>docker run --rm -v "<span className="placeholder">/PATH/TO/SRC</span>:/src" semgrep/semgrep:<span className="placeholder">x.y.z</span> semgrep --config=auto</code></pre>
 
 To run in GitHub Actions CI:
 
@@ -52,5 +52,5 @@ jobs:
     runs-on: ubuntu-latest
 
     container:
-      image: returntocorp/semgrep:x.y.z
+      image: semgrep/semgrep:x.y.z
 ```

@@ -152,7 +152,7 @@ pipelines:
     '**':
       - step:
           name: 'Run Semgrep diff scan with PR branch'
-          image: returntocorp/semgrep
+          image: semgrep/semgrep
           script:
             # ...
             - export BITBUCKET_TOKEN=$PAT

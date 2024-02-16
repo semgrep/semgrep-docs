@@ -15,10 +15,10 @@ The following resources can help you to test the code in the sections below. As 
 
 - Ensure that the <i class="fa-solid fa-toggle-large-on"></i> **Pro Engine beta** toggle is enabled on the [Playground](https://semgrep.dev/playground/new) page.
     - Rules you use in Semgrep Pro Engine require `interfile: true` key included in the `options` key. See the following [example](https://semgrep.dev/playground/s/lkPE).
-- The [Semgrep Pro Engine testing repository](https://github.com/returntocorp/semgrep-pro-tests) 
+- The [Semgrep Pro Engine testing repository](https://github.com/semgrep/semgrep-pro-tests) 
     - Clone the repository:
         ```sh
-        git clone https://github.com/returntocorp/semgrep-pro-tests
+        git clone https://github.com/semgrep/semgrep-pro-tests
         ```
     - Follow the instructions in the sections of this document. Generally:
         - To run Semgrep Pro Engine with cross-file (interfile) analysis, run:
@@ -45,7 +45,7 @@ Semgrep matches `dangerous(“Select * from “ + user_input)`, because `user_in
 Semgrep Pro Engine matches both dangerous calls because it does cross function boundaries. In fact, with Semgrep Pro Engine, the taint rule can track calls to `get_user_input` over multiple jumps in multiple files.
 
 :::tip Try it out
-Ensure that the **Pro Engine beta** <i class="fa-solid fa-toggle-large-on"></i> toggle is enabled in the following link to an [example of dangerous taint](https://semgrep.dev/playground/s/J0dQ) rule. To run Semgrep Pro Engine in the cloned [Semgrep Pro Engine testing repository](https://github.com/returntocorp/semgrep-pro-tests). Go to `docs/taint_tracking/java` and run the following command:
+Ensure that the **Pro Engine beta** <i class="fa-solid fa-toggle-large-on"></i> toggle is enabled in the following link to an [example of dangerous taint](https://semgrep.dev/playground/s/J0dQ) rule. To run Semgrep Pro Engine in the cloned [Semgrep Pro Engine testing repository](https://github.com/semgrep/semgrep-pro-tests). Go to `docs/taint_tracking/java` and run the following command:
 
 ```sh
 semgrep --config pro.yaml . --pro
@@ -61,7 +61,7 @@ Here, Semgrep OSS matches `dangerous(“Select * from “ + user_input)`, becaus
 Semgrep Pro matches both dangerous calls because it does cross function boundaries. In fact, with Semgrep Pro, the taint rule can track calls to `get_user_input` over multiple jumps in multiple files.
 
 :::tip Try it out
-Enable the **Semgrep Pro Engine beta** <i class="fa-solid fa-toggle-large-on"></i> toggle in the following link to an [example of dangerous taint](https://semgrep.dev/s/Po9p). To run Semgrep Pro Engine in the cloned [Semgrep Pro Engine testing repository](https://github.com/returntocorp/semgrep-pro-tests). Go to `docs/taint_tracking/javascript` and run the following command:
+Enable the **Semgrep Pro Engine beta** <i class="fa-solid fa-toggle-large-on"></i> toggle in the following link to an [example of dangerous taint](https://semgrep.dev/s/Po9p). To run Semgrep Pro Engine in the cloned [Semgrep Pro Engine testing repository](https://github.com/semgrep/semgrep-pro-tests). Go to `docs/taint_tracking/javascript` and run the following command:
 
 ```sh
 semgrep --config pro.yaml . --pro
@@ -107,7 +107,7 @@ readUser()
 ```
 
 :::tip Try it out
-To run Semgrep Pro in the cloned [Semgrep Pro Engine testing repository](https://github.com/returntocorp/semgrep-pro-tests). Go to `docs/taint_tracking/imports` and run the following command:
+To run Semgrep Pro in the cloned [Semgrep Pro Engine testing repository](https://github.com/semgrep/semgrep-pro-tests). Go to `docs/taint_tracking/imports` and run the following command:
 
 ```sh
 semgrep --config pro.yaml . --pro
@@ -151,7 +151,7 @@ class BadRequest extends ExampleException {
 Where `ExampleException` is thrown, we also want to find `BadRequest`, because `BadRequest` is a child of `ExampleException`. Unlike Semgrep OSS, Semgrep Pro Engine can find `BadRequest`. Since Semgrep Pro Engine uses information from all the files in the directory it scans, it detects `BadRequest` and finds both thrown exceptions.
 
 :::tip Try it out
-If you are following in the cloned [Semgrep Pro Engine testing repository](https://github.com/returntocorp/semgrep-pro-tests), in the `docs/class_inheritance` directory, try the following commands to test the difference:
+If you are following in the cloned [Semgrep Pro Engine testing repository](https://github.com/semgrep/semgrep-pro-tests), in the `docs/class_inheritance` directory, try the following commands to test the difference:
 
 1. Run Semgrep OSS:
     ```sh
@@ -176,7 +176,7 @@ For a more realistic example where typed metavariables are used, see the followi
 :::
 
 :::tip Try it out
-Run Semgrep Pro Engine in the cloned [Semgrep Pro Engine testing repository](https://github.com/returntocorp/semgrep-pro-tests). Go to `docs/class_inheritance_with_typed_metavariables` and run the following command:
+Run Semgrep Pro Engine in the cloned [Semgrep Pro Engine testing repository](https://github.com/semgrep/semgrep-pro-tests). Go to `docs/class_inheritance_with_typed_metavariables` and run the following command:
 
 ```sh
 semgrep --config pro.yaml . --pro
@@ -211,7 +211,7 @@ public final class Constants {
 Semgrep Pro Engine matches the first call without any change to the rule.
 
 :::tip Try it out
-Run Semgrep Pro Engine in the cloned [Semgrep Pro Engine testing repository](https://github.com/returntocorp/semgrep-pro-tests). Go to `docs/constant_propagation_dangerous_calls` and run the following command:
+Run Semgrep Pro Engine in the cloned [Semgrep Pro Engine testing repository](https://github.com/semgrep/semgrep-pro-tests). Go to `docs/constant_propagation_dangerous_calls` and run the following command:
 
 ```sh
 semgrep --config pro.yaml . --pro
@@ -236,7 +236,7 @@ export const EMPLOYEE_TABLE_NAME = "Employees";
 Semgrep Pro Engine matches the first call without any change to the rule.
 
 :::tip Try it out
-Run Semgrep Pro Engine in the cloned [Semgrep Pro Engine testing repository](https://github.com/returntocorp/semgrep-pro-tests). Go to `docs/constant_propagation_dangerous_calls` and run the following command:
+Run Semgrep Pro Engine in the cloned [Semgrep Pro Engine testing repository](https://github.com/semgrep/semgrep-pro-tests). Go to `docs/constant_propagation_dangerous_calls` and run the following command:
 
 ```sh
 semgrep --config pro.yaml . --pro
@@ -254,7 +254,7 @@ In the previous example, we only cared whether the string was constant or not, s
 With Semgrep Pro Engine, this rule matches the last three calls to `dangerous`, since these calls are selected from the `Employees` table, though each one obtains the table name differently:
 
 :::tip Try it out
-Run Semgrep Pro Engine in the cloned [Semgrep Pro Engine testing repository](https://github.com/returntocorp/semgrep-pro-tests). Go to `docs/constant_propagation_propagating_values` and run the following command:
+Run Semgrep Pro Engine in the cloned [Semgrep Pro Engine testing repository](https://github.com/semgrep/semgrep-pro-tests). Go to `docs/constant_propagation_propagating_values` and run the following command:
 
 ```sh
 semgrep --config pro.yaml . --pro
@@ -268,7 +268,7 @@ semgrep --config pro.yaml . --pro
 With Semgrep Pro Engine, this rule matches the last three calls to `dangerous`, since these calls are selected from the `Employees` table, though each one obtains the table name differently:
 
 :::tip Try it out
-Run Semgrep Pro Engine in the cloned [Semgrep Pro Engine testing repository](https://github.com/returntocorp/semgrep-pro-tests). Go to `docs/constant_propagation_propagating_values` and run the following command:
+Run Semgrep Pro Engine in the cloned [Semgrep Pro Engine testing repository](https://github.com/semgrep/semgrep-pro-tests). Go to `docs/constant_propagation_propagating_values` and run the following command:
 
 ```sh
 semgrep --config pro.yaml . --pro

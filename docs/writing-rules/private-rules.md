@@ -94,7 +94,7 @@ This section provides an example of how to automatically publish your private ru
             path: semgrep-rules
         - name: publish private semgrep rules
           run: |
-            docker run --env SEMGREP_APP_TOKEN=$SEMGREP_APP_TOKEN --rm -v ${GITHUB_WORKSPACE}/semgrep-rules:/src returntocorp/semgrep:develop semgrep publish --visibility=org_private /src/private_rule_dir
+            docker run --env SEMGREP_APP_TOKEN=$SEMGREP_APP_TOKEN --rm -v ${GITHUB_WORKSPACE}/semgrep-rules:/src semgrep/semgrep:develop semgrep publish --visibility=org_private /src/private_rule_dir
           env:
             SEMGREP_APP_TOKEN: ${{ secrets.SEMGREP_APP_TOKEN }}
     ```

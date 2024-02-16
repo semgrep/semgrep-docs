@@ -10,7 +10,7 @@ import MoreHelp from "/src/components/MoreHelp"
 
 # Updating Semgrep
 
-We [release new Semgrep versions](https://github.com/returntocorp/semgrep/releases) often, with many performance and bug improvements. 
+We [release new Semgrep versions](https://github.com/semgrep/semgrep/releases) often, with many performance and bug improvements. 
 
 Stay up to date by running the latest version of Semgrep automatically in CI. Or use the following commands:
 
@@ -26,7 +26,7 @@ python3 -m pip install --upgrade semgrep
 
 Using Docker:
 ```sh
-docker pull returntocorp/semgrep:latest
+docker pull semgrep/semgrep:latest
 ```
 
 

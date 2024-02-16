@@ -221,7 +221,7 @@ When a time is not measured, by default it has the value -1. It is common to a h
 
 #### Tips for exploring Semgrep results
 
-There are several scripts already written to analyze and summarize these timing data. Find them in [`scripts/processing-output`](https://github.com/returntocorp/semgrep/tree/develop/scripts/processing-output). If you have a timing file, you can run
+There are several scripts already written to analyze and summarize these timing data. Find them in [`scripts/processing-output`](https://github.com/semgrep/semgrep/tree/develop/scripts/processing-output). If you have a timing file, you can run
 
 ```bash
 python read_timing.py [your_timing_file]
@@ -315,7 +315,7 @@ We have two sets of benchmarks, one on a suite of real repos against real rulese
 
 To run the micro benchmarks, go to `perf/perf-matching/`, and run `./run-perf-suite`.
 
-To run the real benchmarks, go to `perf`, and run `./run-benchmarks`. See the perf [readme](https://github.com/returntocorp/semgrep/blob/develop/perf/README.md) for more details on how these are set up.
+To run the real benchmarks, go to `perf`, and run `./run-benchmarks`. See the perf [readme](https://github.com/semgrep/semgrep/blob/develop/perf/README.md) for more details on how these are set up.
 
 There are a number of flags (`./run-benchmarks --help` to see them) which may be helpful if you are using the benchmarks for local development. For example, `./run-benchmarks --plot_benchmarks` will output a graph of the benchmark results at the end.
 
@@ -610,7 +610,7 @@ a tree-sitter grammar into a usable, typed concrete syntax tree (CST).
 
 For example, for the Kotlin language we have:
 * input: [tree-sitter-kotlin](https://github.com/fwcd/tree-sitter-kotlin)
-* output: [semgrep-kotlin](https://github.com/returntocorp/semgrep-kotlin)
+* output: [semgrep-kotlin](https://github.com/semgrep/semgrep-kotlin)
 
 Assuming the tree-sitter grammar works well enough, most of the work
 consists in mapping the CST to the generic abstract syntax tree (AST)

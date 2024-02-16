@@ -52,12 +52,12 @@ Here are the main components:
   ocaml-tree-sitter code generator. `lang/X/src` and
   `lang/X/ocaml-src` contain the C/C++/OCaml code that will published
   into semgrep-X e.g.
-  [semgrep-ruby](https://github.com/returntocorp/semgrep-ruby)
+  [semgrep-ruby](https://github.com/semgrep/semgrep-ruby)
   and used by semgrep.
-* [semgrep-X](https://github.com/returntocorp/semgrep-ruby):
+* [semgrep-X](https://github.com/semgrep/semgrep-ruby):
   provides generated OCaml/C parsers as a dune project. Is a submodule
   of semgrep.
-* [semgrep](https://github.com/returntocorp/semgrep): uses the parsers
+* [semgrep](https://github.com/semgrep/semgrep): uses the parsers
   provided by semgrep-X, which produce a CST. The
   program's CST or pattern's CST is further transformed into an AST
   suitable for pattern matching.
@@ -164,11 +164,11 @@ cd lang
 
 This step is safe. Semgrep at this point is unaffected by those
 changes. There is now a new commit at
-`https://github.com/returntocorp/semgrep-X` e.g.
-https://github.com/returntocorp/semgrep-javascript.
-The [`fyi/` folder](https://github.com/returntocorp/semgrep-javascript/tree/main/fyi)
+`https://github.com/semgrep/semgrep-X` e.g.
+https://github.com/semgrep/semgrep-javascript.
+The [`fyi/` folder](https://github.com/semgrep/semgrep-javascript/tree/main/fyi)
 contains original files from which the code was generated.
-[`fyi/versions`](https://github.com/returntocorp/semgrep-javascript/blob/main/fyi/versions)
+[`fyi/versions`](https://github.com/semgrep/semgrep-javascript/blob/main/fyi/versions)
 shows the last change for each file, allowing you to check that you
 got the correct version of `grammar.js` or some other source file.
 

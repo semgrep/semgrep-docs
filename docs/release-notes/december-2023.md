@@ -17,13 +17,13 @@ tags:
 * The following versions of the OSS Engine were released in December 2023:
 
   * [<i class="fas fa-external-link fa-xs"></i>
-    1.52.0](https://github.com/returntocorp/semgrep/releases/tag/v1.52.0)
+    1.52.0](https://github.com/semgrep/semgrep/releases/tag/v1.52.0)
   * [<i class="fas fa-external-link fa-xs"></i>
-    1.53.0](https://github.com/returntocorp/semgrep/releases/tag/v1.53.0)
+    1.53.0](https://github.com/semgrep/semgrep/releases/tag/v1.53.0)
   * [<i class="fas fa-external-link fa-xs"></i>
-    1.54.0](https://github.com/returntocorp/semgrep/releases/tag/v1.54.0)
+    1.54.0](https://github.com/semgrep/semgrep/releases/tag/v1.54.0)
   * [<i class="fas fa-external-link fa-xs"></i>
-    1.54.1](https://github.com/returntocorp/semgrep/releases/tag/v1.54.1)
+    1.54.1](https://github.com/semgrep/semgrep/releases/tag/v1.54.1)
 
 ## 🌐 Cloud Platform
 

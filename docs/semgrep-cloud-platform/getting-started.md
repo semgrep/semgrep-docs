@@ -179,7 +179,7 @@ Many improvements to the Semgrep Cloud Platform experience only work with up-to-
 
 See [Updating Semgrep](/upgrading/) for information on how to upgrade.
 
-Docker users: use [the **latest** tag](https://hub.docker.com/r/returntocorp/semgrep/tags?page=1&name=latest) to ensure you are up-to-date.
+Docker users: use [the **latest** tag](https://hub.docker.com/r/semgrep/semgrep/tags?page=1&name=latest) to ensure you are up-to-date.
 
 ## Appendices
 

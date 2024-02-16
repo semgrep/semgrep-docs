@@ -130,7 +130,7 @@ Check for spelling and indentation issues. The key names must match [Semgrep's s
 
 #### The rule does not behave as expected or does not find the desired match
 
-File a [bug](https://github.com/returntocorp/semgrep/issues/new?title=semgrep.dev%20bug%20report) or reach out through [Semgrep Community Slack](https://go.semgrep.dev/slack).
+File a [bug](https://github.com/semgrep/semgrep/issues/new?title=semgrep.dev%20bug%20report) or reach out through [Semgrep Community Slack](https://go.semgrep.dev/slack).
 
 ## Exploring rules through Semgrep Registry
 
