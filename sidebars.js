@@ -412,6 +412,7 @@ module.exports = {
         'semgrep-code/demo-project',
         'semgrep-code/policies',
         'semgrep-code/findings',
+        'semgrep-code/triage-remediation',
         'semgrep-code/semgrep-assistant-code',
         'semgrep-code/editor',
         ]
