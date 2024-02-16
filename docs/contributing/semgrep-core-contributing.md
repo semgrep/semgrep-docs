@@ -603,7 +603,7 @@ There are some cases where we have chosen to implement a new parser in `pfff`, b
 
 Tree-sitter parsers exist as individual public projects. They are
 shared with other users of tree-sitter outside of semgrep. Our
-[ocaml-tree-sitter](https://github.com/semgrep/ocaml-tree-sitter)
+[ocaml-tree-sitter](https://github.com/semgrep/ocaml-tree-sitter-semgrep)
 project adds the necessary extensions for supporting semgrep patterns
 (ellipsis `...` and such). It also contains the machinery for turning
 a tree-sitter grammar into a usable, typed concrete syntax tree (CST).
