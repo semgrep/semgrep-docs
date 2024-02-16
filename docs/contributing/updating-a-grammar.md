@@ -33,7 +33,7 @@ Components
 Here are the main components:
 
 * the OCaml code generator
-  [ocaml-tree-sitter](https://github.com/semgrep/ocaml-tree-sitter):
+  [ocaml-tree-sitter](https://github.com/semgrep/ocaml-tree-sitter-semgrep):
   generates OCaml parsing code from tree-sitter grammars extended
   with `...` and such. Publishes code into the git repos of the
   form `semgrep-X`.
