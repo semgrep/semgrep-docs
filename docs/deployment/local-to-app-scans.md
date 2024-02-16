@@ -9,7 +9,12 @@ tags:
 
 # Scan local repositories and upload findings 
 
-You can send findings (scan results) from a local repository to Semgrep Cloud Platform. The local repository is a separate **Project** from its remote counterpart. This is useful for testing rules and policies, or simply scanning your own work before it is merged to your organization's trunk branch.
+You can send findings (scan results) from a local repository to Semgrep Cloud Platform. The local repository is a separate **project** from its remote counterpart. This is useful for testing rules and policies, or simply scanning your own work before it is merged to your organization's trunk branch.
+
+## Prerequisites
+
+- Locally installed `semgrep`.
+
 
 ## Best practices
 

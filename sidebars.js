@@ -47,7 +47,7 @@ module.exports = {
               link: {type: 'generated-index'},
               items: [
                 'deployment/local-to-app-scans',
-                'deployment/cli-scans'
+                'getting-started/cli'
               ]
             },
         ]
