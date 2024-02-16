@@ -279,7 +279,7 @@ Here are some known types of parsing errors:
 * A segmentation fault. This could be due to a bug in the
   OCaml/tree-sitter C bindings and should be fixed. A simple test case
   that reproduces the problem would be nice.
-  See https://github.com/semgrep/ocaml-tree-sitter/issues/65
+  See https://github.com/semgrep/ocaml-tree-sitter-semgrep/issues/65
 
 Parsing errors that are due
 to an incomplete or incorrect grammar should be recorded, and
