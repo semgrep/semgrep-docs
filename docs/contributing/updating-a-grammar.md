@@ -33,7 +33,7 @@ Components
 Here are the main components:
 
 * the OCaml code generator
-  [ocaml-tree-sitter](https://github.com/returntocorp/ocaml-tree-sitter):
+  [ocaml-tree-sitter](https://github.com/semgrep/ocaml-tree-sitter):
   generates OCaml parsing code from tree-sitter grammars extended
   with `...` and such. Publishes code into the git repos of the
   form `semgrep-X`.
@@ -98,7 +98,7 @@ Testing
 --
 
 First, build and install ocaml-tree-sitter normally, based on the
-instructions found in the [main README](https://github.com/returntocorp/ocaml-tree-sitter-semgrep/blob/main/README.md).
+instructions found in the [main README](https://github.com/semgrep/ocaml-tree-sitter-semgrep/blob/main/README.md).
 
 ```
 ./configure
@@ -148,7 +148,7 @@ We can now consider publishing the code to semgrep-X.
 Publishing
 --
 
-_Please [ask someone at Semgrep, Inc. to run this step](https://github.com/returntocorp/ocaml-tree-sitter-semgrep/blob/main/doc/release.md)._
+_Please [ask someone at Semgrep, Inc. to run this step](https://github.com/semgrep/ocaml-tree-sitter-semgrep/blob/main/doc/release.md)._
 
 From the `lang` folder of ocaml-tree-sitter, we'll perform the
 release. This step redoes some of the work that was done earlier and
