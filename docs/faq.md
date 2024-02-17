@@ -129,6 +129,10 @@ For SCA, reachability analysis is critical to cut down noise and reduce false po
 
 For SAST, both Semgrep and Snyk offer good solutions out of the box, however writing custom rules is easier and more scalable with Semgrep, enabling you to accomodate issues specific to your codebase that no vendor could out-of-box. Semgrep supports 30+ languages whereas Snyk supports 14.
 
+For secrets scanning, Semgrep Secrets leverages semantic analysis, entropy analysis, and validation to accurately detect and fix secrets. Snyk has a [business partnership with GitGuardian](https://blog.gitguardian.com/were-teaming-up-with-snyk-to-strengthen-developer-security/) to offer their secret scanning to Snyk customers.
+
+See the [Semgrep vs. Snyk webpage](https://semgrep.dev/resources/semgrep-vs-snyk) for a more detailed comparison between the two.
+
 ### Comparing Semgrep to SonarQube
 
 Both Semgrep and SonarQube use static analysis to find bugs, but there are a few differences:
