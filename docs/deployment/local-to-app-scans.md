@@ -1,5 +1,5 @@
 ---
-slug: local-to-app-scans
+slug: local-to-scp-scans
 title: Upload local scan findings
 hide_title: true
 description: Send your local scans to Semgrep Cloud Platform to view and track your findings.

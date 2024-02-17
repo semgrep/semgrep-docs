@@ -46,8 +46,8 @@ module.exports = {
               collapsible: true,
               link: {type: 'generated-index'},
               items: [
-                'deployment/local-to-app-scans',
-                'getting-started/cli'
+                'getting-started/cli',
+                'deployment/local-to-scp-scans'
               ]
             },
         ]
