@@ -289,7 +289,7 @@ module.exports = {
     }
   ],
   rulewritingSidebar: [
-        'Docs home',
+        { type: 'doc', label: 'Docs home', id: 'Docs home', className: 'home-top-level' },
         {
             type: 'category',
             label: 'Write rules',
@@ -343,7 +343,7 @@ module.exports = {
         },
   ],
   cheatsheetSidebar: [
-        'Docs home',
+    { type: 'doc', label: 'Docs home', id: 'Docs home', className: 'home-top-level' },
         {
             type: 'category',
             label: 'Cheat sheets',
@@ -429,7 +429,7 @@ module.exports = {
         },
 ],
   ossSidebar: [
-    'Docs home',
+    { type: 'doc', label: 'Docs home', id: 'Docs home', className: 'home-top-level' },
     {
         type: 'category',
         label: 'Get started',
@@ -483,7 +483,7 @@ module.exports = {
     }
   ],
   aboutSidebar: [
-    'Docs home',
+    { type: 'doc', label: 'Docs home', id: 'Docs home', className: 'home-top-level' },
     {
         type: 'category',
         label: 'About Semgrep',
@@ -506,7 +506,7 @@ module.exports = {
     },
   ],
   kbSidebar: [
-    'Docs home',
+    { type: 'doc', label: 'Docs home', id: 'Docs home', className: 'home-top-level' },
     {
       type: 'category',
       label: 'Knowledge base',
@@ -629,12 +629,7 @@ module.exports = {
     },
   ],
   updatesSidebar: [
-    // Link to docs home page
-    {
-        type: 'link',
-        label: 'Docs home', // The link label
-        href: '/', // The internal path
-    },
+    { type: 'doc', label: 'Docs home', id: 'Docs home', className: 'home-top-level' },
     {
     type: 'category',
         label: 'Release notes',
