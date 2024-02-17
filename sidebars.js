@@ -17,7 +17,7 @@ module.exports = {
   topLevelSidebar: [
     { type: 'doc', label: 'Docs home', id: 'Docs home', className: 'home-top-level' },
     { type: 'ref', id: 'getting-started/quickstart', label: 'Scan with Semgrep Pro', className: 'top-category-separator'},
-    { type: 'ref', id: 'contributing/contributing', label: 'Scan with Semgrep OSS'},
+    { type: 'ref', id: 'getting-started/quickstart-oss', label: 'Scan with Semgrep OSS'},
     { type: 'ref', id: 'writing-rules/overview', label: 'Write rules'},
     { type: 'doc', id: 'semgrep-pro-vs-oss', label: 'Semgrep Pro versus Semgrep OSS', className: 'top-category-separator' },
     {
@@ -425,8 +425,27 @@ module.exports = {
         },
 ],
 
-  contributingSidebar: [
+  ossSidebar: [
     'Docs home',
+    {
+        type: 'category',
+        label: 'Get started',
+        collapsible: false,
+        items: [
+            'getting-started/quickstart-oss',
+            'prerequisites',
+            'supported-languages'
+        ]
+    },
+    {
+        type: 'category',
+        label: 'Run scans',
+        collapsible: false,
+        items: [
+            'running-rules',
+            'managing-findings',
+        ]
+    },
     {
         type: 'category',
         label: 'Contributing',

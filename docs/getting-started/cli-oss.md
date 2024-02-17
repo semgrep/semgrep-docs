@@ -2,10 +2,11 @@
 slug: cli-oss
 title: Local CLI scans
 hide_title: true
+displayed_sidebar: ossSidebar
 description: Learn how to set up Semgrep, scan your first project for security issues, and view your findings in the CLI.
 tags:
   - quickstart
-  - cli
+  - CLI
 ---
 
 import MoreHelp from "/src/components/MoreHelp";
