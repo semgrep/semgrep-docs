@@ -47,7 +47,8 @@ module.exports = {
               link: {type: 'generated-index'},
               items: [
                 'getting-started/cli',
-                'deployment/local-to-scp-scans'
+                'deployment/local-to-scp-scans',
+                'update'
               ]
             },
         ]
@@ -171,7 +172,6 @@ module.exports = {
                     'getting-started',
                     'running-rules',
                     'managing-findings',
-                    'upgrading',
                     'reporting-false-negatives',
                     'troubleshooting/semgrep'
                 ]

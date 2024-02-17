@@ -250,7 +250,7 @@ module.exports = {
           { from: "/integrations", to: "/semgrep-cloud-platform/notifications/" },
           { from: "/notifications", to: "/semgrep-cloud-platform/notifications/" },
           { from: "/experiments", to: "/writing-rules/experiments/introduction/" },
-          { from: "/upgrade", to: "/upgrading/" },
+          { from: "/upgrade", to: "/update/" },
           { from: "/semgrep-ci", to: "/semgrep-ci/overview/" },
           { from: "/sample-ci-configs", to: "/semgrep-ci/sample-ci-configs/" },
           { from: "/status/", to: "/supported-languages/" },
@@ -348,8 +348,8 @@ module.exports = {
           { from: "/semgrep-cloud-platform/sso", to: "/deployment/sso/" },
           { from: "/semgrep-app/sso/"                              , to: "/deployment/sso/" },
           /* JAN 30 2024  */
-          { from: "/usage-limits/" , to: "/usage-and-billing/" }
-
+          { from: "/usage-limits/" , to: "/usage-and-billing/" },
+          { from: "/upgrading/" , to: "/update/" }
         ]
       }
     ],
