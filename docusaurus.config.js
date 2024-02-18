@@ -310,7 +310,7 @@ module.exports = {
           { from: "/semgrep-app/dashboard/"                        , to: "/semgrep-cloud-platform/dashboard/" }           ,
           { from: "/semgrep-app/getting-started-with-semgrep-app/" , to: "/semgrep-cloud-platform/getting-started/" }     ,
           { from: "/semgrep-app/pricing-and-billing/"              , to: "/usage-and-billing/" } ,
-          { from: "/semgrep-app/scm/"                              , to: "/semgrep-cloud-platform/scm/" }                 ,
+          { from: "/semgrep-app/scm/"                              , to: "/deployment/connect-scm/" }                 ,
           { from: "/semgrep-app/semgrep-api/"                      , to: "/semgrep-cloud-platform/semgrep-api/" }         ,
           { from: "/semgrep-app/tags/"                             , to: "/semgrep-cloud-platform/tags/" }                ,
 
@@ -349,7 +349,8 @@ module.exports = {
           { from: "/semgrep-app/sso/"                              , to: "/deployment/sso/" },
           /* JAN 30 2024  */
           { from: "/usage-limits/" , to: "/usage-and-billing/" },
-          { from: "/upgrading/" , to: "/update/" }
+          { from: "/upgrading/" , to: "/update/" },
+          { from: "/semgrep-cloud-platform/scm/" , to: "/deployment/connect-scm/" }
         ]
       }
     ],

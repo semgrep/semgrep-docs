@@ -211,7 +211,8 @@ module.exports = {
             label: 'SAST (Code)',
             items: [
                 //'running-rules',
-                'semgrep-code/getting-started',
+                //'semgrep-code/getting-started', (deprecated in favor of overview)
+                'semgrep-code/overview',
                 'semgrep-code/semgrep-pro-engine-intro',
                 'semgrep-code/policies',
                 'ignoring-files-folders-code',

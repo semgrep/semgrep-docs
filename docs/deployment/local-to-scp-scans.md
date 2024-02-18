@@ -48,3 +48,68 @@ Refer to the following image for an example of both remote and local Projects in
 
 * **For personal orgs:** A local repository scan does not overwrite the findings records of its remote counterpart. They are two separate projects. Personal accounts only have one team member or user: you.
 * **For organization orgs**: A local repository scan does **not** overwrite findings records of its remote counterpart. For locally scanned projects or repositories, if two members both send local repository findings, one set of findings may overwrite other unintentionally. This is because orgs can have more than one team member, but all local scans are sent to the same project slug.
+
+## Link local scans to their remote repositories 
+
+When scanning local repositories, the links shown on Semgrep Cloud Platform's **Findings** page are not generated. They may be missing, or they may not link to the correct file. This is because the scan was performed on your local code, not the remote repository.
+
+You can optionally set up cross-linking between local and remote repositories to fix this issue. Set up environment variables through the CLI:
+
+1. Navigate to the root of your repo.
+2. Create the `SEMGREP_REPO_URL` variable, setting it to the URL you'd use to access your online repo:
+    <pre><code>
+    export SEMGREP_REPO_URL=<span className="placeholder">URL_ADDRESS</span>
+    </code></pre>
+3. Create the `SEMGREP_BRANCH` variable:
+    1. Retrieve the branch name:
+        ```console
+        git rev-parse --abbrev-ref HEAD
+        ```
+    2. Set the variable as shown, making sure that you replace the <code><span className="placeholder">BRANCH_NAME</span></code> placeholder:
+        <pre><code>
+        export SEMGREP_BRANCH=<span className="placeholder">BRANCH_NAME</span>
+        </code></pre>
+4. Create the `SEMGREP_REPO_NAME` variable, setting it to the name of your repo:
+    <pre><code>
+    export SEMGREP_REPO_NAME=<span className="placeholder">REPO_NAME</span>
+    </code></pre>
+5. Create the `SEMGREP_COMMIT` variable:
+    1. Retrieve the commit hash:
+        ```console
+        git log -n 1
+        ```
+    2. Set the variable by entering the text below, substituting <code><span className="placeholder">COMMIT_HASH</span></code> with the value from the previous step.
+    <pre><code>
+    export SEMGREP_COMMIT=<span className="placeholder">COMMIT_HASH</span>
+    </code></pre>
+
+After performing these steps, rescan your repository to correctly generate links in Semgrep Cloud Platform.
+
+![Findings page snippet with hyperlinks](/img/findings-with-hyperlinks.png "Findings page snippet with hyperlinks")
+**Figure.** Findings page with hyperlinks.
+
+### Sample values
+
+The following is an example of the variables you'd need to create, along with sample values:
+
+```console
+# Set the repository URL
+export SEMGREP_REPO_URL=https://github.com/corporation/s_juiceshop
+
+# Set the repository name
+export SEMGREP_REPO_NAME=corporation/s_juiceshop
+
+# Retrieve the branch 
+git rev-parse --abbrev-ref HEAD
+s_update
+
+# Set the branch
+export SEMGREP_BRANCH=s_update
+
+# Retrieve the commit hash
+git log -n 1
+commit fa4e36b9369e5b039bh2220b5h9R61a38b077f29 (HEAD -> s_juiceshop, origin/main, origin/HEAD, master)
+
+# Set the commit hash
+export SEMGREP_COMMIT=fa4e36b9369e5b039bh2220b5h9R61a38b077f29
+ ```

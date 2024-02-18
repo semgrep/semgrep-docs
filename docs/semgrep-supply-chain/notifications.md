@@ -67,7 +67,7 @@ To ensure that you have enabled Semgrep Cloud Platform to send PR or MR comments
 </tr>
 <tr>
     <td>GitHub Enterprise Server</td>
-    <td><a href="/docs/semgrep-cloud-platform/scm/">Integrating Semgrep into self-hosted repositories</a></td>
+    <td><a href="/deployment/connect-scm/#connect-to-on-premise-github-or-gitlab-orgs">Integrating Semgrep into self-hosted repositories</a></td>
 </tr>
 <tr>
     <td>GitLab SaaS</td>
@@ -75,7 +75,7 @@ To ensure that you have enabled Semgrep Cloud Platform to send PR or MR comments
 </tr>
 <tr>
     <td>GitLab Self-managed</td>
-    <td><a href="/docs/semgrep-cloud-platform/scm/">Integrating Semgrep into self-hosted repositories</a></td>
+    <td><a href="/deployment/connect-scm/#connect-to-on-premise-github-or-gitlab-orgs">Integrating Semgrep into self-hosted repositories</a></td>
 </tr>
 </table>
 

@@ -46,7 +46,7 @@ Ensure that all stakeholders agree on:
 **Deployment times** vary greatly depending on your processes and size.
 
 :::tip On scheduling scans
-Monorepos may take longer to finish scanning. Semgrep provides several options, including piecemeal scanning of the monorepo. See [<i class="fa-regular fa-file-lines"></i> Scanning a monorepo in parts](/kb/semgrep-ci/scan-monorepo-in-parts/) for more information.
+Monorepos may take longer to finish scanning. Semgrep provides several options to improve performance, including piecemeal scanning of the monorepo. See [<i class="fa-regular fa-file-lines"></i> Scanning a monorepo in parts](/kb/semgrep-ci/scan-monorepo-in-parts/) for more information.
 :::
 
 ## Roles
