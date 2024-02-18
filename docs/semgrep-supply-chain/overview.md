@@ -122,7 +122,7 @@ Semgrep Supply Chain automatically scans [repositories that you add to Semgrep C
 * To support your security and business goals, you can [customize how Semgrep
   Supply Chain scans your dependencies](/semgrep-supply-chain/getting-started).
 * The SCP has features to support the [triage and
-  remediation](/semgrep-supply-chain/triage-remediation) of your findings.
+  remediation](/semgrep-supply-chain/triage-and-remediation) of your findings.
 
 ### Further reading
 

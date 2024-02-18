@@ -81,7 +81,7 @@ Integrate Semgrep into these custom source code management (SCM) tools by follow
 ![Source code manager tab](/img/source-code-manager.png#md-width)
 3. Select your source code manager.
 4. For **GitHub Enterprise Server**, follow these steps:
-    1. Create a PAT by following the steps outlined in this [guide to creating a PAT](https://docs.github.com/en/enterprise-server@3.1/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token). Ensure that the PAT is **[created with the required scopes](../scm/#table-of-required-scopes-for-pats)**.
+    1. Create a PAT by following the steps outlined in this [guide to creating a PAT](https://docs.github.com/en/enterprise-server@3.1/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token). Ensure that the PAT is **[created with the required scopes](#table-of-required-scopes-for-pats)**.
     2. Return to Semgrep Cloud Platform and enter the personal access token generated into the **Access token** field.
     3. Enter your GHE Server base URL into the **URL** field.
     4. Ensure that your SCM integration successfully detects repositories by setting up a CI job for any repository you want to scan:

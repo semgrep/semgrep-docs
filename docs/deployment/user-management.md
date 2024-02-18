@@ -60,7 +60,7 @@ semgrep login
 
 This generates a unique token that is used to identify a member or admin. When logged in, members can run scans on their local machine through the `semgrep ci` command and publish a rule. This sends findings data to Semgrep Cloud Platform.
 
-Only admin users can view member tokens in the **Settings > Tokens** tab. A token's access cannot be escalated to an admin-level token. A user must first obtain the admin role and then create a new token as an admin. See the following section on [Changing a user's role](/semgrep-cloud-platform/user-management/#changing-a-users-role).
+Only admin users can view member tokens in the **Settings > Tokens** tab. A token's access cannot be escalated to an admin-level token. A user must first obtain the admin role and then create a new token as an admin. See the following section on [Changing a user's role](#changing-a-users-role).
 
 Additionally, only admin users can make changes to the [Policies](/semgrep-code/policies).
 
@@ -68,9 +68,7 @@ Additionally, only admin users can make changes to the [Policies](/semgrep-code/
 
 ## Changing a user's role
 
-:::info Prerequisites
 You must be an `admin` to perform this operation.
-:::
 
 To **change a user's role**:
 
