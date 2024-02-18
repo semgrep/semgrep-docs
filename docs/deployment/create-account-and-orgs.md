@@ -153,7 +153,7 @@ This section is for team members who have been invited to join a Semgrep organiz
 To join an existing org in GitHub or GitLab:
 
 1. Sign in to [<i class="fas fa-external-link fa-xs"></i> Semgrep Cloud Platform](https://semgrep.dev/login) with the account credentials specified by your admin.
-1. Follow the on-screen prompts to [grant Semgrep the needed permissions](/semgrep-cloud-platform/getting-started/#requested-permissions-for-github-and-gitlab) and proceed.
+1. Follow the on-screen prompts to [grant Semgrep the needed permissions](/deployment/checklist/#permissions) and proceed.
 1. Click **Join an existing organization**.
 
 </TabItem>
