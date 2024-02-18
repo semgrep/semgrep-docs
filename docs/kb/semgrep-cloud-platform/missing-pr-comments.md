@@ -32,7 +32,7 @@ If you are using a self-hosted version of GitHub (GitHub Enterprise) or GitLab (
 
 GitHub relies on the Semgrep GitHub app to make comments on code. To receive comments on a project, ensure that you have performed the following steps:
 
-* You have [onboarded](/docs/semgrep-code/getting-started/) the project to Semgrep Cloud Platform.
+* You have [onboarded](/deployment/add-semgrep-to-ci/) the project to Semgrep Cloud Platform.
 * You have configured your GitHub app with permissions for all repositories that are scanned by Semgrep Cloud Platform. See [Enabling GitHub pull request comments](/docs/semgrep-cloud-platform/github-pr-comments/) for details, or review the following examples:
 
 ![Semgrep GitHub app permissions: all repos](/img/gh-app-permissions-all.png)

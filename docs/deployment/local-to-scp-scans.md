@@ -51,9 +51,9 @@ Refer to the following image for an example of both remote and local Projects in
 
 ## Link local scans to their remote repositories 
 
-When scanning local repositories, the links shown on Semgrep Cloud Platform's **Findings** page are not generated. They may be missing, or they may not link to the correct file. This is because the scan was performed on your local code, not the remote repository.
+When sending findings from local repositories to Semgrep Cloud Platform, the links shown on the **Findings** page are not generated. They may be missing, or they may not link to the correct file. This is because the scan was performed on your local repository, not remote.
 
-You can optionally set up cross-linking between local and remote repositories to fix this issue. Set up environment variables through the CLI:
+You can optionally set up cross-linking between local and remote repositories to create the correct hyperlinks. Set up environment variables through the CLI:
 
 1. Navigate to the root of your repo.
 2. Create the `SEMGREP_REPO_URL` variable, setting it to the URL you'd use to access your online repo:

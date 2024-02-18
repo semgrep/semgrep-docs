@@ -28,8 +28,6 @@ Prefer "Semgrep Slack app" over "Semgrep Slack integration" or "Slack integratio
 <!-- <ProcedureIntegrateSlack /> -->
 
 :::info Prerequisites
-* Slack notifications can only be enabled through Semgrep Cloud Platform (SCP). [Create an account](/semgrep-code/getting-started/) to set up Slack notifications.
-* To receive alerts and notifications, you must [add or onboard the project](/semgrep-code/getting-started/) (repository) to Semgrep Cloud Platform for scanning.
 * You must be a Slack **Workspace Owner** to set up the Semgrep Slack app. 
 :::
 
