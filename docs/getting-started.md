@@ -236,6 +236,6 @@ Check out [Semgrep Cloud Platform](https://semgrep.dev/manage) (SCP) to integrat
 
 ## Updating Semgrep
 
-We [release new Semgrep versions](https://github.com/returntocorp/semgrep/releases) often! See [Updating](./upgrading.md) for more details.
+We [release new Semgrep versions](https://github.com/returntocorp/semgrep/releases) often! See [Updating](./update) for more details.
 
 <MoreHelp />
