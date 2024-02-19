@@ -1,21 +1,17 @@
 ---
 slug: managing-findings
 append_help_link: true
-description: "Manage findings, the core results of Semgrep's analysis. Triage findings that come from Semgrep CLI, in CI, and through Semgrep Cloud Platform."
-title: Managing findings
+description: "Manage findings, the core results of Semgrep's analysis."
+title: Manage findings
 hide_title: true
 ---
 
 import MoreHelp from "/src/components/MoreHelp"
 import TriageStatuses from "/src/components/reference/_triage-states.mdx"
 
-# Managing findings
+# Manage findings
 
-## Findings
-
-A finding is the core result of Semgrep's analysis. Findings are generated when a Semgrep rule matches a piece of code. After matching, a finding can make its way through 3 parts of the Semgrep ecosystem: [Semgrep CLI](https://github.com/returntocorp/semgrep), [Semgrep in CI](/semgrep-ci/overview/), and [Semgrep Cloud Platform](https://semgrep.dev/manage).
-
-## Semgrep CLI
+A finding is the core result of Semgrep's analysis. Findings are generated when a Semgrep rule matches a piece of code.
 
 Semgrep command line findings are produced by a specific rule matching a piece of code. Multiple rules can match the same piece of code, even if they are effectively the same rule. For example, consider the following rule and code snippet:
 
@@ -55,6 +51,7 @@ severity:warning rule:finding-test: Finding test 2
 
 For more information on writing rules, see [Rule syntax](/writing-rules/rule-syntax/).
 
+<!--
 ## Semgrep CI
 
 [Semgrep CI](/semgrep-ci/overview/), designed to continuously scan commits and builds, improves on Semgrep findings to track the lifetime of an individual finding. When configured to perform a diff scan, it will only show new findings relative to some specified baseline commit.
@@ -81,5 +78,7 @@ Semgrep Cloud Platform builds on CI findings to track status and provide additio
 You can manage finding status through triage in Semgrep Cloud Platform's **Findings** page. The finding statuses are as follows:
 
 <TriageStatuses />
+
+-->
 
 <MoreHelp />

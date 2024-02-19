@@ -438,7 +438,7 @@ module.exports = {
         items: [
             'getting-started/quickstart-oss',
             'prerequisites',
-            'supported-languages'
+            { type: 'ref', id: 'supported-languages' }
         ]
     },
     {
