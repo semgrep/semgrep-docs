@@ -19,12 +19,7 @@ Object.entries(frontMatter).filter(
 }
 </ul>
 
-
 # Enabling webhooks
-
-:::info Prerequisite
-You have completed a [Semgrep core deployment](/deployment/core-deployment).
-:::
 
 Webhooks are a generic method for Semgrep Cloud Platform to post JSON-formatted findings after each scan to your URL endpoint.
 

@@ -82,8 +82,4 @@ You can manage finding status through triage in Semgrep Cloud Platform's **Findi
 
 <TriageStatuses />
 
-:::info
-For more information, see [Getting started with Semgrep Cloud Platform](/semgrep-cloud-platform/getting-started/) and [Managing findings in Semgrep Code](/semgrep-code/findings/).
-:::
-
 <MoreHelp />

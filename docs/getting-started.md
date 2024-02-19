@@ -7,6 +7,8 @@ title: Quickstart
 hide_title: true
 ---
 
+<!-- deprecated doc, but not deleted for archival reasons -->
+
 import MoreHelp from "/src/components/MoreHelp"
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -18,7 +20,7 @@ Detect security issues, vulnerable dependencies, and more by scanning your code 
 The following guide walks you through:
 * Installing Semgrep in your computer locally.
 * Running a single scan for both SAST and SCA.
-* Sending results to [Semgrep Cloud Platform](/semgrep-cloud-platform/getting-started) for triage and analysis.
+* Sending results to [Semgrep Cloud Platform](/deployment/core-deployment/) for triage and analysis.
 
 :::info
 * **Code is not uploaded.** Only **findings** are sent to Semgrep Cloud Platform. 
@@ -167,7 +169,7 @@ You must have Windows Subsystem for Linux installed. To install WSL, refer to Mi
 
 </Tabs>
 
-You have just finished installing and running a Semgrep scan. Use [Semgrep Cloud Platform](/semgrep-cloud-platform/getting-started) to triage your findings and view vulnerabilities.
+You have just finished installing and running a Semgrep scan. Use Semgrep Cloud Platform to triage your findings and view vulnerabilities.
 
 :::tip 
 * You can also run `semgrep scan --config=auto` for **offline-only SAST scans**. No SCA scan is performed with this command. 

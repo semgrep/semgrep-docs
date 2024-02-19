@@ -119,7 +119,7 @@ The following references are available for Semgrep Supply Chain:
 ### Changes
 
 - [CI configuration reference](/semgrep-ci/configuration-reference/) now includes all environment variables for CI, their uses, and how to set them.
-- [Getting started with Semgrep App](/semgrep-cloud-platform/getting-started/) now includes information about the last 10 supported versions of the Semgrep CLI.
+- [Getting started with Semgrep App](/deployment/core-deployment) now includes information about the last 10 supported versions of the Semgrep CLI.
 - [Running Semgrep in continuous integration (CI) with Semgrep App](/semgrep-ci/running-semgrep-ci-with-semgrep-cloud-platform/) now includes a new video Scanning code with Semgrep using GitHub Actions.
 - Updated a document and section that provides information on how to add multiple focus metavariables in:
     - [Including multiple focus metavariables using set union semantics](/writing-rules/experiments/multiple-focus-metavariables/)
@@ -127,5 +127,5 @@ The following references are available for Semgrep Supply Chain:
 - Removing rules from a rule board now removes all associated findings. This change is reflected in the following documents:
     - [Managing findings](/managing-findings/#semgrep-cloud-platform).
     - Section [Triaging findings](/semgrep-code/findings/#triaging-findings) in [Managing findings in Semgrep App](/semgrep-code/findings/).
-    - [Getting started with Semgrep App](/semgrep-cloud-platform/getting-started/).
+    - [Getting started with Semgrep App](/deployment/core-deployment/).
 - Adjustments to the structure of the documentation in our left sidebar. Many iterative changes, improvements, and fixes to improve your docs reading experience.
