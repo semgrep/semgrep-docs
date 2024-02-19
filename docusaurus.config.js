@@ -308,7 +308,7 @@ module.exports = {
 
           //Semgrep Cloud Platform
           { from: "/semgrep-app/dashboard/"                        , to: "/semgrep-cloud-platform/dashboard/" }           ,
-          { from: "/semgrep-app/getting-started-with-semgrep-app/" , to: "/semgrep-cloud-platform/getting-started/" }     ,
+          { from: "/semgrep-app/getting-started-with-semgrep-app/" , to: "/deployment/core-deployment/" }     ,
           { from: "/semgrep-app/pricing-and-billing/"              , to: "/usage-and-billing/" } ,
           { from: "/semgrep-app/scm/"                              , to: "/deployment/connect-scm/" }                 ,
           { from: "/semgrep-app/semgrep-api/"                      , to: "/semgrep-cloud-platform/semgrep-api/" }         ,
@@ -351,6 +351,7 @@ module.exports = {
           { from: "/usage-limits/" , to: "/usage-and-billing/" },
           { from: "/upgrading/" , to: "/update/" },
           { from: "/semgrep-code/getting-started/" , to: "/deployment/core-deployment/" },
+          { from: "/semgrep-cloud-platform/getting-started/" , to: "/deployment/core-deployment/" },
           { from: "/semgrep-cloud-platform/scm/" , to: "/deployment/connect-scm/" }
         ]
       }
