@@ -6,6 +6,8 @@ title: Manage findings
 hide_title: true
 ---
 
+<!-- deprecating - it feels as though the content here should be about testing rules -->
+
 import MoreHelp from "/src/components/MoreHelp"
 import TriageStatuses from "/src/components/reference/_triage-states.mdx"
 
