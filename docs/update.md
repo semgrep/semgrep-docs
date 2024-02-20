@@ -2,7 +2,7 @@
 slug: update
 append_help_link: true
 description: "Update Semgrep by running the correct commands for your environment or operating system."
-title: Updating Semgrep
+title: Update Semgrep
 hide_title: true
 ---
 

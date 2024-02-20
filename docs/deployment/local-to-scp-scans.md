@@ -16,14 +16,13 @@ You can send findings (scan results) from a local repository to Semgrep Cloud Pl
 
 - Locally installed `semgrep`.
 
-
 ## Best practices
 
 You can keep your local scans private and separate from your team by creating a Semgrep organization with only a single user. This is a **personal** org, similar to a personal account in your source code manager. This separation ensures that your findings data does not affect organizational records and trends.
 
 To create an org, perform the steps in [Create additional orgs](/deployment/create-account-and-orgs/#create-additional-orgs). You don't need to perform any other steps.
 
-## Send findings from local repository scan to SCP`
+## Send findings from local repository scan to SCP
 
 1. Ensure that you are signed into Semgrep Cloud Platform in the org you want to send findings to. It is recommended to send local repository findings to your **personal** org.
 2. In your CLI, log in to Semgrep:

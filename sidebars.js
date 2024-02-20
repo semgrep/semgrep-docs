@@ -49,8 +49,8 @@ module.exports = {
               link: {type: 'generated-index'},
               items: [
                 'getting-started/cli',
+                'update',
                 'deployment/local-to-scp-scans',
-                'update'
               ]
             },
         ]
