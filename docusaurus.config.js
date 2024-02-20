@@ -353,7 +353,8 @@ module.exports = {
           { from: "/semgrep-code/getting-started/" , to: "/deployment/core-deployment/" },
           { from: "/semgrep-cloud-platform/getting-started/" , to: "/deployment/core-deployment/" },
           { from: "/semgrep-cloud-platform/scm/" , to: "/deployment/connect-scm/" },
-          { from: "/managing-findings//" , to: "/semgrep-ci/findings-ci/" }
+          { from: "/managing-findings/" , to: "/semgrep-ci/findings-ci/" },
+          { from: "/semgrep-supply-chain/notifications/" , to: "/semgrep-cloud-platform/github-pr-comments/" } //we can't reference a category page fyi
         ]
       }
     ],
