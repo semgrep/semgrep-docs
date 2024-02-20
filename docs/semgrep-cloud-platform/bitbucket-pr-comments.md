@@ -95,11 +95,14 @@ To complete the configuration, follow the [Adding Semgrep to your Bitbucket CI p
 
 </Tabs>
 
-## Enabling PR comments in Bitbucket Cloud
+## Enable PR comments in Bitbucket Cloud
 
-:::info Prerequisite
-* You must have a Bitbucket Cloud [workspace access token](/semgrep-code/notifications/#creating-and-adding-a-workspace-access-token) or a [repository access token](/semgrep-code/notifications/#creating-and-adding-a-repository-access-token).
-:::
+### Prerequisites
+
+- In addition to finishing the previous steps in your deployment journey, it is recommended to have completed a **full scan** on your **default branch** for the repository in which you want to receive comments.
+- You must have a Bitbucket Cloud [workspace access token](/semgrep-code/notifications/#creating-and-adding-a-workspace-access-token) or a [repository access token](/semgrep-code/notifications/#creating-and-adding-a-repository-access-token).
+
+### Define the `BITBUCKET_TOKEN` environment variable
 
 To enable PR comments, define the `BITBUCKET_TOKEN` environment variable in your CI configuration file. Its syntax and placement in your CI configuration file depends on your CI provider. For example, in Bitbucket Pipelines, its syntax is the following:
 

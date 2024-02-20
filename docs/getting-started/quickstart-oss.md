@@ -2,10 +2,11 @@
 slug: quickstart-oss
 title: Quickstart
 hide_title: true
-description: tk
+description: Install Semgrep and scan your first repository.
 displayed_sidebar: ossSidebar
 tags:
-  - tk
+  - Semgrep OSS
+  - CLI
 ---
 
 import MoreHelp from "/src/components/MoreHelp"

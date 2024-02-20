@@ -318,7 +318,7 @@ module.exports = {
           { from: "/semgrep-sc/scanning-open-source-dependencies/"        , to: "/semgrep-supply-chain/getting-started/" }                 ,
           { from: "/semgrep-sc/sc-glossary/"                              , to: "/semgrep-supply-chain/glossary/" }                        ,
           { from: "/semgrep-sc/ignoring-lockfiles-dependencies/"          , to: "/semgrep-supply-chain/ignoring-lockfiles-dependencies/" } ,
-          { from: "/semgrep-sc/receiving-notifications-from-ssc/"         , to: "/semgrep-supply-chain/notifications/" }                   ,
+          { from: "/semgrep-sc/receiving-notifications-from-ssc/"         , to: "/semgrep-cloud-platform/github-pr-comments/" }                   ,
           { from: "/semgrep-sc/semgrep-supply-chain-overview/"            , to: "/semgrep-supply-chain/overview/" }                        ,
           { from: "/semgrep-sc/triaging-and-remediating-vulnerabilities/" , to: "/semgrep-supply-chain/triage-and-remediation/" },
 
@@ -347,7 +347,7 @@ module.exports = {
           { from: "/sso", to: "/deployment/sso/" },
           { from: "/semgrep-cloud-platform/sso", to: "/deployment/sso/" },
           { from: "/semgrep-app/sso/"                              , to: "/deployment/sso/" },
-          /* JAN 30 2024  */
+          /* JAN 30 - FEB 20 2024  */
           { from: "/usage-limits/" , to: "/usage-and-billing/" },
           { from: "/upgrading/" , to: "/update/" },
           { from: "/semgrep-code/getting-started/" , to: "/deployment/core-deployment/" },

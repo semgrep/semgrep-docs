@@ -2,7 +2,7 @@
 slug: beyond-core-deployment
 title: Beyond core deployment
 hide_title: true
-description: tk
+description: A guide to common tasks after setting up core Semgrep features.
 tags:
   - Deployment
 ---

@@ -2,7 +2,7 @@
 slug: checklist
 append_help_link: true
 title: Pre-deployment checklist
-description: tk
+description: Use this checklist to ensure a smooth deployment of Semgrep in your organization.
 tags:
   - Deployment
 ---

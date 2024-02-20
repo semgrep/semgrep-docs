@@ -4,7 +4,8 @@ title: Upload local scan findings
 hide_title: true
 description: Send your local scans to Semgrep Cloud Platform to view and track your findings.
 tags:
-  - tk
+  - CLI
+  - Semgrep Cloud Platform
 ---
 
 # Scan local repositories and upload findings 
