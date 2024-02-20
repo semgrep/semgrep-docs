@@ -30,18 +30,6 @@ _Figure 1_. Screenshot of a PR comment from SSC in a GitHub repository.
 
 Semgrep Supply Chain can post GitHub pull request (PR) or GitLab merge request (MR) comments to notify developers of **third-party [reachable](/docs/semgrep-supply-chain/glossary/#reachability) vulnerabilities**. The following information is provided:
 
-<dl>
-<dt>Risk</dt>
-<dd>A description of the vulnerability, including the types of attack it is vulnerable to.</dd>
-<dt>Fix</dt>
-<dd>Indicates what versions to upgrade to, if any, that resolves or eliminates the vulnerability.</dd>
-<dt>Reference</dt>
-<dd>A link to additional information about the vulnerability from <a href="https://github.com/advisories">GitHub Advisory Database</a> and the <a href="https://nvd.nist.gov/vuln">National Vulnerability Database (NVD)</a>, if available.</dd>
-</dl>
-
-:::info
-Pull or merge requests with vulnerabilities detected by SSC are **not** blocked from merging.
-:::
 
 
 ### Enabling Semgrep Supply Chain to send PRs or MRs
@@ -79,19 +67,5 @@ To ensure that you have enabled Semgrep Cloud Platform to send PR or MR comments
 </tr>
 </table>
 
-### Prevent or block developers from merging a PR or MR when a reachable vulnerability has been detected
-
-Both GitHub and GitLab provide features to prevent or block a PR or MR from merging based on certain conditions. Refer to the links below to prevent PRs or MRs from merging when a reachable finding is detected:
-
-<table>
-<tr>
-    <td>GitHub</td>
-    <td><a href="https://docs.github.com/en/repositories/configuring-branches-and-merges-in-your-repository/defining-the-mergeability-of-pull-requests/about-protected-branches#require-conversation-resolution-before-merging">Require conversation resolution before merging</a></td>
-</tr>
-<tr>
-    <td>GitLab</td>
-    <td><a href="https://docs.gitlab.com/ee/user/discussions/#prevent-merge-unless-all-threads-are-resolved">Prevent merge unless all threads are resolved</a></td>
-</tr>
-</table>
 
 <MoreHelp />
