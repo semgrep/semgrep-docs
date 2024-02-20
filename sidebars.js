@@ -281,9 +281,18 @@ module.exports = {
       label: 'References',
       collapsible: false,
       items: [
+        {
+            type: 'category',
+            label: 'CI references',
+            collapsible: true,
+            link: {type: 'generated-index'},
+            items: [
+                'semgrep-ci/ci-environment-variables',
+                'semgrep-ci/sample-ci-configs',
+                'semgrep-ci/findings-ci'
+            ]
+        },
         'cli-reference',
-        'semgrep-ci/ci-environment-variables',
-        'semgrep-ci/sample-ci-configs',
         'semgrep-supply-chain/glossary',
         'usage-and-billing'
         ]
@@ -447,8 +456,8 @@ module.exports = {
         collapsible: false,
         items: [
             'running-rules',
-            'managing-findings',
-            'ignoring-files-folders-code',
+            'getting-started/cli-oss',
+            'ignoring-files-folders-code'
         ]
     },
     {

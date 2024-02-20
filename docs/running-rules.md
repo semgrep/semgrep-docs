@@ -107,8 +107,7 @@ To run multiple rules simultaneously, use `--config` before every YAML URL, or S
 
 ## Findings
 
-* See [Managing findings](../managing-findings/) for information on Semgrep findings.
-* See [Ignoring findings](../ignoring-files-folders-code/) for details on suppressing rule output.
+See [Ignoring findings](../ignoring-files-folders-code/) for details on suppressing rule output.
 
 ## Next steps
 

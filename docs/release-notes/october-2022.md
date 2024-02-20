@@ -125,7 +125,7 @@ The following references are available for Semgrep Supply Chain:
     - [Including multiple focus metavariables using set union semantics](/writing-rules/experiments/multiple-focus-metavariables/)
     - [Including multiple focus metavariables using set intersection semantics](/writing-rules/rule-syntax/#including-multiple-focus-metavariables-using-set-intersection-semantics)
 - Removing rules from a rule board now removes all associated findings. This change is reflected in the following documents:
-    - [Managing findings](/managing-findings/#semgrep-cloud-platform).
+    - [Managing findings](/semgrep-ci/findings-ci/#semgrep-code-findings).
     - Section [Triaging findings](/semgrep-code/findings/#triaging-findings) in [Managing findings in Semgrep App](/semgrep-code/findings/).
     - [Getting started with Semgrep App](/deployment/core-deployment/).
 - Adjustments to the structure of the documentation in our left sidebar. Many iterative changes, improvements, and fixes to improve your docs reading experience.

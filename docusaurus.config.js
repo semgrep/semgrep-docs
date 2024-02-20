@@ -352,7 +352,8 @@ module.exports = {
           { from: "/upgrading/" , to: "/update/" },
           { from: "/semgrep-code/getting-started/" , to: "/deployment/core-deployment/" },
           { from: "/semgrep-cloud-platform/getting-started/" , to: "/deployment/core-deployment/" },
-          { from: "/semgrep-cloud-platform/scm/" , to: "/deployment/connect-scm/" }
+          { from: "/semgrep-cloud-platform/scm/" , to: "/deployment/connect-scm/" },
+          { from: "/managing-findings//" , to: "/semgrep-ci/findings-ci/" }
         ]
       }
     ],
