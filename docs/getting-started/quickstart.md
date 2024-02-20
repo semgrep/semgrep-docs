@@ -39,13 +39,13 @@ You must have Python 3.8 or later installed on the machine where the Semgrep CLI
     1. Install the Semgrep CLI and confirm the installation:
 
         ```console
-        # with homebrew
+        # install through homebrew
         brew install semgrep
 
-        # with pip
+        # install through pip
         python3 -m pip install semgrep
 
-        # confirm
+        # confirm installation succeeded by printing the currently installed version
         semgrep --version
         ```
 
@@ -74,10 +74,10 @@ You must have Python 3.8 or later installed on the machine where the Semgrep CLI
     1. Install the Semgrep CLI and confirm the installation:
 
         ```console
-        # install
+        # install through pip
         python3 -m pip install semgrep
 
-        # confirm
+        # confirm installation succeeded by printing the currently installed version
         semgrep --version
         ```
 
@@ -106,10 +106,10 @@ You must have Python 3.8 or later installed on the machine where the Semgrep CLI
     1. Using the WSL interface, install the Semgrep CLI and confirm the installation:
 
         ```console
-        #install
+        # install through pip
         python3 -m pip install semgrep
 
-        # confirm
+        # confirm installation succeeded by printing the currently installed version 
         semgrep --version
         ```
 
