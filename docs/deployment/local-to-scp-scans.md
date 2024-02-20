@@ -24,7 +24,7 @@ To create an org, perform the steps in [Create additional orgs](/deployment/crea
 
 ## Send findings from local repository scan to SCP
 
-1. Ensure that you are signed into Semgrep Cloud Platform in the org you want to send findings to. It is recommended to send local repository findings to your **personal** org.
+1. Ensure that you are signed into Semgrep Cloud Platform and you've switched to the org you want to send findings to. It is recommended to send local repository findings to your **personal** org.
 2. In your CLI, log in to Semgrep:
 ```
 semgrep login
