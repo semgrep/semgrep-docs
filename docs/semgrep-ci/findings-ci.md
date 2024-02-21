@@ -9,7 +9,7 @@ tags:
 
 import TriageStatuses from "/src/components/reference/_triage-states.mdx"
 
-When running any Semgrep Pro product in CI, it is able to track the lifetime of an individual finding. When configured to perform a diff-aware scan, it only shows new findings relative to some specified baseline commit.
+When running any Semgrep Pro product in CI, Semgrep is able to track the lifetime of an individual finding. When configured to perform a diff-aware scan, Semgrep only shows new findings relative to some specified baseline commit.
 
 In the code, a Semgrep finding in CI is defined by a 4-tuple:
 
