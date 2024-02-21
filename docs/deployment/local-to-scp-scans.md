@@ -53,7 +53,7 @@ Refer to the following image for an example of both remote and local Projects in
 
 When sending findings from local repositories to Semgrep Cloud Platform, the links shown on the **Findings** page are not generated. They may be missing, or they may not link to the correct file. This is because the scan was performed on your local repository, not remote.
 
-You can optionally set up cross-linking between local and remote repositories to create the correct hyperlinks. Set up environment variables through the CLI:
+You can optionally set up cross-linking between local and remote repositories to create the correct hyperlinks. To do so, set up environment variables through the CLI:
 
 1. Navigate to the root of your repo.
 2. Create the `SEMGREP_REPO_URL` variable, setting it to the URL you'd use to access your online repo:
@@ -90,7 +90,7 @@ After performing these steps, rescan your repository to correctly generate links
 
 ### Sample values
 
-The following is an example of the variables you'd need to create, along with sample values:
+The following is an example of the variables you'd need to create to generate links in SCP, along with sample values:
 
 ```console
 # Set the repository URL
