@@ -10,7 +10,7 @@ import MoreHelp from "/src/components/MoreHelp"
 
 # Reporting false negatives
 
-Submit an issue on the [Semgrep issue tracker](https://github.com/returntocorp/semgrep/issues).
+Submit an issue on the [Semgrep issue tracker](https://github.com/semgrep/semgrep/issues).
 If applicable, include a [Semgrep Playground](https://semgrep.dev/playground) link with a **rule** and some **test code** illustrating the false negative.
 
 <MoreHelp />

@@ -26,15 +26,15 @@ JSON output now includes a fingerprint of each finding. This fingerprint remains
 
 #### Go improvement
 
-Use latest `tree-sitter-go` with support for Go 1.18 generics. ([#4823](https://github.com/returntocorp/semgrep/issues/4823))
+Use latest `tree-sitter-go` with support for Go 1.18 generics. ([#4823](https://github.com/semgrep/semgrep/issues/4823))
 
 #### Terraform support
 
-Basic support for constant propagation of locals and variables. ([#1147](https://github.com/returntocorp/semgrep/issues/1147), [#4816](https://github.com/returntocorp/semgrep/issues/4816))
+Basic support for constant propagation of locals and variables. ([#1147](https://github.com/semgrep/semgrep/issues/1147), [#4816](https://github.com/semgrep/semgrep/issues/4816))
 
 #### Ellipsis metavariable in HTML
 
-You can now use metavariable ellipsis inside a `<script>` tag. For example `<script>$...JS</script>`. ([#4841](https://github.com/returntocorp/semgrep/issues/4841)) 
+You can now use metavariable ellipsis inside a `<script>` tag. For example `<script>$...JS</script>`. ([#4841](https://github.com/semgrep/semgrep/issues/4841)) 
 
 #### Semgrep CI is now a part of Semgrep CLI
 
@@ -44,7 +44,7 @@ You can now run Semgrep CI with `semgrep ci` subcommand that auto-detects settin
 
 #### SARIF output
 
-SARIF output includes matching code snippet ([#4812](https://github.com/returntocorp/semgrep/issues/4812))
+SARIF output includes matching code snippet ([#4812](https://github.com/semgrep/semgrep/issues/4812))
 
 #### Python wheel
 
@@ -64,11 +64,11 @@ Docker image now runs as root to allow the docker image to be used in CI/CD pipe
 
 #### XDG Base Directory
 
-Semgrep now supports XDG Base Directory specification format. ([#4818](https://github.com/returntocorp/semgrep/issues/4818))
+Semgrep now supports XDG Base Directory specification format. ([#4818](https://github.com/semgrep/semgrep/issues/4818))
 
 ### Additional information
 
-To see the complete change notes, visit the [Semgrep changelog](https://github.com/returntocorp/semgrep/releases/).
+To see the complete change notes, visit the [Semgrep changelog](https://github.com/semgrep/semgrep/releases/).
 
 ## Version 0.85.0
 
@@ -80,7 +80,7 @@ Semgrep uses the latest tree-sitter-c-sharp with support for most C 10.0 feature
 
 #### HTML improvement
 
-Support for metavariables on tags (for example: `<$TAG>...</$TAG>`). ([#4078](https://github.com/returntocorp/semgrep/issues/4078))
+Support for metavariables on tags (for example: `<$TAG>...</$TAG>`). ([#4078](https://github.com/semgrep/semgrep/issues/4078))
 
 #### Scala improvement
 
@@ -88,7 +88,7 @@ The data-flow engine now handles expression blocks. Previously, Semgrep did not 
 
 #### Dockerfile improvement
 
-Allow for example `CMD …` to match both `CMD ls` and `CMD ["ls"]`. ([#4770](https://github.com/returntocorp/semgrep/issues/4770))
+Allow for example `CMD …` to match both `CMD ls` and `CMD ["ls"]`. ([#4770](https://github.com/semgrep/semgrep/issues/4770))
 
 #### Semgrep informs about used rules for multiple languages
 
@@ -98,7 +98,7 @@ When scanning multiple languages, Semgrep now prints a table of how many rules a
 
 #### File targeting logic
 
-The following inconsistencies were fixed: ([#4776](https://github.com/returntocorp/semgrep/pull/4776))
+The following inconsistencies were fixed: ([#4776](https://github.com/semgrep/semgrep/pull/4776))
 
 #### Explicitly targeted files are now unaffected by global filters
 
@@ -130,7 +130,7 @@ Semgrep does not stop at the first match and enumerates all possible matches if 
 
 ### Additional information
 
-To see the complete change notes, visit the [Semgrep changelog](https://github.com/returntocorp/semgrep/releases/tag/v0.85.0).
+To see the complete change notes, visit the [Semgrep changelog](https://github.com/semgrep/semgrep/releases/tag/v0.85.0).
 
 ## Version 0.84.0
 
@@ -138,7 +138,7 @@ To see the complete change notes, visit the [Semgrep changelog](https://github.c
 
 #### Semgrep CLI lists supported languages
 
-Semgrep CLI now includes `--show-supported-languages` flag to display the list of languages supported by Semgrep. Thanks to John Wu for this contribution! ([#4754](https://github.com/returntocorp/semgrep/pull/4754))
+Semgrep CLI now includes `--show-supported-languages` flag to display the list of languages supported by Semgrep. Thanks to John Wu for this contribution! ([#4754](https://github.com/semgrep/semgrep/pull/4754))
 
 #### JSX (JavaScript) improvement
 
@@ -153,15 +153,15 @@ The `semgrep --config [file] --validate` now checks for invalid metavariables.
 
 #### The `project-depends-on` now supports more languages
 
-You can now use `r2c-internal-project-depends-on` with lockfiles for Java, Go, Ruby, and Rust. ([#4699](https://github.com/returntocorp/semgrep/pull/4699))
+You can now use `r2c-internal-project-depends-on` with lockfiles for Java, Go, Ruby, and Rust. ([#4699](https://github.com/semgrep/semgrep/pull/4699))
 
 #### Improved PHP support
 
-Semgrep now treats TPL files as PHP files. ([#4763](https://github.com/returntocorp/semgrep/pull/4763))
+Semgrep now treats TPL files as PHP files. ([#4763](https://github.com/semgrep/semgrep/pull/4763))
 
 #### Improved Scala support
 
 Semgrep CLI now provides the following improvements for Scala language scans:
 
-- Custom string interpolators. ([#4655](https://github.com/returntocorp/semgrep/issues/4655))
+- Custom string interpolators. ([#4655](https://github.com/semgrep/semgrep/issues/4655))
 - Support for parsing scripts that contain plain definitions outside of an object or class.

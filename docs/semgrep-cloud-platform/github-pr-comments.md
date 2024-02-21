@@ -76,7 +76,12 @@ Ensure that Semgrep's GitHub app (`semgrep-app`) has sufficient permissions to p
 **Figure** Permissions for all repositories.
 
 ![Semgrep GitHub app permissions - select repositories](/img/gh-app-permissions-select.png#bordered)
+<<<<<<< HEAD
 **Figure** Permissions for select repositories. Ensure the repositories you have onboarded to Semgrep Cloud Platform are selected.
+=======
+**Figure** Permissions for select repos. Ensure the repositories you have onboarded to Semgrep Cloud Platform are selected.
+
+>>>>>>> main
 
 For GitHub Actions users, no further steps need to be undertaken. Continue setting up Semgrep Code PR comments by [setting rules to Comment or Block mode](#set-rules-to-comment-or-block-mode).
 

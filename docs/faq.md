@@ -21,7 +21,7 @@ import TOCInline from "@theme/TOCInline"
 
 #### Semgrep OSS Engine
 
-The [Semgrep Engine](https://github.com/returntocorp/semgrep) is open-source, licensed under [LGPL 2.1](https://tldrlegal.com/license/gnu-lesser-general-public-license-v2.1-(lgpl-2.1)) - you can use it at work, on private and proprietary code, no problem!
+The [Semgrep Engine](https://github.com/semgrep/semgrep) is open-source, licensed under [LGPL 2.1](https://tldrlegal.com/license/gnu-lesser-general-public-license-v2.1-(lgpl-2.1)) - you can use it at work, on private and proprietary code, no problem!
 
 The Semgrep team provides two paid products:
 
@@ -30,19 +30,19 @@ The Semgrep team provides two paid products:
 
 #### Semgrep Registry
 
-The [Semgrep Registry](https://semgrep.dev/explore) contains rules from different contributors. Semgrep Registry rules written by the Semgrep team are licensed under the [Commons Clause](https://github.com/returntocorp/semgrep-rules/blob/develop/LICENSE). The source for these Registry rules is available at [returntocorp/semgrep-rules](https://github.com/returntocorp/semgrep-rules/). Those rules licensed under the Commons Clause license cannot be resold without Semgrep, Inc. (“Semgrep”)’s permission. Since Semgrep offers a paid, hosted application, it’s important to have this restriction so other companies, like major cloud providers, cannot resell Semgrep’s rules as a competing service.
+The [Semgrep Registry](https://semgrep.dev/explore) contains rules from different contributors. Semgrep Registry rules written by the Semgrep team are licensed under the [Commons Clause](https://github.com/semgrep/semgrep-rules/blob/develop/LICENSE). The source for these Registry rules is available at [semgrep/semgrep-rules](https://github.com/semgrep/semgrep-rules/). Those rules licensed under the Commons Clause license cannot be resold without Semgrep, Inc. (“Semgrep”)’s permission. Since Semgrep offers a paid, hosted application, it’s important to have this restriction so other companies, like major cloud providers, cannot resell Semgrep’s rules as a competing service.
 
 [Semgrep Code](https://semgrep.dev/products/semgrep-code)’s Team tier includes Pro rules which are proprietary and only available to paying customers.
 
 ### Is it ok to run Semgrep or Semgrep, Inc rules on my work projects?
 
-Yes! Semgrep is safe to run on your private code. The [Semgrep Registry license’s](https://github.com/returntocorp/semgrep-rules/blob/develop/LICENSE) commercial restrictions only come into effect if you are *selling* a product using rules provided in the Semgrep Registry. If that’s the case, contact **partners@semgrep.com** for a license.
+Yes! Semgrep is safe to run on your private code. The [Semgrep Registry license’s](https://github.com/semgrep/semgrep-rules/blob/develop/LICENSE) commercial restrictions only come into effect if you are *selling* a product using rules provided in the Semgrep Registry. If that’s the case, contact **partners@semgrep.com** for a license.
 
 ### I’m a security professional. Do I have to pay for Semgrep?
 
 If you are a security consultant and you want to use Semgrep OSS Engine with the Semgrep Community Rules as part of your assessments, that’s great and you don’t have to pay. Of course feel free to refer your clients to our [Semgrep](https://semgrep.dev/) product suite.
 
-If your service delivers code scanning (meaning a service that includes static application security testing (SAST) or software composition analysis (SCA)) and you want to charge for scanning that includes rules in the [semgrep-rules repository](https://github.com/returntocorp/semgrep-rules), you need an explicit license. For more information, please contact partners@semgrep.com.
+If your service delivers code scanning (meaning a service that includes static application security testing (SAST) or software composition analysis (SCA)) and you want to charge for scanning that includes rules in the [semgrep-rules repository](https://github.com/semgrep/semgrep-rules), you need an explicit license. For more information, please contact partners@semgrep.com.
 
 If you want to use Semgrep Code, including its proprietary cross-file (interfile) analysis, the Pro Engine, Semgrep Supply Chain (SCA), or Semgrep Pro rules as part of your consulting services, you need a license. Please contact us at sales@semgrep.com.
 
@@ -50,7 +50,7 @@ If you want to use Semgrep Code, including its proprietary cross-file (interfile
 
 Yes, you can use the Semgrep OSS Engine in your own code analysis software, subject to the terms of the LGPL 2.1 license (among other things, you must open source any modification you make to it). If you are writing your own, original rules for your scanner, there are no further restrictions. But your rules cannot be derived from Semgrep Community Rules or Semgrep Pro Rules (see below).
 
-The Semgrep Community Rules are licensed under the [Commons Clause](https://github.com/returntocorp/semgrep-rules/blob/develop/LICENSE). You can use the Semgrep community rules as long as you are shipping a free and open-source software (FOSS) product. You have to open source any modifications you have done to the rules.
+The Semgrep Community Rules are licensed under the [Commons Clause](https://github.com/semgrep/semgrep-rules/blob/develop/LICENSE). You can use the Semgrep community rules as long as you are shipping a free and open-source software (FOSS) product. You have to open source any modifications you have done to the rules.
 
 You **cannot** ship the Semgrep Community rules in a commercial product without an explicit license from Semgrep, Inc. For more information, please contact partners@semgrep.com.
 
@@ -130,6 +130,10 @@ For SCA, reachability analysis is critical to cut down noise and reduce false po
 
 For SAST, both Semgrep and Snyk offer good solutions out of the box, however writing custom rules is easier and more scalable with Semgrep, enabling you to accomodate issues specific to your codebase that no vendor could out-of-box. Semgrep supports 30+ languages whereas Snyk supports 14.
 
+For secrets scanning, Semgrep Secrets leverages semantic analysis, entropy analysis, and validation to accurately detect and fix secrets. Snyk has a [business partnership with GitGuardian](https://blog.gitguardian.com/were-teaming-up-with-snyk-to-strengthen-developer-security/) to offer their secret scanning to Snyk customers.
+
+See the [Semgrep vs. Snyk webpage](https://semgrep.dev/resources/semgrep-vs-snyk) for a more detailed comparison between the two.
+
 ### Comparing Semgrep to SonarQube
 
 Both Semgrep and SonarQube use static analysis to find bugs, but there are a few differences:
@@ -160,20 +164,20 @@ No. Semgrep CI runs fully in your CI pipeline and your source-code never leaves 
 
 ### What data is stored?
 
-[Semgrep](https://github.com/returntocorp/semgrep) may send data to Semgrep App in accordance with the [metrics policy](/metrics).
+[Semgrep](https://github.com/semgrep/semgrep) may send data to Semgrep App in accordance with the [metrics policy](/metrics).
 
 Configure Semgrep CI to explicitly send two types of data to Semgrep App. These types of data are scan data and findings data.
 
 - Scan data includes project name, CI environment, and scan meta-data.
 - Findings data are used to provide human-readable content for notifications and integrations, as well as tracking results as new, fixed, or duplicate.
 
-For more information and a detailed description of each data field, refer to [the relevant section in PRIVACY.md](https://github.com/returntocorp/semgrep/blob/develop/PRIVACY.md#data-collected-when-explicitly-requested).
+For more information and a detailed description of each data field, refer to [the relevant section in PRIVACY.md](https://github.com/semgrep/semgrep/blob/develop/PRIVACY.md#data-collected-when-explicitly-requested).
 
 ### What network requests are made?
 
 Semgrep CI makes network requests in accordance with the data storage previously mentioned.
 
-[Semgrep](https://github.com/returntocorp/semgrep) makes the following network requests:
+[Semgrep](https://github.com/semgrep/semgrep) makes the following network requests:
 
 - When running without `--disable-version-check`, Semgrep makes a network request to check for updates.
 - When providing a URL to `--output`, Semgrep performs an HTTP `POST` of the results to the specified URL.

@@ -35,7 +35,7 @@ This document provides information about supported languages and language maturi
 
 ## Semgrep Code 
 
-Secure your code quickly and continuously by scanning with Semgrep Code, our SAST (Static Application Security Testing) product, powered by Semgrep OSS Engine and Semgrep Pro Engine. The Semgrep OSS Engine is the foundation of Semgrep, it's our [open-source engine](https://github.com/returntocorp/semgrep), designed for fast code analysis. The Semgrep Pro Engine is designed for advanced code analysis, designed to catch complex vulnerabilities and reduce false positives. Use Semgrep Code to quickly find and fix vulnerabilities in your code base. 
+Secure your code quickly and continuously by scanning with Semgrep Code, our SAST (Static Application Security Testing) product, powered by Semgrep OSS Engine and Semgrep Pro Engine. The Semgrep OSS Engine is the foundation of Semgrep, it's our [open-source engine](https://github.com/semgrep/semgrep), designed for fast code analysis. The Semgrep Pro Engine is designed for advanced code analysis, designed to catch complex vulnerabilities and reduce false positives. Use Semgrep Code to quickly find and fix vulnerabilities in your code base. 
 
 ### Language maturity
 Semgrep Code supports over 30 languages and counting! 🚀 
@@ -73,8 +73,8 @@ Their differences are outlined in the following table:
 
 ### More information
 Visit the cheat sheet generation script and associated semgrep-core test files to learn more about each feature:
-* [Generation script](https://github.com/returntocorp/semgrep/blob/develop/scripts/generate_cheatsheet.py)
-* [`semgrep-core` test files](https://github.com/returntocorp/semgrep/tree/develop/tests)
+* [Generation script](https://github.com/semgrep/semgrep/blob/develop/scripts/generate_cheatsheet.py)
+* [`semgrep-core` test files](https://github.com/semgrep/semgrep/tree/develop/tests)
 
 Visit the Semgrep public language dashboard to see the parse rates for each language
 * See [Parse rates by language](https://dashboard.semgrep.dev/).
@@ -87,7 +87,7 @@ Visit the Semgrep public language dashboard to see the parse rates for each lang
 
 <SscIntro/>
 
-Semgrep Supply Chain parses **lockfiles** for dependencies, then scans your codebase for reachable findings based on the lockfiles. Some languages, such as Java, have several lockfiles, depending on your repository's package manager. For some languages, such as JavaScript and Python, a manifest file is also parsed.
+Semgrep Supply Chain parses **lockfiles** for dependencies, then scans your codebase for reachable findings based on the lockfiles. Some languages, such as Java, have several lockfiles, depending on your repository's package manager. For some languages, such as JavaScript and Python, a manifest file is also parsed to determine [transitivity](/docs/semgrep-supply-chain/glossary/#transitive-or-indirect-dependency).
 
 <table>
 <thead><tr>
@@ -289,6 +289,6 @@ module.exports = get_user
 
 ### Regressions in Semgrep Pro
 
-For cross-file (interfile) analysis, Semgrep Pro Engine resolves names differently than Semgrep OSS. Consequently, rules with `interfile: true` may produce different results than Semgrep OSS Engine. Some instances could be regarded as regressions; if you encounter them, please file a bug report. When you need to report a bug in Semgrep Pro Engine, go through [support@semgrep.com](mailto:support@semgrep.com). You can also contact us through [Semgrep Community Slack group](https://go.semgrep.dev/slack).
+For cross-file (interfile) analysis, Semgrep Pro Engine resolves names differently than Semgrep OSS. Consequently, rules with `interfile: true` may produce different results than Semgrep OSS Engine. Some instances could be regarded as regressions; if you encounter them, please file a bug report. When you need to report a bug in Semgrep Pro Engine, go through [Semgrep Support](/docs/support/). You can also contact us through [Semgrep Community Slack group](https://go.semgrep.dev/slack).
 
 <MoreHelp />

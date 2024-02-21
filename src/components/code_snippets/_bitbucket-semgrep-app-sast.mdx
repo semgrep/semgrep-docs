@@ -7,7 +7,7 @@ pipelines:
       - step:
           name: 'Run Semgrep scan with current branch'
           deployment: dev # https://support.atlassian.com/bitbucket-cloud/docs/set-up-and-monitor-deployments/
-          image: returntocorp/semgrep
+          image: semgrep/semgrep
           script:
             # The following variables are required to set up a scan connected to Semgrep Cloud Platform:
             - export SEMGREP_APP_TOKEN=$SEMGREP_APP_TOKEN

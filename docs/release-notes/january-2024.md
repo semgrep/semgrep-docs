@@ -1,10 +1,10 @@
 ---
-slug: latest
-append_help_link: true
-title: Latest release notes
+slug: january-2024
 hide_title: true
-description: Release notes include the changes, fixes, and additions in specific versions of Semgrep.
+description: >-
+    Release notes include the changes, fixes, and additions in specific versions of Semgrep.
 toc_max_heading_level: 3
+title: January 2024
 tags:
   - Release notes
 ---
@@ -73,7 +73,7 @@ tags:
 - **C++ with Semgrep Pro Engine**: Improved translation of delete expressions to the dataflow so that
 recently added at-exit sinks work on them. Previously, delete expression at "exit" positions were not being properly recognized as such. <!-- (pa-3339) -->
 
-## 🔐 Secrets (beta)
+### Changed
 
 - Improved loading times for **Dashboard** and **Findings** pages.
 - Redesigned the **Findings** page to display issues present on multiple branches,

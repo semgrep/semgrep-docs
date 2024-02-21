@@ -1,6 +1,6 @@
 If you aren't seeing your GitHub repos in the Cloud Platform, complete the following steps to ensure that your GitHub repository is **detected** by Semgrep Cloud Platform:
 
-1. Log into GitHub.
+1. Log in to GitHub.
 2. Perform one of the following steps:
     1. For repositories in personal accounts: Click your **profile photo > Settings > Applications**.
     2. For repositories in org accounts: Click your **profile photo > Your organizations > <span class ="placeholder">NAME_OF_ORG</span> > Settings > GitHub Apps**.

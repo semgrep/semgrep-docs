@@ -10,7 +10,7 @@ module.exports = {
   onBrokenLinks: 'warn',
   onBrokenMarkdownLinks: 'warn',
   favicon: 'img/favicon.ico',
-  organizationName: 'returntocorp', // Usually your GitHub org/user name.
+  organizationName: 'semgrep', // Usually your GitHub org/user name.
   projectName: 'semgrep', // Usually your repo name.
   trailingSlash: true,
   themes: ['@markprompt/docusaurus-theme-search'],
@@ -82,7 +82,7 @@ module.exports = {
             },
             {
               label: 'GitHub',
-              href: 'https://github.com/returntocorp/semgrep'
+              href: 'https://github.com/semgrep/semgrep'
             },
             {
               label: 'Twitter',
@@ -120,7 +120,7 @@ module.exports = {
             },
             {
               label: 'Issues',
-              href: 'https://github.com/returntocorp/semgrep/issues',
+              href: 'https://github.com/semgrep/semgrep/issues',
             },
             {
               label: 'Terms of service',
@@ -215,7 +215,7 @@ module.exports = {
           sidebarPath: require.resolve('./sidebars.js'),
           // Please change this to your repo.
           editUrl:
-            'https://github.com/returntocorp/semgrep-docs/edit/main',
+            'https://github.com/semgrep/semgrep-docs/edit/main',
           routeBasePath: '/'
         },
         theme: {

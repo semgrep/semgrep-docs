@@ -48,4 +48,8 @@ For cross-file and cross-function analysis (interfile and interprocedural analys
 
 - Read the [Trail of Bits Automated Testing Handbook](https://appsec.guide/) to learn about configuring and optimizing security tools, including Semgrep.
 
+## Further reading
+
+- Read the [Trail of Bits Automated Testing Handbook](https://appsec.guide/) to learn about configuring and optimizing security tools, including Semgrep.
+
 <MoreHelp />

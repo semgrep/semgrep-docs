@@ -59,16 +59,16 @@ This section of release notes include upgrades of Semgrep OSS Engine for version
     ![release-notes-march2023-cli-output-new.png](/img/release-notes-march2023-cli-output-new.png)
     *Figure 2. New Semgrep CLI output.*
     
-- The latest update to`returntocorp/semgrep` Docker images removes the custom entry point that was previously used to invoke Semgrep. As a result, you must now explicitly call `semgrep` when running the image. This change was already made approximately a year ago. In this update, the backward compatibility layer and a deprecation notice have been removed.
+- The latest update to`semgrep/semgrep` Docker images removes the custom entry point that was previously used to invoke Semgrep. As a result, you must now explicitly call `semgrep` when running the image. This change was already made approximately a year ago. In this update, the backward compatibility layer and a deprecation notice have been removed.
     
-    Previously, you could scan your code using the `returntocorp/semgrep` image by running the following command:
+    Previously, you could scan your code using the `semgrep/semgrep` image by running the following command:
     ```bash
-    docker run -v $(pwd):/src returntocorp/semgrep scan ...
+    docker run -v $(pwd):/src semgrep/semgrep scan ...
     ```
 
     However, this command no longer works. Instead, you must use the following command to achieve the same result:
     ```bash
-    docker run -v $(pwd):/src returntocorp/semgrep semgrep scan ...
+    docker run -v $(pwd):/src semgrep/semgrep semgrep scan ...
     ```
 
     By removing the custom entry point, this update provides greater flexibility and consistency in how Semgrep is invoked within Docker containers.

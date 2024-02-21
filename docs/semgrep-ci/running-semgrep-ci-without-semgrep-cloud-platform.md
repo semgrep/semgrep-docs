@@ -69,7 +69,7 @@ Use either of the following methods to run Semgrep through other CI providers.
 
 #### Direct docker usage 
 
-Reference or add the [returntocorp/semgrep](https://hub.docker.com/r/returntocorp/semgrep) Docker image directly. The method to add the Docker image varies based on the CI provider. This method is used in the [BitBucket Pipelines code snippet](#bitbucket-pipelines-code-snippet).
+Reference or add the [semgrep/semgrep](https://hub.docker.com/r/semgrep/semgrep) Docker image directly. The method to add the Docker image varies based on the CI provider. This method is used in the [BitBucket Pipelines code snippet](#bitbucket-pipelines-code-snippet).
 
 #### Install `semgrep` within your CI job
 

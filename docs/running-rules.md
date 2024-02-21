@@ -97,7 +97,9 @@ To create a local YAML file where you define your own rules and run them with Se
 3. Run the following command to run local YAML rule files:
     <pre class="language-bash"><code>semgrep scan --config <span className="placeholder">PATH/TO/MYRULE.YAML</span></code></pre>
 
-For more information, see [Getting started](../writing-rules/overview/).
+Rules stored under a hidden directory, such as `dir/.hidden/myrule.yml`, are processed by Semgrep when scanning with the `--config` flag.
+
+For more information on defining custom rules, see [Writing rules](../writing-rules/overview/).
 
 ## Running multiple rules simultaneously
 
@@ -111,7 +113,7 @@ See [Ignoring findings](../ignoring-files-folders-code/) for details on suppress
 
 ## Next steps
 
-Find out how to contribute to [Semgrep Registry](https://github.com/returntocorp/semgrep-rules) by reading the [Contributing rules](/contributing/contributing-to-semgrep-rules-repository/) guide.
+Find out how to contribute to [Semgrep Registry](https://github.com/semgrep/semgrep-rules) by reading [Contributing rules](/contributing/contributing-to-semgrep-rules-repository/) guide.
 
 ## Number of Semgrep Registry rules
 
