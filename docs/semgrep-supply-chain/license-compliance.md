@@ -19,7 +19,7 @@ Semgrep Supply Chain's **license compliance** feature enables you to explicitly 
 :::info Prerequisites
 - License scanning can be performed only through Semgrep Cloud Platform (SCP). 
 - To detect licenses, you must:
-    - [Finish core deployment](/deployment/core-deployment/) for repositories you want to scan.
+    - [Complete a Semgrep core deployment](/deployment/core-deployment/) for repositories you want to scan.
     - [Enable dependency search](/semgrep-supply-chain/dependency-search/#using-dependency-search).
 :::
 

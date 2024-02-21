@@ -24,7 +24,7 @@ PR or MR comments are not supported for:
 * Azure Repos
 * Any other SCM or repository provider
 
-If you are using a self-hosted version of GitHub (GitHub Enterprise) or GitLab (GitLab Self-Managed), see [Integrating Semgrep Cloud Platform with self-hosted enterprise repositories](/deployment/connect-scm/#connect-to-on-premise-github-or-gitlab-orgs) for more details on configuration.
+If you are using a self-hosted version of GitHub (GitHub Enterprise) or GitLab (GitLab Self-Managed), see [Connect to on-premise GitHub or GitLab orgs](/deployment/connect-scm/#connect-to-on-premise-github-or-gitlab-orgs) for more details on configuration.
 
 ## Have you configured permissions and tokens correctly?
 

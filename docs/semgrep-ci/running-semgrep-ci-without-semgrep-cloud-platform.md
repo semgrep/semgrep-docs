@@ -22,6 +22,8 @@ Object.entries(frontMatter).filter(
 }
 </ul>
 
+<!-- For deprecation and redirection to oss-deployment -->
+
 # Running Semgrep in continuous integration (CI) without Semgrep Cloud Platform
 
 Run Semgrep in your Continuous Integration (CI) pipeline to scan your repository for code vulnerabilities and other issues. 

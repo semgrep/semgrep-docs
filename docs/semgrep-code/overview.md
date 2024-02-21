@@ -41,7 +41,6 @@ For cross-file and cross-function analysis (interfile and interprocedural analys
 
 ## Next steps
 
-* Send [alerts and notifications](/semgrep-code/notifications/), create tickets in project management systems, or leverage webhooks to receive information about your findings.
 * Enable [autofix](/writing-rules/autofix) so that Semgrep can push code suggestions to GitHub or GitLab to help your developers resolve findings.
 * Customize how Semgrep Code scans your repository by modifying the [default rules set](https://semgrep.dev/p/default) or [writing your own rules](/semgrep-code/editor/#jumpstart-rule-writing-using-existing-rules).
 
