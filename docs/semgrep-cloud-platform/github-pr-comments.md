@@ -50,6 +50,10 @@ PR comments appear for the following types of scans under these conditions:
 
 ## Steps to set up PR comments 
 
+### Prerequisites
+
+In addition to finishing the previous steps in your deployment journey, it is recommended to have completed a **full scan** on your **default branch** for the repository in which you want to receive comments.
+
 ### Confirm your Semgrep account's connection to GitHub
 
 Confirm that you have the correct connection and access:
@@ -76,7 +80,7 @@ Ensure that Semgrep's GitHub app (`semgrep-app`) has sufficient permissions to p
 
 For GitHub Actions users, no further steps need to be undertaken. Continue setting up Semgrep Code PR comments by [setting rules to Comment or Block mode](#set-rules-to-comment-or-block-mode).
 
-### Define environment variables needed for other CI providers
+### Required environment variables 
 
 <DefineConnectionVariables name="GitHub Actions" comment_type="PR"/>
 
@@ -117,6 +121,21 @@ To enable dataflow traces feature in your CI pipeline, fulfill the following pre
 - Not all Semgrep rules or rulesets make use of taint tracking. Ensure that you have a ruleset that does, such as the **default ruleset**, added in your **[Policies](https://semgrep.dev/orgs/-/policies)**. To add this ruleset, navigate to [https://semgrep.dev/p/default](https://semgrep.dev/p/default), and then click **Add to Policies**.
 - You can add additional rules that use taint tracking from [Semgrep Registry](https://semgrep.dev/explore).
 :::
+
+### Prevent developers from merging a PR with a reachable vulnerability
+
+Both GitHub and GitLab provide features to prevent or block a PR or MR from merging based on certain conditions. Refer to the links below to prevent PRs or MRs from merging when a reachable finding is detected:
+
+<table>
+<tr>
+    <td>GitHub</td>
+    <td><a href="https://docs.github.com/en/repositories/configuring-branches-and-merges-in-your-repository/defining-the-mergeability-of-pull-requests/about-protected-branches#require-conversation-resolution-before-merging">Require conversation resolution before merging</a></td>
+</tr>
+<tr>
+    <td>GitLab</td>
+    <td><a href="https://docs.gitlab.com/ee/user/discussions/#prevent-merge-unless-all-threads-are-resolved">Prevent merge unless all threads are resolved</a></td>
+</tr>
+</table>
 
 ## Next steps
 

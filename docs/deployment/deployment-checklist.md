@@ -2,7 +2,7 @@
 slug: checklist
 append_help_link: true
 title: Pre-deployment checklist
-description: tk
+description: Use this checklist to ensure a smooth deployment of Semgrep in your organization.
 tags:
   - Deployment
 ---
@@ -46,7 +46,7 @@ Ensure that all stakeholders agree on:
 **Deployment times** vary greatly depending on your processes and size.
 
 :::tip On scheduling scans
-Monorepos may take longer to finish scanning. Semgrep provides several options, including piecemeal scanning of the monorepo. See [<i class="fa-regular fa-file-lines"></i> Scanning a monorepo in parts](/kb/semgrep-ci/scan-monorepo-in-parts/) for more information.
+Monorepos may take longer to finish scanning. Semgrep provides several options to improve performance, including piecemeal scanning of the monorepo. See [<i class="fa-regular fa-file-lines"></i> Scanning a monorepo in parts](/kb/semgrep-ci/scan-monorepo-in-parts/) for more information.
 :::
 
 ## Roles
@@ -242,7 +242,7 @@ Semgrep requires the following permissions (scopes) to enable the authentication
 
 Many improvements to the Semgrep Cloud Platform experience only work with up-to-date Semgrep CLI versions. As such, Semgrep Cloud Platform only supports the 10 most recent minor versions of Semgrep CLI. For example, if the latest release was 0.160.0, all versions greater than 0.150.0 are supported, while earlier versions, such as 0.159.0, can be deprecated or can result in failures.
 
-To update Semgrep, see [Updating Semgrep](/upgrading/).
+To update Semgrep, see [Update Semgrep](/update/).
 
 Docker users: use [the **latest** tag](https://hub.docker.com/r/returntocorp/semgrep/tags?page=1&name=latest) to ensure you are up-to-date.
  

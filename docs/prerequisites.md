@@ -41,6 +41,8 @@ These requirements apply to both Semgrep Pro and Semgrep OSS.
 
 ## Semgrep Cloud Platform
 
+These requirements apply to Semgrep Pro.
+
 - A GitHub or GitLab cloud account. The credentials are used to authenticate and identify you.
 - A Git repository to scan, stored in in any of the following source code managers:
     - GitHub

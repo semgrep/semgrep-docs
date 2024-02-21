@@ -12,7 +12,7 @@ Most of the time, it's best to run the latest version of Semgrep, as it has the 
 However, when testing or managing upgrades, it can be helpful to run different versions of Semgrep to compare behavior. 
 
 :::info
-If you use Semgrep with Semgrep Cloud Platform, [only the latest 10 minor versions are supported](/docs/semgrep-cloud-platform/getting-started/).
+If you use Semgrep with Semgrep Cloud Platform, [only the latest 10 minor versions are supported](/deployment/checklist/#semgrep-versions).
 :::
 
 Installation with Homebrew does not support multiple versions of Semgrep, but you can use either Pip or Docker to install different versions. In the following examples, <code><span className="placeholder">x.y.z</span></code> is a placeholder for a version string.

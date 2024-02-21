@@ -18,10 +18,11 @@ Learn how to set up Semgrep, scan your project for security issues using Semgrep
 
 ## Prerequisites
 
-Before proceeding:
+Before proceeding, see [Prerequisites](/prerequisites/) to ensure that your machine meets Semgrep's requirements.
 
-* See [Prerequisites](/prerequisites/) to ensure that your machine meets Semgrep's requirements.
-* For scans using `semgrep ci`:
+## Recommended setup
+
+For scans using `semgrep ci`:
     * Ensure that you have and are logged in to your [Semgrep Account](https://semgrep.dev/login).
     * Ensure that you've enabled the **Pro Engine** <i class="fa-solid fa-toggle-large-on"></i> toggle on Semgrep Cloud Platform's [Settings](https://semgrep.dev/orgs/-/settings) page.
 
@@ -33,16 +34,14 @@ Before proceeding:
 
 <Login />
 
-You must log in to your Semgrep account before proceeding. Otherwise, you can't use `semgrep ci`.
 
 ## Scan your project
-
 
 :::info
 Semgrep provides two commands that you can use to start a scan from the CLI:
 
 - `semgrep scan` - This is the recommended command for scanning local codebases and writing and testing custom rules.
-- `semgrep ci` - This is the recommended command if you are scanning codebases with Semgrep as part of an organization with custom rules and policies. `semgrep ci` fetches your organization's scan configurations from Semgrep Cloud Platform.
+- `semgrep ci` - This is the recommended command if you are scanning git repositories with Semgrep as part of an organization with custom rules and policies. `semgrep ci` fetches your organization's scan configurations from Semgrep Cloud Platform.
 :::
 
 Navigate to the root of your codebase, and run your first scan. The specific command you use depends on how you want to view the results.

@@ -29,21 +29,25 @@ Many deployment features are set up through **Semgrep Cloud Platform**.
 
 Deployment does **not** include:
 
-- Customizing your SAST, SCA, or secrets scans.
-- Custom rule writing.
-- Triage.
+- Customizing your SAST, SCA, or secrets scans
+- Custom rule writing
+- Triage
 
 For these features, refer to the **Scan and Triage** section in the navigation bar.
 
-### Semgrep deployment features available to you
+### All Semgrep deployment features
 
 Semgrep supports many different technology stacks. Refer to the following table to evaluate which deployment features of Semgrep you can use based on your technologies.
+
+#### Core deployment
+
+These are the absolute minimum Semgrep features for any deployment.
 
 <table>
     <thead>
         <tr>
             <th>Deployment feature</th>
-            <th>Evaluation</th>
+            <th>Notes</th>
         </tr>
     </thead>
     <tbody>
@@ -76,17 +80,40 @@ Semgrep supports many different technology stacks. Refer to the following table 
             <td>Semgrep fully supports many popular CI providers.</td>
         </tr>
         <tr>
-            <td>GPT-assisted triage and remediation</td>
-            <td>Semgrep can give GPT-assisted recommendations on whether a finding is a true or false positive as well as suggest code fixes for true positive findings.</td>
-        </tr>
-        <tr>
             <td>PR or MR comments</td>
             <td>Semgrep can post PR or MR comments in the following SCMs:
             <ul><li>GitHub</li><li>GitLab</li><li>Bitbucket</li></ul></td>
         </tr>
+    </tbody>
+</table>
+
+#### Additional deployment features
+
+Useful features that you can add based on your tech stack. You can integrate these features further into your security workflows after some initial testing of your core deployment.
+
+<table>
+    <thead>
+        <tr>
+            <th>Deployment feature</th>
+            <th>Notes</th>
+        </tr>
+    </thead>
+    <tbody>
         <tr>
             <td>Notifications</td>
             <td>Semgrep can send notifications through the following channels:<ul><li>Slack</li> <li>Email</li><li>Webhooks</li></ul></td>
+        </tr>
+        <tr>
+            <td>GPT-assisted triage and remediation</td>
+            <td>Semgrep can give GPT-assisted recommendations on whether a finding is a true or false positive as well as suggest code fixes for true positive findings.</td>
+        </tr>
+        <tr>
+            <td>IDE integration</td>
+            <td>Encourage developers to run Semgrep in their IDE. Officially supported extensions include:
+            <ul><li>Microsoft Visual Studuio Code</li>
+            <li>IntelliJ Ultimate IDEA</li>
+            <li>Emacs</li></ul>
+            </td>
         </tr>
         <tr>
             <td>API</td>
@@ -94,6 +121,8 @@ Semgrep supports many different technology stacks. Refer to the following table 
         </tr>
     </tbody>
 </table>
+
+<!-- - Integrate Semgrep with Jira, Linear, and Asana (Private beta). -->
 
 ## Core deployment process
 
@@ -109,23 +138,20 @@ At the minimum, your deployment of Semgrep consists of the following steps:
 
 ![Core deployment steps](/img/core-deployment.png#sm-width-noborder)
 
-
 To manage a large volume of users and repositories, you may need to perform additional steps:
-- Role management.
-- Tagging projects.
 
-These steps are covered in the section Enterprise and large teams.
+- Role management
+- Tagging projects
+
+These steps are covered in the section [Deployment at scale](/category/deployment-at-scale).
 
 Team size isn't necessarily indicative of deployment needs. Features for large teams can be deployed for smaller teams as well, and are available on the Semgrep Team Tier.
 
-## Additional deployment features
+## Deploy Semgrep in phases
 
-You can integrate Semgrep further into your security workflows after some initial testing of your core deployment. Once everything works smoothly, you can:
+It is recommended to finish the core deployment of Semgrep to a few repositories or departments in your organization first before attempting to deploy to the majority.
 
-- Enable GPT-assisted triage and code fix recommendations. This requires code access.
-- Set up notification channels.
-- Encourage developers to set up Semgrep in their IDE.
-<!-- - Integrate Semgrep with Jira, Linear, and Asana (Private beta). -->
+This **initial phase** prepares you to deploy Semgrep to the rest of the organization. Organizational infrastructure can vary greatly and the initial deployment can help you identify and address issues so that they do not recur in a wider deployment.
 
 ## Next steps
 

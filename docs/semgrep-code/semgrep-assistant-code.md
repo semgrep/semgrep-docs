@@ -72,7 +72,7 @@ For more details, see the [Semgrep Assistant FAQ](https://get.semgrep.dev/assist
 
 ## Required GitHub or GitLab repository permissions
 
-Semgrep Assistant requires the same permissions that Semgrep needs to integrate with GitHub or GitLab, such as permissions that allow Semgrep to run CI jobs and post comments to PRs or MRs. See [<i class="fa-regular fa-file-lines"></i> Requested permissions for GitHub and GitLab](/semgrep-cloud-platform/getting-started/#requested-permissions-for-github-and-gitlab) for a list of permissions.
+Semgrep Assistant requires the same permissions that Semgrep needs to integrate with GitHub or GitLab, such as permissions that allow Semgrep to run CI jobs and post comments to PRs or MRs. See [<i class="fa-regular fa-file-lines"></i> Requested permissions for GitHub and GitLab](/deployment/checklist/#permissions) for a list of permissions.
 
 Assistant extends normal Semgrep capabilities by providing contextually aware AI-generated suggestions. In order to build that context, it requires extra permissions in GitHub and GitLab.
 
@@ -118,10 +118,7 @@ Semgrep Assistant requires the **API scope** to run in both GitLab SaaS and GitL
 <TabItem value='github'>
 
 :::info Prerequisites
-* Semgrep Assistant can only be enabled through Semgrep Cloud Platform (SCP). [Create an account](https://semgrep.dev/login) to set up Semgrep Assistant.
-* You have added or onboarded at least one project (repository) to Semgrep Cloud Platform for scanning. See [Starting a SAST and SCA scan on a remote repository](/semgrep-cloud-platform/getting-started/#starting-a-sast-and-sca-scan-on-a-remote-repository).
-* You have connected your SCM to ensure that you can receive PR comments from Semgrep. 
-    * To connect your SCM, navigate to the **[<i class="fa-solid fa-gear"></i> Settings page](https://semgrep.dev/orgs/-/settings/)**, click **Source code managers > Connect to GitHub**.
+* You have completed a [Semgrep core deployment](/deployment/core-deployment).
 * You have set rules to **Comment** or **Block** mode in your [<i class="fas fa-external-link fa-sm"></i> Policies page](https://semgrep.dev/orgs/-/policies).
 :::
 
@@ -146,10 +143,7 @@ Semgrep Assistant is now enabled and appears in future PRs.
 <TabItem value='gitlab'>
 
 :::info Prerequisites
-* Semgrep Assistant can only be enabled through Semgrep Cloud Platform (SCP). [<i class="fas fa-external-link fa-xs"></i> Create an account](https://semgrep.dev/login) to set up Semgrep Assistant.
-* You have added or onboarded at least one project (repository) to Semgrep Cloud Platform for scanning. See [Starting a SAST and SCA scan on a remote repository](/semgrep-cloud-platform/getting-started/#starting-a-sast-and-sca-scan-on-a-remote-repository).
-* You have successfully set up your GitLab repository to receive MR comments from Semgrep.
-    * To set up MR comments, perform the steps in [GitLab MR comments documentation](/semgrep-cloud-platform/gitlab-mr-comments). 
+* You have completed a [Semgrep core deployment](/deployment/core-deployment).
 * You have set rules to **Comment** or **Block** mode in your [<i class="fas fa-external-link fa-sm"></i> Policies page](https://semgrep.dev/orgs/-/policies).
 :::
 

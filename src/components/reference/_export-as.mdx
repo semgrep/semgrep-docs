@@ -1,0 +1,26 @@
+Navigate to the root of your codebase, and run your first scan. The specific command you use depends on how you want to view the results.
+
+To run a scan using recommended rules for your programming language, and view the results in the CLI:
+
+```console
+semgrep scan
+```
+
+To export the results to a plain text file:
+
+```console
+semgrep scan --text --output=semgrep.txt
+```
+
+To export the results to a SARIF file:
+
+```console
+semgrep scan --sarif --output=semgrep.sarif
+```
+
+To export the results to a JSON file:
+
+```console
+semgrep scan --json --output=semgrep.json
+```
+

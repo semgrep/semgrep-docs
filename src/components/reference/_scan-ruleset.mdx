@@ -1,0 +1,23 @@
+You can scan your codebase using `--config auto` to run Semgrep with rules that apply to your programming languages and frameworks:
+
+```console
+semgrep scan --config auto
+```
+
+:::info
+Semgrep collects pseudonymous metrics when you use rules from the Registry. You can turn this off with `--metrics=off`.
+:::
+
+To scan your codebase with a specific ruleset, either one that you write or one that you obtain from the [Semgrep Registry](https://semgrep.dev/explore), you can do so using the `--config` flag:
+
+```console
+# Scan with the rules defined in rules.yaml
+semgrep scan --config rules.yaml
+```
+
+You can include as many configuration flags as necessary.
+
+```console
+# Scan with rules defined in two separate config files
+semgrep scan --config rules.yaml --config more_rules.yaml
+```

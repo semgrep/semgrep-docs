@@ -2,6 +2,7 @@ You've set up Semgrep to scan in your repository and send findings after each sc
 
 Remaining steps include:
 
-- <span>{props.opening_phrase}</span> <strong>feature branches</strong> (non-trunk branches) when a pull request is open. This is required to set up PR or MR comments. See <a href="/deployment/customize-ci-jobs/#set-up-diff-aware-scans">Set up diff-aware scans</a>.
-- Optional: learn about customizing CI jobs: [<i class="fa-regular fa-file-lines"></i> Customize your CI job](/deployment/customize-ci-jobs). These customizations can be done any time.
-- Set up PR or MR comments, which post findings to developers in your SCM. This involves developers in the security process as active participants. Setting up PR or MR comments also includes feedback tracking on the rules that are most triaged as `Ignored` by developers. See [<i class="fa-regular fa-file-lines"></i> PR or MR comments](/category/pr-or-mr-comments/) for next steps.
+- Optional: [<i class="fa-regular fa-file-lines"></i> Customize your CI job](/deployment/customize-ci-jobs).
+- For software composition analysis (SCA) scans using **Jenkins or Maven**: [<i class="fa-regular fa-file-lines"></i> Set up SCA scans for your infrastructure.](/semgrep-supply-chain/setup-infrastructure/)
+- <span>{props.opening_phrase}</span> <strong>feature branches</strong> (non-trunk branches) when a pull or merge request is open. This is a prerequisite to receiving PR or MR comments. See <a href="/deployment/customize-ci-jobs/#set-up-diff-aware-scans">Set up diff-aware scans</a>.
+- Set up **PR or MR comments**, which post findings to developers in your SCM. This involves developers in the security process as active participants. See [<i class="fa-regular fa-file-lines"></i> PR or MR comments](/category/pr-or-mr-comments/) for next steps.
