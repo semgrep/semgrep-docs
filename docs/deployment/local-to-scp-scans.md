@@ -90,7 +90,7 @@ After performing these steps, rescan your repository to correctly generate links
 
 ### Sample values
 
-The following is an example of the variables you'd need to create, along with sample values:
+The following is an example of the variables you'd need to create to generate links in SCP, along with sample values:
 
 ```console
 # Set the repository URL
