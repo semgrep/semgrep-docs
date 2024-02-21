@@ -1,10 +1,8 @@
-To sign in to Semgrep with a GitHub account:
+<!-- Credit to Katie's SCP TOFU overhaul work -->
+To sign in using your GitHub account:
 
-1. Click the following link: [Sign into Semgrep](https://semgrep.dev/login?return_path=/manage/projects).
-2. Select **Sign in with GitHub**. You are redirected to the GitHub sign in page if you are not currently signed in.
-3. Sign in with your credentials.
-5. You are redirected back to Semgrep Cloud Platform.
-6. Click **Accept** to accept Semgrep's Terms of Service.
-7. Optional: Fill out the survey and click Complete or click Skip to omit this step.
-
-You are now signed in to Semgrep Cloud Platform.
+1. Go to the [Semgrep login page](https://semgrep.dev/login/) and click **Sign in with GitHub**.
+1. Provide your credentials to sign in to GitHub.
+1. Follow the on-screen prompts to [grant Semgrep the needed permissions](/semgrep-cloud-platform/getting-started/#requested-permissions-for-github-and-gitlab) and proceed.
+1. Provide an **organization name** when prompted. This organization name is typically the name of the org in GitHub that you want to connect Semgrep to. For individual users, this can also be a personal account.
+1. After you are redirected back to Semgrep Cloud Platform, click **Accept** to accept Semgrep's Terms of Service.

@@ -1,7 +1,7 @@
 ---
 slug: editor
 append_help_link: true
-title: Editor
+title: Creating custom rules
 hide_title: true
 tags:
     - Semgrep Cloud Platform

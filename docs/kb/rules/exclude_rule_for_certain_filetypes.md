@@ -46,7 +46,7 @@ Semgrep offers many different ways of ignoring false positives: 
 
 You can safely assume `.svg` files do not intentionally contain artifactory passwords, so you can exclude this file type from being scanned. The following procedure demonstrates how to create a customized version of the rule that is generating the false positives that excludes the target file type.
 
-1. Download the rule generating false positives from the [Registry](https://semgrep.dev/docs/semgrep-cloud-platform/user-management/#controlling-access-through-roles).
+1. Download the rule generating false positives from the [Registry](https://semgrep.dev/r).
 2. Modify the rule ID to something custom:
 ```
   \- id: my_detected-artifactory-password

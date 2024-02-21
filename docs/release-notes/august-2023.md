@@ -169,7 +169,7 @@ end
 
 ### Changed
 
-- The [Getting started with Semgrep Cloud Platform](/semgrep-cloud-platform/getting-started/) page has been rewritten to help you onboard yourself, your team or organization, and your repositories to SCP.
+- The [Getting started with Semgrep Cloud Platform](/deployment/core-deployment/) page has been rewritten to help you onboard yourself, your team or organization, and your repositories to SCP.
 - Prefer the `semgrep ci` command to execute Semgrep in several quickstart and getting started guides.
 - Updated Supported languages table for Swift, Rust, and Apex.
 

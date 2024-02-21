@@ -4,6 +4,7 @@ append_help_link: true
 title: Quickstart
 hide_title: false
 description: Learn how to set up Semgrep and scan your first repository.
+displayed_sidebar: scanSidebar
 tags:
   - quickstart
 ---
@@ -18,7 +19,7 @@ Learn how to set up Semgrep, scan your first project for security issues, and vi
 You must have Python 3.8 or later installed on the machine where the Semgrep CLI is running.
 :::
 
-1. Navigate to [Semgrep Cloud Platform (SCP)](https://semgrep.dev/login), and sign up by clicking on **Sign in with GitHub** or **Sign in with GitLab**. Follow the on-screen prompts to [grant Semgrep the needed permissions](/semgrep-cloud-platform/getting-started/#requested-permissions-for-github-and-gitlab) and proceed.
+1. Navigate to [Semgrep Cloud Platform (SCP)](https://semgrep.dev/login), and sign up by clicking on **Sign in with GitHub** or **Sign in with GitLab**. Follow the on-screen prompts to [grant Semgrep the needed permissions](/deployment/checklist/#permissions) and proceed.
 
 2. Provide the **Organization display name** you'd like to use, then click **Create new organization**.
 

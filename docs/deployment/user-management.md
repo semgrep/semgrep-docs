@@ -1,7 +1,7 @@
 ---
 slug: user-management 
 append_help_link: true
-title: Users, accounts, and roles 
+title: User roles and access
 hide_title: true
 description: "Learn about roles, user management, and how to implement role-based access control in Semgrep Cloud Platform."
 tags:
@@ -19,9 +19,104 @@ Object.entries(frontMatter).filter(
 
 import MoreHelp from "/src/components/MoreHelp"
 
-# User management, accounts, and roles 
+# User roles and access 
 
 Accounts enable you to manage access to Semgrep resources, such as scans and findings, with varying levels of collaboration and visibility.
+
+Access control in Semgrep Cloud Platform determines the resources and features that are available to users based on their role.
+
+![Screenshot of role-based access control](/img/rbac-overview.png)<br />
+
+Semgrep Cloud Platform divides users into two roles:
+
+* `admin`
+* `member`
+
+:::info
+* Users are assigned a role based on your [organization's default role](#setting-a-default-role). New organizations are created with a default role of `admin`.
+:::
+
+The following table displays features available to each role:
+
+| Feature    | `member`  | `admin`   | Additional notes                                                                                                                   |
+| ---------  | --------- | --------- | ---------                                                                                                                          |
+| Dashboard  | yes       | yes       |                                                                                                                                    |
+| Projects   | no        | yes       | Only `admin` can manage projects.                                                                                                  |
+| Policies   | no        | yes       | Only `admin` can manage policies and rules.                                                                                        |
+| Findings   | yes       | yes       | Both `admin` and `member` roles can sort, filter, comment on, and triage findings.                                                 |
+| Editor     | yes       | yes       | `member` access is read-only within their organization. Users with a `member` role can use their personal account to write a rule. |
+| Settings   | no        | yes       |                                                                                                                                    |
+| Registry   | yes       | yes       |                                                                                                                                    |
+| Playground | yes       | yes       |                                                                                                                                    |
+| Docs       | yes       | yes       |                                                                                                                                    |
+
+### Member-scoped access tokens
+
+Both members and admins can log in through the command-line interface (CLI) by entering the following command:
+
+```
+semgrep login
+```
+
+This generates a unique token that is used to identify a member or admin. When logged in, members can run scans on their local machine through the `semgrep ci` command and publish a rule. This sends findings data to Semgrep Cloud Platform.
+
+Only admin users can view member tokens in the **Settings > Tokens** tab. A token's access cannot be escalated to an admin-level token. A user must first obtain the admin role and then create a new token as an admin. See the following section on [Changing a user's role](#changing-a-users-role).
+
+Additionally, only admin users can make changes to the [Policies](/semgrep-code/policies).
+
+![Screenshot of member tokens list](/img/member-tokens-table.png#md-width)<br />
+
+## Changing a user's role
+
+You must be an `admin` to perform this operation.
+
+To **change a user's role**:
+
+1. On Semgrep Cloud Platform's sidebar, click Settings.
+2. Click on the Members tab.
+3. Search for the member whose role will be changed.
+4. Click on the member's current role, under the role header. A drop-down box appears.
+5. Select the new role for the member.
+
+:::info
+You cannot change your own role.
+:::
+
+## Setting a default role
+
+Organizations start with a default role of `admin`.
+
+To change this, perform the following steps:
+
+1. On Semgrep Cloud Platform's sidebar, click Settings.
+2. Click **Access > Defaults**.
+
+![Screenshot of default user role](/img/default-user-role.png#md-width)<br />
+
+## Appendix: Token scopes
+
+Token scopes enable you to limit or grant permissions as necessary. Tokens can also be generated with appropriate scopes by Semgrep Cloud Platform when onboarding (adding) a repository. 
+
+The following table displays token scopes and their permissions:
+
+| Token scope | Send findings from a remote repository | Send findings from a local repository |  Send PR or MR comments | Connect to Semgrep API |
+| ----------- | ------- | --- | --| -- |
+| Agent (CI)  |   ✔️  Yes    |  ✔️ Yes  | ✔️  Yes | ❌ No |
+| Web API     |  ❌ No    |  ❌ No | ✔️  Yes  | ✔️ Yes  |
+| Member      |    ❌ No   |  ✔️ Yes  | ❌ No |❌ No |
+
+The following table displays typical uses for token scopes:
+
+| Token scope |Typical uses |
+| ----------- | ----------- |
+| Agent (CI)  | Generated by Semgrep Cloud Platform when onboarding (adding) a repository to Semgrep Cloud Platform. For non-GitHub-Actions users, you may have to copy and paste the token value into your CI provider's interface. |
+| Web API     | Used to access Semgrep's API. | 
+| Member      | Autogenerated by Semgrep CLI when a member is logging in through Semgrep CLI. Use this scope to scan your code locally using your organization's private rule and rulesets. The permissions of these tokens cannot be escalated. |
+
+<MoreHelp />
+
+
+<!--
 
 Semgrep Cloud Platform has two types of accounts:
 
@@ -94,98 +189,4 @@ If a Semgrep organization has been connected to GitHub or GitLab, members of the
 
 You have successfully joined an org in Semgrep Cloud Platform.
 
-## Controlling access through roles 
-
-Access control in Semgrep Cloud Platform determines the resources and features that are available to users based on their role.
-
-![Screenshot of role-based access control](/img/rbac-overview.png)<br />
-
-Semgrep Cloud Platform divides users into two roles:
-
-* `admin`
-* `member`
-
-:::info
-* Users are assigned a role based on your [organization's default role](#setting-a-default-role). New organizations are created with a default role of `admin`.
-:::
-
-The following table displays features available to each role:
-
-| Feature    | `member`  | `admin`   | Additional notes                                                                                                                   |
-| ---------  | --------- | --------- | ---------                                                                                                                          |
-| Dashboard  | yes       | yes       |                                                                                                                                    |
-| Projects   | no        | yes       | Only `admin` can manage projects.                                                                                                  |
-| Policies   | no        | yes       | Only `admin` can manage policies and rules.                                                                                        |
-| Findings   | yes       | yes       | Both `admin` and `member` roles can sort, filter, comment on, and triage findings.                                                 |
-| Editor     | yes       | yes       | `member` access is read-only within their organization. Users with a `member` role can use their personal account to write a rule. |
-| Settings   | no        | yes       |                                                                                                                                    |
-| Registry   | yes       | yes       |                                                                                                                                    |
-| Playground | yes       | yes       |                                                                                                                                    |
-| Docs       | yes       | yes       |                                                                                                                                    |
-
-### Member-scoped access tokens
-
-Both members and admins can log in through the command-line interface (CLI) by entering the following command:
-
-```
-semgrep login
-```
-
-This generates a unique token that is used to identify a member or admin. When logged in, members can run scans on their local machine through the `semgrep ci` command and publish a rule. This sends findings data to Semgrep Cloud Platform.
-
-Only admin users can view member tokens in the **Settings > Tokens** tab. A token's access cannot be escalated to an admin-level token. A user must first obtain the admin role and then create a new token as an admin. See the following section on [Changing a user's role](/semgrep-cloud-platform/user-management/#changing-a-users-role).
-
-Additionally, only admin users can make changes to the [Policies](/semgrep-code/policies).
-
-![Screenshot of member tokens list](/img/member-tokens-table.png#md-width)<br />
-
-## Changing a user's role
-
-:::info Prerequisites
-You must be an `admin` to perform this operation.
-:::
-
-To **change a user's role**:
-
-1. On Semgrep Cloud Platform's sidebar, click Settings.
-2. Click on the Members tab.
-3. Search for the member whose role will be changed.
-4. Click on the member's current role, under the role header. A drop-down box appears.
-5. Select the new role for the member.
-
-:::info
-You cannot change your own role.
-:::
-
-## Setting a default role
-
-Organizations start with a default role of `admin`.
-
-To change this, perform the following steps:
-
-1. On Semgrep Cloud Platform's sidebar, click Settings.
-2. Click **Access > Defaults**.
-
-![Screenshot of default user role](/img/default-user-role.png#md-width)<br />
-
-## Appendix: Token scopes
-
-Token scopes enable you to limit or grant permissions as necessary. Tokens can also be generated with appropriate scopes by Semgrep Cloud Platform when onboarding (adding) a repository. 
-
-The following table displays token scopes and their permissions:
-
-| Token scope | Send findings from a remote repository | Send findings from a local repository |  Send PR or MR comments | Connect to Semgrep API |
-| ----------- | ------- | --- | --| -- |
-| Agent (CI)  |   ✔️  Yes    |  ✔️ Yes  | ✔️  Yes | ❌ No |
-| Web API     |  ❌ No    |  ❌ No | ✔️  Yes  | ✔️ Yes  |
-| Member      |    ❌ No   |  ✔️ Yes  | ❌ No |❌ No |
-
-The following table displays typical uses for token scopes:
-
-| Token scope |Typical uses |
-| ----------- | ----------- |
-| Agent (CI)  | Generated by Semgrep Cloud Platform when onboarding (adding) a repository to Semgrep Cloud Platform. For non-GitHub-Actions users, you may have to copy and paste the token value into your CI provider's interface. |
-| Web API     | Used to access Semgrep's API. | 
-| Member      | Autogenerated by Semgrep CLI when a member is logging in through Semgrep CLI. Use this scope to scan your code locally using your organization's private rule and rulesets. The permissions of these tokens cannot be escalated. |
-
-<MoreHelp />
+--> 

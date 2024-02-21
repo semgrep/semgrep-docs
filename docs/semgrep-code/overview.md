@@ -41,7 +41,12 @@ For cross-file and cross-function analysis (interfile and interprocedural analys
 
 ## Next steps
 
-[Scan your codebase](/semgrep-code/getting-started): Learn how to scan your project by integrating Semgrep Code into your CI/CD pipeline or how to scan repositories available locally on your machine.
+* Enable [autofix](/writing-rules/autofix) so that Semgrep can push code suggestions to GitHub or GitLab to help your developers resolve findings.
+* Customize how Semgrep Code scans your repository by modifying the [default rules set](https://semgrep.dev/p/default) or [writing your own rules](/semgrep-code/editor/#jumpstart-rule-writing-using-existing-rules).
+
+## Further reading
+
+- Read the [Trail of Bits Automated Testing Handbook](https://appsec.guide/) to learn about configuring and optimizing security tools, including Semgrep.
 
 ## Further reading
 

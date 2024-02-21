@@ -1,7 +1,7 @@
 ---
 slug: /semgrep-secrets/conceptual-overview
 append_help_link: true
-title: Conceptual overview
+title: About Semgrep Secrets 
 hide_title: true
 description: Learn how Semgrep Secrets detects leaked secrets and helps you prioritize what keys to rotate.
 tags:
@@ -51,9 +51,9 @@ See the following rule and JavaScript test code for an example.
 <iframe title="AWS hardcoded access key" src="https://semgrep.dev/embed/editor?snippet=EPj5" width="100%" height="432px" frameBorder="0"></iframe>
 <br />
 
- The rule detects hardcoded AWS secret access keys. The test code defines an access key in the variable `secret`. Click **<i class="fa-solid fa-play"></i> Run** to see the true positives.
+The rule detects hardcoded AWS secret access keys. The test code defines an access key in the variable `secret`. Click **<i class="fa-solid fa-play"></i> Run** to see the true positives.
 
- Some differences between Semgrep Secrets and regex-based scanners include:
+Some differences between Semgrep Secrets and regex-based scanners include:
 
 * **Line 2:** Both can detect the variable name `secret` and its value (token) in line 2.
 	* A regex-based scanner may generate a noisy finding from line 2 even though `secret` has not been passed to any function.

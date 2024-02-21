@@ -31,8 +31,3 @@ Semgrep Cloud Platform can create tickets in the following systems:
 * [Asana](/semgrep-cloud-platform/asana)
 * [Jira](/semgrep-cloud-platform/jira)
 * [Linear](/semgrep-cloud-platform/linear)
-
-:::info
-* Ticketing integrations can only be enabled through Semgrep Cloud Platform (SCP). [Sign up or sign in to Semgrep Cloud Platform](https://semgrep.dev/login).
-* To receive alerts and notifications, you must [add or onboard the project](/semgrep-code/getting-started/) (repository) to Semgrep Cloud Platform for scanning.
-:::

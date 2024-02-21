@@ -3,7 +3,7 @@ slug: semgrep-pro-engine-intro
 append_help_link: true
 description: "This article introduces Semgrep Pro Engine, guides you through installation, and provides some additional information."
 hide_title: true
-title: Semgrep Pro Engine overview
+title: Enabling interfile analysis with Pro Engine 
 ---
 
 import MoreHelp from "/src/components/MoreHelp"
@@ -29,7 +29,7 @@ This section guides you through the Pro Engine installation and helps you to sca
 ### Running Semgrep Pro Engine in Semgrep Cloud Platform
 
 :::info Prerequisite
-- An existing Semgrep Cloud Platform account. See [<i class="fa-regular fa-file-lines"></i> Signing in to SCP](/semgrep-code/getting-started/).
+You have completed a [Semgrep core deployment](/deployment/core-deployment).
 :::
 
 This is the preferred method to run Semgrep Pro Engine. It enables you to view and triage your findings from a centralized location. Code is not uploaded.
@@ -40,14 +40,11 @@ To run Semgrep Pro Engine in the Semgrep Cloud Platform, follow these steps:
 1. Click **[Settings](https://semgrep.dev/orgs/-/settings)**.
 1. Ensure that the <i class="fa-solid fa-toggle-large-on"></i> **Pro Engine beta** toggle is enabled.
 1. Ensure that you have the **default ruleset** added in your **[Policies page](https://semgrep.dev/orgs/-/policies)**. If this ruleset is **not** added, go to [<i class="fas fa-external-link fa-xs"></i> Semgrep Registry - Default ruleset page](https://semgrep.dev/p/default), then click **Add to Policy**. For best results, set this ruleset to the **Monitor** rule mode.
-1. Perform either of the following:
-    1. **If you don't have any repositories for scanning in Cloud Platform:** Follow the procedures in [<i class="fa-regular fa-file-lines"></i> Scanning a repository](/semgrep-code/getting-started/) to scan a new repository with Semgrep Pro Engine. Ensure that your project's language is supported by Semgrep Pro Engine.
-    1. **If you have existing repositories in Semgrep Cloud Platform:** Full scans now include Semgrep Pro Engine. You can trigger a full scan through your CI provider.
 
-Pro Engine now runs on all full scans. Note that it does **not** support scanning on diff-aware (pull or merge request) scans. 
+Full scans now include Semgrep Pro Engine. You can trigger a full scan through your CI provider. Note that it does **not** support scanning on diff-aware (pull or merge request) scans. 
 
 :::tip Testing Semgrep Pro Engine
-To test Semgrep Pro Engine on a purposefully vulnerable repository, fork the [<i class="fas fa-external-link fa-xs"></i> juice-shop](https://github.com/juice-shop/juice-shop) repository, and then add it to SCP by following the steps described in [<i class="fa-regular fa-file-lines"></i> Adding or onboarding a new project (repository)](/semgrep-code/getting-started/).
+To test Semgrep Pro Engine on a purposefully vulnerable repository, fork the [<i class="fas fa-external-link fa-xs"></i> juice-shop](https://github.com/juice-shop/juice-shop) repository, and then add it to Semgrep Cloud Platform.
 :::
 
 ### Running Semgrep Pro Engine in CLI

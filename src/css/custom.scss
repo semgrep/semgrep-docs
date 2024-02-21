@@ -254,6 +254,7 @@ h4,
 h5,
 h6 {
   font-weight: 600;
+  font-family: "Inter", sans-serif !important;
 }
 
 h1 {
@@ -314,6 +315,19 @@ img[src*="md-width"] {
     border: 2px solid black;
 }
 
+img[src*="md-noborder"] {
+    width: 75%;
+    margin-right: auto;
+    margin-left: auto;
+    display: block;
+}
+
+img[src*="sm-width-noborder"] {
+    width: 60%;
+    margin-right: auto;
+    margin-left: auto;
+    display: block;
+}
 .placeholder {
     color: #E3116C;
     font-style: italic;
@@ -476,10 +490,36 @@ svg[class*="collapseSidebarButtonIcon"], svg[class*="expandButtonIcon"] {
 
 /******************************************************************************
  *                                                                            *
- * Knowledge Base (KB)                                                         *
+ * Knowledge Base (KB)                                                        *
  *                                                                            *
  *****************************************************************************/
 
 article > a[class*="cardContainer_"][class~="card"] {
   min-height: 200px;
+}
+
+/******************************************************************************
+ *                                                                            *
+ * Icons                                                                      *
+ *                                                                            *
+ *****************************************************************************/
+
+.home-top-level {
+  display: flex;
+  align-items: center;
+}
+
+.home-top-level a:before {
+  content: "🏠";
+  display: inline;
+  padding-right: 8px;
+
+}
+/*
+.home-top-level:first-child:before{
+}*/
+
+.top-category-separator {
+  padding-top: 1rem;
+  align-items: center;
 }
