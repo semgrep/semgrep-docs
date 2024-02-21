@@ -22,7 +22,7 @@ Now that you've finished your Semgrep core deployment, you can either customize 
 | I want to receive AI assistance when I triage findings. | Enable [Semgrep Assistant](/semgrep-code/semgrep-assistant-code/). |
 | I want to enforce my organization's coding standards. | Write a [custom rule](/writing-rules/overview/) and add it to your Policies page. |
 
-## Additional deployment
+## Enable additional deployment features
 
 | Concern | Guide |
 | -------  | ------ |
