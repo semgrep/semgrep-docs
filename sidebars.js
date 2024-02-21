@@ -321,6 +321,7 @@ module.exports = {
                     label: 'Experiments 🧪',
                     link: {type: 'doc', id: 'writing-rules/experiments/introduction'},
                     items: [
+                      'writing-rules/experiments/pattern-syntax',
                       'writing-rules/experiments/aliengrep',
                       'writing-rules/experiments/display-propagated-metavariable',
                       'writing-rules/experiments/extract-mode',
