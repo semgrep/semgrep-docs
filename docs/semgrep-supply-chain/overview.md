@@ -114,7 +114,7 @@ organization's requirements.
 
 ## Next steps
 
-Semgrep Supply Chain automatically scans [repositories that you add to Semgrep Cloud Platform](/semgrep-cloud-platform/getting-started/#starting-a-sast-and-sca-scan-on-a-remote-repository).
+Semgrep Supply Chain automatically scans repositories that you have added to Semgrep Cloud Platform.
 
 * After every scan, you can view your findings by [logging in to Semgrep Cloud
   Platform (SCP)](https://semgrep.dev/login) and navigating to [**Supply
@@ -122,7 +122,7 @@ Semgrep Supply Chain automatically scans [repositories that you add to Semgrep C
 * To support your security and business goals, you can [customize how Semgrep
   Supply Chain scans your dependencies](/semgrep-supply-chain/getting-started).
 * The SCP has features to support the [triage and
-  remediation](/semgrep-supply-chain/triage-remediation) of your findings.
+  remediation](/semgrep-supply-chain/triage-and-remediation) of your findings.
 
 ### Further reading
 

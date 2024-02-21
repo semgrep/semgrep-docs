@@ -29,28 +29,39 @@ The process to connect a source code manager depends on whether your SCM tool is
 
 ## Connect to cloud-hosted orgs
 
-To connect your SCM:
+### GitHub Cloud
 
 1. Sign in to Semgrep Cloud Platform.
 1. On the sidebar, click **the organization account** you want to make a connection for.
 1. Click **Settings** > **Source Code Managers**.
 ![Source code manager tab](/img/source-code-manager.png#md-width)
-1. For GitHub users, click **Connect to GitHub**. You are taken to the connection page. Enter the following information:
-    1. Click the **Install on** drop-down box and select the account type you are connecting to, either a GitHub **personal account** or **organization account**.
-    1. Under **Organization name**, enter the name of the GitHub account to link to. The name must be an exact match.
-    1. Choose to **<i class="fa-regular fa-circle-dot"></i> Leave PR comments and get Assistant recommendations** or **<i class="fa-regular fa-circle-dot"></i> Leave PR comments**. 
-    1. Optional: Click Review permissions to view the permissions granted to Semgrep.
-    1. Click **Create GitHub App**.
-    1. Click **Install**. 
+1. Click **Connect to GitHub**.
+1. Review the permissions requested by Semgrep, then click **Continue**.
+1. Click the organization you want to install Semgrep on.
+1. Choose to authorize and install Semgrep for **<i class="fa-regular fa-circle-dot"></i> All repositories** or **<i class="fa-regular fa-circle-dot"></i> Only select repositories**.
+1. Click **Install and authorize**.
 1. After a successful link, you are signed out of Semgrep Cloud Platform automatically, as your credentials have changed after linking an organization.
 1. Sign back in to Semgrep Cloud Platform.
 
+<!-- Steps reverted to old flow and checked on Feb 21 2024
+NOTE. As of Feb 21, the SCM steps don't always match what is in the docs. I got both old and new flows as of Feb
+21, 2024, depending on the age of my org. Fortunately the "old" flow successfully went through Install and Authorize.
+-->
+
+
+<!-- removed temporarily because we're using the "old flow"
 :::tip
 - Getting Assistant recommendations grants Semgrep **code access**.
 - **Leave PR comments** refers to Semgrep's capability to post findings to developers in PRs.
 :::
 
+-->
+
 You have successfully connected an org in Semgrep Cloud Platform with an organization in your source code management tool.
+
+### GitLab Cloud
+
+For users of GitLab cloud-hosted plans, a connection to GitLab is created automatically after [adding a Semgrep job to GitLab CI/CD](/deployment/add-semgrep-to-ci/). No other steps are needed.
 
 ## Connect to on-premise GitHub or GitLab orgs
 
@@ -77,7 +88,7 @@ Integrate Semgrep into these custom source code management (SCM) tools by follow
 ![Source code manager tab](/img/source-code-manager.png#md-width)
 3. Select your source code manager.
 4. For **GitHub Enterprise Server**, follow these steps:
-    1. Create a PAT by following the steps outlined in this [guide to creating a PAT](https://docs.github.com/en/enterprise-server@3.1/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token). Ensure that the PAT is **[created with the required scopes](../scm/#table-of-required-scopes-for-pats)**.
+    1. Create a PAT by following the steps outlined in this [guide to creating a PAT](https://docs.github.com/en/enterprise-server@3.1/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token). Ensure that the PAT is **[created with the required scopes](#table-of-required-scopes-for-pats)**.
     2. Return to Semgrep Cloud Platform and enter the personal access token generated into the **Access token** field.
     3. Enter your GHE Server base URL into the **URL** field.
     4. Ensure that your SCM integration successfully detects repositories by setting up a CI job for any repository you want to scan:
@@ -96,3 +107,18 @@ Integrate Semgrep into these custom source code management (SCM) tools by follow
 
 - Optional: If you want to set up SSO to manage your users, see [<i class="fa-regular fa-file-lines"></i> SSO authentication](/deployment/sso).
 - You are ready to start your first remote scan.
+
+
+<!--
+
+New workflow steps
+
+1. For GitHub users, click **Connect to GitHub**. You are taken to the connection page. Enter the following information:
+    1. Click the **Install on** drop-down box and select the account type you are connecting to, either a GitHub **personal account** or **organization account**.
+    1. Under **Organization name**, enter the name of the GitHub account to link to. The name must be an exact match.
+    1. Choose to **<i class="fa-regular fa-circle-dot"></i> Leave PR comments and get Assistant recommendations** or **<i class="fa-regular fa-circle-dot"></i> Leave PR comments**.
+    1. Optional: Click Review permissions to view the permissions granted to Semgrep.
+    1. Click **Create GitHub App**.
+    1. Click **Install**. 
+
+-->    

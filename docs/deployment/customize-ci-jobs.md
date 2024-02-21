@@ -2,7 +2,7 @@
 slug: customize-ci-jobs 
 title: Customize CI jobs 
 hide_title: true
-description: tk
+description: Customize your CI job to fit your organization's workflows.
 tags:
   - Deployment
 ---

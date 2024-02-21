@@ -3,6 +3,8 @@ id: overview
 displayed_sidebar: rulewritingSidebar
 description: >-
   Learn how to use Semgrep’s intuitive syntax to write rules specific to your codebase. You can write and share rules directly from your browser using the Semgrep Playground, or write rules in your terminal and run them on the command line.
+title: Overview
+hide_title: true
 ---
 
 # Writing rules
