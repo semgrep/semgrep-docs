@@ -12,7 +12,7 @@ import MoreHelp from "/src/components/MoreHelp"
 
 Semgrep OSS performs static application security testing (SAST) scans through the use of **rules**. Rules are instructions based on which Semgrep detects patterns in code.
 
-When Semgrep reports code using specified rules, the detected code is called a **finding**. The process of scanning and detecting a piece of code is is also called **matching**, as Semgrep matches the code using rules to report a finding.
+When Semgrep reports code using specified rules, the detected code is called a **finding**. The process of scanning and detecting a piece of code is also called **matching**, as Semgrep matches the code using rules to report a finding.
 
 Semgrep findings can help you find security, performance, or correctness issues, and enforce best practices. You can define custom rules through Semgrep's rule syntax or rely on rules created by the community or Semgrep, Inc.
 
