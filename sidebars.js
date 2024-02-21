@@ -109,6 +109,7 @@ module.exports = {
             type: 'category',
             collapsible: true,
             label: 'Deployment at scale',
+            link: {type: 'generated-index'},
             items: [
                 'deployment/user-management',
                 'semgrep-cloud-platform/tags'

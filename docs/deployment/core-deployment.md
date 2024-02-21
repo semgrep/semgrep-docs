@@ -29,9 +29,9 @@ Many deployment features are set up through **Semgrep Cloud Platform**.
 
 Deployment does **not** include:
 
-- Customizing your SAST, SCA, or secrets scans.
-- Custom rule writing.
-- Triage.
+- Customizing your SAST, SCA, or secrets scans
+- Custom rule writing
+- Triage
 
 For these features, refer to the **Scan and Triage** section in the navigation bar.
 
@@ -139,10 +139,11 @@ At the minimum, your deployment of Semgrep consists of the following steps:
 ![Core deployment steps](/img/core-deployment.png#sm-width-noborder)
 
 To manage a large volume of users and repositories, you may need to perform additional steps:
-- Role management.
-- Tagging projects.
 
-These steps are covered in the section Deployment at scale.
+- Role management
+- Tagging projects
+
+These steps are covered in the section [Deployment at scale](/category/deployment-at-scale).
 
 Team size isn't necessarily indicative of deployment needs. Features for large teams can be deployed for smaller teams as well, and are available on the Semgrep Team Tier.
 

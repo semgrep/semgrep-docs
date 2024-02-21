@@ -43,12 +43,19 @@ The process to connect a source code manager depends on whether your SCM tool is
 1. After a successful link, you are signed out of Semgrep Cloud Platform automatically, as your credentials have changed after linking an organization.
 1. Sign back in to Semgrep Cloud Platform.
 
-<!-- Steps reverted and checked on Feb 8 2024 -->
+<!-- Steps reverted to old flow and checked on Feb 21 2024
+NOTE. As of Feb 21, the SCM steps don't always match what is in the docs. I got both old and new flows as of Feb
+21, 2024, depending on the age of my org. Fortunately the "old" flow successfully went through Install and Authorize.
+-->
 
+
+<!-- removed temporarily because we're using the "old flow"
 :::tip
 - Getting Assistant recommendations grants Semgrep **code access**.
 - **Leave PR comments** refers to Semgrep's capability to post findings to developers in PRs.
 :::
+
+-->
 
 You have successfully connected an org in Semgrep Cloud Platform with an organization in your source code management tool.
 
