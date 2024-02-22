@@ -33,7 +33,7 @@ Components
 Here are the main components:
 
 * the OCaml code generator
-  [ocaml-tree-sitter](https://github.com/returntocorp/ocaml-tree-sitter):
+  [ocaml-tree-sitter](https://github.com/semgrep/ocaml-tree-sitter-semgrep):
   generates OCaml parsing code from tree-sitter grammars extended
   with `...` and such. Publishes code into the git repos of the
   form `semgrep-X`.
@@ -52,12 +52,12 @@ Here are the main components:
   ocaml-tree-sitter code generator. `lang/X/src` and
   `lang/X/ocaml-src` contain the C/C++/OCaml code that will published
   into semgrep-X e.g.
-  [semgrep-ruby](https://github.com/returntocorp/semgrep-ruby)
+  [semgrep-ruby](https://github.com/semgrep/semgrep-ruby)
   and used by semgrep.
-* [semgrep-X](https://github.com/returntocorp/semgrep-ruby):
+* [semgrep-X](https://github.com/semgrep/semgrep-ruby):
   provides generated OCaml/C parsers as a dune project. Is a submodule
   of semgrep.
-* [semgrep](https://github.com/returntocorp/semgrep): uses the parsers
+* [semgrep](https://github.com/semgrep/semgrep): uses the parsers
   provided by semgrep-X, which produce a CST. The
   program's CST or pattern's CST is further transformed into an AST
   suitable for pattern matching.
@@ -98,7 +98,7 @@ Testing
 --
 
 First, build and install ocaml-tree-sitter normally, based on the
-instructions found in the [main README](https://github.com/returntocorp/ocaml-tree-sitter-semgrep/blob/main/README.md).
+instructions found in the [main README](https://github.com/semgrep/ocaml-tree-sitter-semgrep/blob/main/README.md).
 
 ```
 ./configure
@@ -148,7 +148,7 @@ We can now consider publishing the code to semgrep-X.
 Publishing
 --
 
-_Please [ask someone at Semgrep, Inc. to run this step](https://github.com/returntocorp/ocaml-tree-sitter-semgrep/blob/main/doc/release.md)._
+_Please [ask someone at Semgrep, Inc. to run this step](https://github.com/semgrep/ocaml-tree-sitter-semgrep/blob/main/doc/release.md)._
 
 From the `lang` folder of ocaml-tree-sitter, we'll perform the
 release. This step redoes some of the work that was done earlier and
@@ -164,11 +164,11 @@ cd lang
 
 This step is safe. Semgrep at this point is unaffected by those
 changes. There is now a new commit at
-`https://github.com/returntocorp/semgrep-X` e.g.
-https://github.com/returntocorp/semgrep-javascript.
-The [`fyi/` folder](https://github.com/returntocorp/semgrep-javascript/tree/main/fyi)
+`https://github.com/semgrep/semgrep-X` e.g.
+https://github.com/semgrep/semgrep-javascript.
+The [`fyi/` folder](https://github.com/semgrep/semgrep-javascript/tree/main/fyi)
 contains original files from which the code was generated.
-[`fyi/versions`](https://github.com/returntocorp/semgrep-javascript/blob/main/fyi/versions)
+[`fyi/versions`](https://github.com/semgrep/semgrep-javascript/blob/main/fyi/versions)
 shows the last change for each file, allowing you to check that you
 got the correct version of `grammar.js` or some other source file.
 

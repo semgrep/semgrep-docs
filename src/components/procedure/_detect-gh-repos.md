@@ -1,6 +1,6 @@
 To ensure that your GitHub repository is **detected** by Semgrep Cloud Platform:
 
-1. Log into GitHub.
+1. Log in to GitHub.
 2. Click your **profile photo** > **Settings**.
 3. Under **Integrations**, click **Applications**.
 3. On the `semgrep-app` entry, click **Configure**.

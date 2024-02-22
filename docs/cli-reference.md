@@ -24,7 +24,7 @@ Object.entries(frontMatter).filter(
 
 # CLI reference
 
-This document provides the outputs of the `semgrep --help` and `semgrep scan --help` commands of the [Semgrep command-line interface (CLI)](https://github.com/returntocorp/semgrep). In addition, this page also gives an overview of the Semgrep CLI exit codes.
+This document provides the outputs of the `semgrep --help` and `semgrep scan --help` commands of the [Semgrep command-line interface (CLI)](https://github.com/semgrep/semgrep). In addition, this page also gives an overview of the Semgrep CLI exit codes.
 
 ## Semgrep commands
 
@@ -52,7 +52,7 @@ Command output:
 
 ## Ignoring Files
 
-The Semgrep command line tool supports a `.semgrepignore` file that follows `.gitignore` syntax and is used to skip files and directories during scanning. This is commonly used to avoid vendored and test related code. For a complete example, see the [.semgrepignore file on Semgrep’s source code](https://github.com/returntocorp/semgrep/blob/develop/.semgrepignore).
+The Semgrep command line tool supports a `.semgrepignore` file that follows `.gitignore` syntax and is used to skip files and directories during scanning. This is commonly used to avoid vendored and test related code. For a complete example, see the [.semgrepignore file on Semgrep’s source code](https://github.com/semgrep/semgrep/blob/develop/.semgrepignore).
 
 In addition to `.semgrepignore` there are several methods to set up ignore patterns. See [Ignoring files, folders, or code](../ignoring-files-folders-code).
 
@@ -74,7 +74,7 @@ export HTTPS_PROXY="http://10.10.1.10:1080"
 
 ## Exit codes
 
-<!-- Source code reference - the exit codes are located in the Semgrep repository - https://github.com/returntocorp/semgrep/blob/develop/cli/src/semgrep/error.py. -->
+<!-- Source code reference - the exit codes are located in the Semgrep repository - https://github.com/semgrep/semgrep/blob/develop/cli/src/semgrep/error.py. -->
 
 Semgrep can finish with the following exit codes:
 

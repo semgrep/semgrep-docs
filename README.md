@@ -12,7 +12,7 @@ This repository powers [Semgrep’s documentation](https://semgrep.dev/docs). Do
 
 ## Contributing
 
-Contributions to the docs are welcome! To start contributing, first please make sure you read and agree with the Semgrep’s [Contributor Covenant Code of Conduct](https://github.com/returntocorp/semgrep/blob/develop/CODE_OF_CONDUCT.md).
+Contributions to the docs are welcome! To start contributing, first please make sure you read and agree with the Semgrep’s [Contributor Covenant Code of Conduct](https://github.com/semgrep/semgrep/blob/develop/CODE_OF_CONDUCT.md).
 
 ## Building docs locally
 

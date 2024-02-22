@@ -35,17 +35,17 @@ To contribute and publish rules to the Semgrep Registry through Semgrep Cloud Pl
 1. Fill in the required and optional fields.
 1. Click <i className="fa-solid fa-circle-check inline_svg"></i> **Continue**, and then click <i className="fa-solid fa-code-pull-request inline_svg"></i> **Create PR**.
 
-This workflow automatically creates a pull request in the GitHub [Semgrep Registry](https://github.com/returntocorp/semgrep-rules). Find more about the Semgrep Registry by reading the [Rule writing](#writing-a-rule-for-semgrep-registry) and [Tests](#tests) sections.
+This workflow automatically creates a pull request in the GitHub [Semgrep Registry](https://github.com/semgrep/semgrep-rules). Find more about the Semgrep Registry by reading the [Rule writing](#writing-a-rule-for-semgrep-registry) and [Tests](#tests) sections.
 
 You can also publish rules as private rules outside of Semgrep Registry. These rules are not included in the Semgrep Registry, but they are accessible to your Semgrep organisation. See the [Private rules](/writing-rules/private-rules/) documentation for more information.
 
 ## Contributing through GitHub
 
-Fork our repository and make a pull request. Sign our Contributor License Agreement (CLA) on GitHub before Semgrep, Inc. can accept your contributions. Make a pull request to the [Semgrep Registry](https://github.com/returntocorp/semgrep-rules) with two files:
+Fork our repository and make a pull request. Sign our Contributor License Agreement (CLA) on GitHub before Semgrep, Inc. can accept your contributions. Make a pull request to the [Semgrep Registry](https://github.com/semgrep/semgrep-rules) with two files:
 1. The semgrep pattern (as YAML file).
 2. The test file (with the file extension of the language or framework). The test file must contain at least one true positive and one true negative test case to be approved. See the [Tests](#tests) section of this document for more information.
 
-Pull requests require the approval of at least one maintainer and successfully passed [CI jobs](https://github.com/returntocorp/semgrep-rules/actions).
+Pull requests require the approval of at least one maintainer and successfully passed [CI jobs](https://github.com/semgrep/semgrep-rules/actions).
 
 Find more about the Semgrep Registry by reading the [Rule writing](#writing-a-rule-for-semgrep-registry) and [Tests](#tests) sections.
 
@@ -179,7 +179,7 @@ In addition to the fields mentioned above, rules submitted to Semgrep Registry h
 
 ### Understanding rule namespacing
 
-The namespacing format for contributing rules in the [Semgrep Registry](https://github.com/returntocorp/semgrep-rules) is `<language>/<framework>/<category>/$MORE`. If the rule does not belong to a particular framework, add it to the language directory, which uses the word `lang` in place of the `<framework>` - `<language>/<lang>`.
+The namespacing format for contributing rules in the [Semgrep Registry](https://github.com/semgrep/semgrep-rules) is `<language>/<framework>/<category>/$MORE`. If the rule does not belong to a particular framework, add it to the language directory, which uses the word `lang` in place of the `<framework>` - `<language>/<lang>`.
 
 ### Tests
 
@@ -498,13 +498,13 @@ References help provide more context to a developer on what the issue is, and ho
 
 To update an existing open-source rule, follow these steps:
 
-1. Find a rule you want to update in the [semgrep-rules](https://github.com/returntocorp/semgrep-rules/) repository.
+1. Find a rule you want to update in the [semgrep-rules](https://github.com/semgrep/semgrep-rules/) repository.
 2. Submit a PR to the repository with your new update.
 3. Follow the same instructions and recommendations as you can find in the rest of this document. For example the security category has specific metadata requirements.
 4. Leave a message in the PR. Explain why are you making changes. What is the motivation for this update?
 
-See a [PR example](https://github.com/returntocorp/semgrep-rules/pull/2730).
+See a [PR example](https://github.com/semgrep/semgrep-rules/pull/2730).
 
-There can be specific messages in the repository’s pipeline informing you about specific details of your rule. Ensure that your rule fulfills all of the necessities and requirements. However, sometimes the pipeline running in the [semgrep-rules](https://github.com/returntocorp/semgrep-rules/) repository can have specific issues. In such a case, wait for a Semgrep reviewer's help.
+There can be specific messages in the repository’s pipeline informing you about specific details of your rule. Ensure that your rule fulfills all of the necessities and requirements. However, sometimes the pipeline running in the [semgrep-rules](https://github.com/semgrep/semgrep-rules/) repository can have specific issues. In such a case, wait for a Semgrep reviewer's help.
 
 <MoreHelp />

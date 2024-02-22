@@ -23,8 +23,9 @@ Object.entries(frontMatter).filter(
 
 Use this reference to configure Semgrep's behavior in CI environments by setting environment variables. You can set these variables within a CI configuration file or your CI provider's interface. Refer to your CI provider's documentation for the correct syntax. Examples are written for a Bash environment unless otherwise stated.  
 
-:::tip Testing environment variables locally
-You can also set many of these environment variables within your local development environment. Set these variables in your command line then run `semgrep ci --config p/default` while logged out of Semgrep CLI to test these environment variables locally. 
+:::tip Test environment variables locally
+- Semgrep attempts to autodetect CI environment variables necessary to run CI scans. You can override these values by setting variables explicitly. 
+- You can also set many of these environment variables within your local development environment. Set these variables in your command line then run `semgrep ci` while logged in Semgrep CLI to test these environment variables locally.  
 :::
 
 ## Environment variables for configuring scan behavior
@@ -127,7 +128,7 @@ Do not set `SEMGREP_APP_TOKEN` environment variable within the same CI job as `S
 
 ### `SEMGREP_TIMEOUT`
 
-Set `SEMGREP_TIMEOUT` to define a custom timeout. The value must be in seconds. The default value is 30 seconds. This timeout refers to the maximum amount of time Semgrep spends scanning a single file. By default, it attempts to scan each file with this timeout three times; you can control this using `--timeout-threshold`.
+Set `SEMGREP_TIMEOUT` to define a custom timeout. The value must be in seconds. The default value is 5 seconds. This timeout refers to the maximum amount of time Semgrep spends running a single rule on a single file. By default, it attempts to scan each rule/file combination with this timeout three times; you can control this using `--timeout-threshold`.
 
 Example:
 
@@ -143,7 +144,12 @@ Set any as needed or all of the following environment variables to troubleshoot 
 
 ### `SEMGREP_BRANCH`
 
-Set `SEMGREP_BRANCH` to define the branch name for the URL used to generate hyperlinks in the [Findings](/docs/semgrep-code/findings) page. To avoid hardcoding this value, check your CI provider's documentation for available environment variables that can automatically detect the correct values for every CI job. 
+Set `SEMGREP_BRANCH` to define the branch name for the scan, if the branch name is not auto-detected or you want to override it. The branch name is used in the following ways:
+
+* To track findings in the same branch over time
+* To show in which branches a finding was identified (including links to the branch in the [Findings](/docs/semgrep-code/findings) page)
+
+To avoid hardcoding this value, check your CI provider's documentation for available environment variables that can automatically detect the correct values for every CI job. 
 
 Examples:
 
@@ -165,6 +171,8 @@ commands:
   ...
 ```
 
+Semgrep Cloud Platform will normalize the branch prefix `refs/heads/` for findings, so the branch value `refs/heads/develop` will be treated the same way as `develop`.
+
 ### `SEMGREP_COMMIT`
 
 Set `SEMGREP_COMMIT` to define the commit hash for the URL used to generate hyperlinks in the [Findings](/docs/semgrep-code/findings) page. To avoid hardcoding this value, check your CI provider's documentation for available environment variables that can automatically detect the correct values for every CI job. 
@@ -175,7 +183,7 @@ Within a Bash environment:
 
 ```bash
 # This is a hardcoded value and must be changed to scan other branches.
-export SEMGREP_COMMIT="juice-shop-1"
+export SEMGREP_COMMIT="e0802db56318803b09e1023955d4f4767fc934ed"
 ```
 
 Within a Bitbucket Pipelines configuration file:

@@ -118,7 +118,7 @@ make core-test
 Finally, to update the `semgrep-core` binary used by `semgrep`, run
 
 ```
-make core-install
+make copy-core-for-cli
 ```
 
 ### Testing `semgrep-core`
@@ -221,7 +221,7 @@ When a time is not measured, by default it has the value -1. It is common to a h
 
 #### Tips for exploring Semgrep results
 
-There are several scripts already written to analyze and summarize these timing data. Find them in [`scripts/processing-output`](https://github.com/returntocorp/semgrep/tree/develop/scripts/processing-output). If you have a timing file, you can run
+There are several scripts already written to analyze and summarize these timing data. Find them in [`scripts/processing-output`](https://github.com/semgrep/semgrep/tree/develop/scripts/processing-output). If you have a timing file, you can run
 
 ```bash
 python read_timing.py [your_timing_file]
@@ -315,7 +315,7 @@ We have two sets of benchmarks, one on a suite of real repos against real rulese
 
 To run the micro benchmarks, go to `perf/perf-matching/`, and run `./run-perf-suite`.
 
-To run the real benchmarks, go to `perf`, and run `./run-benchmarks`. See the perf [readme](https://github.com/returntocorp/semgrep/blob/develop/perf/README.md) for more details on how these are set up.
+To run the real benchmarks, go to `perf`, and run `./run-benchmarks`. See the perf [readme](https://github.com/semgrep/semgrep/blob/develop/perf/README.md) for more details on how these are set up.
 
 There are a number of flags (`./run-benchmarks --help` to see them) which may be helpful if you are using the benchmarks for local development. For example, `./run-benchmarks --plot_benchmarks` will output a graph of the benchmark results at the end.
 
@@ -437,7 +437,7 @@ Here's the breakdown by language as of February 2021:
 
 #### Parsing With `pfff`
 
-[`pfff`](https://github.com/returntocorp/pfff) is an OCaml project that we plug into `semgrep-core` as a git submodule. It uses menhir to generate parsers from a defined grammar.
+[`pfff`](https://github.com/semgrep/pfff) is an OCaml project that we plug into `semgrep-core` as a git submodule. It uses menhir to generate parsers from a defined grammar.
 
 Consider a Python pattern (or target). To parse it into a generic AST form, we transform the code as follows:
 
@@ -525,7 +525,7 @@ Unfortunately, it will also produce `Parser_python.ml` and `Parser_python.mli`, 
 
 Once you have made your desired pattern or target parse, you need to make sure it doesn't break anything else. In `semgrep-core/`, run `make test`. If at the end it says `Ok`, you can commit your fix!
 
-First, if you have any changes in `pfff`, go into the `semgrep-core/src/pfff/` directory, checkout `develop`, pull, and then make a pull request as usual with your changes. This will make a PR to [`pfff`](https://github.com/returntocorp/pfff).
+First, if you have any changes in `pfff`, go into the `semgrep-core/src/pfff/` directory, checkout `develop`, pull, and then make a pull request as usual with your changes. This will make a PR to [`pfff`](https://github.com/semgrep/pfff).
 
 When you change files in `pfff`, `semgrep-core` will realize that `pfff` is different (though not which file within `pfff`). If you go back up to `semgrep-core/` and run `git status`, you will see `modified: src/pfff (modified content)`. To pin your latest `pfff` changes to `semgrep-core`, add `src/pfff`.
 
@@ -603,14 +603,14 @@ There are some cases where we have chosen to implement a new parser in `pfff`, b
 
 Tree-sitter parsers exist as individual public projects. They are
 shared with other users of tree-sitter outside of semgrep. Our
-[ocaml-tree-sitter](https://github.com/returntocorp/ocaml-tree-sitter)
+[ocaml-tree-sitter](https://github.com/semgrep/ocaml-tree-sitter-semgrep)
 project adds the necessary extensions for supporting semgrep patterns
 (ellipsis `...` and such). It also contains the machinery for turning
 a tree-sitter grammar into a usable, typed concrete syntax tree (CST).
 
 For example, for the Kotlin language we have:
 * input: [tree-sitter-kotlin](https://github.com/fwcd/tree-sitter-kotlin)
-* output: [semgrep-kotlin](https://github.com/returntocorp/semgrep-kotlin)
+* output: [semgrep-kotlin](https://github.com/semgrep/semgrep-kotlin)
 
 Assuming the tree-sitter grammar works well enough, most of the work
 consists in mapping the CST to the generic abstract syntax tree (AST)

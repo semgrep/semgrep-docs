@@ -27,11 +27,11 @@ Create a new repository with a Groovy file in the `vars/` folder. For example, `
 
 ```
 def call() {
-  sh '''docker pull returntocorp/semgrep && \
+  sh '''docker pull semgrep/semgrep && \
             docker run \
             -e SEMGREP_APP_TOKEN=$SEMGREP_APP_TOKEN \
             -v "$(pwd):$(pwd)" --workdir $(pwd) \
-            returntocorp/semgrep semgrep ci '''
+            semgrep/semgrep semgrep ci '''
 }
 ```
 

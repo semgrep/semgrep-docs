@@ -12,7 +12,7 @@ Most of the time, it's best to run the latest version of Semgrep, as it has the 
 However, when testing or managing upgrades, it can be helpful to run different versions of Semgrep to compare behavior. 
 
 :::info
-If you use Semgrep with Semgrep Cloud Platform, [only the latest 10 minor versions are supported](/docs/semgrep-cloud-platform/getting-started/).
+If you use Semgrep with Semgrep Cloud Platform, [only the latest 10 minor versions are supported](/deployment/checklist/#semgrep-versions).
 :::
 
 Installation with Homebrew does not support multiple versions of Semgrep, but you can use either Pip or Docker to install different versions. In the following examples, <code><span className="placeholder">x.y.z</span></code> is a placeholder for a version string.
@@ -37,11 +37,11 @@ To run a version other than `latest` using Docker, use the tag for the version w
 
 To pull:
 
-<pre class="language-bash"><code>docker pull returntocorp/semgrep:<span className="placeholder">x.y.z</span></code></pre>
+<pre class="language-bash"><code>docker pull semgrep/semgrep:<span className="placeholder">x.y.z</span></code></pre>
 
 To run locally, mounting the desired source directory (`/PATH/TO/SRC`) for scanning:
 
-<pre class="language-bash"><code>docker run --rm -v "<span className="placeholder">/PATH/TO/SRC</span>:/src" returntocorp/semgrep:<span className="placeholder">x.y.z</span> semgrep --config=auto</code></pre>
+<pre class="language-bash"><code>docker run --rm -v "<span className="placeholder">/PATH/TO/SRC</span>:/src" semgrep/semgrep:<span className="placeholder">x.y.z</span> semgrep --config=auto</code></pre>
 
 To run in GitHub Actions CI:
 
@@ -52,5 +52,5 @@ jobs:
     runs-on: ubuntu-latest
 
     container:
-      image: returntocorp/semgrep:x.y.z
+      image: semgrep/semgrep:x.y.z
 ```

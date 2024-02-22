@@ -1,7 +1,7 @@
 # Contributing code
 
 Semgrep welcomes contributions from anyone. If you have an idea for a feature
-or notice a bug please [open an issue](https://github.com/returntocorp/semgrep/issues/new/choose).
+or notice a bug please [open an issue](https://github.com/semgrep/semgrep/issues/new/choose).
 Creating an issue first is preferable to moving directly to a pull request so
 that we can ensure you're on the right track without any wasted effort. This
 is also a great way to contribute to Semgrep even if you're not making changes
@@ -151,7 +151,7 @@ pre-commit run --all
 
 Once `pre-commit` is working you may commit code and create pull requests as
 you would expect. Pull requests require approval of at least one maintainer and
-[CI to be passing](https://github.com/returntocorp/semgrep/actions).
+[CI to be passing](https://github.com/semgrep/semgrep/actions).
 
 ### Explaining code
 
@@ -214,9 +214,9 @@ Valid changelog file suffixes are:
 
 If you contribute code that affects users, you must add an entry
 to the changelog, in the [`changelog.d`
-folder](https://github.com/returntocorp/semgrep/tree/develop/changelog.d). At
+folder](https://github.com/semgrep/semgrep/tree/develop/changelog.d). At
 each Semgrep release, these files are automatically gathered and formatted to
-produce [release notes](https://github.com/returntocorp/semgrep/blob/develop/CHANGELOG.md).
+produce [release notes](https://github.com/semgrep/semgrep/blob/develop/CHANGELOG.md).
 
 A changelog entry is required if you are:
 - Adding new features or other previously non-existing functionality.

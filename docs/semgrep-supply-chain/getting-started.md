@@ -31,6 +31,25 @@ This article walks you through the Semgrep Supply Chain configuration and custom
 - To run a Semgrep Supply Chain scan, you must generate a [dependency tree for Apache Maven](/semgrep-supply-chain/setup-maven).
 :::
 
+## Project directory structure
+
+Semgrep Supply Chain requires a [lockfile](/semgrep-supply-chain/glossary/#lockfile). Code files that use the dependencies in the lockfile must be nested in the same directory as the lockfile. Semgrep Supply Chain can correctly parse code files in sub folders as well.
+
+In the following example, Semgrep Supply Chain assumes that all code files using the dependencies in `my-project/running/lockfile.json` are nested in `my-project/running/` or deeper directories.
+
+```
+/my-project
+├───/running
+│   ├───lockfile.json
+│   ├───bar.js
+│   └───/uphill
+│       ├───lockfile.json        
+│       └────foo.js
+├───/biking
+```
+
+If you have code files in `my-project/biking`, Semgrep Supply Chain does not associate them to the dependencies in `my-project/running/lockfile.json`. If there is another lockfile in `my-project/running`, such as `my-project/running/uphill/lockfile.json`, then this overrides the original `my-project/running/lockfile.json` for all code files in `my-project/running/uphill/` or deeper directories.
+
 ## Scan frequency
 
 By default, Semgrep Supply Chain scans your code once per day. However, you can change this so Semgrep Supply Chain scans your code at a different frequency or when a specific event occurs.
@@ -76,6 +95,22 @@ Depending on how your CI/CD system is configured, you can trigger a Semgrep Supp
    </td>
   </tr>
 </table>
+
+## Run a scan using the CLI
+
+You can run a stand-alone Semgrep Supply Chain scan via the CLI using:
+
+```console
+semgrep ci --supply-chain
+```
+
+Semgrep prints a list of findings directly to the CLI, including the finding's reachability determination, severity level, a brief description, and suggested remediation.
+
+Additionally, you can view your results in Semgrep Cloud Platform (SCP). SCP displays all of the information displayed in the CLI, but it also offers you the ability to:
+
+* See additional finding details, such as whether the finding is always reachable or if it's reachable if certain conditions are met, and its transitivity status
+* Use the [dependency search](/semgrep-supply-chain/dependency-search) feature
+* Use the [license compliance](/semgrep-supply-chain/license-compliance) feature
 
 ## Scan a monorepo's dependencies
 

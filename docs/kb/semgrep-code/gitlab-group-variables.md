@@ -23,7 +23,7 @@ If you prefer to use a group variable, remove the explicit reference to `SEMGREP
 
 ```yml
 semgrep:
-  image: returntocorp/semgrep
+  image: semgrep/semgrep
   script: semgrep ci
   rules:
   - if: $CI_PIPELINE_SOURCE == "web"  # allow triggering a scan manually from the gitlab UI

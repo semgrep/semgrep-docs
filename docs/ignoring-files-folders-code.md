@@ -22,7 +22,7 @@ All Semgrep environments (CLI, CI, and Semgrep Cloud Platform) adhere to user-de
 | Method  | Usage    | Examples |
 |:--------|:---------|:---------|
 | To ignore blocks of code: `nosemgrep` | Create a comment, followed by a space (` `), followed by `nosemgrep` at the first line or preceding line of the pattern match. This generates a finding that is automatically ignored. | ` // nosemgrep` &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; `// nosemgrep: rule-id` <br /> `# nosemgrep` |
-| To ignore files and folders: `.semgrepignore` | Create a `.semgrepignore` file in your **repository's root directory** or your **project's working directory** and add patterns for files and folders there. Patterns follow `.gitignore` syntax with some caveats. See [Defining ignored files and folders in `.semgrepignore`](#defining-ignored-files-and-folders-in-semgrepignore). | [`.semgrepignore` sample file](https://raw.githubusercontent.com/returntocorp/semgrep/develop/cli/src/semgrep/templates/.semgrepignore) |
+| To ignore files and folders: `.semgrepignore` | Create a `.semgrepignore` file in your **repository's root directory** or your **project's working directory** and add patterns for files and folders there. Patterns follow `.gitignore` syntax with some caveats. See [Defining ignored files and folders in `.semgrepignore`](#defining-ignored-files-and-folders-in-semgrepignore). | [`.semgrepignore` sample file](https://raw.githubusercontent.com/semgrep/semgrep/develop/cli/src/semgrep/templates/.semgrepignore) |
 
 ## Understanding Semgrep defaults
 
@@ -31,7 +31,7 @@ Without user customization, Semgrep refers to the following to define ignored fi
 * Semgrep's default `.semgrepignore` file
 * Your repository's `.gitignore` file (if it exists)
 
-In the absence of a user-generated `.semgrepignore`, Semgrep refers to [its repository's default template](https://github.com/returntocorp/semgrep/blob/develop/cli/src/semgrep/templates/.semgrepignore):
+In the absence of a user-generated `.semgrepignore`, Semgrep refers to [its repository's default template](https://github.com/semgrep/semgrep/blob/develop/cli/src/semgrep/templates/.semgrepignore):
 
 ```
 DEFAULT_SEMGREPIGNORE_TEXT
@@ -187,7 +187,7 @@ Semgrep Cloud Platform users can disable rules and rulesets through the Policies
 
 ## Known issues
 
-### `--no-git-ignore` is overridden due to default ignore patterns (.semgrepignore) ([#4537](https://github.com/returntocorp/semgrep/issues/4537))
+### `--no-git-ignore` is overridden due to default ignore patterns (.semgrepignore) ([#4537](https://github.com/semgrep/semgrep/issues/4537))
 
 To fix this, create an empty .semgrepignore file. If the scan is a one-off event, delete the .semgrepignore file to restore default ignore patterns.
 
