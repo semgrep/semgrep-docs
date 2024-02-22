@@ -16,84 +16,106 @@ import RemoveRuleset from "/src/components/procedure/_remove-ruleset.mdx"
 import IgnoreIndividualFindingNoGrouping from "/src/components/procedure/_ignore-individual-finding-no-grouping.mdx"
 import MoreHelp from "/src/components/MoreHelp"
 
-Semgrep Code generates a finding when a rule matches a piece of code in your codebase. You can view your results in Semgrep Cloud Platform on the [**Findings** page](https://semgrep.dev/orgs/-/findings), and with that information, you can:
+Semgrep Code generates a finding when a rule matches a piece of code in your codebase. You can view these in Semgrep Cloud Platform on the [**Findings** page](https://semgrep.dev/orgs/-/findings). With this information, you can:
 
-- **Fix the issue detected by the finding.** This is Semgrep's primary goal. In this case, the rule produces a **true positive** finding (such as a security issue) as intended and developers must change or address the code such that the rule no longer matches it.
-- **View the Semgrep rule and the matching code.** For developers aiming to understand their team's security posture, Semgrep provides a top-level report view through the Dashboard and a list view of findings in the Findings page that can be filtered by repository, rule, branch, or triage action.
-- **Triage the finding.** If the finding is not useful or important, deprioritize it through triage. Triage actions include ignoring and reopening. Triaging a finding to ignore it is one method to handle **false positives** without changing the rule or code. To triage a finding, see [Managing finding status](#managing-finding-status)
-- **Remove the rule or code that generated the finding.** There are cases where Semgrep scans a file not meant for scanning or when a rule is irrelevant. You can disable the rule from the Policies page or add the file to the ignore list. To disable a rule, see [Disabling rules](/semgrep-code/policies/#disabling-rules).
+- **View the Semgrep rule and matching code.** For developers who want to understand their team's security posture, Semgrep provides a [top-level report view through the **Dashboard**](https://semgrep.dev/orgs/-) and a [list view of findings on the **Findings** page](https://semgrep.dev/orgs/-/findings) that you can filter through.
+- **Fix the issue detected.** This is Semgrep's primary goal. If the rule produces a **true positive** finding, such as a security issue, developers must change or address the code so that the rule no longer matches it.
+- **Remove the rule or code that generated the finding.** There are cases where Semgrep scans a file it should ignore or scans the file with an irrelevant rule. You can [disable the rule](/semgrep-code/policies/#disabling-rules) from the **Policies** page or [add the file to the ignore list](/ignoring-files-folders-code/).
+- **Triage the finding.** Deprioritize a finding if it's not useful or important through triage. Triage actions include ignoring and reopening a finding that was previously ignored. Triaging a finding to **ignore** is one method to handle **false positives** without changing a rule or your code.
 <!-- - **Create a Jira ticket from the finding (for Enterprise/Team Tier users.)** For findings that require more extensive refactoring, users can create a ticket in Jira through Semgrep Cloud Platform to track its resolution. -->
 
-:::tip
-* An additional method to address false positives is to improve the rule. Create [test cases](/docs/writing-rules/testing-rules) to ensure that the rule performs as intended.
-* If a rule from Semgrep Registry is useful but also captures too many false positives, you can reach out to support@semgrep.dev. This helps rule-writing efforts and improves the quality of rules that you run. 
-* Additionally, you can report rules with a high false positive rate from your SCM if you have enabled Semgrep Cloud Platform to leave comments in PRs. Semgrep Cloud Platform provides a link after each comment for users to indicate if the finding is a false positive.
-:::
+The remainder of this article walks you through triaging your findings, as well as what happens in Semgrep Cloud Platform after you remediate and rescan your codebase.
 
-## Triage findings
+## Triage statuses
 
-**Triaging** means prioritizing a finding based on a policy or criteria set by your team or organization. While severity is a factor in triage, your organization may define additional criteria based on coding standards, business, or product goals.
+**Triage** is the prioritization of a finding based on policies or criteria set by your team or organization, such as severity, coding standards, business goals, and product goals.
 
-Semgrep Cloud Platform uses the logic specified in the table below to automatically mark findings as either fixed or removed when a finding is no longer present in the code. You can also ignore findings in Semgrep Cloud Platform directly through **triage** or **bulk triage**.
+Semgrep Cloud Platform uses the logic specified in the table below to automatically mark findings as either fixed or removed when a finding is no longer present in the code. You can also manually ignore findings in Semgrep Cloud Platform directly through **triage** or **bulk triage**.
 
 The triage statuses are as follows:
 
 <TriageStatuses />
 
-## Manage finding status
+## Manage findings
 
-To manage, change, open, or ignore findings, follow the triage processes described below.
+The following sections show you have to manage your findings. Some actions, such as ignoring and reopening findings, require different steps based on whether you have chosen **Group by Rule** or **No Grouping** when viewing your results.
+
 ![Screenshot of Semgrep Cloud Platform triage menu](/img/app-findings-triage.png)<br />
 *Figure 5* Findings page triage menu.
 
+### Fix a finding
+
+To **fix a finding**:
+
+1. Update, or refactor the code such that the Semgrep rule pattern no longer matches the code.
+
+### Disable a ruleset
+
+<RemoveRuleset />
+
 ### Ignore findings
 
-#### Ignore findings in the Group by Rule view
+<details>
+<summary>Ignore findings in <b>Group by Rule</b> view</summary>
 
-To **ignore findings** in the **Group by Rule** view, follow these steps:
+To **ignore findings** in the **Group by Rule** view:
 
 1. On the [Findings](https://semgrep.dev/orgs/-/findings?tab=open) page, click the **Status** filter, and then select **Open** status to see all open findings.
-1. Perform one of these steps:
+2. Perform one of these steps:
     - To select more findings from the same rule, click the **Triage** button on the card of the finding.
     - To select individual findings reported by a rule, fill in the checkboxes of the finding, and then click the **Triage** button on the card of the finding.
-1. Optional: Write a reason to describe why the finding was ignored.
-1. Click **Ignore**.
+3. Optional: Write a reason to describe why the finding was ignored.
+4. Click **Ignore**.
 
-#### Ignore findings in the No grouping view
+</details>
 
-To **ignore multiple findings** in the **No grouping** view, follow these steps:
-
-1. On the [Findings](https://semgrep.dev/orgs/-/findings?tab=open) page, click the **Status** filter, and then select **Open** status to see all open findings.
-1. Perform one of these steps:
-    - Select all findings by clicking on the header row checkbox that states **Showing X open findings**. You can navigate to succeeding pages and add other results to the current selection.
-    - Select more findings by clicking on their checkboxes.
-1. Click the **Triage** button.
-1. Optional: Select a reason of why you are ignoring a finding. Choose either: **False positive**, **Acceptable risk**, **No time to fix**
-1. Select **Ignored** from the dropdown menu.
-1. Click **Save**.
-
-#### Ignore individual findings in the No grouping view
+<details>
+<summary>Ignore findings in <b> No grouping</b> view</summary>
 
 To **ignore individual finding** in the **No grouping** view, follow these steps:
 
 <IgnoreIndividualFindingNoGrouping />
 
+To **ignore multiple findings** in the **No grouping** view, follow these steps:
+
+1. On the [Findings](https://semgrep.dev/orgs/-/findings?tab=open) page, click the **Status** filter, and then select **Open** status to see all open findings.
+2. Perform one of these steps:
+    - Select all findings by clicking on the header row checkbox that states **Showing X open findings**. You can navigate to succeeding pages and add other results to the current selection.
+    - Select more findings by clicking on their checkboxes.
+3. Click the **Triage** button.
+4. Optional: Select a reason of why you are ignoring a finding. Choose either: **False positive**, **Acceptable risk**, **No time to fix**
+5. Select **Ignored** from the dropdown menu.
+6. Click **Save**.
+
+</details>
+
 ### Reopen findings
 
-#### Reopen findings in the Group by Rule view
+<details>
+<summary>Reopen findings in <b>Group by Rule</b> view</summary>
 
 To **reopen findings** in the **Group by Rule** view, follow these steps:
 
 1. On the [Findings](https://semgrep.dev/orgs/-/findings?tab=open) page, click the **Status** filter, and then select the **Ignored** or **Fixed** status to see all ignored or fixed findings.
-1. Perform one of these steps:
+2. Perform one of these steps:
     - To select more findings from the same rule, click the **Triage** button on the card of the finding.
     - To select individual findings reported by a rule, fill in the checkboxes of the finding, and then click the **Triage** button on the card of the finding.
-1. Optional: Write a reason to describe why the finding was ignored.
-1. Click **Reopen**.
+3. Optional: Write a reason to describe why the finding was ignored.
+4. Click **Reopen**.
 
-#### Reopen multiple findings in the No grouping view
+</details>
 
-To **reopen findings** in the **No grouping** view, follow these steps:
+<details>
+<summary>Reopen findings in <b>No grouping</b> view</summary>
+
+To **reopen individual findings** in the No grouping view, follow these steps:
+
+1. On the [Findings](https://semgrep.dev/orgs/-/findings?tab=open) page, click the **Status** filter, and then select **Ignored** or **Fixed** status to see all ignored or fixed findings.
+2. Next to a finding you want to ignore, click the **Reopen** <i class="fa-regular fa-chevron-down"></i>.
+3. Optional: Add a note.
+4. Click **Save**.
+
+To **reopen multiple findings** in the **No grouping** view, follow these steps:
 
 1. On the [Findings](https://semgrep.dev/orgs/-/findings?tab=open) page, click the **Status** filter, and then select the **Ignored** or **Fixed** status to see all ignored or fixed findings.
 1. Perform one of these steps:
@@ -103,24 +125,7 @@ To **reopen findings** in the **No grouping** view, follow these steps:
 1. In the **Triage state** dropdown menu, select **Reopened**.
 1. Click **Save**.
 
-#### Reopen individual findings in the No grouping view
-
-To **reopen individual findings** in the No grouping view, follow these steps:
-
-1. On the [Findings](https://semgrep.dev/orgs/-/findings?tab=open) page, click the **Status** filter, and then select **Ignored** or **Fixed** status to see all ignored or fixed findings.
-1. Next to a finding you want to ignore, click the **Reopen** <i class="fa-regular fa-chevron-down"></i>.
-1. Optional: Add a note.
-1. Click **Save**.
-
-### Fix a finding
-
-To **fix a finding**:
-
-1. Update, or refactor the code such that the Semgrep rule pattern no longer matches the code.
-
-### Removing rulesets
-
-<RemoveRuleset />
+</details>
 
 ## Ignore findings through GitHub PR comments
 
@@ -153,6 +158,13 @@ Ignoring a finding through a comment in GitHub changes the status of the finding
 
 :::tip
 You can also reopen a finding that was previously ignored. To do so, in step 2. of the preceding procedure, use `/semgrep open`. For `/semgrep open` the reason field is optional.
+:::
+
+## Reduce the number of false positive findings
+
+* One way to address false positives is to improve the rule. Create [test cases](/docs/writing-rules/testing-rules) to ensure that the rule performs as intended.
+* If a rule from Semgrep Registry is useful, but it captures too many false positives, you can reach out to [support@semgrep.dev](mailto:support@semgrep.dev). This helps Semgrep's rule-writing efforts and improves the quality of rules that you run. 
+* You can report rules with a high false positive rate from your source code manager (SCM) if you [enable Semgrep Cloud Platform to leave comments in PRs or MRs](/category/pr-or-mr-comments/). Semgrep Cloud Platform provides a link after each comment for users to indicate if the finding is a false positive.
 :::
 
 <!--
