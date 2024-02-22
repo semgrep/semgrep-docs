@@ -60,9 +60,9 @@ Semgrep Supply Chain frequently receives rule updates. To take advantage of thes
 
 <CiScheduling />
 
-:::note Rules updates
+:::note Rule updates
 
-If a rule is updated, findings generated against the updated rule are considered **new findings**, even if the previous version of the rule generated a finding. Because the finding is new, you'll receive notifications through the channels you've set up (e.g., Slack, email).
+If a rule is updated, findings generated against the updated rule are considered **new findings**, even if the previous version of the rule generated a finding. The new finding is not affected by any triage actions on findings related to the previous version of the rule. Because the finding is new, you'll also receive notifications through the channels you've set up, such as Slack.
 :::
 
 ### Event-triggered scans
