@@ -241,6 +241,7 @@ html[data-theme="dark"] {
 * {
   font-variant-ligatures: none;
 }
+
 html {
   font-family: "Inter", sans-serif !important;
   font-weight: 400;
@@ -294,6 +295,12 @@ dd {
 
 dl {
     margin-bottom: var(--ifm-leading);
+}
+
+/* details box */
+
+details.alert {
+    background-color: unset;
 }
 
 .bordered {
