@@ -20,40 +20,12 @@ The following sample rule detects a leaked GitHub personal access token (PAT):
 
 ```yaml
 rules:
-- id: github_pat
+- id: github_example
   message: >-
-    To revoke the token, visit the `Active tokens` page in the organization settings screen: `https://github.com/organizations/<ORGRANIZATION>/settings/personal-access-tokens/active`.
-    From here, select the token, and revoke it using the drop down field and selecting `"Revoke"`.
-  severity: ERROR
-  metadata:
-    likelihood: LOW
-    impact: HIGH
-    confidence: HIGH
-    category: security
-    subcategory:
-    - vuln
-    cwe:
-    - 'CWE-798: Use of Hard-coded Credentials'
-    cwe2020-top25: true
-    cwe2021-top25: true
-    cwe2022-top25: true
-    owasp:
-    - A07:2021 - Identification and Authentication Failures
-    references:
-    - https://owasp.org/Top10/A07_2021-Identification_and_Authentication_Failures
-    secret_type: GitHub
-    technology:
-    - secrets
+    This is an example rule, that performs validation against github.com
+  severity: WARNING 
   languages:
   - regex
-  patterns:
-  - pattern-regex: (?<REGEX>\b((ghp|gho|ghu|ghs|ghr|github_pat)_[a-zA-Z0-9_]{36,255})\b)
-  - focus-metavariable: $REGEX
-  - metavariable-analysis:
-      analyzer: entropy
-      metavariable: $REGEX
-  - pattern-not-regex:
-      (?i:a{5,}|b{5,}|c{5,}|d{5,}|e{5,}|f{5,}|g{5,}|h{5,}|i{5,}|j{5,}|k{5,}|l{5,}|m{5,}|n{5,}|o{5,}|p{5,}|q{5,}|r{5,}|s{5,}|t{5,}|u{5,}|v{5,}|w{5,}|x{5,}|y{5,}|z{5,}|0{5,}|abcde|abc123|abcd123|abcde123|abcdef123|example|sample|12345|cafecafe|deadbeef|deadb33f|asdfasdf|00112233|000111222|000011112222|aabbccdd|aaabbbccc|aaaabbbbcccc|00112233|000111222|000011112222|aabbccdd|aaabbbccc|aaaabbbbcccc|your[a-z_-]{0,}(?:cred|key|pass|pat|token))
   validators:
   - http:
       request:
@@ -64,14 +36,21 @@ rules:
         method: GET
         url: https://api.github.com/user
       response:
-        - match:
-          - status-code: '200'
-          result:
-            validity: valid
-        - match:
-          - status-code: '404'
-          result:
-            validity: invalid
+      - match:
+        - status-code: 200
+        result:
+          validity: valid
+      - match:
+        - status-code: 401
+        result:
+          validity: invalid 
+  patterns:
+  - patterns:
+    - pattern-regex: (?<REGEX>\b((ghp|gho|ghu|ghs|ghr|github_pat)_[a-zA-Z0-9_]{36,255})\b)
+    - focus-metavariable: $REGEX
+    - metavariable-analysis:
+        analyzer: entropy
+        metavariable: $REGEX
 ```
 
 ### Subkeys under the `metadata` key
@@ -158,15 +137,8 @@ extent. You can run these rules in Semgrep Code (Semgrep's SAST analyzer), or
 even write your own custom secret-detecting SAST rules, but with the following
 differences:
 
-* Semgrep Code does not run a validator function against these rules, resulting
-  in less accurate results.
-    * Because the results are less accurate, these rules are not suitable as
-      criteria to block a PR or MR.
-* The UI for Semgrep Code is tailored to SAST triage and does not include
-  filtering functions for valid or invalid tokens.
-* Existing Semgrep Pro rules that detect secrets are transitioning from Semgrep
-  Code to Semgrep Secrets. By transitioning these rules, improvements, such as
-  validator functions, can be added to the rules when they are run in Semgrep
-  Secrets.
-* You can write your own custom validator functions and run them in Semgrep
-  Secrets for your own custom services or use cases.
+* Semgrep Code does not run a validator function against these rules, resulting in less accurate results.
+    * Because the results are less accurate, these rules are not suitable as a criteria to block a PR or MR.
+* The UI for Semgrep Code is tailored to SAST triage, and does not include filtering functions for valid or invalid tokens.
+* Existing Semgrep Pro rules that detect secrets are transitioning from Semgrep Code to Semgrep Secrets. By transitioning these rules, improvements, such as validator functions, can be added to the rules when they are run in Semgrep Secrets.
+* You can write your own custom validator functions and run them in Semgrep Secrets for your own custom services or use cases.
