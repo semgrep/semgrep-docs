@@ -19,7 +19,17 @@ Object.entries(frontMatter).filter(
 }
 </ul>
 
-# Setting up Semgrep Supply Chain for your infrastructure
+# Set up Semgrep Supply Chain for your infrastructure
+
+:::note Your deployment journey
+- You have gained the necessary [resource access and permissions](/deployment/checklist) required for deployment.
+- You have [created a Semgrep account and organization](/deployment/create-account-and-orgs). 
+- For GitHub and GitLab users: You have [connected your source code manager](/deployment/connect-scm).
+- Optionally, you have [set up SSO](/deployment/sso).
+- You have successfully added a [Semgrep job](/deployment/add-semgrep-to-ci) to your CI workflow.
+:::
+
+Semgrep Supply Chain performs software composition analysis with reachability.
 
 Scanning third-party code with Semgrep Supply Chain may require additional steps, such as generating a lock file that it can parse in continuous integration (CI).
 

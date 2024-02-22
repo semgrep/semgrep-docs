@@ -126,6 +126,8 @@ push:
 ```
 :::
 
+#### Upload findings to GitHub Advanced Security Dashboard
+
 <details><summary>Alternate job that uploads findings to GitHub Advanced Security Dashboard</summary>
 
 <GhaSemgrepAppSastDash />
@@ -168,7 +170,9 @@ The following configuration creates a CI job that runs an SCA scan using Semgrep
 </TabItem>
 </Tabs>
 
-<details><summary>Alternate job that uploads findings to GitLab SAST Dashboard</summary>
+#### Upload findings to GitLab Security Dashboard
+
+<details><summary>Alternate job that uploads findings to GitLab Security Dashboard</summary>
 
 <GlcicdSemgrepAppSastDash />
 
@@ -397,14 +401,14 @@ The following configuration creates a CI job that runs a SAST and SCA scan using
 
 The following configuration creates a CI job that runs an SCA scan using Semgrep Supply Chain.
 
-<AzureSemgrepAppSsc /> 
+<AzureSemgrepAppSsc /> w
 
 </TabItem>
 </Tabs>
 
 ## Other providers
 
-To run Semgrep CI on any other provider, use the `returntocorp/semgrep` image, and run the `semgrep ci` command with `SEMGREP_BASELINE_REF` set for diff-aware scanning.
+To run Semgrep CI on any other provider, use the `semgrep/semgrep` image, and run the `semgrep ci` command with `SEMGREP_BASELINE_REF` set for diff-aware scanning.
 
 **Note**: If you need to use a different image than docker, install Semgrep CI by `pip install semgrep`.
 
@@ -420,6 +424,6 @@ By setting various [CI environment variables](/semgrep-ci/ci-environment-variabl
 - TeamCity CI
 - Travis CI
 
-Is your CI provider missing? Let us know by [filing an issue](https://github.com/returntocorp/semgrep/issues/new?assignees=&labels=&template=feature_request.md&title=).
+Is your CI provider missing? Let us know by [filing an issue](https://github.com/semgrep/semgrep/issues/new?assignees=&labels=&template=feature_request.md&title=).
 
 <MoreHelp />

@@ -2,7 +2,7 @@
 slug: /
 hide_title: true
 id: Docs home
-displayed_sidebar: tutorialSidebar
+displayed_sidebar: topLevelSidebar 
 description: >-
   Read the documentation and get started with Semgrep.
   A fast, open-source, static analysis engine
@@ -44,7 +44,7 @@ Its rules look like the code you already write; no abstract syntax trees, regex 
 The Semgrep ecosystem includes the following products:
 
 - [Semgrep OSS Engine](/getting-started/quickstart) - The open-source engine at the heart of everything.
-- [Semgrep Cloud Platform (SCP)](/semgrep-cloud-platform/getting-started) - Deploy, manage, and monitor SAST, SCA, and leaked secrets at scale using Semgrep Integrates with continuous integration (CI) providers such as GitHub, GitLab, CircleCI, and more.
+- [Semgrep Cloud Platform (SCP)](https://semgrep.dev/login) - Deploy, manage, and monitor SAST, SCA, and leaked secrets at scale using Semgrep Integrates with continuous integration (CI) providers such as GitHub, GitLab, CircleCI, and more.
 - [Semgrep Code](https://semgrep.dev/products/semgrep-code) - Scan your code with Semgrep's Pro rules and Semgrep Pro Engine to find OWASP Top 10 vulnerabilities and protect against critical security risks specific to your organization.
     - [Semgrep Pro rules](/semgrep-code/pro-rules) - High-confidence rules written by Semgrep Security Research team for a variety of languages
     - [Semgrep Pro Engine](/semgrep-code/semgrep-pro-engine-intro) - Advanced engine that performs interfile and interprocedural analysis
@@ -87,8 +87,8 @@ The following table lists environments in which you can run various Semgrep prod
 | Product              | Local CLI | Remote CI |
 | -------------------- | --------- | --------- |
 | Semgrep OSS Engine  |  ✅  [Run locally with Semgrep Engine](/getting-started/quickstart)  |   ✅  Can send findings to [Semgrep Cloud Platform](semgrep-ci/running-semgrep-ci-with-semgrep-cloud-platform) or run [stand-alone CI jobs](semgrep-ci/running-semgrep-ci-without-semgrep-cloud-platform) |
-| Semgrep Code         |  ✅  Log in to access [Pro Engine](semgrep-code/semgrep-pro-engine-intro) and [Pro rules](semgrep-code/pro-rules) (Team and Enterprise tier) |   ✅  Best used with [Semgrep Cloud Platform](semgrep-cloud-platform/getting-started) |
-| Semgrep Supply Chain |  ✅  Log in to access [Supply Chain](semgrep-supply-chain/overview) rules (Team and Enterprise tier)  |   ✅  Best used with [Semgrep Cloud Platform](semgrep-cloud-platform/getting-started) |
+| Semgrep Code         |  ✅  Log in to access [Pro Engine](semgrep-code/semgrep-pro-engine-intro) and [Pro rules](semgrep-code/pro-rules) (Team and Enterprise tier) |   ✅  Best used with [Semgrep Cloud Platform](getting-started/quickstart) |
+| Semgrep Supply Chain |  ✅  Log in to access [Supply Chain](semgrep-supply-chain/overview) rules (Team and Enterprise tier)  |   ✅  Best used with [Semgrep Cloud Platform](/getting-started/quickstart/) |
 
 :::info
 Semgrep Cloud Platform is a hosted web application (SaaS) and as such is excluded from the table.
@@ -96,7 +96,7 @@ Semgrep Cloud Platform is a hosted web application (SaaS) and as such is exclude
 
 ## History
 
-Semgrep is an evolution of [pfff](https://github.com/returntocorp/pfff/), which began at [Facebook](https://github.com/facebookarchive/pfff) in 2009, which itself was an evolution of the Linux refactoring tool [Coccinelle](https://en.wikipedia.org/wiki/Coccinelle_(software)). [Semgrep, Inc](https://r2c.dev/team) revitalized the project after its original author, [Yoann Padioleau](https://github.com/aryx), joined the company. [Read more in the blog post "Semgrep: A static analysis journey"](https://semgrep.dev/blog/2021/semgrep-a-static-analysis-journey/)
+Semgrep is an evolution of [pfff](https://github.com/semgrep/pfff/), which began at [Facebook](https://github.com/facebookarchive/pfff) in 2009, which itself was an evolution of the Linux refactoring tool [Coccinelle](https://en.wikipedia.org/wiki/Coccinelle_(software)). [Semgrep, Inc](https://r2c.dev/team) revitalized the project after its original author, [Yoann Padioleau](https://github.com/aryx), joined the company. [Read more in the blog post "Semgrep: A static analysis journey"](https://semgrep.dev/blog/2021/semgrep-a-static-analysis-journey/)
 
 ## Semgrep development philosophy
 

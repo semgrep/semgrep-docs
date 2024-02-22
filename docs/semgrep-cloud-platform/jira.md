@@ -36,8 +36,6 @@ The Semgrep Jira integration allows you to create Jira tickets based on your Sem
 :::info Prerequisites
 * You must have a **Jira Cloud** plan. Jira Data Center (self-managed, or on-prem) is not supported. 
 * Your Jira user must be able to create a Jira API key with admin level privileges.
-* Jira can only be enabled through Semgrep Cloud Platform (SCP). [Create an account](/semgrep-code/getting-started/) to set up your Jira integration.
-* To create tickets, you must [add or onboard the project](/semgrep-code/getting-started/) (repository) to Semgrep Cloud Platform for scanning.
 :::
 
 To integrate Jira, follow these steps:

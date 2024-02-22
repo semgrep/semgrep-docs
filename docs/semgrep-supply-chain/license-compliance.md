@@ -17,14 +17,13 @@ Semgrep Supply Chain's **license compliance** feature enables you to explicitly 
 *Figure 1*. Screenshot of Semgrep Supply Chain Dependencies tab with licenses listed.
 
 :::info Prerequisites
-* License scanning can accessed through Semgrep Cloud Platform (SCP). [Create an account](/semgrep-code/getting-started/) to view and manage license workflows.
-* To detect licenses, you must:
-    * [Add or onboard a project](/semgrep-code/getting-started/) (repository) to Semgrep Cloud Platform for scanning.
-    * [Enable dependency search](/semgrep-supply-chain/dependency-search/#using-dependency-search).
+- License scanning can be performed only through Semgrep Cloud Platform (SCP). 
+- To detect licenses, you must:
+    - [Complete a Semgrep core deployment](/deployment/core-deployment/) for repositories you want to scan.
+    - [Enable dependency search](/semgrep-supply-chain/dependency-search/#using-dependency-search).
 :::
 
-:::caution Feature maturity and support
-* License compliance is currently in **Beta**.
+:::caution Feature support
 * In general, licenses are detected based on the **package manager**. Refer to [Supported languages](/supported-languages/#semgrep-supply-chain) to see supported package managers.
 * The creation of pull request (PR) comments through the Comment policy is only available for GitHub Free and Pro plans.
 :::
@@ -128,7 +127,7 @@ useful for internal dependencies not accessed by users or external APIs.
 
 To exempt a package:
 
-1. Log into Semgrep Cloud Platform and navigate to **Supply Chain** >
+1. Log in to Semgrep Cloud Platform and navigate to **Supply Chain** >
    **Dependencies**.
 2. Search for the dependencies you want to exempt.
 3. Click the dependency's <i class="fa-solid fa-list-check"></i> icon to exempt
@@ -155,7 +154,7 @@ exception. This ensures that the exclusion won't fail when you upgrade to
 
 To set a custom dependency exception:
 
-1. Log into Semgrep Cloud Platform and navigate to **Supply Chain** > <i
+1. Log in to Semgrep Cloud Platform and navigate to **Supply Chain** > <i
    class="fa-solid fa-gear"></i> **Settings**.
 2. In **Custom Dependency Exceptions**, click **Add custom exception**.
 3. In the **Add custom dependency exception** window that appears:

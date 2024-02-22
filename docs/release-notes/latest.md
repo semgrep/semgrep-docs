@@ -73,7 +73,7 @@ tags:
 - **C++ with Semgrep Pro Engine**: Improved translation of delete expressions to the dataflow so that
 recently added at-exit sinks work on them. Previously, delete expression at "exit" positions were not being properly recognized as such. <!-- (pa-3339) -->
 
-### Changed
+## 🔐 Secrets (beta)
 
 - Improved loading times for **Dashboard** and **Findings** pages.
 - Redesigned the **Findings** page to display issues present on multiple branches,

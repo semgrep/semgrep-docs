@@ -70,7 +70,7 @@ export PATH="${SEMGREP_BREW_CORE_BINARY_PATH}:${PATH}"
 
 ### The manual shortcut
 
-Visit the [releases page](https://github.com/returntocorp/semgrep/releases)
+Visit the [releases page](https://github.com/semgrep/semgrep/releases)
 and grab the latest zipfile or tarball for your platform. Extract this archive
 and inside should be the necessary binaries. You can confirm this by running:
 

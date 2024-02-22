@@ -435,7 +435,7 @@ Enable, disable, or modify the following matching features:
 | `vardef_assign`        | `true`  | Assignment patterns (for example `$X = $E`) match variable declarations (for example `var x = 1;`). |
 | `xml_attrs_implicit_ellipsis` | `true` | Any XML/JSX/HTML element patterns have implicit ellipsis for attributes (for example: `<div />` matches `<div foo="1">`. |
 
-The full list of available options can be consulted in the [Semgrep matching engine configuration](https://github.com/returntocorp/semgrep/blob/develop/interfaces/Rule_options.atd) module. Note that options not included in the table above are considered experimental, and they may change or be removed without notice.
+The full list of available options can be consulted in the [Semgrep matching engine configuration](https://github.com/semgrep/semgrep/blob/develop/interfaces/Rule_options.atd) module. Note that options not included in the table above are considered experimental, and they may change or be removed without notice.
 
 ## `fix`
 
@@ -627,7 +627,7 @@ The above rule makes use of many operators. It uses `pattern-either`, `patterns`
 
 ## Full specification
 
-The [full configuration-file format](https://github.com/returntocorp/semgrep-interfaces/blob/main/rule_schema_v1.yaml) is defined as
+The [full configuration-file format](https://github.com/semgrep/semgrep-interfaces/blob/main/rule_schema_v1.yaml) is defined as
 a [jsonschema](http://json-schema.org/specification.html) object.
 
 <MoreHelp />

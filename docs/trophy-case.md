@@ -7,7 +7,7 @@ description: "This is a list of vulnerabilities found and security fixes made wi
 # Semgrep trophy case
 
 This is a list of vulnerabilities found and security fixes made with Semgrep.
-Add yours [with a pull request](https://github.com/returntocorp/semgrep-docs)!
+Add yours [with a pull request](https://github.com/semgrep/semgrep-docs)!
 
 |CVEs	|	|	|	|
 |---	|---	|---	|---	|

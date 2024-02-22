@@ -135,7 +135,7 @@ jobs:
 
     container:
       # A Docker image with Semgrep installed. Do not change this.
-      image: returntocorp/semgrep
+      image: semgrep/semgrep
 
     # To skip any PR created by dependabot to avoid permission issues:
     if: (github.actor != 'dependabot[bot]')
@@ -158,7 +158,7 @@ jobs:
 ```yaml
 semgrep:
   # A Docker image with Semgrep installed.
-  image: returntocorp/semgrep
+  image: semgrep/semgrep
 
   rules:
     # Scan changed files in MRs (diff-aware scanning):
@@ -226,7 +226,7 @@ Follow these steps for GitHub permissions access:
 #### Creating a CI job running Semgrep
 
 1. Add Semgrep to your CI pipeline. Do either of the following:
-    1. Reference or add the [Semgrep Docker image](https://hub.docker.com/r/returntocorp/semgrep). This is the recommended method.
+    1. Reference or add the [Semgrep Docker image](https://hub.docker.com/r/semgrep/semgrep). This is the recommended method.
     2. Add `pip install semgrep` into your configuration file as a step or command, depending on your CI provider's syntax.
 2. Add `semgrep ci` as a step or command.
 3. Set the `SEMGREP_APP_TOKEN` environment variable within your configuration file.
@@ -245,7 +245,7 @@ pipelines:
         name: 'Run Semgrep scan with current branch'
         deployment: dev
         # Reference the Semgrep Docker image:
-        image: returntocorp/semgrep
+        image: semgrep/semgrep
         script:
         # You need to set the token as an environment variable 
         # (see Create a `SEMGREP_APP_TOKEN` section).

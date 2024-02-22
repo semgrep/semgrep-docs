@@ -11,9 +11,9 @@ description: "Semgrep can match generic patterns in languages that it doesn’t 
 
 ## Introduction
 
-Semgrep can match generic patterns in languages that it does **not** yet support. Use generic pattern matching for languages that do not have a parser, configuration files, or other structured data such as XML.
+Semgrep can match generic patterns in languages that it does **not** yet support. Use generic pattern matching for languages that do not have a parser, configuration files, or other structured data such as XML. Generic pattern matching can also be useful in files containing multiple languages even if the languages are otherwise supported, such as HTML with embedded JavaScript or PHP code. In those cases you can also consider [Extract mode (experimental)](/docs/writing-rules/experiments/extract-mode/), but generic patterns may be simpler and still effective.
 
-As an example, consider this rule:
+As an example of generic matching, consider this rule:
 ```yaml
 rules:
   - id: dynamic-proxy-scheme
@@ -89,13 +89,13 @@ Generic pattern matching has the following properties:
 
 ## Caveats and limitations of generic mode
 
-Semgrep can reliably understand the syntax of natively [supported languages](/supported-languages/). The generic mode is useful for unsupported languages, consequently bringing specific limitations.
+Semgrep can reliably understand the syntax of natively [supported languages](/supported-languages/). The generic mode is useful for unsupported languages, and consequently brings specific limitations.
 
 :::caution
 The quality of results in the generic mode can vary depending on the language you use it for.
 :::
 
-The generic mode works fine with any human-readable text, as long as it is primarily based on ASCII symbols. Since the generic mode does not understand the syntax of the language you are scanning, the quality of the result may differ from language to language or even depend on specific code. As a consequence, the generic mode works well for some languages, but it does not give consistent results always. Generally, it's possible or even easy to write code in weird ways that prevent generic mode from matching.
+The generic mode works fine with any human-readable text, as long as it is primarily based on ASCII symbols. Since the generic mode does not understand the syntax of the language you are scanning, the quality of the result may differ from language to language or even depend on specific code. As a consequence, the generic mode works well for some languages, but it does not always give consistent results. Generally, it's possible or even easy to write code in weird ways that prevent generic mode from matching.
 
 **Example**: In XML, one can write `&#x48;&#x65;&#x6C;&#x6C;&#x6F` instead of `Hello`. If a rule pattern in generic mode is `Hello`, Semgrep is unable to match the `&#x48;&#x65;&#x6C;&#x6C;&#x6F`, unlike if it had full XML support.
 

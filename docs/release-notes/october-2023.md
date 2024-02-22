@@ -15,10 +15,10 @@ tags:
 ## 🔧 Semgrep OSS Engine
 
 - The following versions of Semgrep OSS Engine were released in October 2023:
-  - [<i class="fas fa-external-link fa-xs"></i> 1.43.0](https://github.com/returntocorp/semgrep/releases/tag/v1.43.0)
-  - [<i class="fas fa-external-link fa-xs"></i> 1.44.0](https://github.com/returntocorp/semgrep/releases/tag/v1.44.0)
-  - [<i class="fas fa-external-link fa-xs"></i> 1.45.0](https://github.com/returntocorp/semgrep/releases/tag/v1.45.0)
-  - [<i class="fas fa-external-link fa-xs"></i> 1.46.0](https://github.com/returntocorp/semgrep/releases/tag/v1.46.0)
+  - [<i class="fas fa-external-link fa-xs"></i> 1.43.0](https://github.com/semgrep/semgrep/releases/tag/v1.43.0)
+  - [<i class="fas fa-external-link fa-xs"></i> 1.44.0](https://github.com/semgrep/semgrep/releases/tag/v1.44.0)
+  - [<i class="fas fa-external-link fa-xs"></i> 1.45.0](https://github.com/semgrep/semgrep/releases/tag/v1.45.0)
+  - [<i class="fas fa-external-link fa-xs"></i> 1.46.0](https://github.com/semgrep/semgrep/releases/tag/v1.46.0)
 
 ## 🌐 Semgrep Cloud Platform
 

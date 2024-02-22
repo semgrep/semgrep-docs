@@ -40,7 +40,7 @@ These release notes include upgrades for versions ranging between 0.108.0 and 0.
 
 #### Additional information
 
-Minor bug fixes are not included in the release notes unless they are potentially breaking your workflow. To see the complete change notes for Semgrep CLI and CI that include fixes, visit the [Semgrep changelog](https://github.com/returntocorp/semgrep/releases/).
+Minor bug fixes are not included in the release notes unless they are potentially breaking your workflow. To see the complete change notes for Semgrep CLI and CI that include fixes, visit the [Semgrep changelog](https://github.com/semgrep/semgrep/releases/).
 
 ## Documentation updates
 

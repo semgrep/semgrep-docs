@@ -13,11 +13,11 @@ toc_max_heading_level: 3
 
 ### Additions
 
-- C#: support ellipsis in declarations ([#3720](https://github.com/returntocorp/semgrep/pull/3720))
+- C#: support ellipsis in declarations ([#3720](https://github.com/semgrep/semgrep/pull/3720))
 
 ### Fixes
 
-- Hack: improved support for metavariables ([#3716](https://github.com/returntocorp/semgrep/pull/3716))
+- Hack: improved support for metavariables ([#3716](https://github.com/semgrep/semgrep/pull/3716))
 - Dataflow: Disregard type arguments but not the entire instruction
 
 ### Changes
@@ -36,10 +36,10 @@ toc_max_heading_level: 3
 ### Fixes
 
 - core: fix parsing of numeric literals in rule files
-- Java: fix the range and autofix of Cast expressions ([#3669](https://github.com/returntocorp/semgrep/issues/3669))
-- Generic mode scanner no longer tries to open submodule folders as files ([#3701](https://github.com/returntocorp/semgrep/pull/3701))
-- pattern-regex with completely empty files ([#3705](https://github.com/returntocorp/semgrep/issues/3705))
-- --sarif exit code with suppressed findings ([#3680](https://github.com/returntocorp/semgrep/issues/3680))
+- Java: fix the range and autofix of Cast expressions ([#3669](https://github.com/semgrep/semgrep/issues/3669))
+- Generic mode scanner no longer tries to open submodule folders as files ([#3701](https://github.com/semgrep/semgrep/pull/3701))
+- pattern-regex with completely empty files ([#3705](https://github.com/semgrep/semgrep/issues/3705))
+- --sarif exit code with suppressed findings ([#3680](https://github.com/semgrep/semgrep/issues/3680))
 - Fixed fatal errors when a pattern results in a large number of matches
 - Better error message when rule contains empty pattern
 
