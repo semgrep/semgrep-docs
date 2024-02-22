@@ -45,11 +45,9 @@ The following sections show you have to manage your findings. Some actions, such
 
 ### Fix a finding
 
-To **fix a finding**:
+To **fix a finding**, update or refactor the code such that the Semgrep rule pattern no longer matches the code.
 
-1. Update, or refactor the code such that the Semgrep rule pattern no longer matches the code.
-
-### Disable a ruleset
+### Disable a ruleset or a rule
 
 <RemoveRuleset />
 
@@ -136,25 +134,26 @@ Triage your Semgrep Cloud Platform findings displayed as comments in GitHub PRs 
 - GitHub Semgrep Cloud Platform installed in the repository that is also added as a project in Semgrep Cloud Platform. For more information, see [Getting started with Semgrep in continuous integration (CI)](/semgrep-ci/overview/).
 :::
 
-To enable triage through comments, follow these steps:
+To enable triage through comments:
 
 1. In Semgrep Cloud Platform, go to your organization's [Settings](https://semgrep.dev/orgs/-/projects/-/repo-to-scan) page.
 2. Enable the **Triage via comment** <i class="fa-solid fa-toggle-large-on"></i> toggle.
 
-To triage a finding in GitHub, follow these steps:
+To triage a finding in GitHub:
 
 1. Find an open comment created by Semgrep Cloud Platform in GitHub PR:
     ![Screenshot of Semgrep Cloud Platform comment in GitHub](/img/semgrep-app-comment-github.png)<br />
-    *Figure 7.* Screenshot of Semgrep Cloud Platform comment in GitHub.
-2. In the comment, reply with:
+
+2. In a subsequent comment, reply with:
     <pre><code>
     /semgrep ignore <span className="placeholder">&lt;reason&gt;</span>
     </code></pre>
-3. Substitute the colored placeholder <code><span className="placeholder">&lt;reason&gt;</span></code> with any text that can help to understand why the status of a comment is ignored.
+   Substitute the colored placeholder <code><span className="placeholder">&lt;reason&gt;</span></code> with text to help the reader understand why the status of a comment is ignored. Alternatively, you can reopen a finding that was previously ignored:
+   <pre><code>
+    /semgrep open <span className="placeholder">&lt;reason&gt;</span>
+    </code></pre>
 
-:::info
-Ignoring a finding through a comment in GitHub changes the status of the finding to **ignored** in the Semgrep Cloud Platform. See [Findings](/semgrep-code/findings) page documentation for more details. The GitHub conversation itself is not automatically resolved by this process.
-:::
+Ignoring a finding through a comment in GitHub changes the status of the finding to **ignored** in the Semgrep Cloud Platform. The GitHub conversation itself is not automatically resolved by this process.
 
 :::tip
 You can also reopen a finding that was previously ignored. To do so, in step 2. of the preceding procedure, use `/semgrep open`. For `/semgrep open` the reason field is optional.
