@@ -105,9 +105,11 @@ Semgrep enables you to set a **workflow action** based on the presence of a find
 
 You can trigger these actions based on the [rule mode](#rule-modes) set for the rule.
 
+<!-- Custom rules aren't ready yet
 ## Add custom rules
 
 To add custom rules, use the Semgrep Editor. See [<i class="fa-regular fa-file-lines"></i> Setting code standards with the Policies page](/semgrep-code/editor/#setting-code-standards-with-the-policies-page).
+ -->
 
 ## Disable rules
 
