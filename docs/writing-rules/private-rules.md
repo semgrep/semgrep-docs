@@ -98,6 +98,22 @@ This section provides an example of how to automatically publish your private ru
             SEMGREP_APP_TOKEN: ${{ secrets.SEMGREP_APP_TOKEN }}
     ```
 
+A similar example job for GitLab CI/CD:
+
+```yaml
+    semgrep-publish:
+      image: semgrep/semgrep
+      script: semgrep publish --visibility=org_private .
+
+    rules:
+      - if: $CI_COMMIT_BRANCH == $CI_DEFAULT_BRANCH
+
+    variables:
+      SEMGREP_APP_TOKEN: $SEMGREP_APP_TOKEN
+```
+
+As above, make sure that `SEMGREP_APP_TOKEN` is defined in your GitLab project's CI/CD variables.
+
 ## Deleting private rules
 
 <DeleteCustomRule />
