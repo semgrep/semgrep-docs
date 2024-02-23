@@ -1,4 +1,4 @@
---
+---
 slug: cli-oss
 title: Local CLI scans
 hide_title: true
