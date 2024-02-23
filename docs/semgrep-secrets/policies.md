@@ -1,24 +1,25 @@
 ---
-slug: rule-management
+slug: policies
 append_help_link: true
-title: Rule management
+title: Policies
 hide_title: true
 description: The Policies page is a visual representation of the rules that Semgrep Secrets uses to scan code
 tags:
   - Semgrep Secrets
 ---
 
-# Rules management
+# Policies
 
 The **Policies** page visually represents the rules Semgrep Secrets uses for scanning. 
 
-![Overview of Semgrep Secrets Rule Management view](/img/secrets-rules-management.png)
+![Overview of Semgrep Secrets policies view](/img/secrets-rules-management.png)
 
 To access the policies page for Semgrep Secrets:
 
 1. Log in to Semgrep Cloud Platform and navigate to **Rules** > **Policies**.
 2. Switch to the **Secrets** page.
 
+## Policies page structure
 
 The Policies page consists of a header and three main panes:
 
