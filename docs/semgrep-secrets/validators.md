@@ -144,7 +144,7 @@ request:
 | - | - | - |
 | status-code | Yes | The HTTP status code expected by Semgrep Secrets for it to consider the secret a match |
 | result | Yes | Defines the result of the call based on the HTTP status code received |
-| content | No | The response body; you can inspect it for a specific value or JSON response to determine if the request is valid. An example where this is useful is when both invalid and valid responses are the same status-code |
+| content | No | The response body; you can inspect it for a specific value or JSON response to determine if the request is valid. An example of where this is useful is when both invalid and valid responses return the same status code |
 | message | No | Used to override the rule message based on the secret's validity state |
 | metadata | No | Used to override existing metadata fields or add new metadata fields based on the secret's validity state |
 | severity |  No | Used to override the existing rule severity based on the validity state |

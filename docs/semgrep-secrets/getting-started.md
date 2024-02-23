@@ -205,4 +205,10 @@ You can create tickets in Jira, Linear, or Asana for secrets-related findings. S
 
 View the [<i class="fas fa-external-link fa-xs"></i> Secrets API documentation](https://semgrep.dev/api/v1/docs/#tag/SecretsService).
 
+## Additional information
+
+* Learn more about the [structure of rules for Semgrep Secrets](/semgrep-secrets/rules), as well as how to [manage your rules using Semgrep Cloud Platform](/semgrep-secrets/rule-management).
+* Learn how to [write custom validators](/semgrep-secrets/validators) for your Semgrep Secrets rules.
+
+
 <MoreHelp />
