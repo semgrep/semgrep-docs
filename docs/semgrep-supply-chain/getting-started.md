@@ -33,7 +33,7 @@ This article walks you through the Semgrep Supply Chain configuration and custom
 
 ## Project directory structure
 
-Semgrep Supply Chain requires a [lockfile](/semgrep-supply-chain/glossary/#lockfile). Code files that use the dependencies in the lockfile must be nested in the same directory as the lockfile. Semgrep Supply Chain can correctly parse code files in sub folders as well.
+Semgrep Supply Chain requires a [lockfile](/semgrep-supply-chain/glossary/#lockfile). Code files that use the dependencies in the lockfile must be nested in the same directory as the lockfile. Semgrep Supply Chain can correctly parse code files in subfolders as well.
 
 In the following example, Semgrep Supply Chain assumes that all code files using the dependencies in `my-project/running/lockfile.json` are nested in `my-project/running/` or deeper directories.
 
@@ -52,17 +52,17 @@ If you have code files in `my-project/biking`, Semgrep Supply Chain does not ass
 
 ## Scan frequency
 
-By default, Semgrep Supply Chain scans your code once per day. However, you can change this so Semgrep Supply Chain scans your code at a different frequency or when a specific event occurs.
+By adjusting your CI configuration, you can configure your scans so that Semgrep Supply Chain scans your code at a different frequency or when a specific event occurs.
 
 ### Schedule scans
 
-Semgrep Supply Chain frequently receives rule updates. To take advantage of these updates and increase the frequency with which Semgrep Supply Chain scans your codebase.
+Semgrep Supply Chain frequently receives rule updates. To take advantage of these updates, adjust the frequency with which Semgrep Supply Chain scans your codebase.
 
 <CiScheduling />
 
-:::note Rules updates
+:::note Rule updates
 
-If a rule is updated, findings generated against the updated rule are considered **new findings**, even if the previous version of the rule generated a finding. Furthermore, because the finding is new, you'll receive notifications through the channels you've set up (e.g., Slack, email).
+If a rule is updated, findings generated against the updated rule are considered **new findings**, even if the previous version of the rule generated a finding. The new finding is not affected by any triage actions on findings related to the previous version of the rule. Because the finding is new, you'll also receive notifications through the channels you've set up, such as Slack.
 :::
 
 ### Event-triggered scans
@@ -114,11 +114,17 @@ Additionally, you can view your results in Semgrep Cloud Platform (SCP). SCP dis
 
 ## Scan a monorepo's dependencies
 
-Semgrep Supply Chain supports the scanning of monorepos. It treates each of the monorepo's subdirectories as an individual repository. Findings are then grouped by the repositories based on the [lockfile](/semgrep-supply-chain/glossary/#lockfile) or manifest file present in the monorepo.
+Semgrep Supply Chain supports the scanning of monorepos. As outlined in [Project directory structure](#project-directory-structure), findings are grouped by directory based on the [lockfiles](/semgrep-supply-chain/glossary/#lockfile) or manifest files present in the monorepo.
 
 ## Block pull or merge requests
 
-Though Semgrep Supply Chain **v0.122.0** and earlier automatically blocked pull/merge requests if it discovered reachable findings in the code, it no longer does this. You can, however, configure your version control system to prevent merging if Semgrep Supply Chain identifies reachable findings.
+Semgrep Supply Chain versions **v0.122.0** and earlier automatically blocked pull/merge requests if it discovered reachable findings in the code, but later versions do not do this. You can, however, configure Semgrep Supply Chain to block on pull request scans that detect reachable findings in direct dependencies with high or critical severity. 
+
+1. Log in to Semgrep Cloud Platform.
+2. Click **Supply Chain** > **Settings** on the header menu.
+3. Click **<i class="fa-solid fa-toggle-large-on"></i> PR Blocking**.
+
+Alternatively, you can configure your version control system to prevent merging if Semgrep Supply Chain identifies reachable findings.
 
 ## Ignore lockfiles and dependencies
 
