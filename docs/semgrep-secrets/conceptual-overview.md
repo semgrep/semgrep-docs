@@ -31,12 +31,23 @@ valid secrets in their GitHub PRs by posting PR comments.
 To ensure that findings are high-signal, comprehensive, and easy for users to
 prioritize, a Semgrep Secrets scan performs the following:
 
-* Semantic analysis
+* Regex and Semantic analysis
 * Validation
 * Entropy analysis
 
 The following sections explain how each step works.
 
+### Detect secrets through regex
+
+Since secrets can be in various file types, Semgrep Secrets makes use of our regex language detector to find various secrets. This is usually achieved by detecting a commonly defined pre-fix which we then search for the expected length and format of the secret.
+
+To reduce false positives, we combine many features of Semgrep to perform, and where possible we apply:
+
+* Perform Entropy Analysis
+* Remove likely false positives 
+* Perform Validation
+
+<!-- TODO, rewrite this to be more relevant-->
 ### Detect secrets through semantic analysis
 
 Semantic analysis refers to Semgrep Secrets' ability to understand how data is
@@ -53,7 +64,7 @@ and functions in your codebase.
 
 Performing semantic analysis is encapsulated in [<i class="fa-regular
 fa-file-lines"></i> rules](/running-rules/). By running these rules, Semgrep
-Secrets is able to detect if a variable is renamed, unsanitized or sanitized,
+Secrets is able to detect if a variable is renamed,
 reassigned, or used in a function in such a way that a secret is exposed.
 
 See the following rule and JavaScript test code for an example.
@@ -139,7 +150,11 @@ txtCfmPassword
 
 See [<i class="fa-regular fa-file-lines"></i> Getting started with Semgrep Secrets](/semgrep-secrets/getting-started) to learn how to:
 * Enable secrets scanning for your repositories
+* Manage your rules via policies have complete control over how 
+<!-- katie, probably want to link to policies -->
 * View and triage secrets-related findings
 * Receive notifications and post tickets whenever Semgrep Secrets identifies issues
+* Write custom rules with validators to find bespoke secrets
+<!-- katie, probably want to link to rules?>
 
 <MoreHelp />
