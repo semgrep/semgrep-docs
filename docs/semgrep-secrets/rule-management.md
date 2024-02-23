@@ -12,10 +12,13 @@ tags:
 
 The **Policies** page visually represents the rules Semgrep Secrets uses for scanning. 
 
+![Overview of Semgrep Secrets Rule Management view](/img/secrets-rules-management.png)
+
 To access the policies page for Semgrep Secrets:
 
 1. Log in to Semgrep Cloud Platform and navigate to **Rules** > **Policies**.
 2. Switch to the **Secrets** page.
+
 
 The Policies page consists of a header and three main panes:
 
