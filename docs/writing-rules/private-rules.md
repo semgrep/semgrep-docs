@@ -103,7 +103,7 @@ A similar example job for GitLab CI/CD:
 ```yaml
     semgrep-publish:
       image: semgrep/semgrep
-      script: semgrep publish --visibility=org_private .
+      script: semgrep publish --visibility=org_private ./private_rule_dir
 
     rules:
       - if: $CI_COMMIT_BRANCH == $CI_DEFAULT_BRANCH
