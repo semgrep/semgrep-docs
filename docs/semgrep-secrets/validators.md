@@ -9,24 +9,48 @@ tags:
 
 # Validators
 
-Semgrep Secrets uses a proprietary **validator** to determine if a secret is
-actively being used. Validators are included in the [rules Semgrep Secrets
-uses](/semgrep-secrets/rules).
+Semgrep Secrets uses proprietary **validators** to determine if a secret is
+actively being used. Validators are included in the
+[rules](/semgrep-secrets/rules) that Semgrep Secrets uses.
 
-This article walks through the validator syntax, so that you can write custom
+This article walks you through the syntax required to write your own custom
 validators.
 
 :::note Validation
-Semgrep currently supports validation for HTTP and HTTPS
+Semgrep currently supports validation made using HTTP and HTTPS.
 :::
 
 ## Sample validator
 
 ```yaml
+validators:
+- http:
+    request:
+      headers:
+        Authorization: Bearer $REGEX
+        Host: api.exampleCo.com
+        User-Agent: Semgrep
+      method: GET
+      url: https://api.exampleCo.com/user
+    response:
+    - match:
+      - status-code: 200
+      result:
+        validity: valid
+    - match:
+      - status-code: 401
+      result:
+        validity: invalid 
+```
+
+<details>
+<summary>See a validator in the context of a full rule.</summary>
+
+```yaml
 rules:
 - id: exampleCo_example
   message: >-
-    This is an example rule, that performs validation against exampleCo.com
+    This is an example rule that performs validation against exampleCo.com
   severity: WARNING 
   metadata:
     product: secrets
@@ -60,15 +84,17 @@ rules:
         metavariable: $REGEX
 ```
 
+</details>
+
 ## Syntax
 
-You can extend semgrep rules with a top level key to use `validators` which needs the following:
-
-::: note Validators 
-You can include a list of validators, so you can include one or more per-rule
+:::note Validators 
+You can add multiple validators to a rule. To do this, add your validators as a list.
 :::
 
-| http | Description |
+You can extend a Semgrep rule to include a validator using the top-level `validators` key. This key requires the following additional parameters:
+
+| Sub-key | Description |
 | -------  | ------ |
 | `http` | **Required** Indicates that the request type is `http`. Its sub-keys define the parameters of the call. |
 
