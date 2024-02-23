@@ -1,6 +1,6 @@
 ---
 slug: validators
-title: Semgrep Secrets Validators
+title: Validators
 hide_title: true
 description: Learn about validators used in Semgrep Secrets rules.
 tags:
@@ -9,7 +9,7 @@ tags:
 
 # Validators
 
-Semgrep Secrets uses proprietary **validators** to determine if a secret is
+[Semgrep Secrets](/semgrep-secrets/conceptual-overview) uses proprietary **validators** to determine if a secret is
 actively being used. Validators are included in the
 [rules](/semgrep-secrets/rules) that Semgrep Secrets uses.
 
@@ -88,89 +88,103 @@ rules:
 
 ## Syntax
 
-:::note Validators 
-You can add multiple validators to a rule. To do this, add your validators as a list.
-:::
+### validator
 
-You can extend a Semgrep rule to include a validator using the top-level `validators` key. This key requires the following additional parameters:
+| Key | Required | Description |
+| - | - | - |
+| validator | Yes | Used to define a validator within a Semgrep rule. |
 
-| Sub-key | Description |
-| -------  | ------ |
-| `http` | **Required** Indicates that the request type is `http`. Its sub-keys define the parameters of the call. |
+### http
 
-Keys required for HTTP 
+| Key | Required | Description |
+| - | - | - |
+| http | Yes | Indicates that the request type is `http`. |
 
-| http keys | Description |
-| -------  | ------ |
-| `request` | **Required** Indicates that the subkeys describe the request object and the URL to send the request object to. |
-| `response`  | **Required** This key and its subkeys determine 
-<!-- maybe need to split response out from here-->
+### request
 
-Request keys
+| Key | Required | Description |
+| - | - | - |
+| request | Yes | Describes the request object and the URL to which the request object should be sent |
+| method | Yes | The HTTP method Semgrep uses to make the call. Accepted values: `GET`, `POST`, `PUT`, `DELETE`, `OPTIONS`, `PATCH` |
+| url | Yes | The URL to which the call is made |
+| headers | Yes | The headers to include with the call |
+| body | No | The body used with `POST` requests |
 
-| request | Description |
-| -------  | ------ |
-| `method` | **Required** The HTTP method (GET,POST,PUT,DELETE OPTIONS,PATCH) Semgrep uses when making the call. |
-| `url` | **Required** The URL to which the call is made.  |
-| `body` | **Optional** HTTP Body used with POST requests.  |
-| `headers` | **Required** Indicates that the subkeys describe the HTTP headers required for the call. |
+#### Sub-keys for `headers`
 
+The following keys are for use with `headers`:
 
-Header keys
+| Key | Required | Description |
+| - | - | - |
+| Host | Yes | The host to which the call is made |
+| Other-values | No | The request header. Accepts all values, including `Authorization`, `Content-Type`, `User-Agent`, and so on  |
 
-| headers | Description |
-| -------  | ------ |
-| `Host` | **Required** The host to which the call is made. |
-| `Other-Values` | **Optional** You can include any type of Header e.g. Authorization, Content-Type, User-Agent in the rule. |
+#### Example
 
-Response Keys
+```yaml
+request:
+  headers:
+    Authorization: Bearer $REGEX
+    Host: api.exampleCo.com
+    User-Agent: Semgrep
+  method: GET
+  url: https://api.exampleCo.com/user
+```
 
-| response | Description |
-| -------  | ------ |
-| `match` | **Required** Accepts a list of match conditions. |
+### response
 
+| Key | Required | Description |
+| - | - | - |
+| response | Yes | Describes the response object... |
+| match | Yes | Defines the list of match conditions. |
 
-Match Keys
+#### Sub-keys for `match`
 
-| match | Description |
-| -------  | ------ |
-| `status-code` | **Required** The HTTP status code Semgrep Secrets expects. |
-| `result` | **Required** Defines the result based on the HTTP status code received. |
-| `content` | **Optional** Allows you to inspect the response body for a specific . |
-| `message` | **Optional** Allows you to override the rule message based on the validility state. |
-| `metadata` | **Optional** Allows you to override existing metadata fields or add new metadata fields based on the validility state. |
-| `severity` | **Optional** Allows you to override the existing rule severity based on the validility state. |
+| Key | Required | Description |
+| - | - | - |
+| status-code | Yes | The HTTP status code expected by Semgrep Secrets for it to consider the secret a match |
+| result | Yes | Defines the result of the call based on the HTTP status code received |
+| content | No | The response body; you can inspect it for a specific... |
+| message | No | Used to override the rule message based on the secret's validity state |
+| metadata | No | Used to override existing metadata fields or add new metadata fields based on the secret's validity state |
+| severity |  No | Used to override the existing rule severity based on the validity state |
 
-Result keys
+#### Sub-keys for `result`
 
-| result | Description |
-| -------  | ------ |
-| `validity` | **Required** Sets the validity based on the HTTP status code received. Accepted values include `valid` and `invalid`. |
+| Key | Required | Description |
+| - | - | - |
+| validity | Yes | Sets the validity based on the HTTP status code received. Accepted values: `valid` and `invalid` |
 
-Content keys
+#### Sub-keys for `content`
 
-| content | Description |
-| -------  | ------ |
-| `language` | **Required** tells Semgrep to use a particular pattern language, we normally recommend regex but this could also be JSON etc. |
-| `pattern-regex` | **Required** searches the response body with a regex for a particular regex definition. |
+| Key | Required | Description |
+| - | - | - |
+| language | Yes | Indicates the pattern language to use; this is typically regex, but it could be JSON |
+| pattern-regex | Yes | Defines the regex used to search the response body. Alternatively, you can use the `patterns` key and [define patterns as you would for rules](/semgrep-secrets/rules/#subkeys-under-the-patterns-key) |
 <!-- this can be patterns: too but idk how to represent that -->
 
-## Utilities
+#### Example
 
-base64 encoding is possible by leveraging the `__semgrep_internal_encode_64(...)` utility this can be applied to the following fields
+```yaml
+response:
+- match:
+  - status-code: 200
+  - content:
+      language: regex
+      pattern-regex: (\"ok\":true)
+    status-code: 200
+```
 
-* url
-* body
-* header value
+## Sample rules with validators
 
-
-## POST request Example
+<details>
+<summary>Sample POST request</summary>
 
 ```yaml
 rules:
 - id: exampleCo_example
   message: >-
-    This is an example rule, that performs validation against exampleCo.com
+    This is an example rule that performs validation against exampleCo.com
   severity: WARNING 
   metadata:
     product: secrets
@@ -205,53 +219,16 @@ rules:
         metavariable: $REGEX
 ```
 
-## Base64 encoding
+</details>
+
+<details>
+<summary>All fields</summary>
 
 ```yaml
 rules:
 - id: exampleCo_example
   message: >-
-    This is an example rule, that performs validation against exampleCo.com
-  severity: WARNING 
-  metadata:
-    product: secrets
-    secret_type: exampleCo
-  languages:
-  - regex
-  validators:
-  - http:
-      request:
-        headers:
-          Authorization: Basic __semgrep_internal_encode_64($REGEX:)
-          Host: api.exampleCo.com
-          User-Agent: Semgrep
-        method: GET
-        url: https://api.exampleCo.com/user
-      response:
-      - match:
-        - status-code: 200
-        result:
-          validity: valid
-      - match:
-        - status-code: 401
-        result:
-          validity: invalid 
-  patterns:
-  - patterns:
-    - pattern-regex: (?<REGEX>\b(someprefix_someRegex[0-9A-Z]{32})\b)
-    - focus-metavariable: $REGEX
-    - metavariable-analysis:
-        analyzer: entropy
-        metavariable: $REGEX
-```
-
-## Using all fields
-
-```yaml
-rules:
-- id: exampleCo_example
-  message: >-
-    This is an example rule, that performs validation against exampleCo.com
+    This is an example rule that performs validation against exampleCo.com
   severity: WARNING 
   metadata:
     product: secrets
@@ -289,3 +266,56 @@ rules:
         analyzer: entropy
         metavariable: $REGEX
 ```
+
+</details>
+
+
+### Base64 encoding
+
+You can use Base64 encoding by leveraging the `__semgrep_internal_encode_64(...)` utility. Base64 encoding can be applied to the following fields:
+
+- `url`
+- `body`
+- `header` values
+
+<details>
+<summary>Sample Semgrep rule with validator using Base64 encoding</summary>
+
+```yaml
+rules:
+- id: exampleCo_example
+  message: >-
+    This is an example rule that performs validation against exampleCo.com
+  severity: WARNING 
+  metadata:
+    product: secrets
+    secret_type: exampleCo
+  languages:
+  - regex
+  validators:
+  - http:
+      request:
+        headers:
+          Authorization: Basic __semgrep_internal_encode_64($REGEX:)
+          Host: api.exampleCo.com
+          User-Agent: Semgrep
+        method: GET
+        url: https://api.exampleCo.com/user
+      response:
+      - match:
+        - status-code: 200
+        result:
+          validity: valid
+      - match:
+        - status-code: 401
+        result:
+          validity: invalid 
+  patterns:
+  - patterns:
+    - pattern-regex: (?<REGEX>\b(someprefix_someRegex[0-9A-Z]{32})\b)
+    - focus-metavariable: $REGEX
+    - metavariable-analysis:
+        analyzer: entropy
+        metavariable: $REGEX
+```
+</details>

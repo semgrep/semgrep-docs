@@ -92,7 +92,8 @@ These subkeys identify the token to analyze in a given match.
 | `focus_metavariable`  | This key enables the rule to define a metavariable upon which Semgrep can perform further analysis, such as entropy analysis. |
 | `metavariable_analysis`  | Under `metavariable_analysis`, you can define additional keys: `analyzer` and `metavariable`. These specify the kind of analysis Semgrep performs and on what variable.  |
 
-:::tip For more information, see the rule syntax for [<i class="fa-regular fa-file-lines"></i> Focus
+:::tip 
+For more information, see the rule syntax for [<i class="fa-regular fa-file-lines"></i> Focus
 metavariable](/writing-rules/rule-syntax/#focus-metavariable).
 :::
 
@@ -129,6 +130,10 @@ that do not use a `validators` key, most Secrets rules make use of it.
 | -------  | ------ |
 | `request`  | This key and its subkeys describe the request object and the URL to send the request object to. |
 | `response`  | This key and its subkeys determine **validation status**. Semgrep Secrets identifies a validation status through HTTP status code **and** other key-value pairs. For example, a rule may require both a 200 status code **and** a `"message": "ok"` in the response body for the matching secret to be considered **Confirmed valid**. |
+
+:::tip
+See [<i class="fa-regular fa-file-lines"></i> Validators](/semgrep-secrets/validators/) for more information.
+:::
 
 ## Differences between Semgrep Secrets rules and Semgrep Registry rules
 
