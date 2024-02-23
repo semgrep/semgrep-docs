@@ -17,7 +17,7 @@ This article walks you through the syntax required to write your own custom
 validators.
 
 :::note Validation
-Semgrep currently supports validation made using HTTP and HTTPS.
+Semgrep currently supports validation using HTTP and HTTPS.
 :::
 
 ## Sample validator
@@ -135,7 +135,7 @@ request:
 
 | Key | Required | Description |
 | - | - | - |
-| response | Yes | Describes the response object... |
+| response | Yes | Describes the response object expected and how to handle the results returned |
 | match | Yes | Defines the list of match conditions. |
 
 #### Sub-keys for `match`

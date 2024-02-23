@@ -244,6 +244,7 @@ module.exports = {
             items: [
                 'semgrep-secrets/conceptual-overview',
                 'semgrep-secrets/getting-started',
+                'semgrep-secrets/rule-management',
                 'semgrep-secrets/rules',
                 'semgrep-secrets/validators'
             ]

@@ -1,7 +1,7 @@
 ---
 slug: /semgrep-secrets/getting-started
 append_help_link: true
-title: Scanning for secrets
+title: Scan for secrets
 hide_title: true
 description: Set up secrets scanning to find and rotate valid leaked secrets.
 tags:
