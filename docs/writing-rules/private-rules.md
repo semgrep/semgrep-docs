@@ -80,21 +80,20 @@ This section provides an example of how to automatically publish your private ru
     on:
       push:
         branches:
-        - develop
         - main
         - master
+        - develop
 
     jobs:
       publish:
-        name: public-private-semgrep-rules
+        name: publish-private-semgrep-rules
         runs-on: ubuntu-latest
+        container:
+          image: semgrep/semgrep
         steps:
-        - uses: actions/checkout@v2
-          with:
-            path: semgrep-rules
+        - uses: actions/checkout@v3
         - name: publish private semgrep rules
-          run: |
-            docker run --env SEMGREP_APP_TOKEN=$SEMGREP_APP_TOKEN --rm -v ${GITHUB_WORKSPACE}/semgrep-rules:/src semgrep/semgrep:develop semgrep publish --visibility=org_private /src/private_rule_dir
+          run: semgrep publish --visibility=org_private ./private_rule_dir
           env:
             SEMGREP_APP_TOKEN: ${{ secrets.SEMGREP_APP_TOKEN }}
     ```
