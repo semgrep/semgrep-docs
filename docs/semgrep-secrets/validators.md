@@ -9,13 +9,16 @@ tags:
 
 # Validators
 
-Semgrep Secrets uses a proprietary **validator** to
-determine if a secret is actively being used. Validators are included in the
-[rules Semgrep Secrets uses](/semgrep-secrets/rules).
+Semgrep Secrets uses a proprietary **validator** to determine if a secret is
+actively being used. Validators are included in the [rules Semgrep Secrets
+uses](/semgrep-secrets/rules).
 
-:::note Semgrep currently supports validation for HTTP and HTTPS
+This article walks through the validator syntax, so that you can write custom
+validators.
 
-This article walks through the validator syntax, so that you can write custom validators.
+:::note Validation
+Semgrep currently supports validation for HTTP and HTTPS
+:::
 
 ## Sample validator
 
@@ -57,14 +60,15 @@ rules:
         metavariable: $REGEX
 ```
 
-You can extend semgrep rules with a top level key to use `validators` which needs the following:
+You can extend Semgrep rules using the top-level `validators` key. This key requires the following sub-keys:
 
-:::note You can include a list of validators, so you can include one or more per-rule
+::: note Validators 
+You can include a list of validators, so you can include one or more per-rule
+:::
 
 | http | Description |
 | -------  | ------ |
-| `http` | **Required** Indicates that the request type is `http` and its subkeys define the parameters of the call. |
-
+| `http` | **Required** Indicates that the request type is `http`. Its sub-keys define the parameters of the call. |
 
 Keys required for HTTP 
 
