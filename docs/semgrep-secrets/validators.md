@@ -103,7 +103,7 @@ rules:
 :::note Currently we only support web services via HTTP(S).
 :::
 
-
+<!-- TODO: if we expand to more validator types we should  -->
 ### request
 
 | Key | Required | Description |
@@ -112,7 +112,7 @@ rules:
 | method | Yes | The HTTP method Semgrep uses to make the call. Accepted values: `GET`, `POST`, `PUT`, `DELETE`, `OPTIONS`, `PATCH` |
 | url | Yes | The URL to which the call is made |
 | headers | Yes | The headers to include with the call |
-| body | No | The body used with `POST` requests |
+| body | No | The body used with only `POST`,`PUT`,`PATCH` requests |
 
 #### Sub-keys for `headers`
 
@@ -120,7 +120,7 @@ The following keys are for use with `headers`:
 
 | Key | Required | Description |
 | - | - | - |
-| Host | Yes | The host to which the call is made |
+| Host | No | The host to which the call is made, only the `url` field is required, but you can override the host if needed  |
 | Other-values | No | The request header. Accepts all values, including `Authorization`, `Content-Type`, `User-Agent`, and so on  |
 
 #### Example
@@ -139,8 +139,9 @@ request:
 
 | Key | Required | Description |
 | - | - | - |
-| response | Yes | Describes the response object expected and how to handle the results returned |
+| response | Yes | The response key is used to determine the validation state, it accepts a list of objects with the sub keys match and result |
 | match | Yes | Defines the list of match conditions. |
+| result | Yes | Defines the validility. |
 
 #### Sub-keys for `match`
 
