@@ -80,6 +80,7 @@ These subkeys identify the token to analyze in a given match.
   ...
   patterns:
   ...
+  - pattern-regex: (?<REGEX>\b((ghp|gho|ghu|ghs|ghr|github_pat)_[a-zA-Z0-9_]{36,255})\b)
   - focus-metavariable: $REGEX
   - metavariable-analysis:
       analyzer: entropy
@@ -89,6 +90,7 @@ These subkeys identify the token to analyze in a given match.
 
 | Key | Description |
 | -------  | ------ |
+| `pattern-regex`  | Searches for a regular expression, and assigns it to the Named Capture Group REGEX, which is reused as $REGEX. |
 | `focus_metavariable`  | This key enables the rule to define a metavariable upon which Semgrep can perform further analysis, such as entropy analysis. |
 | `metavariable_analysis`  | Under `metavariable_analysis`, you can define additional keys: `analyzer` and `metavariable`. These specify the kind of analysis Semgrep performs and on what variable.  |
 

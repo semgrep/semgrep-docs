@@ -92,13 +92,17 @@ rules:
 
 | Key | Required | Description |
 | - | - | - |
-| validator | Yes | Used to define a validator within a Semgrep rule. |
+| validator | Yes | Used to define a list of validators within a Semgrep rule. |
 
-### http
+### type
 
 | Key | Required | Description |
 | - | - | - |
 | http | Yes | Indicates that the request type is `http`. |
+
+:::note Currently we only support web services via HTTP(S).
+:::
+
 
 ### request
 
