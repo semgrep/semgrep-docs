@@ -137,11 +137,12 @@ request:
 
 ### response
 
+The response key is used to determine the validation state, it accepts a list of objects with the sub keys match and result
+
 | Key | Required | Description |
 | - | - | - |
-| response | Yes | The response key is used to determine the validation state, it accepts a list of objects with the sub keys match and result |
 | match | Yes | Defines the list of match conditions. |
-| result | Yes | Defines the validility. |
+| result | Yes | Defines the validility, `Valid` or `Invalid`. |
 
 #### Sub-keys for `match`
 
