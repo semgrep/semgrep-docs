@@ -29,26 +29,27 @@ The Semgrep network broker is available to Enterprise tier users.
 ## Build
 
 1. Log in to the server where you want to install the network broker.
-1. Create a `config.yaml` file similar to the snippet provided, substituting the placeholders indicated:
-```
-inbound:
-  wireguard:
-    localAddress: fdf0:59dc:33cf:9be8:yyyy:0:1
-    privateKey: YOUR_PRIVATE_KEY
-    peers:
-      - publicKey: PHlrQ3EpnGg9eTvuk1GwJVXD+3r3mTAvEnljVhM/cC4=
-        endpoint: wireguard.semgrep.dev:51820
-        allowedIps: fdf0:59dc:33cf:9be9:0000:0000:0000:0001/128
-  heartbeat:
-    url: http://[fdf0:59dc:33cf:9be9:0000:0000:0000:0001]/ping
-  allowlist: []
-  gitlab:
-    baseUrl: <https://gitlab.xxxx.net/api/v4>
-    token: YOUR_TOKEN
-```
+1. Create a `config.yaml` file similar to the following snippet. Steps to generate values for the placeholders, such as `YOUR_PRIVATE_KEY`, `YOUR_BASE_URL`, `YOUR_TOKEN`, are provided in succeeding sections of this guide.
 
-The publicKey is the Semgrep public key. (PHlrQ3EpnGg9eTvuk1GwJVXD+3r3mTAvEnljVhM/cC4=)
+    ```
+    inbound:
+      wireguard:
+        localAddress: fdf0:59dc:33cf:9be8:yyyy:0:1
+        privateKey: YOUR_PRIVATE_KEY
+        peers:
+          - publicKey: 4EqJwDZ8X/qXB5u3Wpo2cxnKlysec93uhRvGWPix0lg=
+            endpoint: wireguard.semgrep.dev:51820
+            allowedIps: fdf0:59dc:33cf:9be9:0000:0000:0000:0001/128
+      heartbeat:
+        url: http://[fdf0:59dc:33cf:9be9:0000:0000:0000:0001]/ping
+      allowlist: []
+      gitlab:
+        baseUrl: <https://gitlab.xxxx.net/api/v4>
+        token: YOUR_TOKEN
+    ```
 
+- The `publicKey` should be entered as is:
+`4EqJwDZ8X/qXB5u3Wpo2cxnKlysec93uhRvGWPix0lg=`
 
 ## Keypairs
 
