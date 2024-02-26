@@ -11,6 +11,7 @@ tags:
 import MoreHelp from "/src/components/MoreHelp";
 import Install from "/src/components/procedure/_install-cli.mdx";
 import Login from "/src/components/procedure/_login-activate.mdx";
+import ScanRuleset from "/src/components/reference/_scan-ruleset.mdx"
 
 # Local scans with Semgrep Pro Engine
 
@@ -23,8 +24,9 @@ Before proceeding, see [Prerequisites](/prerequisites/) to ensure that your mach
 ## Recommended setup
 
 For scans using `semgrep ci`:
-    * Ensure that you have and are logged in to your [Semgrep Account](https://semgrep.dev/login).
-    * Ensure that you've enabled the **Pro Engine** <i class="fa-solid fa-toggle-large-on"></i> toggle on Semgrep Cloud Platform's [Settings](https://semgrep.dev/orgs/-/settings) page.
+
+* Ensure that you have and are logged in to your [Semgrep Account](https://semgrep.dev/login).
+* Ensure that you've enabled the **Pro Engine** <i class="fa-solid fa-toggle-large-on"></i> toggle on Semgrep Cloud Platform's [Settings](https://semgrep.dev/orgs/-/settings) page.
 
 ## Set up Semgrep
 
@@ -37,12 +39,10 @@ For scans using `semgrep ci`:
 
 ## Scan your project
 
-:::info
 Semgrep provides two commands that you can use to start a scan from the CLI:
 
 - `semgrep scan` - This is the recommended command for scanning local codebases and writing and testing custom rules.
 - `semgrep ci` - This is the recommended command if you are scanning git repositories with Semgrep as part of an organization with custom rules and policies. `semgrep ci` fetches your organization's scan configurations from Semgrep Cloud Platform.
-:::
 
 Navigate to the root of your codebase, and run your first scan. The specific command you use depends on how you want to view the results.
 
@@ -72,29 +72,7 @@ semgrep ci --json --output=semgrep.json
 
 ### Scan your project with a specific ruleset
 
-You can scan your project using `--config auto` to automatically obtain rules tailored to your project:
-
-```console
-semgrep scan --config auto --pro
-```
-
-:::info
-Semgrep collects pseudonymous metrics when you use rules from the Registry. You can turn this off with `--metrics=off`.
-:::
-
-To scan your project with a specific ruleset, either one that you write or one that you obtain from the [Semgrep Registry](https://semgrep.dev/explore), you can do so using the `--config` flag:
-
-```console
-# Scan with the rules defined in rules.yaml
-semgrep scan --config rules.yaml
-```
-
-You can include as many configuration flags as necessary.
-
-```console
-# Scan with rules defined in two separate config files
-semgrep scan --config rules.yaml --config more_rules.yaml
-```
+<ScanRuleset />
 
 #### Test custom rules
 

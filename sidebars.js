@@ -29,7 +29,7 @@ module.exports = {
     },
     { type: 'ref', id: 'cheat-sheets/java-code-injection', label: 'OWASP cheat sheets'},
     { type: 'ref', id: 'release-notes/introduction', label: 'Release notes'},
-    { type: 'ref', id: 'release-notes/introduction', label: 'API'},
+    { type: 'link', href: 'https://semgrep.dev/api/v1/docs/', label: 'API'},
     { type: 'ref', id: 'faq', label: 'About Semgrep' },
   ],
   scanSidebar: [
@@ -450,8 +450,8 @@ module.exports = {
         collapsible: false,
         items: [
             'getting-started/quickstart-oss',
-            'prerequisites',
-            { type: 'ref', id: 'supported-languages' }
+            'prerequisites-oss',
+            'supported-languages-oss'
         ]
     },
     {
@@ -461,7 +461,7 @@ module.exports = {
         items: [
             'running-rules',
             'getting-started/cli-oss',
-            'ignoring-files-folders-code'
+            'ignore-oss'
         ]
     },
     {
@@ -469,7 +469,7 @@ module.exports = {
       label: 'References',
       collapsible: false,
       items: [
-        'cli-reference'
+        'cli-reference-oss'
       ]
     },
     {

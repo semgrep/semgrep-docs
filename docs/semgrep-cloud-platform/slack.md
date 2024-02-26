@@ -121,6 +121,7 @@ The following list describes possible ways to troubleshoot findings not appearin
 * Check if you have successfully set up your notifications.
 * Check if your most recent scan has findings to send.
 * Check your filters.
+* Check if the channel is private. You must add the Semgrep App to the private channel to subscribe to notifications.
 
 ### Check notifications
 
