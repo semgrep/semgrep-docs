@@ -7,7 +7,8 @@ tags:
   - Semgrep Secrets
 ---
 
-:::note The syntax is still experimental and is subject to change.
+:::note
+The syntax for Semgrep Secrets validators is experimental and subject to change.
 :::
 
 # Validators
@@ -103,7 +104,8 @@ rules:
 | - | - | - |
 | http | Yes | Indicates that the request type is `http`. |
 
-:::note Currently we only support web services via HTTP(S).
+:::note
+Semgrep only supports web services with HTTP(S).
 :::
 
 <!-- TODO: if we expand to more validator types we should  -->
@@ -115,7 +117,7 @@ rules:
 | method | Yes | The HTTP method Semgrep uses to make the call. Accepted values: `GET`, `POST`, `PUT`, `DELETE`, `OPTIONS`, `PATCH` |
 | url | Yes | The URL to which the call is made |
 | headers | Yes | The headers to include with the call |
-| body | No | The body used with only `POST`,`PUT`,`PATCH` requests |
+| body | No | The body used with `POST`, `PUT`, and `PATCH` requests |
 
 #### Sub-keys for `headers`
 
@@ -123,7 +125,7 @@ The following keys are for use with `headers`:
 
 | Key | Required | Description |
 | - | - | - |
-| Host | No | The host to which the call is made, only the `url` field is required, but you can override the host if needed  |
+| Host | No | The host to which the call is made. Only the `url` field is required, but you can override the host if needed  |
 | Other-values | No | The request header. Accepts all values, including `Authorization`, `Content-Type`, `User-Agent`, and so on  |
 
 #### Example
@@ -140,21 +142,21 @@ request:
 
 ### response
 
-The response key is used to determine the validation state, it accepts a list of objects with the sub keys match and result
+The response key is used to determine the validation state. It accepts a list of objects with the sub-keys `match` and `result`.
 
 | Key | Required | Description |
 | - | - | - |
 | match | Yes | Defines the list of match conditions. |
-| result | Yes | Defines the validility, `Valid` or `Invalid`. |
+| result | Yes | Defines the validity. Accepted values: `Valid`, `Invalid` |
 
 #### Sub-keys for `match`
 
-Match has a list of objects, no individual key is required, but atleast one must be present
+Match accepts a list of objects. No specific key is required, but at least one key must be present.
 
 | Key | Description |
 | - | - |
 | status-code | The HTTP status code expected by Semgrep Secrets for it to consider the secret a match |
-| content | The response body; you can inspect it for a specific value  to determine if the request is valid. An example of where this is useful is when both invalid and valid responses return the same status code |
+| content | The response body; you can inspect it for a specific value to determine if the request is valid. An example of where this is useful is when both invalid and valid responses return the same status code |
 | headers | Accepts a list of objects with the keys name/value they must be exact values |
 
 
@@ -171,7 +173,7 @@ Match has a list of objects, no individual key is required, but atleast one must
 
 | Key | Required | Description |
 | - | - | - |
-| language | Yes | Indicates the pattern language to use; this has to be `regex` or `generic`|
+| language | Yes | Indicates the pattern language to use; this must be `regex` or `generic`|
 | pattern-regex | Yes | Defines the regex used to search the response body. Alternatively, you can use the `patterns` key and [define patterns as you would for rules](/semgrep-secrets/rules/#subkeys-under-the-patterns-key) |
 <!-- this can be patterns: too but idk how to represent that -->
 
@@ -296,7 +298,8 @@ You can use Base64 encoding by leveraging the `__semgrep_internal_encode_64(...)
 - `body`
 - `header` values
 
-:::note The Base64 encoding field is experimental, and could change at any time.
+:::note
+The Base64 encoding of field is experimental and can change at any time.
 :::
 
 <details>

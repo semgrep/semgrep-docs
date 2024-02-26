@@ -29,7 +29,8 @@ Save time and effort by prioritizing valid leaked secrets. Inform developers of 
 To ensure that findings are high-signal, comprehensive, and easy for users to
 prioritize, a Semgrep Secrets scan performs the following:
 
-* Regex and Semantic analysis
+* Search using regex
+* Semantic analysis
 * Validation
 * Entropy analysis
 
@@ -37,14 +38,13 @@ The following sections explain how each step works.
 
 ### Detect secrets through regex
 
-Since secrets can be in various file types, Semgrep Secrets makes use of our regex language detector to find various secrets. This is usually achieved by detecting a commonly defined pre-fix which we then search for the expected length and format of the secret.
+Semgrep Secrets uses a regex language detector to finding secrets in various file types. This is done be detecting a commonly defined prefix, then searching for the secret using its expected length and format.
 
-To reduce false positives, we combine many features of Semgrep to perform, and where possible we apply:
+To reduce the number of false positives this process raises, Semgrep uses and combines as many of the following processes with its search using regex when possible:
 
-* Perform Entropy Analysis
-* Remove likely false positives 
-* Perform Validation
-
+- Removal of results that are likely to be false positives
+- Validation
+- Entropy analysis
 
 ### Detect secrets through semantic analysis
 
@@ -119,9 +119,8 @@ high-priority, active findings.
 
 
 :::note
-For a list of all supported detectors that Semgrep has, see the policies page in your deployment.
+For a list of all supported detectors that Semgrep offers, see the [Policies](/semgrep-secrets/policies) page in your deployment.
 :::
-<!-- TODO: link to policies page -->
 
 ### Fine-tune findings through entropy analysis
 
@@ -149,11 +148,9 @@ txtPassword1
 
 See [<i class="fa-regular fa-file-lines"></i> Getting started with Semgrep Secrets](/semgrep-secrets/getting-started) to learn how to:
 * Enable secrets scanning for your repositories
-* Manage your rules via policies have complete control over how 
-<!-- katie, probably want to link to policies -->
+* Manage your rules via [policies](/semgrep-secrets/policies) to have complete control over how 
 * View and triage secrets-related findings
 * Receive notifications and post tickets whenever Semgrep Secrets identifies issues
-* Write custom rules with validators to find bespoke secrets
-<!-- katie, probably want to link to rules?>
+* Write [custom rules](/semgrep-secrets/rules) with [validators](/semgrep-secrets/validators) to find bespoke secrets
 
 <MoreHelp />
