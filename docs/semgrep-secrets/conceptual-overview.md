@@ -70,8 +70,10 @@ See the following rule and JavaScript test code for an example.
 
 <iframe title="AWS hardcoded access key" src="https://semgrep.dev/embed/editor?snippet=EPj5" width="100%" height="432px" frameBorder="0"></iframe>
 <br />
+
 <!-- 
 The rule detects hardcoded AWS secret access keys. The test code defines an access key in the variable `secret`. Click **<i class="fa-solid fa-play"></i> Run** to see the true positives.
+-->
 
 <!-- Some differences between Semgrep Secrets and regex-based scanners include: -->
 
