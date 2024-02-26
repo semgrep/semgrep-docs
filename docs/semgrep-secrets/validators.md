@@ -119,7 +119,7 @@ Semgrep only supports web services with HTTP(S).
 | headers | Yes | The headers to include with the call |
 | body | No | The body used with `POST`, `PUT`, and `PATCH` requests |
 
-#### Sub-keys for `headers`
+#### Subkeys for `headers`
 
 The following keys are for use with `headers`:
 
@@ -142,14 +142,14 @@ request:
 
 ### response
 
-The response key is used to determine the validation state. It accepts a list of objects with the sub-keys `match` and `result`.
+The response key is used to determine the validation state. It accepts a list of objects with the Subkeys `match` and `result`.
 
 | Key | Required | Description |
 | - | - | - |
 | match | Yes | Defines the list of match conditions. |
 | result | Yes | Defines the validity. Accepted values: `Valid`, `Invalid` |
 
-#### Sub-keys for `match`
+#### Subkeys for `match`
 
 Match accepts a list of objects. No specific key is required, but at least one key must be present.
 
@@ -160,7 +160,7 @@ Match accepts a list of objects. No specific key is required, but at least one k
 | headers | Accepts a list of objects with the keys name/value they must be exact values |
 
 
-#### Sub-keys for `result`
+#### Subkeys for `result`
 
 | Key | Required | Description |
 | - | - | - |
@@ -169,13 +169,12 @@ Match accepts a list of objects. No specific key is required, but at least one k
 | metadata | No | Used to override existing metadata fields or add new metadata fields based on the secret's validity state |
 | severity |  No | Used to override the existing rule severity based on the validity state |
 
-#### Sub-keys for `content`
+#### Subkeys for `content`
 
 | Key | Required | Description |
 | - | - | - |
 | language | Yes | Indicates the pattern language to use; this must be `regex` or `generic`|
 | pattern-regex | Yes | Defines the regex used to search the response body. Alternatively, you can use the `patterns` key and [define patterns as you would for rules](/semgrep-secrets/rules/#subkeys-under-the-patterns-key) |
-<!-- this can be patterns: too but idk how to represent that -->
 
 #### Example
 

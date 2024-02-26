@@ -38,7 +38,7 @@ The following sections explain how each step works.
 
 ### Detect secrets through regex
 
-Semgrep Secrets uses a regex language detector to finding secrets in various file types. This is done be detecting a commonly defined prefix, then searching for the secret using its expected length and format.
+Semgrep Secrets uses a regex language detector to find secrets in various file types. This is done by detecting a commonly defined prefix and then searching for the secret using its expected length and format.
 
 To reduce the number of false positives this process raises, Semgrep uses and combines as many of the following processes with its search using regex when possible:
 
@@ -94,15 +94,15 @@ After scanning, Semgrep Secrets uses a proprietary
 state.
 
 :::info
-All validations, such as API calls, are done **locally** in your envrionment. No tokens are sent to Semgrep servers.
+All validations, such as API calls, are done **locally** in your environment. No tokens are sent to Semgrep servers.
 :::
 
 1. The validator detects the service, such as Slack or AWS, that the secret
    is used for.
 2. If the validator doesn't support the service that the secret is used
    for, Semgrep notes that there is **No validator** finding for the secret.
-3. If the validator supports the service, Semgrep Secrets performs an API
-  call. The following outcomes can occur: 
+3. Semgrep Secrets performs an API
+  call if the validator supports the service. The following outcomes can occur: 
    1. **Confirmed valid:** Semgrep made
    an HTTP request using the secret, and it returned an HTTP status code of 200 or
    similar **and** some indication of valid access. For example, a service can
@@ -125,10 +125,10 @@ For a list of all supported detectors that Semgrep offers, see the [Policies](/s
 ### Fine-tune findings through entropy analysis
 
 Entropy is the measure of a **string's randomness**. It's used to measure how
-likely a string is random. That is, if a string is highly entropic, it's highly
+likely a string is random. If a string is highly entropic, it's highly
 random. For certain types of secrets, such as API keys, randomness indicates
 that a string could be a secret. By performing entropy analysis, Semgrep Secrets
-is able to reduce false positives and produce more true positives.
+can reduce false positives and produce more true positives.
 
 Examples of high-entropy (random) strings:
 

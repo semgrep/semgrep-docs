@@ -103,8 +103,7 @@ metavariable](/writing-rules/rule-syntax/#focus-metavariable).
 
 The `validators` key uses a list of keys to define the validator function. In
 particular, the `http` key defines how the rule forms a request object and what
-response is expected for valid and invalid states. Although there are some rules
-that do not use a `validators` key, most Secrets rules make use of it. 
+response is expected for valid and invalid states. Although some rules do not use a `validators` key, most Secrets rules use it. 
 
 ```yaml
   ...
@@ -131,7 +130,7 @@ that do not use a `validators` key, most Secrets rules make use of it.
 | Key | Description |
 | -------  | ------ |
 | `request`  | This key and its subkeys describe the request object and the URL to send the request object to. |
-| `response`  | This key and its subkeys determine **validation status**. Semgrep Secrets identifies a validation status through HTTP status code **and** other key-value pairs. For example, a rule may require both a 200 status code **and** a `"message": "ok"` in the response body for the matching secret to be considered **Confirmed valid**. |
+| `response`  | This key and its subkeys determine **validation status**. Semgrep Secrets identifies a validation status through HTTP status code **and** other key-value pairs. For example, a rule may require a 200 status code **and** a `"message": "ok"` in the response body for the matching secret to be considered **Confirmed valid**. |
 
 :::tip
 See [<i class="fa-regular fa-file-lines"></i> Validators](/semgrep-secrets/validators/) for more information.
@@ -145,7 +144,7 @@ even write your own custom secret-detecting SAST rules, but with the following
 differences:
 
 * Semgrep Code does not run a validator function against these rules, resulting in less accurate results.
-    * Because the results are less accurate, these rules are not suitable as a criteria to block a PR or MR.
-* The UI for Semgrep Code is tailored to SAST triage, and does not include filtering functions for valid or invalid tokens.
+    * Because the results are less accurate, these rules are not suitable as criteria to block a PR or MR.
+* The UI for Semgrep Code is tailored to SAST triage and does not include filtering functions for valid or invalid tokens.
 * Existing Semgrep Pro rules that detect secrets are transitioning from Semgrep Code to Semgrep Secrets. By transitioning these rules, improvements, such as validator functions, can be added to the rules when they are run in Semgrep Secrets.
-* You can write your own custom validator functions and run them in Semgrep Secrets for your own custom services or use cases.
+* You can write your own custom validator functions and run them in Semgrep Secrets for custom services or use cases.
