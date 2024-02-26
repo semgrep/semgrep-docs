@@ -1,38 +1,40 @@
 ---
 slug: network-broker
-title: Start Guide for Semgrep Network Broker
+title: Network broker
 hide_title: false
-description: Learn how to set up the Semgrep Network Broker
+description: Learn how to set up the Semgrep Network Broker, which facilitates secure access between Semgrep and your private network.
 tags:
-  - Semgrep CI
+  - Semgrep in CI
   - Network broker
 ---
 
-# Getting started with the Semgrep Network Broker
+# Set up the Semgrep network broker
 
-The Semgrep Network Broker facilitates secure access between Semgrep and a private network. It accomplishes this by establishing a Wireguard VPN tunnel with the Semgrep backend, then proxying inbound (Semgrep --> customer) HTTP requests through this tunnel. This approach allows Semgrep to interact with on-prem resources without having to expose them to the public internet.
+The Semgrep network broker facilitates secure access between Semgrep and your private network. It accomplishes this by establishing a Wireguard VPN tunnel with the Semgrep infrastructure, then proxying **inbound** (from Semgrep to your network) HTTP requests through this tunnel. This approach allows Semgrep to interact with on-premise resources without having to expose them to the public internet.
 
 Examples of inbound traffic include:
 
-- Pull Request comments
+- Pull or merge request (PR or MR) comments
 - JIRA integrations
 - Webhooks
 
-:::info Prerequisites
-- The Semgrep Network Broker is a feature that must be enabled in your Semgrep organization (org) prior to set up. Contact us on Slack or support@semgrep.com to get started.
-- Docker must be installed on the server where you want to install the network broker. :::
+:::info Tier availability
+The Semgrep network broker is available to Enterprise tier users.
+:::
+## Prerequisites
 
-## Setup
+- The Semgrep Network Broker is a feature that must be enabled in your Semgrep organization (org) prior to set up. Contact the Semgrep team on [<i class="fas fa-external-link fa-xs"></i> Slack]( https://go.semgrep.dev/slack) or email [<i class="fa-regular fa-envelope"></i> support@semgrep.com](mailto:support@semgrep.com).
+- **Docker** must be installed on the server where you want to install the network broker.
 
-### Build
+## Build
 
-From the server terminal where you want to install the Network broker, create a `config.yaml` file that should look like this:
-
+1. Log in to the server where you want to install the network broker.
+1. Create a `config.yaml` file similar to the snippet provided, substituting the placeholders indicated:
 ```
 inbound:
   wireguard:
     localAddress: fdf0:59dc:33cf:9be8:yyyy:0:1
-    privateKey: wwwwwwwww
+    privateKey: YOUR_PRIVATE_KEY
     peers:
       - publicKey: PHlrQ3EpnGg9eTvuk1GwJVXD+3r3mTAvEnljVhM/cC4=
         endpoint: wireguard.semgrep.dev:51820
@@ -42,18 +44,17 @@ inbound:
   allowlist: []
   gitlab:
     baseUrl: <https://gitlab.xxxx.net/api/v4>
-    token: glpat-xxxxx
+    token: YOUR_TOKEN
 ```
 
-<aside> 💡 The publicKey is the Semgrep public key. (PHlrQ3EpnGg9eTvuk1GwJVXD+3r3mTAvEnljVhM/cC4=)
-</aside>
+The publicKey is the Semgrep public key. (PHlrQ3EpnGg9eTvuk1GwJVXD+3r3mTAvEnljVhM/cC4=)
 
 
-### Keypairs
+## Keypairs
 
 The broker requires a Wireguard keypair to establish a secure connection.
 
-To generate a customer public key:
+To generate a public key:
 
 ```
 docker run [ghcr.io/semgrep/semgrep-network-broker:](<http://ghcr.io/semgrep/semgrep-network-broker:latest>)[v0.14.0](<http://ghcr.io/semgrep/semgrep-network-broker:v0.14.0>) genkey
@@ -72,14 +73,14 @@ echo xxxxxxx | sudo docker run -i [ghcr.io/semgrep/semgrep-network-broker:v0.14.
 </aside>
 
 :::info Tip 
-
-Your public key is safe to share. _Do not_ share your private key with anyone (including Semgrep). :::
+Your public key is safe to share. _Do not_ share your private key with anyone (including Semgrep).
+:::
 
 Update the config.yaml with the private key:
 
 Add the customer public key in the Semgrep Cloud Platform:
 
-### Configuration
+## Configuration
 
 1. Update the `config.yaml` with the GitLab/Github URL:
 
@@ -91,10 +92,7 @@ Add the customer public key in the Semgrep Cloud Platform:
 
 ![Screenshot 2024-01-17 at 11.36.54.png](https://prod-files-secure.s3.us-west-2.amazonaws.com/aeaf09c9-e827-4fed-b6a2-cc0fcc31bc3c/21462d0b-e7f1-462e-9834-32e33ebec82b/Screenshot_2024-01-17_at_11.36.54.png)
 
-<aside>
 💡 API scope is enough
-
-</aside>
 
 1. Update the `config.yaml` with a local Address, basically it should be the local address: `fdf0:59dc:33cf:9be8:0:xxxx:0:1` where xxxx is the deployment_id in hexadecimal. Example: deployment id: 8849 in hexadecimal is 2291. 
 
@@ -109,5 +107,3 @@ Add the customer public key in the Semgrep Cloud Platform:
 
 1. You can check the logs with `sudo docker logs xxxx` where `xxxx` is the container id
 
----
-Not finding what you need in this doc? Ask questions in our [Community Slack group](https://go.semgrep.dev/slack), or see [Support](https://semgrep.dev/docs/support/) for other ways to get help.
