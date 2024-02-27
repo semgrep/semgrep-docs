@@ -24,12 +24,12 @@ The triage statuses are as follows:
 
 ## Manage findings
 
-The following sections show you have to manage your findings and explains what happens when you:
+The following sections show you have to manage your findings by:
 
-* Fix the underlying code
-* Disable a rule or a ruleset
-* Ignore a finding
-* Reopen a finding
+* Fixing the underlying code
+* Disabling a rule or a ruleset
+* Ignoring a finding
+* Reopening a finding
 
 Note that some actions, such as ignoring and reopening findings, require different steps based on whether you have chosen **Group by Rule** or **No Grouping** when viewing your results on the **Findings** page.
 
@@ -173,4 +173,3 @@ To **create a ticket**:
 * One way to address false positives is to improve the rule. Create [test cases](/docs/writing-rules/testing-rules) to ensure that the rule performs as intended.
 * If a rule from Semgrep Registry is useful, but it captures too many false positives, you can reach out to [support@semgrep.dev](mailto:support@semgrep.dev). This helps Semgrep's rule-writing efforts and improves the quality of rules that you run. 
 * You can report rules with a high false positive rate from your source code manager (SCM) if you [enable Semgrep Cloud Platform to leave comments in PRs or MRs](/category/pr-or-mr-comments/). Semgrep Cloud Platform provides a link after each comment for users to indicate if the finding is a false positive.
-:::
