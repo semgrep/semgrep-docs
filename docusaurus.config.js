@@ -19,6 +19,7 @@ module.exports = {
       projectKey: 'jbhF5LligltdKaJucMjDcWcRodaVpzqE',
       trigger: { floating: false },
       systemPrompt: 'You are kind AI who loves to help people!',
+      model: 'gpt-4',
       search: {
         enabled: true,
         provider: {
