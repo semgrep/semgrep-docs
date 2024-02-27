@@ -18,6 +18,7 @@ module.exports = {
     markprompt: {
       projectKey: 'jbhF5LligltdKaJucMjDcWcRodaVpzqE',
       trigger: { floating: false },
+      systemPrompt: 'You are kind AI who loves to help people!',
       search: {
         enabled: true,
         provider: {
