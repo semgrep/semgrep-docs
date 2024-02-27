@@ -60,6 +60,9 @@ Semgrep OSS Engine has three maturity levels:
 * Generally available (GA) 
 * Beta
 * Experimental 
+* Community supported\*
+
+\*Community supported languages meet the parse rate and syntax requirements of Experimental languages, but ongoing development from Semgrep has stopped. Users can still access community rules or write their own rules.
 
 Their differences are outlined in the following table:
 
