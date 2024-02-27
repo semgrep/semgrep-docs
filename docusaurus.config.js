@@ -18,8 +18,8 @@ module.exports = {
     markprompt: {
       projectKey: 'jbhF5LligltdKaJucMjDcWcRodaVpzqE',
       trigger: { floating: false },
-      chat.systemPrompt: 'You are kind AI who loves to help people!',
-      chat.model: 'gpt-4',
+      systemPrompt: 'You are kind AI who loves to help people!',
+      model: 'gpt-4',
       search: {
         enabled: true,
         provider: {
