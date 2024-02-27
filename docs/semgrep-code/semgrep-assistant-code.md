@@ -179,7 +179,6 @@ Semgrep Assistant messages only appear in your PR comments for rules that are se
 * Ensure that you have selected PR/MR comments in **Semgrep Cloud Platform > Settings > Deployment** in the **Code** section.
 :::
 
-
 ## Types of recommendations from Semgrep Assistant
 
 The following are recommendations users can receive from Semgrep Assistant.
@@ -212,6 +211,29 @@ You can [view all of Semgrep Assistant's
 recommendations](/semgrep-code/findings/#filtering-findings) by going to Semgrep
 Cloud Platform's **Findings** page and filtering by **Recommendation** or
 **Component**.
+
+## Use Semgrep Assistant to analyze findings (beta)
+
+If you have [enabled Assistant](/semgrep-code/semgrep-assistant-code/#enabling-semgrep-assistant),
+you can use the **Analyze** button at the [top-right of the Findings page](/semgrep-code/findings) to trigger all Assistant
+functions, including autofix, autotriage, and component tagging. After Assistant
+performs these functions, you can see your results on the **Findings** page using the **Recommendation**
+or **Component** filters.
+
+To analyze your findings with Assistant:
+
+1. On the [Findings](https://semgrep.dev/orgs/-/findings?tab=open) page, select
+   the findings that you want Assistant to analyze.
+2. Click **Analyze**.
+3. In the confirmation window that appears, confirm that you want to
+   analyze your findings with Assistant.
+
+The amount of time required to analyze your findings varies, but SCP
+displays a notification that provides an estimated wait time.
+
+When viewing your findings, you can see false positive and true positive
+recommendations when viewing the finding details pages if you choose **No
+Grouping** instead of **Group by Rule**.
 
 ## Provide feedback to Semgrep Assistant
 

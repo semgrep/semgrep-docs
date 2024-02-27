@@ -16,7 +16,7 @@ Semgrep Cloud Platform scans are performed on both mainline (trunk) and non-main
     <dt>Full scan</dt>
     <dd>Scans the repository in its entirety. It is recommended to perform full scans on mainline branches, such as `master` or `main`. This scan is performed on a scheduled basis.</dd>
     <dt>Diff-aware scan</dt>
-    <dd>Diff-aware scans are performed on non-mainline branches, such as in pull requests and merge requests. Diff scans traverse the repository's files based on the commit where the branch diverged from the mainline branch (or diverged from the last commit that was fully scanned?)</dd>
+    <dd>Diff-aware scans are performed on non-mainline branches, such as in pull requests and merge requests. Diff-aware scans traverse the repository's files based on the commit where the branch diverged from the mainline branch (or diverged from the last commit that was fully scanned)</dd>
 </dl>
 
 ## Remove duplicate findings using Semgrep Cloud Platform
