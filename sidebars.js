@@ -218,6 +218,8 @@ module.exports = {
                 'semgrep-code/policies',
                 'ignoring-files-folders-code',
                 'semgrep-code/findings',
+                'semgrep-code/triage-remediation',
+                'semgrep-code/remove-duplicates',
                 'semgrep-code/semgrep-assistant-code',
                 'semgrep-ci/configuring-blocking-and-errors-in-ci',
                 'semgrep-code/editor',

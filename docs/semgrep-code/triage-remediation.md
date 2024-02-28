@@ -1,3 +1,13 @@
+---
+slug: tk
+append_help_link: true
+title: Triage and remediation
+hide_title: false
+description: tk
+tags:
+  - tk
+---
+
 # Triage and remediate Semgrep Code findings in Semgrep Cloud Platform
 
 import TriageStatuses from "/src/components/reference/_triage-states.mdx"
