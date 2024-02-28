@@ -208,7 +208,7 @@ A low confidence level is recommended, as even incorrect suggestions may be usef
 ## View Assistant recommendations
 
 You can [view all of Semgrep Assistant's
-recommendations](/semgrep-code/findings/#filtering-findings) by going to Semgrep
+recommendations](/semgrep-code/findings/#filter-findings) by going to Semgrep
 Cloud Platform's **Findings** page and filtering by **Recommendation** or
 **Component**.
 

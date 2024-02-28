@@ -1,5 +1,5 @@
 ---
-slug: tk
+slug: triage-remediation
 append_help_link: true
 title: Triage and remediation
 hide_title: false

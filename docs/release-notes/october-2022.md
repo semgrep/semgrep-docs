@@ -18,14 +18,14 @@ Semgrep, Inc now offers a new product: Semgrep Supply Chain. Semgrep Supply Chai
 ### Additions
 
 - New demo project allows you to try out Semgrep App workflows. If your organization in Semgrep App does not have any projects assigned in the [Projects](https://semgrep.dev/orgs/-/projects) page, you can add the new demo project by clicking **Explore a demo project**.
-- You can now triage through PR comments, for more information see [Ignoring findings through comments](/semgrep-code/findings/#ignoring-findings-through-comments) documentation.
+- You can now triage through PR comments, for more information see [Ignoring findings through comments](/semgrep-code/triage-remediation#ignore-findings-through-github-pr-comments) documentation.
 - Semgrep Playground now displays its version number. To see the exact version that Semgrep Playground uses, click the <i class="fa-regular fa-ellipsis-vertical"></i> three-dot button, and then see the version number after the <i class="fa-solid fa-code-commit"></i> icon.
 
     ![Semgrep Playground version number.](/img/semgrep-app-latest-version.png "Semgrep Playground version number.")
 
 ### Changes
 
-- Previously, when you removed a rule you had to rescan the code to remove findings associated with the rule. With this change, findings made by the removed rule are now automatically removed without rescanning. If you add a removed rule back, then you need to rescan your code to get the findings from the previously removed rule again. For more information, see [Triaging findings](/semgrep-code/findings/#triaging-findings).
+- Previously, when you removed a rule you had to rescan the code to remove findings associated with the rule. With this change, findings made by the removed rule are now automatically removed without rescanning. If you add a removed rule back, then you need to rescan your code to get the findings from the previously removed rule again. For more information, see [Triaging findings](/semgrep-code/triage-remediation).
 - New [Findings](https://semgrep.dev/orgs/-/findings?tab=open) page styling. See [Managing findings in Semgrep App](/semgrep-code/findings/) documentation for additional information.
 - Semgrep App experience is generally improved due to a significant number of fixed bugs.
 
@@ -110,7 +110,7 @@ The following references are available for Semgrep Supply Chain:
 
 #### Semgrep App
 
-- [Ignoring findings through comments](/semgrep-code/findings/#ignoring-findings-through-comments) section documents how to triage findings through GitHub comments.
+- [Ignoring findings through comments](/semgrep-code/triage-remediation/#ignore-findings-through-github-pr-comments) section documents how to triage findings through GitHub comments.
 
 #### Semgrep CLI
 
@@ -126,6 +126,6 @@ The following references are available for Semgrep Supply Chain:
     - [Including multiple focus metavariables using set intersection semantics](/writing-rules/rule-syntax/#including-multiple-focus-metavariables-using-set-intersection-semantics)
 - Removing rules from a rule board now removes all associated findings. This change is reflected in the following documents:
     - [Managing findings](/semgrep-ci/findings-ci/#semgrep-code-findings).
-    - Section [Triaging findings](/semgrep-code/findings/#triaging-findings) in [Managing findings in Semgrep App](/semgrep-code/findings/).
+    - Section [Triaging findings](/semgrep-code/triage-remediation/) in [Managing findings in Semgrep App](/semgrep-code/findings/).
     - [Getting started with Semgrep App](/deployment/core-deployment/).
 - Adjustments to the structure of the documentation in our left sidebar. Many iterative changes, improvements, and fixes to improve your docs reading experience.
