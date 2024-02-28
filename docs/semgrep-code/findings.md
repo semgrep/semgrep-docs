@@ -62,7 +62,7 @@ Semgrep offers multiple filters you can use to narrow down your results. The fol
 | ---------------------  | ------------ |
 | **Projects**           | Filter by codebases connected to Semgrep Cloud Platform. |
 | **Status**             | Filter the triage state of a finding. Refer to the [following table](#triaging-findings) to understand triage states. |
-| **Category**           |  Filter by the type of security issue or vulnerability the rule detects, such as `security`, `correctness`, and `maintainability`. You can select more than one category at a time. |
+| **Category**           |  Filter by the type of security issue or vulnerability the rule detects, such as `security`, `correctness`, and `maintainability`. You can select more than one category at a time. See [Finding categories](#finding-categories) for information on how Semgrep categorizes your findings. |
 | **Severity**           | Filter by the severity of a finding. Possible values: <ul><li>Low</li><li>Medium</li><li>High</li></ul> |
 | **Component**          | Filter by Semgrep Assistant component tags. Semgrep Assistant uses GPT-4 to categorize a finding based on its function, such as payments, user authentication, and infrastructure. |
 | **Confidence**         | Filter by the likelihood of the rule to detect true positives. The higher the confidence, the more true positives the rule may detect. |
@@ -71,6 +71,33 @@ Semgrep offers multiple filters you can use to narrow down your results. The fol
 | **Rule**               | Filter by rules included in your Policies page. You can select more than one rule or ruleset for filtering. |
 | **Ruleset**            | Filter by the ruleset name where rules that match the code belong. More than one rule or ruleset can be selected for filtering. |
 | **Branch**             | Filter by findings in different Git branches. |
+
+#### Finding categories
+
+
+A finding can be categorized in two ways:
+
+1. **Finding categorization based on the issue or code it detects**:
+    - Anti-patterns
+    - Security vulnerabilities (such as dangerous function usage)
+    - Business or logic bugs
+    - Matches based on your own custom rules (such as organization-specific authentication logic)
+
+    Semgrep rules provide a metadata schema to identify these common categories. Semgrep findings include a `message` field that describes the security issue or bug found in matching code. Additionally, findings can provide a `fix` field that fixes the issue by creating a suggestion within your source code management (SCM) tool, such as GitHub, GitLab, and Bitbucket.
+2. **Finding categorization based on the validity of the match**:
+    <dl>
+        <dt>True positive</dt>
+        <dd>Rules are written to match a certain code pattern. A true positive is a genuine match. The rule is capturing the code as intended.</dd>
+        <dt>False positive</dt>
+        <dd>A false positive is a mismatch between the intended purpose of the rule and the code it matched. A finding is generated but does not meet the rule's intended need. Rules with a high false positivity rate are said to be <strong>noisy</strong>.</dd>
+        <dt>False negative</dt>
+        <dd>A false negative is a finding that should have been found by a rule, but was not. This can happen for two reasons:
+        <ul>
+            <li>A flaw in the rule's logic. See <a href="/docs/reporting-false-negatives">Reporting false negatives</a>.</li>
+            <li>A bug within Semgrep itself. See the list of <a href="https://github.com/semgrep/semgrep/issues">Semgrep issues</a> to file a bug report.</li>
+        </ul>
+        </dd>
+    </dl>
 
 :::tip
 You can identify findings categorized under **Security** by their badge.
