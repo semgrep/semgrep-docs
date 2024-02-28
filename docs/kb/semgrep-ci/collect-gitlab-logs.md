@@ -5,9 +5,10 @@ tags:
   - Semgrep in CI
 ---
 
-# Context
+# GitLab job's log exceeded limit
 
-When executing a GitLab job that collects `verbose` or `debug` level Semgrep logs, you may see the following error message:
+When executing a GitLab job that collects `verbose` or `debug` level Semgrep
+logs, you may see the following error message:
 
 ```console
 Job's log exceeded limit of 4194304 bytes.
