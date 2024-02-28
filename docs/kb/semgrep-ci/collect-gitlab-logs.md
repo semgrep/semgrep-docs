@@ -7,17 +7,18 @@ tags:
 
 # Context
 
-When executing a GitLab job that collects detailed Semgrep logs (`verbose` or `debug` options), it could show the following message:
+When executing a GitLab job that collects `verbose` or `debug` level Semgrep logs, you may see the following error message:
 
 ```console
 Job's log exceeded limit of 4194304 bytes.
 Job execution will continue but no more output will be collected.
 ```
-The `artifacts` feature could help to avoid it:
 
 ## Solution: Save the log as an artifact
 
-Define the `.gitlab-ci.yml` as follows:
+You can bypass GitLab's log limits [using `artifacts` to create a job
+artifact](https://docs.gitlab.com/ee/ci/jobs/job_artifacts.html). To do so,
+define the `.gitlab-ci.yml` as follows:
 
 ```yml
 semgrep:
@@ -34,4 +35,4 @@ semgrep:
       - semgrep.log
 ```
 
-Now, the full log can be downloaded from the artifacts option in the job.
+You can [download the full log](https://docs.gitlab.com/ee/ci/jobs/job_artifacts.html#download-job-artifacts) from the artifacts option in the job.
