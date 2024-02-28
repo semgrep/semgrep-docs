@@ -22,6 +22,6 @@ Semgrep Cloud Platform requires two SAML attributes to be sent: `name` and `emai
 
 Most commonly, the data is present, but the name or namespace of the attribute isn't an exact match for `name` or `email`. 
 
-Review step 4 of the [SAML setup process](/docs/semgrep-cloud-platform/sso/#saml-20) for guidance in setting up the attributes. For Azure Active Directory, see steps 4 and 5 of [Setting up SAML SSO for your new Enterprise App](/docs/semgrep-cloud-platform/sso/#setting-up-saml-sso-for-your-new-enterprise-app).
+Review step 4 of the [SAML setup process](/docs/deployment/sso/#saml-20) for guidance in setting up the attributes. For Azure Active Directory, see steps 4 and 5 of [Setting up SAML SSO for your new Enterprise App](docs/deployment/sso/#setting-up-saml-sso-for-your-new-enterprise-app).
 
 <MoreHelp />
