@@ -43,8 +43,7 @@ The following sections show you have to manage your findings by:
 
 Note that some actions, such as ignoring and reopening findings, require different steps based on whether you have chosen **Group by Rule** or **No Grouping** when viewing your results on the **Findings** page.
 
-![Screenshot of Semgrep Cloud Platform triage menu](/img/app-findings-triage.png)<br />
-*Figure 5* Findings page triage menu.
+![Screenshot of Semgrep Cloud Platform triage menu](/img/app-findings-triage.png#md-width)
 
 ### Fix a finding
 
@@ -149,7 +148,7 @@ To enable triage through comments:
 To triage a finding in GitHub:
 
 1. Find an open comment created by Semgrep Cloud Platform in GitHub PR:
-    ![Screenshot of Semgrep Cloud Platform comment in GitHub](/img/semgrep-app-comment-github.png)<br />
+    ![Screenshot of Semgrep Cloud Platform comment in GitHub](/img/semgrep-app-comment-github.png#md-width)
 
 2. In a subsequent comment, reply with:
     <pre><code>
