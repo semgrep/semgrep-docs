@@ -74,7 +74,6 @@ Semgrep offers multiple filters you can use to narrow down your results. The fol
 
 #### Finding categories
 
-
 A finding can be categorized in two ways:
 
 1. **Finding categorization based on the issue or code it detects**:
