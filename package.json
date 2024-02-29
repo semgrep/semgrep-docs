@@ -51,7 +51,7 @@
     "@tsconfig/docusaurus": "^2.0.0"
   },
   "resolutions": {
-    "@markprompt/docusaurus-theme-search/@markprompt/core": "^0.25.5",
-    "@markprompt/docusaurus-theme-search/@markprompt/react": "^0.38.3"
+    "@markprompt/core": "^0.25.5",
+    "@markprompt/react": "^0.38.3"
   }
 }
