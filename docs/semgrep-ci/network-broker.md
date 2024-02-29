@@ -1,6 +1,6 @@
 ---
 slug: network-broker
-title: Network broker
+title: Semgrep Network Broker
 hide_title: false
 description: Learn how to set up the Semgrep Network Broker, which facilitates secure access between Semgrep and your private network.
 tags:
@@ -8,9 +8,9 @@ tags:
   - Network broker
 ---
 
-# Set up the Semgrep network broker
+# Set up the Semgrep Network Broker
 
-The Semgrep network broker facilitates secure access between Semgrep and your private network. It accomplishes this by establishing a WireGuard VPN tunnel with the Semgrep infrastructure, then proxying **inbound** HTTP requests from Semgrep to your network through this tunnel. This approach allows Semgrep to interact with on-premise resources without exposing them to the public internet.
+The Semgrep Network Broker facilitates secure access between Semgrep and your private network. It accomplishes this by establishing a WireGuard VPN tunnel with the Semgrep infrastructure, then proxying **inbound** HTTP requests from Semgrep to your network through this tunnel. This approach allows Semgrep to interact with on-premise resources without exposing them to the public internet.
 
 Examples of inbound traffic include:
 
@@ -19,7 +19,7 @@ Examples of inbound traffic include:
 - Webhooks
 
 :::info Subscriber availability
-The Semgrep network broker is available to Enterprise tier users.
+The Semgrep Network Broker is available to Enterprise tier users.
 :::
 
 ## Prerequisites
@@ -27,9 +27,9 @@ The Semgrep network broker is available to Enterprise tier users.
 - The Semgrep Network Broker is a feature that must be enabled in your Semgrep organization (org) before set up. Contact the Semgrep team on [<i class="fas fa-external-link fa-xs"></i> Slack]( https://go.semgrep.dev/slack) or through email [<i class="fa-regular fa-envelope"></i> support@semgrep.com](mailto:support@semgrep.com).
 - **Docker** must be installed on the server where you install the network broker.
 
-## Configure Semgrep Broker
+## Configure Semgrep Network Broker
 
-Ensure that you are logged in to and are completing the following steps on the server where you want to run Semgrep Broker.
+Ensure that you are logged in to and are completing the following steps on the server where you want to run Semgrep Network Broker.
 
 1. Create a `config.yaml` file similar to the following snippet. The steps required to generate values for the placeholders, such as `YOUR_PRIVATE_KEY`, `YOUR_BASE_URL`, `YOUR_TOKEN`, are provided in subsequent sections of this guide.
 
@@ -81,12 +81,15 @@ Ensure that you are logged in to and are completing the following steps on the s
       ...
   ```
 
-1. Add the public key to the Semgrep Cloud Platform:
+1. Add the generated public key to the Semgrep Cloud Platform:
+
    1. Log into Semgrep Cloud Platform.
    2. Navigate to **Settings** > **Broker**.
    3. Paste your public key and click **Add Public Key**.
 
-1. Update the `config.yaml` with your GitLab/Github URL:
+   ![Screenshot of Semgrep Cloud Platform's Network Broker page](/img/scp-broker.png#md-width)
+
+2. Update the `config.yaml` with your GitLab/Github URL:
 
   ```yaml
   gitlab:
@@ -114,12 +117,12 @@ Ensure that you are logged in to and are completing the following steps on the s
       localAddress: fdf0:59dc:33cf:9be8:0:DEPLOYMENT_ID:0:1
   ```
 
-1. Run the following command to start Semgrep Broker with your updated configuration file:
+1. Run the following command to start Semgrep Network Broker with your updated configuration file:
 
   <pre class="language-console"><code>sudo docker run -d -it --rm -v $(pwd):/emt ghcr.io/semgrep/semgrep-network-broker:<span className="placeholder">VERSION_NUMBER</span> -c /emt/config.yaml</code></pre>
 
-## Check Semgrep Broker logs
+## Check Semgrep Network Broker logs
 
-You can check the logs for Semgrep Broker by running:
+You can check the logs for Semgrep Network Broker by running:
 
 <pre class="language-console"><code>sudo docker logs <span className="placeholder">CONTAINER_ID</span></code></pre>
