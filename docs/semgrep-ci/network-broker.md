@@ -59,7 +59,7 @@ Ensure that you are logged in to the server where you want to run Semgrep Networ
 
    1. Determine the [network broker version](https://github.com/semgrep/semgrep-network-broker/pkgs/container/semgrep-network-broker) you want to use. The format should be similar to `v0.14.0`.
 
-   1. Run the following in the CLI to generate the public key, replacing the placeholder with the network broker version number:
+   1. Run the following command in the CLI to generate the public key, replacing the placeholder with the network broker version number:
   <pre class="language-console"><code>docker run ghcr.io/semgrep/semgrep-network-broker:<span className="placeholder">VERSION_NUMBER</span> genkey</code></pre>
 
 1. Run the following in the CLI to generate the private key, replacing the placeholders with the public key you generated in the previous step and the network broker version number:
