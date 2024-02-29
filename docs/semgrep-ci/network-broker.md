@@ -15,7 +15,6 @@ The Semgrep Network Broker facilitates secure access between Semgrep and your pr
 Examples of inbound traffic include:
 
 - Pull request (PR) or merge request (MR) comments
-- Jira integrations
 - Webhooks
 
 :::info Subscriber availability
@@ -29,9 +28,9 @@ The Semgrep Network Broker is available to Enterprise tier users.
 
 ## Configure Semgrep Network Broker
 
-Ensure that you are logged in to and are completing the following steps on the server where you want to run Semgrep Network Broker.
+Ensure that you are logged in to the server where you want to run Semgrep Network Broker. Complete the following steps while logged in to that server.
 
-1. Create a `config.yaml` file similar to the following snippet. The steps required to generate values for the placeholders, such as `YOUR_PRIVATE_KEY`, `YOUR_BASE_URL`, `YOUR_TOKEN`, are provided in subsequent sections of this guide.
+1. Create a `config.yaml` file similar to the following snippet. The steps required to generate values for the placeholders, such as `YOUR_PRIVATE_KEY`, `YOUR_BASE_URL`, `YOUR_TOKEN`, are provided in subsequent steps of this guide.
 
   ```yaml
   inbound:
@@ -58,7 +57,7 @@ Ensure that you are logged in to and are completing the following steps on the s
 
 1. The broker requires a WireGuard keypair to establish a secure connection. To generate the public key:
 
-   1. Get the [network broker version](https://github.com/semgrep/semgrep-network-broker/pkgs/container/semgrep-network-broker) you want to use. The format should be similar to `v0.14.0`.
+   1. Determine the [network broker version](https://github.com/semgrep/semgrep-network-broker/pkgs/container/semgrep-network-broker) you want to use. The format should be similar to `v0.14.0`.
 
    1. Run the following in the CLI to generate the public key, replacing the placeholder with the network broker version number:
   <pre class="language-console"><code>docker run ghcr.io/semgrep/semgrep-network-broker:<span className="placeholder">VERSION_NUMBER</span> genkey</code></pre>
@@ -83,7 +82,7 @@ Ensure that you are logged in to and are completing the following steps on the s
 
 1. Add the generated public key to the Semgrep Cloud Platform:
 
-   1. Log into Semgrep Cloud Platform.
+   1. Log in to Semgrep Cloud Platform.
    2. Navigate to **Settings** > **Broker**.
    3. Paste your public key and click **Add Public Key**.
 
@@ -119,7 +118,7 @@ Ensure that you are logged in to and are completing the following steps on the s
     token: YOUR_TOKEN
   ```
 
-1. [Convert your deployment ID to hexadecimal](https://www.rapidtables.com/convert/number/decimal-to-hex.html) for use in creating your deployment's local address:
+1. Convert your deployment ID to hexadecimal for use in creating your deployment's local address. You can use a tool such as [Decimal to Hexadecimal converter]((https://www.rapidtables.com/convert/number/decimal-to-hex.html)) if needed.
 
   <pre class="language-console"><code>fdf0:59dc:33cf:9be8:0:<span className="placeholder">DEPLOYMENT_ID</span>:0:1</code></pre>
  
