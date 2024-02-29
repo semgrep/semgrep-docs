@@ -19,7 +19,7 @@
     "@docusaurus/core": "^2.4.1",
     "@docusaurus/plugin-client-redirects": "^2.4.1",
     "@docusaurus/preset-classic": "^2.4.1",
-    "@markprompt/docusaurus-theme-search": "^0.12.1",
+    "@markprompt/docusaurus-theme-search": "^0.15.0",
     "@mdx-js/react": "^1.6.21",
     "@svgr/webpack": "^5.5.0",
     "clsx": "^1.1.1",
@@ -49,5 +49,9 @@
   "devDependencies": {
     "@docusaurus/module-type-aliases": "^2.4.1",
     "@tsconfig/docusaurus": "^2.0.0"
+  },
+  "resolutions": {
+    "@markprompt/docusaurus-theme-search/@markprompt/core": "^0.25.5",
+    "@markprompt/docusaurus-theme-search/@markprompt/react": "^0.38.3"
   }
 }
