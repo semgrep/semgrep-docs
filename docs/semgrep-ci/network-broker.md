@@ -23,7 +23,7 @@ The Semgrep Network Broker is available to Enterprise tier users.
 
 ## Prerequisites and feature availability
 
-- The Semgrep Network Broker is a feature that must be enabled in your Semgrep organization (org) before set up. Contact the Semgrep team on [<i class="fas fa-external-link fa-xs"></i> Slack]( https://go.semgrep.dev/slack) or through email [<i class="fa-regular fa-envelope"></i> support@semgrep.com](mailto:support@semgrep.com).
+- The Semgrep Network Broker is a feature that must be enabled in your Semgrep organization (org) before setup. It is only available to paying customers. Contact the [Semgrep support team](/docs/support) to discuss having it enabled for your organization.
 - **Docker** must be installed on the server where you install the network broker.
 
 ## Configure Semgrep Network Broker
