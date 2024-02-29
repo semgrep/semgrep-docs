@@ -98,7 +98,7 @@ Ensure that you are logged in to and are completing the following steps on the s
     token: YOUR_TOKEN
 
   # for GitHub 
-  gitlab:
+  github:
     baseUrl: <https://github.exampleCo.com/api/v3>
     token: YOUR_TOKEN
   ```
@@ -108,6 +108,14 @@ Ensure that you are logged in to and are completing the following steps on the s
   ```yaml
   gitlab:
     baseUrl: <https://gitlab.xxxx.net/api/v4>
+    token: YOUR_TOKEN
+  ```
+
+  GitHub users can [use their personal access tokens](https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/managing-your-personal-access-tokens) as long as it has the `pull_requests:write` permission set:
+
+  ```yaml
+  github:
+    baseUrl: <https://github.exampleCo.com/api/v3>
     token: YOUR_TOKEN
   ```
 
