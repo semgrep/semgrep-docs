@@ -89,7 +89,7 @@ Ensure that you are logged in to and are completing the following steps on the s
 
    ![Screenshot of Semgrep Cloud Platform's Network Broker page](/img/scp-broker.png#md-width)
 
-2. Update the `config.yaml` with your GitLab/GitHub URL:
+2. Update the `config.yaml` with your GitLab or GitHub URL:
 
   ```yaml
   # for GitLab 
