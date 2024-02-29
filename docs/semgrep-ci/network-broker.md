@@ -65,7 +65,7 @@ Ensure that you are logged in to and are completing the following steps on the s
 
 1. Run the following in the CLI to generate the private key, replacing the placeholders with the public key you generated in the previous step and the network broker version number:
 
-  <pre class="language-console"><code>echo <span className="placeholder">PUBLIC_KEY</span> | sudo docker run -i ghcr.io/semgrep/semgrep-network-broker:<span className="placeholder">VERSION_NUMBER</span> pubkey</code></pre>
+  <pre class="language-console"><code>echo `<span className="placeholder">PUBLIC_KEY</span>` | sudo docker run -i ghcr.io/semgrep/semgrep-network-broker:<span className="placeholder">VERSION_NUMBER</span> pubkey</code></pre>
 
   :::info Key sharing 
   Your public key is safe to share. Do **not** share your private key with anyone, including Semgrep.
