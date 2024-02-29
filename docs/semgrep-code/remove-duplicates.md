@@ -5,7 +5,9 @@ title: Remove duplicate findings
 hide_title: true
 description: Learn how to remove duplicate findings and prevent them from displayed in Semgrep Cloud Platform.
 tags:
-  - tk
+  - Semgrep Code
+  - Semgrep Cloud Platform
+  - Team & Enterprise tier
 ---
 
 # Remove duplicate findings

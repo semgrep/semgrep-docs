@@ -32,35 +32,35 @@ Semgrep Code generates a **finding** when a rule matches a piece of code in your
 
 To access the [**Findings** page](https://semgrep.dev/orgs/-/findings):
 
-1. [Log into Semgrep Cloud Platform](https://semgrep.dev/login)
+1. Log in to [Semgrep Cloud Platform](https://semgrep.dev/login).
 2. Click **[Code](https://semgrep.dev/orgs/-/findings)** to navigate to the **Findings** page.
 
 ## Findings page structure
 
 The **Findings** page consists of:
 
-- The filter panel, which you can use to group and filter for specific findings
+- The **filter panel**, which you can use to group and filter for specific findings
 - Information about findings identified by Semgrep Code. Each  finding in the list includes:
   - The name and description of the rule used to generate the finding
   - The name of the project, as well as links to the Git branch and source code, where Semgrep Code identified the finding
 
 ### Group findings
 
-By default, Semgrep groups all of the findings by the rule Semgrep used to match the code. The rules that reported the highest number of findings are at the top of the page. This helps you see which rules have the highest efficiency and which generate a lot of noise in your results.
+By default, Semgrep groups all of the findings by the rule Semgrep used to match the code. This view is called the **Group by rule** view. The rules that reported the highest number of findings are at the top of the page. This helps you see which rules have the highest efficiency and which generate a lot of noise in your results.
 
-![Screenshot of the Findings page with findings grouped by rule](/img/app-findings.png#md-width)
+![Findings grouped by rule](/img/app-findings.png#md-width)
 
 To view findings individually, toggle **Group by Rule** to **No grouping** using the drop-down menu in the header. Findings are displayed based on the date they were found, with the most recent finding listed at the top.
 
-![Screenshot of the Group by Rule option](/img/cloud-platform-findings-no-grouping.png#md-width)
+![Group by Rule option](/img/cloud-platform-findings-no-grouping.png#md-width)
 
 ### Filter findings
 
-Semgrep offers multiple filters you can use to narrow down your results. The following criteria are available for filtering:
+Use filters to narrow down your results. The following criteria are available for filtering:
 
 | Filter                 | Description  |
 | ---------------------  | ------------ |
-| **Projects**           | Filter by codebases connected to Semgrep Cloud Platform. |
+| **Projects**           | Filter by repositories connected to Semgrep Cloud Platform. |
 | **Status**             | Filter the triage state of a finding. Refer to the [following table](#triaging-findings) to understand triage states. |
 | **Category**           |  Filter by the type of security issue or vulnerability the rule detects, such as `security`, `correctness`, and `maintainability`. You can select more than one category at a time. See [Finding categories](#finding-categories) for information on how Semgrep categorizes your findings. |
 | **Severity**           | Filter by the severity of a finding. Possible values: <ul><li>Low</li><li>Medium</li><li>High</li></ul> |
@@ -118,9 +118,9 @@ By default, the **Findings** page displays your results from all time. To displa
 To view in-depth information about a specific finding:
 
 1. Select the finding whose details you want to view details:
-    - If the default **Group by Rule** is enabled, click <i class="fa-regular fa-window-restore"></i> **Details** icon on the card of the finding.
+    - If the default **Group by Rule** is enabled, click the <i class="fa-regular fa-window-restore"></i> **Details** icon on the card of the finding.
         ![Click View details if Group by Rule is enabled](/img/cloud-platform-findings-group-by-rule-view-details.png#md-width)
-    - If **No grouping** view is enabled, click the **header hyperlink** on the card of the finding. In the example on the screenshot below, it is the **detected-generic-api-key**.
+    - If the **No grouping** view is enabled, click the **header hyperlink** on the card of the finding. In the example on the screenshot below, it is the **detected-generic-api-key**.
         ![Click View details if No grouping is enabled](/img/cloud-platform-findings-no-grouping-view-details.png#md-width)
 
 #### Add notes to findings
@@ -145,11 +145,8 @@ To **add notes** to the activity history of a finding:
 
 ## Data retention
 
-The retention period for findings are as follows:
+The retention period for findings is **5 years**.
 
-| Retention period | Tier availability |
-| ---------------  | ----------------- |
-| 5 years          | Team/Enterprise   |
 
 ## Further reading
 
