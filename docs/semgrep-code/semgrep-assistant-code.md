@@ -214,11 +214,17 @@ Cloud Platform's **Findings** page and filtering by **Recommendation** or
 
 ## Use Semgrep Assistant to analyze findings (beta)
 
-If you have [enabled Assistant](/semgrep-code/semgrep-assistant-code/#enabling-semgrep-assistant),
-you can use the **Analyze** button at the [top-right of the Findings page](/semgrep-code/findings) to trigger all Assistant
-functions, including autofix, autotriage, and component tagging. After Assistant
-performs these functions, you can see your results on the **Findings** page using the **Recommendation**
-or **Component** filters.
+If you have [enabled
+Assistant](/semgrep-code/semgrep-assistant-code/#enable-semgrep-assistant),
+you can use the **Analyze** button on the [Findings
+page](/semgrep-code/findings) to trigger all Assistant functions, including
+autofix, autotriage, and component tagging.
+
+![Assistant Analyze button on Findings page](/img/scp-assistant.png#md-width)
+
+After Assistant performs these
+functions, you can see your results on the **Findings** page using the
+**Recommendation** or **Component** filters.
 
 To analyze your findings with Assistant:
 

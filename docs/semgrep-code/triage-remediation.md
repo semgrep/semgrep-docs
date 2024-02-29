@@ -3,9 +3,10 @@ slug: triage-remediation
 append_help_link: true
 title: Triage and remediation
 hide_title: false
-description: tk
+description: Learn how about Semgrep Code's triage status for findings and how to triage and remediate findings.
 tags:
-  - tk
+    - Semgrep Cloud Platform
+    - Team & Enterprise Tier
 ---
 
 # Triage and remediate Semgrep Code findings in Semgrep Cloud Platform
