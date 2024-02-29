@@ -69,8 +69,4 @@ Our comments are powered by an external service called [utteranc.es](https://utt
 If you aren't able to authenticate to leave comments,
 please make sure you don't have an ad blocker interrupting requests to their domain.
 
-## How to get help
-
-Please check the [Support](/support/) page to get help from the Semgrep maintainers & community, via Slack, GitHub, email, or phone.
-
 <MoreHelp />
