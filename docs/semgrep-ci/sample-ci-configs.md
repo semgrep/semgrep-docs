@@ -90,7 +90,7 @@ If you are self-hosting your repository, you must [use a self-hosted runner](htt
     defaultValue="gha-semgrep"
     values={[
     {label: 'Default', value: 'gha-semgrep'},
-    {label: 'Semgrep Supply Chain', value: 'gha-ssc'},
+    {label: 'Semgrep OSS', value: 'gha-ssc'},
     ]}
 >
 
