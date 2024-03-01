@@ -1,5 +1,5 @@
 ---
-slug: core-deployment 
+slug: oss-deployment 
 append_help_link: true
 title: Core deployment 
 description: Learn how to set up a Semgrep OSS deployment for yourself or your organization.
@@ -10,12 +10,11 @@ tags:
 
 # Semgrep OSS Deployment
 
-
 Semgrep OSS can be set up run static application security testing (SAST) scans on repositories of any size.
 
 **Deployment** refers to the process of integrating Semgrep into your developer and infrastructure workflows. This is mainly achieved by running Semgrep OSS in your CI pipeline.
 
-This guide explains how to set up Semgrep OSS in your pipeline **without** the use of Semgrep Cloud Platform or any other Semgrep products, also known as a stand-alone setup.
+This guide explains how to set up Semgrep OSS in your pipeline **without** the use of Semgrep Cloud Platform or any other Semgrep products, also known as a stand-alone setup. This setup uses only  **LGPL 2.1** Semgrep code. It is not subject to the usage limits of Semgrep Pro.
 
 For a comparison of the behavior between Semgrep OSS CI scans and Semgrep Pro scans, see
 
@@ -29,10 +28,18 @@ semgrep ci is the command used to run Semgrep in a CI environment. In most cases
 Use `semgrep scan` in your job to run Semgrep OSS in a CI environment.
 
 
-## Semgrep OSS CI scans versus Semgrep Pro scans
+## Semgrep OSS CI jobs versus Semgrep Pro CI jobs
 
 <!-- should be a table -->
 * Stand-alone Semgrep jobs cannot send [PR or MR comments](/category/pr-or-mr-comments/). These comments describe the finding and help developers resolve vulnerabilities and other code issues.
 * Stand-alone Semgrep jobs cannot fail a CI job based on the severity of a finding or some other user-defined criteria. There are no user-defined rule modes to distinguish between rules.
 * Findings are written to a log, but there is no record of a finding's **status**, such as open, ignored, or fixed.
 * Stand-alone jobs do not run software composition analysis (SCA) or secrets detection scans.
+* Stand-alone Semgrep OSS jobs run on trunk branches.
+
+| Feature  | Semgrep Pro CI (`semgrep ci`)| Semgrep OSS CI (`semgrep scan`) |
+| -------  | ------ | ------ |
+| Diff-aware scans         |  ✔️        | --       |
+| SCA (Semgrep Supply Chain) scans         |  ✔️        | --       |
+| Secrets (Semgrep Secrets) scans         |  ✔️       | --        |
+
