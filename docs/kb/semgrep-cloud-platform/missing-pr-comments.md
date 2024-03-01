@@ -69,7 +69,7 @@ If the rule is in a Monitor policy, it does not generate comments.
 
 ## Is this the first time this finding has been identified?
 
-PR or MR comments are generated when a finding is new. If a finding is was seen in a previous scan, it is [not new](/docs/semgrep-code/findings/#deduplicating-findings) and a comment is not generated.
+PR or MR comments are generated when a finding is new. If a finding is was seen in a previous scan, it is [not new](/semgrep-code/remove-duplicates) and a comment is not generated.
 
 This prevents repeated comments on findings that have already notified developers.
 

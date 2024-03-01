@@ -185,7 +185,7 @@ Previous annotations for ignoring code inline, such as `nosem`, are deprecated.
 
 ## Disabling rules on Semgrep Cloud Platform
 
-Semgrep Cloud Platform users can disable rules and rulesets through the Policies page. See [Disabling rules](/semgrep-code/policies#disabling-rules) and [Removing rulesets](/semgrep-code/findings#removing-rulesets).
+Semgrep Cloud Platform users can disable rules and rulesets through the Policies page. See [Disabling rules](/semgrep-code/policies#disabling-rules) and [Disabling rulesets](/semgrep-code/triage-remediation/#disable-a-ruleset-or-a-rule).
 
 ## Known issues
 
