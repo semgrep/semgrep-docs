@@ -32,10 +32,10 @@ validators:
     request:
       headers:
         Authorization: Bearer $REGEX
-        Host: api.exampleCo.com
+        Host: api.semgrep.dev
         User-Agent: Semgrep
       method: GET
-      url: https://api.exampleCo.com/user
+      url: https://api.semgrep.dev/user
     response:
     - match:
       - status-code: 200
@@ -54,7 +54,7 @@ validators:
 rules:
 - id: exampleCo_example
   message: >-
-    This is an example rule that performs validation against exampleCo.com
+    This is an example rule that performs validation against semgrep.dev
   severity: WARNING 
   metadata:
     product: secrets
@@ -66,10 +66,10 @@ rules:
       request:
         headers:
           Authorization: Bearer $REGEX
-          Host: api.exampleCo.com
+          Host: api.semgrep.dev
           User-Agent: Semgrep
         method: GET
-        url: https://api.exampleCo.com/user
+        url: https://api.semgrep.dev/user
       response:
       - match:
         - status-code: 200
@@ -134,10 +134,10 @@ The following keys are for use with `headers`:
 request:
   headers:
     Authorization: Bearer $REGEX
-    Host: api.exampleCo.com
+    Host: api.semgrep.dev
     User-Agent: Semgrep
   method: GET
-  url: https://api.exampleCo.com/user
+  url: https://api.semgrep.dev/user
 ```
 
 ### response
@@ -197,7 +197,7 @@ response:
 rules:
 - id: exampleCo_example
   message: >-
-    This is an example rule that performs validation against exampleCo.com
+    This is an example rule that performs validation against semgrep.dev
   severity: WARNING 
   metadata:
     product: secrets
@@ -208,12 +208,12 @@ rules:
   - http:
       request:
         headers:
-          Host: api.exampleCo.com
+          Host: api.semgrep.dev
           User-Agent: Semgrep
         method: POST
         body: |
           {"key": "$REGEX"}
-        url: https://api.exampleCo.com/user
+        url: https://api.semgrep.dev/user
       response:
       - match:
         - status-code: 200
@@ -241,7 +241,7 @@ rules:
 rules:
 - id: exampleCo_example
   message: >-
-    This is an example rule that performs validation against exampleCo.com
+    This is an example rule that performs validation against semgrep.dev
   severity: WARNING 
   metadata:
     product: secrets
@@ -252,12 +252,12 @@ rules:
   - http:
       request:
         headers:
-          Host: api.exampleCo.com
+          Host: api.semgrep.dev
           User-Agent: Semgrep
         method: POST
         body: |
           {"key": "$REGEX"}
-        url: https://api.exampleCo.com/user
+        url: https://api.semgrep.dev/user
       response:
       - match:
         - status-code: 200
@@ -307,7 +307,7 @@ The Base64 encoding of field is experimental and can change at any time.
 rules:
 - id: exampleCo_example
   message: >-
-    This is an example rule that performs validation against exampleCo.com
+    This is an example rule that performs validation against semgrep.dev
   severity: WARNING 
   metadata:
     product: secrets
@@ -319,10 +319,10 @@ rules:
       request:
         headers:
           Authorization: Basic __semgrep_internal_encode_64($REGEX:)
-          Host: api.exampleCo.com
+          Host: api.semgrep.dev
           User-Agent: Semgrep
         method: GET
-        url: https://api.exampleCo.com/user
+        url: https://api.semgrep.dev/user
       response:
       - match:
         - status-code: 200
