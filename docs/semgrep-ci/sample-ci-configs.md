@@ -41,12 +41,13 @@ import JenkinsSemgrepOssSast from "/src/components/code_snippets/_jenkins-semgre
 import JenkinsSemgrepAppSastDocker from "/src/components/code_snippets/_jenkins-semgrep-app-sast-docker.mdx"
 
 <!--Bitbucket Pipelines -->
+
 import BitbucketSemgrepAppSast from "/src/components/code_snippets/_bitbucket-semgrep-app-sast.mdx"
-import BitbucketSemgrepAppSsc from "/src/components/code_snippets/_bitbucket-semgrep-app-ssc.mdx"
+import BitbucketSemgrepOssSast from "/src/components/code_snippets/_bitbucket-semgrep-oss-sast.mdx"
 
 <!-- Buildkite -->
 import BuildkiteSemgrepAppSast from "/src/components/code_snippets/_buildkite-semgrep-app-sast.mdx"
-import BuildkiteSemgrepAppSsc from "/src/components/code_snippets/_buildkite-semgrep-app-ssc.mdx"
+import BuildkiteSemgrepOssSast from "/src/components/code_snippets/_buildkite-semgrep-oss-sast.mdx"
 
 <!-- CircleCI -->
 import CircleCiSemgrepAppSast from "/src/components/code_snippets/_circleci-semgrep-app-sast.mdx"
@@ -84,6 +85,7 @@ To add a Semgrep configuration file in your GitHub Actions pipeline:
 :::note
 If you are self-hosting your repository, you must [use a self-hosted runner](https://docs.github.com/en/actions/using-jobs/choosing-the-runner-for-a-job#choosing-self-hosted-runners).
 :::
+
 ### Sample GitHub Actions configuration file
 
 <Tabs
@@ -262,27 +264,30 @@ These steps can also be performed through Bitbucket's UI wizard. This UI wizard 
     defaultValue="bitbucket-semgrep"
     values={[
     {label: 'Default', value: 'bitbucket-semgrep'},
-    {label: 'Semgrep Supply Chain', value: 'bitbucket-ssc'},
+    {label: 'Semgrep OSS', value: 'bitbucket-oss'},
     ]}
 >
 
 <TabItem value='bitbucket-semgrep'>
 
-The following configuration creates a CI job that runs a SAST and SCA scan using both Semgrep Code and Semgrep Supply Chain.
+The following configuration creates a CI job that runs scans depending on what products you have enabled in Semgrep Cloud Platform.
 
 <BitbucketSemgrepAppSast />
 
+You can **run specific product scans** by passing an argument, such as `--supply-chain`. View the [list of arguments](/getting-started/cli/#scan-using-specific-semgrep-products). 
+
 </TabItem>
 
-<TabItem value='bitbucket-ssc'>
+<TabItem value='bitbucket-oss'>
 
-The following configuration creates a CI job that runs an SCA scan using Semgrep Supply Chain.
+The following configuration creates a CI job that runs Semgrep OSS SAST scans using rules configured for your programming language.
 
-<BitbucketSemgrepAppSsc />
+<BitbucketSemgrepOssSast />
+
+You can customize the scan by entering custom rules or other rulesets to scan with. See [Scan your codebase with a specific ruleset](/getting-started/cli-oss/#scan-your-codebase-with-a-specific-ruleset).
 
 </TabItem>
 </Tabs>
-
 
 ## Buildkite
 
@@ -304,23 +309,27 @@ These steps can be performed from within Buildkite's interface. From Buildkite's
     defaultValue="buildkite-semgrep"
     values={[
     {label: 'Default', value: 'buildkite-semgrep'},
-    {label: 'Semgrep Supply Chain', value: 'buildkite-ssc'},
+    {label: 'Semgrep OSS', value: 'buildkite-oss'},
     ]}
 >
 
 <TabItem value='buildkite-semgrep'>
 
-The following configuration creates a CI job that runs a SAST and SCA scan using both Semgrep Code and Semgrep Supply Chain.
+The following configuration creates a CI job that runs scans depending on what products you have enabled in Semgrep Cloud Platform.
 
 <BuildkiteSemgrepAppSast />
 
+You can **run specific product scans** by passing an argument, such as `--supply-chain`. View the [list of arguments](/getting-started/cli/#scan-using-specific-semgrep-products). 
+
 </TabItem>
 
-<TabItem value='buildkite-ssc'>
+<TabItem value='buildkite-oss'>
 
-The following configuration creates a CI job that runs an SCA scan using Semgrep Supply Chain.
+The following configuration creates a CI job that runs Semgrep OSS SAST scans using rules configured for your programming language.
 
-<BuildkiteSemgrepAppSsc />
+<BuildkiteSemgrepOssSast />
+
+You can customize the scan by entering custom rules or other rulesets to scan with. See [Scan your codebase with a specific ruleset](/getting-started/cli-oss/#scan-your-codebase-with-a-specific-ruleset).
 
 </TabItem>
 </Tabs>
