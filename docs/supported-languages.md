@@ -184,7 +184,7 @@ Semgrep Supply Chain parses **lockfiles** for dependencies, then scans your code
    <td><code>cargo.lock</code></td>
    <td style={{"text-align": "center"}}>Lockfile-only</td>
    <td>✔️</td>
-   <td rowspan="5">Not applicable due to reachability support level</td>
+   <td rowspan="6">Not applicable due to reachability support level</td>
 </tr>
 <tr>
    <td>Dart</td>
@@ -194,7 +194,13 @@ Semgrep Supply Chain parses **lockfiles** for dependencies, then scans your code
    <td>--</td>
 </tr>
 <tr>
-   <td>Kotlin</td>
+   <td rowspan="2">Kotlin</td>
+   <td>Gradle</td>
+   <td><code>gradle.lockfile</code></td>
+   <td style={{"text-align": "center"}}>Lockfile-only</td>
+   <td>--</td>
+</tr>
+<tr>
    <td>Maven</td>
    <td>Maven-generated dependency tree (See <a href="/docs/semgrep-supply-chain/setup-maven/">Setting up SSC scans for Apache Maven</a> for instructions.)</td>
    <td style={{"text-align": "center"}}>Lockfile-only</td>
