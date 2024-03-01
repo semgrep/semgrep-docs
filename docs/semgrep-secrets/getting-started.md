@@ -120,7 +120,7 @@ Semgrep supports visibility detection only for GitHub repositories of any plan.
 
 ### Type
 
-Refers to the type of secret, such as **Private key**, or web service that makes use of the secret, such as Sendgrid or Stripe.
+Refers to the type of secret, such as **Private key**, or web service that makes use of the secret, such as **Sendgrid** or **Stripe**.
 
 ### Project
 
@@ -173,7 +173,7 @@ In addition to viewing your results in Semgrep Cloud Platform, you can set up PR
 **_Figure._** Semgrep Secrets finding in a PR comment.
 
 :::info
-Only **valid** (active) secrets-related findings result in a PR or MR comment.
+Define which rules should be in allow/comment/block mode via your deplomyents [policies](/semgrep-secrets/policies) page.
 :::
 
 ### Findings in GitHub pull requests
@@ -181,13 +181,11 @@ Only **valid** (active) secrets-related findings result in a PR or MR comment.
 Perform the following steps to receive Secrets findings as comments in GitHub PRs:
 
 1. Set your [policy mode to **Comment**](/semgrep-code/policies/#blocking-a-pr-or-mr-through-rule-modes).
-2. Ensure that your rules include the following line:
-    ```console
-    product: secrets
-    ```
-3. Reach out to [<i class="fa-regular fa-envelope"></i> support@semgrep.com](mailto:support@semgrep.com) to ensure that you have the following two feature flags enabled for your account:
-    * Secrets
-    * Secrets PR comments
+
+
+:::info 
+Reach out to [<i class="fa-regular fa-envelope"></i> support@semgrep.com](mailto:support@semgrep.com) if you are unable to manage your policies
+:::
 
 <!--### Findings in GitLab merge requests
 
@@ -197,9 +195,9 @@ Perform the following steps to receive Secrets findings as comments in GitLab MR
 2. Inform [<i class="fa-regular fa-envelope"></i> support@semgrep.com](mailto:support@semgrep.com) that you want to enable this feature.
 -->
 
-## Create tickets
+<!-- ## Create tickets
 
-You can create tickets in Jira, Linear, or Asana for secrets-related findings. See [<i class="fa-regular fa-file-lines"></i> Ticketing](semgrep-cloud-platform/ticketing/).
+You can create tickets in Jira, Linear, or Asana for secrets-related findings. See [<i class="fa-regular fa-file-lines"></i> Ticketing](semgrep-cloud-platform/ticketing/). -->
 
 ## API
 

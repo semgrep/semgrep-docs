@@ -14,6 +14,16 @@ This article demonstrates what a sample Semgrep Secrets rule looks like.
 Subsequent sections describe the key-value pairs in the context of a Semgrep
 Secrets rule.
 
+## Metavariable binding
+
+Semgrep Secrets makes use of Metavariables, where we can re-use matched information within your code, and use that information within our validators feature. An example of a metavariable looks like this:
+
+<iframe title="Message displays metavariable content" src="https://semgrep.dev/embed/editor?snippet=JDzRR" width="100%" height="432px" frameBorder="0"></iframe>
+<br />
+
+As you can see, if you press `Run` the content from the metavariable `$HELLO` will now display as `This content is now reusable in validators`, if this were a secret we could then use the secret to talk to the appropriate service to determine if its active or not.
+
+
 ## Sample rule
 
 The following sample rule detects a leaked GitHub personal access token (PAT):
@@ -47,6 +57,49 @@ rules:
   patterns:
   - patterns:
     - pattern-regex: (?<REGEX>\b((ghp|gho|ghu|ghs|ghr|github_pat)_[a-zA-Z0-9_]{36,255})\b)
+    - focus-metavariable: $REGEX
+    - metavariable-analysis:
+        analyzer: entropy
+        metavariable: $REGEX
+```
+
+This can also be done in any Semgrep supported languages:
+
+```yaml
+rules:
+- id: github_example
+  message: >-
+    This is an example rule, that performs validation against github.com
+  severity: WARNING 
+  languages:
+  - javascript
+  - typescript
+  validators:
+  - http:
+      request:
+        headers:
+          Authorization: Bearer $REGEX
+          Host: api.github.com
+          User-Agent: Semgrep
+        method: GET
+        url: https://api.github.com/user
+      response:
+      - match:
+        - status-code: 200
+        result:
+          validity: valid
+      - match:
+        - status-code: 401
+        result:
+          validity: invalid 
+  patterns:
+  - patterns:
+    - pattern: |
+        "$R"
+    - metavariable-pattern:
+        metavariable: $R
+        patterns:
+          - pattern-regex: (?<REGEX>\b((ghp|gho|ghu|ghs|ghr|github_pat)_[a-zA-Z0-9_]{36,255})\b)
     - focus-metavariable: $REGEX
     - metavariable-analysis:
         analyzer: entropy

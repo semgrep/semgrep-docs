@@ -91,9 +91,12 @@ The rule detects hardcoded AWS secret access keys. The test code defines an acce
 
 ### Validate secrets 
 
-After scanning, Semgrep Secrets uses a proprietary
-**validator** to determine if a secret is actively being used or some other
-state.
+:::info
+See our [Validators](/semgrep-secrets/validators) page for syntax and examples.
+:::
+
+After scanning, depending on the rule, Semgrep Secrets uses a proprietary
+**validator** to determine if a secret is actively being used or some other state.
 
 :::info
 All validations, such as API calls, are done **locally** in your environment. No tokens are sent to Semgrep servers.
@@ -115,6 +118,7 @@ All validations, such as API calls, are done **locally** in your environment. No
    either the network request could not be made, a timeout occurred, or
    the HTTP status code returned a different HTTP status code. In this case,
    the Semgrep Team recommends manually reviewing the finding.
+   4. **No Validator:** The rule does not have a validator
 
 By performing this validation check, you can prioritize and triage the most
 high-priority, active findings.
@@ -150,7 +154,7 @@ txtPassword1
 
 See [<i class="fa-regular fa-file-lines"></i> Getting started with Semgrep Secrets](/semgrep-secrets/getting-started) to learn how to:
 * Enable secrets scanning for your repositories
-* Manage your rules via [policies](/semgrep-secrets/policies) to have complete control over how 
+* Manage your rules via your [policy](/semgrep-secrets/policies) to have complete control over how 
 * View and triage secrets-related findings
 * Receive notifications and post tickets whenever Semgrep Secrets identifies issues
 * Write [custom rules](/semgrep-secrets/rules) with [validators](/semgrep-secrets/validators) to find bespoke secrets
