@@ -28,12 +28,13 @@ Read /src/components/code_snippets/readme to understand modular code snippet imp
 <!-- GHA -->
 import GhaSemgrepAppSast from "/src/components/code_snippets/_gha-semgrep-app-sast.mdx"
 import GhaSemgrepAppSastDash from "/src/components/code_snippets/_gha-semgrep-app-sast-dash.mdx"
-import GhaSemgrepAppSsc from "/src/components/code_snippets/_gha-semgrep-app-ssc.mdx"
+import GhaSemgrepOssSast from "/src/components/code_snippets/_gha-semgrep-oss-sast.mdx"
 
 <!-- GLCICD -->
 import GlcicdSemgrepAppSast from "/src/components/code_snippets/_glcicd-semgrep-app-sast.mdx"
 import GlcicdSemgrepAppSastDash from "/src/components/code_snippets/_glcicd-semgrep-app-sast-dash.mdx"
-import GlcicdSemgrepAppSsc from "/src/components/code_snippets/_glcicd-semgrep-app-ssc.mdx"
+
+<!-- import GlcicdSemgrepOssSast from "/src/components/code_snippets/_glcicd-semgrep-oss-sast.mdx" -->
 
 <!-- Jenkins -->
 import JenkinsSemgrepAppSast from "/src/components/code_snippets/_jenkins-semgrep-app-sast.mdx"
@@ -90,27 +91,33 @@ If you are self-hosting your repository, you must [use a self-hosted runner](htt
     defaultValue="gha-semgrep"
     values={[
     {label: 'Default', value: 'gha-semgrep'},
-    {label: 'Semgrep OSS', value: 'gha-ssc'},
+    {label: 'Semgrep OSS', value: 'gha-oss'},
     ]}
 >
 
 <TabItem value='gha-semgrep'>
 
-The following configuration creates a CI job that runs a SAST and SCA scan using both Semgrep Code and Semgrep Supply Chain.
+The following configuration creates a CI job that runs scans depending on what products you have enabled in Semgrep Cloud Platform.
 
 <GhaSemgrepAppSast />
 
+You can **run specific product scans** by passing an argument, such as `--supply-chain`. View the [list of arguments](/getting-started/cli/#scan-using-specific-semgrep-products). 
+
 </TabItem>
 
-<TabItem value='gha-ssc'>
 
-The following configuration creates a CI job that runs an SCA scan using Semgrep Supply Chain.
+<TabItem value='gha-oss'>
 
-<GhaSemgrepAppSsc />
+The following configuration creates a CI job that runs Semgrep OSS SAST scans using rules configured for your programming language.
+
+<GhaSemgrepOssSast />
+
+You can customize the scan by entering custom rules or other rulesets to scan with. See [Scan your codebase with a specific ruleset](/getting-started/cli-oss/#scan-your-codebase-with-a-specific-ruleset).
 
 </TabItem>
 
 </Tabs>
+
 
 :::caution
 If you define both `branches` or `branches-ignore` *and* `paths` or `paths-ignore`, the workflow only runs when both filters are satisfied.
