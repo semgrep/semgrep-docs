@@ -112,7 +112,8 @@ module.exports = {
             link: {type: 'generated-index'},
             items: [
                 'deployment/user-management',
-                'semgrep-cloud-platform/tags'
+                'semgrep-cloud-platform/tags',
+                'semgrep-ci/network-broker'
             ]
         },
         {

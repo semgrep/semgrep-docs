@@ -38,9 +38,9 @@ To create an org, perform the steps in [Create additional orgs](/deployment/crea
 
 ## Project separation between local and remote repositories
 
-The project slug for a **remote repository** takes the form `account-name/repository-name`.
+The project slug for a **remote repository** takes the form <code class="placeholder">ACCOUNT-NAME/REPOSITORY_NAME.</code>
 
-The project slug for a **local repository** takes the form `repository-name`.
+The project slug for a **local repository** takes the form <code>local_scan/<span class="placeholder">REPOSITORY-NAME</span></code>.
 
 Refer to the following image for an example of both remote and local Projects in a single personal account.
 
