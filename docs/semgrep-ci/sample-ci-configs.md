@@ -51,11 +51,11 @@ import BuildkiteSemgrepOssSast from "/src/components/code_snippets/_buildkite-se
 
 <!-- CircleCI -->
 import CircleCiSemgrepAppSast from "/src/components/code_snippets/_circleci-semgrep-app-sast.mdx"
-import CircleCiSemgrepAppSsc from "/src/components/code_snippets/_circleci-semgrep-app-ssc.mdx"
+import CircleCiSemgrepOssSast from "/src/components/code_snippets/_circleci-semgrep-oss-sast.mdx"
 
 <!-- Azure Pipelines -->
 import AzureSemgrepAppSast from "/src/components/code_snippets/_azure-semgrep-app-sast.mdx"
-import AzureSemgrepAppSsc from "/src/components/code_snippets/_azure-semgrep-app-ssc.mdx"
+import AzureSemgrepOssSast from "/src/components/code_snippets/_azure-semgrep-oss-sast.mdx"
 
 import ScmFeatureReference from "/src/components/reference/_scm-feature-reference.md"
 
@@ -363,24 +363,27 @@ For the default branch and tags, CircleCI always runs the Semgrep CI job on all 
     defaultValue="circleci-semgrep"
     values={[
     {label: 'Default', value: 'circleci-semgrep'},
-    {label: 'Semgrep Supply Chain', value: 'circleci-ssc'},
+    {label: 'Semgrep OSS', value: 'circleci-oss'},
     ]}
 >
 
-
 <TabItem value='circleci-semgrep'>
 
-The following configuration creates a CI job that runs a SAST and SCA scan using both Semgrep Code and Semgrep Supply Chain.
+The following configuration creates a CI job that runs scans depending on what products you have enabled in Semgrep Cloud Platform.
 
 <CircleCiSemgrepAppSast /> 
 
+You can **run specific product scans** by passing an argument, such as `--supply-chain`. View the [list of arguments](/getting-started/cli/#scan-using-specific-semgrep-products). 
+
 </TabItem>
 
-<TabItem value='circleci-ssc'>
+<TabItem value='circleci-oss'>
 
-The following configuration creates a CI job that runs an SCA scan using Semgrep Supply Chain.
+The following configuration creates a CI job that runs Semgrep OSS SAST scans using rules configured for your programming language.
 
-<CircleCiSemgrepAppSsc /> 
+<CircleCiSemgrepOssSast /> 
+
+You can customize the scan by entering custom rules or other rulesets to scan with. See [Scan your codebase with a specific ruleset](/getting-started/cli-oss/#scan-your-codebase-with-a-specific-ruleset).
 
 </TabItem>
 </Tabs> 
@@ -406,23 +409,27 @@ To add Semgrep into Azure Pipelines:
     defaultValue="azure-semgrep"
     values={[
     {label: 'Default', value: 'azure-semgrep'},
-    {label: 'Semgrep Supply Chain', value: 'azure-ssc'},
+    {label: 'Semgrep OSS', value: 'azure-oss'},
     ]}
 >
 
 <TabItem value='azure-semgrep'>
 
-The following configuration creates a CI job that runs a SAST and SCA scan using both Semgrep Code and Semgrep Supply Chain.
+The following configuration creates a CI job that runs scans depending on what products you have enabled in Semgrep Cloud Platform.
 
 <AzureSemgrepAppSast /> 
 
+You can **run specific product scans** by passing an argument, such as `--supply-chain`. View the [list of arguments](/getting-started/cli/#scan-using-specific-semgrep-products). 
+
 </TabItem>
 
-<TabItem value='azure-ssc'>
+<TabItem value='azure-oss'>
 
-The following configuration creates a CI job that runs an SCA scan using Semgrep Supply Chain.
+The following configuration creates a CI job that runs Semgrep OSS SAST scans using rules configured for your programming language.
 
-<AzureSemgrepAppSsc /> w
+<AzureSemgrepOssSast />
+
+You can customize the scan by entering custom rules or other rulesets to scan with. See [Scan your codebase with a specific ruleset](/getting-started/cli-oss/#scan-your-codebase-with-a-specific-ruleset).
 
 </TabItem>
 </Tabs>
