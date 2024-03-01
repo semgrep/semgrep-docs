@@ -264,17 +264,16 @@ rules:
         - content:
             language: regex
             pattern-regex: (\"role\":admin)
-          status-code: 200
-        message: >-
-          The token exposed is for an admin user, this should be fixed immediately! See <insertlink> on how to rotate and look for suspicious activity
-        metadata:
-          context:
-            - admin: true
-        severity: ERROR
         result:
           validity: valid
+          severity: ERROR
+          message: >-
+            The token exposed is for an admin user, this should be fixed immediately! See <insertlink> on how to rotate and look for suspicious activity
+          metadata:
+            context:
+              - admin: true
       - match:
-        - status-code: 401
+        - status-code: 200
         result:
           validity: invalid 
   patterns:
