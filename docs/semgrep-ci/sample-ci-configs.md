@@ -33,12 +33,11 @@ import GhaSemgrepOssSast from "/src/components/code_snippets/_gha-semgrep-oss-sa
 <!-- GLCICD -->
 import GlcicdSemgrepAppSast from "/src/components/code_snippets/_glcicd-semgrep-app-sast.mdx"
 import GlcicdSemgrepAppSastDash from "/src/components/code_snippets/_glcicd-semgrep-app-sast-dash.mdx"
-
-<!-- import GlcicdSemgrepOssSast from "/src/components/code_snippets/_glcicd-semgrep-oss-sast.mdx" -->
+import GlcicdSemgrepOssSast from "/src/components/code_snippets/_glcicd-semgrep-oss-sast.mdx"
 
 <!-- Jenkins -->
 import JenkinsSemgrepAppSast from "/src/components/code_snippets/_jenkins-semgrep-app-sast.mdx"
-import JenkinsSemgrepAppSsc from "/src/components/code_snippets/_jenkins-semgrep-app-ssc.mdx"
+import JenkinsSemgrepOssSast from "/src/components/code_snippets/_jenkins-semgrep-oss-sast.mdx"
 import JenkinsSemgrepAppSastDocker from "/src/components/code_snippets/_jenkins-semgrep-app-sast-docker.mdx"
 
 <!--Bitbucket Pipelines -->
@@ -105,7 +104,6 @@ You can **run specific product scans** by passing an argument, such as `--supply
 
 </TabItem>
 
-
 <TabItem value='gha-oss'>
 
 The following configuration creates a CI job that runs Semgrep OSS SAST scans using rules configured for your programming language.
@@ -117,7 +115,6 @@ You can customize the scan by entering custom rules or other rulesets to scan wi
 </TabItem>
 
 </Tabs>
-
 
 :::caution
 If you define both `branches` or `branches-ignore` *and* `paths` or `paths-ignore`, the workflow only runs when both filters are satisfied.
@@ -156,23 +153,27 @@ To add a Semgrep configuration snippet in your GitLab CI/CD pipeline:
     defaultValue="glcicd-semgrep"
     values={[
     {label: 'Default', value: 'glcicd-semgrep'},
-    {label: 'Semgrep Supply Chain', value: 'glcicd-ssc'},
+    {label: 'Semgrep OSS', value: 'glcicd-oss'},
     ]}
 >
 
 <TabItem value='glcicd-semgrep'>
 
-The following configuration creates a CI job that runs a SAST and SCA scan using both Semgrep Code and Semgrep Supply Chain.
+The following configuration creates a CI job that runs scans depending on what products you have enabled in Semgrep Cloud Platform.
 
 <GlcicdSemgrepAppSast />
+
+You can **run specific product scans** by passing an argument, such as `--supply-chain`. View the [list of arguments](/getting-started/cli/#scan-using-specific-semgrep-products). 
 
 </TabItem>
 
 <TabItem value='glcicd-ssc'>
 
-The following configuration creates a CI job that runs an SCA scan using Semgrep Supply Chain.
+The following configuration creates a CI job that runs Semgrep OSS SAST scans using rules configured for your programming language.
 
-<GlcicdSemgrepAppSsc />
+<GlcicdSemgrepOssSast />
+
+You can customize the scan by entering custom rules or other rulesets to scan with. See [Scan your codebase with a specific ruleset](/getting-started/cli-oss/#scan-your-codebase-with-a-specific-ruleset).
 
 </TabItem>
 </Tabs>
@@ -205,7 +206,7 @@ To add a Semgrep configuration snippet in your Jenkins pipeline:
     defaultValue="jenkins-semgrep"
     values={[
     {label: 'Default', value: 'jenkins-semgrep'},
-    {label: 'Semgrep Supply Chain', value: 'jenkins-ssc'},
+    {label: 'Semgrep OSS', value: 'jenkins-oss'},
     {label: 'Default (Docker)', value: 'jenkins-semgrep-docker'},
     ]}
 >
@@ -216,17 +217,21 @@ For SCA scans (Semgrep Supply Chain): users of Jenkins UI with the Git plugin mu
 
 <TabItem value='jenkins-semgrep'>
 
-The following configuration creates a CI job that runs a SAST and SCA scan using both Semgrep Code and Semgrep Supply Chain.
+The following configuration creates a CI job that runs scans depending on what products you have enabled in Semgrep Cloud Platform.
 
 <JenkinsSemgrepAppSast />
 
+You can **run specific product scans** by passing an argument, such as `--supply-chain`. View the [list of arguments](/getting-started/cli/#scan-using-specific-semgrep-products). 
+
 </TabItem>
 
-<TabItem value='jenkins-ssc'>
+<TabItem value='jenkins-oss'>
 
-The following configuration creates a CI job that runs an SCA scan using Semgrep Supply Chain.
+The following configuration creates a CI job that runs Semgrep OSS SAST scans using rules configured for your programming language.
 
-<JenkinsSemgrepAppSsc />
+<JenkinsSemgrepOssSast />
+
+You can customize the scan by entering custom rules or other rulesets to scan with. See [Scan your codebase with a specific ruleset](/getting-started/cli-oss/#scan-your-codebase-with-a-specific-ruleset).
 
 </TabItem>
 
