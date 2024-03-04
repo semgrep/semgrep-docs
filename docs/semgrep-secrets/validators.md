@@ -7,9 +7,6 @@ tags:
   - Semgrep Secrets
 ---
 
-:::note
-The syntax for Semgrep Secrets validators is experimental and subject to change.
-:::
 
 # Validators
 
@@ -20,8 +17,10 @@ actively being used. Validators are included in the
 This article walks you through the syntax required to write your own custom
 validators.
 
-:::note Validation
-Semgrep currently supports validation using HTTP and HTTPS.
+
+:::note
+- The syntax for Semgrep Secrets validators is experimental and subject to change.
+- Semgrep currently supports validation using HTTP and HTTPS.
 :::
 
 ## Sample validator
@@ -268,7 +267,7 @@ rules:
           validity: valid
           severity: ERROR
           message: >-
-            The token exposed is for an admin user, this should be fixed immediately! See <insertlink> on how to rotate and look for suspicious activity
+            The token exposed is for an admin user, and this should be fixed immediately! See <insertlink> on how to rotate and look for suspicious activity
           metadata:
             context:
               - admin: true

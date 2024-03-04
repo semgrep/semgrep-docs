@@ -11,12 +11,7 @@ toc_max_heading_level: 2
 
 import MoreHelp from "/src/components/MoreHelp"
 
-# Getting started with Semgrep Secrets
-
-:::info Feature maturity
-Semgrep Secrets is currently in **public beta**. If you encounter any issues, please reach out to [<i class="fa-regular
-fa-envelope"></i> support@semgrep.com](mailto:support@semgrep.com).
-:::
+# Scan for secrets
 
 Semgrep Secrets allows you to detect and triage leaked secrets and credentials
 and save time by prioritizing which secrets to rotate based on whether they're active and in use.
@@ -37,7 +32,7 @@ Semgrep Secrets can scan repositories using **any programming language** and sup
 | ------------------- | --------------- | ---------------------------------------------- |
 | GitHub              | ✔️               | ✔️                                              |
 | GitLab              | ✔️               | ❌                                             |
-| BitBucket           | ✔️               | ❌                                             |
+| Bitbucket           | ✔️               | ❌                                             |
 
 ## Prerequisites
 
@@ -120,7 +115,7 @@ Semgrep supports visibility detection only for GitHub repositories of any plan.
 
 ### Type
 
-Refers to the type of secret, such as **Private key**, or web service that makes use of the secret, such as **Sendgrid** or **Stripe**.
+Refers to the type of secret, such as **private key**, or the web service that makes use of the secret, such as **Sendgrid** or **Stripe**.
 
 ### Project
 
@@ -161,11 +156,11 @@ You can triage findings in bulk by performing the following steps:
 
 1. Begin by ensuring that you display all **Open** findings.
 2. Apply filters with as much specificity as possible. You may have to perform bulk triage several times. By starting with the most specific cases, and closing the findings from those specific cases, you are able to narrow down findings as you work from specific to broad filter criteria.
-3. Click the bulk select check box.
+3. Click the bulk select check ox.
 4. Click **Triage**, then your selected triage state, typically **Ignore**.
 5. Optional: Repeat this procedure to triage all open findings.
 
-## Receiving findings in GitHub through PR comments
+## Receiving findings in through PR and MR comments
 
 In addition to viewing your results in Semgrep Cloud Platform, you can set up PR or MR comments from Semgrep, which allows you to view findings-related information directly in your pull requests and merge requests.
 
@@ -173,7 +168,7 @@ In addition to viewing your results in Semgrep Cloud Platform, you can set up PR
 **_Figure._** Semgrep Secrets finding in a PR comment.
 
 :::info
-Define which rules should be in allow/comment/block mode via your deplomyents [policies](/semgrep-secrets/policies) page.
+Define which rules should be in allow, comment, or block mode in the [Policies](/semgrep-secrets/policies) page.
 :::
 
 ### Findings in GitHub pull requests
@@ -184,7 +179,7 @@ Perform the following steps to receive Secrets findings as comments in GitHub PR
 
 
 :::info 
-Reach out to [<i class="fa-regular fa-envelope"></i> support@semgrep.com](mailto:support@semgrep.com) if you are unable to manage your policies
+Contact [<i class="fa-regular fa-envelope"></i> support@semgrep.com](mailto:support@semgrep.com) if you need assistance managing your policies.
 :::
 
 <!--### Findings in GitLab merge requests

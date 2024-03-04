@@ -16,13 +16,12 @@ Secrets rule.
 
 ## Metavariable binding
 
-Semgrep Secrets makes use of Metavariables, where we can re-use matched information within your code, and use that information within our validators feature. An example of a metavariable looks like this:
+Semgrep secrets uses metavariables. Metavariables allow Semgrep Secrets to reuse matched information from your code in its validators. An example of a metavariable is as follows:
 
 <iframe title="Message displays metavariable content" src="https://semgrep.dev/embed/editor?snippet=JDzRR" width="100%" height="432px" frameBorder="0"></iframe>
 <br />
 
-As you can see, if you press `Run` the content from the metavariable `$HELLO` will now display as `This content is now reusable in validators`, if this were a secret we could then use the secret to talk to the appropriate service to determine if its active or not.
-
+When you click **Run**, the content from the metavariable `$HELLO` displays as `This content is now reusable in validators`. If this were a secret, Semgrep Secrets could use this to call the appropriate service to determine if the secret is active.
 
 ## Sample rule
 
@@ -63,13 +62,13 @@ rules:
         metavariable: $REGEX
 ```
 
-This can also be done in any Semgrep supported languages:
+This can also be done in any Semgrep-supported language:
 
 ```yaml
 rules:
 - id: github_example
   message: >-
-    This is an example rule, that performs validation against github.com
+    This is an example rule that performs validation against github.com
   severity: WARNING 
   languages:
   - javascript

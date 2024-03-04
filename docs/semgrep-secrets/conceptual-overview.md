@@ -1,7 +1,7 @@
 ---
 slug: /semgrep-secrets/conceptual-overview
 append_help_link: true
-title: About Semgrep Secrets 
+title: Overview
 hide_title: true
 description: Learn how Semgrep Secrets detects leaked secrets and helps you prioritize what keys to rotate.
 tags:
@@ -10,7 +10,7 @@ tags:
 
 import MoreHelp from "/src/components/MoreHelp"
 
-# Overview
+# Semgrep Secrets overview
 
 **Semgrep Secrets** scans code to detect exposed API keys, passwords, and other
 credentials. When exposed, these can be used by malicious actors to leak data
@@ -91,12 +91,8 @@ The rule detects hardcoded AWS secret access keys. The test code defines an acce
 
 ### Validate secrets 
 
-:::info
-See our [Validators](/semgrep-secrets/validators) page for syntax and examples.
-:::
-
-After scanning, depending on the rule, Semgrep Secrets uses a proprietary
-**validator** to determine if a secret is actively being used or some other state.
+After scanning your codebase, Semgrep Secrets uses a proprietary
+**validator** to determine if a secret is actively being used or some other state if there is a validator defined in the rule used.
 
 :::info
 All validations, such as API calls, are done **locally** in your environment. No tokens are sent to Semgrep servers.
@@ -118,14 +114,14 @@ All validations, such as API calls, are done **locally** in your environment. No
    either the network request could not be made, a timeout occurred, or
    the HTTP status code returned a different HTTP status code. In this case,
    the Semgrep Team recommends manually reviewing the finding.
-   4. **No Validator:** The rule does not have a validator
+   4. **No Validator:** The rule does not have a validator.
 
 By performing this validation check, you can prioritize and triage the most
 high-priority, active findings.
 
-
 :::note
-For a list of all supported detectors that Semgrep offers, see the [Policies](/semgrep-secrets/policies) page in your deployment.
+- For a list of all supported detectors that Semgrep offers, see the [Policies](/semgrep-secrets/policies) page in your deployment.
+- See [Validators](/semgrep-secrets/validators) for syntax and examples.
 :::
 
 ### Fine-tune findings through entropy analysis
@@ -154,7 +150,7 @@ txtPassword1
 
 See [<i class="fa-regular fa-file-lines"></i> Getting started with Semgrep Secrets](/semgrep-secrets/getting-started) to learn how to:
 * Enable secrets scanning for your repositories
-* Manage your rules via your [policy](/semgrep-secrets/policies) to have complete control over how 
+* Manage your rules in your [policy](/semgrep-secrets/policies) to have complete control over how 
 * View and triage secrets-related findings
 * Receive notifications and post tickets whenever Semgrep Secrets identifies issues
 * Write [custom rules](/semgrep-secrets/rules) with [validators](/semgrep-secrets/validators) to find bespoke secrets
