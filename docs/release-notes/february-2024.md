@@ -24,10 +24,12 @@ tags:
 
 ### Fixed
 
-
 ## 💻 Code
 
 ### Added
+
+* Added new rules for Elixir and the Phoenix framework, covering a broad range of security and correctness issues. These are available in the `p/elixir` ruleset. <!-- Do we need to mention that this is for Pro users only? -->
+* Added support for Python, with focus for the Flask ecosystem, to the Semgrep Pro Engine.
 
 ### Changed
 
@@ -52,6 +54,16 @@ tags:
 ## 🔐 Secrets (beta)
 
 ### Added
+
+- Added the following new rules:
+  - Detection rules for Azure and AWS
+  - Semantic secrets rules for Python, JavaScript, and TypeScript
+  - Semantic rules for hard-coded credentials in bash for `curl` commands
+- Added non-validator regex detection for databases, including MongoDB, Microsoft SQL Server, MySQL, Postgres, and Redis
+- Added secrets rule management, which is accessible in Semgrep Cloud Platform by going to **Rules** > **Policies** > **Secrets**. This allows you to:
+  - See all available rules
+  - Set valid finding modes for the rules
+  - Set invalid and error validation states modes across multiple rules
 
 ### Changed
 
