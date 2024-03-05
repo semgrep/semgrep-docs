@@ -8,6 +8,9 @@ tags:
   - Semgrep OSS Engine 
 ---
 
+import CiScheduling from "/src/components/reference/_ci-scheduling.mdx"
+import CiIgnoringFiles from "/src/components/reference/_ci-ignoring-files.mdx"
+
 # Semgrep OSS in CI 
 
 Semgrep OSS can be set up run static application security testing (SAST) scans on repositories of any size.
@@ -96,7 +99,7 @@ Reference or add the [semgrep/semgrep](https://hub.docker.com/r/semgrep/semgrep)
 If you cannot use the Semgrep Docker image, install Semgrep as a step or command within your CI job:
 
 1. Add `pip3 install semgrep` into the configuration file as a step or command, depending on your CI provider's syntax.
-2. Run any valid `semgrep ci` command, such as `semgrep ci --config auto`.
+2. Run any valid `semgrep scan` command, such as `semgrep scan --config auto`.
 
 This method is used in ADD LINK
 
@@ -104,26 +107,29 @@ This method is used in ADD LINK
 
 The following sections describe methods to customize your CI job.
 
-### Passing or failing the CI job
+<!-- 
+### Pass or fail the CI job
 
 By default, a Semgrep CI job exits with exit code 1 if the scan returns any findings. This causes the job to fail.
 
 Semgrep provides **fail open** options. These options enable you to suppress findings that block your pipeline:
 
 <dl>
-	<dt><code>semgrep ci</code></dt>
+	<dt><code>semgrep scan</code></dt>
 	<dd><strong>Fail</strong> on blocking findings, but <strong>passes</strong> on internal errors. This is the default behavior.</dd>
-	<dt><code>semgrep ci --no-suppress-errors</code></dt>
+	<dt><code>semgrep scan --no-suppress-errors</code></dt>
 	<dd>The Semgrep CI job <strong>fails</strong> on blocking findings and on internal errors.</dd>
-	<dt><code>semgrep ci || true</code></dt>
+	<dt><code>semgrep scan || true</code></dt>
 	<dd><strong>Pass</strong> on blocking findings and on internal errors.</dd>
 </dl>
 
 Refer to [Semgrep exit codes](/docs/cli-reference/#exit-codes) to understand various internal issues that cause Semgrep to fail.
-
+-->
+<!--
 ### Diff-aware scanning
 
 <DiffAwareScanning />
+-->
 
 ### Setting a scan schedule
 
@@ -131,12 +137,12 @@ Refer to [Semgrep exit codes](/docs/cli-reference/#exit-codes) to understand var
 
 ### Customizing rules and rulesets
 
-#### Adding rules to scan with `semgrep ci`
+#### Adding rules to scan with `semgrep scan`
 
-`semgrep ci` accepts a list of rules and rulesets to run on each scan. The rules and rulesets can come from the [Semgrep Registry](https://semgrep.dev/explore/), or your own rules. The sources for rules to scan with are:
+You can customize what rules to run in your CI job. The rules and rulesets can come from the [Semgrep Registry](https://semgrep.dev/explore/), or your own rules. The sources for rules to scan with are:
 
-* A `.semgrep` folder located at the root of your repository.
 * The value of the `SEMGREP_RULES` environment variable.
+* The value passed after `--config`. You can use multiple `--config` arguments, one per value. For example: `semgrep scan --config p/default --config p/comment`.
 
 The `SEMGREP_RULES` environment variable accepts a list of local and remote rules and rulesets to run. The `SEMGREP_RULES` list is delimited by a space (` `) if the variable is exported from a shell command or script block. For example, see the following BitBucket Pipeline snippet:
 
@@ -167,7 +173,7 @@ variables:
 # ...
 ```
 
-#### Writing your own rules
+#### Write your own rules
 
 Write custom rules to enforce your team's coding standards and security practices. Rules can be forked from existing community-written rules.
 
@@ -177,21 +183,21 @@ See [Writing rules](/writing-rules/overview/) to learn how to write custom rules
 
 <CiIgnoringFiles />
 
-### Saving or exporting findings to a file
+### Save or exporting findings to a file
 
 To save or export findings, pass file format options and send the formatted findings to a file.
 
 For example, to save to a JSON file:
 
-`semgrep ci --json > findings.json`
+`semgrep scan --json > findings.json`
 
 You can also use the SARIF format:
 
-`semgrep ci --sarif > findings.sarif`
+`semgrep scan --sarif > findings.sarif`
 
 Refer to the [CLI reference](/cli-reference) for output formats.
 
-## Migrating to Semgrep Cloud Platform from a stand-alone CI setup
+## Migrate to Semgrep Cloud Platform from a stand-alone CI setup
 
 Migrate to Semgrep Cloud Platform to:
 
@@ -212,18 +218,15 @@ To migrate to Semgrep Cloud Platform:
 ## Semgrep OSS jobs versus Semgrep Pro jobs
 
 <!-- should be a table -->
-* Stand-alone Semgrep jobs cannot send [PR or MR comments](/category/pr-or-mr-comments/). These comments describe the finding and help developers resolve vulnerabilities and other code issues.
 * Stand-alone Semgrep jobs cannot fail a CI job based on the severity of a finding or some other user-defined criteria. There are no user-defined rule modes to distinguish between rules.
-* Findings are written to a log, but there is no record of a finding's **status**, such as open, ignored, or fixed.
-* Stand-alone jobs do not run software composition analysis (SCA) or secrets detection scans.
-* Stand-alone Semgrep OSS jobs run on trunk branches.
 
 | Feature  | Semgrep Pro CI (`semgrep ci`)| Semgrep OSS CI (`semgrep scan`) |
 | -------  | ------ | ------ |
+| SAST scans         |  ✔️        | ✔️       |
 | SCA (software composition analysis) scans         |  ✔️        | --       |
 | Secrets  scans         |  ✔️       | --        |
 | PR (pull request) or MR (merge request) comments         |  ✔️        | --       |
-
+| Finding status tracked over lifetime         |  ✔️        | --       |
 <!--
 
 | Diff-aware scans         |  ✔️        | --       |
