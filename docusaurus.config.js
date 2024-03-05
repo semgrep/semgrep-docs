@@ -224,8 +224,8 @@ module.exports = {
           customCss: require.resolve('./src/css/custom.scss'),
         },
         gtag: {
-          // You can also use your "G-" Measurement ID here.
-          trackingID: 'G-1851JH9FSR',
+          // Updated 5 Mar to use GA4 tag
+          trackingID: 'G-XYYV814DDN',
         },
       },
     ],
