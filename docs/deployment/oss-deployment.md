@@ -92,7 +92,7 @@ Use either of the following methods to run Semgrep on other CI providers.
 
 #### Direct docker usage
 
-Reference or add the [semgrep/semgrep](https://hub.docker.com/r/semgrep/semgrep) Docker image directly. The method to add the Docker image varies based on the CI provider. This method is used in the BitBucket Pipelines code snippet#bitbucket-pipelines-code-snippet. TODO add link
+Reference or add the [semgrep/semgrep](https://hub.docker.com/r/semgrep/semgrep) Docker image directly. The method to add the Docker image varies based on the CI provider. This method is used in the [BitBucket Pipelines code snippet](/semgrep-ci/sample-ci-configs/#sample-bitbucket-pipelines-configuration-snippet).
 
 #### Install `semgrep` within your CI job
 
@@ -101,7 +101,7 @@ If you cannot use the Semgrep Docker image, install Semgrep as a step or command
 1. Add `pip3 install semgrep` into the configuration file as a step or command, depending on your CI provider's syntax.
 2. Run any valid `semgrep scan` command, such as `semgrep scan --config auto`.
 
-This method is used in ADD LINK
+For an example, see the the [Azure Pipelines code snippet](/semgrep-ci/sample-ci-configs/#sample-azure-pipelines-configuration-snippet).
 
 ## Configure your CI job
 
