@@ -50,7 +50,7 @@ _Figure 2_. Relationship between a Supply Chain rule, lockfile, CVE record, and 
 
 ### Types of Semgrep Supply Chain findings
 
-Semgrep Supply Chains generates a **finding** any time it determines that your
+Semgrep Supply Chain generates a **finding** any time it determines that your
 codebase uses or imports a package containing a vulnerability. In addition, Semgrep
 Supply Chain offers two levels of support for reachability analysis, [depending
 on your language](/supported-languages/#maturity-levels-1):
