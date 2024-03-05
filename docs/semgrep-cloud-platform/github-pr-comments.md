@@ -39,7 +39,7 @@ Semgrep can create **pull request (PR) comments** in your GitHub repository. The
 
 Automated comments on GitHub pull requests are displayed as follows:
 
-![Screenshot of a GitHub PR comment](/img/semgrep-pull-request.png#bordered)
+![Screenshot of a GitHub PR comment](/img/gh-pr-comment.png#md-width)
 **Figure** An inline GitHub pull request comment.
 
 ## Conditions for PR comment creation

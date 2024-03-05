@@ -37,7 +37,7 @@ Semgrep can create **merge request (MR) comments** in your GitLab repository. Th
 
 Automated comments on GitLab merge requests are displayed as follows:
 
-![Semgrep GitLab MR comment](/img/gitlab-mr-comment.png#md-width)
+![Semgrep GitLab MR comment](/img/gl-mr-comment.png#md-width)
 **Figure** An inline GitLab merge request comment.
 
 ## Conditions for MR comment creation
