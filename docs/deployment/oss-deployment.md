@@ -131,13 +131,13 @@ Refer to [Semgrep exit codes](/docs/cli-reference/#exit-codes) to understand var
 <DiffAwareScanning />
 -->
 
-### Setting a scan schedule
+### Schedule your scans
 
 <CiScheduling />
 
-### Customizing rules and rulesets
+### Customize rules and rulesets
 
-#### Adding rules to scan with `semgrep scan`
+#### Add rules to scan with `semgrep scan`
 
 You can customize what rules to run in your CI job. The rules and rulesets can come from the [Semgrep Registry](https://semgrep.dev/explore/), or your own rules. The sources for rules to scan with are:
 
@@ -179,11 +179,11 @@ Write custom rules to enforce your team's coding standards and security practice
 
 See [Writing rules](/writing-rules/overview/) to learn how to write custom rules.
 
-### Ignoring files
+### Ignore files
 
 <CiIgnoringFiles />
 
-### Save or exporting findings to a file
+### Save or export findings to a file
 
 To save or export findings, pass file format options and send the formatted findings to a file.
 
@@ -212,21 +212,19 @@ To migrate to Semgrep Cloud Platform:
 1. Create an account in [Semgrep Cloud Platform](https://semgrep.dev/login).
 2. Click **[Projects](https://semgrep.dev/orgs/-/projects)** > **Scan New Project** > Run scan in CI.
 3. Follow the steps in the setup to complete your migration.
-4. Optional: If you have previously set a custom `SEMGREP_TIMEOUT` environment variable, commit it to the CI configuration file created by Semgrep Cloud Platform. Do not copy `SEMGREP_RULES`.
 4. Optional: Remove the old CI job that does not use Semgrep Cloud Platform.
 
 ## Semgrep OSS jobs versus Semgrep Pro jobs
 
-<!-- should be a table -->
-* Stand-alone Semgrep jobs cannot fail a CI job based on the severity of a finding or some other user-defined criteria. There are no user-defined rule modes to distinguish between rules.
 
 | Feature  | Semgrep Pro CI (`semgrep ci`)| Semgrep OSS CI (`semgrep scan`) |
 | -------  | ------ | ------ |
-| SAST scans         |  ✔️        | ✔️       |
-| SCA (software composition analysis) scans         |  ✔️        | --       |
-| Secrets  scans         |  ✔️       | --        |
-| PR (pull request) or MR (merge request) comments         |  ✔️        | --       |
-| Finding status tracked over lifetime         |  ✔️        | --       |
+| Customized SAST scans         |  ✔️        | ✔️       |
+| [SCA (software composition analysis) scans](/semgrep-supply-chain/overview/)         |  ✔️        | --       |
+| [Secrets  scans](/semgrep-secrets/conceptual-overview/)         |  ✔️       | --        |
+| [PR (pull request) or MR (merge request) comments](/category/pr-or-mr-comments/)         |  ✔️        | --       |
+| [Finding status tracked over lifetime](/semgrep-code/findings/)         |  ✔️        | --       |
+
 <!--
 
 | Diff-aware scans         |  ✔️        | --       |
