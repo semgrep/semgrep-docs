@@ -160,7 +160,7 @@ You can triage findings in bulk by performing the following steps:
 4. Click **Triage**, then your selected triage state, typically **Ignore**.
 5. Optional: Repeat this procedure to triage all open findings.
 
-## Receiving findings in through PR and MR comments
+## Receive findings in through PR and MR comments
 
 In addition to viewing your results in Semgrep Cloud Platform, you can set up PR or MR comments from Semgrep, which allows you to view findings-related information directly in your pull requests and merge requests.
 
@@ -200,7 +200,7 @@ View the [<i class="fas fa-external-link fa-xs"></i> Secrets API documentation](
 
 ## Additional information
 
-* Learn more about the [structure of rules for Semgrep Secrets](/semgrep-secrets/rules), as well as how to [manage your rules using Semgrep Cloud Platform](/semgrep-secrets/rule-management).
+* Learn more about the [structure of rules for Semgrep Secrets](/semgrep-secrets/rules), as well as how to [manage your rules using Semgrep Cloud Platform](/semgrep-secrets/policies).
 * Learn how to [write custom validators](/semgrep-secrets/validators) for your Semgrep Secrets rules.
 
 

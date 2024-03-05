@@ -148,7 +148,7 @@ txtPassword1
 
 ## Next steps
 
-See [<i class="fa-regular fa-file-lines"></i> Getting started with Semgrep Secrets](/semgrep-secrets/getting-started) to learn how to:
+See [<i class="fa-regular fa-file-lines"></i> Scan for secrets](/semgrep-secrets/getting-started) to learn how to:
 * Enable secrets scanning for your repositories
 * Manage your rules in your [policy](/semgrep-secrets/policies) to have complete control over how 
 * View and triage secrets-related findings

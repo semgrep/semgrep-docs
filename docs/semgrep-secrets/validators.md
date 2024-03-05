@@ -267,7 +267,10 @@ rules:
           validity: valid
           severity: ERROR
           message: >-
-            The token exposed is for an admin user, and this should be fixed immediately! See <insertlink> on how to rotate and look for suspicious activity
+            The token exposed is for an admin user, and this should be fixed immediately!
+            See https://howtorotate.com/docs/introduction/key-rotation-101/ on how to
+            rotate secrets and https://blog.gitguardian.com/what-to-do-if-you-expose-a-secret/
+            on how to look for suspicious activity.
           metadata:
             context:
               - admin: true
@@ -296,7 +299,7 @@ You can use Base64 encoding by leveraging the `__semgrep_internal_encode_64(...)
 - `header` values
 
 :::note
-The Base64 encoding of field is experimental and can change at any time.
+The Base64 encoding of fields is experimental and can change at any time.
 :::
 
 <details>
