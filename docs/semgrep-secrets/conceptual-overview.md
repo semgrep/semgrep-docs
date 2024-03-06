@@ -22,7 +22,7 @@ confirmed to successfully grant resources or authentication. They are actively
 in use. 
 * For GitHub repositories: if there are credentials in public or private repositories.
 
-Save time and effort by prioritizing valid leaked secrets. Inform developers of valid secrets in their GitHub PRs by posting PR comments. 
+Save time and effort by prioritizing valid leaked secrets. Inform developers of valid secrets in their PRs and MRs by posting comments directly. 
 
 ## How Semgrep Secrets works
 

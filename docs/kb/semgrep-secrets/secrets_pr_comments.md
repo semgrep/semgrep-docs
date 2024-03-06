@@ -21,8 +21,6 @@ Secrets.
 
 ## For users of Semgrep Secrets
 
-> At this time, Semgrep Secrets supports only the use of GitHub.
-
 1. Set your [policy mode to
    **Comment**](/semgrep-code/policies/#blocking-a-pr-or-mr-through-rule-modes).
 

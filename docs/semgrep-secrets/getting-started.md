@@ -6,7 +6,6 @@ hide_title: true
 description: Set up secrets scanning to find and rotate valid leaked secrets.
 tags:
   - Semgrep Secrets
-toc_max_heading_level: 2
 ---
 
 import MoreHelp from "/src/components/MoreHelp"
@@ -26,13 +25,7 @@ This document guides you through:
 
 ## Language and environment support
 
-Semgrep Secrets can scan repositories using **any programming language** and supports the use of the following source code managers (SCMs): 
-
-| Source code manager | Semgrep Secrets | PR or MR comments for valid secrets findings   |
-| ------------------- | --------------- | ---------------------------------------------- |
-| GitHub              | ✔️               | ✔️                                              |
-| GitLab              | ✔️               | ❌                                             |
-| Bitbucket           | ✔️               | ❌                                             |
+Semgrep Secrets can scan repositories using **any programming language** and supports the use GitHub, GitLab, and Bitbucket for PR and MR comments.
 
 ## Prerequisites
 
@@ -171,24 +164,25 @@ In addition to viewing your results in Semgrep Cloud Platform, you can set up PR
 Define which rules should be in allow, comment, or block mode in the [Policies](/semgrep-secrets/policies) page.
 :::
 
-### Findings in GitHub pull requests
+### GitHub
 
 Perform the following steps to receive Secrets findings as comments in GitHub PRs:
 
 1. Set your [policy mode to **Comment**](/semgrep-code/policies/#blocking-a-pr-or-mr-through-rule-modes).
 
+2. Follow the steps in [<i class="fa-regular fa-file-lines"></i> GitHub PR comments](/semgrep-cloud-platform/github-pr-comments/) to receive Secrets findings as comments in GitHub PRs.
 
-:::info 
-Contact [<i class="fa-regular fa-envelope"></i> support@semgrep.com](mailto:support@semgrep.com) if you need assistance managing your policies.
-:::
+### GitLab
 
-<!--### Findings in GitLab merge requests
+1. Set your [policy mode to **Comment**](/semgrep-code/policies/#blocking-a-pr-or-mr-through-rule-modes).
 
-Perform the following steps to receive Secrets findings as comments in GitLab MRs:
+2. Follow the steps in [<i class="fa-regular fa-file-lines"></i> GitLab MR comments](/semgrep-cloud-platform/gitlab-mr-comments/) to receive Secrets findings as comments in GitLab MRs.
 
-1. Follow the steps in [<i class="fa-regular fa-file-lines"></i> GitLab MR comments](/semgrep-cloud-platform/gitlab-mr-comments/).
-2. Inform [<i class="fa-regular fa-envelope"></i> support@semgrep.com](mailto:support@semgrep.com) that you want to enable this feature.
--->
+### Bitbucket
+
+1. Set your [policy mode to **Comment**](/semgrep-code/policies/#blocking-a-pr-or-mr-through-rule-modes).
+
+2. Follow the steps in [<i class="fa-regular fa-file-lines"></i> Bitbucket PR comments](/semgrep-cloud-platform/bitbucket-pr-comments/) to receive Secrets findings as comments in Bitbucket PRs.
 
 <!-- ## Create tickets
 
