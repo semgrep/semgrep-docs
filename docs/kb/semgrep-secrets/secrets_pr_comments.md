@@ -32,21 +32,9 @@ Secrets.
     product: secrets
     ```
 
-3. Ensure that you have the following two feature flags enabled for your Semgrep
-   account:
-
-    * Secrets
-    * Secrets PR comments
-
-    Reach out to your Semgrep representative if you need either of these flags
-    enabled for your account.
-
-## Caveat
-
-Only [findings that are **Confirmed
-Valid**](/semgrep-secrets/getting-started/#validation) generate PR comments.
-When writing custom secrets rules, ensure that you implement a validator so that
-Semgrep can determine if an identified secret is valid or not.
+:::info
+Ensure that the [rules](/semgrep-secrets/rules) you use include [validators](/semgrep-secrets/validators).
+:::
 
 ## Testing secrets PR comments
 
