@@ -60,9 +60,24 @@ The below optional fields must reside underneath a `patterns` field.
 
 The `pattern` operator looks for code matching its expression. This can be basic expressions like `$X == $X` or unwanted function calls like `hashlib.md5(...)`.
 
-:::note Example
-Try this pattern in the [Semgrep Playground](https://semgrep.dev/s/gJo5).
-:::
+```yaml
+rules:
+  - id: md5-usage
+    languages:
+      - python
+    message: Found md5 usage
+    pattern: hashlib.md5(...)
+    severity: ERROR
+```
+
+The pattern immediately above matches the following:
+
+```python
+import hashlib
+# highlight-next-line
+digest = hashlib.md5(b"test")
+digest = hashlib.sha256(b"test")
+```
 
 ### `patterns`
 

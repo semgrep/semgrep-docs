@@ -112,14 +112,14 @@ html[data-theme="dark"] .theme-doc-markdown a:visited {
 }
 
  .docusaurus-highlight-code-line {
-  background-color: rgba(0, 0, 0, 0.1);
+  background-color: #00a674;
   display: block;
   margin: 0 calc(-1 * var(--ifm-pre-padding));
   padding: 0 var(--ifm-pre-padding);
 }
 
 html[data-theme="dark"] .docusaurus-highlight-code-line {
-  background-color: #000000;
+  background-color: #00a674;
 }
 
 html[data-theme="dark"] {
