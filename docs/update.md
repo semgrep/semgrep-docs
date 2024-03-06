@@ -15,7 +15,7 @@ Stay up-to-date by running the latest version of Semgrep automatically in CI or 
 For Docker users, enter the following command:
 
 ```sh
-docker pull returntocorp/semgrep:latest
+docker pull semgrep/semgrep:latest
 ```
 
 You can also use the following commands in either your CLI or CI environment:
