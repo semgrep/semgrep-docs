@@ -18,7 +18,7 @@ The following `config.yml` file demonstrates how you can generate a lockfile and
 version: 2.1
 
 jobs:
-  build:
+  lock_file_generation:
     docker:
       - image: cimg/openjdk:17.0
     steps:
@@ -51,7 +51,7 @@ workflows:
   version: 2
   build_and_scan:
     jobs:
-      - build
+      - lock_file_generation
       - scan:
           context:
             - semgrep
