@@ -17,16 +17,16 @@ The **Policies** page visually represents the rules Semgrep Secrets uses for sca
 To access the policies page for Semgrep Secrets:
 
 1. Log in to Semgrep Cloud Platform and navigate to **Rules** > **Policies**.
-2. Switch to the **Secrets** page.
+2. Click **Secrets**.
 
 ## Policies page structure
 
-The Policies page consists of a header and three main panes:
+The Policies page consists of the following elements:
 
 <dl>
     <dt>Policies header</dt>
         <dd>
-            The top header consists of <strong>Validation State Policies</strong>, which lets you define how Semgrep handles findings that it categorizes as invalid or results in a validation error
+            The top header contains the <strong>Validation State Policies</strong> button, which lets you define how Semgrep handles findings that it categorizes as invalid or results in a validation error.
         </dd>
     <dt>Filter pane</dt>
         <dd>
@@ -34,7 +34,8 @@ The Policies page consists of a header and three main panes:
         </dd>
     <dt>Rules pane</dt>
         <dd>
-            The rules pane displays the rules that Semgrep scans use to detect findings and allows you to edit their assigned rule modes. You can make these edits either one by one or through bulk editing of many rules. You can also use the <strong>Search for rule names or ids</strong> box. See <a href="#filters">Filters</a> for more information.
+            The rules pane displays the rules that Semgrep scans use to detect leaked secrets
+             and allows you to edit their assigned rule modes. You can make these edits either one by one or through the bulk editing of many rules. You can also use the <strong>Search for rule names or ids</strong> box. See <a href="#filters">Filters</a> for more information.
         </dd>
 </dl>
 
@@ -47,7 +48,7 @@ The filter pane displays filters to select and perform operations on rules in bu
 | Modes | Filter by the workflow action Semgrep performs when a rule detects a finding. An additional filter, **Disabled**, is provided for rules you have turned off and are no longer included for scanning. |
 | Validation | Filter by whether the rule includes a validator or not. |
 | Type | Filter by the type of secret the rule addresses. Examples: AWS, Adobe, DigitalOcean, GitHub, GitLab. |
-| Source | Filter by Pro secrets (authored by Semgrep) or by Custom secrets (authored by users) |
+| Source | Filter by Pro rules (authored by Semgrep) or by Custom rules (rules created by your organization) |
 | Severities | Filter by the severity level of the secret |
 | Analysis method | Filter based on whether Semgrep used **Semantic** or **Generic** analysis |
 
@@ -64,7 +65,7 @@ This section defines the columns of the rule entries in the Policies page:
 | Severity  | The higher the severity, the more critical the issues that a rule detects.      |
 | Confidence  | Indicates confidence of the rule to detect true positives.      |
 | Source  | Indicates the origin of a rule. | <ul><li><strong>Pro:</strong> Authored by Semgrep. Custom:</strong> Rules created within your Semgrep organization. |
-| Ruleset  | Rules are also organized in rulesets. Currently, only `semgrep-secrets` is available. |
+| Ruleset  | The name of the ruleset the rule belongs to. |
 | Mode  | Specifies what workflow action Semgrep performs when a rule detects a finding. An additional filter, **Disabled**, is provided for rules you have turned off and are no longer included for scanning. | See [Rule modes](#rule-modes) documentation. |
 
 ## Rule modes
@@ -81,7 +82,7 @@ Semgrep Secrets provides three rule modes. These can be used to trigger **workfl
 
 You can define how Semgrep handles findings that it categorizes as invalid or results in a validation error.
 
-- **Invalid findings**: include secrets that, during validation, were identified as never functional or revoked.
+- **Invalid findings**: include secrets that, during validation, were identified as revoked, or were never functional.
 - **Validation errors**: occur when there are difficulties reaching the secrets provider or when Semgrep receives an unexpected response from the API.
 
 To set the rule mode for invalid findings and validation errors:
@@ -91,7 +92,7 @@ To set the rule mode for invalid findings and validation errors:
 3. Click **Validation State Policies**.
 4. Set the [rule mode](#rule-modes) for **Invalid findings** and **Validation errors** by choosing the option you'd like from the drop-down menu on the right.
 
-## Blocking a PR or MR through rule modes
+## Block a PR or MR through rule modes
 
 Semgrep enables you to set a **workflow action** based on the presence of a finding. Workflow actions include:
 
