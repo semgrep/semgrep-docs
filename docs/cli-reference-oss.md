@@ -89,6 +89,17 @@ Semgrep can finish with the following exit codes:
 - **13**: The API key is invalid.
 - **14**: Semgrep scan failed.
 
+:::tip
+To view the exit code when running `semgrep scan`, enter the following command immediately after the Semgrep scan has finished:
+```console
+echo $?
+```
+The output is a single exit code, such as:
+```console
+1
+```
+:::
+
 <!-- REMOVED STATUSES (NOT USED ANYMORE)
 - 4: Semgrep encountered an invalid pattern.
 - 6: Rule with `pattern-where-python` found but `--dangerously-allow-arbitrary-code-execution-from-rules` was not set. See `--dangerously-allow-arbitrary-code-execution-from-rules`. (Note: `pattern-where-python` is no longer supported in Semgrep, so this applies only to legacy Semgrep versions).
