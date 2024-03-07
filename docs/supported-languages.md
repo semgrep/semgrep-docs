@@ -35,28 +35,23 @@ This document provides information about supported languages and language maturi
 
 ## Semgrep Code and OSS
 
-Semgrep OSS and Semgrep Code are static application security testing (SAST) tools that detect security issues and helps enforce coding standards in your first-party code.
+Semgrep OSS is a fast, lightweight program analysis tool that can help you detect security issues in your code. It makes use of Semgrep's LGPL 2.1 open-source engine.
+
+Semgrep Code is a static application security testing SAST solution that uses both Semgrep OSS Engine and a proprietary Semgrep Pro engine. This engine can perform more complex code analyses, resulting in a higher true positive rate than Semgrep OSS. 
 
 Use either tool to scan local code or integrate it into your CI/CD pipeline to automate the continuous scanning of your repositories.
 
-| Product | Description | Analysis |
-| -------  | ------ | ------ |
-| [<i class="fas fa-external-link fa-xs"></i>Semgrep OSS](https://github.com/semgrep/semgrep) | Fast, lightweight program analysis tool that uses Semgrep OSS Engine.  |<ul><li>Single-function analysis</li><li>Single-file analysis</li></ul> |
-| Semgrep Code | Proprietary SAST solution that uses a proprietary engine, Semgrep Pro Engine, that can perform more complex code analyses, resulting in a higher true positive rate than Semgrep OSS. |<ul><li>All analyses in the OSS Engine</li><li>Cross-file (interfile) analysis</li><li>Cross-function (interprocedural) analysis</li></ul>   |
+| Product | Analysis |
+| -------   | ------ |
+| [<i class="fas fa-external-link fa-xs"></i> Semgrep OSS](https://github.com/semgrep/semgrep) |<ul><li>Single-function analysis</li><li>Single-file analysis</li></ul> |
+| Semgrep Code  |<ul><li>All analyses in the OSS Engine</li><li>Cross-file (interfile) analysis</li><li>Cross-function (interprocedural) analysis</li></ul>   |
 
 ### Semgrep Code language support
+
 
 Semgrep Code supports over 30 languages and counting! 🚀 
 
 <SupportedLanguagesTable />
-
-### Semgrep OSS language support
-
-**All Semgrep OSS languages are community supported.** Community supported languages meet the parse rate and syntax requirements of experimental languages in Semgrep Code, but ongoing development from Semgrep has stopped. 
-
-Community supported languages have varying levels of rule coverage - check the registry and filter out Pro rules to see the level of coverage for OSS.
-
-### Maturity levels
 
 #### Language maturity factors
 
@@ -67,7 +62,7 @@ Semgrep Code languages can be classified into four maturity levels:
 * Experimental 
 * Community supported\*
 
-\*Community supported languages meet the parse rate and syntax requirements of **Experimental** languages, but ongoing development from Semgrep has stopped. Users can still access community rules or write their own rules.
+\*Community supported languages meet the parse rate and syntax requirements of **Experimental** languages. Users can still access community rules or write their own rules.
 
 Their differences are outlined in the following table:
 
@@ -77,6 +72,53 @@ Their differences are outlined in the following table:
 | Number of rules  | 10+ | 5+ | 0+. Query the [Registry](https://semgrep.dev/r) to see if any rules exist for your language. | 
 | Semgrep syntax | Regexp, equivalence, deep expression operators, types and typing. All features supported in Beta. | Complete metavariable support, metavariable equality. All features supported in Experimental. | Syntax, ellipsis operator, basic metavariable functionality.|
 | Support | Highest quality support by the Semgrep team. Reported issues are resolved promptly. | Supported by the Semgrep team. Reported issues are fixed after GA languages. | There are limitations to this language's functionality. Reported issues are tracked and prioritized with best effort.|
+
+### Semgrep OSS language support
+
+**All Semgrep OSS languages are community supported.** Community supported languages meet the parse rate and syntax requirements of experimental languages in Semgrep Code. Semgrep OSS uses Semgrep's open source engine.
+
+Community supported languages have varying levels of rule coverage - check the registry and filter out Pro rules to see the level of coverage for OSS.
+
+<details><summary>Click to view <strong>Semgrep OSS</strong> languages.</summary>
+
+- Bash      
+- C         
+- C++       
+- C#        
+- Cairo     
+- Clojure   
+- Dart       
+- Dockerfile
+- Elixir    
+- Generic   
+- Go        
+- Hack       
+- HTML          
+- Java      
+- JavaScript
+- JSON      
+- Jsonnet   
+- Julia      
+- Lisp       
+- Lua        
+- Kotlin    
+- Ruby      
+- Rust      
+- JSX       
+- Ocaml      
+- PHP       
+- Python    
+- R          
+- Scala     
+- Scheme     
+- Solidity   
+- Swift     
+- TypeScript
+- YAML      
+- XML       
+
+</details>
+
 
 
 ### More information
