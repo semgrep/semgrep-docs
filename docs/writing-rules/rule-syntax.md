@@ -74,8 +74,10 @@ The pattern immediately above matches the following:
 
 ```python
 import hashlib
+# ruleid: md5-usage
 # highlight-next-line
 digest = hashlib.md5(b"test")
+# ok: md5-usage
 digest = hashlib.sha256(b"test")
 ```
 
@@ -83,9 +85,27 @@ digest = hashlib.sha256(b"test")
 
 The `patterns` operator performs a logical AND operation on one or more child patterns. This is useful for chaining multiple patterns together that all must be true.
 
-:::note Example
-Try this pattern in the [Semgrep Playground](https://semgrep.dev/s/Q83q).
-:::
+```yaml
+rules:
+  - id: unverified-db-query
+    patterns:
+      - pattern: db_query(...)
+      - pattern-not: db_query(..., verify=True, ...)
+    message: Found unverified db query
+    severity: ERROR
+    languages:
+      - python
+```
+
+The pattern immediately above matches the following:
+
+```python
+# ruleid: unverified-db-query
+# highlight-next-line
+db_query("SELECT * FROM ...")
+# ok: unverified-db-query
+db_query("SELECT * FROM ...", verify=True, env="prod")
+```
 
 #### `patterns` operator evaluation strategy
 
@@ -102,9 +122,31 @@ Note that the order in which the child patterns are declared in a `patterns` ope
 
 The `pattern-either` operator performs a logical OR operation on one or more child patterns. This is useful for chaining multiple patterns together where any may be true.
 
-:::note Example
-Try this pattern in the [Semgrep Playground](https://semgrep.dev/s/4yX9).
-:::
+```yaml
+rules:
+  - id: insecure-crypto-usage
+    pattern-either:
+      - pattern: hashlib.sha1(...)
+      - pattern: hashlib.md5(...)
+    message: Found insecure crypto usage
+    languages:
+      - python
+    severity: ERROR
+```
+
+The pattern immediately above matches the following:
+
+```python
+import hashlib
+# ruleid: insecure-crypto-usage
+# highlight-next-line
+digest = hashlib.md5(b"test")
+# ruleid: insecure-crypto-usage
+# highlight-next-line
+digest = hashlib.sha1(b"test")
+# ok: insecure-crypto-usage
+digest = hashlib.sha256(b"test")
+```
 
 This rule looks for usage of the Python standard library functions `hashlib.md5` or `hashlib.sha1`. Depending on their usage, these hashing functions are [considered insecure](https://shattered.io/).
 
@@ -116,10 +158,49 @@ The `pattern-regex` operator searches files for substrings matching the given [P
 PCRE supports only a [limited number of Unicode character properties](https://www.pcre.org/original/doc/html/pcrepattern.html#uniextseq). For example, `\p{Egyptian_Hieroglyphs}` is supported but `\p{Bidi_Control}` isn't.
 :::
 
-:::note Examples of the `pattern-regex` operator
-- `pattern-regex` combined with other pattern operators: [Semgrep Playground example](https://semgrep.dev/s/Ppvv)
-- `pattern-regex` used as a standalone, top-level operator: [Semgrep Playground example](https://semgrep.dev/s/J3vP)
-:::
+#### Example: `pattern-regex` combined with other pattern operators
+
+```yaml
+rules:
+  - id: boto-client-ip
+    patterns:
+      - pattern-inside: boto3.client(host="...")
+      - pattern-regex: \d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}
+    message: boto client using IP address
+    languages:
+      - python
+    severity: ERROR
+```
+
+The pattern immediately above matches the following:
+
+```python
+import boto3
+# ruleid: boto-client-ip
+# highlight-next-line
+client = boto3.client(host="192.168.1.200")
+# ok: boto-client-ip
+client = boto3.client(host="dev.internal.example.com")
+```
+
+#### Example: `pattern-regex` used as a standalone, top-level operator
+```yaml
+rules:
+  - id: legacy-eval-search
+    pattern-regex: eval\(
+    message: Insecure code execution
+    languages:
+      - javascript
+    severity: ERROR
+```
+
+The pattern immediately above matches the following:
+
+```python
+# ruleid: legacy-eval-search
+# highlight-next-line
+eval('var a = 5')
+```
 
 :::info
 Single (`'`) and double (`"`) quotes [behave differently](https://docs.octoprint.org/en/master/configuration/yaml.html#scalars) in YAML syntax. Single quotes are typically preferred when using backslashes (`\`) with `pattern-regex`.
@@ -140,9 +221,30 @@ The syntax for this operator is the same as `pattern-regex`.
 
 This operator filters findings that have _any overlap_ with the supplied regular expression. For example, if you use `pattern-regex` to detect `Foo==1.1.1` and it also detects `Foo-Bar==3.0.8` and `Bar-Foo==3.0.8`, you can use `pattern-not-regex` to filter the unwanted findings.
 
-:::note Example
-Try this pattern in the [Semgrep Playground](https://semgrep.dev/s/8n5Q).
-:::
+```yaml
+rules:
+  - id: detect-only-foo-package
+    languages:
+      - regex
+    message: Found foo package
+    patterns:
+      - pattern-regex: foo
+      - pattern-not-regex: foo-
+      - pattern-not-regex: -foo
+    severity: ERROR
+```
+
+The pattern immediately above matches the following:
+
+```python
+# ruleid: detect-only-foo-package
+# highlight-next-line
+foo==1.1.1
+# ok: detect-only-foo-package
+foo-bar==3.0.8
+# ok: detect-only-foo-package
+bar-foo==3.0.8
+```
 
 ### `focus-metavariable`
 
