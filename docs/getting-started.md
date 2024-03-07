@@ -29,7 +29,7 @@ The following guide walks you through:
 ## Installing and running Semgrep locally
 
 <!-- Commenting out for the interim
-Install and run the [Semgrep command-line interface](https://github.com/returntocorp/semgrep/) (CLI) to scan your code locally. Semgrep OSS Engine runs offline on uncompiled code. **No code leaves your computer**.
+Install and run the [Semgrep command-line interface](https://github.com/semgrep/semgrep/) (CLI) to scan your code locally. Semgrep OSS Engine runs offline on uncompiled code. **No code leaves your computer**.
 -->
 
 :::info Prerequisite
@@ -133,35 +133,35 @@ You must have Windows Subsystem for Linux installed. To install WSL, refer to Mi
 
   1. Pull the latest image locally:
      ```sh
-     docker pull returntocorp/semgrep
+     docker pull semgrep/semgrep
      ```
   2. Confirm version:
       ```sh
-      docker run --rm returntocorp/semgrep semgrep --version
+      docker run --rm semgrep/semgrep semgrep --version
       ```
   3. For **macOS or Linux** Docker users, perform the following steps:
      1. Sign up or log in to Semgrep Cloud Platform (SCP):
          ```sh
-        docker run -it returntocorp/semgrep semgrep login
+        docker run -it semgrep/semgrep semgrep login
          ```
       This command automatically opens a new tab or browser window. You can also click the link in the CLI to complete the step.
      2. A modal appears after logging in to SCP. Click **Create an organization**. Note that you can further integrate organizations (orgs) with GitLab accounts and GitHub accounts, including personal and org accounts, after you complete this procedure.
      3. After creating an org in the previous step, return to the CLI and copy the token displayed in the CLI.
      4. Run the following command to start a scan using recommended Semgrep rules, substituting <code><span class="placeholder">YOUR_TOKEN</span></code> with the value you copied in the previous step: 
         ```sh
-        docker run -e SEMGREP_APP_TOKEN=YOUR_TOKEN --rm -v "${PWD}:/src" returntocorp/semgrep semgrep ci
+        docker run -e SEMGREP_APP_TOKEN=YOUR_TOKEN --rm -v "${PWD}:/src" semgrep/semgrep semgrep ci
         ```
         The provided `-v` option mounts the current directory into the container to be scanned. Change directories locally or provide a specific local directory in the command to scan a different directory.
   4. For **Windows** Docker users, perform the following steps: 
      1. Sign up or log in to Semgrep Cloud Platform (SCP):
        ```bash
-       docker run -it returntocorp/semgrep semgrep login
+       docker run -it semgrep/semgrep semgrep login
        ```
      2. A modal appears after logging in to SCP. Click **Create an organization**. Note that you can further integrate organizations (orgs) with GitLab accounts and GitHub accounts, including personal and org accounts, after you complete this procedure.
      3. After creating an org in the previous step, return to the CLI and copy the token displayed in the CLI.
      4. Run the following command to start a scan using recommended Semgrep rules, substituting <code><span class="placeholder">YOUR_TOKEN</span></code> with the value you copied in the previous step: 
         ```bash
-        docker run -e SEMGREP_APP_TOKEN=YOUR_TOKEN --rm -v "%cd%:/src" returntocorp/semgrep semgrep ci
+        docker run -e SEMGREP_APP_TOKEN=YOUR_TOKEN --rm -v "%cd%:/src" semgrep/semgrep semgrep ci
         ```
         The provided `-v` option mounts the current directory into the container to be scanned. Change directories locally or provide a specific local directory in the command to scan a different directory.
 
@@ -204,7 +204,7 @@ cd juice-shop
 semgrep --config=auto
 
 # Or if you don't have Semgrep installed, replace the semgrep command with:
-docker run --rm -v "$(pwd)/juice-shop:/src" returntocorp/semgrep semgrep --config p/security-audit /src
+docker run --rm -v "$(pwd)/juice-shop:/src" semgrep/semgrep semgrep --config p/security-audit /src
 
 # Try railsgoat, a vulnerable Ruby on Rails app:
 git clone https://github.com/OWASP/railsgoat
@@ -238,6 +238,6 @@ Check out [Semgrep Cloud Platform](https://semgrep.dev/manage) (SCP) to integrat
 
 ## Updating Semgrep
 
-We [release new Semgrep versions](https://github.com/returntocorp/semgrep/releases) often! See [Updating](./update) for more details.
+We [release new Semgrep versions](https://github.com/semgrep/semgrep/releases) often! See [Updating](./update) for more details.
 
 <MoreHelp />
