@@ -198,6 +198,9 @@ html[data-theme="dark"] {
 /* begin customized styles for Semgrep docs */
 /* color vars are overwritten above */
 
+details.alert {
+    background: unset;
+}
 /******************************************************************************
  *                                                                            *
  * SIDEBAR                                                                    *

@@ -118,7 +118,7 @@ Ensure that you are logged in to the server where you want to run Semgrep Networ
     token: YOUR_TOKEN
   ```
 
-1. Convert your deployment ID to hexadecimal for use in creating your deployment's local address. You can use a tool such as [Decimal to Hexadecimal converter]((https://www.rapidtables.com/convert/number/decimal-to-hex.html)) if needed.
+1. Convert your deployment ID to hexadecimal for use in creating your deployment's local address. You can use a tool such as [Decimal to Hexadecimal converter](https://www.rapidtables.com/convert/number/decimal-to-hex.html) if needed.
 
   <pre class="language-console"><code>fdf0:59dc:33cf:9be8:0:<span className="placeholder">DEPLOYMENT_ID</span>:0:1</code></pre>
  

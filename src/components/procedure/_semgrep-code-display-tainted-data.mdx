@@ -1,18 +1,14 @@
 :::info Prerequisite
-Not all Semgrep rules or rulesets make use of taint tracking. Ensure that you have a ruleset, such as the **default ruleset** added in your **[Policies page](https://semgrep.dev/orgs/-/policies)**. If this ruleset is not added, go to [https://semgrep.dev/p/default](https://semgrep.dev/p/default), and then click **Add to Policy**. You can add rules that use taint tracking from [Semgrep Registry](https://semgrep.dev/explore).
+Not all Semgrep rules or rulesets make use of dataflow traces, or taint tracking. Ensure that you have a ruleset, such as the **default ruleset** added in your **[Policies page](https://semgrep.dev/orgs/-/policies)**. If this ruleset is not added, go to [https://semgrep.dev/p/default](https://semgrep.dev/p/default), and then click **Add to Policy**. You can add rules that use taint tracking from [Semgrep Registry](https://semgrep.dev/explore).
 :::
 
-To view a detailed path of tainted data with dataflow traces, follow these steps:
+To view the detailed path of tainted data with dataflow traces:
 
-1. Log in to Semgrep Cloud Platform, and then click the **[Code](https://semgrep.dev/orgs/-/findings)** in the left panel to view your findings.
-1. Select a finding where Semgrep Code detected tainted data, and then do one of the following actions:
+1. Log in to Semgrep Cloud Platform, and click **[Code](https://semgrep.dev/orgs/-/findings)** in the left panel to view your findings.
+1. Select the finding you're interested in, then do one of the following actions:
     - If the default **Group by Rule** is enabled, click <i class="fa-regular fa-window-restore"></i> **View details** icon on the card of the finding.
-        ![Click View details if Group by Rule is enabled](/img/cloud-platform-findings-group-by-rule-view-details.png)<br />
+        ![Click View details if Group by Rule is enabled](/img/cloud-platform-findings-group-by-rule-view-details.png#md-width)
     - If **No grouping** view is enabled, click the **header hyperlink** on the card of the finding. In the example on the screenshot below, it is the **tainted-sql-string**.
-        ![Click View details if No grouping is enabled](/img/cloud-platform-findings-no-grouping-view-details.png)<br />
-1. In the <i class="fa-solid fa-droplet"></i> **Data flow** <i class="fa-regular fa-circle-info"></i> section you can see the source, traces, and sink of the tainted data. The example below displays the path of tainted data across multiple files as Semgrep Pro Engine was enabled.
-    ![Data flow in Finding details page](/img/cloud-platform-findings-details-data-flow.png)<br />
-
-:::note Get cross-file findings
-- Get cross-file (interfile) findings in your organization. Follow the steps in [Enabling Semgrep Pro Engine](/semgrep-code/semgrep-pro-engine-intro/#enabling-semgrep-pro-engine-in-semgrep-cloud-platform) documentation. See [Semgrep Pro Engine overview](/semgrep-code/semgrep-pro-engine-intro/) for general information about Semgrep Pro Engine.
-:::
+        ![Click View details if No grouping is enabled](/img/cloud-platform-findings-no-grouping-view-details.png#md-width)
+1. In the <i class="fa-solid fa-droplet"></i> **Data flow** <i class="fa-regular fa-circle-info"></i> section, you can see the source, traces, and sink of the tainted data. The example below displays the path of tainted data across multiple files because Semgrep Pro Engine was enabled.
+    ![Data flow in Finding details page](/img/cloud-platform-findings-details-data-flow.png#md-width)

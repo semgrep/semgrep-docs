@@ -57,7 +57,7 @@ These release notes include upgrades for versions ranging between 1.0.0 and 1.2.
 - Updated [Getting started with Semgrep App](/deployment/core-deployment) to clarify how permissions are used by Semgrep, such as what files are read and what features are enabled by certain permissions.
 - Separated referential introductions from [Getting started with Semgrep Supply Chain](/semgrep-supply-chain/getting-started/) into a separate document, [Overview of Semgrep Supply Chain](/semgrep-supply-chain/overview/).
 - Updated [Installing DeepSemgrep](/semgrep-code/semgrep-pro-engine-intro/#installing-deepsemgrep) section.
-- Updated [Filtering findings](/semgrep-code/findings/#filtering-findings) section with information about new filtering options.
+- Updated [Filtering findings](/semgrep-code/findings/#filter-findings) section with information about new filtering options.
 - The following documents have been moved out of the Experiments section as they are now considered GA:
     - [Autofix](/writing-rules/autofix/)
     - [Generic pattern matching](/writing-rules/generic-pattern-matching/)
