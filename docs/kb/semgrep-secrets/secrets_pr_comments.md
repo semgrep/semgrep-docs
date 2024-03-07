@@ -31,7 +31,7 @@ Secrets.
     ```
 
 :::info
-Ensure that the [rules](/semgrep-secrets/rules) you use include [validators](/semgrep-secrets/validators).
+See [Rules](/semgrep-secrets/rules) for more information on how to write rules for Semgrep Secrets.
 :::
 
 ## Testing secrets PR comments

@@ -49,7 +49,7 @@ The filter pane displays filters to select and perform operations on rules in bu
 | Type | Filter by the type of secret the rule addresses. Examples: AWS, Adobe, DigitalOcean, GitHub, GitLab. |
 | Source | Filter by Pro secrets (authored by Semgrep) or by Custom secrets (authored by users) |
 | Severities | Filter by the severity level of the secret |
-| Analysis method | Filter based on whether **Semantic** or **Generic** analysis |
+| Analysis method | Filter based on whether Semgrep used **Semantic** or **Generic** analysis |
 
 ## Rule entry reference
 
