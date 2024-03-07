@@ -157,6 +157,24 @@ options:
 
 This results in a failure to detect the true positive, because Semgrep did not perform cross-function analysis.
 
+## Known limitations of Semgrep Pro Engine
+
+### CommonJS
+
+Currently Semgrep Pro Engine does not handle specific cases of CommmonJS where you define a function and assign it to an export later, Semgrep Pro Engine does not track the code below:
+
+```js
+function get_user() {
+    return get_user_input("example")
+  }
+
+module.exports = get_user
+```
+
+### Regressions in Semgrep Pro
+
+For cross-file (interfile) analysis, Semgrep Pro Engine resolves names differently than Semgrep OSS. Consequently, rules with `interfile: true` may produce different results than Semgrep OSS Engine. Some instances could be regarded as regressions; if you encounter them, please file a bug report. When you need to report a bug in Semgrep Pro Engine, go through [Semgrep Support](/docs/support/). You can also contact us through [Semgrep Community Slack group](https://go.semgrep.dev/slack).
+
 ## Additional information
 
 ### Types of Semgrep Pro Engine analysis
