@@ -69,11 +69,7 @@ Semgrep Code languages can be classified into four maturity levels:
 * Experimental 
 * Community supported\*
 
-**Generally Available**: Receives highest quality support from the Semgrep team. Reported issues are resolved promptly and timelines for fixes are communicated to customers within 2 weeks.
-
-**Beta**: Supported by the Semgrep team. Reported issues are tracked and prioritized to be fixed after GA languages.
-
-\*Community supported languages meet the parse rate and syntax requirements of Experimental languages, but ongoing development from Semgrep has stopped. Users can still access community rules or write their own rules.
+\*Community supported languages meet the parse rate and syntax requirements of **Experimental** languages, but ongoing development from Semgrep has stopped. Users can still access community rules or write their own rules.
 
 Their differences are outlined in the following table:
 
