@@ -36,12 +36,7 @@ permissions granted to the app.
 1. In the popup window, provide:
    - The **Name of your GitHub Organization**
    - The **URL** to access your deployment
-   - The **Access token** Semgrep can use to post pull request comments to your
-   GHE instance. If you don't already have a token, create a PAT by following
-    the steps outlined in [Creating a personal access token
-    ](https://docs.github.com/en/enterprise-server@3.1/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token).
-    Ensure that you create the PAT **[with the required
-    scopes](#table-of-required-scopes-for-pats)**.
+   - A random string in the **Access token** field; this field will be optional in the future
     Click **Connect** to save your changes.
    ![Connect your GitHub Organization popup window](/img/ghe-2.png#md-width)
 1. Refresh your browser. You should see a new entry under **Source code

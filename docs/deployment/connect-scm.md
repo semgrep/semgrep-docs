@@ -104,7 +104,7 @@ Integrate Semgrep into these custom source code management (SCM) tools by follow
         3. The CI job starts automatically to establish a connection with Semgrep Cloud Platform. Alternatively, if it does not start automatically, start the job from the GitLab CI/CD interface. Upon establishing a connection, your repository appears in **Semgrep Cloud Platform > [Projects](https://semgrep.dev/orgs/-/projects)** page.
 
 :::info
-Learn how to install the [Semgrep App for GitHub Enterprise](/deployment/semgrep-app-ghe) to connect Semgrep to a GitHub Enterprise organization.
+Learn how to install a private [Semgrep App for GitHub Enterprise](/deployment/semgrep-app-ghe) to connect Semgrep to a GitHub Enterprise organization.
 :::
 
 ## Next steps
