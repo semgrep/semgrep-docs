@@ -49,7 +49,7 @@ The filter pane displays filters to select and perform operations on rules in bu
 | Validation | Filter by whether the rule includes a validator or not. |
 | Type | Filter by the type of secret the rule addresses. Examples: AWS, Adobe, DigitalOcean, GitHub, GitLab. |
 | Source | Filter by Pro rules (authored by Semgrep) or by Custom rules (rules created by your organization) |
-| Severities | Filter by the severity level of the secret |
+| Severities | Filter by the severity level of the secret: <ul><li>**Low**: low privilege; for example, write-only access like a webhook</li><li>**Medium**: may have read and write access depending on what scope the account has</li><li>**High**: has access to critical resources or full account access</li></ul> |
 | Analysis method | Filter based on whether Semgrep used **Semantic** or **Generic** analysis |
 
 ## Rule entry reference
