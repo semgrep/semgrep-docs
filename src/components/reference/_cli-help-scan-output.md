@@ -39,10 +39,6 @@ OPTIONS
        --allow-untrusted-validators
            Run postprocessors from untrusted sources.
 
-       --ast-caching
-           Store in ~/.semgrep/cache/asts/ the parsed ASTs to speedup things.
-           Requires --experimental. 
-
        --baseline-commit=VAL (absent SEMGREP_BASELINE_COMMIT env)
            Only show results that are not found in this commit hash. Aborts
            run if not currently in a git directory, there are unstaged
@@ -159,6 +155,9 @@ OPTIONS
            by python, which is documented at
            https://docs.python.org/3/library/glob.html 
 
+       --incremental-output
+           Output results incrementally.
+
        --interfile-timeout=VAL (absent=0)
            Maximum time to spend on interfile analysis. If set to 0 will not
            have time limit. Defaults to 0 s for all CLI scans. For CI scans,
@@ -211,9 +210,6 @@ OPTIONS
            SEMGREP_SEND_METRICS environment variable value will be used. If
            no environment variable, defaults to 'auto'. 
 
-       --no-ast-caching
-           negates --ast-caching
-
        --no-autofix
            negates -a/--autofix
 
@@ -228,9 +224,6 @@ OPTIONS
 
        --no-git-ignore
            negates --use-git-ignore
-
-       --no-registry-caching
-           negates --registry-caching
 
        --no-rewrite-rule-ids
            negates --rewrite-rule-ids
@@ -291,10 +284,6 @@ OPTIONS
        -q, --quiet
            Only output findings.
 
-       --registry-caching
-           Cache for 24 hours in ~/.semgrep/cache rules from the registry.
-           Requires --experimental. 
-
        --remote=VAL
            Remote will quickly checkout and scan a remote git repository of
            the format "http[s]://<WEBSITE>/.../<REPO>.git". Must be run with
@@ -312,9 +301,12 @@ OPTIONS
            Output results in SARIF format.
 
        --scan-unknown-extensions
-           If true, explicit files will be scanned using the language
-           specified in --lang. If --skip-unknown-extensions, these files
-           will not be scanned. Defaults to false. 
+           If true, target files specified directly on the command line will
+           bypass normal language detection. They will be analyzed according
+           to the value of --lang if applicable, or otherwise with the
+           analyzers/languages specified in the Semgrep rule(s) regardless of
+           file extension or file type. This setting doesn't apply to target
+           files discovered by scanning folders. Defaults to false. 
 
        --severity=VAL
            Report findings only from rules matching the supplied severity
@@ -428,6 +420,6 @@ AUTHORS
 
 BUGS
        If you encounter an issue, please report it at
-       https://github.com/semgrep/semgrep/issues
+       https://github.com/returntocorp/semgrep/issues
 
 ```
