@@ -33,45 +33,121 @@ This document provides information about supported languages and language maturi
 * Semgrep Code
 * Semgrep Supply Chain
 
-## Semgrep Code 
+## Semgrep Code and OSS
 
-Secure your code quickly and continuously by scanning with Semgrep Code, our SAST (Static Application Security Testing) product, powered by Semgrep OSS Engine and Semgrep Pro Engine. The Semgrep OSS Engine is the foundation of Semgrep, it's our [open-source engine](https://github.com/semgrep/semgrep), designed for fast code analysis. The Semgrep Pro Engine is designed for advanced code analysis, designed to catch complex vulnerabilities and reduce false positives. Use Semgrep Code to quickly find and fix vulnerabilities in your code base. 
+Semgrep OSS is a fast, lightweight program analysis tool that can help you detect security issues in your code. It makes use of Semgrep's LGPL 2.1 open-source engine.
 
-### Language maturity
-Semgrep Code supports over 30 languages and counting! 🚀 
+Semgrep Code is a static application security testing SAST solution that uses both Semgrep OSS Engine and a proprietary Semgrep Pro engine. This engine can perform more complex code analyses, resulting in a higher true positive rate than Semgrep OSS. 
 
-<SupportedLanguagesTable />
+Use either tool to scan local code or integrate it into your CI/CD pipeline to automate the continuous scanning of your repositories.
 
-### Maturity levels
+| Product | Analysis |
+| -------   | ------ |
+| [<i class="fas fa-external-link fa-xs"></i> Semgrep OSS](https://github.com/semgrep/semgrep) |<ul><li>Single-function analysis</li><li>Single-file analysis</li></ul> |
+| Semgrep Code  |<ul><li>All analyses in the OSS Engine</li><li>Cross-file (interfile) analysis</li><li>Cross-function (interprocedural) analysis</li></ul>   |
 
-#### Language maturity factors (Pro Engine)
+### Language maturity levels
+Semgrep Code languages can be classified into four maturity levels:
 
-Semgrep Pro Engine has two maturity levels:
-* Generally available (GA) 
-* Beta
-
-**Generally Available**: Receives highest quality support from the Semgrep team. Reported issues are resolved promptly and timelines for fixes are communicated to customers within 2 weeks.
-
-**Beta**: Supported by the Semgrep team. Reported issues are tracked and prioritized to be fixed after GA languages.
-
-#### Language maturity factors (OSS Engine)
-
-Semgrep OSS Engine has three maturity levels:
 * Generally available (GA) 
 * Beta
 * Experimental 
 * Community supported\*
 
-\*Community supported languages meet the parse rate and syntax requirements of Experimental languages, but ongoing development from Semgrep has stopped. Users can still access community rules or write their own rules.
+\*Community supported languages meet the parse rate and syntax requirements of **Experimental** languages. Users can still access community rules or write their own rules.
 
 Their differences are outlined in the following table:
 
-| Feature  | GA | Beta | Experimental
-|----------|---------------|------------------| ----- |
-| Parse Rate  | 99%+ | 95%+ | 90%+ | 
-| Number of rules  | 10+ | 5+ | 0+. Query the [Registry](https://semgrep.dev/r) to see if any rules exist for your language. | 
-| Semgrep syntax | Regexp, equivalence, deep expression operators, types and typing. All features supported in Beta. | Complete metavariable support, metavariable equality. All features supported in Experimental. | Syntax, ellipsis operator, basic metavariable functionality.|
-| Support | Highest quality support by the Semgrep team. Reported issues are resolved promptly. | Supported by the Semgrep team. Reported issues are fixed after GA languages. | There are limitations to this language's functionality. Reported issues are tracked and prioritized with best effort.|
+<table>
+    <thead><tr>
+        <td><strong>Feature</strong></td>
+        <td><strong>GA</strong></td>
+        <td><strong>Beta</strong></td>
+        <td><strong>Experimental</strong></td>
+        <td><strong>Community supported</strong></td>
+    </tr></thead>
+    <tbody>
+    <tr>
+        <td>Parse Rate</td>
+        <td>99%+</td>
+        <td>95%+</td>
+        <td colspan="2">90%+</td>
+    </tr>
+    <tr>
+        <td>Number of rules</td>
+        <td>10+</td>
+        <td>5+</td>
+        <td colspan="2">0+. Query the <a href="https://semgrep.dev/r">Registry</a> to see if any rules exist for your language.</td>
+    </tr>
+    <tr>
+        <td>Semgrep syntax</td>
+        <td>Regexp, equivalence, deep expression operators, types and typing. All features supported in Beta.</td>
+        <td>Complete metavariable support, metavariable equality. All features supported in Experimental.</td>
+        <td colspan="2">Syntax, ellipsis operator, basic metavariable functionality.</td>
+    </tr>
+    <tr>
+        <td>Support</td>
+        <td>Highest quality support by the Semgrep team. Reported issues are resolved promptly.</td>
+        <td>Supported by the Semgrep team. Reported issues are fixed after GA languages.</td>
+        <td>There are limitations to this language's functionality. Reported issues are tracked and prioritized with best effort.</td>
+        <td>These languages are supported by the Semgrep community. While Semgrep may develop rules or engine updates for these languages, they are not prioritized.</td>
+    </tr>
+    </tbody>
+</table>
+
+### Semgrep Code language support
+
+Semgrep Code supports over 30 languages and counting! 🚀 
+
+<SupportedLanguagesTable />
+
+
+### Semgrep OSS language support
+
+**All Semgrep OSS languages are community supported.** Community supported languages meet the parse rate and syntax requirements of experimental languages in Semgrep Code. Semgrep OSS uses Semgrep's open source engine.
+
+Community supported languages have varying levels of rule coverage - check the registry and filter out Pro rules to see the level of coverage for OSS.
+
+<details><summary>Click to view <strong>Semgrep OSS</strong> languages.</summary>
+
+- Bash      
+- C         
+- C++       
+- C#        
+- Cairo     
+- Clojure   
+- Dart       
+- Dockerfile
+- Elixir    
+- Generic   
+- Go        
+- Hack       
+- HTML          
+- Java      
+- JavaScript
+- JSON      
+- Jsonnet   
+- Julia      
+- Lisp       
+- Lua        
+- Kotlin    
+- Ruby      
+- Rust      
+- JSX       
+- Ocaml      
+- PHP       
+- Python    
+- R          
+- Scala     
+- Scheme     
+- Solidity   
+- Swift     
+- TypeScript
+- YAML      
+- XML       
+
+</details>
+
 
 
 ### More information
@@ -281,23 +357,5 @@ Their differences are outlined in the following table:
 * The detailed specifications previously provided apply only to language support. Language maturity levels differ from feature and product maturity levels.
 * Semgrep features and products documented as experimental, beta, or GA generally follow the definitions in a [Software release life cycle](https://en.wikipedia.org/wiki/Software_release_life_cycle).
 :::
-
-## Known limitations of Semgrep Pro Engine
-
-### CommonJS
-
-Currently Semgrep Pro Engine does not handle specific cases of CommmonJS where you define a function and assign it to an export later, Semgrep Pro Engine does not track the code below:
-
-```js
-function get_user() {
-    return get_user_input("example")
-  }
-
-module.exports = get_user
-```
-
-### Regressions in Semgrep Pro
-
-For cross-file (interfile) analysis, Semgrep Pro Engine resolves names differently than Semgrep OSS. Consequently, rules with `interfile: true` may produce different results than Semgrep OSS Engine. Some instances could be regarded as regressions; if you encounter them, please file a bug report. When you need to report a bug in Semgrep Pro Engine, go through [Semgrep Support](/docs/support/). You can also contact us through [Semgrep Community Slack group](https://go.semgrep.dev/slack).
 
 <MoreHelp />
