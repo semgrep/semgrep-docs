@@ -46,15 +46,7 @@ Use either tool to scan local code or integrate it into your CI/CD pipeline to a
 | [<i class="fas fa-external-link fa-xs"></i> Semgrep OSS](https://github.com/semgrep/semgrep) |<ul><li>Single-function analysis</li><li>Single-file analysis</li></ul> |
 | Semgrep Code  |<ul><li>All analyses in the OSS Engine</li><li>Cross-file (interfile) analysis</li><li>Cross-function (interprocedural) analysis</li></ul>   |
 
-### Semgrep Code language support
-
-
-Semgrep Code supports over 30 languages and counting! 🚀 
-
-<SupportedLanguagesTable />
-
-#### Language maturity factors
-
+### Language maturity levels
 Semgrep Code languages can be classified into four maturity levels:
 
 * Generally available (GA) 
@@ -66,12 +58,49 @@ Semgrep Code languages can be classified into four maturity levels:
 
 Their differences are outlined in the following table:
 
-| Feature  | GA | Beta | Experimental
-|----------|---------------|------------------| ----- |
-| Parse Rate  | 99%+ | 95%+ | 90%+ | 
-| Number of rules  | 10+ | 5+ | 0+. Query the [Registry](https://semgrep.dev/r) to see if any rules exist for your language. | 
-| Semgrep syntax | Regexp, equivalence, deep expression operators, types and typing. All features supported in Beta. | Complete metavariable support, metavariable equality. All features supported in Experimental. | Syntax, ellipsis operator, basic metavariable functionality.|
-| Support | Highest quality support by the Semgrep team. Reported issues are resolved promptly. | Supported by the Semgrep team. Reported issues are fixed after GA languages. | There are limitations to this language's functionality. Reported issues are tracked and prioritized with best effort.|
+<table>
+    <thead><tr>
+        <td><strong>Feature</strong></td>
+        <td><strong>GA</strong></td>
+        <td><strong>Beta</strong></td>
+        <td><strong>Experimental</strong></td>
+        <td><strong>Community supported</strong></td>
+    </tr></thead>
+    <tbody>
+    <tr>
+        <td>Parse Rate</td>
+        <td>99%+</td>
+        <td>95%+</td>
+        <td colspan="2">90%+</td>
+    </tr>
+    <tr>
+        <td>Number of rules</td>
+        <td>10+</td>
+        <td>5+</td>
+        <td colspan="2">0+. Query the <a href="https://semgrep.dev/r">Registry</a> to see if any rules exist for your language.</td>
+    </tr>
+    <tr>
+        <td>Semgrep syntax</td>
+        <td>Regexp, equivalence, deep expression operators, types and typing. All features supported in Beta.</td>
+        <td>Complete metavariable support, metavariable equality. All features supported in Experimental.</td>
+        <td colspan="2">Syntax, ellipsis operator, basic metavariable functionality.</td>
+    </tr>
+    <tr>
+        <td>Support</td>
+        <td>Highest quality support by the Semgrep team. Reported issues are resolved promptly.</td>
+        <td>Supported by the Semgrep team. Reported issues are fixed after GA languages.</td>
+        <td>There are limitations to this language's functionality. Reported issues are tracked and prioritized with best effort.</td>
+        <td>These languages are supported by the Semgrep community. While Semgrep may develop rules or engine updates for these languages, they are not prioritized.</td>
+    </tr>
+    </tbody>
+</table>
+
+### Semgrep Code language support
+
+Semgrep Code supports over 30 languages and counting! 🚀 
+
+<SupportedLanguagesTable />
+
 
 ### Semgrep OSS language support
 
