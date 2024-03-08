@@ -25,9 +25,23 @@ tags:
 
 ### Added
 
+- API: Added a `rule` object under `findings` with the following fields: 
+    - `name`
+    - `message`
+    - `confidence`
+    - `category`
+    - `subcategories`
+    - `technologies`
+    - `vulnerability_classes`
+    - `cwe_names`
+    - `owasp_names` <!-- 12868 --> 
+
+
 ### Changed
 
 ### Fixed
+
+- Fixed a bug where the navigation sidebar covered mobile screens and could not be collapsed. <!-- 12876 -->
 
 ## 💻 Code
 
@@ -90,10 +104,13 @@ tags:
 
 * Added the ability to filter for dependencies that Semgrep has commented on.
   <!-- https://github.com/semgrep/semgrep-app/pull/12898 -->
+* Added manual review advice to GitHub PR comments. Certain Semgrep Supply Chain (SSC) findings require **manual review** to verify if the finding is reachable or not. GitHub PR comments now include this advice to help you ascertain if the finding is reachable or not. <!-- 12907 -->
 
 ## 🤖 Assistant (beta)
 
 ### Added
+
+- Added weekly emails summarizing Semgrep tasks, highlighting top priority items. <!-- Private beta - not sure if we should include this --> 
 
 ### Changed
 
