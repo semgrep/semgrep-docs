@@ -90,7 +90,7 @@ Semgrep can finish with the following exit codes:
 - **14**: Semgrep scan failed.
 
 :::tip
-To view the exit code when running `semgrep scan`, enter the following command immediately after the Semgrep scan has finished:
+To view the exit code when running `semgrep scan`, enter the following command immediately after the Semgrep scan finishes:
 ```console
 echo $?
 ```
