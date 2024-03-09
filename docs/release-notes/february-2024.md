@@ -35,9 +35,16 @@ tags:
     - `vulnerability_classes`
     - `cwe_names`
     - `owasp_names` <!-- 12868 --> 
+- Added distinction between Pro engine and OSS findings in the Playground and Editor. <!-- 12275 -->
+- Support `linux-arm64` platform for Semgrep Pro Engine downloads <!-- 12430 -->
 
 
 ### Changed
+
+- Updated the Semgrep Cloud Platform login page. <!-- 12744 -->
+- Updated the login process from the CLI to SCP. This change affects new users. <!-- 12531 -->
+- Updated the Semgrep installation instructions for Docker. <!-- 12531 -->
+- Improved performance of Semgrep Playground and Editor. <!-- 12461 -->
 
 ### Fixed
 
@@ -105,6 +112,7 @@ tags:
 * Added the ability to filter for dependencies that Semgrep has commented on.
   <!-- https://github.com/semgrep/semgrep-app/pull/12898 -->
 * Added manual review advice to GitHub PR comments. Certain Semgrep Supply Chain (SSC) findings require **manual review** to verify if the finding is reachable or not. GitHub PR comments now include this advice to help you ascertain if the finding is reachable or not. <!-- 12907 -->
+* Separated `reachable_if` and `upgrade_only` exposures. Users can better determine a finding's criticality through this distinction. <!-- 12657 -->
 
 ## 🤖 Assistant (beta)
 
