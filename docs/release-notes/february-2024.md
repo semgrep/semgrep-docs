@@ -54,6 +54,7 @@ tags:
 
 ### Added
 
+<!-- I think the highest item should probably be our C, C++ launch? -->
 * Added new rules for Elixir and the Phoenix framework, covering various security and correctness issues. These are available in the `p/elixir`
   ruleset. <!-- Do we need to mention that this is for Pro users only? -->
 * Added support for Python, with a focus on the Flask ecosystem, to the Semgrep
@@ -149,6 +150,24 @@ tags:
 
 ### Added
 
+- The Semgrep docs have been reorganized ...
+- Network broker docs
+- Experimental rules syntax.
+- The following knowledgebase articles:
+    - Gather GitLab logs.
+    - BitBucket Jenkins
+    
 ### Changed
 
+- GLCICD config file links have been updated.
+- Removed phone support.
+- Updated Semgrep-Slack integration docs to clarify requirements for posting to private channels.
+- Updated sample GHA config file for a CI job that publishes private Semgrep rules. (private-rules.md)
+- Clarified Semgrep Assistant privacy policy on what data is stored. (semgrep-assistant-code)
+- Pro vs OSS <!-- 1338 -->
+
 ### Fixed
+
+- Formatting on GitHub PR comments documentation. Thank you to parsiya for the fix.
+- Various link fixes and Docker image updates.
+
