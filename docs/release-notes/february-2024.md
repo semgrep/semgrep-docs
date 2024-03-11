@@ -35,6 +35,15 @@ tags:
     - `vulnerability_classes`
     - `cwe_names`
     - `owasp_names` <!-- 12868 --> 
+- Added distinction between Pro engine and OSS findings in the Playground and Editor. <!-- 12275 -->
+- Support `linux-arm64` platform for Semgrep Pro Engine downloads <!-- 12430 -->
+
+### Changed
+
+- Updated the Semgrep Cloud Platform login page. <!-- 12744 -->
+- Updated the login process from the CLI to SCP. This change affects new users. <!-- 12531 -->
+- Updated the Semgrep installation instructions for Docker. <!-- 12531 -->
+- Improved performance of Semgrep Playground and Editor. <!-- 12461 -->
 
 ### Fixed
 
@@ -44,6 +53,7 @@ tags:
 
 ### Added
 
+<!-- I think the highest item should probably be our C, C++ launch? -->
 * Added new rules for Elixir and the Phoenix framework, covering various security and correctness issues. These are available in the `p/elixir`
   ruleset. <!-- Do we need to mention that this is for Pro users only? -->
 * Added support for Python, with a focus on the Flask ecosystem, to the Semgrep
@@ -102,6 +112,7 @@ tags:
 * Added the ability to filter for dependencies that Semgrep has commented on.
   <!-- https://github.com/semgrep/semgrep-app/pull/12898 -->
 * Added manual review advice to GitHub PR comments. Certain Semgrep Supply Chain (SSC) findings require **manual review** to verify if the finding is reachable or not. GitHub PR comments now include this advice to help you ascertain if the finding is reachable or not. <!-- 12907 -->
+* Separated `reachable_if` and `upgrade_only` exposures. Users can better determine a finding's criticality through this distinction. <!-- 12657 -->
 
 ## 🤖 Assistant (beta)
 
@@ -138,6 +149,24 @@ tags:
 
 ### Added
 
+- The Semgrep docs have been reorganized ...
+- Network broker docs
+- Experimental rules syntax.
+- The following knowledgebase articles:
+    - Gather GitLab logs.
+    - BitBucket Jenkins
+    
 ### Changed
 
+- GLCICD config file links have been updated.
+- Removed phone support.
+- Updated Semgrep-Slack integration docs to clarify requirements for posting to private channels.
+- Updated sample GHA config file for a CI job that publishes private Semgrep rules. (private-rules.md)
+- Clarified Semgrep Assistant privacy policy on what data is stored. (semgrep-assistant-code)
+- Pro vs OSS <!-- 1338 -->
+
 ### Fixed
+
+- Formatting on GitHub PR comments documentation. Thank you to parsiya for the fix.
+- Various link fixes and Docker image updates.
+
