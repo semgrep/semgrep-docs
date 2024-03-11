@@ -22,7 +22,7 @@ confirmed to successfully grant resources or authentication. They are actively
 in use. 
 * For GitHub repositories: if there are credentials in public or private repositories.
 
-Save time and effort by prioritizing valid leaked secrets. Inform developers of valid secrets in their PRs and MRs by posting comments directly. 
+Semgrep saves security engineers time and effort by prioritizing valid leaked secrets and informs developers of valid secrets in their PRs and MRs by posting comments directly. 
 
 ## How Semgrep Secrets works
 
