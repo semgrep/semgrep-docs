@@ -108,7 +108,7 @@ You can **run specific product scans** by passing an argument, such as `--supply
 
 <TabItem value='gha-oss'>
 
-The following configuration creates a CI job that runs Semgrep OSS SAST scans using rules configured for your programming language.
+The following configuration creates a CI job that runs Semgrep OSS scans using rules configured for your programming language.
 
 <GhaSemgrepOssSast />
 
@@ -171,7 +171,7 @@ You can **run specific product scans** by passing an argument, such as `--supply
 
 <TabItem value='glcicd-ssc'>
 
-The following configuration creates a CI job that runs Semgrep OSS SAST scans using rules configured for your programming language.
+The following configuration creates a CI job that runs Semgrep OSS scans using rules configured for your programming language.
 
 <GlcicdSemgrepOssSast />
 
@@ -229,7 +229,7 @@ You can **run specific product scans** by passing an argument, such as `--supply
 
 <TabItem value='jenkins-oss'>
 
-The following configuration creates a CI job that runs Semgrep OSS SAST scans using rules configured for your programming language.
+The following configuration creates a CI job that runs Semgrep OSS scans using rules configured for your programming language.
 
 <JenkinsSemgrepOssSast />
 
@@ -280,7 +280,7 @@ You can **run specific product scans** by passing an argument, such as `--supply
 
 <TabItem value='bitbucket-oss'>
 
-The following configuration creates a CI job that runs Semgrep OSS SAST scans using rules configured for your programming language.
+The following configuration creates a CI job that runs Semgrep OSS scans using rules configured for your programming language.
 
 <BitbucketSemgrepOssSast />
 
@@ -325,7 +325,7 @@ You can **run specific product scans** by passing an argument, such as `--supply
 
 <TabItem value='buildkite-oss'>
 
-The following configuration creates a CI job that runs Semgrep OSS SAST scans using rules configured for your programming language.
+The following configuration creates a CI job that runs Semgrep OSS scans using rules configured for your programming language.
 
 <BuildkiteSemgrepOssSast />
 
@@ -379,7 +379,7 @@ You can **run specific product scans** by passing an argument, such as `--supply
 
 <TabItem value='circleci-oss'>
 
-The following configuration creates a CI job that runs Semgrep OSS SAST scans using rules configured for your programming language.
+The following configuration creates a CI job that runs Semgrep OSS scans using rules configured for your programming language.
 
 <CircleCiSemgrepOssSast /> 
 
@@ -425,7 +425,7 @@ You can **run specific product scans** by passing an argument, such as `--supply
 
 <TabItem value='azure-oss'>
 
-The following configuration creates a CI job that runs Semgrep OSS SAST scans using rules configured for your programming language.
+The following configuration creates a CI job that runs Semgrep OSS scans using rules configured for your programming language.
 
 <AzureSemgrepOssSast />
 
