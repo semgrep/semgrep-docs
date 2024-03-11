@@ -36,18 +36,18 @@ tags:
     - `cwe_names`
     - `owasp_names` <!-- 12868 --> 
 - Added distinction between Pro engine and OSS findings in the Playground and Editor. <!-- 12275 -->
-- Support `linux-arm64` platform for Semgrep Pro Engine downloads <!-- 12430 -->
+- Added support for the `linux-arm64` platform when you download Semgrep Pro Engine. <!-- 12430 -->
 
 ### Changed
 
-- Updated the Semgrep Cloud Platform login page. <!-- 12744 -->
+- Updated the Semgrep Cloud Platform (SCP) login page. <!-- 12744 -->
 - Updated the login process from the CLI to SCP. This change affects new users. <!-- 12531 -->
 - Updated the Semgrep installation instructions for Docker. <!-- 12531 -->
 - Improved performance of Semgrep Playground and Editor. <!-- 12461 -->
 
 ### Fixed
 
-- Fixed a bug where the navigation sidebar covered mobile screens and could not be collapsed. <!-- 12876 -->
+- Fixed a bug where the navigation sidebar covered the entire mobile screen and could not be collapsed. <!-- 12876 -->
 
 ## 💻 Code
 
@@ -120,10 +120,6 @@ tags:
 
 - Added weekly emails summarizing Semgrep tasks, highlighting top priority items. <!-- Private beta - not sure if we should include this --> 
 
-### Changed
-
-### Fixed
-
 ## 🔐 Secrets (beta)
 
 ### Added
@@ -149,24 +145,25 @@ tags:
 
 ### Added
 
-- The Semgrep docs have been reorganized ...
-- Network broker docs
+- The Semgrep docs sidebar has been reorganized to help users browse through the docs.
+- A deployment guide to setting up Semgrep as part of a security program for your organization.
+- A guide to setting up a network broker that facilitates secure access between Semgrep and your private network.
 - Experimental rules syntax.
 - The following knowledgebase articles:
-    - Gather GitLab logs.
+    - Gather GitLab logs
     - BitBucket Jenkins
     
 ### Changed
 
-- GLCICD config file links have been updated.
-- Removed phone support.
-- Updated Semgrep-Slack integration docs to clarify requirements for posting to private channels.
-- Updated sample GHA config file for a CI job that publishes private Semgrep rules. (private-rules.md)
-- Clarified Semgrep Assistant privacy policy on what data is stored. (semgrep-assistant-code)
+- GitLab CI/CD config file links have been updated.
+- Removed phone support from the docs.
+- Updated the [Semgrep-Slack integration docs](/semgrep-cloud-platform/slack-notifications/) to clarify requirements for posting to private channels.
+- Updated the [sample GHA config file](/writing-rules/private-rules/)for a CI job that publishes private Semgrep rules. 
+- Clarified the Semgrep Assistant [privacy policy](/semgrep-code/semgrep-assistant-code/) on what data is stored.
 - Pro vs OSS <!-- 1338 -->
 
 ### Fixed
 
-- Formatting on GitHub PR comments documentation. Thank you to parsiya for the fix.
+- Formatting on GitHub PR comments documentation. Thank you to [parsiya](https://github.com/parsiya) for the fix.
 - Various link fixes and Docker image updates.
 
