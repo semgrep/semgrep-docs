@@ -296,6 +296,13 @@ Semgrep Supply Chain parses **lockfiles** for dependencies, then scans your code
    <td style={{"text-align": "center"}}>Lockfile-only</td>
    <td>--</td>
 </tr>
+<tr>
+   <td>Swift</td>
+   <td>SwiftPM</td>
+   <td>Swift-generated `Package.resolved` file. (See <a href="https://developer.apple.com/documentation/packagedescription/package/dependency">Apple Swift documentation `Package.Dependency`</a> for instructions.)</td>
+   <td style={{"text-align": "center"}}>Lockfile-only</td>
+   <td>--</td>
+</tr>
   </tbody>
 </table>
 
