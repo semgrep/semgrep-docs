@@ -13,13 +13,16 @@ tags:
 After each scan, your findings are displayed in Semgrep Cloud Platform's
 **Secrets** page.
 
-Semgrep Cloud Platform offers a variety of filters to help you narrow down the
-list of findings. The following sections describe what filters are available to
-you.
 
 :::note Local scans
 Findings from local scans are differentiated from their remote counterparts through their slugs. Remote repositories are identified as <span className="placeholder">  ACCOUNT_NAME/REPOSITORY_NAME</span>, while local repositories are identified as <span className="placeholder">local_scan/REPOSITORY_NAME</span>.
 :::
+
+## View your findings
+
+Semgrep Cloud Platform offers a variety of filters to help you narrow down the
+list of findings. The following sections describe what filters are available to
+you.
 
 ### Triage status
 
