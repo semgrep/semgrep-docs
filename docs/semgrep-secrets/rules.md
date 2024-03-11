@@ -1,7 +1,7 @@
 ---
 slug: rules
 append_help_link: true
-title: Rules
+title: Rules structure
 hide_title: true
 description: Learn about Semgrep Secrets rules.
 tags:
