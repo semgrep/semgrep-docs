@@ -36,9 +36,6 @@ tags:
     - `cwe_names`
     - `owasp_names` <!-- 12868 --> 
 
-
-### Changed
-
 ### Fixed
 
 - Fixed a bug where the navigation sidebar covered mobile screens and could not be collapsed. <!-- 12876 -->
