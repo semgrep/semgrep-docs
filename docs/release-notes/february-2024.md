@@ -55,7 +55,7 @@ tags:
 
 ### Added
 
-<!-- I think the highest item should probably be our C, C++ launch? -->
+* Support for C and C++ is now generally available (GA).
 * Added new Pro rules for Elixir and the Phoenix framework, covering various security and correctness issues. These are available in the `p/elixir`
   ruleset. <!-- Do we need to mention that this is for Pro users only? -->
 * Added support for Python, with a focus on the Flask ecosystem, to the Semgrep
