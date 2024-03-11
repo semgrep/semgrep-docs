@@ -146,21 +146,21 @@ tags:
 ### Added
 
 - The Semgrep docs sidebar has been reorganized to help users browse through the docs.
-- A deployment guide to setting up Semgrep as part of a security program for your organization.
-- A guide to setting up a network broker that facilitates secure access between Semgrep and your private network.
-- Experimental rules syntax.
+- A [series of guides](/deployment/core-deployment/) to setting up Semgrep as part of a security program for your organization.
+- A guide to setting up a [network broker](/semgrep-ci/network-broker/) that facilitates secure access between Semgrep and your private network.
+- [Experimental rules](/writing-rules/experiments/pattern-syntax/) syntax reference.
 - The following knowledgebase articles:
-    - Gather GitLab logs
-    - BitBucket Jenkins
+    - [GitLab "Job's log exceeded limit" error](/kb/semgrep-ci/collect-gitlab-logs)
+    - [Set up Jenkins pipeline projects for Bitbucket repositories](/kb/semgrep-ci/bitbuket-jenkins-pipeline-projects/)
     
 ### Changed
 
-- GitLab CI/CD config file links have been updated.
+- The links within the [GitLab CI/CD config file](/semgrep-ci/sample-ci-configs/#sample-gitlab-cicd-configuration-snippet) have been updated.
 - Removed phone support from the docs.
 - Updated the [Semgrep-Slack integration docs](/semgrep-cloud-platform/slack-notifications/) to clarify requirements for posting to private channels.
 - Updated the [sample GHA config file](/writing-rules/private-rules/)for a CI job that publishes private Semgrep rules. 
 - Clarified the Semgrep Assistant [privacy policy](/semgrep-code/semgrep-assistant-code/) on what data is stored.
-- Pro vs OSS <!-- 1338 -->
+- Updated [Semgrep Pro versus OSS](/docs/semgrep-pro-vs-oss/) docs. <!-- 1338 -->
 
 ### Fixed
 
