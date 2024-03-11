@@ -122,7 +122,6 @@ tags:
 * Added the ability to filter for dependencies that Semgrep has commented on.
   <!-- https://github.com/semgrep/semgrep-app/pull/12898 -->
 * Added manual review advice to GitHub PR comments. Certain Semgrep Supply Chain (SSC) findings require **manual review** to verify if the finding is reachable or not. <!-- 12907 -->
-* Separated `reachable_if` and `upgrade_only` exposures. Users can better determine a finding's criticality through this distinction. <!-- 12657 -->
 
 ### Fixed
 
@@ -161,10 +160,10 @@ tags:
 ### Added
 
 - The Semgrep docs sidebar has been reorganized to help users browse through the docs.
-- A [series of guides](/deployment/core-deployment/) to setting up Semgrep as part of a security program for your organization.
-- A guide to setting up a [network broker](/semgrep-ci/network-broker/) that facilitates secure access between Semgrep and your private network.
-- [Experimental rules](/writing-rules/experiments/pattern-syntax/) syntax reference.
-- The following knowledgebase articles:
+- Added a [series of guides](/deployment/core-deployment/) to setting up Semgrep as part of a security program for your organization.
+- Added a guide to setting up a [network broker](/semgrep-ci/network-broker/) that facilitates secure access between Semgrep and your private network.
+- Added [Experimental rules](/writing-rules/experiments/pattern-syntax/) syntax reference.
+- Added the following knowledge base articles:
     - [GitLab "Job's log exceeded limit" error](/kb/semgrep-ci/collect-gitlab-logs)
     - [Set up Jenkins pipeline projects for Bitbucket repositories](/kb/semgrep-ci/bitbuket-jenkins-pipeline-projects/)
     
