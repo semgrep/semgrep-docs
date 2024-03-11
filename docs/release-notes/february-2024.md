@@ -48,6 +48,8 @@ tags:
 ### Fixed
 
 - Fixed a bug where the navigation sidebar covered the entire mobile screen and could not be collapsed. <!-- 12876 -->
+* Scan summary links printed after users run `semgrep ci` now reflect a
+  custom `SEMGREP_APP_URL` if set.
 
 ## 💻 Code
 
@@ -58,24 +60,35 @@ tags:
   ruleset. <!-- Do we need to mention that this is for Pro users only? -->
 * Added support for Python, with a focus on the Flask ecosystem, to the Semgrep
   Pro Engine.
-* Added ability to collapse and turn off patterns in a rule.
 * Added the ability to distinguish between which rules are available to Semgrep
-  Pro Engine users and which ones are available to Semgrep OSS users.
+  Pro Engine users and which ones are available to Semgrep OSS users when writing rules in Semgrep Playground.
 * Added support for nested record patterns on the left-hand side of an
-  assignment.
-* `metavariable-regex` can now match on metavariables of interpolated strings
+  assignment during dataflow analysis. For example, given `{ body: { param } } =
+  tainted`, Semgrep correctly marks `param` as tainted.
+* The `metavariable-regex` operator can now match on metavariables of interpolated strings
   that use variables with known values.
-* Added support for parsing Swift Package Manager manifest files and lock files.
 * **Taint analysis**:
-  * Added support for Python constructors
+  * Added support for Python constructors.
   * Added support for index sensitivity. Semgrep tracks taint on individual
     indexes of a data structure when these are constant values, either integers
     or strings, and the code uses the built-in syntax for array indexing.
-  * Added `exact: false` so you can specify that anything inside a code
-    region is a sink.
+  * Added `exact: false` as a `pattern-sources` sub-key so you can specify that anything inside a code region is a sink:
+    ```yaml
+        pattern-sources:
+          - exact: false
+            pattern: ...
+    ```
   * When `exact: true` and `taint_assume_safe_functions: true`, Semgrep now
     considers that, if the specified formula isn't a `patterns` with a
-    `focus-metavariable`, it must look for taint in the function call's arguments.
+    `focus-metavariable`, it must look for taint in the function call's arguments. For example:
+    ```yaml
+    ...
+    options:
+      taint_assume_safe_functions: true
+    pattern-sources:
+      - exact: false
+        pattern: ...
+    ```
 
 ### Changed
 
@@ -90,8 +103,6 @@ tags:
 
 ### Fixed
 
-* Fixed issues with trailing newline parsing in `pyproject.toml` and
-  `poetry.lock` files.
 * Fixed an issue with incorrect autofix application where multiple fixes were
   applied to the same line.
 * Fixed issue where tokens for type parameter brackets weren't stored correctly.
@@ -102,17 +113,21 @@ tags:
   shape `A and ...`, it picks `A` as the preferred label and reports the
   trace.
 * Fixed issue where taint signatures don't capture changes to parameter fields.
-* Scan summary links printed after users run `semgrep ci` now reflect a
-  custom `SEMGREP_APP_URL` if set.
 
 ## ⛓️ Supply Chain
 
 ### Added
 
+* Added support for parsing Swift Package Manager manifest files and lock files.
 * Added the ability to filter for dependencies that Semgrep has commented on.
   <!-- https://github.com/semgrep/semgrep-app/pull/12898 -->
 * Added manual review advice to GitHub PR comments. Certain Semgrep Supply Chain (SSC) findings require **manual review** to verify if the finding is reachable or not. GitHub PR comments now include this advice to help you ascertain if the finding is reachable or not. <!-- 12907 -->
 * Separated `reachable_if` and `upgrade_only` exposures. Users can better determine a finding's criticality through this distinction. <!-- 12657 -->
+
+### Fixed
+
+* Fixed issues with trailing newline parsing in `pyproject.toml` and
+  `poetry.lock` files.
 
 ## 🤖 Assistant (beta)
 
