@@ -1,6 +1,6 @@
 ---
 slug: validators
-title: Validators
+title: Validate leaked, active secrets
 hide_title: true
 description: Learn about validators used in Semgrep Secrets rules.
 tags:
@@ -8,7 +8,7 @@ tags:
 ---
 
 
-# Validators
+# Validate leaked, active secrets
 
 [Semgrep Secrets](/semgrep-secrets/conceptual-overview) uses proprietary **validators** to determine if a secret is
 actively being used. Validators are included in the

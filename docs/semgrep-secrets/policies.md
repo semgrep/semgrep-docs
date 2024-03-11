@@ -3,7 +3,7 @@ slug: policies
 append_help_link: true
 title: Policies
 hide_title: true
-description: The Policies page is a visual representation of the rules that Semgrep Secrets uses to scan code
+description: The Policies page is a visual representation of the rules that Semgrep Secrets uses to scan code.
 tags:
   - Semgrep Secrets
 ---
