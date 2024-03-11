@@ -15,7 +15,14 @@ import CiIgnoringFiles from "/src/components/reference/_ci-ignoring-files.mdx"
 
 Semgrep OSS can be set up run static application security testing (SAST) scans on repositories of any size.
 
-This guide explains how to set up Semgrep OSS in your CI pipeline using entirely open source components, also known as a **stand-alone** CI setup. The preferred Semgrep command when running OSS Semgrep is `semgrep scan`.
+This guide explains how to set up Semgrep OSS in your CI pipeline using entirely open source components, also known as a **stand-alone** CI setup. The preferred Semgrep OSS command is `semgrep scan`.
+
+## Prerequisites
+
+- Sufficient permissions in your repository to:
+    - Commit a CI configuration file.
+    - Start or stop a CI job.
+- Optional: Create environment variables.
 
 ## Ensure your scans use open source components
 
@@ -63,14 +70,7 @@ rules:
 ```
 </details>
 
-For a comparison of the behavior between Semgrep OSS CI scans and Semgrep Pro scans, see
-
-## Prerequisites
-
-- Sufficient permissions in your repository to:
-    - Commit a CI configuration file.
-    - Start or stop a CI job.
-- Optional: Create environment variables.
+For a comparison of the behavior between Semgrep OSS CI scans and Semgrep Pro scans, see [<i class="fa-regular fa-file-lines"></i> Semgrep Pro versus Semgrep OSS](semgrep-pro-vs-oss). 
 
 ## Set up the CI job 
 
