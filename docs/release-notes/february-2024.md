@@ -121,7 +121,7 @@ tags:
 * Added support for parsing Swift Package Manager manifest files and lock files.
 * Added the ability to filter for dependencies that Semgrep has commented on.
   <!-- https://github.com/semgrep/semgrep-app/pull/12898 -->
-* Added manual review advice to GitHub PR comments. Certain Semgrep Supply Chain (SSC) findings require **manual review** to verify if the finding is reachable or not. GitHub PR comments now include this advice to help you ascertain if the finding is reachable or not. <!-- 12907 -->
+* Added manual review advice to GitHub PR comments. Certain Semgrep Supply Chain (SSC) findings require **manual review** to verify if the finding is reachable or not. <!-- 12907 -->
 * Separated `reachable_if` and `upgrade_only` exposures. Users can better determine a finding's criticality through this distinction. <!-- 12657 -->
 
 ### Fixed
