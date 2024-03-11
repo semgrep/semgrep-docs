@@ -57,11 +57,9 @@ tags:
 
 * Support for C and C++ is now generally available (GA).
 * Added new Pro rules for Elixir and the Phoenix framework, covering various security and correctness issues. These are available in the `p/elixir`
-  ruleset. <!-- Do we need to mention that this is for Pro users only? -->
+  ruleset.
 * Added support for Python, with a focus on the Flask ecosystem, to the Semgrep
   Pro Engine.
-* Added the ability to distinguish between which rules are available to Semgrep
-  Pro Engine users and which ones are available to Semgrep OSS users when writing rules in Semgrep Playground.
 * Added support for nested record patterns on the left-hand side of an
   assignment during dataflow analysis. For example, given `{ body: { param } } =
   tainted`, Semgrep correctly marks `param` as tainted.
