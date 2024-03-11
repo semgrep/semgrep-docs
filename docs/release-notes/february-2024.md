@@ -48,7 +48,7 @@ tags:
 ### Fixed
 
 - Fixed a bug where the navigation sidebar covered the entire mobile screen and could not be collapsed. <!-- 12876 -->
-* Scan summary links printed after users run `semgrep ci` now reflect a
+- Scan summary links printed after users run `semgrep ci` now reflect a
   custom `SEMGREP_APP_URL` if set.
 
 ## 💻 Code
