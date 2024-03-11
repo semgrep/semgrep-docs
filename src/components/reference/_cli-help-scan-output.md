@@ -420,6 +420,6 @@ AUTHORS
 
 BUGS
        If you encounter an issue, please report it at
-       https://github.com/semgrep/semgrep/issues
+       https://github.com/returntocorp/semgrep/issues
 
 ```
