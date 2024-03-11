@@ -68,15 +68,7 @@ module.exports = {
             items: [
                 'deployment/deployment-checklist',
                 'deployment/create-account-and-orgs',
-                {
-                  type: 'category',
-                  collapsible: true,
-                  label: 'Connect a source code manager',
-                  link: {type: 'doc', id: 'deployment/connect-scm'},
-                  items: [
-                    'deployment/semgrep-app-ghe'
-                  ]
-                },
+                'deployment/connect-scm',
                 /* 'semgrep-cloud-platform/scm', superseded by connect-scm */
                 'deployment/sso',
                 {
