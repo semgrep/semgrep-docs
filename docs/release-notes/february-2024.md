@@ -179,6 +179,6 @@ tags:
 
 ### Fixed
 
-- Formatting on GitHub PR comments documentation. Thank you to [parsiya](https://github.com/parsiya) for the fix.
+- Fixed formatting on GitHub PR comments documentation. Thank you to [parsiya](https://github.com/parsiya) for the fix.
 - Various link fixes and Docker image updates.
 
