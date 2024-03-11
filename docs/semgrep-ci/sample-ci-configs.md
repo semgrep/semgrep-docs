@@ -169,7 +169,7 @@ You can **run specific product scans** by passing an argument, such as `--supply
 
 </TabItem>
 
-<TabItem value='glcicd-ssc'>
+<TabItem value='glcicd-oss'>
 
 The following configuration creates a CI job that runs Semgrep OSS scans using rules configured for your programming language.
 

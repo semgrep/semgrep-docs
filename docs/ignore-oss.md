@@ -1,7 +1,7 @@
 ---
 slug: ignore-oss 
 append_help_link: true
-title: Ignoring files, folders, and code
+title: Ignore files, folders, and code
 description: "This documents various methods to skip or ignore files or folders that are not relevant to a Semgrep scan."
 hide_title: true
 ---
@@ -11,7 +11,7 @@ hide_title: true
 import MoreHelp from "/src/components/MoreHelp"
 import IgnoreIndividualFindingNoGrouping from "/src/components/procedure/_ignore-individual-finding-no-grouping.mdx"
 
-# Ignoring files, folders, or parts of code
+# Ignore files, folders, and code
 
 Exclude or skip specific **files and folders** from the scope of Semgrep scans in your repository or working directory. Ignoring in this context means that Semgrep does not generate findings for the ignored files and folders.
 
