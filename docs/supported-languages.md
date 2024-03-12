@@ -148,8 +148,6 @@ Community supported languages have varying levels of rule coverage - check the r
 
 </details>
 
-
-
 ### More information
 Visit the cheat sheet generation script and associated semgrep-core test files to learn more about each feature:
 * [Generation script](https://github.com/semgrep/semgrep/blob/develop/scripts/generate_cheatsheet.py)
