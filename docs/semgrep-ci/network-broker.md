@@ -55,14 +55,14 @@ Ensure that you are logged in to the server where you want to run Semgrep Networ
   4EqJwDZ8X/qXB5u3Wpo2cxnKlysec93uhRvGWPix0lg=
   ```
 
-1. The broker requires a WireGuard keypair to establish a secure connection. To generate the private key `YOUR_PRIVATE_KEY`:
+1. The broker requires a WireGuard keypair to establish a secure connection. To generate your private key `YOUR_PRIVATE_KEY`:
 
    1. Determine the [network broker version](https://github.com/semgrep/semgrep-network-broker/pkgs/container/semgrep-network-broker) you want to use. The format should be similar to `v0.14.0`.
 
-   1. Run the following command in the CLI to generate the private key, replacing the placeholder with the network broker version number:
+   1. Run the following command in the CLI to generate your private key, replacing the placeholder with the network broker version number:
   <pre class="language-console"><code>docker run ghcr.io/semgrep/semgrep-network-broker:<span className="placeholder">VERSION_NUMBER</span> genkey</code></pre>
 
-1. Run the following command in the CLI to generate the public key `YOUR_PUBLIC_KEY`, replacing the placeholders with the private key you generated in the previous step and the network broker version number:
+1. Run the following command in the CLI to generate your public key, replacing the placeholders with your private key generated in the previous step and the network broker version number:
 
   <pre class="language-console"><code>echo `<span className="placeholder">YOUR_PRIVATE_KEY</span>` | sudo docker run -i ghcr.io/semgrep/semgrep-network-broker:<span className="placeholder">VERSION_NUMBER</span> pubkey</code></pre>
 
@@ -70,7 +70,7 @@ Ensure that you are logged in to the server where you want to run Semgrep Networ
   Your public key is safe to share. Do **not** share your private key with anyone, including Semgrep.
   :::
 
-1. Update the `config.yaml` file with the private key generated in step 2:
+1. Update the `config.yaml` file with your private key generated in step 2:
 
   ```yaml
   inbound:
@@ -80,11 +80,11 @@ Ensure that you are logged in to the server where you want to run Semgrep Networ
       ...
   ```
 
-1. Add the public key generated in step 3 to the Semgrep Cloud Platform:
+1. Add your public key generated in step 3 to the Semgrep Cloud Platform:
 
    1. Log in to Semgrep Cloud Platform.
    2. Navigate to **Settings** > **Broker**.
-   3. Paste `YOUR_PUBLIC_KEY` and click **Add Public Key**.
+   3. Paste your public key and click **Add Public Key**.
 
    ![Screenshot of Semgrep Cloud Platform's Network Broker page](/img/scp-broker.png#md-width)
 
