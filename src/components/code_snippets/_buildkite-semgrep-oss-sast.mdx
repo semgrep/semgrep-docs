@@ -1,0 +1,8 @@
+```yaml
+- label: ":semgrep: Semgrep OSS"
+  commands:
+    - semgrep scan --config auto
+  plugins:
+    - docker#v3.7.0:
+        image: semgrep/semgrep
+```

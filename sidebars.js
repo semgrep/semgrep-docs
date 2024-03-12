@@ -463,6 +463,7 @@ module.exports = {
         label: 'Run scans',
         collapsible: false,
         items: [
+            'deployment/oss-deployment',
             'running-rules',
             'getting-started/cli-oss',
             'ignore-oss'

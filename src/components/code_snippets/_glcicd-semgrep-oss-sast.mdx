@@ -1,0 +1,16 @@
+```yaml
+semgrep:
+  # A Docker image with Semgrep installed.
+  image: semgrep/semgrep
+  # Run the "semgrep scan" command on the command line of the docker image.
+  script: semgrep ci --config auto .
+
+  rules:
+  # Scan changed files in MRs, (diff-aware scanning):
+  - if: $CI_MERGE_REQUEST_IID
+
+  # Scan mainline (default) branches and report all findings.
+  - if: $CI_COMMIT_BRANCH == $CI_DEFAULT_BRANCH
+
+
+```
