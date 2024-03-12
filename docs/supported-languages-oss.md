@@ -80,7 +80,7 @@ Their differences are outlined in the following table:
     </tr>
     <tr>
         <td>Semgrep syntax</td>
-        <td>Regexp, equivalence, deep expression operators, types and typing. All features supported in Beta.</td>
+        <td>Regex, equivalence, deep expression operators, types and typing. All features supported in Beta.</td>
         <td>Complete metavariable support, metavariable equality. All features supported in Experimental.</td>
         <td colspan="2">Syntax, ellipsis operator, basic metavariable functionality.</td>
     </tr>
