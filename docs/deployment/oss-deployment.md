@@ -211,7 +211,7 @@ Migrate to Semgrep Cloud Platform to:
 To migrate to Semgrep Cloud Platform:
 
 1. Create an account in [Semgrep Cloud Platform](https://semgrep.dev/login).
-2. Click **[Projects](https://semgrep.dev/orgs/-/projects)** > **Scan New Project** > Run scan in CI.
+2. Click **[Projects](https://semgrep.dev/orgs/-/projects)** > **Scan New Project** > **Run scan in CI**.
 3. Follow the steps in the setup to complete your migration.
 4. Optional: Remove the old CI job that does not use Semgrep Cloud Platform.
 
