@@ -247,8 +247,7 @@ module.exports = {
                 'semgrep-secrets/view-triage',
                 'semgrep-secrets/policies',
                 'semgrep-secrets/validators',
-                'semgrep-secrets/rules',
-                { type: 'link', href: 'https://semgrep.dev/api/v1/docs/', label: 'API'},
+                'semgrep-secrets/rules'
             ]
         },
         /*
