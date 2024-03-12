@@ -25,7 +25,7 @@ tags:
 
 ### Added
 
-- API: Added a `rule` object under `findings` with the following fields: 
+- [<i class="fas fa-external-link fa-xs"></i> API](https://semgrep.dev/api/v1/docs/#tag/Finding/operation/semgrep_app.core_exp.findings.handlers.issue.openapi_list_recent_issues): Added a `rule` object under `findings` with the following fields: 
     - `name`
     - `message`
     - `confidence`
@@ -55,7 +55,7 @@ tags:
 
 ### Added
 
-* Support for C and C++ is now generally available (GA).
+* Support for C and C++ is now generally available (GA), including cross-file and cross-function analysis.
 * Added new Pro rules for Elixir and the Phoenix framework, covering various security and correctness issues. These are available in the `p/elixir`
   ruleset.
 * Added support for Python, with a focus on the Flask ecosystem, to the Semgrep
@@ -126,13 +126,7 @@ tags:
 * Fixed issues with trailing newline parsing in `pyproject.toml` and
   `poetry.lock` files.
 
-## 🤖 Assistant (beta)
-
-### Added
-
-- Added weekly emails summarizing Semgrep tasks, highlighting top priority items. <!-- Private beta - not sure if we should include this --> 
-
-## 🔐 Secrets (beta)
+## 🔐 Secrets
 
 ### Added
 
