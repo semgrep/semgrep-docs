@@ -116,7 +116,6 @@ Community supported languages have varying levels of rule coverage - check the r
 - Clojure   
 - Dart       
 - Dockerfile
-- Elixir    
 - Generic   
 - Go        
 - Hack       
