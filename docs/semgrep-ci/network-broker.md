@@ -30,7 +30,7 @@ The Semgrep Network Broker is available to Enterprise tier users.
 
 Ensure that you are logged in to the server where you want to run Semgrep Network Broker. Complete the following steps while logged in to that server.
 
-1. Create a `config.yaml` file similar to the following snippet. The steps required to generate values for the placeholders `SEMGREP_LOCAL_ADDRESS`, `YOUR_PRIVATE_KEY`, `YOUR_BASE_URL`, `YOUR_TOKEN`, are provided in subsequent steps of this guide.
+1. Create a `config.yaml` file similar to the following snippet. The steps required to generate values for the placeholders `SEMGREP_LOCAL_ADDRESS`, `YOUR_PRIVATE_KEY`, `YOUR_BASE_URL`, and `YOUR_TOKEN`, are provided in subsequent steps of this guide.
 
   ```yaml
   inbound:
