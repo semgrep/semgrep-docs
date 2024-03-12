@@ -257,8 +257,8 @@ Semgrep Supply Chain parses **lockfiles** for dependencies, then scans your code
    <td>Cargo</td>
    <td><code>cargo.lock</code></td>
    <td style={{"text-align": "center"}}>Lockfile-only</td>
-   <td>✅</td>
-   <td rowspan="6">Not applicable due to reachability support level</td>
+   <td>✔️</td>
+   <td rowspan="7">Not applicable due to reachability support level</td>
 </tr>
 <tr>
    <td>Dart</td>
@@ -291,6 +291,13 @@ Semgrep Supply Chain parses **lockfiles** for dependencies, then scans your code
    <td>Scala</td>
    <td>Maven</td>
    <td>Maven-generated dependency tree (See <a href="/docs/semgrep-supply-chain/setup-maven/">Setting up SSC scans for Apache Maven</a> for instructions.)</td>
+   <td style={{"text-align": "center"}}>Lockfile-only</td>
+   <td>--</td>
+</tr>
+<tr>
+   <td>Swift</td>
+   <td>SwiftPM</td>
+   <td>Swift-generated <code>Package.resolved</code> file. (See <a href="https://www.swift.org/documentation/package-manager/">Swift documentation </a> for instructions.)</td>
    <td style={{"text-align": "center"}}>Lockfile-only</td>
    <td>--</td>
 </tr>
