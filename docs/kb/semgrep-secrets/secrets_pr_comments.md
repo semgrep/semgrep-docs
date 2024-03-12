@@ -21,8 +21,6 @@ Secrets.
 
 ## For users of Semgrep Secrets
 
-> At this time, Semgrep Secrets supports only the use of GitHub.
-
 1. Set your [policy mode to
    **Comment**](/semgrep-code/policies/#blocking-a-pr-or-mr-through-rule-modes).
 
@@ -32,21 +30,9 @@ Secrets.
     product: secrets
     ```
 
-3. Ensure that you have the following two feature flags enabled for your Semgrep
-   account:
-
-    * Secrets
-    * Secrets PR comments
-
-    Reach out to your Semgrep representative if you need either of these flags
-    enabled for your account.
-
-## Caveat
-
-Only [findings that are **Confirmed
-Valid**](/semgrep-secrets/getting-started/#validation) generate PR comments.
-When writing custom secrets rules, ensure that you implement a validator so that
-Semgrep can determine if an identified secret is valid or not.
+:::info
+See [Rules](/semgrep-secrets/rules) for more information on how to write rules for Semgrep Secrets.
+:::
 
 ## Testing secrets PR comments
 
