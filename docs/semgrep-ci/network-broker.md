@@ -80,7 +80,7 @@ Ensure that you are logged in to the server where you want to run Semgrep Networ
       ...
   ```
 
-1. Add the public key generated in step three to the Semgrep Cloud Platform:
+1. Add the public key generated in step 3 to the Semgrep Cloud Platform:
 
    1. Log in to Semgrep Cloud Platform.
    2. Navigate to **Settings** > **Broker**.
