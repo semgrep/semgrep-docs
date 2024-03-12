@@ -70,7 +70,7 @@ Ensure that you are logged in to the server where you want to run Semgrep Networ
   Your public key is safe to share. Do **not** share your private key with anyone, including Semgrep.
   :::
 
-1. Update the `config.yaml` file with your private key generated in step 2:
+1. Update the `config.yaml` file with your private key:
 
   ```yaml
   inbound:
@@ -80,7 +80,7 @@ Ensure that you are logged in to the server where you want to run Semgrep Networ
       ...
   ```
 
-1. Add your public key generated in step 3 to the Semgrep Cloud Platform:
+1. Add your public key to the Semgrep Cloud Platform:
 
    1. Log in to Semgrep Cloud Platform.
    2. Navigate to **Settings** > **Broker**.
