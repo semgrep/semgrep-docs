@@ -146,13 +146,10 @@ permissions granted to the app.
         your org)
       - You've selected the **Use for multiple GitHub orgs (Enterprise-public
         app)** checkbox
-      ![Popup window to provide GitHub org information](/img/ghe-4.png#md-width)
    2. Review the permissions for the app; as the app owner, note that you can
    change these permissions later. Click **Create GitHub App** to proceed.
    3. Click **Create GitHub App** to proceed.
-      ![Create private Semgrep GitHub App popup with option to create app](/img/ghe-5.png#md-width)
       If this step is successful, the blue **Create GitHub App** button turns into a gray **Created** button.
-      ![Create private Semgrep GitHub App popup showing that an app has been created](/img/ghe-6.png#md-width)
 6. Click **Install** under **Step 4**. You'll be taken to your GHE instance and
    asked to name your app. You can choose whatever name you'd like, but Semgrep
    recommends that you name it something that indicates that this is the Semgrep
@@ -160,7 +157,6 @@ permissions granted to the app.
 7. After you name your app, choose the GHE org to which you want it installed.
    Select the org that you want to act as the owner of the app, and click
    **Install**.
-   ![List of orgs to which the Semgrep app can be installed](/img/ghe-7.png#md-width)
 8. Wait for the installation to complete. When done, you will be redirected to
    Semgrep.
 9. Verify the installation by navigating to **Settings** > **Source Code
