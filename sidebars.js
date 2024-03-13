@@ -246,7 +246,11 @@ module.exports = {
             label: 'Secrets',
             items: [
                 'semgrep-secrets/conceptual-overview',
-                'semgrep-secrets/getting-started'
+                'semgrep-secrets/getting-started',
+                'semgrep-secrets/view-triage',
+                'semgrep-secrets/policies',
+                'semgrep-secrets/validators',
+                'semgrep-secrets/rules'
             ]
         },
         /*
@@ -459,6 +463,7 @@ module.exports = {
         label: 'Run scans',
         collapsible: false,
         items: [
+            'deployment/oss-deployment',
             'running-rules',
             'getting-started/cli-oss',
             'ignore-oss'

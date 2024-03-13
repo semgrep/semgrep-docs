@@ -1,0 +1,15 @@
+```yaml
+variables:
+- group: Semgrep_Variables
+
+steps:
+- checkout: self
+  clean: true
+  fetchDepth: 20
+  persistCredentials: true
+- script: |
+    python -m pip install --upgrade pip
+    pip install semgrep
+    echo "Semgrep OSS full scan"
+    semgrep scan --config auto
+```

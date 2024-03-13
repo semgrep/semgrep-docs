@@ -12,10 +12,13 @@ import MoreHelp from "/src/components/MoreHelp"
 
 Stay up-to-date by running the latest version of Semgrep automatically in CI or your local CLI.
 
-For Docker users, enter the following command:
+For Docker users, enter the following commands:
 
 ```sh
-docker pull returntocorp/semgrep:latest
+docker pull semgrep/semgrep:latest
+
+# confirm your Semgrep installation
+docker run --rm semgrep/semgrep semgrep --version
 ```
 
 You can also use the following commands in either your CLI or CI environment:

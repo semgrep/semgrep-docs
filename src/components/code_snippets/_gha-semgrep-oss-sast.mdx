@@ -1,13 +1,12 @@
 <!--
 
-CI code snippet for GitHub Actions with Semgrep Supply Chain
-Deprecated
+OSS Semgrep in CI code snippet for GitHub Actions
 
 -->
 
 ```yaml
 # Name of this GitHub Actions workflow.
-name: Semgrep
+name: Semgrep OSS scan
 
 on:
   # Scan changed files in PRs (diff-aware scanning):
@@ -25,7 +24,7 @@ on:
 jobs:
   semgrep:
     # User definable name of this GitHub Actions job.
-    name: semgrep/ci 
+    name: semgrep-oss/scan
     # If you are self-hosting, change the following `runs-on` value: 
     runs-on: ubuntu-latest
 
@@ -39,11 +38,6 @@ jobs:
     steps:
       # Fetch project source with GitHub Actions Checkout.
       - uses: actions/checkout@v3
-      # Run the "semgrep ci" command on the command line of the docker image.
-      - run: semgrep ci --supply-chain
-        env:
-          # Connect to Semgrep Cloud Platform through your SEMGREP_APP_TOKEN.
-          # Generate a token from Semgrep Cloud Platform > Settings
-          # and add it to your GitHub secrets.
-          SEMGREP_APP_TOKEN: ${{ secrets.SEMGREP_APP_TOKEN }}
+      # Run the "semgrep scan" command on the command line of the docker image.
+      - run: semgrep scan --config auto
 ```
