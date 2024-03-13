@@ -1,7 +1,7 @@
 ---
 slug: semgrep-assistant-code
 append_help_link: true
-title: GPT-assisted triage and autofix
+title: AI-assisted triage and autofix
 hide_title: true
 description: Enable Semgrep Assistant in your PR comments to provide tips for triage and remediation of Semgrep findings. 
 tags:
