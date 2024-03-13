@@ -1,6 +1,10 @@
 ---
 slug: semgrep-vs-code
-append_help_link: true
+title: Semgrep Visual Studio Code extension
+hide_title: true
+description: Learn how to install and use Semgrep's extension for Visual Studio Code.
+tags:
+  - extensions
 ---
 
 import MoreHelp from "/src/components/MoreHelp"
