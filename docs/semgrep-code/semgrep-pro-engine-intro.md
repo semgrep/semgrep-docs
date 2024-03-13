@@ -197,12 +197,12 @@ To provide reliably completed scans, Semgrep Pro Engine can **fall back** to the
 
 By default, if a scan uses more than 5&nbsp;GB of memory during interfile pre-processing, the scan uses Semgrep OSS Engine to ensure lower memory consumption. Similarly, if the Pro Engine scan doesn't complete after 3 hours, the Pro Engine times out and Semgrep OSS rescans the repository. Typically, this happens because the repository is very large.
 
-If 1-2 repositories cause CI scan issues and scanning these repositories with Pro Engine is not critical, modify your config file to use `semgrep ci --oss-only`. This overrides the Semgrep Cloud Platform settings for these repositories, and always runs these scans with Semgrep OSS.
+If 1-2 repositories cause CI scan issues and scanning these repositories with Pro Engine is not critical, modify your config file to use `semgrep ci --oss-only`. This overrides the Semgrep Cloud Platform setting for these repositories, and always runs these scans with Semgrep OSS.
 
 If many repositories cause scan issues, or you have critical repositories you are unable to scan with Semgrep Pro Engine:
 1. Disable the <i class="fa-solid fa-toggle-large-on"></i> **Pro Engine beta** toggle in the **[Settings](https://semgrep.dev/orgs/-/settings)** page of your organization.
 1. Review scan troubleshooting guides such as [A Semgrep scan is having a problem - what next?](/docs/kb/semgrep-code/semgrep-scan-troubleshooting/) or [Troubleshooting "You are seeing this because the engine was killed"](/docs/kb/semgrep-code/scan-engine-kill/).
-1. If you need additional guidance, [contact Semgrep Support](/docs/support), or reach out to the Semgrep team in the <a href="https://go.semgrep.dev/slack">Semgrep Community Slack</a> so we can help you to fix the issue and create a plan for your organization.
+1. If you need additional guidance, [contact Semgrep Support](/docs/support), or reach out to the Semgrep team in the <a href="https://go.semgrep.dev/slack">Semgrep Community Slack</a> so we can help you resolve the issue and create a plan for your organization.
 
 ### Difference between Semgrep Pro Engine and join mode
 
