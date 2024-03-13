@@ -103,4 +103,4 @@ The following experimental features should only be used upon recommendation by S
 - **Semgrep > Ignore Cli Version**: Ignore the CLI Version and enable all extension features.
 - **Semgrep > Stack Size JS**: Set the maximum stack size in KB for the JavaScript version of the extension.
 
-</ MoreHelp>
+<MoreHelp />
