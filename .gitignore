@@ -22,7 +22,6 @@ yarn-error.log*
 
 # Fetched from GitHub by build script
 /docs/metrics.md
-/docs/extensions/semgrep-vs-code.md
 
 # Ignore .history
 /.history/
