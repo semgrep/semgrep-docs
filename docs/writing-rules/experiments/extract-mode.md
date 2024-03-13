@@ -9,7 +9,7 @@ import MoreHelp from "/src/components/MoreHelp"
 # Extract mode
 
 
-:::error
+:::danger Deprecation notice
 As of Semgrep 1.65.0, extract mode has been deprecated and removed from Semgrep. This feature may return in the future.
 :::
 
