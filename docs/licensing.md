@@ -38,9 +38,9 @@ claim your license and begin onboarding your Semgrep products.
 If you have been provided a license key by Semgrep or if you would like to claim a license manually:
 
 1. Sign up or log in to your Semgrep account.
-2. Create an org if you haven't already done so.
+2. [Create an org](/docs/deployment/create-account-and-orgs/#initial-sign-in-to-semgrep-cloud-platform) if you haven't already done so.
 3. Navigate to `http://semgrep.dev/orgs/-/settings/upgrade/YOUR_LICENSE_KEY`,
-   making sure that you REPLACE THE `YOUR_LICENSE_KEY` placeholder with your
+   making sure that you **replace** the `YOUR_LICENSE_KEY` placeholder with your
    license key value.
 
 ## License Semgrep for use
