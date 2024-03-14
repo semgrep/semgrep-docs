@@ -1,16 +1,33 @@
 ---
 slug: java
 append_help_link: true
-title: Java
+title: False positive reduction in Java
 hide_title: true
 description: Classes of false positives in the Java language that Semgrep Pro Engine can eliminate.
 tags:
   - tk
 ---
 
-# Semgrep Pro for Java
+# False positive reduction in Java through Semgrep Pro 
 
 This document explains how Semgrep Pro Engine eliminates certain classes of false positives.
+
+## Language features prevent injection through boolean and integer types 
+
+Strong typing in Java, combined with its compile-time and runtime checks, ensures that an integer or boolean input cannot be exploited to perform injection-style attacks. Semgrep Pro can reduce false positives by leveraging these checks. The OSS Engine matches based on patterns, but the Pro Engine can detect boolean and integer values and mark these as untainted, or safe.
+
+### Example rule: `int-bool-untainted`
+
+<iframe title="tk" src="https://semgrep.dev/embed/editor?snippet=Ab0p8" width="100%" height="432px" frameBorder="0"></iframe>
+**Figure**. `int-bool-untainted`. To view the entire sample code and rule, click **Open in Playground**.
+
+This demo rule detects tainted data in `sink`. 
+
+* This example has two true positives: **line 22** and **line 28**.
+* Semgrep Pro is able to detect that **line 24 and 30 are false positives**. Semgrep OSS can't catch that distinction.
+* Line 24 is a false positive because the data in the sink is an element of an integer List.
+* Line 30 is a false positive because the data in the sink is a set of booleans.
+* The Semgrep rule uses the fields `taint_assume_safe_booleans` and `taint_assume_safe_numbers` to tell the engine that these types are safe and not tainted. 
 
 ## Semgrep understands the Java standard library and APIs
 
@@ -18,7 +35,7 @@ Java provides a wide array of standard classes and methods across its various li
 
 ### Example rule: `sqli-demo-bool_doesnt_taint`
 
-<iframe title="Semgrep example no prints" src="https://semgrep.dev/embed/editor?snippet=Kx1AY" width="100%" height="432px" frameBorder="0"></iframe>
+<iframe title="tk" src="https://semgrep.dev/embed/editor?snippet=Kx1AY" width="100%" height="432px" frameBorder="0"></iframe>
 
 **Figure**. `sqli-demo-bool_doesnt_taint`. To view the entire sample code and rule, click **Open in Playground**.
 
@@ -26,10 +43,9 @@ This demo rule detects SQL injection through a `UserInputGenerator` class. This 
 
 * This example has two true positives: **line 11** and **line 20**.
 * Semgrep Pro is able to detect that **line 14 and 17 are false positives**. Semgrep OSS can't catch that distinction.
-* Line 14 and 17 are false positives because `input.endsWith("something")` and `input.indexOf('u')` return a boolean and integer respectively. Semgrep Pro is able to understand those Java methods.
+* Lines 14 and 17 are false positives because `input.endsWith("something")` and `input.indexOf('u')` return a boolean and integer respectively. Semgrep Pro is able to understand `endsWith` and `indexOf` Java methods.
 * The Semgrep rule uses the fields `taint_assume_safe_booleans` and `taint_assume_safe_numbers` to tell the engine that these types are safe and not tainted. 
 
-## Java's language features prevent injection through boolean and integer types 
 
-Strong typing in Java, combined with its compile-time and runtime checks, ensures that an integer input cannot be exploited to perform injection-style attacks
+
 
