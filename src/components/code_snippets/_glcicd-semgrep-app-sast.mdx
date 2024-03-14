@@ -6,9 +6,10 @@ semgrep:
   script: semgrep ci
 
   rules:
+  # Allow triggering a scan manually from the GitLab UI
+  - if: $CI_PIPELINE_SOURCE == "web"  
   # Scan changed files in MRs, (diff-aware scanning):
   - if: $CI_MERGE_REQUEST_IID
-
   # Scan mainline (default) branches and report all findings.
   - if: $CI_COMMIT_BRANCH == $CI_DEFAULT_BRANCH
 
@@ -18,10 +19,7 @@ semgrep:
     # and add it as a variable in your GitLab CI/CD project settings.
     SEMGREP_APP_TOKEN: $SEMGREP_APP_TOKEN
 
-  # Other optional settings in the `variables` block:
-
-  # Receive inline MR comments (requires Semgrep Cloud Platform account)
-  # Setup instructions: 
-  # https://semgrep.dev/docs/semgrep-cloud-platform/gitlab-mr-comments
-  #   GITLAB_TOKEN: $PAT
+    # Optional variable to receive MR comments. Setup instructions: 
+    # https://semgrep.dev/docs/semgrep-cloud-platform/gitlab-mr-comments
+    # GITLAB_TOKEN: $PAT
 ```
