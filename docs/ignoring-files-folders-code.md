@@ -189,7 +189,7 @@ Semgrep Cloud Platform users can disable rules and rulesets through the Policies
 
 ## Ignore findings
 
-See [Triage and remediate Semgrep Code findings in Semgrep Cloud Platform](/semgrep-code/triage-remediation/#ignore-findings) to learn how to:
+**Ignoring** can also be a triage action. In this case, the code is scanned rather than excluded, and if a pattern match occurs, a finding record is generated that you can then triage as **Ignored**. See [Triage and remediate Semgrep Code findings in Semgrep Cloud Platform](/semgrep-code/triage-remediation/#ignore-findings) to learn how to:
 
 * [Ignore findings in Semgrep Cloud Platform](/semgrep-code/triage-remediation/#ignore-findings)
 * [Ingore findings through GitHub PR comments](/semgrep-code/triage-remediation/#ignore-findings-through-github-pr-comments.)
