@@ -104,6 +104,7 @@ Semgrep Code supports over 30 languages and counting! 🚀
 
 ### Semgrep OSS language support
 
+<<<<<<< HEAD
 **All Semgrep OSS languages are community supported.** Community supported languages meet the parse rate and syntax requirements of experimental languages in Semgrep Code. Semgrep OSS uses Semgrep's open source engine.
 
 Community supported languages have varying levels of rule coverage - check the registry and filter out Pro rules to see the level of coverage for OSS.
