@@ -188,6 +188,10 @@ Previous annotations for ignoring code inline, such as `nosem`, are deprecated.
 
 Semgrep Cloud Platform users can disable rules and rulesets through the Policies page. See [Disabling rules](/semgrep-code/policies#disabling-rules) and [Disabling rulesets](/semgrep-code/triage-remediation/#disable-a-ruleset-or-a-rule).
 
+## Ignore findings
+
+See [Triage and remediate Semgrep Code findings in Semgrep Cloud Platform](/semgrep-code/triage-remediation/#ignore-findings) to learn how to [ignore findings in Semgrep Cloud Platform](/semgrep-code/triage-remediation/#ignore-findings) or to [ingore findings through GitHub PR comments](/semgrep-code/triage-remediation/#ignore-findings-through-github-pr-comments.)
+
 ## Known issues
 
 ### `--no-git-ignore` is overridden due to default ignore patterns (.semgrepignore) ([#4537](https://github.com/semgrep/semgrep/issues/4537))
