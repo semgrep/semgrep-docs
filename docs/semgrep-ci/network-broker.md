@@ -17,7 +17,7 @@ Examples of inbound traffic include:
 - Pull request (PR) or merge request (MR) comments
 - Webhooks
 
-:::info Subscriber availability
+:::info Tier availability
 The Semgrep Network Broker is available to Enterprise tier users.
 :::
 
