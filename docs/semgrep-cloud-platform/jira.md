@@ -19,19 +19,19 @@ Object.entries(frontMatter).filter(
 }
 </ul>
 
-# Creating Jira tickets
+# Create Jira tickets
 
 <!-- It's Jira, not JIRA :) -->
 
-:::tip Try the Jira integration (private beta)
-Existing customers can try the Jira integration for free. To enable this feature:
-1. Fill out the following form: [Request access to the Semgrep Jira integration private beta](https://get.semgrep.dev/Jira-asana-linear-private-beta.html).
+:::tip Private beta
+This feature is in a closed beta. To request access:
+1. Fill out the following form: [Request access to the Semgrep Jira integration closed beta](https://get.semgrep.dev/Jira-asana-linear-private-beta.html).
 2. Contact your Technical Account Manager or your Account Executive and let them know you'd like to try the Jira integration out.
 :::
 
 The Semgrep Jira integration allows you to create Jira tickets based on your Semgrep Code or Supply Chain findings.
 
-## Enabling your Jira integration
+## Enable your Jira integration
 
 :::info Prerequisites
 * You must have a **Jira Cloud** plan. Jira Data Center (self-managed, or on-prem) is not supported. 
@@ -44,7 +44,7 @@ To integrate Jira, follow these steps:
 2. On the **[Integrations](https://semgrep.dev/orgs/-/settings/integrations)** page, click **Add Integration** (or **Setup First Integration** if this is your first integration), and then select **Ticketing > Jira**.
 3. Follow the on-screen instructions to add your Jira API key.
 
-## Configuring your default project and ticket type
+## Configure your default project and ticket type
 
 Use the drop-down lists to select the default project and ticket type. These settings can be changed later from the integrations page.
 
@@ -52,7 +52,7 @@ Use the drop-down lists to select the default project and ticket type. These set
 
 **Figure** A sample Jira integration
 
-## Creating tickets
+## Create tickets
 
 ### Code
 
@@ -84,7 +84,7 @@ The Supply Chain triage flow creates tickets for all usages of a given vulnerabi
 ![Jira ticket created - Supply Chain](/img/jira-ssc-ticketed.png)
 **Figure** Supply Chain ticket created
 
-## Removing your Jira integration
+## Remove your Jira integration
 
 On the **[Integrations](https://semgrep.dev/orgs/-/settings/integrations)** page, find Jira, click **Edit Configuration** and the **Delete**
 

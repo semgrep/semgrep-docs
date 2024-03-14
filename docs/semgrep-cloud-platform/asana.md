@@ -19,17 +19,17 @@ Object.entries(frontMatter).filter(
 }
 </ul>
 
-# Creating Asana tickets
+# Create Asana tickets
 
-:::tip Try the Asana integration (beta)
-Existing customers can try the Asana integration for free. To enable this feature:
-1. Fill out the following form: [Request access to the Semgrep Asana integration private beta](https://get.semgrep.dev/Jira-asana-linear-private-beta.html).
-2. Contact your Technical Account Manager or your Account Executive and let them know you'd like to try the Asana integration out.
+:::tip Private beta
+This feature is in a closed beta. To request access:
+1. Fill out the following form: [Request access to the Semgrep Asana integration closed beta](https://get.semgrep.dev/Jira-asana-linear-private-beta.html).
+2. Contact your Technical Account Manager or your Account Executive and let them know you'd like to try the Jira integration out.
 :::
 
 The Semgrep Asana integration allows you to create Asana tickets based on your Semgrep Code or Supply Chain findings.
 
-## Enabling your Asana integration
+## Enable your Asana integration
 
 :::info Prerequisites
 * Your Asana user must be able to approve an OAuth integration with admin level privileges.
@@ -41,7 +41,7 @@ To integrate Asana, follow these steps:
 2. On the **[Integrations](https://semgrep.dev/orgs/-/settings/integrations)** page, click **Add Integration** (or **Setup First Integration** if this is your first integration), and then select **Ticketing > Asana**.
 3. Follow the on-screen instructions to integrate Asana.
 
-## Configuring your default project
+## Configure your default project
 
 Use the drop-down list to select the default project. These settings can be changed later from the integrations page.
 
@@ -49,7 +49,7 @@ Use the drop-down list to select the default project. These settings can be chan
 
 **Figure** A sample Asana integration
 
-## Creating tickets
+## Create tickets
 
 ### Code
 
@@ -81,7 +81,7 @@ The Supply Chain triage flow creates tickets for all usages of a given vulnerabi
 ![Asana ticket created - Supply Chain](/img/asana-ssc-ticketed.png)
 **Figure** Supply Chain ticket created
 
-## Removing your Asana integration
+## Remove your Asana integration
 
 On the **[Integrations](https://semgrep.dev/orgs/-/settings/integrations)** page, find Asana, click **Edit Configuration** and the **Delete**
 
