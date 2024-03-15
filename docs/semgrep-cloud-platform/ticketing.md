@@ -34,4 +34,4 @@ Semgrep Cloud Platform can create tickets in the following systems:
 
 These features are in a closed beta. To request access:
 1. Fill out the following form: [Request access to the Semgrep ticketing integrations closed beta](https://get.semgrep.dev/Jira-asana-linear-private-beta.html).
-2. Contact your Technical Account Manager or your Account Executive and let them know you'd like to try the Jira integration out.
+2. Contact your Technical Account Manager or your Account Executive and let them know you'd like to try the integration out.
