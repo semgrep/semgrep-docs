@@ -67,8 +67,8 @@ For users of GitLab cloud-hosted plans, a connection to GitLab is created automa
 
 ### GitHub Enterprise Server
 
-This section is applicable to users with **GitHub Enterprise Server**. We
-recommend connecting to your GitHub orgs using the Semgrep App instead of using
+This section is applicable to users with **GitHub Enterprise Server**. The Semgrep team
+recommends connecting to your GitHub orgs using the Semgrep App instead of using
 a personal access token (PAT) whenever possible.
 
 import Tabs from '@theme/Tabs';
@@ -84,7 +84,7 @@ import TabItem from '@theme/TabItem';
 
 <TabItem value='app'>
 
-The Semgrep App for GitHub Enterprise (GHE) creates a connection between Semgrep
+The **Semgrep App for GitHub Enterprise (GHE)** creates a connection between Semgrep
 and orgs in your GHE deployment. There are two primary installation
 steps:
 
@@ -93,11 +93,11 @@ steps:
 2. Install the app for additional GHE orgs.
 
 <!-->Using HTML headers instead of MD headers because I don't want them in the right-side nav<-->
-<h4>Install the Semgrep App for the first time using the organization that "owns" the app</h4>
+<h4>Initial Semgrep App installation</h4>
 
-When you install the Semgrep App for GHE for the first time in your GHE
+If your deployment contains many orgs, you must choose an org in the deployment that will act as the **owner** of the Semgrep app.  
 instance, you must choose the organization within your deployment to act as the
-owner of the app. As the owner, this GHE org controls the settings and
+owner of the app. As the owner, this org controls the settings and
 permissions granted to the app.
 
 1. Log in to [Semgrep Cloud Platform](https://semgrep.dev/login/).
@@ -107,7 +107,7 @@ permissions granted to the app.
 3. In the popup window, provide:
    - The **Name of your GitHub Organization**
    - The **URL** to access your deployment
-   - A random string in the **Access token** field; this field will be optional in the future
+   - A random string in the **Access token** field such as `asdf`;  this field will be optional in the future
     Click **Connect** to save your changes.
    ![Connect your GitHub Organization popup window](/img/ghe-2.png#md-width)
 4. Refresh your browser. You should see a new entry under **Source code
@@ -125,7 +125,7 @@ permissions granted to the app.
    change these permissions later. Click **Create GitHub App** to proceed.
    3. Click **Create GitHub App** to proceed.
       If this step is successful, the blue **Create GitHub App** button turns into a gray **Created** button.
-6. Click **Install** under **Step 4**. You'll be taken to your GHE instance and
+6. Click **Install** under **Step 4**. You are taken to your GHE instance and
    asked to name your app. You can choose whatever name you'd like, but Semgrep
    recommends that you name it something that indicates that this is the Semgrep
    GHE app.
@@ -151,7 +151,7 @@ At this point, you've successfully installed the GHE Semgrep App on the owner GH
 ![App installation page](/img/ghe-11.png#md-width)
 
 <!-->Using HTML headers instead of MD headers because I don't want them in the right-side nav<-->
-<h4>Install the app for subsequent GHE org</h4>
+<h4>Install the app for subsequent GHE orgs</h4>
 
 You can install the Semgrep app onto additional GHE orgs at any time. To do so:
 
