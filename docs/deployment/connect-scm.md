@@ -95,10 +95,7 @@ steps:
 
 #### Initial Semgrep App installation
 
-If your deployment contains many orgs, you must choose an org in the deployment that will act as the **owner** of the Semgrep app.  
-instance, you must choose the organization within your deployment to act as the
-owner of the app. As the owner, this org controls the settings and
-permissions granted to the app.
+If your deployment contains many orgs, you must choose an org in the deployment that will act as the **owner** of the Semgrep app. As the owner, this org controls the settings and permissions granted to the app.
 
 1. Log in to [Semgrep Cloud Platform](https://semgrep.dev/login/).
 2. Go to **Settings** > **Source Code Managers**, and click **Add GitHub
@@ -125,7 +122,7 @@ permissions granted to the app.
    change these permissions later.
    3. Click **Create GitHub App** to proceed.
       If this step is successful, the blue **Create GitHub App** button turns into a gray **Created** button.
-6. Click **Install** under **Step 4**. You are taken to your GHE instance and
+7. Click **Install** under **Step 4**. You are taken to your GHE instance and
    asked to name your app. You can choose whatever name you'd like, but Semgrep
    recommends that you name it something that indicates that this is the Semgrep
    GHE app.
