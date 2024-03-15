@@ -19,6 +19,7 @@ Strong typing in Java, combined with its compile-time and runtime checks, ensure
 ### Example rule: `int-bool-untainted`
 
 <iframe title="tk" src="https://semgrep.dev/embed/editor?snippet=Ab0p8" width="100%" height="432px" frameBorder="0"></iframe>
+
 **Figure**. `int-bool-untainted`. To view the entire sample code and rule, click **Open in Playground**.
 
 This demo rule detects tainted data in `sink`. 
@@ -46,6 +47,6 @@ This demo rule detects SQL injection through a `UserInputGenerator` class. This 
 * Lines 14 and 17 are false positives because `input.endsWith("something")` and `input.indexOf('u')` return a boolean and integer respectively. Semgrep Pro is able to understand `endsWith` and `indexOf` Java methods.
 * The Semgrep rule uses the fields `taint_assume_safe_booleans` and `taint_assume_safe_numbers` to tell the engine that these types are safe and not tainted. 
 
-
+## Semgrep understands the Java standard library and APIs
 
 
