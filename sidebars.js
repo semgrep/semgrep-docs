@@ -27,7 +27,7 @@ module.exports = {
       label: 'Knowledge base',
       href: '/kb/',
     },
-    { type: 'ref', id: 'cheat-sheets/java-code-injection', label: 'OWASP cheat sheets'},
+    { type: 'ref', id: 'cheat-sheets/java-code-injection', label: 'Cheat sheets for security issues'},
     { type: 'ref', id: 'release-notes/introduction', label: 'Release notes'},
     { type: 'link', href: 'https://semgrep.dev/api/v1/docs/', label: 'API'},
     { type: 'ref', id: 'faq', label: 'About Semgrep' },
@@ -664,6 +664,7 @@ module.exports = {
                     title: '2024 Release notes'
                 },
               items: [
+                'release-notes/february-2024',
                 'release-notes/january-2024'
               ]
             },
