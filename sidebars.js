@@ -42,7 +42,6 @@ module.exports = {
             'getting-started/quickstart',
             'prerequisites',
             'supported-languages',
-            'semgrep-code/java',
             {
               type: 'category',
               label: 'Local and CLI scans',
