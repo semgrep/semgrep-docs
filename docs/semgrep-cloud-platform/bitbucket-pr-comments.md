@@ -17,6 +17,7 @@ import TroubleshootingPrLinks from "/src/components/reference/_troubleshooting-p
 import DeploymentJourney from "/src/components/concept/_deployment-journey.mdx"
 import NextAfterComments from "/src/components/procedure/_next-after-comments.mdx"
 import CommentTriggers from "/src/components/reference/_comment-triggers.mdx"
+import ReceiveCommentsScm from "/src/components/procedure/_receive-comments-scm.mdx"
 
 <ul id="tag__badge-list">
 {
@@ -177,7 +178,11 @@ pipelines:
 </Tabs>
 -->
 
-After defining the `BITBUCKET_TOKEN`, you have successfully set up PR comments in Bitbucket Cloud.
+If you are using a cloud-hosted BitBucket plan to run Semgrep, no extra changes are needed to receive PR comments.
+
+### Receive comments in your VPN or on-premise SCM
+
+<ReceiveCommentsScm />
 
 :::info
 Only rules set to the **Comment** and **Block** rule modes in the [Policies page](https://semgrep.dev/orgs/-/policies) create PR comments.
