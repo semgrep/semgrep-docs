@@ -101,7 +101,7 @@ To complete the configuration, follow the [Adding Semgrep to your Bitbucket CI p
 
 </Tabs>
 
-## Enable PR comments in Bitbucket Cloud
+## Enable PR comments in Bitbucket 
 
 ### Prerequisites
 
