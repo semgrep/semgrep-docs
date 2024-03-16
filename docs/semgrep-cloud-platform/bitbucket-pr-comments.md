@@ -50,7 +50,7 @@ PR comments appear for the following types of scans under these conditions:
     - Cloud Free
     - Standard
     - Premium
-- Bitbucket Data Center is not supported. 
+    - Bitbucket Data Center 
 
 There are two ways in which you can integrate Semgrep comments into Bitbucket Cloud depending on the Bitbucket plan you use:
 
