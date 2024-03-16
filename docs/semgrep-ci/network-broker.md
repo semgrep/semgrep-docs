@@ -30,12 +30,12 @@ The Semgrep Network Broker is available to Enterprise tier users.
 
 Ensure that you are logged in to the server where you want to run Semgrep Network Broker. Complete the following steps while logged in to that server.
 
-1. Create a `config.yaml` file similar to the following snippet. The steps required to generate values for the placeholders, such as `YOUR_PRIVATE_KEY`, `YOUR_BASE_URL`, `YOUR_TOKEN`, are provided in subsequent steps of this guide.
+1. Create a `config.yaml` file similar to the following snippet. The steps required to generate values for the placeholders `SEMGREP_LOCAL_ADDRESS`, `YOUR_PRIVATE_KEY`, `YOUR_BASE_URL`, and `YOUR_TOKEN`, are provided in subsequent steps of this guide.
 
   ```yaml
   inbound:
     wireguard:
-      localAddress: fdf0:59dc:33cf:9be8:yyyy:0:1
+      localAddress: SEMGREP_LOCAL_ADDRESS
       privateKey: YOUR_PRIVATE_KEY
       peers:
         - publicKey: 4EqJwDZ8X/qXB5u3Wpo2cxnKlysec93uhRvGWPix0lg=
@@ -45,32 +45,32 @@ Ensure that you are logged in to the server where you want to run Semgrep Networ
       url: http://[fdf0:59dc:33cf:9be9:0000:0000:0000:0001]/ping
     allowlist: []
     gitlab:
-      baseUrl: <https://gitlab.xxxx.net/api/v4>
+      baseUrl: YOUR_BASE_URL
       token: YOUR_TOKEN
   ```
 
-  The `publicKey` should be entered precisely as follows:
+  The `publicKey` value should be entered precisely as follows:
 
   ```console
   4EqJwDZ8X/qXB5u3Wpo2cxnKlysec93uhRvGWPix0lg=
   ```
 
-1. The broker requires a WireGuard keypair to establish a secure connection. To generate the public key:
+1. The broker requires a WireGuard keypair to establish a secure connection. To generate your private key `YOUR_PRIVATE_KEY`:
 
    1. Determine the [network broker version](https://github.com/semgrep/semgrep-network-broker/pkgs/container/semgrep-network-broker) you want to use. The format should be similar to `v0.14.0`.
 
-   1. Run the following command in the CLI to generate the public key, replacing the placeholder with the network broker version number:
+   1. Run the following command in the CLI to generate your private key, replacing the placeholder with the network broker version number:
   <pre class="language-console"><code>docker run ghcr.io/semgrep/semgrep-network-broker:<span className="placeholder">VERSION_NUMBER</span> genkey</code></pre>
 
-1. Run the following command in the CLI to generate the private key, replacing the placeholders with the public key you generated in the previous step and the network broker version number:
+1. Run the following command in the CLI to generate your public key, replacing the placeholders with your private key generated in the previous step and the network broker version number:
 
-  <pre class="language-console"><code>echo `<span className="placeholder">PUBLIC_KEY</span>` | sudo docker run -i ghcr.io/semgrep/semgrep-network-broker:<span className="placeholder">VERSION_NUMBER</span> pubkey</code></pre>
+  <pre class="language-console"><code>echo `<span className="placeholder">YOUR_PRIVATE_KEY</span>` | sudo docker run -i ghcr.io/semgrep/semgrep-network-broker:<span className="placeholder">VERSION_NUMBER</span> pubkey</code></pre>
 
   :::info Key sharing 
   Your public key is safe to share. Do **not** share your private key with anyone, including Semgrep.
   :::
 
-1. Update the `config.yaml` file with the private key:
+1. Update the `config.yaml` file with your private key:
 
   ```yaml
   inbound:
@@ -80,7 +80,7 @@ Ensure that you are logged in to the server where you want to run Semgrep Networ
       ...
   ```
 
-1. Add the generated public key to the Semgrep Cloud Platform:
+1. Add your public key to the Semgrep Cloud Platform:
 
    1. Log in to Semgrep Cloud Platform.
    2. Navigate to **Settings** > **Broker**.
@@ -88,7 +88,7 @@ Ensure that you are logged in to the server where you want to run Semgrep Networ
 
    ![Screenshot of Semgrep Cloud Platform's Network Broker page](/img/scp-broker.png#md-width)
 
-2. Update the `config.yaml` with your GitLab or GitHub URL:
+2. Update the `config.yaml` by replacing `YOUR_BASE_URL` with your GitLab or GitHub URL:
 
   ```yaml
   # for GitLab 
@@ -102,7 +102,7 @@ Ensure that you are logged in to the server where you want to run Semgrep Networ
     token: YOUR_TOKEN
   ```
 
-1. [Create a GitLab personal access token (PAT)](https://docs.gitlab.com/ee/user/profile/personal_access_tokens.html#create-a-personal-access-token) with the `api` scope, and add the token to `config.yaml` using the `token` field:
+1. [Create a GitLab personal access token (PAT)](https://docs.gitlab.com/ee/user/profile/personal_access_tokens.html#create-a-personal-access-token) with the `api` scope, and add the token to `config.yaml` by replacing `YOUR_TOKEN` in the `token` field:
 
   ```yaml
   gitlab:
@@ -118,7 +118,7 @@ Ensure that you are logged in to the server where you want to run Semgrep Networ
     token: YOUR_TOKEN
   ```
 
-1. Convert your deployment ID to hexadecimal for use in creating your deployment's local address. You can use a tool such as [Decimal to Hexadecimal converter](https://www.rapidtables.com/convert/number/decimal-to-hex.html) if needed.
+1. Convert your deployment ID to hexadecimal for use in creating your deployment's local address `SEMGREP_LOCAL_ADDRESS`. You can use a tool such as [Decimal to Hexadecimal converter](https://www.rapidtables.com/convert/number/decimal-to-hex.html) if needed.
 
   <pre class="language-console"><code>fdf0:59dc:33cf:9be8:0:<span className="placeholder">DEPLOYMENT_ID</span>:0:1</code></pre>
  
