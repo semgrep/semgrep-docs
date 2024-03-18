@@ -28,17 +28,17 @@ import MoreHelp from "/src/components/MoreHelp"
 - For GitHub and GitLab users: You have [connected your source code manager](/deployment/connect-scm).
 :::
 
-The only required steps to ensure that users are added to Semgrep Cloud Platform are on the side of the SSO provider. After setting up SSO, users are able to sign in to your Semgrep organizations by entering their SSO credentials.
+The only required steps to ensure that users are added to Semgrep Cloud Platform (SCP) are on the side of the SSO provider. After setting up SSO, users are able to sign in to your Semgrep organizations by entering their SSO credentials.
 
-Semgrep Cloud Platform supports SSO through [OpenID Connect / OAuth2](#openid-connect--oauth2) and [SAML 2.0](#saml-20).
+SCP supports SSO through [OpenID Connect / OAuth2](#openid-connect--oauth2) and [SAML 2.0](#saml-20).
 
 ## OpenID Connect / OAuth2
 
 To set up SSO:
 
-1. In Semgrep Cloud Platform, click **Settings** > **Access** > **[SSO](https://semgrep.dev/orgs/-/settings/access/sso)**, and then select **Add OpenID SSO**.
+1. In SCP, click **Settings** > **Access** > **[SSO](https://semgrep.dev/orgs/-/settings/access/sso)**, and then select **Add OpenID SSO**.
 2. Copy the `Redirect URL`.
-    ![Finding providerId and RedirectURL via the Semgrep Cloud Platform](/img/sso-redirect-url.png "Finding Provider ID and RedirectURI via the Semgrep Cloud Platform")
+    ![Finding providerId and RedirectURL via SCP](/img/sso-redirect-url.png "Finding Provider ID and RedirectURI via SCP")
 3. Generate a `Client ID` and `Client Secret` through your authentication provider and paste them.
     ![Generating Client ID and Client Secret via the Okta](/img/sso-clientID-clientSecret.png "Generating Client ID and Client Secret through Okta")
 4. From your authentication provider, copy the values for `Base URL/Domain` and `Email Domain` to Semgrep's Configure SSO: OpenID tab. `Base URL/Domain` is `Okta domain` for Okta SSO.
@@ -49,7 +49,7 @@ In case you encounter issues during the setup process, please reach out to [supp
 
 ## SAML 2.0
 
-SAML2.0 is configured through the **Semgrep Cloud Platform Dashboard**. 
+SAML2.0 is configured through **Semgrep Cloud Platform**. 
 
 To set up SSO:
 
@@ -57,7 +57,7 @@ To set up SSO:
     ![Creating SAML app through Okta](/img/saml-creating-app.png "Creating SAML app through Okta")
 2. From the **App Dashboard**, click on **Settings** > **Access** > **[SSO](https://semgrep.dev/orgs/-/settings/access/sso)**
 3. Copy the `Single sign on URL`, and `Audience URI`. Paste the values as needed in your authentication provider. The Provider ID value will be your organization's slug in **Settings** > **Deployment**,
-    ![Finding Single sign on URL, and Audience URI via the Semgrep Cloud Platform](/img/saml-copy-urls.png "Finding Single sign on URL, and Audience URI via the Semgrep Cloud Platform")
+    ![Finding Single sign on URL, and Audience URI via SCP](/img/saml-copy-urls.png "Finding Single sign on URL, and Audience URI via SCP")
 4. From your authentication provider, add in two attribute statements `name` and `email`.
     ![Filling in attribute statements in Okta](/img/saml-attribute-statements.png "Filling in attribute statements through Okta")
 5. From your authentication provider, copy your `IdP SSO URL`, `IdP Issuer ID`, and `X509 Certificate` to Semgrep's Configure SSO: SAML tab.
@@ -96,8 +96,10 @@ Setting up SAML SSO using Microsoft Entra ID consists of the following general s
 
 1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com/).
 2. Use the search bar to find and navigate to **enterprise applications**.
+   ![Microsoft Entra admin center's Enterprise applications screen](/img/entra-1.png#md-width)
 3. Click **New application** > **Create your own application**. A menu appears.
-4. Give your new application a name, such as `Semgrep SAML`.
+   ![Create your own application screen](/img/entra-2.png#md-width)
+4. Name your new application something like `Semgrep SAML`.
 5. Select **Integrate any other application you don't find in the gallery (non-gallery)**.
 6. Click **Create**. This takes you to your new enterprise application's page.
 
@@ -105,29 +107,35 @@ You have now created a custom enterprise app for Semgrep to integrate with Micro
 
 #### Setting up SAML SSO for your new enterprise app
 
-1. From your new enterprise app's page, go to **Single-sign on** > **SAML**. This takes you to the **Set up Single Sign-On with SAML** page.
-![Screenshot of your enterprise app's page](/img/azure-select-sso.png#bordered)
-1. Under the **Basic SAML Configuration** form, click **Edit** to enter values for **Entity ID** and **Reply URL**. These values are retrieved from Semgrep Cloud Platform by performing the following steps:
-    1. Go to Semgrep Cloud Platform [Settings](https://semgrep.dev/orgs/-/settings/access/sso) page, and then click **Add SAML2 SSO** to display the SAML2 form.
-    2. Copy the **Audience URL** value from Semgrep Cloud Platform, then in **Basic SAML Configuration**, under **Identifier (Entity ID)** click the **Add identifier** and paste in the URL.
-    3. Copy the **SSO URL** value from Semgrep Cloud Platform, then in **Basic SAML Configuration**, under **Reply URL (Assertion Consumer Service URL)** click the **Add reply URL** and paste in the URL.
-2. In the **Basic SAML Configuration** form, click **Save**.
-3. Under the **Attributes & Claims** form, click **Edit** > **Add new claim**.
-    1. Enter `name` in the **Name** field.
-    2. From the **Source attribute** drop-down box, select `user.givenname`.
-    ![Screenshot of create your own Application page in Microsoft Entra ID](/img/azure_ad-add-claim.png#bordered)
-    3. Click **Save**.
-4. Under the **Attributes & Claims** form, click **Edit** > **Add new claim**.
-    1. Enter `email` in the **Name** field.
-    2. From the **Source attribute** drop-down box, select `user.email`.
-    3. Click **Save**.
-5. Fill out the values required by Semgrep Cloud Platform's SAML2 form (**IdP SSO URL**, **IdP Issuer ID**, **X.509 Certificate**) by copying the values from Microsoft Entra ID's **Set up Single Sign-On with SAML** page. Perform the following steps:
-    1. Copy the **Login URL** value from Microsoft Entra ID to **IDP SSO URL** in Semgrep Cloud Platform. 
-    2. Copy **Microsoft Entra ID Identifier** value to **IdP Issuer ID** in Semgrep Cloud Platform.
-    3. In **Set up Single Sign-On with SAML**, next to **Certificate (Base64)** click **Download**.
-    4. In Semgrep Cloud Platform, under **X.509 Certificate**, click **Browse** and then add the downloaded file. 
-    5. At the beginning of Semgrep Cloud Platform's SSO form, fill out **Email Domain** and **Display Name**.
-6. Click **Create/Update Auth Provider** at the beginning of of Semgrep Cloud Platform's SAML2 form.
+1. From your new enterprise app's page, go to **Single-sign on** > **SAML**. 
+   ![Enterprise application's Single-sign on menu option](/img/entra-3.png#md-width)
+2. When prompted to **Select a single sign-on method**, select **SAML**. You are redirected to the **SAML-based Sign-on** page.
+   ![SAML-based Sign-on screen](/img/entra-4.png#md-width)
+3. Click **Edit** to update your **Basic SAML Configuration** by providing the **Entity ID** and **Reply URL**. You can retrieve these values from Semgrep Cloud Platform by performing the following steps:
+    1. Log in to Semgrep Cloud Platform and navigate to [**Settings** > **Access** > **SSO**](https://semgrep.dev/orgs/-/settings/access/sso) page. 
+    2. Click **Add SAML2 SSO**.
+    3. Copy the **Audience URL** value from Semgrep Cloud Platform. Return to **Basic SAML Configuration**. Click **Add identifier** to paste this value as the **Identifier (Entity ID)**.
+    4. Copy the **SSO URL** value from Semgrep Cloud Platform. Return to **Basic SAML Configuration**. Click **Add reply URL** to paste this value as the **Reply URL (Assertion Consumer Service URL)**.
+4. Click **Save** and close out of **Basic SAML Configuration**.
+5. Click **Edit** to modify **Attributes & Claims**. You must add two claims. To add your first claim:
+    1. Click **Add new claim**.
+    2. Enter `name` in the **Name** field.
+    3. For the **Source attribute** drop-down box, select `user.givenname`.
+    4. Click **Save**.
+6. To add your second claim:
+    1. Click **Add new claim**.
+    2. Enter `email` in the **Name** field.
+    3. From the **Source attribute** drop-down box, select `user.mail`.
+    4. Click **Save**.
+7. Close out of **Attributes & Claims**.
+8. Navigate to Semgrep Cloud Platform, and provide the values required by the SAML2 form:
+    1. Provide the **Display name** and the **Email domain** you are using for the integration.
+    2. Copy the **Login URL** value from Microsoft Entra ID and paste it in into SCP's **IDP SSO URL** field.
+    3. Copy and paste the **Microsoft Entra ID Identifier** value into SCP's **IdP Issuer ID** field.
+    4. In Entra ID's **SAML-based Sing-on** page, click **Download** to obtain the **Certificate (Base64)**.
+    5. In Semgrep Cloud Platform, under **Upload/Paste certificate**, click **Browse** and then select the certificate you downloaded.
+   ![SCP's SAML2 configuration screen](/img/entra-5.png#md-width)
+ 9.  Click **Save**. When prompted to confirm your SSO updates, click **Update**.
 
 You have now set up SAML configuration between Microsoft Entra ID and Semgrep Cloud Platform.
 
