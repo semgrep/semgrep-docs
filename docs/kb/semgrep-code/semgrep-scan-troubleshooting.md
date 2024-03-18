@@ -23,6 +23,7 @@ Memory usage is a common issue with scans, especially in memory-constrained envi
 
 * Try increasing the memory available if you are working in a container or managed instance where you can manage the amount of memory.
 * Use the `--max-memory LIMIT` option for your Semgrep run. This option stops a rule/file scan if it reaches the set limit, and moves to the next rule / file.
+  - If you are running an interfile scan with the Pro Engine, this option also falls back to OSS if the interfile pre-processing stage exceeds this amount of memory.
 * Run Semgrep in single-threaded mode with `--jobs 1`. This reduces the amount of memory used compared to running multiple jobs.
 * Try increasing your stack limit, if a limit is set for the context where you invoke Semgrep (`ulimit -s [limit]`).
 
@@ -36,6 +37,14 @@ After addressing files to ignore:
 * Run Semgrep with the `--time` flag. This outputs a list of the rules and files that took the longest.
   * Identify the slowest files from the list. You may find that you can add some of those files to your ignore list as well.
   * Identify the slowest rules from the list. You may find that some of them don't apply to your codebase and can be skipped.
+
+ ### Adjusting timeouts
+
+ Semgrep also has several timeout settings that affect scan duration, and can be adjusted to optimize scan behavior:
+
+ * `--timeout`: Similar to `--max-memory`, `--timeout` affects the behavior of the scan for a single rule-file combination. It defaults to 5 seconds. Typical values range from 3 seconds (favors faster scans, but more timeouts) to 30 seconds (slower scans, fewer timeouts). 
+ * `--timeout-threshold`: The number of times to try to scan a single rule-file combination, if it times out due to the `--timeout` limit. It defaults to 3. Decreasing the value may speed up scans but cause more timeouts.
+ * `--interfile-timeout`: If you are running an interfile scan with the Pro Engine, the maximum amount of time in seconds to spend on interfile analysis before falling back to OSS. Defaults to 3 hours (10800 seconds) for scans using `semgrep ci`. Otherwise the default is no limit (continue with Pro Engine until scan completes).
 
 ## 401 error when scanning with Semgrep Registry rules
 
