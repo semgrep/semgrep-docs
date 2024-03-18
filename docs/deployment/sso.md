@@ -19,7 +19,7 @@ Object.entries(frontMatter).filter(
 
 import MoreHelp from "/src/components/MoreHelp"
 
-#  Single-sign on (SSO) configuration
+# Single-sign on (SSO) configuration
 
 
 :::note Your deployment journey
@@ -68,7 +68,7 @@ To set up SSO:
 
 If you encounter issues during the setup process, reach out to [support@semgrep.com](mailto:support@semgrep.com) for assistance.
 
-### Setting up SAML SSO with Microsoft Entra ID
+### Set up SAML SSO with Microsoft Entra ID
 
 <!--
 Semgrep Cloud Platform doesn't have an integration app in Microsoft Entra ID the way it does with Slack and GitHub.
@@ -86,11 +86,11 @@ The following references are used:
 
 Setting up SAML SSO using Microsoft Entra ID consists of the following general steps:
 
-1. Creating a custom **enterprise app** within Microsoft Entra ID.
-2. Setting up SAML SSO for your new enterprise app.
-3. Adding users to your new enterprise app.
+1. Create a custom **enterprise app** within Microsoft Entra ID.
+2. Set up SAML SSO for your new enterprise app.
+3. Add users to your new enterprise app.
 
-#### Creating a custom enterprise app
+#### Create a custom enterprise app
 
 <!-- Rather than using portal.azure.com, which takes us to Azure Dashboard, sign in straight away to Microsoft Entra ID -->
 
@@ -105,7 +105,7 @@ Setting up SAML SSO using Microsoft Entra ID consists of the following general s
 
 You have now created a custom enterprise app for Semgrep to integrate with Microsoft Entra ID. This enables you to set up SAML SSO.
 
-#### Setting up SAML SSO for your new enterprise app
+#### Set up SAML SSO for your new enterprise app
 
 1. From your new enterprise app's page, go to **Single-sign on** > **SAML**. 
    ![Enterprise application's Single-sign on menu option](/img/entra-3.png#md-width)
@@ -139,7 +139,7 @@ You have now created a custom enterprise app for Semgrep to integrate with Micro
 
 You have now set up SAML configuration between Microsoft Entra ID and Semgrep Cloud Platform.
 
-#### Adding users to your new enterprise app
+#### Add users to your new enterprise app
 
 To add users to the application in so they can log in with their domain emails, refer to [Assign users and groups to an application](https://learn.microsoft.com/en-us/azure/active-directory/manage-apps/assign-user-or-group-access-portal).
 
