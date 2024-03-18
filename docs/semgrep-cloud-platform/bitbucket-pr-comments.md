@@ -178,7 +178,7 @@ pipelines:
 </Tabs>
 -->
 
-If you are using a cloud-hosted BitBucket plan to run Semgrep, no extra changes are needed to receive PR comments.
+If you are using a cloud-hosted Bitbucket plan to run Semgrep, no extra changes are needed to receive PR comments.
 
 ### Receive comments in your VPN or on-premise SCM
 
