@@ -178,10 +178,9 @@ pipelines:
 </Tabs>
 -->
 
-
 ### Receive comments in your VPN or on-premise SCM
 
-Bitbucket Premium provides access control features to content that your individual account owns. If you use this feature, you need to add several IP addresses into your allowlist.
+Bitbucket Premium provides [<i class="fas fa-external-link fa-xs"></i> access control features](https://support.atlassian.com/bitbucket-cloud/docs/control-access-to-your-private-content/) for content that your individual account owns. If you use this feature, you need to add several IP addresses into your allowlist.
 
 <ReceiveCommentsScm />
 
