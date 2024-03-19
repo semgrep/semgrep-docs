@@ -515,6 +515,7 @@ module.exports = {
             'faq',
             'integrating',
             'usage-and-billing',
+            'deployment/claim-a-license',
             'contributing/philosophy',
             {
               type: 'doc',
