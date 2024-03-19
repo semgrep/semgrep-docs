@@ -19,17 +19,17 @@ Object.entries(frontMatter).filter(
 }
 </ul>
 
-# Creating Linear tickets
+# Create Linear tickets
 
-:::tip Try the Linear integration (private beta)
-Existing customers can try the Linear integration for free. To enable this feature:
-1. Fill out the following form: [Request access to the Semgrep Linear integration private beta](https://get.semgrep.dev/Jira-asana-linear-private-beta.html).
+:::note
+This feature is in a **closed beta**. To request access:
+1. Fill out the following form: [Request access to the Semgrep Linear integration closed beta](https://get.semgrep.dev/Jira-asana-linear-private-beta.html).
 2. Contact your Technical Account Manager or your Account Executive and let them know you'd like to try the Linear integration out.
 :::
 
 The Semgrep Linear integration allows you to create Linear tickets based on your Semgrep Code or Supply Chain findings.
 
-## Enabling your Linear integration
+## Enable your Linear integration
 
 :::info Prerequisites
 * Your Linear user must be able to approve an OAuth integration with admin level privileges.
@@ -41,7 +41,7 @@ To integrate Linear, follow these steps:
 2. On the **[Integrations](https://semgrep.dev/orgs/-/settings/integrations)** page, click **Add Integration** (or **Setup First Integration** if this is your first integration), and then select **Ticketing > Linear**.
 3. Follow the on-screen instructions to integrate Linear.
 
-## Configuring your default project and team
+## Configure your default project and team
 
 Use the drop-down lists to select the default project and team. These settings can be changed later from the integrations page.
 
@@ -49,7 +49,7 @@ Use the drop-down lists to select the default project and team. These settings c
 
 **Figure** A sample Linear integration
 
-## Creating tickets
+## Create tickets
 
 ### Code
 
@@ -81,7 +81,7 @@ The Supply Chain triage flow creates tickets for all usages of a given vulnerabi
 ![Linear ticket created - Supply Chain](/img/linear-ssc-ticketed.png)
 **Figure** Supply Chain ticket created
 
-## Removing your Linear integration
+## Remove your Linear integration
 
 On the **[Integrations](https://semgrep.dev/orgs/-/settings/integrations)** page, find Linear, click **Edit Configuration** and the **Delete**
 
