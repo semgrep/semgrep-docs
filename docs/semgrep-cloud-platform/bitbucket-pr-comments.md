@@ -50,7 +50,7 @@ PR comments appear for the following types of scans under these conditions:
     - Cloud Free
     - Standard
     - Premium
-    - Bitbucket Data Center 
+- Bitbucket Data Center is not supported.
 
 There are two ways in which you can integrate Semgrep comments into Bitbucket Cloud depending on the Bitbucket plan you use:
 
@@ -178,9 +178,10 @@ pipelines:
 </Tabs>
 -->
 
-If you are using a cloud-hosted BitBucket plan to run Semgrep, no extra changes are needed to receive PR comments.
 
 ### Receive comments in your VPN or on-premise SCM
+
+Bitbucket Premium provides access control features to content that your individual account owns. If you use this feature, you need to add several IP addresses into your allowlist.
 
 <ReceiveCommentsScm />
 
