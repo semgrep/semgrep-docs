@@ -355,11 +355,11 @@ module.exports = {
           { from: "/managing-findings/" , to: "/semgrep-ci/findings-ci/" },
           { from: "/semgrep-supply-chain/notifications/" , to: "/semgrep-cloud-platform/github-pr-comments/" }, //we can't reference a category page fyi
           /* MAR 20, 2024  */
-          { from: "/semgrep-ci/running-semgrep-ci-with-semgrep-cloud-platform/" , to: "" } ,
+          { from: "/semgrep-ci/running-semgrep-ci-with-semgrep-cloud-platform/" , to: "/deployment/core-deployment/" } ,
           { from: "/semgrep-ci/running-semgrep-ci-without-semgrep-cloud-platform/" , to: "/deployment/oss-deployment/" } ,
           { from: "/semgrep-code/demo-project" , to: "/deployment/core-deployment/" },
           { from: "/semgrep-ci/running-semgrep-ci-with-semgrep-app/" , to: "/deployment/core-deployment/" } ,
-          { from: "/semgrep-ci/running-semgrep-ci-without-semgrep-app/" , to: "/deployment/oss-deployment/" } ,
+          { from: "/semgrep-ci/running-semgrep-ci-without-semgrep-app/" , to: "/deployment/oss-deployment/" } 
         ]
       }
     ],
