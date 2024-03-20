@@ -3,12 +3,15 @@ slug: ignoring-files-folders-code
 append_help_link: true
 title: Ignoring files, folders, and code
 description: "This documents various methods to skip or ignore files or folders that are not relevant to a Semgrep scan."
+hide_title: true
 ---
+
+<!-- Updates to this doc may affect ignore-oss -->
 
 import MoreHelp from "/src/components/MoreHelp"
 import IgnoreIndividualFindingNoGrouping from "/src/components/procedure/_ignore-individual-finding-no-grouping.mdx"
 
-# Ignoring files, folders, or parts of code
+# Ignore files, folders, and code
 
 This document describes two types of ignore operations:
 
@@ -22,16 +25,16 @@ All Semgrep environments (CLI, CI, and Semgrep Cloud Platform) adhere to user-de
 | Method  | Usage    | Examples |
 |:--------|:---------|:---------|
 | To ignore blocks of code: `nosemgrep` | Create a comment, followed by a space (` `), followed by `nosemgrep` at the first line or preceding line of the pattern match. This generates a finding that is automatically ignored. | ` // nosemgrep` &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; `// nosemgrep: rule-id` <br /> `# nosemgrep` |
-| To ignore files and folders: `.semgrepignore` | Create a `.semgrepignore` file in your **repository's root directory** or your **project's working directory** and add patterns for files and folders there. Patterns follow `.gitignore` syntax with some caveats. See [Defining files and folders in `.semgrepignore`](#defining-files-and-folders-in-semgrepignore). | [`.semgrepignore` sample file](https://raw.githubusercontent.com/returntocorp/semgrep/develop/cli/src/semgrep/templates/.semgrepignore) |
+| To ignore files and folders: `.semgrepignore` | Create a `.semgrepignore` file in your **repository's root directory** or your **project's working directory** and add patterns for files and folders there. Patterns follow `.gitignore` syntax with some caveats. See [Defining ignored files and folders in `.semgrepignore`](#defining-ignored-files-and-folders-in-semgrepignore). | [`.semgrepignore` sample file](https://raw.githubusercontent.com/semgrep/semgrep/develop/cli/src/semgrep/templates/.semgrepignore) |
 
-## Understanding Semgrep defaults
+## Understand Semgrep defaults
 
 Without user customization, Semgrep refers to the following to define ignored files and folders:
 
 * Semgrep's default `.semgrepignore` file
 * Your repository's `.gitignore` file (if it exists)
 
-In the absence of a user-generated `.semgrepignore`, Semgrep refers to [its repository's default template](https://github.com/returntocorp/semgrep/blob/develop/cli/src/semgrep/templates/.semgrepignore):
+In the absence of a user-generated `.semgrepignore`, Semgrep refers to [its repository's default template](https://github.com/semgrep/semgrep/blob/develop/cli/src/semgrep/templates/.semgrepignore):
 
 ```
 DEFAULT_SEMGREPIGNORE_TEXT
@@ -60,7 +63,7 @@ Large files and unknown file extensions are included or excluded through command
 This document defines **files, folders and code** as those that are **relevant to a Semgrep scan**. For example, `.jpg` files are not a part of Semgrep's scope and therefore are not part of the scope of this document.
 
 
-## Customizing ignore behavior
+## Customize ignore behavior
 
 Semgrep provides several methods to customize ignore behavior. Refer to the following table to see which method suits your goal:
 
@@ -68,15 +71,14 @@ Semgrep provides several methods to customize ignore behavior. Refer to the foll
 |:---- |:------ |
 | To scan all files within Semgrep's scope each time you run Semgrep (only files within `.git` are ignored). | Create an empty `.semgrepignore` file in your repository root directory or in your project's working directory. An empty `.semgrepignore` will make Semgrep scan paths in `.gitignore`. |
 | To ignore files and folders in `.gitignore`. | Add `:include .gitignore` to your `.semgrepignore` file. |
-| To ignore custom files and folders each time you run a scan. | Add these files to your `.semgrepignore` file or [define them through Semgrep Cloud Platform](#defining-files-and-folders-in-semgrep-cloud-platform).|
+| To ignore custom files and folders each time you run a scan. | Add these files to your `.semgrepignore` file or [define them through Semgrep Cloud Platform](#defining-ignored-files-and-folders-in-semgrep-cloud-platform).|
 | To ignore specific code blocks each time you run a scan. | Create a comment with the word `nosemgrep`. |
 | To ignore files or folders for a particular scan. | Run Semgrep with the flag `--exclude` followed by the pattern or file to be excluded. See [CLI reference](../cli-reference/).
 | To include files or folders for a particular scan. | Run Semgrep with the flag `--include` followed by the  pattern or file to be included. See CLI reference. When including a pattern from a `.gitignore` or `.semgrepignore` file, `--include` does not override either, still resulting in the file's exclusion. |
 | To include files or folders defined within a `.gitignore` for a particular scan. | Run Semgrep with the flag `--no-git-ignore`, which overrides its definition within `.semgrepignore` as well. |
 | To ignore files or folders for a particular rule. | Edit the rule to set the `paths` key with one or more patterns. See [Rule syntax](../writing-rules/rule-syntax#paths).
 
-
-## Defining ignored files and folders in `.semgrepignore`
+## Define ignored files and folders in `.semgrepignore`
 
 `.semgrepignore` syntax mirrors `.gitignore` syntax, with the following modifications:
 
@@ -90,7 +92,7 @@ Unsupported patterns are silently removed from the pattern list (this is done so
 
 For a description of `.gitignore` syntax, see [.gitignore documentation](https://git-scm.com/docs/gitignore).
 
-## Defining ignored files and folders in Semgrep Cloud Platform
+## Define ignored files and folders in Semgrep Cloud Platform
 
 Another method for users to define ignore patterns is through a Project in Semgrep Cloud Platform. These patterns follow the same syntax as `.semgrepignore` in the preceding section.
 
@@ -111,7 +113,7 @@ You can also add files to `.semgrepignore` while triaging individual findings in
 Add files to `.semgrepignore` in the fifth step of the procedure described above. 
 :::
 
-## Ignoring code through nosemgrep
+## Ignore code through nosemgrep
 
 To ignore blocks of code, define an **inline comment**, followed by a **space** (` `), followed by the word `nosemgrep` at either the **first line** or **the line preceding** the potential match. Semgrep ignores all rule pattern matches. This functionality works across all supported languages.
 
@@ -181,13 +183,20 @@ bad_func3(   // nosemgrep: configs.rule-id-3, configs.rule-id-4
 Previous annotations for ignoring code inline, such as `nosem`, are deprecated.
 :::
 
-## Disabling rules on Semgrep Cloud Platform
+## Disable rules on Semgrep Cloud Platform
 
-Semgrep Cloud Platform users can disable rules and remove rulesets through the Rule Board. See [Disabling rules](/semgrep-code/rule-board/#disabling-rules) and [Removing rulesets](/semgrep-code/rule-board/#removing-rulesets).
+Semgrep Cloud Platform users can disable rules and rulesets through the Policies page. See [Disabling rules](/semgrep-code/policies#disabling-rules) and [Disabling rulesets](/semgrep-code/triage-remediation/#disable-a-ruleset-or-a-rule).
+
+## Ignore findings
+
+**Ignoring** can also be a triage action. In this case, the code is scanned rather than excluded, and if a pattern match occurs, a finding record is generated that you can then triage as **Ignored**. See [Triage and remediate Semgrep Code findings in Semgrep Cloud Platform](/semgrep-code/triage-remediation/#ignore-findings) to learn how to:
+
+* [Ignore findings in Semgrep Cloud Platform](/semgrep-code/triage-remediation/#ignore-findings)
+* [Ingore findings through GitHub PR comments](/semgrep-code/triage-remediation/#ignore-findings-through-github-pr-comments.)
 
 ## Known issues
 
-### `--no-git-ignore` is overridden due to default ignore patterns (.semgrepignore) ([#4537](https://github.com/returntocorp/semgrep/issues/4537))
+### `--no-git-ignore` is overridden due to default ignore patterns (.semgrepignore) ([#4537](https://github.com/semgrep/semgrep/issues/4537))
 
 To fix this, create an empty .semgrepignore file. If the scan is a one-off event, delete the .semgrepignore file to restore default ignore patterns.
 

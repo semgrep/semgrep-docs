@@ -10,13 +10,13 @@ semgrep using the
 technology. While new languages should use tree-sitter,
 semgrep also supports some languages independently if there's a good
 legacy OCaml parser for them. Check for your language in
-[pfff](https://github.com/returntocorp/pfff) and if you see it
+[pfff](https://github.com/semgrep/pfff) and if you see it
 in there, [talk to us](/support/).
 Otherwise, let's get started.
 
 Repositories involved directly:
-* [semgrep](https://github.com/returntocorp/semgrep): the semgrep command line program;
-* [ocaml-tree-sitter-semgrep](https://github.com/returntocorp/ocaml-tree-sitter-semgrep): language-specific setup, generates C/OCaml parsers for semgrep;
+* [semgrep](https://github.com/semgrep/semgrep): the semgrep command line program;
+* [ocaml-tree-sitter-semgrep](https://github.com/semgrep/ocaml-tree-sitter-semgrep): language-specific setup, generates C/OCaml parsers for semgrep;
 * new repo semgrep-_X_ for the new language _X_: C/OCaml parser generated from ocaml-tree-sitter-semgrep by an admin.
 
 Submodules overview (semgrep repo)
@@ -24,7 +24,7 @@ Submodules overview (semgrep repo)
 
 There are quite a few GitHub repositories involved in porting a language.
 Here is the file hierarchy of the [semgrep
-repository](https://github.com/returntocorp/semgrep):
+repository](https://github.com/semgrep/semgrep):
 
 ```sh
 /semgrep-core/src
@@ -36,13 +36,13 @@ repository](https://github.com/returntocorp/semgrep):
     └── semgrep-ruby
 ```
 
-When done with the work in [ocaml-tree-sitter-semgrep](https://github.com/returntocorp/ocaml-tree-sitter-semgrep), you'll need a new repo semgrep-X to host the generated parser code.
+When done with the work in [ocaml-tree-sitter-semgrep](https://github.com/semgrep/ocaml-tree-sitter-semgrep), you'll need a new repo semgrep-X to host the generated parser code.
 Ask someone from the Semgrep team to create one for you. For this, they should use
 the template
-[semgrep-lang-template](https://github.com/returntocorp/semgrep-lang-template)
+[semgrep-lang-template](https://github.com/semgrep/semgrep-lang-template)
 when creating the repo.
 
-The instructions for adding a language start in [ocaml-tree-sitter-semgrep](https://github.com/returntocorp/ocaml-tree-sitter-semgrep) (as indicated below). Be careful that you are always in the correct repo!
+The instructions for adding a language start in [ocaml-tree-sitter-semgrep](https://github.com/semgrep/ocaml-tree-sitter-semgrep) (as indicated below). Be careful that you are always in the correct repo!
 
 Setup (ocaml-tree-sitter-semgrep repo)
 --
@@ -141,7 +141,7 @@ semgrep-grammars/src/semgrep-ruby/grammar.js
 
 The files listed in `fyi.list` end up in a `fyi` folder in
 tree-sitter-lang. For example,
-[see `ruby/fyi`](https://github.com/returntocorp/semgrep-ruby/tree/main).
+[see `ruby/fyi`](https://github.com/semgrep/semgrep-ruby/tree/main).
 
 Extending the original grammar with semgrep syntax
 --
@@ -244,7 +244,7 @@ branch, do the following:
 2. In `ocaml-tree-sitter/lang/Makefile`, add language under
    'SUPPORTED_LANGUAGES' and 'STAT_LANGUAGES'.
 3. In `ocaml-tree-sitter/lang` directory, run `./release X --dry-run`.
-   If this looks good, please [ask someone from the Semgrep team](https://github.com/returntocorp/ocaml-tree-sitter-semgrep/blob/main/doc/release.md) to
+   If this looks good, please [ask someone from the Semgrep team](https://github.com/semgrep/ocaml-tree-sitter-semgrep/blob/main/doc/release.md) to
    publish the code using `./release X`.
 
 ### Troubleshooting
@@ -279,7 +279,7 @@ Here are some known types of parsing errors:
 * A segmentation fault. This could be due to a bug in the
   OCaml/tree-sitter C bindings and should be fixed. A simple test case
   that reproduces the problem would be nice.
-  See https://github.com/returntocorp/ocaml-tree-sitter/issues/65
+  See https://github.com/semgrep/ocaml-tree-sitter-semgrep/issues/65
 
 Parsing errors that are due
 to an incomplete or incorrect grammar should be recorded, and
@@ -295,7 +295,7 @@ in pfff itself. Others are tree-sitter parsers which are otherwise
 independent from pfff. You need to add the new language to the list of
 languages in pfff.
 
-Look under **Adding a Language** in [pfff](https://github.com/returntocorp/pfff/blob/develop/README.md)
+Look under **Adding a Language** in [pfff](https://github.com/semgrep/pfff/blob/develop/README.md)
 for step-by-step instructions.
 
 ## semgrep-core

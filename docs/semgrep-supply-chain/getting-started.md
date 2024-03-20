@@ -1,25 +1,21 @@
 ---
 slug: getting-started 
 append_help_link: true
-description: "Scan your codebase's open source dependencies with Semgrep Supply Chain's high-signal rules that determine a vulnerability's reachability."
+description: "Customize how Semgrep Supply Chain scans your codebase's open source dependencies."
 tags:
     - Semgrep Supply Chain
     - Team & Enterprise Tier
-title: Semgrep Supply Chain
-hide_title: true
+title: Customization
+hide_title: false
 ---
 
 import MoreHelp from "/src/components/MoreHelp"
-
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
 
 import PlatformSigninIntro from "/src/components/concept/_platform-signin-intro.md"
 import PlatformSigninGithub from "/src/components/procedure/_platform-signin-github.md"
 import PlatformSigninGitlab from "/src/components/procedure/_platform-signin-gitlab.md"
 import CiScheduling from "/src/components/reference/_ci-scheduling.mdx"
 import DetectGhRepos from "/src/components/procedure/_detect-gh-repos.md"
-import AdmonitionSscLicense from "/src/components/reference/_admonition-ssc-license.md"
 
 <ul id="tag__badge-list">
 {
@@ -29,29 +25,49 @@ Object.entries(frontMatter).filter(
 }
 </ul>
 
-# Getting started with Semgrep Supply Chain
+This article walks you through the Semgrep Supply Chain configuration and customization options available.
 
-Semgrep Supply Chain detects recently discovered [security vulnerabilities](https://nvd.nist.gov/vuln/full-listing) in your codebase's open source dependencies, prioritizing findings through [reachability](/semgrep-supply-chain/glossary#reachability) analysis. 
-
-This document walks you through the process of setting up open-source dependency scanning with Semgrep Supply Chain.
-
-To learn more about how Semgrep Supply Chain performs reachability analysis, see [Overview of Semgrep Supply Chain](/semgrep-supply-chain/overview).
-
-:::info
-Semgrep Supply Chain **supports monorepositories (monorepos)** by treating each subdirectory as its own repository. Findings are grouped under these repositories based on the [lockfile](/semgrep-supply-chain/glossary/#lockfile) or manifest file present in the subdirectory.
+:::info Apache Maven
+- To run a Semgrep Supply Chain scan, you must generate a [dependency tree for Apache Maven](/semgrep-supply-chain/setup-maven).
 :::
 
-## Scanning with Semgrep Supply Chain through Semgrep Cloud Platform
+## Project directory structure
 
-Semgrep Supply Chain is **automatically enabled** for all repositories that you have onboarded or added to Semgrep Cloud Platform for scanning. If you have not onboarded any repositories for scanning, follow the steps in [Adding a repository](/semgrep-code/getting-started/#adding-or-onboarding-a-new-project-repository) to add a repository for scanning.
+Semgrep Supply Chain requires a [lockfile](/semgrep-supply-chain/glossary/#lockfile). Code files that use the dependencies in the lockfile must be nested in the same directory as the lockfile. Semgrep Supply Chain can correctly parse code files in subfolders as well.
 
-When the scan finishes, Semgrep Cloud Platform displays an overview of findings in the **Supply Chain** page for further triage and remediation. See [Triaging and remediating dependency findings](/semgrep-supply-chain/triage-and-remediation).
+In the following example, Semgrep Supply Chain assumes that all code files using the dependencies in `my-project/running/lockfile.json` are nested in `my-project/running/` or deeper directories.
 
-<!-- Historical coverage rules, also referred to as parity or ecosystem rules, are rules that do not perform reachability analysis. These rules only check a package's version against versions with known vulnerabilities. These rules produce vulnerabilities similar to Dependabot's results, but have a higher false positive rate. -->
+```
+/my-project
+├───/running
+│   ├───lockfile.json
+│   ├───bar.js
+│   └───/uphill
+│       ├───lockfile.json        
+│       └────foo.js
+├───/biking
+```
 
-### Events that trigger a Supply Chain dependency scan
+If you have code files in `my-project/biking`, Semgrep Supply Chain does not associate them to the dependencies in `my-project/running/lockfile.json`. If there is another lockfile in `my-project/running`, such as `my-project/running/uphill/lockfile.json`, then this overrides the original `my-project/running/lockfile.json` for all code files in `my-project/running/uphill/` or deeper directories.
 
-Dependency scans can be triggered by the following, depending on your CI set up:
+## Scan frequency
+
+By adjusting your CI configuration, you can configure your scans so that Semgrep Supply Chain scans your code at a different frequency or when a specific event occurs.
+
+### Schedule scans
+
+Semgrep Supply Chain frequently receives rule updates. To take advantage of these updates, adjust the frequency with which Semgrep Supply Chain scans your codebase.
+
+<CiScheduling />
+
+:::note Rule updates
+
+If a rule is updated, findings generated against the updated rule are considered **new findings**, even if the previous version of the rule generated a finding. The new finding is not affected by any triage actions on findings related to the previous version of the rule. Because the finding is new, you'll also receive notifications through the channels you've set up, such as Slack.
+:::
+
+### Event-triggered scans
+
+Depending on how your CI/CD system is configured, you can trigger a Semgrep Supply Chain scan whenever one of the following events occurs:
 
 <table>
   <tr>
@@ -65,7 +81,7 @@ Dependency scans can be triggered by the following, depending on your CI set up:
   <tr>
    <td>Pull or merge request
    </td>
-   <td>diff-aware scan
+   <td><a href="/semgrep-ci/running-semgrep-ci-with-semgrep-cloud-platform/#diff-aware-scanning">Diff-aware scan</a>
    </td>
    <td>All dependency rules
    </td>
@@ -73,67 +89,45 @@ Dependency scans can be triggered by the following, depending on your CI set up:
   <tr>
    <td>Push or scheduled event, such as a cron job
    </td>
-   <td>full scan
+   <td>Full scan
    </td>
    <td>All dependency rules
    </td>
   </tr>
 </table>
 
-For more information on diff-aware and full scans, see [Diff-aware scanning](/docs/semgrep-ci/running-semgrep-ci-with-semgrep-cloud-platform/#diff-aware-scanning).
+## Run a scan using the CLI
 
-### Blocking a PR or MR
+You can run a stand-alone Semgrep Supply Chain scan via the CLI using:
 
-Both reachable and unreachable findings of Semgrep Supply Chain do **not** block a pull request or merge request.
+```console
+semgrep ci --supply-chain
+```
 
-:::info
-Semgrep versions v0.122.0 and below previously blocked reachable findings.
-:::
+Semgrep prints a list of findings directly to the CLI, including the finding's reachability determination, severity level, a brief description, and suggested remediation.
 
-### Setting a daily scan schedule
+Additionally, you can view your results in Semgrep Cloud Platform (SCP). SCP displays all of the information displayed in the CLI, but it also offers you the ability to:
 
-Semgrep Supply Chain frequently releases new rules. By default, Semgrep Supply Chain scans your codebase once a day. Change your time or frequency through the following references:
+* See additional finding details, such as whether the finding is always reachable or if it's reachable if certain conditions are met, and its transitivity status
+* Use the [dependency search](/semgrep-supply-chain/dependency-search) feature
+* Use the [license compliance](/semgrep-supply-chain/license-compliance) feature
 
-<CiScheduling />
+## Scan a monorepo's dependencies
 
-## Ignoring dependency findings through `semgrepignore`
+Semgrep Supply Chain supports the scanning of monorepos. As outlined in [Project directory structure](#project-directory-structure), findings are grouped by directory based on the [lockfiles](/semgrep-supply-chain/glossary/#lockfile) or manifest files present in the monorepo.
 
-See [Ignoring dependency findings](/docs/semgrep-supply-chain/ignoring-lockfiles-dependencies).
+## Block pull or merge requests
 
-## Triaging and remediating dependency findings
+Semgrep Supply Chain versions **v0.122.0** and earlier automatically blocked pull/merge requests if it discovered reachable findings in the code, but later versions do not do this. You can, however, configure Semgrep Supply Chain to block on pull request scans that detect reachable findings in direct dependencies with high or critical severity. 
 
-Semgrep Supply Chain enables developers to perform triage and remediation through the **[Vulnerabilities](https://semgrep.dev/orgs/-/supply-chain/vulnerabilities)** page. On this page you can perform the following actions:
+1. Log in to Semgrep Cloud Platform.
+2. Click **Supply Chain** > **Settings** on the header menu.
+3. Click **<i class="fa-solid fa-toggle-large-on"></i> PR Blocking**.
 
-* View specific **reachable** vulnerable lines of code in your codebase. This helps to evaluate the threat.
-* View specific lines of code where your dependency is being declared.
-* Triage a dependency finding.
-* Attach a PR or MR, or Jira ticket to the finding.
-* Upgrade the dependency that generated the finding to a safe version. A safe version is any newer version of the dependency that does not contain the vulnerability. This resolves the finding.
+Alternatively, you can configure your version control system to prevent merging if Semgrep Supply Chain identifies reachable findings.
 
-For more information, see [Triaging and remediating findings](/docs/semgrep-supply-chain/triage-and-remediation).
+## Ignore lockfiles and dependencies
 
-## Appendix: Setting up SSC scans for specific project management tools
-
-### Apache Maven (Java)
-
-Semgrep Supply Chain does not read `pom.xml` files to parse Maven projects. Instead it parses a dependency tree generated by Maven (`mvn`). Perform the following steps to enable Semgrep Supply Chain to correctly parse Maven projects:
-
-<ol>
-    <li>Generate a file outlining the project's dependency tree by adding the following command to your build pipeline:<br />
-    <pre class="language-bash">mvn dependency:tree -DoutputFile=maven_dep_tree.txt</pre>
-    For specific steps to add the command into your build pipeline, refer to your CI provider's documentation.</li>
-    <li>For each <code>pom.xml</code> file with dependencies you want to scan, create additional dependency trees in their respective directories. Semgrep Supply Chain can detect and parse them all.</li>
-    <li>Run the Semgrep workflow, action, or step after the dependency tree or trees have been generated.</li>
-</ol>
-
-:::caution
-* Ensure that Maven is installed in the build environment that is used to generate the dependency trees.
-* Ensure that you generate dependency trees before running Semgrep.
-:::
-
-You can run the above commands in a local environment to test its behavior. The following screenshot displays the commands running in a local environment:
-
-
-![Screenshot of Maven dependency tree generated in a local environment](/img/ssc-maven-local.png)
+See [Ignore lockfiles and dependencies](/semgrep-supply-chain/ignoring-lockfiles-dependencies) for information on how to flag specific findings to be ignored by Semgrep Supply Chain using `semgrepignore`.
 
 <MoreHelp />

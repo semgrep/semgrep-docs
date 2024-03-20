@@ -7,13 +7,11 @@ pipelines:
       - step:
           name: 'Run Semgrep scan with current branch'
           deployment: dev
-          image: returntocorp/semgrep
+          image: semgrep/semgrep
           script:
-            - export SEMGREP_RULES = "p/default"
-
             # Uncomment the following line to scan changed 
             # files in PRs or MRs (diff-aware scanning): 
             # - export SEMGREP_BASELINE_REF = "main"
 
-            - semgrep ci
+            - semgrep ci --code
 ```

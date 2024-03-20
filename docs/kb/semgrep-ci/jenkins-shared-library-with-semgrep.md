@@ -8,45 +8,47 @@ description: Setting up Jenkins shared library with Semgrep scans
 # Jenkins shared library with Semgrep scans
 
 ## Motivation
+
 A good practice when programming is to avoid duplicate code. This applies even when defining your build pipelines. To prevent duplicate code when defining Semgrep tests with Jenkins, create a [Jenkins Shared Library](https://www.jenkins.io/doc/book/pipeline/shared-libraries/) with the Semgrep snippet. Then, call this library in all the projects you have in your organization.
 
 ## Creating a Jenkins pipeline to call Semgrep
-If you follow [Semgrep documentation](https://semgrep.dev/docs/semgrep-ci/sample-ci-configs/#sample-jenkins-configuration-snippet), you can create a simple Jenkins pipeline to run Semgrep scans.
 
-When rolling out Semgrep in your organization, you need to replicate this pipeline to the hundreds of projects you have in your company. 
-After some days, you got it, but then your manager asks you to generate json reports after every semgrep scan to dump results in DefectDojo. It means adding some flags to the semgrep command:
-`````
-semgrep ci --json --output output.json
-`````
-But it must be done in all the repositories you have! It will take you time!
+By following the [Semgrep Jenkins CI configuration](https://semgrep.dev/docs/semgrep-ci/sample-ci-configs/#sample-jenkins-configuration-snippet), you can create a simple Jenkins pipeline to run Semgrep scans.
+
+When rolling out Semgrep more widely in your organization, you need to replicate this pipeline to the many projects you have in your organization. If the Semgrep configuration later requires updates, each pipeline would have to be updated individually, which is time-consuming. Using a shared library prevents this issue.
 
 ## Creating a shared library
-Jenkins shared library comes to the rescue. Basically, you encapsulate the semgrep commands in a common library.
-The steps are:
 
-1. Create a new repo with a Groovy file in the `vars/` folder. For example, `vars/semgrepFullScan.groovy`. Add the Semgrep snippet to that file:
+A Jenkins shared library encapsulates the Semgrep commands in a single library file, which is then called by all other workflows that use Semgrep.
 
-`````
+### Create the library file
+
+Create a new repository with a Groovy file in the `vars/` folder. For example, `vars/semgrepFullScan.groovy`. Add the Semgrep snippet to that file:
+
+```
 def call() {
-  sh '''docker pull returntocorp/semgrep && \
+  sh '''docker pull semgrep/semgrep && \
             docker run \
             -e SEMGREP_APP_TOKEN=$SEMGREP_APP_TOKEN \
             -v "$(pwd):$(pwd)" --workdir $(pwd) \
-            returntocorp/semgrep semgrep ci '''
+            semgrep/semgrep semgrep ci '''
 }
-`````
+```
 
-2. Declare your library in Jenkins
-    1. Go to Dashboard
-    2. Manage Jenkins 
-    3. System
-    4. Global Pipeline libraries
-    5. Define library: name, version (branch), and the Git URL.
+### Declare your library in Jenkins
+
+These steps are for the Jenkins UI.
+
+1. Go to the Dashboard.
+2. Click **<i class="fa-solid fa-gear"></i> Manage Jenkins**.
+3. Under **System Configuration**, click **System**.
+4. In the **Global Pipeline Libraries** section, define the library, including the name, version, and Git URL.
 
 ## Using the shared library in the Jenkins pipeline
 
-Once you have defined the shared library, you can use it in your pipelines. Now the Jenkins pipeline can look like this:
-`````
+Once you have defined the shared library, you can use it in your pipelines. If you named the library "semgrep" in the Jenkins UI, calling it looks like:
+
+```
 @Library('semgrep') _
 
 pipeline {
@@ -64,8 +66,10 @@ pipeline {
     }
   }
 }
-`````
-Line 1 must have the name of the shared library, and the function invoked (`semgrepFullScan`) must match the name of the groovy file created before (`semgrepFullScan.groovy`).
+```
+
+Line 1 must have the name of the shared library, and the function invoked (`semgrepFullScan`) must match the name of the Groovy file created before (`semgrepFullScan.groovy`).
 
 ## Conclusions
-Using Jenkins Shared Library can simplify your pipelines and avoid code duplications along with all your projects. And if you need to change the snippet, for example, adding some flags, it will take you some seconds because the change is only in one single and centralised place.
+
+Using a Jenkins Shared Library can simplify your pipelines and avoid code duplication across all your projects, saving you time if you need to add flags to the Semgrep command or otherwise update it.

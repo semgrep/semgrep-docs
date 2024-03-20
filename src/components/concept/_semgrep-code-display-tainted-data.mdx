@@ -1,11 +1,23 @@
-Semgrep Code can provide you with a visualization of the path of untrusted (**tainted**) data in specific findings. Findings that display tainted data can help you to track the sources and sinks of the tainted data as they propagate through a body of a function or a method. For general information about taint analysis, see [Taint tracking](/writing-rules/data-flow/taint-mode/) documentation.
+With **dataflow traces**, Semgrep Code can provide you with a visualization of
+the path of tainted, or untrusted, data in specific findings. This path can help
+you track the sources and sinks of the tainted data as they propagate through
+the body of a function or a method. For general information about taint
+analysis, see [Taint tracking](/writing-rules/data-flow/taint-mode/).
 
-With Semgrep Pro Engine, Semgrep Code can display findings that show the propagation of tainted data across multiple files. To get such findings, follow the required steps in [Enabling Semgrep Pro Engine](/semgrep-code/semgrep-pro-engine-intro/#enabling-semgrep-pro-engine-in-semgrep-cloud-platform) documentation.
-
-This feature is also called dataflow traces, and an underlying CLI command is `--dataflow-traces`.
+When running Semgrep Code from the command line, you can pass in the flag
+`--dataflow-traces` to use this feature.
 
 You can view dataflow traces in:
-- The [Findings page](https://semgrep.dev/orgs/-/findings?tab=open) of Semgrep Code. For more details, see [Path of tainted data in Semgrep Code](/semgrep-code/semgrep-pro-engine-data-flow/).
-- The PR or MR comments created by Semgrep Code running in your CI. To enable this feature, see the following documentation:
-    - To see dataflow traces in GitHub PR comments, see [Dataflow traces in PR comments](/semgrep-cloud-platform/github-pr-comments/#viewing-the-path-of-tainted-data-in-pr-comments) section.
-    - To see dataflow traces in GitLab MR comments, see [Dataflow traces in MR comments](/semgrep-cloud-platform/gitlab-mr-comments/#viewing-the-path-of-tainted-data-in-mr-comments) section.
+- Semgrep Cloud Platform by going to Semgrep Code's [Findings page](https://semgrep.dev/orgs/-/findings?tab=open). For more details, see [Path of tainted data in Semgrep
+  Code](/semgrep-code/semgrep-pro-engine-data-flow/).
+- The PR or MR comments created by Semgrep Code running in your CI/CD system. To enable
+  this feature, see:
+    - *GitHub users*: [Dataflow traces in PR
+      comments](/semgrep-cloud-platform/github-pr-comments/#view-the-path-of-tainted-data-in-pr-comments)
+    - *GitLab users*: [Dataflow traces in MR
+      comments](/semgrep-cloud-platform/gitlab-mr-comments/#view-the-path-of-tainted-data-in-mr-comments)
+
+
+### Get cross-file findings
+
+To get cross-file (interfile) findings in your organization, follow the steps in [Enabling Semgrep Pro Engine](/semgrep-code/semgrep-pro-engine-intro/#enabling-semgrep-pro-engine-in-semgrep-cloud-platform). See [Semgrep Pro Engine overview](/semgrep-code/semgrep-pro-engine-intro/) for general information about Semgrep Pro Engine.

@@ -1,0 +1,60 @@
+---
+slug: /semgrep-secrets/getting-started
+append_help_link: true
+title: Scan for secrets
+hide_title: true
+description: Set up secrets scanning to find and rotate valid leaked secrets.
+tags:
+  - Semgrep Secrets
+---
+
+import MoreHelp from "/src/components/MoreHelp"
+
+# Scan for secrets
+
+Semgrep Secrets allows you to detect and triage leaked secrets and credentials
+and save time by prioritizing which secrets to rotate based on whether they're active and in use.
+
+![Semgrep Secrets page](/img/secrets-page.png#md-width)
+
+This document guides you through:
+
+1. Enabling Semgrep Secrets
+2. Viewing your results and triaging your findings
+3. Setting up PR comments and notifications
+
+## Language and environment support
+
+Semgrep Secrets can scan repositories using **any programming language** and supports the posting of PR and MR comments to GitHub, GitLab, and Bitbucket.
+
+## Enable Semgrep Secrets
+
+:::info Prerequisite
+You have completed a [Semgrep core deployment](/deployment/core-deployment).
+:::
+
+1. Log into [<i class="fas fa-external-link fa-xs"></i> Semgrep Cloud Platform](https://semgrep.dev/login).
+2. Click **<i class="fa-solid fa-gear"></i> Settings**.
+3. On the **Deployment** tab, click the **<i class="fa-solid fa-toggle-large-on"></i> Secrets** toggle to enable.
+
+Once you've enabled Secrets for your organization, all Semgrep scans include secret scanning. There are no additional steps to take.
+
+## Scan your repository
+
+After you've enabled Semgrep Secrets, you can:
+
+* Manually trigger a full scan of your repository through your CI provider
+* Start a scan from the CLI (Semgrep recommends that you run CLI scans only on feature branches, not main branches)
+* Wait for your scheduled Semgrep full scan
+* Open a pull request or merge request and wait for Semgrep to scan the branch automatically
+
+## Next steps
+
+* Learn how to [view and triage secrets in Semgrep Cloud Platform](/semgrep-secrets/view-triage/)
+
+### Additional information
+
+* Learn more about the [structure of rules for Semgrep Secrets](/semgrep-secrets/rules), as well as how to [manage your rules using Semgrep Cloud Platform](/semgrep-secrets/policies).
+* Learn how to [write custom validators](/semgrep-secrets/validators) for your Semgrep Secrets rules.
+
+<MoreHelp />

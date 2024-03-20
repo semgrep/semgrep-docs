@@ -12,8 +12,8 @@ def replace_in_file(file,find,replace):
         f.write(filedata)
 
 
-DEFAULT_SEMGREPIGNORE = subprocess.run(["curl","https://raw.githubusercontent.com/returntocorp/semgrep/develop/cli/src/semgrep/templates/.semgrepignore"],capture_output=True).stdout.decode("utf-8")
-RELEASE_NAME = json.loads(subprocess.run(["curl","https://api.github.com/repos/returntocorp/semgrep/releases/latest"], capture_output=True).stdout)["tag_name"]
+DEFAULT_SEMGREPIGNORE = subprocess.run(["curl","https://raw.githubusercontent.com/semgrep/semgrep/develop/cli/src/semgrep/templates/.semgrepignore"],capture_output=True).stdout.decode("utf-8")
+RELEASE_NAME = json.loads(subprocess.run(["curl","https://api.github.com/repos/semgrep/semgrep/releases/latest"], capture_output=True).stdout)["tag_name"]
 
 
 ## List of text replacements to occur when building the docs

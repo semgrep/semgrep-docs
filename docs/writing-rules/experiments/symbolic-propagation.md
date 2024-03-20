@@ -40,8 +40,8 @@ def test1():
     pandas.DataFrame(x).index.set_value(a, b, c)
 
 def test2():
-    df = pandas.DataFrame(x)
     if (x < 5):
+        df = pandas.DataFrame(x)
         pass
     ix = df.index
     # ruleid: test

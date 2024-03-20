@@ -1,0 +1,13 @@
+```yaml
+image: atlassian/default-image:latest
+
+pipelines:
+  default:
+    - parallel:
+      - step:
+          name: 'Run Semgrep scan with current branch'
+          deployment: dev # https://support.atlassian.com/bitbucket-cloud/docs/set-up-and-monitor-deployments/
+          image: semgrep/semgrep
+          script:
+            - semgrep scan --config auto
+```

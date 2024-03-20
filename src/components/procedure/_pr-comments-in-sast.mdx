@@ -1,0 +1,22 @@
+<span>In addition to setting up the connection between Semgrep and {props.name}, you must assign rules to Comment or Block mode. This customization enables you to:</span>
+
+- <span>Manage the <strong>amount of {props.comment_type} comments</strong> your developers receive.</span>
+- Ensure that only rules that meet your criteria, such as high severity or high confidence rules, produce comments visible to developers, reducing noise.
+
+:::tip
+<span>Rules in <strong>Block mode</strong> fail the CI job that runs on the {props.comment_type}. Depending on your workflow, this may prevent your {props.comment_type} from merging.</span>
+:::
+
+### Set rules to Comment or Block mode
+
+The following instructions let you customize what findings or security issues your developers see as comments in their PRs:
+
+1. In your SCP account, click **Rules > Policies**. You are taken to the **Policies** page. Under **Modes <i class="fa-solid fa-gear"></i>**, you can quickly see if you have existing rules in either Comment or Block mode.
+1. Optional: Use the filters to quickly find rules to set to Comment or Block.
+1. Click the **<i class="fa-solid fa-square-check"></i> checkbox** of the rules you want to set. You can use <kbd>Ctrl + Click</kbd> to select rules in bulk.
+1. Click **Change modes**.
+2. Click either **Block** or **Comment**.
+
+<span>You have successfully configured {props.comment_type} comments for Semgrep Code.</span>
+<br />
+<br />

@@ -5,13 +5,13 @@ description: "Learn how Semgrep leverages its engine to scan open source depende
 tags:
     - Semgrep Supply Chain
     - Team & Enterprise Tier
-title: Semgrep Supply Chain overview
-hide_title: true
+title: Overview 
+hide_title: false
 ---
 
 import MoreHelp from "/src/components/MoreHelp"
 import SscIntro from "/src/components/concept/_ssc-intro.md"
-import AdmonitionSscLicense from "/src/components/reference/_admonition-ssc-license.md"
+import AdmonitionSotCves from "/src/components/reference/_admonition-sot-cves.md"
 
 <ul id="tag__badge-list">
 {
@@ -21,115 +21,114 @@ Object.entries(frontMatter).filter(
 }
 </ul>
 
-# Overview of Semgrep Supply Chain
-
 <SscIntro />
 
-<AdmonitionSscLicense />
-
-![Semgrep Supply chain Vulnerabilities page](/img/sc-vulns.png)
+![Semgrep Supply Chain Vulnerabilities page](/img/sc-vulns.png)
 _Figure 1_. Semgrep Supply Chain Vulnerabilities page.
 
-Semgrep Supply Chain parses lockfiles for a list of dependencies, then scans your codebase using **rules **written with Semgrep's pattern syntax. Supply Chain rules specify the following:
+## Identify open source security vulnerabilities
 
-* The range of versions that contain the dependency's vulnerability.
-* A pattern for vulnerable code, such as passing in unsanitized data.
-* The severity of the vulnerability.
+Semgrep Supply Chain detects [security
+vulnerabilities](https://nvd.nist.gov/vuln/full-listing) in your codebase
+introduced by open-source dependencies using high-signal rules, which are
+instructions Semgrep uses detect patterns in code, to determine the
+vulnerability's [reachability](/semgrep-supply-chain/glossary/#reachability).
 
-Semgrep Supply Chain generates a **finding** when it detects a match. If the dependency's version is within the range and finds the matching code within your codebase, the finding is **reachable**.
+To do this, Semgrep Supply Chain parses **lockfiles** for a list of dependencies,
+then scans your codebase using rules that specify the
+following information:
 
-A finding is **unreachable** if the dependency contains a known vulnerability, but the vulnerable matching code is not used in your codebase.
+* The dependency versions that contain a vulnerability
+* The pattern for the vulnerable code that Semgrep compares against your code
+* The severity of the vulnerability
 
-A finding is **undetermined** if Semgrep detects a match for the dependency in the vulnerable version range, but does not have a reachability rule for this vulnerability. This is most common with older or lower severity vulnerabilities.
+The following diagram shows the relationship between a Semgrep Supply Chain
+rule, the codebase scanned, and its lockfile:
 
-In Semgrep Cloud Platform, specific findings of a dependency and code match are called **usages**. Usages are grouped by their **vulnerability**. Vulnerabilities in Semgrep Supply Chain typically have a CVE number corresponding to the record in the [CVE Program](https://www.cve.org/About/Overview).
-
-Semgrep Cloud Platform also includes a list of **Advisories** for reference. Advisories include all vulnerabilities covered by Semgrep Supply Chain, regardless of whether the related dependency is used in scanned code.
-
-The following diagram displays the relationship between a Supply Chain rule, the lockfile, and the codebase being scanned:
-
-![Relationship between a Supply Chain rule, lockfile, CVE record, and codebase](/img/sc-reachability-analysis.png)
+![Relationship between a Semgrep Supply Chain rule, lockfile, CVE record, and codebase](/img/sc-reachability-analysis.png)
 _Figure 2_. Relationship between a Supply Chain rule, lockfile, CVE record, and codebase.
 
-## Semgrep and Semgrep Supply Chain
+### Types of Semgrep Supply Chain findings
 
-The following table displays differences between Semgrep and Semgrep Supply Chain.
+Semgrep Supply Chain generates a **finding** any time it determines that your
+codebase uses or imports a package containing a vulnerability. In addition, Semgrep
+Supply Chain offers two levels of support for reachability analysis, [depending
+on your language](/supported-languages/#maturity-levels-1):
 
-<table>
-<thead><tr>
-   <th>Feature</th>
-   <th>Semgrep</th>
-   <th>Semgrep Supply Chain</th>
-</tr></thead>
-<tbody><tr>
-   <td>Type of tool</td>
-   <td>Static application security testing (SAST)</td>
-   <td>Software composition analysis (SCA)</td>
-  </tr>
-  <tr>
-   <td>Scan target
-   </td>
-   <td>First-party code (your codebase or repository)
-   </td>
-   <td>Open source dependencies 
-   </td>
-  </tr>
-  <tr>
-   <td>Triage workflow
-   </td>
-   <td>Findings can be categorized as:
-<ul>
-<li>Ignored (to triage false positives)</li>
-<li>Closed (resolved) by refactoring code</li>
-<li>Removed</li>
-</ul>
-   </td>
-   <td>Findings can be categorized as:
-<ul>
-<li>New</li>
-<li>In progress</li>
-<li>Fixed</li>
-<li>Ignored</li>
-</ul>
-   </td>
-  </tr>
-  <tr>
-   <td>Remediation workflow
-   </td>
-   <td>Code refactoring
-   </td>
-   <td>Upgrading or removing the dependency, code refactoring
-   </td>
-  </tr>
-  <tr>
-   <td>Notification channels
-   </td>
-   <td>Slack, Email, Webhooks
-   </td>
-   <td>Slack
-   </td>
-  </tr></tbody>
-</table>
+* **GA**: Semgrep writes rules for all critical and high CVE
+severity levels for GA languages. That means Semgrep Supply Chain can flag all 
+your critical/high-severity findings as either reachable or unreachable.
+  * If there's a code pattern in the codebase that matches the vulnerability
+    definition, the finding is flagged as **reachable**.
+  * If you don't use the vulnerable piece of code of the library or package
+  imported, the finding is flagged as **unreachable**.
+  * If Semgrep Supply Chain determines that you use a vulnerable version of a
+  dependency, but Semgrep Supply Chain doesn't have a relevant reachability rule, it flags the finding as **undetermined**; this is most common with
+  vulnerabilities discovered before May 2022 or vulnerabilities with lower
+  severity levels.
 
-## Language support
+* **lockfile-only languages**: For **[lockfile-only](/semgrep-supply-chain/glossary/#lockfile-only-rules)** languages, Semgrep Supply Chain's performance is comparable to that of [GitHub's Dependabot](https://github.com/dependabot). Semgrep Supply Chain generates these findings by checking the dependency's version listed in your lockfile or manifest against a list of versions with known vulnerabilities, but it does not run reachability analysis. Because Semgrep Supply Chain doesn't run reachability analysis, it can't determine whether the vulnerability is reachable. Such vulnerabilities are, therefore, flagged as **undetermined**.
 
-Refer to [Supported languages](/docs/supported-languages#semgrep-supply-chain) to see all languages supported by Semgrep Supply Chain.
+Specific dependency and code match findings are called **usages**. SCP groups
+all usages together by vulnerability. For each vulnerability, SCP also displays
+a CVE number corresponding to the [CVE program record](https://www.cve.org/About/Overview).
 
-## Transitive dependencies and reachability analysis
+### Transitive dependencies and reachability analysis
 
-See [SSC glossary > Transitivity](/docs/semgrep-supply-chain/glossary/#transitive-or-indirect-dependency) for a definition of a transitive dependency.
+A [transitive
+dependency](/docs/semgrep-supply-chain/glossary/#transitive-or-indirect-dependency),
+also known as an indirect dependency, is a dependency of a dependency. Semgrep
+Supply Chain scans transitive dependencies for security vulnerabilities, but it
+does *not* perform reachability analysis. This means that Semgrep Supply Chain
+doesn't check the source code of your project's dependencies to determine if
+their dependencies produce a reachable finding in your code.
 
-* Semgrep Supply Chain does **not** perform reachability analysis for transitive dependencies. This means we do not scan the source code of your dependencies to determine if their dependencies may produce a reachable finding in the code.
-* Semgrep Supply Chain supports scanning for transitive or indirect dependencies for all of its [supported languages](/docs/supported-languages#semgrep-supply-chain). Findings are collected and displayed in **Semgrep Cloud Platform** > **Supply Chain**.
-* In most cases, Semgrep Supply Chain generates **reachable findings** for **direct dependencies**. However, there are certain dependencies that are vulnerable simply through their inclusion in a codebase. Semgrep Supply Chain generates reachable findings for these types of dependencies even if they are transitive dependencies.
+However, some dependencies are vulnerable simply through their inclusion in a
+codebase; in such cases, Semgrep Supply Chain generates reachable findings
+involving these dependencies, even if they're transitive, not direct,
+dependencies.
 
-## Next steps: Scanning your codebase
+Some package ecosystems allow the use of a transitive dependency as if it were a
+direct dependency. Though this feature is uncommon, Semgrep Supply Chain can
+scan for such usage and flag transitive dependencies as unreachable if not used
+directly.
 
-To scan your codebase, follow the instructions in [Scanning open source dependencies](/semgrep-supply-chain/getting-started).
+## Software bill of materials
 
-## Additional references
+Semgrep Supply Chain can [generate a software bill of materials
+(SBOM)](/semgrep-supply-chain/sbom), a complete inventory of your
+third-party or open source components to assist you with your auditing procedures.
 
-* [Software supply chain security is hard](https://r2c.dev/blog/2022/software-supply-chain-security-is-hard/)
-* [The best free, open-source supply-chain security tool? The lockfile](https://r2c.dev/blog/2022/the-best-free-open-source-supply-chain-tool-the-lockfile/)
+## Dependency search
+
+Semgrep Supply Chain's dependency search feature allows you to query for
+dependencies in your codebase; it can detect direct and transitive dependencies
+in any repository on which you have run a full scan. The results list the dependency, along
+with all of the repositories that use the dependency.
+
+## License compliance
+
+The [license compliance](/semgrep-supply-chain/license-compliance) feature
+ensures that you're only using open source packages whose licensing meets your
+organization's requirements.
+
+## Next steps
+
+Semgrep Supply Chain automatically scans repositories that you have added to Semgrep Cloud Platform.
+
+* After every scan, you can view your findings by [logging in to Semgrep Cloud
+  Platform (SCP)](https://semgrep.dev/login) and navigating to [**Supply
+  Chain**](https://semgrep.dev/orgs/-/supply-chain).
+* To support your security and business goals, you can [customize how Semgrep
+  Supply Chain scans your dependencies](/semgrep-supply-chain/getting-started).
+* The SCP has features to support the [triage and
+  remediation](/semgrep-supply-chain/triage-and-remediation) of your findings.
+
+### Further reading
+
+* [Software supply chain security is
+  hard](https://r2c.dev/blog/2022/software-supply-chain-security-is-hard/)
+* [The best free, open-source supply-chain security tool? The
+  lockfile](https://r2c.dev/blog/2022/the-best-free-open-source-supply-chain-tool-the-lockfile/)
 
 <MoreHelp />

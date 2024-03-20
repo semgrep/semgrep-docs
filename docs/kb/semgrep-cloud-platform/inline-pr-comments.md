@@ -24,4 +24,10 @@ GitHub only allows PR comments to be posted on lines of code that are shown in t
 
 GitLab allows comments to be posted on lines of code outside the default file-diff view, but the comments don't appear in the file-diff (Changes) view. However, they do appear as diff-related comments on the Overview.
 
+## Additional references
+
+* [Enabling GitHub pull request comments](/docs/semgrep-cloud-platform/github-pr-comments/)
+* [Enabling GitLab merge request comments](/docs/semgrep-cloud-platform/gitlab-mr-comments/)
+* [Enabling Bitbucket pull request comments](/docs/semgrep-cloud-platform/bitbucket-pr-comments/)
+
 <MoreHelp />

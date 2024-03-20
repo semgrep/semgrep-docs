@@ -6,7 +6,7 @@ import MoreHelp from "/src/components/MoreHelp"
 
 # Troubleshooting rules
 
-This page intends to help rule authors fix common mistakes when writing Semgrep rules. If you have a problem while running a rule you didn't write yourself, please [open a GitHub issue in the Semgrep Registry](https://github.com/returntocorp/semgrep-rules/issues/new/choose) repository.
+This page intends to help rule authors fix common mistakes when writing Semgrep rules. If you have a problem while running a rule you didn't write yourself, please [open a GitHub issue in the Semgrep Registry](https://github.com/semgrep/semgrep-rules/issues/new/choose) repository.
 
 
 ## If your pattern can’t be parsed
@@ -59,10 +59,5 @@ If you isolated the issue to one specific pattern, here are some common issues t
 
 - When using `metavariable-regex`, the regex will match against all characters of the found metavariable. This means that if the metavariable matches a `"foo"` string in your code, the `metavariable-regex` pattern will run against a five character string with the quote characters at either end.
 - Note that using the pipe (`|`) character will append a newline to your regex! If you are writing `pattern-regex: |` and then a newline with the regex, you almost certainly want the `|-` operator as in `pattern-regex: |-` to remove that trailing newline.
-
-
-## How to get help
-
-Please check the [Support](/support/) page to get help from the Semgrep maintainers & community, via Slack, GitHub, email, or phone.
 
 <MoreHelp />

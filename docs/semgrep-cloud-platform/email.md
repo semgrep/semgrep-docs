@@ -21,11 +21,6 @@ Object.entries(frontMatter).filter(
 
 # Receiving email notifications
 
-:::info Prerequisites
-* Email notifications can only be enabled through Semgrep Cloud Platform (SCP). [Create an account](/semgrep-code/getting-started/#signing-in-to-semgrep-cloud-platform) to set up Slack notifications.
-* To receive alerts and notifications, you must [add or onboard the project](/semgrep-code/getting-started/#option-b-adding-a-repository-from-github-gitlab-or-bitbucket) (repository) to Semgrep Cloud Platform for scanning.
-:::
-
 Receive Semgrep findings through email.
 
 Perform these steps in Semgrep Cloud Platform to create an email integration and receive notifications:

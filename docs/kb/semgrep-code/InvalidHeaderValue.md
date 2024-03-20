@@ -4,13 +4,17 @@ tags:
   - Scanning
   - Semgrep Code
   - Secrets
+append_help_link: true
 ---
 
-# Troubleshooting `ValueError: Invalid header value`
+import MoreHelp from "/src/components/MoreHelp"
+
+# Troubleshoot `ValueError: Invalid header value` error
 
 When scanning with Semgrep, you may run into the following error:
 
-```Invalid header value b'Bearer *******************************************************'
+```console
+Invalid header value b'Bearer *******************************************************'
 Traceback (most recent call last):
   File "/usr/local/lib/python3.11/site-packages/semgrep/commands/wrapper.py", line 35, in wrapper
     func(*args, **kwargs)
@@ -53,22 +57,23 @@ Traceback (most recent call last):
 ValueError: Invalid header value b'Bearer *******************************************************' 
 ```
 
-Root cause of this error would be a `\n` within the secret value or a possible misconfiguration from the copy/pasting of your `SEMGREP_APP_TOKEN`.
+This error indicates that there is a problem in the pasted `SEMGREP_APP_TOKEN` value, most often an extra newline (`\n`).
 
-## Example fix on GitHub
+## Fix a secret on GitHub
 
-To fix on Github:
+To fix on GitHub:
 
-1. Go to either your organization's or repository's **Settings** > **Secrets and variables** 
-2. Update the value of the `SEMGREP_APP_TOKEN` to ensure it does not have an extraneous `\n`.
+1. At either the organization or repository level, go to **Settings** > **Secrets and variables**
+   ![Secrets and variables section in Settings](/img/kb/github-secrets.png)
+2. Update the value of the `SEMGREP_APP_TOKEN` to ensure it does not have an extraneous newline (`\n`) and is not malformed
+   ![Updating GitHub Secret](/img/kb/github-update-value.png)
 
-![Secrets and variables section in Settings](/img/kb/github-secrets.png)
-![Updating Github Secret](/img/kb/github-update-value.png)
-
-## Example fix on GitLab
+## Fix a secret on GitLab
 
 To fix on GitLab:
-1. Go to your repository's `CI/CD` Settings.
-2. Update the `SEMGREP_APP_TOKEN` variable directly to ensure it does not have an extraneous `\n`.
 
-![Updating Gitlab Variable](/img/kb/gitlab-update-value.png)
+1. Go to your repository's **CI/CD** settings
+2. Update the `SEMGREP_APP_TOKEN` value to ensure it does not have an extraneous newline (`\n`) and is not malformed
+   ![Updating GitLab Variable](/img/kb/gitlab-update-value.png)
+
+<MoreHelp />

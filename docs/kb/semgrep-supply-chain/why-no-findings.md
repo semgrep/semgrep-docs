@@ -15,7 +15,7 @@ Check the [Supported Languages table](/docs/supported-languages/#general-availab
 
 ###  Is the supported lockfile present in an appropriate location with the expected name?
 
-Semgrep Supply Chain searches the parent directories of any code files for the nearest relevant lockfile. Monolithic repositories (monorepos) will have their findings grouped based on the lockfiles present in subdirectories.
+Semgrep Supply Chain searches the parent directories of any code files for the nearest relevant lockfile. Monolithic repositories (monorepos) have their findings grouped based on the lockfiles present in subdirectories.
 
 Semgrep Supply Chain only recognizes the lockfile names indicated in the [Supported Languages table](/docs/supported-languages/#general-availability).
 
@@ -62,7 +62,13 @@ If code is modified, but the lockfile is not, Supply Chain does not analyze the 
 
 ### Did Semgrep scan a ref other than your default branch, or does your default branch have a less common name?
 
-Currently, Semgrep Supply Chain only displays findings on one of the following branches in Semgrep Cloud Platform:
+If the Semgrep Supply Chain scan ran on a branch other than the default, or a default branch with a less common name, make sure to select the desired branch on the Vulnerabilities page to see findings.
+
+![Branch selector with branch options shown](/img/kb/ssc-branch-selector.png)
+
+Using the example in the screenshot, to see vulnerabilities from `new-vuln-branch`, select it from the list.
+
+By default, the Vulnerabilities page displays vulnerabilities from:
 
 * The repository's default branch, if that information is available. This information is typically available for CI scans performed through GitHub Actions.
 * One of a set of standard default branch names, such as:
@@ -70,8 +76,6 @@ Currently, Semgrep Supply Chain only displays findings on one of the following b
   * `main`
   * `master`
   * `trunk`
-
-If a scan runs on a different branch, findings do not show in Semgrep Cloud Platform. This prevents vulnerability findings from persisting incorrectly after they have been resolved on the repository's primary branch.
 
 ### Are all findings in the scan unreachable vulnerabilities?
 
@@ -84,7 +88,7 @@ To see all vulnerabilities, select all boxes under the "Exposure" filter.
 ## Additional references
 
 If the project uses Java and Apache Maven with `pom.xml`, see [Setting up SSC scans for specific project management tools:
-Apache Maven (Java)](/docs/semgrep-supply-chain/getting-started/#apache-maven-java).
+Apache Maven (Java)](/semgrep-supply-chain/setup-maven/).
 
 ## If you're still having trouble
 

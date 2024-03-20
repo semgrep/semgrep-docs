@@ -1,9 +1,9 @@
 ```yaml
 semgrep:
   # A Docker image with Semgrep installed.
-  image: returntocorp/semgrep
+  image: semgrep/semgrep
   # Run the "semgrep ci" command on the command line of the docker image.
-  script: semgrep ci
+  script: semgrep ci --code
 
   rules:
   # Scan changed files in MRs, (diff-aware scanning):
@@ -11,8 +11,4 @@ semgrep:
 
   # Scan mainline (default) branches and report all findings.
   - if: $CI_COMMIT_BRANCH == $CI_DEFAULT_BRANCH
-
-  variables:
-    # Add the rules that Semgrep uses by setting the SEMGREP_RULES environment variable.
-    SEMGREP_RULES: p/default # See more at semgrep.dev/explore.
 ```

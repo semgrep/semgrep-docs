@@ -362,31 +362,39 @@ those constructs, e.g., Ruby).
 
 #### Syntax
 
-Typed metavariables only match a metavariable if it’s declared as a specific type. For example, you may want to specifically check that `==` is never used for strings.
+Typed metavariables only match a metavariable if it’s declared as a specific type. 
 
 ##### Java:
+For example, to look for calls to the `log` method on `Logger` objects. 
+A simple pattern for this purpose could use a metavariable for the Logger object.
 
 ```text
-pattern: $X == (String $Y)
+pattern: $LOGGER.log(...)
 ```
 
-```java
-public class Example {
-    public int foo(String a, int b) {
-        // Matched
-        if (a == "hello") {
-            return 1;
-        }
+But if we are concerned about finding calls to the `Math.log()` method as well, we can use a typed metavariable to put a type constraint on the `$LOGGER` metavariable.
 
-        // Not matched
-        if (b == 2) {
-            return -1;
-        }
-    }
-}
+```text
+pattern: (java.util.logging.Logger $LOGGER).log(...)
+```
+
+Alternatively, if we want to capture more logger types, for example custom logger types, we could instead add a constraint to the type of the argument in this methodcall instead.
+
+
+```text
+pattern: $LOGGER.log(java.util.logging.LogRecord $RECORD)
 ```
 
 ##### C:
+
+In this example in C, we want to capture all cases where something is compared to a char array.
+We start with a simple pattern that looks for comparison between two variables.
+
+```text
+pattern: $X == $Y
+```
+
+We can then put a type constraint on one of the metavariables used in this pattern by turning it into a typed metavariable.
 
 ```text
 pattern: $X == (char *$Y)
@@ -411,54 +419,57 @@ int main() {
 }
 ```
 
-##### TypeScript:
-
-```text
-pattern: $X == ($Y : string)
-```
-
-```typescript
-function foo(a: string, b: number) {
-  // Matched
-  if (a == "hello") {
-    return 1;
-  }
-
-  // Not matched
-  if (b == 1) {
-    return -1;
-  }
-}
-```
-
 ##### Go:
 
+The syntax for a typed metavariable in Go looks different from the syntax for Java.
+In this Go example we look for calls to the `Open` function, but only on an object of the `zip.Reader` type.
+
 ```text
-pattern: "$X == ($Y : string)"
+pattern: ($READER : *zip.Reader).Open($INPUT)
 ```
 
 ```go
-func main() {
-    var x string
-    var y string
-    var a int
-    var b int
+func read_file() {
 
-    // Matched
-    if x == y {
-       x = y
-    }
+    reader, _ := zip.NewReader(readerat, 18276)
 
-    // Not matched
-    if a == b {
-       a = b
-    }
+	// Matched
+	reader.Open("data")
+
+    dir := http.Dir("/")
+
+	// Not matched
+	f, err := dir.Open(c.Param("file"))
 }
 ```
 
 :::caution
 For Go, Semgrep currently does not recognize the type of all variables that are declared on the same line. That is, the following will not take both `a` and `b` as `int`s: `var a, b = 1, 2`
 :::
+
+
+##### TypeScript:
+
+In this example, we want to look for uses of the DomSanitizer function.
+
+```text
+pattern: ($X: DomSanitizer).sanitize(...)
+```
+
+```typescript
+constructor(
+  private _activatedRoute: ActivatedRoute,
+  private sanitizer: DomSanitizer,
+) { }
+
+ngOnInit() {
+    // Not matched
+    this.sanitizer.bypassSecurityTrustHtml(DOMPurify.sanitize(this._activatedRoute.snapshot.queryParams['q']))
+
+    // Matched
+    this.sanitizer.bypassSecurityTrustHtml(this.sanitizer.sanitize(this._activatedRoute.snapshot.queryParams['q']))
+}
+```
 
 #### Using typed metavariables
 

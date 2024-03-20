@@ -1,0 +1,159 @@
+---
+slug: usage-and-billing
+append_help_link: true
+title: Usage and billing 
+description: "Learn about usage computation and other aspects of your Semgrep licenses."
+tags:
+  - Semgrep Cloud Platform
+  - Semgrep OSS
+  - Team & Enterprise Tier
+hide_title: true
+---
+
+import MoreHelp from "/src/components/MoreHelp";
+
+<ul id="tag__badge-list">
+  {Object.entries(frontMatter)
+    .filter((frontmatter) => frontmatter[0] === "tags")[0]
+    .pop()
+    .map((value) => (
+      <li class="tag__badge-item">{value}</li>
+    ))}
+</ul>
+
+<!-- # Pricing and billing -->
+
+# Usage and billing 
+
+Learn about usage computation and other aspects of your Semgrep licenses.
+
+:::note
+- This document is for **Semgrep Pro** users; Semgrep OSS Engine does not have any usage limit. Compare [<i class="fa-regular fa-file-lines"></i>  Semgrep Pro and Semgrep OSS](/semgrep-pro-vs-oss).
+:::
+
+## Usage 
+
+All Semgrep Pro products are free under the **Team** tier for **10 monthly contributors**. These products include:
+
+- Semgrep Cloud Platform
+- Semgrep Code
+- Semgrep Supply Chain
+- Semgrep Secrets (beta)
+
+A **contributor** is someone who has made at least **one** commit to a Semgrep-scanned **private** repository within the last month, starting from the **date of license purchase** if a license was purchased, or the date of account creation, for accounts using Semgrep within usage limits.
+
+Any type of Semgrep Pro scan counts towards the contributor total. This includes:
+
+- Scanning with any Semgrep Pro product (Code, Supply Chain, and so on).
+- Full scans on a repository or partial scans on a pull or merge request.
+
+### Usage computation
+
+Contributors are calculated using `git log` over the **past 30 days** (a rolling interval), not the beginning of each month. The start date is either:
+
+- The date of your license purchase.
+- The date of account creation, if you and your team are within usage limits.
+
+**Bots** and similar automations are excluded from this count.
+
+### Exceeding the free usage limit
+
+Semgrep scans stop when the usage limit is exceeded. Resume scanning through:
+
+* A one-time 30-day free trial that starts automatically when the usage limit is exceeded for the first time.
+* Purchasing additional licenses.
+* Waiting for the next billing cycle.
+
+If the first scan exceeds the usage limit, Semgrep still completes the first scan and a one-time 30-day free trial automatically starts. After the trial concludes, if scans are attempted on private repositories that exceed the usage limit, scans will not run until additional licenses are purchased.
+
+### Usage limit on public projects
+
+Public projects have no limits on contributors.
+
+### Semgrep CLI commands subject to usage limits
+
+The `semgrep scan` command is subject to the usage limit only if the scan is by a logged-in contributor. Semgrep computes contributor counts for any logged-in scan command (for example, `semgrep ci`, `semgrep scan`, and so on) when the Pro Engine, Supply Chain, or Pro rules are used.
+
+## Determine your plan needs
+
+Within your team or organization, assess the number of **contributors**. Contributors are members of your organization that make commits. That determines the number of **licenses** needed for the plan purchase.
+
+For example, if a project has 4 unique contributors who create commits during the billing period while Semgrep is scanning their repositories, only 4 licenses are required even if the organization has a total of 10 members. Contributors are counted only once even if they commit to many projects within the same organization, so no additional licenses are required.
+
+:::info
+You only need to buy licenses for contributors over 10. The 11th contributor and onwards are charged. For example, an engineering team with 20 contributing developers will only pay for 10 licenses.
+:::
+
+All members of the organization, regardless of contributor (license) status, have access to paid features for the chosen tier. This means that project managers and other non-programming roles can still view the Semgrep Cloud Platform dashboard.
+
+### Single-product purchases
+
+You can choose to purchase a single product. Products can also be disabled from the [Settings page](https://semgrep.dev/orgs/-/settings).
+
+### Number of licenses per product
+
+You must purchase an **equal number of licenses** for each product you intend to use. For example, you cannot purchase 4 licenses of Semgrep Supply Chain and 9 licenses of Semgrep Code. 
+
+## Reconciliation of licenses and usage
+
+If your organization exceeds the number of purchased licenses for the period defined in your contract, your organization will be charged based on the number of licenses that exceeded the purchased amount. The additional charge starts the month after the use of licenses exceeds the contracted amount.
+
+Check in with your Semgrep Account Executive every **60 days** if you need more licenses than initially purchased.
+
+### Example of license reconciliation
+
+On January 21st, you purchased annual licenses for 50 developers of Semgrep Supply Chain’s Team tier ($40 per developer per month). The 21st of the month is the start date of the annual contract. In the following month, on February 28th, the number of used developer licenses exceeded the original purchased quantity by 20 users. This requires a contract adjustment.
+
+Contract adjustment:
+
+- Since the organization’s use exceeded the amount of purchased licenses on February 28th, the future date of March 21st is selected to align with the remaining months in the contract. There are 10 months remaining in the contract.
+- The additional amount charged, the add-on cost, is $8,000 ($40 per developer per month x 10 months x 20 users).
+- Resulting add-on cost: **$8,000**
+
+## Upgrade your plan
+
+To upgrade to the **Team tier** using a credit card:
+
+1. Navigate to **Settings** > **Usage & billing**.
+2. Choose the product you want to upgrade. You can upgrade Semgrep Code, Semgrep Supply Chain, or both. Click **Upgrade**.
+3. Review the details of your order, and ensure that the number of licenses you're purchasing is accurate.
+4. Provide your payment details, and click **Subscribe**.
+
+![Payment menu](/img/billing-and-pricing-payment.png)<br />
+
+To purchase licenses for Semgrep Secrets, or to upgrade to the **Enterprise tier**, please [contact us](https://semgrep.dev/contact-us).
+
+### Billing
+
+Team tier users who pay through a credit card are charged monthly. Enterprise tier users are charged at an agreed-upon billing cycle. For any concerns such as custom payment methods and billing cycles, send an email to [billing@semgrep.com](mailto:billing@semgrep.com) to get in touch with our sales team.
+
+## Modify or cancel your plan
+
+To modify or cancel your plan, send an email to [billing@semgrep.com](mailto:billing@semgrep.com).
+
+## Pay for your plan
+
+Pay through the following methods:
+
+<dl>
+  <dt>Pay using your credit card.</dt>
+  <dd>The payment will be processed through Stripe.</dd>
+  <dt>Pay through a purchase order or invoice.</dt>
+  <dd>
+    Send an email to{" "}
+    <a href="mailto:billing@semgrep.com">billing@semgrep.com</a> to get in touch
+    with our sales team.
+  </dd>
+</dl>
+
+## See also
+
+- [Supported languages](/supported-languages/)
+- [List of vulnerabilities found and fixed with Semgrep](/trophy-case/)
+- [Frequently asked questions](/faq/)
+
+## Additional resources
+
+- [Slack on scaling static analysis with Semgrep](https://semgrep.dev/blog/2021/slack-presents-semgrep-at-def-con-appsec-village/)
+
+<MoreHelp />

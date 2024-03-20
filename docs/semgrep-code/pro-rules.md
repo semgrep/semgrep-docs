@@ -98,7 +98,6 @@ For CLI users: You must be [logged in](/docs/getting-started/#logging-into-semgr
 
 ## Removing or disabling Semgrep Pro rules
 
-Removing a 
 ### Disabling rules
 
 <DisableRule />

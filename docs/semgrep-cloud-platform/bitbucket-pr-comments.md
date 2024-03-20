@@ -13,6 +13,11 @@ import MoreHelp from "/src/components/MoreHelp"
 
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
+import TroubleshootingPrLinks from "/src/components/reference/_troubleshooting-pr-links.mdx"
+import DeploymentJourney from "/src/components/concept/_deployment-journey.mdx"
+import NextAfterComments from "/src/components/procedure/_next-after-comments.mdx"
+import CommentTriggers from "/src/components/reference/_comment-triggers.mdx"
+import ReceiveCommentsScm from "/src/components/procedure/_receive-comments-scm.mdx"
 
 <ul id="tag__badge-list">
 {
@@ -24,11 +29,28 @@ Object.entries(frontMatter).filter(
 
 # Enabling Bitbucket pull request comments
 
-:::info Prerequisites
-* You must have a Bitbucket Cloud Free, Standard, or Premium plan. Bitbucket Data Center is not supported. 
-* Bitbucket PR comments can only be enabled through Semgrep Cloud Platform (SCP). [Create an account](/semgrep-code/getting-started/#signing-in-to-semgrep-cloud-platform) to set up Slack notifications.
-* To receive alerts and notifications, you must [add or onboard a project](/semgrep-code/getting-started/#option-b-adding-a-repository-from-github-gitlab-or-bitbucket) (repository) to Semgrep Cloud Platform for scanning.
-:::
+<DeploymentJourney />
+
+Semgrep can create **pull request (PR) comments** in your Bitbucket repository. These comments provide a description of the issue detected by Semgrep and may offer possible solutions. These comments are a means for security teams, or any team responsible for creating standards to help their fellow developers write safe and standards-compliant code.
+
+Automated comments on Bitbucket pull requests are displayed as follows:
+
+![Semgrep Bitbucket PR comment](/img/bb-pr-comment.png#md-width)
+**Figure** An inline Bitbucket pull request comment.
+
+## Conditions for PR comment creation
+
+PR comments appear for the following types of scans under these conditions:
+
+<CommentTriggers />
+
+## Supported Bitbucket plans
+
+- Any of the following Bitbucket plans are supported: 
+    - Cloud Free
+    - Standard
+    - Premium
+- Bitbucket Data Center is not supported.
 
 There are two ways in which you can integrate Semgrep comments into Bitbucket Cloud depending on the Bitbucket plan you use:
 
@@ -79,11 +101,14 @@ To complete the configuration, follow the [Adding Semgrep to your Bitbucket CI p
 
 </Tabs>
 
-## Enabling PR comments in Bitbucket Cloud
+## Enable PR comments in Bitbucket 
 
-:::info Prerequisite
-* You must have a Bitbucket Cloud [workspace access token](/semgrep-code/notifications/#creating-and-adding-a-workspace-access-token) or a [repository access token](/semgrep-code/notifications/#creating-and-adding-a-repository-access-token).
-:::
+### Prerequisites
+
+- In addition to finishing the previous steps in your deployment journey, it is recommended to have completed a **full scan** on your **default branch** for the repository in which you want to receive comments.
+- You must have a Bitbucket Cloud [workspace access token](/semgrep-code/notifications/#creating-and-adding-a-workspace-access-token) or a [repository access token](/semgrep-code/notifications/#creating-and-adding-a-repository-access-token).
+
+### Define the `BITBUCKET_TOKEN` environment variable
 
 To enable PR comments, define the `BITBUCKET_TOKEN` environment variable in your CI configuration file. Its syntax and placement in your CI configuration file depends on your CI provider. For example, in Bitbucket Pipelines, its syntax is the following:
 
@@ -141,7 +166,7 @@ pipelines:
     '**':
       - step:
           name: 'Run Semgrep diff scan with PR branch'
-          image: returntocorp/semgrep
+          image: semgrep/semgrep
           script:
             # ...
             - export BITBUCKET_TOKEN=$PAT
@@ -153,10 +178,22 @@ pipelines:
 </Tabs>
 -->
 
-After defining the `BITBUCKET_TOKEN`, you have successfully set up PR comments in Bitbucket Cloud.
+### Receive comments in your VPN or on-premise SCM
+
+Bitbucket Premium provides [<i class="fas fa-external-link fa-xs"></i> access control features](https://support.atlassian.com/bitbucket-cloud/docs/control-access-to-your-private-content/) for content that your individual account owns. If you use this feature, you need to add several IP addresses into your allowlist.
+
+<ReceiveCommentsScm />
 
 :::info
-Only rules set to the **Comment** and **Block** rule modes in the [Policies page](https://semgrep.dev/orgs/-/board) create PR comments.
+Only rules set to the **Comment** and **Block** rule modes in the [Policies page](https://semgrep.dev/orgs/-/policies) create PR comments.
 :::
+
+## Next steps
+
+<NextAfterComments />
+
+## Additional references 
+
+<TroubleshootingPrLinks />
 
 <MoreHelp />

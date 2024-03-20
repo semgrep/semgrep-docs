@@ -8,19 +8,24 @@ import MoreHelp from "/src/components/MoreHelp"
 
 # Extract mode
 
-## Introduction
+
+:::danger Deprecation notice
+As of Semgrep 1.65.0, extract mode has been deprecated and removed from Semgrep. This feature may return in the future.
+:::
+
 
 Extract mode enables you to run existing rules on subsections of files where the rule language is different than the language of the file. For example, running a JavaScript rule on code contained inside of script tags in an HTML document.
 
+<!-- 
 :::info
 The extract mode feature is still in a very experimental stage and may not work as intended. The Semgrep team is planning to improve this feature in the future. Reach out for help and suggestions on the <a href="https://go.semgrep.dev/slack">Semgrep Community Slack</a>.
-:::
+::: -->
 
 ## Example of extract mode
 
 Without extract mode, writing rules to validate template, Markdown or configuration files which contain code in another language can be burdensome and require significant rule duplication.
 
-Let's take the following Bash rule as an example (a simplified version of the [`curl-eval`](https://github.com/returntocorp/semgrep-rules/blob/release/bash/curl/security/curl-eval.yaml) rule from the Semgrep Registry):
+Let's take the following Bash rule as an example (a simplified version of the [`curl-eval`](https://github.com/semgrep/semgrep-rules/blob/release/bash/curl/security/curl-eval.yaml) rule from the Semgrep Registry):
 
 ```yaml
 rules:
@@ -103,7 +108,7 @@ The `extract` key is required in extract mode. The value must be a metavariable 
 
 ### `dest-language`
 
-The `dest-language` key is required in extract mode. The value must be a [language tag](/writing-rules/rule-syntax/#language-extensions-and-tags).
+The `dest-language` key is required in extract mode. The value must be a [language tag](/writing-rules/rule-syntax/#language-extensions-and-languages-key-values).
 
 ### `transform`
 

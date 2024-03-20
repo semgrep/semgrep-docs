@@ -13,7 +13,6 @@ tags:
 import MoreHelp from "/src/components/MoreHelp"
 import EnableAutofix from "/src/components/procedure/_enable-autofix.mdx"
 
-
 <ul id="tag__badge-list">
 {
 Object.entries(frontMatter).filter(
@@ -30,17 +29,9 @@ Semgrep Cloud Platform can send notifications through the following channels:
 
 | Tool                               | Tier availability |
 | ----                               | ----------------  |
-| [GitHub pull request (PR) comments](/semgrep-cloud-platform/github-pr-comments)  | Team & Enterprise  |
-| [GitLab merge request (MR) comments](/semgrep-cloud-platform/gitlab-mr-comments) | Team & Enterprise  |
-| [Bitbucket PR comments](/semgrep-cloud-platform/bitbucket-pr-comments)           | Team & Enterprise  |
 | [Slack](/semgrep-cloud-platform/slack-notifications)                             | Team & Enterprise  |
 | [Email](/semgrep-cloud-platform/email-notifications)                             | Team & Enterprise  |
 | [Webhooks](/semgrep-cloud-platform/webhooks)                           | Team & Enterprise   |
-
-:::info
-* Alerts and notifications can only be enabled through Semgrep Cloud Platform (SCP). [Sign up or sign in to Semgrep Cloud Platform](https://semgrep.dev/login).
-* To receive alerts and notifications, you must [add or onboard the project](/semgrep-code/getting-started/#option-b-adding-a-repository-from-github-gitlab-or-bitbucket) (repository) to Semgrep Cloud Platform for scanning.
-:::
 
 ## Finding available alert and notification channels
 
@@ -58,7 +49,7 @@ To find available [integrations for Semgrep Cloud Platform](https://semgrep.dev/
 To view, add, remove, disable, or enable your saved channels:
 
 1. In the **Settings** > **[Integrations](https://semgrep.dev/orgs/-/settings/integrations)** page, explore the options available for specific integrations.
-2. In the **[Policies](https://semgrep.dev/orgs/-/board)** page, click **Rule modes**. A menu appears.
+2. In the **[Policies](https://semgrep.dev/orgs/-/policies)** page, click **Rule modes**. A menu appears.
 3. Click the **Edit** button of the mode for which mode you want to change notifications.
 4. Make any changes to the notification settings for the mode you selected.
 
@@ -79,30 +70,6 @@ Autofix requires PR or MR comments to be enabled for your repository or organiza
 <EnableAutofix />
 
 All scans performed after enabling autofix generate inline PR or MR comments with code suggestions for applicable rules.
-
-### Jira
-
-:::warning Deprecation notice
-Creating Jira tickets from Findings page has been deprecated. This feature may be reenabled in the future.
-:::
-
-Jira integration is a feature available in Semgrep's Team tier and above.
-
-This integration allows you to create Jira tickets directly from the **Findings** page with relevant information about a particular finding.
-
-To set up Jira integration:
-
-1. Sign in to your Semgrep Cloud Platform account, and then go to **Settings** > **[Integrations](https://semgrep.dev/orgs/-/settings/integrations)**..
-2. 1. On the [Integrations](https://semgrep.dev/orgs/-/settings/integrations) page, click **Add Integration** (or **Setup First Integration** if this is your first integration), and then select **Jira.**
-3. Enter a **Name** of the integration.
-4. Enter the **email address** used for the Atlassian account.
-5. Enter your Atlassian **domain URL**.
-6. Enter your **Project key**. This is the prefix for tasks created within a project. Semgrep creates issues to the project identified here.
-7. Enter the **Issue type.** This is the type of issue for Semgrep findings, for example, *Bug.*
-8. Enter the **API Token**.
-    - Generate the API token by following instructions in the **Create an API token** section in the following documentation: [Manage API Tokens](https://support.atlassian.com/atlassian-account/docs/manage-api-tokens-for-your-atlassian-account).
-    - Find existing API tokens in the [API Tokens](https://id.atlassian.com/manage-profile/security/api-tokens) page.
-9. Click **Save.**
 
 ## Notification and alert de-duplication
 

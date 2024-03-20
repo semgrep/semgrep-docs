@@ -27,43 +27,35 @@ Read /src/components/code_snippets/readme to understand modular code snippet imp
 
 <!-- GHA -->
 import GhaSemgrepAppSast from "/src/components/code_snippets/_gha-semgrep-app-sast.mdx"
-import GhaSemgrepAppStandalone from "/src/components/code_snippets/_gha-semgrep-app-standalone.mdx"
 import GhaSemgrepAppSastDash from "/src/components/code_snippets/_gha-semgrep-app-sast-dash.mdx"
-import GhaSemgrepAppStandaloneDash from "/src/components/code_snippets/_gha-semgrep-app-standalone-dash.mdx"
-import GhaSemgrepAppSsc from "/src/components/code_snippets/_gha-semgrep-app-ssc.mdx"
+import GhaSemgrepOssSast from "/src/components/code_snippets/_gha-semgrep-oss-sast.mdx"
 
 <!-- GLCICD -->
 import GlcicdSemgrepAppSast from "/src/components/code_snippets/_glcicd-semgrep-app-sast.mdx"
-import GlcicdSemgrepAppStandalone from "/src/components/code_snippets/_glcicd-semgrep-app-standalone.mdx"
 import GlcicdSemgrepAppSastDash from "/src/components/code_snippets/_glcicd-semgrep-app-sast-dash.mdx"
-import GlcicdSemgrepAppStandaloneDash from "/src/components/code_snippets/_glcicd-semgrep-app-standalone-dash.mdx"
-import GlcicdSemgrepAppSsc from "/src/components/code_snippets/_glcicd-semgrep-app-ssc.mdx"
+import GlcicdSemgrepOssSast from "/src/components/code_snippets/_glcicd-semgrep-oss-sast.mdx"
 
 <!-- Jenkins -->
 import JenkinsSemgrepAppSast from "/src/components/code_snippets/_jenkins-semgrep-app-sast.mdx"
-import JenkinsSemgrepAppSsc from "/src/components/code_snippets/_jenkins-semgrep-app-ssc.mdx"
-import JenkinsSemgrepAppStandalone from "/src/components/code_snippets/_jenkins-semgrep-app-standalone.mdx"
+import JenkinsSemgrepOssSast from "/src/components/code_snippets/_jenkins-semgrep-oss-sast.mdx"
 import JenkinsSemgrepAppSastDocker from "/src/components/code_snippets/_jenkins-semgrep-app-sast-docker.mdx"
 
-<!--BitBucket Pipelines -->
+<!--Bitbucket Pipelines -->
+
 import BitbucketSemgrepAppSast from "/src/components/code_snippets/_bitbucket-semgrep-app-sast.mdx"
-import BitbucketSemgrepAppSsc from "/src/components/code_snippets/_bitbucket-semgrep-app-ssc.mdx"
-import BitbucketSemgrepAppStandalone from "/src/components/code_snippets/_bitbucket-semgrep-app-standalone.mdx"
+import BitbucketSemgrepOssSast from "/src/components/code_snippets/_bitbucket-semgrep-oss-sast.mdx"
 
 <!-- Buildkite -->
 import BuildkiteSemgrepAppSast from "/src/components/code_snippets/_buildkite-semgrep-app-sast.mdx"
-import BuildkiteSemgrepAppSsc from "/src/components/code_snippets/_buildkite-semgrep-app-ssc.mdx"
-import BuildkiteSemgrepAppStandalone from "/src/components/code_snippets/_buildkite-semgrep-app-standalone.mdx"
+import BuildkiteSemgrepOssSast from "/src/components/code_snippets/_buildkite-semgrep-oss-sast.mdx"
 
 <!-- CircleCI -->
 import CircleCiSemgrepAppSast from "/src/components/code_snippets/_circleci-semgrep-app-sast.mdx"
-import CircleCiSemgrepAppSsc from "/src/components/code_snippets/_circleci-semgrep-app-ssc.mdx"
-import CircleCiSemgrepAppStandalone from "/src/components/code_snippets/_circleci-semgrep-app-standalone.mdx"
+import CircleCiSemgrepOssSast from "/src/components/code_snippets/_circleci-semgrep-oss-sast.mdx"
 
 <!-- Azure Pipelines -->
 import AzureSemgrepAppSast from "/src/components/code_snippets/_azure-semgrep-app-sast.mdx"
-import AzureSemgrepAppSsc from "/src/components/code_snippets/_azure-semgrep-app-ssc.mdx"
-import AzureSemgrepAppStandalone from "/src/components/code_snippets/_azure-semgrep-app-standalone.mdx"
+import AzureSemgrepOssSast from "/src/components/code_snippets/_azure-semgrep-oss-sast.mdx"
 
 import ScmFeatureReference from "/src/components/reference/_scm-feature-reference.md"
 
@@ -93,65 +85,58 @@ To add a Semgrep configuration file in your GitHub Actions pipeline:
 :::note
 If you are self-hosting your repository, you must [use a self-hosted runner](https://docs.github.com/en/actions/using-jobs/choosing-the-runner-for-a-job#choosing-self-hosted-runners).
 :::
+
 ### Sample GitHub Actions configuration file
 
 <Tabs
     defaultValue="gha-semgrep"
     values={[
     {label: 'Default', value: 'gha-semgrep'},
-    {label: 'Stand-alone SAST', value: 'gha-standalone'},
-    {label: 'Semgrep Supply Chain', value: 'gha-ssc'},
+    {label: 'Semgrep OSS', value: 'gha-oss'},
     ]}
 >
 
 <TabItem value='gha-semgrep'>
 
-The following configuration creates a CI job that runs a SAST and SCA scan using both Semgrep Code and Semgrep Supply Chain.
+The following configuration creates a CI job that runs scans depending on what products you have enabled in Semgrep Cloud Platform.
 
 <GhaSemgrepAppSast />
 
-</TabItem>
-
-<TabItem value='gha-standalone'>
-
-The following configuration creates a CI job that runs a SAST scan using Semgrep Code.
-
-<GhaSemgrepAppStandalone />
+You can **run specific product scans** by passing an argument, such as `--supply-chain`. View the [list of arguments](/getting-started/cli/#scan-using-specific-semgrep-products). 
 
 </TabItem>
 
-<TabItem value='gha-ssc'>
+<TabItem value='gha-oss'>
 
-The following configuration creates a CI job that runs an SCA scan using Semgrep Supply Chain.
+The following configuration creates a CI job that runs Semgrep OSS scans using rules configured for your programming language.
 
-<GhaSemgrepAppSsc />
+<GhaSemgrepOssSast />
+
+You can customize the scan by entering custom rules or other rulesets to scan with. See [Scan your codebase with a specific ruleset](/getting-started/cli-oss/#scan-your-codebase-with-a-specific-ruleset).
 
 </TabItem>
 
 </Tabs>
+
+:::caution
+If you define both `branches` or `branches-ignore` *and* `paths` or `paths-ignore`, the workflow only runs when both filters are satisfied.
+
+For example, if your configuration file includes the following definition, the workflow runs only if there are changes on the `development` branch to `.github/workflows/semgrep.yml` :
+
+```yaml
+push:
+  branches:
+    - development
+  paths:
+    - .github/workflows/semgrep.yml
+```
+:::
+
+#### Upload findings to GitHub Advanced Security Dashboard
 
 <details><summary>Alternate job that uploads findings to GitHub Advanced Security Dashboard</summary>
 
-<Tabs
-    defaultValue="gha-semgrep-dash"
-    values={[
-    {label: 'Default', value: 'gha-semgrep-dash'},
-    {label: 'Stand-alone SAST', value: 'gha-standalone-dash'},
-    ]}
->
-
-<TabItem value='gha-semgrep-dash'>
-
 <GhaSemgrepAppSastDash />
-
-</TabItem>
-
-<TabItem value='gha-standalone-dash'>
-
-<GhaSemgrepAppStandaloneDash />
-
-</TabItem>
-</Tabs>
 
 </details>
 
@@ -170,57 +155,38 @@ To add a Semgrep configuration snippet in your GitLab CI/CD pipeline:
     defaultValue="glcicd-semgrep"
     values={[
     {label: 'Default', value: 'glcicd-semgrep'},
-    {label: 'Stand-alone SAST', value: 'glcicd-standalone'},
-    {label: 'Semgrep Supply Chain', value: 'glcicd-ssc'},
+    {label: 'Semgrep OSS', value: 'glcicd-oss'},
     ]}
 >
 
 <TabItem value='glcicd-semgrep'>
 
-The following configuration creates a CI job that runs a SAST and SCA scan using both Semgrep Code and Semgrep Supply Chain.
+The following configuration creates a CI job that runs scans depending on what products you have enabled in Semgrep Cloud Platform.
 
 <GlcicdSemgrepAppSast />
 
-</TabItem>
+You can **run specific product scans** by passing an argument, such as `--supply-chain`. View the [list of arguments](/getting-started/cli/#scan-using-specific-semgrep-products).
 
-<TabItem value='glcicd-standalone'>
-
-The following configuration creates a CI job that runs a SAST scan using Semgrep Code.
-
-<GlcicdSemgrepAppStandalone />
+Prefer to use GitLab group variables? See [this guide](/docs/kb/semgrep-code/gitlab-group-variables/) for an appropriate configuration.
 
 </TabItem>
-<TabItem value='glcicd-ssc'>
 
-The following configuration creates a CI job that runs an SCA scan using Semgrep Supply Chain.
+<TabItem value='glcicd-oss'>
 
-<GlcicdSemgrepAppSsc />
+The following configuration creates a CI job that runs Semgrep OSS scans using rules configured for your programming language.
+
+<GlcicdSemgrepOssSast />
+
+You can customize the scan by entering custom rules or other rulesets to scan with. See [Scan your codebase with a specific ruleset](/getting-started/cli-oss/#scan-your-codebase-with-a-specific-ruleset).
 
 </TabItem>
 </Tabs>
 
-<details><summary>Alternate job that uploads findings to GitLab SAST Dashboard</summary>
+#### Upload findings to GitLab Security Dashboard
 
-<Tabs
-    defaultValue="glcicd-semgrep-dash"
-    values={[
-    {label: 'Default', value: 'glcicd-semgrep-dash'},
-    {label: 'Stand-alone SAST', value: 'glcicd-standalone-dash'},
-    ]}
->
-
-<TabItem value='glcicd-semgrep-dash'>
+<details><summary>Alternate job that uploads findings to GitLab Security Dashboard</summary>
 
 <GlcicdSemgrepAppSastDash />
-
-</TabItem>
-
-<TabItem value='glcicd-standalone-dash'>
-
-<GlcicdSemgrepAppStandaloneDash />
-
-</TabItem>
-</Tabs>
 
 </details>
 
@@ -244,33 +210,32 @@ To add a Semgrep configuration snippet in your Jenkins pipeline:
     defaultValue="jenkins-semgrep"
     values={[
     {label: 'Default', value: 'jenkins-semgrep'},
-    {label: 'Stand-alone SAST', value: 'jenkins-standalone'},
-    {label: 'Semgrep Supply Chain', value: 'jenkins-ssc'},
+    {label: 'Semgrep OSS', value: 'jenkins-oss'},
     {label: 'Default (Docker)', value: 'jenkins-semgrep-docker'},
     ]}
 >
 
+:::info
+For SCA scans (Semgrep Supply Chain): users of Jenkins UI with the Git plugin must also set up their branch information. See [Setting up Semgrep Supply Chain with Jenkins UI](/semgrep-supply-chain/setup-jenkins-ui) for more information.
+:::
+
 <TabItem value='jenkins-semgrep'>
 
-The following configuration creates a CI job that runs a SAST and SCA scan using both Semgrep Code and Semgrep Supply Chain.
+The following configuration creates a CI job that runs scans depending on what products you have enabled in Semgrep Cloud Platform.
 
 <JenkinsSemgrepAppSast />
 
-</TabItem>
-
-<TabItem value='jenkins-standalone'>
-
-The following configuration creates a CI job that runs a SAST scan using Semgrep Code.
-
-<JenkinsSemgrepAppStandalone />
+You can **run specific product scans** by passing an argument, such as `--supply-chain`. View the [list of arguments](/getting-started/cli/#scan-using-specific-semgrep-products). 
 
 </TabItem>
 
-<TabItem value='jenkins-ssc'>
+<TabItem value='jenkins-oss'>
 
-The following configuration creates a CI job that runs an SCA scan using Semgrep Supply Chain.
+The following configuration creates a CI job that runs Semgrep OSS scans using rules configured for your programming language.
 
-<JenkinsSemgrepAppSsc />
+<JenkinsSemgrepOssSast />
+
+You can customize the scan by entering custom rules or other rulesets to scan with. See [Scan your codebase with a specific ruleset](/getting-started/cli-oss/#scan-your-codebase-with-a-specific-ruleset).
 
 </TabItem>
 
@@ -283,54 +248,48 @@ The following configuration creates a CI job that runs an SCA scan using Semgrep
 
 ## Bitbucket Pipelines
 
-To add a Semgrep configuration snippet into BitBucket Pipelines:
+To add a Semgrep configuration snippet into Bitbucket Pipelines:
 
 1. Create or edit your `bitbucket-pipelines.yml` file in the repository you want to scan.
-2. Copy the relevant code snippet provided in [Sample BitBucket Pipelines configuration snippet](#sample-bitbucket-pipelines-configuration-snippet), and then paste it to your `bitbucket-pipelines.yml`.
+2. Copy the relevant code snippet provided in [Sample Bitbucket Pipelines configuration snippet](#sample-bitbucket-pipelines-configuration-snippet), and then paste it to your `bitbucket-pipelines.yml`.
 3. Commit the updated `bitbucket-pipelines.yml` configuration file.
-4. The Semgrep job starts automatically upon detecting the committed `bitbucket-pipelines.yml` file. You can also view the job through BitBucket's interface, by clicking **your repository > Pipelines**. 
+4. The Semgrep job starts automatically upon detecting the committed `bitbucket-pipelines.yml` file. You can also view the job through Bitbucket's interface, by clicking **your repository > Pipelines**.
 5. Optional: Create a separate CI job for diff-aware scanning, which scans only changed files in PRs or MRs, by repeating steps 1-3 and uncommenting the `SEMGREP_BASELINE_REF` definition provided within the code snippet.
 
 :::note
-These steps can also be performed through BitBucket's UI wizard. This UI wizard can be accessed through **BitBucket > your repository > Pipelines > Create your first pipeline**.
+These steps can also be performed through Bitbucket's UI wizard. This UI wizard can be accessed through **Bitbucket > your repository > Pipelines > Create your first pipeline**.
 :::
 
-### Sample BitBucket Pipelines configuration snippet
+### Sample Bitbucket Pipelines configuration snippet
 
 <Tabs
     defaultValue="bitbucket-semgrep"
     values={[
     {label: 'Default', value: 'bitbucket-semgrep'},
-    {label: 'Stand-alone SAST', value: 'bitbucket-standalone'},
-    {label: 'Semgrep Supply Chain', value: 'bitbucket-ssc'},
+    {label: 'Semgrep OSS', value: 'bitbucket-oss'},
     ]}
 >
 
 <TabItem value='bitbucket-semgrep'>
 
-The following configuration creates a CI job that runs a SAST and SCA scan using both Semgrep Code and Semgrep Supply Chain.
+The following configuration creates a CI job that runs scans depending on what products you have enabled in Semgrep Cloud Platform.
 
 <BitbucketSemgrepAppSast />
 
-</TabItem>
-
-<TabItem value='bitbucket-standalone'>
-
-The following configuration creates a CI job that runs a SAST scan using Semgrep Code.
-
-<BitbucketSemgrepAppStandalone />
+You can **run specific product scans** by passing an argument, such as `--supply-chain`. View the [list of arguments](/getting-started/cli/#scan-using-specific-semgrep-products). 
 
 </TabItem>
 
-<TabItem value='bitbucket-ssc'>
+<TabItem value='bitbucket-oss'>
 
-The following configuration creates a CI job that runs an SCA scan using Semgrep Supply Chain.
+The following configuration creates a CI job that runs Semgrep OSS scans using rules configured for your programming language.
 
-<BitbucketSemgrepAppSsc />
+<BitbucketSemgrepOssSast />
+
+You can customize the scan by entering custom rules or other rulesets to scan with. See [Scan your codebase with a specific ruleset](/getting-started/cli-oss/#scan-your-codebase-with-a-specific-ruleset).
 
 </TabItem>
 </Tabs>
-
 
 ## Buildkite
 
@@ -352,32 +311,27 @@ These steps can be performed from within Buildkite's interface. From Buildkite's
     defaultValue="buildkite-semgrep"
     values={[
     {label: 'Default', value: 'buildkite-semgrep'},
-    {label: 'Stand-alone SAST', value: 'buildkite-standalone'},
-    {label: 'Semgrep Supply Chain', value: 'buildkite-ssc'},
+    {label: 'Semgrep OSS', value: 'buildkite-oss'},
     ]}
 >
 
 <TabItem value='buildkite-semgrep'>
 
-The following configuration creates a CI job that runs a SAST and SCA scan using both Semgrep Code and Semgrep Supply Chain.
+The following configuration creates a CI job that runs scans depending on what products you have enabled in Semgrep Cloud Platform.
 
 <BuildkiteSemgrepAppSast />
 
-</TabItem>
-
-<TabItem value='buildkite-standalone'>
-
-The following configuration creates a CI job that runs a SAST scan using Semgrep Code.
-
-<BuildkiteSemgrepAppStandalone />
+You can **run specific product scans** by passing an argument, such as `--supply-chain`. View the [list of arguments](/getting-started/cli/#scan-using-specific-semgrep-products). 
 
 </TabItem>
 
-<TabItem value='buildkite-ssc'>
+<TabItem value='buildkite-oss'>
 
-The following configuration creates a CI job that runs an SCA scan using Semgrep Supply Chain.
+The following configuration creates a CI job that runs Semgrep OSS scans using rules configured for your programming language.
 
-<BuildkiteSemgrepAppSsc />
+<BuildkiteSemgrepOssSast />
+
+You can customize the scan by entering custom rules or other rulesets to scan with. See [Scan your codebase with a specific ruleset](/getting-started/cli-oss/#scan-your-codebase-with-a-specific-ruleset).
 
 </TabItem>
 </Tabs>
@@ -389,13 +343,21 @@ To add Semgrep into your CircleCI pipeline:
 1. Create a [context](https://circleci.com/docs/contexts/):
     1. In CircleCI web app, click **Organization Settings** > **Contexts**. 
     2. Click **Create Context**.
-    3. Enter `dev` as the name for the context.
+    3. Enter `semgrep` as the name for the context.
     4. Click **Add Environment Variable** and enter your `SEMGREP_APP_TOKEN`.
 2. Create or edit your `config.yml` configuration file in the repository you want to scan.
 3. Copy the relevant code snippet provided in [Sample CircleCI configuration snippet](#sample-circleci-configuration-snippet).
+4. If your default branch is not `main`, change the occurrences of `main` to the name of your default branch.
 4. Commit the updated `config.yml` configuration file into the `/.circleci` folder in the target repository.
 5. The Semgrep job starts automatically upon detecting the `config.yml` update.
-6. Optional: Create a separate CI job for diff-aware scanning, which scans only changed files in PRs or MRs, by repeating steps 1-3 and uncommenting the `SEMGREP_BASELINE_REF` definition provided in the code snippet.
+
+The sample configuration provides jobs for both full scanning and [diff-aware scanning](/docs/semgrep-ci/running-semgrep-ci-with-semgrep-cloud-platform/#diff-aware-scanning), which scans only changed files in PRs or MRs. You do not need to create any other jobs.
+
+CircleCI runs the Semgrep job on all the commits for the project by default. If you want the job to scan only branches that have an associated a pull request open, you can enable the option "Only build pull requests" in **Project Settings** > **Advanced**.
+
+:::note
+For the default branch and tags, CircleCI always runs the Semgrep CI job on all commits.
+:::
 
 ### Sample CircleCI configuration snippet
 
@@ -403,38 +365,36 @@ To add Semgrep into your CircleCI pipeline:
     defaultValue="circleci-semgrep"
     values={[
     {label: 'Default', value: 'circleci-semgrep'},
-    {label: 'Stand-alone SAST', value: 'circleci-standalone'},
-    {label: 'Semgrep Supply Chain', value: 'circleci-ssc'},
+    {label: 'Semgrep OSS', value: 'circleci-oss'},
     ]}
 >
 
-
 <TabItem value='circleci-semgrep'>
 
-The following configuration creates a CI job that runs a SAST and SCA scan using both Semgrep Code and Semgrep Supply Chain.
+The following configuration creates a CI job that runs scans depending on what products you have enabled in Semgrep Cloud Platform.
 
 <CircleCiSemgrepAppSast /> 
 
-</TabItem>
-
-<TabItem value='circleci-standalone'>
-
-The following configuration creates a CI job that runs a SAST scan using Semgrep Code.
-
-<CircleCiSemgrepAppStandalone /> 
+You can **run specific product scans** by passing an argument, such as `--supply-chain`. View the [list of arguments](/getting-started/cli/#scan-using-specific-semgrep-products). 
 
 </TabItem>
 
-<TabItem value='circleci-ssc'>
+<TabItem value='circleci-oss'>
 
-The following configuration creates a CI job that runs an SCA scan using Semgrep Supply Chain.
+The following configuration creates a CI job that runs Semgrep OSS scans using rules configured for your programming language.
 
-<CircleCiSemgrepAppSsc /> 
+<CircleCiSemgrepOssSast /> 
+
+You can customize the scan by entering custom rules or other rulesets to scan with. See [Scan your codebase with a specific ruleset](/getting-started/cli-oss/#scan-your-codebase-with-a-specific-ruleset).
 
 </TabItem>
 </Tabs> 
 
 ## Azure Pipelines
+
+:::info
+Scanning a project with the `semgrep ci` command requires the project to be version-controlled by Git. If you have Azure Repos that are version-controlled with [Team Foundations Version Control](https://learn.microsoft.com/en-us/azure/devops/repos/tfvc/what-is-tfvc?view=azure-devops), they must be migrated to Git to be scanned with `semgrep ci` and have results reported to the Semgrep Cloud Platform.
+:::
 
 To add Semgrep into Azure Pipelines:
 
@@ -443,7 +403,7 @@ To add Semgrep into Azure Pipelines:
 3. Save the code snippet.
 4. Set [environment variables](https://learn.microsoft.com/en-us/azure/devops/pipelines/process/variables?view=azure-devops&tabs=yaml%2Cbatch#secret-variables).
 5. Group the environment variables as a [variable group](https://learn.microsoft.com/en-us/azure/devops/pipelines/library/variable-groups?view=azure-devops&tabs=classic).
-6. Optional: Create a separate CI job for diff-aware scanning, which scans only changed files in PRs or MRs, by repeating steps 1-4 and and adding `SEMGREP_BASELINE_REF` as an environment variable. 
+6. Optional: Create a separate CI job for diff-aware scanning, which scans only changed files in PRs or MRs, by repeating steps 1-4 and adding `SEMGREP_BASELINE_REF` as an environment variable. 
 
 ### Sample Azure Pipelines configuration snippet
 
@@ -451,39 +411,34 @@ To add Semgrep into Azure Pipelines:
     defaultValue="azure-semgrep"
     values={[
     {label: 'Default', value: 'azure-semgrep'},
-    {label: 'Stand-alone SAST', value: 'azure-standalone'},
-    {label: 'Semgrep Supply Chain', value: 'azure-ssc'},
+    {label: 'Semgrep OSS', value: 'azure-oss'},
     ]}
 >
 
 <TabItem value='azure-semgrep'>
 
-The following configuration creates a CI job that runs a SAST and SCA scan using both Semgrep Code and Semgrep Supply Chain.
+The following configuration creates a CI job that runs scans depending on what products you have enabled in Semgrep Cloud Platform.
 
 <AzureSemgrepAppSast /> 
 
-</TabItem>
-
-<TabItem value='azure-standalone'>
-
-The following configuration creates a CI job that runs a SAST scan using Semgrep Code.
-
-<AzureSemgrepAppStandalone /> 
+You can **run specific product scans** by passing an argument, such as `--supply-chain`. View the [list of arguments](/getting-started/cli/#scan-using-specific-semgrep-products). 
 
 </TabItem>
 
-<TabItem value='azure-ssc'>
+<TabItem value='azure-oss'>
 
-The following configuration creates a CI job that runs an SCA scan using Semgrep Supply Chain.
+The following configuration creates a CI job that runs Semgrep OSS scans using rules configured for your programming language.
 
-<AzureSemgrepAppSsc /> 
+<AzureSemgrepOssSast />
+
+You can customize the scan by entering custom rules or other rulesets to scan with. See [Scan your codebase with a specific ruleset](/getting-started/cli-oss/#scan-your-codebase-with-a-specific-ruleset).
 
 </TabItem>
 </Tabs>
 
 ## Other providers
 
-To run Semgrep CI on any other provider, use the `returntocorp/semgrep` image, and run the `semgrep ci` command with `SEMGREP_BASELINE_REF` set for diff-aware scanning.
+To run Semgrep CI on any other provider, use the `semgrep/semgrep` image, and run the `semgrep ci` command with `SEMGREP_BASELINE_REF` set for diff-aware scanning.
 
 **Note**: If you need to use a different image than docker, install Semgrep CI by `pip install semgrep`.
 
@@ -499,6 +454,6 @@ By setting various [CI environment variables](/semgrep-ci/ci-environment-variabl
 - TeamCity CI
 - Travis CI
 
-Is your CI provider missing? Let us know by [filing an issue](https://github.com/returntocorp/semgrep/issues/new?assignees=&labels=&template=feature_request.md&title=).
+Is your CI provider missing? Let us know by [filing an issue](https://github.com/semgrep/semgrep/issues/new?assignees=&labels=&template=feature_request.md&title=).
 
 <MoreHelp />

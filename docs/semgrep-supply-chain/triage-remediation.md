@@ -10,7 +10,6 @@ hide_title: true
 ---
 
 import MoreHelp from "/src/components/MoreHelp"
-import AdmonitionSscLicense from "/src/components/reference/_admonition-ssc-license.md"
 import AdmonitionSotCves from "/src/components/reference/_admonition-sot-cves.md"
 
 <ul id="tag__badge-list">
@@ -23,16 +22,16 @@ Object.entries(frontMatter).filter(
 
 # Triaging and remediating dependency findings
 
-Perform triage and remediation on your open source dependencies through the **Supply chain** page. This page displays relevant scan data through three tabs:
+Perform triage and remediation on your open source dependencies through the **Supply Chain** page. This page displays relevant scan data through three tabs:
 
 <dl>
 <dt>Vulnerabilities</dt>
     <dd>This tab enables you to:
     <ul>
-        <li>Filter findings.</li>
         <li>View reachable vulnerabilities in your repositories through links to specific lines of code.</li>
-        <li>Track the process of resolving findings by adding links to Jira issues and pull requests.</li>
-        <li>Remediate findings by providing versions to upgrade to.</li>
+        <li>Filter vulnerabilities by severity, reachability, status, transitivity, and other attributes.</li>
+        <li>Understand how to remediate vulnerabilities by providing versions to upgrade to.</li>
+        <li>Track the process of resolving vulnerabilities by adding links to Jira issues and pull requests.</li>
     </ul>
 </dd>
 <dt>Advisories</dt>
@@ -50,7 +49,7 @@ _Figure 1_. Semgrep Supply Chain Vulnerabilities page.
 At least one repository that scans for dependencies through Semgrep Supply Chain. See [Getting started with Semgrep Supply Chain](/semgrep-supply-chain/getting-started).
 :::
 
-To view the latest findings of Semgrep Supply Chain, click Supply Chain.
+To view the latest findings of Semgrep Supply Chain, click **Supply Chain**.
 
 Findings are displayed under their respective repositories. Findings are grouped by **vulnerability**. A specific finding in the code is called a **usage**. Vulnerability entries are sorted as cards from newest to oldest then by severity from critical to low.
 
@@ -152,13 +151,13 @@ The following **exposure filters** are provided:
   <tbody><tr>
    <td>Reachable
    </td>
-   <td>Semgrep detected that this finding uses the vulnerable piece of code of the dependency and vulnerable version of the dependency. Additionally, some vulnerabilities are are considered reachable because it can be exploited regardless of its usage in your codebase.
+   <td>Semgrep detected that there is a usage of the vulnerability from the dependency in your codebase. Some vulnerabilities are considered always reachable because they can be exploited regardless of their usage in your codebase. Others may require manual review and provide criteria to evaluate, such as whether the server running the vulnerable code is internet-accessible.
    </td>
   </tr>
   <tr>
    <td>Unreachable
    </td>
-   <td>Semgrep determined that there is no usage of the vulnerability from the dependency into your codebase.
+   <td>Semgrep determined that there is no usage of the vulnerability from the dependency in your codebase.
    </td>
   </tr>
   <tr>
@@ -204,7 +203,6 @@ The following **status filters** are provided:
 </table>
 
 
-
 ## Remediating true positives
 
 Remediate (or resolve) true positives in Semgrep Supply Chain through the following methods:
@@ -228,9 +226,9 @@ To ignore a vulnerability:
 2. Click on the vulnerability's **Ignore **button. A drop-down menu appears.
 3. Click the reason for ignoring. 
 
-### Viewing the latest advisories
+## Viewing Semgrep Supply Chain's total CVE coverage
 
-The **Advisories** tab displays the newest CVEs that Semgrep Supply Chain can detect. Click the individual entry to see the code pattern that the Advisory detects. 
+The **Advisories** tab displays all the CVEs that Semgrep Supply Chain can detect. Click the individual entry to see the code pattern that the Advisory detects. The Advisories tab displays both lockfile-only and reachability rules.
 
 <AdmonitionSotCves />
 

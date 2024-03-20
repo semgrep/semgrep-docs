@@ -1,0 +1,10 @@
+<span>For CI providers aside from {props.name}, additional environment variables must be set:</span>
+
+<br />
+<br />
+
+- <span><code><a href="/semgrep-ci/ci-environment-variables/#semgrep_pr_id">SEMGREP_PR_ID</a></code> is set to the {props.comment_type}  number of the pull request on {props.name}.</span>
+- [`SEMGREP_REPO_NAME`](/semgrep-ci/ci-environment-variables/#semgrep_repo_name) is set to the repository name.
+- [`SEMGREP_REPO_URL`](/semgrep-ci/ci-environment-variables/#semgrep_repo_url) is set to the repository URL where your project is viewable online.
+
+These values do not have to be fixed or hardcoded. They can be variables passed to the job. For more information, see [<i class="fa-regular fa-file-lines"></i> Sample CI configurations](/semgrep-ci/sample-ci-configs).

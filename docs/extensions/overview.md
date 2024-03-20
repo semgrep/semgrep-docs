@@ -6,30 +6,37 @@ description: >-
 ---
 
 import MoreHelp from "/src/components/MoreHelp"
+import Login from "/src/components/procedure/_login-activate.mdx"
 
 # Extensions
 
 Several third-party tools include Semgrep extensions.
 
-## Editor
-
-### Official extensions
+### Official IDE extensions
 
 - Microsoft Visual Studio Code: [`semgrep-vscode`](https://marketplace.visualstudio.com/items?itemName=semgrep.semgrep)
+- IntelliJ Ultimate Idea (and most other IntelliJ products) [`semgrep-intellij`](https://plugins.jetbrains.com/plugin/22622-semgrep)
 - Emacs: [`lsp-mode`](https://github.com/emacs-lsp/lsp-mode)
 
-### Community-contributed extensions
+### Community-contributed IDE extensions
 
-- IntelliJ IDEA: [`semgrep-idea-plugin`](https://github.com/jtmelton/semgrep-idea-plugin)
-- Vim: [`semgrep.vim`](https://github.com/returntocorp/semgrep.vim)
+- Vim: [`semgrep.vim`](https://github.com/semgrep/semgrep.vim)
 
-## Pre-commit
+### The LSP Command
+
+All of our official extensions use the [Language Server Protocol](https://microsoft.github.io/language-server-protocol/) to communicate
+with Semgrep. This allows us to focus on one codebase that can be shared across most modern editor platforms. To implement a custom extension,
+one can wrap `semgrep lsp` to start the Semgrep Language Server, which will communicate over `stdio`. Alternatively, this protocol is a 
+great way to integrate Semgrep into a project, as it can perform incremental scans, and caches various computations to hugely increase performance. 
+Please let us know on our community Slack linked below if you do, we'd be more than happy to help in anyway.
+
+### Pre-commit
 
 The [pre-commit framework](https://pre-commit.com/) can run `semgrep` at commit-time. [Install `pre-commit`](https://pre-commit.com/#install) and add the following to `.pre-commit-config.yaml`
 
 ```yaml
 repos:
-- repo: https://github.com/returntocorp/semgrep
+- repo: https://github.com/semgrep/semgrep
   rev: 'SEMGREP_VERSION_LATEST'
   hooks:
     - id: semgrep
@@ -41,20 +48,26 @@ The pre-commit can also run custom rules and rulesets from Semgrep Code, similar
 
 ```yaml
 repos:
-- repo: https://github.com/returntocorp/semgrep
+- repo: https://github.com/semgrep/semgrep
   rev: 'SEMGREP_VERSION_LATEST'
   hooks:
     - id:  semgrep-ci
 ```
 
-## Version management
+#### Run with Semgrep Pro rules
+
+If you would like to run the pre-commit hook **locally** while using Semgrep Pro rules:
+
+<Login />
+
+### Version management
 
 - asdf: [ASDF Semgrep](https://github.com/brentjanderson/asdf-semgrep)
 
-## Semgrep as an engine
+### Semgrep as an engine
 
 Many other tools have functionality powered by Semgrep.
-Add yours [with a pull request](https://github.com/returntocorp/semgrep-docs)!
+Add yours [with a pull request](https://github.com/semgrep/semgrep-docs)!
 
 - [DefectDojo](https://github.com/DefectDojo/django-DefectDojo/pull/2781)
 - [Dracon](https://github.com/thought-machine/dracon)
@@ -63,7 +76,6 @@ Add yours [with a pull request](https://github.com/returntocorp/semgrep-docs)!
 - [libsast](https://github.com/ajinabraham/libsast)
 - [mobsfscan](https://github.com/MobSF/mobsfscan)
 - [nodejsscan](https://github.com/ajinabraham/nodejsscan)
-- [SALUS](https://github.com/coinbase/salus/blob/master/docs/scanners/semgrep.md)
 - [ScanMyCode CE (Community Edition)](https://github.com/marcinguy/scanmycode-ce) 
 - [SecObserve](https://github.com/MaibornWolff/SecObserve)
 

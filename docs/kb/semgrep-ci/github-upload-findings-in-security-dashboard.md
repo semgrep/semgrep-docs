@@ -7,19 +7,15 @@ tags:
 
 # Why aren't findings populating in the GitHub Advanced Security Dashboard after running Semgrep in CI?
 
-When scanning with Semgrep in CI, findings automatically populate in Semgrep Cloud Platform. To show findings in the GitHub Advanced Security Dashboard, you must first run an alternate job that uploads findings in the form of a `SARIF` file to the dashboard. See  [Sample GitHub Actions configuration file](https://semgrep.dev/docs/semgrep-ci/sample-ci-configs/#sample-github-actions-configuration-file) for an example.
+When scanning with Semgrep in CI, findings automatically populate in Semgrep Cloud Platform. To show findings in the GitHub Advanced Security Dashboard, run an alternate job that uploads findings to the dashboard in the form of a `SARIF` file. See [Sample GitHub Actions configuration file](https://semgrep.dev/docs/semgrep-ci/sample-ci-configs/#sample-github-actions-configuration-file) for an example.
 
 If you run the alternate job and it fails with a "resource not accessible by integration" error, there are two possible causes.
 
-## Your repository is private
+## Your repository's workflow permissions are set to read-only
 
-Third-party code scanning findings can only populate in the Advanced Security Dashboard if the repository is public. Otherwise, the job will not have sufficient permissions to write to the dashboard regardless of any permissions set at the workflow or job level.
+Repository-level workflow permissions are set to `read-only` (default) unless they've previously been changed. Use of the `permissions` key within the workflow file does not override this setting.
 
-## The workflow permissions in your repository's Actions settings are set to read-only
-
-Your workflow permissions will be set to `read-only` (default) unless they've previously been changed. The job requires `write` permissions to be successful.
-
-To change permissions:
+To update this setting:
 1. Navigate to your organization or repository in GitHub.
 2. Click **Settings > Actions > General > Workflow permissions**.
 
@@ -27,14 +23,19 @@ To change permissions:
 Target permissions
 
 :::info 
-Changing the repository's default workflow permissions changes the permissions for all workflows in that repository. For more granular permissions, set the `permissions` key at the workflow or job level in the `semgrep.yml` workflow file. Learn more about the `permissions` key at [Assigning permissions to jobs](https://docs.github.com/en/actions/using-jobs/assigning-permissions-to-jobs#setting-the-github_token-permissions-for-all-jobs-in-a-workflow), or review the example workflow-level permissions below.
+Changing the repository's default workflow permissions changes the permissions for all workflows in that repository. Use of the `permissions` key will not override this setting, so updating it is a required step. Learn more about the `permissions` key at [Assigning permissions to jobs](https://docs.github.com/en/actions/using-jobs/assigning-permissions-to-jobs#setting-the-github_token-permissions-for-all-jobs-in-a-workflow), or review the example workflow-level permissions below.
 :::
+
+## The workflow or job does not have the correct permissions in a private repository
+
+In order for Semgrep findings in a private repository to appear on the GitHub Advanced Security Dashboard, you must ensure that the appropriate permissions are configured at the workflow level using the `permissions` key. See the following example.
 
 ### Example job configuration with `permissions` key
 
 This job only requires `write` permissions for `security-events`.
 
-```
+```yml
+# Name of this GitHub Actions workflow.
 name: Semgrep
 
 on:
@@ -44,9 +45,7 @@ on:
     branches: ["master", "main"]
   schedule:
     - cron: '20 17 * * *' # Sets Semgrep to scan every day at 17:20 UTC.
-    
-permissions: 
-    security-events: write
+
 jobs:
   semgrep:
     name: semgrep/ci 
@@ -54,16 +53,20 @@ jobs:
 
     container:
       # A Docker image with Semgrep installed. Do not change this.
-      image: returntocorp/semgrep
+      image: semgrep/semgrep
 
     if: (github.actor != 'dependabot[bot]')
-
+    permissions:
+      # required for all workflows
+      security-events: write
+      # for workflows in private repos
+      actions: read
+      contents: read
     steps:
       - uses: actions/checkout@v3
-      - run: semgrep ci --sarif --output=semgrep.sarif
+      - run: semgrep ci --sarif > semgrep.sarif
         env:
           SEMGREP_APP_TOKEN: ${{ secrets.SEMGREP_APP_TOKEN }}
-
       - name: Upload SARIF file for GitHub Advanced Security Dashboard
         uses: github/codeql-action/upload-sarif@v2
         with:

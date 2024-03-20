@@ -33,6 +33,8 @@ This document describes the YAML rule syntax of Semgrep.
 | [`options`](#options)   | `object` | Options object to enable/disable certain matching features |
 | [`fix`](#fix)           | `object` | Simple search-and-replace autofix functionality  |
 | [`metadata`](#metadata) | `object` | Arbitrary user-provided data; attach data to rules without affecting Semgrep behavior |
+| [`min-version`](#min-version-and-max-version) | `string` | Minimum Semgrep version compatible with this rule |
+| [`max-version`](#min-version-and-max-version) | `string` | Maximum Semgrep version compatible with this rule |
 | [`paths`](#paths)       | `object` | Paths to include or exclude when running this rule |
 
 The below optional fields must reside underneath a `patterns` or `pattern-either` field.
@@ -255,6 +257,7 @@ The `comparison` key accepts Python expression using:
 - Function `today()` that gets today's date as a float representing epoch time.
 - Function `strptime()` that converts strings in the format `"yyyy-mm-dd"` to a float representing the date in epoch time.
 - Lists, together with the `in`, and `not in` infix operators.
+- Strings, together with the `in` and `not in` infix operators, for substring containment.
 - Function `re.match()` to match a regular expression (without the optional `flags` argument).
 
 You can use Semgrep metavariables such as `$MVAR`, which Semgrep evaluates as follows:
@@ -426,12 +429,13 @@ Enable, disable, or modify the following matching features:
 | `constant_propagation` | `true`  | [Constant propagation](/writing-rules/pattern-syntax/#constants), including [intra-procedural flow-sensitive constant propagation](/writing-rules/data-flow/constant-propagation/). |
 | `generic_comment_style` | none   | In generic mode, assume that comments follow the specified syntax. They are then ignored for matching purposes. Allowed values for comment styles are: <ul><li>`c` for traditional C-style comments (`/* ... */`). </li><li> `cpp` for modern C or C++ comments (`// ...` or `/* ... */`). </li><li> `shell` for shell-style comments (`# ...`). </li></ul> By default, the generic mode does not recognize any comments. Available since Semgrep version 0.96. For more information about generic mode, see [Generic pattern matching](/writing-rules/generic-pattern-matching/) documentation. |
 | `generic_ellipsis_max_span` | `10` | In generic mode, this is the maximum number of newlines that an ellipsis operator `...` can match or equivalently, the maximum number of lines covered by the match minus one. The default value is `10` (newlines) for performance reasons. Increase it with caution. Note that the same effect as `20` can be achieved without changing this setting and by writing `... ...` in the pattern instead of `...`. Setting it to `0` is useful with line-oriented languages (for example [INI](https://en.wikipedia.org/wiki/INI_file) or key-value pairs in general) to force a match to not extend to the next line of code. Available since Semgrep 0.96. For more information about generic mode, see [Generic pattern matching](/writing-rules/generic-pattern-matching/) documentation. |
+| `implicit_return`   | `true` | Return statement patterns (for example `return $E`) match expressions that may be evaluated last in a function as if there was a return keyword in front of those expressions. Only applies to certain expression-based languages, such as Ruby and Julia. |
 | `taint_assume_safe_functions` | `false` | Experimental option which will be subject to future changes. Used in taint analysis. Assume that function calls do **not** propagate taint from their arguments to their output. Otherwise, Semgrep always assumes that functions may propagate taint. Can replace **not-conflicting** sanitizers added in v0.69.0 in the future. |
 | `taint_assume_safe_indexes` | `false` | Used in taint analysis. Assume that an array-access expression is safe even if the index expression is tainted. Otherwise Semgrep assumes that for example: `a[i]` is tainted if `i` is tainted, even if `a` is not. Enabling this option is recommended for high-signal rules, whereas disabling is preferred for audit rules. Currently, it is disabled by default to attain backwards compatibility, but this can change in the near future after some evaluation. |
 | `vardef_assign`        | `true`  | Assignment patterns (for example `$X = $E`) match variable declarations (for example `var x = 1;`). |
 | `xml_attrs_implicit_ellipsis` | `true` | Any XML/JSX/HTML element patterns have implicit ellipsis for attributes (for example: `<div />` matches `<div foo="1">`. |
 
-The full list of available options can be consulted in the [Semgrep matching engine configuration](https://github.com/returntocorp/semgrep/blob/develop/interfaces/Rule_options.atd) module. Note that options not included in the table above are considered experimental, and they may change or be removed without notice.
+The full list of available options can be consulted in the [Semgrep matching engine configuration](https://github.com/semgrep/semgrep/blob/develop/interfaces/Rule_options.atd) module. Note that options not included in the table above are considered experimental, and they may change or be removed without notice.
 
 ## `fix`
 
@@ -471,6 +475,49 @@ rules:
 
 The metadata are also displayed in the output of Semgrep if you’re running it with `--json`.
 Rules with `category: security` have additional metadata requirements. See [Including fields required by security category](/contributing/contributing-to-semgrep-rules-repository/#including-fields-required-by-security-category) for more information.
+
+## `min-version` and `max-version`
+
+Each rule supports optional fields `min-version` and `max-version` specifying
+minimum and maximum Semgrep versions. If the Semgrep
+version being used doesn't satisfy these constraints,
+the rule is skipped without causing a fatal error.
+
+Example rule:
+
+```yaml
+rules:
+  - id: bad-goflags
+    # earlier semgrep versions can't parse the pattern
+    min-version: 1.31.0
+    pattern: |
+      ENV ... GOFLAGS='-tags=dynamic -buildvcs=false' ...
+    languages: [dockerfile]
+    message: "We should not use these flags"
+    severity: WARNING
+```
+
+Another use case is when a newer version of a rule works better than
+before but relies on a new feature. In this case, we could use
+`min-version` and `max-version` to ensure that either the older or the
+newer rule is used but not both. The rules would look like this:
+
+```yaml
+rules:
+  - id: something-wrong-v1
+    max-version: 1.72.999
+    ...
+  - id: something-wrong-v2
+    min-version: 1.73.0
+    # 10x faster than v1!
+    ...
+```
+
+The `min-version`/`max-version` feature is available since Semgrep
+1.38.0. It is intended primarily for publishing rules that rely on
+newly-released features without causing errors in older Semgrep
+installations.
+
 
 ## `category`
 
@@ -580,7 +627,7 @@ The above rule makes use of many operators. It uses `pattern-either`, `patterns`
 
 ## Full specification
 
-The [full configuration-file format](https://github.com/returntocorp/semgrep-interfaces/blob/main/rule_schema_v1.yaml) is defined as
+The [full configuration-file format](https://github.com/semgrep/semgrep-interfaces/blob/main/rule_schema_v1.yaml) is defined as
 a [jsonschema](http://json-schema.org/specification.html) object.
 
 <MoreHelp />

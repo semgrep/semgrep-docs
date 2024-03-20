@@ -7,33 +7,39 @@ description: How to connect Semgrep and DefectDojo
 
 # How to connect Semgrep and DefectDojo
 
-[DefectDojo](https://www.defectdojo.com/) is a well-known vulnerability management tool. It allows you to gather security issues from tools like Semgrep and more. By integrating Semgrep findings into DefectDojo, security teams can gather security issues from multiple tools into one place and more effectively monitor their security posture.
+[DefectDojo](https://www.defectdojo.com/) is a well-known vulnerability management tool. It allows you to gather security issues from other tools, including Semgrep. By integrating Semgrep findings into DefectDojo, security teams can more easily monitor their overall security posture.
 
 ## Integration
-Follow these steps to prep DefectDojo and generate Semgrep findings in the proper format:
+Follow these steps to prepare DefectDojo and generate Semgrep findings in the proper format:
 
 1. In DefectDojo:
-    - Create your [**product**](https://defectdojo-dev.readthedocs.io/en/latest/features.html#products).
-    - In that DefectDojo product, create an **engagement** called `semgrep`. An engagement is a channel to import results.
-2. Run a semgrep scan with flags `--json --output report.json` to generate a JSON report.
+    1. Create your [**product**](https://defectdojo.github.io/django-DefectDojo/usage/models/#products).
+    2. In that DefectDojo product, create an [engagement](https://defectdojo.github.io/django-DefectDojo/usage/models/#engagement), called `semgrep`. This is a CI/CD engagement type and the name designates the CI/CD tool used.
+2. Run semgrep as `semgrep ... --json > report.json` to generate a JSON report.
 
-Now, you are ready to use the [DefectDojo API](https://documentation.defectdojo.com/integrations/api-v2-docs/).
+Now, you are ready to use the [DefectDojo API](https://demo.defectdojo.org/api/v2/oa3/swagger-ui/).
 
 ### DefectDojo API example 
 
-To run API DefectDojo operations such as GET, POST, and DELETE, an API token is necessary. To get it, follow the [API guide](https://documentation.defectdojo.com/integrations/api-v2-docs/).
+To run API DefectDojo operations such as GET, POST, and DELETE, an API token is necessary. To get it, follow the [API guide](https://defectdojo.github.io/django-DefectDojo/integrations/api-v2-docs/).
 
 Once you have a token, store it as an environment variable named `DEFECT_DOJO_API_TOKEN`:
 ```bash
 export DEFECT_DOJO_API_TOKEN=[YOUR_DEFECT_DOJO_TOKEN]
 ```
-When exploring the DefectDojo API, you will notice the `/api/v2/import-scan/` endpoint is used for the first import and the `/api/v2/reimport-scan` endpoint is used for following imports.
 
-These endpoints can receive some parameters, the following of which must be specified:
-* `file`: The Semgrep scan findings report or export in JSON format
-* `scan_type`: A descriptive name for the scan type. In this example, we use "Semgrep JSON Report" for Semgrep importation.
+The DefectDojo API uses the `/api/v2/import-scan/` endpoint for the first import and the `/api/v2/reimport-scan` endpoint for following imports.
+
+These endpoints take the following parameters:
+
+* `file`: The Semgrep scan findings report or export in JSON format.
+* `scan_type`: A descriptive name for the scan type. In this example, the scan type is "Semgrep JSON Report`".
 * `product_name`: The name of the product in DefectDojo to send the Semgrep findings report to.
-* `engagement_name`: Depending on your use case, the [`engagement_name`](https://defectdojo-dev.readthedocs.io/en/latest/about.html#engagements) can describe a moment in time that the test is taking place in, or it can be used as a simple description about the import. In this case, you can name it `semgrep`.
+* `engagement_name`: The name of the engagement you created the preceding "Integration" section. In this example, `semgrep`.
+
+:::info
+The DefectDojo API allows identifying the parameters either by name or by ID. This example follows the **By name** approach.
+:::
 
 Here is an example snippet of a Python function using this endpoint:
 
@@ -63,19 +69,21 @@ The full version of this Python script can be found [here](https://github.com/r2
 
 ### Running the script
 
-To continue with the above example and run the script, execute the following command:
-```bash
-python3 integrations/defectdojo/import_semgrep_to_defect_dojo.py --host DOJO_URL --product PRODUCT_NAME --engagement ENGAGEMENT_NAME --report REPORT_FILE 
-```
+To continue with the preceding example and run the script, execute the following command:
+
+<pre class="language-bash"><code>python3 integrations/defectdojo/import_semgrep_to_defect_dojo.py --host <span className="placeholder">DOJO_URL</span> --product <span className="placeholder">PRODUCT_NAME</span> --engagement <span className="placeholder">ENGAGEMENT_NAME</span> --report <span className="placeholder">REPORT_FILE</span></code></pre>
+
 Where:
+
 * `DOJO_URL` is the URL where DefectDojo is.
 * `PRODUCT_NAME` is the DefectDojo product name.
 * `ENGAGEMENT_NAME` is the DefectDojo engagement name for that product.
-* `REPORT_FILE` is the Semgrep report path
+* `REPORT_FILE` is the Semgrep report path.
 
 ## Integrating Semgrep and DefectDojo in a CI pipeline
 
-To prevent tampering of findings at any point of delivery, it is crucial to integrate importing of scan results to DefectDojo in the **same pipeline or CI job** as the scan itself.
+To prevent tampering with findings, it is crucial to import scan results to DefectDojo in the **same pipeline or CI job** as the scan itself.
+
 The following is an example of a GitLab job importing Semgrep findings to DefectDojo:
 
 ```yaml
@@ -105,5 +113,33 @@ import-semgrep-to-defectdojo:
 As a good security practice, this pipeline includes checksum validation for the import script, to ensure that the script has not been tampered with.
 :::
 
+There are some environment variables defined in the `gitlab-ci.yml` file, such as:
+* `DEFECTDOJO_URL`
+* `PRODUCT`
+* `IMPORT_SEMGREP_TO_DEFECTDOJO_SHA_CHECKSUM`
+
+They must be defined in the GitLab pipeline. Settings->CI/CD->Variables:
+![image info](/img/kb/integration-defectdojo-gitlab-variables.png)
+
+In the example, the values are:
+* `DEFECTDOJO_URL` = http://localhost:8080/ (Local DefectDojo deployment)
+* `PRODUCT` = chess-game
+* `IMPORT_SEMGREP_TO_DEFECTDOJO_SHA_CHECKSUM` = c41aed4055adeee415b795cc17a069b144fb51bc31f6c4925be3b82d0b54de33 Uimport_semgrep_to_defect_dojo.py
+
+The content for this last variable was generated with the following command:
+`shasum -a 256 -U import_semgrep_to_defect_dojo.py`
+This command generates a unique checksum, taking as input the content of the script, and it will be used to verify that the script has not changed. 
+
+In the pipeline, the integrity of the script is verified with the following commands:
+```
+echo $IMPORT_SEMGREP_TO_DEFECTDOJO_SHA_CHECKSUM > sha-import-dd.tmp
+shasum -a 256 -U -c sha-import-dd.tmp
+```
+If the script has not changed since the checksum was generated, the pipeline will continue normal execution. Otherwise it will stop and return an error.
+
+Example DefectDojo screenshot, after a pipeline execution:
+![image info](/img/kb/integration-defectdojo-example.png)
+
 ## Conclusions
+
 If you use multiple vulnerability tools, including Semgrep, importing results to [DefectDojo](https://www.defectdojo.com/) can be helpful in managing data across all of these tools.

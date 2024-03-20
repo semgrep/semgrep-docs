@@ -1,27 +1,37 @@
 ---
+description: Learn how to fix issues with `pattern-not` when excluding cases in custom rules.
 tags:
   - Semgrep OSS Engine
   - Semgrep Rules
-description: One common issue when writing custom rules is to try to exclude some cases using `pattern-not`, without success.
+append_help_link: true
 ---
+
+import MoreHelp from "/src/components/MoreHelp"
 
 # My rule with `pattern-not` doesn't work: using `pattern-not-inside`
 
-One common issue when writing custom rules is to try to exclude some cases using `pattern-not`, without success. This is especially common if a pattern is not acceptable by itself, but is acceptable as long as some other pattern is also present. In this type of situation, the solution is usually to switch from `pattern-not` to `pattern-not-inside`.
+One common issue when writing custom rules involves the unsuccessful exclusion of cases using `pattern-not`.
 
-## What does "inside" mean?
+If you are trying to exclude a specific case where a pattern is unacceptable unless it is accompanied by another pattern, try `pattern-not-inside` instead of `pattern-not`.
 
-Intuitively, "inside" means "wholly within an outer container". But in Semgrep, one pattern being "inside" another can also mean that it is at the same level, but includes less code. 
+## Background
 
-Another way to express this is that `pattern-not` assumes that the matches are the same "size" and produces undesirable results if that’s not the case.
+In Semgrep, a pattern that's inside another pattern can mean one of two things:
+
+* The pattern is wholly within an outer pattern
+* The pattern is at the same level as another pattern, but includes less code
+
+In other words, using `pattern-not` in your rule means that Semgrep expects the matches to be the same "size" (same amount of code), and does not match if that's not the case.
 
 ## Example
 
-The `find-unverified-transactions` [custom rule example](https://semgrep.dev/docs/writing-rules/rule-ideas/#systematize-project-specific-coding-patterns) is a good example: `make_transaction($T)` is only acceptable if `verify_transaction($T)` is also present. The example uses `pattern` and `pattern-not`, and matches the target code successfully:
+The [example rule](https://semgrep.dev/docs/writing-rules/rule-ideas/#systematize-project-specific-coding-patterns) `find-unverified-transactions` is a good example: `make_transaction($T)` is acceptable only if `verify_transaction($T)` is also present.
+
+To successfully match the target code, the rule uses `pattern` and `pattern-not`:
 
 <iframe src="https://semgrep.dev/embed/editor?snippet=Nr3z" title="pattern-not rule for unverified transactions" width="100%" height="432px" frameBorder="0"></iframe>
 
-However, this rule has some redundancy. Both pattern clauses contain:
+But this rule is redundant. Both pattern clauses contain:
 
 ```yml
 public $RETURN $METHOD(...){
@@ -29,7 +39,7 @@ public $RETURN $METHOD(...){
 }
 ```
 
-But pulling this container out as a `pattern-inside` and rewriting the rule as: 
+However, if you refactor the rule by pulling the container out and using `pattern-inside`, the rule doesn't work -- [try it out](https://semgrep.dev/playground/s/KZOd?editorMode=advanced) if you like!
 
 ```yml
 rules:
@@ -48,12 +58,12 @@ rules:
           verify_transaction($T);
           ...
           make_transaction($T);
-          ...       
+          ...
 ```
 
-is not successful - [try it out](https://semgrep.dev/playground/s/KZOd?editorMode=advanced) if you like!
+With an understanding of how `pattern-not` operates, you can see that this rule fails because the matches are not the same size. The `pattern-not` match is at the same level, but it is "larger" (contains more code).
 
-With the knowledge above about how `pattern-not` operates, we can see that this is because the matches are not the same size. The `pattern-not` is larger, but at the same level. This matches the criteria for switching to `pattern-not-inside`:
+If you switch to `pattern-not-inside`:
 
 ```yml
 - pattern-not-inside: |
@@ -61,11 +71,15 @@ With the knowledge above about how `pattern-not` operates, we can see that this 
     verify_transaction($T);
     ...
     make_transaction($T);
-    ...       
+    ...
 ```
 
-With that change, the rule successfully matches the example code.
+The rule successfully matches the example code.
 
-For more on `pattern-not-inside`, check out this video from our team:
+## Further information
+
+See this video for more information about the difference between `pattern-not` and  `pattern-not-inside`.
 
 <iframe class="yt_embed" width="100%" height="432px" src="https://www.youtube.com/embed/g_Yrp9_ZK2c" frameborder="0" allowfullscreen></iframe>
+
+<MoreHelp />

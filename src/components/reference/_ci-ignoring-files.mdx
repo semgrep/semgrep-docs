@@ -1,8 +1,8 @@
-By default `semgrep ci` skips files and directories such as `tests/`, `node_modules/`, and `vendor/`. It uses the default `.semgrepignore` file which you can find in the [Semgrep GitHub repository](https://github.com/returntocorp/semgrep/blob/develop/cli/src/semgrep/templates/.semgrepignore). This default is used when no explicit `.semgrepignore` file is found in the root of your repository.
+By default `semgrep ci` skips files and directories such as `tests/`, `node_modules/`, and `vendor/`. It uses the default `.semgrepignore` file which you can find in the [Semgrep GitHub repository](https://github.com/semgrep/semgrep/blob/develop/cli/src/semgrep/templates/.semgrepignore). This default is used when no explicit `.semgrepignore` file is found in the root of your repository.
 
 Optional: Copy and commit the default `.semgrepignore` file to the **root of your repository** and extend it with your own entries or write your `.semgrepignore` file from scratch. If Semgrep detects a `.semgrepignore` file within your repository, it does not append entries from the default `.semgrepignore` file.
 
-For a complete example, see the [.semgrepignore file in Semgrep’s source code](https://github.com/returntocorp/semgrep/blob/develop/.semgrepignore).
+For a complete example, see the [.semgrepignore file in Semgrep’s source code](https://github.com/semgrep/semgrep/blob/develop/.semgrepignore).
 
 :::caution
 `.semgrepignore` is only used by Semgrep. Integrations such as [GitLab's Semgrep SAST Analyzer](https://gitlab.com/gitlab-org/security-products/analyzers/semgrep) do not use it.

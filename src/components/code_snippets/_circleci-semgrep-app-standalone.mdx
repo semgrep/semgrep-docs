@@ -7,8 +7,6 @@ jobs:
         type: string
         default: main
     environment:
-      SEMGREP_RULES: p/default
-
       # Uncomment the following line to scan changed 
       # files in PRs or MRs (diff-aware scanning): 
       # - export SEMGREP_BASELINE_REF = "origin/main"
@@ -16,12 +14,12 @@ jobs:
       # SEMGREP_BASELINE_REF: << parameters.default_branch >>
 
     docker:
-      - image: returntocorp/semgrep
+      - image: semgrep/semgrep
     steps:
       - checkout
       - run:
           name: "Semgrep scan"
-          command: semgrep ci --supply-chain
+          command: semgrep ci --code
 workflows:
   main:
     jobs:
