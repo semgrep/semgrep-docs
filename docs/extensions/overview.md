@@ -6,6 +6,7 @@ description: >-
 ---
 
 import MoreHelp from "/src/components/MoreHelp"
+import Login from "/src/components/procedure/_login-activate.mdx"
 
 # Extensions
 
@@ -52,6 +53,12 @@ repos:
   hooks:
     - id:  semgrep-ci
 ```
+
+#### Run with Semgrep Pro rules
+
+If you would like to run the pre-commit hook **locally** while using Semgrep Pro rules:
+
+<Login />
 
 ### Version management
 
