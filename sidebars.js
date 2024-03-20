@@ -300,8 +300,7 @@ module.exports = {
             ]
         },
         'cli-reference',
-        'semgrep-supply-chain/glossary',
-        'usage-and-billing'
+        'semgrep-supply-chain/glossary'
         ]
     }
   ],
