@@ -1,44 +1,49 @@
 <div id="language-support-table">
 
-| Language | Semgrep OSS Engine | Semgrep Pro Engine (cross-function) | Semgrep Pro Engine (cross-file)
+| Language | Maturity level | Cross-function analysis | Cross-file analysis
 |:---------- |:----------------------------|:---------------------------|:---------------------------|
-| C          | Community supported | GA | GA |     
-| C++        | Community supported | GA | GA | 
-| C#         | GA | GA | GA |
-| Go         | GA | GA | GA |                         
-| Java       | GA | GA | GA |                   
-| JavaScript | GA | GA | GA | 
-| TypeScript | GA | GA | GA |
-| Kotlin     | GA | GA | Beta | 
-| Ruby       | GA | GA | -- |  
-| Rust       | GA | GA | -- |
-| JSX        | GA | GA | -- |                       
-| PHP        | GA | GA | -- |                   
-| Python     | GA | GA | -- |                        
-| Scala      | GA | GA | -- | 
+| C          | GA | ✅ | ✅  |     
+| C++        | GA | ✅ | ✅  | 
+| C#         | GA | ✅ | ✅  |
+| Go         | GA | ✅ | ✅  |                      
+| Java       | GA | ✅  | ✅  |                 
+| JavaScript | GA | ✅  | ✅  |
+| Kotlin     | GA | ✅  | ✅  | 
+| TypeScript | GA | ✅  | ✅  |
+| Ruby       | GA | ✅  | -- |  
+| Rust       | GA | ✅   | -- |
+| JSX        | GA | ✅   | -- |                       
+| PHP        | GA | ✅   | -- |                   
+| Python     | GA | ✅   | -- |                        
+| Scala      | GA | ✅   | -- | 
+| Generic    | GA | -- | -- |  
 | JSON       | GA | -- | -- |                    
 | Terraform  | GA | -- | -- |      
-| Apex       | _Pro Engine Only_   | Beta | -- |
-| Elixir     | _Pro Engine Only_   | Beta | -- |
-| Generic    | GA | -- | -- |  
-| Swift      | Beta | -- | -- |     
-| Bash       | Experimental | -- | -- |  
-| Cairo      | Experimental | -- | -- | 
-| Clojure    | Experimental | -- | -- |  
-| Dart       | Experimental | -- | -- |   
-| Dockerfile | Experimental | -- | -- |
-| Hack       | Experimental | -- | -- |   
-| HTML       | Experimental | -- | -- |      
-| Jsonnet    | Experimental | -- | -- | 
-| Julia      | Experimental | -- | -- |   
-| Lisp       | Experimental | -- | -- |   
-| Lua        | Experimental | -- | -- |   
-| Ocaml      | Experimental | -- | -- |   
-| R          | Experimental | -- | -- |   
-| Scheme     | Experimental | -- | -- |   
-| Solidity   | Experimental | -- | -- |   
-| YAML       | Experimental | -- | -- |  
-| XML        | Experimental | -- | -- |  
+| Apex       | Beta   | ✅  | -- |
+| Elixir     | Beta   |  ✅ | -- |
+| Swift      | Beta | -- | -- |
+
+<details><summary>Click to view <strong>Experimental</strong> languages.</summary>
+
+- Bash      
+- Cairo     
+- Clojure   
+- Dart       
+- Dockerfile
+- Hack       
+- HTML          
+- Jsonnet   
+- Julia      
+- Lisp       
+- Lua        
+- Ocaml      
+- R          
+- Scheme     
+- Solidity   
+- YAML      
+- XML       
+
+</details>
 
 If you'd like to request a language not shown here, please [create an issue on the Semgrep GitHub repo](https://github.com/semgrep/semgrep/issues). 
 

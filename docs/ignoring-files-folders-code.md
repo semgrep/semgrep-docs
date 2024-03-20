@@ -3,14 +3,15 @@ slug: ignoring-files-folders-code
 append_help_link: true
 title: Ignoring files, folders, and code
 description: "This documents various methods to skip or ignore files or folders that are not relevant to a Semgrep scan."
+hide_title: true
 ---
 
-<!-- Updates to this doc may or affect ignore-oss -->
+<!-- Updates to this doc may affect ignore-oss -->
 
 import MoreHelp from "/src/components/MoreHelp"
 import IgnoreIndividualFindingNoGrouping from "/src/components/procedure/_ignore-individual-finding-no-grouping.mdx"
 
-# Ignoring files, folders, or parts of code
+# Ignore files, folders, and code
 
 This document describes two types of ignore operations:
 
@@ -26,7 +27,7 @@ All Semgrep environments (CLI, CI, and Semgrep Cloud Platform) adhere to user-de
 | To ignore blocks of code: `nosemgrep` | Create a comment, followed by a space (` `), followed by `nosemgrep` at the first line or preceding line of the pattern match. This generates a finding that is automatically ignored. | ` // nosemgrep` &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; `// nosemgrep: rule-id` <br /> `# nosemgrep` |
 | To ignore files and folders: `.semgrepignore` | Create a `.semgrepignore` file in your **repository's root directory** or your **project's working directory** and add patterns for files and folders there. Patterns follow `.gitignore` syntax with some caveats. See [Defining ignored files and folders in `.semgrepignore`](#defining-ignored-files-and-folders-in-semgrepignore). | [`.semgrepignore` sample file](https://raw.githubusercontent.com/semgrep/semgrep/develop/cli/src/semgrep/templates/.semgrepignore) |
 
-## Understanding Semgrep defaults
+## Understand Semgrep defaults
 
 Without user customization, Semgrep refers to the following to define ignored files and folders:
 
@@ -62,7 +63,7 @@ Large files and unknown file extensions are included or excluded through command
 This document defines **files, folders and code** as those that are **relevant to a Semgrep scan**. For example, `.jpg` files are not a part of Semgrep's scope and therefore are not part of the scope of this document.
 
 
-## Customizing ignore behavior
+## Customize ignore behavior
 
 Semgrep provides several methods to customize ignore behavior. Refer to the following table to see which method suits your goal:
 
@@ -77,8 +78,7 @@ Semgrep provides several methods to customize ignore behavior. Refer to the foll
 | To include files or folders defined within a `.gitignore` for a particular scan. | Run Semgrep with the flag `--no-git-ignore`, which overrides its definition within `.semgrepignore` as well. |
 | To ignore files or folders for a particular rule. | Edit the rule to set the `paths` key with one or more patterns. See [Rule syntax](../writing-rules/rule-syntax#paths).
 
-
-## Defining ignored files and folders in `.semgrepignore`
+## Define ignored files and folders in `.semgrepignore`
 
 `.semgrepignore` syntax mirrors `.gitignore` syntax, with the following modifications:
 
@@ -92,7 +92,7 @@ Unsupported patterns are silently removed from the pattern list (this is done so
 
 For a description of `.gitignore` syntax, see [.gitignore documentation](https://git-scm.com/docs/gitignore).
 
-## Defining ignored files and folders in Semgrep Cloud Platform
+## Define ignored files and folders in Semgrep Cloud Platform
 
 Another method for users to define ignore patterns is through a Project in Semgrep Cloud Platform. These patterns follow the same syntax as `.semgrepignore` in the preceding section.
 
@@ -113,7 +113,7 @@ You can also add files to `.semgrepignore` while triaging individual findings in
 Add files to `.semgrepignore` in the fifth step of the procedure described above. 
 :::
 
-## Ignoring code through nosemgrep
+## Ignore code through nosemgrep
 
 To ignore blocks of code, define an **inline comment**, followed by a **space** (` `), followed by the word `nosemgrep` at either the **first line** or **the line preceding** the potential match. Semgrep ignores all rule pattern matches. This functionality works across all supported languages.
 
@@ -183,9 +183,16 @@ bad_func3(   // nosemgrep: configs.rule-id-3, configs.rule-id-4
 Previous annotations for ignoring code inline, such as `nosem`, are deprecated.
 :::
 
-## Disabling rules on Semgrep Cloud Platform
+## Disable rules on Semgrep Cloud Platform
 
 Semgrep Cloud Platform users can disable rules and rulesets through the Policies page. See [Disabling rules](/semgrep-code/policies#disabling-rules) and [Disabling rulesets](/semgrep-code/triage-remediation/#disable-a-ruleset-or-a-rule).
+
+## Ignore findings
+
+**Ignoring** can also be a triage action. In this case, the code is scanned rather than excluded, and if a pattern match occurs, a finding record is generated that you can then triage as **Ignored**. See [Triage and remediate Semgrep Code findings in Semgrep Cloud Platform](/semgrep-code/triage-remediation/#ignore-findings) to learn how to:
+
+* [Ignore findings in Semgrep Cloud Platform](/semgrep-code/triage-remediation/#ignore-findings)
+* [Ingore findings through GitHub PR comments](/semgrep-code/triage-remediation/#ignore-findings-through-github-pr-comments.)
 
 ## Known issues
 

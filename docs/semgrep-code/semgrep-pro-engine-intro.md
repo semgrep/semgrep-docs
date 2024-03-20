@@ -26,7 +26,7 @@ Refer to [<i class="fa-regular fa-file-lines"></i> Supported languages](/support
 
 This section guides you through the Pro Engine installation and helps you to scan your projects both in CLI and with Semgrep Cloud Platform (SCP).
 
-### Running Semgrep Pro Engine in Semgrep Cloud Platform
+### Running Semgrep Pro Engine with Semgrep Cloud Platform
 
 :::info Prerequisite
 You have completed a [Semgrep core deployment](/deployment/core-deployment).
@@ -41,13 +41,13 @@ To run Semgrep Pro Engine in the Semgrep Cloud Platform, follow these steps:
 1. Ensure that the <i class="fa-solid fa-toggle-large-on"></i> **Pro Engine beta** toggle is enabled.
 1. Ensure that you have the **default ruleset** added in your **[Policies page](https://semgrep.dev/orgs/-/policies)**. If this ruleset is **not** added, go to [<i class="fas fa-external-link fa-xs"></i> Semgrep Registry - Default ruleset page](https://semgrep.dev/p/default), then click **Add to Policy**. For best results, set this ruleset to the **Monitor** rule mode.
 
-Full scans now include Semgrep Pro Engine. You can trigger a full scan through your CI provider. Note that it does **not** support scanning on diff-aware (pull or merge request) scans. 
+Full scans now include Semgrep Pro Engine. You can trigger a full scan through your CI provider. Note that Pro Engine does **not** currently run on diff-aware (pull or merge request) scans. 
 
 :::tip Testing Semgrep Pro Engine
 To test Semgrep Pro Engine on a purposefully vulnerable repository, fork the [<i class="fas fa-external-link fa-xs"></i> juice-shop](https://github.com/juice-shop/juice-shop) repository, and then add it to Semgrep Cloud Platform.
 :::
 
-### Running Semgrep Pro Engine in CLI
+### Running Semgrep Pro Engine in the CLI
 
 :::info Prerequisite
 - Local installation of Semgrep CLI. See [<i class="fa-regular fa-file-lines"></i> Getting started with Semgrep](/getting-started/quickstart/) to install Semgrep CLI.
@@ -65,7 +65,7 @@ To run Pro Engine in the CLI, perform the following steps.
 semgrep login && semgrep ci
 ```
 
-#### Updating Semgrep Pro Engine in CLI
+#### Updating Semgrep Pro Engine in the CLI
 
 To update Semgrep Pro Engine to the latest version, follow these steps:
 
@@ -135,7 +135,7 @@ To update Semgrep Pro Engine to the latest version, follow these steps:
 
 ### Creating rules that analyze across files and functions 
 
-To create rules that analyze across files and functions, add `interfile: true` under the `options` key when defining a rule. This key signals to Semgrep Pro Engine to use the rule for both cross-function and cross-file analysis.
+To create rules that analyze across files and functions, add `interfile: true` under the `options` key when defining a rule. This key signals Semgrep Pro Engine to use the rule for both cross-function and cross-file analysis.
 
 #### Pro Engine cross-function example
 
@@ -157,6 +157,24 @@ options:
 
 This results in a failure to detect the true positive, because Semgrep did not perform cross-function analysis.
 
+## Known limitations of Semgrep Pro Engine
+
+### CommonJS
+
+Currently Semgrep Pro Engine does not handle specific cases of CommmonJS where you define a function and assign it to an export later. Semgrep Pro Engine does not track the code below:
+
+```js
+function get_user() {
+    return get_user_input("example")
+  }
+
+module.exports = get_user
+```
+
+### Regressions in Semgrep Pro
+
+For cross-file (interfile) analysis, Semgrep Pro Engine resolves names differently than Semgrep OSS. Consequently, rules with `interfile: true` may produce different results than Semgrep OSS Engine. Some instances could be regarded as regressions; if you encounter them, please file a bug report. When you need to report a bug in Semgrep Pro Engine, go through [Semgrep Support](/docs/support/). You can also contact us through [Semgrep Community Slack group](https://go.semgrep.dev/slack).
+
 ## Additional information
 
 ### Types of Semgrep Pro Engine analysis
@@ -177,13 +195,14 @@ This results in a failure to detect the true positive, because Semgrep did not p
 
 To provide reliably completed scans, Semgrep Pro Engine can **fall back** to the use of Semgrep OSS Engine. This ensures that in the vast majority of cases, scans run successfully.
 
-If a scan uses more than 5&nbsp;GB of memory during pre-processing, the scan uses Semgrep OSS Engine to ensure lower memory consumption. Similarly, if the Pro Engine scan doesn't complete after 3 hours, the Pro Engine times out and Semgrep OSS rescans the repository. Typically, this is because the repository is very large.
+By default, if a scan uses more than 5&nbsp;GB of memory during interfile pre-processing, the scan uses Semgrep OSS Engine to ensure lower memory consumption. Similarly, if the Pro Engine scan doesn't complete after 3 hours, the Pro Engine times out and Semgrep OSS rescans the repository. Typically, this happens because the repository is very large.
 
-If 1-2 repositories cause CI scan issues, modify your config file to use `semgrep ci --oss-only`. This overrides the Semgrep CI settings for these repositories, and always runs these scans with Semgrep OSS. 
+If 1-2 repositories cause CI scan issues and scanning these repositories with Pro Engine is not critical, modify your config file to use `semgrep ci --oss-only`. This overrides the Semgrep Cloud Platform setting for these repositories, and always runs these scans with Semgrep OSS.
 
-If many repositories cause scan issues:
+If many repositories cause scan issues, or you have critical repositories you are unable to scan with Semgrep Pro Engine:
 1. Disable the <i class="fa-solid fa-toggle-large-on"></i> **Pro Engine beta** toggle in the **[Settings](https://semgrep.dev/orgs/-/settings)** page of your organization.
-1. Contact the Semgrep team in the <a href="https://go.semgrep.dev/slack">Semgrep Community Slack</a> so we can help you to fix the issue and create a plan for your organization.
+1. Review scan troubleshooting guides such as [A Semgrep scan is having a problem - what next?](/docs/kb/semgrep-code/semgrep-scan-troubleshooting/) or [Troubleshooting "You are seeing this because the engine was killed"](/docs/kb/semgrep-code/scan-engine-kill/).
+1. If you need additional guidance, [contact Semgrep Support](/docs/support), or reach out to the Semgrep team in the <a href="https://go.semgrep.dev/slack">Semgrep Community Slack</a> so we can help you resolve the issue and create a plan for your organization.
 
 ### Difference between Semgrep Pro Engine and join mode
 

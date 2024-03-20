@@ -27,7 +27,7 @@ module.exports = {
       label: 'Knowledge base',
       href: '/kb/',
     },
-    { type: 'ref', id: 'cheat-sheets/java-code-injection', label: 'OWASP cheat sheets'},
+    { type: 'ref', id: 'cheat-sheets/java-code-injection', label: 'Cheat sheets for security issues'},
     { type: 'ref', id: 'release-notes/introduction', label: 'Release notes'},
     { type: 'link', href: 'https://semgrep.dev/api/v1/docs/', label: 'API'},
     { type: 'ref', id: 'faq', label: 'About Semgrep' },
@@ -246,7 +246,11 @@ module.exports = {
             label: 'Secrets',
             items: [
                 'semgrep-secrets/conceptual-overview',
-                'semgrep-secrets/getting-started'
+                'semgrep-secrets/getting-started',
+                'semgrep-secrets/view-triage',
+                'semgrep-secrets/policies',
+                'semgrep-secrets/validators',
+                'semgrep-secrets/rules'
             ]
         },
         /*
@@ -459,6 +463,7 @@ module.exports = {
         label: 'Run scans',
         collapsible: false,
         items: [
+            'deployment/oss-deployment',
             'running-rules',
             'getting-started/cli-oss',
             'ignore-oss'
@@ -659,6 +664,7 @@ module.exports = {
                     title: '2024 Release notes'
                 },
               items: [
+                'release-notes/february-2024',
                 'release-notes/january-2024'
               ]
             },

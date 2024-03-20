@@ -22,7 +22,7 @@ Object.entries(frontMatter).filter(
 
 # Triaging and remediating dependency findings
 
-Perform triage and remediation on your open source dependencies through the **Supply chain** page. This page displays relevant scan data through three tabs:
+Perform triage and remediation on your open source dependencies through the **Supply Chain** page. This page displays relevant scan data through three tabs:
 
 <dl>
 <dt>Vulnerabilities</dt>
@@ -49,7 +49,7 @@ _Figure 1_. Semgrep Supply Chain Vulnerabilities page.
 At least one repository that scans for dependencies through Semgrep Supply Chain. See [Getting started with Semgrep Supply Chain](/semgrep-supply-chain/getting-started).
 :::
 
-To view the latest findings of Semgrep Supply Chain, click Supply Chain.
+To view the latest findings of Semgrep Supply Chain, click **Supply Chain**.
 
 Findings are displayed under their respective repositories. Findings are grouped by **vulnerability**. A specific finding in the code is called a **usage**. Vulnerability entries are sorted as cards from newest to oldest then by severity from critical to low.
 
@@ -201,7 +201,6 @@ The following **status filters** are provided:
    </td>
   </tr></tbody>
 </table>
-
 
 
 ## Remediating true positives

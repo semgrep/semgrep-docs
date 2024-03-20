@@ -1,0 +1,21 @@
+```yaml
+version: 2.1
+workflows:
+  semgrep:
+    jobs:
+      - semgrep-full-scan:
+          filters:
+            branches:
+              only: main
+          context:
+            - semgrep
+jobs:
+  semgrep-full-scan:
+    docker:
+      - image: semgrep/semgrep
+    steps:
+      - checkout
+      - run:
+          name: "Semgrep OSS full scan"
+          command: semgrep scan --config auto
+```
