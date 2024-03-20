@@ -16,6 +16,7 @@
   --ifm-color-primary-light: #2acfa6;
   --ifm-color-primary-lighter: #77dec0;
   --ifm-color-primary-lightest: #DFF7F0;
+  --docusaurus-highlighted-code-line-bg: var(--ifm-color-primary-lightest);
 
   --ifm-breadcrumb-border-radius: 0.25rem;
   --ifm-breadcrumb-item-background-active: rgb(0 168 126 / 4%);
@@ -103,6 +104,10 @@
 
  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=JetBrains+Mono:wght@400;700&display=swap');
 
+html[data-theme="dark"] {
+ --docusaurus-highlighted-code-line-bg: #737373;
+}
+
  .theme-doc-markdown a:visited {
   color: #7d1cb2;
 }
@@ -111,15 +116,12 @@ html[data-theme="dark"] .theme-doc-markdown a:visited {
   color: #c783ec;
 }
 
+
  .docusaurus-highlight-code-line {
   background-color: #00a674;
   display: block;
   margin: 0 calc(-1 * var(--ifm-pre-padding));
   padding: 0 var(--ifm-pre-padding);
-}
-
-html[data-theme="dark"] .docusaurus-highlight-code-line {
-  background-color: #00a674;
 }
 
 html[data-theme="dark"] {
@@ -490,7 +492,7 @@ h2[class*="cardTitle_"][class~="text--truncate"], p[class*="cardDescription_"][c
 /* left sidebar collapse */
 
 button[class*="collapseSidebarButton"]:hover, div[class*="expandButton"]:hover {
-  background-color: #DFF7F0;
+  background-color: #DFF6F0;
 }
 
 svg[class*="collapseSidebarButtonIcon"], svg[class*="expandButtonIcon"] {
