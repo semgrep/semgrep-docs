@@ -16,7 +16,7 @@ The definitions provided here are specific to each term's meaning and use in Sem
 
 ### Constant propagation
 
-Refers to state of a variable remaining constant throughout the program. Semgrep can analyze whether a variable carries a constant value at a given point in the program. Both Semgrep OSS and Semgrep Pro Engine perform this analysis, with Semgrep Pro able to track the propagation across files.
+Refers to state of a variable remaining constant throughout the program. Semgrep can analyze whether a variable carries a constant value at a given point. Both Semgrep OSS and Semgrep Pro Engine perform this analysis, with Semgrep Pro able to track the propagation across files.
 
 You can write checks for constant propagation through the use of `pattern-not` in conjunction with `pattern` or `metavariable-comparison`.
 
@@ -28,13 +28,13 @@ Also known as **interfile analysis**. This refers to a tool's ability to trace o
 
 Cross file analysis can be paired with taint analysis to detect unsanitized variables flowing from a source to a sink.
 
-<!-- This type of analysis is available in Semgrep Pro engine -->
+This type of analysis is available in Semgrep Pro Engine.
 
 ### Cross-function analysis
 
 Also known as **intrafile** or **interprocedural** analysis. This refers to a tool's ability to trace or track data and its transformations across functions in a single file, such as when a globally-scoped variable is defined in one function but used in another.
 
-<!-- This type of analysis is available in Semgrep Pro engine -->
+This type of analysis is available in Semgrep Pro Engine.
 
 
 ### Error matrix
@@ -75,7 +75,7 @@ A metavariable is an abstraction that lets you match something even when you don
 
 ### Propagator
 
-A propagator is a piece of code that alters a piece of data as the data moves across the program. This includes functions, reassignments, and so on.
+A propagator is any code that alters a piece of data as the data moves across the program. This includes functions, reassignments, and so on.
 
 ### Rule (Semgrep rule)
 
@@ -85,10 +85,12 @@ Rules can be run on either Semgrep OSS Engine or Semgrep Pro Engine.
 
 There are two types of rules: search and taint.
 
-#### Search mode rules
-
-#### Taint mode rules
-
+<dl>
+<dt>Search rules</dt>
+<dd></dd>
+<dt>Taint rules</dt>
+<dd></dd>
+</dl>
 
 ### Single-file analysis
 
@@ -110,9 +112,6 @@ Semgrep's taint analysis provides additional mechanisms that can be used to writ
 
 See also: sink, source.
 
-
-
-
 <!-- ## Field sensitivity
 
 ### Index sensitivity -->
@@ -122,19 +121,23 @@ See also: sink, source.
 
 ### Diff-aware scan
 
+A diff-aware scan is a type of scan that scans changes in files starting from a certain git baseline. It is typically performed on feature branches when a pull or merge request is opened.
+
 See also Full scan.
 
 ### Full scan
+
+A full scan scans the entire codebase or git repository in its current state. It is typically performed on trunk or mainline branches, such as `master`. Semgrep, Inc. recommends scanning on a recurring basis, such as daily or weekly.
 
 See also Diff-aware scan.
 
 ### Policy
 
-[definition]
+A policy in Semgrep Code refers to the set of rules that Semgrep runs and the workflow actions undertaken when a rule from the policy generates a finding. A workflow action is an action that is performed by Semgrep when a finding is detected, such as notifying Slack channels or posting a comment in the PR or MR that generated the finding.
 
 Not to be confused with **policy-as-code**.
 
 ### Registry (Semgrep Registry)
 
-A collection of publicly-available SAST rules that you can download from, that can be filtered by language, OWASP bug class, severity, and so on. Many of these rules are open source, and you can also check the license of the rule you are using. Contributions are welcome. 
+A collection of publicly-available SAST rules that you can download from. It can be filtered by language, OWASP bug class, severity, and so on. Many of these rules are open source, and you can also view the license of the rule you are using. Contributions are welcome. 
 
