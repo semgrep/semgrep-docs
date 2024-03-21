@@ -18,7 +18,7 @@ Additionally, it provides several simple rule examples to illustrate the concept
 
 ## Language features prevent injection through boolean and integer types 
 
-Strong typing in Java, combined with its compile-time and runtime checks, ensures that an integer or boolean input cannot be exploited to perform injection-style attacks. Semgrep Pro can reduce false positives by leveraging these checks.
+Strong typing in Java, combined with its compile-time and runtime checks, reduces the likelihood that an integer or boolean input will be exploited to perform injection-style attacks. Semgrep Pro can reduce false positives by leveraging these checks.
 
 The OSS Engine matches based on patterns, which can result in false positivies (FPs), but the Pro Engine can detect boolean and integer values and mark these as untainted, or safe, eliminating FPs.
 
@@ -75,6 +75,6 @@ This demo rule detects patterns in instances of the user-defined parent class `F
 
 ## Semgrep supports field sensitivity
 
-Field sensitivity refers to?
+todo: Check with SME for explanation of field / index sensitivity specific to Semgrep
 
 <iframe title="tk" src="https://semgrep.dev/embed/editor?snippet=4b9KL" width="100%" height="432px" frameBorder="0"></iframe>

@@ -301,8 +301,7 @@ module.exports = {
             ]
         },
         'cli-reference',
-        'semgrep-supply-chain/glossary',
-        'usage-and-billing'
+        'semgrep-supply-chain/glossary'
         ]
     }
   ],
@@ -516,6 +515,7 @@ module.exports = {
             'faq',
             'integrating',
             'usage-and-billing',
+            'deployment/claim-a-license',
             'contributing/philosophy',
             {
               type: 'doc',
