@@ -15,7 +15,7 @@ Optional: Define this configuration explicitly using the `--suppress-errors` fla
  
 ```yaml
 steps:
-  - uses: actions/checkout@v3
+  - uses: actions/checkout@v4
   - name: Scan and suppress internal errors
     run: semgrep ci --suppress-errors
 ```
@@ -38,7 +38,7 @@ The following shortened code snippets in multiple tabs display the position of t
 
 ```yaml
 steps:
-- uses: actions/checkout@v3
+- uses: actions/checkout@v4
 - name: Scan and suppress internal errors
    run: semgrep ci --suppress-errors
 ```
