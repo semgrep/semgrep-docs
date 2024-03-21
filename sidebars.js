@@ -300,7 +300,8 @@ module.exports = {
             ]
         },
         'cli-reference',
-        'semgrep-supply-chain/glossary'
+        'semgrep-supply-chain/glossary',
+        'glossary'
         ]
     }
   ],

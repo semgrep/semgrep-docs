@@ -2,38 +2,27 @@
 slug: tk
 title: SAST and rule-writing glossary
 hide_title: true
-description: tk
+description: Definitions of static analysis terms related to Semgrep Code and Semgrep rule writing.
 tags:
   - tk
 ---
 
-# Semgrep Code, SAST, and rule-writing glossary
+# Semgrep Code, static analysis, and rule-writing glossary
 
-The definitions provided here are specific to the terms's meaning and use in Semgrep.
+The definitions provided here are specific to each term's meaning and use in Semgrep.
 
-## Semgrep Code product terms
+## Static analysis and rule-writing terms
 
-## Rule-writing and static analysis terms
 
-## true positive
+### Constant propagation
 
-## false positive
+Refers to state of a variable remaining constant throughout the program. Semgrep can analyze whether a variable carries a constant value at a given point in the program. Both Semgrep OSS and Semgrep Pro Engine perform this analysis, with Semgrep Pro able to track the propagation across files.
 
-## Diff-aware scan
+You can write checks for constant propagation through the use of `pattern-not` in conjunction with `pattern` or `metavariable-comparison`.
 
-See also Full scan.
+It is enabled by default when writing rules and [can be disabled](/data-flow/constant-propagation/#disabling-constant-propagation).
 
-## Full scan
-
-See also Diff-aware scan.
-
-## Propagator
-
-## Constant propagation
-
-## Symbolic propagation
-
-## Cross-file analysis
+### Cross-file analysis
 
 Also known as **interfile analysis**. This refers to a tool's ability to trace or track data and its transformations across files, such as when a variable is defined in one file but used in another.
 
@@ -41,56 +30,79 @@ Cross file analysis can be paired with taint analysis to detect unsanitized vari
 
 <!-- This type of analysis is available in Semgrep Pro engine -->
 
-## Cross-function analysis
+### Cross-function analysis
 
 Also known as **intrafile** or **interprocedural** analysis. This refers to a tool's ability to trace or track data and its transformations across functions in a single file, such as when a globally-scoped variable is defined in one function but used in another.
 
 <!-- This type of analysis is available in Semgrep Pro engine -->
 
-## Finding
+
+### Error matrix
+
+An error matrix is a 2x2 table that visualizes the performance of a Semgrep rule in relation to the findings it does or doesn't detect. It has two axes:
+
+- Positive and negative
+- True or false
+
+These yield the following combinations:
+
+<dl>
+<dt>True positive</dt>
+<dd>The rule detected a piece of code it was intended to find.</dd>
+<dt>False positive</dt>
+<dd>The rule detected a piece of code it was not intended to find.</dd>
+<dt>True negative</dt>
+<dd>The rule correctly skipped over a piece of code it wasn't meant to find.</dd>
+<dt>False negative</dt>
+<dd>The rule failed to detect a piece of code it should have found.</dd>
+</dl>
+
+Not to be confused with **risk matrices**.
+
+### Finding
 
 A finding is the core result of Semgrep's analysis. Findings are generated when a Semgrep rule matches a piece of code. Findings can be security issues, bugs, or code that doesn't follow coding conventions.
 
-<!-- ## Field sensitivity
+### Fully-qualified name
 
-## Index sensitivity -->
+A fully-qualified name refers to a name which uniquely identifies a class, method, type, or module. Languages such as C# and Ruby use `::` to distinguish between fully-qualified names and regular names.
 
-## Metavariable
+Not to be confused with **tokens**.
 
-## Policy
+### Metavariable
 
-[definition]
+A metavariable is an abstraction that lets you match something even when you don't know exactly what it is you want to match. It is similar to capture groups in regular expressions. All metavariables begin with a `$` and can only contain uppercase characters, digits, and underscores.
 
-Not to be confused with **policy-as-code**.
+### Propagator
 
-## Single-file analysis
+A propagator is a piece of code that alters a piece of data as the data moves across the program. This includes functions, reassignments, and so on.
 
-## Single-function analysis
+### Rule (Semgrep rule)
 
-## Sink
-
-In taint analysis,
-
-## Source
-
-In taint analysis,
-
-## Registry (Semgrep Registry)
-
-A collection of publicly-available SAST rules that you can download from, that can be filtered by language, OWASP bug class, severity, and so on. Many of these rules are open source, and you can also check the license of the rule you are using. Contributions are welcome. 
-
-## Rule (Semgrep rule)
-
-A rule is a specification of the patterns that Semgrep must match to the code to generate a finding. A rule is written in YAML. Without a rule, the engine has no instructions on how to match code.
+A rule is a specification of the patterns that Semgrep must match to the code to generate a finding. Rules are written in YAML. Without a rule, the engine has no instructions on how to match code.
 
 Rules can be run on either Semgrep OSS Engine or Semgrep Pro Engine.
 
-There are several types of rules: search mode rules and taint mode rules.
-Rules can be search mode rules or 
+There are two types of rules: search and taint.
 
-Findings 
+#### Search mode rules
 
-## Taint analysis
+#### Taint mode rules
+
+
+### Single-file analysis
+
+### Single-function analysis
+
+### Sink
+
+In taint analysis,
+
+### Source
+
+In taint analysis,
+
+### Taint analysis
 
 definition
 
@@ -99,7 +111,30 @@ Semgrep's taint analysis provides additional mechanisms that can be used to writ
 See also: sink, source.
 
 
-## Fully-qualified name
 
-A fully-qualified name refers to a name which uniquely identifies a class, method, type, or module. Languages such as C# and Ruby use `::` to distinguish between fully-qualified names and regular names.
+
+<!-- ## Field sensitivity
+
+### Index sensitivity -->
+
+
+## Semgrep Code product terms
+
+### Diff-aware scan
+
+See also Full scan.
+
+### Full scan
+
+See also Diff-aware scan.
+
+### Policy
+
+[definition]
+
+Not to be confused with **policy-as-code**.
+
+### Registry (Semgrep Registry)
+
+A collection of publicly-available SAST rules that you can download from, that can be filtered by language, OWASP bug class, severity, and so on. Many of these rules are open source, and you can also check the license of the rule you are using. Contributions are welcome. 
 
