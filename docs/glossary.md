@@ -7,9 +7,13 @@ tags:
   - tk
 ---
 
-# Semgrep Code (SAST) and rule-writing glossary
+# Semgrep Code, SAST, and rule-writing glossary
 
 The definitions provided here are specific to the terms's meaning and use in Semgrep.
+
+## Semgrep Code product terms
+
+## Rule-writing and static analysis terms
 
 ## true positive
 
@@ -22,6 +26,8 @@ See also Full scan.
 ## Full scan
 
 See also Diff-aware scan.
+
+## Propagator
 
 ## Constant propagation
 
@@ -78,6 +84,9 @@ A collection of publicly-available SAST rules that you can download from, that c
 A rule is a specification of the patterns that Semgrep must match to the code to generate a finding. A rule is written in YAML. Without a rule, the engine has no instructions on how to match code.
 
 Rules can be run on either Semgrep OSS Engine or Semgrep Pro Engine.
+
+There are several types of rules: search mode rules and taint mode rules.
+Rules can be search mode rules or 
 
 Findings 
 
