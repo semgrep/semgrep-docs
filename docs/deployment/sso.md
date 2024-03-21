@@ -120,7 +120,7 @@ You have now created a custom enterprise app for Semgrep to integrate with Micro
 5. Click **Edit** to modify **Attributes & Claims**. You must add two claims. To add your first claim:
     1. Click **Add new claim**.
     2. Enter `name` in the **Name** field.
-    3. For the **Source attribute** drop-down box, select `user.givenname`.
+    3. For the **Source attribute** drop-down box, select `user.displayname`.
     4. Click **Save**.
 6. To add your second claim:
     1. Click **Add new claim**.
