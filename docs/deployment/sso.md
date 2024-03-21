@@ -111,13 +111,13 @@ You have now created a custom enterprise app for Semgrep to integrate with Micro
    ![Enterprise application's Single-sign on menu option](/img/entra-3.png#md-width)
 2. When prompted to **Select a single sign-on method**, select **SAML**. You are redirected to the **SAML-based Sign-on** page.
    ![SAML-based Sign-on screen](/img/entra-4.png#md-width)
-3. Click **Edit** to update your **Basic SAML Configuration** by providing the **Entity ID** and **Reply URL**. You can retrieve these values from Semgrep Cloud Platform by performing the following steps:
+3. In the **Basic SAML Configuration** section, click **Edit**. Provide the **Entity ID** and **Reply URL**. You can retrieve these values from Semgrep Cloud Platform by performing the following steps:
     1. Log in to Semgrep Cloud Platform and navigate to [**Settings** > **Access** > **SSO**](https://semgrep.dev/orgs/-/settings/access/sso) page. 
     2. Click **Add SAML2 SSO**.
     3. Copy the **Audience URL** value from Semgrep Cloud Platform. Return to **Basic SAML Configuration**. Click **Add identifier** to paste this value as the **Identifier (Entity ID)**.
     4. Copy the **SSO URL** value from Semgrep Cloud Platform. Return to **Basic SAML Configuration**. Click **Add reply URL** to paste this value as the **Reply URL (Assertion Consumer Service URL)**.
 4. Click **Save** and close out of **Basic SAML Configuration**.
-5. Click **Edit** to modify **Attributes & Claims**. You must add two claims. To add your first claim:
+5. In the **Attributes and Claims** section, click **Edit**. You must add two claims. To add your first claim:
     1. Click **Add new claim**.
     2. Enter `name` in the **Name** field.
     3. For the **Source attribute** drop-down box, select `user.displayname`.
@@ -132,7 +132,7 @@ You have now created a custom enterprise app for Semgrep to integrate with Micro
     1. Provide the **Display name** and the **Email domain** you are using for the integration.
     2. Copy the **Login URL** value from Microsoft Entra ID and paste it in into SCP's **IDP SSO URL** field.
     3. Copy and paste the **Microsoft Entra ID Identifier** value into SCP's **IdP Issuer ID** field.
-    4. In Entra ID's **SAML-based Sing-on** page, click **Download** to obtain the **Certificate (Base64)**.
+    4. In Entra ID's **SAML-based Sign-on** page, click **Download** to obtain the **Certificate (Base64)**.
     5. In Semgrep Cloud Platform, under **Upload/Paste certificate**, click **Browse** and then select the certificate you downloaded.
    ![SCP's SAML2 configuration screen](/img/entra-5.png#md-width)
  9.  Click **Save**. When prompted to confirm your SSO updates, click **Update**.
