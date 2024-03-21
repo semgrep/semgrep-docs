@@ -3,7 +3,7 @@ slug: java
 append_help_link: true
 title: Semgrep Pro in Java
 hide_title: true
-description: Classes of false positives in the Java language that Semgrep Pro Engine can eliminate.
+description: How Semgrep Pro Engine can increase true positives and reduce false positives in the Java language.
 tags:
   - tk
 ---
