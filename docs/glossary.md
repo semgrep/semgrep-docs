@@ -13,7 +13,6 @@ The definitions provided here are specific to each term's meaning and use in Sem
 
 ## Static analysis and rule-writing terms
 
-
 ### Constant propagation
 
 Refers to state of a variable remaining constant throughout the program. Semgrep can analyze whether a variable carries a constant value at a given point. Both Semgrep OSS and Semgrep Pro Engine perform this analysis, with Semgrep Pro able to track the propagation across files.
@@ -24,18 +23,17 @@ It is enabled by default when writing rules and [can be disabled](/data-flow/con
 
 ### Cross-file analysis
 
-Also known as **interfile analysis**. This refers to a tool's ability to trace or track data and its transformations across files, such as when a variable is defined in one file but used in another.
+Also known as **interfile analysis**. This analysis traces or tracks data and its transformations across files, such as when a variable is defined in one file but used in another.
 
 Cross file analysis can be paired with taint analysis to detect unsanitized variables flowing from a source to a sink.
 
-This type of analysis is available in Semgrep Pro Engine.
+Also known as **interfile analysis**. Available in Semgrep Pro Engine.
 
 ### Cross-function analysis
 
-Also known as **intrafile** or **interprocedural** analysis. This refers to a tool's ability to trace or track data and its transformations across functions in a single file, such as when a globally-scoped variable is defined in one function but used in another.
+This analysis traces or tracks data and its transformations across functions in a single file, such as when a globally-scoped variable is defined in one function but used in another.
 
-This type of analysis is available in Semgrep Pro Engine.
-
+Also known as **intrafile** or **interprocedural** analysis. Available in Semgrep Pro Engine.
 
 ### Error matrix
 
@@ -87,14 +85,22 @@ There are two types of rules: search and taint.
 
 <dl>
 <dt>Search rules</dt>
-<dd></dd>
+<dd>Rules default to this type. Search rules simply detect matches based on the patterns described by a rule.</dd>
 <dt>Taint rules</dt>
-<dd></dd>
+<dd>Taint rules make use of Semgrep's taint analysis in addition to default search functionalities. Taint rules are able to specify sources, sinks, and propagators of data as well as sanitizers of that data. For more information, see Taint analysis documentation (tk link)</dd>
 </dl>
+
+<!-- how can we say that search rules are semantic if no analysis is performed on the value of data, such as variables? Or are there levels of semantic understanding that semgrep can perform? -->
+
+### Sanitizers
 
 ### Single-file analysis
 
+Also known as intrafile analysis. This refers to a tool's ability to trace or track data and its transformations across files, such as when a variable is defined in one file but used in another.
+
 ### Single-function analysis
+
+Also known as intraprocedural analysis.
 
 ### Sink
 
