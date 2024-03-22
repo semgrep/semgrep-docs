@@ -1,10 +1,10 @@
 ---
-slug: tk
-title: tk
+slug: packages-in-semgrep-docker
+title: Packages in Semgrep docker
 hide_title: true
-description: tk
+description: Packages included in the latest Semgrep docker image.
 tags:
-  - tk
+  - Semgrep in CI
 ---
 
 # Packages in the Semgrep docker image 
