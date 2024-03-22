@@ -94,7 +94,6 @@ Ensure that you are logged in to the server where you want to run Semgrep Networ
   # for GitLab 
   gitlab:
     baseUrl: <https://gitlab.exampleCo.net/api/v4>
-    token: YOUR_TOKEN
 
   # for GitHub 
   github:
@@ -102,15 +101,7 @@ Ensure that you are logged in to the server where you want to run Semgrep Networ
     token: YOUR_TOKEN
   ```
 
-1. [Create a GitLab personal access token (PAT)](https://docs.gitlab.com/ee/user/profile/personal_access_tokens.html#create-a-personal-access-token) with the `api` scope, and add the token to `config.yaml` by replacing `YOUR_TOKEN` in the `token` field:
-
-  ```yaml
-  gitlab:
-    baseUrl: <https://gitlab.xxxx.net/api/v4>
-    token: YOUR_TOKEN
-  ```
-
-  GitHub users can [use their personal access tokens](https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/managing-your-personal-access-tokens) as long as it has the `pull_requests:write` permission set:
+1. GitHub users can [use their personal access tokens](https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/managing-your-personal-access-tokens) as long as it has the `pull_requests:write` permission set:
 
   ```yaml
   github:
