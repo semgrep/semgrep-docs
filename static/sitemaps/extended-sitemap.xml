@@ -3445,12 +3445,6 @@
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://semgrep.dev/docs/writing-rules/experiments/taint-labels/</loc>
-    <lastmod>2023-01-24</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
     <loc>https://semgrep.dev/embed/editor?snippet=minusworld:docs-dockerfile-invalid-port</loc>
     <lastmod>2023-01-24</lastmod>
     <changefreq>monthly</changefreq>

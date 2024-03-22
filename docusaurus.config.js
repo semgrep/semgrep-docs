@@ -274,7 +274,7 @@ module.exports = {
           { from: "/experiments/symbolic-propagation/", to: "/writing-rules/experiments/symbolic-propagation/" },
           { from: "/experiments/taint-propagators/", to: "/writing-rules/data-flow/taint-mode/" },
           { from: "/writing-rules/experiments/taint-propagators/", to: "/writing-rules/data-flow/taint-mode/" },
-          { from: "/experiments/taint-labels/", to: "/writing-rules/experiments/taint-labels/" },
+          { from: "/experiments/taint-labels/", to: "/writing-rules/data-flow/taint-mode/" },
           { from: "/experiments/metavariable-analysis/", to: "/writing-rules/metavariable-analysis/" },
           { from: "/experiments/multiple-focus-metavariables/", to: "/writing-rules/experiments/multiple-focus-metavariables/" },
           { from: "/experiments/display-propagated-metavariable/", to: "/writing-rules/experiments/display-propagated-metavariable/" },
@@ -283,6 +283,7 @@ module.exports = {
           { from: "/writing-rules/experiments/autofix/", to: "/writing-rules/autofix/" },
           { from: "/writing-rules/experiments/generic-pattern-matching/", to: "/writing-rules/generic-pattern-matching/" },
           { from: "/writing-rules/experiments/metavariable-analysis/", to: "/writing-rules/metavariable-analysis/" },
+          { from: "/writing-rules/experiments/taint-labels/", to: "/writing-rules/data-flow/taint-mode/" },
 
           /* MAR 24 2023 POST LAUNCH REDIRECTS */
 
