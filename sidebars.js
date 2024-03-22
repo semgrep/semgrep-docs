@@ -296,7 +296,8 @@ module.exports = {
             items: [
                 'semgrep-ci/ci-environment-variables',
                 'semgrep-ci/sample-ci-configs',
-                'semgrep-ci/findings-ci'
+                'semgrep-ci/findings-ci',
+                'semgrep-ci/packages-in-semgrep-docker'
             ]
         },
         'cli-reference',
