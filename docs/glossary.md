@@ -4,7 +4,7 @@ title: SAST and rule-writing glossary
 hide_title: true
 description: Definitions of static analysis terms related to Semgrep Code and Semgrep rule writing.
 tags:
-  - tk
+  - Rule writing
 ---
 
 # Semgrep Code, static analysis, and rule-writing glossary
