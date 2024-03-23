@@ -300,8 +300,16 @@ module.exports = {
             ]
         },
         'cli-reference',
-        'semgrep-supply-chain/glossary',
-        'glossary'
+        {
+            type: 'category',
+            label: 'Glossaries',
+            collapsible: true,
+            link: { type: 'generated-index'},
+            items: [
+                //'semgrep-code/glossary',
+                'semgrep-supply-chain/glossary'
+            ]
+        },
         ]
     }
   ],
@@ -357,6 +365,7 @@ module.exports = {
                     'writing-rules/data-flow/status'
                 ]
             },
+                'writing-rules/glossary'
             ]
         },
   ],
