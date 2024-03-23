@@ -94,34 +94,32 @@ There are two types of rules: search and taint.
 
 ### Sanitizers
 
+A sanitizer is any function that can clean untrusted or tainted data. Data from untrusted sources, such as user inputs, may be tainted with unsafe characters. Sanitizer functions ensure that unsafe characters are removed or stripped from the input.
+
+An example of a sanitizer is the `DOMPurify.sanitize(dirty);` function from the DOMPurify package in Javascript.
+
 ### Single-file analysis
 
-Also known as intrafile analysis. This refers to a tool's ability to trace or track data and its transformations across files, such as when a variable is defined in one file but used in another.
+Also known as intrafile analysis. This refers to a tool's ability to trace or track data and its transformations across functions, such as when a variable is defined in one function but used in another.
 
 ### Single-function analysis
 
-Also known as intraprocedural analysis.
+Also known as intraprocedural analysis. This refers to a tool's ability to trace or track data and its transformations within a single function.
 
 ### Sink
 
-In taint analysis,
+In taint analysis, a sink is any vulnerable function that is called with potentially tainted or unsafe data.
+
 
 ### Source
 
-In taint analysis,
+In taint analysis, a source is any piece of code that assigns or sets tainted data, typically user input.
 
 ### Taint analysis
 
-definition
+Taint analysis tracks and traces the flow of untrusted or unsafe data. Data coming from sources such as user inputs could be unsafe and used as an attack vector, if these inputs are not sanitized. Taint analysis provides a means of tracing that data as it moves through the program from untrusted sources to vulnerable functions.
 
-Semgrep's taint analysis provides additional mechanisms that can be used to write accurate rules. These include taint labels.
-
-See also: sink, source.
-
-<!-- ## Field sensitivity
-
-### Index sensitivity -->
-
+See also: sink, source, sanitizer, propagator.
 
 ## Semgrep Code product terms
 
