@@ -7,7 +7,7 @@ tags:
   - Rule writing
 ---
 
-# Static analysis and Rule-writing glossary
+# Static analysis and rule-writing glossary
 
 The definitions provided here are specific to each term's meaning and use in Semgrep.
 
