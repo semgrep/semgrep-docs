@@ -226,9 +226,6 @@ OPTIONS
        --no-git-ignore
            negates --use-git-ignore
 
-       --no-interfile-diff-scan
-           Disables interfile diff scan.
-
        --no-rewrite-rule-ids
            negates --rewrite-rule-ids
 
@@ -425,6 +422,6 @@ AUTHORS
 
 BUGS
        If you encounter an issue, please report it at
-       https://github.com/semgrep/semgrep/issues
+       https://github.com/returntocorp/semgrep/issues
 
 ```
