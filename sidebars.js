@@ -299,7 +299,6 @@ module.exports = {
                 'semgrep-ci/findings-ci'
             ]
         },
-        'cli-reference',
         {
             type: 'category',
             label: 'Glossaries',
@@ -310,6 +309,7 @@ module.exports = {
                 'semgrep-supply-chain/glossary'
             ]
         },
+        'cli-reference',
         ]
     }
   ],
