@@ -32,3 +32,18 @@ Not to be confused with **policy-as-code**.
 
 A [collection of publicly-available SAST rules](https://semgrep.dev/r) that you can download from. It can be filtered by language, OWASP bug class, severity, and so on. Many of these rules are open source, and you can also view the license of the rule you are using. Contributions are welcome.
 
+## Scan target
+
+A scan target is any file, or collection of files and directories that Semgrep can scan. This includes:
+
+### Codebase
+
+Any code files within a specified directory and its subdirectories.
+
+### Project
+
+A repository or codebase that you have added to Semgrep for scanning along with finding records and other Semgrep data and resources.
+
+### Repository
+
+A location, typically remote, for source code, including metadata relating to the source code. Semgrep supports git repositories.
