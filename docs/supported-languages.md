@@ -111,40 +111,95 @@ Community supported languages have varying levels of rule coverage - check the r
 
 <details><summary>Click to view <strong>Semgrep OSS</strong> languages.</summary>
 
-- Bash
-- C
-- C++
-- C#
-- Cairo
-- Clojure
-- Dart
+- Bash      
+- C         
+- C++       
+- C#        
+- Cairo     
+- Clojure   
+- Dart       
 - Dockerfile
-- Generic
-- Go
-- Hack
-- HTML
-- Java
+- Elixir    
+- Generic   
+- Go        
+- Hack       
+- HTML          
+- Java      
 - JavaScript
-- JSON
-- Jsonnet
-- Julia
-- Lisp
-- Lua
-- Kotlin
-- Ruby
-- Rust
-- JSX
-- Ocaml
-- PHP
-- Python
-- R
-- Scala
-- Scheme
-- Solidity
-- Swift
+- JSON      
+- Jsonnet   
+- Julia      
+- Lisp       
+- Lua        
+- Kotlin    
+- Ruby      
+- Rust      
+- JSX       
+- Ocaml      
+- PHP       
+- Python    
+- R          
+- Scala     
+- Scheme     
+- Solidity   
+- Swift     
 - TypeScript
-- YAML
-- XML
+- YAML      
+- XML       
+
+</details>
+
+
+
+### Semgrep Code language support
+
+Semgrep Code supports over 30 languages and counting! 🚀 
+
+<SupportedLanguagesTable />
+
+
+### Semgrep OSS language support
+
+**All Semgrep OSS languages are community supported.** Community supported languages meet the parse rate and syntax requirements of experimental languages in Semgrep Code. Semgrep OSS uses Semgrep's open source engine.
+
+Community supported languages have varying levels of rule coverage - check the registry and filter out Pro rules to see the level of coverage for OSS.
+
+<details><summary>Click to view <strong>Semgrep OSS</strong> languages.</summary>
+
+- Bash      
+- C         
+- C++       
+- C#        
+- Cairo     
+- Clojure   
+- Dart       
+- Dockerfile
+- Generic   
+- Go        
+- Hack       
+- HTML          
+- Java      
+- JavaScript
+- JSON      
+- Jsonnet   
+- Julia      
+- Lisp       
+- Lua        
+- Kotlin    
+- Ruby      
+- Rust      
+- JSX       
+- Ocaml      
+- PHP       
+- Python    
+- R          
+- Scala     
+- Scheme     
+- Solidity   
+- Swift     
+- TypeScript
+- YAML      
+- XML       
 
 </details>
 
