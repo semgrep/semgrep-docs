@@ -1,5 +1,5 @@
 ---
-slug: writing-rules/glossary
+slug: glossary
 title: SAST and rule-writing glossary
 hide_title: true
 description: Definitions of static analysis and Semgrep rule-writing terms.
@@ -64,6 +64,12 @@ A finding is the core result of Semgrep's analysis. Findings are generated when 
 A fully-qualified name refers to a name which uniquely identifies a class, method, type, or module. Languages such as C# and Ruby use `::` to distinguish between fully-qualified names and regular names.
 
 Not to be confused with **tokens**.
+
+## l-value (left-, or location-value)
+
+An expression that denotes an object in memory; a memory location, something that you can use in the left-hand side (LHS) of an assignment.
+
+Compare to [r-value](https://learn.microsoft.com/en-us/cpp/c-language/l-value-and-r-value-expressions?view=msvc-170).
 
 ## Metavariable
 

@@ -5,7 +5,7 @@ description: "Glossary of terms related to software composition analysis and Sem
 tags:
     - Semgrep Supply Chain
     - Team & Enterprise Tier
-title: Glossary 
+title: Supply Chain glossary 
 hide_title: true
 ---
 

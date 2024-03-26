@@ -1,17 +1,18 @@
 ---
 slug: glossary
-title: Semgrep Code glossary 
+title: Code glossary 
 hide_title: true
 description: Definitions of Semgrep Code product-specific terms.
 tags:
   - Semgrep Code
+  - Team & Enterprise Tier
 ---
 
 # Semgrep Code product terms 
 
 The definitions provided here are specific to each term's meaning and use in Semgrep.
 
-For rule-writing and SAST (static application security testing) terms, see the [Rule-writing glossary](/rule-writing/glossary).
+For rule-writing and SAST (static application security testing) terms, see the [Rule-writing glossary](/writing-rules/glossary).
 
 ## Diff-aware scan
 
