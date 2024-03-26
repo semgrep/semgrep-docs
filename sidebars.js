@@ -306,7 +306,7 @@ module.exports = {
             collapsible: true,
             link: { type: 'generated-index'},
             items: [
-                //'semgrep-code/glossary',
+                'semgrep-code/glossary',
                 'semgrep-supply-chain/glossary'
             ]
         },
