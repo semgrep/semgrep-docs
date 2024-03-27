@@ -10,14 +10,12 @@ tags:
 
 # Semgrep Pro performance in Java
 
-<!-- False positive reduction in Java through Semgrep Pro -->
-
 This document explains how Semgrep Pro Engine detects true positives and reduces false positives in Java.
 
 Additionally, it provides several simple rule examples to illustrate the concepts and how you can make use of these Semgrep features when writing your own rules.
 
 :::tip
-The code examples shown here are best viewed in **a separate tab** so that you can see the <span style={{backgroundColor: '#b968ff'}}><i class="fa-regular fa-star"></i></span> purple star outline. This star markes which lines contain false positives that are correctly identified and removed by Semgrep Pro Engine.
+The code examples shown here are best viewed in **a separate Semgrep Playground tab** so that you can see the <span style={{backgroundColor: '#b968ff'}}><i class="fa-regular fa-star"></i></span> purple star outline. This star markes which lines contain false positives that are correctly identified and removed by Semgrep Pro Engine.
 :::
 
 ## Language features prevent injection through boolean and integer types 
@@ -99,4 +97,4 @@ This demo rule detects that `C.x` is tainted by way of the `injection` variable.
     focus-metavariable: $SRC
   ```
   - This matches `private void LoggerTruePositives(String injection)`, specifically the `injection` variable. 
-- The value of the injection variable is passed to `C.x`, thus, `C.x` is tainted, but `C.y` is not, a distinction that Semgrep Pro Engine catches, but Semgrep OSS does not.
+- The value of the injection variable is passed to `C.x`, thus, `C.x` is tainted, but `C.y` is not. 
