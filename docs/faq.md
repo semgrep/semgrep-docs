@@ -105,7 +105,6 @@ It’s easy to write a new Semgrep rule and have it only apply _going forward_. 
 
 It’s easy to write a new Semgrep rule and have it only apply _going forward_. You can [ignore findings](/ignoring-files-folders-code) of course, but we have [<i class="fas fa-external-link fa-xs"></i> built-in support for this with Semgrep Cloud Platform](https://semgrep.dev/manage) and various repository integrations.
 
-
 #### Portable: If you write a Semgrep rule, it runs anywhere
 
 Many other tools require a buildable environment or can only be run in a VM. Semgrep runs “on the metal” and has minimal dependencies around a statically linked core; our parsers are declaratively generated C libraries (we contribute to and use [tree-sitter](https://tree-sitter.github.io)).
@@ -141,7 +140,7 @@ Both Semgrep and CodeQL use static analysis to find bugs, but there are a few di
 - Semgrep rules look like the source code you’re writing; CodeQL has a separate domain-specific-language for writing queries.
 - Semgrep has an online, hosted free plan for up to ten contributors to private repositories; both have a hosted paid plan.
 
-See [the Semgrep development philosophy](../contributing/semgrep-philosophy/) for more about what makes Semgrep different.
+See [the Semgrep development philosophy](/contributing/semgrep-philosophy/) for more about what makes Semgrep different.
 
 ### Comparing Semgrep to Snyk
 
