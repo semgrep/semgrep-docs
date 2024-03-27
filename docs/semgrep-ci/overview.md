@@ -112,7 +112,7 @@ For more information on the features supported by CI providers and source code p
 This section describes a high-level view of steps to run Semgrep continuously with Semgrep Cloud Platform. 
 
 :::info
-Semgrep Cloud Platform creates a SAST (Static Application Security Testing) job by default. To run dependency scans exclusively, refer to [Sample CI configurations](/semgrep-ci/sample-ci-configs/).
+Semgrep Cloud Platform creates a SAST (Static Application Security Testing) job by default. To run dependency scans exclusively, refer to [Sample CI configurations](/semgrep-ci/sample-ci-configs).
 :::
 
 ![High level view of steps to integrate and refine Semgrep in your CI environment with Semgrep Cloud Platform](/img/semgrep-ci-overview-app.png "High level view of steps to integrate and refine Semgrep in your CI environment with Semgrep Cloud Platform")

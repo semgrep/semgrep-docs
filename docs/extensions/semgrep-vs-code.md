@@ -19,7 +19,7 @@ import MoreHelp from "/src/components/MoreHelp"
 
 ## Prerequisites
 
-- See [Supported Languages](/supported-languages/) to verify that the extension supports your project.
+- See [Supported Languages](/supported-languages) to verify that the extension supports your project.
 - Windows users must use Semgrep extension v1.6.2 or later.
 - Semgrep recommends that macOS, Linux, and WSL users [install the Semgrep command-line interface (CLI)](/getting-started/cli-oss/#set-up-semgrep) before using the Semgrep VS Code extension for a more performant and stable experience. The extension communicates with the CLI to run scans.
 
@@ -30,7 +30,7 @@ import MoreHelp from "/src/components/MoreHelp"
    ```console
    Semgrep: Sign in
    ```
-   You can use the extension without signing in, but doing so enables better results since you benefit from [Semgrep Code](/semgrep-code/overview) and its [Pro rules](https://semgrep.dev/docs/semgrep-code/pro-rules/).
+   You can use the extension without signing in, but doing so enables better results since you benefit from [Semgrep Code](/semgrep-code/overview) and its [Pro rules](https://semgrep.dev/docs/semgrep-code/pro-rules).
 3. Launch the Command Palette using <kbd>Ctrl+⇧Shift+P</kbd> or <kbd>⌘Command+⇧Shift+P</kbd> (macOS), and scan your files by running:
    ```console
    Semgrep: Scan all files in workspace

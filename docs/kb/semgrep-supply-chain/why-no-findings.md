@@ -88,8 +88,8 @@ To see all vulnerabilities, select all boxes under the "Exposure" filter.
 ## Additional references
 
 If the project uses Java and Apache Maven with `pom.xml`, see [Setting up SSC scans for specific project management tools:
-Apache Maven (Java)](/semgrep-supply-chain/setup-maven/).
+Apache Maven (Java)](/semgrep-supply-chain/setup-maven).
 
 ## If you're still having trouble
 
-If you've addressed these issues but are still not seeing vulnerability findings, or if you need assistance setting up Semgrep Supply Chain for your projects, such as handling lockfile naming or addressing parsing issues, [reach out for help](/docs/support/).
+If you've addressed these issues but are still not seeing vulnerability findings, or if you need assistance setting up Semgrep Supply Chain for your projects, such as handling lockfile naming or addressing parsing issues, [reach out for help](/docs/support).

@@ -22,7 +22,7 @@ Rules can be organized in **rulesets**. Rulesets are rules related through a pro
 
 The list below covers different kinds of Semgrep rules:
 
-- Existing [Semgrep Registry rules](#running-semgrep-registry-rules-locally). You can also contribute to the open source Semgrep Registry, see [Contributing rules](/contributing/contributing-to-semgrep-rules-repository/).
+- Existing [Semgrep Registry rules](#running-semgrep-registry-rules-locally). You can also contribute to the open source Semgrep Registry, see [Contributing rules](/contributing/contributing-to-semgrep-rules-repository).
 - [Local rules](#creating-and-using-local-rules):
   - One-off [ephemeral rules](#ephemeral-rules) passed into the command line.
   - [YAML-defined rules](#yaml-defined-rules).
@@ -60,7 +60,7 @@ To use Semgrep Registry continuously in your CI/CD pipeline, see the [Semgrep in
 Local rules can be either:
 
 - [Ephemeral rules](#ephemeral-rules) with the `-e` or `--pattern` flags for use in a single command.
-- Configured in [YAML rule files](#yaml-defined-rules) that conform to the [Rule syntax](/writing-rules/rule-syntax/) schema.
+- Configured in [YAML rule files](#yaml-defined-rules) that conform to the [Rule syntax](/writing-rules/rule-syntax) schema.
 
 :::tip
 See [Writing rules > Getting started](../writing-rules/overview/) to learn how to write rules.
@@ -113,7 +113,7 @@ See [Ignoring findings](../ignoring-files-folders-code/) for details on suppress
 
 ## Next steps
 
-Find out how to contribute to [Semgrep Registry](https://github.com/semgrep/semgrep-rules) by reading [Contributing rules](/contributing/contributing-to-semgrep-rules-repository/) guide.
+Find out how to contribute to [Semgrep Registry](https://github.com/semgrep/semgrep-rules) by reading [Contributing rules](/contributing/contributing-to-semgrep-rules-repository) guide.
 
 ## Number of Semgrep Registry rules
 

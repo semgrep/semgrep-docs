@@ -92,7 +92,7 @@ As Semgrep evolves, queries similar to `foo("password")` become smarter. In the 
 
 **3. Integrated: Semgrep understands git and other version-control systems**
 
-It’s easy to write a new Semgrep rule and have it only apply _going forward_. You can [ignore findings](../ignoring-files-folders-code) of course, but we have [built-in support for this with Semgrep CI](/semgrep-ci/overview/) and GitHub/GitLab/etc. integrations.
+It’s easy to write a new Semgrep rule and have it only apply _going forward_. You can [ignore findings](../ignoring-files-folders-code) of course, but we have [built-in support for this with Semgrep CI](/semgrep-ci/overview) and GitHub/GitLab/etc. integrations.
 
 **4. Portable: If you write a Semgrep rule, it runs anywhere**
 
@@ -117,7 +117,7 @@ Both Semgrep and CodeQL use static analysis to find bugs, but there are a few di
 - Semgrep operates directly on source code, whereas CodeQL requires a buildable environment
 - Semgrep is LGPL-2.1 and free to run anywhere; CodeQL is not open source and you must pay to run it on any non-open-source code
 - Semgrep supports autofixes; CodeQL does not.
-- Semgrep focuses on speed and ease of use. Semgrep doesn’t require compiled code, it doesn’t yet provide some of the analysis features of CodeQL. Semgrep has [limited intraprocedural dataflow](/writing-rules/data-flow/data-flow-overview/) and the proprietary [DeepSemgrep, now part of the Pro Engine](/semgrep-code/semgrep-pro-engine-intro) extension to Semgrep provides similar capabilities as CodeQL in terms of interprocedural dataflow analysis for a subset of supported languages.
+- Semgrep focuses on speed and ease of use. Semgrep doesn’t require compiled code, it doesn’t yet provide some of the analysis features of CodeQL. Semgrep has [limited intraprocedural dataflow](/writing-rules/data-flow/data-flow-overview) and the proprietary [DeepSemgrep, now part of the Pro Engine](/semgrep-code/semgrep-pro-engine-intro) extension to Semgrep provides similar capabilities as CodeQL in terms of interprocedural dataflow analysis for a subset of supported languages.
 - Both have publicly available rules
 - Semgrep rules look like the source code you’re writing; CodeQL has a separate domain-specific-language for writing queries.
 - Semgrep has an online, hosted free plan; both have a hosted paid plan
@@ -187,11 +187,11 @@ Semgrep CI makes network requests in accordance with the data storage previously
 
 ### How do I configure Semgrep for different projects?
 
-Semgrep App provides centralized policy management. See the [Policies documentation](/semgrep-code/policies/) for more details.
+Semgrep App provides centralized policy management. See the [Policies documentation](/semgrep-code/policies) for more details.
 
 ### What is a policy?
 
-A policy is a simple collection of rules and a definition of what to do with rule results: fail the Semgrep CI run and/or send non-blocking notifications to third-party services like Slack. Please see the [Policies documentation](/semgrep-code/policies/) for more details.
+A policy is a simple collection of rules and a definition of what to do with rule results: fail the Semgrep CI run and/or send non-blocking notifications to third-party services like Slack. Please see the [Policies documentation](/semgrep-code/policies) for more details.
 
 ## Monitoring
 

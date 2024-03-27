@@ -119,7 +119,7 @@ In addition to viewing your results in Semgrep Cloud Platform, you can set up PR
 
 To receive PR or MR comments, ensure that:
 
-* You have set up [comments](/category/pr-or-mr-comments/) as part of your core deployment.
+* You have set up [comments](/category/pr-or-mr-comments) as part of your core deployment.
 * You have defined which rules should be in Allow, Comment, or Block mode in the [Policies](/semgrep-secrets/policies) page.
 
 ![Semgrep Secrets finding in a PR comment](/img/secrets-pr-comment.png#bordered)

@@ -120,7 +120,7 @@ viewing their finding details pages.
 
 ### Added
 
-* Added [Quickstart](/docs/getting-started/quickstart/).
+* Added [Quickstart](/docs/getting-started/quickstart).
 * Added [Privacy and legal considerations](/docs/semgrep-code/semgrep-assistant-code#privacy-and-legal-considerations) information for Semgrep Assistant.
 * New knowledge base articles:
   * [Fix pattern parse errors when running rules](/docs/kb/rules/pattern-parse-error)
@@ -131,12 +131,12 @@ viewing their finding details pages.
 
 ### Changed
 
-* Updated overview articles for [Semgrep Code](/semgrep-code/overview/) and
-  [Semgrep Supply Chain](/docs/semgrep-supply-chain/overview/).
+* Updated overview articles for [Semgrep Code](/semgrep-code/overview) and
+  [Semgrep Supply Chain](/docs/semgrep-supply-chain/overview).
 * Updated documentation on setting up pull request or merge request comments for
-  [GitHub](/docs/semgrep-cloud-platform/github-pr-comments/),
-  [GitLab](/docs/semgrep-cloud-platform/gitlab-mr-comments/), and
-  [Bitbucket](/docs/semgrep-cloud-platform/bitbucket-pr-comments/) users.
+  [GitHub](/docs/semgrep-cloud-platform/github-pr-comments),
+  [GitLab](/docs/semgrep-cloud-platform/gitlab-mr-comments), and
+  [Bitbucket](/docs/semgrep-cloud-platform/bitbucket-pr-comments) users.
 * General improvements to API docs, including clarification of usage
   instructions for Supply Chain and Secrets endpoints.
 

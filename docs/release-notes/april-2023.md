@@ -15,7 +15,7 @@ This section of release notes includes upgrades of Semgrep OSS Engine for versio
 
 ### Added
 
-- Java support: With this update, private static variables that are defined just once in a static block are now considered as `final` by [Constant propagation](/writing-rules/data-flow/constant-propagation/), even if they are not explicitly declared.
+- Java support: With this update, private static variables that are defined just once in a static block are now considered as `final` by [Constant propagation](/writing-rules/data-flow/constant-propagation), even if they are not explicitly declared.
 - Metavariable comparison: You can now use the exponentiation operator `**` in your expressions when comparing metavariables.
 - Kotlin language support: With this update, Semgrep evaluates class fields with the correct types and can detect these fields accurately with typed metavariables. For example, a class such as the following:
     ```kotlin
@@ -125,7 +125,7 @@ This section of release notes includes upgrades of Semgrep OSS Engine for versio
 
 ### Changes
 
-- The Semgrep Slack app has been improved. Create customized subscriptions to Semgrep findings based on Rule board policy (Monitor, Comment, or Block) and other filters for your specific Slack channels. By creating your customized subscriptions, Semgrep only sends notifications about repositories and findings relevant to developers. Security engineers can still receive notifications of all issues across the entire organization’s repositories. See [Receiving Slack notifications](/semgrep-cloud-platform/slack-notifications/).
+- The Semgrep Slack app has been improved. Create customized subscriptions to Semgrep findings based on Rule board policy (Monitor, Comment, or Block) and other filters for your specific Slack channels. By creating your customized subscriptions, Semgrep only sends notifications about repositories and findings relevant to developers. Security engineers can still receive notifications of all issues across the entire organization’s repositories. See [Receiving Slack notifications](/semgrep-cloud-platform/slack-notifications).
 - Updated the **Settings** > **SSO** page. The page now displays your current SSO settings, if any.
 - Previously, Semgrep automatically associated organization accounts with their corresponding GitHub Cloud or GitLab SaaS organizations. Now, users can choose to connect their Semgrep organization accounts with their repository provider. To associate your Semgrep organization with your repository provider, sign in to Semgrep Cloud Platform, then go to Settings > **Source code** > then select your repository provider.
 - Various improvements to UI consistency and improved layout for wide monitors.
@@ -142,11 +142,11 @@ This section of release notes includes upgrades of Semgrep OSS Engine for versio
 
 ### Changed
 
-- [Notification documentation](/semgrep-cloud-platform/notifications/) has been separated into guides for each notification channel, such as Slack or webhooks.
-- Fixed embedded examples in [Semgrep Pro Engine examples](/semgrep-code/semgrep-pro-engine-examples/) document.
-- Our [Cheat sheets](/category/cheat-sheets/) now suggest the default ruleset instead of specific rules for you to scan your code.
-- Updated [CLI reference](/cli-reference/).
+- [Notification documentation](/semgrep-cloud-platform/notifications) has been separated into guides for each notification channel, such as Slack or webhooks.
+- Fixed embedded examples in [Semgrep Pro Engine examples](/semgrep-code/semgrep-pro-engine-examples) document.
+- Our [Cheat sheets](/category/cheat-sheets) now suggest the default ruleset instead of specific rules for you to scan your code.
+- Updated [CLI reference](/cli-reference).
 - Clarified sections [Disabling rules](/semgrep-code/rule-board/#disabling-rules) and [Removing rulesets](/semgrep-code/rule-board/#removing-rulesets).
-- [Known limitations of Semgrep Pro Engine](/supported-languages/#known-limitations-of-semgrep-pro-engine) section have been expanded and moved to the [Supported languages](/supported-languages/) document.
+- [Known limitations of Semgrep Pro Engine](/supported-languages#known-limitations-of-semgrep-pro-engine) section have been expanded and moved to the [Supported languages](/supported-languages) document.
 - Fixed various broken links.
 - Fixed various spelling issues.

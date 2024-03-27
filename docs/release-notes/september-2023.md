@@ -91,7 +91,7 @@ tags:
 ### Added
 
 * New knowledge base articles:
-    * [<i class="fa-regular fa-file-lines"></i> Failed to run a git command during pull or merge request scans](/kb/semgrep-ci/git-command-errors/)
+    * [<i class="fa-regular fa-file-lines"></i> Failed to run a git command during pull or merge request scans](/kb/semgrep-ci/git-command-errors)
     * [<i class="fa-regular fa-file-lines"></i> How to exclude certain file types for a particular rule](kb/rules/exclude_rule_for_certain_filetypes/)
     * [<i class="fa-regular fa-file-lines"></i> Why isn’t Semgrep reporting all my tainted data flows?](kb/semgrep-code/finding_all_taints/ )
     * [<i class="fa-regular fa-file-lines"></i> How to scan multiple or nested lock files](kb/semgrep-supply-chain/scanning_multiple_lockfiles/)

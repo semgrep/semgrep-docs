@@ -97,8 +97,8 @@ To set the rule mode for invalid findings and validation errors:
 Semgrep enables you to set a **workflow action** based on the presence of a finding. Workflow actions include:
 
 * Failing a CI job. Semgrep returns exit code `1`, and you can use this result to set up additional checks to enforce a block on a PR or MR.
-* Leaving a [PR or MR comment](/category/pr-or-mr-comments/).
-* [Notifying select channels](/semgrep-cloud-platform/notifications/), such as private Slack channels or webhooks.
+* Leaving a [PR or MR comment](/category/pr-or-mr-comments).
+* [Notifying select channels](/semgrep-cloud-platform/notifications), such as private Slack channels or webhooks.
 
 You can trigger these actions based on the [rule mode](#rule-modes) set for the rule.
 

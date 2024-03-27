@@ -172,7 +172,7 @@ Replaces:
 
 - [metavariable-regex](/writing-rules/rule-syntax/#metavariable-regex)
 - [metavariable-pattern](/writing-rules/rule-syntax/#metavariable-pattern)
-- [metavariable-analysis](/writing-rules/metavariable-analysis/)
+- [metavariable-analysis](/writing-rules/metavariable-analysis)
 
 This operator looks inside the metavariable for a match.
 

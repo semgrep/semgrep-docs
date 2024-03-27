@@ -20,7 +20,7 @@ Detect security issues, vulnerable dependencies, and more by scanning your code 
 The following guide walks you through:
 * Installing Semgrep in your computer locally.
 * Running a single scan for both SAST and SCA.
-* Sending results to [Semgrep Cloud Platform](/deployment/core-deployment/) for triage and analysis.
+* Sending results to [Semgrep Cloud Platform](/deployment/core-deployment) for triage and analysis.
 
 :::info
 * **Code is not uploaded.** Only **findings** are sent to Semgrep Cloud Platform. 
@@ -187,7 +187,7 @@ By completing this guide, you are now familiar with a simple use of Semgrep. Her
 - Follow tutorials on [Learn Semgrep](https://semgrep.dev/learn/) to learn about Semgrep interactively.
 - See [Running rules](./running-rules.md) to try out and understand more about Semgrep rules.
 - See [CLI Reference](./cli-reference.md) for command line options and exit codes.
-- Explore the Semgrep [Rules Registry](https://semgrep.dev/explore) to add rules to your project or [writing a rule](./writing-rules/overview.md).
+- Explore the Semgrep [Rules Registry](https://semgrep.dev/explore) to add rules to your project or [writing a rule](./writing-rules/overview).
 - Read the [Trail of Bits Automated Testing Handbook](https://appsec.guide/) to learn about configuring and optimizing security tools, including Semgrep.
 
 ## Testing Semgrep on vulnerable repositories
@@ -232,7 +232,7 @@ semgrep --config=auto
 
 ## Run Semgrep continuously
 
-Semgrep is at its best when used to continuously scan code. Check out [Semgrep in CI](semgrep-ci/overview.md/) to learn how to get results where you already work: GitHub, GitLab, Slack, Jira, and more. To get results even earlier in the development process, such as in a Git pre-commit hook or VS Code, check the available [Semgrep extensions](/extensions/overview/).
+Semgrep is at its best when used to continuously scan code. Check out [Semgrep in CI](semgrep-ci/overview) to learn how to get results where you already work: GitHub, GitLab, Slack, Jira, and more. To get results even earlier in the development process, such as in a Git pre-commit hook or VS Code, check the available [Semgrep extensions](/extensions/overview).
 
 Check out [Semgrep Cloud Platform](https://semgrep.dev/manage) (SCP) to integrate Semgrep scans into your CI environment with PR or MR comments, monitor progress, host private rules (Team and Enterprise tiers), and much more! 
 

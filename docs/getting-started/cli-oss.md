@@ -21,7 +21,7 @@ Learn how to set up Semgrep OSS, scan your codebase for security issues, and vie
 
 ## Prerequisites
 
-See [Prerequisites](/prerequisites/) to ensure that your machine meets Semgrep's requirements.
+See [Prerequisites](/prerequisites) to ensure that your machine meets Semgrep's requirements.
 
 ## Set up Semgrep
 
@@ -37,7 +37,7 @@ See [Prerequisites](/prerequisites/) to ensure that your machine meets Semgrep's
 
 #### Test custom rules
 
-Semgrep includes functionality to [test the custom rules that you write](/writing-rules/testing-rules/):
+Semgrep includes functionality to [test the custom rules that you write](/writing-rules/testing-rules):
 
 ```console
 semgrep scan --test

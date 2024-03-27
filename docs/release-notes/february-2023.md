@@ -12,7 +12,7 @@ toc_max_heading_level: 3
 ## Important update
 
 - Semgrep CLI is now officially renamed to **Semgrep open-source (OSS) Engine**. As of this update, this documentation uses the term Semgrep CLI for Semgrep command-line interface (CLI) which you can utilize for several products, such as Semgrep OSS, Semgrep Code, and Semgrep Supply Chain.
-- Team tier rules are now renamed to Pro Rules. **Pro rules** are created by Semgrep, Inc for security and software engineers who need accurate findings. These rules were previously called Team tier rules. As of this update, these rules are officially called the **[Pro rules](/semgrep-code/pro-rules/)** and are available with the [Team or higher tier](https://semgrep.dev/pricing).
+- Team tier rules are now renamed to Pro Rules. **Pro rules** are created by Semgrep, Inc for security and software engineers who need accurate findings. These rules were previously called Team tier rules. As of this update, these rules are officially called the **[Pro rules](/semgrep-code/pro-rules)** and are available with the [Team or higher tier](https://semgrep.dev/pricing).
 - DeepSemgrep has been bundled with other functionalities to offer you **Semgrep Pro Engine**. Semgrep Pro Engine is fully available for [Team or higher tier](https://semgrep.dev/pricing) users. See the [DeepSemgrep → Semgrep Pro Engine](#deepsemgrep--semgrep-pro-engine) update below for more details.
 
 ## Semgrep CLI → Semgrep OSS Engine
@@ -20,7 +20,7 @@ toc_max_heading_level: 3
 These release notes include upgrades for versions ranging between 1.8.0 and 1.13.0.
 
 - Semgrep CLI is now Semgrep OSS Engine!
-- Newly added or upgraded [supported languages](/supported-languages/): 
+- Newly added or upgraded [supported languages](/supported-languages): 
     - Experimental support for Clojure, Lisp, Scheme, XML, Jsonnet.
     - Beta support for Rust.
 
@@ -43,7 +43,7 @@ These release notes include upgrades for versions ranging between 1.8.0 and 1.13
 
 ## DeepSemgrep → Semgrep Pro Engine
 
-- DeepSemgrep has been bundled with other functionalities to offer you **Semgrep Pro Engine**! Semgrep Pro Engine is fully available for [Team or higher tier](https://semgrep.dev/pricing) users. See [Semgrep Pro](/semgrep-code/semgrep-pro-engine-intro/) documentation. 
+- DeepSemgrep has been bundled with other functionalities to offer you **Semgrep Pro Engine**! Semgrep Pro Engine is fully available for [Team or higher tier](https://semgrep.dev/pricing) users. See [Semgrep Pro](/semgrep-code/semgrep-pro-engine-intro) documentation. 
 - Experimental support for Apex language is now available in Semgrep Pro Engine.
 - The following already **deprecated** flags have been completely removed and substituted:
     - `-deep` has been removed and substituted by `-pro`.
@@ -79,8 +79,8 @@ These release notes include upgrades for versions ranging between 1.8.0 and 1.13
 - Added new documentation category Semgrep Code.
 - Updates to Semgrep Docs’s navbar.
 - Added [Grouping by rule](/semgrep-code/findings/#group-findings) section.
-- Added [Viewing the path of tainted data](/semgrep-code/findings/#view-dataflow-traces) section and [Semgrep Pro Engine taint traces](/semgrep-code/semgrep-pro-engine-data-flow/) document.
+- Added [Viewing the path of tainted data](/semgrep-code/semgrep-pro-engine-data-flow) section and [Semgrep Pro Engine taint traces](/semgrep-code/semgrep-pro-engine-data-flow) document.
 - Updated [Viewing details and adding notes to findings](/semgrep-code/findings/#add-notes-to-findings) section.
-- Updated [Tagging projects](/semgrep-cloud-platform/tags/) document.
-- Iframes with rule examples in [Rule syntax](/writing-rules/rule-syntax/) document have been changed to links to specific rules due to a great number of calls generated from this page. Iframes or code snippets may return in future updates.
+- Updated [Tagging projects](/semgrep-cloud-platform/tags) document.
+- Iframes with rule examples in [Rule syntax](/writing-rules/rule-syntax) document have been changed to links to specific rules due to a great number of calls generated from this page. Iframes or code snippets may return in future updates.
 - Many small updates, fixed broken links, typos, night theme logo on our home page, and overall improvements to make your experience of reading our documentation smoother.
