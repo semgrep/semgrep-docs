@@ -19,7 +19,7 @@ import MoreHelp from "/src/components/MoreHelp"
 This article shows you how to triage and manage findings identified by Semgrep Code using Semgrep Cloud Platform, including:
 
 - **Fixing the issue detected.** This is Semgrep's primary goal. If the rule produces a **true positive** finding, such as a security issue, developers must change or address the code so that the rule no longer matches it.
-- **Removing the rule or code that generated the finding.** There are cases where Semgrep scans a file it should ignore or scans the file with an irrelevant rule. You can [disable the rule](/semgrep-code/policies/#disabling-rules) from the **Policies** page or [add the file to the ignore list](/ignoring-files-folders-code/).
+- **Removing the rule or code that generated the finding.** There are cases where Semgrep scans a file it should ignore or scans the file with an irrelevant rule. You can [disable the rule](/ignoring-files-folders-code) from the **Policies** page or [add the file to the ignore list](/ignoring-files-folders-code).
 - **Triaging the finding.** Deprioritize a finding if it's not useful or important through triage. Triage actions include ignoring and reopening a finding that was previously ignored. Triaging a finding to **ignore** is one method to handle **false positives** without changing a rule or your code.
 <!-- - **Create a Jira ticket from the finding (for Enterprise/Team Tier users.)** For findings that require more extensive refactoring, users can create a ticket in Jira through Semgrep Cloud Platform to track its resolution. -->
 
@@ -182,4 +182,4 @@ To **create a ticket**:
 
 * One way to address false positives is to improve the rule. Create [test cases](/docs/writing-rules/testing-rules) to ensure that the rule performs as intended.
 * If a rule from Semgrep Registry is useful, but it captures too many false positives, you can reach out to [support@semgrep.dev](mailto:support@semgrep.dev). This helps Semgrep's rule-writing efforts and improves the quality of rules that you run.
-* You can report rules with a high false positive rate from your source code manager (SCM) if you [enable Semgrep Cloud Platform to leave comments in PRs or MRs](/category/pr-or-mr-comments/). Semgrep Cloud Platform provides a link after each comment for users to indicate if the finding is a false positive.
+* You can report rules with a high false positive rate from your source code manager (SCM) if you [enable Semgrep Cloud Platform to leave comments in PRs or MRs](/category/pr-or-mr-comments). Semgrep Cloud Platform provides a link after each comment for users to indicate if the finding is a false positive.

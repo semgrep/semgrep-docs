@@ -20,12 +20,12 @@ import TabItem from '@theme/TabItem';
 
 :::note Your deployment journey
 - You have gained the necessary [resource access and permissions](/deployment/checklist) required for deployment.
-- You have [created a Semgrep account and organization](/deployment/create-account-and-orgs). 
+- You have [created a Semgrep account and organization](/deployment/create-account-and-orgs).
 - For GitHub and GitLab users: You have [connected your source code manager](/deployment/connect-scm).
 - Optionally, you have [set up SSO](/deployment/sso).
 :::
 
-Semgrep is integrated into CI environments by creating a **job** that is run by the CI provider. After a scan, findings are sent to Semgrep Cloud Platform (SCP) for triage and remediation. 
+Semgrep is integrated into CI environments by creating a **job** that is run by the CI provider. After a scan, findings are sent to Semgrep Cloud Platform (SCP) for triage and remediation.
 
 By integrating Semgrep into your CI environment, your development cycle benefits from the automated scanning of repositories at various events, such as:
 
@@ -52,7 +52,7 @@ If your provider is **not** on this list, you can still integrate Semgrep into y
 
 ## Projects
 
-Adding a Semgrep job to your CI provider also adds the repository's records, including findings, as a **project** in Semgrep Cloud Platform. Each Project can be individually configured to send notifications or tickets. 
+Adding a Semgrep job to your CI provider also adds the repository's records, including findings, as a **project** in Semgrep Cloud Platform. Each Project can be individually configured to send notifications or tickets.
 
 ![Semgrep Cloud Platform Projects page](/img/projects-page.png)
 **Figure.** Semgrep Cloud Platform Projects page. This displays all the repositories you have successfully added a Semgrep job to.
@@ -78,7 +78,7 @@ To add a CI job to GitHub Actions:
 1. A list of repositories appears. Select all the repositories you want to add a Semgrep job to.
 1. If you do not see the repository you want to add, adjust [<i class="fas fa-external-link fa-xs"></i> GitHub Application's Repository Access](https://github.com/settings/installations) configuration. See [Detecting GitHub repositories](#detecting-github-repositories) for more information.
 1. Click **Add CI job**. You are taken to the Add CI job page.
-1. Optional: Click **Review CI config** to see Semgrep's default YAML configuration file. 
+1. Optional: Click **Review CI config** to see Semgrep's default YAML configuration file.
 1. Click **Commit file**.
 
 You have now added a Semgrep job to GitHub Actions. A scan begins automatically after adding a new repository. Its findings are sent to Semgrep Cloud Platform for triage and remediation.
@@ -120,7 +120,7 @@ Refer to the following table for links to sample CI configuration snippets:
 
 When running in CI, Semgrep runs fully in the CI build environment. Unless you have explicitly granted code access to Semgrep, your code is not sent anywhere.
 
-- Semgrep Cloud Platform collects [findings data](/semgrep-ci/findings-ci/), which includes the line number of the code match, but not the code. It is hashed using a one-way hashing function.
+- Semgrep Cloud Platform collects [findings data](/semgrep-ci/findings-ci), which includes the line number of the code match, but not the code. It is hashed using a one-way hashing function.
 - Findings data is used to generate line-specific hyperlinks to your source code management system and support other Semgrep functions.
 
 ## Next steps

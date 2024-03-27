@@ -66,7 +66,7 @@ Replaces [pattern-either](/writing-rules/rule-syntax/#pattern-either). Matches a
 ```yaml
 any:
   - <pat1>
-  - <pat2> 
+  - <pat2>
     ...
   - <patn>
 ```
@@ -78,7 +78,7 @@ Replaces [patterns](/writing-rules/rule-syntax/#patterns). Matches all of the pa
 ```yaml
 all:
   - <pat1>
-  - <pat2> 
+  - <pat2>
     ...
   - <patn>
 ```
@@ -88,9 +88,9 @@ all:
 Replaces [pattern-inside](/writing-rules/rule-syntax/#pattern-inside). Match any of the sub-patterns inside of the primary pattern.
 
 ```yaml
-inside: 
-  any: 
-    - <pat1> 
+inside:
+  any:
+    - <pat1>
     - <pat2>
 ```
 
@@ -172,7 +172,7 @@ Replaces:
 
 - [metavariable-regex](/writing-rules/rule-syntax/#metavariable-regex)
 - [metavariable-pattern](/writing-rules/rule-syntax/#metavariable-pattern)
-- [metavariable-analysis](/writing-rules/metavariable-analysis/)
+- [metavariable-analysis](/writing-rules/metavariable-analysis)
 
 This operator looks inside the metavariable for a match.
 
@@ -190,7 +190,7 @@ where:
 
 ### <i class="fa-solid fa-diamond"></i> `comparison`
 
-Replaces [metavariable-comparison](/writing-rules/rule-syntax/#metavariable-comparison). Compares metavariables against a basic [Python comparison](https://docs.python.org/3/reference/expressions.html#comparisons) expression. 
+Replaces [metavariable-comparison](/writing-rules/rule-syntax/#metavariable-comparison). Compares metavariables against a basic [Python comparison](https://docs.python.org/3/reference/expressions.html#comparisons) expression.
 
 ```yaml
 ...

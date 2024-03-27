@@ -15,39 +15,39 @@ This section of release notes includes upgrades of Semgrep OSS Engine for versio
 
 ### Added
 
-- Java support: With this update, private static variables that are defined just once in a static block are now considered as `final` by [Constant propagation](/writing-rules/data-flow/constant-propagation/), even if they are not explicitly declared.
+- Java support: With this update, private static variables that are defined just once in a static block are now considered as `final` by [Constant propagation](/writing-rules/data-flow/constant-propagation), even if they are not explicitly declared.
 - Metavariable comparison: You can now use the exponentiation operator `**` in your expressions when comparing metavariables.
 - Kotlin language support: With this update, Semgrep evaluates class fields with the correct types and can detect these fields accurately with typed metavariables. For example, a class such as the following:
     ```kotlin
     class Foo {
         var x: Int
     }
-    
+
     ```
 - Scala language support improvements:
     - Semgrep can now parse indented matches, such as the following:
-        
+
         ```scala
         e match
         case foo => "foo"
         case bar => "bar"
         ```
-        
+
     - Semgrep now provides improved parsing functionality for arguments with `using` keyword and splatted arguments. With this update, Semgrep can now correctly parse Scala code with constructs such as:
-        
+
         ```scala
         foo(using bar)
         foo(1, 2, bar*)
         ```
-        
+
     - Improved parsing functionality for indented `for` expressions in Scala. With this update, Semgrep can now correctly parse `for` expressions that are indented, such as:
-        
+
         ```scala
         for
           _ <- 5
           yield ...
         ```
-        
+
     - Some additional Scala updates that Semgrep now supports:
         - `enum` constructs
         - `given` definitions
@@ -83,19 +83,19 @@ This section of release notes includes upgrades of Semgrep OSS Engine for versio
 
 - Taint analysis: Semgrep Pro Engine now supports simple cases of cross-function (interprocedural) taint labels.
 - Java language support: With this update, Semgrep Pro Engine can track the propagation of taint from the arguments of a method to the called object. For example:
-    
+
     ```java
     public void foo(int x) {
         this.x = x;
     }
     ```
-    
+
     When called with a tainted argument:
-    
+
     ```java
     o.foo(tainted);
     ```
-    
+
     Semgrep can track and report that the field `x` of `o` has been tainted.
 
 ### Changed
@@ -125,7 +125,7 @@ This section of release notes includes upgrades of Semgrep OSS Engine for versio
 
 ### Changes
 
-- The Semgrep Slack app has been improved. Create customized subscriptions to Semgrep findings based on Rule board policy (Monitor, Comment, or Block) and other filters for your specific Slack channels. By creating your customized subscriptions, Semgrep only sends notifications about repositories and findings relevant to developers. Security engineers can still receive notifications of all issues across the entire organization’s repositories. See [Receiving Slack notifications](/semgrep-cloud-platform/slack-notifications/).
+- The Semgrep Slack app has been improved. Create customized subscriptions to Semgrep findings based on Rule board policy (Monitor, Comment, or Block) and other filters for your specific Slack channels. By creating your customized subscriptions, Semgrep only sends notifications about repositories and findings relevant to developers. Security engineers can still receive notifications of all issues across the entire organization’s repositories. See [Receiving Slack notifications](/semgrep-cloud-platform/slack-notifications).
 - Updated the **Settings** > **SSO** page. The page now displays your current SSO settings, if any.
 - Previously, Semgrep automatically associated organization accounts with their corresponding GitHub Cloud or GitLab SaaS organizations. Now, users can choose to connect their Semgrep organization accounts with their repository provider. To associate your Semgrep organization with your repository provider, sign in to Semgrep Cloud Platform, then go to Settings > **Source code** > then select your repository provider.
 - Various improvements to UI consistency and improved layout for wide monitors.
@@ -142,11 +142,11 @@ This section of release notes includes upgrades of Semgrep OSS Engine for versio
 
 ### Changed
 
-- [Notification documentation](/semgrep-cloud-platform/notifications/) has been separated into guides for each notification channel, such as Slack or webhooks.
-- Fixed embedded examples in [Semgrep Pro Engine examples](/semgrep-code/semgrep-pro-engine-examples/) document.
-- Our [Cheat sheets](/cheat-sheets/overview) now suggest the default ruleset instead of specific rules for you to scan your code.
-- Updated [CLI reference](/cli-reference/).
+- [Notification documentation](/semgrep-cloud-platform/notifications) has been separated into guides for each notification channel, such as Slack or webhooks.
+- Fixed embedded examples in [Semgrep Pro Engine examples](/semgrep-code/semgrep-pro-engine-examples) document.
+- Our [Cheat sheets](/category/cheat-sheets) now suggest the default ruleset instead of specific rules for you to scan your code.
+- Updated [CLI reference](/cli-reference).
 - Clarified sections [Disabling rules](/semgrep-code/rule-board/#disabling-rules) and [Removing rulesets](/semgrep-code/rule-board/#removing-rulesets).
-- [Known limitations of Semgrep Pro Engine](/supported-languages/#known-limitations-of-semgrep-pro-engine) section have been expanded and moved to the [Supported languages](/supported-languages/) document.
+- [Known limitations of Semgrep Pro Engine](/supported-languages#known-limitations-of-semgrep-pro-engine) section have been expanded and moved to the [Supported languages](/supported-languages) document.
 - Fixed various broken links.
 - Fixed various spelling issues.

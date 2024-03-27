@@ -36,14 +36,14 @@ Private rules are stored in the folder with the same name as your Semgrep Cloud 
 
 ### Creating private rules through the command line
 
-To create private rules through the [Semgrep CLI](/getting-started/quickstart/), :
+To create private rules through the [Semgrep CLI](/getting-started/quickstart), :
 
 1. Interactively login to Semgrep:
 
     ```sh
     semgrep login
     ```
-1. Create your rule. For more information, see [Contributing rules](/contributing/contributing-to-semgrep-rules-repository/) documentation.
+1. Create your rule. For more information, see [Contributing rules](/contributing/contributing-to-semgrep-rules-repository) documentation.
 1. Publish your rule from the command line with `semgrep publish` command followed by the path to your private rules:
 
     ```sh
@@ -62,9 +62,9 @@ For more details, run `semgrep publish --help`.
 
 ## Viewing and using private rules
 
-View your rule in the [editor](https://semgrep.dev/orgs/-/editor) under the folder corresponding to your organization name. 
+View your rule in the [editor](https://semgrep.dev/orgs/-/editor) under the folder corresponding to your organization name.
 
-You can also find it in the [registry](https://semgrep.dev/explore) by searching for [organization-id].[rule-id]. For example: `r2c.test-rule-id`. 
+You can also find it in the [registry](https://semgrep.dev/explore) by searching for [organization-id].[rule-id]. For example: `r2c.test-rule-id`.
 
 To enforce the rule on new scans, add the rule in the [registry](https://semgrep.dev/explore) to an existing policy.
 

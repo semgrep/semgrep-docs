@@ -54,7 +54,7 @@ If the scan did run successfully, the scan data may have been sent to a differen
 * Check other organizations you belong to in Semgrep Cloud Platform to see if the results appear there.
 * If you are running `semgrep ci` locally, use `semgrep logout` and `semgrep login`, and ensure you log in to the desired Semgrep Cloud Platform organization.
 
-### If the scan was a diff-aware (PR/MR) scan, was the lockfile modified? 
+### If the scan was a diff-aware (PR/MR) scan, was the lockfile modified?
 
 Semgrep Supply Chain only runs in [diff-aware scans](/docs/semgrep-ci/running-semgrep-ci-with-semgrep-cloud-platform/#diff-aware-scanning) if the lockfile was modified in the PR/MR.
 
@@ -79,7 +79,7 @@ By default, the Vulnerabilities page displays vulnerabilities from:
 
 ### Are all findings in the scan unreachable vulnerabilities?
 
-By default, Semgrep Cloud Platform shows only [reachable](/docs/semgrep-supply-chain/glossary/#reachability) vulnerabilities in the UI. 
+By default, Semgrep Cloud Platform shows only [reachable](/docs/semgrep-supply-chain/glossary/#reachability) vulnerabilities in the UI.
 
 To see all vulnerabilities, select all boxes under the "Exposure" filter.
 
@@ -88,8 +88,8 @@ To see all vulnerabilities, select all boxes under the "Exposure" filter.
 ## Additional references
 
 If the project uses Java and Apache Maven with `pom.xml`, see [Setting up SSC scans for specific project management tools:
-Apache Maven (Java)](/semgrep-supply-chain/setup-maven/).
+Apache Maven (Java)](/semgrep-supply-chain/setup-maven).
 
 ## If you're still having trouble
 
-If you've addressed these issues but are still not seeing vulnerability findings, or if you need assistance setting up Semgrep Supply Chain for your projects, such as handling lockfile naming or addressing parsing issues, [reach out for help](/docs/support/).
+If you've addressed these issues but are still not seeing vulnerability findings, or if you need assistance setting up Semgrep Supply Chain for your projects, such as handling lockfile naming or addressing parsing issues, [reach out for help](/docs/support).

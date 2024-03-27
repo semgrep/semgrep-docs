@@ -11,7 +11,7 @@ When Semgrep rules target specific languages, they do not match comments in the 
 
 However, it's sometimes useful to match comments. For example, comments can control the behavior of other linters, such as type checkers. You might also have certain formatting standards for comments, such as requiring that a `TODO` comment contains a ticket capturing the required work.
 
-To match comments with Semgrep, use the `generic` language target to invoke [generic pattern matching](/docs/writing-rules/generic-pattern-matching/).
+To match comments with Semgrep, use the `generic` language target to invoke [generic pattern matching](/docs/writing-rules/generic-pattern-matching).
 
 ## Example rule
 
@@ -34,7 +34,7 @@ rules:
 ```
 
 :::note
-Try this pattern in the [Semgrep Playground](https://semgrep.dev/playground/s/lBDRL). 
+Try this pattern in the [Semgrep Playground](https://semgrep.dev/playground/s/lBDRL).
 :::
 
 This rule also includes the `generic_ellipsis_max_span` option, which [limits the ellipsis to matching on the same line](/docs/writing-rules/generic-pattern-matching/#handling-line-based-input) and prevents it from over-matching in this generic context.
@@ -74,5 +74,5 @@ rules:
 
 ## Additional resources
 
-* [Matching multiple tokens with ellipsis metavariables](/docs/kb/rules/ellipsis-metavariables/)
-* [Aliengrep experiment](/docs/writing-rules/experiments/aliengrep/)
+* [Matching multiple tokens with ellipsis metavariables](/docs/kb/rules/ellipsis-metavariables)
+* [Aliengrep experiment](/docs/writing-rules/experiments/aliengrep)

@@ -41,7 +41,7 @@ tags:
 ### Added
 
 - UX: Added a new **onboarding** flow. This onboarding flow streamlines the following steps to ensure that users are able to quickly set up Semgrep scans: <!-- #10473 -->
-	- **Deployment creation**. The Semgrep team has made improvements to Semgrep account creation and connecting your source code manager, such as GitHub or GitLab. 
+	- **Deployment creation**. The Semgrep team has made improvements to Semgrep account creation and connecting your source code manager, such as GitHub or GitLab.
 	- **Onboarding checklist.** This helps you troubleshoot and resolve any issues early on in your journey.
 	- **Tour of features**. Make the most of your Semgrep experience by learning what features are available to you.
 - Logging into Semgrep Cloud Platform through the CLI associates your CLI user ID to your Semgrep Cloud Platform account. See the [<i class="fas fa-external-link fa-xs"></i> Anonymous User ID](https://github.com/semgrep/semgrep/blob/develop/PRIVACY.md#anonymous-user-id) section for more details.
@@ -65,7 +65,7 @@ tags:
 
 ### Fixed
 
-- Various UX/UI bugfixes in the Findings page. 
+- Various UX/UI bugfixes in the Findings page.
 
 ## ⛓️ Semgrep Supply Chain
 
@@ -91,7 +91,7 @@ tags:
 ### Added
 
 * New knowledge base articles:
-    * [<i class="fa-regular fa-file-lines"></i> Failed to run a git command during pull or merge request scans](/kb/semgrep-ci/git-command-errors/)
+    * [<i class="fa-regular fa-file-lines"></i> Failed to run a git command during pull or merge request scans](/kb/semgrep-ci/git-command-errors)
     * [<i class="fa-regular fa-file-lines"></i> How to exclude certain file types for a particular rule](kb/rules/exclude_rule_for_certain_filetypes/)
     * [<i class="fa-regular fa-file-lines"></i> Why isn’t Semgrep reporting all my tainted data flows?](kb/semgrep-code/finding_all_taints/ )
     * [<i class="fa-regular fa-file-lines"></i> How to scan multiple or nested lock files](kb/semgrep-supply-chain/scanning_multiple_lockfiles/)

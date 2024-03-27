@@ -57,13 +57,11 @@ In some cases, you may want to scan using Semgrep OSS's single-function analysis
 
 ```yaml
 # Preferred; includes support for all Semgrep Code languages
-semgrep ci --pro-languages 
+semgrep ci --pro-languages
 
 # Does not include all Semgrep Code language features
-semgrep ci --oss-only 
+semgrep ci --oss-only
 ```
-
-
 ## Next steps
 
 - Enable [cross-file scanning](/semgrep-code/semgrep-pro-engine-intro/).
