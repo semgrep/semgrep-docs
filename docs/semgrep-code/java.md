@@ -16,6 +16,10 @@ This document explains how Semgrep Pro Engine detects true positives and reduces
 
 Additionally, it provides several simple rule examples to illustrate the concepts and how you can make use of these Semgrep features when writing your own rules.
 
+:::tip
+The code examples shown here are best viewed in **a separate tab** so that you can see the <span style={{backgroundColor: '#b968ff'}}><i class="fa-regular fa-star"></i></span> purple star outline. This star markes which lines contain false positives that are correctly identified and removed by Semgrep Pro Engine.
+:::
+
 ## Language features prevent injection through boolean and integer types 
 
 Strong typing in Java, combined with its compile-time and runtime checks, reduces the likelihood that an integer or boolean input will be exploited to perform injection-style attacks. Semgrep Pro can reduce false positives by leveraging these checks.
@@ -81,13 +85,13 @@ Similarly, index sensitivity means that Semgrep can track taint for each element
 
 ### Example: `unsafe-sql-concatenation-in-method-taint-field-sensitivity`
 
-<iframe title="unsafe-sql-concatenation-in-method-taint-field-sensitivity" src="https://semgrep.dev/embed/editor?snippet=yyjpR" width="100%" height="432px" frameBorder="0"></iframe>
+<iframe title="unsafe-sql-concatenation-in-method-taint-field-sensitivity" src="https://semgrep.dev/embed/editor?snippet=OrAwe" width="100%" height="432px" frameBorder="0"></iframe>
 
 **Figure**. `unsafe-sql-concatenation-in-method-taint-field-sensitivity`. To view the entire sample code and rule, click **Open in Playground**.
 
 This demo rule detects that `C.x` is tainted by way of the `injection` variable. It is able to differentiate `C.y` as untained.
 
-- This example has one true positive: **line 21**, and one true negative, **line 24**.
+- This example has one true positive: **line 21**, and Semgrep Pro Engine can detect one true negative, **line 24**.
 - **Line 15** of the rule tells Semgrep to match for the following pattern:
   ```yaml
   pattern: |
@@ -95,4 +99,4 @@ This demo rule detects that `C.x` is tainted by way of the `injection` variable.
     focus-metavariable: $SRC
   ```
   - This matches `private void LoggerTruePositives(String injection)`, specifically the `injection` variable. 
-- The value of the injection variable is passed to `C.x`, thus, `C.x` is tainted, but `C.y` is not.
+- The value of the injection variable is passed to `C.x`, thus, `C.x` is tainted, but `C.y` is not, a distinction that Semgrep Pro Engine catches, but Semgrep OSS does not.
