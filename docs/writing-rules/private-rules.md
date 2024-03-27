@@ -91,7 +91,7 @@ This section provides an example of how to automatically publish your private ru
         container:
           image: semgrep/semgrep
         steps:
-        - uses: actions/checkout@v3
+        - uses: actions/checkout@v4
         - name: publish private semgrep rules
           run: semgrep publish --visibility=org_private ./private_rule_dir
           env:

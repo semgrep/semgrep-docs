@@ -9,6 +9,7 @@ tags:
 
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
+import IpAddresses from "/src/components/concept/_ip_addresses.mdx"
 
 Before starting the deployment setup, use this checklist to ensure that:
 
@@ -237,6 +238,10 @@ Semgrep requires the following permissions (scopes) to enable the authentication
 
 </TabItem>
 </Tabs>
+
+### IP addresses
+
+<IpAddresses />
 
 ### Semgrep versions
 
