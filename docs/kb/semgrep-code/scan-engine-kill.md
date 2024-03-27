@@ -11,7 +11,7 @@ import MoreHelp from "/src/components/MoreHelp"
 
 Scans can fail to complete on large monorepos. This article describes possible solutions, such as:
 
-- [Scanning the components of a monorepo separately](https://semgrep.dev/docs/kb/semgrep-ci/scan-monorepo-in-parts/).
+- [Scanning the components of a monorepo separately](/docs/kb/semgrep-ci/scan-monorepo-in-parts).
 - Serializing the type of scan performed.
 - Increasing the RAM of the job runner for CI jobs.
 
@@ -90,7 +90,7 @@ Now you have a good idea of the size of your monorepo. After establishing the si
 
 ## Scanning components separately
 
-Based on the composition provided by the logs, you may be able to determine if your repository is modular. If so, you can try [scanning the components separately](https://semgrep.dev/docs/kb/semgrep-ci/scan-monorepo-in-parts/).
+Based on the composition provided by the logs, you may be able to determine if your repository is modular. If so, you can try [scanning the components separately](/docs/kb/semgrep-ci/scan-monorepo-in-parts/).
 
 :::note
 Semgrep Code still performs [<i class="fa-regular fa-file-lines"></i> interfile analysis](/docs/semgrep-code/semgrep-pro-engine-intro/#types-of-semgrep-pro-engine-analysis) on each module. If the modules are functionally separate, running separate scans shouldn't result in a reduction in findings.
