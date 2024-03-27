@@ -55,7 +55,7 @@ rules:
 
 ## Ignoring some comments in generic mode
 
-It is possible to [ignore comments of particular types](https://semgrep.dev/docs/writing-rules/generic-pattern-matching/#ignoring-comments) in generic mode using the `generic_comment_style` option. For example, to ignore C-style comments but match any other style:
+It is possible to [ignore comments of particular types](/docs/writing-rules/generic-pattern-matching#ignoring-comments) in generic mode using the `generic_comment_style` option. For example, to ignore C-style comments but match any other style:
 
 ```yaml
 rules:
