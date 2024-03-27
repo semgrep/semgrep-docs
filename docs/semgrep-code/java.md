@@ -3,9 +3,9 @@ slug: java
 append_help_link: true
 title: Semgrep Pro in Java
 hide_title: true
-description: How Semgrep Pro Engine can increase true positives and reduce false positives in the Java language.
+description: Semgrep Pro Engine features for the Java language that can increase true positives and reduce false positives.
 tags:
-  - tk
+  - Semgrep Code
 ---
 
 # Semgrep Pro performance in Java
@@ -73,8 +73,26 @@ This demo rule detects patterns in instances of the user-defined parent class `F
     - However, the `metavariable-type` specifies a `type` of `Foo`.
     - This specification narrows the match to **line 10** because `Bar` is a subclass of `Foo`, and **line 25**, which is an instance of the Foo object itself.
 
-## Semgrep supports field sensitivity
+## Semgrep supports field and index sensitivity
 
-todo: Check with SME for explanation of field / index sensitivity specific to Semgrep
+Field sensitivity means that Semgrep can track taint for each field of an object, independently. Given an object `C` with properties `C.x` and `C.y`, if `C.x` is tainted, then it does **not** automatically mark `C.y` as tainted.
 
-<iframe title="tk" src="https://semgrep.dev/embed/editor?snippet=yyjpR" width="100%" height="432px" frameBorder="0"></iframe>
+Similarly, index sensitivity means that Semgrep can track taint for each element of an array, independently.
+
+### Example: `unsafe-sql-concatenation-in-method-taint-field-sensitivity`
+
+<iframe title="unsafe-sql-concatenation-in-method-taint-field-sensitivity" src="https://semgrep.dev/embed/editor?snippet=yyjpR" width="100%" height="432px" frameBorder="0"></iframe>
+
+**Figure**. `unsafe-sql-concatenation-in-method-taint-field-sensitivity`. To view the entire sample code and rule, click **Open in Playground**.
+
+This demo rule detects that `C.x` is tainted by way of the `injection` variable. It is able to differentiate `C.y` as untained.
+
+- This example has one true positive: **line 21**, and one true negative, **line 24**.
+- **Line 15** of the rule tells Semgrep to match for the following pattern:
+  ```yaml
+  pattern: |
+    $X(..., $SRC, ...) { ... }
+    focus-metavariable: $SRC
+  ```
+  - This matches `private void LoggerTruePositives(String injection)`, specifically the `injection` variable. 
+- The value of the injection variable is passed to `C.x`, thus, `C.x` is tainted, but `C.y` is not.
