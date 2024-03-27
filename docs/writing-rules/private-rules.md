@@ -50,7 +50,7 @@ To create private rules through the [Semgrep CLI](/getting-started/quickstart), 
     semgrep publish myrules/
     ```
 
-If the directory contains test cases for the rules, Semgrep uploads them as well (see [testing Semgrep rules](../../writing-rules/testing-rules)).
+If the directory contains test cases for the rules, Semgrep uploads them as well (see [testing Semgrep rules](/writing-rules/testing-rules)).
 
 You can also change the visibility of the rules. For instance, to publish the rules as unlisted (which does not require authentication but will not be displayed in the public registry):
 

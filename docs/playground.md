@@ -93,7 +93,7 @@ To **create a rule** in simple mode:
 
 ### Writing complex rules using advanced mode
 
-Advanced mode is a YAML editor for writing a rule **using any valid key from the Semgrep [schema](../writing-rules/rule-syntax/)**. Advanced mode provides default values for the required keys for a Semgrep rule definition and expects the user to modify and add keys to finish the rule.
+Advanced mode is a YAML editor for writing a rule **using any valid key from the Semgrep [schema](/writing-rules/rule-syntax/)**. Advanced mode provides default values for the required keys for a Semgrep rule definition and expects the user to modify and add keys to finish the rule.
 
 To create a rule in advanced mode:
 
@@ -106,7 +106,7 @@ To create a rule in advanced mode:
 
 **Testing a rule** ensures that it meets your standards for precision and speed. Aside from running a rule in the Playground, it is possible to test a rule by creating comment annotations for intended and unintended findings (matches). You can achieve this by creating assertions within the test pane.
 
-Refer to [Testing rules](../writing-rules/testing-rules) for the syntax and method to run test files.
+Refer to [Testing rules](/writing-rules/testing-rules) for the syntax and method to run test files.
 
 ### Debugging errors when creating a rule
 
@@ -121,12 +121,12 @@ Check that the **Language is** value and **Test code** language match. Use full 
 
 #### The pattern syntax is invalid
 
-Check your metavariable definitions, and use of operators. Metavariables must be uppercase letters preceded by a dollar sign $, such as `$PAYMENT_OUTPUT` or `$X`. Refer to [Pattern syntax](../writing-rules/pattern-syntax/).
+Check your metavariable definitions, and use of operators. Metavariables must be uppercase letters preceded by a dollar sign $, such as `$PAYMENT_OUTPUT` or `$X`. Refer to [Pattern syntax](/writing-rules/pattern-syntax/).
 
 
 #### The YAML syntax is unparsable in the advanced view
 
-Check for spelling and indentation issues. The key names must match [Semgrep's schema](../writing-rules/rule-syntax/).
+Check for spelling and indentation issues. The key names must match [Semgrep's schema](/writing-rules/rule-syntax/).
 
 #### The rule does not behave as expected or does not find the desired match
 

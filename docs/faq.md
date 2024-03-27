@@ -58,7 +58,7 @@ The Semgrep Pro Rules are proprietary and cannot be redistributed without explic
 
 ### Contacting Semgrep, Inc support
 
-All users can contact Semgrep, Inc support. Regardless if you are a free tier or paid tier user, reach our support through the [Semgrep, Inc Community Slack](https://go.semgrep.dev/slack). Paying Semgrep Team tier customers receive 8\*5 email and Slack support with committed SLAs. See [Support](../support/) for more details.
+All users can contact Semgrep, Inc support. Regardless if you are a free tier or paid tier user, reach our support through the [Semgrep, Inc Community Slack](https://go.semgrep.dev/slack). Paying Semgrep Team tier customers receive 8\*5 email and Slack support with committed SLAs. See [Support](/support) for more details.
 
 ### Embedding the Playground in my website or blog post
 
@@ -92,13 +92,13 @@ As Semgrep evolves, queries similar to `foo("password")` become smarter. In the 
 
 **3. Integrated: Semgrep understands git and other version-control systems**
 
-It’s easy to write a new Semgrep rule and have it only apply _going forward_. You can [ignore findings](../ignoring-files-folders-code) of course, but we have [built-in support for this with Semgrep CI](/semgrep-ci/overview) and GitHub/GitLab/etc. integrations.
+It’s easy to write a new Semgrep rule and have it only apply _going forward_. You can [ignore findings](/ignoring-files-folders-code) of course, but we have [built-in support for this with Semgrep CI](/semgrep-ci/overview) and GitHub/GitLab/etc. integrations.
 
 **4. Portable: If you write a Semgrep rule, it runs anywhere**
 
 Many other tools require a buildable environment or can only be run in a VM. Semgrep runs “on the metal” and has minimal dependencies around a statically linked core; our parsers are declaratively generated C libraries (we contribute to and use [tree-sitter](https://tree-sitter.github.io/)).
 
-And many more: see [the Semgrep philosophy](../contributing/semgrep-philosophy/) for further reading.
+And many more: see [the Semgrep philosophy](contributing/semgrep-philosophy/) for further reading.
 
 ### Comparing Semgrep to linters
 
@@ -122,7 +122,7 @@ Both Semgrep and CodeQL use static analysis to find bugs, but there are a few di
 - Semgrep rules look like the source code you’re writing; CodeQL has a separate domain-specific-language for writing queries.
 - Semgrep has an online, hosted free plan; both have a hosted paid plan
 
-See [the Semgrep development philosophy](../contributing/semgrep-philosophy/) for more about what makes Semgrep different.
+See [the Semgrep development philosophy](/contributing/semgrep-philosophy/) for more about what makes Semgrep different.
 
 ### Comparing Semgrep to Snyk
 

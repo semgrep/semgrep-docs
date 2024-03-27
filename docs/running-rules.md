@@ -63,7 +63,7 @@ Local rules can be either:
 - Configured in [YAML rule files](#yaml-defined-rules) that conform to the [Rule syntax](/writing-rules/rule-syntax) schema.
 
 :::tip
-See [Writing rules > Getting started](../writing-rules/overview/) to learn how to write rules.
+See [Writing rules > Getting started](/writing-rules/overview/) to learn how to write rules.
 :::
 
 ### Ephemeral rules
@@ -99,7 +99,7 @@ To create a local YAML file where you define your own rules and run them with Se
 
 Rules stored under a hidden directory, such as `dir/.hidden/myrule.yml`, are processed by Semgrep when scanning with the `--config` flag.
 
-For more information on defining custom rules, see [Writing rules](../writing-rules/overview/).
+For more information on defining custom rules, see [Writing rules](/writing-rules/overview/).
 
 ## Running multiple rules simultaneously
 
@@ -109,7 +109,7 @@ To run multiple rules simultaneously, use `--config` before every YAML URL, or S
 
 ## Findings
 
-See [Ignoring findings](../ignoring-files-folders-code/) for details on suppressing rule output.
+See [Ignoring findings](/ignoring-files-folders-code/) for details on suppressing rule output.
 
 ## Next steps
 

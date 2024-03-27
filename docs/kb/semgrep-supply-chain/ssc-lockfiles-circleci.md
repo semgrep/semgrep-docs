@@ -59,4 +59,4 @@ workflows:
             - build
 ```
 
-The `semgrep` [context](https://circleci.com/docs/contexts/) is used here as the name for the context where you define the environment variables Semgrep needs, such as the `SEMGREP_APP_TOKEN`. This is similar to the [sample configuration for CircleCI](docs/semgrep-ci/sample-ci-configs/#sample-circleci-configuration-snippet). You can choose to give the context a different name if you prefer.
+The `semgrep` [context](https://circleci.com/docs/contexts/) is used here as the name for the context where you define the environment variables Semgrep needs, such as the `SEMGREP_APP_TOKEN`. This is similar to the [sample configuration for CircleCI](/docs/semgrep-ci/sample-ci-configs#sample-circleci-configuration-snippet). You can choose to give the context a different name if you prefer.
