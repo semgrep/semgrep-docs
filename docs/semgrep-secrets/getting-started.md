@@ -50,7 +50,7 @@ After you've enabled Semgrep Secrets, you can:
 
 ## Next steps
 
-* Learn how to [view and triage secrets in Semgrep Cloud Platform](/semgrep-secrets/view-triage)
+* Learn how to [view and triage secrets in Semgrep Cloud Platform](/semgrep-secrets/view-triage/)
 
 ### Additional information
 

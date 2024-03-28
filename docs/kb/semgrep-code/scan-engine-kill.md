@@ -11,7 +11,7 @@ import MoreHelp from "/src/components/MoreHelp"
 
 Scans can fail to complete on large monorepos. This article describes possible solutions, such as:
 
-- [Scanning the components of a monorepo separately](/docs/kb/semgrep-ci/scan-monorepo-in-parts).
+- [Scanning the components of a monorepo separately](https://semgrep.dev/docs/kb/semgrep-ci/scan-monorepo-in-parts/).
 - Serializing the type of scan performed.
 - Increasing the RAM of the job runner for CI jobs.
 
@@ -90,7 +90,7 @@ Now you have a good idea of the size of your monorepo. After establishing the si
 
 ## Scanning components separately 
 
-Based on the composition provided by the logs, you may be able to determine if your repository is modular. If so, you can try [scanning the components separately](/docs/kb/semgrep-ci/scan-monorepo-in-parts).
+Based on the composition provided by the logs, you may be able to determine if your repository is modular. If so, you can try [scanning the components separately](https://semgrep.dev/docs/kb/semgrep-ci/scan-monorepo-in-parts/).
 
 :::note
 Semgrep Code still performs [<i class="fa-regular fa-file-lines"></i> interfile analysis](/docs/semgrep-code/semgrep-pro-engine-intro/#types-of-semgrep-pro-engine-analysis) on each module. If the modules are functionally separate, running separate scans shouldn't result in a reduction in findings.
@@ -123,7 +123,7 @@ Lastly, you can also tackle a large scan by increasing the RAM.
 First, establish how much memory is required to scan. Determining the total amount of memory required not only helps avoid killed scans but also helps prevent use of swap memory. Semgrep and other SAST tools make heavy use of disk I/O, and swapping in and out with a swap file significantly reduces performance.
 
 - In the early phases of your scan deployment, start with a relatively larger runner or Kubernetes pod that has lots of memory.
-- Perform the scan with the `-j 1` option ([see CLI reference](/docs/cli-reference)). This sets the number of jobs to 1 (no parallelization of subprocesses).
+- Perform the scan with the `-j 1` option ([see CLI reference](/docs/cli-reference/)). This sets the number of jobs to 1 (no parallelization of subprocesses).
 - Enable a swap monitor for the entire duration of the scan to ensure an accurate assessment of RAM used, for example, running a script that samples the memory frequently: 
 ```
 $ free -m 

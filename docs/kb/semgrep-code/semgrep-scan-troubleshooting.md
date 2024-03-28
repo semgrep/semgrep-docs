@@ -9,7 +9,7 @@ description: Troubleshoot common issues with Semgrep scans.
 
 If a Semgrep scan is failing or running slowly, try the following steps to investigate:
 
-1. [Update Semgrep](/docs/update) to the latest version, if you are not currently running the latest version. Some errors result from an older version of Semgrep being used with newer rules.
+1. [Update Semgrep](/docs/update/) to the latest version, if you are not currently running the latest version. Some errors result from an older version of Semgrep being used with newer rules.
 2. Re-run the scan with either the `-v`/`--verbose` or `--debug` (extremely verbose) flags. These options provide more information about what is failing.
 3. If you are running Semgrep Pro Engine in the scan, remove any options starting with `--pro`, or run Semgrep with `--oss-only`. This allows isolation of any issues related to Semgrep Pro Engine, and often speeds up a scan or reduces memory usage.
 
@@ -29,7 +29,7 @@ Memory usage is a common issue with scans, especially in memory-constrained envi
 
 ## Slow scans
 
-The first step to improving Semgrep's speed is limiting its run to only the files you care about. Most commonly, it's limited using a `.semgrepignore` file. See [Ignoring files, folders, or parts of code](/ignoring-files-folders-code).
+The first step to improving Semgrep's speed is limiting its run to only the files you care about. Most commonly, it's limited using a `.semgrepignore` file. See [Ignoring files, folders, or parts of code](/ignoring-files-folders-code/).
 
 After addressing files to ignore:
 

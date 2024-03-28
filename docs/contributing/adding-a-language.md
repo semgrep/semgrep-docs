@@ -11,7 +11,7 @@ technology. While new languages should use tree-sitter,
 semgrep also supports some languages independently if there's a good
 legacy OCaml parser for them. Check for your language in
 [pfff](https://github.com/semgrep/pfff) and if you see it
-in there, [talk to us](/support).
+in there, [talk to us](/support/).
 Otherwise, let's get started.
 
 Repositories involved directly:

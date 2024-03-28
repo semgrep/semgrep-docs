@@ -181,7 +181,7 @@ Refer to the following table for common issues and the corresponding environment
 
 When running in CI, Semgrep runs fully in the CI build environment. Unless you have explicitly granted code access to Semgrep, your code is not sent anywhere.
 
-- Semgrep Cloud Platform collects [findings data](/semgrep-ci/findings-ci), which includes the line number of the code match, but not the code. It is hashed using a one-way hashing function.
+- Semgrep Cloud Platform collects [findings data](/semgrep-ci/findings-ci/), which includes the line number of the code match, but not the code. It is hashed using a one-way hashing function.
 - Findings data is used to generate line-specific hyperlinks to your source code management system and support other Semgrep functions.
 
 ## Next steps

@@ -1,6 +1,6 @@
 # Recursive joins
 
-Join mode is an extension of Semgrep that runs multiple rules at once and only returns results if certain conditions are met. This is an experimental mode that enables you to cross file boundaries, allowing you to write rules for whole codebases instead of individual files. More information is available in [Join mode overview](/docs/writing-rules/experiments/overview).
+Join mode is an extension of Semgrep that runs multiple rules at once and only returns results if certain conditions are met. This is an experimental mode that enables you to cross file boundaries, allowing you to write rules for whole codebases instead of individual files. More information is available in [Join mode overview](../overview/).
 
 Recursive join mode has a recursive operator, `-->`, which executes a recursive query on the given condition. This recursive operator allows you to write a Semgrep rule that effectively crawls the codebase on a condition you specify, letting you build chains such as function call chains or class inheritance chains.
 

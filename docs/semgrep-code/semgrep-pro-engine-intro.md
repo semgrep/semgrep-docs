@@ -50,7 +50,7 @@ To test Semgrep Pro Engine on a purposefully vulnerable repository, fork the [<i
 ### Running Semgrep Pro Engine in the CLI
 
 :::info Prerequisite
-- Local installation of Semgrep CLI. See [<i class="fa-regular fa-file-lines"></i> Getting started with Semgrep](/getting-started/quickstart) to install Semgrep CLI.
+- Local installation of Semgrep CLI. See [<i class="fa-regular fa-file-lines"></i> Getting started with Semgrep](/getting-started/quickstart/) to install Semgrep CLI.
 :::
 
 To run Pro Engine in the CLI, perform the following steps.
@@ -173,7 +173,7 @@ module.exports = get_user
 
 ### Regressions in Semgrep Pro
 
-For cross-file (interfile) analysis, Semgrep Pro Engine resolves names differently than Semgrep OSS. Consequently, rules with `interfile: true` may produce different results than Semgrep OSS Engine. Some instances could be regarded as regressions; if you encounter them, please file a bug report. When you need to report a bug in Semgrep Pro Engine, go through [Semgrep Support](/docs/support). You can also contact us through [Semgrep Community Slack group](https://go.semgrep.dev/slack).
+For cross-file (interfile) analysis, Semgrep Pro Engine resolves names differently than Semgrep OSS. Consequently, rules with `interfile: true` may produce different results than Semgrep OSS Engine. Some instances could be regarded as regressions; if you encounter them, please file a bug report. When you need to report a bug in Semgrep Pro Engine, go through [Semgrep Support](/docs/support/). You can also contact us through [Semgrep Community Slack group](https://go.semgrep.dev/slack).
 
 ## Additional information
 
@@ -201,12 +201,12 @@ If 1-2 repositories cause CI scan issues and scanning these repositories with Pr
 
 If many repositories cause scan issues, or you have critical repositories you are unable to scan with Semgrep Pro Engine:
 1. Disable the <i class="fa-solid fa-toggle-large-on"></i> **Pro Engine beta** toggle in the **[Settings](https://semgrep.dev/orgs/-/settings)** page of your organization.
-1. Review scan troubleshooting guides such as [A Semgrep scan is having a problem - what next?](/docs/kb/semgrep-code/semgrep-scan-troubleshooting) or [Troubleshooting "You are seeing this because the engine was killed"](/docs/kb/semgrep-code/scan-engine-kill).
+1. Review scan troubleshooting guides such as [A Semgrep scan is having a problem - what next?](/docs/kb/semgrep-code/semgrep-scan-troubleshooting/) or [Troubleshooting "You are seeing this because the engine was killed"](/docs/kb/semgrep-code/scan-engine-kill/).
 1. If you need additional guidance, [contact Semgrep Support](/docs/support), or reach out to the Semgrep team in the <a href="https://go.semgrep.dev/slack">Semgrep Community Slack</a> so we can help you resolve the issue and create a plan for your organization.
 
 ### Difference between Semgrep Pro Engine and join mode
 
-Semgrep Pro Engine is different from [join mode](/writing-rules/experiments/join-mode/overview), which also allows you to perform cross-file analyses by letting you join on the metavariable matches in separate rules. Join mode is an experimental feature which is not actively developed or maintained. You may encounter many issues while using join mode.
+Semgrep Pro Engine is different from [join mode](/writing-rules/experiments/join-mode/overview/), which also allows you to perform cross-file analyses by letting you join on the metavariable matches in separate rules. Join mode is an experimental feature which is not actively developed or maintained. You may encounter many issues while using join mode.
 
 ### Feedback for Semgrep Pro Engine
 

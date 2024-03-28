@@ -24,7 +24,7 @@ def test2():
 
 If we tried to match the pattern `pandas.DataFrame(...).index.set_value(...)` against the above code, Semgrep would normally match `test1` but not `test2`. It does not match `test2` because there are intermediate assignments, and Semgrep does not know that `ix` is equals to `df.index` or that `df` is equals to `pandas.DataFrame(x)`. If we wanted Semgrep to match such code, we had to be explicit about it.
 
-Symbolic propagation is a generalization of [constant propagation](/writing-rules/data-flow/constant-propagation) that addresses this limitation. It enables Semgrep to perform matching modulo variable assignments. Thus, Semgrep is then able to match both `test1` and `test2` with the same simple pattern. This feature needs to be enabled explicitly via rule `options:` by setting `symbolic_propagation: true`.
+Symbolic propagation is a generalization of [constant propagation](/writing-rules/data-flow/constant-propagation/) that addresses this limitation. It enables Semgrep to perform matching modulo variable assignments. Thus, Semgrep is then able to match both `test1` and `test2` with the same simple pattern. This feature needs to be enabled explicitly via rule `options:` by setting `symbolic_propagation: true`.
 
 <iframe src="https://semgrep.dev/embed/editor?snippet=JeBP" border="0" frameBorder="0" width="100%" height="432"></iframe>
 

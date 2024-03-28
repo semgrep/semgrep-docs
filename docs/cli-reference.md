@@ -54,7 +54,7 @@ Command output:
 
 The Semgrep command line tool supports a `.semgrepignore` file that follows `.gitignore` syntax and is used to skip files and directories during scanning. This is commonly used to avoid vendored and test related code. For a complete example, see the [.semgrepignore file on Semgrep’s source code](https://github.com/semgrep/semgrep/blob/develop/.semgrepignore).
 
-In addition to `.semgrepignore` there are several methods to set up ignore patterns. See [Ignoring files, folders, or code](ignoring-files-folders-code).
+In addition to `.semgrepignore` there are several methods to set up ignore patterns. See [Ignoring files, folders, or code](../ignoring-files-folders-code).
 
 ## Connecting to Semgrep Registry through a proxy
 

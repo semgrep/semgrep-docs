@@ -176,7 +176,7 @@ variables:
 
 Write custom rules to enforce your team's coding standards and security practices. Rules can be forked from existing community-written rules.
 
-See [Writing rules](/writing-rules/overview) to learn how to write custom rules.
+See [Writing rules](/writing-rules/overview/) to learn how to write custom rules.
 
 ### Ignore files
 
@@ -220,8 +220,8 @@ To migrate to Semgrep Cloud Platform:
 | Feature  | Semgrep Pro CI (`semgrep ci`)| Semgrep OSS CI (`semgrep scan`) |
 | -------  | ------ | ------ |
 | Customized SAST scans         |  ✔️        | ✔️       |
-| [SCA (software composition analysis) scans](/semgrep-supply-chain/overview)         |  ✔️        | --       |
-| [Secrets  scans](/semgrep-secrets/conceptual-overview)         |  ✔️       | --        |
-| [PR (pull request) or MR (merge request) comments](/category/pr-or-mr-comments)         |  ✔️        | --       |
-| [Finding status tracked over lifetime](/semgrep-code/findings)         |  ✔️        | --       |
+| [SCA (software composition analysis) scans](/semgrep-supply-chain/overview/)         |  ✔️        | --       |
+| [Secrets  scans](/semgrep-secrets/conceptual-overview/)         |  ✔️       | --        |
+| [PR (pull request) or MR (merge request) comments](/category/pr-or-mr-comments/)         |  ✔️        | --       |
+| [Finding status tracked over lifetime](/semgrep-code/findings/)         |  ✔️        | --       |
 

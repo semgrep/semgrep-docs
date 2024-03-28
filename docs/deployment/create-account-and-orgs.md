@@ -73,7 +73,7 @@ Semgrep organizations can be **connected** to equivalent GitHub, GitLab, and SSO
 
 ### Next steps for GitHub and GitLab users
 
-- Connect your Semgrep org to your GitHub or GitLab SCM. Refer to [<i class="fa-regular fa-file-lines"></i> Connect a source code manager](/deployment/connect-scm) for steps.
+- Connect your Semgrep org to your GitHub or GitLab SCM. Refer to [<i class="fa-regular fa-file-lines"></i> Connect a source code manager](/deployment/connect-an-org) for steps.
 
 ### Next steps for Bitbucket and Azure Repos users
 

@@ -167,7 +167,7 @@ The following configuration creates a CI job that runs scans depending on what p
 
 You can **run specific product scans** by passing an argument, such as `--supply-chain`. View the [list of arguments](/getting-started/cli/#scan-using-specific-semgrep-products).
 
-Prefer to use GitLab group variables? See [this guide](/docs/kb/semgrep-code/gitlab-group-variables) for an appropriate configuration.
+Prefer to use GitLab group variables? See [this guide](/docs/kb/semgrep-code/gitlab-group-variables/) for an appropriate configuration.
 
 </TabItem>
 
