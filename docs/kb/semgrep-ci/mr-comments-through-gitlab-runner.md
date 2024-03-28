@@ -1,13 +1,13 @@
 ---
 append_help_link: true
-title: Receive Semgrep MR comments in GitLab without using merge request pipelines
+title: Receive Semgrep MR comments through a GitLab runner
 hide_title: true
 description: tk
 tags:
   - Semgrep in CI
 ---
 
-# Receive Semgrep MR comments in GitLab without using merge request pipelines
+# Receive Semgrep MR comments through a GitLab runner
 
 Generally, Semgrep recommends using the [<i class="fas fa-external-link fa-xs"></i> GitLab merge request pipeline](https://docs.gitlab.com/ee/ci/pipelines/merge_request_pipelines.html) to receive MR comments. This method is used in the default [Semgrep GitLab config file](/semgrep-ci/sample-ci-configs/#sample-github-actions-configuration-file).
 
