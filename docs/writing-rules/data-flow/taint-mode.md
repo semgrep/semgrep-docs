@@ -502,7 +502,7 @@ pattern-propagators:
 
 ### Propagation without side-effect
 
-Taint propagators can be used in very imaginative ways, and in some cases you may not want taint to propagate by side-effect. This can be achieved by disabling `by-side-effect`, which is enabled be default.
+Taint propagators can be used in very imaginative ways, and in some cases you may not want taint to propagate by side-effect. This can be achieved by disabling `by-side-effect`, which is enabled by default.
 
 For example:
 
