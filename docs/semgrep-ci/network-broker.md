@@ -30,7 +30,7 @@ The Semgrep Network Broker is available to Enterprise tier users.
 
 Ensure that you are logged in to the server where you want to run Semgrep Network Broker. Complete the following steps while logged in to that server.
 
-1. Create a `config.yaml` file similar to the following snippet. The steps required to generate values for the placeholders `SEMGREP_LOCAL_ADDRESS`, `YOUR_PRIVATE_KEY`, `YOUR_BASE_URL`, and `YOUR_TOKEN`, are provided in subsequent steps of this guide.
+1. Create a `config.yaml` file similar to the following snippet. The steps required to generate values for the placeholders `SEMGREP_LOCAL_ADDRESS`, `YOUR_PRIVATE_KEY`, and `YOUR_BASE_URL`, are provided in subsequent steps of this guide.
 
   ```yaml
   inbound:
@@ -46,7 +46,6 @@ Ensure that you are logged in to the server where you want to run Semgrep Networ
     allowlist: []
     gitlab:
       baseUrl: YOUR_BASE_URL
-      token: YOUR_TOKEN
   ```
 
   The `publicKey` value should be entered precisely as follows:
@@ -98,15 +97,6 @@ Ensure that you are logged in to the server where you want to run Semgrep Networ
   # for GitHub 
   github:
     baseUrl: <https://github.exampleCo.com/api/v3>
-    token: YOUR_TOKEN
-  ```
-
-1. GitHub users can [use their personal access tokens](https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/managing-your-personal-access-tokens) as long as it has the `pull_requests:write` permission set:
-
-  ```yaml
-  github:
-    baseUrl: <https://github.exampleCo.com/api/v3>
-    token: YOUR_TOKEN
   ```
 
 1. Convert your deployment ID to hexadecimal for use in creating your deployment's local address `SEMGREP_LOCAL_ADDRESS`. You can use a tool such as [Decimal to Hexadecimal converter](https://www.rapidtables.com/convert/number/decimal-to-hex.html) if needed.
