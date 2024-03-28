@@ -53,7 +53,7 @@ To change this configuration, insert one of the configuration options (flags) af
 See the [Examples of blocking findings and errors configuration](#examples-of-blocking-findings-and-errors-configuration) below.
  
 :::info
-- For more information about specific Semgrep exit codes, see [CLI reference](../../cli-reference/#exit-codes).
+- For more information about specific Semgrep exit codes, see [CLI reference](/cli-reference#exit-codes).
 :::
 
 To find more details about some of these configuration options, see the following list:

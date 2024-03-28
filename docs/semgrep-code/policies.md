@@ -26,7 +26,7 @@ Increase the breadth and depth of your scan coverage or remove noise from scans 
 
 The Policies page displays a visual representation of the rules that Semgrep Code uses for scanning. By default, the same rules in Policies are applied to all repositories.
 
-To learn more about rules, see [<i class="fa-regular fa-file-lines"></i> Running rules](/running-rules/).
+To learn more about rules, see [<i class="fa-regular fa-file-lines"></i> Running rules](/running-rules).
 
 :::info Speed and language coverage
 Semgrep Code identifies the languages used in your repositories and **only runs rules applicable to those languages**.

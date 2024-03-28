@@ -185,7 +185,7 @@ response is expected for valid and invalid states. Although some rules do not us
 | `response`  | This key and its subkeys determine **validation status**. Semgrep Secrets identifies a validation status through HTTP status code **and** other key-value pairs. For example, a rule may require a 200 status code **and** a `"message": "ok"` in the response body for the matching secret to be considered **Confirmed valid**. |
 
 :::tip
-See [<i class="fa-regular fa-file-lines"></i> Validators](/semgrep-secrets/validators/) for more information.
+See [<i class="fa-regular fa-file-lines"></i> Validators](/semgrep-secrets/validators) for more information.
 :::
 
 ## Differences between Semgrep Secrets rules and Semgrep Registry rules

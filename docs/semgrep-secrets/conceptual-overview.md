@@ -54,14 +54,14 @@ detectors that simply define a pattern to match a piece of code.
 
 Semgrep Secrets uses several mechanisms to perform semantic analysis. It uses
 [<i class="fa-regular fa-file-lines"></i> data-flow
-analysis](/writing-rules/data-flow/data-flow-overview/) and [<i
+analysis](/writing-rules/data-flow/data-flow-overview) and [<i
 class="fa-regular fa-file-lines"></i> constant
-propagation](/writing-rules/data-flow/constant-propagation/) which means that it
+propagation](/writing-rules/data-flow/constant-propagation) which means that it
 is able to track data, such as variables, and the flow of that data across files
 and functions in your codebase.
 
 Performing semantic analysis is encapsulated in [<i class="fa-regular
-fa-file-lines"></i> rules](/running-rules/). By running these rules, Semgrep
+fa-file-lines"></i> rules](/running-rules). By running these rules, Semgrep
 Secrets is able to detect if a variable is renamed,
 reassigned, or used in a function in such a way that a secret is exposed.
 

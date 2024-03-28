@@ -188,7 +188,7 @@ Semgrep Assistant can analyze if your finding is a true or false positive. The a
 
 ### Suggest autofix code snippets to resolve the finding
 
-Semgrep Assistant can suggest [autofix](/writing-rules/autofix/) code snippets for Semgrep rules which do not have human-written autofix suggestions. This feature is only active in PR and MR comments.
+Semgrep Assistant can suggest [autofix](/writing-rules/autofix) code snippets for Semgrep rules which do not have human-written autofix suggestions. This feature is only active in PR and MR comments.
 
 To enable autofix by Semgrep Assistant, perform the following steps:
 

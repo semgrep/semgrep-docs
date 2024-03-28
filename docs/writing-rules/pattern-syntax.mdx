@@ -12,9 +12,9 @@ import MoreHelp from "/src/components/MoreHelp";
 Getting started with rule writing? Try the [Semgrep Tutorial](https://semgrep.dev/learn) 🎓
 :::
 
-This document describes Semgrep’s pattern syntax. You can also see pattern [examples by language](../pattern-examples/). In the command line, patterns are specified with the flag `--pattern` (or `-e`). Multiple
+This document describes Semgrep’s pattern syntax. You can also see pattern [examples by language](/writing-rules/pattern-examples). In the command line, patterns are specified with the flag `--pattern` (or `-e`). Multiple
 coordinating patterns may be specified in a configuration file. See
-[rule syntax](../rule-syntax/) for more information.
+[rule syntax](/writing-rules/rule-syntax) for more information.
 
 ## Pattern matching
 
@@ -164,7 +164,13 @@ The YAML `|` operator allows for [multiline strings](https://yaml-multiline.info
 
 The `...` ellipsis operator matches everything in its current scope. The current scope of this operator is defined by the patterns that precede `...` in a rule. See the following example:
 
-<iframe src="https://semgrep.dev/embed/editor?snippet=zZx0" border="0" frameBorder="0" width="100%" height="432"></iframe>
+<iframe
+  src="https://semgrep.dev/embed/editor?snippet=zZx0"
+  border="0"
+  frameBorder="0"
+  width="100%"
+  height="432"
+></iframe>
 
 Semgrep matches the first occurrence of `bar` and `baz` in the test code as these objects fall under the scope of `foo` and `...`. The ellipsis operator does not match the second occurrence of `bar` and `baz` as they are not inside of the function definition, therefore these objects in their second occurrence are not inside the scope of the ellipsis operator.
 
@@ -352,7 +358,7 @@ The YAML `|` operator allows for [multiline strings](https://yaml-multiline.info
 You can use `"$X"` to match any string literal. This is similar
 to using `"..."`, but the content of the string is stored in the
 metavariable `$X`, which can then be used in a message
-or in a [`metavariable-regex`](../rule-syntax/#metavariable-regex).
+or in a [`metavariable-regex`](/docs/rule-syntax/#metavariable-regex).
 
 You can also use `/$X/` and `:$X` to respectively match
 any regular expressions or atoms (in languages that support
@@ -362,10 +368,11 @@ those constructs, e.g., Ruby).
 
 #### Syntax
 
-Typed metavariables only match a metavariable if it’s declared as a specific type. 
+Typed metavariables only match a metavariable if it’s declared as a specific type.
 
 ##### Java:
-For example, to look for calls to the `log` method on `Logger` objects. 
+
+For example, to look for calls to the `log` method on `Logger` objects.
 A simple pattern for this purpose could use a metavariable for the Logger object.
 
 ```text
@@ -379,7 +386,6 @@ pattern: (java.util.logging.Logger $LOGGER).log(...)
 ```
 
 Alternatively, if we want to capture more logger types, for example custom logger types, we could instead add a constraint to the type of the argument in this methodcall instead.
-
 
 ```text
 pattern: $LOGGER.log(java.util.logging.LogRecord $RECORD)
@@ -447,7 +453,6 @@ func read_file() {
 For Go, Semgrep currently does not recognize the type of all variables that are declared on the same line. That is, the following will not take both `a` and `b` as `int`s: `var a, b = 1, 2`
 :::
 
-
 ##### TypeScript:
 
 In this example, we want to look for uses of the DomSanitizer function.
@@ -511,18 +516,18 @@ Display values of matched metavariables in rule messages. Add a metavariable to 
 To display matched metavariable in a rule message, add the same metavariable as you are searching for in your rule to the rule message.
 
 1. Find the metavariable used in the Semgrep rule. See the following example of a part Semgrep rule (formula):
-    ```yaml
-    - pattern: $MODEL.set_password(…)
-    ```
-    This formula uses `$MODEL` as a metavariable.
+   ```yaml
+   - pattern: $MODEL.set_password(…)
+   ```
+   This formula uses `$MODEL` as a metavariable.
 2. Insert the metavariable to rule message:
-    ```yaml
-    - message: Setting a password on $MODEL
-    ```
+   ```yaml
+   - message: Setting a password on $MODEL
+   ```
 3. Use the formula displayed above against the following code:
-    ```python
-    user.set_password(new_password)
-    ```
+   ```python
+   user.set_password(new_password)
+   ```
 
 The resulting message is:
 
@@ -532,7 +537,13 @@ Setting a password on user
 
 Run the following example in Semgrep Playground to see the message (click **Open in Editor**, and then **Run**, unroll the **1 Match** to see the message):
 
-<iframe title="Metavariable value in message example" src="https://semgrep.dev/embed/editor?snippet=6KpK" width="100%" height="432" frameborder="0"></iframe>
+<iframe
+  title="Metavariable value in message example"
+  src="https://semgrep.dev/embed/editor?snippet=6KpK"
+  width="100%"
+  height="432"
+  frameborder="0"
+></iframe>
 
 :::info
 If you're using Semgrep's advanced dataflow features, see documentation of experimental feature [Displaying propagated value of metavariable](/writing-rules/experiments/display-propagated-metavariable).
@@ -574,7 +585,7 @@ def update_system():
 ```
 
 Basic constant propagation support like in the example above is a stable feature.
-Experimentally, Semgrep also supports [intra-procedural flow-sensitive constant propagation](../data-flow/constant-propagation/).
+Experimentally, Semgrep also supports [intra-procedural flow-sensitive constant propagation](/writing-rules/data-flow/constant-propagation).
 
 The pattern `set_password("...")` also matches:
 
@@ -597,7 +608,7 @@ Semgrep performs associative-commutative (AC) matching. For example, `... && B &
 
 Under AC-matching metavariables behave similarly to `...`. For example, `A | $X` can match `A | B | C` in four different ways (`$X` can bind to `B`, or `C`, or `B | C`). In order to avoid a combinatorial explosion, Semgrep will only perform AC-matching with metavariables if the number of potential matches is _small_, otherwise it will produce just one match (if possible) where each metavariable is bound to a single operand.
 
-Using [`options`](../rule-syntax/#options) it is possible to entirely disable AC-matching. It is also possible to treat boolean AND and OR operators (e.g., `&&` in `||` in C-family languages) as commutative, which can be useful despite not being semantically accurate.
+Using [`options`](/writing-rules/rule-syntax#options) it is possible to entirely disable AC-matching. It is also possible to treat boolean AND and OR operators (e.g., `&&` in `||` in C-family languages) as commutative, which can be useful despite not being semantically accurate.
 
 ## Deep expression operator
 
@@ -673,7 +684,7 @@ A complete expression is needed (like `1 + $X`)
 
 ### Ellipses and statement blocks
 
-The [ellipsis operator](#ellipsis-operator) does *not* jump from inner to outer statement blocks.
+The [ellipsis operator](#ellipsis-operator) does _not_ jump from inner to outer statement blocks.
 
 For example, this pattern:
 
@@ -700,7 +711,7 @@ if cond:
     bar()
 ```
 
-but it does *not* match:
+but it does _not_ match:
 
 ```python
 if cond:
@@ -718,7 +729,7 @@ you can just match the header of a conditional with `if ($E)`,
 or just the try part of an exception statement with `try { ... }`.
 
 This is especially useful when used in a
-[pattern-inside](../rule-syntax/#pattern-inside) to restrict the
+[pattern-inside](/writing-rules/rule-syntax#pattern-inside) to restrict the
 context in which to search for other things.
 
 ### Other partial constructs
@@ -733,7 +744,7 @@ function `foo`. In the same way, you can just match a class header
 ### String matching
 
 :::warning
-String matching has been deprecated. You should use [`metavariable-regex`](../rule-syntax/#metavariable-regex) instead.
+String matching has been deprecated. You should use [`metavariable-regex`](/writing-rules/rule-syntax#metavariable-regex) instead.
 :::
 
 Search string literals within code with [Perl Compatible Regular Expressions (PCRE)](https://learnxinyminutes.com/docs/pcre/).

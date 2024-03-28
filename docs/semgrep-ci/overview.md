@@ -112,7 +112,7 @@ For more information on the features supported by CI providers and source code p
 This section describes a high-level view of steps to run Semgrep continuously with Semgrep Cloud Platform. 
 
 :::info
-Semgrep Cloud Platform creates a SAST (Static Application Security Testing) job by default. To run dependency scans exclusively, refer to [Sample CI configurations](/semgrep-ci/sample-ci-configs/).
+Semgrep Cloud Platform creates a SAST (Static Application Security Testing) job by default. To run dependency scans exclusively, refer to [Sample CI configurations](/semgrep-ci/sample-ci-configs).
 :::
 
 ![High level view of steps to integrate and refine Semgrep in your CI environment with Semgrep Cloud Platform](/img/semgrep-ci-overview-app.png "High level view of steps to integrate and refine Semgrep in your CI environment with Semgrep Cloud Platform")
@@ -169,8 +169,8 @@ After you have chosen a method, refer to the following documents for specific st
 
 | Document | User goal |
 | :------- | :-------  |
-| [Running Semgrep in CI with Semgrep Cloud Platform](../running-semgrep-ci-with-semgrep-cloud-platform) | Set up CI with Semgrep Cloud Platform to manage findings, receive PR or MR comments in your repository, and manage scanning for many repositories |
-| [Running Semgrep in CI without Semgrep Cloud Platform](../running-semgrep-ci-without-semgrep-cloud-platform) | Integrate Semgrep into a repository by committing a job configuration file. |
-| [Sample CI configurations](../sample-ci-configs) | Refer to this document for different configuration files of Semgrep Cloud Platform, arranged by CI provider. |
+| [Running Semgrep in CI with Semgrep Cloud Platform](/running-semgrep-ci-with-semgrep-cloud-platform) | Set up CI with Semgrep Cloud Platform to manage findings, receive PR or MR comments in your repository, and manage scanning for many repositories |
+| [Running Semgrep in CI without Semgrep Cloud Platform](/running-semgrep-ci-without-semgrep-cloud-platform) | Integrate Semgrep into a repository by committing a job configuration file. |
+| [Sample CI configurations](/sample-ci-configs) | Refer to this document for different configuration files of Semgrep Cloud Platform, arranged by CI provider. |
 
 <MoreHelp />

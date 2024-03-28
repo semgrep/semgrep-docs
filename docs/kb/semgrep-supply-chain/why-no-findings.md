@@ -17,15 +17,15 @@ Check the [Supported Languages table](/docs/supported-languages/#general-availab
 
 Semgrep Supply Chain searches the parent directories of any code files for the nearest relevant lockfile. Monolithic repositories (monorepos) have their findings grouped based on the lockfiles present in subdirectories.
 
-Semgrep Supply Chain only recognizes the lockfile names indicated in the [Supported Languages table](/docs/supported-languages/#general-availability).
+Semgrep Supply Chain only recognizes the lockfile names indicated in the [Supported Languages table](/docs/supported-languages#semgrep-supply-chain).
 
 [Reach out for help](#if-youre-still-having-trouble) if you run into trouble with lockfile location or naming.
 
 ### Does the lockfile contain dependencies with exact versions?
 
-If your dependency file is a [manifest file](/docs/semgrep-supply-chain/glossary/#manifest-file) and does not specify exact (pinned) versions for all dependencies, Semgrep Supply Chain does not report vulnerabilities for the dependencies that are not pinned. This is because an unpinned dependency may already be installed at a safe version for a particular [Advisory](https://semgrep.dev/docs/semgrep-supply-chain/glossary/#advisory), and not require upgrade.
+If your dependency file is a [manifest file](/docs/semgrep-supply-chain/glossary#manifest-file) and does not specify exact (pinned) versions for all dependencies, Semgrep Supply Chain does not report vulnerabilities for the dependencies that are not pinned. This is because an unpinned dependency may already be installed at a safe version for a particular [Advisory](/docs/semgrep-supply-chain/glossary#advisory), and not require upgrade.
 
-Pinned dependencies can be analyzed even if the file contains other unpinned dependencies. Manifest files can also be helpful to determine whether a dependency is [transitive](/docs/semgrep-supply-chain/glossary/#transitive-or-indirect-dependency).
+Pinned dependencies can be analyzed even if the file contains other unpinned dependencies. Manifest files can also be helpful to determine whether a dependency is [transitive](/docs/semgrep-supply-chain/glossary#transitive-or-indirect-dependency).
 
 ## Check scan status and result location
 
@@ -58,7 +58,7 @@ If the scan did run successfully, the scan data may have been sent to a differen
 
 Semgrep Supply Chain only runs in [diff-aware scans](/docs/semgrep-ci/running-semgrep-ci-with-semgrep-cloud-platform/#diff-aware-scanning) if the lockfile was modified in the PR/MR.
 
-If code is modified, but the lockfile is not, Supply Chain does not analyze the changes. Any code changes that might impact [reachability](/docs/semgrep-supply-chain/glossary/#reachability) will be identified on the next full scan.
+If code is modified, but the lockfile is not, Supply Chain does not analyze the changes. Any code changes that might impact [reachability](/docs/semgrep-supply-chain/glossary#reachability) will be identified on the next full scan.
 
 ### Did Semgrep scan a ref other than your default branch, or does your default branch have a less common name?
 
@@ -79,7 +79,7 @@ By default, the Vulnerabilities page displays vulnerabilities from:
 
 ### Are all findings in the scan unreachable vulnerabilities?
 
-By default, Semgrep Cloud Platform shows only [reachable](/docs/semgrep-supply-chain/glossary/#reachability) vulnerabilities in the UI. 
+By default, Semgrep Cloud Platform shows only [reachable](/docs/semgrep-supply-chain/glossary#reachability) vulnerabilities in the UI. 
 
 To see all vulnerabilities, select all boxes under the "Exposure" filter.
 
@@ -88,8 +88,8 @@ To see all vulnerabilities, select all boxes under the "Exposure" filter.
 ## Additional references
 
 If the project uses Java and Apache Maven with `pom.xml`, see [Setting up SSC scans for specific project management tools:
-Apache Maven (Java)](/semgrep-supply-chain/setup-maven/).
+Apache Maven (Java)](/semgrep-supply-chain/setup-maven).
 
 ## If you're still having trouble
 
-If you've addressed these issues but are still not seeing vulnerability findings, or if you need assistance setting up Semgrep Supply Chain for your projects, such as handling lockfile naming or addressing parsing issues, [reach out for help](/docs/support/).
+If you've addressed these issues but are still not seeing vulnerability findings, or if you need assistance setting up Semgrep Supply Chain for your projects, such as handling lockfile naming or addressing parsing issues, [reach out for help](/docs/support).

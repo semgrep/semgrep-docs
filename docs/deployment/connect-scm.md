@@ -62,7 +62,7 @@ You have successfully connected an org in Semgrep Cloud Platform with an organiz
 
 ### GitLab Cloud
 
-For users of GitLab cloud-hosted plans, a connection to GitLab is created automatically after [adding a Semgrep job to GitLab CI/CD](/deployment/add-semgrep-to-ci/). No other steps are needed.
+For users of GitLab cloud-hosted plans, a connection to GitLab is created automatically after [adding a Semgrep job to GitLab CI/CD](/deployment/add-semgrep-to-ci). No other steps are needed.
 
 ## Connect to on-premise orgs
 
