@@ -136,7 +136,6 @@ To **reopen multiple findings** in the **No grouping** view, follow these steps:
 
 Triage your Semgrep Cloud Platform findings displayed as comments in GitHub PRs by replying with another comment.
 
-- GitHub Semgrep Cloud Platform installed in the repository that is also added as a project in Semgrep Cloud Platform. For more information, see [Getting started with Semgrep in continuous integration (CI)](/semgrep-ci/overview).
 
 To enable triage through comments:
 
