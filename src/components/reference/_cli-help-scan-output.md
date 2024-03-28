@@ -226,9 +226,6 @@ OPTIONS
        --no-git-ignore
            negates --use-git-ignore
 
-       --no-interfile-diff-scan
-           Disables interfile diff scan.
-
        --no-rewrite-rule-ids
            negates --rewrite-rule-ids
 

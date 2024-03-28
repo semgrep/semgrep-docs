@@ -111,40 +111,40 @@ Community supported languages have varying levels of rule coverage - check the r
 
 <details><summary>Click to view <strong>Semgrep OSS</strong> languages.</summary>
 
-- Bash      
-- C         
-- C++       
-- C#        
-- Cairo     
-- Clojure   
-- Dart       
+- Bash
+- C
+- C++
+- C#
+- Cairo
+- Clojure
+- Dart
 - Dockerfile
-- Generic   
-- Go        
-- Hack       
-- HTML          
-- Java      
+- Generic
+- Go
+- Hack
+- HTML
+- Java
 - JavaScript
-- JSON      
-- Jsonnet   
-- Julia      
-- Lisp       
-- Lua        
-- Kotlin    
-- Ruby      
-- Rust      
-- JSX       
-- Ocaml      
-- PHP       
-- Python    
-- R          
-- Scala     
-- Scheme     
-- Solidity   
-- Swift     
+- JSON
+- Jsonnet
+- Julia
+- Lisp
+- Lua
+- Kotlin
+- Ruby
+- Rust
+- JSX
+- Ocaml
+- PHP
+- Python
+- R
+- Scala
+- Scheme
+- Solidity
+- Swift
 - TypeScript
-- YAML      
-- XML       
+- YAML
+- XML
 
 </details>
 
