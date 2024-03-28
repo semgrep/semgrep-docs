@@ -131,6 +131,9 @@ OPTIONS
            https://semgrep.dev/docs/writing-rules/rule-syntax for information
            on configuration file format. 
 
+       --files-with-matches
+           Output only the names of files containing matches
+
        --force-color (absent SEMGREP_FORCE_COLOR env)
            Always include ANSI color in the output, even if not writing to a
            TTY; defaults to using the TTY status 
@@ -140,6 +143,9 @@ OPTIONS
 
        --gitlab-secrets
            Output results in GitLab Secrets format.
+
+       --historical-secrets
+           Scans git history using Secrets rules.
 
        --include=VAL
            Filter files or directories by path. The argument is a glob-style
@@ -422,6 +428,6 @@ AUTHORS
 
 BUGS
        If you encounter an issue, please report it at
-       https://github.com/semgrep/semgrep/issues
+       https://github.com/returntocorp/semgrep/issues
 
 ```
