@@ -42,6 +42,7 @@ module.exports = {
             'getting-started/quickstart',
             'prerequisites',
             'supported-languages',
+            'semgrep-code/java',
             {
               type: 'category',
               label: 'Local and CLI scans',
@@ -298,6 +299,15 @@ module.exports = {
                 'semgrep-ci/sample-ci-configs',
                 'semgrep-ci/findings-ci',
                 'semgrep-ci/packages-in-semgrep-docker'
+            ]
+        },
+        {
+            type: 'category',
+            label: 'Pro language features',
+            collapsible: true,
+            link: {type: 'generated-index'},
+            items: [
+                'semgrep-code/java'
             ]
         },
         'cli-reference',
