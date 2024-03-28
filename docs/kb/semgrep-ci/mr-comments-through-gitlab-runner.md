@@ -2,7 +2,7 @@
 append_help_link: true
 title: Receive Semgrep MR comments through a GitLab runner
 hide_title: true
-description: tk
+description: Set additional environment variables to receive Semgrep MR comments through a GitLab runner.
 tags:
   - Semgrep in CI
 ---
