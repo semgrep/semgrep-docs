@@ -23,7 +23,7 @@ These release notes include upgrades for versions ranging between 0.108.0 and 0.
 
 ### Additions
 
-- Semgrep now provides experimental support for the **Swift** language. See all languages that Semgrep supports in [Supported languages](/supported-languages).
+- Semgrep now provides experimental support for the **Swift** language. See all languages that Semgrep supports in [Supported languages](/supported-languages/).
 - Add configuration options for using the tree-sitter library installed anywhere on the system.
 - Metrics now include language-aggregated parse rates (files, bytes). The purpose of this is to continue with parsing improvements. See [Semgrep privacy policy](/metrics.md) for more details.
 - Semgrep CI now accepts more formats of Git URLs for metadata that are sent to semgrep.dev. This work in progress functionality enables working links from the Semgrep App Findings page. The user provides a fallback for repository name (`SEMGREP_REPO_NAME`) and repository URL (`SEMGREP_REPO_URL`) if these values are undefined by the CI job. We appreciate any bug reports or suggestions as this feature is still in development.
@@ -45,15 +45,15 @@ Minor bug fixes are not included in the release notes unless they are potentiall
 ## Documentation updates
 
 - Consistent and exhaustive documentation about continuous integration (CI) both with and without Semgrep App:
-  - [Running Semgrep in continuous integration (CI) with Semgrep App](/semgrep-ci/running-semgrep-ci-with-semgrep-cloud-platform)
-  - [Running Semgrep in continuous integration (CI) without Semgrep App](/semgrep-ci/running-semgrep-ci-without-semgrep-cloud-platform)
+  - [Running Semgrep in continuous integration (CI) with Semgrep App](/semgrep-ci/running-semgrep-ci-with-semgrep-cloud-platform/)
+  - [Running Semgrep in continuous integration (CI) without Semgrep App](/semgrep-ci/running-semgrep-ci-without-semgrep-cloud-platform/)
 - Experimental taint propagators allow you to specify additional structures through which taint propagates. See how to use them in the [Propagators](/writing-rules/data-flow/taint-mode/#propagators) section.
-- Updated [Generic pattern matching](/writing-rules/generic-pattern-matching) documentation, rewritten examples, and added new sections, including a new [Handling line-based input](/writing-rules/generic-pattern-matching/#handling-line-based-input) section.
+- Updated [Generic pattern matching](/writing-rules/generic-pattern-matching/) documentation, rewritten examples, and added new sections, including a new [Handling line-based input](/writing-rules/generic-pattern-matching/#handling-line-based-input) section.
 - Introduced interface and color changes to fit new [semgrep.dev](https://semgrep.dev/) website design.
-- Report vulnerabilities that Semgrep should have found, but did not. You can report these false negatives directly from your command-line using a built-in Semgrep flag. See [Reporting false negatives with shouldafound](/reporting-false-negatives) article.
+- Report vulnerabilities that Semgrep should have found, but did not. You can report these false negatives directly from your command-line using a built-in Semgrep flag. See [Reporting false negatives with shouldafound](/reporting-false-negatives/) article.
 - Contribution documentation now provides [Adding python packages to `semgrep`](/contributing/semgrep-contributing/#adding-python-packages-to-semgrep) section.
 - Updated and rewritten [Diff-aware scanning (SEMGREP_BASELINE_REF)](/semgrep-ci/configuration-reference/#diff-aware-scanning-semgrep_baseline_ref) section.
 - Updated fail open CI documentation in [Configuring blocking findings and errors](/semgrep-ci/configuration-reference/#configuring-blocking-findings-and-errors) section.
 - Added section about [`patterns` operator evaluation strategy](/writing-rules/rule-syntax/#patterns-operator-evaluation-strategy).
-- Updated adding [Slack notifications section in Notifications](/semgrep-code/notifications#slack) article, and updated [Integrating Semgrep App with third-party tools](/semgrep-code/notifications)
+- Updated adding [Slack notifications section in Notifications](/semgrep-code/notifications/#slack) article, and updated [Integrating Semgrep App with third-party tools](/semgrep-code/notifications/)
 - Many other updates and fixes have been introduced to the documentation website.

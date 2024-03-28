@@ -27,7 +27,7 @@ Object.entries(frontMatter).filter(
 
 This document outlines troubleshooting steps for issues related to **Semgrep scans** in a CI environment. Refer to the following sections if you're seeing results reported on files that have not changed since the last scan, frequent timeouts, or other issues.
 
-For issues on **deployment or CI configuration**, such as adding repositories, see the knowledge base articles in [<i class="fa-regular fa-file-lines"></i> Semgrep in CI](/kb/semgrep-ci).
+For issues on **deployment or CI configuration**, such as adding repositories, see the knowledge base articles in [<i class="fa-regular fa-file-lines"></i> Semgrep in CI](/kb/semgrep-ci/).
 
 ## Reproducing the issue locally
 
@@ -106,7 +106,7 @@ Please visit [GitLab’s SAST troubleshooting guide](https://docs.gitlab.com/ee/
 
 ### The `semgrep-sast` CI job is slow
 
-The `semgrep-sast` job should take less than a minute to scan a large project with 50k lines of Python and TypeScript code. If you see worse performance, please [reach out](/support) to the Semgrep maintainers for help with tracking down the cause. Long runtimes are typically caused by just one rule or source code file taking too long. You can also try these solutions:
+The `semgrep-sast` job should take less than a minute to scan a large project with 50k lines of Python and TypeScript code. If you see worse performance, please [reach out](/support/) to the Semgrep maintainers for help with tracking down the cause. Long runtimes are typically caused by just one rule or source code file taking too long. You can also try these solutions:
 
 #### Solution #1: Review global CI job configuration
 

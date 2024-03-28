@@ -19,7 +19,7 @@ Most commonly, ellipsis metavariables like `$...ARGS` are used for purposes like
 
 However, they can also be used to match multiple word tokens. As part of Semgrep's pattern matching, it separates the analyzed language into tokens, which are single units that make up a larger text. Some tokens, typically alphanumeric tokens, are "words", and some are word separators (like punctuation and whitespace).
 
-Using ellipsis metavariables to match multiple word tokens is especially helpful in [Generic pattern matching mode](/docs/writing-rules/generic-pattern-matching). Because this mode is generic, it's not aware of the semantics of any particular language, and that comes with [caveats and limitations](/docs/writing-rules/generic-pattern-matching#caveats-and-limitations-of-generic-mode).
+Using ellipsis metavariables to match multiple word tokens is especially helpful in [Generic pattern matching mode](/docs/writing-rules/generic-pattern-matching/). Because this mode is generic, it's not aware of the semantics of any particular language, and that comes with [caveats and limitations](/docs/writing-rules/generic-pattern-matching/#caveats-and-limitations-of-generic-mode).
 
 In generic mode, a word token that can be matched by a metavariable is defined as a sequence of characters in the set `[A-z0-9_]`. So `ABC_DEF` is one token, and a metavariable such as `$VAR` captures the entire sequence. However, `ABC-DEF` is two tokens, and a metavariable such as `$VAR` does not capture the entire sequence.
 
@@ -37,7 +37,7 @@ If you remove the ellipsis in the `$...ID` variable, the second example no longe
 
 ## Alternative: try the Aliengrep experiment
 
-To address some of the limitations of generic mode, the team is experimenting with a new mode called [Aliengrep](/docs/writing-rules/experiments/aliengrep).
+To address some of the limitations of generic mode, the team is experimenting with a new mode called [Aliengrep](/docs/writing-rules/experiments/aliengrep/).
 
 With Aliengrep, you can [configure what characters are allowed as part of a word token](/docs/writing-rules/experiments/aliengrep/#additional-word-characters-captured-by-metavariables), so that you could match the HTML example with a single metavariable. You can also [have even more fun with ellipses](/docs/writing-rules/experiments/aliengrep/#ellipsis-).
 

@@ -13,7 +13,7 @@ Not sure what to write a rule for? Below are some common questions, ideas, and t
 
 _Time to write this rule: **5 minutes**_
 
-You can use Semgrep and its GitHub integration to [automate PR comments](/semgrep-code/notifications) that you frequently make in code reviews. Writing a custom rule for the code pattern you want to target is usually straightforward. If you want to understand the Semgrep syntax, see the [documentation](/writing-rules/pattern-syntax) or try the [tutorial](https://semgrep.dev/learn).
+You can use Semgrep and its GitHub integration to [automate PR comments](/semgrep-code/notifications/) that you frequently make in code reviews. Writing a custom rule for the code pattern you want to target is usually straightforward. If you want to understand the Semgrep syntax, see the [documentation](../pattern-syntax/) or try the [tutorial](https://semgrep.dev/learn).
 
 ![A reviewer writes a Semgrep rule and adds it to an organization-wide policy](/img/semgrep-ci.gif)
 <br />
@@ -40,7 +40,7 @@ If you have a legitimate use case for a dangerous API, you can exempt a specific
 
 _Time to write this rule: **5 minutes**_
 
-Semgrep's [dataflow engine with support for taint tracking](/writing-rules/data-flow/data-flow-overview) can be used to detect when data flows from a user-provided value into a security-sensitive function.
+Semgrep's [dataflow engine with support for taint tracking](/writing-rules/data-flow/data-flow-overview/) can be used to detect when data flows from a user-provided value into a security-sensitive function.
 
 This rule detects when a user of the ExpressJS framework passes user data into the `run()` method of a sandbox.
 
@@ -66,7 +66,7 @@ Semgrep [natively supports JSON and YAML](../supported-languages.md) and can be 
 
 <iframe src="https://semgrep.dev/embed/editor?snippet=rEqJ" title="Match configuration files with Semgrep" width="100%" height="432px" frameBorder="0"></iframe>
 
-The [Generic pattern matching](/writing-rules/generic-pattern-matching) mode is for languages and file formats that Semgrep does not natively support. For example, you can write rules for Dockerfiles using the generic mode. The Dockerfile rule below checks for invalid port numbers.
+The [Generic pattern matching](/writing-rules/generic-pattern-matching/) mode is for languages and file formats that Semgrep does not natively support. For example, you can write rules for Dockerfiles using the generic mode. The Dockerfile rule below checks for invalid port numbers.
 
 <iframe src="https://semgrep.dev/embed/editor?snippet=NGXN" title="Match Dockerfiles with Semgrep" width="100%" height="432px" frameBorder="0"></iframe>
 
