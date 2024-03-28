@@ -342,7 +342,6 @@ module.exports = {
                       'writing-rules/experiments/multiple-focus-metavariables',
                       'writing-rules/experiments/project-depends-on',
                       'writing-rules/experiments/symbolic-propagation',
-                      'writing-rules/experiments/taint-labels',
                       'writing-rules/experiments/metavariable-type',
                       'writing-rules/experiments/deprecated-experiments'
                     ]
