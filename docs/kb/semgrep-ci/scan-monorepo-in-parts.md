@@ -17,7 +17,7 @@ As such, it can be helpful to scan a monorepo in parts for multiple reasons:
 
 ## How to configure Semgrep in CI to split up a monorepo
 
-When scanning a repo with Semgrep in CI, the base command is `semgrep ci`. To understand this default setup for your source code manager (SCM) and CI provider, see [Getting started with Semgrep in continuous integration (CI)](/docs/semgrep-ci/overview).
+When scanning a repo with Semgrep in CI, the base command is `semgrep ci`.
 
 To split up your monorepo, you need to make two changes. First, use the `--include` flag to determine *how* you want to logically split up the code. Second, update the `SEMGREP_REPO_NAME` environment variable to assign findings to separate projects in Semgrep Cloud Platform (SCP). 
 
