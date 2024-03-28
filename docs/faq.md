@@ -98,7 +98,7 @@ It’s easy to write a new Semgrep rule and have it only apply _going forward_. 
 
 Many other tools require a buildable environment or can only be run in a VM. Semgrep runs “on the metal” and has minimal dependencies around a statically linked core; our parsers are declaratively generated C libraries (we contribute to and use [tree-sitter](https://tree-sitter.github.io/)).
 
-And many more: see [the Semgrep philosophy](contributing/semgrep-philosophy/) for further reading.
+And many more: see [the Semgrep philosophy](/contributing/semgrep-philosophy) for further reading.
 
 ### Comparing Semgrep to linters
 
