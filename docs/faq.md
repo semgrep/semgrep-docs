@@ -112,10 +112,11 @@ And many more: see [the Semgrep philosophy](/contributing/semgrep-philosophy) fo
 
 ### Comparing Semgrep to linters
 
-Similar to a linter, Semgrep can be run in your developer's IDE. Semgrep has two extensions:
+Similar to a linter, Semgrep can be run in your developer's IDE. Semgrep has three IDE extensions:
 
-- Visual Studio Code (VS Code)
-- IntelliJ tk add link
+- [Visual Studio Code (VS Code)](/docs/extensions/semgrep-vs-code)
+- [IntelliJ](/docs/extensions/semgrep-intellij)
+- [<i class="fas fa-external-link fa-xs"></i> LSP support for Emacs](https://github.com/emacs-lsp/lsp-mode)
 
 Linters use static analysis but typically have a narrower scope for analysis (most rules typically operate on a single line). Some linters also cover stylistic decisions (for example use of tabs versus spaces), but Semgrep doesn’t care about whitespace or formatting.
 
@@ -167,7 +168,7 @@ See [the Semgrep development philosophy](../contributing/semgrep-philosophy/) fo
 
 ### Where do you store data?
 
-Semgrep, Inc uses Amazon Web Services (US region) for storing customer data. (CDN cachetk check)
+Semgrep, Inc uses Amazon Web Services (US region) for storing customer data.
 
 ### How is data secured, including data-at-rest and data-in-transit?
 
@@ -178,15 +179,13 @@ All customer data is located in AWS (US region). Amazon RDS encrypted database i
 
 By default, Semgrep configurations run fully in your CI pipeline and your source code never leaves your environment. Only metadata related to Semgrep runs (see the following question) are sent to Semgrep's service.
 
-However, if you choose to opt-in to Semgrep Assistant, your source code is shared in accordance to
-tk-continue
-
+If you choose to enable it, Semgrep Assistant requires code access. See the [Privacy and legal considerations](/semgrep-code/semgrep-assistant-code/#privacy-and-legal-considerations) section to understand how your code is stored and retained.
 
 ### What data is stored?
 
-[Semgrep](https://github.com/semgrep/semgrep) may send data to Semgrep Cloud Platform in accordance with the [metrics policy](/metrics).
+[Semgrep](https://github.com/semgrep/semgrep) sends data to Semgrep Cloud Platform in accordance with the [metrics policy](/metrics).
 
-These types of data are scan data and findings data.
+These types of data are **scan data** and **findings data**.
 
 - Scan data includes project name, CI environment, and scan meta-data.
 - Findings data are used to provide human-readable content for notifications and integrations, as well as tracking results as new, fixed, or duplicate.
@@ -195,7 +194,7 @@ For more information and a detailed description of each data field, refer to [th
 
 ### What network requests are made?
 
-Semgrep CI makes network requests in accordance with the data storage previously mentioned.
+Semgrep makes network requests in accordance with the data storage previously mentioned.
 
 [Semgrep](https://github.com/semgrep/semgrep) makes the following network requests:
 
@@ -207,7 +206,7 @@ Semgrep CI makes network requests in accordance with the data storage previously
 
 ### How do I configure Semgrep for different projects?
 
-Semgrep App provides centralized policy management. See the [Policies documentation](/semgrep-code/policies/) for more details.
+Semgrep Cloud Platform provides centralized policy management. See the [Policies documentation](/semgrep-code/policies/) for more details.
 
 ### What is a policy?
 
