@@ -23,28 +23,33 @@ import TOCInline from "@theme/TOCInline"
 
 The [Semgrep Engine](https://github.com/semgrep/semgrep) is open-source, licensed under [LGPL 2.1](https://tldrlegal.com/license/gnu-lesser-general-public-license-v2.1-(lgpl-2.1)) - you can use it at work, on private and proprietary code, no problem!
 
-The Semgrep team provides two paid products:
+Semgrep offers three paid products:
 
-* [Semgrep Code](https://semgrep.dev/products/semgrep-code), which includes the [Pro Engine, a proprietary engine extension enabling advanced analysis](https://semgrep.dev/products/pro-engine).
-* Semgrep Supply Chain, which performs dependency scanning.
+* [<i class="fas fa-external-link fa-xs"></i> Semgrep Code](https://semgrep.dev/products/semgrep-code), a static application security testing (SAST) tool that can perform taint, cross-file, and cross-function analysis.
+* [<i class="fas fa-external-link fa-xs"></i> Semgrep Supply Chain](https://semgrep.dev/products/semgrep-supply-chain/), which performs dependency scanning.
+* [<i class="fas fa-external-link fa-xs"></i> Semgrep Secrets](https://semgrep.dev/products/semgrep-secrets/), which can detect and validate leaked secrets in code.
 
 #### Semgrep Registry
 
-The [Semgrep Registry](https://semgrep.dev/explore) contains rules from different contributors. Semgrep Registry rules written by the Semgrep team are licensed under the [Commons Clause](https://github.com/semgrep/semgrep-rules/blob/develop/LICENSE). The source for these Registry rules is available at [semgrep/semgrep-rules](https://github.com/semgrep/semgrep-rules/). Those rules licensed under the Commons Clause license cannot be resold without Semgrep, Inc. (“Semgrep”)’s permission. Since Semgrep offers a paid, hosted application, it’s important to have this restriction so other companies, like major cloud providers, cannot resell Semgrep’s rules as a competing service.
+The [<i class="fas fa-external-link fa-xs"></i> Semgrep Registry](https://semgrep.dev/explore) contains rules from different contributors. 
 
-[Semgrep Code](https://semgrep.dev/products/semgrep-code)’s Team tier includes Pro rules which are proprietary and only available to paying customers.
+Semgrep **Community** rules written by the Semgrep team are licensed under the [Commons Clause](https://github.com/semgrep/semgrep-rules/blob/develop/LICENSE). The source for these Registry rules is available at [semgrep/semgrep-rules](https://github.com/semgrep/semgrep-rules/). 
 
-### Is it ok to run Semgrep or Semgrep, Inc rules on my work projects?
+Those rules licensed under the Commons Clause license cannot be resold without Semgrep, Inc. (“Semgrep”)’s permission. Since Semgrep offers a paid, hosted application, it’s important to have this restriction so other companies, like major cloud providers, cannot resell Semgrep’s rules as a competing service.
 
-Yes! Semgrep is safe to run on your private code. The [Semgrep Registry license’s](https://github.com/semgrep/semgrep-rules/blob/develop/LICENSE) commercial restrictions only come into effect if you are *selling* a product using rules provided in the Semgrep Registry. If that’s the case, contact **partners@semgrep.com** for a license.
+Aside from Semgrep Community rules, [Semgrep Code](https://semgrep.dev/products/semgrep-code) includes **Pro rules** which are proprietary and only available to paying customers. 
+
+### Is it ok to run Semgrep or Semgrep, Inc. rules on my work projects?
+
+Yes! Semgrep is safe to run on your private code. The [Semgrep Registry license’s](https://github.com/semgrep/semgrep-rules/blob/develop/LICENSE) commercial restrictions only come into effect if you are **selling** a product using rules provided in the Semgrep Registry. If that’s the case, contact [<i class="fa-regular fa-envelope"></i> partners@semgrep.com](mailto:partners@semgrep.com) for a license.
 
 ### I’m a security professional. Do I have to pay for Semgrep?
 
-If you are a security consultant and you want to use Semgrep OSS Engine with the Semgrep Community Rules as part of your assessments, that’s great and you don’t have to pay. Of course feel free to refer your clients to our [Semgrep](https://semgrep.dev/) product suite.
+If you are a security consultant and you want to use Semgrep OSS Engine with the Semgrep Community Rules as part of your assessments, that’s great and you don’t have to pay. Feel free to refer your clients to our [Semgrep](https://semgrep.dev/) product suite.
 
-If your service delivers code scanning (meaning a service that includes static application security testing (SAST) or software composition analysis (SCA)) and you want to charge for scanning that includes rules in the [semgrep-rules repository](https://github.com/semgrep/semgrep-rules), you need an explicit license. For more information, please contact partners@semgrep.com.
+If your service delivers code scanning, meaning a service that includes static application security testing (SAST), software composition analysis (SCA), or secrets scanning, and you want to charge for scanning that includes rules in the [semgrep-rules repository](https://github.com/semgrep/semgrep-rules), **you need an explicit license**. 
 
-If you want to use Semgrep Code, including its proprietary cross-file (interfile) analysis, the Pro Engine, Semgrep Supply Chain (SCA), or Semgrep Pro rules as part of your consulting services, you need a license. Please contact us at sales@semgrep.com.
+If you want to use Semgrep Code, including its proprietary cross-file (interfile) analysis, Semgrep Supply Chain (SCA), or Semgrep Secrets rules as part of your consulting services, you need a license. Please contact us at [<i class="fa-regular fa-envelope"></i> sales@semgrep.com](mailto:sales@semgrep.com).
 
 ### Can I ship my own code analysis software that uses Semgrep?
 
@@ -52,13 +57,11 @@ Yes, you can use the Semgrep OSS Engine in your own code analysis software, subj
 
 The Semgrep Community Rules are licensed under the [Commons Clause](https://github.com/semgrep/semgrep-rules/blob/develop/LICENSE). You can use the Semgrep community rules as long as you are shipping a free and open-source software (FOSS) product. You have to open source any modifications you have done to the rules.
 
-You **cannot** ship the Semgrep Community rules in a commercial product without an explicit license from Semgrep, Inc. For more information, please contact partners@semgrep.com.
+You **cannot** ship the Semgrep Community or Pro rules in a commercial product without an explicit license from Semgrep, Inc. For more information, please contact [<i class="fa-regular fa-envelope"></i> partners@semgrep.com](mailto:partners@semgrep.com).
 
-The Semgrep Pro Rules are proprietary and cannot be redistributed without explicit license from Semgrep, Inc. For more information, please contact partners@semgrep.com.
+### Contacting Semgrep support
 
-### Contacting Semgrep, Inc support
-
-All users can contact Semgrep, Inc support. Regardless if you are a free tier or paid tier user, reach our support through the [Semgrep, Inc Community Slack](https://go.semgrep.dev/slack). Paying Semgrep Team tier customers receive 8\*5 email and Slack support with committed SLAs. See [Support](../support/) for more details.
+All users can contact Semgrep support. Regardless if you are a free tier or paid tier user, reach our support through the [Semgrep Community Slack](https://go.semgrep.dev/slack). Paying Semgrep Team tier customers receive 8\*5 email and Slack support with committed SLAs. See [Support](/support) for more details.
 
 ### Embedding the Playground in my website or blog post
 
@@ -74,33 +77,45 @@ Embed a special version of Semgrep Playground with an `iframe`. The source is `h
 
 Semgrep is an open-source tool with a simple syntax for writing rules: if you can write code, you can write a Semgrep rule — no program analysis Ph. D. required!
 
-To our knowledge, the only other tool with the explicit goal of allowing custom rules is GitHub’s proprietary tool, CodeQL. CodeQL has a domain-specific language that is extremely powerful but is designed for those with significant program analysis expertise, whereas Semgrep is designed for the security engineer or developer who wants to automate code review. Our goal is to make writing a Semgrep rule as easy as copying the code you want to find—and letting the Semgrep engine make the rule and autofix high-quality enough to run in CI or your text editor or IDE.
+To the Semgrep team's knowledge, the only other tool with the explicit goal of allowing custom rules is GitHub’s proprietary tool, CodeQL. CodeQL has a domain-specific language that is extremely powerful but is designed for those with significant program analysis expertise, whereas Semgrep is designed for the security engineer or developer who wants to automate code review. Our goal is to make writing a Semgrep rule as easy as copying the code you want to find—and letting the Semgrep engine make the rule and autofix high-quality enough to run in CI or your text editor or IDE.
 
-Our hosted offering, [Semgrep Cloud Platform](https://semgrep.dev/manage) provides a Team tier that is free for up to 10 developers on private repositories. It offers a hosted CI integration with a quick setup so you can start running Semgrep right away. Semgrep's diff-awareness lets you scan new code and doesn’t force you to fix all the existing issues when you first start. For users running inside organizations with many repositories, the hosted offering also offers a policy and notification system that makes it easy to tune Semgrep so that it only reports issues or suggests fixes that get applied. Our goal is a 99% fix rate for what Semgrep reports.
+[The Semgrep AppSec Platform](https://semgrep.dev/manage) provides a Team tier that is free for up to 10 contributors on private repositories. It offers a hosted CI integration with a quick setup so you can start running Semgrep right away.
 
-### Besides open-source and ease of writing new rules, what else is different about Semgrep?
+Semgrep's diff-awareness lets you scan new code and doesn’t force you to fix all the existing issues when you first start. For users running inside organizations with many repositories, the hosted offering also offers a policy and notification system that makes it easy to tune Semgrep so that it only reports issues or suggests fixes that get applied.
 
-**1. Speedy & offline: Semgrep runs offline on every keystroke**
+Our goal is a 99% fix rate for what Semgrep reports.
+
+### Besides the ease of writing new rules, what else is different about Semgrep?
+
+#### Speedy and offline: Semgrep runs offline on every keystroke
 
 If you are shipping code daily a code analysis tool that takes a week to run is not helpful. We think modern static analysis tools should run on every keystroke in the editor, without needing network access. Semgrep runs at approximately 20K-100K loc/sec per rule but our goal is to be even faster.
 
-**2. Semantic: Semgrep is smart**
+#### Semantic: Semgrep is smart
 
 Semgrep automatically handles the nuance of “there’s more than one way to do it”: you write your query and all equivalent variations of that code are automatically matched.
 
-As Semgrep evolves, queries similar to `foo("password")` become smarter. In the original version of Semgrep, this query would only match the code `foo("password")`. But a few months after release Semgrep would match `const x = "password"; foo(x)`. Today Semgrep can [do even more with intraprocedural dataflow](https://semgrep.dev/s/50zj) analysis, and we’re working on adding more of these semantic features with every release.
+As Semgrep evolves, queries similar to `foo("password")` become smarter. In the original version of Semgrep, this query would only match the code `foo("password")`. But a few months after release Semgrep would match `const x = "password"; foo(x)`.
 
-**3. Integrated: Semgrep understands git and other version-control systems**
+Today Semgrep can [do even more with intraprocedural dataflow](https://semgrep.dev/s/50zj) analysis, and we’re working on adding more of these semantic features with every release.
 
-It’s easy to write a new Semgrep rule and have it only apply _going forward_. You can [ignore findings](../ignoring-files-folders-code) of course, but we have [built-in support for this with Semgrep CI](/semgrep-ci/overview/) and GitHub/GitLab/etc. integrations.
+#### Integrated: Semgrep understands git
 
-**4. Portable: If you write a Semgrep rule, it runs anywhere**
+It’s easy to write a new Semgrep rule and have it only apply _going forward_. You can [ignore findings](/ignoring-files-folders-code) of course, but we have [<i class="fas fa-external-link fa-xs"></i> built-in support for this with Semgrep Cloud Platform](https://semgrep.dev/manage) and various repository integrations.
 
-Many other tools require a buildable environment or can only be run in a VM. Semgrep runs “on the metal” and has minimal dependencies around a statically linked core; our parsers are declaratively generated C libraries (we contribute to and use [tree-sitter](https://tree-sitter.github.io/)).
 
-And many more: see [the Semgrep philosophy](../contributing/semgrep-philosophy/) for further reading.
+#### Portable: If you write a Semgrep rule, it runs anywhere
+
+Many other tools require a buildable environment or can only be run in a VM. Semgrep runs “on the metal” and has minimal dependencies around a statically linked core; our parsers are declaratively generated C libraries (we contribute to and use [tree-sitter](https://tree-sitter.github.io)).
+
+And many more: see [the Semgrep philosophy](/contributing/semgrep-philosophy) for further reading.
 
 ### Comparing Semgrep to linters
+
+Similar to a linter, Semgrep can be run in your developer's IDE. Semgrep has two extensions:
+
+- Visual Studio Code (VS Code)
+- IntelliJ tk add link
 
 Linters use static analysis but typically have a narrower scope for analysis (most rules typically operate on a single line). Some linters also cover stylistic decisions (for example use of tabs versus spaces), but Semgrep doesn’t care about whitespace or formatting.
 
@@ -110,17 +125,18 @@ Some popular linter tools may use tools like Semgrep as an internal engine, and 
 
 Lastly, while many linters are extensible, you need to learn specific abstract syntax tree (AST) based patterns for writing custom rules. Semgrep works across languages and you learn its syntax once; you don't have to mess with MemberExpressions, node visitors, and all that. Before Semgrep, many of us on the maintainer team were writing AST-based rules as well: [one of us wrote an article comparing writing linter rules to Semgrep expressions](https://semgrep.dev/blog/2020/why-i-moved-to-semgrep-for-all-my-code-analysis/).
 
+
 ### Comparing Semgrep to CodeQL
 
 Both Semgrep and CodeQL use static analysis to find bugs, but there are a few differences:
 
-- Semgrep operates directly on source code, whereas CodeQL requires a buildable environment
-- Semgrep is LGPL-2.1 and free to run anywhere; CodeQL is not open source and you must pay to run it on any non-open-source code
-- Semgrep supports autofixes; CodeQL does not.
-- Semgrep focuses on speed and ease of use. Semgrep doesn’t require compiled code, it doesn’t yet provide some of the analysis features of CodeQL. Semgrep has [limited intraprocedural dataflow](/writing-rules/data-flow/data-flow-overview/) and the proprietary [DeepSemgrep, now part of the Pro Engine](/semgrep-code/semgrep-pro-engine-intro) extension to Semgrep provides similar capabilities as CodeQL in terms of interprocedural dataflow analysis for a subset of supported languages.
-- Both have publicly available rules
+- Semgrep operates directly on source code, whereas CodeQL requires a buildable environment.
+- Semgrep provides both proprietary and open source options that can be run anywhere; CodeQL is not open source and you must pay to run it on any non-open-source code.
+- Semgrep focuses on speed and ease of use. and doesn’t require compiled code.
+  - Semgrep OSS engine provides [intraprocedural dataflow](/writing-rules/data-flow/data-flow-overview/). Semgrep Code's cross-file and cross-function analysis has similar capabilities as CodeQL in terms of cross-function dataflow analysis for a subset of supported languages.
+- Both have publicly available rules.
 - Semgrep rules look like the source code you’re writing; CodeQL has a separate domain-specific-language for writing queries.
-- Semgrep has an online, hosted free plan; both have a hosted paid plan
+- Semgrep has an online, hosted free plan for up to ten contributors to private repositories; both have a hosted paid plan.
 
 See [the Semgrep development philosophy](../contributing/semgrep-philosophy/) for more about what makes Semgrep different.
 
@@ -138,13 +154,12 @@ See the [Semgrep vs. Snyk webpage](https://semgrep.dev/resources/semgrep-vs-snyk
 
 Both Semgrep and SonarQube use static analysis to find bugs, but there are a few differences:
 
-- Extending Semgrep with custom rules is simple since Semgrep rules look like the source code you’re writing. Writing custom rules with SonarQube is [restricted to a handful of languages](https://docs.sonarqube.org/latest/extend/adding-coding-rules/) and requires familiarity with Java and abstract syntax trees (ASTs).
-- Semgrep is LGPL-2.1, SonarQube offers an open-source version but it is missing features. For example, 12 of the supported languages are not available in the open-source offering, and more powerful dataflow features are only available in the paid versions.
+- Extending Semgrep with custom rules is simple since Semgrep rules look like the source code you’re writing. Writing custom rules with SonarQube is [<i class="fas fa-external-link fa-xs"></i> restricted to a handful of languages](https://docs.sonarqube.org/latest/extend/adding-coding-rules/) and requires familiarity with Java and abstract syntax trees (ASTs).
 - Semgrep supports user-defined autofixes; SonarQube does not.
 - Semgrep focuses on speed and ease-of-use, making analysis possible at up to 20K-100K loc/sec per rule. SonarQube authors [report approximately 0.4K loc/sec for rulesets in production](https://web.archive.org/web/20221109203440/https://community.sonarsource.com/t/performance-guide-for-large-project-analysis/148/2).
-- Semgrep CI supports scanning only changed files (differential analysis), SonarQube does not
+- Semgrep supports scanning only changed files (differential analysis), SonarQube does not.
 - Both have publicly available rules
-- Semgrep has an online, hosted free plan; both have a hosted paid plan
+- Semgrep has an online, hosted free plan for up to ten contributors to private repositories; both have a hosted paid plan.
 
 See [the Semgrep development philosophy](../contributing/semgrep-philosophy/) for more about what makes Semgrep different.
 
@@ -152,7 +167,7 @@ See [the Semgrep development philosophy](../contributing/semgrep-philosophy/) fo
 
 ### Where do you store data?
 
-Semgrep, Inc uses Amazon Web Services (US region) for storing customer data.
+Semgrep, Inc uses Amazon Web Services (US region) for storing customer data. (CDN cachetk check)
 
 ### How is data secured, including data-at-rest and data-in-transit?
 
@@ -160,13 +175,18 @@ All customer data is located in AWS (US region). Amazon RDS encrypted database i
 
 ### Is private source code shared with Semgrep, Inc?
 
-No. Semgrep CI runs fully in your CI pipeline and your source-code never leaves your environment. Only meta-data related to Semgrep runs (see below) are sent to Semgrep's service.
+
+By default, Semgrep configurations run fully in your CI pipeline and your source code never leaves your environment. Only metadata related to Semgrep runs (see the following question) are sent to Semgrep's service.
+
+However, if you choose to opt-in to Semgrep Assistant, your source code is shared in accordance to
+tk-continue
+
 
 ### What data is stored?
 
-[Semgrep](https://github.com/semgrep/semgrep) may send data to Semgrep App in accordance with the [metrics policy](/metrics).
+[Semgrep](https://github.com/semgrep/semgrep) may send data to Semgrep Cloud Platform in accordance with the [metrics policy](/metrics).
 
-Configure Semgrep CI to explicitly send two types of data to Semgrep App. These types of data are scan data and findings data.
+These types of data are scan data and findings data.
 
 - Scan data includes project name, CI environment, and scan meta-data.
 - Findings data are used to provide human-readable content for notifications and integrations, as well as tracking results as new, fixed, or duplicate.
@@ -197,6 +217,6 @@ A policy is a simple collection of rules and a definition of what to do with rul
 
 ### Do you have a visualization UI?
 
-Semgrep Team users can create custom dashboards and visualizations. Semgrep also supports posting results through [webhooks](https://semgrep.dev/docs/semgrep-cloud-platform/webhooks) to any JSON endpoint, so you can easily integrate it with your favorite visualization tool.
+Semgrep Cloud Platform users can create custom dashboards and visualizations. Semgrep also supports posting results through [webhooks](https://semgrep.dev/docs/semgrep-cloud-platform/webhooks) to any JSON endpoint, so you can easily integrate it with your favorite visualization tool.
 
 <MoreHelp />
