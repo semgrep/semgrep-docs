@@ -1,9 +1,9 @@
 ---
 slug: semgrep-pro-engine-intro
 append_help_link: true
-description: "This article introduces Semgrep Pro Engine, guides you through installation, and provides some additional information."
+description: "This article introduces interfile (cross-file) analysis, guides you through installation, and provides some additional information."
 hide_title: true
-title: Enabling interfile analysis with Pro Engine 
+title: Perform interfile analysis
 ---
 
 import MoreHelp from "/src/components/MoreHelp"
@@ -11,7 +11,7 @@ import SemgrepProEngineIntroduction from "/src/components/concept/_semgrep-pro-e
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-# Semgrep Pro Engine overview
+# Perform interfile analysis 
 
 <SemgrepProEngineIntroduction extended/>
 

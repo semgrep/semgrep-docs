@@ -5,7 +5,7 @@ description: "Configure how Semgrep in CI pipelines handles errors and blocks fi
 tags:
     - Semgrep in CI
     - Team & Enterprise Tier
-title: Configuring blocking findings and errors in CI 
+title: Configure blocking findings 
 hide_title: true
 ---
 
@@ -20,9 +20,9 @@ Object.entries(frontMatter).filter(
 }
 </ul>
 
-# Configuring blocking findings and errors in continuous integration (CI)
+# Configure blocking findings and errors
 
-This article documents how Semgrep in CI pipelines handles blocking findings and errors in its default setup. This article also provides three configuration options you can use to change or revert to the default behavior.
+This article documents how Semgrep pipelines handles blocking findings and errors in its default setup. This article also provides three configuration options you can use to change or revert to the default behavior.
 
 ## Default configuration of blocking findings and error suppression
 

@@ -224,7 +224,6 @@ module.exports = {
                 'semgrep-code/semgrep-assistant-code',
                 'semgrep-ci/configuring-blocking-and-errors-in-ci',
                 'semgrep-code/editor',
-                'running-rules'
             ]
         },
         {
