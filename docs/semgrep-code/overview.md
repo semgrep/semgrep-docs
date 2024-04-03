@@ -39,7 +39,7 @@ Semgrep Cloud Platform (SCP) displays Semgrep Code's findings. Additionally, SCP
 
 By default, Semgrep Code can analyze interactions beyond a single function but within a single file, a process known as **cross-function or interprocedural analysis**. This smaller scope of analysis makes it faster and easier to integrate into developer workflows.
 
-Semgrep OSS can only analyze interactions within a single function, known as intraprocedural or single-function analysis. Semgrep Code scans take slightly longer to finish. <!-- can we have a stat for this -->
+Semgrep OSS can only analyze interactions within a single function, known as intraprocedural or single-function analysis. However, this means that Semgrep OSS is slightly faster than Semgrep Code. <!-- can we have a stat for this -->
 
 Semgrep Code also supports **[cross-file analysis](/semgrep-code/semgrep-pro-engine-intro/)** (interfile) analysis. These scans produce fewer false positives and more true positives, but take longer to complete.
 
