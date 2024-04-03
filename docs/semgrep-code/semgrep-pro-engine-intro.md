@@ -35,6 +35,7 @@ This is the preferred method to run cross-file analysis. It enables you to view 
 1. Sign in to [<i class="fas fa-external-link fa-xs"></i> Semgrep Cloud Platform](https://semgrep.dev/login).
 1. Click **<i class="fa-solid fa-gear"></i> [Settings](https://semgrep.dev/orgs/-/settings)**.
 1. In the **Deployment** tab, click the <i class="fa-solid fa-toggle-large-on"></i> **Cross-file analysis** toggle.
+![Cross-file analysis toggle](/img/cross-file-analysis-toggle.png#md-width)
 1. Ensure that you have the **default ruleset** added in your **[Policies page](https://semgrep.dev/orgs/-/policies)**. If this ruleset is **not** added, go to [<i class="fas fa-external-link fa-xs"></i> Semgrep Registry - Default ruleset page](https://semgrep.dev/p/default), then click **Add to Policy**. For best results, set this ruleset to the **Monitor** rule mode.
 
 **Full scans** now include cross-file analysis. You can trigger a full scan through your CI provider. Note that cross-file analysis does **not** currently run on diff-aware (pull or merge request) scans. 
@@ -49,6 +50,7 @@ This is the preferred method to run cross-file analysis. It enables you to view 
 1. For first-time users, click **Create an organization**. Note that you can further integrate organizations (orgs) with GitLab accounts and GitHub accounts, including personal and org accounts, after you complete this procedure.
 1. Click **<i class="fa-solid fa-gear"></i> [Settings](https://semgrep.dev/orgs/-/settings)**.
 1. In the **Deployment** tab, click the <i class="fa-solid fa-toggle-large-on"></i> **Cross-file analysis** toggle.
+![Cross-file analysis toggle](/img/cross-file-analysis-toggle.png#md-width)
 1. Ensure that you are in the **root directory** of the repository you want to scan.
 1. In your CLI, log in to your Semgrep Cloud Platform account and run a scan:
 ```sh
