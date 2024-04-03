@@ -20,7 +20,7 @@ A diff-aware scan is a type of scan that scans changes in files starting from a 
 
 ## Full scan
 
-A full scan scans the entire codebase or git repository in its current state. It is typically performed on trunk or mainline branches, such as `master`. Semgrep, Inc. recommends scanning on a recurring basis, such as daily or weekly.
+A full scan scans the entire codebase or git repository in its current state. It is typically performed on trunk or mainline branches, such as `master`. Semgrep, Inc. recommends performing full scans on a recurring basis, such as daily or weekly.
 
 ## Policy
 
