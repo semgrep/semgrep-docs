@@ -15,7 +15,7 @@ You can use Semgrep Pro or Semgrep OSS to scan your code for security issues, bu
 
 **Rules**, which are written in YAML, describe how Semgrep generates a **finding**, such as a security issue. A rule encapsulates the pattern-matching logic and is meant to be readable and customizable.
 
-Semgrep Pro provides different types of analyses, such as Semgrep Code's cross-file, cross-function analysis in Semgrep Code. Semgrep OSS runs only single-function analysis.
+Semgrep Pro includes different types of analyses, such as Semgrep Code's cross-file, cross-function analysis in Semgrep Code. Semgrep OSS runs only single-function analysis.
 
 This document outlines key differences between the Semgrep OSS and Pro product lines.
 
