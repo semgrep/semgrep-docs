@@ -22,7 +22,7 @@ Object.entries(frontMatter).filter(
 
 # Configure blocking findings and errors
 
-This article documents how Semgrep pipelines handles blocking findings and errors in its default setup. This article also provides three configuration options you can use to change or revert to the default behavior.
+This article documents how Semgrep pipelines handle blocking findings and errors in its default setup. This article also provides three configuration options you can use to change or revert to the default behavior.
 
 ## Default configuration of blocking findings and error suppression
 
