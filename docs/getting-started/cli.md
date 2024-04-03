@@ -111,7 +111,7 @@ semgrep ci --oss-only
 ```
 
 :::info
-See [Semgrep Pro versus Semgrep OSS](/semgrep-pro-vs-oss) for information on the differences between Semgrep's proprietary analyses and its open-source analysis.
+See [Semgrep Pro versus Semgrep OSS](/semgrep-pro-vs-oss) for information on the differences between Semgrep's proprietary and open-source analyses.
 :::
 
 ## Scan using specific Semgrep Products
