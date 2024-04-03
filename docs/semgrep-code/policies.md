@@ -1,7 +1,7 @@
 ---
 slug: policies
 append_help_link: true
-title: Setting rules through Policies
+title: Set rules through Policies
 hide_title: true
 description: "The Policies page is a visual representation of the rules that Semgrep Code uses to scan code."
 tags:
@@ -20,7 +20,7 @@ Object.entries(frontMatter).filter(
 }
 </ul>
 
-# Policies
+# Set rules through Policies
 
 Increase the breadth and depth of your scan coverage or remove noise from scans through the Policies page. Block or allow merges for pull requests (PRs) or merge requests (MRs) based on the rule that detected the finding.
 
