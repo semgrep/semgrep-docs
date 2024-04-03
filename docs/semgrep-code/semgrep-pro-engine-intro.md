@@ -1,9 +1,9 @@
 ---
 slug: semgrep-pro-engine-intro
 append_help_link: true
-description: "This article introduces interfile (cross-file) analysis, guides you through installation, and provides some additional information."
+description: "This article introduces cross-file (interfile) analysis, guides you through installation, and provides some additional information."
 hide_title: true
-title: Perform interfile analysis
+title: Perform cross-file analysis
 ---
 
 import MoreHelp from "/src/components/MoreHelp"
@@ -22,7 +22,7 @@ Refer to [<i class="fa-regular fa-file-lines"></i> Supported languages](/support
 
 ## Run cross-file analysis
 
-This section guides you through the Pro Engine installation and helps you to scan your projects both in CLI and with Semgrep Cloud Platform (SCP).
+This section guides you through installing the proprietary cross-file (interfile) analysis binary and helps you to scan your projects both in CLI and with Semgrep Cloud Platform (SCP).
 
 ### Run cross-file analysis with Semgrep Cloud Platform
 
@@ -37,7 +37,7 @@ This is the preferred method to run cross-file analysis. It enables you to view 
 1. In the **Deployment** tab, click the <i class="fa-solid fa-toggle-large-on"></i> **Cross-file analysis** toggle.
 1. Ensure that you have the **default ruleset** added in your **[Policies page](https://semgrep.dev/orgs/-/policies)**. If this ruleset is **not** added, go to [<i class="fas fa-external-link fa-xs"></i> Semgrep Registry - Default ruleset page](https://semgrep.dev/p/default), then click **Add to Policy**. For best results, set this ruleset to the **Monitor** rule mode.
 
-**Full scans** now include cross-file analysis. You can trigger a full scan through your CI provider. Note that interfile analysis does **not** currently run on diff-aware (pull or merge request) scans. 
+**Full scans** now include cross-file analysis. You can trigger a full scan through your CI provider. Note that cross-file analysis does **not** currently run on diff-aware (pull or merge request) scans. 
 
 ### Run cross-file analysis in the CLI
 
@@ -117,7 +117,7 @@ Cross-file analysis uses a separate `semgrep` binary. To update to the latest ve
     ```sh
     semgrep login
     ```
-1. Update the Semgrep Pro Engine:
+1. Update the Semgrep cross-file binary:
     ```sh
     semgrep install-semgrep-pro
     ```
@@ -125,7 +125,7 @@ Cross-file analysis uses a separate `semgrep` binary. To update to the latest ve
 
 ### Write rules that analyze across files and functions 
 
-To create rules that analyze across files and functions, add `interfile: true` under the `options` key when defining a rule. This key signals Semgrep Pro Engine to use the rule for both cross-function and cross-file analysis.
+To create rules that analyze across files and functions, add `interfile: true` under the `options` key when defining a rule. This key tells Semgrep to use the rule for both cross-function and cross-file analysis.
 
 #### Cross-function example
 
@@ -136,9 +136,9 @@ The following example shows how to define the `interfile` key (see the **Rule** 
 
 Click **<i class="fa-solid fa-play"></i> Run** to see the true positive in lines 27-30.
 
-The Pro Engine performed cross-function analysis as the `userInput()` source was called in `main()` while the `exec()` sink was called in the `DockerCompose` class.
+Semgrep Code performed cross-function analysis as the `userInput()` source was called in `main()` while the `exec()` sink was called in the `DockerCompose` class.
 
-Interact with the rule widget to compare Semgrep OSS and Semgrep Pro Engine. In the **Rule** pane, you can remove the lines:
+Interact with the rule widget to compare Semgrep OSS and Semgrep Code. In the **Rule** pane, you can remove the lines:
 
 ```yaml
 options:
@@ -151,7 +151,7 @@ This results in a failure to detect the true positive, because Semgrep did not p
 
 ### CommonJS
 
-Currently Semgrep Pro Engine does not handle specific cases of CommmonJS where you define a function and assign it to an export later. Semgrep Pro Engine does not track the code below:
+Currently Semgrep's cross-file analysis does not handle specific cases of CommmonJS where you define a function and assign it to an export later. Cross-file analysis does not track the code below:
 
 ```js
 function get_user() {
@@ -163,11 +163,11 @@ module.exports = get_user
 
 ### Regressions in cross-file analysis
 
-Cross-file analysis resolves names differently than Semgrep OSS's analysis. Consequently, rules with `interfile: true` may produce different results than Semgrep OSS. Some instances could be regarded as regressions; if you encounter them, please file a bug report. When you need to report a bug in Semgrep Pro Engine, go through [Semgrep Support](/docs/support/). You can also contact us through [Semgrep Community Slack group](https://go.semgrep.dev/slack).
+Cross-file analysis resolves names differently than Semgrep OSS's analysis. Consequently, rules with `interfile: true` may produce different results than Semgrep OSS. Some instances could be regarded as regressions; if you encounter them, please file a bug report. When you need to report a bug in Semgrep's cross-file analysis, go through [Semgrep Support](/docs/support/). You can also contact us through [Semgrep Community Slack group](https://go.semgrep.dev/slack).
 
 ## Appendix
 
-### Types of Semgrep Pro Engine analysis
+### Types of Semgrep Code analysis
 
 <dl>
     <dt>Cross-file (interfile) analysis</dt>
@@ -177,7 +177,7 @@ Cross-file analysis resolves names differently than Semgrep OSS's analysis. Cons
     <dt>Cross-function (interprocedural) analysis</dt>
     <dd><ul><li>Cross-function analysis finds patterns within a single file spanning code blocks and functions.</li>
     <li>Semgrep Code scans run cross-function analysis by default.</li>
-    <li>See an example of cross-function analysis in <a href="#pro-engine-cross-function-example"> Pro Engine cross-function example</a>.</li>
+    <li>See an example of cross-function analysis in <a href="#pro-engine-cross-function-example"> Semgrep Code cross-function example</a>.</li>
     <li>See the available languages for cross-function analysis in <a href="/docs/supported-languages/#semgrep-pro-engine"><i class="fa-regular fa-file-lines"></i> Supported languages</a>.</li></ul>
     </dd>
 </dl>
@@ -188,10 +188,10 @@ To provide reliably completed scans, Semgrep Code can **fall back** to the use o
 
 By default, if a scan uses more than **5GB** of memory during cross-file pre-processing, the scan uses single-function analysis to ensure lower memory consumption. Similarly, if a cross-file scan doesn't complete after 3 hours, the analysis times out and Semgrep rescans the repository using single-function analysis. Typically, this happens because the repository is very large.
 
-If 1-2 repositories cause CI scan issues and scanning these repositories with Pro Engine is not critical, modify your config file to use `semgrep ci --oss-only`. This overrides the Semgrep Cloud Platform setting for these repositories, and always runs these scans with single-function analysis.
+If 1-2 repositories cause CI scan issues and scanning these repositories with interfile analysis is not critical, modify your config file to use `semgrep ci --oss-only`. This overrides the Semgrep Cloud Platform setting for these repositories, and always runs these scans with single-function analysis.
 
-If many repositories cause scan issues, or you have critical repositories you are unable to scan with Semgrep Pro Engine:
-1. Disable the <i class="fa-solid fa-toggle-large-on"></i> **Pro Engine beta** toggle in the **[Settings](https://semgrep.dev/orgs/-/settings)** page of your organization.
+If many repositories cause scan issues, or you have critical repositories you are unable to scan with Semgrep's interfile analysis:
+1. Disable the <i class="fa-solid fa-toggle-large-on"></i> **Cross-file analysis** toggle in the **[Settings](https://semgrep.dev/orgs/-/settings)** page of your organization.
 1. Review scan troubleshooting guides such as [A Semgrep scan is having a problem - what next?](/docs/kb/semgrep-code/semgrep-scan-troubleshooting/) or [Troubleshooting "You are seeing this because the engine was killed"](/docs/kb/semgrep-code/scan-engine-kill/).
 1. If you need additional guidance, [contact Semgrep Support](/docs/support), or reach out to the Semgrep team in the <a href="https://go.semgrep.dev/slack">Semgrep Community Slack</a> so we can help you resolve the issue and create a plan for your organization.
 

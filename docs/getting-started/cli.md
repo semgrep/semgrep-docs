@@ -13,9 +13,11 @@ import Install from "/src/components/procedure/_install-cli.mdx";
 import Login from "/src/components/procedure/_login-activate.mdx";
 import ScanRuleset from "/src/components/reference/_scan-ruleset.mdx"
 
-# Local scans with Semgrep Pro Engine
+# Local scans with Semgrep 
 
-Learn how to set up Semgrep, scan your project for security issues using Semgrep's Pro Engine, and view your findings in the CLI.
+<!-- semgrep ci can run any product, so I removed the reference to Pro Engine -->
+
+Learn how to set up Semgrep, scan your project for security issues using Semgrep Code's interfile analysis, and view your findings in the CLI.
 
 ## Prerequisites
 
@@ -26,7 +28,7 @@ Before proceeding, see [Prerequisites](/prerequisites/) to ensure that your mach
 For scans using `semgrep ci`:
 
 * Ensure that you have and are logged in to your [Semgrep Account](https://semgrep.dev/login).
-* Ensure that you've enabled the **Pro Engine** <i class="fa-solid fa-toggle-large-on"></i> toggle on Semgrep Cloud Platform's [Settings](https://semgrep.dev/orgs/-/settings) page.
+* Ensure that you've enabled the **Cross-file analysis** <i class="fa-solid fa-toggle-large-on"></i> toggle on Semgrep Cloud Platform's [Settings](https://semgrep.dev/orgs/-/settings) page.
 
 ## Set up Semgrep
 
@@ -100,16 +102,16 @@ semgrep ci --dry-run
 
 This can be helpful to verify the results of a specific ruleset or to see how your findings change based on the rulesets you choose for your scans.
 
-### Scan using Semgrep's OSS engine
+### Scan using OSS-only analysis (single-function)
 
-To scan your project with Semgrep's OSS Engine, even though you have the Pro Engine enabled in Semgrep Cloud Platform:
+To scan your project using exclusively open-source Semgrep, even though you have proprietary cross-file analysis enabled in Semgrep Cloud Platform:
 
 ```console
 semgrep ci --oss-only
 ```
 
 :::info
-See [Semgrep Pro versus Semgrep OSS](/semgrep-pro-vs-oss) for information on the differences between Semgrep Pro and OSS Engines.
+See [Semgrep Pro versus Semgrep OSS](/semgrep-pro-vs-oss) for information on the differences between Semgrep's proprietary analyses and its open-source analysis.
 :::
 
 ## Scan using specific Semgrep Products
