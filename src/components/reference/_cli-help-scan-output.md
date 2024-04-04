@@ -44,11 +44,6 @@ OPTIONS
            run if not currently in a git directory, there are unstaged
            changes, or given baseline hash doesn't exist. 
 
-       --beta-testing-secrets-enabled
-           Please use --secrets instead of --beta-testing-secrets. Requires
-           Semgrep Secrets, contact support@semgrep.com for more information
-           on this.
-
        -d, --dump-command-for-core
            <internal, do not use>
 
