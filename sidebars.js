@@ -118,6 +118,15 @@ module.exports = {
         },
         {
           type: 'category',
+          label: 'AI-assisted triage and autofix',
+          collapsible: true,
+          link: {type: 'doc', id: 'semgrep-assistant/overview'},
+          items: [
+            'semgrep-assistant/getting-started'
+          ]
+        },
+        {
+          type: 'category',
           label: 'Notifications',
           collapsible: true,
           link: {type: 'doc', id: 'semgrep-cloud-platform/notifications'},
@@ -221,7 +230,6 @@ module.exports = {
                 'semgrep-code/findings',
                 'semgrep-code/triage-remediation',
                 'semgrep-code/remove-duplicates',
-                'semgrep-code/semgrep-assistant-code',
                 'semgrep-ci/configuring-blocking-and-errors-in-ci',
                 'semgrep-code/editor',
                 'running-rules',
