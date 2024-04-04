@@ -79,6 +79,8 @@ A metavariable is an abstraction that lets you match something even when you don
 
 A propagator is any code that alters a piece of data as the data moves across the program. This includes functions, reassignments, and so on.
 
+When you write rules that perform taint analysis, you must define propagators explicitly in the `pattern-propagator` key. By defining those propagators, you specify to Semgrep the paths that are guaranteed to carry the tainted data throughout the program.
+
 ## Rule (Semgrep rule)
 
 A rule is a specification of the patterns that Semgrep must match to the code to generate a finding. Rules are written in YAML. Without a rule, the engine has no instructions on how to match code.
