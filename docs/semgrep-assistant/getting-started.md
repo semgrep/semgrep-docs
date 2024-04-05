@@ -20,7 +20,7 @@ This article walks you through enabling Semgrep Assistant for your deployment.
 
 <TabItem value='github'>
 
-Semgrep Assistant extends normal Semgrep capabilities by providing contextually aware AI-generated suggestions. In order to build that context, it requires GitHub permissions in excess of the 
+Semgrep Assistant extends normal Semgrep capabilities by providing contextually-aware AI-generated suggestions. In order to build that context, it requires GitHub permissions in excess of the 
 [<i class="fa-regular fa-file-lines"></i> standard permissions required for Semgrep](/deployment/checklist/#permissions).
 
 Semgrep Assistant requires [read access to your code in GitHub](https://docs.github.com/en/rest/overview/permissions-required-for-github-apps?apiVersion=2022-11-28). This is done through a private Semgrep GitHub app that you install during Assistant setup. This private Semgrep GitHub app:
@@ -46,14 +46,14 @@ Semgrep Assistant requires [read access to your code in GitHub](https://docs.git
 4. You are redirected to Semgrep Cloud Platform's **Source Code Managers** page. Navigate back to the **Deployment** page. Under the **Assistant** section, verify that all of the features are enabled:
    1. **Allow code snippets in AI prompts**: Required for Semgrep to auto-triage findings, provide AI remediation guidance, and tag findings with code context.
    2. **Autofix suggestions for Code**: Enable autofix suggestions in comments from Assistant. You can also set the minimum confidence level for Assistant-written fixes if the Semgrep rule doesn't include a human-written autofix.
-   3. **Auto-triage for Code**: Enable notifications whenever Assistant suggests that a finding may be safe to ignore. You can include notifications in your PR and MR comments or you can receive them through Slack notifications.
+   3. **Auto-triage for Code**: Enable notifications whenever Assistant suggests that a finding may be safe to ignore. You can include notifications in your PR and MR comments, or you can receive them through Slack notifications.
     ![Screenshot of Semgrep Assistant toggle location](/img/semgrep-assistant-enable.png)
 
 </TabItem>
 
 <TabItem value='gitlab'>
 
-Semgrep Assistant extends normal Semgrep capabilities by providing contextually aware AI-generated suggestions. In order to build that context, it requires GitLab permissions in excess of the 
+Semgrep Assistant extends normal Semgrep capabilities by providing contextually-aware AI-generated suggestions. In order to build that context, it requires GitLab permissions in excess of the 
 [<i class="fa-regular fa-file-lines"></i> standard permissions required for Semgrep](/deployment/checklist/#permissions).
 
 Semgrep Assistant requires the **API scope** to run in both GitLab SaaS and GitLab self-managed instances. This can be specified at either the [project access token level](https://docs.gitlab.com/ee/user/project/settings/project_access_tokens.html) or [personal access token level](https://docs.gitlab.com/ee/user/profile/personal_access_tokens.html). 
@@ -66,45 +66,43 @@ Semgrep Assistant requires the **API scope** to run in both GitLab SaaS and GitL
 
 1. Sign in to [Semgrep Cloud Platform <i class="fas fa-external-link fa-xs"></i>](https://semgrep.dev/login) using your GitLab account.
 2. Click **[<i class="fa-solid fa-gear"></i> Settings](https://semgrep.dev/orgs/-/settings/)**. 
-3. In the **Products** section, on the **Assistant** entry, click the **toggle <i class="fa-solid fa-toggle-large-on"></i>**.
-![Screenshot of Semgrep Assistant setup button](/img/semgrep-assistant-gl-setup.png#md-width)
-1. Click **Accept & enable Assistant** to accept the Semgrep Assistant terms of service.
-2. In the **Code** section, Click **Auto-triage with Semgrep Assistant** <i class="fa-solid fa-toggle-large-on"></i>.
+3. In the **Assistant** section, click the **<i class="fa-solid fa-gear"></i> Allow code snippets in AI prompts** toggle.
+![Screenshot of Semgrep Assistant setup button](/img/semgrep-assistant-setup.png#md-width)
+   This launches the **Set up Semgrep Assistant** prompt.
+4. Follow the on-screen instructions to complete the setup process.
+5. Navigate back to the **Deployment** page. Under the **Assistant** section, verify that all of the features are enabled:
+   1. **Allow code snippets in AI prompts**: Required for Semgrep to auto-triage findings, provide AI remediation guidance, and tag findings with code context.
+   2. **Autofix suggestions for Code**: Enable autofix suggestions in comments from Assistant. You can also set the minimum confidence level for Assistant-written fixes if the Semgrep rule doesn't include a human-written autofix.
+   3. **Auto-triage for Code**: Enable notifications whenever Assistant suggests that a finding may be safe to ignore. You can include notifications in your PR and MR comments, or you can receive them through Slack notifications.
     ![Screenshot of Semgrep Assistant toggle location](/img/semgrep-assistant-enable.png)
-3. Click <i class="fa-solid fa-square-check"></i> **PR/MR Comments** to receive comments.
-4. Click <i class="fa-solid fa-square-check"></i> **Slack notifications** to receive Slack notifications.
-
-You have successfully enabled Semgrep Assistant for cloud-hosted GitLab plans.
-![MR comment from Semgrep Assistant in GitLab](/img/assistant-gl-comment.png#md-width)
-*Figure*. MR comment from Semgrep Assistant in GitLab.
 
 </TabItem>
 </Tabs>
 
 ### Enable autofix suggestions
 
-To enable autofix suggestions by Semgrep Assistant:
+If [autofix](/semgrep-assistant/overview/#autofix), which allows you to receive code snippets to remediate true positive findings, isn't enabled for your deployment, you can do so as follows:
 
 1. Log in to Semgrep Cloud Platform, and navigate to **Settings > Deployment**.
 2. In the **Assistant** section, click the **Autofix suggestions for Code** <i class="fa-solid fa-toggle-large-on"></i> if it is not yet enabled.
 3. *Optional*: Select a **confidence level** in the drop-down box. This value determines the level of quality at which the autofix code appears as a suggestion. A lower confidence level means that Semgrep Assistant displays the autofix suggestion even when the code quality may be incorrect.
     :::tip
-    Semgrep recommends setting a low confidence level, since even incorrect suggestions may be useful starting points for triage and remediation.
+    Semgrep recommends setting a low confidence level since even incorrect suggestions may be useful starting points for triage and remediation.
     :::
 
 ### Enable auto-triage
 
-To enable auto-triage by Semgrep Assistant, which allows you to get notifications whenever Assistant indicates a finding may be safe to ignore:
+If [auto-triage](/semgrep-assistant/overview/#autotriage), which allows you to get notifications whenever Assistant indicates a finding may be safe to ignore, isn't enabled for your deployment, you can do so as follows:
 
 1. Log in to Semgrep Cloud Platform, and navigate to **Settings > Deployment**.
 2. In the **Assistant** section, click the **Auto-triage for Code** <i class="fa-solid fa-toggle-large-on"></i> if it is not yet enabled.
 3. Select whether you want alerts included in your **PR/MR comments** and **Slack notifications**.
 
-![Screenshot of Semgrep Assistant in a Slack notification](/img/semgrep-assistant-slack.png#md-width)
-    *Figure*. Semgrep Assistant in a Slack notification.
+![MR comment from Semgrep Assistant in GitLab](/img/assistant-gl-comment.png#md-width)
+*Figure*. MR comment from Semgrep Assistant in GitLab.
 
 #### Missing PR and comments
-Semgrep Assistant messages only appear in your PR comments for rules that are set to Comment or Block mode in the Rule Management page. Ensure that:
+Semgrep Assistant messages only appear in your PR comments for rules that are set to Comment or Block mode on the Rule Management page. Ensure that:
 
 * You have set rules to Comment or Block mode.
   ![Screenshot of Policies modes](/img/semgrep-assistant-comment.png)
@@ -113,7 +111,7 @@ Semgrep Assistant messages only appear in your PR comments for rules that are se
 ## Analyze findings
 
 Once you've [enabled Assistant](/semgrep-code/semgrep-assistant-code/#enable-semgrep-assistant),
-you can use the **Analyze** button on the [Findings page](/semgrep-code/findings) to trigger all Assistant functions, including autofix, autotriage, and component tagging, on existing findings.
+you can use the **Analyze** button on the [Findings page](/semgrep-code/findings) to trigger all Assistant functions, including autofix, auto-triage, and component tagging, on existing findings.
 
 ![Assistant Analyze button on Findings page](/img/scp-assistant.png#md-width)
 
