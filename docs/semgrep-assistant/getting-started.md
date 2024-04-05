@@ -110,8 +110,7 @@ Semgrep Assistant messages only appear in your PR comments for rules that are se
 
 ## Analyze findings
 
-Once you've [enabled Assistant](/semgrep-code/semgrep-assistant-code/#enable-semgrep-assistant),
-you can use the **Analyze** button on the [Findings page](/semgrep-code/findings) to trigger all Assistant functions, including autofix, auto-triage, and component tagging, on existing findings.
+Once you've enabled Assistant, you can use the **Analyze** button on the [Findings page](/semgrep-code/findings) to trigger all Assistant functions, including autofix, auto-triage, and component tagging, on existing findings.
 
 ![Assistant Analyze button on Findings page](/img/scp-assistant.png#md-width)
 
