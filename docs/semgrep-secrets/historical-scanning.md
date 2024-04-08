@@ -7,7 +7,7 @@ description: Detect valid, leaked secrets in previous git commits through a hist
 tags:
   - Semgrep Secrets
 ---
-
+tk
 # Scan your git history
 
 Detect valid, leaked secrets in previous git commits through a **historical scan**.
