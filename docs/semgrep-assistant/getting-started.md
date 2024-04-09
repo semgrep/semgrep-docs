@@ -124,6 +124,10 @@ After Assistant performs these functions, you can see your results on the **Find
 
 The amount of time required to analyze your findings varies, but SCP displays a notification that provides an estimated wait time.
 
+:::info
+There is a cap of 250 Assistant runs per month using the **Analyze** button. Assistant runs against pull requests and merge requests do not count against this limit.
+:::
+
 ## View recommendations
 
 You can [view all of Semgrep Assistant's recommendations](/semgrep-code/findings/#filter-findings) by going to Semgrep Cloud Platform's **Findings** page and filtering by **Recommendation** or **Component**.
