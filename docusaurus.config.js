@@ -12,7 +12,7 @@ module.exports = {
   favicon: 'img/favicon.ico',
   organizationName: 'semgrep', // Usually your GitHub org/user name.
   projectName: 'semgrep', // Usually your repo name.
-  trailingSlash: false,
+  trailingSlash: true,
   themes: ['@markprompt/docusaurus-theme-search'],
   themeConfig: {
     markprompt: {
