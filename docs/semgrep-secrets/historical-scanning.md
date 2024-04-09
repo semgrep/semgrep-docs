@@ -76,13 +76,7 @@ The historical scan results appear in the **Secrets Historical Scan** section:
 
 ![Historical scan section in the CLI](/img/historical-scans-cli.png#md-width)
 
-#### Find all secrets
-
-By default, a historical scan validates the secrets it finds to ensure that they are true positives. To find all historical secrets, including invalid ones, you can run the following command:
-```bash
-semgrep scan --historical-secrets --no-secrets-validation
 ```
-
 ## View or hide historical findings
 
 ![Historical secrets in Semgrep Cloud Platform](/img/historical-secrets-scp.png)
@@ -98,7 +92,7 @@ The following sections discuss historical scan limitations, how findings are tri
 
 ### Limitations
 
-- Historical scanning can slow down scan times. Depending on the size of your repository history, it can take as quickly as under 5 minutes to more than 20 minutes for extreme cases.
+- Historical scanning can slow down scan times. Depending on the size of your repository history, it can take as quickly as under 5 minutes to more than 60 minutes for extreme cases.
 - Within SCP, historical scan findings are not automatically marked as **Fixed**. Findings can only exist in two states: `Open` or `Ignored`. Because Semgrep scans do not automatically detect historical findings as fixed, you must manually rotate and triage the secret as `Ignored`.
 - A finding can show up twice in the CLI with historical scanning enabled: the HEAD commit in the regular Secrets scan and another commit in the historical scan.
     - If findings are sent to SCP, they are deduplicated and appear as a **regular finding**, not a historical finding.
