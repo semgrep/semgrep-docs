@@ -57,7 +57,7 @@ Yes, you can use the Semgrep OSS Engine in your own code analysis software, subj
 
 The Semgrep Community Rules are licensed under the [Commons Clause](https://github.com/semgrep/semgrep-rules/blob/develop/LICENSE). You can use the Semgrep community rules as long as you are shipping a free and open-source software (FOSS) product. You have to open source any modifications you have done to the rules.
 
-You **cannot** ship the Semgrep Community or Pro rules in a commercial product without an explicit license from Semgrep, Inc. For more information, please contact [<i class="fa-regular fa-envelope"></i> partners@semgrep.com](mailto:partners@semgrep.com).
+You **cannot** ship the Semgrep Community or Pro rules in a commercial product without a license from Semgrep, Inc. For more information, please contact [<i class="fa-regular fa-envelope"></i> partners@semgrep.com](mailto:partners@semgrep.com).
 
 ### Contacting Semgrep support
 
