@@ -37,7 +37,7 @@ Semgrep **Community** rules written by the Semgrep team are licensed under the [
 
 Those rules licensed under the Commons Clause license cannot be resold without Semgrep, Inc. (“Semgrep”)’s permission. Since Semgrep offers a paid, hosted application, it’s important to have this restriction so other companies, like major cloud providers, cannot resell Semgrep’s rules as a competing service.
 
-Aside from Semgrep Community rules, [Semgrep Code](https://semgrep.dev/products/semgrep-code) includes **Pro rules** which are proprietary and only available to paying customers.
+In addition to Semgrep Community rules, [Semgrep Code](https://semgrep.dev/products/semgrep-code) includes **Pro rules** which are proprietary and only available to paying customers.
 
 ### Is it ok to run Semgrep or Semgrep, Inc. rules on my work projects?
 
@@ -47,7 +47,7 @@ Yes! Semgrep is safe to run on your private code. The [Semgrep Registry license�
 
 If you are a security consultant and you want to use Semgrep OSS Engine with the Semgrep Community Rules as part of your assessments, that’s great and you don’t have to pay. Feel free to refer your clients to our [Semgrep](https://semgrep.dev/) product suite.
 
-If your service delivers code scanning, meaning a service that includes static application security testing (SAST), software composition analysis (SCA), or secrets scanning, and you want to charge for scanning that includes rules in the [semgrep-rules repository](https://github.com/semgrep/semgrep-rules), **you need an explicit license**.
+If your service delivers code scanning, meaning a service that includes static application security testing (SAST), software composition analysis (SCA), or secrets scanning, and you want to charge for scanning that includes rules in the [semgrep-rules repository](https://github.com/semgrep/semgrep-rules), **you must purchase a license**.
 
 If you want to use Semgrep Code, including its proprietary cross-file (interfile) analysis, Semgrep Supply Chain (SCA), or Semgrep Secrets rules as part of your consulting services, you need a license. Please contact us at [<i class="fa-regular fa-envelope"></i> sales@semgrep.com](mailto:sales@semgrep.com).
 
@@ -57,7 +57,7 @@ Yes, you can use the Semgrep OSS Engine in your own code analysis software, subj
 
 The Semgrep Community Rules are licensed under the [Commons Clause](https://github.com/semgrep/semgrep-rules/blob/develop/LICENSE). You can use the Semgrep community rules as long as you are shipping a free and open-source software (FOSS) product. You have to open source any modifications you have done to the rules.
 
-You **cannot** ship the Semgrep Community or Pro rules in a commercial product without an explicit license from Semgrep, Inc. For more information, please contact [<i class="fa-regular fa-envelope"></i> partners@semgrep.com](mailto:partners@semgrep.com).
+You **cannot** ship the Semgrep Community or Pro rules in a commercial product without a license from Semgrep, Inc. For more information, please contact [<i class="fa-regular fa-envelope"></i> partners@semgrep.com](mailto:partners@semgrep.com).
 
 ### Contacting Semgrep support
 
