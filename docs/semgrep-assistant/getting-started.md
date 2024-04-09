@@ -20,7 +20,7 @@ This article walks you through enabling Semgrep Assistant for your deployment.
 
 <TabItem value='github'>
 
-Semgrep Assistant extends normal Semgrep capabilities by providing contextually-aware AI-generated suggestions. In order to build that context, it requires GitHub permissions in excess of the 
+Semgrep Assistant extends normal Semgrep capabilities by providing contextually aware AI-generated suggestions. In order to build that context, it requires GitHub permissions in excess of the 
 [<i class="fa-regular fa-file-lines"></i> standard permissions required for Semgrep](/deployment/checklist/#permissions).
 
 Semgrep Assistant requires [read access to your code in GitHub](https://docs.github.com/en/rest/overview/permissions-required-for-github-apps?apiVersion=2022-11-28). This is done through a private Semgrep GitHub app that you install during Assistant setup. This private Semgrep GitHub app:
@@ -53,7 +53,7 @@ Semgrep Assistant requires [read access to your code in GitHub](https://docs.git
 
 <TabItem value='gitlab'>
 
-Semgrep Assistant extends normal Semgrep capabilities by providing contextually-aware AI-generated suggestions. In order to build that context, it requires GitLab permissions in excess of the 
+Semgrep Assistant extends normal Semgrep capabilities by providing contextually aware AI-generated suggestions. In order to build that context, it requires GitLab permissions in excess of the 
 [<i class="fa-regular fa-file-lines"></i> standard permissions required for Semgrep](/deployment/checklist/#permissions).
 
 Semgrep Assistant requires the **API scope** to run in both GitLab SaaS and GitLab self-managed instances. This can be specified at either the [project access token level](https://docs.gitlab.com/ee/user/project/settings/project_access_tokens.html) or [personal access token level](https://docs.gitlab.com/ee/user/profile/personal_access_tokens.html). 

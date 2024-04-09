@@ -49,7 +49,7 @@ By categorizing your code through component tags, Semgrep Assistant can help you
 
 ![Semgrep Assistant Component tag list](/img/assistant-component-tags.png)
 
-### Rules recommendations
+### Suggested categories for rules
 
 Semgrep Assistant suggests rule categories for your rules through the Assistant recommendations in the **Dashboard** page. To accept the suggestion, click the **Accept** button, and Semgrep Assistant automatically updates the rule with the suggested category.
 
@@ -57,7 +57,7 @@ Semgrep Assistant suggests rule categories for your rules through the Assistant 
 
 Semgrep Assistant uses GPT-4's understanding of programming languages and libraries and your code and triage history to auto-triage findings and indicate if a finding can safely be ignored. For every recommendation to ignore a finding, Semgrep also provides guidance with an explanation on why this is the case.
 
-It can then surface its recommendations through PR or MR comments, so developers can fix or triage an issue without switching contexts. Semgrep Assistant can also send notifications through Slack.
+Semgrep presents these recommendations through Slack and PR or MR comments, so developers can fix or triage an issue without switching contexts.
 
 ![Screenshot of Semgrep Assistant in a Slack notification](/img/semgrep-assistant-slack.png#md-width)
     *Figure*. Semgrep Assistant in a Slack notification.
@@ -68,11 +68,11 @@ You can view findings that Assistant suggests should be **Ignored** in Semgrep C
 
 Semgrep Assistant can suggest [autofix](/writing-rules/autofix/) code snippets for Semgrep rules that don't have human-written autofix suggestions when it identifies a true positive. Assistant customizes the code snippets it provides based on previous feedback, if any, and your rule customizations. For example, if you have a custom rule that recommends a specific sanitizer, then Assistant will recommend its use in the autofix suggestion.
 
- ou can set the minimum autofix confidence level required to display autofix suggestions from Semgrep Assistant.
+You can set the minimum autofix confidence level required to display autofix suggestions from Semgrep Assistant.
 
 This feature is only active in PR and MR comments. Developers can review and verify Semgrep's generated fixes before they're applied.
 
-![ Screenshot of Semgrep Assistant generating a potential fix](/img/semgrep-assistant-autofix.png)
+![Semgrep Assistant generating a potential fix](/img/semgrep-assistant-autofix.png)
 *Figure*. Semgrep Assistant generates a potential fix.
 
 You can view findings for which Assistant has generated autofix snippets in Semgrep Cloud Platform's **Findings page**. <!-- #10438 --> The finding's detail page also includes a link to the PR or MR comment with the autofix since the PR or MR allows for directly committing the autofix. <!-- #10516 -->
@@ -81,7 +81,7 @@ You can view findings for which Assistant has generated autofix snippets in Semg
 
 ## Privacy and legal considerations
 
-Semgrep gets API permissions to access code on your pre-selected GitHub or GitLab repositories.
+Semgrep uses API permissions to access code on your pre-selected GitHub or GitLab repositories.
 
 * Semgrep Assistant logs and stores the GPT prompts and responses for the sake of performance evaluation, which includes source code snippets.
 * Semgrep Assistant sends relevant lines of code to OpenAI's API, where currently, the "relevant lines of code" means lines that are part of the Semgrep finding, plus 10 lines of context on each side. Semgrep, Inc. is likely to expand this, potentially to the entire file, as we learn how to pass more useful context.
