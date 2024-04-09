@@ -49,10 +49,6 @@ By categorizing your code through component tags, Semgrep Assistant can help you
 
 ![Semgrep Assistant Component tag list](/img/assistant-component-tags.png)
 
-### Suggested categories for rules
-
-Semgrep Assistant suggests rule categories for your rules through the Assistant recommendations in the **Dashboard** page. To accept the suggestion, click the **Accept** button, and Semgrep Assistant automatically updates the rule with the suggested category.
-
 ### Auto-triage
 
 Semgrep Assistant uses GPT-4's understanding of programming languages and libraries and your code and triage history to auto-triage findings and indicate if a finding can safely be ignored. For every recommendation to ignore a finding, Semgrep also provides guidance with an explanation on why this is the case.
