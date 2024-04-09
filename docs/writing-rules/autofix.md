@@ -72,7 +72,7 @@ rules:
 ```
 
 <p align="center">
-  <img src="https://web-assets.r2c.dev/inline-autofix-regex.gif" width="100%" alt="Apply Semgrep autofix direclty to a file"/>
+  <img src="https://web-assets.semgrep.dev/inline-autofix-regex.gif" width="100%" alt="Apply Semgrep autofix direclty to a file"/>
 </p>
 
 ## Removing a code detected by a rule
