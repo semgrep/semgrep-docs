@@ -59,9 +59,6 @@ The general steps are:
     ```
 1. Depending on your CI provider, you may have to perform additional steps to enable the job to run manually. For example, GitHub Actions requires the `workflow_dispatch` event to be added to your CI job.
 
-#### View your historical findings
-
-tk
 
 ### Run a local test scan
 
@@ -86,6 +83,15 @@ By default, a historical scan validates the secrets it finds to ensure that they
 semgrep scan --historical-secrets --no-secrets-validation
 ```
 
+## View or hide historical findings
+
+![Historical secrets in Semgrep Cloud Platform](/img/historical-secrets-scp.png)
+*Figure.* Historical findings in Semgrep Cloud Platform.
+
+1. Sign in to [<i class="fas fa-external-link fa-xs"></i> Semgrep Cloud Platform](https://semgrep.dev/login).
+1. Click **<i class="fa-solid fa-key"></i> Secrets**. Historical findings are identified by an **<i class="fa-solid fa-hourglass-half"></i>** icon.
+1. Click **<i class="fa-solid fa-hourglass-half"></i> Hide historical** to toggle the display of historical findings.
+
 ## How it works
 
 The following sections discuss historical scan limitations, how findings are triaged, and other details that may affect how you implement historical scans in your security program.
@@ -102,6 +108,7 @@ The following sections discuss historical scan limitations, how findings are tri
 - Semgrep Secrets scans up to **5 GiB** of uncompressed blobs. This ranges from around **10,000 to 50,000** previous commits depending on the average size of the commit.
 - For repositories with more than 5 GiB of history, Semgrep Secrets is still able to complete the scan, but the scan scope will not cover the older commits beyond 5 GiB.
 - The size of the commit history affects the speed of the scan. Larger repositories take longer to complete.
+- Semgrep Secrets scans the whole commit history every time it is run. This guarantees that your git history is also scanned using the **latest Secrets rules**.
 
 ### Triage process
 
