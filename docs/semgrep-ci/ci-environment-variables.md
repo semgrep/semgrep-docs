@@ -209,6 +209,7 @@ Set `SEMGREP_REPO_NAME` to create a repository name when scanning with a [CI pro
 
 To avoid hardcoding this value, check your CI provider's documentation for available environment variables that can automatically detect the correct values for every CI job. 
 
+Semgrep automatically detects `SEMGREP_REPO_NAME` if your [provider is listed in Semgrep Cloud Platform](/deployment/add-semgrep-to-ci/#guided-setup-for-ci-providers-in-scp). In this case, there is no need to set the variable.
 Examples:
 
 Within a Bash environment:
@@ -234,7 +235,7 @@ jobs:
 
 ### `SEMGREP_REPO_DISPLAY_NAME`
 
-Set `SEMGREP_REPO_DISPLAY_NAME` to define the name used for the project associated with a given Semgrep scan. By default, `SEMGREP_REPO_DISPLAY_NAME` has the same value as `SEMGREP_REPO_NAME`. This allows you to use a different name for your project than the repository name or to scan a monorepo as multiple projects.
+Set `SEMGREP_REPO_DISPLAY_NAME` to define the name used for the project in Semgrep Cloud Platform. By default, `SEMGREP_REPO_DISPLAY_NAME` has the same value as `SEMGREP_REPO_NAME`. This allows you to use a different name for your project than the repository name or to scan a monorepo as multiple projects.
 
 #### Scan a monorepo as multiple projects
 
