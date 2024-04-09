@@ -71,10 +71,6 @@ rules:
   severity: WARNING
 ```
 
-<p align="center">
-  <img src="https://web-assets.semgrep.dev/inline-autofix-regex.gif" width="100%" alt="Apply Semgrep autofix direclty to a file"/>
-</p>
-
 ## Removing a code detected by a rule
 
 Improve your code quality by cleaning up stale code automatically. Remove code that an autofix rule detected by adding the `fix` key with `""`, an empty string.
