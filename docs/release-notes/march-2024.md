@@ -21,7 +21,6 @@ tags:
   * [<i class="fas fa-external-link fa-xs"></i>1.66.2](https://github.com/semgrep/semgrep/releases/tag/v1.66.2)
   * [<i class="fas fa-external-link fa-xs"></i>1.67.0](https://github.com/semgrep/semgrep/releases/tag/v1.67.0)
 
-
 ## 🌐 Cloud Platform
 
 ### Added
