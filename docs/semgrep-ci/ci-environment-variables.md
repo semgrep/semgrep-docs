@@ -236,7 +236,7 @@ jobs:
 
 Set `SEMGREP_REPO_DISPLAY_NAME` to define the name used for the project associated with a given Semgrep scan. By default, `SEMGREP_REPO_DISPLAY_NAME` has the same value as `SEMGREP_REPO_NAME`. This allows you to use a different name for your project than the repository name or to scan a monorepo as multiple projects.
 
-#### Scanning a monorepo as multiple projects
+#### Scan a monorepo as multiple projects
 
 Create a semgrep scan for each folder you want to scan separately. For each scan, use a different value for `SEMGREP_REPO_DISPLAY_NAME`.
 
