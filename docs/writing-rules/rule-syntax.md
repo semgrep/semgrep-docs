@@ -52,7 +52,7 @@ The below optional fields must reside underneath a `patterns` field.
 | [`metavariable-comparison`](#metavariable-comparison) | `map` | Compare metavariables against basic [Python expressions](https://docs.python.org/3/reference/expressions.html#comparisons) |
 | [`pattern-not`](#pattern-not) | `string` | Logical NOT - remove findings matching this expression |
 | [`pattern-not-inside`](#pattern-not-inside)     | `string` | Keep findings that do not lie inside this pattern |
-| [`pattern-not-regex`](#pattern-not-regex)   | `string` | Filter results using a [PCRE](https://www.pcre.org/original/doc/html/pcrepattern.html)-compatible pattern in multiline mode |
+| [`pattern-not-regex`](#pattern-not-regex)   | `string` | Filter results using a [PCRE2](https://www.pcre.org/current/doc/html/pcre2pattern.html)-compatible pattern in multiline mode |
 
 ## Operators
 
@@ -60,17 +60,52 @@ The below optional fields must reside underneath a `patterns` field.
 
 The `pattern` operator looks for code matching its expression. This can be basic expressions like `$X == $X` or unwanted function calls like `hashlib.md5(...)`.
 
-:::note Example
-Try this pattern in the [Semgrep Playground](https://semgrep.dev/s/gJo5).
-:::
+```yaml
+rules:
+  - id: md5-usage
+    languages:
+      - python
+    message: Found md5 usage
+    pattern: hashlib.md5(...)
+    severity: ERROR
+```
+
+The pattern immediately above matches the following:
+
+```python
+import hashlib
+# ruleid: md5-usage
+# highlight-next-line
+digest = hashlib.md5(b"test")
+# ok: md5-usage
+digest = hashlib.sha256(b"test")
+```
 
 ### `patterns`
 
 The `patterns` operator performs a logical AND operation on one or more child patterns. This is useful for chaining multiple patterns together that all must be true.
 
-:::note Example
-Try this pattern in the [Semgrep Playground](https://semgrep.dev/s/Q83q).
-:::
+```yaml
+rules:
+  - id: unverified-db-query
+    patterns:
+      - pattern: db_query(...)
+      - pattern-not: db_query(..., verify=True, ...)
+    message: Found unverified db query
+    severity: ERROR
+    languages:
+      - python
+```
+
+The pattern immediately above matches the following:
+
+```python
+# ruleid: unverified-db-query
+# highlight-next-line
+db_query("SELECT * FROM ...")
+# ok: unverified-db-query
+db_query("SELECT * FROM ...", verify=True, env="prod")
+```
 
 #### `patterns` operator evaluation strategy
 
@@ -87,24 +122,85 @@ Note that the order in which the child patterns are declared in a `patterns` ope
 
 The `pattern-either` operator performs a logical OR operation on one or more child patterns. This is useful for chaining multiple patterns together where any may be true.
 
-:::note Example
-Try this pattern in the [Semgrep Playground](https://semgrep.dev/s/4yX9).
-:::
+```yaml
+rules:
+  - id: insecure-crypto-usage
+    pattern-either:
+      - pattern: hashlib.sha1(...)
+      - pattern: hashlib.md5(...)
+    message: Found insecure crypto usage
+    languages:
+      - python
+    severity: ERROR
+```
+
+The pattern immediately above matches the following:
+
+```python
+import hashlib
+# ruleid: insecure-crypto-usage
+# highlight-next-line
+digest = hashlib.md5(b"test")
+# ruleid: insecure-crypto-usage
+# highlight-next-line
+digest = hashlib.sha1(b"test")
+# ok: insecure-crypto-usage
+digest = hashlib.sha256(b"test")
+```
 
 This rule looks for usage of the Python standard library functions `hashlib.md5` or `hashlib.sha1`. Depending on their usage, these hashing functions are [considered insecure](https://shattered.io/).
 
 ### `pattern-regex`
 
-The `pattern-regex` operator searches files for substrings matching the given [PCRE](https://www.pcre.org/original/doc/html/pcrepattern.html) pattern. This is useful for migrating existing regular expression code search functionality to Semgrep. Perl-Compatible Regular Expressions (PCRE) is a full-featured regex library that is widely compatible with Perl, but also with the respective regex libraries of Python, JavaScript, Go, Ruby, and Java. Patterns are compiled in multiline mode, for example `^` and `$` matches at the beginning and end of lines respectively in addition to the beginning and end of input.
+The `pattern-regex` operator searches files for substrings matching the given [PCRE2](https://www.pcre.org/current/doc/html/pcre2pattern.html) pattern. This is useful for migrating existing regular expression code search functionality to Semgrep. Perl-Compatible Regular Expressions (PCRE) is a full-featured regex library that is widely compatible with Perl, but also with the respective regex libraries of Python, JavaScript, Go, Ruby, and Java. Patterns are compiled in multiline mode, for example `^` and `$` matches at the beginning and end of lines respectively in addition to the beginning and end of input.
 
 :::caution
-PCRE supports only a [limited number of Unicode character properties](https://www.pcre.org/original/doc/html/pcrepattern.html#uniextseq). For example, `\p{Egyptian_Hieroglyphs}` is supported but `\p{Bidi_Control}` isn't.
+PCRE2 supports [some Unicode character properties, but not some Perl properties](https://www.pcre.org/current/doc/html/pcre2pattern.html#uniextseq). For example, `\p{Egyptian_Hieroglyphs}` is supported but `\p{InMusicalSymbols}` isn't.
 :::
 
-:::note Examples of the `pattern-regex` operator
-- `pattern-regex` combined with other pattern operators: [Semgrep Playground example](https://semgrep.dev/s/Ppvv)
-- `pattern-regex` used as a standalone, top-level operator: [Semgrep Playground example](https://semgrep.dev/s/J3vP)
-:::
+#### Example: `pattern-regex` combined with other pattern operators
+
+```yaml
+rules:
+  - id: boto-client-ip
+    patterns:
+      - pattern-inside: boto3.client(host="...")
+      - pattern-regex: \d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}
+    message: boto client using IP address
+    languages:
+      - python
+    severity: ERROR
+```
+
+The pattern immediately above matches the following:
+
+```python
+import boto3
+# ruleid: boto-client-ip
+# highlight-next-line
+client = boto3.client(host="192.168.1.200")
+# ok: boto-client-ip
+client = boto3.client(host="dev.internal.example.com")
+```
+
+#### Example: `pattern-regex` used as a standalone, top-level operator
+```yaml
+rules:
+  - id: legacy-eval-search
+    pattern-regex: eval\(
+    message: Insecure code execution
+    languages:
+      - javascript
+    severity: ERROR
+```
+
+The pattern immediately above matches the following:
+
+```python
+# ruleid: legacy-eval-search
+# highlight-next-line
+eval('var a = 5')
+```
 
 :::info
 Single (`'`) and double (`"`) quotes [behave differently](https://docs.octoprint.org/en/master/configuration/yaml.html#scalars) in YAML syntax. Single quotes are typically preferred when using backslashes (`\`) with `pattern-regex`.
@@ -113,21 +209,56 @@ Single (`'`) and double (`"`) quotes [behave differently](https://docs.octoprint
 Note that you may bind a section of a regular expression to a metavariable, by using [named capturing groups](https://www.regular-expressions.info/named.html). In 
 this case, the name of the capturing group must be a valid metavariable name.
 
-:::note Example
-Try this pattern in the [Semgrep Playground](https://semgrep.dev/s/p8OL).
-:::
+```yaml
+rules:
+  - id: my_pattern_id-copy
+    patterns:
+      - pattern-regex: a(?P<FIRST>.*)b(?P<SECOND>.*)
+    message: Semgrep found a match, with $FIRST and $SECOND
+    languages:
+      - regex
+    severity: WARNING
+```
+
+The pattern immediately above matches the following:
+
+```python
+# highlight-next-line
+acbd
+```
 
 ### `pattern-not-regex`
 
-The `pattern-not-regex` operator filters results using a [PCRE](https://www.pcre.org/original/doc/html/pcrepattern.html) regular expression in multiline mode. This is most useful when combined with regular-expression only rules, providing an easy way to filter findings without having to use negative lookaheads. `pattern-not-regex` works with regular `pattern` clauses, too.
+The `pattern-not-regex` operator filters results using a [PCRE2](https://www.pcre.org/current/doc/html/pcre2pattern.html) regular expression in multiline mode. This is most useful when combined with regular-expression only rules, providing an easy way to filter findings without having to use negative lookaheads. `pattern-not-regex` works with regular `pattern` clauses, too.
 
 The syntax for this operator is the same as `pattern-regex`.
 
 This operator filters findings that have _any overlap_ with the supplied regular expression. For example, if you use `pattern-regex` to detect `Foo==1.1.1` and it also detects `Foo-Bar==3.0.8` and `Bar-Foo==3.0.8`, you can use `pattern-not-regex` to filter the unwanted findings.
 
-:::note Example
-Try this pattern in the [Semgrep Playground](https://semgrep.dev/s/8n5Q).
-:::
+```yaml
+rules:
+  - id: detect-only-foo-package
+    languages:
+      - regex
+    message: Found foo package
+    patterns:
+      - pattern-regex: foo
+      - pattern-not-regex: foo-
+      - pattern-not-regex: -foo
+    severity: ERROR
+```
+
+The pattern immediately above matches the following:
+
+```python
+# ruleid: detect-only-foo-package
+# highlight-next-line
+foo==1.1.1
+# ok: detect-only-foo-package
+foo-bar==3.0.8
+# ok: detect-only-foo-package
+bar-foo==3.0.8
+```
 
 ### `focus-metavariable`
 
@@ -143,15 +274,53 @@ This works but it matches the entire function definition. Sometimes, this is not
 
 To specify that you are only interested in the code matched by a particular metavariable, in our example `$ARG`, use `focus-metavariable`.
 
-:::note Example
-Try this pattern in the [Semgrep Playground](https://semgrep.dev/s/4kk8).
-:::
+```yaml
+rules:
+  - id: find-bad-args
+    patterns:
+      - pattern: |
+          def $FUNC(..., $ARG : bad, ...):
+            ...
+      - focus-metavariable: $ARG
+    message: |
+      `$ARG' has a "bad" type!
+    languages:
+      - python
+    severity: WARNING
+```
+
+The pattern immediately above matches the following:
+
+```python
+# highlight-next-line
+def f(x : bad):
+    return x
+```
 
 Note that `focus-metavariable: $ARG` is not the same as `pattern: $ARG`! Using `pattern: $ARG` finds all the uses of the parameter `x` which is not what we want! (Note that `pattern: $ARG` does not match the formal parameter declaration, because in this context `$ARG` only matches expressions.)
 
-:::note Example
-Try this pattern in the [Semgrep Playground](https://semgrep.dev/s/PPPe).
-:::
+```yaml
+rules:
+  - id: find-bad-args
+    patterns:
+      - pattern: |
+          def $FUNC(..., $ARG : bad, ...):
+            ...
+      - pattern: $ARG
+    message: |
+      `$ARG' has a "bad" type!
+    languages:
+      - python
+    severity: WARNING
+```
+
+The pattern immediately above matches the following:
+
+```python
+def f(x : bad):
+# highlight-next-line
+    return x
+```
 
 In short, `focus-metavariable: $X` is not a pattern in itself, it does not perform any matching, it only focuses the matching on the code already bound to `$X` by other patterns. Whereas `pattern: $X` matches `$X` against your code (and in this context, `$X` only matches expressions)!
 
@@ -167,9 +336,36 @@ Include more `focus-metavariable` keys with different metavariables under the `p
         - $Y
 ```
 
-:::note Example
-Try this pattern in the [Semgrep Playground](https://semgrep.dev/s/AqJw).
-:::
+```yaml
+rules:
+  - id: intersect-focus-metavariable
+    patterns:
+      - pattern-inside: foo($X, ...)
+      - focus-metavariable: $X
+      - pattern: $Y + ...
+      - focus-metavariable: $Y
+      - pattern: "1"
+    message: Like set intersection, only the overlapping region is highilighted
+    languages:
+      - python
+    severity: ERROR
+```
+
+The pattern immediately above matches the following:
+
+```python
+# ruleid: intersect-focus-metavariable
+foo (
+# highlight-next-line
+    1
+    +
+    2,
+    1
+)
+
+# OK: test
+foo (2+ 1, 1)
+```
 
 :::info
 To make a list of multiple focus metavariables using set union semantics that matches the metavariables regardless of their position in code, see [Including multiple focus metavariables using set union semantics](/writing-rules/experiments/multiple-focus-metavariables) documentation.
@@ -177,17 +373,53 @@ To make a list of multiple focus metavariables using set union semantics that ma
 
 ### `metavariable-regex`
 
-The `metavariable-regex` operator searches metavariables for a [PCRE](https://www.pcre.org/original/doc/html/pcrepattern.html) regular expression. This is useful for filtering results based on a [metavariable’s](pattern-syntax.mdx#metavariables) value. It requires the `metavariable` and `regex` keys and can be combined with other pattern operators.
+The `metavariable-regex` operator searches metavariables for a [PCRE2](https://www.pcre.org/current/doc/html/pcre2pattern.html) regular expression. This is useful for filtering results based on a [metavariable’s](pattern-syntax.mdx#metavariables) value. It requires the `metavariable` and `regex` keys and can be combined with other pattern operators.
 
-:::note Example
-Try this pattern in the [Semgrep Playground](https://semgrep.dev/s/Oyrw).
-:::
+```yaml
+rules:
+  - id: insecure-methods
+    patterns:
+      - pattern: module.$METHOD(...)
+      - metavariable-regex:
+          metavariable: $METHOD
+          regex: (insecure)
+    message: module using insecure method call
+    languages:
+      - python
+    severity: ERROR
+```
+
+The pattern immediately above matches the following:
+
+```python
+# ruleid: insecure-methods
+# highlight-next-line
+module.insecure1("test")
+# ruleid: insecure-methods
+# highlight-next-line
+module.insecure2("test")
+# ruleid: insecure-methods
+# highlight-next-line
+module.insecure3("test")
+# ok: insecure-methods
+module.secure("test")
+```
 
 Regex matching is **unanchored**. For anchored matching, use `\A` for start-of-string anchoring and `\Z` for end-of-string anchoring. The next example, using the same expression as above but anchored, finds no matches:
 
-:::note Example
-Try this pattern in the [Semgrep Playground](https://semgrep.dev/s/ved8).
-:::
+```yaml
+rules:
+  - id: insecure-methods
+    patterns:
+      - pattern: module.$METHOD(...)
+      - metavariable-regex:
+          metavariable: $METHOD
+          regex: (^insecure$)
+    message: module using insecure method call
+    languages:
+      - python
+    severity: ERROR
+```
 
 :::info
 Include quotes in your regular expression when using `metavariable-regex` to search string literals. For more details, see [include-quotes](https://semgrep.dev/playground/s/EbDB) code snippet. [String matching](pattern-syntax.mdx#string-matching) functionality can also be used to search string literals.
@@ -199,9 +431,49 @@ The `metavariable-pattern` operator matches metavariables with a pattern formula
 
 For example, the `metavariable-pattern` can be used to filter out matches that do **not** match certain criteria:
 
-:::note Example
-Try this pattern in the [Semgrep Playground](https://semgrep.dev/s/DwbP).
-:::
+```yaml
+rules:
+  - id: disallow-old-tls-versions2
+    languages:
+      - javascript
+    message: Match found
+    patterns:
+      - pattern: |
+          $CONST = require('crypto');
+          ...
+          $OPTIONS = $OPTS;
+          ...
+          https.createServer($OPTIONS, ...);
+      - metavariable-pattern:
+          metavariable: $OPTS
+          patterns:
+            - pattern-not: >
+                {secureOptions: $CONST.SSL_OP_NO_SSLv2 | $CONST.SSL_OP_NO_SSLv3
+                | $CONST.SSL_OP_NO_TLSv1}
+    severity: WARNING
+```
+
+The pattern immediately above matches the following:
+
+```python
+function bad() {
+    // ruleid:disallow-old-tls-versions2
+    # highlight-next-line
+    var constants = require('crypto');
+    # highlight-next-line
+    var sslOptions = {
+    # highlight-next-line  
+    key: fs.readFileSync('/etc/ssl/private/private.key'),
+    # highlight-next-line
+    secureProtocol: 'SSLv23_server_method',
+    # highlight-next-line
+    secureOptions: constants.SSL_OP_NO_SSLv2 | constants.SSL_OP_NO_SSLv3
+    # highlight-next-line
+    };
+    # highlight-next-line
+    https.createServer(sslOptions);
+}
+```
 
 :::info
 In this case it is possible to start a `patterns` AND operation with a `pattern-not`, because there is an implicit `pattern: ...` that matches the content of the metavariable.
@@ -209,9 +481,50 @@ In this case it is possible to start a `patterns` AND operation with a `pattern-
 
 The `metavariable-pattern` is also useful in combination with `pattern-either`:
 
-:::note Example
-Try this pattern in the [Semgrep Playground](https://semgrep.dev/s/Aw88).
-:::
+```yaml
+rules:
+  - id: open-redirect
+    languages:
+      - python
+    message: Match found
+    patterns:
+      - pattern-inside: |
+          def $FUNC(...):
+            ...
+            return django.http.HttpResponseRedirect(..., $DATA, ...)
+      - metavariable-pattern:
+          metavariable: $DATA
+          patterns:
+            - pattern-either:
+                - pattern: $REQUEST
+                - pattern: $STR.format(..., $REQUEST, ...)
+                - pattern: $STR % $REQUEST
+                - pattern: $STR + $REQUEST
+                - pattern: f"...{$REQUEST}..."
+            - metavariable-pattern:
+                metavariable: $REQUEST
+                patterns:
+                  - pattern-either:
+                      - pattern: request.$W
+                      - pattern: request.$W.get(...)
+                      - pattern: request.$W(...)
+                      - pattern: request.$W[...]
+                  - metavariable-regex:
+                      metavariable: $W
+                      regex: (?!get_full_path)
+    severity: WARNING
+```
+
+The pattern immediately above matches the following:
+
+```python
+from django.http import HttpResponseRedirect
+# highlight-next-line
+def unsafe(request):
+    # ruleid:open-redirect
+    # highlight-next-line
+    return HttpResponseRedirect(request.POST.get("url"))
+```
 
 :::tip
 It is possible to nest `metavariable-pattern` inside `metavariable-pattern`!
@@ -230,6 +543,70 @@ If the metavariable's content is a string, then it is possible to use `metavaria
 - Filter regex matches in the following [Semgrep Playground](https://semgrep.dev/s/pkNk) example.
 :::
 
+#### Example: Match JavaScript code inside HTML
+
+```yaml
+rules:
+  - id: test
+    languages:
+      - generic
+    message: javascript inside html working!
+    patterns:
+      - pattern: |
+          <script ...>$...JS</script>
+      - metavariable-pattern:
+          language: javascript
+          metavariable: $...JS
+          patterns:
+            - pattern: |
+                console.log(...)
+    severity: WARNING
+
+```
+
+The pattern immediately above matches the following:
+
+```python
+<!-- ruleid:test -->
+# highlight-next-line
+<script>
+# highlight-next-line
+console.log("hello")
+# highlight-next-line
+</script>
+```
+
+#### Example: Filter regex matches
+
+```yaml
+rules:
+  - id: test
+    languages:
+      - generic
+    message: "Google dependency: $1 $2"
+    patterns:
+      - pattern-regex: gem "(.*)", "(.*)"
+      - metavariable-pattern:
+          metavariable: $1
+          language: generic
+          patterns:
+            - pattern: google
+    severity: INFO
+```
+
+The pattern immediately above matches the following:
+
+```python
+# highlight-next-line
+source "https://rubygems.org"
+
+#OK:test
+gem "functions_framework", "~> 0.7"
+#ruleid:test
+# highlight-next-line
+gem "google-cloud-storage", "~> 1.29"
+```
+
 ### `metavariable-comparison`
 
 The `metavariable-comparison` operator compares metavariables against a basic [Python comparison](https://docs.python.org/3/reference/expressions.html#comparisons) expression. This is useful for filtering results based on a [metavariable's](/writing-rules/pattern-syntax/#metavariables) numeric value.
@@ -240,9 +617,31 @@ This matches code such as `set_port(80)` or `set_port(443)`, but not `set_port(8
 
 Comparison expressions support simple arithmetic as well as composition with [boolean operators](https://docs.python.org/3/reference/expressions.html#boolean-operations) to allow for more complex matching. This is particularly useful for checking that metavariables are divisible by particular values, such as enforcing that a particular value is even or odd.
 
-:::note Example
-Try this pattern in the [Semgrep Playground](https://semgrep.dev/s/qq9R).
-:::
+```yaml
+rules:
+  - id: superuser-port
+    languages:
+      - python
+    message: module setting superuser port
+    patterns:
+      - pattern: set_port($ARG)
+      - metavariable-comparison:
+          comparison: $ARG < 1024 and $ARG % 2 == 0
+          metavariable: $ARG
+    severity: ERROR
+```
+
+The pattern immediately above matches the following:
+
+```python
+# ok: superuser-port
+set_port(443)
+# ruleid: superuser-port
+# highlight-next-line
+set_port(80)
+# ok: superuser-port
+set_port(8080)
+```
 
 Building on the previous example, this still matches code such as `set_port(80)` but it no longer matches `set_port(443)` or `set_port(8080)`.
 
@@ -274,15 +673,57 @@ You can avoid the use of the legacy keys described below (`base: int` and `strip
 
 The `metavariable-comparison` operator also takes optional `base: int` and `strip: bool` keys. These keys set the integer base the metavariable value should be interpreted as and remove quotes from the metavariable value, respectively.
 
-:::note Example of `metavariable-comparison` with `base`
-Try this pattern in the [Semgrep Playground](https://semgrep.dev/s/R8vN).
-:::
+```yaml
+rules:
+  - id: excessive-permissions
+    languages:
+      - python
+    message: module setting excessive permissions
+    patterns:
+      - pattern: set_permissions($ARG)
+      - metavariable-comparison:
+          comparison: $ARG > 0o600
+          metavariable: $ARG
+          base: 8
+    severity: ERROR
+```
+
+The pattern immediately above matches the following:
+
+```python
+# ruleid: excessive-permissions
+# highlight-next-line
+set_permissions(0o700)
+# ok: excessive-permissions
+set_permissions(0o400)
+```
 
 This interprets metavariable values found in code as octal. As a result, Semgrep detects `0700`, but it does **not** detect `0400`.
 
-:::note Example of `metavariable-comparison` with `strip`
-Try this pattern in the [Semgrep Playground](https://semgrep.dev/s/AlqB).
-:::
+```yaml
+rules:
+  - id: int-overflow
+    languages:
+      - python
+    message: Potential integer overflow
+    patterns:
+      - pattern: int($ARG)
+      - metavariable-comparison:
+          strip: true
+          comparison: $ARG > 2147483647
+          metavariable: $ARG
+    severity: ERROR
+```
+
+The pattern immediately above matches the following:
+
+```python
+# ruleid: int-overflow
+# highlight-next-line
+int("2147483648")
+# ok: int-overflow
+int("2147483646")
+```
 
 This removes quotes (`'`, `"`, and `` ` ``) from both ends of the metavariable content. As a result, Semgrep detects `"2147483648"`, but it does **not** detect `"2147483646"`. This is useful when you expect strings to contain integer or float data.
 
@@ -290,25 +731,104 @@ This removes quotes (`'`, `"`, and `` ` ``) from both ends of the metavariable c
 
 The `pattern-not` operator is the opposite of the `pattern` operator. It finds code that does not match its expression. This is useful for eliminating common false positives.
 
-:::note Example
-Try this pattern in the [Semgrep Playground](https://semgrep.dev/s/Q83q).
-:::
+```yaml
+rules:
+  - id: unverified-db-query
+    patterns:
+      - pattern: db_query(...)
+      - pattern-not: db_query(..., verify=True, ...)
+    message: Found unverified db query
+    severity: ERROR
+    languages:
+      - python
+```
+
+The pattern immediately above matches the following:
+
+```python
+# ruleid: unverified-db-query
+# highlight-next-line
+db_query("SELECT * FROM ...")
+# ok: unverified-db-query
+db_query("SELECT * FROM ...", verify=True, env="prod")
+```
 
 ### `pattern-inside`
 
 The `pattern-inside` operator keeps matched findings that reside within its expression. This is useful for finding code inside other pieces of code like functions or if blocks.
 
-:::note Example
-Try this pattern in the [Semgrep Playground](https://semgrep.dev/s/Z8Dw).
-:::
+```yaml
+rules:
+  - id: return-in-init
+    patterns:
+      - pattern: return ...
+      - pattern-inside: |
+          class $CLASS:
+            ...
+      - pattern-inside: |
+          def __init__(...):
+              ...
+    message: return should never appear inside a class __init__ function
+    languages:
+      - python
+    severity: ERROR
+```
+
+The pattern immediately above matches the following:
+
+```python
+class A:
+    def __init__(self):
+        # ruleid: return-in-init
+        # highlight-next-line
+        return None
+
+class B:
+    def __init__(self):
+        # ok: return-in-init
+        self.inited = True
+
+def foo():
+    # ok: return-in-init
+    return 5
+```
 
 ### `pattern-not-inside`
 
 The `pattern-not-inside` operator keeps matched findings that do not reside within its expression. It is the opposite of `pattern-inside`. This is useful for finding code that’s missing a corresponding cleanup action like disconnect, close, or shutdown. It’s also useful for finding problematic code that isn't inside code that mitigates the issue.
 
-:::note Example
-Try this pattern in the [Semgrep Playground](https://semgrep.dev/s/DJ6G).
-:::
+```yaml
+rules:
+  - id: open-never-closed
+    patterns:
+      - pattern: $F = open(...)
+      - pattern-not-inside: |
+          $F = open(...)
+          ...
+          $F.close()
+    message: file object opened without corresponding close
+    languages:
+      - python
+    severity: ERROR
+```
+
+The pattern immediately above matches the following:
+
+```python
+def func1():
+    # ruleid: open-never-closed
+    # highlight-next-line
+    fd = open('test.txt')
+    results = fd.read()
+    return results
+
+def func2():
+    # ok: open-never-closed
+    fd = open('test.txt')
+    results = fd.read()
+    fd.close()
+    return results
+```
 
 The above rule looks for files that are opened but never closed, possibly leading to resource exhaustion. It looks for the `open(...)` pattern _and not_ a following `close()` pattern.
 

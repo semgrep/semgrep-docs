@@ -148,7 +148,7 @@ jobs:
     name: requirementsGeneration
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
       - name: Generate requirements txt
         run: |
           pip3 install pip-tools
@@ -167,7 +167,7 @@ jobs:
     container:
       image: semgrep/semgrep
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
       - name: Download artifact from previous job
         uses: actions/download-artifact@v3
         with:

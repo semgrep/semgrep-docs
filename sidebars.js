@@ -224,7 +224,7 @@ module.exports = {
                 'semgrep-code/semgrep-assistant-code',
                 'semgrep-ci/configuring-blocking-and-errors-in-ci',
                 'semgrep-code/editor',
-                'running-rules'
+                'semgrep-code/pro-rules'
             ]
         },
         {
@@ -296,7 +296,8 @@ module.exports = {
             items: [
                 'semgrep-ci/ci-environment-variables',
                 'semgrep-ci/sample-ci-configs',
-                'semgrep-ci/findings-ci'
+                'semgrep-ci/findings-ci',
+                'semgrep-ci/packages-in-semgrep-docker'
             ]
         },
         {
@@ -350,7 +351,6 @@ module.exports = {
                       'writing-rules/experiments/multiple-focus-metavariables',
                       'writing-rules/experiments/project-depends-on',
                       'writing-rules/experiments/symbolic-propagation',
-                      'writing-rules/experiments/taint-labels',
                       'writing-rules/experiments/metavariable-type',
                       'writing-rules/experiments/deprecated-experiments'
                     ]
