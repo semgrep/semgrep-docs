@@ -205,7 +205,7 @@ pipelines:
 
 ### `SEMGREP_REPO_NAME`
 
-Set `SEMGREP_REPO_NAME` to create a repository name when scanning with a CI provider we don't provide support for. For hyperlinks and PR comments to work, this name should be the same as your repository name understood by your CI provider.
+Set `SEMGREP_REPO_NAME` to create a repository name when scanning with a [CI provider that Semgrep doesn't provide explicit support for](/deployment/add-semgrep-to-other-ci-providers/). For hyperlinks and PR comments to work, this name should be the same as your repository name understood by your CI provider.
 
 To avoid hardcoding this value, check your CI provider's documentation for available environment variables that can automatically detect the correct values for every CI job. 
 
