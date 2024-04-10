@@ -1,7 +1,7 @@
 ---
 slug: historical-scanning
 append_help_link: true
-title: Scan your git history
+title: Scan your Git history
 hide_title: true
 description: Detect valid, leaked secrets in previous git commits through a historical scan.
 tags:
