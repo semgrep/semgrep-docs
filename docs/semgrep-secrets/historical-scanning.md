@@ -101,7 +101,7 @@ The following sections discuss historical scan limitations, how findings are tri
 - Semgrep Secrets scans up to **5 GiB** of uncompressed blobs. This ranges from around **10,000 to 50,000** previous commits depending on the average size of the commit.
 - For repositories with more than 5 GiB of history, Semgrep Secrets is still able to complete the scan, but the scan scope will not cover the older commits beyond 5 GiB.
 - The size of the commit history affects the speed of the scan. Larger repositories take longer to complete.
-- Semgrep Secrets scans the whole commit history every time it is run. This guarantees that your git history is also scanned using the **latest Secrets rules**.
+- Semgrep Secrets scans the whole commit history every time it is run. This guarantees that your Git history is also scanned using the **latest Secrets rules**.
 
 ### Triage process
 
