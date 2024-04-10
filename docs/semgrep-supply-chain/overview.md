@@ -127,8 +127,8 @@ Semgrep Supply Chain automatically scans repositories that you have added to Sem
 ### Further reading
 
 * [Software supply chain security is
-  hard](https://r2c.dev/blog/2022/software-supply-chain-security-is-hard/)
+  hard](https://semgrep.dev/blog/2022/software-supply-chain-security-is-hard/)
 * [The best free, open-source supply-chain security tool? The
-  lockfile](https://r2c.dev/blog/2022/the-best-free-open-source-supply-chain-tool-the-lockfile/)
+  lockfile](https://semgrep.dev/blog/2022/the-best-free-open-source-supply-chain-tool-the-lockfile/)
 
 <MoreHelp />
