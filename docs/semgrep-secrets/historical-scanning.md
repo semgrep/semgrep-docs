@@ -1,7 +1,7 @@
 ---
 slug: historical-scanning
 append_help_link: true
-title: Scan your Git history
+title: Scan your Git history (beta)
 hide_title: true
 description: Detect valid, leaked secrets in previous Git commits through a historical scan.
 tags:
@@ -9,7 +9,7 @@ tags:
   - Team & Enterprise tier
 ---
 
-# Scan your Git history
+# Scan your Git history (beta)
 
 Detect valid, leaked secrets in previous Git commits through a **historical scan**.
 
@@ -59,7 +59,6 @@ The general steps are:
     ```
 1. Depending on your CI provider, you may have to perform additional steps to enable the job to run manually. For example, GitHub Actions requires the `workflow_dispatch` event to be added to your CI job.
 
-
 ### Run a local test scan
 
 You can run a historical scan locally without sending the scan results to Semgrep Cloud Platform. This can help you determine the time it takes for Semgrep Secrets to run on your repository's Git commit history.
@@ -85,8 +84,9 @@ The historical scan results appear in the **Secrets Historical Scan** section:
 
 ## Scope of findings
 
-- Historical scans display **valid** secrets findings. These secrets have been validated, through authentication or a similar function, to grant access to their service or site.
+- Historical scans display **valid** Secrets findings. These secrets have been validated, through authentication or a similar function, to grant access to their service or site.
 - Historical scans do **not** display:
+    - **Invalid Secrets findings**. This means that the validator function confirmed that the secret does not grant access to the resource it is meant for.
     - **Secrets findings without validator functions**. This means that the rule itself does not provide a function that can validate the secret.
     - **Secrets findings with validation errors**. In some cases, the validator function may return an error, such as when the service, site, or system is down.
 - Findings from historical scans are generated through regex-based rules only.
