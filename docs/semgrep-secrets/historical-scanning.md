@@ -9,7 +9,7 @@ tags:
   - Team & Enterprise tier
 ---
 
-# Scan your git history
+# Scan your Git history
 
 Detect valid, leaked secrets in previous Git commits through a **historical scan**.
 
