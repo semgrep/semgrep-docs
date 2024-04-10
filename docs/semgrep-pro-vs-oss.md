@@ -185,6 +185,7 @@ The following table displays differences between Semgrep Code and Semgrep Supply
           <li>New</li>
           <li>In progress</li>
           <li>Fixed</li>
+          <li>Removed</li>
           <li>Ignored</li>
         </ul>
       </td>
