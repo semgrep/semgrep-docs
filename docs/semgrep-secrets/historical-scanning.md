@@ -13,7 +13,7 @@ tags:
 
 Detect valid, leaked secrets in previous git commits through a **historical scan**.
 
-You can perform one-time historical scans or enable historical scanning for all Secrets scans. Detecting valid secrets in your git history is a first step to reducing your repository's attack surface.
+You can perform one-time historical scans or enable historical scanning for all Secrets scans. Detecting valid secrets in your Git history is a first step to reducing your repository's attack surface.
 
 You can run historical scans in the CLI and in your Semgrep deployment, which enables you to track and triage these secrets.
 
