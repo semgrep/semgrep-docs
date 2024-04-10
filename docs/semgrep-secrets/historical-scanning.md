@@ -76,7 +76,6 @@ The historical scan results appear in the **Secrets Historical Scan** section:
 
 ![Historical scan section in the CLI](/img/historical-scans-cli.png#md-width)
 
-```
 ## View or hide historical findings
 
 ![Historical secrets in Semgrep Cloud Platform](/img/historical-secrets-scp.png)
