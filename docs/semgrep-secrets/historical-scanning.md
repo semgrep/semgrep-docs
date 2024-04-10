@@ -51,7 +51,7 @@ To run a one-off or on-demand historical scan, you can create a specific CI job 
 
 The general steps are:
 
-1. Copy your current full scan CI job configuration file.
+1. Copy your current full scan CI job configuration file, or use [a template](/semgrep-ci/sample-ci-configs/).
 1. Look for the `semgrep ci` command.
 1. Append the `--historical-secrets` flag:
     ```
@@ -64,7 +64,7 @@ The general steps are:
 
 You can run a historical scan locally without sending the scan results to Semgrep Cloud Platform.
 
-This can help you determine the time it takes for Semgrep Secrets to run on your repository's git commit history.
+This can help you determine the time it takes for Semgrep Secrets to run on your repository's Git commit history.
 
 To run a test scan, enter the following command:
 
@@ -78,18 +78,23 @@ The historical scan results appear in the **Secrets Historical Scan** section:
 
 ## View or hide historical findings
 
-![Historical secrets in Semgrep Cloud Platform](/img/historical-secrets-scp.png)
-*Figure.* Historical findings in Semgrep Cloud Platform.
-
 1. Sign in to [<i class="fas fa-external-link fa-xs"></i> Semgrep Cloud Platform](https://semgrep.dev/login).
 1. Click **<i class="fa-solid fa-key"></i> Secrets**. Historical findings are identified by an **<i class="fa-solid fa-hourglass-half"></i>** icon.
 1. Click **<i class="fa-solid fa-hourglass-half"></i> Hide historical** to toggle the display of historical findings.
 
-## How it works
+![Historical secrets in Semgrep Cloud Platform](/img/historical-secrets-scp.png)
+*Figure.* Historical findings in Semgrep Cloud Platform.
 
-The following sections discuss historical scan limitations, how findings are triaged, and other details that may affect how you implement historical scans in your security program.
+## Triage process
 
-### Limitations
+Historical scan findings are not automatically marked as **Fixed**. To triage a historical finding, you must:
+
+1. Manually rotate the secret.
+1. In Semgrep Cloud Platform, click **Secrets**.
+1. Toggle the **Hide historical** button if it is enabled. This displays all historical findings.
+1. Select all the checkboxes for secrets you want to triage, then click **Triage > Ignore**, optionally including a comment in the provided text box.
+
+## Limitations
 
 - Historical scanning can slow down scan times. Depending on the size of your repository history, it can take as quickly as under 5 minutes to more than 60 minutes for extreme cases.
 - Within SCP, historical scan findings are not automatically marked as **Fixed**. Findings can only exist in two states: `Open` or `Ignored`. Because Semgrep scans do not automatically detect historical findings as fixed, you must manually rotate and triage the secret as `Ignored`.
@@ -102,12 +107,3 @@ The following sections discuss historical scan limitations, how findings are tri
 - For repositories with more than 5 GiB of history, Semgrep Secrets is still able to complete the scan, but the scan scope will not cover the older commits beyond 5 GiB.
 - The size of the commit history affects the speed of the scan. Larger repositories take longer to complete.
 - Semgrep Secrets scans the whole commit history every time it is run. This guarantees that your Git history is also scanned using the **latest Secrets rules**.
-
-### Triage process
-
-Historical scan findings are not automatically marked as **Fixed**. To triage a historical finding, you must:
-
-1. Manually rotate the secret.
-1. In Semgrep Cloud Platform, click **Secrets**.
-1. Toggle the **Hide historical** button if it is enabled. This displays all historical findings.
-1. Select all the checkboxes for secrets you want to triage, then click **Triage > Ignore**, optionally including a comment in the provided text box.
