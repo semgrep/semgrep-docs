@@ -13,7 +13,7 @@ tags:
 
 Detect valid, leaked secrets in previous Git commits through a **historical scan**.
 
-You can perform one-time historical scans or enable historical scanning for all Secrets scans. Detecting valid secrets in your Git history is a first step to reducing your repository's attack surface.
+You can perform one-time historical scans or enable historical scanning for full Secrets scans. Detecting valid secrets in your Git history is a step to reducing your repository's attack surface.
 
 You can run historical scans in the CLI and in your Semgrep deployment, which enables you to track and triage these secrets.
 
@@ -25,14 +25,14 @@ You can run historical scans in the CLI and in your Semgrep deployment, which en
 
 ## Run historical scans
 
-You can enable historical scanning for all of your future secret scans or run a dedicated CI job for one-time scans. By default, historical scans display **valid, leaked secrets** to ensure a high true positive rate.
+You can enable historical scanning for your full scans or run a dedicated CI job for one-time scans. By default, historical scans display **valid, leaked secrets** to ensure a high true positive rate. Historical scans do **not** run on diff scans.
 
 ### Prerequisites
 
 - **CLI tool**: Historical scanning requires at least Semgrep **v1.65.0**. See [Update](/update/) for instructions.
 - **Single-tenant Semgrep Cloud Platform (SCP)**: Reach out to your TAM to ensure your instance is up-to-date.
 
-### Enable historical scanning for all Secrets scans
+### Enable historical scanning for full Secrets scans
 
 :::tip
 If possible, [test historical scans locally](#run-a-local-test-scan) to create a benchmark of performance and scan times before adding historical scans to your formal security process.
@@ -62,9 +62,7 @@ The general steps are:
 
 ### Run a local test scan
 
-You can run a historical scan locally without sending the scan results to Semgrep Cloud Platform.
-
-This can help you determine the time it takes for Semgrep Secrets to run on your repository's Git commit history.
+You can run a historical scan locally without sending the scan results to Semgrep Cloud Platform. This can help you determine the time it takes for Semgrep Secrets to run on your repository's Git commit history.
 
 To run a test scan, enter the following command:
 
@@ -85,6 +83,18 @@ The historical scan results appear in the **Secrets Historical Scan** section:
 ![Historical secrets in Semgrep Cloud Platform](/img/historical-secrets-scp.png)
 *Figure.* Historical findings in Semgrep Cloud Platform.
 
+## Scope of findings
+
+- Historical scans display **valid** secrets findings. These secrets have been validated, through authentication or a similar function, to grant access to their service or site.
+- Historical scans do **not** display:
+    - **Secrets findings without validator functions**. This means that the rule itself does not provide a function that can validate the secret.
+    - **Secrets findings with validation errors**. In some cases, the validator function may return an error, such as when the service, site, or system is down.
+- Findings from historical scans are generated through regex-based rules only.
+
+<!--
+You can run --no-secrets-validation to view findings with validator errors and findings without validator functions, but this isn't recommended because of the high number of false positives.
+-->
+
 ## Triage process
 
 Historical scan findings are not automatically marked as **Fixed**. To triage a historical finding, you must:
@@ -96,7 +106,7 @@ Historical scan findings are not automatically marked as **Fixed**. To triage a 
 
 ## Limitations
 
-- Historical scanning can slow down scan times. Depending on the size of your repository history, it can take as quickly as under 5 minutes to more than 60 minutes for extreme cases.
+- Historical scanning can slow down scan times. Depending on the size of your repository history, scans can finish under 5 minutes to more than 60 minutes for extreme cases.
 - Within SCP, historical scan findings are not automatically marked as **Fixed**. Findings can only exist in two states: `Open` or `Ignored`. Because Semgrep scans do not automatically detect historical findings as fixed, you must manually rotate and triage the secret as `Ignored`.
 - A finding can show up twice in the CLI with historical scanning enabled: the HEAD commit in the regular Secrets scan and another commit in the historical scan.
     - If findings are sent to SCP, they are deduplicated and appear as a **regular finding**, not a historical finding.
@@ -106,4 +116,4 @@ Historical scan findings are not automatically marked as **Fixed**. To triage a 
 - Semgrep Secrets scans up to **5 GiB** of uncompressed blobs. This ranges from around **10,000 to 50,000** previous commits depending on the average size of the commit.
 - For repositories with more than 5 GiB of history, Semgrep Secrets is still able to complete the scan, but the scan scope will not cover the older commits beyond 5 GiB.
 - The size of the commit history affects the speed of the scan. Larger repositories take longer to complete.
-- Semgrep Secrets scans the whole commit history every time it is run. This guarantees that your Git history is also scanned using the **latest Secrets rules**.
+- Semgrep Secrets scans the whole commit history every time a full scan is run. This guarantees that your Git history is also scanned using the **latest Secrets rules**.
