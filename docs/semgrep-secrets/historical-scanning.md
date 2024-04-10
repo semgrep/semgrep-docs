@@ -3,7 +3,7 @@ slug: historical-scanning
 append_help_link: true
 title: Scan your Git history
 hide_title: true
-description: Detect valid, leaked secrets in previous git commits through a historical scan.
+description: Detect valid, leaked secrets in previous Git commits through a historical scan.
 tags:
   - Semgrep Secrets
   - Team & Enterprise tier
