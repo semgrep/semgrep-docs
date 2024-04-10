@@ -1,9 +1,9 @@
 ---
 slug: historical-scanning
 append_help_link: true
-title: Scan your git history
+title: Scan your Git history
 hide_title: true
-description: Detect valid, leaked secrets in previous git commits through a historical scan.
+description: Detect valid, leaked secrets in previous Git commits through a historical scan.
 tags:
   - Semgrep Secrets
   - Team & Enterprise tier
@@ -11,9 +11,9 @@ tags:
 
 # Scan your git history
 
-Detect valid, leaked secrets in previous git commits through a **historical scan**.
+Detect valid, leaked secrets in previous Git commits through a **historical scan**.
 
-You can perform one-time historical scans or enable historical scanning for all Secrets scans. Detecting valid secrets in your git history is a first step to reducing your repository's attack surface.
+You can perform one-time historical scans or enable historical scanning for all Secrets scans. Detecting valid secrets in your Git history is a first step to reducing your repository's attack surface.
 
 You can run historical scans in the CLI and in your Semgrep deployment, which enables you to track and triage these secrets.
 
@@ -64,7 +64,7 @@ The general steps are:
 
 You can run a historical scan locally without sending the scan results to Semgrep Cloud Platform.
 
-You can run this test to determine the time it takes for Semgrep Secrets to run on your repository's git commit history.
+This can help you determine the time it takes for Semgrep Secrets to run on your repository's git commit history.
 
 To run a test scan, enter the following command:
 
@@ -76,7 +76,6 @@ The historical scan results appear in the **Secrets Historical Scan** section:
 
 ![Historical scan section in the CLI](/img/historical-scans-cli.png#md-width)
 
-```
 ## View or hide historical findings
 
 ![Historical secrets in Semgrep Cloud Platform](/img/historical-secrets-scp.png)
@@ -102,7 +101,7 @@ The following sections discuss historical scan limitations, how findings are tri
 - Semgrep Secrets scans up to **5 GiB** of uncompressed blobs. This ranges from around **10,000 to 50,000** previous commits depending on the average size of the commit.
 - For repositories with more than 5 GiB of history, Semgrep Secrets is still able to complete the scan, but the scan scope will not cover the older commits beyond 5 GiB.
 - The size of the commit history affects the speed of the scan. Larger repositories take longer to complete.
-- Semgrep Secrets scans the whole commit history every time it is run. This guarantees that your git history is also scanned using the **latest Secrets rules**.
+- Semgrep Secrets scans the whole commit history every time it is run. This guarantees that your Git history is also scanned using the **latest Secrets rules**.
 
 ### Triage process
 
