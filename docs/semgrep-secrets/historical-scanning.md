@@ -64,7 +64,7 @@ The general steps are:
 
 You can run a historical scan locally without sending the scan results to Semgrep Cloud Platform.
 
-You can run this test to determine the time it takes for Semgrep Secrets to run on your repository's git commit history.
+This can help you determine the time it takes for Semgrep Secrets to run on your repository's git commit history.
 
 To run a test scan, enter the following command:
 
