@@ -80,9 +80,12 @@ tags:
 - Fixed an issue where bulk triage didn't work in Semgrep Cloud Platform for Supply Chain findings.
 - Fixed an issue where Supply Chain rules and findings erroneously display a confidence label.
 
-## 🤖 Assistant (beta)
+## 🤖 Assistant
+
+Semgrep Assistant is now generally available. Read the docs and the blog post.
 
 ### Added
+
 
 ### Changed
 
