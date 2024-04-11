@@ -23,7 +23,7 @@ import DisableRule from "/src/components/procedure/_disable-rule.mdx"
 
 # Semgrep Pro rules
 
-This article provides an overview of rules provided exclusively by Semgrep, Inc. called Semgrep Pro rules. These high-confidence, professionally maintained rules are a proprietary addition to Semgrep Registry. They are available in the [Team tier](https://semgrep.dev/pricing) or higher.
+This article provides an overview of rules provided exclusively by Semgrep, Inc. called Semgrep Pro rules. These high-confidence, professionally maintained rules are a proprietary addition to Semgrep Registry. 
 
 <!-- 
 Claudio's portions

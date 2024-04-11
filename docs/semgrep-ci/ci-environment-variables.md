@@ -205,8 +205,11 @@ pipelines:
 
 ### `SEMGREP_REPO_NAME`
 
-Set `SEMGREP_REPO_NAME` to define the repository name used to construct URLs for calls to your source code manager's external API to publish review comments on pull requests or merge requests. To avoid hardcoding this value, check your CI provider's documentation for available environment variables that can automatically detect the correct values for every CI job. 
+Set `SEMGREP_REPO_NAME` to create a repository name when scanning with a [CI provider that Semgrep doesn't provide explicit support for](/deployment/add-semgrep-to-other-ci-providers/). For hyperlinks and PR comments to work, this name should be the same as your repository name understood by your CI provider.
 
+To avoid hardcoding this value, check your CI provider's documentation for available environment variables that can automatically detect the correct values for every CI job. 
+
+Semgrep automatically detects `SEMGREP_REPO_NAME` if your [provider is listed in Semgrep Cloud Platform](/deployment/add-semgrep-to-ci/#guided-setup-for-ci-providers-in-scp). In this case, there is no need to set the variable.
 Examples:
 
 Within a Bash environment:
@@ -228,6 +231,59 @@ jobs:
       SEMGREP_REPO_NAME: '$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME'
       ..
 
+```
+
+### `SEMGREP_REPO_DISPLAY_NAME`
+
+Set `SEMGREP_REPO_DISPLAY_NAME` to define the name used for the project in Semgrep Cloud Platform. By default, `SEMGREP_REPO_DISPLAY_NAME` has the same value as `SEMGREP_REPO_NAME`. This allows you to use a different name for your project than the repository name or to scan a monorepo as multiple projects.
+
+#### Scan a monorepo as multiple projects
+
+Create a semgrep scan for each folder you want to scan separately. For each scan, use a different value for `SEMGREP_REPO_DISPLAY_NAME`.
+
+For example, consider a repository with the top level folders `proj1` and `proj2`. You can create separate Semgrep scans for the two folders.
+
+Within a Bash environment:
+
+```bash
+SEMGREP_REPO_DISPLAY_NAME="corporation/myrepo-proj1" semgrep ci --include proj1
+
+SEMGREP_REPO_DISPLAY_NAME="corporation/myrepo-proj2" semgrep ci --include proj2
+```
+
+Within a Github Actions environment:
+
+```yaml
+name: Semgrep
+jobs:
+  semgrep:
+    strategy:
+      matrix:
+        subdir:
+          - proj1
+          - proj2
+    name: semgrep/ci
+    runs-on: ubuntu-20.04
+    env:
+      SEMGREP_APP_TOKEN: ${{ secrets.SEMGREP_APP_TOKEN }}
+      SEMGREP_REPO_DISPLAY_NAME: corporation/myrepo-${{ matrix.subdir }}
+    container:
+      image: returntocorp/semgrep
+    steps:
+    - uses: actions/checkout@v3
+    - run: semgrep ci --include=${{ matrix.subdir }}
+```
+
+You may want to scan a monorepo in parts to manage the projects separately or to improve performance.
+
+If your repository doesn't split cleanly into folders, one strategy is to use `--include` for the main folders and `--exclude` to capture everything else. Returning to the bash example, this would look like:
+
+```bash
+SEMGREP_REPO_DISPLAY_NAME="corporation/myrepo-proj1" semgrep ci --include proj1
+
+SEMGREP_REPO_DISPLAY_NAME="corporation/myrepo-proj2" semgrep ci --include proj2
+
+SEMGREP_REPO_DISPLAY_NAME="corporation/myrepo-proj2" semgrep ci --exclude proj1 --exclude proj2
 ```
 
 ### `SEMGREP_REPO_URL`
@@ -305,41 +361,3 @@ Example:
 ```yaml
 - export BITBUCKET_TOKEN=$PAT
 ```
-
-
-## Environment variables to enable GitLab MR comments for non-standard CI configurations
-
-<pre class="language-bash"><code>
-export GITLAB_CI='true'<br/>
-export CI_PROJECT_PATH='<span className="placeholder">USERNAME</span>/<span className="placeholder">PROJECTNAME</span>'<br/>
-export CI_MERGE_REQUEST_PROJECT_URL='https://gitlab.com/<span className="placeholder">USERNAME</span>/<span className="placeholder">PROJECTNAME</span>'<br/>
-export CI_PROJECT_URL="$CI_MERGE_REQUEST_PROJECT_URL"<br/>
-export CI_COMMIT_SHA='<span className="placeholder">COMMIT-SHA-VALUE</span>'<br/>
-export CI_COMMIT_REF_NAME='<span className="placeholder">REF</span>'<br/>
-export CI_MERGE_REQUEST_TARGET_BRANCH_NAME='<span className="placeholder">BRANCH_NAME</span>'<br/>
-export CI_JOB_URL='<span className="placeholder">JOB_URL</span>'<br/>
-export CI_PIPELINE_SOURCE='merge_request_event'<br/>
-export CI_MERGE_REQUEST_IID='<span className="placeholder">REQUEST_IID</span>'<br/>
-export CI_MERGE_REQUEST_DIFF_BASE_SHA='<span className="placeholder">SHA</span>'<br/>
-export CI_MERGE_REQUEST_TITLE='<span className="placeholder">MERGE_REQUEST_TITLE</span>'<br/>
-</code></pre>
-
-Replace magenta-colored placeholders in the preceding code snippet with your specific values (for example <code><span className="placeholder">USERNAME</span></code>). For more information on all of these variables see GitLab documentation [Predefined variables reference](https://docs.gitlab.com/ee/ci/variables/predefined_variables.html). You can find an exhaustive example with sample values in [List all environment variables](https://docs.gitlab.com/ee/ci/variables/index.html#list-all-environment-variables).
-
-Example with sample values:
-
-```sh
-export GITLAB_CI='true'
-export CI_PROJECT_PATH="gitlab-org/gitlab-foss"
-export CI_MERGE_REQUEST_PROJECT_URL="https://example.com/gitlab-org/gitlab-foss"
-export CI_PROJECT_URL="$CI_MERGE_REQUEST_PROJECT_URL"
-export CI_COMMIT_SHA="1ecfd275763eff1d6b4844ea3168962458c9f27a"
-export CI_COMMIT_REF_NAME="main"
-export CI_MERGE_REQUEST_TARGET_BRANCH_NAME="main"
-export CI_JOB_URL="https://gitlab.com/gitlab-examples/ci-debug-trace/-/jobs/379424655"
-export CI_PIPELINE_SOURCE='merge_request_event'
-export CI_MERGE_REQUEST_IID="1"
-export CI_MERGE_REQUEST_DIFF_BASE_SHA="1ecfd275763eff1d6b4844ea6874447h694gh23d"
-export CI_MERGE_REQUEST_TITLE="Testing branches"
-```
-

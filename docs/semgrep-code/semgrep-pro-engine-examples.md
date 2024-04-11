@@ -40,7 +40,7 @@ In the examples below, see a comparison of Semgrep OSS and Semgrep Pro Engine wh
 
 Semgrep matches `dangerous(“Select * from “ + user_input)`, because `user_input` is obtained by calling `get_user_input`. However, it does not match the similar call using `still_user_input`, because its analysis does not cross function boundaries to know that `still_user_input` is a wrapper function for `user_input`.
 
-<iframe title="Semgrep example no prints" src="https://semgrep.dev/embed/editor?snippet=xOlj" width="100%" height="432" frameborder="0"></iframe>
+<iframe title="Semgrep example no prints" src="https://semgrep.dev/embed/editor?snippet=Ab0Zp" width="100%" height="432" frameborder="0"></iframe>
 
 Semgrep Pro Engine matches both dangerous calls because it does cross function boundaries. In fact, with Semgrep Pro Engine, the taint rule can track calls to `get_user_input` over multiple jumps in multiple files.
 

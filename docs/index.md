@@ -55,7 +55,6 @@ The Semgrep ecosystem includes the following products:
 The following products are **free** for up to 10 contributors:
 * Semgrep Cloud Platform
 * Semgrep Code
-* Semgrep Secrets
 :::
 
 Support and be supported by the Semgrep community through:
@@ -63,7 +62,7 @@ Support and be supported by the Semgrep community through:
 * [Semgrep Playground](https://semgrep.dev/editor) - An online interactive tool for writing and sharing rules.
 * [Semgrep Registry](https://semgrep.dev/explore) - 2,000+ community-driven rules covering security, correctness, and dependency vulnerabilities.
 
-Semgrep is developed and commercially supported by [Semgrep, Inc](https://r2c.dev) a software security company.
+Semgrep is developed and commercially supported by [Semgrep, Inc](https://semgrep.dev) a software security company.
 
 <p align="center">
   <a href="/docs/getting-started/quickstart">Get started →</a>
@@ -96,7 +95,7 @@ Semgrep Cloud Platform is a hosted web application (SaaS) and as such is exclude
 
 ## History
 
-Semgrep is an evolution of [pfff](https://github.com/semgrep/pfff/), which began at [Facebook](https://github.com/facebookarchive/pfff) in 2009, which itself was an evolution of the Linux refactoring tool [Coccinelle](https://en.wikipedia.org/wiki/Coccinelle_(software)). [Semgrep, Inc](https://r2c.dev/team) revitalized the project after its original author, [Yoann Padioleau](https://github.com/aryx), joined the company. [Read more in the blog post "Semgrep: A static analysis journey"](https://semgrep.dev/blog/2021/semgrep-a-static-analysis-journey/)
+Semgrep is an evolution of [pfff](https://github.com/semgrep/pfff/), which began at [Facebook](https://github.com/facebookarchive/pfff) in 2009, which itself was an evolution of the Linux refactoring tool [Coccinelle](https://en.wikipedia.org/wiki/Coccinelle_(software)). [Semgrep, Inc](https://semgrep.dev/about) revitalized the project after its original author, [Yoann Padioleau](https://github.com/aryx), joined the company. [Read more in the blog post "Semgrep: A static analysis journey"](https://semgrep.dev/blog/2021/semgrep-a-static-analysis-journey/)
 
 ## Semgrep development philosophy
 

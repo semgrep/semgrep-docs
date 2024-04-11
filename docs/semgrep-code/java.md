@@ -3,18 +3,20 @@ slug: java
 append_help_link: true
 title: Semgrep Pro in Java
 hide_title: true
-description: Classes of false positives in the Java language that Semgrep Pro Engine can eliminate.
+description: Semgrep Pro Engine features for the Java language that can increase true positives and reduce false positives.
 tags:
-  - tk
+  - Semgrep Code
 ---
 
 # Semgrep Pro performance in Java
 
-<!-- False positive reduction in Java through Semgrep Pro -->
-
 This document explains how Semgrep Pro Engine detects true positives and reduces false positives in Java.
 
 Additionally, it provides several simple rule examples to illustrate the concepts and how you can make use of these Semgrep features when writing your own rules.
+
+:::tip
+The code examples shown here are best viewed in **a separate Semgrep Playground tab** so that you can see the <span style={{backgroundColor: '#b968ff'}}><i class="fa-regular fa-star"></i></span> purple star outline. This star markes which lines contain false positives that are correctly identified and removed by Semgrep Pro Engine.
+:::
 
 ## Language features prevent injection through boolean and integer types 
 
@@ -24,7 +26,7 @@ The OSS Engine matches based on patterns, which can result in false positivies (
 
 ### Example: `int-bool-untainted`
 
-<iframe title="tk" src="https://semgrep.dev/embed/editor?snippet=Ab0p8" width="100%" height="432px" frameBorder="0"></iframe>
+<iframe title="int-bool-untainted rule" src="https://semgrep.dev/embed/editor?snippet=r6rKR" width="100%" height="432px" frameBorder="0"></iframe>
 
 **Figure**. `int-bool-untainted`. To view the entire sample code and rule, click **Open in Playground**.
 
@@ -32,8 +34,8 @@ This demo rule detects tainted data in `sink`.
 
 * This example has two true positives: **line 22** and **line 28**.
 * Semgrep Pro is able to detect that **line 24 and 30 are false positives**. Semgrep OSS can't catch that distinction.
-* Line 24 is a false positive because the data in the sink is an element of an integer List.
-* Line 30 is a false positive because the data in the sink is a set of booleans.
+* Line 24 is a false positive because the data in the sink is an element of an integer list.
+* Line 30 is a false positive because the data in the sink is an element in a set of booleans.
 * The Semgrep rule uses the fields `taint_assume_safe_booleans` and `taint_assume_safe_numbers` to tell the engine that these types are safe and not tainted. 
 
 ## Semgrep understands the Java standard library and APIs
@@ -42,7 +44,7 @@ Java provides a wide array of standard classes and methods across its various li
 
 ### Example: `sqli-demo-bool_doesnt_taint`
 
-<iframe title="tk" src="https://semgrep.dev/embed/editor?snippet=Kx1AY" width="100%" height="432px" frameBorder="0"></iframe>
+<iframe title="sqli-demo-bool_doesnt_taint" src="https://semgrep.dev/embed/editor?snippet=Kx1AY" width="100%" height="432px" frameBorder="0"></iframe>
 
 **Figure**. `sqli-demo-bool_doesnt_taint`. To view the entire sample code and rule, click **Open in Playground**.
 
@@ -61,7 +63,7 @@ The `metavariable-type` field is available in Semgrep OSS. However, classes in J
 
 ### Example: `detect-pattern-in-subclass`
 
-<iframe title="tk" src="https://semgrep.dev/embed/editor?snippet=nJjjG" width="100%" height="432px" frameBorder="0"></iframe>
+<iframe title="detect-pattern-in-subclass" src="https://semgrep.dev/embed/editor?snippet=nJjjG" width="100%" height="432px" frameBorder="0"></iframe>
 
 **Figure**. `detect-pattern-in-subclass`. To view the entire sample code and rule, click **Open in Playground**.
 
@@ -73,8 +75,26 @@ This demo rule detects patterns in instances of the user-defined parent class `F
     - However, the `metavariable-type` specifies a `type` of `Foo`.
     - This specification narrows the match to **line 10** because `Bar` is a subclass of `Foo`, and **line 25**, which is an instance of the Foo object itself.
 
-## Semgrep supports field sensitivity
+## Semgrep supports field and index sensitivity
 
-todo: Check with SME for explanation of field / index sensitivity specific to Semgrep
+Field sensitivity means that Semgrep can track taint for each field of an object, independently. Given an object `C` with properties `C.x` and `C.y`, if `C.x` is tainted, then it does **not** automatically mark `C.y` as tainted.
 
-<iframe title="tk" src="https://semgrep.dev/embed/editor?snippet=4b9KL" width="100%" height="432px" frameBorder="0"></iframe>
+Similarly, index sensitivity means that Semgrep can track taint for each element of an array, independently.
+
+### Example: `unsafe-sql-concatenation-in-method-taint-field-sensitivity`
+
+<iframe title="unsafe-sql-concatenation-in-method-taint-field-sensitivity" src="https://semgrep.dev/embed/editor?snippet=OrAwe" width="100%" height="432px" frameBorder="0"></iframe>
+
+**Figure**. `unsafe-sql-concatenation-in-method-taint-field-sensitivity`. To view the entire sample code and rule, click **Open in Playground**.
+
+This demo rule detects that `C.x` is tainted by way of the `injection` variable. It is able to differentiate `C.y` as untained.
+
+- This example has one true positive: **line 21**, and Semgrep Pro Engine can detect one true negative, **line 24**.
+- **Line 15** of the rule tells Semgrep to match for the following pattern:
+  ```yaml
+  pattern: |
+    $X(..., $SRC, ...) { ... }
+    focus-metavariable: $SRC
+  ```
+  - This matches `private void LoggerTruePositives(String injection)`, specifically the `injection` variable. 
+- The value of the injection variable is passed to `C.x`, thus, `C.x` is tainted, but `C.y` is not. 
