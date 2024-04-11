@@ -84,16 +84,14 @@ The historical scan results appear in the **Secrets Historical Scan** section:
 
 ## Scope of findings
 
-- Historical scans display **valid** Secrets findings. These secrets have been validated, through authentication or a similar function, to grant access to their service or site.
-- Historical scans do **not** display:
-    - **Invalid Secrets findings**. This means that the validator function confirmed that the secret does not grant access to the resource it is meant for.
-    - **Secrets findings without validator functions**. This means that the rule itself does not provide a function that can validate the secret.
-    - **Secrets findings with validation errors**. In some cases, the validator function may return an error, such as when the service, site, or system is down.
+- Historical scans display **valid** Secrets findings. These secrets have been [validated through authentication or a similar function](/semgrep-secrets/conceptual-overview/#validate-secrets).
+- Historical scans do **not** display the following finding types:
+    - Invalid Secrets findings
+    - Secrets findings without validator functions
+    - Secrets findings with validation errors
 - Findings from historical scans are generated through regex-based rules only.
 
-<!--
-You can run --no-secrets-validation to view findings with validator errors and findings without validator functions, but this isn't recommended because of the high number of false positives.
--->
+For more information on the types of Secrets findings, see [Semgrep Secrets overview](/semgrep-secrets/conceptual-overview/#validate-secrets).
 
 ## Triage process
 
