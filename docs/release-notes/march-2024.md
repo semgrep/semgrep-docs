@@ -29,7 +29,7 @@ tags:
 
 ### Fixed
 
-- Visual Studio Code extension: fixed issue where rules weren't downloaded, leading to no scan results.
+- Visual Studio Code extension: fixed an issue where rules weren't downloaded, leading to no scan results.
 
 ## 💻 Code
 
