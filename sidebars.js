@@ -119,6 +119,15 @@ module.exports = {
         },
         {
           type: 'category',
+          label: 'AI-assisted triage and autofix',
+          collapsible: true,
+          link: {type: 'doc', id: 'semgrep-assistant/overview'},
+          items: [
+            'semgrep-assistant/getting-started'
+          ]
+        },
+        {
+          type: 'category',
           label: 'Notifications',
           collapsible: true,
           link: {type: 'doc', id: 'semgrep-cloud-platform/notifications'},
@@ -222,10 +231,9 @@ module.exports = {
                 'semgrep-code/findings',
                 'semgrep-code/triage-remediation',
                 'semgrep-code/remove-duplicates',
-                'semgrep-code/semgrep-assistant-code',
                 'semgrep-ci/configuring-blocking-and-errors-in-ci',
                 'semgrep-code/editor',
-                'running-rules'
+                'semgrep-code/pro-rules'
             ]
         },
         {
@@ -250,6 +258,7 @@ module.exports = {
                 'semgrep-secrets/getting-started',
                 'semgrep-secrets/view-triage',
                 'semgrep-secrets/policies',
+                'semgrep-secrets/historical-scanning',
                 'semgrep-secrets/validators',
                 'semgrep-secrets/rules'
             ]
@@ -352,7 +361,6 @@ module.exports = {
                       'writing-rules/experiments/multiple-focus-metavariables',
                       'writing-rules/experiments/project-depends-on',
                       'writing-rules/experiments/symbolic-propagation',
-                      'writing-rules/experiments/taint-labels',
                       'writing-rules/experiments/metavariable-type',
                       'writing-rules/experiments/deprecated-experiments'
                     ]

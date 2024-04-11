@@ -253,13 +253,13 @@ module.exports = {
           { from: "/notifications", to: "/semgrep-cloud-platform/notifications/" },
           { from: "/experiments", to: "/writing-rules/experiments/introduction/" },
           { from: "/upgrade", to: "/update/" },
-          { from: "/semgrep-ci", to: "/semgrep-ci/overview/" },
+          { from: "/semgrep-ci", to: "/deployment/core-deployment/" },
           { from: "/sample-ci-configs", to: "/semgrep-ci/sample-ci-configs/" },
           { from: "/status/", to: "/supported-languages/" },
           { from: "/language-support/", to: "/supported-languages/" },
           { from: "/ignoring-findings/", to: "/ignoring-files-folders-code/" },
           { from: "/experiments/join-mode/", to: "/writing-rules/experiments/join-mode/overview/" },
-          { from: "/providers/", to: "/semgrep-ci/overview/" },
+          { from: "/providers/", to: "/deployment/core-deployment/" },
           { from: "/cli-usage/", to: "/cli-reference/" },
           { from: "/writing-rules/data-flow", to: "/writing-rules/data-flow/data-flow-overview/" },
           { from: "/writing-rules/data-flow/overview/", to: "/writing-rules/data-flow/data-flow-overview/"},
@@ -274,7 +274,7 @@ module.exports = {
           { from: "/experiments/symbolic-propagation/", to: "/writing-rules/experiments/symbolic-propagation/" },
           { from: "/experiments/taint-propagators/", to: "/writing-rules/data-flow/taint-mode/" },
           { from: "/writing-rules/experiments/taint-propagators/", to: "/writing-rules/data-flow/taint-mode/" },
-          { from: "/experiments/taint-labels/", to: "/writing-rules/experiments/taint-labels/" },
+          { from: "/experiments/taint-labels/", to: "/writing-rules/data-flow/taint-mode/" },
           { from: "/experiments/metavariable-analysis/", to: "/writing-rules/metavariable-analysis/" },
           { from: "/experiments/multiple-focus-metavariables/", to: "/writing-rules/experiments/multiple-focus-metavariables/" },
           { from: "/experiments/display-propagated-metavariable/", to: "/writing-rules/experiments/display-propagated-metavariable/" },
@@ -283,6 +283,7 @@ module.exports = {
           { from: "/writing-rules/experiments/autofix/", to: "/writing-rules/autofix/" },
           { from: "/writing-rules/experiments/generic-pattern-matching/", to: "/writing-rules/generic-pattern-matching/" },
           { from: "/writing-rules/experiments/metavariable-analysis/", to: "/writing-rules/metavariable-analysis/" },
+          { from: "/writing-rules/experiments/taint-labels/", to: "/writing-rules/data-flow/taint-mode/" },
 
           /* MAR 24 2023 POST LAUNCH REDIRECTS */
 
@@ -294,6 +295,9 @@ module.exports = {
 
           // Troubleshooting
           { from: "/troubleshooting/gitlab-sast/" , to: "/troubleshooting/semgrep-ci/" } ,
+
+          // Semgrep Assistant
+          { from: "/semgrep-code/semgrep-assistant-code", to: "/semgrep-assistant/overview" }   ,
 
           // Semgrep Code
           { from: "/semgrep-app/integrations"                        , to: "/semgrep-cloud-platform/notifications/" }   ,

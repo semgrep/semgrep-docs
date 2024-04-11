@@ -52,7 +52,7 @@ The below optional fields must reside underneath a `patterns` field.
 | [`metavariable-comparison`](#metavariable-comparison) | `map` | Compare metavariables against basic [Python expressions](https://docs.python.org/3/reference/expressions.html#comparisons) |
 | [`pattern-not`](#pattern-not) | `string` | Logical NOT - remove findings matching this expression |
 | [`pattern-not-inside`](#pattern-not-inside)     | `string` | Keep findings that do not lie inside this pattern |
-| [`pattern-not-regex`](#pattern-not-regex)   | `string` | Filter results using a [PCRE](https://www.pcre.org/original/doc/html/pcrepattern.html)-compatible pattern in multiline mode |
+| [`pattern-not-regex`](#pattern-not-regex)   | `string` | Filter results using a [PCRE2](https://www.pcre.org/current/doc/html/pcre2pattern.html)-compatible pattern in multiline mode |
 
 ## Operators
 
@@ -152,10 +152,10 @@ This rule looks for usage of the Python standard library functions `hashlib.md5`
 
 ### `pattern-regex`
 
-The `pattern-regex` operator searches files for substrings matching the given [PCRE](https://www.pcre.org/original/doc/html/pcrepattern.html) pattern. This is useful for migrating existing regular expression code search functionality to Semgrep. Perl-Compatible Regular Expressions (PCRE) is a full-featured regex library that is widely compatible with Perl, but also with the respective regex libraries of Python, JavaScript, Go, Ruby, and Java. Patterns are compiled in multiline mode, for example `^` and `$` matches at the beginning and end of lines respectively in addition to the beginning and end of input.
+The `pattern-regex` operator searches files for substrings matching the given [PCRE2](https://www.pcre.org/current/doc/html/pcre2pattern.html) pattern. This is useful for migrating existing regular expression code search functionality to Semgrep. Perl-Compatible Regular Expressions (PCRE) is a full-featured regex library that is widely compatible with Perl, but also with the respective regex libraries of Python, JavaScript, Go, Ruby, and Java. Patterns are compiled in multiline mode, for example `^` and `$` matches at the beginning and end of lines respectively in addition to the beginning and end of input.
 
 :::caution
-PCRE supports only a [limited number of Unicode character properties](https://www.pcre.org/original/doc/html/pcrepattern.html#uniextseq). For example, `\p{Egyptian_Hieroglyphs}` is supported but `\p{Bidi_Control}` isn't.
+PCRE2 supports [some Unicode character properties, but not some Perl properties](https://www.pcre.org/current/doc/html/pcre2pattern.html#uniextseq). For example, `\p{Egyptian_Hieroglyphs}` is supported but `\p{InMusicalSymbols}` isn't.
 :::
 
 #### Example: `pattern-regex` combined with other pattern operators
@@ -229,7 +229,7 @@ acbd
 
 ### `pattern-not-regex`
 
-The `pattern-not-regex` operator filters results using a [PCRE](https://www.pcre.org/original/doc/html/pcrepattern.html) regular expression in multiline mode. This is most useful when combined with regular-expression only rules, providing an easy way to filter findings without having to use negative lookaheads. `pattern-not-regex` works with regular `pattern` clauses, too.
+The `pattern-not-regex` operator filters results using a [PCRE2](https://www.pcre.org/current/doc/html/pcre2pattern.html) regular expression in multiline mode. This is most useful when combined with regular-expression only rules, providing an easy way to filter findings without having to use negative lookaheads. `pattern-not-regex` works with regular `pattern` clauses, too.
 
 The syntax for this operator is the same as `pattern-regex`.
 
@@ -373,7 +373,7 @@ To make a list of multiple focus metavariables using set union semantics that ma
 
 ### `metavariable-regex`
 
-The `metavariable-regex` operator searches metavariables for a [PCRE](https://www.pcre.org/original/doc/html/pcrepattern.html) regular expression. This is useful for filtering results based on a [metavariable’s](pattern-syntax.mdx#metavariables) value. It requires the `metavariable` and `regex` keys and can be combined with other pattern operators.
+The `metavariable-regex` operator searches metavariables for a [PCRE2](https://www.pcre.org/current/doc/html/pcre2pattern.html) regular expression. This is useful for filtering results based on a [metavariable’s](pattern-syntax.mdx#metavariables) value. It requires the `metavariable` and `regex` keys and can be combined with other pattern operators.
 
 ```yaml
 rules:
