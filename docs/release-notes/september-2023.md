@@ -95,7 +95,7 @@ tags:
     * [<i class="fa-regular fa-file-lines"></i> How to exclude certain file types for a particular rule](kb/rules/exclude_rule_for_certain_filetypes/)
     * [<i class="fa-regular fa-file-lines"></i> Why isn’t Semgrep reporting all my tainted data flows?](kb/semgrep-code/finding_all_taints/ )
     * [<i class="fa-regular fa-file-lines"></i> How to scan multiple or nested lock files](kb/semgrep-supply-chain/scanning_multiple_lockfiles/)
-* [<i class="fa-regular fa-file-lines"></i> Semgrep Assistant](/semgrep-code/semgrep-assistant-code/#enabling-semgrep-assistant): Added a guide to setting up Assistant on GitLab MRs.
+* [<i class="fa-regular fa-file-lines"></i> Semgrep Assistant](/semgrep-assistant/getting-started): Added a guide to setting up Assistant on GitLab MRs.
 * [<i class="fa-regular fa-file-lines"></i> Supported languages](/supported-languages/#language-maturity-factors-pro-engine): Added a section on Semgrep Pro Engine language maturity factors. These are the criteria that determine if a language is generally available (GA) or beta.
 
 ### Changed

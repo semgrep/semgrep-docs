@@ -151,6 +151,6 @@ The retention period for findings is **5 years**.
 ## Further reading
 
 - Learn how to [triage and remediate Semgrep Code findings](/semgrep-code/triage-remediation).
-- See [Semgrep Assistant for Semgrep Code](/semgrep-code/semgrep-assistant-code) for information on receiving GPT-4-powered security recommendations when reviewing your findings.
+- See [Semgrep Assistant for Semgrep Code](/semgrep-assistant/overview) for information on receiving GPT-4-powered security recommendations when reviewing your findings.
 
 <MoreHelp />
