@@ -296,6 +296,9 @@ module.exports = {
           // Troubleshooting
           { from: "/troubleshooting/gitlab-sast/" , to: "/troubleshooting/semgrep-ci/" } ,
 
+          // Semgrep Assistant
+          { from: "/semgrep-code/semgrep-assistant-code", to: "/semgrep-assistant/overview" }   ,
+
           // Semgrep Code
           { from: "/semgrep-app/integrations"                        , to: "/semgrep-cloud-platform/notifications/" }   ,
           { from: "/semgrep-app/demo-project/"                       , to: "/deployment/core-deployment/" }    ,
