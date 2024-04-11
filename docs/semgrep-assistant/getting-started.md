@@ -20,7 +20,7 @@ This article walks you through enabling Semgrep Assistant for your deployment.
 
 <TabItem value='github'>
 
-Semgrep Assistant extends normal Semgrep capabilities by providing contextually aware AI-generated suggestions. In order to build that context, it requires GitHub permissions in excess of the 
+Semgrep Assistant extends normal Semgrep capabilities by providing contextually aware AI-generated suggestions. In order to build that context, it requires GitHub permissions in addition to the 
 [<i class="fa-regular fa-file-lines"></i> standard permissions required for Semgrep](/deployment/checklist/#permissions).
 
 Semgrep Assistant requires [read access to your code in GitHub](https://docs.github.com/en/rest/overview/permissions-required-for-github-apps?apiVersion=2022-11-28). This is done through a private Semgrep GitHub app that you install during Assistant setup. This private Semgrep GitHub app:
@@ -53,7 +53,7 @@ Semgrep Assistant requires [read access to your code in GitHub](https://docs.git
 
 <TabItem value='gitlab'>
 
-Semgrep Assistant extends normal Semgrep capabilities by providing contextually aware AI-generated suggestions. In order to build that context, it requires GitLab permissions in excess of the 
+Semgrep Assistant extends normal Semgrep capabilities by providing contextually aware AI-generated suggestions. In order to build that context, it requires GitLab permissions in addition to the 
 [<i class="fa-regular fa-file-lines"></i> standard permissions required for Semgrep](/deployment/checklist/#permissions).
 
 Semgrep Assistant requires the **API scope** to run in both GitLab SaaS and GitLab self-managed instances. This can be specified at either the [project access token level](https://docs.gitlab.com/ee/user/project/settings/project_access_tokens.html) or [personal access token level](https://docs.gitlab.com/ee/user/profile/personal_access_tokens.html). 
@@ -62,7 +62,7 @@ Semgrep Assistant requires the **API scope** to run in both GitLab SaaS and GitL
 * Semgrep Assistant only accesses source code repositories (projects) on a file-by-file basis; it does not need or request org-level access to your codebase.
 * The token can be configured to limit its scope to specific projects or individuals. You do not need to give read access to all projects in your GitLab organization.
 
-<h2> Enable Assistant </h2>
+<h2>Enable Assistant</h2>
 
 1. Sign in to [Semgrep Cloud Platform <i class="fas fa-external-link fa-xs"></i>](https://semgrep.dev/login) using your GitLab account.
 2. Click **[<i class="fa-solid fa-gear"></i> Settings](https://semgrep.dev/orgs/-/settings/)**. 
@@ -74,16 +74,16 @@ Semgrep Assistant requires the **API scope** to run in both GitLab SaaS and GitL
    1. **Allow code snippets in AI prompts**: Required for Semgrep to auto-triage findings, provide AI remediation guidance, and tag findings with code context.
    2. **Autofix suggestions for Code**: Enable autofix suggestions in comments from Assistant. You can also set the minimum confidence level for Assistant-written fixes if the Semgrep rule doesn't include a human-written autofix.
    3. **Auto-triage for Code**: Enable notifications whenever Assistant suggests that a finding may be safe to ignore. You can include notifications in your PR and MR comments, or you can receive them through Slack notifications.
-    ![Screenshot of Semgrep Assistant toggle location](/img/semgrep-assistant-enable.png)
+    ![Semgrep Assistant toggle location](/img/semgrep-assistant-enable.png)
 
 </TabItem>
 </Tabs>
 
 ### Enable autofix suggestions
 
-If [autofix](/semgrep-assistant/overview/#autofix), which allows you to receive code snippets to remediate true positive findings, isn't enabled for your deployment, you can do so as follows:
+Autofix allows you to receive code snippets to remediate true positives. Perform the following to enable it:
 
-1. Log in to Semgrep Cloud Platform, and navigate to **Settings > Deployment**.
+1. Sign in to Semgrep Cloud Platform, and navigate to **Settings > Deployment**.
 2. In the **Assistant** section, click the **Autofix suggestions for Code** <i class="fa-solid fa-toggle-large-on"></i> if it is not yet enabled.
 3. *Optional*: Select a **confidence level** in the drop-down box. This value determines the level of quality at which the autofix code appears as a suggestion. A lower confidence level means that Semgrep Assistant displays the autofix suggestion even when the code quality may be incorrect.
     :::tip
