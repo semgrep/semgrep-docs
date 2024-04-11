@@ -7,7 +7,7 @@ tags:
   - Semgrep Assistant
 ---
 
-# Semgrep Assistant
+# Enable and use Semgrep Assistant
 
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
