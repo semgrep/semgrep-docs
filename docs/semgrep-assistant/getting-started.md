@@ -43,7 +43,7 @@ Semgrep Assistant requires [read access to your code in GitHub](https://docs.git
 1. Sign in to [Semgrep Cloud Platform](https://semgrep.dev/login).
 2. Click **[<i class="fa-solid fa-gear"></i> Settings](https://semgrep.dev/orgs/-/settings/)**. 
 3. In the **Assistant** section, click the **<i class="fa-solid fa-gear"></i> Allow code snippets in AI prompts** toggle.
-![Screenshot of Semgrep Assistant setup button](/img/semgrep-assistant-setup.png#md-width)
+![Semgrep Assistant setup button](/img/semgrep-assistant-setup.png#md-width)
    This launches the **Set up Semgrep Assistant** prompt.
 1. Select a source code manager (SCM) by clicking **github.com**.
 2. Semgrep provides you with information on why Assistant requires access to your source code. Click **Accept & Enable Assistant** to proceed.
@@ -56,7 +56,7 @@ Semgrep Assistant requires [read access to your code in GitHub](https://docs.git
    1. **Allow code snippets in AI prompts**: Required for Semgrep to auto-triage findings, provide AI remediation guidance, and tag findings with code context.
    2. **Autofix suggestions for Code**: Enable autofix suggestions in comments from Assistant. You can also set the minimum confidence level for Assistant-written fixes if the Semgrep rule doesn't include a human-written autofix.
    3. **Auto-triage for Code**: Enable notifications whenever Assistant suggests that a finding may be safe to ignore. You can include notifications in your PR and MR comments, or you can receive them through Slack notifications.
-    ![Screenshot of Semgrep Assistant toggle location](/img/semgrep-assistant-enable.png)
+    ![Semgrep Assistant toggle location](/img/semgrep-assistant-enable.png)
 
 </TabItem>
 
@@ -76,10 +76,10 @@ Semgrep Assistant requires the **API scope** to run in both GitLab SaaS and GitL
 1. Sign in to [Semgrep Cloud Platform <i class="fas fa-external-link fa-xs"></i>](https://semgrep.dev/login) using your GitLab account.
 2. Click **[<i class="fa-solid fa-gear"></i> Settings](https://semgrep.dev/orgs/-/settings/)**. 
 3. In the **Assistant** section, click the **<i class="fa-solid fa-gear"></i> Allow code snippets in AI prompts** toggle.
-![Screenshot of Semgrep Assistant setup button](/img/semgrep-assistant-setup.png#md-width)
+![Semgrep Assistant setup button](/img/semgrep-assistant-setup.png#md-width)
    This launches the **Set up Semgrep Assistant** prompt.
-4. Follow the on-screen instructions to complete the setup process.
-5. Navigate back to the **Deployment** page. Under the **Assistant** section, verify that all of the features are enabled:
+1. Follow the on-screen instructions to complete the setup process.
+2. Navigate back to the **Deployment** page. Under the **Assistant** section, verify that all of the features are enabled:
    1. **Allow code snippets in AI prompts**: Required for Semgrep to auto-triage findings, provide AI remediation guidance, and tag findings with code context.
    2. **Autofix suggestions for Code**: Enable autofix suggestions in comments from Assistant. You can also set the minimum confidence level for Assistant-written fixes if the Semgrep rule doesn't include a human-written autofix.
    3. **Auto-triage for Code**: Enable notifications whenever Assistant suggests that a finding may be safe to ignore. You can include notifications in your PR and MR comments, or you can receive them through Slack notifications.
@@ -115,7 +115,7 @@ If [auto-triage](/semgrep-assistant/overview/#autotriage), which allows you to g
 Semgrep Assistant messages only appear in your PR comments for rules that are set to Comment or Block mode on the Rule Management page. Ensure that:
 
 * You have set rules to Comment or Block mode.
-  ![Screenshot of Policies modes](/img/semgrep-assistant-comment.png)
+  ![ Policies modes](/img/semgrep-assistant-comment.png)
 * You have selected PR/MR comments in **Semgrep Cloud Platform > Settings > Deployment** in the **Code** section.
 
 ### Enable priority inbox

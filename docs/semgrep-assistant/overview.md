@@ -18,7 +18,7 @@ import MoreHelp from "/src/components/MoreHelp"
 
 Semgrep Assistant provides GPT-4-powered security recommendations to help you review, triage, and remediate your Semgrep findings.
 
-![Screenshot of Semgrep Assistant message in GitHub](/img/semgrep-assistant-github.png)
+![Semgrep Assistant message in GitHub](/img/semgrep-assistant-github.png)
 *Figure*. Semgrep Assistant detects a false positive.
 
 ## Support and availability
@@ -55,7 +55,7 @@ Semgrep Assistant uses GPT-4's understanding of programming languages and librar
 
 Semgrep presents these recommendations through Slack and PR or MR comments, so developers can fix or triage an issue without switching contexts.
 
-![Screenshot of Semgrep Assistant in a Slack notification](/img/semgrep-assistant-slack.png#md-width)
+![Semgrep Assistant in a Slack notification](/img/semgrep-assistant-slack.png#md-width)
     *Figure*. Semgrep Assistant in a Slack notification.
 
 You can view findings that Assistant suggests should be **Ignored** in Semgrep Cloud Platform's **Findings page**. <!-- #10438 -->
