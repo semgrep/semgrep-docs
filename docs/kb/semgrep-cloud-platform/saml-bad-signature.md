@@ -1,3 +1,11 @@
+---
+description: If SAML signature validation fails, check your certificate upload and information.
+tags:
+  - Semgrep Cloud Platform 
+  - SSO
+  - Troubleshooting
+---
+
 # SSO Error: Signature validation failed. SAML Response rejected.
 
 When setting up SAML single-sign on (SSO), you may encounter the following error: `Signature validation failed. SAML Response rejected`
