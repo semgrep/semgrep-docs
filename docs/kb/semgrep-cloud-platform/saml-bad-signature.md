@@ -6,7 +6,7 @@ tags:
   - Troubleshooting
 ---
 
-# SSO Error: Signature validation failed. SAML Response rejected.
+# SSO Error: Signature validation failed
 
 When setting up SAML single-sign on (SSO), you may encounter the following error: `Signature validation failed. SAML Response rejected`
 
