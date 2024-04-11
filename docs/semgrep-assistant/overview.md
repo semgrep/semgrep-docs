@@ -77,6 +77,15 @@ You can view findings for which Assistant has generated autofix snippets in Semg
 
 The finding's detail page also includes a link to the PR or MR comment with the autofix; you can go to the PR or MR, where you can directly commit the autofix. <!-- #10516 --> <!-- This isn't unique to Assistant; it's available for autofix and PR/MR comments in general. -->
 
+### Priority inbox
+
+Semgrep sends weekly emails with information on the top three backlog tasks according to Assistant. These emails are sent out on Monday to all organization admins.
+
+This information is also available in Semgrep Cloud Platform on the **Dashboard** page under **Recommended tasks from Assistant**.
+
+![Semgrep Assistant's priority inbox email and Dashboard view](/img/priority-inbox.png#md-width)
+    *Figure*. Semgrep Assistant's priority inbox email and Dashboard view.
+
 ## Privacy and legal considerations
 
 Semgrep uses API permissions to access code on your pre-selected GitHub or GitLab repositories.
