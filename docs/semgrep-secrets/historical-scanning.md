@@ -89,9 +89,10 @@ The historical scan results appear in the **Secrets Historical Scan** section:
     - Invalid Secrets findings
     - Secrets findings without validator functions
     - Secrets findings with validation errors
-- Findings from historical scans are generated through regex-based rules only.
+- Findings from historical scans are generated through **Generic** (regex-based) rules only.
+    - Navigate to **[<i class="fas fa-external-link fa-xs"></i> Semgrep Cloud Platform > Policies > Secrets](https://semgrep.dev/orgs/-/policies/secrets?analysis-method=generic)** and click **Generic** under **Analysis method** to view these rules.
 
-For more information on the types of Secrets findings, see [Semgrep Secrets overview](/semgrep-secrets/conceptual-overview/#validate-secrets).
+For more information on the types of findings by validation, see [Semgrep Secrets overview](/semgrep-secrets/conceptual-overview/#validate-secrets).
 
 ## Triage process
 
