@@ -27,9 +27,6 @@ tags:
 
 - The **Add to policy** button in the **Playground** can now differentiate between custom Code and Secrets rules. When you click **Add to policy**, it detects which type of rule you have written and adds the rule to corresponding policy board. <!-- 12739 -->
 
-### Changed
-
-
 ### Fixed
 
 - Fixed a bug in which users couldn't claim a license if they only had one organization. <!-- 13076 -->
@@ -113,8 +110,6 @@ Semgrep Assistant is **now generally available (GA)**. Read [the docs](/semgrep-
 
 - Improvements to in-app copy and UI. <!-- 13399, 13352 -->
 
-### Fixed
-
 ## 🔐 Secrets
 
 ### Added
@@ -142,6 +137,14 @@ Semgrep Assistant is **now generally available (GA)**. Read [the docs](/semgrep-
 
 ### Added
 
+- Added information on [installing and using the Semgrep App for GitHub Enterprise](/deployment/connect-scm/#github-enterprise-server) to connect to your GitHub orgs.
+- New Knowledge base article: [Generate lockfiles for Semgrep Supply Chain in a Circle CI pipeline](/kb/semgrep-supply-chain/ssc-lockfiles-circleci)
+
 ### Changed
 
-### Fixed
+- Major edits and updates to documentation for:
+  - [Semgrep Secrets](/semgrep-secrets/getting-started)
+  - [Semgrep Assistant](/semgrep-assistant/overview)
+  - [Semgrep extension for Visual Studio Code](/extensions/semgrep-vs-code)
+- Updated [**Findings** page information](/semgrep-code/findings)
+- Minor fixes and updates to various pages.
