@@ -15,7 +15,7 @@ When setting up SAML single-sign on (SSO), you may encounter the following error
 This indicates one of two things:
 
 * You may not have entered the certificate correctly in the Semgrep SSO settings. Verify that the signature there matches the one provided by your IdP.
-* Your certificate may have a problem, such being outside its validity dates. Inspect the signature information for the certificate you uploaded to Semgrep Cloud Platform and ensure it is valid.
+* Your certificate may have a problem, such as being outside its validity dates. Inspect the signature information for the certificate you uploaded to Semgrep Cloud Platform and ensure it is valid.
 
 If your certificate file is stored as `server.crt`, you can view the signature information on the command-line using:
 
