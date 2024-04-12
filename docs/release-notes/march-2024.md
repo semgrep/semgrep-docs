@@ -32,7 +32,7 @@ tags:
 
 ### Fixed
 
-- Visual Studio Code extension: fixed issue where rules weren't downloaded, leading to no scan results.
+- Visual Studio Code extension: fixed an issue where rules weren't downloaded, leading to no scan results.
 
 ## 💻 Code
 
@@ -85,9 +85,13 @@ tags:
 - Fixed an issue where bulk triage didn't work in Semgrep Cloud Platform for Supply Chain findings.
 - Fixed an issue where Supply Chain rules and findings erroneously display a confidence label.
 
-## 🤖 Assistant (beta)
+## 🤖 Assistant
+
+Semgrep Assistant is **now generally available (GA)**. Read [the docs](/semgrep-assistant/overview/) and the [<i class="fas fa-external-link fa-xs"></i> blog post](https://semgrep.dev/blog/2024/assistant-ga-launch).
 
 ### Added
+
+- Added the **Agree** and **Ignore** buttons to the **No grouping** view in the **Semgrep Cloud Platform > Code** page.
 
 ### Changed
 
