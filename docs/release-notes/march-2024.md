@@ -99,6 +99,7 @@ Semgrep Assistant is **now generally available (GA)**. Read [the docs](/semgrep-
 - Added the ability to use AI to generate Semgrep rules (beta). To try this feature:
     1. Navigate to the [<i class="fas fa-external-link fa-xs"></i> Editor](https://semgrep.dev/orgs/-/editor) and click on the **<span style={{color:'#ffffff'}}><span style={{backgroundColor:'#000000'}}><i class="fa-solid fa-circle-plus"></i></span></span> black square with white circle plus sign**.
     2. Select **...with Semgrep Assistant (beta)** from the drop-down box.
+    ![Generate rule with Semgrep Assistant form](/img/ai-generate-rule.png)
 
 ### Changed
 
