@@ -27,9 +27,6 @@ tags:
 
 - The **Add to policy** button in the **Playground** can now differentiate between custom Code and Secrets rules. When you click **Add to policy**, it detects which type of rule you have written and adds the rule to corresponding policy board. <!-- 12739 -->
 
-### Changed
-
-
 ### Fixed
 
 - Fixed a bug in which users couldn't claim a license if they only had one organization. <!-- 13076 -->
