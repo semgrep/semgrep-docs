@@ -24,8 +24,8 @@ openssl x509 -in server.crt -text -noout
 ```
 Check information such as:
 
-- Certificate authority/Issuer
+- Certificate authority or Issuer
 - Validity dates
-- Signature
+- Signature algorithm and value
 
 Address any problems with the certificate. Then, ensure that you have uploaded the resulting certificate correctly to Semgrep Cloud Platform, and attempt a new SSO login.
