@@ -42,14 +42,14 @@ tags:
 
 ### Changed
 
-- Code analysis started by logged-in users running `semgrep ci` now includes cross-file (interfile) analysis.
+- Code analysis started by logged-in users running `semgrep ci` now includes cross-file (intrafile) analysis.
 - `.phtml` files are now processed as PHP files and analyzed using PHP rules.
 - Updated PR comments to include links to specific findings in Semgrep Cloud Platform.
 - Users can see all projects, even if they don't have any identified findings, in the **Most findings** list on Semgrep Cloud Platform's **Dashboard** page. <!-- https://github.com/semgrep/semgrep-app/pull/12870 >
 - Semgrep Code now distinguishes between findings resolved by rule changes and findings resolved due to code modifications. This change applies only to new findings.
   - Only findings fixed due to code modifications are marked as fixed.
     - The fix rate calculated by Semgrep Code now includes only such findings.
-  - Findings fixed due to rule changes are marked as resolved.
+  - Findings fixed due to rule changes are marked as **resolved**.
 - **CLI**: Semgrep clones the repository into the current working directory instead of a `tmp` folder when using the `-- remote` flag.
 
 ### Fixed
