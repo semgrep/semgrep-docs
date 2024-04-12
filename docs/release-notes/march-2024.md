@@ -30,7 +30,7 @@ tags:
 ### Fixed
 
 - Fixed a bug in which users couldn't claim a license if they only had one organization. <!-- 13076 -->
-- Visual Studio Code extension: fixed an issue where rules weren't downloaded, leading to no scan results.
+- **Visual Studio Code extension:** fixed an issue where rules weren't downloaded to the user's machine, which resulted in no findings detected.
 - Minor UI and in-app copy fixes in the following:
     - Editor
     - Settings page
@@ -50,19 +50,19 @@ tags:
 
 ### Changed
 
-- Code analysis started by logged-in users running `semgrep ci` now includes cross-file (intrafile) analysis.
+- Code analysis started by logged-in users running `semgrep ci` now includes cross-file (intrafile) analysis. This change affects CI jobs and CLI scans.
 - `.phtml` files are now processed as PHP files and analyzed using PHP rules.
 - Updated PR comments to include links to specific findings in Semgrep Cloud Platform.
 - Users can see all projects, even if they don't have any identified findings, in the **Most findings** list on Semgrep Cloud Platform's **Dashboard** page. <!-- https://github.com/semgrep/semgrep-app/pull/12870 -->
-- Semgrep Code now distinguishes between findings resolved by rule changes and findings resolved due to code modifications. This change applies only to new findings.
-  - Only findings fixed due to code modifications are marked as fixed.
+- Semgrep Code now distinguishes between findings **resolved by rule changes** and findings **resolved due to code modifications**. This change applies only to new findings.
+  - Only findings fixed due to **code modifications** are marked as **fixed**.
     - The fix rate calculated by Semgrep Code now includes only such findings.
   - Findings fixed due to rule changes are marked as **resolved**.
-- **CLI**: Semgrep clones the repository into the current working directory instead of a `tmp` folder when using the `-- remote` flag.
+- **CLI**: Semgrep clones the repository into the current working directory instead of a `tmp` folder when using the `--remote` flag.
 
 ### Fixed
 
-- Kotlin: Fixed a parsing error when a newline appears between the class name and the primary constructor.
+- **Kotlin**: Fixed a parsing error when a newline appears between the class name and the primary constructor.
 - Fixed an issue where autofix on variable definitions could not handle semicolons for Java, C++, C#, Rust, Cairo, Solidity, and Dart.
 - Fixed an issue with autofix application on lines with multi-byte characters.
 - Fixed issue where credentials were inadvertently included in a project URL when publishing a custom rule using `semgrep publish`. Running `semgrep publish` generates a `rule-origin-note`, which includes the project URL in the metadata. When this process occurs in a GitLab CI job, GitLab includes the CI job tokens in the project URL. Semgrep now removes the credential from the metadata.
@@ -73,20 +73,18 @@ tags:
 
 ### Added
 
-- Supply Chain now offers lockfile-only support for Swift projects.
-- Added a tour of Supply Chain features in Semgrep Cloud Platform for first-time users, as well as a tour for returning users.
-- Added NIST Common Vulnerabilities and Exposures (CVE) number or GitHub Security Advisory (GHSA) ID to Supply Chain page  <!-- 13315 - may have to remove this, as I don't see it in live -->
+- Supply Chain now offers [lockfile-only support](/supported-languages/#semgrep-supply-chain) for Swift projects.
 
 ### Changed
 
-- Findings with a critical severity now display in Semgrep Cloud Platform with a darker red color to help distinguish them from high-severity findings.
+- Findings with a **critical** severity now display in Semgrep Cloud Platform with a darker red color to help distinguish them from high-severity findings.
 - Findings are now displayed in Semgrep Cloud Platform with readable names, such as `git-url-parse: Inefficient Regular Expression Complexity` instead of `lodash.defaultsdeep: Improper Input Validation`.
 - Added additional reachability filter values to Semgrep Cloud Platform. Users can now search using the following values:
-  - **Reachable**
-  - **Always Reachable**
-  - **Conditionally Reachable**
-  - **Unreachable**
-  - **Unknown**
+  - Reachable
+  - Always Reachable
+  - Conditionally Reachable
+  - Unreachable
+  - Unknown
 
 ### Fixed
 
@@ -114,7 +112,7 @@ Semgrep Assistant is **now generally available (GA)**. Read [the docs](/semgrep-
 
 ### Added
 
-- Historical scanning is now available as a public beta feature. Historical scanning allows users to find valid secrets in their Git commit history. To enable this feature:
+- Historical scanning is now available as a **public beta** feature. [<i class="fa-regular fa-file-lines"></i> Historical scanning](/docs/semgrep-secrets/historical-scanning/) allows users to find valid secrets in their Git commit history. To enable this feature:
     1. Log in to Semgrep Cloud Platform.
     2. Navigate to **Settings** > **Deployments**.
     3. Under **Secrets**, toggle on **Historical scanning**.
@@ -137,8 +135,11 @@ Semgrep Assistant is **now generally available (GA)**. Read [the docs](/semgrep-
 
 ### Added
 
+- Added the following new documents:
+    - [<i class="fa-regular fa-file-lines"></i> Packages in the Semgrep Docker image](/semgrep-ci/packages-in-semgrep-docker/): Lists the packages including in the Semgrep docker image in addition to the Semgrep binary.
+    - [<i class="fa-regular fa-file-lines"></i> Semgrep OSS in CI](/docs/deployment/oss-deployment/): A guide to using only open source Semgrep in your CI jobs.
+- New Knowledge base article: [Generate lockfiles for Semgrep Supply Chain in a Circle CI pipeline](/kb/semgrep-supply-chain/ssc-lockfiles-circleci).
 - Added information on [installing and using the Semgrep App for GitHub Enterprise](/deployment/connect-scm/#github-enterprise-server) to connect to your GitHub orgs.
-- New Knowledge base article: [Generate lockfiles for Semgrep Supply Chain in a Circle CI pipeline](/kb/semgrep-supply-chain/ssc-lockfiles-circleci)
 
 ### Changed
 
@@ -146,5 +147,7 @@ Semgrep Assistant is **now generally available (GA)**. Read [the docs](/semgrep-
   - [Semgrep Secrets](/semgrep-secrets/getting-started)
   - [Semgrep Assistant](/semgrep-assistant/overview)
   - [Semgrep extension for Visual Studio Code](/extensions/semgrep-vs-code)
-- Updated [**Findings** page information](/semgrep-code/findings)
-- Minor fixes and updates to various pages.
+- Updated Semgrep Pro Engine documentation to clarify what is enabled by the **cross-file analysis** toggle in **Semgrep Cloud Platform > Settings**.
+- Updated [**Findings** page information](/semgrep-code/findings).
+- Updated SSO documentation with latest steps to integrate with [Microsoft Entra ID](/docs/deployment/sso/#set-up-saml-sso-with-microsoft-entra-id).
+- GitHub Actions configuration snippets have been updated to use `actions/checkout@v4`.
