@@ -25,7 +25,7 @@ tags:
 
 ### Added
 
-- The **Add to policy** button in the **Playground** can now differentiate between custom Code and Secrets rules. When you click Add to policy, it detects which type of rule you have written and adds the rule to corresponding policy board. <!-- 12739 -->
+- The **Add to policy** button in the **Playground** can now differentiate between custom Code and Secrets rules. When you click **Add to policy**, it detects which type of rule you have written and adds the rule to corresponding policy board. <!-- 12739 -->
 
 ### Changed
 
@@ -34,7 +34,11 @@ tags:
 
 - Fixed a bug in which users couldn't claim a license if they only had one organization. <!-- 13076 -->
 - Visual Studio Code extension: fixed an issue where rules weren't downloaded, leading to no scan results.
-- Minor UI and in-app copy fixes in the Editor, Settings page, Tutorial page, and onboarding process. <!-- 13447, 13445, 13364, 13194, 13082 -->
+- Minor UI and in-app copy fixes in the following:
+    - Editor
+    - Settings page
+    - Tutorial page
+    - Onboarding process <!-- 13447, 13445, 13364, 13194, 13082 -->
 - Fixed a bug in which users were sometimes unable to delete their SSO configuration. <!-- 13171 -->
 
 ## 💻 Code
