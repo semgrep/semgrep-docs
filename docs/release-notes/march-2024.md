@@ -25,6 +25,9 @@ tags:
 
 ### Added
 
+- Minor UI and copy fixes. <!-- 13447 -->
+-
+
 ### Changed
 
 ### Fixed
@@ -38,6 +41,7 @@ tags:
 - Added support for Python's `yield` keyword, enabling the detection of taint findings from taint sources returned by `yield`.
 - Added ability for users to copy file paths displayed in Semgrep Cloud Platform's **Findings** page if they aren't links.
 - Added the ability for users to see if there's a version of a rule they're currently using that supports interfile analysis.
+- Added **Clear filters** button when no findings appear in the findings page after the user has set some filters.
 - **API**: added ability to get rules metadata from the API.
 
 ### Changed
@@ -67,6 +71,7 @@ tags:
 
 - Supply Chain now offers lockfile-only support for Swift projects.
 - Added a tour of Supply Chain features in Semgrep Cloud Platform for first-time users, as well as a tour for returning users.
+- NIST <!-- 13315 -->
 
 ### Changed
 
