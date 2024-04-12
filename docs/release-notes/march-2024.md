@@ -25,7 +25,7 @@ tags:
 
 ### Added
 
-- The **Add to policy** button in the **Playground** can now differentiate between custom Code and Secrets rules. When you click **Add to policy**, it detects which type of rule you have written and adds the rule to corresponding policy board. <!-- 12739 -->
+- The **Add to policy** button in the **Playground** can now differentiate between custom Code and Secrets rules. When you click **Add to policy**, it detects which type of rule you have written and adds the rule to the corresponding policy board. <!-- 12739 -->
 
 ### Fixed
 
