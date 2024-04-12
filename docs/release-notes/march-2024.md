@@ -25,7 +25,7 @@ tags:
 
 ### Added
 
-- The **Add to policy** button in the **Playground** can now differentiate between custom Code and Secrets rules. When you click **Add to policy**, it detects which type of rule you have written and adds the rule to corresponding policy board. <!-- 12739 -->
+- The **Add to policy** button in the **Playground** can now differentiate between custom Code and Secrets rules. When you click **Add to policy**, it detects which type of rule you have written and adds the rule to the corresponding policy board. <!-- 12739 -->
 
 ### Fixed
 
@@ -45,19 +45,19 @@ tags:
 - Added support for Python's `yield` keyword, enabling the detection of taint findings from taint sources returned by `yield`.
 - Added ability for users to copy file paths displayed in Semgrep Cloud Platform's **Findings** page if they aren't links.
 - Added the ability for users to see if there's a version of a rule they're currently using that supports interfile analysis.
-- Added **Clear filters** button when no findings appear in the findings page after the user has set some filters.
+- Added **Clear filters** button when no findings appear in the **Findings** page after the user has set some filters.
 - **API**: added ability to get rules metadata from the API.
 
 ### Changed
 
-- Code analysis started by logged-in users running `semgrep ci` now includes cross-file (interfile) analysis.
+- Code analysis started by logged-in users running `semgrep ci` now includes cross-file (intrafile) analysis.
 - `.phtml` files are now processed as PHP files and analyzed using PHP rules.
 - Updated PR comments to include links to specific findings in Semgrep Cloud Platform.
-- Users can see all projects, even if they don't have any identified findings, in Semgrep Cloud Platform.
+- Users can see all projects, even if they don't have any identified findings, in the **Most findings** list on Semgrep Cloud Platform's **Dashboard** page. <!-- https://github.com/semgrep/semgrep-app/pull/12870 -->
 - Semgrep Code now distinguishes between findings resolved by rule changes and findings resolved due to code modifications. This change applies only to new findings.
   - Only findings fixed due to code modifications are marked as fixed.
     - The fix rate calculated by Semgrep Code now includes only such findings.
-  - Findings fixed due to rule changes are marked as resolved.
+  - Findings fixed due to rule changes are marked as **resolved**.
 - **CLI**: Semgrep clones the repository into the current working directory instead of a `tmp` folder when using the `-- remote` flag.
 
 ### Fixed
@@ -81,11 +81,15 @@ tags:
 
 - Findings with a critical severity now display in Semgrep Cloud Platform with a darker red color to help distinguish them from high-severity findings.
 - Findings are now displayed in Semgrep Cloud Platform with readable names, such as `git-url-parse: Inefficient Regular Expression Complexity` instead of `lodash.defaultsdeep: Improper Input Validation`.
-- Added additional reachability filter values to Semgrep Cloud Platform. Users can now search using the following values: **Reachable**, **Always Reachable**, **Conditionally Reachable**, **Unreachable**, **Unknown**.
+- Added additional reachability filter values to Semgrep Cloud Platform. Users can now search using the following values:
+  - **Reachable**
+  - **Always Reachable**
+  - **Conditionally Reachable**
+  - **Unreachable**
+  - **Unknown**
 
 ### Fixed
 
-- Fixed an issue where reachable findings were labeled **Unreachable** in Semgrep Cloud Platform.
 - Fixed an issue where bulk triage didn't work in Semgrep Cloud Platform for Supply Chain findings.
 - Fixed an issue where Supply Chain rules and findings erroneously display a confidence label.
 
@@ -106,11 +110,7 @@ Semgrep Assistant is **now generally available (GA)**. Read [the docs](/semgrep-
 
 - Improvements to in-app copy and UI. <!-- 13399, 13352 -->
 
-### Fixed
-
 ## 🔐 Secrets
-
-Semgrep Secrets is no longer beta. It is now generally available.
 
 ### Added
 
@@ -119,7 +119,10 @@ Semgrep Secrets is no longer beta. It is now generally available.
     2. Navigate to **Settings** > **Deployments**.
     3. Under **Secrets**, toggle on **Historical scanning**.
   Users can also include the `--historical-secrets` flag when running `semgrep ci` in the CLI.
-- Added the ability to view a Secrets rule if there's one that supersedes a Semgrep Code rule with similar functionality.
+- Added the ability to view a Secrets rule if there's one that supersedes a Semgrep Code rule with similar functionality. These notifications are available in Semgrep Cloud Platform on:
+  - The **Findings** and **Finding Details** pages
+  - The **Policies** page
+  In addition to the affected findings labeled with **Secrets version available**, users can look for findings using the **Available rule upgrades** filter.
 
 ### Changed
 
@@ -134,6 +137,14 @@ Semgrep Secrets is no longer beta. It is now generally available.
 
 ### Added
 
+- Added information on [installing and using the Semgrep App for GitHub Enterprise](/deployment/connect-scm/#github-enterprise-server) to connect to your GitHub orgs.
+- New Knowledge base article: [Generate lockfiles for Semgrep Supply Chain in a Circle CI pipeline](/kb/semgrep-supply-chain/ssc-lockfiles-circleci)
+
 ### Changed
 
-### Fixed
+- Major edits and updates to documentation for:
+  - [Semgrep Secrets](/semgrep-secrets/getting-started)
+  - [Semgrep Assistant](/semgrep-assistant/overview)
+  - [Semgrep extension for Visual Studio Code](/extensions/semgrep-vs-code)
+- Updated [**Findings** page information](/semgrep-code/findings)
+- Minor fixes and updates to various pages.
