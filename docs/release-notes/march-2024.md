@@ -93,7 +93,6 @@ tags:
 
 ### Fixed
 
-- Fixed an issue where reachable findings were labeled **Unreachable** in Semgrep Cloud Platform.
 - Fixed an issue where bulk triage didn't work in Semgrep Cloud Platform for Supply Chain findings.
 - Fixed an issue where Supply Chain rules and findings erroneously display a confidence label.
 
@@ -117,8 +116,6 @@ Semgrep Assistant is **now generally available (GA)**. Read [the docs](/semgrep-
 ### Fixed
 
 ## 🔐 Secrets
-
-Semgrep Secrets is no longer beta. It is now generally available.
 
 ### Added
 
