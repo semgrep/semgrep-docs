@@ -45,7 +45,7 @@ tags:
 - Code analysis started by logged-in users running `semgrep ci` now includes cross-file (interfile) analysis.
 - `.phtml` files are now processed as PHP files and analyzed using PHP rules.
 - Updated PR comments to include links to specific findings in Semgrep Cloud Platform.
-- Users can see all projects, even if they don't have any identified findings, in Semgrep Cloud Platform.
+- Users can see all projects, even if they don't have any identified findings, in the **Most findings** list on Semgrep Cloud Platform's **Dashboard** page. <!-- https://github.com/semgrep/semgrep-app/pull/12870 >
 - Semgrep Code now distinguishes between findings resolved by rule changes and findings resolved due to code modifications. This change applies only to new findings.
   - Only findings fixed due to code modifications are marked as fixed.
     - The fix rate calculated by Semgrep Code now includes only such findings.
@@ -66,13 +66,17 @@ tags:
 ### Added
 
 - Supply Chain now offers lockfile-only support for Swift projects.
-- Added a tour of Supply Chain features in Semgrep Cloud Platform for first-time users, as well as a tour for returning users.
 
 ### Changed
 
 - Findings with a critical severity now display in Semgrep Cloud Platform with a darker red color to help distinguish them from high-severity findings.
 - Findings are now displayed in Semgrep Cloud Platform with readable names, such as `git-url-parse: Inefficient Regular Expression Complexity` instead of `lodash.defaultsdeep: Improper Input Validation`.
-- Added additional reachability filter values to Semgrep Cloud Platform. Users can now search using the following values: **Reachable**, **Always Reachable**, **Conditionally Reachable**, **Unreachable**, **Unknown**.
+- Added additional reachability filter values to Semgrep Cloud Platform. Users can now search using the following values: 
+  - **Reachable**
+  - **Always Reachable**
+  - **Conditionally Reachable**
+  - **Unreachable**
+  - **Unknown**
 
 ### Fixed
 
@@ -99,7 +103,10 @@ Semgrep Secrets is no longer beta. It is now generally available.
     2. Navigate to **Settings** > **Deployments**.
     3. Under **Secrets**, toggle on **Historical scanning**.
   Users can also include the `--historical-secrets` flag when running `semgrep ci` in the CLI.
-- Added the ability to view a Secrets rule if there's one that supersedes a Semgrep Code rule with similar functionality.
+- Added the ability to view a Secrets rule if there's one that supersedes a Semgrep Code rule with similar functionality. These notifications are available in Semgrep Cloud Platform on:
+  - The **Findings** and **Finding Details** pages
+  - The **Policies** page
+  In addition to the affected findings labeled with **Secrets version available**, users can look for findings using the **Available rule upgrades** filter.
 
 ### Changed
 
