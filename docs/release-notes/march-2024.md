@@ -82,10 +82,11 @@ tags:
 
 ## 🤖 Assistant
 
-Semgrep Assistant is now generally available. Read the docs and the blog post.
+Semgrep Assistant is **now generally available (GA)**. Read [the docs](/semgrep-assistant/overview/) and the [<i class="fas fa-external-link fa-xs"></i> blog post](https://semgrep.dev/blog/2024/assistant-ga-launch).
 
 ### Added
 
+- Added the **Agree** and **Ignore** buttons to the **No grouping** view in the **Semgrep Cloud Platform > Code** page.
 
 ### Changed
 
