@@ -25,14 +25,17 @@ tags:
 
 ### Added
 
-- Minor UI and copy fixes. <!-- 13447 -->
--
+- The **Add to policy** button in the **Playground** can now differentiate between custom Code and Secrets rules. When you click Add to policy, it detects which type of rule you have written and adds the rule to corresponding policy board. <!-- 12739 -->
 
 ### Changed
 
+
 ### Fixed
 
+- Fixed a bug in which users couldn't claim a license if they only had one organization. <!-- 13076 -->
 - Visual Studio Code extension: fixed an issue where rules weren't downloaded, leading to no scan results.
+- Minor UI and in-app copy fixes in the Editor, Settings page, Tutorial page, and onboarding process. <!-- 13447, 13445, 13364, 13194, 13082 -->
+- Fixed a bug in which users were sometimes unable to delete their SSO configuration. <!-- 13171 -->
 
 ## 💻 Code
 
@@ -71,7 +74,7 @@ tags:
 
 - Supply Chain now offers lockfile-only support for Swift projects.
 - Added a tour of Supply Chain features in Semgrep Cloud Platform for first-time users, as well as a tour for returning users.
-- NIST <!-- 13315 -->
+- Added NIST Common Vulnerabilities and Exposures (CVE) number or GitHub Security Advisory (GHSA) ID to Supply Chain page  <!-- 13315 - may have to remove this, as I don't see it in live -->
 
 ### Changed
 
@@ -92,8 +95,14 @@ Semgrep Assistant is **now generally available (GA)**. Read [the docs](/semgrep-
 ### Added
 
 - Added the **Agree** and **Ignore** buttons to the **No grouping** view in the **Semgrep Cloud Platform > Code** page.
+- Added the AI **component tags** in the **Finding details** page and **No grouping** view. <!-- 13419 -->
+- Added the ability to use AI to generate Semgrep rules (beta). To try this feature:
+    1. Navigate to the [<i class="fas fa-external-link fa-xs"></i> Editor](https://semgrep.dev/orgs/-/editor) and click on the **<span style={{color:'#ffffff'}}><span style={{backgroundColor:'#000000'}}><i class="fa-solid fa-circle-plus"></i></span></span> black square with white circle plus sign**.
+    2. Select **...with Semgrep Assistant (beta)** from the drop-down box.
 
 ### Changed
+
+- Improvements to in-app copy and UI. <!-- 13399, 13352 -->
 
 ### Fixed
 
