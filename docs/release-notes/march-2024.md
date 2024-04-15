@@ -79,14 +79,6 @@ tags:
 
 - Findings with a **critical** severity now display in Semgrep Cloud Platform with a darker red color to help distinguish them from high-severity findings.
 - Findings are now displayed in Semgrep Cloud Platform with readable names, such as `git-url-parse: Inefficient Regular Expression Complexity` instead of `lodash.defaultsdeep: Improper Input Validation`.
-<!-- Removing since this isn't GA yet.
-- Added additional reachability filter values to Semgrep Cloud Platform. Users can now search using the following values:
-  - Reachable
-  - Always Reachable
-  - Conditionally Reachable
-  - Unreachable
-  - Unknown
--->
 
 ### Fixed
 
