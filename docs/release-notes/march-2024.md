@@ -50,7 +50,7 @@ tags:
 
 ### Changed
 
-- Code analysis started by logged-in users running `semgrep ci` now includes cross-file (intrafile) analysis. This change affects CI jobs and CLI scans.
+- Code analysis started by logged-in users running `semgrep ci` now includes cross-function (intrafile) analysis by default. This change affects CI jobs and CLI scans.
 - `.phtml` files are now processed as PHP files and analyzed using PHP rules.
 - Updated PR comments to include links to specific findings in Semgrep Cloud Platform.
 - Users can see all projects, even if they don't have any identified findings, in the **Most findings** list on Semgrep Cloud Platform's **Dashboard** page. <!-- https://github.com/semgrep/semgrep-app/pull/12870 -->
