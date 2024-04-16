@@ -79,12 +79,12 @@ The finding's detail page also includes a link to the PR or MR comment with the 
 
 ### Priority inbox
 
-Semgrep sends weekly emails with information on the top three backlog tasks according to Assistant. These emails are sent out on Monday to all organization admins.
+Semgrep sends weekly emails with information on the top three backlog tasks across all according to Assistant. These results provided can include information for all Semgrep products that you have enabled. The emails are sent out on Monday to all organization admins.
 
 This information is also available in Semgrep Cloud Platform on the **Dashboard** page under **Recommended tasks from Assistant**.
 
 ![Semgrep Assistant's priority inbox email and Dashboard view](/img/priority-inbox.png#md-width)
-    *Figure*. Semgrep Assistant's priority inbox email and Dashboard view.
+    *Figure*. Semgrep Assistant's priority inbox Dashboard view.
 
 ## Privacy and legal considerations
 
