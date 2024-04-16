@@ -86,6 +86,14 @@ This information is also available in Semgrep Cloud Platform on the **Dashboard*
 ![Semgrep Assistant's priority inbox email and Dashboard view](/img/priority-inbox.png#md-width)
     *Figure*. Semgrep Assistant's priority inbox Dashboard view.
 
+### Custom rules editor
+
+Semgrep Assistant can help you write custom rules to find patterns and vulnerabilities specific to your codebase. The only information you need to provide is the following:
+
+1. An example of bad code
+2. An example of good code
+3. A prompt describing what you want the rule to do in human language
+
 ## Privacy and legal considerations
 
 Semgrep uses API permissions to access code on your pre-selected GitHub or GitLab repositories.
