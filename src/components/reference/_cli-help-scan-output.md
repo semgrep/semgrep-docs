@@ -363,7 +363,15 @@ OPTIONS
            file is skipped. If set to 0 will not have limit. Defaults to 3. 
 
        --trace
-           Upload a trace of the scan to our endpoint (rule, target). 
+           Record traces from Semgrep scans to help debugging. This feature
+           is meant for internal use and may be changed or removed without
+           warning. 
+
+       --trace-endpoint=VAL
+           Endpoint to send OpenTelemetry traces to, if `--trace` is present.
+           The value may be `semgrep-prod` (default), `semgrep-dev`,
+           `semgrep-local`, or any valid URL. This feature is meant for
+           internal use and may be changed or removed wihtout warning.
 
        --use-git-ignore
            Skip files ignored by git. Scanning starts from the root folder
@@ -436,6 +444,6 @@ AUTHORS
 
 BUGS
        If you encounter an issue, please report it at
-       https://github.com/semgrep/semgrep/issues
+       https://github.com/returntocorp/semgrep/issues
 
 ```
