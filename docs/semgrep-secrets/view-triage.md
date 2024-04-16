@@ -31,7 +31,6 @@ you.
 | **Open** | Findings are open by default. A finding is open if it was present the last time Semgrep scanned the code and it has not been ignored. An open finding represents a match between the code and a rule that is enabled in the repository. Open findings require action, such as rewriting the code to eliminate the detected vulnerability. |
 | **Ignored** | Findings that are ignored are present in the code, but have been labeled as unimportant. Ignore findings that are false positives or deprioritized issues. |
 | **Fixed** | Fixed findings were detected in a previous scan, but are no longer detected in the most recent scan of that same branch due to changes in the code. |
-| **Removed** | Removed findings were detected in a previous scan, but are no longer detected in the most recent scan of that same branch due to changes in the rule used to identify the finding. |
 
 ### Severity
 
