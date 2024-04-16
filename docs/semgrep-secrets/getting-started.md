@@ -48,6 +48,22 @@ After you've enabled Semgrep Secrets, you can:
 * Wait for your scheduled Semgrep full scan
 * Open a pull request or merge request and wait for Semgrep to scan the branch automatically
 
+## Upgrade your rules
+
+If you're using Semgrep Code rules to identify leaked credentials, you'll see prompts in Semgrep Cloud Platform indicating that there's an improved version that utilizes Semgrep Secrets' feature set, primarily its validators, which can validate whether the detected credential is active.
+
+You can see individual findings for which there is a Semgrep Secrets rule upgrade in Semgrep Cloud Platform's **Findings** page. The findings are tagged with a label that says `Secrets version available! Click to see rule(s)`.
+
+![Finding tagged as having a Secrets rule available](/img/superseded-rules-finding.png#md-width)
+
+To see the rules you're using for which there is Secrets rule upgrade in Semgrep Cloud Platform:
+
+1. Sign in to Semgrep Cloud Platform.
+2. Go to **Rules** > **Policies** > **Code**.
+3. Under **Available rule upgrades**, ensure that you've selected **Secrets**.
+
+![Filter to find rules for which there is a rule upgrade](/img/superseded-rules-policies.png#md-width)
+
 ## Next steps
 
 * Learn how to [view and triage secrets in Semgrep Cloud Platform](/semgrep-secrets/view-triage/)
