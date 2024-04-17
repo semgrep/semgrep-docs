@@ -254,7 +254,7 @@ To add a Semgrep configuration snippet into Bitbucket Pipelines:
 2. Copy the relevant code snippet provided in [Sample Bitbucket Pipelines configuration snippet](#sample-bitbucket-pipelines-configuration-snippet), and then paste it to your `bitbucket-pipelines.yml`.
 3. Commit the updated `bitbucket-pipelines.yml` configuration file.
 4. The Semgrep job starts automatically upon detecting the committed `bitbucket-pipelines.yml` file. You can also view the job through Bitbucket's interface, by clicking **your repository > Pipelines**.
-5. Optional: Create a separate CI job for diff-aware scanning, which scans only changed files in PRs or MRs, by repeating steps 1-3 and uncommenting the `SEMGREP_BASELINE_REF` definition provided within the code snippet.
+5. Create a daily scheduled run for the custom pipeline on the main branch by [scheduling a pipleline in BitBucket](https://support.atlassian.com/bitbucket-cloud/docs/pipeline-triggers/#On-schedule).
 
 :::note
 These steps can also be performed through Bitbucket's UI wizard. This UI wizard can be accessed through **Bitbucket > your repository > Pipelines > Create your first pipeline**.
