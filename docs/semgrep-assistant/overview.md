@@ -86,13 +86,9 @@ This information is also available in Semgrep Cloud Platform on the **Dashboard*
 ![Semgrep Assistant's priority inbox email and Dashboard view](/img/priority-inbox.png#md-width)
     *Figure*. Semgrep Assistant's priority inbox Dashboard view.
 
-### Custom rules editor
+### Custom rules editor (beta)
 
-Semgrep Assistant can help you write custom rules to find patterns and vulnerabilities specific to your codebase. The only information you need to provide are the following:
-
-1. An example of bad code
-2. An example of good code
-3. A prompt describing what you want the rule to do in English
+Semgrep Assistant can help you write custom rules to find patterns and vulnerabilities specific to your codebase. The only information you need to provide is a prompt describing what you want the rule to do in English. However, if you provide an example of bad code and an example of good code, Semgrep uses this information for you to test the generated rule and provide context to the language model (LLM).
 
 ## Privacy and legal considerations
 
