@@ -9,6 +9,7 @@
 You can **remove** findings. Semgrep considers a finding removed if it is not found in the most recent scan of the branch where Semgrep initially detected it due to any of the following conditions:
 
 * The rule that detected the finding isn't enabled in the policy anymore.
+* The rule that detected the finding was updated such that it no longer detects the finding.
 * The filepath where the finding appeared is no longer found. The filepath was deleted, renamed, added to a `.semgrepignore` file, added to a `.gitignore` file, or added to the list of ignored paths in Semgrep Cloud Platform.
 * For GitHub organization accounts: the PR or MR where the finding was detected has been closed without merging.
 
