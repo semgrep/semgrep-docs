@@ -1,28 +1,28 @@
 ---
 slug: java
 append_help_link: true
-title: Semgrep Pro in Java
+title: Semantic detection in Java
 hide_title: true
-description: Semgrep Pro Engine features for the Java language that can increase true positives and reduce false positives.
+description: Proprietary Semgrep features for the Java language that can increase true positives and reduce false positives.
 tags:
   - Semgrep Code
 ---
 
-# Semgrep Pro performance in Java
+# Semantic detection in Java
 
-This document explains how Semgrep Pro Engine detects true positives and reduces false positives in Java.
+This document explains how Semgrep detects true positives and reduces false positives in Java.
 
 Additionally, it provides several simple rule examples to illustrate the concepts and how you can make use of these Semgrep features when writing your own rules.
 
 :::tip
-The code examples shown here are best viewed in **a separate Semgrep Playground tab** so that you can see the <span style={{backgroundColor: '#b968ff'}}><i class="fa-regular fa-star"></i></span> purple star outline. This star marks the lines that contain false positives and are correctly identified and removed by Semgrep Pro Engine.
+The code examples shown here are best viewed in **a separate Semgrep Playground tab** so that you can see the <span style={{backgroundColor: '#b968ff'}}><i class="fa-regular fa-star"></i></span> purple star outline. This star marks the lines that contain false positives and are correctly identified and removed by Semgrep.
 :::
 
 ## Language features that prevent injection through Boolean and integer types
 
 Strong typing in Java, combined with its compile-time and runtime checks, reduces the likelihood that an integer or Boolean input will be exploited to perform injection-style attacks. Semgrep Pro can reduce false positives by leveraging these checks.
 
-The Semgrep OSS Engine matches based on patterns, which can result in false positives (FPs), but the Pro Engine can detect Boolean and integer values and mark these as untainted, or safe, eliminating FPs.
+The Semgrep OSS Engine matches based on patterns, which can result in false positives (FPs), but only proprietary Semgrep can detect Boolean and integer values and mark these as untainted, or safe, eliminating FPs.
 
 ### Example: `int-bool-untainted`
 
@@ -188,11 +188,59 @@ The `metavariable-type` field is available in Semgrep OSS. However, classes in J
 
 <!-- <iframe title="detect-pattern-in-subclass" src="https://semgrep.dev/embed/editor?snippet=nJjjG" width="100%" height="432px" frameBorder="0"></iframe> -->
 
-**Figure**. `detect-pattern-in-subclass`. To view the entire sample code and rule, click **Open in Playground**.
+```yaml showLineNumbers
+# Semgrep rule
+rules:
+  - id: detect-pattern-in-subclass
+    languages:
+      - java
+    message: Test
+    options:
+      interfile: true
+    patterns:
+      - pattern: $CLASS.x
+      - metavariable-type:
+          metavariable: $CLASS
+          type: Foo
+    severity: WARNING
+```
+
+```java showLineNumbers
+class Foo { String x; }
+
+class Bar extends Foo {}
+
+class Baz { String x; }
+
+class Test {
+    void test() {
+        Bar bar = new Bar();
+        //highlight-next-line
+        return bar.x;
+    }
+}
+
+class Test2 {
+    void test() {
+        Baz baz = new Baz();
+        return baz.x;
+    }
+}
+
+class Test3 {
+    void test() {
+        Foo foo = new Foo();
+        //highlight-next-line
+        return foo.x;
+    }
+}
+```
+
+**Figure**. `detect-pattern-in-subclass`. [<i class="fas fa-external-link fa-xs"></i> Open in  interactive Playground](https://semgrep.dev/playground/s/nJjjG).
 
 This demo rule detects patterns in instances of the user-defined parent class `Foo` and its subclasses.
 
-- This example has two true positives: **line 10** and **line 25**.
+- This example has two true positives: **line 10** and **line 24**.
 - The `patterns` array initially defines a `pattern: $CLASS.x`.
     - **Line 17**, `baz.x` fulfills this pattern.
     - However, the `metavariable-type` specifies a `type` of `Foo`.
@@ -206,14 +254,76 @@ Similarly, index sensitivity means that Semgrep can track taint for each element
 
 ### Example: `unsafe-sql-concatenation-in-method-taint-field-sensitivity`
 
-<iframe title="unsafe-sql-concatenation-in-method-taint-field-sensitivity" src="https://semgrep.dev/embed/editor?snippet=OrAwe" width="100%" height="432px" frameBorder="0"></iframe>
-
-**Figure**. `unsafe-sql-concatenation-in-method-taint-field-sensitivity`. To view the entire sample code and rule, click **Open in Playground**.
+<!-- <iframe title="unsafe-sql-concatenation-in-method-taint-field-sensitivity" src="https://semgrep.dev/embed/editor?snippet=OrAwe" width="100%" height="432px" frameBorder="0"></iframe> -->
 
 This demo rule detects that `C.x` is tainted by way of the `injection` variable. It is able to differentiate `C.y` as untainted.
 
-- This example has one true positive on **line 21** and one true negative on **line 24**.
-- **Line 15** of the rule tells Semgrep to match for the following pattern:
+```yaml showLineNumbers
+# Semgrep rule
+rules:
+  - id: unsafe-sql-concatenation-in-method-taint-field-sensitivity
+    languages:
+      - java
+    severity: WARNING
+    metadata:
+      interfile: true
+    mode: taint
+    message: Test
+    options:
+      taint_assume_safe_booleans: true
+      taint_assume_safe_numbers: true
+      interfile: true
+    pattern-sources:
+      - patterns:
+          - pattern: |
+              $X(..., $SRC, ...) { ... }
+          - focus-metavariable: $SRC
+    pattern-sinks:
+      - patterns:
+          - pattern-either:
+              - pattern: com.netsuite.database.SqlLogger.execute(..., $SINK)
+              - pattern: com.netsuite.database.Util.execute(..., $SINK)
+    pattern-sanitizers:
+      - pattern: com.netsuite.database.Util.generateSubSqlForBinding(...)
+      - pattern: com.netsuite.database.Util.generateSubSql(...)
+```
+
+```Java showLineNumbers
+import com.netsuite.database.SqlLogger;
+import com.netsuite.database.Util;
+import com.netsuite.database.SqlBuilder;
+
+import java.sql.SQLException;
+
+class C {
+  String x;
+  String y;
+
+  C(String x, String y) {
+    this.x = x;
+    this y = y;
+  }
+}
+
+class Test {
+    private void LoggerTruePositives(String injection) {
+        String stm = "This should not be a String. It is just to simplify the testing process";
+
+        C c = new C(injection, "safe");
+
+        //ruleid:unsafe-sql-concatenation-in-method-taint-field-sensitivity
+        //highlight-next-line
+        String tp1_1 = SqlLogger.execute(stm,"SELECT c1, c2 from tablename where c1 = " + c.getX());
+
+        //ok:unsafe-sql-concatenation-in-method-taint-field-sensitivity
+        String tp1_2 = SqlLogger.execute(stm,"SELECT c1, c2 from tablename where c1 = " + c.getY());
+}
+```
+
+**Figure**. `unsafe-sql-concatenation-in-method-taint-field-sensitivity`. [<i class="fas fa-external-link fa-xs"></i> Open in interactive Playground](https://semgrep.dev/playground/s/OrAwe).
+
+- This example has one true positive on **line 24** and one true negative on **line 27**.
+- **Line 17** of the rule tells Semgrep to match for the following pattern:
   ```yaml
   pattern: |
     $X(..., $SRC, ...) { ... }
