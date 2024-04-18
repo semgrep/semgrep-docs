@@ -156,7 +156,7 @@ Semgrep Assistant can help you write custom rules to find issues specific to you
 To do so:
 
 1. Sign in to Semgrep Cloud Platform.
-2. Navigate to **Rules** > **Editor**.
+2. Navigate to **Rules > Editor**.
 3. Click the **plus** button, and under **Generate with AI**, click **...with Semgrep Assistant**.
    ![The plus button to open up the custom rules editor](/img/assistant-launch-rules-editor.png#md-width)
 4. In the **Generate rule with Semgrep Assistant** pop-up window:

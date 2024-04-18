@@ -92,7 +92,7 @@ Semgrep Assistant can help you write custom rules to find patterns and vulnerabi
 
 1. An example of bad code
 2. An example of good code
-3. A prompt describing what you want the rule to do in human language
+3. A prompt describing what you want the rule to do in English
 
 ## Privacy and legal considerations
 
