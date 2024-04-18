@@ -26,9 +26,10 @@ The Semgrep OSS Engine matches based on patterns, which can result in false posi
 
 ### Example: `int-bool-untainted`
 
-The following demo rule detects tainted data in `sink()`.
+The following demo rule and code sample detects tainted data in `sink()`.
 
 ```yaml showLineNumbers
+# Semgrep rule
 rules:
   - id: int-bool-untainted
     languages:
@@ -104,15 +105,77 @@ Java provides a wide array of standard classes and methods across its various li
 
 ### Example: `sqli-demo-bool_doesnt_taint`
 
-<iframe title="sqli-demo-bool_doesnt_taint" src="https://semgrep.dev/embed/editor?snippet=Kx1AY" width="100%" height="432px" frameBorder="0"></iframe>
-
-**Figure**. `sqli-demo-bool_doesnt_taint`. To view the entire sample code and rule, click **Open in Playground**.
+<!-- <iframe title="sqli-demo-bool_doesnt_taint" src="https://semgrep.dev/embed/editor?snippet=Kx1AY" width="100%" height="432px" frameBorder="0"></iframe> -->
 
 This demo rule detects SQL injection through a `UserInputGenerator` class. The class's unsanitized user input is passed to `SQLQueryRunner`.
 
+```yaml showLineNumbers
+# Semgrep rule
+rules:
+  - id: sqli-demo-bool_doesnt_taint
+    message: Found SQLi
+    languages:
+      - java
+    severity: WARNING
+    mode: taint
+    options:
+      taint_assume_safe_booleans: true
+      taint_assume_safe_numbers: true
+      interfile: true
+    pattern-sources:
+      - pattern: |
+          (UserInputGenerator $X).getUserInput(...)
+    pattern-sinks:
+      - pattern: |
+          (SQLQueryRunner $X).run(...)
+```
+
+```java showLineNumbers
+public class Test {
+  // Run with `javac Test.java && java Test`
+  public static void main(String[] args) {
+    SQLQueryRunner runner = new SQLQueryRunner();
+    String input = new UserInputGenerator().getUserInput();
+
+    // safe
+    runner.run("SELECT * from table");
+
+    //ruleid:sqli-demo-bool_dont_taint
+    //highlight-next-line
+    runner.run("SELECT * from " + input);
+
+    //ok:sqli-demo-bool_dont_taint
+    runner.run("SELECT * from table" + input.endsWith("something"));
+
+    //ok:sqli-demo-bool_dont_taint
+    runner.run("SELECT * from table" + input.indexOf('u'));
+
+    //ruleid:sqli-demo-bool_dont_taint
+    //highlight-next-line
+    runner.run("SELECT * from " + input.substring(0));
+  }
+}
+
+class UserInputGenerator {
+  public String getUserInput() {
+    return "fake user input";
+  }
+}
+
+class SQLQueryRunner {
+  public void run(String query) {
+    System.out.println("Would have run query:");
+    System.out.println(query);
+  }
+}
+```
+
+**Figure**. `sqli-demo-bool_doesnt_taint`. [<i class="fas fa-external-link fa-xs"></i> Open in interactive Playground](https://semgrep.dev/playground/s/Kx1AY).
+
+
 * This example has two true positives: **line 11** and **line 20**.
 * Semgrep Pro is able to detect that **line 14 and 17 are false positives**. Semgrep OSS can't catch that distinction.
-* Lines 14 and 17 are false positives because `input.endsWith("something")` and `input.indexOf('u')` return a Boolean and integer respectively. Semgrep Pro is able to understand `endsWith` and `indexOf` Java methods.
+    * Lines 14 and 17 are false positives because `input.endsWith("something")` and `input.indexOf('u')` return a Boolean and integer respectively. Semgrep Pro is able to understand `endsWith` and `indexOf` Java methods.
 * The Semgrep rule uses the fields `taint_assume_safe_booleans` and `taint_assume_safe_numbers` to tell the engine that these types are safe and not tainted.
 
 ## Semgrep targets code in a parent class and its subclasses
@@ -123,7 +186,7 @@ The `metavariable-type` field is available in Semgrep OSS. However, classes in J
 
 ### Example: `detect-pattern-in-subclass`
 
-<iframe title="detect-pattern-in-subclass" src="https://semgrep.dev/embed/editor?snippet=nJjjG" width="100%" height="432px" frameBorder="0"></iframe>
+<!-- <iframe title="detect-pattern-in-subclass" src="https://semgrep.dev/embed/editor?snippet=nJjjG" width="100%" height="432px" frameBorder="0"></iframe> -->
 
 **Figure**. `detect-pattern-in-subclass`. To view the entire sample code and rule, click **Open in Playground**.
 
