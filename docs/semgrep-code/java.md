@@ -77,9 +77,9 @@ This demo rule detects patterns in instances of the user-defined parent class `F
 
 ## Semgrep supports field and index sensitivity
 
-Field sensitivity means that Semgrep can track taint for each field of an object, independently. Given an object `C` with properties `C.x` and `C.y`, if `C.x` is tainted, then it does **not** automatically mark `C.y` as tainted.
+Field sensitivity means that Semgrep can track taint for each field of an object independently. Given an object `C` with properties `C.x` and `C.y`, if `C.x` is tainted, then Semgrep does **not** automatically mark `C.y` as tainted.
 
-Similarly, index sensitivity means that Semgrep can track taint for each element of an array, independently.
+Similarly, index sensitivity means that Semgrep can track taint for each element of an array independently.
 
 ### Example: `unsafe-sql-concatenation-in-method-taint-field-sensitivity`
 
@@ -89,7 +89,7 @@ Similarly, index sensitivity means that Semgrep can track taint for each element
 
 This demo rule detects that `C.x` is tainted by way of the `injection` variable. It is able to differentiate `C.y` as untained.
 
-- This example has one true positive: **line 21**, and Semgrep Pro Engine can detect one true negative, **line 24**.
+- This example has one true positive on **line 21** and one true negative on **line 24**.
 - **Line 15** of the rule tells Semgrep to match for the following pattern:
   ```yaml
   pattern: |
