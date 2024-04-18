@@ -50,7 +50,7 @@ After you've enabled Semgrep Secrets, you can:
 
 ## Upgrade your rules
 
-If you're using Semgrep Code rules to identify leaked credentials, you'll see prompts in Semgrep Cloud Platform indicating that there's an improved version that utilizes Semgrep Secrets' feature set, primarily its validators, which can validate whether the detected credential is active.
+If you're using Semgrep Code rules to identify leaked credentials, you'll see prompts in Semgrep Cloud Platform indicating that there's an improved version that utilizes Semgrep Secrets' feature set, primarily its validators, which can validate whether the detected credential is active, and improvements in detecting and hiding false positives.
 
 You can see individual findings for which there is a Semgrep Secrets rule upgrade in Semgrep Cloud Platform's **Findings** page. The findings are tagged with a label that says `Secrets version available! Click to see rule(s)`.
 
