@@ -89,7 +89,7 @@ Similarly, index sensitivity means that Semgrep can track taint for each element
 
 This demo rule detects that `C.x` is tainted by way of the `injection` variable. It is able to differentiate `C.y` as untained.
 
-- This example has one true positive: **line 21**, and Semgrep Pro Engine can detect one true negative, **line 24**.
+- This example has one true positive on **line 21** and one true negative on **line 24**.
 - **Line 15** of the rule tells Semgrep to match for the following pattern:
   ```yaml
   pattern: |
