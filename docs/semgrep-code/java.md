@@ -79,14 +79,14 @@ class Test {
       //highlight-next-line
       sink(foo.x);
       //OK: int-bool-untainted
-      sink(foo.getIds().get(0));
+☆     sink(foo.getIds().get(0));
   }
   public void test2(Bar bar) {
       //ruleid: int-bool-untainted
       //highlight-next-line
       sink(bar.y);
       //OK: int-bool-untainted
-      sink(bar.getFlags().get(0));
+☆     sink(bar.getFlags().get(0));
   }
 }
 ```
@@ -145,10 +145,10 @@ public class Test {
     runner.run("SELECT * from " + input);
 
     //ok:sqli-demo-bool_dont_taint
-    runner.run("SELECT * from table" + input.endsWith("something"));
+☆   runner.run("SELECT * from table" + input.endsWith("something"));
 
     //ok:sqli-demo-bool_dont_taint
-    runner.run("SELECT * from table" + input.indexOf('u'));
+☆   runner.run("SELECT * from table" + input.indexOf('u'));
 
     //ruleid:sqli-demo-bool_dont_taint
     //highlight-next-line
@@ -215,6 +215,7 @@ class Baz { String x; }
 class Test {
     void test() {
         Bar bar = new Bar();
+        //ruleid:detect-pattern-in-subclass
         //highlight-next-line
         return bar.x;
     }
@@ -223,13 +224,14 @@ class Test {
 class Test2 {
     void test() {
         Baz baz = new Baz();
-        return baz.x;
+☆       return baz.x;
     }
 }
 
 class Test3 {
     void test() {
         Foo foo = new Foo();
+        //ruleid:detect-pattern-in-subclass
         //highlight-next-line
         return foo.x;
     }
@@ -316,7 +318,7 @@ class Test {
         String tp1_1 = SqlLogger.execute(stm,"SELECT c1, c2 from tablename where c1 = " + c.getX());
 
         //ok:unsafe-sql-concatenation-in-method-taint-field-sensitivity
-        String tp1_2 = SqlLogger.execute(stm,"SELECT c1, c2 from tablename where c1 = " + c.getY());
+☆       String tp1_2 = SqlLogger.execute(stm,"SELECT c1, c2 from tablename where c1 = " + c.getY());
 }
 ```
 
