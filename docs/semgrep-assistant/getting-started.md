@@ -148,3 +148,22 @@ There is a cap of 250 Assistant runs per month using the **Analyze** button. Ass
 ## View recommendations
 
 You can [view all of Semgrep Assistant's recommendations](/semgrep-code/findings/#filter-findings) by going to Semgrep Cloud Platform's **Findings** page and filtering by **Recommendation** or **Component**.
+
+## Write custom rules (beta)
+
+Semgrep Assistant can help you write custom rules to find issues specific to your codebase.
+
+To do so:
+
+1. Sign in to Semgrep Cloud Platform.
+2. Navigate to **Rules > Editor**.
+3. Click the **plus** button, and under **Generate with AI**, click **...with Semgrep Assistant**.
+   ![The plus button to open up the custom rules editor](/img/assistant-launch-rules-editor.png#md-width)
+4. In the **Generate rule with Semgrep Assistant** pop-up window:
+   1. Select the language of your codebase.
+   2. Provide a prompt describing what you want the rule to do in English.
+   3. Optional: provide an example of bad code.
+   4. Optional: provide an example of good code.
+   ![Custom rule sample plus test window](/img/assistant-write-custom-rule.png#md-width)
+5. Click **Generate** to proceed. You'll be redirected to a screen where you can view and copy your rule and test it against the sample bad code snippet you provided.
+   ![Dialog box for custom rule parameters](/img/assistant-view-rule.png#md-width)
