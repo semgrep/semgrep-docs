@@ -166,4 +166,4 @@ To do so:
    4. Provide an example of good code
    ![Custom rule sample plus test window](/img/assistant-write-custom-rule.png#md-width)
 5. Click **Generate** to proceed. You'll be redirected to a screen where you can view and copy your rule and test it against the sample bad code snippet you provided.
-   ![Pop-up window to provide custom rule parameters](/img/assistant-view-rule.png#md-width)
+   ![Dialog box for custom rule parameters](/img/assistant-view-rule.png#md-width)
