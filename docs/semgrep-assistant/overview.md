@@ -88,7 +88,7 @@ This information is also available in Semgrep Cloud Platform on the **Dashboard*
 
 ### Custom rules editor
 
-Semgrep Assistant can help you write custom rules to find patterns and vulnerabilities specific to your codebase. The only information you need to provide is the following:
+Semgrep Assistant can help you write custom rules to find patterns and vulnerabilities specific to your codebase. The only information you need to provide are the following:
 
 1. An example of bad code
 2. An example of good code
