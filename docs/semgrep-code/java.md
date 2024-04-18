@@ -79,7 +79,7 @@ This demo rule detects patterns in instances of the user-defined parent class `F
 
 Field sensitivity means that Semgrep can track taint for each field of an object, independently. Given an object `C` with properties `C.x` and `C.y`, if `C.x` is tainted, then it does **not** automatically mark `C.y` as tainted.
 
-Similarly, index sensitivity means that Semgrep can track taint for each element of an array, independently.
+Similarly, index sensitivity means that Semgrep can track taint for each element of an array independently.
 
 ### Example: `unsafe-sql-concatenation-in-method-taint-field-sensitivity`
 
