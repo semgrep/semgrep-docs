@@ -13,11 +13,22 @@ The definitions provided here are specific to each term's meaning and use in Sem
 
 ## Constant propagation
 
-Refers to state of a variable remaining constant throughout the program. Semgrep can analyze whether a variable carries a constant value at a given point. Both Semgrep OSS and Semgrep Pro Engine perform this analysis, with Semgrep Pro able to track the propagation across files.
+<!-- Refers to state of a variable remaining constant throughout the program. Semgrep can analyze whether a variable carries a constant value at a given point. Both Semgrep OSS and Semgrep Pro Engine perform this analysis, with Semgrep Pro able to track the propagation across files. -->
 
-You can write checks for constant propagation through the use of `pattern-not` in conjunction with `pattern` or `metavariable-comparison`.
+Constant propagation is a type of analysis where values known to be constant are substituted in later uses. Semgrep can perform constant propagation across files, unless you are running Semgrep OSS, which can only propagate within a function.
 
-It is enabled by default when writing rules and [can be disabled](/data-flow/constant-propagation/#disabling-constant-propagation).
+Constant propagation is applied to all rules unless [it is disabled](/data-flow/constant-propagation/#disabling-constant-propagation).
+
+For example, given the following code:
+
+```javascript showLineNumbers
+var x = 2;
+console.log(x);
+```
+The pattern operator `pattern: print(2)` tells Semgrep to match line 2 because it propagates the value `2` from the assignment in line 1 to the `console.log()` function in line.
+
+Constant propagation is one of the many analyses that differentiate Semgrep from grep.
+
 
 ## Cross-file analysis
 
@@ -25,11 +36,9 @@ Also known as **interfile analysis**. This analysis traces or tracks data and it
 
 Cross file analysis can be paired with taint analysis to detect unsanitized variables flowing from a source to a sink.
 
-Also known as **interfile analysis**. Available in Semgrep Pro Engine.
-
 ## Cross-function analysis
 
-This analysis traces or tracks data and its transformations across functions in a single file, such as when a globally-scoped variable is defined in one function but used in another.
+This analysis traces or tracks data and its transformations across functions in a single file, such as when a globally scoped variable is defined in one function but used in another.
 
 Also known as **intrafile** or **interprocedural** analysis. Available in Semgrep Pro Engine.
 
@@ -59,9 +68,9 @@ Not to be confused with **risk matrices**.
 
 A finding is the core result of Semgrep's analysis. Findings are generated when a Semgrep rule matches a piece of code. Findings can be security issues, bugs, or code that doesn't follow coding conventions.
 
-## Fully-qualified name
+## Fully qualified name
 
-A fully-qualified name refers to a name which uniquely identifies a class, method, type, or module. Languages such as C# and Ruby use `::` to distinguish between fully-qualified names and regular names.
+A **fully qualified name** refers to a name which uniquely identifies a class, method, type, or module. Languages such as C# and Ruby use `::` to distinguish between fully qualified names and regular names.
 
 Not to be confused with **tokens**.
 
@@ -102,7 +111,7 @@ There are two types of rules: search and taint.
 
 A sanitizer is any function that can clean untrusted or tainted data. Data from untrusted sources, such as user inputs, may be tainted with unsafe characters. Sanitizer functions ensure that unsafe characters are removed or stripped from the input.
 
-An example of a sanitizer is the [<i class="fas fa-external-link fa-xs"></i> `DOMPurify.sanitize(dirty);`](https://github.com/cure53/DOMPurify) function from the  DOMPurify package in Javascript.
+An example of a sanitizer is the [<i class="fas fa-external-link fa-xs"></i> `DOMPurify.sanitize(dirty);`](https://github.com/cure53/DOMPurify) function from the  DOMPurify package in JavaScript.
 
 ## Single-file analysis
 
@@ -123,4 +132,3 @@ In taint analysis, a source is any piece of code that assigns or sets tainted da
 ## Taint analysis
 
 Taint analysis tracks and traces the flow of untrusted or unsafe data. Data coming from sources such as user inputs could be unsafe and used as an attack vector, if these inputs are not sanitized. Taint analysis provides a means of tracing that data as it moves through the program from untrusted sources to vulnerable functions.
-

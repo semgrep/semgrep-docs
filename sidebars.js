@@ -309,7 +309,8 @@ module.exports = {
                 'semgrep-ci/packages-in-semgrep-docker'
             ]
         },
-        {
+       {
+            type: 'category',
             label: 'Language-specific features',
             collapsible: true,
             link: {type: 'generated-index'},
