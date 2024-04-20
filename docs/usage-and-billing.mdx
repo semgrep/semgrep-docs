@@ -47,6 +47,19 @@ Any type of Semgrep Pro scan counts towards the contributor total. This includes
 - Scanning with any Semgrep Pro product (Code, Supply Chain, and so on).
 - Full scans on a repository or partial scans on a pull or merge request.
 
+
+:::info
+If your company creates multiple Semgrep organizations, the ten-contributor limit applies across **all** of your organizations. You must purchase licenses for any additional contributors.
+
+For example, if your company creates three Semgrep organizations, each with the following number of contributors:
+
+* Organization 1 has 8 contributors
+* Organization 2 has 9 contributors
+* Organization 3 has 10 contributors
+
+Your company has 27 contributors across three organizations. You must purchase 17 licenses to use with the 10 free licenses you’ve received.
+:::
+
 ### Usage computation
 
 Contributors are calculated using `git log` over the **past 30 days** (a rolling interval), not the beginning of each month. The start date is either:

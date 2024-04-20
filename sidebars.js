@@ -118,6 +118,15 @@ module.exports = {
         },
         {
           type: 'category',
+          label: 'AI-assisted triage and autofix',
+          collapsible: true,
+          link: {type: 'doc', id: 'semgrep-assistant/overview'},
+          items: [
+            'semgrep-assistant/getting-started'
+          ]
+        },
+        {
+          type: 'category',
           label: 'Notifications',
           collapsible: true,
           link: {type: 'doc', id: 'semgrep-cloud-platform/notifications'},
@@ -221,7 +230,6 @@ module.exports = {
                 'semgrep-code/findings',
                 'semgrep-code/triage-remediation',
                 'semgrep-code/remove-duplicates',
-                'semgrep-code/semgrep-assistant-code',
                 'semgrep-ci/configuring-blocking-and-errors-in-ci',
                 'semgrep-code/editor',
                 'semgrep-code/pro-rules'
@@ -249,6 +257,7 @@ module.exports = {
                 'semgrep-secrets/getting-started',
                 'semgrep-secrets/view-triage',
                 'semgrep-secrets/policies',
+                'semgrep-secrets/historical-scanning',
                 'semgrep-secrets/validators',
                 'semgrep-secrets/rules'
             ]
@@ -298,6 +307,14 @@ module.exports = {
                 'semgrep-ci/sample-ci-configs',
                 'semgrep-ci/findings-ci',
                 'semgrep-ci/packages-in-semgrep-docker'
+            ]
+        },
+        {
+            label: 'Language-specific features',
+            collapsible: true,
+            link: {type: 'generated-index'},
+            items: [
+                'semgrep-code/java'
             ]
         },
         {
@@ -674,6 +691,7 @@ module.exports = {
                     title: '2024 Release notes'
                 },
               items: [
+                'release-notes/march-2024',
                 'release-notes/february-2024',
                 'release-notes/january-2024'
               ]

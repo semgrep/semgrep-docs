@@ -61,7 +61,7 @@ This section defines the columns of the rule entries in the Policies page:
 | Rule name  | Name of the rule Semgrep Secret uses for scanning. |
 | Labels  | Metadata describing the rule, including the service for which the rule is applicable. |
 | Open findings  | The number of open findings the rule detected across all scans.  |
-| Fix rate  | The percentage of findings that are fixed.  |
+| Fix rate  | The percentage of findings that are fixed through changes to the code.  |
 | Severity  | The higher the severity, the more critical the issues that a rule detects.      |
 | Confidence  | Indicates confidence of the rule to detect true positives.      |
 | Source  | Indicates the origin of a rule. | <ul><li><strong>Pro:</strong> Authored by Semgrep. Custom:</strong> Rules created within your Semgrep organization. |
