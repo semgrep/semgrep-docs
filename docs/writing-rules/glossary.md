@@ -29,18 +29,19 @@ The pattern operator `pattern: print(2)` tells Semgrep to match line 2 because i
 
 Constant propagation is one of the many analyses that differentiate Semgrep from grep.
 
-
 ## Cross-file analysis
 
-Also known as **interfile analysis**. Cross-file analysis describes the scope of Semgrep analysis where it takes into account how information flows between files. In particular, cross-file analysis includes **cross-file taint analysis**, which tracks unsanitized variables flowing from a source to a sink through arbitrarily many files. Other analyses performed across files include constant propagation and type inference.
+Also known as **interfile analysis**. Cross-file analysis it takes into account how information flows between files. In particular, cross-file analysis includes **cross-file taint analysis**, which tracks unsanitized variables flowing from a source to a sink through arbitrarily many files. Other analyses performed across files include constant propagation and type inference.
 
 Cross-file analysis is usually used in contrast to intrafile or per-file analysis, where each file is analyzed as a standalone block of code. Per-file analysis is a limitation of Semgrep OSS.
 
 ## Cross-function analysis
 
-This analysis traces or tracks data and its transformations across functions in a single file, such as when a globally scoped variable is defined in one function but used in another.
+Cross-function analysis means that interactions between functions are taken into account. This improves taint analysis, which tracks unsanitized variables flowing from a source to a sink through arbitrarily many functions.
 
-Also known as **interprocedural** analysis.
+For the purpose of its usage in Semgrep, cross-function analysis implies intrafile or per-file analysis. Each file is still analyzed as a standalone block, but within the file it takes into account how information flows between functions.
+
+Also known as **interprocedural** or **intrafile** analysis.
 
 ## Error matrix
 
@@ -76,9 +77,7 @@ Not to be confused with **tokens**.
 
 ## l-value (left-, or location-value)
 
-An expression that denotes an object in memory; a memory location, something that you can use in the left-hand side (LHS) of an assignment.
-
-Compare to [<i class="fas fa-external-link fa-xs"></i> r-value](https://learn.microsoft.com/en-us/cpp/c-language/l-value-and-r-value-expressions?view=msvc-170).
+An expression that denotes an object in memory; a memory location, something that you can use in the left-hand side (LHS) of an assignment. For example, `x` and `array[2]` are l-values, but `2+2` is not.
 
 ## Metavariable
 
@@ -100,7 +99,14 @@ There are two types of rules: search and taint.
 
 <dl>
 <dt>Search rules</dt>
-<dd>Rules default to this type. Search rules simply detect matches based on the patterns described by a rule.</dd>
+<dd>Rules default to this type. Search rules detect matches based on the patterns described by a rule. There are several semantic analyses that search rules perform, such as:
+    <ul>
+    <li>Being able to interpret syntactically different code as semantically equivalent</li>
+    <li>Constant propagation</li>
+    <li>Matching a fully qualified name to its reference in the code, even when not fully qualified</li>
+    <li>Type inference, particularly when using typed metavariables</li>
+    </ul>
+</dd>
 <dt>Taint rules</dt>
 <dd>Taint rules make use of Semgrep's taint analysis in addition to default search functionalities. Taint rules are able to specify sources, sinks, and propagators of data as well as sanitizers of that data. For more information, see <a href="/writing-rules/data-flow/taint-mode/">Taint analysis documentation</a></dd>
 </dl>
