@@ -17,6 +17,7 @@ pipelines:
           name: Semgrep Scan on PR
           script:
             - export BITBUCKET_TOKEN=$PAT # Necessary for PR comments
+            # Change to your default branch if different from main
             - export SEMGREP_BASELINE_REF="origin/main"
             - git fetch origin "+refs/heads/*:refs/remotes/origin/*"
             - semgrep ci
