@@ -3,6 +3,7 @@ image: atlassian/default-image:latest
 
 pipelines:
   branches:
+    # Change to your default branch if different from main
     main:
     - step:
         image: semgrep/semgrep
@@ -17,12 +18,13 @@ pipelines:
           name: Semgrep Scan on PR
           script:
             - export BITBUCKET_TOKEN=$PAT # Necessary for PR comments
+            # Change to your default branch if different from main
             - export SEMGREP_BASELINE_REF="origin/main"
             - git fetch origin "+refs/heads/*:refs/remotes/origin/*"
             - semgrep ci
 
   custom:
-  # additinal setup for cron in BitBucket https://support.atlassian.com/bitbucket-cloud/docs/pipeline-triggers/#On-schedule
+  # Trigger job manually. For cron in Bitbucket, see: https://support.atlassian.com/bitbucket-cloud/docs/pipeline-triggers/#On-schedule
     semgrep-manual:
       - step:
           image: semgrep/semgrep
