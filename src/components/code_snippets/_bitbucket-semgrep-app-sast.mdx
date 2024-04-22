@@ -15,7 +15,7 @@ pipelines:
     '**': # This applies to pull requests for all branches
       - step:
           image: semgrep/semgrep
-          name: Semgrep Scan on PR
+          name: Semgrep scan on PR
           script:
             - export BITBUCKET_TOKEN=$PAT # Necessary for PR comments
             # Change to your default branch if different from main
@@ -28,7 +28,7 @@ pipelines:
     semgrep-manual:
       - step:
           image: semgrep/semgrep
-          name: Semgrep Manual Scan
+          name: Semgrep manual scan
           script:
             - semgrep ci
 ```
