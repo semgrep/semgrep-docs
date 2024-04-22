@@ -1,7 +1,7 @@
 ---
 slug: editor
 append_help_link: true
-title: Creating custom rules
+title: Write custom rules
 hide_title: true
 tags:
     - Semgrep Cloud Platform
@@ -22,7 +22,7 @@ Object.entries(frontMatter).filter(
 </ul>
 
 
-# Writing rules using Semgrep Editor
+# Write rules using Semgrep Editor
 
 ![Screenshot of the Editor's splash screen](/img/editor-splashscreen.png)
 

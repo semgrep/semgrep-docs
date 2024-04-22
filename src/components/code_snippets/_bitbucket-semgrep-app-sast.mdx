@@ -2,31 +2,36 @@
 image: atlassian/default-image:latest
 
 pipelines:
-  default:
-    - parallel:
+  branches:
+    # Change to your default branch if different from main
+    main:
+    - step:
+        image: semgrep/semgrep
+        name: Semgrep scan on push
+        script:
+          - export SEMGREP_APP_TOKEN=$SEMGREP_APP_TOKEN
+          - semgrep ci
+
+  pull-requests:
+    '**': # This applies to pull requests for all branches
       - step:
-          name: 'Run Semgrep scan with current branch'
-          deployment: dev # https://support.atlassian.com/bitbucket-cloud/docs/set-up-and-monitor-deployments/
           image: semgrep/semgrep
+          name: Semgrep scan on PR
           script:
-            # The following variables are required to set up a scan connected to Semgrep Cloud Platform:
             - export SEMGREP_APP_TOKEN=$SEMGREP_APP_TOKEN
+            - export BITBUCKET_TOKEN=$PAT # Necessary for PR comments
+            # Change to your default branch if different from main
+            - export SEMGREP_BASELINE_REF="origin/main"
+            - git fetch origin "+refs/heads/*:refs/remotes/origin/*"
+            - semgrep ci
 
-            # Uncomment the following line to scan changed 
-            # files in PRs or MRs (diff-aware scanning): 
-            # - export SEMGREP_BASELINE_REF = "origin/main"
-            # - git fetch origin "+refs/heads/*:refs/remotes/origin/*"
-
-            # Troubleshooting:
-
-            # Uncomment the following lines if Semgrep Cloud Platform > Findings Page does not create links
-            # to the code that generated a finding or if you are not receiving PR or MR comments.
-            # - export SEMGREP_JOB_URL="${SEMGREP_REPO_URL}/addon/pipelines/home#!/results/${BITBUCKET_PIPELINE_UUID}"
-            # - export SEMGREP_COMMIT=$BITBUCKET_COMMIT
-            # - export SEMGREP_PR_ID=$BITBUCKET_PR_ID
-            # - export SEMGREP_BRANCH=$BITBUCKET_BRANCH
-            # - export SEMGREP_REPO_URL=$BITBUCKET_GIT_HTTP_ORIGIN
-            # - export SEMGREP_REPO_NAME=$BITBUCKET_REPO_FULL_NAME
-
+  custom:
+  # Trigger job manually. For cron in Bitbucket, see: https://support.atlassian.com/bitbucket-cloud/docs/pipeline-triggers/#On-schedule
+    semgrep-manual:
+      - step:
+          image: semgrep/semgrep
+          name: Semgrep manual scan
+          script:
+            - export SEMGREP_APP_TOKEN=$SEMGREP_APP_TOKEN
             - semgrep ci
 ```

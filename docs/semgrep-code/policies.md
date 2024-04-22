@@ -1,7 +1,7 @@
 ---
 slug: policies
 append_help_link: true
-title: Setting rules through Policies
+title: Set rules through Policies
 hide_title: true
 description: "The Policies page is a visual representation of the rules that Semgrep Code uses to scan code."
 tags:
@@ -20,7 +20,7 @@ Object.entries(frontMatter).filter(
 }
 </ul>
 
-# Policies
+# Set rules through Policies
 
 Increase the breadth and depth of your scan coverage or remove noise from scans through the Policies page. Block or allow merges for pull requests (PRs) or merge requests (MRs) based on the rule that detected the finding.
 
@@ -136,7 +136,7 @@ This section defines the columns of the rule entries in the Policies page:
 | Rule name  | Name of the rule that Semgrep Code uses for scanning.       | [<i class="fas fa-external-link fa-xs"></i> `docs-print-to-logger`](https://semgrep.dev/playground/s/KPzL)       |
 | Labels  | Metadata describing the rule. This includes the rule's language, category (good security practices, coding standards), and more. |  <ul><li>Security</li><li>Code injection</li><li>PHP</li></ul>        |
 | Open findings  | The number of open findings that the rule has detected across all scans.  |  n/a  |
-| Fix rate  | The percentage of findings that are fixed.  | n/a   |
+| Fix rate  | The percentage of findings that are fixed through changes to the code.  | n/a   |
 | Severity  | The higher the severity, the more critical the issues are that a rule detects.      |  <ul><li>High</li><li>Medium</li><li>Low</li></ul>      |
 | Confidence  | Indicates confidence of the rule to detect true positives.      |  <ul><li>High</li><li>Medium</li><li>Low</li></ul> |
 | Source  | Indicates the origin of a rule. | <ul><li><strong>Pro:</strong> Authored by Semgrep with cross-file (interfile) and cross-function (interprocedural) analysis capabilities, providing you with enhanced scan accuracy. For more information, see <a href="/semgrep-code/pro-rules/"><i class="fa-regular fa-file-lines"></i> Pro rules.</a></li><li><strong>Community:</strong> Authored by Semgrep, Inc or external contributors such as Trail of Bits.</li><li><strong>Custom:</strong> Rules created within your Semgrep organization. For more information, see <a href="/writing-rules/private-rules/"><i class="fa-regular fa-file-lines"></i> Private rules</a>.</li></ul>.      |
