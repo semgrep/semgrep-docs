@@ -6,7 +6,7 @@ pipelines:
     main:
     - step:
         image: semgrep/semgrep
-        name: Semgrep Scan on Push
+        name: Semgrep scan on push
         script:
           - semgrep ci
 
