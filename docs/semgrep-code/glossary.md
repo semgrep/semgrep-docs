@@ -10,7 +10,7 @@ tags:
 
 # Semgrep Code product terms
 
-The definitions provided here are specific to each term's meaning and use in Semgrep.
+The terms and definitions provided here are specific to Semgrep Code.
 
 For rule-writing and SAST (static application security testing) terms, see the [Rule-writing glossary](/writing-rules/glossary).
 
@@ -46,7 +46,7 @@ Any code files within a specified directory and its subdirectories.
 
 ### Project
 
-A repository or codebase that you have added to Semgrep Cloud Platform for scanning along with finding records and other Semgrep data and resources.
+A repository or codebase that you have added to Semgrep Cloud Platform for scanning along with finding metadata and other Semgrep data and resources.
 
 ### Repository
 
