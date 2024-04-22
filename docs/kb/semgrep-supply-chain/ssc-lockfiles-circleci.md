@@ -1,4 +1,5 @@
 ---
+title: Generate lockfiles for Semgrep Supply Chain in a Circle CI pipeline
 description: How to generate lockfiles for Semgrep Supply Chain in a Circle CI pipeline.
 tags:
   - Semgrep Supply Chain
@@ -6,7 +7,8 @@ tags:
   - Lockfiles
   - Workspaces
 ---
-## Generate lockfiles for Semgrep Supply Chain in a Circle CI pipeline
+
+# Generate lockfiles for Semgrep Supply Chain in a Circle CI pipeline
 
 Semgrep Supply Chain needs your project's lockfiles as input to scan your codebase successfully. If the [lockfiles that Supply Chain supports](/docs/supported-languages/#semgrep-supply-chain) are not under source control in your project, you can generate the lockfile as part of the CI job.
 
