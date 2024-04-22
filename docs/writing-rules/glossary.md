@@ -45,7 +45,7 @@ Also known as **interprocedural** or **intrafile** analysis.
 
 ## Error matrix
 
-An error matrix is a 2x2 table that visualizes the performance of a Semgrep rule in relation to the findings it does or doesn't detect. It has two axes:
+An error matrix is a 2x2 table that visualizes the findings of a Semgrep rule in relation to the vulnerable lines of code it does or doesn't detect. It has two axes:
 
 - Positive and negative
 - True or false
