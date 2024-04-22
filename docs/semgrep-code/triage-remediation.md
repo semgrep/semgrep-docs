@@ -138,7 +138,7 @@ Triage your Semgrep Cloud Platform findings displayed as comments in GitHub PRs 
 
 :::info Prerequisites
 - A **private** GitHub.com repository. This feature is not enabled for public GitHub.com repositories or GitHub Enterprise public and private repositories.
-- GitHub Semgrep Cloud Platform installed in the repository that is also added as a project in Semgrep Cloud Platform. For more information, see [Getting started with Semgrep in continuous integration (CI)](/semgrep-ci/overview/).
+- You have completed a [Semgrep core deployment](/deployment/core-deployment).
 :::
 
 To enable triage through comments:
@@ -181,5 +181,5 @@ To **create a ticket**:
 ## Reduce the number of false positive findings
 
 * One way to address false positives is to improve the rule. Create [test cases](/docs/writing-rules/testing-rules) to ensure that the rule performs as intended.
-* If a rule from Semgrep Registry is useful, but it captures too many false positives, you can reach out to [support@semgrep.dev](mailto:support@semgrep.dev). This helps Semgrep's rule-writing efforts and improves the quality of rules that you run. 
+* If a rule from Semgrep Registry is useful, but it captures too many false positives, you can reach out to [support@semgrep.dev](mailto:support@semgrep.dev). This helps Semgrep's rule-writing efforts and improves the quality of rules that you run.
 * You can report rules with a high false positive rate from your source code manager (SCM) if you [enable Semgrep Cloud Platform to leave comments in PRs or MRs](/category/pr-or-mr-comments/). Semgrep Cloud Platform provides a link after each comment for users to indicate if the finding is a false positive.

@@ -363,6 +363,7 @@ module.exports = {
           { from: "/semgrep-ci/running-semgrep-ci-without-semgrep-cloud-platform/" , to: "/deployment/oss-deployment/" } ,
           { from: "/semgrep-code/demo-project" , to: "/deployment/core-deployment/" },
           { from: "/semgrep-ci/running-semgrep-ci-with-semgrep-app/" , to: "/deployment/core-deployment/" } ,
+          { from: "/semgrep-ci/overview/" , to: "/deployment/add-semgrep-to-ci/" } ,
           { from: "/semgrep-ci/running-semgrep-ci-without-semgrep-app/" , to: "/deployment/oss-deployment/" }
           /* APR  23, 2024  */
           { from: "/getting-started/" , to: "/getting-started/quickstart/" } ,
