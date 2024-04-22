@@ -32,15 +32,15 @@ Constant propagation is one of the many analyses that differentiate Semgrep from
 
 ## Cross-file analysis
 
-Also known as **interfile analysis**. Cross-file analysis is a mode of Semgrep analysis where it takes into account how information flows between files. In particular, cross-file analysis includes cross-file taint analysis, which tracks unsanitized variables flowing from a source to a sink through arbitrarily many files. Other analyses performed cross-file in this mode include constant propagation and cross-file type inference.
- 
- Cross-file analysis is usually used in contrast to "intrafile analysis", where each file is analyzed as a standalone block of code. It is only available in Semgrep Pro Engine.
+Also known as **interfile analysis**. Cross-file analysis describes the scope of Semgrep analysis where it takes into account how information flows between files. In particular, cross-file analysis includes **cross-file taint analysis**, which tracks unsanitized variables flowing from a source to a sink through arbitrarily many files. Other analyses performed across files include constant propagation and type inference.
+
+Cross-file analysis is usually used in contrast to intrafile or per-file analysis, where each file is analyzed as a standalone block of code. Per-file analysis is a limitation of Semgrep OSS.
 
 ## Cross-function analysis
 
 This analysis traces or tracks data and its transformations across functions in a single file, such as when a globally scoped variable is defined in one function but used in another.
 
-Also known as **intrafile** or **interprocedural** analysis. Available in Semgrep Pro Engine.
+Also known as **interprocedural** analysis.
 
 ## Error matrix
 
@@ -78,7 +78,7 @@ Not to be confused with **tokens**.
 
 An expression that denotes an object in memory; a memory location, something that you can use in the left-hand side (LHS) of an assignment.
 
-Compare to [r-value](https://learn.microsoft.com/en-us/cpp/c-language/l-value-and-r-value-expressions?view=msvc-170).
+Compare to [<i class="fas fa-external-link fa-xs"></i> r-value](https://learn.microsoft.com/en-us/cpp/c-language/l-value-and-r-value-expressions?view=msvc-170).
 
 ## Metavariable
 
@@ -88,7 +88,7 @@ A metavariable is an abstraction that lets you match something even when you don
 
 A propagator is any code that alters a piece of data as the data moves across the program. This includes functions, reassignments, and so on.
 
-When you write rules that perform taint analysis, you must define propagators explicitly in the `pattern-propagator` key. By defining those propagators, you specify to Semgrep the paths that are guaranteed to carry the tainted data throughout the program.
+When you write rules that perform taint analysis, propagators are pieces of code that you specify through the `pattern-propagator` key, as code that always passes tainted data. This is especially relevant when Semgrep performs intraprocedural taint analysis, as there as is no way for Semgrep to infer or guess which lines of code propagate taint. Thus, explicitly listing propagators is the only way for Semgrep to know if tainted data could be passed within your function.
 
 ## Rule (Semgrep rule)
 
@@ -102,20 +102,20 @@ There are two types of rules: search and taint.
 <dt>Search rules</dt>
 <dd>Rules default to this type. Search rules simply detect matches based on the patterns described by a rule.</dd>
 <dt>Taint rules</dt>
-<dd>Taint rules make use of Semgrep's taint analysis in addition to default search functionalities. Taint rules are able to specify sources, sinks, and propagators of data as well as sanitizers of that data. For more information, see Taint analysis documentation (tk link)</dd>
+<dd>Taint rules make use of Semgrep's taint analysis in addition to default search functionalities. Taint rules are able to specify sources, sinks, and propagators of data as well as sanitizers of that data. For more information, see <a href="/writing-rules/data-flow/taint-mode/">Taint analysis documentation</a></dd>
 </dl>
 
 <!-- how can we say that search rules are semantic if no analysis is performed on the value of data, such as variables? Or are there levels of semantic understanding that semgrep can perform? -->
 
 ## Sanitizers
 
-A sanitizer is any function that can clean untrusted or tainted data. Data from untrusted sources, such as user inputs, may be tainted with unsafe characters. Sanitizer functions ensure that unsafe characters are removed or stripped from the input.
+A sanitizer is any piece of code, such as a function or [a cast](https://learn.microsoft.com/en-us/dotnet/csharp/programming-guide/types/casting-and-type-conversions#explicit-conversions), that can clean untrusted or tainted data. Data from untrusted sources, such as user inputs, may be tainted with unsafe characters. Sanitizers ensure that unsafe characters are removed or stripped from the input.
 
 An example of a sanitizer is the [<i class="fas fa-external-link fa-xs"></i> `DOMPurify.sanitize(dirty);`](https://github.com/cure53/DOMPurify) function from the  DOMPurify package in JavaScript.
 
 ## Single-file analysis
 
-Also known as intrafile analysis. This refers to a tool's ability to trace or track data and its transformations across functions, such as when a variable is defined in one function but used in another.
+Also known as intrafile analysis. This refers to a tool's ability to trace or track the flow of information, such as when a variable is defined in one function but used in another.
 
 ## Single-function analysis
 
