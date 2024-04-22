@@ -55,23 +55,25 @@ Component tags are available in Semgrep Cloud Platform's **Findings page**.
 
 Semgrep Assistant uses GPT-4's understanding of programming languages and libraries and your code and triage history to auto-triage findings and indicate if a finding can safely be ignored. For every recommendation to ignore a finding, Semgrep also provides guidance with an explanation on why this is the case.
 
-Auto-triage recommendations are available in Semgrep Cloud Platform's **Findings page**, and through Slack and PR or MR comments, so developers can fix or triage an issue without switching contexts.
+Auto-triage recommendations are available in Semgrep Cloud Platform's main **Findings page** when filtering to findings that Assistant suggests should be ignored, and in the **Details** page for a finding. 
+
+Assistant's suggestions to ignore findings are also sent through Slack and PR or MR comments, so developers can triage an issue without switching contexts.
 
 ![Semgrep Assistant in a Slack notification](/img/semgrep-assistant-slack.png#md-width)
-    *Figure*. Semgrep Assistant in a Slack notification.
+    *Figure*. Semgrep Assistant auto-triage in a Slack notification.
 
 ### Autofix Semgrep Code findings
 
-Semgrep Assistant can suggest [autofix](/writing-rules/autofix/) code snippets for Semgrep Code findings identified using rules that don't have human-written autofix suggestions when it identifies a true positive. Assistant customizes the code snippets it provides based on previous feedback, if any, and your rule customizations. For example, if you have a custom rule that recommends a specific sanitizer, then Assistant will recommend its use in the autofix suggestion for the issue in your code.
+Semgrep Assistant can suggest [autofix](/writing-rules/autofix/) code snippets for Semgrep Code findings when it identifies a true positive, if the rule doesn't have a human-written autofix. Assistant customizes the code snippets it provides based on previous feedback, if any, and your rule customizations. For example, if you have a custom rule that recommends a specific sanitizer, then Assistant will recommend its use in the autofix suggestion for the issue in your code.
 
 You can set the minimum autofix confidence level required to display autofix suggestions from Semgrep Assistant.
 
-Autofixes are available in in Semgrep Cloud Platform's **Findings page** under **Your code** in the finding details. They are also available in PR and MR comments, so developers can review and verify Semgrep's generated fixes before they're applied.
+Autofixes are available in in Semgrep Cloud Platform's **Findings page** under **Your code** in the [finding's details](/docs/semgrep-code/findings/#view-findings-details-about-a-specific-finding). They are also available in PR and MR comments, so developers can review and verify Semgrep's generated fixes before they're applied.
 
 ![Semgrep Assistant generating a potential fix](/img/semgrep-assistant-autofix.png)
 *Figure*. Semgrep Assistant generates a potential fix.
 
-The finding's detail page also includes a link to the PR or MR comment with the autofix, so you can go to the PR or MR, where you can directly commit the autofix.
+The finding's details also includes a link to the PR or MR comment with the autofix, so you can go to the PR or MR, where you can directly commit the autofix.
 
 ### Priority inbox
 
