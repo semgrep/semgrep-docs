@@ -9,6 +9,7 @@ pipelines:
         image: semgrep/semgrep
         name: Semgrep scan on push
         script:
+          - export SEMGREP_APP_TOKEN=$SEMGREP_APP_TOKEN
           - semgrep ci
 
   pull-requests:
@@ -17,6 +18,7 @@ pipelines:
           image: semgrep/semgrep
           name: Semgrep scan on PR
           script:
+            - export SEMGREP_APP_TOKEN=$SEMGREP_APP_TOKEN
             - export BITBUCKET_TOKEN=$PAT # Necessary for PR comments
             # Change to your default branch if different from main
             - export SEMGREP_BASELINE_REF="origin/main"
@@ -30,5 +32,6 @@ pipelines:
           image: semgrep/semgrep
           name: Semgrep manual scan
           script:
+            - export SEMGREP_APP_TOKEN=$SEMGREP_APP_TOKEN
             - semgrep ci
 ```
