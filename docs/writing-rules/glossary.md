@@ -31,7 +31,7 @@ Constant propagation is one of the many analyses that differentiate Semgrep from
 
 ## Cross-file analysis
 
-Also known as **interfile analysis**. Cross-file analysis it takes into account how information flows between files. In particular, cross-file analysis includes **cross-file taint analysis**, which tracks unsanitized variables flowing from a source to a sink through arbitrarily many files. Other analyses performed across files include constant propagation and type inference.
+Also known as **interfile analysis**. Cross-file analysis takes into account how information flows between files. In particular, cross-file analysis includes **cross-file taint analysis**, which tracks unsanitized variables flowing from a source to a sink through arbitrarily many files. Other analyses performed across files include constant propagation and type inference.
 
 Cross-file analysis is usually used in contrast to intrafile or per-file analysis, where each file is analyzed as a standalone block of code. 
 
