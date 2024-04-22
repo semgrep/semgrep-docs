@@ -3,6 +3,7 @@ image: atlassian/default-image:latest
 
 pipelines:
   branches:
+    # Change to your default branch if different from main
     main:
     - step:
         image: semgrep/semgrep
