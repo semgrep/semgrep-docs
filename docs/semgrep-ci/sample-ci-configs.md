@@ -80,7 +80,7 @@ To add a Semgrep configuration file in your GitHub Actions pipeline:
 2. Copy the relevant code snippet provided in [Sample GitHub Actions configuration file](#sample-github-actions-configuration-file).
 3. Paste the relevant code snippet to `semgrep.yml` file. This is your Semgrep configuration file for GitHub Actions.
 4. Commit the configuration file under <code><span className="placeholder">/REPOSITORY-ROOT-DIRECTORY/.github/workflows/semgrep.yml</span></code>.
-5. The Semgrep job starts automatically upon detecting the committed `semgrep.yml` file. 
+5. The Semgrep job starts automatically upon detecting the committed `semgrep.yml` file.
 
 :::note
 If you are self-hosting your repository, you must [use a self-hosted runner](https://docs.github.com/en/actions/using-jobs/choosing-the-runner-for-a-job#choosing-self-hosted-runners).
@@ -102,7 +102,7 @@ The following configuration creates a CI job that runs scans depending on what p
 
 <GhaSemgrepAppSast />
 
-You can **run specific product scans** by passing an argument, such as `--supply-chain`. View the [list of arguments](/getting-started/cli/#scan-using-specific-semgrep-products). 
+You can **run specific product scans** by passing an argument, such as `--supply-chain`. View the [list of arguments](/getting-started/cli/#scan-using-specific-semgrep-products).
 
 </TabItem>
 
@@ -147,7 +147,7 @@ To add a Semgrep configuration snippet in your GitLab CI/CD pipeline:
 1. Create or edit your `.gitlab-ci.yml` file in the repository you want to scan.
 2. Copy the relevant code snippet provided in [Sample GitLab CI/CD configuration snippet](#sample-gitlab-cicd-configuration-snippet), and then paste it to your `.gitlab-ci.yml` file.
 3. Commit the updated `.gitlab-ci.yml` file.
-4. The Semgrep job starts automatically upon detecting the committed `.gitlab-ci.yml` file. You can also view the job from your GitLab project's **CI/CD > Pipelines** page. 
+4. The Semgrep job starts automatically upon detecting the committed `.gitlab-ci.yml` file. You can also view the job from your GitLab project's **CI/CD > Pipelines** page.
 
 ### Sample GitLab CI/CD configuration snippet
 
@@ -225,7 +225,7 @@ The following configuration creates a CI job that runs scans depending on what p
 
 <JenkinsSemgrepAppSast />
 
-You can **run specific product scans** by passing an argument, such as `--supply-chain`. View the [list of arguments](/getting-started/cli/#scan-using-specific-semgrep-products). 
+You can **run specific product scans** by passing an argument, such as `--supply-chain`. View the [list of arguments](/getting-started/cli/#scan-using-specific-semgrep-products).
 
 </TabItem>
 
@@ -253,11 +253,11 @@ To add a Semgrep configuration snippet into Bitbucket Pipelines:
 1. Create or edit your `bitbucket-pipelines.yml` file in the repository you want to scan.
 2. Copy the relevant code snippet provided in [Sample Bitbucket Pipelines configuration snippet](#sample-bitbucket-pipelines-configuration-snippet), and then paste it to your `bitbucket-pipelines.yml`.
 3. Commit the updated `bitbucket-pipelines.yml` configuration file.
-4. The Semgrep job starts automatically upon detecting the committed `bitbucket-pipelines.yml` file. You can also view the job through Bitbucket's interface, by clicking **your repository > Pipelines**.
-5. Optional: Create a separate CI job for diff-aware scanning, which scans only changed files in PRs or MRs, by repeating steps 1-3 and uncommenting the `SEMGREP_BASELINE_REF` definition provided within the code snippet.
+4. The Semgrep job starts automatically upon detecting the committed `bitbucket-pipelines.yml` file. You can view the job through Bitbucket's interface, by clicking **<span className="placeholder">REPOSITORY_NAME</span> > Pipelines**.
+5. Optional: Create a daily scheduled run for the custom pipeline on the main branch by [scheduling a pipeline in Bitbucket](https://support.atlassian.com/bitbucket-cloud/docs/pipeline-triggers/#On-schedule).
 
 :::note
-These steps can also be performed through Bitbucket's UI wizard. This UI wizard can be accessed through **Bitbucket > your repository > Pipelines > Create your first pipeline**.
+These steps can also be performed through Bitbucket's UI wizard. This UI wizard can be accessed through **Bitbucket > <span className="placeholder">REPOSITORY_NAME</span> > Pipelines > Create your first pipeline**.
 :::
 
 ### Sample Bitbucket Pipelines configuration snippet
@@ -276,7 +276,7 @@ The following configuration creates a CI job that runs scans depending on what p
 
 <BitbucketSemgrepAppSast />
 
-You can **run specific product scans** by passing an argument, such as `--supply-chain`. View the [list of arguments](/getting-started/cli/#scan-using-specific-semgrep-products). 
+You can **run specific product scans** by passing an argument, such as `--supply-chain`. View the [list of arguments](/getting-started/cli/#scan-using-specific-semgrep-products).
 
 </TabItem>
 
@@ -295,10 +295,10 @@ You can customize the scan by entering custom rules or other rulesets to scan wi
 
 To add Semgrep into your Buildkite pipeline:
 
-1. Create or edit a `pipeline.yml` configuration file to add a Semgrep command as part of your pipeline. Refer to the [BuildKite code snippet](#buildkite-code-snippet). This configuration file can also be stored within Buildkite.
+1. Create or edit a `pipeline.yml` configuration file to add a Semgrep command as part of your pipeline. Refer to the [Buildkite code snippet](#buildkite-code-snippet). This configuration file can also be stored within Buildkite.
 2. Copy the relevant code snippet provided in [Sample Buildkite configuration snippet](#sample-buildkite-configuration-snippet).
 3. If you are using Buildkite to store the configuration, save the updated file. Otherwise, commit the updated configuration file into the `/.buildkite` folder within the target repository.
-4. The Semgrep job starts automatically upon detecting the committed `pipeline.yml` file. You can also view the job through Buildkite's interface, by clicking **your repository > Pipelines**. 
+4. The Semgrep job starts automatically upon detecting the committed `pipeline.yml` file. You can also view the job through Buildkite's interface, by clicking **your repository > Pipelines**.
 5. Optional: Create a separate CI job for diff-aware scanning, which scans only changed files in PRs or MRs, by repeating steps 1-3 and uncommenting the `SEMGREP_BASELINE_REF` definition provided within the code snippet.
 
 :::note
@@ -321,7 +321,7 @@ The following configuration creates a CI job that runs scans depending on what p
 
 <BuildkiteSemgrepAppSast />
 
-You can **run specific product scans** by passing an argument, such as `--supply-chain`. View the [list of arguments](/getting-started/cli/#scan-using-specific-semgrep-products). 
+You can **run specific product scans** by passing an argument, such as `--supply-chain`. View the [list of arguments](/getting-started/cli/#scan-using-specific-semgrep-products).
 
 </TabItem>
 
@@ -341,7 +341,7 @@ You can customize the scan by entering custom rules or other rulesets to scan wi
 To add Semgrep into your CircleCI pipeline:
 
 1. Create a [context](https://circleci.com/docs/contexts/):
-    1. In CircleCI web app, click **Organization Settings** > **Contexts**. 
+    1. In CircleCI web app, click **Organization Settings** > **Contexts**.
     2. Click **Create Context**.
     3. Enter `semgrep` as the name for the context.
     4. Click **Add Environment Variable** and enter your `SEMGREP_APP_TOKEN`.
@@ -373,9 +373,9 @@ For the default branch and tags, CircleCI always runs the Semgrep CI job on all 
 
 The following configuration creates a CI job that runs scans depending on what products you have enabled in Semgrep Cloud Platform.
 
-<CircleCiSemgrepAppSast /> 
+<CircleCiSemgrepAppSast />
 
-You can **run specific product scans** by passing an argument, such as `--supply-chain`. View the [list of arguments](/getting-started/cli/#scan-using-specific-semgrep-products). 
+You can **run specific product scans** by passing an argument, such as `--supply-chain`. View the [list of arguments](/getting-started/cli/#scan-using-specific-semgrep-products).
 
 </TabItem>
 
@@ -383,12 +383,12 @@ You can **run specific product scans** by passing an argument, such as `--supply
 
 The following configuration creates a CI job that runs Semgrep OSS scans using rules configured for your programming language.
 
-<CircleCiSemgrepOssSast /> 
+<CircleCiSemgrepOssSast />
 
 You can customize the scan by entering custom rules or other rulesets to scan with. See [Scan your codebase with a specific ruleset](/getting-started/cli-oss/#scan-your-codebase-with-a-specific-ruleset).
 
 </TabItem>
-</Tabs> 
+</Tabs>
 
 ## Azure Pipelines
 
@@ -403,7 +403,7 @@ To add Semgrep into Azure Pipelines:
 3. Save the code snippet.
 4. Set [environment variables](https://learn.microsoft.com/en-us/azure/devops/pipelines/process/variables?view=azure-devops&tabs=yaml%2Cbatch#secret-variables).
 5. Group the environment variables as a [variable group](https://learn.microsoft.com/en-us/azure/devops/pipelines/library/variable-groups?view=azure-devops&tabs=classic).
-6. Optional: Create a separate CI job for diff-aware scanning, which scans only changed files in PRs or MRs, by repeating steps 1-4 and adding `SEMGREP_BASELINE_REF` as an environment variable. 
+6. Optional: Create a separate CI job for diff-aware scanning, which scans only changed files in PRs or MRs, by repeating steps 1-4 and adding `SEMGREP_BASELINE_REF` as an environment variable.
 
 ### Sample Azure Pipelines configuration snippet
 
@@ -419,9 +419,9 @@ To add Semgrep into Azure Pipelines:
 
 The following configuration creates a CI job that runs scans depending on what products you have enabled in Semgrep Cloud Platform.
 
-<AzureSemgrepAppSast /> 
+<AzureSemgrepAppSast />
 
-You can **run specific product scans** by passing an argument, such as `--supply-chain`. View the [list of arguments](/getting-started/cli/#scan-using-specific-semgrep-products). 
+You can **run specific product scans** by passing an argument, such as `--supply-chain`. View the [list of arguments](/getting-started/cli/#scan-using-specific-semgrep-products).
 
 </TabItem>
 
@@ -445,7 +445,7 @@ To run Semgrep CI on any other provider, use the `semgrep/semgrep` image, and ru
 By setting various [CI environment variables](/semgrep-ci/ci-environment-variables), you can run Semgrep in the following CI providers:
 
 - AppVeyor
-- Bamboo 
+- Bamboo
 - Bitrise
 - Buildbot
 - Codeship
