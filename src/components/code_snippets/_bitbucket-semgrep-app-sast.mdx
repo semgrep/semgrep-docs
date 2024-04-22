@@ -24,7 +24,7 @@ pipelines:
             - semgrep ci
 
   custom:
-  # additinal setup for cron in BitBucket https://support.atlassian.com/bitbucket-cloud/docs/pipeline-triggers/#On-schedule
+  # Trigger job manually. For cron in Bitbucket, see: https://support.atlassian.com/bitbucket-cloud/docs/pipeline-triggers/#On-schedule
     semgrep-manual:
       - step:
           image: semgrep/semgrep
