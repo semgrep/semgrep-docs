@@ -103,7 +103,7 @@ There are two types of rules: search and taint.
 <dt>Search rules</dt>
 <dd>Rules default to this type. Search rules detect matches based on the patterns described by a rule. There are several semantic analyses that search rules perform, such as:
     <ul>
-    <li>Being able to interpret syntactically different code as semantically equivalent</li>
+    <li>Interpreting syntactically different code as semantically equivalent</li>
     <li>Constant propagation</li>
     <li>Matching a fully qualified name to its reference in the code, even when not fully qualified</li>
     <li>Type inference, particularly when using typed metavariables</li>
