@@ -55,7 +55,7 @@ Component tags are available in Semgrep Cloud Platform's **Findings page**.
 
 Semgrep Assistant uses GPT-4's understanding of programming languages and libraries, and your code and triage history, to auto-triage findings and suggest whether a finding can safely be ignored. For every recommendation to ignore a finding, Semgrep also provides guidance with an explanation on why this is the case.
 
-Auto-triage recommendations are available in Semgrep Cloud Platform's main **Findings page** when filtering to findings that Assistant suggests should be ignored, and in the **Details** page for a finding. 
+Auto-triage recommendations are available in Semgrep Cloud Platform's main **Findings page** when filtering to findings that Assistant suggests should be ignored, and in the [finding's details](/docs/semgrep-code/findings/#view-findings-details-about-a-specific-finding). 
 
 ![Semgrep Assistant in the filtered Findings page](/img/semgrep-assistant-autotriage-findings.png)
 
@@ -75,7 +75,7 @@ Autofixes are available in Semgrep Cloud Platform's **Findings page** under **Yo
 ![Semgrep Assistant generating a potential fix](/img/semgrep-assistant-autofix.png)
 *Figure*. Semgrep Assistant generates a potential fix.
 
-The finding's details also includes a link to the PR or MR comment with the autofix, so you can go to the PR or MR, where you can directly commit the autofix.
+The finding's details also include a link to the PR or MR comment with the autofix, so you can go to the PR or MR, where you can directly commit the autofix.
 
 ### Priority inbox
 
