@@ -2,7 +2,7 @@
 slug: /
 hide_title: true
 id: Docs home
-displayed_sidebar: topLevelSidebar 
+displayed_sidebar: topLevelSidebar
 description: >-
   Read the documentation and get started with Semgrep.
   A fast, open-source, static analysis engine
@@ -49,7 +49,7 @@ The Semgrep ecosystem includes the following products:
     - [Semgrep Pro rules](/semgrep-code/pro-rules) - High-confidence rules written by Semgrep Security Research team for a variety of languages
     - [Semgrep Pro Engine](/semgrep-code/semgrep-pro-engine-intro) - Advanced engine that performs interfile and interprocedural analysis
 - [Semgrep Supply Chain (SSC)](https://semgrep.dev/products/semgrep-supply-chain) - A high-signal dependency scanner that detects reachable vulnerabilities in open source third-party libraries and functions across the software development life cycle (SDLC).
-- [Semgrep Secrets](https://semgrep.dev/products/semgrep-secrets) - A secrets scanner that detects valid secrets in your codebase through semantic analysis, entropy analysis, and validation. 
+- [Semgrep Secrets](https://semgrep.dev/products/semgrep-secrets) - A secrets scanner that detects valid secrets in your codebase through semantic analysis, entropy analysis, and validation.
 
 :::tip
 The following products are **free** for up to 10 contributors:
@@ -77,7 +77,7 @@ Semgrep Code supports over 30 languages and counting! 🚀 Visit [Semgrep Code's
 
 ### Semgrep Supply Chain
 
-Semgrep Supply Chain supports Go, Javascript/Typescript, Python, Ruby, and Java. 🛡️ Visit [Semgrep Supply Chain's supported languages](/docs/supported-languages#semgrep-supply-chain) to see all the package managers and lockfiles supported. 
+Semgrep Supply Chain supports Go, Javascript/Typescript, Python, Ruby, and Java. 🛡️ Visit [Semgrep Supply Chain's supported languages](/docs/supported-languages#semgrep-supply-chain) to see all the package managers and lockfiles supported.
 
 ## Environments
 
