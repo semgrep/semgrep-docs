@@ -49,13 +49,13 @@ By categorizing your code through component tags, Semgrep Assistant can help you
 
 ![Semgrep Assistant Component tag list](/img/assistant-component-tags.png)
 
-Component tags are available in Semgrep Cloud Platform's **Findings page**.
+Component tags are available in Semgrep Cloud Platform's **Findings** page.
 
 ### Auto-triage
 
 Semgrep Assistant uses GPT-4's understanding of programming languages and libraries, and your code and triage history, to auto-triage findings and suggest whether a finding can safely be ignored. For every recommendation to ignore a finding, Semgrep also provides guidance with an explanation on why this is the case.
 
-Auto-triage recommendations are available in Semgrep Cloud Platform's main **Findings page** when filtering to findings that Assistant suggests should be ignored, and in the [finding's details](/docs/semgrep-code/findings/#view-findings-details-about-a-specific-finding). 
+Auto-triage recommendations are available in Semgrep Cloud Platform's **Findings** page when you filter for findings that Assistant suggests should be ignored, and in the [finding's details](/semgrep-code/findings/#view-findings-details-about-a-specific-finding). 
 
 ![Semgrep Assistant in the filtered Findings page](/img/semgrep-assistant-autotriage-findings.png)
 
@@ -68,7 +68,7 @@ Assistant's suggestions to ignore findings are also sent through Slack and PR or
 
 Semgrep Assistant can suggest [autofix](/writing-rules/autofix/) code snippets for Semgrep Code findings when it identifies a true positive, if the rule doesn't have a human-written autofix. Assistant customizes the code snippets it provides based on previous feedback, if any, and your rule customizations. For example, if you have a custom rule that recommends a specific sanitizer, Assistant can recommend its use in the autofix suggestion for the issue in your code.
 
-You can set the minimum autofix confidence level required to display autofix suggestions from Semgrep Assistant in the **Settings** page in Semgrep Cloud Platform.
+You can set the minimum autofix confidence level required to display autofix suggestions from Semgrep Assistant in Semgrep Cloud Platform's **Settings** page.
 
 Autofixes are available in Semgrep Cloud Platform's **Findings page** under **Your code** in the [finding's details](/docs/semgrep-code/findings/#view-findings-details-about-a-specific-finding). They are also available in PR and MR comments, so developers can review and verify Semgrep's generated fixes before they're applied.
 
