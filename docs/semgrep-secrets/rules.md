@@ -218,7 +218,7 @@ See [<i class="fa-regular fa-file-lines"></i> Validators](/semgrep-secrets/valid
 
 ## Metavariable binding
 
-Semgrep secrets uses metavariables. Metavariables allow Semgrep Secrets to reuse matched information from your code in its validators. An example of a metavariable is as follows:
+Semgrep Secrets can use metavariables. Metavariables allow Semgrep Secrets to reuse matched information from your code in its validators. An example of a metavariable is as follows:
 
 <iframe title="Message displays metavariable content" src="https://semgrep.dev/embed/editor?snippet=JDzRR" width="100%" height="432px" frameBorder="0"></iframe>
 <br />
