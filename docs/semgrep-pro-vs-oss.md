@@ -71,7 +71,7 @@ The following table displays various notification channels and reporting feature
 | [Notifications and reports (Slack, email, webhooks, and API)](/semgrep-cloud-platform/notifications/)           | --          | ✔️                |
 | Send scan results to GitLab SAST and GitHub Advanced Security                                                   | --          | ✔️                |
 | [Findings dashboard](/semgrep-cloud-platform/dashboard/)                                                        | --          | ✔️                |
-| Findings retention                                                                                              | --          | 5 years           |
+| Findings retention                                                                                              | --          | [As long as account is active](/semgrep-code/findings/#data-retention)           |
 
 ## 🧰 Scan customization features
 
@@ -201,4 +201,3 @@ The following table displays differences between Semgrep Code and Semgrep Supply
     </tr>
   </tbody>
 </table> -->
-
