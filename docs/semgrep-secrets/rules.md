@@ -223,7 +223,7 @@ Semgrep Secrets can use metavariables. Metavariables allow Semgrep Secrets to re
 <iframe title="Message displays metavariable content" src="https://semgrep.dev/embed/editor?snippet=JDzRR" width="100%" height="432px" frameBorder="0"></iframe>
 <br />
 
-When you click **Run**, the content from the metavariable `$HELLO` displays as `This content is now reusable in validators`. If this were a secret, Semgrep Secrets could use this to call the appropriate service to determine if the secret is active.
+When you click **Run**, the content from the metavariable `$HELLO` displays as `This content is now reusable in validators`. If this is a Secret rule, Semgrep Secrets could use this to call the appropriate service to determine if the secret is active.
 
 ## Differences between Semgrep Secrets rules and Semgrep Registry rules
 
