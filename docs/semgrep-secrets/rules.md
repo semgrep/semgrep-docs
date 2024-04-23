@@ -8,7 +8,7 @@ tags:
   - Semgrep Secrets
 ---
 
-# Semgrep Secrets rule structure and sample and structure
+# Semgrep Secrets rule structure and sample
 
 This article walks you through writing, publishing, and using Semgrep Secrets rules. It also demonstrates what a sample Semgrep Secrets rule looks like, with subsequent sections describing the key-value pairs in the context of a Semgrep Secrets rule.
 
