@@ -89,7 +89,7 @@ A metavariable is an abstraction that lets you match something even when you don
 
 A propagator is any code that alters a piece of data as the data moves across the program. This includes functions, reassignments, and so on.
 
-When you write rules that perform taint analysis, propagators are pieces of code that you specify through the `pattern-propagator` key as code that always passes tainted data. This is especially relevant when Semgrep performs intraprocedural taint analysis, as there is no way for Semgrep to infer or guess which lines of code propagate taint. Thus, explicitly listing propagators is the only way for Semgrep to know if tainted data could be passed within your function.
+When you write rules that perform taint analysis, propagators are pieces of code that you specify through the `pattern-propagator` key as code that always passes tainted data. This is especially relevant when Semgrep performs intraprocedural taint analysis, as there is no way for Semgrep to infer or guess which function calls propagate taint. Thus, explicitly listing propagators is the only way for Semgrep to know if tainted data could be passed within your function.
 
 ## Rule (Semgrep rule)
 
