@@ -55,6 +55,7 @@ The Semgrep ecosystem includes the following products:
 The following products are **free** for up to 10 contributors:
 * Semgrep Cloud Platform
 * Semgrep Code
+* Semgrep Supply Chain
 :::
 
 Support and be supported by the Semgrep community through:
