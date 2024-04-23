@@ -66,7 +66,7 @@ Assistant's suggestions to ignore findings are also sent through Slack and PR or
 
 ### Autofix Semgrep Code findings
 
-Semgrep Assistant can suggest [autofix](/writing-rules/autofix/) code snippets for Semgrep Code findings when it identifies a true positive, if the rule doesn't have a human-written autofix. Assistant customizes the code snippets it provides based on previous feedback, if any, and your rule customizations. For example, if you have a custom rule that recommends a specific sanitizer, Assistant can recommend its use in the autofix suggestion for the issue in your code.
+Semgrep Assistant can suggest [autofix](/writing-rules/autofix/) code snippets for Semgrep Code findings when it identifies a true positive. Assistant will only suggest an autofix if the rule doesn't have a human-written autofix. Assistant customizes the code snippets it provides based on previous feedback, if any, and your rule customizations. For example, if you have a custom rule that recommends a specific sanitizer, Assistant can recommend its use in the autofix suggestion for the issue in your code.
 
 You can set the minimum autofix confidence level required to display autofix suggestions from Semgrep Assistant in Semgrep Cloud Platform's **Settings** page.
 
@@ -79,7 +79,7 @@ The finding's details also include a link to the PR or MR comment with the autof
 
 ### Priority inbox
 
-Semgrep sends weekly emails with information on the top three backlog tasks across all findings, according to Assistant. Unlike other Assistant features, these suggestions can include information for all Semgrep products that you have enabled. The emails are sent out on Monday to all organization admins.
+Semgrep sends weekly emails with information on Assistant's top three backlog tasks across all findings. Unlike other Assistant features, these suggestions can include information for all Semgrep products that you have enabled. The emails are sent out on Monday to all organization admins.
 
 This information is also available in Semgrep Cloud Platform on the **Dashboard** page under **Assistant recommended tasks**.
 
