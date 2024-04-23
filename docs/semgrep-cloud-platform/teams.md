@@ -122,9 +122,7 @@ The Semgrep team recommends that admins assign projects to one team only.
 
 ### View your teams
 
-You must be an admin or manager to view the teams tab.
-
-To view your teams:
+You must be an admin or manager to view the **Teams** tab.
 
 1. Sign in to [<i class="fas fa-external-link fa-xs"></i> Semgrep Cloud Platform](https://semgrep.dev/login).
 1. Click **[<i class="fa-solid fa-gear"></i> Settings > Access > Teams](https://semgrep.dev/orgs/-/settings/access/teams)**.
