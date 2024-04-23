@@ -50,9 +50,8 @@ A user is any person who has been added to your organization in Semgrep. Users c
 </ul>
 </dl>
 
-tk add figure
-
-Figure. A member's view of the Projects page. It displays Projects that are assigned to the Team they are a member of, but they cannot edit a project nor can they scan new Projects in their organizational account.
+![A member's view of the Projects page.](/img/access-member-view.png)
+**Figure**. A member's view of the Projects page. It displays projects that are assigned to the team they are a member of, but they cannot edit a project nor can they scan new projects in their organizational account.
 
 | Page      | Member     | Manager    | Admin | Notes |
 | ----      | ------     | -------    | ----- | ----- |
@@ -80,7 +79,9 @@ Figure. A member's view of the Projects page. It displays Projects that are assi
 
 In the following diagram, team 1 gains access to subteam 1b's projects, but team 1b does not gain access to projects from team 1.
 
-tk add diagram
+
+![Team scopes diagram](/img/access-diagram.png#md-width)
+
 - The members Alexis, Pam, and Raj have access to the following projects:
     - App
     - Microservices
@@ -104,7 +105,7 @@ Additionally, the manager role is able to perform the following:
 
 Managers cannot remove themselves from their team. Only admins can remove managers.
 
-tk add fig
+![A manager's view of the Projects page.](/img/access-manager-view.png)
 **Figure**. A manager's view of the Projects page. They are able to scan new projects and edit the settings for Projects assigned to Teams they are managers of.
 
 ## Tips for creating teams and subteams
@@ -171,7 +172,7 @@ To set a member as a manager for a subteam:
 1. Click the **<i class="fa-solid fa-pen-to-square"></i> edit** icon on the row of the team or subteam you want to edit.
 1. Click on the **Members** tab.
 1. Under the Role column of the member you want to appoint, click the drop-down box and select **Manager**. Perform this step for all members you want to set as managers.
-  tk screenshot
+![Add a manager](/img/access-add-manager.png#bordered)
 1. Click **Review**.
 1. Click **Save changes**.
 
