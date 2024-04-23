@@ -59,6 +59,6 @@ Minor bug fixes are not included in the release notes unless they are potentiall
 - [Taint mode](/writing-rules/data-flow/taint-mode/) documentation has been updated and now includes introductory video.
 - Updated [Getting started with Semgrep in continuous integration (CI)](/semgrep-ci/overview/)
 - Updated [Data-flow analysis engine overview](/writing-rules/data-flow/data-flow-overview/).
-- Updated [Integrating Semgrep into source code management (SCM) tools](/deployment/scm/).
+- Updated [Integrating Semgrep into source code management (SCM) tools](/deployment/connect-scm.md).
 - Updated [Evaluating your security posture through the Dashboard](/semgrep-cloud-platform/dashboard/).
 - Updated [Notifications](/semgrep-code/notifications/) documentation.

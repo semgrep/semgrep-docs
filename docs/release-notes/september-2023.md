@@ -103,7 +103,7 @@ tags:
 * Integrated **Ask** (GPT-powered chat) and **Search** functions into one modal.
 * Clarifications on various Semgrep Supply Chain behaviors.
 * [<i class="fa-regular fa-file-lines"></i> Sample CI configurations](semgrep-ci/sample-ci-configs/):  Updated various CI configurations for standalone SAST scans.
-* A clarification has been added on [Semgrep exit codes in conjunction with the `error` flag](docs/cli-reference/#exit-codes). Thank you to [Bernardo de Araujo](https://github.com/bernardoamc) for this contribution.
+* A clarification has been added on [Semgrep exit codes in conjunction with the `error` flag](/cli-reference/#exit-codes). Thank you to [Bernardo de Araujo](https://github.com/bernardoamc) for this contribution.
 
 ### Removed
 
