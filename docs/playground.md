@@ -10,7 +10,7 @@ hide_title: true
 import MoreHelp from "/src/components/MoreHelp"
 import EnableTurboMode from "/src/components/procedure/_enable-turbo-mode.md"
 
-# Creating and managing rules with Semgrep Playground
+# Create and manage rules with Semgrep Playground
 
 Semgrep Playground is a live editor used to create and test rule patterns on sample code. By testing rule patterns on sample code, you are able to quickly assess the purpose, utility, and speed of a rule as well as save it for later refinement, reuse, or sharing.
 
@@ -20,35 +20,48 @@ The Playground is composed of three panes and a top menu.
 
 <dl>
     <dt>Library</dt>
-    <dd>View and open various rules through the library. You must be signed in to view your saved rules and access the Registry.</dd>
+    <dd>View and open rules in the library. You must sign in to view your saved rules and access the <a href="https://semgrep.dev/r">Semgrep Registry</a>.</dd>
     <dt>Rule editor</dt>
-    <dd>Enter your rule's YAML schema in this pane. This pane supports both a simple and advanced view.</dd>
+    <dd>Enter your rule's YAML schema in this pane. This pane supports both simple and advanced modes.</dd>
     <dt>Sample code</dt>
-    <dd>Enter test code in this pane and click the <strong>Run button</strong> to verify that the rule performs as intended. A matches panel appears after Semgrep is run to display matches and tests. This pane also contains metadata editing and docs viewing functionalities.</dd>
+    <dd>Enter test code in this pane and click <strong>Run</strong> to verify that the rule performs as intended. A matches panel appears after Semgrep runs to display matches and tests. This pane also contains metadata editing and docs viewing functionalities.</dd>
     <dt>Top menu</dt>
-    <dd>Save, share, and add your rule to your Policies page through this menu.</dd>
+    <dd>Save, share, and add your rule to one of your policies.</dd>
 </dl>
 
-To resize the panes, position your mouse over the borders and drag to the desired width. You can hide the entire library pane to give more space for the editing panes.
+<!-- 
+Commenting this out because 1) this doc is long enough as it is and 2) I don't think we need to walk people through basic UI stuff
 
-## Creating a rule
+To resize the panes, position your mouse over the borders and drag to the desired width. You can hide the **Library** pane to give more space for the editing panes.
+-->
 
-Use two modes to create a rule:
+## Create a rule
+
+Use either of the Editor modes available to create a rule:
 
 <dl>
     <dt>Simple mode</dt>
-    <dd>Simple mode is best for quick and simple pattern-matching use cases, but does not display all Semgrep operators.</dd>
+    <dd>Simple mode is ideal for quick and simple pattern-matching use cases, but it doesn't display all Semgrep operators.</dd>
     <dt>Advanced mode</dt>
-    <dd>Advanced mode provides the minimum required YAML keys for a Semgrep rule. To complete the rule, advanced mode requires users to fill in additional keys such as pattern operators or metadata.</dd>
+    <dd>Advanced mode provides the minimum required YAML keys for a Semgrep rule. To complete the rule, you must fill in additional keys, such as pattern operators or metadata.</dd>
 </dl>
 
-### Learning Semgrep basics through simple mode
+### Write rules using simple mode
 
-Simple mode provides the **most common pattern-matching operators in Semgrep**.
+Simple mode provides the you with the most common pattern-matching operators in Semgrep. You can select these operators using the provided drop-down menus. The following table lists the operators available and their corresponding key in the rule:
 
+| Key | Drop-down menu option |
+| - | - |
+| `language` | Language is |
+| `pattern` | Code is |
+| `pattern-either` | or is |
+| `pattern-inside` | and is inside |
+| `pattern-not` | and is not |
+| `pattern-not-inside` | and is not inside |
+| `pattern-regex` | and matches regex |
+| `autofix` | and autofix is |
 
-The following **keys** are supported in this mode as drop-down boxes:
-
+<!--
 * `language`
 * `pattern`
 * `pattern-either`
@@ -57,39 +70,37 @@ The following **keys** are supported in this mode as drop-down boxes:
 * `pattern-not-inside`
 * `pattern-regex`
 * `autofix`
+-->
 
-
-#### Limitations of simple mode
-
-Simple mode has the following limitations:
-
-* Supports only **one language** per rule.
-
-* Does **not** include support for the following operators:
-
-    * `pattern-not-regex`
-    * `metavariable-regex`
-    * `metavariable-pattern`
-    * `metavariable-comparison`
-
-* Does **not** support the following modes:
-
-    * Join mode
-    * Taint mode
 
 To **create a rule** in simple mode:
 
 1. Ensure that you are in **Simple mode**:
 ![Screenshot of the simple view](/img/pleditor-simple.png "Playground simple mode")
-2. Click **File > New** to start from a blank slate.
-3. Select a language from the **language is** drop-down box to specify a language in which the test code is written.
-4. After the **code is** button, enter the rule pattern.
-5. Optional: Click on the **plus** button to add fields for additional operators. Select the pattern operator and enter the pattern.
-6. Optional: Click on **Rule metadata** tab on the **Sample code** pane to enter additional metadata fields.
-7. Click **Run** or press <kbd>Ctrl</kbd>+<kbd>Enter</kbd> (<kbd>⌘</kbd>+<kbd>Enter</kbd> on Mac).
+1. Click **File > New** to start from a blank slate.
+2. Select a language from the **language is** drop-down box to specify a language in which the test code is written.
+3. After the **code is** button, enter the rule pattern.
+4. Optional: Click on the **plus** button to add fields for additional operators. Select the pattern operator and enter the pattern.
+5. Optional: Click on **Rule metadata** tab on the **Sample code** pane to enter additional metadata fields.
+6. Click **Run** or press <kbd>Ctrl</kbd>+<kbd>Enter</kbd> (<kbd>⌘</kbd>+<kbd>Enter</kbd> on Mac).
 
 
 <EnableTurboMode />
+
+#### Limitations of simple mode
+
+Simple mode:
+
+1.  Supports only **one language** per rule.
+
+1. Does *not* include support for the following operators:
+   * `pattern-not-regex`
+   * `metavariable-regex`
+   * `metavariable-pattern`
+   * `metavariable-comparison`
+2. Does *not* support:
+   * Join mode
+   * Taint mode
 
 ### Writing complex rules using advanced mode
 
