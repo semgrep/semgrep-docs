@@ -28,7 +28,7 @@ The Python 3.11 docker includes additional packages (for example, `ncurses`) tha
 * `jq` and `curl` may be removed in future Semgrep releases. You can install them directly in the docker image. For example:
 ```yaml
   job:
-    container: returntocorp/semgrep:develop
+    container: semgrep/semgrep:develop
     runs-on: ubuntu-latest-16-core
     steps:
       - uses: actions/checkout@v3

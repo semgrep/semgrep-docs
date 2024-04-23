@@ -268,7 +268,7 @@ jobs:
       SEMGREP_APP_TOKEN: ${{ secrets.SEMGREP_APP_TOKEN }}
       SEMGREP_REPO_DISPLAY_NAME: corporation/myrepo-${{ matrix.subdir }}
     container:
-      image: returntocorp/semgrep
+      image: semgrep/semgrep
     steps:
     - uses: actions/checkout@v3
     - run: semgrep ci --include=${{ matrix.subdir }}
