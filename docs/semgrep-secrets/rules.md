@@ -31,7 +31,7 @@ If you want to keep your rules file local, you must pass in the `--allow-untrust
 
 ### Use Semgrep Editor
 
-The Semgrep Editor, available in Semgrep Cloud Platform, can help you write rules for use with Semgrep Secrets. To pull up a sample rule that you can modify:
+The Semgrep Editor, available in Semgrep Cloud Platform, can help you write custom Semgrep Secrets rules. To pull up a sample rule that you can modify:
 
 1. Sign in to Semgrep Cloud Platform.
 2. Go to **Rules > Editor**.
