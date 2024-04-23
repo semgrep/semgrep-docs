@@ -113,6 +113,7 @@ module.exports = {
             items: [
                 'deployment/user-management',
                 'semgrep-cloud-platform/tags',
+                'semgrep-cloud-platform/teams',
                 'semgrep-ci/network-broker'
             ]
         },

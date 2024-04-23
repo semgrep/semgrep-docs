@@ -1,19 +1,19 @@
 ---
-slug: tk
+slug: teams
 append_help_link: true
-title: tk
+title: Manage access to projects
 hide_title: true
-description: tk
+description: Use the Teams feature to manage access to resources. 
 tags:
-  - tk
+  - Semgrep Cloud Platform
 ---
 
 # Manage access to projects
 
 Use the **Teams** feature to manage access to resources, such as findings in your projects. 
 
-tk add screenshot
-Figure. The Settings > Access > Teams tab displays both top-level Teams and Subteams.
+![The Teams tab within the Settings page](/img/access-teams.png)
+**Figure**. The **<i class="fa-solid fa-gear"></i> Settings > Access > Teams** tab displays both top-level teams and subteams.
 
 The **Teams** feature enables admins to grant or limit access to specific projects in Semgrep Cloud Platform (SCP). **Projects** are repositories or codebases you have added to SCP for scanning. You can quickly assign projects to large groups of members by assigning teams and subteams to members of your organization.
 
@@ -23,121 +23,136 @@ When you limit a member's access to a subset of your projects, their Dashboard a
 
 This document walks you through the following:
 
-- How to approach Team management and Project access in Semgrep
-- How to create, view, update, and delete Teams and Subteams
-- How to assign or unassign Projects to Teams
+- How to approach team management and project access in Semgrep
+- How to create, view, update, and delete teams and subteams
+- How to assign or unassign projects to teams
 
 ## Roles and visibility
 
 A user is any person who has been added to your organization in Semgrep. Users can be administrators (admins), managers, or members.
 
-Admin
-A user who has access to all features, resources, and Projects of their Semgrep deployment. Admins can also change the role of members and managers.
-By definition, an admin does not need to be assigned to a Team to have access to the resources of a Project. As such, an admin can't be removed from a Team, either. 
-An org admin can change the role of any other admin or user, including a fellow admin.
+<dl>
+<dt>Admin</dt>
+<ul><li>A user who has access to all features, resources, and projects of their Semgrep deployment. Admins can also change the role of members and managers.</li>
+<li>By definition, an admin does not need to be assigned to a team to have access to the resources of a project. As such, an admin can't be removed from a team.</li>
+<li>An org admin can change the role of any other admin or user, including a fellow admin.</li></ul>
+<dt>Manager</dt>
+<ul>
+<li>A user who can grant access to projects by creating subteams and assigning members to these subteams.</li>
+<li>A manager role is restricted to the teams where they have been assigned as a manager. Users can be managers of some projects, but members for others. For more information, see [manager role]() tk add section.</li>
+</ul>
+<dt>Member</dt>
+<ul>
+<li>A user who has access to some features, resources, and projects of their Semgrep deployment.</li>
+<li>By default, a member starts out with no access to any project.</li>
+<li>To grant members access to a project and its findings, you must add a member to a team, and that team must be assigned projects.</li>
+<li>Members can scan their local or personal repositories through a personal account.</li>
+</ul>
+</dl>
 
-Manager
-A user who can grant access to Projects by creating Subteams and assigning members to these Subteams.
-A manager role is restricted to the Teams where they have been assigned as a manager. Users can be managers of some Projects, but members for others. For more information, see The manager role section.
+tk add figure
 
-Member
-A user who has access to some features, resources, and Projects of their Semgrep deployment.
-By default, a member starts out with no access to any Project.
-To grant members access to a Project and its findings, you must add a member to a Team, and that Team must be assigned Projects.
+Figure. A member's view of the Projects page. It displays Projects that are assigned to the Team they are a member of, but they cannot edit a project nor can they scan new Projects in their organizational account.
 
-| Page | Member | Manager | Admin | Notes |
-| ---- | ------ | ------- | ----- | ----- |
-| Dashboard | | | | |
-| Projects  | | | | |
-| Findings  | | | | |
-| Policies  | | | | |
-| Editor    | | | | |
-| Settings  | | | | |
+| Page      | Member     | Manager    | Admin | Notes |
+| ----      | ------     | -------    | ----- | ----- |
+| Dashboard | Restricted | Restricted | Yes   | For members, scope is limited based on a member's teams and project access granted to those teams. |
+| Projects  | Restricted | Restricted | Yes   | Projects assigned to teams are visible to members and managers of those teams. Admins can see all projects. |
+| Findings  | Restricted | Restricted | Yes   | Members can perform all triage operations on Projects assigned to them. |
+| Policies  | No         | No         | Yes   |       |
+| Editor    | Read-only  | Read-only  | Yes   | Members can view all rules of an organization, but can't edit or create their own. They can create their own rules in their personal account.      |
+| Settings  | No         | Restricted | Yes   |       |
 
-| Capability | Member | Manager | Admin | Notes |
-| ---- | ------ | ------- | ----- | ----- |
-| | | | | |
+| Capability              | Member | Manager | Admin | Notes |
+| ----                    | ------ | ------- | ----- | ----- |
+| Create projects         | No     | No      | Yes   |       |
+| Assign roles            | No     | No      | Yes   |       |
+| Create or edit teams    | No     | No      | Yes   |       |
+| Create or edit subteams | No     | Yes     | Yes   |       |
+| Delete teams            | No     | No      | Yes   |       |
+| Delete subteams         | No     | Yes     | Yes   | A manager can delete the subteams they are a manager of, provided that there are no resources, such as projects, assigned to the subteam.      |
+| API                     | No     | No      | Yes   |       |
 
 
-## Configure your Teams
+## Configure your teams
 
-Members of a top-level Team gain access to the Projects of its Subteams. They are indirect members of a Subteam.
-Members of a Subteam do not have access to the Projects of Team or Subteams above it.
+- Members of a top-level team gain access to the projects of its subteams. They are indirect members of a subteam.
+- Members of a subteam do not have access to the projects of teams or subteams above it.
 
-In the following diagram, Team 1 gains access to Subteam 1b's Projects, but Team 1b does not gain access to Projects from Team 1.
+In the following diagram, team 1 gains access to subteam 1b's projects, but team 1b does not gain access to projects from team 1.
 
 tk add diagram
-The members Alexis, Pam, and Raj have access to the following Projects:
+The members Alexis, Pam, and Raj have access to the following projects:
 App
 Microservices
 Frontend
-The members David, Sebas, and Phaedra have access to the following Projects:
+The members David, Sebas, and Phaedra have access to the following projects:
 Frontend
 
-### Tips for creating Teams and Subteams
+### Tips for creating teams and subteams
 
 :::info
-The Semgrep team recommends that admins assign Projects to one team only.
+The Semgrep team recommends that admins assign projects to one team only.
 :::
 
-Use flat Teams: To grant access to central Projects that are used by a broad group of developers, it is best to create a separate flat Team, without any Subteams, and grant the users access to foundational or central repositories from that Team. For example, Projects that all engineers commit to can be named the Engineering Team.
-Use Subteams: Create a top-level Team for managers or security engineers in your organization who have broad access to a variety of repositories, then create Subteams for members to grant them limited access to their specific department's repositories.
+Use flat teams: To grant access to central projects that are used by a broad group of developers, it is best to create a separate flat team, without any subteams, and grant the users access to foundational or central repositories from that team. For example, projects that all engineers commit to can be named the Engineering Team.
+Use subteams: Create a top-level team for managers or security engineers in your organization who have broad access to a variety of repositories, then create subteams for members to grant them limited access to their specific department's repositories.
 
 ### The manager role
 
-Use the manager role to delegate the assignment of Projects across many users. Managers can speed up the deployment of Semgrep into your organization by creating Subteams to grant members access to Projects. 
+Use the manager role to delegate the assignment of projects across many users. Managers can speed up the deployment of Semgrep into your organization by creating subteams to grant members access to projects. 
 
 Given a security engineer who is a manager for team A but member for team B, with both teams having the same projects:
 
 The security engineer has manager access to the projects.
-The security engineer can't create Subteams for team B but can create subteams for team A.
+The security engineer can't create subteams for team B but can create subteams for team A.
 
-Managers cannot remove themselves from their Team. Only admins can remove managers.
+Managers cannot remove themselves from their team. Only admins can remove managers.
 
-### View your Teams
+### View your teams
 
-You must be an admin or manager to view the Teams tab.
+You must be an admin or manager to view the teams tab.
 
-To view your Teams:
+To view your teams:
 
 Sign in to your Semgrep Account.
-Click ⚙️Settings > Access > Teams.
+Click ⚙️Settings > Access > teams.
 
-### Create a Team or Subteam
+### Create a team or subteam
 
-To create a Team:
+To create a team:
 
-Click New team. The Create New Team form appears.
-Enter a Name for the Team.
-The Projects tab opens. Click the ☑️ checkbox next to the name of the Projects you want to give access to. You can also use the Search box or tags to help you find Projects.
+Click New team. The Create New team form appears.
+Enter a Name for the team.
+The Projects tab opens. Click the ☑️ checkbox next to the name of the projects you want to give access to. You can also use the Search box or tags to help you find projects.
 Click the Members tab, then click the ☑️ checkbox next to the name of the team members you want to add. You can also use the Search box to help you find members.
 Optional: Appoint a manager. Under the Role column, click the drop-down box and select Manager. 
 Click Create.
 
-To create a Subteam:
+To create a subteam:
 
-Click ➕ Add subteam next to the name of the top-level Team you want to create a Subteam for. The Create new subteam form appears.
-Enter a Name for the Subteam.
-The Projects tab opens.Click the ☑️ checkbox next to the name of the Projects you want to give access to. You can also use the Search box or tags to help you find Projects.
+Click ➕ Add subteam next to the name of the top-level team you want to create a subteam for. The Create new subteam form appears.
+Enter a Name for the subteam.
+The Projects tab opens. Click the ☑️ checkbox next to the name of the projects you want to give access to. You can also use the Search box or tags to help you find projects.
 Click the Members tab, then click the ☑️ checkbox next to the name of the team members you want to add. You can also use the Search box to help you find members.
 Optional: Appoint a manager. Under the Role column, click the drop-down box and select Manager. 
 Click Create.
 
 :::info 
-You must have at least one Team before you can create a Subteam.
-In Subteams, you can add members that are not part of the top-level team. 
+You must have at least one team before you can create a subteam.
+In subteams, you can add members that are not part of the top-level team. 
 :::
 
-### Update an existing Team or Subteam
+### Update an existing team or subteam
 
-1. Click the ✏️edit icon on the row of the Team or Subteam you want to edit.
+1. Click the ✏️edit icon on the row of the team or subteam you want to edit.
 1. Make your changes.
 1. Click Review > Save changes.
 
-###Delete a Team or Subteam
+### Delete a team or subteam
 
 1. If you are deleting a team, delete its subteams first.
-1. Click on the 🇻 down arrow to show all Subteams under a team, then follow steps 2-3.
+1. Click on the 🇻 down arrow to show all subteams under a team, then follow steps 2-3.
 1. Click the trash can icon.
 1. Click Delete to confirm.
 
@@ -145,7 +160,7 @@ In Subteams, you can add members that are not part of the top-level team.
 
 To set a member as a manager for a subteam:
 
-1. Click the ✏️edit icon on the row of the Team or Subteam you want to edit.
+1. Click the ✏️edit icon on the row of the team or subteam you want to edit.
 1. Click on the Members tab.
 1. Under the Role column of the member you want to appoint, click the drop-down box and select Manager. Perform this step for all members you want to set as managers.
   tk screenshot
@@ -155,6 +170,6 @@ To set a member as a manager for a subteam:
 ### Filter findings for a team's projects
 
 Navigate to the Findings page.
-Click the Teams filter. This filter displays teams you have access to.
-Select the Teams you want to see findings for.
+Click the teams filter. This filter displays teams you have access to.
+Select the teams you want to see findings for.
 
