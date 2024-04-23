@@ -141,8 +141,8 @@ To view your teams:
 
 1. Click **<i class="fa-solid fa-plus"></i> Add subteam** next to the name of the top-level team you want to create a subteam for. The **Create new subteam** form appears.
 1. Enter a **Name** for the subteam.
-1. The **Projects** tab opens. Click the <i class="fa-solid fa-square-check"></i> checkbox next to the name of the projects you want to give access to. You can also use the Search box or tags to help you find projects.
-1. Click the **Members** tab, then click the <i class="fa-solid fa-square-check"></i> checkbox next to the name of the team members you want to add. You can also use the Search box to help you find members.
+1. The **Projects** tab opens. Click the **<i class="fa-solid fa-square-check"></i> checkbox** next to the name of the projects you want to give access to. You can also use the **Search** box or **tags** to help you find projects.
+1. Click the **Members** tab, then click the **<i class="fa-solid fa-square-check"></i> checkbox** next to the name of the team members you want to add. You can also use the Search box to help you find members.
 1. Optional: Appoint a manager. Under the Role column, click the drop-down box and select **Manager**.
 1. Click **Create**.
 
@@ -153,30 +153,30 @@ To view your teams:
 
 ### Update an existing team or subteam
 
-1. Click the ✏️edit icon on the row of the team or subteam you want to edit.
+1. Click the **<i class="fa-solid fa-pen-to-square"></i> edit** icon on the row of the team or subteam you want to edit.
 1. Make your changes.
-1. Click Review > Save changes.
+1. Click **Review > Save changes**.
 
 ### Delete a team or subteam
 
 1. If you are deleting a team, delete its subteams first.
-1. Click on the 🇻 down arrow to show all subteams under a team, then follow steps 2-3.
-1. Click the trash can icon.
-1. Click Delete to confirm.
+    1. Click on the **<i class="fa-solid fa-chevron-down"></i> down arrow** to show all subteams under a team, then follow steps 2-3.
+1. Click the **<i class="fa-solid fa-trash"></i> trash can** icon.
+1. Click **Delete** to confirm.
 
 ### Appoint a manager
 
 To set a member as a manager for a subteam:
 
-1. Click the ✏️edit icon on the row of the team or subteam you want to edit.
-1. Click on the Members tab.
-1. Under the Role column of the member you want to appoint, click the drop-down box and select Manager. Perform this step for all members you want to set as managers.
+1. Click the **<i class="fa-solid fa-pen-to-square"></i> edit** icon on the row of the team or subteam you want to edit.
+1. Click on the **Members** tab.
+1. Under the Role column of the member you want to appoint, click the drop-down box and select **Manager**. Perform this step for all members you want to set as managers.
   tk screenshot
-1. Click Review.
-1. Click Save changes.
+1. Click **Review**.
+1. Click **Save changes**.
 
 ### Filter findings for a team's projects
 
-Navigate to the Findings page.
-Click the teams filter. This filter displays teams you have access to.
-Select the teams you want to see findings for.
+1. Navigate to the **Findings** page.
+1. Click the **Teams** filter. This filter displays teams you have access to.
+1. Select the teams you want to see findings for.
