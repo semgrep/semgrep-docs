@@ -22,7 +22,7 @@ Constant propagation is applied to all rules unless [it is disabled](/data-flow/
 For example, given the following code:
 
 ```javascript showLineNumbers
-var x = 2;
+const x = 2;
 console.log(x);
 ```
 The pattern operator `pattern: print(2)` tells Semgrep to match line 2 because it propagates the value `2` from the assignment in line 1 to the `console.log()` function in line.
