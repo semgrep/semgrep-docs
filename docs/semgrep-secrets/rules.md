@@ -1,27 +1,55 @@
 ---
 slug: rules
 append_help_link: true
-title: Rules structure
+title: Write rules
 hide_title: true
 description: Learn about Semgrep Secrets rules.
 tags:
   - Semgrep Secrets
 ---
 
-# Semgrep Secrets rule sample and structure
+# Semgrep Secrets rule structure and sample and structure
 
-This article demonstrates what a sample Semgrep Secrets rule looks like.
-Subsequent sections describe the key-value pairs in the context of a Semgrep
-Secrets rule.
+This article walks you through writing, publishing, and using Semgrep Secrets rules. It also demonstrates what a sample Semgrep Secrets rule looks like, with subsequent sections describing the key-value pairs in the context of a Semgrep Secrets rule.
 
-## Metavariable binding
+## Write a rule
 
-Semgrep secrets uses metavariables. Metavariables allow Semgrep Secrets to reuse matched information from your code in its validators. An example of a metavariable is as follows:
+There are two ways to write a rule for Semgrep Secrets:
 
-<iframe title="Message displays metavariable content" src="https://semgrep.dev/embed/editor?snippet=JDzRR" width="100%" height="432px" frameBorder="0"></iframe>
-<br />
+1. Create a YAML file.
+2. Use the Semgrep editor.
 
-When you click **Run**, the content from the metavariable `$HELLO` displays as `This content is now reusable in validators`. If this were a secret, Semgrep Secrets could use this to call the appropriate service to determine if the secret is active.
+### Create a YAML file
+
+If you're familiar with Semgrep's rules syntax, including the [validator syntax](/semgrep-secrets/validators), you can create a YAML file containing your rules. When you're done, publish your rules for use with your organization by running the following in the CLI:
+
+```console
+semgrep publish my-rule-file.yaml
+```
+
+If you want to keep your rules file local, you must pass in the `--allow-untrusted-validators` flag when calling `semgrep ci` from the CLI.
+
+### Use Semgrep Editor
+
+The Semgrep Editor, available in Semgrep Cloud Platform, can help you write rules for use with Semgrep Secrets. To pull up a sample rule that you can modify:
+
+1. Sign in to Semgrep Cloud Platform.
+2. Go to **Rules > Editor**.
+3. Click the **+** icon and, under **Secrets**, select **HTTP validators**.
+
+Semgrep Editor allows you to modify the sample rule and run it against test code to ensure it functions as expected. When you finish making changes, click **Save** to proceed.
+
+:::info
+Custom validator rules are private to your organization. They are not available to the Semgrep Community.
+:::
+
+To run a specific rule when invoking Semgrep from the CLI:
+
+1. Sign in to Semgrep Cloud Platform.
+2. Go to **Rules > Editor**.
+3. Open up your rule.
+4. Click **Add to Policy** and select your mode: Monitor, Comment, or Blocking.
+5. In the CLI, start a scan by running `semgrep ci`.
 
 ## Sample rule
 
@@ -187,6 +215,15 @@ response is expected for valid and invalid states. Although some rules do not us
 :::tip
 See [<i class="fa-regular fa-file-lines"></i> Validators](/semgrep-secrets/validators/) for more information.
 :::
+
+## Metavariable binding
+
+Semgrep secrets uses metavariables. Metavariables allow Semgrep Secrets to reuse matched information from your code in its validators. An example of a metavariable is as follows:
+
+<iframe title="Message displays metavariable content" src="https://semgrep.dev/embed/editor?snippet=JDzRR" width="100%" height="432px" frameBorder="0"></iframe>
+<br />
+
+When you click **Run**, the content from the metavariable `$HELLO` displays as `This content is now reusable in validators`. If this were a secret, Semgrep Secrets could use this to call the appropriate service to determine if the secret is active.
 
 ## Differences between Semgrep Secrets rules and Semgrep Registry rules
 
