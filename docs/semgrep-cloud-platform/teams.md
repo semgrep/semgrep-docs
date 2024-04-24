@@ -55,7 +55,7 @@ A user is any person who has been added to your organization in Semgrep. Users c
 
 | Page      | Member     | Manager    | Admin | Notes |
 | ----      | ------     | -------    | ----- | ----- |
-| Dashboard | ⚠️&nbsp;Restricted | ⚠️&nbsp;Restricted | ✅ Yes   | For members, scope is limited based on a member's teams and project access granted to those teams. |
+| Dashboard | ⚠️&nbsp;Restricted | ⚠️&nbsp;Restricted | ✅ Yes   | For members, scope is limited based on a their teams and the project access granted to those teams. |
 | Projects  | ⚠️&nbsp;Restricted | ⚠️&nbsp;Restricted | ✅ Yes   | Projects assigned to teams are visible to members and managers of those teams. Admins can see all projects. |
 | Findings  | ⚠️&nbsp;Restricted | ⚠️&nbsp;Restricted | ✅ Yes   | Members can perform all triage operations on Projects assigned to them. |
 | Policies  | ❌ No         | ❌ No         | ✅ Yes   |       |
