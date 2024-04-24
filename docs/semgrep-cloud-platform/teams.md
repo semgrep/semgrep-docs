@@ -53,6 +53,8 @@ A user is any person who has been added to your organization in Semgrep. Users c
 ![A member's view of the Projects page.](/img/access-member-view.png)
 **Figure**. A member's view of the Projects page. It displays projects that are assigned to the team they are a member of, but they cannot edit a project nor can they scan new projects in their organizational account.
 
+### Page visibility per role
+
 | Page      | Member     | Manager    | Admin | Notes |
 | ----      | ------     | -------    | ----- | ----- |
 | Dashboard | ⚠️&nbsp;Restricted | ⚠️&nbsp;Restricted | ✅ Yes   | For members, scope is limited based on a their teams and the project access granted to those teams. |
@@ -61,6 +63,8 @@ A user is any person who has been added to your organization in Semgrep. Users c
 | Policies  | ❌ No         | ❌ No         | ✅ Yes   |       |
 | Editor    | 👁️&nbsp;Read-only  | 👁️&nbsp;Read-only  | ✅ Yes   | Members can view all rules of an organization, but can't edit or create their own. They can create their own rules in their personal account.      |
 | Settings  | ❌ No         | ⚠️&nbsp;Restricted | ✅ Yes   |       |
+
+### Operations permitted per role
 
 | Capability              | Member | Manager | Admin | Notes |
 | ----                    | ------ | ------- | ----- | ----- |
@@ -129,7 +133,7 @@ You must be an admin or manager to view the **Teams** tab.
 
 ### Create a team
 
-1. Click **New team**. The **Create New Team** form appears.
+1. In the [<i class="fas fa-external-link fa-xs"></i> **Teams** tab](https://semgrep.dev/orgs/-/settings/access/teams), click **New team**. The **Create New Team** form appears.
 1. Enter a **Name** for the team.
 1. The **Projects** tab opens. Click the <i class="fa-solid fa-square-check"></i> checkbox next to the name of the projects you want to give access to. You can also use the **Search** box or **tags** to help you find projects.
 1. Click the **Members** tab, then click the <i class="fa-solid fa-square-check"></i> checkbox next to the name of the team members you want to add. You can also use the **Search** box to help you find members.
@@ -138,7 +142,7 @@ You must be an admin or manager to view the **Teams** tab.
 
 ### Create a subteam
 
-1. Click **<i class="fa-solid fa-plus"></i> Add subteam** next to the name of the top-level team you want to create a subteam for. The **Create new subteam** form appears.
+1. In the [<i class="fas fa-external-link fa-xs"></i> **Teams** tab](https://semgrep.dev/orgs/-/settings/access/teams), click **<i class="fa-solid fa-plus"></i> Add subteam** next to the name of the top-level team you want to create a subteam for. The **Create new subteam** form appears.
 1. Enter a **Name** for the subteam.
 1. The **Projects** tab opens. Click the **<i class="fa-solid fa-square-check"></i> checkbox** next to the name of the projects you want to give access to. You can also use the **Search** box or **tags** to help you find projects.
 1. Click the **Members** tab, then click the **<i class="fa-solid fa-square-check"></i> checkbox** next to the name of the team members you want to add. You can also use the Search box to help you find members.
@@ -152,14 +156,14 @@ You must be an admin or manager to view the **Teams** tab.
 
 ### Update an existing team or subteam
 
-1. Click the **<i class="fa-solid fa-pen-to-square"></i> edit** icon on the row of the team or subteam you want to edit.
+1. In the [<i class="fas fa-external-link fa-xs"></i> **Teams** tab](https://semgrep.dev/orgs/-/settings/access/teams), click the **<i class="fa-solid fa-pen-to-square"></i> edit** icon on the row of the team or subteam you want to edit.
 1. Make your changes.
 1. Click **Review > Save changes**.
 
 ### Delete a team or subteam
 
 1. If you are deleting a team, delete its subteams first.
-    1. Click on the **<i class="fa-solid fa-chevron-down"></i> down arrow** to show all subteams under a team, then follow steps 2-3.
+    1. In the [<i class="fas fa-external-link fa-xs"></i> **Teams** tab](https://semgrep.dev/orgs/-/settings/access/teams), click on the **<i class="fa-solid fa-chevron-down"></i> down arrow** to show all subteams under a team, then follow steps 2-3.
 1. Click the **<i class="fa-solid fa-trash"></i> trash can** icon.
 1. Click **Delete** to confirm.
 
@@ -167,7 +171,7 @@ You must be an admin or manager to view the **Teams** tab.
 
 To set a member as a manager for a subteam:
 
-1. Click the **<i class="fa-solid fa-pen-to-square"></i> edit** icon on the row of the team or subteam you want to edit.
+1. In the [<i class="fas fa-external-link fa-xs"></i> **Teams** tab](https://semgrep.dev/orgs/-/settings/access/teams), click the **<i class="fa-solid fa-pen-to-square"></i> edit** icon on the row of the team or subteam you want to edit.
 1. Click on the **Members** tab.
 1. Under the Role column of the member you want to appoint, click the drop-down box and select **Manager**. Perform this step for all members you want to set as managers.
 ![Add a manager](/img/access-add-manager.png#bordered)
