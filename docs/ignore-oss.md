@@ -1,5 +1,5 @@
 ---
-slug: ignore-oss 
+slug: ignore-oss
 append_help_link: true
 title: Ignore files, folders, and code
 description: "This documents various methods to skip or ignore files or folders that are not relevant to a Semgrep scan."
@@ -135,7 +135,7 @@ Python examples:
 bad_func1()  # nosemgrep: rule-id-1
 
 # nosemgrep: rule-id-1, rule-id-2
-bad_func2() 
+bad_func2()
 
 ```
 
