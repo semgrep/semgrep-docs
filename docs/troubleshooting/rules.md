@@ -60,4 +60,13 @@ If you isolated the issue to one specific pattern, here are some common issues t
 - When using `metavariable-regex`, the regex will match against all characters of the found metavariable. This means that if the metavariable matches a `"foo"` string in your code, the `metavariable-regex` pattern will run against a five character string with the quote characters at either end.
 - Note that using the pipe (`|`) character will append a newline to your regex! If you are writing `pattern-regex: |` and then a newline with the regex, you almost certainly want the `|-` operator as in `pattern-regex: |-` to remove that trailing newline.
 
+## If your YAML syntax cannot be parsed
+
+Check for spelling and indentation issues. The key names must match [Semgrep's schema](../writing-rules/rule-syntax/).
+
+## If your rules doesn't behave as expected or doesn't find the desired match
+
+File a [bug](https://github.com/semgrep/semgrep/issues/new?title=semgrep.dev%20bug%20report) or reach out to Semgrep for assistance.
+
+
 <MoreHelp />

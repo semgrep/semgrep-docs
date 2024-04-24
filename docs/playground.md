@@ -12,15 +12,15 @@ import EnableTurboMode from "/src/components/procedure/_enable-turbo-mode.md"
 
 # Create and manage rules with Semgrep Playground
 
-Semgrep Playground is a live editor used to create and test rule patterns on sample code. By testing rule patterns on sample code, you are able to quickly assess the purpose, utility, and speed of a rule as well as save it for later refinement, reuse, or sharing.
+Semgrep Playground is a live editor used to create and test rule patterns on sample code. By testing rule patterns on sample code, you can quickly assess a rule's purpose, utility, and speed and save it for later refinement, reuse, or sharing.
 
-The Playground is composed of three panes and a top menu.
+Semgrep Playground is composed of three panes and a top menu.
 
 ![Screenshot of default playground view](/img/playground-editor.png "Default playground view")
 
 <dl>
     <dt>Library</dt>
-    <dd>View and open rules in the library. You must sign in to view your saved rules and access the <a href="https://semgrep.dev/r">Semgrep Registry</a>.</dd>
+    <dd>View and open rules owned by your organization or available through the <a href="https://semgrep.dev/r">Semgrep Registry</a>. You must be <a href="https://semgrep.dev/login">signed in to Semgrep</a> to view these rules.</dd>
     <dt>Rule editor</dt>
     <dd>Enter your rule's YAML schema in this pane. This pane supports both simple and advanced modes.</dd>
     <dt>Sample code</dt>
@@ -35,9 +35,9 @@ Commenting this out because 1) this doc is long enough as it is and 2) I don't t
 To resize the panes, position your mouse over the borders and drag to the desired width. You can hide the **Library** pane to give more space for the editing panes.
 -->
 
-## Create a rule
+## Create rules
 
-Use either of the Editor modes available to create a rule:
+Semgrep Playground offers two modes to create rules:
 
 <dl>
     <dt>Simple mode</dt>
@@ -48,9 +48,22 @@ Use either of the Editor modes available to create a rule:
 
 ### Write rules using simple mode
 
-Simple mode provides the you with the most common pattern-matching operators in Semgrep. You can select these operators using the provided drop-down menus. The following table lists the operators available and their corresponding key in the rule:
+To **create a rule** in simple mode:
 
-| Key | Drop-down menu option |
+1. Ensure that you are in **simple** mode.
+    ![Semgrep Playground's simple view](/img/pleditor-simple.png)
+2. Select a language from the **Language is** drop-down box to specify the language your code is in.
+3. In the field after **code is**, enter a rule pattern.
+4. Optional: Click the **plus** button to add fields for additional operators. For each additional operator:
+   1. Select the pattern operator
+   2. Enter the pattern.
+5. Optional: Click **Metadata** to update and enter additional metadata fields.
+   [Metadata view](/img/rule-metadata.png)
+6. Click **Run** or press <kbd>Ctrl</kbd>+<kbd>Enter</kbd> (<kbd>⌘</kbd>+<kbd>Enter</kbd> on Mac).
+
+Simple mode provides you with the most common pattern-matching operators in Semgrep. You can select these operators using the provided drop-down menus. The following table lists the operators available and their corresponding keys in the rule:
+
+| **Key** | **Drop-down menu option** |
 | - | - |
 | `language` | Language is |
 | `pattern` | Code is |
@@ -72,146 +85,111 @@ Simple mode provides the you with the most common pattern-matching operators in 
 * `autofix`
 -->
 
-
-To **create a rule** in simple mode:
-
-1. Ensure that you are in **Simple mode**:
-![Screenshot of the simple view](/img/pleditor-simple.png "Playground simple mode")
-1. Click **File > New** to start from a blank slate.
-2. Select a language from the **language is** drop-down box to specify a language in which the test code is written.
-3. After the **code is** button, enter the rule pattern.
-4. Optional: Click on the **plus** button to add fields for additional operators. Select the pattern operator and enter the pattern.
-5. Optional: Click on **Rule metadata** tab on the **Sample code** pane to enter additional metadata fields.
-6. Click **Run** or press <kbd>Ctrl</kbd>+<kbd>Enter</kbd> (<kbd>⌘</kbd>+<kbd>Enter</kbd> on Mac).
-
-
-<EnableTurboMode />
-
 #### Limitations of simple mode
 
-Simple mode:
-
-1.  Supports only **one language** per rule.
-
-1. Does *not* include support for the following operators:
+1. Simple mode supports the use of only **one language** per rule.
+2. Simple mode doesn't include support for the following operators:
    * `pattern-not-regex`
    * `metavariable-regex`
    * `metavariable-pattern`
    * `metavariable-comparison`
-2. Does *not* support:
+3. Simple mode doesn't support:
    * Join mode
    * Taint mode
 
-### Writing complex rules using advanced mode
+### Write rules using advanced mode
 
-Advanced mode is a YAML editor for writing a rule **using any valid key from the Semgrep [schema](../writing-rules/rule-syntax/)**. Advanced mode provides default values for the required keys for a Semgrep rule definition and expects the user to modify and add keys to finish the rule.
+Advanced mode is a YAML editor that allows you to write rules using [Semgrep syntax](../writing-rules/rule-syntax/).
 
 To create a rule in advanced mode:
 
-1. Ensure that you are in the **Advanced mode**.
-![Screenshot of the advanced view](/img/pleditor-advanced.png "Playground advanced mode")
-2. Enter the keys and values needed to finish your rule.
+1. Ensure that you are in **advanced** mode.
+    ![Semgrep Playground's advanced mode](/img/pleditor-advanced.png "Playground advanced mode")
+1. Click the **plus sign** and select a template.
+2. Modify the template, adding and changing the keys and values needed to finish your rule.
 3. Click **Run** or press <kbd>Ctrl</kbd>+<kbd>Enter</kbd> (<kbd>⌘</kbd>+<kbd>Enter</kbd> on Mac).
 
-## Running and testing a rule for precision
+While the **New rule** template includes the minimum keys required for a Semgrep rule, there are additional templates that can help you write more complex rules:
 
-**Testing a rule** ensures that it meets your standards for precision and speed. Aside from running a rule in the Playground, it is possible to test a rule by creating comment annotations for intended and unintended findings (matches). You can achieve this by creating assertions within the test pane.
+* Semgrep Assistant: use Semgrep Assistant to [generate custom rules](/semgrep-assistant/getting-started/#write-custom-rules-beta)
+* Metavariable-comparison: demonstrates how to use [the `metavariable-comparison` key](/writing-rules/rule-syntax/#metavariable-comparison)
+* Metavariable-pattern: demonstrates how to use [the `metavariable-pattern` key](/writing-rules/rule-syntax/#metavariable-pattern)
+* Dataflow analysis: demonstrates how to leverage dataflow analysis through [`pattern-sources`](/writing-rules/data-flow/taint-mode/#sources), [`pattern-sinks`](/writing-rules/data-flow/taint-mode/#sinks), and [`pattern-sanitizers`](/writing-rules/data-flow/taint-mode/#sanitizers).
+* Dataflow analysis with taint labels: demonstrates [how to define the sources you want to track and how data must flow](/writing-rules/data-flow/taint-mode/#taint-labels-pro-)
+* HTTP validators: Demonstrates how to [Semgrep Secrets rules](/semgrep-secrets/rules/) that include [validators](/semgrep-secrets/validators/)
 
-Refer to [Testing rules](../writing-rules/testing-rules) for the syntax and method to run test files.
+## Run and test rules
 
-### Debugging errors when creating a rule
+After you write a rule, testing it ensures it performs as expected. In addition to testing for matches, you can test that it does not match what it shouldn't, preventing false positives. To do so, you can [create comment annotations for intended and unintended findings](/writing-rules/testing-rules/) in **test code**.
 
-Common errors are syntax or match issues.
+Once you've written a rule and created comment annotations, you can run your rule against your comment annotations by clicking **Run**. You can also press <kbd>Ctrl</kbd>+<kbd>Enter</kbd> (<kbd>⌘</kbd>+<kbd>Enter</kbd> on Mac).
 
-#### The pattern can't be parsed for the language
+### Turbo mode
 
-Check that the **Language is** value and **Test code** language match. Use full AST elements for the language. For example:
+<EnableTurboMode />
 
-* In Java, Python's ``print`` command is not a valid element.
-* ``1+`` or ``if $X:`` are not valid patterns because they are not full AST elements.
+## Semgrep Registry rules
 
-#### The pattern syntax is invalid
+[Semgrep Registry](https://semgrep.dev/explore/) is an open-source, community-driven repository of rules. These rules can detect OWASP vulnerabilities, best practice violations, and security issues for various languages and frameworks. You can fork an existing rule to use as a starting point for writing your own.
 
-Check your metavariable definitions, and use of operators. Metavariables must be uppercase letters preceded by a dollar sign $, such as `$PAYMENT_OUTPUT` or `$X`. Refer to [Pattern syntax](../writing-rules/pattern-syntax/).
+To access the Semgrep Registry directly from the Playground, you must sign in to your [Semgrep account](https://semgrep.dev/login?return_path=/playground/).
 
+### Write new rules based on existing rules
 
-#### The YAML syntax is unparsable in the advanced view
+One way to create new rules is to fork an existing rule in Semgrep Registry and modify it to meet your software and business requirements. 
 
-Check for spelling and indentation issues. The key names must match [Semgrep's schema](../writing-rules/rule-syntax/).
+For example, Semgrep’s Java `crypto` ruleset prohibits the use of weak hashing algorithms `SHA-1` and `MD5`. However, your organization s the use of other hash functions as part of its standards or security compliance. The following steps illustrate the process of forking an existing `use-of-sha1` rule and changing it to forbid MD2 hashes.
 
-#### The rule does not behave as expected or does not find the desired match
+1. Use the search bar to find relevant rules. For this example, you can search for rules using `SHA1`.
+   ![Library pane with SHA-1 filter](/img/editor-SHA1.png)
+2. Under **java > lang > security > audit > crypto**, click **use-of-sha1** to load the rule. You cannot directly edit the rules in Semgrep Registry, so click **Fork** to make a copy.
+   ![Default rule ready to be copied](/img/editor-forking.png)
+   Alternatively, you can right-click the rule's name and select **Fork rule**.
+3. Semgrep copies the rule to your organization's set of rules.
+4. Edit the rule.
+5. Update your test cases.
+6. Click **Run** to test and validate your rule.
+7. When you finish your changes, click **Save**.
 
-File a [bug](https://github.com/semgrep/semgrep/issues/new?title=semgrep.dev%20bug%20report) or reach out through [Semgrep Community Slack](https://go.semgrep.dev/slack).
-
-## Exploring rules through Semgrep Registry
-
-[Semgrep Registry](https://semgrep.dev/explore/) is an open-source, community-driven repository of rules. These rules can detect OWASP vulnerabilities, best practice violations, and security issues for a wide variety of languages and frameworks. These rules can be used as a starting point for writing your own custom rules by creating a forked rule.
-
-[Signing in to Semgrep Cloud Platform](https://semgrep.dev/login?return_path=/playground/) enables you to access the Registry directly from the Playground's Library pane.
-
-### Jumpstart rule writing using existing rules
-
-Another method of creating rules is by **forking** or **copying** from existing rules found in Semgrep Registry. For example, Semgrep’s Java `crypto` ruleset prohibits the use of weak hashing algorithms `SHA-1` and `MD5`. An organization can further limit the use of other hash functions as part of its standards or security compliance. The next steps illustrate forking through copying an existing `use-of-sha1` rule and changing the rule to forbid MD2 hashes.
-
-1. Enter related terms into the search bar to find potential rules. In our example, this is `SHA1.` <div class="bordered">
-![Screenshot of Library pane with SHA1 filter](/img/editor-SHA1.png)</div>
-2. Registry rules cannot be edited directly. They can be **forked** by **right-clicking on their entry** in the Library and selecting **Fork rule.** <div class = "bordered">
-![Screenshot of forking menu](/img/editor-forking.png) </div>
-3. The rule is copied to your organization’s rules.
-4. Enter edits to finalize your rule. In this example, the patterns are changed to find matches for [MD2](https://docs.oracle.com/javase/9/docs/specs/security/standard-names.html#messagedigest-algorithms) and the severity is increased from `WARNING` to `ERROR`.
-5. Enter updates to test cases.
-6. Click **Run** to validate your rule.
-7. Click **Save** to save your rule. The following rule displays the end result.
+The following example shows how [the original rule, identifying uses of `SHA-1` and `MD5`, has been modified to find uses of MD2](https://docs.oracle.com/javase/9/docs/specs/security/standard-names.html#messagedigest-algorithms) and the severity of such findings is increased from `WARNING` to `ERROR`.
 
 <iframe title="Prevent use of MD2" src="https://semgrep.dev/embed/editor?snippet=RDxN" width="100%" height="432px" frameBorder="0"></iframe>
 
-## Setting code standards by adding a rule to the Policies page
+## Add rules to the Policies page
 
-The [Policies page](/semgrep-code/policies/) displays rules that Semgrep Cloud Platform uses to scan your project's code. Adding a rule to the Policies page allows you to quickly set a rule as part of every Semgrep scan. A rule in Policies is set to a **rule mode** that determines what actions Semgrep performs when a finding is generated by that rule.
+The **[Policies](/semgrep-code/policies/)** page displays rules that Semgrep Cloud Platform uses to scan your project's code. Rules added to the **Policies** page become part of every Semgrep scan you run.
 
-To add a rule to the Policies page:
+When adding a rule to your **Policies** page, you must also set the **rule mode** that determines what actions Semgrep performs when that rule generates a finding. See [Policies](/semgrep-code/policies/#blocking-a-pr-or-mr-through-rule-modes) for more information on each rule mode.
 
-1. Ensure that you are signed in.
+To add a rule to the **Policies** page:
+
+1. Ensure you're [signed in to Semgrep](https://semgrep.dev/login).
 2. Click **Add to Policy**.
-3. Select either the **Monitor**, **Comment**, or **Block** mode based on the relevance of the rule. Findings for rules in Block mode prevent PR merges within a CI environment. Findings for rules in Comment mode leave comments within the PR or MR.
+3. Select one of the following rule mode options based on the relevance of the rule: **Monitor mode**, **Comment mode**, or **Block mode**.
 
-## Embedding a rule in your site
+If successful, you'll see a pop-up window indicating that your rule has been added.
 
-The **Embedded Playground** is an interactive editor which can be embedded in an external domain or web page such as a blog post. It is a means to display Semgrep's rules in action.
+## Embed a rule in your site
 
-The Embedded Playground has two panes:
-
-<dl>
-    <dt>Rule Pane</dt>
-    <dd>This displays the rule data. The rule must have a <strong>reference</strong> (either a short identifier or saved name) from Semgrep Playground.</dd>
-    <dt>Test Code</dt>
-    <dd>This displays the code that the rule will act upon. On the bottom right is the Run button, which will run the rule on the test code.</dd>
-</dl>
-
-Both panes are editable, allowing viewers to try the Semgrep rule out for themselves or to change parts of the rule.
-
-:::info Prerequisite
-A site or page with sufficient editing permissions for you to embed the rule.
-:::
+The Embedded Playground is an interactive editor that you can embed in an external web page, such as a blog post, to display Semgrep's rules in action. The Embedded Playground features a rule pane and space for test code. Both panes are editable, allowing viewers to try the Semgrep rule out for themselves or to change parts of the rule.
 
 To embed a rule:
 
-1. In the Playground, click **Share**.
-2. Copy the **identifier**. This comes in two patterns:
-    1. For signed-in users: `[username]:[rule-name]`, such as `ievans:print-to-logger`
-    2. For anonymous users: `[4-letter permalink]`, such as **dZkP**
-3. Create the **URL reference**. Substitute the identifier in this template: `https://semgrep.dev/embed/editor?snippet=IDENTIFIER`. For example, using the identifier `ievans:print-to-logger` creates `https://semgrep.dev/embed/editor?snippet=ievans:print-to-logger`.
-4. Optional: To test the URL reference, enter the URL in your browser's address bar.
-![Screenshot of the embedded Playground in its own tab](/img/playground-widget.png "Embedded playground in its own tab")
-5. In the following snippet, replace the `src="URL_REFERENCE"` placeholder value with the previously-created **URL reference**:
+1. In the **Playground**, click **Share**.
+2. Copy the **URL**.
+3. In the following snippet, replace `src="URL_REFERENCE"` with the **URL** you just copied:
     ```html
     <iframe title="Semgrep example no prints" src="URL_REFERENCE" width="100%" height="432" frameborder="0"></iframe>
     ```
 
-    The rendered iframe example:
+The rendered iFrame example looks as follows:
 
-    ```html
-    <iframe title="Semgrep example no prints" src="https://semgrep.dev/embed/editor?snippet=ievans:print-to-logger" width="100%" height="432" frameborder="0"></iframe>
-    ```
+<iframe title="Semgrep example no prints" src="https://semgrep.dev/embed/editor?snippet=java.lang.security.audit.crypto.use-of-sha1.use-of-sha1" width="100%" height="432" frameborder="0"></iframe>
+
+## Further resources
+
+* [Semgrep Registry](https://semgrep.dev/explore)
+* Learn about [writing rules form Semgrep](/writing-rules/overview/)
+* [Troubleshoot rules that don't perform as expected](/troubleshooting/rules)
 
 <MoreHelp />
