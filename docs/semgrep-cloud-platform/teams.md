@@ -15,7 +15,7 @@ Use the **Teams** feature to manage access to resources, such as findings in you
 ![The Teams tab within the Settings page](/img/access-teams.png)
 **Figure**. The **<i class="fa-solid fa-gear"></i> Settings > Access > Teams** tab displays both top-level teams and subteams.
 
-The **Teams** feature enables admins to grant or limit access to specific projects in Semgrep Cloud Platform (SCP). **Projects** are repositories or codebases you have added to SCP for scanning. You can quickly assign projects to large groups of members by assigning teams and subteams to members of your organization.
+The **Teams** feature enables admins to grant or limit access to specific projects in Semgrep Cloud Platform (SCP). **Projects** are repositories or codebases you have added to SCP for scanning. You can quickly assign projects to large groups of members by first assigning them to teams and subteams within your organization.
 
 This feature helps security engineers and developers in large organizations focus on the projects that are relevant to their specific department or team.
 
