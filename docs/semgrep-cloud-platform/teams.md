@@ -93,7 +93,7 @@ In the following diagram, team 1 gains access to subteam 1b's projects, but team
 
 Use the **manager role** to delegate the assignment of projects across many users. Managers can speed up the deployment of Semgrep into your organization by creating subteams to grant members access to projects.
 
-Given a security engineer who is a manager for **team A** but member for **team B**, with both teams having the same projects:
+Given a security engineer who is a manager of **team A** but a member of **team B**, with both teams having the same projects:
 
 - The security engineer has manager **access** to the projects.
 - The security engineer can't create subteams for team B but can create subteams for team A.
