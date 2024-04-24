@@ -69,7 +69,7 @@ rules:
 ```
 </details>
 
-For a comparison of the behavior between Semgrep OSS CI scans and Semgrep Pro scans, see [<i class="fa-regular fa-file-lines"></i> Semgrep Pro versus Semgrep OSS](semgrep-pro-vs-oss).
+For a comparison of the behavior between Semgrep OSS CI scans and Semgrep Pro scans, see [<i class="fa-regular fa-file-lines"></i> Semgrep Pro versus Semgrep OSS](/semgrep-pro-vs-oss).
 
 ## Set up the CI job
 

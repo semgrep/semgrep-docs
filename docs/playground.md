@@ -93,7 +93,7 @@ To **create a rule** in simple mode:
 
 ### Writing complex rules using advanced mode
 
-Advanced mode is a YAML editor for writing a rule **using any valid key from the Semgrep [schema](/writing-rules/rule-syntax/)**. Advanced mode provides default values for the required keys for a Semgrep rule definition and expects the user to modify and add keys to finish the rule.
+Advanced mode is a YAML editor for writing a rule **using any valid key from the Semgrep [schema](/writing-rules/rule-syntax)**. Advanced mode provides default values for the required keys for a Semgrep rule definition and expects the user to modify and add keys to finish the rule.
 
 To create a rule in advanced mode:
 
@@ -138,7 +138,7 @@ File a [bug](https://github.com/semgrep/semgrep/issues/new?title=semgrep.dev%20b
 
 [Signing in to Semgrep Cloud Platform](https://semgrep.dev/login?return_path=/playground/) enables you to access the Registry directly from the Playground's Library pane.
 
-### Jumpstart rule writing using existing rules
+### Jump start rule writing using existing rules
 
 Another method of creating rules is by **forking** or **copying** from existing rules found in Semgrep Registry. For example, Semgrep’s Java `crypto` ruleset prohibits the use of weak hashing algorithms `SHA-1` and `MD5`. An organization can further limit the use of other hash functions as part of its standards or security compliance. The next steps illustrate forking through copying an existing `use-of-sha1` rule and changing the rule to forbid MD2 hashes.
 
@@ -192,7 +192,7 @@ To embed a rule:
 3. Create the **URL reference**. Substitute the identifier in this template: `https://semgrep.dev/embed/editor?snippet=IDENTIFIER`. For example, using the identifier `ievans:print-to-logger` creates `https://semgrep.dev/embed/editor?snippet=ievans:print-to-logger`.
 4. Optional: To test the URL reference, enter the URL in your browser's address bar.
 ![Screenshot of the embedded Playground in its own tab](/img/playground-widget.png "Embedded playground in its own tab")
-5. In the following snippet, replace the `src="URL_REFERENCE"` placeholder value with the previously-created **URL reference**:
+5. In the following snippet, replace the `src="URL_REFERENCE"` placeholder value with the previously created **URL reference**:
     ```html
     <iframe title="Semgrep example no prints" src="URL_REFERENCE" width="100%" height="432" frameborder="0"></iframe>
     ```
