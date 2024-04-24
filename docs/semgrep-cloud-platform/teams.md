@@ -19,7 +19,7 @@ The **Teams** feature enables admins to grant or limit access to specific projec
 
 This feature helps security engineers and developers in large organizations focus on the projects that are relevant to their specific department or team.
 
-When you limit a member's access to a subset of your projects, their Dashboard and Findings pages all reflect that change. For example, their total finding count is based on the total number of findings of the projects they can access.
+When you limit a member's access to a subset of your projects, their **Dashboard** and **Findings** pages all reflect that change. For example, their total finding count is based on the total number of findings of the projects they can access.
 
 This document walks you through the following:
 
