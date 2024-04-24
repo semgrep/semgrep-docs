@@ -96,6 +96,10 @@ OPTIONS
        --emacs
            Output results in Emacs single-line format.
 
+       --emacs-output=VAL
+           Write a copy of the emacs output to a file or post to or post to
+           URL.
+
        --enable-nosem
            Enables 'nosem'. Findings will not be reported on lines containing
            a 'nosem' comment at the end. Enabled by default.
@@ -145,8 +149,16 @@ OPTIONS
        --gitlab-sast
            Output results in GitLab SAST format.
 
+       --gitlab-sast-output=VAL
+           Write a copy of the GitLab SAST output to a file or post to or
+           post to URL.
+
        --gitlab-secrets
            Output results in GitLab Secrets format.
+
+       --gitlab-secrets-output=VAL
+           Write a copy of the GitLab Secrets output to a file or post to or
+           post to URL.
 
        --historical-secrets
            Scans git history using Secrets rules.
@@ -184,8 +196,16 @@ OPTIONS
        --json
            Output results in Semgrep's JSON format.
 
+       --json-output=VAL
+           Write a copy of the json output to a file or post to or post to
+           URL.
+
        --junit-xml
            Output results in JUnit XML format.
+
+       --junit-xml-output=VAL
+           Write a copy of the JUnit XML output to a file or post to or post
+           to URL.
 
        -l VAL, --lang=VAL
            Parse pattern and all files in specified language. Must be used
@@ -316,6 +336,10 @@ OPTIONS
        --sarif
            Output results in SARIF format.
 
+       --sarif-output=VAL
+           Write a copy of the SARIF output to a file or post to or post to
+           URL.
+
        --scan-unknown-extensions
            If true, target files specified directly on the command line will
            bypass normal language detection. They will be analyzed according
@@ -350,6 +374,10 @@ OPTIONS
        --text
            Output results in text format.
 
+       --text-output=VAL
+           Write a copy of the text output to a file or post to or post to
+           URL.
+
        --time
            Include a timing summary with the results. If output format is
            json, provides times for each pair (rule, target). 
@@ -382,6 +410,9 @@ OPTIONS
            filtering. Setting this flag does nothing if the scanning root is
            not in a git repository. 
 
+       --use-osemgrep-sarif
+           Output results using osemgrep.
+
        -v, --verbose
            Show more details about what rules are running, which files failed
            to parse, etc. 
@@ -396,6 +427,10 @@ OPTIONS
 
        --vim
            Output results in vim single-line format.
+
+       --vim-output=VAL
+           Write a copy of the vim output to a file or post to or post to
+           URL.
 
        --x-ls
            [INTERNAL] List the selected target files and the skipped target
