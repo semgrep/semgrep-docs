@@ -45,7 +45,7 @@ A user is any person who has been added to your organization in Semgrep. Users c
 <ul>
 <li>A user who has access to some features, resources, and projects of their Semgrep deployment.</li>
 <li>By default, a member starts out with no access to any project.</li>
-<li>To grant members access to a project and its findings, you must add a member to a team, and that team must be assigned projects.</li>
+<li>To grant members access to a project and its findings, you must add the members to a team, and that team must be assigned to the project.</li>
 <li>Members can scan their local or personal repositories through a personal account.</li>
 </ul>
 </dl>
