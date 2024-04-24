@@ -96,7 +96,7 @@ Use the **manager role** to delegate the assignment of projects across many user
 Given a security engineer who is a manager of **team A** but a member of **team B**, with both teams having the same projects:
 
 - The security engineer has manager **access** to the projects.
-- The security engineer can't create subteams for team B but can create subteams for team A.
+- The security engineer can create subteams for team A but can't create subteams for team B.
 
 Additionally, the manager role is able to perform the following:
 
