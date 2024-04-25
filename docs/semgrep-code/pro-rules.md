@@ -23,9 +23,9 @@ import DisableRule from "/src/components/procedure/_disable-rule.mdx"
 
 # Semgrep Pro rules
 
-This article provides an overview of rules provided exclusively by Semgrep, Inc. called Semgrep Pro rules. These high-confidence, professionally maintained rules are a proprietary addition to Semgrep Registry. 
+This article provides an overview of rules provided exclusively by Semgrep, Inc. called Semgrep Pro rules. These high-confidence, professionally maintained rules are a proprietary addition to Semgrep Registry.
 
-<!-- 
+<!--
 Claudio's portions
 -->
 
@@ -49,13 +49,13 @@ After using Semgrep Pro rules, you will see improved findings across many langua
 
 Semgrep's Security Research team plans to keep improving coverage by adding support for more languages and popular frameworks, as well as reducing potential false positives by monitoring rules’ performance.
 
-:::info 
-See the [Rule updates](/release-notes/rule-updates/) for an overview of updates and improvements released by Semgrep, Inc. for Semgrep’s rules, including Semgrep Pro rules.
+:::info
+See the [Rule updates](/release-notes/rule-updates) for an overview of updates and improvements released by Semgrep, Inc. for Semgrep’s rules, including Semgrep Pro rules.
 :::
 
 ## Using Semgrep Pro rules
 
-You can use Semgrep Pro rules in both Semgrep Cloud Platform (SCP) and your own CLI or CI environment (without SCP). 
+You can use Semgrep Pro rules in both Semgrep Cloud Platform (SCP) and your own CLI or CI environment (without SCP).
 
 * To use Pro Rules with Semgrep Cloud Platform, add them to your Policies page. The rules are then included in your next scan.
 * To use Pro Rules in your own CI or CLI environment, add the rules or rulesets through the `--config` flag.
@@ -81,7 +81,7 @@ For CLI users: You must be [logged in](/docs/getting-started/#logging-into-semgr
 1. Sign in to [Semgrep Cloud Platform](https://semgrep.dev/login).
 2. Go to [Semgrep Registry](https://semgrep.dev/r).
 3. Click on **Visibility > Pro rules**.
-4. Optional: Apply additional filters by entering search terms in the search box or selecting filters from drop-down boxes. 
+4. Optional: Apply additional filters by entering search terms in the search box or selecting filters from drop-down boxes.
 5. To add a specific rule or ruleset:
     1. Click on the card for the **rule or ruleset > Add to Policy**.
     2. Select a Policy rule mode to add the rules to. It is recommended to start with the Monitor mode to silently gather findings and audit the rule's performance.

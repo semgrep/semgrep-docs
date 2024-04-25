@@ -69,7 +69,7 @@ scanning is `test`, use `semgrep scan test` to avoid confusion with the new
   before running either:
   * `semgrep ci`
   * `semgrep scan --config`
-  
+
 ## 💻 Code
 
 ### Fixed
@@ -100,7 +100,7 @@ tagging. After Assistant performs these functions, users
 can see their results if they filter for findings based on **Recommendation** or
 by **Component**. Additionally, users who choose **No Grouping** instead of
 **Group by Rule** see false positive and true positive recommendations when
-viewing their finding details pages. 
+viewing their finding details pages.
 
 ## 🔐 Secrets (beta)
 
@@ -120,23 +120,23 @@ viewing their finding details pages.
 
 ### Added
 
-* Added [Quickstart](/docs/getting-started/quickstart/).
-* Added [Privacy and legal considerations](/docs/semgrep-assistant/overview#privacy-and-legal-considerations) information for Semgrep Assistant.
+* Added [Quickstart](/docs/getting-started/quickstart).
+* Added [Privacy and legal considerations](/docs/semgrep-code/semgrep-assistant-code#privacy-and-legal-considerations) information for Semgrep Assistant.
 * New knowledge base articles:
   * [Fix pattern parse errors when running rules](/docs/kb/rules/pattern-parse-error)
-  * [How to scan a large monorepo](/kb/semgrep-code/scan-engine-kill/)
+  * [How to scan a large monorepo](/kb/semgrep-code/scan-engine-kill)
   * [Scanning a monorepo in parts](/kb/semgrep-ci/scan-monorepo-in-parts)
   * [SSO Error: Signature validation failed. SAML Response rejected](/docs/kb/semgrep-cloud-platform/saml-bad-signature)
   * [Troubleshooting "You are seeing this because the engine was killed" on monorepos](/docs/kb/semgrep-code/scan-engine-kill)
 
 ### Changed
 
-* Updated overview articles for [Semgrep Code](/semgrep-code/overview/) and
-  [Semgrep Supply Chain](/docs/semgrep-supply-chain/overview/).
+* Updated overview articles for [Semgrep Code](/semgrep-code/overview) and
+  [Semgrep Supply Chain](/docs/semgrep-supply-chain/overview).
 * Updated documentation on setting up pull request or merge request comments for
-  [GitHub](/docs/semgrep-cloud-platform/github-pr-comments/),
-  [GitLab](/docs/semgrep-cloud-platform/gitlab-mr-comments/), and
-  [Bitbucket](/docs/semgrep-cloud-platform/bitbucket-pr-comments/) users.
+  [GitHub](/docs/semgrep-cloud-platform/github-pr-comments),
+  [GitLab](/docs/semgrep-cloud-platform/gitlab-mr-comments), and
+  [Bitbucket](/docs/semgrep-cloud-platform/bitbucket-pr-comments) users.
 * General improvements to API docs, including clarification of usage
   instructions for Supply Chain and Secrets endpoints.
 

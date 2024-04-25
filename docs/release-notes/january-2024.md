@@ -30,7 +30,7 @@ tags:
   **Settings** > **Source Code Managers**.
 * Projects are now moved from the **Scanning** to **Not scanning** tab when the
   corresponding GitHub repository is archived.
-* **CLI tool**: 
+* **CLI tool**:
   * Added color-coded severity icons, such as `❯❯❱`, to the CLI
   output for findings of known severity.
   * Metrics sent from the CLI and collected by Semgrep now include a breakdown of the number
@@ -53,7 +53,7 @@ tags:
 
 * Fixed an issue where paid subscribers couldn't submit support cases through
   the **Help** page.
-* **CLI tool**: 
+* **CLI tool**:
   * Fixed an issue where multi-line comments in Dockerfiles weren't
   parsed correctly.
   * Fixed an issue where Semgrep used `/tmp` instead of the path set
@@ -69,7 +69,7 @@ tags:
 - **Java**: You can now use metavariable ellipses properly in function arguments, as statements, and as expressions. <!-- (gh-9260)-->For instance, you may write the pattern:
     ```
     public $F($...ARGS) { ... }
-    ``` 
+    ```
 - **C++ with Semgrep Pro Engine**: Improved translation of delete expressions to the dataflow so that
 recently added at-exit sinks work on them. Previously, delete expression at "exit" positions were not being properly recognized as such. <!-- (pa-3339) -->
 
@@ -99,7 +99,7 @@ recently added at-exit sinks work on them. Previously, delete expression at "exi
   exception means that the exclusion won't fail when upgrading to
   `bitwarden/cli@2023.9.1`.
 
-### Changed 
+### Changed
 
 - **Vulnerabilities page**: Improved filtering performance. <!-- 12162 -->
 - Software bill of materials (SBOM) generation is now generally available (GA). <!-- 11956 -->
@@ -124,8 +124,8 @@ recently added at-exit sinks work on them. Previously, delete expression at "exi
 - Added [legal information](/semgrep-assistant/overview#privacy-and-legal-considerations) about Semgrep Assistant. <!-- 1308 -->
 - Added documentation about Semgrep Assistant's Component and Recommendation filters. <!-- 1324 -->
 - Knowledge base articles:
-    - Troubleshoot why [SAML stops working](/kb/semgrep-cloud-platform/saml-stops-working/) <!-- 1330 -->
-    - [Troubleshooting "You are seeing this because the engine was killed" on monorepos](/kb/semgrep-code/scan-engine-kill/) <!-- 1310 -->
+    - Troubleshoot why [SAML stops working](/kb/semgrep-cloud-platform/saml-stops-working) <!-- 1330 -->
+    - [Troubleshooting "You are seeing this because the engine was killed" on monorepos](/kb/semgrep-code/scan-engine-kill) <!-- 1310 -->
 - Added guidance on running Semgrep Supply Chain scans [in the CLI](/semgrep-supply-chain/getting-started/#run-a-scan-using-the-cli ). <!-- 1334 -->
 
 ### Changed
@@ -134,4 +134,4 @@ recently added at-exit sinks work on them. Previously, delete expression at "exi
 - Updated the Semgrep Supply Chain [languages table](/supported-languages/#semgrep-supply-chain) to clarify that **lockfile-only** languages do not have reachable rules.
 - Updated documentation on event triggers for diff-aware and full scans. <!-- 1316 -->
 - Updated [Licensing](/licensing) documentation for Semgrep Supply Chain and Semgrep Secrets.
-- Updated the [Findings](/docs/semgrep-code/findings/) documentation page.
+- Updated the [Findings](/docs/semgrep-code/findings) documentation page.

@@ -13,7 +13,7 @@ import Install from "/src/components/procedure/_install-cli.mdx";
 import Login from "/src/components/procedure/_login-activate.mdx";
 import ScanRuleset from "/src/components/reference/_scan-ruleset.mdx"
 
-# Local scans with Semgrep 
+# Local scans with Semgrep
 
 <!-- semgrep ci can run any product, so I removed the reference to Pro Engine -->
 
@@ -21,7 +21,7 @@ Learn how to set up Semgrep, scan your project for security issues using Semgrep
 
 ## Prerequisites
 
-Before proceeding, see [Prerequisites](/prerequisites/) to ensure that your machine meets Semgrep's requirements.
+Before proceeding, see [Prerequisites](/prerequisites) to ensure that your machine meets Semgrep's requirements.
 
 ## Recommended setup
 
@@ -78,7 +78,7 @@ semgrep ci --json --output=semgrep.json
 
 #### Test custom rules
 
-Semgrep includes functionality to [test the custom rules that you write](/writing-rules/testing-rules/):
+Semgrep includes functionality to [test the custom rules that you write](/writing-rules/testing-rules):
 
 ```console
 semgrep scan --test

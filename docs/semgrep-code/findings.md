@@ -145,8 +145,7 @@ To **add notes** to the activity history of a finding:
 
 ## Data retention
 
-Semgrep, Inc. retains findings data as long as an account remains active. We automatically securely destroy data within **90 days of contract termination** for our **Enterprise** customers.
-Semgrep, Inc. retains findings data as long as an account remains active. We automatically securely data within **90 days of contract termination** for our **Enterprise** customers.
+Semgrep, Inc. retains findings data as long as an account remains active. We securely destroy data within **90 days of contract termination** for our **Enterprise** customers.
 
 Additionally, account owners may request data destruction at any time by contacting&nbsp;[<i class="fa-regular fa-envelope"></i>&nbsp;support@semgrep.com](mailto:support@semgrep.com).
 
