@@ -1,7 +1,7 @@
 ---
 slug: view-triage
 append_help_link: true
-title: View and triage secrets findings
+title: Triage and remediation
 hide_title: true
 description: Learn how to view and triage findings identified by Semgrep Secrets.
 tags:
@@ -59,7 +59,7 @@ Refers to whether or not the repository is a public repository or private. This 
 Semgrep supports visibility detection only for GitHub repositories of any plan.
 :::
 
-| Repository visibility | Description | 
+| Repository visibility | Description |
 | -----------  | ------------ |
 | Public | Repository access doesn't require authentication; at a minimum, it can be viewed by anyone. |
 | Private | Repository access requires authentication. |
