@@ -20,6 +20,8 @@ Accounts enable you to manage access to Semgrep resources, such as scans, projec
 
 ![Role-based access control](/img/rbac-overview.png)<br />
 
+A user is any person who has been added to your organization in Semgrep.
+
 Semgrep primarily divides users into two roles:
 
 * `admin`
@@ -82,7 +84,7 @@ _**Figure**. Default user role._
 
 The **Teams (beta)** feature enables admins to grant or limit access to **specific projects** in Semgrep Cloud Platform (SCP). This provides more granular control than the [**Members** feature](#member-permissions-and-visibility).
 
-You can quickly assign projects to large groups of members by first assigning them to teams and subteams within your organization.
+You can quickly assign projects to large groups of members by first assigning members to teams and subteams within your organization.
 
 ![The Teams tab within the Settings page](/img/access-teams.png)
 _**Figure**. The **<i class="fa-solid fa-gear"></i> Settings > Access > Teams** tab displays both top-level teams and subteams._
@@ -99,29 +101,34 @@ This document walks you through the following:
 
 ## Roles and visibility
 
-A user is any person who has been added to your organization in Semgrep. Users can be administrators (admins), managers, or members.
+The Teams feature extends the existing roles defined in the **Members** tab.
 
 <dl>
 <dt>Admin</dt>
 <ul><li>A user who has access to all features, resources, and projects of their Semgrep deployment. Admins can also change the role of members and managers.</li>
-<li>By definition, an admin does not need to be assigned to a team to have access to the resources of a project. As such, an admin can't be removed from a team.</li>
-<li>An org admin can change the role of any other admin or user, including a fellow admin.</li></ul>
-<dt>Manager</dt>
-<ul>
-<li>A user who can grant access to projects by creating subteams and assigning members to these subteams.</li>
-<li>A manager role is restricted to the teams where they have been assigned as a manager. Users can be managers of some projects, but members for others. For more information, see the <a href="#the-manager-role">manager role</a>.</li>
-</ul>
+<li>When creating teams, admins are automatically included in all teams and can't be removed from any team. The access of an admin cannot be restricted except by making them a member.</li>
+<li>An org admin can change the role of any other user, including a fellow admin.</li></ul>
 <dt>Member</dt>
 <ul>
 <li>A user who has access to some features, resources, and projects of their Semgrep deployment.</li>
-<li>By default, a member starts out with no access to any project.</li>
 <li>To grant members access to a project and its findings, you must add the members to a team, and that team must be assigned to the project.</li>
 <li>Members can scan their local or personal repositories through a personal account.</li>
+<li>Members can also be assigned as <strong>Managers</strong> within a team.</li>
+</ul>
+</dl>
+
+A third role, **the manager**, can be assigned within the context of a team. Managers are a subset of members:
+
+<dl>
+<dt>Manager</dt>
+<ul>
+<li>A member who can grant access to projects by creating subteams and assigning members to these subteams.</li>
+<li>A manager role is restricted to the teams where they have been assigned as a manager. Users can be managers of some projects, but members for others. For more information, see the <a href="#the-manager-role">manager role</a>.</li>
 </ul>
 </dl>
 
 ![A member's view of the Projects page.](/img/access-member-view.png)
-**Figure**. A member's view of the Projects page. It displays projects that are assigned to the team they are a member of, but they cannot edit a project nor can they scan new projects in their organizational account.
+_**Figure**. A member's view of the Projects page. It displays projects that are assigned to the team they are a member of, but they cannot edit a project nor can they scan new projects in their organizational account._
 
 ### Page visibility per role
 
@@ -177,7 +184,7 @@ Additionally, the manager role is able to perform the following:
 - Scan new projects through the **Projects** page.
 - Edit projects that their team is assigned to.
 
-Managers cannot remove themselves from their team. Only admins can remove managers.
+Managers cannot remove themselves from their team. Admins and co-managers of the same team or subteam can remove other managers.
 
 ![A manager's view of the Projects page.](/img/access-manager-view.png)
 **Figure**. A manager's view of the Projects page. They are able to scan new projects and edit the settings for Projects assigned to Teams they are managers of.
@@ -186,9 +193,11 @@ Managers cannot remove themselves from their team. Only admins can remove manage
 
 1. Sign in to [<i class="fas fa-external-link fa-xs"></i> Semgrep Cloud Platform](https://semgrep.dev/login).
 1. Click **[<i class="fa-solid fa-gear"></i> Settings > Access > Teams](https://semgrep.dev/orgs/-/settings/access/teams)**.
+1. Optional: Click **<i class="fa-solid fa-square-check"></i> Yes, add new users to the default team** if you want new members and projects to be added to the default team.
 1. Click **Enable**.
+1. Read the dialog box to ensure that your settings are correct, then click **Enable beta**.
 
-When you have enabled teams for the first time, a team is automatically created with the name of your deployment. This preserves the settings you previously had using the **Members** feature; All current members retain their existing projects.
+When you have enabled teams for the first time, a team is automatically created with the name of your deployment. This preserves the settings you previously had using the **Members** feature; all current members retain their existing projects.
 
 ## Tips for creating teams and subteams
 
