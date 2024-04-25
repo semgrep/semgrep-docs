@@ -132,7 +132,7 @@ A user is any person who has been added to your organization in Semgrep. Users c
 | Findings  | ⚠️&nbsp;Restricted | ⚠️&nbsp;Restricted | ✅ Yes   | Members can perform all triage operations on Projects assigned to them. |
 | Policies  | ❌ No         | ❌ No         | ✅ Yes   |       |
 | Editor    | 👁️&nbsp;Read-only  | 👁️&nbsp;Read-only  | ✅ Yes   | Members can view all rules of an organization, but can't edit or create their own. They can create their own rules in their personal account.      |
-| Settings  | ❌ No         | ⚠️&nbsp;Restricted | ✅ Yes   |       |
+| Settings  | ❌ No         | ⚠️&nbsp;Restricted | ✅ Yes   | Managers can see the **Access** and **Account** subpages. In the **Access** page, they can make edits to subteams they are managers of.    |
 
 ### Operations permitted per role
 
@@ -181,6 +181,14 @@ Managers cannot remove themselves from their team. Only admins can remove manage
 
 ![A manager's view of the Projects page.](/img/access-manager-view.png)
 **Figure**. A manager's view of the Projects page. They are able to scan new projects and edit the settings for Projects assigned to Teams they are managers of.
+
+## Enable teams
+
+1. Sign in to [<i class="fas fa-external-link fa-xs"></i> Semgrep Cloud Platform](https://semgrep.dev/login).
+1. Click **[<i class="fa-solid fa-gear"></i> Settings > Access > Teams](https://semgrep.dev/orgs/-/settings/access/teams)**.
+1. Click **Enable**.
+
+When you have enabled teams for the first time, a team is automatically created with the name of your deployment. This preserves the settings you previously had using the **Members** feature; All current members retain their existing projects.
 
 ## Tips for creating teams and subteams
 
