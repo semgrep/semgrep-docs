@@ -111,9 +111,8 @@ module.exports = {
             label: 'Deployment at scale',
             link: {type: 'generated-index'},
             items: [
-                'deployment/user-management',
-                'semgrep-cloud-platform/tags',
                 'semgrep-cloud-platform/teams',
+                'semgrep-cloud-platform/tags',
                 'semgrep-ci/network-broker'
             ]
         },

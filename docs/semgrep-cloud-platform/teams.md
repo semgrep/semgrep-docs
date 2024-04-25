@@ -1,21 +1,91 @@
 ---
 slug: teams
 append_help_link: true
-title: Manage access to projects
+title: Teams and user management
 hide_title: true
-description: Use the Teams feature to manage access to resources.
+description: Manage user access to projects through Teams.
 tags:
   - Semgrep Cloud Platform
 ---
 
-# Manage access to projects
+import MoreHelp from "/src/components/MoreHelp"
 
-Use the **Teams** feature to manage access to resources, such as findings in your projects.
+# Manage user access to projects
+
+Use the **Access** page to manage access to Semgrep resources, such as scans, projects, and findings. **Projects** are repositories or codebases you have added to SCP for scanning.
+
+## User roles and access
+
+Accounts enable you to manage access to Semgrep resources, such as scans, projects, and findings, with varying levels of collaboration and visibility. Basic access control is managed through the **Members** tab.
+
+![Role-based access control](/img/rbac-overview.png)<br />
+
+Semgrep primarily divides users into two roles:
+
+* `admin`
+* `member`
+
+Optionally, you can assign members to a third role, **manager**, for more granular assignment of user access. Managers are a subset of members with some additional capabilities and scopes.
+
+:::info
+* Users are assigned a role based on your [organization's default](#setting-a-default-role). New organizations are created with a default role of `admin`.
+:::
+
+### Member permissions and visibility
+
+Admins have full permissions, scopes, and visibility into all aspects of Semgrep.
+
+Members can edit the following page:
+
+- **Findings**. They can view **all projects** in the Findings page, and can still sort and triage findings.
+
+Members can view the following pages:
+
+- **Dashboard**. They are able to see the total count of findings for all projects in the org.
+- **Editor**. They can view an org's rules, but they can't write rules for the org. They can still write rules for their personal Semgrep orgs.
+- **Registry**. They can view, but not add, rules and rule packs.
+- **Docs**. Anyone can view the docs.
+
+Members can't view or perform any actions in the following pages:
+
+- Policies
+- Projects
+- Settings
+
+### Change a user's role
+
+You must be an `admin` to perform this operation.
+
+1. Sign in to [<i class="fas fa-external-link fa-xs"></i> Semgrep Cloud Platform](https://semgrep.dev/login).
+2. Click **<i class="fa-solid fa-gear"></i> Settings > Members**.
+3. Search for the member whose role will be changed.
+4. Click on the member's current role, under the role header. A drop-down box appears.
+5. Select the new role for the member.
+
+:::note
+You cannot change your own role.
+:::
+
+### Set a default role
+
+Organizations start with a default role of `admin`.
+
+To change this, perform the following steps:
+
+1. On Semgrep Cloud Platform's sidebar, click Settings.
+2. Click **Access > Defaults**.
+
+![Default user role](/img/default-user-role.png#md-width)<br />
+_**Figure**. Default user role._
+
+## Teams (beta)
+
+The **Teams (beta)** feature enables admins to grant or limit access to **specific projects** in Semgrep Cloud Platform (SCP). This provides more granular control than the [**Members** feature](#member-permissions-and-visibility).
+
+You can quickly assign projects to large groups of members by first assigning them to teams and subteams within your organization.
 
 ![The Teams tab within the Settings page](/img/access-teams.png)
-**Figure**. The **<i class="fa-solid fa-gear"></i> Settings > Access > Teams** tab displays both top-level teams and subteams.
-
-The **Teams** feature enables admins to grant or limit access to specific projects in Semgrep Cloud Platform (SCP). **Projects** are repositories or codebases you have added to SCP for scanning. You can quickly assign projects to large groups of members by first assigning them to teams and subteams within your organization.
+_**Figure**. The **<i class="fa-solid fa-gear"></i> Settings > Access > Teams** tab displays both top-level teams and subteams._
 
 This feature helps security engineers and developers in large organizations focus on the projects that are relevant to their specific department or team.
 
@@ -121,7 +191,6 @@ The Semgrep team recommends that admins assign projects to one team only.
 - **Use subteams to grant access to a specific department's repositories**: Create a top-level team for managers or security engineers in your organization who have broad access to a variety of repositories, then create subteams for members to grant them limited access to their specific department's repositories.
 - **Use flat teams to grant access to central projects that are used by a broad group of developers**: It is best to create a separate flat team, without any subteams, and grant the users access to foundational or central repositories from that team. For example, projects that all engineers commit to can be named the Engineering Team.
 
-
 ## Configure your teams
 
 ### View your teams
@@ -183,3 +252,39 @@ To set a member as a manager for a subteam:
 1. Navigate to the **Findings** page.
 1. Click the **Teams** filter. This filter displays teams you have access to.
 1. Select the teams you want to see findings for.
+
+## Appendices
+
+### Member-scoped access tokens
+
+Both members and admins can log in through the command-line interface (CLI) by entering the following command:
+
+```
+semgrep login
+```
+
+This generates a unique token that is used to identify a member or admin. When logged in, members can run scans on their local machine through the `semgrep ci` command and publish a rule. This sends findings data to Semgrep Cloud Platform.
+
+Only admin users can view member tokens in the **Settings > Tokens** tab. A token's access cannot be escalated to an admin-level token. A user must first obtain the admin role and then create a new token as an admin. See the section on [Changing a user's role](#changing-a-users-role).
+
+### Token scopes
+
+Token scopes enable you to limit or grant permissions as necessary. Tokens can also be generated with appropriate scopes by Semgrep Cloud Platform when onboarding (adding) a repository.
+
+The following table displays token scopes and their permissions:
+
+| Token scope | Send findings from a remote repository | Send findings from a local repository |  Send PR or MR comments | Connect to Semgrep API |
+| ----------- | ------- | --- | --| -- |
+| Agent (CI)  |   ✔️  Yes    |  ✔️ Yes  | ✔️  Yes | ❌ No |
+| Web API     |  ❌ No    |  ❌ No | ✔️  Yes  | ✔️ Yes  |
+| Member      |    ❌ No   |  ✔️ Yes  | ❌ No |❌ No |
+
+The following table displays typical uses for token scopes:
+
+| Token scope |Typical uses |
+| ----------- | ----------- |
+| Agent (CI)  | Generated by Semgrep Cloud Platform when onboarding (adding) a repository to Semgrep Cloud Platform. For non-GitHub-Actions users, you may have to copy and paste the token value into your CI provider's interface. |
+| Web API     | Used to access Semgrep's API. |
+| Member      | Auto-generated by Semgrep CLI when a member is logging in through Semgrep CLI. Use this scope to scan your code locally using your organization's private rule and rulesets. The permissions of these tokens cannot be escalated. |
+
+<MoreHelp />
