@@ -69,8 +69,8 @@ your critical/high-severity findings as either reachable or unreachable.
 
 * **lockfile-only languages**: For **[lockfile-only](/semgrep-supply-chain/glossary/#lockfile-only-rules)** languages, Semgrep Supply Chain's performance is comparable to that of [GitHub's Dependabot](https://github.com/dependabot). Semgrep Supply Chain generates these findings by checking the dependency's version listed in your lockfile or manifest against a list of versions with known vulnerabilities, but it does not run reachability analysis. Because Semgrep Supply Chain doesn't run reachability analysis, it can't determine whether the vulnerability is reachable. Such vulnerabilities are, therefore, flagged as **undetermined**.
 
-Specific dependency and code match findings are called **usages**. SCP groups
-all usages together by vulnerability. For each vulnerability, SCP also displays
+Specific dependency and code match findings are called **usages**. Semgrep AppSec Platform groups
+all usages together by vulnerability. For each vulnerability, Semgrep AppSec Platform also displays
 a CVE number corresponding to the [CVE program record](https://www.cve.org/About/Overview).
 
 ### Transitive dependencies and reachability analysis
@@ -114,14 +114,14 @@ organization's requirements.
 
 ## Next steps
 
-Semgrep Supply Chain automatically scans repositories that you have added to Semgrep Cloud Platform.
+Semgrep Supply Chain automatically scans repositories that you have added to Semgrep AppSec Platform.
 
-* After every scan, you can view your findings by [logging in to Semgrep Cloud
-  Platform (SCP)](https://semgrep.dev/login) and navigating to [**Supply
+* After every scan, you can view your findings by [logging in to Semgrep AppSec
+  Platform](https://semgrep.dev/login) and navigating to [**Supply
   Chain**](https://semgrep.dev/orgs/-/supply-chain).
 * To support your security and business goals, you can [customize how Semgrep
   Supply Chain scans your dependencies](/semgrep-supply-chain/getting-started).
-* The SCP has features to support the [triage and
+* The Semgrep AppSec Platform has features to support the [triage and
   remediation](/semgrep-supply-chain/triage-and-remediation) of your findings.
 
 ### Further reading

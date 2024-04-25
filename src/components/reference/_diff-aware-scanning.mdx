@@ -1,19 +1,50 @@
 Semgrep scans can be classified by **scope**. The scope of a scan refers to what lines of code are scanned in a codebase. When classifying scans by scope, there are two types of scans:
 
 <dl>
-    <dt>Full scan</dt>
-    <dd><p>A full scan runs on your entire codebase and reports every finding in the codebase. It is recommended to perform a full scan of your default branch, such as <code>main</code> or <code>master</code> at a regular cadence, such as every night or every week. This ensures that Semgrep Cloud Platform has a full list of all findings in your code base, regardless of when they were introduced. To run a full scan, run <code>semgrep ci</code> without setting the <code>SEMGREP_BASELINE_REF</code> environment variable. Full scans are triggered at a scheduled time, when the <code>semgrep.yml</code> file is edited, or manually by a user.</p></dd>
-    <dt>Diff-aware scan</dt>
-    <dd><p>A diff-aware scan runs on your code before and after some "baseline" and only reports findings that are newly introduced in the commits after that baseline. Diff-aware scans are triggered upon creation of a new pull request or merge request.</p>
-    <p>For example, imagine a hypothetical repository with 10 commits. You set commit number 8 as the baseline. Consequently, Semgrep only returns scan results introduced by changes in commits 9 and 10. This is how <code>semgrep ci</code> can run in pull requests and merge requests, since it reports only the findings that are created by those code changes. To run a diff-aware scan, use <code>SEMGREP_BASELINE_REF=<span class="placeholder">REF</span> semgrep ci</code> where <span class="placeholder">REF</span> can be a commit hash, branch name, or other Git reference.</p></dd>
+  <dt>Full scan</dt>
+  <dd>
+    <p>
+      A full scan runs on your entire codebase and reports every finding in the
+      codebase. It is recommended to perform a full scan of your default branch,
+      such as <code>main</code> or <code>master</code> at a regular cadence,
+      such as every night or every week. This ensures that Semgrep AppSec
+      Platform has a full list of all findings in your code base, regardless of
+      when they were introduced. To run a full scan, run <code>semgrep ci</code>{" "}
+      without setting the <code>SEMGREP_BASELINE_REF</code> environment
+      variable. Full scans are triggered at a scheduled time, when the{" "}
+      <code>semgrep.yml</code> file is edited, or manually by a user.
+    </p>
+  </dd>
+  <dt>Diff-aware scan</dt>
+  <dd>
+    <p>
+      A diff-aware scan runs on your code before and after some "baseline" and
+      only reports findings that are newly introduced in the commits after that
+      baseline. Diff-aware scans are triggered upon creation of a new pull
+      request or merge request.
+    </p>
+    <p>
+      For example, imagine a hypothetical repository with 10 commits. You set
+      commit number 8 as the baseline. Consequently, Semgrep only returns scan
+      results introduced by changes in commits 9 and 10. This is how{" "}
+      <code>semgrep ci</code> can run in pull requests and merge requests, since
+      it reports only the findings that are created by those code changes. To
+      run a diff-aware scan, use{" "}
+      <code>
+        SEMGREP_BASELINE_REF=<span class="placeholder">REF</span> semgrep ci
+      </code>{" "}
+      where <span class="placeholder">REF</span> can be a commit hash, branch
+      name, or other Git reference.
+    </p>
+  </dd>
 </dl>
 
 <!--
 ![Flow chart of Semgrep code scanning behavior based on environment variable](/img/diagram-semgrep_baseline_ref.png "Flow chart of Semgrep code scanning behavior based on environment variable")
 
 :::caution
-* Do **not** perform diff-aware scans on your `main` branch. Semgrep Cloud Platform keeps track of which findings have been fixed on a given branch. If you configure diff-aware scans on your main branch, and compare the last commit to the penultimate commit, Semgrep wrongly considers all findings from before the penultimate commit to be fixed.
-* Do **not** perform full scans on non-mainline or non-trunk branches. Performing full scans on every branch slows down your CI jobs, displays findings that developers did not introduce, and results in many duplicated findings in Semgrep Cloud Platform, resulting in a poorer experience.
+* Do **not** perform diff-aware scans on your `main` branch. Semgrep AppSec Platform keeps track of which findings have been fixed on a given branch. If you configure diff-aware scans on your main branch, and compare the last commit to the penultimate commit, Semgrep wrongly considers all findings from before the penultimate commit to be fixed.
+* Do **not** perform full scans on non-mainline or non-trunk branches. Performing full scans on every branch slows down your CI jobs, displays findings that developers did not introduce, and results in many duplicated findings in Semgrep AppSec Platform, resulting in a poorer experience.
 :::
  -->
 

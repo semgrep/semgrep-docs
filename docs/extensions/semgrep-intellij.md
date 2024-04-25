@@ -28,7 +28,7 @@ $ python3 -m pip install semgrep
    -  Visit [Semgrep's page on the JetBrains Marketplace](https://plugins.jetbrains.com/plugin/22622-semgrep).
    -  In IntelliJ: **Settings/Preferences > Plugins > Marketplace > Search for `semgrep-intellij` > Install**. You may need to restart IntelliJ for the Semgrep extension to be installed.
 
-2. Sign in: Press <kbd>Ctrl+⇧Shift+A</kbd> (Windows) or <kbd>⌘Command+⇧Shift+A</kbd> (macOS) and sign in to Semgrep Cloud Platform by selecting the following command:
+2. Sign in: Press <kbd>Ctrl+⇧Shift+A</kbd> (Windows) or <kbd>⌘Command+⇧Shift+A</kbd> (macOS) and sign in to Semgrep AppSec Platform by selecting the following command:
    ```
    Sign in with Semgrep
    ```
@@ -71,8 +71,8 @@ IntelliJ extension does not support:
 
 Run Semgrep extension commands through the IntelliJ Command Palette. You can access the Command Palette by pressing <kbd>Ctrl+⇧Shift+A</kbd> (Windows) or <kbd>⌘Command+⇧Shift+A</kbd> (macOS) on your keyboard. 
 
-- `Sign in with Semgrep`: Sign up or log in to the Semgrep Cloud Platform (this command opens a new window in your browser). Alternatively, you can log in through your command-line interface by running `semgrep login`.
-- `Sign out of Semgrep`: Log out of Semgrep Cloud Platform. If you are logged out, you lose access to Semgrep Supply Chain and Semgrep Secrets. Alternatively, you can sign out through your command-line interface by running `semgrep logout`.
+- `Sign in with Semgrep`: Sign up or log in to the Semgrep AppSec Platform (this command opens a new window in your browser). Alternatively, you can log in through your command-line interface by running `semgrep login`.
+- `Sign out of Semgrep`: Log out of Semgrep AppSec Platform. If you are logged out, you lose access to Semgrep Supply Chain and Semgrep Secrets. Alternatively, you can sign out through your command-line interface by running `semgrep logout`.
 - `Scan workspace with Semgrep`: Scan files that have been changed since the last commit in your current workspace.
 - `Scan workspace with Semgrep (Including Unmodified Files)`: Scan all files in the current workspace.
 

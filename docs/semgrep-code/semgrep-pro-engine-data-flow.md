@@ -1,7 +1,7 @@
 ---
 slug: semgrep-pro-engine-data-flow
 append_help_link: true
-description: "This article documents data flow analysis implementation in Semgrep Cloud Platform and helps you to enable and find it on the Findings page."
+description: "This article documents data flow analysis implementation in Semgrep AppSec Platform and helps you to enable and find it on the Findings page."
 hide_title: false
 title: Semgrep Pro Engine taint traces
 ---

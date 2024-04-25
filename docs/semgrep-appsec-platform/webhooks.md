@@ -5,7 +5,7 @@ title: Webhooks
 hide_title: true
 description: "Create webhooks to receive Semgrep findings in your endpoints."
 tags:
-    - Semgrep Cloud Platform
+    - Semgrep AppSec Platform
     - Team & Enterprise Tier
 ---
 
@@ -21,20 +21,20 @@ Object.entries(frontMatter).filter(
 
 # Enabling webhooks
 
-Webhooks are a generic method for Semgrep Cloud Platform to post JSON-formatted findings after each scan to your URL endpoint.
+Webhooks are a generic method for Semgrep AppSec Platform to post JSON-formatted findings after each scan to your URL endpoint.
 
-SCP sends two types of JSON objects:
+Semgrep AppSec Platform sends two types of JSON objects:
 
 <dl>
 <dt><code>semgrep_scan</code> JSON object</dt>
-<dd> A <code>semgrep_scan</code> object contains information about the CI job and other scan parameters, such as ignored files. SCP sends a single <code>semgrep_scan</code> object <strong>every time a scan is run</strong>. This includes diff-aware scans, full scans, and scans that have no findings.</dd>
+<dd> A <code>semgrep_scan</code> object contains information about the CI job and other scan parameters, such as ignored files. Semgrep AppSec Platform sends a single <code>semgrep_scan</code> object <strong>every time a scan is run</strong>. This includes diff-aware scans, full scans, and scans that have no findings.</dd>
 <dt><code>semgrep_finding</code> JSON object</dt>
-<dd>A <code>semgrep_finding</code> object is a single record of a new finding. SCP sends new <code>semgrep_finding</code> objects based on how you have configured your notifications in Policies. See <a href="#setting-up-webhooks">Setting up webhooks</a> to learn more.</dd>
+<dd>A <code>semgrep_finding</code> object is a single record of a new finding. Semgrep AppSec Platform sends new <code>semgrep_finding</code> objects based on how you have configured your notifications in Policies. See <a href="#setting-up-webhooks">Setting up webhooks</a> to learn more.</dd>
 </dl>
 
 ## Setting up webhooks
 
-Perform these steps in Semgrep Cloud Platform to set up webhooks:
+Perform these steps in Semgrep AppSec Platform to set up webhooks:
 
 1. Create a webhook integration:
     1. On the navigation menu, click **<i class="fa-solid fa-gear"></i> Settings > Integrations > Add Integration.**

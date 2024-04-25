@@ -2,7 +2,7 @@
 slug: add-semgrep-to-ci
 title: Add Semgrep to CI/CD
 hide_title: true
-description: "Set up your CI pipeline with Semgrep Cloud Platform for centralized rule and findings management."
+description: "Set up your CI pipeline with Semgrep AppSec Platform for centralized rule and findings management."
 tags:
   - Deployment
 ---
@@ -25,7 +25,7 @@ import TabItem from '@theme/TabItem';
 - Optionally, you have [set up SSO](/deployment/sso).
 :::
 
-Semgrep is integrated into CI environments by creating a **job** that is run by the CI provider. After a scan, findings are sent to Semgrep Cloud Platform (SCP) for triage and remediation.
+Semgrep is integrated into CI environments by creating a **job** that is run by the CI provider. After a scan, findings are sent to Semgrep AppSec Platform for triage and remediation.
 
 By integrating Semgrep into your CI environment, your development cycle benefits from the automated scanning of repositories at various events, such as:
 
@@ -33,9 +33,9 @@ By integrating Semgrep into your CI environment, your development cycle benefits
 - Pull or merge requests (PRs or MRs)
 - User-initiated events (such as GitHub Action's `workflow_dispatch`)
 
-## Guided setup for CI providers in SCP
+## Guided setup for CI providers in Semgrep AppSec Platform
 
-This guide walks you through creating a Semgrep job in the following CI providers, which are explicitly supported in SCP:
+This guide walks you through creating a Semgrep job in the following CI providers, which are explicitly supported in Semgrep AppSec Platform:
 
 - GitHub Actions
 - GitLab CI/CD
@@ -45,24 +45,24 @@ This guide walks you through creating a Semgrep job in the following CI provider
 - Buildkite
 - Azure Pipelines
 
-![CI providers explicitly supported in SCP.](/img/in-app-providers.png#bordered)
-**Figure**. Semgrep Cloud Platform provides steps and configuration files to easily set up a Semgrep job for popular CI providers.
+![CI providers explicitly supported in Semgrep AppSec Platform.](/img/in-app-providers.png#bordered)
+**Figure**. Semgrep AppSec Platform provides steps and configuration files to easily set up a Semgrep job for popular CI providers.
 
 If your provider is **not** on this list, you can still integrate Semgrep into your CI workflows by following the steps in [<i class="fa-regular fa-file-lines"></i> Add Semgrep to other CI providers](/deployment/add-semgrep-to-other-ci-providers).
 
 ## Projects
 
-Adding a Semgrep job to your CI provider also adds the repository's records, including findings, as a **project** in Semgrep Cloud Platform. Each Project can be individually configured to send notifications or tickets.
+Adding a Semgrep job to your CI provider also adds the repository's records, including findings, as a **project** in Semgrep AppSec Platform. Each Project can be individually configured to send notifications or tickets.
 
-![Semgrep Cloud Platform Projects page](/img/projects-page.png)
-**Figure.** Semgrep Cloud Platform Projects page. This displays all the repositories you have successfully added a Semgrep job to.
+![Semgrep AppSec Platform Projects page](/img/projects-page.png)
+**Figure.** Semgrep AppSec Platform Projects page. This displays all the repositories you have successfully added a Semgrep job to.
 
-## Add Semgrep to CI through Semgrep Cloud Platform
+## Add Semgrep to CI through Semgrep AppSec Platform
 
 <Tabs
     defaultValue="other"
     values={[
-    {label: 'SCP-supported CI providers', value: 'other'},
+    {label: 'Supported CI providers', value: 'other'},
     {label: 'GitHub Actions', value: 'gha'},
     ]}
 >
@@ -71,7 +71,7 @@ Adding a Semgrep job to your CI provider also adds the repository's records, inc
 
 To add a CI job to GitHub Actions:
 
-1. Ensure you are signed in to Semgrep Cloud Platform.
+1. Ensure you are signed in to Semgrep AppSec Platform.
 1. Click **[Projects](https://semgrep.dev/orgs/-/projects)** on the left sidebar.
 1. Click **Scan new project > CI/CD**.
 1. Click **GitHub Actions**.
@@ -81,7 +81,7 @@ To add a CI job to GitHub Actions:
 1. Optional: Click **Review CI config** to see Semgrep's default YAML configuration file.
 1. Click **Commit file**.
 
-You have now added a Semgrep job to GitHub Actions. A scan begins automatically after adding a new repository. Its findings are sent to Semgrep Cloud Platform for triage and remediation.
+You have now added a Semgrep job to GitHub Actions. A scan begins automatically after adding a new repository. Its findings are sent to Semgrep AppSec Platform for triage and remediation.
 
 ### Detecting GitHub repositories
 
@@ -116,11 +116,11 @@ Refer to the following table for links to sample CI configuration snippets:
 | Buildkite            | [`pipelines.yml`](/semgrep-ci/sample-ci-configs/#buildkite) |
 | Azure Pipelines      | [`azure-pipelines.yml`](/semgrep-ci/sample-ci-configs/#azure-pipelines) |
 
-### Data collected by Semgrep Cloud Platform
+### Data collected by Semgrep AppSec Platform
 
 When running in CI, Semgrep runs fully in the CI build environment. Unless you have explicitly granted code access to Semgrep, your code is not sent anywhere.
 
-- Semgrep Cloud Platform collects [findings data](/semgrep-ci/findings-ci), which includes the line number of the code match, but not the code. It is hashed using a one-way hashing function.
+- Semgrep AppSec Platform collects [findings data](/semgrep-ci/findings-ci), which includes the line number of the code match, but not the code. It is hashed using a one-way hashing function.
 - Findings data is used to generate line-specific hyperlinks to your source code management system and support other Semgrep functions.
 
 ## Next steps

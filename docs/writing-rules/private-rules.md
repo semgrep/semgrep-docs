@@ -18,9 +18,9 @@ Create private rules the same way you create other custom rules. Private rules a
 [Team or Enterprise tier](https://semgrep.dev/pricing) of Semgrep Code.
 :::
 
-### Creating private rules through Semgrep Cloud Platform
+### Creating private rules through Semgrep AppSec Platform
 
-To publish private rules through the Semgrep Cloud Platform:
+To publish private rules through the Semgrep AppSec Platform:
 
 1. Go to [Semgrep Editor](https://semgrep.dev/orgs/-/editor).
 1. Click <i className="fa-solid fa-file-plus-minus inline_svg"></i> **Create New Rule**.
@@ -32,7 +32,7 @@ To publish private rules through the Semgrep Cloud Platform:
 
 Your private rule has been created and added to the Registry, visible only to logged in users of your organization. Its private status is reflected by the **Share** button displaying a <i className="fa-solid fa-lock inline_svg"></i> icon.
 
-Private rules are stored in the folder with the same name as your Semgrep Cloud Platform organization.
+Private rules are stored in the folder with the same name as your Semgrep AppSec Platform organization.
 
 ### Creating private rules through the command line
 

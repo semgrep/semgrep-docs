@@ -5,7 +5,7 @@ title: Bitbucket PR comments
 hide_title: true
 description: "Enable PR comments in your Bitbucket repositories to display Semgrep findings to developers."
 tags:
-    - Semgrep Cloud Platform
+    - Semgrep AppSec Platform
     - Team & Enterprise Tier
 ---
 

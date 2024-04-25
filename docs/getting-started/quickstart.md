@@ -19,7 +19,7 @@ Learn how to set up Semgrep, scan your first project for security issues, and vi
 You must have Python 3.8 or later installed on the machine where the Semgrep CLI is running.
 :::
 
-1. Navigate to [Semgrep Cloud Platform (SCP)](https://semgrep.dev/login), and sign up by clicking on **Sign in with GitHub** or **Sign in with GitLab**. Follow the on-screen prompts to [grant Semgrep the needed permissions](/deployment/checklist/#permissions) and proceed.
+1. Navigate to [Semgrep AppSec Platform (Semgrep AppSec Platform)](https://semgrep.dev/login), and sign up by clicking on **Sign in with GitHub** or **Sign in with GitLab**. Follow the on-screen prompts to [grant Semgrep the needed permissions](/deployment/checklist/#permissions) and proceed.
 
 2. Provide the **Organization display name** you'd like to use, then click **Create new organization**.
 
@@ -185,10 +185,10 @@ You must have Python 3.8 or later installed on the machine where the Semgrep CLI
 
     </Tabs>
 
-4. Once you've scanned your first application, return to Semgrep Cloud Platform, and click **View findings** to see the security vulnerabilities in your project. Alternatively, you can view your results in SCP's **Dashboard** page. For detailed information, click **Code** to access your SAST findings or **Supply Chain** to access your SCA findings.
+4. Once you've scanned your first application, return to Semgrep AppSec Platform, and click **View findings** to see the security vulnerabilities in your project. Alternatively, you can view your results in Semgrep AppSec Platform's **Dashboard** page. For detailed information, click **Code** to access your SAST findings or **Supply Chain** to access your SCA findings.
 
     :::info
-    **Code is not uploaded.** Only **findings** are sent to Semgrep Cloud Platform. 
+    **Code is not uploaded.** Only **findings** are sent to Semgrep AppSec Platform. 
     :::
 
 <MoreHelp />

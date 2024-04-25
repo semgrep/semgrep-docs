@@ -19,14 +19,14 @@ on:
     branches: ["master", "main"]
   # Schedule the CI job (this method uses cron syntax):
   schedule:
-    - cron: '20 17 * * *' # Sets Semgrep to scan every day at 17:20 UTC.
+    - cron: "20 17 * * *" # Sets Semgrep to scan every day at 17:20 UTC.
     # It is recommended to change the schedule to a random time.
 
 jobs:
   semgrep:
     # User definable name of this GitHub Actions job.
-    name: semgrep/ci 
-    # If you are self-hosting, change the following `runs-on` value: 
+    name: semgrep/ci
+    # If you are self-hosting, change the following `runs-on` value:
     runs-on: ubuntu-latest
 
     container:
@@ -42,8 +42,8 @@ jobs:
       # Run the "semgrep ci" command on the command line of the docker image.
       - run: semgrep ci --supply-chain
         env:
-          # Connect to Semgrep Cloud Platform through your SEMGREP_APP_TOKEN.
-          # Generate a token from Semgrep Cloud Platform > Settings
+          # Connect to Semgrep AppSec Platform through your SEMGREP_APP_TOKEN.
+          # Generate a token from Semgrep AppSec Platform > Settings
           # and add it to your GitHub secrets.
           SEMGREP_APP_TOKEN: ${{ secrets.SEMGREP_APP_TOKEN }}
 ```

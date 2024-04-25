@@ -28,7 +28,7 @@ Before proceeding, see [Prerequisites](/prerequisites) to ensure that your machi
 For scans using `semgrep ci`:
 
 * Ensure that you have and are logged in to your [Semgrep Account](https://semgrep.dev/login).
-* Ensure that you've enabled the **Cross-file analysis** <i class="fa-solid fa-toggle-large-on"></i> toggle on Semgrep Cloud Platform's [Settings](https://semgrep.dev/orgs/-/settings) page.
+* Ensure that you've enabled the **Cross-file analysis** <i class="fa-solid fa-toggle-large-on"></i> toggle on Semgrep AppSec Platform's [Settings](https://semgrep.dev/orgs/-/settings) page.
 
 ## Set up Semgrep
 
@@ -44,7 +44,7 @@ For scans using `semgrep ci`:
 Semgrep provides two commands that you can use to start a scan from the CLI:
 
 - `semgrep scan` - This is the recommended command for scanning local codebases and writing and testing custom rules.
-- `semgrep ci` - This is the recommended command if you are scanning git repositories with Semgrep as part of an organization with custom rules and policies. `semgrep ci` fetches your organization's scan configurations from Semgrep Cloud Platform.
+- `semgrep ci` - This is the recommended command if you are scanning git repositories with Semgrep as part of an organization with custom rules and policies. `semgrep ci` fetches your organization's scan configurations from Semgrep AppSec Platform.
 
 Navigate to the root of your codebase, and run your first scan. The specific command you use depends on how you want to view the results.
 
@@ -94,7 +94,7 @@ semgrep publish <path/to/rules>
 
 ### Scan without sending results to Semgrep
 
-To scan your project using the configuration you've set up in Semgrep Cloud Platform **without** sending scan results to Semgrep, use:
+To scan your project using the configuration you've set up in Semgrep AppSec Platform **without** sending scan results to Semgrep, use:
 
 ```console
 semgrep ci --dry-run
@@ -104,7 +104,7 @@ This can be helpful to verify the results of a specific ruleset or to see how yo
 
 ### Scan using OSS-only analysis (single-function)
 
-To scan your project using exclusively open-source Semgrep, even though you have proprietary cross-file analysis enabled in Semgrep Cloud Platform:
+To scan your project using exclusively open-source Semgrep, even though you have proprietary cross-file analysis enabled in Semgrep AppSec Platform:
 
 ```console
 semgrep ci --oss-only
@@ -116,7 +116,7 @@ See [Semgrep Pro versus Semgrep OSS](/semgrep-pro-vs-oss) for information on the
 
 ## Scan using specific Semgrep Products
 
-When you run `semgrep ci`, you scan your project with any product that is enabled in Semgrep Cloud Platform. To scan your project with just one product, run:
+When you run `semgrep ci`, you scan your project with any product that is enabled in Semgrep AppSec Platform. To scan your project with just one product, run:
 
 ```console
 # scan with Semgrep Code

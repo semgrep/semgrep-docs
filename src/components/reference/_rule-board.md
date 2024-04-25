@@ -1,4 +1,4 @@
-Semgrep Cloud Platform's Policies page displays all rules and rulesets that are used to scan repositories. These rules are scanned based on the repository's programming language and framework as well as additional Semgrep parameters, such as ignored files.
+Semgrep AppSec Platform's Policies page displays all rules and rulesets that are used to scan repositories. These rules are scanned based on the repository's programming language and framework as well as additional Semgrep parameters, such as ignored files.
 
 For example, given five repositories each with different programming languages, Semgrep only scans using rules and rulesets for that repository's language that are in the Policies page.
 
@@ -12,11 +12,11 @@ The Policies page uses **rule modes** to determine what actions to undertake whe
 
 <dl>
     <dt>Monitor</dt>
-    <dd>Rules set to Monitor mode show findings only on Semgrep Cloud Platform, without notifying developers.</dd>
+    <dd>Rules set to Monitor mode show findings only on Semgrep AppSec Platform, without notifying developers.</dd>
     <dt>Comment</dt>
     <dd>Rules set to Comment mode show findings to developers through PR or MR comments.</dd>
     <dt>Block</dt>
-    <dd>Rules set to Block mode prevent merges and commits, in addition to showing findings in Semgrep Cloud Platform and PRs or MRs.</dd>
+    <dd>Rules set to Block mode prevent merges and commits, in addition to showing findings in Semgrep AppSec Platform and PRs or MRs.</dd>
 </dl>    
 
 To add rules and rulesets to your Policies page:
