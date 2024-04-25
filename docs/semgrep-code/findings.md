@@ -104,9 +104,9 @@ You can identify findings categorized under **Security** by their badge.
 ![Screenshot of security badge](/img/findings-security-badge.png#md-width)
 :::
 
-### Display findings reported in a specific timeframe
+### Display findings reported in a specific time frame
 
-By default, the **Findings** page displays your results from all time. To display findings reported during a specific timeframe, click the <i class="fa-solid fa-calendar-days"></i> **All time** button and select the preferred period. The following options are available:
+By default, the **Findings** page displays your results from all time. To display findings reported during a specific time frame, click the <i class="fa-solid fa-calendar-days"></i> **All time** button and select the preferred period. The following options are available:
 
   - All time
   - Last 1 year
@@ -146,8 +146,9 @@ To **add notes** to the activity history of a finding:
 
 ## Data retention
 
-The retention period for findings is **5 years**.
+Semgrep, Inc. retains findings data as long as an account remains active. We securely destroy data within **90 days of contract termination** for our **Enterprise** customers.
 
+Additionally, account owners may request data destruction at any time by contacting&nbsp;[<i class="fa-regular fa-envelope"></i>&nbsp;support@semgrep.com](mailto:support@semgrep.com).
 
 ## Further reading
 
