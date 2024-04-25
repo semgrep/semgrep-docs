@@ -1,7 +1,7 @@
 ---
 slug: view-triage
 append_help_link: true
-title: View and triage secrets findings
+title: Triage and remediation
 hide_title: true
 description: Learn how to view and triage findings identified by Semgrep Secrets.
 tags:
