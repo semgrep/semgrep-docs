@@ -19,10 +19,10 @@ or gain access to sensitive systems. Semgrep Secrets allows you to determine:
 * What secrets have been committed to your repository.
 * The validation status of the secret; for example, **valid** secrets are those that have been tested against a web service and
 confirmed to successfully grant resources or authentication. They are actively
-in use. 
+in use.
 * For GitHub repositories: if there are credentials in public or private repositories.
 
-Semgrep saves security engineers time and effort by prioritizing valid leaked secrets and informs developers of valid secrets in their PRs and MRs by posting comments directly. 
+Semgrep saves security engineers time and effort by prioritizing valid leaked secrets and informs developers of valid secrets in their PRs and MRs by posting comments directly.
 
 ## How Semgrep Secrets works
 
@@ -54,14 +54,14 @@ detectors that simply define a pattern to match a piece of code.
 
 Semgrep Secrets uses several mechanisms to perform semantic analysis. It uses
 [<i class="fa-regular fa-file-lines"></i> data-flow
-analysis](/writing-rules/data-flow/data-flow-overview/) and [<i
+analysis](/writing-rules/data-flow/data-flow-overview) and [<i
 class="fa-regular fa-file-lines"></i> constant
-propagation](/writing-rules/data-flow/constant-propagation/) which means that it
+propagation](/writing-rules/data-flow/constant-propagation) which means that it
 is able to track data, such as variables, and the flow of that data across files
 and functions in your codebase.
 
 Performing semantic analysis is encapsulated in [<i class="fa-regular
-fa-file-lines"></i> rules](/running-rules/). By running these rules, Semgrep
+fa-file-lines"></i> rules](/running-rules). By running these rules, Semgrep
 Secrets is able to detect if a variable is renamed,
 reassigned, or used in a function in such a way that a secret is exposed.
 
@@ -71,7 +71,7 @@ See the following rule and JavaScript test code for an example.
 <iframe title="AWS hardcoded access key" src="https://semgrep.dev/embed/editor?snippet=EPj5" width="100%" height="432px" frameBorder="0"></iframe>
 <br />
 
-<!-- 
+<!--
 The rule detects hardcoded AWS secret access keys. The test code defines an access key in the variable `secret`. Click **<i class="fa-solid fa-play"></i> Run** to see the true positives.
 -->
 
@@ -89,7 +89,7 @@ The rule detects hardcoded AWS secret access keys. The test code defines an acce
   Regex-based scanners simply looking for matches of the string `secret`
   generate a false positive. -->
 
-### Validate secrets 
+### Validate secrets
 
 After scanning your codebase, Semgrep Secrets uses a proprietary
 **validator** to determine if a secret is actively being used or some other state if there is a validator defined in the rule used.
@@ -103,7 +103,7 @@ All validations, such as API calls, are done **locally** in your environment. No
 2. If the validator doesn't support the service that the secret is used
    for, Semgrep notes that there is **No validator** finding for the secret.
 3. Semgrep Secrets performs an API
-  call if the validator supports the service. The following outcomes can occur: 
+  call if the validator supports the service. The following outcomes can occur:
    1. **Confirmed valid:** Semgrep made
    an HTTP request using the secret, and it returned an HTTP status code of 200 or
    similar **and** some indication of valid access. For example, a service can
@@ -150,7 +150,7 @@ txtPassword1
 
 See [<i class="fa-regular fa-file-lines"></i> Scan for secrets](/semgrep-secrets/getting-started) to learn how to:
 * Enable secrets scanning for your repositories
-* Manage your rules in your [policy](/semgrep-secrets/policies) to have complete control over how 
+* Manage your rules in your [policy](/semgrep-secrets/policies) to have complete control over how
 * View and triage secrets-related findings
 * Receive notifications and post tickets whenever Semgrep Secrets identifies issues
 * Write [custom rules](/semgrep-secrets/rules) with [validators](/semgrep-secrets/validators) to find bespoke secrets

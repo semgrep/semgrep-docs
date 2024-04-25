@@ -15,7 +15,7 @@ The following resources can help you to test the code in the sections below. As 
 
 - Ensure that the <i class="fa-solid fa-toggle-large-on"></i> **Pro Engine beta** toggle is enabled on the [Playground](https://semgrep.dev/playground/new) page.
     - Rules you use in Semgrep Pro Engine require `interfile: true` key included in the `options` key. See the following [example](https://semgrep.dev/playground/s/lkPE).
-- The [Semgrep Pro Engine testing repository](https://github.com/semgrep/semgrep-pro-tests) 
+- The [Semgrep Pro Engine testing repository](https://github.com/semgrep/semgrep-pro-tests)
     - Clone the repository:
         ```sh
         git clone https://github.com/semgrep/semgrep-pro-tests
@@ -32,7 +32,7 @@ The following resources can help you to test the code in the sections below. As 
 
 ## Taint tracking
 
-Semgrep OSS allows you to search for the flow of any potentially exploitable input into an important sink using taint mode. For more information, see the [taint mode](/writing-rules/data-flow/taint-mode/) documentation.
+Semgrep OSS allows you to search for the flow of any potentially exploitable input into an important sink using taint mode. For more information, see the [taint mode](/writing-rules/data-flow/taint-mode) documentation.
 
 In the examples below, see a comparison of Semgrep OSS and Semgrep Pro Engine while searching for dangerous calls using data obtained `get_user_input` call. The rule does this by specifying the source of taint as `get_user_input(...)` and the sink as `dangerous(...);`.
 
@@ -139,7 +139,7 @@ public class ExampleException extends Exception {
 
 File `bad_request.java`:
 ```java
-package example; 
+package example;
 
 class BadRequest extends ExampleException {
   public BadRequest(String exception) {
@@ -159,7 +159,7 @@ If you are following in the cloned [Semgrep Pro Engine testing repository](https
     ```
 2. Run Semgrep Pro Engine:
     ```sh
-    semgrep --config pro.yaml . --pro 
+    semgrep --config pro.yaml . --pro
     ```
 :::
 

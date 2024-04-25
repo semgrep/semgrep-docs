@@ -26,7 +26,7 @@ Semgrep, Inc now offers a new product: Semgrep Supply Chain. Semgrep Supply Chai
 ### Changes
 
 - Previously, when you removed a rule you had to rescan the code to remove findings associated with the rule. With this change, findings made by the removed rule are now automatically removed without rescanning. If you add a removed rule back, then you need to rescan your code to get the findings from the previously removed rule again. For more information, see [Triaging findings](/semgrep-code/triage-remediation).
-- New [Findings](https://semgrep.dev/orgs/-/findings?tab=open) page styling. See [Managing findings in Semgrep App](/semgrep-code/findings/) documentation for additional information.
+- New [Findings](https://semgrep.dev/orgs/-/findings?tab=open) page styling. See [Managing findings in Semgrep App](/semgrep-code/findings) documentation for additional information.
 - Semgrep App experience is generally improved due to a significant number of fixed bugs.
 
 ## Semgrep CLI
@@ -75,7 +75,7 @@ These release notes include upgrades for versions ranging between 0.116.0 and 0.
 
 ## Semgrep in CI
 
-### Changes 
+### Changes
 
 - Previously, Semgrep overrode user-defined environment variables with values it detected from the CI provider. Now, user-defined environment variables take precedence (override) Semgrep's detected values. By enabling you to override CI variables, you are able to troubleshoot issues such as hyperlinks to code in the Findings page and receiving comments in pull or merge requests.
      - This change affects the following CI providers:
@@ -100,13 +100,13 @@ These release notes include upgrades for versions ranging between 0.116.0 and 0.
 #### Semgrep Supply Chain
 
 The following guides are now available for Semgrep Supply Chain:
-- [Scanning open source dependencies](/semgrep-supply-chain/getting-started/) - Walks the user through setting up Semgrep Supply Chain scans and how Semgrep performs reachability analysis.
-- [Triaging and remediating dependency findings](/semgrep-supply-chain/triage-and-remediation/) - Provides workflows for triaging dependency findings.
-- [Ignoring lockfiles and dependencies](/semgrep-supply-chain/ignoring-lockfiles-dependencies/) - Provides commands to fine-tune what files should not be scanned.
+- [Scanning open source dependencies](/semgrep-supply-chain/getting-started) - Walks the user through setting up Semgrep Supply Chain scans and how Semgrep performs reachability analysis.
+- [Triaging and remediating dependency findings](/semgrep-supply-chain/triage-and-remediation) - Provides workflows for triaging dependency findings.
+- [Ignoring lockfiles and dependencies](/semgrep-supply-chain/ignoring-lockfiles-dependencies) - Provides commands to fine-tune what files should not be scanned.
 
 The following references are available for Semgrep Supply Chain:
 - [Supported languages](/docs/supported-languages#semgrep-supply-chain) - All languages supported by Semgrep Supply Chain and their maturity levels.
-- [Glossary](/semgrep-supply-chain/glossary/) - A list of terms related to software composition analysis and how Semgrep Supply Chain relates to those terms
+- [Glossary](/semgrep-supply-chain/glossary) - A list of terms related to software composition analysis and how Semgrep Supply Chain relates to those terms
 
 #### Semgrep App
 
@@ -118,14 +118,14 @@ The following references are available for Semgrep Supply Chain:
 
 ### Changes
 
-- [CI configuration reference](/semgrep-ci/configuration-reference/) now includes all environment variables for CI, their uses, and how to set them.
+- [CI configuration reference](/semgrep-ci/configuration-reference) now includes all environment variables for CI, their uses, and how to set them.
 - [Getting started with Semgrep App](/deployment/core-deployment) now includes information about the last 10 supported versions of the Semgrep CLI.
-- [Running Semgrep in continuous integration (CI) with Semgrep App](/semgrep-ci/running-semgrep-ci-with-semgrep-cloud-platform/) now includes a new video Scanning code with Semgrep using GitHub Actions.
+- [Running Semgrep in continuous integration (CI) with Semgrep App](/semgrep-ci/running-semgrep-ci-with-semgrep-cloud-platform) now includes a new video Scanning code with Semgrep using GitHub Actions.
 - Updated a document and section that provides information on how to add multiple focus metavariables in:
-    - [Including multiple focus metavariables using set union semantics](/writing-rules/experiments/multiple-focus-metavariables/)
+    - [Including multiple focus metavariables using set union semantics](/writing-rules/experiments/multiple-focus-metavariables)
     - [Including multiple focus metavariables using set intersection semantics](/writing-rules/rule-syntax/#including-multiple-focus-metavariables-using-set-intersection-semantics)
 - Removing rules from a rule board now removes all associated findings. This change is reflected in the following documents:
     - [Managing findings](/semgrep-ci/findings-ci/#semgrep-code-findings).
-    - Section [Triaging findings](/semgrep-code/triage-remediation/) in [Managing findings in Semgrep App](/semgrep-code/findings/).
-    - [Getting started with Semgrep App](/deployment/core-deployment/).
+    - Section [Triaging findings](/semgrep-code/triage-remediation) in [Managing findings in Semgrep App](/semgrep-code/findings).
+    - [Getting started with Semgrep App](/deployment/core-deployment).
 - Adjustments to the structure of the documentation in our left sidebar. Many iterative changes, improvements, and fixes to improve your docs reading experience.

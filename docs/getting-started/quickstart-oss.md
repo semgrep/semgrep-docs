@@ -22,13 +22,13 @@ Learn how to set up Semgrep OSS, scan your codebase for security issues, and vie
 
 ## Prerequisites
 
-See [Prerequisites](/prerequisites/) to ensure that your machine meets Semgrep's requirements.
+See [Prerequisites](/prerequisites) to ensure that your machine meets Semgrep's requirements.
 
 ## Set up Semgrep
 
 <Install />
 
-## Scan your codebase 
+## Scan your codebase
 
 <ExportAs />
 

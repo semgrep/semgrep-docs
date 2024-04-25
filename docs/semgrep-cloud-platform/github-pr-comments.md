@@ -1,7 +1,7 @@
 ---
-slug: github-pr-comments 
+slug: github-pr-comments
 append_help_link: true
-title: GitHub PR comments 
+title: GitHub PR comments
 hide_title: true
 description: "Enable pull request (PR) comments in your GitHub repositories to display Semgrep findings to developers."
 tags:
@@ -48,7 +48,7 @@ PR comments appear for the following types of scans under these conditions:
 
 <CommentTriggers />
 
-## Steps to set up PR comments 
+## Steps to set up PR comments
 
 ### Prerequisites
 
@@ -80,7 +80,7 @@ Ensure that Semgrep's GitHub app (`semgrep-app`) has sufficient permissions to p
 
 For GitHub Actions users, no further steps need to be undertaken. Continue setting up Semgrep Code PR comments by [setting rules to Comment or Block mode](#set-rules-to-comment-or-block-mode).
 
-### Required environment variables 
+### Required environment variables
 
 <DefineConnectionVariables name="GitHub Actions" comment_type="PR"/>
 
@@ -117,7 +117,7 @@ To enable dataflow traces feature in your CI pipeline, fulfill the following pre
 
 :::info Prerequisites
 - Set up Semgrep to post GitHub PR comments, as described on this page.
-- To obtain meaningful results of dataflow traces in PR comments, use Semgrep Pro Engine while scanning your repositories to display cross-file (interfile) findings. To enable Semgrep Pro Engine, see [Semgrep Pro Engine overview](/semgrep-code/semgrep-pro-engine-intro/).
+- To obtain meaningful results of dataflow traces in PR comments, use Semgrep Pro Engine while scanning your repositories to display cross-file (interfile) findings. To enable Semgrep Pro Engine, see [Semgrep Pro Engine overview](/semgrep-code/semgrep-pro-engine-intro).
 - Not all Semgrep rules or rulesets make use of taint tracking. Ensure that you have a ruleset that does, such as the **default ruleset**, added in your **[Policies](https://semgrep.dev/orgs/-/policies)**. To add this ruleset, navigate to [https://semgrep.dev/p/default](https://semgrep.dev/p/default), and then click **Add to Policies**.
 - You can add additional rules that use taint tracking from [Semgrep Registry](https://semgrep.dev/explore).
 :::
@@ -141,7 +141,7 @@ Both GitHub and GitLab provide features to prevent or block a PR or MR from merg
 
 <NextAfterComments />
 
-## Additional references 
+## Additional references
 
 <TroubleshootingPrLinks />
 

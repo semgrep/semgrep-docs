@@ -32,7 +32,7 @@ rules:
 - id: github_example
   message: >-
     This is an example rule, that performs validation against github.com
-  severity: WARNING 
+  severity: WARNING
   languages:
   - regex
   validators:
@@ -52,7 +52,7 @@ rules:
       - match:
         - status-code: 401
         result:
-          validity: invalid 
+          validity: invalid
   patterns:
   - patterns:
     - pattern-regex: (?<REGEX>\b((ghp|gho|ghu|ghs|ghr|github_pat)_[a-zA-Z0-9_]{36,255})\b)
@@ -69,7 +69,7 @@ rules:
 - id: github_example
   message: >-
     This is an example rule that performs validation against github.com
-  severity: WARNING 
+  severity: WARNING
   languages:
   - javascript
   - typescript
@@ -90,7 +90,7 @@ rules:
       - match:
         - status-code: 401
         result:
-          validity: invalid 
+          validity: invalid
   patterns:
   - patterns:
     - pattern: |
@@ -123,7 +123,7 @@ Semgrep.
 | -------  | ------ |
 | `secret_type`  | Defines the name of the service or the type of secret. When writing a custom validator, set this value to a descriptive name to help identify it when triaging secrets. Examples of secret types include "Slack," "Asana," and other common service names. |
 | `technology` | Set this to `secrets` to identify the rule as a Secrets rule. |
-   
+
 ### Subkeys under the `patterns` key
 
 These subkeys identify the token to analyze in a given match.
@@ -146,7 +146,7 @@ These subkeys identify the token to analyze in a given match.
 | `focus_metavariable`  | This key enables the rule to define a metavariable upon which Semgrep can perform further analysis, such as entropy analysis. |
 | `metavariable_analysis`  | Under `metavariable_analysis`, you can define additional keys: `analyzer` and `metavariable`. These specify the kind of analysis Semgrep performs and on what variable.  |
 
-:::tip 
+:::tip
 For more information, see the rule syntax for [<i class="fa-regular fa-file-lines"></i> Focus
 metavariable](/writing-rules/rule-syntax/#focus-metavariable).
 :::
@@ -155,7 +155,7 @@ metavariable](/writing-rules/rule-syntax/#focus-metavariable).
 
 The `validators` key uses a list of keys to define the validator function. In
 particular, the `http` key defines how the rule forms a request object and what
-response is expected for valid and invalid states. Although some rules do not use a `validators` key, most Secrets rules use it. 
+response is expected for valid and invalid states. Although some rules do not use a `validators` key, most Secrets rules use it.
 
 ```yaml
   ...
@@ -185,7 +185,7 @@ response is expected for valid and invalid states. Although some rules do not us
 | `response`  | This key and its subkeys determine **validation status**. Semgrep Secrets identifies a validation status through HTTP status code **and** other key-value pairs. For example, a rule may require a 200 status code **and** a `"message": "ok"` in the response body for the matching secret to be considered **Confirmed valid**. |
 
 :::tip
-See [<i class="fa-regular fa-file-lines"></i> Validators](/semgrep-secrets/validators/) for more information.
+See [<i class="fa-regular fa-file-lines"></i> Validators](/semgrep-secrets/validators) for more information.
 :::
 
 ## Differences between Semgrep Secrets rules and Semgrep Registry rules
