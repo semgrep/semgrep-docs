@@ -24,3 +24,9 @@ To export the results to a JSON file:
 semgrep scan --json --output=semgrep.json
 ```
 
+To view your results in multiple formats, combine the appropriate flags:
+
+```console
+# obtain results as text output and as JSON, SARIF
+semgrep scan --json --text --output=semgrep.sarif --output=semgrep.json
+```

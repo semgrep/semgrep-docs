@@ -72,6 +72,13 @@ To export the results to a JSON file:
 semgrep ci --json --output=semgrep.json
 ```
 
+To view your results in multiple formats, combine the appropriate flags:
+
+```console
+# obtain results as text output and as JSON, SARIF
+semgrep ci --json --text --output=semgrep.sarif --output=semgrep.json
+```
+
 ### Scan your project with a specific ruleset
 
 <ScanRuleset />
