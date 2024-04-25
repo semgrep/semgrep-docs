@@ -10,7 +10,7 @@ tags:
 
 # Manage Semgrep Secrets rules using the Policies page
 
-The **Policies** page visually represents the rules Semgrep Secrets uses for scanning. 
+The **Policies** page visually represents the rules Semgrep Secrets uses for scanning.
 
 ![Overview of Semgrep Secrets policies view](/img/secrets-rules-management.png)
 
@@ -61,7 +61,7 @@ This section defines the columns of the rule entries in the Policies page:
 | Rule name  | Name of the rule Semgrep Secret uses for scanning. |
 | Labels  | Metadata describing the rule, including the service for which the rule is applicable. |
 | Open findings  | The number of open findings the rule detected across all scans.  |
-| Fix rate  | The percentage of findings that are fixed.  |
+| Fix rate  | The percentage of findings that are fixed through changes to the code.  |
 | Severity  | The higher the severity, the more critical the issues that a rule detects.      |
 | Confidence  | Indicates confidence of the rule to detect true positives.      |
 | Source  | Indicates the origin of a rule. | <ul><li><strong>Pro:</strong> Authored by Semgrep. Custom:</strong> Rules created within your Semgrep organization. |
@@ -97,8 +97,8 @@ To set the rule mode for invalid findings and validation errors:
 Semgrep enables you to set a **workflow action** based on the presence of a finding. Workflow actions include:
 
 * Failing a CI job. Semgrep returns exit code `1`, and you can use this result to set up additional checks to enforce a block on a PR or MR.
-* Leaving a [PR or MR comment](/category/pr-or-mr-comments/).
-* [Notifying select channels](/semgrep-cloud-platform/notifications/), such as private Slack channels or webhooks.
+* Leaving a [PR or MR comment](/category/pr-or-mr-comments).
+* [Notifying select channels](/semgrep-cloud-platform/notifications), such as private Slack channels or webhooks.
 
 You can trigger these actions based on the [rule mode](#rule-modes) set for the rule.
 

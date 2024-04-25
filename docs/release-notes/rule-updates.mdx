@@ -16,7 +16,7 @@ Welcome to monthly rule updates. This document includes selected new rules, remo
 
 ### Community rules
 
-Thanks to [Sjord](https://github.com/Sjord), [@artem-fedorov](https://github.com/artem-fedorov) and [@gabriellesc](https://github.com/gabriellesc) for their contributions! 
+Thanks to [Sjord](https://github.com/Sjord), [@artem-fedorov](https://github.com/artem-fedorov) and [@gabriellesc](https://github.com/gabriellesc) for their contributions!
 
 #### New rules from Semgrep community and Semgrep, Inc
 
@@ -116,7 +116,7 @@ Thanks to [Sjord](https://github.com/Sjord), [@artem-fedorov](https://github.com
 
 ### Pro rules
 
-The **Pro rules** are created by Semgrep, Inc and targeted for security and software engineers who need accurate findings. These rules were previously marked as Team tier rules (see the updates below). As of this update, these rules are called the **[Pro rules](/semgrep-code/pro-rules/)** and are available with the [Team or higher tier](https://semgrep.dev/pricing).
+The **Pro rules** are created by Semgrep, Inc and targeted for security and software engineers who need accurate findings. These rules were previously marked as Team tier rules (see the updates below). As of this update, these rules are called the **[Pro rules](/semgrep-code/pro-rules)** and are available with the [Team or higher tier](https://semgrep.dev/pricing).
 
 #### New Pro rules
 
@@ -167,7 +167,7 @@ The **Pro rules** are created by Semgrep, Inc and targeted for security and soft
     - <LinkToRegistryRule ruleId="terraform.azure.best-practice.azure-keyvault-recovery-enabled.azure-keyvault-recovery-enabled" />
     - <LinkToRegistryRule ruleId="terraform.azure.security.azure-automation-encrypted.azure-automation-encrypted" />
 - Thanks [@ItsIgnacioPortal](https://github.com/ItsIgnacioPortal)! Added external references: <LinkToRegistryRule ruleId="yaml.github-actions.security.workflow-run-target-code-checkout.workflow-run-target-code-checkout" />
-- FP reduction with additional sanitizers: <LinkToRegistryRule ruleId="javascript.sequelize.security.audit.sequelize-injection-express.express-sequelize-injection" /> 
+- FP reduction with additional sanitizers: <LinkToRegistryRule ruleId="javascript.sequelize.security.audit.sequelize-injection-express.express-sequelize-injection" />
 - FP reduction with improved pattern for taint mode: <LinkToRegistryRule ruleId="javascript.express.security.audit.express-open-redirect.express-open-redirect" />
 - FP reduction with improved pattern for taint mode: <LinkToRegistryRule ruleId="javascript.express.security.injection.tainted-sql-string.tainted-sql-string" />
 - Reduced severity: <LinkToRegistryRule ruleId="dockerfile.audit.dockerfile-source-not-pinned.dockerfile-source-not-pinned" />
@@ -270,7 +270,7 @@ New rules for hardcoded secrets:
 - Filter case when only static strings are used: <LinkToRegistryRule ruleId="javascript.browser.security.raw-html-join" />
 - Filter case when the user input is used as an index to a map: <LinkToRegistryRule ruleId="ruby.rails.security.brakeman.check-render-local-file-include" />
 - FP reduction by removing an unnecessary unanchored pattern: <LinkToRegistryRule ruleId="ruby.rails.security.audit.avoid-tainted-shell-call" />
-- Scope Laravel cookie rules to only scan inside files named `*session.php`: 
+- Scope Laravel cookie rules to only scan inside files named `*session.php`:
     - <LinkToRegistryRule ruleId="php.laravel.security.laravel-cookie-http-only" />
     - <LinkToRegistryRule ruleId="php.laravel.security.laravel-cookie-long-timeout" />
     - <LinkToRegistryRule ruleId="php.laravel.security.laravel-cookie-null-domain" />
@@ -342,7 +342,7 @@ Semgrep, Inc is adding new metadata fields to better communicate the intent and 
 - PyYAML rule updated for modern versions of PyYAML. This can lower the occurence of false positive findings. Thanks @shivankar-madaan: python.lang.security.deserialization.avoid-pyyaml-load
 - Added new case for C use-after-free where freed var is used in conditional. Thanks @zhengsidie. c.lang.security.use-after-free
 - Additional user input added. Thanks @jbergler! ruby.lang.security.no-eval
-- Reduced false positives by filtering safe attributes. Thanks @luisfontes19! python.flask.security.open-redirect 
+- Reduced false positives by filtering safe attributes. Thanks @luisfontes19! python.flask.security.open-redirect
 - Filtered false positive cases from:
     - <LinkToRegistryRule ruleId="generic.secrets.security.detected-slack-webhook" />
     - <LinkToRegistryRule ruleId="java.jax-rs.security.insecure-resteasy" />
@@ -532,11 +532,11 @@ There are now 80 [team tier](https://semgrep.dev/pricing) only rules covering Ja
 
 - Added additional import scenarios for os.system <LinkToRegistryRule ruleId="python.lang.security.audit.dangerous-system-call" />
 
-- Rewritten with taint mode: 
+- Rewritten with taint mode:
   - <LinkToRegistryRule ruleId="javascript.express.security.audit.express-path-join-resolve-traversal" />
   - <LinkToRegistryRule ruleId="javascript.lang.security.audit.code-string-concat" />
   - <LinkToRegistryRule ruleId="javascript.lang.security.audit.path-traversal.path-join-resolve-traversal" />
-- Updated precision of source with `focus-metavariable`: 
+- Updated precision of source with `focus-metavariable`:
   - <LinkToRegistryRule ruleId="javascript.express.security.injection.tainted-sql-string" />
   - <LinkToRegistryRule ruleId="javascript.lang.security.audit.sqli.node-mysql-sqli" />
 - Added additional filters for acceptable SSL policies: <LinkToRegistryRule ruleId="terraform.aws.security.insecure-load-balancer-tls-version" />
@@ -544,14 +544,14 @@ There are now 80 [team tier](https://semgrep.dev/pricing) only rules covering Ja
 - Added sanitizers, added constant string filter: <LinkToRegistryRule ruleId="typescript.react.security.audit.react-dangerouslysetinnerhtml" />
 - Uses taint mode to remove uninteresting sources: <LinkToRegistryRule ruleId="typescript.react.security.audit.react-href-var" />
 - Remove for loop case due to high false positive (FP) rate: <LinkToRegistryRule ruleId="javascript.lang.security.audit.path-traversal.path-join-resolve-traversal" />
-- FP reduction by removing cases where user input is likely a number type: 
+- FP reduction by removing cases where user input is likely a number type:
   - <LinkToRegistryRule ruleId="javascript.lang.security.audit.sqli.node-knex-sqli" />
   - <LinkToRegistryRule ruleId="javascript.lang.security.audit.sqli.node-mysql-sqli" />
 - Exclude Error and Exception classes from results: <LinkToRegistryRule ruleId="ruby.lang.security.model-attributes-attr-accessible" />
 - FP reduction: more specific sources: <LinkToRegistryRule ruleId="typescript.angular.security.audit.angular-domsanitizer" />
 - FP reduction by limiting to more specific cases: <LinkToRegistryRule ruleId="typescript.react.security.audit.react-dangerouslysetinnerhtml" />
 - Removed 1 case with high FP likelihood: <LinkToRegistryRule ruleId="typescript.react.security.audit.react-href-var" />
-- Altered behavior: 
+- Altered behavior:
   - <LinkToRegistryRule ruleId="generic.secrets.security.detected-username-and-password-in-uri.detected-username-and-password-in-uri" />
   - <LinkToRegistryRule ruleId="python.requests.best-practice.use-timeout (fix autofix)" />
 - Removed FPs:

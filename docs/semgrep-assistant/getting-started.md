@@ -1,9 +1,18 @@
-# Enable Semgrep Assistant
+---
+slug: getting-started
+title: Analyze with Assistant
+hide_title: true
+description: Learn how to enable and use all of Assistant's features.
+tags:
+  - Semgrep Assistant
+---
+
+# Enable and use Semgrep Assistant
 
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-This article walks you through enabling Semgrep Assistant for your deployment.
+This article walks you through enabling Semgrep Assistant for your deployment and using its features.
 
 :::info Prerequisites
 * You have completed a [Semgrep core deployment](/deployment/core-deployment).
@@ -34,7 +43,7 @@ Semgrep Assistant requires [read access to your code in GitHub](https://docs.git
 1. Sign in to [Semgrep Cloud Platform](https://semgrep.dev/login).
 2. Click **[<i class="fa-solid fa-gear"></i> Settings](https://semgrep.dev/orgs/-/settings/)**. 
 3. In the **Assistant** section, click the **<i class="fa-solid fa-gear"></i> Allow code snippets in AI prompts** toggle.
-![Screenshot of Semgrep Assistant setup button](/img/semgrep-assistant-setup.png#md-width)
+![Semgrep Assistant setup button](/img/semgrep-assistant-setup.png#md-width)
    This launches the **Set up Semgrep Assistant** prompt.
 1. Select a source code manager (SCM) by clicking **github.com**.
 2. Semgrep provides you with information on why Assistant requires access to your source code. Click **Accept & Enable Assistant** to proceed.
@@ -47,7 +56,7 @@ Semgrep Assistant requires [read access to your code in GitHub](https://docs.git
    1. **Allow code snippets in AI prompts**: Required for Semgrep to auto-triage findings, provide AI remediation guidance, and tag findings with code context.
    2. **Autofix suggestions for Code**: Enable autofix suggestions in comments from Assistant. You can also set the minimum confidence level for Assistant-written fixes if the Semgrep rule doesn't include a human-written autofix.
    3. **Auto-triage for Code**: Enable notifications whenever Assistant suggests that a finding may be safe to ignore. You can include notifications in your PR and MR comments, or you can receive them through Slack notifications.
-    ![Screenshot of Semgrep Assistant toggle location](/img/semgrep-assistant-enable.png)
+    ![Semgrep Assistant toggle location](/img/semgrep-assistant-enable.png)
 
 </TabItem>
 
@@ -67,13 +76,14 @@ Semgrep Assistant requires the **API scope** to run in both GitLab SaaS and GitL
 1. Sign in to [Semgrep Cloud Platform <i class="fas fa-external-link fa-xs"></i>](https://semgrep.dev/login) using your GitLab account.
 2. Click **[<i class="fa-solid fa-gear"></i> Settings](https://semgrep.dev/orgs/-/settings/)**. 
 3. In the **Assistant** section, click the **<i class="fa-solid fa-gear"></i> Allow code snippets in AI prompts** toggle.
-![Screenshot of Semgrep Assistant setup button](/img/semgrep-assistant-setup.png#md-width)
+![Semgrep Assistant setup button](/img/semgrep-assistant-setup.png#md-width)
    This launches the **Set up Semgrep Assistant** prompt.
-4. Follow the on-screen instructions to complete the setup process.
-5. Navigate back to the **Deployment** page. Under the **Assistant** section, verify that all of the features are enabled:
+1. Follow the on-screen instructions to complete the setup process.
+2. Navigate back to the **Deployment** page. Under the **Assistant** section, verify that all of the features are enabled:
    1. **Allow code snippets in AI prompts**: Required for Semgrep to auto-triage findings, provide AI remediation guidance, and tag findings with code context.
    2. **Autofix suggestions for Code**: Enable autofix suggestions in comments from Assistant. You can also set the minimum confidence level for Assistant-written fixes if the Semgrep rule doesn't include a human-written autofix.
    3. **Auto-triage for Code**: Enable notifications whenever Assistant suggests that a finding may be safe to ignore. You can include notifications in your PR and MR comments, or you can receive them through Slack notifications.
+   4. **Weekly priority emails**: Get weekly emails with information on your top backlog tasks according to Assistant. Semgrep sends these emails to organization admins every Monday.
     ![Semgrep Assistant toggle location](/img/semgrep-assistant-enable.png)
 
 </TabItem>
@@ -105,8 +115,15 @@ If [auto-triage](/semgrep-assistant/overview/#autotriage), which allows you to g
 Semgrep Assistant messages only appear in your PR comments for rules that are set to Comment or Block mode on the Rule Management page. Ensure that:
 
 * You have set rules to Comment or Block mode.
-  ![Screenshot of Policies modes](/img/semgrep-assistant-comment.png)
+  ![ Policies modes](/img/semgrep-assistant-comment.png)
 * You have selected PR/MR comments in **Semgrep Cloud Platform > Settings > Deployment** in the **Code** section.
+
+### Enable priority inbox
+
+If [priority inbox](/semgrep-assistant/overview/#priority-inbox), which allows organization admins to receive information on top backlog tasks according to Assistant, isn't enabled for your deployment, you can do so as follows:
+
+1. Sign in to Semgrep Cloud Platform, and navigate to **Settings > Deployment**.
+2. In the **Assistant** section, click the **Weekly priority emails** <i class="fa-solid fa-toggle-large-on"></i> if it is not yet enabled.
 
 ## Analyze findings
 
@@ -131,3 +148,22 @@ There is a cap of 250 Assistant runs per month using the **Analyze** button. Ass
 ## View recommendations
 
 You can [view all of Semgrep Assistant's recommendations](/semgrep-code/findings/#filter-findings) by going to Semgrep Cloud Platform's **Findings** page and filtering by **Recommendation** or **Component**.
+
+## Write custom rules (beta)
+
+Semgrep Assistant can help you write custom rules to find issues specific to your codebase.
+
+To do so:
+
+1. Sign in to Semgrep Cloud Platform.
+2. Navigate to **Rules > Editor**.
+3. Click the **plus** button, and under **Generate with AI**, click **...with Semgrep Assistant**.
+   ![The plus button to open up the custom rules editor](/img/assistant-launch-rules-editor.png#md-width)
+4. In the **Generate rule with Semgrep Assistant** pop-up window:
+   1. Select the language of your codebase.
+   2. Provide a prompt describing what you want the rule to do in English.
+   3. Optional: provide an example of bad code.
+   4. Optional: provide an example of good code.
+   ![Custom rule sample plus test window](/img/assistant-write-custom-rule.png#md-width)
+5. Click **Generate** to proceed. You'll be redirected to a screen where you can view and copy your rule and test it against the sample bad code snippet you provided.
+   ![Dialog box for custom rule parameters](/img/assistant-view-rule.png#md-width)

@@ -1,15 +1,16 @@
 | Status | Description |
 | -----------  | ------------ |
 | **Open** | Findings are open by default. A finding is open if it was present the last time Semgrep scanned the code and has not been ignored. An open finding represents a match between the code and a rule enabled in the repository. Open findings require action, such as rewriting the code to eliminate the detected vulnerability. |
-| **Ignored** | Findings that are ignored are present in the code but have been labeled as unimportant. Ignore findings that are false positives or deprioritized issues. Mark findings as [ignored through Semgrep Cloud Platform](/semgrep-code/triage-remediation/) or by adding a [nosemgrep code comment](/ignoring-files-folders-code/#reference-summary). |
-| **Fixed** | <p>Fixed findings were detected in a previous scan but are no longer detected in the most recent scan of that same branch. </p> <p> To change the state of a finding to **fixed**: <ol type="a"><li>Fix the code so the rule does not match it.</li><li>Edit the Semgrep rule to no longer match the code.</li></ol></p> |
+| **Ignored** | Findings that are ignored are present in the code but have been labeled as unimportant. Ignore findings that are false positives or deprioritized issues. Mark findings as [ignored through Semgrep Cloud Platform](/semgrep-code/triage-remediation) or by adding a [nosemgrep code comment](/ignoring-files-folders-code/#reference-summary). |
+| **Fixed** | Fixed findings were detected in a previous scan but are no longer detected in the most recent scan of that same branch due to changes in the code. |
 
 ### Remove findings
 
 You can **remove** findings. Semgrep considers a finding removed if it is not found in the most recent scan of the branch where Semgrep initially detected it due to any of the following conditions:
 
 * The rule that detected the finding isn't enabled in the policy anymore.
-* The filepath where the finding appeared is no longer found. The filepath was deleted, renamed, added to a `.semgrepignore` file, added to a `.gitignore` file, or added to the list of ignored paths in Semgrep Cloud Platform.
+* The rule that detected the finding was updated such that it no longer detects the finding.
+* The file path where the finding appeared is no longer found. The file path was deleted, renamed, added to a `.semgrepignore` file, added to a `.gitignore` file, or added to the list of ignored paths in Semgrep Cloud Platform.
 * For GitHub organization accounts: the PR or MR where the finding was detected has been closed without merging.
 
 Your removed findings do not count toward the fix rate or the number of findings. The removed findings also do not appear in Semgrep Cloud Platform.

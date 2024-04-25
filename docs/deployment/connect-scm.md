@@ -1,5 +1,5 @@
 ---
-slug: connect-scm 
+slug: connect-scm
 title: Connect a source code manager
 hide_title: true
 description: Connect a GitHub or GitLab organization to manage user authentication.
@@ -14,7 +14,7 @@ tags:
 
 :::note Your deployment journey
 - You have gained the necessary [resource access and permissions](/deployment/checklist) required for deployment.
-- You have [created a Semgrep account and organization](/deployment/create-account-and-orgs). 
+- You have [created a Semgrep account and organization](/deployment/create-account-and-orgs).
 :::
 
 Linking a source code manager provides the following benefits:
@@ -62,7 +62,7 @@ You have successfully connected an org in Semgrep Cloud Platform with an organiz
 
 ### GitLab Cloud
 
-For users of GitLab cloud-hosted plans, a connection to GitLab is created automatically after [adding a Semgrep job to GitLab CI/CD](/deployment/add-semgrep-to-ci/). No other steps are needed.
+For users of GitLab cloud-hosted plans, a connection to GitLab is created automatically after [adding a Semgrep job to GitLab CI/CD](/deployment/add-semgrep-to-ci). No other steps are needed.
 
 ## Connect to on-premise orgs
 
@@ -179,7 +179,7 @@ Connect Semgrep and GitHub Enterprise Server by creating a PAT and setting it in
 1. Return to Semgrep Cloud Platform and enter the personal access token generated into the **Access token** field.
 1. Enter your GHE Server base URL into the **URL** field.
 1. Ensure that your SCM integration successfully detects repositories by setting up a CI job. Do the following steps **for each repository** you want to scan:
-        1. Commit a `semgrep.yml` configuration file into the `.github/workflows` folder. Refer to [Sample CI configurations](/docs/semgrep-ci/sample-ci-configs#github-actions) for a template you can copy and customize. 
+        1. Commit a `semgrep.yml` configuration file into the `.github/workflows` folder. Refer to [Sample CI configurations](/docs/semgrep-ci/sample-ci-configs#github-actions) for a template you can copy and customize.
         2. The CI job starts automatically to establish a connection with Semgrep Cloud Platform. Upon establishing a connection, your repository appears in **Semgrep Cloud Platform > [Projects](https://semgrep.dev/orgs/-/projects)** page.
 
 </TabItem>
@@ -217,6 +217,6 @@ New workflow steps
     1. Choose to **<i class="fa-regular fa-circle-dot"></i> Leave PR comments and get Assistant recommendations** or **<i class="fa-regular fa-circle-dot"></i> Leave PR comments**.
     1. Optional: Click Review permissions to view the permissions granted to Semgrep.
     1. Click **Create GitHub App**.
-    1. Click **Install**. 
+    1. Click **Install**.
 
--->    
+-->

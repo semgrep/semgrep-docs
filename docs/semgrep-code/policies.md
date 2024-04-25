@@ -26,7 +26,7 @@ Increase the breadth and depth of your scan coverage or remove noise from scans 
 
 The Policies page displays a visual representation of the rules that Semgrep Code uses for scanning. By default, the same rules in Policies are applied to all repositories.
 
-To learn more about rules, see [<i class="fa-regular fa-file-lines"></i> Running rules](/running-rules/).
+To learn more about rules, see [<i class="fa-regular fa-file-lines"></i> Running rules](/running-rules).
 
 :::info Speed and language coverage
 Semgrep Code identifies the languages used in your repositories and **only runs rules applicable to those languages**.
@@ -46,7 +46,7 @@ The Policies page consists of a header and three main panes:
         <dd>
             The top header consists of:
             <ul>
-             <li><strong>Policies view drop-down</strong>, which lets you choose between: 
+             <li><strong>Policies view drop-down</strong>, which lets you choose between:
                 <ul><li>Grouping rules by vulnerability class</li>
                 <li>No grouping</li>
                 </ul></li>
@@ -88,7 +88,7 @@ To add rules, follow these steps:
 
 1. On the [<i class="fas fa-external-link fa-xs"></i> Policies](https://semgrep.dev/orgs/-/policies) page, click **Add Rules**.
 1. You are redirected to the [<i class="fas fa-external-link fa-xs"></i> Semgrep Registry](https://semgrep.dev/explore) page. Explore the page, open cards of individual rules, and then click **Add to Policy**.
-1. Specify the workflow action of the rule that you are adding. Select either: 
+1. Specify the workflow action of the rule that you are adding. Select either:
     - Monitor
     - Comment
     - Block
@@ -124,7 +124,7 @@ This section defines the Policies page filters:
 | Minimum count of findings| Filter by the number of findings.  | <ul><li>10</li><li>100</li><li>500</li></ul>  |
 
 :::tip
-Use **Minimum count of findings** to quickly catch rules generating a lot of findings. This may be an indication of false positives or noise. 
+Use **Minimum count of findings** to quickly catch rules generating a lot of findings. This may be an indication of false positives or noise.
 :::
 
 ## Rule entry reference
@@ -136,7 +136,7 @@ This section defines the columns of the rule entries in the Policies page:
 | Rule name  | Name of the rule that Semgrep Code uses for scanning.       | [<i class="fas fa-external-link fa-xs"></i> `docs-print-to-logger`](https://semgrep.dev/playground/s/KPzL)       |
 | Labels  | Metadata describing the rule. This includes the rule's language, category (good security practices, coding standards), and more. |  <ul><li>Security</li><li>Code injection</li><li>PHP</li></ul>        |
 | Open findings  | The number of open findings that the rule has detected across all scans.  |  n/a  |
-| Fix rate  | The percentage of findings that are fixed.  | n/a   |
+| Fix rate  | The percentage of findings that are fixed through changes to the code.  | n/a   |
 | Severity  | The higher the severity, the more critical the issues are that a rule detects.      |  <ul><li>High</li><li>Medium</li><li>Low</li></ul>      |
 | Confidence  | Indicates confidence of the rule to detect true positives.      |  <ul><li>High</li><li>Medium</li><li>Low</li></ul> |
 | Source  | Indicates the origin of a rule. | <ul><li><strong>Pro:</strong> Authored by Semgrep with cross-file (interfile) and cross-function (interprocedural) analysis capabilities, providing you with enhanced scan accuracy. For more information, see <a href="/semgrep-code/pro-rules/"><i class="fa-regular fa-file-lines"></i> Pro rules.</a></li><li><strong>Community:</strong> Authored by Semgrep, Inc or external contributors such as Trail of Bits.</li><li><strong>Custom:</strong> Rules created within your Semgrep organization. For more information, see <a href="/writing-rules/private-rules/"><i class="fa-regular fa-file-lines"></i> Private rules</a>.</li></ul>.      |
@@ -153,7 +153,7 @@ To change assigned modes, select either the top **Matching Rules** checkbox to s
 If you have the **multiple policies** feature, you can customize the rules that run on specific repositories. Currently, this beta is not accepting new participants.
 :::
 
-The multiple policies feature enables users to customize the rules that run on specific repositories. 
+The multiple policies feature enables users to customize the rules that run on specific repositories.
 
 Users create different policies that repositories can **subscribe** to.
 
@@ -163,7 +163,7 @@ You can create a policy, for example, "Custom Coding Standards Policy", with som
 
 ### Resolving workflow actions in multiple policies
 
-If a rule is in multiple policies, then the rule is deduplicated and Semgrep prioritizes the workflow action based on the rule's mode where precedence is as follows: 
+If a rule is in multiple policies, then the rule is deduplicated and Semgrep prioritizes the workflow action based on the rule's mode where precedence is as follows:
 
 1. Block
 2. Comment

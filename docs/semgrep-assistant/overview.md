@@ -18,7 +18,7 @@ import MoreHelp from "/src/components/MoreHelp"
 
 Semgrep Assistant provides GPT-4-powered security recommendations to help you review, triage, and remediate your Semgrep findings.
 
-![Screenshot of Semgrep Assistant message in GitHub](/img/semgrep-assistant-github.png)
+![Semgrep Assistant message in GitHub](/img/semgrep-assistant-github.png)
 *Figure*. Semgrep Assistant detects a false positive.
 
 ## Support and availability
@@ -55,7 +55,7 @@ Semgrep Assistant uses GPT-4's understanding of programming languages and librar
 
 Semgrep presents these recommendations through Slack and PR or MR comments, so developers can fix or triage an issue without switching contexts.
 
-![Screenshot of Semgrep Assistant in a Slack notification](/img/semgrep-assistant-slack.png#md-width)
+![Semgrep Assistant in a Slack notification](/img/semgrep-assistant-slack.png#md-width)
     *Figure*. Semgrep Assistant in a Slack notification.
 
 You can view findings that Assistant suggests should be **Ignored** in Semgrep Cloud Platform's **Findings page**. <!-- #10438 -->
@@ -76,6 +76,19 @@ You can view findings for which Assistant has generated autofix snippets in Semg
 ![Sample finding entry with Semgrep Assistant verdict](/img/assistant-recommendations.png)
 
 The finding's detail page also includes a link to the PR or MR comment with the autofix; you can go to the PR or MR, where you can directly commit the autofix. <!-- #10516 --> <!-- This isn't unique to Assistant; it's available for autofix and PR/MR comments in general. -->
+
+### Priority inbox
+
+Semgrep sends weekly emails with information on the top three backlog tasks across all according to Assistant. These results provided can include information for all Semgrep products that you have enabled. The emails are sent out on Monday to all organization admins.
+
+This information is also available in Semgrep Cloud Platform on the **Dashboard** page under **Assistant recommended tasks**.
+
+![Semgrep Assistant's priority inbox email and Dashboard view](/img/priority-inbox.png#md-width)
+    *Figure*. Semgrep Assistant's priority inbox Dashboard view.
+
+### Custom rules editor (beta)
+
+Semgrep Assistant can help you write custom rules to find patterns and vulnerabilities specific to your codebase. The only information you need to provide is a prompt describing what you want the rule to do in English. However, if you provide an example of bad code and an example of good code, Semgrep uses this information for you to test the generated rule and provide context to the language model (LLM).
 
 ## Privacy and legal considerations
 

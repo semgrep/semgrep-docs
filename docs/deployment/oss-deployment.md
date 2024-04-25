@@ -1,16 +1,16 @@
 ---
-slug: oss-deployment 
+slug: oss-deployment
 append_help_link: true
-title: Semgrep OSS in CI 
+title: Semgrep OSS in CI
 description: Learn how to set up a Semgrep OSS CI environment for yourself or your organization.
 tags:
   - Deployment
-  - Semgrep OSS Engine 
+  - Semgrep OSS Engine
 ---
 
 import CiScheduling from "/src/components/reference/_ci-scheduling.mdx"
 
-# Semgrep OSS in CI 
+# Semgrep OSS in CI
 
 Semgrep OSS can be set up run static application security testing (SAST) scans on repositories of any size.
 
@@ -69,9 +69,9 @@ rules:
 ```
 </details>
 
-For a comparison of the behavior between Semgrep OSS CI scans and Semgrep Pro scans, see [<i class="fa-regular fa-file-lines"></i> Semgrep Pro versus Semgrep OSS](semgrep-pro-vs-oss). 
+For a comparison of the behavior between Semgrep OSS CI scans and Semgrep Pro scans, see [<i class="fa-regular fa-file-lines"></i> Semgrep Pro versus Semgrep OSS](/semgrep-pro-vs-oss).
 
-## Set up the CI job 
+## Set up the CI job
 
 ### Use template configuration files
 
@@ -106,7 +106,7 @@ For an example, see the the [Azure Pipelines code snippet](/semgrep-ci/sample-ci
 
 The following sections describe methods to customize your CI job.
 
-<!-- 
+<!--
 ### Pass or fail the CI job
 
 By default, a Semgrep CI job exits with exit code 1 if the scan returns any findings. This causes the job to fail.
@@ -148,7 +148,7 @@ The `SEMGREP_RULES` environment variable accepts a list of local and remote rule
 ```yaml
 # ...
   script:
-    - export SEMGREP_RULES="p/nginx p/ci no-exec.yml" 
+    - export SEMGREP_RULES="p/nginx p/ci no-exec.yml"
     - semgrep ci
 # ...
 ```
@@ -156,7 +156,7 @@ The `SEMGREP_RULES` environment variable accepts a list of local and remote rule
 The line defining `SEMGREP_RULES` defines three different sources, delimited by a space:
 
 ```
-- export SEMGREP_RULES="p/nginx p/ci no-exec.yml" 
+- export SEMGREP_RULES="p/nginx p/ci no-exec.yml"
 ```
 
 The example references two rulesets from Semgrep Registry (`p/nginx` and `p/ci`) and a rule available in the repository (`no-exec.yml`).
@@ -176,7 +176,7 @@ variables:
 
 Write custom rules to enforce your team's coding standards and security practices. Rules can be forked from existing community-written rules.
 
-See [Writing rules](/writing-rules/overview/) to learn how to write custom rules.
+See [Writing rules](/writing-rules/overview) to learn how to write custom rules.
 
 ### Ignore files
 
@@ -220,8 +220,7 @@ To migrate to Semgrep Cloud Platform:
 | Feature  | Semgrep Pro CI (`semgrep ci`)| Semgrep OSS CI (`semgrep scan`) |
 | -------  | ------ | ------ |
 | Customized SAST scans         |  ✔️        | ✔️       |
-| [SCA (software composition analysis) scans](/semgrep-supply-chain/overview/)         |  ✔️        | --       |
-| [Secrets  scans](/semgrep-secrets/conceptual-overview/)         |  ✔️       | --        |
-| [PR (pull request) or MR (merge request) comments](/category/pr-or-mr-comments/)         |  ✔️        | --       |
-| [Finding status tracked over lifetime](/semgrep-code/findings/)         |  ✔️        | --       |
-
+| [SCA (software composition analysis) scans](/semgrep-supply-chain/overview)         |  ✔️        | --       |
+| [Secrets  scans](/semgrep-secrets/conceptual-overview)         |  ✔️       | --        |
+| [PR (pull request) or MR (merge request) comments](/category/pr-or-mr-comments)         |  ✔️        | --       |
+| [Finding status tracked over lifetime](/semgrep-code/findings)         |  ✔️        | --       |

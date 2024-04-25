@@ -42,7 +42,6 @@ module.exports = {
             'getting-started/quickstart',
             'prerequisites',
             'supported-languages',
-            'semgrep-code/java',
             {
               type: 'category',
               label: 'Local and CLI scans',
@@ -312,7 +311,7 @@ module.exports = {
         },
         {
             type: 'category',
-            label: 'Pro language features',
+            label: 'Language-specific features',
             collapsible: true,
             link: {type: 'generated-index'},
             items: [
@@ -683,6 +682,7 @@ module.exports = {
                     title: '2024 Release notes'
                 },
               items: [
+                'release-notes/march-2024',
                 'release-notes/february-2024',
                 'release-notes/january-2024'
               ]

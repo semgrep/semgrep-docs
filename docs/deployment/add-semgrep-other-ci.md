@@ -13,7 +13,7 @@ import NextStepsComments from "/src/components/concept/_next-steps-comments.mdx"
 
 :::note Your deployment journey
 - You have gained the necessary [resource access and permissions](/deployment/checklist) required for deployment.
-- You have [created a Semgrep account and organization](/deployment/create-account-and-orgs). 
+- You have [created a Semgrep account and organization](/deployment/create-account-and-orgs).
 - For GitHub and GitLab users: You have [connected your source code manager](/deployment/connect-scm).
 - Optionally, you have [set up SSO](/deployment/sso).
 :::
@@ -84,7 +84,7 @@ pipelines:
         # Reference the Semgrep Docker image:
         image: semgrep/semgrep
         script:
-        # You need to set the token as an environment variable 
+        # You need to set the token as an environment variable
         # (see Create a `SEMGREP_APP_TOKEN` section).
           - export $SEMGREP_APP_TOKEN
           # Run semgrep ci:
@@ -102,11 +102,11 @@ pipeline {
   agent any
   stages {
     stage('Semgrep-Scan') {
-        environment { 
-          // You need to set the token as an environment variable 
+        environment {
+          // You need to set the token as an environment variable
           // (see Create a `SEMGREP_APP_TOKEN` section).
           SEMGREP_APP_TOKEN = credentials('SEMGREP_APP_TOKEN')
-        } 
+        }
       steps {
         // Install and run Semgrep:
         sh 'pip3 install semgrep'
@@ -132,7 +132,7 @@ To verify that your Semgrep CI job is connected to Semgrep Cloud Platform:
 
 ### Troubleshoot your CI job
 
-Semgrep attempts to automatically detect certain CI values, such as your repository's name and URL. These values are used to provide context to findings in Semgrep Cloud Platform and hyperlinks to the code that generated the finding. 
+Semgrep attempts to automatically detect certain CI values, such as your repository's name and URL. These values are used to provide context to findings in Semgrep Cloud Platform and hyperlinks to the code that generated the finding.
 
 Refer to the following table for common issues and the corresponding environment variables you can set to fix them:
 
@@ -181,7 +181,7 @@ Refer to the following table for common issues and the corresponding environment
 
 When running in CI, Semgrep runs fully in the CI build environment. Unless you have explicitly granted code access to Semgrep, your code is not sent anywhere.
 
-- Semgrep Cloud Platform collects [findings data](/semgrep-ci/findings-ci/), which includes the line number of the code match, but not the code. It is hashed using a one-way hashing function.
+- Semgrep Cloud Platform collects [findings data](/semgrep-ci/findings-ci), which includes the line number of the code match, but not the code. It is hashed using a one-way hashing function.
 - Findings data is used to generate line-specific hyperlinks to your source code management system and support other Semgrep functions.
 
 ## Next steps
