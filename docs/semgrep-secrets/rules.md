@@ -21,11 +21,7 @@ There are two ways to write a rule for Semgrep Secrets:
 
 ### Create a YAML file
 
-If you're familiar with Semgrep's rules syntax, including the [validator syntax](/semgrep-secrets/validators), you can create a YAML file containing your rules. When you're done, publish your rules for use with your organization by running the following in the CLI:
-
-```console
-semgrep publish my-rule-file.yaml
-```
+If you're familiar with Semgrep's rules syntax, including the [validator syntax](/semgrep-secrets/validators), you can create a YAML file containing your rules. When you're done, [publish your rules for use with your organization](/writing-rules/private-rules/).
 
 If you want to keep your rules file local, you must pass in the `--allow-untrusted-validators` flag when calling `semgrep ci` from the CLI.
 
