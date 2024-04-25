@@ -9,7 +9,7 @@ description: Troubleshoot common issues with Semgrep scans.
 
 If a Semgrep scan is failing or running slowly, try the following steps to investigate:
 
-1. [Update Semgrep](/docs/update/) to the latest version, if you are not currently running the latest version. Some errors result from an older version of Semgrep being used with newer rules.
+1. [Update Semgrep](/docs/update) to the latest version, if you are not currently running the latest version. Some errors result from an older version of Semgrep being used with newer rules.
 2. Re-run the scan with either the `-v`/`--verbose` or `--debug` (extremely verbose) flags. These options provide more information about what is failing.
 3. If you are running Semgrep Pro Engine in the scan, remove any options starting with `--pro`, or run Semgrep with `--oss-only`. This allows isolation of any issues related to Semgrep Pro Engine, and often speeds up a scan or reduces memory usage.
 
@@ -29,7 +29,7 @@ Memory usage is a common issue with scans, especially in memory-constrained envi
 
 ## Slow scans
 
-The first step to improving Semgrep's speed is limiting its run to only the files you care about. Most commonly, it's limited using a `.semgrepignore` file. See [Ignoring files, folders, or parts of code](/ignoring-files-folders-code/).
+The first step to improving Semgrep's speed is limiting its run to only the files you care about. Most commonly, it's limited using a `.semgrepignore` file. See [Ignoring files, folders, or parts of code](/ignoring-files-folders-code).
 
 After addressing files to ignore:
 
@@ -42,7 +42,7 @@ After addressing files to ignore:
 
 Semgrep has several timeout settings that affect scan duration and can be adjusted to optimize scan behavior:
 
- * `--timeout`: Similar to `--max-memory`, `--timeout` affects the behavior of the scan when running a single rule on a single file. It defaults to 5 seconds. Typical values range from 3 seconds (favors faster scans, but more timeouts) to 30 seconds (slower scans, fewer timeouts). 
+ * `--timeout`: Similar to `--max-memory`, `--timeout` affects the behavior of the scan when running a single rule on a single file. It defaults to 5 seconds. Typical values range from 3 seconds (favors faster scans, but more timeouts) to 30 seconds (slower scans, fewer timeouts).
  * `--timeout-threshold`: The number of attempts made to run a single rule on a single file, if it times out due to the `--timeout` limit. It defaults to 3. Decreasing the value may speed up scans but cause more timeouts.
  * `--interfile-timeout`: If you are running an interfile scan with the Pro Engine, this is the maximum amount of time in seconds to spend on interfile analysis before falling back to the OSS Engine. Defaults to 3 hours (10800 seconds) for scans using `semgrep ci`. Otherwise, the default is no maximum time (continue with Pro Engine until the scan completes).
 

@@ -17,7 +17,7 @@ tags:
     1. Sign in to [<i class="fas fa-external-link fa-xs"></i> Semgrep Cloud Platform](https://semgrep.dev/login)
     1. Click **Settings**.
     1. Click the **<i class="fa-solid fa-toggle-large-on"></i> Semgrep Pro Engine** toggle.
-- See [<i class="fa-regular fa-file-lines"></i> Semgrep Pro Engine](/semgrep-code/semgrep-pro-engine-intro/) documentation for more information.
+- See [<i class="fa-regular fa-file-lines"></i> Semgrep Pro Engine](/semgrep-code/semgrep-pro-engine-intro) documentation for more information.
 - The Semgrep command-line tool now requires **Python 3.8** or later.
 :::
 
@@ -104,7 +104,7 @@ If no issues are detected after a few days, the Semgrep team then promotes the `
     - You can still define exclusions from Secrets scanning. To **exclude targets** from Secrets scanning, define files or paths for exclusion in Semgrep Cloud Platform:
         1. Click **Projects**.
         1. Click the Project's **<i class="fa-solid fa-gear"></i> icon**.
-        1. Add exclusions through the **Path ignores** text box. 
+        1. Add exclusions through the **Path ignores** text box.
     - In the future, Semgrep will enable users to define ignores based on the type of scan, whether SAST, SCA, or Secrets. <!-- 9125 (https://github.com/semgrep/semgrep/pull/9125 -->
 
 ### Fixed
@@ -117,7 +117,7 @@ If no issues are detected after a few days, the Semgrep team then promotes the `
 
 ### Added
 
-- Added [<i class="fa-regular fa-file-lines"></i> IntelliJ extension](/extensions/semgrep-intellij/) documentation.
+- Added [<i class="fa-regular fa-file-lines"></i> IntelliJ extension](/extensions/semgrep-intellij) documentation.
 - Added a [<i class="fa-regular fa-file-lines"></i> guide to exporting SBOMs](/semgrep-supply-chain/glossary).
 
 ### Changed

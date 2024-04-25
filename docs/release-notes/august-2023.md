@@ -35,7 +35,7 @@ This section of release notes includes upgrades of Semgrep OSS Engine for versio
 - Converted all '@r2c.dev' email addresses to '@semgrep.com'. Several error messages displayed outdated email addresses. With this fix, you can now see in the CLI the correct email to reach out to the Semgrep Support team, which is [support@semgrep.com](mailto:support@semgrep.com). ([#8446](https://github.com/semgrep/semgrep/pull/8446))
 - Fixed CLI output to display matches from different rules with the same message. Now you are able to see the rule ID granularly even if two rules have the same rule message. ([#8557](https://github.com/semgrep/semgrep/pull/8557))
 - Semgrep PyPI package can now be installed on **aarch64 libmusl** platforms such as Alpine. (gh-8565)
-- Improved the `--max-memory` help description to make it clearer. Its previous message, "Defaults to 0 for all CLI scans," did not convey that the default is 0 for all scans except when using Semgrep Pro Engine in CI scans. The default is 5000MiB for Semgrep Pro Engine CI scans, defined as: 
+- Improved the `--max-memory` help description to make it clearer. Its previous message, "Defaults to 0 for all CLI scans," did not convey that the default is 0 for all scans except when using Semgrep Pro Engine in CI scans. The default is 5000MiB for Semgrep Pro Engine CI scans, defined as:
     - Any scan using the `semgrep ci --pro` command, whether in a local environment or a CI/CD pipeline.
     - Any scan using the `semgrep ci` command with Pro Engine enabled in Semgrep Cloud Platform for the org whose repositories you are scanning.
 - Fixed a regression introduced three years ago in 0.9.0, when optimizing the evaluation of the ellipsis operator `...` to be faster. The ellipsis only matched deeply, such as inside an if block, if it did not match anything non-deeply, thus causing that this pattern:
@@ -56,7 +56,7 @@ This section of release notes includes upgrades of Semgrep OSS Engine for versio
 - **PromQL:** make aggregation labels independent of order. ([#8399](https://github.com/semgrep/semgrep/pull/8399)).
   For example:
   ```
-  "sum by (..., b, a, c, ...) (X)" 
+  "sum by (..., b, a, c, ...) (X)"
   ```
   should match
   ```
@@ -79,13 +79,13 @@ end
 - **Java:** Fixed a naming bug affecting Java and other object-oriented (OO) languages that allowed a method parameter to shadow a class attribute. For example, in:
   ```
   class Test {
-  
+
       private int x;
-  
+
       public void test2(int x) {
           foo(this.x);
       }
-  
+
   }
   ```
   Semgrep was considering that `this.x` referred to the parameter `x` of `test2` rather than to the class attribute `x`. ([#8508](https://github.com/semgrep/semgrep/pull/8508))
@@ -124,7 +124,7 @@ end
 
 ## Semgrep Code
 
-### Added 
+### Added
 
 - **Rules page:** Added a new view, **Group by vulnerability class**, that is the default view within the Rules page.
 - Added a **last updated** attribute to rule cards. This helps you troubleshoot unexpected findings in unchanged configs.
@@ -160,16 +160,16 @@ end
 ### Added
 
 - Added a section on Semgrep Code's [deduplication behavior in the API](/semgrep-code/remove-duplicates) and expanded on deduplication behavior in Semgrep Cloud Platform.
-- A new section has been added to guide you through [infrastructure-specific configuration when setting up Semgrep Cloud Platform](/semgrep-supply-chain/setup-infrastructure/) for the first time. 
+- A new section has been added to guide you through [infrastructure-specific configuration when setting up Semgrep Cloud Platform](/semgrep-supply-chain/setup-infrastructure) for the first time.
 - Added section on how a future [change in a Semgrep Supply Chain rule affects scan behavior](/semgrep-supply-chain/getting-started/#schedule-scans).
 - Added a section describing how SSC's License compliance feature handles [packages with multiple licenses](/semgrep-supply-chain/license-compliance/#multiple-licenses).
 - Added the following knowledge base articles:
-  - [Running Semgrep in Visual Studio Code on Windows](/kb/integrations/semgrep-vs-code-windows/)
+  - [Running Semgrep in Visual Studio Code on Windows](/kb/integrations/semgrep-vs-code-windows)
   - [Matching multiple tokens with ellipsis metavariables](/kb/rules/ellipsis-metavariables)
 
 ### Changed
 
-- The [Getting started with Semgrep Cloud Platform](/deployment/core-deployment/) page has been rewritten to help you onboard yourself, your team or organization, and your repositories to SCP.
+- The [Getting started with Semgrep Cloud Platform](/deployment/core-deployment) page has been rewritten to help you onboard yourself, your team or organization, and your repositories to SCP.
 - Prefer the `semgrep ci` command to execute Semgrep in several quickstart and getting started guides.
 - Updated Supported languages table for Swift, Rust, and Apex.
 

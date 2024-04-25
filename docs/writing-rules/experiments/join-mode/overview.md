@@ -11,7 +11,7 @@ Join mode runs several Semgrep rules at once and only returns results if certain
 Think of join mode like this: distinct Semgrep rules are used to gather information about a code base. Then, the conditions you define are used to select specific results from these rules, and the selected results are reported by Semgrep. You can join results on metavariable contents or on the result's file path.
 
 :::info
-You can also use the proprietary Semgrep Pro Engine that enables you to cross file boundaries during code analysis with its cross-file (interfile) analysis capabilities. For more information, see [Semgrep Pro Engine overview](/semgrep-code/semgrep-pro-engine-intro/).
+You can also use the proprietary Semgrep Pro Engine that enables you to cross file boundaries during code analysis with its cross-file (interfile) analysis capabilities. For more information, see [Semgrep Pro Engine overview](/semgrep-code/semgrep-pro-engine-intro).
 :::
 
 ## Example
@@ -39,7 +39,7 @@ rules:
     - 'unescaped-extensions.$PATH > template-vars.path'
   message: |
     Detected a XSS vulnerability: '$VAR' is rendered
-    unsafely in '$PATH'. 
+    unsafely in '$PATH'.
   severity: ERROR
 ```
 
@@ -47,7 +47,7 @@ Let's explore how this works. First, some background on the vulnerability. Secon
 
 **Vulnerability background**
 
-In Flask, templates are only HTML-escaped if the [template file ends with the `.html` extension](https://flask.palletsprojects.com/en/2.0.x/templating/#jinja-setup). Therefore, detecting these two conditions present in a Flask application is a high indicator of 
+In Flask, templates are only HTML-escaped if the [template file ends with the `.html` extension](https://flask.palletsprojects.com/en/2.0.x/templating/#jinja-setup). Therefore, detecting these two conditions present in a Flask application is a high indicator of
 
 1. User input directly enters a template without the `.html` extension
 2. The user input is directly rendered in the template
@@ -131,7 +131,7 @@ severity:error rule:flask-likely-xss: Detected a XSS vulnerability: '$VAR' is re
 
 **Helpers**
 
-For convenience, when writing a join mode rule, you can use the `renames` and `as` keys. 
+For convenience, when writing a join mode rule, you can use the `renames` and `as` keys.
 
 The `renames` key lets you rename metavariables from one rule to something else in your conditions. **This is necessary for named expressions, e.g., `$...EXPR`.**
 
@@ -184,10 +184,10 @@ rules:
 The required fields under the `rules` key are the following:
 - `id`
 - `languages`
-- A set of `pattern` clauses. 
+- A set of `pattern` clauses.
 
 The optional fields under the `rules` key are the following:
-- `message` 
+- `message`
 - `severity`
 
 :::note
@@ -241,7 +241,7 @@ The `on` key is required in join mode. This is where the join conditions are lis
 
 Join mode **is not taint mode**! While it can look on the surface like join mode is "connecting" things together, it is actually just creating sets for each Semgrep rule and returning all the results that meet the conditions. This means some false positives will occur if unrelated metavariable contents happen to have the same value.
 
-To use join mode with `refs`, you must define your individual Semgrep rules in independent locations. This can be anything that works with `semgrep --config <here>`, such as a file, a URL, or a Semgrep registry pointer like `r/java.lang.security.some.rule.id`. 
+To use join mode with `refs`, you must define your individual Semgrep rules in independent locations. This can be anything that works with `semgrep --config <here>`, such as a file, a URL, or a Semgrep registry pointer like `r/java.lang.security.some.rule.id`.
 
 Join mode does not work in the Semgrep Playground or Semgrep Editor, as it is an experimental feature.
 

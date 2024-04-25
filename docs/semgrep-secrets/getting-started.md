@@ -66,7 +66,7 @@ To see the rules you're using for which there is Secrets rule upgrade in Semgrep
 
 ## Next steps
 
-* Learn how to [view and triage secrets in Semgrep Cloud Platform](/semgrep-secrets/view-triage/)
+* Learn how to [view and triage secrets in Semgrep Cloud Platform](/semgrep-secrets/view-triage)
 
 ### Additional information
 
