@@ -50,32 +50,25 @@ To search through your dependencies:
 Search for ranges of supported versions with the `>` or `<` operators following the @ operator. For example, `body-parser@<1.18.0` finds all versions of `body-parser greater than 1.18.0`.
 :::
     
-Dependency search provides the following filters:
+Dependency search provides the following filters, which correspond to the data points displayed by Semgrep about each dependency:
 
 <dl>
+<dt>Projects</dt>
+<dd></dd>
 <dt>Transitivity</dt>
-<dd>Refers to the relationship of the dependency to your codebase. The relationship can be direct, indirect, or unknown.</dd>
+<dd>The relationship of the dependency to your codebase. The relationship can be direct, indirect, or unknown.</dd>
+<dt>License Policy</dt>
+<dd>The License Policy you set; determines whether a dependency can be used based on its license.</dd>
+<dt>License</dt>
+<dd>The dependency's license</dd>
 <dt>Ecosystem</dt>
-<dd>Refers to the language of the dependency</dd>
+<dd>The language of the dependency</dd>
+<dt>Insights</dt>
+<dd>Additional information related to the dependency: <ul><li>Deprecated: packages that may not be supported or maintained</li><li>Untracked: packages that can't be matched against package manager records</li><li>Update Due: packages that are due to be updated</li><li>Dormant: packages that haven't been updated in over three years</li></ul></dd>
 </dl>
 
 ![Screenshot of dependency search with query](/img/SSC-DepSearch-Query.png)
 _**Figure**_.  Dependency search page with sample search query.
-
-## Data provided by dependency search
-
-You can view the following information in the Dependencies page:
-
-| Detail | Description |
-| ------ | ------ |
-| Repository name | The name of the repository and its parent organization. |
-| Trunk branch  | The name of the trunk branch, typically main or master. |
-| Last full scan | Time of the last full scan performed on the repository. |
-| Number of dependencies | The total number of direct, indirect, and unknown dependencies. |
-| Lockfile  | The name of the lockfile parsed to generate the list of dependencies. |
-| Language | The programming language of the repository. |
-| Ecosystem | The package manager used to manage dependencies. |
-| Dependencies | The list of dependencies, starting with direct dependencies. |
 
 ## Troubleshooting
 
