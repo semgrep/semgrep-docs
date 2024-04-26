@@ -26,7 +26,7 @@ Semgrep Supply Chain's dependency search feature allows you to query for any dep
 For newly discovered vulnerabilities, which may not yet have a formal CVE or Supply Chain rule, you can use dependency search to discover if you use the vulnerable dependency across all your repositories. You can also use dependency search to see all the versions of a dependency, which can be useful for standardization purposes.
 
 ![Screenshot of default dependency search page](/img/SSC-DepSearch.png)
-*Figure.* Default dependency search page.
+_**Figure**_. Default dependency search page.
 
 ## Using dependency search
 
@@ -60,7 +60,7 @@ Dependency search provides the following filters:
 </dl>
 
 ![Screenshot of dependency search with query](/img/SSC-DepSearch-Query.png)
-*Figure.* Dependency search page with sample search query.
+_**Figure**_.  Dependency search page with sample search query.
 
 ## Data provided by dependency search
 
