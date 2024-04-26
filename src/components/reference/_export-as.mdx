@@ -9,18 +9,24 @@ semgrep scan
 To export the results to a plain text file:
 
 ```console
-semgrep scan --text --output=semgrep.txt
+semgrep scan --text --text-output=semgrep.txt
 ```
 
 To export the results to a SARIF file:
 
 ```console
-semgrep scan --sarif --output=semgrep.sarif
+semgrep scan --sarif --sarif-output=semgrep.sarif
 ```
 
 To export the results to a JSON file:
 
 ```console
-semgrep scan --json --output=semgrep.json
+semgrep scan --json --json-output=semgrep.json
 ```
 
+To view your results in multiple formats, combine the appropriate flags:
+
+```console
+# obtain results as text output and as JSON, SARIF
+semgrep scan --text --text-output=semgrep.txt --json --json-output=semgrep.json --sarif --sarif-output=semgrep.sarif
+```
