@@ -15,16 +15,23 @@ The definitions provided here are specific to Semgrep.
 
 <!-- Refers to state of a variable remaining constant throughout the program. Semgrep can analyze whether a variable carries a constant value at a given point. Both Semgrep OSS and Semgrep Pro Engine perform this analysis, with Semgrep Pro able to track the propagation across files. -->
 
-Constant propagation is a type of analysis where values known to be constant are substituted in later uses. Semgrep can perform constant propagation across files, unless you are running Semgrep OSS, which can only propagate within a function.
+Constant propagation is a type of analysis where values known to be constant are substituted in later uses, such as detecting matches. Semgrep can perform constant propagation across files, unless you are running Semgrep OSS, which can only propagate within a function.
 
 Constant propagation is applied to all rules unless [it is disabled](/data-flow/constant-propagation/#disabling-constant-propagation).
 
-For example, given the following code:
-
+For example, given the following pattern:
+```yaml
+...
+patterns:
+- pattern: console.log(2)
+```
+And the following code snippet:
 ```javascript showLineNumbers
 const x = 2;
+//highlight-next-line
 console.log(x);
 ```
+
 The pattern operator `pattern: print(2)` tells Semgrep to match line 2 because it propagates the value `2` from the assignment in line 1 to the `console.log()` function in line.
 
 Constant propagation is one of the many analyses that differentiate Semgrep from grep.
@@ -43,7 +50,7 @@ Cross-function analysis means that interactions between functions are taken into
 
 For the purpose of its usage in Semgrep, cross-function analysis implies intrafile or per-file analysis. Each file is still analyzed as a standalone block, but within the file it takes into account how information flows between functions.
 
-Also known as **interprocedural** or **intrafile** analysis.
+Also known as **interprocedural** analysis.
 
 ## Error matrix
 
@@ -95,9 +102,9 @@ When you write rules that perform taint analysis, propagators are pieces of code
 
 A rule is a specification of the patterns that Semgrep must match to the code to generate a finding. Rules are written in YAML. Without a rule, the engine has no instructions on how to match code.
 
-Rules can be run on either Semgrep OSS Engine or Semgrep Pro Engine.
+Rules can be run on either Semgrep or its OSS Engine. Only proprietary Semgrep can perform [interfile analysis](#cross-file-analysis).
 
-There are two types of rules: search and taint.
+There are two types of rules: **search** and **taint**.
 
 <dl>
 <dt>Search rules</dt>
@@ -110,7 +117,7 @@ There are two types of rules: search and taint.
     </ul>
 </dd>
 <dt>Taint rules</dt>
-<dd>Taint rules make use of Semgrep's taint analysis in addition to default search functionalities. Taint rules are able to specify sources, sinks, and propagators of data as well as sanitizers of that data. For more information, see <a href="/writing-rules/data-flow/taint-mode/">Taint analysis documentation</a></dd>
+<dd>Taint rules make use of Semgrep's taint analysis in addition to default search functionalities. Taint rules are able to specify sources, sinks, and propagators of data as well as sanitizers of that data. For more information, see <a href="/writing-rules/data-flow/taint-mode/">Taint analysis documentation</a>.</dd>
 </dl>
 
 <!-- how can we say that search rules are semantic if no analysis is performed on the value of data, such as variables? Or are there levels of semantic understanding that semgrep can perform? -->
@@ -121,11 +128,11 @@ A sanitizer is any piece of code, such as a function or [a cast](https://learn.m
 
 An example of a sanitizer is the [<i class="fas fa-external-link fa-xs"></i> `DOMPurify.sanitize(dirty);`](https://github.com/cure53/DOMPurify) function from the  DOMPurify package in JavaScript.
 
-## Single-file analysis
+## Per-file analysis
 
 Also known as intrafile analysis. This refers to a tool's ability to trace or track the flow of information, such as when a variable is defined in one function but used in another.
 
-## Single-function analysis
+## Per-function analysis
 
 Also known as intraprocedural analysis. This refers to a tool's ability to trace or track data and its transformations within a single function.
 
