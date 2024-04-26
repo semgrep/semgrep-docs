@@ -61,17 +61,20 @@ Use filters to narrow down your results. The following criteria are available fo
 
 | Filter                 | Description  |
 | ---------------------  | ------------ |
-| **Projects**           | Filter by repositories connected to Semgrep AppSec Platform. |
+| **Projects**           | Filter by repositories connected to Semgrep Cloud Platform. |
+| **Branches**           | Filter by findings in different Git branches. |
+| **Teams**              | Filter for findings in projects to which the specified teams are associated with. Available only to organizations with RBAC enabled. |
+| **Tags**               | Filter for findings based on the tags associated with the project. |
 | **Status**             | Filter the triage state of a finding. Refer to the [following table](#triaging-findings) to understand triage states. |
-| **Category**           |  Filter by the type of security issue or vulnerability the rule detects, such as `security`, `correctness`, and `maintainability`. You can select more than one category at a time. See [Finding categories](#finding-categories) for information on how Semgrep categorizes your findings. |
 | **Severity**           | Filter by the severity of a finding. Severity is computed based on the values assigned for [Likelihood](/contributing/contributing-to-semgrep-rules-repository/#likelihood) and [Impact](/contributing/contributing-to-semgrep-rules-repository/#impact) by the rule's author. Possible values: <ul><li>Low</li><li>Medium</li><li>High</li></ul> |
-| **Component**          | Filter by Semgrep Assistant component tags. Semgrep Assistant uses GPT-4 to categorize a finding based on its function, such as payments, user authentication, and infrastructure. |
 | **Confidence**         | Filter by the likelihood of the rule to detect true positives. The higher the confidence, the more true positives the rule may detect. |
+| **Pro findings**       | Filter for findings identified using Semgrep Pro rules. |
+| **Category**           | Filter by the type of security issue or vulnerability the rule detects, such as `security`, `correctness`, and `maintainability`. You can select more than one category at a time. See [Finding categories](#finding-categories) for information on how Semgrep categorizes your findings. |
+| **Component**          | Filter by Semgrep Assistant component tags. Semgrep Assistant uses GPT-4 to categorize a finding based on its function, such as payments, user authentication, and infrastructure. |
 | **Recommendation**     | Filter by recommendation offered by Semgrep Assistant's auto-triage feature. Possible values: <ul><li>Fix</li><li>Ignore</li></ul> |
 | **Action**             | Filter by monitoring, commenting, or blocking rules in your Policies. |
 | **Rule**               | Filter by rules included in your Policies page. You can select more than one rule or ruleset for filtering. |
 | **Ruleset**            | Filter by the ruleset name where rules that match the code belong. More than one rule or ruleset can be selected for filtering. |
-| **Branch**             | Filter by findings in different Git branches. |
 
 #### Finding categories
 
