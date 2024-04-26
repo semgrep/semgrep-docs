@@ -10,7 +10,7 @@ tags:
 
 # Generating an SBOM (software bill of materials)
 
-Generate a software bill of materials (SBOM) to assess your third-party dependencies and comply with auditing procedures. Semgrep Supply Chain (SSC) can generate an SBOM for each repository you have added to Semgrep Cloud Platform.
+Generate a software bill of materials (SBOM) to assess your third-party dependencies and comply with auditing procedures. Semgrep Supply Chain (SSC) can generate an SBOM for each repository you have added to Semgrep AppSec Platform.
 
 ## Supported standards and formats
 
@@ -22,14 +22,14 @@ Semgrep Supply Chain supports the following:
 ## Generating and downloading an SBOM for a single project
 
 :::info Prerequisites
-- **SBOM generation** can be performed only through Semgrep Cloud Platform (SCP). 
-- You need at least one successful Supply Chain scan on the **trunk** branch of each repository you want to generate an SBOM for. See [<i class="fa-regular fa-file-lines"></i> Core deployment](/deployment/core-deployment) to set up your SCP account and Supply Chain scans.
+- **SBOM generation** can be performed only through Semgrep AppSec Platform.
+- You need at least one successful Supply Chain scan on the **trunk** branch of each repository you want to generate an SBOM for. See [<i class="fa-regular fa-file-lines"></i> Core deployment](/deployment/core-deployment) to set up your Semgrep account and Supply Chain scans.
 :::
 
-1. In Semgrep Cloud Platform, click **Supply Chain > Dependencies**. 
+1. In Semgrep AppSec Platform, click **Supply Chain > Dependencies**.
 2. Click the **Download <i class="fa-solid fa-download"></i>** icon next to the repository you want an SBOM for.
 3. Click the format you want the SBOM to be in. After clicking, do not refresh or leave the page until the SBOM has been generated.
-3. Once SCP has generated the SBOM, click the link provided on the toaster notification to download it.
+3. Once Semgrep has generated the SBOM, click the link provided on the toaster notification to download it.
     ![Download link in toaster notification](/img/download-sbom.png#bordered)
 
 You have successfully downloaded an SBOM.

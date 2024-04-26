@@ -1,6 +1,6 @@
 ---
 slug: ci-environment-variables
-description: "Configure Semgrep in CI by setting various environment variables. Enable diff-aware scanning, connect to Semgrep Cloud Platform, and more."
+description: "Configure Semgrep in CI by setting various environment variables. Enable diff-aware scanning, connect to Semgrep AppSec Platform, and more."
 tags:
     - Semgrep in CI
     - Team & Enterprise Tier
@@ -35,11 +35,11 @@ These environment variables configure various aspects of your CI job, such as a 
 ### `SEMGREP_APP_TOKEN`
 
 :::info Prerequisites
-* You must have a Semgrep Cloud Platform account to use this environment variable.
-* You must have a Semgrep Cloud Platform token. To generate a token, see [Creating a `SEMGREP_APP_TOKEN`](/docs/semgrep-ci/running-semgrep-ci-with-semgrep-cloud-platform/#creating-a-semgrep_app_token).
+* You must have a Semgrep AppSec Platform account to use this environment variable.
+* You must have a Semgrep AppSec Platform token. To generate a token, see [Creating a `SEMGREP_APP_TOKEN`](/docs/semgrep-ci/running-semgrep-ci-with-semgrep-cloud-platform/#creating-a-semgrep_app_token).
 :::
 
-Set `SEMGREP_APP_TOKEN` to send findings to Semgrep Cloud Platform and use rules from the Policies page. `SEMGREP_APP_TOKEN` is incompatible with `SEMGREP_RULES`.
+Set `SEMGREP_APP_TOKEN` to send findings to Semgrep AppSec Platform and use rules from the Policies page. `SEMGREP_APP_TOKEN` is incompatible with `SEMGREP_RULES`.
 
 Example:
 
@@ -136,9 +136,9 @@ Example:
 export SEMGREP_TIMEOUT="20"
 ```
 
-## Environment variables for creating hyperlinks in Semgrep Cloud Platform
+## Environment variables for creating hyperlinks in Semgrep AppSec Platform
 
-By default, Semgrep Cloud Platform autodetects values such as the name of your repository, which Semgrep uses to generate hyperlinks (URLs) to the specific repository code that generated the finding. These hyperlinks are in the [Findings](/docs/semgrep-code/findings) page.
+By default, Semgrep AppSec Platform autodetects values such as the name of your repository, which Semgrep uses to generate hyperlinks (URLs) to the specific repository code that generated the finding. These hyperlinks are in the [Findings](/docs/semgrep-code/findings) page.
 
 Set any as needed or all of the following environment variables to troubleshoot and override autodetected CI environment values.
 
@@ -171,7 +171,7 @@ commands:
   ...
 ```
 
-Semgrep Cloud Platform will normalize the branch prefix `refs/heads/` for findings, so the branch value `refs/heads/develop` will be treated the same way as `develop`.
+Semgrep AppSec Platform will normalize the branch prefix `refs/heads/` for findings, so the branch value `refs/heads/develop` will be treated the same way as `develop`.
 
 ### `SEMGREP_COMMIT`
 
@@ -209,7 +209,7 @@ Set `SEMGREP_REPO_NAME` to create a repository name when scanning with a [CI pro
 
 To avoid hardcoding this value, check your CI provider's documentation for available environment variables that can automatically detect the correct values for every CI job. 
 
-Semgrep automatically detects `SEMGREP_REPO_NAME` if your [provider is listed in Semgrep Cloud Platform](/deployment/add-semgrep-to-ci/#guided-setup-for-ci-providers-in-scp). In this case, there is no need to set the variable.
+Semgrep automatically detects `SEMGREP_REPO_NAME` if your [provider is listed in Semgrep AppSec Platform](/deployment/add-semgrep-to-ci/#guided-setup-for-ci-providers-in-scp). In this case, there is no need to set the variable.
 Examples:
 
 Within a Bash environment:
@@ -235,7 +235,7 @@ jobs:
 
 ### `SEMGREP_REPO_DISPLAY_NAME`
 
-Set `SEMGREP_REPO_DISPLAY_NAME` to define the name used for the project in Semgrep Cloud Platform. By default, `SEMGREP_REPO_DISPLAY_NAME` has the same value as `SEMGREP_REPO_NAME`. This allows you to use a different name for your project than the repository name or to scan a monorepo as multiple projects.
+Set `SEMGREP_REPO_DISPLAY_NAME` to define the name used for the project in Semgrep AppSec Platform. By default, `SEMGREP_REPO_DISPLAY_NAME` has the same value as `SEMGREP_REPO_NAME`. This allows you to use a different name for your project than the repository name or to scan a monorepo as multiple projects.
 
 #### Scan a monorepo as multiple projects
 
@@ -314,7 +314,7 @@ jobs:
 
 ## Environment variable for creating comments in pull or merge requests
 
-The following environment variable enables Semgrep Cloud Platform to create comments within your source code management (SCM) tool when Semgrep scans a pull or merge request. These comments can include code suggestions to fix a finding.
+The following environment variable enables Semgrep AppSec Platform to create comments within your source code management (SCM) tool when Semgrep scans a pull or merge request. These comments can include code suggestions to fix a finding.
 
 <!-- Commented out SEMGREP_JOB_URL for now as it's not being used for any direct functionality 
 ### `SEMGREP_JOB_URL`

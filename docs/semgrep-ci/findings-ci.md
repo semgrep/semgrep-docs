@@ -26,7 +26,7 @@ These states correspond to:
 
 ## Semgrep Code findings 
 
-Semgrep Cloud Platform builds on CI findings to track status and provide additional context for managing findings within your organization. A finding can be one of four statuses in Semgrep Cloud Platform:
+Semgrep AppSec Platform builds on CI findings to track status and provide additional context for managing findings within your organization. A finding can be one of four statuses in Semgrep AppSec Platform:
 
 * `OPEN`
 * `IGNORED`
@@ -35,6 +35,6 @@ Semgrep Cloud Platform builds on CI findings to track status and provide additio
 
 ### Finding status
 
-You can manage finding status through triage in Semgrep Cloud Platform's **Findings** page. The finding statuses are as follows:
+You can manage finding status through triage in Semgrep AppSec Platform's **Findings** page. The finding statuses are as follows:
 
 <TriageStatuses />

@@ -39,7 +39,7 @@ These requirements apply to both Semgrep Pro and Semgrep OSS.
 - Linux
 - Windows Subsystem for Linux (WSL)
 
-## Semgrep Cloud Platform
+## Semgrep AppSec Platform
 
 These requirements apply to Semgrep Pro.
 

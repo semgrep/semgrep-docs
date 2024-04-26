@@ -5,7 +5,7 @@ title: Core deployment
 description: Learn how to set up a comprehensive Semgrep deployment for yourself or your organization.
 tags:
   - Deployment
-  - Semgrep Cloud Platform
+  - Semgrep AppSec Platform
 ---
 
 Semgrep can be set up to scan repositories of any size.
@@ -25,7 +25,7 @@ Semgrep does not require code access to complete the core deployment process. Yo
 - Individual users can also use these guides to deploy Semgrep as part of their personal security.
 :::
 
-Many deployment features are set up through **Semgrep Cloud Platform**.
+Many deployment features are set up through **Semgrep AppSec Platform**.
 
 Deployment does **not** include:
 
@@ -73,7 +73,7 @@ These are the absolute minimum Semgrep features for any deployment.
         </tr>
         <tr>
             <td>Organizations</td>
-            <td>Semgrep can connect to orgs from <strong>GitHub and GitLab</strong>. Connecting an org enables Semgrep Cloud Platform to authenticate new users from the same org easily.<br /><br />If you use <strong>Bitbucket or Azure Repos</strong>, you can use SSO to manage the authentication of your users, then add repositories for scanning through your CI provider.</td>
+            <td>Semgrep can connect to orgs from <strong>GitHub and GitLab</strong>. Connecting an org enables Semgrep AppSec Platform to authenticate new users from the same org easily.<br /><br />If you use <strong>Bitbucket or Azure Repos</strong>, you can use SSO to manage the authentication of your users, then add repositories for scanning through your CI provider.</td>
         </tr>
         <tr>
             <td>Scanning in CI</td>
@@ -133,7 +133,7 @@ At the minimum, your deployment of Semgrep consists of the following steps:
 1. **Setting up membership**:
     - For GitHub or GitLab users, you can connect your Semgrep org to the orgs in your source code manager (SCM). This means that any member of an org in your SCM can sign in to your Semgrep deployment.
     - You can also use SSO to manage user authentication.
-1. **Adding Semgrep into your CI workflows**. This step ensures that your Semgrep deployment is up and running and that you receive **findings** of security issues in Semgrep Cloud Platform.
+1. **Adding Semgrep into your CI workflows**. This step ensures that your Semgrep deployment is up and running and that you receive **findings** of security issues in Semgrep AppSec Platform.
 1. **Enabling Semgrep to post PR or MR comments**.
 
 ![Core deployment steps](/img/core-deployment.png#sm-width-noborder)

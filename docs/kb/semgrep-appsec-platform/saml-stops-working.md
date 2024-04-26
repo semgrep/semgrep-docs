@@ -1,7 +1,7 @@
 ---
 description: Learn to troubleshoot SAML configuration when SAML stops working.
 tags:
-  - Semgrep Cloud Platform 
+  - Semgrep AppSec Platform 
   - SSO
   - Troubleshooting
 ---

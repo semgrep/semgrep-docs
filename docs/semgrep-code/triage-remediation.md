@@ -5,29 +5,29 @@ title: Triage and remediation
 hide_title: false
 description: Learn how about Semgrep Code's triage status for findings and how to triage and remediate findings.
 tags:
-    - Semgrep Cloud Platform
+    - Semgrep AppSec Platform
     - Team & Enterprise Tier
 ---
 
-# Triage and remediate Semgrep Code findings in Semgrep Cloud Platform
+# Triage and remediate Semgrep Code findings in Semgrep AppSec Platform
 
 import TriageStatuses from "/src/components/reference/_triage-states.mdx"
 import RemoveRuleset from "/src/components/procedure/_remove-ruleset.mdx"
 import IgnoreIndividualFindingNoGrouping from "/src/components/procedure/_ignore-individual-finding-no-grouping.mdx"
 import MoreHelp from "/src/components/MoreHelp"
 
-This article shows you how to triage and manage findings identified by Semgrep Code using Semgrep Cloud Platform, including:
+This article shows you how to triage and manage findings identified by Semgrep Code using Semgrep AppSec Platform, including:
 
 - **Fixing the issue detected.** This is Semgrep's primary goal. If the rule produces a **true positive** finding, such as a security issue, developers must change or address the code so that the rule no longer matches it.
 - **Removing the rule or code that generated the finding.** There are cases where Semgrep scans a file it should ignore or scans the file with an irrelevant rule. You can [disable the rule](/semgrep-code/policies#disabling-rules) from the **Policies** page or [add the file to the ignore list](/ignoring-files-folders-code).
 - **Triaging the finding.** Deprioritize a finding if it's not useful or important through triage. Triage actions include ignoring and reopening a finding that was previously ignored. Triaging a finding to **ignore** is one method to handle **false positives** without changing a rule or your code.
-<!-- - **Create a Jira ticket from the finding (for Enterprise/Team Tier users.)** For findings that require more extensive refactoring, users can create a ticket in Jira through Semgrep Cloud Platform to track its resolution. -->
+<!-- - **Create a Jira ticket from the finding (for Enterprise/Team Tier users.)** For findings that require more extensive refactoring, users can create a ticket in Jira through Semgrep AppSec Platform to track its resolution. -->
 
 ## Triage statuses
 
 **Triage** is the prioritization of a finding based on policies or criteria set by your team or organization, such as severity, coding standards, business goals, and product goals.
 
-Semgrep Cloud Platform uses the logic specified in the table below to automatically mark findings as either fixed or removed when a finding is no longer present in the code. You can also manually ignore findings in Semgrep Cloud Platform directly through **triage** or **bulk triage**.
+Semgrep AppSec Platform uses the logic specified in the table below to automatically mark findings as either fixed or removed when a finding is no longer present in the code. You can also manually ignore findings in Semgrep AppSec Platform directly through **triage** or **bulk triage**.
 
 The triage statuses are as follows:
 
@@ -44,7 +44,7 @@ The following sections show you have to manage your findings by:
 
 Note that some actions, such as ignoring and reopening findings, require different steps based on whether you have chosen **Group by Rule** or **No Grouping** when viewing your results on the **Findings** page.
 
-![Screenshot of Semgrep Cloud Platform triage menu](/img/app-findings-triage.png#md-width)
+![Screenshot of Semgrep AppSec Platform triage menu](/img/app-findings-triage.png#md-width)
 
 ### Fix a finding
 
@@ -134,7 +134,7 @@ To **reopen multiple findings** in the **No grouping** view, follow these steps:
 
 ## Ignore findings through GitHub PR comments
 
-Triage your Semgrep Cloud Platform findings displayed as comments in GitHub PRs by replying with another comment.
+Triage your Semgrep AppSec Platform findings displayed as comments in GitHub PRs by replying with another comment.
 
 :::info Prerequisites
 - A **private** GitHub.com repository. This feature is not enabled for public GitHub.com repositories or GitHub Enterprise public and private repositories.
@@ -143,13 +143,13 @@ Triage your Semgrep Cloud Platform findings displayed as comments in GitHub PRs 
 
 To enable triage through comments:
 
-1. In Semgrep Cloud Platform, go to your organization's [Settings](https://semgrep.dev/orgs/-/projects/-/repo-to-scan) page.
+1. In Semgrep AppSec Platform, go to your organization's [Settings](https://semgrep.dev/orgs/-/projects/-/repo-to-scan) page.
 2. Enable the **Triage via comment** <i class="fa-solid fa-toggle-large-on"></i> toggle.
 
 To triage a finding in GitHub:
 
-1. Find an open comment created by Semgrep Cloud Platform in GitHub PR:
-    ![Screenshot of Semgrep Cloud Platform comment in GitHub](/img/semgrep-app-comment-github.png#md-width)
+1. Find an open comment created by Semgrep AppSec Platform in GitHub PR:
+    ![Screenshot of Semgrep AppSec Platform comment in GitHub](/img/semgrep-app-comment-github.png#md-width)
 
 2. In a subsequent comment, reply with:
     <pre><code>
@@ -160,7 +160,7 @@ To triage a finding in GitHub:
     /semgrep open <span className="placeholder">&lt;reason&gt;</span>
     </code></pre>
 
-Ignoring a finding through a comment in GitHub changes the status of the finding to **ignored** in the Semgrep Cloud Platform. The GitHub conversation itself is not automatically resolved by this process.
+Ignoring a finding through a comment in GitHub changes the status of the finding to **ignored** in the Semgrep AppSec Platform. The GitHub conversation itself is not automatically resolved by this process.
 
 :::tip
 You can also reopen a finding that was previously ignored. To do so, in step 2. of the preceding procedure, use `/semgrep open`. For `/semgrep open` the reason field is optional.
@@ -182,4 +182,4 @@ To **create a ticket**:
 
 * One way to address false positives is to improve the rule. Create [test cases](/docs/writing-rules/testing-rules) to ensure that the rule performs as intended.
 * If a rule from Semgrep Registry is useful, but it captures too many false positives, you can reach out to [support@semgrep.dev](mailto:support@semgrep.dev). This helps Semgrep's rule-writing efforts and improves the quality of rules that you run.
-* You can report rules with a high false positive rate from your source code manager (SCM) if you [enable Semgrep Cloud Platform to leave comments in PRs or MRs](/category/pr-or-mr-comments). Semgrep Cloud Platform provides a link after each comment for users to indicate if the finding is a false positive.
+* You can report rules with a high false positive rate from your source code manager (SCM) if you [enable Semgrep AppSec Platform to leave comments in PRs or MRs](/category/pr-or-mr-comments). Semgrep AppSec Platform provides a link after each comment for users to indicate if the finding is a false positive.

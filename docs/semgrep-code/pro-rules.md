@@ -55,9 +55,9 @@ See the [Rule updates](/release-notes/rule-updates) for an overview of updates a
 
 ## Using Semgrep Pro rules
 
-You can use Semgrep Pro rules in both Semgrep Cloud Platform (SCP) and your own CLI or CI environment (without SCP).
+You can use Semgrep Pro rules in both Semgrep AppSec Platform and your own CLI or CI environment.
 
-* To use Pro Rules with Semgrep Cloud Platform, add them to your Policies page. The rules are then included in your next scan.
+* To use Pro Rules with Semgrep AppSec Platform, add them to your Policies page. The rules are then included in your next scan.
 * To use Pro Rules in your own CI or CLI environment, add the rules or rulesets through the `--config` flag.
 
 :::info
@@ -76,9 +76,9 @@ For CLI users: You must be [logged in](/docs/getting-started/#logging-into-semgr
 4. For a single rule, click on the rule's card > Run locally. For rulesets, click the card.
 5. Copy and paste the snippet to your CLI or CI configuration file. You can add several rulesets. Refer to the following sample snippet:
 
-### Adding Semgrep Pro rules in SCP through Semgrep Registry
+### Adding Pro rules to your Semgrep org through the Registry
 
-1. Sign in to [Semgrep Cloud Platform](https://semgrep.dev/login).
+1. Sign in to [Semgrep AppSec Platform](https://semgrep.dev/login).
 2. Go to [Semgrep Registry](https://semgrep.dev/r).
 3. Click on **Visibility > Pro rules**.
 4. Optional: Apply additional filters by entering search terms in the search box or selecting filters from drop-down boxes.

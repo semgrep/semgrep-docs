@@ -6,7 +6,7 @@ hide_title: true
 toc_max_heading_level: 4
 description: "Enable merge request (MR) comments in your GitLab repositories to display Semgrep findings to developers."
 tags:
-    - Semgrep Cloud Platform
+    - Semgrep AppSec Platform
     - Team & Enterprise Tier
 ---
 
@@ -54,9 +54,9 @@ In addition to finishing the previous steps in your deployment journey, it is re
 
 ### Confirm your Semgrep account's connection to GitLab
 
-MR comments are enabled by default for users who have connected their GitLab organization (org) to Semgrep Cloud Platform. Confirm that you have the correct connection and access:
+MR comments are enabled by default for users who have connected their GitLab organization (org) to Semgrep AppSec Platform. Confirm that you have the correct connection and access:
 
-1. In your SCP account, click **Settings > Source code managers**.
+1. In your Semgrep AppSec Platform account, click **Settings > Source code managers**.
 2. Check that an entry for your GitLab org exists and is correct.
 
 ### Create a personal access token (PAT)
@@ -86,11 +86,11 @@ Creating a PAT grants the API scope to Semgrep, which lets it post comments.
       - if: $CI_COMMIT_BRANCH == $CI_DEFAULT_BRANCH
 
       variables:
-        # Connect to Semgrep Cloud Platform through your SEMGREP_APP_TOKEN.
-        # Generate a token from Semgrep Cloud Platform > Settings
+        # Connect to Semgrep AppSec Platform through your SEMGREP_APP_TOKEN.
+        # Generate a token from Semgrep AppSec Platform > Settings
         # and add it as a variable in your GitLab CI/CD project settings.
         SEMGREP_APP_TOKEN: $SEMGREP_APP_TOKEN
-        # Receive inline MR comments (requires Semgrep Cloud Platform account)
+        # Receive inline MR comments (requires Semgrep AppSec Platform account)
         GITLAB_TOKEN: $PAT
     ```
 1. For **other CI providers**:

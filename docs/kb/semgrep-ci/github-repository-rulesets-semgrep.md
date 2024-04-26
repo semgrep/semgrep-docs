@@ -80,12 +80,12 @@ To run a scan using `semgrep ci`, Semgrep requires a valid token. When configuri
 If you use a custom `semgrep.yml` configuration, ensure you refer to the secret as `${{ secrets.SEMGREP_APP_TOKEN }}` in your configuration. For the required workflow, this refers to the organization secret.
 :::
 
-1. Click **Create new token** on **Settings > [Tokens](https://semgrep.dev/orgs/-/settings/tokens)** in the Semgrep Cloud Platform.
+1. Click **Create new token** on **Settings > [Tokens](https://semgrep.dev/orgs/-/settings/tokens)** in the Semgrep AppSec Platform.
 2. Ensure the **Agent (CI)** scope is checked for the token.
 3. Copy the token value for use on GitHub, and click **Save**.
 4. Create an organization secret, following the [GitHub documentation](https://docs.github.com/en/enterprise-cloud@latest/actions/security-guides/using-secrets-in-github-actions#creating-secrets-for-an-organization).
   1. Name the secret `SEMGREP_APP_TOKEN`.
-  2. Paste the value you copied from the Semgrep Cloud Platform.
+  2. Paste the value you copied from the Semgrep AppSec Platform.
   3. Select a value for **Repository access** that matches the repositories you intend to scan with the workflow.
   4. Click **Add secret**.
 
