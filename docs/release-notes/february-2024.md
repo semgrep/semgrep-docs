@@ -25,7 +25,7 @@ tags:
 
 ### Added
 
-- [<i class="fas fa-external-link fa-xs"></i> API](https://semgrep.dev/api/v1/docs/#tag/Finding/operation/semgrep_app.core_exp.findings.handlers.issue.openapi_list_recent_issues): Added a `rule` object under `findings` with the following fields: 
+- [<i class="fas fa-external-link fa-xs"></i> API](https://semgrep.dev/api/v1/docs/#tag/Finding/operation/semgrep_app.core_exp.findings.handlers.issue.openapi_list_recent_issues): Added a `rule` object under `findings` with the following fields:
     - `name`
     - `message`
     - `confidence`
@@ -34,7 +34,7 @@ tags:
     - `technologies`
     - `vulnerability_classes`
     - `cwe_names`
-    - `owasp_names` <!-- 12868 --> 
+    - `owasp_names` <!-- 12868 -->
 - Added distinction between Pro engine and OSS findings in the Playground and Editor. <!-- 12275 -->
 - Added support for the `linux-arm64` platform when you download Semgrep Pro Engine. <!-- 12430 -->
 
@@ -152,24 +152,23 @@ tags:
 ### Added
 
 - The Semgrep docs sidebar has been reorganized to help users browse through the docs.
-- Added a [series of guides](/deployment/core-deployment/) to setting up Semgrep as part of a security program for your organization.
-- Added a guide to setting up a [network broker](/semgrep-ci/network-broker/) that facilitates secure access between Semgrep and your private network.
-- Added [Experimental rules](/writing-rules/experiments/pattern-syntax/) syntax reference.
+- Added a [series of guides](/deployment/core-deployment) to setting up Semgrep as part of a security program for your organization.
+- Added a guide to setting up a [network broker](/semgrep-ci/network-broker) that facilitates secure access between Semgrep and your private network.
+- Added [Experimental rules](/writing-rules/experiments/pattern-syntax) syntax reference.
 - Added the following knowledge base articles:
     - [GitLab "Job's log exceeded limit" error](/kb/semgrep-ci/collect-gitlab-logs)
-    - [Set up Jenkins pipeline projects for Bitbucket repositories](/kb/semgrep-ci/bitbuket-jenkins-pipeline-projects/)
-    
+    - [Set up Jenkins pipeline projects for Bitbucket repositories](/kb/semgrep-ci/bitbuket-jenkins-pipeline-projects)
+
 ### Changed
 
-- Updated the links within the [GitLab CI/CD config file](/semgrep-ci/sample-ci-configs/#sample-gitlab-cicd-configuration-snippet).
+- Updated the links within the [GitLab CI/CD configuration file](/semgrep-ci/sample-ci-configs/#sample-gitlab-cicd-configuration-snippet).
 - Removed phone support from the docs.
-- Updated the [Semgrep-Slack integration docs](/semgrep-cloud-platform/slack-notifications/) to clarify requirements for posting to private channels.
-- Updated the [sample GHA config file](/writing-rules/private-rules/)for a CI job that publishes private Semgrep rules. 
+- Updated the [Semgrep-Slack integration docs](/semgrep-cloud-platform/slack-notifications) to clarify requirements for posting to private channels.
+- Updated the [sample GHA configuration file](/writing-rules/private-rules)for a CI job that publishes private Semgrep rules.
 - Clarified the Semgrep Assistant [privacy policy](/semgrep-assistant/overview) on what data is stored.
-- Updated [Semgrep Pro versus OSS](/docs/semgrep-pro-vs-oss/) docs. <!-- 1338 -->
+- Updated [Semgrep Pro versus OSS](/docs/semgrep-pro-vs-oss) docs. <!-- 1338 -->
 
 ### Fixed
 
 - Fixed formatting on GitHub PR comments documentation. Thank you to [parsiya](https://github.com/parsiya) for the fix.
 - Various link fixes and Docker image updates.
-

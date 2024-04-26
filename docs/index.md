@@ -2,7 +2,7 @@
 slug: /
 hide_title: true
 id: Docs home
-displayed_sidebar: topLevelSidebar 
+displayed_sidebar: topLevelSidebar
 description: >-
   Read the documentation and get started with Semgrep.
   A fast, open-source, static analysis engine
@@ -49,12 +49,13 @@ The Semgrep ecosystem includes the following products:
     - [Semgrep Pro rules](/semgrep-code/pro-rules) - High-confidence rules written by Semgrep Security Research team for a variety of languages
     - [Semgrep Pro Engine](/semgrep-code/semgrep-pro-engine-intro) - Advanced engine that performs interfile and interprocedural analysis
 - [Semgrep Supply Chain (SSC)](https://semgrep.dev/products/semgrep-supply-chain) - A high-signal dependency scanner that detects reachable vulnerabilities in open source third-party libraries and functions across the software development life cycle (SDLC).
-- [Semgrep Secrets](https://semgrep.dev/products/semgrep-secrets) - A secrets scanner that detects valid secrets in your codebase through semantic analysis, entropy analysis, and validation. 
+- [Semgrep Secrets](https://semgrep.dev/products/semgrep-secrets) - A secrets scanner that detects valid secrets in your codebase through semantic analysis, entropy analysis, and validation.
 
 :::tip
 The following products are **free** for up to 10 contributors:
 * Semgrep Cloud Platform
 * Semgrep Code
+* Semgrep Supply Chain
 :::
 
 Support and be supported by the Semgrep community through:
@@ -76,7 +77,7 @@ Semgrep Code supports over 30 languages and counting! 🚀 Visit [Semgrep Code's
 
 ### Semgrep Supply Chain
 
-Semgrep Supply Chain supports Go, Javascript/Typescript, Python, Ruby, and Java. 🛡️ Visit [Semgrep Supply Chain's supported languages](/docs/supported-languages#semgrep-supply-chain) to see all the package managers and lockfiles supported. 
+Semgrep Supply Chain supports Go, Javascript/Typescript, Python, Ruby, and Java. 🛡️ Visit [Semgrep Supply Chain's supported languages](/docs/supported-languages#semgrep-supply-chain) to see all the package managers and lockfiles supported.
 
 ## Environments
 
@@ -87,7 +88,7 @@ The following table lists environments in which you can run various Semgrep prod
 | -------------------- | --------- | --------- |
 | Semgrep OSS Engine  |  ✅  [Run locally with Semgrep Engine](/getting-started/quickstart)  |   ✅  Can send findings to [Semgrep Cloud Platform](semgrep-ci/running-semgrep-ci-with-semgrep-cloud-platform) or run [stand-alone CI jobs](semgrep-ci/running-semgrep-ci-without-semgrep-cloud-platform) |
 | Semgrep Code         |  ✅  Log in to access [Pro Engine](semgrep-code/semgrep-pro-engine-intro) and [Pro rules](semgrep-code/pro-rules) (Team and Enterprise tier) |   ✅  Best used with [Semgrep Cloud Platform](getting-started/quickstart) |
-| Semgrep Supply Chain |  ✅  Log in to access [Supply Chain](semgrep-supply-chain/overview) rules (Team and Enterprise tier)  |   ✅  Best used with [Semgrep Cloud Platform](/getting-started/quickstart/) |
+| Semgrep Supply Chain |  ✅  Log in to access [Supply Chain](/semgrep-supply-chain/overview) rules (Team and Enterprise tier)  |   ✅  Best used with [Semgrep Cloud Platform](/getting-started/quickstart) |
 
 :::info
 Semgrep Cloud Platform is a hosted web application (SaaS) and as such is excluded from the table.

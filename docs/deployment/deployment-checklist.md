@@ -47,7 +47,7 @@ Ensure that all stakeholders agree on:
 **Deployment times** vary greatly depending on your processes and size.
 
 :::tip On scheduling scans
-Monorepos may take longer to finish scanning. Semgrep provides several options to improve performance, including piecemeal scanning of the monorepo. See [<i class="fa-regular fa-file-lines"></i> Scanning a monorepo in parts](/kb/semgrep-ci/scan-monorepo-in-parts/) for more information.
+Monorepos may take longer to finish scanning. Semgrep provides several options to improve performance, including piecemeal scanning of the monorepo. See [<i class="fa-regular fa-file-lines"></i> Scanning a monorepo in parts](/kb/semgrep-ci/scan-monorepo-in-parts) for more information.
 :::
 
 ## Roles
@@ -115,7 +115,7 @@ The following checklist breaks down permissions required by Semgrep features.
 #### GitHub
 
 | Feature | Permission required |
-| --- | -------  | 
+| --- | -------  |
 | Create CI jobs for repositories in bulk and detect GitHub repos automatically. | Installing GitHub apps.         |
 | Pull request (PR) comments. |  For GitHub Enterprise Server: Adding a personal access token (PAT) with [assigned scopes](/deployment/connect-scm/#connect-to-on-premise-github-or-gitlab-orgs).          |
 | GPT-assisted triage and recommendations. | Code access. |
@@ -153,11 +153,11 @@ The following checklist breaks down permissions required by Semgrep features.
 
 <TabItem value='bb'>
 
-#### Bitbucket 
+#### Bitbucket
 
 | Feature  | Permission |
-| -------  | -------  | 
-| Pull request (PR) comments.  | Able to create **repository variables**. | 
+| -------  | -------  |
+| Pull request (PR) comments.  | Able to create **repository variables**. |
 
 </TabItem>
 
@@ -247,17 +247,17 @@ Semgrep requires the following permissions (scopes) to enable the authentication
 
 Many improvements to the Semgrep Cloud Platform experience only work with up-to-date Semgrep CLI versions. As such, Semgrep Cloud Platform only supports the 10 most recent minor versions of Semgrep CLI. For example, if the latest release was 0.160.0, all versions greater than 0.150.0 are supported, while earlier versions, such as 0.159.0, can be deprecated or can result in failures.
 
-To update Semgrep, see [Update Semgrep](/update/).
+To update Semgrep, see [Update Semgrep](/update).
 
 Docker users: use [the **latest** tag](https://hub.docker.com/r/semgrep/semgrep/tags?page=1&name=latest) to ensure you are up-to-date.
- 
+
 ### Semgrep Cloud Platform session details
 
 - The time before you need to reauthenticate to Semgrep Cloud Platform is 7 days.
 - A Semgrep Cloud Platform session token is valid for 7 days.
 - This session timeout is not configurable.
-- Semgrep Cloud Platform does not use cookies; instead it uses `localStorage` to store access tokens. The data in `localStorage` expires every 7 days. 
-	
-## Additional resources 
+- Semgrep Cloud Platform does not use cookies; instead it uses `localStorage` to store access tokens. The data in `localStorage` expires every 7 days.
+
+## Additional resources
 
 Check out [<i class="fas fa-external-link fa-xs"></i> How to introduce Semgrep to your organization](https://blog.trailofbits.com/2024/01/12/how-to-introduce-semgrep-to-your-organization/) from Trail of Bits for tips on how to evaluate and deploy Semgrep for your org.

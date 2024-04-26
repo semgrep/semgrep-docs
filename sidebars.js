@@ -224,11 +224,11 @@ module.exports = {
                 //'running-rules',
                 //'semgrep-code/getting-started', (deprecated in favor of overview)
                 'semgrep-code/overview',
-                'semgrep-code/semgrep-pro-engine-intro',
-                'semgrep-code/policies',
-                'ignoring-files-folders-code',
                 'semgrep-code/findings',
+                'semgrep-code/policies',
                 'semgrep-code/triage-remediation',
+                'ignoring-files-folders-code',
+                'semgrep-code/semgrep-pro-engine-intro',
                 'semgrep-code/remove-duplicates',
                 'semgrep-ci/configuring-blocking-and-errors-in-ci',
                 'semgrep-code/editor',
@@ -255,11 +255,11 @@ module.exports = {
             items: [
                 'semgrep-secrets/conceptual-overview',
                 'semgrep-secrets/getting-started',
+                'semgrep-secrets/historical-scanning',
                 'semgrep-secrets/view-triage',
                 'semgrep-secrets/policies',
-                'semgrep-secrets/historical-scanning',
-                'semgrep-secrets/validators',
-                'semgrep-secrets/rules'
+                'semgrep-secrets/rules',
+                'semgrep-secrets/validators'
             ]
         },
         /*
