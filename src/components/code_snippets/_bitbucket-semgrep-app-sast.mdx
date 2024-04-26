@@ -1,12 +1,11 @@
 ```yaml
-image: atlassian/default-image:latest
+image: semgrep/semgrep:latest
 
 pipelines:
   branches:
     # Change to your default branch if different from main
     main:
     - step:
-        image: semgrep/semgrep
         name: Semgrep scan on push
         script:
           - export SEMGREP_APP_TOKEN=$SEMGREP_APP_TOKEN
@@ -15,7 +14,6 @@ pipelines:
   pull-requests:
     '**': # This applies to pull requests for all branches
       - step:
-          image: semgrep/semgrep
           name: Semgrep scan on PR
           script:
             - export SEMGREP_APP_TOKEN=$SEMGREP_APP_TOKEN
@@ -29,7 +27,6 @@ pipelines:
   # Trigger job manually. For cron in Bitbucket, see: https://support.atlassian.com/bitbucket-cloud/docs/pipeline-triggers/#On-schedule
     semgrep-manual:
       - step:
-          image: semgrep/semgrep
           name: Semgrep manual scan
           script:
             - export SEMGREP_APP_TOKEN=$SEMGREP_APP_TOKEN
