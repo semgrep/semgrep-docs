@@ -27,7 +27,7 @@ Failed to run 'git <command-details>'. Possible reasons:
 Try running the command yourself to debug the issue.
 ```
 
-In addition to the potential reasons included in the message, there are two other common reasons for git command failure:
+In addition to the potential reasons included in the message, there are a few other common reasons for git command failure:
 
 ## Clone depth is too shallow
 
@@ -51,7 +51,7 @@ However, if Semgrep is showing findings in GitHub pull requests that were not in
 
 ## Commit or branch not included in the checkout
 
-As with clone depth, which refs are checked out can vary depending on the CI environment and configuration. If the branch or ref to scan or the related baseline ref is not cloned or not checked out, the command that failed is typically:
+As with clone depth, which refs are checked out can vary depending on the CI environment and configuration. If the branch or ref to scan, or the related baseline ref, is not cloned or not checked out, the command that failed is typically:
 
 <pre class="language-bash"><code>git cat-file -e <span className="placeholder">REF</span></code></pre>
 
@@ -61,6 +61,15 @@ with the message `Not a valid object name REF`. This is more common when:
 * You have manually set `--baseline-commit` or `SEMGREP_BASELINE_REF` to a commit hash or branch name.
 
 To resolve this issue, ensure that you have set the baseline ref to a valid ref, and that the ref to scan is checked out in the CI environment.
+
+## Unable to use `--merge-base` option to `git diff` in git versions before 2.30
+
+When running diff scans against a baseline, Semgrep executes the `git diff` command with a `--merge-base` option to correctly calculate the desired diff based on where the current tree branched from the baseline. This option was added to the `git diff` command in git 2.30. If you are running an earlier version of `git`, this command may fail.
+
+To run the scan successfully:
+
+* If possible, update your git version.
+* If that's not possible, consider executing the scan using the Semgrep Docker container, which includes a recent version of git.
 
 <MoreHelp />
 
