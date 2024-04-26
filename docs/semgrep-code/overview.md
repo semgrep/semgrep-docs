@@ -28,7 +28,7 @@ Semgrep Code is transparent; you can configure the rules it runs and inspect its
 
 ## Findings
 
-Semgrep Cloud Platform (SCP) displays Semgrep Code's findings. Additionally, SCP allows you to:
+Semgrep AppSec Platform displays Semgrep Code's findings. Additionally, the platform allows you to:
 
 * Triage findings
 * Send alerts and notifications or create tickets to track findings identified by Semgrep Code
@@ -45,7 +45,7 @@ Semgrep Code also supports **[cross-file analysis](/semgrep-code/semgrep-pro-eng
 
 ## Enable Semgrep Code
 
-1. Sign in to [<i class="fas fa-external-link fa-xs"></i> Semgrep Cloud Platform](https://semgrep.dev/login).
+1. Sign in to [<i class="fas fa-external-link fa-xs"></i> Semgrep AppSec Platform](https://semgrep.dev/login).
 1. Click **[Settings](https://semgrep.dev/orgs/-/settings)**.
 1. In the **Deployment** tab, click the **<i class="fa-solid fa-toggle-large-on"></i> Code scans** toggle if it is not already enabled.
 

@@ -2,9 +2,9 @@
 slug: dashboard 
 append_help_link: true
 title: Dashboard 
-description: "The Dashboard is a summary view within Semgrep Cloud Platform to help security teams evaluate their organization's security posture."
+description: "The Dashboard is a summary view within Semgrep AppSec Platform to help security teams evaluate their organization's security posture."
 tags:
-    - Semgrep Cloud Platform
+    - Semgrep AppSec Platform
     - Team & Enterprise Tier
 hide_title: true
 ---
@@ -24,13 +24,13 @@ Object.entries(frontMatter).filter(
 
 ![Screenshot of dashboard view](/img/dashboard-view.png)
 
-The Semgrep Cloud Platform Dashboard is an overview of your organization’s security posture from data aggregated within the Semgrep Cloud Platform. With these metrics you can:
+The Semgrep AppSec Platform Dashboard is an overview of your organization’s security posture from data aggregated within the Semgrep AppSec Platform. With these metrics you can:
 
 * View recurring security issues, consequently taking action on them.
 * Improve communication between developer teams and security teams.
 * Detect vulnerabilities early, thereby preventing these from persisting through to the next stage of product delivery, such as QA.
 
-You can access the Dashboard by [logging into the Semgrep Cloud Platform](https://semgrep.dev/login?return_path=/manage/projects).
+You can access the Dashboard by [logging into the Semgrep AppSec Platform](https://semgrep.dev/login?return_path=/manage/projects).
 
 ## Assessing security readiness at a glance
 

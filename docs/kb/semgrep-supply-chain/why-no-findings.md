@@ -51,8 +51,8 @@ If the lockfile contains any special or additional details, such as environmenta
 
 If the scan did run successfully, the scan data may have been sent to a different Semgrep organization than expected.
 
-* Check other organizations you belong to in Semgrep Cloud Platform to see if the results appear there.
-* If you are running `semgrep ci` locally, use `semgrep logout` and `semgrep login`, and ensure you log in to the desired Semgrep Cloud Platform organization.
+* Check other organizations you belong to in Semgrep AppSec Platform to see if the results appear there.
+* If you are running `semgrep ci` locally, use `semgrep logout` and `semgrep login`, and ensure you log in to the desired Semgrep AppSec Platform organization.
 
 ### If the scan was a diff-aware (PR/MR) scan, was the lockfile modified?
 
@@ -79,7 +79,7 @@ By default, the Vulnerabilities page displays vulnerabilities from:
 
 ### Are all findings in the scan unreachable vulnerabilities?
 
-By default, Semgrep Cloud Platform shows only [reachable](/docs/semgrep-supply-chain/glossary#reachability) vulnerabilities in the UI. 
+By default, Semgrep AppSec Platform shows only [reachable](/docs/semgrep-supply-chain/glossary#reachability) vulnerabilities in the UI. 
 
 To see all vulnerabilities, select all boxes under the "Exposure" filter.
 

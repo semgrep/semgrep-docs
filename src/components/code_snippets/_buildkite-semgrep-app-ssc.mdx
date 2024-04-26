@@ -1,14 +1,13 @@
 ```yaml
 - label: ":semgrep: Semgrep"
   commands:
-
-    # Uncomment the following line to scan changed 
-    # files in PRs or MRs (diff-aware scanning): 
+    # Uncomment the following line to scan changed
+    # files in PRs or MRs (diff-aware scanning):
     # - export SEMGREP_BASELINE_REF = "main"
-    
+
     # Troubleshooting:
 
-    # Uncomment the following lines if Semgrep Cloud Platform > Findings Page does not create links
+    # Uncomment the following lines if Semgrep AppSec Platform > Findings Page does not create links
     # to the code that generated a finding or if you are not receiving PR or MR comments.
     # - export SEMGREP_COMMIT=${BUILDKITE_COMMIT}
     # - export SEMGREP_PR_ID=${BUILDKITE_PULL_REQUEST}
@@ -16,13 +15,13 @@
     # - export SEMGREP_REPO_URL="$(echo "$BUILDKITE_REPO" | sed -e 's#.\{4\}$##')"
     # - echo "$BUILDKITE_REPO" | sed 's#https://github.com/##' | sed 's#.git##'
     # - export SEMGREP_REPO_NAME="$(echo "$BUILDKITE_REPO" | sed -e 's#https://github.com/##' | sed -e 's#.git##')"
-    
+
     - semgrep ci --supply-chain
-  
+
   plugins:
     - docker#v3.7.0:
         image: semgrep/semgrep
         environment:
-          # The following variable is required to set up a scan connected to Semgrep Cloud Platform:
+          # The following variable is required to set up a scan connected to Semgrep AppSec Platform:
           - "SEMGREP_APP_TOKEN"
 ```

@@ -29,4 +29,4 @@ Now that you've finished your Semgrep core deployment, you can either customize 
 | I want to receive notifications in my environment.    | Set up [notifications](/semgrep-cloud-platform/notifications).   |
 | I want my developers to use Semgrep on their IDE.    | Install and set up available [IDE extensions](/extensions/overview).  |
 | I'm scanning too many projects (repositories onboarded to Semgrep) and want to group them somehow.         | [Tag your projects](/docs/semgrep-cloud-platform/tags).   |
-| I'd like to manage access to the resources that developers can view or change in Semgrep Cloud Platform.         | Configure [roles and users](/docs/deployment/user-management).  |
+| I'd like to manage access to the resources that developers can view or change in Semgrep AppSec Platform.         | Configure [roles and users](/docs/deployment/user-management).  |

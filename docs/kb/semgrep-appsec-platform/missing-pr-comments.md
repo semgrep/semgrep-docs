@@ -8,7 +8,7 @@ tags:
 
 # Why is my repository not receiving PR or MR comments?
 
-If you have configured Semgrep in CI and Semgrep Cloud Platform to create comments when a rule generates a finding in a PR or MR, but you are not seeing those comments, review the following possibilities.
+If you have configured Semgrep in CI and Semgrep AppSec Platform to create comments when a rule generates a finding in a PR or MR, but you are not seeing those comments, review the following possibilities.
 
 ## Are comments supported in your source code manager (SCM)?
 
@@ -32,14 +32,14 @@ If you are using a self-hosted version of GitHub (GitHub Enterprise) or GitLab (
 
 GitHub relies on the Semgrep GitHub app to make comments on code. To receive comments on a project, ensure that you have performed the following steps:
 
-* You have [onboarded](/deployment/add-semgrep-to-ci) the project to Semgrep Cloud Platform.
-* You have configured your GitHub app with permissions for all repositories that are scanned by Semgrep Cloud Platform. See [Enabling GitHub pull request comments](/docs/semgrep-cloud-platform/github-pr-comments) for details, or review the following examples:
+* You have [onboarded](/deployment/add-semgrep-to-ci) the project to Semgrep AppSec Platform.
+* You have configured your GitHub app with permissions for all repositories that are scanned by Semgrep AppSec Platform. See [Enabling GitHub pull request comments](/docs/semgrep-cloud-platform/github-pr-comments) for details, or review the following examples:
 
 ![Semgrep GitHub app permissions: all repos](/img/gh-app-permissions-all.png)
 **Figure** Permissions for all repos.
 
 ![Semgrep GitHub app permissions - select repos](/img/gh-app-permissions-select.png)
-**Figure** Permissions for select repos. Ensure the repos you have onboarded to Semgrep Cloud Platform are included here.
+**Figure** Permissions for select repos. Ensure the repos you have onboarded to Semgrep AppSec Platform are included here.
 
 
 ### GitLab and Bitbucket

@@ -18,7 +18,7 @@ This document describes two types of ignore operations:
 * **Ignoring as exclusion.** Exclude or skip specific **files and folders** from the scope of Semgrep scans in your repository or working directory. Ignoring in this context means that Semgrep does not generate findings for the ignored files and folders.
 * **Ignoring as triage action**. Ignore specific parts of code that would have generated a finding. Ignoring in this context means that Semgrep generates a finding record and automatically triages it as **Ignored**, a triage state.
 
-All Semgrep environments (CLI, CI, and Semgrep Cloud Platform) adhere to user-defined or Semgrep-defined ignore patterns.
+All Semgrep environments (CLI, CI, and Semgrep AppSec Platform) adhere to user-defined or Semgrep-defined ignore patterns.
 
 ## Reference summary
 
@@ -71,7 +71,7 @@ Semgrep provides several methods to customize ignore behavior. Refer to the foll
 |:---- |:------ |
 | To scan all files within Semgrep's scope each time you run Semgrep (only files within `.git` are ignored). | Create an empty `.semgrepignore` file in your repository root directory or in your project's working directory. An empty `.semgrepignore` will make Semgrep scan paths in `.gitignore`. |
 | To ignore files and folders in `.gitignore`. | Add `:include .gitignore` to your `.semgrepignore` file. |
-| To ignore custom files and folders each time you run a scan. | Add these files to your `.semgrepignore` file or [define them through Semgrep Cloud Platform](#defining-ignored-files-and-folders-in-semgrep-cloud-platform).|
+| To ignore custom files and folders each time you run a scan. | Add these files to your `.semgrepignore` file or [define them through Semgrep AppSec Platform](#defining-ignored-files-and-folders-in-semgrep-cloud-platform).|
 | To ignore specific code blocks each time you run a scan. | Create a comment with the word `nosemgrep`. |
 | To ignore files or folders for a particular scan. | Run Semgrep with the flag `--exclude` followed by the pattern or file to be excluded. See [CLI reference](/cli-reference).
 | To include files or folders for a particular scan. | Run Semgrep with the flag `--include` followed by the  pattern or file to be included. See CLI reference. When including a pattern from a `.gitignore` or `.semgrepignore` file, `--include` does not override either, still resulting in the file's exclusion. |
@@ -92,18 +92,18 @@ Unsupported patterns are silently removed from the pattern list (this is done so
 
 For a description of `.gitignore` syntax, see [.gitignore documentation](https://git-scm.com/docs/gitignore).
 
-## Define ignored files and folders in Semgrep Cloud Platform
+## Define ignored files and folders in Semgrep AppSec Platform
 
-Another method for users to define ignore patterns is through a Project in Semgrep Cloud Platform. These patterns follow the same syntax as `.semgrepignore` in the preceding section.
+Another method for users to define ignore patterns is through a Project in Semgrep AppSec Platform. These patterns follow the same syntax as `.semgrepignore` in the preceding section.
 
-To define files and folders in Semgrep Cloud Platform:
+To define files and folders in Semgrep AppSec Platform:
 
-1. Sign in to [Semgrep Cloud Platform](https://semgrep.dev/login?return_path=/manage/projects).
+1. Sign in to [Semgrep AppSec Platform](https://semgrep.dev/login?return_path=/manage/projects).
 2. From the Dashboard Sidebar, select **[Projects](https://semgrep.dev/orgs/-/projects)** > **[Project name]**.
 3. Select the name of the project to modify, and then click the respective <i class="fa-solid fa-gear"></i> **gear** icon in the Settings column.
 4. Enter files and folders to ignore in the **Path Ignores** box.
 
-Including files and folders through this method is **additive**. When Semgrep Cloud Platform makes a scan, it looks for a `.semgrepignore` within the repository. If no `.semgrepignore` file is found, Semgrep temporarily creates one and adds items from Semgrep Cloud Platform's Path Ignores. Adding items to the **Path Ignores** box does not override default Semgrep ignore patterns.
+Including files and folders through this method is **additive**. When Semgrep AppSec Platform makes a scan, it looks for a `.semgrepignore` within the repository. If no `.semgrepignore` file is found, Semgrep temporarily creates one and adds items from Semgrep AppSec Platform's Path Ignores. Adding items to the **Path Ignores** box does not override default Semgrep ignore patterns.
 
 You can also add files to `.semgrepignore` while triaging individual findings in the **No grouping** view on the Findings page:
 
@@ -183,15 +183,15 @@ bad_func3(   // nosemgrep: configs.rule-id-3, configs.rule-id-4
 Previous annotations for ignoring code inline, such as `nosem`, are deprecated.
 :::
 
-## Disable rules on Semgrep Cloud Platform
+## Disable rules on Semgrep AppSec Platform
 
-Semgrep Cloud Platform users can disable rules and rulesets through the Policies page. See [Disabling rules](/semgrep-code/policies#disabling-rules) and [Disabling rulesets](/semgrep-code/triage-remediation/#disable-a-ruleset-or-a-rule).
+Semgrep AppSec Platform users can disable rules and rulesets through the Policies page. See [Disabling rules](/semgrep-code/policies#disabling-rules) and [Disabling rulesets](/semgrep-code/triage-remediation/#disable-a-ruleset-or-a-rule).
 
 ## Ignore findings
 
-**Ignoring** can also be a triage action. In this case, the code is scanned rather than excluded, and if a pattern match occurs, a finding record is generated that you can then triage as **Ignored**. See [Triage and remediate Semgrep Code findings in Semgrep Cloud Platform](/semgrep-code/triage-remediation/#ignore-findings) to learn how to:
+**Ignoring** can also be a triage action. In this case, the code is scanned rather than excluded, and if a pattern match occurs, a finding record is generated that you can then triage as **Ignored**. See [Triage and remediate Semgrep Code findings in Semgrep AppSec Platform](/semgrep-code/triage-remediation/#ignore-findings) to learn how to:
 
-* [Ignore findings in Semgrep Cloud Platform](/semgrep-code/triage-remediation/#ignore-findings)
+* [Ignore findings in Semgrep AppSec Platform](/semgrep-code/triage-remediation/#ignore-findings)
 * [Ingore findings through GitHub PR comments](/semgrep-code/triage-remediation/#ignore-findings-through-github-pr-comments.)
 
 ## Known issues

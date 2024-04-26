@@ -1,11 +1,11 @@
 ---
-slug: overview 
+slug: overview
 append_help_link: true
 description: "Learn how Semgrep leverages its engine to scan open source dependencies with high-signal rules."
 tags:
     - Semgrep Supply Chain
     - Team & Enterprise Tier
-title: Overview 
+title: Overview
 hide_title: false
 ---
 
@@ -56,7 +56,7 @@ Supply Chain offers two levels of support for reachability analysis, [depending
 on your language](/supported-languages/#maturity-levels-1):
 
 * **GA**: Semgrep writes rules for all critical and high CVE
-severity levels for GA languages. That means Semgrep Supply Chain can flag all 
+severity levels for GA languages. That means Semgrep Supply Chain can flag all
 your critical/high-severity findings as either reachable or unreachable.
   * If there's a code pattern in the codebase that matches the vulnerability
     definition, the finding is flagged as **reachable**.
@@ -69,8 +69,8 @@ your critical/high-severity findings as either reachable or unreachable.
 
 * **lockfile-only languages**: For **[lockfile-only](/semgrep-supply-chain/glossary/#lockfile-only-rules)** languages, Semgrep Supply Chain's performance is comparable to that of [GitHub's Dependabot](https://github.com/dependabot). Semgrep Supply Chain generates these findings by checking the dependency's version listed in your lockfile or manifest against a list of versions with known vulnerabilities, but it does not run reachability analysis. Because Semgrep Supply Chain doesn't run reachability analysis, it can't determine whether the vulnerability is reachable. Such vulnerabilities are, therefore, flagged as **undetermined**.
 
-Specific dependency and code match findings are called **usages**. SCP groups
-all usages together by vulnerability. For each vulnerability, SCP also displays
+Specific dependency and code match findings are called **usages**. Semgrep AppSec Platform groups
+all usages together by vulnerability. For each vulnerability, the UI also displays
 a CVE number corresponding to the [CVE program record](https://www.cve.org/About/Overview).
 
 ### Transitive dependencies and reachability analysis
@@ -114,15 +114,14 @@ organization's requirements.
 
 ## Next steps
 
-Semgrep Supply Chain automatically scans repositories that you have added to Semgrep Cloud Platform.
+Semgrep Supply Chain automatically scans repositories that you have added to Semgrep AppSec Platform.
 
-* After every scan, you can view your findings by [logging in to Semgrep Cloud
-  Platform (SCP)](https://semgrep.dev/login) and navigating to [**Supply
+* After every scan, you can view your findings by [logging in to Semgrep AppSec
+  Platform](https://semgrep.dev/login) and navigating to [**Supply
   Chain**](https://semgrep.dev/orgs/-/supply-chain).
 * To support your security and business goals, you can [customize how Semgrep
   Supply Chain scans your dependencies](/semgrep-supply-chain/getting-started).
-* The SCP has features to support the [triage and
-  remediation](/semgrep-supply-chain/triage-and-remediation) of your findings.
+* [Triage and remediate](/semgrep-supply-chain/triage-and-remediation) your findings.
 
 ### Further reading
 
