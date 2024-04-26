@@ -57,26 +57,26 @@ semgrep ci
 To export the results to a plain text file:
 
 ```console
-semgrep ci --text --output=semgrep.txt
+semgrep ci --text --text-output=semgrep.txt
 ```
 
 To export the results to a SARIF file:
 
 ```console
-semgrep ci --sarif --output=semgrep.sarif
+semgrep ci --sarif --sarif-output=semgrep.sarif
 ```
 
 To export the results to a JSON file:
 
 ```console
-semgrep ci --json --output=semgrep.json
+semgrep ci --json --json-output=semgrep.json
 ```
 
 To view your results in multiple formats, combine the appropriate flags:
 
 ```console
 # obtain results as text output and as JSON, SARIF
-semgrep ci --json --text --output=semgrep.sarif --output=semgrep.json
+semgrep ci --text --text-output=semgrep.txt --json --json-output=semgrep.json --sarif --sarif-output=semgrep.sarif
 ```
 
 ### Scan your project with a specific ruleset
