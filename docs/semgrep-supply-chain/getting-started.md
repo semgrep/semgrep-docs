@@ -1,5 +1,5 @@
 ---
-slug: getting-started 
+slug: getting-started
 append_help_link: true
 description: "Customize how Semgrep Supply Chain scans your codebase's open source dependencies."
 tags:
@@ -43,7 +43,7 @@ In the following example, Semgrep Supply Chain assumes that all code files using
 │   ├───lockfile.json
 │   ├───bar.js
 │   └───/uphill
-│       ├───lockfile.json        
+│       ├───lockfile.json
 │       └────foo.js
 ├───/biking
 ```
@@ -106,7 +106,7 @@ semgrep ci --supply-chain
 
 Semgrep prints a list of findings directly to the CLI, including the finding's reachability determination, severity level, a brief description, and suggested remediation.
 
-Additionally, you can view your results in Semgrep AppSec Platform. Semgrep AppSec Platform displays all of the information displayed in the CLI, but it also offers you the ability to:
+Additionally, you can view your results in Semgrep AppSec Platform. It displays all of the information displayed in the CLI, but it also offers you the ability to:
 
 * See additional finding details, such as whether the finding is always reachable or if it's reachable if certain conditions are met, and its transitivity status
 * Use the [dependency search](/semgrep-supply-chain/dependency-search) feature
@@ -118,7 +118,7 @@ Semgrep Supply Chain supports the scanning of monorepos. As outlined in [Project
 
 ## Block pull or merge requests
 
-Semgrep Supply Chain versions **v0.122.0** and earlier automatically blocked pull/merge requests if it discovered reachable findings in the code, but later versions do not do this. You can, however, configure Semgrep Supply Chain to block on pull request scans that detect reachable findings in direct dependencies with high or critical severity. 
+Semgrep Supply Chain versions **v0.122.0** and earlier automatically blocked pull/merge requests if it discovered reachable findings in the code, but later versions do not do this. You can, however, configure Semgrep Supply Chain to block on pull request scans that detect reachable findings in direct dependencies with high or critical severity.
 
 1. Log in to Semgrep AppSec Platform.
 2. Click **Supply Chain** > **Settings** on the header menu.

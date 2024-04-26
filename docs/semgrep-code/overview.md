@@ -28,7 +28,7 @@ Semgrep Code is transparent; you can configure the rules it runs and inspect its
 
 ## Findings
 
-Semgrep AppSec Platform displays Semgrep Code's findings. Additionally, Semgrep AppSec Platform allows you to:
+Semgrep AppSec Platform displays Semgrep Code's findings. Additionally, the platform allows you to:
 
 * Triage findings
 * Send alerts and notifications or create tickets to track findings identified by Semgrep Code

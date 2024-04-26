@@ -19,11 +19,11 @@ Object.entries(frontMatter).filter(
 }
 </ul>
 
-# Setting up Semgrep Supply Chain with Jenkins UI
+# Set up Semgrep Supply Chain with Jenkins UI
 
 When running a CI job, the Jenkins UI Git plugin creates a detached `HEAD` ref by default. This causes Semgrep Supply Chain (SSC) to send a repository's branch name as `HEAD` to Semgrep AppSec Platform, instead of using the actual branch name. As a result, the Supply Chain findings may not display by default. This document explains how to set up Jenkins to fix this behavior for users of the **Jenkins UI Git plugin**.
 
-## Verifying that there are findings to send to Semgrep AppSec Platform
+## Verify that there are findings to send to Semgrep AppSec Platform
 
 These steps are optional, but it is recommended to perform the following procedure to verify that there are findings that Semgrep AppSec Platform is not displaying from your Jenkins job.
 
@@ -38,7 +38,7 @@ These steps are optional, but it is recommended to perform the following procedu
 
 Refer to the following section after verifying discrepancies between your CI job log and Semgrep AppSec Platform findings.
 
-## Setting up SSC with Jenkins UI
+## Set up SSC with Jenkins UI
 
 To set up SSC with Jenkins UI, perform the following steps:
 
@@ -47,7 +47,7 @@ To set up SSC with Jenkins UI, perform the following steps:
 1. Under **Source Code Management**, ensure that **Git** is selected.
 1. Under **Git > Additional behaviors** click **Add**.
 1. From the drop-down box, click **Check out to specific local branch**.
-1. Enter the name of repository's mainline or trunk branch, such as `master`. 
+1. Enter the name of repository's mainline or trunk branch, such as `master`.
 ![Location of specific local branch text box](/img/jenkins-specific-local-branch.png#bordered)
 1. Click **Save**.
 1. Optional: Click **Build Now** to test that your job can now send findings to Semgrep AppSec Platform.

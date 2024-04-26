@@ -54,10 +54,10 @@ If your provider is **not** on this list, you can still integrate Semgrep into y
 
 Adding a Semgrep job to your CI provider also adds the repository's records, including findings, as a **project** in Semgrep AppSec Platform. Each Project can be individually configured to send notifications or tickets.
 
-![Semgrep AppSec Platform Projects page](/img/projects-page.png)
-**Figure.** Semgrep AppSec Platform Projects page. This displays all the repositories you have successfully added a Semgrep job to.
+![Semgrep Projects page](/img/projects-page.png)
+_**Figure.** Semgrep **Projects** page. This displays all the repositories you have successfully added a Semgrep job to._
 
-## Add Semgrep to CI through Semgrep AppSec Platform
+## Add Semgrep to CI
 
 <Tabs
     defaultValue="other"
@@ -116,11 +116,11 @@ Refer to the following table for links to sample CI configuration snippets:
 | Buildkite            | [`pipelines.yml`](/semgrep-ci/sample-ci-configs/#buildkite) |
 | Azure Pipelines      | [`azure-pipelines.yml`](/semgrep-ci/sample-ci-configs/#azure-pipelines) |
 
-### Data collected by Semgrep AppSec Platform
+### Data collected by Semgrep
 
 When running in CI, Semgrep runs fully in the CI build environment. Unless you have explicitly granted code access to Semgrep, your code is not sent anywhere.
 
-- Semgrep AppSec Platform collects [findings data](/semgrep-ci/findings-ci), which includes the line number of the code match, but not the code. It is hashed using a one-way hashing function.
+- Semgrep collects [findings data](/semgrep-ci/findings-ci), which includes the line number of the code match, but not the code. It is hashed using a one-way hashing function.
 - Findings data is used to generate line-specific hyperlinks to your source code management system and support other Semgrep functions.
 
 ## Next steps

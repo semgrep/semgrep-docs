@@ -29,19 +29,19 @@ This article walks you through enabling Semgrep Assistant for your deployment an
 
 <TabItem value='github'>
 
-Semgrep Assistant extends normal Semgrep capabilities by providing contextually aware AI-generated suggestions. In order to build that context, it requires GitHub permissions in addition to the 
+Semgrep Assistant extends normal Semgrep capabilities by providing contextually aware AI-generated suggestions. In order to build that context, it requires GitHub permissions in addition to the
 [<i class="fa-regular fa-file-lines"></i> standard permissions required for Semgrep](/deployment/checklist/#permissions).
 
 Semgrep Assistant requires [read access to your code in GitHub](https://docs.github.com/en/rest/overview/permissions-required-for-github-apps?apiVersion=2022-11-28). This is done through a private Semgrep GitHub app that you install during Assistant setup. This private Semgrep GitHub app:
 
 * Is fully under your control so you can revoke access or specific permissions at any time by visiting **Settings > Applications** in GitHub.
 * Only accesses source code repositories on a file-by-file basis; it does not need or request org-level access to your codebase.
-* Can be configured to limit its scope to specific repositories. You do not need to give read access to all repositories in your GitHub organization. 
+* Can be configured to limit its scope to specific repositories. You do not need to give read access to all repositories in your GitHub organization.
 
 ## Enable Assistant
 
 1. Sign in to [Semgrep AppSec Platform](https://semgrep.dev/login).
-2. Click **[<i class="fa-solid fa-gear"></i> Settings](https://semgrep.dev/orgs/-/settings/)**. 
+2. Click **[<i class="fa-solid fa-gear"></i> Settings](https://semgrep.dev/orgs/-/settings/)**.
 3. In the **Assistant** section, click the **<i class="fa-solid fa-gear"></i> Allow code snippets in AI prompts** toggle.
 ![Semgrep Assistant setup button](/img/semgrep-assistant-setup.png#md-width)
    This launches the **Set up Semgrep Assistant** prompt.
@@ -62,19 +62,19 @@ Semgrep Assistant requires [read access to your code in GitHub](https://docs.git
 
 <TabItem value='gitlab'>
 
-Semgrep Assistant extends normal Semgrep capabilities by providing contextually aware AI-generated suggestions. In order to build that context, it requires GitLab permissions in addition to the 
+Semgrep Assistant extends normal Semgrep capabilities by providing contextually aware AI-generated suggestions. In order to build that context, it requires GitLab permissions in addition to the
 [<i class="fa-regular fa-file-lines"></i> standard permissions required for Semgrep](/deployment/checklist/#permissions).
 
-Semgrep Assistant requires the **API scope** to run in both GitLab SaaS and GitLab self-managed instances. This can be specified at either the [project access token level](https://docs.gitlab.com/ee/user/project/settings/project_access_tokens.html) or [personal access token level](https://docs.gitlab.com/ee/user/profile/personal_access_tokens.html). 
+Semgrep Assistant requires the **API scope** to run in both GitLab SaaS and GitLab self-managed instances. This can be specified at either the [project access token level](https://docs.gitlab.com/ee/user/project/settings/project_access_tokens.html) or [personal access token level](https://docs.gitlab.com/ee/user/profile/personal_access_tokens.html).
 
-* You can revoke [project access tokens](https://docs.gitlab.com/ee/user/project/settings/project_access_tokens.html#revoke-a-project-access-token) or [personal access tokens](https://docs.gitlab.com/ee/user/profile/personal_access_tokens.html#revoke-a-personal-access-token) at any time. 
+* You can revoke [project access tokens](https://docs.gitlab.com/ee/user/project/settings/project_access_tokens.html#revoke-a-project-access-token) or [personal access tokens](https://docs.gitlab.com/ee/user/profile/personal_access_tokens.html#revoke-a-personal-access-token) at any time.
 * Semgrep Assistant only accesses source code repositories (projects) on a file-by-file basis; it does not need or request org-level access to your codebase.
 * The token can be configured to limit its scope to specific projects or individuals. You do not need to give read access to all projects in your GitLab organization.
 
 <h2>Enable Assistant</h2>
 
 1. Sign in to [Semgrep AppSec Platform <i class="fas fa-external-link fa-xs"></i>](https://semgrep.dev/login) using your GitLab account.
-2. Click **[<i class="fa-solid fa-gear"></i> Settings](https://semgrep.dev/orgs/-/settings/)**. 
+2. Click **[<i class="fa-solid fa-gear"></i> Settings](https://semgrep.dev/orgs/-/settings/)**.
 3. In the **Assistant** section, click the **<i class="fa-solid fa-gear"></i> Allow code snippets in AI prompts** toggle.
 ![Semgrep Assistant setup button](/img/semgrep-assistant-setup.png#md-width)
    This launches the **Set up Semgrep Assistant** prompt.
@@ -139,7 +139,7 @@ To analyze your findings with Assistant:
 
 After Assistant performs these functions, you can see your results on the **Findings** page using the **Recommendation** or **Component** filters. When viewing your findings, you can see false positive and true positive recommendations when viewing the finding details pages if you choose **No Grouping** instead of **Group by Rule**.
 
-The amount of time required to analyze your findings varies, but Semgrep AppSec Platform displays a notification that provides an estimated wait time.
+The amount of time required to analyze your findings varies, but the UI displays a notification that provides an estimated wait time.
 
 :::info
 There is a cap of 250 Assistant runs per month using the **Analyze** button. Assistant runs against pull requests and merge requests do not count against this limit.
@@ -147,7 +147,7 @@ There is a cap of 250 Assistant runs per month using the **Analyze** button. Ass
 
 ## View recommendations
 
-You can [view all of Semgrep Assistant's recommendations](/semgrep-code/findings/#filter-findings) by going to Semgrep AppSec Platform's **Findings** page and filtering by **Recommendation** or **Component**.
+You can [view all of Semgrep Assistant's recommendations](/semgrep-code/findings/#filter-findings) by going to the Semgrep **Findings** page and filtering by **Recommendation** or **Component**.
 
 ## Write custom rules (beta)
 

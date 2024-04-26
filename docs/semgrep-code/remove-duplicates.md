@@ -12,7 +12,7 @@ tags:
 
 # Remove duplicate findings
 
-Semgrep AppSec Platform scans are performed on both mainline (trunk) and non-mainline branches. The scope of the scan can differ depending on if Semgrep AppSec Platform is called on a mainline or non-mainline branch.
+Semgrep scans are performed on both mainline (trunk) and non-mainline branches. The scope of the scan can differ depending on if Semgrep is called on a mainline or non-mainline branch.
 
 <dl>
     <dt>Full scan</dt>
@@ -23,7 +23,7 @@ Semgrep AppSec Platform scans are performed on both mainline (trunk) and non-mai
 
 ## Remove duplicate findings using Semgrep AppSec Platform
 
-Regardless of the scope of a scan, Semgrep AppSec Platform correlates findings across branches based on their unique fingerprint, automatically deduplicating findings and making it simpler to triage. 
+Regardless of the scope of a scan, Semgrep correlates findings across branches based on their unique fingerprint, automatically deduplicating findings and making it simpler to triage.
 
 If a finding is fixed in one branch (such as `main`) but open in another (such as `production`), and the code fixes are present in both branches, initiate a scan through your CI job or SCM tool on the branch(es) with open findings to have Semgrep mark the findings as fixed.
 

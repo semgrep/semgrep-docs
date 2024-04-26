@@ -2,7 +2,7 @@
 slug: sso
 append_help_link: true
 description: "SSO configuration instructions."
-title: SSO authentication 
+title: SSO authentication
 hide_title: true
 tags:
     - Semgrep AppSec Platform
@@ -24,13 +24,13 @@ import MoreHelp from "/src/components/MoreHelp"
 
 :::note Your deployment journey
 - You have gained the necessary [resource access and permissions](/deployment/checklist) required for deployment.
-- You have [created a Semgrep account and organization](/deployment/create-account-and-orgs). 
+- You have [created a Semgrep account and organization](/deployment/create-account-and-orgs).
 - For GitHub and GitLab users: You have [connected your source code manager](/deployment/connect-scm).
 :::
 
-The only required steps to ensure that users are added to Semgrep AppSec Platformare on the side of the SSO provider. After setting up SSO, users are able to sign in to your Semgrep organizations by entering their SSO credentials.
+The only required steps to ensure that users are added to Semgrep AppSec Platform are on the side of the SSO provider. After setting up SSO, users are able to sign in to your Semgrep organizations by entering their SSO credentials.
 
-Semgrep AppSec Platform supports SSO through [OpenID Connect / OAuth2](#openid-connect--oauth2) and [SAML 2.0](#saml-20).
+Semgrep supports SSO through [OpenID Connect / OAuth2](#openid-connect--oauth2) and [SAML 2.0](#saml-20).
 
 ## OpenID Connect / OAuth2
 
@@ -49,7 +49,7 @@ In case you encounter issues during the setup process, please reach out to [supp
 
 ## SAML 2.0
 
-SAML2.0 is configured through **Semgrep AppSec Platform**. 
+SAML2.0 is configured through **Semgrep AppSec Platform**.
 
 To set up SSO:
 
@@ -107,12 +107,12 @@ You have now created a custom enterprise app for Semgrep to integrate with Micro
 
 #### Set up SAML SSO for your new enterprise app
 
-1. From your new enterprise app's page, go to **Single-sign on** > **SAML**. 
+1. From your new enterprise app's page, go to **Single-sign on** > **SAML**.
    ![Enterprise application's Single-sign on menu option](/img/entra-3.png#md-width)
 2. When prompted to **Select a single sign-on method**, select **SAML**. You are redirected to the **SAML-based Sign-on** page.
    ![SAML-based Sign-on screen](/img/entra-4.png#md-width)
 3. In the **Basic SAML Configuration** section, click **Edit**. Provide the **Entity ID** and **Reply URL**. You can retrieve these values from Semgrep AppSec Platform by performing the following steps:
-    1. Log in to Semgrep AppSec Platform and navigate to [**Settings** > **Access** > **SSO**](https://semgrep.dev/orgs/-/settings/access/sso) page. 
+    1. Log in to Semgrep AppSec Platform and navigate to [**Settings** > **Access** > **SSO**](https://semgrep.dev/orgs/-/settings/access/sso) page.
     2. Click **Add SAML2 SSO**.
     3. Copy the **Audience URL** value from Semgrep AppSec Platform. Return to **Basic SAML Configuration**. Click **Add identifier** to paste this value as the **Identifier (Entity ID)**.
     4. Copy the **SSO URL** value from Semgrep AppSec Platform. Return to **Basic SAML Configuration**. Click **Add reply URL** to paste this value as the **Reply URL (Assertion Consumer Service URL)**.
