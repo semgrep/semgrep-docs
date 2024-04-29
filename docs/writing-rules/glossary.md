@@ -15,7 +15,7 @@ The definitions provided here are specific to Semgrep.
 
 <!-- Refers to state of a variable remaining constant throughout the program. Semgrep can analyze whether a variable carries a constant value at a given point. Both Semgrep OSS and Semgrep Pro Engine perform this analysis, with Semgrep Pro able to track the propagation across files. -->
 
-Constant propagation is a type of analysis where values known to be constant are substituted in later uses, such as detecting matches. Semgrep can perform constant propagation across files, unless you are running Semgrep OSS, which can only propagate within a function.
+Constant propagation is a type of analysis where values known to be constant are substituted in later uses, such as detecting matches. Semgrep can perform constant propagation across files, unless you are running Semgrep OSS, which can only propagate within a file.
 
 Constant propagation is applied to all rules unless [it is disabled](/data-flow/constant-propagation/#disabling-constant-propagation).
 
@@ -40,7 +40,7 @@ Constant propagation is one of the many analyses that differentiate Semgrep from
 
 Also known as **interfile analysis**. Cross-file analysis takes into account how information flows between files. In particular, cross-file analysis includes **cross-file taint analysis**, which tracks unsanitized variables flowing from a source to a sink through arbitrarily many files. Other analyses performed across files include constant propagation and type inference.
 
-Cross-file analysis is usually used in contrast to intrafile or per-file analysis, where each file is analyzed as a standalone block of code.
+Cross-file analysis is usually used in contrast to intrafile (also known as per-file analysis), where each file is analyzed as a standalone block of code.
 
 Semgrep OSS is limited to per-file analysis.
 
@@ -96,7 +96,7 @@ A metavariable is an abstraction that lets you match something even when you don
 
 A propagator is any code that alters a piece of data as the data moves across the program. This includes functions, reassignments, and so on.
 
-When you write rules that perform taint analysis, propagators are pieces of code that you specify through the `pattern-propagator` key as code that always passes tainted data. This is especially relevant when Semgrep performs intraprocedural taint analysis, as there is no way for Semgrep to infer or guess which function calls propagate taint. Thus, explicitly listing propagators is the only way for Semgrep to know if tainted data could be passed within your function.
+When you write rules that perform taint analysis, propagators are pieces of code that you specify through the `pattern-propagator` key as code that always passes tainted data. This is especially relevant when Semgrep performs intraprocedural taint analysis, as there is no way for Semgrep to infer which function calls propagate taint. Thus, explicitly listing propagators is the only way for Semgrep to know if tainted data could be passed within your function.
 
 ## Rule (Semgrep rule)
 
@@ -130,7 +130,9 @@ An example of a sanitizer is the [<i class="fas fa-external-link fa-xs"></i> `DO
 
 ## Per-file analysis
 
-Also known as intrafile analysis. This refers to a tool's ability to trace or track the flow of information, such as when a variable is defined in one function but used in another.
+Also known as intrafile analysis. In per-file analysis, information can only be traced or tracked within a single file. It cannot be traced if it flows to another file.
+
+Per-file analysis can include cross-function analysis, aka tracing the flow of information between functions. When discussing the capabilities of pro analysis, per-file analysis implies cross-function analysis.
 
 ## Per-function analysis
 
