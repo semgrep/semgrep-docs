@@ -63,8 +63,6 @@ Dependency search provides the following filters, which correspond to the data p
 <dd>The dependency's license</dd>
 <dt>Ecosystem</dt>
 <dd>The language of the dependency</dd>
-<dt>Insights</dt>
-<dd>Additional information related to the dependency: <ul><li>Deprecated: packages that may not be supported or maintained</li><li>Untracked: packages that can't be matched against package manager records</li><li>Update Due: packages that are due to be updated</li><li>Dormant: packages that haven't been updated in over three years</li></ul></dd>
 </dl>
 
 ![Screenshot of dependency search with query](/img/SSC-DepSearch-Query.png)
