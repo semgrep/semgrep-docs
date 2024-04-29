@@ -35,7 +35,7 @@ directly from Slack.
 
 #### Web
 
-Customers who log in to Semgrep Cloud Platform can open a support case
+Customers who log in to Semgrep AppSec Platform can open a support case
 from the [Help section](https://semgrep.dev/orgs/-/support). 
 
 #### Email

@@ -28,7 +28,7 @@ Semgrep Code is transparent; you can configure the rules it runs and inspect its
 
 ## Findings
 
-Semgrep Cloud Platform (SCP) displays Semgrep Code's findings. Additionally, SCP allows you to:
+Semgrep AppSec Platform displays Semgrep Code's findings. Additionally, the platform allows you to:
 
 * Triage findings
 * Send alerts and notifications or create tickets to track findings identified by Semgrep Code
@@ -45,11 +45,11 @@ Semgrep Code also supports **[cross-file analysis](/semgrep-code/semgrep-pro-eng
 
 ## Enable Semgrep Code
 
-1. Sign in to [<i class="fas fa-external-link fa-xs"></i> Semgrep Cloud Platform](https://semgrep.dev/login).
+1. Sign in to [<i class="fas fa-external-link fa-xs"></i> Semgrep AppSec Platform](https://semgrep.dev/login).
 1. Click **[Settings](https://semgrep.dev/orgs/-/settings)**.
-1. In the **Deployment** tab, click the **<i class="fa-solid fa-toggle-large-on"></i> Code (SAST)** toggle if it is not already enabled.
+1. In the **Deployment** tab, click the **<i class="fa-solid fa-toggle-large-on"></i> Code scans** toggle if it is not already enabled.
 
-Subsequent scans will now include Code scans.
+Subsequent scans now include Code scans.
 
 ### Run Semgrep Code scans with single-function analysis
 
@@ -64,9 +64,10 @@ semgrep ci --oss-only
 ```
 ## Next steps
 
-- Enable [cross-file scanning](/semgrep-code/semgrep-pro-engine-intro/).
-- Enable [autofix](/writing-rules/autofix) so that Semgrep can push code suggestions to GitHub or GitLab to help your developers resolve findings.
+- [View your findings](/semgrep-code/findings).
 - Customize how Semgrep Code scans your repository by modifying the [default rules set](https://semgrep.dev/p/default) or [writing your own rules](/semgrep-code/editor/#jumpstart-rule-writing-using-existing-rules).
+- Enable [autofix](/writing-rules/autofix) so that Semgrep can push code suggestions to GitHub or GitLab to help your developers resolve findings.
+- Enable [cross-file scanning](/semgrep-code/semgrep-pro-engine-intro/).
 
 ## Further reading
 

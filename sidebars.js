@@ -97,9 +97,9 @@ module.exports = {
                   collapsible: true,
                   link: {type: 'generated-index'},
                   items: [
-                    'semgrep-cloud-platform/github-pr-comments',
-                    'semgrep-cloud-platform/gitlab-mr-comments',
-                    'semgrep-cloud-platform/bitbucket-pr-comments',
+                    'semgrep-appsec-platform/github-pr-comments',
+                    'semgrep-appsec-platform/gitlab-mr-comments',
+                    'semgrep-appsec-platform/bitbucket-pr-comments',
                     ]
                 },
                 'deployment/beyond-core-deployment'
@@ -111,8 +111,8 @@ module.exports = {
             label: 'Deployment at scale',
             link: {type: 'generated-index'},
             items: [
-                'deployment/user-management',
-                'semgrep-cloud-platform/tags',
+                'deployment/teams',
+                'semgrep-appsec-platform/tags',
                 'semgrep-ci/network-broker'
             ]
         },
@@ -129,31 +129,31 @@ module.exports = {
           type: 'category',
           label: 'Notifications',
           collapsible: true,
-          link: {type: 'doc', id: 'semgrep-cloud-platform/notifications'},
+          link: {type: 'doc', id: 'semgrep-appsec-platform/notifications'},
           items: [
-            'semgrep-cloud-platform/slack',
-            'semgrep-cloud-platform/email',
-            'semgrep-cloud-platform/webhooks'
+            'semgrep-appsec-platform/slack',
+            'semgrep-appsec-platform/email',
+            'semgrep-appsec-platform/webhooks'
           ]
         },
         {
           type: 'category',
           label: 'Ticketing',
           collapsible: true,
-          link: {type: 'doc', id: 'semgrep-cloud-platform/ticketing'},
+          link: {type: 'doc', id: 'semgrep-appsec-platform/ticketing'},
           items: [
-            'semgrep-cloud-platform/asana',
-            'semgrep-cloud-platform/jira',
-            'semgrep-cloud-platform/linear'
+            'semgrep-appsec-platform/asana',
+            'semgrep-appsec-platform/jira',
+            'semgrep-appsec-platform/linear'
           ]
         },
         {
           type: 'category',
           label: 'Reports',
           collapsible: true,
-          link: {type: 'doc', id: 'semgrep-cloud-platform/ticketing'},
+          link: {type: 'doc', id: 'semgrep-appsec-platform/ticketing'},
           items: [
-            'semgrep-cloud-platform/dashboard',
+            'semgrep-appsec-platform/dashboard',
             'semgrep-supply-chain/sbom'
           ]
         },
@@ -201,7 +201,7 @@ module.exports = {
                   },
                 items: [
                     'semgrep-ci/overview',
-                    'semgrep-ci/running-semgrep-ci-with-semgrep-cloud-platform',
+                    'semgrep-ci/running-semgrep-ci-with-semgrep-appsec-platform',
                     'semgrep-ci/ci-environment-variables',
                     'semgrep-ci/configuring-blocking-and-errors-in-ci',
                     'semgrep-ci/sample-ci-configs',
@@ -224,11 +224,11 @@ module.exports = {
                 //'running-rules',
                 //'semgrep-code/getting-started', (deprecated in favor of overview)
                 'semgrep-code/overview',
-                'semgrep-code/semgrep-pro-engine-intro',
-                'semgrep-code/policies',
-                'ignoring-files-folders-code',
                 'semgrep-code/findings',
+                'semgrep-code/policies',
                 'semgrep-code/triage-remediation',
+                'ignoring-files-folders-code',
+                'semgrep-code/semgrep-pro-engine-intro',
                 'semgrep-code/remove-duplicates',
                 'semgrep-ci/configuring-blocking-and-errors-in-ci',
                 'semgrep-code/editor',
@@ -255,16 +255,16 @@ module.exports = {
             items: [
                 'semgrep-secrets/conceptual-overview',
                 'semgrep-secrets/getting-started',
+                'semgrep-secrets/historical-scanning',
                 'semgrep-secrets/view-triage',
                 'semgrep-secrets/policies',
-                'semgrep-secrets/historical-scanning',
-                'semgrep-secrets/validators',
-                'semgrep-secrets/rules'
+                'semgrep-secrets/rules',
+                'semgrep-secrets/validators'
             ]
         },
         /*
-        'semgrep-cloud-platform/getting-started',
-        'semgrep-cloud-platform/semgrep-api',
+        'semgrep-appsec-platform/getting-started',
+        'semgrep-appsec-platform/semgrep-api',
         'troubleshooting/semgrep-app', */
       ]
     },
@@ -279,7 +279,7 @@ module.exports = {
             label: 'SAST',
             items: [
                 'running-rules',
-                'semgrep-ci/running-semgrep-ci-without-semgrep-cloud-platform',
+                'semgrep-ci/running-semgrep-ci-without-semgrep-appsec-platform',
                 'playground'
             ]
         } /*
@@ -589,16 +589,16 @@ module.exports = {
         },
         {
           type: 'category',
-          label: 'Semgrep Cloud Platform (SCP)',
+          label: 'Semgrep AppSec Platform',
           collapsible: true,
           link: {
             type: 'generated-index',
-            slug: '/kb/semgrep-cloud-platform'
+            slug: '/kb/semgrep-appsec-platform'
           },
           items: [
             {
               type: 'autogenerated',
-              dirName: 'kb/semgrep-cloud-platform',
+              dirName: 'kb/semgrep-appsec-platform',
             },
           ]
         },

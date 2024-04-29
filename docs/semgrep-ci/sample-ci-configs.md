@@ -65,7 +65,7 @@ This document provides sample configuration snippets to run Semgrep CI on variou
 
 ## Feature support
 
-Support for certain features of Semgrep Cloud Platform depend on your CI provider or source code management tool (SCM). The following table breaks down the features and their availability:
+Support for certain features of Semgrep AppSec Platform depend on your CI provider or source code management tool (SCM). The following table breaks down the features and their availability:
 
 <ScmFeatureReference />
 
@@ -98,7 +98,7 @@ If you are self-hosting your repository, you must [use a self-hosted runner](htt
 
 <TabItem value='gha-semgrep'>
 
-The following configuration creates a CI job that runs scans depending on what products you have enabled in Semgrep Cloud Platform.
+The following configuration creates a CI job that runs scans depending on what products you have enabled in Semgrep AppSec Platform.
 
 <GhaSemgrepAppSast />
 
@@ -161,7 +161,7 @@ To add a Semgrep configuration snippet in your GitLab CI/CD pipeline:
 
 <TabItem value='glcicd-semgrep'>
 
-The following configuration creates a CI job that runs scans depending on what products you have enabled in Semgrep Cloud Platform.
+The following configuration creates a CI job that runs scans depending on what products you have enabled in Semgrep AppSec Platform.
 
 <GlcicdSemgrepAppSast />
 
@@ -221,7 +221,7 @@ For SCA scans (Semgrep Supply Chain): users of Jenkins UI with the Git plugin mu
 
 <TabItem value='jenkins-semgrep'>
 
-The following configuration creates a CI job that runs scans depending on what products you have enabled in Semgrep Cloud Platform.
+The following configuration creates a CI job that runs scans depending on what products you have enabled in Semgrep AppSec Platform.
 
 <JenkinsSemgrepAppSast />
 
@@ -272,7 +272,7 @@ These steps can also be performed through Bitbucket's UI wizard. This UI wizard 
 
 <TabItem value='bitbucket-semgrep'>
 
-The following configuration creates a CI job that runs scans depending on what products you have enabled in Semgrep Cloud Platform.
+The following configuration creates a CI job that runs scans depending on what products you have enabled in Semgrep AppSec Platform.
 
 <BitbucketSemgrepAppSast />
 
@@ -317,7 +317,7 @@ These steps can be performed from within Buildkite's interface. From Buildkite's
 
 <TabItem value='buildkite-semgrep'>
 
-The following configuration creates a CI job that runs scans depending on what products you have enabled in Semgrep Cloud Platform.
+The following configuration creates a CI job that runs scans depending on what products you have enabled in Semgrep AppSec Platform.
 
 <BuildkiteSemgrepAppSast />
 
@@ -371,7 +371,7 @@ For the default branch and tags, CircleCI always runs the Semgrep CI job on all 
 
 <TabItem value='circleci-semgrep'>
 
-The following configuration creates a CI job that runs scans depending on what products you have enabled in Semgrep Cloud Platform.
+The following configuration creates a CI job that runs scans depending on what products you have enabled in Semgrep AppSec Platform.
 
 <CircleCiSemgrepAppSast />
 
@@ -393,7 +393,7 @@ You can customize the scan by entering custom rules or other rulesets to scan wi
 ## Azure Pipelines
 
 :::info
-Scanning a project with the `semgrep ci` command requires the project to be version-controlled by Git. If you have Azure Repos that are version-controlled with [Team Foundations Version Control](https://learn.microsoft.com/en-us/azure/devops/repos/tfvc/what-is-tfvc?view=azure-devops), they must be migrated to Git to be scanned with `semgrep ci` and have results reported to the Semgrep Cloud Platform.
+Scanning a project with the `semgrep ci` command requires the project to be version-controlled by Git. If you have Azure Repos that are version-controlled with [Team Foundations Version Control](https://learn.microsoft.com/en-us/azure/devops/repos/tfvc/what-is-tfvc?view=azure-devops), they must be migrated to Git to be scanned with `semgrep ci` and have results reported to the Semgrep AppSec Platform.
 :::
 
 To add Semgrep into Azure Pipelines:
@@ -417,7 +417,7 @@ To add Semgrep into Azure Pipelines:
 
 <TabItem value='azure-semgrep'>
 
-The following configuration creates a CI job that runs scans depending on what products you have enabled in Semgrep Cloud Platform.
+The following configuration creates a CI job that runs scans depending on what products you have enabled in Semgrep AppSec Platform.
 
 <AzureSemgrepAppSast />
 

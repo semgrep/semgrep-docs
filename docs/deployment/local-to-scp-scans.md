@@ -2,15 +2,15 @@
 slug: local-to-scp-scans
 title: Upload local scan findings
 hide_title: true
-description: Send your local scans to Semgrep Cloud Platform to view and track your findings.
+description: Send your local scans to Semgrep AppSec Platform to view and track your findings.
 tags:
   - CLI
-  - Semgrep Cloud Platform
+  - Semgrep AppSec Platform
 ---
 
 # Scan local repositories and upload findings 
 
-You can send findings (scan results) from a local repository to Semgrep Cloud Platform (SCP). The local repository is a separate **project** from its remote counterpart. This is useful for testing rules and policies, or simply scanning your own work before it is merged to your organization's trunk branch.
+You can send findings (scan results) from a local repository to Semgrep AppSec Platform. The local repository is a separate **project** from its remote counterpart. This is useful for testing rules and policies, or simply scanning your own work before it is merged to your organization's trunk branch.
 
 ## Prerequisites
 
@@ -22,9 +22,9 @@ You can keep your local scans private and separate from your team by creating a 
 
 To create an org, perform the steps in [Create additional orgs](/deployment/create-account-and-orgs/#create-additional-orgs). You don't need to perform any other steps.
 
-## Send findings from local repository scan to SCP
+## Send findings from local repository scan to Semgrep AppSec Platform
 
-1. Ensure that you are signed into Semgrep Cloud Platform and you've switched to the org you want to send findings to. It is recommended to send local repository findings to your **personal** org.
+1. Ensure that you are signed into Semgrep AppSec Platform and you've switched to the org you want to send findings to. It is recommended to send local repository findings to your **personal** org.
 2. In your CLI, log in to Semgrep:
     ```
     semgrep login
@@ -51,7 +51,7 @@ Refer to the following image for an example of both remote and local Projects in
 
 ## Link local scans to their remote repositories 
 
-When sending findings from local repositories to Semgrep Cloud Platform, the links shown on the **Findings** page are not generated. They may be missing, or they may not link to the correct file. This is because the scan was performed on your local repository, not remote.
+When sending findings from local repositories to Semgrep AppSec Platform, the links shown on the **Findings** page are not generated. They may be missing, or they may not link to the correct file. This is because the scan was performed on your local repository, not remote.
 
 You can optionally set up cross-linking between local and remote repositories to create the correct hyperlinks. To do so, set up environment variables through the CLI:
 
@@ -83,14 +83,14 @@ You can optionally set up cross-linking between local and remote repositories to
     export SEMGREP_COMMIT=<span className="placeholder">COMMIT_HASH</span>
     </code></pre>
 
-After performing these steps, rescan your repository to correctly generate links in Semgrep Cloud Platform.
+After performing these steps, rescan your repository to correctly generate links in Semgrep AppSec Platform.
 
 ![Findings page snippet with hyperlinks](/img/findings-with-hyperlinks.png "Findings page snippet with hyperlinks")
 **Figure.** Findings page with hyperlinks.
 
 ### Sample values
 
-The following is an example of the variables you'd need to create to generate links in SCP, along with sample values:
+The following is an example of the variables you'd need to create to generate links in Semgrep AppSec Platform, along with sample values:
 
 ```console
 # Set the repository URL

@@ -5,7 +5,7 @@ title: Email
 hide_title: true
 description: "Receive Semgrep findings via email."
 tags:
-    - Semgrep Cloud Platform
+    - Semgrep AppSec Platform
     - Team & Enterprise Tier
 ---
 
@@ -23,7 +23,7 @@ Object.entries(frontMatter).filter(
 
 Receive Semgrep findings through email.
 
-Perform these steps in Semgrep Cloud Platform to create an email integration and receive notifications:
+Perform these steps in Semgrep AppSec Platform to create an email integration and receive notifications:
 
 1. Create an email integration:
     1. On the navigation menu, click **<i class="fa-solid fa-gear"></i> Settings > Integrations > Add Integration.**
@@ -36,7 +36,7 @@ Perform these steps in Semgrep Cloud Platform to create an email integration and
     2. Click the **Edit** button of the Rule Mode for which you want to receive email notifications. For example, if you want to be notified of all blocking findings through email, click the **Edit** button of the **Block** mode.
     3. Repeat the previous step for all Rule Modes that you want to receive notifications for.
    
-![Screenshot of Semgrep Cloud Platform email with findings](/img/integrations-email-findings.png#bordered)
+![Screenshot of Semgrep AppSec Platform email with findings](/img/integrations-email-findings.png#bordered)
 **Figure** Sample of an email sent from Semgrep with findings.
 
 :::note Number of emails

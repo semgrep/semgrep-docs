@@ -54,7 +54,7 @@ Once you have defined the shared library, you can use it in your pipelines. If y
 pipeline {
   agent any
     environment {
-      // The following variable is required for a Semgrep Cloud Platform-connected scan:
+      // The following variable is required for a Semgrep AppSec Platform-connected scan:
       SEMGREP_APP_TOKEN = credentials('SEMGREP_APP_TOKEN')
 
     }

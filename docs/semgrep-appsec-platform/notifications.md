@@ -6,7 +6,7 @@ hide_title: true
 toc_max_heading_level: 4
 description: "Learn how to receive Slack or email alerts about findings and failures, how to receive merge or pull request comments in your CI/CD pipeline, or how to integrate using webhooks."
 tags:
-    - Semgrep Cloud Platform
+    - Semgrep AppSec Platform
     - Team & Enterprise Tier
 ---
 
@@ -23,9 +23,9 @@ Object.entries(frontMatter).filter(
 
 # Alerts and notifications
 
-Receive notifications in various channels, such as Slack and email, through Semgrep Cloud Platform. This document guides you through setup procedures and Semgrep's deduplication behavior. This ensures that you receive high-signal notifications and alerts in your preferred channels.
+Receive notifications in various channels, such as Slack and email, through Semgrep AppSec Platform. This document guides you through setup procedures and Semgrep's deduplication behavior. This ensures that you receive high-signal notifications and alerts in your preferred channels.
 
-Semgrep Cloud Platform can send notifications through the following channels:
+Semgrep AppSec Platform can send notifications through the following channels:
 
 | Tool                               | Tier availability |
 | ----                               | ----------------  |
@@ -35,9 +35,9 @@ Semgrep Cloud Platform can send notifications through the following channels:
 
 ## Finding available alert and notification channels
 
-To find available [integrations for Semgrep Cloud Platform](https://semgrep.dev/orgs/-/settings/integrations), follow these steps:
+To find available [integrations for Semgrep AppSec Platform](https://semgrep.dev/orgs/-/settings/integrations), follow these steps:
 
-1. Sign in to your [Semgrep Cloud Platform account](https://semgrep.dev/).
+1. Sign in to your [Semgrep AppSec Platform account](https://semgrep.dev/).
 2. Click **Settings**.
 3. Click **Integrations**.
     ![Screenshot of Semgrep's "Create New Integration Channel" menu](/img/integration-firstview.png)
@@ -79,7 +79,7 @@ Because of Semgrep CI's diff-awareness, you will not be notified
 when a pull request has a finding that existed on the base branch already,
 even if that line is moved or re-indented.
 
-Semgrep Cloud Platform also keeps track of notifications that have already been sent,
+Semgrep AppSec Platform also keeps track of notifications that have already been sent,
 so consecutive scans of the same changes in the same pull request
 won't send duplicate notifications.
 

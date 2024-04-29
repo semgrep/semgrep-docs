@@ -29,7 +29,7 @@ The terms used in this document are defined as follows:
 <dt>Semgrep Code</dt><dd>A SAST scanner that uses cross-file (interfile) and cross-function (interprocedural) analysis for improved results over Semgrep OSS. Semgrep Code includes premium rules, known as Pro rules, that use the cross-file analysis to reduce false positives.</dd>
 <dt>Semgrep Supply Chain</dt><dd>A high-signal dependency scanner that detects reachable vulnerabilities in open source third-party libraries and functions across the software development life cycle (SDLC).</dd>
 <dt>Semgrep Secrets</dt><dd>A a secrets scanner that, in addition to detecting secrets, validates these leaked secrets on a variety of services to help you prioritize active secrets.</dd>
-<dt>Semgrep Cloud Platform</dt><dd>A a web application for the deployment, management, and monitoring of findings from Semgrep's SAST, SCA, and secrets scanners. It integrates with continuous integration (CI) providers such as GitHub Actions, GitLab CI/CD, CircleCI, and more.</dd>
+<dt>Semgrep AppSec Platform</dt><dd>A a web application for the deployment, management, and monitoring of findings from Semgrep's SAST, SCA, and secrets scanners. It integrates with continuous integration (CI) providers such as GitHub Actions, GitLab CI/CD, CircleCI, and more.</dd>
 </dl>
 </dd>
 </dl>
@@ -71,7 +71,7 @@ The following table displays various notification channels and reporting feature
 | [Notifications and reports (Slack, email, webhooks, and API)](/semgrep-cloud-platform/notifications)           | --          | ✔️                |
 | Send scan results to GitLab SAST and GitHub Advanced Security                                                   | --          | ✔️                |
 | [Findings dashboard](/semgrep-cloud-platform/dashboard)                                                        | --          | ✔️                |
-| Findings retention                                                                                              | --          | 5 years           |
+| Findings retention                                                                                              | --          | [As long as account is active](/semgrep-code/findings/#data-retention)           |
 
 ## 🧰 Scan customization features
 

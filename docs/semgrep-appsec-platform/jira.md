@@ -5,7 +5,7 @@ title: Jira
 hide_title: true
 description: "Send Semgrep findings to your Jira project."
 tags:
-    - Semgrep Cloud Platform
+    - Semgrep AppSec Platform
     - Team & Enterprise Tier
 ---
 
@@ -40,7 +40,7 @@ The Semgrep Jira integration allows you to create Jira tickets based on your Sem
 
 To integrate Jira, follow these steps:
 
-1. In [Semgrep Cloud Platform](https://semgrep.dev/login), go to **Settings** > **[Integrations](https://semgrep.dev/orgs/-/settings/integrations)**.
+1. In [Semgrep AppSec Platform](https://semgrep.dev/login), go to **Settings** > **[Integrations](https://semgrep.dev/orgs/-/settings/integrations)**.
 2. On the **[Integrations](https://semgrep.dev/orgs/-/settings/integrations)** page, click **Add Integration** (or **Setup First Integration** if this is your first integration), and then select **Ticketing > Jira**.
 3. Follow the on-screen instructions to add your Jira API key.
 

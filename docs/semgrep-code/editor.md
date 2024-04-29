@@ -4,9 +4,9 @@ append_help_link: true
 title: Write custom rules
 hide_title: true
 tags:
-    - Semgrep Cloud Platform
+    - Semgrep AppSec Platform
     - Team & Enterprise Tier
-description: "Semgrep Editor is a powerful tool within Semgrep Cloud Platform to write rules and quickly apply these rules across an organization to enforce coding standards across an organization."
+description: "Semgrep Editor is a powerful tool within Semgrep AppSec Platform to write rules and quickly apply these rules across an organization to enforce coding standards across an organization."
 ---
 
 import MoreHelp from "/src/components/MoreHelp"
@@ -34,7 +34,7 @@ The Editor is free to use on all tiers, but saving a rule for **private use** is
 
 ## Accessing Semgrep Editor
 
-1. Sign in to your [Semgrep Cloud Platform account](https://semgrep.dev/login).
+1. Sign in to your [Semgrep AppSec Platform account](https://semgrep.dev/login).
 2. Click **Rules > Editor**.
 3. Do any of the following steps:
     1. To create a new rule, click on the <i class="fa-solid fa-circle-plus"></i> **(+) plus sign** or <i class="fa-solid fa-file-plus"></i> **Create new rule** button.
@@ -148,7 +148,7 @@ For additional annotations designed to test false positives and false negatives,
 
 ## Sharing a rule and setting a rule’s visibility
 
-Upon saving, a rule’s visibility is **unlisted** by default. This rule can be shared with anyone through an identifier, even to non-Semgrep Cloud Platform users.
+Upon saving, a rule’s visibility is **unlisted** by default. This rule can be shared with anyone through an identifier, even to non-Semgrep AppSec Platform users.
 
 A rule can be saved as a **private rule**, which is visible only to members within an organization. You can still share a private rule, but only members of the organization can see it. Private rules are a **Team/Enterprise tier feature**.
 
@@ -161,7 +161,7 @@ A rule can be saved as a **private rule**, which is visible only to members with
 
 ## Setting code standards with the Policies page
 
-Adding a rule to the Policies page applies the rule across all projects scanned by Semgrep Cloud Platform.
+Adding a rule to the Policies page applies the rule across all projects scanned by Semgrep AppSec Platform.
 
 To add a rule to the Policies page:
 

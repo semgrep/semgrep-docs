@@ -1,17 +1,34 @@
 ```yaml
-image: atlassian/default-image:latest
+image: semgrep/semgrep:latest
 
 pipelines:
-  default:
-    - parallel:
-      - step:
-          name: 'Run Semgrep scan with current branch'
-          deployment: dev
-          image: semgrep/semgrep
-          script:
-            # Uncomment the following line to scan changed 
-            # files in PRs or MRs (diff-aware scanning): 
-            # - export SEMGREP_BASELINE_REF = "main"
+  branches:
+    # Change to your default branch if different from main
+    main:
+    - step:
+        name: Semgrep scan on push
+        script:
+          - export SEMGREP_APP_TOKEN=$SEMGREP_APP_TOKEN
+          - semgrep ci --code
 
+  pull-requests:
+    '**': # This applies to pull requests for all branches
+      - step:
+          name: Semgrep scan on PR
+          script:
+            - export SEMGREP_APP_TOKEN=$SEMGREP_APP_TOKEN
+            - export BITBUCKET_TOKEN=$PAT # Necessary for PR comments
+            # Change to your default branch if different from main
+            - export SEMGREP_BASELINE_REF="origin/main"
+            - git fetch origin "+refs/heads/*:refs/remotes/origin/*"
+            - semgrep ci --code
+
+  custom:
+  # Trigger job manually. For cron in Bitbucket, see: https://support.atlassian.com/bitbucket-cloud/docs/pipeline-triggers/#On-schedule
+    semgrep-manual:
+      - step:
+          name: Semgrep manual scan
+          script:
+            - export SEMGREP_APP_TOKEN=$SEMGREP_APP_TOKEN
             - semgrep ci --code
 ```
