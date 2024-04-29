@@ -5,7 +5,7 @@ title: Linear
 hide_title: true
 description: "Send Semgrep findings to your Linear project."
 tags:
-    - Semgrep Cloud Platform
+    - Semgrep AppSec Platform
     - Team & Enterprise Tier
 ---
 
@@ -37,7 +37,7 @@ The Semgrep Linear integration allows you to create Linear tickets based on your
 
 To integrate Linear, follow these steps:
 
-1. In [Semgrep Cloud Platform](https://semgrep.dev/login), go to **Settings** > **[Integrations](https://semgrep.dev/orgs/-/settings/integrations)**.
+1. In [Semgrep AppSec Platform](https://semgrep.dev/login), go to **Settings** > **[Integrations](https://semgrep.dev/orgs/-/settings/integrations)**.
 2. On the **[Integrations](https://semgrep.dev/orgs/-/settings/integrations)** page, click **Add Integration** (or **Setup First Integration** if this is your first integration), and then select **Ticketing > Linear**.
 3. Follow the on-screen instructions to integrate Linear.
 

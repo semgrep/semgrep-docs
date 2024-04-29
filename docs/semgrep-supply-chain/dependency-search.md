@@ -21,29 +21,30 @@ Object.entries(frontMatter).filter(
 
 # Searching through your dependencies
 
-Semgrep Supply Chain's dependency search feature allows you to query for any dependency in your codebase at any time. This feature detects all transitive and direct dependencies across all of your repositories in Semgrep Cloud Platform (SCP). Dependency search lists all the versions of a dependency as well as the repositories that use the dependency.
+Semgrep Supply Chain's dependency search feature allows you to query for any dependency in your codebase at any time. This feature detects all transitive and direct dependencies across all of your repositories in Semgrep AppSec Platform. Dependency search lists all the versions of a dependency as well as the repositories that use the dependency.
 
 For newly discovered vulnerabilities, which may not yet have a formal CVE or Supply Chain rule, you can use dependency search to discover if you use the vulnerable dependency across all your repositories. You can also use dependency search to see all the versions of a dependency, which can be useful for standardization purposes.
 
 ![Screenshot of default dependency search page](/img/SSC-DepSearch.png)
-*Figure 1.* Default dependency search page.
+_**Figure**_. Default dependency search page.
 
 ## Using dependency search
 
 :::info Prerequisites
-* You can only use dependency search through Semgrep Cloud Platform. [Sign up or sign in to Semgrep Cloud Platform](https://semgrep.dev/login).
+* You can only use dependency search through Semgrep AppSec Platform. [Sign up or sign in to Semgrep AppSec Platform](https://semgrep.dev/login).
 * You need at least **one** completed Semgrep Supply Chain scan of all the repositories you want to search through.
 :::
 
 To search through your dependencies: 
 
-1. Sign in to [Semgrep Cloud Platform](https://semgrep.dev/login).
-2. Click **Supply Chain** > **Settings** on the header menu. These settings are specific to Semgrep Supply Chain.
-![Screenshot of Semgrep Supply Chain Settings tab](/img/sc-settings.png) *Figure 2*. Screenshot of Semgrep Supply Chain Settings tab.
-3. Click <i class="fa-solid fa-toggle-large-on"></i> **Dependency search** if it is not already enabled.
-4. Click **Dependencies** on the header menu.
-5. Type the name of the dependency you are searching for. 
-6. Optional: Apply filters as necessary for your search.
+1. Sign in to [Semgrep AppSec Platform](https://semgrep.dev/login).
+2. Go to **Settings > Deployment** and navigate to the **Supply Chain (SCA)** section.
+  ![Semgrep Supply Chain Settings tab](/img/sc-settings.png#md-width) *Figure*. The Semgrep Supply Chain Settings tab.
+1. Click <i class="fa-solid fa-toggle-large-on"></i> **Dependency search** if it is not already enabled.
+2. Navigate to **Supply Chain > Dependencies**.
+  ![Semgrep Supply Chain Dependencies tab](/img/sc-dependencies.png#md-width) *Figure*. The Semgrep Supply Chain Dependencies tab.
+1. Type the name of the dependency you are searching for. 
+2. Optional: Apply filters as necessary for your search.
 
 :::tip
 Search for ranges of supported versions with the `>` or `<` operators following the @ operator. For example, `body-parser@<1.18.0` finds all versions of `body-parser greater than 1.18.0`.
@@ -59,7 +60,7 @@ Dependency search provides the following filters:
 </dl>
 
 ![Screenshot of dependency search with query](/img/SSC-DepSearch-Query.png)
-*Figure 2.* Dependency search page with sample search query.
+_**Figure**_.  Dependency search page with sample search query.
 
 ## Data provided by dependency search
 

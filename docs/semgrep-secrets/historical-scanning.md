@@ -20,7 +20,7 @@ You can run historical scans in the CLI and in your Semgrep deployment, which en
 :::note Feature maturity
 - This feature is in **public beta**. See [Limitations](#limitations) for more information.
 - All Semgrep Secrets customers can enable this feature.
-- Please leave feedback by either reaching out to your technical account manager (TAM) or through the **<i class="fa-solid fa-bullhorn"></i> Feedback** form in Semgrep Cloud Platform's navigation bar.
+- Please leave feedback by either reaching out to your technical account manager (TAM) or through the **<i class="fa-solid fa-bullhorn"></i> Feedback** form in Semgrep AppSec Platform's navigation bar.
 :::
 
 ## Run historical scans
@@ -30,7 +30,7 @@ You can enable historical scanning for your full scans or run a dedicated CI job
 ### Prerequisites
 
 - **CLI tool**: Historical scanning requires at least Semgrep **v1.65.0**. See [Update](/update/) for instructions.
-- **Single-tenant Semgrep Cloud Platform (SCP)**: Reach out to your TAM to ensure your instance is up-to-date.
+- **Single-tenant Semgrep AppSec Platform**: Reach out to your TAM to ensure your instance is up-to-date.
 
 ### Enable historical scanning for full Secrets scans
 
@@ -38,7 +38,7 @@ You can enable historical scanning for your full scans or run a dedicated CI job
 If possible, [test historical scans locally](#run-a-local-test-scan) to create a benchmark of performance and scan times before adding historical scans to your formal security process.
 :::
 
-1. Sign in to Semgrep Cloud Platform.
+1. Sign in to Semgrep AppSec Platform.
 1. Click **<i class="fa-solid fa-gear"></i> Settings**.
 1. Under Deployment, click the **<i class="fa-solid fa-toggle-large-on"></i> Historical scanning** toggle.
 ![Historical scanning settings toggle](/img/historical-scanning-settings.png#md-width)
@@ -61,7 +61,7 @@ The general steps are:
 
 ### Run a local test scan
 
-You can run a historical scan locally without sending the scan results to Semgrep Cloud Platform. This can help you determine the time it takes for Semgrep Secrets to run on your repository's Git commit history.
+You can run a historical scan locally without sending the scan results to Semgrep AppSec Platform. This can help you determine the time it takes for Semgrep Secrets to run on your repository's Git commit history.
 
 To run a test scan, enter the following command:
 
@@ -75,12 +75,12 @@ The historical scan results appear in the **Secrets Historical Scan** section:
 
 ## View or hide historical findings
 
-1. Sign in to [<i class="fas fa-external-link fa-xs"></i> Semgrep Cloud Platform](https://semgrep.dev/login).
+1. Sign in to [<i class="fas fa-external-link fa-xs"></i> Semgrep AppSec Platform](https://semgrep.dev/login).
 1. Click **<i class="fa-solid fa-key"></i> Secrets**. Historical findings are identified by an **<i class="fa-solid fa-hourglass-half"></i>** icon.
 1. Click **<i class="fa-solid fa-hourglass-half"></i> Hide historical** to toggle the display of historical findings.
 
-![Historical secrets in Semgrep Cloud Platform](/img/historical-secrets-scp.png)
-*Figure.* Historical findings in Semgrep Cloud Platform.
+![Historical secrets in Semgrep AppSec Platform](/img/historical-secrets-scp.png)
+*Figure.* Historical findings in Semgrep AppSec Platform.
 
 ## Scope of findings
 
@@ -90,7 +90,7 @@ The historical scan results appear in the **Secrets Historical Scan** section:
     - Secrets findings without validator functions
     - Secrets findings with validation errors
 - Findings from historical scans are generated through **Generic** (regex-based) rules only.
-    - Navigate to **[<i class="fas fa-external-link fa-xs"></i> Semgrep Cloud Platform > Policies > Secrets](https://semgrep.dev/orgs/-/policies/secrets?analysis-method=generic)** and click **Generic** under **Analysis method** to view these rules.
+    - Navigate to **[<i class="fas fa-external-link fa-xs"></i> Semgrep AppSec Platform > Policies > Secrets](https://semgrep.dev/orgs/-/policies/secrets?analysis-method=generic)** and click **Generic** under **Analysis method** to view these rules.
 
 For more information on the types of findings by validation, see [Semgrep Secrets overview](/semgrep-secrets/conceptual-overview/#validate-secrets).
 
@@ -99,16 +99,16 @@ For more information on the types of findings by validation, see [Semgrep Secret
 Historical scan findings are not automatically marked as **Fixed**. To triage a historical finding, you must:
 
 1. Manually rotate the secret.
-1. In Semgrep Cloud Platform, click **Secrets**.
+1. In Semgrep AppSec Platform, click **Secrets**.
 1. Toggle the **Hide historical** button if it is enabled. This displays all historical findings.
 1. Select all the checkboxes for secrets you want to triage, then click **Triage > Ignore**, optionally including a comment in the provided text box.
 
 ## Limitations
 
 - Historical scanning can slow down scan times. Depending on the size of your repository history, scans can finish under 5 minutes to more than 60 minutes for extreme cases.
-- Within SCP, historical scan findings are not automatically marked as **Fixed**. Findings can only exist in two states: `Open` or `Ignored`. Because Semgrep scans do not automatically detect historical findings as fixed, you must manually rotate and triage the secret as `Ignored`.
+- Within Semgrep AppSec Platform, historical scan findings are not automatically marked as **Fixed**. Findings can only exist in two states: `Open` or `Ignored`. Because Semgrep scans do not automatically detect historical findings as fixed, you must manually rotate and triage the secret as `Ignored`.
 - A finding can show up twice in the CLI with historical scanning enabled: the HEAD commit in the regular Secrets scan and another commit in the historical scan.
-    - If findings are sent to SCP, they are deduplicated and appear as a **regular finding**, not a historical finding.
+    - If findings are sent to Semgrep AppSec Platform, they are deduplicated and appear as a **regular finding**, not a historical finding.
 
 ### Size of commit history
 

@@ -5,7 +5,7 @@ title: Set rules through Policies
 hide_title: true
 description: "The Policies page is a visual representation of the rules that Semgrep Code uses to scan code."
 tags:
-    - Semgrep Cloud Platform
+    - Semgrep AppSec Platform
     - Team & Enterprise Tier
     - Semgrep Code
 ---
@@ -76,9 +76,9 @@ Semgrep Code provides three rule modes:
 
 | Rule mode | Description |
 | -------   | ------ |
-| Monitor   | Rules in **Monitor mode** display findings only in: <ul><li>Semgrep Cloud Platform</li><li>User-defined notifications</li></ul>Set rules to this mode to evaluate their true positive rate and other criteria you may have. By keeping rules in Monitor, developers do not receive potentially noisy findings in their PRs or MRs.  |
-| Comment   | Rules in **Comment mode** display findings in:<ul><li>Developers' PRs or MRs</li><li>Semgrep Cloud Platform</li><li>User-defined notifications</li></ul>Set rules that have met your performance criteria to this mode when you are ready to display findings to developers.     |
-| Block     | Rules in **Block mode** cause the scan job to fail with an exit code of `1` if Semgrep Code detects a finding from these rules. You can use this result to enforce a block on the PR or MR. For example, GitHub users can enable branch protection and set the PR to fail if the Semgrep step fails. <br />These rules display findings in:<ul><li>Developers' PRs or MRs</li><li>Semgrep Cloud Platform</li><li>User-defined notifications</li></ul>These are typically high-confidence, high-severity rules. |
+| Monitor   | Rules in **Monitor mode** display findings only in: <ul><li>Semgrep AppSec Platform</li><li>User-defined notifications</li></ul>Set rules to this mode to evaluate their true positive rate and other criteria you may have. By keeping rules in Monitor, developers do not receive potentially noisy findings in their PRs or MRs.  |
+| Comment   | Rules in **Comment mode** display findings in:<ul><li>Developers' PRs or MRs</li><li>Semgrep AppSec Platform</li><li>User-defined notifications</li></ul>Set rules that have met your performance criteria to this mode when you are ready to display findings to developers.     |
+| Block     | Rules in **Block mode** cause the scan job to fail with an exit code of `1` if Semgrep Code detects a finding from these rules. You can use this result to enforce a block on the PR or MR. For example, GitHub users can enable branch protection and set the PR to fail if the Semgrep step fails. <br />These rules display findings in:<ul><li>Developers' PRs or MRs</li><li>Semgrep AppSec Platform</li><li>User-defined notifications</li></ul>These are typically high-confidence, high-severity rules. |
 
 Semgrep Code provides first-time users with the [<i class="fas fa-external-link fa-xs"></i> Default ruleset](https://semgrep.dev/p/default). These rules are initially placed in the Monitor column. As you develop confidence in these rules, you are able to change their modes to Comment or Block, ensuring that developers remain free of friction from false positives.
 

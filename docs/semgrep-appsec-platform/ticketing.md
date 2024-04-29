@@ -6,7 +6,7 @@ hide_title: true
 toc_max_heading_level: 4
 description: "Learn how to create tickets based on Semgrep findings in third-party ticketing systems."
 tags:
-    - Semgrep Cloud Platform
+    - Semgrep AppSec Platform
     - Enterprise Tier
 ---
 
@@ -24,7 +24,7 @@ Object.entries(frontMatter).filter(
 
 # Ticketing integrations
 
-Send tickets to third-party ticketing systems through Semgrep Cloud Platform. 
+Send tickets to third-party ticketing systems through Semgrep AppSec Platform. 
 
 :::note
 These features are in a **closed beta**. To request access:
@@ -32,7 +32,7 @@ These features are in a **closed beta**. To request access:
 2. Contact your **Technical Account Manager** or your **Account Executive** and let them know you'd like to try the Jira integration out.
 :::
 
-Semgrep Cloud Platform can create tickets in the following systems:
+Semgrep AppSec Platform can create tickets in the following systems:
 
 * [Asana](/semgrep-cloud-platform/asana)
 * [Jira](/semgrep-cloud-platform/jira)

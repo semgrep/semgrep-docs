@@ -8,9 +8,9 @@ tags:
     - Semgrep Secrets
 ---
 
-# View and triage secrets in Semgrep Cloud Platform
+# View and triage secrets in Semgrep AppSec Platform
 
-After each scan, your findings are displayed in Semgrep Cloud Platform's
+After each scan, your findings are displayed in Semgrep AppSec Platform's
 **Secrets** page.
 
 
@@ -20,7 +20,7 @@ Findings from local scans are differentiated from their remote counterparts thro
 
 ## View your findings
 
-Semgrep Cloud Platform offers a variety of filters to help you narrow down the
+Semgrep AppSec Platform offers a variety of filters to help you narrow down the
 list of findings. The following sections describe what filters are available to
 you.
 
@@ -79,7 +79,7 @@ A branch of any Project.
 
 ## Triage findings
 
-You can triage secrets-related findings in Semgrep Cloud Platform on the **Secrets** page. By default, all findings are displayed. A common triage workflow includes the following tasks:
+You can triage secrets-related findings in Semgrep AppSec Platform on the **Secrets** page. By default, all findings are displayed. A common triage workflow includes the following tasks:
 
 1. Filtering for a particular characteristic of a finding, such as its **Validation status**, **Repository or Branch**, or **Type**.
 2. Analyzing if the findings are true or false positives.
@@ -115,7 +115,7 @@ You can triage findings in bulk by performing the following steps:
 
 ## Receive findings in through PR and MR comments
 
-In addition to viewing your results in Semgrep Cloud Platform, you can set up PR or MR comments from Semgrep, which allows you to view findings-related information directly in your pull requests and merge requests.
+In addition to viewing your results in Semgrep AppSec Platform, you can set up PR or MR comments from Semgrep, which allows you to view findings-related information directly in your pull requests and merge requests.
 
 To receive PR or MR comments, ensure that:
 
