@@ -42,13 +42,15 @@ Also known as **interfile analysis**. Cross-file analysis takes into account how
 
 Cross-file analysis is usually used in contrast to intrafile (also known as per-file analysis), where each file is analyzed as a standalone block of code.
 
+Within Semgrep, cross-file **and** cross-function analysis is simply referred to as cross-file analysis.
+
 Semgrep OSS is limited to per-file analysis.
 
 ## Cross-function analysis
 
 Cross-function analysis means that interactions between functions are taken into account. This improves taint analysis, which tracks unsanitized variables flowing from a source to a sink through arbitrarily many functions.
 
-For the purpose of its usage in Semgrep, cross-function analysis implies intrafile or per-file analysis. Each file is still analyzed as a standalone block, but within the file it takes into account how information flows between functions.
+Within Semgrep documentation, cross-function analysis implies intrafile or per-file analysis. Each file is still analyzed as a standalone block, but within the file it takes into account how information flows between functions.
 
 Also known as **interprocedural** analysis.
 
@@ -136,8 +138,7 @@ Per-file analysis can include cross-function analysis, aka tracing the flow of i
 
 ## Per-function analysis
 
-Also known as intraprocedural analysis. This refers to a tool's ability to trace or track data and its transformations within a single function.
-
+Also known as intraprocedural analysis. In per-function analysis, information can only be traced or tracked within a single function.
 ## Sink
 
 In taint analysis, a sink is any vulnerable function that is called with potentially tainted or unsafe data.
