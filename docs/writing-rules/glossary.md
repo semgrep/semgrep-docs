@@ -130,7 +130,9 @@ An example of a sanitizer is the [<i class="fas fa-external-link fa-xs"></i> `DO
 
 ## Per-file analysis
 
-Also known as intrafile analysis. This refers to a tool's ability to trace or track the flow of information, such as when a variable is defined in one function but used in another.
+Also known as intrafile analysis. In per-file analysis, information can only be traced or tracked within a single file. It cannot be traced if it flows to another file.
+
+Per-file analysis can include cross-function analysis, aka tracing the flow of information between functions. When discussing the capabilities of pro analysis, per-file analysis implies cross-function analysis.
 
 ## Per-function analysis
 
