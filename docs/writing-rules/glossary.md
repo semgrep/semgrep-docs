@@ -15,7 +15,7 @@ The definitions provided here are specific to Semgrep.
 
 <!-- Refers to state of a variable remaining constant throughout the program. Semgrep can analyze whether a variable carries a constant value at a given point. Both Semgrep OSS and Semgrep Pro Engine perform this analysis, with Semgrep Pro able to track the propagation across files. -->
 
-Constant propagation is a type of analysis where values known to be constant are substituted in later uses, such as detecting matches. Semgrep can perform constant propagation across files, unless you are running Semgrep OSS, which can only propagate within a function.
+Constant propagation is a type of analysis where values known to be constant are substituted in later uses, such as detecting matches. Semgrep can perform constant propagation across files, unless you are running Semgrep OSS, which can only propagate within a file.
 
 Constant propagation is applied to all rules unless [it is disabled](/data-flow/constant-propagation/#disabling-constant-propagation).
 
