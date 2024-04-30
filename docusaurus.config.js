@@ -368,7 +368,7 @@ module.exports = {
           { from: "/getting-started/" , to: "/getting-started/quickstart" } ,
           { from: "/semgrep-cloud-platform/semgrep-api/" , to: "/semgrep-appsec-platform/semgrep-api" } ,
           /* APR 30, 2024 */
-          { from: "/kb/semgrep-secrets/secrets_pr_comments" , to: "/semgrep-secrets/policies#rule-modes" } ,
+          { from: "/kb/semgrep-secrets/secrets_pr_comments" , to: "/semgrep-secrets/policies" } ,
         ]
       }
     ],
