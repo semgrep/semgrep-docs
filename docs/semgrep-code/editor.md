@@ -154,32 +154,32 @@ To write a **search** rule using structure mode:
 
 To write a **taint** rule using structure mode:
 
-1. Ensure that you are in **structure** mode. and that you have **taint** mode selected.
+1. Ensure that you are in **structure** mode. and that you have selected **taint**.
     ![Semgrep Playground's simple view](/img/structure-mode-taint.png)
-1. Define your **Sources**.
+2. Define your **Sources**.
    1. Select your first operator. Options include: `pattern`, `any`, `all`, `inside`, `regex`.
    2. Specify the pattern if applicable. Example: `print("...")`.
    3. Optional: specify a constraint by clicking on the **filter** icon.
       1. Specify whether the constraint is `focus`, `comparison`, or `metavariable`.
       2. Provide the pattern for the code for which the constraint should be applied.
-2. Define your **Sinks**.
+3. Define your **Sinks**.
    1. Select your first operator. Options include: `pattern`, `any`, `all`, `inside`, `regex`.
    2. Specify the pattern if applicable. Example: `print("...")`.
    3. Optional: specify a constraint by clicking on the **filter** icon.
       1. Specify whether the constraint is `focus`, `comparison`, or `metavariable`.
       2. Provide the pattern for the code for which the constraint should be applied.
-3. Add **Sanitizers**.
+4. Add **Sanitizers**.
       1. Select your first operator. Options include: `pattern`, `any`, `all`, `inside`, `regex`.
       2. Specify the pattern if applicable. Example: `print("...")`.
       3. Optional: specify a constraint by clicking on the **filter** icon.
          1. Specify whether the constraint is `focus`, `comparison`, or `metavariable`.
          2. Provide the pattern for the code for which the constraint should be applied.
-4. Optional: Expand the **Rule info** panel, and update the following fields:
+5. Optional: Expand the **Rule info** panel, and update the following fields:
    1. Rule ID: the name of the rule
    2. Language: the language of the code for which this rule runs against
    3. Severity: the severity level of the finding if this rule generates a match
    4. Message: the message to print with the finding if this rule generates a match
-5. Click **Run** or press <kbd>Ctrl</kbd>+<kbd>Enter</kbd> (<kbd>⌘</kbd>+<kbd>Enter</kbd> on Mac).
+6. Click **Run** or press <kbd>Ctrl</kbd>+<kbd>Enter</kbd> (<kbd>⌘</kbd>+<kbd>Enter</kbd> on Mac).
 
 ### Write a rule using advanced mode
 
@@ -220,7 +220,7 @@ After you write a rule, testing it ensures it performs as expected. To test a ru
 3. Create at least one **true negative**: a code sample intended not to match the rule.
 4. Above this non-match, create a comment followed by a space ( ), followed by `ok:RULE_ID`. For example, `// ok:hardcoded-conditional`.
 5. Optional: add more code samples with their corresponding annotations.
-6. Click **Run**. Semgrep will detect the annotations and validate the rule based on your tests
+6. Click **Run**. Semgrep detects the annotations and validate the rule based on your tests
 
 In addition to testing for matches, you can test that it doesn't match what it shouldn't, preventing false positives. To do so, you can [create comment annotations for intended and unintended findings](/writing-rules/testing-rules/) in **test code**.
 
