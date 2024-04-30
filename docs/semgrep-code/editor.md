@@ -49,7 +49,7 @@ Semgrep Editor is composed of three panes and a top menu.
     <dt>Library</dt>
     <dd>View and open rules owned by your organization or available through the <a href="https://semgrep.dev/r">Semgrep Registry</a>.</dd>
     <dt>Rule editor</dt>
-    <dd>Enter your rule's YAML schema in this pane. This pane supports both simple and advanced modes.</dd>
+    <dd>Enter your rule's YAML schema in this pane. This pane supports both structure and advanced modes.</dd>
     <dt>Sample code</dt>
     <dd>Enter test code in this pane and click <strong>Run</strong> to verify that the rule performs as intended. A matches panel appears after Semgrep runs to display matches and tests. This pane also contains metadata editing and docs viewing functionalities.</dd>
     <dt>Top menu</dt>
@@ -68,60 +68,18 @@ To group by ruleset, right-click on the empty space on the registry's name entry
 
 To create a rule, click **Create rule** on the splash page or the **(+) sign** next to the Library label.
 
-Semgrep Editor offers three rule-writing modes:
+Semgrep Editor offers two rule-writing modes:
 
 <dl>
-    <dt>Simple mode</dt>
-    <dd>Simple mode is ideal for quick and simple pattern-matching use cases, but it doesn't display all Semgrep operators.</dd>
     <dt>Structure mode (beta)</dt>
-    <dd>Structure mode is a hybrid rule-writing interface that offers guidance similar to that offered by simple mode while supporting additional features the way advanced mode does.</dd>
+    <dd>Structure mode is a hybrid interface that offers guidance for rule writing while supporting additional features the way advanced mode does.</dd>
     <dt>Advanced mode</dt>
     <dd>Advanced mode provides the minimum required YAML keys for a Semgrep rule. To complete the rule, you must fill in additional keys, such as pattern operators or metadata.</dd>
 </dl>
 
-### Write a rule using simple mode
-
-To write a rule using simple mode:
-
-1. Ensure that you are in **simple** mode.
-    ![Semgrep Playground's simple view](/img/pleditor-simple.png)
-2. Select a language from the **Language is** drop-down box to specify the language your code is in.
-3. In the field after **code is**, enter a rule pattern.
-4. Optional: Click the **plus** button to add fields for additional operators. For each additional operator:
-   1. Select the pattern operator
-   2. Enter the pattern.
-5. Optional: Click **Metadata** to update and enter additional metadata fields.
-   [Metadata view](/img/rule-metadata.png)
-6. Click **Run** or press <kbd>Ctrl</kbd>+<kbd>Enter</kbd> (<kbd>⌘</kbd>+<kbd>Enter</kbd> on Mac).
-
-Simple mode provides you with the most common pattern-matching operators in Semgrep. You can select these operators using the provided drop-down menus. The following table lists the operators available and their corresponding keys in the rule:
-
-| **Key** | **Drop-down menu option** |
-| - | - |
-| `language` | Language is |
-| `pattern` | Code is |
-| `pattern-either` | or is |
-| `pattern-inside` | and is inside |
-| `pattern-not` | and is not |
-| `pattern-not-inside` | and is not inside |
-| `pattern-regex` | and matches regex |
-| `autofix` | and autofix is |
-
-#### Limitations of simple mode
-
-1. Simple mode supports the use of only **one language** per rule.
-2. Simple mode doesn't include support for the following operators:
-   - `pattern-not-regex`
-   - `metavariable-regex`
-   - `metavariable-pattern`
-   - `metavariable-comparison`
-3. Simple mode doesn't support:
-   - Join mode
-   - Taint mode
-
 ### Write a rule using structure mode (beta)
 
-Structure mode is a UI-based ruled writing editor that guides you through the process of writing a rule. It has drop-down functionality similar to simple mode, but it supports additional features that are available when writing rules using advanced mode.
+Structure mode is a UI-based ruled writing editor that guides you through the process of writing a rule.
 
 Structure mode features include:
 
@@ -155,7 +113,7 @@ To write a **search** rule using structure mode:
 To write a **taint** rule using structure mode:
 
 1. Ensure that you are in **structure** mode. and that you have selected **taint**.
-    ![Semgrep Playground's simple view](/img/structure-mode-taint.png)
+    ![Semgrep Playground's structure view for writing taint rules](/img/structure-mode-taint.png)
 2. Define your **Sources**.
    1. Select your first operator. Options include: `pattern`, `any`, `all`, `inside`, `regex`.
    2. Specify the pattern if applicable. Example: `print("...")`.
