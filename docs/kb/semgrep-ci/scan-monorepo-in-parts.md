@@ -44,13 +44,13 @@ You will then have the flexibility to trigger each one on appropriate events or 
 
 Now that you understand how to configure your monorepo to be scanned in parts, you also have to understand how to configure the findings from each part or module to show up as their own project in Semgrep AppSec Platform.
 
-To assign findings from the module to their own project in Semgrep Appsec Platform, you must explicitly set the `SEMGREP_REPO_DISPLAY_NAME` environment variable ([see CI environment variables reference](/docs/semgrep-ci/ci-environment-variables#semgrep_repo_display_name)).
+To assign findings from the module to their own project in Semgrep AppSec Platform, you must explicitly set the `SEMGREP_REPO_DISPLAY_NAME` environment variable, which only works with Semgrep versions 1.61.1 and later ([see CI environment variables reference](/docs/semgrep-ci/ci-environment-variables#semgrep_repo_display_name)).
 
 :::info
-Ensure that `SEMGREP_REPO_NAME` is still properly set (either automatically if using a [supported SCM and CI provider](/docs/semgrep-ci/sample-ci-configs#feature-support) or [explicitly](/docs/semgrep-ci/ci-environment-variables#semgrep_repo_name)) as with any Semgrep scan, to ensure that hyperlink and PR/MR comment functionality is retained.
+Ensure that `SEMGREP_REPO_NAME` is still properly set (either automatically if using a [supported SCM and CI provider](/docs/semgrep-ci/sample-ci-configs#feature-support) or [explicitly](/docs/semgrep-ci/ci-environment-variables#semgrep_repo_name)) as with any Semgrep scan, in order to retain hyperlink and PR/MR comment functionality.
 :::
 
-For example, if your monorepo is located at `https://github.com/semgrep/monorepo` the `SEMGREP_REPO_DISPLAY_NAME` would default to the value of `SEMGREP_REPO_NAME`, which in this case would be `semgrep/monorepo`. To split the monorepo into four projects corresponding to the logical modules, set `SEMGREP_REPO_NAME` as you normally would while setting `SEMGREP_REPO_DISPLAY_NAME` to something relevant before running Semgrep:
+For example, if your monorepo is located at `https://github.com/semgrep/monorepo` the `SEMGREP_REPO_DISPLAY_NAME` would default to the value of `SEMGREP_REPO_NAME`, which in this case is `semgrep/monorepo`. To split the monorepo into four projects corresponding to the logical modules, set `SEMGREP_REPO_NAME` as you normally would while setting `SEMGREP_REPO_DISPLAY_NAME` to a relevant name before running Semgrep:
 
     export SEMGREP_REPO_DISPLAY_NAME="semgrep/monorepo/moduleA"
 
