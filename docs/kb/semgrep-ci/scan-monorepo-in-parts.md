@@ -19,7 +19,7 @@ As such, it can be helpful to scan a monorepo in parts for multiple reasons:
 
 When scanning a repo with Semgrep in CI, the base command is `semgrep ci`. To understand this default setup for your source code manager (SCM) and CI provider, see [Getting started with Semgrep in continuous integration (CI)](/deployment/add-semgrep-to-ci).
 
-To split up your monorepo, you need to make two changes. First, use the `--include` flag to determine *how* you want to logically split up the code. Second, update the `SEMGREP_REPO_NAME` environment variable to assign findings to separate projects in Semgrep AppSec Platform. 
+To split up your monorepo, you need to make two changes. First, use the `--include` flag to determine *how* you want to logically split up the code. Second, update the `SEMGREP_REPO_DISPLAY_NAME` environment variable to assign findings to separate projects in Semgrep AppSec Platform. 
 
 For example, if the monorepo has four main modules and their paths are:
 
@@ -42,19 +42,19 @@ For the other modules, the commands look similar. For module B:
 
 You will then have the flexibility to trigger each one on appropriate events or frequencies.
 
-Now that you've successfully configured your monorepo to be scanned in parts, you also have to configure the findings from each part or module to show up as their own project in Semgrep AppSec Platform.
+Now that you've successfully understood how to configure your monorepo to be scanned in parts, you also have to understand how to configure the findings from each part or module to show up as their own project in Semgrep AppSec Platform.
 
-To ensure findings from the module are assigned to their own project in Semgrep AppSec Platform, you will need to explicitly set the `SEMGREP_REPO_NAME` environment variable ([see CI environment variables reference](/docs/semgrep-ci/ci-environment-variables/#semgrep_repo_name)).
+To have findings from the module be assigned to their own project in Semgrep AppSec Platform, you will need to explicitly set the `SEMGREP_REPO_DISPLAY_NAME` environment variable ([see CI environment variables reference](/docs/semgrep-ci/ci-environment-variables#semgrep_repo_display_name)).
 
 :::info
-Changing the `SEMGREP_REPO_NAME` value in a scan so that it does not match the repo's `<org>/<repo name>` structure on the SCM may cause issues with PR/MR comments and code hyperlinks in Semgrep AppSec Platform. This is a necessary tradeoff when splitting up a repo into multiple projects.
+You will need to ensure that `SEMGREP_REPO_NAME` ([see reference](/docs/semgrep-ci/ci-environment-variables#semgrep_repo_name)) is still being properly set as with any Semgrep scan, to ensure that hyperlink and PR/MR comment functionality is retained.
 :::
 
-For example, if your monorepo is located at `https://github.com/semgrep/monorepo` the `SEMGREP_REPO_NAME` would typically be set to `semgrep/monorepo`. To split the single project into four projects corresponding to the logical modules, set `SEMGREP_REPO_NAME` to match the module name before running Semgrep:
+For example, if your monorepo is located at `https://github.com/semgrep/monorepo` the `SEMGREP_REPO_DISPLAY_NAME` would default to the value of `SEMGREP_REPO_NAME`, which in this case would be `semgrep/monorepo`. To split the monorepo into four projects corresponding to the logical modules, set `SEMGREP_REPO_NAME` as you normally would while setting `SEMGREP_REPO_DISPLAY_NAME` to something relevant before running Semgrep:
 
-    export SEMGREP_REPO_NAME="semgrep/monorepo/moduleA"
+    export SEMGREP_REPO_DISPLAY_NAME="semgrep/monorepo/moduleA"
 
-And then running Semgrep as demonstrated above:
+And then run Semgrep as demonstrated earlier:
 
     semgrep ci --include=/src/moduleA/*
 

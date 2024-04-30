@@ -235,56 +235,11 @@ jobs:
 
 ### `SEMGREP_REPO_DISPLAY_NAME`
 
-Set `SEMGREP_REPO_DISPLAY_NAME` to define the name used for the project in Semgrep AppSec Platform. By default, `SEMGREP_REPO_DISPLAY_NAME` has the same value as `SEMGREP_REPO_NAME`. This allows you to use a different name for your project than the repository name or to scan a monorepo as multiple projects.
+Set `SEMGREP_REPO_DISPLAY_NAME` to define the name displayed for the project in Semgrep AppSec Platform. By default, `SEMGREP_REPO_DISPLAY_NAME` has the same value as `SEMGREP_REPO_NAME`. This allows you to use a different name for your project than the repository name, while retaining hyperlink and PR/MR comment functionality. It can also be used when [scanning a monorepo in parts](/kb/semgrep-ci/scan-monorepo-in-parts) to display each part as a separate project in Semgrep AppSec Platform.
 
-#### Scan a monorepo as multiple projects
-
-Create a semgrep scan for each folder you want to scan separately. For each scan, use a different value for `SEMGREP_REPO_DISPLAY_NAME`.
-
-For example, consider a repository with the top level folders `proj1` and `proj2`. You can create separate Semgrep scans for the two folders.
-
-Within a Bash environment:
-
-```bash
-SEMGREP_REPO_DISPLAY_NAME="corporation/myrepo-proj1" semgrep ci --include proj1
-
-SEMGREP_REPO_DISPLAY_NAME="corporation/myrepo-proj2" semgrep ci --include proj2
-```
-
-Within a Github Actions environment:
-
-```yaml
-name: Semgrep
-jobs:
-  semgrep:
-    strategy:
-      matrix:
-        subdir:
-          - proj1
-          - proj2
-    name: semgrep/ci
-    runs-on: ubuntu-20.04
-    env:
-      SEMGREP_APP_TOKEN: ${{ secrets.SEMGREP_APP_TOKEN }}
-      SEMGREP_REPO_DISPLAY_NAME: corporation/myrepo-${{ matrix.subdir }}
-    container:
-      image: semgrep/semgrep
-    steps:
-    - uses: actions/checkout@v3
-    - run: semgrep ci --include=${{ matrix.subdir }}
-```
-
-You may want to scan a monorepo in parts to manage the projects separately or to improve performance.
-
-If your repository doesn't split cleanly into folders, one strategy is to use `--include` for the main folders and `--exclude` to capture everything else. Returning to the bash example, this would look like:
-
-```bash
-SEMGREP_REPO_DISPLAY_NAME="corporation/myrepo-proj1" semgrep ci --include proj1
-
-SEMGREP_REPO_DISPLAY_NAME="corporation/myrepo-proj2" semgrep ci --include proj2
-
-SEMGREP_REPO_DISPLAY_NAME="corporation/myrepo-proj2" semgrep ci --exclude proj1 --exclude proj2
-```
+:::info
+This environment variable is only works with Semgrep versions 1.61.1 and later.
+:::
 
 ### `SEMGREP_REPO_URL`
 
