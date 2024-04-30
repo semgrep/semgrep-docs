@@ -238,7 +238,7 @@ jobs:
 Set `SEMGREP_REPO_DISPLAY_NAME` to define the name displayed for the project in Semgrep AppSec Platform. By default, `SEMGREP_REPO_DISPLAY_NAME` has the same value as `SEMGREP_REPO_NAME`. This allows you to use a different name for your project than the repository name, while retaining hyperlink and PR/MR comment functionality. It can also be used when [scanning a monorepo in parts](/kb/semgrep-ci/scan-monorepo-in-parts) to display each part as a separate project in Semgrep AppSec Platform.
 
 :::info
-This environment variable is only works with Semgrep versions 1.61.1 and later.
+This environment variable only works with Semgrep versions 1.61.1 and later.
 :::
 
 ### `SEMGREP_REPO_URL`
