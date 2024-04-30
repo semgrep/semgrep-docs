@@ -14,6 +14,10 @@ tags:
 ## 🌐 Semgrep AppSec Platform
 
 <!-- Sara -->
+- **Editor and playground**: Structure mode has replaced simple mode.
+- Semgrep Cloud Platform has been renamed to Semgrep AppSec Platform.
+- Dashboard UX improvements
+- The default Bitbucket YAML configuration file has been updated with options for full, diff, and on-demand scans.
 
 ### Added
 
@@ -31,7 +35,7 @@ tags:
 
 ## ⛓️  Supply Chain
 
-<!-- Sara -->
+<!-- should we include the new UI for SCA  -->
 
 ## 🤖 Semgrep Assistant
 
@@ -57,10 +61,8 @@ For Katie's draft
     - Added two additional glossaries:
         - Static analysis and rule writing glossary
         - Semgrep Code glossary
-- Added a new section for user management on Teams (beta), an access control feature that enables administrators or managers to assign projects to specific team members.
+- Added a new section for user management on **[Teams (beta)](/deployment/teams)**, an access control feature that enables administrators or managers to assign projects to specific team members.
 - Expanded the documentation on [Semgrep Assistant's new features](/semgrep-assistant/overview).
-- Added the following new knowledge base articles:
-    - tk
 
 ### Changed
 
@@ -69,13 +71,13 @@ For Katie's draft
 - Renamed instances of Pro Engine to cross-file or interfile analysis.
 - Rearranged documents under Semgrep Code to better reflect the user journey.
 - Updated documentation on how Semgrep differentiates between **Fixed** and **Removed** statuses.
-- Updated the sample Bitbucket Pipelines CI configuration file
+- Updated the sample [Bitbucket Pipelines CI configuration](/semgrep-ci/sample-ci-configs#bitbucket-pipelines) file
 - Minor additions and updates:
     - How Semgrep computes [user limits across multiple orgs](/usage-and-billing).
     - Findings retention policy.
 - The following knowledge base articles have been updated:
-    - Scan a monorepo in parts
-    - SSO and SAML
+    - [Scan a monorepo in parts](/kb/semgrep-ci/scan-monorepo-in-parts)
+    - [Failed to run a Git command during a pull or merge request scan](/kb/semgrep-ci/git-command-errors)
 
 ### Fixed
 
