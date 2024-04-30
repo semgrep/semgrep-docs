@@ -139,6 +139,7 @@ Per-file analysis can include cross-function analysis, aka tracing the flow of i
 ## Per-function analysis
 
 Also known as intraprocedural analysis. In per-function analysis, information can only be traced or tracked within a single function.
+
 ## Sink
 
 In taint analysis, a sink is any vulnerable function that is called with potentially tainted or unsafe data.
