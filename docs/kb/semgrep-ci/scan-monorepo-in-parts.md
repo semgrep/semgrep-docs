@@ -44,7 +44,7 @@ You will then have the flexibility to trigger each one on appropriate events or 
 
 Now that you've successfully understood how to configure your monorepo to be scanned in parts, you also have to understand how to configure the findings from each part or module to show up as their own project in Semgrep AppSec Platform.
 
-To have findings from the module be assigned to their own project in Semgrep AppSec Platform, you will need to explicitly set the `SEMGREP_REPO_DISPLAY_NAME` environment variable ([see CI environment variables reference](/docs/semgrep-ci/ci-environment-variables#semgrep_repo_display_name)).
+To assign findings from the module to their own project in Semgrep Appsec Platform, you must explicitly set the `SEMGREP_REPO_DISPLAY_NAME` environment variable ([see CI environment variables reference](/docs/semgrep-ci/ci-environment-variables#semgrep_repo_display_name)).
 
 :::info
 You will need to ensure that `SEMGREP_REPO_NAME` ([see reference](/docs/semgrep-ci/ci-environment-variables#semgrep_repo_name)) is still being properly set as with any Semgrep scan, to ensure that hyperlink and PR/MR comment functionality is retained.
