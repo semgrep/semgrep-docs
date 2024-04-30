@@ -30,12 +30,12 @@ Check information such as:
 - Validity dates
 - Signature algorithm and value
 
-Address any problems with the certificate. Then, upload the resulting certificate to the Semgrep AppSec Platform: 
+Address any problems with the certificate. Then, upload the resulting certificate to Semgrep AppSec Platform: 
 
-1. Log in to [Semgrep AppSec Platform](https://semgrep.dev/login).
+1. Sign in to [Semgrep AppSec Platform](https://semgrep.dev/login).
 2. Click **<i class="fa-solid fa-gear"></i> Settings > Access > [SSO](https://semgrep.dev/orgs/-/settings/access/sso)**.
 3. In the **Upload/Paste certificate** box, add the correct certificate.
-4. Click **Save** to save this setting.
+4. Click **Save**.
 
 After updating the settings, attempt a new SSO login.
 
