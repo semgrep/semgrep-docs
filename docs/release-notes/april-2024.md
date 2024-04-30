@@ -13,11 +13,12 @@ tags:
 
 ## 🌐 Semgrep AppSec Platform
 
+<!-- Sara -->
+
 ### Added
 
 ### Changed
 
--
 ### Fixed
 
 ## 💻 Code
@@ -29,6 +30,8 @@ tags:
 ### Fixed
 
 ## ⛓️  Supply Chain
+
+<!-- Sara -->
 
 ## 🤖 Semgrep Assistant
 
@@ -50,8 +53,14 @@ For Katie's draft
 - Added the following new documents:
     - [<i class="fa-regular fa-file-lines"></i> Semantic detection in Java](/semgrep-code/java) - describes how Semgrep reduces false positives through its understanding of the Java language.
     - [<i class="fa-regular fa-file-lines"></i> How to scan your Git history (beta)](/semgrep-secrets/historical-scanning).
-    - Added [Semgrep Assistant's new features](/semgrep-assistant/overview).
-- Added custom rule writing documentation for Secrets.
+    - [<i class="fa-regular fa-file-lines"></i> Write custom validators](/semgrep-secrets/validators)
+    - Added two additional glossaries:
+        - Static analysis and rule writing glossary
+        - Semgrep Code glossary
+- Added a new section for user management on Teams (beta), an access control feature that enables administrators or managers to assign projects to specific team members.
+- Expanded the documentation on [Semgrep Assistant's new features](/semgrep-assistant/overview).
+- Added the following new knowledge base articles:
+    - tk
 
 ### Changed
 
@@ -66,7 +75,7 @@ For Katie's draft
     - Findings retention policy.
 - The following knowledge base articles have been updated:
     - Scan a monorepo in parts
-    - SSO and SAM
+    - SSO and SAML
 
 ### Fixed
 
