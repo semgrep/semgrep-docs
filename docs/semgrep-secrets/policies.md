@@ -78,6 +78,12 @@ Semgrep Secrets provides three rule modes. These can be used to trigger **workfl
 | Comment   | Rules in **Comment mode** display findings in:<ul><li>Developers' PRs or MRs</li><li>Semgrep AppSec Platform</li><li>User-defined notifications</li></ul>Set rules that have met your performance criteria to this mode when you are ready to display findings to developers.     |
 | Block     | Rules in **Block mode** cause the scan job to fail with an exit code of `1` if Semgrep Secrets detects a finding from these rules. You can use this result to enforce a block on the PR or MR. For example, GitHub users can enable branch protection and set the PR to fail if the Semgrep step fails. <br />These rules display findings in:<ul><li>Developers' PRs or MRs</li><li>Semgrep AppSec Platform</li><li>User-defined notifications</li></ul>These are typically high-confidence, high-severity rules. |
 
+If you're encountering issues getting PR comments for Semgrep Secrets:
+
+* Make sure the rule is in **Comment** or **Block** mode
+* Review the [PR or MR comments guide for your SCM](/docs/category/pr-or-mr-comments)
+* Explore [other reasons you may not see PR or MR comments](/docs/kb/semgrep-appsec-platform/missing-pr-comments)
+
 ## Validation state policies
 
 You can define how Semgrep handles findings that it categorizes as invalid or results in a validation error.
@@ -102,11 +108,9 @@ Semgrep enables you to set a **workflow action** based on the presence of a find
 
 You can trigger these actions based on the [rule mode](#rule-modes) set for the rule.
 
-<!-- Custom rules aren't ready yet
 ## Add custom rules
 
-To add custom rules, use the Semgrep Editor. See [<i class="fa-regular fa-file-lines"></i> Setting code standards with the Policies page](/semgrep-code/editor/#setting-code-standards-with-the-policies-page).
- -->
+To add custom rules, use the Semgrep Editor. See [<i class="fa-regular fa-file-lines"></i>Semgrep Secrets rule structure and sample](/semgrep-secrets/rules).
 
 ## Disable rules
 
