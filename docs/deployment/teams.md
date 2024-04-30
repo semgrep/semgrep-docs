@@ -74,7 +74,7 @@ Organizations start with a default role of `admin`.
 
 To change this, perform the following steps:
 
-1. On Semgrep Cloud Platform's sidebar, click **<i class="fa-solid fa-gear"></i> Settings**.
+1. In Semgrep AppSec Platform, click **<i class="fa-solid fa-gear"></i> Settings**.
 2. Click **Access > Defaults**.
 
 ![Default user role](/img/default-user-role.png#md-width)<br />
