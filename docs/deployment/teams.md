@@ -27,6 +27,8 @@ Semgrep primarily divides users into two roles:
 * `admin`
 * `member`
 
+Optionally, you can appoint members to a third role: the **manager** role. Managers are a subset of members with some additional capabilities and scopes. In particular, they are able to assign specific projects to members through the creation of [teams](#teams-beta).
+
 :::info
 * Users are assigned a role based on your [organization's default](#setting-a-default-role). New organizations are created with a default role of `admin`.
 :::
