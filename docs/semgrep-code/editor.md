@@ -73,15 +73,11 @@ Semgrep Editor offers two rule-writing modes:
 <dl>
     <dt>Simple mode</dt>
     <dd>Simple mode is ideal for quick and simple pattern-matching use cases, but it doesn't display all Semgrep operators.</dd>
+    <dt>Structure mode (beta)</dt>
+    <dd>Structure mode is a hybrid rule-writing interface that offers guidance similar to that offered by simple mode while supporting additional features the way advanced mode does.</dd>
     <dt>Advanced mode</dt>
     <dd>Advanced mode provides the minimum required YAML keys for a Semgrep rule. To complete the rule, you must fill in additional keys, such as pattern operators or metadata.</dd>
 </dl>
-
-:::info Rules syntax
-Refer to [Rule syntax](/writing-rules/rule-syntax) for all possible fields and values to create a rule.
-
-To quickly learn Semgrep patterns and syntax, explore the Editor’s library of rules from the **public [Rule Registry](https://semgrep.dev/explore)**. Rules from the Registry can detect OWASP vulnerabilities, best practice violations, and security issues for a wide variety of languages and frameworks. Semgrep Editor enables you to **adapt these rules** for your own organization’s use by [forking](#jumpstart-rule-writing-using-existing-rules) them.
-:::
 
 ### Write a rule using simple mode
 
@@ -123,9 +119,18 @@ Simple mode provides you with the most common pattern-matching operators in Semg
    * Join mode
    * Taint mode
 
+### Write a rule using structure mode (beta)
+
+
 ### Write a rule using advanced mode
 
 Advanced mode is a YAML editor that allows you to write rules using [Semgrep syntax](../writing-rules/rule-syntax/).
+
+:::info Rules syntax
+Refer to [Rule syntax](/writing-rules/rule-syntax) for all possible fields and values to create a rule.
+
+To quickly learn Semgrep patterns and syntax, explore the Editor’s library of rules from the **public [Rule Registry](https://semgrep.dev/explore)**. Rules from the Registry can detect OWASP vulnerabilities, best practice violations, and security issues for a wide variety of languages and frameworks. Semgrep Editor enables you to **adapt these rules** for your own organization’s use by [forking](#jumpstart-rule-writing-using-existing-rules) them.
+:::
 
 To create a rule in advanced mode:
 
