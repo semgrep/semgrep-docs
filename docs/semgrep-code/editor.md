@@ -68,7 +68,7 @@ To group by ruleset, right-click on the empty space on the registry's name entry
 
 To create a rule, click **Create rule** on the splash page or the **(+) sign** next to the Library label.
 
-Semgrep Editor offers two rule-writing modes:
+Semgrep Editor offers three rule-writing modes:
 
 <dl>
     <dt>Simple mode</dt>
@@ -81,7 +81,7 @@ Semgrep Editor offers two rule-writing modes:
 
 ### Write a rule using simple mode
 
-To **write a rule** using simple mode:
+To write a rule using simple mode:
 
 1. Ensure that you are in **simple** mode.
     ![Semgrep Playground's simple view](/img/pleditor-simple.png)
@@ -111,16 +111,75 @@ Simple mode provides you with the most common pattern-matching operators in Semg
 
 1. Simple mode supports the use of only **one language** per rule.
 2. Simple mode doesn't include support for the following operators:
-   * `pattern-not-regex`
-   * `metavariable-regex`
-   * `metavariable-pattern`
-   * `metavariable-comparison`
+   - `pattern-not-regex`
+   - `metavariable-regex`
+   - `metavariable-pattern`
+   - `metavariable-comparison`
 3. Simple mode doesn't support:
-   * Join mode
-   * Taint mode
+   - Join mode
+   - Taint mode
 
 ### Write a rule using structure mode (beta)
 
+Structure mode is a UI-based ruled writing editor that guides you through the process of writing a rule. It has drop-down functionality similar to simple mode, but it supports additional features that are available when writing rules using advanced mode.
+
+Structure mode features include:
+
+- **Match badges**: Match badges are visual indicators paired next to pattern operators. The match badge shows the number of matches associated with each pattern operator.
+  ![Sample pattern with match badges](/img/match-badges.png#md-width)
+- **Automatic indentation**: When adding a new pattern to a nested operator such as `patterns` or `pattern-either`, the editor automatically indents sub-patterns correctly.
+- **Differentiation between patterns and pattern constraints**: A pattern is one of six different operators that describes zero or more locations in a rule. These include `pattern`, `any`, `all`, `inside`, `regex`, and `not`. You can combine these in prescribed ways, such as `any` and `all`, using range union and intersection, but they still define ranges. Pattern constraints describe Boolean constrains that must be met for a match to occur. If the constraint doesn't hold, then the ranges determined by the pattern operators aren't applicable. 
+  ![Sample pattern with pattern constraint](/img/pattern-and-pattern-constraint.png#md-width)
+- **Interoperability with advanced mode**: You can write a rule using structure mode and export it in YAML or you can paste in the YAML for a rule and edit it with structure mode.
+- **Drag and drop**" You can move around the elements of a rule using drag and drop.
+- **Pattern disabling**: You can toggle individual patterns on or off for actions like testing.
+  ![Sample pattern with disable pattern toggle highlighted](/img/disable-pattern.png#md-width)
+
+To write a **search** rule using structure mode:
+
+1. Ensure that you are in **structure** mode.
+    ![Semgrep Playground's structure mode](/img/pleditor-structure.png)
+2. Select your first operator. Options include: `pattern`, `any`, `all`, `inside`, `regex`.
+3. Specify the pattern if applicable. Example: `print("...")`.
+4. Optional: specify a constraint by clicking on the **filter** icon.
+   1. Specify whether the constraint is `focus`, `comparison`, or `metavariable`.
+   2. Provide the pattern for the code for which the constraint should be applied.
+5. Select the child operator and specify its pattern, if applicable. You can add as many child elements as you need. These child elements can also have their own constraints
+6. Optional: Expand the **Rule info** panel, and update the following fields:
+   1. Rule ID: the name of the rule
+   2. Language: the language of the code for which this rule runs against
+   3. Severity: the severity level of the finding if this rule generates a match
+   4. Message: the message to print with the finding if this rule generates a match
+7. Click **Run** or press <kbd>Ctrl</kbd>+<kbd>Enter</kbd> (<kbd>⌘</kbd>+<kbd>Enter</kbd> on Mac).
+
+To write a **taint** rule using structure mode:
+
+1. Ensure that you are in **structure** mode. and that you have **taint** mode selected.
+    ![Semgrep Playground's simple view](/img/structure-mode-taint.png)
+1. Define your **Sources**.
+   1. Select your first operator. Options include: `pattern`, `any`, `all`, `inside`, `regex`.
+   2. Specify the pattern if applicable. Example: `print("...")`.
+   3. Optional: specify a constraint by clicking on the **filter** icon.
+      1. Specify whether the constraint is `focus`, `comparison`, or `metavariable`.
+      2. Provide the pattern for the code for which the constraint should be applied.
+2. Define your **Sinks**.
+   1. Select your first operator. Options include: `pattern`, `any`, `all`, `inside`, `regex`.
+   2. Specify the pattern if applicable. Example: `print("...")`.
+   3. Optional: specify a constraint by clicking on the **filter** icon.
+      1. Specify whether the constraint is `focus`, `comparison`, or `metavariable`.
+      2. Provide the pattern for the code for which the constraint should be applied.
+3. Add **Sanitizers**.
+      1. Select your first operator. Options include: `pattern`, `any`, `all`, `inside`, `regex`.
+      2. Specify the pattern if applicable. Example: `print("...")`.
+      3. Optional: specify a constraint by clicking on the **filter** icon.
+         1. Specify whether the constraint is `focus`, `comparison`, or `metavariable`.
+         2. Provide the pattern for the code for which the constraint should be applied.
+4. Optional: Expand the **Rule info** panel, and update the following fields:
+   1. Rule ID: the name of the rule
+   2. Language: the language of the code for which this rule runs against
+   3. Severity: the severity level of the finding if this rule generates a match
+   4. Message: the message to print with the finding if this rule generates a match
+5. Click **Run** or press <kbd>Ctrl</kbd>+<kbd>Enter</kbd> (<kbd>⌘</kbd>+<kbd>Enter</kbd> on Mac).
 
 ### Write a rule using advanced mode
 
@@ -132,19 +191,21 @@ Refer to [Rule syntax](/writing-rules/rule-syntax) for all possible fields and v
 To quickly learn Semgrep patterns and syntax, explore the Editor’s library of rules from the **public [Rule Registry](https://semgrep.dev/explore)**. Rules from the Registry can detect OWASP vulnerabilities, best practice violations, and security issues for a wide variety of languages and frameworks. Semgrep Editor enables you to **adapt these rules** for your own organization’s use by [forking](#jumpstart-rule-writing-using-existing-rules) them.
 :::
 
-To create a rule in advanced mode:
+To write a rule in advanced mode:
 
 1. Ensure that you are in **advanced** mode.
     ![Semgrep Playground's advanced mode](/img/pleditor-advanced.png "Playground advanced mode")
 1. Click the **plus sign** and select a template. The **New rule** template includes the minimum keys required for a Semgrep rule, but  there are additional templates that can help you write more complex rules:
-   * **Semgrep Assistant**: use Semgrep Assistant to [generate custom rules](/semgrep-assistant/getting-started/#write-custom-rules-beta)
-   * **Metavariable-comparison**: demonstrates how to use [the `metavariable-comparison` key](/writing-rules/rule-syntax/#metavariable-comparison)
-   * **Metavariable-pattern**: demonstrates how to use [the `metavariable-pattern` key](/writing-rules/rule-syntax/#metavariable-pattern)
-   * **Dataflow analysis**: demonstrates how to leverage dataflow analysis through [`pattern-sources`](/writing-rules/data-flow/taint-mode/#sources), [`pattern-sinks`](/writing-rules/data-flow/taint-mode/#sinks), and [`pattern-sanitizers`](/writing-rules/data-flow/taint-mode/#sanitizers).
-   * **Dataflow analysis with taint labels**: demonstrates [how to define the sources you want to track and how data must flow](/writing-rules/data-flow/taint-mode/#taint-labels-pro-)
-   * **HTTP validators**: Demonstrates how to [Semgrep Secrets rules](/semgrep-secrets/rules/) that include [validators](/semgrep-secrets/validators/)
+   - **Semgrep Assistant**: use Semgrep Assistant to [generate custom rules](/semgrep-assistant/getting-started/#write-custom-rules-beta)
+   - **Metavariable-comparison**: demonstrates how to use [the `metavariable-comparison` key](/writing-rules/rule-syntax/#metavariable-comparison)
+   - **Metavariable-pattern**: demonstrates how to use [the `metavariable-pattern` key](/writing-rules/rule-syntax/#metavariable-pattern)
+   - **Dataflow analysis**: demonstrates how to leverage dataflow analysis through [`pattern-sources`](/writing-rules/data-flow/taint-mode/#sources), [`pattern-sinks`](/writing-rules/data-flow/taint-mode/#sinks), and [`pattern-sanitizers`](/writing-rules/data-flow/taint-mode/#sanitizers).
+   - **Dataflow analysis with taint labels**: demonstrates [how to define the sources you want to track and how data must flow](/writing-rules/data-flow/taint-mode/#taint-labels-pro-)
+   - **HTTP validators**: Demonstrates how to [Semgrep Secrets rules](/semgrep-secrets/rules/) that include [validators](/semgrep-secrets/validators/)
 2. Modify the template, adding and changing the keys and values needed to finish your rule.
-3. Click **Run** or press <kbd>Ctrl</kbd>+<kbd>Enter</kbd> (<kbd>⌘</kbd>+<kbd>Enter</kbd> on Mac).
+3. Optional: Click **Metadata** to update and enter additional metadata fields.
+   [Metadata view](/img/rule-metadata.png)
+4. Click **Run** or press <kbd>Ctrl</kbd>+<kbd>Enter</kbd> (<kbd>⌘</kbd>+<kbd>Enter</kbd> on Mac).
 
 :::warning Syntax issues
 Semgrep Editor won't save or run your rule if it can't parse the YAML syntax of your rule. Fix any issues indicated by the red annotations before proceeding.
