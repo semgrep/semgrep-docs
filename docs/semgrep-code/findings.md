@@ -61,7 +61,7 @@ Use filters to narrow down your results. The following criteria are available fo
 
 | Filter                 | Description  |
 | ---------------------  | ------------ |
-| **Projects**           | Filter by repositories connected to Semgrep Cloud Platform. |
+| **Projects**           | Filter by repositories connected to Semgrep AppSec Platform. |
 | **Branches**           | Filter by findings in different Git branches. |
 | **Teams**              | Filter for findings in projects to which the specified teams are associated with. Available only to organizations with RBAC enabled. |
 | **Tags**               | Filter for findings based on the tags associated with the project. |
