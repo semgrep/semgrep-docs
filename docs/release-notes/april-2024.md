@@ -14,18 +14,29 @@ tags:
 ## 🌐 Semgrep AppSec Platform
 
 <!-- Sara -->
+
+### Added
+
+- The **Teams** feature is now in public beta. This feature enables you to assign members to teams, and then grant those teams access to specific projects (repositories added to Semgrep).
+    - Teams are crucial to large organizations with hundreds of members and projects. See [<i class="fa-regular fa-file-lines"></i> Manage user access to projects](/deployment/team).
+- The Dashboard now displays the Assistant **priority inbox**, a list of essential tasks that Semgrep Assistant prepares for you each time you log in. <!-- 13768 -->
+- CLI token activation page <!--13660 -->
+
+### Changed
+
 - **Editor and playground**: Structure mode has replaced simple mode.
 - Semgrep Cloud Platform has been renamed to Semgrep AppSec Platform.
 - Dashboard UX improvements
 - The default Bitbucket YAML configuration file has been updated with options for full, diff, and on-demand scans.
-
-### Added
-
-### Changed
+- Improved the process of creating a GitHub Enterprise private Semgrep app. <!-- 13675 -->
+- **Settings**: The Semgrep Pro Engine toggle has been renamed to <i class="fa-solid fa-toggle-large-on"></i> Cross-file.
 
 ### Fixed
 
 ## 💻 Code
+
+<!--
+- Made cross file (intrafile) default for Semgrep Code  -->
 
 ### Added
 
@@ -35,7 +46,26 @@ tags:
 
 ## ⛓️  Supply Chain
 
+### Added
+
+- Added a new **Finding details** page <!-- 13780 -->
+-
+
+### Changed
+
 <!-- should we include the new UI for SCA  -->
+
+- The Supply Chain page UX has been redesigned. Improvements include:
+    - You can now filter by project, dependency, and CVE.
+    - Updated reachability categories.
+    - Vulnerabilities are now grouped by the rule that detected them.
+    - Triage multiple vulnerabilities at once by clicking multiple <i class="fa-solid fa-square-check"></i> checkboxes. You can <kbd>Shift + click</kbd> to select a range.
+    - Within the projects page, the count of reachable vulnerabilities counts only Always reachable <!-- 13645 -->
+
+### Fixed
+
+- Fixed an issue where tooltips for conditionally reachable vulnerabilities were not being displayed. <!-- 13775 -->
+
 
 ## 🤖 Semgrep Assistant
 
