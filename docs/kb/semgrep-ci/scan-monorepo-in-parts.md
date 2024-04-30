@@ -42,7 +42,7 @@ For the other modules, the commands look similar. For module B:
 
 You will then have the flexibility to trigger each one on appropriate events or frequencies.
 
-Now that you've successfully understood how to configure your monorepo to be scanned in parts, you also have to understand how to configure the findings from each part or module to show up as their own project in Semgrep AppSec Platform.
+Now that you understand how to configure your monorepo to be scanned in parts, you also have to understand how to configure the findings from each part or module to show up as their own project in Semgrep AppSec Platform.
 
 To assign findings from the module to their own project in Semgrep Appsec Platform, you must explicitly set the `SEMGREP_REPO_DISPLAY_NAME` environment variable ([see CI environment variables reference](/docs/semgrep-ci/ci-environment-variables#semgrep_repo_display_name)).
 
