@@ -12,7 +12,7 @@ import MoreHelp from "/src/components/MoreHelp"
 You may already be familiar with writing rules in the [Semgrep Playground](/docs/playground). However, if your IDE of choice is VS Code and you'd like to write Semgrep rules there, using the Semgrep rule schema will provide a richer editing environment, allowing VS Code to understand the shape of your rule's YAML file, including its value sets, defaults, and descriptions ([reference](https://marketplace.visualstudio.com/items?itemName=redhat.vscode-yaml#associating-schemas)).
 
 :::tip
-Writing rules locally in your IDE is also helpful for iteratively testing your rule against an entire local repository, as opposed to just a snippet of test code.
+Writing rules locally in your IDE is also helpful for iteratively testing them against an entire local repository, as opposed to just a snippet of test code.
 :::
 
 When the schema is set up, auto-completion operates in your VS Code IDE just as it does in the Semgrep Playground when writing rules:
