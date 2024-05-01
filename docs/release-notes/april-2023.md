@@ -138,7 +138,7 @@ This section of release notes includes upgrades of Semgrep OSS Engine for versio
 - New section [Semgrep add-on reconciliation of licenses](/usage-and-billing/#semgrep-add-on-reconciliation-of-licenses) and [Example of license reconciliation](/usage-and-billing/#example-of-license-reconciliation).
 - New section [Updating existing open-source rules in Semgrep Registry](/contributing/contributing-to-semgrep-rules-repository/#updating-existing-open-source-rules-in-semgrep-registry).
 - Added section [Creating rules that analyze across files](/semgrep-code/semgrep-pro-engine-intro/#creating-rules-that-analyze-across-files) and [Types of Semgrep Pro Engine analysis](/semgrep-code/semgrep-pro-engine-intro/#types-of-semgrep-pro-engine-analysis).
-- Added [Appendix: Token scopes](/semgrep-appsec-platform/user-management/#appendix-token-scopes).
+- Added [Appendix: Token scopes](/deployment/teams#token-scopes).
 
 ### Changed
 
