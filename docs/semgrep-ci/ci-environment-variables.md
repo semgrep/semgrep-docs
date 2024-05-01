@@ -36,7 +36,7 @@ These environment variables configure various aspects of your CI job, such as a 
 
 :::info Prerequisites
 * You must have a Semgrep AppSec Platform account to use this environment variable.
-* You must have a Semgrep AppSec Platform token. To generate a token, see [Creating a `SEMGREP_APP_TOKEN`](/docs/semgrep-ci/running-semgrep-ci-with-semgrep-cloud-platform/#creating-a-semgrep_app_token).
+* You must have a Semgrep AppSec Platform token. To generate a token, see [Creating a `SEMGREP_APP_TOKEN`](/deployment/add-semgrep-to-other-ci-providers#create-a-semgrep_app_token).
 :::
 
 Set `SEMGREP_APP_TOKEN` to send findings to Semgrep AppSec Platform and use rules from the Policies page. `SEMGREP_APP_TOKEN` is incompatible with `SEMGREP_RULES`.
@@ -53,7 +53,7 @@ Do not set `SEMGREP_RULES` environment variable within the same CI job as `SEMGR
 
 ### `SEMGREP_BASELINE_REF`
 
-Set `SEMGREP_BASELINE_REF` to enable **[diff-aware scanning](/docs/semgrep-ci/running-semgrep-ci-with-semgrep-cloud-platform/#diff-aware-scanning)** for CI providers that are **not** GitHub Actions or GitLab CI/CD. `SEMGREP_BASELINE_REF` refers to your codebase's default or trunk branch, such as `main` or `master`.
+Set `SEMGREP_BASELINE_REF` to enable **[diff-aware scanning](/deployment/customize-ci-jobs#set-up-diff-aware-scans)** for CI providers that are **not** GitHub Actions or GitLab CI/CD. `SEMGREP_BASELINE_REF` refers to your codebase's default or trunk branch, such as `main` or `master`.
 
 Example:
 
@@ -309,7 +309,7 @@ steps:
 
 ### `BITBUCKET_TOKEN`
 
-Set `BITBUCKET_TOKEN` to enable Semgrep to leave PR or MR comments in Bitbucket Cloud. The value of this environment variable must be a Personal Access Token (PAT) generated from Bitbucket Cloud. See [Bitbucket PR comments](/semgrep-cloud-platform/bitbucket-pr-comments) for instructions.
+Set `BITBUCKET_TOKEN` to enable Semgrep to leave PR or MR comments in Bitbucket Cloud. The value of this environment variable must be a Personal Access Token (PAT) generated from Bitbucket Cloud. See [Bitbucket PR comments](/semgrep-appsec-platform/bitbucket-pr-comments) for instructions.
 
 Example:
 
