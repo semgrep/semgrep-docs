@@ -15,7 +15,7 @@ You may already be familiar with writing rules in the [Semgrep Playground](/docs
 Writing rules locally in your IDE is also helpful for iteratively testing your rule against an entire local repository, as opposed to just a snippet of test code.
 :::
 
-When setup properly, you can expect to get auto-completion options in your VS Code IDE just as you would in the Semgrep Playground when writing rules:
+When the schema is set up, auto-completion operates in your VS Code IDE just as it does in the Semgrep Playground when writing rules:
 
 ![Example Semgrep YAML rule file with auto-complete](/img/kb/vscode-schema-autocomplete-example.png)
 
