@@ -76,7 +76,7 @@ To view your results in multiple formats, combine the appropriate flags:
 
 ```console
 # obtain results as text output and as JSON, SARIF
-semgrep ci --text --text-output=semgrep.txt --json-output=semgrep.json --sarif-output=semgrep.sarif
+semgrep ci --text --output=semgrep.txt --json-output=semgrep.json --sarif-output=semgrep.sarif
 ```
 
 ### Scan your project with a specific ruleset
