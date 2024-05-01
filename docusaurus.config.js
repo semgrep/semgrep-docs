@@ -365,7 +365,9 @@ module.exports = {
           { from: "/semgrep-ci/running-semgrep-ci-with-semgrep-app/" , to: "/deployment/core-deployment" } ,
           { from: "/semgrep-ci/running-semgrep-ci-without-semgrep-app/" , to: "/deployment/oss-deployment" } ,
           /* APR  23, 2024  */
-          { from: "/getting-started/" , to: "/getting-started/quickstart" }
+          { from: "/getting-started/" , to: "/getting-started/quickstart" } ,
+          /* APR  23, 2024  */
+          { from: "/playground/" , to: "/semgrep-code/editor" }
         ]
       }
     ],
