@@ -19,7 +19,7 @@ When the schema is set up, auto-completion operates in your VS Code IDE just as 
 
 ![Example Semgrep YAML rule file with auto-complete](/img/kb/vscode-schema-autocomplete-example.png)
 
-## Adding the Semgrep rule schema in VS Code
+## Add the Semgrep rule schema in VS Code
 
 Adding the Semgrep rule schema in VS Code requires two steps:
 
