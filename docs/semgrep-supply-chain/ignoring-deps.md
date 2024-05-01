@@ -24,7 +24,7 @@ Object.entries(frontMatter).filter(
 
 There are several methods to restrict code files or lock files from generating dependency findings.
 
-Create a `.semgrepignore` file in your repository's root directory and define code files and lock files to ignore. For more information, see [Ignoring files, folders, and code](/ignoring-files-folders-code/#defining-ignored-files-and-folders-in-semgrep-appsec-platform).
+Create a `.semgrepignore` file in your repository's root directory and define code files and lock files to ignore. For more information, see [Ignoring files, folders, and code](/ignoring-files-folders-code/#define-ignored-files-and-folders-in-semgrep-appsec-platform).
 
 Refer to the following table to see which goal best suits your need:
 
