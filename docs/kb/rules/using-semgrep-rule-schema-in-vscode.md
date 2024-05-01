@@ -67,7 +67,7 @@ This opens the `settings.json` file with an empty `yaml.schemas` object already 
 }
 ```
 
-Here, we are saying that the schema as defined on the left side of the colon (`:`), should match to the glob pattern as defined on the right side. The glob pattern is matching any `.yaml` file located in a directory structure that matches `Downloads/semgrep_rules/`. Please keep in mind that the glob pattern will differ for varying operating systems and by where you are storing your Semgrep YAML rule files.
+This associates the schema defined on the left side of the colon (`:`) with files matching the glob pattern on the right. The glob pattern matches any `.yaml` file located in a directory structure that matches `Downloads/semgrep_rules/`. The desired glob pattern differs for varying operating systems and should reflect where you are storing Semgrep YAML rule files.
 
 If you are successful in configuring `yaml.schemas` and then open a Semgrep rule YAML file, you should notice something like the following at the top:
 
