@@ -19,18 +19,18 @@ import MoreHelp from "/src/components/MoreHelp"
 
 ## Prerequisites
 
-- See [Supported Languages](/supported-languages/) to verify that the extension supports your project.
+- See [Supported Languages](/supported-languages) to verify that the extension supports your project.
 - Windows users must use Semgrep extension v1.6.2 or later.
 - Semgrep recommends that macOS, Linux, and WSL users [install the Semgrep command-line interface (CLI)](/getting-started/cli-oss/#set-up-semgrep) before using the Semgrep VS Code extension for a more performant and stable experience. The extension communicates with the CLI to run scans.
 
 ## Quickstart
 
 1. [Install the Semgrep extension](https://code.visualstudio.com/docs/editor/extension-marketplace#_install-an-extension). If you're unfamiliar with installing VS Code extensions, see the Extension Marketplace's article [Install an Extension](https://code.visualstudio.com/docs/editor/extension-marketplace#_install-an-extension).
-2. Use <kbd>Ctrl+⇧Shift+P</kbd> or <kbd>⌘Command+⇧Shift+P</kbd> (macOS) to launch the Command Palette, and run the following to sign in to Semgrep Cloud Platform:
+2. Use <kbd>Ctrl+⇧Shift+P</kbd> or <kbd>⌘Command+⇧Shift+P</kbd> (macOS) to launch the Command Palette, and run the following to sign in to Semgrep AppSec Platform:
    ```console
    Semgrep: Sign in
    ```
-   You can use the extension without signing in, but doing so enables better results since you benefit from [Semgrep Code](/semgrep-code/overview) and its [Pro rules](https://semgrep.dev/docs/semgrep-code/pro-rules/).
+   You can use the extension without signing in, but doing so enables better results since you benefit from [Semgrep Code](/semgrep-code/overview) and its [Pro rules](/semgrep-code/pro-rules).
 3. Launch the Command Palette using <kbd>Ctrl+⇧Shift+P</kbd> or <kbd>⌘Command+⇧Shift+P</kbd> (macOS), and scan your files by running:
    ```console
    Semgrep: Scan all files in workspace
@@ -47,11 +47,11 @@ Run Semgrep extension commands through the [Visual Studio Code Command Palette](
 - `Semgrep Search: Focus on Search Results View`: Bring the Primary Side Bar's Semgrep Search view into focus
 - `Semgrep Restart Language Server`: Restart the language server
 - `Semgrep: Scan changed files in a workspace`: Scan files that have been changed since the last commit in your current workspace.
-- `Semgrep: Search by pattern`: Search for patterns in code using Semgrep pattern syntax. For more information, see [Pattern syntax](https://semgrep.dev/docs/writing-rules/pattern-syntax/) documentation.
+- `Semgrep: Search by pattern`: Search for patterns in code using Semgrep pattern syntax. For more information, see [Pattern syntax](/docs/writing-rules/pattern-syntax) documentation.
 - `Semgrep: Show Generic AST`: Show generic AST in a new window
 - `Semgrep: Show named Generic AST`: Show named AST in a new window
-- `Semgrep: Sign in`: Sign in or log in to the Semgrep Cloud Platform (this command opens a new window in your browser). When you sign in, you can automatically scan with Semgrep [Pro rules](https://semgrep.dev/docs/semgrep-code/pro-rules/) and add additional rules to the [Policies](https://semgrep.dev/orgs/-/policies) in Semgrep Code. If you are logged in with the command-line interface using <code>semgrep&nbsp;login</code>, you are also already signed in with the Visual Studio Code Semgrep extension. Alternatively, you can log in through your command-line interface by running `semgrep login`.
-- `Semgrep: Sign out`: Log out from Semgrep Cloud Platform. Alternatively, you can sign out through your command-line interface by running `semgrep logout`.
+- `Semgrep: Sign in`: Sign in or log in to the Semgrep AppSec Platform (this command opens a new window in your browser). When you sign in, you can automatically scan with Semgrep [Pro rules](/semgrep-code/pro-rules) and add additional rules to the [Policies](https://semgrep.dev/orgs/-/policies) in Semgrep Code. If you are logged in with the command-line interface using <code>semgrep&nbsp;login</code>, you are also already signed in with the Visual Studio Code Semgrep extension. Alternatively, you can log in through your command-line interface by running `semgrep login`.
+- `Semgrep: Sign out`: Log out from Semgrep AppSec Platform. Alternatively, you can sign out through your command-line interface by running `semgrep logout`.
 - `Semgrep: Update rules`: For logged-in users. If the rules in the [Policies](https://semgrep.dev/orgs/-/policies) or rules included through the **Semgrep › Scan: Configuration** configuration option have been changed, this command loads the new configuration of your rules for your following scan.
 
 Tip: You can click the Semgrep icon in the Visual Studio Code to access all available commands quickly.
@@ -86,7 +86,7 @@ To configure the Semgrep extension, open its **Extension Settings** page:
 
 - **Semgrep › Do Hover**: Enable AST node views when hovering over a finding.
 - **Semgrep › Path**: Set the path to the Semgrep executable.
-- **Semgrep › Scan: Configuration**: Specify rules or rulesets you want Semgrep to use to scan your code. Each item can be a YAML configuration file, a URL of a configuration file, or a directory of YAML files. Use `auto` to automatically obtain rules tailored to your project. Semgrep uses your project URL to log into the Semgrep Registry. See [Running rules](https://semgrep.dev/docs/running-rules/) for more information. Run `Semgrep: Update rules` using the Visual Studio Code Command Palette to update the rules configuration for your following scan whenever you change the rule configuration.
+- **Semgrep › Scan: Configuration**: Specify rules or rulesets you want Semgrep to use to scan your code. Each item can be a YAML configuration file, a URL of a configuration file, or a directory of YAML files. Use `auto` to automatically obtain rules tailored to your project. Semgrep uses your project URL to log into the Semgrep Registry. See [Running rules](/docs/running-rules) for more information. Run `Semgrep: Update rules` using the Visual Studio Code Command Palette to update the rules configuration for your following scan whenever you change the rule configuration.
 - **Semgrep › Scan: Exclude**: List files and directories that Semgrep should ignore when scanning.
 - **Semgrep › Scan: Include**: List files and directories scanned by Semgrep. This option globally overrides the workspace setting. As a result, Semgrep scans all included paths.
 - **Semgrep › Scan: Jobs**: Specify how many parallel jobs can run simultaneously. The default number of parallel jobs is one.

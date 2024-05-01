@@ -35,7 +35,7 @@ toc_max_heading_level: 3
 
 - Display findings grouped together by rules that detected them! Group by rule view helps you to identify patterns in your code and to triage findings easily. Findings grouped by rule are sorted by count from high to low. This enables you to know which rules have fired the most. In comparison, regularly grouped findings are sorted by their recency (most recent findings are at the top of the Findings page).
     ![Group by rule option on Findings page](/img/release-notes-group-by-rule.png)
-- Semgrep API now allows you to add or remove tags to a project. See [Tagging projects](/semgrep-cloud-platform/tags/) documentation.
+- Semgrep API now allows you to add or remove tags to a project. See [Tagging projects](/semgrep-cloud-platform/tags) documentation.
 
 ### Changes
 
@@ -60,7 +60,7 @@ as well as `True and X` and `False or X`. For example, `cond and "a" or "b"` is 
 ### Changes
 
 - Tests: Allow `-test` to process entire file trees rather than single files. See more information about the `semgrep --test` in the [Testing rules](/writing-rules/testing-rules.md) documentation. (Issue [#5487](https://github.com/semgrep/semgrep/issues/5487))
-- metavariable-pattern: For performance reasons the [generic mode](/writing-rules/generic-pattern-matching/) ignores target files that are machine-generated. However, this change prevented the use of the `metavariable-pattern` operator on the text that seemed or was machine-generated, such as an RSA key contained in a file. This issue has been fixed. Now, when the analysis is requested within a `metavariable-pattern` operator, the generic mode always matches any text even if it seems to be machine-generated.
+- metavariable-pattern: For performance reasons the [generic mode](/writing-rules/generic-pattern-matching) ignores target files that are machine-generated. However, this change prevented the use of the `metavariable-pattern` operator on the text that seemed or was machine-generated, such as an RSA key contained in a file. This issue has been fixed. Now, when the analysis is requested within a `metavariable-pattern` operator, the generic mode always matches any text even if it seems to be machine-generated.
 
 ## Semgrep Registry
 
@@ -73,22 +73,22 @@ as well as `True and X` and `False or X`. For example, `cond and "a" or "b"` is 
 ### Additions
 
 - Cheat sheets have been revisited, added, improved, and rewritten:
-    - Added a new [XML External entity (XXE) prevention for Java](/cheat-sheets/java-xxe/) cheat sheet.
+    - Added a new [XML External entity (XXE) prevention for Java](/cheat-sheets/java-xxe) cheat sheet.
     - Added new command and code injection cheat sheets:
-        - [Code injection prevention for Java](/cheat-sheets/java-code-injection/).
-        - [Command injection prevention for Java](/cheat-sheets/java-command-injection/).
-        - [Code injection prevention for JavaScript](/cheat-sheets/javascript-code-injection/).
-        - [Command injection prevention for JavaScript](/cheat-sheets/javascript-command-injection/).
-        - [Code injection prevention for Ruby](/cheat-sheets/ruby-code-injection/).
-        - [Command injection prevention for Ruby](/cheat-sheets/ruby-command-injection/).
-        - Many other cheat sheets (such as [Command injection prevention for Go](/cheat-sheets/go-command-injection/)) now have updated examples and were enriched by other improvements.
-- Added a new document on how to set up [notifications for Semgrep Supply Chain](/semgrep-supply-chain/notifications/) scans.
+        - [Code injection prevention for Java](/cheat-sheets/java-code-injection).
+        - [Command injection prevention for Java](/cheat-sheets/java-command-injection).
+        - [Code injection prevention for JavaScript](/cheat-sheets/javascript-code-injection).
+        - [Command injection prevention for JavaScript](/cheat-sheets/javascript-command-injection).
+        - [Code injection prevention for Ruby](/cheat-sheets/ruby-code-injection).
+        - [Command injection prevention for Ruby](/cheat-sheets/ruby-command-injection).
+        - Many other cheat sheets (such as [Command injection prevention for Go](/cheat-sheets/go-command-injection)) now have updated examples and were enriched by other improvements.
+- Added a new document on how to set up [notifications for Semgrep Supply Chain](/semgrep-supply-chain/notifications) scans.
 - Added a new section [Transform](/writing-rules/experiments/extract-mode/#transform) to the Extract mode documentation.
 
 ### Changes
 
-- Updated Getting started with Semgrep Supply Chain with additional information on scanning [Maven projects](/semgrep-supply-chain/setup-maven/).
-- Updated documentation of Semgrep App [Findings](/semgrep-code/findings/) with fresh screenshots.
+- Updated Getting started with Semgrep Supply Chain with additional information on scanning [Maven projects](/semgrep-supply-chain/setup-maven).
+- Updated documentation of Semgrep App [Findings](/semgrep-code/findings) with fresh screenshots.
 - Updated Supported languages with [additional information on transitivity](/supported-languages/#general-availability).
-- Updated Semgrep App’s [Tagging](/semgrep-cloud-platform/tags/) documentation.
-- Updated [Getting started with Semgrep CLI](/getting-started/quickstart/).
+- Updated Semgrep App’s [Tagging](/semgrep-cloud-platform/tags) documentation.
+- Updated [Getting started with Semgrep CLI](/getting-started/quickstart).

@@ -79,7 +79,7 @@ Semgrep is an open-source tool with a simple syntax for writing rules: if you ca
 
 To the Semgrep team's knowledge, the only other tool with the explicit goal of allowing custom rules is GitHub’s proprietary tool, CodeQL. CodeQL has a domain-specific language that is extremely powerful but is designed for those with significant program analysis expertise, whereas Semgrep is designed for the security engineer or developer who wants to automate code review. Our goal is to make writing a Semgrep rule as easy as copying the code you want to find—and letting the Semgrep engine make the rule and autofix high-quality enough to run in CI or your text editor or IDE.
 
-[Semgrep Cloud Platform](https://semgrep.dev/manage) provides a Team tier that is free for up to 10 contributors on private repositories. It offers a hosted CI integration with a quick setup so you can start running Semgrep right away.
+[Semgrep AppSec Platform](https://semgrep.dev/manage) provides a Team tier that is free for up to 10 contributors on private repositories. It offers a hosted CI integration with a quick setup so you can start running Semgrep right away.
 
 Semgrep's diff-awareness lets you scan new code and doesn’t force you to fix all the existing issues when you first start. For users running inside organizations with many repositories, the hosted offering also offers a policy and notification system that makes it easy to tune Semgrep so that it only reports issues or suggests fixes that get applied.
 
@@ -99,10 +99,11 @@ As Semgrep evolves, queries similar to `foo("password")` become smarter. In the 
 
 Today Semgrep can [do even more with intraprocedural dataflow](https://semgrep.dev/s/50zj) analysis, and we’re working on adding more of these semantic features with every release.
 
-#### Integrated: Semgrep understands git
+#### Integrated: Semgrep understands Git
 
-It’s easy to write a new Semgrep rule and have it only apply _going forward_. You can [ignore findings](/ignoring-files-folders-code) of course, but we have [<i class="fas fa-external-link fa-xs"></i> built-in support for this with Semgrep Cloud Platform](https://semgrep.dev/manage) and various repository integrations.
+It’s easy to write a new Semgrep rule and have it only apply _going forward_. You can [ignore findings](/ignoring-files-folders-code) of course, but we have [built-in support for this with Semgrep AppSec Platform](/deployment/add-semgrep-to-ci) and GitHub/GitLab/etc. integrations.
 
+It’s easy to write a new Semgrep rule and have it only apply _going forward_. You can [ignore findings](/ignoring-files-folders-code) of course, but we have [<i class="fas fa-external-link fa-xs"></i> built-in support for this with Semgrep AppSec Platform](https://semgrep.dev/manage) and various repository integrations.
 
 #### Portable: If you write a Semgrep rule, it runs anywhere
 
@@ -134,12 +135,12 @@ Both Semgrep and CodeQL use static analysis to find bugs, but there are a few di
 - Semgrep operates directly on source code, whereas CodeQL requires a buildable environment.
 - Semgrep provides both proprietary and open source options that can be run anywhere; CodeQL is not open source and you must pay to run it on any non-open-source code.
 - Semgrep focuses on speed and ease of use. and doesn’t require compiled code.
-  - Semgrep OSS engine provides [intraprocedural dataflow](/writing-rules/data-flow/data-flow-overview/). Semgrep Code's cross-file and cross-function analysis has similar capabilities as CodeQL in terms of cross-function dataflow analysis for a subset of supported languages.
+  - Semgrep OSS engine provides [intraprocedural dataflow](/writing-rules/data-flow/data-flow-overview). Semgrep Code's cross-file and cross-function analysis has similar capabilities as CodeQL in terms of cross-function dataflow analysis for a subset of supported languages.
 - Both have publicly available rules.
 - Semgrep rules look like the source code you’re writing; CodeQL has a separate domain-specific-language for writing queries.
 - Semgrep has an online, hosted free plan for up to ten contributors to private repositories; both have a hosted paid plan.
 
-See [the Semgrep development philosophy](../contributing/semgrep-philosophy/) for more about what makes Semgrep different.
+See [the Semgrep development philosophy](/contributing/semgrep-philosophy/) for more about what makes Semgrep different.
 
 ### Comparing Semgrep to Snyk
 
@@ -183,7 +184,7 @@ If you choose to enable it, Semgrep Assistant requires code access. See the [Pri
 
 ### What data is stored?
 
-[Semgrep](https://github.com/semgrep/semgrep) sends data to Semgrep Cloud Platform in accordance with the [metrics policy](/metrics).
+[Semgrep](https://github.com/semgrep/semgrep) sends data to Semgrep AppSec Platform in accordance with the [metrics policy](/metrics).
 
 These types of data are **scan data** and **findings data**.
 
@@ -206,16 +207,16 @@ Semgrep makes network requests in accordance with the data storage previously me
 
 ### How do I configure Semgrep for different projects?
 
-Semgrep Cloud Platform provides centralized policy management. See the [Policies documentation](/semgrep-code/policies/) for more details.
+Semgrep AppSec Platform provides centralized policy management. See the [Policies documentation](/semgrep-code/policies) for more details.
 
 ### What is a policy?
 
-A policy is a simple collection of rules and a definition of what to do with rule results: fail the Semgrep CI run and/or send non-blocking notifications to third-party services like Slack. Please see the [Policies documentation](/semgrep-code/policies/) for more details.
+A policy is a simple collection of rules and a definition of what to do with rule results: fail the Semgrep CI run and/or send non-blocking notifications to third-party services like Slack. Please see the [Policies documentation](/semgrep-code/policies) for more details.
 
 ## Monitoring
 
 ### Do you have a visualization UI?
 
-Semgrep Cloud Platform users can create custom dashboards and visualizations. Semgrep also supports posting results through [webhooks](https://semgrep.dev/docs/semgrep-cloud-platform/webhooks) to any JSON endpoint, so you can easily integrate it with your favorite visualization tool.
+Semgrep Team users can create custom dashboards and visualizations. Semgrep also supports posting results through [webhooks](/semgrep-cloud-platform/webhooks) to any JSON endpoint, so you can easily integrate it with your favorite visualization tool.
 
 <MoreHelp />

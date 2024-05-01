@@ -1,12 +1,12 @@
 ---
-slug: gitlab-mr-comments 
+slug: gitlab-mr-comments
 append_help_link: true
 title: GitLab MR comments
 hide_title: true
 toc_max_heading_level: 4
 description: "Enable merge request (MR) comments in your GitLab repositories to display Semgrep findings to developers."
 tags:
-    - Semgrep Cloud Platform
+    - Semgrep AppSec Platform
     - Team & Enterprise Tier
 ---
 
@@ -46,7 +46,7 @@ MR comments appear for the following types of scans under these conditions:
 
 <CommentTriggers comment_type="MR"/>
 
-## Steps to set up MR comments 
+## Steps to set up MR comments
 
 ### Prerequisites
 
@@ -54,9 +54,9 @@ In addition to finishing the previous steps in your deployment journey, it is re
 
 ### Confirm your Semgrep account's connection to GitLab
 
-MR comments are enabled by default for users who have connected their GitLab organization (org) to Semgrep Cloud Platform. Confirm that you have the correct connection and access:
+MR comments are enabled by default for users who have connected their GitLab organization (org) to Semgrep AppSec Platform. Confirm that you have the correct connection and access:
 
-1. In your SCP account, click **Settings > Source code managers**.
+1. In your Semgrep AppSec Platform account, click **Settings > Source code managers**.
 2. Check that an entry for your GitLab org exists and is correct.
 
 ### Create a personal access token (PAT)
@@ -77,20 +77,20 @@ Creating a PAT grants the API scope to Semgrep, which lets it post comments.
       image: semgrep/semgrep
       # Run the "semgrep ci" command on the command line of the docker image.
       script: semgrep ci
-    
+
       rules:
       # Scan changed files in MRs, (diff-aware scanning):
       - if: $CI_MERGE_REQUEST_IID
-    
+
       # Scan mainline (default) branches and report all findings.
       - if: $CI_COMMIT_BRANCH == $CI_DEFAULT_BRANCH
-    
+
       variables:
-        # Connect to Semgrep Cloud Platform through your SEMGREP_APP_TOKEN.
-        # Generate a token from Semgrep Cloud Platform > Settings
+        # Connect to Semgrep AppSec Platform through your SEMGREP_APP_TOKEN.
+        # Generate a token from Semgrep AppSec Platform > Settings
         # and add it as a variable in your GitLab CI/CD project settings.
         SEMGREP_APP_TOKEN: $SEMGREP_APP_TOKEN
-        # Receive inline MR comments (requires Semgrep Cloud Platform account)
+        # Receive inline MR comments (requires Semgrep AppSec Platform account)
         GITLAB_TOKEN: $PAT
     ```
 1. For **other CI providers**:
@@ -134,7 +134,7 @@ To enable dataflow traces in your CI pipeline, fulfill the following prerequisit
 
 :::info Prerequisites
 - Set up Semgrep to post GitLab merge request comments, as described on this page.
-- To obtain meaningful results of dataflow traces in MR comments, use Semgrep Pro Engine while scanning your repositories to display cross-file (interfile) findings. To enable Semgrep Pro Engine, see [Semgrep Pro Engine overview](/semgrep-code/semgrep-pro-engine-intro/).
+- To obtain meaningful results of dataflow traces in MR comments, use Semgrep Pro Engine while scanning your repositories to display cross-file (interfile) findings. To enable Semgrep Pro Engine, see [Semgrep Pro Engine overview](/semgrep-code/semgrep-pro-engine-intro).
 - Not all Semgrep rules or rulesets make use of taint tracking. Ensure that you have a ruleset, such as the **default ruleset** added in your **[Policies](https://semgrep.dev/orgs/-/policies)**. If this ruleset is not added, go to [https://semgrep.dev/p/default](https://semgrep.dev/p/default), and then click **Add to Policy**. You can add rules that use taint tracking from [Semgrep Registry](https://semgrep.dev/explore).
 :::
 
@@ -142,7 +142,7 @@ To enable dataflow traces in your CI pipeline, fulfill the following prerequisit
 
 <NextAfterComments />
 
-## Additional references 
+## Additional references
 
 <TroubleshootingPrLinks />
 

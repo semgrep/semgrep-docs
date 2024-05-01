@@ -28,11 +28,11 @@ When running Semgrep in CI, if the triggering event is a pull request or merge r
 
 ## Rule configuration
 
-If you use Semgrep with Semgrep Cloud Platform, `semgrep ci` with no additional arguments executes a scan using your organization's [policies](/docs/semgrep-code/policies/) configuration. Findings are determined by the rules present in different policies. If you have any organization-specific rules in your policies, those are included as well.
+If you use Semgrep with Semgrep AppSec Platform, `semgrep ci` with no additional arguments executes a scan using your organization's [policies](/docs/semgrep-code/policies) configuration. Findings are determined by the rules present in different policies. If you have any organization-specific rules in your policies, those are included as well.
 
 Findings on rules in the Blocking policy cause the scan to finish with exit code 1. See also [Blocking findings and errors](#blocking-findings-and-errors).
 
-On the other hand, `semgrep --config auto` executes a scan using relevant rules from the [Semgrep Registry](https://semgrep.dev/explore), without using a particular configuration. It does not include organization-specific rules from Semgrep Cloud Platform.
+On the other hand, `semgrep --config auto` executes a scan using relevant rules from the [Semgrep Registry](https://semgrep.dev/explore), without using a particular configuration. It does not include organization-specific rules from Semgrep AppSec Platform.
 
 To address this difference, run `semgrep scan` with specific rules or rulesets that closely match your policies. For example, if your policies include only the "default" ruleset in the Monitor column, running:
 
@@ -44,9 +44,9 @@ would give similar results to `semgrep ci`.
 
 ## Pro analysis
 
-When using `semgrep ci` with Semgrep Cloud Platform, the Semgrep scan reflects the Pro Engine options configured in Semgrep Cloud Platform at https://semgrep.dev/orgs/-/settings. If Pro Engine is enabled, and the scanned code includes [supported Pro languages](/docs/supported-languages/#semgrep-pro-engine), then interfile and interprocedural analysis is performed.
+When using `semgrep ci` with Semgrep AppSec Platform, the Semgrep scan reflects the Pro Engine options configured in Semgrep AppSec Platform at https://semgrep.dev/orgs/-/settings. If Pro Engine is enabled, and the scanned code includes [supported Pro languages](/docs/supported-languages/#semgrep-pro-engine), then interfile and interprocedural analysis is performed.
 
-If Pro Engine is not enabled in Semgrep Cloud Platform, [Pro rules](/docs/semgrep-code/pro-rules/) are used, but they are run as OSS rules, using only intrafile and intraprocedural analysis.
+If Pro Engine is not enabled in Semgrep AppSec Platform, [Pro rules](/docs/semgrep-code/pro-rules) are used, but they are run as OSS rules, using only intrafile and intraprocedural analysis.
 
 To perform a CLI scan using Pro Engine, ensure you've [installed Pro Engine](/docs/semgrep-code/semgrep-pro-engine-intro/#installing-semgrep-pro-engine-in-cli), and include `--pro` in your command:
 
@@ -54,7 +54,7 @@ To perform a CLI scan using Pro Engine, ensure you've [installed Pro Engine](/do
 semgrep --config auto --pro
 ```
 
-To scan without Pro Engine in CI, even if it is enabled in Semgrep Cloud Platform, use:
+To scan without Pro Engine in CI, even if it is enabled in Semgrep AppSec Platform, use:
 
 ```bash
 semgrep ci --oss-only
@@ -62,6 +62,6 @@ semgrep ci --oss-only
 
 ## Blocking findings and errors
 
-If you use Semgrep in CI without Semgrep Cloud Platform, `semgrep ci` finishes with exit code 1 if there are any findings, since there is no way to distinguish blocking from non-blocking findings. Review [Configuring blocking findings and errors in continuous integration (CI)](/docs/semgrep-ci/configuring-blocking-and-errors-in-ci/) to change this behavior.
+If you use Semgrep in CI without Semgrep AppSec Platform, `semgrep ci` finishes with exit code 1 if there are any findings, since there is no way to distinguish blocking from non-blocking findings. Review [Configuring blocking findings and errors in continuous integration (CI)](/docs/semgrep-ci/configuring-blocking-and-errors-in-ci) to change this behavior.
 
 The CLI command `semgrep scan` finishes with exit code 0 by default as long as the scan is able to complete, even if there are findings. To finish with exit code 1 on any findings, use the `--error` flag.

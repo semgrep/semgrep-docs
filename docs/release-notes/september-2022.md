@@ -30,9 +30,9 @@ These release notes include upgrades for versions ranging between 0.112.0 and 0.
 
 - Exclude rules by ID using CLI flag `--exclude-rule`. To exclude a specific rule, use for example <code>semgrep --config=auto --exclude <span className="placeholder">RULE_ID</span></code>. (Issue [2530](https://github.com/semgrep/semgrep/issues/2530), PR [5974](https://github.com/semgrep/semgrep/pull/5974))
 
-- You can now have multiple metavariables under `focus-metavariable`, which allows. Semgrep to highlight the values matched by multiple metavariables more easily in certain circumstances. For more information, see [Using multiple focus metavariables](/writing-rules/experiments/multiple-focus-metavariables/) documentation. (Issue [5686](https://github.com/semgrep/semgrep/issues/5686))
+- You can now have multiple metavariables under `focus-metavariable`, which allows. Semgrep to highlight the values matched by multiple metavariables more easily in certain circumstances. For more information, see [Using multiple focus metavariables](/writing-rules/experiments/multiple-focus-metavariables) documentation. (Issue [5686](https://github.com/semgrep/semgrep/issues/5686))
 
-- You can add tags for specific projects in the Semgrep App on the configuration page of a project. With this update, you can create `.semgrepconfig.yml` file in the root directory of your repository and add tags in this file also. See [Tagging projects](/semgrep-cloud-platform/tags/).
+- You can add tags for specific projects in the Semgrep App on the configuration page of a project. With this update, you can create `.semgrepconfig.yml` file in the root directory of your repository and add tags in this file also. See [Tagging projects](/semgrep-cloud-platform/tags).
 
 - The Semgrep CLI output now displays non-blocking and blocking findings separately. CLI output also provides a list of the blocking rules that matched the code.
 
@@ -50,15 +50,15 @@ Minor bug fixes are not included in the release notes unless they are potentiall
 
 ## Documentation updates
 
-- New documentation for experimental [Taint labels](/writing-rules/experiments/taint-labels/).
-- New documentation for [Displaying matched metavariables in rule messages](/writing-rules/pattern-syntax/#displaying-matched-metavariables-in-rule-messages) and experimental [Displaying propagated value of metavariables](/writing-rules/experiments/display-propagated-metavariable/).
-- New documentation for [Using multiple focus metavariables](/writing-rules/experiments/multiple-focus-metavariables/).
+- New documentation for experimental [Taint labels](/writing-rules/experiments/taint-labels).
+- New documentation for [Displaying matched metavariables in rule messages](/writing-rules/pattern-syntax/#displaying-matched-metavariables-in-rule-messages) and experimental [Displaying propagated value of metavariables](/writing-rules/experiments/display-propagated-metavariable).
+- New documentation for [Using multiple focus metavariables](/writing-rules/experiments/multiple-focus-metavariables).
 - Added information about [Ellipsis operator scope](/writing-rules/pattern-syntax/#ellipsis-operator-scope).
-- Many documents, such as [Getting started with Semgrep App](/deployment/core-deployment/) now display minimal Semgrep tier required for a particular feature documented on the page.
-- Updated [Managing findings in Semgrep App](/semgrep-code/findings/).
-- [Taint mode](/writing-rules/data-flow/taint-mode/) documentation has been updated and now includes introductory video.
-- Updated [Getting started with Semgrep in continuous integration (CI)](/semgrep-ci/overview/)
-- Updated [Data-flow analysis engine overview](/writing-rules/data-flow/data-flow-overview/).
-- Updated [Integrating Semgrep into source code management (SCM) tools](/deployment/connect-scm.md).
-- Updated [Evaluating your security posture through the Dashboard](/semgrep-cloud-platform/dashboard/).
-- Updated [Notifications](/semgrep-code/notifications/) documentation.
+- Many documents, such as [Getting started with Semgrep App](/deployment/core-deployment) now display minimal Semgrep tier required for a particular feature documented on the page.
+- Updated [Managing findings in Semgrep App](/semgrep-code/findings).
+- [Taint mode](/writing-rules/data-flow/taint-mode) documentation has been updated and now includes introductory video.
+- Updated [Getting started with Semgrep in continuous integration (CI)](/semgrep-ci/overview)
+- Updated [Data-flow analysis engine overview](/writing-rules/data-flow/data-flow-overview).
+- Updated [Integrating Semgrep into source code management (SCM) tools](/deployment/connect-scm).
+- Updated [Evaluating your security posture through the Dashboard](/semgrep-cloud-platform/dashboard).
+- Updated [Notifications](/semgrep-code/notifications) documentation.

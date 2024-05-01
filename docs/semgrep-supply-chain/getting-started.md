@@ -1,14 +1,15 @@
 ---
-slug: getting-started 
+slug: getting-started
 append_help_link: true
 description: "Customize how Semgrep Supply Chain scans your codebase's open source dependencies."
 tags:
     - Semgrep Supply Chain
     - Team & Enterprise Tier
-title: Customization
-hide_title: false
+title: Scan third-party dependencies
+hide_title: true
 ---
 
+<!-- vale off -->
 import MoreHelp from "/src/components/MoreHelp"
 
 import PlatformSigninIntro from "/src/components/concept/_platform-signin-intro.md"
@@ -17,6 +18,8 @@ import PlatformSigninGitlab from "/src/components/procedure/_platform-signin-git
 import CiScheduling from "/src/components/reference/_ci-scheduling.mdx"
 import DetectGhRepos from "/src/components/procedure/_detect-gh-repos.md"
 
+<!-- vale on -->
+
 <ul id="tag__badge-list">
 {
 Object.entries(frontMatter).filter(
@@ -24,6 +27,8 @@ Object.entries(frontMatter).filter(
     (value) => <li class='tag__badge-item'>{value}</li> )
 }
 </ul>
+
+# Scan third-party dependencies
 
 This article walks you through the Semgrep Supply Chain configuration and customization options available.
 
@@ -43,12 +48,18 @@ In the following example, Semgrep Supply Chain assumes that all code files using
 │   ├───lockfile.json
 │   ├───bar.js
 │   └───/uphill
-│       ├───lockfile.json        
+│       ├───lockfile.json
 │       └────foo.js
 ├───/biking
 ```
 
 If you have code files in `my-project/biking`, Semgrep Supply Chain does not associate them to the dependencies in `my-project/running/lockfile.json`. If there is another lockfile in `my-project/running`, such as `my-project/running/uphill/lockfile.json`, then this overrides the original `my-project/running/lockfile.json` for all code files in `my-project/running/uphill/` or deeper directories.
+
+## Enable Semgrep Supply Chain
+
+1. Sign in to [<i class="fas fa-external-link fa-xs"></i> Semgrep AppSec Platform](https://semgrep.dev/login).
+1. Click **[Settings](https://semgrep.dev/orgs/-/settings)**.
+1. In the **Deployment** tab, click the **<i class="fa-solid fa-toggle-large-on"></i> Supply Chain scans** toggle if it is not already enabled.
 
 ## Scan frequency
 
@@ -106,7 +117,7 @@ semgrep ci --supply-chain
 
 Semgrep prints a list of findings directly to the CLI, including the finding's reachability determination, severity level, a brief description, and suggested remediation.
 
-Additionally, you can view your results in Semgrep Cloud Platform (SCP). SCP displays all of the information displayed in the CLI, but it also offers you the ability to:
+Additionally, you can view your results in Semgrep AppSec Platform. It displays all of the information displayed in the CLI, but it also offers you the ability to:
 
 * See additional finding details, such as whether the finding is always reachable or if it's reachable if certain conditions are met, and its transitivity status
 * Use the [dependency search](/semgrep-supply-chain/dependency-search) feature
@@ -118,11 +129,11 @@ Semgrep Supply Chain supports the scanning of monorepos. As outlined in [Project
 
 ## Block pull or merge requests
 
-Semgrep Supply Chain versions **v0.122.0** and earlier automatically blocked pull/merge requests if it discovered reachable findings in the code, but later versions do not do this. You can, however, configure Semgrep Supply Chain to block on pull request scans that detect reachable findings in direct dependencies with high or critical severity. 
+Semgrep Supply Chain versions **v0.122.0** and earlier automatically blocked pull/merge requests if it discovered reachable findings in the code, but later versions do not do this. You can, however, configure Semgrep Supply Chain to block on pull request scans that detect reachable findings in direct dependencies with high or critical severity.
 
-1. Log in to Semgrep Cloud Platform.
-2. Click **Supply Chain** > **Settings** on the header menu.
-3. Click **<i class="fa-solid fa-toggle-large-on"></i> PR Blocking**.
+1. Log in to Semgrep AppSec Platform.
+2. Go to **Settings > Deployment** and navigate to the **Supply Chain (SCA)** section.
+3. Click **<i class="fa-solid fa-toggle-large-on"></i> PR/MR Blocking**.
 
 Alternatively, you can configure your version control system to prevent merging if Semgrep Supply Chain identifies reachable findings.
 

@@ -74,18 +74,18 @@ Ensure that you are logged in to the server where you want to run Semgrep Networ
   ```yaml
   inbound:
     wireguard:
-      localAddress: fdf0:59dc:33cf:9be8:yyyy:0:1
+      localAddress: SEMGREP_LOCAL_ADDRESS
       privateKey: YOUR_PRIVATE_KEY
       ...
   ```
 
-1. Add your public key to the Semgrep Cloud Platform:
+1. Add your public key to the Semgrep AppSec Platform:
 
-   1. Log in to Semgrep Cloud Platform.
+   1. Log in to Semgrep AppSec Platform.
    2. Navigate to **Settings** > **Broker**.
    3. Paste your public key and click **Add Public Key**.
 
-   ![Screenshot of Semgrep Cloud Platform's Network Broker page](/img/scp-broker.png#md-width)
+   ![Screenshot of Semgrep AppSec Platform's Network Broker page](/img/scp-broker.png#md-width)
 
 2. Update the `config.yaml` by replacing `YOUR_BASE_URL` with your GitLab or GitHub URL:
 

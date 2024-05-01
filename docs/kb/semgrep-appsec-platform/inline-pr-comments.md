@@ -12,7 +12,7 @@ When Semgrep comments on PR or MR findings, the comments are usually posted on t
 
 ## Avoiding excessive inline comments
 
-For rules with several findings in the same PR or MR, inline comments for every individual finding occupy a significant amount of space without providing much additional information. Therefore, if the same finding occurs more than five times in a PR or MR, the related comment is posted as a summary (overall) comment. Findings grouped together into a summary comment can only be triaged in Semgrep Cloud Platform.
+For rules with several findings in the same PR or MR, inline comments for every individual finding occupy a significant amount of space without providing much additional information. Therefore, if the same finding occurs more than five times in a PR or MR, the related comment is posted as a summary (overall) comment. Findings grouped together into a summary comment can only be triaged in Semgrep AppSec Platform.
 
 ## Available lines in the displayed diff
 
@@ -26,8 +26,8 @@ GitLab allows comments to be posted on lines of code outside the default file-di
 
 ## Additional references
 
-* [Enabling GitHub pull request comments](/docs/semgrep-cloud-platform/github-pr-comments/)
-* [Enabling GitLab merge request comments](/docs/semgrep-cloud-platform/gitlab-mr-comments/)
-* [Enabling Bitbucket pull request comments](/docs/semgrep-cloud-platform/bitbucket-pr-comments/)
+* [Enabling GitHub pull request comments](/docs/semgrep-cloud-platform/github-pr-comments)
+* [Enabling GitLab merge request comments](/docs/semgrep-cloud-platform/gitlab-mr-comments)
+* [Enabling Bitbucket pull request comments](/docs/semgrep-cloud-platform/bitbucket-pr-comments)
 
 <MoreHelp />

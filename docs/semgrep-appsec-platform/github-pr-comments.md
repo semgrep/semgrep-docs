@@ -1,11 +1,11 @@
 ---
-slug: github-pr-comments 
+slug: github-pr-comments
 append_help_link: true
-title: GitHub PR comments 
+title: GitHub PR comments
 hide_title: true
 description: "Enable pull request (PR) comments in your GitHub repositories to display Semgrep findings to developers."
 tags:
-    - Semgrep Cloud Platform
+    - Semgrep AppSec Platform
     - Team & Enterprise Tier
 ---
 
@@ -48,7 +48,7 @@ PR comments appear for the following types of scans under these conditions:
 
 <CommentTriggers />
 
-## Steps to set up PR comments 
+## Steps to set up PR comments
 
 ### Prerequisites
 
@@ -58,7 +58,7 @@ In addition to finishing the previous steps in your deployment journey, it is re
 
 Confirm that you have the correct connection and access:
 
-1. In your SCP account, click **Settings > Source code managers**.
+1. In your Semgrep AppSec Platform account, click **Settings > Source code managers**.
 2. Check that an entry for your GitHub org exists and is correct.
 
 ### Confirm repository access
@@ -70,17 +70,17 @@ Ensure that Semgrep's GitHub app (`semgrep-app`) has sufficient permissions to p
 	2. For organization accounts, navigate to the following URL, substituting YOUR_ORG_NAME with the name of your account: `https://github.com/organizations/YOUR_ORG_NAME/settings/installations`.
 2. On the `semgrep-app` row, click **Configure**.
 3. Check that you have granted the following permission: `Read and write access to actions, pull requests, secrets, security events, and workflows`.
-4. Under **Repository access**, check that you have included the repositories that you added to Semgrep Cloud Platform. Review the following examples:
+4. Under **Repository access**, check that you have included the repositories that you added to Semgrep AppSec Platform. Review the following examples:
 
 ![Semgrep GitHub app permissions: all repositories](/img/gh-app-permissions-all.png#bordered)
 **Figure** Permissions for all repositories.
 
 ![Semgrep GitHub app permissions - select repositories](/img/gh-app-permissions-select.png#bordered)
-**Figure** Permissions for select repositories. Ensure the repositories you have onboarded to Semgrep Cloud Platform are selected.
+**Figure** Permissions for select repositories. Ensure the repositories you have onboarded to Semgrep AppSec Platform are selected.
 
 For GitHub Actions users, no further steps need to be undertaken. Continue setting up Semgrep Code PR comments by [setting rules to Comment or Block mode](#set-rules-to-comment-or-block-mode).
 
-### Required environment variables 
+### Required environment variables
 
 <DefineConnectionVariables name="GitHub Actions" comment_type="PR"/>
 
@@ -117,7 +117,7 @@ To enable dataflow traces feature in your CI pipeline, fulfill the following pre
 
 :::info Prerequisites
 - Set up Semgrep to post GitHub PR comments, as described on this page.
-- To obtain meaningful results of dataflow traces in PR comments, use Semgrep Pro Engine while scanning your repositories to display cross-file (interfile) findings. To enable Semgrep Pro Engine, see [Semgrep Pro Engine overview](/semgrep-code/semgrep-pro-engine-intro/).
+- To obtain meaningful results of dataflow traces in PR comments, use Semgrep Pro Engine while scanning your repositories to display cross-file (interfile) findings. To enable Semgrep Pro Engine, see [Semgrep Pro Engine overview](/semgrep-code/semgrep-pro-engine-intro).
 - Not all Semgrep rules or rulesets make use of taint tracking. Ensure that you have a ruleset that does, such as the **default ruleset**, added in your **[Policies](https://semgrep.dev/orgs/-/policies)**. To add this ruleset, navigate to [https://semgrep.dev/p/default](https://semgrep.dev/p/default), and then click **Add to Policies**.
 - You can add additional rules that use taint tracking from [Semgrep Registry](https://semgrep.dev/explore).
 :::
@@ -141,7 +141,7 @@ Both GitHub and GitLab provide features to prevent or block a PR or MR from merg
 
 <NextAfterComments />
 
-## Additional references 
+## Additional references
 
 <TroubleshootingPrLinks />
 

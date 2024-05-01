@@ -4,16 +4,16 @@ This code snippet uses Jenkins declarative syntax.
 pipeline {
   agent any
     environment {
-      // The following variable is required to set up a scan connected to Semgrep Cloud Platform:
+      // The following variable is required to set up a scan connected to Semgrep AppSec Platform:
       SEMGREP_APP_TOKEN = credentials('SEMGREP_APP_TOKEN')
 
-      // Uncomment the following line to scan changed 
-      // files in PRs or MRs (diff-aware scanning): 
+      // Uncomment the following line to scan changed
+      // files in PRs or MRs (diff-aware scanning):
       // SEMGREP_BASELINE_REF = "main"
 
       // Troubleshooting:
 
-      // Uncomment the following lines if Semgrep Cloud Platform > Findings Page does not create links
+      // Uncomment the following lines if Semgrep AppSec Platform > Findings Page does not create links
       // to the code that generated a finding or if you are not receiving PR or MR comments.
       // SEMGREP_JOB_URL = "${BUILD_URL}"
       // SEMGREP_COMMIT = "${GIT_COMMIT}"

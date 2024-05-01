@@ -14,16 +14,16 @@ import RequiredRuleFields from "/src/components/reference/_required-rule-fields.
 Publish rules in the open-source Semgrep Registry and share them with the Semgrep community to help others benefit from your rule-writing efforts and contribute to the field of software security. There are two ways in which you can contribute rules to the Semgrep Registry:
 
 <dl>
-    <dt>For users of Semgrep Cloud Platform</dt>
-    <dd>Contribute rules to the Semgrep Registry through Semgrep Cloud Platform. This workflow is recommended. See <a href="#contributing-through-semgrep-cloud-platform-recommended"> Contributing through Semgrep Cloud Platform (recommended)</a>. This workflow creates the necessary pull request for you and streamlines the whole process.
+    <dt>For users of Semgrep AppSec Platform</dt>
+    <dd>Contribute rules to the Semgrep Registry through Semgrep AppSec Platform. This workflow is recommended. See <a href="#contributing-through-semgrep-cloud-platform-recommended"> Contributing through Semgrep AppSec Platform (recommended)</a>. This workflow creates the necessary pull request for you and streamlines the whole process.
 </dd>
     <dt>For contributors to the repository through GitHub</dt>
     <dd>Contribute rules to the Semgrep Registry through a pull request. See the <a href="#contributing-through-github"> Contributing through GitHub</a> section for detailed information.</dd>
 </dl>
 
-## Contributing through Semgrep Cloud Platform (recommended)
+## Contributing through Semgrep AppSec Platform (recommended)
 
-To contribute and publish rules to the Semgrep Registry through Semgrep Cloud Platform, follow these steps:
+To contribute and publish rules to the Semgrep Registry through Semgrep AppSec Platform, follow these steps:
 
 1. Go to [Playground](https://semgrep.dev/playground/new).
 1. Click <i className="fa-solid fa-file-plus-minus inline_svg"></i> **Create New Rule**.
@@ -37,7 +37,7 @@ To contribute and publish rules to the Semgrep Registry through Semgrep Cloud Pl
 
 This workflow automatically creates a pull request in the GitHub [Semgrep Registry](https://github.com/semgrep/semgrep-rules). Find more about the Semgrep Registry by reading the [Rule writing](#writing-a-rule-for-semgrep-registry) and [Tests](#tests) sections.
 
-You can also publish rules as private rules outside of Semgrep Registry. These rules are not included in the Semgrep Registry, but they are accessible to your Semgrep organisation. See the [Private rules](/writing-rules/private-rules/) documentation for more information.
+You can also publish rules as private rules outside of Semgrep Registry. These rules are not included in the Semgrep Registry, but they are accessible to your Semgrep organisation. See the [Private rules](/writing-rules/private-rules) documentation for more information.
 
 ## Contributing through GitHub
 
@@ -55,7 +55,7 @@ The following sections document necessary fields in rule files of Semgrep Regist
 
 ### General rule requirements
 
-All rules in general, regardless of whether they are intended only as local rules or for Semgrep Registry, have the same initial requirements. The following table is also included in the [Rule Syntax](/writing-rules/rule-syntax/) article.
+All rules in general, regardless of whether they are intended only as local rules or for Semgrep Registry, have the same initial requirements. The following table is also included in the [Rule Syntax](/writing-rules/rule-syntax) article.
 
 <RequiredRuleFields />
 
@@ -134,7 +134,7 @@ In addition to the fields mentioned above, rules submitted to Semgrep Registry h
         <code>metadata:<br /></code>
         <code>  technology:<br /></code>
         <code>    - react</code>
-    </pre> 
+    </pre>
    </td>
   </tr>
   <tr>
@@ -154,7 +154,7 @@ In addition to the fields mentioned above, rules submitted to Semgrep Registry h
     <td>
     <pre>
     category: security
-    </pre> 
+    </pre>
     </td>
   </tr>
   <tr>
@@ -215,7 +215,7 @@ var strdata = "hello";
 var numdata = 1;
 ```
 
-For more information, visit [Testing rules](/writing-rules/testing-rules/).
+For more information, visit [Testing rules](/writing-rules/testing-rules).
 
 ### Rule messages
 
@@ -239,7 +239,7 @@ When you contribute rules to the Semgrep Registry, our quality checkers (linters
 
 ### Including fields required by security category
 
-Rules in category `security` in the Semgrep Registry require specific metadata fields that ensure consistency across the ecosystem in both Semgrep Cloud Platform and Semgrep CLI. Nest these metadata under the `metadata` field. 
+Rules in category `security` in the Semgrep Registry require specific metadata fields that ensure consistency across the ecosystem in both Semgrep AppSec Platform and Semgrep CLI. Nest these metadata under the `metadata` field.
 
 If your rule has a `category: security`, the following metadata are required:
 
@@ -304,13 +304,13 @@ Include the appropriate <a href="https://cwe.mitre.org/index.html">Comment Weakn
 
 If you write an SQL Injection rule, use the following:
 ```yaml
-cwe:                
+cwe:
   - "CWE-89: Improper Neutralization of Special Elements used in an SQL Command ('SQL Injection')"
 ```
 
 If you write an XSS rule, use the following:
 ```yaml
-cwe: 
+cwe:
   - "CWE-79: Improper Neutralization of Input During Web Page Generation ('Cross-site Scripting')"
 ```
 
@@ -424,13 +424,13 @@ impact: MEDIUM
 
 ##### LOW
 
-LOW impact rules are rules that leverage a security issue, but the impact is not too damaging to the application if discovered. 
+LOW impact rules are rules that leverage a security issue, but the impact is not too damaging to the application if discovered.
 
 - <LinkToRegistryRule ruleId="go.gorilla.security.audit.session-cookie-missing-secure.session-cookie-missing-secure" />
 - <LinkToRegistryRule ruleId="javascript.browser.security.raw-html-join.raw-html-join" />
 
 ```yaml
-impact: LOW 
+impact: LOW
 ```
 
 #### Subcategory
@@ -455,7 +455,7 @@ An audit rule is useful for code auditors. For example, an SQL rule which finds 
 - <LinkToRegistryRule ruleId="generic.html-templates.security.unquoted-attribute-var.unquoted-attribute-var" />
 
 ```yaml
-subcategory:          
+subcategory:
   - audit
 ```
 

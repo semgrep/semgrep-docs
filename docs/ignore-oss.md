@@ -1,5 +1,5 @@
 ---
-slug: ignore-oss 
+slug: ignore-oss
 append_help_link: true
 title: Ignore files, folders, and code
 description: "This documents various methods to skip or ignore files or folders that are not relevant to a Semgrep scan."
@@ -49,11 +49,11 @@ To include the above folders, create a `.semgrepignore` file without those paths
 
 There are files that Semgrep ignores even without `.semgrepignore`:
 
-* Large files (maximum file size defaults to 1MB)
+* Large files (maximum file size defaults to 1 MB)
 * Binary files
 * Unknown file extensions (file extensions not matched with any supported programming language)
 
-Large files and unknown file extensions are included or excluded through command line flags (See [CLI reference](https://semgrep.dev/docs/cli-reference/)). Binary files are never scanned.
+Large files and unknown file extensions are included or excluded through command line flags (See [CLI reference](/cli-reference)). Binary files are never scanned.
 
 This document defines **files, folders and code** as those that are **relevant to a Semgrep scan**. For example, `.jpg` files are not a part of Semgrep's scope and therefore are not part of the scope of this document.
 
@@ -68,10 +68,10 @@ Semgrep provides several methods to customize ignore behavior. Refer to the foll
 | To ignore files and folders in `.gitignore`. | Add `:include .gitignore` to your `.semgrepignore` file. |
 | To ignore custom files and folders each time you run a scan. | Add these files to your `.semgrepignore` file.|
 | To ignore specific code blocks each time you run a scan. | Create a comment with the word `nosemgrep`. |
-| To ignore files or folders for a particular scan. | Run Semgrep with the flag `--exclude` followed by the pattern or file to be excluded. See [CLI reference](../cli-reference/).
+| To ignore files or folders for a particular scan. | Run Semgrep with the flag `--exclude` followed by the pattern or file to be excluded. See [CLI reference](/cli-reference).
 | To include files or folders for a particular scan. | Run Semgrep with the flag `--include` followed by the  pattern or file to be included. See CLI reference. When including a pattern from a `.gitignore` or `.semgrepignore` file, `--include` does not override either, still resulting in the file's exclusion. |
 | To include files or folders defined within a `.gitignore` for a particular scan. | Run Semgrep with the flag `--no-git-ignore`, which overrides its definition within `.semgrepignore` as well. |
-| To ignore files or folders for a particular rule. | Edit the rule to set the `paths` key with one or more patterns. See [Rule syntax](../writing-rules/rule-syntax#paths).
+| To ignore files or folders for a particular rule. | Edit the rule to set the `paths` key with one or more patterns. See [Rule syntax](/writing-rules/rule-syntax#paths).
 
 
 ## Defining ignored files and folders in `.semgrepignore`
@@ -83,6 +83,10 @@ Semgrep provides several methods to customize ignore behavior. Refer to the foll
 * An `:include ...` directive is added, which allows another file to be included in the ignore pattern list; typically this included file would be the project `.gitignore`. No attempt at cycle detection is made.
 * Any line that begins with a colon, but not `:include`, raises an error.
 * `\:` is added to escape leading colons.
+
+:::tip
+To ignore an entire directory, make sure the `.semgrepignore` entry ends with a `/`, designating it as a directory and not a file.
+:::
 
 Unsupported patterns are silently removed from the pattern list (this is done so that `.gitignore` files may be included without raising errors). The removal is logged.
 
@@ -135,7 +139,7 @@ Python examples:
 bad_func1()  # nosemgrep: rule-id-1
 
 # nosemgrep: rule-id-1, rule-id-2
-bad_func2() 
+bad_func2()
 
 ```
 
