@@ -40,9 +40,24 @@ tags:
 
 ### Added
 
+- Added support for the QL language, which is used by CodeQL.
+- Added ability to specify multiple output flags, which allows users to write output to multiple files in multiple formats.
+
 ### Changed
 
+- Switched regex engines; some rules may need to be updated, since Semgrep's new regex engine is stricter.
+
 ### Fixed
+
+- Fixed SARIF output obtained from the CLI so that it includes dataflow traces.
+- The `LOG_LEVEL` and `PYTEST_LOG_LEVEL` environment variables are no longer used by Semgrep to determine the log level. Semgrep only considers `SEMGREP_LOG_LEVEL`, as well as `PYTEST_SEMGREP_LOG_LEVEL` in Semgrep's Pytest tests.
+- Fixed ecosystem used for Elixir from Mix to Hex.
+- Fixed an issue with interfile diff scans where the removal of pre-existing findings
+didn't work properly when adding a new file or renaming an existing file.
+- **Extensions**: Semgrep waits longer for users to log in from the IDE.
+- Upon completion `semgrep ci` sends a message to Semgrep AppSec Platform to mark the scan as completed.
+- Fixed issue where `semgrep ci --oss-only` crashed when Semgrep Secrets was enabled.
+- Fixed an issue where findings reopen after it was initially removed when findings metadata was changed.
 
 ## ⛓️  Supply Chain
 
@@ -79,6 +94,14 @@ For Katie's draft
 - Custom rule-writing
 -->
 
+### Added
+
+- Added ability to scan Git commits for leaked credentials.
+
+### Fixed
+
+- Fixed an issue where the **Secrets** page filters disappeared after users selected a single filter.
+- Fixed an issue where users without access to Secrets could view Secrets policies.
 
 ## 📝 Documentation and knowledge base
 
