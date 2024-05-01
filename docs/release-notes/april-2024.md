@@ -24,9 +24,9 @@ tags:
 
 ### Changed
 
-- **Editor and playground**: Structure mode has replaced simple mode.
+- **Editor and playground**: Structure mode has replaced simple mode. Try it out in the [<i class="fas fa-external-link fa-xs"></i> Playground](https://semgrep.dev/playground/new).
 - Semgrep Cloud Platform has been renamed to Semgrep AppSec Platform.
-- Dashboard UX improvements
+- The Dashboard now has several UX improvements.
 - The default Bitbucket YAML configuration file has been updated with options for full, diff, and on-demand scans.
 - Improved the process of creating a GitHub Enterprise private Semgrep app. <!-- 13675 -->
 - **Settings**: The Semgrep Pro Engine toggle has been renamed to <i class="fa-solid fa-toggle-large-on"></i> Cross-file.
@@ -117,3 +117,7 @@ For Katie's draft
 ## 🔧 OSS Engine
 
 The following versions of the OSS Engine were released in April 2024:
+
+- [<i class="fas fa-external-link fa-xs"></i>1.68.0](https://github.com/semgrep/semgrep/releases/tag/v1.68.0)
+- [<i class="fas fa-external-link fa-xs"></i>1.69.0](https://github.com/semgrep/semgrep/releases/tag/v1.69.0)
+- [<i class="fas fa-external-link fa-xs"></i>1.70.0](https://github.com/semgrep/semgrep/releases/tag/v1.70.0)
