@@ -32,7 +32,7 @@ These release notes include upgrades for versions ranging between 0.112.0 and 0.
 
 - You can now have multiple metavariables under `focus-metavariable`, which allows. Semgrep to highlight the values matched by multiple metavariables more easily in certain circumstances. For more information, see [Using multiple focus metavariables](/writing-rules/experiments/multiple-focus-metavariables) documentation. (Issue [5686](https://github.com/semgrep/semgrep/issues/5686))
 
-- You can add tags for specific projects in the Semgrep App on the configuration page of a project. With this update, you can create `.semgrepconfig.yml` file in the root directory of your repository and add tags in this file also. See [Tagging projects](/semgrep-cloud-platform/tags).
+- You can add tags for specific projects in the Semgrep App on the configuration page of a project. With this update, you can create `.semgrepconfig.yml` file in the root directory of your repository and add tags in this file also. See [Tagging projects](/semgrep-appsec-platform/tags).
 
 - The Semgrep CLI output now displays non-blocking and blocking findings separately. CLI output also provides a list of the blocking rules that matched the code.
 
@@ -60,5 +60,5 @@ Minor bug fixes are not included in the release notes unless they are potentiall
 - Updated [Getting started with Semgrep in continuous integration (CI)](/semgrep-ci/overview)
 - Updated [Data-flow analysis engine overview](/writing-rules/data-flow/data-flow-overview).
 - Updated [Integrating Semgrep into source code management (SCM) tools](/deployment/connect-scm).
-- Updated [Evaluating your security posture through the Dashboard](/semgrep-cloud-platform/dashboard).
+- Updated [Evaluating your security posture through the Dashboard](/semgrep-appsec-platform/dashboard).
 - Updated [Notifications](/semgrep-code/notifications) documentation.

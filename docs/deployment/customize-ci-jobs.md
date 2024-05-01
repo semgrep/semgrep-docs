@@ -48,7 +48,7 @@ Follow the steps in this section only for the following CI providers:
 
 To configure a diff-aware scan:
 
-1. Create a separate CI job following the steps in [Add Semgrep to CI through Semgrep AppSec Platform](/deployment/add-semgrep-to-ci/#add-semgrep-to-ci-through-semgrep-cloud-platform).
+1. Create a separate CI job following the steps in [Add Semgrep to CI through Semgrep AppSec Platform](/deployment/add-semgrep-to-ci/#add-semgrep-to-ci).
 1. Set the `SEMGREP_BASELINE_REF` variable in your CI configuration file. The value of this environment variable is typically your trunk branch, such as `main` or `master`.
 
 ## Set a scan schedule

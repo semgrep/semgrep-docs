@@ -131,4 +131,4 @@ Define which rules should be in allow, comment, or block mode in the [Policies](
 
 <!-- ## Create tickets
 
-You can create tickets in Jira, Linear, or Asana for secrets-related findings. See [<i class="fa-regular fa-file-lines"></i> Ticketing](semgrep-cloud-platform/ticketing/). -->
+You can create tickets in Jira, Linear, or Asana for secrets-related findings. See [<i class="fa-regular fa-file-lines"></i> Ticketing](semgrep-appsec-platform/ticketing/). -->
