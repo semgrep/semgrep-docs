@@ -32,7 +32,12 @@ You can install the extension either directly in VS Code or by going to the Visu
 
 ### Associate the Semgrep rule schema
 
-Once the extension is properly installed, you will need to associate the Semgrep rule schema with any Semgrep YAML rule definitions you are working on in VS Code. This can be done in several ways and we suggest first reading the [extension overview](https://marketplace.visualstudio.com/items?itemName=redhat.vscode-yaml#associating-schemas) to fully understand all of them. Here, we will cover two of them.
+Once the extension is installed, associate the Semgrep rule schema with Semgrep YAML rule definitions you are working on in VS Code using one of two recommended methods:
+
+1. Directly in the YAML file
+2. Using `yaml.schemas` in your VS Code `settings.json` file
+
+We recommend taking a look at the [extension overview section on associating schemas](https://marketplace.visualstudio.com/items?itemName=redhat.vscode-yaml#associating-schemas) as a precursor to gain a preliminary understanding before proceeding.
 
 #### Associating a schema directly in the YAML file
 
