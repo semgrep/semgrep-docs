@@ -56,7 +56,7 @@ If the scan did run successfully, the scan data may have been sent to a differen
 
 ### If the scan was a diff-aware (PR/MR) scan, was the lockfile modified?
 
-Semgrep Supply Chain only runs in [diff-aware scans](/docs/semgrep-ci/running-semgrep-ci-with-semgrep-appsec-platform/#diff-aware-scanning) if the lockfile was modified in the PR/MR.
+Semgrep Supply Chain only runs in [diff-aware scans](/deployment/customize-ci-jobs#set-up-diff-aware-scans) if the lockfile was modified in the PR/MR.
 
 If code is modified, but the lockfile is not, Supply Chain does not analyze the changes. Any code changes that might impact [reachability](/docs/semgrep-supply-chain/glossary#reachability) will be identified on the next full scan.
 
