@@ -123,6 +123,6 @@ The required workflow allows merge if the scan is successful, or blocks the pull
 
 ## Limitations
 
-Workflows required by repository rulesets are only triggered by `pull_request` or `merge_group` events. When triggered for a pull request, Semgrep runs a [diff-aware scan](/docs/semgrep-ci/running-semgrep-ci-with-semgrep-appsec-platform/#diff-aware-scanning), which only scans changed files. 
+Workflows required by repository rulesets are only triggered by `pull_request` or `merge_group` events. When triggered for a pull request, Semgrep runs a [diff-aware scan](/deployment/customize-ci-jobs#set-up-diff-aware-scans), which only scans changed files. 
 
 To run full scans (scan all files) for your organization's repositories as well, you would need to supplement this setup with another approach, such as [reusable workflows](/docs/kb/semgrep-ci/github-reusable-workflows-semgrep).
