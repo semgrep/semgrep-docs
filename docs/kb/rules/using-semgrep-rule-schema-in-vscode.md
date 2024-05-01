@@ -55,7 +55,7 @@ To associate the Semgrep rule schema via `yaml.schemas` in your VS Code `setting
 
     Code -> Settings -> Settings -> Extensions -> YAML
 
-And then from within those settings, scroll down to where it says `Yaml: Schemas` and click on `Edit in settings.json`, as shown below:
+In the YAML extension settings, scroll down to `Yaml: Schemas` and click `Edit in settings.json`, as shown below:
 
 ![MacOS VS Code YAML extension settings](/img/kb/vscode-yaml-schemas.png)
 
