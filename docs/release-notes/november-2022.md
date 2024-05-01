@@ -85,7 +85,7 @@ These release notes include upgrades for versions ranging between 0.120.0 and 0.
 ### Changes
 
 - The following CI documents have been updated to reflect the latest environment variable:
-  - [Running Semgrep in continuous integration (CI) with Semgrep App](/semgrep-ci/running-semgrep-ci-with-semgrep-appsec-platform)
+  - [Running Semgrep in continuous integration (CI) with Semgrep App](/deployment/core-deployment)
   - [Running Semgrep in continuous integration (CI) without Semgrep App](/semgrep-ci/running-semgrep-ci-without-semgrep-appsec-platform)
   - [Sample continuous integration (CI) configurations](/semgrep-ci/sample-ci-configs)
 - Updated [Usage and billing](/usage-and-billing) page. [Semgrep Supply Chain supported languages](/supported-languages/#semgrep-supply-chain) are now part of Pricing and billing document.
