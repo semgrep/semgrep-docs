@@ -36,7 +36,7 @@ These environment variables configure various aspects of your CI job, such as a 
 
 :::info Prerequisites
 * You must have a Semgrep AppSec Platform account to use this environment variable.
-* You must have a Semgrep AppSec Platform token. To generate a token, see [Creating a `SEMGREP_APP_TOKEN`](/docs/semgrep-ci/running-semgrep-ci-with-semgrep-appsec-platform/#creating-a-semgrep_app_token).
+* You must have a Semgrep AppSec Platform token. To generate a token, see [Creating a `SEMGREP_APP_TOKEN`](/deployment/add-semgrep-to-other-ci-providers#create-a-semgrep_app_token).
 :::
 
 Set `SEMGREP_APP_TOKEN` to send findings to Semgrep AppSec Platform and use rules from the Policies page. `SEMGREP_APP_TOKEN` is incompatible with `SEMGREP_RULES`.
