@@ -67,7 +67,8 @@ Rules that don't apply to your target repository's language or framework are ski
 ### Adding Semgrep Pro rules in CLI or CI
 
 :::note Prerequisites
-For CLI users: You must be [logged in](/docs/getting-started/#logging-into-semgrep-appsec-platform).
+For CLI users: You must be [logged in](/getting-started/cli#log-in-to-your-semgrep-account).
+
 :::
 
 1. Go to [Semgrep Registry](https://semgrep.dev/r).
