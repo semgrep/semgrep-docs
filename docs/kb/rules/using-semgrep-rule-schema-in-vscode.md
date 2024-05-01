@@ -69,7 +69,7 @@ This opens the `settings.json` file with an empty `yaml.schemas` object already 
 
 This associates the schema defined on the left side of the colon (`:`) with files matching the glob pattern on the right. The glob pattern matches any `.yaml` file located in a directory structure that matches `Downloads/semgrep_rules/`. The desired glob pattern differs for varying operating systems and should reflect where you are storing Semgrep YAML rule files.
 
-If you are successful in configuring `yaml.schemas` and then open a Semgrep rule YAML file, you should notice something like the following at the top:
+After completing the configuration for `yaml.schemas`, open a Semgrep rule YAML file to verify that a notice shows at the top similar to this one:
 
 ![Example Semgrep YAML rule file with schema defined](/img/kb/vscode-yaml-schema-example-file.png)
 
