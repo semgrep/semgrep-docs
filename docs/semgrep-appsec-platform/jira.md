@@ -50,8 +50,7 @@ Once you have enabled the Jira integration, you must complete the following step
 1. Confirm the subdomain for your Jira instance
 2. Select the **Default project** where Jira will add the tickets
 3. Select the **Issue type** of the tickets to be created
-
-Click **Save changes** to proceed.
+4. Click **Save changes** to proceed.
 
 ![Jira configuration screen](/img/jira-subdomain.png)
 **_Figure._** The Jira configuration screen.
@@ -72,10 +71,10 @@ The integration supports the use of custom Jira issue types and custom fields.
 
 To create a mapping:
 
-* Select the Semgrep product for which the mapping is valid: **Code**, **Supply Chain**, or **Secrets**.
-* Click **Add mapping**.
-* Provide the **Jira field** name to which the Semgrep data should be mapped.
-* Select the **Semgrep field** that holds the data to be mapped.
+1. Select the Semgrep product for which the mapping is valid: **Code**, **Supply Chain**, or **Secrets**.
+1. Click **Add mapping**.
+1. Provide the **Jira field** name to which the Semgrep data should be mapped.
+1. Select the **Semgrep field** that holds the data to be mapped.
 
 Repeat these steps for each mapping you want to create. When done, click **Save changes** to proceed.
 
@@ -122,7 +121,7 @@ Once a ticket has been created, a link appears on the right side of the **Findin
 
 ### Supply Chain
 
-The Supply Chain triage flow creates tickets for all usages of a given vulnerability. Usages can not be selected individually.
+The Supply Chain triage flow creates tickets for all usages of a given vulnerability. Usages cannot be selected individually.
 
 To create tickets for one or more Supply Chain findings, you can use the triage button on the:
 
@@ -154,6 +153,6 @@ After selecting one or more findings, you can use the triage button on the **Sec
 Note that deleting the integration:
 
 * **Does not** delete any tickets created by Semgrep
-* **Removes** the link between Jira tickets and Semgrep findings, even if you re-add the integration in the future.
+* **Removes** the link between Jira tickets and Semgrep findings, even if you re-add the integration in the future
 
 <MoreHelp />
