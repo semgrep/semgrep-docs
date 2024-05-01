@@ -343,9 +343,9 @@ module.exports = {
           /* NOV 23 2023  */
           { from: "/getting-started/" , to: "/getting-started/quickstart" },
           /* JAN 20 2024  */
-          { from: "/semgrep-app/role-based-access-control/", to: "/deployment/user-management" },
-          { from: "/semgrep-app/user-management/", to: "/deployment/user-management" },
-          { from: "/semgrep-cloud-platform/user-management/", to: "/deployment/user-management" },
+          { from: "/semgrep-app/role-based-access-control/", to: "/deployment/teams" },
+          { from: "/semgrep-app/user-management/", to: "/deployment/teams" },
+          { from: "/semgrep-cloud-platform/user-management/", to: "/deployment/teams" },
           { from: "/sso", to: "/deployment/sso" },
           { from: "/semgrep-cloud-platform/sso", to: "/deployment/sso" },
           { from: "/semgrep-app/sso/"                              , to: "/deployment/sso" },
