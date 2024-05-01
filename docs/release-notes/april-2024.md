@@ -48,7 +48,7 @@ tags:
 
 ### Added
 
-- Added a new **Finding details** page <!-- 13780 -->
+- Added a new **Finding details** page. In Semgrep AppSec Platform, click on **Supply Chain > Details** on the specific finding's card. The finding details page displays an all triage activity, in-depth description of the vulnerability, remediation, and the rule pattern that generated the finding.  <!-- 13780 -->
 -
 
 ### Changed
