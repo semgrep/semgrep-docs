@@ -68,7 +68,7 @@ Optionally, you can customize the Jira field data mappings and indicate which Se
 ![Jira configuration screen for field data mappings](/img/jira-configure-defaults.png)
 **_Figure._** The Jira configuration screen for field data mappings.
 
-Semgrep also supports the use of custom issue types and custom fields.
+The integration supports the use of custom Jira issue types and custom fields.
 
 To create a mapping:
 
