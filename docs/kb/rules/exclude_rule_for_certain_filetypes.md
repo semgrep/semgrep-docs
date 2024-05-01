@@ -51,7 +51,7 @@ You can safely assume `.svg` files do not intentionally contain artifactory pass
 ```
   \- id: my_detected-artifactory-password
 ```
-3. Exclude the target filetype in question from the rule through the [`path` field](/semgrep-cloud-platform/user-management/#controlling-access-through-roles): 
+3. Exclude the target filetype in question from the rule through the [`path` field](/semgrep-appsec-platform/user-management/#controlling-access-through-roles): 
 
 ```
  % cat my_custom_artifactory.yml 

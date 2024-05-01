@@ -22,7 +22,7 @@ This error occurs when [an attribute within the SAML response does not contain a
 
 2. Once you have identified the attribute in question, there are two ways for you to fix the issue. The best option depends on what information your SP expects to receive:
 
-   - If your SP anticipates a value for the specific SAML attribute statement, you must add the value within your SAML settings. When [setting up SSO to Semgrep AppSec Platform](/semgrep-cloud-platform/sso/#saml-20), you must provide `name` and `email`.
+   - If your SP anticipates a value for the specific SAML attribute statement, you must add the value within your SAML settings. When [setting up SSO to Semgrep AppSec Platform](/semgrep-appsec-platform/sso/#saml-20), you must provide `name` and `email`.
    - If your SP does *not* expect the attribute statement in your SAML settings, you can remove it.
 
   Regardless of which option you choose, you can update or remove SAML attribute statements with your identity provider (IdP); check with your IdP for instructions on how to do so.

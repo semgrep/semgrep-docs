@@ -118,7 +118,7 @@ This section of release notes include upgrades of Semgrep OSS Engine for version
 
 ### Added
 
-- For organizations with role-based access control (RBAC) enabled, members are now able to [log in through the CLI](/semgrep-cloud-platform/user-management/#member-scoped-access-tokens) and send findings data from their local machine to the Semgrep Cloud Platform.
+- For organizations with role-based access control (RBAC) enabled, members are now able to [log in through the CLI](/semgrep-appsec-platform/user-management/#member-scoped-access-tokens) and send findings data from their local machine to the Semgrep Cloud Platform.
 
 ## Semgrep Supply Chain
 
@@ -140,10 +140,10 @@ This section of release notes include upgrades of Semgrep OSS Engine for version
 
 ### Added
 
-- Created a new section on [Member scoped access tokens](/semgrep-cloud-platform/user-management/#member-scoped-access-tokens).
+- Created a new section on [Member scoped access tokens](/semgrep-appsec-platform/user-management/#member-scoped-access-tokens).
 
 ### Changed
 
-- Updated [Tagging projects](/semgrep-cloud-platform/tags) document.
+- Updated [Tagging projects](/semgrep-appsec-platform/tags) document.
 - Expanded, clarified, and improved licensing information in [FAQs](/faq/#how-are-semgrep-and-its-rules-licensed). See sections such as [I’m a security professional. Do I have to pay for Semgrep?](/faq/#im-a-security-professional-do-i-have-to-pay-for-semgrep) or [Can I ship my own code analysis software that uses Semgrep?](/faq/#can-i-ship-my-own-code-analysis-software-that-uses-semgrep).
 - Updated [Private rules](/writing-rules/private-rules) documentation. Added section about [Creating private rules](/writing-rules/private-rules/#creating-private-rules) and [Deleting private rules](/writing-rules/private-rules/#deleting-private-rules).

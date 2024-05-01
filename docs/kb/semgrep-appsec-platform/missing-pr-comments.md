@@ -33,7 +33,7 @@ If you are using a self-hosted version of GitHub (GitHub Enterprise) or GitLab (
 GitHub relies on the Semgrep GitHub app to make comments on code. To receive comments on a project, ensure that you have performed the following steps:
 
 * You have [onboarded](/deployment/add-semgrep-to-ci) the project to Semgrep AppSec Platform.
-* You have configured your GitHub app with permissions for all repositories that are scanned by Semgrep AppSec Platform. See [Enabling GitHub pull request comments](/docs/semgrep-cloud-platform/github-pr-comments) for details, or review the following examples:
+* You have configured your GitHub app with permissions for all repositories that are scanned by Semgrep AppSec Platform. See [Enabling GitHub pull request comments](/docs/semgrep-appsec-platform/github-pr-comments) for details, or review the following examples:
 
 ![Semgrep GitHub app permissions: all repos](/img/gh-app-permissions-all.png)
 **Figure** Permissions for all repos.
@@ -52,11 +52,11 @@ For MR comments on GitLab and PR comments on Bitbucket, ensure that you have per
 
 #### GitLab
 
-The GitLab token should have `api` scope and be added to the project's CI/CD settings. See [Enabling GitLab merge request comments](/docs/semgrep-cloud-platform/gitlab-mr-comments) for details.
+The GitLab token should have `api` scope and be added to the project's CI/CD settings. See [Enabling GitLab merge request comments](/docs/semgrep-appsec-platform/gitlab-mr-comments) for details.
 
 #### Bitbucket
 
-The Bitbucket token should be a repository access token (or workspace access token, for Bitbucket Cloud Premium only). See [Enabling Bitbucket pull request comments](/docs/semgrep-cloud-platform/bitbucket-pr-comments) for details.
+The Bitbucket token should be a repository access token (or workspace access token, for Bitbucket Cloud Premium only). See [Enabling Bitbucket pull request comments](/docs/semgrep-appsec-platform/bitbucket-pr-comments) for details.
 
 ## Have you placed the rule in Comment or Block?
 

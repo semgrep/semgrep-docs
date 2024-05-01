@@ -34,7 +34,7 @@ These features are in a **closed beta**. To request access:
 
 Semgrep AppSec Platform can create tickets in the following systems:
 
-* [Asana](/semgrep-cloud-platform/asana)
-* [Jira](/semgrep-cloud-platform/jira)
-* [Linear](/semgrep-cloud-platform/linear)
+* [Asana](/semgrep-appsec-platform/asana)
+* [Jira](/semgrep-appsec-platform/jira)
+* [Linear](/semgrep-appsec-platform/linear)
 

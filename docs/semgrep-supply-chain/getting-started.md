@@ -92,7 +92,7 @@ Depending on how your CI/CD system is configured, you can trigger a Semgrep Supp
   <tr>
    <td>Pull or merge request
    </td>
-   <td><a href="/semgrep-ci/running-semgrep-ci-with-semgrep-cloud-platform/#diff-aware-scanning">Diff-aware scan</a>
+   <td><a href="/semgrep-ci/running-semgrep-ci-with-semgrep-appsec-platform/#diff-aware-scanning">Diff-aware scan</a>
    </td>
    <td>All dependency rules
    </td>

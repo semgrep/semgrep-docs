@@ -120,7 +120,7 @@ The following references are available for Semgrep Supply Chain:
 
 - [CI configuration reference](/semgrep-ci/configuration-reference) now includes all environment variables for CI, their uses, and how to set them.
 - [Getting started with Semgrep App](/deployment/core-deployment) now includes information about the last 10 supported versions of the Semgrep CLI.
-- [Running Semgrep in continuous integration (CI) with Semgrep App](/semgrep-ci/running-semgrep-ci-with-semgrep-cloud-platform) now includes a new video Scanning code with Semgrep using GitHub Actions.
+- [Running Semgrep in continuous integration (CI) with Semgrep App](/semgrep-ci/running-semgrep-ci-with-semgrep-appsec-platform) now includes a new video Scanning code with Semgrep using GitHub Actions.
 - Updated a document and section that provides information on how to add multiple focus metavariables in:
     - [Including multiple focus metavariables using set union semantics](/writing-rules/experiments/multiple-focus-metavariables)
     - [Including multiple focus metavariables using set intersection semantics](/writing-rules/rule-syntax/#including-multiple-focus-metavariables-using-set-intersection-semantics)

@@ -75,7 +75,7 @@ These release notes include upgrades for versions ranging between 0.120.0 and 0.
 
 #### Semgrep App
 
-- The [Tagging projects](/semgrep-cloud-platform/tags) document explains how to use tags in projects added to Semgrep App.
+- The [Tagging projects](/semgrep-appsec-platform/tags) document explains how to use tags in projects added to Semgrep App.
 
 #### Semgrep CLI
 
@@ -85,8 +85,8 @@ These release notes include upgrades for versions ranging between 0.120.0 and 0.
 ### Changes
 
 - The following CI documents have been updated to reflect the latest environment variable:
-  - [Running Semgrep in continuous integration (CI) with Semgrep App](/semgrep-ci/running-semgrep-ci-with-semgrep-cloud-platform)
-  - [Running Semgrep in continuous integration (CI) without Semgrep App](/semgrep-ci/running-semgrep-ci-without-semgrep-cloud-platform)
+  - [Running Semgrep in continuous integration (CI) with Semgrep App](/semgrep-ci/running-semgrep-ci-with-semgrep-appsec-platform)
+  - [Running Semgrep in continuous integration (CI) without Semgrep App](/semgrep-ci/running-semgrep-ci-without-semgrep-appsec-platform)
   - [Sample continuous integration (CI) configurations](/semgrep-ci/sample-ci-configs)
 - Updated [Usage and billing](/usage-and-billing) page. [Semgrep Supply Chain supported languages](/supported-languages/#semgrep-supply-chain) are now part of Pricing and billing document.
 - The `SEMGREP_TIMEOUT ` information has been updated. See [`SEMGREP_TIMEOUT`](/semgrep-ci/configuration-reference/#semgrep_timeout) documentation for more details.
