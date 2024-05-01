@@ -20,7 +20,7 @@ To use the Semgrep workflow in other repositories, you can create a new reposito
 1. Create a new repository following the [GitHub documentation](https://docs.github.com/en/get-started/quickstart/create-a-repo). 
   1. Name the repository `semgrep-workflow`.
   2. Choose the repository visibility that matches the widest visibility of the repositories you want to run the workflow in. For example, if you want to run Semgrep on public, internal, and private repositories, the repository containing the workflow file must be public.
-2. Add the Semgrep workflow file to the repository at `.github/workflows/semgrep.yml`. You can use the [sample configuration](/docs/semgrep-ci/sample-ci-configs/#sample-github-actions-configuration-file) provided in the documentation, or a [custom configuration](/docs/semgrep-ci/running-semgrep-ci-with-semgrep-appsec-platform/#configuring-the-semgrep-appsec-platform-ci-job).
+2. Add the Semgrep workflow file to the repository at `.github/workflows/semgrep.yml`. You can use the [sample configuration](/docs/semgrep-ci/sample-ci-configs/#sample-github-actions-configuration-file) provided in the documentation, or a [custom configuration](/deployment/customize-ci-jobs).
 
 ![Semgrep repository with workflow file](/img/kb/semgrep-workflow-repo.png)
 
