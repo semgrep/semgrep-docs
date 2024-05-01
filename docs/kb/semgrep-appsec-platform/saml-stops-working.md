@@ -1,7 +1,7 @@
 ---
 description: Learn to troubleshoot SAML configuration when SAML stops working.
 tags:
-  - Semgrep AppSec Platform 
+  - Semgrep AppSec Platform
   - SSO
   - Troubleshooting
 ---
@@ -14,8 +14,8 @@ This article walks you through troubleshooting SAML SSO failures, including the 
 
 ## Certificate issues
 
-If you see the error `Signature validation failed. SAML Response rejected` it's likely there is a problem with the certificate. If the IdP certificate becomes invalid via expiration, revocation, or rotation, signature validation fails.
- 
+If you see the error `Signature validation failed. SAML Response rejected` it's likely there is a problem with the certificate. signature validation fails if the IdP certificate becomes invalid via expiration, revocation, or rotation.
+
 ### Expired certificate
 
 The most likely cause of an invalid certificate is that it is expired. If that's the case, upload a newly generated x509 certificate into your existing
