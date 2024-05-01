@@ -45,7 +45,7 @@ To associate the schema easily and directly with a Semgrep YAML rule file, inclu
 
     # yaml-language-server: $schema=https://json.schemastore.org/semgrep.json
 
-The drawback to this method is that you would have to do this for each YAML rule file.
+The drawback to this method is that it must be done independently for each YAML rule file.
 
 #### Associating a schema to a glob pattern via `yaml.schemas`
 
