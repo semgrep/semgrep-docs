@@ -73,4 +73,6 @@ After completing the configuration for `yaml.schemas`, open a Semgrep rule YAML 
 
 ![Example Semgrep YAML rule file with schema defined](/img/kb/vscode-yaml-schema-example-file.png)
 
+This indicates that you've successfully associated the Semgrep rule schema with your Semgrep rule YAML file(s).
+
 <MoreHelp />
