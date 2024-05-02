@@ -30,7 +30,7 @@ The Semgrep Jira integration allows you to create Jira tickets based on your Sem
 * This feature is in a **closed beta**. To request access:
   1. Fill out the [Request access to the Semgrep Jira integration closed beta](https://get.semgrep.dev/Jira-asana-linear-private-beta.html) form.
   2. Contact your Technical Account Manager or Account Executive and let them know you'd like to try the Jira integration.
-* You must have a **Jira Cloud** plan. Jira Data Center (self-managed or on-prem) is not supported. 
+* You must have a **Jira Cloud** plan. Jira Data Center (self-managed or on-premise) is not supported. 
 
 ## Enable the Jira integration
 
