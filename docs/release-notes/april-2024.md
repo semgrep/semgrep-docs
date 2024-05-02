@@ -104,7 +104,6 @@ For Katie's draft
 
 ### Added
 
-- Added historical scanning, which is the ability to scan Git commits for leaked credentials.
 - Added a template to the Semgrep Editor to aid in writing custom rules with validators for use with Secrets.
 
 ### Changed
