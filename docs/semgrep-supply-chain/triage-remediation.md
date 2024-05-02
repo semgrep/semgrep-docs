@@ -46,13 +46,15 @@ _Figure 1_. Semgrep Supply Chain Vulnerabilities page.
 ## Assess and triage dependency findings and usages
 
 :::info Prerequisite
-At least one repository that scans for dependencies through Semgrep Supply Chain. See [Getting started with Semgrep Supply Chain](/semgrep-supply-chain/getting-started).
+At least one repository that scans for dependencies through Semgrep Supply Chain. See [Scan third-party dependencies](/semgrep-supply-chain/getting-started).
 :::
 
 To view the latest Semgrep Supply Chain findings, click **Supply Chain**. You can view findings individually or grouped by the rule that identified the finding. A specific finding in the code is called a **usage**. Vulnerability entries are sorted as cards by severity from critical to low, then from oldest to newest.
 
 ![A single vulnerability entry in Semgrep Supply Chain](/img/sc-vuln-entry.png)
 _Figure 2_. A single vulnerability entry in Semgrep Supply Chain.
+
+You can also view the findings individually by clicking on the drop-down box on the header and clicking **No grouping**.
 
 ### Assessment actions
 
