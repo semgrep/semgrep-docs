@@ -54,7 +54,7 @@ tags:
 - Fixed the ecosystem used for Elixir from Mix to Hex.
 - Fixed an issue with interfile diff scans where the removal of pre-existing findings
 didn't work properly when adding a new file or renaming an existing file.
-- Fixed an issue where findings reopened after it was initially removed when the findings metadata was changed.
+- Fixed an issue where findings reopened after they were initially removed when the findings metadata was changed.
 - Fixed an issue where bulk triage did not work.
 - **IDE Extensions**: Semgrep waits longer for users to log in from the IDE.
 - **CLI**:
