@@ -122,7 +122,7 @@ Once a ticket has been created, a link appears on the right side of the **Findin
 ### Supply Chain
 
 :::info
-Only users who’ve worked with previous versions of the Jira integration can create SCA tickets. Semgrep is working on releasing an update that allows all users to create SCA tickets.
+Only users who’ve enabled Jira previously can create Supply Chain tickets. Semgrep is working on releasing an update that allows all users to create Supply Chain tickets.
 :::
 
 The Supply Chain triage flow creates tickets for all usages of a given vulnerability. Usages cannot be selected individually.
@@ -139,7 +139,7 @@ To create tickets for one or more Supply Chain findings, you can use the triage 
 ***Figure*.** Supply Chain ticket created
 
 :::caution Limitations
-Tickets can only be created for Supply Chain findings with reachable usages. They cannot be created for **Always reachable** or **Unreachable** findings.
+Tickets can only be created for Supply Chain findings with Always reachable Reachable usages. They cannot be created for Conditionally reachable or Unreachable findings.
 :::
 
 ### Secrets
