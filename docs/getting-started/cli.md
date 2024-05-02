@@ -72,12 +72,23 @@ To export the results to a JSON file:
 semgrep ci --json --json-output=semgrep.json
 ```
 
-To view your results in multiple formats, combine the appropriate flags:
+In addition to the `--text`, `--json`, and `--sarif` flags, which set the primary output formats, and the `--output=<value>` flag that saves the results to a file or posts to a URL, you can append `--<format>-output=<file>` to obtain additional output streams:
 
 ```console
-# obtain results as text output and as JSON, SARIF
-semgrep ci --text --text-output=semgrep.txt --json --json-output=semgrep.json --sarif --sarif-output=semgrep.sarif
+# prints findings in SARIF format to standard output and writes in JSON format to `findings.json`.
+semgrep ci --sarif --json-output=findings.json
+
+# prints findings in text to standard out and writes JSON output to `findings.json`.
+semgrep ci --json-output=findings.json
+
+# prints text output to `findings.txt` and writes in SARIF to `findings.sarif`.
+semgrep ci --output=findings.txt --sarif-output=findings.sarif
+
+# writes text to `semgrep.txt`, JSON to `semgrep.json`, and SARIF to `semgrep.sarif`.
+semgrep ci --text --output=semgrep.txt --json-output=semgrep.json --sarif-output=semgrep.sarif
 ```
+
+Accepted values for `<format>`: `text`, `json`, `sarif`, `gitlab-sast`, `gitlab-secrets`, `junit-xml`, `emacs`, `vim`
 
 ### Scan your project with a specific ruleset
 
