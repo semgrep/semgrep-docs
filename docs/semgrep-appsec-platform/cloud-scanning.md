@@ -21,7 +21,7 @@ tk
 
 Note: If Semgrep Cloud Platform is already connected to GitHub, the public app may already be installed. If so, skip this step and proceed to the next section  - “Install the private Semgrep GitHub App”.
 
-Sign in to Semgrep Cloud Platform, then click ⚙️ Settings > Source Code Managers. 
+Sign in to Semgrep Cloud Platform, then click ⚙️ Settings > Source Code Managers.
 Click Connect to GitHub.
 Follow the steps to connect to your GitHub organization.
 
@@ -43,13 +43,13 @@ In the top right corner click Scan New Project.
 Click Cloud / Semgrep Zero-config Scanning.
 
 Select which repositories you want to scan with Semgrep Cloud Scanning from the list. Note: It will only show  repositories that are not yet scanning via another method (e.g. if you have a repo scanning in CI it will not show up in this list.) To migrate a repository that is already scanning with CI to Cloud Scanning, you must disable scanning on that repo first.
-Click Enable Cloud Scanning. 
+Click Enable Cloud Scanning.
 
 
 By default, repositories onboarded to Cloud Scanning are configured with:
 
-Weekly full scans of the entire repository at a random day and time. 
-Diff scans on Pull Requests that run on every PR. These diff scans follow the rule modes set in your policies so developers  are only notified in cases where you want them to through the Comment rule mode. 
+Weekly full scans of the entire repository at a random day and time.
+Diff scans on Pull Requests that run on every PR. These diff scans follow the rule modes set in your policies so developers  are only notified in cases where you want them to through the Comment rule mode.
 Scan management and configuration
 Manually run a full scan
 Click 📂 Projects.
