@@ -139,7 +139,7 @@ To create tickets for one or more Supply Chain findings, you can use the triage 
 ***Figure*.** Supply Chain ticket created
 
 :::caution Limitations
-Tickets can only be created for Supply Chain findings with Always reachable Reachable usages. They cannot be created for Conditionally reachable or Unreachable findings.
+Tickets can only be created for Supply Chain findings with **Always reachable** and **Reachable** usages. They cannot be created for **Conditionally reachable** or **Unreachable** findings.
 :::
 
 ### Secrets
