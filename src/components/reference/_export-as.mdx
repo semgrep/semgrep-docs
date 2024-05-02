@@ -30,13 +30,13 @@ In addition to the `--text`, `--json`, and `--sarif` flags, which set the primar
 # prints findings in SARIF format to standard output and writes in JSON format to `findings.json`.
 semgrep scan --sarif --json-output=findings.json
 
-# prints findings in text to standard out and JSON output to `findings.json`.
+# prints findings in text to standard out and writes JSON output to `findings.json`.
 semgrep scan --json-output=findings.json
 
 # prints text output to `findings.txt` and writes in SARIF to `findings.sarif`.
 semgrep scan --output=findings.txt --sarif-output=findings.sarif
 
-# prints text to standard output and saves to JSON and SARIF files
+# writes text to `semgrep.txt`, JSON to `semgrep.json`, and SARIF to `semgrep.sarif`.
 semgrep scan --text --output=semgrep.txt --json-output=semgrep.json --sarif-output=semgrep.sarif
 ```
 
