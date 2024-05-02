@@ -343,9 +343,9 @@ module.exports = {
           /* NOV 23 2023  */
           { from: "/getting-started/" , to: "/getting-started/quickstart" },
           /* JAN 20 2024  */
-          { from: "/semgrep-app/role-based-access-control/", to: "/deployment/user-management" },
-          { from: "/semgrep-app/user-management/", to: "/deployment/user-management" },
-          { from: "/semgrep-cloud-platform/user-management/", to: "/deployment/user-management" },
+          { from: "/semgrep-app/role-based-access-control/", to: "/deployment/teams" },
+          { from: "/semgrep-app/user-management/", to: "/deployment/teams" },
+          { from: "/semgrep-cloud-platform/user-management/", to: "/deployment/teams" },
           { from: "/sso", to: "/deployment/sso" },
           { from: "/semgrep-cloud-platform/sso", to: "/deployment/sso" },
           { from: "/semgrep-app/sso/"                              , to: "/deployment/sso" },
@@ -367,7 +367,21 @@ module.exports = {
           /* APR  23, 2024  */
           { from: "/getting-started/" , to: "/getting-started/quickstart" } ,
           /* APR  23, 2024  */
-          { from: "/playground/" , to: "/semgrep-code/editor" }
+          { from: "/playground/" , to: "/semgrep-code/editor" },
+          { from: "/semgrep-cloud-platform/semgrep-api/" , to: "/semgrep-appsec-platform/semgrep-api" } ,
+          { from: "/semgrep-cloud-platform/asana/" , to: "/semgrep-appsec-platform/asana" } ,
+          { from: "/semgrep-cloud-platform/bitbucket-pr-comments/" , to: "/semgrep-appsec-platform/bitbucket-pr-comments" } ,
+          { from: "/semgrep-cloud-platform/github-pr-comments/" , to: "/semgrep-appsec-platform/github-pr-comments" } ,
+          { from: "/semgrep-cloud-platform/gitlab-mr-comments/" , to: "/semgrep-appsec-platform/gitlab-mr-comments" } ,
+          { from: "/semgrep-cloud-platform/dashboard/" , to: "/semgrep-appsec-platform/dashboard" } ,
+          { from: "/semgrep-cloud-platform/email-notifications/" , to: "/semgrep-appsec-platform/email-notifications" } ,
+          { from: "/semgrep-cloud-platform/jira/" , to: "/semgrep-appsec-platform/jira" } ,
+          { from: "/semgrep-cloud-platform/linear/" , to: "/semgrep-appsec-platform/linear" } ,
+          { from: "/semgrep-cloud-platform/notifications/" , to: "/semgrep-appsec-platform/notifications" } ,
+          { from: "/semgrep-cloud-platform/slack-notifications/" , to: "/semgrep-appsec-platform/slack-notifications" } ,
+          { from: "/semgrep-cloud-platform/tags/" , to: "/semgrep-appsec-platform/tags" } ,
+          { from: "/semgrep-cloud-platform/ticketing/" , to: "/semgrep-appsec-platform/ticketing" } ,
+          { from: "/semgrep-cloud-platform/webhooks/" , to: "/semgrep-appsec-platform/webhooks" } ,
         ]
       }
     ],

@@ -74,7 +74,7 @@ Ensure that you are logged in to the server where you want to run Semgrep Networ
   ```yaml
   inbound:
     wireguard:
-      localAddress: fdf0:59dc:33cf:9be8:yyyy:0:1
+      localAddress: SEMGREP_LOCAL_ADDRESS
       privateKey: YOUR_PRIVATE_KEY
       ...
   ```

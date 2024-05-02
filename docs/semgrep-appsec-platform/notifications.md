@@ -29,9 +29,9 @@ Semgrep AppSec Platform can send notifications through the following channels:
 
 | Tool                               | Tier availability |
 | ----                               | ----------------  |
-| [Slack](/semgrep-cloud-platform/slack-notifications)                             | Team & Enterprise  |
-| [Email](/semgrep-cloud-platform/email-notifications)                             | Team & Enterprise  |
-| [Webhooks](/semgrep-cloud-platform/webhooks)                           | Team & Enterprise   |
+| [Slack](/semgrep-appsec-platform/slack-notifications)                             | Team & Enterprise  |
+| [Email](/semgrep-appsec-platform/email-notifications)                             | Team & Enterprise  |
+| [Webhooks](/semgrep-appsec-platform/webhooks)                           | Team & Enterprise   |
 
 ## Finding available alert and notification channels
 

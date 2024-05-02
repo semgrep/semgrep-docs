@@ -84,6 +84,10 @@ Semgrep provides several methods to customize ignore behavior. Refer to the foll
 * Any line that begins with a colon, but not `:include`, raises an error.
 * `\:` is added to escape leading colons.
 
+:::tip
+To ignore an entire directory, make sure the `.semgrepignore` entry ends with a `/`, designating it as a directory and not a file.
+:::
+
 Unsupported patterns are silently removed from the pattern list (this is done so that `.gitignore` files may be included without raising errors). The removal is logged.
 
 For a description of `.gitignore` syntax, see [.gitignore documentation](https://git-scm.com/docs/gitignore).
