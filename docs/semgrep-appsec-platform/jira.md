@@ -121,6 +121,10 @@ Once a ticket has been created, a link appears on the right side of the **Findin
 
 ### Supply Chain
 
+:::info
+Only users who’ve worked with previous versions of the Jira integration can create SCA tickets. Semgrep is working on releasing an update that allows all users to create SCA tickets.
+:::
+
 The Supply Chain triage flow creates tickets for all usages of a given vulnerability. Usages cannot be selected individually.
 
 To create tickets for one or more Supply Chain findings, you can use the triage button on the:
