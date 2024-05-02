@@ -72,34 +72,23 @@ To export the results to a JSON file:
 semgrep ci --json --json-output=semgrep.json
 ```
 
-In summary, use the `--text`, `--json`, and `--sarif` flags to set the standard output format:
+In addition to the `--text`, `--json`, and `--sarif` flags, which set the primary output formats, and the `--output=<value>` flag that saves the results to a file or posts to a URL, you can append `--<format>-output=<file>` to obtain additional output streams:
 
 ```console
-# writes the SARIF to the console
-semgrep ci --sarif
-```
+# prints findings in SARIF format to standard output and writes in JSON format to `findings.json`.
+semgrep ci --sarif --json-output=findings.json
 
-Append `--output=findings.txt`, `--output=findings.json`, or `--output=findings.sarif` to export the results to a `.txt`, `.json`, or `.sarif` file, respectively.
-
-```console
-# writes the JSON to the console as well as the findings.json file
-semgrep ci --json --output=findings.json
-```
-
-However, if you want your output in one format while also exporting the results to a file format of a different type, use `--<format>-output=<file>`, where `<format>` can be `text`, `json`, `sarif`, `gitlab-sast`, `gitlab-secrets`, `junit-xml`, `emacs`, and `vim`.
-
-In short, the `--<format>` flag sets the primary output type, while `--<format>-output=<file>` indicates that you want the findings exported in additional formats.
-
-```console
-# text to standard output and JSON output to findings.json
+# prints findings in text to standard out and JSON output to `findings.json`.
 semgrep ci --json-output=findings.json
 
-# writes text to findings.txt and SARIF to findings.sarif
+# prints text output to `findings.txt` and writes in SARIF to `findings.sarif`.
 semgrep ci --output=findings.txt --sarif-output=findings.sarif
 
-# obtain results as text output and as JSON, SARIF
+# prints text to standard output and saves to JSON and SARIF files
 semgrep ci --text --output=semgrep.txt --json-output=semgrep.json --sarif-output=semgrep.sarif
 ```
+
+Accepted values for `<format>`: `text`, `json`, `sarif`, `gitlab-sast`, `gitlab-secrets`, `junit-xml`, `emacs`, `vim`
 
 ### Scan your project with a specific ruleset
 
