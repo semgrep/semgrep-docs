@@ -91,6 +91,7 @@ module.exports = {
                         }
                     ]
                 },
+                'deployment/cloud-scanning',
                 {
                   type: 'category',
                   label: 'PR or MR comments',
