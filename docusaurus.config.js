@@ -366,6 +366,8 @@ module.exports = {
           { from: "/semgrep-ci/running-semgrep-ci-without-semgrep-app/" , to: "/deployment/oss-deployment" } ,
           /* APR  23, 2024  */
           { from: "/getting-started/" , to: "/getting-started/quickstart" } ,
+          /* APR  23, 2024  */
+          { from: "/playground/" , to: "/semgrep-code/editor" },
           { from: "/semgrep-cloud-platform/semgrep-api/" , to: "/semgrep-appsec-platform/semgrep-api" } ,
           { from: "/semgrep-cloud-platform/asana/" , to: "/semgrep-appsec-platform/asana" } ,
           { from: "/semgrep-cloud-platform/bitbucket-pr-comments/" , to: "/semgrep-appsec-platform/bitbucket-pr-comments" } ,
