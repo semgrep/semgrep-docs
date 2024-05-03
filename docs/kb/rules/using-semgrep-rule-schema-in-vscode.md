@@ -32,7 +32,7 @@ You can install the  "YAML" extension authored by "Red Hat" directly in VS Code 
 
 ### Associate the Semgrep rule schema
 
-Once the extension is installed, associate the Semgrep rule schema with Semgrep YAML rule definitions you are working on in VS Code using one of two recommended methods:
+Once the extension is installed, associate the Semgrep rule schema with the Semgrep YAML rule definitions you are working on in VS Code using one of following methods:
 
 1. Directly in the YAML file
 2. Using `yaml.schemas` in your VS Code `settings.json` file
