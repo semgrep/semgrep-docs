@@ -44,7 +44,7 @@ For scans using `semgrep ci`:
 Semgrep provides two commands that you can use to start a scan from the CLI:
 
 - `semgrep scan` - This is the recommended command for scanning local codebases and writing and testing custom rules.
-- `semgrep ci` - This is the recommended command if you are scanning git repositories with Semgrep as part of an organization with custom rules and policies. `semgrep ci` fetches your organization's scan configurations from Semgrep AppSec Platform.
+- `semgrep ci` - This is the recommended command if you are scanning Git repositories with Semgrep as part of an organization with custom rules and policies. `semgrep ci` fetches your organization's scan configurations from Semgrep AppSec Platform.
 
 Navigate to the root of your codebase, and run your first scan. The specific command you use depends on how you want to view the results.
 
@@ -96,7 +96,7 @@ Accepted values for `<format>`: `text`, `json`, `sarif`, `gitlab-sast`, `gitlab-
 
 #### Test custom rules
 
-Semgrep includes functionality to [test the custom rules that you write](/writing-rules/testing-rules):
+Semgrep includes features to [test the custom rules that you write](/writing-rules/testing-rules):
 
 ```console
 semgrep scan --test
@@ -122,14 +122,14 @@ This can be helpful to verify the results of a specific ruleset or to see how yo
 
 ### Scan using OSS-only analysis (single-function)
 
-To scan your project using exclusively open-source Semgrep, even though you have proprietary cross-file analysis enabled in Semgrep AppSec Platform:
+To scan your project using exclusively open source Semgrep, even though you have proprietary cross-file analysis enabled in Semgrep AppSec Platform:
 
 ```console
 semgrep ci --oss-only
 ```
 
 :::info
-See [Semgrep Pro versus Semgrep OSS](/semgrep-pro-vs-oss) for information on the differences between Semgrep's proprietary and open-source analyses.
+See [Semgrep Pro versus Semgrep OSS](/semgrep-pro-vs-oss) for information on the differences between Semgrep's proprietary and open source analyses.
 :::
 
 ## Scan using specific Semgrep Products
