@@ -47,7 +47,7 @@ To associate the schema directly within a Semgrep YAML rule file, include the fo
 
 The drawback to this method is that it must be done independently for each YAML rule file.
 
-#### Associating a schema to a glob pattern via `yaml.schemas`
+#### Associate a schema to a glob pattern via `yaml.schemas`
 
 Again, we highly recommend first reading the [extension overview](https://marketplace.visualstudio.com/items?itemName=redhat.vscode-yaml#associating-a-schema-to-a-glob-pattern-via-yaml.schemas) as a supplement to this article to better understand how YAML schemas are handled by the extension.
 
