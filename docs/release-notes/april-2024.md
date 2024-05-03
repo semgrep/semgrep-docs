@@ -67,22 +67,19 @@ didn't work properly when adding a new file or renaming an existing file.
 ### Added
 
 - Added a new **Finding details** page. In Semgrep AppSec Platform, click on **Supply Chain > Details** on the specific finding's card. The finding details page displays an all triage activity, in-depth description of the vulnerability, remediation, and the rule pattern that generated the finding.  <!-- 13780 -->
--->
 
 <!-- 
 
 ### Changed
 
 <!-- should we include the new UI for SCA  -->
-
+<!-- 
 - The Supply Chain page UX has been redesigned. Improvements include:
     - You can now filter by project, dependency, and CVE.
     - Updated reachability categories.
     - Vulnerabilities are now grouped by the rule that detected them.
     - Triage multiple vulnerabilities at once by clicking multiple <i class="fa-solid fa-square-check"></i> checkboxes. You can <kbd>Shift + click</kbd> to select a range.
     - Within the projects page, the count of reachable vulnerabilities counts only Always reachable <!-- 13645 -->
-
--->
 
 ### Fixed
 
@@ -99,13 +96,6 @@ didn't work properly when adding a new file or renaming an existing file.
 - Fixed an issue where Assistant sent PR or MR comments for Supply Chain and Secrets findings; Assistant should only be doing so for Code findings.
 
 ## 🔐 Semgrep Secrets
-
-<!--
-For Katie's draft
-- Superseded rules
-- Historical scans
-- Custom rule-writing
--->
 
 ### Added
 
