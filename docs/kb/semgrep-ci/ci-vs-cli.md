@@ -24,7 +24,7 @@ If you use Semgrep's Docker image in CI and are running the CLI scan locally, th
 
 When comparing findings, ensure that the scans were run on the same code. To compare results for an entire repository, the best option is to scan the latest commit to the default branch.
 
-When running Semgrep in CI, if the triggering event is a pull request or merge request, the recommended configuration runs a [diff-aware scan](/docs/semgrep-ci/running-semgrep-ci-with-semgrep-cloud-platform/#diff-aware-scanning), so only findings identified in the changed code are reported. Therefore, not all findings are reported in these scans.
+When running Semgrep in CI, if the triggering event is a pull request or merge request, the recommended configuration runs a [diff-aware scan](/deployment/customize-ci-jobs#set-up-diff-aware-scans), so only findings identified in the changed code are reported. Therefore, not all findings are reported in these scans.
 
 ## Rule configuration
 

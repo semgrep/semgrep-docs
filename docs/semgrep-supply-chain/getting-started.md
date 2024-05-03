@@ -12,9 +12,6 @@ hide_title: true
 <!-- vale off -->
 import MoreHelp from "/src/components/MoreHelp"
 
-import PlatformSigninIntro from "/src/components/concept/_platform-signin-intro.md"
-import PlatformSigninGithub from "/src/components/procedure/_platform-signin-github.md"
-import PlatformSigninGitlab from "/src/components/procedure/_platform-signin-gitlab.md"
 import CiScheduling from "/src/components/reference/_ci-scheduling.mdx"
 import DetectGhRepos from "/src/components/procedure/_detect-gh-repos.md"
 
@@ -57,7 +54,7 @@ If you have code files in `my-project/biking`, Semgrep Supply Chain does not ass
 
 ## Enable Semgrep Supply Chain
 
-1. Sign in to [<i class="fas fa-external-link fa-xs"></i> Semgrep Cloud Platform](https://semgrep.dev/login).
+1. Sign in to [<i class="fas fa-external-link fa-xs"></i> Semgrep AppSec Platform](https://semgrep.dev/login).
 1. Click **[Settings](https://semgrep.dev/orgs/-/settings)**.
 1. In the **Deployment** tab, click the **<i class="fa-solid fa-toggle-large-on"></i> Supply Chain scans** toggle if it is not already enabled.
 
@@ -92,7 +89,7 @@ Depending on how your CI/CD system is configured, you can trigger a Semgrep Supp
   <tr>
    <td>Pull or merge request
    </td>
-   <td><a href="/semgrep-ci/running-semgrep-ci-with-semgrep-cloud-platform/#diff-aware-scanning">Diff-aware scan</a>
+   <td><a href="/semgrep-ci/running-semgrep-ci-with-semgrep-appsec-platform/#diff-aware-scanning">Diff-aware scan</a>
    </td>
    <td>All dependency rules
    </td>

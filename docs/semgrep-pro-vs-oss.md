@@ -68,9 +68,9 @@ The following table displays various notification channels and reporting feature
 | Feature                                                                                                         | Semgrep OSS | Semgrep Pro |
 | --------------------------------------------------------------------------------------------------------------- | ----------- | ----------------- |
 | [Centralized management of scan results (triage, remediation, fine-tuning noisy rules)](/semgrep-code/policies) | --          | ✔️                |
-| [Notifications and reports (Slack, email, webhooks, and API)](/semgrep-cloud-platform/notifications)           | --          | ✔️                |
+| [Notifications and reports (Slack, email, webhooks, and API)](/semgrep-appsec-platform/notifications)           | --          | ✔️                |
 | Send scan results to GitLab SAST and GitHub Advanced Security                                                   | --          | ✔️                |
-| [Findings dashboard](/semgrep-cloud-platform/dashboard)                                                        | --          | ✔️                |
+| [Findings dashboard](/semgrep-appsec-platform/dashboard)                                                        | --          | ✔️                |
 | Findings retention                                                                                              | --          | [As long as account is active](/semgrep-code/findings/#data-retention)           |
 
 ## 🧰 Scan customization features
@@ -110,7 +110,7 @@ The following table lists tools to enable developers to resolve findings in thei
 | ------------------------------------------------------------------------------------------------------------- | ----------- | ----------------- |
 | [Role-based access control (RBAC)](/deployment/user-management) | --          | ✔️                |
 | [Personal and organizational accounts](/deployment/user-management)                              | --          | ✔️                |
-| [SSO, OpenID, or OAuth2 authentication](/semgrep-cloud-platform/sso)                                         | --          | ✔️                |
+| [SSO, OpenID, or OAuth2 authentication](/semgrep-appsec-platform/sso)                                         | --          | ✔️                |
 
 ## 🧾 Licenses and tiers
 

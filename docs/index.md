@@ -86,7 +86,7 @@ The following table lists environments in which you can run various Semgrep prod
 
 | Product              | Local CLI | Remote CI |
 | -------------------- | --------- | --------- |
-| Semgrep OSS Engine  |  ✅  [Run locally with Semgrep Engine](/getting-started/quickstart)  |   ✅  Can send findings to [Semgrep AppSec Platform](semgrep-ci/running-semgrep-ci-with-semgrep-cloud-platform) or run [stand-alone CI jobs](semgrep-ci/running-semgrep-ci-without-semgrep-cloud-platform) |
+| Semgrep OSS Engine  |  ✅  [Run locally with Semgrep Engine](/getting-started/quickstart)  |   ✅  Can send findings to [Semgrep AppSec Platform](/deployment/core-deployment) or run [stand-alone CI jobs](/deployment/oss-deployment) |
 | Semgrep Code         |  ✅  Log in to access [Pro Engine](semgrep-code/semgrep-pro-engine-intro) and [Pro rules](semgrep-code/pro-rules) (Team and Enterprise tier) |   ✅  Best used with [Semgrep AppSec Platform](getting-started/quickstart) |
 | Semgrep Supply Chain |  ✅  Log in to access [Supply Chain](/semgrep-supply-chain/overview) rules (Team and Enterprise tier)  |   ✅  Best used with [Semgrep AppSec Platform](/getting-started/quickstart) |
 
