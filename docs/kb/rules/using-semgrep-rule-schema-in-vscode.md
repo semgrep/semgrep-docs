@@ -41,7 +41,7 @@ We recommend taking a look at the [extension overview section on associating sch
 
 #### Associate a schema directly in the YAML file
 
-To associate the schema easily and directly with a Semgrep YAML rule file, include the following line at the top of the file:
+To associate the schema directly within a Semgrep YAML rule file, include the following line at the top of the file:
 
     # yaml-language-server: $schema=https://json.schemastore.org/semgrep.json
 
