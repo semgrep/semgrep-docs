@@ -59,7 +59,7 @@ In the YAML extension settings, scroll down to `Yaml: Schemas` and click `Edit i
 
 ![MacOS VS Code YAML extension settings](/img/kb/vscode-yaml-schemas.png)
 
-This opens the `settings.json` file with an empty `yaml.schemas` object already entered, ready to be defined. For example, consider the following `yaml.schemas` definition:
+This opens the `settings.json` file with an empty `yaml.schemas` object ready to be defined. For example, consider the following `yaml.schemas` definition:
 
 ```json
 "yaml.schemas": {
