@@ -49,7 +49,7 @@ The drawback to this method is that it must be done independently for each YAML 
 
 #### Associate a schema to a glob pattern via `yaml.schemas`
 
-Again, we highly recommend first reading the [extension overview](https://marketplace.visualstudio.com/items?itemName=redhat.vscode-yaml#associating-a-schema-to-a-glob-pattern-via-yaml.schemas) as a supplement to this article to better understand how YAML schemas are handled by the extension.
+Before proceeding, we recommend reading the [extension overview](https://marketplace.visualstudio.com/items?itemName=redhat.vscode-yaml#associating-a-schema-to-a-glob-pattern-via-yaml.schemas) as a supplement to this article to better understand how YAML schemas are handled by the extension.
 
 To associate the Semgrep rule schema via `yaml.schemas` in your VS Code `settings.json` file (on MacOS), go to:
 
