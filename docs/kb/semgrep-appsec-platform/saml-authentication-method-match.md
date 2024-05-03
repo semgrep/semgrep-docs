@@ -10,7 +10,7 @@ import MoreHelp from "/src/components/MoreHelp"
 
 # SAML SSO Error: Authentication method doesn't match requested
 
-When logging in to Semgrep using SAML single-sign on (SSO), you may see an error `Authentication method doesn't match requested`. The error might look something like this:
+When logging in to Semgrep using SAML single-sign on (SSO), you may see the error `Authentication method doesn't match requested`:
 
 ![SAML auth method error](/img/kb/saml-auth-method-doesnt-match.png)
 
