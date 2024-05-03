@@ -39,7 +39,7 @@ Once the extension is installed, associate the Semgrep rule schema with the Semg
 
 We recommend taking a look at the [extension overview section on associating schemas](https://marketplace.visualstudio.com/items?itemName=redhat.vscode-yaml#associating-schemas) to gain a preliminary understanding before proceeding.
 
-#### Associating a schema directly in the YAML file
+#### Associate a schema directly in the YAML file
 
 To associate the schema easily and directly with a Semgrep YAML rule file, include the following line at the top of the file:
 
