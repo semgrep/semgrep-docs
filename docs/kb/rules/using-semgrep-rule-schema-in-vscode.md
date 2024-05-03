@@ -28,7 +28,7 @@ Adding the Semgrep rule schema in VS Code requires two steps:
 
 ### Install the YAML Language Support extension by Red Hat
 
-You can install the extension either directly in VS Code or by going to the Visual Studio Marketplace and installing it from there. In VS Code, typically just searching `yaml` will yield the correction extension as the top result. The extension is named "YAML" and is authored by "Red Hat". However, please also verify you are installing the correct extension by ensuring it is the same as the one [linked here](https://marketplace.visualstudio.com/items?itemName=redhat.vscode-yaml).
+You can install the  "YAML" extension authored by "Red Hat" directly in VS Code or by going to the Visual Studio Marketplace and installing it from there. In VS Code, go to the **Extensions** pane and search for `yaml`. This should yield the correction extension as the top result. However, please verify that you are installing the correct extension by ensuring it is the same as [this one](https://marketplace.visualstudio.com/items?itemName=redhat.vscode-yaml).
 
 ### Associate the Semgrep rule schema
 
