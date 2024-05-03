@@ -4,7 +4,8 @@ title: Add repositories to Semgrep in bulk (beta)
 hide_title: true
 description: Semgrep cloud scanning enables you to add repositories to your Semgrep org in bulk without changing your CI workflows.
 tags:
-  - tk
+  - Deployment
+  - Semgrep AppSec Platform
 ---
 
 # Add repositories to Semgrep in bulk
@@ -46,7 +47,7 @@ If you have already installed the public Semgrep GitHub app, skip this step and 
 The private app must be installed by a **GitHub organization administrator**. If you are not a GitHub admin, an installation link is provided for you to share with your GitHub admin.
 
 1. Click **<i class="fa-solid fa-gear"></i> Settings > Source Code Managers**.
-1. Click **Create App**.
+1. Click **Register App**.
 ![DESCRIPTION-tk](/img/scm-create-private-app.png)
 1. Follow the steps to install a private GitHub app in your org. Ensure that you enter your exact GitHub organization name and the correct type of GitHub account, typically Organization.
 1. Click **Register GitHub App**.
@@ -56,12 +57,12 @@ The private app must be installed by a **GitHub organization administrator**. If
 
 ## Add a repository
 
-1. On the left navigation visit the 📂Projects page.
+1. In Semgrep AppSec Platform, click **<i class="fa-solid fa-folder-open"></i> Projects**.
 1. Click **Scan New Project > Semgrep Cloud Scan**.
 1. Select the repositories you want to scan from the list.
 1. Click **Enable Cloud Scanning**.
 
-After enabling cloud scanning, a full scan starts immediately on all the repositories you have added.
+After enabling cloud scanning, a full scan starts immediately on all the repositories you have added. <!-- may be false, initial scan may start up to 6 days after, will double check -->
 
 Once a repository has been added to Semgrep AppSec Platform, it becomes a **project**. A project in Semgrep AppSec Platform includes all the findings and scan metadata of that repository.
 
@@ -85,30 +86,31 @@ Deleting a project also deletes all of its associated history, findings and scan
 
 By default, repositories onboarded to Cloud Scanning are configured with:
 
-- Weekly full scans of the entire repository at a random day and time.
-- Diff scans on Pull Requests that run on every PR. These diff scans follow the rule modes set in your policies so developers  are only notified in cases where you want them to through the Comment rule mode.
+- **Weekly full scans** of the entire repository at a random day and time. <!-- clarify how this randomness works, it's the same time and day every week -->
+- **Diff scans** on pull requests that run on every PR. These diff scans follow the rule modes set in your policies so developers are only notified in cases where you want them to through the Comment rule mode. <!-- needs reword -->
 
 ## Scan management and configuration
 
 ### Manually run a full scan
 
-1. Click 📂 Projects.
-1. Search for your repository name.
-1. Click the ⚙️ gear icon to access the settings page for that repository.
-1. Click Run a new scan.
+1. In Semgrep AppSec Platform, click **<i class="fa-solid fa-folder-open"></i> Projects**.
+1. Search for your repository's name.
+1. Click the **<i class="fa-solid fa-gear"></i> gear icon** to access the settings page for that repository.
+1. Click **Run a new scan**.
 
-Disable diff scans on PRs
-Click 📂 Projects.
-Search for your repository name.
-Click the ⚙️ gear icon to access the settings page for that repository.
-At the top of the page, disable the toggle AutoScan diff scans (beta)
+### Disable diff scans on PRs
 
-Remove a repository
-Click 📂  Projects.
-Search for your repository name.
-Click the ⚙️ gear icon to access the settings page for that repository.
-Click the dropdown at the top right of the page and click Delete project.
+1. In Semgrep AppSec Platform, click **<i class="fa-solid fa-folder-open"></i> Projects**.
+1. Search for your repository's name.
+1. Click the **<i class="fa-solid fa-gear"></i> gear icon** to access the settings page for that repository.
+1. tk disable the toggle AutoScan diff scans (beta)
 
+### Remove a repository
+
+1. In Semgrep AppSec Platform, click **<i class="fa-solid fa-folder-open"></i> Projects**.
+1. Search for your repository's name.
+1. Click the **<i class="fa-solid fa-gear"></i> gear icon** to access the settings page for that repository.
+1. Click the dropdown at the header and click **Delete project**.
 
 ## Appendix
 
@@ -117,3 +119,5 @@ Click the dropdown at the top right of the page and click Delete project.
 When you add a large number of repositories (100+), they are ...
 
 ### Scan logs and statistics
+
+tk
