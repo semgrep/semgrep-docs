@@ -21,10 +21,10 @@ import TabItem from '@theme/TabItem';
 - You have gained the necessary [resource access and permissions](/deployment/checklist) required for deployment.
 :::
 
-* Add the rest of your organization (org) members to Semgrep. 
+* Add the rest of your organization (org) members to Semgrep.
 * Configure Semgrep to scan repositories in other source code managers, such as Bitbucket.
 
-:::tip Using SSO for your initial sign-in 
+:::tip Using SSO for your initial sign-in
 Alternatively, reach out to [<i class="fa-regular fa-envelope"></i> sales@semgrep.com](mailto:sales@semgrep.com) to set up SSO. This removes the need to sign in through a GitHub or GitLab account if you don't have one.
 :::
 
@@ -80,21 +80,21 @@ Semgrep organizations can be **connected** to equivalent GitHub, GitLab, and SSO
 - To add members to your Semgrep organization, set up [<i class="fa-regular fa-file-lines"></i> SSO authentication](/deployment/sso).
 - You can also opt to scan a repository instead.
 
-## Appendices 
+## Appendices
 
-:::note 
+:::note
 These sections are helpful, but are not necessary to set up a deployment.
 :::
 
 ### How Semgrep organizations work
 
-Users can have more than one organization, and an organization can consist of one or many user accounts. Users must belong to at least one organization when they first sign in to Semgrep. 
+Users can have more than one organization, and an organization can consist of one or many user accounts. Users must belong to at least one organization when they first sign in to Semgrep.
 
-Organizations can be as small as a single user in a department, or encompass whole companies. 
+Organizations can be as small as a single user in a department, or encompass whole companies.
 
 By default, orgs do not manage any authentication or repositories. You add resources and users to an org by connecting to an SCM or SSO, or setting up a Semgrep scan.
 
-Once you have connected to your SSO or SCM, any team member from your GitHub, Gitlab, or SSO organization can sign in to Semgrep. This includes developers not part of your security team. To control which resources they are able to see or what policies they can change, configure their **role** through [<i class="fa-regular fa-file-lines"></i> user access control features](/deployment/user-management).
+Once you have connected to your SSO or SCM, any team member from your GitHub, GitLab, or SSO organization can sign in to Semgrep. This includes developers not part of your security team. To control which resources they are able to see or what policies they can change, configure their **role** through [<i class="fa-regular fa-file-lines"></i> user access control features](/deployment/user-management).
 
 ### Create additional orgs
 
@@ -122,7 +122,7 @@ The following examples illustrate what a completed organizational set-up can loo
 
 In this example, a `parent-company` has multiple `subsidiaries`, and wants to use SSO for user authentication:
 
-- Each `subsidiary` is its own GitHub organization. 
+- Each `subsidiary` is its own GitHub organization.
 - The security team is responsible for all `subsidiaries` in `parent-company`. Thus, the security team is a part of all `subsidiaries`.
 - The `parent-company` enforces SSO for all of its `subsidiaries`.
 - Here, membership and repository scanning are separately managed by two different services.
@@ -172,4 +172,3 @@ To join an existing org through your SSO provider:
 ### Delete an existing org
 
 Reach out to [<i class="fa-regular fa-envelope"></i> support@semgrep.com](mailto:support@semgrep.com) to delete an organization.
-

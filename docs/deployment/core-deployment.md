@@ -1,7 +1,7 @@
 ---
-slug: core-deployment 
+slug: core-deployment
 append_help_link: true
-title: Core deployment 
+title: Core deployment
 description: Learn how to set up a comprehensive Semgrep deployment for yourself or your organization.
 tags:
   - Deployment
@@ -18,7 +18,7 @@ Deployment includes:
 - Managing team members' access and authentication.
 - Ensuring that Semgrep has sufficient access to your self-hosted source code manager (SCM), such as GitLab Self-Managed.
 
-Semgrep does not require code access to complete the core deployment process. Your code is not sent anywhere. 
+Semgrep does not require code access to complete the core deployment process. Your code is not sent anywhere.
 
 :::tip Are these guides for you?
 - These guides outline procedures for the deployment of Semgrep as part of a security program. To try out Semgrep, refer to the [<i class="fa-regular fa-file-lines"></i> Quickstart](/getting-started/quickstart) document.
@@ -110,7 +110,7 @@ Useful features that you can add based on your tech stack. You can integrate the
         <tr>
             <td>IDE integration</td>
             <td>Encourage developers to run Semgrep in their IDE. Officially supported extensions include:
-            <ul><li>Microsoft Visual Studuio Code</li>
+            <ul><li>Microsoft Visual Studio Code</li>
             <li>IntelliJ Ultimate IDEA</li>
             <li>Emacs</li></ul>
             </td>
@@ -156,4 +156,3 @@ This **initial phase** prepares you to deploy Semgrep to the rest of the organiz
 ## Next steps
 
 Click **Next** to begin setting up your core deployment.
-
