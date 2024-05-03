@@ -11,6 +11,7 @@ tags:
 
 import MoreHelp from "/src/components/MoreHelp"
 
+<!-- vale off -->
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 import TroubleshootingPrLinks from "/src/components/reference/_troubleshooting-pr-links.mdx"
@@ -18,6 +19,7 @@ import DeploymentJourney from "/src/components/concept/_deployment-journey.mdx"
 import NextAfterComments from "/src/components/procedure/_next-after-comments.mdx"
 import CommentTriggers from "/src/components/reference/_comment-triggers.mdx"
 import ReceiveCommentsScm from "/src/components/procedure/_receive-comments-scm.mdx"
+<!-- vale on -->
 
 <ul id="tag__badge-list">
 {

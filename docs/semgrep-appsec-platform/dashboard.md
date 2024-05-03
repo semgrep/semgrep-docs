@@ -62,7 +62,7 @@ The Dashboard displays data from scans for **all of the organization's projects*
 To change the projects filter:
 
 1. Click the <i class="fa-solid fa-sliders"></i> **All projects** button.
-2. Select the project(s) from the drop-down box. The Dashboard, including all widgets, reloads to reflect data from the selected project(s).
+2. Select projects from the drop-down box. The Dashboard, including all widgets, reloads to reflect data from the selected projects.
 
 ## Summarizing the security posture of a project
 
@@ -70,7 +70,7 @@ To change the projects filter:
 
 The **Most findings** widget displays open findings, high severities, and fix rates per-project. Through this view, you can see a specific number of findings in given projects. The columns are arranged in descending order, from the project with the greatest amount of findings to the least.
 
-To view the project’s findings, click on the project’s name. This takes you to the [Findings page](/semgrep-code/findings), where you can filter, sort, and triage findings.
+To view the project’s findings, click the project’s name. This takes you to the [Findings page](/semgrep-code/findings), where you can filter, sort, and triage findings.
 
 ## Assessing rule performance
 
@@ -86,7 +86,6 @@ These data points can serve as a starting point for the following security audit
 
 ## Using Dashboard with Semgrep Supply Chain
 
-
 Semgrep Dashboard can display vulnerable dependency findings of Semgrep Supply Chain.
 
 ![Screenshot of dashboard with Semgrep Supply Chain](/img/dashboard-with-supply-chain.png)
@@ -94,7 +93,7 @@ Semgrep Dashboard can display vulnerable dependency findings of Semgrep Supply C
 Semgrep Supply Chain dashboard consists of three widgets:
 <dl>
 	<dt>Supply Chain</dt>
-	<dd>Contains three items: <b>Reachable vulns</b>, <b>Unreachable vulns</b>, and <b>Undetermined vulns</b>.</dd>
+	<dd>Contains three items: <b>Reachable</b>, <b>Unreachable</b>, and <b>Undetermined</b> vulnerabilities.</dd>
 	<dt>Most vulnerabilities</dt>
 	<dd>The number of dependency vulnerabilities over the given time period next to the calendar icon.</dd>
 	<dt>New advisories</dt>
