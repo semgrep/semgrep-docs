@@ -116,7 +116,7 @@ The following checklist breaks down permissions required by Semgrep features.
 
 | Feature | Permission required |
 | --- | -------  |
-| Create CI jobs for repositories in bulk and detect GitHub repos automatically. | Installing GitHub apps.         |
+| Create CI jobs for repositories in bulk and detect GitHub repositories automatically. | Installing GitHub apps.         |
 | Pull request (PR) comments. |  For GitHub Enterprise Server: Adding a personal access token (PAT) with [assigned scopes](/deployment/connect-scm/#connect-to-on-premise-github-or-gitlab-orgs).          |
 | GPT-assisted triage and recommendations. | Code access. |
 
