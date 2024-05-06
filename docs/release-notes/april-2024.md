@@ -69,7 +69,7 @@ didn't work properly when adding a new file or renaming an existing file.
 
 - Updated the ecosystem used for Elixir from Mix to Hex.
 
-<!-- 
+<!--
 <!-- should we include the new UI for SCA  -->
 <!--
 - The Supply Chain page UX has been redesigned. Improvements include:
