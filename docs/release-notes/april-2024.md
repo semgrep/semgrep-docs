@@ -44,8 +44,8 @@ tags:
 
 ### Changed
 
-- Cross-file (intrafile) analysis is now the default for Semgrep Code.
-- Switched regex engines; some rules may need to be updated, since Semgrep's new regex engine is stricter.
+- Cross-file (interfile) analysis is now the default for Semgrep Code.
+- Updated how Semgrep parses regex; some rules may need to be updated to comply with stricter regex standards.
 
 ### Fixed
 
@@ -99,7 +99,7 @@ didn't work properly when adding a new file or renaming an existing file.
 
 ### Added
 
-- Added a template to the Semgrep Editor to aid in writing custom rules with validators for use with Secrets.
+- Added a template to the Semgrep Editor to aid in writing custom rules with validators for use with Secrets. Access this template in the Editor by clicking on the small **(+)** plus sign and clicking **HTTP validators**
 
 ### Changed
 
