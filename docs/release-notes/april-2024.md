@@ -20,7 +20,6 @@ tags:
 - The **Teams** feature is now in public beta. This feature enables you to assign members to teams, and then grant those teams access to specific projects (repositories added to Semgrep).
     - Teams are crucial to large organizations with hundreds of members and projects. See [<i class="fa-regular fa-file-lines"></i> Manage user access to projects](/deployment/team).
 - The Dashboard now displays the Assistant **priority inbox**, a list of essential tasks that Semgrep Assistant prepares for you each time you log in. <!-- 13768 -->
-- CLI token activation page <!--13660 -->
 
 ### Changed
 
@@ -29,7 +28,7 @@ tags:
 - The Dashboard now has several UX improvements.
 - The default Bitbucket YAML configuration file has been updated with options for full, diff, and on-demand scans.
 - Improved the process of creating a GitHub Enterprise private Semgrep app. <!-- 13675 -->
-- **Settings**: The Semgrep Pro Engine toggle has been renamed to <i class="fa-solid fa-toggle-large-on"></i> Cross-file.
+- **Settings**: The Semgrep Pro Engine toggle has been renamed to **<i class="fa-solid fa-toggle-large-on"></i> Cross-file**.
 
 ### Fixed
 
@@ -63,17 +62,17 @@ didn't work properly when adding a new file or renaming an existing file.
 
 ## ⛓️  Supply Chain
 
-<!-- 
+<!--
 ### Added
 
 - Added a new **Finding details** page. In Semgrep AppSec Platform, click on **Supply Chain > Details** on the specific finding's card. The finding details page displays an all triage activity, in-depth description of the vulnerability, remediation, and the rule pattern that generated the finding.  <!-- 13780 -->
 
-<!-- 
+<!--
 
 ### Changed
 
 <!-- should we include the new UI for SCA  -->
-<!-- 
+<!--
 - The Supply Chain page UX has been redesigned. Improvements include:
     - You can now filter by project, dependency, and CVE.
     - Updated reachability categories.
