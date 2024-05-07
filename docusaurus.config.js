@@ -369,6 +369,7 @@ module.exports = {
           /* APR  23, 2024  */
           { from: "/playground/" , to: "/semgrep-code/editor" },
           { from: "/semgrep-cloud-platform/semgrep-api/" , to: "/semgrep-appsec-platform/semgrep-api" } ,
+          /* APR 30, 2024 */
           { from: "/semgrep-cloud-platform/asana/" , to: "/semgrep-appsec-platform/asana" } ,
           { from: "/semgrep-cloud-platform/bitbucket-pr-comments/" , to: "/semgrep-appsec-platform/bitbucket-pr-comments" } ,
           { from: "/semgrep-cloud-platform/github-pr-comments/" , to: "/semgrep-appsec-platform/github-pr-comments" } ,
@@ -382,6 +383,8 @@ module.exports = {
           { from: "/semgrep-cloud-platform/tags/" , to: "/semgrep-appsec-platform/tags" } ,
           { from: "/semgrep-cloud-platform/ticketing/" , to: "/semgrep-appsec-platform/ticketing" } ,
           { from: "/semgrep-cloud-platform/webhooks/" , to: "/semgrep-appsec-platform/webhooks" } ,
+          /* MAY 7, 2024 */
+          { from: "/kb/semgrep-secrets/secrets_pr_comments" , to: "/semgrep-secrets/policies" } ,
         ]
       }
     ],
