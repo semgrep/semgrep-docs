@@ -15,8 +15,7 @@ Publish rules in the open-source Semgrep Registry and share them with the Semgre
 
 <dl>
     <dt>For users of Semgrep AppSec Platform</dt>
-    <dd>Contribute rules to the Semgrep Registry through Semgrep AppSec Platform. This workflow is recommended. See <a href="#contributing-through-semgrep-appsec-platform-recommended"> Contributing through Semgrep AppSec Platform (recommended)</a>. This workflow creates the necessary pull request for you and streamlines the whole process.
-</dd>
+    <dd>Contribute rules to the Semgrep Registry through Semgrep AppSec Platform. This workflow is recommended. See <a href="#contributing-through-semgrep-appsec-platform-recommended"> Contributing through Semgrep AppSec Platform (recommended)</a>. This workflow creates the necessary pull request for you and streamlines the whole process.</dd>
     <dt>For contributors to the repository through GitHub</dt>
     <dd>Contribute rules to the Semgrep Registry through a pull request. See the <a href="#contributing-through-github"> Contributing through GitHub</a> section for detailed information.</dd>
 </dl>
@@ -139,8 +138,7 @@ In addition to the fields mentioned above, rules submitted to Semgrep Registry h
   </tr>
   <tr>
    <td><code>category</code></td>
-   <td>Nested under the <code>metadata</code> field. If you use catagory <code>security</code>, include additional metadata. See <a href="#including-fields-required-by-security-category"> Including fields required by security category</a>.
-   </td>
+   <td>Nested under the <code>metadata</code> field. If you use catagory <code>security</code>, include additional metadata. See <a href="#including-fields-required-by-security-category"> Including fields required by security category</a>.</td>
    <td>
     <ul>
       <li><code>best-practice</code></li>
@@ -150,7 +148,7 @@ In addition to the fields mentioned above, rules submitted to Semgrep Registry h
       <li><code>portability</code></li>
       <li><code>security</code></li>
     </ul>
-    </td>
+   </td>
     <td>
     <pre>
     category: security
@@ -160,8 +158,7 @@ In addition to the fields mentioned above, rules submitted to Semgrep Registry h
   <tr>
    <td><code>references</code></td>
    <td>Additional information that gives more context to the user of the rule. This helps developers understand the issue and how to fix it.</td>
-   <td>No finite value. Any additional information that gives more context.
-   </td>
+   <td>No finite value. Any additional information that gives more context.</td>
    <td>
     <pre  style="white-space: pre-wrap; word-break: keep-all;">
     <code>references:<br /></code>

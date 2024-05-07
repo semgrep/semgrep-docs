@@ -29,7 +29,8 @@ This setup uses only the **LGPL 2.1** Semgrep CLI tool. It is not subject to the
 
 To check a rule's license, check the `license` key under the `metadata` of a Semgrep rule.
 
-<details><summary>Click to expand for an example of a rule with a <code>license</code> key.</summary>
+<details>
+  <summary>Click to expand for an example of a rule with a <code>license</code> key.</summary>
 
 This rule's last line displays a `license: MIT` key-value pair.
 
