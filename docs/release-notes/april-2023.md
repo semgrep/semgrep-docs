@@ -67,7 +67,7 @@ This section of release notes includes upgrades of Semgrep OSS Engine for versio
 
 ### Changed
 
-- Improvements to Slack notifications for Semgrep Code scans. See [Semgrep Cloud Platform](#semgrep-cloud-platform).
+- Improvements to Slack notifications for Semgrep Code scans. See [Semgrep Cloud Platform](#semgrep-appsec-platform).
 - Many Semgrep Pro rules now have rewritten messages. These new rule messages help you to better understand the detected vulnerabilities and enable you to mitigate them with ease. Updates cover all rules associated with the following Common Weakness Enumerations (CWE):
     - CWE-22 - Path traversal
     - CWE-78 - Command injection
@@ -111,7 +111,7 @@ This section of release notes includes upgrades of Semgrep OSS Engine for versio
 
 ### Changes
 
-- Improvements to Slack notifications for Semgrep Supply Chain scans. See [Semgrep Cloud Platform](#semgrep-cloud-platform).
+- Improvements to Slack notifications for Semgrep Supply Chain scans. See [Semgrep Cloud Platform](#semgrep-appsec-platform).
 - Semgrep Supply now parses `go.mod` for a list of dependencies.
 - Semgrep Supply Chain no longer parses `go.sum` for a list of dependencies.
 - The title of Supply Chain findings in the CLI now consists of the package name and CVE, instead of just the rule's UUID.
@@ -121,11 +121,11 @@ This section of release notes includes upgrades of Semgrep OSS Engine for versio
 ### Additions
 
 - You can now add repositories from Azure Repos into the Semgrep Cloud Platform.
-- Bitbucket PR comments are now available for Bitbucket Cloud users. See the [Enabling Bitbucket pull request comments](/semgrep-cloud-platform/bitbucket-pr-comments) to enable PR comments in your repositories.
+- Bitbucket PR comments are now available for Bitbucket Cloud users. See the [Enabling Bitbucket pull request comments](/semgrep-appsec-platform/bitbucket-pr-comments) to enable PR comments in your repositories.
 
 ### Changes
 
-- The Semgrep Slack app has been improved. Create customized subscriptions to Semgrep findings based on Rule board policy (Monitor, Comment, or Block) and other filters for your specific Slack channels. By creating your customized subscriptions, Semgrep only sends notifications about repositories and findings relevant to developers. Security engineers can still receive notifications of all issues across the entire organization’s repositories. See [Receiving Slack notifications](/semgrep-cloud-platform/slack-notifications).
+- The Semgrep Slack app has been improved. Create customized subscriptions to Semgrep findings based on Rule board policy (Monitor, Comment, or Block) and other filters for your specific Slack channels. By creating your customized subscriptions, Semgrep only sends notifications about repositories and findings relevant to developers. Security engineers can still receive notifications of all issues across the entire organization’s repositories. See [Receiving Slack notifications](/semgrep-appsec-platform/slack-notifications).
 - Updated the **Settings** > **SSO** page. The page now displays your current SSO settings, if any.
 - Previously, Semgrep automatically associated organization accounts with their corresponding GitHub Cloud or GitLab SaaS organizations. Now, users can choose to connect their Semgrep organization accounts with their repository provider. To associate your Semgrep organization with your repository provider, sign in to Semgrep Cloud Platform, then go to Settings > **Source code** > then select your repository provider.
 - Various improvements to UI consistency and improved layout for wide monitors.
@@ -138,11 +138,11 @@ This section of release notes includes upgrades of Semgrep OSS Engine for versio
 - New section [Semgrep add-on reconciliation of licenses](/usage-and-billing/#semgrep-add-on-reconciliation-of-licenses) and [Example of license reconciliation](/usage-and-billing/#example-of-license-reconciliation).
 - New section [Updating existing open-source rules in Semgrep Registry](/contributing/contributing-to-semgrep-rules-repository/#updating-existing-open-source-rules-in-semgrep-registry).
 - Added section [Creating rules that analyze across files](/semgrep-code/semgrep-pro-engine-intro/#creating-rules-that-analyze-across-files) and [Types of Semgrep Pro Engine analysis](/semgrep-code/semgrep-pro-engine-intro/#types-of-semgrep-pro-engine-analysis).
-- Added [Appendix: Token scopes](/semgrep-cloud-platform/user-management/#appendix-token-scopes).
+- Added [Appendix: Token scopes](/deployment/teams#token-scopes).
 
 ### Changed
 
-- [Notification documentation](/semgrep-cloud-platform/notifications) has been separated into guides for each notification channel, such as Slack or webhooks.
+- [Notification documentation](/semgrep-appsec-platform/notifications) has been separated into guides for each notification channel, such as Slack or webhooks.
 - Fixed embedded examples in [Semgrep Pro Engine examples](/semgrep-code/semgrep-pro-engine-examples) document.
 - Our [Cheat sheets](/cheat-sheets/overview) now suggest the default ruleset instead of specific rules for you to scan your code.
 - Updated [CLI reference](/cli-reference).

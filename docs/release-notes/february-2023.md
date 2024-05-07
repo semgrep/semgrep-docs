@@ -81,6 +81,6 @@ These release notes include upgrades for versions ranging between 1.8.0 and 1.13
 - Added [Grouping by rule](/semgrep-code/findings/#group-findings) section.
 - Added [Viewing the path of tainted data](/semgrep-code/semgrep-pro-engine-data-flow) section and [Semgrep Pro Engine taint traces](/semgrep-code/semgrep-pro-engine-data-flow) document.
 - Updated [Viewing details and adding notes to findings](/semgrep-code/findings/#add-notes-to-findings) section.
-- Updated [Tagging projects](/semgrep-cloud-platform/tags) document.
+- Updated [Tagging projects](/semgrep-appsec-platform/tags) document.
 - Iframes with rule examples in [Rule syntax](/writing-rules/rule-syntax) document have been changed to links to specific rules due to a great number of calls generated from this page. Iframes or code snippets may return in future updates.
 - Many small updates, fixed broken links, typos, night theme logo on our home page, and overall improvements to make your experience of reading our documentation smoother.
